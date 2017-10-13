@@ -1,6 +1,6 @@
 ---
-title: Windows Azure Vm'lerinde aaaInject verisine | Microsoft Docs
-description: "Bu konu, ne zaman tooinject özel verilerini bir Azure sanal makine açıklar hello örneği oluşturulur ve nasıl toolocate hello Windows veya Linux özel veri."
+title: "Windows Azure Vm'lerinde içine veri ekleme | Microsoft Docs"
+description: "Bu konu, bir Azure sanal makinesine özel verileri eklemesine açıklar örneği oluşturulduğunda ve Windows veya Linux özel verileri bulma."
 services: virtual-machines-windows
 documentationcenter: 
 author: squillace
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2016
 ms.author: rasquill
-ms.openlocfilehash: 2b2a12e5d0942fa957387ace7e38a353dbf27197
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7836577f16940b618a2912012ba8a8e7160980e8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="injecting-custom-data-into-an-azure-virtual-machine"></a>Bir Azure sanal makinesine özel veri injecting
 > [!IMPORTANT] 
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, hello Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, en yeni dağıtımların hello Resource Manager modelini kullanmasını önerir. Merhaba özel betik uzantısının hello Resource Manager modeli ile kullanma hakkında daha fazla bilgi için bkz: [burada](../extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Resource Manager modeli ile özel betik uzantısı kullanma hakkında daha fazla bilgi için bkz: [burada](../extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-inject-custom-data](../../../../includes/virtual-machines-common-classic-inject-custom-data.md)]
 

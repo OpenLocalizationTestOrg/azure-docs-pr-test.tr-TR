@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Salesforce korumalı alan Azure Active Directory Tümleştirme | Microsoft Docs"
-description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ve Salesforce korumalı alan arasında."
+description: "Çoklu oturum açma Azure Active Directory ve Salesforce korumalı alan arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,97 +13,97 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 06ff50050845383a602b0edd6fca953ddd37cebd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7d3c655a754f83284c386d2007c604a731367814
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-configuring-salesforce-sandbox-for-automatic-user-provisioning"></a>Öğretici: Salesforce korumalı alan otomatik kullanıcı sağlamayı için yapılandırma
 
-Bu öğreticinin Hello hedefi Salesforce korumalı alan ve Azure AD tooautomatically sağlama ve devre dışı bırakma sağlama kullanıcı hesaplarından Azure AD tooSalesforce korumalı alan tooperform gereken adımları hello tooshow ' dir.
+Bu öğreticinin amacı Salesforce korumalı alan ve Azure AD otomatik olarak sağlamak ve kullanıcı hesaplarına Azure AD'den Salesforce korumalı alan sağlanmasını gerçekleştirmek için gereken adımları Göster sağlamaktır.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticide gösterilen hello senaryo aşağıdaki öğelerindeki hello zaten sahip olduğunuzu varsayar:
+Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
 *   Bir Azure Active directory kiracısı.
 *   Salesforce korumalı alan için iş veya eğitim için Salesforce korumalı alan için geçerli bir kiracı olması gerekir. Ücretsiz bir deneme hesabı ya da hizmet için kullanabilir.
 *   Salesforce korumalı alan takım yönetici izinlerine sahip bir kullanıcı hesabının.
 
-## <a name="assigning-users-toosalesforce-sandbox"></a>Kullanıcıların tooSalesforce korumalı alan atama
+## <a name="assigning-users-to-salesforce-sandbox"></a>Salesforce korumalı alan kullanıcılar atama
 
-Azure Active Directory hangi kullanıcıların erişim tooselected uygulamaları alması "atamaları" toodetermine adlı bir kavramı kullanır. Otomatik olarak bir kullanıcı hesabı sağlama hello bağlamında, yalnızca hello kullanıcıların ve grupların "Azure AD tooan uygulamada atanmış" eşitlenir.
+Azure Active Directory "atamaları" adlı bir kavram hangi kullanıcıların seçili uygulamalara erişim alması belirlemek için kullanır. Otomatik olarak bir kullanıcı hesabı sağlama bağlamında, yalnızca kullanıcıların ve grupların "Azure AD uygulamada atanmış" eşitlenir.
 
-Yapılandırma ve hizmet sağlama hello etkinleştirmeden önce hangi kullanıcılara ve/veya Azure AD tooyour Salesforce korumalı alan uygulama erişim hello kullanıcıları temsil gruplarında toodecide gerekir. Karar sonra buraya hello yönergeleri izleyerek bu kullanıcıların tooyour Salesforce korumalı alan uygulama atayabilirsiniz:
+Yapılandırma ve sağlama hizmeti etkinleştirmeden önce hangi kullanıcılara ve/veya Azure AD grupları Salesforce korumalı uygulamanıza erişmek isteyen kullanıcılar temsil eden karar vermeniz gerekir. Karar sonra buradaki yönergeleri izleyerek, bu kullanıcılar Salesforce korumalı alan uygulamanıza atayabilirsiniz:
 
-[Bir kullanıcı veya grup tooan kuruluş uygulama atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Bir kullanıcı veya grup için bir kuruluş uygulama atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-toosalesforce-sandbox"></a>Kullanıcıların tooSalesforce korumalı alan atamak için önemli ipuçları
+### <a name="important-tips-for-assigning-users-to-salesforce-sandbox"></a>Salesforce korumalı alan kullanıcılara atamak için önemli ipuçları
 
-* Önerilir tek bir Azure AD kullanıcısının yapılandırma sağlama tooSalesforce korumalı alan tootest hello atanır. Ek kullanıcı ve/veya grupları daha sonra atanabilir.
+* Önerilir tek bir Azure AD kullanıcısının sağlama yapılandırmayı test etmek için Salesforce korumalı alan atanır. Ek kullanıcı ve/veya grupları daha sonra atanabilir.
 
-* Bir kullanıcı tooSalesforce Sandbox atarken, geçerli bir kullanıcı rolünün seçmeniz gerekir. Merhaba "Varsayılan erişim" rolü sağlama için çalışmaz.
+* Bir kullanıcı için Salesforce korumalı alan atarken, geçerli bir kullanıcı rolünün seçmeniz gerekir. "Varsayılan erişim" rolü sağlama için çalışmaz.
 
 > [!NOTE]
-> Bu uygulama özel roller Salesforce korumalı sağlama işlemi, hangi hello müşteri tooselect kullanıcılar atarken isteyebilirsiniz hello bir parçası olarak alır.
+> Bu uygulama özel roller Salesforce korumalı alan müşteri kullanıcılar atarken seçmek isteyebilirsiniz sağlama işleminin bir parçası olarak alır.
 
 ## <a name="enable-automated-user-provisioning"></a>Otomatik kullanıcı sağlamayı etkinleştirin
 
-Bu bölümde, API sağlama, Azure AD tooSalesforce korumalı alanın kullanıcı hesabı konusunda size rehberlik eder ve hizmet toocreate sağlama hello yapılandırma, güncelleştirme ve atanan kullanıcı hesapları Salesforce korumalı alanı içinde kullanıcı ve grup tabanlı devre dışı bırak Azure AD'de atama.
+Bu bölümde Azure AD Salesforce korumalı alanın kullanıcı hesabına API sağlama konusunda size rehberlik eder ve oluşturmak için sağlama hizmeti yapılandırma güncelleştirmek ve Azure AD'de kullanıcı ve grup atama Salesforce korumalı alan hesaplarında dayalı atanan kullanıcı devre dışı bırakın.
 
 >[!Tip]
->Sağlanan hello yönergeleri izleyerek Salesforce korumalı alan için SAML tabanlı çoklu oturum açma tooenabled seçebilirsiniz [Azure portal](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir.
+>Da tercih edebilirsiniz etkin SAML tabanlı çoklu oturum açma için Salesforce korumalı alan, yönergeleri izleyerek sağlanan [Azure portal](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir.
 
-### <a name="tooconfigure-automatic-user-account-provisioning"></a>tooconfigure otomatik olarak bir kullanıcı hesabı sağlama:
+### <a name="to-configure-automatic-user-account-provisioning"></a>Otomatik olarak bir kullanıcı hesabı sağlama yapılandırmak için:
 
-Bu bölümde Hello amacı olan toooutline nasıl tooenable Active Directory kullanıcısı kullanıcı sağlamayı tooSalesforce korumalı alan hesapları.
+Bu bölümün amacı Salesforce korumalı alan Active Directory kullanıcı hesaplarının kullanıcı sağlamayı etkinleştirme anahat sağlamaktır.
 
-1. Merhaba, [Azure portal](https://portal.azure.com), toohello Gözat **Azure Active Directory > Kurumsal uygulamaları > tüm uygulamaları** bölümü.
+1. İçinde [Azure portal](https://portal.azure.com), Gözat **Azure Active Directory > Kurumsal uygulamaları > tüm uygulamaları** bölümü.
 
-2. Çoklu oturum açma için Salesforce korumalı alan zaten yapılandırdıysanız Salesforce korumalı alan hello arama alanı kullanarak Örneğiniz için arama yapın. Aksi takdirde seçin **Ekle** arayın ve **Salesforce korumalı alan** hello uygulama galerisinde. Salesforce korumalı alan hello Arama sonuçlarından seçin ve uygulamaların tooyour listesine ekleyin.
+2. Çoklu oturum açma için Salesforce korumalı alan zaten yapılandırdıysanız arama alanı kullanarak Salesforce korumalı alan Örneğiniz için arama yapın. Aksi takdirde seçin **Ekle** arayın ve **Salesforce korumalı alan** uygulama galerisinde. Arama sonuçlarından Salesforce korumalı alan seçin ve uygulamaları listenize ekleyin.
 
-3. Salesforce korumalı alan örneğiniz seçin ve ardından hello **sağlama** sekmesi.
+3. Salesforce korumalı alan örneğiniz seçin ve ardından **sağlama** sekmesi.
 
-4. Set hello **sağlama modu** çok**otomatik**. 
+4. Ayarlama **sağlama modunda** için **otomatik**. 
     ![sağlama](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/provisioning.png)
 
-5. Merhaba altında **yönetici kimlik bilgileri** bölümünde, yapılandırma ayarlarını aşağıdaki hello sağlayın:
+5. Altında **yönetici kimlik bilgileri** bölümünde, aşağıdaki yapılandırma ayarları sağlar:
    
-    a. Merhaba, **yönetici kullanıcı adı** metin kutusuna, Salesforce korumalı alan hesap hello sahip adı türü **Sistem Yöneticisi** atanan Salesforce.com profilinde.
+    a. İçinde **yönetici kullanıcı adı** metin kutusuna, Salesforce korumalı alan adı hesap türü **Sistem Yöneticisi** atanan Salesforce.com profilinde.
    
-    b. Merhaba, **yönetici parolası** metin kutusuna, bu hesap için hello parolayı girin.
+    b. İçinde **yönetici parolası** metin kutusuna, bu hesabın parolasını yazın.
 
-6. tooget, Salesforce korumalı alan güvenlik belirtecinizdeki yeni bir sekme açın ve hello aynı oturum Salesforce korumalı alan yönetici hesabı. Merhaba sağ üst köşesinde başlangıç sayfası, adınıza tıklayın ve ardından **My ayarları**.
+6. Salesforce korumalı alan güvenlik belirtecini almak için aynı Salesforce korumalı alan yönetici dikkate yeni sekmede ve oturum açın. Sayfanın sağ üst köşesinde adınıza tıklayın ve ardından **My ayarları**.
 
      ![Otomatik kullanıcı sağlamayı etkinleştirin](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "otomatik kullanıcı sağlamayı etkinleştirin")
-7. Merhaba sol gezinti bölmesinde tıklatın **kişisel** tooexpand hello ilgili bölümü ve ardından **sıfırlama My güvenlik belirteci**.
+7. Sol gezinti bölmesinde tıklatın **kişisel** ilgili bölümü genişletin ve ardından **sıfırlama My güvenlik belirteci**.
   
     ![Otomatik kullanıcı sağlamayı etkinleştirin](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "otomatik kullanıcı sağlamayı etkinleştirin")
-8. Merhaba üzerinde **sıfırlama My güvenlik belirteci** hello sayfasında, **güvenlik belirteci sıfırlama** düğmesi.
+8. Üzerinde **sıfırlama My güvenlik belirteci** sayfasında, **güvenlik belirteci sıfırlama** düğmesi.
 
     ![Otomatik kullanıcı sağlamayı etkinleştirin](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-reset-token.png "otomatik kullanıcı sağlamayı etkinleştirin")
-9. Bu yönetici hesabıyla ilişkili hello e-posta gelen kutusunu kontrol edin. Bir e-postadan hello yeni güvenlik belirteci içeriyor Salesforce Sandbox.com arayın.
-10. Hello belirteci, Git tooyour Azure AD penceresi kopyalama ve hello yapıştırma **yuva belirteci** alan.
+9. Bu Yönetici hesabınızla ilişkili e-posta gelen kutusunu kontrol edin. Salesforce Sandbox.com yeni güvenlik belirteci içeren bir e-posta için bakın.
+10. Belirteç kopyalama, Azure AD penceresine gidin ve yapıştırın **yuva belirteci** alan.
 
-11. Hello Azure portal'ı tıklatın **Bağlantıyı Sına** tooensure Azure AD tooyour Salesforce korumalı alan uygulama bağlanabilir.
+11. Azure portalında tıklatın **Bağlantıyı Sına** Azure emin olmak için AD Salesforce korumalı alan uygulamanıza bağlanabilir.
 
-12. Merhaba, **bildirim e-posta** alan, bir kişi veya grubun sağlama hata bildirimleri almak ve hello onay hello e-posta adresini girin.
+12. İçinde **bildirim e-posta** alan, bir kişi veya grubun sağlama hata bildirimleri almak ve gerekir onay e-posta adresini girin.
 
 13. Tıklatın **kaydedin.**  
     
-14.  Hello eşlemeleri bölümü altında seçin **eşitleme Azure Active Directory Kullanıcıları tooSalesforce korumalı alan.**
+14.  Eşlemeleri bölümü altında seçin **eşitleme Azure Active Directory Kullanıcıları Salesforce korumalı alan için.**
 
-15. Merhaba, **öznitelik eşlemelerini** bölümünde, Azure AD tooSalesforce korumalı alan eşitlenir hello kullanıcı öznitelikleri gözden geçirin. Merhaba olarak seçilen öznitelikler **eşleşen** Itanium tabanlı sistemler için kullanılan toomatch hello kullanıcı hesapları Salesforce korumalı alanı içinde güncelleştirme işlemleri için özelliklerdir. Merhaba Kaydet düğmesine toocommit herhangi bir değişiklik seçin.
+15. İçinde **öznitelik eşlemelerini** bölümünde, Salesforce korumalı alan için Azure AD'den eşitlenen kullanıcı öznitelikleri gözden geçirin. Seçilen öznitelikler **eşleşen** özellikleri Salesforce korumalı alan kullanıcı hesaplarında güncelleştirme işlemleri için eşleştirmek için kullanılır. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
 
-16. tooenable hello Salesforce korumalı alan, değişiklik hello için Azure AD sağlama hizmeti **sağlama durumu** çok**üzerinde** hello ayarları bölümünün içinde
+16. Salesforce korumalı alan için hizmet sağlama Azure AD etkinleştirmek için değiştirmek **sağlama durumu** için **üzerinde** ayarları bölümünde
 
 17. Tıklatın **kaydedin.**
 
 
-Tüm kullanıcıların hello ilk eşitleme başlar ve/veya gruplarının tooSalesforce hello kullanıcılar ve Gruplar bölümünde Sandbox atanmış. Merhaba ilk eşitleme yaklaşık 20 dakikada hello çalıştığı sürece oluşan sonraki eşitlemeler daha uzun tooperform alır. Merhaba kullanabilirsiniz **eşitleme ayrıntıları** bölümünde toomonitor ilerleme ve Salesforce korumalı alan uygulama hizmeti sağlama hello tarafından gerçekleştirilen tüm eylemler anlatılmaktadır bağlantılar tooprovisioning etkinlik raporları izleyin.
+Herhangi bir kullanıcı ve/veya Salesforce korumalı alan kullanıcılar ve Gruplar bölümünde atanan grupları ilk eşitleme başlatır. İlk eşitleme gerçekleştirmek yaklaşık 20 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve Salesforce korumalı alan uygulama sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır etkinlik raporları sağlamak için bağlantıları izleyin.
 
-Şimdi sınama hesabı oluşturabilirsiniz. Toosalesforce hello hesap tooverify eşitlenmiş too20 dakika bekleyin.
+Şimdi sınama hesabı oluşturabilirsiniz. Hesap salesforce eşitlendiğinden emin doğrulamak için en çok 20 dakika bekleyin.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

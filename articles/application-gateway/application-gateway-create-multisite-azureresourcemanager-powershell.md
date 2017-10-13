@@ -1,6 +1,6 @@
 ---
-title: "birden çok sitesi barındırmak için bir uygulama ağ geçidi aaaCreate | Microsoft Docs"
-description: "Bu sayfa yönergeleri toocreate sağlar, hello birden çok web uygulamalarını barındırmak için bir Azure uygulama ağ geçidi aynı ağ geçidi."
+title: "Birden çok sitesi barındırmak için bir uygulama ağ geçidi oluşturma | Microsoft Docs"
+description: "Bu sayfa oluşturma, aynı ağ geçidinde birden çok web uygulamalarını barındırmak için bir Azure uygulama ağ geçidi yapılandırmak için yönergeler sağlar."
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2016
 ms.author: amsriva
-ms.openlocfilehash: bad9a76be0a73a7026a770630fa7156f6e5940c4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d42efa7d359f5c87c14afbfd138328b37c8ae6c2
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-an-application-gateway-for-hosting-multiple-web-applications"></a>Birden çok web uygulamalarını barındırmak için bir uygulama ağ geçidi oluşturma
 
@@ -26,52 +26,52 @@ ms.lasthandoff: 10/06/2017
 > * [Azure portal](application-gateway-create-multisite-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 
-Birden çok siteyi barındıran bir web uygulaması'birden fazla toodeploy üzerinde hello sağlar aynı uygulama ağ geçidi. Ana bilgisayar üst bilgisi hello gelen HTTP isteği, hangi dinleyicisi trafiği alacağı toodetermine kullanır. Merhaba dinleyicisi sonra hello kuralları tanımı hello ağ geçidi içinde yapılandırıldığı gibi trafik tooappropriate arka uç havuzu yönlendirir. SSL etkin web uygulamaları, uygulama ağ geçidi hello sunucu adı göstergesi (SNI) uzantısı toochoose hello doğru dinleyicisi hello web trafiği için kullanır. Tooload bakiye istekleri farklı web etki alanları toodifferent arka uç sunucu havuzu için birden çok sitesi barındırmak için ortak bir kullanılır. Benzer şekilde aynı kök etki alanı üzerinde de barındırılabilecek hello birden çok alt etki alanları aynı uygulama ağ geçidi hello.
+Birden çok siteyi barındıran aynı uygulama ağ geçidi birden çok web uygulamasına dağıtmanıza olanak tanır. Hangi dinleyicisi trafiği alacağını belirlemek için gelen HTTP isteği, ana bilgisayar üst bilgisi kullanır. Dinleyici sonra ağ geçidi kuralları tanımı içinde yapılandırıldığı gibi uygun arka uç havuzu trafiğini yönlendirir. SSL etkin web uygulamaları, uygulama ağ geçidi web trafiği için doğru dinleyici seçmek için sunucu adı göstergesi (SNI) uzantısı kullanır. Birden çok sitesi barındırmak için bir genel Yük Dengeleme isteklerini farklı web etki alanları için farklı bir arka uç sunucu havuzları için kullanılır. Benzer şekilde aynı kök etki alanının birden çok alt de aynı uygulama ağ geçidinde barındırılan.
 
 ## <a name="scenario"></a>Senaryo
 
-Aşağıdaki örneğine hello iki arka uç sunucu havuzu ile trafiği contoso.com ve fabrikam.com için uygulama ağ geçidi hizmet: contoso sunucu havuzu ve fabrikam sunucu havuzu. Benzer Kurulum app.contoso.com ve blog.contoso.com gibi kullanılan toohost alt etki alanları olabilir.
+Aşağıdaki örnekte, iki arka uç sunucu havuzu ile trafiği contoso.com ve fabrikam.com için uygulama ağ geçidi hizmet: contoso sunucu havuzu ve fabrikam sunucu havuzu. Benzer Kurulum app.contoso.com ve blog.contoso.com gibi ana bilgisayar alt etki alanları için kullanılabilir.
 
 ![imageURLroute](./media/application-gateway-create-multisite-azureresourcemanager-powershell/multisite.png)
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-1. Merhaba Web Platformu Yükleyicisi'ni kullanarak Hello hello Azure PowerShell cmdlet'lerinin en yeni sürümünü yükleyin. Karşıdan yükle ve hello hello en son sürümünü yüklemek **Windows PowerShell** hello bölümünü [indirmeler sayfası](https://azure.microsoft.com/downloads/).
-2. Merhaba sunucuları toohello arka uç havuzu toouse hello uygulama ağ geçidi mevcut olmalıdır veya uç noktaları da hello sanal ağda ayrı bir alt ağ veya atanan genel IP/VIP'ye oluşturduysanız eklendi.
+1. Web Platformu Yükleyicisi’ni kullanarak Azure PowerShell cmdlet’lerin en son sürümünü yükleyin. **İndirmeler sayfası**’ndaki [Windows PowerShell](https://azure.microsoft.com/downloads/) bölümünden en son sürümü indirip yükleyebilirsiniz.
+2. Uygulama ağ geçidi kullanmak için arka uç havuzuna eklediğiniz sunucular mevcut olmalıdır veya uç noktaları ya da sanal ağda ayrı bir alt ağ veya atanan genel IP/VIP'ye oluşturdunuz.
 
 ## <a name="requirements"></a>Gereksinimler
 
-* **Arka uç sunucusu havuzu:** hello hello arka uç sunucularının IP adresleri listesi. listede hello IP adresleri ya da toohello sanal ağ alt veya ait genel IP/VIP'ye olmalıdır. FQDN de kullanılabilir.
-* **Arka uç sunucu havuzu ayarları**: Her havuzun bağlantı noktası, protokol ve tanımlama bilgisi temelli benzeşim gibi ayarları vardır. Bu ayarlar bağlı tooa olan havuzu ve hello havuz içindeki uygulanan tooall sunucularıdır.
-* **Ön uç bağlantı noktası:** Bu bağlantı noktası hello hello uygulama ağ geçidinde açılan genel bağlantı noktasıdır. Bu bağlantı noktasında trafik trafik ve tooone hello arka uç sunucularının alır yeniden yönlendirildi.
-* **Dinleyici:** hello dinleyicisi sahip bir ön uç bağlantı noktası, bir protokol (Http veya Https, bu değerleri büyük küçük harfe duyarlı) ve hello SSL sertifika adı (SSL yük boşaltımı yapılandırılıyorsa). Çok siteli kullanan bir uygulama ağ geçitleri için ana bilgisayar adı ve SNI göstergeleri de eklenir.
-* **Kural:** hello kural hello dinleyicisi, hello arka uç sunucusu havuzunu bağlar ve belli bir Dinleyicide trafik yönlendirilmiş toowhen hangi arka uç sunucu havuzu hello trafiğinin olmalıdır belirler. Kuralları listelendikleri hello sırada işlenir ve trafik belirginliğe bağımsız olarak eşleşen ilk kural hello aracılığıyla yönlendirilir. Temel bir dinleyici kullanan bir kural ve çok siteli dinleyicisi hem aynı bağlantı noktası, hello kuralla hello kullanarak bir kuralı varsa, örneğin, hello çok siteli dinleyicisi önce hello kural hello çok siteli kural toofunction sırayla hello temel dinleyicisiyle listelenmiş olması gerekir bekleniyordu.
+* **Arka uç sunucusu havuzu:** Arka uç sunucularının IP adreslerinin listesi. Listede bulunan IP adresleri sanal ağ alt ağına veya genel IP/VIP’ye ait olmalıdır. FQDN de kullanılabilir.
+* **Arka uç sunucu havuzu ayarları**: Her havuzun bağlantı noktası, protokol ve tanımlama bilgisi temelli benzeşim gibi ayarları vardır. Bu ayarlar bir havuza bağlıdır ve havuzdaki tüm sunuculara uygulanır.
+* **Ön uç bağlantı noktası:** Bu bağlantı noktası uygulama ağ geçidinde açılan genel bağlantı noktasıdır. Bu bağlantı noktasında trafik olursa arka uç sunuculardan birine yönlendirilir.
+* **Dinleyici:** Dinleyicide bir ön uç bağlantı noktası, bir protokol (Http veya Https, bu değerler büyük/küçük harfe duyarlıdır) ve SSL sertifika adı (SSL yük boşaltımı yapılandırılıyorsa) vardır. Çok siteli kullanan bir uygulama ağ geçitleri için ana bilgisayar adı ve SNI göstergeleri de eklenir.
+* **Kural:** kural dinleyiciyi arka uç sunucusu havuzunu bağlar ve trafiği için belli bir Dinleyicide trafik olduğunda hangi arka uç sunucu havuzuna yönlendirileceğini belirler. Kuralları listelendikleri sırada işlenir ve trafik belirginliğe bağımsız olarak eşleşen ilk kural üzerinden yönlendirilir. Temel bir dinleyici ve çok siteli dinleyicisi hem aynı bağlantı noktasında kullanan bir kural kullanarak bir kuralı varsa, örneğin, çok siteli dinleyicisi kuralla beklendiği şekilde çalışması için temel dinleyicisi çok siteli kuralı için sırada olan kural önce listelenmiş olması gerekir.
 
 ## <a name="create-an-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
-Merhaba hello adımları toocreate bir uygulama ağ geçidi gerekli şunlardır:
+Bir uygulama ağ geçidi oluşturmak için gereken adımlar şunlardır:
 
 1. Resource Manager için kaynak grubu oluşturun.
-2. Bir sanal ağ, alt ağlar ve hello uygulama ağ geçidi için genel IP oluşturun.
+2. Bir sanal ağ, alt ağlar ve uygulama ağ geçidi için genel IP oluşturun.
 3. Uygulama ağ geçidi yapılandırma nesnesi oluşturun.
 4. Uygulama ağ geçidi kaynağı oluşturun.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Resource Manager için kaynak grubu oluşturun
 
-Hello Azure PowerShell'in en son sürümünü kullandığınızdan emin olun. Daha fazla bilgi için bkz. [Resource Manager ile Windows PowerShell kullanarak](../powershell-azure-resource-manager.md).
+Azure PowerShell’in en yeni sürümünü kullandığınızdan emin olun. Daha fazla bilgi için bkz. [Resource Manager ile Windows PowerShell kullanarak](../powershell-azure-resource-manager.md).
 
 ### <a name="step-1"></a>1. Adım
 
-İçinde tooAzure oturum
+Azure'da oturum açma
 
 ```powershell
 Login-AzureRmAccount
 ```
-Kimlik bilgilerinizle istendiğinde tooauthenticate var.
+Kimlik bilgilerinizle kimliğinizi doğrulamanız istenir.
 
 ### <a name="step-2"></a>2. Adım
 
-Merhaba hesabının Hello abonelikleri kontrol edin.
+Hesapla ilişkili abonelikleri kontrol edin.
 
 ```powershell
 Get-AzureRmSubscription
@@ -79,7 +79,7 @@ Get-AzureRmSubscription
 
 ### <a name="step-3"></a>3. Adım
 
-Azure abonelikleri toouse hangisinin seçin.
+Hangi Azure aboneliğinizin kullanılacağını seçin.
 
 ```powershell
 Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
@@ -99,27 +99,27 @@ Alternatif olarak, uygulama ağ geçidi için bir kaynak grubu için etiketler d
 $resourceGroup = New-AzureRmResourceGroup -Name appgw-RG -Location "West US" -Tags @{Name = "testtag"; Value = "Application Gateway multiple site"}
 ```
 
-Azure Resource Manager, tüm kaynak gruplarının bir konum belirtmesini gerektirir. Bu konum, kaynak grubundaki kaynaklar için hello varsayılan konum olarak kullanılır. Tüm komutlar, toocreate bir uygulama ağ geçidi kullanım hello emin olun aynı kaynak grubu.
+Azure Resource Manager, tüm kaynak gruplarının bir konum belirtmesini gerektirir. Bu konum, kaynak grubundaki kaynaklar için varsayılan konum olarak kullanılır. Bir uygulama ağ geçidi oluşturmak için verilecek komutların aynı kaynak grubunda kullandığınızdan emin olun.
 
-Adlı bir kaynak grubu oluşturduk Hello yukarıdaki örnekte, **appgw-RG** konumunu ile **Batı ABD**.
+Yukarıdaki örnekte adlı bir kaynak grubu oluşturduk **appgw-RG** konumunu ile **Batı ABD**.
 
 > [!NOTE]
-> Uygulama ağ geçidiniz için özel bir araştırma tooconfigure gerekirse bkz [PowerShell kullanarak özel araştırmalara sahip bir uygulama ağ geçidi oluşturma](application-gateway-create-probe-ps.md). Ziyaret [özel araştırmalar ve sistem durumu izleme](application-gateway-probe-overview.md) daha fazla bilgi için.
+> Uygulama ağ geçidiniz için özel bir araştırma yapılandırmanız gerekiyorsa, bkz. [PowerShell kullanarak özel araştırmalara sahip bir uygulama ağ geçidi oluşturma](application-gateway-create-probe-ps.md). Ziyaret [özel araştırmalar ve sistem durumu izleme](application-gateway-probe-overview.md) daha fazla bilgi için.
 
 ## <a name="create-a-virtual-network-and-subnets"></a>Bir sanal ağ ve alt ağlar oluşturun
 
-örnekte gösterildiği nasıl aşağıdaki hello toocreate Kaynak Yöneticisi'ni kullanarak bir sanal ağ. Bu adımda iki alt ağ oluşturulur. Merhaba ilk alt hello uygulama ağ geçidi için kendisini değil. Uygulama ağ geçidi, kendi alt toohold örneklerini gerektirir. Bu alt ağda yalnızca başka uygulama ağ geçitleri dağıtılabilir. Merhaba ikinci alt kullanılan toohold hello uygulama arka uç sunucuları değil.
+Aşağıdaki örnek Resource Manager kullanarak nasıl sanal ağ oluşturulacağını gösterir. Bu adımda iki alt ağ oluşturulur. İlk alt uygulama ağ geçidi için kendisini değil. Uygulama ağ geçidi örneklerini tutmak için kendi alt gerektirir. Bu alt ağda yalnızca başka uygulama ağ geçitleri dağıtılabilir. İkinci alt ağ, uygulama arka uç sunucuları tutmak için kullanılır.
 
 ### <a name="step-1"></a>1. Adım
 
-Başlangıç adresi aralığı 10.0.0.0/24 toohello alt değişken toobe kullanılan toohold hello uygulama ağ geçidi atayın.
+10.0.0.0/24 adres aralığını uygulama ağ geçidi tutmak için kullanılan alt ağ değişkenine atayın.
 
 ```powershell
 $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name appgatewaysubnet -AddressPrefix 10.0.0.0/24
 ```
 ### <a name="step-2"></a>2. Adım
 
-Başlangıç adresi aralığı 10.0.1.0/24 toohello Altağ2 değişken toobe Hello arka uç havuzları için kullanılan atayın.
+Adres aralığı 10.0.1.0/24 arka uç havuzları için kullanılacak Altağ2 değişkenine atayın.
 
 ```powershell
 $subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name backendsubnet -AddressPrefix 10.0.1.0/24
@@ -127,7 +127,7 @@ $subnet2 = New-AzureRmVirtualNetworkSubnetConfig -Name backendsubnet -AddressPre
 
 ### <a name="step-3"></a>3. Adım
 
-Adlı bir sanal ağ oluşturma **appgwvnet** kaynak grubunda **appgw-rg** hello önek 10.0.0.0/16 10.0.0.0/24 alt ağıyla hello Batı ABD bölgesi için kullanarak ve 10.0.1.0/24.
+Adlı bir sanal ağ oluşturma **appgwvnet** kaynak grubunda **appgw-rg** 10.0.0.0/24 alt ağıyla önek 10.0.0.0/16 kullanarak Batı ABD bölgesi için ve 10.0.1.0/24.
 
 ```powershell
 $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-RG -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnet,$subnet2
@@ -135,30 +135,30 @@ $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-RG -L
 
 ### <a name="step-4"></a>4. Adım
 
-Bir uygulama ağ geçidi oluşturur hello sonraki adımlar için bir alt ağ değişkeni atayın.
+Bir uygulama ağ geçidi oluşturur sonraki adımlar için bir alt ağ değişkeni atayın.
 
 ```powershell
 $appgatewaysubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name appgatewaysubnet -VirtualNetwork $vnet
 $backendsubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name backendsubnet -VirtualNetwork $vnet
 ```
 
-## <a name="create-a-public-ip-address-for-hello-front-end-configuration"></a>Merhaba ön uç yapılandırma için genel bir IP adresi oluştur
+## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>Ön uç yapılandırma için genel bir IP adresi oluşturun
 
-Genel IP kaynağı oluşturun **Publicıp01** kaynak grubunda **appgw-rg** hello Batı ABD bölgesi için.
+Batı ABD bölgesi için **appgw-rg** kaynak grubunda **publicIP01** genel bir IP kaynağı oluşturun.
 
 ```powershell
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -name publicIP01 -location "West US" -AllocationMethod Dynamic
 ```
 
-Merhaba hizmeti başladığında toohello uygulama ağ geçidi bir IP adresi atanır.
+Hizmet başlatıldığında uygulama ağ geçidine bir IP adresi atanır.
 
 ## <a name="create-application-gateway-configuration"></a>Uygulama ağ geçidi yapılandırmasını oluşturma
 
-Merhaba uygulama ağ geçidi oluşturmadan önce tüm yapılandırma öğeleri yukarı tooset sahip. Merhaba aşağıdaki adımları hello uygulama ağ geçidi kaynağı için gerekli olan yapılandırma öğeleri oluşturun.
+Uygulama ağ geçidini oluşturmadan önce tüm yapılandırma öğelerini ayarlamanız gerekir. Aşağıdaki adımlar uygulama ağ geçidi kaynağı için gerekli yapılandırma öğelerini oluşturur.
 
 ### <a name="step-1"></a>1. Adım
 
-**gatewayIP01** adlı bir uygulama ağ geçidi IP yapılandırması oluşturun. Application gateway başladığında, yapılandırılan hello alt ağdan bir IP adresi seçer ve ağ trafiğini toohello IP adreslerini hello arka uç IP havuzundaki rota. Her örneğin bir IP adresi aldığını göz önünde bulundurun.
+**gatewayIP01** adlı bir uygulama ağ geçidi IP yapılandırması oluşturun. Uygulama ağ geçidi başladığında, yapılandırılan alt ağdan bir IP adresi seçer ve arka uç IP havuzundaki IP adresleri için ağ trafiğini yönlendirebilir. Her örneğin bir IP adresi aldığını göz önünde bulundurun.
 
 ```powershell
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $appgatewaysubnet
@@ -166,18 +166,18 @@ $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Sub
 
 ### <a name="step-2"></a>2. Adım
 
-Adlı hello arka uç IP adresi havuzunu yapılandırmak **pool01** ve **pool2** IP adresleriyle **134.170.185.46**, **134.170.188.221**, **134.170.185.50** için **pool1** ve **134.170.186.46**, **134.170.189.221**, **134.170.186.50**  için **pool2**.
+Adlı arka uç IP adresi havuzu yapılandırmak **pool01** ve **pool2** IP adresleriyle **134.170.185.46**, **134.170.188.221**, **134.170.185.50** için **pool1** ve **134.170.186.46**, **134.170.189.221**, **134.170.186.50** için **pool2**.
 
 ```powershell
 $pool1 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.0.1.100, 10.0.1.101, 10.0.1.102
 $pool2 = New-AzureRmApplicationGatewayBackendAddressPool -Name pool02 -BackendIPAddresses 10.0.1.103, 10.0.1.104, 10.0.1.105
 ```
 
-Bu örnekte, iki arka uç havuzları tooroute ağ trafiğini hello istenen sitesinde dayalı vardır. Bir havuz "contoso.com" sitesinden trafiği alır ve diğer havuzu "fabrikam.com" sitesinden trafiği alır. Kendi uygulama IP adresi bitiş IP adreslerini tooadd önceki tooreplace hello var. İç IP adresleri yerine, arka uç örnekleri için genel IP adresleri, FQDN veya bir sanal makinenin NIC de kullanabilirsiniz. PowerShell kullanımda toospecify FQDN'ler IP'leri yerine "-BackendFQDNs" parametresi.
+Bu örnekte, istenen sitesinde göre ağ trafiği yönlendirmek için iki arka uç havuzu yok. Bir havuz "contoso.com" sitesinden trafiği alır ve diğer havuzu "fabrikam.com" sitesinden trafiği alır. Kendi uygulama IP adresi uç noktalarını eklemek için yukarıdaki IP adreslerini değiştirmek zorunda. İç IP adresleri yerine, arka uç örnekleri için genel IP adresleri, FQDN veya bir sanal makinenin NIC de kullanabilirsiniz. PowerShell kullanmak yerine FQDN'ler yerine IP'leri belirtmek için "-BackendFQDNs" parametresi.
 
 ### <a name="step-3"></a>3. Adım
 
-Uygulama ağ geçidi ayarlarını yapılandırmanız **poolsetting01** ve **poolsetting02** hello yük dengeli ağ trafiği hello arka uç havuzundaki. Bu örnekte, hello arka uç havuzları farklı arka uç havuzu ayarlarını yapılandırın. Her bir arka uç havuzu kendi arka uç havuzu ayarlarına sahip olabilir.
+Uygulama ağ geçidi ayarlarını yapılandırmanız **poolsetting01** ve **poolsetting02** arka uç havuzundaki yük dengeli ağ trafiği için. Bu örnekte, arka uç havuzları farklı arka uç havuzu ayarlarını yapılandırın. Her bir arka uç havuzu kendi arka uç havuzu ayarlarına sahip olabilir.
 
 ```powershell
 $poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled -RequestTimeout 120
@@ -186,7 +186,7 @@ $poolSetting02 = New-AzureRmApplicationGatewayBackendHttpSettings -Name "besetti
 
 ### <a name="step-4"></a>4. Adım
 
-Merhaba ön uç IP ile genel IP uç noktasını yapılandırın.
+Ön uç IP’sini genel IP uç noktası ile yapılandırın.
 
 ```powershell
 $fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
@@ -194,7 +194,7 @@ $fipconfig01 = New-AzureRmApplicationGatewayFrontendIPConfig -Name "frontend1" -
 
 ### <a name="step-5"></a>5. Adım
 
-Merhaba, bir uygulama ağ geçidi için ön uç bağlantı noktasını yapılandırın.
+Bir uygulama ağ geçidi için ön uç bağlantı noktasını yapılandırın.
 
 ```powershell
 $fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "fep01" -Port 443
@@ -202,7 +202,7 @@ $fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "fep01" -Port 443
 
 ### <a name="step-6"></a>6. Adım
 
-İki SSL sertifikalarını yapılandırmak için hello iki Web siteleri Biz bu örnekte toosupport adımıdır. Bir sertifika contoso.com trafiği için ve diğer hello fabrikam.com trafiği için. Bu sertifikalar, Web siteleri için sertifikalar bir sertifika yetkilisi olması gerekir. Otomatik olarak imzalanan sertifikalar desteklenir, ancak üretim trafiği için önerilmez.
+Biz bu örnekte destekleyeceğinizi iki SSL sertifikaları iki Web siteleri için yapılandırın. Bir sertifika contoso.com trafiği için ve diğer fabrikam.com trafiği için. Bu sertifikalar, Web siteleri için sertifikalar bir sertifika yetkilisi olması gerekir. Otomatik olarak imzalanan sertifikalar desteklenir, ancak üretim trafiği için önerilmez.
 
 ```powershell
 $cert01 = New-AzureRmApplicationGatewaySslCertificate -Name contosocert -CertificateFile <file path> -Password <password>
@@ -211,7 +211,7 @@ $cert02 = New-AzureRmApplicationGatewaySslCertificate -Name fabrikamcert -Certif
 
 ### <a name="step-7"></a>7. Adım
 
-Bu örnekte, iki dinleyicileri hello iki web sitesi için yapılandırın. Ortak IP adresi, bağlantı noktası ve ana bilgisayar tooreceive gelen trafiği kullanılan için bu adımı hello dinleyicileri yapılandırır. Ana bilgisayar adı parametresi, çoklu site desteği için gereklidir ve hangi Merhaba trafiğinin alınıp kümesi toohello uygun Web sitesi olmalıdır. Requireservernameındication parametresi birden çok ana senaryo için SSL desteklenmesi gereken Web siteleri için tootrue ayarlanmalıdır. SSL desteği gerekiyorsa, toospecify hello SSL ayrıca gereken sertifika, web uygulaması için kullanılan toosecure trafiği. Frontendıpconfiguration, FrontendPort ve ana bilgisayar adı Hello birleşimi benzersiz tooa dinleyicisi olmalıdır. Her dinleyicisi bir sertifikayı destekleyebilir.
+Bu örnekte, iki dinleyicileri iki web sitesi için yapılandırın. Bu adım dinleyicileri ortak IP adresi, bağlantı noktası ve gelen trafiği almak için kullanılan ana bilgisayarı için yapılandırır. Ana bilgisayar adı parametresi, çoklu site desteği için gereklidir ve trafiği alınan uygun Web sitesine ayarlamanız gerekir. Requireservernameındication parametresi ayarlanmalıdır SSL için birden çok ana senaryo desteği gerektiren Web siteleri için true. SSL desteği gerekiyorsa, ayrıca, web uygulaması için trafiğinin güvenliğini sağlamak için kullanılan SSL sertifikası belirtmeniz gerekir. Frontendıpconfiguration, FrontendPort ve ana bilgisayar adı bileşimi için bir dinleyici benzersiz olması gerekir. Her dinleyicisi bir sertifikayı destekleyebilir.
 
 ```powershell
 $listener01 = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protocol Https -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -HostName "contoso11.com" -RequireServerNameIndication true  -SslCertificate $cert01
@@ -220,7 +220,7 @@ $listener02 = New-AzureRmApplicationGatewayHttpListener -Name "listener02" -Prot
 
 ### <a name="step-8"></a>8. Adım
 
-Bu örnekte, iki web uygulamaları için Hello ayarlama iki kural oluşturun. Bir kural dinleyicileri, arka uç havuzları ve http ayarları birbirine bağlar. Bu adım hello uygulama ağ geçidi toouse temel yönlendirme kuralı, her Web sitesi için bir tane yapılandırır. Trafiği tooeach Web sitesi, yapılandırılmış bir dinleyici tarafından alınır ve ardından tooits hello BackendHttpSettings belirtilen hello özelliklerini kullanarak arka uç havuzu yapılandırılmış yönlendirilir.
+Bu örnekte, iki web uygulamaları için iki kural ayarı oluşturun. Bir kural dinleyicileri, arka uç havuzları ve http ayarları birbirine bağlar. Bu adım, uygulama ağ geçidi her Web sitesi için bir tane temel yönlendirme kuralı kullanmak üzere yapılandırır. Her Web sitesi trafiğini kendi yapılandırılmış dinleyicisi tarafından alınır ve BackendHttpSettings belirtilen özellikleri kullanarak kendi yapılandırılmış arka uç havuzu yönlendirilir.
 
 ```powershell
 $rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule01" -RuleType Basic -HttpListener $listener01 -BackendHttpSettings $poolSetting01 -BackendAddressPool $pool1
@@ -229,7 +229,7 @@ $rule02 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "rule02" -RuleTy
 
 ### <a name="step-9"></a>9. Adım
 
-Merhaba sayısı örnekleri ve boyutu hello uygulama ağ geçidi için yapılandırın.
+Uygulama ağ geçidi için örnek sayısını ve boyutu yapılandırın.
 
 ```powershell
 $sku = New-AzureRmApplicationGatewaySku -Name "Standard_Medium" -Tier Standard -Capacity 2
@@ -237,20 +237,20 @@ $sku = New-AzureRmApplicationGatewaySku -Name "Standard_Medium" -Tier Standard -
 
 ## <a name="create-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
-Merhaba adımları önceki tüm yapılandırma nesnelerden ile bir uygulama ağ geçidi oluşturun.
+Yukarıdaki adımlarda geçen tüm yapılandırma nesnelerle bir uygulama ağ geçidi oluşturun.
 
 ```powershell
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-RG -Location "West US" -BackendAddressPools $pool1,$pool2 -BackendHttpSettingsCollection $poolSetting01, $poolSetting02 -FrontendIpConfigurations $fipconfig01 -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener01, $listener02 -RequestRoutingRules $rule01, $rule02 -Sku $sku -SslCertificates $cert01, $cert02
 ```
 
 > [!IMPORTANT]
-> Uygulama ağ geçidi sağlama, uzun süreli bir işlemdir ve bazı zaman toocomplete sürebilir.
+> Uygulama ağ geçidi sağlama, uzun süreli bir işlemdir ve tamamlanması biraz zaman alabilir.
 > 
 > 
 
 ## <a name="get-application-gateway-dns-name"></a>Uygulama ağ geçidi DNS adını alma
 
-Merhaba ağ geçidi oluşturulduktan sonra hello sonraki tooconfigure hello ön uç iletişimi için adımdır. Genel IP kullanırken uygulama ağ geçidi için dinamik olarak atanan DNS adı gerekir ve bu durum çok kullanışlı değildir. hello uygulama ağ geçidi isabet tooensure son kullanıcılar, bir CNAME kaydı kullanılan toopoint toohello genel bir uç nokta hello uygulama ağ geçidi olabilir. [Azure’da özel etki alanı adı yapılandırma](../cloud-services/cloud-services-custom-domain-name-portal.md). toodo Bu, alma ayrıntılarını hello uygulama ağ geçidi ve hello Publicıpaddress öğesi ekli toohello uygulama ağ geçidi kullanarak ilişkili IP/DNS adı. Merhaba uygulama ağ geçidi DNS adı kullanılan toocreate bir CNAME kaydı hangi noktaları hello iki web uygulamaları toothis DNS adı olmalıdır. Uygulama ağ geçidi başlatmada Hello VIP değişebileceği A kayıtlarını hello kullanımı önerilmez.
+Ağ geçidi oluşturulduktan sonraki adım, iletişim için ön uç yapılandırması yapmaktır. Genel IP kullanırken uygulama ağ geçidi için dinamik olarak atanan DNS adı gerekir ve bu durum çok kullanışlı değildir. Son kullanıcıların uygulama ağ geçidine ulaşmasını sağlamak için uygulama ağ geçidinin genel uç noktasını işaret edecek bir CNAME kaydı kullanılabilir. [Azure’da özel etki alanı adı yapılandırma](../cloud-services/cloud-services-custom-domain-name-portal.md). Bunu yapmak için uygulama ağ geçidinin ayrıntılarını ve onunla ilişkilendirilmiş olan IP/DNS adını uygulama ağ geçidine eklenmiş PublicIPAddress öğesini kullanarak alın. Uygulama ağ geçidinin DNS adı, iki web uygulamasını bu DNS adına götüren bir CNAME kaydı oluşturmak için kullanılmalıdır. Uygulama ağ geçidi yeniden başlatıldığında VIP değişebileceğinden A kaydı kullanımı önerilmez.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
@@ -280,5 +280,5 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bilgi nasıl tooprotect ile Web siteleri [uygulama ağ geçidi - Web uygulaması güvenlik duvarı](application-gateway-webapplicationfirewall-overview.md)
+İle Web siteleri korumayı öğrenin [uygulama ağ geçidi - Web uygulaması güvenlik duvarı](application-gateway-webapplicationfirewall-overview.md)
 

@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure Logic Apps belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
-description: "Nasıl otomatikleştirmek ve şirket içi ve hello iş iş akışları basitleştirmeye toodevelop mantıksal uygulamalar bulut öğrenin. Öğreticiler, şablonlar ve API başvuruları."
+title: "Azure Logic Apps Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Şirket içinde ve bulutta iş akışlarını otomatikleştiren ve basitleştiren mantıksal uygulamalar geliştirme hakkında bilgi edinin. Öğreticiler, şablonlar ve API başvuruları."
 services: logic-apps
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 5cc3a730b1b6abcb3ec0132f6e8ebf2e54775836
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: ff3f9ba6c225294e7570c5204701dd2f6b927318
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="logic-apps-documentation"></a>Logic Apps Belgeleri
 
-Bulut basitleştirmek ve ölçeklenebilir iş akışlarında tümleştirmek toodevelop Logic Apps nasıl hello öğrenin. Eğitim, şablonları ve API tasarım, şirket otomatik iş iş akışları dağıtın ve bulut hello Yardım başvurur.
+Bulutta ölçeklenebilir iş akışlarını basitleştiren ve tümleştiren mantıksal uygulamalar geliştirme hakkında bilgi edinin. Öğreticiler, şablonlar ve API başvuruları, şirket içinde ve bulutta otomatik iş akışları tasarlamanıza ve dağıtmanıza yardımcı olur.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -106,7 +106,7 @@ Bulut basitleştirmek ve ölçeklenebilir iş akışlarında tümleştirmek tood
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Logic Apps ile özel bir API toouse oluşturmaya başlamak</h3>
+                        <h3>Logic Apps ile kullanılacak bir özel API oluşturmaya başlama</h3>
                     </div>
                 </div>
             </div>

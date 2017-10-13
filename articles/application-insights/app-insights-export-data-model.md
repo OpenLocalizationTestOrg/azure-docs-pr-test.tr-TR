@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure uygulama Öngörüler veri modeli | Microsoft Docs"
+title: "Azure uygulama Öngörüler veri modeli | Microsoft Docs"
 description: "JSON içinde sürekli dışarı aktarılmış ve filtre olarak kullanılan özellikleri tanımlar."
 services: application-insights
 documentationcenter: 
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: bwren
-ms.openlocfilehash: 5ff3ce7953b91cc69b5d96c0ea9b6d58a6016e61
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a485ddd555f65473d81896effc4a3562bda71410
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="application-insights-export-data-model"></a>Uygulama Öngörüler dışarı aktarma veri modeli
-Hello gönderilen telemetri hello özelliklerini bu tabloda [Application Insights](app-insights-overview.md) SDK'ları toohello portal.
+Bu tabloda telemetri gönderildiği özelliklerini [Application Insights](app-insights-overview.md) SDK'ları portalı.
 Bu özellikler, veri çıkışı görürsünüz [sürekli verme](app-insights-export-telemetry.md).
 Ayrıca özellik filtrelerini görüntülendikleri [ölçüm Gezgini](app-insights-metrics-explorer.md) ve [tanılama arama](app-insights-diagnostic-search.md).
 
-Noktaları toonote:
+Dikkat edilecek noktalar:
 
-* `[0]`Bu tablolarda hello yolda bir dizin tooinsert sahip olduğu bir noktası gösterir; ancak her zaman değil 0.
+* `[0]`Bu tablolarda dizin eklemek için sahip olduğu yolu noktasında gösterir; ancak her zaman değil 0.
 * Süreler milisaniyeye, bu nedenle 10000000 onda içinde olan 1 saniye ==.
-* Tarihler ve saatler UTC olan ve hello ISO biçiminde verilir.`yyyy-MM-DDThh:mm:ss.sssZ`
+* Tarihler ve saatler UTC olan ve ISO biçiminde verilir.`yyyy-MM-DDThh:mm:ss.sssZ`
 
 
 ## <a name="example"></a>Örnek
@@ -41,15 +41,15 @@ Noktaları toonote:
           "base": "/",
           "hashTag": ""
         },
-        "responseCode": 200, // Sent tooclient
+        "responseCode": 200, // Sent to client
         "success": true, // Default == responseCode<400
-        // Request id becomes hello operation id of child events
+        // Request id becomes the operation id of child events
         "id": "fCOhCdCnZ9I=",  
         "name": "GET Home/Index",
         "count": 1, // 100% / sampling rate
         "durationMetric": {
           "value": 1046804.0, // 10000000 == 1 second
-          // Currently hello following fields are redundant:
+          // Currently the following fields are redundant:
           "count": 1.0,
           "min": 1046804.0,
           "max": 1046804.0,
@@ -75,14 +75,14 @@ Noktaları toonote:
       "location": { // derived from client ip
         "continent": "North America",
         "country": "United States",
-        // last octagon is anonymized too0 at portal:
+        // last octagon is anonymized to 0 at portal:
         "clientip": "168.62.177.0",
         "province": "",
         "city": ""
       },
       "data": {
         "isSynthetic": true, // we identified source as a bot
-        // percentage of generated data sent tooportal:
+        // percentage of generated data sent to portal:
         "samplingRate": 100.0,
         "eventTime": "2016-03-21T10:05:45.7334717Z" // UTC
       },
@@ -116,11 +116,11 @@ Tüm telemetri türlerini içerik bölümü tarafından yayımlanır. Bu alanlar
 
 | Yol | Tür | Notlar |
 | --- | --- | --- |
-| Context.Custom.Dimensions [0] |Nesne] |Anahtar-değer çiftleri özel özellikler parametresiyle ayarlayın. Anahtar uzunluğu en fazla 100, en fazla uzunluğu 1024 değerleri. 100'den fazla benzersiz değer hello özelliği aranabilecek ancak kesimleme kullanılamaz. İkey başına en fazla 200 anahtarları. |
+| Context.Custom.Dimensions [0] |Nesne] |Anahtar-değer çiftleri özel özellikler parametresiyle ayarlayın. Anahtar uzunluğu en fazla 100, en fazla uzunluğu 1024 değerleri. 100'den fazla benzersiz değer özelliği aranabilecek ancak kesimleme kullanılamaz. İkey başına en fazla 200 anahtarları. |
 | Context.Custom.Metrics [0] |Nesne] |Anahtar-değer çiftleri TrackMetrics ve özel ölçümleri parametresi tarafından ayarlayın. Anahtar en büyük uzunluğunu 100 değerleri sayısal olabilir. |
 | context.data.eventTime |Dize |UTC |
-| context.data.isSynthetic |Boole değeri |İstek bir bot veya web testi toocome görünür. |
-| context.data.samplingRate |Sayı |Merhaba tooportal gönderilen SDK'sı tarafından oluşturulan telemetri yüzdesi. 0,0 100.0 aralığı. |
+| context.data.isSynthetic |Boole değeri |İstek bir bot veya web testi görünür. |
+| context.data.samplingRate |Sayı |Portala gönderilen SDK'sı tarafından oluşturulan telemetri yüzdesi. 0,0 100.0 aralığı. |
 | Context.Device |Nesne |İstemci aygıtı |
 | Context.Device.browser |Dize |IE, Chrome... |
 | context.device.browserVersion |Dize |Chrome 48,0... |
@@ -136,14 +136,14 @@ Tüm telemetri türlerini içerik bölümü tarafından yayımlanır. Bu alanlar
 | Context.Device.Type |Dize |Bilgisayar Tarayıcı... |
 | Context.location |Nesne |Clientip türetilmiş. |
 | Context.location.City |Dize |Biliniyorsa clientip türetilmiş |
-| Context.location.clientip |Dize |Son Sekizgene anonim too0 ' dir. |
+| Context.location.clientip |Dize |Son Sekizgene 0 olarak gizlidir. |
 | Context.location.continent |Dize | |
 | Context.location.country |Dize | |
 | Context.location.Province |Dize |Eyalet veya il |
-| Context.Operation.id |Dize |Aynı işlem kimliği ilgili öğeler hello Portalı'nda gösterilen hello sahip öğeler. Genellikle hello istek kimliği. |
+| Context.Operation.id |Dize |Aynı işlem kimliğine sahip öğeler portalda ilgili öğeler gösterilir. Genellikle istek kimliği. |
 | Context.Operation.Name |Dize |URL veya isteği adı |
 | context.operation.parentId |Dize |İç içe geçmiş ilgili öğeler sağlar. |
-| Context.Session.id |Dize |Merhaba işlemlerinden grubunun kimliği aynı kaynağı. Bir işlem olmadan 30 dakikalık bir süre bir oturum hello sonuna işaret eder. |
+| Context.Session.id |Dize |Aynı kaynak işlemlerinin grubunun kimliği. Bir işlem olmadan 30 dakikalık bir süre bir oturum sonuna işaret eder. |
 | context.session.isFirst |Boole değeri | |
 | context.user.accountAcquisitionDate |Dize | |
 | context.user.anonAcquisitionDate |Dize | |
@@ -165,7 +165,7 @@ Tarafından oluşturulan özel olaylar [TrackEvent()](app-insights-api-custom-ev
 | Olay [0] urlData.host |Dize | |
 
 ## <a name="exceptions"></a>Özel durumlar
-Raporları [özel durumları](app-insights-asp-net-exceptions.md) hello sunucu ve hello tarayıcı.
+Raporları [özel durumları](app-insights-asp-net-exceptions.md) sunucu ve tarayıcı.
 
 | Yol | Tür | Notlar |
 | --- | --- | --- |
@@ -194,17 +194,17 @@ Raporları [özel durumları](app-insights-asp-net-exceptions.md) hello sunucu v
 | basicException [0] typeName |Dize | |
 
 ## <a name="trace-messages"></a>İzleme iletileri
-Tarafından gönderilen [TrackTrace](app-insights-api-custom-events-metrics.md#tracktrace)ile Merhaba [günlüğü bağdaştırıcıları](app-insights-asp-net-trace-logs.md).
+Tarafından gönderilen [TrackTrace](app-insights-api-custom-events-metrics.md#tracktrace)ve bunun [günlüğü bağdaştırıcıları](app-insights-asp-net-trace-logs.md).
 
 | Yol | Tür | Notlar |
 | --- | --- | --- |
 | ileti [0] GünlükçüAdı |Dize | |
 | ileti [0] parametreleri |Dize | |
-| ileti [0] ham |Dize |Merhaba günlük iletisi, uzunluk üst sınırı 10k. |
+| ileti [0] ham |Dize |Günlük iletisi, uzunluk üst sınırı 10k. |
 | [0] iletisi önem düzeyi |Dize | |
 
 ## <a name="remote-dependency"></a>Uzak bağımlılık
-TrackDependency tarafından gönderilir. Kullanılan tooreport performansını ve kullanımını [toodependencies çağırır](app-insights-asp-net-dependencies.md) hello server ve AJAX çağrıları hello tarayıcıda.
+TrackDependency tarafından gönderilir. Rapor performansı ve kullanımı için kullanılan [bağımlılıkları çağrıları](app-insights-asp-net-dependencies.md) server ve AJAX çağrıları tarayıcıda.
 
 | Yol | Tür | Notlar |
 | --- | --- | --- |
@@ -213,7 +213,7 @@ TrackDependency tarafından gönderilir. Kullanılan tooreport performansını v
 | remoteDependency [0] commandName |Dize |Örneğin "home/Index" |
 | remoteDependency [0] sayısı |tamsayı |100 / ([örnekleme](app-insights-sampling.md) hızı). Örneğin 4 =&gt; % 25. |
 | remoteDependency [0] dependencyTypeName |Dize |HTTP SQL... |
-| remoteDependency [0] durationMetric.value |Sayı |Çağrı toocompletion bağımlılık tarafından yanıt süresi |
+| remoteDependency [0] durationMetric.value |Sayı |Bağımlılık yanıtıyla tamamlanmasından çağrı süresi |
 | remoteDependency [0] kimliği |Dize | |
 | remoteDependency [0] adı |Dize |URL. En fazla uzunluk 250. |
 | remoteDependency [0] resultCode |Dize |HTTP bağımlılık |
@@ -225,15 +225,15 @@ TrackDependency tarafından gönderilir. Kullanılan tooreport performansını v
 | remoteDependency [0] urlData.host |Dize |En fazla uzunluk 200 |
 
 ## <a name="requests"></a>İstekler
-Tarafından gönderilen [TrackRequest](app-insights-api-custom-events-metrics.md#trackrequest). Merhaba Standart modüller hello sunucuda ölçülen bu tooreports sunucu yanıt süresi kullanın.
+Tarafından gönderilen [TrackRequest](app-insights-api-custom-events-metrics.md#trackrequest). Standart modüller, sunucuda ölçülen bu raporları sunucu yanıt süresi için kullanın.
 
 | Yol | Tür | Notlar |
 | --- | --- | --- |
 | [0] isteği sayısı |tamsayı |100 / ([örnekleme](app-insights-sampling.md) hızı). Örneğin: 4 =&gt; % 25. |
-| İstek [0] durationMetric.value |Sayı |İstek gelen tooresponse saati. 1e7 1'ler == |
+| İstek [0] durationMetric.value |Sayı |Karşılık gelen istek süresi. 1e7 1'ler == |
 | [0] istek kimliği |Dize |İşlem kimliği |
 | İstek [0] adı |Dize |GET/POST + temel url.  En fazla uzunluk 250 |
-| İstek [0] yanıt kodu |tamsayı |HTTP yanıt gönderilen tooclient |
+| İstek [0] yanıt kodu |tamsayı |İstemciye gönderilen HTTP yanıtı |
 | İstek [0] başarılı |Boole değeri |Varsayılan == (yanıt kodu &lt; 400) |
 | İstek [0] URL'si |Dize |Konak dahil değil |
 | İstek [0] urlData.base |Dize | |
@@ -241,18 +241,18 @@ Tarafından gönderilen [TrackRequest](app-insights-api-custom-events-metrics.md
 | İstek [0] urlData.host |Dize | |
 
 ## <a name="page-view-performance"></a>Sayfa görünümü performansı
-Merhaba tarayıcı tarafından gönderilen. Ölçüler zaman tooprocess bir sayfadan kullanıcı başlatma hello isteği toodisplay (zaman uyumsuz AJAX çağrıları hariç) tam hello.
+Tarayıcı tarafından gönderilen. (Zaman uyumsuz AJAX çağrıları) tam görüntülenecek isteğini başlatarak kullanıcıdan bir sayfanın işlenmesi için gereken süre ölçer.
 
 Bağlam değerleri, istemci işletim sistemi ve tarayıcı sürümü gösterir.
 
 | Yol | Tür | Notlar |
 | --- | --- | --- |
-| clientPerformance [0] clientProcess.value |tamsayı |Merhaba HTML toodisplaying hello sayfası alma bitiş saati. |
+| clientPerformance [0] clientProcess.value |tamsayı |Sayfanın görüntüleme için HTML Alma bitiş saati. |
 | clientPerformance [0] adı |Dize | |
-| clientPerformance [0] networkConnection.value |tamsayı |Bir ağ bağlantısı tooestablish geçen süre. |
-| clientPerformance [0] receiveRequest.value |tamsayı |Merhaba isteği tooreceiving hello HTML yanıta gönderme bitiş saati. |
-| clientPerformance [0] sendRequest.value |tamsayı |Saat çekildiği toosend hello HTTP istek. |
-| clientPerformance [0] total.value |tamsayı |Toosend hello isteği toodisplaying hello sayfası başlatılmasını süre. |
+| clientPerformance [0] networkConnection.value |tamsayı |Bir ağ bağlantısı kurmak için geçen süre. |
+| clientPerformance [0] receiveRequest.value |tamsayı |HTML yanıta almak için isteği gönderme bitiş saati. |
+| clientPerformance [0] sendRequest.value |tamsayı |Saati HTTP isteği göndermek için gerçekleştirilecek. |
+| clientPerformance [0] total.value |tamsayı |Sayfayı görüntülemeye isteği göndermek başlangıç süresi. |
 | clientPerformance [0] URL'si |Dize |Bu istek URL'si |
 | clientPerformance [0] urlData.base |Dize | |
 | clientPerformance [0] urlData.hashTag |Dize | |
@@ -265,7 +265,7 @@ TrackPageView() tarafından gönderilen veya [stopTrackPage](app-insights-api-cu
 | Yol | Tür | Notlar |
 | --- | --- | --- |
 | Görünüm [0] sayısı |tamsayı |100 / ([örnekleme](app-insights-sampling.md) hızı). Örneğin 4 =&gt; % 25. |
-| Görünüm [0] durationMetric.value |tamsayı |Değeri trackPageView() veya startTrackPage() - isteğe bağlı olarak ayarlanmış stopTrackPage(). Aynı clientPerformance değerleri olarak hello değil. |
+| Görünüm [0] durationMetric.value |tamsayı |Değeri trackPageView() veya startTrackPage() - isteğe bağlı olarak ayarlanmış stopTrackPage(). Aynı clientPerformance değerleri. |
 | Görünüm [0] adı |Dize |Sayfa başlığı.  En fazla uzunluk 250 |
 | Görünüm [0] URL'si |Dize | |
 | Görünüm [0] urlData.base |Dize | |
@@ -294,7 +294,7 @@ Raporları [kullanılabilirlik web testleri](app-insights-monitor-web-app-availa
 ## <a name="metrics"></a>Ölçümler
 TrackMetric() tarafından oluşturulur.
 
-Merhaba ölçüm değeri context.custom.metrics[0 içinde bulundu]
+Ölçü değerini context.custom.metrics[0 içinde bulundu]
 
 Örneğin:
 
@@ -335,13 +335,13 @@ Merhaba ölçüm değeri context.custom.metrics[0 içinde bulundu]
         "sampledValue": 468.71603053650279
       }
 
-Şu anda - yine de bu değişebilir hello gelecekteki - hello standart SDK modüllerden bildirilen tüm değerler de `count==1` ve yalnızca hello `name` ve `value` alanları kullanışlıdır. Merhaba, bunlar olacak farklı yalnızca durumda kendi TrackMetric çağrıları yazma durumunda olur, diğer parametreler hello kümesindeki.
+Şu anda - yine de bu değişebilir gelecekte - tüm değerlerin standart SDK modüllerden bildirilen `count==1` ve yalnızca `name` ve `value` alanları kullanışlıdır. Kendi TrackMetric çağrıları yazma varsa, bunlar olacak farklı yalnızca durumda olur diğer parametreler kümesindeki.
 
-Merhaba amacı hello diğer alanları olan tooallow ölçümleri toobe hello SDK, tooreduce trafiği toohello portalı bir araya getirilir. Örneğin, her bir ölçüm raporu göndermeden önce birkaç art arda okumalar ortalama. Ardından hello min, max, standart sapma ve toplam değeri (sum veya ortalama) hesaplamak ve sayısı toohello hello rapor tarafından temsil edilen okumalar sayısını ayarlamak.
+Diğer alanları amacı portalına trafiğini azaltmak için SDK toplanacak ölçümleri izin vermektir. Örneğin, her bir ölçüm raporu göndermeden önce birkaç art arda okumalar ortalama. Ardından min, max, standart sapma ve toplam değeri (sum veya ortalama) hesaplamak ve rapor tarafından temsil edilen okumalar sayısına sayısını ayarlamak.
 
-Merhaba yukarıdaki tablolarda, biz hello nadiren kullanılan alanları sayısı, min, max, stdDev ve sampledValue atlamış.
+Yukarıdaki tablolarda, biz nadiren kullanılan alanları sayısı, min, max, stdDev ve sampledValue atlamış.
 
-Önceden bir araya getirildiği ölçümleri yerine kullanabileceğiniz [örnekleme](app-insights-sampling.md) tooreduce hello birim telemetri gerekiyorsa.
+Önceden bir araya getirildiği ölçümleri yerine kullanabileceğiniz [örnekleme](app-insights-sampling.md) telemetri miktarının azaltılmasını gerekiyorsa.
 
 ### <a name="durations"></a>Süreleri
 Aksi takdirde belirtilenler dışında süreleri 10000000.0 1 saniye anlamına bir milisaniyeye onda içinde gösterilir.

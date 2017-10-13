@@ -6,11 +6,11 @@
 
 # Nasıl yapılır?
 ## Tümleştirme
-### [Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [Cloud Services](cdn-cloud-service-with-cdn.md)
 ### [Depolama](cdn-create-a-storage-account-with-cdn.md)
 ### [Çıkış noktaları arası kaynak paylaşımı](cdn-cors.md)
-### [Özel etki alanı tooCDN eşleme](cdn-map-content-to-custom-domain.md)
+### [Özel bir etki alanını CDN ile eşleştirme](cdn-map-content-to-custom-domain.md)
 ### [Özel bir etki alanı üzerinde HTTPS'yi etkinleştirme](cdn-custom-ssl.md)
 ## İçeriği iyileştirme
 ### [İyileştirmeye genel bakış](cdn-optimization-overview.md)
@@ -19,7 +19,7 @@
 ####[Dinamik site hızlandırma](cdn-dynamic-site-acceleration.md)
  
 ## Yönet
-### [PowerShell ile Yönetme](cdn-manage-powershell.md)
+### [Azure PowerShell ile Yönetme](cdn-manage-powershell.md)
 ### Yaşam süresi yapılandırma
 #### [Web Apps/Cloud Services, ASP.NET veya IIS içeriği](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Depolama blob hizmeti içeriği](cdn-manage-expiration-of-blob-content.md)
@@ -37,11 +37,13 @@
 ### [HTTP/2 desteği](cdn-http2.md)
 
 ## Çözümleme
-### [Kullanım biçimlerini çözümleme](cdn-analyze-usage-patterns.md)
-### [Gelişmiş HTTP raporları oluşturma](cdn-advanced-http-reports.md)
-### [Gerçek zamanlı istatistikleri görüntüleme](cdn-real-time-stats.md)
-### [Kenar düğümü performansını çözümleme](cdn-edge-performance.md)
-### [Tanılama Günlükleriyle ölçümleri dışarı aktarma](cdn-log-analysis.md)
+### [Azure DN kullanım biçimlerini çözümleme](cdn-log-analysis.md)
+#### [Verizon'dan alınan çekirdek raporlar](cdn-analyze-usage-patterns.md)
+#### [Azure tanılama günlükleri](cdn-azure-diagnostic-logs.md)
+### Verizon'dan alınan Azure CDN için Analytics araçları
+#### [Gelişmiş HTTP raporları oluşturma](cdn-advanced-http-reports.md)
+#### [Gerçek zamanlı istatistikleri görüntüleme](cdn-real-time-stats.md)
+#### [Kenar düğümü performansını çözümleme](cdn-edge-performance.md)
 
 ## Geliştirme
 ### [.NET](cdn-app-dev-net.md)
@@ -53,7 +55,7 @@
 
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
-## [PowerShell](/powershell/module/azurerm.cdn)
+## [Azure PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
 ## [REST](/rest/api/cdn/)

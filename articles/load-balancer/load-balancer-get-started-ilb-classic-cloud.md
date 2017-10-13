@@ -1,9 +1,9 @@
 ---
-title: "Azure bulut Hizmetleri için bir iç yük dengeleyici aaaCreate | Microsoft Docs"
-description: "Toocreate bir iç yük dengeleyici hello Klasik dağıtım modelinde PowerShell kullanarak nasıl öğrenin"
+title: "Azure Cloud Services için İç yük dengeleyicisi oluşturma | Microsoft Docs"
+description: "Klasik dağıtım modelinde PowerShell kullanarak iç yük dengeleyici oluşturmayı öğrenin"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: 57966056-0f46-4f95-a295-483ca1ad135d
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: fe7975bca7bec3248626b0ad0fad6823e278ade2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 6616c26ede13919b94a098dc38bdd6e2f0fc0b5b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>Bulut hizmetleri için iç yük dengeleyici (klasik) oluşturmaya başlama
 
@@ -28,32 +28,32 @@ ms.lasthandoff: 10/06/2017
 > * [Bulut hizmetleri](../load-balancer/load-balancer-get-started-ilb-classic-cloud.md)
 
 > [!IMPORTANT]
-> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md).  Bu makalede, hello Klasik dağıtım modeli kullanılarak yer almaktadır. Microsoft, en yeni dağıtımların hello Resource Manager modelini kullanmasını önerir. Nasıl çok öğrenin[hello Resource Manager modelini kullanarak bu adımları uygulamadan](load-balancer-get-started-ilb-arm-ps.md).
+> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md).  Bu makale klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. [Bu adımları Resource Manager modeli kullanarak gerçekleştirmeyi](load-balancer-get-started-ilb-arm-ps.md) öğrenin.
 
 ## <a name="configure-internal-load-balancer-for-cloud-services"></a>Bulut hizmetleri için iç yük dengeleyiciyi yapılandırma
 
-İç yük dengeleyici hem sanal makineler hem de bulut hizmetleri için desteklenmektedir. Bölgesel sanal ağ dışında bir bulut hizmetinde oluşturulan bir iç yük dengeleyici uç nokta yalnızca hello bulut hizmetinde erişilebilir olacaktır.
+İç yük dengeleyici hem sanal makineler hem de bulut hizmetleri için desteklenmektedir. Bölgesel bir sanal ağın dışındaki bulut hizmetinde oluşturulmuş olan iç yük dengeleyici uç noktasına yalnızca bulut hizmetinden erişilebilir.
 
-Merhaba iç yük dengeleyici yapılandırması hello bulut hizmeti, ilk dağıtımda hello hello oluşturulması sırasında örnek hello aşağıda gösterildiği gibi ayarlamak toobe sahiptir.
+İç yük dengeleyici yapılandırmasının aşağıdaki örnekte gösterilen şekilde bulut hizmetindeki ilk dağıtımın oluşturulması sırasında yapılması gerekir.
 
 > [!IMPORTANT]
-> Bir önkoşul toorun hello adımları toohave zaten hello bulut dağıtımı için oluşturulan bir sanal ağ olur. Sanal ağ adı ve alt ağ adı toocreate hello iç Yük Dengeleme hello gerekir.
+> Aşağıdaki adımları çalıştırmanın ön koşulu, bulut dağıtımı için sanal ağ oluşturmuş olmaktır. İç Yük Dengeleme oluşturmak için sanal ağ adına ve alt ağ adına ihtiyacınız olacaktır.
 
 ### <a name="step-1"></a>1. Adım
 
-Visual Studio bulut dağıtımınız için hello hizmet yapılandırma dosyasının (.cscfg) açın ve son bölümü toocreate hello iç Yük Dengeleme hello altında aşağıdaki hello Ekle "`</Role>`" Merhaba ağ yapılandırması için öğesi.
+Bulut dağıtımınıza ait hizmet yapılandırma dosyasını (.cscfg) Visual Studio’da açın ve İç Yük Dengeleme oluşturmak için ağ yapılandırmasının son "`</Role>`" öğesinin altına aşağıdaki bölümü ekleyin.
 
 ```xml
 <NetworkConfiguration>
     <LoadBalancers>
-    <LoadBalancer name="name of hello load balancer">
+    <LoadBalancer name="name of the load balancer">
         <FrontendIPConfiguration type="private" subnet="subnet-name" staticVirtualNetworkIPAddress="static-IP-address"/>
     </LoadBalancer>
     </LoadBalancers>
 </NetworkConfiguration>
 ```
 
-Merhaba ağ yapılandırma dosyası tooshow nasıl görüneceğine hello değerlerini ekleyelim. Merhaba örnekte test_subnet ve statik bir IP 10.0.0.4 adlı bir 10.0.0.0/24 alt ağıyla "test_vnet" adlı bir VNet oluşturulan varsayalım. Merhaba yük dengeleyici testLB adlandırılacaktır.
+Şimdi nasıl görüneceğini görmek için ağ yapılandırma dosyasına değerleri ekleyelim. Bu örnekte test_subnet adına ve 10.0.0.0/24 alt ağına sahip, 10.0.0.4 statik IP numaralı ve "test_vnet" adlı bir VNet oluşturduğunuzu varsayın. Yük dengeleyici testLB olarak adlandırılacaktır.
 
 ```xml
 <NetworkConfiguration>
@@ -65,11 +65,11 @@ Merhaba ağ yapılandırma dosyası tooshow nasıl görüneceğine hello değerl
 </NetworkConfiguration>
 ```
 
-Merhaba yük dengeleyici şeması hakkında daha fazla bilgi için bkz: [Ekle yük dengeleyici](https://msdn.microsoft.com/library/azure/dn722411.aspx).
+Yük dengeleyici şeması hakkında daha fazla bilgi için bkz. [Yük dengeleyici ekleme](https://msdn.microsoft.com/library/azure/dn722411.aspx).
 
 ### <a name="step-2"></a>2. Adım
 
-Merhaba hizmet açıklaması (.csdef) dosya tooadd uç noktaları toohello iç Yük Dengeleme değiştirin. Merhaba şu anda bir rol örneği oluşturulur, hello hizmet tanımı dosyası hello rol örnekleri toohello iç Yük Dengeleme ekleyeceksiniz.
+İç Yük Dengeleme uç noktalarını eklemek için hizmet tanımı (.csdef) dosyasını değiştirin. Rol örneği oluşturulduğunda hizmet tanım dosyası rol örneklerini İç Yük Dengeleyiciye ekleyecektir.
 
 ```xml
 <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
@@ -79,7 +79,7 @@ Merhaba hizmet açıklaması (.csdef) dosya tooadd uç noktaları toohello iç Y
 </WorkerRole>
 ```
 
-Örnek hello yukarıdaki değerlerini aynı hello hello değerleri toohello hizmet tanımı dosyası ekleyelim.
+Yukarıdaki örnekteki değerleri kullanarak bu değerleri hizmet tanımı dosyasına ekleyelim.
 
 ```xml
 <WorkerRole name="WorkerRole1" vmsize="A7" enableNativeCodeExecution="[true|false]">
@@ -89,7 +89,7 @@ Merhaba hizmet açıklaması (.csdef) dosya tooadd uç noktaları toohello iç Y
 </WorkerRole>
 ```
 
-Merhaba ağ trafiğini tooworker rol örneklerine de bağlantı noktası 80 üzerinde gönderme gelen istekler için 80 numaralı bağlantı noktasını kullanarak hello testLB yük dengeleyici kullanılarak Yük Dengeleme olacaktır.
+Ağ trafiği gelen isteklere için 80 numaralı bağlantı noktasını kullana e çalışan rolü örneklerini de 80 numaralı bağlantı noktasına gönderen testLB adlı yük dengeleyiciyi kullanarak yük dengeleme yapılacaktır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,5 +1,5 @@
 ---
-title: Visual Studio - Azure Logic Apps aaaManage logic apps | Microsoft Docs
+title: "Visual Studio - Azure Logic Apps mantığı uygulamaları yönetme | Microsoft Docs"
 description: "Mantıksal uygulamalar ve diğer Azure varlıkları Visual Studio bulut Gezgini ile yönetme"
 author: klam
 manager: anneta
@@ -15,15 +15,15 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 12/19/2016
 ms.author: LADocs; klam
-ms.openlocfilehash: 419f83eb062b56e4ac2642dea4de1a025f747521
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a5bf24de1a7a2b6d4c1ae6416c95d83ef7506da3
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="manage-your-logic-apps-with-visual-studio-cloud-explorer"></a>Mantıksal uygulamalarınızı Visual Studio bulut Gezgini ile yönetme
 
-Merhaba rağmen [Azure portal](https://portal.azure.com/) toodesign sizin için harika bir yol sunar ve Azure mantıksal uygulamaları yönetmek için Visual Studio Cloud Explorer mantıksal uygulamalar dahil olmak üzere birçok Azure varlıklar yönetmek için kullanabilirsiniz. Visual Studio bulut Gezgini, Gözat, yönetme, düzenleme sağlar ve logic apps indirme yayımlanır. Yönetim görevleri etkinleştir, devre dışı bırakma ve geçmişini görüntüleme çalıştırmak içerir. 
+Ancak [Azure portal](https://portal.azure.com/) tasarlama ve Azure mantıksal uygulamaları yönetmek harika bir yol sunar, Visual Studio Cloud Explorer mantıksal uygulamalar dahil olmak üzere birçok Azure varlıklar yönetmek için kullanabilirsiniz. Visual Studio bulut Gezgini, Gözat, yönetme, düzenleme sağlar ve logic apps indirme yayımlanır. Yönetim görevleri etkinleştir, devre dışı bırakma ve geçmişini görüntüleme çalıştırmak içerir. 
 
 Erişebilir ve logic apps Visual Studio içinde yönetebilirsiniz önce yükleyin ve bu Visual Studio Araçları Azure Logic Apps için yapılandırın. 
 
@@ -32,54 +32,54 @@ Erişebilir ve logic apps Visual Studio içinde yönetebilirsiniz önce yükleyi
 * [Visual Studio 2015 veya Visual Studio 2017](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * [En son Azure SDK'sı](https://azure.microsoft.com/downloads/) (2.9.1 veya üzeri)
 * [Visual Studio bulut Gezgini](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015)
-* Merhaba katıştırılmış Tasarımcısı kullanırken erişim toohello web
+* Katıştırılmış Tasarımcısı'nı kullanırken web erişimi
 
 ## <a name="install-visual-studio-tools-for-logic-apps"></a>Mantıksal uygulamalar için Visual Studio araçlarını yükleme
 
-Merhaba önkoşulları yüklendikten sonra karşıdan yükleyip hello Azure Logic Apps araçları Visual Studio için.
+Önkoşulları yüklendikten sonra indirin ve Visual Studio için Azure Logic Apps Araçları'nı yükleme.
 
-1. Visual Studio'yu açın. Merhaba üzerinde **Araçları** menüsünde, select **Uzantılar ve güncelleştirmeler**.
-2. Merhaba genişletin **çevrimiçi** hello Visual Studio Galerisi çevrimiçi arama yapabilmeniz için kategori.
+1. Visual Studio'yu açın. Üzerinde **Araçları** menüsünde, select **Uzantılar ve güncelleştirmeler**.
+2. Genişletme **çevrimiçi** Visual Studio Galerisi çevrimiçi arama yapabilmeniz için kategori.
 3. Göz atın veya arayın **Logic Apps** bulana kadar **Visual Studio için Azure Logic Apps Araçları**.
-4. toodownload ve yükleme hello uzantısı,'ı **karşıdan**.
+4. Karşıdan yükle ve uzantıyı yüklemek için tıklatın **karşıdan**.
 5. Yüklendikten sonra Visual Studio'yu yeniden başlatın.
 
 > [!NOTE]
-> toodownload hello Azure Logic Apps araçları Visual Studio için doğrudan toohello Git [Visual Studio Market'te](https://visualstudiogallery.msdn.microsoft.com/e25ad307-46cf-412e-8ba5-5b555d53d2d9).
+> Azure Logic Apps araçları Visual Studio için doğrudan indirmek için Git [Visual Studio Market'te](https://visualstudiogallery.msdn.microsoft.com/e25ad307-46cf-412e-8ba5-5b555d53d2d9).
 
 ## <a name="browse-for-logic-apps-in-cloud-explorer"></a>Logic apps Cloud Explorer'da gözatın.
 
-1.  tooopen Cloud Explorer hello üzerinde **Görünüm** menüsünde seçin **Cloud Explorer**.
+1.  Cloud Explorer açmak için **Görünüm** menüsünde seçin **Cloud Explorer**.
 2.  Mantıksal uygulamanız için kaynak grubu veya kaynak türüne göre göz atın. 
 
-    * Kaynak türüne göre göz atarsanız, Azure aboneliğinizi seçin, hello genişletin **Logic Apps** bölümünde ve mantıksal uygulamanızı seçin. 
-    * Kaynak grubu tarafından göz atarsanız, mantıksal uygulamanızı sahip hello kaynak grubunu genişletin ve mantıksal uygulamanızı seçin.
+    * Kaynak türüne göre göz atarsanız, Azure aboneliğinizi seçin, genişletin **Logic Apps** bölümünde ve mantıksal uygulamanızı seçin. 
+    * Kaynak grubu tarafından göz atarsanız, mantıksal uygulamanızı sahip olan kaynak grubunu genişletin ve mantıksal uygulamanızı seçin.
 
-    tooview komutları mantığı uygulamanız için mantıksal uygulamanızı sağ tıklayın ya da bulut Explorer hello altındaki hello seçin **Eylemler** menüsü.
+    Mantıksal uygulamanız için komutları görüntülemek için mantıksal uygulamanızı sağ tıklayın ya da bulut Explorer alt kısmındaki arasından **Eylemler** menüsü.
 
     ![Mantıksal uygulamanızı gözatın.](./media/logic-apps-manage-from-vs/browse.png)
 
 ## <a name="edit-your-logic-app-with-logic-apps-designer"></a>Mantıksal uygulamanızı Logic Apps Tasarımcısı ile Düzenle
 
-Bulut Gezgini'nden hello şu anda dağıtılmış mantıksal uygulama açabilirsiniz hello Azure portalında kullandığınız aynı Tasarımcısı. 
+Bulut Gezgini'nden Azure portalında kullandığınız aynı Tasarımcısı'nda şu anda dağıtılmış mantıksal uygulama açabilirsiniz. 
 
-* tooedit bulut Gezgini'nde mantıksal uygulamanızı mantıksal uygulamanızı sağ tıklatın ve seçin **mantığı uygulama Düzenleyicisi ile açık**. 
+* Cloud Explorer'da mantıksal uygulamanızı düzenlemek için mantıksal uygulamanızı sağ tıklatın ve seçin **mantığı uygulama Düzenleyicisi ile açık**. 
 
-* toopublish, güncelleştirmelerinin toohello bulut, seçin **Yayımla**. 
+* Güncelleştirmelerinizi buluta yayımlamak için tercih **Yayımla**. 
 
-* Yeni bir çalışma toostart seçin **tetikleyici çalıştırmak**.
+* Yeni bir çalışma başlatmayı seçin **tetikleyici çalıştırmak**.
 
 ![Logic Apps Tasarımcısı](./media/logic-apps-manage-from-vs/designer.png)
 
-Merhaba Tasarımcısı'ndan şunları da yapabilirsiniz **karşıdan** bir mantıksal uygulama. Bu eylem otomatik olarak hello mantıksal uygulama tanımını parameterizes ve hello tanımı bir Azure Resource Manager dağıtım şablonu olarak kaydeder. Bu dağıtım şablonu tooyour Azure kaynak grubu projesi ekleyebilirsiniz.
+Tasarımcısı'ndan şunları da yapabilirsiniz **karşıdan** bir mantıksal uygulama. Bu eylem otomatik olarak mantıksal uygulama tanımını parameterizes ve tanım bir Azure Resource Manager dağıtım şablonu olarak kaydeder. Bu dağıtım şablonu Azure kaynak grubu projenizi ekleyebilirsiniz.
 
 ## <a name="browse-your-logic-app-run-history"></a>Mantıksal uygulamanızı çalıştırma geçmişi göz atın
 
-çalıştırma geçmişi mantığı uygulamanız için tooview hello mantıksal uygulamanızı sağ tıklatın ve seçin **açık çalıştırma geçmişi**. tooreorder çalıştırma geçmişi hello özellikleri gösterilen, select hello sütun başlığını hiçbirinde temel.
+Mantıksal uygulamanızı çalıştırma geçmişini görüntülemek için mantıksal uygulamanızı sağ tıklatın ve seçin **açık çalıştırma geçmişi**. Gösterilen özellikleri hiçbirinde göre çalışma geçmişinizi yeniden sıralamak için sütun başlığını seçin.
 
 ![çalıştırma geçmişi](media/logic-apps-manage-from-vs/runs.png)
 
-hello çalıştırmak hello girişleri ve çıkışları her adımdan dahil olmak üzere sonuçları gözden geçirebilmeniz için çalıştırma geçmişi bir örneğinin tooshow hello örneklerinde Çalıştır hello birini çift tıklatın.
+Girişleri ve çıkışları her adımdan dahil olmak üzere çalışma sonuçlarını inceleyebilirsiniz bir örneği için çalıştırma geçmişi görüntüleyecek şekilde çalışma örneklerden birini çift tıklatın.
 
 ![Geçmiş sonuçlarını, giriş ve çıkış adımları çalıştırın](./media/logic-apps-manage-from-vs/history.png)
 

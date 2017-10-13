@@ -1,6 +1,6 @@
 ---
-title: "aaa \"verileri (.NET - Azure Search) yükleme | Microsoft Docs\""
-description: ".NET SDK kullanarak Azure Search tooupload veri tooan dizini hello nasıl öğrenin."
+title: "Verileri karşıya yükleme (.NET - Azure Search) | Microsoft Docs"
+description: ".NET SDK kullanarak Azure Search'te bir dizine nasıl veri yükleneceğini öğrenin."
 services: search
 documentationcenter: 
 author: brjohnstmsft
@@ -15,13 +15,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/13/2017
 ms.author: brjohnst
-ms.openlocfilehash: 78ddbefb522884d1f61cb275c25c091487aee639
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: bdd952869143c6ca6374bb9264db5bcba1f32b50
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="upload-data-tooazure-search-using-hello-net-sdk"></a>Karşıya veri tooAzure arama'yı kullanarak hello .NET SDK'sı
+# <a name="upload-data-to-azure-search-using-the-net-sdk"></a>.NET SDK kullanarak Azure Search'e veri yükleme
 > [!div class="op_single_selector"]
 > * [Genel Bakış](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
@@ -29,47 +29,47 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Bu makale size nasıl gösterir toouse hello [Azure Search .NET SDK'sı](https://aka.ms/search-sdk) tooimport verileri Azure Search dizini.
+Bu makalede, bir Azure Search dizinine veri aktarmak için [Azure Search .NET SDK](https://aka.ms/search-sdk)'sının nasıl kullanılacağı gösterilir.
 
-Bu kılavuza başlamadan önce bir [Azure Search dizini oluşturmuş](search-what-is-an-index.md) olmanız gerekir. Bu makalede, ayrıca, zaten oluşturduğunuzu varsayar bir `SearchServiceClient` gösterildiği gibi nesne [hello .NET SDK kullanarak Azure Search dizini oluşturma](search-create-index-dotnet.md#CreateSearchServiceClient).
+Bu kılavuza başlamadan önce bir [Azure Search dizini oluşturmuş](search-what-is-an-index.md) olmanız gerekir. Ayrıca, bu makale [.NET SDK kullanarak Azure Search dizini oluşturma](search-create-index-dotnet.md#CreateSearchServiceClient) başlığı altında gösterildiği şekilde önceden bir `SearchServiceClient` nesnesi oluşturduğunuzu varsayar.
 
 > [!NOTE]
-> Bu makaledeki örnek kodun tamamı C# dilinde yazılmıştır. Merhaba tam kaynak kodu bulabilirsiniz [github'da](http://aka.ms/search-dotnet-howto). Merhaba hakkında bilgi edinebilirsiniz [Azure Search .NET SDK'sı](search-howto-dotnet-sdk.md) daha ayrıntılı ilerlemesi hello örnek kod için.
+> Bu makaledeki örnek kodun tamamı C# dilinde yazılmıştır. Tam kaynak kodunu [GitHub](http://aka.ms/search-dotnet-howto)'da bulabilirsiniz. Ayrıca, örnek kodla ilgili daha ayrıntılı yönergeler için [Azure Search .NET SDK’sı](search-howto-dotnet-sdk.md) hakkındaki yazıları da okuyabilirsiniz.
 
-Sipariş toopush belgelerde hello .NET SDK kullanarak dizininizi içine yapmanız gerekir:
+.NET SDK kullanarak dizininize belge göndermek için şunu yapmanız gerekir:
 
-1. Oluşturma bir `SearchIndexClient` nesne tooconnect tooyour arama dizini.
-2. Oluşturma bir `IndexBatch` hello belgeleri toobe içeren eklenen değiştirilmiş veya silinmiş.
-3. Merhaba çağrısı `Documents.Index` yöntemi, `SearchIndexClient` toosend hello `IndexBatch` tooyour arama dizini.
+1. Arama dizininize bağlamak için bir `SearchIndexClient` nesnesi oluşturun.
+2. Eklenecek, değiştirilecek veya silinecek belgeleri içeren bir `IndexBatch` oluşturun.
+3. Arama dizininize `IndexBatch` göndermek için `SearchIndexClient` öğenizin `Documents.Index` yöntemini çağırın.
 
-## <a name="create-an-instance-of-hello-searchindexclient-class"></a>Merhaba Searchındexclient sınıfının bir örneğini oluşturun
-Azure Search .NET SDK kullanarak dizini içine tooimport veri Merhaba, toocreate hello örneği gerekir `SearchIndexClient` sınıfı. Zaten varsa, bu örneği kendiniz ancak, daha kolay oluşturabileceğiniz bir `SearchServiceClient` örneği toocall kendi `Indexes.GetClient` yöntemi. Örneğin, işte nasıl elde edebilirsiniz bir `SearchIndexClient` hello dizini "hotels" adlı bir `SearchServiceClient` adlı `serviceClient`:
+## <a name="create-an-instance-of-the-searchindexclient-class"></a>SearchIndexClient sınıfının bir örneğini oluşturma
+Azure Search .NET SDK'sını kullanarak dizininize veri aktarmak için `SearchIndexClient` sınıfının bir örneğini oluşturmanız gerekir. Bu örneği kendiniz oluşturulabilirsiniz ancak bunun `Indexes.GetClient` yöntemini çağırmak için bir `SearchServiceClient` örneğine zaten sahipseniz daha kolay olur. Örneğin, `serviceClient` adlı bir `SearchServiceClient` öğesinden "hotels" adlı bir dizin için şu şekilde bir `SearchIndexClient` elde edebilirsiniz:
 
 ```csharp
 ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
 ```
 
 > [!NOTE]
-> Genel bir arama uygulamasında, dizin yönetimi ve popülasyon, arama sorgularından ayrı bir bileşen tarafından işlenir. `Indexes.GetClient`kaydettiğinden bir dizini doldurmada kullanışlıdır hello başka sağlama sorun `SearchCredentials`. Bunu Bu, kullanılan toocreate hello hello yönetici anahtarını geçirerek yapar `SearchServiceClient` toohello yeni `SearchIndexClient`. Ancak, uygulamanızın sorguları yürüten hello bölümünde daha iyi toocreate hello olmasından `SearchIndexClient` doğrudan böylece bir yönetici anahtarı yerine sorgu anahtarında geçirebilirsiniz. Bu hello ile tutarlıdır [en az ayrıcalık prensibi](https://en.wikipedia.org/wiki/Principle_of_least_privilege) ve uygulamanızı daha güvenli toomake yardımcı olur. Yönetici anahtarları ve hello sorgu anahtarları hakkında daha fazla bilgi için [Azure Search REST API Başvurusu](https://docs.microsoft.com/rest/api/searchservice/).
+> Genel bir arama uygulamasında, dizin yönetimi ve popülasyon, arama sorgularından ayrı bir bileşen tarafından işlenir. `Indexes.GetClient`, başka bir `SearchCredentials` sağlamanızı gerektirmediğinden, dizini doldurmak için uygundur. Yeni `SearchIndexClient` için `SearchServiceClient` oluşturmak üzere kullandığınız yönetici anahtarını geçirerek bunu yapar. Ancak uygulamanızın sorguları yürüten bölümünde, bir yönetici anahtarı yerine sorgu anahtarında geçirebilmeniz için doğrudan `SearchIndexClient` oluşturmak daha iyi olur. Bu, [en az ayrıcalık ilkesiyle](https://en.wikipedia.org/wiki/Principle_of_least_privilege) tutarlıdır ve uygulamanızı daha güvenli hale getirmenize yardımcı olur. [Azure Search REST API'si başvurusunda](https://docs.microsoft.com/rest/api/searchservice/) yönetici anahtarları ve sorgu anahtarları hakkında daha fazla bilgi edinebilirsiniz.
 > 
 > 
 
-`SearchIndexClient`, `Documents` özelliğine sahiptir. Bu özellik tooadd, gereken tüm hello yöntemleri değiştirmek, silmek veya belgeleri dizininize sorgu sağlar.
+`SearchIndexClient`, `Documents` özelliğine sahiptir. Bu özellik, belgeleri dizininize eklemek, bunları değiştirmek, silmek veya sorgulamak için ihtiyacınız olan tüm yöntemleri sağlar.
 
-## <a name="decide-which-indexing-action-toouse"></a>Hangi dizin oluşturma eylemini toouse karar verin
-Merhaba .NET SDK kullanarak tooimport veri verilerinizi toopackage ihtiyacınız olacak bir `IndexBatch` nesnesi. Bir `IndexBatch` koleksiyonunu yalıtır `IndexAction` nesneleri, her biri içeren bir belge ve hangi eylemini tooperform belge (karşıya yükleme, birleştirme, silme, vb.) Azure Search söyleyen bir özellik. Seçtiğiniz Eylemler aşağıda hello bağlı olarak, yalnızca belirli alanlar her belge için dahil edilmelidir:
+## <a name="decide-which-indexing-action-to-use"></a>Hangi dizin oluşturma eyleminin kullanılacağına karar verme
+.NET SDK kullanarak veri içeri aktarmak için verilerinizi bir `IndexBatch` nesnesine paketlemeniz gerekir. Bir `IndexBatch`, her birinde bir belge ve söz konusu belgede hangi eylemin (karşıya yükleme, birleştirme, silme, vb.) gerçekleştirileceğini Azure Search'e söyleyen bir özellik bulunan `IndexAction` nesneleri koleksiyonunu kapsar. Yukarıdaki eylemlerden hangisini seçtiğinize bağlı olarak, her bir belgeye yalnızca belirli alanlar dahil edilmelidir:
 
 | Eylem | Açıklama | Her bir belge için gerekli alanlar | Notlar |
 | --- | --- | --- | --- |
-| `Upload` |Bir `Upload` benzer tooan "upsert" nerede hello belgenin yeni olması durumunda ekleneceği ve olması mevcut durumunda güncelleştirileceği/değiştirileceği bir eylemdir. |anahtar ve toodefine istediğiniz diğer alanlar |Güncelleştirme/var olan bir belgeyi değiştirirken, hello istekte belirtilen olmayan herhangi bir alan kendi alan çok kümesini sahip`null`. Bu durum, hatta hello alan tooa null olmayan değer önceden ayarlandı oluşur. |
-| `Merge` |Varolan bir belge ile Merhaba güncelleştirmeleri alanları belirtilmiş. Merhaba belge hello dizininde mevcut değilse hello birleştirme işlemi başarısız olur. |anahtar ve toodefine istediğiniz diğer alanlar |Birleştirmede belirttiğiniz herhangi bir alan varolan bir alana hello hello belgedeki yerini alır. Buna `DataType.Collection(DataType.String)` türünde alanlar dahildir. Örneğin, hello belge bir alanı varsa, `tags` değerle `["budget"]` ve değeriyle bir birleştirme yürütme `["economy", "pool"]` için `tags`, hello hello son değerini `tags` alan `["economy", "pool"]`. `["budget", "economy", "pool"]` olmayacaktır. |
-| `MergeOrUpload` |Bu eylem gibi davranır `Merge` anahtar zaten verilen hello belgeyle hello dizinde varsa. Merhaba belge mevcut değilse gibi davranır `Upload` yeni bir belgeyle. |anahtar ve toodefine istediğiniz diğer alanlar |- |
-| `Delete` |Merhaba belirtilen belge hello dizinden kaldırır. |yalnızca anahtar |Merhaba anahtar alanı yoksayılacak dışında belirttiğiniz tüm alanlar. Bir belgeden tek bir alanı tooremove istiyorsanız kullanın `Merge` yerine ve basit şekilde hello alan açık olarak ayarlanıp toonull. |
+| `Upload` |Bir `Upload` eylemi, belgenin yeni olması durumunda ekleneceği ve var olması durumunda güncelleştirileceği/değiştirileceği bir "upsert" ile benzerlik gösterir. |anahtar ve tanımlamak istediğiniz diğer alanlar |Var olan bir belgeyi güncelleştirirken/değiştirirken istekte belirtilmeyen herhangi bir alan `null` olarak ayarlanır. Bu durum, alan daha önce değersiz olmayan bir değere ayarlanmış olsa dahi gerçekleşir. |
+| `Merge` |Var olan belgeyi belirtilen alanlarla güncelleştirir. Belge dizinde mevcut değilse birleştirme işlemi başarısız olur. |anahtar ve tanımlamak istediğiniz diğer alanlar |Birleştirmede belirttiğiniz herhangi bir alan belgede var olan alanın yerini alır. Buna `DataType.Collection(DataType.String)` türünde alanlar dahildir. Örneğin, belge `["budget"]` değerine sahip bir `tags` alanını içeriyorsa ve `tags` için `["economy", "pool"]` değeriyle bir birleştirme yürütürseniz `tags` alanının son değeri `["economy", "pool"]` olur. `["budget", "economy", "pool"]` olmayacaktır. |
+| `MergeOrUpload` |Belirtilen anahtara sahip bir belge dizinde zaten mevcutsa bu eylem `Merge` gibi davranır. Belge mevcut değilse yeni bir belgeyle `Upload` gibi davranır. |anahtar ve tanımlamak istediğiniz diğer alanlar |- |
+| `Delete` |Belirtilen belgeyi dizinden kaldırır. |yalnızca anahtar |Anahtar alanı dışında belirttiğiniz tüm alanlar yoksayılır. Bir belgeden tek bir alanı kaldırmak istiyorsanız bunun yerine `Merge` kullanıp alanı açık bir şekilde null olarak ayarlamanız yeterlidir. |
 
-Hangi eylemini toouse ile istediğiniz belirtebilirsiniz hello çeşitli statik yöntemlerini hello `IndexBatch` ve `IndexAction` hello sonraki bölümde gösterildiği gibi sınıflar.
+Bir sonraki bölümde gösterildiği üzere, `IndexBatch` ve `IndexAction` sınıflarının çeşitli statik yöntemleriyle hangi eylemi kullanmak istediğinizi belirtebilirsiniz.
 
 ## <a name="construct-your-indexbatch"></a>IndexBatch'inizi oluşturma
-Belgelerinizde hangi eylemleri tooperform bildiğinize göre hazır tooconstruct hello olan `IndexBatch`. gösterir aşağıdaki örnekte nasıl hello toocreate birkaç farklı eylemler ile bir toplu iş. Bizim örneğimizde adlı özel bir sınıf kullandığına dikkat edin `Hotel` hello "hotels" dizininin tooa belgede eşler.
+Artık belgelerinizde hangi eylemleri gerçekleştireceğinizi bildiğinize göre, `IndexBatch` oluşturmaya hazırsınız. Aşağıdaki örnek, bir toplu işlemin birkaç farklı eylemle nasıl oluşturulacağını gösterir. Örneğimizde "hotels" dizinindeki bir belgeyle eşlenen `Hotel` adlı özel bir sınıf kullandığımıza dikkat edin.
 
 ```csharp
 var actions =
@@ -112,7 +112,7 @@ var actions =
             {
                 HotelId = "3",
                 BaseRate = 129.99,
-                Description = "Close tootown hall and hello river"
+                Description = "Close to town hall and the river"
             }),
         IndexAction.Delete(new Hotel() { HotelId = "6" })
     };
@@ -120,19 +120,19 @@ var actions =
 var batch = IndexBatch.New(actions);
 ```
 
-Bu durumda, kullanıyoruz `Upload`, `MergeOrUpload`, ve `Delete` üzerinde hello adlı hello yöntemler tarafından belirtildiği gibi arama eylemlerimiz olarak `IndexAction` sınıfı.
+Bu durumda, `IndexAction` sınıfında çağrılan yöntemler tarafından belirtildiği üzere, arama eylemlerimiz olarak `Upload`, `MergeOrUpload` ve `Delete` kullanıyoruz.
 
-Bu "hotels" dizini örneğinin, birçok belgeyle önceden doldurulduğunu varsayın. Nasıl biz toospecify tüm hello olası belge alanlarını kullanırken sahip değildi Not `MergeOrUpload` ve yalnızca hello belge anahtarını belirttiğimize (`HotelId`) kullanırken `Delete`.
+Bu "hotels" dizini örneğinin, birçok belgeyle önceden doldurulduğunu varsayın. `MergeOrUpload` kullanırken olası tüm belge alanlarını belirtmek zorunda kalmadığımıza ve `Delete` kullanırken yalnızca belge anahtarını (`HotelId`) belirttiğimize dikkat edin.
 
-Ayrıca, yalnızca tek bir dizin oluşturma isteğine too1000 belgelerde yukarı dahil edebileceğinizi unutmayın.
+Ayrıca, tek bir dizin oluşturma isteğine yalnızca en fazla 1000 belge dahil edebileceğinizi unutmayın.
 
 > [!NOTE]
-> Bu örnekte, farklı eylemler toodifferent belgelerini uyguladığımız. İsterseniz tooperform hello aynı eylemleri çağırmak yerine hello toplu işteki tüm belgeler arasında `IndexBatch.New`, kullanabileceğinizi diğer statik yöntemlerini hello `IndexBatch`. Örneğin; `IndexBatch.Merge`, `IndexBatch.MergeOrUpload` ve `IndexBatch.Delete` çağırarak toplu işlemler oluşturabilirsiniz. Bu yöntemler, `IndexAction` nesneleri yerine bir belge koleksiyonu (bu örnekte `Hotel` türünde nesneler) alır.
+> Bu örnekte, farklı belgelere farklı eylemler uyguluyoruz. Toplu işlemdeki tüm belgelerde aynı eylemleri gerçekleştirmek istiyorsanız `IndexBatch.New` çağırmak yerine `IndexBatch` öğesinin diğer statik yöntemlerini kullanabilirsiniz. Örneğin; `IndexBatch.Merge`, `IndexBatch.MergeOrUpload` ve `IndexBatch.Delete` çağırarak toplu işlemler oluşturabilirsiniz. Bu yöntemler, `IndexAction` nesneleri yerine bir belge koleksiyonu (bu örnekte `Hotel` türünde nesneler) alır.
 > 
 > 
 
-## <a name="import-data-toohello-index"></a>İçeri aktarma veri toohello dizini
-Başlatılan bir sahip olduğunuza `IndexBatch` nesne gönderebilirsiniz, toohello dizin çağırarak `Documents.Index` üzerinde `SearchIndexClient` nesnesi. örnekte gösterildiği nasıl aşağıdaki hello toocall `Index`, yanı sıra bazı ek adımlar tooperform gerekir:
+## <a name="import-data-to-the-index"></a>Dizine veri aktarma
+Artık başlatılan bir `IndexBatch` nesneniz olduğuna göre `SearchIndexClient` nesneniz üzerinden `Documents.Index` çağrısı yaparak bunu dizininize gönderebilirsiniz. Aşağıdaki örnekte, nasıl `Index` çağrılacağının yanı sıra gerçekleştirmeniz gereken bazı ek adımlar gösterilmektedir:
 
 ```csharp
 try
@@ -141,26 +141,26 @@ try
 }
 catch (IndexBatchException e)
 {
-    // Sometimes when your Search service is under load, indexing will fail for some of hello documents in
-    // hello batch. Depending on your application, you can take compensating actions like delaying and
-    // retrying. For this simple demo, we just log hello failed document keys and continue.
+    // Sometimes when your Search service is under load, indexing will fail for some of the documents in
+    // the batch. Depending on your application, you can take compensating actions like delaying and
+    // retrying. For this simple demo, we just log the failed document keys and continue.
     Console.WriteLine(
-        "Failed tooindex some of hello documents: {0}",
+        "Failed to index some of the documents: {0}",
         String.Join(", ", e.IndexingResults.Where(r => !r.Succeeded).Select(r => r.Key)));
 }
 
-Console.WriteLine("Waiting for documents toobe indexed...\n");
+Console.WriteLine("Waiting for documents to be indexed...\n");
 Thread.Sleep(2000);
 ```
 
-Not hello `try` / `catch` hello çağrısı toohello çevreleyen `Index` yöntemi. Merhaba catch bloğu, dizin oluşturma için önemli bir hata durumunu işler. Azure Search hizmetinizin hello bazıları belgeleri hello toplu işlemde tooindex başarısız olursa bir `IndexBatchException` tarafından oluşturulan `Documents.Index`. Bu durum, hizmetiniz ağır yük altındayken belgelere dizin oluşturuyorsanız oluşabilir. **Bu durumu, kodunuzda açık şekilde işlemenizi kesinlikle öneririz.** Gecikme ve başarısız olan dizin hello belge yeniden deneyin veya oturum ve hello örnek vermez veya uygulamanızın veri tutarlılığı gereksinimlerine bağlı olarak başka bir şey yapabilirsiniz gibi devam edebilirsiniz.
+`try`/`catch` öğesinin, `Index` yöntemine yönelik çağrıyı çevrelediğine dikkat edin. Catch bloğu, dizin oluşturma için önemli bir hata durumunu işler. Azure Search hizmetiniz toplu işlemdeki belgelerin bazılarına dizin oluşturmada başarısız olursa `Documents.Index` tarafından bir `IndexBatchException` oluşturulur. Bu durum, hizmetiniz ağır yük altındayken belgelere dizin oluşturuyorsanız oluşabilir. **Bu durumu, kodunuzda açık şekilde işlemenizi kesinlikle öneririz.** Başarısız olan belgelere dizin oluşturmayı geciktirip sonra yeniden deneyebilir veya günlük tutup örneğin devam ettiği şekilde devam edebilir veya uygulamanızın veri tutarlılığı gereksinimlerine bağlı olarak başka bir şey yapabilirsiniz.
 
-Son olarak, yukarıdaki hello örnekteki kod iki saniye hello. Merhaba örnek uygulaması toowait hello belgelerin aramada kullanılabilir kısa bir süre tooensure gerekir böylece dizin oluşturma Azure Search hizmetinizin zaman uyumsuz olarak gerçekleşir. Bu gibi gecikmeler genellikle yalnızca gösterilerde, testlerde ve örnek uygulamalarda gereklidir.
+Son olarak, yukarıdaki örnekteki kod iki saniye gecikir. Azure Search hizmetinizde dizin oluşturma uyumsuz şekilde meydana gelir; bu nedenle belgelerin aramada kullanılabilir olduğundan emin olmak için örnek uygulamanızın kısa bir süre beklemesi gerekir. Bu gibi gecikmeler genellikle yalnızca gösterilerde, testlerde ve örnek uygulamalarda gereklidir.
 
 <a name="HotelClass"></a>
 
-### <a name="how-hello-net-sdk-handles-documents"></a>Merhaba .NET SDK belgeleri nasıl işler?
-Size nasıl hello Azure Search .NET SDK'sı gibi kullanıcı tanımlı bir sınıf örneklerini mümkün tooupload merak ediyor olabilirsiniz `Hotel` toohello dizini. toohelp bu sorunun yanıtlanmasına, hello bakalım `Hotel` tanımlanan toohello dizin şemasını eşlemeleri sınıfı [hello .NET SDK kullanarak Azure Search dizini oluşturma](search-create-index-dotnet.md#DefineIndex):
+### <a name="how-the-net-sdk-handles-documents"></a>.NET SDK belgeleri nasıl işler?
+Azure Search .NET SDK'sının `Hotel` gibi kullanıcı tanımlı bir sınıfın örneklerini dizine nasıl yükleyebildiğini merak ediyor olabilirsiniz. Bu sorunun yanıtlanmasına yardımcı olmak için [.NET SDK kullanarak Azure Search dizini oluşturma](search-create-index-dotnet.md#DefineIndex)'da tanımlanan dizin şemasıyla eşlenen `Hotel` sınıfına bakalım:
 
 ```csharp
 [SerializePropertyNamesAsCamelCase]
@@ -209,32 +209,32 @@ public partial class Hotel
 }
 ```
 
-Merhaba ilk şey toonotice her ortak özelliği olan `Hotel` tooa alan hello dizin tanımı, ancak çok önemli bir fark karşılık gelir: her alanı hello adını küçük harfle ("ortası büyük harf"), her ortak hello adını sırasında başlatır özelliği `Hotel` büyük harfle ("Pascal büyük") başlar. Bu, hello hedef şema hello uygulama geliştiricisi dış hello denetimin olduğu veri bağlamayı gerçekleştiren .NET uygulamalarında ortak bir senaryodur. Adlandırma yönergeleri özellik adlarını ortası büyük harf yaparak tooviolate hello .NET sahip olmak yerine hello SDK toomap hello özellik adları toocamel harf hello ile otomatik olarak anlayabilirsiniz `[SerializePropertyNamesAsCamelCase]` özniteliği.
+Fark edilecek ilk şey, `Hotel` öğesinin her bir genel özelliğinin dizin tanımındaki bir alana karşılık geldiği ancak çok önemli bir fark olduğudur: `Hotel` öğesinin her bir genel özelliğinin adı büyük harfle ("Pascal büyük/küçük harfi") başlarken her bir alanın adı küçük harfle ("ortası büyük harf") başlar. Bu durum, hedef şemanın uygulama geliştiricisinin denetimi dışında kaldığı bir veri bağlamayı gerçekleştiren .NET uygulamalarında ortak bir senaryodur. Özellik adlarını ortası büyük harf yaparak .NET adlandırma yönergelerini bozmanın yerine, `[SerializePropertyNamesAsCamelCase]` özniteliğiyle SDK'nın özellik adlarını otomatik olarak ortası büyük harfle eşlenmesini söyleyebilirsiniz.
 
 > [!NOTE]
-> Hello Azure Search .NET SDK'sını kullanır hello [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) kitaplığı tooserialize ve, özel model nesneleri tooand json'dan seri durumdan. Gerekirse bu seri hale getirmeyi özelleştirebilirsiniz. Daha fazla bilgi için bkz. [JSON.NET ile Özel Serileştirme](search-howto-dotnet-sdk.md#JsonDotNet). Bunun bir örneği olan hello hello kullanımını `[JsonProperty]` hello öznitelikte `DescriptionFr` yukarıdaki hello örnek kod bir özellik.
+> Azure Search .NET SDK'sı, özel model nesnelerinizi JSON'a ve JSON'dan seri hale getirmek ve seri durumdan çıkarmak için [NewtonSoft JSON.NET](http://www.newtonsoft.com/json/help/html/Introduction.htm) kitaplığını kullanır. Gerekirse bu seri hale getirmeyi özelleştirebilirsiniz. Daha fazla bilgi için bkz. [JSON.NET ile Özel Serileştirme](search-howto-dotnet-sdk.md#JsonDotNet). Bunun bir örneği, yukarıdaki örnek kodda `DescriptionFr` özelliğinde `[JsonProperty]` özniteliğinin kullanılmasıdır.
 > 
 > 
 
-Merhaba hakkında ikinci önemli şey Hello `Hotel` sınıfı hello genel özelliklerin hello veri türleri bulunur. Bu özelliklerin Hello .NET türleri tootheir hello dizin tanımında eşdeğer alan türleriyle eşlenir. Örneğin, hello `Category` dize özelliği eşlemeleri toohello `category` türü alan `DataType.String`. `bool?` ve `DataType.Boolean`, `DateTimeOffset?` ve `DataType.DateTimeOffset`, vb. arasında benzer türde eşlemeler bulunur. Merhaba hello tür eşlemesi için belirli kurallar ile Merhaba belgelenmiştir `Documents.Get` hello yönteminde [Azure Search .NET SDK'sı başvurusu](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations#Microsoft_Azure_Search_IDocumentsOperations_GetWithHttpMessagesAsync__1_System_String_System_Collections_Generic_IEnumerable_System_String__Microsoft_Azure_Search_Models_SearchRequestOptions_System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_).
+`Hotel` sınıfı hakkında ikinci önemli şey, genel özelliklerin veri türleridir. Bu özelliklerin .NET türleri, dizin tanımında eşdeğer alan türleriyle eşlenir. Örneğin, `Category` dize özelliği `DataType.String` türündeki `category` alanına eşlenir. `bool?` ve `DataType.Boolean`, `DateTimeOffset?` ve `DataType.DateTimeOffset`, vb. arasında benzer türde eşlemeler bulunur. Tür eşlemesine yönelik belirli kurallar, [Azure Search .NET SDK başvurusundaki](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations#Microsoft_Azure_Search_IDocumentsOperations_GetWithHttpMessagesAsync__1_System_String_System_Collections_Generic_IEnumerable_System_String__Microsoft_Azure_Search_Models_SearchRequestOptions_System_Collections_Generic_Dictionary_System_String_System_Collections_Generic_List_System_String___System_Threading_CancellationToken_) `Documents.Get` yönteminde belirtilmiştir.
 
-Bu özelliği toouse her iki yönde de kendi sınıflarınızı belge olarak çalışır; Ayrıca arama sonuçları almak ve sahip hello SDK otomatik olarak seri durumdan bunları tooa türü tercih ettiğiniz hello gösterildiği gibi [sonraki makalede](search-query-dotnet.md).
+Kendi sınıflarınızı belge olarak kullanabilme iki yönde de işe yarar: [Sonraki makalede](search-query-dotnet.md) gösterildiği üzere, arama sonuçlarını da alabilir ve SDK'nın bunları otomatik olarak istediğiniz bir türe seri durumdan çıkarmasını sağlayabilirsiniz.
 
 > [!NOTE]
-> Hello Azure Search .NET SDK'sı hello kullanarak dinamik tür belirtilmiş belgeleri de destekler `Document` bir anahtar/değer eşlemesi alan adları toofield değerlerinin sınıfı. Bu tasarım zamanında hello dizin şemasını bilmediğiniz veya kullanışsız toobind toospecific modeli sınıfları olmayacağı senaryolarda kullanışlıdır. Merhaba SDK ilgili tüm hello yöntemler hello ile çalışan aşırı yüklerin `Document` sınıfı yanı sıra genel türde bir parametre alan kesin tür belirtilmiş aşırı. Yalnızca ikinci Merhaba, bu makaledeki örnek kod hello kullanılır.
+> Azure Search .NET SDK'sı, alan adlarını alan değerlerine bir anahtar/değer eşlemesi olan `Document` sınıfını kullanarak dinamik tür belirtilmiş belgeleri de destekler. Bu durum, tasarım sırasında dizin şemasını bilmediğiniz veya belirli model sınıflarına bağlamanın kullanışlı olmayacağı senaryolarda kullanışlıdır. SDK'da belgelerle ilgili tüm yöntemler, `Document` sınıfıyla çalışan aşırı yüklerin yanı sıra genel türde bir parametre alan kesin tür belirtilmiş aşırı yüklere de sahiptir. Bu makaledeki örnek kodda yalnızca ikinci durum kullanılır.
 > 
 > 
 
 **Neden boş değer atanabilir türleri kullanmalısınız?**
 
-Kendi model sınıfları toomap tooan Azure Search dizininizi tasarlarken gibi özellikleri değer türlerini bildirme öneririz `bool` ve `int` toobe boş değer atanabilir (örneğin, `bool?` yerine `bool`). Atanamayan bir özellik kullanırsanız, çok sahip**garanti** hiçbir belgeleri dizininize hello karşılık gelen alan için bir null değer içeriyor. Merhaba SDK ne hello Azure Search hizmeti, tooenforce bu yardımcı olur.
+Bir Azure Search dizinine eşlemek için yeni model sınıflarınızı tasarlarken, `bool` ve `int` gibi değer türü özelliklerinin boş değer atanabilir (örneğin, `bool` yerine `bool?`) şeklinde bildirilmesini öneririz. Boş değer atanamayan bir özellik kullanırsanız buna karşılık gelen alan için dizininizdeki hiçbir belgenin boş bir değer içermediğini **garanti etmeniz** gerekir. Bunu zorlamanıza ne SDK ne de Azure Search hizmeti yardımcı olur.
 
-Bu yalnızca kuramsal bir sorun değildir: türü olan yeni bir alan tooan mevcut dizin eklediğiniz bir senaryoyu düşünün `DataType.Int32`. (Tüm türleri Azure Search'te boş değer atanabilir olmasıdır) hello dizin tanımını güncelleştirdikten sonra bu yeni alan için bir null değer tüm belgeler olacaktır. Ardından bir model sınıfı bir null ile kullanırsanız `int` özelliği bu alan için elde edersiniz bir `JsonSerializationException` şöyle tooretrieve belgeleri çalışırken:
+Bu yalnızca kuramsal bir sorun değildir: Var olan `DataType.Int32` türünde bir dizine yeni bir alan eklediğiniz bir senaryoyu düşünün. Dizin tanımını güncelleştirdikten sonra, tüm belgelerin bu yeni alan için boş bir değeri olur (bunun nedeni, Azure Search'te tüm türlerin boş değer atanabilir olmasıdır). Ardından bu alan için boş değer atanamayan bir `int` özelliğiyle bir model sınıfı kullanırsanız belgeleri almaya çalışırken bunun gibi bir `JsonSerializationException` alırsınız:
 
-    Error converting value {null} tootype 'System.Int32'. Path 'IntValue'.
+    Error converting value {null} to type 'System.Int32'. Path 'IntValue'.
 
 Bu nedenle, en iyi uygulama olarak model sınıflarınızda boş değer atanabilir türler kullanmanızı öneririz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Search dizininizi doldurduktan sonra belgeler için sorguları toosearch veren hazır toostart olacaktır. Ayrıntılı bilgi için bkz. [Azure Search Dizininizi Sorgulama](search-query-overview.md).
+Azure Search dizininizi doldurduktan sonra, belgeleri aramak için sorgu göndermeye başlamaya hazır olursunuz. Ayrıntılı bilgi için bkz. [Azure Search Dizininizi Sorgulama](search-query-overview.md).
 

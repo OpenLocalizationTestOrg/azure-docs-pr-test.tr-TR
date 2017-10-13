@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate Hadoop kümeleri Azure REST API - Azure kullanarak | Microsoft Docs"
-description: "Azure Resource Manager şablonları toohello Azure REST API göndererek nasıl toocreate Hdınsight kümeleri hakkında bilgi edinin."
+title: "Azure REST API - Azure kullanarak Hadoop kümeleri oluşturma | Microsoft Docs"
+description: "Azure Resource Manager şablonları Azure REST API göndererek Hdınsight kümeleri oluşturmayı öğrenin."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,31 +16,31 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/10/2017
 ms.author: larryfr
-ms.openlocfilehash: 87b585e5084eccdc3d7c57483deabb4ad6e32597
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a36a41c231472ceeeb46d02ddb65549b1c79728a
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="create-hadoop-clusters-using-hello-azure-rest-api"></a>Hello Azure REST API'sini kullanarak Hadoop kümeleri oluşturma
+# <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Azure REST API'sini kullanarak Hadoop kümeleri oluşturma
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Nasıl toocreate bir Hdınsight küme bir Azure Resource Manager şablonu kullanarak ve Azure REST API hello öğrenin.
+Bir Azure Resource Manager şablonu ve Azure REST API'sini kullanarak bir Hdınsight kümesi oluşturmayı öğrenin.
 
-Hello Azure REST API tooperform yönetim işlemlerini hello hello oluşturulmasını Hdınsight kümeleri gibi yeni kaynaklar dahil olmak üzere Azure platformu barındırılan hizmetleri sağlar.
+Azure REST API'sini Hdınsight kümeleri gibi yeni kaynaklar oluşturma dahil olmak üzere Azure platformu barındırılan Hizmetleri yönetim işlemlerini gerçekleştirmenizi sağlar.
 
 > [!IMPORTANT]
-> Linux hello yalnızca Hdınsight sürüm 3.4 veya büyük kullanılan işletim sistemini ' dir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 > [!NOTE]
-> Merhaba adımları bu belgenin kullanımı hello [curl (https://curl.haxx.se/)](https://curl.haxx.se/) yardımcı programı toocommunicate hello Azure REST API'si ile.
+> Bu adımlarda belge kullanımı [curl (https://curl.haxx.se/)](https://curl.haxx.se/) Azure REST API'si ile iletişim kurmak için yardımcı programı.
 
 ## <a name="create-a-template"></a>Şablon oluşturma
 
-Azure Resource Manager şablonları tanımlayan JSON belgeleri olan bir **kaynak grubu** ve ortamdaki tüm kaynaklar (örneğin, Hdınsight.) Bu şablona dayalı yaklaşım, tek bir şablonda Hdınsight için gereken toodefine hello kaynaklar sağlar.
+Azure Resource Manager şablonları tanımlayan JSON belgeleri olan bir **kaynak grubu** ve ortamdaki tüm kaynaklar (örneğin, Hdınsight.) Bu şablona dayalı yaklaşım, tek bir şablonda Hdınsight için gereken kaynaklar tanımlamanıza olanak sağlar.
 
-Merhaba aşağıdaki JSON hello birleşmesi şablonu ve parametre dosyalarını belgedir [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), Linux tabanlı oluşturur bir parola toosecure hello SSH kullanıcı hesabı kullanarak küme.
+Bir birleşme şablonu ve parametre dosyalarının aşağıdaki JSON belgedir [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password), Linux tabanlı bir küme oluşturur SSH kullanıcı hesabını güvenli hale getirmek için bir parola kullanma.
 
    ```json
    {
@@ -56,50 +56,50 @@ Merhaba aşağıdaki JSON hello birleşmesi şablonu ve parametre dosyalarını 
                        "storm",
                        "spark"],
                        "metadata": {
-                           "description": "hello type of hello HDInsight cluster toocreate."
+                           "description": "The type of the HDInsight cluster to create."
                        }
                    },
                    "clusterName": {
                        "type": "string",
                        "metadata": {
-                           "description": "hello name of hello HDInsight cluster toocreate."
+                           "description": "The name of the HDInsight cluster to create."
                        }
                    },
                    "clusterLoginUserName": {
                        "type": "string",
                        "metadata": {
-                           "description": "These credentials can be used toosubmit jobs toohello cluster and toolog into cluster dashboards."
+                           "description": "These credentials can be used to submit jobs to the cluster and to log into cluster dashboards."
                        }
                    },
                    "clusterLoginPassword": {
                        "type": "securestring",
                        "metadata": {
-                           "description": "hello password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
+                           "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
                        }
                    },
                    "sshUserName": {
                        "type": "string",
                        "metadata": {
-                           "description": "These credentials can be used tooremotely access hello cluster."
+                           "description": "These credentials can be used to remotely access the cluster."
                        }
                    },
                    "sshPassword": {
                        "type": "securestring",
                        "metadata": {
-                           "description": "hello password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
+                           "description": "The password must be at least 10 characters in length and must contain at least one digit, one non-alphanumeric character, and one upper or lower case letter."
                        }
                    },
                    "clusterStorageAccountName": {
                        "type": "string",
                        "metadata": {
-                           "description": "hello name of hello storage account toobe created and be used as hello cluster's storage."
+                           "description": "The name of the storage account to be created and be used as the cluster's storage."
                        }
                    },
                    "clusterWorkerNodeCount": {
                        "type": "int",
                        "defaultValue": 4,
                        "metadata": {
-                           "description": "hello number of nodes in hello HDInsight cluster."
+                           "description": "The number of nodes in the HDInsight cluster."
                        }
                    }
                },
@@ -215,52 +215,52 @@ Merhaba aşağıdaki JSON hello birleşmesi şablonu ve parametre dosyalarını 
    }
    ```
 
-Bu örnek, bu belgedeki hello adımlarda kullanılır. Merhaba örneği değiştirecek *değerleri* hello içinde **parametreleri** kümeniz için hello değerlerle bölümü.
+Bu örnekte, bu belgede yer alan adımlar, kullanılır. Örneği değiştirecek *değerleri* içinde **parametreleri** kümeniz için değerlerle bölümü.
 
 > [!IMPORTANT]
-> Merhaba şablon hello varsayılan çalışan düğümleri (4) sayısı bir Hdınsight kümesi için kullanır. 32'den fazla çalışan düğümlerine planlıyorsanız, bir baş düğüm boyutu en az 8 çekirdek ve 14 GB ram ile seçmeniz gerekir.
+> Şablonu çalışan düğümleri (4) varsayılan sayısı bir Hdınsight kümesi için kullanır. 32'den fazla çalışan düğümlerine planlıyorsanız, bir baş düğüm boyutu en az 8 çekirdek ve 14 GB ram ile seçmeniz gerekir.
 >
 > Düğümü boyutları ve ilişkili maliyetler hakkında daha fazla bilgi için bkz: [Hdınsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-## <a name="log-in-tooyour-azure-subscription"></a>Azure aboneliği tooyour oturum
+## <a name="log-in-to-your-azure-subscription"></a>Azure aboneliğinizde oturum açın
 
-İçinde belirtilen başlangıç adımları [Azure CLI 2.0 ile çalışmaya başlama](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) ve tooyour abonelik hello kullanarak bağlanmak `az login` komutu.
+Konusunda belgelenen adımları izleyin [Azure CLI 2.0 ile çalışmaya başlama](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) ve kullanarak aboneliğinze bağlanın `az login` komutu.
 
 ## <a name="create-a-service-principal"></a>Hizmet sorumlusu oluşturma
 
 > [!NOTE]
-> Bu adımları hello özetlenmiş bir sürümü olan *parolayla hizmet sorumlusu oluşturma* hello bölümünü [kullanım Azure CLI toocreate bir hizmet sorumlusu tooaccess kaynakları](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md#create-service-principal-with-password) belge. Bu adımları kullanılan tooauthenticate toohello Azure REST API'si olan bir hizmet sorumlusu oluşturun.
+> Bu adımları özetlenmiş bir sürümü olan *parolayla hizmet sorumlusu oluşturma* bölümünü [kaynaklara erişmek için bir hizmet sorumlusu oluşturmak için kullanım Azure CLI](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md#create-service-principal-with-password) belge. Bu adımlar Azure REST API'sine kimliğini doğrulamak için kullanılan bir hizmet sorumlusu oluşturur.
 
-1. Bir komut satırından komut toolist aşağıdaki hello Azure aboneliklerinize kullanın.
+1. Bir komut satırından, Azure aboneliklerinize listelemek için aşağıdaki komutu kullanın.
 
    ```bash
    az account list --query '[].{Subscription_ID:id,Tenant_ID:tenantId,Name:name}'  --output table
    ```
 
-    Merhaba listesinde toouse istediğiniz ve Not hello hello aboneliği seçin **ABONELİK_KİMLİĞİ** ve __Tenant_ID__ sütun. Bu değerleri kaydedin.
+    Listede, kullanıp not etmek istediğiniz aboneliği seçin **ABONELİK_KİMLİĞİ** ve __Tenant_ID__ sütun. Bu değerleri kaydedin.
 
-2. Komut toocreate bir uygulama Azure Active Directory'de aşağıdaki hello kullanın.
+2. Azure Active Directory'de bir uygulama oluşturmak için aşağıdaki komutu kullanın.
 
    ```bash
    az ad app create --display-name "exampleapp" --homepage "https://www.contoso.org" --identifier-uris "https://www.contoso.org/example" --password <Your password> --query 'appId'
    ```
 
-    Hello için Hello değerleri `--display-name`, `--homepage`, ve `--identifier-uris` kendi değerlere sahip. Merhaba yeni Active Directory giriş için bir parola sağlayın.
+    İçin değerleri `--display-name`, `--homepage`, ve `--identifier-uris` kendi değerlere sahip. Yeni Active Directory giriş için bir parola sağlayın.
 
    > [!NOTE]
-   > Merhaba `--home-page` ve `--identifier-uris` değerleri tooreference hello üzerinde barındırılan gerçek bir web sayfasına gerekmez Internet. Benzersiz bir URI olmalıdır.
+   > `--home-page` Ve `--identifier-uris` değerleri internet'te barındırılan gerçek bir web sayfasına başvuru gerekmez. Benzersiz bir URI olmalıdır.
 
-   Merhaba Bu komuttan döndürülen değer: Merhaba __uygulama kimliği__ hello yeni uygulama için. Bu değer kaydedin.
+   Bu komuttan döndürülen değer __uygulama kimliği__ yeni uygulama için. Bu değer kaydedin.
 
-3. Kullanım hello şu komutu toocreate hello kullanarak bir hizmet sorumlusu **uygulama kimliği**.
+3. Kullanarak bir hizmet sorumlusu oluşturmak için aşağıdaki komutu kullanın **uygulama kimliği**.
 
    ```bash
    az ad sp create --id <App ID> --query 'objectId'
    ```
 
-     Merhaba Bu komuttan döndürülen değer: Merhaba __nesne kimliği__. Bu değer kaydedin.
+     Bu komuttan döndürülen değer __nesne kimliği__. Bu değer kaydedin.
 
-4. Merhaba atamak **sahibi** hello kullanarak rolü toohello hizmet sorumlusu **nesne kimliği** değeri. Kullanım hello **abonelik kimliği** daha önce aldığınız.
+4. Ata **sahibi** hizmet asıl kullanarak rolü **nesne kimliği** değeri. Kullanım **abonelik kimliği** daha önce aldığınız.
 
    ```bash
    az role assignment create --assignee <Object ID> --role Owner --scope /subscriptions/<Subscription ID>/
@@ -268,7 +268,7 @@ Bu örnek, bu belgedeki hello adımlarda kullanılır. Merhaba örneği değişt
 
 ## <a name="get-an-authentication-token"></a>Kimlik Doğrulama belirtecini alma
 
-Komut tooretrieve kimlik doğrulama belirtecini aşağıdaki hello kullan:
+Kimlik Doğrulama belirtecini almak için aşağıdaki komutu kullanın:
 
 ```bash
 curl -X "POST" "https://login.microsoftonline.com/$TENANTID/oauth2/token" \
@@ -280,11 +280,11 @@ curl -X "POST" "https://login.microsoftonline.com/$TENANTID/oauth2/token" \
 --data-urlencode "resource=https://management.azure.com/"
 ```
 
-Ayarlama `$TENANTID`, `$APPID`, ve `$PASSWORD` toohello değerleri elde veya önceden kullanılmış.
+Ayarlama `$TENANTID`, `$APPID`, ve `$PASSWORD` elde ya da daha önce kullanılan değerler.
 
-Bu istek başarılı olursa, 200 serisi yanıtı alır ve bir JSON belgesi hello yanıt gövdesi içerir.
+Bu istek başarılı olursa, 200 serisi yanıtı alır ve bir JSON belgesi yanıt gövdesi içerir.
 
-Merhaba bu istek tarafından döndürülen JSON belgesi adlı bir öğe içeriyorsa **access_token**. Merhaba değerini **access_token** kullanılan tooauthentication istekleri toohello REST API değil.
+Bu istek tarafından döndürülen JSON belgesi adlı bir öğe içeriyorsa **access_token**. Değeri **access_token** REST API için kimlik doğrulama istekleri için kullanılır.
 
 ```json
 {
@@ -298,12 +298,12 @@ Merhaba bu istek tarafından döndürülen JSON belgesi adlı bir öğe içeriyo
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Bir kaynak grubu toocreate aşağıdaki hello kullanın.
+Bir kaynak grubu oluşturmak için aşağıdakileri kullanın.
 
-* Ayarlama `$SUBSCRIPTIONID` toohello abonelik kimliği alınan hizmet asıl hello oluşturulurken.
-* Ayarlama `$ACCESSTOKEN` hello önceki adımda aldığınız toohello erişim belirteci.
-* Değiştir `DATACENTERLOCATION` ile Merhaba veri merkezi toocreate hello kaynak grubu ve kaynaklar içinde istediğiniz. Örneğin, 'Orta Güney ABD'.
-* Ayarlama `$RESOURCEGROUPNAME` toouse bu grup için istediğiniz toohello adı:
+* Ayarlama `$SUBSCRIPTIONID` abonelik kimliği alınan hizmet asıl oluşturulurken.
+* Ayarlama `$ACCESSTOKEN` önceki adımda aldığınız erişim belirtecini için.
+* Değiştir `DATACENTERLOCATION` kaynak grubu ve kaynakları, oluşturmak istediğiniz veri merkezi ile. Örneğin, 'Orta Güney ABD'.
+* Ayarlama `$RESOURCEGROUPNAME` bu grup için kullanmak istediğiniz adı:
 
 ```bash
 curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME?api-version=2015-01-01" \
@@ -314,34 +314,34 @@ curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 }'
 ```
 
-Bu istek başarılı olursa, 200 serisi yanıtını alma ve hello grubu hakkında bilgi içeren bir JSON belgesi hello yanıt gövdesi içerir. Merhaba `"provisioningState"` ögesinin değerini `"Succeeded"`.
+Bu istek başarılı olursa, 200 serisi yanıtını alma ve grubu ile ilgili bilgileri içeren bir JSON belgesi yanıt gövdesi içerir. `"provisioningState"` Ögesinin değerini `"Succeeded"`.
 
 ## <a name="create-a-deployment"></a>Bir dağıtımı oluşturma
 
-Komut toodeploy hello şablon toohello kaynak grubu aşağıdaki hello kullanın.
+Şablonu kaynak grubuna dağıtmak için aşağıdaki komutu kullanın.
 
-* Ayarlama `$DEPLOYMENTNAME` toouse bu dağıtım için istediğiniz toohello adı.
+* Ayarlama `$DEPLOYMENTNAME` bu dağıtım için kullanmak istediğiniz adı.
 
 ```bash
 curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME/providers/microsoft.resources/deployments/$DEPLOYMENTNAME?api-version=2015-01-01" \
 -H "Authorization: Bearer $ACCESSTOKEN" \
 -H "Content-Type: application/json" \
--d "{set your body string toohello template and parameters}"
+-d "{set your body string to the template and parameters}"
 ```
 
 > [!NOTE]
-> Hello şablon tooa dosyası kaydettiyseniz komut yerine aşağıdaki hello kullanabilirsiniz `-d "{ template and parameters}"`:
+> Bir dosyaya şablon kaydettiyseniz yerine aşağıdaki komutu kullanabilirsiniz `-d "{ template and parameters}"`:
 >
 > `--data-binary "@/path/to/file.json"`
 
-Bu istek başarılı olursa, 200 serisi yanıtını alma ve hello dağıtım işlemiyle ilgili bilgi içeren bir JSON belgesi hello yanıt gövdesi içerir.
+Bu istek başarılı olursa, 200 serisi yanıtını alma ve dağıtım işlemiyle ilgili bilgi içeren bir JSON belgesi yanıt gövdesi içerir.
 
 > [!IMPORTANT]
-> Merhaba dağıtım gönderildi ancak tamamlanmadı. Birkaç dakika, genellikle yaklaşık 15 ' hello dağıtım toocomplete alabilir.
+> Dağıtım gönderildi ancak tamamlanmadı. Tamamlamak için dağıtım için genellikle yaklaşık 15, birkaç dakika sürebilir.
 
-## <a name="check-hello-status-of-a-deployment"></a>Bir dağıtım Hello durumunu denetleme
+## <a name="check-the-status-of-a-deployment"></a>Bir dağıtım durumunu denetleyin
 
-Merhaba dağıtımının komutu aşağıdaki kullanım hello toocheck hello durumu:
+Dağıtım durumunu denetlemek için aşağıdaki komutu kullanın:
 
 ```bash
 curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resourcegroups/$RESOURCEGROUPNAME/providers/microsoft.resources/deployments/$DEPLOYMENTNAME?api-version=2015-01-01" \
@@ -349,7 +349,7 @@ curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 -H "Content-Type: application/json"
 ```
 
-Bu komut hello dağıtım işlemiyle ilgili bilgi içeren bir JSON belgesi döndürür. Merhaba `"provisioningState"` öğesi hello hello dağıtımının durumunu içerir. Bu öğe bir değeri varsa `"Succeeded"`, hello dağıtım başarıyla tamamlandıktan sonra.
+Bu komut, dağıtım işlemi hakkında bilgi içeren bir JSON belgesi döndürür. `"provisioningState"` Öğesi dağıtım durumunu içerir. Bu öğe bir değeri varsa `"Succeeded"`, dağıtım başarıyla tamamlandıktan sonra.
 
 ## <a name="troubleshoot"></a>Sorun giderme
 
@@ -357,7 +357,7 @@ HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gere
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Hdınsight kümesi başarıyla oluşturuldu, toolearn nasıl aşağıdaki hello kullan toowork kümenizi ile.
+Hdınsight kümesi başarıyla oluşturuldu, kümenizi ile çalışmayı öğrenmek için aşağıdakileri kullanın.
 
 ### <a name="hadoop-clusters"></a>Hadoop kümeleri
 

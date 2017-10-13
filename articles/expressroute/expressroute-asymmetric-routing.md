@@ -1,6 +1,6 @@
 ---
-title: "aaaAsymmetric yönlendirme | Microsoft Docs"
-description: "Bu makalede, bir müşteri, birden çok bağlantılar tooa hedef olan bir ağda asimetrik yönlendirme ile yüz hello sorunlar açıklanmaktadır."
+title: "Asimetrik Yönlendirme | Microsoft Belgeleri"
+description: "Bu makalede, bir hedefe birden çok bağlantı içeren bir ağda asimetrik yönlendirme konusunda karşılaşılabilecek sorunlarla ilgili yol gösterilmektedir."
 documentationcenter: na
 services: expressroute
 author: osamazia
@@ -14,61 +14,61 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: osamam
-ms.openlocfilehash: 01a16242437a3674dcfe27b074911a829a6c1abd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 8568c13d2834a0643e15ab1814a35c92123837d1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Birden çok ağ yoluyla Asimetrik yönlendirme
 Bu makalede, ağ kaynağı ile hedef arasında birden çok yol varsa iletme ve döndürme ağ trafiğinin nasıl farklı rotalar izleyebileceği açıklanmaktadır.
 
-Buna ait önemli toounderstand iki kavramları toounderstand asimetrik yönlendirme. Birden çok ağ yolunu hello etkisini biridir. Merhaba başka bir güvenlik duvarı gibi cihazların durumunu kalmasını nasıl ' dir. Bu tür cihazlara durum bilgisi olan cihazlar denir. Bu iki faktör bileşimini hello durum bilgisi olan aygıt trafiği hello aygıtla kendisini kaynaklanan algılamadı için hangi ağ trafiği durum bilgisi olan bir cihaz tarafından bırakılan senaryolar oluşturur.
+Asimetrik yönlendirmeyi anlayabilmek için iki konsepti anlamak önemlidir. Bunlardan biri, birden çok ağ yolunun etkisidir. Diğeri ise cihazların, bir güvenlik duvarı gibi nasıl durumlarını koruduğudur. Bu tür cihazlara durum bilgisi olan cihazlar denir. Bu iki faktörün bileşimi, durum bilgisi olan bir cihazın ağ trafiğinin bu cihazın kendisiyle başladığını algılamadığı için söz konusu trafikten çıktığı senaryolar oluşturur.
 
 ## <a name="multiple-network-paths"></a>Birden çok ağ yolu
-Internet üzerinden kendi Internet servis sağlayıcısı hello Internet gelen tüm trafiği tooand geçen bir bağlantı toohello hello yalnızca aynı yol bir kurumsal ağ içinde olduğunda. Genellikle, şirketler birden çok bağlantı hatları yedekli yollar, tooimprove ağ açık kalma süresi satın alın. Bu durumda, bir bağlantı ve hello toohello Internet hello ağının dışından trafiğinin giden mümkündür Döndür trafiği farklı bir bağlantı aracılığıyla gider. Bu duruma yaygın olarak asimetrik yönlendirme adı verilir. Yönlendirme asimetrik, geriye doğru ağ trafiğini hello özgün akıştan farklı bir yol alır.
+Kurumsal bir ağın, İnternet hizmet sağlayıcısı üzerinden tek bir İnternet bağlantısı varsa İnternet’e giden ve buradan gelen tüm trafik aynı yolu izler. Şirketler çoğunlukla ağ çalışma süresini artırmak için yedek yollar olarak birden çok devre satın alır. Böyle durumlarda, ağ dışına, yani İnternet’e giden trafik bir bağlantı üzerinden geçerken dönüş trafiği farklı bir bağlantı üzerinden geçebilir. Bu duruma yaygın olarak asimetrik yönlendirme adı verilir. Asimetrik yönlendirmede, ters yöndeki ağ trafiği özgün akıştan farklı bir yol alır.
 
 ![Birden çok yola sahip ağ](./media/expressroute-asymmetric-routing/AsymmetricRouting3.png)
 
-Öncelikle hello Internet üzerinde oluşur ancak asimetrik de Yönlendirme birden fazla yol tooother birleşimlerini geçerlidir. Bu, örneğin, tooan Internet yolu ve toohello Git özel bir yol geçerlidir aynı hedef ve toohello Git toomultiple özel yollar aynı hedef.
+Esas olarak İnternet üzerinde meydana gelse de asimetrik yönlendirme, birden çok yol bileşimi bulunan başka durumlar için de geçerlidir. Örneğin, aynı hedefe yönelik bir İnternet yolu ve özel bir yol veya aynı hedefe yönelik birden çok özel yol için asimetrik yönlendirme uygulanır.
 
-Merhaba şekilde, kaynak toodestination boyunca her yönlendirici hello en iyi yolu tooreach bir hedef hesaplar. Merhaba yönlendiricinin belirleme olası en iyi yolu, iki ana etmenlere dayanır:
+Kaynaktan hedefe giden yol boyunca her yönlendirici hedefe ulaşmak için en uygun yolu hesaplar. Yönlendiricinin yaptığı en uygun yol belirlemesi iki ana faktöre bağlıdır:
 
-* Dış ağlar arası yönlendirme, Sınır Ağ Geçidi Protokolü (BGP) olarak bilinen bir yönlendirme protokolüne bağlıdır. BGP reklamları Komşuları alır ve adımları toodetermine hello en iyi yolu hedeflenen toohello hedef bir dizi aracılığıyla çalıştırır. Bu, kendi yönlendirme tablosunda hello en iyi yolunu depolar.
-* bir rota ile ilişkili bir alt ağ maskesi uzunluğunu Hello yönlendirme yollarının etkiler. Yönlendirici alırsa, aynı IP adresi için birden çok tanıtım hello ancak daha belirli bir yolu olarak kabul olduğundan farklı bir alt ağ maskeleriyle hello yönlendirici daha uzun bir alt ağ maskesi hello reklamla tercih eder..
+* Dış ağlar arası yönlendirme, Sınır Ağ Geçidi Protokolü (BGP) olarak bilinen bir yönlendirme protokolüne bağlıdır. BGP, komşulardan tanıtımları toplar ve bunları bir dizi adımdan geçirip hedefe yönelik en uygun yolu belirler. BGP, bu en uygun yolu yönlendirme tablosunda depolar.
+* Bir rota ile ilişkili alt ağ maskesinin uzunluğu yönlendirme yollarını etkiler. Yönlendirici, aynı IP adresi için farklı alt ağ maskeleri olan birden çok tanıtım alırsa, alt ağ maskesi daha uzun olan tanıtım daha belirli bir yol olarak görüldüğü için bu tanıtım seçilir.
 
 ## <a name="stateful-devices"></a>Durum bilgisi olan cihazlar
-Yönlendirici yönlendirme amaçları için bir paketin hello IP üstbilgisi arayın. Bazı aygıtlar hello paketin içinde bile daha derin arayın. Bu cihazlar, genellikle Katman4 (İletim Denetimi Protokolü veya TCP ya da Kullanıcı Veri Birimi Protokolü veya UDP) ve hatta Katman7 (Uygulama Katmanı) üst bilgilerine bakar. Bu tür cihazlar, güvenlik cihazları ya da bant genişliği iyileştirme cihazlarıdır. 
+Yönlendiriciler, yönlendirme amacıyla paketlerin IP üst bilgisine bakar. Bazı cihazlar, pakete daha da ayrıntılı şekilde bakar. Bu cihazlar, genellikle Katman4 (İletim Denetimi Protokolü veya TCP ya da Kullanıcı Veri Birimi Protokolü veya UDP) ve hatta Katman7 (Uygulama Katmanı) üst bilgilerine bakar. Bu tür cihazlar, güvenlik cihazları ya da bant genişliği iyileştirme cihazlarıdır. 
 
-Durum bilgisi olan cihazlar için tipik bir örnek güvenlik duvarıdır. Bir güvenlik duvarı sağlar veya paket toopass protokolü, TCP/UDP bağlantı noktası ve URL üstbilgileri gibi çeşitli alanlara göre arabirimlerinden aracılığıyla reddeder. Bu düzeyde bir paket incelemesi işleme yükünü hello aygıtta ağır koyar. tooimprove performans hello Güvenlik Duvarı'nı bir akış hello ilk paket olup olmadığını denetler. Merhaba paket tooproceed izin veriyorsa, kendi durumu tablosunda hello akış bilgisini tutar. Tüm sonraki paketlere ilgili toothis akışı hello ilk belirleme göre verilir. Var olan bir akış parçası olan bir paket hello güvenlik duvarında gelen. Merhaba güvenlik duvarı ilgili önceki durum bilgisi varsa, hello güvenlik duvarı hello paket bırakır.
+Durum bilgisi olan cihazlar için tipik bir örnek güvenlik duvarıdır. Güvenlik duvarı; protokol, TCP/UDP bağlantı noktası ve URL üst bilgileri gibi çeşitli alanlara bağlı olarak bir paketin arabirimleri üzerinden geçmesine izin verir veya bunu reddeder. Bu düzeyde bir paket denetimi nedeniyle cihaz üzerinde ağır bir işlem yükü oluşur. Güvenlik duvarı, performansı artırmak için bir akıştaki ilk paketi denetler. Paketin geçmesine izin verirse akış bilgilerini durum tablosunda tutar. İlk belirlemeye dayalı olarak bu akışla ilgili sonraki tüm paketlere de izin verilir. Mevcut bir akışın parçası olan bir paket, güvenlik duvarına ulaşabilir. Güvenlik duvarının önceden bu paketle ilgili bir durum bilgisi yoksa, paket bırakılır.
 
 ## <a name="asymmetric-routing-with-expressroute"></a>ExpressRoute ile asimetrik yönlendirme
-Azure ExpressRoute aracılığıyla tooMicrosoft bağlandığınızda, ağ değişikliklerinizi bu ister:
+Azure ExpressRoute üzerinden Microsoft’a bağlandığınızda, ağınız aşağıdaki şekilde değişir:
 
-* Birden çok bağlantılar tooMicrosoft sahip. Bir bağlantı, varolan bir Internet bağlantısı ve ExpressRoute aracılığıyla hello diğer şeklindedir. Bazı trafiği tooMicrosoft hello Internet Git ancak ExpressRoute aracılığıyla veya tersi geri dönün.
-* ExpressRoute üzerinden daha belirli IP adresleri alırsınız. Bu nedenle, ExpressRoute aracılığıyla sunulan hizmetler için ağ tooMicrosoft gelen trafik için yönlendiriciler ExpressRoute her zaman tercih.
+* Birden fazla Microsoft bağlantınız var. Bağlantıların biri, var olan İnternet bağlantınız diğeri de ExpressRoute aracılığıyla olan bağlantı. Microsoft’a yönelik trafiğin bir kısmı İnternet üzerinden gidip ExpressRoute üzerinden dönebilir ya da tam tersi gerçekleşebilir.
+* ExpressRoute üzerinden daha belirli IP adresleri alırsınız. Bu nedenle, ExpressRoute aracılığıyla sunulan hizmetlere ilişkin olarak ağınızdan Microsoft’a giden trafik için yönlendiriciler her zaman ExpressRoute seçeneğini tercih eder.
 
-Bu iki değişiklikten sahip bir ağda toounderstand hello etkisi şimdi bazı senaryoları göz önünde bulundurun. Örneğin, yalnızca bir bağlantı hattı toohello Internet sahip ve hello Internet üzerinden tüm Microsoft hizmetlerini kullanma. Merhaba, ağ tooMicrosoft ve geri ilişkilerinden geçen trafiğinden hello aynı Internet bağlantısı ve hello güvenlik duvarı üzerinden geçer. Merhaba ilk paket görür ve hello akış hello durumu tabloda bulunduğundan paketlere izin verilmesi dönüş gibi hello güvenlik duvarı kayıtları akış hello.
+Bu iki değişikliğin bir ağ üzerindeki etkisini anlamak için bazı senaryolara göz atalım. Örnek olarak, İnternet’e yönelik tek bir devreniz olduğunu ve tüm Microsoft hizmetlerini İnternet üzerinden tükettiğinizi varsayalım. Ağınızdan Microsoft’a giden ve ters yönde gelen trafik aynı İnternet bağlantısını kullanır ve güvenlik duvarından geçer. Güvenlik duvarı ilk paketi gördüğünde akışı kaydeder ve akış, durum tablosunda var olduğundan dönüş paketlerine izin verilir.
 
 ![ExpressRoute ile asimetrik yönlendirme](./media/expressroute-asymmetric-routing/AsymmetricRouting1.png)
 
-Ardından, ExpressRoute hizmetini açıyorsunuz ve Microsoft tarafından ExpressRoute üzerinden sunulan hizmetleri tüketiyorsunuz. Tüm diğer Microsoft hizmetlerinden hello Internet kullanılır. Bağlı tooExpressRoute olduğundan, sınırında ayrı bir Güvenlik Duvarı'nı dağıtın. Microsoft, belirli hizmetleri için ExpressRoute daha belirli önekleri tooyour ağ tanıtır. Yönlendirme altyapınızı ExpressRoute bu önekler için tercih edilen yol hello olarak seçer. Size, ortak IP adresleri tooMicrosoft ExpressRoute reklam değil, Microsoft ortak IP adreslerinizi hello Internet üzerinden iletişim kurar. ExpressRoute ağ tooMicrosoft iletme trafiğinden kullanır ve Microsoft ters trafiğinden hello Internet kullanır. Merhaba hello sınır güvenlik duvarında hello durumu tabloda bulamazsa bir akışı için bir yanıt paketi gördüğünde hello dönüş trafiği bırakır.
+Ardından, ExpressRoute hizmetini açıyorsunuz ve Microsoft tarafından ExpressRoute üzerinden sunulan hizmetleri tüketiyorsunuz. Microsoft tarafından sunulan diğer tüm hizmetler İnternet üzerinden tüketiliyor diyelim. ExpressRoute’a bağlanan ucunuzda ayrı bir güvenlik duvarı kullanıyorsunuz. Microsoft, belirli hizmetler için ExpressRoute üzerinden ağınıza daha belirli ön ekler tanıtır. Yönlendirme altyapınız bu ön ekler için tercih edilen yol olarak ExpressRoute’u seçer. Genel IP adreslerinizi ExpressRoute üzerinden Microsoft’a tanıtmıyorsanız Microsoft, genel IP adreslerinizle İnternet üzerinden iletişim kurar. Ağınızdan Microsoft’a giden trafik ExpressRoute’u kullanırken, Microsoft’tan dönen trafik İnternet’i kullanır. Uçtaki güvenlik duvarı, durum tablosunda bulamadığı bir akışa ilişkin bir yanıt paketi gördüğünde dönüş trafiğini bırakır.
 
-Aynı ağ adresi çevirisi (NAT) havuz hello Internet ve ExpressRoute için toouse hello seçerseniz, ağınızdaki özel IP adresleri hello istemcilerle benzer sorunlar görürsünüz. Bu hizmetler için IP adreslerini ExpressRoute aracılığıyla bildirilmeyeceğini olduğundan Windows Update gibi hizmetler için istekleri hello Internet gidin. Ancak, hello dönüş trafik ExpressRoute aracılığıyla gelir. Microsoft IP adresi ile alırsa, aynı alt ağ maskesi hello Internet gelen ve ExpressRoute hello hello Internet ExpressRoute tercih eder. Bir güvenlik duvarı veya ağ kenarı ve ExpressRoute karşılıklı başka bir durum bilgisi olan aygıt hello akışı hakkında önceki hiçbir bilgi varsa, toothat akış ait karşılama paketleri bırakır.
+ExpressRoute ve İnternet için aynı ağ adresi çevirisi (NAT) havuzunu kullanmayı tercih ederseniz, ağınızda özel IP adreslerinde bulunan istemcilerle de benzer sorunlar yaşarsınız. Windows Update gibi hizmetlerin IP adresleri ExpressRoute aracılığıyla tanıtılmadığından, bu hizmetlere yönelik istekler İnternet üzerinden gider. Ancak, dönüş trafiği ExpressRoute üzerinden geri gelir. Microsoft, İnternet ve ExpressRoute’tan aynı alt ağ maskesine sahip bir IP adresi alırsa ExpressRoute’u İnternet’e tercih eder. ExpressRoute’a yönelik ağ ucunuzdaki bir güvenlik duvarının ya da durum bilgisi olan başka bir cihazın akışla ilgili daha önceden bilgisi yoksa, söz konusu akışa ait olan paketler bırakılır.
 
 ## <a name="asymmetric-routing-solutions"></a>Asimetrik yönlendirme çözümleri
-Asimetrik yönlendirme iki ana seçeneğiniz toosolve hello sorunu var. Yönlendirme aracılığıyla biridir ve hello diğer kaynak tabanlı NAT (SNAT) kullanmaktır.
+Asimetrik yönlendirme sorununu çözmek için iki ana seçeneğiniz vardır. Sorunu yönlendirme aracılığıyla ya da kaynak tabanlı NAT (SNAT) kullanarak çözebilirsiniz.
 
 ### <a name="routing"></a>Yönlendirme
-Ortak IP adreslerinizi tanıtılan tooappropriate geniş alan ağı (WAN) bağlantıları olduğundan emin olun. Toouse hello Internet kimlik doğrulama trafiği ve ExpressRoute için posta trafiği için isterseniz, örneğin, Active Directory Federasyon Hizmetleri (AD FS) genel IP adreslerinizi ExpressRoute bildirilmeyecek. Benzer şekilde, mutlaka değil tooexpose şirket içi bir yönlendirici hello AD FS sunucu tooIP adreslerini ExpressRoute alır. ExpressRoute hello tercih edilen yol için kimlik doğrulama trafiğini tooMicrosoft yaparsınız ExpressRoute alınan yollar daha özeldir. Bu durum asimetrik yönlendirmeye yol açar.
+Genel IP adreslerinizin uygun geniş alan ağı (WAN) bağlantılarına tanıtıldığından emin olmanız gerekir. Örneğin, kimlik doğrulama trafiği için İnternet ve posta trafiğiniz için ExpressRoute kullanmak istiyorsanız, Active Directory Federasyon Hizmetleri (AD FS) genel IP adreslerinizi ExpressRoute üzerinden tanıtmamanız gerekir. Benzer şekilde, yönlendiricinin ExpressRoute üzerinden aldığı IP adreslerini bir şirket içi AD FS sunucusunun kullanımına sunmamalısınız. ExpressRoute üzerinden alınan rotalar daha belirli olduğundan, bunlar Microsoft’a yönelik kimlik doğrulama trafiği için ExpressRoute’u tercih edilen yol haline getirir. Bu durum asimetrik yönlendirmeye yol açar.
 
-Kimlik doğrulaması için toouse ExpressRoute istiyorsanız NAT olmadan ExpressRoute üzerinden AD FS genel IP adresleri reklam emin olun Bu şekilde, Microsoft'tan kaynaklanan ve tooan giden trafik ExpressRoute üzerinde AD FS sunucu gider şirket içi. Merhaba Internet hello tercih edilen yol olduğundan müşteri tooMicrosoft dönüş trafiğinden ExpressRoute kullanır.
+Kimlik doğrulaması için ExpressRoute’u kullanmak istiyorsanız AD FS genel IP adreslerini ExpressRoute üzerinden NAT olmadan tanıttığınızdan emin olun. Bu şekilde, Microsoft'tan kaynaklanan ve şirket içi bir AD FS sunucusuna giden trafik ExpressRoute üzerinden gider. Müşteriden Microsoft’a giden dönüş trafiği, İnternet üzerinden tercih edilen yol olduğundan ExpressRoute’u kullanır.
 
 ### <a name="source-based-nat"></a>Kaynak tabanlı NAT
-Asimetrik yönlendirme sorunlarını çözmenin bir başka yolu da SNAT kullanmaktır. Toouse hello Internet bu tür iletişim için düşündüğünüz çünkü Örneğin, bir şirket içi Basit Posta Aktarım Protokolü (SMTP) sunucusunun hello ortak IP adresi ExpressRoute tanıtılan değil. Microsoft ile kaynaklanan ve tooyour girer bir istek hello Internet SMTP sunucusu arasında çapraz geçiş şirket içi. Gelen istek tooan iç IP adresi, SNAT hello. Merhaba SMTP sunucusu ters trafik (kullanacağınız için NAT) toohello sınır güvenlik duvarı yerine ExpressRoute aracılığıyla gider. Merhaba dönüş trafiği geri hello Internet gider.
+Asimetrik yönlendirme sorunlarını çözmenin bir başka yolu da SNAT kullanmaktır. Örneğin, şirket içi bir Basit Posta Aktarım Protokolü (SMTP) sunucusunun genel IP adresini ExpressRoute üzerinden tanıtmadınız, çünkü bu tür iletişimler için İnternet’i kullanmayı amaçlıyorsunuz. Microsoft’tan kaynaklanıp daha sonra şirket içi SMTP sunucunuza giden bir istek İnternet’ten gönderilir. Gelen isteğe SNAT uygulayarak bir dahili IP adresine yönlendirirsiniz. SMTP sunucusundan kaynaklanan ters yöndeki trafik, ExpressRoute üzerinden gitmek yerine NAT için kullandığınız uç güvenlik duvarına gider. Dönüş trafiği İnternet üzerinden gider.
 
 ![Kaynak tabanlı NAT ağ yapılandırması](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## <a name="asymmetric-routing-detection"></a>Asimetrik yönlendirmenin algılanması
-İzleme yolu hello en iyi şekilde toomake ağ trafiğinizi beklenen hello yolu yaptıran emin olur. Trafik, şirket içi SMTP sunucusu tooMicrosoft tootake hello Internet yolunun bekliyorsanız, hello izleme yolu hello SMTP sunucusu tooOffice 365 beklenmektedir. Merhaba sonuç trafik ağınıza hello Internet doğru ve ExpressRoute doğru değil gerçekten ayrılıyor doğrular.
+Traceroute, ağ trafiğinizin beklenen yoldan gittiğinden emin olmanın en iyi yoludur. Şirket içi SMTP sunucunuzdan Microsoft’a giden trafiğin İnternet yolunu tercih etmesini bekliyorsanız, beklenen traceroute SMTP sunucusundan Office 365’e gider. Sonuç, ağınızdan çıkan trafiğin ExpressRoute’a değil, gerçekten de İnternet’e gittiğini doğrular.
 

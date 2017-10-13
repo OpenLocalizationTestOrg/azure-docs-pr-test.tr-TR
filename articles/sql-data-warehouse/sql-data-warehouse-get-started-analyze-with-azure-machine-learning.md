@@ -1,6 +1,6 @@
 ---
-title: Azure Machine Learning ile aaaAnalyze veri | Microsoft Docs
-description: "Azure Machine Learning toobuild Tahmine dayalı machine learning Azure SQL veri ambarında depolanan verileri temel alan modeli kullanın."
+title: "Azure Machine Learning ile veri çözümleme | Microsoft Belgeleri"
+description: "Azure SQL Data Warehouse’a depolanmış verilere göre tahmine dayalı bir machine learning modeli oluşturmak için Azure Machine Learning’i kullanın."
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 03/02/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: 337a2cd77aaad4467683827c56e5015b262b2554
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 3197948e32fe5c95b111fe5495a0e5f85966a24b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Azure Machine Learning ile veri çözümleme
 > [!div class="op_single_selector"]
@@ -31,26 +31,26 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Bu öğretici, Azure Machine Learning toobuild Tahmine dayalı machine learning Azure SQL veri ambarında depolanan verileri temel alan modeli kullanır. Özellikle, bu Adventure Works ' hello bisiklet satış mağazası için hedeflenen bir pazarlama kampanyası oluşturur, varsa tahmin ederek çalışmasını bir müşteri büyük olasılıkla toobuy bir bisiklet veya değil.
+Bu öğretici Azure SQL Data Warehouse’a depolanmış verilere göre tahmine dayalı bir machine learning modeli oluşturmak için Azure Machine Learning’i kullanır. Özellikle, bir müşterinin bisiklet alma olasılığı hakkında tahminde bulunarak Adventure Works adlı bisiklet satış mağazası için hedeflenen bir pazarlama kampanyası oluşturulur.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Integrating-Azure-Machine-Learning-with-Azure-SQL-Data-Warehouse/player]
 > 
 > 
 
 ## <a name="prerequisites"></a>Ön koşullar
-toostep Bu öğreticide, aşağıdakiler gerekir:
+Bu öğreticide ilerleyebilmeniz için şunlar gereklidir:
 
-* AdventureWorksDW örnek verileri önceden yüklenmiş bir SQL Data Warehouse. tooprovision Bu, bkz: [SQL Data Warehouse oluşturma] [ Create a SQL Data Warehouse] ve tooload hello örnek verileri seçin. Bir veri ambarınız olmasına karşın örnek verileriniz yoksa [örnek verileri elle yükleyebilirsiniz][load sample data manually].
+* AdventureWorksDW örnek verileri önceden yüklenmiş bir SQL Data Warehouse. Bunu sağlamak için [SQL Veri Ambarı Oluşturma][Create a SQL Data Warehouse] bölümüne bakın ve örnek verileri yüklemeyi seçin. Bir veri ambarınız olmasına karşın örnek verileriniz yoksa [örnek verileri elle yükleyebilirsiniz][load sample data manually].
 
-## <a name="1-get-hello-data"></a>1. Merhaba Veri Al
-Merhaba hello AdventureWorksDW veritabanında hello bulunan dbo.vTargetMail görünümündeki verilerdir. tooread bu veriler:
+## <a name="1-get-the-data"></a>1. Verileri alma
+Veriler AdventureWorksDW veritabanında bulunan dbo.vTargetMail görünümündedir. Bu verileri okumak için:
 
 1. [Azure Machine Learning Studio][Azure Machine Learning studio]'da oturum açıp denemelerim seçeneğine tıklayın.
 2. **+NEW (+YENİ)** düğmesine tıklayıp **Blank Experiment (Boş Deneme)** öğesini seçin.
 3. Denemeniz için bir ad girin: Hedeflenen Pazarlama.
-4. Sürükleme hello **okuyucu** hello modülleri hello tuvale bölmesine modülünden.
-5. SQL Data Warehouse veritabanınıza Hello ayrıntılarını hello Özellikler bölmesinde belirtin.
-6. Merhaba veritabanını belirtin **sorgu** tooread hello verileri.
+4. Modüller bölmesindeki **Reader (Okuyucu)** modülünü tuvale sürükleyin.
+5. Özellikler bölmesinde SQL Data Warehouse veritabanınıza ilişkin bilgileri belirtin.
+6. İstediğiniz verileri okumak için veritabanı **sorgusunu** belirtin.
 
 ```sql
 SELECT [CustomerKey]
@@ -72,60 +72,60 @@ SELECT [CustomerKey]
 FROM [dbo].[vTargetMail]
 ```
 
-Tıklayarak Hello denemeyi çalıştırın **çalıştırmak** hello deneme tuvalinin altında.
-![Merhaba denemeyi çalıştırın][1]
+Deneme tuvalinin altında bulunan **Run (Çalıştır)** düğmesine tıklayarak denemeyi çalıştırın.
+![Denemeyi çalıştırma][1]
 
-Hello denemeyi çalıştırma işlemi başarıyla sonlandıktan sonra hello okuyucu modülü hello sonundaki hello çıkış bağlantı noktasına tıklayın ve seçin **Görselleştir** toosee hello alınan veri.
+Denemeyi çalıştırma işlemi başarıyla sonlandıktan sonra, Okuyucu modülünün altındaki çıkış bağlantı noktasına tıklayıp içeri aktarılan verileri görmek için **Visualiza (Görselleştir)** seçeneğine tıklayın.
 ![İçeri aktarılan verileri görüntüleme][3]
 
-## <a name="2-clean-hello-data"></a>2. Temiz hello veri
-tooclean hello veri hello modelle ilgili olmayan bazı sütunları bırakın. toodo bu:
+## <a name="2-clean-the-data"></a>2. Verileri temizleyin
+Verileri temizlemek için modelle ilgili olmayan bazı sütunları kaldırın. Bunu yapmak için:
 
-1. Sürükleme hello **proje sütunları** hello tuvale modüle.
-2. Tıklatın **başlatma Sütun seçiciyi** hangi sütunların toodrop istediğiniz hello Özellikler bölmesinde toospecify içinde.
+1. **Project Columns (Proje Sütunları)** modülünü tuvale sürükleyin.
+2. Hangi sütunları kaldırmak istediğinizi belirtmek için Properties (Özellikler) bölmesindeki **Launch column selector (Sütun seçiciyi başlat)** öğesine tıklayın.
    ![Proje Sütunları][4]
 3. Şu iki sütunu dışlayın: CustomerAlternateKey ve GeographyKey.
    ![Gereksiz sütunları kaldırma][5]
 
-## <a name="3-build-hello-model"></a>3. Merhaba model oluşturma
-Biz hello veri 80-20 bölecek: %80 tootrain machine learning modelini ve % 20 tootest hello modeli. Yapacağız hello "İki sınıflı" algoritmalardan bu ikili sınıflandırma sorunu için kullanın.
+## <a name="3-build-the-model"></a>3. Modeli oluşturma
+Biz verilerin %80'ini Machine Learning modelini eğitmek ve %20'sini de modeli test etmek üzere kullanacak şekilde 80'e 20 oranında böleceğiz. Bu ikili sınıflandırma sorunu için "İki Sınıflı" algoritmalardan yararlanacağız.
 
-1. Sürükleme hello **bölünmüş** hello tuvale modüle.
-2. Merhaba ilk çıkış veri kümesinde hello Özellikler bölmesinde bulunan satırlar için kesir değerini 0,8 girin.
+1. **Split (Bölme)** modülünü tuvale sürükleyin.
+2. Properties (Özellikler) bölmesindeki ilk çıkış veri kümesinde bulunan satırlar için kesir değerini 0,8 olarak girin.
    ![Verileri eğitim ve test kümesi olarak bölme][6]
-3. Sürükleme hello **iki-Class Boosted karar ağacı** hello tuvale modüle.
-4. Sürükleme hello **Train Model** hello modüle tuvale ve hello girişleri belirtin. Ardından **başlatma Sütun seçiciyi** hello Özellikler bölmesinde.
+3. **Two-Class Boosted Decision Tree (İki Sınıflı Gelişmiş Karar Ağacı)** modülünü tuvale sürükleyin.
+4. **Train Model (Model Eğitme)** modülünü tuvale sürükleyip girişleri belirtin. Ardından Properties (Özellikler) bölmesindeki **Launch column selector (Sütun seçiciyi başlat)** öğesine tıklayın.
    * İlk giriş: ML algoritması
-   * İkinci giriş: veri tootrain hello algoritması üzerinde.
-     ![Merhaba Train Model modülünü bağlama][7]
-5. Select hello **BikeBuyer** sütun toopredict hello gibi sütun.
-   ![Sütun toopredict seçin][8]
+   * İkinci giriş: Algoritmayı eğitmeye yönelik veriler.
+     ![Model Eğitme modülünü bağlama][7]
+5. Tahminde bulunulacak sütun olarak **BikeBuyer** sütununu seçin.
+   ![Tahminde bulunulacak sütunu seçme][8]
 
-## <a name="4-score-hello-model"></a>4. Puan hello modeli
-Şimdi, biz nasıl hello modeli test verileri üzerindeki işlevini test edeceğiz. Biz hello algoritması kendi Seçtiğimiz daha iyi gerçekleştiren farklı algoritma toosee ile karşılaştırır.
+## <a name="4-score-the-model"></a>4. Modeli puanlama
+Şimdi modelin test verileri üzerindeki işlevini test edeceğiz. Hangisinin daha iyi sonuç verdiğini görmek üzere kendi seçtiğimiz algoritmayla başka bir algoritmayı karşılaştıracağız.
 
-1. Sürükleme **Score Model** hello tuvale modüle.
-    İlk giriş: eğitilmiş model ikinci giriş: Test verileri ![puan hello modeli][9]
-2. Sürükleme hello **iki sınıflı Bayes noktası makinesi** hello deneme tuvalinin içine. Bu algoritma karşılaştırma toohello iki-Class Boosted karar ağacı nasıl gerçekleştireceğini karşılaştırın.
-3. Kopyala ve Yapıştır hello modülleri Train Model ve Score Model hello tuvale.
-4. Sürükleme hello **Evaluate Model** hello tuvale toocompare hello iki algoritmaları modüle.
-5. **Çalıştırma** hello deneme.
-   ![Merhaba denemeyi çalıştırın][10]
-6. Merhaba Evaluate Model modülünün hello altındaki Hello çıkış bağlantı noktasına tıklayın ve Görselleştir'ı tıklatın.
+1. **Score Model (Model Puanlama)** modülünü tuvale sürükleyin.
+    İlk giriş: Eğitilmiş model İkinci giriş: Test verileri ![Modeli puanlama][9]
+2. **Two-Class Bayes Point Machine (İki Sınıflı Bayes Noktası Makinesi)** modülünü deneme tuvaline sürükleyin. Bu algoritma ile Two-Class Boosted Decision Tree'nin (İki Sınıflı Gelişmiş Karar Ağacı'nın) işlevlerini karşılaştıracağız.
+3. Train Model (Model Eğitme) ve Score Model (Model Puanlama) modüllerini kopyalayıp tuvale yapıştırın.
+4. İki algoritmayı karşılaştırmak için **Evaluate Model (Model Değerlendirme)** modülünü tuvale sürükleyin.
+5. Denemeyi çalıştırmak için **Run (Çalıştır)** düğmesine basın.
+   ![Denemeyi çalıştırma][10]
+6. Evaluate Model (Model Değerlendirme) modülünün altında bulunan çıkış bağlantı noktasına ve ardından Visualize (Görselleştir) düğmesine tıklayın.
    ![Değerlendirme sonuçlarını görselleştirme][11]
 
-Merhaba Metrikler hello ROC eğrisi, duyarlık geri çekme diyagramı olan ve eğri kaldırın. Bu ölçümlere bakarak, ikinci bir hello daha iyi gerçekleştirilen hello birinci modelin görebiliriz. toolook ne first modeli tahmin Merhaba, hello Score Model çıkış bağlantı noktasına tıklayın ve Görselleştir tıklatın hello adresindeki.
+Sağlanan ölçümler şunlardır: ROC eğrisi, duyarlık geri çekme diyagramı ve yükseltme eğrisi. Bu ölçümlere bakarak birinci modelin ikinciye göre daha iyi sonuç verdiğini görebiliriz. Birinci modelin nasıl bir tahminde bulunduğunu görmek için Score Model (Model Puanlama) modülünün çıkış bağlantı noktasına ve ardından Visualize (Görselleştir) düğmesine tıklayın.
 ![Puanlama sonuçlarını görselleştirme][12]
 
-İki sütun daha tooyour test veri eklenen görürsünüz.
+Test veri kümenize iki sütunun daha eklendiğini göreceksiniz.
 
-* Puanlanmış olasılıklar: hello bir müşterinin bir bisiklet alıcısı olma olasılığı.
-* Puanlanmış etiketler: hello modeliyle – bisiklet Alıcısı (1) gerçekleştirilip hello sınıflandırması (0). Etiketleme bu olasılık eşiği too50% ayarlanır ve ayarlanabilir.
+* Puanlanmış Olasılıklar: müşterinin bir bisiklet alıcısı olma olasılığı.
+* Puanlanmış Etiketler: model tarafından yapılan sınıflandırma; bisiklet alıcısı (1) veya değil (0). Etiketlemeye ilişkin bu olasılık eşiği %50 olarak belirlenmiş olup ayarlanabilir.
 
-Merhaba sütununu BikeBuyer (gerçek) hello skoru etiketler (tahmin) ile karşılaştırarak, ne kadar iyi hello modeli verdiğini görebilirsiniz. Sonraki adımlarda bu modeli toomake tahminleri yeni müşteriler için kullanın ve bu modeli bir web hizmeti olarak yayımlamak veya sonuçları geri tooSQL veri ambarı yazma.
+BikeBuyer (gerçek) sütununu Puanlanmış Etiketler (tahmin) ile karşılaştırarak modelin ne derece iyi sonuç verdiğini görebilirsiniz. Sonraki adımlarda bu modeli yeni müşteriler için tahminde bulunmak üzere kullanabilir, bir web hizmeti olarak yayımlayabilir veya sonuçları sonradan SQL Data Warehouse'a yazabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Tahmine dayalı makine öğrenimi modelleri oluşturma hakkında daha fazla toolearn başvurmak çok[giriş tooMachine Azure üzerinde öğrenme][Introduction tooMachine Learning on Azure].
+Tahmine dayalı makine öğrenimi modellerinin oluşturulmasına ilişkin daha fazla bilgi edinmek için bkz. [Azure'da Machine Learning'e giriş][Introduction to Machine Learning on Azure].
 
 <!--Image references-->
 [1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
@@ -144,6 +144,6 @@ Tahmine dayalı makine öğrenimi modelleri oluşturma hakkında daha fazla tool
 
 <!--Article references-->
 [Azure Machine Learning studio]:https://studio.azureml.net/
-[Introduction tooMachine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
+[Introduction to Machine Learning on Azure]:https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/
 [load sample data manually]: sql-data-warehouse-load-sample-databases.md
 [Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md

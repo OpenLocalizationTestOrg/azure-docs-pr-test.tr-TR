@@ -26,7 +26,7 @@
 ### [Genel Bakış](active-directory-authentication-scenarios.md#web-application-to-web-api)
 ### [ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)
 ### [NodeJS](active-directory-devquickstarts-webapi-nodejs.md)
-## Hizmet tooService
+## Hizmetten Hizmete
 ### [Genel Bakış](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)
 ### [.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)
 ### [OAuth 2.0 istemci kimlik bilgileri](active-directory-protocols-oauth-service-to-service.md)
@@ -59,7 +59,7 @@
 ### [Visual Studio bağlı hizmetlerini kullanmaya başlama](vs-active-directory-dotnet-getting-started.md)
 ### [Kimlik doğrulama algılama sırasında bir hata oluştu](vs-active-directory-error.md)
 ### [WebApi ile çalışmaya başlama](vs-active-directory-webapi-getting-started.md)
-### [Ne oldu toomy web API projesi](vs-active-directory-webapi-what-happened.md)
+### [Web API projeme ne oldu?](vs-active-directory-webapi-what-happened.md)
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
@@ -69,7 +69,7 @@
 ## [Kimlik doğrulama protokolleri](active-directory-authentication-protocols.md)
 ### [OpenID Connect](active-directory-protocols-openid-connect-code.md)
 ### [Oauth](active-directory-protocols-oauth-code.md)
-### [Hizmet tooservice çağrıları](active-directory-protocols-oauth-service-to-service.md)
+### [Hizmetten hizmete çağrılar](active-directory-protocols-oauth-service-to-service.md)
 ### [On-behalf-of akışı](active-directory-protocols-oauth-on-behalf-of.md)
 ### [Desteklenen belirteç ve talep türleri](active-directory-token-and-claims.md)
 ### [İmzalama anahtarı geçiş işlemi](active-directory-signing-key-rollover.md)

@@ -1,29 +1,29 @@
-Bir tetikleyici hello tetik tarafından oluşturulan hello verilerle ilginç bir şey kendi zaman toodo eklediğiniz göre. Bu adımları tooadd bir hello izleyin **SFTP - extract klasörü** eylem. Tanımlanan hello Koşullar karşılanıyorsa bu eylemin hello bir dosyanın içeriğini ayıklayın. 
+Bir tetikleyici eklediğiniz, bir şeyler için kendi zaman tetik tarafından oluşturulan verilerle ilginç. Eklemek için bu adımları bir **SFTP - extract klasörü** eylem. Tanımlanan koşullar karşılanıyorsa Bu eylem bir dosyanın içeriğini ayıklayın. 
 
-tooconfigure Merhaba Bu eylem, aşağıdaki bilgilerle tooprovide hello gerekir. Merhaba yeni dosyasının hello özelliklerinden bazıları için giriş olarak hello tetik tarafından oluşturulan kolay toouse veri olduğunu fark edersiniz:
+Bu eylem, aşağıdaki bilgileri sağlamanız gerekir. Yeni dosya özelliklerinden bazıları için giriş olarak tetik tarafından oluşturulan kullanımı kolay veri olduğunu fark edersiniz:
 
 | SFTP - extract klasör özelliği | Açıklama |
 | --- | --- |
-| Kaynak Arşiv dosya yolu |Merhaba dosyası ayıklanırken için hello yolu budur. Önceki eylemin hello belirteçleri birini seçin veya hello SFTP sunucu toofind hello dosya yolu gözatın. |
-| Hedef klasör yolu |Merhaba ayıklanan dosyaları yerleştirileceği hello yolu budur. Merhaba belirteçleri birini önceki eylemin hello hedef yolu seçin veya hello SFTP sunucu göz atın ve bir yol seçin. |
-| Üzerine yazılsın mı? |Veya Hello varolan dosyanın üzerine yazılacağını varsa hello ayıklanan dosya hello hedef klasörü yolunda bulunan gibi hello sahip bir dosya aynı adı olmadığını gösterir. |
+| Kaynak Arşiv dosya yolu |Ayıklanırken dosyasının yolu budur. SFTP sunucunun dosya yolunu bulmak için Gözat veya önceki bir eylemden belirteçlerin seçin. |
+| Hedef klasör yolu |Ayıklanan dosyaları yerleştirileceği yolu budur. Belirteçleri birini hedef yolu olarak önceki bir eylem seçin veya SFTP sunucunun göz atın ve bir yol seçin. |
+| Üzerine yazılsın mı? |Ayıklanan dosyasıyla aynı ada sahip bir dosya veya varolan dosyanın üzerine, hedef klasör yolu bulunursa gösterir. |
 
-Önceden tanımlanmış bir hello koşulu çok değerlendirilirse hello eylem tooextract hello dosyaları ekleme başlayalım*doğru*. 
+Önceden tanımlanmış bir koşulu değerlendirilirse dosyalarını ayıklamak için eylemi ekleyerek başlayalım *doğru*. 
 
 1. Seçin **Eylem Ekle**.        
    ![SFTP eylem koşulu görüntüsü 6](./media/connectors-create-api-sftp/condition-6.png)   
-2. Select hello **SFTP - Extract klasörü** eylem      
+2. Seçin **SFTP - Extract klasörü** eylem      
    ![SFTP eylem koşulu görüntüsü 7](./media/connectors-create-api-sftp/condition-7.png)   
 3. Seçin **kaynak Arşiv dosya yolu**              
    ![SFTP eylem koşulu görüntü 9](./media/connectors-create-api-sftp/condition-9.png)   
-4. Select hello **dosya yolu** belirteci. Bu, hello kaynak Arşiv dosya yolu bulunan tetikleyici hello hello dosyasının hello dosya yolunda kullanacağını gösterir.           
+4. Seçin **dosya yolu** belirteci. Bu kaynak Arşiv dosya yolu tetikleyici bulunan dosyasının dosya yolunda kullanacağını gösterir.           
    ![SFTP eylem koşulu görüntüsü 10](./media/connectors-create-api-sftp/condition-10.png)   
 5. Seçin **hedef klasör yolu**           
    ![SFTP eylem koşulu görüntüsü 11](./media/connectors-create-api-sftp/condition-11.png)   
-6. Select hello **dosya yolu** belirteci. Bu, hello hedef yolu olarak hello ayıklanan dosyaları bulunan tetikleyici hello hello dosyasının hello dosya yolunda kullanacağını gösterir.   
-7. Girin *\ExtractedFile* hello içinde **hedef klasör yolu** denetim. Merhaba dosya yolu hello hedef klasör yolu denetim belirteçte hemen sonra bunu yapabilirsiniz.         
+6. Seçin **dosya yolu** belirteci. Bu tetikleyicinin bulunan dosyasının dosya yolunda ayıklanan dosyaları hedef yolu olarak kullanılacağını gösterir.   
+7. Girin *\ExtractedFile* içinde **hedef klasör yolu** denetim. Hedef klasör yolu denetimi dosya yolu belirteç hemen sonra bunu yapabilirsiniz.         
    ![SFTP eylem koşulu görüntüsü 12](./media/connectors-create-api-sftp/condition-12.png)   
-8. Girin *True* hello içinde **üzerine yaz?* aynı ad hello hello varsa, var olan dosyaların üzerine denetim tooindicate ayıklanan dosyaları.      
+8. Girin *True* içinde **üzerine yaz?* ayıklanan dosyalarla aynı adı varsa, var olan dosyaların üzerine olduğunu belirtmek için denetim.      
    ![SFTP eylem koşulu görüntüsü 13](./media/connectors-create-api-sftp/condition-13.png)   
-9. Merhaba değişiklikleri tooyour iş akışını Kaydet  
+9. İş akışınıza Değişiklikleri Kaydet  
 

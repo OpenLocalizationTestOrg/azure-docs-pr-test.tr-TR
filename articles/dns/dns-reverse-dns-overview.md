@@ -1,5 +1,5 @@
 ---
-title: "azure'da geriye doğru DNS aaaOverview | Microsoft Docs"
+title: "Ters Azure DNS'ye genel bakış | Microsoft Docs"
 description: "Nasıl geriye doğru DNS çalışır ve Azure'da nasıl kullanılabileceğini öğrenin"
 services: dns
 documentationcenter: na
@@ -12,38 +12,38 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: jonatul
-ms.openlocfilehash: 687663fb83469ab8e696bb714649d0856915bad6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 70a1ad070e812951fca3d2b19da12c67f0725dd0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Geriye doğru DNS ve Azure desteği'na genel bakış
 
-Bu makalede, Azure'da desteklenen geriye doğru DNS senaryoları nasıl geriye doğru DNS çalışır ve hello genel bakış sağlar.
+Bu makalede nasıl geriye doğru DNS works genel bir bakış ve Azure'da desteklenen geriye doğru DNS senaryoları sağlar.
 
 ## <a name="what-is-reverse-dns"></a>Geriye doğru DNS nedir?
 
-Geleneksel DNS kayıtları bir DNS adı (örneğin, 'www.contoso.com') tooan IP adresi (örneğin, 64.4.6.100) eşlemeyi etkinleştirin.  Geriye doğru DNS IP adresi (64.4.6.100) geri tooa adı ('www.contoso.com') hello çevrilmesi sağlar.
+Geleneksel DNS kayıtları bir DNS adı (örneğin, 'www.contoso.com') bir IP adresi (örneğin, 64.4.6.100) için ana kadar eşlemeyi etkinleştirin.  Geriye doğru DNS adı ('www.contoso.com') için geri bir IP adresi (64.4.6.100) çeviri sağlar.
 
-Geriye doğru DNS kayıtları çeşitli durumlar kullanılır. Örneğin, geriye doğru DNS kayıtlarını yaygın olarak e-posta istenmeyen e-posta iletisine hello göndereni doğrulayarak mücadele kullanılır.  Merhaba alıcı posta sunucusu alır sunucunun IP adresini gönderme hello geriye doğru DNS kaydını hello ve, barındırıyorsanız hello yetkili toosend e-posta etki alanı kaynaklanan doğrular. 
+Geriye doğru DNS kayıtları çeşitli durumlar kullanılır. Örneğin, geriye doğru DNS kayıtlarını yaygın olarak istenmeyen e-posta gönderen bir e-posta iletisinin doğrulayarak mücadele kullanılır.  Alıcı posta sunucusuna gönderen sunucunun IP adresinin ters DNS kaydı alır ve bu ana kaynak etki alanından e-posta göndermek için yetkili olup olmadığını doğrular. 
 
 ## <a name="how-reverse-dns-works"></a>Nasıl geriye doğru DNS çalışır
 
-Geriye doğru DNS kayıtlarını 'ARPA' bölgeleri bilinen özel DNS bölgeleri barındırılır.  Bu bölgeler ayrı bir DNS hiyerarşi paralel "contoso.com" gibi etki alanı barındırma hello normal hiyerarşisi oluşturur.
+Geriye doğru DNS kayıtlarını 'ARPA' bölgeleri bilinen özel DNS bölgeleri barındırılır.  Bu bölgeler ayrı bir DNS hiyerarşi paralel "contoso.com" gibi etki alanı barındırma normal hiyerarşisi oluşturur.
 
-Örneğin, DNS kaydı 'www.contoso.com' hello hello adı 'contoso.com"Merhaba bölgesinde ' www' ile 'A' DNS kaydı kullanılarak uygulanır.  Bu A kaydı toohello karşılık gelen IP adresini, bu durumda 64.4.6.100 işaret eder.  Merhaba geriye doğru arama, ayrı ayrı '100' hello bölgesinde '6.4.64.in-addr.arpa' (IP adresleri ARPA bölgeleri ters gerektiğini unutmayın.) adlı bir 'PTR' kayıt kullanılarak uygulanır  Doğru şekilde yapılandırılmışsa bu PTR kaydı toohello adı 'www.contoso.com' işaret eder.
+Örneğin, DNS kaydı 'www.contoso.com' name 'www' ile bir 'A' DNS kaydı bölge "contoso.com" kullanılarak uygulanır.  Bu durumda 64.4.6.100 karşılık gelen IP adresi bu A kaydı işaret ediyor.  Geriye doğru arama, ayrı ayrı '100' bölgesinde '6.4.64.in-addr.arpa' (IP adresleri ARPA bölgeleri ters gerektiğini unutmayın.) adlı bir 'PTR' kayıt kullanılarak uygulanır  Doğru şekilde yapılandırılmışsa bu PTR kaydı 'www.contoso.com' adı işaret eder.
 
-Bir kuruluş IP adres bloğu atandığında, bunlar ayrıca hello sağ toomanage hello ilgili ARPA bölgeyi alın. Azure tarafından kullanılan blokları barındırılan ve Microsoft tarafından yönetilen toohello IP adresine karşılık gelen ARPA bölgeleri hello. ISS'niz hello ARPA bölge kendi IP adresleri için sizin için barındırabilir veya hello ARPA bölge bir DNS hizmetinde Azure DNS gibi tercih ettiğiniz tooyou konak sağlayabilir.
+Bir kuruluş IP adres bloğu atandığında, bunlar aynı zamanda ilgili ARPA bölgeyi yönetme hakkı alın. Azure tarafından kullanılan IP adres blokları karşılık gelen ARPA bölgeleri barındırılan ve Microsoft tarafından yönetilir. ISS'niz kendi IP adreslerini ARPA bölgenin sizin için barındırabilir ya da izin verebilir Azure DNS gibi tercih ettiğiniz bir DNS hizmeti ARPA bölgesinde ana bilgisayar.
 
 > [!NOTE]
-> İleriye doğru DNS araması ve geriye doğru DNS araması ayrı, paralel DNS hiyerarşileri uygulanır. Merhaba geriye doğru arama 'www.contoso.com' için olan **değil** "contoso.com" Merhaba bölgesinde barındırılan, bunun yerine, hello ARPA bölgesinde hello karşılık gelen IP adres bloğu için barındırılır. Ayrı bölgeleri için IPv4 ve IPv6 adres bloklarını kullanılır.
+> İleriye doğru DNS araması ve geriye doğru DNS araması ayrı, paralel DNS hiyerarşileri uygulanır. Geriye doğru arama 'www.contoso.com' için olan **değil** "contoso.com" bölgesinde barındırılan, bunun yerine, karşılık gelen IP adres bloğu için ARPA bölgede barındırılan. Ayrı bölgeleri için IPv4 ve IPv6 adres bloklarını kullanılır.
 
 ### <a name="ipv4"></a>IPv4
 
-bir IPv4 geriye doğru arama bölgesi Hello adı biçimi aşağıdaki hello olmalıdır: `<IPv4 network prefix in reverse order>.in-addr.arpa`.
+Bir IPv4 geriye doğru arama bölgesi adı şu biçimde olmalıdır: `<IPv4 network prefix in reverse order>.in-addr.arpa`.
 
-Örneğin, bir geriye doğru arama bölgesine hello 192.0.2.0/24 önekini olan IP'leri konaklarla için toohost kayıtları oluştururken, hello bölge adı hello adres (192.0.2) ve ardından hello sipariş (2.0.192) ters ve hello ekleme hello ağ öneki yalıtarak oluşturulacak sonek `.in-addr.arpa`.
+Örneğin, ana bilgisayar kayıtları geriye doğru arama bölgesine 192.0.2.0/24 önekini olan IP'leri konaklarla için oluştururken, bölge adı öneki (192.0.2) adresinin yalıtma (2.0.192) sırayı ters çevirme ve sonek ekleme tarafından oluşturulacak `.in-addr.arpa`.
 
 |Alt ağ sınıfı|Ağ öneki  |Ters ağ öneki  |Standart soneki  |Geriye doğru arama bölgesi adı |
 |-------|----------------|------------|-----------------|---------------------------|
@@ -53,13 +53,13 @@ bir IPv4 geriye doğru arama bölgesi Hello adı biçimi aşağıdaki hello olma
 
 ### <a name="classless-ipv4-delegation"></a>Sınıfsız IPv4 temsilci seçme
 
-Bazı durumlarda, tooan kuruluş ayrılan hello IP aralığı C sınıfı küçüktür (/ 24) aralık. Bu durumda, hello IP aralığı bir bölge sınırı içinde hello üzerinde kapsamında değilse `.in-addr.arpa` bölge hiyerarşisini ve bu nedenle bir alt bölge olarak temsil edilemez.
+Bazı durumlarda, kuruluş için ayrılan IP aralığı C sınıfı küçüktür (/ 24) aralık. Bu durumda, IP aralığı bir bölge sınırı içinde üzerinde kapsamında değilse `.in-addr.arpa` bölge hiyerarşisini ve bu nedenle bir alt bölge olarak temsil edilemez.
 
-Bunun yerine, farklı bir mekanizma kullanılan tek tek geriye doğru arama (PTR) tootransfer denetimini ayrılmış tooa DNS bölgesi kaydeder. Bu mekanizma her IP aralığı için bir alt bölge atar ve ardından her IP adresi hello eşlemeleri ayrı ayrı CNAME kayıtları kullanarak toothat alt bölgenin aralığı.
+Bunun yerine, farklı bir mekanizma, tek tek geriye doğru arama (PTR) kayıtlarının denetim adanmış bir DNS bölgesi aktarmak için kullanılır. Bu mekanizma her IP aralığı için bir alt bölge atar ve ardından her IP adresi aralığı, CNAME kayıtları kullanarak bu alt bölge için ayrı ayrı eşler.
 
-Örneğin, bir kuruluşun kendi ISS tarafından hello IP aralığı 192.0.2.128/26 verilir varsayalım. Bu 64 IP adresleri, 192.0.2.128 temsil eden too192.0.2.191. Bu aralık için ters DNS şu şekilde gerçekleştirilir:
-- Merhaba kuruluş 128 26.2.0.192.in addr.arpa adlı bir geriye doğru arama bölgesi oluşturur. Merhaba öneki ' 128-26' temsil hello ağ atanan segment toohello kuruluş içinde hello C sınıfı (/ 24) aralık.
-- Merhaba ISS NS kayıtları tooset hello hello bölge yukarıda bir DNS temsilci yukarı hello C sınıfı üst bölgeden oluşturur. Ayrıca CNAME kayıtları hello üst (C sınıfı) geriye doğru arama bölgesi içinde hello IP aralığı toohello yeni bölge hello kuruluş tarafından oluşturulan her IP adresi eşleme oluşturur:
+Örneğin, bir kuruluşun kendi ISS tarafından IP aralığı 192.0.2.128/26 verilir varsayalım. 192.0.2.191 192.0.2.128 bu 64 IP adreslerini gösterir. Bu aralık için ters DNS şu şekilde gerçekleştirilir:
+- Kuruluş 128 26.2.0.192.in addr.arpa adlı bir geriye doğru arama bölgesi oluşturur. ' 128-26' öneki C sınıfı kuruluşunuzda atanan ağ kesimini temsil eder (/ 24) aralık.
+- ISS C sınıfı üst bölgeden yukarıdaki bölgenin DNS temsilcisi ayarlamak için NS kayıtları oluşturur. Ayrıca CNAME kayıtları üst (C sınıfı) geriye doğru arama bölgesi kuruluş tarafından oluşturulan yeni bölge için IP aralığı her IP adresi eşleme oluşturur:
 
 ```
 $ORIGIN 2.0.192.in-addr.arpa
@@ -72,7 +72,7 @@ $ORIGIN 2.0.192.in-addr.arpa
 131       CNAME    131.128-26.2.0.192.in-addr.arpa
 ; etc
 ```
-- Merhaba kuruluş hello tek tek PTR kayıtları kendi alt bölgedeki yönetir.
+- Kuruluş kendi alt bölgedeki tek tek PTR kayıtlarını yönetir.
 
 ```
 $ORIGIN 128-26.2.0.192.in-addr.arpa
@@ -82,13 +82,13 @@ $ORIGIN 128-26.2.0.192.in-addr.arpa
 131      PTR    partners.contoso.com
 ; etc
 ```
-Geriye doğru arama yönelik hello IP adresi '192.0.2.129' sorguları bir PTR kaydı için '129.2.0.192.in-addr.arpa' adlı. Bu sorgu hello üst bölge toohello PTR kaydı hello alt bölgedeki hello CNAME aracılığıyla çözümler.
+Geriye doğru arama PTR kaydı için IP adresi '192.0.2.129' sorgular için '129.2.0.192.in-addr.arpa' adlı. Bu sorgu, alt bölgedeki PTR kaydı için üst bölgedeki CNAME aracılığıyla çözümler.
 
 ### <a name="ipv6"></a>IPv6
 
-bir IPv6 geriye doğru arama bölgesi adı Hello form aşağıdaki hello olması gerekir:`<IPv6 network prefix in reverse order>.ip6.arpa`
+Bir IPv6 geriye doğru arama bölgesi adı şu biçimde olmalıdır:`<IPv6 network prefix in reverse order>.ip6.arpa`
 
-Örneğin. Geriye doğru arama bölgesine hello 2001:db8:1000:abdc olan IP'leri konaklarla için toohost kayıtları oluşturulurken:: / 64 öneki hello bölge adı oluşturulacaktır hello ağ öneki hello adresinin yalıtarak (2001:db8:abdc::). Sonraki hello IPv6 ağ öneki tooremove genişletin [sıfır sıkıştırma](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx), kullanılan tooshorten hello IPv6 adresi öneki ise (2001:0db8:abdc:0000::). Merhaba tersine, bir süre hello önek onaltılık her sayıyı bölücüyü hello gibi kullanarak, ağ öneki toobuild hello ters (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) ve hello soneki eklemek `.ip6.arpa`.
+Örneğin. Ana bilgisayar kayıtları geriye doğru arama bölgesine konakları için IP'leri ile oluşturduğunuz olduğunda 2001:db8:1000:abdc:: / 64 öneki, bölge adı oluşturulacaktır adresinin ağ öneki yalıtarak (2001:db8:abdc::). Sonraki kaldırmak için IPv6 öneki genişletin [sıfır sıkıştırma](https://technet.microsoft.com/library/cc781672(v=ws.10).aspx), IPv6 adresi öneki kısaltmak için kullandıysanız (2001:0db8:abdc:0000::). Bir süre ters ağ öneki oluşturmak için her bir onaltılık sayıyı önek bölücüyü kullanarak sırasını ters (`0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2`) ve soneki eklemek `.ip6.arpa`.
 
 
 |Ağ öneki  |Genişletilmiş ve ters ağ öneki |Standart soneki |Geriye doğru arama bölgesi adı  |
@@ -99,18 +99,18 @@ bir IPv6 geriye doğru arama bölgesi adı Hello form aşağıdaki hello olması
 
 ## <a name="azure-support-for-reverse-dns"></a>Geriye doğru DNS Azure desteği
 
-Azure DNS tooreverse ilgili iki ayrı senaryoları destekler:
+Azure DNS geriye doğru şekilde ilgili iki ayrı senaryoları destekler:
 
-**Barındırma hello geriye doğru arama bölgesine karşılık gelen tooyour IP adres bloğu.**
-Azure DNS çok kullanılabilir[, geriye doğru arama bölgeleri barındıran ve her geriye doğru DNS araması hello PTR kayıtlarını yönetme](dns-reverse-dns-hosting.md), IPv4 ve IPv6 için.  Merhaba temsilci seçmeyi ayarlama ayarı hello (ARPA) geriye doğru arama bölgesi oluşturmak işlemi hello ve PTR yapılandırma kayıtları olan hello aynı normal DNS bölgeleri için olduğu gibi.  Merhaba yalnızca farklar hello temsilci DNS kayıt yerine ISS yapılandırılması gerekir ve yalnızca hello PTR kayıt türü kullanılmalıdır şunlardır.
+**IP adres bloğu ile karşılık gelen geriye doğru arama bölgesini barındıran.**
+Azure DNS için kullanılan olabilir [, geriye doğru arama bölgeleri barındıran ve her geriye doğru DNS araması PTR kayıtlarını yönetme](dns-reverse-dns-hosting.md), IPv4 ve IPv6 için.  (ARPA) geriye doğru arama bölgesi oluşturma, temsilci seçmeyi ayarlama ayarlama ve PTR kayıtlarını yapılandırma işlemi normal DNS bölgeleri ile aynıdır.  Yalnızca farklılıklar şunlardır: temsilci DNS kayıt yerine ISS yapılandırılması gerekir ve yalnızca PTR kayıt türü kullanılmalıdır.
 
-**Merhaba geriye doğru DNS kaydı tooyour Azure hizmeti atanan başlangıç IP adresi için yapılandırın.** Azure sağlar, çok[hello geriye doğru arama ayrılan hello IP adreslerini tooyour Azure hizmeti için yapılandırma](dns-reverse-dns-for-azure-services.md).  Bu geriye doğru arama hello karşılık gelen ARPA bölgede bir PTR kaydı olarak Azure tarafından yapılandırılır.  Azure tarafından kullanılan tooall hello IP aralıkları karşılık gelen bu ARPA bölgeleri Microsoft tarafından barındırılan
+**Geriye doğru DNS kaydı Azure Hizmetinize atanmış IP adresi için yapılandırın.** Azure olanak tanır [Azure hizmetiniz için ayrılan IP adresleri için geriye doğru arama yapılandırma](dns-reverse-dns-for-azure-services.md).  Bu geriye doğru arama Azure tarafından bir PTR kaydı karşılık gelen ARPA bölgede olarak yapılandırılır.  Azure tarafından kullanılan tüm IP aralıklarını karşılık gelen bu ARPA bölgeleri Microsoft tarafından barındırılan
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Geriye doğru DNS hakkında daha fazla bilgi için bkz: [wikipedia'da ters DNS araması](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
-Nasıl çok öğrenin[konak hello geriye doğru arama bölgesi ISS atanan IP aralığınızı Azure DNS'de için](dns-reverse-dns-for-azure-services.md).
+Bilgi edinmek için nasıl [ISS atanan IP aralığınızı Azure DNS geriye doğru arama bölgesini barındırmak](dns-reverse-dns-for-azure-services.md).
 <br>
-Nasıl çok öğrenin[, Azure Hizmetleri için ters DNS kayıtlarını yönetme](dns-reverse-dns-for-azure-services.md).
+Bilgi edinmek için nasıl [, Azure Hizmetleri için ters DNS kayıtlarını yönetme](dns-reverse-dns-for-azure-services.md).
 

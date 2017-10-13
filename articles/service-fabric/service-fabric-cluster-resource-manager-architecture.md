@@ -1,5 +1,5 @@
 ---
-title: "aaaResource Yöneticisi Mimarisi | Microsoft Docs"
+title: Resource Manager mimarisi | Microsoft Docs
 description: "Service Fabric Küme Kaynağı Yöneticisi'nin mimari bir özeti."
 services: service-fabric
 documentationcenter: .net
@@ -14,56 +14,56 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 9ea80273d0566a2ac25143ada3662875656b57b8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 565c20637fa93ed92bb6c52e585a4b70bdeb6f8c
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Küme kaynak Yönetici Mimarisine Genel Bakış
-Merhaba Service Fabric kümesi Kaynak Yöneticisi hello kümede çalışan merkezi bir hizmettir. İstenen hello özellikle saygı tooresource tüketim ve herhangi bir yerleştirme kuralı ile Merhaba kümede hello hizmetlerinin durumunu yönetir. 
+Service Fabric kümesi Kaynak Yöneticisi kümede çalışan merkezi bir hizmettir. Özellikle kaynak tüketimini ve herhangi bir yerleştirme kuralı göre kümedeki hizmetlerin istenen durumunu yönetir. 
 
-toomanage hello kaynakları kümenizdeki hello Service Fabric kümesi Resource Manager çeşitli bilgi parçalarını sahip olmanız gerekir:
+Kümenizdeki kaynakları yönetmek için Service Fabric kümesi Resource Manager çeşitli bilgi parçalarını sahip olmanız gerekir:
 
 - Hangi Hizmetleri şu anda var
 - Her hizmet geçerli (veya varsayılan) kaynak tüketimi 
-- Merhaba kalan küme kapasite 
-- Merhaba kümedeki hello düğümler Hello kapasitesi 
-- Her bir düğümde tüketilen kaynaklarının Hello miktarı
+- Kalan küme kapasite 
+- Kümedeki düğümler kapasitesi 
+- Her bir düğümde tüketilen kaynaklarının miktarını
 
-belirli bir hizmeti Hello kaynak tüketimini zamanla değişebilir ve Hizmetleri genellikle birden çok kaynak türü hakkında dikkat edin. Farklı hizmetler arasında ölçülen gerçek fiziksel ve fiziksel kaynakları olabilir. Hizmetleri, bellek ve disk kullanımı gibi fiziksel ölçümleri izleyebilirsiniz. Daha yaygın olarak, hizmetler, mantıksal ölçümleri - "WorkQueueDepth" veya "TotalRequests" gibi şeyleri önem verdiğiniz. Mantıksal ve fiziksel ölçümleri hello kullanılabilir aynı küme. Ölçümleri birçok hizmetleri arasında paylaşılabilir veya belirli tooa belirli bir hizmet olmalıdır.
+Belirli bir hizmeti kaynak tüketimini zamanla değişebilir ve Hizmetleri hakkında daha fazla kaynak türü genellikle dikkat edin. Farklı hizmetler arasında ölçülen gerçek fiziksel ve fiziksel kaynakları olabilir. Hizmetleri, bellek ve disk kullanımı gibi fiziksel ölçümleri izleyebilirsiniz. Daha yaygın olarak, hizmetler, mantıksal ölçümleri - "WorkQueueDepth" veya "TotalRequests" gibi şeyleri önem verdiğiniz. Mantıksal ve fiziksel ölçümleri aynı kümede kullanılabilir. Ölçümleri birçok hizmetleri arasında paylaşılabilir veya belirli bir hizmete özgü olmalıdır.
 
 ## <a name="other-considerations"></a>Diğer konular
-Merhaba sahipleri ve işleçler hello kümenin farklı olabilir hizmet ve uygulama yazarları hello veya en düşük olan aynı farklı şapkası kartı kişiler hello. Uygulamanızı geliştirirken hangi gerektirdiğini hakkında birkaç şey bildirin. Tahmini sahip tüketen kaynakları ve farklı Hizmetleri hello dağıtılması gerekir. Örneğin, Hello veritabanı hizmetleri vermemelisiniz sırada hello web katmanı açığa düğümleri toohello Internet üzerinde toorun gerekir. Başka bir örnek olarak, hello web Hizmetleri büyük olasılıkla CPU ve bellek ve disk kullanımı hakkında daha fazla hello veri katmanı Hizmetleri bakım sırasında ağ tarafından kısıtlanmıştır. Ancak, işleme Canlı site olay üretimde bu hizmet için veya bir yükseltme toohello hizmeti yönettiği hello kişi farklı iş toodo var ve farklı araçlar gerektiriyor. 
+Aynı kişiler takan farklı şapkalar en az olan veya sahipleri ve işleçler kümesinin hizmet ve uygulama yazarların farklı olabilir. Uygulamanızı geliştirirken hangi gerektirdiğini hakkında birkaç şey bildirin. Tahmini tüketen kaynakların sahip ve nasıl farklı Hizmetleri dağıtılmalıdır. Örneğin, web katmanı veritabanı hizmetleri vermemelisiniz sırada Internet'e açık düğümlerinde çalışması gerekir. Başka bir örnek olarak, web Hizmetleri büyük olasılıkla CPU ve bellek ve disk kullanımı hakkında daha fazla veri katmanı Hizmetleri bakım sırasında ağ tarafından kısıtlanmıştır. Ancak, bu hizmet üretim veya kimin hizmet yükseltme yönetme için Canlı site olay işleme kişinin yapmak için farklı bir iş vardır ve farklı araçlar gerektirir. 
 
-Merhaba küme ve Hizmetleri dinamik şunlardır:
+Küme ve Hizmetleri dinamik şunlardır:
 
-- Merhaba hello kümedeki düğüm sayısını büyür ve küçültme
+- Kümedeki düğüm sayısını büyür ve küçültme
 - Farklı boyutlarda ve türleri düğümlerinin dönün ve Git
 - Hizmetleri kaldırılmış oluşturulabilir ve onların istenen kaynak ayırma ve yerleştirme kuralları değiştirme
-- Yükseltme veya diğer yönetim işlemleri hello küme hello uygulama aracılığıyla altyapı düzeylerini geri alabilirsiniz
+- Yükseltme veya diğer yönetim işlemleri uygulama küme aracılığıyla altyapı düzeylerini geri alabilirsiniz
 - Herhangi bir zamanda hataları oluşabilir.
 
 ## <a name="cluster-resource-manager-components-and-data-flow"></a>Küme Kaynak Yöneticisi bileşenleri ve veri akışı
-Merhaba Küme Kaynak Yöneticisi, bu hizmetlerin içindeki her hizmet nesnesi tarafından her hizmet ve hello tüketiminin kaynakların tootrack hello gereksinimleri vardır. Merhaba küme Resource Manager da iki kavramsal bölümden oluşur: her düğüm ve hataya dayanıklı bir hizmeti çalıştıran aracılar. Her düğüm izleme yük Hello aracısında Hizmetleri'nden toplama bunları bildirir ve düzenli aralıklarla rapor. Merhaba Küme Kaynak Yöneticisi hizmeti hello yerel aracılardan gelen tüm hello bilgi toplayan ve geçerli yapılandırmasına göre tepki verir.
+Bu hizmetlerin içindeki her hizmet nesnesi tarafından her hizmet gereksinimlerine ve kaynaklarının kullanımını izlemek Küme Kaynak Yöneticisi'ni vardır. Küme Kaynak Yöneticisi'ni kavramsal iki bölümden oluşur: her düğüm ve hataya dayanıklı bir hizmeti çalıştıran aracılar. Her düğüm izleme yük aracısında Hizmetleri'nden toplama bunları bildirir ve düzenli aralıklarla rapor. Küme Kaynak Yöneticisi hizmeti yerel aracıları ve kendi geçerli yapılandırmasını temel alarak tepki verdiğini tüm bilgileri toplar.
 
-Diyagram aşağıdaki hello bakalım:
+Aşağıdaki diyagramda bakalım:
 
 <center>
 ![Kaynak dengeleyici mimarisi][Image1]
 </center>
 
-Çalışma zamanı sırasında meydana gelebilir birçok değişiklik yoktur. Örneğin, hello tutar düşünelim kaynakları bazı hizmetlerini değişiklikleri, bazı hizmetleri başarısız kullanma ve bazı düğümler katılma ve hello küme bırakın. Bir düğümdeki tüm hello değişiklikleri toplanır ve düzenli aralıklarla burada bunlar yeniden birleştirilir, analiz ve depolanan toohello Küme Kaynak Yöneticisi Hizmeti'ni (1,2) gönderilir. Hizmet hello değişikliklerini arar ve herhangi bir eylem gerekli olup olmadığını belirleyen her birkaç saniyede (3). Örneğin, bazı boş düğümleri toohello kümeye eklenmiş fark. Sonuç olarak, bazı hizmetleri toothose düğümleri toomove verir. Merhaba Küme Kaynak Yöneticisi ayrıca belirli bir düğüme aşırı yüklendiğinde veya belirli hizmetleri başarısız veya silinmiş, fark başka bir yerde kaynakları serbest bırakma.
+Çalışma zamanı sırasında meydana gelebilir birçok değişiklik yoktur. Örneğin, şimdi deyin bazı hizmetlerini kullanma kaynakları miktarını, bazı hizmetleri başarısız ve bazı düğümler birleştirme ve değişiklikleri küme bırakın. Bir düğüm üzerindeki tüm değişiklikleri toplanır ve düzenli aralıklarla burada bunlar yeniden birleştirilir, analiz ve depolanan Küme Kaynak Yöneticisi Hizmeti'ne (1,2) gönderilir. Hizmet değişikliklerini arar ve herhangi bir eylem gerekli olup olmadığını belirleyen her birkaç saniyede (3). Örneğin, bazı boş düğümler kümeye eklendiğini fark. Sonuç olarak, bazı hizmetler için düğümleri taşıma karar verir. Küme Kaynak Yöneticisi'ni de belirli bir düğüme aşırı yüklendiğinde veya belirli hizmetleri başarısız veya silinmiş, fark başka bir yerde kaynakları serbest bırakma.
 
-Şimdi diyagramı aşağıdaki hello bakın ve ne olacağını bakın. Şimdi deyin küme Resource Manager'ı hello değişikliklerin gerekli olduğunu belirler. Diğer sistem hizmetleri (belirli hello Yük Devretme Yöneticisi) toomake hello gerekli değişiklikleri düzenler. Ardından hello gerekli komutları toohello uygun düğümler (4) gönderilir. Örneğin, Resource Manager Düğüm5 fazlaydı ve bu nedenle Düğüm5 tooNode4 B hizmetinden toomove karar fark hello varsayalım. Merhaba yeniden yapılandırma (5) Hello sonunda hello küme şöyle görünür:
+Şimdi Aşağıdaki diyagramda bakın ve ne olacağını bakın. Küme Kaynak Yöneticisi'ni değişikliklerin gerekli olduğunu belirler varsayalım. Diğer sistem hizmetleriyle (belirli Yük Devretme Yöneticisi) gerekli değişiklikleri düzenler. Ardından gerekli komutları uygun düğümlerine (4) gönderilir. Örneğin, Kaynak Yöneticisi'ni Düğüm5 fazlaydı ve bu nedenle hizmet B Düğüm4 için Düğüm5 taşımak karar fark varsayalım. Yeniden yapılandırma (5) sonunda, küme şöyle görünür:
 
 <center>
 ![Kaynak dengeleyici mimarisi][Image2]
 </center>
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Merhaba küme Resource Manager hello küme açıklamak için birçok seçeneğiniz vardır. toofind bunlarla ilgili daha fazla bilgi, bu makalede denetleyin [açıklayan bir Service Fabric kümesi](./service-fabric-cluster-resource-manager-cluster-description.md)
-- Merhaba Küme Kaynak Yöneticisi'nin birincil görevlerini hello küme dengelenmesi ve yerleştirme kuralları uygulanması. Bu davranışların yapılandırma hakkında daha fazla bilgi için bkz: [Dengeleme Service Fabric kümesi](./service-fabric-cluster-resource-manager-balancing.md)
+- Küme Kaynak Yöneticisi'ni küme açıklamak için birçok seçeneğiniz vardır. Bunları hakkında daha fazla bilgi için bu makalede kontrol [açıklayan bir Service Fabric kümesi](./service-fabric-cluster-resource-manager-cluster-description.md)
+- Küme Kaynak Yöneticisi'nin birincil görevlerini küme dengelenmesi ve yerleştirme kuralları uygulanması. Bu davranışların yapılandırma hakkında daha fazla bilgi için bkz: [Dengeleme Service Fabric kümesi](./service-fabric-cluster-resource-manager-balancing.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-1.png
 [Image2]:./media/service-fabric-cluster-resource-manager-architecture/Service-Fabric-Resource-Manager-Architecture-Activity-2.png

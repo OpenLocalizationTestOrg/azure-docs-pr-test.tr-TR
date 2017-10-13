@@ -1,5 +1,5 @@
 ---
-title: "aaaConfigure SaaS uygulamaları için Azure Active Directory B2B işbirliği | Microsoft Docs"
+title: "Azure Active Directory'de SaaS uygulamaları B2B işbirliği için yapılandırma | Microsoft Docs"
 description: "Azure Active Directory B2B işbirliği için PowerShell ve kod örnekleri"
 services: active-directory
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: c3f22f81567c04ac23ef2316c09de718ecb15d26
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 149a493f7b369415f0a2726dd6a576f0195c13d9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>SaaS uygulamaları B2B işbirliği için yapılandırma
 
@@ -27,86 +27,86 @@ Azure AD ile tümleştirmek çoğu uygulamaları ile Azure Active Directory (Azu
 
 Uygulamaya özgü yönergeleri göz önünde bulundurmanız önce bazı kurallar altın şunlardır:
 
-* Merhaba uygulamalarının çoğu için Kullanıcı Kurulumu el ile toohappen gerekir. Diğer bir deyişle, kullanıcılar da hello uygulamada el ile oluşturulması gerekir.
+* Uygulamaların çoğu için Kullanıcı Kurulumu el ile gerçekleştirilmesi gerekir. Diğer bir deyişle, kullanıcı uygulamada el ile oluşturulması gerekir.
 
-* Dropbox gibi otomatik kurulum destekleyen uygulamalar için ayrı davetleri hello uygulamalardan oluşturulur. Kullanıcıların her davet emin tooaccept olması gerekir.
+* Dropbox gibi otomatik kurulum destekleyen uygulamalar için ayrı davetleri uygulamalardan oluşturulur. Kullanıcıların her daveti kabul etmek emin olması gerekir.
 
-* Merhaba kullanıcı öznitelikleri, tüm sorunları Konuk kullanıcılar karıştırılmış kullanıcı profili diski (UPD) ile toomitigate için her zaman kümesindeki **kullanıcı tanımlayıcısı** çok**user.mail**.
+* Her zaman kullanıcı öznitelikleri karıştırılmış kullanıcı profili diski (UPD) Konuk kullanıcılar ile ilgili tüm sorunları hafifletmek için ayarlanmış **kullanıcı tanımlayıcısı** için **user.mail**.
 
 
 ## <a name="dropbox-business"></a>Dropbox iş
 
-kendi kuruluş hesabı kullanarak tooenable kullanıcılar toosign güvenlik onaylama işlemi biçimlendirme dili (SAML) kimlik sağlayıcısı Dropbox iş toouse Azure AD el ile yapılandırmanız gerekir. Bu nedenle, Dropbox iş yapılandırılmış toodo olmadıysa sor veya aksi takdirde Azure AD kullanarak kullanıcıların toosign izin olamaz.
+Kullanıcıların kendi kuruluş hesabını kullanarak oturum sağlamak için Dropbox Azure AD güvenlik onaylama işlemi biçimlendirme dili (SAML) kimlik sağlayıcısı kullanmak için iş el ile yapılandırmanız gerekir. Bunu yapmak için Dropbox iş yapılandırılmamış, bu isteyebilir veya aksi takdirde Azure AD kullanarak kullanıcıların oturum açmasını sağlar.
 
-1. Azure AD, select INTO tooadd hello Dropbox iş uygulama **kurumsal uygulamalar** hello sol bölmesinde ve ardından **Ekle**.
+1. Azure AD ile Dropbox iş uygulama eklemek için seçin **kurumsal uygulamalar** sol bölmesinde ve ardından **Ekle**.
 
-  ![Merhaba Kurumsal uygulamaları sayfasındaki Hello "Ekle" düğmesi](media/active-directory-b2b-configure-saas-apps/add-dropbox.png)
+  ![Kuruluş uygulamaları sayfasında "Ekle" düğmesi](media/active-directory-b2b-configure-saas-apps/add-dropbox.png)
 
-2. Merhaba, **bir uygulama eklemek** penceresinde girin **dropbox** hello arama kutusuna ve ardından **iş için Dropbox** hello sonuçları listesinde.
+2. İçinde **bir uygulama eklemek** penceresinde girin **dropbox** arama kutusuna ve ardından **iş için Dropbox** sonuçlar listesinde.
 
-  ![Merhaba "dropbox" için arama uygulama sayfası ekleme](media/active-directory-b2b-configure-saas-apps/add-app-dialog.png)
+  ![Uygulama Sayfası Ekle "dropbox" arayın](media/active-directory-b2b-configure-saas-apps/add-app-dialog.png)
 
-3. Merhaba üzerinde **çoklu oturum açma** sayfasında, **çoklu oturum açma** hello sol bölmesinde ve ardından girin **user.mail** hello içinde **kullanıcı tanımlayıcısı** bir kutu. (Bunu UPN varsayılan olarak ayarlanır.)
+3. Üzerinde **çoklu oturum açma** sayfasında, **çoklu oturum açma** sol bölmede ve ardından girin **user.mail** içinde **kullanıcı tanımlayıcısı** kutusu. (Bunu UPN varsayılan olarak ayarlanır.)
 
-  ![Merhaba uygulama için çoklu oturum açmayı yapılandırma](media/active-directory-b2b-configure-saas-apps/configure-app-sso.png)
+  ![Uygulama için çoklu oturum açmayı yapılandırma](media/active-directory-b2b-configure-saas-apps/configure-app-sso.png)
 
-4. Dropbox yapılandırması için toodownload hello sertifika toouse seçin **yapılandırma DropBox**ve ardından **SAML çoklu oturum üzerinde hizmet URL'si** hello listesinde.
+4. Dropbox yapılandırması için kullanılacak sertifikayı yüklemek üzere seçin **yapılandırma DropBox**ve ardından **SAML çoklu oturum üzerinde hizmet URL'si** listesinde.
 
-  ![Dropbox yapılandırması için Hello sertifika yükleme](media/active-directory-b2b-configure-saas-apps/download-certificate.png)
+  ![Dropbox yapılandırması için sertifika indirme](media/active-directory-b2b-configure-saas-apps/download-certificate.png)
 
-5. Oturum açma tooDropbox hello ile oturum açma URL'si hello **çoklu oturum açma** sayfası.
+5. Oturum açtığınızda Dropbox oturum açma URL'si ile **çoklu oturum açma** sayfası.
 
-  ![Merhaba Dropbox oturum açma sayfası](media/active-directory-b2b-configure-saas-apps/sign-in-to-dropbox.png)
+  ![Dropbox oturum açma sayfası](media/active-directory-b2b-configure-saas-apps/sign-in-to-dropbox.png)
 
-6. Başlangıç menüsünden seçin **Yönetici Konsolu**.
+6. Menüsünde seçin **Yönetici Konsolu**.
 
-  ![Merhaba Dropbox menüsünde Hello "Yönetici Konsolu" bağlantısı](media/active-directory-b2b-configure-saas-apps/dropbox-menu.png)
+  ![Dropbox menüsünde "Yönetici Konsolu" bağlantısı](media/active-directory-b2b-configure-saas-apps/dropbox-menu.png)
 
-7. Merhaba, **kimlik doğrulaması** iletişim kutusunda **daha fazla**, hello sertifikasını karşıya yükleyin ve ardından hello **URL'de oturum** kutusunda, hello SAML çoklu oturum açma URL'sini girin.
+7. İçinde **kimlik doğrulaması** iletişim kutusunda **daha fazla**, sertifikayı karşıya yüklemek ve ardından **URL'de oturum** kutusuna, SAML çoklu oturum açma URL'si girin.
 
-  ![Merhaba hello "Daha fazla" bağlantısına daraltılmış kimlik doğrulama iletişim kutusu](media/active-directory-b2b-configure-saas-apps/dropbox-auth-01.png)
+  ![Daraltılmış kimlik doğrulama iletişim kutusunda "Daha fazla" bağlantı](media/active-directory-b2b-configure-saas-apps/dropbox-auth-01.png)
 
-  ![kimlik doğrulama iletişim kutusu Hello "Oturum açma URL'si" Merhaba genişletilmiş](media/active-directory-b2b-configure-saas-apps/paste-single-sign-on-URL.png)
+  !["Oturum URL'de" genişletilmiş kimlik doğrulama iletişim kutusunda](media/active-directory-b2b-configure-saas-apps/paste-single-sign-on-URL.png)
 
-8. tooconfigure otomatik kullanıcı hello Azure portal, Kurulum'da seçin **sağlama** hello sol bölmesinde seçin **otomatik** hello içinde **sağlama modu** kutusuna ve ardından seçin **Yetkilendirmek**.
+8. Otomatik kullanıcı kurulum Azure portalında yapılandırmak için seçin **sağlama** sol bölmesinde seçin **otomatik** içinde **sağlama modu** kutusuna ve ardından **Authorize**.
 
-  ![Otomatik kullanıcı sağlamayı hello Azure portalını yapılandırma](media/active-directory-b2b-configure-saas-apps/set-up-automatic-provisioning.png)
+  ![Azure portalında otomatik kullanıcı sağlamayı yapılandırma](media/active-directory-b2b-configure-saas-apps/set-up-automatic-provisioning.png)
 
-Konuk veya üye kullanıcı hello Dropbox uygulamada ayarlanan sonra Dropbox'tan ayrı bir davet alırsınız. toouse Dropbox çoklu oturum açma davetlilerin bir bağlantıya tıklayarak hello daveti kabul etmelisiniz.
+Konuk veya üye kullanıcı Dropbox uygulamada ayarlanan sonra Dropbox'tan ayrı bir davet alırsınız. Dropbox çoklu oturum açma kullanmak için davetlilerin daveti bir bağlantıya tıklayarak kabul etmelisiniz.
 
 ## <a name="box"></a>Box
-SAML Protokolü hello üzerinde temel Federasyon kullanarak kullanıcıların tooauthenticate kutusunu Konuk kullanıcılar kendi Azure AD hesabı ile etkinleştirebilirsiniz. Bu yordamda, meta veri tooBox.com karşıya yükleyin.
+SAML protokolünü temel Federasyon kullanarak Azure AD hesabıyla kutusunu konuk kullanıcıların kimliklerini doğrulamak kullanıcıların sağlayabilirsiniz. Bu yordamda, meta veriler için Box.com yükleyin.
 
-1. Merhaba kutusunu uygulama hello Kurumsal uygulamalardan ekleyin.
+1. Box uygulamasına Kurumsal uygulamalardan ekleyin.
 
-2. Çoklu oturum açma sırasının hello yapılandırın:
+2. Çoklu oturum açma şu sırayla yapılandırın:
 
   ![Kutusunu çoklu oturum açmayı yapılandırın](media/active-directory-b2b-configure-saas-apps/configure-box-sso.png)
 
- a. Merhaba, **URL üzerinde oturum** kutusunda, hello Azure portal kutusunu, hello oturum açma URL'si uygun şekilde ayarlandığından emin olun. Bu hello Box.com kiracınızın URL'dir. Merhaba adlandırma kuralına uymalı *https://.box.com*.  
- Merhaba **tanımlayıcısı** toothis uygulanmaz uygulama, ancak bu zorunlu bir alan görünmeye.
+ a. İçinde **URL üzerinde oturum** kutusunda, Azure portalında kutusunu, oturum açma URL'si uygun şekilde ayarlandığından emin olun. Bu Box.com kiracınızın URL'dir. Adlandırma kuralına uymalı *https://.box.com*.  
+ **Tanımlayıcısı** bu uygulama için geçerli değildir, ancak bu zorunlu bir alan görünmeye devam eder.
 
- b. Merhaba, **kullanıcı tanımlayıcısı** kutusuna **user.mail** (için SSO Konuk hesapları için).
+ b. İçinde **kullanıcı tanımlayıcısı** kutusuna **user.mail** (için SSO Konuk hesapları için).
 
  c. Altında **SAML imzalama sertifikası**, tıklatın **yeni sertifika oluştur**.
 
- d. Box.com Kiracı toouse Azure AD kimlik sağlayıcısı olarak, yapılandırma toobegin hello meta veri dosyasını indirin ve tooyour yerel sürücüye kaydedin.
+ d. Azure AD kimlik sağlayıcısı olarak kullanmak için Box.com Kiracı yapılandırmaya başlamak için meta veri dosyası karşıdan yükle ve yerel diskinize kaydedin.
 
- e. Çoklu oturum açma, yapılandıran hello meta veri dosyası toohello kutusunu destek ekibi, iletin.
+ e. İleri kutusuna meta veri dosyası, çoklu oturum açma sizin için yapılandırır takım destekler.
 
-3. Merhaba sol bölmesinde, Azure AD otomatik kullanıcı kurulumu seçin **sağlama**ve ardından **Authorize**.
+3. Sol bölmede, Azure AD otomatik kullanıcı kurulumu seçin **sağlama**ve ardından **Authorize**.
 
-  ![Azure AD tooconnect tooBox yetkilendirmek](media/active-directory-b2b-configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
+  ![Azure AD kutusuna bağlanmak için yetki](media/active-directory-b2b-configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
 
-Dropbox davetlilerin gibi kutusunu davetlilerin hello Box uygulamasına kendi davetini almak gerekir.
+Dropbox davetlilerin gibi kutusunu davetlilerin Box uygulamasına kendi davetini almak gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure AD B2B işbirliği makalelerini aşağıdaki hello bakın:
+Azure AD B2B işbirliği aşağıdaki makalelere bakın:
 
 * [Azure AD B2B işbirliği nedir?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [B2B işbirliği kullanıcı özellikleri](active-directory-b2b-user-properties.md)
-* [B2B işbirliği kullanıcı tooa rolü ekleme](active-directory-b2b-add-guest-to-role.md)
+* [Bir role B2B işbirliği kullanıcı ekleme](active-directory-b2b-add-guest-to-role.md)
 * [B2B işbirliği davetleri temsilci seçme](active-directory-b2b-delegate-invitations.md)
 * [Dinamik gruplar ve B2B işbirliği](active-directory-b2b-dynamic-groups.md)
 * [B2B işbirliği kodu ve PowerShell örnekleri](active-directory-b2b-code-samples.md)

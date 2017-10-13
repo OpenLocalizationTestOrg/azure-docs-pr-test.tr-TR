@@ -1,5 +1,5 @@
 ---
-title: "Windows Azure için aaaVirtual makine uzantıları ve özellikleri | Microsoft Docs"
+title: "Sanal makine uzantıları ve özellikleri Windows Azure için | Microsoft Docs"
 description: "Hangi uzantıları ne bunlar sağlayın veya geliştirmek tarafından gruplandırılmış Azure sanal makineler için kullanılabilir olduğunu öğrenin."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,41 +16,41 @@ ms.workload: infrastructure-services
 ms.date: 03/06/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 61ccfd696b38e9be1026d836d5796c2346fd650f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1ce0eebd2585c9457d7f922898d7f2fa3e7ffad7
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Sanal makine uzantıları ve özellikleri Windows için
 
-Azure sanal makine uzantıları Azure sanal makinelerde dağıtım sonrası yapılandırma ve Otomasyon görevlerini sağlayan küçük uygulamalardır. Örneğin, bir sanal makineye yazılım yükleme, virüsten koruma veya Docker yapılandırma gerektiriyorsa, VM uzantısı için kullanılan toocomplete bu görevleri olabilir. Azure VM uzantıları ve Azure portal hello hello Azure CLI, PowerShell, Azure Resource Manager şablonları kullanarak çalıştırabilirsiniz. Uzantıları ile yeni bir sanal makine dağıtımı paketlenebilir veya varolan bir sistemle bağlantılı çalıştırın.
+Azure sanal makine uzantıları Azure sanal makinelerde dağıtım sonrası yapılandırma ve Otomasyon görevlerini sağlayan küçük uygulamalardır. Örneğin, bir sanal makineye yazılım yükleme, virüsten koruma veya Docker yapılandırma gerektiriyorsa, bu görevleri tamamlamak için bir VM uzantısı kullanılabilir. Azure VM uzantıları, Azure CLI, PowerShell, Azure Resource Manager şablonları ve Azure portalını kullanarak çalıştırabilirsiniz. Uzantıları ile yeni bir sanal makine dağıtımı paketlenebilir veya varolan bir sistemle bağlantılı çalıştırın.
 
-Bu belge, sanal makine uzantıları, sanal makine uzantıları ve Kılavuzu nasıl toodetect, yönetme ve sanal makine uzantıları kaldırma üzerinde kullanma önkoşulları genel bir bakış sağlar. Birçok VM uzantıları bulunduğundan, bu belgede genelleştirilmiş bilgiler sağlanmaktadır her potansiyel olarak benzersiz bir yapılandırmaya sahip. Uzantı özel ayrıntıları her belge belirli toohello tek tek uzantısı'nda bulunabilir.
+Bu belge, sanal makine uzantıları, sanal makine uzantıları ve Kılavuzu algılamak, yönetmek ve sanal makine uzantıları kaldırmak nasıl kullanma önkoşulları genel bir bakış sağlar. Birçok VM uzantıları bulunduğundan, bu belgede genelleştirilmiş bilgiler sağlanmaktadır her potansiyel olarak benzersiz bir yapılandırmaya sahip. Uzantıya özgü ayrıntıları her belge için ayrı ayrı uzantısı belirli bulunabilir.
 
 ## <a name="use-cases-and-samples"></a>Kullanım örnekleri ve örnekler
 
 Birçok farklı Azure VM uzantıları vardır, her biri belirli bir kullanım örneği. Bazı örnek kullanım örnekleri şunlardır:
 
-- PowerShell istenen durum yapılandırması tooa sanal makine için Windows hello DSC uzantısı kullanılarak uygulanır. Daha fazla bilgi için bkz: [Azure istenen durum yapılandırması uzantısı](extensions-dsc-overview.md).
-- Sanal makine hello Microsoft İzleme Aracısı VM uzantısı kullanarak izlemeyi yapılandırın. Daha fazla bilgi için bkz: [bağlanmak Azure sanal makineleri tooLog Analytics](../../log-analytics/log-analytics-azure-vm-extension.md).
-- Azure altyapınızın hello Datadog uzantısı ile izlemeyi yapılandırma. Daha fazla bilgi için bkz: Merhaba [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
+- PowerShell istenen durum yapılandırmalar için Windows DSC uzantısı kullanılarak bir sanal makine için geçerlidir. Daha fazla bilgi için bkz: [Azure istenen durum yapılandırması uzantısı](extensions-dsc-overview.md).
+- Microsoft İzleme Aracısı VM uzantısı kullanarak sanal makine izlemeyi yapılandırın. Daha fazla bilgi için bkz: [bağlanmak Azure sanal makineleri için günlük analizi](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Azure altyapınızın Datadog uzantılı izlemeyi yapılandırın. Daha fazla bilgi için bkz: [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 - Bir Azure sanal makinesi Chef kullanarak yapılandırın. Daha fazla bilgi için bkz: [otomatikleştirme Azure sanal makine dağıtımı Chef ile](chef-automation.md).
 
-Ayrıca tooprocess özgü uzantılar, özel betik uzantısı hem Windows hem de Linux sanal makineler için kullanılabilir. Merhaba özel betik uzantısı Windows için bir sanal makine üzerinde çalışan bir PowerShell komut dosyası toobe sağlar. Yerel hangi Azure araçlar sağlayabilir ötesinde yapılandırma gerektiren Azure dağıtımları tasarlarken kullanışlıdır. Daha fazla bilgi için bkz: [Windows VM özel betik uzantısı](extensions-customscript.md).
+İşleme özgü uzantılar ek olarak, bir özel betik uzantısı, Windows ve Linux sanal makineleri için kullanılabilir. Windows için özel betik uzantısı, bir sanal makine üzerinde çalıştırılacak PowerShell komut dosyaları sağlar. Yerel hangi Azure araçlar sağlayabilir ötesinde yapılandırma gerektiren Azure dağıtımları tasarlarken kullanışlıdır. Daha fazla bilgi için bkz: [Windows VM özel betik uzantısı](extensions-customscript.md).
 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Her sanal makine uzantısı önkoşulları kendi kümesine sahip. Örneği için bir önkoşul desteklenen Linux dağıtım hello Docker VM uzantısı vardır. Tek tek uzantıların gereksinimlerini hello uzantıya özgü belgelerinde açıklanmıştır.
+Her sanal makine uzantısı önkoşulları kendi kümesine sahip. Örneğin, Docker VM uzantısı desteklenen Linux dağıtım önkoşul vardır. Tek tek uzantıların gereksinimlerini uzantıya özgü belgelerinde açıklanmıştır.
 
 ### <a name="azure-vm-agent"></a>Azure VM aracısı
-Hello Azure VM Aracısı bir Azure sanal makinesi ve hello Azure yapı denetleyicisi arasındaki etkileşimi yönetir. Merhaba VM Aracısı dağıtma ve yönetme Azure sanal makineler, çalışan VM uzantıları dahil olmak üzere birçok işlevsel görünüşlere için sorumludur. Hello Azure VM Aracısı Azure Marketi görüntülerinde önceden yüklenmiş ve desteklenen işletim sistemlerine yüklenebilir.
+Azure VM Aracısı bir Azure sanal makinesi ve Azure yapı denetleyicisi arasındaki etkileşimi yönetir. VM Aracısı dağıtma ve yönetme Azure sanal makineler, çalışan VM uzantıları dahil olmak üzere birçok işlevsel görünüşlere için sorumludur. Azure VM Aracısı Azure Marketi görüntülerinde önceden yüklenmiş ve desteklenen işletim sistemlerine yüklenebilir.
 
 Desteklenen işletim sistemleri ve yükleme yönergeleri hakkında daha fazla bilgi için bkz: [Azure sanal makine Aracısı](agent-user-guide.md).
 
 ## <a name="discover-vm-extensions"></a>VM uzantıları Bul
-Birçok farklı VM uzantıları, Azure sanal makineler ile kullanmak için kullanılabilir. tam bir listesi, toosee komutu hello Azure Resource Manager PowerShell modülü ile aşağıdaki hello çalıştırın. Bu komutu çalıştırdığınızda toospecify istenen hello konumu emin olun.
+Birçok farklı VM uzantıları, Azure sanal makineler ile kullanmak için kullanılabilir. Tam listesini görmek için Azure Resource Manager PowerShell modülü ile aşağıdaki komutu çalıştırın. Bu komutu çalıştırdığınızda istenen konumu belirttiğinizden emin olun.
 
 ```powershell
 Get-AzureRmVmImagePublisher -Location WestUS | `
@@ -60,19 +60,19 @@ Get-AzureRmVMExtensionImage | Select Type, Version
 
 ## <a name="run-vm-extensions"></a>VM uzantıları çalıştırın
 
-Azure sanal makine uzantıları toomake yapılandırma değişiklikleri gerekir ya da bağlantı zaten dağıtılmış bir VM'de kurtarmak gerektiğinde faydalı olan mevcut sanal makinelerde çalıştırılabilir. VM uzantıları, Azure Resource Manager şablonu dağıtımlarında da gönderilebilir. Resource Manager şablonları ile uzantıları kullanarak dağıtılır ve dağıtım sonrası araya hello gerek kalmadan yapılandırılmış Azure sanal makineleri toobe etkinleştirebilirsiniz.
+Azure sanal makine uzantıları yapılandırma değişikliklerini yapın veya zaten dağıtılmış bir VM'de bağlantısı kurtarmak gerektiğinde faydalı olan mevcut sanal makinelerde çalıştırılabilir. VM uzantıları, Azure Resource Manager şablonu dağıtımlarında da gönderilebilir. Resource Manager şablonları ile uzantıları kullanarak, dağıtılması ve dağıtım sonrası müdahalesi gerektirmeden yapılandırılmış için Azure sanal makineleri etkinleştirebilirsiniz.
 
-yöntemler aşağıdaki hello kullanılan toorun uzantı var olan bir sanal makineye karşı olabilir.
+Aşağıdaki yöntemlerden bir uzantısı olan bir sanal makineyi karşı çalıştırmak için kullanılabilir.
 
 ### <a name="powershell"></a>PowerShell
 
-Birkaç PowerShell komutları tek tek uzantıların çalıştırmak için mevcut. bir liste toosee hello aşağıdaki PowerShell komutlarını çalıştırın.
+Birkaç PowerShell komutları tek tek uzantıların çalıştırmak için mevcut. Bir listesini görmek için aşağıdaki PowerShell komutlarını çalıştırın.
 
 ```powershell
 get-command Set-AzureRM*Extension* -Module AzureRM.Compute
 ```
 
-Bu çıktı benzer toohello aşağıdakileri sağlar:
+Bu, aşağıdakine benzer bir çıktı sağlar:
 
 ```powershell
 CommandType     Name                                               Version    Source
@@ -91,7 +91,7 @@ Cmdlet          Set-AzureRmVMExtension                             2.2.0      Az
 Cmdlet          Set-AzureRmVMSqlServerExtension                    2.2.0      AzureRM.Compute
 ```
 
-Merhaba aşağıdaki örnek hello özel betik uzantısı toodownload bir komut dosyası hello hedef sanal makine üzerine GitHub deposunu kullanır ve hello betiğini çalıştırın. Merhaba özel betik uzantısı ile ilgili daha fazla bilgi için bkz: [özel betik uzantısı genel bakış](extensions-customscript.md).
+Aşağıdaki örnek, bir komut dosyası hedef sanal makine üzerine GitHub deposunu indirin ve komut dosyasını çalıştırmak için özel betik uzantısı kullanır. Özel betik uzantısı hakkında daha fazla bilgi için bkz: [özel betik uzantısı genel bakış](extensions-customscript.md).
 
 ```powershell
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
@@ -100,7 +100,7 @@ Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -Run "Create-File.ps1" -Location "West US"
 ```
 
-Bu örnekte, hello VM erişim uzantısı kullanılan tooreset hello yönetimsel bir Windows sanal makinenin paroladır. Merhaba VM erişim uzantısı ile ilgili daha fazla bilgi için bkz: [Windows VM Uzak Masaüstü'nü Sıfırla Hizmeti'nde](reset-rdp.md).
+Bu örnekte, VM erişim uzantısı, Windows sanal makine yönetici parolasını sıfırlamak için kullanılır. VM erişim uzantısı ile ilgili daha fazla bilgi için bkz: [Windows VM Uzak Masaüstü'nü Sıfırla Hizmeti'nde](reset-rdp.md).
 
 ```powershell
 $cred=Get-Credential
@@ -110,22 +110,22 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-Merhaba `Set-AzureRmVMExtension` komutu kullanılan toostart tüm VM uzantısı olabilir. Daha fazla bilgi için bkz: Merhaba [kümesi AzureRmVMExtension başvuru](https://msdn.microsoft.com/en-us/library/mt603745.aspx).
+`Set-AzureRmVMExtension` Komutu, tüm VM uzantısı başlatmak için kullanılabilir. Daha fazla bilgi için bkz: [kümesi AzureRmVMExtension başvuru](https://msdn.microsoft.com/en-us/library/mt603745.aspx).
 
 
 ### <a name="azure-portal"></a>Azure portalına
 
-VM uzantısı hello Azure portal aracılığıyla uygulanan tooan varolan sanal makine olabilir. toodo, bu nedenle, hello sanal makine seçin toouse istiyorsanız, seçin **uzantıları**, tıklatıp **Ekle**. Bu, kullanılabilir uzantıları listesini sağlar. Merhaba istediğiniz ve hello hello Sihirbazı'ndaki adımları seçin.
+VM uzantısı olan bir sanal makineyi Azure Portalı aracılığıyla uygulanabilir. Bunu yapmak için kullanmak, seçmek istediğiniz sanal makineyi seçin **uzantıları**, tıklatıp **Ekle**. Bu, kullanılabilir uzantıları listesini sağlar. İstediğiniz ve sihirbazdaki adımları izleyin birini seçin.
 
-Merhaba aşağıdaki görüntüde hello hello Azure portal Microsoft Antimalware uzantı hello yüklemesini gösterir.
+Aşağıdaki resim Azure portalından Microsoft Antimalware uzantının yüklenmesi gösterir.
 
 ![Kötü amaçlı yazılımdan koruma uzantısını yükleyin](./media/extensions-features/installantimalwareextension.png)
 
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager şablonları
 
-VM uzantıları eklenen tooan Azure Resource Manager şablonu olabilir ve hello şablon hello dağıtımı ile yürütüldü. Bir şablonla uzantıları tam olarak yapılandırılmış Azure dağıtımları oluşturmak için kullanışlıdır. Örneğin, aşağıdaki JSON yük dengeli sanal makineler ve Azure SQL veritabanını kümesi dağıtır ve ardından her VM .NET Core uygulama yükleyen bir Resource Manager şablonu alınırlar hello. Merhaba VM uzantısı hello yazılım yüklemesini mvc'deki.
+VM uzantıları, bir Azure Resource Manager şablonu eklenir ve şablon dağıtımı ile yürütüldü. Bir şablonla uzantıları tam olarak yapılandırılmış Azure dağıtımları oluşturmak için kullanışlıdır. Örneğin, aşağıdaki JSON yük dengeli sanal makineler kümesi ve Azure SQL Veritabanını dağıtır ve ardından her VM .NET Core uygulama yükleyen bir Resource Manager şablonu alınır. VM uzantısı yazılım yüklemesi mvc'deki.
 
-Daha fazla bilgi için bkz: Merhaba [tam Resource Manager şablonu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
+Daha fazla bilgi için bkz: [tam Resource Manager şablonu](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
 
 ```json
 {
@@ -161,9 +161,9 @@ Daha fazla bilgi için bkz: [Azure Resource Manager şablonları yazma Windows V
 
 ## <a name="secure-vm-extension-data"></a>VM uzantısı verileri güvenli
 
-VM uzantısı çalıştırırken kimlik bilgilerini, depolama hesabı adları ve depolama hesabı erişim anahtarlarını gibi hassas bilgileri gerekli tooinclude olabilir. Birçok VM uzantıları verileri şifreler ve yalnızca hello hedef sanal makine içinde şifresini çözer korumalı bir yapılandırmayı içerir. Her bir uzantı uzantıya özgü belgelerinde ayrıntılı bir belirli korumalı yapılandırma şeması vardır.
+VM uzantısı çalıştırırken kimlik bilgilerini, depolama hesabı adları ve depolama hesabı erişim anahtarlarını gibi hassas bilgiler dahil etmek gerekli olabilir. Birçok VM uzantıları verileri şifreler ve yalnızca hedef sanal makine içinde şifresini çözer korumalı bir yapılandırmayı içerir. Her bir uzantı uzantıya özgü belgelerinde ayrıntılı bir belirli korumalı yapılandırma şeması vardır.
 
-Aşağıdaki örneğine hello için Windows hello özel betik uzantısı örneğini gösterir. Bu hello komutu tooexecute kimlik bilgileri kümesi içerir dikkat edin. Bu örnekte, hello komutu tooexecute şifrelenmez.
+Aşağıdaki örnek, Windows için özel betik uzantısı örneğini gösterir. Komutun yürütülmesi için kimlik bilgileri kümesini içerdiğine dikkat edin. Bu örnekte, yürütülecek komut şifrelenmez.
 
 
 ```json
@@ -194,7 +194,7 @@ Aşağıdaki örneğine hello için Windows hello özel betik uzantısı örneğ
 }
 ```
 
-Merhaba taşıyarak Hello yürütme dize güvenli **komutu tooexecute** özelliği toohello **korumalı** yapılandırma.
+Yürütme dize taşıyarak güvenli **yürütülecek komut** özelliğine **korumalı** yapılandırma.
 
 ```json
 {
@@ -228,19 +228,19 @@ Merhaba taşıyarak Hello yürütme dize güvenli **komutu tooexecute** özelli�
 
 ## <a name="troubleshoot-vm-extensions"></a>VM uzantıları sorun giderme
 
-Her VM uzantısı özel sorun giderme adımları olabilir. Örneğin, hello özel betik uzantısı kullanırken, komut dosyası yürütme ayrıntılarını yerel olarak hello uzantısı çalıştırıldığı hello sanal makine üzerinde bulunabilir. Uzantı özel sorun giderme işlemleri uzantıya özgü belgelerinde açıklanmıştır.
+Her VM uzantısı özel sorun giderme adımları olabilir. Örneğin, özel betik uzantısı kullanırken, komut dosyası yürütme ayrıntılarını yerel olarak sanal makinede uzantı çalıştırıldı bulunabilir. Uzantı özel sorun giderme işlemleri uzantıya özgü belgelerinde açıklanmıştır.
 
-Aşağıdaki sorun giderme adımları hello tooall sanal makine uzantıları uygulayın.
+Tüm sanal makine uzantıları için aşağıdaki sorun giderme adımlarını uygulayın.
 
 ### <a name="view-extension-status"></a>Uzantı durumunu görüntüle
 
-Bir sanal makine uzantısı bir sanal makine çalıştırdıktan sonra aşağıdaki PowerShell komut tooreturn uzantı durumunu hello kullanın. Örnek parametre adları kendi değerlerinizle değiştirin. Merhaba `Name` parametresi toohello uzantısı yürütme sırasında verilen hello adı alır.
+Bir sanal makine uzantısı bir sanal makine çalıştırdıktan sonra uzantı durumunu döndürmek için aşağıdaki PowerShell komutunu kullanın. Örnek parametre adları kendi değerlerinizle değiştirin. `Name` Parametresi, yürütme esnasında uzantısını verilen ad alır.
 
 ```PowerShell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
-Merhaba çıktı hello aşağıdaki gibi görünür:
+Çıktı aşağıdaki gibi görünür:
 
 ```json
 ResourceGroupName       : myResourceGroup
@@ -261,21 +261,21 @@ AutoUpgradeMinorVersion : False
 ForceUpdateTag          :
 ```
 
-Uzantı yürütme durumu da hello Azure portalında bulunabilir. tooview hello durumu select hello sanal makine, bir uzantı seçin **uzantıları**, ve hello istenen uzantı seçin.
+Uzantı yürütme durumu de Azure portalında bulunabilir. Uzantı durumunu görüntülemek için sanal makineyi seçin, **uzantıları**ve istenen uzantı seçin.
 
 ### <a name="rerun-vm-extensions"></a>VM uzantıları yeniden çalıştırın
 
-Bir sanal makine uzantısı toobe gereken durumlar olabilir yeniden çalıştırın. Merhaba uzantısı kaldırarak ve tercih ettiğiniz yürütme yöntemiyle hello uzantısı yeniden çalıştırma bunu yapabilirsiniz. bir uzantı tooremove komutu hello Azure PowerShell modülü ile aşağıdaki hello çalıştırın. Örnek parametre adları kendi değerlerinizle değiştirin.
+Bir sanal makine uzantısı yeniden çalıştırılması gereken durumlar olabilir. Uzantı kaldırarak ve tercih ettiğiniz yürütme yöntemiyle uzantısı yeniden çalıştırma bunu yapabilirsiniz. Bir uzantıyı kaldırmak için Azure PowerShell modülü ile aşağıdaki komutu çalıştırın. Örnek parametre adları kendi değerlerinizle değiştirin.
 
 ```powershell
 Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
-Uzantı hello Azure portal kullanarak da kaldırılabilir. toodo için:
+Uzantı, Azure portalını kullanarak da kaldırılabilir. Bunu yapmak için:
 
 1. Bir sanal makineyi seçin.
 2. Seçin **uzantıları**.
-3. İstenen hello uzantı seçin.
+3. İstenen uzantı seçin.
 4. Seçin **kaldırma**.
 
 ## <a name="common-vm-extensions-reference"></a>Ortak VM uzantıları başvurusu

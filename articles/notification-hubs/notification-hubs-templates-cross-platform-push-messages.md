@@ -1,5 +1,5 @@
 ---
-title: aaaTemplates
+title: "Şablonlar"
 description: "Bu konu, şablonları Azure bildirim hub'ları için açıklar."
 services: notification-hubs
 documentationcenter: .net
@@ -14,29 +14,29 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: 0149f0c7473e5a4b952905bc8217582b58db2a0d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1ca24a4bf08ecdbe1c1e47a931613144309a04a9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="templates"></a>Şablonlar
 ## <a name="overview"></a>Genel Bakış
-Şablonlar, bir istemci uygulama toospecify hello tam biçim tooreceive istediği hello bildirimleri etkinleştirir. Şablonları kullanarak bir uygulama hello aşağıdakileri içeren birkaç farklı faydaları hayata geçirmek:
+Şablonları almak istediği bildirim tam biçimini belirtmek bir istemci uygulaması etkinleştirin. Şablonları kullanarak bir uygulama aşağıdakiler de dahil olmak üzere birkaç farklı faydaları hayata geçirmek:
 
 * Platform belirsiz arka uç
 * Kişiselleştirilmiş bildirimler
 * İstemci sürümü bağımsızlığı
 * Kolay yerelleştirme
 
-Bu bölümde nasıl bildirim tooeach cihaz platformları ve toopersonalize tüm aygıtlarınızın hedefleme toouse şablonları toosend platform belirsiz bildirimleri yayını iki ayrıntılı örnekler sağlar.
+Bu bölümde platformlar genelinde tüm aygıtlarınızın hedefleme platform belirsiz bildirimleri göndermek için ve her aygıt için yayın bildirim kişiselleştirmek için şablonları kullanma iki ayrıntılı örnekler sağlar.
 
 ## <a name="using-templates-cross-platform"></a>Şablonları platformlar arası kullanma
-Merhaba standart yol toosend anında iletme bildirimleri gönderilen toobe olan her bir bildirim için belirli yükü tooplatform Bildirim Hizmetleri (WNS, APNS) toosend olur. Örneğin, bir uyarı tooAPNS toosend hello form aşağıdaki Json nesnesinin hello yükü olduğu:
+Anında iletme bildirimleri göndermek için standart gönderilmesi için belirli bir yükü platform Bildirim Hizmetleri (WNS, APNS) için her bir bildirim göndermek için yoludur. Örneğin, APNS için bir uyarı göndermek için aşağıdaki biçimde bir Json nesnesi yükü şöyledir:
 
     {"aps": {"alert" : "Hello!" }}
 
-bir Windows mağazası uygulaması üzerinde benzer bir bildirim iletisi toosend hello XML yükü aşağıdaki gibidir:
+Bir Windows mağazası uygulaması benzer bir bildirim iletisi göndermek için bir XML yükü aşağıdaki gibidir:
 
     <toast>
       <visual>
@@ -48,19 +48,19 @@ bir Windows mağazası uygulaması üzerinde benzer bir bildirim iletisi toosend
 
 MPNS (Windows Phone) ve GCM (Android) platformlar için benzer yükü oluşturabilirsiniz.
 
-Bu gereksinim hello uygulama arka uç tooproduce farklı yüklerini her platform için zorlar ve etkili bir şekilde hello arka uç hello sunu katmanı hello uygulamanın parçası sorumlu hale getirir. Bazı sorunları yerelleştirme ve grafik düzenleri (döşeme çeşitli türleri için bildirimleri içeren özellikle Windows mağazası uygulamaları için) içerir.
+Bu gereksinim, her platform için farklı yüklerini üretmek için uygulama arka ucu zorlar ve etkili bir şekilde arka uç uygulamasının sunu katmanı parçası sorumlu yapar. Bazı sorunları yerelleştirme ve grafik düzenleri (döşeme çeşitli türleri için bildirimleri içeren özellikle Windows mağazası uygulamaları için) içerir.
 
-Ayrıca etiketler, bir şablon toohello kümesi içerir şablon kayıtlar adlı bir istemci uygulama toocreate özel kayıtları Hello bildirim hub'ları şablon özelliği sağlar. (tercih edilen) yüklemeleri veya kayıtlar ile çalışıyorsanız olup olmadığını şablonları ile bir istemci uygulama tooassociate cihazları hello bildirim hub'ları şablon özelliği sağlar. Yükü örnekler önceki hello verildiğinde, hello yalnızca platformdan bağımsız hello gerçek uyarı iletisi (Merhaba!) bilgilerdir. Şablon yönergeleri için nasıl tooformat platformdan bağımsız ileti bu belirli istemci uygulama hello kaydı için bildirim hub'ı hello kümesidir. Örnek önceki hello hello platform bağımsız tek bir özellik iletisidir: **ileti Hello =!**.
+Bildirim hub'ları şablon özelliği, bir şablon etiketleri kümesi yanı sıra içerir şablon kayıtlar adlı özel kayıtları oluşturmak için bir istemci uygulaması sağlar. Bildirim hub'ları şablon özelliği (tercih edilen) yüklemeleri veya kayıtlar ile çalışıyorsanız olup olmadığını aygıtları şablonları ile ilişkilendirmek için bir istemci uygulaması sağlar. Önceki bir yükü örnekler verildiğinde, platformdan bağımsız olarak yalnızca gerçek uyarı iletisi (Merhaba!) bilgilerdir. Bir şablonu, bu özel istemci uygulaması kaydını platformdan bağımsız iletiyi biçimlendirmek nasıl bildirim hub'ına yönelik yönergeler kümesidir. Önceki örnekte platform bağımsız tek bir özellik iletisidir: **ileti Hello =!**.
 
-Resim aşağıdaki hello işlem yukarıda hello gösterilmektedir:
+Aşağıdaki resimde, yukarıdaki işlemi gösterilmektedir:
 
 ![](./media/notification-hubs-templates/notification-hubs-hello.png)
 
-Merhaba şablonu hello iOS istemci uygulamasını kaydı için aşağıdaki gibidir:
+İOS istemci uygulamasını kaydı için şablonu aşağıdaki gibidir:
 
     {"aps": {"alert": "$(message)"}}
 
-Merhaba Windows mağazası istemci uygulaması için karşılık gelen şablon Hello şöyledir:
+Windows mağazası istemci uygulaması için karşılık gelen şablon şöyledir:
 
     <toast>
         <visual>
@@ -70,16 +70,16 @@ Merhaba Windows mağazası istemci uygulaması için karşılık gelen şablon H
         </visual>
     </toast>
 
-Gerçek ileti hello bildirimi hello ifade $(ileti) konur. Bir ileti toothis belirli kayıt, toobuild ve hello ortak değeri anahtarları izleyen bir ileti gönderir olduğunda bu ifade hello bildirim hub'ı bildirir.
+Gerçek ileti geçmesidir olduğunu ifade $(ileti) dikkat edin. Bu ifade ve ortak değeri anahtarları izleyen bir ileti oluşturmak için bu belirli kayıt bir ileti gönderir her bildirim hub'ı bildirir.
 
-Yükleme modeliyle çalışıyorsanız, birden çok şablonlarının JSON hello yükleme "Şablon" anahtarı saklar. Kayıt modeliyle çalışıyorsanız, birden fazla şablon Merhaba istemci uygulaması birden çok kayıtlar sipariş toouse oluşturabilirsiniz; Örneğin, uyarı iletileri için bir şablon ve bölme için bir şablon güncelleştirir. İstemci uygulamaları, yerel kayıtları (kayıtlar herhangi bir şablon ile) ve şablon kayıtlar de karıştırabilirsiniz.
+Yükleme modeliyle çalışıyorsanız, birden çok şablonlarının JSON yükleme "Şablon" anahtarı saklar. Kayıt modeliyle çalışıyorsanız, istemci uygulaması birden fazla şablon kullanmak için birden çok kayıt oluşturabilir; Örneğin, uyarı iletileri için bir şablon ve bölme için bir şablon güncelleştirir. İstemci uygulamaları, yerel kayıtları (kayıtlar herhangi bir şablon ile) ve şablon kayıtlar de karıştırabilirsiniz.
 
-Merhaba bildirim hub'ı toohello ait düşünmeden her şablon için bir bildirim gönderir aynı istemci uygulaması. Bu davranış, daha fazla bildirimleri kullanılan tootranslate platformdan bağımsız bildirimlerini olabilir. Örneğin, aynı platform bağımsız ileti toohello bildirim hub'ı sorunsuz bir bildirim uyarı ve döşeme Güncelleştirmesi'nde hello arka uç toobe bu durumdan haberdar gerek kalmadan çevrilebilir hello. Bazı platformlar (örneğin, iOS) birden çok bildirimleri toohello Daralt Not kısa bir süre içinde gönderirse aynı aygıt.
+Bildirim hub'ı aynı istemci uygulamasına ait düşünmeden her şablon için bir bildirim gönderir. Bu davranış, daha fazla bildirimleri platformdan bağımsız bildirimlerini çevirmek için kullanılabilir. Örneğin, aynı platform bağımsız iletiyi bildirim hub'ına sorunsuz bir bildirim uyarı ve döşeme Güncelleştirmesi'nde bu durumdan haberdar olmasını arka uç gerek kalmadan çevrilebilir. Kısa bir süre içinde gönderirse bazı platformlar (örneğin, iOS) birden fazla bildirim aynı cihaza Daralt olduğunu unutmayın.
 
 ## <a name="using-templates-for-personalization"></a>Kişiselleştirme için şablonları kullanma
-Başka bir avantajı toousing şablonları hello özelliği toouse bildirim hub'ları tooperform kayıt başına kişiselleştirme bildirimler olur. Örneğin, belirli bir konumda hello hava koşulları içeren bir kutucuk görüntüleyen bir hava durumu uygulama göz önünde bulundurun. Bir kullanıcı derece veya Fahrenhayt derece ve tek veya beş günlük bir tahmini arasında seçim yapabilirsiniz. Şablonları kullanarak her bir istemci uygulama yükleme için gerekli hello biçimi kaydedebilirsiniz (1 gün Celsius, 1 gün Fahrenhayt, 5 gün derece, 5 gün Fahrenhayt), ve hello arka uç tüm hello bilgileri içeren tek bir ileti gereken toofill olanlar Gönder Şablonlar (örneğin, bir beş derece ve Fahrenhayt derece ile tahmin gün).
+Şablonları kullanarak başka bir avantajı kayıt başına kişiselleştirme bildirimler gerçekleştirmek için Notification Hubs'ı kullanma becerisini ' dir. Örneğin, belirli bir konumda hava koşulları içeren bir kutucuk görüntüleyen bir hava durumu uygulama göz önünde bulundurun. Bir kullanıcı derece veya Fahrenhayt derece ve tek veya beş günlük bir tahmini arasında seçim yapabilirsiniz. Şablonları kullanarak her bir istemci uygulama yükleme için gereken biçimi kaydedebilirsiniz (1 gün Celsius, 1 gün Fahrenhayt, 5 gün derece, 5 gün Fahrenhayt), ve bu şablonları doldurmak için gerekli tüm bilgileri içeren tek bir ileti gönderme arka uç (örneğin, bir beş derece ve Fahrenhayt derece ile tahmin gün).
 
-Merhaba şablonu ile derece tahmin hello bir gün için etme aşağıdaki gibidir:
+Şablon için bir günlük tahmin etme ile derece şu şekildedir:
 
     <tile>
       <visual>
@@ -91,7 +91,7 @@ Merhaba şablonu ile derece tahmin hello bir gün için etme aşağıdaki gibidi
       </visual>
     </tile>
 
-Merhaba gönderilen ileti toohello bildirim hub'ı aşağıdaki özelliklere tüm hello içerir:
+Bildirim Hub'ına gönderilen ileti aşağıdaki özellikleri içerir:
 
 <table border="1">
 
@@ -102,33 +102,33 @@ Merhaba gönderilen ileti toohello bildirim hub'ı aşağıdaki özelliklere tü
 <tr><td>day1_tempF</td><td>day2_tempF</td><td>day3_tempF</td><td>day4_tempF</td><td>day5_tempF</td></tr>
 </table><br/>
 
-Bu yöntemi kullanarak hello arka uç yalnızca tek bir ileti toostore belirli kişiselleştirme seçenekleri hello uygulama kullanıcılar için gerek kalmadan gönderir. Resim aşağıdaki hello bu senaryo gösterilmektedir:
+Bu yöntemi kullanarak, arka uç yalnızca tek bir ileti uygulama kullanıcılar için belirli kişiselleştirme seçenekleri depolamak zorunda kalmadan gönderir. Aşağıdaki resimde bu senaryo gösterilmektedir:
 
 ![](./media/notification-hubs-templates/notification-hubs-registration-specific.png)
 
-## <a name="how-tooregister-templates"></a>Nasıl tooregister şablonları
-tooregister (tercih edilen) hello yükleme modeli kullanarak şablonları veya hello kayıt modelini bkz [kayıt yönetimi](notification-hubs-push-notification-registration-management.md).
+## <a name="how-to-register-templates"></a>Şablonları kaydetme
+(Tercih edilen) yükleme modeli veya kayıt modelini kullanarak şablonları ile kaydetmek için bkz: [kayıt yönetimi](notification-hubs-push-notification-registration-management.md).
 
 ## <a name="template-expression-language"></a>Şablon ifade dili
-Sınırlı tooXML veya JSON Belge biçimleri şablonlarıdır. Ayrıca, belirli yerlerde ifadeleri yalnızca koyabilirsiniz; örnek, düğüm öznitelikleri veya XML değerleri için özellik değerleri için JSON dizesi.
+Şablonlar, XML veya JSON belge biçimlerine sınırlıdır. Ayrıca, belirli yerlerde ifadeleri yalnızca koyabilirsiniz; örnek, düğüm öznitelikleri veya XML değerleri için özellik değerleri için JSON dizesi.
 
-Merhaba aşağıdaki tabloda şablonlarında izin hello dil gösterilmektedir:
+Aşağıdaki tabloda şablonlarında izin dil gösterilmektedir:
 
 | ifade | Açıklama |
 | --- | --- |
-| $(prop) |Başvuru tooan olay özelliği hello verilen ada sahip. Özellik adları büyük küçük harfe duyarlı değildir. Merhaba özellik mevcut değilse bu ifade hello özelliğin metin değeri veya boş bir dize çözümler. |
-| $(prop, n) |Yukarıdaki, ancak hello metin açıkça olduğu gibi n karakter kırpılmış, örneğin $(başlık, 20) hello title özelliğini Merhaba içeriğine 20 karakter kırpar. |
-| . (prop, n) |Kırpılmış olsun gibi metin yukarıdaki, ancak hello olarak üç nokta ile sonekine. dize hello Hello toplam boyutu kırpılmış ve hello soneki n karakteri aşmayan. . (başlık, 20) bir giriş özelliğiyle "Merhaba başlık satırı olduğu" sonuçlarında **hello başlık budur...** |
-| %(prop) |Bu hello çıkışı dışında benzer too$(name) URI kodlanır. |
-| #(prop) |JSON şablonları (örneğin, iOS ve Android şablonları için) kullanılır.<br><br>Bu işlev works tam olarak hello aynı daha önce JSON şablonları (örneğin, Apple Şablonları) kullanılması dışında belirtilen $(prop) olarak. Bu işlev tarafından çevrelenen değil, bu durumda, "{','}" (örneğin, 'myJsonProperty': '#(ad)'), ve Javascript biçimindeki, örneğin, regexp tooa sayı değerlendirir: (0 &#124; (&#91; 1-9 &#93; &#91; 0-9 & #93 ;*))(\. &#91; 0-9 &#93; +)? ((e &#124; E) (+ &#124;-)? &#91; 0-9 &#93; +)?, JSON bir sayıdır hello çıktı sonra.<br><br>Örneğin, ' rozet: '#(ad)' hale 'göstergeye': 40 (ve değil '40'). |
+| $(prop) |Verilen ada sahip bir olay özellik referansı. Özellik adları büyük küçük harfe duyarlı değildir. Özellik mevcut değilse bu ifade özelliğin metin değeri veya boş bir dize çözümler. |
+| $(prop, n) |Yukarıdaki gibi ancak açıkça metindir n karakter kırpılmış, örneğin $(başlık, 20) title özelliğini içeriğini 20 karakter kırpar. |
+| . (prop, n) |Yukarıdaki gibi ancak bunu kırpılmış gibi metin ile üç noktaya sonekine. Kırpılmış dize ve sonek toplam boyutu n karakteri aşmayan. . (başlık, 20) "Bu başlık satırıdır" sonuçlarında bir giriş özelliğiyle **başlığı budur...** |
+| %(prop) |Benzer şekilde $(name) çıkış URI kodlanır dışında. |
+| #(prop) |JSON şablonları (örneğin, iOS ve Android şablonları için) kullanılır.<br><br>Bu işlev tam olarak aynı daha önce JSON şablonları (örneğin, Apple Şablonları) kullanılması dışında belirtilen $(prop) çalışır. Bu işlev tarafından çevrelenen değil, bu durumda, "{','}" (örneğin, 'myJsonProperty': '#(ad)'), ve onu, Javascript biçiminde bir sayı Örneğin, regexp değerlendirir: (0 &#124; (&#91; 1-9 &#93; &#91; 0-9 & #93 ;*))(\. &#91; 0-9 &#93; +)? ((e &#124; E) (+ &#124;-)? &#91; 0-9 &#93; +)?, sonra da çıktıyı JSON bir sayıdır.<br><br>Örneğin, ' rozet: '#(ad)' hale 'göstergeye': 40 (ve değil '40'). |
 | 'text' veya "metin" |Bir hazır değer. Değişmez değerler tek veya çift tırnak içine alınmış rastgele metin içerir. |
-| Expr1 + expr2 |tek bir dize iki ifadelere birleştirme hello birleştirme işleci. |
+| Expr1 + expr2 |Tek bir dize iki ifadelere birleştirme birleştirme işleci. |
 
-Merhaba ifadeleri herhangi forms önceki hello olabilir.
+Deyimler önceki biçimlerden birini olabilir.
 
-Birleştirme kullanırken hello tüm ifade alınmalıdır {} ile. Örneğin, {$(prop) + '-' + $(prop2)}. |
+Birleştirme kullanırken, tüm deyimin alınmalıdır {} ile. Örneğin, {$(prop) + '-' + $(prop2)}. |
 
-Örneğin, hello aşağıdaki geçerli bir XML şablon değil:
+Örneğin, aşağıdaki geçerli bir XML şablon değil:
 
     <tile>
       <visual>

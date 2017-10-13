@@ -1,6 +1,6 @@
 ---
-title: "aaaFederating tek AD FS ile birden çok Azure AD | Microsoft Docs"
-description: "Bu belgede, öğreneceksiniz nasıl toofederate tek bir AD FS ile birden çok Azure AD."
+title: "Birden çok Azure AD’yi tek bir AD FS ile birleştirme | Microsoft Docs"
+description: "Bu belgede, birden çok Azure AD’yi tek bir AD FS ile nasıl birleştirebileceğinizi öğreneceksiniz."
 keywords: "federasyon, ADFS, AD FS, birden çok kiracı, tek AD FS, bir ADFS, çok kiracılı federasyon, çok ormanlı adfs, aad bağlantısı, federasyon oluşturma, kiracılar arası federasyon"
 services: active-directory
 documentationcenter: 
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
-ms.openlocfilehash: 442192896b3b13f7bf9388396cd3769e194329d4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 436bf5905d2b203dc4cceea97f4fb90593df7111
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 #<a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Azure AD’nin birden çok örneğini tek bir AD FS örneği ile birleştirme
 
-Aralarında iki yönlü güven varsa, tek bir yüksek kullanılabilirlikli AD FS ormanı birden çok ormanı birleştirebilir. Bu birden çok ormanı olabilir veya toohello karşılık gelmeyebilir aynı Azure Active Directory. Bu makalede, tek bir AD FS dağıtımı ile birden fazla arasındaki tooconfigure Federasyon, Azure AD eşitleme toodifferent nasıl ormanlar yönergeler sağlar.
+Aralarında iki yönlü güven varsa, tek bir yüksek kullanılabilirlikli AD FS ormanı birden çok ormanı birleştirebilir. Bu birden çok orman, aynı Azure Active Directory’ye karşılık gelebilir veya gelmeyebilir. Bu makale, tek AD FS dağıtımı ile farklı Azure AD’ye eşitlenen birden çok orman arasında nasıl federasyon yapılandırabileceğinizle ilgili yönergeleri içerir.
 
 ![Tek AD FS ile çok kiracılı federasyon](media/active-directory-aadconnectfed-single-adfs-multitenant-federation/concept.png)
  
@@ -31,36 +31,36 @@ Aralarında iki yönlü güven varsa, tek bir yüksek kullanılabilirlikli AD FS
 > Bu senaryoda cihaz geri yazma ve otomatik cihaz katılımı desteklenmez.
 
 > [!NOTE]
-> Azure AD Connect Azure AD Connect Federasyon etki alanları için tek bir Azure AD içinde yapılandırabilirsiniz Bu senaryoda kullanılan tooconfigure Federasyon olamaz.
+> Azure AD Connect tek bir Azure AD’deki etki alanları için federasyon yapılandırabildiğinden, bu senaryoda federasyon yapılandırmak için kullanılamaz.
 
 ##<a name="steps-for-federating-ad-fs-with-multiple-azure-ad"></a>AD FS’yi birden çok Azure AD ile birleştirmek için uygulanması gereken adımlar
 
-Azure Active Directory contoso.onmicrosoft.com bir etki alanı contoso.com zaten hello AD FS contoso.com şirket içi Active Directory ortamında yüklü şirket içinde Federasyon göz önünde bulundurun. Fabrikam.com, fabrikam.onmicrosoft.com adresli Azure Active Directory’de bir etki alanıdır.
+contoso.onmicrosoft.com adresli Azure Active Directory’deki contoso.com etki alanının zaten contoso.com’da şirket içi Active Directory ortamında yüklü şirket içi AD FS ile birleştirildiğini göz önünde bulundurun. Fabrikam.com, fabrikam.onmicrosoft.com adresli Azure Active Directory’de bir etki alanıdır.
 
 ##<a name="step-1-establish-a-two-way-trust"></a>1. Adım: İki yönlü güven kurma
  
-Contoso.com toobe mümkün tooauthenticate kullanıcılar fabrikam.com içinde AD FS için contoso.com ve fabrikam.com arasında iki yönlü bir güven gereklidir. Bu kılavuz Hello izleyin [makale](https://technet.microsoft.com/library/cc816590.aspx) toocreate hello iki yönlü güven.
+contoso.com’daki AD FS’nin fabrikam.com’da kullanıcıların kimliklerini doğrulayabilmesi için contoso.com ile fabrikam.com arasında iki yönlü bir güven gerekir. İki yönlü güveni oluşturmak için bu [makaledeki](https://technet.microsoft.com/library/cc816590.aspx) kılavuzu izleyin.
  
 ##<a name="step-2-modify-contosocom-federation-settings"></a>2. Adım: contoso.com federasyon ayarlarını değiştirme 
  
-hello varsayılan veren bir Federasyon tek bir etki alanı tooAD FS "http://ADFSServiceFQDN/adfs/services/trust", örneğin, "http://fs.contoso.com/adfs/services/trust" için ayarlayın. Azure Active Directory, federasyona eklenen her etki alanı için benzersiz bir veren gerektirir. Merhaba aynı AD FS toofederate iki etki alanı geçiyor olduğundan, Azure Active Directory ile AD FS federates her etki alanı için benzersiz şekilde değiştirilebilir toobe hello veren değeriyle gerekir. 
+AD FS ile birleştirilmiş tek bir etki alanı için ayarlanan varsayılan veren şudur: "http://ADFSServiceFQDN/adfs/services/trust". Örneğin, “http://fs.contoso.com/adfs/services/trust”. Azure Active Directory, federasyona eklenen her etki alanı için benzersiz bir veren gerektirir. İki etki alanı aynı AD FS tarafından federasyona ekleneceğinden, AD FS’nin Azure Active Directory ile birleştirdiği her etki alanında benzersiz olması için veren değerinin değiştirilmesi gerekir. 
  
-Merhaba AD FS sunucusunda Azure AD PowerShell'i açın ve hello aşağıdaki adımları gerçekleştirin:
+AD FS sunucusunda Azure AD PowerShell’i açın ve aşağıdaki adımları gerçekleştirin:
  
-Toohello contoso.com güncelleştirme MsolFederatedDomain - DomainName contoso.com hello etki alanı contoso.com Bağlan MsolService güncelleştirme hello Federasyon ayarlarını içeren Azure Active Directory connect – SupportMultipleDomain
+contoso.com etki alanını içeren Azure Active Directory’ye bağlanın: Connect-MsolService contoso.com için federasyon ayarlarını güncelleştirin: Update-MsolFederatedDomain -DomainName contoso.com –SupportMultipleDomain
  
-Merhaba etki alanı Federasyon ayarını veren değiştirilmesi "http://contoso.com/adfs/services/trust" ve bir verme kuralı eklenecek hello Azure AD bağlı olan taraf güveni tooissue hello issuerId değerine göre hello UPN soneki üzerinde doğru için çok talep.
+Etki alanı federasyon ayarındaki veren "http://contoso.com/adfs/services/trust" olarak değiştirilir ve Azure AD Bağlı Olan Taraf Güveni’nin UPN son ekine bağlı olarak doğru issuerId değerini vermesi için bir verme talebi kuralı eklenir.
  
 ##<a name="step-3-federate-fabrikamcom-with-ad-fs"></a>3. adım: fabrikam.com’u AD FS ile birleştirin
  
-Azure AD PowerShell'de oturum hello aşağıdaki adımları gerçekleştirin: tooAzure hello etki alanı fabrikam.com içeren Active Directory Connect
+Azure AD powershell oturumunda şu adımları gerçekleştirin: fabrikam.com etki alanını içeren Azure Active Directory’ye bağlanın
 
     Connect-MsolService
-Merhaba fabrikam.com yönetilen etki alanı toofederated Dönüştür:
+fabrikam.com yönetilen etki alanını federasyon etki alanına dönüştürün:
 
     Convert-MsolDomainToFederated -DomainName anandmsft.com -Verbose -SupportMultipleDomain
  
-Merhaba işlemi yukarıda hello etki alanı fabrikam.com hello aynı AD FS ile birleştirmek. Merhaba etki alanı ayarları her iki etki alanı için Get-MsolDomainFederationSettings kullanarak doğrulayabilirsiniz.
+Yukarıdaki işlem, fabrikam.com etki alanını aynı AD FS ile birleştirir. Her iki etki alanı için de Get-MsolDomainFederationSettings komutunu kullanarak etki alanı ayarlarını doğrulayabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure Active Directory ile Active Directory’yi bağlama](active-directory-aadconnect.md)

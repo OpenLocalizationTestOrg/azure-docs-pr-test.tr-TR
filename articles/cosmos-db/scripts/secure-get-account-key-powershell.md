@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure PowerShell komut dosyası Get hesabı anahtarları için cosmosdb | Microsoft Docs"
+title: "Azure PowerShell Betiği Get hesabı anahtarları için cosmosdb | Microsoft Docs"
 description: "Azure PowerShell Betiği örnek - Get hesap cosmosdb tuşları"
 services: cosmos-db
 documentationcenter: cosmosdb
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 9ccee3085dc4fa6507d43e4a220dd5fc32889a9b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 912e1af684c90cd84b6b00bacbc7dd8d4434c5b9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-account-keys-for-azure-cosmos-db-using-powershell"></a>PowerShell kullanarak Azure Cosmos DB için hesap anahtarı alma
 
@@ -30,11 +30,11 @@ Bu örnek, her türlü Azure Cosmos DB hesabı için hesap anahtarları alır.
 
 ## <a name="sample-script"></a>Örnek komut dosyası
 
-[!code-powershell[main](../../../powershell_scripts/cosmosdb/get-account-keys/get-account-keys.ps1?highlight=36-40 "Get hello keys for an Azure Cosmos DB account")]
+[!code-powershell[Ana](../../../powershell_scripts/cosmosdb/get-account-keys/get-account-keys.ps1?highlight=36-40 "bir Azure Cosmos DB hesap anahtarı alma")]
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 
-Merhaba komut dosyası örneği çalıştırdıktan sonra komutu aşağıdaki hello kullanılan tooremove hello kaynak grubu ve onunla ilişkili tüm kaynakları olabilir.
+Komut dosyası örneği çalıştırdıktan sonra kaynak grubu ve onunla ilişkili tüm kaynakları kaldırmak için aşağıdaki komutu kullanılabilir.
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
@@ -42,18 +42,18 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 
 ## <a name="script-explanation"></a>Komut dosyası açıklaması
 
-Bu komut dosyası komutları aşağıdaki hello kullanır. Her komut hello tablosundaki toocommand belirli belgeleri bağlar.
+Bu komut dosyasını aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
 
 | Komut | Notlar |
 |---|---|
 | [Yeni-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
 | [AzureRmResource yeni](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresource?view=azurermps-3.8.0) | Bir veritabanı veya esnek havuzu barındıran bir mantıksal sunucu oluşturur. |
-| [Çağırma AzureRmResourceAction](https://docs.microsoft.com/powershell/module/azurerm.resources/invoke-azurermresourceaction?view=azurermps-3.8.0) | Hello Azure CosmosDB hesabı eylemi çağırır. |
+| [Çağırma AzureRmResourceAction](https://docs.microsoft.com/powershell/module/azurerm.resources/invoke-azurermresourceaction?view=azurermps-3.8.0) | Azure CosmosDB hesabındaki bir eylemi çağırır. |
 | [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | Tüm iç içe kaynaklar dahil olmak üzere bir kaynak grubu siler. |
 |||
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Hello Azure PowerShell hakkında daha fazla bilgi için bkz: [Azure PowerShell belgelerine](https://docs.microsoft.com/powershell/).
+Azure PowerShell hakkında daha fazla bilgi için bkz: [Azure PowerShell belgelerine](https://docs.microsoft.com/powershell/).
 
-Ek Azure Cosmos DB PowerShell komut dosyası örnekleri hello bulunabilir [Azure Cosmos DB PowerShell komut dosyalarını](../powershell-samples.md).
+Ek Azure Cosmos DB PowerShell komut dosyası örnekleri bulunabilir [Azure Cosmos DB PowerShell komut dosyalarını](../powershell-samples.md).

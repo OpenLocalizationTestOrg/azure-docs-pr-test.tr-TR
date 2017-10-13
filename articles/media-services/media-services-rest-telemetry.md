@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services REST telemetriyle aaaConfiguring | Microsoft Docs
-description: "Bu makalede nasıl toouse hello REST API kullanarak Azure Media Services telemetri gösterilmektedir..."
+title: "Azure Media Services telemetri ile REST yapılandırma | Microsoft Docs"
+description: "Bu makalede REST API kullanarak Azure Media Services telemetri kullanmayı gösterir.."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,36 +14,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: d0b6798c49be756fcebecf2e1e6ea497edd27cf0
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7d785c6eb9a9e16ae4853cded3c7c142080c7a09
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Azure Media Services telemetri REST ile yapılandırma
 
-Bu konuda, REST API kullanarak hello Azure Media Services (AMS) telemetri yapılandırırken sürebilir genel adımlar açıklanmaktadır. 
+Bu konuda, REST API kullanarak Azure Media Services (AMS) telemetri yapılandırırken sürebilir genel adımlar açıklanmaktadır. 
 
 >[!NOTE]
->Merhaba ne ayrıntılı bir açıklama AMS telemetri için ve nasıl tooconsume, hello bkz [genel bakış](media-services-telemetry-overview.md) konu.
+>Ayrıntılı bir açıklama ne AMS telemetri ve bunu kullanma için bkz: [genel bakış](media-services-telemetry-overview.md) konu.
 
-Bu konuda açıklanan başlangıç adımları şunlardır:
+Bu konuda açıklanan adımlar şunlardır:
 
-- Bir Media Services hesabıyla ilişkilendirilmiş hello depolama hesabı alma
-- Merhaba bildirim uç noktalarını alma
+- Bir Media Services hesabı ile ilişkilendirilmiş depolama hesabına alma
+- Bildirim uç noktalarını alma
 - İzleme için bir bildirim uç noktası oluşturuluyor. 
 
-    toocreate bir bildirim uç noktası hello EndPointType tooAzureTable (2) ve (örneğin, https://telemetryvalidationstore.table.core.windows.net/) depolama tablo endPontAddress Ayarla toohello ayarlayın.
+    Bildirim uç noktası oluşturmak için AzureTable (2) ve depolama tablonun (örneğin, https://telemetryvalidationstore.table.core.windows.net/) ayarlamak endPontAddress EndPointType ayarlayın.
   
-- Merhaba İzleme yapılandırmalarını alma
+- İzleme yapılandırmalarını alma
 
-    Merhaba, hizmetleri için izleme yapılandırma ayarları oluştur toomonitor istiyor. Birden fazla yapılandırma ayarları izleme izin verilir. 
+    İzleme yapılandırmasını izlemek istediğiniz hizmetleri ayarlarını oluşturun. Birden fazla yapılandırma ayarları izleme izin verilir. 
 
 - İzleme Yapılandırması Ekle
 
 
  
-## <a name="get-hello-storage-account-associated-with-a-media-services-account"></a>Bir Media Services hesabıyla ilişkilendirilmiş hello depolama hesabı edinin
+## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>Bir Media Services hesabı ile ilişkilendirilmiş depolama hesabına Al
 
 ###<a name="request"></a>İstek
 
@@ -71,7 +71,7 @@ Bu konuda açıklanan başlangıç adımları şunlardır:
     
     {"d":{"results":[{"__metadata":{"id":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts('telemetryvalidationstore')","uri":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts('telemetryvalidationstore')","type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.StorageAccount"},"Name":"telemetryvalidationstore","IsDefault":true,"BytesUsed":null}]}}
 
-## <a name="get-hello-notification-endpoints"></a>Merhaba bildirim uç noktalarını alma
+## <a name="get-the-notification-endpoints"></a>Bildirim uç noktalarını alma
 
 ###<a name="request"></a>İstek
 
@@ -125,7 +125,7 @@ Bu konuda açıklanan başlangıç adımları şunlardır:
     }
 
 >[!NOTE]
->Toochange hello "https://telemetryvalidationstore.table.core.windows.net" değeri tooyour depolama hesabına unutmayın.
+>Depolama hesabınıza "https://telemetryvalidationstore.table.core.windows.net" değerini değiştirmeyi unutmayın.
 
 ###<a name="response"></a>Yanıt
 
@@ -146,7 +146,7 @@ Bu konuda açıklanan başlangıç adımları şunlardır:
     
     {"d":{"__metadata":{"id":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints('nb%3Anepid%3AUUID%3A76bb4faf-ea29-4815-840a-9a8e20102fc4')","uri":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints('nb%3Anepid%3AUUID%3A76bb4faf-ea29-4815-840a-9a8e20102fc4')","type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.NotificationEndPoint"},"Id":"nb:nepid:UUID:76bb4faf-ea29-4815-840a-9a8e20102fc4","Name":"monitoring","Created":"\/Date(1449033042667)\/","EndPointAddress":"https://telemetryvalidationstore.table.core.windows.net/","EndPointType":2}}
  
-## <a name="get-hello-monitoring-configurations"></a>Merhaba İzleme yapılandırmalarını alma
+## <a name="get-the-monitoring-configurations"></a>İzleme yapılandırmalarını alma
 
 ### <a name="request"></a>İstek
 

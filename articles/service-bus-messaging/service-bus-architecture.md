@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure Service Bus ileti mimarisine genel bakış işleme | Microsoft Docs"
-description: "Azure Service Bus Hello ileti işleme mimarisini açıklar."
+title: "Azure Service Bus ileti işleme mimarisine genel bakış | Microsoft Docs"
+description: "Azure Service Bus hizmetinin ileti işleme mimarisini açıklar."
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2017
 ms.author: sethm
-ms.openlocfilehash: f7606e40cdf6db3797a0db2de9365453ff2a158e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: b810618b485b631e1d72b24c2a9587017d635cc4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-architecture"></a>Service Bus mimarisi
-Bu makalede Azure hizmet veri yolu hello ileti işleme mimarisini açıklar.
+Bu makale, Azure Service Bus hizmetinin ileti işleme mimarisini açıklar.
 
 ## <a name="service-bus-scale-units"></a>Service Bus ölçek birimleri
-Service Bus, *ölçek birimleri* tarafından düzenlenir. Bir ölçek birimi dağıtım birimidir ve tüm bileşenler gerekli çalışma hello hizmeti içerir. Her bölge, bir veya daha fazla Service Bus ölçek birimi dağıtır.
+Service Bus, *ölçek birimleri* tarafından düzenlenir. Ölçek birimi, bir dağıtım birimidir ve hizmeti çalıştırmak için gerekli tüm bileşenleri içerir. Her bölge, bir veya daha fazla Service Bus ölçek birimi dağıtır.
 
-Bir hizmet veri yolu ad alanı eşlenen tooa ölçek birimidir. Hizmet veri yolu varlıkları (kuyruklar, konular, abonelikler) tüm türleri Hello ölçek birimi işler. Service Bus ölçek birimi bileşenleri aşağıdaki Merhaba oluşur:
+Service Bus ad alanı, bir ölçek birimi ile eşleştirilir. Ölçek birimi, Service Bus varlıklarının her türünü işler (kuyruklar, konular, abonelikler). Service Bus ölçek birimi, şu bileşenlerden oluşur:
 
 * **Ağ geçidi düğümleri kümesi.** Ağ geçidi düğümleri, gelen isteklerin kimliklerini doğrular. Her ağ geçidi düğümünün genel bir IP adresi vardır.
 * **Mesajlaşma aracısı düğümleri kümesi.** Mesajlaşma aracısı düğümleri, mesajlaşma varlıkları ile ilgili istekleri işler.
-* **Bir ağ geçidi deposu.** Merhaba ağ geçidi deposu, bu ölçek biriminde tanımlanan her varlık için hello verileri tutar. Hello ağ geçidi deposu, SQL Azure veritabanının üst kısmında uygulanır.
-* **Birden çok mesajlaşma deposu.** Mesajlaşma depoları Merhaba iletileri tüm sıraları, konuları ve Abonelikleri, bu ölçek biriminde tanımlanan tutun. Ayrıca, tüm abonelik verilerini de içerir. Sürece [Mesajlaşma varlıkları bölümleme](service-bus-partitioning.md) olduğundan, kuyruk veya konu eşlenen tooone Mesajlaşma deposu etkindir. Abonelikleri hello depolanan olarak, üst konu başlıklarıyla aynı Mesajlaşma deposu. Hizmet veri yolu dışında [Premium Mesajlaşma](service-bus-premium-messaging.md), hello Mesajlaşma depoları, SQL Azure veritabanının üst kısmında uygulanır.
+* **Bir ağ geçidi deposu.** Ağ geçidi deposu, bu ölçek biriminde tanımlanan her varlık için veriler tutar. Ağ geçidi deposu, SQL Azure veritabanının üst kısmında uygulanır.
+* **Birden çok mesajlaşma deposu.** Mesajlaşma depoları, bu ölçek biriminde tanımlanan tüm kuyrukların, konu başlıklarının ve aboneliklerin iletilerini içerir. Ayrıca, tüm abonelik verilerini de içerir. [Bölümleme mesajlaşma varlıkları](service-bus-partitioning.md) etkinleştirilmediği sürece kuyruk veya konu başlığı bir mesajlaşma deposuna eşlenir. Abonelikler, üst konu başlıklarıyla aynı mesajlaşma deposunda depolanır. Service Bus [Premium Mesajlaşma](service-bus-premium-messaging.md) dışındaki mesajlaşma depoları, SQL Azure veritabanının üst kısmında uygulanır.
 
 ## <a name="containers"></a>Kapsayıcılar
-Her mesajlaşma varlığı, belirli bir kapsayıcıya atanır. Bir kapsayıcı tüm ilgili verileri bu kapsayıcı için tam olarak bir Mesajlaşma deposu toostore kullanan mantıksal bir yapıdır. Her kapsayıcı tooa Mesajlaşma Aracısı düğümüne atanır. Genellikle, mesajlaşma aracısı düğümlerinden daha fazla sayıda kapsayıcı vardır. Bu nedenle, her mesajlaşma aracısı düğümü birden çok kapsayıcı yükler. Merhaba kapsayıcılara tooa Mesajlaşma Aracısı düğümü dağıtımını tüm Mesajlaşma Aracısı düğümlerine eşit olarak yüklenecek şekilde düzenlenmiştir. Merhaba yük düzeni değişiklikler (örneğin, biri çok meşgul Merhaba kapsayıcılara alır) veya bir Mesajlaşma Aracısı düğümü geçici olarak kullanılamaz hale gelmesi durumunda hello gelirse kapsayıcılar Mesajlaşma Aracısı düğümleri hello arasında dağıtılır.
+Her mesajlaşma varlığı, belirli bir kapsayıcıya atanır. Kapsayıcı, kendisiyle ilgili tüm verileri depolamak için bir mesajlaşma deposu kullanan mantıksal bir yapıdır. Her kapsayıcı, bir mesajlaşma aracısı düğümüne atanır. Genellikle, mesajlaşma aracısı düğümlerinden daha fazla sayıda kapsayıcı vardır. Bu nedenle, her mesajlaşma aracısı düğümü birden çok kapsayıcı yükler. Kapsayıcıların bir mesajlaşma aracısı düğümüne dağıtımı, tüm mesajlaşma aracısı düğümlerine eşit olarak yüklenecek şekilde düzenlenmiştir. Yük düzeni değişirse (örneğin, kapsayıcılardan biri çok meşgul olursa) veya bir mesajlaşma aracısı düğümü geçici olarak kullanılamazsa kapsayıcılar mesajlaşma aracısı düğümleri arasında yeniden dağıtılır.
 
 ## <a name="processing-of-incoming-messaging-requests"></a>Gelen mesajlaşma isteklerinin işlenmesi
-Bir istemci isteği tooService Bus gönderdiğinde, hello Azure yük dengeleyici hello ağ geçidi düğümleri tooany yönlendirir. Merhaba ağ geçidi düğümü hello isteği yetkilendirir. Hello isteği bir Mesajlaşma varlığıyla (kuyruk, konu, abonelik) ilgiliyse hello ağ geçidi düğümü hello ağ geçidi deposunda hello varlığı arar ve varlığın hangi Mesajlaşma deposu hello bulunduğunu belirler. Ardından hangi Mesajlaşma Aracısı düğümü şu anda bu kapsayıcıya hizmet veren ve mesajlaşma Aracısı düğümü hello isteği toothat gönderir yukarı görünüyor. Mesajlaşma Aracısı düğümü hello hello isteği işler ve hello hello kapsayıcı deposundaki varlık durumunu güncelleştirir. Aracısı düğümü ardından Mesajlaşma hello uygun yanıtı geri toohello istemci o verilen hello özgün isteği gönderen hello yanıt geri toohello ağ geçidi düğümü, gönderir.
+Bir istemci, Service Bus hizmetine istek gönderdiğinde Azure yük dengeleyici bu isteği ağ geçidi düğümlerinden herhangi birine yönlendirir. Ağ geçidi düğümü, isteği yetkilendirir. İstek, mesajlaşma varlığıyla (kuyruk, konu başlığı, abonelik) ilgiliyse ağ geçidi düğümü, ağ geçidi deposunda varlığı arar ve varlığın hangi mesajlaşma deposunda bulunduğunu belirler. Daha sonra, şu anda bu kapsayıcıya hizmet veren mesajlaşma aracısı düğümünü arar ve o mesajlaşma aracısı düğümüne istek gönderir. Mesajlaşma aracısı düğümü, isteği işler ve kapsayıcı deposundaki varlık durumunu güncelleştirir. Ardından mesajlaşma aracısı düğümü, orijinal talebi sağlayan istemciye uygun yanıtı gönderen ağ geçidi düğümüne isteği geri gönderir.
 
 ![Gelen Mesajlaşma İsteklerinin İşlenmesi](./media/service-bus-architecture/ic690644.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Service Bus mimarisine genel bakış okuduğunuza göre daha fazla bilgi için bağlantılar aşağıdaki hello ziyaret edin:
+Service Bus mimarisine ilişkin genel bir bakış edindiğinize göre, daha fazla bilgi için aşağıdaki bağlantıları ziyaret edebilirsiniz:
 
 * [Service Bus mesajlaşma hizmetine genel bakış](service-bus-messaging-overview.md)
 * [Service Bus ile ilgili temel bilgiler](service-bus-fundamentals-hybrid-solutions.md)

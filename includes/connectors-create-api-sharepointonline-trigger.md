@@ -1,18 +1,18 @@
-Bu örnekte, ı bunu nasıl yapacağınızı gösterir toouse hello **SharePoint yeni bir öğe oluşturulduğunda çevrimiçi -** yeni bir öğe, bir SharePoint Online listesinde oluşturulduğunda tooinitiate mantığı uygulama iş akışı tetikler.
+Bu örnekte, ı size nasıl kullanılacağını gösterir **SharePoint yeni bir öğe oluşturulduğunda çevrimiçi -** yeni bir öğe, bir SharePoint Online listesinde oluşturulduğunda bir mantıksal uygulama iş akışını başlatmak için tetikleyici.
 
 > [!NOTE]
-> Değil zaten oluşturduysanız, istendiğinde toosign SharePoint hesabınızda hatalarla bir *bağlantı* tooSharePoint çevrimiçi.  
+> Değil zaten oluşturduysanız SharePoint hesabınızda oturum açın istenir bir *bağlantı* SharePoint Online.  
 > 
 > 
 
-1. Girin *sharepoint* hello arama kutusuna hello logic apps tasarımcısında hello seçip **SharePoint yeni bir öğe oluşturulduğunda çevrimiçi -** tetikleyici.  
+1. Girin *sharepoint* arama kutusuna logic apps tasarımcısında seçip **SharePoint yeni bir öğe oluşturulduğunda çevrimiçi -** tetikleyici.  
    ![SharePoint online tetikleyici görüntüsü](./media/connectors-create-api-sharepointonline/trigger-1.png)  
-2. Merhaba **yeni bir öğe oluşturulduğunda** denetim görüntülenir.  
+2. **Yeni bir öğe oluşturulduğunda** denetim görüntülenir.  
    ![SharePoint online tetikleyici görüntü 2](./media/connectors-create-api-sharepointonline/trigger-2.png)   
-3. Seçin bir **Site URL'si**. İş akışınız için yeni öğeler tootrigger toomonitor istediğiniz hello SharePoint online sitesi budur.  
+3. Seçin bir **Site URL'si**. Yeni öğeler, iş akışını tetikleyen izlemek istediğiniz SharePoint online sitesi budur.  
    ![SharePoint online tetikleyici görüntü 3](./media/connectors-create-api-sharepointonline/trigger-3.png)   
-4. Seçin bir **listesi adı**. Merhaba, iş akışını tetikleyecek yeni öğeler için toomonitor istediğiniz SharePoint Online sitesine hello listede budur.  
+4. Seçin bir **listesi adı**. Bu iş akışını tetikleyecek yeni öğeler için izlemek istediğiniz SharePoint Online sitesindeki listesidir.  
    ![SharePoint online tetikleyici görüntü 4](./media/connectors-create-api-sharepointonline/trigger-4.png)   
 
-Bu noktada, mantıksal uygulamanızı hello yürütülmesi diğer tetikleyiciler ve Eylemler hello iş akışında başlayacak bir tetikleyici ile yapılandırıldı. Bu yeni bir öğe seçtiğiniz SharePoint Online listesinde her oluşturulduğunda gerçekleşir.  
+Bu noktada, mantıksal uygulamanızı diğer tetikleyiciler ve Eylemler iş akışı bir farklı çalıştır başlayacak bir tetikleyici ile yapılandırıldı. Bu yeni bir öğe seçtiğiniz SharePoint Online listesinde her oluşturulduğunda gerçekleşir.  
 

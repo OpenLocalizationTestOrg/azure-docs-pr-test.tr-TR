@@ -1,6 +1,6 @@
 ---
-title: "API denetçisi - Azure API Management ile aaaTrace çağrıları | Microsoft Docs"
-description: "API denetçisi Azure API Management kullanarak tootrace aramaları nasıl hello öğrenin."
+title: "API denetçisi - Azure API Management ile çağrıları izleme | Microsoft Docs"
+description: "Azure API Management'te API Inspector'ı kullanarak çağrıları izleme öğrenin."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,65 +14,65 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: b0c401caa8da1b789f6cfe5edf97a5f118d78f26
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a9d4d3be7f046af975f6dc25670070204848588c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toouse-hello-api-inspector-tootrace-calls-in-azure-api-management"></a>Azure API Management'te toouse hello API denetçisi tootrace nasıl çağırır
-API Management aracı toohelp API Inspector sağlar, hata ayıklama ve Apı'lerinizi sorun giderme. Merhaba API denetçisi program aracılığıyla kullanılabilir ve doğrudan hello Geliştirici portalından da kullanılabilir. 
+# <a name="how-to-use-the-api-inspector-to-trace-calls-in-azure-api-management"></a>Azure API Management'te izleme API denetleyici kullanma çağırır
+API Management Apı'lerinizi sorun giderme ve hata ayıklama ile yardımcı olacak bir API denetçisi aracı sağlar. API denetçisi program aracılığıyla kullanılabilir ve doğrudan Geliştirici portalından da kullanılabilir. 
 
-Ayrıca tootracing operations API'si Inspector ayrıca izler [ilke ifadesi](https://msdn.microsoft.com/library/azure/dn910913.aspx) değerlendirmeleri. Bir örnek için bkz: [bulut kapak bölüm 177: diğer API Management Özellikler](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) ve too21:00 ileri sarma.
+İzleme işlemlerinin ek olarak, API Inspector ayrıca izler [ilke ifadesi](https://msdn.microsoft.com/library/azure/dn910913.aspx) değerlendirmeleri. Bir örnek için bkz: [bulut kapak bölüm 177: diğer API Management Özellikler](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) ve 21:00 için ileri sarma.
 
 Bu kılavuz, API Inspector'ı kullanarak bir adım adım kılavuz sağlar.
 
 > [!NOTE]
-> API denetçisi izlemeleri yalnızca oluşturulan ve toohello ait abonelik anahtarlarını içeren istekler için kullanılabilir hale [yönetici](api-management-howto-create-groups.md) hesabı.
+> API denetçisi izlemeleri yalnızca oluşturulan ve ait abonelik anahtarlarını içeren istekler için kullanılabilir hale [yönetici](api-management-howto-create-groups.md) hesabı.
 > 
 > 
 
-## <a name="trace-call"></a> Kullanım API denetçisi tootrace çağrısı
-toouse API denetleyici Ekle bir **ocp apim izleme: true** istek üstbilgisi tooyour işlem çağrısı ve ardından karşıdan yükleyip hello tarafından gösterilen hello URL'yi kullanarak hello izleme incelemek **apim izleme konumu ocp** yanıtı üstbilgisi. Bu programlı şekilde yapılabilir ve doğrudan hello Geliştirici portalından da yapılabilir.
+## <a name="trace-call"></a> Kullanım API Inspector'ı bir çağrı izlemek için
+API denetçisi kullanmak için ekleyin bir **ocp apim izleme: true** isteği işlemi aramanız başlığına ve yükleyin ve belirtilen URL'yi kullanarak izleme incelemek **ocp apim izleme konumu** yanıt Üstbilgi. Bu programlı şekilde yapılabilir ve doğrudan Geliştirici portalından da yapılabilir.
 
-Bu öğretici nasıl hello yapılandırılmış temel hesaplayıcı API'si kullanarak toouse hello API denetçisi tootrace işlemleri hello gösterir [ilk API'nizi yönetme](api-management-get-started.md) başlama Öğreticisi. Bu öğreticinin tamamlanan yapmadıysanız, yalnızca birkaç dakika sonra tooimport hello temel hesaplayıcı API'si alır veya seçtiğiniz Echo API'si hello gibi başka bir API kullanabilirsiniz. Her API Management hizmet örneği ile kullanılan tooexperiment ve API Management hakkında bilgi edinin bir Echo API'si ile önceden yapılandırılmış olarak gelir. Merhaba Echo API'si, hangi giriş tooit gönderilen geri döndürür. toouse, tüm HTTP fiili çağırabileceği ve hello dönüş değeri, size gönderilen yalnızca olacaktır. 
+Bu öğretici yapılandırılan temel hesaplayıcı API'si kullanarak izleme işlemleri için API denetçisi kullanmayı gösterir [ilk API'nizi yönetme](api-management-get-started.md) başlama Öğreticisi. Bu öğreticinin tamamlanan yapmadıysanız, yalnızca temel hesaplayıcı API'si almak için birkaç dakika sürer veya seçtiğiniz Echo API'si gibi başka bir API kullanabilirsiniz. Her API Management hizmeti örneği, API Management’i denemek ve hakkında bilgi almak için kullanılabilecek bir Echo API’si ile önceden yapılandırılmış olarak gelir. Echo API'si, hangi giriş kendisine gönderilen geri döndürür. Kullanmak için bir HTTP fiili çağırabileceği ve dönüş değeri, yalnızca size gönderilen olacaktır. 
 
-başlatıldı, tooget tıklatın **Geliştirici Portalı** API Management hizmetiniz için hello Azure Portalı'nda. İşlemler uygun şekilde tooview sağlayan doğrudan hello Geliştirici portalından çağrılabilir ve bir API'nin işlemlerini hello test edin.
+Kullanmaya başlamak için tıklayın **Geliştirici Portalı** API Management hizmetiniz için Azure Portalı'nda. İşlemleri görüntülemek ve bir API'nin işlemlerini test etmek için kullanışlı bir yol sağlayan doğrudan Geliştirici portalından çağrılabilir.
 
-> Henüz bir API Management hizmeti örneği oluşturmadıysanız, bkz: [bir API Management hizmet örneği oluşturma] [ Create an API Management service instance] hello içinde [Azure API Management ile çalışmaya başlama] [ Get started with Azure API Management] Öğreticisi.
+> Henüz bir API Management hizmeti örneği oluşturmadıysanız, bkz: [bir API Management hizmet örneği oluşturma] [ Create an API Management service instance] içinde [Azure API Management ile çalışmaya başlama] [ Get started with Azure API Management] Öğreticisi.
 > 
 > 
 
 ![API Management Geliştirici Portalı][api-management-developer-portal-menu]
 
-Tıklatın **API'leri** hello üst menüsünden ve ardından **temel hesaplayıcı**.
+Tıklatın **API'leri** üst menüsünden ve ardından **temel hesaplayıcı**.
 
 ![Echo API’si][api-management-api]
 
-Tıklatın **deneyin** tootry hello **iki tamsayı Ekle** işlemi.
+Tıklatın **deneyin** denemek için **iki tamsayı Ekle** işlemi.
 
 ![Deneyin][api-management-open-console]
 
-Merhaba varsayılan parametre değerlerini ve istediğiniz hello ürün için select hello abonelik anahtar toouse hello tutmak **abonelik anahtarı** açılır.
+Varsayılan parametre değerlerini koruyun ve abonelik anahtar için kullanmak istediğiniz ürün **abonelik anahtarı** açılır.
 
-Varsayılan olarak hello Geliştirici Portalı hello **Ocp Apim izleme** üstbilgi zaten ayarlanmış çok**doğru**. Bir izleme oluşturulan olup olmadığına bakılmaksızın bu başlığı yapılandırır.
+Geliştirici Portalı'nda varsayılan **Ocp Apim izleme** üstbilgisi zaten ayarlandı **doğru**. Bir izleme oluşturulan olup olmadığına bakılmaksızın bu başlığı yapılandırır.
 
 ![Gönder][api-management-http-get]
 
-Tıklatın **Gönder** tooinvoke hello işlemi.
+Tıklatın **Gönder** işlemini çağırmak için.
 
 ![Gönder][api-management-send-results]
 
-Hello yanıt üstbilgileri olacak bir **ocp apim izleme konumu** değeri benzer toohello aşağıdaki örneğine sahip.
+Yanıt Üstbilgileri olacak bir **ocp apim izleme konumu** aşağıdaki örneğe benzer bir değere sahip.
 
 ```
 ocp-apim-trace-location : https://contosoltdxw7zagdfsprykd.blob.core.windows.net/apiinspectorcontainer/ZW3e23NsW4wQyS-SHjS0Og2-2?sv=2013-08-15&sr=b&sig=Mgx7cMHsLmVDv%2B%2BSzvg3JR8qGTHoOyIAV7xDsZbF7%2Bk%3D&se=2014-05-04T21%3A00%3A13Z&sp=r&verify_guid=a56a17d83de04fcb8b9766df38514742
 ```
 
-Merhaba izleme adresinden yüklenebilir hello konumu belirtilen ve hello sonraki adımda gösterildiği gibi gözden. Yalnızca hello son 100 günlük girişlerini depolanır ve günlük konumlarını dönüş yeniden unutmayın. 100'den fazla çağrı yapmak isterseniz bunu izlemenin etkin, sonunda hello ilk izlemeleri yerinde üzerine başlar.
+İzleme belirtilen konumdan indirilir ve sonraki adımda gösterildiği gibi gözden. Yalnızca son 100 günlük girişlerini depolanır ve günlük konumlarını dönüş yeniden unutmayın. 100'den fazla çağrı yapmak isterseniz bunu izlemenin etkin, sonunda yerinde ilk izlemeleri üzerine başlar.
 
-## <a name="inspect-trace"></a>Hello izleme inceleyin.
-Merhaba izleme tooreview hello değerleri hello hello izleme dosyası karşıdan **ocp apim izleme konumu** URL. JSON biçiminde bir metin dosyasıdır ve örnek aşağıdaki girişleri benzer toohello içerir.
+## <a name="inspect-trace"></a>İzleme inceleyin.
+İzleme değerlerde gözden geçirmek için izleme dosyasını indirin **ocp apim izleme konumu** URL. JSON biçiminde bir metin dosyasıdır ve aşağıdaki örneğe benzer girdiler içerir.
 
 ```json
 {
@@ -144,7 +144,7 @@ Merhaba izleme tooreview hello değerleri hello hello izleme dosyası karşıdan
                 "timestamp": "2015-06-23T19:51:35.2998610Z",
                 "elapsed": "00:00:00.0727522",
                 "data": {
-                    "message": "Request is being forwarded toohello backend service.",
+                    "message": "Request is being forwarded to the backend service.",
                     "request": {
                         "method": "GET",
                         "url": "http://calcapi.cloudapp.net/api/add?a=51&b=49",
@@ -219,7 +219,7 @@ Merhaba izleme tooreview hello değerleri hello hello izleme dosyası karşıdan
                 "timestamp": "2015-06-23T19:51:35.4256650Z",
                 "elapsed": "00:00:00.1961112",
                 "data": {
-                    "message": "Response headers have been sent toohello caller. Starting toostream hello response body."
+                    "message": "Response headers have been sent to the caller. Starting to stream the response body."
                 }
             },
             {
@@ -227,7 +227,7 @@ Merhaba izleme tooreview hello değerleri hello hello izleme dosyası karşıdan
                 "timestamp": "2015-06-23T19:51:35.4256650Z",
                 "elapsed": "00:00:00.1963155",
                 "data": {
-                    "message": "Response body streaming toohello caller is complete."
+                    "message": "Response body streaming to the caller is complete."
                 }
             }
         ]
@@ -236,14 +236,14 @@ Merhaba izleme tooreview hello değerleri hello hello izleme dosyası karşıdan
 ```
 
 ## <a name="next-steps"> </a>Sonraki adımlar
-* İlke ifadelerinde izleme, gösterisini izleyin [bulut kapak bölüm 177: diğer API Management Özellikler](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). İleri Sarma too21:00 toosee hello demo.
+* İlke ifadelerinde izleme, gösterisini izleyin [bulut kapak bölüm 177: diğer API Management Özellikler](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/). 21: demo görmek için 00 için ileri sarma.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Cloud+Cover/Episode-177-More-API-Management-Features-with-Vlad-Vinogradsky/player]
 > 
 > 
 
-[Use API Inspector tootrace a call]: #trace-call
-[Inspect hello trace]: #inspect-trace
+[Use API Inspector to trace a call]: #trace-call
+[Inspect the trace]: #inspect-trace
 [Next steps]: #next-steps
 
 [Configure API settings]: api-management-howto-create-apis.md#configure-api-settings

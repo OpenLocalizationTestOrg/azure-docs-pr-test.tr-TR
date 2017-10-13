@@ -1,5 +1,5 @@
 ---
-title: "aaaPowerShell betik toocreate Application Insights kaynağı | Microsoft Docs"
+title: "Application Insights kaynağı oluşturmak için PowerShell betiğini | Microsoft Docs"
 description: "Application Insights kaynakların oluşturulmasını otomatik hale getirme."
 services: application-insights
 documentationcenter: windows
@@ -13,28 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2016
 ms.author: bwren
-ms.openlocfilehash: 2ac00376d38026d64c2c5deabfaca60588924510
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a828af9c7d207dd84cc626fc70206018fd67e2dd
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="powershell-script-toocreate-an-application-insights-resource"></a>PowerShell komut dosyası toocreate Application Insights kaynağı
+# <a name="powershell-script-to-create-an-application-insights-resource"></a>Application Insights kaynağı oluşturmak için PowerShell betiği
 
 
-İstediğiniz zaman toomonitor yeni bir uygulama - veya bir uygulamanın yeni sürümü - ile [Azure Application Insights](https://azure.microsoft.com/services/application-insights/), Microsoft Azure içinde yeni bir kaynak ayarlayın. Bu, burada, uygulamanızın hello telemetri verilerini analiz görüntülenir ve kaynaktır. 
+Ne zaman yeni bir uygulama - veya bir uygulamanın yeni sürümü - izlemek istediğiniz ile [Azure Application Insights](https://azure.microsoft.com/services/application-insights/), Microsoft Azure içinde yeni bir kaynak ayarlayın. Bu, burada, uygulamanızın telemetri verilerini analiz görüntülenir ve kaynaktır. 
 
-PowerShell kullanarak yeni bir kaynak hello oluşturulmasını otomatik hale getirebilirsiniz.
+PowerShell kullanarak yeni bir kaynak oluşturulmasını otomatik hale getirebilirsiniz.
 
-Örneğin, bir mobil cihaz uygulama geliştiriyorsanız, herhangi bir zamanda olacaktır, birçok yayımlanan sürümü uygulamanızı müşterilerinizin tarafından kullanılıyor olabilir. Karma farklı sürümlerini tooget hello telemetri sonuçlarından istemezsiniz. Bu nedenle, derleme işlemi toocreate her yapı için yeni bir kaynak alın.
+Örneğin, bir mobil cihaz uygulama geliştiriyorsanız, herhangi bir zamanda olacaktır, birçok yayımlanan sürümü uygulamanızı müşterilerinizin tarafından kullanılıyor olabilir. Karma farklı sürümlerdeki telemetri sonuçlar almak istemiyorum. Bu nedenle, her yapı için yeni bir kaynak oluşturmak için yapı işleminizin alırsınız.
 
 > [!NOTE]
-> Kaynakları tüm kümesi toocreate istiyorsanız aynı hello saat, göz önünde bulundurun [bir Azure şablonu kullanarak hello kaynakları oluşturma](app-insights-powershell.md).
+> Tümü aynı anda bir kaynak kümesi oluşturmak istiyorsanız, göz önünde bulundurun [bir Azure şablonu kullanarak kaynak oluşturma](app-insights-powershell.md).
 > 
 > 
 
-## <a name="script-toocreate-an-application-insights-resource"></a>Komut dosyası toocreate Application Insights kaynağı
-Merhaba ilgili cmdlet özelliklerine göz atın:
+## <a name="script-to-create-an-application-insights-resource"></a>Application Insights kaynağı oluşturmak için komut dosyası
+İlgili cmdlet özelliklerine göz atın:
 
 * [AzureRmResource yeni](https://msdn.microsoft.com/library/mt652510.aspx)
 * [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt678995.aspx)
@@ -48,31 +48,31 @@ Merhaba ilgili cmdlet özelliklerine göz atın:
 # Set Values
 ###########################################
 
-# If running manually, uncomment before hello first 
-# execution toologin toohello Azure Portal:
+# If running manually, uncomment before the first 
+# execution to login to the Azure Portal:
 
 # Add-AzureRmAccount / Login-AzureRmAccount
 
-# Set hello name of hello Application Insights Resource
+# Set the name of the Application Insights Resource
 
 $appInsightsName = "TestApp"
 
-# Set hello application name used for hello value of hello Tag "AppInsightsApp" 
+# Set the application name used for the value of the Tag "AppInsightsApp" 
 
 $applicationTagName = "MyApp"
 
-# Set hello name of hello Resource Group toouse.  
-# Default is hello application name.
+# Set the name of the Resource Group to use.  
+# Default is the application name.
 $resourceGroupName = "MyAppResourceGroup"
 
 ###################################################
-# Create hello Resource and Output hello name and iKey
+# Create the Resource and Output the name and iKey
 ###################################################
 
-# Select hello azure subscription
+# Select the azure subscription
 Select-AzureSubscription -SubscriptionName "MySubscription"
 
-# Create hello App Insights Resource
+# Create the App Insights Resource
 
 
 $resource = New-AzureRmResource `
@@ -84,7 +84,7 @@ $resource = New-AzureRmResource `
   -PropertyObject @{"Application_Type"="web"} `
   -Force
 
-# Give owner access toohello team
+# Give owner access to the team
 
 New-AzureRmRoleAssignment `
   -SignInName "myteam@fabrikam.com" `
@@ -98,10 +98,10 @@ Write-Host "IKey = " $resource.Properties.InstrumentationKey
 
 ```
 
-## <a name="what-toodo-with-hello-ikey"></a>Hangi toodo hello iKey ile
-Her kaynak kendi izleme anahtarını (iKey) tarafından tanımlanır. Merhaba iKey hello kaynak oluşturma komut çıktısı ' dir. Derleme betiğinizin uygulamanıza Application Insights SDK'sı hello iKey toohello sağlamalıdır.
+## <a name="what-to-do-with-the-ikey"></a>İle iKey yapmanız gerekenler
+Her kaynak kendi izleme anahtarını (iKey) tarafından tanımlanır. İKey kaynak oluşturma komut çıktısı ' dir. Derleme betiğinizin uygulamanıza Application Insights SDK'sı için iKey sağlamalıdır.
 
-İki yolu toomake hello iKey kullanılabilir toohello SDK'sı vardır:
+İKey SDK kullanılabilir yapmak için iki yol vardır:
 
 * İçinde [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md): 
   * `<instrumentationkey>`*ikey*`</instrumentationkey>`

@@ -1,6 +1,6 @@
 ---
-title: "aaa \"Azure uygulama hizmeti karma bağlantılar | Microsoft Docs\""
-description: "Nasıl farklı ağlarda toocreate ve kullanım karma bağlantılar tooaccess kaynakları"
+title: "Azure uygulama hizmeti karma bağlantılar | Microsoft Docs"
+description: "Oluşturma ve farklı ağlarda kaynaklara erişmek için karma bağlantılar kullanın"
 services: app-service
 documentationcenter: 
 author: ccompy
@@ -14,48 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/22/2017
 ms.author: ccompy
-ms.openlocfilehash: 61d58068ab0a7c803019e3f0e92bde4273d1a053
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: fef9e7b280387934cb093f51b4c8aa134a3b87e7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure uygulama hizmeti karma bağlantılar #
 
 ## <a name="overview"></a>Genel Bakış ##
 
-Karma bağlantılar hem Azure hizmetinde, hem de hello Azure App Service içinde bir özellik değil.  Bir hizmet olarak kullanın ve hello Azure App Service işlevden ötesinde özellikler vardır.  Karma bağlantılar ve hello Azure App Service burada başlayabileceğini dışında kullanımı hakkında daha fazla toolearn [Azure geçişi karma bağlantılar][HCService]
+Karma bağlantılar, hem Azure hizmetinde, hem de Azure App Service'te bir özellik değil.  Bir hizmet olarak kullanın ve Azure App Service'te işlevden ötesinde özellikler vardır.  Karma bağlantılar ve burada başlayabileceğini Azure App Service dışında kullanımı hakkında daha fazla bilgi edinmek için [Azure geçişi karma bağlantılar][HCService]
 
-Hello Azure App Service içinde karma bağlantılar diğer ağlarda kullanılan tooaccess uygulama kaynakları olabilir. Uygulama tooan uygulama uç NOKTASINDAN erişim sağlar.  Uygulamanızı bir alternatif yetenek tooaccess etkinleştirmez.  Merhaba uygulama hizmeti kullanılan gibi her bir karma bağlantı tooa tek TCP ana bilgisayarı ve bağlantı noktası bileşimi hatalarla ilintilidir.  Başka bir deyişle, bu hello karma bağlantı uç herhangi bir işletim sistemi ve herhangi bir uygulama üzerinde bir TCP dinleme bağlantı noktası devreyi sağlanabilir. Karma bağlantılar, bilmiyorsanız veya hangi hello uygulama protokolü veya erişmeye çalıştığınız dikkat edin.  Ayrıca, ağ erişimi yalnızca sağlamaktır.  
+Azure App Service içinde karma bağlantılar diğer ağlara uygulama kaynaklara erişim için kullanılabilir. Bir uygulama uç nokta UYGULAMANIZDAN erişmenizi sağlar.  Uygulamanızı erişmek bir alternatif özelliği sağlamaz.  App Service içinde kullanılan gibi her bir karma bağlantı tek bir TCP ana bilgisayarı ve bağlantı noktası bileşimi hatalarla ilintilidir.  Bu karma bağlantı uç noktasının herhangi bir işletim sisteminde olabilir ve herhangi bir uygulama bir TCP dinleme bağlantı noktası devreyi sağlanan anlamına gelir. Karma bağlantılar, bilmiyorsanız veya uygulama protokolü nedir veya erişmeye çalıştığınız dikkat edin.  Ayrıca, ağ erişimi yalnızca sağlamaktır.  
 
 
 ## <a name="how-it-works"></a>Nasıl çalışır? ##
-Merhaba karma bağlantıları özelliği iki giden çağrıları tooService veri yolu geçişi oluşur.  Burada, uygulamanızın hello app service içinde çalışan ve ardından hello karma bağlantı Manager(HCM) tooService veri yolu geçişi öğesinden bir bağlantı yoktur hello ana bilgisayardaki bir kitaplıktan bir bağlantı yok.  Merhaba HCM hello ağ barındırma içinde dağıttığınız bir geçiş hizmetidir 
+Karma bağlantılar özelliği Service Bus geçişi iki giden çağrıları oluşur.  Burada, uygulamanızın app service içinde çalışan ve sonra Service Bus geçişi karma bağlantı Manager(HCM) arasında bağlantı yok ana bilgisayardaki bir kitaplıktan bir bağlantı yok.  HCM ağ barındırma içinde dağıttığınız bir geçiş hizmetidir 
 
-Merhaba uygulamanızı TCP tünel tooa sahip iki birleştirilmiş bağlantıları hello HCM diğer tarafını ana: bağlantı noktası bileşimi hello üzerinde sabit.  Merhaba bağlantı TLS 1.2 güvenlik ve kimlik doğrulama/yetkilendirme için SAS anahtarları kullanır.    
+İki birleştirilmiş bağlantılarında uygulamanızı sabit ana: bağlantı noktası bileşimi için bir TCP tünel HCM diğer tarafta sahiptir.  Bağlantı TLS 1.2 güvenlik ve kimlik doğrulama/yetkilendirme için SAS anahtarları kullanır.    
 
 ![][1]
 
-Uygulamanızı bir DNS isteğinde bulunduğunda bir yapılandırma karma bağlantı uç noktası ile eşleşen sonra hello giden TCP trafiğine hello karma bağlantı yönlendirilir.  
+Uygulamanızı yapılandırma karma bağlantı uç noktayla eşleşen bir DNS isteğinde bulunduğunda, giden TCP trafiğine karma bağlantı yönlendirilir.  
 
 > [!NOTE]
-> Bu karma bağlantınız için bir DNS adı tooalways kullanım denemelisiniz anlamına gelir.  Hello uç noktası IP adresi yerine kullanıyorsa, bazı istemci yazılımı DNS araması yapın.
+> Başka bir deyişle, her zaman karma bağlantınız için bir DNS adı kullanmayı denemeniz gerekir.  Uç nokta bir IP adresi yerine kullanıyorsa, bazı istemci yazılımı bir DNS araması yapmaz.
 >
 >
 
-Karma bağlantılar, Azure geçiş altında bir hizmet olarak sunulan ve eski BizTalk karma bağlantılar hello hello yeni karma bağlantılar iki tür vardır.  Merhaba eski BizTalk karma bağlantılar hello portalında başvurulan tooas Klasik karma bağlantılar ' dir.  Bu belgede daha sonra bunları hakkında daha fazla bilgi yoktur.
+Karma bağlantılar, Azure geçiş altında bir hizmet olarak sunulan yeni karma bağlantılar ve eski BizTalk karma bağlantılar iki tür vardır.  Eski BizTalk karma bağlantılar olarak Klasik karma bağlantılar portalda denir.  Bu belgede daha sonra bunları hakkında daha fazla bilgi yoktur.
 
 ### <a name="app-service-hybrid-connection-benefits"></a>Uygulama hizmeti karma bağlantı avantajları ###
 
-Avantajları toohello karma bağlantıları yeteneği dahil olmak üzere, birkaç vardır
+Karma bağlantılar yeteneği dahil olmak üzere avantajları vardır
 
 - Uygulamaları güvenli bir şekilde şirket içi sistemleri ve Hizmetleri ile güvenli bir şekilde erişebilir
-- Merhaba özelliği bir Internet erişilebilir uç nokta gerektirmez
-- hızlı ve kolay tooset ayarlama  
-- Her bir karma bağlantı bir mükemmel güvenlik durum olan tooa tek ana bilgisayar: bağlantı noktası birleşimi ile eşleşir
-- Merhaba bağlantıları standart web bağlantı noktaları üzerinden giden tüm olduğu gibi normalde güvenlik duvarı delik gerektirmez
-- Merhaba özelliği anlamına da ağ düzeyi olduğundan hello bitiş noktası tarafından kullanılan uygulama ve hello teknoloji tarafından kullanılan belirsiz toohello dilini değildir
-- Bu olabilir tek bir uygulama birden çok ağlarda kullanılan tooprovide erişim 
+- Bu özellik Internet erişilebilir uç gerektirmez
+- hızlı ve kolay ayarlamak  
+- Her bir karma bağlantı bir mükemmel güvenlik durum olan tek ana bilgisayar: bağlantı noktası birleşimi ile eşleşir
+- Standart web bağlantı noktaları üzerinden giden tüm bağlantıları gibi normalde güvenlik duvarı delik gerektirmez
+- özellik anlamına da ağ düzeyi olduğundan, uygulamanız tarafından kullanılan dil ve bitiş noktası tarafından kullanılan teknoloji bağımsızdır
+- tek bir uygulama birden çok ağ erişim sağlamak için kullanılabilir 
 
 ### <a name="things-you-cannot-do-with-hybrid-connections"></a>Karma bağlantılar ile yapamayacağı noktalar ###
 
@@ -69,113 +69,113 @@ Karma bağlantılar ile yapamayacağınız birkaç şey vardır ve bunlar şunla
 
 ## <a name="adding-and-creating-a-hybrid-connection-in-your-app"></a>Ekleme ve uygulamanızda karma bağlantı oluşturma ##
 
-Karma bağlantılar hello uygulama portalı üzerinden veya hello karma bağlantı hizmet portalından oluşturulabilir.  Merhaba uygulama portal toocreate hello karma bağlantılar, uygulamanızı toouse istediğiniz kullanmak önerilir.  Karma bağlantı toocreate Git toohello [Azure portal] [ portal] ve uygulamanız için kullanıcı Arabirimi hello uygulamasına gidin.  Seçin **Ağ > karma bağlantı uç noktalarınızı yapılandırın**.  Buradan, uygulamanızı yapılandırılmış hello karma bağlantılar görebilirsiniz.  
+Karma bağlantılar, uygulama portalı üzerinden veya karma bağlantı hizmet portalından oluşturulabilir.  Uygulamanız ile kullanmak istediğiniz karma bağlantılar oluşturmak için uygulama portalını kullanma önerilir.  Karma bir bağlantı oluşturmak için Git [Azure portal] [ portal] ve uygulamanız için kullanıcı Arabirimi uygulamasına gidin.  Seçin **Ağ > karma bağlantı uç noktalarınızı yapılandırın**.  Buradan, uygulamanızı yapılandırılmış karma bağlantılar görebilirsiniz.  
 
 ![][2]
 
-Yeni bir karma bağlantı tooadd karma Bağlantı Ekle'yi tıklatın.  Merhaba açılan UI hello karma bağlantılar'de, önceden oluşturduğunuz listeler.  bir veya daha fazla bunların tooadd tooyour uygulama, istediğiniz ve isabet hello olanları tıklatıldığında **Ekle seçili karma bağlantı**.  
+Yeni bir karma bağlantı eklemek için karma Bağlantı Ekle'yi tıklatın.  Açılan UI önceden oluşturduğunuz karma bağlantılar listeler.  Bir veya daha fazlası uygulamanıza eklemek için istediğiniz ve isabet olanları tıklatın **Ekle seçili karma bağlantı**.  
 
 ![][3]
 
-Yeni bir karma bağlantı toocreate istiyorsanız, **yeni karma bağlantı oluşturmak**.  Buradan belirtin: 
+Yeni bir karma bağlantı oluşturmak istiyorsanız, tıklatın **yeni karma bağlantı oluşturmak**.  Buradan belirtin: 
 
 - uç nokta adı
 - uç noktası ana bilgisayar adı
 - uç nokta bağlantı noktası
-- servicebus ad alanı toouse istiyor
+- kullanmak istediğiniz servicebus ad alanı
 
 ![][4]
 
-Her karma bağlantı bağlı tooa hizmet veri yolu ad alanıdır ve her hizmet veri yolu ad alanı bir Azure bölgesinde.  Tootry ve bir hizmet veri yolu ad alanında kullanım uygulamanızı aynı bölgede tooavoid kopyaladığınızda ağ gecikmesi olarak şekilde hello önemlidir.
+Her karma bağlantı için hizmet veri yolu ad alanı bağlıdır ve bir Azure bölgesinde her hizmet veri yolu ad alanıdır.  Deneyin ve kopyaladığınızda ağ gecikmesi önlemek amacıyla, uygulamanız ile aynı bölgede bir hizmet veri yolu ad alanı kullanmak önemlidir.
 
-Uygulamanızdan karma bağlantınız tooremove istiyorsanız, sağ tıklayın ve seçin **Bağlantıyı Kes**.  
+Karma bağlantınız uygulamanızdan kaldırmak istiyorsanız, sağ tıklayın ve seçin **Bağlantıyı Kes**.  
 
-Karma bağlantı tooyour web uygulaması eklendikten sonra Ayrıntılar üzerinde yalnızca tıklayarak görebilirsiniz.  
+Karma bağlantı, web uygulamanızın eklendikten sonra Ayrıntılar üzerinde yalnızca tıklayarak görebilirsiniz.  
 
 ![][5]
 
 ## <a name="hybrid-connections-and-app-service-plans"></a>Karma bağlantılar ve uygulama hizmeti planları ##
 
-Şimdi yapabileceğiniz hello yalnızca karma bağlantılar hello yeni karma bağlantılar ' dir.  Yalnızca temel, standart, Premium ve SKU'ları fiyatlandırması Isolated kullanılabilir.  Plan fiyatlandırması bağlı sınırları toohello vardır.  
+Şimdi yapabileceğiniz yalnızca karma bağlantılar, yeni karma bağlantılar gerçekleştirilir.  Yalnızca temel, standart, Premium ve SKU'ları fiyatlandırması Isolated kullanılabilir.  Fiyatlandırma plana bağlı sınırları vardır.  
 
-| Plan fiyatlandırması | Karma bağlantılar hello planında kullanılabilir sayısı |
+| Plan fiyatlandırması | Karma bağlantılar planda kullanılabilir sayısı |
 |----|----|
 | Temel | 5 |
 | Standart | 25 |
 | Premium | 200 |
 | Yalıtılmış | 200 |
 
-Uygulama hizmeti planı kısıtlamaları bulunmaktadır UI hello kaç karma bağlantılar kullanıldığını gösterir App Service planı ve hangi uygulamaların bu yana.  
+Uygulama hizmeti planı kısıtlamaları olduğundan UI kaç karma bağlantılar kullanıldığını gösterir App Service planı ve hangi uygulamalar tarafından bulunmaktadır.  
 
 ![][6]
 
-Gibi hello uygulama görünümüyle ayrıntıları karma bağlantınız tıklayarak görebilirsiniz.  Merhaba uygulama Sergi sahip tüm hello bilgileri görebilir, ancak kaç hello uygulamalarında da görebilirsiniz burada gösterilen hello özelliklerinde aynı App Service planı kullandığınız Bu karma bağlantı.
+Gibi uygulama görünümüyle ayrıntıları karma bağlantınız tıklayarak görebilirsiniz.  Burada gösterilen özellikleri'nde uygulama görünüme sahip tüm bilgileri görebilirsiniz ancak de aynı uygulama hizmeti planında kaç diğer uygulamalar bu karma bağlantı kullandığını görebilirsiniz.
 
 ![][7]
 
-Bir uygulama hizmeti planı'nda kullanılabilir karma bağlantı uç hello sayısına bir sınır olsa da, bu uygulama hizmeti planı uygulamalarda herhangi bir sayıda genelinde kullanılan her karma bağlantı kullanılabilir.  My uygulama hizmeti planı'nda 5 ayrı uygulamalarında kullandım 1 karma bağlantı varsa, yine yalnızca 1 karma bağlantı olduğunu toosay olmasıdır.
+Bir uygulama hizmeti planı'nda kullanılabilir karma bağlantı uç sayısına bir sınır olsa da, bu uygulama hizmeti planı uygulamalarda herhangi bir sayıda genelinde kullanılan her karma bağlantı kullanılabilir.  My uygulama hizmeti planı'nda 5 ayrı uygulamalarında kullandım 1 karma bağlantı varsa, yine yalnızca 1 karma bağlantı olduğunu söylemek için olmasıdır.
 
-Yalnızca temel, standart, Premium veya yalıtılmış SKU içinde kullanılabilir olan ötesinde ek maliyet toohybrid bağlantıları yoktur.  Karma bağlantı fiyatlandırma hakkında ayrıntılar lütfen buraya gidin: [Service Bus fiyatlandırma][sbpricing].
+Karma bağlantılar'yalnızca temel, standart, Premium veya yalıtılmış SKU içinde kullanılabilir olan ötesinde ek bir maliyet yoktur.  Karma bağlantı fiyatlandırma hakkında ayrıntılar lütfen buraya gidin: [Service Bus fiyatlandırma][sbpricing].
 
 ## <a name="hybrid-connection-manager"></a>Karma Bağlantı Yöneticisi ##
 
-Karma bağlantılar toowork sırayla geçiş aracısı, karma bağlantı uç noktasını barındıran hello ağdaki gerekir.  Bu geçiş aracısı hello karma Bağlantı Yöneticisi (HCM) adı verilir.  Bu araç hello indirilebilir **Ağ > karma bağlantı uç noktalarınızı yapılandırın** UI hello uygulamanızda kullanılabilir [Azure portal][portal].  
+Sırayla çalışması karma bağlantılar için bir geçiş aracısı, karma bağlantı uç noktasını barındıran ağdaki gerekir.  Bu geçiş aracısı karma Bağlantı Yöneticisi (HCM) adı verilir.  Bu araç şu adresten yüklenebilir: **Ağ > karma bağlantı uç noktalarınızı yapılandırın** UI içinde uygulamanızdan kullanılabilir [Azure portal][portal].  
 
-Bu araç, Windows server 2008 R2 ve Windows'un sonraki sürümlerinde çalışır.  Bir kez yüklendikten sonra hello HCM bir hizmet olarak çalışır.  Bu hizmet yapılandırılmış hello uç noktalarda dayalı tooAzure servicebus geçiş bağlanır.  Merhaba HCM Hello bağlantılarından 80 ve 443 giden tooports ' dir.    
+Bu araç, Windows server 2008 R2 ve Windows'un sonraki sürümlerinde çalışır.  HCM çalışır bir hizmet olarak bir kez yüklenir.  Bu hizmet üzerinde yapılandırılmış uç tabanlı Azure servicebus geçiş bağlanır.  HCM bağlantılarından 80 ve 443 numaralı bağlantı noktalarına giden.    
 
-Merhaba HCM sahip bir kullanıcı Arabirimi tooconfigure onu.  HCM yüklü hello sonra hello karma Bağlantı Yöneticisi'ni yükleme dizininde bulunur HybridConnectionManagerUi.exe hello çalıştırarak UI hello kullanıma sunabilirsiniz.  Yazarak Windows 10'da kolayca ulaşıldığında *karma Bağlantı Yöneticisi kullanıcı Arabirimi* , arama kutusuna.  
+HCM yapılandırmak için bir kullanıcı Arabirimi vardır.  HCM yüklendikten sonra karma Bağlantı Yöneticisi'ni yükleme dizininde bulunur HybridConnectionManagerUi.exe çalıştırarak UI'yi kullanıma sunabilirsiniz.  Yazarak Windows 10'da kolayca ulaşıldığında *karma Bağlantı Yöneticisi kullanıcı Arabirimi* , arama kutusuna.  
 
-HCM kullanıcı Arabirimi başlatıldığında, hello hello ilk şey, bkz: Merhaba HCM'ın bu örneğinin yapılandırılmış hello karma bağlantılar tümünün listeleyen bir tablo durumdur.  Herhangi bir değişiklik toomake isterseniz Azure ile tooauthenticate gerekir. 
+HCM kullanıcı Arabirimi başlatıldığında, gördüğünüz ilk tüm HCM'ın bu örneğinin yapılandırılmış karma bağlantıları listeleyen bir tablo şeydir.  Herhangi bir değişiklik yapmak istiyorsanız Azure kimlik doğrulaması gerekir. 
 
-tooadd bir veya daha fazla karma bağlantılar tooyour HCM:
+Bir veya daha fazla karma bağlantılar, HCM eklemek için:
 
-1. Merhaba HCM UI Başlat
+1. HCM kullanıcı arabirimini Başlat
 1. Başka bir karma bağlantı yapılandırmak tıklayın![][8]
 
 1. Azure hesabınızla oturum açın
 1. Bir abonelik seçin
-1. ' I tıklatın Bu HCM toorelay istediğiniz hello karma bağlantıları![][9]
+1. Geçiş için bu HCM istediğiniz karma bağlantılar'ı tıklatın![][9]
 
 1. Kaydet’e tıklayın.
 
-Bu noktada eklediğiniz hello karma bağlantılar görürsünüz.  Ayrıca, yapılandırılmış hello karma bağlantıda tıklatın ve hello bağlantı ayrıntılarını bakın.
+Bu noktada eklediğiniz karma bağlantılar görürsünüz.  Ayrıca yapılandırılmış karma bağlantısında tıklatın ve bağlantı ayrıntılarını bakın.
 
 ![][10]
 
-İle yapılandırılmış HCM toobe mümkün toosupport hello karma bağlantılarınız için onu gerekir:
+HCM ile yapılandırılmış karma bağlantılar destekleyebilmesi, onu gerekir:
 
-- TCP bağlantı noktaları 80 ve 443 üzerinden erişim tooAzure
-- TCP erişim toohello karma bağlantı uç noktasının
-- özelliği toodo DNS aramalarına hello uç noktası ana bilgisayar ve hello azure servicebus ad alanı
+- TCP bağlantı noktaları 80 ve 443 üzerinden Azure erişimi
+- Karma bağlantı uç noktasının TCP erişimi
+- DNS yapılabilmesi aramalarına uç noktası ana bilgisayar ve azure servicebus ad alanı
 
-Merhaba HCM, hem yeni karma bağlantılar, hem de hello eski BizTalk karma bağlantılar destekler.
+HCM, hem yeni karma bağlantılar, hem de eski BizTalk karma bağlantılar destekler.
 
 ### <a name="redundancy"></a>Yedeklilik ###
 
-Her HCM, birden çok karma bağlantılar destekleyebilir.  Ayrıca, herhangi bir belirtilen karma bağlantıyı birden çok HCMs tarafından desteklenebilir.  Merhaba varsayılan davranışı tooround bir kez deneme trafik hello arasında HCMs herhangi belirli bir uç nokta için yapılandırıldı.  Yüksek kullanılabilirlik, karma bağlantılar ağınızdan isterseniz, yalnızca birden çok HCMs ayrı makinelerde örneği oluşturur. 
+Her HCM, birden çok karma bağlantılar destekleyebilir.  Ayrıca, herhangi bir belirtilen karma bağlantıyı birden çok HCMs tarafından desteklenebilir.  Varsayılan davranış hepsini bir kez trafiği verilen herhangi bir uç nokta için yapılandırılmış HCMs arasında değil.  Yüksek kullanılabilirlik, karma bağlantılar ağınızdan isterseniz, yalnızca birden çok HCMs ayrı makinelerde örneği oluşturur. 
 
 ### <a name="manually-adding-a-hybrid-connection"></a>El ile karma bağlantı ekleme ###
 
-Birisi, abonelik toohost dışında verilen karma bağlantı için bir HCM örneği istiyorsanız, bunları paylaşabilirsiniz hello hello karma bağlantı için ağ geçidi bağlantı dizesi.  Bu hello içinde karma bağlantı hello özelliklerinde görebilirsiniz [Azure portal][portal]. dize, toouse tıklatın hello **el ile yapılandırmanız** düğmesini hello HCM ve hello ağ geçidi bağlantı dizesini yapıştırın.
+Birisi verilen karma bağlantı için bir HCM örneği barındırmak için aboneliğinizi dışında istiyorsanız, bunları ile karma bağlantı için ağ geçidi bağlantı dizesi paylaşabilirsiniz.  Bu karma bir bağlantı özelliklerinde görebilirsiniz [Azure portal][portal]. Bu dizeyi kullanmak için tıklatın **el ile yapılandırmanız** HCM düğmesine tıklayın ve ağ geçidi bağlantı dizesini yapıştırın.
 
 
 ## <a name="troubleshooting"></a>Sorun giderme ##
 
-Ne zaman karma bağlantınız ile çalışan bir uygulama ayarlanır ve yapılandırılmış Bu karma bağlantısı olan en az bir HCM yoktur sonra hello durum söyleyin **bağlı** hello Portalı'nda.  Değil dediği varsa **bağlı** uygulamanızı çalışmıyor veya, HCM tooAzure 80 veya 443 bağlantı noktalarında giden bağlanamıyor anlamına gelir.  
+Ne zaman karma bağlantınız ile çalışan bir uygulama ayarlanır ve yapılandırılmış Bu karma bağlantısı olan en az bir HCM yoktur ardından durum söyleyin **bağlı** Portalı'nda.  Değil dediği varsa **bağlı** uygulamanızı çalışmıyor veya sizin HCM Azure 80 veya 443 bağlantı noktalarında giden bağlanamıyor anlamına gelir.  
 
-Merhaba uç noktası bir DNS adı yerine bir IP adresi kullanarak belirtilmediğinden istemciler tootheir endpoint bağlanamıyor hello birincil nedenidir.  Uygulamanızı istenen hello endpoint ulaşamıyor ve bir IP adresi kullandıysanız toousing hello HCM çalıştığı hello konakta geçerli bir DNS adı geçin.  Diğer şeyleri toocheck olduğunuz nerede hello HCM çalıştıran sunucunun ve hello HCM toohello karma bağlantı uç noktasının çalıştığı hello ana bilgisayardan bağlantısı yok hello ana bilgisayarda bu hello DNS adı düzgün çözümler.  
+Uç nokta bir DNS adı yerine bir IP adresi kullanarak belirtilmediğinden, istemciler kendi uç noktasına bağlanamıyor birincil nedenidir.  Uygulamanızı istenen endpoint ulaşamıyor ve bir IP adresi kullandıysanız HCM'ın çalıştırıldığı konak üzerinde geçerli bir DNS adı kullanmaya geçiş yapın.  Denetlenecek diğer DNS adını düzgün HCM çalıştığı konakta çözümler ve HCM karma bağlantı uç noktasına çalıştığı ana bilgisayardan bağlantısı olduğunu noktalardır.  
 
-Merhaba tcpping adlı hello konsolundan etkinleştirilebilir uygulama hizmeti bir aracı yoktur.  Bu araç erişim tooa TCP uç noktası sahip ancak erişim tooa karma bağlantı uç noktasının varsa söylemez anlayabilirsiniz.  Karma bağlantı uç noktasının karşı hello konsolunda kullanıldığında, başarılı bir ping işlemi yalnızca bu ana bilgisayar: bağlantı noktası bileşimi kullanan uygulamanız için yapılandırılmış karma bağlantı olduğunu söyler.  
+App Service'te tcpping adlı Konsolu'ndan çağrılan bir aracı yoktur.  Bu araç TCP uç noktası erişimi ancak bir karma bağlantı uç noktasının erişiminiz varsa söylemez anlayabilirsiniz.  Karma bağlantı uç noktasının karşı konsolunda kullanıldığında, başarılı bir ping işlemi yalnızca bu ana bilgisayar: bağlantı noktası bileşimi kullanan uygulamanız için yapılandırılmış karma bağlantı olduğunu söyler.  
 
 ## <a name="biztalk-hybrid-connections"></a>BizTalk Karma Bağlantıları ##
 
-Merhaba eski BizTalk karma bağlantılar özelliği devre dışı toofurther BizTalk karma bağlantı oluşturmaları kapatıldı.  Önceden var olan BizTalk karma bağlantılarınızı uygulamalarınızı ile kullanmaya devam edebilirsiniz ancak toohello yeni hizmet geçirmeniz gerekir.  Merhaba arasında hello BizTalk sürüm üzerinden hello yeni hizmetindeki yararlar şunlardır:
+Eski BizTalk karma bağlantılar özelliği devre dışı başka BizTalk karma bağlantı oluşturmaları kapatıldı.  Önceden var olan BizTalk karma bağlantılarınızı uygulamalarınızı ile kullanmaya devam edebilirsiniz ancak yeni hizmet geçirmeniz gerekir.  Yeni hizmet BizTalk sürüm üzerinden avantajları arasında şunlardır:
 
 - hiçbir ek BizTalk hesabı gereklidir
 - TLS 1.2 BizTalk karma bağlantılar olduğu gibi 1.0 yerine olduğu
-- İletişim diğer bağlantı noktaları 80 ve 443 bir IP adresi yerine Azure DNS ad tooreach ve bir dizi ek kullanarak bağlantı noktaları üzerinden önemlidir.  
+- Bağlantı noktaları 80 ve 443 numaralı IP adresleri yerine Azure ve bir dizi ek diğer ulaşmak için bir DNS adını kullanarak bağlantı noktaları üzerinden iletişim önemlidir.  
 
-tooadd bir BizTalk karma bağlantı tooyour uygulaması hello gidin tooyour uygulamada [Azure portal] [ portal] tıklatıp **Ağ > karma bağlantı uç noktalarınızı yapılandırın**.  Merhaba Klasik karma bağlantıları tabloda tıklatın **Klasik karma Bağlantı Ekle**.  Buradan, BizTalk karma bağlantılar listesini görürsünüz.  
+Uygulamanızı Git BizTalk karma bağlantı uygulamanıza eklemek için [Azure portal] [ portal] tıklatıp **Ağ > karma bağlantı uç noktalarınızı yapılandırın**.  Klasik karma bağlantıları tabloda tıklatın **Klasik karma Bağlantı Ekle**.  Buradan, BizTalk karma bağlantılar listesini görürsünüz.  
 
 
 <!--Image references-->

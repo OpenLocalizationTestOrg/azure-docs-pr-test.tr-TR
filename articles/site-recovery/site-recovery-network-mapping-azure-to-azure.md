@@ -1,6 +1,6 @@
 ---
-title: "Azure Site kurtarma iki Azure bölgeleri arasında aaaNetwork eşleme | Microsoft Docs"
-description: "Azure Site Recovery hello çoğaltma, yük devretme ve sanal makinelerin ve fiziksel sunucuları kurtarma düzenler. Yük devretme tooAzure veya ikincil veri merkezine hakkında bilgi edinin."
+title: "Azure Site kurtarma iki Azure bölgeleri arasında ağ eşlemesi | Microsoft Docs"
+description: "Azure Site Recovery, çoğaltma, yük devretme ve sanal makinelerin ve fiziksel sunucuları kurtarma düzenler. Azure veya ikincil veri merkezine yük devretme hakkında bilgi edinin."
 services: site-recovery
 documentationcenter: 
 author: prateek9us
@@ -14,86 +14,86 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: pratshar
-ms.openlocfilehash: 4f80c44e3f94eaf446bc01a7041d91fe34aa78d4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9d6a806ec533259797080fbfee2c38f918ebd8a2
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="network-mapping-between-two-azure-regions"></a>İki Azure bölgeleri arasında ağ eşlemesi
 
 
-Bu makalede nasıl toomap Azure sanal ağlar birbirlerine iki Azure bölgelerinin. Ağ eşlemesi çoğaltılmış sanal makine hello hedef Azure bölgesi oluşturduğunuzda, onu eşlenen toovirtual ağ hello kaynak sanal makinenin hello sanal ağ üzerinde oluşturulur sağlar.  
+Bu makalede, Azure sanal ağlar birbirlerine iki Azure bölgelerinin eşlemek açıklar. Ağ eşlemesi hedef Azure bölgesi çoğaltılmış sanal makine oluşturulduğunda, kaynak sanal makinenin sanal ağa eşlenen sanal ağda oluşturulduğunu sağlar.  
 
 ## <a name="prerequisites"></a>Ön koşullar
 Eşledikten önce ağları oluşturduğunuzdan emin olun [Azure sanal ağlar](../virtual-network/virtual-networks-overview.md) hem de kaynak ve hedef Azure bölgeleri.
 
 ## <a name="map-networks"></a>Ağ eşleme
 
-toomap bir Azure sanal ağı bir Azure bölgesi tooanother sanal ağdaki başka bir bölgede gidin tooSite kurtarma altyapı ağ eşlemesi (Azure Virtual Machines için) -> ve bir ağ eşlemesi oluşturun.
+Bir Azure bölgesindeki bir Azure sanal ağı başka bir bölgede başka bir sanal ağ eşlemek için bir ağ eşlemesi oluşturun ve Site Recovery altyapısı için Ağ eşlemesi (Azure Virtual Machines için) -> gidin.
 
 ![Ağ eşlemesi](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
 
 
-Hello aşağıdaki sanal Makinem Doğu Asya bölgesinde çalıştığından ve yüklenmekte olan örnek tooSoutheast Asya çoğaltılan.
+Aşağıdaki örnekte sanal Makinem Doğu Asya bölgesinde çalıştığından ve Güneydoğu Asya çoğaltılır.
 
-Merhaba kaynak ve hedef ağ seçin ve Tamam toocreate Doğu Asya tooSoutheast Asya arasında ağ eşlemesi'ye tıklayın.
+Kaynak ve hedef ağ seçin ve ardından Güneydoğu Asya Doğu Asya ağ eşlemesi oluşturmak için Tamam'ı tıklatın.
 
 ![Ağ eşlemesi](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 
 
-Aynı şey toocreate Güneydoğu Asya tooEast Asya arasında ağ eşlemesi hello.  
+Ağ eşlemesi Güneydoğu Asya Doğu Asya oluşturmak için aynı işlevi görür.  
 ![Ağ eşlemesi](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 
 
 ## <a name="mapping-network-when-enabling-replication"></a>Çoğaltma etkinleştirirken eşleme ağ
 
-Bir sanal makine için hello ilk saat biçiminde bir Azure bölgesi tooanother çoğaltırken ağ eşlemesi yapılmazsa sonra hedef ağ hello bir parçası olarak seçebileceğiniz aynı işlemi. Site Recovery ağ eşlemeleri Kaynak bölgesi tootarget bölge ve bu seçime dayalı hedef bölge toosource bölgesi oluşturur.   
+Başka bir sanal makine için ilk zaman form bir Azure bölgesi çoğaltma yapıyorsanız, ağ eşlemesi yapılmazsa, hedef ağ aynı işleminin bir parçası olarak seçebilirsiniz. Site Recovery, hedef bölgeye kaynak bölgesinden ve bu seçime dayalı kaynak bölge için hedef bölgesinden ağ eşlemeleri oluşturur.   
 
 ![Ağ eşlemesi](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
 
-Varsayılan olarak, Site Recovery ağ aynı toohello kaynak ağ hello hedef bölgesi ve ekleyerek oluşturur '-asr' hello kaynak ağ bir sonek toohello adından farklı. Önceden oluşturulmuş bir ağ Özelleştir'i tıklatarak seçebilirsiniz.
+Varsayılan olarak, Site Recovery hedef bölgede kaynak ağa ve ekleyerek aynı olan bir ağ oluşturur '-asr' kaynak ağ adı için bir son eki olarak. Önceden oluşturulmuş bir ağ Özelleştir'i tıklatarak seçebilirsiniz.
 
 ![Ağ eşlemesi](./media/site-recovery-network-mapping-azure-to-azure/network-mapping5.png)
 
 
-Merhaba ağ eşlemesi zaten yapıldığında, çoğaltmayı etkinleştirirken hello hedef sanal ağ değiştiremezsiniz. toochange, mevcut ağ eşlemesini değiştirin.  
+Ağ eşlemesi zaten yapıldığında, çoğaltmayı etkinleştirirken hedef sanal ağ değiştiremezsiniz. Değiştirmek için mevcut ağ eşlemesini değiştirin.  
 
 ![Ağ eşlemesi](./media/site-recovery-network-mapping-azure-to-azure/network-mapping6.png)
 
 ![Ağ eşlemesi](./media/site-recovery-network-mapping-azure-to-azure/modify-network-mapping.png)
 
 > [!IMPORTANT]
-> Bölge 1 tooregion-2 ağ eşlemesini değiştirirseniz, bölge 2 tooregion-1'de hello ağ eşlemesi değiştirdiğinizden emin olun.
+> Bölge 2 bölge-1 arasında bir ağ eşlemesini değiştirirseniz, bölge 2 ağ eşlemesi bölge-1 de değiştirdiğinizden emin olun.
 >
 >
 
 
 ## <a name="subnet-selection"></a>Alt ağ seçimi
-Merhaba hedef sanal makinenin hello hello alt hello kaynak sanal makinenin adına göre seçilir. Merhaba alt ise hello hedef sanal makine için seçilen sonra aynı hello kaynak sanal makinenin hello hedef ağ kullanılabilir olarak adlandırın. Merhaba bir alt ağ ise alfabetik olarak ilk alt ağ hedef alt hello olarak seçilen aynı hello hedef ağ adı. Bu alt ağ tooCompute ve hello sanal makinesinin ağ ayarları giderek değiştirebilirsiniz.
+Hedef sanal makinenin, kaynak sanal makinenin adını temel alarak seçilir. Hedef ağ kullanılabilir, kaynak sanal makine olarak aynı ada sahip bir alt ağ ise, hedef sanal makine için seçilir. Varsa hedef ağdaki aynı ada sahip bir alt ağ sonra alfabetik olarak ilk alt ağ hedef alt ağ seçilir. Bu alt ağ, işlem ve ağ sanal makinenin ayarlarını giderek değiştirebilirsiniz.
 
 ![Alt ağ değiştirme](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
 
 ## <a name="ip-address"></a>IP adresi
 
-Her hello ağ arabiriminin hello hedef sanal makine için IP adresi gibi seçilir:
+Her hedef sanal makinenin ağ arabirimi için IP adresi gibi seçilir:
 
 ### <a name="dhcp"></a>DHCP
-Merhaba ağ arabirimi hello kaynak sanal makinenin DHCP kullanıyorsanız, hello hedef sanal makinenin ağ arabirimi Ayrıca DHCP ayarlanır.
+Kaynak sanal makinenin Ağ arabiriminin DHCP kullanıyorsanız, hedef sanal makinenin ağ arabirimi Ayrıca DHCP ayarlanır.
 
 ### <a name="static-ip"></a>Statik IP
-Merhaba ağ arabirimi hello kaynak sanal makinenin statik IP kullanıyorsanız, ağ arabiriminin hello hedef sanal makine de toouse statik IP ayarlanır. Statik IP şu şekilde seçilir:
+Kaynak sanal makinenin Ağ arabiriminin statik IP kullanıyorsanız, ardından hedef sanal makinenin ağ arabirimi de statik IP kullanmak üzere ayarlanmış. Statik IP şu şekilde seçilir:
 
 #### <a name="same-address-space"></a>Aynı adres alanı
 
-Merhaba kaynak alt ağı ve hello hedef alt hello varsa, hedef IP hello IP hello ağ arabiriminin hello kaynak sanal makinenin aynı ayarlayın daha sonra aynı adres alanı. Aynı IP kullanılabilir durumda değilse, başka bir kullanılabilir IP hello hedef IP ayarlanır.
+Kaynak alt ağı ve hedef alt aynı adres alanı varsa, hedef IP aynı kaynak sanal makinenin Ağ arabiriminin IP ayarlanır. Aynı IP kullanılabilir durumda değilse, başka bir kullanılabilir IP hedef IP olarak ayarlanır.
 
 #### <a name="different-address-space"></a>Farklı bir adres alanı
 
-Merhaba kaynak alt ağı ve hello hedef alt farklı bir adres alanı varsa, hedef IP hello hedef alt ağda kullanılabilir herhangi bir IP'yi olarak ayarlanır.
+Kaynak alt ağı ve hedef alt farklı bir adres alanı varsa, hedef IP hedef alt ağdaki kullanılabilir herhangi bir IP'yi olarak ayarlanır.
 
-Her ağ arabiriminde hello hedef IP tooCompute ve hello sanal makinesinin ağ ayarları giderek değiştirebilirsiniz.
+Her ağ arabiriminin hedef IP, sanal makinenin işlem ve ağ ayarlarına giderek değiştirebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

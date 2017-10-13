@@ -1,5 +1,5 @@
 ---
-title: "aaaUse PowerShell tooCreate ve günlük analizi çalışma alanı yapılandırma | Microsoft Docs"
+title: "Oluşturma ve bir günlük analizi çalışma alanı yapılandırmak için PowerShell kullanın | Microsoft Docs"
 description: "Altyapı Bulut veya şirket içi sunuculardan Analytics kullanım verilerini oturum. Azure tanılama tarafından oluşturulan zaman Azure depolama biriminden makine verilerini toplayabilir."
 services: log-analytics
 documentationcenter: 
@@ -14,64 +14,64 @@ ms.devlang: powershell
 ms.topic: article
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: a6d66194204cc58de6aafb687a19fe9611e0c58e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6807ab67e3593da82c147669b29bfdae3b6c967c
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="manage-log-analytics-using-powershell"></a>PowerShell kullanarak Log Analytics’i yönetme
-Merhaba kullanabilirsiniz [günlük analizi PowerShell cmdlet'leri](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) tooperform çeşitli işlevler günlük analizi için bir komut satırından veya bir komut dosyasının parçası olarak.  PowerShell ile gerçekleştirebileceğiniz hello görevler örnekleri şunlardır:
+Kullanabileceğiniz [günlük analizi PowerShell cmdlet'leri](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) bir komut satırından veya bir komut dosyasının parçası olarak günlük analizi çeşitli işlevleri gerçekleştirmek için.  PowerShell ile gerçekleştirebileceğiniz görevler örnekleri şunlardır:
 
 * Çalışma alanı oluşturma
 * Bir çözüm Ekle Kaldır
 * İçeri ve dışarı aktarma Kaydedilmiş aramaları
 * Bir bilgisayar grubu oluşturun
-* Merhaba Windows aracısının yüklü olduğu IIS günlüklerinin bilgisayarlardan toplamayı etkinleştir
+* Windows aracısının yüklü olduğu IIS günlüklerinin bilgisayarlardan toplamayı etkinleştir
 * Linux ve Windows bilgisayarlarından performans sayaçlarını Topla
 * Linux bilgisayarlarda syslog olaylarını Topla 
 * Windows olay günlüklerini olaylarını Topla
 * Özel olay günlüklerini toplayın
-* Merhaba günlük analizi aracı tooan Azure sanal makine ekleyin
-* Günlük analizi tooindex verileri Azure Tanılama'yı kullanarak toplanan yapılandırma
+* Bir Azure sanal makinesi için günlük analizi Aracısı Ekle
+* Azure Tanılama'yı kullanarak toplanan dizin verileri için günlük analizi yapılandırın
 
-Bu makale, bazı Powershell'den gerçekleştirebilirsiniz hello işlevleri gösteren iki kod örnekleri sağlar.  Toohello başvurabilir [günlük analizi PowerShell cmdlet başvurusunun](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) diğer işlevleri için.
+Bu makale, bazı Powershell'den gerçekleştirebileceğiniz işlevlerin göstermek iki kod örnekleri sağlar.  Başvurabilirsiniz [günlük analizi PowerShell cmdlet başvurusunun](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) diğer işlevleri için.
 
 > [!NOTE]
-> Günlük analizi önceden hello cmdlet'leri kullanılan hello adı olmasının olan Operational Insights çağrıldı.
+> Günlük analizi daha önce yer alan cmdlet'ler kullanılan ad olmasının olan Operational Insights çağrıldı.
 > 
 > 
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu örnekler 2.3.0 sürümüyle veya hello AzureRm.OperationalInsights modülün daha sonra çalışır.
+Bu örnekler 2.3.0 sürümüyle ya da daha sonra AzureRm.OperationalInsights modülün çalışır.
 
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Oluşturma ve yapılandırma günlük analizi çalışma alanı
-Merhaba aşağıdaki komut dosyası örneği gösterilmektedir nasıl yapılır:
+Aşağıdaki komut dosyası örneği gösterilmektedir nasıl yapılır:
 
 1. Çalışma alanı oluşturma
-2. Liste hello kullanılabilir çözümler
-3. Çözümleri toohello çalışma Ekle
+2. Var olan çözümlerinin listesi
+3. Çalışma Alanı'na çözümleri Ekle
 4. İçeri aktarma Kaydedilmiş aramaları
 5. Dışarı aktarma Kaydedilmiş aramaları
 6. Bir bilgisayar grubu oluşturun
-7. Merhaba Windows aracısının yüklü olduğu IIS günlüklerinin bilgisayarlardan toplamayı etkinleştir
+7. Windows aracısının yüklü olduğu IIS günlüklerinin bilgisayarlardan toplamayı etkinleştir
 8. Mantıksal Disk performans sayaçlarını Linux bilgisayarından toplar (% kullanılan Inode; Boş megabayt; % Kullanılan alan; Disk aktarımı/sn; Disk Okuma/sn; Disk Yazma/sn)
 9. Linux bilgisayarlardan Syslog olaylarını Topla
-10. Merhaba uygulama olay günlüğüne Windows bilgisayarlardan hata ve uyarı olayları toplar
+10. Uygulama olay günlüğü'ndeki Windows bilgisayarlardan hata ve uyarı olaylarını Topla
 11. Windows bilgisayarlardan bellek kullanılabilir MBayt performans sayacı Topla
 12. Özel günlük Topla 
 
 ```
 
 $ResourceGroup = "oms-example"
-$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need toobe unique - Get-Random helps with this for hello example code
+$WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique - Get-Random helps with this for the example code
 $Location = "westeurope"
 
-# List of solutions tooenable
+# List of solutions to enable
 $Solutions = "Security", "Updates", "SQLAssessment"
 
-# Saved Searches tooimport
+# Saved Searches to import
 $ExportedSearches = @"
 [
     {
@@ -89,7 +89,7 @@ $ExportedSearches = @"
 ]
 "@ | ConvertFrom-Json
 
-# Custom Log toocollect
+# Custom Log to collect
 $CustomLog = @"
 {
     "customLogName": "sampleCustomLog1", 
@@ -127,14 +127,14 @@ $CustomLog = @"
     }
 "@
 
-# Create hello resource group if needed
+# Create the resource group if needed
 try {
     Get-AzureRmResourceGroup -Name $ResourceGroup -ErrorAction Stop
 } catch {
     New-AzureRmResourceGroup -Name $ResourceGroup -Location $Location
 }
 
-# Create hello workspace
+# Create the workspace
 New-AzureRmOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName -Sku Standard -ResourceGroupName $ResourceGroup
 
 # List all solutions and their installation status
@@ -160,7 +160,7 @@ foreach ($search in $ExportedSearches) {
 # Create Computer Group based on a query
 New-AzureRmOperationalInsightsComputerGroup -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -SavedSearchId "My Web Servers" -DisplayName "Web Servers" -Category "My Saved Searches" -Query "Computer=""web*"" | distinct Computer" -Version 1
 
-# Create a computer group based on names (up too5000)
+# Create a computer group based on names (up to 5000)
 $computerGroup = """servername1.contoso.com"",""servername2.contoso.com"",""servername3.contoso.com"",""servername4.contoso.com"""
 New-AzureRmOperationalInsightsComputerGroup -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -SavedSearchId "My Named Servers" -DisplayName "Named Servers" -Category "My Saved Searches" -Query $computerGroup -Version 1
 
@@ -186,8 +186,8 @@ New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGr
 
 ```
 
-## <a name="configuring-log-analytics-tooindex-azure-diagnostics"></a>Günlük analizi tooindex Azure Tanılama'yı yapılandırma
-Azure kaynaklarını aracısız izleme için hello kaynakları toohave Azure tanılama etkinleştirilmiş ve yapılandırılmış toowrite tooa günlük analizi çalışma alanı gerekir. Bu yaklaşım verileri gönderir doğrudan tooLog analizi ve tooa depolama hesabına yazılan veri toobe gerektirmez. Desteklenen kaynaklar şunlardır:
+## <a name="configuring-log-analytics-to-index-azure-diagnostics"></a>Azure tanılama dizin için yapılandırma günlük analizi
+Azure kaynaklarını aracısız izleme için kaynakları Azure tanılama etkin ve günlük analizi çalışma alanına yazmak için yapılandırılmış olması gerekir. Bu yaklaşım, doğrudan günlük analizi veri gönderir ve bir depolama hesabına yazılması için veri gerektirmez. Desteklenen kaynaklar şunlardır:
 
 | Kaynak Türü | Günlükler | Ölçümler |
 | --- | --- | --- |
@@ -210,9 +210,9 @@ Azure kaynaklarını aracısız izleme için hello kaynakları toohave Azure tan
 | Web Siteleri               |     | Evet |
 | Web sunucu grupları        |     | Evet |
 
-Merhaba kullanılabilir ölçümler Hello ayrıntılarını çok başvuran[ölçümleri Azure İzleyicisi ile desteklenen](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
+Kullanılabilir ölçümler ayrıntılarını başvurmak [ölçümleri Azure İzleyicisi ile desteklenen](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 
-Merhaba kullanılabilir günlüklerini Hello ayrıntılarını çok başvuran[desteklenen Hizmetleri ve şema için tanılama günlüklerini](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
+Kullanılabilir günlüklerini ayrıntılarını başvurmak [desteklenen Hizmetleri ve şema için tanılama günlüklerini](../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md).
 
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -222,27 +222,27 @@ $resourceId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUP
 Set-AzureRmDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
 ```
 
-Cmdlet toocollect farklı Aboneliklerde bulunan kaynaklar günlüklerinden önceki hello de kullanabilirsiniz. Merhaba cmdlet günlükleri oluşturma hem hello kaynağın hello kimliği sağlanmaktadır ve hello çalışma hello günlükleri gönderilen abonelikler arasında mümkün toowork taşımaktadır.
+Farklı Aboneliklerde bulunan kaynaklar günlükleri toplamak için önceki cmdlet'ini de kullanabilirsiniz. Cmdlet günlükleri ve günlükleri gönderilen çalışma alanı oluşturma her iki kaynağın kimliği sağlama abonelikler arasında çalışmaya yapabiliyor.
 
 
-## <a name="configuring-log-analytics-tooindex-azure-diagnostics-from-storage"></a>Günlük analizi tooindex Azure tanılama depolama biriminden yapılandırma
-toocollect günlük içindeki verileri Klasik bulut hizmeti ya da bir service fabric kümesi, çalışan bir örneği, toofirst yazma hello veri tooAzure depolama gerekir. Günlük analizi durumda toocollect hello günlükleri hello depolama hesabından yapılandırılmış. Desteklenen kaynaklar şunlardır:
+## <a name="configuring-log-analytics-to-index-azure-diagnostics-from-storage"></a>Günlük analizi depolama biriminden Azure tanılama dizin için yapılandırma
+Klasik bulut hizmeti ya da bir service fabric kümesi çalışan bir örneğini günlük verilerini toplamak için önce verileri Azure depolama alanına yazmak gerekir. Günlük analizi depolama hesabından günlükleri toplamak için sonra yapılandırılır. Desteklenen kaynaklar şunlardır:
 
 * Klasik bulut Hizmetleri (web ve çalışan rolleri)
 * Service fabric kümeleri
 
-örnekte gösterildiği nasıl aşağıdaki hello için:
+Aşağıdaki örnekte gösterildiği nasıl yapılır:
 
-1. Liste hello var olan depolama hesapları ve günlük analizi veri dizinini oluşturacak konumları
-2. Bir depolama hesabından bir yapılandırma tooread oluşturma
-3. Yeni yapılandırma tooindex verileri ek konumlardan oluşturulan hello güncelleştir
-4. Yeni oluşturulan hello yapılandırmasını silme
+1. Günlük analizi veri dizinini oluşturacak konumları ve var olan depolama hesaplarını Listele
+2. Bir depolama hesabından okumak için bir yapılandırma oluşturmak
+3. Yeni oluşturulan yapılandırma veri dizini oluşturmak için ek konumlardan güncelleştirin.
+4. Yeni oluşturulan yapılandırmasını silme
 
 ```
 # validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable" 
 $workspace = (Get-AzureRmOperationalInsightsWorkspace).Where({$_.Name -eq "your workspace name"})
 
-# Update these two lines with hello storage account resource ID and hello storage account key for hello storage account you want tooLog Analytics too 
+# Update these two lines with the storage account resource ID and the storage account key for the storage account you want to Log Analytics to  
 $storageId = "/subscriptions/ec11ca60-1234-491e-5678-0ea07feae25c/resourceGroups/demo/providers/Microsoft.Storage/storageAccounts/wadv2storage"
 $key = "abcd=="
 
@@ -255,12 +255,12 @@ New-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.Resou
 # Update existing insight
 Set-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" -Tables @("WADWindowsEventLogsTable", "WADETWEventTable") -Containers @("wad-iis-logfiles")
 
-# Remove hello insight
+# Remove the insight
 Remove-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.ResourceGroupName -WorkspaceName $workspace.Name -Name "newinsight" 
 
 ```
 
-Komut dosyası toocollect günlükleri depolama hesaplarından farklı Aboneliklerde önceki hello de kullanabilirsiniz. Merhaba betik mümkün toowork abonelikler arasında olduğu hello depolama hesabı kaynak kimliği ve karşılık gelen bir erişim anahtarı sağlanmaktadır. Merhaba erişim tuşu değiştirdiğinizde, tooupdate hello depolama Insight toohave hello yeni anahtarı gerekir.
+Yukarıdaki komut dosyası, farklı Aboneliklerdeki depolama hesaplarına günlükleri toplamak için de kullanabilirsiniz. Komut dosyası, depolama hesabı kaynak kimliği ile ilgili erişim tuşu sağlayarak abonelikler arasında çalışmaya yapabiliyor. Erişim anahtarı değiştirdiğinizde, yeni anahtar depolama Insight güncelleştirmeniz gerekir.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

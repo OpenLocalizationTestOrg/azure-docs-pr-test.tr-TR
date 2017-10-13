@@ -1,6 +1,6 @@
 ---
-title: "aaa \"(.NET API - Azure Search) dizin oluşturma | Microsoft Docs\""
-description: "Hello Azure Search .NET SDK'sını kullanarak kod içinde bir dizin oluşturun."
+title: "Dizin oluşturma (.NET API - Azure Search) | Microsoft Docs"
+description: "Azure Search .NET SDK'sını kullanarak kod içinde bir dizin oluşturun."
 services: search
 documentationcenter: 
 author: brjohnstmsft
@@ -15,13 +15,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/22/2017
 ms.author: brjohnst
-ms.openlocfilehash: 7fa4030b8c3565bc02b1d6bb4426331657cf3a5f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: fac41903c3e5731d17f832ff58145fe74dfa29f1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-an-azure-search-index-using-hello-net-sdk"></a>Merhaba .NET SDK kullanarak Azure Search dizini oluşturma
+# <a name="create-an-azure-search-index-using-the-net-sdk"></a>.NET SDK'yı kullanarak Azure Search dizini oluşturma
 > [!div class="op_single_selector"]
 > * [Genel Bakış](search-what-is-an-index.md)
 > * [Portal](search-create-index-portal.md)
@@ -30,34 +30,34 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Bu makale bir Azure Search oluşturma hello işleminde size kılavuzluk edecektir [dizin](https://docs.microsoft.com/rest/api/searchservice/Create-Index) hello kullanarak [Azure Search .NET SDK'sı](https://aka.ms/search-sdk).
+Bu makale, [Azure Search .NET SDK](https://aka.ms/search-sdk)'sını kullanarak Azure Search [dizini](https://docs.microsoft.com/rest/api/searchservice/Create-Index) oluşturma işlemi konusunda size yol gösterecektir.
 
 Bu kılavuzu izlemeden ve dizin oluşturmadan önce, [Azure Search hizmeti oluşturmuş](search-create-service-portal.md) olmanız gerekir.
 
 > [!NOTE]
-> Bu makaledeki örnek kodun tamamı C# dilinde yazılmıştır. Merhaba tam kaynak kodu bulabilirsiniz [github'da](http://aka.ms/search-dotnet-howto). Merhaba hakkında bilgi edinebilirsiniz [Azure Search .NET SDK'sı](search-howto-dotnet-sdk.md) daha ayrıntılı ilerlemesi hello örnek kod için.
+> Bu makaledeki örnek kodun tamamı C# dilinde yazılmıştır. Tam kaynak kodunu [GitHub](http://aka.ms/search-dotnet-howto)'da bulabilirsiniz. Ayrıca, örnek kodla ilgili daha ayrıntılı yönergeler için [Azure Search .NET SDK’sı](search-howto-dotnet-sdk.md) hakkındaki yazıları da okuyabilirsiniz.
 
 
 ## <a name="identify-your-azure-search-services-admin-api-key"></a>Azure Search hizmet yöneticinizin api anahtarını tanımlama
-Azure Search Hizmeti sağlamış olduğunuza göre neredeyse hazır tooissue hello .NET SDK kullanarak hizmet uç karşı isteklerdir. Öncelikle, sağladığınız hello arama hizmeti için tooobtain hello yönetici API oluşturulmasının anahtarlarından biri gerekir. Merhaba .NET SDK'sı her isteği tooyour hizmette bu api anahtarını gönderir. Geçerli bir anahtar sahip istek başına temelinde, hello isteği gönderiliyor hello uygulama ve bunu işleyen hello hizmeti arasında güven oluşturur.
+Şimdi bir Azure Search hizmeti sağlamış olduğunuza göre, .NET SDK'yı kullanarak hizmet uç noktanıza istek göndermeye neredeyse hazırsınız. Öncelikle, sağladığınız arama hizmeti için oluşturulan yönetici api anahtarlarından birini edinmeniz gerekir. .NET SDK, hizmetinize yönelik her istek için bu api anahtarını gönderir. İstek başına geçerli bir anahtara sahip olmak, isteği gönderen uygulama ve bunu işleyen hizmet arasında güven oluşturur.
 
-1. toofind hizmetinizin api anahtarlarından, oturum içinde toohello [Azure portalı](https://portal.azure.com/)
-2. Tooyour Azure Search hizmet dikey penceresine gidin
-3. Merhaba üzerinde "Anahtarlar" simgesine tıklayın
+1. Hizmetinizin api anahtarlarını bulmak için [Azure portalında](https://portal.azure.com/) oturum açın
+2. Azure Search hizmetinizin dikey penceresine gidin
+3. "Anahtarlar" simgesine tıklayın
 
 Hizmetiniz, *yönetici anahtarlarına* ve *sorgu anahtarlarına* sahiptir.
 
-* Birincil ve ikincil *yönetici anahtarları* tooall operations hello özelliği toomanage hello hizmeti dahil olmak üzere, tam haklar, oluşturun ve dizinler, dizin oluşturucular ve veri kaynaklarını silin. Tooregenerate hello birincil anahtar ve tam tersini karar verirseniz toouse hello ikincil anahtar devam edebilmesi için bu iki anahtar vardır.
-* *Sorgu anahtarları* salt okunur erişim tooindexes ve belgeleri verin ve arama istekleri gönderen genellikle dağıtılmış tooclient uygulamalardır.
+* Birincil ve ikincil *yönetici anahtarlarınız*; hizmeti yönetme, dizinler, dizin oluşturucular ve veri kaynakları ekleme ve silme de dahil olmak üzere her türlü işlem için tüm hakları verir. Birincil anahtarı yeniden oluşturmaya karar verirseniz ikincil anahtarı kullanmaya devam edebilmeniz ve tam tersini yapabilmeniz için iki anahtar vardır.
+* *Sorgu anahtarları*, dizinler ve belgeler için salt okunur erişim verir ve genellikle, arama istekleri gönderen istemci uygulamalarına dağıtılır.
 
-Merhaba amacıyla dizin oluşturma ya da kullanabilirsiniz, birincil veya ikincil yönetici anahtarınızı.
+Dizin oluşturma amacıyla, birincil ya da ikincil yönetici anahtarınızı kullanabilirsiniz.
 
 <a name="CreateSearchServiceClient"></a>
 
-## <a name="create-an-instance-of-hello-searchserviceclient-class"></a>Merhaba SearchServiceClient sınıfının bir örneğini oluşturun
-toostart kullanarak Azure Search .NET SDK'sı Merhaba, toocreate hello örneği gerekir `SearchServiceClient` sınıfı. Bu sınıfın birkaç oluşturucusu vardır. Merhaba istediğiniz bir arama hizmeti adınızı alır ve bir `SearchCredentials` nesnesini parametre olarak. `SearchCredentials`, api anahtarınızı sarmalar.
+## <a name="create-an-instance-of-the-searchserviceclient-class"></a>SearchServiceClient sınıfının örneğini oluşturma
+Azure Search .NET SDK'sını kullanmaya başlamak için `SearchServiceClient` sınıfının bir örneğini oluşturmanız gerekir. Bu sınıfın birkaç oluşturucusu vardır. İstediğiniz oluşturucu, arama hizmeti adınızı ve `SearchCredentials` nesnesini parametre olarak alır. `SearchCredentials`, api anahtarınızı sarmalar.
 
-Aşağıdaki Hello kodu oluşturur Yeni bir `SearchServiceClient` hello arama hizmeti adı ve hello uygulamanın yapılandırma dosyasında depolanan api anahtarı için değerleri kullanarak (`appsettings.json` hello hello durumda [örnek uygulama](http://aka.ms/search-dotnet-howto)):
+Aşağıdaki kod, uygulamanın yapılandırma dosyasında ([örnek uygulama](http://aka.ms/search-dotnet-howto) olması durumunda `appsettings.json`) depolanan arama hizmeti adına ve API anahtarına ilişkin değerleri kullanarak yeni bir `SearchServiceClient` oluşturur:
 
 ```csharp
 private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
@@ -70,29 +70,29 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 }
 ```
 
-`SearchServiceClient`, `Indexes` özelliğine sahiptir. Bu özellik gerekir toocreate, listesi, güncelleştirme ya da Azure Search dizinlerini silmek tüm hello yöntemleri sağlar.
+`SearchServiceClient`, `Indexes` özelliğine sahiptir. Bu özellik Azure Search dizinlerini oluşturmanız, listelemeniz, güncelleştirmeniz veya silmeniz için gereken tüm yöntemleri sağlar.
 
 > [!NOTE]
-> Merhaba `SearchServiceClient` sınıfı bağlantıları tooyour arama hizmeti yönetir. Çok fazla bağlantı açmayı sipariş tooavoid içinde tek bir örneğini tooshare denemelisiniz `SearchServiceClient` mümkünse uygulamanızda. Yöntemlerinin iş parçacığı tooenable tür paylaşımları olan.
+> `SearchServiceClient` sınıfı, arama hizmetinize yönelik bağlantıları yönetir. Çok fazla bağlantı açmayı önlemek için, mümkünse uygulamanızda tek bir `SearchServiceClient` örneği paylaşmaya çalışmanız gerekir. Yöntemlerinin iş parçacığı bu tür paylaşımları etkinleştirmek için güvenlidir.
 > 
 > 
 
 <a name="DefineIndex"></a>
 
 ## <a name="define-your-azure-search-index"></a>Azure Search dizininizi tanımlama
-Tek çağrı toohello `Indexes.Create` yöntemi dizininizi oluşturur. Bu yöntem, Azure Search dizininizi tanımlayan bir `Index` nesnesini parametre olarak alır. Toocreate gereken bir `Index` nesne ve şu şekilde başlatın:
+`Indexes.Create` yöntemine yönelik tek bir çağrı dizininizi oluşturur. Bu yöntem, Azure Search dizininizi tanımlayan bir `Index` nesnesini parametre olarak alır. Bir `Index` nesnesi oluşturmanız ve bunu aşağıdaki gibi başlatmanız gerekir:
 
-1. Set hello `Name` hello özelliğinin `Index` dizininizi nesne toohello adı.
-2. Set hello `Fields` hello özelliğinin `Index` nesne tooan dizisi `Field` nesneleri. Merhaba en kolay yolu toocreate hello `Field` nesnedir tarafından arama hello `FieldBuilder.BuildForType` hello tür parametresi için bir model sınıfı geçirme yöntemi. Bir model sınıfı dizininizi toohello alanlarını eşleme özellikleri vardır. Bu, arama dizini tooinstances modeli sınıfınızın toobind belgelerden sağlar.
+1. `Name` nesnesinin `Index` özelliğini dizin adınız olarak ayarlayın.
+2. `Fields` nesnesinin `Index` özelliğini `Field` nesnelerinin dizisi olarak ayarlayın. `Field` nesnelerini oluşturmanın en kolay yolu, `FieldBuilder.BuildForType` metodunu çağırmak ve tür parametresi için bir model sınıfı iletmektir. Bir model sınıfında dizininizin alanlarıyla eşlenen özellikler mevcuttur. Bu arama dizininizdeki belgeleri model sınıfınızın örneklerine bağlamanızı sağlar.
 
 > [!NOTE]
-> Bir model sınıfı toouse planlamıyorsanız, hala dizininizi oluşturarak tanımlayabilirsiniz `Field` nesnelerini doğrudan. Merhaba veri türü (veya dize alanları Çözümleyicisi) ile birlikte hello alan toohello Oluşturucusu hello adını sağlayabilirsiniz. `IsSearchable`, `IsFilterable` vb. gibi başka özellikler de ayarlayabilirsiniz.
+> Bir model sınıfı kullanmayı planlamıyorsanız, `Field` nesnelerini doğrudan oluşturarak dizininizi tanımlayabilirsiniz. Oluşturucuya alan adını veri türü (veya dize alanları çözümleyicisi) ile birlikte sağlayabilirsiniz. `IsSearchable`, `IsFilterable` vb. gibi başka özellikler de ayarlayabilirsiniz.
 >
 >
 
-Bu, arama kullanıcı deneyiminizi ve iş gereksinimlerinizi göz önünde her bir alan hello atanması gerektiğinden, dizininizi tasarlarken tutmanız önemlidir [uygun özellikler](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Toowhich alanlar geçerli hangi arama özelliklerinin (filtreleme, modelleme tam metin araması sıralama vb. olduğunu) bu özellikleri denetler. Siz açıkça ayarlamadığınız her özellik için hello `Field` sınıfı varsayılan olarak toodisabling hello karşılık gelen arama özelliğini özellikle etkinleştirmediğiniz sürece.
+Her bir alan için [uygun özellikler](https://docs.microsoft.com/rest/api/searchservice/Create-Index) atanması gerektiğinden, dizininizi tasarlarken arama kullanıcı deneyiminizi ve iş gereksinimlerinizi göz önünde bulundurmanız önemlidir. Bu özellikler, hangi alanlar için hangi arama özelliklerinin (filtreleme, modelleme, tam metin araması sıralama vb.) geçerli olduğunu denetler. Açıkça ayarlamadığınız her özellik, ilgili arama özelliğini özellikle etkinleştirmediğiniz sürece `Field` sınıfı tarafından devre dışı varsayılır.
 
-Bizim örneğimizde, dizinimizi "oteller" olarak adlandırdık ve alanlarımızı model sınıfı kullanarak tanımladık. Merhaba modeli sınıfının her bir özellik hello arama ile ilgili davranışları hello karşılık gelen dizini alanı belirleyen özniteliklere sahiptir. Merhaba model sınıfı şu şekilde tanımlanır:
+Bizim örneğimizde, dizinimizi "oteller" olarak adlandırdık ve alanlarımızı model sınıfı kullanarak tanımladık. Model sınıfının her özelliği karşılık gelen dizin alanının aramayla ilgili davranışlarını belirleyen özniteliklere sahiptir. Model sınıfı şu şekilde tanımlanır:
 
 ```csharp
 using System;
@@ -101,9 +101,9 @@ using Microsoft.Azure.Search.Models;
 using Microsoft.Spatial;
 using Newtonsoft.Json;
 
-// hello SerializePropertyNamesAsCamelCase attribute is defined in hello Azure Search .NET SDK.
-// It ensures that Pascal-case property names in hello model class are mapped toocamel-case
-// field names in hello index.
+// The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Search .NET SDK.
+// It ensures that Pascal-case property names in the model class are mapped to camel-case
+// field names in the index.
 [SerializePropertyNamesAsCamelCase]
 public partial class Hotel
 {
@@ -148,14 +148,14 @@ public partial class Hotel
 }
 ```
 
-Biz hello öznitelikleri nasıl biz bir uygulamada kullanılacak düşünerek her bir özellik için dikkatle seçtiniz. Örneğin, Oteller için arama yapan kişiler hello anahtar sözcük eşleşmeleri ile ilgi olacağını büyük olasılıkla `description` alan hello ekleyerek bu alan için tam metin aramasını etkinleştiririz şekilde `IsSearchable` toohello özniteliği `Description` özelliği.
+Her bir özellik için öznitelikleri, bunların bir uygulamada nasıl kullanılacağını düşünerek dikkatle seçtik. Örneğin, oteller için arama yapan kişiler büyük olasılıkla `description` alanındaki anahtar sözcük eşleşmeleri ile ilgilenecektir. Bu nedenle, `Description` özelliğine `IsSearchable` özniteliğini ekleyerek bu alan için tam metin aramasını etkinleştiririz.
 
-Türündeki dizininizde yalnızca bir alanın lütfen unutmayın `string` hello hello işaretlenmesi gerekir *anahtar* hello ekleyerek alan `Key` özniteliği (bkz `HotelId` örnek yukarıda hello içinde).
+Lütfen `Key` özniteliğini eklediğinizde ayarladığınızda, `string` türündeki dizininizde yalnızca bir alanın *anahtar* alanı olarak belirlenmesi gerektiğini unutmayın (yukarıdaki örnekte bkz. `HotelId`).
 
-Yukarıdaki dizin tanımı Hello hello için bir dil Çözümleyicisi kullanır `description_fr` hedeflenen toostore Fransızca metin olduğundan alan. Bkz: [hello dil desteği konu](https://docs.microsoft.com/rest/api/searchservice/Language-support) hello karşılık gelen yanı sıra [blog gönderisi](https://azure.microsoft.com/blog/language-support-in-azure-search/) dil Çözümleyicileri hakkında daha fazla bilgi.
+Yukarıdaki dizin tanımı Fransızca metin depolamaya yönelik tasarlandığından, `description_fr` alanı için bir dil çözümleyicisi kullanır. Dil çözümleyicileri hakkında daha fazla bilgi için ilgili [blog yazısının](https://azure.microsoft.com/blog/language-support-in-azure-search/) yanı sıra [Dil desteği konu başlığına](https://docs.microsoft.com/rest/api/searchservice/Language-support) bakın.
 
 > [!NOTE]
-> Varsayılan olarak, her özelliğin model sınıfınızda hello adı hello karşılık gelen alanın hello dizindeki hello adı olarak kullanılır. Tüm özellik adları toocamel durumda alan adları toomap istiyorsanız hello hello sınıfıyla işaretlemek `SerializePropertyNamesAsCamelCase` özniteliği. Toomap tooa farklı bir ad isterseniz hello kullanabilirsiniz `JsonProperty` özniteliği hello gibi `DescriptionFr` yukarıdaki özelliği. Merhaba `JsonProperty` özniteliği hello göre önceliklidir `SerializePropertyNamesAsCamelCase` özniteliği.
+> Varsayılan olarak model sınıfınızdaki her özelliğin adı, dizinde karşılık gelen alanın adı olarak kullanılır. Tüm özellik adlarını ortası büyük alan adlarıyla eşlemek isterseniz sınıfı `SerializePropertyNamesAsCamelCase` özniteliğiyle işaretleyin. Farklı bir ada eşlemek isterseniz yukarıdaki `DescriptionFr` özelliği gibi `JsonProperty` özniteliğini kullanabilirsiniz. `JsonProperty` özniteliği `SerializePropertyNamesAsCamelCase` özniteliğinden önceliklidir.
 > 
 > 
 
@@ -169,26 +169,26 @@ var definition = new Index()
 };
 ```
 
-## <a name="create-hello-index"></a>Merhaba dizini oluşturma
-Başlatılan bir sahip olduğunuza `Index` nesne çağrısı yaparak hello dizin oluşturabilirsiniz `Indexes.Create` üzerinde `SearchServiceClient` nesnesi:
+## <a name="create-the-index"></a>Dizini oluşturma
+Şimdi, başlatılan bir `Index` nesneniz olduğuna göre `Indexes.Create` nesneniz üzerinden `SearchServiceClient` çağrısı yaparak dizininizi oluşturabilirsiniz:
 
 ```csharp
 serviceClient.Indexes.Create(definition);
 ```
 
-Başarılı bir istek için hello yöntemi normal olarak döndürür. Geçersiz bir parametre gibi hello isteği ile ilgili bir sorun varsa, hello yöntemi özel durum oluşturacak `CloudException`.
+Başarılı bir istek için yöntem normal olarak döndürür. İstekle ilgili bir sorun varsa (geçersiz bir parametre gibi) yöntem `CloudException` atar.
 
-Bir dizin ve istediğiniz toodelete ile bu bittiğinde, yalnızca hello çağrısı `Indexes.Delete` yöntemi, `SearchServiceClient`. Örneğin, bu nasıl biz hello "hotels" dizinini silmek.
+Dizin ile işiniz bittiğinde ve bunu silmek istediğinizde nesneniz `SearchServiceClient` üzerinden `Indexes.Delete` yöntemini çağırın. Örneğin, "oteller" dizinini aşağıdaki şekilde sileriz:
 
 ```csharp
 serviceClient.Indexes.Delete("hotels");
 ```
 
 > [!NOTE]
-> Bu makaledeki örnek kod Hello hello Azure Search .NET SDK'sı zaman uyumlu yöntemleri hello kolaylık sağlamak için kullanır. Kendi uygulamaları tookeep hello zaman uyumsuz yöntemleri kullanmanızı öneririz bunları ölçeklenebilir ve esnek. Örneğin, yukarıdaki örnek hello kullanabilirsiniz `CreateAsync` ve `DeleteAsync` yerine `Create` ve `Delete`.
+> Bu makaledeki örnek kod, kolaylık amacıyla Azure Search .NET SDK'sının zaman uyumlu yöntemlerini kullanır. Kendi uygulamalarınızda zaman uyumsuz yöntemler kullanarak bunları ölçeklenebilir ve esnek tutmanızı öneririz. Örneğin, yukarıdaki örneklerde `Create` ve `Delete` yerine `CreateAsync` ve `DeleteAsync` kullanabilirsiniz.
 > 
 > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Search dizini oluşturduktan sonra çok hazır olacak[içeriğinizi hello dizine yüklemek](search-what-is-data-import.md) şekilde, verilerinizi aramaya başlayabilirsiniz.
+Azure Search dizini oluşturduktan sonra, [içeriğinizi dizine yüklemek](search-what-is-data-import.md) için hazır olursunuz. Böylece, verilerinizi aramaya başlayabilirsiniz.
 

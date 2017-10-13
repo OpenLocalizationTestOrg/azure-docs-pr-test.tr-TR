@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile Innotas | Microsoft Docs"
-description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile Innotas arasında."
+description: "Çoklu oturum açma Azure Active Directory ile Innotas arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,68 +13,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 31d787a351fe9362e35afee28a292c927f43702d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 674d01b2c0818dc10fdab5844a23c5ebf29bb2d2
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-innotas"></a>Öğretici: Azure Active Directory Tümleştirme Innotas ile
 
-Bu öğreticide, bilgi nasıl toointegrate Innotas Azure Active Directory'ye (Azure AD).
+Bu öğreticide, Azure Active Directory (Azure AD) ile Innotas tümleştirmek öğrenin.
 
-Innotas Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
+Innotas Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Erişim tooInnotas sahip Azure AD'de kontrol edebilirsiniz
-- Kullanıcıların tooautomatically get açan tooInnotas (çoklu oturum açma) Azure AD hesaplarına sahip etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir
+- Innotas erişimi, Azure AD'de kontrol edebilirsiniz
+- Otomatik olarak için Innotas (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-tooconfigure Innotas ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
+Azure AD tümleştirme Innotas ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
 - Bir Innotas çoklu oturum açma abonelik etkin
 
 > [!NOTE]
-> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
+Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
-1. Merhaba Galerisi'nden Innotas ekleme
+1. Galeriden Innotas ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-innotas-from-hello-gallery"></a>Merhaba Galerisi'nden Innotas ekleme
-Azure AD'ye tooconfigure hello tümleştirme Innotas, tooadd Innotas hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
+## <a name="adding-innotas-from-the-gallery"></a>Galeriden Innotas ekleme
+Azure AD Innotas tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Innotas eklemeniz gerekir.
 
-**tooadd Innotas hello galerisinden hello aşağıdaki adımları gerçekleştirin:**
+**Galeriden Innotas eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba, ** [Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
     ![Uygulamalar][3]
 
-4. Merhaba arama kutusuna yazın **Innotas**.
+4. Arama kutusuna **Innotas**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-innotas-tutorial/tutorial_innotas_search.png)
 
-5. Merhaba Sonuçlar panelinde seçin **Innotas**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
+5. Sonuçlar panelinde seçin **Innotas**ve ardından **Ekle** uygulama eklemek için düğmesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-innotas-tutorial/tutorial_innotas_addfromgallery.png)
 
@@ -82,42 +82,42 @@ Azure AD'ye tooconfigure hello tümleştirme Innotas, tooadd Innotas hello galer
 
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı Innotas ile test etme
 
-Tek toowork'ın oturum açma hangi hello karşılık gelen Innotas içinde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcı ve ilgili kullanıcı Innotas hello arasında bir bağlantı ilişkisi kurulan toobe gerekir.
+Tekli çalışmaya oturum için Azure AD Innotas karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Innotas ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Merhaba hello değeri Innotas içinde atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.
+Innotas içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
 
-tooconfigure ve Innotas ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Innotas ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on) ** -tooenable kullanıcılar toouse bu özellik.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user) ** -tootest Azure AD çoklu oturum açma Britta Simon ile.
-3. **[Bir Innotas test kullanıcısı oluşturma](#creating-an-innotas-test-user) ** -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir Innotas içinde karşılık gelen.
-4. **[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user) ** -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on) ** -tooverify olup hello yapılandırma çalışır.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Bir Innotas test kullanıcısı oluşturma](#creating-an-innotas-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Innotas sağlamak için.
+4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma Innotas uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Innotas uygulamanızda yapılandırın.
 
-**tooconfigure Azure AD çoklu oturum açma ile Innotas, hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma ile Innotas yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello hello üzerinde Azure portal'ın **Innotas** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **Innotas** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-innotas-tutorial/tutorial_innotas_samlbase.png)
 
-3. Merhaba üzerinde **Innotas etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **Innotas etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-innotas-tutorial/tutorial_innotas_url.png)
 
-    Merhaba, **oturum açma URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<tenant-name>.Innotas.com`
+    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<tenant-name>.Innotas.com`
 
     > [!NOTE] 
-    > Bu değer gerçek değil. Bu değer ile Merhaba güncelleştirme gerçek oturum açma URL'si. Kişi [Innotas istemci destek ekibi](https://www.innotas.com/contact) tooget bu değer. 
+    > Bu değer gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Kişi [Innotas istemci destek ekibi](https://www.innotas.com/contact) bu değeri alınamıyor. 
  
-4. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve hello meta veri dosyası, bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-innotas-tutorial/tutorial_innotas_certificate.png) 
 
@@ -125,69 +125,69 @@ Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-innotas-tutorial/tutorial_general_400.png)
 
-6. tooconfigure çoklu oturum açma üzerinde **Innotas** yan, indirilen toosend hello ihtiyacınız **meta veri XML** çok[Innotas destek ekibi](https://www.innotas.com/contact). Bunlar, bu ayar toohave hello iki tarafta da ayarlamanızı SAML SSO bağlantı ayarlayın.
+6. Çoklu oturum açma yapılandırmak için **Innotas** yan, indirilen göndermek için ihtiyacınız **meta veri XML** için [Innotas destek ekibi](https://www.innotas.com/contact). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 > [!TIP]
-> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere ** Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-innotas-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-innotas-tutorial/create_aaduser_02.png) 
 
-3. tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle** hello üstteki hello iletişim.
+3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-innotas-tutorial/create_aaduser_03.png) 
 
-4. Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-innotas-tutorial/create_aaduser_04.png) 
 
-    a. Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
 
-    b. Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
 
-    c. Seçin **Göster parola** ve hello hello değerini yazma **parola**.
+    c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**'a tıklayın.
  
 ### <a name="creating-an-innotas-test-user"></a>Bir Innotas test kullanıcısı oluşturma
 
-TooInnotas sağlama, tooconfigure kullanıcı için eylem öğe yok.  
-Atanmış bir kullanıcı hello erişim paneli kullanılarak tooInnotas toolog çalıştığında Innotas hello kullanıcı var olup olmadığını denetler.  
+Kullanıcı için Innotas hazırlama yapılandırmanız için eylem öğe yok.  
+Atanmış bir kullanıcı erişim paneli kullanılarak Innotas için oturum açma girişiminde bulunduğunda, Innotas kullanıcının var olup olmadığını denetler.  
 
 >[!NOTE]
 >Hiçbir kullanıcı hesabı varsa kullanılabilir henüz, Innotas tarafından otomatik olarak oluşturulur.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
 
-Bu bölümde, erişim tooInnotas vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
+Bu bölümde, Britta Innotas için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
 ![Kullanıcı atama][200] 
 
-**tooassign Britta Simon tooInnotas hello aşağıdaki adımları gerçekleştirin:**
+**Innotas için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Merhaba uygulamalar listesinde **Innotas**.
+2. Uygulamalar listesinde **Innotas**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-innotas-tutorial/tutorial_innotas_app.png) 
 
-3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
     ![Kullanıcı atama][202] 
 
@@ -195,7 +195,7 @@ Bu bölümde, erişim tooInnotas vererek Britta Simon toouse Azure çoklu oturum
 
     ![Kullanıcı atama][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -203,13 +203,13 @@ Bu bölümde, erişim tooInnotas vererek Britta Simon toouse Azure çoklu oturum
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Hello erişim paneli Innotas döşeme hello tıkladığınızda, otomatik olarak oturum açma Innotas uygulama tooyour almanız gerekir.
+Erişim paneli Innotas parçasında tıklattığınızda, otomatik olarak Innotas uygulamanıza açan.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

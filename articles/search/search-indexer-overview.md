@@ -1,6 +1,6 @@
 ---
-title: Azure Search'te aaaIndexers | Microsoft Docs
-description: "Azure SQL veritabanı, Azure Cosmos DB veya Azure depolama tooextract aranabilir verileri gezinme ve Azure Search dizini doldurabilirsiniz."
+title: "Azure Search'te dizin oluşturucular | Microsoft Belgeleri"
+description: "Aranabilir verileri ayıklamak ve bir Azure Search dizinini doldurmak için Azure SQL Database, Azure Cosmos DB veya Azure depolama alanında gezinin."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.openlocfilehash: 6a816252ec5d6032491a12651c05cb1fe77d3d1a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 1ea9dfcaec188bac2e92909f4811568b589357d4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="indexers-in-azure-search"></a>Azure Search'te dizin oluşturucular
 > [!div class="op_single_selector"]
@@ -33,9 +33,9 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Bir **dizin oluşturucu** Azure Search'te bir dış veri kaynağından aranabilir verileri ve meta verileri ayıklar ve bir dizini dolduran bir Gezgin alan alan eşlemelerini hello dizini ile veri kaynağınız arasında temel alır. Merhaba hizmet verileri toowrite kalmadan veri tooan dizini iter herhangi bir kod çeker çünkü bu yaklaşım bazen başvurulan tooas 'çekme modeli' olur.
+Azure Search'te **dizin oluşturucu**, dış bir veri kaynağından aranabilir verileri ve meta verileri ayıklayan ve dizin ile veri kaynağınız arasında alandan alana eşlemeleri temel alan bir dizini dolduran gezgindir. Bir dizine veri gönderen herhangi bir kodun yazılması gerekmeden hizmetin verileri çekmesi nedeniyle bu yaklaşıma bazen "çekme modeli" de denir.
 
-Veri alımı amacıyla hello tek bir dizin oluşturucuyu kullanın veya dizininizdeki hello alanların yalnızca bazılarını yüklemek için bir dizin oluşturucu hello kullanımı dahil teknikler birleşimini kullanın.
+Bir dizin oluşturucusunu yalnızca veri alımı amacıyla kullanabilir veya dizininize alanların yalnızca bazılarını yüklemek için bir dizin oluşturucu kullanımını içeren bir teknikler birleşimini kullanabilirsiniz.
 
 Dizin oluşturucuları isteğe bağlı olarak veya her on beş dakikada bir çalıştırılan bir yinelenen veri yenileme zamanlamasıyla çalıştırabilirsiniz. Daha sık güncelleştirmeler için hem Azure Search'te hem de dış veri kaynağınızda verileri aynı anda güncelleştiren bir gönderme modeli gerekir.
 
@@ -47,30 +47,30 @@ Azure SQL veya Azure Cosmos DB gibi genel kullanıma açık dizin oluşturucular
 * [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.search.iindexersoperations.aspx)
 
 ## <a name="basic-configuration-steps"></a>Temel yapılandırma adımları
-Dizin oluşturucular benzersiz toohello veri kaynağı özellikleri sunabilir. Bu bakımdan, dizin oluşturucu veya veri kaynağı yapılandırmasının bazı boyutları dizin oluşturucu türüne göre farklılık gösterir. Ancak, tüm dizin oluşturucuların hello paylaşır aynı temel birleşim ve gereksinimleri. Dizin oluşturucular aşağıda ele alınmıştır ortak tooall adımları.
+Dizin oluşturucular veri kaynağına özgü özellikler sunabilir. Bu bakımdan, dizin oluşturucu veya veri kaynağı yapılandırmasının bazı boyutları dizin oluşturucu türüne göre farklılık gösterir. Bununla birlikte, tüm dizin oluşturucuların temel birleşimi ve gereksinimleri aynıdır. Tüm dizin oluşturucularda ortak olan adımlar aşağıda ele alınmıştır.
 
 ### <a name="step-1-create-an-index"></a>1. Adım: Dizin oluşturma
-Bir dizin oluşturucu bazı görevler ilgili toodata alım otomatik olarak güncelleştirir, ancak dizin oluşturma bunlardan biri değil. Bir önkoşul olarak dış veri kaynağınızdaki alanlarla eşleşen alanlara sahip önceden tanımlı bir dizininiz olmalıdır. Bir dizini yapılandırma konusunda daha fazla bilgi için bkz. [Dizin oluşturma (Azure Search REST API’si)](https://msdn.microsoft.com/library/azure/dn798941.aspx).
+Dizin oluşturucu veri alımıyla ilgili bazı görevleri otomatikleştirir, ancak dizin oluşturma bu görevlerden biri değildir. Bir önkoşul olarak dış veri kaynağınızdaki alanlarla eşleşen alanlara sahip önceden tanımlı bir dizininiz olmalıdır. Bir dizini yapılandırma konusunda daha fazla bilgi için bkz. [Dizin oluşturma (Azure Search REST API’si)](https://msdn.microsoft.com/library/azure/dn798941.aspx).
 
 ### <a name="step-2-create-a-data-source"></a>2. Adım: Veri kaynağı oluşturma
-Dizin oluşturucu, bağlantı dizesi gibi bilgileri içeren bir **veri kaynağından** veri çeker. Şu anda aşağıdaki veri kaynaklar hello desteklenir:
+Dizin oluşturucu, bağlantı dizesi gibi bilgileri içeren bir **veri kaynağından** veri çeker. Şu anda aşağıdaki veri kaynakları desteklenmektedir:
 
 * [Bir Azure sanal makinesinde Azure SQL Veritabanı veya SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-documentdb.md)
-* [Azure Blob Depolama](search-howto-indexing-azure-blob-storage.md), PDF, Office belgeleri, HTML veya XML tooextract metinden kullanılan
+* Seçili içerik türleri için [Azure Blob depolama](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 
-Veri kaynakları yapılandırılmış ve bir veri kaynağı tarafından birden çok dizin oluşturucular tooload kullanılabilir anlamına gelir, birden fazla dizine aynı anda bunları kullanan hello dizin oluşturucular bağımsız olarak yönetilir.
+Veri kaynakları, bunları kullanan dizin oluşturuculardan bağımsız olarak yapılandırılır ve yönetilir. Bu da bir veri kaynağının, bir seferde birden çok dizin yüklemek amacıyla birden çok dizin oluşturucu tarafından kullanılabileceği anlamına gelir.
 
-### <a name="step-3create-and-schedule-hello-indexer"></a>3. adım: oluşturma ve zamanlama hello dizin oluşturucu
-Merhaba dizin oluşturucu tanımı hello dizin, veri kaynağı ve bir zamanlama belirten bir yapıdır. Bu veri kaynağı hello olduğu sürece bir dizin oluşturucu başka bir hizmet, bir veri kaynağı başvurusu yapabilir aynı abonelik. Bir dizin oluşturucuyu yapılandırma konusunda daha fazla bilgi için bkz. [Dizin Oluşturucu Oluşturma (Azure Search REST API’si)](https://msdn.microsoft.com/library/azure/dn946899.aspx).
+### <a name="step-3create-and-schedule-the-indexer"></a>3. Adım: Dizin oluşturucuyu oluşturma ve zamanlama
+Dizin oluşturucu tanımı dizini, veri kaynağını ve bir zamanlamayı belirten bir yapıdır. Bir dizin oluşturucu, aynı abonelikten olduğu sürece başka bir hizmetteki bir veri kaynağına başvurabilir. Bir dizin oluşturucuyu yapılandırma konusunda daha fazla bilgi için bkz. [Dizin Oluşturucu Oluşturma (Azure Search REST API’si)](https://msdn.microsoft.com/library/azure/dn946899.aspx).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Merhaba temel düşünce sahip olduğunuza göre hello sonraki tooreview gereksinimleri ve görevleri belirli tooeach veri kaynağı türü adımdır.
+Artık temel fikri anladığınıza göre, atmanız gereken bir sonraki adım her bir veri kaynağı türüne özgü gereksinimleri ve görevleri incelemektir.
 
 * [Bir Azure sanal makinesinde Azure SQL Veritabanı veya SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-documentdb.md)
-* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md), PDF, Office belgeleri, HTML veya XML tooextract metinden kullanılan
+* [Azure Blob Depolama](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
-* [CSV BLOB'lar Hello Azure arama Blob Dizin Oluşturucu kullanarak dizin oluşturma](search-howto-index-csv-blobs.md)
+* [Azure Search Blob dizin oluşturucu kullanarak CSV bloblarını dizine ekleme](search-howto-index-csv-blobs.md)
 * [Azure Search Blob dizin oluşturucu ile JSON bloblarını dizine ekleme](search-howto-index-json-blobs.md)

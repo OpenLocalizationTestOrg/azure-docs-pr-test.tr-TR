@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile ön | Microsoft Docs"
-description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ve ön arasında."
+description: "Çoklu oturum açma Azure Active Directory ve ön arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,114 +14,114 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.openlocfilehash: 4be363a3d338ec9268f3324daab4a80346ec3131
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d936bc50a66ac2a3c17038ff08351edf9902c99f
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>Öğretici: Azure Active Directory Tümleştirme ön ile
 
-Bu öğreticide, bilgi nasıl toointegrate ön Azure Active Directory'ye (Azure AD).
+Bu öğreticide, Azure Active Directory (Azure AD) ile ön tümleştirmek öğrenin.
 
-Ön Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
+Ön Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Erişim tooFront sahip Azure AD'de kontrol edebilirsiniz.
-- Kullanıcıların tooautomatically get açan tooFront (çoklu oturum açma) Azure AD hesaplarına ile etkinleştirebilirsiniz.
-- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir.
+- Ön erişimi, Azure AD'de kontrol edebilirsiniz.
+- Otomatik olarak öne (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Ön ile tooconfigure Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
+Azure AD tümleştirme ön ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
 - Bir ön çoklu oturum açma abonelik etkin
 
 > [!NOTE]
-> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
+Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
-1. Ön hello Galerisi'nden ekleme
+1. Galeriden ön ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-front-from-hello-gallery"></a>Ön hello Galerisi'nden ekleme
-Azure AD'ye tooconfigure hello tümleştirme ön, tooadd ön hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
+## <a name="adding-front-from-the-gallery"></a>Galeriden ön ekleme
+Azure AD Önden tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden ön eklemeniz gerekir.
 
-**tooadd ön hello galerisinden hello aşağıdaki adımları gerçekleştirin:**
+**Galeriden ön eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
-    ![Hello Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi][1]
 
-2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
-    ![Merhaba kurumsal uygulamalar dikey penceresi][2]
+    ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
-    ![Merhaba yeni uygulama düğmesi][3]
+    ![Yeni Uygulama düğmesi][3]
 
-4. Merhaba arama kutusuna yazın **ön**seçin **ön** sonuç panelinden ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
+4. Arama kutusuna **ön**seçin **ön** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
 
-    ![Ön hello sonuçları listesinde](./media/active-directory-saas-front-tutorial/tutorial_front_addfromgallery.png)
+    ![Sonuçlar listesinde ön](./media/active-directory-saas-front-tutorial/tutorial_front_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
 Bu bölümde, yapılandırmak ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı ön sınayın.
 
-Tek toowork'ın oturum açma hangi hello karşılık gelen önde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının ve Merhaba öne ilgili kullanıcı arasında bir bağlantı ilişkisi kurulan toobe gerekir.
+Tekli çalışmaya oturum için Azure AD ne karşılık gelen önde bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ve önde ilgili kullanıcı arasındaki bağlantıyı ilişki kurulması gerekir.
 
-Merhaba değeri Merhaba öne, atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.
+Önde, değeri atamak **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
 
-tooconfigure ve ön ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma ile ön test etmek için aşağıdaki yapı taşları tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
-3. **[Ön test kullanıcısı oluşturma](#create-a-front-test-user)**  -kullanıcı bağlantılı toohello Azure AD gösterimidir önde bir karşılık gelen Britta Simon, toohave.
-4. **[Hello Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
-5. **[Test çoklu oturum açma](#test-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Ön test kullanıcısı oluşturma](#create-a-front-test-user)**  - kullanıcı Azure AD gösterimini bağlantılı bir karşılık gelen Britta Simon, önde sağlamak için.
+4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma ön uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma ön uygulamanızda yapılandırın.
 
-**Azure AD çoklu oturum açma tooconfigure ön ile Merhaba aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma ile ön yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello hello üzerinde Azure portal'ın **ön** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **ön** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-front-tutorial/tutorial_front_samlbase.png)
 
-3. Merhaba üzerinde **ön etki alanı ve URL'leri** tooconfigure hello uygulamada isterseniz, bölümü **IDP** modunda başlatılan:
+3. Üzerinde **ön etki alanı ve URL'leri** uygulamada yapılandırmak istiyorsanız, bölüm **IDP** modu tarafından başlatılan:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-front-tutorial/tutorial_front_url1.png)
 
-    a. Merhaba, **tanımlayıcısı** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<companyname>.frontapp.com`
+    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<companyname>.frontapp.com`
 
-    b. Merhaba, **yanıt URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<companyname>.frontapp.com/sso/saml/callback`
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<companyname>.frontapp.com/sso/saml/callback`
 
-4. Denetleme **Göster Gelişmiş URL ayarları**, tooconfigure hello uygulamada istiyorsanız **SP** modunda başlatılan:
+4. Denetleme **Göster Gelişmiş URL ayarları**, uygulamada yapılandırmak istiyorsanız **SP** modunda başlatılan:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-front-tutorial/tutorial_front_url2.png)
 
-    Merhaba, **oturum açma URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<companyname>.frontapp.com`
+    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<companyname>.frontapp.com`
      
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerleri ile Merhaba gerçek tanımlayıcı, yanıt URL'si ve oturum açma URL'si daha sonra öğreticide veya kişi açıklanacak güncelleştirme [ön istemci destek ekibi](mailto:support@frontapp.com) tooget bu değerleri. 
+    > Bu değerler gerçek değildir. Gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si daha sonra öğreticide veya kişi açıklanacak olan bu değerleri güncelleştirmek [ön istemci destek ekibi](mailto:support@frontapp.com) bu değerleri almak için. 
 
-5. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve hello sertifika dosyayı bilgisayarınıza kaydedin.
+5. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-front-tutorial/tutorial_front_certificate.png) 
 
@@ -129,13 +129,13 @@ Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-front-tutorial/tutorial_general_400.png)
     
-7. Merhaba üzerinde **ön yapılandırma** 'yi tıklatın **yapılandırma ön** tooopen **yapılandırma oturum açma** penceresi. Kopya hello **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** hello gelen **hızlı başvuru bölümü.**
+7. Üzerinde **ön yapılandırma** 'yi tıklatın **yapılandırma ön** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-front-tutorial/tutorial_front_configure.png) 
 
-8. Yönetici olarak oturum açma tooyour ön Kiracı.
+8. Ön kiracınız yönetici olarak oturum.
 
-9. Çok Git**ayarları (dişli simgesi hello sol kenar hello sonundaki) > Tercihler**.
+9. Git **ayarları (dişli simgesine sol kenar) > Tercihler**.
    
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/active-directory-saas-front-tutorial/tutorial_front_000.png)
 
@@ -143,93 +143,93 @@ Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin
    
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/active-directory-saas-front-tutorial/tutorial_front_001.png)
 
-11. Seçin **SAML** hello aşağı açılan listesinde **çoklu oturum açma**.
+11. Seçin **SAML** aşağı açılan listesinde **çoklu oturum açma**.
    
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/active-directory-saas-front-tutorial/tutorial_front_002.png)
 
-12. Merhaba, **giriş noktası** textbox put hello değerini **çoklu oturum açma hizmet URL'si** Azure AD Uygulama Yapılandırma Sihirbazı'ndan.
+12. İçinde **giriş noktası** textbox değeri put **çoklu oturum açma hizmet URL'si** Azure AD Uygulama Yapılandırma Sihirbazı'ndan.
     
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/active-directory-saas-front-tutorial/tutorial_front_003.png)
 
-13. İndirilen açmak **Certificate(Base64)** dosyasını Not Defteri'nde, kopyalama hello panonuza bunu içerik ve toohello Yapıştır **imzalama sertifikası** metin kutusu.
+13. İndirilen açmak **Certificate(Base64)** dosyasını Not Defteri'nde, içeriğini, panoya kopyalayın ve yapıştırın kendisine **imzalama sertifikası** metin kutusu.
     
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/active-directory-saas-front-tutorial/tutorial_front_004.png)
 
-14. Merhaba üzerinde **hizmet sağlayıcı ayarları** bölümünde, hello aşağıdaki adımları gerçekleştirin:
+14. Üzerinde **hizmet sağlayıcı ayarları** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açma üzerinde uygulama tarafı yapılandırma](./media/active-directory-saas-front-tutorial/tutorial_front_005.png)
 
-    a. Merhaba değerini kopyalayın **varlık kimliği** ve hello yapıştırma **tanımlayıcısı** metin kutusuna **ön etki alanı ve URL'leri** Azure portalı bölümünde.
+    a. Değerini kopyalayın **varlık kimliği** ve yapıştırın **tanımlayıcısı** metin kutusuna **ön etki alanı ve URL'leri** Azure portalı bölümünde.
 
-    b. Merhaba değerini kopyalayın **ACS URL** ve hello yapıştırma **oturum açma URL'si** metin kutusuna **ön etki alanı ve URL'leri** Azure portalı bölümünde.
+    b. Değerini kopyalayın **ACS URL** ve yapıştırın **oturum açma URL'si** metin kutusuna **ön etki alanı ve URL'leri** Azure portalı bölümünde.
     
 15. Tıklatın **kaydetmek** düğmesi.
 
 > [!TIP]
-> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
    ![Bir Azure AD test kullanıcısı oluşturma][100]
 
-**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba hello sol bölmede Azure portal hello tıklatın **Azure Active Directory** düğmesi.
+1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
 
-    ![Hello Azure Active Directory düğmesi](./media/active-directory-saas-front-tutorial/create_aaduser_01.png)
+    ![Azure Active Directory düğmesi](./media/active-directory-saas-front-tutorial/create_aaduser_01.png)
 
-2. Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-    !["Kullanıcılar ve Gruplar" Merhaba "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-front-tutorial/create_aaduser_02.png)
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-front-tutorial/create_aaduser_02.png)
 
-3. tooopen hello **kullanıcı** iletişim kutusu, tıklatın **Ekle** hello hello üstündeki **tüm kullanıcılar** iletişim kutusu.
+3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
-    ![Merhaba Ekle düğmesi](./media/active-directory-saas-front-tutorial/create_aaduser_03.png)
+    ![Ekle düğmesi](./media/active-directory-saas-front-tutorial/create_aaduser_03.png)
 
-4. Merhaba, **kullanıcı** iletişim kutusunda, hello aşağıdaki adımları gerçekleştirin:
+4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
-    ![Merhaba kullanıcı iletişim kutusu](./media/active-directory-saas-front-tutorial/create_aaduser_04.png)
+    ![Kullanıcı iletişim kutusu](./media/active-directory-saas-front-tutorial/create_aaduser_04.png)
 
-    a. Merhaba, **adı** kutusuna **BrittaSimon**.
+    a. İçinde **adı** kutusuna **BrittaSimon**.
 
-    b. Merhaba, **kullanıcı adı** kutusuna, kullanıcının Britta Simon hello e-posta adresini yazın.
+    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
 
-    c. Select hello **Göster parola** onay kutusunu işaretleyin ve ardından hello görüntülenen hello değerini aşağı yazma **parola** kutusu.
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
     d. **Oluştur**'a tıklayın.
  
 ### <a name="create-a-front-test-user"></a>Ön test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon önde adlı bir kullanıcı oluşturun. Çalışmak [ön istemci destek ekibi](mailto:support@frontapp.com) Merhaba öne platformunda hello kullanıcıları eklemek için. Kullanıcıların oluşturulan ve çoklu oturum açma kullanmadan önce etkinleştirilmelidir.
+Bu bölümde, Britta Simon önde adlı bir kullanıcı oluşturun. Çalışmak [ön istemci destek ekibi](mailto:support@frontapp.com) ön platform kullanıcıları eklemek için. Kullanıcıların oluşturulan ve çoklu oturum açma kullanmadan önce etkinleştirilmelidir.
 
-### <a name="assign-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atayın
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, erişim tooFront vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
+Bu bölümde, Britta öne erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
-![Merhaba kullanıcı rolü atayın][200] 
+![Kullanıcı rolü atayın][200] 
 
-**tooassign Britta Simon tooFront hello aşağıdaki adımları gerçekleştirin:**
+**Öne Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Merhaba uygulamalar listesinde **ön**.
+2. Uygulamalar listesinde **ön**.
 
-    ![Merhaba öne bağlantı hello uygulamalar listesinde](./media/active-directory-saas-front-tutorial/tutorial_front_app.png)  
+    ![Uygulamalar listesinde ön bağlantı](./media/active-directory-saas-front-tutorial/tutorial_front_app.png)  
 
-3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
-    ![Merhaba "Kullanıcılar ve Gruplar" bağlantı][202]
+    !["Kullanıcılar ve Gruplar" bağlantı][202]
 
 4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
 
-    ![Merhaba eklemek atama bölmesi][203]
+    ![Ekleme atama bölmesi][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -237,13 +237,13 @@ Bu bölümde, erişim tooFront vererek Britta Simon toouse Azure çoklu oturum a
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
 
-Bu bölümde Hello amacı olan tootest kullanarak Azure AD SSOconfiguration hello erişim paneli.
+Bu bölümün amacı, Azure AD erişim paneli kullanarak SSOconfiguration test etmektir.
 
-Merhaba öne hello erişim paneli parçasında tıkladığınızda, otomatik olarak oturum açma tooyour ön uygulama almanız gerekir. 
+Erişim paneli ön parçasında tıklattığınızda, otomatik olarak ön uygulamanıza açan. 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory B2C: hello başlangıç paketinin özel ilkelerini anlama | Microsoft Docs"
+title: "Azure Active Directory B2C: Başlangıç paketinin özel ilkelerini anlama | Microsoft Docs"
 description: "Bir konu Azure Active Directory B2C özel ilkeler hakkında"
 services: active-directory-b2c
 documentationcenter: 
@@ -14,89 +14,89 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
-ms.openlocfilehash: 3484e8cc6fa6a9d57c2aa14c0cc9616065892d10
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9847bcfcc139a769847678c1cca6a8b9c3a30e93
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="understanding-hello-custom-policies-of-hello-azure-ad-b2c-custom-policy-starter-pack"></a>Hello Azure AD B2C özel İlkesi başlangıç paketinin Hello özel ilkelerini anlama
+# <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Azure AD B2C özel ilke başlangıç paketinin özel ilkelerini anlama
 
-Bu bölümde hello ile birlikte gelen hello B2C_1A_base ilkesinin tüm hello çekirdek öğeleri listeler **başlangıç paketi** ve kendi ilkelerinizi hello hello devralma aracılığıyla yazmak için de *B2C_1A_base_ Uzantıları İlkesi*.
+Bu bölümde birlikte B2C_1A_base ilkesinin tüm çekirdek öğeleri listeler **başlangıç paketi** ve devralma aracılığıyla kendi ilkelerinizi yazmak için de *B2C_1A_base_extensions İlkesi*.
 
-Bu nedenle, bu daha fazla özellikle odaklanılmaktadır. önceden tanımlanmış hello üzerinde talep türleri, talep dönüştürmeleri, içerik tanımları, Talep sağlayıcı ile bunların teknik profillerini ve çekirdek kullanıcı Yolculuklar hello.
+Bu nedenle, bu daha özellikle odaklanılmaktadır. önceden tanımlanmış talep türleri, talep dönüştürmeleri, içerik tanımları, Talep sağlayıcı kendi teknik profillerini ve çekirdek kullanıcı Yolculuklar ile.
 
 > [!IMPORTANT]
-> Microsoft hiçbir açık veya zımni, bundan böyle sağlanan saygı toohello bilgilerle garantide bulunmaz. Değişiklikleri GA süreden önce herhangi bir zamanda GA zaman ya da sonra sunulmasının.
+> Microsoft veya bundan böyle temin edilen bilgilere göre zımni hiçbir garanti vermez. Değişiklikleri GA süreden önce herhangi bir zamanda GA zaman ya da sonra sunulmasının.
 
-Kendi ilkeleri ve hello B2C_1A_base_extensions İlkesi, bu tanımları geçersiz kılın ve bu ana ilke gerektiği gibi ek olanları sağlayarak genişletir.
+Kendi ilkelerinizi ve B2C_1A_base_extensions İlkesi, bu tanımları geçersiz kılın ve bu ana ilke gerektiği gibi ek olanları sağlayarak genişletir.
 
-Merhaba çekirdek öğeleri hello *B2C_1A_base İlkesi* talep türleri, talep dönüştürmeleri ve içerik tanımlar. Bu öğeleri kendi ilkelerinizi de olduğu gibi hello başvurulan uygulanmadıkça toobe kullanılabilir *B2C_1A_base_extensions İlkesi*.
+Çekirdek öğelerini *B2C_1A_base İlkesi* talep türleri, talep dönüştürmeleri ve içerik tanımlar. Bu öğeleri açıktır. kendi ilkelerinizi de olarak başvurulan kullanılabilir *B2C_1A_base_extensions İlkesi*.
 
 ## <a name="claims-schemas"></a>Talep şemaları
 
 Başka bir talep şemaları, üç bölüme ayrılmıştır:
 
-1.  Düzgün şekilde hello kullanıcı Yolculuklar toowork için gerekli olan hello minimum talepleri listeler ilk bölümü.
-2.  Sorgu dizesi parametreleri için gereken talepleri listeler hello ve diğer özel parametreler toobe tooother talep sağlayıcıları, geçirilen ikinci bölümü özellikle login.microsoftonline.com kimlik doğrulaması için. **Lütfen bu talepler değiştirmeyin**.
-3.  Ve sonunda hello kullanıcıdan toplanan herhangi bir ek, isteğe bağlı talep listeleyen üçüncü bir bölüm hello dizinde saklanan ve oturum açma sırasında belirteçleri gönderilen. Bu bölümde türü toobe hello kullanıcıdan toplanan ve/veya hello belirteçte gönderilen yeni talep eklenebilir.
+1.  Kullanıcı Yolculuklar düzgün çalışması gerekli olan minimum talepleri listeler ilk bölümü.
+2.  Talepleri listeler ikinci bir bölümü, özellikle login.microsoftonline.com kimlik doğrulaması için diğer talep sağlayıcılardan geçirilecek sorgu dizesi parametreleri ve diğer özel parametreler için gereklidir. **Lütfen bu talepler değiştirmeyin**.
+3.  Ve sonunda kullanıcıdan, toplanan herhangi bir ek, isteğe bağlı talep listeleyen üçüncü bir bölüm dizinde saklanan ve oturum açma sırasında belirteçleri gönderilir. Bu bölümde kullanıcıdan toplanan ve/veya belirteçte gönderilen yeni talep türü eklenebilir.
 
 > [!IMPORTANT]
-> Merhaba talep şema parolaları ve kullanıcı adları gibi belirli talepler kısıtlamaları içerir. Merhaba güven Framework (TF) ilke Azure AD herhangi bir talep sağlayıcısı olarak değerlendirir ve tüm kısıtlamaları hello premium ilkesinde modelled. Bir ilke, daha fazla kısıtlama değiştirilmiş tooadd olması veya başka bir talep sağlayıcı kendi kısıtlamaları olan kimlik bilgisi depolama alanını kullanın.
+> Talep şema parolaları ve kullanıcı adları gibi belirli talepler kısıtlamaları içerir. Herhangi bir talep sağlayıcısı olarak Azure AD güven Framework (TF) ilkesi değerlendirir ve tüm kısıtlamaları premium ilkesinde modelled. Daha fazla kısıtlama eklemek ya da başka bir talep sağlayıcı kendi kısıtlamaları olan kimlik bilgisi depolama için kullanmak için bir ilke değiştirilmesi.
 
-Merhaba kullanılabilir talep türleri aşağıda listelenmiştir.
+Kullanılabilir talep türleri aşağıda listelenmiştir.
 
-### <a name="claims-that-are-required-for-hello-user-journeys"></a>Merhaba kullanıcı Yolculuklar için gerekli olan talepleri
+### <a name="claims-that-are-required-for-the-user-journeys"></a>Kullanıcı Yolculuklar için gerekli olan talepleri
 
-Talepler aşağıdaki hello düzgün kullanıcı Yolculuklar toowork için gereklidir:
+Aşağıdaki talep kullanıcı Yolculuklar düzgün çalışması gereklidir:
 
 | Talep türü | Açıklama |
 |-------------|-------------|
 | *Kullanıcı Kimliği* | Kullanıcı adı |
 | *signInName* | Oturum adı |
-| *Tenantıd* | Azure AD B2C Premium hello kullanıcı nesnesinin Kiracı tanımlayıcısını (ID) |
-| *objectID* | Azure AD B2C Premium hello kullanıcı nesnesinin nesne tanımlayıcısını (ID) |
+| *Tenantıd* | Azure AD B2C Premium kullanıcı nesnesinin Kiracı tanımlayıcısını (ID) |
+| *objectID* | Azure AD B2C Premium kullanıcı nesnesinin nesne tanımlayıcısını (ID) |
 | *Parola* | Parola |
 | *#newpassword* | |
 | *reenterPassword* | |
-| *passwordPolicies* | Azure AD B2C Premium toodetermine parola gücünü, sona erme vb. tarafından kullanılan parola ilkeleri. |
+| *passwordPolicies* | Parola gücünü, sona erme vb. belirlemek için Azure AD B2C Premium tarafından kullanılan parola ilkeleri. |
 | *Sub* | |
 | *alternativeSecurityId* | |
 | *Identityprovider* | |
 | *görünen adı* | |
 | *strongAuthenticationPhoneNumber* | Kullanıcının telefon numarası |
 | *Verified.strongAuthenticationPhoneNumber* | |
-| *E-posta* | Kullanılan toocontact hello kullanıcıya e-posta adresi |
-| *signInNamesInfo.emailAddress* | Kullanıcı hello e-posta adresi olarak toosign kullanabilirsiniz |
-| *otherMails* | Kullanılan toocontact hello kullanıcıya e-posta adresleri |
-| *userPrincipalName* | Hello Azure AD B2C Premium depolandığı şekliyle kullanıcı adı |
+| *E-posta* | Kullanıcıyla iletişim kurmak için kullanılan e-posta adresi |
+| *signInNamesInfo.emailAddress* | Kullanıcı oturum açmak için kullandığınız e-posta adresi |
+| *otherMails* | Kullanıcıyla iletişim kurmak için kullanılan e-posta adresleri |
+| *userPrincipalName* | Azure AD B2C Premium içinde depolanan gibi kullanıcı adı |
 | *upnUserName* | Kullanıcı asıl adı oluşturmak için kullanıcı adı |
-| *mailNickName* | Hello Azure AD B2C Premium depolandığı şekliyle kullanıcının posta takma adı |
+| *mailNickName* | Azure AD B2C Premium içinde depolanan gibi kullanıcının posta takma adı |
 | *newUser* | |
-| *yürütülen-SelfAsserted-giriş* | Talep, öznitelikler hello kullanıcıdan toplanan olup olmadığını belirtir |
-| *yürütülen-PhoneFactor-giriş* | Talep, yeni bir telefon numarası hello kullanıcıdan toplanan olup olmadığını belirtir |
-| *authenticationSource* | Merhaba kullanıcı sosyal kimlik sağlayıcısı, login.microsoftonline.com veya yerel hesap kimlik doğrulamasının yapıldığı belirtir |
+| *yürütülen-SelfAsserted-giriş* | Talep, öznitelikler kullanıcıdan toplanan olup olmadığını belirtir |
+| *yürütülen-PhoneFactor-giriş* | Talep, yeni bir telefon numarası kullanıcıdan toplanan olup olmadığını belirtir |
+| *authenticationSource* | Kullanıcının sosyal kimlik sağlayıcısı, login.microsoftonline.com veya yerel hesap doğrulanmış olduğunu belirtir |
 
 ### <a name="claims-required-for-query-string-parameters-and-other-special-parameters"></a>Sorgu dizesi parametreleri ve diğer özel parametreler için gereken talepleri
 
-Merhaba aşağıdaki talep (bazı sorgu dizesi parametreleri de dahil olmak üzere) özel parametreler tooother talep sağlayıcıları gerekli toopass şunlardır:
+Aşağıdaki talep varsayılan olarak, diğer talep sağlayıcıları (bazı sorgu dizesi parametreleri de dahil olmak üzere) özel parametrelere geçirmek için gereklidir:
 
 | Talep türü | Açıklama |
 |-------------|-------------|
-| *nux* | Yerel hesap kimlik doğrulaması toologin.microsoftonline.com için geçirilen özel parametresi |
-| *NCA* | Yerel hesap kimlik doğrulaması toologin.microsoftonline.com için geçirilen özel parametresi |
-| *istemi* | Yerel hesap kimlik doğrulaması toologin.microsoftonline.com için geçirilen özel parametresi |
-| *Mkt* | Yerel hesap kimlik doğrulaması toologin.microsoftonline.com için geçirilen özel parametresi |
-| *LC* | Yerel hesap kimlik doğrulaması toologin.microsoftonline.com için geçirilen özel parametresi |
-| *grant_type* | Yerel hesap kimlik doğrulaması toologin.microsoftonline.com için geçirilen özel parametresi |
-| *Kapsam* | Yerel hesap kimlik doğrulaması toologin.microsoftonline.com için geçirilen özel parametresi |
-| *client_id* | Yerel hesap kimlik doğrulaması toologin.microsoftonline.com için geçirilen özel parametresi |
-| *objectIdFromSession* | Parametresi, nesne kimliği hello hello varsayılan oturum yönetimi sağlayıcısı tooindicate tarafından sağlanan bir SSO oturumundan alınan |
-| *isActiveMFASession* | Merhaba kullanıcının etkin bir MFA oturumu sahip parametre hello MFA oturum yönetimi tooindicate tarafından sağlanan |
+| *nux* | Yerel hesap kimlik doğrulaması için login.microsoftonline.com için geçirilen özel parametresi |
+| *NCA* | Yerel hesap kimlik doğrulaması için login.microsoftonline.com için geçirilen özel parametresi |
+| *istemi* | Yerel hesap kimlik doğrulaması için login.microsoftonline.com için geçirilen özel parametresi |
+| *Mkt* | Yerel hesap kimlik doğrulaması için login.microsoftonline.com için geçirilen özel parametresi |
+| *LC* | Yerel hesap kimlik doğrulaması için login.microsoftonline.com için geçirilen özel parametresi |
+| *grant_type* | Yerel hesap kimlik doğrulaması için login.microsoftonline.com için geçirilen özel parametresi |
+| *Kapsam* | Yerel hesap kimlik doğrulaması için login.microsoftonline.com için geçirilen özel parametresi |
+| *client_id* | Yerel hesap kimlik doğrulaması için login.microsoftonline.com için geçirilen özel parametresi |
+| *objectIdFromSession* | Nesne Kimliği SSO oturumundan alındıktan göstermek için varsayılan oturum yönetimi sağlayıcısı tarafından sağlanan parametre |
+| *isActiveMFASession* | Kullanıcının etkin bir MFA oturumu olduğunu belirtmek için MFA oturum yönetimi tarafından sağlanan parametresi |
 
 ### <a name="additional-optional-claims-that-can-be-collected"></a>Toplanabilir ek (isteğe bağlı) talepleri
 
-Merhaba aşağıdaki hello kullanıcılardan toplanan ek talep hello dizinde saklanan ve hello belirteçte gönderilen talepleri. Önce özetlendiği gibi ek talep toothis listesi eklenebilir.
+Aşağıdaki talep kullanıcılardan toplanan, dizinde saklanan ve belirteçte gönderilen ek taleplerdir. Önce özetlendiği gibi ek talep bu listeye eklenebilir.
 
 | Talep türü | Açıklama |
 |-------------|-------------|
@@ -106,7 +106,7 @@ Merhaba aşağıdaki hello kullanıcılardan toplanan ek talep hello dizinde sak
 
 ## <a name="claim-transformations"></a>Talep dönüştürmeleri
 
-Merhaba kullanılabilir talep dönüştürmeleri, aşağıda listelenmiştir.
+Kullanılabilir talep dönüştürmeleri, aşağıda listelenmiştir.
 
 | Talep dönüştürme | Açıklama |
 |----------------------|-------------|
@@ -119,7 +119,7 @@ Merhaba kullanılabilir talep dönüştürmeleri, aşağıda listelenmiştir.
 
 ## <a name="content-definitions"></a>İçerik tanımları
 
-Bu bölümde zaten hello bildirilen hello içerik tanımları açıklanmaktadır *B2C_1A_base* ilkesi. Bu içerik tanımları başvurulan, geçersiz ve/veya kendi ilkelerinizi de olduğu gibi hello gerektiği şekilde genişletilmiş uygulanmadıkça toobe olan *B2C_1A_base_extensions* ilkesi.
+Bu bölümde zaten bildirilen içerik tanımları açıklanmaktadır *B2C_1A_base* ilkesi. Bu içerik tanımları başvurulan, geçersiz ve/veya kendi ilkelerinizi de olarak gerektiği şekilde genişletilmiş uygulanmadıkça *B2C_1A_base_extensions* ilkesi.
 
 | Talep sağlayıcı | Açıklama |
 |-----------------|-------------|
@@ -136,7 +136,7 @@ Bu bölümde zaten hello bildirilen hello içerik tanımları açıklanmaktadır
 
 ## <a name="technical-profiles"></a>Teknik profilleri
 
-Bu bölümde hello talep sağlayıcısı başına zaten tanımlanmış hello teknik profilleri gösterilmektedir *B2C_1A_base* ilkesi. Daha fazla başvurulan, geçersiz ve/veya kendi ilkelerinizi de olduğu gibi hello gerektiği şekilde genişletilmiş uygulanmadıkça toobe Bu teknik profillerdir *B2C_1A_base_extensions* ilkesi.
+Bu bölümde Talep sağlayıcı başına zaten tanımlanmış teknik profilleri gösterilmektedir *B2C_1A_base* ilkesi. Bu teknik profiller daha fazla başvurulan, geçersiz ve/veya kendi ilkelerinizi de olarak gerektiği şekilde genişletilmiş uygulanmadıkça *B2C_1A_base_extensions* ilkesi.
 
 ### <a name="technical-profiles-for-facebook"></a>Facebook için teknik profilleri
 
@@ -162,7 +162,7 @@ Bu bölümde hello talep sağlayıcısı başına zaten tanımlanmış hello tek
 
 | Teknik profili | Açıklama |
 |-------------------|-------------|
-| *AAD-genel* | Teknik profili tarafından dahil hello diğer AAD xxx teknik profilleri |
+| *AAD-genel* | Diğer AAD xxx teknik profilleri dahil teknik profili |
 | *AAD UserWriteUsingAlternativeSecurityId* | Sosyal oturum açma teknik profili |
 | *AAD UserReadUsingAlternativeSecurityId* | Sosyal oturum açma teknik profili |
 | *AAD UserReadUsingAlternativeSecurityId NoError* | Sosyal oturum açma teknik profili |
@@ -171,7 +171,7 @@ Bu bölümde hello talep sağlayıcısı başına zaten tanımlanmış hello tek
 | *AAD UserWriteProfileUsingObjectId* | ObjectID kullanarak kullanıcı kaydını güncelleştirmek için teknik profili |
 | *AAD UserWritePhoneNumberUsingObjectId* | ObjectID kullanarak kullanıcı kaydını güncelleştirmek için teknik profili |
 | *AAD UserWritePasswordUsingObjectId* | ObjectID kullanarak kullanıcı kaydını güncelleştirmek için teknik profili |
-| *AAD UserReadUsingObjectId* | Kullanıcı kimlik doğrulaması yaptıktan sonra teknik kullanılan tooread veri profilidir |
+| *AAD UserReadUsingObjectId* | Teknik profili kullanıcı kimlik doğrulaması yaptıktan sonra verileri okumak için kullanılır |
 
 ### <a name="technical-profiles-for-self-asserted"></a>Kendi kendine uygulanan için teknik profilleri
 
@@ -192,13 +192,13 @@ Bu bölümde hello talep sağlayıcısı başına zaten tanımlanmış hello tek
 |-------------------|-------------|
 | *SM sekmeyi* | |
 | *SM AAD* | |
-| *SM SocialSignup* | Profil adı yukarı kullanılan toodisambiguate AAD oturum oturum arasında olması ve oturum açın |
+| *SM SocialSignup* | AAD oturum oturum arasında belirsizliğini ortadan kaldırmak ve oturum açma profili adı kullanılıyor |
 | *SM SocialLogin* | |
 | *SM MFA* | |
 
 ### <a name="technical-profiles-for-trustframework-policy-engine-technicalprofiles"></a>Trustframework ilke altyapısı TechnicalProfiles için teknik profilleri
 
-Hiçbir teknik profilleri Merhaba şu anda tanımlanmış **Trustframework ilke altyapısı TechnicalProfiles** Talep sağlayıcı.
+Şu anda hiçbir teknik profilleri tanımlanmış **Trustframework ilke altyapısı TechnicalProfiles** Talep sağlayıcı.
 
 ### <a name="technical-profiles-for-token-issuer"></a>Belirteç Verenin için teknik profilleri
 
@@ -208,7 +208,7 @@ Hiçbir teknik profilleri Merhaba şu anda tanımlanmış **Trustframework ilke 
 
 ## <a name="user-journeys"></a>Kullanıcı Yolculuklar
 
-Bu bölümde zaten hello bildirilen hello kullanıcı Yolculuklar gösterilmektedir *B2C_1A_base* ilkesi. Bu kullanıcı Yolculuklar daha fazla başvurulan, geçersiz ve/veya kendi ilkelerinizi de olduğu gibi hello gerektiği şekilde genişletilmiş uygulanmadıkça toobe olan *B2C_1A_base_extensions* ilkesi.
+Bu bölümde zaten bildirilen kullanıcı Yolculuklar gösterilmektedir *B2C_1A_base* ilkesi. Bu kullanıcı Yolculuklar daha fazla başvurulan, geçersiz ve/veya kendi ilkelerinizi de olarak gerektiği şekilde genişletilmiş uygulanmadıkça *B2C_1A_base_extensions* ilkesi.
 
 | Kullanıcı gezisine | Açıklama |
 |--------------|-------------|

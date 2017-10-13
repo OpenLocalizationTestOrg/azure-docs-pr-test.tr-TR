@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure Mobile Engagement Android SDK tümleştirmesi"
+title: "Azure Mobile Engagement Android SDK tümleştirmesi"
 description: "En son güncelleştirmeler ve yordamlar için Azure Mobile Engagement Android SDK"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,14 +14,14 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 6085a9ba90b713235e0aae99759597af9db77865
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 27190b54fc2b3b5c77b5f0a02273883e36ceaf1d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sdk-content"></a>SDK içeriği
-Bu belge, listeler ve hello SDK arşiv Merhaba içeriğine açıklar.
+Bu belge, listeler ve SDK arşiv içeriğini açıklar.
 
 `mobile-engagement-VERSION.jar`
 
@@ -31,7 +31,7 @@ Bu belge, listeler ve hello SDK arşiv Merhaba içeriğine açıklar.
 
 `res`Klasör
 
-> Engagement Reach SDK kaynaklarını (drawable ve uygulamalarınızda Düzen dosyaları tooinclude).
+> Engagement Reach SDK kaynaklarını (drawable ve uygulamalarınızda eklenecek Düzen dosyaları).
 > 
 > 
 
@@ -39,15 +39,15 @@ Bu belge, listeler ve hello SDK arşiv Merhaba içeriğine açıklar.
 
 > Engagement SDK kaynak kodu.
 > 
-> Merhaba hizmetinin Hello kaynakları dahil olmadığına dikkat edin (`com.microsoft.azure.engagement.service.EngagementService` ve ilgili kaynak dosyaları).
+> Hizmet kaynakları dahil olmadığına dikkat edin (`com.microsoft.azure.engagement.service.EngagementService` ve ilgili kaynak dosyaları).
 > 
 > 
 
 `documentation.html`
 
-> Bir kısayol toohello belgelerine site karşılık gelen toohello hello SDK sürümü indirilir.
+> İndirilen SDK'sı sürümüne karşılık gelen belgeleri site için bir kısayol.
 > 
 > 
 
-Başka bir kopyasını hello yazılım lisanslarının dosyalarıdır.
+Diğer yazılım lisansları kopyasını dosyalarıdır.
 

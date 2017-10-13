@@ -1,5 +1,5 @@
 ---
-title: "Azure CDN aaaTroubleshooting dosya sıkıştırmasını | Microsoft Docs"
+title: "Azure CDN dosya sıkıştırma sorunlarını giderme | Microsoft Docs"
 description: "Azure CDN dosya sıkıştırma ile ilgili sorunları giderin."
 services: cdn
 documentationcenter: 
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: f00b98beaf6b3b3cd30108ece65a8191edc06ff5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5ef8a8262eb40aa827161764f03a63d031e43273
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>CDN dosya sıkıştırma sorunlarını giderme
 Bu makale ile ilgili sorunları gidermenize yardımcı [CDN dosya sıkıştırma](cdn-improve-performance.md).
 
-Bu makalede herhangi bir noktada daha fazla yardıma gereksinim duyarsanız, başvurabilirsiniz üzerinde Azure uzmanlar hello [MSDN Azure hello ve yığın taşması forumları hello](https://azure.microsoft.com/support/forums/). Alternatif olarak, Azure destek olay dosya. Toohello Git [Azure Destek sitesi](https://azure.microsoft.com/support/options/) tıklatıp **destek alın**.
+Bu makalede herhangi bir noktada daha fazla yardıma gereksinim duyarsanız, üzerinde Azure uzmanlar başvurabilirsiniz [MSDN Azure ve yığın taşması forumlar](https://azure.microsoft.com/support/forums/). Alternatif olarak, Azure destek olay dosya. Git [Azure Destek sitesi](https://azure.microsoft.com/support/options/) tıklatıp **destek alın**.
 
 ## <a name="symptom"></a>Belirti
 Uç noktanız için sıkıştırma etkin, ancak dosyalar sıkıştırılmamış döndürülen.
 
 > [!TIP]
-> toocheck dosyalarınızı sıkıştırılmış döndürülen olsun, bir aracı gibi toouse gerek [Fiddler](http://www.telerik.com/fiddler) veya tarayıcınızın [Geliştirici Araçları](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).  Onay hello HTTP yanıt üstbilgilerini, önbelleğe alınan CDN içerik döndürdü.  Adlı bir üst bilgi olup olmadığını `Content-Encoding` değerini **gzip**, **bzıp2**, veya **deflate**, içeriğinizi sıkıştırılır.
+> Dosyaları sıkıştırılmış döndürülen olup olmadığını denetlemek için gibi bir araç kullanmanız gerekir [Fiddler](http://www.telerik.com/fiddler) veya tarayıcınızın [Geliştirici Araçları](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).  Onay HTTP yanıt üstbilgilerini, önbelleğe alınan CDN içerik döndürdü.  Adlı bir üst bilgi olup olmadığını `Content-Encoding` değerini **gzip**, **bzıp2**, veya **deflate**, içeriğinizi sıkıştırılır.
 > 
 > ![İçerik Kodlama üstbilgisi](./media/cdn-troubleshoot-compression/cdn-content-header.png)
 > 
@@ -38,21 +38,21 @@ Uç noktanız için sıkıştırma etkin, ancak dosyalar sıkıştırılmamış 
 ## <a name="cause"></a>Nedeni
 Dahil birkaç olası nedenleri şunlardır:
 
-* Merhaba, içerik sıkıştırma için uygun değil istedi.
-* Sıkıştırma hello için etkin değil istenen dosya türü.
-* Merhaba HTTP isteği, geçerli sıkıştırma türünü isteyen bir üst bilgisi içermiyordu.
+* İstenen içerik sıkıştırma için uygun değil.
+* Sıkıştırma istenen dosya türü için etkin değil.
+* HTTP isteği, geçerli sıkıştırma türünü isteyen bir üst bilgisi içermiyordu.
 
 ## <a name="troubleshooting-steps"></a>Sorun giderme adımları
 > [!TIP]
-> Yeni uç nokta dağıtırken olduğu gibi ile bazı zaman toopropagate hello ağ üzerinden CDN yapılandırma değişiklikleri gerçekleştirin.  Genellikle, değişiklikler 90 dakika içinde uygulanır.  Bu hello sıkıştırmayı ayarlama, CDN uç noktası için ayarladığınız ilk kez kullanıyorsanız, 1-2 saat toobe hello sıkıştırma ayarları toohello POP dağıtıldıktan emin bekleyen düşünmelisiniz. 
+> Yeni uç nokta dağıtırken olduğu gibi ile CDN yapılandırma değişiklikleri ağ üzerinden yayılması biraz zaman ayırın.  Genellikle, değişiklikler 90 dakika içinde uygulanır.  CDN uç noktanız için sıkıştırmayı ayarlama ayarladınız ilk kez kullanıyorsanız, 1-2 saat ayarlarını Pop'lere yayılmadan sıkıştırma emin olmak için bekleyen düşünmelisiniz. 
 > 
 > 
 
-### <a name="verify-hello-request"></a>Merhaba isteği doğrulayın
-İlk olarak, biz hello istek üzerinde bir hızlı sağlamlık denetimi yapmanız gerekir.  Tarayıcınızın kullanabilirsiniz [Geliştirici Araçları](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) tooview hello istekleri yapılan.
+### <a name="verify-the-request"></a>İsteği doğrulama
+İlk olarak, biz istek üzerinde bir hızlı sağlamlık denetimi yapmanız gerekir.  Tarayıcınızın kullanabilirsiniz [Geliştirici Araçları](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) yapılan istekleri görüntülemek için.
 
-* Tooyour uç nokta URL'si Hello isteği gönderiliyor doğrulayın `<endpointname>.azureedge.net`ve kaynağınıza değil.
-* Merhaba isteği içerdiğini doğrulayın bir **Accept-Encoding** üstbilgi ve hello değer bu üst bilgiyi içeren için **gzip**, **deflate**, veya **bzıp2** .
+* Uç nokta URL'nizi isteği gönderiliyor doğrulayın `<endpointname>.azureedge.net`ve kaynağınıza değil.
+* İstek içerdiğini doğrulayın bir **Accept-Encoding** üstbilgi ve o üstbilgisi değeri içeren **gzip**, **deflate**, veya **bzıp2**.
 
 > [!NOTE]
 > **Akamai'den Azure CDN** yalnızca destek profilleri **gzip** kodlama.
@@ -67,10 +67,10 @@ Dahil birkaç olası nedenleri şunlardır:
 > 
 > 
 
-Merhaba tooyour uç gidin [Azure portal](https://portal.azure.com) hello tıklatıp **yapılandırma** düğmesi.
+Uç noktanız gidin [Azure portal](https://portal.azure.com) tıklatıp **yapılandırma** düğmesi.
 
 * Sıkıştırma etkin doğrulayın.
-* Merhaba hello sıkıştırılmış toobe sıkıştırılmış biçimleri hello listesinde yer içerik için MIME türünü doğrulayın.
+* Sıkıştırılacak içerik için MIME türü sıkıştırılmış biçimleri listesinde yer doğrulayın.
 
 ![CDN sıkıştırma ayarları](./media/cdn-troubleshoot-compression/cdn-compression-settings.png)
 
@@ -80,41 +80,41 @@ Merhaba tooyour uç gidin [Azure portal](https://portal.azure.com) hello tıklat
 > 
 > 
 
-Merhaba tooyour uç gidin [Azure portal](https://portal.azure.com) hello tıklatıp **Yönet** düğmesi.  Merhaba ek portalı açar.  Merhaba üzerine getirin **HTTP büyük** sekmesini ve ardından hello üzerine getirin **önbellek ayarları** çıkma.  Tıklatın **sıkıştırma**. 
+Uç noktanız gidin [Azure portal](https://portal.azure.com) tıklatıp **Yönet** düğmesi.  Ek Portalı'nı açar.  Üzerine gelerek **HTTP büyük** sekmesini ve ardından üzerine gelerek **önbellek ayarları** çıkma.  Tıklatın **sıkıştırma**. 
 
 * Sıkıştırma etkin doğrulayın.
-* Merhaba doğrulayın **dosya türlerini** listesini içeren bir virgülle ayrılmış listesi (boşluksuz) MIME türleri.
-* Merhaba hello sıkıştırılmış toobe sıkıştırılmış biçimleri hello listesinde yer içerik için MIME türünü doğrulayın.
+* Doğrulama **dosya türlerini** listesini içeren bir virgülle ayrılmış listesi (boşluksuz) MIME türleri.
+* Sıkıştırılacak içerik için MIME türü sıkıştırılmış biçimleri listesinde yer doğrulayın.
 
 ![CDN premium sıkıştırma ayarları](./media/cdn-troubleshoot-compression/cdn-compression-settings-premium.png)
 
-### <a name="verify-hello-content-is-cached"></a>Merhaba içerik önbelleğe doğrulayın
+### <a name="verify-the-content-is-cached"></a>İçerik önbelleğe doğrulayın
 > [!NOTE]
 > CDN profilinizi ise bu adım yalnızca geçerli bir **verizon'dan Azure CDN** profil (standart veya Premium).
 > 
 > 
 
-Tarayıcınızın Geliştirici Araçları'nı kullanarak hello yanıt üstbilgileri tooensure hello dosyası burada istenmektedir hello bölgede önbelleğe denetleyin.
+Tarayıcınızın Geliştirici Araçları'nı kullanarak dosyanın nereye istenmektedir bölgede önbelleğe sağlamak için yanıt üstbilgilerini denetleyin.
 
-* Merhaba denetleyin **Server** yanıtı üstbilgisi.  Merhaba üstbilgi hello biçiminde olması gerektiğini **Platform (POP/sunucu kimliği)**hello aşağıdaki örnekte görüldüğü gibi.
-* Merhaba denetleyin **X önbellek** yanıtı üstbilgisi.  Merhaba üstbilgi kimler **İSABET**.  
+* Denetleme **Server** yanıtı üstbilgisi.  Üst bilgisi biçiminde olması **Platform (POP/sunucu kimliği)**, aşağıdaki örnekte görüldüğü gibi.
+* Denetleme **X önbellek** yanıtı üstbilgisi.  Üstbilgi okumalısınız **İSABET**.  
 
 ![CDN yanıt üstbilgileri](./media/cdn-troubleshoot-compression/cdn-response-headers.png)
 
-### <a name="verify-hello-file-meets-hello-size-requirements"></a>Merhaba dosyası başlangıç boyutu gereksinimlerini karşıladığını doğrulayın
+### <a name="verify-the-file-meets-the-size-requirements"></a>Dosya boyutu gereksinimleri karşıladığını doğrulayın
 > [!NOTE]
 > CDN profilinizi ise bu adım yalnızca geçerli bir **verizon'dan Azure CDN** profil (standart veya Premium).
 > 
 > 
 
-sıkıştırma için uygun toobe, bir dosya boyutu gereksinimleri aşağıdaki hello karşılaması gerekir:
+Sıkıştırma için uygun olması için bir dosya aşağıdaki boyut gereksinimlerini karşılaması gerekir:
 
 * 128 bayt daha büyük.
 * 1 MB'tan küçük.
 
-### <a name="check-hello-request-at-hello-origin-server-for-a-via-header"></a>Merhaba kaynak sunucu için Hello isteğiyle denetleyin bir **aracılığıyla** üstbilgisi
-Merhaba **aracılığıyla** HTTP üstbilgisi gösterir isteği hello toohello web sunucusu bir proxy sunucusu tarafından geçirilen.  Varsayılan olarak Microsoft IIS web sunucuları sıkıştırma yanıtları hello istek içerdiğinde bir **aracılığıyla** üstbilgi.  toooverride Bu davranış hello aşağıdakileri yapın:
+### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>İstek için kaynak sunucuda denetleyin bir **aracılığıyla** üstbilgisi
+**Aracılığıyla** HTTP üstbilgisi web sunucusuna istek bir proxy sunucusu tarafından geçirilen gösterir.  Varsayılan olarak Microsoft IIS web sunucuları sıkıştırma yanıtları istek içerdiğinde bir **aracılığıyla** üstbilgi.  Bu davranışı değiştirmek için aşağıdakileri gerçekleştirin:
 
-* **IIS 6**: [ayarlamak HcNoCompressionForProxies hello IIS metatabanı özelliklerinde = "FALSE"](https://msdn.microsoft.com/library/ms525390.aspx)
-* **IIS 7 ve en fazla**: [ayarlanacağı **noCompressionForHttp10** ve **noCompressionForProxies** tooFalse hello sunucu yapılandırması](http://www.iis.net/configreference/system.webserver/httpcompression)
+* **IIS 6**: [HcNoCompressionForProxies ayarlama IIS metatabanı özelliklerinde = "FALSE"](https://msdn.microsoft.com/library/ms525390.aspx)
+* **IIS 7 ve en fazla**: [ayarlanacağı **noCompressionForHttp10** ve **noCompressionForProxies** false olarak sunucu yapılandırması](http://www.iis.net/configreference/system.webserver/httpcompression)
 

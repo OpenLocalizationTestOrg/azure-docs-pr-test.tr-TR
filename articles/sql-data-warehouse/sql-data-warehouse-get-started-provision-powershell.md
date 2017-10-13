@@ -1,5 +1,5 @@
 ---
-title: PowerShell kullanarak SQL Data Warehouse aaaCreate | Microsoft Docs
+title: "PowerShell kullanarak SQL Veri Ambarı oluşturma | Microsoft Belgeleri"
 description: "PowerShell kullanarak SQL Data Warehouse oluşturma"
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: create
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: d8af29ec285a11285785ab5474e4dfc8c36bc3ab
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: a763f1c600c1a3f37cb565a8eb7db3c3f27dcf75
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-sql-data-warehouse-using-powershell"></a>PowerShell kullanarak SQL Data Warehouse oluşturma
 > [!div class="op_single_selector"]
@@ -29,15 +29,15 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Bu makalede nasıl toocreate bir SQL Data Warehouse PowerShell kullanarak gösterilmektedir.
+Bu makalede PowerShell ile SQL Veri Ambarı oluşturma işlemi gösterilmektedir.
 
 ## <a name="prerequisites"></a>Ön koşullar
-başlatılan tooget, aşağıdakiler gerekir:
+Başlamak için gerekli olanlar:
 
-* **Azure hesabı**: ziyaret [Azure ücretsiz deneme sürümü] [ Azure Free Trial] veya [MSDN Azure KREDİLERİ] [ MSDN Azure Credits] toocreate bir hesap.
-* **Azure SQL server**: bkz [hello Azure portalı bir Azure SQL veritabanı oluşturma] [ Create an Azure SQL database in hello Azure Portal] veya [PowerShell ile bir Azure SQL veritabanı oluşturma] [ Create an Azure SQL database with PowerShell] daha fazla ayrıntı için.
-* **Kaynak grubu**: aynı kaynak grubu olarak Azure SQL sunucunuzun ya da bakın hello kullanın ya da [nasıl toocreate bir kaynak grubu](../azure-resource-manager/resource-group-portal.md).
-* **PowerShell 1.0.3 sürümü veya sonraki bir sürümü**: **Get-Module -ListAvailable -Name Azure** komutunu çalıştırarak sürümünüzü kontrol edebilirsiniz.  Merhaba en son sürümünü yüklenebilir [Microsoft Web Platformu yükleyicisi][Microsoft Web Platform Installer].  Merhaba en son sürümü yükleme hakkında daha fazla bilgi için bkz: [nasıl tooinstall Azure PowerShell'i ve yapılandırma][How tooinstall and configure Azure PowerShell].
+* **Azure hesabı**: Hesap oluşturmak için [Azure Ücretsiz Deneme][Azure Free Trial] veya [MSDN Azure Kredileri][MSDN Azure Credits] sayfasını ziyaret edin.
+* **Azure SQL server**: Daha fazla bilgi için bkz. [Azure portalında Azure SQL veritabanı oluşturma][Create an Azure SQL database in the Azure Portal] veya [PowerShell ile Azure SQL veritabanı oluşturma][Create an Azure SQL database with PowerShell].
+* **Kaynak grubu**: Azure SQL sunucunuz ile aynı kaynak grubunu kullanın veya [kaynak grubu oluşturma](../azure-resource-manager/resource-group-portal.md) işlemine bakın.
+* **PowerShell 1.0.3 sürümü veya sonraki bir sürümü**: **Get-Module -ListAvailable -Name Azure** komutunu çalıştırarak sürümünüzü kontrol edebilirsiniz.  [Microsoft Web Platformu Yükleyicisi][Microsoft Web Platform Installer]'nden en son sürümü yükleyebilirsiniz.  En son sürümü yükleme hakkında daha fazla bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma][How to install and configure Azure PowerShell].
 
 > [!NOTE]
 > Bir SQL Veri Ambarı'nın oluşturulması ek hizmet ücretlerinin alınmasına neden olabilir.  Fiyatlandırmayla ilgili ayrıntılı bilgi için bkz. [SQL Veri Ambarı fiyatlandırması][SQL Data Warehouse pricing].
@@ -46,17 +46,17 @@ başlatılan tooget, aşağıdakiler gerekir:
 
 ## <a name="create-a-sql-data-warehouse"></a>SQL Data Warehouse oluşturma
 1. Windows PowerShell'i açın.
-2. Bu cmdlet toologin tooAzure Kaynak Yöneticisi'ni çalıştırın.
+2. Azure Resource Manager'da oturum açmak için bu cmdlet'i çalıştırın
 
     ```Powershell
     Login-AzureRmAccount
     ```
-3. Geçerli oturumunuz için toouse istediğiniz hello aboneliği seçin.
+3. Geçerli oturumunuz için kullanmak istediğiniz aboneliği seçin.
 
     ```Powershell
     Get-AzureRmSubscription    -SubscriptionName "MySubscription" | Select-AzureRmSubscription
     ```
-4. Veritabanı oluşturun. Bu örnekte "mywesteuroperesgp1" hizmet hedefi düzeyi "DW400", "mywesteuroperesgp1" adlı hello kaynak grubunda bulunan "sqldwserver1" adlı toohello sunucu adlı bir veritabanı oluşturur.
+4. Veritabanı oluşturun. Bu örnekte "mywesteuroperesgp1" adlı kaynak grubunda bulunan "sqldwserver1" adlı sunucuda, hizmet hedefi düzeyi "DW400" olan "mynewsqldw" adlı bir veritabanı oluşturulmaktadır.
 
    ```Powershell
    New-AzureRmSqlDatabase -RequestedServiceObjectiveName "DW400" -DatabaseName "mynewsqldw" -ServerName "sqldwserver1" -ResourceGroupName "mywesteuroperesgp1" -Edition "DataWarehouse" -CollationName "SQL_Latin1_General_CP1_CI_AS" -MaxSizeBytes 10995116277760
@@ -64,23 +64,23 @@ başlatılan tooget, aşağıdakiler gerekir:
 
 Gerekli Parametreler şunlardır:
 
-* **RequestedServiceObjectiveName**: hello miktarını [DWU] [ DWU] isteğinde bulunduğunuzu.  Desteklenen değerler: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000 ve DW6000.
-* **DatabaseName**: hello oluşturmakta olduğunuz SQL Data Warehouse hello adı.
-* **ServerName**: hello oluşturmak için kullandığınız hello sunucunun adını (V12 olmalıdır).
-* **ResourceGroupName**: Kullandığınız kaynak grubu.  aboneliğinizde toofind kullanılabilir kaynak gruplarını Get-azureresource komutunu kullanın.
-* **Edition**: "DataWarehouse" toocreate SQL Data Warehouse olması gerekir.
+* **RequestedServiceObjectiveName**: İstediğiniz [DWU][DWU] sayısı.  Desteklenen değerler: DW100, DW200, DW300, DW400, DW500, DW600, DW1000, DW1200, DW1500, DW2000, DW3000 ve DW6000.
+* **DatabaseName**: Oluşturduğunuz SQL Data Warehouse'un adı.
+* **ServerName**: Oluşturma işlemi için kullandığınız sunucunun adı (V12 olmalıdır).
+* **ResourceGroupName**: Kullandığınız kaynak grubu.  Aboneliğinizdeki kullanılabilir kaynak gruplarını bulmak için Get-AzureResource komutunu kullanın.
+* **Edition**: SQL Veri Ambarı oluşturmak için "DataWarehouse" olmalıdır.
 
 İsteğe Bağlı Parametreler şunlardır:
 
-* **CollationName**: belirtilmezse hello varsayılan harmanlama sql_latin1_general_cp1_cı_as olduğu.  Bir veritabanı üzerinde harmanlama değiştirilemez.
-* **MaxSizeBytes**: veritabanı hello varsayılan en büyük boyut olan 10 GB.
+* **CollationName**: Belirtilmezse varsayılan harmanlama SQL_Latin1_General_CP1_CI_AS şeklindedir.  Bir veritabanı üzerinde harmanlama değiştirilemez.
+* **MaxSizeBytes**: Bir veritabanının varsayılan en büyük boyutu 10 GB'dir.
 
-Merhaba parametre seçenekleri hakkında daha fazla bilgi için bkz: [New-AzureRmSqlDatabase] [ New-AzureRmSqlDatabase] ve [veritabanı (Azure SQL Data Warehouse) oluşturma][Create Database (Azure SQL Data Warehouse)].
+Parametre seçenekleri hakkında daha ayrıntılı bilgi için bkz. [New-AzureRmSqlDatabase][New-AzureRmSqlDatabase] ve [Veritabanı Oluşturma (Azure SQL Veri Ambarı)][Create Database (Azure SQL Data Warehouse)].
 
 ## <a name="next-steps"></a>Sonraki adımlar
-SQL veri ambarı tamamlandıktan sonra sağlama tootry isteyebilirsiniz [örnek veri yükleme] [ loading sample data] veya nasıl çok denetleyin[geliştirmek] [ develop] , [yük][load], veya [geçirmek][migrate].
+SQL Veri Ambarınızın hazırlanması tamamlandıktan sonra [örnek veri yükleme][loading sample data] işlemini gerçekleştirmeyi veya [geliştirme][develop], [yükleme][load] veya [geçirme][migrate] işlemlerinin nasıl gerçekleştirileceğini incelemeyi tercih edebilirsiniz.
 
-Nasıl daha fazla bilgi ilginizi çekiyorsa toomanage SQL Data Warehouse programlı olarak kullanıma nasıl makalesini toouse [PowerShell cmdlet'leri ve REST API'lerinin][PowerShell cmdlets and REST APIs].
+Programlama yoluyla Veri Ambarı’nı yönetme hakkında daha fazla bilgi edinmek istiyorsanız [PowerShell cmdlet’leri ve REST API'lerinin][PowerShell cmdlets and REST APIs] kullanımına ilişkin makalemize göz atın.
 
 <!--Image references-->
 
@@ -93,11 +93,11 @@ Nasıl daha fazla bilgi ilginizi çekiyorsa toomanage SQL Data Warehouse program
 [PowerShell cmdlets and REST APIs]: ./sql-data-warehouse-reference-powershell-cmdlets.md
 [firewall rules]: ../sql-database-configure-firewall-settings.md
 
-[How tooinstall and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
-[how toocreate a SQL Data Warehouse from hello Azure Portal]: ./sql-data-warehouse-get-started-provision.md
-[Create an Azure SQL database in hello Azure Portal]: ../sql-database/sql-database-get-started.md
+[How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
+[how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
+[Create an Azure SQL database in the Azure Portal]: ../sql-database/sql-database-get-started.md
 [Create an Azure SQL database with PowerShell]: ../sql-database/sql-database-get-started-powershell.md
-[how toocreate a resource group]: ../azure-resource-manager/resource-group-template-deploy-portal.md#create-resource-group
+[how to create a resource group]: ../azure-resource-manager/resource-group-template-deploy-portal.md#create-resource-group
 
 <!--MSDN references-->
 [MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx

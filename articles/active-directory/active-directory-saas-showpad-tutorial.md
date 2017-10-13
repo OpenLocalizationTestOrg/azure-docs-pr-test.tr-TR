@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile Showpad | Microsoft Docs"
-description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile Showpad arasında."
+description: "Çoklu oturum açma Azure Active Directory ile Showpad arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,68 +13,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 2c8c306b4b94c368a93f92123d3abe9fe35167db
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c8b39c9215675d8073f896f934339e7cd55334cc
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-showpad"></a>Öğretici: Azure Active Directory Tümleştirme Showpad ile
 
-Bu öğreticide, bilgi nasıl toointegrate Showpad Azure Active Directory'ye (Azure AD).
+Bu öğreticide, Azure Active Directory (Azure AD) ile Showpad tümleştirmek öğrenin.
 
-Showpad Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
+Showpad Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Erişim tooShowpad sahip Azure AD'de kontrol edebilirsiniz
-- Kullanıcıların tooautomatically get açan tooShowpad (çoklu oturum açma) Azure AD hesaplarına sahip etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir
+- Showpad erişimi, Azure AD'de kontrol edebilirsiniz
+- Otomatik olarak için Showpad (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-tooconfigure Showpad ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
+Azure AD tümleştirme Showpad ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
 - Bir Showpad çoklu oturum açma abonelik etkin
 
 > [!NOTE]
-> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
+Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
-1. Merhaba Galerisi'nden Showpad ekleme
+1. Galeriden Showpad ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-showpad-from-hello-gallery"></a>Merhaba Galerisi'nden Showpad ekleme
+## <a name="adding-showpad-from-the-gallery"></a>Galeriden Showpad ekleme
 
-Azure AD'ye tooconfigure hello tümleştirme Showpad, tooadd Showpad hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
+Azure AD Showpad tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Showpad eklemeniz gerekir.
 
-**tooadd Showpad hello galerisinden hello aşağıdaki adımları gerçekleştirin:**
+**Galeriden Showpad eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
     ![Uygulamalar][3]
 
-4. Merhaba arama kutusuna yazın **Showpad**.
+4. Arama kutusuna **Showpad**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_search.png)
 
-5. Merhaba Sonuçlar panelinde seçin **Showpad**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
+5. Sonuçlar panelinde seçin **Showpad**ve ardından **Ekle** uygulama eklemek için düğmesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_addfromgallery.png)
 
@@ -82,46 +82,46 @@ Azure AD'ye tooconfigure hello tümleştirme Showpad, tooadd Showpad hello galer
 
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı Showpad ile test etme
 
-Tek toowork'ın oturum açma hangi hello karşılık gelen Showpad içinde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcı ve ilgili kullanıcı Showpad hello arasında bir bağlantı ilişkisi kurulan toobe gerekir.
+Tekli çalışmaya oturum için Azure AD Showpad karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Showpad ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Merhaba hello değeri Showpad içinde atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.
+Showpad içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
 
-tooconfigure ve Showpad ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Showpad ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
-3. **[Showpad test kullanıcısı oluşturma](#creating-a-showpad-test-user)**  -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir Showpad içinde karşılık gelen.
-4. **[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Showpad test kullanıcısı oluşturma](#creating-a-showpad-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Showpad sağlamak için.
+4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma Showpad uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Showpad uygulamanızda yapılandırın.
 
-**tooconfigure Azure AD çoklu oturum açma ile Showpad, hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma ile Showpad yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello hello üzerinde Azure portal'ın **Showpad** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **Showpad** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_samlbase.png)
 
-3. Merhaba üzerinde **Showpad etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **Showpad etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_url.png)
 
-    a. Merhaba, **oturum açma URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<comapany-name>.showpad.biz/login`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<comapany-name>.showpad.biz/login`
 
-    b. Merhaba, **tanımlayıcısı** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<company-name>.showpad.biz`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<company-name>.showpad.biz`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu güncelleştirme değerler ile Merhaba gerçek oturum açma URL'si ve tanımlayıcısı. Kişi [Showpad destek ekibi](https://help.showpad.com) tooget bu değerleri. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [Showpad destek ekibi](https://help.showpad.com) bu değerleri almak için. 
  
 
 
-4. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve hello meta veri dosyası, bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_certificate.png) 
 
@@ -129,90 +129,90 @@ Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-showpad-tutorial/tutorial_general_400.png)
 
-6. Yönetici olarak oturum açma tooyour Showpad Kiracı.
+6. Showpad kiracınız yönetici olarak oturum.
 
-7. Hello'nde hello üstte, hello menüsünü **ayarları**.
+7. Üstteki menüde tıklatın **ayarları**.
    
     ![Çoklu oturum açma uygulama tarafında yapılandırma](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_001.png) 
 
-8. Çok gidin"**çoklu oturum açma**"tıklatıp"**etkinleştirmek**."
+8. Gidin "**çoklu oturum açma**"tıklatıp"**etkinleştirmek**."
    
     ![Çoklu oturum açma uygulama tarafında yapılandırma](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_002.png)
 
-9. Merhaba üzerinde **SAML 2.0 hizmet ekleme** iletişim kutusunda, hello aşağıdaki adımları gerçekleştirin:
+9. Üzerinde **SAML 2.0 hizmet ekleme** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
    
     ![Çoklu oturum açma uygulama tarafında yapılandırma](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_003.png) 
    
-    a. Merhaba, **adı** metin kutusuna, tür hello tanımlayıcı sağlayıcı adını (örneğin: şirketinizin adını).
+    a. İçinde **adı** metin kutusuna, tanımlayıcı sağlayıcının adını yazın (örneğin: şirketinizin adını).
    
     b. Olarak **meta veri kaynağı**seçin **XML**.
    
-    c. Azure portal hello indirmiş, meta veri XML dosyası Merhaba içeriğine kopyalayın ve hello yapıştırma **meta veri XML** metin kutusu.
+    c. Azure portalından indirmiş, meta veri XML dosyasının içeriğini kopyalayın ve ardından yapıştırın **meta veri XML** metin kutusu.
    
     d. Seçin **otomatik sağlama hesapları için yeni kullanıcılar oturum açtığında**.
    
     e. Tıklatın **gönderme**.
 
 > [!TIP]
-> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-showpad-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-showpad-tutorial/create_aaduser_02.png) 
 
-3. tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle** hello üstteki hello iletişim.
+3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-showpad-tutorial/create_aaduser_03.png) 
 
-4. Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-showpad-tutorial/create_aaduser_04.png) 
 
-    a. Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
 
-    b. Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
 
-    c. Seçin **Göster parola** ve hello hello değerini yazma **parola**.
+    c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**'a tıklayın.
  
 ### <a name="creating-a-showpad-test-user"></a>Showpad test kullanıcısı oluşturma
 
-Bu bölümde Hello amacı toocreate Britta Simon içinde Showpad adlı bir kullanıcı ' dir. 
+Bu bölümün amacı Britta Simon içinde Showpad adlı bir kullanıcı oluşturmaktır. 
 
 Yalnızca zaman sağlama Showpad destekler. Sağlamayı etkinleştirdiğiniz  **[yapılandırma Azure AD çoklu oturum açma](#configuring-azure-ad-single-sign-on)**. 
 
 Bu bölümde, eylem öğe yok. 
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
 
-Bu bölümde, erişim tooShowpad vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
+Bu bölümde, Britta Showpad için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
 ![Kullanıcı atama][200] 
 
-**tooassign Britta Simon tooShowpad hello aşağıdaki adımları gerçekleştirin:**
+**Showpad için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Merhaba uygulamalar listesinde **Showpad**.
+2. Uygulamalar listesinde **Showpad**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_app.png) 
 
-3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
     ![Kullanıcı atama][202] 
 
@@ -220,7 +220,7 @@ Bu bölümde, erişim tooShowpad vererek Britta Simon toouse Azure çoklu oturum
 
     ![Kullanıcı atama][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -228,14 +228,14 @@ Bu bölümde, erişim tooShowpad vererek Britta Simon toouse Azure çoklu oturum
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Merhaba Showpad hello erişim paneli parçasında tıkladığınızda, otomatik olarak oturum açma tooShowpad uygulama almanız gerekir.
-Merhaba erişim paneli hakkında daha fazla bilgi için bkz: [giriş toohello erişim paneli](active-directory-saas-access-panel-introduction.md).
+Erişim paneli Showpad parçasında tıklattığınızda, otomatik olarak Showpad uygulamaya açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 

@@ -1,6 +1,6 @@
 ---
-title: "B2B için şemalar izleme aaaCustom izleme - Azure Logic Apps | Microsoft Docs"
-description: "Özel İzleme şemaları toomonitor B2B iletileri Azure tümleştirme hesabınızda işlemlerdeki oluşturun."
+title: "Özel İzleme şemaları B2B izleme - Azure Logic Apps | Microsoft Docs"
+description: "B2B iletilerden Azure tümleştirme hesabınızda işlemleri izlemek için özel izleme şemalarını oluşturun."
 author: padmavc
 manager: anneta
 editor: 
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8cf26a43d89f0414a2a8c5ef59d804235afeb5d6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b71a4938dde2a71f1ce29403af7aa9101358d64c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="enable-tracking-toomonitor-your-complete-workflow-end-to-end"></a>İş akışını tam, uçtan uca izleme toomonitor etkinleştir
-İzleme AS2 veya X12 gibi iş iş akışınızı farklı kısımlarını iletileri için etkinleştirebileceğiniz olduğunu izleme yerleşik yoktur. Bir mantıksal uygulama, BizTalk Server, SQL Server veya başka bir katmanında içeren iş akışları oluşturduğunuzda, hello başına toohello sonundan akışınızı olayları kaydeder özel izleme işlevini etkinleştirebilirsiniz. 
+# <a name="enable-tracking-to-monitor-your-complete-workflow-end-to-end"></a>İş akışını tam, uçtan uca izlemek izlemeyi etkinleştirme
+İzleme AS2 veya X12 gibi iş iş akışınızı farklı kısımlarını iletileri için etkinleştirebileceğiniz olduğunu izleme yerleşik yoktur. Başlangıçtan itibaren akışınıza sonuna olayları kaydeder özel izleme etkinleştirebilirsiniz sonra iş akışları oluşturduğunuzda bir mantıksal uygulama, BizTalk Server, SQL Server veya diğer herhangi bir katman içerir. 
 
-Bu konu, mantıksal uygulamanızı dışında hello katmanlarında kullanabilirsiniz özel kod sağlar. 
+Bu konu, mantıksal uygulamanızı dışında Katmanlar kullanabilirsiniz özel kod sağlar. 
 
 ## <a name="custom-tracking-schema"></a>Özel İzleme şeması
 ````java
@@ -63,19 +63,19 @@ Bu konu, mantıksal uygulamanızı dışında hello katmanlarında kullanabilirs
 
 | Özellik | Tür | Açıklama |
 | --- | --- | --- |
-| Kaynak türü |   | Çalıştırma hello kaynak türü. İzin verilen değerler **Microsoft.Logic/workflows** ve **özel**. (Zorunlu) |
-| Kaynak |   | Merhaba kaynak türü ise **Microsoft.Logic/workflows**, hello kaynak bilgileri, bu şemayı toofollow gerekiyor. Merhaba kaynak türü ise **özel**, hello schema bir JToken'dır. (Zorunlu) |
+| Kaynak türü |   | Çalışma kaynağının türü. İzin verilen değerler **Microsoft.Logic/workflows** ve **özel**. (Zorunlu) |
+| Kaynak |   | Kaynak türü ise **Microsoft.Logic/workflows**, kaynak bilgilerini bu şemayı izlemesi gerekir. Kaynak türü ise **özel**, şemanın bir JToken olduğu. (Zorunlu) |
 | SistemKimliği | Dize | Mantıksal uygulama sistem kimliği (Zorunlu) |
 | çalıştırma kodu | Dize | Mantıksal uygulama kimliği çalıştırın (Zorunlu) |
-| operationName | Dize | Merhaba işlemi (örneğin, eylem veya tetikleyici) adı. (Zorunlu) |
-| repeatItemScopeName | Dize | Öğe adı Hello eylem içinde ise yineleyin bir `foreach` / `until` döngü. (Zorunlu) |
-| repeatItemIndex | Tamsayı | Merhaba eylem içinde olup olmadığını bir `foreach` / `until` döngü. Merhaba yinelenen öğe dizini belirtir. (Zorunlu) |
-| İzleme kodu | Dize | İzleme kimliği, toocorrelate Merhaba iletileri. (İsteğe bağlı) |
-| correlationId | Dize | Bağıntı kimliği, toocorrelate Merhaba iletileri. (İsteğe bağlı) |
-| ClientRequestId | Dize | İstemci toocorrelate iletileri doldurabilirsiniz. (İsteğe bağlı) |
-| eventLevel |   | Merhaba olay düzeyi. (Zorunlu) |
-| EventTime |   | YYYY-AA-DDTHH:MM:SS.00000Z UTC biçiminde hello olay zamanı. (Zorunlu) |
-| RecordType |   | Merhaba İzle kayıt türü. Değer izin verilen **özel**. (Zorunlu) |
+| operationName | Dize | (Örneğin, eylem veya tetikleyici) işlemin adı. (Zorunlu) |
+| repeatItemScopeName | Dize | Eylem içinde olduğunda öğe adı yineleyin bir `foreach` / `until` döngü. (Zorunlu) |
+| repeatItemIndex | Tamsayı | Eylem içinde olup olmadığını bir `foreach` / `until` döngü. Yinelenen öğe dizini belirtir. (Zorunlu) |
+| İzleme kodu | Dize | İletileri ilişkilendirmek için izleme kimliği. (İsteğe bağlı) |
+| correlationId | Dize | Bağıntı kimliği, iletileri ilişkilendirmek için. (İsteğe bağlı) |
+| ClientRequestId | Dize | İstemci iletileri ilişkilendirmek için doldurabilirsiniz. (İsteğe bağlı) |
+| eventLevel |   | Olay düzeyi. (Zorunlu) |
+| EventTime |   | UTC biçiminde YYYY-AA-DDTHH:MM:SS.00000Z olay zamanı. (Zorunlu) |
+| RecordType |   | İzleme kayıt türü. Değer izin verilen **özel**. (Zorunlu) |
 | Kayıt |   | Özel bir kayıt türü. İzin verilen JToken biçimindedir. (Zorunlu) |
 
 ## <a name="b2b-protocol-tracking-schemas"></a>B2B Protokolü izleme şemaları
@@ -85,5 +85,5 @@ B2B Protokolü şemaları izleme hakkında daha fazla bilgi için bkz:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Daha fazla bilgi edinmek [B2B iletileri izleme](logic-apps-monitor-b2b-message.md).   
-* Hakkında bilgi edinin [hello Operations Management Suite portalına B2B iletilerinde izleme](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
-* Merhaba hakkında daha fazla bilgi [Kurumsal tümleştirme paketi](../logic-apps/logic-apps-enterprise-integration-overview.md).
+* Hakkında bilgi edinin [Operations Management Suite portalına B2B iletilerinde izleme](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Daha fazla bilgi edinmek [Kurumsal tümleştirme paketi](../logic-apps/logic-apps-enterprise-integration-overview.md).

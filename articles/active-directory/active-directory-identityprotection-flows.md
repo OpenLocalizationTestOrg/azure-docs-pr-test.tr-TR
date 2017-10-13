@@ -1,6 +1,6 @@
 ---
-title: "Azure AD Identity Protection deneyimleriyle aaaSign bileşenini | Microsoft Docs"
-description: "Kimlik koruması azaltıldığından veya bir kullanıcı veya çok faktörlü kimlik doğrulama İlkesi tarafından ne zaman gerekli düzeltilen hello kullanıcı deneyimi genel bir bakış sağlar."
+title: "Azure AD kimlik koruması ile karşılaştığında oturum açma | Microsoft Docs"
+description: "Kimlik koruması azaltıldığından veya bir kullanıcı düzeltilen veya çok faktörlü kimlik doğrulama İlkesi tarafından istendiğinde kullanıcı deneyimini genel bir bakış sağlar."
 services: active-directory
 keywords: "Azure active directory kimlik koruması, cloud app discovery'yi, uygulamalar, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi yönetme"
 documentationcenter: 
@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: fbdca5b86ed93d0a2f2b6df1dd0150da9c0c85c0
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e45936280b51fb2e54012a688fceddcc8dabe984
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Oturum açma deneyimlerini Azure AD kimlik koruması
 Azure Active Directory kimlik koruması ile şunları yapabilirsiniz:
 
-* Kullanıcıların tooregister çok faktörlü kimlik doğrulamasını gerektirir
+* çok faktörlü kimlik doğrulaması için kullanıcıların
 * riskli oturum açma işlemleri ve güvenliği aşılan kullanıcılar işleme
 
-yalnızca doğrudan imzalama bir kullanıcı adı ve parola sağlayarak bileşenini artık mümkün olmayacaktır çünkü hello sistem toothese sorunları hello yanıtın bir kullanıcının oturum açma deneyimi üzerinde bir etkisi yoktur. Bir kullanıcı güvenli biçimde yedeklemeniz işletme gerekli tooget ek adımlardır.
+Bu sorunları sistem yanıta sahip bir kullanıcının oturum açma deneyimi üzerinde bir etkisi yalnızca doğrudan imzalama kullanıcı adını sağlayarak bileşenini olduğundan ve bir parola artık mümkün olmayacaktır. Bir kullanıcı güvenli bir şekilde almak için gereken ek adımlar iş uygulamasına geri.
 
 Bu konu, oluşabilecek tüm durumlarda bir kullanıcının oturum açma deneyimini genel bir bakış sağlar.
 
@@ -47,65 +47,65 @@ Bu konu, oluşabilecek tüm durumlarda bir kullanıcının oturum açma deneyimi
 * Engellenen gizliliği tehlikeye giren hesap
 
 ## <a name="multi-factor-authentication-registration"></a>Çok faktörlü kimlik doğrulaması kayıt
-her ikisi için de en iyi kullanıcı deneyimini Merhaba, gizliliği tehlikeye giren hesap kurtarma akışı hello ve oturum açma riskli akış Merhaba, hello kullanıcı kendi kendine kurtarabilirsiniz durumdur. Kullanıcılar için multi-Factor authentication kaydettiyseniz, zaten kullanılan toopass güvenlik tehditlerine olabilir, hesabıyla ilişkili bir telefon numarası sahiptirler. Yardım masasına veya yöneticinize katılımı hesabı güvenliğinin aşılmasına gelen gerekli toorecover ' dir. Bu nedenle, tooget kullanıcılarınızın tavsiye çok faktörlü kimlik doğrulaması için kayıtlı. 
+En iyi kullanıcı deneyimi, gizliliği tehlikeye giren hesap kurtarma akışı hem hem de riskli oturum açma akışını, kullanıcının kendi kendine kurtarabilirsiniz durumdur. Kullanıcılar için multi-Factor authentication kaydettiyseniz, zaten güvenlik tehditlerine geçirmek için kullanılan kendi hesabıyla ilişkili bir telefon numarası sahiptirler. Yardım masasına veya yöneticinize katılımı hesap bozulmayacak kurtarmak için gereklidir. Bu nedenle, çok faktörlü kimlik doğrulaması için kayıtlı kullanıcılarınızın almak için tavsiye. 
 
 Yöneticiler şunları yapabilir:
 
-* Kullanıcıların tooset kendi hesaplarını ek güvenlik doğrulaması gerektiren bir ilke ayarlayın. 
-* çok faktörlü kimlik doğrulaması kayıt too30 günlerini atlanıyor toogive kullanıcıların istedikleri durumunda izin kaydetmeden önce bir yetkisiz kullanım süresi.
+* ek güvenlik doğrulaması hesaplarını ayarlamak kullanıcıların gerektiren bir ilke ayarlayın. 
+* yetkisiz kullanım süresi kaydetmeden önce bir kullanıcılara vermek istediğiniz durumda 30 güne kadar çok faktörlü kimlik doğrulaması kaydı atlanıyor izin verir.
 
-**Merhaba çok faktörlü kimlik doğrulaması kayıt üç adım vardır:**
+**Çok faktörlü kimlik doğrulaması kayıt üç adım vardır:**
 
-1. Merhaba ilk adımda hello kullanıcı hello gereksinim tooset hello hesabı çok faktörlü kimlik doğrulama kaydınızı hakkında bir bildirim alır. 
+1. İlk adımda, kullanıcı hesabı çok faktörlü kimlik doğrulama kaydınızı ayarlamak için gereksinimi hakkında bir bildirim alır. 
    
     ![Düzeltme](./media/active-directory-identityprotection-flows/140.png "düzeltme")
-2. tooset çok faktörlü kimlik doğrulamasını kurma toolet hello sistem ihtiyacınız temas toobe istediğiniz bildirin.
+2. Çok faktörlü kimlik doğrulamasını ayarlamak için nasıl kurulmasını istediğinizi bilmeniz sistem izin gerekir.
    
     ![Düzeltme](./media/active-directory-identityprotection-flows/141.png "düzeltme")
-3. bir challenge tooyou Hello sistem gönderir ve toorespond gerekir.
+3. Sistem için bir sınama gönderir ve yanıt vermesi gerekir.
    
     ![Düzeltme](./media/active-directory-identityprotection-flows/142.png "düzeltme")
 
 ## <a name="risky-sign-in-recovery"></a>Oturum açma riskli kurtarma
-Yönetici oturum açma riskler için bir ilke şekilde yapılandırdığında toosign içinde çalıştıklarında hello etkilenen kullanıcılara bildirilir. 
+Yönetici oturum açma riskler için bir ilke yapılandırıldığında, bu oturum açma çalıştıklarında etkilenen kullanıcılara bildirilir. 
 
-**oturum açma Hello riskli akışı iki adımı vardır:** 
+**Riskli oturum açma akışını iki adımı vardır:** 
 
-1. olağan dışı bir şey hakkında kendi oturum yeni konumu, cihaz veya uygulama oturum açma gibi algılandı Hello kullanıcı bilgilendirilir. 
+1. Olağan dışı bir şey hakkında kendi oturum yeni konumu, cihaz veya uygulama oturum açma gibi algılandı kullanıcı bilgilendirilir. 
    
     ![Düzeltme](./media/active-directory-identityprotection-flows/120.png "düzeltme")
-2. Merhaba kullanıcı gerekli tooprove kendi güvenlik sınaması çözme tarafından kimliğidir. Merhaba kullanıcı çok faktörlü kimlik doğrulaması için kayıtlı değilse tooround seyahat bir güvenlik kodu tootheir telefon numarası ihtiyaç duyar. Bu yalnızca bir olduğundan riskli bir oturum açma ve güvenliği aşılmış bir hesabı değil, hello kullanıcı bu akışında toochange hello parola sahip olmaz. 
+2. Kullanıcı güvenlik sınaması çözme tarafından kimliğini kanıtlamak için gereklidir. Kullanıcı çok faktörlü kimlik doğrulaması için kayıtlı değilse kullanıcıların telefon numarasına bir güvenlik kodu gidiş için gerekir. Bu yalnızca bir olduğundan riskli bir oturum açma ve güvenliği aşılmış bir hesabı değil, kullanıcı bu akış parolayı değiştirmek zorunda kalmazsınız. 
    
     ![Düzeltme](./media/active-directory-identityprotection-flows/121.png "düzeltme")
 
 ## <a name="risky-sign-in-blocked"></a>Riskli oturum engellenen açma
-Yöneticiler, bir oturum açma riski İlkesi tooblock kullanıcılar oturum açma hello risk düzeyi bağlı olarak bağlı tooset de seçebilirsiniz. engeli kaldırılmış tooget, son kullanıcıların yöneticinize veya yardım masasına başvurun veya tanıdık konumu ya da cihaz açmayı deneyin. Çok faktörlü kimlik doğrulaması çözme tarafından otomatik olarak kurtarma seçeneği bu durumda değil.
+Yöneticiler, blok kullanıcılar oturum açma risk düzeyine bağlı olarak bağlı bir oturum açma riski ilkesini ayarlamak de seçebilirsiniz. Engeli almak için son kullanıcıların bir yönetici veya yardım masasına başvurmanız gerekir veya tanıdık konumu ya da cihaz açmayı deneyin. Çok faktörlü kimlik doğrulaması çözme tarafından otomatik olarak kurtarma seçeneği bu durumda değil.
 
 ![Düzeltme](./media/active-directory-identityprotection-flows/200.png "düzeltme")
 
 ## <a name="compromised-account-recovery"></a>Gizliliği tehlikeye giren hesap kurtarma
-Bir kullanıcı risk Güvenlik İlkesi yapılandırıldığında hello kullanıcı karşılayan kullanıcılar risk düzeyi hello İlkesi'nde belirtilen (ve bu nedenle varsayılır tehlikeye), oturum açma önce hello kullanıcı güvenliğinin aşılmasına kurtarma aktığı gitmeniz gerekir. 
+Bir kullanıcı risk Güvenlik İlkesi yapılandırıldığında kullanıcı karşılayan kullanıcılar risk düzeyi İlkesi'nde belirtilen (ve bu nedenle varsayılır tehlikeye), oturum açma önce kullanıcı güvenliğinin aşılmasına kurtarma aktığı gitmeniz gerekir. 
 
-**Merhaba kullanıcı güvenliğinin aşılmasına kurtarma akışı üç adım vardır:**
+**Kullanıcı güvenlik aşılması kurtarma akışı üç adım vardır:**
 
-1. Merhaba kullanıcı, kendi hesabı güvenlik riski nedeniyle şüpheli etkinlik olduğu veya kimlik bilgilerini sızmasını bilgilendirilir.
+1. Kullanıcı, kendi hesabı güvenlik riski nedeniyle şüpheli etkinlik olduğu veya kimlik bilgilerini sızmasını bilgilendirilir.
    
     ![Düzeltme](./media/active-directory-identityprotection-flows/101.png "düzeltme")
-2. Merhaba kullanıcı gerekli tooprove kendi güvenlik sınaması çözme tarafından kimliğidir. Merhaba kullanıcı çok faktörlü kimlik doğrulaması için kayıtlı değilse, güvenliğinin bozulması riskini Self kurtarabilirsiniz. Bunlar tooround seyahat bir güvenlik kodu tootheir telefon numarası gerekir. 
+2. Kullanıcı güvenlik sınaması çözme tarafından kimliğini kanıtlamak için gereklidir. Kullanıcı çok faktörlü kimlik doğrulaması için kayıtlı değilse, güvenliğinin bozulması riskini Self kurtarabilirsiniz. Bunlar için gidiş telefon numarasına bir güvenlik kodu gerekir. 
    
    ![Düzeltme](./media/active-directory-identityprotection-flows/110.png "düzeltme")
-3. Son olarak, kullanıcı hello zorlanmış toochange parolalarını olduğu başka birisi erişim tootheir hesabı olmuş olabilir. 
+3. Son olarak, kullanıcı, başka birinin kendi hesaplarına erişim sağlamış olma ihtimaline parolalarını değiştirmek için zorlanır. 
    Aşağıda bu deneyim ekran görüntüleri verilmiştir.
    
    ![Düzeltme](./media/active-directory-identityprotection-flows/111.png "düzeltme")
 
 ## <a name="compromised-account-blocked"></a>Engellenen gizliliği tehlikeye giren hesap
-tooget engeli kaldırılmış bir kullanıcı risk güvenlik ilkesi tarafından engellenen bir kullanıcı, hello kullanıcı bir yönetici veya yardım masasına başvurmanız gerekir. Çok faktörlü kimlik doğrulaması çözme tarafından otomatik olarak kurtarma seçeneği bu durumda değil.
+Engeli kaldırılmış bir kullanıcı risk güvenlik ilkesi tarafından engellenen bir kullanıcı almak için kullanıcı bir yöneticiye başvurun veya Yardım Masası gerekir. Çok faktörlü kimlik doğrulaması çözme tarafından otomatik olarak kurtarma seçeneği bu durumda değil.
 
 ![Düzeltme](./media/active-directory-identityprotection-flows/104.png "düzeltme")
 
 ## <a name="reset-password"></a>Parola sıfırlama
-Güvenliği aşılmış kullanıcıların açmasını engellenirse yönetici kendileri için geçici bir parola oluşturun. Merhaba kullanıcılar toochange, bir sonraki oturum açma sırasında parolalarını sahip olacaktır.
+Güvenliği aşılmış kullanıcıların açmasını engellenirse yönetici kendileri için geçici bir parola oluşturun. Kullanıcıların, bir sonraki oturum açma sırasında parolalarını değiştirmek gerekir.
 
 ![Düzeltme](./media/active-directory-identityprotection-flows/160.png "düzeltme")
 

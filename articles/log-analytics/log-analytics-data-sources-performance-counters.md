@@ -1,6 +1,6 @@
 ---
-title: "aaaCollect ve Azure günlük analizi performans sayaçları analiz | Microsoft Docs"
-description: "Performans sayaçları, Windows ve Linux aracıları günlük analizi tooanalyze performans tarafından toplanır.  Windows ve Linux aracıları, bunlar ayrıntılarını hello OMS deposunda depolanır ve nasıl nasıl tooconfigure koleksiyonu performans sayaçları bu makalede tooanalyze hello OMS portalında bunları."
+title: "Toplama ve performans sayaçları Azure günlük analizi çözümleme | Microsoft Docs"
+description: "Performans sayaçları, Windows ve Linux aracılarını performansını çözümlemek için günlük analizi tarafından toplanır.  Bu makalede, performans sayaçlarını toplama hem Windows için yapılandırmak açıklar ve Linux aracılarını, bunlar ayrıntılarını OMS depo ve OMS portalında analiz etme depolanır."
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 30146fecf8db1d8851b89fdb970f757bbb24abf1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 953bb453b0a9635627fbbb6c3913d0cd757101c7
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Windows ve Linux performans veri kaynaklarında günlük analizi
-Windows ve Linux performans sayaçları hello performansını donanım bileşenleri, işletim sistemleri ve uygulamalar hakkında bilgi sağlar.  Günlük analizi, uzun vadeli analiz ve raporlama için ek tooaggregating performans verileri neredeyse gerçek zamanlı (NRT) analizi için sık aralıklarla performans sayaçları toplayabilirsiniz.
+Windows ve Linux performans sayaçları donanım bileşenleri, işletim sistemleri ve uygulamaların performansını bir anlayış sağlar.  Günlük analizi, performans sayaçları, uzun vadeli analiz için performans verilerini toplama ve raporlama ek olarak neredeyse gerçek zamanlı (NRT) çözümleme için sık aralıklarla toplayabilirsiniz.
 
 ![Performans sayaçları](media/log-analytics-data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Performans sayaçları yapılandırma
-Performans sayaçları hello hello OMS Portalı'nda yapılandırmak [günlük analizi ayarları veri menüde](log-analytics-data-sources.md#configuring-data-sources).
+OMS Portalı'nda performans sayaçları yapılandırmak [günlük analizi ayarları veri menüde](log-analytics-data-sources.md#configuring-data-sources).
 
-İlk Windows yapılandırın veya yeni bir OMS çalışma alanı için Linux performans sayaçları, verilen hello seçeneği tooquickly birkaç ortak sayaçları oluşturun.  Bunlar, bir onay kutusu sonraki tooeach ile listelenir.  Tooinitially istediğiniz herhangi bir sayaç oluşturduğunuzdan emin olun denetlenir ve ardından **Ekle hello Seçili performans sayaçlarını**.
+Windows veya Linux performans sayaçları yeni bir OMS çalışma alanı için ilk yapılandırırken hızla birçok ortak sayaçları oluşturma seçeneği verilir.  Bunlar, her yanındaki onay kutusunu ile listelenir.  Başlangıçta oluşturmak istediğiniz herhangi bir sayaç denetlenir ve ardından olun **Seçili performans sayaçlarını Ekle**.
 
-Windows performans sayaçları için her performans sayacı için belirli bir örneği seçebilirsiniz. Linux performans sayaçları için seçtiğiniz her sayacı hello örneği tooall alt sayaçları hello üst sayacın geçerlidir. Merhaba aşağıdaki tabloda hello ortak örnekleri kullanılabilir tooboth Linux ve Windows performans sayaçlarını gösterir.
+Windows performans sayaçları için her performans sayacı için belirli bir örneği seçebilirsiniz. Linux performans sayaçları için seçtiğiniz her sayaç örneği üst sayacı tüm alt sayaçları geçerlidir. Aşağıdaki tabloda, Linux ve Windows performans sayaçları için kullanılabilen ortak örnekleri gösterilmektedir.
 
 | Örnek adı | Açıklama |
 | --- | --- |
-| \_Toplam |Tüm hello örnekleri toplamı |
+| \_Toplam |Tüm örnekleri toplamı |
 | \* |Tüm örnekleri |
 | (/ &#124; / var) |Eşleşen adlandırılmış örnekleri: / veya /var |
 
@@ -42,32 +42,32 @@ Windows performans sayaçları için her performans sayacı için belirli bir ö
 
 ![Windows performans sayaçlarını yapılandırın](media/log-analytics-data-sources-performance-counters/configure-windows.png)
 
-Bu yordam tooadd yeni bir Windows performans sayacı toocollect izleyin.
+Toplamak için yeni bir Windows performans sayacı eklemek için bu yordamı izleyin.
 
-1. Tür hello hello sayaç hello biçiminde hello metin kutusuna adını *nesne (örnek) \counter*.  Yazmaya başladığınızda, ortak sayaçların eşleşen bir listesi sunulur.  Hello listesi veya kendi yazın ya da bir sayaç seçebilirsiniz.  Belirterek belirli bir sayaç için tüm örnekleri döndürebilir *object\counter*.  
+1. Sayaç adı metin kutusuna biçimde yazın *nesne (örnek) \counter*.  Yazmaya başladığınızda, ortak sayaçların eşleşen bir listesi sunulur.  Bir sayacı, liste veya kendi yazın ya da seçebilirsiniz.  Belirterek belirli bir sayaç için tüm örnekleri döndürebilir *object\counter*.  
 
-    SQL Server performans sayaçları adlandırılmış örneklerin toplarken, tüm örnek sayaçları Başlarken adlı *MSSQL$* ve ardından hello örneği hello adı.  Örneğin, toocollect hello günlük önbelleği isabet oranı sayaç INST2, tüm veritabanlarından hello veritabanı performans nesnesi için adlandırılmış SQL örneği için belirtmeniz `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`.
+    SQL Server performans sayaçları adlandırılmış örneklerin toplarken, tüm örnek sayaçları Başlarken adlı *MSSQL$* ve ardından örneğinin adı.  Örneğin, tüm veritabanları için adlandırılmış SQL veritabanı performans nesnesinden INST2 örneği için günlük önbelleği isabet oranı sayacı toplamak için belirtin `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`.
 
-2. Tıklatın  **+**  veya basın **Enter** tooadd hello sayaç toohello listesi.
-3. Bir sayaç eklediğinizde, 10 saniye hello varsayılan kullanır, **örnekleme aralığı**.  Merhaba toplanan performans verilerini tooreduce hello depolama gereksinimlerini isterseniz bu tooa daha yüksek değer olan too1800 saniyedir (30 dakika) değiştirebilirsiniz.
-4. Ekleme sayaçları bittiğinde, hello tıklatın **kaydetmek** Merhaba ekranında toosave hello yapılandırma hello üstündeki düğmesi.
+2. Tıklatın  **+**  veya basın **Enter** sayaç listesine eklemek için.
+3. Bir sayaç eklediğinizde, varsayılan değer 10 saniye olan kullanan kendi **örnekleme aralığı**.  Toplanan performans veri depolama gereksinimlerini azaltmak istiyorsanız bu 1800 saniye (30 dakika) daha yüksek bir değere değiştirebilirsiniz.
+4. Ekleme sayaçları bittiğinde, tıklatın **kaydetmek** yapılandırmayı kaydetmek için ekranın üstündeki düğmesi.
 
 ### <a name="linux-performance-counters"></a>Linux performans sayaçları
 
 ![Linux performans sayaçları yapılandırmak](media/log-analytics-data-sources-performance-counters/configure-linux.png)
 
-Bu yordam tooadd yeni Linux performans sayacı toocollect izleyin.
+Toplamak için yeni bir Linux performans sayacı eklemek için bu yordamı izleyin.
 
-1. Varsayılan olarak, tüm yapılandırma değişiklikleri otomatik olarak tooall aracıları gönderilir.  Linux aracıları için bir yapılandırma dosyası toohello Fluentd veri toplayıcı gönderilir.  Bu dosyada el ile her Linux Aracısı toomodify isterseniz hello kutunun işaretini *aşağıdaki yapılandırma toomy Linux makineler Uygula* ve aşağıdaki hello yönergeleri izleyin.
-2. Tür hello hello sayaç hello biçiminde hello metin kutusuna adını *nesne (örnek) \counter*.  Yazmaya başladığınızda, ortak sayaçların eşleşen bir listesi sunulur.  Hello listesi veya kendi yazın ya da bir sayaç seçebilirsiniz.  
-3. Tıklatın  **+**  veya basın **Enter** tooadd hello sayaç toohello hello nesne için diğer sayaçlarının listesi.
-4. Bir nesne kullanımı için tüm sayaçlar aynı hello **örnekleme aralığı**.  Merhaba varsayılan değer 10 saniyedir.  Merhaba toplanan performans verilerini tooreduce hello depolama gereksinimlerini istiyorsanız bu tooa daha yüksek değer olan too1800 saniyedir (30 dakika) değiştirin.
-5. Ekleme sayaçları bittiğinde, hello tıklatın **kaydetmek** Merhaba ekranında toosave hello yapılandırma hello üstündeki düğmesi.
+1. Varsayılan olarak, tüm yapılandırma değişiklikleri otomatik olarak tüm aracıları için gönderilir.  Linux aracıları için bir yapılandırma dosyası için Fluentd veri toplayıcı gönderilir.  Bu dosyayı her Linux aracısında el ile değiştirmek isterseniz, kutunun işaretini *aşağıdaki yapılandırmayı Linux makinelerime Uygula* ve aşağıdaki yönergeleri izleyin.
+2. Sayaç adı metin kutusuna biçimde yazın *nesne (örnek) \counter*.  Yazmaya başladığınızda, ortak sayaçların eşleşen bir listesi sunulur.  Bir sayacı, liste veya kendi yazın ya da seçebilirsiniz.  
+3. Tıklatın  **+**  veya basın **Enter** nesne için diğer sayaçlarının listesi sayaç eklemek için.
+4. Bir nesne için tüm sayaçlar aynı kullanmak **örnekleme aralığı**.  Varsayılan değer 10 saniyedir.  Toplanan performans veri depolama gereksinimlerini azaltmak istiyorsanız bu 1800 saniye (30 dakika) daha yüksek bir değerle değiştirin.
+5. Ekleme sayaçları bittiğinde, tıklatın **kaydetmek** yapılandırmayı kaydetmek için ekranın üstündeki düğmesi.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Linux performans sayaçları yapılandırma dosyasındaki yapılandırma
-Merhaba OMS portalı kullanarak Linux performans sayaçlarını yapılandırmak yerine hello Linux Aracısı Yapılandırma dosyalarını düzenleme hello seçeneğiniz vardır.  Performans ölçümleri toocollect hello yapılandırmasında tarafından denetlenen **/etc/opt/microsoft/omsagent/\<çalışma alanı kimliği\>/conf/omsagent.conf**.
+OMS Portalı'nı kullanarak Linux performans sayaçları yapılandırmak yerine, Linux Aracısı'nı yapılandırma dosyalarını düzenleme seçeneğiniz vardır.  Performans ölçümleri toplamak için yapılandırmada tarafından denetlenen **/etc/opt/microsoft/omsagent/\<çalışma alanı kimliği\>/conf/omsagent.conf**.
 
-Tek bir olarak hello yapılandırma dosyasındaki her nesne veya kategorisi, performans ölçümleri toocollect tanımlanmalıdır `<source>` öğesi. Merhaba sözdizimi aşağıdaki hello deseni izler.
+Tek bir yapılandırma dosyasındaki her nesne veya toplamak için performans ölçümleri kategorisi tanımlanmalıdır `<source>` öğesi. Sözdizimi deseni izler.
 
     <source>
       type oms_omi  
@@ -78,17 +78,17 @@ Tek bir olarak hello yapılandırma dosyasındaki her nesne veya kategorisi, per
     </source>
 
 
-Bu öğe Hello parametrelerinde aşağıdaki tablonun hello açıklanmaktadır.
+Bu öğe parametrelerinde aşağıdaki tabloda açıklanmıştır.
 
 | Parametreler | Açıklama |
 |:--|:--|
-| Nesne\_adı | Nesne adı hello koleksiyonu. |
-| örnek\_regex |  A *normal ifade* hangi örnekleri toocollect tanımlama. Merhaba değeri: `.*` tüm örneklerini belirtir. yalnızca hello için toocollect işlemci ölçümleri \_toplam örneğini belirtmek `_Total`. toocollect işlem ölçümlerini yalnızca crond veya sshd örneği Merhaba, belirttiğiniz: ' (crond\|sshd)'. |
-| Sayaç\_adı\_regex | A *normal ifade* hangi (Merhaba nesnesi) sayaçları toocollect tanımlama. Merhaba nesnesi için tüm sayaçlar toocollect belirtin: `.*`. toocollect hello bellek nesnesi için yalnızca alanı sayaçları değiştirme, örneğin, size belirtebilirsiniz:`.+Swap.+` |
-| interval | Sıklık hangi hello nesnesinin sayaçları toplanır. |
+| Nesne\_adı | Koleksiyon için nesne adı. |
+| örnek\_regex |  A *normal ifade* toplamak için hangi örnekleri tanımlama. Değer: `.*` tüm örneklerini belirtir. Yalnızca işlemci ölçümleri toplamak için \_toplam örneğini belirtmek `_Total`. Yalnızca crond veya sshd örnekleri için işlem ölçümlerini toplamak için belirtebilirsiniz: ' (crond\|sshd)'. |
+| Sayaç\_adı\_regex | A *normal ifade* hangi toplamak için (nesne için) sayaçları tanımlama. Nesne için tüm sayaçlar toplanacak belirtin: `.*`. Yalnızca takas alanı sayaçları için bellek nesnesi toplamak için örneğin, size belirtebilirsiniz:`.+Swap.+` |
+| aralığı | Toplanan ve nesnenin sayaçları sıklığı. |
 
 
-Merhaba aşağıdaki tabloda hello nesneleri ve hello yapılandırma dosyasında belirttiğiniz sayaçları listeler.  Ek sayaçları belirli uygulamalar için kullanılabilir olduğundan açıklandığı gibi [toplama günlük analizi Linux uygulamaları için performans sayaçları](log-analytics-data-sources-linux-applications.md).
+Aşağıdaki tabloda, nesneleri ve yapılandırma dosyasında belirttiğiniz sayaçları listeler.  Ek sayaçları belirli uygulamalar için kullanılabilir olduğundan açıklandığı gibi [toplama günlük analizi Linux uygulamaları için performans sayaçları](log-analytics-data-sources-linux-applications.md).
 
 | Nesne adı | Sayaç adı |
 |:--|:--|
@@ -147,7 +147,7 @@ Merhaba aşağıdaki tabloda hello nesneleri ve hello yapılandırma dosyasında
 | Sistem | Kullanıcılar |
 
 
-Aşağıdaki hello varsayılan için performans ölçümleri yapılandırmadır.
+Aşağıdaki performans ölçümleri için varsayılan yapılandırmadır.
 
     <source>
       type oms_omi
@@ -182,29 +182,29 @@ Aşağıdaki hello varsayılan için performans ölçümleri yapılandırmadır.
     </source>
 
 ## <a name="data-collection"></a>Veri toplama
-Günlük analizi sayaç yüklü olan tüm aracıları, belirtilen örnek aralıkta tüm belirtilen performans sayaçlarını toplar.  Merhaba veri değil toplanır ve hello ham veriler OMS aboneliğiniz ile belirtilen hello süresi için tüm günlük arama görünümlerde kullanılabilir.
+Günlük analizi sayaç yüklü olan tüm aracıları, belirtilen örnek aralıkta tüm belirtilen performans sayaçlarını toplar.  Verileri değil toplanır ve ham verileri, OMS aboneliğiniz ile belirtilen süre için tüm günlük arama görünümlerde kullanılabilir durumdadır.
 
 ## <a name="performance-record-properties"></a>Performans kaydı Özellikler
-Performans kayıtları sahip bir tür **Perf** ve aşağıdaki tablonun hello hello özelliklere sahiptir.
+Performans kayıtları sahip bir tür **Perf** ve aşağıdaki tabloda özelliklere sahiptir.
 
 | Özellik | Açıklama |
 |:--- |:--- |
-| Bilgisayar |Olay hello bilgisayar toplandığı. |
-| CounterName |Merhaba performans sayacı adı |
-| Sayaç yolu |Merhaba sayaç hello formunda tam yolunu \\ \\ \<bilgisayar >\\nesne(örnek)\\sayacı. |
-| CounterValue |Merhaba sayaç sayısal değeri. |
-| InstanceName |Merhaba olay örneğinin adı.  Hiçbir örnek varsa boş. |
-| ObjectName |Merhaba performans nesnesi adı |
-| SourceSystem |Aracı hello veri türü toplandığı. <br><br>OpsManager – Windows aracı, ya da doğrudan bağlanın veya SCOM <br> Linux – tüm Linux aracıları  <br> AzureStorage – Azure tanılama |
-| TimeGenerated |Tarih ve saat hello veri örneklenen. |
+| Bilgisayar |Olay toplandığı bilgisayar. |
+| CounterName |Performans sayacı adı |
+| Sayaç yolu |Sayaç biçiminde tam yolunu \\ \\ \<bilgisayar >\\nesne(örnek)\\sayacı. |
+| CounterValue |Sayacın sayısal değer. |
+| InstanceName |Olay örneğinin adı.  Hiçbir örnek varsa boş. |
+| ObjectName |Performans nesnesi adı |
+| SourceSystem |Verileri toplandığı aracı türü. <br><br>OpsManager – Windows aracı, ya da doğrudan bağlanın veya SCOM <br> Linux – tüm Linux aracıları  <br> AzureStorage – Azure tanılama |
+| TimeGenerated |Tarih ve saat verileri örneklenen. |
 
 ## <a name="sizing-estimates"></a>Boyutlandırma tahmin eder
- Belirli bir sayaç koleksiyonu 10 saniyelik aralıklarda için kabaca bir tahmin örneği başına günde yaklaşık 1 MB ' dir.  Formül aşağıdaki hello ile belirli bir sayaç hello depolama gereksinimlerini tahmin edebilirsiniz.
+ Belirli bir sayaç koleksiyonu 10 saniyelik aralıklarda için kabaca bir tahmin örneği başına günde yaklaşık 1 MB ' dir.  Aşağıdaki formülü olan belirli bir sayaç depolama gereksinimlerini tahmin edebilirsiniz.
 
     1 MB x (number of counters) x (number of agents) x (number of instances)
 
 ## <a name="log-searches-with-performance-records"></a>Performans kayıtlarla günlük aramalar
-Merhaba aşağıdaki tabloda farklı performans kayıtları almak günlük arama örnekleri sağlar.
+Aşağıdaki tabloda farklı performans kayıtları almak günlük arama örnekleri sağlar.
 
 | Sorgu | Açıklama |
 |:--- |:--- |
@@ -213,15 +213,15 @@ Merhaba aşağıdaki tabloda farklı performans kayıtları almak günlük arama
 | Türü Perf CounterName = "Geçerli Disk Sırası Uzunluğu" = |Belirli bir sayaç için tüm performans verileri |
 | Türü Perf = (ObjectName işlemci =) CounterName "% işlemci zamanı" InstanceName = = _Total &#124; Bilgisayar tarafından AVGCPU olarak AVG(Average) ölçme |Tüm bilgisayarlardaki ortalama CPU kullanımı |
 | Türü Perf = (CounterName = "% işlemci zamanı") &#124;  Bilgisayar tarafından ölçü max(Max) |Tüm bilgisayarlardaki en fazla CPU kullanımı |
-| Türü Perf ObjectName = MantıksalDisk CounterName = = "Geçerli Disk Sırası Uzunluğu" bilgisayar = "MyComputerName" &#124; Ölçü InstanceName tarafından Avg(Average) |Belirli bir bilgisayarın tüm hello örneklerde ortalama geçerli Disk Sırası Uzunluğu |
+| Türü Perf ObjectName = MantıksalDisk CounterName = = "Geçerli Disk Sırası Uzunluğu" bilgisayar = "MyComputerName" &#124; Ölçü InstanceName tarafından Avg(Average) |Belirli bir bilgisayarın tüm örneklerde ortalama geçerli Disk Sırası Uzunluğu |
 | Türü Perf CounterName = = "DiskTransfers/sn" &#124; Bilgisayar tarafından ölçü percentile95(Average) |95 yüzdebirlik, Disk aktarımı/sn tüm bilgisayarlardaki |
 | Türü Perf CounterName = "% işlemci zamanı" InstanceName = = "_Toplam" &#124; AVG(CounterValue) 1 saat bilgisayar aralığına göre ölçün |Saatlik tüm bilgisayarlardaki CPU kullanımı ortalaması |
 | Türü Perf bilgisayar = "Bilgisayarım" CounterName = % * InstanceName = = _Total &#124; Ölçü percentile70(CounterValue) CounterName aralığı 1 saat |Belirli bir bilgisayar için her % yüzde sayacın saatlik 70 yüzdebirlik |
 | Türü Perf CounterName = "% işlemci zamanı" InstanceName = "_Toplam" = (bilgisayar = "Bilgisayarım") &#124; Min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) 1 saat bilgisayar aralığına göre ölçün |Saatlik ortalama, en az, en fazla ve 75-yüzdelik CPU kullanımı belirli bir bilgisayar için |
-| Türü Perf ObjectName = = "MSSQL$ INST2: veritabanları" InstanceName ana = | Tüm performans verilerini hello veritabanı performans hello ana veritabanı için SQL Server örneği INST2 adlı hello nesne.  
+| Türü Perf ObjectName = = "MSSQL$ INST2: veritabanları" InstanceName ana = | Adlandırılmış SQL Server örneğinden INST2 ana veritabanı için veritabanı performans nesnesinden tüm performans verileri.  
 
 >[!NOTE]
-> Çalışma alanınızı yükseltilmiş toohello yüklediyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), sorguları yukarıda hello toohello aşağıdaki değişeceğinden sonra.
+> Çalışma alanınız [yeni Log Analytics sorgu diline](log-analytics-log-search-upgrade.md) yükseltilmişse, yukarıdaki sorguların aşağıdaki gibi değiştirilmesi gerekir.
 
 > | Sorgu | Açıklama |
 |:--- |:--- |
@@ -230,22 +230,22 @@ Merhaba aşağıdaki tabloda farklı performans kayıtları almak günlük arama
 | Perf &#124; CounterName burada "Geçerli Disk Sırası Uzunluğu" == |Belirli bir sayaç için tüm performans verileri |
 | Perf &#124; Burada ObjectName "İşlemci" ve CounterName == "% işlemci zamanı" ve InstanceName == "_Toplam" &#124; == AVGCPU özetlemek bilgisayar tarafından avg(Average) = |Tüm bilgisayarlardaki ortalama CPU kullanımı |
 | Perf &#124; CounterName burada "% işlemci zamanı" & #124 ==; AggregatedValue özetlemek bilgisayar tarafından max(Max) = |Tüm bilgisayarlardaki en fazla CPU kullanımı |
-| Perf &#124; Burada ObjectName "MantıksalDisk" ve CounterName == "Geçerli Disk Sırası Uzunluğu" ve bilgisayar == "MyComputerName" &#124; == AggregatedValue özetlemek InstanceName tarafından avg(Average) = |Belirli bir bilgisayarın tüm hello örneklerde ortalama geçerli Disk Sırası Uzunluğu |
+| Perf &#124; Burada ObjectName "MantıksalDisk" ve CounterName == "Geçerli Disk Sırası Uzunluğu" ve bilgisayar == "MyComputerName" &#124; == AggregatedValue özetlemek InstanceName tarafından avg(Average) = |Belirli bir bilgisayarın tüm örneklerde ortalama geçerli Disk Sırası Uzunluğu |
 | Perf &#124; CounterName burada "DiskTransfers/sn" & #124 ==; AggregatedValue özetlemek yüzdebirlik (ortalama, 95) bilgisayar tarafından = |95 yüzdebirlik, Disk aktarımı/sn tüm bilgisayarlardaki |
 | Perf &#124; "% işlemci zamanı" ve InstanceName CounterName burada == "_Toplam" &#124; == AggregatedValue özetlemek bin (TimeGenerated, 1 h), bilgisayar tarafından avg(CounterValue) = |Saatlik tüm bilgisayarlardaki CPU kullanımı ortalaması |
 | Perf &#124; Burada bilgisayar "Bilgisayarım" ve CounterName startswith_cs "%" ve InstanceName == "_Toplam" &#124; == AggregatedValue özetlemek depo tarafından (TimeGenerated, 1 h), CounterName yüzdebirlik (CounterValue, 70) = | Belirli bir bilgisayar için her % yüzde sayacın saatlik 70 yüzdebirlik |
 | Perf &#124; "% işlemci zamanı" ve InstanceName CounterName burada == "_Toplam" ve bilgisayar == "Bilgisayarım" &#124; == ["min(CounterValue)"] özetlemek min(CounterValue), = ["avg(CounterValue)"] avg(CounterValue), = ["percentile75(CounterValue)"] yüzdebirlik (CounterValue, 75), = ["max(CounterValue)"] bin (TimeGenerated, 1 h), bilgisayar tarafından max(CounterValue) = |Saatlik ortalama, en az, en fazla ve 75-yüzdelik CPU kullanımı belirli bir bilgisayar için |
-| Perf &#124; Burada ObjectName == "MSSQL$ INST2: veritabanları" ve InstanceName "ana" == | Tüm performans verilerini hello veritabanı performans hello ana veritabanı için SQL Server örneği INST2 adlı hello nesne.  
+| Perf &#124; Burada ObjectName == "MSSQL$ INST2: veritabanları" ve InstanceName "ana" == | Adlandırılmış SQL Server örneğinden INST2 ana veritabanı için veritabanı performans nesnesinden tüm performans verileri.  
 
 ## <a name="viewing-performance-data"></a>Performans verileri görüntüleme
-Performans verileri günlük Ara çalıştırdığınızda hello **listesi** görünümü, varsayılan olarak görüntülenir.  Grafik formundaki tooview hello verileri tıklatın **ölçümleri**.  Ayrıntılı bir grafik görünümü için hello tıklatın  **+**  sonraki tooa sayacı.  
+Performans verileri günlük Ara çalıştırdığınızda **listesi** görünümü, varsayılan olarak görüntülenir.  Grafik formunda verileri görüntülemek için tıklatın **ölçümleri**.  Ayrıntılı bir grafik görünümü için tıklatın  **+**  bir sayaç yanındaki.  
 
 ![Daraltılmış ölçümleri Görünüm](media/log-analytics-data-sources-performance-counters/metricscollapsed.png)
 
-tooaggregate performans verileri günlük arama görmek [isteğe bağlı ölçüm toplama ve OMS görselleştirme](http://blogs.technet.microsoft.com/msoms/2016/02/26/on-demand-metric-aggregation-and-visualization-in-oms/).
+Günlük arama performans verilerini toplama için bkz: [isteğe bağlı ölçüm toplama ve OMS görselleştirme](http://blogs.technet.microsoft.com/msoms/2016/02/26/on-demand-metric-aggregation-and-visualization-in-oms/).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Linux uygulamalardan performans sayaçlarını Topla](log-analytics-data-sources-linux-applications.md) MySQL ve Apache HTTP Server dahil olmak üzere.
-* Hakkında bilgi edinin [oturum aramaları](log-analytics-log-searches.md) tooanalyze hello veri toplanan veri kaynakları ve çözümler.  
-* Toplanan veriler çok dışarı[Power BI](log-analytics-powerbi.md) ek görselleştirmeleri ve analiz için.
+* Hakkında bilgi edinin [oturum aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümleri toplanan verileri çözümlemek için.  
+* Toplanan verileri dışarı aktarma [Power BI](log-analytics-powerbi.md) ek görselleştirmeleri ve analiz için.

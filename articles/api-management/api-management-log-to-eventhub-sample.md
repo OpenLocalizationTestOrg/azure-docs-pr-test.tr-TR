@@ -1,6 +1,6 @@
 ---
-title: "Azure API Management, olay hub'ları ve Runscope API'leri aaaMonitor | Microsoft Docs"
-description: "Merhaba günlük eventhub ilkeyle bağlanan Azure API Management, Azure olay hub'ları ve günlüğe kaydetme ve izleme HTTP Runscope gösteren örnek uygulama"
+title: "Azure API Management, olay hub'ları ve Runscope API izleme | Microsoft Docs"
+description: "Bağlanan Azure API Management, Azure olay hub'ları ve günlüğe kaydetme ve izleme HTTP Runscope günlük eventhub ilkeyle gösteren örnek uygulama"
 services: api-management
 documentationcenter: 
 author: darrelmiller
@@ -14,39 +14,39 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 7456a2436f3a2d7b815b70b65fca9481d39c5fe9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 70ee752c5639c90f77dde104ce85eec0a1062300
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Azure API Management, olay hub'ları ve Runscope Apı'lerinizi izleme
-Merhaba [API Management hizmeti](api-management-key-concepts.md) birçok yetenekleri tooenhance hello işlenmesini HTTP gönderilen istekleri tooyour HTTP API sağlar. Ancak, hello istekleri varlığını hello ve yanıtları geçicidir. Merhaba istek yapıldığında ve hello API Management hizmeti tooyour arka API akar. API'nizi hello isteği işler ve bir yanıtı geri toohello API tüketici akar. Merhaba yayımcı portal panosunda, ancak ötesinde Hello API Management hizmeti bazı önemli istatistik hello API'leri görüntülenmek hakkında tutar, hello ayrıntıları kaldırılmıştır.
+[API Management hizmeti](api-management-key-concepts.md) HTTP API'nizi gönderilen HTTP isteklerinin işlenmesini geliştirmek için çok sayıda özellik sağlar. Ancak, isteklerin ve yanıtların varlığını geçici. İstek yapıldığında ve arka uç API'niz için API Management hizmeti aracılığıyla akar. API'nizi isteği işler ve bir yanıt API tüketiciye geriye doğru akar. API Management hizmeti bazı önemli istatistik görüntü API'leri hakkında Publisher portal panosunda, ancak ötesine ayrıntıları kayboldu, tutar.
 
-Hello kullanarak [günlük eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) [İlkesi](api-management-howto-policies.md) hello API Management hizmeti, herhangi bir ayrıntıyı hello istek ve yanıt tooan gönderebilirsiniz [Azure olay hub'ı](../event-hubs/event-hubs-what-is-event-hubs.md). Çeşitli nedenlerle tooyour API'leri gönderilen HTTP iletileri toogenerate olaylarından neden isteyebilirsiniz vardır. Denetim izi güncelleştirmeler, kullanım analizi, özel durum uyarı ve 3 taraf tümleştirmeler bazı örnekler.   
+Kullanarak [günlük eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub) [İlkesi](api-management-howto-policies.md) API Management hizmeti, herhangi bir ayrıntıyı istek ve yanıt olarak gönderebileceğiniz bir [Azure olay hub'ı](../event-hubs/event-hubs-what-is-event-hubs.md). Çeşitli nedenlerle neden HTTP iletileri için Apı'lerinizi gönderilen olaylar oluşturmak isteyebilirsiniz vardır. Denetim izi güncelleştirmeler, kullanım analizi, özel durum uyarı ve 3 taraf tümleştirmeler bazı örnekler.   
 
-Bu makalede nasıl toocapture hello tüm HTTP istek ve yanıt iletisi, olay hub'ı tooan göndermek ve günlüğe kaydetme ve Hizmetleri izleme HTTP sağlar, ileti tooa üçüncü taraf hizmeti geçiş gösterilmektedir.
+Bu makalede, tüm HTTP istek ve yanıt iletisi yakalamak, olay Hub'ına göndermek ve HTTP günlüğe kaydetme ve izleme hizmetleri sağlayan hizmet üçüncü bir tarafa ileti geçiş gösterilmiştir.
 
 ## <a name="why-send-from-api-management-service"></a>API Management hizmetinden neden gönderilsin mi?
-Bu, HTTP API çerçeveler toocapture HTTP istekleri ve yanıtları takın ve günlüğe kaydetme ve izleme sistemleri içine akış olası toowrite HTTP Ara yazılımıdır. Merhaba dezavantajı toothis hello HTTP Ara hello arka uç API tümleşik toobe gerekir ve hello API hello platformunu eşleşmelidir yaklaşımdır. Birden çok API'leri varsa her biri hello Ara dağıtmanız gerekir. Genellikle arka uç API'leri neden güncelleştirilemiyor nedenleri vardır.
+HTTP istekleri ve yanıtları yakalamak ve günlüğe kaydetme ve izleme sistemleri içine akış için HTTP API çerçeveleri takın HTTP Ara yazmanız mümkündür. Bu yaklaşımın dezavantajı, HTTP ara yazılımı API'si arka uç tümleştirilmesi gerekir ve platform API eşleşmelidir ' dir. Birden çok API'leri varsa her bir ara yazılım dağıtmanız gerekir. Genellikle arka uç API'leri neden güncelleştirilemiyor nedenleri vardır.
 
-Günlüğe kaydetme altyapısıyla Hello Azure API Management hizmeti toointegrate kullanarak merkezi ve platformdan bağımsız bir çözüm sağlar. Ayrıca ölçeklenebilir, kısmen son toohello [coğrafi çoğaltma](api-management-howto-deploy-multi-region.md) Azure API yönetimi özellikleri.
+Günlüğe kaydetme altyapısı ile tümleştirmek için Azure API Management hizmeti kullanarak merkezi ve platformdan bağımsız bir çözüm sağlar. Ayrıca, kısmen son biçimde ölçeklendirilebilir [coğrafi çoğaltma](api-management-howto-deploy-multi-region.md) Azure API yönetimi özellikleri.
 
-## <a name="why-send-tooan-azure-event-hub"></a>Neden Azure olay hub'ı tooan gönderilsin mi?
-Makul tooask olduğundan, neden belirli tooAzure Event hubs bir ilke oluşturun? Burada toolog isteklerim istiyorum pek çok farklı yerde vardır. Neden hello doğrudan toohello son hedefi istekleri yalnızca gönderilsin mi?  Bir seçenektir. Ancak, bir API management hizmeti günlük kaydı isteklerinden yaparken gerekli tooconsider olmasından günlük iletilerini hello API hello performansını nasıl etkiler. Aşamalı yükleme artışlar sistem bileşenleri kullanılabilir örneklerini artırarak veya coğrafi çoğaltma yararlanarak işlenebilir. Ancak, trafiğin kısa ani istekleri toologging altyapı yük altında tooslow başlatırsanız önemli ölçüde Gecikmeli istekleri toobe neden olabilir.
+## <a name="why-send-to-an-azure-event-hub"></a>Neden Azure olay Hub'ına gönderilsin mi?
+Bu sorun, neden Azure Event Hubs için özel bir ilke oluşturmak makul mi? Burada isteklerim oturum isteyebilirsiniz pek çok farklı yerde vardır. Neden yalnızca isteklerini doğrudan son hedefe gönderilsin mi?  Bir seçenektir. Ancak, bir API management hizmeti günlük kaydı isteklerinden yaparken günlük iletilerini API performansını nasıl etkiler dikkate alınması gereken gereklidir. Aşamalı yükleme artışlar sistem bileşenleri kullanılabilir örneklerini artırarak veya coğrafi çoğaltma yararlanarak işlenebilir. Ancak, kısa ani trafiğinin yük altında yavaş istekleri günlüğe kaydetme altyapısına başlatırsanız, önemli ölçüde Gecikmeli isteklerine neden olabilir.
 
-Hello Azure Event Hubs tasarlanmış tooingress çok büyük miktarda veriyi, olayların ne kadar daha yüksek bir sayı HTTP hello sayısından ilgilenmek için kapasiteli çoğu API işlem istekleri. Merhaba olay hub'ı Gelişmiş arabellek depolamak ve hello iletileri işlemek API management hizmeti ve hello altyapınızı arasındaki bir tür olarak görev yapar. Bu API performansınızı toohello günlük altyapısı görmeyecektir sağlar.  
+Azure Event Hubs, HTTP çoğu API işlem isteklerinin sayısı daha için olayların ne kadar daha yüksek bir sayı ile ilgilenen kapasiteli giriş çok büyük miktarda veri için tasarlanmıştır. Olay hub'ı Gelişmiş arabellek API management hizmetiniz depolamak ve iletileri işleme altyapısı arasındaki bir tür olarak görev yapar. Bu API performansınızı nedeniyle günlük altyapısı görmeyecektir sağlar.  
 
-Hello veri tooan olay hub'ı geçtikten sonra kalıcıdır ve bekleyecek olay hub'ı tüketicileri tooprocess için bunu. Merhaba olay hub'ı nasıl işlenir ilgilenmez, yalnızca selamlama iletisine başarıyla teslim edilecek emin olmanızı hedefler cares.     
+Verileri bir olay Hub kalıcıdır ve işlemek olay hub'ı Tüketiciler için bekleyeceği geçtikten sonra. Olay hub'ı nasıl işlenir ilgilenmez, yalnızca ileti başarıyla teslim emin olmanızı hedefler cares.     
 
-Olay hub'ları hello özelliği toostream olayları toomultiple tüketici grupları vardır. Bu, tamamen farklı sistemleri tarafından işlenen olayların toobe sağlar. Bu, yalnızca bir olay oluşturulan toobe gerektiği hello hello API isteğinin hello API Management hizmeti içinde işleme ek gecikmeler koymadan birçok tümleştirme senaryolarına destek sağlar.
+Olay hub'ları birden çok tüketici grupları akış olayları yeteneğine sahip. Bu, tamamen farklı sistemleri tarafından işlenecek olayların sağlar. Bu, yalnızca bir olay oluşturulması gereken şekilde ek gecikmeler API Management hizmeti içinde API isteğinin işlenmesi üzerinde koymadan birçok tümleştirme senaryolarına destek sağlar.
 
-## <a name="a-policy-toosend-applicationhttp-messages"></a>Bir ilke toosend uygulama/http iletileri
-Bir olay hub'ı olay verisi basit bir dize olarak kabul eder. Bu dizeyi Merhaba içeriğine tooyou tamamen var. toobe mümkün toopackage bir HTTP isteği yukarı ve tooEvent tooformat hello dize hello istek veya yanıt bilgilerle ihtiyacımız hub kapalı gönderebilirsiniz. Biz yeniden kullanabilir, varolan bir biçim ise bu gibi durumlarda, ardından biz toowrite kendi ayrıştırma kodu olmayabilir. Başlangıçta ı hello kullanarak kabul [HAR](http://www.softwareishard.com/blog/har-12-spec/) HTTP istekleri ve yanıtları göndermek için. Ancak, bu biçim HTTP istekleri dizisi tabanlı JSON biçiminde depolamak için optimize edilmiştir. Gereksiz karmaşıklık hello kablo üzerinden hello HTTP ileti geçirme hello senaryosu için eklenen zorunlu öğelerin sayısını içeriyor.  
+## <a name="a-policy-to-send-applicationhttp-messages"></a>Uygulama/http iletileri göndermek için bir ilke
+Bir olay hub'ı olay verisi basit bir dize olarak kabul eder. Bu dizeyi içeriğini tamamen size bağlıdır. Bir HTTP isteğini oluşturan paketini ve Event Hubs'a gönderme için kimliğinizi biçim dizesi istek veya yanıt bilgilerle gerekiyor. Bu gibi durumlarda varolan bir biçim ise yeniden kullanabilirsiniz, sonra biz kendi kod ayrıştırma yazmak olmayabilir. Başlangıçta t kullanarak kabul [HAR](http://www.softwareishard.com/blog/har-12-spec/) HTTP istekleri ve yanıtları göndermek için. Ancak, bu biçim HTTP istekleri dizisi tabanlı JSON biçiminde depolamak için optimize edilmiştir. Kablo üzerinden HTTP ileti iletme senaryosu için gereksiz karmaşıklık eklenen zorunlu öğelerin sayısını içeriyor.  
 
-Alternatif bir seçenek toouse hello edildi `application/http` medya türü hello HTTP belirtiminde açıklandığı gibi [RFC 7230](http://tools.ietf.org/html/rfc7230). Bu ortam türünü hello aynı diğer bir deyişle kullanılan tooactually HTTP iletileri gönderme hello kablo üzerinden biçimi, ancak hello tüm ileti hello başka bir HTTP istek gövdesinde yerleştirilebileceği tam kullanır. Örneğimizde biz yalnızca toouse hello gövde bizim ileti toosend tooEvent hub adımıdır. Rahat, var. bir çözümleyici yok [Microsoft ASP.NET Web API 2.2 istemci](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) Bu biçim ayrıştırabilir ve hello yerel Dönüştür kitaplıkları `HttpRequestMessage` ve `HttpResponseMessage` nesneleri.
+Alternatif bir seçenek kullanılmasıydır `application/http` medya türü HTTP belirtiminde açıklandığı gibi [RFC 7230](http://tools.ietf.org/html/rfc7230). Bu ortam türünü gerçekte HTTP ileti kablo üzerinden göndermek için kullanılan tam aynı biçimi kullanır, ancak tüm ileti başka bir HTTP istek gövdesinde put olabilir. Örneğimizde biz yalnızca gövde bizim iletisi olarak Event Hubs'a göndermek için kullanacağınız. Rahat, var. bir çözümleyici yok [Microsoft ASP.NET Web API 2.2 istemci](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) Bu biçim ayrıştırabilir ve yerel Dönüştür kitaplıkları `HttpRequestMessage` ve `HttpResponseMessage` nesneleri.
 
-toobe mümkün toocreate tootake avantajı, C# dayalı ihtiyacımız bu iletiyi [ilke ifadelerini](https://msdn.microsoft.com/library/azure/dn910913.aspx) Azure API Management'te. Bir HTTP istek iletisi tooAzure olay hub'ları gönderen hello İlkesi aşağıdadır.
+C# dayalı yararlanmak ihtiyacımız bu iletiyi oluşturmak için [ilke ifadelerini](https://msdn.microsoft.com/library/azure/dn910913.aspx) Azure API Management'te. Azure Event Hubs'a bir HTTP istek iletisini gönderen İlkesi aşağıdadır.
 
 ```xml
 <log-to-eventhub logger-id="conferencelogger" partition-id="0">
@@ -75,27 +75,27 @@ toobe mümkün toocreate tootake avantajı, C# dayalı ihtiyacımız bu iletiyi 
 ```
 
 ### <a name="policy-declaration"></a>İlke bildirimi
-Var. Bu ilke ifadesi hakkında söz değerinde belirli birkaç. Merhaba günlük eventhub İlkesi API Management hizmeti hello içinde oluşturulan Günlükçü toohello adını başvuran Günlükçü kimliği adlı bir öznitelik içeriyor. Merhaba hello belgede nasıl toosetup hello API Management hizmeti, bir olay hub'ı Günlükçü bulunabilir ayrıntılarını [nasıl toolog olayları tooAzure olay hub'ları Azure API Management'te](api-management-howto-log-event-hubs.md). Merhaba ikinci öznitelik olay hub'ları hangi bölüm toostore hello iletisinde yönlendiren isteğe bağlı bir parametredir. Olay hub'ları bölümleri tooenable scalabilty kullanın ve en az iki gerektirir. iletilerin teslimini sıralı hello yalnızca bir bölüm içinde sağlanır. Biz olay hub'ı hangi bölüm tooplace hello iletisinde istemeniz değil, hepsini algoritması toodistribute hello Yük kullanır. Ancak, bazı sıralama dışında işlenen bizim iletileri toobe neden.  
+Var. Bu ilke ifadesi hakkında söz değerinde belirli birkaç. Günlük eventhub İlkesi API Management hizmet içinde oluşturulan Günlükçü adına başvuran Günlükçü kimliği adlı bir öznitelik içeriyor. Bir olay hub'ı Günlükçü API Management hizmet Kurulum nasıl ayrıntılarını belgesinde bulunabilir [Azure Event hubs'a Azure API Management olaylarını günlüğe kaydedecek şekilde nasıl](api-management-howto-log-event-hubs.md). İkinci öznitelik, iletide depolamak için bölüm Event Hubs yönlendiren isteğe bağlı bir parametredir. Olay hub'ları, en az iki gerekli ve scalabilty için bölümleri kullanın. İletilerin sıralı teslimini yalnızca bir bölüm içinde sağlanır. Biz olay hub'ı ileti yerleştirmek için hangi bölümünde istemeniz değil, yükü dağıtmak için hepsini algoritması kullanır. Ancak, bazı bozuk işlenecek bizim iletilerinin neden olabilir.  
 
 ### <a name="partitions"></a>Bölümler
-Bizim iletileri tooconsumers sırayla teslim edilir ve bölümlerinin hello yük dağıtım özellikten yararlanabilir tooensure toosend HTTP isteği iletilerini tooone bölüm ve HTTP yanıt iletilerini tooa İkinci bölüm seçtiniz. Bu durum, hatta yük dağıtımı güvence altına alır ve tüm isteklerin sırada kullanılır ve tüm yanıtları sırayla tüketilebilir garanti ediyoruz. Hello karşılık gelen isteği önce tüketilen yanıt toobe mümkündür, ancak sahibiz gibi bir sorun olmadığı ilişkilendirme için farklı bir mekanizma tooresponses ister ve istekleri her zaman yanıtları önce gelen biliyoruz.
+Bizim iletileri tüketiciye sırayla teslim edilir ve bölümlerinin yük dağıtım özellikten yararlanabilir emin olmak için bir bölüm ve HTTP yanıt iletilerini ikinci bir bölüm için HTTP isteği iletilerini göndermek seçtiğim. Bu durum, hatta yük dağıtımı güvence altına alır ve tüm isteklerin sırada kullanılır ve tüm yanıtları sırayla tüketilebilir garanti ediyoruz. Karşılık gelen isteği önce kullanılması için bir yanıt mümkündür, ancak sahibiz gibi bir sorun olmadığı yanıtları ilişkilendirme için farklı bir mekanizma ister ve istekleri her zaman yanıtları önce gelen biliyoruz.
 
 ### <a name="http-payloads"></a>HTTP yükü
-Merhaba oluşturduktan sonra `requestLine` hello istek gövdesi kesiliyor biz toosee kontrol edin. Merhaba istek gövdesi kesilmiş tooonly 1024 ' dir. Bu artan, ancak tek bir olay hub'ı ileti sınırlı too256KB; dolayısıyla bazı HTTP ileti tek bir iletiye sığmayacak değil gövdeleri olduğunu olasıdır. Günlüğe kaydetme ve analiz önemli miktarda bilgi yaparken yalnızca hello HTTP isteği satır ve üstbilgileri elde edilebilir. Ayrıca, birçok API istekleri yalnızca küçük gövdeleri dönün ve büyük gövdeleri kesilmesiyle tarafından bilgi değeri hello kaybı karşılaştırma toohello azalma aktarımı oldukça az olacak şekilde işleme ve depolama maliyetlerini tookeep tüm gövdesi içeriği. Merhaba gövdesinin işlenmesi hakkında son OneNote olduğu toopass ihtiyacımız `true` toohello olarak<string>() yönteminin hello gövdesi içeriği okumakta olduğunuz nedeni ancak, aynı zamanda istediğiniz hello arka uç API'si toobe mümkün tooread hello gövdesi. TRUE toothis yöntemi geçirerek biz böylece ikinci kez okunabilecek arabellekli hello gövde toobe neden. Bu önemli toobe çok büyük dosyaları karşıya yükleme veya uzun yoklama kullanan bir API varsa farkında değildir. Bu durumlarda hello gövde hiç okuma en iyi tooavoid olacaktır.   
+Yapı sonra `requestLine` biz istek gövdesi kesilmiş denetleyin. İstek gövdesi için yalnızca 1024 kesilir. Tek bir olay hub'ı ileti 256 KB ile sınırlı ancak bu, artırılacak bazı HTTP iletisi tek iletiye sığmayacak değil gövdeleri, büyük olasılıkla gelir. Günlüğe kaydetme ve analiz yaparken önemli miktarda bilgi yalnızca HTTP isteği çizgi ve üst bilgileri elde edilebilir. Ayrıca, birçok API istekleri yalnızca küçük gövdeleri dönün ve böylece büyük gövdeleri kesilmesiyle tarafından bilgi değeri kaybı oldukça tüm gövdesi içeriği korumak için Aktarım, işleme ve depolama maliyetlerini azaltma kıyasla en alt düzeydedir. Gövde işleme hakkında son OneNote olduğu geçirmek ihtiyacımız `true` AS<string>() yönteminin gövdesi içeriği okumakta olduğunuz nedeni ancak, aynı zamanda arka uç gövdesi okuyabilir API istiyor. Bu yöntem true geçirerek biz böylece ikinci kez okunabilecek arabellekli için gövdesini neden. Bu çok büyük dosyaları karşıya yükleme veya uzun yoklama kullanan bir API varsa bilincinde olmak önemlidir. Bu durumlarda gövde hiç okuma önlemek en iyi olacaktır.   
 
 ### <a name="http-headers"></a>HTTP üstbilgileri
-HTTP üstbilgileri yalnızca üzerinden basit anahtar/değer çifti biçiminde hello ileti biçimi içine aktarılabilir. Biz toostrip belirli güvenlik çıkışı gizli alanlar, kimlik bilgileri gereksiz yere sızmasını tooavoid seçtiniz. API anahtarları ve diğer kimlik bilgilerini analiz amaçlı kullanılacak düşüktür. Merhaba kullanıcı ve hello belirli ürün toodo analiz isterseniz, kullandıkları sonra biz, hello alabilir `context` nesne ve toohello ileti ekleyin.     
+HTTP üstbilgileri yalnızca üzerinden basit anahtar/değer çifti biçiminde ileti biçimi içine aktarılabilir. Kimlik bilgileri gereksiz yere sızmasını önlemek için belirli güvenlik duyarlı alanları, Şerit seçtiniz. API anahtarları ve diğer kimlik bilgilerini analiz amaçlı kullanılacak düşüktür. Biz kullanıcı ve belirli ürün çözümleme yapmak isterseniz, kullandıkları sonra biz değerinden alabilir `context` nesne ve iletiye ekleyin.     
 
 ### <a name="message-metadata"></a>İleti meta verileri
-Merhaba tamamlandı iletisini toosend toohello olay hub'ı oluştururken hello ilk satırı hello gerçekte bir parçası değil `application/http` ileti. ek meta veri selamlama iletisine bir istek veya yanıt iletisi olup oluşan Hello ilk satırı olan ve kullanılan toocorrelate olan bir ileti kimliği tooresponses ister. Merhaba ileti kimliği, şuna benzer başka bir ilke kullanılarak oluşturulur:
+Olay hub'ına göndermek için tam iletiyi oluştururken, ilk satırı değil gerçekte parçası `application/http` ileti. İlk satırı ileti bir istek veya yanıt iletisi ve yanıtları isteklerine ilişkilendirmek için kullanılan bir ileti kimliği olduğundan oluşan ek meta verilerdir. İleti kimliği, şuna benzer başka bir ilke kullanılarak oluşturulur:
 
 ```xml
 <set-variable name="message-id" value="@(Guid.NewGuid())" />
 ```
 
-Bir değişkende hello kadar yanıt döndürdü ve sonra yalnızca hello istek ve yanıt tek bir ileti gönderilir, depolanan hello istek iletisi oluşturduk. İki ancak hello istek ve yanıt bağımsız olarak gönderme ve bir ileti kimliği toocorrelate kullanarak Merhaba, biz biraz daha fazla esneklik hello ileti boyutu, birden çok bölüm hello özelliği tootake avantajlarından ileti sırası ve hello koruyarak adımında Al İstek er bizim günlük panosunda görüntülenir. Ayrıca, geçerli bir yanıt hiçbir zaman toohello olay hub'ı, büyük olasılıkla hello API Management hizmeti, tooa önemli isteği hatası nedeniyle gönderilir ancak biz yine hello isteğinin bir kayda sahip olacaksınız bazı senaryolar olabilir.
+Biz istek iletisi oluşturulan, bir değişkende depolanan kadar yanıtta döndürülen ve sonra yalnızca istek ve yanıt tek bir ileti gönderilir. Ancak, istek ve yanıt bağımsız olarak gönderme ve iki ilişkilendirmek için bir ileti kimliği kullanılarak, biz biraz daha fazla esneklik ileti boyutu, ileti sırası ve istek koruyarak görünür yaparken birden çok bölüm yararlanmak olanağı Al Bizim günlük panosunda daha erken. Ayrıca burada geçerli bir yanıt hiçbir zaman muhtemelen bir API Management hizmeti önemli isteği hatası nedeniyle olay hub'ına gönderilen ancak biz yine isteğin bir kayda sahip olacaksınız bazı senaryolar olabilir.
 
-Hello İlkesi toosend hello yanıt HTTP iletisi çok benzer toohello isteği arar ve hello tamamlamak için ilke yapılandırması şöyle görünür:
+Yanıt HTTP iletisi göndermek için ilke isteği çok benzer ve bu nedenle tam ilke yapılandırması şöyle görünür:
 
 ```xml
 <policies>
@@ -155,16 +155,16 @@ Hello İlkesi toosend hello yanıt HTTP iletisi çok benzer toohello isteği ara
 </policies>
 ```
 
-Merhaba `set-variable` ilkesi oluşturur hem hello tarafından erişilebilir olan bir değer `log-to-eventhub` hello ilkesinde `<inbound>` bölümü ve hello `<outbound>` bölümü.  
+`set-variable` İlke, her ikisi için de erişilebilir olan bir değer oluşturur `log-to-eventhub` ilkesinde `<inbound>` bölüm ve `<outbound>` bölümü.  
 
 ## <a name="receiving-events-from-event-hubs"></a>Event Hubs'a ait alma olaylarını
-Azure Event Hub olaylarından hello kullanarak alınan [AMQP protokolünü](http://www.amqp.org/). Merhaba Microsoft Service Bus ekibine, istemci kitaplıkları kullanılabilir toomake hello olayları daha kolay tüketen yapmış. Desteklenen iki farklı yaklaşım vardır, biri yükleniyor bir *doğrudan tüketici* ve hello diğer hello kullanarak `EventProcessorHost` sınıfı. Bu iki yaklaşım örnekleri hello bulunabilir [Event Hubs Programlama Kılavuzu](../event-hubs/event-hubs-programming-guide.md). Merhaba kısa hello farklar sürümüdür, `Direct Consumer` tam denetim ve hello sağlar `EventProcessorHost` ancak bu olayları nasıl işleyecek hakkında bazı varsayımlarda bulunur hello tesisat iş bazıları desteklemez.  
+Azure Event Hub olaylarından kullanarak alınan [AMQP protokolünü](http://www.amqp.org/). Microsoft Service Bus ekibine istemci kitaplıkları Süren olayları kolaylaştırmak kullanılabilir yaptınız. Desteklenen iki farklı yaklaşım vardır, biri yükleniyor bir *doğrudan tüketici* ve diğer kullanarak `EventProcessorHost` sınıfı. Bu iki yaklaşım örnekleri bulunabilir [Event Hubs Programlama Kılavuzu](../event-hubs/event-hubs-programming-guide.md). Kısa farklar sürümüdür, `Direct Consumer` tam denetim verir ve `EventProcessorHost` ancak bu olayları nasıl işleyecek hakkında bazı varsayımlarda bulunur tesisat iş bazıları desteklemez.  
 
 ### <a name="eventprocessorhost"></a>EventProcessorHost
-Bu örnekte, hello kullanacağız `EventProcessorHost` kolaylık sağlamak için ancak bunu değil hello belirli bu senaryo için en iyi seçimdir. `EventProcessorHost`iş parçacığı oluşturma sorunları belirli olay işlemcisi sınıfı içinde hakkında tooworry yok emin sabit iş hello. Ancak, Senaryomuzda, biz yalnızca hello ileti tooanother biçimine dönüştürme ve bir zaman uyumsuz yöntem kullanarak tooanother hizmet geçirme. Paylaşılan durum ve iş parçacığı oluşturma sorunları, bu nedenle hiçbir risk güncelleştirmek için gerek yoktur. Çoğu senaryo için `EventProcessorHost` büyük olasılıkla hello en iyi seçenek, kesinlikle hello daha kolay seçeneği ise.     
+Bu örnekte, kullanacağız `EventProcessorHost` kolaylık sağlamak için ancak bunu olabilir en iyi seçenek belirli bu senaryo için değil. `EventProcessorHost`iş parçacığı oluşturma sorunları belirli olay işlemcisi sınıfı içinde hakkında endişelenmeniz gerekmez emin olmak zor bir iş yapar. Ancak, Senaryomuzda biz yalnızca ileti başka bir biçime dönüştürme ve onu boyunca bir zaman uyumsuz yöntem kullanarak başka bir hizmete geçirmeden. Paylaşılan durum ve iş parçacığı oluşturma sorunları, bu nedenle hiçbir risk güncelleştirmek için gerek yoktur. Çoğu senaryo için `EventProcessorHost` büyük olasılıkla en iyi seçenek, kesinlikle daha kolay seçeneği ise.     
 
 ### <a name="ieventprocessor"></a>Ieventprocessor
-kullanırken hello merkezi kavram `EventProcessorHost` toocreate olan bir başlangıç uygulaması `IEventProcessor` hello yöntemi içeren arabirimi `ProcessEventAsync`. Bu yöntem Hello özünü burada gösterilir:
+Kullanırken merkezi kavram `EventProcessorHost` oluşturmaktır bir uygulaması `IEventProcessor` yöntemi içeren arabirimi `ProcessEventAsync`. Bu yöntem özünü burada gösterilir:
 
 ```c#
 async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
@@ -188,10 +188,10 @@ async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumera
 }
 ```
 
-EventData nesnelerin bir listesini hello yönteme geçirilen ve biz bu liste yineleme. Her yöntemin Hello bayt HttpMessage nesnesine Ayrıştırılan ve söz konusu nesne IHttpMessageProcessor tooan örneğini geçirilir.
+EventData nesnelerin bir listesini, yönteme geçirilir ve biz bu liste yineleme. Her yöntem bayt HttpMessage nesnesine Ayrıştırılan ve söz konusu nesne IHttpMessageProcessor örneğine geçirilir.
 
 ### <a name="httpmessage"></a>HttpMessage
-Merhaba `HttpMessage` örnek veri üç parçalarını içerir:
+`HttpMessage` Örnek veri üç parçalarını içerir:
 
 ```c#
 public class HttpMessage
@@ -206,15 +206,15 @@ public class HttpMessage
 }
 ```
 
-Merhaba `HttpMessage` örneğini içeren bir `MessageId` bize toohello karşılık gelen HTTP yanıtı ve bir Boole değeri, tooconnect hello HTTP isteğinin olanak GUID tanımlayan hello nesnesi bir HttpRequestMessage örneği içeriyorsa ve Bilgisayarın HttpResponseMessage. HTTP sınıflardan yerleşik hello kullanarak `System.Net.Http`, hello mümkün tootake avantajlarından edildi `application/http` dahil kod ayrıştırma `System.Net.Http.Formatting`.  
+`HttpMessage` Örneğini içeren bir `MessageId` bize karşılık gelen HTTP yanıtı ve nesne örneğini bir HttpRequestMessage ve httpresponsemessage öğesini içeriyorsa tanımlayan bir Boole değeri HTTP isteği bağlanmasını sağlayan GUID. HTTP sınıflardan yerleşik kullanılarak `System.Net.Http`, ı yararlanmak kurtararak `application/http` dahil kod ayrıştırma `System.Net.Http.Formatting`.  
 
 ### <a name="ihttpmessageprocessor"></a>IHttpMessageProcessor
-Merhaba `HttpMessage` örneği tooimplementation, ardından iletilen `IHttpMessageProcessor` oluşturduğum toodecouple hello alma ve hello olay yorumu Azure olay hub'ı ve hello gerçek bu işleme bir arabirim olduğu.
+`HttpMessage` Örnek uygulaması için sonra iletilen `IHttpMessageProcessor` oluşturduğum alma ve Azure olay hub'ı olayından yorumu ve gerçek işlenmesini aynı şekilde bir arabirim olduğu.
 
-## <a name="forwarding-hello-http-message"></a>Merhaba HTTP ileti iletme
-Bu örnek için onu olacaktır ilginç toopush hello HTTP isteği üzerinden çok ı karar[Runscope](http://www.runscope.com). Runscope hata ayıklama, günlüğe kaydetme ve izleme HTTP uzmanlaşmış bulut tabanlı bir hizmettir. Kolay tootry olduğu ve gerçek zamanlı bizim API Management hizmeti aracılığıyla akan toosee hello HTTP istek bize sağlayan ücretsiz bir katman sahiptirler.
+## <a name="forwarding-the-http-message"></a>HTTP ileti iletme
+Bu örnek için onu olacaktır için üzerinden HTTP isteği göndermek ilginç ı karar [Runscope](http://www.runscope.com). Runscope hata ayıklama, günlüğe kaydetme ve izleme HTTP uzmanlaşmış bulut tabanlı bir hizmettir. Deneyin kolaydır ve gerçek zamanlı bizim API Management hizmeti aracılığıyla akan HTTP istek bkz kurmamızı sağlayan ücretsiz bir katman sahiptirler.
 
-Merhaba `IHttpMessageProcessor` uygulaması şu şekilde görünür
+`IHttpMessageProcessor` Uygulaması şu şekilde görünür
 
 ```c#
 public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
@@ -254,24 +254,24 @@ public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
        messagesLink.BucketKey = _BucketKey;
        messagesLink.RunscopeMessage = runscopeMessage;
        var runscopeResponse = await _HttpClient.SendAsync(messagesLink.CreateRequest());
-       _Logger.LogDebug("Request sent tooRunscope");
+       _Logger.LogDebug("Request sent to Runscope");
    }
 }
 ```
 
-Mümkün tootake avantajlarından olan bir [Runscope için var olan istemci Kitaplığı](http://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha) , kolay toopush yapar `HttpRequestMessage` ve `HttpResponseMessage` kendi hizmetinde örnekleri ayarlama. Sırayla tooaccess Runscope bir hesap ve bir API anahtarı gerekir API hello. Bir API anahtarı alma yönergeleri hello bulunabilir [uygulamaları oluşturma tooAccess Runscope API](http://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) ekran kaydı.
+I yararlanmak için bir [Runscope için var olan istemci Kitaplığı](http://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha) , anında iletme kolaylaştırır `HttpRequestMessage` ve `HttpResponseMessage` kendi hizmetinde örnekleri ayarlama. Runscope API erişmek için bir hesap ve bir API anahtarı gerekir. Bir API anahtarı alma yönergeleri bulunabilir [erişim Runscope API uygulamaları oluşturma](http://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) ekran kaydı.
 
 ## <a name="complete-sample"></a>Tam örnek
-Merhaba [kaynak kodu](https://github.com/darrelmiller/ApimEventProcessor) ve testleri hello örnek için GitHub üzerinde. İhtiyacınız olacak bir [API Management hizmeti](api-management-get-started.md), [bağlı bir olay hub '](api-management-howto-log-event-hubs.md)ve bir [depolama hesabı](../storage/common/storage-create-storage-account.md) toorun hello örnek kendiniz için.   
+[Kaynak kodu](https://github.com/darrelmiller/ApimEventProcessor) ve testleri örnek için GitHub üzerinde. İhtiyacınız olacak bir [API Management hizmeti](api-management-get-started.md), [bağlı bir olay hub '](api-management-howto-log-event-hubs.md)ve bir [depolama hesabı](../storage/common/storage-create-storage-account.md) örneği kendiniz çalıştırmak için.   
 
-Merhaba olay Hub'ından gelen olayların dönüştürür için bunlara dinler yalnızca basit bir konsol uygulaması örnektir bir `HttpRequestMessage` ve `HttpResponseMessage` nesneleri ve bunları Runscope API toohello üzerinde iletir.
+Örnek olay Hub'ından gelen olayların dönüştürür için bunlara dinler yalnızca basit bir konsol uygulaması olan bir `HttpRequestMessage` ve `HttpResponseMessage` nesneleri ve bunları açın Runscope API iletir.
 
-Animasyonlu resmi aşağıdaki hello tooan API hello Geliştirici Portalı, alınan, hello konsol uygulaması gösteren hello iletisi yapılan bir istek işlenen ve iletilen ve istek ve yanıt hello Runscope trafiği gösteren hello görebilirsiniz Denetleyici.
+Animasyonlu aşağıdaki görüntüde, işlenen iletilen ve alınan ileti gösteren konsol uygulaması ve ardından istek ve yanıt Runscope trafiği Denetçisi'nde gösteren Geliştirici Portalı'nda bir API için yapılan bir istek görebilirsiniz.
 
-![İstek tooRunscope iletilen Tanıtımı](./media/api-management-log-to-eventhub-sample/apim-eventhub-runscope.gif)
+![İstek için Runscope iletilen Tanıtımı](./media/api-management-log-to-eventhub-sample/apim-eventhub-runscope.gif)
 
 ## <a name="summary"></a>Özet
-Azure API Management hizmeti, API'lerden tooand seyahatte bir ideal yer toocapture hello HTTP trafiği sağlar. Azure Event Hubs bu trafiği yakalamak için bir yüksek oranda ölçeklenebilir ve düşük maliyetli çözümdür ve günlüğe kaydetme için ikincil işleme sistemleri içine besleme, izleme ve diğer gelişmiş analiz. Runscope basit bir düzine birkaç kod olduğu gibi sistemleri izleme too3rd taraf trafiği bağlanılıyor.
+Azure API Management hizmeti, Apı'lerinizi gelen ve giden seyahatte HTTP trafiğini yakalamak için ideal bir yer sağlar. Azure Event Hubs bu trafiği yakalamak için bir yüksek oranda ölçeklenebilir ve düşük maliyetli çözümdür ve günlüğe kaydetme için ikincil işleme sistemleri içine besleme, izleme ve diğer gelişmiş analiz. Runscope basit bir düzine birkaç kod olduğu gibi sistemleri izleme 3 taraf trafiği bağlanılıyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Azure Event Hubs hakkında daha fazla bilgi edinin
@@ -279,6 +279,6 @@ Azure API Management hizmeti, API'lerden tooand seyahatte bir ideal yer toocaptu
   * [EventProcessorHost bulunan iletiler alma](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Event Hubs programlama kılavuzu](../event-hubs/event-hubs-programming-guide.md)
 * API Management ve Event Hubs ile tümleştirme hakkında daha fazla bilgi edinin
-  * [Nasıl toolog olayları tooAzure Azure API Management olay hub'ları](api-management-howto-log-event-hubs.md)
+  * [Azure Event hubs'a Azure API Management'te olayları günlüğe kaydetme hakkında](api-management-howto-log-event-hubs.md)
   * [Günlükçü varlık başvurusu](https://msdn.microsoft.com/library/azure/mt592020.aspx)
   * [Günlük eventhub ilke başvurusu](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)

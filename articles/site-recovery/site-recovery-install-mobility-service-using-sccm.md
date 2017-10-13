@@ -1,5 +1,5 @@
 ---
-title: "yazılım dağıtım araçları kullanarak mobilite hizmeti yükleme Azure Site kurtarma aaaAutomate | Microsoft Docs"
+title: "Yazılım dağıtım araçları kullanarak Azure Site Recovery Mobility hizmeti yüklemesi otomatikleştirmek | Microsoft Docs"
 description: "Bu makalede, System Center Configuration Manager gibi yazılım dağıtım araçları kullanarak Mobility hizmetinin yüklenmesini otomatikleştirmek yardımcı olur."
 services: site-recovery
 documentationcenter: 
@@ -14,58 +14,58 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.openlocfilehash: 6c883c6d5308dcec6e0628b0c2196b3a12e08ebe
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 49b72cd306aa91f114af7688f02d95db6f6eca05
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="automate-mobility-service-installation-by-using-software-deployment-tools"></a>Yazılım dağıtım araçları kullanarak mobilite hizmeti yükleme otomatikleştirme
 
 >[!IMPORTANT]
 Bu belge sürümü kullandığınız varsayılır **9.9.4510.1** ya da daha yüksek.
 
-Bu makalede, System Center Configuration Manager toodeploy hello Azure Site Recovery Mobility hizmeti, veri merkezinizde nasıl kullanabileceğinize bir örnek sağlar. Configuration Manager gibi yazılım dağıtım aracını kullanarak hello aşağıdaki avantajları vardır:
+Bu makalede, Azure Site Recovery Mobility hizmeti, veri merkezinizde dağıtmak için System Center Configuration Manager nasıl kullanabileceğinize bir örnek sağlar. Configuration Manager'ı aşağıdaki avantajlara sahip gibi bir yazılım dağıtım aracını kullanma:
 * Yazılım güncelleştirmeleri için planlanan bakım penceresi sırasında yeni yüklemeleri ve yükseltmeleri, dağıtımını planlama
-* Dağıtım toohundreds sunucularının aynı anda ölçeklendirme
+* Yüzlerce dağıtımına aynı anda ölçeklendirme
 
 
 > [!NOTE]
-> Bu makalede, System Center Configuration Manager 2012 R2 toodemonstrate hello dağıtım aktivitesi kullanır. Mobility hizmeti yükleme kullanarak da otomatikleştirmek [Azure Automation ve istenen durum Yapılandırması](site-recovery-automate-mobility-service-install.md).
+> Bu makalede, bir dağıtım etkinliğiyle göstermek için System Center Configuration Manager 2012 R2 kullanır. Mobility hizmeti yükleme kullanarak da otomatikleştirmek [Azure Automation ve istenen durum Yapılandırması](site-recovery-automate-mobility-service-install.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 1. Yazılım dağıtım aracı, yapılandırma, ortamınızda dağıtılmış Manager gibi.
-  İki oluşturmak [cihaz koleksiyonları](https://technet.microsoft.com/library/gg682169.aspx), tüm için bir tane **Windows sunucuları**, tüm için başka bir **Linux sunucuları**, Site Recovery kullanarak tooprotect istiyor.
+  İki oluşturmak [cihaz koleksiyonları](https://technet.microsoft.com/library/gg682169.aspx), tüm için bir tane **Windows sunucuları**, diğeri tüm **Linux sunucuları**, Site Recovery kullanarak korumak istediğiniz.
 3. Site Recovery ile zaten kayıtlı bir yapılandırma sunucusu.
-4. Merhaba Configuration Manager sunucusu tarafından erişilebilecek güvenli bir ağ dosya paylaşımına (sunucu ileti bloğu paylaşım).
+4. Configuration Manager sunucusu tarafından erişilebilecek güvenli bir ağ dosya paylaşımına (sunucu ileti bloğu paylaşım).
 
 ## <a name="deploy-mobility-service-on-computers-running-windows"></a>Mobility hizmetinin Windows çalıştıran bilgisayarlara dağıtma
 > [!NOTE]
-> Bu makalede hello yapılandırma sunucusu IP adresi hello 192.168.3.121 olacak ve bu hello güvenli ağ dosya paylaşımı varsayılmaktadır \\\ContosoSecureFS\MobilityServiceInstallers.
+> Bu makalede yapılandırma sunucusu IP adresini 192.168.3.121 olduğunu ve güvenli bir ağ dosya paylaşımına olduğunu varsayar \\\ContosoSecureFS\MobilityServiceInstallers.
 
 ### <a name="step-1-prepare-for-deployment"></a>Adım 1: dağıtıma Hazırlan
-1. Merhaba ağ paylaşımında bir klasör oluşturun ve adlandırın **MobSvcWindows**.
-2. Tooyour yapılandırma sunucusunda oturum açın ve bir yönetici komut istemi açın.
-3. Aşağıdaki komutları toogenerate parola dosya hello çalıştırın:
+1. Ağ paylaşımında bir klasör oluşturun ve adlandırın **MobSvcWindows**.
+2. Yapılandırma sunucunuza oturum açın ve bir yönetici komut istemi açın.
+3. Bir parola dosyası oluşturmak için aşağıdaki komutları çalıştırın:
 
     `cd %ProgramData%\ASR\home\svsystems\bin`
 
     `genpassphrase.exe -v > MobSvc.passphrase`
-4. Kopya hello **MobSvc.passphrase** hello dosyasına **MobSvcWindows** klasör, ağ paylaşımında.
-5. Merhaba yapılandırma sunucusu üzerindeki toohello yükleyici repository hello aşağıdaki komutu çalıştırarak göz atın:
+4. Kopya **MobSvc.passphrase** içine dosya **MobSvcWindows** klasör, ağ paylaşımında.
+5. Yapılandırma sunucusundaki yükleyici deposu için aşağıdaki komutu çalıştırarak göz atın:
 
    `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
 
-6. Kopya hello  **Microsoft ASR\_UA\_*sürüm*\_Windows\_GA\_*tarih* \_ Release.exe** toohello **MobSvcWindows** klasör, ağ paylaşımında.
-7. Hello aşağıdaki kodu kopyalayın ve olarak kaydedin **install.bat** hello içine **MobSvcWindows** klasör.
+6. Kopya  **Microsoft ASR\_UA\_*sürüm*\_Windows\_GA\_*tarih* \_İçin Release.exe** **MobSvcWindows** klasör, ağ paylaşımında.
+7. Aşağıdaki kodu kopyalayın ve kaydedileceği **install.bat** içine **MobSvcWindows** klasör.
 
    > [!NOTE]
-   > Bu komut dosyası Hello [CSIP] yer tutucuları hello gerçek başlangıç IP adresi yapılandırması sunucunuzun değerlerle değiştirin.
+   > Bu komut dosyasındaki [CSIP] yer tutucuları yapılandırma sunucunuzun IP adresini gerçek değerlerle değiştirin.
 
 ```DOS
 Time /t >> C:\Temp\logfile.log
 REM ==================================================
-REM ==== Clean up hello folders ========================
+REM ==== Clean up the folders ========================
 RMDIR /S /q %temp%\MobSvc
 MKDIR %Temp%\MobSvc
 MKDIR C:\Temp
@@ -77,9 +77,9 @@ CD %Temp%\MobSvc
 REN Micro*.exe MobSvcInstaller.exe
 REM ==================================================
 
-REM ==== Extract hello installer =======================
+REM ==== Extract the installer =======================
 MobSvcInstaller.exe /q /x:%Temp%\MobSvc\Extracted
-REM ==== Wait 10s for extraction toocomplete =========
+REM ==== Wait 10s for extraction to complete =========
 TIMEOUT /t 10
 REM =================================================
 
@@ -161,20 +161,20 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
 ### <a name="step-2-create-a-package"></a>2. adım: bir paket oluşturun
 
-1. Tooyour Configuration Manager konsolunda oturum açın.
-2. Çok Gözat**yazılım Kitaplığı** > **Uygulama Yönetimi** > **paketleri**.
+1. Configuration Manager konsolunuza oturum açın.
+2. Gözat **yazılım Kitaplığı** > **Uygulama Yönetimi** > **paketleri**.
 3. Sağ **paketleri**seçip **Paket Oluştur**.
-4. Merhaba adı, açıklama, üreticisi, dil ve sürümü için değerler sağlayın.
-5. Select hello **bu paket kaynak dosyalarını içeren** onay kutusu.
-6. Tıklatın **Gözat**ve hello yükleyici depolandığı select hello ağ paylaşımı (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcWindows).
+4. Ad, açıklama, üreticisi, dil ve sürüm için değerler sağlayın.
+5. Seçin **bu paket kaynak dosyalarını içeren** onay kutusu.
+6. Tıklatın **Gözat**, yükleyici depolandığı ağ paylaşımı seçin (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcWindows).
 
   ![Ekran görüntüsü, paket ve Program Sihirbazı](./media/site-recovery-install-mobility-service-using-sccm/create_sccm_package.png)
 
-7. Merhaba üzerinde **toocreate istediğiniz Seç hello program türü** sayfasında, **standart Program**, tıklatıp **sonraki**.
+7. Üzerinde **oluşturmak istediğiniz program türünü seçin** sayfasında, **standart Program**, tıklatıp **sonraki**.
 
   ![Ekran görüntüsü, paket ve Program Sihirbazı](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
 
-8. Merhaba üzerinde **bu standart programla ilgili bilgiler belirt** sayfasında girişleri aşağıdaki hello sağlamak ve tıklayın **sonraki**. (Merhaba diğer girişleri varsayılan değerleri kullanabilirsiniz.)
+8. Üzerinde **bu standart programla ilgili bilgiler belirt** sayfasında, aşağıdaki girişleri yapın ve tıklayın **sonraki**. (Diğer girişleri varsayılan değerleri kullanabilirsiniz.)
 
   | **Parametre adı** | **Değer** |
   |--|--|
@@ -184,60 +184,60 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
   ![Ekran görüntüsü, paket ve Program Sihirbazı](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties.png)
 
-9. Merhaba sonraki sayfada hello hedef işletim sistemlerini seçin. Mobility hizmeti, yalnızca Windows Server 2012 R2, Windows Server 2012 ve Windows Server 2008 R2 üzerinde yüklenebilir.
+9. Sonraki sayfada, hedef işletim sistemlerini seçin. Mobility hizmeti, yalnızca Windows Server 2012 R2, Windows Server 2012 ve Windows Server 2008 R2 üzerinde yüklenebilir.
 
   ![Ekran görüntüsü, paket ve Program Sihirbazı](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png)
 
-10. toocomplete hello Sihirbazı'nı tıklatın **sonraki** iki kez.
+10. Sihirbazı tamamlamak için tıklatın **sonraki** iki kez.
 
 
 > [!NOTE]
-> Merhaba betik her iki yeni yüklemeler Mobility hizmeti destekler ve yüklü olan tooagents güncelleştirir.
+> Komut dosyası Mobility hizmeti aracısı ve yüklü olan aracıları güncelleştirmeleri hem yeni yüklemeleri destekler.
 
-### <a name="step-3-deploy-hello-package"></a>Adım 3: hello paketini dağıtma
-1. Merhaba Configuration Manager konsolunda, pakete sağ tıklayın ve seçin **içeriği Dağıt**.
+### <a name="step-3-deploy-the-package"></a>Adım 3: Paket dağıtma
+1. Configuration Manager konsolunda, pakete sağ tıklayın ve seçin **içeriği Dağıt**.
   ![Ekran görüntüsü, Configuration Manager Konsolu](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
-2. Select hello  **[dağıtım noktaları](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**  toowhich üzerinde hello paketleri kopyalanmalıdır.
-3. Tam hello Sihirbazı. Merhaba paket sonra toohello çoğaltmaya başlar dağıtım noktaları belirtilmiş.
-4. Merhaba paket dağıtımı yapıldıktan sonra hello paketini sağ tıklatın ve seçin **dağıtma**.
+2. Seçin  **[dağıtım noktaları](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**  paketleri kopyalanmalıdır açın.
+3. Sihirbazı tamamlayın. Paket sonra belirtilen dağıtım noktalarına çoğaltmaya başlar.
+4. Paket dağıtımı yapıldıktan sonra pakete sağ tıklayın ve seçin **dağıtma**.
   ![Ekran görüntüsü, Configuration Manager Konsolu](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
-5. Merhaba dağıtımı için hedef koleksiyonu olarak hello önkoşullar bölümünde oluşturduğunuz hello Windows Server cihaz koleksiyonunu seçin.
+5. Dağıtımı için hedef koleksiyonu olarak önkoşullar bölümünde oluşturduğunuz Windows Server cihaz koleksiyonunu seçin.
 
   ![Ekran görüntüsü, yazılımı Dağıt Sihirbazı](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection.png)
 
-6. Merhaba üzerinde **hello içerik hedefini belirtin** sayfasında, sizin **dağıtım noktaları**.
-7. Merhaba üzerinde **bu yazılımın nasıl dağıtılacağını belirtin ayarları toocontrol** sayfasında, hello amacı olduğundan emin olun **gerekli**.
+6. Üzerinde **içerik hedefini belirt** sayfasında, sizin **dağıtım noktaları**.
+7. Üzerinde **bu yazılımın nasıl dağıtılacağını denetlemek için ayarları belirtin** sayfasında, amacı olduğundan emin olun **gerekli**.
 
   ![Ekran görüntüsü, yazılımı Dağıt Sihirbazı](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
 
-8. Merhaba üzerinde **bu dağıtım için belirt hello zamanlamayı** sayfasında, bir zamanlama belirtin. Daha fazla bilgi için bkz: [paketleri zamanlama](https://technet.microsoft.com/library/gg682178.aspx).
-9. Merhaba üzerinde **dağıtım noktaları** sayfasında, veri merkeziniz toohello gereksinimlerine göre hello özelliklerini yapılandırın. Başlangıç Sihirbazı'nı tamamlayın.
+8. Üzerinde **bu dağıtım için zamanlamayı belirtin** sayfasında, bir zamanlama belirtin. Daha fazla bilgi için bkz: [paketleri zamanlama](https://technet.microsoft.com/library/gg682178.aspx).
+9. Üzerinde **dağıtım noktaları** sayfasında, veri merkeziniz gereksinimlerine göre özelliklerini yapılandırın. Sihirbazı tamamlayın.
 
 > [!TIP]
-> tooavoid gereksiz yeniden başlatır, zamanlama hello paket yükleme sırasında aylık bakım penceresi veya yazılım güncelleştirmeleri penceresi.
+> Gereksiz yeniden başlatmalardan önlemek için paket yükleme aylık bakım penceresi veya yazılım güncelleştirmeleri penceresi sırasında zamanlayın.
 
-Merhaba Configuration Manager konsolunu kullanarak hello dağıtımının ilerleme durumunu izleyebilirsiniz. Çok Git**izleme** > **dağıtımları** > *[paket adınız]*.
+Configuration Manager konsolunu kullanarak dağıtımının ilerleme durumunu izleyebilirsiniz. Git **izleme** > **dağıtımları** > *[paket adınız]*.
 
-  ![Configuration Manager ekran seçeneği toomonitor dağıtımları](./media/site-recovery-install-mobility-service-using-sccm/report.PNG)
+  ![Dağıtımlarını izlemek için Configuration Manager ekran seçeneği](./media/site-recovery-install-mobility-service-using-sccm/report.PNG)
 
 ## <a name="deploy-mobility-service-on-computers-running-linux"></a>Mobility hizmeti Linux çalıştıran bilgisayarlara dağıtma
 > [!NOTE]
-> Bu makalede hello yapılandırma sunucusu IP adresi hello 192.168.3.121 olacak ve bu hello güvenli ağ dosya paylaşımı varsayılmaktadır \\\ContosoSecureFS\MobilityServiceInstallers.
+> Bu makalede yapılandırma sunucusu IP adresini 192.168.3.121 olduğunu ve güvenli bir ağ dosya paylaşımına olduğunu varsayar \\\ContosoSecureFS\MobilityServiceInstallers.
 
 ### <a name="step-1-prepare-for-deployment"></a>Adım 1: dağıtıma Hazırlan
-1. Merhaba ağ paylaşımında bir klasör oluşturun ve olarak adlandırın **MobSvcLinux**.
-2. Tooyour yapılandırma sunucusunda oturum açın ve bir yönetici komut istemi açın.
-3. Aşağıdaki komutları toogenerate parola dosya hello çalıştırın:
+1. Ağ paylaşımında bir klasör oluşturun ve olarak adlandırın **MobSvcLinux**.
+2. Yapılandırma sunucunuza oturum açın ve bir yönetici komut istemi açın.
+3. Bir parola dosyası oluşturmak için aşağıdaki komutları çalıştırın:
 
     `cd %ProgramData%\ASR\home\svsystems\bin`
 
     `genpassphrase.exe -v > MobSvc.passphrase`
-4. Kopya hello **MobSvc.passphrase** hello dosyasına **MobSvcLinux** klasör, ağ paylaşımında.
-5. Merhaba yapılandırma sunucusu üzerindeki toohello yükleyici repository hello komutu çalıştırarak göz atın:
+4. Kopya **MobSvc.passphrase** içine dosya **MobSvcLinux** klasör, ağ paylaşımında.
+5. Yapılandırma sunucusundaki yükleyici deponuza komutunu çalıştırarak göz atın:
 
    `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
 
-6. Kopya hello aşağıdaki dosyaları toohello **MobSvcLinux** ağ paylaşımınızda klasörü:
+6. Aşağıdaki dosyaları kopyalayın **MobSvcLinux** ağ paylaşımınızda klasörü:
    * Microsoft ASR\_UA\*RHEL6 64*release.tar.gz
    * Microsoft ASR\_UA\*RHEL7 64\*release.tar.gz
    * Microsoft ASR\_UA\*SLES11 SP3 64\*release.tar.gz
@@ -246,9 +246,9 @@ Merhaba Configuration Manager konsolunu kullanarak hello dağıtımının ilerle
    * Microsoft ASR\_UA\*UBUNTU 14.04 64\*release.tar.gz
 
 
-7. Hello aşağıdaki kodu kopyalayın ve olarak kaydedin **install_linux.sh** hello içine **MobSvcLinux** klasör.
+7. Aşağıdaki kodu kopyalayın ve kaydedileceği **install_linux.sh** içine **MobSvcLinux** klasör.
    > [!NOTE]
-   > Bu komut dosyası Hello [CSIP] yer tutucuları hello gerçek başlangıç IP adresi yapılandırması sunucunuzun değerlerle değiştirin.
+   > Bu komut dosyasındaki [CSIP] yer tutucuları yapılandırma sunucunuzun IP adresini gerçek değerlerle değiştirin.
 
 ```Bash
 #!/usr/bin/env bash
@@ -324,7 +324,7 @@ Install()
     RET_VAL=$?
     echo "Installation Returncode: $RET_VAL" >> /tmp/MobSvc/sccm.log
     if [ $RET_VAL -eq 0 ]; then
-        echo "Installation has succeeded. Proceed tooconfiguration." >> /tmp/MobSvc/sccm.log
+        echo "Installation has succeeded. Proceed to configuration." >> /tmp/MobSvc/sccm.log
         Configure
     else
         echo "Installation has failed." >> /tmp/MobSvc/sccm.log
@@ -370,10 +370,10 @@ if [ -e ${VX_VERSION_FILE} ]; then
     agent_configuration=$(grep ^AGENT_CONFIGURATION_STATUS "${VX_VERSION_FILE}" | cut -d"=" -f2 | tr -d " ")
     echo "agent_configuration=$agent_configuration" >> /tmp/MobSvc/sccm.log
      if [ "$agent_configuration" == "Succeeded" ]; then
-        echo "Agent is already configured. Proceed tooUpgrade." >> /tmp/MobSvc/sccm.log
+        echo "Agent is already configured. Proceed to Upgrade." >> /tmp/MobSvc/sccm.log
         Upgrade
     else
-        echo "Agent is not configured. Proceed tooConfigure." >> /tmp/MobSvc/sccm.log
+        echo "Agent is not configured. Proceed to Configure." >> /tmp/MobSvc/sccm.log
         Configure
     fi
 else
@@ -386,20 +386,20 @@ cd /tmp
 
 ### <a name="step-2-create-a-package"></a>2. adım: bir paket oluşturun
 
-1. Tooyour Configuration Manager konsolunda oturum açın.
-2. Çok Gözat**yazılım Kitaplığı** > **Uygulama Yönetimi** > **paketleri**.
+1. Configuration Manager konsolunuza oturum açın.
+2. Gözat **yazılım Kitaplığı** > **Uygulama Yönetimi** > **paketleri**.
 3. Sağ **paketleri**seçip **Paket Oluştur**.
-4. Merhaba adı, açıklama, üreticisi, dil ve sürümü için değerler sağlayın.
-5. Select hello **bu paket kaynak dosyalarını içeren** onay kutusu.
-6. Tıklatın **Gözat**ve hello yükleyici depolandığı select hello ağ paylaşımı (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcLinux).
+4. Ad, açıklama, üreticisi, dil ve sürüm için değerler sağlayın.
+5. Seçin **bu paket kaynak dosyalarını içeren** onay kutusu.
+6. Tıklatın **Gözat**, yükleyici depolandığı ağ paylaşımı seçin (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcLinux).
 
   ![Ekran görüntüsü, paket ve Program Sihirbazı](./media/site-recovery-install-mobility-service-using-sccm/create_sccm_package-linux.png)
 
-7. Merhaba üzerinde **toocreate istediğiniz Seç hello program türü** sayfasında, **standart Program**, tıklatıp **sonraki**.
+7. Üzerinde **oluşturmak istediğiniz program türünü seçin** sayfasında, **standart Program**, tıklatıp **sonraki**.
 
   ![Ekran görüntüsü, paket ve Program Sihirbazı](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
 
-8. Merhaba üzerinde **bu standart programla ilgili bilgiler belirt** sayfasında girişleri aşağıdaki hello sağlamak ve tıklayın **sonraki**. (Merhaba diğer girişleri varsayılan değerleri kullanabilirsiniz.)
+8. Üzerinde **bu standart programla ilgili bilgiler belirt** sayfasında, aşağıdaki girişleri yapın ve tıklayın **sonraki**. (Diğer girişleri varsayılan değerleri kullanabilirsiniz.)
 
     | **Parametre adı** | **Değer** |
   |--|--|
@@ -409,36 +409,36 @@ cd /tmp
 
   ![Ekran görüntüsü, paket ve Program Sihirbazı](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-linux.png)
 
-9. Merhaba sonraki sayfada seçin **Bu program herhangi bir platformda çalışabilir**.
+9. Sonraki sayfada seçin **Bu program herhangi bir platformda çalışabilir**.
   ![Ekran görüntüsü, paket ve Program Sihirbazı](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2-linux.png)
 
-10. toocomplete hello Sihirbazı'nı tıklatın **sonraki** iki kez.
+10. Sihirbazı tamamlamak için tıklatın **sonraki** iki kez.
 
 > [!NOTE]
-> Merhaba betik her iki yeni yüklemeler Mobility hizmeti destekler ve yüklü olan tooagents güncelleştirir.
+> Komut dosyası Mobility hizmeti aracısı ve yüklü olan aracıları güncelleştirmeleri hem yeni yüklemeleri destekler.
 
-### <a name="step-3-deploy-hello-package"></a>Adım 3: hello paketini dağıtma
-1. Merhaba Configuration Manager konsolunda, pakete sağ tıklayın ve seçin **içeriği Dağıt**.
+### <a name="step-3-deploy-the-package"></a>Adım 3: Paket dağıtma
+1. Configuration Manager konsolunda, pakete sağ tıklayın ve seçin **içeriği Dağıt**.
   ![Ekran görüntüsü, Configuration Manager Konsolu](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
-2. Select hello  **[dağıtım noktaları](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**  toowhich üzerinde hello paketleri kopyalanmalıdır.
-3. Tam hello Sihirbazı. Merhaba paket sonra toohello çoğaltmaya başlar dağıtım noktaları belirtilmiş.
-4. Merhaba paket dağıtımı yapıldıktan sonra hello paketini sağ tıklatın ve seçin **dağıtma**.
+2. Seçin  **[dağıtım noktaları](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**  paketleri kopyalanmalıdır açın.
+3. Sihirbazı tamamlayın. Paket sonra belirtilen dağıtım noktalarına çoğaltmaya başlar.
+4. Paket dağıtımı yapıldıktan sonra pakete sağ tıklayın ve seçin **dağıtma**.
   ![Ekran görüntüsü, Configuration Manager Konsolu](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
-5. Merhaba hello dağıtımı için hedef koleksiyonu olarak hello önkoşullar bölümünde oluşturduğunuz Linux sunucusu cihaz koleksiyonunu seçin.
+5. Dağıtımı için hedef koleksiyonu olarak önkoşullar bölümünde oluşturduğunuz Linux sunucusu cihaz koleksiyonunu seçin.
 
   ![Ekran görüntüsü, yazılımı Dağıt Sihirbazı](./media/site-recovery-install-mobility-service-using-sccm/sccm-select-target-collection-linux.png)
 
-6. Merhaba üzerinde **hello içerik hedefini belirtin** sayfasında, sizin **dağıtım noktaları**.
-7. Merhaba üzerinde **bu yazılımın nasıl dağıtılacağını belirtin ayarları toocontrol** sayfasında, hello amacı olduğundan emin olun **gerekli**.
+6. Üzerinde **içerik hedefini belirt** sayfasında, sizin **dağıtım noktaları**.
+7. Üzerinde **bu yazılımın nasıl dağıtılacağını denetlemek için ayarları belirtin** sayfasında, amacı olduğundan emin olun **gerekli**.
 
   ![Ekran görüntüsü, yazılımı Dağıt Sihirbazı](./media/site-recovery-install-mobility-service-using-sccm/sccm-deploy-select-purpose.png)
 
-8. Merhaba üzerinde **bu dağıtım için belirt hello zamanlamayı** sayfasında, bir zamanlama belirtin. Daha fazla bilgi için bkz: [paketleri zamanlama](https://technet.microsoft.com/library/gg682178.aspx).
-9. Merhaba üzerinde **dağıtım noktaları** sayfasında, veri merkeziniz toohello gereksinimlerine göre hello özelliklerini yapılandırın. Başlangıç Sihirbazı'nı tamamlayın.
+8. Üzerinde **bu dağıtım için zamanlamayı belirtin** sayfasında, bir zamanlama belirtin. Daha fazla bilgi için bkz: [paketleri zamanlama](https://technet.microsoft.com/library/gg682178.aspx).
+9. Üzerinde **dağıtım noktaları** sayfasında, veri merkeziniz gereksinimlerine göre özelliklerini yapılandırın. Sihirbazı tamamlayın.
 
-Mobility hizmeti yapılandırdığınız toohello zamanlamaya göre Linux Server Aygıt koleksiyonu hello üzerinde yüklü.
+Mobility hizmeti Linux sunucusu cihaz koleksiyonunda, yapılandırdığınız zamanlamaya göre yüklü.
 
-## <a name="other-methods-tooinstall-mobility-service"></a>Diğer yöntemleri tooinstall Mobility hizmeti
+## <a name="other-methods-to-install-mobility-service"></a>Mobilite hizmetinin yüklenmesi için diğer yöntemleri
 Mobility hizmetinin yüklenmesi için diğer bazı seçenekleri şunlardır:
 * [GUI kullanarak el ile yükleme](http://aka.ms/mobsvcmanualinstall)
 * [Komut satırı kullanarak el ile yükleme](http://aka.ms/mobsvcmanualinstallcli)
@@ -446,7 +446,7 @@ Mobility hizmetinin yüklenmesi için diğer bazı seçenekleri şunlardır:
 * [Azure Otomasyonu & istenen durum Yapılandırması'nı kullanarak otomatik yükleme](http://aka.ms/mobsvcdscinstall)
 
 ## <a name="uninstall-mobility-service"></a>Mobility hizmetini kaldırma
-Configuration Manager paketlerini toouninstall Mobility hizmeti oluşturabilirsiniz. Komut dosyası toodo şekilde aşağıdaki hello kullan:
+Mobility hizmetini kaldırmak için Configuration Manager paketler oluşturabilirsiniz. Bunu yapmak için aşağıdaki komut dosyasını kullanın:
 
 ```
 Time /t >> C:\logfile.log
@@ -470,4 +470,4 @@ IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UNINSTALL
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık çok hazırsınız[korumayı etkinleştir](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications) , sanal makineleriniz için.
+Artık hazırsınız [korumayı etkinleştir](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-vmware-to-azure#step-6-replicate-applications) , sanal makineleriniz için.

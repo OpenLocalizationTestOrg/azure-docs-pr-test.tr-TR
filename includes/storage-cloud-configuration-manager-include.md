@@ -1,18 +1,18 @@
-Merhaba [.NET için Microsoft Azure Yapılandırma Yöneticisi Kitaplığı](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) yapılandırma dosyasından bağlantı dizesini ayrıştırmak için bir sınıf sağlar. Merhaba [CloudConfigurationManager](https://msdn.microsoft.com/library/azure/mt634650.aspx) sınıfı Merhaba istemci uygulaması hello masaüstünde, bir Azure sanal makinesi veya bir Azure bulut hizmeti bir mobil aygıtı kullanılıp kullanılmadığını bakılmaksızın yapılandırma ayarlarını ayrıştırır.
+[.NET için Microsoft Azure Yapılandırma Yöneticisi Kitaplığı](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/), yapılandırma dosyasından bağlantı dizesini ayrıştırmak için bir sınıf sağlar. [CloudConfigurationManager sınıfı](https://msdn.microsoft.com/library/azure/mt634650.aspx), Azure sanal cihazdaki veya Azure bulut hizmetindeki bir masaüstünde, bir mobil cihazda istemci uygulamasının çalışıp çalışmadığını göz ardı ederek yapılandırma ayarlarını ayrıştırır.
 
-tooreference CloudConfigurationManager paketine Merhaba, hello aşağıdakileri ekleyin `using` yönergesi:
+CloudConfigurationManager paketine başvurmak için şu `using` yönergeyi ekleyin:
 
 ```csharp
 using Microsoft.Azure; //Namespace for CloudConfigurationManager
 ```
 
-Aşağıda, nasıl tooretrieve bir bağlantı dizesi yapılandırma dosyasından gösteren bir örnek verilmiştir:
+Burada, yapılandırma dosyasından bir bağlantı dizesinin nasıl alındığını gösteren bir örnek bulunmaktadır:
 
 ```csharp
-// Parse hello connection string and return a reference toohello storage account.
+// Parse the connection string and return a reference to the storage account.
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     CloudConfigurationManager.GetSetting("StorageConnectionString"));
 ```
 
-Hello Azure Yapılandırma Yöneticisi'ni kullanmak isteğe bağlıdır. .NET Framework'ün hello gibi bir API de kullanabilirsiniz [ConfigurationManager](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) sınıfı.
+Azure Yapılandırma Yöneticisi'ni kullanmak isteğe bağlıdır. .NET Framework'ün [ConfigurationManager sınıfı](https://msdn.microsoft.com/library/system.configuration.configurationmanager.aspx) gibi bir API de kullanabilirsiniz.
 

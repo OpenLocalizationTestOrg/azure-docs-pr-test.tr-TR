@@ -1,6 +1,6 @@
 ---
-title: "Azure Güvenlik Merkezi'nde saydam veri şifreleme aaaEnable | Microsoft Docs"
-description: "Bu belge size nasıl tooimplement hello Azure Güvenlik Merkezi öneri gösterir. ** etkinleştirmek saydam veri şifreleme **."
+title: "Azure Güvenlik Merkezi'nde saydam veri şifreleme etkinleştirme | Microsoft Docs"
+description: "Bu belgede Azure Güvenlik Merkezi öneriyi uygulamayı gösterilmiştir ** etkinleştirmek saydam veri şifreleme **."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,49 +14,49 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 94c6e9a1feddaa48faac6c835d416c4d131cd5c5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2a2963affdbff3710ad08f86c6ed4e6304335559
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="enable-transparent-data-encryption-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde saydam veri şifreleme etkinleştir
-Azure Güvenlik Merkezi TDE zaten etkin değilse SQL veritabanlarını saydam veri şifreleme (TDE) etkinleştirmek önerir. TDE, verilerinizi korur ve veritabanınızı, ilişkili yedeklemelerinizi ve geri kalan, işlem günlüğü dosyalarını değişiklikleri tooyour uygulama gerek kalmadan şifreleyerek uyumluluk gereksinimlerinin karşılanmasına yardımcı olur. toolearn daha fazla [saydam veri şifrelemesi ile Azure SQL veritabanı](https://msdn.microsoft.com/library/dn948096).
+Azure Güvenlik Merkezi TDE zaten etkin değilse SQL veritabanlarını saydam veri şifreleme (TDE) etkinleştirmek önerir. TDE, verilerinizi korur ve veritabanınızı, ilişkili yedeklemelerinizi ve geri kalan, işlem günlüğü dosyalarını uygulamanızda değişiklik yapılması gerekmeksizin şifreleyerek uyumluluk gereksinimlerinin karşılanmasına yardımcı olur. Daha fazla bilgi edinmek için [saydam veri şifrelemesi ile Azure SQL veritabanı](https://msdn.microsoft.com/library/dn948096).
 
-Bu öneri toohello yalnızca Azure SQL Hizmeti uygulanır; sanal makinelerde çalışan SQL içermez.
+Bu öneri, yalnızca Azure SQL Hizmeti için geçerlidir; sanal makinelerde çalışan SQL içermez.
 
 > [!NOTE]
-> Bu belge, örnek bir dağıtım kullanarak hello hizmeti sunar.  Bu, adım adım ilerleyen bir kılavuz değildir.
+> Bu belge, örnek bir dağıtım kullanarak hizmeti tanıtır.  Bu, adım adım ilerleyen bir kılavuz değildir.
 >
 >
 
-## <a name="implement-hello-recommendation"></a>Merhaba öneriyi uygulamayı
-1. Merhaba, **önerileri** dikey penceresinde, select **etkinleştirmek saydam veri şifreleme**.
+## <a name="implement-the-recommendation"></a>Öneriyi uygulamayı
+1. İçinde **önerileri** dikey penceresinde, select **etkinleştirmek saydam veri şifreleme**.
    ![Saydam Veri Şifrelemesini Etkinleştirme][1]
-2. Merhaba açılır **etkinleştirmek saydam veri şifreleme SQL veritabanlarında** dikey. Bir SQL veritabanı tooenable TDE seçin.
-   ![SQL DB tooenable TDE seçin][2]
-3. Merhaba üzerinde **saydam veri şifreleme** dikey penceresinde, select **ON** veri şifreleme ve select altında **kaydetmek** hello dikey pencerenin üst hello Şeritte.
+2. Bu açılır **etkinleştirmek saydam veri şifreleme SQL veritabanlarında** dikey. TDE etkinleştirmek için bir SQL veritabanı seçin.
+   ![SQL TDE'nin etkinleştirmek için DB seçin][2]
+3. Üzerinde **saydam veri şifreleme** dikey penceresinde, select **ON** veri şifreleme ve select altında **kaydetmek** dikey pencerenin üst Şeritte.
    ![TDE üzerinde Aç][3]
 
-   TDE etkinleştirildiğinde hello SQL veritabanı hello seçili **şifreleme durumu** çok değiştirecek**şifreli**.    
+   TDE seçili SQL veritabanını etkinleştirildikten sonra **şifreleme durumu** değiştirir **şifreli**.    
 
    ![Şifreleme durumu][4]
 
 ## <a name="see-also"></a>Ayrıca bkz.
-Bu makalede, nasıl tooimplement hello Güvenlik Merkezi öneri "Etkinleştirme saydam veri şifreleme." gösterdi. SQL TDE'nin hakkında daha fazla toolearn hello aşağıdaki bakın:
+Bu makalede "Saydam veri şifrelemeyi etkinleştirir." Güvenlik Merkezi öneriyi uygulamayı nasıl oluşturulacağını gösterir SQL TDE'nin hakkında daha fazla bilgi için aşağıdakilere bakın:
 
 * [Saydam veri şifrelemesi ile Azure SQL veritabanı](https://msdn.microsoft.com/library/dn948096)
 * [Saydam veri şifreleme (TDE) ile çalışmaya başlama](../sql-data-warehouse/sql-data-warehouse-encryption-tde.md)
 
-Güvenlik Merkezi hakkında daha fazla toolearn hello aşağıdaki bakın:
+Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) --öğrenin nasıl tooconfigure Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkeleri.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) -- Azure abonelikleriniz ve kaynak gruplarınız için güvenlik ilkelerini yapılandırma hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) --nasıl önerilerin Azure kaynaklarınızı korumanıza yardımcı öğrenin.
-* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) --nasıl toomonitor hello Azure kaynaklarınızın sistem durumunu öğrenin.
-* [Azure Güvenlik Merkezi'nde Uyarıları yönetme ve yanıt toosecurity](security-center-managing-and-responding-alerts.md) --öğrenin nasıl toomanage ve yanıt toosecurity uyarıları.
-* [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) --nasıl toomonitor hello iş ortağı çözümlerinizin sistem durumunu öğrenin.
-* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) --hello hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
-* [Azure güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/) --hello en son Azure güvenlik haberlerini ve bilgilerini alın.
+* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) --Azure kaynaklarınızı sağlığını izlemek öğrenin.
+* [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) - İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) -- Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
+* [Azure güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/) --en son Azure güvenlik haberlerini ve bilgilerini edinin.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-tde-on-sql-databases/enable-tde.png

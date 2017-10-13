@@ -1,6 +1,6 @@
 ---
-title: Azure sanal makineleri - PowerShell aaaMultiple IP adreslerinin | Microsoft Docs
-description: "Nasıl tooassign birden çok IP adresleri öğrenin PowerShell kullanarak tooa sanal makine | Resource Manager."
+title: "Azure sanal makineleri - PowerShell için birden çok IP adresi | Microsoft Docs"
+description: "PowerShell kullanarak bir sanal makine için birden çok IP adresi atama hakkında bilgi edinin | Resource Manager."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: df54c4386ce13521e660a3e7208c8c1ab1459bc2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 29f64aeefc2a7deb1f84d759c2323347536b9c27
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="assign-multiple-ip-addresses-toovirtual-machines-using-powershell"></a>PowerShell kullanarak toovirtual makineler birden çok IP adresi atayın
+# <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>PowerShell kullanarak sanal makineleri için birden çok IP adresi atayın
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-intro.md](../../includes/virtual-network-multiple-ip-addresses-intro.md)]
 
-Bu makalede nasıl toocreate sanal makineye (VM) üzerinden hello Azure Resource Manager dağıtım modeli PowerShell kullanarak açıklanmaktadır. Birden çok IP adresi hello Klasik dağıtım modeli aracılığıyla oluşturulan tooresources atanamaz. Merhaba okuma Azure dağıtım modelleri hakkında daha fazla toolearn [dağıtım modellerini anlama](../resource-manager-deployment-model.md) makalesi.
+Bu makalede PowerShell kullanarak Azure Resource Manager dağıtım modeli sanal makine (VM) oluşturma açıklanmaktadır. Birden çok IP adresi Klasik dağıtım modeli aracılığıyla oluşturulan kaynakları atanamaz. Azure dağıtım modelleri hakkında daha fazla bilgi için okuma [dağıtım modellerini anlama](../resource-manager-deployment-model.md) makalesi.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-template-scenario.md](../../includes/virtual-network-multiple-ip-addresses-scenario.md)]
 
 ## <a name = "create"></a>Birden çok IP adresiyle bir VM oluşturma
 
-izleyin hello adımlarda hello senaryosunda açıklandığı şekilde nasıl toocreate örneği VM ile birden çok IP adresleri, açıklanmaktadır. Değişken değerleri, uygulamanız için gereken şekilde değiştirin.
+Adımları birden çok IP adresleriyle VM örneği oluşturmak senaryosunda açıklandığı şekilde açıklanmaktadır. Değişken değerleri, uygulamanız için gereken şekilde değiştirin.
 
-1. Bir PowerShell komut istemi açın ve tam hello kalan tek bir PowerShell oturumunda bu bölümdeki adımları. Zaten yüklü ve yapılandırılmış PowerShell sahip değilseniz, tam hello hello adımları [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview) makalesi.
-2. Oturum açma tooyour hello hesabıyla `login-azurermaccount` komutu.
+1. Bir PowerShell komut istemi açın ve tek bir PowerShell oturumunda bu bölümdeki kalan adımları tamamlayın. Zaten yüklü ve yapılandırılmış PowerShell sahip değilseniz, bölümündeki adımları tamamlamanız [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview) makale.
+2. Oturum açma ile hesabınızı `login-azurermaccount` komutu.
 3. Değiştir *myResourceGroup* ve *westus* bir adı ve seçtiğiniz konum. Bir kaynak grubu oluşturun. Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
     ```powershell
@@ -46,7 +46,7 @@ izleyin hello adımlarda hello senaryosunda açıklandığı şekilde nasıl too
     -Location $Location
     ```
 
-4. Bir sanal ağ (VNet) ve alt ağ hello oluşturmak hello kaynak grubu ile aynı konumda:
+4. Kaynak grubu ile aynı konumda bir sanal ağ (VNet) ve alt ağ oluşturun:
 
     ```powershell
     
@@ -63,11 +63,11 @@ izleyin hello adımlarda hello senaryosunda açıklandığı şekilde nasıl too
     -AddressPrefix 10.0.0.0/16 `
     -Subnet $subnetConfig
 
-    # Get hello subnet object
+    # Get the subnet object
     $Subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $SubnetConfig.Name -VirtualNetwork $VNet
     ```
 
-5. Bir ağ güvenlik grubu (NSG) ve bir kural oluşturun. Merhaba NSG korur hello VM gelen ve giden kurallarını kullanma. Bu durumda, bağlantı noktası 3389 için gelen masaüstü bağlantılarına izin veren bir gelen kuralı oluşturulur.
+5. Bir ağ güvenlik grubu (NSG) ve bir kural oluşturun. NSG gelen ve giden kuralları kullanarak VM güvenliğini sağlar. Bu durumda, bağlantı noktası 3389 için gelen masaüstü bağlantılarına izin veren bir gelen kuralı oluşturulur.
 
     ```powershell
     
@@ -91,9 +91,9 @@ izleyin hello adımlarda hello senaryosunda açıklandığı şekilde nasıl too
     -SecurityRules $NSGRule
     ```
 
-6. Merhaba NIC Hello birincil IP yapılandırmasını tanımlayın Değişiklik 10.0.0.4 tooa oluşturduğunuz, önceden tanımlanmış hello değer kullanmadıysanız hello alt ağdaki geçerli bir adresi. Statik bir IP adresi atamadan önce zaten kullanımda olmadığı ilk onaylamanız önerilir. Merhaba komutu girin `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Başlangıç adresi varsa, hello döndürür çıktı *doğru*. Kullanılabilir durumda değilse, hello döndürür çıktı *False* ve kullanılabilir adresleri listesi. 
+6. Birincil NIC IP yapılandırmasını tanımlayın Önceden tanımlanmış değer kullanmadıysanız, oluşturduğunuz alt ağdaki geçerli bir adrese 10.0.0.4 değiştirin. Statik bir IP adresi atamadan önce zaten kullanımda olmadığı ilk onaylamanız önerilir. Aşağıdaki komutu girin `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Adres bulunup bulunmadığını çıktıyı döndürür *doğru*. Çıktıyı döndürür, kullanılabilir değilse, *False* ve kullanılabilir adresleri listesi. 
 
-    Komutları, aşağıdaki hello içinde **< Değiştir-ile-bilgisayarınızı-benzersiz-adı > merhaba benzersiz DNS adı toouse ile değiştirin.** bir Azure bölgesi içindeki tüm ortak IP adresleri arasında Hello adının benzersiz olması gerekir. Bu isteğe bağlı bir parametredir. Tooconnect toohello VM yalnızca istiyorsanız kaldırılması hello ortak IP adresi kullanarak.
+    Aşağıdaki komutlarda **< Değiştir-ile-bilgisayarınızı-benzersiz-adı > kullanmak için benzersiz DNS adı ile değiştirin.** Bir Azure bölgesi içindeki tüm ortak IP adresleri arasında adının benzersiz olması gerekir. Bu isteğe bağlı bir parametredir. Yalnızca genel IP adresini kullanarak VM bağlanmak isterseniz kaldırılabilir.
 
     ```powershell
     
@@ -105,7 +105,7 @@ izleyin hello adımlarda hello senaryosunda açıklandığı şekilde nasıl too
     -DomainNameLabel <replace-with-your-unique-name> `
     -AllocationMethod Static
         
-    #Create an IP configuration with a static private IP address and assign hello public IP ddress tooit
+    #Create an IP configuration with a static private IP address and assign the public IP ddress to it
     $IpConfigName1 = "IPConfig-1"
     $IpConfig1     = New-AzureRmNetworkInterfaceIpConfig `
     -Name $IpConfigName1 `
@@ -115,12 +115,12 @@ izleyin hello adımlarda hello senaryosunda açıklandığı şekilde nasıl too
     -Primary
     ```
 
-    Birden çok IP yapılandırmaları tooa NIC atadığınızda, bir yapılandırma hello atanmalıdır *-birincil*.
+    Birden fazla IP yapılandırması için bir NIC atadığınızda, bir yapılandırma olarak atanması gerekir *-birincil*.
 
     > [!NOTE]
-    > Nominal bir ücret ortak IP adresine sahip. IP hakkında daha fazla adres fiyatlandırma toolearn okuma hello [IP adresi fiyatlandırma](https://azure.microsoft.com/pricing/details/ip-addresses) sayfası. Bir abonelikte kullanılabilir genel IP adresleri sınırı toohello sayısı yoktur. Merhaba okuma hello sınırları hakkında daha fazla toolearn [Azure sınırlar](../azure-subscription-service-limits.md#networking-limits) makalesi.
+    > Nominal bir ücret ortak IP adresine sahip. IP adresi fiyatlandırma hakkında daha fazla bilgi için okuma [IP adresi fiyatlandırma](https://azure.microsoft.com/pricing/details/ip-addresses) sayfası. Bir abonelikte kullanılabilir genel IP adresleri sayısına bir sınır yoktur. Sınırlar hakkında daha fazla bilgi için [Azure limitleri](../azure-subscription-service-limits.md#networking-limits) makalesini okuyun.
 
-7. Merhaba NIC için ikincil IP yapılandırmaları Hello tanımlayın Ekleyebilir veya gerektiği gibi yapılandırmaları kaldırabilirsiniz. Her IP yapılandırması atanan özel bir IP adresi olmalıdır. Her yapılandırma isteğe bağlı olarak atanmış bir genel IP adresi olabilir.
+7. NIC ikincil IP yapılandırmalarını tanımlayın Ekleyebilir veya gerektiği gibi yapılandırmaları kaldırabilirsiniz. Her IP yapılandırması atanan özel bir IP adresi olmalıdır. Her yapılandırma isteğe bağlı olarak atanmış bir genel IP adresi olabilir.
 
     ```powershell
     
@@ -131,7 +131,7 @@ izleyin hello adımlarda hello senaryosunda açıklandığı şekilde nasıl too
     -Location $Location `
     -AllocationMethod Static
         
-    #Create an IP configuration with a static private IP address and assign hello public IP ddress tooit
+    #Create an IP configuration with a static private IP address and assign the public IP ddress to it
     $IpConfigName2 = "IPConfig-2"
     $IpConfig2     = New-AzureRmNetworkInterfaceIpConfig `
     -Name $IpConfigName2 `
@@ -146,7 +146,7 @@ izleyin hello adımlarda hello senaryosunda açıklandığı şekilde nasıl too
     -PrivateIpAddress 10.0.0.6
     ```
 
-8. Merhaba NIC oluşturun ve hello üç IP yapılandırmaları tooit ilişkilendirin:
+8. NIC oluşturun ve ona üç IP yapılandırmaları ilişkilendirin:
 
     ```powershell
     
@@ -159,13 +159,13 @@ izleyin hello adımlarda hello senaryosunda açıklandığı şekilde nasıl too
     ```
 
     >[!NOTE]
-    >Bu makalede tooone NIC atanmış tüm yapılandırmalar olsa, birden çok IP yapılandırmaları tooevery bağlı NIC toohello VM atayabilirsiniz. nasıl toocreate birden çok NIC ile VM okuma toolearn hello [bir VM ile birden çok NIC oluşturma](virtual-network-deploy-multinic-arm-ps.md) makalesi.
+    >Bu makalede bir NIC'e atanmış tüm yapılandırmalar olsa, VM'ye bağlı her NIC birden çok IP yapılandırmaları atayabilirsiniz. Bir VM ile birden çok NIC oluşturmayı öğrenmek için okuma [bir VM ile birden çok NIC oluşturma](virtual-network-deploy-multinic-arm-ps.md) makalesi.
 
-9. Merhaba VM hello aşağıdaki komutları girerek oluşturabilirsiniz:
+9. VM, aşağıdaki komutları girerek oluşturabilirsiniz:
 
     ```powershell
     
-    # Define a credential object. When you run these commands, you're prompted tooenter a sername and password for hello VM you're reating.
+    # Define a credential object. When you run these commands, you're prompted to enter a sername and password for the VM you're reating.
     $cred = Get-Credential
     
     # Create a virtual machine configuration
@@ -183,21 +183,21 @@ izleyin hello adımlarda hello senaryosunda açıklandığı şekilde nasıl too
     Add-AzureRmVMNetworkInterface `
     -Id $NIC.Id
     
-    # Create hello VM
+    # Create the VM
     New-AzureRmVM `
     -ResourceGroupName $RgName `
     -Location $Location `
     -VM $VmConfig
     ```
 
-10. Ekle hello özel IP adresleri toohello VM işletim sistemi işletim sisteminizin hello hello adımları tamamlayarak [eklemek IP adresleri tooa VM işletim sistemi](#os-config) bu makalenin. Merhaba ortak IP adresleri toohello işletim sistemi eklemeyin.
+10. İşletim sisteminiz için adımları tamamlayarak VM işletim sistemine özel IP adresleri ekleme [eklemek IP adresleri bir VM işletim sistemine](#os-config) bu makalenin. Genel IP adreslerine işletim sistemine eklemeyin.
 
-## <a name="add"></a>IP adreslerini tooa VM ekleme
+## <a name="add"></a>Bir VM için IP adreslerini ekleyin
 
-Özel ve genel IP adresleri tooa NIC izleyin hello adımları tamamlayarak ekleyebilirsiniz. Merhaba hello bölümleri aşağıdaki örneklerde, zaten bir VM hello açıklanan hello üç IP yapılandırmasına sahip olduğunu varsayın [senaryo](#Scenario) Bu makale, ancak gerekli değildir, yapın.
+Adımları tamamlayarak bir NIC'ye özel ve genel IP adresleri ekleyebilirsiniz. Aşağıdaki bölümlerde yer alan örnekler, zaten bir VM açıklanan üç IP yapılandırmaya sahip olduğunu varsayın [senaryo](#Scenario) Bu makale, ancak gerekli değildir, yapın.
 
-1. Bir PowerShell komut istemi açın ve tam hello kalan tek bir PowerShell oturumunda bu bölümdeki adımları. Zaten yüklü ve yapılandırılmış PowerShell sahip değilseniz, tam hello hello adımları [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview) makalesi.
-2. Merhaba "değerini" hello NIC bulunmaktadır tooadd IP adresi tooand hello kaynak grubunu ve konumu hello istediğiniz NIC $Variables toohello adı aşağıdaki hello değiştirin:
+1. Bir PowerShell komut istemi açın ve tek bir PowerShell oturumunda bu bölümdeki kalan adımları tamamlayın. Zaten yüklü ve yapılandırılmış PowerShell sahip değilseniz, bölümündeki adımları tamamlamanız [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview) makale.
+2. Aşağıdaki $Variables "değerler" adı IP adresine eklemek istediğiniz NIC ve kaynak grubu ve NIC bulunmaktadır konumu ile değiştirin:
 
     ```powershell
     $NicName  = "MyNIC"
@@ -205,38 +205,38 @@ izleyin hello adımlarda hello senaryosunda açıklandığı şekilde nasıl too
     $Location = "westus"
     ```
 
-    Merhaba toochange istediğiniz NIC hello adını bilmiyorsanız, komutları aşağıdaki hello girin ve ardından hello önceki değişkenlerin hello değerleri değiştirin:
+    İstediğiniz değiştirmek için aşağıdaki komutları girin NIC adını bilmiyorsanız, önceki değişkenlerin değerleri değiştirin:
 
     ```powershell
     Get-AzureRmNetworkInterface | Format-Table Name, ResourceGroupName, Location
     ```
-3. Bir değişken oluşturun ve NIC hello aşağıdaki komutu yazarak varolan toohello ayarlayın:
+3. Bir değişken oluşturun ve aşağıdaki komutu yazarak mevcut NIC'in ayarlayın:
 
     ```powershell
     $MyNIC = Get-AzureRmNetworkInterface -Name $NicName -ResourceGroupName $RgName
     ```
-4. Aşağıdaki komutları hello değiştirme *MyVNet* ve *MySubnet* NIC bağlı hello VNet ve alt ağ hello toohello adları. NIC bağlı hello komutları tooretrieve hello VNet ve alt ağ nesneleri hello girin:
+4. Aşağıdaki komutlarda değiştirme *MyVNet* ve *MySubnet* VNet ve NIC bağlı alt ağ adları için. NIC bağlı VNet ve alt ağ nesneleri almak için komutları girin:
 
     ```powershell
     $MyVNet = Get-AzureRMVirtualnetwork -Name MyVNet -ResourceGroupName $RgName
     $Subnet = $MyVnet.Subnets | Where-Object { $_.Name -eq "MySubnet" }
     ```
-    NIC bağlı hello VNet veya alt ağ adı hello bilmiyorsanız, komutu aşağıdaki hello girin:
+    NIC bağlı sanal ağ veya alt ağ adını bilmiyorsanız, aşağıdaki komutu girin:
     ```powershell
     $MyNIC.IpConfigurations
     ```
-    Merhaba çıktısında metin benzer toohello örnek çıktı aşağıdaki için bakın:
+    Aşağıdaki örnek çıkış benzer bir metin çıktıda arayın:
     
     ```
     "Id": "/subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/MyVNet/subnets/MySubnet"
     ```
-    Bu çıkışı *MyVnet* hello VNet olduğu ve *MySubnet* hello alt hello NIC bağlı değil.
+    Bu çıkışı *MyVnet* VNet olduğu ve *MySubnet* NIC bağlı alt ağ.
 
-5. Aşağıdaki bölümlerde, gereksinimlerinize göre hello Hello adımları tamamlayın:
+5. Gereksinimlerinize göre aşağıdaki bölümlerden birindeki adımları tamamlayın:
 
     **Özel bir IP adresi Ekle**
 
-    özel bir IP adresi tooa NIC tooadd, bir IP yapılandırması oluşturmanız gerekir. Merhaba aşağıdaki komutu bir yapılandırma 10.0.0.7 ile bir statik IP adresi oluşturur. Statik bir IP adresi belirtirken, hello alt ağ için kullanılmayan bir adres olmalıdır. Başlangıç adresi tooensure bulunur hello girerek önce test önerilir `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.7 -VirtualNetwork $myVnet` komutu. Başlangıç IP adresi varsa, hello döndürür çıktı *doğru*. Kullanılabilir durumda değilse, hello döndürür çıktı *yanlış*ve kullanılabilir adresleri listesi.
+    Özel bir IP adresi için bir NIC eklemeniz için bir IP yapılandırması oluşturmanız gerekir. Aşağıdaki komut bir yapılandırma 10.0.0.7 ile bir statik IP adresi oluşturur. Statik bir IP adresi belirtirken, alt ağ için kullanılmayan bir adres olmalıdır. Kullanılabilir girerek olduğundan emin olmak için adresi önce test önerilir `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.7 -VirtualNetwork $myVnet` komutu. IP adresi bulunup bulunmadığını çıktıyı döndürür *doğru*. Çıktıyı döndürür, kullanılabilir değilse, *yanlış*ve kullanılabilir adresleri listesi.
 
     ```powershell
     Add-AzureRmNetworkInterfaceIpConfig -Name IPConfig-4 -NetworkInterface `
@@ -244,19 +244,19 @@ izleyin hello adımlarda hello senaryosunda açıklandığı şekilde nasıl too
     ```
     Benzersiz yapılandırma adları ve özel IP adresleri (yapılandırmaları statik IP adresleriyle) kullanarak gereksinim duyduğunuz kadar çok yapılandırmaları oluşturun.
 
-    İşletim sisteminizin hello hello adımları tamamlayarak Hello özel IP adresi toohello VM işletim sistemi Ekle [eklemek IP adresleri tooa VM işletim sistemi](#os-config) bu makalenin.
+    İşletim sisteminiz için adımları tamamlayarak VM işletim sistemine özel IP adresi Ekle [eklemek IP adresleri bir VM işletim sistemine](#os-config) bu makalenin.
 
     **Bir ortak IP adresi Ekle**
 
-    Bir ortak IP adresi, bir ortak IP adresi kaynak tooeither yeni bir IP yapılandırması veya var olan IP yapılandırmasını ilişkilendirerek eklenir. Gereksinim duyduğunuz kadar izleyin, hello bölümlerden biri hello adımlarını tamamlayın.
+    Bir ortak IP adresi, yeni bir IP yapılandırması ya da var olan bir IP yapılandırması için genel bir IP adresi kaynağı ilişkilendirerek eklenir. Gereksinim duyduğunuz kadar aşağıdaki bölümlerde birindeki adımları tamamlayın.
 
     > [!NOTE]
-    > Nominal bir ücret ortak IP adresine sahip. IP hakkında daha fazla adres fiyatlandırma toolearn okuma hello [IP adresi fiyatlandırma](https://azure.microsoft.com/pricing/details/ip-addresses) sayfası. Bir abonelikte kullanılabilir genel IP adresleri sınırı toohello sayısı yoktur. Merhaba okuma hello sınırları hakkında daha fazla toolearn [Azure sınırlar](../azure-subscription-service-limits.md#networking-limits) makalesi.
+    > Nominal bir ücret ortak IP adresine sahip. IP adresi fiyatlandırma hakkında daha fazla bilgi için okuma [IP adresi fiyatlandırma](https://azure.microsoft.com/pricing/details/ip-addresses) sayfası. Bir abonelikte kullanılabilir genel IP adresleri sayısına bir sınır yoktur. Sınırlar hakkında daha fazla bilgi için [Azure limitleri](../azure-subscription-service-limits.md#networking-limits) makalesini okuyun.
     >
 
-    - **Merhaba ortak IP adresi kaynak tooa yeni IP yapılandırmasını ilişkilendirin**
+    - **Yeni bir IP yapılandırması için genel IP adresi kaynağı ilişkilendirme**
     
-        Yeni bir IP yapılandırmasında bir ortak IP adresi eklediğinizde, tüm IP yapılandırmalarının özel bir IP adresi olması gerektiği için özel bir IP adresi eklemelisiniz. Varolan bir ortak IP adresi kaynağı ekleyin veya yeni bir tane oluşturun. toocreate yeni bir hello aşağıdaki komutu girin:
+        Yeni bir IP yapılandırmasında bir ortak IP adresi eklediğinizde, tüm IP yapılandırmalarının özel bir IP adresi olması gerektiği için özel bir IP adresi eklemelisiniz. Varolan bir ortak IP adresi kaynağı ekleyin veya yeni bir tane oluşturun. Yeni bir tane oluşturmak için aşağıdaki komutu girin:
     
         ```powershell
         $myPublicIp3 = New-AzureRmPublicIpAddress `
@@ -266,7 +266,7 @@ izleyin hello adımlarda hello senaryosunda açıklandığı şekilde nasıl too
         -AllocationMethod Static
         ```
 
-        Özel statik IP adresi ve ilişkili hello yeni bir IP yapılandırmasıyla toocreate *myPublicIp3* genel IP adresi kaynak, komutu aşağıdaki hello girin:
+        Özel bir statik IP adresi ile ilişkili yeni bir IP yapılandırması oluşturmak için *myPublicIp3* genel IP adresi kaynak, aşağıdaki komutu girin:
 
         ```powershell
         Add-AzureRmNetworkInterfaceIpConfig `
@@ -277,15 +277,15 @@ izleyin hello adımlarda hello senaryosunda açıklandığı şekilde nasıl too
         -PublicIpAddress $myPublicIp3
         ```
 
-    - **Merhaba ortak IP adresi kaynak tooan mevcut IP yapılandırmasını ilişkilendirin**
+    - **Var olan bir IP yapılandırması için genel IP adresi kaynağı ilişkilendirme**
 
-        Genel bir IP adresi kaynağı yalnızca zaten ilişkili olmayan ilişkili tooan IP yapılandırması olabilir. Komutu aşağıdaki hello girerek bir IP yapılandırması ilişkili bir ortak IP adresi olup olmadığını belirleyebilirsiniz:
+        Yalnızca genel IP adresi kaynağı zaten ilişkili olmayan bir IP yapılandırmasıyla ilişkilendirilmiş olabilir. Aşağıdaki komutu girerek bir IP yapılandırması ilişkili bir ortak IP adresi olup olmadığını belirleyebilirsiniz:
 
         ```powershell
         $MyNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
         ```
 
-        Çıktı benzer toohello aşağıdakilere bakın:
+        Aşağıdakine benzer bir çıktı görürsünüz:
 
         ```     
         Name       PrivateIpAddress PublicIpAddress                                           Primary
@@ -295,7 +295,7 @@ izleyin hello adımlarda hello senaryosunda açıklandığı şekilde nasıl too
         IpConfig-3 10.0.0.6                                                                     False
         ```
 
-        Merhaba itibaren **Publicıpaddress** sütunu için *IpConfig 3* olduğundan, hiçbir ortak IP adresi kaynağı şu anda ilişkili tooit boştur. Bir var olan ortak IP adresi kaynak tooIpConfig-3 ekleyin veya komut toocreate bir aşağıdaki hello girin:
+        Bu yana **Publicıpaddress** sütunu için *IpConfig 3* olduğundan, hiçbir ortak IP adresi kaynağı ilişkili şu anda boştur. Mevcut bir ortak IP adresi kaynağı IpConfig-3'e ekleyin veya oluşturmak için aşağıdaki komutu girin:
 
         ```powershell
         $MyPublicIp3 = New-AzureRmPublicIpAddress `
@@ -304,7 +304,7 @@ izleyin hello adımlarda hello senaryosunda açıklandığı şekilde nasıl too
         -Location $Location -AllocationMethod Static
         ```
 
-        Tooassociate hello ortak IP adresi adlı kaynak toohello mevcut IP yapılandırması komutu aşağıdaki hello girin *IpConfig 3*:
+        Adlı varolan IP yapılandırması için genel IP adresi kaynağı ilişkilendirmek için aşağıdaki komutu girin *IpConfig 3*:
     
         ```powershell
         Set-AzureRmNetworkInterfaceIpConfig `
@@ -314,17 +314,17 @@ izleyin hello adımlarda hello senaryosunda açıklandığı şekilde nasıl too
         -PublicIpAddress $myPublicIp3
         ```
 
-6. Merhaba NIC hello yeni IP yapılandırması ile komutu aşağıdaki hello girerek ayarlayın:
+6. NIC yeni IP yapılandırması ile aşağıdaki komutu girerek ayarlayın:
 
     ```powershell
     Set-AzureRmNetworkInterface -NetworkInterface $MyNIC
     ```
 
-7. Görünüm hello özel IP adresleri ve ortak IP adresi atanmış kaynaklar toohello girerek NIC hello komutu aşağıdaki hello:
+7. Özel IP adresleri ve aşağıdaki komutu girerek NIC'ye atanan ortak IP adresi kaynaklara bakın:
 
     ```powershell   
     $MyNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
     ```
-8. İşletim sisteminizin hello hello adımları tamamlayarak Hello özel IP adresi toohello VM işletim sistemi Ekle [eklemek IP adresleri tooa VM işletim sistemi](#os-config) bu makalenin. Merhaba ortak IP adresi toohello işletim sistemi eklemeyin.
+8. İşletim sisteminiz için adımları tamamlayarak VM işletim sistemine özel IP adresi Ekle [eklemek IP adresleri bir VM işletim sistemine](#os-config) bu makalenin. Genel IP adresi işletim sistemine eklemeyin.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

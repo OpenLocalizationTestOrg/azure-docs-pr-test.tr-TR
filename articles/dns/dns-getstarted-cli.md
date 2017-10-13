@@ -1,6 +1,6 @@
 ---
-title: "aaaGet Azure Azure CLI 2.0 kullanarak DNS ile başlatılan | Microsoft Docs"
-description: "Bilgi nasıl toocreate bir DNS bölgesi ve Azure DNS kaydında. Bu adım adım kılavuzu toocreate ve ilk DNS bölgesi ve kayıt hello Azure CLI 2.0 kullanarak yönetin."
+title: "Azure CLI 2.0 ile Azure DNS kullanmaya başlama | Microsoft Docs"
+description: "Azure DNS'te DNS bölgesi ve kaydı oluşturma hakkında bilgi edinin. Bu kılavuzda, Azure CLI 2.0 kullanarak ilk DNS bölgenizi ve kaydınızı oluşturup yönetmeniz için adım adım talimatlar sunulmaktadır."
 services: dns
 documentationcenter: na
 author: jtuliani
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-ms.openlocfilehash: 8a894941e9910d5cc35394a1be9dbca9792613f2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 6958d61b29961f59cb22f62bec55f2d467e7e7cb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-dns-using-azure-cli-20"></a>Azure CLI 2.0 kullanarak Azure DNS ile çalışmaya başlama
 
@@ -29,15 +29,15 @@ ms.lasthandoff: 10/06/2017
 > * [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-getstarted-cli.md)
 
-Bu makalede ilk DNS bölgenizi hello adımları toocreate anlatılmaktadır ve kaydını kullanarak hello platformlar arası Azure CLI 2.0, Windows, Mac ve Linux için kullanılabilir. Hello Azure portalında veya Azure PowerShell kullanarak aşağıdaki adımları de gerçekleştirebilirsiniz.
+Bu makale Windows, Mac ve Linux platformlarında kullanılabilen platformlar arası Azure CLI 2.0'ı kullanarak ilk DNS bölgenizi ve kaydınızı oluşturma adımlarında size rehberlik yapacaktır. Ayrıca, Azure portal veya Azure PowerShell kullanarak aşağıdaki adımları gerçekleştirebilirsiniz.
 
-Bir DNS bölgesi belirli bir etki alanı için kullanılan toohost hello DNS kayıtlarını ' dir. Azure DNS, etki alanınızda barındırma toostart toocreate bir DNS bölgesi için o etki alanı adı gerekiyor. Ardından bu DNS bölgesinde etki alanınız için tüm DNS kayıtları oluşturulur. Son olarak, toopublish, DNS bölge toohello Internet tooconfigure hello ad sunucuları hello etki alanı için gerekir. Bu adımların her biri aşağıda açıklanmıştır.
+DNS bölgesi belirli bir etki alanıyla ilgili DNS kayıtlarını barındırmak için kullanılır. Etki alanınızı Azure DNS'de barındırmaya başlamak için bir DNS bölgesi oluşturmanız gerekir. Ardından bu DNS bölgesinde etki alanınız için tüm DNS kayıtları oluşturulur. Son olarak, DNS bölgenizi Internet'te yayımlamak için etki alanının ad sunucularını yapılandırmanız gerekir. Bu adımların her biri aşağıda açıklanmıştır.
 
-Bu yönergeler, zaten yüklü ve tooAzure CLI 2.0 imzalı varsayalım. Yardım için bkz. [nasıl Azure CLI 2.0 kullanan toomanage DNS bölgeleri](dns-operations-dnszones-cli.md).
+Bu yönergelerde, Azure CLI 2.0’ı zaten yüklediğiniz ve oturum açtığınız varsayılır. Yardım için bkz. [Azure CLI 2.0 ile DNS bölgelerini yönetme](dns-operations-dnszones-cli.md).
 
-## <a name="create-hello-resource-group"></a>Merhaba kaynak grubu oluştur
+## <a name="create-the-resource-group"></a>Kaynak grubunu oluşturma
 
-Merhaba DNS bölgesi oluşturmadan önce bir kaynak grubu toocontain hello DNS bölgesi oluşturulur. Merhaba aşağıdaki hello komut gösterir.
+DNS bölgesini oluşturmadan önce, DNS Bölgesi’ni içerecek bir kaynak grubu oluşturulur. Aşağıda, komut gösterilmektedir.
 
 ```azurecli
 az group create --name MyResourceGroup --location "West US"
@@ -45,9 +45,9 @@ az group create --name MyResourceGroup --location "West US"
 
 ## <a name="create-a-dns-zone"></a>DNS bölgesi oluşturma
 
-Bir DNS bölgesi hello kullanılarak oluşturulan `az network dns zone create` komutu. Bu komutun toosee yardımını yazın `az network dns zone create -h`.
+DNS bölgesi, `az network dns zone create` komutu kullanılarak oluşturulur. Bu komutla ilgili yardım içeriğini görmek için `az network dns zone create -h` yazın.
 
-Merhaba aşağıdaki örnek adlı bir DNS bölgesi oluşturur *contoso.com* hello kaynak grubunda *MyResourceGroup*. Merhaba örnek toocreate bir DNS bölgesi Hello değerleri kendinizinkilerle değiştirerek kullanın.
+Aşağıdaki örnek, *MyResourceGroup* kaynak grubunda *contoso.com* adlı bir DNS bölgesi oluşturur. Değerleri kendinizinkilerle değiştirerek DNS bölgesini oluşturmak için örneği kullanın.
 
 ```azurecli
 az network dns zone create -g MyResourceGroup -n contoso.com
@@ -56,20 +56,20 @@ az network dns zone create -g MyResourceGroup -n contoso.com
 
 ## <a name="create-a-dns-record"></a>DNS kaydı oluşturma
 
-toocreate bir DNS kaydı kullanmak hello `az network dns record-set [record type] add-record` komutu. Örneğin, A kayıtlarına ilişkin yardım için bkz. `azure network dns record-set A add-record -h`.
+DNS kaydı oluşturmak için `az network dns record-set [record type] add-record` komutunu kullanın. Örneğin, A kayıtlarına ilişkin yardım için bkz. `azure network dns record-set A add-record -h`.
 
-Merhaba aşağıdaki örnekte bir kayıt hello göreli adı "www" hello "contoso.com", "Contoso.com" kaynak grubunda DNS bölgesi içinde oluşturur. Merhaba tam hello kayıt kümesi "www.contoso.com" adıdır. Merhaba kayıt türü "A", "1.2.3.4" IP adresiyle olduğundan ve varsayılan TTL 3600 saniye (1 saat) kullanılır.
+Aşağıdaki örnekte, "MyResourceGroup" kaynak grubu içindeki "contoso.com" DNS Bölgesinde göreli adı "www" olan bir kaynak oluşturulmaktadır. "www.contoso.com", kayıt kümesinin tam adıdır. Kayıt türü "A", IP adresi "1.2.3.4" ve varsayılan TTL değeri 3600 saniyedir (1 saat).
 
 ```azurecli
 az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www -a 1.2.3.4
 ```
 
-Alternatif TTL değerleri ve toomodify mevcut kayıtları için birden fazla kayıtla kayıt kümeleri için diğer kayıt türleri için bkz: [yönetmek DNS kayıtlarını ve kayıt kümelerini kullanarak hello Azure CLI 2.0](dns-operations-recordsets-cli.md).
+Diğer kayıt türleri, birden fazla kayıt içerek kayıt kümeleri, alternatif TTL değerleri ve var olan kayıtların değiştirilmesi hakkında bilgi için bkz. [Azure CLI 2.0 kullanarak DNS kayıtlarını ve kayıt kümelerini yönetme](dns-operations-recordsets-cli.md).
 
 
 ## <a name="view-records"></a>Kayıtları görüntüleme
 
-toolist hello DNS kayıtları, bölge içindeki kullanın:
+Bölgenizdeki DNS kayıtlarını listelemek için şu seçenekleri kullanın:
 
 ```azurecli
 az network dns record-set list -g MyResourceGroup -z contoso.com
@@ -78,9 +78,9 @@ az network dns record-set list -g MyResourceGroup -z contoso.com
 
 ## <a name="update-name-servers"></a>Ad sunucularını güncelleştirme
 
-Sonra DNS bölgesi ve kayıtları doğru şekilde ayarlanan, tooconfigure gerek memnun, etki alanı adı toouse hello Azure DNS ad sunucuları. Bu DNS kayıtlarınızı hello Internet toofind üzerindeki diğer kullanıcılarla sağlar.
+DNS bölgenizin ve kayıtlarınızın doğru şekilde ayarlandığına karar verdikten sonra, Azure DNS ad sunucularını kullanmak için etki alanınızın adını yapılandırmanız gerekir. Bunun yapılması, İnternet üzerindeki diğer kullanıcıların DNS kayıtlarınızı bulmasını sağlar.
 
-Merhaba bölgenizin ad sunucuları tarafından hello verilen `az network dns zone show` komutu. toosee hello ad sunucusu adlarını hello aşağıdaki örnekte gösterildiği gibi JSON çıkışını kullanın.
+Bölgenizin ad sunucuları `az network dns zone show` komutu tarafından belirtilir. Ad sunucusu adlarını görmek için aşağıdaki örnekte gösterildiği gibi JSON çıktısını kullanın.
 
 ```azurecli
 az network dns zone show -g MyResourceGroup -n contoso.com -o json
@@ -104,11 +104,11 @@ az network dns zone show -g MyResourceGroup -n contoso.com -o json
 }
 ```
 
-Bu ad sunucuları hello etki alanı adı kayıt (Merhaba etki alanı adı satın aldığınız yerden) ile yapılandırılmalıdır. Şirketiniz hello seçeneği tooset hello ad sunucuları hello etki alanı için yukarı sunar. Daha fazla bilgi için bkz: [, etki alanı tooAzure DNS temsilci](dns-domain-delegation.md).
+Bu ad sunucuları, etki alanı adı kayıt şirketi (etki alanı adını satın aldığınız şirket) ile birlikte yapılandırılmalıdır. Kayıt şirketiniz, etki alanı için ad sunucularını ayarlama seçeneğini sunar. Daha fazla bilgi için bkz. [Etki alanınızı Azure DNS’e devretme](dns-domain-delegation.md).
 
 ## <a name="delete-all-resources"></a>Tüm kaynakları silme
  
-Bu makalede, adım aşağıdaki Al hello oluşturulan tüm kaynakları toodelete:
+Bu makalede oluşturulan tüm kaynakları silmek için, aşağıdaki adımları izleyin:
 
 ```azurecli
 az group delete --name MyResourceGroup
@@ -116,8 +116,8 @@ az group delete --name MyResourceGroup
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure DNS hakkında daha fazla toolearn bkz [Azure DNS'ye genel bakış](dns-overview.md).
+Azure DNS hakkında daha fazla bilgi için bkz. [Azure DNS'e genel bakış](dns-overview.md).
 
-Azure DNS'de DNS bölgelerini yönetme hakkında daha fazla toolearn bkz [yönetmek DNS bölgeleri Azure CLI 2.0 kullanan Azure DNS'de](dns-operations-dnszones-cli.md).
+Azure DNS’te DNS bölgelerini yönetme hakkında daha fazla bilgi için bkz. [Azure CLI 2.0 ile Azure DNS’te DNS bölgelerini yönetme](dns-operations-dnszones-cli.md).
 
-Azure DNS'de DNS kayıtlarını yönetme hakkında daha fazla toolearn bkz [yönetmek DNS kayıtlarını ve kayıt kümelerini Azure CLI 2.0 kullanan Azure DNS'de](dns-operations-recordsets-cli.md).
+Azure DNS’te DNS kayıtlarını yönetme hakkında daha fazla bilgi için bkz. [Azure CLI 2.0 ile Azure DNS’te DNS kayıtlarını yönetme](dns-operations-recordsets-cli.md).

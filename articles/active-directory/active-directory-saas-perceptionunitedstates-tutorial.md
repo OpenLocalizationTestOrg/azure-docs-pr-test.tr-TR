@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirmesi algısına Amerika Birleşik Devletleri (Non-UltiPro) ile | Microsoft Docs"
-description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile algısına Amerika Birleşik Devletleri (Non-UltiPro) arasında."
+description: "Çoklu oturum açma Azure Active Directory ile algısına Amerika Birleşik Devletleri (Non-UltiPro) arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,226 +14,226 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 874b5da277b9c68504c4af2ac87ed90d2bbd93b3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8e2f9f979f8b94e0c043d4db6e93bd7a53c3dd27
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Öğretici: Azure Active Directory Tümleştirmesi algısına Amerika Birleşik Devletleri (Non-UltiPro) ile
 
-Bu öğreticide, bilgi nasıl toointegrate Azure Active Directory (Azure AD) ile algısına Amerika Birleşik Devletleri (Non-UltiPro).
+Bu öğreticide, Azure Active Directory (Azure AD) ile algısına Amerika Birleşik Devletleri (Non-UltiPro) tümleştirme öğrenin.
 
-Algısına Amerika Birleşik Devletleri (Non-UltiPro) Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
+Algısına Amerika Birleşik Devletleri (Non-UltiPro) Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Erişim tooPerception Amerika Birleşik Devletleri (UltiPro olmayan) sahip Azure AD'de kontrol edebilirsiniz.
-- Kullanıcıların tooautomatically get açan tooPerception Amerika Birleşik Devletleri (Non-UltiPro) (çoklu oturum açma) Azure AD hesaplarına ile etkinleştirebilirsiniz.
-- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir.
+- Erişimi algısına Amerika Birleşik Devletleri (Non-UltiPro) için Azure AD'de kontrol edebilirsiniz.
+- Otomatik olarak algısına Amerika Birleşik Devletleri (Non-UltiPro) (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Azure AD tümleştirmesi algısına Amerika Birleşik Devletleri (Non-UltiPro) ile tooconfigure, aşağıdaki öğelerindeki hello gerekir:
+Azure AD tümleştirmesi algısına Amerika Birleşik Devletleri (Non-UltiPro) yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
 - Bir algısına Amerika Birleşik Devletleri (Non-UltiPro) çoklu oturum açma abonelik etkin
 
 > [!NOTE]
-> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
+Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
-1. Merhaba Galerisi'nden algısına Amerika Birleşik Devletleri (Non-UltiPro) ekleme
+1. Galeriden algısına Amerika Birleşik Devletleri (Non-UltiPro) ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-perception-united-states-non-ultipro-from-hello-gallery"></a>Merhaba Galerisi'nden algısına Amerika Birleşik Devletleri (Non-UltiPro) ekleme
-tooconfigure hello tümleştirmesi algısına Amerika Birleşik Devletleri (UltiPro olmayan), Azure AD'ye hello galeri tooyour listesinden yönetilen SaaS uygulamaları tooadd algısına Amerika Birleşik Devletleri (Non-UltiPro) gerekir.
+## <a name="adding-perception-united-states-non-ultipro-from-the-gallery"></a>Galeriden algısına Amerika Birleşik Devletleri (Non-UltiPro) ekleme
+Azure AD ile tümleştirme, algısına Amerika Birleşik Devletleri (Non-UltiPro) yapılandırmak için algısına Amerika Birleşik Devletleri (Non-UltiPro) eklemeniz Galeriden yönetilen SaaS uygulamaları listenize gerekir.
 
-**tooadd hello galerisinden algısına Amerika Birleşik Devletleri (Non-UltiPro) hello aşağıdaki adımları gerçekleştirin:**
+**Galeriden algısına Amerika Birleşik Devletleri (Non-UltiPro) eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
-    ![Hello Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi][1]
 
-2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
-    ![Merhaba kurumsal uygulamalar dikey penceresi][2]
+    ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
-    ![Merhaba yeni uygulama düğmesi][3]
+    ![Yeni Uygulama düğmesi][3]
 
-4. Merhaba arama kutusuna yazın **algısına Amerika Birleşik Devletleri (Non-UltiPro)**seçin **algısına Amerika Birleşik Devletleri (Non-UltiPro)** sonuç panelinden ardından **Ekle** düğmesi tooadd Merhaba uygulaması.
+4. Arama kutusuna **algısına Amerika Birleşik Devletleri (Non-UltiPro)**seçin **algısına Amerika Birleşik Devletleri (Non-UltiPro)** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
 
-    ![Merhaba sonuçları listesinde algısına Amerika Birleşik Devletleri (Non-UltiPro)](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_addfromgallery.png)
+    ![Sonuçlar listesinde algısına Amerika Birleşik Devletleri (Non-UltiPro)](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma ile algısına "Britta Simon" adlı bir test kullanıcı tabanlı ABD (UltiPro olmayan) test etme.
 
-Tek toowork'ın oturum açma hangi hello karşılık gelen algısına Amerika Birleşik Devletleri (Non-UltiPro) içinde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının ve hello ilgili kullanıcı algısına Amerika Birleşik Devletleri (Non-UltiPro) içinde arasında bir bağlantı ilişkisi kurulan toobe gerekir.
+Tekli çalışmaya oturum için Azure AD ne karşılık gelen algısına Amerika Birleşik Devletleri (Non-UltiPro) içinde bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ve ilgili kullanıcı içinde algısına Amerika Birleşik Devletleri (Non-UltiPro) arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Merhaba hello değerini algısına Amerika Birleşik Devletleri (UltiPro olmayan), Ata **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.
+Değeri algısına Amerika Birleşik Devletleri (UltiPro olmayan), Ata **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
 
-tooconfigure ve test algısına Amerika Birleşik Devletleri (Non-UltiPro) ile Azure AD çoklu oturum açma, yapı taşları aşağıdaki toocomplete hello gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma algısına Amerika Birleşik Devletleri (Non-UltiPro) ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
-3. **[Algısına Amerika Birleşik Devletleri (Non-UltiPro) test kullanıcısı oluşturma](#create-a-perception-united-states-non-ultipro-test-user)**  -toohave Britta Simon içinde algısına bağlantılı toohello Azure AD kullanıcı gösterimi olan ABD (UltiPro olmayan), karşılık gelen.
-4. **[Hello Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
-5. **[Test çoklu oturum açma](#test-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Algısına Amerika Birleşik Devletleri (Non-UltiPro) test kullanıcısı oluşturma](#create-a-perception-united-states-non-ultipro-test-user)**  - Britta Simon, karşılık gelen içinde algısına kullanıcı Azure AD gösterimini bağlantılı ABD (UltiPro olmayan) sahip.
+4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma algısına Amerika Birleşik Devletleri (Non-UltiPro) uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma algısına Amerika Birleşik Devletleri (Non-UltiPro) uygulamanızda yapılandırın.
 
-**tooconfigure Azure AD çoklu oturum açma algısına Amerika Birleşik Devletleri (Non-UltiPro) ile Merhaba aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma algısına Amerika Birleşik Devletleri (Non-UltiPro) yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba hello üzerinde Azure portal'ın **algısına Amerika Birleşik Devletleri (Non-UltiPro)** uygulama tümleştirme sayfası, tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **algısına Amerika Birleşik Devletleri (Non-UltiPro)** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_samlbase.png)
 
-3. Merhaba üzerinde **algısına Amerika Birleşik Devletleri (UltiPro olmayan) etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **algısına Amerika Birleşik Devletleri (UltiPro olmayan) etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Algısına Amerika Birleşik Devletleri (UltiPro olmayan) etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_url.png)
 
-    a. Merhaba, **tanımlayıcısı** metin kutusuna, türü hello URL'si:`https://perception.kanjoya.com/sp`
+    a. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın:`https://perception.kanjoya.com/sp`
 
-    b. Merhaba, **yanıt URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://perception.kanjoya.com/sso?idp=<entity_id>`
+    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://perception.kanjoya.com/sso?idp=<entity_id>`
 
     > [!NOTE] 
-    > Merhaba değeri gerçek değil. Merhaba değeri hello öğreticinin ilerleyen bölümlerinde açıklanan hello gerçek yanıt URL ile güncelleştirir.
+    > Değer gerçek değil. Değer, gerçek yanıt, öğreticide daha sonra açıklanan URL ile güncelleştirir.
  
-4. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve hello meta veri dosyası, bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
 
-    ![Merhaba sertifika indirme bağlantısı](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_certificate.png) 
+    ![Sertifika indirme bağlantısı](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_certificate.png) 
 
 5. Tıklatın **kaydetmek** düğmesi.
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_general_400.png)
 
-6. Merhaba üzerinde **algısına Amerika Birleşik Devletleri (Non-UltiPro) yapılandırma** 'yi tıklatın **yapılandırma algısına Amerika Birleşik Devletleri (Non-UltiPro)** tooopen **yapılandırma oturum açma** penceresini açın. Kopya hello **SAML varlık kimliği** hello gelen **hızlı başvuru bölümü.**
+6. Üzerinde **algısına Amerika Birleşik Devletleri (Non-UltiPro) yapılandırma** 'yi tıklatın **yapılandırma algısına Amerika Birleşik Devletleri (Non-UltiPro)** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML varlık kimliği** gelen **hızlı başvuru bölümü.**
 
-    a. Merhaba **algısına Amerika Birleşik Devletleri (Non-UltiPro)** uygulama gerektirir hello **SAML varlık kimliği** kopyaladığınız, değer toobe URI kodlanmış. tooget hello kodlanmış URI değeri, kullanım hello aşağıdaki bağlantıda:**http://www.url-encode-decode.com/**.
+    a. **Algısına Amerika Birleşik Devletleri (Non-UltiPro)** uygulama gerektirir **SAML varlık kimliği** uri ile kodlanan olması için kopyaladığınız değeri. Uri ile kodlanan değerini almak için aşağıdaki bağlantıyı kullanın:**http://www.url-encode-decode.com/**.
 
-    b. Merhaba URI edindikten sonra kodlanmış değeri birleştirmek, ile Merhaba **yanıt URL'si** aşağıdaki - belirtildiği gibi
+    b. URI edindikten sonra kodlanmış değeriyle birleştiğinde ile **yanıt URL'si** aşağıdaki - belirtildiği gibi
 
     `https://perception.kanjoya.com/sso?idp=<URI encooded entity_id>`
     
-    c. Merhaba değerinde yukarıda Yapıştır hello **yanıt URL'si** metin kutusuna **algısına Amerika Birleşik Devletleri (UltiPro olmayan) etki alanı ve URL'leri** bölümü.
+    c. Yukarıdaki değeri yapıştırın **yanıt URL'si** metin kutusuna **algısına Amerika Birleşik Devletleri (UltiPro olmayan) etki alanı ve URL'leri** bölümü.
 
     ![Algısına Amerika Birleşik Devletleri (UltiPro olmayan) yapılandırma](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_configure.png) 
 
-7. Başka bir tarayıcı penceresinde tooyour algısına Amerika Birleşik Devletleri (Non-UltiPro) şirket sitesinde yönetici olarak oturum açın.
+7. Başka bir tarayıcı penceresinde algısına Amerika Birleşik Devletleri (Non-UltiPro) şirket sitenize yönetici olarak oturum açma.
 
-8. Merhaba ana araç çubuğunda **hesap ayarlarını**.
+8. Ana araç çubuğunda tıklatın **hesap ayarlarını**.
 
     ![Algısına Amerika Birleşik Devletleri (Non-UltiPro) kullanıcı](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_user.png)
 
-9. Merhaba üzerinde **hesap ayarlarını** sayfasında, hello aşağıdaki adımları gerçekleştirin:
+9. Üzerinde **hesap ayarlarını** sayfasında, aşağıdaki adımları gerçekleştirin:
 
     ![Algısına Amerika Birleşik Devletleri (Non-UltiPro) kullanıcı](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_account.png)
 
-    a. Merhaba, **şirket adı** metin kutusuna, tür hello hello adını **şirket**.
+    a. İçinde **şirket adı** metin kutusuna, adı **şirket**.
     
-    b. Merhaba, **hesap adı** metin kutusuna, tür hello hello adını **hesap**.
+    b. İçinde **hesap adı** metin kutusuna, adı **hesap**.
 
-    c. İçinde **varsayılan yanıt-tooEmail** metin kutusu, geçerli tür hello **e-posta**.
+    c. İçinde **varsayılan yanıt-e-posta** metin kutusunda, geçerli **e-posta**.
 
     d. Seçin **SSO kimlik sağlayıcısı** olarak **SAML 2.0**.
 
-10. Merhaba üzerinde **SSO yapılandırma** sayfasında, hello aşağıdaki adımları gerçekleştirin:
+10. Üzerinde **SSO yapılandırma** sayfasında, aşağıdaki adımları gerçekleştirin:
 
     ![Algısına Amerika Birleşik Devletleri (UltiPro olmayan) SSOConfig](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_ssoconfig.png)
 
     a. Seçin **SAML NameID türü** olarak **e-posta**.
 
-    b. Merhaba, **SSO yapılandırma adı** metin kutusuna, tür hello adını, **yapılandırma**.
+    b. İçinde **SSO yapılandırma adı** metin kutusuna, adını yazın, **yapılandırma**.
     
-    c. İçinde **kimlik sağlayıcı adı** metin kutusuna, Yapıştır hello değerini **SAML varlık kimliği**, Azure portalından kopyalanan. 
+    c. İçinde **kimlik sağlayıcı adı** metin değerini yapıştırın **SAML varlık kimliği**, Azure portalından kopyalanan. 
 
-    d. İçinde **SAML etki alanı metin kutusu**, gibi hello etki alanını girin  **@contoso.com** .
+    d. İçinde **SAML etki alanı metin kutusu**, etki alanı gibi girin  **@contoso.com** .
 
-    e. Tıklayın **yeniden karşıya** tooupload hello **meta veri XML** dosya.
+    e. Tıklayın **yeniden karşıya** karşıya yüklemek için **meta veri XML** dosya.
 
     f. Tıklatın **güncelleştirme**.
 
 
 > [!TIP]
-> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
    ![Bir Azure AD test kullanıcısı oluşturma][100]
 
-**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba hello sol bölmede Azure portal hello tıklatın **Azure Active Directory** düğmesi.
+1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
 
-    ![Hello Azure Active Directory düğmesi](./media/active-directory-saas-perceptionunitedstates-tutorial/create_aaduser_01.png)
+    ![Azure Active Directory düğmesi](./media/active-directory-saas-perceptionunitedstates-tutorial/create_aaduser_01.png)
 
-2. Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-    !["Kullanıcılar ve Gruplar" Merhaba "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-perceptionunitedstates-tutorial/create_aaduser_02.png)
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-perceptionunitedstates-tutorial/create_aaduser_02.png)
 
-3. tooopen hello **kullanıcı** iletişim kutusu, tıklatın **Ekle** hello hello üstündeki **tüm kullanıcılar** iletişim kutusu.
+3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
-    ![Merhaba Ekle düğmesi](./media/active-directory-saas-perceptionunitedstates-tutorial/create_aaduser_03.png)
+    ![Ekle düğmesi](./media/active-directory-saas-perceptionunitedstates-tutorial/create_aaduser_03.png)
 
-4. Merhaba, **kullanıcı** iletişim kutusunda, hello aşağıdaki adımları gerçekleştirin:
+4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
-    ![Merhaba kullanıcı iletişim kutusu](./media/active-directory-saas-perceptionunitedstates-tutorial/create_aaduser_04.png)
+    ![Kullanıcı iletişim kutusu](./media/active-directory-saas-perceptionunitedstates-tutorial/create_aaduser_04.png)
 
-    a. Merhaba, **adı** kutusuna **BrittaSimon**.
+    a. İçinde **adı** kutusuna **BrittaSimon**.
 
-    b. Merhaba, **kullanıcı adı** kutusuna, kullanıcının Britta Simon hello e-posta adresini yazın.
+    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
 
-    c. Select hello **Göster parola** onay kutusunu işaretleyin ve ardından hello görüntülenen hello değerini aşağı yazma **parola** kutusu.
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
     d. **Oluştur**'a tıklayın.
   
 ### <a name="create-a-perception-united-states-non-ultipro-test-user"></a>Algısına Amerika Birleşik Devletleri (Non-UltiPro) test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon algısına Amerika Birleşik Devletleri (Non-UltiPro) adlı bir kullanıcı oluşturun. Çalışmak [algısına Amerika Birleşik Devletleri (Non-UltiPro) destek ekibi](http://www.ultimatesoftware.com/Contact/ContactUs) tooadd hello kullanıcılar hello algısına Amerika Birleşik Devletleri (Non-UltiPro) Platform.
+Bu bölümde, Britta Simon algısına Amerika Birleşik Devletleri (Non-UltiPro) adlı bir kullanıcı oluşturun. Çalışmak [algısına Amerika Birleşik Devletleri (Non-UltiPro) destek ekibi](http://www.ultimatesoftware.com/Contact/ContactUs) algısına Amerika Birleşik Devletleri (Non-UltiPro) platform kullanıcıları eklemek için.
 
-### <a name="assign-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atayın
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, erişim tooPerception Amerika Birleşik Devletleri (Non-UltiPro) vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
+Bu bölümde, Britta algısına Amerika Birleşik Devletleri (Non-UltiPro) erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
-![Merhaba kullanıcı rolü atayın][200] 
+![Kullanıcı rolü atayın][200] 
 
-**tooassign Britta Simon tooPerception Amerika Birleşik Devletleri (Non-UltiPro) hello aşağıdaki adımları gerçekleştirin:**
+**Britta Simon algısına Amerika Birleşik Devletleri (Non-UltiPro) atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Merhaba uygulamalar listesinde **algısına Amerika Birleşik Devletleri (Non-UltiPro)**.
+2. Uygulamalar listesinde **algısına Amerika Birleşik Devletleri (Non-UltiPro)**.
 
-    ![Merhaba uygulamalar listesinde Hello algısına Amerika Birleşik Devletleri (Non-UltiPro) bağlantısı](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_app.png)  
+    ![Uygulamalar listesinde algısına Amerika Birleşik Devletleri (Non-UltiPro) bağlantısı](./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_app.png)  
 
-3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
-    ![Merhaba "Kullanıcılar ve Gruplar" bağlantı][202]
+    !["Kullanıcılar ve Gruplar" bağlantı][202]
 
 4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
 
-    ![Merhaba eklemek atama bölmesi][203]
+    ![Ekleme atama bölmesi][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -241,14 +241,14 @@ Bu bölümde, erişim tooPerception Amerika Birleşik Devletleri (Non-UltiPro) v
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
 
-Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Merhaba algısına Amerika Birleşik Devletleri (Non-UltiPro) hello erişim paneli parçasında tıkladığınızda, otomatik olarak oturum açma algısına Amerika Birleşik Devletleri (UltiPro olmayan) uygulama tooyour almanız gerekir.
-Erişim paneli hakkında daha fazla bilgi için bkz: [giriş toohello erişim paneli](active-directory-saas-access-panel-introduction.md). 
+Erişim paneli algısına Amerika Birleşik Devletleri (Non-UltiPro) parçasında tıklattığınızda, otomatik olarak algısına Amerika Birleşik Devletleri (Non-UltiPro) uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 

@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure Biztalk Services belgeleri - öğreticileri | Microsoft Docs"
-description: "Toouse BizTalk tooprovide bulut tooon içi ve iş kolu satır uygulama tümleştirmesi SAP, Oracle EBS, SQL Server ve PeopleSoft için hizmetleri nasıl öğrenin."
+title: "Azure BizTalk Services Belgeleri - Öğreticileri | Microsoft Docs"
+description: "BizTalk Services’ı kullanarak SAP, Oracle EBS, SQL Server ve PeopleSoft için buluttan şirket içine tümleştirme ve iş kolu uygulaması tümleştirme olanakları sağlama hakkında bilgi edinin."
 services: biztalk-services
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 06411e211b987a96d4b79a93871e66157f7ecdb6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 8aef3ad31551b0a4c5048e418cf8b1456bd4f274
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="biztalk-services-documentation"></a>BizTalk Services Belgeleri
 
-Toouse BizTalk tooprovide bulut tooon içi ve iş kolu satır uygulama tümleştirmesi SAP, Oracle EBS, SQL Server ve PeopleSoft için hizmetleri nasıl öğrenin. Öğreticiler ve diğer belgelerin nasıl toointegrate hello enterprise ve hello bulut gösterir.
+BizTalk Services’ı kullanarak SAP, Oracle EBS, SQL Server ve PeopleSoft için buluttan şirket içine tümleştirme ve iş kolu uygulaması tümleştirme olanakları sağlama hakkında bilgi edinin. Öğreticilerde ve diğer belgelerde, kurumsal ağ ile bulutu nasıl tümleştirebileceğiniz açıklanmıştır.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -70,7 +70,7 @@ Toouse BizTalk tooprovide bulut tooon içi ve iş kolu satır uygulama tümleşt
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Hello Azure portalını kullanarak BizTalk Services ile çalışmaya başlama</h3>
+                        <h3>Azure Portal ile BizTalk Services’ı kullanmaya başlama</h3>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory B2C: Yerleşik ilkeleri | Microsoft Docs"
-description: "Bir konu Azure Active Directory B2C hello Genişletilebilir ilke çerçevesini ve nasıl toocreate çeşitli ilke türleri"
+description: "Bir konu Azure Active Directory B2C Genişletilebilir ilke çerçevesini ve çeşitli ilke türleri oluşturma"
 services: active-directory-b2c
 documentationcenter: 
 author: sama
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: sama
-ms.openlocfilehash: 24bb85eba30f888c6ea7d0401e05235e8eb6ea79
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: daad3af089afdf76b930053728bb11a5cf4c2a92
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: Yerleşik ilkeleri
 
 
-Azure Active Directory (Azure AD) B2C Hello Genişletilebilir ilke çerçevesini hello çekirdek hello hizmet gücünü ' dir. İlkeleri tam olarak açıklayan tüketici kimlik deneyimi gibi kaydolma, oturum açma ve profil düzenleme. Örneğin, bir kayıt ilkesi toocontrol davranışları hello aşağıdaki ayarları yapılandırarak sağlar:
+Azure Active Directory (Azure AD) B2C Genişletilebilir ilke hizmet çekirdek gücünü çerçevedir. İlkeleri tam olarak açıklayan tüketici kimlik deneyimi gibi kaydolma, oturum açma ve profil düzenleme. Örneği için bir kayıt ilkesi, aşağıdaki ayarları yapılandırarak davranışları denetlemenize olanak sağlar:
 
-* Tüketiciler toosign Merhaba uygulaması için kullanabileceğiniz türü (facebook sosyal hesapları) veya e-posta adresleri gibi yerel hesap
-* Öznitelikler (örneğin, ad, posta kodu ve ayakkabı boyutu) toobe hello tüketiciden kayıt sırasında toplanan
+* Tüketiciler uygulama için kaydolmak için kullanabileceğiniz hesap türleri (facebook sosyal hesapları) ya da e-posta adresleri gibi yerel hesaplar
+* Kayıt sırasında tüketiciden toplanacak öznitelikleri (örneğin, ad, posta kodu ve ayakkabı boyut)
 * Azure çok faktörlü kimlik doğrulaması
-* Merhaba görünümüne tüm kayıt sayfaları
-* Çalıştırma hello İlkesi tamamlandığında uygulama hello (hangi bir belirteç talep olarak bildirimleri) bilgilerini alır
+* Tüm kayıt sayfaları Görünüm ve yapısını
+* Bir belirteç talep olarak bildirimleri) bilgileri (uygulama sonlandığında Çalıştırma İlkesi zaman alır
 
-Kiracınızda farklı türlerde birden çok ilke oluşturup, bunları gerektiği gibi uygulamalarınızda kullanabilirsiniz. İlkeler, uygulamalar arasında yeniden kullanılabilir. Bu esneklik, geliştiricilerin toodefine sağlar ve tüketici kimlik deneyimi ile en az veya herhangi bir değişiklik tootheir kodu değiştirin.
+Kiracınızda farklı türlerde birden çok ilke oluşturup, bunları gerektiği gibi uygulamalarınızda kullanabilirsiniz. İlkeler, uygulamalar arasında yeniden kullanılabilir. Bu esneklik, geliştiricilerin tanımlama ve tüketici kimlik deneyimi ile en az veya kendi kodunda değişiklik değiştirme sağlar.
 
-İlkeleri basit Geliştirici arabirimi aracılığıyla kullanılabilir. Uygulamanız (bir ilke parametre hello istekte geçirme) standart bir HTTP kimlik doğrulaması isteği kullanarak bir ilke tetikler ve yanıt olarak özelleştirilmiş bir belirteç alır. Örneğin, bir kayıt ilkesi çağırma istekleri ve oturum açma ilke çağırmak istekleri arasındaki tek fark hello hello "p" sorgu dizesi parametresi kullanılır hello ilkesi adı şudur:
+İlkeleri basit Geliştirici arabirimi aracılığıyla kullanılabilir. Uygulamanız (bir ilke parametre istekte geçirme) standart bir HTTP kimlik doğrulaması isteği kullanarak bir ilke tetikler ve yanıt olarak özelleştirilmiş bir belirteç alır. Örneğin, bir kayıt ilkesi çağırma istekleri ve oturum açma ilke çağırmak istekleri arasındaki tek fark "p" sorgu dizesi parametresi kullanılan ilke adı şudur:
 
 ```
 
@@ -63,11 +63,11 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ```
 
-Hello ilkesi çerçevesi hakkında daha fazla bilgi için bkz: [bu blog gönderisine Azure AD B2C üzerinde hello Enterprise Mobility and Security Blog hakkında](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
+İlke çerçevesi hakkında daha fazla bilgi için bkz: [bu blog gönderisine Azure AD B2C Enterprise Mobility and Security Blog üzerinde hakkında](http://blogs.technet.com/b/ad/archive/2015/11/02/a-look-inside-azuread-b2c-with-kim-cameron.aspx).
 
 ## <a name="create-a-sign-up-or-sign-in-policy"></a>Bir kayıt veya oturum açma ilkesi oluşturma
 
-Bu ilke, her iki tüketici kaydolma ve oturum açma deneyimlerini tek bir yapılandırmasına sahip işler. Tüketiciler, yoldan hello sağ (kaydolma veya oturum açma) hello bağlam bağlı olarak gerektiriyordu. Ayrıca, Merhaba uygulaması başarılı oturum ups veya oturum açma işlemleri almaz belirteçleri Merhaba içeriğine anlatır.  Hello kaydolma veya oturum açma ilkesi için bir kod örneğidir [kullanılabilir burada](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  Kayıt İlkesi ve oturum açma ilkesi bu ilkeyi kullanmak maskelenmesi önerilen olur.  
+Bu ilke, her iki tüketici kaydolma ve oturum açma deneyimlerini tek bir yapılandırmasına sahip işler. Tüketiciler, bağlam bağlı olarak doğru yolu (kaydolma veya oturum açma) aşağı gerektiriyordu. Ayrıca, uygulama başarılı oturum ups veya oturum açma işlemleri almaz belirteçleri içeriğini açıklar.  Kaydolma veya oturum açma ilkesi için bir kod örneğidir [kullanılabilir burada](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  Kayıt İlkesi ve oturum açma ilkesi bu ilkeyi kullanmak maskelenmesi önerilen olur.  
 
 [!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
 
@@ -90,16 +90,16 @@ Bu ilke, her iki tüketici kaydolma ve oturum açma deneyimlerini tek bir yapıl
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
 ### <a name="how-do-i-link-a-sign-up-or-sign-in-policy-with-a-password-reset-policy"></a>Bir kayıt veya oturum açma ilkesi bir parola sıfırlama İlkesi ile nasıl bağlanır?
-Bir oturum açma veya kaydolma ilkesiyle (yerel hesaplar için) oluşturduğunuzda, gördüğünüz bir **unuttunuz parola?** hello deneyimi'nın ilk sayfasında hello bağlantı. Bu bağlantıyı tıklatarak otomatik olarak tetikleyici bir parola sıfırlama İlkesi değil. 
+Bir oturum açma veya kaydolma ilkesiyle (yerel hesaplar için) oluşturduğunuzda, gördüğünüz bir **unuttunuz parola?** bağlantı deneyimi ilk sayfasında. Bu bağlantıyı tıklatarak otomatik olarak tetikleyici bir parola sıfırlama İlkesi değil. 
 
-Bunun yerine, hata kodu hello  **`AADB2C90118`**  tooyour uygulamasına döndürülür. Uygulamanızın, belirli parolası sıfırlama ilkesini harekete geçirerek, bu hata kodu toohandle gerekir. Daha fazla bilgi için bir [ilkeleri bağlama hello yaklaşımı gösteren örnek](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
+Bunun yerine, hata kodu  **`AADB2C90118`**  uygulamanıza döndürülür. Bu hata kodu belirli parolası sıfırlama ilkesini çağırarak işlemek uygulamanız gerekir. Daha fazla bilgi için bir [ilkeleri bağlama yaklaşımı gösteren örnek](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
 
 ### <a name="should-i-use-a-sign-up-or-sign-in-policy-or-a-sign-up-policy-and-a-sign-in-policy"></a>Bir kayıt veya oturum açma ilkesi veya bir kayıt ilkesi ve bir oturum açma ilkesi kullanmalıyım?
 Bir kayıt ilkesi ve bir oturum açma ilkesi bir kayıt veya oturum açma ilkesi kullanmanızı öneririz.  
 
-Hello kaydolma veya oturum açma ilkesi hello oturum açma ilkesinden daha fazla özellik içerir. Ayrıca toouse sayfası kullanıcı arabirimini özelleştirme sağlar ve yerelleştirme için daha iyi destek vardır. 
+Kaydolma veya oturum açma ilkesi oturum açma ilkesinden daha fazla özellik içerir. Ayrıca, sayfa UI Özelleştirme kullanmanıza olanak tanır ve yerelleştirme için daha iyi destek sahiptir. 
 
-oturum açma Hello İlkesi ilkelerinizi toolocalize gerekmiyorsa, yalnızca markalama için ikincil özelleştirme özellikleri gerekir ve parola istediğiniz önerilir yerleşik sıfırlama.
+Oturum açma ilkesi ilkelerinizi yerelleştirme gerekmiyorsa, yalnızca markalama için ikincil özelleştirme özellikleri gerekir ve parola istediğiniz önerilir yerleşik sıfırlama.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Belirteç, oturum ve tek oturum açma yapılandırması](active-directory-b2c-token-session-sso.md)

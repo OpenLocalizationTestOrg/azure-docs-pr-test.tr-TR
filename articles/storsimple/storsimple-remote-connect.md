@@ -1,6 +1,6 @@
 ---
-title: "aaaConnect uzaktan tooyour StorSimple cihazı | Microsoft Docs"
-description: "Açıklar nasıl tooconfigure Cihazınızı uzaktan yönetimi için nasıl ve ne tooconnect tooWindows HTTP veya HTTPS aracılığıyla StorSimple için PowerShell."
+title: "StorSimple cihazınıza uzaktan bağlanma | Microsoft Docs"
+description: "Cihazınızı uzaktan yönetim için yapılandırma ve HTTP veya HTTPS aracılığıyla StorSimple için Windows PowerShell için bağlanma açıklanmaktadır."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -15,133 +15,133 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 55ed8fcdd997901301e0adc164a302216cde0332
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b916173e127394d3ea06eded36285bdbbf884b12
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="connect-remotely-tooyour-storsimple-8000-series-device"></a>Uzaktan tooyour StorSimple 8000 serisi aygıtı bağlayın
+# <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>StorSimple 8000 serisi cihazınıza uzaktan bağlanma
 
 ## <a name="overview"></a>Genel Bakış
-Windows PowerShell uzaktan iletişim tooconnect tooyour StorSimple cihazı kullanabilirsiniz. Bu şekilde bağlandığınızda, menü görmezsiniz. (Yalnızca hello seri konsol hello aygıt tooconnect üzerinde kullanıyorsanız, bir menü bakın.) Windows PowerShell uzaktan iletişimini ile tooa belirli çalışma bağlayın. Merhaba görüntüleme dili de belirtebilirsiniz. 
+StorSimple Cihazınızı bağlamak için Windows PowerShell uzaktan iletişimi kullanabilirsiniz. Bu şekilde bağlandığınızda, menü görmezsiniz. (Yalnızca seri konsol cihazda bağlamak için kullanırsanız, bir menü bakın.) Windows PowerShell uzaktan iletişimini ile belirli bir çalışma bağlayın. Görüntüleme dili de belirtebilirsiniz. 
 
-Windows PowerShell uzaktan iletişim toomanage Cihazınızı kullanma hakkında daha fazla bilgi için çok Git[StorSimple tooadminister için Windows PowerShell'i kullanın StorSimple Cihazınızı](storsimple-windows-powershell-administration.md).
+Cihazınızı yönetmek için Windows PowerShell uzaktan iletişimini kullanma hakkında daha fazla bilgi için Git [StorSimple Cihazınızı yönetmek StorSimple için Windows PowerShell'i kullanın](storsimple-windows-powershell-administration.md).
 
-Bu öğretici açıklar nasıl tooconfigure cihazınız için uzaktan yönetim ve ardından nasıl tooconnect tooWindows StorSimple için PowerShell. Windows PowerShell uzaktan iletişimini aracılığıyla HTTP veya HTTPS tooconnect kullanabilirsiniz. Ancak, ne zaman karar tooconnect tooWindows StorSimple, PowerShell hello aşağıdaki nasıl dikkate alın: 
+Bu öğretici, Cihazınızı uzaktan yönetim için yapılandırma ve StorSimple için Windows PowerShell için bağlanma açıklanmaktadır. Windows PowerShell uzaktan iletişimini bağlanmak için HTTP veya HTTPS kullanın. Ancak, StorSimple için Windows PowerShell'e bağlanmak nasıl karar verirken aşağıdakileri göz önünde bulundurun: 
 
-* Doğrudan toohello bağlanma cihaz seri konsoluna güvenlidir, ancak ağ anahtarları üzerinden bağlanan toohello seri konsol değil. Toohello cihaz seri konsoluna ağ anahtarları bağlanırken hello güvenlik riskini dikkatli olun. 
-* Bir HTTP oturumu aracılığıyla bağlanma hello ağ üzerinden hello seri konsol üzerinden bağlanma daha fazla güvenlik sunar. Bu en güvenli yöntemi hello olmamasına karşın, güvenilen ağlarda kabul edilebilir. 
-* Kendinden imzalı bir sertifika ile HTTPS oturumu aracılığıyla bağlanma hello en güvenli ve önerilen seçenek hello olur.
+* Doğrudan cihaz seri konsoluna bağlanmak güvenlidir, ancak seri konsol ağ anahtarları bağlanma değil. Cihaz seri konsoluna ağ anahtarları bağlanırken güvenlik riski dikkatli olun. 
+* Bir HTTP oturumu aracılığıyla bağlanan ağ üzerinden seri konsol üzerinden bağlanma daha fazla güvenlik sunar. Bu en güvenli yöntemi olmamasına karşın, güvenilen ağlarda kabul edilebilir. 
+* Kendinden imzalı bir sertifika ile HTTPS oturumu aracılığıyla bağlanan en güvenli ve önerilen seçenek olur.
 
-Toohello Windows PowerShell arabirimi uzaktan bağlanabilirsiniz. Ancak, uzaktan erişim tooyour StorSimple cihazı hello Windows PowerShell arabirimi üzerinden varsayılan olarak etkin değildir. Hello cihazda uzaktan yönetimi tooenable önce gerekir ve ardından üzerinde Cihazınızı kullanılan tooaccess istemcisi hello.
+Windows PowerShell arabirimine uzaktan bağlanabilirsiniz. Ancak, Windows PowerShell arabirimi üzerinden StorSimple cihazınız için uzaktan erişim varsayılan olarak etkin değildir. İlk cihazda uzaktan yönetimi etkinleştirmek gereken ve ardından istemci üzerinde Cihazınızı erişmek için kullanılır.
 
-Bu makalede açıklanan başlangıç adımları Windows Server 2012 R2 çalıştıran bir konak sisteminde gerçekleştirilmiştir.
+Bu makalede açıklanan adımları Windows Server 2012 R2 çalıştıran bir konak sisteminde gerçekleştirilmiştir.
 
 ## <a name="connect-through-http"></a>HTTP bağlanma
-TooWindows PowerShell StorSimple için bir HTTP oturumu aracılığıyla bağlanma hello seri konsol StorSimple cihazınızın üzerinden bağlanma daha fazla güvenlik sunar. Bu en güvenli yöntemi hello olmamasına karşın, güvenilen ağlarda kabul edilebilir.
+Windows PowerShell için StorSimple için bir HTTP oturumu aracılığıyla bağlanma StorSimple Cihazınızı seri konsol üzerinden bağlanma daha fazla güvenlik sunar. Bu en güvenli yöntemi olmamasına karşın, güvenilen ağlarda kabul edilebilir.
 
-Merhaba Klasik Azure portalı veya hello seri konsol tooconfigure uzaktan yönetimi kullanabilirsiniz. Yordamları izleyerek hello seçin:
+Uzaktan yönetimini yapılandırmak için Klasik Azure portalı veya seri Konsolu kullanabilirsiniz. Aşağıdaki yordamlardan seçin:
 
-* [HTTP üzerinden Hello Azure Klasik portalı tooenable Uzaktan Yönetimi'ni kullanın](#use-the-azure-classic-portal-to-enable-remote-management-over-http)
-* [HTTP üzerinden Hello seri konsol tooenable Uzaktan Yönetimi'ni kullanın](#use-the-serial-console-to-enable-remote-management-over-http)
+* [HTTP üzerinden uzaktan yönetimi etkinleştirmek için Klasik Azure portalını kullanın](#use-the-azure-classic-portal-to-enable-remote-management-over-http)
+* [Seri konsol HTTP üzerinden uzaktan yönetimi etkinleştirmek için kullanın](#use-the-serial-console-to-enable-remote-management-over-http)
 
-Uzaktan Yönetimi etkinleştirdikten sonra uzak bağlantı için yordamı tooprepare hello istemcisi aşağıdaki hello kullanın.
+Uzaktan Yönetimi etkinleştirdikten sonra istemci uzak bir bağlantı için hazırlamak için aşağıdaki yordamı kullanın.
 
-* [İçin Uzak bağlantı Hello istemcisini hazırla](#prepare-the-client-for-remote-connection)
+* [Uzak bağlantı için istemci hazırlayın](#prepare-the-client-for-remote-connection)
 
-### <a name="use-hello-azure-classic-portal-tooenable-remote-management-over-http"></a>HTTP üzerinden Hello Azure Klasik portalı tooenable Uzaktan Yönetimi'ni kullanın
-HTTP üzerinden adımlara hello Azure Klasik portalı tooenable Uzaktan Yönetimi'nde hello gerçekleştirin.
+### <a name="use-the-azure-classic-portal-to-enable-remote-management-over-http"></a>HTTP üzerinden uzaktan yönetimi etkinleştirmek için Klasik Azure portalını kullanın
+HTTP üzerinden uzaktan yönetimi etkinleştirmek için Azure Klasik portalında aşağıdaki adımları gerçekleştirin.
 
-#### <a name="tooenable-remote-management-through-hello-azure-classic-portal"></a>Merhaba Klasik Azure portalı üzerinden tooenable uzaktan yönetim
+#### <a name="to-enable-remote-management-through-the-azure-classic-portal"></a>Klasik Azure portalı üzerinden uzaktan yönetimi etkinleştirmek için
 1. Erişim **aygıtları** > **yapılandırma** cihazınız için.
-2. Toohello aşağı **uzaktan yönetimi** bölümü.
-3. Ayarlama **uzaktan yönetimini etkinleştirme** çok**Evet**.
-4. Artık HTTP kullanarak tooconnect seçebilirsiniz. (Merhaba tooconnect HTTPS üzerinden varsayılandır.) HTTP seçili olduğundan emin olun.
+2. Ekranı kaydırarak **Uzaktan Yönetim** bölümüne gidin.
+3. **Uzaktan yönetimi Etkinleştir**’i **Evet** olarak ayarlayın.
+4. Artık HTTP kullanarak bağlanmayı seçebilirsiniz. (HTTPS üzerinden bağlanmak için varsayılandır.) HTTP seçili olduğundan emin olun.
    
    > [!NOTE]
    > HTTP üzerinden bağlanma yalnızca güvenilen ağlarda kabul edilebilir.
    > 
    > 
-5. Tıklatın **kaydetmek** hello sayfanın hello sonundaki.
+5. Sayfanın alt kısmındaki **Kaydet**’e tıklayın.
 
-### <a name="use-hello-serial-console-tooenable-remote-management-over-http"></a>HTTP üzerinden Hello seri konsol tooenable Uzaktan Yönetimi'ni kullanın
-Aşağıdaki adımları hello cihaz seri konsoluna tooenable uzaktan yönetimi hello gerçekleştirin.
+### <a name="use-the-serial-console-to-enable-remote-management-over-http"></a>Seri konsol HTTP üzerinden uzaktan yönetimi etkinleştirmek için kullanın
+Uzaktan Yönetimi etkinleştirmek için cihaz seri konsoluna aşağıdaki adımları gerçekleştirin.
 
-#### <a name="tooenable-remote-management-through-hello-device-serial-console"></a>tooenable hello cihaz seri Konsolu aracılığıyla uzaktan yönetim
-1. Merhaba seri konsol menüsünde 1 seçeneğini belirleyin. Hello aygıtta hello seri Konsolu kullanma hakkında daha fazla bilgi için çok Git[tooWindows PowerShell StorSimple için cihaz seri konsoluna bağlanmak](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
-2. Merhaba istemine yazın:`Enable-HcsRemoteManagement –AllowHttp`
-3. HTTP tooconnect toohello cihaz kullanımının hello güvenlik açıkları hakkında size bildirilecek. İstendiğinde, yazarak onaylayın **Y**.
+#### <a name="to-enable-remote-management-through-the-device-serial-console"></a>Cihaz seri Konsolu aracılığıyla uzaktan yönetimini etkinleştirmek için
+1. Seri konsol menüsünde 1 seçeneğini belirleyin. Cihaza seri Konsolu kullanma hakkında daha fazla bilgi için Git [cihaz seri Konsolu aracılığıyla StorSimple için Windows PowerShell Bağlan](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
+2. İstemine yazın:`Enable-HcsRemoteManagement –AllowHttp`
+3. Cihaza bağlanmak için HTTP kullanmanın güvenlik açıkları hakkında bildirilir. İstendiğinde, yazarak onaylayın **Y**.
 4. HTTP yazarak etkin olduğunu doğrulayın:`Get-HcsSystem`
-5. Bu hello doğrulayın **RemoteManagementMode** alan gösterir **HttpsAndHttpEnabled**çizim aşağıdaki .hello PuTTY bu ayarları gösterir.
+5. Doğrulayın **RemoteManagementMode** alan gösterir **HttpsAndHttpEnabled**. Aşağıdaki çizimde, bu ayarları içinde PuTTY gösterir.
    
      ![Seri HTTPS ve HTTP Etkin](./media/storsimple-remote-connect/HCS_SerialHttpsAndHttpEnabled.png)
 
-### <a name="prepare-hello-client-for-remote-connection"></a>İçin Uzak bağlantı Hello istemcisini hazırla
-Aşağıdaki adımları hello istemci tooenable uzaktan yönetimi hello gerçekleştirin.
+### <a name="prepare-the-client-for-remote-connection"></a>Uzak bağlantı için istemci hazırlayın
+Uzaktan Yönetimi etkinleştirmek için istemcide aşağıdaki adımları gerçekleştirin.
 
-#### <a name="tooprepare-hello-client-for-remote-connection"></a>Uzak bağlantı için tooprepare hello istemcisi
+#### <a name="to-prepare-the-client-for-remote-connection"></a>Uzak bağlantı için istemci hazırlamak için
 1. Bir Windows PowerShell oturumu yönetici olarak başlatın.
-2. Merhaba komutu tooadd hello IP adresini hello StorSimple cihaz toohello istemcinin güvenilir konaklar listesine aşağıdaki komutu yazın: 
+2. StorSimple cihazı IP adresi istemcinin güvenilir ana bilgisayarlar listesine eklemek için aşağıdaki komutu yazın: 
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
    
-     Değiştir <*device_ip*> merhaba IP adresiyle Cihazınızı; örneğin: 
+     Değiştir <*device_ip*> Cihazınızı; IP adresi ile örneğin: 
    
      `Set-Item wsman:\localhost\Client\TrustedHosts 10.126.173.90 -Concatenate -Force`
-3. Bir değişken komutu toosave hello aygıt kimlik bilgilerini aşağıdaki hello yazın: 
+3. Cihaz kimlik bilgileri bir değişkene kaydetmek için aşağıdaki komutu yazın: 
    
     ```
     $cred = Get-Credential
     ```
     
-4. Merhaba iletişim kutusu görüntülenir:
+4. Görüntülenen iletişim kutusunda:
    
-   1. Tür hello kullanıcı adı şu biçimde: *device_ip\SSAdmin*.
-   2. Hello aygıt hello Kurulum Sihirbazı ile yapılandırıldığında bu ayarlanan hello cihaz Yöneticisi parolasını yazın. Merhaba varsayılan parola *Parola1*.
-5. Bir Windows PowerShell oturumunda aşağıdaki komutu yazarak hello cihazda başlatın:
+   1. Kullanıcı adı şu biçimde yazın: *device_ip\SSAdmin*.
+   2. Cihaz Kurulum Sihirbazı ile yapılandırıldığında ayarlandı aygıt yönetici parolasını yazın. Varsayılan parola *Parola1*.
+5. Bir Windows PowerShell oturumunda aşağıdaki komutu yazarak cihazda başlatın:
    
      `Enter-PSSession -Credential $cred -ConfigurationName SSAdminConsole -ComputerName <device_ip>`
    
    > [!NOTE]
-   > toocreate hello StorSimple sanal cihazı ile kullanmak için Windows PowerShell oturumu sona hello `–Port` parametre ve Remoting StorSimple sanal Gereci için yapılandırılan hello genel bağlantı noktası belirtin.
+   > StorSimple sanal cihazı ile kullanmak için bir Windows PowerShell oturumu oluşturmak için Ekle `–Port` parametre ve Remoting StorSimple sanal Gereci için yapılandırılmış ortak bağlantı noktasını belirtin.
    > 
    > 
    
-     Bu noktada, bir etkin uzaktan Windows PowerShell oturumu toohello cihaz olması gerekir.
+     Bu aşamada, aygıta bir etkin uzaktan Windows PowerShell oturumu olması gerekir.
    
     ![HTTP kullanarak PowerShell uzaktan iletişim](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTP.png)
 
 ## <a name="connect-through-https"></a>HTTPS bağlanır
-TooWindows PowerShell StorSimple için bir HTTPS oturumu aracılığıyla bağlanma hello en güvenli olduğundan ve uzaktan bağlanan tooyour Microsoft Azure StorSimple cihaz yöntemi önerilir. yordamları izleyerek hello nasıl tooset yukarı hello seri konsol ve istemci bilgisayarları için StorSimple HTTPS tooconnect tooWindows PowerShell kullanabilmesi açıklanmaktadır.
+Windows PowerShell için StorSimple için bir HTTPS oturumu aracılığıyla bağlanma Microsoft Azure StorSimple cihazınıza uzaktan bağlanma en güvenli ve önerilen yöntemdir. Aşağıdaki yordamlar, seri konsol ve istemci bilgisayarları StorSimple için Windows PowerShell'e bağlanmak için HTTPS kullanacak şekilde ayarlamak açıklanmaktadır.
 
-Merhaba Klasik Azure portalı veya hello seri konsol tooconfigure uzaktan yönetimi kullanabilirsiniz. Yordamları izleyerek hello seçin:
+Uzaktan yönetimini yapılandırmak için Klasik Azure portalı veya seri Konsolu kullanabilirsiniz. Aşağıdaki yordamlardan seçin:
 
-* [HTTPS üzerinden Hello Azure Klasik portalı tooenable Uzaktan Yönetimi'ni kullanın](#use-the-azure-classic-portal-to-enable-remote-management-over-https)
-* [HTTPS üzerinden Hello seri konsol tooenable Uzaktan Yönetimi'ni kullanın](#use-the-serial-console-to-enable-remote-management-over-https)
+* [HTTPS üzerinden uzaktan yönetimi etkinleştirmek için Klasik Azure portalını kullanın](#use-the-azure-classic-portal-to-enable-remote-management-over-https)
+* [Seri konsol HTTPS üzerinden uzaktan yönetimi etkinleştirmek için kullanın](#use-the-serial-console-to-enable-remote-management-over-https)
 
-Uzaktan Yönetimi etkinleştirdikten sonra Uzaktan Yönetim için yordamlar tooprepare hello konak aşağıdaki hello kullanın ve toohello aygıt hello uzak ana bilgisayara bağlanın.
+Uzaktan Yönetimi etkinleştirdikten sonra ana bilgisayar bir uzaktan yönetime hazırlamak ve aygıta uzak ana bilgisayara bağlanmak için aşağıdaki yordamları kullanın.
 
-* [Merhaba konak uzaktan yönetimi için hazırlama](#prepare-the-host-for-remote-management)
-* [Toohello aygıt hello uzak ana bilgisayara bağlanın](#connect-to-the-device-from-the-remote-host)
+* [Konağın uzaktan yönetimi için hazırlama](#prepare-the-host-for-remote-management)
+* [Uzak ana bilgisayardan cihaza bağlanın](#connect-to-the-device-from-the-remote-host)
 
-### <a name="use-hello-azure-classic-portal-tooenable-remote-management-over-https"></a>HTTPS üzerinden Hello Azure Klasik portalı tooenable Uzaktan Yönetimi'ni kullanın
-HTTPS üzerinden adımlara hello Azure Klasik portalı tooenable Uzaktan Yönetimi'nde hello gerçekleştirin.
+### <a name="use-the-azure-classic-portal-to-enable-remote-management-over-https"></a>HTTPS üzerinden uzaktan yönetimi etkinleştirmek için Klasik Azure portalını kullanın
+HTTPS üzerinden uzaktan yönetimi etkinleştirmek için Azure Klasik portalında aşağıdaki adımları gerçekleştirin.
 
-#### <a name="tooenable-remote-management-over-https-from-hello-azure-classic-portal"></a>tooenable hello Klasik Azure Portalı'den HTTPS üzerinden uzaktan yönetim
+#### <a name="to-enable-remote-management-over-https-from-the-azure-classic-portal"></a>Klasik Azure portalından HTTPS üzerinden uzaktan yönetimi etkinleştirmek için
 1. Erişim **aygıtları** > **yapılandırma** cihazınız için.
-2. Toohello aşağı **uzaktan yönetimi** bölümü.
-3. Ayarlama **uzaktan yönetimini etkinleştirme** çok**Evet**.
-4. Artık HTTPS kullanarak tooconnect seçebilirsiniz. (Merhaba tooconnect HTTPS üzerinden varsayılandır.) HTTPS seçili olduğundan emin olun. 
-5. Tıklatın **uzak yönetim sertifikası indir**. Konum toosave bu dosyayı belirtin. Bu sertifika tooconnect toohello aygıtını kullanacak hello istemci veya konak bilgisayarda tooinstall gerekir.
-6. Tıklatın **kaydetmek** hello sayfanın hello sonundaki.
+2. Ekranı kaydırarak **Uzaktan Yönetim** bölümüne gidin.
+3. **Uzaktan yönetimi Etkinleştir**’i **Evet** olarak ayarlayın.
+4. Artık HTTPS kullanarak bağlanmayı seçebilirsiniz. (HTTPS üzerinden bağlanmak için varsayılandır.) HTTPS seçili olduğundan emin olun. 
+5. Tıklatın **uzak yönetim sertifikası indir**. Bu dosyayı kaydetmek için bir konum belirtin. Bu sertifikayı cihaza bağlanmak için kullanacağınız istemci veya ana bilgisayarda yüklemeniz gerekir.
+6. Sayfanın alt kısmındaki **Kaydet**’e tıklayın.
 
-### <a name="use-hello-serial-console-tooenable-remote-management-over-https"></a>HTTPS üzerinden Hello seri konsol tooenable Uzaktan Yönetimi'ni kullanın
-Aşağıdaki adımları hello cihaz seri konsoluna tooenable uzaktan yönetimi hello gerçekleştirin.
+### <a name="use-the-serial-console-to-enable-remote-management-over-https"></a>Seri konsol HTTPS üzerinden uzaktan yönetimi etkinleştirmek için kullanın
+Uzaktan Yönetimi etkinleştirmek için cihaz seri konsoluna aşağıdaki adımları gerçekleştirin.
 
-#### <a name="tooenable-remote-management-through-hello-device-serial-console"></a>tooenable hello cihaz seri Konsolu aracılığıyla uzaktan yönetim
-1. Merhaba seri konsol menüsünde 1 seçeneğini belirleyin. Hello aygıtta hello seri Konsolu kullanma hakkında daha fazla bilgi için çok Git[tooWindows PowerShell StorSimple için cihaz seri konsoluna bağlanmak](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
-2. Merhaba istemine yazın: 
+#### <a name="to-enable-remote-management-through-the-device-serial-console"></a>Cihaz seri Konsolu aracılığıyla uzaktan yönetimini etkinleştirmek için
+1. Seri konsol menüsünde 1 seçeneğini belirleyin. Cihaza seri Konsolu kullanma hakkında daha fazla bilgi için Git [cihaz seri Konsolu aracılığıyla StorSimple için Windows PowerShell Bağlan](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
+2. İstemine yazın: 
    
      `Enable-HcsRemoteManagement`
    
@@ -150,89 +150,89 @@ Aşağıdaki adımları hello cihaz seri konsoluna tooenable uzaktan yönetimi h
    
      `Get-HcsSystem`
    
-    Bu hello emin olun **RemoteManagementMode** alan gösterir **HttpsEnabled**çizim aşağıdaki .hello PuTTY bu ayarları gösterir.
+    Olduğundan emin olun **RemoteManagementMode** alan gösterir **HttpsEnabled**. Aşağıdaki çizimde, bu ayarları içinde PuTTY gösterir.
    
      ![Seri HTTPS etkin](./media/storsimple-remote-connect/HCS_SerialHttpsEnabled.png)
-4. Hello çıktısından `Get-HcsSystem`, kopyalama hello aygıtının hello seri numarasını ve daha sonra kullanmak üzere kaydedin.
+4. Çıktısından `Get-HcsSystem`, cihazın seri numarası kopyalayın ve daha sonra kullanmak üzere kaydedin.
    
    > [!NOTE]
-   > Merhaba seri numarası toohello CN adı hello sertifikasında eşler.
+   > Seri numarası sertifikanın CN adı eşler.
    > 
    > 
 5. Uzak Yönetim sertifikası yazarak alın: 
    
      `Get-HcsRemoteManagementCert`
    
-    Sertifika benzer toohello aşağıdaki görünür.
+    Bir sertifika aşağıdakine benzer görünecektir.
    
     ![Uzaktan Yönetim sertifikası alma](./media/storsimple-remote-connect/HCS_GetRemoteManagementCertificate.png)
-6. Hello bilgi hello sertifikadan kopyalayın **---başlangıç sertifika---** çok**---son SERTİFİKAYI---** .cer dosyası olarak bir metin düzenleyicisine Not Defteri gibi ve kaydedin. (Merhaba konak hazırlarken bu dosya tooyour uzak ana kopyalayacak.)
+6. Sertifika bilgileri kopyalayın **---başlangıç sertifika---** için **---son SERTİFİKAYI---** .cer dosyası olarak bir metin düzenleyicisine Not Defteri gibi ve kaydedin. (Konak hazırlarken bu dosyayı uzak ana bilgisayara kopyalayacak.)
    
    > [!NOTE]
-   > toogenerate yeni bir sertifika kullanmak hello `Set-HcsRemoteManagementCert` cmdlet'i.
+   > Yeni bir sertifika oluşturmak için kullanın `Set-HcsRemoteManagementCert` cmdlet'i.
    > 
    > 
 
-### <a name="prepare-hello-host-for-remote-management"></a>Merhaba konak uzaktan yönetimi için hazırlama
-tooprepare hello ana bilgisayar kullanan bir HTTPS oturumu uzaktan bağlantı hello yordamları gerçekleştirin:
+### <a name="prepare-the-host-for-remote-management"></a>Konağın uzaktan yönetimi için hazırlama
+Bir HTTPS oturumu kullanan uzak bir bağlantı için ana bilgisayarı hazırlamak için aşağıdaki yordamları gerçekleştirin:
 
-* [İçeri aktarma hello .cer dosyası hello istemci ya da uzak ana hello kök deposuna](#to-import-the-certificate-on-the-remote-host).
-* [Merhaba cihaz seri numaraları toohello hosts dosyasını uzak ana bilgisayarınızda eklemek](#to-add-device-serial-numbers-to-the-remote-host).
+* [İstemci veya uzak ana bilgisayarın kök deposuna .cer dosyasını içeri](#to-import-the-certificate-on-the-remote-host).
+* [Uzak ana bilgisayarda hosts dosyasını cihaz seri numaraları eklemek](#to-add-device-serial-numbers-to-the-remote-host).
 
 Bu yordamların her biri aşağıda açıklanmıştır.
 
-#### <a name="tooimport-hello-certificate-on-hello-remote-host"></a>Merhaba uzak ana bilgisayarda tooimport hello sertifika
-1. Merhaba .cer dosyasını sağ tıklatın ve seçin **yükleme sertifika**. Bu hello Sertifika Alma Sihirbazı'nı başlatır.
+#### <a name="to-import-the-certificate-on-the-remote-host"></a>Uzak ana bilgisayarda sertifikasını içeri aktarmak için
+1. .Cer dosyasını sağ tıklatın ve seçin **yükleme sertifika**. Bu Sertifika Alma Sihirbazı'nı başlatır.
    
     ![Sertifika Alma Sihirbazı 1](./media/storsimple-remote-connect/HCS_CertificateImportWizard1.png)
 2. İçin **depo konumuna**seçin **yerel makine**ve ardından **sonraki**.
-3. Seçin **tüm sertifikaları deposu aşağıdaki hello Yerleştir**ve ardından **Gözat**. Uzak ana bilgisayarınız toohello bir kök depoya gidin ve ardından **sonraki**.
+3. Seçin **tüm sertifikaları aşağıdaki depolama alanına yerleştir**ve ardından **Gözat**. Uzak ana bilgisayarınız kök deposuna gidin ve ardından **sonraki**.
    
     ![Sertifika Alma Sihirbazı'nı 2](./media/storsimple-remote-connect/HCS_CertificateImportWizard2.png)
-4. **Son**'a tıklayın. Merhaba alma işleminin başarılı olduğunu bildiren bir ileti görüntülenir.
+4. **Son**'a tıklayın. Alma işleminin başarılı olduğunu bildiren bir ileti görüntülenir.
    
     ![Sertifika Alma Sihirbazı'nı 3](./media/storsimple-remote-connect/HCS_CertificateImportWizard3.png)
 
-#### <a name="tooadd-device-serial-numbers-toohello-remote-host"></a>tooadd cihaz seri numaraları toohello uzak ana bilgisayar
-1. Not Defteri'ni yönetici olarak başlatın ve sonra \Windows\System32\Drivers\etc bulunan hello hosts dosyasını açın.
-2. Aşağıdaki üç girişleri tooyour hosts dosyasına hello ekleyin: **veri 0 IP adresi**, **denetleyici 0 sabit IP adresi**, ve **Denetleyici 1 sabit IP adresi**.
-3. Daha önce kaydettiğiniz Hello cihaz seri numarasını girin. Bu toohello IP adresini hello görüntü aşağıdaki gösterildiği gibi eşleyin. Denetleyici 0 ve denetleyici 1 için sona **Controller0** ve **Controller1** hello sonunda hello seri numarası (CN adı).
+#### <a name="to-add-device-serial-numbers-to-the-remote-host"></a>Cihaz seri numaraları uzak ana bilgisayara eklemek için
+1. Not Defteri'ni yönetici olarak başlatın ve sonra \Windows\System32\Drivers\etc bulunan hosts dosyasını açın.
+2. Aşağıdaki üç girdileri hosts dosyanıza ekleyin: **veri 0 IP adresi**, **denetleyici 0 sabit IP adresi**, ve **Denetleyici 1 sabit IP adresi**.
+3. Daha önce kaydettiğiniz cihaz seri numarasını girin. Aşağıdaki görüntüde gösterildiği gibi bu IP adresine eşleyen. Denetleyici 0 ve denetleyici 1 için sona **Controller0** ve **Controller1** seri numarasını (CN adı), sonunda.
    
-    ![CN adı toohosts dosyası ekleme](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
-4. Kaydet hello hosts dosyasını.
+    ![Konaklar dosyasına CN adı ekleme](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
+4. Hosts dosyasını kaydedin.
 
-### <a name="connect-toohello-device-from-hello-remote-host"></a>Toohello aygıt hello uzak ana bilgisayara bağlanın
-Windows PowerShell ve SSL kullanmak SSAdmin oturum bir uzak ana bilgisayara veya istemci, Cihazınızda bir tooenter. Merhaba SSAdmin oturum eşlemeleri toooption 1 hello içinde [seri konsol](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) Cihazınızı menüsü.
+### <a name="connect-to-the-device-from-the-remote-host"></a>Uzak ana bilgisayardan cihaza bağlanın
+Bir uzak ana bilgisayara veya istemci, Cihazınızda bir SSAdmin oturumu girmek için Windows PowerShell ve SSL kullanın. 1 seçeneğinde SSAdmin oturum eşlendiği [seri konsol](storsimple-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) Cihazınızı menüsü.
 
-Aşağıdaki yordamı toomake hello uzaktan Windows PowerShell bağlantı istediğiniz hello bilgisayarda hello gerçekleştirin.
+Aşağıdaki yordam, uzak Windows PowerShell bağlantı kurmak istediğiniz bilgisayarda gerçekleştirin.
 
-#### <a name="tooenter-an-ssadmin-session-on-hello-device-by-using-windows-powershell-and-ssl"></a>bir Windows PowerShell ve SSL kullanarak hello aygıt SSAdmin oturum tooenter
+#### <a name="to-enter-an-ssadmin-session-on-the-device-by-using-windows-powershell-and-ssl"></a>Windows PowerShell ve SSL kullanarak aygıtta bir SSAdmin oturumu girmek için
 1. Bir Windows PowerShell oturumu yönetici olarak başlatın.
-2. Merhaba aygıt IP adresi toohello istemcinin güvenilir konaklar yazarak ekleyin:
+2. Aygıt IP adresi yazarak istemcinin güvenilir konaklar ekleyin:
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
    
-    Burada <*device_ip*> Cihazınızı hello IP adresidir; örneğin: 
+    Burada <*device_ip*> cihazınızın IP adresidir; örneğin: 
    
      `Set-Item wsman:\localhost\Client\TrustedHosts 10.126.173.90 -Concatenate -Force`
 3. Yeni bir kimlik bilgisi yazarak oluşturun: 
    
      `$cred = New-Object pscredential @("<IP of target device>\SSAdmin", (ConvertTo-SecureString -Force -AsPlainText "<Device Administrator Password>"))`
    
-    Burada <*hedef aygıtın IP*> hello IP adresi veri 0 aygıtınızın; Örneğin, **10.126.173.90** hello hosts dosyasını görüntüsü önceki hello gösterildiği gibi. Ayrıca, Cihazınızı hello yönetici parolasını sağlayın.
+    Burada <*hedef aygıtın IP*> cihazınız için; veri 0 IP adresidir Örneğin, **10.126.173.90** hosts dosyasını önceki görüntüde gösterildiği gibi. Ayrıca, cihazınız için yönetici parolasını sağlayın.
 4. Bir oturum yazarak oluşturun:
    
      `$session = New-PSSession -UseSSL -ComputerName <Serial number of target device> -Credential $cred -ConfigurationName "SSAdminConsole"`
    
-    Merhaba - ComputerName parametresi için Merhaba, hello sağlayın <*hedef cihaz seri numarasını*>. Bu seri numarasına eşlendi veri uzak ana bilgisayarınızda; hello hosts dosyasında 0 toohello IP adresi Örneğin, **SHX0991003G44MT** hello görüntü aşağıdaki gösterildiği gibi.
+    Cmdlet - ComputerName parametresinde için sağlayın <*hedef cihaz seri numarasını*>. Bu seri numarasına veri uzak ana bilgisayarda hosts dosyasında 0 IP adresine eşlendi; Örneğin, **SHX0991003G44MT** aşağıdaki görüntüde gösterildiği gibi.
 5. Şunu yazın: 
    
      `Enter-PSSession $session`
-6. Birkaç dakika toowait gerekir ve ardından HTTPS üzerinden bağlı tooyour aygıt SSL üzerinden olacaktır. Bağlı tooyour aygıt olduğunuz belirten bir ileti görürsünüz.
+6. Birkaç dakika beklemeniz gerekir ve ardından, HTTPS üzerinden aygıtınıza SSL üzerinden bağlanır. Cihazınıza bağlı belirten bir ileti görürsünüz.
    
     ![PowerShell uzaktan iletişimini HTTPS ve SSL kullanma](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Daha fazla bilgi edinmek [Windows PowerShell tooadminister StorSimple Cihazınızı kullanarak](storsimple-windows-powershell-administration.md).
-* Daha fazla bilgi edinmek [kullanarak, StorSimple Cihazınızı StorSimple Yöneticisi hizmet tooadminister hello](storsimple-manager-service-administration.md).
+* Daha fazla bilgi edinmek [StorSimple Cihazınızı yönetmek için Windows PowerShell kullanarak](storsimple-windows-powershell-administration.md).
+* Daha fazla bilgi edinmek [StorSimple Cihazınızı yönetmek için StorSimple Yöneticisi hizmetini kullanma](storsimple-manager-service-administration.md).
 

@@ -1,6 +1,6 @@
 ---
-title: "aaaInput doğrulama - Microsoft tehdit modelleme aracı - Azure | Microsoft Docs"
-description: "Azaltıcı Etkenler hello tehdit modelleme Aracı kullanıma sunulan tehditleri"
+title: "Doğrulama - Microsoft tehdit modelleme aracı - Azure giriş | Microsoft Docs"
+description: "Azaltıcı Etkenler tehdit modelleme Aracı kullanıma sunulan tehditleri"
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 823503881f4bae292ef021834d5e64acf2a0f54a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b7ce6f353cf8cf48d5fb038ee77b0d3fdae16fb7
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Güvenlik çerçevesi: Giriş doğrulama | Azaltıcı Etkenler 
 | Ürün/hizmet | Makale |
 | --------------- | ------- |
-| **Web uygulaması** | <ul><li>[XSLT güvenilmeyen stil sayfalarını kullanarak tüm dönüşümler için komut dosyası devre dışı bırak](#disable-xslt)</li><li>[Kullanıcı denetlenebilir içeriği içerebilir her sayfanın MIME otomatik algılaması dışında çevrilir emin olun](#out-sniffing)</li><li>[Sağlamlaştırmak veya XML varlık çözümleme devre dışı bırakma](#xml-resolution)</li><li>[HTTP.sys kullanan uygulamalar URL Standartlaştırma doğrulama gerçekleştirme](#app-verification)</li><li>[Uygun denetimleri dosyaların kullanıcılardan kabul ederken karşılandığından emin olun](#controls-users)</li><li>[Tür kullanımı uyumlu parametreleri veri erişimi için Web uygulamasında kullanıldığından emin olun](#typesafe)</li><li>[Ayrı model bağlama sınıflarını kullanın veya bağlama filtresi tooprevent MVC yığın atama güvenlik açığı listeler](#binding-mvc)</li><li>[Güvenilmeyen web çıkış önceki toorendering kodlama](#rendering)</li><li>[Giriş doğrulaması ve tüm dize türünde Model özelliklerini filtrelemesine](#typemodel)</li><li>[Tüm karakterleri, örneğin, Zengin Metin Düzenleyicisi'ni kabul eden form alanlarını temizleme işlemi uygulanmalıdır](#richtext)</li><li>[Yerleşik kodlama olmayan DOM öğeleri toosinks atamayın](#inbuilt-encode)</li><li>[Tüm doğrulama yeniden yönlendirmeleri hello uygulamadaki kapalı veya güvenli bir şekilde tamamlandı](#redirect-safe)</li><li>[Uygulama giriş doğrulaması denetleyicisi yöntemler tarafından kabul edilen tüm dize türü parametreleri](#string-method)</li><li>[Normal ifade tooprevent DoS toobad normal ifadeler nedeniyle işleme için üst sınır zaman aşımını ayarlama](#dos-expression)</li><li>[Razor görünümleri Html.Raw kullanmaktan kaçının](#html-razor)</li></ul> | 
+| **Web uygulaması** | <ul><li>[XSLT güvenilmeyen stil sayfalarını kullanarak tüm dönüşümler için komut dosyası devre dışı bırak](#disable-xslt)</li><li>[Kullanıcı denetlenebilir içeriği içerebilir her sayfanın MIME otomatik algılaması dışında çevrilir emin olun](#out-sniffing)</li><li>[Sağlamlaştırmak veya XML varlık çözümleme devre dışı bırakma](#xml-resolution)</li><li>[HTTP.sys kullanan uygulamalar URL Standartlaştırma doğrulama gerçekleştirme](#app-verification)</li><li>[Uygun denetimleri dosyaların kullanıcılardan kabul ederken karşılandığından emin olun](#controls-users)</li><li>[Tür kullanımı uyumlu parametreleri veri erişimi için Web uygulamasında kullanıldığından emin olun](#typesafe)</li><li>[Ayrı model bağlama sınıflarını kullanın veya MVC yığın atama güvenlik açığı önlemek için bağlama filtresi listeler](#binding-mvc)</li><li>[Güvenilmeyen web çıkış işleme önce kodlama](#rendering)</li><li>[Giriş doğrulaması ve tüm dize türünde Model özelliklerini filtrelemesine](#typemodel)</li><li>[Tüm karakterleri, örneğin, Zengin Metin Düzenleyicisi'ni kabul eden form alanlarını temizleme işlemi uygulanmalıdır](#richtext)</li><li>[DOM öğeleri yerleşik kodlama olmayan havuzlarını atamayın](#inbuilt-encode)</li><li>[Tüm doğrulama uygulama içinde yeniden yönlendirmeleri kapalı veya güvenli bir şekilde tamamlandı](#redirect-safe)</li><li>[Uygulama giriş doğrulaması denetleyicisi yöntemler tarafından kabul edilen tüm dize türü parametreleri](#string-method)</li><li>[Normal ifade DoS nedeniyle hatalı normal ifadeler önlemek için işleme için üst sınır zaman aşımını ayarlama](#dos-expression)</li><li>[Razor görünümleri Html.Raw kullanmaktan kaçının](#html-razor)</li></ul> | 
 | **Veritabanı** | <ul><li>[Dinamik sorgular saklı yordamlarda kullanmayın](#stored-proc)</li></ul> |
 | **Web API** | <ul><li>[Model doğrulama Web API yöntemlerini yapıldığından emin olun](#validation-api)</li><li>[Web API yöntemleri tarafından kabul edilen tüm dize tür parametrelerindeki giriş doğrulaması uygulama](#string-api)</li><li>[Tür kullanımı uyumlu parametreleri Web API'si veri erişimi için kullanıldığından emin olun](#typesafe-api)</li></ul> | 
 | **Azure belge DB** | <ul><li>[DocumentDB için parametreli SQL sorgularını kullan](#sql-docdb)</li></ul> | 
@@ -38,27 +38,27 @@ ms.lasthandoff: 10/06/2017
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [XSLT güvenlik](https://msdn.microsoft.com/library/ms763800(v=vs.85).aspx), [XsltSettings.EnableScript özelliği](http://msdn.microsoft.com/library/system.xml.xsl.xsltsettings.enablescript.aspx) |
-| **Adımları** | XSLT destekleyen hello kullanarak stil sayfaları komut dosyası `<msxml:script>` öğesi. Bu, bir XSLT dönüşümü kullanılan özel işlevler toobe sağlar. Merhaba betik hello hello dönüştürme gerçekleştirme hello işlem bağlamında çalıştırılır. XSLT betik yürütmesinde bir güvenilmeyen ortamı tooprevent güvenilmeyen kod zaman devre dışı bırakılması gerekir. *.NET kullanıyorsanız:* varsayılan olarak XSLT komut dosyası devre dışı; ancak, açıkça hello etkinleştirilmemiş olduğundan emin olmalısınız `XsltSettings.EnableScript` özelliği.|
+| **Adımları** | XSLT destekleyen kullanarak stil sayfaları komut dosyası `<msxml:script>` öğesi. Bu, bir XSLT dönüşümü kullanılacak özel işlevler sağlar. Komut dosyası dönüştürme gerçekleştirme işlem bağlamı altında yürütülür. XSLT komut dosyası, güvenilmeyen kodun yürütülmesini engellemek için bir ortamda güvenilmeyen zaman devre dışı bırakılması gerekir. *.NET kullanıyorsanız:* varsayılan olarak XSLT komut dosyası devre dışı; ancak, bunu açıkça aracılığıyla etkinleştirilmemiş olduğundan emin olmalısınız `XsltSettings.EnableScript` özelliği.|
 
 ### <a name="example"></a>Örnek 
 
 ```C#
 XsltSettings settings = new XsltSettings();
-settings.EnableScript = true; // WRONG: THIS SHOULD BE SET toofalse
+settings.EnableScript = true; // WRONG: THIS SHOULD BE SET TO false
 ```
 
 ### <a name="example"></a>Örnek
-XSLT komut dosyası, MSXML 6.0 kullanarak kullanıyorsanız, varsayılan olarak devre dışıdır; Ancak, bunu açıkça hello XML DOM nesnesi özelliği AllowXsltScript üzerinden etkinleştirilmemiş olduğundan emin olmalısınız. 
+XSLT komut dosyası, MSXML 6.0 kullanarak kullanıyorsanız, varsayılan olarak devre dışıdır; Ancak, bunu açıkça AllowXsltScript XML DOM nesnesi özelliği üzerinden etkinleştirilmemiş olduğundan emin olmalısınız. 
 
 ```C#
-doc.setProperty("AllowXsltScript", true); // WRONG: THIS SHOULD BE SET toofalse
+doc.setProperty("AllowXsltScript", true); // WRONG: THIS SHOULD BE SET TO false
 ```
 
 ### <a name="example"></a>Örnek
-MSXML 5 kullanıyorsanız veya aşağıda XSLT komut dosyası varsayılan olarak etkindir ve açıkça gerekir devre dışı bırakın. Merhaba XML DOM nesnesi özelliği AllowXsltScript toofalse ayarlayın. 
+MSXML 5 kullanıyorsanız veya aşağıda XSLT komut dosyası varsayılan olarak etkindir ve açıkça gerekir devre dışı bırakın. XML DOM nesnesi özelliğini AllowXsltScript false olarak ayarlayın. 
 
 ```C#
-doc.setProperty("AllowXsltScript", false); // CORRECT. Setting toofalse disables XSLT scripting.
+doc.setProperty("AllowXsltScript", false); // CORRECT. Setting to false disables XSLT scripting.
 ```
 
 ## <a id="out-sniffing"></a>Kullanıcı denetlenebilir içeriği içerebilir her sayfanın MIME otomatik algılaması dışında çevrilir emin olun
@@ -70,12 +70,12 @@ doc.setProperty("AllowXsltScript", false); // CORRECT. Setting toofalse disables
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [IE8 Güvenlik bölümü V - kapsamlı koruma](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)  |
-| **Adımları** | <p>Kullanıcı denetlenebilir içeriği içerebilir her bir sayfa için hello HTTP üstbilgisi kullanmalısınız `X-Content-Type-Options:nosniff`. toocomply bu gereksinime ya da kümesi hello gerekli üstbilgisi yalnızca kullanıcı denetlenebilir içerik içerebilir sayfalar için sayfa tarafından olabilir veya genel hello uygulamadaki tüm sayfalar için ayarlayabilirsiniz.</p><p>Her bir web sunucusundan teslim dosya ilişkili bir türü [MIME türü](http://en.wikipedia.org/wiki/Mime_type) (olarak da adlandırılan bir *içerik türü*) hello İhlale hello içeriğin (diğer bir deyişle, görüntü, metin, uygulama, vb.) açıklanır</p><p>Merhaba içerik türü seçenekleri X başlığıdır geliştiricilerinin sağlayan bir HTTP üstbilgisi toospecify içeriklerini MIME sniffed olmamalıdır. Tasarlanmış toomitigate MIME algılaması saldırıları başlığıdır. Internet Explorer 8 (IE8) bu başlığı için destek eklendi</p><p>Yalnızca Internet Explorer 8 (IE8) kullanıcılarının X-içerik-tür-seçeneklerden yararlanabilir. Internet Explorer'ın önceki sürümlerini şu anda hello X-içerik-tür-Options üstbilgisi dikkate almaz</p><p>Internet Explorer 8 (ve üstü) hello yalnızca başlıca tarayıcılar tooimplement MIME algılaması çevirin özelliği. Diğer ana tarayıcılar (Firefox, Safari, Chrome) benzer özellikleri varsa ve uyguladığınızda, bu öneri de bu tarayıcılar için güncelleştirilmiş tooinclude sözdizimi olacaktır</p>|
+| **Adımları** | <p>Kullanıcı denetlenebilir içeriği içerebilir her bir sayfa için HTTP üstbilgisi kullanmalısınız `X-Content-Type-Options:nosniff`. Bu gereksinim ile uyum sağlamak için gereken üstbilgi kullanıcı denetlenebilir içerik içerebilecek sayfalar için sayfa tarafından ayarlayabilirsiniz veya genel uygulamadaki tüm sayfalar için ayarlayabilirsiniz.</p><p>Her bir web sunucusundan teslim dosya ilişkili bir türü [MIME türü](http://en.wikipedia.org/wiki/Mime_type) (olarak da adlandırılan bir *içerik türü*) (diğer bir deyişle, görüntü, metin, uygulama, vb.) içerik yapısını açıklar</p><p>Geliştiriciler kendi içerik MIME sniffed olmamalıdır belirtmek izin veren bir HTTP üstbilgisi içerik türü seçenekleri X başlığıdır. Bu üst MIME algılaması saldırıları azaltmak için tasarlanmıştır. Internet Explorer 8 (IE8) bu başlığı için destek eklendi</p><p>Yalnızca Internet Explorer 8 (IE8) kullanıcılarının X-içerik-tür-seçeneklerden yararlanabilir. Internet Explorer'ın önceki sürümlerini şu anda X-içerik-tür-Options üstbilgisi dikkate almaz</p><p>Bir MIME algılaması çevirin özelliği uygulamak için yalnızca ana tarayıcılar Internet Explorer 8 (ve üstü) var. Bu tarayıcılar da söz diziminin dahil etmek için diğer önemli tarayıcılar (Firefox, Safari, Chrome) benzer özellikleri varsa ve uyguladığınızda, bu öneri güncelleştirilir</p>|
 
 ### <a name="example"></a>Örnek
-tooenable hello gerekli üstbilgisi hello uygulamasındaki tüm sayfalar için genel olarak, hello aşağıdakilerden birini yapabilirsiniz: 
+Uygulamadaki tüm sayfalar için genel gerekli üstbilgisi etkinleştirmek için aşağıdakilerden birini yapabilirsiniz: 
 
-* Merhaba uygulaması Internet Information Services (IIS) 7 tarafından barındırılıyorsa hello web.config dosyasında hello üstbilgisi Ekle 
+* Uygulama Internet Information Services (IIS) 7 tarafından barındırılıyorsa web.config dosyasında üstbilgisi Ekle 
 
 ```
 <system.webServer> 
@@ -87,7 +87,7 @@ tooenable hello gerekli üstbilgisi hello uygulamasındaki tüm sayfalar için g
 </system.webServer> 
 ```
 
-* Merhaba aracılığıyla Hello üstbilgisi Ekle genel uygulama\_BeginRequest 
+* Genel Uygulama aracılığıyla üstbilgisi eklemek\_BeginRequest 
 
 ``` 
 void Application_BeginRequest(object sender, EventArgs e)
@@ -124,7 +124,7 @@ public class XContentTypeOptionsModule : IHttpModule
 
 ``` 
 
-* Yalnızca belirli sayfaları için gereken üstbilgi hello tooindividual yanıtları ekleyerek etkinleştirebilirsiniz: 
+* Yalnızca belirli sayfaları için gerekli üstbilgisi tek tek yanıtlarını ekleyerek etkinleştirebilirsiniz: 
 
 ```
 this.Response.Headers[""X-Content-Type-Options""] = ""nosniff""; 
@@ -139,10 +139,10 @@ this.Response.Headers[""X-Content-Type-Options""] = ""nosniff"";
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [XML varlık genişletme](http://capec.mitre.org/data/definitions/197.html), [XML hizmet reddi saldırılarına ve savunma](http://msdn.microsoft.com/magazine/ee335713.aspx), [MSXML güvenliğine genel bakış](http://msdn.microsoft.com/library/ms754611(v=VS.85).aspx), [MSXML kod güvenliğini sağlamak için en iyi uygulamalar](http://msdn.microsoft.com/library/ms759188(VS.85).aspx), [NSXMLParserDelegate Protokolü başvurusu](http://developer.apple.com/library/ios/#documentation/cocoa/reference/NSXMLParserDelegate_Protocol/Reference/Reference.html), [dış başvuruları çözme](https://msdn.microsoft.com/library/5fcwybb2.aspx) |
-| **Adımları**| <p>Yaygın olarak kullanılmaz rağmen izin veren hello XML Ayrıştırıcı tooexpand makrosu varlıklar hello belge kendisini içinde veya dış kaynaklardan tanımlanan değerlerle XML özelliği yoktur. Örneğin, metin her zaman hello böylece hello belge bir varlık "Şirket" adı "Microsoft" Merhaba değerle tanımlayabilir "&companyname;", otomatik olarak değiştirilir Microsoft hello metinle hello belgede görüntülenir. Veya, bir varlık "bir dış web hizmeti toofetch hello geçerli değeri Microsoft hisse senedi başvuran MSFTStock" Merhaba belge tanımlayabilirsiniz.</p><p>Sonra her zaman "&MSFTStock;" hello belgede bunu otomatik olarak değiştirilir hello geçerli stok fiyatıyla görünür. Ancak, bu işlev kötüye toocreate reddi (DoS) hizmet koşulları olabilir. Bir saldırgan, birden çok varlık toocreate hello sistemdeki tüm kullanılabilir bellek tüketir üstel genişletme XML Bomba yerleştirebilirsiniz. </p><p>Alternatif olarak, kendisinin geri akışları bir dış başvuru sonsuz bir veri miktarı oluşturabilir veya, yalnızca hello iş parçacığı askıda kalır. Tamamen kendi uygulama değil, kullanıyorsanız veya el ile Merhaba miktarda bellek ve bu işlevselliği ise Merhaba uygulaması varlık çözümlemesi için tüketebileceği süre sınırı sonuç olarak, tüm takımlar iç ve/veya dış XML varlık çözümleme devre dışı bırakmanız gerekir kesinlikle gerekli. Varlık çözümleme, uygulamanız tarafından gerekli değildir, sonra da devre dışı bırakın. </p>|
+| **Adımları**| <p>Yaygın olarak kullanılmaz rağmen belge içinde veya dış kaynaklardan tanımlanan değerlerle makrosu varlıklar genişletmek XML Ayrıştırıcı sağlayan XML özelliği yoktur. Örneğin, belgeyi bir varlık "Şirket" adı "Microsoft" değeriyle şekilde tanımlayabilir, her zaman metin "&companyname;" belgede bunu otomatik olarak değiştirilir Microsoft metinle görüntülenir. Veya, belgeyi bir varlık "Microsoft hisse senedi geçerli değeri getirmek için bir dış web hizmeti başvuran MSFTStock" tanımlayabilirsiniz.</p><p>Sonra her zaman "&MSFTStock;", otomatik olarak değiştirilir geçerli stok fiyatıyla belgede görüntülenir. Ancak, bu işlev reddi (DoS) hizmet koşulları oluşturmak için kötüye. Bir saldırgan sistem üzerindeki tüm kullanılabilir bellek tüketir üstel genişletme XML Bomba oluşturmak için birden çok varlık yerleştirebilirsiniz. </p><p>Alternatif olarak, kendisinin geri akışları bir dış başvuru sonsuz bir veri miktarı oluşturabilir veya, yalnızca iş parçacığı askıda kalır. Sonuç olarak, tamamen kendi uygulama değil, kullanıyorsanız veya el ile bellek ve bu işlevselliği kesinlikle gerekli değilse, uygulama için varlık çözümlemesi tüketebileceği süre miktarını sınırlamak tüm takımlar iç ve/veya dış XML varlık çözümleme devre dışı bırakmalısınız. Varlık çözümleme, uygulamanız tarafından gerekli değildir, sonra da devre dışı bırakın. </p>|
 
 ### <a name="example"></a>Örnek
-.NET Framework kodunu yaklaşımlar aşağıdaki hello kullanabilirsiniz:
+.NET Framework kodunu aşağıdaki yaklaşımlardan kullanabilirsiniz:
 
 ```C#
 XmlTextReader reader = new XmlTextReader(stream);
@@ -157,10 +157,10 @@ XmlReaderSettings settings = new XmlReaderSettings();
 settings.DtdProcessing = DtdProcessing.Prohibit;
 XmlReader reader = XmlReader.Create(stream, settings);
 ```
-Bu hello varsayılan değeri Not `ProhibitDtd` içinde `XmlReaderSettings` ancak doğrudur `XmlTextReader` false olur. In kapsama kullanıyorsanız, tooset ProhibitDtd tootrue açıkça gerekmez, ancak güvenliği artırmak amacıyla için bunu yapmanız önerilir. Ayrıca hello XmlDocument sınıfı varsayılan varlık çözümleme izin verildiğini unutmayın. 
+Unutmayın varsayılan değerini `ProhibitDtd` içinde `XmlReaderSettings` ancak doğrudur `XmlTextReader` false olur. In kapsama kullanıyorsanız, ProhibitDtd açıkça true olarak ayarlanmış gerekmez, ancak güvenliği artırmak amacıyla için bunu yapmanız önerilir. Ayrıca XmlDocument sınıfı varsayılan varlık çözümleme izin verildiğini unutmayın. 
 
 ### <a name="example"></a>Örnek
-XML belgelerine uymasıdır, kullanım hello toodisable varlık çözümlenmek `XmlDocument.Load(XmlReader)` hello aşırı yükleme yöntemi ve hello uygun özellikleri hello XmlReader bağımsız değişkeni toodisable çözümlemesinde hello kod aşağıdaki gösterildiği gibi: 
+Varlık çözümleme XML belgelerine uymasıdır için devre dışı bırakmak için `XmlDocument.Load(XmlReader)` aşırı yükleme yöntemi ve uygun özellikleri XmlReader bağımsız değişkeni çözümleme, devre dışı bırakmak için aşağıdaki kodda gösterildiği şekilde ayarlayın: 
 
 ```C#
 XmlReaderSettings settings = new XmlReaderSettings();
@@ -171,7 +171,7 @@ doc.Load(reader);
 ```
 
 ### <a name="example"></a>Örnek
-Varlık çözümlemeyi devre dışı bırakma, uygulamanız için mümkün değilse, hello XmlReaderSettings.MaxCharactersFromEntities özelliği tooa uygun değere tooyour uygulamanın gereksinimlerine göre ayarlayın. Bu olası üstel genişletme DoS saldırıları hello etkisini sınırlar. koddan hello Bu yaklaşımın bir örnek sağlar: 
+Varlık çözümlemeyi devre dışı bırakma, uygulamanız için mümkün değilse, uygulamanızın gereksinimlerine göre uygun bir değere XmlReaderSettings.MaxCharactersFromEntities özelliğini ayarlayın. Bu olası üstel genişletme DoS saldırıları etkisini sınırlar. Aşağıdaki kod, bu yaklaşımın bir örnek sağlar: 
 
 ```C#
 XmlReaderSettings settings = new XmlReaderSettings();
@@ -181,7 +181,7 @@ XmlReader reader = XmlReader.Create(stream, settings);
 ```
 
 ### <a name="example"></a>Örnek
-Tooresolve satır içi varlıkları gerekiyorsa ancak tooresolve dış varlıklar gerekmez hello XmlReaderSettings.XmlResolver özelliği toonull ayarlayın. Örneğin: 
+Satır içi varlıkları çözmek ancak bunu gerekiyorsa dış varlıklar, çözümlemeye gerekmez XmlReaderSettings.XmlResolver özelliği null olarak ayarlayın. Örneğin: 
 
 ```C#
 XmlReaderSettings settings = new XmlReaderSettings();
@@ -190,7 +190,7 @@ settings.MaxCharactersFromEntities = 1000;
 settings.XmlResolver = null;
 XmlReader reader = XmlReader.Create(stream, settings);
 ```
-Msxml6 içinde ProhibitDTD tootrue (DTD işlemeyi devre dışı bırakma) varsayılan olarak ayarlanır. Apple OSX/iOS kodu için kullanabileceğiniz iki XML ayrıştırıcıları vardır: NSXMLParser ve libXML2. 
+Msxml6 içinde ProhibitDTD true (devre dışı bırakma DTD işleme) varsayılan olarak ayarlanır. Apple OSX/iOS kodu için kullanabileceğiniz iki XML ayrıştırıcıları vardır: NSXMLParser ve libXML2. 
 
 ## <a id="app-verification"></a>HTTP.sys kullanan uygulamalar URL Standartlaştırma doğrulama gerçekleştirme
 
@@ -201,7 +201,7 @@ Msxml6 içinde ProhibitDTD tootrue (DTD işlemeyi devre dışı bırakma) varsay
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları** | <p>Http.sys kullanan herhangi bir uygulama bu yönergeleri izlemelidir:</p><ul><li>Merhaba URL uzunluğu toono birden fazla 16.384 karakter (ASCII veya Unicode) sınırlayın. Merhaba varsayılan Internet Information Services (IIS) 6 ayarına göre hello mutlak URL uzunluğu üst sınırı budur. Web siteleri bu değerden daha kısa bir süre için mümkünse çaba</li><li>Bunlar hello kurallı kullanım kuralları hello .NET FX yararlanır gibi hello standart .NET Framework dosyası g/ç sınıfları (örneğin, FILESTREAM) kullanın</li><li>Açıkça bilinen dosya adları, bir izin verilenler listesi oluşturma</li><li>Açıkça bilinen dosya türleri, değil hizmet UrlScan reddeder reddetme: exe bat, cmd, com, htw, IDA, IDQ, htr, IDC, shtm [l], stm, yazıcı, INI, pol, verilerinin dosyaları</li><li>Özel durumlar aşağıdaki hello catch:<ul><li>System.ArgumentException (için aygıt adları)</li><li>System.NotSupportedException (için veri akışları)</li><li>System.IO.FileNotFoundException (için geçersiz kaçış karakterli dosya adları)</li><li>System.IO.directorynotfoundexception (için geçersiz kaçış karakterli dizin)</li></ul></li><li>*Sağlamadığı* tooWin32 dosya g/ç API'leri çağırın. Geçersiz bir URL düzgün biçimde 400 hatası toohello kullanıcı dönün ve hello gerçek hata günlüğüne.</li></ul>|
+| **Adımları** | <p>Http.sys kullanan herhangi bir uygulama bu yönergeleri izlemelidir:</p><ul><li>URL uzunluğu en fazla 16.384 karakter (ASCII veya Unicode) sınırlayın. Varsayılan Internet Information Services (IIS) 6 ayarına göre mutlak URL uzunluğu üst sınırı budur. Web siteleri bu değerden daha kısa bir süre için mümkünse çaba</li><li>Bunlar kurallı kullanım kuralları .NET FX yararlanır gibi standart .NET Framework dosyası g/ç sınıfları (örneğin, FILESTREAM) kullanın</li><li>Açıkça bilinen dosya adları, bir izin verilenler listesi oluşturma</li><li>Açıkça bilinen dosya türleri, değil hizmet UrlScan reddeder reddetme: exe bat, cmd, com, htw, IDA, IDQ, htr, IDC, shtm [l], stm, yazıcı, INI, pol, verilerinin dosyaları</li><li>Aşağıdaki özel durumları yakalamak:<ul><li>System.ArgumentException (için aygıt adları)</li><li>System.NotSupportedException (için veri akışları)</li><li>System.IO.FileNotFoundException (için geçersiz kaçış karakterli dosya adları)</li><li>System.IO.directorynotfoundexception (için geçersiz kaçış karakterli dizin)</li></ul></li><li>*Sağlamadığı* Win32 dosya g/ç API'leri duyurmak. Geçersiz bir URL, düzgün biçimde 400 hatası kullanıcıya geri götürmek ve gerçek hata oturum.</li></ul>|
 
 ## <a id="controls-users"></a>Uygun denetimleri dosyaların kullanıcılardan kabul ederken karşılandığından emin olun
 
@@ -212,10 +212,10 @@ Msxml6 içinde ProhibitDTD tootrue (DTD işlemeyi devre dışı bırakma) varsay
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [Kısıtlanmamış karşıya dosya yükleme](https://www.owasp.org/index.php/Unrestricted_File_Upload), [dosya imza tablosu](http://www.garykessler.net/library/file_sigs.html) |
-| **Adımları** | <p>Karşıya yüklenen dosyaların önemli riski tooapplications temsil eder.</p><p>Merhaba ilk saldırıların çoğu bazı kod toohello sistem toobe saldırıya tooget adımdır. Ardından hello saldırı, yalnızca bir şekilde tooget hello kodu yürütülen toofind gerekir. Bir dosyayı karşıya yükleme kullanarak hello ilk adımı gerçekleştirmek hello saldırgan yardımcı olur. sınırsız dosya karşıya yükleme Hello sonuçlarını, tam sistem devralma dahil olmak üzere, bir aşırı yüklenmiş dosya sistemi veya saldırıları tooback uç sistemleri ve basit tahrifatı iletme veritabanı değişebilir.</p><p>Hangi hello uygulama karşıya hello dosyasıyla yapar ve özellikle depolandığı bağlıdır. Sunucu tarafı dosya yüklemeleriyle doğrulanması eksik. Güvenlik denetimleri aşağıdaki dosyayı karşıya yüklemeyi işlevselliği için uygulanması gerekir:</p><ul><li>Dosya uzantısı onay (izin verilen dosya türü için geçerli bir kümesi kabul)</li><li>En büyük dosya boyutu sınırı</li><li>Dosya karşıya yüklenen toowebroot olmamalıdır; Başlangıç konumu sistem dışı sürücü üzerinde bir dizin olmalıdır</li><li>Merhaba karşıya yüklenen dosya adına sahip olacağı şekilde bazı rastgele tooprevent dosyasının üzerine yazar için adlandırma kuralı gelmelidir</li><li>Dosyalar için virüsten koruma toohello disk yazmadan önce taranmış</li><li>Merhaba dosya adını ve diğer meta verileri (örneğin, dosya yolu) için kötü amaçlı karakter doğrulandığından emin olmak</li><li>Dosya biçimi imza işaretlenmelidir, tooprevent masqueraded dosya karşıya bir kullanıcının (örneğin, bir exe dosyası uzantısı tootxt değiştirerek karşıya yükleme)</li></ul>| 
+| **Adımları** | <p>Karşıya yüklenen dosyaların uygulamaları için önemli bir riski temsil eder.</p><p>İlk adımda saldırıların çoğu saldırıya için sisteme biraz kod almaktır. Ardından saldırı yürütülen kod almanın bir yolu bulmak yeterlidir. Bir dosyayı karşıya yükleme kullanarak ilk adımı gerçekleştirmek saldırgan yardımcı olur. Sınırsız dosya karşıya yükleme sonuçlarını tam sistem devralma, aşırı yüklenmiş dosya sistemi ya da veritabanı, arka uç sistemleri ve basit tahrifatı saldırılarına iletme de dahil olmak üzere değişebilir.</p><p>Yüklenen dosya ile uygulama yaptığı ve özellikle depolandığı bağlıdır. Sunucu tarafı dosya yüklemeleriyle doğrulanması eksik. Güvenlik denetimleri aşağıdaki dosyayı karşıya yüklemeyi işlevselliği için uygulanması gerekir:</p><ul><li>Dosya uzantısı onay (izin verilen dosya türü için geçerli bir kümesi kabul)</li><li>En büyük dosya boyutu sınırı</li><li>Dosya için webroot yüklenmelidir değil; konum, sistem dışı sürücü üzerinde bir dizin olmalıdır</li><li>Adlandırma kuralı izlenmesi gereken, karşıya yüklenen dosya adına sahip dosyanın önlemek amacıyla bazı rastgele, üzerine yazar</li><li>Dosyaları diske yazmadan önce virüsten koruma için taranmalıdır</li><li>Dosya adı ve diğer meta verileri (örneğin, dosya yolu) için kötü amaçlı karakter doğrulandığından emin olmak</li><li>Dosya biçimi imza işaretlenmelidir, bir kullanıcının masqueraded bir dosyayı karşıya yüklemeyi önlemek için (örneğin, bir exe dosyası için txt uzantısı değiştirerek karşıya yükleme)</li></ul>| 
 
 ### <a name="example"></a>Örnek
-Merhaba son noktası için dosya biçimi imza doğrulaması ile ilgili ayrıntılar için aşağıda toohello sınıfı bakın: 
+Dosya biçimi imza doğrulaması ilgili son noktası için Ayrıntılar sınıfına bakın: 
 
 ```C#
         private static Dictionary<string, List<byte[]>> fileSignature = new Dictionary<string, List<byte[]>>
@@ -328,10 +328,10 @@ Merhaba son noktası için dosya biçimi imza doğrulaması ile ilgili ayrıntı
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları** | <p>Merhaba parametreler koleksiyonu kullanırsanız, bir hazır değer yerine yürütülebilir kod olarak olarak SQL davranır hello giriş olabilir. Parametreler koleksiyonu Hello giriş verisi kullanılan tooenforce türünü ve uzunluğu kısıtlamalar olabilir. Değerleri hello aralığın dışında bir özel durum tetikler. Tür kullanımı uyumlu SQL parametre kullanılmazsa, saldırganlar filtrelenmemiş hello girişinde katıştırılmış mümkün tooexecute ekleme saldırıları olabilir.</p><p>SQL oluşturma filtrelenmemiş girişle oluşabilecek tooavoid olası SQL ekleme saldırıları sorguladığında türü güvenli parametrelerini kullanın. Saklı yordamlar ve dinamik SQL deyimleri ile tür güvenli parametreleri kullanabilirsiniz. Parametreleri yürütülebilir kod değil de, hello veritabanı tarafından değişmez değerler olarak kabul edilir. Parametreler, türü ve uzunluğu için de denetlenir.</p>|
+| **Adımları** | <p>Kullanırsanız parametreler koleksiyonu, SQL davranır yerine yürütülebilir kod olarak değişmez değer olarak bir giriş olabilir. Parametreler koleksiyonu giriş veri türü ve uzunluğu kısıtlamalar uygulamak için kullanılabilir. Değer aralığının dışında bir özel durum tetikler. Tür kullanımı uyumlu SQL parametre kullanılmazsa, saldırganlar filtrelenmemiş girişinde katıştırılmış ekleme saldırıları yürütmek olabilir.</p><p>Tür güvenli parametreleri SQL sorguları oluşturmak filtrelenmemiş girişle oluşabilecek olası SQL ekleme saldırıları önlemek için kullanın. Saklı yordamlar ve dinamik SQL deyimleri ile tür güvenli parametreleri kullanabilirsiniz. Parametreleri yürütülebilir kod değil de, veritabanı tarafından değişmez değerler olarak kabul edilir. Parametreler, türü ve uzunluğu için de denetlenir.</p>|
 
 ### <a name="example"></a>Örnek 
-Merhaba aşağıdaki kod nasıl toouse yazın hello SqlParameterCollection güvenli parametrelerle bir saklı yordamı çağrılırken gösterir. 
+Aşağıdaki kod tür güvenli parametreleri ile SqlParameterCollection bir saklı yordamı çağrılırken kullanmayı gösterir. 
 
 ```C#
 using System.Data;
@@ -347,9 +347,9 @@ myCommand.SelectCommand.Parameters["@au_id"].Value = SSN.Text;
 myCommand.Fill(userDataset);
 }  
 ```
-Önceki kod örneğinde hello hello giriş değeri 11 karakterden uzun olamaz. Merhaba veri toohello türü veya hello parametresi tarafından tanımlanan uzunluk uyuşmadığı hello SqlParameter sınıfı bir özel durum oluşturur. 
+Önceki kod örneğinde giriş değeri 11 karakterden uzun olamaz. Veri türü veya parametresi tarafından tanımlanan uzunluk uyuşmadığı SqlParameter sınıfı bir özel durum oluşturur. 
 
-## <a id="binding-mvc"></a>Ayrı model bağlama sınıflarını kullanın veya bağlama filtresi tooprevent MVC yığın atama güvenlik açığı listeler
+## <a id="binding-mvc"></a>Ayrı model bağlama sınıflarını kullanın veya MVC yığın atama güvenlik açığı önlemek için bağlama filtresi listeler
 
 | Başlık                   | Ayrıntılar      |
 | ----------------------- | ------------ |
@@ -357,10 +357,10 @@ myCommand.Fill(userDataset);
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | MVC5, MVC6 |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [Meta veri öznitelikleri](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.metadatatypeattribute), [ortak anahtarı Güvenlik Açığı ve azaltma](https://github.com/blog/1068-public-key-security-vulnerability-and-mitigation), [Kılavuzu tooMass ASP.NET MVC atamasını](http://odetocode.com/Blogs/scott/archive/2012/03/11/complete-guide-to-mass-assignment-in-asp-net-mvc.aspx), [MVC kullanarak EF ile çalışmaya başlama](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost) |
-| **Adımları** | <ul><li>**Güvenlik açıkları aşırı gönderim için ne zaman görmeliyim? -** Güvenlik açıkları aşırı gönderim giriş kullanıcıdan modeli sınıfları bağlamak herhangi bir yeri oluşabilir. MVC gibi çerçeveleri düz eski CLR nesnelerini (POCOs) dahil olmak üzere özel .NET sınıfları kullanıcı verilerini temsil edebilir. MVC kullanıcı girişi ilgilenmek için kullanışlı bir temsilini sağlayarak bu modeli sınıfları hello isteği verilerle otomatik olarak doldurur. Bu sınıfların hello kullanıcı tarafından ayarlanmamalıdır özellikleri eklediğinizde, hello uygulama Merhaba uygulaması hiçbir zaman amaçlı veri kullanıcı denetimini izin savunmasız tooover nakil saldırıları olabilir. MVC model bağlama gibi POCO nesneleri toorepresent veritabanı verileri kullanarak veritabanı erişim teknolojileri Entity Framework gibi nesne/ilişkisel mappers gibi genellikle de destekler. Bu veri modeli sınıflarını hello sağlamak kullanıcı girişi ile ilgili MVC yaptığı gibi veritabanı verileriyle ilgili olarak aynı kolaylık sağlamak. MVC ve hello veritabanı POCO nesneleri gibi benzer modelleri desteklemediğinden aynı hem amacıyla sınıfları kolay tooreuse hello gibi görünüyor. Bu yöntem başarısız toopreserve sorunları ve istenmeyen özellikleri olduğu tek bir ortak alan ayrılmasıdır atlayarak nakil saldırılarını etkinleştirme toomodel bağlama açık.</li><li>**Neden ı my filtrelenmemiş veritabanı modeli sınıflarını parametreleri toomy MVC eylemler olarak kullanmamanız gerekir? -** Çünkü MVC model bağlama bağlamak herhangi bir şey bu sınıfta. Eyleminizi veritabanı sınıfı hello Şekil veri olduğunu söylüyor olduğundan veri görünümünüzde, kötü niyetli bir kullanıcının dahil bu verilerle bir HTTP isteği göndermek görünmez hello ve MVC gladly onu bağlayacaksınız olsa bile kullanıcı girdisi kabul etmelidir.</li><li>**Model bağlama için kullanılan hello şekli hakkında neden önemli? -** Kullanarak ASP.NET MVC model bağlama aşırı geniş kapsamlı modelleri ile bir uygulama tooover nakil saldırıları kullanıma sunar. Atlayarak nakil hedeflenen, bir hesap için bir öğe veya hello güvenlik ayrıcalıklarını hello fiyatı geçersiz kılma gibi hangi hello Geliştirici aşan saldırganlar toochange uygulama veri sağlayabilir. Uygulamalar, model bağlama aracılığıyla hangi güvenilmeyen giriş tooallow için eylem özgü modelleri (veya belirli izin verilen özellik filtresi listeleri) bağlama tooprovide açık bir sözleşmeyi kullanmalıdır.</li><li>**Kod yalnızca çoğaltma ayrı bağlama modelleri sorun mu yaşıyorsunuz? -** Hayır, sağlasa da, sorunları ayrılması yöneliktir. Eylem yöntemleri veritabanı modellerinde yeniden kullanırsanız, sınıf bir HTTP isteğindeki hello kullanıcı tarafından ayarlanmış herhangi bir özelliği (veya alt özellik) yorumlarını. Bu istemezsiniz olursa MVC toodo gereksinim duyduğunuz bir filtre listesi ya da ayrı sınıf şekli tooshow MVC hangi verilerin, bunun yerine Giriş kullanıcıdan gelebilir.</li><li>**Kullanıcı girişi için ayrı bağlama modelleri varsa, ı my veri ek açıklaması öznitelikleri tooduplicate var mı? -** Gerekmez. MetadataTypeAttribute hello veritabanı model sınıfı toolink toohello meta verilerini bir model bağlama sınıfını kullanabilirsiniz. Merhaba MetadataTypeAttribute tarafından başvurulan türü hello yalnızca not hello (daha az özellik ancak fazla sahip olabilir) türüne başvuran bir kısmı olması gerekir.</li><li>**Verileri geri ve İleri kullanıcı giriş modelleri ve veritabanı modelleri arasında taşıma yorucu olabilir. Yansıma kullanarak tüm özellikleri kopyalayabilir yalnızca miyim? -** Evet. Merhaba hello bağlama modellerinde görünen yalnızca kullanıcı girişi için güvenli toobe belirlediğiniz hello olanları özelliklerdir. Bu iki modelleri arasında ortak mevcut tüm özellikleri üzerinden yansıma toocopy kullanarak engelleyen güvenlik neden yoktur.</li><li>**Ne hakkında [bağlayın (dışarıda = "â €¦")]. Ayrı bağlama modelleri sahip olmak yerine kullanabilir miyim? -** Bu yaklaşım önerilmez. Kullanma [bağlayın (dışarıda = "â €¦")] herhangi bir yeni özellik, varsayılan olarak bağlanabilir anlamına gelir. Yeni bir özellik eklendiğinde, ek adım tooremember tookeep şeyler güvenli yerine varsayılan olarak güvenli olacak hello tasarım sahip. Merhaba Geliştirici bağlı olarak bir özellik eklenir her zaman bu liste denetimi risklidir.</li><li>**Olduğundan [bağlayın (içerme = "â €¦")] düzenleme işlemleri için yararlı? -** No [Bağlayın (içerme = "â €¦")] yalnızca (yeni veriler toplayarak) stili ekleme işlemleri için uygundur. (Mevcut verileri düzeltilmesi) stilini güncelleştir işlemleri için ayrı bağlama modelleri olması veya izin verilen özellikleri tooUpdateModel veya TryUpdateModel açık bir listesi geçirme gibi başka bir yaklaşım kullanın. Ekleme bir [bağlayın (içerme = "â €¦")] düzenleme işlemi öznitelikte MVC bir nesne örneğini oluşturmak ve diğerlerini varsayılan değerlerinde bırakın hello özellikleri, listelenen yalnızca ayarlamak anlamına gelir. Merhaba veri kalıcı olduğunda tamamen herhangi belirtilmemişse özellikleri tootheir Varsayılanları hello değerlerini sıfırlama hello varolan varlık yerini alır. IsAdmin atlanırsa, örneğin, bir [bağlayın (içerme = "â €¦")] adı bu eylem düzenlenmiş herhangi bir kullanıcı bir Düzenle işlem öznitelikte sıfırlama tooIsAdmin olacaktır = false (herhangi bir düzenlenen kullanıcı yönetici durumu kaybeder). Tooprevent toocertain özelliklerini günceller istiyorsanız, diğer yaklaşımlar yukarıda hello birini kullanın. MVC araç bazı sürümleri denetleyicisi sınıflarıyla oluşturmak Not [bağlamak (içerme = "â €¦")] düzenleme eylemleri ve bu listeden bir özellik kaldırma atlayarak nakil saldırılarını önlemeye kapsıyor. Ancak, yukarıda açıklandığı gibi bu yaklaşımı beklendiği gibi çalışmaz ve bunun yerine herhangi bir veri atlanmış hello özelliklerine tootheir varsayılan değerlerine sıfırlar.</li><li>**Oluşturma işlemleri için kullanarak uyarılar vardır [bağlayın (içerme = "â €¦")] ayrı bağlama modelleri yerine? -** Evet. Önce tüm atlayarak nakil güvenlik açıkları Azaltıcı için iki ayrı yaklaşım koruma gerektiren düzenleme senaryolar için bu yaklaşım çalışmaz. İkinci ve ayrı bağlama modelleri kalıcılığı için kullanılan kullanıcı giriş ve hello şekil için kullanılan hello şekli arasında sorunları ayrılması zorunlu bir şey [bağlamak (içerme = "â €¦")] yapın. Üçüncü unutmayın [bağlayın (içerme = "â €¦")] yalnızca üst düzey özellikleri; işleyebilir yalnızca alt özellikleri (örneğin, "Details.Name") bölümünü hello özniteliğinde izin veremez. Son olarak ve belki de en önemlisi, kullanarak [bağlayın (içerme = "â €¦")] herhangi bir zaman hello sınıf model bağlama için kullanılan hatırlanan gereken ek bir adım ekler. Yeni bir eylem yöntemi toohello veri sınıfı doğrudan bağlar ve tooinclude unutması durumunda bir [bağlamak (içerme = "â €¦")] özniteliği olabilir savunmasız tooover nakil saldırıları, bu nedenle hello [bağlamak (INCLUDE = "â €¦")] yaklaşımdır varsayılan biraz daha az güvenli. Kullanırsanız [bağlayın (içerme = "â €¦")], her zaman tooremember toospecify dikkatli olun, veri sınıfları eylem yöntemi parametrelerine görünen her zaman.</li><li>**Oluşturma işlemleri için koyma hakkında neler hello [bağlayın (içerme = "â €¦")] hello modeli sınıfının kendisi öznitelikte? Bu yaklaşım hello gerek tooremember koyma hello öznitelikte her eylem yöntemi önlenir? -** Bazı durumlarda bu yaklaşım çalışır. Kullanma [bağlamak (INCLUDE = "â €¦")] hello model türündeki kendisini (yerine bu sınıfı kullanarak eylem parametrelerini), hello gerek tooremember tooinclude hello önlemek [bağlamak (Ekle = "â €¦")] her eylem yöntemi özniteliği. Merhaba özniteliğini doğrudan hello sınıfı üzerinde etkili bir şekilde kullanarak model bağlama amacıyla bu sınıfın ayrı bir yüzey alanını oluşturur. Ancak, bu yaklaşım, model bağlama bir şeklin model sınıfı başına yalnızca sağlar. Bir eylem yönteminin tooallow model bağlama bir alanın (kullanıcı rollerini güncelleştiren Örneğin, yalnızca yönetici eylem) gerekir ve bu alan tooprevent model bağlama diğer eylemler ihtiyacınız varsa bu yaklaşımı çalışmaz. Her sınıf yalnızca bir model bağlama şeklin olabilir; farklı eylemler farklı model bağlama şekiller gerekiyorsa, bunlar ayrı ya da ayrı model bağlama sınıfları kullanarak şekiller veya ayrı toorepresent ihtiyaç duydukları [bağlayın (içerme = "â €¦")] hello eylem yöntemleri özniteliklerinde.</li><li>**Ne modelleri bağlama? Görünüm model olarak aynı anlama hello misiniz? -** İki ilgili kavramları şunlardır. bir eylem kullanılan tooa model sınıfı bağlama modelini başvuruyor hello parametre listesi (Merhaba şekil MVC model bağlama toohello eylem yönteminden geçirilen) bir terimdir. Merhaba terim görünüm modeli tooa modeli sınıfı bir eylem yöntemi tooa görünümünden geçirilen ifade eder. Bir görünüm özgü modeli kullanarak bir eylem yöntemi tooa görünümünden veri geçirme için ortak bir yaklaşımdır. Genellikle, bu şeklin model bağlama için uygundur ve her iki yerde de aynı modeli kullanılan kullanılan toorefer hello hello terim görünüm modeli olabilir. toobe kesin, bu yordam özellikle ne yığın atama amaçlar için önemli olan toohello eylem geçirilen hello şekli odaklanan modeller, bağlama hakkında alınmaktadır.</li></ul>| 
+| **Başvuruları**              | [Meta veri öznitelikleri](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.metadatatypeattribute), [ortak anahtarı Güvenlik Açığı ve azaltma](https://github.com/blog/1068-public-key-security-vulnerability-and-mitigation), [tam kılavuzu için ASP.NET MVC yığın atamasını](http://odetocode.com/Blogs/scott/archive/2012/03/11/complete-guide-to-mass-assignment-in-asp-net-mvc.aspx), [MVC kullanarak EF ile çalışmaya başlama](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost) |
+| **Adımları** | <ul><li>**Güvenlik açıkları aşırı gönderim için ne zaman görmeliyim? -** Güvenlik açıkları aşırı gönderim giriş kullanıcıdan modeli sınıfları bağlamak herhangi bir yeri oluşabilir. MVC gibi çerçeveleri düz eski CLR nesnelerini (POCOs) dahil olmak üzere özel .NET sınıfları kullanıcı verilerini temsil edebilir. MVC kullanıcı girişi ilgilenmek için kullanışlı bir temsilini sağlayarak bu modeli sınıfları isteği verilerle otomatik olarak doldurur. Bu sınıfların kullanıcı tarafından ayarlanmamalıdır özellikleri eklediğinizde, uygulamanın kullanıcı denetimi uygulama hiçbir zaman amaçlı veri sağlayan, aşırı gönderim saldırılarına için saldırılara açık olabilir. MVC model bağlama gibi veritabanına erişmek Entity Framework gibi nesne/ilişkisel mappers gibi teknolojileri genellikle ayrıca veritabanı verileri temsil etmek üzere POCO nesnelerini kullanma desteği. Bu veri modeli sınıflar kullanıcı girişi ile ilgili MVC yaptığı gibi veritabanı verileriyle ilgili olarak aynı kolaylık sağlar. MVC ve veritabanı POCO nesneleri gibi benzer modelleri desteklemediğinden kolayca hem amacıyla aynı sınıfları yeniden gibi görünüyor. Sorunları ayrılması korumak bu yöntem başarısız olur ve istenmeyen özellikleri atlayarak nakil saldırılarını etkinleştirme model bağlama için Burada sunulan tek bir ortak alan olduğunu.</li><li>**Neden ı my filtrelenmemiş veritabanı modeli sınıflarını parametre olarak my MVC Eylemler kullanmamanız gerekir? -** Çünkü MVC model bağlama bağlamak herhangi bir şey bu sınıfta. Verilerin görünümünüzde bile görünmüyorsa, kötü niyetli bir kullanıcının dahil bu verilerle bir HTTP isteği gönderebilir ve eyleminizi veritabanı sınıfı için kullanıcı girişi kabul etmelidir veri şekli olduğunu söylüyor çünkü MVC gladly onu bağlarsınız.</li><li>**Model bağlama için kullanılan şekli hakkında neden önemli? -** Kullanarak ASP.NET MVC model bağlama aşırı geniş kapsamlı modellerle aşırı gönderim saldırılarına uygulamayı gösterir. Atlayarak nakil hedeflenen, bir öğe için bir fiyat veya bir hesap için güvenlik ayrıcalıklarını geçersiz kılma gibi geliştirici ötesinde uygulama verileri değiştirmek saldırganlar sağlayabilir. Uygulamalar, hangi güvenilmeyen girişi model bağlama aracılığıyla izin vermek için eyleme özgü modelleri (veya belirli izin verilen özellik filtresi listeleri) açık bir sağlamak için bağlama sözleşme kullanmalıdır.</li><li>**Kod yalnızca çoğaltma ayrı bağlama modelleri sorun mu yaşıyorsunuz? -** Hayır, sağlasa da, sorunları ayrılması yöneliktir. Eylem yöntemleri veritabanı modellerinde yeniden kullanırsanız, sınıf bir HTTP isteğinin kullanıcı tarafından ayarlanmış herhangi bir özelliği (veya alt özellik) yorumlarını. MVC yapmak istediğinizi değil ise, bir filtre listesi veya hangi verileri, bunun yerine Giriş kullanıcıdan gelebilir MVC göstermek için ayrı sınıf şeklin gerekir.</li><li>**Kullanıcı girişi için ayrı bağlama modelleri varsa, my veri ek açıklaması öznitelikleri yinelenen var mı? -** Gerekmez. Model bağlama sınıfı meta bağlamak için veritabanı model sınıfını MetadataTypeAttribute kullanabilirsiniz. Yalnızca MetadataTypeAttribute tarafından başvurulan türü (daha az özellik ancak fazla sahip olabilir) başvuru türünde bir alt olması gerektiğini unutmayın.</li><li>**Verileri geri ve İleri kullanıcı giriş modelleri ve veritabanı modelleri arasında taşıma yorucu olabilir. Yansıma kullanarak tüm özellikleri kopyalayabilir yalnızca miyim? -** Evet. Bağlama modellerinde görünen yalnızca kullanıcı girişi için güvenli olarak belirlediğiniz olanları özelliklerdir. Bu iki modelleri arasında ortak mevcut tüm özellikleri üzerinden kopyalamak için yansıma kullanarak engelleyen güvenlik neden yoktur.</li><li>**Ne hakkında [bağlayın (dışarıda = "â €¦")]. Ayrı bağlama modelleri sahip olmak yerine kullanabilir miyim? -** Bu yaklaşım önerilmez. Kullanma [bağlayın (dışarıda = "â €¦")] herhangi bir yeni özellik, varsayılan olarak bağlanabilir anlamına gelir. Yeni bir özellik eklendiğinde şeyler güvenli tutmak için fazladan bir adım yoktur yerine varsayılan olarak güvenli olacak tasarım sahip. Geliştirici bağlı olarak bir özellik eklenir her zaman bu liste denetimi risklidir.</li><li>**Olduğundan [bağlayın (içerme = "â €¦")] düzenleme işlemleri için yararlı? -** No [Bağlayın (içerme = "â €¦")] yalnızca (yeni veriler toplayarak) stili ekleme işlemleri için uygundur. (Mevcut verileri düzeltilmesi) stilini güncelleştir işlemleri için ayrı bağlama modelleri olması veya açık bir izin verilen özellikleri listesi UpdateModel veya TryUpdateModel geçirme gibi başka bir yaklaşım kullanın. Ekleme bir [bağlayın (içerme = "â €¦")] düzenleme işlemi öznitelikte anlamına gelir MVC bir nesne örneğini oluşturmak ve diğerlerini varsayılan değerlerinde bırakın yalnızca listelenen özellikleri ayarlayın. Veri kalıcı olduğunda tamamen Atlanan tüm özelliklerinin değerlerini kendi varsayılanlarına sıfırlamak olan bir varlığı değiştirir. IsAdmin atlanırsa, örneğin, bir [bağlamak (içerme = "â €¦")] adı bu eylem düzenlenmiş herhangi bir kullanıcı bir Düzenle işlem özniteliği için IsAdmin sıfırlama = false (herhangi bir düzenlenen kullanıcı yönetici durumu kaybeder). Belirli özellikler için güncelleştirmeleri engellemek istiyorsanız, diğer yaklaşımlardan birini kullanın. MVC araç bazı sürümleri denetleyicisi sınıflarıyla oluşturmak Not [bağlamak (içerme = "â €¦")] düzenleme eylemleri ve bu listeden bir özellik kaldırma atlayarak nakil saldırılarını önlemeye kapsıyor. Ancak, yukarıda açıklandığı gibi bu yaklaşımı beklendiği gibi çalışmaz ve bunun yerine belirtilmemişse özelliklerinde herhangi bir veri varsayılan değerlerine sıfırlar.</li><li>**Oluşturma işlemleri için kullanarak uyarılar vardır [bağlayın (içerme = "â €¦")] ayrı bağlama modelleri yerine? -** Evet. Önce tüm atlayarak nakil güvenlik açıkları Azaltıcı için iki ayrı yaklaşım koruma gerektiren düzenleme senaryolar için bu yaklaşım çalışmaz. İkinci ve ayrı bağlama modelleri zorunlu kullanıcı girişi için kullanılan şekil kalıcılığı için kullanılan şekli arasındaki sorunları ayrılması bir şey [bağlayın (içerme = "â €¦")] yapın. Üçüncü unutmayın [bağlayın (içerme = "â €¦")] yalnızca üst düzey özellikleri; işleyebilir yalnızca alt özellikleri (örneğin, "Details.Name") bölümünü özniteliğinde izin veremez. Son olarak ve belki de en önemlisi, kullanarak [bağlayın (içerme = "â €¦")] sınıfı kurduğunda hatırlanan gerekir fazladan bir adım model bağlama için kullanılan ekler. Yeni bir eylem yöntemi doğrudan veri sınıfına bağlar ve dahil etmek unutması durumunda bir [bağlamak (içerme = "â €¦")] özniteliği olabilir, aşırı gönderim saldırılarına için güvenlik açığı böylece [bağlamak (içerme = "â €¦")] yaklaşımdır varsayılan biraz daha az güvenli. Kullanırsanız [bağlayın (içerme = "â €¦")], her zaman veri sınıfları eylem yöntemi parametrelerine görünen her zaman belirtmek için dikkatli olun.</li><li>**Oluşturma işlemleri için ne koyma [bağlayın (içerme = "â €¦")] modeli sınıfı özniteliği? Bu yaklaşım öznitelik her eylem yöntemi koyma hatırlama gereksinimini önlenir? -** Bazı durumlarda bu yaklaşım çalışır. Kullanma [bağlamak (INCLUDE = "â €¦")] model türündeki (yerine bu sınıfı kullanarak eylem parametrelerini), dahil etmeyi unutmayın gereksinimini ortadan kaldırmak [bağlamak (INCLUDE = "â €¦")] her eylem yöntemi özniteliği. Öznitelik doğrudan sınıf üzerinde etkili bir şekilde kullanarak model bağlama amacıyla bu sınıfın ayrı bir yüzey alanını oluşturur. Ancak, bu yaklaşım, model bağlama bir şeklin model sınıfı başına yalnızca sağlar. Model bağlama bir alanın (kullanıcı rollerini güncelleştiren Örneğin, yalnızca yönetici eylem) izin vermek için bir eylem yönteminin gerekir ve bu alan model bağlama önlemek başka eylemler ihtiyacınız varsa bu yaklaşımı çalışmaz. Her sınıf yalnızca bir model bağlama şeklin olabilir; farklı eylemler farklı model bağlama şekiller gerekiyorsa, her iki ayrı model bağlama sınıflarını kullanarak bu ayrı şekilleri temsil veya ayırmak ihtiyaç duydukları [bağlayın (içerme = "â €¦")] eylem yöntemlerini öznitelikleri.</li><li>**Ne modelleri bağlama? Görünüm model ile aynı şey oldukları? -** İki ilgili kavramları şunlardır. Bir model bağlama modelini başvuran bir eylemi kullanılan sınıf parametre listesi (MVC model bağlamanın dışında eylem yöntemine geçirilen Şekil) terimdir. Terim görünüm modeli eylem yönteminden bir görünüme iletilen bir model sınıfı gösterir. Bir görünüm özgü modeli kullanarak bir eylem yönteminden bir görünüme veri geçirme için ortak bir yaklaşımdır. Genellikle, bu şeklin model bağlama için uygundur ve terim görünüm modeli kullanılan her iki yerde de aynı modelin başvurmak için kullanılabilir. Kesin olarak için bu yordamı ne yığın atama amaçlar için önemli olan eyleme geçirilen şekli odaklanan modeller, özellikle bağlama hakkında alınmaktadır.</li></ul>| 
 
-## <a id="rendering"></a>Güvenilmeyen web çıkış önceki toorendering kodlama
+## <a id="rendering"></a>Güvenilmeyen web çıkış işleme önce kodlama
 
 | Başlık                   | Ayrıntılar      |
 | ----------------------- | ------------ |
@@ -368,8 +368,8 @@ myCommand.Fill(userDataset);
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel, Web Forms, MVC5, MVC6 |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [Nasıl ASP.NET tooprevent siteler arası komut dosyası](http://msdn.microsoft.com/library/ms998274.aspx), [siteler arası komut dosyası](http://cwe.mitre.org/data/definitions/79.html), [XSS (siteler arası komut dosyası) önleme kopya sayfası](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet) |
-| **Adımları** | Siteler arası komut dosyası (XSS yaygın olarak kısaltılır) Çevrimiçi hizmetler veya tüm uygulama/hello web girişten tüketen bileşen için saldırı vektörü olur. XSS Güvenlik Açıkları bir saldırgan, bir güvenlik açığı web uygulaması aracılığıyla başka bir kullanıcının makinede tooexecute komut dosyası izin verebilir. Kötü amaçlı komut dosyalarını kullanılan toosteal tanımlama bilgileri ve aksi halde bir kurbanın makine JavaScript aracılığıyla değiştirmesine. Kullanıcı girişini doğrulama, doğru biçimlendirildiğinden olduktan ve bir web sayfasında işlenmeden önce kodlama XSS engelledi. Giriş doğrulama ve çıktı kodlama Web koruma kitaplığı kullanılarak yapılabilir. Yönetilen kod için (C\#, VB.net, vb.), kullanın veya daha fazla uygun kodlama yöntemleri hello burada hello kullanıcı girişini bildirilmiş hello bağlam bağlı olarak Web koruma (Anti-XSS) kitaplığı:| 
+| **Başvuruları**              | [ASP.NET siteler arası komut önlemek nasıl](http://msdn.microsoft.com/library/ms998274.aspx), [siteler arası komut dosyası](http://cwe.mitre.org/data/definitions/79.html), [XSS (siteler arası komut dosyası) önleme kopya sayfası](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet) |
+| **Adımları** | Siteler arası komut dosyası (XSS yaygın olarak kısaltılır) Çevrimiçi hizmetler veya tüm uygulama / web girişten tüketen bileşen için saldırı vektörü olur. XSS güvenlik açıkları, bir saldırganın bir güvenlik açığı web uygulaması aracılığıyla başka bir kullanıcının makinesinde betik yürütmek. Kötü amaçlı komut dosyalarını, tanımlama bilgilerini çalabilir ve aksi halde bir kurbanın makine JavaScript aracılığıyla değiştirmesine için kullanılabilir. Kullanıcı girişini doğrulama, doğru biçimlendirildiğinden olduktan ve bir web sayfasında işlenmeden önce kodlama XSS engelledi. Giriş doğrulama ve çıktı kodlama Web koruma kitaplığı kullanılarak yapılabilir. Yönetilen kod için (C\#, VB.net, vb.), bir veya daha uygun kodlama yöntemlerini nerede kullanıcı girişini bildirilmiş bağlam bağlı olarak Web koruma (Anti-XSS) kitaplığı:| 
 
 ### <a name="example"></a>Örnek
 
@@ -394,7 +394,7 @@ myCommand.Fill(userDataset);
 | **İlgili teknolojiler** | Genel, MVC5, MVC6 |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [Doğrulama ekleme](http://www.asp.net/mvc/overview/getting-started/introduction/adding-validation), [MVC uygulamasındaki Model verileri doğrulama](http://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [ilkeleri için ASP.NET MVC uygulamalarınızı yönlendirmede](http://msdn.microsoft.com/magazine/dd942822.aspx) |
-| **Adımları** | <p>Merhaba uygulaması kötü amaçlı kullanıcı girişleri karşı korunması gerektiğini hello uygulama tooensure kullanılmadan önce tüm hello giriş parametreleri doğrulanması gerekir. Sunucu tarafında bir beyaz liste doğrulama stratejisi ile normal ifade doğrulamaları kullanarak hello giriş değerleri doğrulayın. Kullanıcı girişleri unsanitized / toohello yöntemleri geçirilen parametre yerleştirme güvenlik açıkları kodu neden olabilir.</p><p>Web uygulamaları için giriş noktaları form alanları, QueryStrings, tanımlama bilgileri, HTTP üst bilgilerine ve web hizmeti parametreleri de dahil edebilirsiniz.</p><p>Merhaba aşağıdaki giriş doğrulama denetimlerini model bağlama sırasında gerçekleştirilmesi gerekir:</p><ul><li>Yanıtta normal ifade ek açıklama, izin verilen karakterler ve izin verilen maksimum uzunluğu kabul etmek için Hello model özellikleri açıklama</li><li>Merhaba denetleyici yöntemlerine ModelState geçerlilik gerçekleştirmeniz gerekir</li></ul>|
+| **Adımları** | <p>Uygulama kötü amaçlı kullanıcı girişleri karşı korunması emin olmak için uygulamada kullanılmadan önce giriş parametrelerini doğrulanması gerekir. Sunucu tarafında bir beyaz liste doğrulama stratejisi ile normal ifade doğrulamaları kullanarak giriş değerleri doğrulayın. Kullanıcı girişleri unsanitized / yöntemlere iletilen parametreler yerleştirme güvenlik açıkları kodu neden olabilir.</p><p>Web uygulamaları için giriş noktaları form alanları, QueryStrings, tanımlama bilgileri, HTTP üst bilgilerine ve web hizmeti parametreleri de dahil edebilirsiniz.</p><p>Aşağıdaki giriş doğrulama denetimleri, model bağlama sırasında gerçekleştirilen gerekir:</p><ul><li>Yanıtta normal ifade ek açıklama, izin verilen karakterler ve izin verilen maksimum uzunluğu kabul etmek için model özellikleri açıklama</li><li>Denetleyici yöntemlerine ModelState geçerlilik gerçekleştirmeniz gerekir</li></ul>|
 
 ## <a id="richtext"></a>Tüm karakterleri, örneğin, Zengin Metin Düzenleyicisi'ni kabul eden form alanlarını temizleme işlemi uygulanmalıdır
 
@@ -405,9 +405,9 @@ myCommand.Fill(userDataset);
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [Güvenli olmayan giriş kodlamak](https://msdn.microsoft.com/library/ff647397.aspx#paght000003_step3), [HTML temizleyici](https://github.com/mganss/HtmlSanitizer) |
-| **Adımları** | <p>Toouse istediğiniz tüm static işaretleme etiketlerini tanımlayın. Toosafe HTML öğeleri gibi biçimlendirme toorestrict yaygın bir uygulamadır `<b>` (kalın) ve `<i>` (italik).</p><p>Merhaba verileri, HTML olarak kodlanacak yazmadan önce onu. Kötü amaçlı komut dosyaları toobe neden olarak güvenli yürütülebilir kod olarak değil metin olarak işlenen bu yapar.</p><ol><li>ASP.NET istek hello ekleyerek doğrulama hello ValidateRequest devre dışı bırak "false" özniteliği toohello sayfa yönergesi @ =</li><li>Merhaba dize girişi hello HtmlEncode yöntemi ile kodlayın</li><li>StringBuilder ve onun Değiştir yöntemi tooselectively kaldırmak hello HTML öğelerde toopermit istediğiniz kodlama hello çağrı kullanın</li></ol><p>Merhaba sayfa içinde hello başvuruları devre dışı bırakır ASP.NET istek doğrulama ayarlayarak `ValidateRequest="false"`. Onu HTML olarak kodlar hello giriş ve seçmeli olarak hello verir `<b>` ve `<i>` alternatif olarak, bir .NET kitaplığı HTML Temizleme için de kullanılabilir.</p><p>HtmlSanitizer HTML parçalarının ve tooXSS saldırılara yol açabilecek yapıları belgelerden Temizleme için bir .NET kitaplıktır. AngleSharp tooparse kullanır, işlemek ve HTML ve CSS işlenemiyor. Bir NuGet paketi olarak HtmlSanitizer yüklenebilir ve ilgili HTML veya CSS temizleme yöntemleri, geçerli hello sunucu tarafında aracılığıyla hello kullanıcı girişi geçirilebilir. Lütfen unutmayın, güvenlik denetimi olarak temizleme yalnızca son seçeneği olarak düşünülmelidir.</p><p>Giriş doğrulama ve çıktı kodlama daha iyi güvenlik denetimleri olarak kabul edilir.</p> |
+| **Adımları** | <p>Kullanmak istediğiniz tüm static işaretleme etiketlerini tanımlayın. Ortak bir uygulama gibi güvenli HTML öğelerine biçimlendirme kısıtlamaktır `<b>` (kalın) ve `<i>` (italik).</p><p>HTML kodlama verileri yazmadan önce onu. Bu kötü amaçlı bir komut dosyası yürütülebilir kod olarak değil metin olarak işlenecek neden tarafından güvenli hale getirir.</p><ol><li>ValidateRequest ekleyerek ASP.NET istek doğrulamayı devre dışı bırak = "false" özniteliği için @ Page yönergesi</li><li>Dize girişi HtmlEncode yöntemi ile kodlayın</li><li>Bir StringBuilder kullanın ve seçmeli olarak izin vermek istediğiniz HTML öğeleri kodlama kaldırmak için değiştirme yöntemini çağırın</li></ol><p>Sayfa bileşenini ayarlayarak başvuruları devre dışı bırakır ASP.NET istek doğrulama `ValidateRequest="false"`. Onu HTML olarak kodlar giriş ve seçmeli olarak tanır `<b>` ve `<i>` alternatif olarak, bir .NET kitaplığı HTML Temizleme için de kullanılabilir.</p><p>HtmlSanitizer HTML parçalarının ve XSS saldırılarını açabilir yapıları belgelerden Temizleme için bir .NET kitaplıktır. Ayrıştırma, işlemek ve HTML ve CSS işlemek için AngleSharp kullanır. Bir NuGet paketi olarak HtmlSanitizer yüklenebilir ve kullanıcı girişini ilgili HTML veya CSS temizleme yöntemi, sunucu tarafında geçerli aracılığıyla geçirilebilir. Lütfen unutmayın, güvenlik denetimi olarak temizleme yalnızca son seçeneği olarak düşünülmelidir.</p><p>Giriş doğrulama ve çıktı kodlama daha iyi güvenlik denetimleri olarak kabul edilir.</p> |
 
-## <a id="inbuilt-encode"></a>Yerleşik kodlama olmayan DOM öğeleri toosinks atamayın
+## <a id="inbuilt-encode"></a>DOM öğeleri yerleşik kodlama olmayan havuzlarını atamayın
 
 | Başlık                   | Ayrıntılar      |
 | ----------------------- | ------------ |
@@ -416,7 +416,7 @@ myCommand.Fill(userDataset);
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları** | Varsayılan kodlama birçok javascript işlevleri desteklemez. Bu tür işlevler aracılığıyla güvenilmeyen giriş tooDOM öğelerini atarken site komut dosyası (XSS) yürütmeleri sonuçlanabilir.| 
+| **Adımları** | Varsayılan kodlama birçok javascript işlevleri desteklemez. Bu tür işlevler aracılığıyla DOM öğelerine güvenilmeyen giriş atarken site komut dosyası (XSS) yürütmeleri sonuçlanabilir.| 
 
 ### <a name="example"></a>Örnek
 Güvensiz örnekleri şunlardır: 
@@ -429,7 +429,7 @@ $('body').append(resHTML);
 ```
 Kullanmayan `innerHtml`; bunun yerine kullanın `innerText`. Benzer şekilde, yerine, `$("#elm").html()`, kullanın`$("#elm").text()` 
 
-## <a id="redirect-safe"></a>Tüm doğrulama yeniden yönlendirmeleri hello uygulamadaki kapalı veya güvenli bir şekilde tamamlandı
+## <a id="redirect-safe"></a>Tüm doğrulama uygulama içinde yeniden yönlendirmeleri kapalı veya güvenli bir şekilde tamamlandı
 
 | Başlık                   | Ayrıntılar      |
 | ----------------------- | ------------ |
@@ -437,8 +437,8 @@ Kullanmayan `innerHtml`; bunun yerine kullanın `innerText`. Benzer şekilde, ye
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [Merhaba OAuth 2.0 yetkilendirme Framework - açık yeniden yönlendiricileri](http://tools.ietf.org/html/rfc6749#section-10.15) |
-| **Adımları** | <p>Yeniden yönlendirme tooa kullanıcı tarafından sağlanan konumu gerektiren uygulama tasarımı hello olası yeniden yönlendirme hedefleri tooa önceden tanımlanmış "safe" listesi siteler veya etki alanları sınırlamak gerekir. Merhaba uygulamadaki tüm yeniden yönlendirmeleri kapalı güvenli olması gerekir.</p><p>toodo bu:</p><ul><li>Tüm yeniden yönlendirmeleri tanımlayın</li><li>Her yeniden yönlendirme için uygun bir hafifletme. Uygun Azaltıcı Etkenler yeniden yönlendirme beyaz liste veya kullanıcı onayı içerir. Bir web sitesi veya bir açık yeniden yönlendirme güvenlik açığı hizmetiyle Facebook/OAuth/Openıd kimlik sağlayıcıları kullanıyorsa, bir saldırganın bir kullanıcının oturum açma belirteci çalabilir ve o kullanıcının kimliğine bürün. Bu devralınan bir risk RFC 6749 "hello OAuth 2.0 yetkilendirme Framework" belgelenen OAuth kullanıldığında, 10.15 "açmak yönlendiren" bölümünde benzer şekilde, zıpkınla kimlik avı saldırıları tarafından açık yeniden yönlendirmeleri kullanarak kullanıcıların kimlik bilgilerini tehlikeye girebilir</li></ul>|
+| **Başvuruları**              | [OAuth 2.0 yetkilendirme Framework - açık yeniden yönlendiricileri](http://tools.ietf.org/html/rfc6749#section-10.15) |
+| **Adımları** | <p>Kullanıcının sağladığı bir konuma yeniden yönlendirme gerektiren uygulama tasarımı önceden tanımlanmış bir "safe" listesi siteler veya etki alanları için olası yeniden yönlendirme hedefleri sınırlamak gerekir. Uygulamadaki tüm yeniden yönlendirmeleri kapalı güvenli olması gerekir.</p><p>Bunu yapmak için:</p><ul><li>Tüm yeniden yönlendirmeleri tanımlayın</li><li>Her yeniden yönlendirme için uygun bir hafifletme. Uygun Azaltıcı Etkenler yeniden yönlendirme beyaz liste veya kullanıcı onayı içerir. Bir web sitesi veya bir açık yeniden yönlendirme güvenlik açığı hizmetiyle Facebook/OAuth/Openıd kimlik sağlayıcıları kullanıyorsa, bir saldırganın bir kullanıcının oturum açma belirteci çalabilir ve o kullanıcının kimliğine bürün. Bu devralınan bir risk RFC 6749 "OAuth 2.0 yetkilendirme Framework" belgelenen OAuth kullanıldığında, 10.15 "açmak yönlendiren" bölümünde benzer şekilde, zıpkınla kimlik avı saldırıları tarafından açık yeniden yönlendirmeleri kullanarak kullanıcıların kimlik bilgilerini tehlikeye girebilir</li></ul>|
 
 ## <a id="string-method"></a>Uygulama giriş doğrulaması denetleyicisi yöntemler tarafından kabul edilen tüm dize türü parametreleri
 
@@ -449,9 +449,9 @@ Kullanmayan `innerHtml`; bunun yerine kullanın `innerText`. Benzer şekilde, ye
 | **İlgili teknolojiler** | Genel, MVC5, MVC6 |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [Model verileri MVC uygulamasındaki doğrulama](http://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [ilkeleri için ASP.NET MVC uygulamalarınızı yönlendirmede](http://msdn.microsoft.com/magazine/dd942822.aspx) |
-| **Adımları** | Yalnızca basit veri türü ve değil modelleri bağımsız değişken olarak kabul yöntemleri için normal ifade kullanarak giriş doğrulaması yapılmalıdır. Burada Regex.IsMatch geçerli regex desenle kullanılmalıdır. Hello giriş eşleşmezse, belirtilen normal ifade Merhaba, denetim daha fazla devam etmemelisiniz ve doğrulama hatası ile ilgili yeterli bir uyarı görüntülenmesi gerekir.| 
+| **Adımları** | Yalnızca basit veri türü ve değil modelleri bağımsız değişken olarak kabul yöntemleri için normal ifade kullanarak giriş doğrulaması yapılmalıdır. Burada Regex.IsMatch geçerli regex desenle kullanılmalıdır. Giriş belirtilen normal ifadeyle eşleşmez, denetim daha fazla devam etmemelisiniz ve doğrulama hatası ile ilgili yeterli bir uyarı görüntülenmesi gerekir.| 
 
-## <a id="dos-expression"></a>Normal ifade tooprevent DoS toobad normal ifadeler nedeniyle işleme için üst sınır zaman aşımını ayarlama
+## <a id="dos-expression"></a>Normal ifade DoS nedeniyle hatalı normal ifadeler önlemek için işleme için üst sınır zaman aşımını ayarlama
 
 | Başlık                   | Ayrıntılar      |
 | ----------------------- | ------------ |
@@ -460,10 +460,10 @@ Kullanmayan `innerHtml`; bunun yerine kullanın `innerText`. Benzer şekilde, ye
 | **İlgili teknolojiler** | Genel, Web Forms, MVC5, MVC6  |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [DefaultRegexMatchTimeout özelliği](https://msdn.microsoft.com/library/system.web.configuration.httpruntimesection.defaultregexmatchtimeout.aspx) |
-| **Adımları** | tooensure hizmet reddi saldırılarına karşı çok sayıda geri dönüş neden, normal ifadeler, hatalı oluşturulmuş hello genel varsayılan zaman aşımı ayarlayın. Merhaba işleme süresi üst sınırı hello tanımlı daha uzun sürüyorsa, zaman aşımı özel durumu throw. Hiçbir şey yapılandırılmışsa, hello zaman aşımını sonsuz olacaktır.| 
+| **Adımları** | Hizmet reddi saldırılarına karşı hatalı emin olmak için çok sayıda geri dönüş neden, oluşturulan normal ifadeler, genel varsayılan zaman aşımı ayarlayın. İşleme tanımlanmış üst sınırından daha uzun sürüyorsa, zaman aşımı özel durumu throw. Hiçbir şey yapılandırılmışsa, zaman aşımını sonsuz olacaktır.| 
 
 ### <a name="example"></a>Örnek
-Merhaba işleme 5 saniyeden daha uzun sürerse gibi hello aşağıdaki yapılandırma bir RegexMatchTimeoutException özel durum oluşturacak: 
+Örneğin, aşağıdaki yapılandırma işleme 5 saniyeden daha uzun sürerse bir RegexMatchTimeoutException atar: 
 
 ```C#
 <httpRuntime targetFramework="4.5" defaultRegexMatchTimeout="00:00:05" />
@@ -478,7 +478,7 @@ Merhaba işleme 5 saniyeden daha uzun sürerse gibi hello aşağıdaki yapıland
 | **İlgili teknolojiler** | MVC5, MVC6 |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| Adım | ASP.Net Web sayfaları (Razor) gerçekleştirmek otomatik HTML kodlaması. Katıştırılmış kod nuggets (@ blokları) tarafından yazdırılan tüm otomatik olarak HTML ile kodlanmış dizelerdir. Ancak, ne zaman `HtmlHelper.Raw` yöntemi çağrıldığında, HTML kodlu olmayan biçimlendirme döndürür. Varsa `Html.Raw()` yardımcı yöntemi kullanıldığında, Razor sağladığı hello otomatik kodlama koruma atlar.|
+| Adım | ASP.Net Web sayfaları (Razor) gerçekleştirmek otomatik HTML kodlaması. Katıştırılmış kod nuggets (@ blokları) tarafından yazdırılan tüm otomatik olarak HTML ile kodlanmış dizelerdir. Ancak, ne zaman `HtmlHelper.Raw` yöntemi çağrıldığında, HTML kodlu olmayan biçimlendirme döndürür. Varsa `Html.Raw()` yardımcı yöntemi kullanıldığında, Razor sağladığı otomatik kodlama koruma atlar.|
 
 ### <a name="example"></a>Örnek
 Güvenli olmayan bir örnek aşağıda verilmiştir: 
@@ -492,7 +492,7 @@ Güvenli olmayan bir örnek aşağıda verilmiştir:
         </div>
 </div>
 ```
-Kullanmayın `Html.Raw()` toodisplay biçimlendirme gerekmedikçe. Bu yöntem örtük olarak kodlama çıkış gerçekleştirmez. Örneğin diğer ASP.NET Yardımcıları kullanın,`@Html.DisplayFor()` 
+Kullanmayın `Html.Raw()` biçimlendirme görüntülemek gerekli olmadıkça. Bu yöntem örtük olarak kodlama çıkış gerçekleştirmez. Örneğin diğer ASP.NET Yardımcıları kullanın,`@Html.DisplayFor()` 
 
 ## <a id="stored-proc"></a>Dinamik sorgular saklı yordamlarda kullanmayın
 
@@ -503,7 +503,7 @@ Kullanmayın `Html.Raw()` toodisplay biçimlendirme gerekmedikçe. Bu yöntem ö
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları** | <p>Bir SQL ekleme saldırısı güvenlik açıklarını komutlarda giriş doğrulaması toorun rasgele hello veritabanındaki kullanır. Uygulamanızı giriş tooconstruct dinamik kullandığında veritabanı SQL deyimleri tooaccess hello oluşabilir. Kodunuzu ham kullanıcı girişi içeren dizeleri geçirilen saklı yordamlar kullanılıyorsa da oluşabilir. Merhaba saldırgan Hello SQL ekleme saldırısında kullanarak, hello veritabanında rasgele komutları çalıştırabilirsiniz. Tüm SQL deyimleri (Merhaba SQL deyimlerini saklı yordamlarda dahil) parametreli gerekir. Parametreli SQL deyimlerini sorunsuz (tek tırnak gibi) özel bir anlamı tooSQL kesin türü belirtilmiş olduğundan olan karakterleri kabul eder. |
+| **Adımları** | <p>Bir SQL ekleme saldırısı güvenlik açıklarını veritabanında rasgele komutları çalıştırmak için giriş doğrulamada kullanır. Uygulamanız veritabanına erişmek için dinamik SQL deyimlerini oluşturmak için giriş kullandığında oluşabilir. Kodunuzu ham kullanıcı girişi içeren dizeleri geçirilen saklı yordamlar kullanılıyorsa da oluşabilir. Saldırgan, SQL ekleme saldırısında kullanarak, veritabanında rasgele komutları çalıştırabilirsiniz. Tüm SQL deyimleri (SQL deyimlerini saklı yordamlarda dahil) parametreli gerekir. Parametreli SQL deyimlerini-SQL (tek tırnak gibi) özel bir anlamı sorunsuz kesin türü belirtilmiş olduğundan olan karakterleri kabul eder. |
 
 ### <a name="example"></a>Örnek
 Güvenli olmayan dinamik saklı yordam örneği aşağıdadır: 
@@ -534,7 +534,7 @@ AS
 ```
 
 ### <a name="example"></a>Örnek
-Aynı saklı yordam güvenli bir şekilde uygulanan hello aşağıdadır: 
+Güvenli bir şekilde uygulanan aynı saklı yordam aşağıda verilmiştir: 
 ```C#
 CREATE PROCEDURE [dbo].[uspGetProductsByCriteriaSecure]
 (
@@ -563,10 +563,10 @@ AS
 | **İlgili teknolojiler** | MVC5, MVC6 |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [ASP.NET Web API'de model doğrulama](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
-| **Adımları** | Bir istemci veri tooa web API gönderdiğinde, herhangi bir işlem yapmadan önce zorunlu toovalidate hello veri değil. ASP.NET Web modelleri girdi olarak kabul API'leri için veri ek açıklamaları hello modelinin hello özelliklerindeki modelleri tooset doğrulama kuralları kullanın.|
+| **Adımları** | Bir istemci bir web API veri gönderdiğinde, herhangi bir işlem yapmadan önce verileri doğrulamak için zorunludur. ASP.NET Web modelleri girdi olarak kabul için API ' larını veri ek açıklamaları modellerinde doğrulama kuralları modelin özelliklerini ayarlamak için kullanın.|
 
 ### <a name="example"></a>Örnek
-koddan hello gösteren aynı hello: 
+Aşağıdaki kod, aynı gösterir: 
 
 ```C#
 using System.ComponentModel.DataAnnotations;
@@ -587,7 +587,7 @@ namespace MyApi.Models
 ```
 
 ### <a name="example"></a>Örnek
-Merhaba eylem yönteminde hello API denetleyicilerinin hello modeli geçerliliğini açıkça aşağıda gösterildiği gibi kullanıma toobe sahiptir: 
+API denetleyicilerinin eylem yöntemi modeli geçerliliğini aşağıda gösterildiği gibi açıkça denetlenmesini sahiptir: 
 
 ```C#
 namespace MyApi.Controllers
@@ -598,7 +598,7 @@ namespace MyApi.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Do something with hello product (not shown).
+                // Do something with the product (not shown).
 
                 return new HttpResponseMessage(HttpStatusCode.OK);
             }
@@ -620,7 +620,7 @@ namespace MyApi.Controllers
 | **İlgili teknolojiler** | Genel, MVC 5, MVC 6 |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [Model verileri MVC uygulamasındaki doğrulama](http://msdn.microsoft.com/library/dd410404(v=vs.90).aspx), [ilkeleri için ASP.NET MVC uygulamalarınızı yönlendirmede](http://msdn.microsoft.com/magazine/dd942822.aspx) |
-| **Adımları** | Yalnızca basit veri türü ve değil modelleri bağımsız değişken olarak kabul yöntemleri için normal ifade kullanarak giriş doğrulaması yapılmalıdır. Burada Regex.IsMatch geçerli regex desenle kullanılmalıdır. Hello giriş eşleşmezse, belirtilen normal ifade Merhaba, denetim daha fazla devam etmemelisiniz ve doğrulama hatası ile ilgili yeterli bir uyarı görüntülenmesi gerekir.|
+| **Adımları** | Yalnızca basit veri türü ve değil modelleri bağımsız değişken olarak kabul yöntemleri için normal ifade kullanarak giriş doğrulaması yapılmalıdır. Burada Regex.IsMatch geçerli regex desenle kullanılmalıdır. Giriş belirtilen normal ifadeyle eşleşmez, denetim daha fazla devam etmemelisiniz ve doğrulama hatası ile ilgili yeterli bir uyarı görüntülenmesi gerekir.|
 
 ## <a id="typesafe-api"></a>Tür kullanımı uyumlu parametreleri Web API'si veri erişimi için kullanıldığından emin olun
 
@@ -631,10 +631,10 @@ namespace MyApi.Controllers
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları** | <p>Merhaba parametreler koleksiyonu kullanırsanız, bir hazır değer yerine yürütülebilir kod olarak olarak SQL davranır hello giriş olabilir. Parametreler koleksiyonu Hello giriş verisi kullanılan tooenforce türünü ve uzunluğu kısıtlamalar olabilir. Değerleri hello aralığın dışında bir özel durum tetikler. Tür kullanımı uyumlu SQL parametre kullanılmazsa, saldırganlar filtrelenmemiş hello girişinde katıştırılmış mümkün tooexecute ekleme saldırıları olabilir.</p><p>SQL oluşturma filtrelenmemiş girişle oluşabilecek tooavoid olası SQL ekleme saldırıları sorguladığında türü güvenli parametrelerini kullanın. Saklı yordamlar ve dinamik SQL deyimleri ile tür güvenli parametreleri kullanabilirsiniz. Parametreleri yürütülebilir kod değil de, hello veritabanı tarafından değişmez değerler olarak kabul edilir. Parametreler, türü ve uzunluğu için de denetlenir.</p>|
+| **Adımları** | <p>Kullanırsanız parametreler koleksiyonu, SQL davranır yerine yürütülebilir kod olarak değişmez değer olarak bir giriş olabilir. Parametreler koleksiyonu giriş veri türü ve uzunluğu kısıtlamalar uygulamak için kullanılabilir. Değer aralığının dışında bir özel durum tetikler. Tür kullanımı uyumlu SQL parametre kullanılmazsa, saldırganlar filtrelenmemiş girişinde katıştırılmış ekleme saldırıları yürütmek olabilir.</p><p>Tür güvenli parametreleri SQL sorguları oluşturmak filtrelenmemiş girişle oluşabilecek olası SQL ekleme saldırıları önlemek için kullanın. Saklı yordamlar ve dinamik SQL deyimleri ile tür güvenli parametreleri kullanabilirsiniz. Parametreleri yürütülebilir kod değil de, veritabanı tarafından değişmez değerler olarak kabul edilir. Parametreler, türü ve uzunluğu için de denetlenir.</p>|
 
 ### <a name="example"></a>Örnek
-Merhaba aşağıdaki kod nasıl toouse yazın hello SqlParameterCollection güvenli parametrelerle bir saklı yordamı çağrılırken gösterir. 
+Aşağıdaki kod tür güvenli parametreleri ile SqlParameterCollection bir saklı yordamı çağrılırken kullanmayı gösterir. 
 
 ```C#
 using System.Data;
@@ -650,7 +650,7 @@ myCommand.SelectCommand.Parameters["@au_id"].Value = SSN.Text;
 myCommand.Fill(userDataset);
 }  
 ```
-Önceki kod örneğinde hello hello giriş değeri 11 karakterden uzun olamaz. Merhaba veri toohello türü veya hello parametresi tarafından tanımlanan uzunluk uyuşmadığı hello SqlParameter sınıfı bir özel durum oluşturur. 
+Önceki kod örneğinde giriş değeri 11 karakterden uzun olamaz. Veri türü veya parametresi tarafından tanımlanan uzunluk uyuşmadığı SqlParameter sınıfı bir özel durum oluşturur. 
 
 ## <a id="sql-docdb"></a>Cosmos DB için parametreli SQL sorgularını kullan
 
@@ -661,7 +661,7 @@ myCommand.Fill(userDataset);
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [Documentdb'de SQL parametrelemeyi Duyurusu](https://azure.microsoft.com/blog/announcing-sql-parameterization-in-documentdb/) |
-| **Adımları** | DocumentDB yalnızca salt okunur sorguları destekler; ancak, SQL ekleme sorguları kullanıcı girişi ile birleştirerek oluşturulur, yine de mümkündür. Bunlar döndürmemelidir erişme hello içinde bir kullanıcı toogain erişim toodata mümkün olabilir kötü amaçlı SQL sorguları hazırlayın tarafından aynı koleksiyonu. Sorguları oluşturulan parametreli SQL sorguları kullanıcı girişini temel alarak kullanın. |
+| **Adımları** | DocumentDB yalnızca salt okunur sorguları destekler; ancak, SQL ekleme sorguları kullanıcı girişi ile birleştirerek oluşturulur, yine de mümkündür. Bunlar aynı koleksiyonunda kötü amaçlı SQL sorguları hazırlayın tarafından erişiyor döndürmemelidir verilere erişmek bir kullanıcı için mümkün olabilir. Sorguları oluşturulan parametreli SQL sorguları kullanıcı girişini temel alarak kullanın. |
 
 ## <a id="schema-binding"></a>Şema bağlama aracılığıyla WCF girişi doğrulama
 
@@ -672,7 +672,7 @@ myCommand.Fill(userDataset);
 | **İlgili teknolojiler** | Genel, NET Framework 3 |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff647820.aspx) |
-| **Adımları** | <p>Doğrulama eksikliği toodifferent türü ekleme saldırıları yol açar.</p><p>İleti doğrulama savunma hello koruma WCF uygulamanızın tek bir çizgi temsil eder. Bu yaklaşımda, kötü amaçlı bir istemci tarafından saldırılara karşı şemaları tooprotect WCF Hizmeti işlemlerini kullanarak iletileri doğrulayın. Merhaba istemci tooprotect hello istemci saldırılara karşı tarafından kötü amaçlı bir hizmeti tarafından alınan tüm iletileri doğrulayın. İleti doğrulama kılar olası toovalidate iletileri işlemleri ileti sözleşmeleri veya yapılamaz veri sözleşmeleri kullandığında parametre doğrulaması kullanarak. İleti doğrulama şemaları, böylece daha fazla esneklik sağlayan ve geliştirme zamanı azaltarak içinde toocreate Doğrulama mantığı sağlar. Şemalar veri temsili standartları oluşturma hello kuruluş içindeki farklı uygulamalar arasında yeniden kullanılabilir. Ayrıca, iş mantığı temsil eden sözleşmeleri içeren daha karmaşık veri türleri kullandığında ileti doğrulama, tooprotect işlemler sağlar.</p><p>tooperform ileti doğrulama, önce bu işlemler tarafından tüketilen hizmeti ve hello veri türlerinizi hello işlemleri temsil eden bir şema oluşturun. Özel istemci ileti denetçisi ve özel dağıtıcısı denetçisi toovalidate hello ileti hello hizmet denetleyicisinden gönderilen/alınan uygulayan bir .NET sınıf oluşturursunuz. Ardından, hem hello istemci hem de hello hizmeti bir özel uç noktası davranışı tooenable ileti doğrulama uygulamadan. Son olarak, bir özel yapılandırma öğesi, tooexpose hello özel uç noktası davranışı hello hizmet veya hello istemci hello yapılandırma dosyasında genişletilmiş sağlayan hello sınıfı üzerinde uygulamak"</p>|
+| **Adımları** | <p>Doğrulama eksikliği farklı türü ekleme saldırıları için yol gösterir.</p><p>İleti doğrulama bir savunma hattı oluşturan WCF uygulamanızın koruma temsil eder. Bu yaklaşımda, WCF Hizmeti işlemlerini kötü amaçlı bir istemci tarafından saldırılara karşı korumak için şemaları kullanarak iletileri doğrulayın. İstemci tarafından kötü amaçlı bir hizmete saldırılardan korumak için istemci tarafından alınan tüm iletileri doğrulayın. İleti doğrulama ileti işlemleri ileti sözleşmeleri veya yapılamaz veri sözleşmeleri kullandığında doğrulamak mümkün kılar parametre doğrulaması kullanarak. İleti doğrulama, böylece daha fazla esneklik sağlayan ve geliştirme süresini azaltarak şemalarını içinde doğrulama mantığını oluşturmanıza olanak sağlar. Şemalar veri temsili standartları oluşturma, kuruluş içindeki farklı uygulamalar arasında yeniden kullanılabilir. Ayrıca, ileti doğrulama özelliği iş mantığı temsil eden sözleşmeleri içeren daha karmaşık veri türleri kullandığında işlemleri korumanıza olanak sağlar.</p><p>İleti doğrulamayı gerçekleştirmek için önce işlemlerini hizmetiniz ve bu işlemler tarafından tüketilen veri türlerini temsil eden bir şema oluşturun. Özel istemci ileti denetçisi ve özel dağıtıcısı ileti denetçisi hizmet denetleyicisinden gönderilen/alınan iletileri doğrulamak için uygulayan bir .NET sınıf oluşturursunuz. Ardından, hem istemci hem de hizmet ileti doğrulamasını etkinleştirmek için bir özel uç noktası davranışı uygular. Son olarak, hizmet veya istemci yapılandırma dosyasında genişletilmiş özel uç noktası davranışı kullanıma sunmak izin veren sınıfındaki özel yapılandırma öğesi uygulamak"</p>|
 
 ## <a id="parameters"></a>Parametre denetçiler aracılığıyla WCF girişi doğrulama
 
@@ -683,4 +683,4 @@ myCommand.Fill(userDataset);
 | **İlgili teknolojiler** | Genel, NET Framework 3 |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff647875.aspx) |
-| **Adımları** | <p>Giriş ve veri doğrulama savunma hello koruma WCF uygulamanızın önemli bir satır temsil eder. WCF Hizmeti işlemlerini tooprotect hello hizmetinde saldırılara karşı kötü amaçlı bir istemci tarafından kullanıma sunulan tüm parametreleri doğrulamalıdır. Buna karşılık, ayrıca hello istemci tooprotect hello istemci saldırılara karşı tarafından kötü amaçlı bir hizmeti tarafından alınan tüm dönüş değerleri doğrulamalıdır</p><p>WCF özel uzantılar oluşturarak toocustomize hello WCF çalışma zamanı davranışı izin farklı genişletilebilirlik noktaları sağlar. Denetçiler ve parametre denetçiler iki genişletilebilirlik mekanizması iletisi toogain büyük verileri üzerinde denetime sahip bir istemci ve hizmet arasında geçirme hello kullanılır. Giriş doğrulaması için parametre denetçiler kullanın ve yalnızca bir hizmet ve bu moddan akan tooinspect hello tüm ileti gerektiğinde ileti denetçileri kullanmanız gerekir.</p><p>tooperform giriş doğrulaması, bir .NET sınıfını oluşturmak ve hizmetinizi işlemlerini sipariş toovalidate parametrelerinde özel parametre denetçisi uygulamak. Özel uç noktası davranışı tooenable doğrulama hem hello istemci hem de hello hizmet ardından gerçekleştireceksiniz. Son olarak, tooexpose hello özel uç noktası davranışı hello hizmet veya hello istemci hello yapılandırma dosyasında genişletilmiş sağlayan hello sınıfı üzerinde özel yapılandırma öğesi gerçekleştireceksiniz</p>|
+| **Adımları** | <p>Giriş ve veri doğrulama derinlemesine koruma WCF uygulamanızın önemli bir satırı temsil eder. Hizmet saldırılardan korumak için WCF hizmeti işlemlerinde kötü amaçlı bir istemci tarafından kullanıma sunulan tüm parametreleri doğrulamalıdır. Buna karşılık, aynı zamanda istemci tarafından kötü amaçlı bir hizmete saldırılardan korumak için istemci tarafından alınan tüm dönüş değerleri doğrulamalıdır</p><p>WCF özel uzantılar oluşturarak WCF çalışma zamanı davranışını özelleştirmenizi farklı genişletilebilirlik noktaları sağlar. İleti denetçileri ve parametre denetçiler bir istemci ve hizmet arasında geçen verileri üzerinde daha fazla denetim kazanmak için kullanılan iki genişletilebilirlik mekanizmalardır. Giriş doğrulaması için parametre denetçiler kullanın ve yalnızca bir hizmet ve bu moddan akan tüm ileti incelemek gerektiğinde ileti denetçileri kullanmanız gerekir.</p><p>Giriş doğrulamayı gerçekleştirmek için bir .NET sınıfını oluşturmak ve parametreleri hizmetinizi işlemlerini doğrulamakta özel parametre denetçisi uygulamak. Ardından, hem istemci hem de hizmet doğrulamasını etkinleştirmek için bir özel uç noktası davranışı gerçekleştireceksiniz. Son olarak, hizmet veya istemci yapılandırma dosyasında genişletilmiş özel uç noktası davranışı kullanıma sunmak izin veren sınıfındaki özel yapılandırma öğesi gerçekleştireceksiniz</p>|

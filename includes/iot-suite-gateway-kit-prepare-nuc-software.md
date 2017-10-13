@@ -1,43 +1,43 @@
 ## <a name="build-iot-edge"></a>IOT kenar derleme
 
-Bu öğretici hello Uzaktan izleme çözümü ile özel IOT kenar modülleri toocommunicate kullanır. Bu nedenle, özel kaynak kodu toobuild hello IOT kenar modüllerden gerekir. Aşağıdaki bölümlerde hello nasıl tooinstall IOT kenarı ve yapı özel IOT kenar modülü hello açıklanmaktadır.
+Bu öğretici özel IOT kenar modüller Uzaktan izleme önceden yapılandırılmış çözümü ile iletişim kurmak için kullanır. Bu nedenle, özel kaynak kodu modüllerden IOT kenar yapı gerekir. Aşağıdaki bölümlerde IOT kenar yüklemek ve özel IOT kenar modülü oluşturmak nasıl açıklanmaktadır.
 
 ### <a name="install-iot-edge"></a>IOT kenar yükleyin
 
-Merhaba aşağıdaki adımlar nasıl tooinstall hello hello Intel NUC IOT kenar yazılımı önceden derlenmiş açıklamaktadır:
+Aşağıdaki adımlar, Intel NUC üzerinde önceden derlenmiş IOT kenar yazılımı yüklemek açıklanmaktadır:
 
-1. Gerekli hello akıllı paketi depoları komutları Intel NUC hello üzerinde aşağıdaki hello çalıştırarak yapılandırın:
+1. Gerekli akıllı paket depoları Intel NUC üzerinde aşağıdaki komutları çalıştırarak yapılandırın:
 
     ```bash
     smart channel --add IoT_Cloud type=rpm-md name="IoT_Cloud" baseurl=http://iotdk.intel.com/repos/iot-cloud/wrlinux7/rcpl13/ -y
     smart channel --add WR_Repo type=rpm-md baseurl=https://distro.windriver.com/release/idp-3-xt/public_feeds/WR-IDP-3-XT-Intel-Baytrail-public-repo/RCPL13/corei7_64/
     ```
 
-    Girin `y` zaman hello komut sizden çok**bu kanal içerir?**.
+    Girin `y` zaman komutu ister **bu kanal içerir?**.
 
-1. Merhaba akıllı Paket Yöneticisi hello aşağıdaki komutu çalıştırarak güncelleştirin:
+1. Aşağıdaki komutu çalıştırarak akıllı Paket Yöneticisi güncelleştirin:
 
     ```bash
     smart update
     ```
 
-1. Merhaba aşağıdaki komutu çalıştırarak Hello Azure IOT kenar paketini yükle:
+1. Azure IOT kenar paket, aşağıdaki komutu çalıştırarak yükleyin:
 
     ```bash
     smart config --set rpm-check-signatures=false
     smart install packagegroup-cloud-azure -y
     ```
 
-1. Merhaba yükleme tarafından çalışan hello "Hello world" örnek doğrulayın. Bu örnek, beş saniyede bir hello world ileti toohello log.txT dosyası yazar. Merhaba aşağıdaki komutları hello "Hello world" örnek çalıştırın:
+1. "Hello world" örnek çalıştırarak yüklemeyi doğrulayın. Bu örnek bir hello world iletisini her beş saniyede log.txT dosyasına yazar. "Hello world" örnek aşağıdaki komutları çalıştırın:
 
     ```bash
     cd /usr/share/azureiotgatewaysdk/samples/hello_world/
     ./hello_world hello_world.json
     ```
 
-    Yoksay **geçersiz bağımsız değişken** hello örnek durdurduğunuzda iletileri.
+    Yoksay **geçersiz bağımsız değişken** örnek durdurduğunuzda iletileri.
 
-    Komut tooview hello hello günlük dosyasının içeriğini aşağıdaki hello kullan:
+    Günlük dosyasının içeriğini görüntülemek için aşağıdaki komutu kullanın:
 
     ```bash
     cat log.txt | more
@@ -45,4 +45,4 @@ Merhaba aşağıdaki adımlar nasıl tooinstall hello hello Intel NUC IOT kenar 
 
 ### <a name="troubleshooting"></a>Sorun giderme
 
-Merhaba hata alırsanız, "hiçbir paket kul linux geliştirme sağlar.", hello Intel NUC yeniden başlatmayı deneyin.
+"Hiçbir paket kul linux geliştirme sağlar" hatasını alırsanız, Intel NUC yeniden başlatmayı deneyin.

@@ -1,6 +1,6 @@
 ---
-title: "aaaESP8266 toocloud - bağlanmak yumuşatma HUZZAH ESP8266 tooAzure IOT hub'ı | Microsoft Docs"
-description: "Bilgi nasıl toosetup ve onun için Adafruit yumuşatma HUZZAH ESP8266 tooAzure IOT hub'ı Bu öğreticide toosend veri toohello Azure bulut platformu bağlanın."
+title: "Bulut için - ESP8266 yumuşatma HUZZAH ESP8266 Azure IOT Hub'ına bağlanmak | Microsoft Docs"
+description: "Kurulum ve Bu öğreticide Azure bulut platformuna veri göndermek için Azure IOT Hub için bu Adafruit yumuşatma HUZZAH ESP8266 bağlanma hakkında bilgi edinin."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: xshi
-ms.openlocfilehash: 44fd47232488948d21c7aa71bdd865397e41e63e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6a450579c848fe6030a328ddf410f139baae2324
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="connect-adafruit-feather-huzzah-esp8266-tooazure-iot-hub-in-hello-cloud"></a>Adafruit yumuşatma HUZZAH ESP8266 tooAzure IOT Hub'hello bulutta Bağlan
+# <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Bulutta Azure IOT Hub'ına Adafruit yumuşatma HUZZAH ESP8266 Bağlan
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
@@ -30,39 +30,39 @@ ms.lasthandoff: 10/06/2017
 ## <a name="what-you-do"></a>Neler
 
 
-Oluşturduğunuz Adafruit yumuşatma HUZZAH ESP8266 tooan IOT hub bağlayın. Daha sonra örnek bir uygulama DHT22 algılayıcı sıcaklık ve nem ESP8266 toocollect hello verileri çalıştırın. Son olarak, hello algılayıcı verileri tooyour IOT hub'ı gönderin.
+Adafruit yumuşatma HUZZAH ESP8266, oluşturduğunuz bir IOT hub'ına bağlanın. Sonra DHT22 algılayıcı sıcaklık ve nem veri toplamak üzere ESP8266 üzerinde bir örnek uygulamayı çalıştırın. Son olarak, IOT hub'ınıza algılayıcı verileri gönderin.
 
 > [!NOTE]
-> Diğer ESP8266 panoları kullanıyorsanız, bu adımları tooconnect hala izleyebilirsiniz, tooyour IOT hub'ı. Kullanmakta olduğunuz hello ESP8266 Panosu bağlı olarak, tooreconfigure hello gerekebilecek `LED_PIN`. AI Thinker gelen ESP8266 kullanıyorsanız, örneğin, ondan değişebilir `0` çok`2`. Bir pakete henüz yok mu? Hello alma [Azure Web sitesi](http://azure.com/iotstarterkits).
+> Diğer ESP8266 panoları kullanıyorsanız, yine IOT hub'ınıza bağlanmak için aşağıdaki adımları izleyebilirsiniz. Kullanmakta olduğunuz ESP8266 Panosu bağlı olarak, yeniden yapılandırmanız gerekebilir `LED_PIN`. AI Thinker gelen ESP8266 kullanıyorsanız, örneğin, ondan değişebilir `0` için `2`. Bir pakete henüz yok mu? Elde [Azure Web sitesi](http://azure.com/iotstarterkits).
 
 
 
 
 ## <a name="what-you-learn"></a>Öğrenecekleriniz
 
-* Nasıl toocreate IOT hub'ı ve yumuşatma HUZZAH ESP8266 için bir cihaz kaydetme
-* Nasıl tooconnect yumuşatma HUZZAH ESP8266 hello algılayıcı ve bilgisayarınız
-* Nasıl yumuşatma HUZZAH ESP8266 üzerinde bir örnek uygulamayı çalıştırarak toocollect algılayıcı verileri
-* Nasıl toosend hello algılayıcı verileri tooyour IOT hub'ı
+* IOT hub'ı oluşturma ve yumuşatma HUZZAH ESP8266 için bir cihaz kaydetme
+* Algılayıcı ve bilgisayarınızla yumuşatma HUZZAH ESP8266 bağlanma
+* Yumuşatma HUZZAH ESP8266 üzerinde bir örnek uygulamayı çalıştırarak algılayıcı verilerini toplamak nasıl
+* IOT hub'ınıza algılayıcı verileri gönderme
 
 ## <a name="what-you-need"></a>Ne gerekiyor
 
-![Merhaba öğretici için gerekli bölümleri](media/iot-hub-arduino-huzzah-esp8266-get-started/2_parts-needed-for-the-tutorial.png)
+![Öğretici için gerekli bölümleri](media/iot-hub-arduino-huzzah-esp8266-get-started/2_parts-needed-for-the-tutorial.png)
 
-toocomplete bu işlemi yumuşatma HUZZAH ESP8266 Starter Seti'nden bölümleri aşağıdaki hello gerekir:
+Bu işlemi tamamlamak için aşağıdaki bölümleri yumuşatma HUZZAH ESP8266 Starter Seti'nden gerekir:
 
-* Merhaba yumuşatma HUZZAH ESP8266 Panosu
-* Mikro USB tooType bir USB kablosu
+* Yumuşatma HUZZAH ESP8266 Panosu
+* Mikro USB tipi A USB kablosu
 
-Ayrıca geliştirme ortamınız için öğeleri izleyen hello gerekir:
+Ayrıca, geliştirme ortamınız için aşağıdakiler gerekir:
 
 * Etkin bir Azure aboneliği. Bir Azure hesabınız yoksa [ücretsiz Azure deneme hesabı oluşturma](https://azure.microsoft.com/free/) yalnızca birkaç dakika içinde.
 * Mac veya Windows veya Ubuntu çalıştıran bir bilgisayar.
-* Kablosuz ağ yumuşatma HUZZAH ESP8266 tooconnect için.
-* Internet bağlantısı toodownload hello yapılandırma aracı.
-* [Arduino IDE](https://www.arduino.cc/en/main/software) sürüm 1.6.8 veya sonraki bir sürümü. Önceki sürümlerde hello AzureIoT kitaplığı ile çalışmaz.
+* Yumuşatma HUZZAH ESP8266 bağlanmak için kablosuz ağ.
+* Yapılandırma Aracı indirmek için Internet bağlantısı.
+* [Arduino IDE](https://www.arduino.cc/en/main/software) sürüm 1.6.8 veya sonraki bir sürümü. Önceki sürümlerde AzureIoT kitaplığı ile çalışmaz.
 
-Algılayıcı olmayan olasılığına hello aşağıdaki öğeler isteğe bağlıdır. Benzetimli algılayıcı verilerini kullanmanın hello seçeneğiniz de vardır.
+Algılayıcı olmayan olasılığına aşağıdaki öğeler isteğe bağlıdır. Ayrıca sanal algılayıcı verilerini kullanma seçeneğiniz vardır.
 
 * Adafruit DHT22 sıcaklık ve nem algılayıcısı
 * Bir breadboard
@@ -71,16 +71,16 @@ Algılayıcı olmayan olasılığına hello aşağıdaki öğeler isteğe bağl�
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
-## <a name="connect-feather-huzzah-esp8266-with-hello-sensor-and-your-computer"></a>Merhaba algılayıcı ve bilgisayarınızla yumuşatma HUZZAH ESP8266 Bağlan
-Bu bölümde, hello algılayıcılar tooyour Panosu bağlayın. Ardından aygıt tooyour bilgisayarınızdaki başka kullanmak için takın.
-### <a name="connect-a-dht22-temperature-and-humidity-sensor-toofeather-huzzah-esp8266"></a>Bir DHT22 sıcaklık ve nem algılayıcı tooFeather HUZZAH ESP8266 Bağlan
+## <a name="connect-feather-huzzah-esp8266-with-the-sensor-and-your-computer"></a>Algılayıcı ve bilgisayarınızla yumuşatma HUZZAH ESP8266 Bağlan
+Bu bölümde, algılayıcılar panonuz için bağlayın. Daha sonra Cihazınızı başka kullanmak için bilgisayarınıza takın.
+### <a name="connect-a-dht22-temperature-and-humidity-sensor-to-feather-huzzah-esp8266"></a>Yumuşatma HUZZAH ESP8266 DHT22 sıcaklık ve nem algılayıcı Bağlan
 
-Merhaba breadboard ve anahtar kablolarını toomake hello bağlantısı aşağıdaki şekilde kullanın. Algılayıcı yoksa, benzetimli algılayıcı verilerini yerine kullandığından bu bölümü atlayabilirsiniz.
+Şu şekilde bağlantı kurmayı breadboard ve anahtar kablolarını kullanır. Algılayıcı yoksa, benzetimli algılayıcı verilerini yerine kullandığından bu bölümü atlayabilirsiniz.
 
 ![Bağlantı Başvurusu](media/iot-hub-arduino-huzzah-esp8266-get-started/15_connections_on_breadboard.png)
 
 
-Algılayıcı PIN'ler için kablolama aşağıdaki hello kullan:
+Algılayıcı PIN'ler için aşağıdaki kablolama kullanın:
 
 
 | Başlangıç (algılayıcı)           | Bitiş (kartı)           | Kablo rengi   |
@@ -97,86 +97,86 @@ Daha fazla bilgi için bkz: [Adafruit DHT22 algılayıcı Kurulum](https://learn
 
 ![Yumuşatma Huzzah ile DHT22 Bağlan](media/iot-hub-arduino-huzzah-esp8266-get-started/8_connect-dht22-feather-huzzah.png)
 
-### <a name="connect-feather-huzzah-esp8266-tooyour-computer"></a>Yumuşatma HUZZAH ESP8266 tooyour bilgisayara bağlanma
+### <a name="connect-feather-huzzah-esp8266-to-your-computer"></a>Yumuşatma HUZZAH ESP8266 bilgisayarınıza bağlayın
 
-Sonraki gösterildiği gibi hello mikro USB tooType bir USB kablosu tooconnect yumuşatma HUZZAH ESP8266 tooyour bilgisayar kullanın.
+Sonraki gösterildiği gibi geçiş yumuşatma HUZZAH ESP8266 bilgisayarınıza bağlanmak için mikro USB tipi A USB kablosu kullanın.
 
-![Yumuşatma Huzzah tooyour bilgisayara bağlanma](media/iot-hub-arduino-huzzah-esp8266-get-started/9_connect-feather-huzzah-computer.png)
+![Yumuşatma Huzzah bilgisayarınıza bağlayın](media/iot-hub-arduino-huzzah-esp8266-get-started/9_connect-feather-huzzah-computer.png)
 
 ### <a name="add-serial-port-permissions-ubuntu-only"></a>Seri bağlantı noktası izinleri (yalnızca Ubuntu) ekleyin
 
 
-Ubuntu kullanırsanız, hello izinleri toooperate hello USB bağlantı noktası, yumuşatma HUZZAH ESP8266 üzerinde olduğundan emin olun. tooadd seri bağlantı noktası izinleri, aşağıdaki adımları uygulayın:
+Ubuntu kullanırsanız, USB bağlantı noktası, yumuşatma HUZZAH ESP8266 üzerinde çalışması için izinlere sahip olduğunuzdan emin olun. Seri bağlantı noktası izinleri eklemek için aşağıdaki adımları izleyin:
 
 
-1. Bir terminal komutları aşağıdaki hello çalıştırın:
+1. Terminal aşağıdaki komutları çalıştırın:
 
    ```bash
    ls -l /dev/ttyUSB*
    ls -l /dev/ttyACM*
    ```
 
-   Çıktı aşağıdaki hello birini alın:
+   Aşağıdaki çıktıları birini alın:
 
    * crw-rw---1 kök uucp xxxxxxxx
    * crw-rw---1 kök araması xxxxxxxx
 
-   Merhaba çıktısında dikkat `uucp` veya `dialout` hello Grup sahibi hello USB bağlantı noktasına adıdır.
+   Çıktıda dikkat `uucp` veya `dialout` USB bağlantı noktasına Grup sahibi adıdır.
 
-1. Merhaba kullanıcı toohello grubu hello aşağıdaki komutu çalıştırarak ekleyin:
+1. Kullanıcı, aşağıdaki komutu çalıştırarak gruba ekleyin:
 
    ```bash
    sudo usermod -a -G <group-owner-name> <username>
    ```
 
-   `<group-owner-name>`elde ettiğiniz hello Grup sahibi hello önceki adımda adıdır. `<username>`Ubuntu kullanıcı adınızdır.
+   `<group-owner-name>`Önceki adımda elde ettiğiniz Grup sahibi adıdır. `<username>`Ubuntu kullanıcı adınızdır.
 
-1. Ubuntu dışında oturum açın ve yeniden hello değişiklik tooappear için oturum açın.
+1. Ubuntu dışında oturum ve yeniden değişiklik görünmesi oturum açın.
 
-## <a name="collect-sensor-data-and-send-it-tooyour-iot-hub"></a>Algılayıcı verilerini toplamak ve tooyour IOT hub'ı gönderin
+## <a name="collect-sensor-data-and-send-it-to-your-iot-hub"></a>Algılayıcı verilerini toplamak ve IOT hub'ınıza gönderin
 
-Bu bölümde, dağıtın ve yumuşatma HUZZAH ESP8266 üzerinde bir örnek uygulamayı çalıştırın. Merhaba örnek uygulaması hello LED yumuşatma HUZZAH ESP8266 üzerinde yanıp ve hello sıcaklık gönderir ve nem veri hello DHT22 algılayıcı tooyour IOT hub'ı toplanır.
+Bu bölümde, dağıtın ve yumuşatma HUZZAH ESP8266 üzerinde bir örnek uygulamayı çalıştırın. Örnek uygulama LED yumuşatma HUZZAH ESP8266 üzerinde yanıp ve IOT hub'ınıza DHT22 algılayıcı toplanan sıcaklık ve nem verileri gönderir.
 
-### <a name="get-hello-sample-application-from-github"></a>Merhaba örnek uygulaması Github'dan alma
+### <a name="get-the-sample-application-from-github"></a>Örnek uygulama Github'dan alma
 
-Merhaba örnek uygulaması, GitHub üzerinde barındırılır. Merhaba örnek uygulaması github'dan içeren hello örnek depoyu kopyalayın. tooclone hello örnek deposu, şu adımları izleyin:
+Örnek uygulama, GitHub üzerinde barındırılır. Github'dan örnek uygulamayı içeren örnek depoyu kopyalayın. Örnek deposuna kopyalamak için aşağıdaki adımları izleyin:
 
 1. Bir komut istemi veya terminal penceresi açın.
-1. Depolanan hello örnek uygulama toobe istediğiniz tooa klasörüne gidin.
-1. Merhaba aşağıdaki komutu çalıştırın:
+1. Depolanması için örnek uygulama istediğiniz bir klasöre gidin.
+1. Şu komutu çalıştırın:
 
    ```bash
    git clone https://github.com/Azure-Samples/iot-hub-feather-huzzah-client-app.git
    ```
 
-Merhaba paket yumuşatma HUZZAH ESP8266 hello Arduino IDE yükleyin:
+Yumuşatma HUZZAH ESP8266 Arduino IDE'de paketi yükle:
 
-1. Merhaba örnek uygulaması depolandığı hello klasörünü açın.
-1. Merhaba Arduino IDE hello uygulama klasöründe Hello app.ino dosyasını açın.
+1. Örnek uygulama depolandığı klasörü açın.
+1. Arduino IDE uygulama klasöründe app.ino dosyasını açın.
 
-   ![Merhaba örnek uygulaması Arduino IDE içinde açın](media/iot-hub-arduino-huzzah-esp8266-get-started/10_arduino-ide-open-sample-app.png)
+   ![Örnek uygulamayı Arduino IDE içinde Aç](media/iot-hub-arduino-huzzah-esp8266-get-started/10_arduino-ide-open-sample-app.png)
 
-1. Hello Arduino IDE, tıklatın **dosya** > **Tercihler**.
-1. Merhaba, **Tercihler** iletişim kutusunda, hello simgesi sonraki toohello tıklayın **ek panoları yöneticisi URL'leri** kutusunu.
-1. URL aşağıdaki hello Hello açılır pencerede girin ve ardından **Tamam**.
+1. Arduino IDE'de tıklatın **dosya** > **Tercihler**.
+1. İçinde **Tercihler** iletişim kutusunda, simgesine tıklayın **ek panoları yöneticisi URL'leri** kutusu.
+1. Açılan pencerede aşağıdaki URL'yi girin ve ardından **Tamam**.
 
    `http://arduino.esp8266.com/stable/package_esp8266com_index.json`
 
-   ![Arduino IDE içinde tooa paket URL'sini noktası](media/iot-hub-arduino-huzzah-esp8266-get-started/11_arduino-ide-package-url.png)
+   ![Paket URL'sini Arduino IDE'de işaret](media/iot-hub-arduino-huzzah-esp8266-get-started/11_arduino-ide-package-url.png)
 
-1. Merhaba, **tercih** iletişim kutusu, tıklatın **Tamam**.
+1. İçinde **tercih** iletişim kutusu, tıklatın **Tamam**.
 1. Tıklatın **Araçları** > **Panosu** > **panoları Yöneticisi**ve esp8266 için arama yapın.
 
    Panoları Yöneticisi ESP8266 2.2.0 veya sonraki bir sürümü ile yüklü olduğunu gösterir.
 
-   ![Merhaba esp8266 paketinin yüklü olduğu](media/iot-hub-arduino-huzzah-esp8266-get-started/12_arduino-ide-esp8266-installed.png)
+   ![esp8266 paketi yüklü](media/iot-hub-arduino-huzzah-esp8266-get-started/12_arduino-ide-esp8266-installed.png)
 
 1. Tıklatın **Araçları** > **Panosu** > **Adafruit HUZZAH ESP8266**.
 
 ### <a name="install-necessary-libraries"></a>Gerekli kitaplıkları yükleme
 
-1. Hello Arduino IDE, tıklatın **taslak** > **dahil Kitaplığı** > **yönetmek kitaplıkları**.
-1. Kitaplık adları tek tek aşağıdaki hello arayın. Bulduğunuz her kitaplığını tıklatın **yükleme**.
+1. Arduino IDE'de tıklatın **taslak** > **dahil Kitaplığı** > **yönetmek kitaplıkları**.
+1. Aşağıdaki Kitaplığı Ara tek tek adları. Bulduğunuz her kitaplığını tıklatın **yükleme**.
    * `AzureIoTHub`
    * `AzureIoTUtility`
    * `AzureIoTProtocol_MQTT`
@@ -186,47 +186,47 @@ Merhaba paket yumuşatma HUZZAH ESP8266 hello Arduino IDE yükleyin:
 
 ### <a name="dont-have-a-real-dht22-sensor"></a>Gerçek DHT22 algılayıcı yok mu?
 
-Gerçek DHT22 algılayıcı olmayan olasılığına Merhaba örnek uygulaması sıcaklık ve nem veri benzetimini yapabilirsiniz. tooset hello örnek uygulama benzetimli toouse verileri, şu adımları izleyin:
+Örnek uygulama, gerçek DHT22 algılayıcı olmayan olasılığına sıcaklık ve nem veri benzetimini yapabilirsiniz. Örnek uygulamayı benzetimli veri kullanacak şekilde ayarlamak için aşağıdaki adımları izleyin:
 
-1. Açık hello `config.h` hello dosyasında `app` klasör.
-1. Aşağıdaki kod hello bulun ve hello değerinden değiştirmek `false` çok`true`:
+1. Açık `config.h` dosyasını `app` klasör.
+1. Aşağıdaki kod satırını bulun ve değeri değiştirin `false` için `true`:
    ```c
    define SIMULATED_DATA true
    ```
-   ![Merhaba örnek uygulama benzetimli toouse verileri yapılandırma](media/iot-hub-arduino-huzzah-esp8266-get-started/13_arduino-ide-configure-app-use-simulated-data.png)
+   ![Örnek uygulamayı benzetimli veri kullanacak şekilde yapılandırma](media/iot-hub-arduino-huzzah-esp8266-get-started/13_arduino-ide-configure-app-use-simulated-data.png)
 
-1. Merhaba dosyayla Kaydet `Control-s`.
+1. Dosyayı kaydetmek `Control-s`.
 
-### <a name="deploy-hello-sample-application-toofeather-huzzah-esp8266"></a>Merhaba örnek uygulama tooFeather HUZZAH ESP8266 dağıtma
+### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>Yumuşatma HUZZAH ESP8266 örnek uygulamayı dağıtmak
 
-1. Hello Arduino IDE, tıklatın **aracı** > **bağlantı noktası**, yumuşatma HUZZAH ESP8266 hello seri bağlantı noktası'a tıklayın.
-1. Tıklatın **taslak** > **karşıya** toobuild ve hello örnek uygulama tooFeather HUZZAH ESP8266 dağıtın.
+1. Arduino IDE'de tıklatın **aracı** > **bağlantı noktası**, yumuşatma HUZZAH ESP8266 için seri bağlantı noktası'a tıklayın.
+1. ' I tıklatın **taslak** > **karşıya** oluşturup yumuşatma HUZZAH ESP8266 örnek uygulamayı dağıtın.
 
 ### <a name="enter-your-credentials"></a>Kimlik bilgilerinizi girin
 
-Merhaba karşıya yükleme başarıyla tamamlandıktan sonra bu adımları tooenter kimlik bilgilerinizi izleyin:
+Karşıya yükleme başarıyla tamamlandıktan sonra kimlik bilgilerinizi girmeniz için şu adımları izleyin:
 
-1. Hello Arduino IDE, tıklatın **Araçları** > **seri İzleyici**.
-1. Merhaba seri İzleyicisi penceresinde hello iki açılan listeleri hello sağ alt köşedeki dikkat edin.
-1. Seçin **hiçbir satır bitiş** hello sol aşağı açılan listesi.
-1. Seçin **115200 baud** hello sağda açılan listesi.
-1. Merhaba seri İzleyicisi penceresinde Hello üstünde bulunan hello giriş tooprovide sorulursa bilgisinden hello kutusuna ve ardından **Gönder**.
+1. Arduino IDE'de tıklatın **Araçları** > **seri İzleyici**.
+1. Seri İzleyicisi penceresinde sağ alt köşedeki iki açılan listelerde dikkat edin.
+1. Seçin **hiçbir satır bitiş** sol aşağı açılan listesi.
+1. Seçin **115200 baud** sağda açılan listesi.
+1. Bunları sağlayın ve ardından sorulursa seri İzleyici penceresinin en üstünde bulunan giriş kutusuna aşağıdaki bilgileri girin **Gönder**.
    * Wi-Fi SSID
    * Wi-Fi parola
    * Cihaz bağlantı dizesi
 
 > [!Note]
-> Merhaba kimlik bilgileri hello yumuşatma HUZZAH ESP8266 EEPROM depolanır. Merhaba yumuşatma HUZZAH ESP8266 Panosu hello Sıfırla düğmesini tıklatın, Merhaba örnek uygulaması tooerase hello bilgi isteyip istemediğinizi sorar. Girin `Y` toohave hello bilgileri silinir. Tooprovide hello bilgi ikinci kez istenir.
+> Kimlik bilgisi EEPROM, yumuşatma HUZZAH ESP8266 içinde depolanır. Yumuşatma HUZZAH ESP8266 panosunda Sıfırla düğmesini tıklatın, örnek uygulamayı bilgileri silmek isteyip istemediğinizi sorar. Girin `Y` silinmesi bilgilere sahip olması. İkinci kez bilgileri vermeniz istenir.
 
-### <a name="verify-hello-sample-application-is-running-successfully"></a>Merhaba örnek uygulaması başarılı bir şekilde çalıştığını doğrulayın
+### <a name="verify-the-sample-application-is-running-successfully"></a>Örnek Uygulama başarıyla çalıştığını doğrulayın
 
-Görürseniz hello seri İzleyicisi penceresinde hello şu çıktıları ve LED yumuşatma HUZZAH ESP8266, Merhaba örnek uygulaması üzerinde yanıp sönen hello başarılı bir şekilde çalışıyor.
+Yumuşatma HUZZAH ESP8266 üzerinde seri İzleyici penceresinin ve yanıp sönen LED aşağıdaki çıkışı görürseniz, örnek uygulamayı başarılı bir şekilde çalışıyor.
 
 ![Arduino IDE içinde son çıktı](media/iot-hub-arduino-huzzah-esp8266-get-started/14_arduino-ide-final-output.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Başarıyla bir yumuşatma HUZZAH ESP8266 tooyour IOT hub'ı bağlı ve yakalanan hello algılayıcı verileri tooyour IOT hub gönderilen. 
+Başarıyla yumuşatma HUZZAH ESP8266 IOT hub'ına bağlı ve yakalanan algılayıcı verilerini IOT hub'ına gönderilen. 
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 

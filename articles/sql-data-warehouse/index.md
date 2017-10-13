@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure SQL veri ambarı belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
-description: "Nasıl toouse SQL Data Warehouse, SQL Server ile birleştirerek yüksek düzeyde paralel işleme hakkında bilgi edinin. Belgeleri nasıl tooload, çözümleme, yönetmek ve verilerini dışa gösterir."
+title: "Azure SQL Veri Ambarı Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "SQL Server’ı yüksek düzeyde paralel işleme ile birleştiren SQL Veri Ambarı’nı nasıl kullanacağınızı öğrenin. Belgelerde verileri nasıl yükleyeceğiniz, çözümleyeceğiniz, yöneteceğiniz ve dışarı aktaracağınız açıklanmıştır."
 services: sql-data-warehouse
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: a3deb9fe2dbd29cdc250510ca7368b4d71422658
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: fea8cd403cbf21acee2194e8e3888e4001663cdd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-data-warehouse-documentation"></a>SQL Veri Ambarı Belgeleri
 
-Bilgi toouse SQL veri ambarı nasıl bir araya getiren hello SQL Server ilişkisel veritabanı ile yüksek düzeyde paralel işleme. Öğreticiler ve diğer belgelerin nasıl tooload verilerin hello ambarında sonra çözümleme, yönetmek ve dışa gösterir.
+SQL Server ilişkisel veritabanını yüksek düzeyde paralel işleme ile birleştiren SQL Veri Ambarı’nı nasıl kullanacağınızı öğrenin. Öğreticilerde ve diğer belgelerd,e ambara veri yükleme ve yüklenen verileri çözümleme, yönetme ve dışarı aktarma ile ilgili bilgiler sağlanmıştır.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -71,7 +71,7 @@ Bilgi toouse SQL veri ambarı nasıl bir araya getiren hello SQL Server ilişkis
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Hello Azure Portal kullanarak SQL Data Warehouse oluşturma kullanmaya başlama</h3>
+                        <h3>Azure Portal’ı kullanarak SQL Veri Ambarı oluşturmaya başlama</h3>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 ---
 title: "Azure Cosmos DB: DocumentDB API’si | Microsoft Docs"
-description: "SQL ve JavaScript kullanarak düşük gecikme süresine sahip Azure Cosmos DB toostore ve sorgu büyük birimleri JSON belgelerinin nasıl kullanabileceğinizi öğrenin."
+description: "SQL ve JavaScript kullanarak düşük gecikme süreleriyle çok büyük hacimlerdeki JSON belgelerini depolayıp sorgulamak için Azure Cosmos DB’yi nasıl kullanabileceğinizi öğrenin."
 keywords: "json veritabanı, belge veritabanı"
 services: cosmos-db
 author: mimig1
@@ -15,63 +15,63 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/22/2017
 ms.author: mimig
-ms.openlocfilehash: c96dfa5e2685782a99d2bcaf992f88dd2bef920b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 2cb4bd74ea973c8ff980d208a8c5f63a98ec1edd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="introduction-tooazure-cosmos-db-documentdb-api"></a>Giriş tooAzure Cosmos DB: DocumentDB API
+# <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Azure Cosmos DB: DocumentDB API’sine Giriş
 
-[Azure Cosmos DB](introduction.md), Microsoft'un görev açısından kritik uygulamalar için genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Azure Cosmos DB sağlar [anahtar teslim genel dağıtım](distribute-data-globally.md), [üretilen iş ve depolama esnek ölçeklendirme](partition-data.md) dünya, tek basamaklı milisaniyelik gecikme hello 99, adresindeki [beş iyi tanımlanmış tutarlılık düzeylerini](consistency-levels.md), yüksek oranda kullanılabilirlik, tarafından yedeklenen tüm garanti [endüstri lideri SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [verileri otomatik olarak dizinler](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) toodeal şema ve dizin yönetimi ile gerektirmeden. Çok modelli olan bu hizmet belge, anahtar-değer, grafik ve sütunlu veri modellerini destekler. 
+[Azure Cosmos DB](introduction.md), Microsoft'un görev açısından kritik uygulamalar için genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Azure Cosmos DB tarafından [kullanıma hazır genel dağıtım](distribute-data-globally.md), dünya çapında [aktarım hızı ve depolama için elastik ölçeklendirme](partition-data.md), 99. yüzdebirlik dilimde tek haneli milisaniyelik gecikme süreleri, [beş iyi tanımlanmış tutarlılık düzeyi](consistency-levels.md) ve garantili yüksek kullanılabilirlik olanakları sağlanır ve bunların tamamı [sektör lideri SLA’lar](https://azure.microsoft.com/support/legal/sla/cosmos-db/) ile desteklenir. Azure Cosmos DB, şema ve dizin yönetimiyle ilgilenmenize gerek kalmadan [otomatik olarak verilerin dizinini oluşturur](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). Çok modelli olan bu hizmet belge, anahtar-değer, grafik ve sütunlu veri modellerini destekler. 
 
 ![Azure DocumentDB API’si](./media/documentdb-introduction/cosmosdb-documentdb.png) 
 
-Zengin ve tanıdık Azure Cosmos DB Hello DocumentDB API sağlayan [SQL sorgu özellikleri](documentdb-sql-query.md) şema daha az JSON veriler üzerinde tutarlı düşük gecikme süreleriyle. Bu makalede, hello Azure Cosmos veritabanı DocumentDB API, ve nasıl JSON veri toostore yoğun birimler kullanmak, milisaniye gecikme sırasını içinde sorgu ve hello şema kolayca gelişmesi genel bakış sağlar. 
+DocumentDB API’si ile Azure Cosmos DB, şemasız JSON verileri üzerinde tutarlı düşük gecikme süreleriyle zengin ve kullanımı kolay [SQL sorgu işlevleri](documentdb-sql-query.md) sağlar. Bu makalede Azure Cosmos DB DocumentDB API’sine genel bakış ve çok büyük hacimlerdeki JSON verilerini depolamak, milisaniyelik gecikme süresi içinde sorgulamak ve şemayı kolayca geliştirmek için nasıl kullanılabileceği hakkında bilgiler verilmektedir. 
 
 ## <a name="what-capabilities-and-key-features-does-azure-cosmos-db-offer"></a>Azure Cosmos DB’nin sunduğu yetenekler ve önemli özellikler nelerdir?
-Merhaba DocumentDB API'si aracılığıyla Azure Cosmos DB hello aşağıdaki temel işlevleri ve avantajları sunar:
+Azure Cosmos DB, DocumentDB API’si üzerinden aşağıdaki temel işlevleri ve avantajları sunar:
 
-* **Esnek bir şekilde ölçeklenebilir işleme ve Depolama:** kolayca yukarı veya, JSON veritabanı toomeet uygulamanız ölçeği gerekir. Verileriniz düşük tahmin edilebilirliğe sahip gecikme süreleri sağlamak için katı hal disklerinde (SSD) depolanır. Azure Cosmos DB adlı toovirtually ölçeklendirebilirsiniz koleksiyonlar JSON verilerini depolamak için kapsayıcıları destekler sınırsız depolama boyutlarına ve sağlanan işleme. Uygulamanız büyüdükçe, Azure Cosmos DB'yi tahmin edilebilir performansla sorunsuz ve esnek bir şekilde ölçeklendirebilirsiniz. 
-
-
-* **Bölgeli çoğaltma:** Azure Cosmos DB saydam olarak çoğaltır, ilişkili Azure Cosmos DB hesabınızla sağlarken genel erişim toodata gerektiren toodevelop uygulamalar etkinleştirme, veri tooall bölgeleri bileşim tutarlılık, kullanılabilirlik ve performans, tüm ilgili garanti ile arasında. Azure Cosmos DB saydam bölgesel yük devretmesi çok girişli API'leri ve hello özelliği tooelastically ölçek işleme ve depolama ile Merhaba Dünya çapında sağlar. [Azure Cosmos DB ile verileri küresel ölçekte dağıtma](distribute-data-globally.md) bölümünde daha fazla bilgi edinin.
-
-* **Tanıdık SQL söz dizimi ile geçici sorgular:** Heterojen JSON belgelerini depolayın ve bilindik bir SQL söz dizimi aracılığıyla bu belgeleri sorgulayın. Azure Cosmos DB bir derecede eşzamanlı, kilitsiz, günlük dizin oluşturma teknolojisi tooautomatically dizin tüm belge içeriğinin yapılandırılmış. Bu, gerçek zamanlı zengin sorgulara hello gerek toospecify şema ipuçları, ikincil dizinler veya görünümler olmadan sağlar. [Azure Cosmos DB’yi sorgulama](documentdb-sql-query.md) bölümünden daha fazla bilgi edinin. 
-* **Merhaba veritabanı içinde JavaScript yürütme:** Express uygulama mantığını saklı yordamlar, tetikleyiciler ve standart JavaScript'i kullanarak kullanıcı tanımlı işlevler (UDF'ler). Bu, uygulama mantığını toooperate verilerin üzerine Merhaba uygulaması hello veritabanı şeması arasındaki hello uyuşmazlığı hakkında endişelenmeden sağlar. Merhaba DocumentDB API doğrudan hello veritabanı altyapısının içinde JavaScript uygulama mantığının tam işlem tabanlı olarak yürütülmesini sağlar. JavaScript derin tümleştirmesi Hello hello yürütülmesini ekleme, değiştirme, silme ve seçme işlemlerinin bir JavaScript programı içinden yalıtılmış bir işlem olarak sağlar. Daha fazla bilgi için bkz. [DocumentDB sunucu tarafı programlama](programming.md).
-
-* **İnce ayarlanabilir tutarlılık düzeyleri:** iyi tanımlanmış tutarlılık düzeyleri tooachieve tutarlılık ve performans arasında en iyi dengeyi beş seçin. Azure Cosmos DB sorgular ve okuma işlemleri için beş farklı tutarlılık düzeyi sunar: güçlü, sınırlanmış eskime durumu, oturum, tutarlı ön ek ve son. Bu ayrıntılı ve iyi tanımlanmış tutarlılık düzeyleri toomake ses dengelemeler tutarlılık, kullanılabilirlik ve gecikme süresi arasında izin verin. Daha fazla bilgi edinin [toomaximize kullanılabilirlik ve performans düzeyleri tutarlılık kullanarak](consistency-levels.md).
-
-* **Tam olarak yönetilen:** Merhaba, gerek toomanage veritabanı ve makine kaynaklarını ortadan kaldırmak. Bir tam olarak yönetilen Microsoft Azure hizmet olarak değil gerek toomanage sanal makineleri yapın, dağıtmak ve yazılım yapılandırma ölçeklendirmeyi yönetmeniz veya karmaşık veri katmanı yükseltmeleriyle uğraşmanız. Tüm veritabanları otomatik olarak yedeklenir ve bölgesel arızalara karşı korunur. Kolayca Azure Cosmos DB hesap eklemek ve kapasite, çalıştırma ve veritabanınızı yönetmek yerine, uygulamanızın üzerinde toofocus izin vererek gerektiği sağlayın. 
-
-* **Tasarımı gereği açık:** Var olan becerileri ve araçları kullanarak hızlı bir şekilde çalışmaya başlayın. DocumentDB API basittir, ulaşılabilirdir ve tooadopt yeni araçlar gerektirmez veya toocustom uzantıları tooJSON veya JavaScript uyması hello karşı programlama. Tüm CRUD, sorgu ve JavaScript basit bir RESTful HTTP arabirimi üzerinden işleme gibi hello veritabanı işlevselliği erişebilir. Merhaba DocumentDB API var olan biçimleri, dilleri ve standartları yüksek değerli bunları veritabanı işlevleri benimserken.
-
-* **Otomatik dizin oluşturma:** varsayılan olarak, Azure Cosmos DB otomatik olarak hello veritabanındaki tüm hello belgeleri dizinler ve beklediğiniz veya herhangi bir şemayı ya da ikincil dizinlerin oluşturulmasını gerektirir. Tooindex her şeyi istiyor mu? Merak etmeyin, [JSON dosyalarınızda yolları iptal de edebilirsiniz](indexing-policies.md).
-
-* **Değişiklik akış desteği:** değişiklik akış belgeleri hello sırada bunlar değiştiren bir Azure Cosmos DB koleksiyonundaki sıralanmış bir listesini sağlar. Bu akışın sipariş tooreplicate verilerdeki değişiklikleri toodata için kullanılan toolisten olması, API çağrıları tetiklemek veya güncelleştirmeleri akış işleme gerçekleştirin. Değişiklik akış olan otomatik olarak etkinleştirilmiş ve kolay toouse: [akış değiştirme hakkında daha fazla bilgi edinin](https://docs.microsoft.com/azure/cosmos-db/change-feed). 
-
-## <a name="data-management"></a>Hello DocumentDB API ile verileri yönetme?
-Merhaba DocumentDB API iyi tanımlanmış veritabanı kaynakları aracılığıyla JSON verilerini yönetmenize yardımcı olur. Bu kaynaklar yüksek kullanılabilirlik için çoğaltılır ve mantıksal URI'leri ile benzersiz olarak adreslenebilir. Basit bir HTTP tabanlı RESTful programlama modeli tüm kaynaklar için Hello DocumentDB API sunar. 
+* **Esnek bir şekilde ölçeklenebilir aktarım hızı ve depolama:** Uygulama gereksinimlerinizi karşılamak için JSON veritabanınızın ölçeğini kolayca artırın veya azaltın. Verileriniz düşük tahmin edilebilirliğe sahip gecikme süreleri sağlamak için katı hal disklerinde (SSD) depolanır. Azure Cosmos DB, JSON verilerini depolamak için koleksiyon adı verilen kapsayıcıları destekler; bu kapsayıcılar neredeyse sınırsız depolama boyutlarına ve sağlanan aktarım hızına ölçeklenebilir. Uygulamanız büyüdükçe, Azure Cosmos DB'yi tahmin edilebilir performansla sorunsuz ve esnek bir şekilde ölçeklendirebilirsiniz. 
 
 
-Hello Azure Cosmos DB veritabanı size sağladığı benzersiz bir ad alanı erişim tooAzure Cosmos DB hesabıdır. Veritabanı hesabı oluşturabilmeniz için önce sağlayan bir Azure aboneliğine sahip olmalıdır tooa çeşitli Azure hizmetlerine erişim. 
+* **Çok bölgeli çoğaltma:** Azure Cosmos DB, verilerinizi Azure Cosmos DB hesabınızla ilişkilendirdiğiniz tüm bölgelere şeffaf biçimde çoğaltır ve tutarlılık, kullanılabilirlik ve performansın hepsi için garantili bir denge sağlarken verilere genel erişim gerektiren uygulamalar geliştirmenize imkan tanır. Azure Cosmos DB çok girişli API’ler ile şeffaf bölgesel yük devretme olanağının yanı sıra aktarım hızını ve depolamayı dünya çapında elastik bir şekilde ölçeklendirme imkanı sağlar. [Azure Cosmos DB ile verileri küresel ölçekte dağıtma](distribute-data-globally.md) bölümünde daha fazla bilgi edinin.
+
+* **Tanıdık SQL söz dizimi ile geçici sorgular:** Heterojen JSON belgelerini depolayın ve bilindik bir SQL söz dizimi aracılığıyla bu belgeleri sorgulayın. Azure Cosmos DB, tüm belge içeriğinin otomatik olarak dizinini oluşturmak için yüksek derecede eşzamanlı, kilitsiz, günlük yapılı bir dizin oluşturma teknolojisi kullanır. Böylece şema ipuçları, ikincil dizinler veya görünümler belirtmek gerekmeden gerçek zamanlı zengin sorgulara olanak sağlanır. [Azure Cosmos DB’yi sorgulama](documentdb-sql-query.md) bölümünden daha fazla bilgi edinin. 
+* **Veritabanı içinde JavaScript yürütme:** Standart JavaScript'i kullanarak uygulama mantığını saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler (UDF'ler) olarak ifade edin. Böylece uygulama ve veritabanı şeması arasındaki uyumsuzluk hakkında endişelenmeye gerek kalmadan uygulama mantığınızın veriler üzerinde çalışması sağlanır. DocumentDB API’si, doğrudan veritabanı altyapısının içinde JavaScript uygulama mantığının tam işlem tabanlı olarak yürütülmesini sağlar. JavaScript derin tümleştirmesi YERLEŞTİRME, DEĞİŞTİRME, SİLME ve SEÇME işlemlerinin bir JavaScript programı içinden yalıtılmış bir işlem olarak yürütülmesini sağlar. Daha fazla bilgi için bkz. [DocumentDB sunucu tarafı programlama](programming.md).
+
+* **İnce ayarlanabilir tutarlılık düzeyleri:** Tutarlılık ve performans arasında en iyi dengeyi elde etmek için iyi tanımlanmış beş tutarlılık düzeyi arasından seçim yapın. Azure Cosmos DB sorgular ve okuma işlemleri için beş farklı tutarlılık düzeyi sunar: güçlü, sınırlanmış eskime durumu, oturum, tutarlı ön ek ve son. Bu ayrıntılı ve iyi tanımlanmış tutarlılık düzeyleri tutarlılık, kullanılabilirlik ve gecikme süresi arasında sağlam bir denge kurmanıza olanak sağlar. Daha fazla bilgi için bkz. [Kullanılabilirlik ve performansı en üst düzeye çıkarmak için tutarlılık düzeylerini kullanma](consistency-levels.md).
+
+* **Tam olarak yönetilme:** Veritabanı ve makine kaynaklarını yönetme ihtiyacını ortadan kaldırın. Bu tam olarak yönetilen bir Microsoft Azure hizmeti olduğundan sanal makineleri yönetmeniz, yazılımları dağıtıp yapılandırmanız, ölçeklendirmeyi yönetmeniz veya karmaşık veri katmanı yükseltmeleriyle uğraşmanız gerekmez. Tüm veritabanları otomatik olarak yedeklenir ve bölgesel arızalara karşı korunur. İhtiyacınız oldukça kolaylıkla bir Azure Cosmos DB hesabı ve sağlama kapasitesi ekleyebilirsiniz, böylece veritabanınızı çalıştırmak ve yönetmek yerine uygulamanıza odaklanmanız sağlanır. 
+
+* **Tasarımı gereği açık:** Var olan becerileri ve araçları kullanarak hızlı bir şekilde çalışmaya başlayın. DocumentDB API'sinde programlama basittir, ulaşılabilirdir ve yeni araçları benimsemenizi veya JSON ya da JavaScript'e yönelik özel uzantılara bağlı kalmanızı gerektirmez. CRUD, sorgu ve JavaScript işleme dahil olmak üzere tüm veritabanı işlevlerine basit bir RESTful HTTP arabirimi üzerinden erişebilirsiniz. DocumentDB API’si var olan biçimleri, dilleri ve standartları benimserken bunlara ek olarak yüksek değerde veritabanı işlevleri sunar.
+
+* **Otomatik dizin oluşturma:** Azure Cosmos DB, varsayılan olarak veritabanındaki tüm belgelerin otomatik olarak dizinini oluşturur ve herhangi bir şemayı ya da ikincil dizinlerin oluşturulmasını beklemez veya gerektirmez. Her şeyi dizine eklemek istemiyor musunuz? Merak etmeyin, [JSON dosyalarınızda yolları iptal de edebilirsiniz](indexing-policies.md).
+
+* **Değişiklik akışı desteği:** Değişiklik akışı, bir Azure Cosmos DB koleksiyonunda düzenlenme sırasına göre sıralanmış bir belge listesi sağlar. Bu akış, verileri çoğaltmak, API çağrıları tetiklemek veya güncelleştirmelerde akış işleme gerçekleştirmek için veri değişikliklerini dinlemek amacıyla kullanılabilir. Değişiklik akışı otomatik olarak etkinleştirilir ve kullanımı kolaydır: [Değişiklik akışı hakkında daha fazla bilgi edinin](https://docs.microsoft.com/azure/cosmos-db/change-feed). 
+
+## <a name="data-management"></a>DocumentDB API’si ile verileri nasıl yönetebilirsiniz?
+DocumentDB API’si, JSON verilerinin iyi tanımlanmış veritabanı kaynakları aracılığıyla yönetilmesine yardımcı olur. Bu kaynaklar yüksek kullanılabilirlik için çoğaltılır ve mantıksal URI'leri ile benzersiz olarak adreslenebilir. DocumentDB API’si tüm kaynaklar için basit bir HTTP tabanlı RESTful programlama modeli sunar. 
+
+
+Azure Cosmos DB veritabanı hesabı, size Azure Cosmos DB erişimi sağlayan benzersiz bir ad alanıdır. Bir veritabanı hesabı oluşturabilmeniz için, öncelikle çeşitli Azure hizmetlerine erişim sağlayan bir Azure aboneliğinizin olması gerekir. 
 
 Azure Cosmos DB içindeki tüm kaynaklar JSON belgeleri olarak modellenir ve depolanır. Kaynaklar meta veriler içeren JSON belgeleri olan öğeler şeklinde, aynı zamanda öğe koleksiyonları olan akışlar şeklinde yönetilir. Öğe kümeleri ilgili akışlarının içinde yer alır.
 
-Aşağıdaki Hello görüntü hello hello Azure Cosmos DB kaynakları arasındaki ilişkiler gösterilmektedir:
+Aşağıdaki görüntüde Azure Cosmos DB kaynakları arasındaki ilişkiler gösterilmektedir:
 
-![Hello Azure Cosmos veritabanı kaynaklar arasındaki hiyerarşi ilişkisi][1] 
+![Azure Cosmos DB’de kaynaklar arasındaki hiyerarşi ilişkisi][1] 
 
-Bir veritabanı hesabı, her biri saklı yordamlar, tetikleyiciler, UDF'ler, belgeler ve ilgili ekler içerebilen birden çok koleksiyonu kapsayan bir veritabanları kümesinden oluşur. Bir veritabanı Ayrıca kullanıcılar, her bir dizi izinleri tooaccess çeşitli diğer koleksiyonları, saklı yordamlar, Tetikleyiciler, UDF'ler, belgeler veya ekleri ilişkilendirilir. Veritabanları, kullanıcılar, izinler ve koleksiyonlar iyi bilinen şemalar sahip sistem tanımlı kaynaklardır; belgeler, saklı yordamlar, tetikleyiciler, UDF'ler ve eklerde ise rastgele ve kullanıcı tanımlı JSON içeriği bulunur.  
+Bir veritabanı hesabı, her biri saklı yordamlar, tetikleyiciler, UDF'ler, belgeler ve ilgili ekler içerebilen birden çok koleksiyonu kapsayan bir veritabanları kümesinden oluşur. Bir veritabanı çeşitli diğer koleksiyonlara, saklı yordamlara, tetikleyicilere, UDF'lere, belgelere veya eklere erişmek için her biri bir izinler kümesine sahip olan ilgili kullanıcıları da içerir. Veritabanları, kullanıcılar, izinler ve koleksiyonlar iyi bilinen şemalar sahip sistem tanımlı kaynaklardır; belgeler, saklı yordamlar, tetikleyiciler, UDF'ler ve eklerde ise rastgele ve kullanıcı tanımlı JSON içeriği bulunur.  
 
 > [!NOTE]
-> Merhaba DocumentDB API Azure DocumentDB hizmetinin hello daha önce mevcut olduğundan, tooprovision, izlemek ve hello Azure kaynak yönetimi REST API'si oluşturulan hesapların yönetmek veya araçları kullanarak Azure DocumentDB Merhaba devam edebilirsiniz ya da Azure Cosmos DB kaynak adları. Merhaba adları birbirinin yerine toohello Azure DocumentDB API'leri başvururken kullanırız. 
+> DocumentDB API’si daha önce Azure DocumentDB hizmeti olarak mevcut olduğundan, Azure Resource Management REST API’si veya araçları ile oluşturulan hesapları Azure DocumentDB veya Azure Cosmos DB kullanarak sağlamaya, izlemeye ve yönetmeye devam edebilirsiniz. Azure DocumentDB API'lerine başvurulurken bu isimler birbirinin yerine kullanılır. 
 
-## <a name="develop"></a>Merhaba DocumentDB API uygulamalarla nasıl geliştirme yapabilirsiniz?
+## <a name="develop"></a> DocumentDB API’si ile nasıl uygulama geliştirebilirim?
 
-Azure Cosmos DB hello herhangi bir dil tarafından HTTP/HTTPS istekleri çağrılabilen REST API'leri aracılığıyla kaynaklarını kullanıma sunar. Ayrıca, hello DocumentDB API için birkaç popüler dilde programlama kitaplıkları sunar. Hello istemci kitaplıklar adresi önbelleğe alma, özel durum yönetimi, otomatik yeniden denemeler ve diğerleri gibi ayrıntıları işleyerek hello API ile çalışmanın çoğu yönünü basitleştirir. Kitaplıkları hello için şu anda kullanılabilir diller ve platformlar aşağıdaki:  
+Azure Cosmos DB, HTTP/HTTPS istekleri yapabilen herhangi bir dil tarafından çağrılabilen REST API'ler aracılığıyla kaynaklarını kullanıma sunar. Ayrıca, DocumentDB API’si için birçok popüler dilde programlama kitaplıkları sunuyoruz. İstemci kitaplıkları, adresi önbelleğe alma, özel durum yönetimi, otomatik yeniden denemeler vb. gibi ayrıntıları işleyerek API ile çalışmayı birçok yönden basitleştirir. Kitaplıklar şu anda aşağıdaki diller ve platformlar için mevcuttur:  
 
-| İndir | Belgeler |
+| İndirme | Belgeler |
 | --- | --- |
 | [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET kitaplığı](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
 | [Node.js SDK’sı](http://go.microsoft.com/fwlink/?LinkID=402990) |[Node.js kitaplığı](http://azure.github.io/azure-documentdb-node/) |
@@ -82,21 +82,21 @@ Azure Cosmos DB hello herhangi bir dil tarafından HTTP/HTTPS istekleri çağrı
 | yok | [MongoDB API’si](mongodb-introduction.md)
 
 
-Hello kullanarak [Azure Cosmos DB öykünücüsü](local-emulator.md), geliştirmek ve bir Azure aboneliği oluşturmak veya herhangi bir maliyet olmadan uygulamanızı yerel olarak hello DocumentDB API ile test. Uygulamanızı hello öykünücüsünde nasıl çalıştığını ile memnun kaldığınızda, toousing hello buluttaki bir Azure Cosmos DB hesabını geçiş yapabilirsiniz.
+[Azure Cosmos DB Öykünücüsü](local-emulator.md)’nü kullanarak Azure aboneliği oluşturmadan veya masraf yapmadan uygulamanızı DocumentDB API’si ile yerel ortamda geliştirip test edebilirsiniz. Uygulamanızın öykünücüdeki performansından memnun olduğunuzda bulut üzerinde Azure Cosmos DB hesabı kullanmaya başlayabilirsiniz.
 
-Basic ötesinde oluşturma, okuma, güncelleştirme ve silme işlemleri, hello DocumentDB API'si, JSON belgelerini ve JavaScript uygulama mantığının işlem tabanlı olarak yürütülmesi için sunucu tarafı desteği almak için zengin bir SQL sorgu arabirimi sağlar. Merhaba sorgu ve betik yürütme arabirimleri tüm platform kitaplıkları kullanılabilir yanı sıra REST API'leri hello. 
+DocumentDB API’si temel oluşturma, okuma, güncelleştirme ve silme işlemlerinin ötesinde JSON belgelerini almak için zengin bir SQL sorgusu arabirimi ve JavaScript uygulama mantığının işlem tabanlı olarak yürütülmesi için sunucu tarafı desteği sağlar. Sorgu ve betik yürütme arabirimleri, REST API'lerinin yanı sıra tüm platform kitaplıkları aracılığıyla kullanılabilir. 
 
 ### <a name="sql-query"></a>SQL sorgusu
-belgeleri sorgulama hello DocumentDB API destekler hello kökü belirtilmiş bir SQL dilini kullanarak JavaScript türü sistem ve ilişkisel, hiyerarşik ve uzamsal sorguları destekleyen ifadeleri. Basit ancak güçlü arabirimi tooquery JSON belgelerini Hello DocumentDB sorgu dildir. Hello dil, ANSI SQL dil bilgisinin kümesini destekler ve JavaScript nesnesi, dizileri, nesne oluşturması ve işlev çağrısını derin tümleştirme ekler. Merhaba DocumentDB API hello geliştiriciden herhangi bir açık şema veya dizin oluşturma ipuçları almadan kendi sorgu modelini sağlar.
+DocumentDB API’si kökü JavaScript türü sistemde bulunan bir SQL dilini kullanarak belgelerin sorgulanmasını ve ilişkisel, hiyerarşik ve uzamsal sorguları destekleyen ifadeleri destekler. DocumentDB sorgu dili, JSON belgelerini sorgulamak için basit ancak güçlü bir arabirimdir. Dil, ANSI SQL dil bilgisinin bir alt kümesini destekler ve JavaScript nesnesi, dizileri, nesne oluşturması ve işlev çağrısı için derin tümleştirme sağlar. DocumentDB API’si geliştiriciden herhangi bir açık şema veya dizin oluşturma ipuçları almadan kendi sorgu modelini sağlar.
 
-Kullanıcı tanımlı işlevler (UDF'ler) hello DocumentDB API ile kayıtlı ve dolayısıyla hello dilbilgisi toosupport özel uygulama mantığını genişletme bir SQL sorgusu bir parçası olarak başvurulabilir. Bu UDF'ler JavaScript programları olarak yazılır ve hello veritabanı içinde yürütülür. 
+Kullanıcı Tanımlı İşlevler (UDF'ler) DocumentDB API'sine kaydedilebilir ve bunlara bir SQL sorgusunun parçası olarak başvurulabilir, böylece dil bilgisi özel uygulama mantığını destekleyecek şekilde genişletilmiş olur. Bu UDF'ler JavaScript programları olarak yazılır ve veritabanı içinde yürütülür. 
 
-.NET geliştiricileri için DocumentDB API hello [.NET SDK'sı](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx) bir LINQ Sorgu sağlayıcısı da sunar. 
+.NET geliştiricileri için DocumentDB API [.NET SDK](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.linq.aspx)'sı bir LINQ sorgu sağlayıcısı da sunar. 
 
 ### <a name="transactions-and-javascript-execution"></a>İşlemler ve JavaScript yürütme
-Merhaba DocumentDB API toowrite uygulama mantığını tamamen JavaScript'te yazılmış adlandırılmış programlar olarak sağlar. Bu programlar bir koleksiyon için kaydedilir ve belirli bir koleksiyon içindeki hello belgelerde veritabanı işlemlerini verebilir. JavaScript bir tetikleyici, saklı yordam veya kullanıcı tanımlı işlev olarak yürütme için kaydedilebilir. Tetikleyiciler ve saklı yordamlar oluşturabilir, okuma, güncelleştirme ve yazma erişimi toohello koleksiyonu olmaksızın hello sorgu yürütme mantığının parçası olarak kullanıcı tanımlı işlevler yürütme ise belgeleri silme.
+DocumentDB API’si, uygulama mantığını tamamen JavaScript'te yazılmış adlandırılmış programlar olarak yazmanızı sağlar. Bu programlar bir koleksiyon için kaydedilir ve belirli bir koleksiyon içindeki belgelerde veritabanı işlemlerini yürütebilir. JavaScript bir tetikleyici, saklı yordam veya kullanıcı tanımlı işlev olarak yürütme için kaydedilebilir. Tetikleyiciler ve saklı yordamlar belgeleri oluşturabilir, okuyabilir, güncelleştirebilir ve silebilir ancak kullanıcı tanımlı işlevler, koleksiyona yazma erişimi olmaksızın sorgu yürütme mantığının parçası olarak yürütülür.
 
-Merhaba Cosmos DB içinde JavaScript yürütme, JavaScript Transact-SQL için modern bir ardılı ile ilişkisel veritabanı sistemleri tarafından desteklenen hello kavramları sonra modellenir. Tüm JavaScript mantığı, anlık görüntü yalıtımıyla çevresel ACID işlemi içinde yürütülür. Merhaba, yürütme sürecinde JavaScript bir özel durum oluşturur hello sonra Merhaba, tüm işlem iptal edildi.
+Cosmos DB içinde JavaScript yürütme, ilişkisel veritabanı sistemleri tarafından desteklenen kavramlara göre modellenmiştir ve JavaScript Transact-SQL'in modern bir ardılı olarak kullanılır. Tüm JavaScript mantığı, anlık görüntü yalıtımıyla çevresel ACID işlemi içinde yürütülür. Yürütme sürecinde JavaScript bir özel durum oluşturursa tüm işlem iptal edilir.
 
 ## <a name="are-there-any-online-courses-on-azure-cosmos-db"></a>Azure Cosmos DB ile ilgili çevrimiçi kurslar var mı?
 

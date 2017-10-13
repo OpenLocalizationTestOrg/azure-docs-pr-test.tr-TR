@@ -1,6 +1,6 @@
 ---
-title: "Java SDK'sı tooMaven - gelen aaaMigrate güncelleştirme eski Azure Service Fabric Java uygulamaları toouse Maven | Microsoft Docs"
-description: "Toouse hello Service Fabric Java SDK, kullanılan hello eski Java uygulamalarını toofetch Service Fabric Java Maven bağımlılıklardan güncelleştirin. Bu kurulum tamamlandıktan sonra eski Java uygulamalarınızı mümkün toobuild olacaktır."
+title: "Java SDK’dan Maven’a geçme - Eski Azure Service Fabric Java Uygulamalarını Maven kullanmak için güncelleştirme | Microsoft Docs"
+description: "Service Fabric Java SDK’sını kullanan eski JAVA uygulamalarını, Service Fabric Java bağımlılıklarını Maven’dan alacak şekilde güncelleştirin. Bu ayarları tamamlandıktan sonra eski Java uygulamalarınız oluşturmaya hazırdır."
 services: service-fabric
 documentationcenter: java
 author: sayantancs
@@ -14,36 +14,36 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: saysa
-ms.openlocfilehash: 11b979facd7b3865141a6d3a035a6021dd06ca0c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 2123c5f26d77045bd22af56a844fdbf222930e7b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="update-your-previous-java-service-fabric-application-toofetch-java-libraries-from-maven"></a>Önceki Java Service Fabric uygulaması toofetch Java kitaplıklarından Maven güncelleştir
-Biz yakın zamanda Service Fabric Java ikili dosyaları hello Service Fabric Java SDK tooMaven barındırmasını taşınmış. Kullanabileceğiniz artık **mavencentral** toofetch hello en son hizmet doku Java bağımlılıkları. Service Fabric Java ya da Yeoman kullanarak SDK ile kullanılan şablon veya Eclipse, toobe dayalı Maven derleme hello ile uyumlu toobe daha önce oluşturduğunuz, varolan Java uygulamaları güncelleştirme bu hızlı başlangıç yardımcı olur.
+# <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Eski Java Service Fabric uygulamanızı Maven’dan Java kitaplıklarını alacak şekilde güncelleştirme
+Service Fabric Java ikili dosyalarını yakın zamanda Service Fabric Java SDK’dan Maven’a taşıdık. En son Service Fabric Java bağımlılıklarını almak için artık **mavencentral**’ı kullanabilirsiniz. Bu hızlı başlangıç, daha önce Service Fabric Java SDK ile kullanılacak şekilde Yeoman veya Eclipse kullanarak oluşturduğunuz mevcut Java uygulamalarını Maven tabanlı derlemeyle uyumlu olacak şekilde güncelleştirmenize yardımcı olur.
 
 ## <a name="prerequisites"></a>Ön koşullar
-1. İlk toouninstall ihtiyacınız var olan Java SDK'sı hello.
+1. Önce mevcut Java SDK'sını kaldırmanız gerekir.
 
   ```bash
   sudo dpkg -r servicefabricsdkjava
   ```
-2. Yükleme hello en son hizmet doku CLI aşağıda belirtilen adımları hello [burada](service-fabric-cli.md).
+2. [Burada](service-fabric-cli.md) belirtilen adımları izleyerek Service Fabric CLI'sını yükleyin.
 
-3. toobuild ve iş hello Service Fabric Java uygulamaları, JDK 1.8 varsa ve Gradle yüklü tooensure gerekir. Henüz yüklü değilse, çalıştırabilirsiniz JDK 1.8 (openjdk-8-jdk) ve Gradle - tooinstall hello
+3. Service Fabric Java uygulamalarını oluşturmak ve çalışmak için JDK 1.8 ve Gradle’ın yüklü olduğundan emin olmanız gerekir. Henüz yüklü değilse, JDK 1.8 (openjdk-8-jdk) ve Gradle’ı yüklemek için aşağıdakini çalıştırabilirsiniz.
 
  ```bash
  sudo apt-get install openjdk-8-jdk-headless
  sudo apt-get install gradle
  ```
-4. Güncelleştirme hello yükleme/kaldırma kodlarının uygulama toouse hello bahsedilen hello adımları izleyerek yeni hizmet doku CLI [burada](service-fabric-application-lifecycle-sfctl.md). Tooour başlama başvurabilir [örnekler](https://github.com/Azure-Samples/service-fabric-java-getting-started) başvuru.
+4. [Buradaki](service-fabric-application-lifecycle-sfctl.md) adımları takip ederek uygulamanızın yükleme ve kaldırma betiklerini yeni Service Fabric CLI’sını kullanacak şekilde güncelleştirin. Hızlı başlangıç [örneklerine](https://github.com/Azure-Samples/service-fabric-java-getting-started) bakabilirsiniz.
 
 >[!TIP]
-> Merhaba Service Fabric Java SDK'ı kaldırdıktan sonra Yeoman çalışmaz. Belirtilen hello önkoşulları uyguladıktan [burada](service-fabric-create-your-first-linux-application-with-java.md) toohave Service Fabric Yeoman Java şablonu oluşturucuyu oluşturan ve çalışma.
+> Service Fabric Java SDK'sını kaldırdıktan sonra Yeoman çalışmaz. Service Fabric Yeoman Java şablon oluşturucusunu çalıştırmak için [burada](service-fabric-create-your-first-linux-application-with-java.md) belirtilen önkoşulları takip edin.
 
 ## <a name="service-fabric-java-libraries-on-maven"></a>Maven'da Service Fabric Java kitaplıkları
-Maven’da barındırılan Service Fabric Java kitaplıkları. Hello hello bağımlılıklar ekleyebilirsiniz ``pom.xml`` veya ``build.gradle`` projeleri toouse Service Fabric Java kitaplıklarından birini **mavenCentral**.
+Maven’da barındırılan Service Fabric Java kitaplıkları. Projelerinizin **mavenCentral**’daki Service Fabric Java kitaplıklarını kullanması için ``pom.xml`` veya ``build.gradle`` altına bağımlılıklar ekleyebilirsiniz.
 
 ### <a name="actors"></a>Aktörler
 
@@ -90,7 +90,7 @@ Uygulamanız için Service Fabric Durum Bilgisi Olmayan Hizmet desteği.
 ### <a name="others"></a>Diğer
 #### <a name="transport"></a>Aktarım
 
-Service Fabric Java uygulaması için Aktarım katmanı desteği. İhtiyacınız olmayan tooexplicitly, bu bağımlılık tooyour güvenilir aktör ya da hizmet uygulamaları hello aktarım katmanında program sürece ekleyin.
+Service Fabric Java uygulaması için Aktarım katmanı desteği. Aktarım katmanında özellikle programlamadığınız sürece bu bağımlılığı Güvenilir Aktör veya Hizmet uygulamalarınız için özellikle eklemeniz gerekmez.
 
   ```XML
   <dependency>
@@ -111,7 +111,7 @@ Service Fabric Java uygulaması için Aktarım katmanı desteği. İhtiyacınız
 
 #### <a name="fabric-support"></a>Fabric desteği
 
-Sistem düzeyinde toonative Service Fabric çalışma zamanı ettiği Service Fabric desteği. İhtiyacınız olmayan tooexplicitly eklemek bu bağımlılık tooyour güvenilir aktör veya hizmet uygulamaları. Bu otomatik olarak Maven alınan, eklediğiniz zaman yukarıdaki başka bir bağımlılık hello.
+Yerel Service Fabric çalışma zamanıyla iletişim kuran Service Fabric için sistem düzeyinde destek. Bu bağımlılığı Güvenilir Aktör veya Hizmet uygulamalarınız için özellikle eklemeniz gerekmez. Yukarıdaki diğer bağımlılıkları eklediğinizde bu otomatik olarak Maven’dan alınır.
 
   ```XML
   <dependency>
@@ -133,7 +133,7 @@ Sistem düzeyinde toonative Service Fabric çalışma zamanı ettiği Service Fa
 
 ## <a name="migrating-service-fabric-stateless-service"></a>Microsoft Azure Service Fabric Durum Bilgisi Olmayan Hizmeti Geçirme
 
-Service Fabric bağımlılıkları Maven alınan kullanarak var olan Service Fabric durum bilgisiz Java hizmetinizin tooupdate hello ihtiyacınız toobe mümkün toobuild ``build.gradle`` hello Service içindeki dosya. Daha önce toobe gibi aşağıdaki gibi kullanılacağını-
+Service Fabric bağımlılıkları Maven’dan alınan Service Fabric durum bilgisi olmayan Java hizmetinizi oluşturabilmek için hizmet içinden ``build.gradle`` dosyasını güncelleştirmeniz gerekir. Daha önce aşağıdaki gibiydi:
 ```
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
@@ -166,7 +166,7 @@ task copyDeps <<{
     }
 }
 ```
-Şimdi, Maven toofetch hello bağımlılıklardan hello **güncelleştirilmiş** ``build.gradle`` hello ilgili bölümleri gibi - gerekir
+Artık Maven’dan bağımlılıkları almak için **güncelleştirilmiş** ``build.gradle`` içinde ilgili bölümler aşağıdaki gibi olmalıdır:
 ```
 repositories {
         mavenCentral()
@@ -219,20 +219,20 @@ task copyDeps <<{
     }
 }
 ```
-Genel olarak, tooget nasıl hello yapı komut dosyası hakkında genel bir fikir için Service Fabric durum bilgisiz Java hizmet gibidir, başlama örneklerimizde tooany örnek başvurabilir. Merhaba işte [build.gradle](https://github.com/Azure-Samples/service-fabric-java-getting-started/blob/master/Services/EchoServer/EchoServer1.0/EchoServerService/build.gradle) hello EchoServer örnek.
+Genel olarak bir Service Fabric durum bilgisi olmayan Java hizmetinde betiğin nasıl olması gerektiği hakkında genel bir fikir edinmek için başlarken örneklerimizdeki herhangi bir örneğe bakabilirsiniz. EchoServer örneği için [build.gradle](https://github.com/Azure-Samples/service-fabric-java-getting-started/blob/master/Services/EchoServer/EchoServer1.0/EchoServerService/build.gradle) böyledir.
 
 ## <a name="migrating-service-fabric-actor-service"></a>Service Fabric Aktör Hizmetini Geçirme
 
-Service Fabric bağımlılıkları Maven alınan kullanarak, varolan Service Fabric aktör Java uygulaması tooupdate hello ihtiyacınız toobe mümkün toobuild ``build.gradle`` hello arabirimi paketin içindeki ve hello hizmet paketi dosyasının. TestClient paketiniz varsa, bu da tooupdate gerekir. Bunu, aktör için ``Myactor``, hello aşağıdaki ihtiyaç duyacağınız tooupdate - hello yerler olacaktır
+Service Fabric bağımlılıkları Maven’dan alınan Service Fabric Aktör Java hizmetinizi oluşturabilmek için arabirim paketi içinde ve Hizmet paketinde ``build.gradle`` dosyasını güncelleştirmeniz gerekir. TestClient paketiniz varsa, bunu da güncelleştirmeniz gerekir. ``Myactor`` aktörünüz için güncelleştirmeniz gereken yerler şunlardır:
 ```
 ./Myactor/build.gradle
 ./MyactorInterface/build.gradle
 ./MyactorTestClient/build.gradle
 ```
 
-#### <a name="updating-build-script-for-hello-interface-project"></a>Derleme betiğinin hello arabirimi projesi için güncelleştirme
+#### <a name="updating-build-script-for-the-interface-project"></a>Arabirim projesi için derleme betiğini güncelleştirme
 
-Daha önce toobe gibi aşağıdaki gibi kullanılacağını-
+Daha önce aşağıdaki gibiydi:
 ```
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
@@ -240,7 +240,7 @@ dependencies {
 .
 .
 ```
-Şimdi, Maven toofetch hello bağımlılıklardan hello **güncelleştirilmiş** ``build.gradle`` hello ilgili bölümleri gibi - gerekir
+Artık Maven’dan bağımlılıkları almak için **güncelleştirilmiş** ``build.gradle`` içinde ilgili bölümler aşağıdaki gibi olmalıdır:
 ```
 repositories {
     mavenCentral()
@@ -271,9 +271,9 @@ compileJava.dependsOn(explodeDeps)
 .
 ```
 
-#### <a name="updating-build-script-for-hello-actor-project"></a>Derleme betiğinin hello aktör projesi için güncelleştirme
+#### <a name="updating-build-script-for-the-actor-project"></a>Aktör projesi için derleme betiğini güncelleştirme
 
-Daha önce toobe gibi aşağıdaki gibi kullanılacağını-
+Daha önce aşağıdaki gibiydi:
 ```
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
@@ -312,7 +312,7 @@ task copyDeps<< {
     }
 }
 ```
-Şimdi, Maven toofetch hello bağımlılıklardan hello **güncelleştirilmiş** ``build.gradle`` hello ilgili bölümleri gibi - gerekir
+Artık Maven’dan bağımlılıkları almak için **güncelleştirilmiş** ``build.gradle`` içinde ilgili bölümler aşağıdaki gibi olmalıdır:
 ```
 repositories {
     mavenCentral()
@@ -370,9 +370,9 @@ task copyDeps<< {
 }
 ```
 
-#### <a name="updating-build-script-for-hello-test-client-project"></a>Derleme betiğinin hello test istemci projesi için güncelleştirme
+#### <a name="updating-build-script-for-the-test-client-project"></a>Test istemcisi projesi için derleme betiğini güncelleştirme
 
-Burada değişiklik önceki bölümde, diğer bir deyişle, hello aktör proje açıklanan benzer toohello değişir. Daha önce kullanılan komut dosyası toobe gibi aşağıdaki gibi Gradle hello-
+Buradaki değişiklikler, önceki bölümde (aktör projesi) açıklanan değişikliklere benzerdir. Daha önce kullanılan Gradle betiği şöyleydi:
 ```
 dependencies {
     compile fileTree(dir: '/opt/microsoft/sdk/servicefabric/java/packages/lib', include: ['*.jar'])
@@ -412,7 +412,7 @@ task copyDeps<< {
         }
 }
 ```
-Şimdi, Maven toofetch hello bağımlılıklardan hello **güncelleştirilmiş** ``build.gradle`` hello ilgili bölümleri gibi - gerekir
+Artık Maven’dan bağımlılıkları almak için **güncelleştirilmiş** ``build.gradle`` içinde ilgili bölümler aşağıdaki gibi olmalıdır:
 ```
 repositories {
     mavenCentral()
@@ -476,4 +476,4 @@ task copyDeps<< {
 
 * [Linux üzerinde Yeoman kullanarak ilk Service Fabric Java uygulamanızı oluşturma ve dağıtma](service-fabric-create-your-first-linux-application-with-java.md)
 * [Linux üzerinde Eclipse için Service Fabric Eklentisi kullanarak ilk Service Fabric Java uygulamanızı oluşturma ve dağıtma](service-fabric-get-started-eclipse.md)
-* [Merhaba Service Fabric CLI kullanarak Service Fabric kümeleri ile etkileşim](service-fabric-cli.md)
+* [Service Fabric CLI’sını kullanarak Service Fabric kümeleriyle etkileşim kurma](service-fabric-cli.md)

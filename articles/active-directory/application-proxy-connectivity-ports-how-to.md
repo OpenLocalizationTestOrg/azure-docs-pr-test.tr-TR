@@ -1,6 +1,6 @@
 ---
-title: "bir uygulama proxy'si uygulama için gerekli aaaHow tooopen hello güvenlik duvarı bağlantı noktaları | Microsoft Docs"
-description: "Hangi bağlantı noktalarının tooopen hello Azure AD uygulama proxy'si toowork için doğru öğrenin"
+title: "Bir uygulama proxy'si uygulama için gerekli güvenlik duvarı bağlantı noktalarının nasıl açılacağı | Microsoft Docs"
+description: "Hangi Azure AD düzgün çalışması için uygulama proxy'si açmak için bağlantı noktalarını kullanıma Bul"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,27 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: cdc7badb7c15591689a3bfd6bb26da182b00fb3b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8ecd6d7e666d362194126a4abba7a65f2c7b8b6b
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="how-tooopen-hello-firewall-ports-required-for-an-application-proxy-application"></a>Nasıl tooopen hello uygulama proxy'si uygulama için gerekli güvenlik duvarı bağlantı noktaları
+# <a name="how-to-open-the-firewall-ports-required-for-an-application-proxy-application"></a>Bir uygulama proxy'si uygulama için gerekli güvenlik duvarı bağlantı noktalarının nasıl açılacağı
 
-toosee hello gerekli bağlantı noktaları ve her bağlantı noktası hello işlevi tam bir listesi hello hello Önkoşullar bölümüne bakın [uygulama proxy'si belgelerine](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable). Uygulama proxy'si yalnızca giden bağlantı noktalarını kullandığını unutmayın.
+Gerekli bağlantı noktalarını ve her bağlantı noktası işlevi tam listesini görmek için Önkoşullar bölümüne bakın. [uygulama proxy'si belgelerine](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable). Uygulama proxy'si yalnızca giden bağlantı noktalarını kullandığını unutmayın.
 
-Açma hello tarafından tüm gerekli hello bağlantı noktalarının açık yüklü olup olmadığını da denetleyebilirsiniz [Bağlayıcısı bağlantı noktaları Test aracı](https://aadap-portcheck.connectorporttest.msappproxy.net/) şirket içi ağınızdan. Daha fazla yeşil onay işaretleri büyük esneklik anlamına gelir. 
+Tüm gerekli bağlantı noktalarını açın açarak yüklü olup olmadığını da denetleyebilirsiniz [Bağlayıcısı bağlantı noktaları Test aracı](https://aadap-portcheck.connectorporttest.msappproxy.net/) şirket içi ağınızdan. Daha fazla yeşil onay işaretleri büyük esneklik anlamına gelir. 
 
 ## <a name="app-proxy-regions"></a>Uygulama proxy'si bölgeleri
 
-Bu bölgeler hangisinin bildiğiniz toolet toobe yeşil sizin için gereken şekilde üzerinde çalışıyoruz. Şimdilik, tüm olduklarından emin olun. Orta ABD Ayrıca hangi bölgeyi bağımsız olarak gereklidir.
+Bu bölgeler hangisinin sizin için yeşil olması gereken size bildirmek için bir yol üzerinde çalışıyoruz. Şimdilik, tüm olduklarından emin olun. Orta ABD Ayrıca hangi bölgeyi bağımsız olarak gereklidir.
 
-doğru sonuçlar hello toomake emin hello aracı verir için emin olun:
+Aracının doğru sonuçlar verir emin olmak için emin olun:
 
--   Merhaba bağlayıcısını yüklediğiniz hello sunucudan Hello aracını kullanarak bir tarayıcı açın.
+-   Bir tarayıcı araç Bağlayıcısı'nı yüklediğiniz sunucudan açın.
 
--   Bağlayıcı olan ayrıca tüm proxy'leri veya güvenlik duvarları geçerli tooyour toothis sayfa uygulanan emin olun. Internet Explorer'da bu yapılabilir çok giderek**ayarları**  - &gt; **Internet Seçenekleri**  - &gt; **bağlantıları**  - &gt; **Lan ayarları**. Bu sayfada hello alan "Kullan bir Proxy sunucu için bilgisayarınızı LAN" konusuna bakın. Bu kutuyu işaretleyin ve hello proxy adresi hello "Adres" alanına yerleştirin.
+-   Herhangi bir proxy veya güvenlik duvarları Bağlayıcınızı için uygulanabilir de bu sayfaya uygulandığından emin olun. Internet Explorer'da bu yapılabilir giderek **ayarları**  - &gt; **Internet Seçenekleri**  - &gt; **bağlantıları**  - &gt; **Lan ayarları**. Bu sayfada, alanın "Kullan bir Proxy sunucu için bilgisayarınızı LAN" konusuna bakın. Bu kutuyu seçin ve "Adres" alanına proxy adresi yerleştirin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure AD uygulama proxy'si bağlayıcılar anlama](application-proxy-understand-connectors.md)

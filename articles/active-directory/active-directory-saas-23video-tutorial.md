@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile 23 Video | Microsoft Docs"
-description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile 23 Video arasında."
+description: "Çoklu oturum açma Azure Active Directory ile 23 Video arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,111 +13,111 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 3430e4db3cd1114db62233e6699618071a3646ec
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ffcd665506c21e25c84367af5b6a3afb8e319af7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-23-video"></a>Öğretici: Azure Active Directory Tümleştirme ile 23 Video
 
-Bu öğreticide, bilgi nasıl toointegrate 23 Video Azure Active Directory'ye (Azure AD).
+Bu öğreticide, Azure Active Directory (Azure AD) ile 23 Video tümleştirmek öğrenin.
 
-23 tümleştirme Azure AD ile Video ile Merhaba aşağıdaki avantajları sağlar:
+23 tümleştirme Video Azure AD ile aşağıdaki faydaları sağlar:
 
-- Erişimi olan Azure AD'de denetim too23 Video
-- Kullanıcılarınızın tooautomatically alma etkinleştirebilirsiniz too23 Video (çoklu oturum açma) ile Azure AD hesaplarına açan
-- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir
+- 23 Video erişimi, Azure AD'de kontrol edebilirsiniz
+- Otomatik olarak Azure AD hesaplarına sahip (çoklu oturum açma) 23 video açan kullanıcılarınıza etkinleştirebilirsiniz
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-tooconfigure 23 Video ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
+Azure AD Tümleştirmesi ile 23 Video yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
 - Abonelik bir 23 Video çoklu oturum açma etkin
 
 > [!NOTE]
-> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
+Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
-1. Merhaba Galerisi'nden 23 Video ekleme
+1. Galeriden 23 Video ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-23-video-from-hello-gallery"></a>Merhaba Galerisi'nden 23 Video ekleme
-Azure AD'ye tooconfigure hello tümleştirme 23 videonun tooadd 23 ihtiyacınız hello galeri tooyour yönetilen SaaS uygulamaları listesinden görüntü.
+## <a name="adding-23-video-from-the-gallery"></a>Galeriden 23 Video ekleme
+Azure AD 23 Video tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden 23 Video eklemeniz gerekir.
 
-**Video hello galerisinden tooadd 23 gerçekleştirmek hello adımları izleyin:**
+**Galeriden 23 Video eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
     ![Uygulamalar][3]
 
-4. Merhaba arama kutusuna yazın **23 Video**.
+4. Arama kutusuna **23 Video**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-23video-tutorial/tutorial_23video_search.png)
 
-5. Merhaba Sonuçlar panelinde seçin **23 Video**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
+5. Sonuçlar panelinde seçin **23 Video**ve ardından **Ekle** uygulama eklemek için düğmesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-23video-tutorial/tutorial_23video_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı 23 Video ile test etme
 
-Tek toowork'ın oturum açma hangi hello karşılık gelen 23 videoda tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının ve hello ilgili kullanıcı 23 arasında bir bağlantı ilişkisi Video kurulan toobe gerekir.
+Tekli çalışmaya oturum için Azure AD ne karşılık gelen 23 videoda bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ve ilgili kullanıcı 23 arasında bir bağlantı ilişkisi Video kurulması gerekir.
 
-23 videoda hello hello değerini atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.
+23 videoda değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
 
-tooconfigure ve 23 Video ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
+Yapılandırmak ve Azure AD çoklu oturum açma ile 23 Video sınamak için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
-3. **[23 Video test kullanıcısı oluşturma](#creating-a-23-video-test-user)**  -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir 23 videoda, karşılık gelen.
-4. **[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[23 Video test kullanıcısı oluşturma](#creating-a-23-video-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı 23 Video sağlamak için.
+4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma 23 Video uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma 23 Video uygulamanızda yapılandırın.
 
-**tooconfigure Azure AD çoklu oturum açma 23 video hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma ile 23 Video yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello hello üzerinde Azure portal'ın **23 Video** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **23 Video** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-23video-tutorial/tutorial_23video_samlbase.png)
 
-3. Merhaba üzerinde **23 Video etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **23 Video etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-23video-tutorial/tutorial_23video_url.png)
 
-    a. Merhaba, **oturum açma URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<subdomain>.23video.com`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.23video.com`
 
-    b. Merhaba, **tanımlayıcısı** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://www.23video.com/saml/trust/<uniqueid>`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://www.23video.com/saml/trust/<uniqueid>`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu güncelleştirme değerler ile Merhaba gerçek oturum açma URL'si ve tanımlayıcısı. Kişi [23 Video istemci destek ekibi](mailto:support@23company.com) tooget bu değerleri. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [23 Video istemci destek ekibi](mailto:support@23company.com) bu değerleri almak için. 
  
-4. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve hello sertifika dosyayı bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-23video-tutorial/tutorial_23video_certificate.png) 
 
@@ -125,56 +125,56 @@ Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-23video-tutorial/tutorial_general_400.png)
 
-6. Merhaba üzerinde **23 Video yapılandırma** 'yi tıklatın **yapılandırma 23 Video** tooopen **yapılandırma oturum açma** penceresi. Kopya hello **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** hello gelen **hızlı başvuru bölümü.**
+6. Üzerinde **23 Video yapılandırma** 'yi tıklatın **yapılandırma 23 Video** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-23video-tutorial/tutorial_23video_configure.png) 
 
-7. tooconfigure çoklu oturum açma üzerinde **23 Video** yan, indirilen toosend hello ihtiyacınız **sertifika (Base64)**, **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si**çok[23 Video destek ekibi](mailto:support@23company.com). 
+7. Çoklu oturum açma yapılandırmak için **23 Video** yan, indirilen göndermek için ihtiyacınız **sertifika (Base64)**, **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si**için [23 Video destek ekibi](mailto:support@23company.com). 
 
 
 > [!TIP]
-> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-23video-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-23video-tutorial/create_aaduser_02.png) 
 
-3. tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle** hello üstteki hello iletişim.
+3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-23video-tutorial/create_aaduser_03.png) 
 
-4. Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-23video-tutorial/create_aaduser_04.png) 
 
-    a. Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
 
-    b. Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
 
-    c. Seçin **Göster parola** ve hello hello değerini yazma **parola**.
+    c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**'a tıklayın.
  
 ### <a name="creating-a-23-video-test-user"></a>23 Video test kullanıcısı oluşturma
 
-Bu bölümde Hello amacı toocreate 23 videoda Britta Simon adlı bir kullanıcı var.
+Bu bölümün amacı, 23 videoda Britta Simon adlı bir kullanıcı oluşturmaktır.
 
-**toocreate Britta Simon 23 videoda adlı bir kullanıcı hello aşağıdaki adımları gerçekleştirin:**
+**23 videoda Britta Simon adlı bir kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Üzerinde tooyour 23 Video şirket site yönetici olarak oturum açın.
+1. 23 Video şirket sitenize yönetici olarak oturum açma.
 
-2. Çok Git**ayarları**.
+2. Git **ayarları**.
  
 3. İçinde **kullanıcılar** 'yi tıklatın **yapılandırma**.
    
@@ -184,31 +184,31 @@ Bu bölümde Hello amacı toocreate 23 videoda Britta Simon adlı bir kullanıc�
    
     ![Kullanıcı atama][401]
 
-5. Merhaba, **davet toojoin bu site** bölümünde, hello aşağıdaki adımları gerçekleştirin:
+5. İçinde **bu siteye katılmaları için davet** bölümünde, aşağıdaki adımları gerçekleştirin:
    
     ![Kullanıcı atama][402]
 
-    a. Merhaba, **e-posta adresleri** metin kutusuna, Azure AD'de Britta Simon'ın e-posta adresini yazın.  
+    a. İçinde **e-posta adresleri** metin kutusuna, Azure AD'de Britta Simon'ın e-posta adresini yazın.  
  
-    b. Tıklatın **hello Kullanıcı Ekle**.   
+    b. Tıklatın **kullanıcı ekleme**.   
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
 
-Bu bölümde, Britta Simon etkinleştirme verme tarafından toouse Azure çoklu oturum açma too23 Video erişim.
+Bu bölümde, Britta 23 videoya erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
 ![Kullanıcı atama][200] 
 
-**tooassign Britta Simon too23 Video hello aşağıdaki adımları gerçekleştirin:**
+**23 videoya Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Merhaba uygulamalar listesinde **23 Video**.
+2. Uygulamalar listesinde **23 Video**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-23video-tutorial/tutorial_23video_app.png) 
 
-3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
     ![Kullanıcı atama][202] 
 
@@ -216,7 +216,7 @@ Bu bölümde, Britta Simon etkinleştirme verme tarafından toouse Azure çoklu 
 
     ![Kullanıcı atama][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -224,13 +224,13 @@ Bu bölümde, Britta Simon etkinleştirme verme tarafından toouse Azure çoklu 
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümde Hello amacı olan tootest hello erişim paneli, Azure AD SSO yapılandırmayı kullanarak.
+Bu bölümün amacı erişim paneli kullanılarak Azure AD SSO yapılandırmanızı test etmektir.
 
-Merhaba 23 Video hello erişim paneli parçasında tıkladığınızda, otomatik olarak oturum açma 23 tooyour Video uygulama almanız gerekir. 
+Erişim paneli 23 Video parçasında tıklattığınızda, otomatik olarak 23 Video uygulamanıza açan. 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

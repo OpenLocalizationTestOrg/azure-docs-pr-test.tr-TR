@@ -1,5 +1,6 @@
-[! ÖNEMLİ] Azure Service Manager (ASM) kullanılarak HDInsight kaynaklarının yönetilmesi için Azure CLI desteği **kullanım dışı bırakılmış** ve 1 Ocak 2017 tarihinde kaldırılmıştır. Merhaba adımlarda Azure Resource Manager ile çalışan bu belge hello yeni Azure CLI komutları kullanın.
+> [!IMPORTANT]
+> Azure Service Manager (ASM) kullanılarak HDInsight kaynaklarının yönetilmesi için Azure CLI desteği **kullanım dışı bırakılmış** ve 1 Ocak 2017 tarihinde kaldırılmıştır. Bu belgede yer alan adımlarda Azure Resource Manager ile çalışan yeni Azure CLI komutları kullanılır.
 
-Lütfen başlangıç adımları [yükleyin ve Azure CLI yapılandırma](../articles/cli-install-nodejs.md) tooinstall hello en son sürümünü hello Azure CLI. Değiştirilen toobe gereken komut dosyalarınız varsa toouse hello yeni Azure Resource Manager ile çalışan komutlar, bkz: [geçiş tooAzure Resource Manager tabanlı geliştirme araçları Hdınsight kümeleri için](../articles/hdinsight/hdinsight-hadoop-development-using-azure-resource-manager.md) daha fazla bilgi için.
-
+> Azure CLI’nin en son sürümünü yüklemek için [Azure CLI’yi yükleme ve yapılandırma](../articles/cli-install-nodejs.md)’daki adımları uygulayın. Azure Resource Manager’la çalışan yeni komutlarla kullanmak için değiştirilmesi gereken komut dosyalarınız varsa, daha fazla bilgi için bkz. [HDInsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçme](../articles/hdinsight/hdinsight-hadoop-development-using-azure-resource-manager.md).
+>
 

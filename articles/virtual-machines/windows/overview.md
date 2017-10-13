@@ -1,5 +1,5 @@
 ---
-title: "aaaWindows sanal makinelere genel bakış | Microsoft Docs"
+title: "Windows Sanal Makinelere Genel Bakış | Microsoft Belgeleri"
 description: "Azure’da Windows sanal makineler oluşturma ve yönetme hakkında bilgi edinin."
 services: virtual-machines-windows
 documentationcenter: 
@@ -16,136 +16,136 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.openlocfilehash: 8015b1aa4bcdaac2e721f25d85a5bc995a22f0f2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 2944021cbaf777137512f4bfe0eb4cf5e6f996dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure’da Windows sanal makinelere genel bakış
 
-Azure Virtual Machines (VM) Azure’un sunduğu [isteğe bağlı ve ölçeklenebilir işlem kaynağı türlerinden](../../app-service-web/choose-web-site-cloud-service-vm.md) biridir. Genellikle, hello bilgi işlem ortamı üzerinden hello diğer seçimlere daha fazla denetime ihtiyacınız olduğunda bir VM seçin. Bu makalede VM oluşturmadan önce dikkat etmeniz gereken bilgilere, oluşturma yöntemine ve yönetim seçeneklerine yer verilmiştir.
+Azure Virtual Machines (VM) Azure’un sunduğu [isteğe bağlı ve ölçeklenebilir işlem kaynağı türlerinden](../../app-service/choose-web-site-cloud-service-vm.md) biridir. Genellikle, sunulan diğer seçimlere göre bilgi işlem ortamınız üzerinde daha fazla denetime ihtiyacınız varsa, bir VM seçersiniz. Bu makalede VM oluşturmadan önce dikkat etmeniz gereken bilgilere, oluşturma yöntemine ve yönetim seçeneklerine yer verilmiştir.
 
-Sanallaştırma esnekliği toobuy gerek kalmadan hello ve hello fiziksel donanım korumak bir Azure VM sağlar, bu çalıştırır. Ancak, yine toomaintain hello VM yapılandırma, düzeltme eki uygulama ve bunun üzerinde çalıştırılır hello yazılım yükleme gibi görevleri gerçekleştirerek gerekir.
+Bir Azure VM, onu çalıştıran fiziksel donanımı satın almanıza ve muhafaza etmenize gerek kalmadan size sanallaştırma esnekliği sunar. Ancak yine de yapılandırma, düzeltme eki uygulama ve yazılım yükleme gibi görevleri gerçekleştirerek VM’nin bakımını yapmanız gerekir.
 
 Azure sanal makineleri farklı amaçlarla kullanılabilir. Bazı örnekler şunlardır:
 
-* **Geliştirme ve test** – Azure VM'ler sunan bir hızlı ve kolay bir yolu toocreate belirli yapılandırmalarla bir bilgisayarı gerekli toocode ve bir uygulamayı test etme.
-* **Merhaba bulut uygulamalarında** – uygulamanız için isteğe bağlı dalgalanma çünkü mantıklı toorun yapabileceğiniz azure'da VM üzerinde. İhtiyaç duyduğunuzda oluşturulan ek VM’ler için ödeme yapar, ihtiyaç kalmadığında bunları kapatırsınız.
-* **Veri Merkezi Genişletilmiş** – Azure sanal ağı sanal makinelere bağlı tooyour kuruluşun ağına kolayca olabilir.
+* **Geliştirme ve test etme** – Azure VM’leri bir uygulama için kod yazmak ve test yapmak için özel yapılandırmalara sahip bilgisayarları hızlıca oluşturmanızı sağlar.
+* **Uygulamaları buluta taşıma** – Talep düzeyinde dalgalanmalar olan uygulamalarınızı Azure üzerindeki bir VM’de çalıştırmak mantıklıdır. İhtiyaç duyduğunuzda oluşturulan ek VM’ler için ödeme yapar, ihtiyaç kalmadığında bunları kapatırsınız.
+* **Veri merkezini genişletme** – Bir Azure sanal ağı üzerindeki sanal makineleri kolayca kuruluşunuzun ağına bağlayabilirsiniz.
 
-ölçeği artırabilirsiniz ve toowhatever gerekli toomeet gereksinimlerinizi olduğundan, uygulamanızın kullandığı VM'ler Hello sayısıdır.
+Uygulamanız tarafından kullanılan VM sayısı, ihtiyaçlarınıza göre ölçeklendirilebilir.
 
-## <a name="what-do-i-need-toothink-about-before-creating-a-vm"></a>Ne hakkında toothink VM oluşturmadan önce ihtiyacım var mı?
-Azure’da uygulama altyapısı oluştururken [dikkate almanız gereken tasarım ölçütleri](/architecture/reference-architectures/virtual-machines-linux?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) vardır. Başlamadan önce bu VM yönlerini hakkında önemli toothink şunlardır:
+## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>VM oluşturmadan önce dikkat etmem gereken noktalar nelerdir?
+Azure’da uygulama altyapısı oluştururken [dikkate almanız gereken tasarım ölçütleri](/azure/architecture/reference-architectures/virtual-machines-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) vardır. Başlamadan önce dikkat etmeniz gereken VM özellikleri şunlardır:
 
-* Uygulama kaynaklarınızın Hello adları
-* Merhaba kaynakları depolandığı hello konumu
-* Merhaba VM Hello boyutu
-* oluşturulabilir VM'ler Hello sayısı
-* VM hello bir Hello işletim sistemi
-* Merhaba başladıktan sonra VM Hello yapılandırması
-* Merhaba VM gereken bu hello ilgili başka kaynaklar
+* Uygulama kaynaklarınızın adları
+* Kaynakların depolanacağı konum
+* VM’nin boyutu
+* Oluşturulabilecek en fazla VM sayısı
+* VM üzerinde çalışan işletim sistemi
+* VM’nin başlatıldıktan sonraki yapılandırması
+* VM’nin ihtiyaç duyduğu kaynaklar
 
 ### <a name="naming"></a>Adlandırma
-Bir sanal makinenin bir [adı](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) atanan tooit ve hello işletim sisteminin bir parçası olarak yapılandırılan bir bilgisayar adı vardır. bir VM Hello adını too15 karakter olabilir.
+Bir sanal makine, kendisine verilen [ada](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ek olarak işletim sisteminin bir parçası olarak atanan bilgisayar adına sahiptir. VM adı en fazla 15 karakter uzunluğunda olabilir.
 
-Merhaba sanal makine adı Azure toocreate hello işletim sistemi diski, hello bilgisayar adı kullanın ve aynı hello. Varsa, [karşıya yükleme ve kendi görüntünüzü kullanma](upload-generalized-managed.md) önceden yapılandırılmış bir işletim sistemini içeren ve toocreate bir sanal makine kullanın, hello adları farklı olabilir. Kendi görüntü dosyasını karşıya yüklediğinde, hello hello işletim sisteminde bilgisayar adını ve aynı hello hello sanal makine adı yapmanızı öneririz.
+Azure’u işletim sistemi diski oluşturmak için kullanıyorsanız, bilgisayar adı ve sanal makine adı aynı olur. Önceden yapılandırılmış bir işletim sistemini içeren [görüntüyü yükleyip kullanarak](upload-generalized-managed.md) bir sanal makine oluşturmanız halinde adlar farklı olabilir. Kendi görüntü dosyanızı yüklediğinizde, işletim sistemindeki bilgisayar adıyla sanal makine adını aynı yapmanız önerilir.
 
 ### <a name="locations"></a>Konumlar
-Azure içinde oluşturulan tüm kaynakları çok sayıda sunucuya dağıtılmış [coğrafi bölgeler](https://azure.microsoft.com/regions/) Merhaba Dünya. Genellikle, hello Bölge adlı **konumu** bir VM oluştururken. Bir VM için sanal sabit diskleri hello depolandığı hello konumunu belirtir.
+Azure’da oluşturulan tüm kaynaklar, dünyanın farklı yerindeki çeşitli [coğrafi bölgelere](https://azure.microsoft.com/regions/) dağıtılır. VM oluştururken bu bölgeler genelde **konum** olarak adlandırılır. Bir VM için konum, sanal sabit disklerin depolandığı yeri belirtir.
 
-Bu tablo kullanılabilir konumların bir listesini alabilirsiniz hello yollardan bazılarını gösterir.
+Bu tabloda, kullanılabilen konumların listesini edinme yöntemlerinden bazıları gösterilmektedir.
 
 | Yöntem | Açıklama |
 | --- | --- |
-| Azure portalına |Bir VM oluştururken hello listeden bir konum seçin. |
-| Azure PowerShell |Kullanım hello [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) komutu. |
-| REST API |Kullanım hello [listesinde konumları](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations) işlemi. |
+| Azure portal |VM oluştururken listeden konum seçin. |
+| Azure PowerShell |[Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) komutunu kullanın. |
+| REST API |[List locations](https://docs.microsoft.com/rest/api/resources/subscriptions#Subscriptions_ListLocations) işlemini kullanın. |
 
 ### <a name="vm-size"></a>VM boyutu
-Merhaba [boyutu](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) Merhaba kullandığınız VM hello iş yükü tarafından toorun istediğiniz belirlenir. Seçtiğiniz hello boyutu sonra güç, bellek ve depolama kapasitesi işleme gibi Etkenler belirler. Azure çok çeşitli boyutlarda toosupport sayıda kullanım türünü sunar.
+Kullandığınız VM’nin [boyutu](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), çalıştırmak istediğiniz iş yüküne göre belirlenir. Seçtiğiniz boyut işlemci gücü, bellek ve depolama kapasitesi gibi ölçütleri belirler. Azure çok sayıda kullanım türünü desteklemek için büyük çeşitlilikteki boyutları sunar.
 
-Azure ücretleri bir [saatlik fiyat](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) hello VM'nin boyutu ve işletim sistemi temelinde. Kısmi saatler için yalnızca kullanılan hello dakika için Azure ücretlidir. Depolama ayrı olarak fiyatlandırılır ve ücretlendirilir.
+Azure’un ücretlendirdiği, VM’nin boyutu ve işletim sistemi temelinde [saatlik fiyat](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Kısmi saatler için, Azure yalnızca kullanılan dakikaları ücretlendirir. Depolama ayrı olarak fiyatlandırılır ve ücretlendirilir.
 
 ### <a name="vm-limits"></a>VM Sınırları
-Aboneliğiniz varsayılan sahip [kota sınırları](../../azure-subscription-service-limits.md) yerinde projeniz için birçok VM hello dağıtımını etkileyebilir. Hello geçerli bir abonelik başına temelinde bölge başına 20 VM sınırıdır. Sınırların yükseltilmesini talep etmek için destek bileti oluşturabilirsiniz.
+Aboneliğinizde, projeniz için birden fazla VM dağıtımını etkileyebilecek varsayılan [kota sınırları](../../azure-subscription-service-limits.md) vardır. Geçerli sınırlar abonelik başına her bölge için 20 VM olarak belirlenmiştir. Sınırların yükseltilmesini talep etmek için destek bileti oluşturabilirsiniz.
 
 ### <a name="operating-system-disks-and-images"></a>İşletim sistemi diskleri ve görüntüleri
-Sanal makineler kullanın [sanal sabit diskleri (VHD)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) toostore veri ve işletim sistemi (OS). VHD bir işletim sistemi tooinstall seçebilirsiniz hello görüntüleri için de kullanılır. 
+Sanal makineler, kendi işletim sistemlerini (OS) ve verilerini depolamak için [sanal sabit diskleri (VHD)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) kullanır. VHD bir işletim sistemi yüklemek için seçebileceğiniz görüntüler için de kullanılır. 
 
-Azure sağlayan birçok [Market görüntülerini](https://azure.microsoft.com/marketplace/virtual-machines/) toouse çeşitli sürümleri ve Windows Server işletim sistemleri türleri. Market görüntüleri; görüntü yayımcısı, teklif, sku ve sürüm (genelde sürüm en son belirtilir) bilgileriyle tanımlanır. 
+Azure’da Windows Server işletim sistemlerinin farklı sürümleri ve türleri ile birlikte kullanılabilecek birçok [market görüntüsü](https://azure.microsoft.com/marketplace/virtual-machines/) bulunmaktadır. Market görüntüleri; görüntü yayımcısı, teklif, sku ve sürüm (genelde sürüm en son belirtilir) bilgileriyle tanımlanır. 
 
-Bu tablo bir resmi için hello bilgileri bulabilirsiniz bazı yollarını gösterir.
+Bu tabloda bir görüntünün bilgilerine nasıl erişebileceğiniz gösterilmiştir.
 
 | Yöntem | Açıklama |
 | --- | --- |
-| Azure portalına |bir görüntü toouse seçtiğinizde hello değerleri sizin için otomatik olarak belirtilir. |
+| Azure portal |Bir görüntüyü kullanmak istediğinizde değerler otomatik olarak belirtilir. |
 | Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "konum"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "konum" -Publisher "yayımcıAdı"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "konum" -Publisher "yayımcıAdı" -Offer "teklifAdı" |
 | REST API'leri |[Görüntü yayımcılarını listeleme](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Görüntü tekliflerini listeleme](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Görüntü sku’larını listeleme](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
 
-Çok seçebilirsiniz[karşıya yükleme ve kendi görüntünüzü kullanma](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account) ve bunu yaptığınızda hello Yayımcı adı, teklif ve sku kullanılmaz.
+[Kendi görüntünüzü yükleyip kullanmanız halinde](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account) yayımcı adı, teklif ve sku kullanılmaz.
 
 ### <a name="extensions"></a>Uzantılar
 VM [uzantıları](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), dağıtım sonrası yapılandırma ve otomatik görevlerle VM’nize yeni özellikler ekler.
 
 Uzantıları kullanarak şu genel görevleri gerçekleştirebilirsiniz:
 
-* **Özel komut dosyalarını Çalıştır** – hello [özel betik uzantısı](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) hello VM sağlandığında, komut dosyasını çalıştırarak hello VM üzerinde iş yükleri yapılandırmanıza yardımcı olur.
-* **Dağıtma ve yapılandırmalarını yönetme** – hello [PowerShell istenen durum yapılandırması (DSC) uzantısı](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) yardımcı olan bir VM toomanage DSC ayarlamak yapılandırmalarını ve ortamları.
-* **Tanılama verilerini toplamak** – hello [Azure tanılama uzantısını](extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) kullanılan toomonitor olabilir hello VM toocollect tanılama verilerini yapılandırdığınız yardımcı olur, uygulamanızın durumunu hello.
+* **Özel betik çalıştırma** – [Özel Betik Uzantısı](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), VM hazırlandığında kendi betiğinizi çalıştırarak iş yükü yapılandırması gerçekleştirmenize yardımcı olur.
+* **Yapılandırma dağıtma ve yönetme** – [PowerShell İstenen Durum Yapılandırması (DSC) Uzantısı](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), yapılandırma ve ortam yönetimi amacıyla bir VM üzerinde DSC kurulumu yapmanıza yardımcı olur.
+* **Tanılama verilerini toplama** – [Azure Tanılama Uzantısı](extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), VM’i uygulama durumunu izlemek için kullanılabilecek tanılama verilerini toplayacak şekilde yapılandırmanıza yardımcı olur.
 
 ### <a name="related-resources"></a>İlgili kaynaklar
-Bu tabloda Hello kaynakları hello VM tarafından kullanılır ve tooexist gerekir veya hello VM oluşturulduğunda.
+Bu tablodaki kaynaklar VM tarafından kullanılır ve VM oluşturulduğunda mevcut olmaları ya da oluşturulmaları gerekir.
 
 | Kaynak | Gerekli | Açıklama |
 | --- | --- | --- |
-| [Kaynak grubu](../../azure-resource-manager/resource-group-overview.md) |Evet |Merhaba VM bir kaynak grubunda yer alması gerekir. |
-| [Depolama hesabı](../../storage/common/storage-create-storage-account.md) |Evet |Merhaba VM sanal sabit diskleri hello depolama hesabı toostore gerekir. |
-| [Sanal ağ](../../virtual-network/virtual-networks-overview.md) |Evet |Merhaba VM sanal ağ bir üyesi olması gerekir. |
-| [Genel IP adresi](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Hayır |Merhaba VM erişim bir ortak IP adresi atanmış tooit tooremotely olabilir. |
-| [Ağ arabirimi](../../virtual-network/virtual-network-network-interface.md) |Evet |Merhaba VM hello ağ arabirimi toocommunicate hello ağındaki gerekir. |
-| [Veri diskleri](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Hayır |Merhaba VM veri diskleri tooexpand depolama özellikleri ekleyebilirsiniz. |
+| [Kaynak grubu](../../azure-resource-manager/resource-group-overview.md) |Evet |VM bir kaynak grubunda yer almalıdır. |
+| [Depolama hesabı](../../storage/common/storage-create-storage-account.md) |Yes |VM, sanal sabit disklerini depolamak için bir depolama hesabına ihtiyaç duyar. |
+| [Sanal ağ](../../virtual-network/virtual-networks-overview.md) |Yes |VM’in bir sanal ağa üye olması gerekir. |
+| [Genel IP adresi](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |Hayır |VM, uzaktan erişim için atanmış bir genel IP adresine sahip olabilir. |
+| [Ağ arabirimi](../../virtual-network/virtual-network-network-interface.md) |Evet |VM’in ağda iletişim kurabilmek için ağ arabirimine ihtiyacı vardır. |
+| [Veri diskleri](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Hayır |VM, depolama olanaklarını genişletmek için veri disklerine sahip olabilir. |
 
 ## <a name="how-do-i-create-my-first-vm"></a>İlk VM’mi nasıl oluşturabilirim?
-İlk VM’nizi oluşturmak için kullanabileceğiniz birden fazla yöntem vardır. içinde bulunduğunuz hello ortamda yaptığınız hello seçim bağlıdır. 
+İlk VM’nizi oluşturmak için kullanabileceğiniz birden fazla yöntem vardır. Seçeceğiniz yöntem, bulunduğunuz ortama bağlıdır. 
 
-Bu tablo bilgileri tooget VM oluşturmaya başlamanızı sağlar.
+Bu tabloda VM’nizi oluşturmak için ihtiyaç duyacağınız giriş bilgileri yer almaktadır.
 
 | Yöntem | Makale |
 | --- | --- |
-| Azure portalına |[Hello portal kullanarak Windows çalıştıran bir sanal makine oluşturma](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Azure portal |[Portalı kullanarak Windows çalıştıran sanal makine oluşturma](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Şablonlar |[Resource Manager şablonu kullanarak Windows sanal makine oluşturma](ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure PowerShell |[PowerShell kullanarak Windows VM oluşturma](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | İstemci SDK'ları |[C# kullanarak Azure Kaynaklarını dağıtma](csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | REST API'leri |[VM oluşturma veya güncelleştirme](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-create-or-update) |
 
-Hiç istemeyiz ama bazen ters giden bir şeyler olabilir. Bu durum tooyou olursa, hello bilgilerinde bakın [Azure'da Windows sanal makine oluşturma ile ilgili sorunları giderme Resource Manager dağıtım sorunları](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Hiç istemeyiz ama bazen ters giden bir şeyler olabilir. Bu gibi durumlarda [Azure’da Windows sanal makine oluşturmayla ilgili Resource Manager dağıtım sorunlarını giderme](troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) sayfasına bakın.
 
-## <a name="how-do-i-manage-hello-vm-that-i-created"></a>Merhaba oluşturduğum VM nasıl yönetebilirim?
-VM’ler tarayıcı tabanlı bir portal, betik oluşturma desteğine sahip komut satırı araçları kullanılarak veya doğrudan API’ler aracılığıyla yönetilebilir. Gerçekleştirebileceğiniz bazı tipik yönetim görevleri tooa kullanılabilirlik yönetme ve yedekleme yapmak VM üzerinde oturum bir VM hakkında bilgi alma.
+## <a name="how-do-i-manage-the-vm-that-i-created"></a>Oluşturduğum VM’yi nasıl yönetebilirim?
+VM’ler tarayıcı tabanlı bir portal, betik oluşturma desteğine sahip komut satırı araçları kullanılarak veya doğrudan API’ler aracılığıyla yönetilebilir. Gerçekleştirmek isteyebileceğiniz genel yönetim görevlerinden bazıları VM hakkında bilgi alma, VM’de oturum açma, kullanılabilirlik durumunu yönetme ve yedekleme yapmadır.
 
 ### <a name="get-information-about-a-vm"></a>VM hakkında bilgi alma
-Bu tablo bir VM hakkında bilgi edinebilirsiniz hello yollardan bazılarını gösterir.
+Bu tabloda VM hakkında bilgi almak için kullanabileceğiniz yöntemlerden bazıları gösterilmektedir.
 
 | Yöntem | Açıklama |
 | --- | --- |
-| Azure portalına |Merhaba hub menüsünde **sanal makineleri** ve ardından hello VM hello listeden seçin. Merhaba dikey penceresinde hello VM, erişim toooverview bilgileri, değerleri ayarlama ve izleme ölçümleri sahip. |
-| Azure PowerShell |PowerShell toomanage sanal makineleri kullanma hakkında daha fazla bilgi için bkz: [oluşturma ve hello Azure PowerShell modülü ile Windows sanal makineleri yönetme](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
-| REST API |Kullanım hello [VM Al bilgi](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) VM hakkında işlemi tooget bilgi. |
-| İstemci SDK'ları |C# toomanage sanal makineleri kullanma hakkında daha fazla bilgi için bkz: [yönetmek Azure Azure Resource Manager ve C# kullanarak sanal makineleri](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
+| Azure portal |Hub menüsünde **Sanal Makineler**’e tıklayıp açılan listeden VM’yi seçin. VM’nin dikey penceresinden özet bilgilere, ayar değerlerine ve izleme ölçümlerine erişebilirsiniz. |
+| Azure PowerShell |VM'leri yönetmek üzere PowerShell'i kullanma hakkında daha fazla bilgi için bkz. [Azure PowerShell modülü ile Windows VM'leri oluşturma ve yönetme](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
+| REST API |Bir VM hakkında bilgi almak için [VM bilgilerini alma](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get) işlemini kullanın. |
+| İstemci SDK'ları |VM yönetimi için C# kullanımı hakkında bilgi almak için bkz. [Azure Sanal Makinelerini Azure Resource Manager ve C# ile yönetme](csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 
-### <a name="log-on-toohello-vm"></a>VM toohello üzerinde oturum
-Merhaba Bağlan düğmesi hello Azure portal çok kullandığınız[bir Uzak Masaüstü (RDP) oturumu başlatmak](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Şeyler bazen toouse uzak bağlantı çalışırken yanlış gidebilirsiniz. Bu durum tooyou olursa, hello Yardım bilgileri kullanıma [sorun giderme Uzak Masaüstü bağlantıları tooan Azure Windows çalıştıran sanal makine](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+### <a name="log-on-to-the-vm"></a>VM’de oturum açma
+Azure portalındaki Bağlan düğmesini kullanarak [Uzak Masaüstü (RDP) oturumu başlatabilirsiniz](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Uzak bağlantı özelliğini kullanmaya çalışırken hatalarla karşılaşabilirsiniz. Bu durumda [Windows çalıştıran bir Azure sanal makinesine yapılan Uzak Masaüstü bağlantılarında sorun giderme](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) sayfasındaki yardım bilgilerini inceleyin.
 
 ### <a name="manage-availability"></a>Kullanılabilirliği yönetme
-Nasıl çok, toounderstand daha önemlidir[yüksek kullanılabilirlik sağlamak](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) uygulamanız için. Bu yapılandırma, en az bir çalışan birden çok sanal makineleri tooensure oluşturursunuz.
+Uygulamanız için [yüksek kullanılabilirlik düzeyini](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) nasıl sağlayacağınızı kavramanız önemlidir. Bu yapılandırma, en az birinin çalıştığından emin olmak için birden fazla VM oluşturmayı kapsamaktadır.
 
-Bizim 99.95 VM hizmet düzeyi sözleşmesi için dağıtım tooqualify için sırayla yükünüzü içinde çalışan iki veya daha fazla VM toodeploy gereken bir [kullanılabilirlik kümesi](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Bu yapılandırma, VM’lerinizin birden fazla hata etki alanına dağıtılmasını ve dağıtımlarının farklı bakım aralıklarına sahip ana bilgisayarlara yapılmasını sağlar. Merhaba tam [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) açıklayan bir bütün olarak Azure kullanılabilirliğini garanti hello.
+Dağıtımınızın 99,95 VM Hizmet Düzeyi Sözleşmesi kapsamına girebilmesi için iş yükünüzü çalıştıran iki veya daha fazla VM’yi bir [kullanılabilirlik kümesi](tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) içinde dağıtmanız gerekir. Bu yapılandırma, VM’lerinizin birden fazla hata etki alanına dağıtılmasını ve dağıtımlarının farklı bakım aralıklarına sahip ana bilgisayarlara yapılmasını sağlar. [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_0/) şartları, Azure’un tamamının kullanılabilirlik garantisini açıklamaktadır.
 
-### <a name="back-up-hello-vm"></a>VM Hello yedekleyin
-A [kurtarma Hizmetleri kasası](../../backup/backup-introduction-to-azure-backup.md) kullanılan tooprotect veri ve Azure Backup ve Azure Site Recovery Services varlıklar. Kurtarma Hizmetleri kasası kullanabileceğine[dağıtma ve PowerShell kullanarak Resource Manager tarafından dağıtılan VM'ler için yedeklemeleri yönetme](../../backup/backup-azure-vms-automation.md). 
+### <a name="back-up-the-vm"></a>VM’yi yedekleme
+Verileri ve varlıkları hem Azure Backup hem de Azure Site Recovery hizmetlerinde korumak için [Kurtarma Hizmetleri kasası](../../backup/backup-introduction-to-azure-backup.md) kullanılır. Kurtarma Hizmetleri kasası sayesinde [PowerShell kullanılarak Resource Manager ile dağıtılmış VM’ler için yedekleme dağıtımı ve yönetimi gerçekleştirebilirsiniz](../../backup/backup-azure-vms-automation.md). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Maksadınızı Linux VM'ler ile toowork ise, bakmak [Azure ve Linux](../linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Merhaba altyapınızda ayarlama geçici hello yönergeleri hakkında daha fazla bilgi [örnek Azure altyapı izlenecek](infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Linux VM’leri ile çalışmayı düşünüyorsanız bkz. [Azure ve Linux](../linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Altyapınızı kurma hakkında daha fazla bilgi almak için [Örnek Azure altyapısı gözden geçirme](infrastructure-example.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) sayfasını inceleyin.

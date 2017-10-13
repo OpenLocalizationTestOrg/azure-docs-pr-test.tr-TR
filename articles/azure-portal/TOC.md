@@ -1,22 +1,24 @@
 # Genel Bakış
-## [Azure portal Hello hakkında](../azure-portal-overview.md)
+## [Azure portal hakkında](../azure-portal-overview.md)
 # Öğreticiler
-## [Hello Azure portal ile DevOps](tutorial-azureportal-devops.md)
+## [Azure portal ile DevOps](tutorial-azureportal-devops.md)
 # Kavramlar
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Klavye kısayolları](azure-portal-keyboard-shortcuts.md)
 ## [Desteklenen tarayıcılar ve cihazlar](../azure-preview-portal-supported-browsers-devices.md)
-# Nasıl tooguides
+## [Azure Panolarının yapısı](azure-portal-dashboards-structure.md)
+# Nasıl yapılır kılavuzları
 ## Dağıtma
 ### [Azure Resource Manager şablonu oluşturma](../azure-resource-manager/resource-group-authoring-templates.md)
 ### [Resource Manager şablonu ile dağıtma](../azure-resource-manager/resource-group-template-deploy.md)
 ### [Azure panoları oluşturma ve paylaşma](azure-portal-dashboards.md)
+### [Program aracılığıyla Azure Panoları oluşturma](azure-portal-dashboards-create-programmatically.md)
 ## Yönet
 ### [Yüksek karşıtlığı açma veya tema değiştirme](azure-portal-change-theme-high-contrast.md)
-### [Portal toomanage kaynakları kullanın](../azure-resource-manager/resource-group-portal.md)
+### [Kaynakları yönetmek için portalı kullanma](../azure-resource-manager/resource-group-portal.md)
 ### [Rol Tabanlı Erişim Denetimi ile erişimi yönetme](../active-directory/role-based-access-control-configure.md)
 ### [Rol Tabanlı Erişim Denetimi ile panoları paylaşma](azure-portal-dashboard-share-access.md)
-### [Etiketler tooorganize kaynakları kullanın](../azure-resource-manager/resource-group-using-tags.md)
+### [Kaynakları düzenlemek için etiketleri kullanma](../azure-resource-manager/resource-group-using-tags.md)
 ### [Kaynaklarınızı ölçeklendirme](../monitoring-and-diagnostics/insights-how-to-scale.md)
 ### [Yeni Azure hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 ## İzleme

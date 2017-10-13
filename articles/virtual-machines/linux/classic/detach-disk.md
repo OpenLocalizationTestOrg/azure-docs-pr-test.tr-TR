@@ -1,6 +1,6 @@
 ---
-title: azure'da bir Linux VM diskten aaaDetach | Microsoft Docs
-description: "Toodetach hello Klasik dağıtım modeli kullanılarak oluşturulmuş bir Azure sanal makinesi veri diskten öğrenin."
+title: "Azure'da bir Linux VM bir diski kullanımdan çıkarın | Microsoft Docs"
+description: "Klasik dağıtım modeli kullanılarak oluşturulmuş bir Azure sanal makinesi bir veri diski kullanımdan çıkarın öğrenin."
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: d0ae362ab756dc4636bf5574deca7471223fb7f8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ac982bc153d523de29940af9b9e2609a39cd48a6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toodetach-a-disk-from-a-linux-virtual-machine"></a>Nasıl tooDetach Disk alanından Linux sanal makine
+# <a name="how-to-detach-a-disk-from-a-linux-virtual-machine"></a>Linux Sanal Makinesi’ndeki Bir Diski Ayırma
 > [!IMPORTANT] 
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, hello Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, en yeni dağıtımların hello Resource Manager modelini kullanmasını önerir.
+> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
 
 [!INCLUDE [howto-detach-disk-windows-linux](../../../../includes/howto-detach-disk-linux.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgiyi aşağıdaki makaleleri hello Linux VM kullanma hakkında:
+Daha fazla bilgiyi aşağıdaki makalelerde, Linux VM'NİZDE kullanma hakkında:
 
-* [Nasıl tooAttach veri diski tooa Linux sanal makine](attach-disk.md)
-* [Merhaba Klasik dağıtım modeliyle Hello Azure CLI kullanma](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
+* [Nasıl bir Linux sanal makineye bir veri diski Ekle](attach-disk.md)
+* [Klasik dağıtım modeli ile Azure CLI kullanma](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 

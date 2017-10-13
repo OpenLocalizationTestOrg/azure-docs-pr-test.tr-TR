@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile Hackerone | Microsoft Docs"
-description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile Hackerone arasında."
+description: "Çoklu oturum açma Azure Active Directory ile Hackerone arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,67 +13,67 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: c9dc033e26e79a7233dcfb3899c62684d4a19652
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 657d8d4c98b7b133698a5cda0aa675da7f68c464
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Öğretici: Azure Active Directory Tümleştirme HackerOne ile
 
-Bu öğreticide, bilgi nasıl toointegrate HackerOne Azure Active Directory'ye (Azure AD).
+Bu öğreticide, Azure Active Directory (Azure AD) ile HackerOne tümleştirmek öğrenin.
 
-HackerOne Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
+HackerOne Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Erişim tooHackerOne sahip Azure AD'de kontrol edebilirsiniz
-- Kullanıcıların tooautomatically get açan tooHackerOne (çoklu oturum açma) Azure AD hesaplarına sahip etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir
+- HackerOne erişimi, Azure AD'de kontrol edebilirsiniz
+- Otomatik olarak için HackerOne (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-tooconfigure HackerOne ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
+Azure AD tümleştirme HackerOne ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
 - Bir HackerOne çoklu oturum açma abonelik etkin
 
 > [!NOTE]
-> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
+Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
-1. Merhaba Galerisi'nden HackerOne ekleme
+1. Galeriden HackerOne ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-hackerone-from-hello-gallery"></a>Merhaba Galerisi'nden HackerOne ekleme
-Azure AD'ye tooconfigure hello tümleştirme HackerOne, tooadd HackerOne hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
+## <a name="adding-hackerone-from-the-gallery"></a>Galeriden HackerOne ekleme
+Azure AD HackerOne tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden HackerOne eklemeniz gerekir.
 
-**tooadd HackerOne hello galerisinden hello aşağıdaki adımları gerçekleştirin:**
+**Galeriden HackerOne eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
     ![Uygulamalar][3]
 
-4. Merhaba arama kutusuna yazın **HackerOne**.
+4. Arama kutusuna **HackerOne**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_search.png)
 
-5. Merhaba Sonuçlar panelinde seçin **HackerOne**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
+5. Sonuçlar panelinde seçin **HackerOne**ve ardından **Ekle** uygulama eklemek için düğmesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_addfromgallery.png)
 
@@ -81,44 +81,44 @@ Azure AD'ye tooconfigure hello tümleştirme HackerOne, tooadd HackerOne hello g
 
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı HackerOne ile test etme
 
-Tek toowork'ın oturum açma hangi hello karşılık gelen HackerOne içinde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcı ve ilgili kullanıcı HackerOne hello arasında bir bağlantı ilişkisi kurulan toobe gerekir.
+Tekli çalışmaya oturum için Azure AD HackerOne karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının HackerOne ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Merhaba hello değeri HackerOne içinde atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.
+HackerOne içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
 
-tooconfigure ve HackerOne ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma HackerOne ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
-3. **[HackerOne test kullanıcısı oluşturma](#creating-a-hackerone-test-user)**  -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir HackerOne içinde karşılık gelen.
-4. **[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[HackerOne test kullanıcısı oluşturma](#creating-a-hackerone-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı HackerOne sağlamak için.
+4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma HackerOne uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma HackerOne uygulamanızda yapılandırın.
 
-**tooconfigure Azure AD çoklu oturum açma ile HackerOne, hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma ile HackerOne yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello hello üzerinde Azure portal'ın **HackerOne** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **HackerOne** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_samlbase.png)
 
-3. Merhaba üzerinde **HackerOne tek oturum açma URL'si ve tanımlayıcı** bölümünde, hello aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **HackerOne tek oturum açma URL'si ve tanımlayıcı** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_url.png)
 
-    a. Merhaba, **oturum açma URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://hackerone.com/<company name>/authentication`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://hackerone.com/<company name>/authentication`
 
-    b. Merhaba, **tanımlayıcısı** metin kutusuna, URL'yi yazın:`https://hackerone.com/users/saml/metadata`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın:`https://hackerone.com/users/saml/metadata`
     
     > [!NOTE] 
-    > Bu değer gerçek değil. Bu değer ile Merhaba güncelleştirme gerçek oturum açma URL'si. Kişi [HackerOne destek ekibi](mailto:support@hackerone.com) tooget bu değer. 
+    > Bu değer gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Kişi [HackerOne destek ekibi](mailto:support@hackerone.com) bu değeri alınamıyor. 
  
-4. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve hello sertifika dosyayı bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_certificate.png) 
 
@@ -126,72 +126,72 @@ Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-hackerone-tutorial/tutorial_general_400.png)
 
-6. Merhaba üzerinde **HackerOne yapılandırma** 'yi tıklatın **yapılandırma HackerOne** tooopen **yapılandırma oturum açma** penceresi. Kopya hello **SAML çoklu oturum açma hizmet URL'si** hello gelen **hızlı başvuru bölümü.**
+6. Üzerinde **HackerOne yapılandırma** 'yi tıklatın **yapılandırma HackerOne** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_configure.png) 
 
-7. Oturum açma tooyour HackerOne Kiracı yönetici olarak.
+7. Oturum açmayı HackerOne Kiracı yönetici olarak.
 
-8. Hello'nde hello üstte, hello menüsünü "**ayarları**."
+8. Üstteki menüde tıklayın "**ayarları**."
    
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_001.png) 
 
-9. Çok gidin"**kimlik doğrulaması**"tıklatıp"**SAML ayarları ekleme**."
+9. Gidin "**kimlik doğrulaması**"tıklatıp"**SAML ayarları ekleme**."
    
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_003.png) 
 
-10. Merhaba üzerinde **SAML ayarları** iletişim kutusunda, hello aşağıdaki adımları gerçekleştirin:
+10. Üzerinde **SAML ayarları** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
    
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_004.png) 
 
-    a. Merhaba, **e-posta etki alanı** metin kutusuna, kayıtlı bir etki alanı yazın.
+    a. İçinde **e-posta etki alanı** metin kutusuna, kayıtlı bir etki alanı yazın.
 
-    b. İçinde **üzerinde tek oturum URL'si** metin kutuları, hello değerini yapıştırın **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyalanan.
+    b. İçinde **üzerinde tek oturum URL'si** metin kutuları, yapıştırma değerini **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyalanan.
 
-    c. Açık, **sertifika dosyası** Azure portalından indirdiğiniz Defteri'nde Merhaba içeriğine, panoya kopyalayın ve toohello Yapıştır **X509 sertifika** metin kutusu.
+    c. Açık, **sertifika dosyası** Azure portalından indirdiğiniz Not Defteri'nde, içeriğini, panoya kopyalayın ve yapıştırın kendisine **X509 sertifika** metin kutusu.
     
     d. **Kaydet** düğmesine tıklayın.
 
-11. Merhaba kimlik doğrulama ayarları iletişim kutusunda hello aşağıdaki adımları gerçekleştirin:
+11. Kimlik doğrulama ayarları iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
    
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_005.png) 
 
     a. Tıklatın **testi**.
 
-    b. Varsa hello hello değerini **durum** alan eşittir **durumu'son test: oluşturulan**, kişi, [HackerOne destek ekibi](mailto:support@hackerone.com) toorequest yapılandırmanızı gözden.
+    b. Varsa değerini **durum** alan eşittir **durumu'son test: oluşturulan**, kişi, [HackerOne destek ekibi](mailto:support@hackerone.com) yapılandırmanızı gözden istemek için.
 
 > [!TIP]
-> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-hackerone-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-hackerone-tutorial/create_aaduser_02.png) 
 
-3. tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle** hello üstteki hello iletişim.
+3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-hackerone-tutorial/create_aaduser_03.png) 
 
-4. Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-hackerone-tutorial/create_aaduser_04.png) 
 
-    a. Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
 
-    b. Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
 
-    c. Seçin **Göster parola** ve hello hello değerini yazma **parola**.
+    c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**'a tıklayın.
  
@@ -202,26 +202,26 @@ Ardından, HackerOne içinde Britta Simon adlı bir kullanıcı oluşturun. Hack
 Bu bölümde, eylem öğe yok. HackerOne eriştiğinizde, henüz yoksa yeni bir kullanıcı oluşturulur.
 
 >[!NOTE]
->Bir kullanıcı toocreate el ile gerekiyorsa, toocontact hello Onayla destek ekibi gerekir. 
+>Bir kullanıcı el ile oluşturmanız gerekiyorsa, Certify Destek ekibine başvurun gerekir. 
 > 
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
 
-Bu bölümde, erişim tooHackerOne vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
+Bu bölümde, Britta HackerOne için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
 ![Kullanıcı atama][200] 
 
-**tooassign Britta Simon tooHackerOne hello aşağıdaki adımları gerçekleştirin:**
+**HackerOne için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Merhaba uygulamalar listesinde **HackerOne**.
+2. Uygulamalar listesinde **HackerOne**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-hackerone-tutorial/tutorial_hackerone_app.png) 
 
-3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
     ![Kullanıcı atama][202] 
 
@@ -229,7 +229,7 @@ Bu bölümde, erişim tooHackerOne vererek Britta Simon toouse Azure çoklu otur
 
     ![Kullanıcı atama][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -237,13 +237,13 @@ Bu bölümde, erişim tooHackerOne vererek Britta Simon toouse Azure çoklu otur
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Son olarak, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.  
+Son olarak, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.  
 
-Merhaba HackerOne hello erişim paneli parçasında tıkladığınızda, otomatik olarak oturum açma tooyour HackerOne uygulama almanız gerekir.
+Erişim paneli HackerOne parçasında tıklattığınızda, otomatik olarak HackerOne uygulamanıza açan.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

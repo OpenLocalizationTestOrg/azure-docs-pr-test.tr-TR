@@ -1,6 +1,6 @@
 ---
-title: "Azure anahtar kasası etkileyen bir Azure hizmet kesintisi hello olayı içinde aaaWhat toodo | Microsoft Docs"
-description: "Azure anahtar kasası etkileyen bir Azure hizmet kesintisi hello olayı içinde hangi toodo öğrenin."
+title: "Azure anahtar kasası etkiler kesintisi hizmet durumunda Azure yapmanız gerekenler | Microsoft Docs"
+description: "Azure anahtar kasası etkileyen bir Azure hizmet kesintisi durumunda yapmanız gerekenler hakkında bilgi edinin."
 services: key-vault
 documentationcenter: 
 author: adamglick
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: sumedhb;aglick
-ms.openlocfilehash: 88eec82ada401a28323b3eea126168185ba4cdb0
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6419d54c54e7d19103419262b79e7a5268b2268c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure anahtar kasası kullanılabilirlik ve artıklık
-Azure anahtar kasası artıklık toomake hello bileşenleri tek tek hizmet başarısız olsa bile, anahtarları ve gizli anahtarları kullanılabilir tooyour uygulama kalmasını çok katmanlı özellikleri.
+Azure anahtar kasası hizmetinin bileşenleri tek tek başarısız olsa bile anahtarları ve gizli anahtarları uygulamanıza kullanılabilir olarak kaldıklarından emin olmak için artıklık birden çok katman özellikleri.
 
-Merhaba anahtar kasanızı içeriğini hello bölge ve tooa ikincil bölge içinde en az 150 mil hemen ancak hello içinde çoğaltılır aynı coğrafi konum. Bu anahtarları ve gizli anahtarları, yüksek dayanıklılık tutar. Merhaba bkz [Azure bölgeleri eşleştirilmiş](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions) belirli bir bölge çiftleri hakkındaki ayrıntılar için belge.
+Anahtar kasanızı içeriğini, bölge içinde ve ikincil bir bölgeye en az 150 mil hemen ancak aynı Coğrafya içinde çoğaltılır. Bu anahtarları ve gizli anahtarları, yüksek dayanıklılık tutar. Bkz: [Azure bölgeleri eşleştirilmiş](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions) belirli bir bölge çiftleri hakkındaki ayrıntılar için belge.
 
-Merhaba anahtar kasası hizmetinde bileşenleri tek tek başarısız olursa, diğer bileşenleri hello bölge içinde istek toomake işlevlerin düşüşü olmadan olduğundan emin tooserve içinde adım. Tüm eylem tootrigger tootake gerekmez bu. Otomatik olarak gerçekleşir ve saydam tooyou olacaktır.
+Anahtar kasası hizmetinde bileşenleri tek tek başarısız olursa, bölge içindeki diğer bileşenleri isteğiniz işlevlerin düşüşü olmadan olduğundan emin olmak için hizmet adımı. Bu tetiklemek için herhangi bir eylemde bulunmanız gerekmez. Otomatik olarak gerçekleşir ve size saydam olacaktır.
 
-Tüm bir Azure bölgesi kullanılamıyor hello ender olayda, bu bölgedeki Azure anahtar kasası, yaptığınız hello istekleri otomatik olarak yönlendirilir (*devredilir*) tooa ikincil bölge. Merhaba birincil bölge yeniden kullanılabilir duruma geldiğinde, istekleri geri yönlendirilir (*geri başarısız*) toohello birincil bölge. Yeniden, bu otomatik olarak gerçekleşir çünkü tootake herhangi bir eylem gerekmez.
+Ender olayda, tüm bir Azure bölgesi kullanılamıyor, bu bölgedeki Azure anahtar kasası, yaptığınız istekleri otomatik olarak yönlendirilir (*devredilir*) ikincil bir bölgeye. Birincil bölge yeniden kullanılabilir duruma geldiğinde, istekleri geri yönlendirilir (*geri başarısız*) birincil bölge için. Yeniden, bu otomatik olarak gerçekleşir çünkü herhangi bir eylemde bulunmanız gerekmez.
 
-Farkında birkaç uyarılar toobe vardır:
+Dikkat edilmesi gereken birkaç uyarılar vardır:
 
-* Bir bölge yük devretme Hello olayda onu hello hizmet toofail birkaç dakika sürebilir. Merhaba yük devretme işlemi tamamlanana kadar bu süre boyunca olan istekler başarısız olabilir.
+* Bölge yük devretmesi durumunda, yük devretme hizmet birkaç dakika sürebilir. Yük devretme işlemi tamamlanana kadar bu süre boyunca olan istekler başarısız olabilir.
 * Bir yük devretme işlemi tamamlandıktan sonra anahtar kasanızı salt okunur modda değil. Bu modda desteklenen istekleri şunlardır:
   * Anahtar kasalarının listesi
   * Anahtar kasalarını özelliklerini alır

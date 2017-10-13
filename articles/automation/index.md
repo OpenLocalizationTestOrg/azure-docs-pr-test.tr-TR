@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure Otomasyon belgelerini - öğreticileri, API Başvurusu | Microsoft Docs"
-description: "Nasıl toouse Otomasyon tooautomate işlemleri ve yapılandırma yönetimi olarak sipariş toosave saat ve normal yönetim görevlerinin güvenilirliğini artırmak öğrenin."
+title: "Azure Otomasyonu Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Otomasyon’u kullanarak zaman tasarrufu yapmak ve düzenli yönetim görevlerinin güvenilirliğini artırmak amacıyla işlemleri ve yapılandırma yönetimini nasıl otomatikleştirebileceğinizi öğrenin."
 services: automation
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: eda979bac2434d9b4a91a4e661f5b46a6540a1d2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: ed25b6abaacbdd44b718a1a5febce5a02dacc334
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automation-documentation"></a>Otomasyon Belgeleri
 
-Bulut ortamında gerçekleştirilen normal yönetim görevlerinin güvenilirliğini toouse toosave zaman ve artış nasıl hello öğrenin. Öğreticiler, API başvuru ve diğer belgelerin nasıl tooautomate runbook'ları kullanarak işler veya istenen durum yapılandırması kullanarak yapılandırma yönetimi otomatikleştirmek gösterir.
+Otomasyon’u kullanarak zaman tasarrufu yapma ve bir bulut ortamında gerçekleştirilen düzenli yönetim görevlerinin güvenilirliğini artırma hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, runbook’ları kullanarak işlemleri otomatikleştirme ya da İstenen Durum Yapılandırmasını kullanarak yapılandırmayı otomatikleştirme ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>

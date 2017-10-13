@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure Redis önbelleği belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
-description: "Azure Redis önbelleği toouse, güvenli veri önbelleği ve uygulamaları hızlı veren Mesajlaşma Aracısı toodata nasıl erişim hakkında bilgi edinin. Öğreticiler, API başvuruları ve daha fazlası."
+title: "Azure Redis Önbelleği Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Uygulamaların verilere hızla erişmesini sağlayan güvenli bir veri arabelleği ve mesajlaşma aracısı olan Azure Redis Önbelleği’ni nasıl kullanacağınızı öğrenin. Öğreticiler, API başvuruları ve daha fazlası."
 services: redis-cache
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 1344e242321b84fe2fbd3bc466a3cb82aba177f4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 6528d900ba3641189f8000db8d2535c9b215d148
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="redis-cache-documentation"></a>Redis Önbelleği Belgeleri
 
-Azure Redis önbelleği toouse, güvenli veri önbelleği ve uygulamalar için yüksek verimlilik ve düşük gecikmeli erişim toodata sağlar Mesajlaşma Aracısı nasıl öğrenin. Öğreticiler, API başvuru ve diğer belgeleri göster, nasıl Azure ile ilgili herhangi bir uygulamadan toouse Redis önbelleği.
+Uygulamaların verilere yüksek hacimli ve düşük gecikmeli bir şekilde erişmesini sağlayan güvenli bir veri arabelleği ve mesajlaşma aracısı olan Azure Redis Önbelleği’ni nasıl kullanacağınızı öğrenin. Öğreticiler, API başvuruları ve diğer belgeler, Azure’daki herhangi bir uygulamadan Redis Önbelleği’ni nasıl kullanabileceğiniz ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>

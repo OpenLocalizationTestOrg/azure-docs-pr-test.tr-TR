@@ -1,6 +1,6 @@
 ---
-title: aaaRDG ve RADIUS kullanan Azure MFA sunucusu | Microsoft Docs
-description: "Bu, Uzak Masaüstü (RD) ağ geçidi ve RADIUS kullanan Azure multi-Factor Authentication Sunucusu'nu dağıtmada yardımcı olacak hello Azure multi-Factor authentication sayfasıdır."
+title: RADIUS kullanan RDG ve Azure MFA Sunucusu | Microsoft Docs
+description: "Bu, RADIUS kullanan Uzak Masaüstü (RD) Ağ Geçidi ve Azure Multi-Factor Authentication Sunucusu’nu dağıtmada yardımcı olacak Azure Multi-factor authentication sayfasıdır."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -15,65 +15,65 @@ ms.date: 06/27/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.openlocfilehash: fd280e9b6ff90c82927cffe593c4f1fda7047842
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 3b4181701c5df03a3df7e0446b313eac201ad99e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>RADIUS kullanan Uzak Masaüstü Ağ Geçidi ve Azure Multi-Factor Authentication Sunucusu
-Genellikle, Uzak Masaüstü (RD) ağ geçidi hello yerel ağ ilkesi Hizmetleri (NPS) tooauthenticate kullanıcılar kullanır. Bu makalede nasıl tooroute RADIUS çıkışı Uzak Masaüstü Ağ Geçidi hello istekleri açıklar (aracılığıyla yerel NPS hello) toohello çok faktörlü kimlik doğrulama sunucusu. Hello Azure MFA ve RD Ağ Geçidi birleşimi kullanıcılarınız kendi iş ortamlarında yerden erişebileceğiniz anlamına gelir güçlü kimlik doğrulaması gerçekleştirirken. 
+Uzak Masaüstü (RD) Ağ Geçidi genellikle kullanıcıların kimliğini doğrulamak için yerel Ağ İlkesi Hizmetleri’ni (NPS) kullanır. Bu makale, Uzak Masaüstü Ağ Geçidi’ndeki RADIUS isteklerini (yerel NPS üzerinden) Multi-Factor Authentication Sunucusu’na yönlendirmeyi açıklar. Azure MFA ve RD Ağ Geçidi bileşimi, kullanıcılarınızın güçlü kimlik doğrulaması ile diledikleri yerden çalışma ortamlarına erişebileceği anlamına gelir. 
 
-Terminal hizmetleri için Windows kimlik doğrulaması Server 2012 R2 için desteklenmeyen olduğundan, RD Ağ geçidi ve RADIUS toointegrate MFA sunucusu ile kullanın. 
+Server 2012 R2’de terminal hizmetleri için Windows Kimlik Doğrulaması desteklenmediğinden, MFA Sunucusu ile tümleştirmek için RD Ağ Geçidi ve RADIUS kullanın. 
 
-Hello Azure çok faktörlü kimlik doğrulama sunucusu hello RADIUS isteği hangi proxy'leri toohello NPS hello Uzak Masaüstü Ağ Geçidi sunucusu üzerinde geri ayrı bir sunucuya yükleyin. NPS hello kullanıcı adı ve parolayı doğruladıktan sonra yanıt toohello çok faktörlü kimlik doğrulama sunucusu döndürür. Ardından, hello MFA sunucusu hello ikinci faktörlü kimlik doğrulaması gerçekleştirir ve bir sonuç toohello ağ geçidi döndürür.
+Multi-Factor Authentication Sunucusu'nu, RADIUS isteğini Uzak Masaüstü Ağ Geçidi Sunucusu'ndaki NPS'ye sunan ayrı bir sunucuya yükleyin. NPS, kullanıcı adını ve parolayı doğruladıktan sonra Multi-Factor Authentication Sunucusu'na bir yanıt gönderir. Ardından MFA Sunucusu, ikinci kimlik doğrulama faktörünü uygular ve ağ geçidine bir sonuç gönderir.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-- Etki alanına katılmış bir Azure MFA Sunucusu. Zaten yüklüyse yoksa, hello adımları [hello Azure multi-Factor Authentication sunucusu ile çalışmaya başlama](multi-factor-authentication-get-started-server.md).
+- Etki alanına katılmış bir Azure MFA Sunucusu. Henüz yüklü değilse, [Azure Multi-Factor Authentication Sunucusu’nu kullanmaya başlama](multi-factor-authentication-get-started-server.md) bölümündeki adımları izleyin.
 - Ağ İlkesi Hizmetleri’nde kimlik doğrulaması yapan bir Uzak Masaüstü Ağ Geçidi.
 
-## <a name="configure-hello-remote-desktop-gateway"></a>Merhaba Uzak Masaüstü Ağ Geçidi yapılandırma
-Merhaba RD Ağ Geçidi toosend RADIUS kimlik doğrulaması tooan Azure multi-Factor Authentication Sunucusu'nu yapılandırın. 
+## <a name="configure-the-remote-desktop-gateway"></a>Uzak Masaüstü Ağ Geçidini yapılandırma
+RD Ağ Geçidini, bir Azure Multi-Factor Authentication Sunucusu’na RADIUS kimlik doğrulaması gönderecek şekilde yapılandırın. 
 
-1. RD Ağ Geçidi Yöneticisi ' nde hello sunucu adına sağ tıklayın ve seçin **özellikleri**.
-2. Toohello Git **RD CAP Deposu** sekmesinde ve seçin **NPS çalıştıran merkez sunucusu**. 
-3. Bir veya daha fazla Azure multi-Factor Authentication sunucusu RADIUS sunucuları olarak hello adı ya da her sunucunun IP adresini girerek ekleyin. 
+1. RD Ağ Geçidi Yöneticisi’nde sunucu adına sağ tıklayıp **Özellikler**’i seçin.
+2. **RD CAP Deposu** sekmesine gidin ve **NPS çalıştıran merkezi sunucu** öğesini seçin. 
+3. Her bir sunucunun adını veya IP adresini girerek, RADIUS sunucuları olarak bir ya da daha fazla Azure Multi-Factor Authentication Sunucusu ekleyin. 
 4. Her sunucu için paylaşılan gizlilik oluşturun.
 
 ## <a name="configure-nps"></a>NPS yapılandırma
-Merhaba RD Ağ Geçidi NPS toosend hello RADIUS isteği tooAzure çok faktörlü kimlik doğrulaması kullanır. NPS tooconfigure, ilk tooprevent hello iki aşamalı doğrulamayı tamamlanmadan önce RD Ağ Geçidi zaman aşımına uğramadan hello hello zaman aşımı ayarlarını değiştirin. Ardından, MFA sunucunuzdan NPS tooreceive RADIUS kimlik doğrulamalarını güncelleştirin. Aşağıdaki yordam tooconfigure NPS hello kullan:
+RD Ağ Geçidi, Azure Multi-Factor Authentication’a RADIUS isteği göndermek için NPS kullanır. NPS’yi yapılandırmak için, RD Ağ Geçidinin iki adımlı doğrulama tamamlanmadan zaman aşımına uğramasını önlemek üzere ilk olarak zaman aşımı ayarlarını değiştirin. Ardından, MFA sunucunuzdan RADIUS kimlik doğrulamalarını almak için NPS’yi güncelleştirin. NPS’yi yapılandırmak için aşağıdaki yordamı kullanın:
 
-### <a name="modify-hello-timeout-policy"></a>Merhaba zaman aşımı ilkesini değiştirme
+### <a name="modify-the-timeout-policy"></a>Zaman aşımı ilkesini değiştirme
 
-1. NPS'de, hello açmak **RADIUS istemcisi ve sunucusu** sol sütun ve select hello menüde **uzak RADIUS sunucu grupları**. 
-2. Select hello **TH Ağ Geçidi sunucusu GRUBUNU**. 
-3. Toohello Git **Yük Dengeleme** sekmesi. 
-4. Her iki hello değiştirme **bırakılan isteği kabul edilmeden önce yanıt olmadan saniye sayısı** ve hello **sunucu olarak kullanılamaz olduğu belirlendiğinde isteklerinin arasındaki saniye sayısını** toobetween 30 ve 60 saniye sayısı. (Bu hello sunucu hala kimlik doğrulaması sırasında zaman aşımına fark ederseniz, tekrar buraya gelin ve hello saniye sayısını artırın.)
-5. Toohello Git **kimlik doğrulama/hesap** sekmesinde ve hello RADIUS bağlantı noktalarının eşleşme hello bağlantı noktaları, çok faktörlü kimlik doğrulama sunucu dinliyor bu hello belirtilen denetleyin.
+1. NPS’de, sol sütundaki **RADIUS İstemcileri ve Sunucu** menüsünü açın ve **Uzak RADIUS Sunucu Grupları**’nı seçin. 
+2. **TS AĞ GEÇİDİ SUNUCU GRUBU**’nu seçin. 
+3. **Yük Dengeleme** sekmesine gidin. 
+4. **İsteğin bırakılmış kabul edilmesine kadar yanıtsız geçen saniye sayısı** ve **Sunucu kullanılamaz olarak tanımlandığında istekler arasındaki saniye sayısı** değerlerini 30 ile 60 saniye arasında olacak şekilde ayarlayın. (Kimlik doğrulaması sırasında sunucu yine de zaman aşımına uğrarsa, buraya geri dönerek saniye sayısını artırabilirsiniz.)
+5. **Kimlik Doğrulama/Hesap** sekmesine gidin ve belirtilen RADIUS bağlantı noktalarının, Multi-Factor Authentication Sunucusu’nun dinlediği bağlantı noktalarıyla eşleştiğinden emin olun.
 
-### <a name="prepare-nps-tooreceive-authentications-from-hello-mfa-server"></a>NPS tooreceive kimlik doğrulamaları hello MFA sunucusu gelen hazırlama
+### <a name="prepare-nps-to-receive-authentications-from-the-mfa-server"></a>NPS’yi MFA Sunucusundan kimlik doğrulamaları almaya hazırlama
 
-1. Sağ **RADIUS istemcileri** RADIUS istemcileri ve sunucuları sol sütun ve select hello altında **yeni**.
-2. Hello Azure multi-Factor Authentication sunucusu RADIUS istemcisi olarak ekleyin. Kolay bir ad seçin ve paylaşılan gizlilik belirtin.
-3. Açık hello **ilkeleri** sol sütun ve select hello menüde **bağlantı isteği ilkeleri**. RD Ağ Geçidi yapılandırıldığında oluşturulan TS AĞ GEÇİDİ KİMLİK DOĞRULAMA İLKESİ adlı bir ilke görürsünüz. Bu ilke RADIUS isteklerini toohello çok faktörlü kimlik doğrulama sunucusu iletir.
+1. Sol sütundaki RADIUS İstemcileri ve Sunucuları altında bulunan **RADIUS İstemcileri**’ne sağ tıklayıp **Yeni**’yi seçin.
+2. RADIUS istemcisi olarak Azure Multi-Factor Authentication Sunucusu ekleme Kolay bir ad seçin ve paylaşılan gizlilik belirtin.
+3. Sol sütundaki **İlkeler** menüsünü açıp **Bağlantı İsteği İlkeleri**’ni seçin. RD Ağ Geçidi yapılandırıldığında oluşturulan TS AĞ GEÇİDİ KİMLİK DOĞRULAMA İLKESİ adlı bir ilke görürsünüz. Bu ilke RADIUS isteklerini Multi-Factor Authentication Sunucusu’na iletir.
 4. **TS AĞ GEÇİDİ KİMLİK DOĞRULAMA İLKESİ**’ne sağ tıklayıp **İlkeyi Yinele**’yi seçin. 
-5. Açık hello yeni ilke ve Git toohello **koşullar** sekmesi.
-6. Merhaba istemci kolay adı hello Azure multi-Factor Authentication sunucusu RADIUS istemcisi için 2. adımda ayarlanan hello kolay adı ile eşleşen bir koşulu ekleyin. 
-7. Toohello Git **ayarları** sekmesinde ve seçin **kimlik doğrulama**.
-8. Merhaba kimlik doğrulama sağlayıcısı çok değiştirme**bu sunucuda istekler için kimlik doğrulaması**. Bu ilke, NPS Azure MFA sunucusu hello RADIUS isteği aldığında, hello kimlik doğrulamasını bir RADIUS isteği geri toohello bir döngü koşuluna neden olacak Azure multi-Factor Authentication Sunucusu'nu yerel olarak göndermek yerine oluşur sağlar. 
-9. tooprevent Döngü koşulu hello yeni ilke hello özgün hello ilkesinde YUKARIDA sıralanır emin olun **bağlantı isteği ilkeleri** bölmesi.
+5. Yeni ilkeyi açıp **Koşullar** sekmesine gidin.
+6. Azure Multi-Factor Authentication Sunucusu RADIUS istemcisi için 2. adımda ayarladığınız Kolay adla eşleşen bir İstemci Kolay Adı koşulu ekleyin. 
+7. **Ayarlar** sekmesine gidin ve **Kimlik Doğrulaması**’nı seçin.
+8. Kimlik Doğrulama Sağlayıcısı’nı **Bu sunucu üzerindeki isteklerin kimliğini doğrula** olarak değiştirin. Bu ilke, NPS Azure MFA Sunucusu’ndan bir RADIUS isteği aldığında, döngü koşuluna neden olacak şekilde RADIUS isteğini Azure Multi-Factor Authentication Sunucusu’na geri göndermek yerine, kimlik doğrulamasının yerel olarak gerçekleştirilmesini sağlar. 
+9. Döngü koşulunu önlemek için yeni ilkenin **Bağlantı İsteği İlkeleri** bölmesindeki özgün ilkenin ÜZERİNDE bulunduğundan emin olun.
 
 ## <a name="configure-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication’ı yapılandırma
 
-Hello Azure multi-Factor Authentication sunucusu, RD Ağ geçidi ile NPS arasında bir RADIUS proxy olarak yapılandırılır.  Merhaba RD Ağ Geçidi sunucusundan ayrı bir etki alanına katılmış bir sunucuya yüklenmesi gerekir. Aşağıdaki yordam tooconfigure hello Azure çok faktörlü kimlik doğrulama sunucusu hello kullanın.
+Azure Multi-Factor Authentication Sunucusu, RD Ağ Geçidi ile NPS arasında bir RADIUS proxy olarak yapılandırılmıştır.  RD AĞ Geçidi sunucusundan ayrı bir etki alanına katılmış sunucuya yüklenmelidir. Azure Multi-Factor Authentication Sunucusu’nu yapılandırmak için aşağıdaki yordamı uygulayın.
 
-1. Hello Azure multi-Factor Authentication Sunucusu'nu açın ve hello RADIUS kimlik doğrulaması simgesini seçin. 
-2. Merhaba denetleyin **RADIUS kimlik doğrulamasını etkinleştir** onay kutusu.
-3. Merhaba istemciler sekmesinde hello bağlantı noktalarını eşleşen NPS'de yapılandırılanlarla emin olun sonra seçin **Ekle**.
-4. Merhaba RD Ağ Geçidi sunucusu IP adresi, uygulama adı (isteğe bağlı) ve paylaşılan gizlilik ekleyin. Merhaba paylaşılan gizli gereksinimlerini toobe Merhaba, aynı, hem hello Azure multi-Factor Authentication sunucusu hem de RD Ağ geçidi.
-3. Toohello Git **hedef** sekmesi ve select hello **RADIUS sunucularını** radyo düğmesi.
-4. Seçin **Ekle** başlangıç IP adresi, paylaşılan gizliliği ve bağlantı noktaları hello NPS sunucusunun girin. Merkezi NPS kullanmadığınız sürece, hello RADIUS istemcisi ve RADIUS hedefi olan hello aynı. Merhaba paylaşılan gizliliği hello hello NPS sunucusunun RADIUS istemci bölümünde bir kurulumunda hello eşleşmesi gerekir.
+1. Azure Multi-Factor Authentication Sunucusu’nu açın ve RADIUS Kimlik Doğrulaması simgesini seçin. 
+2. **RADIUS kimlik doğrulamasını etkinleştir** onay kutusunu işaretleyin.
+3. İstemciler sekmesinde, bağlantı noktalarının NPS’de yapılandırılanlarla eşleştiğinden emin olun ve **Ekle** düğmesini seçin.
+4. RD Ağ Geçidi sunucusu IP adresi, uygulama adı (isteğe bağlı) ve paylaşılan gizlilik ekleyin. Paylaşılan gizliliğin Azure Multi-Factor Authentication Sunucusu’nda ve RD Ağ Geçidinde aynı olması gerekir.
+3. **Hedef** sekmesine gidin ve **RADIUS sunucuları** radyo düğmesini seçin.
+4. **Ekle**’yi seçip IP adresi, paylaşılan gizlilik ve NPS sunucusu bağlantı noktalarını girin. Merkezi NPS kullanmadığınız sürece, RADIUS istemcisi ile RADIUS hedefi aynıdır. Paylaşılan gizliliğin, NPS sunucusunun RADIUS istemcisi bölümündekiyle eşleşmesi gerekir.
 
 ![Radius Kimlik Doğrulaması](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
@@ -81,4 +81,4 @@ Hello Azure multi-Factor Authentication sunucusu, RD Ağ geçidi ile NPS arasın
 
 - Azure MFA ve [IIS web uygulamalarını](multi-factor-authentication-get-started-server-iis.md) tümleştirme
 
-- Hello cevaplar [Azure çok faktörlü kimlik doğrulaması ile ilgili SSS](multi-factor-authentication-faq.md)
+- [Azure Multi-Factor Authentication SSS](multi-factor-authentication-faq.md) bölümünde sorularınızın yanıtlarını alın

@@ -1,6 +1,6 @@
 ---
-title: "aaaCreating ve hello yayımcı hesap kaydetme | Microsoft Docs"
-description: "Onay sonrasında, çeşitli satabilir miyim şekilde Microsoft Developer hesabı oluşturma için yönergeler hello Azure Marketi türlerinde sunar."
+title: "Oluşturma ve yayımcı hesap kaydetme | Microsoft Docs"
+description: "Azure Market türlerinde onay sonrasında, çeşitli satabilir miyim şekilde Microsoft Developer hesabı oluşturma için yönergeler sunar."
 services: Azure Marketplace
 documentationcenter: 
 author: HannibalSII
@@ -14,61 +14,61 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: hascipio
-ms.openlocfilehash: 27847d5a0e5c7579111cd6f7278f5d74dfea37a3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 642e4a2d11ef5a92f5ab46bc4872414966b04c0d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-microsoft-developer-account"></a>Microsoft Developer hesabı oluşturma
-Bu makalede hello gerekli hesap oluşturma ve kayıt işlemini toobecome hello Azure Marketi için onaylanmış bir Microsoft Developer aracılığıyla anlatılmaktadır.
+Bu makalede, kayıt işlemi için Azure Marketi onaylanmış bir Microsoft Developer olmasını ve gerekli hesap oluşturma açıklanmaktadır.
 
 ## <a name="1-create-a-microsoft-account"></a>1. Bir Microsoft hesabı oluşturun
-toostart hello yayımlama işlemi, toocreate bir Microsoft hesabı gerekir. Bu hesap tooboth hello içinde kullanılan tooregister olacaktır **Microsoft Developer Center'da** ve **Azure yayımlama portalında**. Azure Market Teklifleriniz için yalnızca bir Microsoft hesabı olması gerekir. Belirli tooservices olmamalıdır veya sunar.
+Yayımlama işlemini başlatmak için bir Microsoft hesabı oluşturmanız gerekir. Bu hesap için her ikisini de kaydetmek için kullanılan **Microsoft Developer Center'da** ve **Azure yayımlama portalında**. Azure Market Teklifleriniz için yalnızca bir Microsoft hesabı olması gerekir. Hizmetleri veya teklifleri özgü olmamalıdır.
 
-Merhaba kullanıcı adı forms hello adresi etki alanınızda olmalıdır ve BT ekibi tarafından denetlenir. İlgili etkinlikler yayımlama tüm hello bu hesabı üzerinden yapılması gerekir.
+Kullanıcı adı forms adresi etki alanınızda olmalıdır ve BT ekibi tarafından denetlenir. Tüm yayımlama ilgili etkinlikleri bu hesabı üzerinden yapılması gerekir.
 
 > [!WARNING]
-> Sözcükler ister **"Azure"** ve **"Microsoft"** Microsoft hesabı kaydı için desteklenmez. Bu sözcükleri toocomplete hello hesap oluşturma ve kayıt işlemini kullanmaktan kaçının.
+> Sözcükler ister **"Azure"** ve **"Microsoft"** Microsoft hesabı kaydı için desteklenmez. Hesap oluşturma ve kayıt işlemini tamamlamak için bu sözcükleri kullanmaktan kaçının.
 >
 >
 
 ### <a name="guidelines-for-company-accounts"></a>Şirket için yönergeler
-Birden çok kişi oturum hello hello hesap açılan Microsoft hesabı oturum açarak tooaccess hello hesap gerekecekse bir şirket hesabı oluştururken bu yönergeleri izleyin.
+Hesap açılan Microsoft hesabı oturum açarak hesabınıza erişmek birden çok kişi gerekecekse bir şirket hesabı oluştururken bu yönergeleri izleyin.
 
 > [!Important]
-> Önemli tooallow birden çok kullanıcı tooaccess Geliştirici Merkezi hesabınızda hello hesap oturum bireysel imzalama tarafından Azure Active Directory tooassign rolleri tooindividual erişebilecek, kullanılmasını öneririz Azure AD kimlik. Daha fazla bilgi için bkz: [hesap kullanıcılar yönetmek](https://msdn.microsoft.com/en-us/windows/uwp/publish/manage-account-users).
+> Önemli olanak Geliştirici Merkezi hesabınızda erişmek birden fazla kullanıcı, Azure Active Directory hesabı oturum bireysel oturum açarak erişebilir tek tek kullanıcılar rolleri atamak için kullanmanızı öneririz Azure AD kimlik. Daha fazla bilgi için bkz: [hesap kullanıcılar yönetmek](https://msdn.microsoft.com/en-us/windows/uwp/publish/manage-account-users).
 
-* Microsoft hesabınızı tooyour şirketinizin etki alanı, ancak tek tek tooa ait bir e-posta adresini kullanarak oluşturmak — Örneğin, windowsapps@fabrikam.com.
-* Toothis Microsoft hesabı toohello olabildiğince az sayıda geliştiriciler erişimi kısıtlayın.
-* Tooaccess gereksinim duyan herkesin içeren bir şirket e-posta dağıtım listesini ayarlamak hello Geliştirici hesabını ve bu e-posta adresi tooyour güvenlik bilgisi ekleyin. Bu tüm gerektiğinde Merhaba listesi tooreceive güvenlik kodlarını hello çalışanların ve toomanage Microsoft hesabınızın güvenlik bilgilerini sağlar. Bir dağıtım listesi oluşturarak uygun değilse, hello tek tek e-posta hesabı hello sahibi istendiğinde toobe kullanılabilir tooaccess ve paylaşımı hello güvenlik kodu gerekir (yeni güvenlik bilgilerinizi toohello hesabı eklendiğinde gibi veya gelen erişilmelidir bir Yeni aygıt).
-* Uzantı gerektirmez ve erişilebilir tookey takım üyeleri olan bir şirket telefon numarası ekleyin.
-* Genel olarak, geliştiricilerin güvenilen cihazlar toolog tooyour şirketin Geliştirici hesabı kullanmak vardır. Tüm anahtar ekip üyelerinin erişim güvenilen toothese aygıtları olması gerekir. Bu güvenlik kodlarını toobe hello hesap erişirken gönderilen hello gereksinimini azaltır.
-* Güvenilir olmayan bir PC tooallow erişim toohello hesabından ihtiyacınız varsa, bu erişim tooa en fazla beş geliştiricilerin sınırlayın. İdeal olarak, bu geliştiriciler hello hesap hello paylaşmak makinelerden aynı coğrafi ve ağ konumu erişim.
-* Şirketinizin güvenlik bilgisi en sık gözden [https://account.live.com/proofs/Manage](https://account.live.com/proofs/Manage) toomake tüm geçerli olduğundan emin.
+* Şirketinizin etki alanı, ancak tek ait bir e-posta adresi kullanarak Microsoft hesabınızı oluşturma — Örneğin, windowsapps@fabrikam.com.
+* Bu Microsoft hesabını geliştiricileri en küçük olası sayısına erişimi sınırlayın.
+* Geliştirici hesabını erişmesi gereken herkes içeren bir şirket e-posta dağıtım listesini ayarlamak ve güvenlik bilgilerinizi bu e-posta adresi ekleyin. Bu tamamı, listede gerektiğinde güvenlik kodlarını alır ve Microsoft hesabınızın güvenlik bilgilerini yönetmenize olanak sağlar. Bir dağıtım listesi oluşturarak uygun değilse, tek tek e-posta hesabının sahibi erişmek ve güvenlik kodunu (örneğin, yeni güvenlik bilgileri hesabınıza eklendiğinde veya yeni bir CİHAZDAN zaman erişilmelidir) istendiğinde paylaşmak kullanılabilir olması gerekir.
+* Uzantı gerektirmez ve anahtar takım üyeleri için erişilebilir olan bir şirket telefon numarası ekleyin.
+* Genel olarak, güvenilen cihazları şirketinizin Geliştirici hesabınızla oturum açmak için kullandığınız geliştiriciler vardır. Tüm anahtar ekip üyelerinin bu güvenilen cihazlara erişimi olmalıdır. Bu hesap erişirken gönderilmek üzere güvenlik kodlarını gereksinimini azaltır.
+* Güvenilir olmayan bir Bilgisayardan hesabına erişime ihtiyacınız varsa, en fazla beş geliştiriciler bu erişimi sınırlayın. İdeal olarak, bu geliştiriciler hesabına erişmek ve bu da aynı coğrafi paylaşan ve ağ konumu makinelerden.
+* Şirketinizin güvenlik bilgisi en sık gözden [https://account.live.com/proofs/Manage](https://account.live.com/proofs/Manage) tüm geçerli olduğundan emin olmak için.
 
-Geliştirici hesabınızda öncelikle Güvenilen bilgisayarlarından erişilmesi. Bir toohello sayısı sınırı hesap hafta başına oluşturulan kodlarını olduğundan bu önemlidir. Ayrıca, hello en sorunsuz oturum açma deneyimi sağlar.
+Geliştirici hesabınızda öncelikle Güvenilen bilgisayarlarından erişilmesi. Hesap hafta başına oluşturulan kodlarını sayısına bir sınır olduğundan bu önemlidir. Ayrıca, en sorunsuz oturum açma deneyimi sağlar.
 
 Ek Geliştirici hesabı yönergeleri ve güvenlik hakkında daha fazla bilgi için tıklatın [burada](https://msdn.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
 
 ### <a name="instructions"></a>Yönergeleri
-1. Yeni bir Chrome Incognito veya Internet Explorer etmediğinizden gözatma oturumu tooensure imzalı InPrivate tooan varolan hesabında açın.
-2. Merhaba e-posta kaydetmek (yukarıdaki hello yönergeleri başına örneğin windowsapp@fabrikam.com) hello bağlantı kullanarak bir Microsoft hesabı olarak [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx). Aşağıdaki Hello yönergeleri izleyin.
+1. Yeni bir Chrome Incognito veya Internet Explorer gözatma oturumu InPrivate, var olan bir hesapla oturum emin olmak için açın.
+2. E-posta kaydetmek (yukarıdaki yönergeleri başına örneğin windowsapp@fabrikam.com) bağlantısını kullanarak bir Microsoft hesabı olarak [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx). Aşağıdaki yönergeleri izleyin.
 
-   1. Bir Microsoft hesabı olarak hesabınızı kaydedilirken tooprovide geçerli bir telefon numarası, bir hesap doğrulama kodu bir kısa mesaj veya otomatik arama hello sistem toosend için gerekir.
-   2. Bir Microsoft hesabı olarak hesabınızı kayıt sırasında otomatik bir e-posta hesabı doğrulama almak için tooprovide geçerli e-posta kimliği gerekir.
-3. Merhaba e-posta adresine gönderilen toohello DL doğrulayın.
-4. Şimdi hazır toouse hello yeni Microsoft hesabında hello Microsoft Developer Center'da olduğunuz.
+   1. Bir Microsoft hesabı olarak hesabınızı kayıt sırasında bir hesap doğrulama kodu kısa mesajla veya otomatik arama göndermek için geçerli bir telefon numarası sistemi için sağlamanız gerekir.
+   2. Bir Microsoft hesabı olarak hesabınızı kayıt sırasında otomatik bir e-posta hesabı doğrulama almak için geçerli bir e-posta kimliği sağlamanız gerekir.
+3. DL gönderilen e-posta adresini doğrulayın.
+4. Artık Microsoft Developer Center'da yeni bir Microsoft hesabı kullanmak hazırsınız.
 
 ## <a name="2-register-your-account-in-microsoft-developer-center"></a>2. Hesabınızı Microsoft Developer Center'da kaydetme
-Merhaba Microsoft Developer Center'da kullanılan tooregister hello şirket bilgilerini bir kez ' dir. Merhaba registrant hello şirketin geçerli temsilcisi olmalıdır ve kendi kişisel bilgilerinin bir şekilde toovalidate olarak kimliklerini sağlamanız gerekir. kaydetme hello kişi hello şirket için paylaşılan bir Microsoft hesabı kullanmanız gerekir **ve hello hello Azure yayımlama portalında aynı hesabı kullanılır.** Toomake toocreate bir çalışmadan önce şirketinizin bir Microsoft Developer Center'da hesabı zaten yok emin denetlemeniz gerekir. Merhaba işlemi sırasında biz şirket adresi bilgileri, banka hesabı bilgileri toplamak ve bilgi vergi. Bu bilgiler genellikle finans bölümüyle veya işletmeyle ilgili kişilerden alınabilir.
+Microsoft Developer Center'da şirket bilgilerini bir kez kaydetmek için kullanılır. Registrant şirketin geçerli temsilcisi olmalıdır ve kullanıcıların kimliğini doğrulamak için bir yol olarak kendi kişisel bilgilerini sağlamanız gerekir. Kaydetme kişinin şirket için paylaşılan bir Microsoft hesabı kullanmanız gerekir **ve aynı hesabı Azure yayımlama portalında kullanılmalıdır.** Oluşturmak çalışmadan önce şirketinizin bir Microsoft Developer Center'da hesabı zaten yok emin olmak için kontrol etmeniz gerekir. İşlemi sırasında biz şirket adresi bilgileri, banka hesabı bilgileri toplamak ve bilgi vergi. Bu bilgiler genellikle finans bölümüyle veya işletmeyle ilgili kişilerden alınabilir.
 
 > [!IMPORTANT]
-> Geliştirici profili sipariş tooprogress hello aracılığıyla bileşenlerde çeşitli aşamaları teklif oluşturulmasını ve dağıtımını aşağıdaki hello tamamlamanız gerekir.
+> Çeşitli aşamaları teklif oluşturulmasını ve dağıtımını ilerleme için aşağıdaki Geliştirici profili bileşenleri tamamlamanız gerekir.
 >
 >
 
-| Geliştirici profili | toostart taslak | Hazırlama | Ücretsiz yayımlama ve çözüm şablonu | Ticari yayımlama |
+| Geliştirici profili | Taslak başlatmak için | Hazırlama | Ücretsiz yayımlama ve çözüm şablonu | Ticari yayımlama |
 | --- | --- | --- | --- | --- |
 | Şirket kayıt |Olması gerekir |Olması gerekir |Olması gerekir |Olması gerekir |
 | Vergi profili kimliği |İsteğe bağlı |İsteğe bağlı |İsteğe bağlı |Olması gerekir |
@@ -80,157 +80,157 @@ Merhaba Microsoft Developer Center'da kullanılan tooregister hello şirket bilg
 >
 
 ### <a name="register-your-company-account"></a>Şirket hesabınızı kaydetme
-1. Yeni bir Internet Explorer InPrivate veya Incognito etmediğinizden gözatma oturumu tooensure imzalı Chrome tooa kişisel hesabında açın.
-2. Çok Git[http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) tooregister kendiniz hello Dev Center'ın satıcı olarak. Lütfen devam etmeden önce önemli not aşağıdaki hello okuyun.
+1. Yeni bir Internet Explorer InPrivate veya Incognito gözatma oturumu Chrome, kişisel hesabına açmadınız emin olmak için açın.
+2. Git [http://dev.windows.com/registration?accountprogram=azure](http://dev.windows.com/registration?accountprogram=azure) kendiniz bir satıcı geliştirme Merkezi'ndeki olarak kaydetmek için. Lütfen devam etmeden önce aşağıdaki önemli not okuyun.
 
    > [!IMPORTANT]
-   > Hello Geliştirme Merkezi kayıt için kullanacağınız (bir dağıtım listesi kişilere tooremove bağımlılık önerilir) bu hello e-posta kimliği veya dağıtım listesi, ilk bir Microsoft hesabı kayıtlı olduğundan emin olun. Aksi takdirde, daha sonra lütfen bu kullanarak kaydettirin [bağlantı](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1). Ayrıca, **altında herhangi bir e-posta kimliği hello Microsoft şirket etki alanı yani @microsoft.com kullanılamaz** Dev Center kaydı için.
+   > Geliştirme Merkezi'nde kayıt için kullanacağınız (bir dağıtım listesi kişilere bağımlılığı kaldırmak için önerilir) e-posta kimliği veya dağıtım listesi konumunda olduğundan, ilk bir Microsoft hesabı kayıtlı emin olun. Aksi takdirde, daha sonra lütfen bu kullanarak kaydettirin [bağlantı](https://signup.live.com/signup?uaid=e479342fe2824efeb0c3d92c8f961fd3&lic=1). Ayrıca, **herhangi bir e-posta kimliği Microsoft şirket etki alanı altında yani @microsoft.com kullanılamaz** Dev Center kaydı için.
    >
    >
 
     ![Çizim][img-signin]
-3. Telefon numarası veya e-posta adresi aracılığıyla kimliğinizi doğrular hello "hesabınızı korumamıza yardımcı olun" Sihirbazı ' nı tamamlayın.
+3. Telefon numarası veya e-posta adresi aracılığıyla kimliğinizi doğrular "hesabınızı korumamıza yardımcı olun" Sihirbazı tamamlayın.
 
     ![Çizim][img-verify]
-4. Hello "Kayıt hesabı bilgileri" bölümü, seçin, **hesap ülke/bölge** hello açılır menüsünden.
+4. "Kayıt hesabı bilgi" bölümünde seçin, **hesap ülke/bölge** açılan menüden.
 
     ![Çizim](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_04.png)
 
    > [!WARNING]
-   > **"Satış Yeri" ülkelerde:** toosell içinde Azure Marketi hello üzerinde hizmetlerinizi sipariş, onaylanan hello "Satış Yeri" Yukarıdaki ülkelerde birinden toobe kayıtlı varlığınız gerekiyor. Ödeme ve vergi nedeniyle kısıtlamadır. Etkin olarak tooexpand ülkelerin listesi hello yakın zaman içinde arıyoruz, bu nedenle bizi izlemeye devam edin. Daha fazla bilgi için bkz: Merhaba [Market katılım ilkeleri](http://go.microsoft.com/fwlink/?LinkID=526833).
+   > **"Satış Yeri" ülkelerde:** hizmetlerinizi Azure Market'te satmak için kayıtlı varlığınız onaylanan "Satış Yeri" ülkelerin yukarıdaki birinden olması gerekir. Ödeme ve vergi nedeniyle kısıtlamadır. Etkin olarak arıyoruz ülkelerin listesi yakın gelecekte genişletin, bu nedenle bizi izlemeye devam edin. Daha fazla bilgi için bkz: [Market katılım ilkeleri](http://go.microsoft.com/fwlink/?LinkID=526833).
    >
    >
-5. "Hesap türünüz" olarak seçin **şirket** ve hello ardından **sonraki** düğmesi.
+5. "Hesap türünüz" olarak seçin **şirket** ve ardından **sonraki** düğmesi.
 
    > [!IMPORTANT]
-   > toobetter hesap türlerini anlamak ve toochoose için en iyi olduğu, Lütfen sayfayı görüntüleme [hesap türlerini, konumlarını ve ücretleri](https://msdn.microsoft.com/library/windows/apps/jj863494.aspx)
+   > Hesap türleri ve seçmek için en iyi olduğu daha iyi anlamak için lütfen sayfayı görüntülemek [hesap türlerini, konumlarını ve ücretleri](https://msdn.microsoft.com/library/windows/apps/jj863494.aspx)
    >
    >
 
     ![Çizim](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_05.png)
-6. Hello girin **yayımcı görünen adı**, genelde şirketinizin hello adı.
+6. Girin **yayımcı görünen adı**, tipik olarak, şirketinizin adı.
 
    > [!TIP]
-   > Merhaba publisher teklifiniz listelenen gider sonra Dev Center hello Azure Marketi görüntülenmez hello girdiğiniz adı görüntüler. Ancak bu olmalıdır toocomplete hello kayıt işlemini doldurulur.
+   > Teklifiniz listelenen gider sonra geliştirme Merkezi'ne girilen yayımcı görünen ad Azure Marketi'nde görüntülenmez. Ancak bu kayıt işlemini tamamlamak için doldurulması gerekir.
    >
    >
-7. Merhaba girin **kişi bilgisi** hello Hesap doğrulama.
+7. Girin **kişi bilgisi** Hesap doğrulama için.
 
    > [!IMPORTANT]
-   > Bu bizim doğrulama işleminde hello Geliştirici Merkezi onaylanmış, şirket toobe kullanılır çünkü doğru kişi bilgilerini sağlamanız gerekir.
+   > Bu şirket için bizim doğrulama işlemi Geliştirici Merkezi'nde onaylanması için kullanılır çünkü doğru kişi bilgilerini sağlamanız gerekir.
    >
    >
-8. Merhaba hello için kişi bilgilerini girin **şirket onaylayanı**. Şirket onaylayanı kuruluşunuz adına yetkilendirilmiş toocreate hello Geliştirme Merkezi hesabı olduğunu doğrulayabilir hello kullanıcıdır. Tıklayın **sonraki** toomove toohello **"Ödeme bölüm"** işiniz bittiğinde.
+8. Kişi bilgilerini girin **şirket onaylayanı**. Şirket onaylayanı geliştirme Merkezi'nde kuruluşunuz adına bir hesap oluşturmak için yetkilendirilmiş olduğunuzu doğrulayın kullanıcıdır. Tıklayın **sonraki** taşımak için **"Ödeme bölüm"** işiniz bittiğinde.
 
     ![Çizim](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_08.png)
-9. Hesabınız için ödeme bilgileri toopay girin. Kayıt hello maliyetini kapsayan bir promosyon kodu varsa, burada girebilirsiniz. Aksi takdirde, kredi kartı bilgileri (veya desteklenen pazarda PayPal) sağlayın. İşiniz bittiğinde, tıklatın **sonraki** toohello üzerinde toomove **"Gözden geçirme ekran"**.
+9. Hesabınız için ödeme yapmak için Ödeme bilgilerinizi girin. Kayıt maliyetini kapsayan bir promosyon kodu varsa, burada girebilirsiniz. Aksi takdirde, kredi kartı bilgileri (veya desteklenen pazarda PayPal) sağlayın. İşiniz bittiğinde, tıklatın **sonraki** üzerinde taşımayı **"Gözden geçirme ekran"**.
 
     ![Çizim](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_09.png)
-10. Hesap bilgilerinizi gözden geçirmek ve her şeyin doğru olduğundan emin olun. Ardından, okuma ve hello hüküm ve koşulları hello kabul [Microsoft Azure Market yayımcı sözleşmesi](http://go.microsoft.com/fwlink/?LinkID=699560). Okuma ve bu koşulları kabul hello kutusunu tooindicate denetleyin.
-11. Tıklatın **son** tooconfirm kaydınızı. Bir onay iletisi tooyour e-posta adresine göndereceğiz.
-12. Toopublish yalnızca ücretsiz teklifleri planlıyorsanız tıklatın **tooAzure Market yayımlama portalında Git** ve bu belgenin toosection 3 atlayabilirsiniz [yayımlama hello Portalı'nda hesabınızı kaydetmeniz](#3-register-your-account-in-the-publishing-portal).
+10. Hesap bilgilerinizi gözden geçirmek ve her şeyin doğru olduğundan emin olun. Ardından, okuma ve hüküm ve koşulları kabul [Microsoft Azure Market yayımcı sözleşmesi](http://go.microsoft.com/fwlink/?LinkID=699560). Okuma ve bu koşulları kabul belirtmek için onay kutusunu işaretleyin.
+11. Tıklatın **son** kaydınızı doğrulamak için. E-posta adresinizi bir onay iletisi göndereceğiz.
+12. Yalnızca boş teklifleri yayımlama planlıyorsanız tıklatın **Azure Marketi'nde yayımlama portalına gidin** ve bu belgenin 3 bölümüne atlayabilirsiniz [yayımlama portalında hesabınızı kaydetmeniz](#3-register-your-account-in-the-publishing-portal).
 
-' I tıklatın, size planlıyorsanız (örn. sanal makine önerdiği saatlik faturalama modeli) toopublish ticari sunar **hesap bilgilerinizi güncelleştirmeniz** burada doldurmanız gerekir hello vergi ve Geliştirici Merkezi bilgilerinde bankacılık hesabı.
+' I tıklatın, yayımlama planlıyorsanız, ticari (örn. sanal makine önerdiği saatlik faturalandırma modeliyle) sunar **hesap bilgilerinizi güncelleştirmeniz** burada doldurmanız gerekir vergi ve bankacılık bilgilerini Geliştirici Merkezi hesabınızda.
 
-Vergi ve banka bilgilerinizi daha sonra tooupdate tercih sonra toohello sonraki bölümde yani bölüm 3 Bu belgenin taşıyabilirsiniz [yayımlama hello Portalı'nda hesabınızı kaydetmeniz](#3-register-your-account-in-the-publishing-portal)ve daha sonra tekrar hello Azure bağlantıları kullanarak Portal yayımlama.
+Vergi ve banka bilgilerinizi daha sonra güncelleştirmek tercih ettiğiniz sonra yani bölüm 3 Bu belgenin sonraki bölüme geçebilirsiniz [yayımlama portalında hesabınızı kaydetmeniz](#3-register-your-account-in-the-publishing-portal)ve gelen bağlantılar Azure yayımlama portalında kullanarak daha sonra tekrar.
 
 > [!IMPORTANT]
-> Ticari teklifleri, mümkün toopush olmaz durumda Tamamlanıyor olmadan, teklifleri tooproduction vergi hello ve hesap bilgilerini banka.
+> Ticari teklifleri durumunda vergi ve banka hesabı bilgileri tamamlamadan üretime Teklifleriniz itme mümkün olmaz.
 >
 >
 
-Vergi ve banka bilgilerinizi daha sonra tooupdate tercih ederseniz, 3, toosection gidebilirsiniz [yayımlama hello Portalı'nda hesabınızı kaydetmeniz](#3-register-your-account-in-the-publishing-portal)ve daha sonra tekrar hello Azure yayımlama portalında bağlantıları kullanarak.
+Vergi ve banka bilgilerinizi daha sonra güncelleştirme tercih ederseniz, 3, bölümüne gidebilirsiniz [yayımlama portalında hesabınızı kaydetmeniz](#3-register-your-account-in-the-publishing-portal)ve gelen bağlantılar Azure yayımlama portalında kullanarak daha sonra tekrar.
 
 ### <a name="add-tax-and-banking-information"></a>Vergi ve bilgi bankacılık ekleme
- Ticari toopublish için satın alma teklifleri isterseniz, ayrıca tooadd ödeme gerekir ve bilgi vergi ve hello Geliştirici Merkezi doğrulama için gönderme. Ardından yalnızca ücretsiz teklifleri yayımlayacak (veya KLG sunmuyorsa) tooadd bu bilgileri gerekmez. Daha sonra ekleyebilirsiniz, ancak bazı zaman toovalidate hello vergi bilgilerini alır. Ticari teklifleri satın alma için sunacaktır biliyorsanız, mümkün olan en kısa sürede eklemenizi öneririz.
+ Ticari teklifleri satın alma için yayımlamak isterseniz, ödeme ekleyin ve bilgi vergi ve geliştirici Merkezi'nde doğrulama için gönderme gerekir. Ardından yalnızca ücretsiz teklifleri yayımlayacak (veya KLG sunmuyorsa), bu bilgileri eklemek gerekmez. Daha sonra ekleyebilirsiniz, ancak vergi bilgileri doğrulamak için biraz zaman alabilir. Ticari teklifleri satın alma için sunacaktır biliyorsanız, mümkün olan en kısa sürede eklemenizi öneririz.
 
 **Banka bilgileri**
 
-1. İçinde toohello oturum [Microsoft Developer Center'da](http://dev.windows.com/registration?accountprogram=azure) Microsoft hesabınızla.
-2. Tıklatın **ödeme hesap** hello menüsünde altında sol **ödeme yöntemi seçin** tıklatın **banka hesabı** veya **PayPal**.
+1. Oturum [Microsoft Developer Center'da](http://dev.windows.com/registration?accountprogram=azure) Microsoft hesabınızla.
+2. Tıklatın **ödeme hesap** soldaki menüde altında **ödeme yöntemi seçin** tıklatın **banka hesabı** veya **PayPal**.
 
    > [!IMPORTANT]
-   > Müşterilerin hello Market satın alması ticari teklifleri varsa, bu hello bu satın alma işlemleri için ödeme almanıza hesabıdır.
+   > Müşterilerin Market satın alması ticari teklifleri varsa, bu bu satın alma işlemleri için ödeme almanıza hesabıdır.
    >
    >
-3. Merhaba ödeme bilgilerini girin ve **kaydetmek** olduğunuzda.
+3. Ödeme bilgilerini girin ve **kaydetmek** olduğunuzda.
 
    > [!IMPORTANT]
-   > Tooupdate gerekir veya aynı adımları yukarıda izleyin Merhaba, ödeme hesabınızı değiştirirseniz hello geçerli bilgilerinizi hello yeni bilgiyle değiştirme. Ödeme hesabınızı değiştirme tooone ödeme döngüsü tarafından ödemeleri gecikmeye yol açabilir. İhtiyacımız tooverify hello hesabı değişikliği nedeniyle hello ödeme hesabınızı ilk ayarladığınızda komutlarında yaptığımız gibi bu gecikme oluşur. Hesabınızı doğrulandıktan sonra devam ödenen hello tam tutar için; son ödeme hello geçerli ödeme döngüsü için bir sonraki eklenen toohello olacaktır.
+   > Güncelleştirmek veya ödeme hesabınızı değiştirmek gerekiyorsa, yukarıda yeni bilgiyle geçerli bilgilerinizi değiştirmeyi aynı adımları izleyin. Ödeme hesabınızı değiştirme, ödemeler tek bir ödeme döngüsü tarafından gecikmeye yol açabilir. Bu gecikme, ödeme hesabınızı ilk ayarladığınızda komutlarında yaptığımız gibi hesabı değişikliğini doğrulamak ihtiyacımız oluşur. Hesabınızı doğrulandıktan sonra devam ödenen için tam tutar; son ödeme geçerli ödeme için bir döngü eklenir.
    >
    >
 4. **İleri**’ye tıklayın.
 
 **Vergi bilgileri**
 
-1. İçinde toohello oturum [Microsoft Developer Center'da](http://dev.windows.com/registration?accountprogram=azure) Microsoft hesabınıza (gerekirse).
-2. Tıklatın **vergi profili** hello soldaki menüde.
-3. Merhaba üzerinde **, vergi formu ayarlama** sayfasında hello ülke veya bölge kalıcı residency olduğu seçin ve hello ülke veya bölge birincil vatandaşlığa benzer tutun yeri seçin. **İleri**’ye tıklayın.
+1. Oturum [Microsoft Developer Center'da](http://dev.windows.com/registration?accountprogram=azure) Microsoft hesabınıza (gerekirse).
+2. Tıklatın **vergi profili** soldaki menüde.
+3. Üzerinde **, vergi formu ayarlama** sayfasında ülke veya bölge kalıcı residency olduğu seçin ve ardından ülke veya bölge birincil vatandaşlığa benzer tutun yeri seçin. **İleri**’ye tıklayın.
 4. Vergi ayrıntılarını girin ve ardından **sonraki**.
 
 > [!WARNING]
-> Microsoft Developer Center'da hesabınızda hello vergi ve banka hesabı bilgileri tamamlamadan, ticari sunmaktadır mümkün toopush tooproduction olmaz.
+> Microsoft Developer Center'da hesabınızda vergi ve banka hesabı bilgileri tamamlamadan, ticari sunmaktadır üretime itme mümkün olmaz.
 >
 >
 
 Geliştirici Merkezi kayıt ile ilgili sorununuz olursa, Lütfen bir destek bileti aşağıdaki gibi oturum açın
 
-1. Git toohello destek bağlantısı [https://developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support)
-2. Altında **bize** bölümünde, hello düğmesini tıklatın **bir olay gönderme** (Merhaba ekran görüntüsünde gösterildiği gibi)
+1. Destek bağlantısı gidin [https://developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support)
+2. Altında **bize** bölümünde, düğmeyi tıklatın **bir olay gönderme** (aşağıdaki ekran görüntüsünde gösterildiği gibi)
 
     ![Çizim](media/marketplace-publishing-accounts-creation-registration/imgAddTax_02.png)
-3. "Yardım ile Geliştirme Merkezi" olarak seçin **sorun türü** ve "Yayımla uygulamaları ve yönetme" olarak **kategori**. Bundan sonra "Başlangıç e-posta" Merhaba düğmesine tıklayın.
+3. "Yardım ile Geliştirme Merkezi" olarak seçin **sorun türü** ve "Yayımla uygulamaları ve yönetme" olarak **kategori**. Bundan sonra "Başlangıç e-posta" düğmesine tıklayın.
 
     ![Çizim](media/marketplace-publishing-accounts-creation-registration/imgAddTax_03.png)
 4. Bir oturum açma sayfası sağlanacaktır. Tüm Microsoft hesabı oturum açma kullanın. Bu kullanarak bir tane oluşturmak bir Microsoft hesabı yoksa [bağlantı](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).
-5. Merhaba üzerinde tıklayarak hello sorun ve subit hello biletin Hello ayrıntıları doldurun **gönderme** düğmesi.
+5. Tıklayarak bilet subit ve sorun ayrıntıları doldurun **gönderme** düğmesi.
 
     ![Çizim](media/marketplace-publishing-accounts-creation-registration/imgAddTax_05.png)
 
-## <a name="3-register-your-account-in-hello-publishing-portal"></a>3. Yayımlama hello Portalı'nda hesabınızı kaydetme
-Merhaba [portalını yayımlama](http://publish.windowsazure.com) kullanılan toopublish olan ve sizin tekliflerini yönetin.
+## <a name="3-register-your-account-in-the-publishing-portal"></a>3. Hesabınızı yayımlama portalında kaydetme
+[Portalını yayımlama](http://publish.windowsazure.com) yayımlama ve, tekliflerini yönetmek için kullanılır.
 
-1. Yeni bir Chrome Incognito veya Internet Explorer etmediğinizden gözatma oturumu tooensure imzalı InPrivate tooa kişisel hesabında açın.
-2. Çok Git[http://publish.windowsazure.com](http://publish.windowsazure.com).
-3. Yeni bir kullanıcı ve toohello içinde imzalama ise hello oturum oturum sonra portal hello için ilk kez yayımlama aynı Geliştirici Merkezi hesabınızda kayıtlı olduğu kimliği e-posta. Bu şekilde Geliştirici Merkezi hesabınızda ve portal hesabı yayımlama birbirleri ile bağlanır. Daha sonra ekleyebilirsiniz hello diğer üyeleri hello uygulaması üzerinde çalışan, hello şirketinin hello içinde ortak yönetici olarak aşağıdaki hello tarafından portalını yayımlama altındaki adımları.
+1. Yeni bir Chrome Incognito veya Internet Explorer gözatma oturumu InPrivate, kişisel hesabına açmadınız emin olmak için açın.
+2. Git [http://publish.windowsazure.com](http://publish.windowsazure.com).
+3. Yeni bir kullanıcı ve yayımlama için oturum açma ise ilk kez portal, ardından, Geliştirici Merkezi hesabınızda kayıtlı aynı e-posta kimliğiyle oturum oturum açmanız gerekir. Bu şekilde Geliştirici Merkezi hesabınızda ve portal hesabı yayımlama birbirleri ile bağlanır. Daha sonra uygulama üzerinde çalışan, diğer üyeleriyle şirket yayımlama ortak yönetici olarak ekleyebilirsiniz aşağıdaki adımları izleyerek portal.
 
-Merhaba, ortak yönetici olarak eklenip eklenmediğini ortak Yönetici hesabınızla oturum açın sonra portal, yayımlama.
+Yayımlama ortak yönetici olarak eklenip eklenmediğini portal, daha sonra ortak Yönetici hesabınızla oturum açabilirsiniz.
 
 > [!TIP]
-> Hello katılım ilkeleri üzerinde hello açıklanan [Azure Web sitesi](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+> Katılım ilkeleri üzerinde açıklanan [Azure Web sitesi](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 >
 >
 
-## <a name="4-steps-tooadd-a-co-admin-in-hello-publishing-portal"></a>4. Merhaba, adımları tooadd ortak Yönetici portalını yayımlama
-**Hello Yöneticisi olduğu varsayımıyla** aşağıda verilen hello adımları tooadd olan bir ortak yönetici
+## <a name="4-steps-to-add-a-co-admin-in-the-publishing-portal"></a>4. Yayımlama ortak yönetici ekleme adımları portalı
+**Yönetici olduğu varsayımıyla** aşağıda verilen olan bir ortak yönetici ekleme adımları
 
 > [!NOTE]
-> **Merhaba yeni kullanıcılar için** ortak yönetici eklemeden önce portal, yayımlama hello olun hello en az bir uygulama oluşturdunuz portalını yayımlama. Bu hello gereklidir **YAYIMCILAR** sekmesi görünür hello yalnızca en az bir uygulama oluşturduktan sonra portal yayımlama.
+> **Yeni kullanıcılar için** yayımlama ortak yönetici eklemeden önce portal, en az bir uygulama yayımlama oluşturduğunuz olun portal. Bu olarak gereklidir **YAYIMCILAR** sekmesi görünür en az bir uygulama Yayımlama özelliği yalnızca oluşturduktan sonra portal.
 >
 >
 
-1. Bir Microsoft account(MSA) bu hello ortak yönetici e-posta kimliği olduğundan emin olun. Değilse, bunu kullanarak MSA kaydetmek [bağlantı](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).
-2. Ortak yönetici tooadd denemeden önce en az bir uygulama hello yönetici hesabı altında olduğundan emin olun
-3. Yukarıdaki adımları hello sonra gerçekleştirilen oturum açma toohello yayımlama hello ortak yönetici e-posta kimliği portalıyla ve sonra oturumu kapatın.
-4. Şimdi oturum açma toohello yayımlama hello yönetici e-posta kimliği portalıyla.
-5. Gezinme tooPublishers -> hesabınıza -> seçin Yöneticiler -> Ekle hello ortak yönetici (ekran görüntüsü aşağıda verilen)
+1. Ortak yönetici e-posta kimliği Microsoft account(MSA) olduğundan emin olun. Değilse, bunu kullanarak MSA kaydetmek [bağlantı](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).
+2. Ortak yönetici eklemek denemeden önce en az bir uygulama yönetici hesabı altında olduğundan emin olun
+3. Yukarıdaki adımları yapılır sonra oturum açma yayımlama için portal ortak yönetici e-posta kimliği ve sonra oturumu kapatın.
+4. Şimdi oturum açma yayımlama için portal yönetici e-posta kimliği.
+5. Gidin yayımcılar -> hesabınıza -> seçin Yöneticiler -> Ekle ortak yönetici (ekran görüntüsü aşağıda verilen)
 
    ![Çizim](media/marketplace-publishing-accounts-creation-registration/imgAddAdmin_05.png)
 
-## <a name="5-steps-toodelete-a-co-admin-in-hello-publishing-portal"></a>5. Merhaba, adımları toodelete ortak Yönetici portalını yayımlama
-**Hello Yöneticisi olduğu varsayımıyla** aşağıda verilen hello adımları toodelete olan bir ortak yönetici
+## <a name="5-steps-to-delete-a-co-admin-in-the-publishing-portal"></a>5. Ortak yönetici yayımlama silmek için adımları portalı
+**Yönetici olduğu varsayımıyla** aşağıda verilen bir ortak yönetici silmek için adımlardır
 
-1. Oturum açma toohello yayımlama hello yönetici e-posta kimliği portalıyla.
-2. Çok gidin**yayımcılar** hesabınızı -> Seç -> **Yöneticiler** -> **ortak yöneticileri**.
-3. Tıklatın hello üzerinde **X** düğmesine bir sonraki toohello ortak yönetici istediğiniz Sigortalanan Top Sil (ekran görüntüsü aşağıda verilen).
+1. Yayımlama için oturum açma portal yönetici e-posta kimliği.
+2. Gidin **yayımcılar** hesabınızı -> Seç -> **Yöneticiler** -> **ortak yöneticileri**.
+3. Tıklayın **X** Sigortalanan Top Sil (ekran görüntüsü aşağıda verilen) istediğiniz ortak yönetici yanındaki düğmesi.
 
     ![Çizim](media/marketplace-publishing-accounts-creation-registration/imgDeleteAdmin_03.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Hesabınızı oluşturulur ve kayıtlı olduğundan, karşılamak ya da tüm hello teknik olmayan ön koşullar toopublish gözden geçirerek teklifiniz uyan olun [teknik olmayan ön koşullar](marketplace-publishing-pre-requisites.md).
+Hesabınızı oluşturulur ve kayıtlı olduğundan, karşılamak ya da tüm gözden geçirerek teklifiniz yayımlamak için teknik olmayan ön koşulları karşılayan olun [teknik olmayan ön koşullar](marketplace-publishing-pre-requisites.md).
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Başlarken: nasıl toopublish bir teklif toohello Azure Market](marketplace-publishing-getting-started.md)
+* [Başlarken: bir teklifi Azure Marketinde yayımlama](marketplace-publishing-getting-started.md)
 
 [img-msalive]:media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-live.jpg
 [img-email]:media/marketplace-publishing-accounts-creation-registration/creating-msa-account-msa-verifyemail.jpg

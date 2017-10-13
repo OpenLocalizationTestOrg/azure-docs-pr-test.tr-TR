@@ -1,6 +1,6 @@
 ---
-title: "aaaGet başlatılan hello Azure portal kullanarak VoD göndermeye | Microsoft Docs"
-description: "Bu öğreticide, hello Azure portal kullanarak Azure Media Services (AMS) uygulaması ile temel bir isteğe bağlı video (VoD) içerik teslim hizmeti uygulamanın hello adımları açıklanmaktadır."
+title: "Azure portalını kullanarak isteğe bağlı video göndermeye başlama | Microsoft Belgeleri"
+description: "Bu öğretici, Azure portalı kullanarak Azure Media Services uygulaması ile temel bir isteğe bağlı video içerik teslim hizmeti uygulamanın adımlarını açıklar."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,156 +14,145 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 5c1c1b1f74ec1f1301120fe8e5a5ae183fe0338f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: fb981f3240799c924464c828b2c835ac5d9879ed
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="get-started-with-delivering-content-on-demand-using-hello-azure-portal"></a>Hello Azure portal kullanarak isteğe bağlı içerik göndermeye başlama
+# <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Azure Portal’ı kullanarak isteğe bağlı içerik göndermeye başlama
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-Bu öğreticide, hello Azure portal kullanarak Azure Media Services (AMS) uygulaması ile temel bir isteğe bağlı video (VoD) içerik teslim hizmeti uygulamanın hello adımları açıklanmaktadır.
+Bu öğretici, Azure portalı kullanarak Azure Media Services uygulaması ile temel bir isteğe bağlı video içerik teslim hizmeti uygulamanın adımlarını açıklar.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Merhaba, gerekli toocomplete hello öğretici şunlardır:
+Öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 
 * Bir Azure hesabı. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/). 
-* Bir Media Services hesabı. bir Media Services hesabı toocreate bkz [nasıl tooCreate Media Services hesabı](media-services-portal-create-account.md).
+* Bir Media Services hesabı. Bir Media Services hesabı oluşturmak için bkz. [Media Services hesabı oluşturma](media-services-portal-create-account.md).
 
-Bu öğretici hello aşağıdaki görevleri içerir:
+Bu öğretici aşağıdaki görevleri içerir:
 
 1. Akış uç noktasını başlatın.
 2. Bir video dosyası yükleyin.
-3. Merhaba kaynak dosya bit hızı Uyarlamalı MP4 dosyaları kümesine kodlayın.
-4. Merhaba varlık ve get akış ve aşamalı indirme URL'leri yayımlayın.  
+3. Kaynak dosyayı uyarlamalı bit hızlı bir MP4 dosyaları grubuna kodlayın.
+4. Varlığı yayımlayın, akış ve aşamalı indirme URL’lerini alın.  
 5. İçeriğinizi oynatın.
 
-## <a name="start-streaming-endpoints"></a>Akış uç noktalarını başlatma 
+## <a name="start-the-streaming-endpoint"></a>Akış uç noktasını başlatma
 
-Merhaba en sık karşılaşılan senaryolardan biri, video bit hızı Uyarlamalı akış iletmektir Azure Media Services ile çalışırken. Media Services, bit hızı Uyarlamalı MP4 kodlanmış içeriğinizi Media Services (MPEG DASH, HLS, kesintisiz akış) tam zamanında tarafından önceden paketlenmiş toostore kalmadan desteklenen akış biçimlerinde toodeliver sağlayan dinamik paketleme sağlar Bu akış biçimlerine her da sürümleri.
+Azure Media Services ile çalışırken en sık karşılaşılan senaryolardan biri bit hızı uyarlamalı akış iletmektir. Media Services dinamik paketleme olanağı sağlar. Dinamik paketleme ile bit hızı uyarlamalı MP4 biçiminde kodlanmış içeriklerinizi Media Services tarafından desteklenen anlık akış biçimlerinde sunabilirsiniz. Örnekler arasında Apple HTTP Canlı Akışı (HLS), Microsoft Kesintisiz Akış ve Dynamic Adaptive Streaming over HTTP (DASH, MPEG-DASH olarak da bilinir) bulunur. Media Services bit hızı uyarlamalı akışı kullanarak, bu akış biçimlerinin önceden paketlenmiş sürümlerini depolamadan videolarınızı sunabilirsiniz.
 
->[!NOTE]
->AMS hesabınızı oluşturulduğunda bir **varsayılan** akış uç noktası ekleniyor tooyour hesabı hello **durduruldu** durumu. İçerik ve Al avantajı dinamik paketleme ve dinamik şifreleme akış toostart hello istediğiniz toostream içeriğe sahip toobe hello akış uç **çalıştıran** durumu. 
+> [!NOTE]
+> Media Services hesabınızı oluşturduğunuzda hesabınıza **Durdurulmuş** durumda bir varsayılan akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir. 
 
-toostart akış uç Merhaba, aşağıdaki hello:
+Akış uç noktasını başlatmak için:
 
-1. Merhaba oturum açma [Azure portal](https://portal.azure.com/).
-2. Hello Ayarları penceresinde, akış uç noktaları'ı tıklatın. 
-3. Merhaba varsayılan akış uç noktası'ı tıklatın. 
-
-    Merhaba varsayılan akış uç noktası AYRINTILAR penceresi görüntülenir.
-
-4. Merhaba başlangıç simgesine tıklayın.
-5. Merhaba Kaydet düğmesine toosave değişikliklerinizi'ı tıklatın.
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
+2. **Ayarlar** > **Akış uç noktaları**’nı seçin. 
+3. Varsayılan akış uç noktasına tıklayın. **VARSAYILAN AKIŞ UÇ NOKTASI AYRINTILAR** penceresi görüntülenir.
+4. **Başlat** simgesini seçin.
+5. **Kaydet** düğmesini seçin.
 
 ## <a name="upload-files"></a>Dosyaları karşıya yükleme
-Azure Media Services kullanarak videoların, tooupload hello kaynak videoları, gereksinim duyduğunuz toostream Çoklu bit hızına kodlamanız ve yayımlama hello sonucu. Merhaba ilk adım, bu bölümde ele alınmıştır. 
+Media Services kullanarak video akışı sağlamak için kaynak videoları karşıya yükler, bunları çoklu bit hızlarında kodlar ve sonucu yayımlarsınız. İlk adım, bu bölümde ele alınmıştır. 
 
-1. Merhaba, **ayarı** penceresinde tıklatın **varlıklar**.
+1. [Azure portalında](https://portal.azure.com/) Azure Media Services hesabınızı seçin.
+2. **Ayarlar** > **Varlıklar**’ı seçin. Ardından **Karşıya Yükle** düğmesini seçin.
    
     ![Dosyaları karşıya yükleme](./media/media-services-portal-vod-get-started/media-services-upload.png)
-2. Merhaba tıklatın **karşıya** düğmesi.
    
-    Merhaba **bir varlığı karşıya yükle** penceresi görüntülenir.
+    **Varlığı karşıya yükle** penceresi görüntülenir.
    
    > [!NOTE]
-   > Dosya boyutu sınırlaması yoktur.
+   > Media Services, karşıya yüklenecek videoların dosya boyutunu kısıtlamaz.
    > 
    > 
-3. Bilgisayarınızda istenen toohello video göz atın, onu seçin ve Tamam'ı tıklatın.  
+3. Bilgisayarınızda, karşıya yüklemek istediğiniz videoya gidin. Videoyu seçin ve ardından **Tamam**’ı seçin.  
    
-    Merhaba karşıya yükleme başlar ve hello dosya adı altında hello ilerleme durumunu görebilirsiniz.  
+    Karşıya yükleme başlar. Dosya adı altında ilerleme durumunu görebilirsiniz.  
 
-Merhaba karşıya yükleme işlemi tamamlandıktan sonra hello yeni varlık hello listelenen bkz **varlıklar** penceresi. 
+Karşıya yükleme tamamlandığında, yeni varlık **Varlıklar** bölmesinde listelenir. 
 
 ## <a name="encode-assets"></a>Varlıkları kodlama
+Dinamik paketlemeden yararlanmak için kaynak dosyanızı çoklu bit hızına sahip bir dizi MP4 dosyası olarak kodlamanız gerekir. Kodlama adımları bu bölümde gösterilmiştir.
 
-Merhaba en sık karşılaşılan senaryolardan biri, bit hızı Uyarlamalı akış tooyour istemcileri iletmektir Azure Media Services ile çalışırken. Media Services şu bit hızı Uyarlamalı akış teknolojilerini hello destekler: HTTP canlı akışı (HLS), kesintisiz akış, MPEG DASH. tooprepare videolarınızı bit hızı Uyarlamalı akış için tooencode kaynağınız video Çoklu bit hızlı dosyalarıyla gerekir. Merhaba kullanması gereken **Medya Kodlayıcısı standart** Kodlayıcı tooencode videolarınızı.  
+### <a name="encode-assets-in-the-portal"></a>Portalda varlıkları kodlama
+İçeriğinizi Azure portalında Media Encoder Standard kullanarak kodlamak için:
 
-Media Services, Çoklu bit hızlı MP4s akış biçimlerine aşağıdaki hello içinde de toodeliver sağlayan dinamik paketleme sağlar: MPEG DASH, HLS, kesintisiz akış, bu akış biçimlerine toorepackage kalmadan olmadan. Dinamik paketleme ile toostore yeterlidir ve ödeme tek bir depolama biçiminde ve Media Services hello dosyaları oluşturur ve istemciden gelen isteklere göre uygun yanıtı hello işlevi görür.
-
-tootake avantajı dinamik paketleme, tooencode kaynak dosyanızı Çoklu bit hızlı MP4 dosyaları (kodlama adımları hello gösterilmektedir daha sonra bu bölümde) kümesine ihtiyacınız.
-
-### <a name="toouse-hello-portal-tooencode"></a>toouse hello portal tooencode
-Bu bölüm, içeriğinizi Medya Kodlayıcısı standart ile tooencode uygulayabileceğiniz hello adımları açıklar.
-
-1. Merhaba, **ayarları** penceresinde, seçin **varlıklar**.  
-2. Merhaba, **varlıklar** penceresinde, select hello varlık tooencode istersiniz.
-3. Tuşuna hello **kodla** düğmesi.
-4. Merhaba, **bir varlık kodla** penceresi, select hello "Medya Kodlayıcısı standart" işlemcisini ve bir hazır. Hazır ayarlar hakkında daha fazla bilgi için bkz. [Bit hızı merdivenini otomatik oluşturma](media-services-autogen-bitrate-ladder-with-mes.md) ve [MES Görev Ön Ayarları](media-services-mes-presets-overview.md). Hangi kodlama hazır kullanılır toocontrol planlıyorsanız, bunu göz önünde bulundurun: tooselect hello giriş videonuzun için en uygun olan Önayar önemlidir. Giriş videonuzun 1920 x 1080 piksel çözünürlüğü sahip biliyorsanız, örneğin, hello kullanabilirsiniz "H264 Çoklu bit hızı 1080p" hazır. Düşük çözünürlüklü (640 x 360) bir videonuz olması durumunda "H264 Çoklu Bit hızı 1080p" ön ayarını kullanmamalısınız.
+1. [Azure portalında](https://portal.azure.com/) Azure Media Services hesabınızı seçin.
+2. **Ayarlar** > **Varlıklar**’ı seçin. Kodlamak istediğiniz varlığı seçin.
+3. **Kodla** düğmesini seçin.
+4. **Bir varlık kodla** bölmesinde, **Media Encoder Standard** işlemcisini ve bir ön ayarı seçin. Hazır ayarlar hakkında daha fazla bilgi için bkz. [Bit hızı merdivenini otomatik oluşturma](media-services-autogen-bitrate-ladder-with-mes.md) ve [Media Encoder Standard için görev ön ayarları](media-services-mes-presets-overview.md). Girdi videonuz için en iyi sonucu verecek hazır ayarı seçmeniz önemlidir. Örneğin, girdi videonuzun 1920 &#215; 1080 piksel çözünürlüğü olduğunu biliyorsanız, **H264 Çoklu Bit hızı 1080p** ön ayarını kullanabilirsiniz. Düşük çözünürlüklü bir videonuz varsa (640 &#215; 360), **H264 Çoklu Bit Hızı 1080p** ön ayarını kullanmamalısınız.
    
-   Daha kolay yönetim için hello hello çıkış varlık adını düzenleme ve hello işinin hello adı bir seçeneğiniz vardır.
+   Kaynaklarınızın yönetmenize yardımcı olmak için çıktı varlığının ve işin adını düzenleyebilirsiniz.
    
    ![Varlıkları kodlama](./media/media-services-portal-vod-get-started/media-services-encode1.png)
-5. **Oluştur**’a basın.
+5. **Oluştur**’u seçin.
 
 ### <a name="monitor-encoding-job-progress"></a>Kodlama işi ilerleme durumunu izleme
-İş, kodlama hello toomonitor hello ilerlemesini tıklatın **ayarları** (Merhaba sayfanın en üstündeki hello) ve ardından **işleri**.
+Kodlama işinin ilerleme durumunu izlemek için, sayfanın üst kısmından **Ayarlar**’ı ve ardından **İşler**’i seçin.
 
 ![İşler](./media/media-services-portal-vod-get-started/media-services-jobs.png)
 
 ## <a name="publish-content"></a>İçerik yayımlama
-tooprovide kullanılan toostream ya da içeriğinizi indirme URL'si, kullanıcı, önce çok "varlığınız bir Bulucu oluşturarak yayımlamanız". Bulucular hello varlıkta bulunan erişim toofiles sağlar. Media Services iki tür bulucuyu destekler: 
+Kullanıcınıza içeriğinizin akışını sağlamak veya indirmek için kullanılabilecek bir URL sağlamak üzere, önce bulucu oluşturarak varlığınızı “yayımlamanız” gerekir. Bulucular varlıkta bulunan dosyalara erişim imkanı sağlar. Azure Media Services iki tür bulucuyu destekler: 
 
-* Akış (OnDemandOrigin) bulucuları, (örneğin, toostream MPEG DASH, HLS veya kesintisiz akış) Uyarlamalı akış için kullanılır. toocreate akış Bulucusu varlığınız bir .ism dosyası içermelidir. 
-* Aşamalı indirme aracılığıyla video teslimi için kullanılan aşamalı (SAS) bulucular.
+* **Akış (OnDemandOrigin) bulucuları**. Akış bulucuları, uyarlamalı akış için kullanılır. Uyarlamalı akış örnekleri HLS, Kesintisiz Akış ve MPEG-DASH’i içerir. Akış bulucusu oluşturmak için varlığınız bir .ism dosyası içermelidir. 
+* **Aşamalı (paylaşılan erişim imzası) bulucuları**. Aşamalı bulucular, videoları aşamalı indirme aracılığıyla sunmak için kullanılır.
 
-Bir akış URL'si biçimi aşağıdaki hello sahiptir ve tooplay kesintisiz akış varlıklarını kullanın.
+HLS akış URL’si oluşturmak için, URL’ye *(format=m3u8-aapl)* ekleyin.
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
 
-HLS akış URL'si, bir toobuild ekleme (format = m3u8-aapl) toohello URL.
+Kesintisiz Akış varlıklarını oynatacak akış URL’sini oluşturmak için aşağıdaki URL biçimini kullanın:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest
 
-bir akış URL'si, MPEG DASH toobuild ekleme (biçim mpd zaman csf =) toohello URL.
+MPEG DASH akış URL’si oluşturmak için, URL’ye *(format=mpd-time-csf)* ekleyin.
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
 
+Paylaşılan erişim imzası URL'si aşağıdaki biçime sahiptir:
 
-Bir SAS URL'si biçimi aşağıdaki hello sahiptir.
-
-    {blob container name}/{asset name}/{file name}/{SAS signature}
+    {blob container name}/{asset name}/{file name}/{shared access signature}
 
 > [!NOTE]
-> Mart 2015 öncesinde hello portal toocreate bulucular kullandıysanız, iki yıllık sona erme tarihi olan bulucular oluşturulmuştur.  
+> Azure portalında Mart 2015 öncesinde oluşturulmuş olan bulucuların iki yıllık sona erme tarihi vardır.  
 > 
 > 
 
-Kullanım Bulucunun sona erme tarihi bir tooupdate [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) veya [.NET](http://go.microsoft.com/fwlink/?LinkID=533259) API'leri. Bir SAS Bulucu hello sona erme tarihini güncelleştirdiğinizde hello URL değiştirir.
+Bulucunun sona erme tarihini güncelleştirmek için bir [REST API](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) veya [.NET API](http://go.microsoft.com/fwlink/?LinkID=533259) kullanabilirsiniz. 
 
-### <a name="toouse-hello-portal-toopublish-an-asset"></a>toouse hello portal toopublish bir varlığı
-toouse hello portal toopublish bir varlık hello aşağıdaki:
+> [!NOTE]
+> Paylaşılan erişim imzası bulucunun sona erme tarihini güncelleştirdiğinizde URL değişir.
 
-1. **Ayarlar** > **Varlıklar**’ı seçin.
-2. Merhaba varlık toopublish istediğinizi seçin.
-3. Merhaba tıklatın **Yayımla** düğmesi.
-4. Merhaba Bulucu türünü seçin.
-5. **Ekle**’ye basın.
+### <a name="to-use-the-portal-to-publish-an-asset"></a>Bir varlık yayımlamak için portal kullanmak üzere
+1. [Azure portalında](https://portal.azure.com/) Azure Media Services hesabınızı seçin.
+2. **Ayarlar** > **Varlıklar**’ı seçin. Yayımlamak istediğiniz varlığı seçin.
+3. **Yayımla** düğmesini seçin.
+4. Bulucu türünü seçin.
+5. **Add (Ekle)** seçeneğini belirleyin.
    
-    ![Yayımlama](./media/media-services-portal-vod-get-started/media-services-publish1.png)
+    ![Videoyu yayımlama](./media/media-services-portal-vod-get-started/media-services-publish1.png)
 
-Merhaba URL toohello listesi eklenen **yayımlanan URL'ler**.
+URL **Yayımlanan URL’ler** listesine eklenir.
 
-## <a name="play-content-from-hello-portal"></a>Merhaba portaldan içerik oynatma
-Hello Azure portalı bir içerik oynatıcı sağlar videonuzu tootest kullanabilirsiniz.
+## <a name="play-content-from-the-portal"></a>Portaldan içerik oynatma
+Videonuzu Azure portalında bir içerik oynatıcıda test edebilirsiniz.
 
-İstenen hello videoya tıklayın ve hello ardından **Yürüt** düğmesi.
+Videoyu seçin ve ardından **Oynat** düğmesini seçin.
 
-![Yayımlama](./media/media-services-portal-vod-get-started/media-services-play.png)
+![Videoyu Azure portalında oynatma](./media/media-services-portal-vod-get-started/media-services-play.png)
 
 Bazı dikkate alınması gereken noktalar vardır:
 
-* Akış, toobegin Başlat çalışan hello **varsayılan** akış uç noktası.
-* Merhaba video yayımlandığından emin olun.
-* Bu **Media player** hello varsayılan akış uç noktasından oynatır. Varsayılan olmayan tooplay istiyorsanız akış uç noktası, toocopy hello URL'yi tıklatın ve başka bir oynatıcı kullanın. Örneğin, [Azure Media Services Oynatıcı](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
-
-## <a name="next-steps"></a>Sonraki adımlar
-Media Services öğrenme yollarını gözden geçirin.
-
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+* Akışı başlatmak için varsayılan akış uç noktasını çalıştırmaya başlayın
+* Videonun yayımlandığından emin olun.
+* Azure portal medya oynatıcı varsayılan akış uç noktasından oynatılır. Varsayılan olmayan bir akış uç noktasından oynatmak istiyorsanız, URL'yi seçip kopyalayın ve başka bir oynatıcıya yapıştırın. Örneğin [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) üzerinde videonuzu test edebilirsiniz.
 
 ## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
+## <a name="next-steps"></a>Sonraki adımlar
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

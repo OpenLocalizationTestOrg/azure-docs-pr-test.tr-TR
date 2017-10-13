@@ -1,6 +1,6 @@
 ---
-title: MFA sunucusu mobil uygulama Web Hizmeti'ni aaaAzure | Microsoft Docs
-description: "Merhaba Microsoft Authenticator uygulaması ek bant dışı kimlik doğrulama seçeneği sunar.  Merhaba MFA sunucusu toouse anında iletme bildirimleri toousers sağlar."
+title: Azure MFA Sunucusu Mobil Uygulama Web Hizmeti | Microsoft Belgeleri
+description: "Microsoft Authenticator uygulaması ek bir bant dışı kimlik doğrulama seçeneği sunar.  MFA sunucusunun kullanıcılar için anında iletme bildirimleri kullanmasına olanak tanır."
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
@@ -15,90 +15,90 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: alexwe
 ms.custom: it-pro
-ms.openlocfilehash: 4175b68fcbf85ec3fd53d8edf4e07306c75a4c71
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: bf758d1241f2a56eba4d5c92ace713d6e563df65
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu ile mobil uygulama kimlik doğrulamasını etkinleştirme
 
-Merhaba Microsoft Authenticator uygulaması ek bant dışı doğrulama seçeneği sunar. Bir otomatik telefon çağrısı veya SMS toohello kullanıcı oturum açma sırasında uygulamak yerine, Azure multi-Factor Authentication bir bildirim toohello Microsoft Authenticator uygulaması hello kullanıcının akıllı telefonundaki veya tabletindeki iter. Merhaba kullanıcı yalnızca dokunur **doğrula** (veya bir PIN girer ve "Kimliği doğrula" dokunur), kullanıcıların oturum açma uygulama toocomplete hello.
+Microsoft Authenticator uygulaması ek bir bant dışı doğrulama seçeneği sunar. Oturum açma sırasında kullanıcıya otomatik telefon çağrısı yapmak veya SMS göndermek yerine, Azure Multi-Factor Authentication, kullanıcının akıllı telefonu ya da tabletindeki Microsoft Authenticator uygulamasına anında iletme bildirimi gönderir. Kullanıcının oturum açma işlemini tamamlamak için uygulamada **Doğrula** seçeneğine dokunması (ya da PIN’i girip “Kimliği Doğrula” seçeneğine dokunması ) yeterlidir.
 
-Şebeke sinyal gücünün güvenilir olmadığı durumlarda iki aşamalı doğrulama için bir mobil uygulama kullanmak tercih edilir. Bir OATH belirteci Oluşturucu olarak hello uygulamasını kullanıyorsanız, herhangi bir ağ veya Internet bağlantısı olmasını gerektirmez.
+Şebeke sinyal gücünün güvenilir olmadığı durumlarda iki aşamalı doğrulama için bir mobil uygulama kullanmak tercih edilir. Uygulamayı bir OATH belirteci oluşturucu olarak kullanıyorsanız ağ veya İnternet bağlantısı gerekmez.
 
-Ortamınıza bağlı olarak toodeploy hello mobil uygulama web hizmeti hello isteyebilirsiniz Azure multi-Factor Authentication sunucusu veya başka bir internet'e yönelik sunucuda aynı sunucu.
+Ortamınıza bağlı olarak, mobil uygulama web hizmetini Azure Multi-Factor Authentication sunucusu ile aynı sunucuya veya İnternet'e yönelik başka bir sunucuya dağıtmak isteyebilirsiniz.
 
 ## <a name="requirements"></a>Gereksinimler
 
-toouse hello Microsoft Authenticator uygulaması hello aşağıdaki Hello uygulama başarıyla mobil uygulama Web hizmeti ile iletişim kurabilmesi için gereklidir:
+Microsoft Authenticator uygulamasını kullanmak için, uygulamanın Mobil Uygulama Web Hizmeti ile başarıyla iletişim kurabilmesini sağlamak amacıyla aşağıdakiler gereklidir:
 
 * Azure Multi-Factor Authentication Sunucusu v6.0 veya üzeri
 * Microsoft® [Internet Information Services (IIS) IIS 7.x veya üzerini](http://www.iis.net/) çalıştıran İnternet’e yönelik bir web sunucusuna Mobil Uygulama Web Hizmeti’ni yükleme
-* ASP.NET v4.0.30319 yüklü, kayıtlı ve tooAllowed ayarlayın
+* ASP.NET v4.0.30319’un yüklenmesi, kaydedilmesi ve İzinli olarak ayarlanması
 * Gerekli rol hizmetleri ASP.NET ve IIS 6 Metatabanı Uyumluluğu’nu içerir.
 * Mobil Uygulama Web Hizmeti’nin genel bir URL ile erişilebilir olması
 * Mobil Uygulama Web Hizmeti’nin bir SSL sertifikası ile güvenli hale getirilmesi.
-* IIS'de Hello Azure çok faktörlü kimlik doğrulama Web hizmeti SDK'sı yükleme 7.x ya da daha yüksek hello üzerinde **hello Azure multi-Factor Authentication sunucusu ile aynı sunucu**
-* Hello Azure çok faktörlü kimlik doğrulama Web hizmeti SDK'sı bir SSL sertifikası ile güvenli hale getirilir.
-* Mobil uygulama Web hizmeti SSL üzerinden Azure multi-Factor Authentication Web hizmeti SDK toohello bağlanabilir
-* Mobil uygulama Web hizmeti toohello Azure MFA Web hizmeti SDK'sı kimlik doğrulaması hello hello "PhoneFactor Admins" güvenlik grubunun üyesi olan bir hizmet hesabı kimlik bilgilerini kullanarak. Etki alanına katılmış bir sunucuda Hello Azure çok faktörlü kimlik doğrulama sunucusu ise, bu hizmet hesabı ve grubu Active Directory'de mevcut. Birleştirilmiş tooa etki alanında değilse bu hizmet hesabı ve grubu hello Azure çok faktörlü kimlik doğrulama sunucusu üzerinde yerel olarak mevcut.
+* **Azure Multi-Factor Authentication Sunucusu’nun yüklendiği sunucudaki** IIS 7.x ya da üzeri bir sürüme Azure Multi-Factor Authentication Web Hizmeti SDK’sını yükleme
+* Azure Multi-Factor Authentication Web Hizmeti SDK’sının bir SSL sertifikası ile güvenli hale getirilmesi.
+* Mobil Uygulama Web Hizmeti’nin SSL üzerinden Azure Multi-Factor Authentication Web Hizmeti SDK’sına bağlanabilmesi
+* Mobil Uygulama Web Hizmeti’nin "PhoneFactor Admins" güvenlik grubunun üyesi olan bir hizmet hesabının kimlik bilgilerini kullanarak Azure MFA Web Hizmeti SDK’sında kimliğini doğrulayabilmesi. Azure Multi-Factor Authentication Sunucusu etki alanı ile birleşik bir sunucudaysa, bu hizmet hesabı ve grubu Active Directory’de yer alır. Bir etki alanı ile birleştirilmediyse, bu hizmet hesabı ve grubu yerel olarak Azure Multi-Factor Authentication Sunucusu’nda yer alır.
 
-## <a name="install-hello-mobile-app-web-service"></a>Merhaba mobil uygulama web Hizmeti'ni yükleme
+## <a name="install-the-mobile-app-web-service"></a>Mobil uygulama web hizmetini yükleme
 
-Merhaba mobil uygulama web Hizmeti'ni yüklemeden önce aşağıdaki ayrıntılara hello dikkat edin:
+Mobil uygulama web hizmetini yüklemeden önce aşağıdaki ayrıntılara dikkat edin:
 
-* "PhoneFactor Admins" grubunun bir parçası olan bir Hizmet Hesabınız olması gerekir. Bu hesap bir hello aynı hello Kullanıcı Portalı yükleme için kullanılan hello olabilir.
-* Bu yararlı tooopen hello Internet'e yönelik web sunucusunda bir web tarayıcısı ve hello hello web.config dosyasına girilen Web hizmeti SDK toohello URL'sini gidin. Merhaba tarayıcı toohello web hizmetine başarıyla gidebilirse, kimlik bilgilerinizi ister. Merhaba kullanıcı adı ve hello dosyasında göründüğü gibi hello web.config dosyasına girilen parolayı girin. Sertifika uyarısı ya da hatası görüntülenmediğinden emin olun.
-* Ters proxy ya da güvenlik duvarı hello mobil uygulama Web hizmeti web sunucusunun önünde ve SSL boşaltma gerçekleştiriyorsa, hello mobil uygulama Web hizmeti http yerine https kullanabilmesi için hello mobil uygulama Web hizmeti web.config dosyasını düzenleyebilirsiniz. SSL, mobil uygulama toohello güvenlik duvarı/ters proxy'ye hello hala gereklidir. Anahtar toohello aşağıdaki hello eklemek \<appSettings\> bölümü:
+* "PhoneFactor Admins" grubunun bir parçası olan bir Hizmet Hesabınız olması gerekir. Bu hesap, Kullanıcı Portalı yüklemesinde kullanılanla aynı olabilir.
+* İnternet'e yönelik web sunucusunda bir web tarayıcısı açmak ve web.config dosyasına girilen Web hizmeti SDK’sının URL’sine gitmek faydalıdır. Tarayıcı web hizmetine başarıyla gidebilirse, sizden kimlik bilgilerinizi ister. Aynen dosyada göründüğü gibi web.config dosyasına girilen parola girilen kullanıcı adını ve parolayı girin. Sertifika uyarısı ya da hatası görüntülenmediğinden emin olun.
+* Mobil Uygulama Web Hizmeti web sunucusunun önünde ters bir proxy ya da güvenlik duvarı yer alıyorsa ve SSL boşaltma gerçekleştiriyorsa, Mobil Uygulama Web Hizmeti’nin https yerine http kullanabilmesi için Mobil Uygulama Web Hizmeti web.config dosyasını düzenleyebilirsiniz. Güvenlik duvarı/ters proxy’ye yönelik Mobil Uygulamadan alınan SSL hala gereklidir. Aşağıdaki anahtarları \<appSettings\> bölümüne ekleyin:
 
         <add key="SSL_REQUIRED" value="false"/>
 
-### <a name="install-hello-web-service-sdk"></a>Merhaba web hizmeti SDK'sını yükleyin
+### <a name="install-the-web-service-sdk"></a>Web hizmeti SDK’sını yükleme
 
-Her iki durumda da hello Azure çok faktörlü kimlik doğrulama Web hizmeti SDK'sı ise **değil** hello Azure çok faktörlü kimlik doğrulama (MFA) sunucu üzerinde yüklü, tam hello adımlar anlatılmaktadır.
+İki senaryoda da Azure Multi-Factor Authentication Web Hizmeti SDK’sı Azure Multi-Factor Authentication (MFA) Sunucusu’nda halihazırda yüklü **değilse**, aşağıdaki adımları tamamlayın.
 
-1. Merhaba çok faktörlü kimlik doğrulama sunucusu konsolunu açın.
-2. Toohello Git **Web hizmeti SDK'sı** seçip **Web hizmeti SDK'sını yüklemek**.
-3. Tam hello yükleme toochange gerekmedikçe hello varsayılanları kullanarak herhangi bir nedenle bunları.
-4. IIS'de bir SSL sertifikası toohello sitesi bağlayın.
+1. Multi-Factor Authentication Sunucusu konsolunu açın.
+2. **Web Hizmeti SDK’sı** altından **Web Hizmeti SDK’sını Yükle**’yi seçin.
+3. Herhangi bir nedenden dolayı değiştirmeniz gerekmiyorsa varsayılan değerleri kullanarak yüklemeyi tamamlayın.
+4. IIS'de siteye bir SSL sertifikası bağlayın.
 
-Bir IIS sunucusunda bir SSL sertifikası yapılandırma hakkında sorularınız varsa, hello makalesine bakın [nasıl tooSet SSL IIS'de](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
+IIS sunucusunda bir SSL sertifikası yapılandırma hakkında sorularınız varsa bkz. [IIS'de SSL ayarlama](https://docs.microsoft.com/en-us/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
-Merhaba Web hizmeti SDK'sı bir SSL sertifikası ile güvenli gerekir. Bu amaç için otomatik olarak imzalanan bir sertifika kullanılabilir. Böylece hello SSL bağlantısı başlatılırken bu sertifikayı güvenleri hello sertifika hello hello Kullanıcı Portalı web sunucusundaki yerel bilgisayar hesabının hello "Güvenilen kök sertifika yetkilileri" deposuna aktarın.
+Web Hizmeti SDK’sı bir SSL sertifikası ile güvenli hale getirilmelidir. Bu amaç için otomatik olarak imzalanan bir sertifika kullanılabilir. Kullanıcı Portalı web sunucusunun SSL bağlantısı başlatırken bu sertifikaya güvenebilmesi için sertifikayı sunucudaki Yerel Bilgisayar hesabının “Güvenilen Kök Sertifika Yetkilileri” deposuna aktarın.
 
 ![MFA Sunucusu yapılandırma kurulum Web hizmeti SDK'sı](./media/multi-factor-authentication-get-started-server-webservice/sdk.png)
 
-### <a name="install-hello-service"></a>Merhaba Hizmeti'ni yükleme
+### <a name="install-the-service"></a>Hizmeti yükleme
 
-1. **Merhaba MFA sunucusu üzerinde**, toohello yükleme yolu göz atın.
-2. Toohello gidin hello Azure MFA sunucusu yüklü hello varsayılan olduğu klasördür **C:\Program Files\Azure multi-Factor Authentication**.
-3. Merhaba yükleme dosyasını bulun **MultiFactorAuthenticationMobileAppWebServiceSetup64**. Merhaba sunucusuysa **değil** İnternete dönük, kopyalama hello yükleme dosyası toohello Internet'e sunucusu.
-4. Merhaba MFA sunucusu ise **değil** Internet'e anahtar toohello **Internet'e sunucu**.
-5. Merhaba çalıştırmak **MultiFactorAuthenticationMobileAppWebServiceSetup64** yönetici olarak dosya yüklemek, isterseniz hello Site değiştirin ve isterseniz hello sanal dizin tooa kısa adı değiştirin.
-6. Sonlandırma hello yüklendikten sonra çok Gözat**C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService** (veya hello sanal dizin adını temel alarak uygun dizin) ve hello Web.Config dosyasını düzenleyin.
+1. **MFA sunucusunda**, yükleme yoluna gidin.
+2. Azure MFA Sunucusunun yüklü olduğu klasöre gidin. Varsayılan olarak **C:\Program Files\Azure multi-Factor Authentication** klasörüdür.
+3. **MultiFactorAuthenticationMobileAppWebServiceSetup64** yükleme dosyasını bulun. Sunucu İnternet’e yönelik **değilse** yükleme dosyasını İnternet’e yönelik sunucuya kopyalayın.
+4. MFA sunucusu İnternet’e yönelik **değilse** **İnternet'e yönelik sunucuya** geçin.
+5. **MultiFactorAuthenticationMobileAppWebServiceSetup64** yükleme dosyasını yönetici olarak çalıştırın, isterseniz Site'yi değiştirin ve sanal dizini kısa bir adla değiştirin.
+6. Yüklemeyi tamamladıktan sonra, **C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService** (veya sanal dizin adını temel alarak uygun dizin) konumuna gidin ve Web.Config dosyasını düzenleyin.
 
-   * Merhaba anahtarını bulun **"Web_servıce_sdk_authentıcatıon_username"** değiştirip **değer = ""** çok**değer "Etki alanı\kullanıcı" =** burada bir parçası olan bir hizmet hesabı, etki alanı\kullanıcı "PhoneFactor Admins" grubu.
-   * Hello anahtarını bulun **"Web_servıce_sdk_authentıcatıon_password değerlerini"** değiştirip **değeri = ""** çok**değeri "Password" =** parola hello hizmet hello parolasını olduğu Merhaba önceki satırda girilen hesabı.
-   * Hello bulur **pfMobile App Web Service_pfwssdk_PfWsSdk** ayarlama ve hello değerinden değiştirme **http://localhost:4898/PfWsSdk.asmx** toohello Web hizmeti SDK URL'si (örnek: https://mfa.contoso.com/ MultiFactorAuthWebServiceSdk/PfWsSdk.asmx).
-   * Merhaba Web.Config dosyasını kaydedin ve Not Defteri'ni kapatın.
+   * **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** anahtarını bulun ve **value=""** değerini **value="DOMAIN\User"** değeriyle değiştirin. Burada DOMAIN\User, "PhoneFactor Admins" grubunun parçası olan bir Hizmet Hesabıdır.
+   * **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** anahtarını bulun ve **value=""** değerini **value="Password"** ile değiştirin. Burada Password, önceki satırda girdiğiniz Hizmet Hesabının parolasıdır.
+   * **pfMobile App Web Service_pfwssdk_PfWsSdk** ayarını bulup **http://localhost:4898/PfWsSdk.asmx** değerini Web hizmeti SDK URL'siyle (Örneğin https://mfa.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx) değiştirin.
+   * Web.Config dosyasını kaydedin ve Not Defteri'ni kapatın.
 
    > [!NOTE]
-   > Bu bağlantı için SSL kullanılır başvurmalısınız Web hizmeti SDK'sı tarafından hello **tam etki alanı adı (FQDN)** ve **IP adresi değil**. Hello SSL sertifikası hello FQDN için verilmiş ve hello kullanılan URL hello sertifika üzerindeki hello adı eşleşmelidir.
+   > Bu bağlantı için SSL kullanıldığından, Web Hizmeti SDK'sına **IP adresi** ile değil **tam etki alanı adı (FQDN)** ile başvurmanız gerekir. SSL sertifikası FQDN için verilmiş olacaktır ve kullanılan URL’nin sertifikadaki adla eşleşmesi gerekir.
 
-7. Mobil uygulama Web hizmeti altında yüklendi hello Web sitesi ortak olarak imzalanmış bir sertifika ile zaten bağlı değil, hello sertifika hello sunucuya yükleyin, IIS Yöneticisi'ni açın ve hello sertifika toohello Web bağlayın.
-8. Herhangi bir bilgisayarda web tarayıcısını açın ve mobil uygulama Web Hizmeti'nin yüklendiği toohello URL'ye gidin (örnek: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService). Sertifika uyarısı ya da hatası görüntülenmediğinden emin olun.
+7. Mobil Uygulama Web Hizmeti’nin altında yüklendiği web sitesi halihazırda ortak olarak imzalanmış bir sertifikayla bağlanmadıysa sertifikayı sunucuya yükleyin, IIS Yöneticisi’ni açın ve sertifikayı web sitesine bağlayın.
+8. Herhangi bir bilgisayarda web tarayıcısını açın ve Mobil Uygulama Web Hizmetinin yüklendiği URL’ye gidin (örneğin https://mfa.contoso.com/MultiFactorAuthMobileAppWebService). Sertifika uyarısı ya da hatası görüntülenmediğinden emin olun.
 
-## <a name="configure-hello-mobile-app-settings-in-hello-azure-multi-factor-authentication-server"></a>Hello Azure çok faktörlü kimlik doğrulama sunucusu Hello mobil uygulama ayarlarını yapılandırın
+## <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu’nda mobil uygulama ayarlarını yapılandırma
 
-Merhaba mobil uygulama web hizmetinin yüklü olduğu, tooconfigure hello Azure çok faktörlü kimlik doğrulama sunucusu toowork hello portalıyla gerekir.
+Artık mobil uygulama web hizmeti yüklendiğine göre, portal ile çalışmak için Azure Multi-Factor Authentication Sunucusu’nu yapılandırmalısınız.
 
-1. Merhaba çok faktörlü kimlik doğrulama sunucusu konsolunda hello Kullanıcı Portalı simgesine tıklayın. Kullanıcıların toocontrol izin verilen kendi kimlik doğrulama yöntemlerini denetleyin **mobil uygulama** hello ayarları sekmesinde altında **tooselect yöntemi kullanıcıların**. Bu özellik etkinleştirilmeden, son kullanıcılar gerekli toocontact olan hello mobil uygulama için Yardım Masası toocomplete etkinleştirme.
-2. Merhaba denetleyin **kullanıcılar tooactivate mobil uygulama izin** kutusu.
-3. Merhaba denetleyin **kullanıcı kaydına izin ver** kutusu.
-4. Merhaba tıklatın **mobil uygulama** simgesi.
-5. MultiFactorAuthenticationMobileAppWebServiceSetup64 yüklerken oluşturulan hello sanal dizinle kullanılan hello URL'sini girin (örnek: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService/) hello alanında  **Mobil uygulama Web hizmeti URL'si:**.
-6. Merhaba doldurmak **hesap adı** hello şirketiniz veya kuruluşunuz adı toodisplay bu hesap için hello mobil uygulamada ile alan.
+1. Multi-Factor Authentication Sunucusu konsolunda Kullanıcı Portalı simgesine tıklayın. Kullanıcıların kendi kimlik doğrulama yöntemlerini denetlemesine izin veriliyorsa, Ayarlar sekmesindeki **Kullanıcıların yöntemi seçmesine izin ver** bölümünden **Mobil Uygulama**’yı işaretleyin. Bu özellik etkinleştirilmeden, Mobil Uygulama için etkinleştirme işlemini tamamlamak üzere son kullanıcıların Yardım Masanızla iletişim kurması gerekir.
+2. **Kullanıcıların Mobil Uygulamaları etkinleştirmesine izin ver** kutusunu işaretleyin.
+3. **Kullanıcı Kaydına İzin Ver** kutusunu işaretleyin.
+4. **Mobil Uygulama** simgesine tıklayın.
+5. **Mobil Uygulama Web Hizmeti URL'si:** alanına MultiFactorAuthenticationMobileAppWebServiceSetup64 yüklenirken oluşturulan sanal dizinde kullanılan URL'yi girin (Örneğin https://mfa.contoso.com/MultiFactorAuthMobileAppWebService/).
+6. **Hesap adı** alanına bu hesabın mobil uygulamasında görüntülenecek şirket veya kuruluş adını girin.
    ![MFA Sunucusu yapılandırması Mobil Uygulama ayarları](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar

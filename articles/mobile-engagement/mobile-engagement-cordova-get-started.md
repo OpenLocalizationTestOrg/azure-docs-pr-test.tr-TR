@@ -1,6 +1,6 @@
 ---
-title: "aaaGet Cordova/Phonegap için Azure Mobile Engagement ile başlatıldı"
-description: "Bilgi nasıl toouse analizler ve anında iletme bildirimleri ile Azure Mobile Engagement Cordova/Phonegap uygulamaları için."
+title: "Cordova/Phonegap için Azure Mobile Engagement Kullanmaya Başlama"
+description: "Cordova/Phonegap uygulamaları için Analizler ve Anında İletme Bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin."
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
@@ -14,66 +14,66 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: e67dabbdf7886802bb058f38964e558d5ae6854c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: d7a761310782faab1dda023785f93cf90742e2ae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-cordovaphonegap"></a>Cordova/Phonegap için Azure Mobile Engagement Kullanmaya Başlama
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-Bu konu, nasıl gösterir, uygulama kullanımı ve gönderme anında iletme bildirimleri toosegmented kullanıcılarınızın bir mobil uygulama için Cordova ile geliştirilen toouse Azure Mobile Engagement toounderstand.
+Bu konuda, uygulama kullanımınızı anlamak için nasıl Azure Mobile Engagement kullanılacağı ve Cordova ile geliştirilen mobil bir uygulamanın segmentli kullanıcılarına nasıl anında iletme bildirimleri gönderileceği gösterilmektedir.
 
-Bu öğreticide, Mac kullanarak boş bir Cordova uygulaması oluşturup Mobile Engagement SDK ile tümleştireceğiz. Uygulama, temel analiz verileri toplar, iOS için Apple Anında İletilen Bildirim Sistemi (APNS) ve Android için Google Cloud Messaging (GCM) kullanarak anında iletme bildirimlerini alır. Bu tooan iOS veya Android cihazında Test dağıtımını yapacaksınız. 
+Bu öğreticide, Mac kullanarak boş bir Cordova uygulaması oluşturup Mobile Engagement SDK ile tümleştireceğiz. Uygulama, temel analiz verileri toplar, iOS için Apple Anında İletilen Bildirim Sistemi (APNS) ve Android için Google Cloud Messaging (GCM) kullanarak anında iletme bildirimlerini alır. Bu uygulamayı, test etme amacıyla bir iOS veya Android cihazına dağıtacağız.  
 
 > [!NOTE]
-> toocomplete Bu öğretici, etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started).
+> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-cordova-get-started).
 > 
 > 
 
-Bu öğretici hello aşağıdakileri gerektirir:
+Bu öğretici için aşağıdakiler gereklidir:
 
-* Mac uygulama Mağazası'ndan (tooiOS dağıtmak için) yükleyebileceğiniz XCode
-* [Android SDK ve öykünücüsü](http://developer.android.com/sdk/installing/index.html) (dağıtmayla tooAndroid)
+* Mac App Store'dan yükleyebileceğiniz XCode (iOS’a dağıtmak için)
+* [Android SDK ve Öykünücüsü](http://developer.android.com/sdk/installing/index.html) (Android’e dağıtmak için)
 * APNS için Apple Dev Center'dan edinebileceğiniz anında iletme bildirimi sertifikası (.p12)
 * GCM için Google Developer Console’unuzdan edinebileceğiniz GCM Proje numarası
 * [Mobile Engagement Cordova eklentisi](https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-engagement)
 
 > [!NOTE]
-> Merhaba kaynak kodu bulun ve üzerinde hello Cordova eklentisi için Benioku hello [GitHub](https://github.com/Azure/azure-mobile-engagement-cordova)
+> Cordova eklentisinin kaynak kodunu ve BeniOku dosyasını [GitHub](https://github.com/Azure/azure-mobile-engagement-cordova) sayfasında bulabilirsiniz
 > 
 > 
 
 ## <a id="setup-azme"></a>Cordova uygulamanız için Mobile Engagement kurma
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Uygulamanızın toohello Mobile Engagement arka ucuna bağlama
-Bu öğreticide hello en az gerekli toocollect veri kümesi ve bir anında iletme bildirimi gönderme bir "temel tümleştirme" gösterilmektedir. 
+## <a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
+Bu öğreticide, veri toplamak ve anında iletme bildirimi göndermek için gerekli en küçük grup olan bir "temel tümleştirme" gösterilmektedir. 
 
-Cordova toodemonstrate hello tümleştirme ile temel bir uygulama oluşturacağız:
+Tümleştirmeyi göstermek için Cordova ile temel bir uygulama oluşturacağız:
 
 ### <a name="create-a-new-cordova-project"></a>Yeni bir Cordova projesi oluşturma
-1. Başlatma *Terminal* hangi hello varsayılan şablondan yeni bir Cordova projesi oluşturacak aşağıdaki, Mac makine ve türü hello penceresinde. Hello yayımlama, sonunda kullanım toodeploy profil olduğundan emin olun, iOS uygulamanızın uygulama kimliği hello olarak 'com.mycompany.myapp' kullanıyor 
+1. Mac makinenizde *Terminal* penceresi başlatın ve varsayılan şablondan yeni bir Cordova projesi oluşturacak olan aşağıdakileri yazın. iOS uygulamanızı dağıtmak için kullanacağınız yayımlama profilinin Uygulama Kimliği olarak 'com.mycompany.myapp' kullandığından emin olun. 
    
         $ cordova create azme-cordova com.mycompany.myapp
         $ cd azme-cordova
-2. Projeniz için tooconfigure aşağıdaki hello yürütme **iOS** ve hello iOS simülatörü çalıştırın:
+2. Projenizi **iOS** için yapılandırıp iOS Simulator’da çalıştırmak için aşağıdakileri yürütün:
    
         $ cordova platform add ios 
         $ cordova run ios
-3. Projeniz için tooconfigure aşağıdaki hello yürütme **Android** ve hello Android öykünücüsünde çalıştırın. Android SDK öykünücüsü ayarlarınızı hedef olarak Google API'leri (Google Inc.) ile Merhaba CPU olduğundan emin olun / ABI olarak Google API'ler ARM'si.  
+3. Projenizi **Android** için yapılandırıp Android öykünücüsünde çalıştırmak için aşağıdakileri yürütün. Android SDK Öykünücüsü ayarlarınızda hedef olarak Google API'leri (Google Inc.) ve CPU / ABI olarak Google API'ler ARM’si bulunduğundan emin olun.  
    
         $ cordova platform add android
         $ cordova run android
-4. Merhaba Cordova Konsolu eklentisini ekleyin. 
+4. Cordova Konsolu eklentisini ekleyin. 
 
     ```
     $ cordova plugin add cordova-plugin-console
     ``` 
 
-### <a name="connect-your-app-toomobile-engagement-backend"></a>Uygulamanızın tooMobile Engagement arka ucuna bağlanmak
-1. Merhaba değişken değerleri tooconfigure hello eklentisi sağlarken Hello Azure Mobile Engagement Cordova eklentisini yükleyin:
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
+1. Azure Mobile Engagement Cordova eklentisini yükleyip, eklentiyi yapılandırmak üzere değişken değerlerini sağlayın:
    
         cordova plugin add cordova-plugin-ms-azure-mobile-engagement    
              --variable AZME_IOS_CONNECTION_STRING=<iOS Connection String> 
@@ -81,33 +81,33 @@ Cordova toodemonstrate hello tümleştirme ile temel bir uygulama oluşturacağ�
             --variable AZME_ANDROID_CONNECTION_STRING=<Android Connection String> 
             --variable AZME_ANDROID_REACH_ICON=... (icon name WITHOUT extension)       
             --variable AZME_ANDROID_GOOGLE_PROJECT_NUMBER=... (From your Google Cloud console for sending push notifications) 
-            --variable AZME_ACTION_URL =... (URL scheme which triggers hello app for deep linking)
+            --variable AZME_ACTION_URL =... (URL scheme which triggers the app for deep linking)
             --variable AZME_ENABLE_NATIVE_LOG=true|false
             --variable AZME_ENABLE_PLUGIN_LOG=true|false
 
-*Android Reach simgesi* : hello kaynağı herhangi bir uzantı veya drawable ön eki olmadan hello adı olması gerekir (örn: mynotificationicon), ve android projenize (platformları/android/res/drawable) hello simge dosyası kopyalanır
+*Android Reach Simgesi*: Herhangi bir uzantı veya drawable ön eki olmadan kaynağın adı olmalıdır (ör. mynotificationicon) ve simge dosyası android projenize (platforms/android/res/drawable) kopyalanmalıdır
 
-*iOS Reach simgesi* : hello kaynak uzantısı hello adı olması gerekir (örn: mynotificationicon.png), ve hello simge dosyası eklenir (Merhaba Ekle dosyaları menüsünü kullanarak) XCode ile iOS projenize gerekir
+*iOS Reach Simgesi*: Uzantısı ile birlikte kaynağın adı olmalıdır (ör. mynotificationicon.png) ve simge dosyası XCode ile iOS projenize eklenmelidir (Dosya Ekle Menüsü kullanılarak)
 
 ## <a id="monitor"></a>Gerçek zamanlı izlemeyi etkinleştirme
-1. Merhaba Cordova projesinde **www/js/index.js** tooMobile katılım toodeclare yeni bir etkinlik bir kez hello tooadd hello çağrısı *deviceReady* olayı alındığında.
+1. Cordova projesinde **www/js/index.js** dosyasını düzenleyerek, *deviceReady* olayı alındığında yeni bir etkinlik bildirmek üzere Mobile Engagement çağrısı ekleyin.
    
          onDeviceReady: function() {
                 Engagement.startActivity("myPage",{});
             }
-2. Merhaba uygulamayı çalıştırın:
+2. Uygulamayı çalıştırın:
    
    * **iOS için**
      
-       İçinde `Terminal` penceresinde hello aşağıdakini yürüterek uygulamanızı yeni bir Simulator örneğinde başlatın:
+       `Terminal` penceresinde aşağıdakini yürüterek uygulamanızı yeni bir Simulator örneğinde başlatın:
      
            cordova run ios
    * **Android için**
      
-       İçinde `Terminal` penceresinde hello aşağıdakini yürüterek uygulamanızı yeni bir öykünücü örneğinde başlatın:
+       `Terminal` penceresinde aşağıdakini yürüterek uygulamanızı yeni bir öykünücü örneğinde başlatın:
      
            cordova run android
-3. Merhaba konsol günlüklerine hello aşağıdakileri görebilirsiniz:
+3. Konsol günlüklerine aşağıdakileri görebilirsiniz:
    
         [Engagement] Agent: Session started
         [Engagement] Agent: Activity 'myPage' started
@@ -120,16 +120,16 @@ Cordova toodemonstrate hello tümleştirme ile temel bir uygulama oluşturacağ�
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
 ## <a id="integrate-push"></a>Anında İletme Bildirimlerini ve uygulama içi mesajlaşmayı etkinleştirme
-Mobile Engagement anında iletme bildirimleri ve uygulama içi hello Kampanyalar bağlamında Mesajlaşma aracılığıyla kullanıcılarınız ile toointeract sağlar. Bu modül hello Mobile Engagement portalında REACH adı verilir.
-Merhaba aşağıdaki bölümlerde, app tooreceive Kurulum bunları.
+Mobile Engagement, kampanyalar bağlamında Anında İletme Bildirimleri ve uygulama içi mesajlaşma aracılığıyla kullanıcılarınız ile etkileşim kurmanızı sağlar. Mobile Engagement portalında bu modüle REACH adı verilir.
+Aşağıdaki bölümler, uygulamanızı bu bildirim ve mesajları alacak şekilde ayarlar.
 
 ### <a name="configure-push-credentials-for-mobile-engagement"></a>Mobile Engagement için Gönderim kimlik bilgilerini yapılandırma
-sizin adınıza tooallow Mobile Engagement toosend anında iletme bildirimleri, erişim tooyour Apple iOS sertifikanıza veya GCM Server API anahtarını toogrant gerekir. 
+Mobile Engagement’ın sizin adınıza Anında İletme Bildirimleri göndermesine izin vermek için, Apple iOS sertifikanıza veya GCM Server API Anahtarınıza erişmesine izin vermeniz gerekir. 
 
-1. Tooyour Mobile Engagement portalına gidin. Bu proje için kullanmakta olduğunuz ve üzerinde hello ardından hello uygulamasında olduğunuz sağlamak **Katıl** hello altındaki düğmesi:
+1. Mobile Engagement portalınıza gidin. Bu proje için kullanmakta olduğunuz uygulamada olduğunuzdan emin olun ve alt kısımdaki **Engage** (Katıl) düğmesine tıklayın:
    
     ![][1]
-2. Engagement Portal'ınızdaki hello ayarları sayfasına gideceksiniz. Merhaba orada tıklayın **yerel gönderim** bölümü:
+2. Engagement Portal’ınızdaki ayarlar sayfasına gideceksiniz. Bu sayfada **Yerel Gönderim** bölümüne tıklayın:
    
     ![][2]
 3. iOS Sertifikasını/GCM Server API Anahtarını yapılandırın
@@ -142,12 +142,12 @@ sizin adınıza tooallow Mobile Engagement toosend anında iletme bildirimleri, 
    
     **[Android]**
    
-    a. Merhaba Düzenle simgesine önüne **API anahtarı** hello GCM ayarları bölümünde ve gösteren yukarı hello açılan'de, hello GCM Server anahtarını yapıştırın ve tıklayın **Tamam**. 
+    a. GCM Ayarları bölümünde **API Anahtarı**’nın önündeki düzenle simgesine tıklayıp, gösterilen açılır pencerede GCM Server Anahtarını yapıştırın ve **Tamam**’a tıklayın. 
    
     ![][4]
 
-### <a name="enable-push-notifications-in-hello-cordova-app"></a>Merhaba Cordova uygulamasında anında iletme bildirimlerini etkinleştirin
-Düzen **www/js/index.js** tooadd hello çağrısı tooMobile katılım toorequest anında iletme bildirimleri ve bir işleyici bildirin:
+### <a name="enable-push-notifications-in-the-cordova-app"></a>Cordova uygulamasında anında iletme bildirimlerini etkinleştirme
+**www/js/index.js** dosyasını düzenleyerek anında iletme bildirimleri istemek ve bir işleyici bildirmek üzere Mobile Engagement çağrısı ekleyin:
 
      onDeviceReady: function() {
            Engagement.initializeReach(  
@@ -158,48 +158,48 @@ Düzen **www/js/index.js** tooadd hello çağrısı tooMobile katılım tooreque
             Engagement.startActivity("myPage",{});  
         }
 
-### <a name="run-hello-app"></a>Merhaba uygulamayı çalıştırma
+### <a name="run-the-app"></a>Uygulamayı çalıştırma
 **[iOS]**
 
-1. Biz XCode toobuild kullanabilir ve iOS anında iletme bildirimleri tooan gerçek cihaz yalnızca olanak tanıdığından hello aygıt tootest anında iletme bildirimleri hello uygulamasını dağıtabilirsiniz. Cordova projenizin oluşturulduğu toohello konumuna gidin ve çok gidin**...\platforms\ios** konumu. Xcode'da hello yerel .xcodeproj dosyasını açın. 
-2. Derleme ve sağlama profili toohello Mobile Engagement portalına ve hello hello oluşturulurken sağlanan eşleşen bir uygulama kimliği yalnızca karşıya hello sertifikayı içeren hello olan hello hesabı kullanarak hello Cordova uygulaması toohello iOS cihazı dağıtma Merhaba Cordova uygulaması. Merhaba denetleyebilirsiniz *paket tanımlayıcısı* içinde **kaynakları\*-info.plist** yukarı dosya XCode toomatch. 
-3. Bu hello uygulama belirten aygıtınızda hello standart iOS açılır penceresini izni toosend bildirimleri istekleri görürsünüz. Merhaba izni verin. 
+1. iOS yalnızca gerçek bir cihaza anında iletme bildirimlerine izin verdiğinden anında iletme bildirimlerini test etmek için, XCode kullanarak uygulamayı cihazda derleyip dağıtacağız. Cordova projenizin oluşturulduğu konumda **...\platforms\ios** konumuna gidin. Yerel .xcodeproj dosyasını XCode’da açın. 
+2. Biraz önce Mobile Engagement portalına yüklediğiniz sertifikayı içeren sağlama profilinin bulunduğu hesabı ve Cordova uygulamasını oluştururken sağladığınız Uygulama Kimliğinin aynısını kullanarak Cordova uygulamasını derleyin ve iOS cihazına dağıtın. Eşleştirme amacıyla XCode’da **Resources\*-info.plist** dosyasında *Paket tanımlayıcısına* bakabilirsiniz. 
+3. Cihazınızda uygulamanın bildirim gönderme izni istediğini belirten standart iOS açılır penceresini görürsünüz. İzni verin. 
 
 **[Android]**
 
-GCM bildirimleri hello Android öykünücüsünde desteklenen gibi hello öykünücüsü toorun hello Android uygulaması yalnızca kullanabilirsiniz. 
+GCM bildirimleri Android öykünücüsünde desteklendiğinden Android uygulamasını öykünücüde çalıştırmanız yeterlidir. 
 
     cordova run android
 
-## <a id="send"></a>Bir bildirim tooyour uygulaması Gönder
-Şimdi hello cihazda çalışan bir itme tooyour uygulama gönderecek basit bir anında iletme bildirimi kampanyası oluşturacağız:
+## <a id="send"></a>Uygulamanıza bildirim gönderme
+Şimdi, cihazda çalışan uygulamanıza bir anında iletim gönderecek olan basit bir Anında İletme Bildirimi kampanyası oluşturacağız:
 
-1. Toohello gidin **ulaşmak** Mobile Engagement portalınızın sekmesi
-2. Tıklatın **Yeni duyuru** toocreate anında iletme kampanyanızı
+1. Mobile Engagement portalınızın **Reach** sekmesine gidin
+2. Anında iletme kampanyanızı oluşturmak için **Yeni Duyuru**’ya tıklayın
    
     ![][6]
-3. Kampanyanızı girişleri toocreate sağlamak **[Android]**
+3. Kampanyanızı oluşturacak girişleri yapın **[Android]**
    
    * Kampanyanıza bir **Ad** verin. 
-   * Select hello **teslimat türü** olarak *sistem bildirimi* *basit*
-   * Select hello **teslim saati** olarak *"Her zaman"*
-   * Sağlayan bir **başlık** hello itme hello ilk satırı olacak bildiriminizin için.
-   * Sağlayan bir **ileti** hello ileti gövdesi görevini görecek olan, bildirimi. 
+   * **Teslimat Türü** olarak *Sistem bildirimi* *Basit* seçeneğini belirleyin
+   * **Teslimat zamanı** olarak *"Her Zaman"* seçeneğini belirleyin
+   * Bildiriminiz için, anında iletimin ilk satırı olacak olan bir **Başlık** girin.
+   * Bildiriminiz için, ileti gövdesi görevini görecek olan bir **İleti** girin. 
      
      ![][11]
-4. Kampanyanızı girişleri toocreate sağlamak **[iOS]**
+4. Kampanyanızı oluşturacak girişleri yapın **[iOS]**
    
    * Kampanyanıza bir **Ad** verin. 
-   * Select hello **teslim saati** olarak *"dışında yalnızca uygulama"*
-   * Sağlayan bir **başlık** hello itme hello ilk satırı olacak bildiriminizin için.
-   * Sağlayan bir **ileti** hello ileti gövdesi görevini görecek olan, bildirimi. 
+   * **Teslimat zamanı** olarak *"Out of app only"* (Yalnızca uygulama dışında) seçeneğini belirleyin
+   * Bildiriminiz için, anında iletimin ilk satırı olacak olan bir **Başlık** girin.
+   * Bildiriminiz için, ileti gövdesi görevini görecek olan bir **İleti** girin. 
      
      ![][12]
-5. Aşağı kaydırın ve içerik bölümü hello seçin **yalnızca bildirim**
+5. Kaydırarak aşağı gidin ve içerik bölümünde **Yalnızca bildirim**’i seçin
    
     ![][8]
-6. [İsteğe bağlı] Bir Eylem URL'si de sağlayabilirsiniz. Merhaba yapılandırılırken sağlanan bir URL şemasını kullandığından emin olun **AZME\_yeniden yönlendirme\_URL** değişkeni örneğin *myapp://test*.  
-7. Ayar hello en temel kampanya olası bitirdiniz. Şimdi kaydırarak yeniden aşağı gidin ve hello tıklatın **oluşturma** toosave kampanyanızı düğmesine tıklayın.
+6. [İsteğe bağlı] Bir Eylem URL'si de sağlayabilirsiniz. Eklentinin **AZME\_REDIRECT\_URL** değişkeni yapılandırılırken sağlanmış olan bir URL şemasını kullandığından emin olun ör. *myapp://test*.  
+7. Olabilecek en temel kampanyanın ayarlarını yapmayı bitirdiniz. Şimdi kaydırarak yeniden aşağı gidin ve **Oluştur** düğmesine tıklayarak kampanyanızı kaydedin.
 8. Son olarak **Etkinleştir** düğmesine tıklayarak kampanyanızı etkinleştirin
    
     ![][10]

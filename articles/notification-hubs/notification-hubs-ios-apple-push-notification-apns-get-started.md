@@ -1,6 +1,6 @@
 ---
-title: "Azure Notification Hubs ile anında iletme bildirimleri tooiOS aaaSending | Microsoft Docs"
-description: "Bu öğreticide, nasıl toouse Azure Notification Hubs toosend anında bildirimleri tooan iOS uygulaması öğrenin."
+title: "Azure Notification Hubs ile iOS'a anında iletme bildirimleri gönderme | Microsoft Belgeleri"
+description: "Bu öğreticide, bir iOS uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını öğrenirsiniz."
 services: notification-hubs
 documentationcenter: ios
 keywords: "anında iletme bildirimi,anında iletme bildirimleri,ios anında iletme bildirimleri"
@@ -15,32 +15,32 @@ ms.devlang: objective-c
 ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
-ms.openlocfilehash: d8bb47fee4c229b3ed2a7a4dbff25a56a7a7d009
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ab0777f859e80afcd61e371056b44d018c7b7ab9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="sending-push-notifications-tooios-with-azure-notification-hubs"></a>Azure Notification Hubs ile anında iletme bildirimleri tooiOS gönderme
+# <a name="sending-push-notifications-to-ios-with-azure-notification-hubs"></a>Azure Notification Hubs ile iOS'a anında iletme bildirimleri gönderme
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>Genel Bakış
 > [!NOTE]
-> toocomplete Bu öğretici, etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
+> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-ios-get-started).
 > 
 > 
 
-Bu öğretici nasıl toouse Azure Notification Hubs toosend anında bildirimleri tooan iOS uygulaması gösterir. Hello kullanarak anında iletme bildirimleri alan boş bir iOS uygulaması oluşturacaksınız [Apple anında iletilen bildirim servisi (APNs)](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html). 
+Bu öğretici, bir iOS uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını size gösterir. [Apple Anında İletilen Bildirim servisini (APNs)](https://developer.apple.com/library/ios/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html) kullanarak anında iletme bildirimleri alan boş bir iOS uygulaması oluşturacaksınız. 
 
-Mümkün toouse olacak tamamladığınızda, bildirim hub'ı toobroadcast uygulamanızı çalıştıran bildirimleri tooall hello cihazlar iletin.
+İşiniz bittiğinde, uygulamanızı çalıştıran tüm cihazlara anında iletme bildirimleri yayımlamak için bildirim hub'ınızı kullanabileceksiniz.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 [!INCLUDE [notification-hubs-hero-slug](../../includes/notification-hubs-hero-slug.md)]
 
-Bu öğreticinin tamamlanan hello kodu bulunabilir [github'da](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted). 
+Bu öğreticinin tamamlanan kodu [GitHub'da](https://github.com/Azure/azure-notificationhubs-samples/tree/master/iOS/GetStartedNH/GetStarted) bulunabilir. 
 
-## <a name="prerequisites"></a>Ön koşullar
-Bu öğretici hello aşağıdakileri gerektirir:
+## <a name="prerequisites"></a>Önkoşullar
+Bu öğretici için aşağıdakiler gereklidir:
 
 * [Mobile Services iOS SDK'sı sürüm 1.2.4]
 * [Xcode]'un en son sürümü
@@ -48,7 +48,7 @@ Bu öğretici hello aşağıdakileri gerektirir:
 * [Apple Developer Program](https://developer.apple.com/programs/) üyeliği.
   
   > [!NOTE]
-  > Anında iletme bildirimlerinin yapılandırma gereksinimleri nedeniyle, dağıtmak ve hello iOS simülatörü yerine bir fiziksel iOS cihazında (iPhone veya iPad) anında iletme bildirimleri test.
+  > Anında iletme bildirimlerinin yapılandırma gereksinimleri nedeniyle, anında iletme bildirimlerini iOS Simülatörü'nün yerine fiziksel bir iOS cihazında (iPhone veya iPad) dağıtmanız ve test etmeniz gerekir.
   > 
   > 
 
@@ -57,7 +57,7 @@ Bu öğreticiyi tamamlamak iOS uygulamalarına ilişkin diğer tüm Notification
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
 ## <a name="configure-your-notification-hub-for-ios-push-notifications"></a>iOS anında iletme bildirimleri için Notification Hub'ınızı yapılandırma
-Bu bölümde, yeni bir bildirim hub'ı oluşturma ve hello kullanarak APNS ile kimlik doğrulaması yapılandırma açıklanmaktadır **.p12** oluşturduğunuz bildirim sertifikası. Önceden oluşturduğunuz bir bildirim hub'ı toouse istiyorsanız, toostep 5 atlayabilirsiniz.
+Bu bölüm, yeni bir bildirim hub'ı oluşturma ve oluşturduğunuz **.p12** anında iletme sertifikasını kullanarak APNS ile kimlik doğrulaması yapılandırma konusunda size yol gösterecektir. Önceden oluşturduğunuz bir bildirim hub'ını kullanmak istiyorsanız 5. adıma geçebilirsiniz.
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
@@ -65,53 +65,53 @@ Bu bölümde, yeni bir bildirim hub'ı oluşturma ve hello kullanarak APNS ile k
 
 <li>
 
-<p>Merhaba tıklatın <b>Bildirim Hizmetleri</b> hello düğmesini <b>ayarları</b> dikey penceresinde, ardından <b>Apple (APNS)</b>. Tıklayın <b>sertifikasını karşıya yükle</b> ve select hello <b>.p12</b> daha önce dışarı aktarılan dosya. Ayrıca hello doğru parolayı belirttiğinizden emin olun.</p>
+<p><b>Ayarlar</b> dikey penceresinde, <b>Bildirim Hizmetleri</b> düğmesine tıklayın, ardından <b>Apple'ı (APNS)</b> seçin. <b>Sertifikayı Karşıya Yükle</b>'ye tıklayıp daha önce dışarı aktardığınız <b>.p12</b> dosyasını seçin. Ayrıca, doğru parolayı belirttiğinizden emin olun.</p>
 
-<p>Emin tooselect olun <b>korumalı alan</b> bu geliştirme için olduğundan modu. Yalnızca hello kullan <b>üretim</b> uygulamanızı hello mağazadan satın alan toosend anında iletme bildirimleri toousers istiyorsanız.</p>
+<p><b>Korumalı Alan</b> modu geliştirme içindir, bu nedenle bu seçeneği belirlediğinizden emin olun. <b>Üretim</b> seçeneğini yalnızca uygulamanızı mağazadan satın alan kullanıcılara anında iletme bildirimleri göndermek istiyorsanız kullanın.</p>
 </li>
 </ol>
 &emsp;&emsp;&emsp;&emsp;![Azure portalında APNS yapılandırın](./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png)
 
 &emsp;&emsp;&emsp;&emsp;![Azure Portal'da APNS sertifikası yapılandırma](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
 
-Bildirim hub'ınız şimdi APNS ile yapılandırılmış toowork olan ve hello bağlantı dizeleri tooregister uygulamanızı çalıştırdıktan ve anında iletme bildirimleri göndermek.
+Bildirim hub'ınız şimdi APNS ile birlikte çalışmak üzere yapılandırıldı. Ayrıca uygulamanızı kaydetmenizi ve anlık iletme bildirimleri göndermenizi sağlayan bağlantı dizelerine sahipsiniz.
 
-## <a name="connect-your-ios-app-toonotification-hubs"></a>İOS uygulama tooNotification hub Bağlan
-1. Xcode'da yeni bir iOS projesi oluşturun ve seçin hello **tek görünüm uygulaması** şablonu.
+## <a name="connect-your-ios-app-to-notification-hubs"></a>iOS uygulamanızı Notification Hubs'a bağlama
+1. Xcode'da yeni bir iOS projesi oluşturun ve **Single View Application** (Tek Görünüm Uygulaması) şablonunu seçin.
    
     ![Xcode - Single View Application (Tek Görünüm Uygulaması)][8]
     
-2. Yeni projeniz için başlangıç seçeneklerini ayarlarken toouse aynı hello emin olun **ürün adı** ve **kuruluş tanımlayıcı** hello paket kimliği daha önce Apple Developer hello üzerinde ayarlarken kullandığınız Portal.
+2. Yeni projeniz için seçenekleri ayarlarken, daha önce Apple Developer portalında paket kimliğini açarken kullandığınız **Product Name** (Ürün Adı) ve **Organization Identifier**'nı (Kuruluş Tanımlayıcısı) kullandığınızdan emin olun.
    
     ![Xcode - proje seçenekleri][11]
     
-3. Altında **hedefleri**, projenizin adına tıklayın, hello tıklatın **Build Settings** sekmesinde ve genişletin **kod imzalama kimliği**ve ardından **hataayıklama**, kod imzalama kimliğinizi ayarlayın. İki durumlu **düzeyleri** gelen **temel** çok**tüm**ve **sağlama profili** toohello daha önce oluşturduğunuz profili sağlama .
+3. **Targets** (Hedefler) altında projenizin adına tıklayın, **Build Settings** (Derleme Ayarları) sekmesine tıklayın ve **Code Signing Identity**'yi (Kod İmzalama Kimliği) genişletin. Ardından **Debug** (Hata Ayıklama) altında kod imzalama kimliğinizi ayarlayın. **Levels**'i (Düzeyler) **Basic**'ten (Temel) **All**'a (Tüm) geçirin ve **Provisioning Profile**'ı (Hazırlama Profili) daha önce oluşturduğunuz hazırlama profiline ayarlayın.
    
-    Yeni sağlama Xcode'da oluşturduğunuz profili hello göremiyorsanız imzalama kimliğiniz için hello profilleri yenilemeyi deneyin. ' I tıklatın **Xcode** hello menü çubuğunda **Tercihler**, hello tıklatın **hesap** sekmesini ve ardından hello **ayrıntıları görüntüle** düğmesini tıklatın, kimlik imzalama ve hello hello sağ alt köşedeki Yenile düğmesini tıklatın.
+    Xcode'da oluşturduğunuz yeni hazırlama profilini göremiyorsanız imzalama kimliğiniz için profilleri yenilemeyi deneyin. Menü çubuğunda **Xcode**'a tıklayın, **Preferences**'a (Tercihler) tıklayın, **Account** (Hesap) sekmesine tıklayın, **View Details** (Ayrıntıları Görüntüle) düğmesine tıklayın, imzalama kimliğinize tıklayın ve ardından sağ alt köşedeki yenile düğmesine tıklayın.
    
     ![Xcode - hazırlama profili][9]
-4. Merhaba karşıdan [Mobile Services iOS SDK'sı sürüm 1.2.4] ve hello dosyanın sıkıştırmasını açın. Xcode'da projenize sağ tıklayın ve hello **için dosyaları Ekle** seçeneği tooadd hello **WindowsAzureMessaging.framework** klasörü tooyour Xcode projesi. **Copy items if needed** (Gerekirse öğeleri kopyala) seçeneğini belirleyin ve ardından **Add** (Ekle) seçeneğine tıklayın.
+4. [Mobile Services iOS SDK'sı sürüm 1.2.4]'ü indirin ve dosyanın sıkıştırmasını açın. Xcode'da projenize sağ tıklayın ve **WindowsAzureMessaging.framework** klasörünü Xcode projenize eklemek için **Add Files to** (Dosyaları Şuraya Ekle) seçeneğine tıklayın. **Copy items if needed** (Gerekirse öğeleri kopyala) seçeneğini belirleyin ve ardından **Add** (Ekle) seçeneğine tıklayın.
    
    > [!NOTE]
-   > Merhaba bildirim hub'ları SDK Xcode 7'de bitcode'u şu anda desteklemiyor.  Ayarlamalısınız **Bitcode'u etkinleştir** çok**Hayır** hello içinde **derleme seçenekleri** projeniz için.
+   > Bildirim hub'ları SDK'sı şu anda Xcode 7'de bitcode'u desteklemiyor.  **Build Options** (Derleme Seçenekleri) içinde, projeniz için **Enable Bitcode** (Bitcode'u Etkinleştir) seçeneğini **No** (Hayır) olarak ayarlamanız gerekir.
    > 
    > 
    
     ![Azure SDK'nın sıkıştırmasını açma][10]
-5. Adlı yeni bir üstbilgi dosyası tooyour proje eklemek `HubInfo.h`. Bu dosya, bildirim hub'ınız için hello sabitleri tutar.  Tanımları aşağıdaki hello ekleyin ve hello ile dize sabiti yer tutucularını değiştirin, *hub adı* ve hello *DefaultListenSharedAccessSignature* daha önce not ettiğiniz.
+5. Projenize `HubInfo.h` adlı yeni bir üst bilgi dosyası ekleyin. Bu dosya, bildirim hub'ınız için sabitleri tutar.  Aşağıdaki tanımları ekleyin ve dize sabiti yer tutucularını, daha önce not ettiğiniz *hub adınız* ve *DefaultListenSharedAccessSignature* ile değiştirin.
    
         #ifndef HubInfo_h
         #define HubInfo_h
    
-            #define HUBNAME @"<Enter hello name of your hub>"
+            #define HUBNAME @"<Enter the name of your hub>"
             #define HUBLISTENACCESS @"<Enter your DefaultListenSharedAccess connection string"
    
         #endif /* HubInfo_h */
-6. Açık, `AppDelegate.h` dosyasını içeri aktarma yönergeleri izleyerek hello ekleyin:
+6. `AppDelegate.h` dosyanızı açıp aşağıdaki içeri aktarma yönergelerini ekleyin:
    
          #import <WindowsAzureMessaging/WindowsAzureMessaging.h> 
          #import "HubInfo.h"
-7. İçinde `AppDelegate.m file`, hello kodda aşağıdaki hello eklemek `didFinishLaunchingWithOptions` yöntemi iOS sürümünüze bağlı. Bu kod, cihaz tanıtıcınızı APNs'ye kaydeder:
+7. `AppDelegate.m file` dosyanızda, iOS sürümünüze bağlı olarak `didFinishLaunchingWithOptions` yöntemine aşağıdaki kodu ekleyin. Bu kod, cihaz tanıtıcınızı APNs'ye kaydeder:
    
     iOS 8 için:
    
@@ -121,10 +121,10 @@ Bildirim hub'ınız şimdi APNS ile yapılandırılmış toowork olan ve hello b
         [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
         [[UIApplication sharedApplication] registerForRemoteNotifications];
    
-    İOS sürümleri önceki too8 için:
+    8'den önceki iOS sürümleri için:
    
          [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
-8. Aynı dosya Merhaba, yöntemler aşağıdaki hello ekleyin. Bu kod, Hubınfo.h içinde belirttiğiniz hello bağlantı bilgilerini kullanarak toohello bildirim hub'ı bağlar. Merhaba bildirim hub'ı bildirimleri gönderebilmesi hello cihaz belirteci toohello bildirim hub'ı sonra sağlar:
+8. Aynı dosyada, aşağıdaki yöntemleri ekleyin. Bu kod, HubInfo.h içinde belirttiğiniz bağlantı bilgilerini kullanarak bildirim hub'ına bağlanır. Ardından, cihaz belirtecini bildirim hub'ına verir. Böylece bildirim hub'ı bildirim gönderebilir:
    
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
             SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:HUBLISTENACCESS
@@ -146,40 +146,40 @@ Bildirim hub'ınız şimdi APNS ile yapılandırılmış toowork olan ve hello b
                 cancelButtonTitle:@"OK" otherButtonTitles: nil];
             [alert show];
         }
-9. Buna Merhaba aynı dosya, yöntem toodisplay aşağıdaki hello eklemek bir **Uıalert** hello uygulama etkin durumdayken hello bildirim alınırsa:
+9. Aynı dosyaya, uygulama etkinken bildirim alınırsa **UIAlert** görüntülenmesi için aşağıdaki yöntemi ekleyin:
 
         - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
             NSLog(@"%@", userInfo);
             [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
         }
 
-1. Derleme ve hello uygulama hiçbir hatalar varsa, cihaz tooverify üzerinde çalıştırın.
+1. Herhangi bir hata olmadığını doğrulamak için cihazınızda uygulamayı derleyin ve çalıştırın.
 
 ## <a name="send-test-push-notifications"></a>Test amaçlı anında iletme bildirimleri gönderme
-Hello anında iletme bildirimleri göndererek uygulamanızda bildirim almayı test edebilirsiniz [Azure Portal] hello aracılığıyla **sorun giderme** hello hub dikey bölümde (Merhaba kullanmak *Test gönderimi* seçeneği).
+Hub dikey penceresindeki **Sorun Giderme** bölümü aracılığıyla [Azure Portal]'da anında iletme bildirimleri göndererek uygulamanızda bildirim almayı test edebilirsiniz (*Test Gönderimi* seçeneğini kullanın).
 
 ![Azure Portal - Test Gönderimi][30]
 
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
-## <a name="optional-send-push-notifications-from-hello-app"></a>(İsteğe bağlı) Merhaba uygulamadan anında iletme bildirimleri gönderme
+## <a name="optional-send-push-notifications-from-the-app"></a>(İsteğe bağlı) Uygulamadan anında iletme bildirimleri gönderme
 > [!IMPORTANT]
-> Bu örneği hello istemci uygulamasından bildirim gönderme sadece öğrenme amaçları için sağlanır. Bu hello gerektirir beri `DefaultFullSharedAccessSignature` toobe hello istemci uygulaması varsa, bir kullanıcının erişim yetkisiz toosend bildirimlerine tooyour istemcileri kazanabilir bildirim hub'ı toohello riskini gösterir.
+> İstemci uygulamasından bildirim göndermeye yönelik bu örnek yalnızca öğrenme amacıyla verilmiştir. Bu işlem istemci uygulamada `DefaultFullSharedAccessSignature` gerektireceğinden, bildirim hub’ınızı bir kullanıcının istemcilerinize yetkisiz bildirimler göndermek üzere erişim kazanabilmesi riskine maruz bırakır.
 > 
 > 
 
-Bir uygulama içinde toosend anında iletme bildirimleri istiyorsanız, bu bölümde nasıl bir örnek sağlar toodo hello REST arabirimini kullanarak bu.
+Bir uygulama içinden anında iletme bildirimleri göndermek isterseniz bu bölümde REST arabirimini kullanarak bunu nasıl yapacağınız konusunda bir örnek sağlanmaktadır.
 
-1. Xcode'da, açık `Main.storyboard` ve hello Nesne Kitaplığı tooallow hello kullanıcı toosend anında iletme bildirimleri hello uygulama kullanıcı Arabirimi bileşenlerini yükseltmesinin hello ekleyin:
+1. Xcode'da `Main.storyboard` öğesini açın ve kullanıcının uygulama içinde anında iletme bildirimleri göndermesine izin vermek için nesne kitaplığından aşağıdaki kullanıcı arabirimi bileşenlerini ekleyin:
    
-   * Etiket metni olmayan bir etiket. Bildirimleri gönderirken kullanılan tooreport hataları olacaktır. Merhaba **satırları** özelliği çok ayarlanmalıdır**0** böylece kısıtlanmış toohello sağ ve sol kenar boşluklarına ve hello üst hello görünümün otomatik olarak boyutlandırılır.
-   * Bir metin alanı **yer tutucu** metin ayarlamak çok**bildirim iletisi girin**. Aşağıda gösterildiği gibi yalnızca hello etiket altındaki Hello alanı kısıtlar. Merhaba View Controller hello çıkış temsilcisi olarak ayarlayın.
-   * Adlı bir düğme **bildirim gönder** hemen hello metin alanı altında ve hello yatay ortada kısıtlanmış.
+   * Etiket metni olmayan bir etiket. Bildirim gönderme hatalarını raporlamak için kullanılır. **Lines** özelliği **0** olarak ayarlanmalıdır. Böylece, otomatik olarak sağ ve sol kenar boşluklarına ve üst görünüme göre kısıtlandırılarak otomatik olarak boyutlandırılır.
+   * **Placeholder** (Yer Tutucu) metninin **Enter Notification Message** (Bildirim İletisi Girin) olarak ayarlandığı bir metin alanı. Aşağıda gösterildiği gibi, bu alanı tam etiketin altında kısıtlayın. Görünüm Denetleyicisi'ni çıkış temsilcisi olarak ayarlayın.
+   * Tam metin alanı altında ve yatay ortada kısıtlanmış **Send Notification** (Bildirim Gönder) adlı bir düğme.
      
-     Merhaba görünüm aşağıdaki gibi görünmelidir:
+     Görünüm aşağıdaki gibi olmalıdır:
      
      ![Xcode tasarımcısı][32]
-2. [Çıkışlar ekleyin](https://developer.apple.com/library/ios/recipes/xcode_help-IB_connections/chapters/CreatingOutlet.html) hello etiket ve metin alanı görünümünüze bağlı için ve güncelleştirme, `interface` tanımı toosupport `UITextFieldDelegate` ve `NSXMLParserDelegate`. Merhaba Hello REST API çağırma ve hello yanıt ayrıştırmayı toohelp desteği gösterilen üç özellik bildirimini ekleyin.
+2. Görünümünüze bağlı etiket ve metin alanı için [çıkışlar ekleyin](https://developer.apple.com/library/ios/recipes/xcode_help-IB_connections/chapters/CreatingOutlet.html); `interface` tanımınızı, `UITextFieldDelegate` ve `NSXMLParserDelegate` yöntemlerini desteklemesi için güncelleştirin. REST API çağırmayı ve yanıt ayrıştırmayı desteklemeye yardımcı olmak için aşağıda gösterilen üç özellik bildirimini ekleyin.
    
     ViewController.h dosyanız aşağıdaki gibi görünmelidir:
    
@@ -190,7 +190,7 @@ Bir uygulama içinde toosend anında iletme bildirimleri istiyorsanız, bu böl�
             NSXMLParser *xmlParser;
         }
    
-        // Make sure these outlets are connected tooyour UI by ctrl+dragging
+        // Make sure these outlets are connected to your UI by ctrl+dragging
         @property (weak, nonatomic) IBOutlet UITextField *notificationMessage;
         @property (weak, nonatomic) IBOutlet UILabel *sendResults;
    
@@ -198,15 +198,15 @@ Bir uygulama içinde toosend anında iletme bildirimleri istiyorsanız, bu böl�
         @property (copy, nonatomic) NSString *currentElement;
    
         @end
-3. Açık `HubInfo.h` ve bildirimleri tooyour hub göndermek için kullanılacak olan sabitleri aşağıdaki hello ekleyin. Merhaba yer tutucu dize sabitini, gerçek Değiştir *DefaultFullSharedAccessSignature* bağlantı dizesi.
+3. `HubInfo.h` öğesini açın ve hub'ınıza bildirimler göndermek için kullanılacak olan aşağıdaki sabitleri ekleyin. Yer tutucu dize sabitini, gerçek *DefaultFullSharedAccessSignature* bağlantı dizeniz ile değiştirin.
    
         #define API_VERSION @"?api-version=2015-01"
         #define HUBFULLACCESS @"<Enter Your DefaultFullSharedAccess Connection string>"
-4. Merhaba aşağıdakileri ekleyin `#import` deyimleri tooyour `ViewController.h` dosya.
+4. Aşağıdaki `#import` deyimlerini `ViewController.h` dosyanıza ekleyin.
    
         #import <CommonCrypto/CommonHMAC.h>
         #import "HubInfo.h"
-5. İçinde `ViewController.m` kod toohello arabirim uygulamasına aşağıdaki hello ekleyin. Bu kod, *DefaultFullSharedAccessSignature* bağlantı dizenizi ayrıştırır. Hello belirtildiği gibi [REST API Başvurusu](http://msdn.microsoft.com/library/azure/dn495627.aspx), bu ayrıştırılmış bilgiler kullanılan toogenerate hello için bir SaS belirteci olacaktır **yetkilendirme** istek üstbilgisi.
+5. `ViewController.m` içinde, arabirim uygulamasına aşağıdaki kodu ekleyin. Bu kod, *DefaultFullSharedAccessSignature* bağlantı dizenizi ayrıştırır. [REST API başvurusu](http://msdn.microsoft.com/library/azure/dn495627.aspx)'nda belirtildiği gibi, bu ayrıştırılmış bilgiler **Authorization** (Yetkilendirme) istek üst bilgisi için bir SaS belirteci oluşturmak üzere kullanılır.
    
         NSString *HubEndpoint;
         NSString *HubSasKeyName;
@@ -241,7 +241,7 @@ Bir uygulama içinde toosend anında iletme bildirimleri istiyorsanız, bu böl�
                 }
             }
         }
-6. İçinde `ViewController.m`, güncelleştirme hello `viewDidLoad` hello görünüm yüklenirken yöntemi tooparse hello bağlantı dizesi. Ayrıca, aşağıda gösterilen hello yardımcı program yöntemlerini ekleyin toohello arabirim uygulaması.  
+6. `ViewController.m` içinde, görünüm yüklenirken bağlantı dizesini ayrıştırmak için `viewDidLoad` yöntemini güncelleştirin. Ayrıca, aşağıda gösterilen yardımcı program yöntemlerini arabirim uygulamasına ekleyin.  
 
         - (void)viewDidLoad
         {
@@ -267,7 +267,7 @@ Bir uygulama içinde toosend anında iletme bildirimleri istiyorsanız, bu böl�
 
 
 
-1. İçinde `ViewController.m`, hello sağlanan kod toohello arabirimi uygulama toogenerate hello SaS yetkilendirme belirtecini aşağıdaki hello eklemek **yetkilendirme** hello belirtildiği gibi üst [REST API'si Başvuru](http://msdn.microsoft.com/library/azure/dn495627.aspx).
+1. `ViewController.m` içinde, [REST API Başvurusu](http://msdn.microsoft.com/library/azure/dn495627.aspx)'nda belirtildiği gibi **Authorization** (Yetkilendirme) üst bilgisinde sağlanacak olan SaS yetkilendirme belirtecini oluşturmak için, aşağıdaki kodu arabirim uygulamasına ekleyin.
    
         -(NSString*) generateSasToken:(NSString*)uri
         {
@@ -288,7 +288,7 @@ Bir uygulama içinde toosend anında iletme bildirimleri istiyorsanız, bu böl�
                 UInt64 expires = trunc(expiresOnDate);
                 NSString* toSign = [NSString stringWithFormat:@"%@\n%qu", targetUri, expires];
    
-                // Get an hmac_sha1 Mac instance and initialize with hello signing key
+                // Get an hmac_sha1 Mac instance and initialize with the signing key
                 const char *cKey  = [HubSasKeyValue cStringUsingEncoding:NSUTF8StringEncoding];
                 const char *cData = [toSign cStringUsingEncoding:NSUTF8StringEncoding];
                 unsigned char cHMAC[CC_SHA256_DIGEST_LENGTH];
@@ -314,7 +314,7 @@ Bir uygulama içinde toosend anında iletme bildirimleri istiyorsanız, bu böl�
    
             return token;
         }
-2. CTRL + Sürükle gelen hello **bildirim gönder** çok düğmesini`ViewController.m` tooadd adlı bir eylem **SendNotificationMessage** hello için **Touch Down** olay. Kod toosend hello bildirim hello REST API kullanarak aşağıdaki hello ile yöntemi güncelleştirin.
+2. **Touch Down** olayı için **SendNotificationMessage** adlı bir eylem eklemek amacıyla, **Send Notification** (Bildirim Gönder) düğmesinden `ViewController.m` öğesine Ctrl tuşunu basılı tutup sürükleyin. REST API kullanarak bildirim göndermek için aşağıdaki kod ile yöntemi güncelleştirin.
    
         - (IBAction)SendNotificationMessage:(id)sender
         {
@@ -328,18 +328,18 @@ Bir uygulama içinde toosend anında iletme bildirimleri istiyorsanız, bu böl�
                              sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
                              delegate:nil delegateQueue:nil];
    
-            // Apple Notification format of hello notification message
+            // Apple Notification format of the notification message
             NSString *json = [NSString stringWithFormat:@"{\"aps\":{\"alert\":\"%@\"}}",
                                 self.notificationMessage.text];
    
-            // Construct hello message's REST endpoint
+            // Construct the message's REST endpoint
             NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@/messages/%@", HubEndpoint,
                                                 HUBNAME, API_VERSION]];
    
-            // Generate hello token toobe used in hello authorization header
+            // Generate the token to be used in the authorization header
             NSString* authorizationToken = [self generateSasToken:[url absoluteString]];
    
-            //Create hello request tooadd hello APNs notification message toohello hub
+            //Create the request to add the APNs notification message to the hub
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
             [request setHTTPMethod:@"POST"];
             [request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
@@ -347,13 +347,13 @@ Bir uygulama içinde toosend anında iletme bildirimleri istiyorsanız, bu böl�
             // Signify Apple notification format
             [request setValue:@"apple" forHTTPHeaderField:@"ServiceBusNotification-Format"];
    
-            //Authenticate hello notification message POST request with hello SaS token
+            //Authenticate the notification message POST request with the SaS token
             [request setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
    
-            //Add hello notification message body
+            //Add the notification message body
             [request setHTTPBody:[json dataUsingEncoding:NSUTF8StringEncoding]];
    
-            // Send hello REST request
+            // Send the REST request
             NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request
                 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
             {
@@ -371,7 +371,7 @@ Bir uygulama içinde toosend anında iletme bildirimleri istiyorsanız, bu böl�
             }];
             [dataTask resume];
         }
-3. İçinde `ViewController.m`, aşağıdaki temsilci yöntemini toosupport hello metin alanı için hello klavye kapatmayı hello ekleyin. CTRL + Sürükle simgesinden hello metin alanı toohello View Controller hello arabirimi Tasarımcı tooset hello denetleyicisi hello çıkış temsilcisi olarak görüntüleyin.
+3. `ViewController.m` içinde, metin alanı için klavye kapatmayı desteklemek üzere aşağıdaki temsilci yöntemini ekleyin. Görünüm denetleyicisini çıkış temsilcisi olarak ayarlamak için, metin alanından arabirim tasarımcısındaki Görünüm Denetleyicisi'ne Ctrl tuşunu basılı tutup sürükleyin.
    
         //===[ Implement UITextFieldDelegate methods ]===
    
@@ -380,7 +380,7 @@ Bir uygulama içinde toosend anında iletme bildirimleri istiyorsanız, bu böl�
             [textField resignFirstResponder];
             return YES;
         }
-4. İçinde `ViewController.m`, hello aşağıdaki temsilci yöntemlerini toosupport ayrıştırma hello yanıt kullanarak eklemek `NSXMLParser`.
+4. `ViewController.m` içinde, `NSXMLParser` kullanarak yanıt ayrıştırmayı desteklemek için aşağıdaki temsilci yöntemlerini ekleyin.
    
        //===[ Implement NSXMLParserDelegate methods ]===
    
@@ -410,38 +410,38 @@ Bir uygulama içinde toosend anında iletme bildirimleri istiyorsanız, bu böl�
    
        -(void)parserDidEndDocument:(NSXMLParser *)parser
        {
-           // Set hello status label text on hello UI thread
+           // Set the status label text on the UI thread
            dispatch_async(dispatch_get_main_queue(),
            ^{
                [self.sendResults setText:self.statusResult];
            });
        }
-5. Merhaba projeyi oluşturun ve hiçbir hata doğrulayın.
+5. Projeyi derleyin ve hata olmadığını doğrulayın.
 
 > [!NOTE]
-> Xcode7 bitcode'u desteği hakkında bir derleme hatası karşılaşırsanız hello değiştirmelisiniz **Build Settings** > **etkinleştirmek Bitcode (enable_bıtcode)** çok**Hayır** Xcode'da. Merhaba Notification Hubs SDK'sı şu anda bitcode'u desteklemiyor. 
+> Xcode7'de bitcode desteğine ilişkin bir derleme hatası ile karşılaşırsanız Xcode'da **Build Settings** (Derleme Ayarları) > **Enable Bitcode (ENABLE_BITCODE)** (Bitcode'u Etkinleştir) seçeneğini **NO** (HAYIR) olarak değiştirmeniz gerekir. Notification Hubs SDK'sı şu anda bitcode'u desteklemiyor. 
 > 
 > 
 
-Merhaba Apple tüm hello olası bildirim yüklerini bulabilirsiniz [yerel ve anında iletilen bildirim Programlama Kılavuzu].
+Apple [Local and Push Notification Programming Guide] (Yerel ve Anında İletilen Bildirim Programlama Kılavuzu) içinde tüm olası bildirim yüklerini bulabilirsiniz.
 
 ## <a name="checking-if-your-app-can-receive-push-notifications"></a>Uygulamanızın anında iletme bildirimleri alıp almadığını denetleme
-tootest anında iletme bildirimlerini iOS hello uygulama tooa fiziksel iOS cihazına dağıtmanız gerekir. Merhaba iOS simülatörü'nü kullanarak Apple anında iletme bildirimleri gönderemezsiniz.
+iOS'ta anında iletme bildirimlerini test etmek için, uygulamayı fiziksel bir iOS cihazına dağıtmanız gerekir. iOS Simülatörü'nü kullanarak Apple anında iletme bildirimleri gönderemezsiniz.
 
-1. Merhaba uygulamayı çalıştırın ve kayıt başarılı tuşuna basarak olduğunu doğrulayın ve **Tamam**.
+1. Uygulamayı çalıştırın ve kaydın başarılı olduğunu doğrulayın. Ardından, **Tamam**'a basın.
    
     ![iOS Uygulaması Anında İletme Bildirimi Kayıt Testi][33]
-2. Merhaba bir sınama anında iletme bildirimi gönderebilirsiniz [Azure Portal], yukarıda açıklandığı gibi. Hello uygulamasında anında iletme bildirimleri göndermek için kod eklediyseniz, bir bildirim iletisi hello metin alanı tooenter dokunun. Hello tuşuna **Gönder** hello klavye veya hello düğmesine **bildirim gönder** hello görünüm toosend hello bildirim iletisi düğmesini.
+2. Yukarıda açıklandığı gibi, [Azure Portal]'dan test amaçlı anında iletme bildirimi gönderebilirsiniz. Uygulamada anında iletme bildirimleri göndermek için kod eklediyseniz bildirim iletisi girmek için metin alanı içine dokunun. Ardından, bildirim iletisini göndermek için klavyede **Send** (Gönder) düğmesine veya görünümdeki **Send Notification** (Bildirim Gönder) düğmesine basın.
    
     ![iOS Uygulaması Anında İletilen Bildirim Gönderme Testi][34]
-3. Merhaba anında iletme bildirimi kayıtlı tooreceive hello bildirimleri tooall cihazlara gönderilen belirli bildirim Hub'hello.
+3. Belirli Bildirim Hub'ından bildirimleri almak için kaydedilen tüm cihazlara anında iletme bildirimi gönderilir.
    
     ![iOS Uygulaması Anında İletilen Bildirim Alma Testi][35]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu basit örnekte, kayıtlı iOS cihazlarınıza anında iletme bildirimleri tooall yayımladınız. Toohello devam öğrendiklerinizi bir sonraki adım olarak önerdiğimiz [Azure Notification Hubs kullanıcılara bildirme .NET arka ucu ile iOS için] öğretici, bir arka uç toosend anında iletme bildirimleri etiketleri kullanarak oluşturmada size yol gösterir. 
+Bu basit örnekte, tüm kayıtlı iOS cihazlarınıza anında iletme bildirimleri yayımladınız. Öğrenmenizde bir sonraki adım olarak, etiketleri kullanarak anında iletme bildirimleri göndermek için arka uç oluşturmada size yol gösterecek [Azure Notification Hubs .NET arka ucu ile iOS için Kullanıcılara Bildirme] öğreticisine devam etmenizi öneririz. 
 
-Kullanıcılarınızı ilgi alanı gruplarına göre toosegment isterseniz, ayrıca toohello üzerinde taşıyabilirsiniz [son dakika haberleri Notification Hubs kullanma toosend] Öğreticisi. 
+Kullanıcılarınızı ilgi alanı gruplarına göre segmentlere ayırmak istiyorsanız buna ek olarak, [Son dakika haberleri göndermek için Notification Hubs kullanma] öğreticisine gidebilirsiniz. 
 
 Notification Hubs hakkında genel bilgi için bkz. [Notification Hubs Kılavuzu].
 
@@ -477,8 +477,8 @@ Notification Hubs hakkında genel bilgi için bkz. [Notification Hubs Kılavuzu]
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
-[Azure Notification Hubs kullanıcılara bildirme .NET arka ucu ile iOS için]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
-[son dakika haberleri Notification Hubs kullanma toosend]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
+[Azure Notification Hubs .NET arka ucu ile iOS için Kullanıcılara Bildirme]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Son dakika haberleri göndermek için Notification Hubs kullanma]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 
-[yerel ve anında iletilen bildirim Programlama Kılavuzu]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Azure Portal]: https://portal.azure.com

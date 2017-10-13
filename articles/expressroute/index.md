@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure ExpressRoute belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
-description: "Bilgi nasıl tooconfigure ve şirket içi altyapı veya birlikte bulundurma tesis bir özel ExpressRoute bağlantı tooMicrosoft bulut Hizmetleri yönetin."
+title: "Azure ExpressRoute Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Şirket içi altyapınızdan veya ortak yerleşim tesisinizden Microsoft bulut hizmetlerine özel bir ExpressRoute bağlantısı yapılandırma ve bu bağlantıyı yönetme hakkında bilgi edinin."
 services: expressroute
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: aad3408378b3d492ffa3c9c11a7bb5066567bb8f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 8c12fd74d131538e736d6357da586c5debb9929c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="expressroute-documentation"></a>ExpressRoute Belgeleri
 
-Nasıl toouse ExpressRoute tooset hızlı ve özel bağlantı tooMicrosoft yukarı bulut şirket içi altyapı veya birlikte bulundurma tesis hizmetlerinden öğrenin. Öğreticiler, REST API’ler ve diğer belgeler, ExpressRoute devrelerini yapılandırmanıza ve yönetmenize yardımcı olur.
+ExpressRoute’u kullanarak şirket içi altyapınızdan veya ortak yerleşim tesisinizden Microsoft bulut hizmetlerine hızlı ve özel bir bağlantı ayarlama hakkında bilgi edinin. Öğreticiler, REST API’ler ve diğer belgeler, ExpressRoute devrelerini yapılandırmanıza ve yönetmenize yardımcı olur.
 
 <ul class="panelContent cardsFTitle">
     <li>

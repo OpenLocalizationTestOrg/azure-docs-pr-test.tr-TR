@@ -1,15 +1,26 @@
 ---
+title: "Service Bus Geçişi Belgeleri"
+description: "Azure Geçiş hizmetinin bulut ve şirket içi karma ortamda nasıl çalıştığı hakkında bilgi alın ve nasıl yapılır, Öğreticiler, videolar, API başvuruları ve diğer kaynaklarla eğitimi tamamlayın."
+services: service-bus
+author: czeumault
+manager: carolz
 layout: LandingPage
-title: "aaaService Bus geçiş belgeleri"
-description: "Hello Azure geçiş hizmeti nasıl karma Bulut ve şirket içi bir ortamda, nasıl ile tam öğreticileri, videoları, API başvuru ve daha fazla bilgi edinin."
-ms.openlocfilehash: c042c82c90fa03e91ee9c1b513e325d7e8d33c08
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 03/14/2017
+ms.author: carolz
+ms.openlocfilehash: 9305e85ff075e8e7ee3e21315d28f63613ac01f4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
+---
 ---
 # <a name="service-bus-relay-documentation"></a>Service Bus Geçişi Belgeleri
-Nasıl Azure hizmet kolaylaştıran karma uygulamalar arasında geçiş şirket içi öğrenin ve bir güvenlik duvarı bağlantı tooopen gerek kalmadan bir kurumsal ağ ve hello genel bulut ortamlarında Bulut veya şirket müdahale eden değişiklikler tooa gerektirir ağ altyapısı.
+Azure Geçiş hizmetinin, bir güvenlik duvarı bağlantısı açmak ya da kurumsal ağ altyapısına müdahale eden değişiklikler yapmak zorunda kalmadan kurumsal işletme ağı ile genel buluttaki şirket içi ile bulut ortamları arasında karma uygulamaları nasıl kolaylaştırdığı hakkında bilgi alın.
 
 <ul class="panelContent cardsFTitle">
     <li>

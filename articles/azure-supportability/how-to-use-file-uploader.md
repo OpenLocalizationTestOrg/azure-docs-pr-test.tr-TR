@@ -1,6 +1,6 @@
 ---
-title: "aaaMicrosoft Azure yeni destek isteği dosya karşıya yükleme yardımcı programı yönergeleri | Microsoft Docs"
-description: "Microsoft Azure yeni destek isteği dosya karşıya yükleme yardımcı programı kullanırken Hello yönergeleri açıklanır"
+title: "Microsoft Azure yeni destek isteği dosya karşıya yükleme yardımcı programı yönergeleri | Microsoft Docs"
+description: "Microsoft Azure yeni destek isteği dosya karşıya yükleme yardımcı programı kullanırken yönergelerini açıklar"
 services: 
 documentationcenter: 
 author: genlin
@@ -15,28 +15,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: genli
-ms.openlocfilehash: 19e51b40b82a71454b4b04752ebeefd5d26c2db5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ba6dafd8d890d88478a5e3213dd023921908f4bf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Microsoft Azure yeni destek isteği dosya karşıya yükleme yardımcı programı yönergeleri
-Olduğunda, [bir destek isteği oluşturmak](https://portal.azure.com/#create/Microsoft.Support), hello dosya karşıya yükleme yardımcı programı yardımcı olabilir, kolayca karşıya yükleme Tanılama veya olan ilgili toohello olay düşündüğünüz diğer dosyaları.  
+Olduğunda, [bir destek isteği oluşturmak](https://portal.azure.com/#create/Microsoft.Support), dosya karşıya yükleme yardımcı programı yardımcı olabilir, kolayca karşıya yükleme Tanılama veya olan olayla ilgili düşündüğünüz diğer dosyaları.  
 
 > [!NOTE]
-> tooprotect gizliliğinizi yüklemenizde herhangi bir kişisel bilgi içermez.
+> Gizliliğinizi korumak için yüklemenizde herhangi bir kişisel bilgi içermez.
 >
 >
 
-Merhaba dosya karşıya yükleme yardımcı programı kullandığınızda aşağıdaki yönergeleri izleyin:
+Dosyayı karşıya yüklemeyi yardımcı programını kullandığınızda aşağıdaki yönergeleri izleyin:
 
-* Tüm dosyaların bir dosya adı uzantısı .docx veya .xlsx gibi olması gerekir. İzin verilen dosya adı uzantılarının listesini hello için Hello tabloya bakın.
-* Merhaba dosya adı 110 karakterden uzun olmalıdır.
+* Tüm dosyaların bir dosya adı uzantısı .docx veya .xlsx gibi olması gerekir. İzin verilen dosya adı uzantılarının listesi için aşağıdaki tabloya bakın.
+* Dosya adı 110 karakterden uzun olmalıdır.
 * Birden fazla dosyayı karşıya yükleyemiyor.
 * Dosyaları 4 MB'den daha büyük olamaz.
 
-## <a name="table-of-hello-allowed-file-name-extensions"></a>Merhaba tablonun dosya adı uzantılarına izin
+## <a name="table-of-the-allowed-file-name-extensions"></a>İzin verilen dosya adı uzantılarını tablosu
 | 0-9, A-C    | D-G   | Y-M         | N-P   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
 | .7z         | .dat  | .hwl        | .odx  | .RAR     | .tdb       | .xlam   |

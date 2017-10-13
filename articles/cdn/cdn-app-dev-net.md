@@ -1,6 +1,6 @@
 ---
-title: "aaaGet .NET için Azure CDN kitaplığı hello ile başlatılan | Microsoft Docs"
-description: "Bilgi nasıl toowrite .NET uygulamaları toomanage Visual Studio kullanarak Azure CDN."
+title: ".NET için Azure CDN kitaplığını kullanmaya başlama | Microsoft Docs"
+description: "Visual Studio kullanarak Azure CDN yönetmek için .NET uygulamaları yazma öğrenin."
 services: cdn
 documentationcenter: .net
 author: zhangmanling
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 9753e48c7469072cef6b2ac728e18c78121c97f7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5379586355ece98af6295236d6cbd09cb31c742b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Azure CDN ile geliştirmeye başlama
 > [!div class="op_single_selector"]
@@ -27,40 +27,40 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Merhaba kullanabilirsiniz [.NET için Azure CDN Kitaplığı](https://msdn.microsoft.com/library/mt657769.aspx) tooautomate oluşturulması ve CDN profili ve uç noktaları yönetimi.  Bu öğreticide, birkaç hello kullanılabilir işlemleri gösteren basit bir .NET konsol uygulaması hello oluşturulmasını açıklanmaktadır.  Bu öğretici tasarlanmamış toodescribe tüm yönlerini hello Azure CDN kitaplığı için .NET ayrıntılı olarak değil.
+Kullanabileceğiniz [.NET için Azure CDN Kitaplığı](https://msdn.microsoft.com/library/mt657769.aspx) oluşturulması ve CDN profili ve uç noktaları Yönetimi otomatik hale getirmek için.  Bu öğreticide, kullanılabilir işlemleri çeşitli gösteren basit bir .NET konsol uygulaması oluşturma aşamasından açıklanmaktadır.  Bu öğretici, ayrıntılı olarak .NET için Azure CDN kitaplığı tüm yönlerini açıklamak için tasarlanmamıştır.
 
-Bu öğreticide Visual Studio 2015 toocomplete gerekir.  [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) ücretsiz olarak karşıdan yüklenebilir.
+Bu öğreticiyi tamamlamak için Visual Studio 2015 gerekir.  [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) ücretsiz olarak karşıdan yüklenebilir.
 
 > [!TIP]
-> Merhaba [Bu öğreticinin tamamlanan projeden](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) MSDN'de indirilebilir.
+> [Bu öğreticinin tamamlanan projeden](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c) MSDN'de indirilebilir.
 > 
 > 
 
 [!INCLUDE [cdn-app-dev-prep](../../includes/cdn-app-dev-prep.md)]
 
 ## <a name="create-your-project-and-add-nuget-packages"></a>Projenizi oluşturmak ve Nuget paketleri ekleme
-Bizim CDN profili için bir kaynak grubu oluşturduk artık ve verilen bizim Azure AD uygulama izni toomanage CDN profili ve uç noktaları grubu içindeki göre biz uygulamamızı oluşturmaya başlayabilirsiniz.
+Bizim CDN profili için bir kaynak grubu oluşturduk artık ve CDN profili ve uç noktaları grubu içindeki yönetmek için Azure AD uygulama izni verilen göre biz uygulamamızı oluşturmaya başlayabilirsiniz.
 
-Visual Studio 2015'içinde ' ı tıklatın **dosya**, **yeni**, **proje...**  tooopen hello yeni proje iletişim kutusu.  Genişletme **Visual C#**seçeneğini belirleyip **Windows** hello soldaki hello bölmesinde.  Tıklatın **konsol uygulaması** hello orta bölmesinde.  Projenizi adlandırın ve ardından **Tamam**.  
+Visual Studio 2015'içinde ' ı tıklatın **dosya**, **yeni**, **proje...**  yeni proje iletişim kutusunu açın.  Genişletme **Visual C#**seçeneğini belirleyip **Windows** sol taraftaki bölmede.  Tıklatın **konsol uygulaması** Orta bölmede.  Projenizi adlandırın ve ardından **Tamam**.  
 
 ![Yeni Proje](./media/cdn-app-dev-net/cdn-new-project.png)
 
-Projemizin bazı Azure kitaplıkları Nuget paketlerini içinde yer alan toouse geçiyor.  Bu toohello proje ekleyelim.
+Projemizin Nuget paketlerini içinde yer alan bazı Azure kitaplıkları kullanmak zordur.  Bu projeye ekleyelim.
 
-1. Merhaba tıklatın **Araçları** menüsünde **Nuget Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**.
+1. Tıklatın **Araçları** menüsünde **Nuget Paket Yöneticisi**, ardından **Paket Yöneticisi Konsolu**.
    
     ![Nuget paketlerini yönetme](./media/cdn-app-dev-net/cdn-manage-nuget.png)
-2. Komut tooinstall hello aşağıdaki hello Hello Paket Yöneticisi konsolu, yürütme **Active Directory Authentication Library (ADAL)**:
+2. Paket Yöneticisi konsolunda yüklemek için aşağıdaki komutu yürütün **Active Directory Authentication Library (ADAL)**:
    
     `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
-3. Tooinstall hello aşağıdaki hello yürütme **Azure CDN Yönetimi Kitaplığı**:
+3. Yüklemek için aşağıdakileri yürütün **Azure CDN Yönetimi Kitaplığı**:
    
     `Install-Package Microsoft.Azure.Management.Cdn`
 
 ## <a name="directives-constants-main-method-and-helper-methods"></a>Yönergeleri, sabitleri, ana yöntemi ve yardımcı yöntemler
-Şimdi yazılmış programımız temel yapısını hello alın.
+Şimdi yazılmış programımız temel yapısını alın.
 
-1. Geri hello Program.cs, hello Değiştir sekmesi `using` yönergeleri hello aşağıdaki ile Merhaba üstünde:
+1. Program.cs sekmesinde geri, yerini `using` üst aşağıdaki yönergeleri:
    
     ```csharp
     using System;
@@ -72,7 +72,7 @@ Projemizin bazı Azure kitaplıkları Nuget paketlerini içinde yer alan toouse 
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     using Microsoft.Rest;
     ```
-2. Bizim yöntemler kullanacağı bazı sabitleri toodefine ihtiyacımız var.  Merhaba, `Program` sınıfı, ancak önce hello `Main` yöntemi, hello aşağıdakileri ekleyin.  Merhaba yer tutucular hello dahil olmak üzere, emin tooreplace olması  **&lt;köşeli&gt;**, gerektiği gibi kendi değerlere sahip.
+2. Bizim yöntemler kullanacağı bazı sabitleri tanımlamak gerekir.  İçinde `Program` sınıfı, ancak önce `Main` yöntemi, aşağıdaki ekleyin.  Dahil olmak üzere, yer tutucular değiştirdiğinizden emin olun  **&lt;köşeli&gt;**, gerektiği gibi kendi değerlere sahip.
    
     ```csharp
     //Tenant app constants
@@ -87,13 +87,13 @@ Projemizin bazı Azure kitaplıkları Nuget paketlerini içinde yer alan toouse 
     private const string resourceGroupName = "CdnConsoleTutorial";
     private const string resourceLocation = "<YOUR PREFERRED AZURE LOCATION, SUCH AS Central US>";
     ```
-3. Ayrıca hello sınıf düzeyinde iki bu değişkenleri tanımlayın.  Profil ve uç nokta zaten mevcutsa bu sonraki toodetermine kullanacağız.
+3. Ayrıca sınıf düzeyinde iki bu değişkenleri tanımlayın.  Bunlar daha sonra profil ve uç nokta zaten var olup olmadığını belirlemek için kullanacağız.
    
     ```csharp
     static bool profileAlreadyExists = false;
     static bool endpointAlreadyExists = false;
     ```
-4. Hello yerine `Main` yöntemini aşağıdaki şekilde:
+4. Değiştir `Main` yöntemini aşağıdaki şekilde:
    
    ```csharp
    static void Main(string[] args)
@@ -124,11 +124,11 @@ Projemizin bazı Azure kitaplıkları Nuget paketlerini içinde yer alan toouse 
        // Delete CDN Profile
        PromptDeleteCdnProfile(cdn);
    
-       Console.WriteLine("Press Enter tooend program.");
+       Console.WriteLine("Press Enter to end program.");
        Console.ReadLine();
    }
    ```
-5. Bizim diğer yöntemlerden bazıları tooprompt hello kullanıcı "Evet/Hayır" sorularını adımıdır.  Yöntem toomake aşağıdaki hello eklemek, biraz daha kolay:
+5. Bizim diğer yöntemlerden bazıları "Evet/Hayır" sorularını kullanıcıdan adımıdır.  Biraz daha kolay yapmak için aşağıdaki yöntemi ekleyin:
    
     ```csharp
     private static bool PromptUser(string Question)
@@ -152,10 +152,10 @@ Projemizin bazı Azure kitaplıkları Nuget paketlerini içinde yer alan toouse 
     }
     ```
 
-Merhaba temel programımız yapısını yazılır, hello tarafından adlı hello yöntemler oluşturmanız gerekir `Main` yöntemi.
+Programımız temel yapısını yazılır, çağıran yöntemleri oluşturmanız gerekir `Main` yöntemi.
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
-Hello Azure CDN Yönetimi Kitaplığı kullanabilmeniz için önce kimliğinizi tooauthenticate hizmetimizi asıl gerekir ve kimlik doğrulama belirtecini elde edin.  Bu yöntem ADAL tooretrieve hello belirtecini kullanır.
+Azure CDN Yönetimi Kitaplığı kullanabilmeniz için önce kimliğinizi bizim hizmet sorumlusunun kimliğini doğrulamak ve kimlik doğrulama belirtecini almak gerekiyor.  Bu yöntem, belirtecini almak için ADAL kullanır.
 
 ```csharp
 private static AuthenticationResult GetAccessToken()
@@ -169,10 +169,10 @@ private static AuthenticationResult GetAccessToken()
 }
 ```
 
-Tek tek kullanıcı kimlik doğrulaması kullanıyorsanız, hello `GetAccessToken` yöntemi biraz farklı görünür.
+Tek tek kullanıcı kimlik doğrulaması kullanıyorsanız, `GetAccessToken` yöntemi biraz farklı görünür.
 
 > [!IMPORTANT]
-> Yalnızca bir hizmet sorumlusu yerine toohave tek tek kullanıcı kimlik doğrulaması seçerek, bu kod örneği kullanın.
+> Yalnızca bireysel kullanıcı kimlik doğrulaması, bir hizmet sorumlusu yerine seçmek, bu kod örneği kullanın.
 > 
 > 
 
@@ -187,26 +187,26 @@ private static AuthenticationResult GetAccessToken()
 }
 ```
 
-Emin tooreplace olması `<redirect URI>` hello ile Azure AD içinde Merhaba uygulaması kaydolurken girdiğiniz URI'sini yeniden yönlendir.
+Değiştirdiğinizden emin olun `<redirect URI>` yeniden yönlendirme URI'si Azure AD'de uygulama kaydolurken girdiğiniz ile.
 
 ## <a name="list-cdn-profiles-and-endpoints"></a>Liste CDN profili ve uç noktaları
-Şimdi hazır tooperform CDN işlemler demektir.  Merhaba bizim yöntemi ilk şey tüm hello profilleri ve uç noktaları, kaynak grubundaki listesidir ve bizim sabitler belirtilen hello profil ve uç nokta adları için bir eşleşme bulursa, biz toocreate çoğaltmaları denemeyin şekilde, Not için daha sonra sağlar.
+Şimdi biz CDN işlemlerini gerçekleştirmek için hazır.  Bizim yöntemi yapacağı ilk şey tüm profil ve uç noktaları bizim kaynak grubunda listesidir ve bizim sabitler belirtilen profil ve uç nokta adları için bir eşleşme bulursa, çoğaltmaları oluşturmak denemeyin şekilde, Not için daha sonra sağlar.
 
 ```csharp
 private static void ListProfilesAndEndpoints(CdnManagementClient cdn)
 {
-    // List all hello CDN profiles in this resource group
+    // List all the CDN profiles in this resource group
     var profileList = cdn.Profiles.ListByResourceGroup(resourceGroupName);
     foreach (Profile p in profileList)
     {
         Console.WriteLine("CDN profile {0}", p.Name);
         if (p.Name.Equals(profileName, StringComparison.OrdinalIgnoreCase))
         {
-            // Hey, that's hello name of hello CDN profile we want toocreate!
+            // Hey, that's the name of the CDN profile we want to create!
             profileAlreadyExists = true;
         }
 
-        //List all hello CDN endpoints on this CDN profile
+        //List all the CDN endpoints on this CDN profile
         Console.WriteLine("Endpoints:");
         var endpointList = cdn.Endpoints.ListByProfile(p.Name, resourceGroupName);
         foreach (Endpoint e in endpointList)
@@ -214,7 +214,7 @@ private static void ListProfilesAndEndpoints(CdnManagementClient cdn)
             Console.WriteLine("-{0} ({1})", e.Name, e.HostName);
             if (e.Name.Equals(endpointName, StringComparison.OrdinalIgnoreCase))
             {
-                // hello unique endpoint name already exists.
+                // The unique endpoint name already exists.
                 endpointAlreadyExists = true;
             }
         }
@@ -243,7 +243,7 @@ private static void CreateCdnProfile(CdnManagementClient cdn)
 }
 ```
 
-Hello profil oluşturulduktan sonra bir uç nokta oluşturacağız.
+Profil oluşturulduktan sonra bir uç nokta oluşturacağız.
 
 ```csharp
 private static void CreateCdnEndpoint(CdnManagementClient cdn)
@@ -269,12 +269,12 @@ private static void CreateCdnEndpoint(CdnManagementClient cdn)
 ```
 
 > [!NOTE]
-> Yukarıdaki örnekte Hello atar hello endpoint adlı bir kaynak *Contoso* bir ana bilgisayar adı ile `www.contoso.com`.  Bu toopoint tooyour kendi kaynağın ana bilgisayar adını değiştirmeniz gerekir.
+> Yukarıdaki örnekte uç nokta adlı bir kaynak atar *Contoso* bir ana bilgisayar adı ile `www.contoso.com`.  Bu, kendi kaynağın konak adına işaret edecek şekilde değiştirmeniz gerekir.
 > 
 > 
 
 ## <a name="purge-an-endpoint"></a>Bir uç noktası
-Tooperform bizim programında isteyebilirsiniz, hello uç noktası oluşturuldu varsayıldığında, bizim endpoint hello içeriğinde bir ortak görev temizleme.
+Uç noktası oluşturuldu varsayıldığında, biz bizim programında gerçekleştirmek isteyebileceğiniz ortak bir görev bizim endpoint içeriği temizleme.
 
 ```csharp
 private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
@@ -290,12 +290,12 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 ```
 
 > [!NOTE]
-> Merhaba yukarıdaki örnekte, dize hello `/*` toopurge her şeyi hello bitiş noktası yolu hello kökündeki istiyorum olduğunu gösterir.  Eşdeğer toochecking budur **temizleme tüm** hello Azure portal'ın "iletişim temizleme". Merhaba, `CreateCdnProfile` yöntemi, oluşturduğum bizim profil olarak bir **verizon'dan Azure CDN** hello kodu kullanarak profili `Sku = new Sku(SkuName.StandardVerizon)`, böylece bu başarılı olur.  Ancak, **akamai'den Azure CDN** profilleri desteklemez **temizleme tüm**, Bu öğretici için bir Akamai profili kullanıyordu, tooinclude belirli yollar toopurge gerekir.
+> Dize yukarıdaki örnekte `/*` bitiş noktası yolu kök her şeyi temizlemek istediğiniz gösterir.  Bu denetimi için eşdeğerdir **temizleme tüm** Azure portal'ın "Temizle" iletişim. İçinde `CreateCdnProfile` yöntemi, oluşturduğum bizim profili için farklı bir **verizon'dan Azure CDN** kod kullanarak profil `Sku = new Sku(SkuName.StandardVerizon)`, böylece bu başarılı olur.  Ancak, **akamai'den Azure CDN** profilleri desteklemez **temizleme tüm**, Bu öğretici için bir Akamai profili kullanıyordu, t belirli yolları eklemeniz gerekir.
 > 
 > 
 
 ## <a name="delete-cdn-profiles-and-endpoints"></a>CDN profili ve uç noktaları Sil
-Merhaba son yöntemleri bizim uç noktası ve profil silinmesine neden olur.
+Son yöntemleri bizim uç noktası ve profil silinmesine neden olur.
 
 ```csharp
 private static void PromptDeleteCdnEndpoint(CdnManagementClient cdn)
@@ -321,23 +321,23 @@ private static void PromptDeleteCdnProfile(CdnManagementClient cdn)
 }
 ```
 
-## <a name="running-hello-program"></a>Merhaba programı çalıştırma
-Biz artık derleyebilir ve hello tıklayarak hello program Çalıştır **Başlat** Visual Studio'da düğmesi.
+## <a name="running-the-program"></a>Programın çalıştırılması
+Biz artık derleyebilir ve tıklayarak program Çalıştır **Başlat** Visual Studio'da düğmesi.
 
 ![Program çalışıyor](./media/cdn-app-dev-net/cdn-program-running-1.png)
 
-Merhaba program istemi yukarıda hello ulaştığında, hello Azure portal mümkün tooreturn tooyour kaynak grubunda olması ve hello profili oluşturuldu bakın.
+Program yukarıdaki istemi ulaştığında, kaynak grubunuzdaki Azure portalına dönün ve profilin oluşturulduğunu görmek mümkün olması gerekir.
 
 ![Başarılı!](./media/cdn-app-dev-net/cdn-success.png)
 
-Biz, ardından hello istemleri toorun hello rest hello programının onaylayabilirsiniz.
+Biz, ardından program kalan çalıştırmak ister onaylayabilirsiniz.
 
 ![Program Tamamlanıyor](./media/cdn-app-dev-net/cdn-program-running-2.png)
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Bu kılavuzda toosee tamamlandı hello projeden [hello örnek indirme](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
+Bu kılavuzda tamamlanmış projeden görmek için [örneği indirmek](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
 
-.NET, görünüm hello hello Azure CDN Yönetimi Kitaplığı hakkındaki belgeleri ek toofind [MSDN'de başvuru](https://msdn.microsoft.com/library/mt657769.aspx).
+.NET için Azure CDN Yönetimi Kitaplığı hakkındaki ek belgeleri bulmak için görüntülemek [MSDN'de başvuru](https://msdn.microsoft.com/library/mt657769.aspx).
 
 CDN kaynaklarınızı yönetmek [PowerShell](cdn-manage-powershell.md).
 

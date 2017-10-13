@@ -1,6 +1,6 @@
 ## <a name="net-sample-code-repositories"></a>.NET örnek kodu depoları
 
-Burada tüm bizim örnek depoları hello Azure depolama .NET istemci kitaplığı için bir listedir.
+Burada, Azure depolama .NET istemci kitaplığı için tüm bizim örnek depoları listesi verilmiştir.
 
 * [Azure Blob Depolama Fotoğraf Galerisi Web uygulaması](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/)
 * [.NET için Azure Blob Depolama örnekleri](https://azure.microsoft.com/resources/samples/storage-blob-dotnet-getting-started/)
@@ -9,7 +9,7 @@ Burada tüm bizim örnek depoları hello Azure depolama .NET istemci kitaplığ�
 * [Azure dosya hizmeti .NET kullanmaya Başlarken](https://azure.microsoft.com/resources/samples/storage-file-dotnet-getting-started/)
 * [Azure kuyruk hizmetinde .NET kullanmaya Başlarken](https://azure.microsoft.com/resources/samples/storage-queue-dotnet-getting-started/)
 * [Azure depolama kaynak sağlayıcısı .NET kullanmaya Başlarken](https://azure.microsoft.com/resources/samples/storage-dotnet-resource-provider-getting-started/)
-* [.NET’te Azure Tablo Depolama Kullanmaya Başlama](https://azure.microsoft.com/resources/samples/storage-table-dotnet-getting-started/)
+* [.NET içinde Azure tablo depolaması ile çalışmaya başlama](https://azure.microsoft.com/resources/samples/storage-table-dotnet-getting-started/)
 * [Paylaşılan erişim imzası (SAS) ile çalışmaya başlama](https://azure.microsoft.com/resources/samples/storage-dotnet-sas-getting-started/)
 * [REST API aracılığıyla İçeri/Dışarı Aktarma İş Yönetimi](https://azure.microsoft.com/resources/samples/storage-dotnet-import-export-job-management/)
 * [MyDriving - bir Azure IOT ve mobil örnek uygulama](https://azure.microsoft.com/resources/samples/mydriving/)

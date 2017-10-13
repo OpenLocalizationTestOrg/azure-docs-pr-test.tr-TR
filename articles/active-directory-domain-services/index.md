@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure Active Directory etki alanı Hizmetleri belgelerinde - öğreticileri | Microsoft Docs"
-description: "Etki alanı denetleyicileri kullanmadan tooa etki alanı nasıl toouse Active Directory etki alanı Hizmetleri toojoin Azure sanal makineleri öğrenin ve grup ilkeleri ile yönetin."
+title: "Azure Active Directory Domain Services Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Azure sanal makinelerini, etki alanı denetleyicileri kullanmak ve bunları grup ilkeleriyle yönetmek zorunda kalmadan bir etki alanına eklemek için Active Directory Domain Services’ı kullanmayı öğrenin."
 services: active-directory-ds
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 5f1dcc57d92e1e950662c1f0cc1d00252e2fab50
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: a3eaf61fcfdc9dbb70561e9a81dc2b31d68d7c9d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="active-directory-domain-services-documentation"></a>Active Directory Domain Services Belgeleri
 
-Etki alanı denetleyicileri kullanmadan tooa etki alanı nasıl toouse Active Directory etki alanı Hizmetleri toojoin Azure sanal makineleri öğrenin. Öğreticiler ve diğer belgelerin kullanarak toomanage sanal makineleri ilkeleri Grup nasıl gösterir.
+Azure sanal makinelerini etki alanı denetleyicileri kullanmak zorunda kalmadan bir etki alanına eklemek için Active Directory Domain Services’ı kullanmayı öğrenin. Öğreticiler ve diğer belgeler, grup ilkelerini kullanarak sanal makineleri nasıl yönetebileceğinizle ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>

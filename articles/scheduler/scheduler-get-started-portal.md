@@ -1,5 +1,5 @@
 ---
-title: "aaaGet Azure portalda Azure Scheduler ile başlatıldı | Microsoft Docs"
+title: "Azure portalında Azure Scheduler’ı kullanmaya başlama | Microsoft Belgeleri"
 description: "Azure portalda Azure Scheduler kullanmaya başlama"
 services: scheduler
 documentationcenter: .NET
@@ -14,33 +14,33 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: deli
-ms.openlocfilehash: 58255c0ad19da65932f8b1d36cb8fef1ff6e651b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 3861ee121ed1c4d086ea81640e84d924d7d17ea1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Azure portalda Azure Scheduler kullanmaya başlama
-Azure scheduler'da zamanlanmış kolay toocreate işleri olur. Bu öğreticide şunları öğreneceksiniz nasıl toocreate bir işi. Ayrıca Scheduler’ın izleme ve yönetim özelliklerini öğreneceksiniz.
+Azure Scheduler’da zamanlanmış işler oluşturmak kolaydır. Bu öğreticide bir iş oluşturmayı öğreneceksiniz: Ayrıca Scheduler’ın izleme ve yönetim özelliklerini öğreneceksiniz.
 
 ## <a name="create-a-job"></a>Bir iş oluşturma
-1. Çok oturum[Azure portal](https://portal.azure.com/).  
-2. Tıklatın **+ yeni** > türü *Zamanlayıcı* hello arama kutusuna > seçin **Zamanlayıcı** sonuçlarında > tıklatın **oluşturma**.
+1. [Azure portalda](https://portal.azure.com/) oturum açın.  
+2. **+ Yeni**’ye tıklayın arama kutusuna > *Scheduler* yazın > sonuçlarda **Scheduler**’ı seçin > **Oluştur**’a tıklayın.
    
     ![][marketplace-create]
-3. Şimdi bir GET isteğiyle http://www.microsoft.com/ adresine işaret eden bir iş oluşturalım. Merhaba, **Scheduler işi** ekranında, aşağıdaki bilgilerle hello girin:
+3. Şimdi bir GET isteğiyle http://www.microsoft.com/ adresine işaret eden bir iş oluşturalım. **Scheduler İşi** ekranına, aşağıdaki bilgileri girin:
    
    1. **Ad:** `getmicrosoft`  
    2. **Abonelik:** Azure aboneliğiniz   
    3. **İş Koleksiyonu:** Mevcut bir iş koleksiyonu seçin veya tıklatın **Yeni Oluştur**’a tıklayın > bir ad girin.
-4. İleri ' **eylem ayarları**, değerleri aşağıdaki hello tanımlayın:
+4. Sonra, **Eylem Ayarları**’nda, aşağıdaki değerleri tanımlayın:
    
    1. **Eylem Türü:** ` HTTP`  
    2. **Yöntem:** `GET`  
    3. **URL:** ` http://www.microsoft.com`  
       
       ![][action-settings]
-5. Son olarak, şimdi bir zamanlama tanımlayalım. Merhaba iş bir kerelik iş olarak tanımlanabilir, ancak şimdi bir yineleme zamanlaması seçin:
+5. Son olarak, şimdi bir zamanlama tanımlayalım. İş bir kerelik iş olarak tanımlanabilir, ancak bir yineleme zamanlaması seçelim.
    
    1. **Yineleme**: `Recurring`
    2. **Başlat**: Bugünün tarihi
@@ -51,7 +51,7 @@ Azure scheduler'da zamanlanmış kolay toocreate işleri olur. Bu öğreticide �
 6. **Oluştur**'a tıklayın
 
 ## <a name="manage-and-monitor-jobs"></a>İşleri yönetme ve izleme
-Bir işi oluşturulduktan sonra hello ana Azure panosunda görünür. Hello iş ve yeni bir'ı sekmeleri aşağıdaki hello ile penceresi açılır:
+Bir işi oluşturulduktan sonra, ana Azure panosunda görünür. İşe tıkladığınızda aşağıdaki sekmeleri içeren yeni bir pencere açılır:
 
 1. Özellikler  
 2. Eylem Ayarları  
@@ -62,34 +62,34 @@ Bir işi oluşturulduktan sonra hello ana Azure panosunda görünür. Hello iş 
    ![][job-overview]
 
 ### <a name="properties"></a>Özellikler
-Bu salt okunur özellikler hello Scheduler işi için hello yönetim meta verilerini açıklar.
+Bu salt okunur özellikler Scheduler işi için yönetim meta verilerini açıklar.
 
    ![][job-properties]
 
 ### <a name="action-settings"></a>Eylem ayarları
-Hello bir projede tıklayarak **işleri** ekran iş tooconfigure sağlar. Bu, Gelişmiş ayarları yapılandırmak, hello yapılandırmadıysanız, hızlı Oluşturma sihirbazında sağlar.
+**İşler** ekranındaki bir işe tıklamak bu işi yapılandırmanıza olanak tanır. Bu, bunları hızlı oluşturma sihirbazında yapılandırmadıysanız, gelişmiş ayarları yapılandırmanızı sağlar.
 
-Tüm eylem türleri için hello yeniden deneme ilkesi ve hello hata eylemini değiştirebilirsiniz.
+Tüm eylem türleri için, yeniden deneme ilkesini ve hata eylemini değiştirebilirsiniz.
 
-HTTP ve HTTPS iş eylemi türleri için hello yöntemi tooany HTTP eylemine izin değiştirebilirsiniz. Ayrıca ekleyebilir, silmek veya hello üstbilgileri ve temel kimlik doğrulama bilgilerini değiştirin.
+HTTP ve HTTPS iş eylemi türleri için, izin verilen bir HTTP fiiline ilişkin yöntemi değiştirebilirsiniz. Ayrıca başlık ve temel kimlik doğrulama bilgileri ekleyebilir, silebilir veya değiştirebilirsiniz.
 
-Depolama kuyruğu eylem türleri için hello depolama hesabı, kuyruk adı, SAS belirteci ve gövde değişebilir.
+Depolama kuyruğu eylem türleri için, depolama hesabı, kuyruk adı, SAS belirteci ve gövdeyi değiştirebilirsiniz.
 
-Hizmet veri yolu eylemi türleri için hello ad alanı, konu/kuyruk yolu, kimlik doğrulama ayarları, aktarım türü, ileti özellikleri ve ileti gövdesini değiştirebilirsiniz.
+Hizmet veri yolu eylemi türleri için, ad alanı, konu/kuyruk yolu, kimlik doğrulama ayarları, aktarım türü, ileti özellikleri ve ileti gövdesini değiştirebilirsiniz.
 
    ![][job-action-settings]
 
 ### <a name="schedule"></a>Zamanlama
-Bu, hello zamanlamayı yeniden yapılandırın, hello oluşturulan toochange hello zamanlama isterseniz hızlı Oluşturma sihirbazında sağlar.
+Bu, hızlı oluşturma sihirbazında oluşturduğunuz zamanlamayı değiştirmek istediğinizde, zamanlamayı yeniden yapılandırmanızı sağlar.
 
-Bir fırsat toobuild budur [karmaşık zamanlamalar ve Gelişmiş yineleme işinizde](scheduler-advanced-complexity.md)
+Bu, [işinizde karmaşık zamanlamalar ve gelişmiş yineleme](scheduler-advanced-complexity.md) oluşturmak için bir fırsattır
 
-Hello başlangıç tarihi değiştirebilir ve zaman, yineleme zamanlamasını ve hello bitiş tarihi ve (Merhaba iş yineleniyorsa.) süresi
+Başlangıç tarihini ve saatini, yineleme zamanlamasını ve bitiş tarihini ve saatini değiştirebilirsiniz (iş yineleniyorsa).
 
    ![][job-schedule]
 
 ### <a name="history"></a>Geçmiş
-Merhaba **geçmişi** sekmesi hello Seçili iş için hello sistemdeki her iş yürütme için seçilen ölçümleri görüntüler. Bu ölçümler hello Scheduler sistem durumunuz ile ilgili gerçek zamanlı değerleri girin:
+**Geçmişi** sekmesi seçili iş için sistemdeki her iş yürütme için seçilen ölçümleri görüntüler. Bu ölçümler Scheduler sistem durumunuz ile ilgili gerçek zamanlı değerleri belirtir:
 
 1. Durum  
 2. Ayrıntılar  
@@ -100,12 +100,12 @@ Merhaba **geçmişi** sekmesi hello Seçili iş için hello sistemdeki her iş y
    
    ![][job-history]
 
-Üzerinde çalışma tooview tıklayabilirsiniz kendi **geçmiş ayrıntıları**, hello her yürütmeye ilişkin tüm yanıtlar dahil olmak üzere. Bu iletişim kutusu ayrıca toocopy hello yanıt toohello Pano sağlar.
+Her yürütmeye ilişkin tüm yanıtlar dahil **Geçmiş Ayrıntıları**’nı görüntülemek için bir yürütmeye tıklayabilirsiniz. Bu iletişim kutusu yanıtı panoya kopyalamanızı da sağlar.
 
    ![][job-history-details]
 
 ### <a name="users"></a>Kullanıcılar
-Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure Scheduler için ayrıntılı erişim yönetimi sağlar. toouse hello kullanıcılar sekmesini başvurmak çok nasıl toolearn[Azure rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md)
+Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure Scheduler için ayrıntılı erişim yönetimi sağlar. Kullanıcılar sekmesini kullanmayı öğrenmek için, bkz. [Azure Rol Tabanlı Erişim Denetimi](../active-directory/role-based-access-control-configure.md)
 
 ## <a name="see-also"></a>Ayrıca bkz.
  [Scheduler nedir?](scheduler-intro.md)
@@ -114,7 +114,7 @@ Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure Scheduler için ayrıntılı e
 
  [Azure Scheduler’da planlar ve faturalama](scheduler-plans-billing.md)
 
- [Nasıl toobuild karmaşık zamanlar ve Gelişmiş yineleme Azure Scheduler ile](scheduler-advanced-complexity.md)
+ [Azure Scheduler ile karmaşık zamanlamalar ve gelişmiş yineleme oluşturma](scheduler-advanced-complexity.md)
 
  [Scheduler REST API başvurusu](https://msdn.microsoft.com/library/mt629143)
 

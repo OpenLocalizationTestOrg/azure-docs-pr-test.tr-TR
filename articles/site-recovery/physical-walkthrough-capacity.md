@@ -1,6 +1,6 @@
 ---
-title: "Kapasite ve fiziksel sunucu çoğaltma tooAzure Azure Site Recovery ile ölçeklendirme aaaPlan | Microsoft Docs"
-description: "Bu makale tooplan kapasite ve ölçek Windows/Linux fiziksel sunucuları tooAzure Azure Site Recovery ile çoğaltırken kullanın"
+title: "Kapasite planlama ve Azure Site Recovery ile azure'a fiziksel sunucu çoğaltma için ölçeklendirme | Microsoft Docs"
+description: "Windows/Linux fiziksel sunucuları Azure Site Recovery ile azure'a çoğaltırken planı kapasite ve ölçek bu makaleyi kullanın"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,48 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: rayne
-ms.openlocfilehash: 209980963c07d13e15802a5da44769ac559217d1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 971ad6dd39f94aa7944f6ed3b31bc3acc605d9a7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="step-3-plan-capacity-and-scaling-for-physical-server-tooazure-replication"></a>3. adım: kapasite ve fiziksel sunucu tooAzure çoğaltma için ölçeklendirme planlama
+# <a name="step-3-plan-capacity-and-scaling-for-physical-server-to-azure-replication"></a>3. adım: kapasite ve fiziksel sunucusu Azure çoğaltma için ölçeklendirme planlama
 
-Bu makale toofigure kapasite çıkışı kullanın ve ölçeklendirme, ne zaman çoğaltma yapıyorsanız Windows/Linux fiziksel sunucuları tooAzure ile şirket içi [Azure Site Recovery](site-recovery-overview.md).
+Şekil kapasitesini öğrenmek için bu makaleyi kullanın ve ölçeklendirme, ne zaman çoğaltma yapıyorsanız Windows/Linux fiziksel sunucuları Azure ile şirket içi [Azure Site Recovery](site-recovery-overview.md).
 
-POST açıklamaları ve soruları hello altındaki bu makalenin veya hello [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+POST açıklamaları ve soruları alt bu makalenin veya üzerinde [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="plan-deployment-capacity"></a>Dağıtım kapasite planlaması
 
-1. Bu okuma [makale](site-recovery-plan-capacity-vmware.md) çoğaltma gereksinimlerini ve Site Recovery bileşenleri boyutlandırma için rehberlik tahmin etme hakkında toolearn.
-2. Bileşen sunucularını ölçekleme ve çoğaltılmış makine bant genişliğini denetleme hakkında toolearn aşağıda Hello konuları okuyun.
+1. Bu okuma [makale](site-recovery-plan-capacity-vmware.md) çoğaltma gereksinimlerini ve Site Recovery bileşenleri boyutlandırma için rehberlik tahmin etme hakkında bilgi edinmek için.
+2. Bileşen sunucularını ölçeklendirme hakkında bilgi edinmek için aşağıdaki konuları okuyun ve makine bant genişliğini denetleme çoğaltılır.
 
 ## <a name="replication-considerations"></a>Çoğaltma konuları
 
-Bu konuları toofigure çoğaltılmış sunucu gereksinimleri çıkışı kullanın.
+Çoğaltılan sunucu gereksinimlerini anlamak için aşağıdaki konuları kullanın.
 
 **Bileşen** | **Ayrıntılar** 
 --- | --- 
-**Çoğaltma** | **Maksimum günlük değişim oranı:** korumalı makine yalnızca bir işlem sunucusunu kullanabilir ve tek işlem sunucusu bir günlük değişikliği oranını too2 TB işleyebilir. Bu nedenle 2 TB hello maksimum günlük veri korumalı bir makine için desteklenen oranı değiştirmektir.<br/><br/> **En yüksek verimlilik:** çoğaltılmış bir makineden Azure depolama hesabında tooone ait olabilir. Standart depolama hesabı 20.000 istekleri saniye başına maksimum işleyebilir ve bir kaynak makine too20 arasında 000 girdi/çıktı işlemleri (IOPS) saniyede hello sayısı tutmanızı öneririz. Örneğin, kaynak makine 5 disklerle varsa ve 120 IOPS (8 K boyut) hello kaynak makinedeki her disk oluşturur, ardından bunu hello Azure başına 500 disk IOPS sınırı içinde olacaktır. (Merhaba gerekli depolama hesapları tarafından 20.000 bölünmüş eşit toohello toplam kaynak makine IOPS, sayısıdır.)
+**Çoğaltma** | **Maksimum günlük değişim oranı:** korumalı makine yalnızca bir işlem sunucusunu kullanabilir ve tek işlem sunucusu günlük işleyebilir değişiklik 2 TB oranı. Bu nedenle 2 TB maksimum günlük veri korumalı bir makine için desteklenen oranı değiştirmektir.<br/><br/> **En yüksek verimlilik:** çoğaltılmış bir makineden azure'da bir depolama hesabına ait olabilir. Standart depolama hesabı 20.000 istekleri saniye başına maksimum işleyebilir ve 20. 000'için kaynak makine arasında girdi/çıktı işlemleri (IOPS) saniye başına sayısı tutmanızı öneririz. Örneğin, kaynak makine 5 disklerle varsa ve her disk 120 IOPS (8 K boyut) kaynak makinede oluşturur, ardından onu Azure başına 500 disk IOPS sınırı içinde olacaktır. (Gerekli depolama hesabı sayısı tarafından 20.000 bölünmüş toplam kaynak makine IOPS, eşittir.)
 
 ## <a name="configuration-server-capacity"></a>Yapılandırma sunucusu kapasite
 
-Merhaba yapılandırma sunucusu mümkün toohandle hello günlük değişikliği oranı kapasite korumalı makinelerde çalışan tüm iş yükleri arasında olmalı ve yeterli bant genişliği toocontinuously veri tooAzure depolama çoğaltılması.
+Yapılandırma sunucusu günlük değişikliği oranı kapasite korumalı makinelerde çalışan tüm iş yükleri arasında olması ve sürekli olarak Azure Storage veri çoğaltmak için yeterli bant genişliği gerekiyor.
 
-En iyi uygulama, hello yapılandırma sunucusu üzerinde hello bulun. aynı ağ ve LAN kesimi olarak hello tooprotect istediğiniz makineler. Farklı bir ağ, ancak tooprotect Katman 3 ağ görünürlük tooit olmalıdır istediğiniz makineler üzerinde bulunabilir.
+En iyi uygulama, aynı ağ ve LAN kesimi yapılandırma sunucusunda korumak istediğiniz makinelere bulun. Farklı bir ağda bulunan, ancak korumak istediğiniz makinelere Katman 3 ağ görünürlüğünü ona sahip olmalıdır.
 
 ## <a name="sizing-recommendations"></a>Boyutlandırma önerileri
 
-Merhaba tablo CPU üzerinde göre boyutlandırma önerileri özetler.
+Tablo CPU üzerinde göre boyutlandırma önerileri özetler.
 
 **CPU** | **Bellek** | **Önbellek disk boyutu** | **Veri değişikliği oranı** | **Korumalı makineler**
 --- | --- | --- | --- | ---
 8 Vcpu'lar (2 yuva * 2,5 gigahertz [GHz] @ 4 çekirdek) | 16 GB | 300 GB | 500 GB veya daha az | 100'den az makineler çoğaltılır.
-12 Vcpu'lar (2 yuva * 2,5 GHz @ 6 çekirdek) | 18 GB | 600 GB | 500 GB too1 TB | 100-150 makineler arasında çoğaltılır.
-16 Vcpu (2 yuva * 2,5 GHz @ 8 çekirdek) | 32 GB | 1 TB | 1 TB too2 TB | 150-200 makineler arasında çoğaltılır.
-Başka bir işlem sunucusu Dağıt | | | > 2 TB | Ek işlem sunucusu 200'den fazla makineleri çoğaltma yapıyorsanız ya da hello günlük verileri değiştirirseniz oranı 2 TB aştığında dağıtın.
+12 Vcpu'lar (2 yuva * 2,5 GHz @ 6 çekirdek) | 18 GB | 600 GB | 1 TB ' 500 GB | 100-150 makineler arasında çoğaltılır.
+16 Vcpu (2 yuva * 2,5 GHz @ 8 çekirdek) | 32 GB | 1 TB | 1 TB ile 2 TB | 150-200 makineler arasında çoğaltılır.
+Başka bir işlem sunucusu Dağıt | | | > 2 TB | Ek işlem sunucusu 200'den fazla makineleri çoğaltma yapıyorsanız ya da günlük verileri değiştirirseniz oranı 2 TB aştığında dağıtın.
 
 Konumlar:
 
@@ -65,67 +65,67 @@ Konumlar:
 ## <a name="process-server-capacity"></a>İşlem sunucusu kapasite
 
 
-Merhaba işlem sunucusu korunan makinelerden çoğaltma verilerini alıp ve önbelleğe alma, sıkıştırma ve şifreleme iyileştirir. Ardından hello veri tooAzure gönderir.
+İşlem sunucusu korunan makinelerden çoğaltma verilerini alıp ve önbelleğe alma, sıkıştırma ve şifreleme iyileştirir. Ardından verileri Azure'a gönderir.
 
-- Merhaba işlem Sunucu makinesi yeterli kaynakları tooperform bu görevleri olması gerekir.
-- Merhaba ilk işlem sunucusu hello yapılandırma sunucusuna varsayılan olarak yüklenir. Ortamınıza ek işlem sunucuları tooscale dağıtabilirsiniz.
-- Merhaba işlem sunucusu disk tabanlı önbelleği kullanır. 600 GB veya daha fazla toohandle veri değişiklikleri, bir ağ sorununu veya kesinti hello olayda depolanan ayrı önbelleği disk kullanın.
-- 200'den fazla makinelerin tooprotect gerekir veya hello günlük değişim oranı 2 TB'den büyükse, işlem sunucuları toohandle hello çoğaltma yük ekleyebilirsiniz. tooscale çıkış şunları yapabilirsiniz:
-    - Yapılandırma sunucularına Hello sayısını artırın. Örneğin, iki yapılandırma sunucularına too400 makinelerle koruyabilirsiniz.
-    - Daha fazla işlem sunucusu ekleyebilir ve bu toohandle trafiği yerine (veya ek olarak) hello yapılandırma sunucusu kullanabilirsiniz.
+- İşlem sunucusu makine bu görevleri gerçekleştirmek için yeterli kaynak olması gerekir.
+- İlk işlem sunucusunu yapılandırma sunucusuna varsayılan olarak yüklenir. Ortamınızı ölçeklendirmek için ek işlem sunucuları dağıtabilirsiniz.
+- İşlem sunucusu disk tabanlı önbelleği kullanır. Bir ağ sorununu veya kesinti durumunda depolanan veri değişikliklerini işlemek için ayrı önbelleği disk 600 GB veya daha fazla kullanır.
+- 200'den fazla makineler korumanız gerekir ya da günlük değişim oranı 2 TB'den büyük ise, çoğaltma yükü işlemek üzere işlem sunucuları ekleyebilirsiniz. Genişletmek için şunları yapabilirsiniz:
+    - Yapılandırma sunucularına sayısını artırın. Örneğin, iki yapılandırma sunucularına 400 makinelerle kadar koruyabilirsiniz.
+    - Daha fazla işlem sunucusu ekleyebilir ve bunlar yerine (veya ek olarak) trafiği işlemeye kullanabilirsiniz yapılandırma sunucusu.
 
 
 ### <a name="example-process-server-scaling"></a>Örnek sunucu işlemi ölçeklendirme
 
-Aşağıdaki tablonun hello bir senaryoda açıklanmaktadır:
+Aşağıdaki tabloda bir senaryoda açıklanmaktadır:
 
-* Toouse hello yapılandırma sunucusuna işlem sunucusu olarak planlamanız durumunda değil.
+* İşlem sunucusu olarak yapılandırma sunucusu kullanmayı planlıyorsanız değil.
 * Bir ek işlem sunucusu ayarlamadıysanız ayarladınız.
-* Korumalı sanal makineleri toouse hello ek işlem sunucusu yapılandırdıktan.
+* Ek işlem sunucusu kullanabilmek için korumalı sanal makineleri yapılandırdıktan.
 * Her korumalı kaynak makine üç 100 GB disk ile yapılandırılır.
 
 **Yapılandırma sunucusu** | **Ek işlem sunucusu** | **Önbellek disk boyutu** | **Veri değişikliği oranı** | **Korumalı makineler**
 --- | --- | --- | --- | ---
 8 Vcpu'lar (2 yuva * @ 2,5 GHz 4 çekirdek), 16 GB bellek | 4 Vcpu (2 yuva * 2,5 GHz @ 2 Çekirdek), 8 GB bellek | 300 GB | 250 GB veya daha az | 85 veya daha az makineler çoğaltılır.
-8 Vcpu'lar (2 yuva * @ 2,5 GHz 4 çekirdek), 16 GB bellek | 8 Vcpu'lar (2 yuva * @ 2,5 GHz 4 çekirdek), 12 GB bellek | 600 GB | 250 GB too1 TB | 85 150 makineler arasında çoğaltılır.
-12 Vcpu'lar (2 yuva * 2,5 GHz @ 6 çekirdek), 18 GB bellek | 12 Vcpu'lar (2 yuva * 2,5 GHz @ 6 çekirdek) 24 GB bellek | 1 TB | 1 TB too2 TB | 150-225 makineler arasında çoğaltılır.
+8 Vcpu'lar (2 yuva * @ 2,5 GHz 4 çekirdek), 16 GB bellek | 8 Vcpu'lar (2 yuva * @ 2,5 GHz 4 çekirdek), 12 GB bellek | 600 GB | 1 TB ' 250 GB | 85 150 makineler arasında çoğaltılır.
+12 Vcpu'lar (2 yuva * 2,5 GHz @ 6 çekirdek), 18 GB bellek | 12 Vcpu'lar (2 yuva * 2,5 GHz @ 6 çekirdek) 24 GB bellek | 1 TB | 1 TB ile 2 TB | 150-225 makineler arasında çoğaltılır.
 
-sunucularınızın ölçeklendirme hello büyütme veya genişleme modeli için tercihinizi bağlıdır.  Bazı gelişmiş yapılandırma ve işlem sunucuları dağıtarak ölçeği veya daha az kaynak ile daha fazla sunucu dağıtarak ölçeğini. Örneğin, tooprotect 220 makineler gerekiyorsa, hello aşağıdakilerden birini yapabilirsiniz:
+Sunucularınızın ölçeklendirme şekilde büyütme veya genişleme modeli için tercihinizi bağlıdır.  Bazı gelişmiş yapılandırma ve işlem sunucuları dağıtarak ölçeği veya daha az kaynak ile daha fazla sunucu dağıtarak ölçeğini. Örneğin, 220 makinelerin korunmasına ihtiyacınız varsa, aşağıdakilerden birini yapabilirsiniz:
 
-* Merhaba yapılandırma sunucusuyla 12 vCPU, 18 GB bellek ve ek işlem sunucusu 12 vCPU, 24 GB bellek ile ayarlayın. Korumalı makineler toouse hello ek işlem sunucusu yalnızca yapılandırın.
-* İki yapılandırma sunucularına (2 x 8 vCPU, 16 GB RAM) ve iki ek işlem sunucusu (1 x 8 vCPU ve 4 vCPU x 1 toohandle 135 + 85 [220] makineler) ayarlayın. Korumalı makineler toouse hello ek işlem yalnızca sunucuları yapılandırın.
+* 12 vCPU, 18 GB bellek, yapılandırma sunucusuyla ve ek işlem sunucusu 12 vCPU, 24 GB bellek ile ayarlayın. Korumalı makineler, yalnızca ek işlem sunucusu kullanacak şekilde yapılandırın.
+* İki yapılandırma sunucularına (2 x 8 vCPU, 16 GB RAM) ve iki ek işlem sunucusu (1 x 8 vCPU ve 4 vCPU x 1 135 + 85 [220] işlenecek makineler) ayarlayın. Korumalı makineler, yalnızca ek işlem sunucularını kullanacak şekilde yapılandırın.
 
 ## <a name="deploy-additional-process-servers"></a>Ek işlem sunucusu dağıtın
 
-1. İzleyin [bu yönergeleri](site-recovery-vmware-setup-azure-ps-resource-manager.md) tooset bir ek işlem sunucusu.
-2. Merhaba parola yoksa çalıştırmak **[SiteRecoveryInstallationFolder]\home\sysystems\bin\genpassphrase.exe – n** hello yapılandırma sunucusu tooget üzerinde bu.
-3. Kaynak makine toouse geçirmek Hello işlem sunucusu ayarlamadıysanız ayarladıktan sonra onu.
+1. İzleyin [bu yönergeleri](site-recovery-vmware-setup-azure-ps-resource-manager.md) bir ek işlem sunucusu ayarlanamıyor.
+2. Parola yoksa çalıştırmak **[SiteRecoveryInstallationFolder]\home\sysystems\bin\genpassphrase.exe – n** yapılandırma sunucusundaki edinilir.
+3. İşlem sunucusu ayarlamadıysanız ayarladıktan sonra bunu kullanmak için kaynak makineleri geçirin.
 
-    1. İçinde **ayarları** > **Site Recovery sunucuları**, hello yapılandırma sunucusu tıklayın > **işlem sunucuları**.
-    2. Sağ hello işlem sunucusu şu anda kullanımda > **anahtar**.
-    3. İçinde **Select hedef işlem sunucusunu**seçin toouse istediğiniz ve hello VM'ler seçin hello işlem sunucusu hello sunucu işleyecek.
-    4. Merhaba bilgi simgesine tıklayın. toohelp yaptığınız kararları yüklenemedi, her seçili VM toohello yeni işlem sunucusu görüntülenen tooreplicate gerekli olan ortalama alanı hello.
-    5. Merhaba onay işareti toostart çoğaltma toohello yeni işlem sunucusu tıklayın.
+    1. İçinde **ayarları** > **Site Recovery sunucuları**, yapılandırma sunucusu tıklayın > **işlem sunucuları**.
+    2. Şu anda kullanımda işlem sunucusunu sağ tıklatın > **anahtar**.
+    3. İçinde **Select hedef işlem sunucusunu**, kullanmak istediğiniz işlem sunucusunu seçin ve sunucu işleyecek sanal makineleri seçin.
+    4. Bilgi simgesine tıklayın. Yük kararları vermenize yardımcı olmak için her seçili VM yeni işlem sunucusu çoğaltmak için gerekli olan ortalama alanı görüntülenir.
+    5. Yeni işlem sunucusu için çoğaltma başlatma onay işaretine tıklayın.
 
 ## <a name="control-network-bandwidth"></a>Ağ bant genişliğini denetlemek
 
-Çalıştırdıktan sonra [hello dağıtım planlayıcısı aracı](site-recovery-deployment-planner.md) toocalculate hello bant genişliği (Merhaba ilk çoğaltma ve ardından değişim) çoğaltma için gereken, hello birkaç seçenekleri kullanarak çoğaltma için kullanılan bant genişliği miktarını kontrol edebilirsiniz:
+Çalıştırdıktan sonra [dağıtım planlayıcısı aracı](site-recovery-deployment-planner.md) (ilk çoğaltma ve ardından değişim) çoğaltma için gereken bant genişliğini hesaplamak için birkaç seçenekleri kullanarak çoğaltma için kullanılan bant genişliği miktarını kontrol edebilirsiniz:
 
-* **Bant genişliğini kısıtlama**: tooAzure çoğaltır VMware trafiği belirli işlem sunucusu üzerinden gider. İşlem sunucusu olarak çalışan hello makineler üzerinde bant genişliğini kısıtlayabilirsiniz.
-* **Bant genişliği üzerinde etki**: birkaç kayıt defteri anahtarlarını kullanarak çoğaltma için kullanılan hello bant genişliği etkileyebilir:
-  * Merhaba **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\UploadThreadsPerVM** kayıt defteri değeri hello veri aktarımını bir disk için (başlangıç ve değişim çoğaltması) kullanılan iş parçacığı sayısını belirtir. Daha yüksek bir değer çoğaltma için kullanılan hello ağ bant genişliğini artırır.
-  * Merhaba **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DownloadThreadsPerVM** hello yeniden çalışma sırasındaki veri aktarımı için kullanılan iş parçacığı sayısını belirtir.
+* **Bant genişliğini kısıtlama**: Azure'a çoğaltılan VMware trafiği belirli işlem sunucusu üzerinden gider. İşlem sunucusu olarak çalışan makineler üzerinde bant genişliğini kısıtlayabilirsiniz.
+* **Bant genişliği üzerinde etki**: birkaç kayıt defteri anahtarlarını kullanarak çoğaltma için kullanılan bant genişliği etkileyebilir:
+  * **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\UploadThreadsPerVM** kayıt defteri değeri veri aktarımını bir disk için (başlangıç ve değişim çoğaltması) kullanılan iş parçacığı sayısını belirtir. Daha yüksek bir değer, çoğaltma işlemi için kullanılan ağ bant genişliğini artırır.
+  * **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DownloadThreadsPerVM** yeniden çalışma sırasındaki veri aktarımı için kullanılan iş parçacığı sayısını belirtir.
 
 ### <a name="throttle-bandwidth"></a>Bant genişliğini kısıtlama
 
-1. Azure Backup MMC ek bileşenini Hello hello makine hareket üzerinde hello işlem sunucusu olarak açın. Varsayılan olarak, yedekleme için bir kısayol hello masaüstünde veya klasör aşağıdaki hello kullanılabilir: C:\Program Files\Microsoft Azure Recovery Services agent\bin\wabadmin yolunda.
-2. Merhaba ek bileşeninde, tıklatın **özelliklerini değiştirme**.
-3. Merhaba üzerinde **azaltma** sekmesine **yedekleme işlemleri için Internet bant genişliği kullanımı daraltmayı etkinleştir**.
-4. İş için Hello sınırlarını ayarlama ve saat İş dışı. Geçerli aralıklar saniye başına 512 Kbps too102 Mbps arasındadır.
+1. İşlem sunucusu olarak işlev gören makinedeki Azure Backup MMC ek bileşenini açın. Varsayılan olarak, bir kısayol yedekleme için masaüstünde veya aşağıdaki klasörde kullanılabilir: C:\Program Files\Microsoft Azure Recovery Services agent\bin\wabadmin yolunda.
+2. Ek bileşende **Özellikleri Değiştir**'e tıklayın.
+3. Üzerinde **azaltma** sekmesine **yedekleme işlemleri için Internet bant genişliği kullanımı daraltmayı etkinleştir**.
+4. İş için sınırları ayarlayın ve saat İş dışı. Geçerli aralıklar saniye başına 512 Kbps ila 102 Mbps arasındadır.
 
     ![Kısıtlama](./media/physical-walkthrough-capacity/throttle2.png)
 
-Merhaba de kullanabilirsiniz [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) tooset cmdlet azaltma. Bu ayara ilişkin örneği aşağıda bulabilirsiniz:
+Ayrıca, azaltma ayarı için [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) cmdlet'ini de kullanabilirsiniz. Bu ayara ilişkin örneği aşağıda bulabilirsiniz:
 
     $mon = [System.DayOfWeek]::Monday
     $tue = [System.DayOfWeek]::Tuesday
@@ -135,14 +135,14 @@ Merhaba de kullanabilirsiniz [Set-OBMachineSetting](https://technet.microsoft.co
 
 ### <a name="influence-network-bandwidth-for-a-vm"></a>Bir VM için ağ bant genişliği üzerinde etki
 
-1. Merhaba VM kayıt defterinde çok Git**HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication**.
-   * bir çoğaltma diskte tooinfluence hello bant genişliği trafiği değiştirebilir hello değerini **UploadThreadsPerVM**, veya yoksa hello anahtar oluşturun.
-   * Azure, yeniden çalışma trafiği için tooinfluence hello bant genişliği hello değerini değiştirmek **DownloadThreadsPerVM**.
-2. Merhaba varsayılan değer 4'tür. Fazla sağlanan bir ağda, bu kayıt defteri anahtarları değiştirilmesi gerekir. Merhaba en fazla 32'dir. Trafik toooptimize hello değeri izleyin.
+1. VM kayıt defterinde Git **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication**.
+   * Bir çoğaltma diskte bant genişliği trafiği etkilemek için değerini değiştirin **UploadThreadsPerVM**, veya yoksa anahtar oluşturun.
+   * Azure'dan yeniden çalışma trafiği için bant genişliği etkilemek için değerini değiştirin **DownloadThreadsPerVM**.
+2. Varsayılan değer 4'tür. Fazla sağlanan bir ağda, bu kayıt defteri anahtarları değiştirilmesi gerekir. Maksimum değer 32'dir. Değeri iyileştirmek için trafiği izleyin.
 
 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Çok Git[4. adım: ağ planlama](physical-walkthrough-network.md).
+Git [4. adım: ağ planlama](physical-walkthrough-network.md).

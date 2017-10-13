@@ -1,6 +1,6 @@
 ---
-title: "Azure StorSimple Azure Media Services hesabından aaaUpload dosyalarıyla | Microsoft Docs"
-description: "Bu makalede Azure StorSimple Veri Yöneticisi'ne ilişkin kısa bir genel bakış sunulmaktadır. Merhaba makale ayrıca şunları nasıl yapacağınızı tootutorials bağlantıları StorSimple tooextract verileri ve varlıklar tooan Azure Media Services hesabı yükleyin."
+title: "Azure StorSimple’dan Azure Media Services hesabına dosya yükleme | Microsoft Docs"
+description: "Bu makalede Azure StorSimple Veri Yöneticisi'ne ilişkin kısa bir genel bakış sunulmaktadır. Bu makale ayrıca StorSimple’dan verileri ayıklama ve bir Azure Media Services hesabına varlık olarak yükleme işlemini gösteren öğreticilerin bağlantılarını içerir."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/27/2017
 ms.author: juliako
-ms.openlocfilehash: 7e9712aa480106bbd5fcc63eaecf0418b24a8bef
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 636d55c15aa383208ffb39d5224123831af962c9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Azure StorSimple’dan Azure Media Services hesabına dosya yükleme
 
-Bu makalede Azure StorSimple Veri Yöneticisi'ne ilişkin kısa bir genel bakış sunulmaktadır. Merhaba makale ayrıca şunları nasıl yapacağınızı tootutorials bağlantıları StorSimple tooextract verileri ve bu verileri varlıklar tooan Azure Media Services (AMS) hesabı yükleyin.
+Bu makalede Azure StorSimple Veri Yöneticisi'ne ilişkin kısa bir genel bakış sunulmaktadır. Bu makale ayrıca StorSimple’dan verileri ayıklama ve bu verileri bir Azure Media Services (AMS) hesabına varlık olarak yükleme işlemini gösteren öğreticilerin bağlantılarını içerir.
 
 > 
 > [!NOTE]
@@ -31,22 +31,22 @@ Bu makalede Azure StorSimple Veri Yöneticisi'ne ilişkin kısa bir genel bakı�
 
 ## <a name="overview"></a>Genel Bakış
 
-Media Services’de dijital dosyalar bir varlığa yüklenir. Merhaba varlık, video, ses, görüntüler, küçük resim koleksiyonları, metin parçaları ve kapalı açıklamalı alt yazı dosyaları (ve bu dosyalar hakkında hello meta veriler.) içerebilir. Hello dosyalar yüklendiğinde, içeriğiniz sonraki işleme ve akışla için hello bulutta güvenli bir şekilde depolanır.
+Media Services’de dijital dosyalar bir varlığa yüklenir. Varlık; video, ses, görüntüler, küçük resim koleksiyonları, metin parçaları ve kapalı açıklamalı alt yazı dosyaları (ve bu dosyalar hakkındaki meta veriler) içerebilir. Dosyalar yüklendiğinde, içeriğiniz sonraki işleme ve akışla aktarma faaliyetleri için güvenli bir şekilde bulutta depolanmış olur.
 
-[Azure StorSimple](https://docs.microsoft.com/azure/storsimple/) hello uzantısı şirket içi çözüm ve otomatik olarak katmanlarını veri hello şirket içi depolama ve bulut depolama arasında gibi bulut depolama kullanır. Merhaba StorSimple cihazı dedupes ve verilerinizi büyük dosyalar toohello bulut göndermek için çok verimli hale getirme toohello bulut göndermeden önce sıkıştırır. Merhaba [StorSimple Data Manager](../storsimple/storsimple-data-manager-overview.md) hizmeti, StorSimple tooextract verileri sağlayan ve AMS varlıklar olarak sunmak API'ler sağlar.
+[Azure StorSimple](https://docs.microsoft.com/azure/storsimple/), şirket içi çözümün bir uzantısı olarak bulut depolama kullanır ve şirket içi depolama ile bulut depolama arasındaki verileri otomatik olarak katman haline getirir. StorSimple cihazı verilerinizi buluta göndermeden önce yinelenen verileri kaldırıp verileri sıkıştırır ve büyük dosyaları buluta göndermeyi çok verimli hale getirir. [StorSimple Veri Yöneticisi](../storsimple/storsimple-data-manager-overview.md) hizmeti, StorSimple’dan verileri ayıklamanızı ve AMS varlığı olarak sunmanızı sağlayan API’ler sunar.
 
-## <a name="get-started"></a>başlarken
+## <a name="get-started"></a>Başlarken
 
-1. [Bir Media Services hesabı oluşturma](media-services-portal-create-account.md) tootransfer hello varlıklar istediğiniz.
-2. Kaydolmak için veri Yöneticisi Önizleme, hello açıklandığı gibi [StorSimple Data Manager](../storsimple/storsimple-data-manager-overview.md) makalesi.
+1. Varlıkları aktarmak istediğiniz bir [Media Services hesabı oluşturun](media-services-portal-create-account.md).
+2. [StorSimple Veri Yöneticisi](../storsimple/storsimple-data-manager-overview.md) makalesinde açıklanan şekilde Veri Yöneticisi önizlemesine kaydolun.
 3. Bir StorSimple Veri Yöneticisi hesabı oluşturun.
 4. Çalıştığında bir StorSimple cihazından verileri ayıklayıp varlık olarak AMS hesabına aktaran bir veri dönüşüm işi oluşturun. 
 
-    Merhaba iş çalışmaya başladığında, depolama kuyruğu oluşturulur. Bu kuyruk, hazır olduğunda dönüştürülen bloblar hakkında iletilerle doldurulur. Bu sıranın Hello adı olduğu hello hello iş tanımı hello adı ile aynı. Bu sıra toodetermine kullandığınız zaman varlık olduğu gibi hazır ve üzerinde istenen Media Services işlemi toorun çağırın. Örneğin, bu kuyruk tootrigger hello gerekli Media Services kodu içeren bir Azure işlevi kullanabilirsiniz.
+    İş çalışmaya başladığında bir depolama kuyruğu oluşturulur. Bu kuyruk, hazır olduğunda dönüştürülen bloblar hakkında iletilerle doldurulur. Bu kuyruğun adı, iş tanımının adıyla aynıdır. Bir varlığın ne zaman hazır olduğunu belirlemek ve üzerinde çalıştırmak istediğiniz Media Services işlemini çağırmak için bu kuyruğu kullanabilirsiniz. Örneğin, bu kuyruğu kullanarak, üzerinde gerekli Media Services kodunun olduğu bir Azure İşlevi tetikleyebilirsiniz.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-[Kullanım .net SDK hello hello Data Manager tootrigger işler](../storsimple/storsimple-data-manager-dotnet-jobs.md)
+[.Net SDK’sı kullanarak Veri Yöneticisi’nde iş tetikleme](../storsimple/storsimple-data-manager-dotnet-jobs.md)
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

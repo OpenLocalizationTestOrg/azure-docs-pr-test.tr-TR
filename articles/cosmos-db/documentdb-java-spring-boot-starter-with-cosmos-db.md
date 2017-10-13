@@ -1,6 +1,6 @@
 ---
-title: "aaaHow toouse hello yay önyükleme Starter bir Azure Cosmos DB DocumentDB API'si"
-description: "Bir uygulama tooconfigure hello yay önyükleme Başlatıcı hello Azure Cosmos DB DocumentDB API ile birlikte nasıl oluşturulacağını öğrenin."
+title: "Yay önyükleme Starter bir Azure Cosmos DB DocumentDB API'si ile kullanma"
+description: "Yay Önyükleme Başlatıcısı Azure Cosmos DB DocumentDB API'si ile oluşturulan bir uygulama yapılandırma konusunda bilgi edinin."
 services: cosmos-db
 documentationcenter: java
 author: rmcmurray
@@ -15,25 +15,25 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: robmcm;yungez;kevinzha
-ms.openlocfilehash: a2c6de678f850676cb2887e224e5c12950db0e53
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 273cc750857c5e466882060a38ac0f3475811e98
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="how-toouse-hello-spring-boot-starter-with-azure-cosmos-db-documentdb-api"></a>Nasıl toouse hello Azure Cosmos DB DocumentDB API ile yay önyükleme Başlatıcı
+# <a name="how-to-use-the-spring-boot-starter-with-azure-cosmos-db-documentdb-api"></a>Yay önyükleme Starter Azure Cosmos DB DocumentDB API'si ile kullanma
 
 ## <a name="overview"></a>Genel Bakış
 
-Merhaba  **[yay Framework]**  Java geliştiriciler kuruluş düzeyinde uygulamalar oluşturmanıza yardımcı olan bir açık kaynaklı bir çözümdür. Yerleşik hello daha popüler projelerden biri üzerinde üst o platformudur [yay önyükleme], tek başına Java uygulamaları oluşturmak için basitleştirilmiş bir yaklaşım sağlar. toohelp geliştiriciler yay önyüklemesini Başlarken, birkaç örnek yay önyükleme paketleri kullanılabilir <https://github.com/spring-guides/>. Buna ek olarak temel yay önyükleme hello listesinden toochoosing, hello projeleri  **[yay Initializr]**  özel yay önyükleme uygulamalar oluşturmaya başlamak geliştiricilere yardımcı olur.
+ **[Yay Framework]**  Java geliştiriciler kuruluş düzeyinde uygulamalar oluşturmanıza yardımcı olan bir açık kaynaklı bir çözümdür. Yerleşik daha popüler projelerden biri üzerinde üst o platformudur [yay önyükleme], tek başına Java uygulamaları oluşturmak için basitleştirilmiş bir yaklaşım sağlar. Yay önyükleme ile çalışmaya başlama geliştiricilerin yardımcı olmak için birkaç örnek yay önyükleme paketleri kullanılabilir <https://github.com/spring-guides/>. Temel yay önyükleme projeleri, listeden seçerek ek olarak  **[yay Initializr]**  özel yay önyükleme uygulamalar oluşturmaya başlamak geliştiricilere yardımcı olur.
 
-Azure Cosmos DB, geliştiricilerin sağlayan bir genel dağıtılmış veritabanı hizmetidir toowork DocumentDB, MongoDB, grafik ve tablo API'leri gibi standart API'leri çeşitli kullanarak verileri. Microsoft'un yay önyükleme Starter kolayca DocumentDB API'lerini kullanarak Azure Cosmos DB ile tümleştirmek geliştiriciler toouse yay önyükleme uygulamaları etkinleştirir.
+Azure Cosmos DB DocumentDB, MongoDB, grafik ve tablo API'leri gibi standart API'leri çeşitli kullanarak verileri geliştiricilerin izin veren bir genel dağıtılmış veritabanı hizmetidir. Microsoft'un yay önyükleme Starter kolayca DocumentDB API'lerini kullanarak Azure Cosmos DB ile tümleştirmek yay önyükleme uygulamaları kullanmak geliştiricilere sağlar.
 
-Bu makale bir Azure Cosmos hello Azure portal kullanarak, daha sonra hello kullanarak DB oluşturmayı gösterir **yay Initializr** toocreate özel java uygulaması ve hello yay önyükleme Starter işlevselliği tooyour özel ekleyin Uygulama toostore verileri ve DB'den, Azure Cosmos hello DocumentDB API kullanarak verileri almak.
+Bu makale bir Azure Cosmos Azure Portalı'nı kullanarak, daha sonra kullanarak DB oluşturmayı gösterir **yay Initializr** özel java uygulaması oluşturmak ve özel uygulamanızı yay önyükleme Starter işlevselliği eklemek için verileri depolamak ve DocumentDB API'sini kullanarak Azure Cosmos Veritabanından veri alın.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Önkoşullar aşağıdaki hello bu makaledeki sipariş toofollow hello adımlar gereklidir:
+Bu makaledeki adımları için aşağıdaki önkoşullar gereklidir:
 
 * Bir Azure aboneliği; bir Azure aboneliği zaten sahip değilseniz, etkinleştirebilir, [MSDN abone Avantajlarınızı] veya kaydolun bir [ücretsiz Azure hesabı].
 
@@ -41,9 +41,9 @@ Bu makale bir Azure Cosmos hello Azure portal kullanarak, daha sonra hello kulla
 
 * [Apache Maven](http://maven.apache.org/), sürüm 3.0 veya üstü.
 
-## <a name="create-an-azure-cosmos-db-by-using-hello-azure-portal"></a>Bir Azure Cosmos DB hello Azure portal kullanarak oluşturma
+## <a name="create-an-azure-cosmos-db-by-using-the-azure-portal"></a>Azure portalı kullanarak bir Azure Cosmos DB oluştur
 
-1. Toohello Azure göz atın, portal <https://portal.azure.com/> tıklatıp **+ yeni**.
+1. Azure portalında göz <https://portal.azure.com/> tıklatıp **+ yeni**.
 
    ![Azure portalına][AZ01]
 
@@ -51,50 +51,50 @@ Bu makale bir Azure Cosmos hello Azure portal kullanarak, daha sonra hello kulla
 
    ![Azure portalına][AZ02]
 
-1. Merhaba üzerinde **Azure Cosmos DB** sayfasında, aşağıdaki bilgilerle hello girin:
+1. Üzerinde **Azure Cosmos DB** sayfasında, aşağıdaki bilgileri girin:
 
-   * Benzersiz bir girin **kimliği**, veritabanınız için URI hello olarak kullanacağı. Örneğin: *wingtiptoysdata.documents.azure.com*.
-   * Seçin **SQL (belge DB)** hello API için.
-   * Merhaba seçin **abonelik** veritabanınız için toouse istiyor.
-   * Belirtin olup olmadığını toocreate yeni bir **kaynak grubu** , veritabanı veya varolan bir kaynak grubu seçin.
-   * Merhaba belirtin **konumu** veritabanınız için.
+   * Benzersiz bir girin **kimliği**, veritabanınız için URI olarak kullanacağı. Örneğin: *wingtiptoysdata.documents.azure.com*.
+   * Seçin **SQL (belge DB)** API'si.
+   * Seçin **abonelik** veritabanınız için kullanmak istediğiniz.
+   * Yeni bir oluşturulup oluşturulmayacağını belirtin **kaynak grubu** , veritabanı veya varolan bir kaynak grubu seçin.
+   * Belirtin **konumu** veritabanınız için.
    
-   Bu seçenek belirtildiğinde tıklatın **oluşturma** toocreate veritabanınızı.
+   Bu seçenek belirtildiğinde tıklatın **oluşturma** veritabanınızı oluşturmak için.
 
    ![Azure portalına][AZ03]
 
-1. Veritabanınızı oluşturduğunuzda, Azure üzerinde listelenir **Pano**, hello gibi altında yanı **tüm kaynakları** ve **Azure Cosmos DB** sayfaları. Veritabanınızın herhangi bu konumları tooopen hello Özellikler sayfasının önbelleğiniz için tıklatabilirsiniz.
+1. Veritabanınızı oluşturduğunuzda, Azure üzerinde listelenir **Pano**altında da olarak **tüm kaynakları** ve **Azure Cosmos DB** sayfaları. Veritabanınızı önbelleğiniz için Özellikler sayfasını açmak için bu konumların hiçbirinde tıklatabilirsiniz.
 
    ![Azure portalına][AZ04]
 
-1. Veritabanınız için Hello Özellikler sayfası görüntülendiğinde tıklayın **erişim anahtarları** ve veritabanınız için URI ve erişim anahtarlarınızı kopyalayın; yay önyükleme uygulamanızda bu değerleri kullanır.
+1. Özellikler sayfasında Veritabanınızı görüntülenen için tıklattığınızda **erişim anahtarları** ve veritabanınız için URI ve erişim anahtarlarınızı kopyalayın; yay önyükleme uygulamanızda bu değerleri kullanır.
 
    ![Azure portalına][AZ05]
 
-## <a name="create-a-simple-spring-boot-application-with-hello-spring-initializr"></a>Yay Initializr hello ile basit bir yay önyükleme uygulaması oluşturma
+## <a name="create-a-simple-spring-boot-application-with-the-spring-initializr"></a>Yay Initializr ile basit bir yay önyükleme uygulaması oluşturma
 
-1. Çok Gözat<https://start.spring.io/>.
+1. Gözat <https://start.spring.io/>.
 
-1. Toogenerate istediğinizi belirtin bir **Maven** ile proje **Java**, hello girin **grup** ve **yapı** , uygulamanız için adları ve ardından hello çok düğmesini**proje oluştur**.
+1. Oluşturmak istediğiniz belirtin bir **Maven** ile proje **Java**, girin **grup** ve **yapı** adları, uygulamanız için ve düğmesini tıklatıp **proje oluştur**.
 
    ![Basic yay Initializr seçenekleri][SI01]
 
    > [!NOTE]
    >
-   > Merhaba yay Initializr kullanan hello **grup** ve **yapı** adları toocreate hello paket adı; örneğin: *com.example.wintiptoys*.
+   > Yay Initializr kullanır **grup** ve **yapı** paket adı; oluşturmak için adlarını, örneğin: *com.example.wintiptoys*.
    >
 
-1. İstendiğinde, yerel bilgisayarınızda hello proje tooa yolu indirin.
+1. İstendiğinde, yerel bilgisayarınızda bir yola projenizi indirin.
 
    ![Özel yay önyükleme projenizi indirin][SI02]
 
-1. Yerel sisteminizde hello dosyaları ayıkladıktan sonra basit yay önyükleme uygulamanızı düzenlemek için hazır olacaktır.
+1. Yerel sisteminizde dosyaları ayıkladıktan sonra basit yay önyükleme uygulamanızı düzenlemek için hazır olacaktır.
 
    ![Özel yay önyükleme proje dosyaları][SI03]
 
-## <a name="configure-your-spring-boot-app-toouse-hello-azure-spring-boot-starter"></a>Yay önyükleme uygulama toouse hello Azure yay önyükleme Starter yapılandırın
+## <a name="configure-your-spring-boot-app-to-use-the-azure-spring-boot-starter"></a>Yay önyükleme uygulamanızı Azure yay önyükleme Starter kullanacak şekilde yapılandırma
 
-1. Merhaba bulun *pom.xml* , uygulamanızın; hello dizindeki dosyayı örneğin:
+1. Bulun *pom.xml* , uygulamanızın; dizindeki dosyayı örneğin:
 
    `C:\SpringBoot\wingtiptoys\pom.xml`
 
@@ -102,9 +102,9 @@ Bu makale bir Azure Cosmos hello Azure portal kullanarak, daha sonra hello kulla
 
    `/users/example/home/wingtiptoys/pom.xml`
 
-   ![Merhaba pom.xml dosyasını bulun][PM01]
+   ![Pom.xml dosyasını bulun][PM01]
 
-1. Açık hello *pom.xml* dosyasını bir metin düzenleyicisinde ve satırları toolist, aşağıdaki hello ekleyin `<dependencies>`:
+1. Açık *pom.xml* dosyasını bir metin düzenleyicisinde açın ve aşağıdaki satırları listesine eklemek `<dependencies>`:
 
    ```xml
    <dependency>
@@ -114,13 +114,13 @@ Bu makale bir Azure Cosmos hello Azure portal kullanarak, daha sonra hello kulla
    </dependency>
    ```
 
-   ![Merhaba pom.xml dosyasını düzenleme][PM02]
+   ![Pom.xml dosyasını düzenleme][PM02]
 
-1. Kaydet ve Kapat hello *pom.xml* dosya.
+1. Kaydet ve Kapat *pom.xml* dosya.
 
-## <a name="configure-your-spring-boot-app-toouse-your-azure-cosmos-db"></a>Yay önyükleme uygulama toouse Azure Cosmos DB yapılandırın
+## <a name="configure-your-spring-boot-app-to-use-your-azure-cosmos-db"></a>Yay önyükleme uygulamanızı Azure Cosmos DB kullanacak şekilde yapılandırma
 
-1. Merhaba bulun *application.properties* hello dosyasında *kaynakları* , uygulamanızın dizin; örneğin:
+1. Bulun *application.properties* dosyasını *kaynakları* , uygulamanızın dizin; örneğin:
 
    `C:\SpringBoot\wingtiptoys\src\main\resources\application.properties`
 
@@ -128,34 +128,34 @@ Bu makale bir Azure Cosmos hello Azure portal kullanarak, daha sonra hello kulla
 
    `/users/example/home/wingtiptoys/src/main/resources/application.properties`
 
-   ![Merhaba application.properties dosyasını bulun][RE01]
+   ![Application.properties dosyasını bulun][RE01]
 
-1. Açık hello *application.properties* dosyasını bir metin düzenleyicisinde ve aşağıdaki satırları toohello dosyasına hello ekleyin ve hello veritabanınız için uygun özelliklere sahip hello örnek değerleri değiştirin:
+1. Açık *application.properties* dosyasını bir metin düzenleyicisinde dosyasına aşağıdaki satırları ekleyin ve veritabanınız için uygun özelliklere sahip örnek değerleri değiştirin:
 
    ```yaml
-   # Specify hello DNS URI of your Azure Cosmos DB.
+   # Specify the DNS URI of your Azure Cosmos DB.
    azure.documentdb.uri=https://wingtiptoys.documents.azure.com:443/
 
-   # Specify hello access key for your database.
+   # Specify the access key for your database.
    azure.documentdb.key=57686f6120447564652c20426f6220526f636b73==
 
-   # Specify hello name of your database.
+   # Specify the name of your database.
    azure.documentdb.database=wingtiptoysdata
    ```
 
-   ![Merhaba application.properties dosya düzenleme][RE02]
+   ![Application.properties dosya düzenleme][RE02]
 
-1. Kaydet ve Kapat hello *application.properties* dosya.
+1. Kaydet ve Kapat *application.properties* dosya.
 
-## <a name="add-sample-code-tooimplement-basic-database-functionality"></a>Örnek kod tooimplement temel veritabanı işlevselliği ekleme
+## <a name="add-sample-code-to-implement-basic-database-functionality"></a>Temel veritabanı işlevselliği uygulamak için örnek kod ekleme
 
-Bu bölümde, kullanıcı verilerini depolamak için iki Java sınıfları oluşturmak ve ardından ana uygulama sınıfı toocreate hello kullanıcı sınıfının bir örneğini değiştirmek ve tooyour veritabanına kaydedin.
+Bu bölümde kullanıcı verilerini depolamak için iki Java sınıf oluşturun ve ardından kullanıcı sınıfının bir örneğini oluşturup, veritabanına kaydetmek için ana uygulama sınıfı değiştirin.
 
 ### <a name="define-a-basic-class-for-storing-user-data"></a>Kullanıcı verilerini depolamak için bir temel sınıf tanımlama
 
-1. Adlı yeni bir dosya oluşturun *User.java* hello içindeki ana uygulama Java dosyası ile aynı dizinde.
+1. Adlı yeni bir dosya oluşturun *User.java* ana uygulama Java dosyası ile aynı dizinde.
 
-1. Açık hello *User.java* dosyasını bir metin düzenleyicisinde ve hello aşağıdaki depolayan ve veritabanınızdaki değerleri almak genel kullanıcı sınıfı toohello dosya toodefine satırları ekleyin:
+1. Açık *User.java* dosyasını bir metin düzenleyicisinde ve dosyasını depolayan ve veritabanınızdaki değerleri almak genel kullanıcı sınıfı tanımlamak için aşağıdaki satırları ekleyin:
 
    ```java
    package com.example.wingtiptoys;
@@ -202,13 +202,13 @@ Bu bölümde, kullanıcı verilerini depolamak için iki Java sınıfları oluş
    }
    ```
 
-1. Kaydet ve Kapat hello *User.java* dosya.
+1. Kaydet ve Kapat *User.java* dosya.
 
 ### <a name="define-a-data-repository-interface"></a>Bir veri deposu arabirimi tanımlayın
 
-1. Adlı yeni bir dosya oluşturun *UserRepository.java* hello içindeki ana uygulama Java dosyası ile aynı dizinde.
+1. Adlı yeni bir dosya oluşturun *UserRepository.java* ana uygulama Java dosyası ile aynı dizinde.
 
-1. Açık hello *UserRepository.java* dosyasını bir metin düzenleyicisinde ve hello aşağıdaki hello varsayılan DocumentDB depo arabirimi genişleten bir kullanıcı deposu arabirimi toohello dosya toodefine satırları ekleyin:
+1. Açık *UserRepository.java* dosyasını bir metin düzenleyicisinde açın ve dosyanın varsayılan DocumentDB depo arabirimi genişleten bir kullanıcı deposu arabirimi tanımlamak için aşağıdaki satırları ekleyin:
 
    ```java
    package com.example.wingtiptoys;
@@ -220,11 +220,11 @@ Bu bölümde, kullanıcı verilerini depolamak için iki Java sınıfları oluş
    public interface UserRepository extends DocumentDbRepository<User, String> {}   
    ```
 
-1. Kaydet ve Kapat hello *UserRepository.java* dosya.
+1. Kaydet ve Kapat *UserRepository.java* dosya.
 
-### <a name="modify-hello-main-application-class"></a>Merhaba ana uygulama sınıfını değiştirme
+### <a name="modify-the-main-application-class"></a>Ana uygulama sınıfını değiştirme
 
-1. Merhaba ana uygulama Java dosyası, uygulamanızın paket dizinine hello bulun; Örneğin:
+1. Ana uygulama Java dosyası, uygulamanızın paket dizinini bulun; Örneğin:
 
    `C:\SpringBoot\wingtiptoys\src\main\java\com\example\wingtiptoys\WingtiptoysApplication.java`
 
@@ -232,9 +232,9 @@ Bu bölümde, kullanıcı verilerini depolamak için iki Java sınıfları oluş
 
    `/users/example/home/wingtiptoys/src/main/java/com/example/wingtiptoys/WingtiptoysApplication.java`
 
-   ![Merhaba uygulama Java dosyasını bulun][JV01]
+   ![Uygulama Java dosyasını bulun][JV01]
 
-1. Merhaba ana uygulama Java dosyası bir metin düzenleyicisinde açın ve aşağıdaki satırları toohello dosyasına hello ekleyin:
+1. Ana uygulama Java dosyasını bir metin düzenleyicisinde açın ve aşağıdaki satırları dosyaya ekleyin:
 
    ```java
    package com.example.wingtiptoys;
@@ -267,11 +267,11 @@ Bu bölümde, kullanıcı verilerini depolamak için iki Java sınıfları oluş
    }
    ```
 
-1. Merhaba ana uygulama Java dosyasını kaydedip kapatın.
+1. Ana uygulama Java dosyasını kaydedip kapatın.
 
 ## <a name="build-and-test-your-app"></a>Derleme ve uygulamanızı test etme
 
-1. Bir komut istemi açın ve dizin toohello klasörü Değiştir Burada, *pom.xml* dosyasının bulunduğu; örneğin:
+1. Bir komut istemi açın ve dizin klasörüne geçin Burada, *pom.xml* dosyasının bulunduğu; örneğin:
 
    `cd C:\SpringBoot\wingtiptoys`
 
@@ -286,31 +286,31 @@ Bu bölümde, kullanıcı verilerini depolamak için iki Java sınıfları oluş
    java -jar target/wingtiptoys-0.0.1-SNAPSHOT.jar
    ```
 
-1. Uygulamanız birden fazla çalışma zamanı iletileri görüntülenir ve selamlama iletisine görmelisiniz. `User: testFirstName testLastName` değerleri başarıyla depolanan ve, veritabanından alınan olduğunu tooindicate görüntülenir.
+1. Uygulamanız birden fazla çalışma zamanı iletileri görüntülenir ve iletiyi görmelisiniz. `User: testFirstName testLastName` değerleri başarıyla depolanan ve, veritabanından alınan olduğunu belirtmek için görüntülenir.
 
-   ![Merhaba uygulaması başarılı çıktısı][JV02]
+   ![Uygulama başarılı çıktısı][JV02]
 
-1. İsteğe bağlı: Hello Azure portal tooview hello hello özellikleri sayfasında, Azure Cosmos DB'den içeriğini veritabanınız için tıklayarak kullanabileceğiniz **belge Gezgini**ve ardından seçerek ve de görüntülenen hello listesi tooview hello öğesinden içeriği.
+1. İsteğe bağlı: Tıklayarak veritabanınız için Özellikler sayfasında, Azure Cosmos DB'den içeriğini görüntülemek için Azure portalını kullanabilirsiniz **belge Gezgini**ve ardından seçerek ve görüntülenen listeyi öğesinden içeriği görüntülemek için.
 
-   ![Verilerinizi Hello belge Gezgini tooview kullanma][JV03]
+   ![Verilerinizi görüntülemek için belge Gezgini kullanma][JV03]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure Cosmos DB ve Java kullanma hakkında daha fazla bilgi için aşağıdaki makaleler hello bakın:
+Azure Cosmos DB ve Java kullanma hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * [Azure Cosmos DB belgelerine].
 
-* [Azure Cosmos DB: Java ile DocumentDB API uygulaması oluşturma ve Azure portal hello][Build a DocumentDB API app with Java]
+* [Azure Cosmos DB: Java ve Azure portal ile bir DocumentDB API uygulaması oluşturma][Build a DocumentDB API app with Java]
 
-Azure üzerinde yay önyükleme uygulamalarında kullanma hakkında daha fazla bilgi için aşağıdaki makaleler hello bakın:
+Azure üzerinde yay önyükleme uygulamalarında kullanma hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * [Azure için yay önyükleme DocumenDB Başlatıcı](https://github.com/Microsoft/azure-spring-boot-starters/tree/master/azure-documentdb-spring-boot-starter-sample)
 
-* [Yay önyükleme uygulama toohello Azure App Service'e dağıtma](../app-service/app-service-deploy-spring-boot-web-app-on-azure.md)
+* [Yay önyükleme uygulamasını Azure App Service'e dağıtma](../app-service/app-service-deploy-spring-boot-web-app-on-azure.md)
 
-* [Yay önyükleme uygulama hello Azure kapsayıcı hizmeti Kubernetes kümede çalışan](../container-service/container-service-deploy-spring-boot-app-on-kubernetes.md)
+* [Azure kapsayıcı hizmeti Kubernetes kümesinde bir yay önyükleme uygulama çalıştıran](../container-service/container-service-deploy-spring-boot-app-on-kubernetes.md)
 
-Azure Java ile kullanma hakkında daha fazla bilgi için bkz: Merhaba [Azure Java Geliştirici Merkezi] ve hello [Visual Studio Team Services için Java Araçları].
+Azure’u Java ile kullanma hakkında daha fazla bilgi edinmek için bkz. [Azure Java Geliştirici Merkezi] ve [Visual Studio Team Services için Java Araçları].
 
 <!-- URL List -->
 
@@ -322,7 +322,7 @@ Azure Java ile kullanma hakkında daha fazla bilgi için bkz: Merhaba [Azure Jav
 [MSDN abone Avantajlarınızı]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [yay önyükleme]: http://projects.spring.io/spring-boot/
 [yay Initializr]: https://start.spring.io/
-[yay Framework]: https://spring.io/
+[Yay Framework]: https://spring.io/
 
 <!-- IMG List -->
 

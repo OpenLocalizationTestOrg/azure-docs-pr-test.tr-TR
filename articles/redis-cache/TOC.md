@@ -12,7 +12,6 @@
 # Başlarken
 ##[ASP.NET](cache-web-app-howto.md)
 ##[.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
-##[WordPress](../app-service-web/web-sites-connect-to-redis-using-memcache-protocol.md?toc=%2fazure%2fredis-cache%2ftoc.json)
 ##[Node](cache-nodejs-get-started.md)
 ##[Java](cache-java-get-started.md)
 ##[Python](cache-python-get-started.md)
@@ -25,7 +24,7 @@
 ###[Sanal ağ ile önbelleğinizi koruyun](cache-how-to-premium-vnet.md)
 ###[Kümelemeyle önbelleğinizi dağıtma](cache-how-to-premium-clustering.md)
 ## Otomatikleştirme
-###[Powershell kullanarak dağıtma ve yönetme](cache-howto-manage-redis-cache-powershell.md)
+###[Azure Powershell kullanarak dağıtma ve yönetme](cache-howto-manage-redis-cache-powershell.md)
 ###[Azure CLI Kullanarak Dağıtın ve Yönetin](cli-samples.md)
 ###[Redis Önbelleği Sağlama](cache-redis-cache-arm-provision.md)
 ###[Redis Önbelleği ile Web Uygulaması Sağlama](cache-web-app-arm-with-redis-cache-provision.md)
@@ -33,25 +32,25 @@
 ###[Oturum durumu sağlayıcısı](cache-aspnet-session-state-provider.md)
 ###[Çıkış önbelleği sağlayıcısı](cache-aspnet-output-cache-provider.md)
 ## Yönet
-###[Merhaba portalında yapılandırın](cache-configure.md)
+###[Azure portalında yapılandırma](cache-configure.md)
 ###[Coğrafi çoğaltmayı yapılandırma](cache-how-to-geo-replication.md)
 ###[Verileri İçeri/Dışarı Aktarma](cache-how-to-import-export-data.md)
 ###[Yeniden başlatma](cache-administration.md#reboot)
 ###[Güncelleştirmeleri zamanlama](cache-administration.md#schedule-updates)
 ## İzleme ve sorun giderme
-###[Merhaba Portalı'nda izleme](cache-how-to-monitor.md)
+###[Azure portalında izleme](cache-how-to-monitor.md)
 ###[Önbellek sorunlarını giderme](cache-how-to-troubleshoot.md)
 ###[Özel durumlar için uyarılar ayarlama](cache-how-to-monitor.md#operations-and-alerts)
 ## Ölçek
-###[Güncelleştirme tooa farklı boyut ve katmanı](cache-how-to-scale.md)
-###[Redis kümesi tooscale giriş/çıkış kullanın](cache-how-to-premium-clustering.md)
+###[Özel durumlar için uyarılar ayarlama](cache-how-to-scale.md)
+###[Ölçek daraltma veya genişletme için Redis kümesini kullanma](cache-how-to-premium-clustering.md)
 ## Spring Boot ile tümleştirme
 ###[Bir Spring Boot Başlatıcı uygulamasını Redis Cache ile kullanma](cache-java-spring-boot-initializer-with-redis-cache.md)
 
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=redis-cache)
-## [PowerShell](/powershell/module/azurerm.rediscache)
-## [Azure CLI 2.0 Önizleme](/cli/azure/redis)
+## [Azure PowerShell](/powershell/module/azurerm.rediscache)
+## [Azure CLI Önizleme](/cli/azure/redis)
 ## [.NET](/dotnet/api/microsoft.azure.management.redis)
 ## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Redis istemcileri](http://redis.io/clients)

@@ -1,6 +1,6 @@
 ---
-title: aaaConnect tooAzure Analysis Services | Microsoft Docs
-description: "Nasıl tooconnect tooand veri alma Azure Analysis Services sunucusundan öğrenin."
+title: "Azure Analysis Services'a bağlanın | Microsoft Docs"
+description: "Bağlanmak ve Azure Analysis Services sunucusundan veri alma hakkında bilgi edinin."
 services: analysis-services
 documentationcenter: 
 author: minewiskan
@@ -15,42 +15,42 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
-ms.openlocfilehash: 5df94492feb48034f156b72e83e1009683988fc8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: deb3ef28d20decef01826450bd6091f87dd069de
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="connect-tooan-azure-analysis-services-server"></a>Tooan Azure Analysis Services sunucusuna bağlan
+# <a name="connect-to-an-azure-analysis-services-server"></a>Bir Azure Analysis Services sunucusuna bağlan
 
-Bu makalede, veri modellemesi ve SQL Server Management Studio (SSMS) veya SQL Server veri Araçları (SSDT) gibi yönetim uygulamaları kullanarak bağlanan tooa sunucu açıklanmaktadır. Veya Microsoft Excel, Power BI Desktop veya özel uygulamalar gibi uygulamalar istemcisiyle raporlama. Bağlantıları tooAzure Analysis Services HTTPS kullanın.
+Bu makalede, veri modellemesi ve SQL Server Management Studio (SSMS) veya SQL Server veri Araçları (SSDT) gibi yönetim uygulamaları kullanarak bir sunucuya bağlanma açıklanır. Veya Microsoft Excel, Power BI Desktop veya özel uygulamalar gibi uygulamalar istemcisiyle raporlama. Azure Analysis Services bağlantı HTTPS kullanın.
 
 ## <a name="client-libraries"></a>İstemci kitaplıkları
-[Merhaba son istemci kitaplıkları Al](analysis-services-data-providers.md)
+[Son istemci kitaplıkları Al](analysis-services-data-providers.md)
 
-Türü, bağımsız olarak tüm bağlantılar tooa server güncelleştirilmiş AMO, ADOMD.NET ve OLEDB istemci kitaplıkları tooconnect tooand arabirimi ile bir Analysis Services sunucusu gerektirir. SSMS, SSDT, Excel 2016 ve Power BI için hello son istemci kitaplıkları yüklü veya aylık sürümleriyle güncelleştirilir. Ancak, bazı durumlarda, bir uygulama hello son olmayabilir mümkündür. Örneğin, ne zaman ilkeleri gecikme güncelleştirir veya Office 365 güncelleştirmelerini ertelenmiş kanal hello üzerinde markalarıdır.
+Tüm bağlantılar türü, bağımsız olarak bir sunucuya bağlanmak ve Analysis Services sunucusu ile arabirim için güncelleştirilmiş AMO, ADOMD.NET ve OLEDB istemci kitaplıkları gerektirir. SSMS, SSDT, Excel 2016 ve Power BI için en son istemci kitaplıkları yüklü veya aylık sürümleriyle güncelleştirilir. Ancak, bazı durumlarda, bir uygulamanın en son olmayabilir mümkündür. Örneğin, ne zaman ilkeleri gecikme güncelleştirir veya Office 365 güncelleştirmelerini ertelenmiş kanalı markalarıdır.
 
 ## <a name="server-name"></a>Sunucu adı
 
-Azure'da bir Analysis Services sunucusu oluşturduğunuzda, hello sunucunun oluşturulan toobe olduğu bir benzersiz ad ve hello bölge belirtin. Bir bağlantı Hello sunucu adı belirtme hello sunucu adlandırma şeması olur:
+Azure'da bir Analysis Services sunucusu oluşturduğunuzda, benzersiz bir ad ve sunucunun oluşturulması olduğu bölge belirtin. Bir bağlantı sunucu adı belirtme sunucu adlandırma şeması olur:
 
 ```
 <protocol>://<region>/<servername>
 ```
- Dize olduğu Protokolü **asazure**, bölgedir hello hello sunucu oluşturulduğu URI (örneğin, westus.asazure.windows.net) ve servername hello bölge içinde benzersiz sunucunuzun hello adı.
+ Dize olduğu Protokolü **asazure**, bölgedir sunucu oluşturulduğu URI (örneğin, westus.asazure.windows.net) ve servername bölge içinde benzersiz sunucunuzun adıdır.
 
-### <a name="get-hello-server-name"></a>Merhaba sunucu adını Al
-İçinde **Azure portal** > server > **genel bakış** > **sunucu adı**, kopya hello tüm sunucu adı. Kuruluşunuzda bulunan diğer kullanıcıların toothis sunucu çok bağlanıyorsanız, bu sunucu adı onlarla paylaşabilirsiniz. Bir sunucu adı belirtirken, yolun tamamını hello kullanılması gerekir.
+### <a name="get-the-server-name"></a>Sunucu adını Al
+İçinde **Azure portal** > server > **genel bakış** > **sunucu adı**, tüm sunucu adını kopyalayın. Kuruluşunuzda bulunan diğer kullanıcıların bu sunucuya çok bağlanıyorsanız, bu sunucu adı onlarla paylaşabilirsiniz. Bir sunucu adı belirtirken, tüm yol kullanılmalıdır.
 
 ![Azure'da sunucu adını alma](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 
 
 ## <a name="connection-string"></a>Bağlantı dizesi
 
-TooAzure bağlanırken kullanarak Analysis Services tablo nesne modeli, bağlantı dizesi biçimleri aşağıdaki kullanım hello hello:
+Tablo nesne modelini kullanarak Azure Analysis Services için bağlanırken aşağıdaki bağlantı dize biçimleri kullanın:
 
 ###### <a name="integrated-azure-active-directory-authentication"></a>Tümleşik Azure Active Directory kimlik doğrulaması
-Tümleşik kimlik doğrulaması hello Azure Active Directory kimlik bilgisi önbellek varsa seçer. Aksi durumda, hello Azure oturum açma penceresi gösterilir.
+Tümleşik kimlik doğrulaması Azure Active Directory kimlik bilgisi önbelleği varsa seçer. Aksi durumda, Azure oturum açma penceresi gösterilir.
 
 ```
 "Provider=MSOLAP;Data Source=<Azure AS instance name>;"
@@ -64,7 +64,7 @@ Tümleşik kimlik doğrulaması hello Azure Active Directory kimlik bilgisi önb
 ```
 
 ###### <a name="windows-authentication-integrated-security"></a>Windows kimlik doğrulaması (tümleşik güvenliği)
-Merhaba geçerli işlem çalışan hello Windows hesabını kullanın.
+Geçerli işlem çalıştıran Windows hesabını kullanın.
 
 ```
 "Provider=MSOLAP;Data Source=<Azure AS instance name>; Integrated Security=SSPI;Persist Security Info=True;"
@@ -73,7 +73,7 @@ Merhaba geçerli işlem çalışan hello Windows hesabını kullanın.
 
 
 ## <a name="connect-using-an-odc-file"></a>Bir .odc dosyası kullanarak bağlan
-Excel'in eski sürümleriyle, kullanıcıların bir Office veri bağlantısı (.odc) dosyası kullanarak tooan Azure Analysis Services sunucusuna bağlanabilir. toolearn daha, fazla [bir Office veri bağlantısı (.odc) dosyası oluşturun](analysis-services-odc.md).
+Excel'in eski sürümleriyle, kullanıcıların bir Office veri bağlantısı (.odc) dosyası kullanarak bir Azure Analysis Services sunucusuna bağlanabilir. Daha fazla bilgi için bkz: [bir Office veri bağlantısı (.odc) dosyası oluşturun](analysis-services-odc.md).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

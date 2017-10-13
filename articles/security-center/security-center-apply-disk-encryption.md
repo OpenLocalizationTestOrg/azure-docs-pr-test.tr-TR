@@ -1,6 +1,6 @@
 ---
-title: "Azure Güvenlik Merkezi'nde aaaApply disk şifrelemesi | Microsoft Docs"
-description: "Bu belge size nasıl tooimplement hello Azure Güvenlik Merkezi öneri gösterir. ** disk şifreleme ** uygulayın."
+title: "Azure Güvenlik Merkezi'nde disk şifrelemesi uygulamak | Microsoft Docs"
+description: "Bu belgede Azure Güvenlik Merkezi öneriyi uygulamayı gösterilmiştir ** disk şifreleme ** uygulayın."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,53 +14,53 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: cd803f1120018c5c86da91186eec1e59d425ede7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 67cff664f3723b2194ecd1519729cca17069d07f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde disk şifrelemesi Uygula
-Azure Güvenlik Merkezi, Azure Disk şifrelemesi kullanılarak şifrelenmiş değil Windows veya Linux VM diskiniz varsa, disk şifrelemesi uygulamanızı önerir. Disk şifrelemesi, Windows ve Linux Iaas VM diskleri şifrelemek olanak tanır.  Şifreleme hello işletim sistemi ve veri birimlerine, VM için önerilir.
+Azure Güvenlik Merkezi, Azure Disk şifrelemesi kullanılarak şifrelenmiş değil Windows veya Linux VM diskiniz varsa, disk şifrelemesi uygulamanızı önerir. Disk şifrelemesi, Windows ve Linux Iaas VM diskleri şifrelemek olanak tanır.  Şifreleme hem işletim sistemi hem de VM’nizin üzerindeki veri birimleri için önerilir.
 
-Disk şifrelemesi kullanır hello endüstri standardı [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) özelliği Windows hello ve [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) Linux özelliğidir. Bu özellikler OS sağlar ve veri şifreleme toohelp korumak ve verilerinizi korumak ve Kuruluş güvenliği ve uyumluluk taahhüt karşılamak. Disk şifrelemesi ile tümleştirildiğinde [Azure anahtar kasası](https://azure.microsoft.com/documentation/services/key-vault/) toohelp, denetlemek ve, bekleyenhelloVMdisklerdekitümverilerşifrelenirsağlarkenanahtarkasasıaboneliğinizdehellodiskşifrelemeanahtarlarıvegizlianahtarlarıYönet[ Azure depolama](https://azure.microsoft.com/documentation/services/storage/).
+Disk şifrelemesi kullanılır endüstri standardı [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) Windows özelliğidir ve [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) Linux özelliğidir. Bu özellikleri korumak ve verilerinizi korumak ve Kuruluş güvenliği ve uyumluluğu taahhüt karşılamak için işletim sistemi ve veri şifreleme sağlar. Disk şifrelemesi ile tümleştirildiğinde [Azure anahtar kasası](https://azure.microsoft.com/documentation/services/key-vault/) denetlemek ve disk şifreleme anahtarları ve gizli anahtar kasası aboneliğinizde yönetmenize yardımcı olmak için while bekleyen VM disklerdeki tüm veriler şifrelenir sağlayarak, [Azure Storage](https://azure.microsoft.com/documentation/services/storage/).
 
 > [!NOTE]
-> Azure Disk şifrelemesi, Windows sunucu işletim sistemi - Windows Server 2008 R2, Windows Server 2012 ve Windows Server 2012 R2 aşağıdaki hello üzerinde desteklenir. Disk şifrelemesi, Linux ve sunucu işletim sistemleri - Ubuntu ve CentOS, SUSE ve SUSE Linux Enterprise Server (SLES) aşağıdaki hello üzerinde desteklenir.
+> Azure Disk şifrelemesi aşağıdaki Windows server işletim sistemlerinde - Windows Server 2008 R2, Windows Server 2012 ve Windows Server 2012 R2 desteklenir. Disk şifrelemesi aşağıdaki Linux sunucusu işletim sistemlerinde - Ubuntu ve CentOS, SUSE ve SUSE Linux Enterprise Server (SLES) desteklenir.
 >
 >
 
-## <a name="implement-hello-recommendation"></a>Merhaba öneriyi uygulamayı
-1. Merhaba, **önerileri** dikey penceresinde, select **disk şifrelemesi uygulamak**.
-2. Merhaba, **disk şifrelemesi uygulamak** dikey penceresinde, Disk şifrelemesi önerilir VM'ler listesini görürsünüz.
-3. Merhaba yönergeleri tooapply şifreleme toothese VM'ler izleyin.
+## <a name="implement-the-recommendation"></a>Öneriyi uygulamayı
+1. İçinde **önerileri** dikey penceresinde, select **disk şifrelemesi uygulamak**.
+2. İçinde **disk şifrelemesi uygulamak** dikey penceresinde, Disk şifrelemesi önerilir VM'ler listesini görürsünüz.
+3. Şifreleme için bu Vm'lere uygulamak için yönergeleri izleyin.
 
 ![][1]
 
-Güvenlik Merkezi tarafından şifreleme gerektiği belirlenen Azure Virtual Machines tooencrypt hello aşağıdaki adımları öneririz:
+Güvenlik Merkezi tarafından şifreleme gerektiği belirlenen Azure Virtual Machines şifreleme için aşağıdaki adımları öneririz:
 
-* Azure PowerShell'i yükleyip yapılandırın. Bu, toorun hello PowerShell komutları gerekli tooset hello önkoşullar gerekli tooencrypt Azure sanal makineleri yedeklemek sağlar.
-* Edinin ve hello Azure Disk şifrelemesi önkoşulları Azure PowerShell betiğini çalıştırın.
+* Azure PowerShell'i yükleyip yapılandırın. Bu Azure Virtual Machines şifreleme için gereken önkoşulları ayarlama gerekli PowerShell komutlarını çalıştırmanıza olanak sağlar.
+* Edinin ve Azure Disk şifrelemesi önkoşulları Azure PowerShell betiğini çalıştırın.
 * Sanal makinelerinizi şifreleyin.
 
-[Bir Azure sanal Makine'yi şifreleme](security-center-disk-encryption.md) Bu adımlarda size yol gösterir.  Bu konu, disk şifrelemesi'ni yapılandırma hello istemci makine gibi Windows 10 kullandığınızı varsayar.
+[Bir Azure sanal Makine'yi şifreleme](security-center-disk-encryption.md) Bu adımlarda size yol gösterir.  Bu konu, disk şifrelemesi'ni yapılandırma istemci makine gibi Windows 10 kullandığınızı varsayar.
 
-Azure sanal makineler için kullanılabilir birçok yaklaşım vardır. Zaten Azure PowerShell veya Azure CLI bilgiliyseniz, toouse alternatif yaklaşımlar tercih edebilirsiniz. Bu diğer yaklaşımlar hakkında toolearn bkz [Azure disk şifrelemesi](../security/azure-security-disk-encryption.md).
+Azure sanal makineler için kullanılabilir birçok yaklaşım vardır. Azure PowerShell veya Azure CLI konusunda zaten bilgiliyseniz alternatif yaklaşımlar kullanmayı tercih edebilirsiniz. Bu diğer yaklaşımlar hakkında bilgi edinmek için [Azure disk şifrelemesi](../security/azure-security-disk-encryption.md).
 
 ## <a name="see-also"></a>Ayrıca bkz.
-Bu belge size nasıl tooimplement hello Güvenlik Merkezi öneri "Uygula disk şifrelemesi." gösterdi. disk şifrelemesi hakkında daha fazla toolearn hello aşağıdaki bakın:
+Bu belgede Güvenlik Merkezi öneri "Uygula disk şifrelemesi." uygulamak nasıl oluşturulacağını gösterir Disk şifrelemesi hakkında daha fazla bilgi için aşağıdakilere bakın:
 
-* [Azure anahtar kasası ile şifreleme ve anahtar yönetimi](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) (video, 36 min 39 sn)--nasıl toouse disk şifreleme yönetim Iaas Vm'leri ve Azure anahtar kasası toohelp korumak ve verilerinizi korumak için öğrenin.
-* [Bir Azure sanal Makine'yi şifreleme](security-center-disk-encryption.md) (belge)--öğrenin nasıl tooencrypt Azure sanal makineler.
-* [Azure disk şifrelemesi](../security/azure-security-disk-encryption.md) (belge)--nasıl tooenable disk şifrelemesi Windows ve Linux VM'ler için öğrenin.
+* [Azure anahtar kasası ile şifreleme ve anahtar yönetimi](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) (video, 36 min 39 sn)--korumak ve verilerinizi korumaya yardımcı olmak için disk şifreleme Yönetimi Iaas Vm'leri ve Azure anahtar kasası için kullanmayı öğrenin.
+* [Bir Azure sanal Makine'yi şifreleme](security-center-disk-encryption.md) (belge)--Azure Virtual Machines şifreleme öğrenin.
+* [Azure disk şifrelemesi](../security/azure-security-disk-encryption.md) (belge)--disk şifrelemesi Windows ve Linux VM'ler için etkinleştirmeyi öğrenin.
 
-Güvenlik Merkezi hakkında daha fazla toolearn hello aşağıdaki bakın:
+Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) --öğrenin nasıl tooconfigure güvenlik ilkeleri.
-* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) --nasıl toomonitor hello Azure kaynaklarınızın sistem durumunu öğrenin.
-* [Azure Güvenlik Merkezi'nde Uyarıları yönetme ve yanıt toosecurity](security-center-managing-and-responding-alerts.md) --öğrenin nasıl toomanage ve yanıt toosecurity uyarıları.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md) --güvenlik ilkeleri yapılandırmayı öğrenin.
+* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) --Azure kaynaklarınızı sağlığını izlemek öğrenin.
+* [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) -- Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md) --nasıl önerilerin Azure kaynaklarınızı korumanıza yardımcı öğrenin.
-* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) --hello hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
+* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) -- Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
 * [Azure güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/) --Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz.
 
 <!--Image references-->

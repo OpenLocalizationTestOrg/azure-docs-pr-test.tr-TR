@@ -1,6 +1,6 @@
 ---
-title: "aaaIndexing CSV BLOB'ların Azure Search blob oluşturucusuyla | Microsoft Docs"
-description: "Azure Search ile nasıl tooindex CSV BLOB bilgi edinin"
+title: "CSV BLOB'lar Azure Search blob dizin oluşturucu ile dizin oluşturma | Microsoft Docs"
+description: "CSV BLOB'lar ile Azure Search dizin öğrenin"
 services: search
 documentationcenter: 
 author: chaosrealm
@@ -14,30 +14,30 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 12/15/2016
 ms.author: eugenesh
-ms.openlocfilehash: f2b1ce824e62c5b3f6155c6e88887897cf1a8eae
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: af9da85c37211d2436c23cc05400031c661ef51e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Dizin oluşturma CSV BLOB'lar ile Azure Search blob dizin oluşturucu
-Varsayılan olarak, [Azure Search blob dizin oluşturucu](search-howto-indexing-azure-blob-storage.md) ayrıştırıyor sınırlandırılmış metin BLOB'ları tek bir metin öbek. Ancak, CSV verileri içeren BLOB'lar ile genellikle tootreat hello blob her satır ayrı bir belge olarak istiyor. Örneğin, hello aşağıdaki sınırlandırılmış metin: 
+Varsayılan olarak, [Azure Search blob dizin oluşturucu](search-howto-indexing-azure-blob-storage.md) ayrıştırıyor sınırlandırılmış metin BLOB'ları tek bir metin öbek. Ancak, CSV verileri içeren BLOB'lar ile genellikle her satır ayrı bir belge olarak blob'daki kabul istersiniz. Örneğin, aşağıdaki sınırlandırılmış metin verilen: 
 
     id, datePublished, tags
     1, 2016-01-12, "azure-search,azure,cloud" 
     2, 2016-07-07, "cloud,mobile" 
 
-tooparse isteyebilirsiniz, "id", "datePublished" ve "etiketler" alanları 2 belgelere her içeren.
+2 belgelere ayrıştırma isteyebilirsiniz her "id", "datePublished" ve "etiketler" alanları içeren.
 
-Bu makalede nasıl tooparse CSV ile bir Azure Search blob dizinleyici BLOB'ların öğreneceksiniz. 
+Bu makalede, CSV BLOB'lar bir Azure Search blob dizin oluşturucu ile ayrıştırmak öğreneceksiniz. 
 
 > [!IMPORTANT]
-> Bu işlevsellik şu anda önizlemede değil. Sürüm kullanarak yalnızca hello REST API kullanılabilir **2015-02-28-Önizleme**. Lütfen unutmayın, Önizleme API'leri sınama ve değerlendirme için tasarlanmıştır ve üretim ortamlarında kullanılmamalıdır. 
+> Bu işlevsellik şu anda önizlemede değil. Yalnızca sürüm kullanarak REST API içinde kullanılabilir **2015-02-28-Önizleme**. Lütfen unutmayın, Önizleme API'leri sınama ve değerlendirme için tasarlanmıştır ve üretim ortamlarında kullanılmamalıdır. 
 > 
 > 
 
 ## <a name="setting-up-csv-indexing"></a>CSV Dizin oluşturmayı ayarlama
-tooindex CSV BLOB'lar, oluşturma veya bir dizin oluşturucu tanımı ile Merhaba güncelleştirme `delimitedText` ayrıştırma modu:  
+CSV BLOB'lar dizin, oluşturmak veya bir dizin oluşturucu tanımıyla güncelleştirmek için `delimitedText` ayrıştırma modu:  
 
     {
       "name" : "my-csv-indexer",
@@ -45,22 +45,22 @@ tooindex CSV BLOB'lar, oluşturma veya bir dizin oluşturucu tanımı ile Merhab
       "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "firstLineContainsHeaders" : true } }
     }
 
-Merhaba dizin oluşturucu API oluşturma hakkında daha fazla ayrıntı için kullanıma [oluşturma dizin oluşturucu](search-api-indexers-2015-02-28-preview.md#create-indexer).
+Oluşturma dizin oluşturucu API'si hakkında daha fazla ayrıntı için kullanıma [oluşturma dizin oluşturucu](search-api-indexers-2015-02-28-preview.md#create-indexer).
 
-`firstLineContainsHeaders`Her bir blob Hello ilk (boş olmayan) satırının üstbilgileri içerdiğini gösterir.
-BLOB'ları ilk başlık satırı içermiyorsa, hello üstbilgileri hello dizin oluşturucu yapılandırmasında belirtilen: 
+`firstLineContainsHeaders`Her bir blob ilk (boş olmayan) satırının üstbilgileri içerdiğini gösterir.
+BLOB'ları ilk başlık satırı içermiyorsa, üstbilgileri dizin oluşturucu yapılandırmasında belirtilen: 
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-Şu anda yalnızca hello UTF-8 kodlaması desteklenir. Ayrıca, yalnızca virgülle hello `','` karakter ayırıcısı hello olarak desteklenir. Diğer Kodlamalar veya sınırlayıcıları için destek gerekiyorsa, lütfen bize bilmeniz [UserVoice sitemizi](https://feedback.azure.com/forums/263029-azure-search).
+Şu anda yalnızca UTF-8 kodlaması desteklenir. Ayrıca, yalnızca virgülle `','` karakter ayırıcısı desteklenir. Diğer Kodlamalar veya sınırlayıcıları için destek gerekiyorsa, lütfen bize bilmeniz [UserVoice sitemizi](https://feedback.azure.com/forums/263029-azure-search).
 
 > [!IMPORTANT]
-> Modu, Azure Search ayrıştırma hello sınırlandırılmış metin kullandığınızda, veri kaynağındaki tüm BLOB'lar CSV olacağını varsayar. Toosupport CSV bir karışımını gerekir ve CSV olmayan BLOB'hello aynı veri kaynağı, lütfen izin bize bilmeniz [UserVoice sitemizi](https://feedback.azure.com/forums/263029-azure-search).
+> Mod ayrıştırma sınırlandırılmış metin kullandığınızda, Azure Search, veri kaynağındaki tüm BLOB'lar CSV olacağını varsayar. Aynı veri kaynağında bir karışımını CSV ve CSV olmayan BLOB desteklemeniz gerekiyorsa, lütfen bize bilmeniz [UserVoice sitemizi](https://feedback.azure.com/forums/263029-azure-search).
 > 
 > 
 
 ## <a name="request-examples"></a>İstek örnekleri
-Bu tüm koyma birlikte hello tam yükü örnekler şunlardır. 
+Bu tüm koyma birlikte tam yükü örnekler şunlardır. 
 
 Veri kaynağı: 
 
@@ -89,5 +89,5 @@ Dizin Oluşturucu:
     }
 
 ## <a name="help-us-make-azure-search-better"></a>Azure Search iyileştirmemize yardımcı olun
-Özellik istekleri veya fikir geliştirmeleri için varsa, lütfen üzerinde toous ulaşmak bizim [UserVoice sitesinde](https://feedback.azure.com/forums/263029-azure-search/).
+Özellik istekleri veya fikir geliştirmeleri için varsa, lütfen bize üzerinde ulaşmak bizim [UserVoice sitesinde](https://feedback.azure.com/forums/263029-azure-search/).
 

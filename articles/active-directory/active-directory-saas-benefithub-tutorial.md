@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile BenefitHub | Microsoft Docs"
-description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile BenefitHub arasında."
+description: "Çoklu oturum açma Azure Active Directory ile BenefitHub arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,136 +13,136 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.openlocfilehash: c07d6e44e8cbc79afd79c900664011b059206b56
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8df9c0d8443d6685253207ed1915c780275014fc
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefithub"></a>Öğretici: Azure Active Directory Tümleştirme BenefitHub ile
 
-Bu öğreticide, bilgi nasıl toointegrate BenefitHub Azure Active Directory'ye (Azure AD).
+Bu öğreticide, Azure Active Directory (Azure AD) ile BenefitHub tümleştirmek öğrenin.
 
-BenefitHub Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
+BenefitHub Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Erişim tooBenefitHub sahip Azure AD'de kontrol edebilirsiniz
-- Kullanıcıların tooautomatically get açan tooBenefitHub (çoklu oturum açma) Azure AD hesaplarına sahip etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir
+- BenefitHub erişimi, Azure AD'de kontrol edebilirsiniz
+- Otomatik olarak için BenefitHub (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-tooconfigure BenefitHub ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
+Azure AD tümleştirme BenefitHub ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
 - Bir BenefitHub çoklu oturum açma etkin abonelik
 
 > [!NOTE]
-> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
+Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
-1. Merhaba Galerisi'nden BenefitHub ekleme
+1. Galeriden BenefitHub ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-benefithub-from-hello-gallery"></a>Merhaba Galerisi'nden BenefitHub ekleme
-Azure AD'ye tooconfigure hello tümleştirme BenefitHub, tooadd BenefitHub hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
+## <a name="adding-benefithub-from-the-gallery"></a>Galeriden BenefitHub ekleme
+Azure AD BenefitHub tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden BenefitHub eklemeniz gerekir.
 
-**tooadd BenefitHub hello galerisinden hello aşağıdaki adımları gerçekleştirin:**
+**Galeriden BenefitHub eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba, ** [Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
     ![Uygulamalar][3]
 
-4. Merhaba arama kutusuna yazın **BenefitHub**.
+4. Arama kutusuna **BenefitHub**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-benefithub-tutorial/tutorial_benefithub_search.png)
 
-5. Merhaba Sonuçlar panelinde seçin **BenefitHub**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
+5. Sonuçlar panelinde seçin **BenefitHub**ve ardından **Ekle** uygulama eklemek için düğmesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-benefithub-tutorial/tutorial_benefithub_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı BenefitHub ile test etme
 
-Tek toowork'ın oturum açma hangi hello karşılık gelen BenefitHub içinde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcı ve ilgili kullanıcı BenefitHub hello arasında bir bağlantı ilişkisi kurulan toobe gerekir.
+Tekli çalışmaya oturum için Azure AD BenefitHub karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının BenefitHub ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Merhaba hello değeri BenefitHub içinde atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.
+BenefitHub içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
 
-tooconfigure ve BenefitHub ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma BenefitHub ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on) ** -tooenable kullanıcılar toouse bu özellik.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user) ** -tootest Azure AD çoklu oturum açma Britta Simon ile.
-3. **[BenefitHub test kullanıcısı oluşturma](#creating-a-benefithub-test-user) ** -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir BenefitHub içinde karşılık gelen.
-4. **[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user) ** -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on) ** -tooverify olup hello yapılandırma çalışır.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[BenefitHub test kullanıcısı oluşturma](#creating-a-benefithub-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı BenefitHub sağlamak için.
+4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma BenefitHub uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma BenefitHub uygulamanızda yapılandırın.
 
-**tooconfigure Azure AD çoklu oturum açma ile BenefitHub, hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma ile BenefitHub yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello hello üzerinde Azure portal'ın **BenefitHub** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **BenefitHub** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-benefithub-tutorial/tutorial_benefithub_samlbase.png)
 
-3. Merhaba üzerinde **BenefitHub etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **BenefitHub etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-benefithub-tutorial/tutorial_benefithub_url1.png)
   
-    a. Merhaba, **tanımlayıcısı** metin kutusuna, türü:`urn:benefithub:passport`
+    a. İçinde **tanımlayıcısı** metin kutusuna, türü:`urn:benefithub:passport`
     
-    b. Merhaba, **yanıt URL'si** metin kutusuna, türü:`https://passport.benefithub.info/saml/post/ac`
+    b. İçinde **yanıt URL'si** metin kutusuna, türü:`https://passport.benefithub.info/saml/post/ac`
 
-4. Merhaba BenefitHub uygulama hello SAML onaylar, tooadd özel öznitelik eşlemelerini tooyour SAML belirteci öznitelikleri yapılandırma gerektiren belirli bir biçimde, bekliyor. Bu uygulama için talep aşağıdaki hello yapılandırın. Hello başlangıç değerleri bu özniteliklerin yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirmesi sayfasında bölüm. 
+4. BenefitHub uygulaması SAML onaylar SAML belirteci öznitelikleri yapılandırmanıza özel öznitelik eşlemelerini ekleyin gerektiren belirli bir biçimde bekliyor. Bu uygulama için aşağıdaki talep yapılandırın. Bu öznitelik değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirmesi sayfasında bölüm. 
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-benefithub-tutorial/tutorial_benefithub_attribute.png)
 
-5. Merhaba, **kullanıcı öznitelikleri** hello bölüm **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği görüntü önceki hello gösterildiği gibi yapılandırmak ve hello aşağıdaki adımları gerçekleştirin:
+5. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, önceki görüntüde gösterildiği gibi SAML belirteci özniteliği yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
     | Öznitelik adı | Öznitelik değeri |
     | ------------------- | -------------------- |    
     | organizationid | < organizationid > |
 
     > [!NOTE]
-    > Bu öznitelik değerini gerçek değil. Bu değer ile gerçek organizationid güncelleştirin. Kişi [BenefitHub destek ekibi](https://www.benefithub.com/Home/ContactUs) tooget hello gerçek organizationid.
+    > Bu öznitelik değerini gerçek değil. Bu değer ile gerçek organizationid güncelleştirin. Kişi [BenefitHub destek ekibi](https://www.benefithub.com/Home/ContactUs) gerçek organizationid alınamıyor.
     
-    a. Tıklatın **Ekle özniteliği** tooopen hello **özniteliği eklemek** iletişim.
+    a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-benefithub-tutorial/tutorial_attribute_04.png)
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-benefithub-tutorial/tutorial_attribute_05.png)
 
-    b. Merhaba, **adı** metin kutusuna, ilgili satır için gösterilen türü hello öznitelik adı.
+    b. İçinde **adı** metin kutusuna, ilgili satır için gösterilen öznitelik adı yazın.
     
-    c. Merhaba gelen **değeri** listesinde, ilgili satır için gösterilen türü hello öznitelik değeri.
+    c. Gelen **değeri** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
     
     d. **Tamam**’a tıklayın.
 
     > [!NOTE] 
-    > Merhaba SAML onayı yapılandırmadan önce toocontact gerekir, [BenefitHub Destek](https://www.benefithub.com/Home/ContactUs) ve kiracınız için hello benzersiz tanımlayıcı özniteliği hello değerini isteyin. Değer bu tooconfigure hello özel talep uygulamanız gerekir.
+    > SAML onayı yapılandırmadan önce başvurmanız gerekir, [BenefitHub Destek](https://www.benefithub.com/Home/ContactUs) ve kiracınız için benzersiz tanımlayıcı özniteliği değeri isteyin. Uygulamanız için özel talep yapılandırmak için bu değeri gerekir.
 
-6. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve hello meta veri dosyası, bilgisayarınıza kaydedin.
+6. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-benefithub-tutorial/tutorial_benefithub_certificate.png) 
 
@@ -150,63 +150,63 @@ Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-benefithub-tutorial/tutorial_general_400.png)
 
-8. tooconfigure çoklu oturum açma üzerinde **BenefitHub** yan, indirilen toosend hello ihtiyacınız **meta veri XML** çok[BenefitHub destek ekibi](https://www.benefithub.com/Home/ContactUs). Bunlar, bu ayar toohave hello iki tarafta da ayarlamanızı SAML SSO bağlantı ayarlayın.
+8. Çoklu oturum açma yapılandırmak için **BenefitHub** yan, indirilen göndermek için ihtiyacınız **meta veri XML** için [BenefitHub destek ekibi](https://www.benefithub.com/Home/ContactUs). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 > [!TIP]
-> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere ** Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-benefithub-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-benefithub-tutorial/create_aaduser_02.png) 
 
-3. tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle** hello üstteki hello iletişim.
+3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-benefithub-tutorial/create_aaduser_03.png) 
 
-4. Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-benefithub-tutorial/create_aaduser_04.png) 
 
-    a. Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
 
-    b. Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
 
-    c. Seçin **Göster parola** ve hello hello değerini yazma **parola**.
+    c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**'a tıklayın.
  
 ### <a name="creating-a-benefithub-test-user"></a>BenefitHub test kullanıcısı oluşturma
 
-Bu bölümde, BenefitHub içinde Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [BenefitHub destek ekibi](https://www.benefithub.com/Home/ContactUs) hello BenefitHub platform hello kullanıcıları eklemek için. Kullanıcıların oluşturulan ve çoklu oturum açma kullanmadan önce etkinleştirilmelidir. 
+Bu bölümde, BenefitHub içinde Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [BenefitHub destek ekibi](https://www.benefithub.com/Home/ContactUs) BenefitHub platform kullanıcıları eklemek için. Kullanıcıların oluşturulan ve çoklu oturum açma kullanmadan önce etkinleştirilmelidir. 
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
 
-Bu bölümde, erişim tooBenefitHub vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
+Bu bölümde, Britta BenefitHub için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
 ![Kullanıcı atama][200] 
 
-**tooassign Britta Simon tooBenefitHub hello aşağıdaki adımları gerçekleştirin:**
+**BenefitHub için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Merhaba uygulamalar listesinde **BenefitHub**.
+2. Uygulamalar listesinde **BenefitHub**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-benefithub-tutorial/tutorial_benefithub_app.png) 
 
-3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
     ![Kullanıcı atama][202] 
 
@@ -214,7 +214,7 @@ Bu bölümde, erişim tooBenefitHub vererek Britta Simon toouse Azure çoklu otu
 
     ![Kullanıcı atama][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -222,14 +222,14 @@ Bu bölümde, erişim tooBenefitHub vererek Britta Simon toouse Azure çoklu otu
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Merhaba BenefitHub hello erişim paneli parçasında tıkladığınızda, otomatik olarak oturum açma tooyour BenefitHub uygulama almanız gerekir.
+Erişim paneli BenefitHub parçasında tıklattığınızda, otomatik olarak BenefitHub uygulamanıza açan.
 Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://msdn.microsoft.com/library/dn308586).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

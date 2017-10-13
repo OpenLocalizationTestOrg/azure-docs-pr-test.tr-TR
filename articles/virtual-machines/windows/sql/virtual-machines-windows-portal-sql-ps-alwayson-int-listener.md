@@ -1,6 +1,6 @@
 ---
-title: "aaaConfigure her zaman üzerinde kullanılabilirlik grubu dinleyicileri – Microsoft Azure | Microsoft Docs"
-description: "Kullanılabilirlik grubu dinleyicileri hello Azure Resource Manager modeli, iç yük dengeleyiciye sahip bir veya daha fazla IP adresi kullanarak yapılandırın."
+title: "Her zaman kullanılabilirlik grubu dinleyicileri – Microsoft Azure yapılandırma | Microsoft Docs"
+description: "Kullanılabilirlik grubu dinleyicileri iç yük dengeleyiciye sahip bir veya daha fazla IP adresi kullanarak Azure Resource Manager modeli yapılandırın."
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: 81edfe2c2ea536d8dcec466f36fccf8bc0e02c2d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 74fa1e4c9cfa608a9a385f3dd82a0599fbcc421c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Bir veya daha fazla Always On kullanılabilirlik grubu dinleyicileri - Kaynak Yöneticisi'ni yapılandırma
 Bu konuda gösterilmektedir nasıl yapılır:
 
 * Bir iç yük dengeleyici için PowerShell cmdlet'lerini kullanarak SQL Server kullanılabilirlik gruplarını oluşturun.
-* Ek IP adreslerini tooa yük dengeleyici için birden çok kullanılabilirlik grubu ekleyin. 
+* Birden çok kullanılabilirlik grubu için yük dengeleyici için ek IP adreslerini ekleyin. 
 
-Bir kullanılabilirlik grubu dinleyicisi, istemcilerin toofor veritabanı erişimi bağlanmasını bir sanal ağ adıdır. Azure sanal makinelerde hello dinleyici için başlangıç IP adresi bir yük dengeleyici tutar. Merhaba yük dengeleyici yollar hello araştırma bağlantı noktasında dinleme SQL Server'ın toohello örneğinin trafiği. Genellikle, bir iç yük dengeleyicisi bir kullanılabilirlik grubu kullanır. Azure iç yük dengeleyiciye bir veya daha çok IP adreslerini barındırabilir. Her IP adresi belirli araştırma bağlantı noktasını kullanır. Bu belge gösterir nasıl toouse PowerShell toocreate bir yük dengeleyici veya IP adresleri tooan var olan yük dengeleyici için SQL Server kullanılabilirlik gruplarını ekleyin. 
+Bir kullanılabilirlik grubu dinleyicisi veritabanı erişimi için istemcilerin bağlandığı bir sanal ağ adı değil. Azure sanal makinelerde yük dengeleyici için dinleyici IP adresini tutar. Yük Dengeleyici araştırması bağlantı noktasında dinleme SQL Server örneğine trafiğini yönlendirir. Genellikle, bir iç yük dengeleyicisi bir kullanılabilirlik grubu kullanır. Azure iç yük dengeleyiciye bir veya daha çok IP adreslerini barındırabilir. Her IP adresi belirli araştırma bağlantı noktasını kullanır. Bu belgede bir yük dengeleyici oluşturmak veya mevcut bir yük dengeleyici SQL Server kullanılabilirlik grupları için IP adresleri eklemek için PowerShell kullanmayı gösterir. 
 
-birden çok IP adresleri tooan iç yük dengeleyici yeni tooAzure edilmiştir ve yalnızca Resource Manager modelinde kullanılabilir yeteneği tooassign hello. toocomplete bu görev bir SQL Server kullanılabilirlik grubu dağıtılan Resource Manager modelinde Azure sanal makinelerde toohave gerekir. Her iki SQL Server sanal makineleri toohello ait olmalıdır aynı kullanılabilirlik kümesi. Merhaba kullanabilirsiniz [Microsoft şablonu](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) tooautomatically Azure Kaynak Yöneticisi'nde hello kullanılabilirlik grubu oluşturun. Bu şablon, sizin için hello iç yük dengeleyici gibi hello kullanılabilirlik grubu otomatik olarak oluşturur. İsterseniz, aşağıdakileri yapabilirsiniz [el ile bir Always On kullanılabilirlik grubu yapılandırmak](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+Bir iç yük dengeleyici için birden çok IP adresi atama olanağı Azure için yenidir ve yalnızca Resource Manager modelinde kullanılabilir. Bu görevi tamamlamak için Resource Manager modeli Azure sanal makinelerinde dağıtılan bir SQL Server kullanılabilirlik grubu olması gerekir. Her iki SQL Server sanal makineleri aynı kullanılabilirlik kümesine ait olması gerekir. Kullanabileceğiniz [Microsoft şablonu](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) otomatik olarak Azure Kaynak Yöneticisi'nde kullanılabilirlik grubu oluşturmak için. Bu şablon, iç yük dengeleyicisi sizin için de dahil olmak üzere kullanılabilirlik grubu otomatik olarak oluşturur. İsterseniz, aşağıdakileri yapabilirsiniz [el ile bir Always On kullanılabilirlik grubu yapılandırmak](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
 
 Bu konu, kullanılabilirlik grupları zaten yapılandırılmış olmasını gerektirir.  
 
@@ -39,16 +39,16 @@ Bu konu, kullanılabilirlik grupları zaten yapılandırılmış olmasını gere
 
 [!INCLUDE [Start your PowerShell session](../../../../includes/sql-vm-powershell.md)]
 
-## <a name="configure-hello-windows-firewall"></a>Merhaba Windows Güvenlik Duvarı'nı yapılandırma
-Merhaba Windows Güvenlik Duvarı tooallow SQL Server erişimi yapılandırın. Merhaba güvenlik duvarı kuralları hello SQL Server örneği ve hello dinleyicisi yoklama TCP bağlantıları toohello bağlantı noktalarını kullanma izin verir. Ayrıntılı yönergeler için bkz: [veritabanı altyapısı erişimi için Windows Güvenlik Duvarı Yapılandırma](http://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Merhaba sonda bağlantı noktası ve hello SQL Server bağlantı noktası için bir gelen kuralı oluşturun.
+## <a name="configure-the-windows-firewall"></a>Windows Güvenlik Duvarı'nı yapılandırma
+Windows Güvenlik Duvarı'nı SQL Server erişime izin verecek şekilde yapılandırın. Güvenlik duvarı kuralları SQL Server örneğini ve dinleyicisi yoklama bağlantı noktalarını kullandığı için TCP bağlantılarını izin verir. Ayrıntılı yönergeler için bkz: [veritabanı altyapısı erişimi için Windows Güvenlik Duvarı Yapılandırma](http://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Sonda bağlantı noktası ve SQL sunucusu bağlantı noktası için bir gelen kuralı oluşturun.
 
 ## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Örnek komut dosyası: PowerShell ile bir iç yük dengeleyici oluşturma
 > [!NOTE]
-> Kullanılabilirlik grubu ile Merhaba oluşturduysanız [Microsoft şablonu](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), hello iç yük dengeleyici zaten oluşturuldu. 
+> Kullanılabilirlik grubu ile oluşturduysanız [Microsoft şablonu](virtual-machines-windows-portal-sql-alwayson-availability-groups.md), iç yük dengeleyicisi zaten oluşturuldu. 
 > 
 > 
 
-Merhaba aşağıdaki PowerShell betiğini bir iç yük dengeleyici oluşturur, hello Yük Dengeleme kuralları yapılandırır ve hello yük dengeleyici için bir IP adresini ayarlar. toorun hello komut dosyası, Windows PowerShell ISE açın ve hello betik bölmesinde hello betiğini yapıştırın. Kullanım `Login-AzureRMAccount` tooPowerShell toolog. Birden çok Azure aboneliğiniz varsa, kullanmak `Select-AzureRmSubscription ` tooset hello abonelik. 
+Aşağıdaki PowerShell betiğini bir iç yük dengeleyici oluşturur, Yük Dengeleme kuralları yapılandırır ve yük dengeleyici için bir IP adresini ayarlar. Komut dosyasını çalıştırmak için Windows PowerShell ISE açın ve komut dosyası betik bölmesine yapıştırın. Kullanım `Login-AzureRMAccount` PowerShell oturum açmak için. Birden çok Azure aboneliğiniz varsa, kullanmak `Select-AzureRmSubscription ` aboneliği ayarlamak için. 
 
 ```powershell
 # Login-AzureRmAccount
@@ -65,11 +65,11 @@ $ILBIP = "<n.n.n.n>"                         # IP address
 [int]$ListenerPort = "<nnnn>"                # AG listener port
 [int]$ProbePort = "<nnnn>"                   # Probe port
 
-$LBProbeName ="ILBPROBE_$ListenerPort"       # hello Load balancer Probe Object Name              
-$LBConfigRuleName = "ILBCR_$ListenerPort"    # hello Load Balancer Rule Object Name
+$LBProbeName ="ILBPROBE_$ListenerPort"       # The Load balancer Probe Object Name              
+$LBConfigRuleName = "ILBCR_$ListenerPort"    # The Load Balancer Rule Object Name
 
-$FrontEndConfigurationName = "FE_SQLAGILB_1" # Object name for hello front-end configuration 
-$BackEndConfigurationName ="BE_SQLAGILB_1"   # Object name for hello back-end configuration
+$FrontEndConfigurationName = "FE_SQLAGILB_1" # Object name for the front-end configuration 
+$BackEndConfigurationName ="BE_SQLAGILB_1"   # Object name for the back-end configuration
 
 $VNet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $ResourceGroupName 
 
@@ -98,10 +98,10 @@ foreach($VMName in $VMNames)
     }
 ```
 
-## <a name="Add-IP"></a>Örnek komut dosyası: bir IP adresi tooan varolan yük dengeleyicisi PowerShell ile ekleme
-bir kullanılabilirlik grubu birden çok toouse bir ek IP adresi toohello yük dengeleyiciye ekleyin. Her IP adresi, kendi Yük Dengeleme kuralı, araştırma bağlantı noktası ve ön bağlantı noktası gerektirir.
+## <a name="Add-IP"></a>Örnek komut dosyası: PowerShell ile var olan bir yük dengeleyici için bir IP adresi Ekle
+Birden çok kullanılabilirlik grubu kullanmak için ek bir IP adresi yük dengeleyiciye ekleyin. Her IP adresi, kendi Yük Dengeleme kuralı, araştırma bağlantı noktası ve ön bağlantı noktası gerektirir.
 
-Merhaba ön uç bağlantı noktası uygulamaları tooconnect toohello SQL Server örneğini kullan hello bağlantı noktasıdır. IP adresleri farklı kullanılabilirlik grupları kullanabilir hello aynı ön uç bağlantı noktası.
+Ön uç bağlantı uygulamaları SQL Server örneğine bağlanmak için kullandığınız bağlantı noktasıdır. IP adresleri farklı kullanılabilirlik grupları için aynı ön uç bağlantı noktasını kullanabilirsiniz.
 
 > [!NOTE]
 > SQL Server kullanılabilirlik grupları için her IP adresi belirli sonda bağlantı noktası gerektirir. Örneğin, bir IP adresi bir yük dengeleyicideki sonda bağlantı noktası 59999 kullanıyorsa, herhangi bir IP adresi üzerinde bu yük dengeleyici araştırması bağlantı noktası 59999 kullanabilirsiniz.
@@ -109,7 +109,7 @@ Merhaba ön uç bağlantı noktası uygulamaları tooconnect toohello SQL Server
 * Yük Dengeleyici sınırları hakkında daha fazla bilgi için bkz: **özel ön uç IP yük dengeleyici başına** altında [ağ sınırları - Azure Resource Manager](../../../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 * Kullanılabilirlik grubu sınırları hakkında daha fazla bilgi için bkz: [kısıtlamaları (kullanılabilirlik grupları)](http://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
 
-Merhaba aşağıdaki betiği yeni IP adresi tooan var olan yük dengeleyici ekler. Merhaba ILB hello dinleyicisi bağlantı noktası hello Yükü Dengeleme ön uç bağlantı noktasını kullanır. Bu bağlantı noktası, SQL Server üzerinde dinleme hello bağlantı noktası olabilir. SQL Server'ın varsayılan örnekleri için başlangıç bağlantı noktası 1433'tür. Merhaba Yük Dengeleme kuralı bir kullanılabilirlik grubu için bir kayan IP (doğrudan sunucu dönüşü) hello arka uç bağlantı noktası olacak şekilde hello aynı hello ön uç bağlantı noktası olarak gerektirir. Merhaba değişkenleri ortamınız için güncelleştirin. 
+Aşağıdaki komut dosyasını yeni bir IP adresi için var olan bir yük dengeleyici ekler. ILB, yük dengeleyici ön uç bağlantı noktası için dinleyici bağlantı noktasını kullanır. Bu bağlantı noktası, SQL Server üzerinde dinleme bağlantı noktası olabilir. SQL Server'ın varsayılan örnekleri için bağlantı noktası 1433'tür. Arka uç bağlantı noktası ön uç bağlantı noktası ile aynı olacak şekilde yük dengeleme kuralını bir kullanılabilirlik grubu için bir kayan IP (doğrudan sunucu dönüşü) gerektirir. Değişkenleri ortamınız için güncelleştirin. 
 
 ```powershell
 # Login-AzureRmAccount
@@ -150,56 +150,56 @@ $BEConfig = Get-AzureRmLoadBalancerBackendAddressPoolConfig -Name $ILB.BackendAd
 $ILB | Add-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfiguration $FEConfig  -BackendAddressPool $BEConfig -Probe $SQLHealthProbe -Protocol tcp -FrontendPort  $ListenerPort -BackendPort $ListenerPort -LoadDistribution Default -EnableFloatingIP | Set-AzureRmLoadBalancer   
 ```
 
-## <a name="configure-hello-listener"></a>Merhaba dinleyicisini yapılandırın
+## <a name="configure-the-listener"></a>Dinleyici yapılandırın
 
 [!INCLUDE [ag-listener-configure](../../../../includes/virtual-machines-ag-listener-configure.md)]
 
-## <a name="set-hello-listener-port-in-sql-server-management-studio"></a>SQL Server Management Studio'da Hello dinleyicisi bağlantı noktası ayarlama
+## <a name="set-the-listener-port-in-sql-server-management-studio"></a>SQL Server Management Studio'da dinleyici bağlantı noktasını ayarla
 
-1. SQL Server Management Studio'yu başlatın ve toohello birincil çoğaltma bağlanın.
+1. SQL Server Management Studio'yu başlatın ve birincil kopyaya bağlanın.
 
-1. Çok gidin**AlwaysOn yüksek kullanılabilirlik** | **kullanılabilirlik grupları** | **kullanılabilirlik grubu dinleyicileri**. 
+1. Gidin **AlwaysOn yüksek kullanılabilirlik** | **kullanılabilirlik grupları** | **kullanılabilirlik grubu dinleyicileri**. 
 
-1. Yük Devretme Kümesi Yöneticisi'nde oluşturulan hello dinleyici adı görmelisiniz. Merhaba dinleyicisi adını sağ tıklatıp **özellikleri**.
+1. Yük Devretme Kümesi Yöneticisi'nde oluşturulan dinleyici adı görmelisiniz. Dinleyici adına sağ tıklatın ve **özellikleri**.
 
-1. Merhaba, **bağlantı noktası** kutusunda, daha önce kullandığınız $EndpointPort hello kullanarak hello hello kullanılabilirlik grubu dinleyicisinin bağlantı noktası numarası belirtin (1433 olduğu hello varsayılan), ardından **Tamam**.
+1. İçinde **bağlantı noktası** kutusunda, daha önce kullandığınız $EndpointPort kullanarak için kullanılabilirlik grubu dinleyicisinin bağlantı noktası numarası belirtin (1433 olduğu varsayılan), ardından **Tamam**.
 
-## <a name="test-hello-connection-toohello-listener"></a>Test hello bağlantı toohello dinleyicisi
+## <a name="test-the-connection-to-the-listener"></a>Dinleyici bağlantıyı sınayın
 
-tootest hello bağlantısı:
+Bağlantıyı sınamak için:
 
-1. RDP tooa hello SQL Server aynı sanal ağ, ancak kendi hello çoğaltma. Bu olması hello hello kümedeki diğer SQL Server.
+1. RDP bir SQL Server'a aynı sanal ağda bulunan, ancak çoğaltma kendisine ait değil. Bu kümedeki diğer SQL Server olabilir.
 
-1. Kullanım **sqlcmd** yardımcı programı tootest hello bağlantı. Örneğin, komut dosyası izleyen hello kurar bir **sqlcmd** bağlantı toohello birincil çoğaltma Windows kimlik doğrulaması ile Merhaba dinleyicisi aracılığıyla:
+1. Kullanım **sqlcmd** yardımcı programını kullanarak bağlantıyı sınayın. Örneğin, aşağıdaki komut dosyasını oluşturur. bir **sqlcmd** Windows kimlik doğrulaması dinleyicisiyle aracılığıyla birincil çoğaltma bağlantısı:
    
     ```
     sqlmd -S <listenerName> -E
     ```
    
-    Merhaba dinleyicisi dışında bir bağlantı noktası kullanıyorsa, varsayılan hello (1433) bağlantı noktası, başlangıç bağlantı noktası başlangıç bağlantı dizesinde belirtin. Örneğin, hello aşağıdaki sqlcmd komut tooa dinleyicisi bağlantı noktası 1435 bağlanır: 
+    Dinleyici varsayılan dışında bir bağlantı noktası kullanıyorsa (1433) bağlantı noktası, bağlantı dizesinde bağlantı noktasını belirtin. Örneğin, aşağıdaki sqlcmd komut bir dinleyici bağlantı noktası 1435 bağlanır: 
    
     ```
     sqlcmd -S <listenerName>,1435 -E
     ```
 
-Merhaba SQLCMD bağlantı toowhichever örneğini SQL Server konakları hello birincil çoğaltma otomatik olarak bağlanır. 
+SQL Server'ın hangi örneğinin birincil çoğaltmayı barındıran için SQLCMD bağlantı otomatik olarak bağlanır. 
 
 > [!NOTE]
-> Belirttiğiniz başlangıç bağlantı noktası hem SQL sunucuları hello güvenlik duvarı açık olduğundan emin olun. Her iki sunucuyu hello kullandığınız TCP bağlantı noktası için bir gelen kuralı gerektirir. Bkz: [Ekle veya güvenlik duvarı kuralını Düzenle](http://technet.microsoft.com/library/cc753558.aspx) daha fazla bilgi için. 
+> Belirttiğiniz bağlantı noktasının Güvenlik Duvarı'nı her iki SQL sunucularının açık olduğundan emin olun. Her iki sunucuyu kullandığınız TCP bağlantı noktası için bir gelen kuralı gerektirir. Bkz: [Ekle veya güvenlik duvarı kuralını Düzenle](http://technet.microsoft.com/library/cc753558.aspx) daha fazla bilgi için. 
 > 
 > 
 
 ## <a name="guidelines-and-limitations"></a>Kılavuzlar ve sınırlamalar
-Kullanılabilirlik grubu dinleyicisi iç yük dengeleyicisi kullanarak azure'da yönergeleri izleyerek hello dikkat edin:
+Kullanılabilirlik grubu dinleyicisi iç kullanarak azure'da aşağıdaki yönergelere yük dengeleyici dikkat edin:
 
-* Bir iç yük dengeleyici ile size yalnızca hello içinde hello dinleyicisi gelen erişim aynı sanal ağ.
+* Bir iç yük dengeleyici ile gelen dinleyicisi aynı sanal ağda yalnızca erişin.
 
 
 ## <a name="for-more-information"></a>Daha fazla bilgi için
 Daha fazla bilgi için bkz: [yapılandırma Always On kullanılabilirlik grubu Azure VM'de el ile](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
 
 ## <a name="powershell-cmdlets"></a>PowerShell cmdlet'leri
-PowerShell cmdlet'leri toocreate Azure sanal makineler için bir iç yük dengeleyici aşağıdaki hello kullanın.
+Azure sanal makineler için bir iç yük dengeleyici oluşturmak için aşağıdaki PowerShell cmdlet'lerini kullanın.
 
 * [AzureRmLoadBalancer yeni](http://msdn.microsoft.com/library/mt619450.aspx) bir yük dengeleyici oluşturur. 
 * [AzureRMLoadBalancerFrontendIpConfig yeni](http://msdn.microsoft.com/library/mt603510.aspx) bir yük dengeleyici için bir ön uç IP yapılandırmasını oluşturur. 

@@ -1,6 +1,6 @@
 ---
-title: "Hyper-V çoğaltma tooa Azure Site Recovery ile ikincil site için aaaReview hello mimarisi | Microsoft Docs"
-description: "Bu makalede, şirket içi Hyper-V sanal makineleri tooa ikincil System Center VMM site Azure Site Recovery ile çoğaltmak için hello mimarisine genel bakış sağlar."
+title: "Azure Site Recovery ile ikincil siteye Hyper-V çoğaltma işleminin mimarisini inceleme | Microsoft Docs"
+description: "Bu makalede, Azure Site Recovery ile ikincil System Center VMM sitesine şirket içi Hyper-V VM’lerini çoğaltma mimarisine genel bir bakış sunulmaktadır."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,53 +14,53 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.openlocfilehash: 0de4b4e8601116c73e6fd710597ce4e561884368
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: b78cd0d5a5395873afaddc8856004775f447e8ea
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="step-1-review-hello-architecture-for-hyper-v-replication-tooa-secondary-site"></a>1. adım: Hyper-V çoğaltma tooa ikincil site gözden geçirme hello mimarisi
+# <a name="step-1-review-the-architecture-for-hyper-v-replication-to-a-secondary-site"></a>1. Adım: İkincil siteye Hyper-V çoğaltma işleminin mimarisini inceleme
 
-Bu makalede hello bileşenleri ve işlemler çoğaltırken söz konusu şirket içi System Center Virtual Machine Manager (VMM) bulutlarında, tooa hello kullanarak ikincil VMM sitesi Hyper-V sanal makineleri (VM'ler) [Azure Site Recovery](site-recovery-overview.md)hello Azure portal hizmeti.
+Bu makalede, Azure portalından [Azure Site Recovery](site-recovery-overview.md) hizmeti kullanılarak, System Center Virtual Machine Manager (VMM) bulutlarındaki Hyper-V sanal makinelerini (VM) ikincil bir VMM sitesine çoğaltırken kullanılan bileşenler ve işlemler açıklanmaktadır.
 
-Bu makalenin veya hello hello altındaki tüm yorumlar sonrası [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Tüm yorumlarınızı bu makalenin alt kısmında veya [Azure Kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)'nda paylaşabilirsiniz.
 
 
 
 ## <a name="architectural-components"></a>Mimari bileşenler
 
-İşte Hyper-V sanal makineleri tooa ikincil VMM sitesi çoğaltmak için gerekir.
+Hyper-V VM’lerini ikincil bir VMM sitesine çoğaltmak için aşağıdakiler gerekir.
 
 **Bileşen** | **Konum** | **Ayrıntılar**
 --- | --- | ---
-**Azure** | Azure aboneliği. | Kurtarma Hizmetleri kasası hello Azure aboneliği tooorchestrate oluşturup VMM konumları arasında çoğaltma yönetin.
-**VMM sunucusu** | Birincil ve ikincil VMM konumu gerekir. | Bir VMM sunucusunun hello birincil sitede ve hello ikincil sitedeki öneririz 
-**Hyper-V sunucusu** |  Bir veya daha fazla Hyper-V ana bilgisayar sunucuları hello birincil ve ikincil VMM bulutlarında. | Veri hello LAN veya Kerberos veya sertifika kimlik doğrulaması kullanarak VPN üzerinden hello birincil ve ikincil Hyper-V ana bilgisayar sunucuları arasında çoğaltılır.  
-**Hyper-V VM’leri** | Hyper-V ana bilgisayar sunucusunda. | Merhaba kaynak ana bilgisayar sunucusunun tooreplicate istediğiniz en az bir VM'ye sahip olması gerekir.
+**Azure** | Azure aboneliği. | VMM konumları arasında çoğaltmayı düzenleyip yönetmek için Azure aboneliğinde bir Kurtarma Hizmetleri kasası oluşturun.
+**VMM sunucusu** | Birincil ve ikincil VMM konumu gerekir. | Bir tane birincil sitede, bir tane de ikincil sitede VMM sunucusu olması önerilir 
+**Hyper-V sunucusu** |  Birincil ve ikincil VMM bulutlarında bir veya daha fazla Hyper-V konak sunucusu. | Verilerin, Kerberos veya sertifika kimlik doğrulaması kullanılarak, LAN ya da VPN üzerinden birincil ve ikincil Hyper-V ana bilgisayar sunucuları arasında çoğaltılması gerekir.  
+**Hyper-V VM’leri** | Hyper-V ana bilgisayar sunucusunda. | Kaynak ana bilgisayar sunucusunda çoğaltmak istediğiniz en az bir VM olması gerekir.
 
 ## <a name="replication-process"></a>Çoğaltma işlemi
 
-1. Azure hesabı hello ayarlayın, bir kurtarma Hizmetleri kasası oluşturun ve istediğinizi belirtin tooreplicate.
-2. Hello Azure Site kurtarma sağlayıcısı VMM sunucuları ve her Hyper-V ana bilgisayarda hello Microsoft Azure kurtarma Hizmetleri aracısını yükleme içeren hello kaynak ve hedef çoğaltma ayarlarını yapılandırın.
-3. Merhaba kaynak VMM bulutu için bir çoğaltma ilkesi oluşturun. Merhaba, uygulanan tooall hello bulut ana bilgisayarda yer alan VM'ler ilkesidir.
-4. Her VMM için çoğaltmayı etkinleştirmek ve seçtiğiniz hello ayarlarına uygun olarak bir VM başlangıç çoğaltması gerçekleşir.
+1. Azure hesabını ayarlayın, bir Kurtarma Hizmetleri kasası oluşturun ve çoğaltmak istediğiniz öğeleri belirtin.
+2. VMM sunucularına Azure Site Recovery Sağlayıcısını ve her bir Hyper-V ana bilgisayarına Microsoft Azure Kurtarma Hizmetleri aracısını yüklemeyi de içeren kaynak ve hedef çoğaltma ayarlarını yapılandırın.
+3. Kaynak VMM bulutu için bir çoğaltma ilkesi oluşturun. İlke, buluttaki tüm konaklarda yer alan tüm VM’lere uygulanır.
+4. Her VMM için çoğaltmayı etkinleştirdiğinizde, ilk VM çoğaltma işlemi seçtiğiniz ayarlara uygun olarak gerçekleşir.
 5. İlk çoğaltma sonrasında, delta değişikliklerin çoğaltılması başlar. Bir öğe için izlenen değişiklikler bir .hrl dosyasında saklanır.
 
 
-![Şirket içi tooon içi](./media/vmm-to-vmm-walkthrough-architecture/arch-onprem-onprem.png)
+![Şirket içinden şirket içine](./media/vmm-to-vmm-walkthrough-architecture/arch-onprem-onprem.png)
 
 ## <a name="failover-and-failback-process"></a>Yük devretme ve yeniden çalışma işlemi
 
-1. Şirket içi siteler arasında planlanmış veya planlanmamış bir [yük devretme](site-recovery-failover.md) gerçekleştirebilirsiniz. Planlanmış bir yük devretme çalıştırın, sonra kaynak VM'ler tooensure kapatın, veri kaybı.
-2. Üzerinde tek bir makine başarısız veya oluşturma [kurtarma planlarına](site-recovery-create-recovery-plans.md) birden fazla makine tooorchestrate yük devretme.
-4. Merhaba yük devretme makineler hello ikincil konumdaki sonra bir planlanmamış yük devretme tooa ikincil site gerçekleştirirseniz koruma veya çoğaltma için etkin değil. Planlanmış bir yük devretme hello yük devretme sonrasında çalıştırdıysanız hello ikincil konumdaki makineler korunur.
-5. Ardından, VM hello çoğaltmasından hello yük devretme toostart erişilirken hello iş yükü uygulayın.
-6. Birincil sitenizi yeniden kullanılabilir duruma geldiğinde, çoğaltmayı tersine çevirme tooreplicate hello ikincil site toohello birincil gelen başlatır. Çoğaltmayı tersine çevirme hello sanal makineleri korumalı bir duruma getirir, ancak hello ikincil veri merkezine hala hello etkin konumdur.
-7. toomake hello birincil site hello etkin konuma yeniden planlı bir yük devretme ikincil tooprimary, başka bir tersine çoğaltma tarafından izlenen işlemini başlatır.
+1. Şirket içi siteler arasında planlanmış veya planlanmamış bir [yük devretme](site-recovery-failover.md) gerçekleştirebilirsiniz. Planlı bir yük devretme çalıştırırsanız, veri kaybı olmaması için kaynak VM’ler kapatılır.
+2. Tek bir makine üzerinden yük devredebilir veya [kurtarma planları](site-recovery-create-recovery-plans.md) oluşturarak birden çok makinenin devredilmesini düzenleyebilirsiniz.
+4. İkincil bir siteye yönelik planlanmamış bir yük devretme gerçekleştirirseniz, işlem tamamlandıktan sonra ikincil konumdaki makineler koruma veya çoğaltma için etkinleştirilmez. Planlı bir yük devretme gerçekleştirdiyseniz, işlemden sonra ikincil konumdaki makineler korunur.
+5. Daha sonra, kopya VM’deki iş yüküne erişmeye başlamak için yük devretmeyi yürütürsünüz.
+6. Birincil sitenizi yeniden kullanılabilir duruma geldiğinde ters çoğaltma başlatarak ikincil siteden birincil siteye çoğaltma gerçekleştirirsiniz. Ters çoğaltma sanal makineleri korumalı bir duruma getirir, ancak ikincil veri merkezi hala etkin konumdur.
+7. Birincil siteyi yeniden etkin konum durumuna getirmek için ikincil siteden birincil siteye planlı yük devretme başlatır ve arkasından başka bir ters çoğaltma gerçekleştirirsiniz.
 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Çok Git[2. adım: gözden hello Önkoşullar ve sınırlamalar](vmm-to-vmm-walkthrough-prerequisites.md).
+[2. Adım: Önkoşulları ve sınırlamaları gözden geçirme](vmm-to-vmm-walkthrough-prerequisites.md) bölümüne gidin.

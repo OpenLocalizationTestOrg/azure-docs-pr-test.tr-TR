@@ -1,6 +1,6 @@
 ---
-title: "IOT paketi C toosupport bellenim kullanarak aaaConnect Raspberry Pi'yi tooAzure güncelleştirmeleri | Microsoft Docs"
-description: "Microsoft Azure IOT Starter Kit Merhaba hello Raspberry Pi 3 ve Azure IOT paketi kullanır. Uzaktan izleme çözümü, Raspberry Pi'yi toohello C tooconnect kullanın, telemetri algılayıcı toohello bulut göndermek ve uzak bellenim güncelleştirme gerçekleştirin."
+title: "Bellenim güncelleştirmeleri desteklemek için C kullanarak Azure IOT paketi için Raspberry Pi'yi bağlanma | Microsoft Docs"
+description: "Microsoft Azure IOT Starter Kit Böğürtlenli pi 3 kullanın ve Azure IOT paketi. Uzaktan izleme çözümüne Raspberry Pi'yi bağlanmak için kullanım C telemetri algılayıcı buluta göndermek ve bir uzak bellenim güncelleştirme gerçekleştirin."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -14,143 +14,143 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 36d39c6d754ddb025fd3f6b74d7795ed907b754c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f36f6512bb30e4b109b1bd1c3cdab10300f4edc9
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="connect-your-raspberry-pi-3-toohello-remote-monitoring-solution-and-enable-remote-firmware-updates-using-c"></a>Uzaktan izleme çözümü, Raspberry Pi 3 toohello bağlanmak ve C kullanarak uzak Bellenim güncelleştirmeleri etkinleştir
+# <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-c"></a>Raspberry Pi 3 Uzaktan izleme çözümüne bağlama ve C kullanarak uzak Bellenim güncelleştirmeleri etkinleştir
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-selector](../../includes/iot-suite-raspberry-pi-kit-selector.md)]
 
-Bu öğretici nasıl toouse hello Microsoft Azure IOT Starter Kit Raspberry Pi 3 gösterir:
+Bu öğretici Raspberry Pi 3 için Microsoft Azure IOT Starter Kit kullanmayı gösterir:
 
-* Merhaba bulut ile iletişim kurabilen bir sıcaklık ve nem okuyucu geliştirin.
-* Etkinleştirmek ve bir uzak bellenim güncelleştirme tooupdate hello istemci uygulaması Raspberry Pi'yi hello üzerinde gerçekleştirin.
+* Bulut ile iletişim kurabilen bir sıcaklık ve nem okuyucu geliştirin.
+* Etkinleştirmek ve bir uzak bellenim güncelleştirme için güncelleştirme istemci uygulaması Raspberry Pi'yi üzerinde gerçekleştirin.
 
-Merhaba öğretici kullanır:
+Öğretici kullanır:
 
-* Raspbian işletim sistemi, hello C programlama dili ve C tooimplement örnek cihaz için Microsoft Azure IOT SDK'sı hello.
-* Merhaba IOT paketi Uzaktan izleme çözümü hello bulut tabanlı arka uç önceden yapılandırılmış.
+* Raspbian işletim sistemi, C programlama dili ve C için Microsoft Azure IOT SDK'sı bir örnek aygıt uygulamak için.
+* IOT paketi Uzaktan izleme çözümü bulut tabanlı arka uç önceden yapılandırılmış.
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu öğreticide, hello aşağıdaki adımları tamamlayın:
+Bu öğreticide, aşağıdaki adımları tamamlayın:
 
-* Merhaba Uzaktan izleme önceden yapılandırılmış çözüm tooyour Azure aboneliği örneği dağıtın. Bu adım, otomatik olarak dağıtır ve birden çok Azure hizmetlerini yapılandırır.
-* Aygıt ve algılayıcılar toocommunicate bilgisayarınızın ve hello ile Uzaktan izleme çözümü ayarlayın.
-* Merhaba örnek aygıt kodu tooconnect toohello Uzaktan izleme çözümü güncelleştirin ve hello çözüm panosunda görüntüleyebilirsiniz telemetri gönderebilir.
-* Merhaba örnek aygıt kodu tooupdate hello istemci uygulaması kullanın.
+* Önceden yapılandırılmış Uzaktan izleme çözümü örneği Azure aboneliğinize dağıtın. Bu adım, otomatik olarak dağıtır ve birden çok Azure hizmetlerini yapılandırır.
+* Bilgisayarınız ve Uzaktan izleme çözümü ile iletişim kurmak için aygıt ve algılayıcılar ayarlayın.
+* Uzaktan izleme çözümüne bağlama için örnek cihaz kod güncelleştirin ve çözüm panosunda görüntüleyebilirsiniz telemetri gönderebilir.
+* İstemci uygulaması güncelleştirmek için örnek aygıt kodu kullanın.
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-prerequisites](../../includes/iot-suite-raspberry-pi-kit-prerequisites.md)]
 
 [!INCLUDE [iot-suite-provision-remote-monitoring](../../includes/iot-suite-provision-remote-monitoring.md)]
 
 > [!WARNING]
-> Uzaktan izleme çözümü hükümleri Azure aboneliğinizde Azure Hizmetleri kümesi hello. Merhaba dağıtım gerçek Kurumsal Mimarisi yansıtır. tooavoid gereksiz Azure tüketim ücretleri, kendisiyle tamamladığınızda azureiotsuite.com hello önceden yapılandırılmış çözüm örneğiniz silin. Önceden yapılandırılmış çözümü yeniden hello varsa, kolayca yeniden oluşturabilirsiniz. Merhaba Uzaktan izleme çözümü çalıştığında hatayla tüketiminin azaltılması hakkında daha fazla bilgi için bkz: [yapılandırma Azure IOT paketi önceden yapılandırılmış çözümleri tanıtım amacıyla][lnk-demo-config].
+> Uzaktan izleme çözümü Azure aboneliğinizde Azure Hizmetleri kümesi sağlar. Dağıtım gerçek Kurumsal Mimarisi yansıtır. Gereksiz Azure tüketim ücretleri önlemek için kendisiyle tamamladığınızda azureiotsuite.com önceden yapılandırılmış çözüm örneğiniz silin. Önceden yapılandırılmış çözümü yeniden gerekiyorsa, kolayca yeniden oluşturabilirsiniz. Uzaktan izleme çözümü çalışırken tüketiminin azaltılması hakkında daha fazla bilgi için bkz: [yapılandırma Azure IOT paketi önceden yapılandırılmış çözümleri tanıtım amacıyla][lnk-demo-config].
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-view-solution](../../includes/iot-suite-raspberry-pi-kit-view-solution.md)]
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-prepare-pi](../../includes/iot-suite-raspberry-pi-kit-prepare-pi.md)]
 
-## <a name="download-and-configure-hello-sample"></a>İndirme ve hello örnek yapılandırma
+## <a name="download-and-configure-the-sample"></a>İndirme ve örnek yapılandırma
 
-Şimdi, indirin ve, Raspberry Pi'yi Merhaba Uzaktan izleme istemci uygulaması yapılandırın.
+Şimdi, indirin ve Uzaktan izleme istemci uygulaması, Raspberry Pi'yi yapılandırın.
 
-### <a name="clone-hello-repositories"></a>Kopya hello depoları
+### <a name="clone-the-repositories"></a>Depoları kopyalama
 
-Henüz yapmadıysanız, komutları, Pi üzerinde aşağıdaki çalıştırarak depoları hello kopya hello gerekli:
+Henüz yapmadıysanız, gerekli depoları, Pi üzerinde aşağıdaki komutları çalıştırarak kopyalama:
 
 ```sh
 cd ~
 git clone --recursive https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit.git
 ```
 
-### <a name="update-hello-device-connection-string"></a>Merhaba cihaz bağlantı dizesi güncelleştir
+### <a name="update-the-device-connection-string"></a>Güncelleştirme cihaz bağlantı dizesi
 
-Merhaba açık hello örnek yapılandırma dosyasında **nano** Düzenleyici'yi komutu aşağıdaki hello kullanma:
+Örnek yapılandırma dosyasını açın **nano** Düzenleyicisi aşağıdaki komutu kullanarak:
 
 ```sh
 nano ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/config/deviceinfo
 ```
 
-Bilgilerle oluşturulur ve bu öğreticinin hello başlangıcında kaydedilmiş hello cihaz kimliği ve IOT hub'ı Hello yer tutucu değerlerini değiştirin.
+Oluşturulan ve bu öğreticinin başlangıcında kaydedilen cihaz kimliği ve IOT Hub bilgilerini yer tutucu değerlerini değiştirin.
 
-İşiniz bittiğinde, hello deviceınfo dosyasının Merhaba içeriğine hello örnek aşağıdaki gibi görünmelidir:
+İşiniz bittiğinde, deviceınfo dosyasının içeriğini aşağıdaki gibi görünmelidir:
 
 ```conf
 yourdeviceid
 HostName=youriothubname.azure-devices.net;DeviceId=yourdeviceid;SharedAccessKey=yourdevicekey
 ```
 
-Değişikliklerinizi kaydetmek (**Ctrl-O**, **Enter**) ve çıkış hello Düzenleyicisi'ni (**Ctrl-X**).
+Değişikliklerinizi kaydetmek (**Ctrl-O**, **Enter**) ve düzenleyiciden çıkın (**Ctrl-X**).
 
-## <a name="build-hello-sample"></a>Merhaba örnek oluşturma
+## <a name="build-the-sample"></a>Örnek oluşturma
 
-Zaten yapmadıysanız, hello önkoşul hello Microsoft Azure IOT cihaz SDK'sı için C Raspberry Pi'yi hello üzerinde komutları bir terminalde aşağıdaki hello çalıştırarak yükleyin:
+Zaten yapmadıysanız, önkoşul bir terminal Raspberry Pi'yi üzerinde aşağıdaki komutları çalıştırarak C için Microsoft Azure IOT cihaz SDK yükleyin:
 
 ```sh
 sudo apt-get update
 sudo apt-get install g++ make cmake git libcurl4-openssl-dev libssl-dev uuid-dev
 ```
 
-Merhaba örnek çözümü Raspberry Pi'yi hello üzerinde şimdi oluşturabilirsiniz:
+Örnek çözümü Raspberry Pi'yi şimdi oluşturabilirsiniz:
 
 ```sh
 chmod +x ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/1.0/build.sh
 ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/1.0/build.sh
 ```
 
-Bu gibi durumlarda, hello örnek programı şimdi Raspberry Pi'yi hello üzerinde çalıştırabilirsiniz. Merhaba komutu girin:
+Örnek program Raspberry Pi'yi şimdi çalıştırabilirsiniz. Aşağıdaki komutu girin:
 
   ```sh
   sudo ~/cmake/remote_monitoring/remote_monitoring
   ```
 
-Merhaba aşağıdaki örnek çıkış hello komut isteminde hello Raspberry Pi'yi gördüğünüz hello çıkış örneğidir:
+Aşağıdaki örnek çıkış Raspberry Pi'yi komut satırına bakın çıkış örneğidir:
 
 ![Böğürtlenli Pi uygulamadan çıktı][img-raspberry-output]
 
-Tuşuna **Ctrl-C** tooexit hello program herhangi bir zamanda.
+Tuşuna **Ctrl-C** herhangi bir zamanda programı'ndan çıkmak için.
 
 [!INCLUDE [iot-suite-raspberry-pi-kit-view-telemetry-advanced](../../includes/iot-suite-raspberry-pi-kit-view-telemetry-advanced.md)]
 
-1. Merhaba çözüm panosunda tıklatın **aygıtları** toovisit hello **aygıtları** sayfası. Hello Raspberry Pi'yi seçin **cihaz listesi**. Ardından **yöntemleri**:
+1. Çözüm panosunda tıklatın **aygıtları** ziyaret etmek için **aygıtları** sayfası. Böğürtlenli Pi seçin **cihaz listesi**. Ardından **yöntemleri**:
 
     ![Panoda aygıtları listele][img-list-devices]
 
-1. Merhaba üzerinde **yöntemi çağırma** sayfasında, **InitiateFirmwareUpdate** hello içinde **yöntemi** açılır.
+1. Üzerinde **yöntemi çağırma** sayfasında, **InitiateFirmwareUpdate** içinde **yöntemi** açılır.
 
-1. Merhaba, **FWPackageURI** alanına, **https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit/raw/master/advanced/2.0/package/remote_monitoring.zip**. Bu Arşiv hello uygulamasını hello bellenim 2.0 sürümünü içerir.
+1. İçinde **FWPackageURI** alanına, **https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit/raw/master/advanced/2.0/package/remote_monitoring.zip**. Bu Arşiv 2.0 sürümünde bellenimin uygulamasını içerir.
 
-1. Seçin **InvokeMethod**. Merhaba Raspberry Pi'yi Hello uygulamasına bir bildirim geri toohello çözüm Panosu gönderir. Ardından, hello bellenim güncelleştirme işlemi'nin hello yeni hello bellenim sürümünü indirerek başlar:
+1. Seçin **InvokeMethod**. Uygulamasını Raspberry Pi'yi çözüm panosuna geri bildirim gönderir. Ardından, bellenim güncelleştirme işlemi'nin yeni bellenim sürümünü indirerek başlar:
 
     ![Yöntem geçmişini göster][img-method-history]
 
-## <a name="observe-hello-firmware-update-process"></a>Merhaba bellenim güncelleştirme işlemini inceleyin
+## <a name="observe-the-firmware-update-process"></a>İşlem güncelleştirme bellenim inceleyin
 
-Merhaba cihazda çalışan gibi hello bellenim güncelleştirme işlemi görebilirsiniz ve hello görüntüleyerek hello çözüm Panosu özelliklerinde bildirdi:
+Cihazda ve çözüm panosunda bildirilen özelliklerini görüntüleyerek çalışan işlem güncelleştirme bellenim görebilirsiniz:
 
-1. Merhaba güncelleştirme işleminin hello ediyor Raspberry Pi'yi hello üzerinde görüntüleyebilirsiniz:
+1. Üzerinde Raspberry Pi'yi güncelleştirme işleminin devam görüntüleyebilirsiniz:
 
     ![Güncelleştirme ilerlemesini Göster][img-update-progress]
 
     > [!NOTE]
-    > Merhaba güncelleştirme tamamlandığında hello Uzaktan izleme uygulama sessizce yeniden başlatır. Merhaba komutunu `ps -ef` çalıştığından tooverify. Tooterminate hello işlem istiyorsanız hello kullanın `kill` hello işlem kimlikli komutu.
+    > Güncelleştirme tamamlandığında Uzaktan izleme uygulama sessizce yeniden başlatır. Komutunu `ps -ef` çalıştığından doğrulanamadı. İşlemi sonlandırmak istiyorsanız kullanın `kill` işlem kimlikli komutu.
 
-1. Merhaba çözüm portalında hello aygıt tarafından bildirilen şekilde hello bellenim güncelleştirme hello durumunu görüntüleyebilirsiniz. Merhaba aşağıdaki ekran görüntüsü hello durumu ve her aşamanın hello güncelleştirme işlemini hello yeni üretici yazılımı sürümüne ve süresini gösterir:
+1. Çözüm Portalı'nda bir aygıt tarafından belirlendiği şekilde, bellenim güncelleştirme durumunu görüntüleyebilirsiniz. Aşağıdaki ekran görüntüsü durum ve süresini, güncelleştirme işlemini yeni üretici yazılımı sürümüne ve her bir aşamaya gösterir:
 
     ![İş durumunu göster][img-job-status]
 
-    Geri toohello Pano giderseniz, hello aygıt hala hello bellenim güncelleştirme aşağıdaki telemetri gönderiyor doğrulayabilirsiniz.
+    Panosuna geri gidin, cihaz yine bellenim güncelleştirme aşağıdaki telemetri gönderiyor doğrulayabilirsiniz.
 
 > [!WARNING]
-> Merhaba Uzaktan izleme çözümü Azure hesabınızda çalışan bırakırsanız hello çalıştırıldığında için faturalandırılır. Merhaba Uzaktan izleme çözümü çalıştığında hatayla tüketiminin azaltılması hakkında daha fazla bilgi için bkz: [yapılandırma Azure IOT paketi önceden yapılandırılmış çözümleri tanıtım amacıyla][lnk-demo-config]. Bunu kullanmayı bitirdikten sonra hello önceden yapılandırılmış çözümü Azure hesabınızdan silin.
+> Azure hesabınızda çalıştıran uzaktan izleme çözümü bırakırsanız çalıştırıldığında için faturalandırılır. Uzaktan izleme çözümü çalışırken tüketiminin azaltılması hakkında daha fazla bilgi için bkz: [yapılandırma Azure IOT paketi önceden yapılandırılmış çözümleri tanıtım amacıyla][lnk-demo-config]. Bunu kullanmayı bitirdikten sonra önceden yapılandırılmış çözümü Azure hesabınızdan silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Merhaba ziyaret [Azure IOT Geliştirme Merkezi](https://azure.microsoft.com/develop/iot/) daha fazla örnekleri ve Azure IOT belgeler.
+Ziyaret [Azure IOT Geliştirme Merkezi](https://azure.microsoft.com/develop/iot/) daha fazla örnekleri ve Azure IOT belgeler.
 
 
 [img-raspberry-output]: ./media/iot-suite-raspberry-pi-kit-c-get-started-advanced/app-output.png

@@ -1,5 +1,5 @@
 ---
-title: "aaaWindows Evrensel uygulamaları SDK yükseltme yordamları"
+title: "Windows Evrensel uygulamaları SDK yükseltme yordamları"
 description: "Azure Mobile Engagement için Windows Evrensel uygulamaları SDK yükseltme yordamları"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,47 +14,47 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 95aba5d55cd65d4190aad35737f872414b5ed443
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: fe85a99a92fb39082cafe7422b356de1f20f14bd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-universal-apps-sdk-upgrade-procedures"></a>Windows Evrensel uygulamaları SDK yükseltme yordamları
-Uygulamanıza katılım daha eski bir sürümü zaten bütünleştirdiyseniz noktaları hello SDK yükseltirken aşağıdaki tooconsider hello sahip.
+Uygulamanıza katılım daha eski bir sürümü zaten bütünleştirdiyseniz, SDK'yı yükseltirken aşağıdaki noktaları dikkate almanız gerekir.
 
-Merhaba SDK çeşitli sürümleri eksik birkaç yordamları toofollow olabilir. 0.10.1 geçirirseniz örneğin hello izleyin toofirst sahip too0.11.0 "0.9.0'dan gelen too0.10.1" yordamı sonra hello "0.10.1 gelen too0.11.0" yordamı.
+SDK çeşitli sürümleri eksik, birçok yordamı uygulamanız gerekebilir. Örneğin, 0.10.1 önce "Kimden 0.9.0'dan 0.10.1 için" yordamını takip etmek için sahip 0.11.0 sonra "Kimden 0.10.1 0.11.0 için" yordamı geçiş ise.
 
-## <a name="from-330-too340"></a>3.3.0 gelen too3.4.0
+## <a name="from-330-to-340"></a>3.3.0 3.4.0 için
 ### <a name="test-logs"></a>Test günlükleri
-Konsol günlükleri Hello SDK tarafından üretilen artık etkin/devre dışı bırakılmış/filtrelenmiş olabilir. toocustomize Bu, güncelleştirme hello özellik `EngagementAgent.Instance.TestLogEnabled` tooone hello kullanılabilir hello değerinin `EngagementTestLogLevel` numaralandırma, örneğin:
+SDK'sı tarafından üretilen konsol günlükleri artık etkin/devre dışı bırakılmış/filtrelenmiş olabilir. Bu özelleştirmek için özellik güncelleştirme `EngagementAgent.Instance.TestLogEnabled` bulunan değer birine `EngagementTestLogLevel` numaralandırma, örneğin:
 
             EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
             EngagementAgent.Instance.Init();
 
 ### <a name="resources"></a>Kaynaklar
-Merhaba ulaşma katmana geliştirilmiştir. Merhaba SDK NuGet paketini kaynakları parçasıdır.
+Reach katmana geliştirilmiştir. SDK'sı NuGet paketi kaynakları parçasıdır.
 
-Merhaba SDK'ın yeni sürümü toohello yükseltirken tookeep istediğinizi varolan hello dosyalarınızdan kaynaklarınızın klasör veya kaplama seçebilirsiniz:
+SDK'sının yeni sürüme yükseltme veya varolan dosyalarınızı kaynaklarınızı katmana klasöründen tutmak isteyip istemediğinizi seçebilirsiniz ancak:
 
-* Merhaba önceki katmana sizin yerinize çalıştığından veya hello tümleştirme `WebView` öğeleri el ile mevcut dosyalarınızı tookeep karar verebilirsiniz sonra çalışmaya devam edecektir. 
-* Tooupdate toohello yeni katmana, yalnızca Değiştir hello tüm istiyorsanız `overlay` kaynaklarınızla hello SDK paketinden yeni bir hello klasöründen (UWP uygulamaları: hello yükseltmeden sonra % USERPROFILE % hello yeni katmana klasör alabilirsiniz\\. nuget\ packages\MicrosoftAzure.MobileEngagement\3.4.0\content\win81\Resources).
+* Önceki katmana sizin yerinize çalıştığından veya tümleştirme `WebView` öğeleri el ile sonra karar mevcut dosyalarınızı korumak için bunu hala çalışır. 
+* Yeni katmana güncelleştirmek istiyorsanız, yalnızca tam değiştirme `overlay` kaynaklarınızı klasöründen SDK paketinden yeni bir (UWP uygulamaları: yükseltmeden sonra yeni katmana klasör % USERPROFILE % alabilirsiniz\\.nuget\packages\ MicrosoftAzure.MobileEngagement\3.4.0\content\win81\Resources).
 
 > [!WARNING]
-> Merhaba yeni katmana kullanarak hello önceki sürümünde yapılan tüm özelleştirmeler üzerine yazar.
+> Yeni katmana kullanarak önceki bir sürümünde yapılan tüm özelleştirmeler üzerine yazar.
 > 
 > 
 
-## <a name="from-320-too330"></a>3.2.0 gelen too3.3.0
+## <a name="from-320-to-330"></a>3.2.0 3.3.0 için
 ### <a name="resources"></a>Kaynaklar
-Bu adım yalnızca özelleştirilmiş kaynaklar ile ilgilidir. Toobackup sahip hello SDK (html, görüntüler, katmana) tarafından sağlanan hello kaynakları özelleştirdiyseniz, yükseltme ve yeniden Uygula önce bunları özelleştirmeyi üzerinde yükseltilmiş kaynakları.
+Bu adım yalnızca özelleştirilmiş kaynaklar ile ilgilidir. Ardından (html, görüntüler, katmana) SDK tarafından sağlanan kaynakları özelleştirdiyseniz, yükseltmeden önce yedekleme ve özelleştirmeyi yükseltilmiş kaynaklardaki yeniden gerekir.
 
-## <a name="from-310-too320"></a>3.1.0 gelen too3.2.0
+## <a name="from-310-to-320"></a>3.1.0 3.2.0 için
 ### <a name="resources"></a>Kaynaklar
-Bu adım yalnızca özelleştirilmiş kaynaklar ile ilgilidir. Toobackup sahip hello SDK (html, görüntüler, katmana) tarafından sağlanan hello kaynakları özelleştirdiyseniz, yükseltme ve yeniden Uygula önce bunları özelleştirmeyi üzerinde yükseltilmiş kaynakları.
+Bu adım yalnızca özelleştirilmiş kaynaklar ile ilgilidir. Ardından (html, görüntüler, katmana) SDK tarafından sağlanan kaynakları özelleştirdiyseniz, yükseltmeden önce yedekleme ve özelleştirmeyi yükseltilmiş kaynaklardaki yeniden gerekir.
 
 ### <a name="webview-integration"></a>Web görünümü tümleştirme
-Bazı geliştirmeler toomatch farklı cihaz form faktörleri'nın bu sürümünde sunulan. Merhaba webview, tümleştirilmesi hello aşağıdaki eşleştiğinden emin olun:
+Farklı cihaz form faktörleri eşleştirmek için bazı geliştirmeler'ın bu sürümünde sunulan. Web görünümü, tümleştirilmesi aşağıdaki eşleştiğinden emin olun:
 
 XAML sayfası () içinde:
 
@@ -73,7 +73,7 @@ Ve ilişkili .cs dosyanızda:
     namespace My.Namespace.Example
     {
             /// <summary>
-            /// An empty page that can be used on its own or navigated toowithin a Frame.
+            /// An empty page that can be used on its own or navigated to within a Frame.
             /// </summary>
             public sealed partial class ExampleEngagementReachPage : EngagementPage
             {
@@ -81,25 +81,25 @@ Ve ilişkili .cs dosyanızda:
               {
                 this.InitializeComponent();
 
-                /* Set your webview elements toohello correct size. */
+                /* Set your webview elements to the correct size. */
                 SetWebView(width, height);
               }
 
-              #region tooimplement
+              #region to implement
               /* Attach events when page is navigated. */
               protected override void OnNavigatedTo(NavigationEventArgs e)
               {
-                /* Update hello webview when hello app window is resized. */
+                /* Update the webview when the app window is resized. */
                 Window.Current.SizeChanged += DisplayProperties_OrientationChanged;
 
-                /* Update hello webview when hello app/status bar is resized. */
+                /* Update the webview when the app/status bar is resized. */
     #if WINDOWS_PHONE_APP || WINDOWS_UWP
                 ApplicationView.GetForCurrentView().VisibleBoundsChanged += DisplayProperties_VisibleBoundsChanged; 
     #endif
                 base.OnNavigatedTo(e);
               }
 
-              /* When page is left ensure toodetach SizeChanged handler. */
+              /* When page is left ensure to detach SizeChanged handler. */
               protected override void OnNavigatedFrom(NavigationEventArgs e)
               {
                 Window.Current.SizeChanged -= DisplayProperties_OrientationChanged;
@@ -109,7 +109,7 @@ Ve ilişkili .cs dosyanızda:
                 base.OnNavigatedFrom(e);
               }
 
-              /* "width" and "height" are hello current size of your application display. */
+              /* "width" and "height" are the current size of your application display. */
     #if WINDOWS_PHONE_APP || WINDOWS_UWP
               double width = ApplicationView.GetForCurrentView().VisibleBounds.Width;
               double height = ApplicationView.GetForCurrentView().VisibleBounds.Height;
@@ -119,10 +119,10 @@ Ve ilişkili .cs dosyanızda:
     #endif
 
               /// <summary>
-              /// Set your webview elements toohello correct size.
+              /// Set your webview elements to the correct size.
               /// </summary>
-              /// <param name="width">hello width of your current display.</param>
-              /// <param name="height">hello height of your current display.</param>
+              /// <param name="width">The width of your current display.</param>
+              /// <param name="height">The height of your current display.</param>
               private void SetWebView(double width, double height)
               {
                 #pragma warning disable 4014
@@ -136,7 +136,7 @@ Ve ilişkili .cs dosyanızda:
               }
 
               /// <summary>
-              /// Handler that takes hello Windows.Current.SizeChanged and indicates that webviews have toobe resized.
+              /// Handler that takes the Windows.Current.SizeChanged and indicates that webviews have to be resized.
               /// </summary>
               /// <param name="sender">Original event trigger.</param>
               /// <param name="e">Window Size Changed Event arguments.</param>
@@ -145,22 +145,22 @@ Ve ilişkili .cs dosyanızda:
                 double width = e.Size.Width;
                 double height = e.Size.Height;
 
-                /* Set your webview elements toohello correct size. */
+                /* Set your webview elements to the correct size. */
                 SetWebView(width, height);
               }
 
     #if WINDOWS_PHONE_APP || WINDOWS_UWP              
               /// <summary>
-              /// Handler that takes hello ApplicationView.VisibleBoundsChanged and indicates that webviews have toobe resized
+              /// Handler that takes the ApplicationView.VisibleBoundsChanged and indicates that webviews have to be resized
               /// </summary>
-              /// <param name="sender">hello related application view.</param>
+              /// <param name="sender">The related application view.</param>
               /// <param name="e">Related event arguments.</param>
               private void DisplayProperties_VisibleBoundsChanged(ApplicationView sender, Object e)
               {
                 double width = sender.VisibleBounds.Width;
                 double height = sender.VisibleBounds.Height;
 
-                /* Set your webview elements toohello correct size. */
+                /* Set your webview elements to the correct size. */
                 SetWebView(width, height);
               }
     #endif
@@ -168,37 +168,37 @@ Ve ilişkili .cs dosyanızda:
             }
     }
 
-## <a name="from-200-too300"></a>2.0.0 gelen too3.0.0
+## <a name="from-200-to-300"></a>2.0.0 3.0.0 için
 ### <a name="resources"></a>Kaynaklar
-Bu adım yalnızca özelleştirilmiş kaynaklar ile ilgilidir. Toobackup sahip hello SDK (html, görüntüler, katmana) tarafından sağlanan hello kaynakları özelleştirdiyseniz, yükseltme ve yeniden Uygula önce bunları özelleştirmeyi üzerinde yükseltilmiş kaynakları.
+Bu adım yalnızca özelleştirilmiş kaynaklar ile ilgilidir. Ardından (html, görüntüler, katmana) SDK tarafından sağlanan kaynakları özelleştirdiyseniz, yükseltmeden önce yedekleme ve özelleştirmeyi yükseltilmiş kaynaklardaki yeniden gerekir.
 
-## <a name="from-111-too200"></a>1.1.1 gelen too2.0.0
-Merhaba toomigrate'nın Azure Mobile Engagement tarafından desteklenen bir uygulamaya bir SDK tümleştirmesi hello Capptain hizmet gelen Capptain SAS tarafından nasıl sunulan açıklanmıştır. 
+## <a name="from-111-to-200"></a>1.1.1 2.0.0 için
+Aşağıdaki nasıl Azure Mobile Engagement tarafından desteklenen bir uygulamaya Capptain SAS tarafından sunulan Capptain hizmetinden bir SDK tümleştirmesi geçirileceğini açıklar. 
 
 > [!IMPORTANT]
-> Capptain ve Mobile Engagement olan değil hello aynı Hizmetleri ve yalnızca aşağıda verilen hello yordamı nasıl toomigrate hello istemci uygulamaları vurgular. Geçirme hello SDK hello uygulama hello Capptain sunucuları toohello Mobile Engagement sunuculardan veri geçişi YAPILMAZ
+> Capptain ve Mobile Engagement aynı Hizmetleri değildir ve aşağıda verilen yordamı yalnızca istemci uygulaması geçirmek nasıl vurgular. Uygulama SDK'yı geçirme verilerinizi Capptain sunucularından Mobile Engagement sunucuya geçişi YAPILMAZ
 > 
 > 
 
-Önceki bir sürümünden geçiş yapıyorsanız, lütfen hello Capptain web sitesi toomigrate too1.1.1 ilk başvurun sonra hello aşağıdaki yordamı uygulayın
+Önceki bir sürümünden geçiş yapıyorsanız, Lütfen 1.1.1 için önce geçirmenizi sonra aşağıdaki yordamı uygulamak için Capptain web sitesine bakın
 
 ### <a name="nuget-package"></a>Nuget paketi
 Değiştir **Capptain.WindowsPhone** tarafından **MicrosoftAzure.MobileEngagement** Nuget paketi.
 
 ### <a name="applying-mobile-engagement"></a>Mobil katılım uygulama
-Merhaba SDK kullanan hello terim `Engagement`. Proje toomatch tooupdate gereken bu değişikliği.
+Terimi SDK kullanan `Engagement`. Projenizi bu değişikliği eşleşecek şekilde güncelleştirmeniz gerekir.
 
-Toouninstall, geçerli Capptain nuget paketi gerekir. Tüm değişikliklerinizi Capptain Kaynaklar klasörünü kaldırılacak göz önünde bulundurun. Tookeep istiyorsanız, bu dosyaların bir kopyasını sonra yapın.
+Geçerli Capptain nuget paketini kaldırmanız gerekir. Tüm değişikliklerinizi Capptain Kaynaklar klasörünü kaldırılacak göz önünde bulundurun. Bu dosyaları saklamak isterseniz bir kopyasını oluşturun.
 
-Bundan sonra projenizde hello yeni Microsoft Azure katılım nuget paketini yükleyin. Doğrudan [nuget sitesinde] bulabilirsiniz. veya burada dizini. Tüm kaynak dosyaları katılım tarafından kullanılan ve hello yeni katılım DLL tooyour ekler bu eylem değiştirir başvuruları yansıtın.
+Bundan sonra projenizde yeni Microsoft Azure katılım nuget paketini yükleyin. Doğrudan [nuget sitesinde] bulabilirsiniz. veya burada dizini. Bu eylem, katılım tarafından kullanılan tüm kaynakları dosyalarının yerini alır ve yeni katılım DLL, proje başvuruları ekler.
 
-Proje başvuruları Capptain DLL başvurularını silerek tooclean sahip. Bunu yapmazsanız Capptain hello sürümü çakışır ve hataları gerçekleşir.
+Proje başvuruları Capptain DLL başvurularını silerek temizlemeniz gerekir. Bunu yapmazsanız Capptain sürümü çakışır ve hataları gerçekleşir.
 
-Capptain kaynakları özelleştirdiyseniz, eski dosyaları içeriğinizi kopyalayın ve bunları hello yeni katılım dosyalarında yapıştırın. Xaml ve cs dosyaları güncelleştirilmiş toobe gerektiğini unutmayın.
+Capptain kaynakları özelleştirdiyseniz, eski dosyaları içeriğinizi kopyalayın ve bunları yeni katılım dosyalar yapıştırın. Xaml ve cs dosyaları güncelleştirilmesi gerektiğini unutmayın.
 
-Bu adımlar tamamlandığında tooreplace eski Capptain başvurular hello yeni katılım başvurular tarafından yeterlidir.
+Bu adımlar tamamlandığında yeni katılım başvurular tarafından eski Capptain başvuruları değiştirin yeterlidir.
 
-1. Tüm Capptain ad güncelleştirilmiş toobe sahip.
+1. Tüm Capptain ad alanlarını güncelleştirilmesi gerekiyor.
    
     Geçişten önce:
    
@@ -251,7 +251,7 @@ Bu adımlar tamamlandığında tooreplace eski Capptain başvurular hello yeni k
 4. Sayfa değiştirir
    
    > [!IMPORTANT]
-   > Ayrıca değiştirir. Yeni ad `Microsoft.Azure.Engagement.Overlay`. Xaml ve cs dosyaları kullanılan toobe sahiptir. Üstelik `CapptainGrid` toobe adlı `EngagementGrid`, `capptain_notification_content` ve `capptain_announcement_content` adlandırıldığı `engagement_notification_content` ve `engagement_announcement_content`.
+   > Ayrıca değiştirir. Yeni ad `Microsoft.Azure.Engagement.Overlay`. Xaml ve cs dosyalarında kullanılacak sahiptir. Üstelik `CapptainGrid` adlandırılması için `EngagementGrid`, `capptain_notification_content` ve `capptain_announcement_content` adlandırıldığı `engagement_notification_content` ve `engagement_announcement_content`.
    > 
    > 
    
@@ -268,24 +268,24 @@ Bu adımlar tamamlandığında tooreplace eski Capptain başvurular hello yeni k
           engagement="using:Microsoft.Azure.Engagement.Overlay"
           ...
         </engagement:EngagementPageOverlay>
-5. Merhaba Capptain resimler ve HTML dosyaları gibi diğer kaynaklar lütfen unutmayın. bunlar da yeniden adlandırılmış toouse "Katılım" olmuştur.
+5. İçin diğer kaynaklar Capptain resimler ve HTML dosyaları gibi bunlar ayrıca "Katılım" kullanacak şekilde yeniden adlandırıldığı gerektiğini lütfen unutmayın.
 
 ### <a name="project-declaration"></a>Proje bildirimi
 Package.appxmanifest üzerinde `File Type Associations` gelen güncelleştirildi:
 
-* capptain\_ulaşmak\_içerik tooengagement\_ulaşmak\_içeriği
-* capptain\_günlük\_tooengagement dosya\_günlük\_dosyası
+* capptain\_ulaşmak\_katılım için içerik\_ulaşmak\_içeriği
+* capptain\_günlük\_katılım dosyasına\_günlük\_dosyası
 
 ### <a name="application-id--sdk-key"></a>Uygulama Kimliği / SDK anahtarı
-Katılım bağlantı dizesini kullanır. Bir uygulama kimliği ve Mobile Engagement SDK'sı anahtarla toospecify yoksa, toospecify bir bağlantı dizesi yeterlidir. Bunu EngagementConfiguration dosyanızı ayarlayabilirsiniz.
+Katılım bağlantı dizesini kullanır. Mobile Engagement ile bir uygulama kimliği ve bir SDK anahtarı belirtmeniz gerekmez, yalnızca bir bağlantı dizesi belirtmeniz gerekir. Bunu EngagementConfiguration dosyanızı ayarlayabilirsiniz.
 
-Merhaba katılım yapılandırma ayarlanabilir, `Resources\EngagementConfiguration.xml` projenizin dosya.
+Katılım yapılandırma ayarlanabilir, `Resources\EngagementConfiguration.xml` projenizin dosya.
 
-Bu dosya toospecify düzenleyin:
+Belirtmek için bu dosyayı düzenleyin:
 
 * Uygulama bağlantı dizenizi etiketleri arasına `<connectionString>` ve `<\connectionString>`.
 
-Çalışma zamanında, bunun yerine, çağırabilirsiniz hello aşağıdaki toospecify istiyorsanız yöntemi hello katılım aracı başlatmadan önce:
+Bunun yerine çalışma zamanında belirtmek istiyorsanız, katılım aracı başlatmadan önce aşağıdaki yöntemini çağırabilirsiniz:
 
     /* Engagement configuration. */
     EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -294,10 +294,10 @@ Bu dosya toospecify düzenleyin:
     /* Initialize Engagement agent with above configuration. */
     EngagementAgent.Instance.Init(args, engagementConfiguration);
 
-Merhaba bağlantı dizesi, uygulamanız için Klasik Azure portalı hello üzerinde görüntülenir.
+Bağlantı dizesi, uygulamanız için Azure Klasik Portalı'ndaki görüntülenir.
 
 ### <a name="items-name-change"></a>Öğe adı değişikliği
-Tüm öğeleri adlı *capptain* adlandırılmış *engagement*. Benzer şekilde *Capptain* çok*Engagement*.
+Tüm öğeleri adlı *capptain* adlandırılmış *engagement*. Benzer şekilde *Capptain* için *Engagement*.
 
 Yaygın olarak kullanılan Capptain öğeleri örnekleri:
 

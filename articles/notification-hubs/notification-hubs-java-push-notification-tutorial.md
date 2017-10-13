@@ -1,6 +1,6 @@
 ---
-title: aaaHow toouse Notification Hubs Java ile
-description: "Bilgi nasıl toouse Azure Notification Hubs bir Java arka uçtan."
+title: Notification Hubs Java ile kullanma
+description: "Bir Java arka ucunu Azure bildirim hub'ları kullanmayı öğrenin."
 services: notification-hubs
 documentationcenter: 
 author: ysxu
@@ -14,20 +14,20 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: afcf305b1acd9ee28ee4889040ece59d9399d29d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 41f978750ddef9f7e878c65b0017e909720154aa
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toouse-notification-hubs-from-java"></a>Nasıl toouse Java'dan Notification Hubs
+# <a name="how-to-use-notification-hubs-from-java"></a>Java'dan Notification Hubs kullanma
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Bu konuda hello anahtar hello yeni tam olarak desteklenen resmi özelliklerini açıklayan Azure Notification Hub Java SDK'sı. Bu açık kaynaklı proje ve hello tüm SDK kodu görüntüleyebilirsiniz [Java SDK'sı]. 
+Bu konu, yeni tam olarak desteklenen resmi Azure Notification Hub Java SDK'sı anahtar özelliklerini açıklar. Bu açık kaynaklı proje ve tüm SDK koda görüntüleyebilirsiniz [Java SDK'sı]. 
 
-Genel olarak, bir Java/PHP/Python/Ruby arka ucunu tüm bildirim hub'ları özelliklere erişebilir hello MSDN konuda açıklandığı gibi hello bildirim hub'ı REST arabirimini kullanarak [bildirim hub'ları REST API'leri](http://msdn.microsoft.com/library/dn223264.aspx). Bu Java SDK'sı, Java bu REST arabirimleri üzerinden ince sarmalayıcı sağlar. 
+Genel olarak, bir Java/PHP/Python/Ruby MSDN konusunda açıklandığı gibi bildirim hub'ı REST arabirimini kullanarak uç tüm bildirim hub'ları özellikleri erişebileceğiniz [bildirim hub'ları REST API'leri](http://msdn.microsoft.com/library/dn223264.aspx). Bu Java SDK'sı, Java bu REST arabirimleri üzerinden ince sarmalayıcı sağlar. 
 
-Merhaba SDK'sı şu anda destekler:
+SDK'sı şu anda destekler:
 
 * Bildirim hub'ları üzerinde CRUD 
 * CRUD kayıtlar hakkında
@@ -42,7 +42,7 @@ Merhaba SDK'sı şu anda destekler:
 ### <a name="compile-and-build"></a>Derleme ve oluşturma
 Kullanım [Maven]
 
-toobuild:
+Oluşturmak için:
 
     mvn package
 
@@ -104,7 +104,7 @@ Benzer şekilde, Android (GCM), Windows Phone (MPNS) ve Kindle yangın (ADM) kay
 
 **Kayıtlar oluşturmak kullanarak oluşturduğunuz RegistrationId + upsert düzeni**
 
-Kayıp tooany yanıtları son çoğaltmaları kaydı kimlikleri hello aygıtta depolanıyorsa kaldırır:
+Kayıp yanıtları nedeniyle yinelenen kaydı kimlikleri aygıtta depolanıyorsa kaldırır:
 
     String id = hub.createRegistrationId();
     WindowsRegistration reg = new WindowsRegistration(id, new URI(CHANNELURI));
@@ -136,21 +136,21 @@ Kayıp tooany yanıtları son çoğaltmaları kaydı kimlikleri hello aygıtta d
 Tüm koleksiyon sorgular, $top ve devamlılık belirteçleri destekler.
 
 ### <a name="installation-api-usage"></a>Yükleme API kullanımı
-API kayıt yönetimi için alternatif bir mekanizma yüklemesidir. Önemsiz olmayan ve kolayca yanlış veya inefficiently yapılabilir birden çok kayıtlar koruma yerine onu olası toouse tek yükleme nesnesi sunulmuştur. Yükleme ihtiyaç duyduğunuz her şeyi içerir: itme kanal (cihaz belirteci), etiketler, şablonlar, ikincil döşeme (WNS ve APNS için). Toocall hello hizmet tooget kimliği artık gerekmeyen - yalnızca GUID veya başka bir tanımlayıcı oluşturmak, cihazda tutmak ve anında iletme kanal (cihaz belirteci) ile birlikte tooyour arka uç gönderin. Merhaba arka uçta yalnızca tek bir çağrı yapmanız gerekir: CreateOrUpdateInstallation, onu tam olarak ıdempotent, bu nedenle sağladığı ücretsiz tooretry gerekiyorsa.
+API kayıt yönetimi için alternatif bir mekanizma yüklemesidir. Önemsiz olmayan ve kolayca yanlış veya inefficiently yapılabilir birden çok kayıtlar koruma yerine artık tek bir yükleme nesnesini kullanmak mümkündür. Yükleme ihtiyaç duyduğunuz her şeyi içerir: itme kanal (cihaz belirteci), etiketler, şablonlar, ikincil döşeme (WNS ve APNS için). Kimliği artık get - yalnızca GUID veya başka bir tanımlayıcı oluşturmak, cihazda tutmak ve anında iletme kanal (cihaz belirteci) ile birlikte arka göndermek için hizmetini çağırmak gerekmez. Arka uçta yalnızca tek bir çağrı yapmanız gerekir: CreateOrUpdateInstallation, onu tam olarak ıdempotent, böylece gerektiğinde yeniden deneme çekinmeyin.
 
 Örneğin, Amazon Kindle yangın olarak şöyle görünür:
 
     Installation installation = new Installation("installation-id", NotificationPlatform.Adm, "adm-push-channel");
     hub.createOrUpdateInstallation(installation);
 
-Tooupdate istiyorsanız bunu: 
+Güncelleştirmek istiyorsanız: 
 
     installation.addTag("foo");
     installation.addTemplate("template1", new InstallationTemplate("{\"data\":{\"key1\":\"$(value1)\"}}","tag-for-template1"));
     installation.addTemplate("template2", new InstallationTemplate("{\"data\":{\"key2\":\"$(value2)\"}}","tag-for-template2"));
     hub.createOrUpdateInstallation(installation);
 
-Gelişmiş senaryolar için biz yalnızca belirli özellikleri hello yükleme nesnesi toomodify veren kısmi güncelleştirme özelliğine sahip. Temel kısmi güncelleştirme yükleme nesnesi karşı çalıştırabilirsiniz JSON düzeltme işlemleri alt kümesidir.
+Gelişmiş senaryolar için yükleme nesnesi yalnızca belirli özelliklerini değiştirmek için sağlayan kısmi güncelleştirme yeteneği sahip. Temel kısmi güncelleştirme yükleme nesnesi karşı çalıştırabilirsiniz JSON düzeltme işlemleri alt kümesidir.
 
     PartialUpdateOperation addChannel = new PartialUpdateOperation(UpdateOperationType.Add, "/pushChannel", "adm-push-channel2");
     PartialUpdateOperation addTag = new PartialUpdateOperation(UpdateOperationType.Add, "/tags", "bar");
@@ -161,9 +161,9 @@ Yükleme Sil:
 
     hub.deleteInstallation(installation.getInstallationId());
 
-CreateOrUpdate, düzeltme eki ve Delete sonunda Get ile tutarlı değil. İstenen işlem yalnızca toohello sistem sırası hello araması sırasında gider ve arka planda yürütülür. Get ana çalışma zamanı senaryosu için ancak yalnızca hata ayıklama ve sorun giderme amacıyla için tasarlanmamıştır, sıkı bir şekilde hello hizmeti tarafından kısıtlanan dikkat edin.
+CreateOrUpdate, düzeltme eki ve Delete sonunda Get ile tutarlı değil. İstenen işlem yalnızca çağrı sırasında sistem kuyruğa gider ve arka planda yürütülür. Get ana çalışma zamanı senaryosu için ancak yalnızca hata ayıklama ve sorun giderme amacıyla için tasarlanmamıştır, sıkı bir şekilde hizmet tarafından kısıtlanan dikkat edin.
 
-Yüklemeleri için gönderme akışı olan hello aynı kayıtlar için. Biz yalnızca bir seçenek tootarget bildirim toohello ekledik belirli yükleme - yalnızca kullanım etiketi "InstallationID: {desired-id}". Servis talebi için yukarıdaki onu şöyle olabilir:
+Yüklemeleri için gönderme akışı kayıtlar ile aynıdır. Biz yalnızca belirli yüklemeyi bildirim hedef - yalnızca etiket kullanmak için bir seçenek ekledik "InstallationID: {desired-id}". Servis talebi için yukarıdaki onu şöyle olabilir:
 
     Notification n = Notification.createWindowsNotification("WNS body");
     hub.sendNotification(n, "InstallationId:{installation-id}");
@@ -176,7 +176,7 @@ Biri çeşitli şablonlar için:
     hub.sendNotification(n, "InstallationId:{installation-id} && tag-for-template1");
 
 ### <a name="schedule-notifications-available-for-standard-tier"></a>Bildirimleri (standart katmanı için kullanılabilir) zamanlama
-aynı normal gönderme ancak bir ek parametre - bildirim teslim zaman gerektirdiğinizde scheduledTime hello. Hizmet şimdi + 5 dakika arasında geçen süreyi herhangi bir noktasını kabul eder ve şimdi + 7 gün.
+Aynı normal gönderme ancak bir ek parametre - bildirim teslim zaman gerektirdiğinizde scheduledTime. Hizmet şimdi + 5 dakika arasında geçen süreyi herhangi bir noktasını kabul eder ve şimdi + 7 gün.
 
 **Windows yerel bildirim zamanla:**
 
@@ -186,7 +186,7 @@ aynı normal gönderme ancak bir ek parametre - bildirim teslim zaman gerektirdi
     hub.scheduleNotification(n, c.getTime());
 
 ### <a name="importexport-available-for-standard-tier"></a>İçeri/dışarı aktarma (standart katmanı için kullanılabilir)
-Bazen gerekli tooperform toplu işlem kayıtlar karşı ediyor. Genellikle başka bir sistem veya yalnızca yoğun düzeltme toosay güncelleştirme hello etiketleri tümleştirme içindir. Biz kayıtlar binlerce hakkında konuşurken varsa toouse Get/güncelleştirme akış önerilir güçlü değil. İçeri/dışarı aktarma yeteneği tasarlanmış toocover hello senaryodur. Temel olarak, bir erişim toosome blob kapsayıcısı depolama hesabınızın altında bir gelen veri kaynağı ve çıkış konumu olarak sağlayın.
+Bazen kayıtlar karşı toplu işlemi gerçekleştirmek için gereklidir. Genellikle başka bir sistemi ile tümleştirme için veya yalnızca yoğun düzeltme söylemek için etiketler güncelleştirin. Biz kayıtlar binlerce hakkında konuşurken Get/güncelleştirme akış kullanılacak önerilen kesin değildir. İçeri/dışarı aktarma yeteneği senaryo karşılamak üzere tasarlanmıştır. Temel olarak, bir erişim bazı blob kapsayıcısı için depolama hesabınızın altında bir gelen veri kaynağı ve çıkış konumu olarak sağlar.
 
 **Dışarı aktarma işini gönder:**
 
@@ -217,10 +217,10 @@ Bazen gerekli tooperform toplu işlem kayıtlar karşı ediyor. Genellikle başk
 
     List<NotificationHubJob> jobs = hub.getAllNotificationHubJobs();
 
-**SAS imzayla URI:** bazı blob dosya veya blob kapsayıcısı hello URL'si artı izinleri ve süre sonu gibi parametreleri kümesini artı hesabın SAS anahtarı kullanılarak yapılan tüm bu işlemler imzası budur. Azure depolama Java SDK'sı, bu tür bir URI oluşturma dahil olmak üzere Zengin özellikleri vardır. Basit alternatif olarak algoritmasını imzalamanın çok temel ve compact uygulaması olan ImportExportE2E test sınıfından (Merhaba github konum) göz atın.
+**SAS imzayla URI:** bazı blob dosya veya blob kapsayıcı URL'si artı izinleri ve süre sonu gibi parametreleri kümesini artı hesabın SAS anahtarı kullanılarak yapılan tüm bu işlemler imzası budur. Azure depolama Java SDK'sı, bu tür bir URI oluşturma dahil olmak üzere Zengin özellikleri vardır. Basit alternatif olarak algoritmasını imzalamanın çok temel ve compact uygulaması olan ImportExportE2E test sınıfı (github konumdan) göz atın.
 
 ### <a name="send-notifications"></a>Bildirimleri gönderme
-Hello bildirim nesnesi yalnızca üstbilgileri gövde, bazı yardımcı program yöntemleri hello yerel ve şablon bildirimleri nesneleri oluşturmaya yardımcı olur.
+Bildirim nesnesi yalnızca üstbilgileri gövde, bazı yardımcı program yöntemleri yerel ve şablon bildirimleri nesneleri oluşturmaya yardımcı olur.
 
 * **Windows mağazası ve Windows Phone 8.1 (Silverlight olmayan)**
   
@@ -252,13 +252,13 @@ Hello bildirim nesnesi yalnızca üstbilgileri gövde, bazı yardımcı program 
         String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
         Notification n = Notification.createAdmNotification(message);
         hub.sendNotification(n);
-* **TooTags Gönder**
+* **Etiketleri Gönder**
   
         Set<String> tags = new HashSet<String>();
         tags.add("boo");
         tags.add("foo");
         hub.sendNotification(n, tags);
-* **Tootag ifade Gönder**       
+* **Etiket ifadesi Gönder**       
   
         hub.sendNotification(n, "foo && ! bar");
 * **Şablon bildirim gönder**
@@ -272,22 +272,22 @@ Hello bildirim nesnesi yalnızca üstbilgileri gövde, bazı yardımcı program 
 Java Kodunuzu çalıştırmaya şimdi, hedef cihazda görünen bir bildirim üretir.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Bu konuda size nasıl basit bir Java toocreate REST gösterdi istemci bildirim hub'ları için. Buradan şunları yapabilirsiniz:
+Bu konuda size bildirim hub'ları için basit bir Java REST istemcisi nasıl oluşturulacağını gösterir. Buradan şunları yapabilirsiniz:
 
-* Merhaba tam karşıdan [Java SDK'sı], hello tüm SDK kodunu içerir. 
-* Merhaba örnekleriyle Yürüt:
+* Tam karşıdan [Java SDK'sı], tüm SDK kodunu içerir. 
+* Örneklerle Yürüt:
   * [Notification Hubs ile çalışmaya başlama]
   * [Son dakika haberleri göndermek]
   * [Yerelleştirilmiş son dakika haberleri göndermek]
-  * [Tooauthenticated kullanıcılar bildirimleri gönderme]
-  * [Platformlar arası bildirimleri tooauthenticated kullanıcılar Gönder]
+  * [Kimliği doğrulanmış kullanıcılara bildirim göndermek]
+  * [Kimliği doğrulanmış kullanıcılara platformlar arası bildirimleri gönderin]
 
 [Java SDK'sı]: https://github.com/Azure/azure-notificationhubs-java-backend
 [Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Notification Hubs ile çalışmaya başlama]: http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/
 [Son dakika haberleri göndermek]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-dotnet/
 [Yerelleştirilmiş son dakika haberleri göndermek]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Tooauthenticated kullanıcılar bildirimleri gönderme]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users/
-[Platformlar arası bildirimleri tooauthenticated kullanıcılar Gönder]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[Kimliği doğrulanmış kullanıcılara bildirim göndermek]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users/
+[Kimliği doğrulanmış kullanıcılara platformlar arası bildirimleri gönderin]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 [Maven]: http://maven.apache.org/
 

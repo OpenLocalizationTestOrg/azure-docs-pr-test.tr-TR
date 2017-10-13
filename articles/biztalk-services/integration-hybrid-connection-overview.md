@@ -1,5 +1,5 @@
 ---
-title: "aaaHybrid bağlantılara genel bakış | Microsoft Docs"
+title: "Karma Bağlantılara genel bakış | Microsoft Belgeleri"
 description: "Karma Bağlantılar, güvenlik, TCP bağlantı noktaları ve desteklenen yapılandırmalar hakkında bilgi edinin. MABS, WABS."
 services: biztalk-services
 documentationcenter: 
@@ -14,85 +14,83 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: f092c6019aae761e1e73f13d1af8446a896515c2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 992c438ab2dac8dc20ba284bd095afbcd801a62f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="hybrid-connections-overview"></a>Karma Bağlantılara genel bakış
 
 > [!IMPORTANT]
-> BizTalk Karma Bağlantılar kullanımdan kalktı ve yerine App Service Karma Bağlantılar kullanıma sunuldu. Daha fazla bilgi için mevcut BizTalk karma bağlantılar nasıl toomanage bakın dahil olmak üzere [Azure App Service karma bağlantılar](../app-service/app-service-hybrid-connections.md).
+> BizTalk Karma Bağlantılar kullanımdan kalktı ve yerine App Service Karma Bağlantılar kullanıma sunuldu. Var olan BizTalk Karma Bağlantılarınızı nasıl yöneteceğiniz de dahil olmak üzere daha fazla bilgi için bkz. [Azure App Service Karma Bağlantılar](../app-service/app-service-hybrid-connections.md).
 
-Giriş tooHybrid bağlantıları, hello desteklenen yapılandırmaları listeler ve gerekli TCP bağlantı noktalarını listeler hello.
+Karma Bağlantılar’a giriş, desteklenen yapılandırmaları listeler ve gerekli TCP bağlantı noktalarını listeler.
 
 ## <a name="what-is-a-hybrid-connection"></a>Karma bağlantı nedir
-Karma Bağlantılar, Azure BizTalk Services’ın bir özelliğidir. Karma bağlantılar, bir kolay ve uygun şekilde tooconnect hello Web Apps Özelliği Azure App Service'te (önceden Web siteleri) ve Azure App Service (önceden Mobile Services) tooon içi kaynaklar, güvenlik duvarının arkasında hello Mobile Apps özelliği sağlar.
+Karma Bağlantılar, Azure BizTalk Services’ın bir özelliğidir. Karma Bağlantılar, Azure App Service’deki Web Uygulamaları özelliğine (önceden Web Siteleri) ve Azure App Service’deki Mobile Apps özelliğine (önceden Mobile Services), güvenlik duvarının ardındaki şirket içi kaynaklara bağlanmanın kolay ve uygun bir yolunu sağlar.
 
 ![Karma Bağlantılar][HCImage]
 
 Karma Bağlantılar’ın yararları:
 
 * Web Uygulamaları ve Mobile Apps mevcut şirket içi verilere ve hizmetlere güvenli erişebilir.
-* Birden çok Web uygulamaları veya Mobile Apps karma bağlantı tooaccess bir şirket içi kaynağa paylaşabilirsiniz.
-* En az TCP bağlantı noktaları gerekli tooaccess ağınıza şunlardır.
-* Karma bağlantılar kullanarak uygulamaları, yayımlanan hello belirli şirket içi kaynağa hello karma bağlantı erişim.
-* SQL Server, MySQL, HTTP Web API'leri ve birçok özel Web hizmeti gibi statik TCP bağlantı kullanan tooany şirket içi kaynaklara bağlanabilir.
+* Birden çok Web Uygulaması veya Mobil uygulama şirket içi kaynağa erişmek için Karma Bağlantı’yı paylaşabilir.
+* Ağa erişmek için çok az sayıda TCP bağlantı noktası gerekir.
+* Karma Bağlantılar’ı kullanan uygulamalar, yalnızca Karma Bağlantılar’la yayımlanmış belirli şirket içi kaynağa erişir.
+* SQL Sunucusu, MySQL, HTTP Web API’leri ve çok sayıda özel Web Hizmeti gibi statik TCP bağlantı noktası kullanan şirket içi kaynaklara bağlanabilir.
   
   > [!NOTE]
   > Dinamik bağlantı noktaları (örneğin, FTP Pasif modu veya Genişletilmiş Pasif modu) kullanan TCP tabanlı hizmetler şu anda desteklenmemektedir. LDAP de desteklenmemektedir. LDAP statik bir TCP bağlantı noktasını kullansa da, UDP de kullanmaktadır. Sonuç olarak desteklenmemektedir.
   > 
   > 
 * Web Uygulamaları (.NET, PHP, Java, Python, Node.js) ve Mobile Apps (Node.js, .NET) tarafından desteklenen tüm altyapılarla kullanılabilir.
-* Web uygulamaları ve Mobile Apps tam olarak hello şirket içi kaynaklara erişebilir aynı şekilde hello Web veya mobil uygulama yerel ağınızda olarak bulunuyorsa. Örneğin, aynı bağlantı dizesine kullanılan şirket içi Azure üzerinde de kullanılabilir hello.
+* Web Uygulamaları veya Mobile Apps, tam da yerel ağınızda bulunan Web veya Mobil Uygulama gibi aynı şekilde şirket içi kaynaklara erişebilir. Örneğin, şirket içi kullanılan aynı bağlantı dizesi Azure üzerinde de kullanılabilir.
 
-Karma bağlantılar da kurum yöneticilerinin denetleyip görselleştirmesini de dahil olmak üzere karma uygulamalar tarafından erişilen hello şirket kaynaklarına sağlar:
+Karma Bağlantılar, karma uygulamaların eriştiği kurum kaynaklarını kurum yöneticilerinin denetleyip görselleştirmesini de sağlar; bunlar arasında şunlar da yer alır:
 
-* Grup İlkesi ayarlarını kullanarak, yöneticiler karma bağlantılar hello ağda izin ve aynı zamanda karma uygulamalar tarafından erişilen kaynakları atayabilir.
-* Hello şirket ağındaki etkinlik ve Denetim günlükleri karma bağlantılar tarafından erişilen hello kaynaklar görünürlük sağlar.
+* Grup İlkesi ayarlarını kullanarak, yöneticiler Karma Bağlantılar’a ağda izin verebilir ve karma uygulamaların erişebildiği kaynakları atayabilir.
+* Şirket ağındaki etkinlik ve denetim günlükleri Karma Bağlantılar’ın eriştiği kaynaklara görünürlük sağlar.
 
 ## <a name="example-scenarios"></a>Örnek senaryolar
-Karma bağlantılar aşağıdaki altyapı ve uygulama bileşimlerini hello destekler:
+Karma Bağlantılar aşağıdaki altyapı ve uygulama bileşimlerini destekler:
 
-* .NET framework erişim tooSQL sunucu
-* .NET framework erişim tooHTTP/HTTPS Hizmetleri WebClient ile
-* PHP erişim tooSQL Server, MySQL
-* Java erişim tooSQL Server, MySQL ve Oracle
-* Java erişim tooHTTP/HTTPS Hizmetleri
+* SQL Server için .NET altyapı erişimi
+* WebClient ile HTTP/HTTPS hizmetleri için .NET altyapı erişimi
+* SQL Server, MySQL için PHP erişimi
+* SQL Server, MySQL ve Oracle için Java erişimi
+* HTTP/HTTPS hizmetleri için Java erişimi
 
-Karma bağlantılar tooaccess kullanarak SQL Server içi, hello aşağıdakileri göz önünde bulundurun:
+Şirket içi SQL Server’a erişmek için Karma Bağlantılar kullanıldığında şunları göz önünde bulundurun:
 
-* SQL Express adlandırılmış örnekleri statik bağlantı noktaları yapılandırılmış toouse olması gerekir. Varsayılan olarak, SQL Express adlandırılmış örnekleri dinamik bağlantı noktalarını kullanır.
+* SQL Express Adlandırılmış Örnekleri statik bağlantı noktalarını kullanacak şekilde yapılandırılmalıdır. Varsayılan olarak, SQL Express adlandırılmış örnekleri dinamik bağlantı noktalarını kullanır.
 * SQL Express Varsayılan Örnekleri statik bağlantı noktasını kullansa da TCP’nin de etkinleştirilmesi gerekir. Varsayılan olarak, TCP etkin değildir.
-* Kümeleme veya kullanılabilirlik grupları kullanılırken hello `MultiSubnetFailover=true` modu şu anda desteklenmiyor.
-* Merhaba `ApplicationIntent=ReadOnly` şu anda desteklenmiyor.
-* SQL kimlik doğrulaması hello Azure uygulamanızı ve hello şirket içi SQL server tarafından desteklenen hello uçtan uca yetkilendirme yöntemi olarak gerekli olabilir.
+* Kümeleme veya Kullanılabilirlik Grupları kullanılırken `MultiSubnetFailover=true` modu şu anda desteklenmiyor.
+* `ApplicationIntent=ReadOnly` şu anda desteklenmiyor.
+* SQL Kimlik Doğrulaması, Azure uygulamasının ve şirket içi SQL sunucusunun desteklediği uçtan uca yetkilendirme yöntemi olarak gerekebilir.
 
 ## <a name="security-and-ports"></a>Güvenlik ve bağlantı noktaları
-Karma bağlantılar kullanabilmesi paylaşılan erişim imzası (SAS) yetkilendirme toosecure hello bağlantıları hello Azure ' uygulamaları ve hello şirket içi karma Bağlantı Yöneticisi toohello karma bağlantı. Merhaba uygulama için ayrı bağlantı anahtarları oluşturulur ve hello içi karma Bağlantı Yöneticisi. Bu bağlantı anahtarları uzatılabilir ve bağımsız olarak iptal edilebilir.
+Karma Bağlantılar, Azure uygulamalarından ve şirket içi Karma Bağlantı Yöneticisi’nden Karma Bağlantılar’a gelen bağlantıların güvenliğini sağlamak için Paylaşılan Erişim İmzası (SAS) yetkilendirmesini kullanır. Uygulama ve şirket içi Karma Bağlantı Yöneticisi için ayrı bağlantı anahtarları oluşturulur. Bu bağlantı anahtarları uzatılabilir ve bağımsız olarak iptal edilebilir.
 
-Merhaba içi karma Bağlantı Yöneticisi ve hello anahtarları toohello uygulamaları sorunsuz ve güvenli dağıtım için karma bağlantılar sağlar.
+Karma Bağlantılar, uygulamalara ve şirket içi Karma Bağlantı Yöneticisi’ne anahtarların sorunsuz ve güvenli dağıtılmasını sağlar.
 
 Bkz. [Karma Bağlantıları Oluşturma ve Yönetme](integration-hybrid-connection-create-manage.md).
 
-*Uygulama yetkilendirmesi karma bağlantı hello ayrı*. Uygun herhangi bir yetkilendirme yöntemi kullanılabilir. Merhaba yetkilendirme yöntemi hello Azure Bulut ve hello şirket içi bileşenler arasında desteklenen hello uçtan uca yetkilendirme yöntemlerine bağlıdır. Örneğin, Azure uygulamanız bir şirket içi SQL Server’a erişir. Bu senaryoda, SQL yetkilendirme desteklenen uçtan uca hello yetkilendirme yöntemi olabilir.
+*Uygulama yetkilendirmesi Karma Bağlantı’dan ayrıdır*. Uygun herhangi bir yetkilendirme yöntemi kullanılabilir. Yetkilendirme yöntemi, Azure bulutu ve şirket içi bileşenler arasında desteklenen uçtan uca yetkilendirme yöntemlerine bağlıdır. Örneğin, Azure uygulamanız bir şirket içi SQL Server’a erişir. Bu senaryoda, SQL etkilendirme uçtan uca destekleyen yetkilendirme yöntemi olabilir.
 
 #### <a name="tcp-ports"></a>TCP bağlantı noktaları
-Karma Bağlantılar için, yalnızca özel ağınızdan giden TCP veya HTTP bağlantısı gerekir. Değil, herhangi bir güvenlik duvarı bağlantı tooopen gerekir veya ağ çevre yapılandırmasını tooallow gelen bağlantılara ağınıza değiştirin.
+Karma Bağlantılar için, yalnızca özel ağınızdan giden TCP veya HTTP bağlantısı gerekir. Herhangi bir güvenlik duvarı bağlantı noktasını açmanız veya gelen bağlantılara ağınızda izin vermek için ağ çevre yapılandırmasını değiştirmeniz gerekmez.
 
-TCP bağlantı noktaları aşağıdaki hello karma bağlantılar tarafından kullanılır:
+Aşağıdaki TCP bağlantı noktaları Karma Bağlantılar tarafından kullanılır:
 
 | Bağlantı noktası | Neden gerekiyor |
 | --- | --- |
-| 9350 - 9354 |Bu bağlantı noktaları veri aktarımı için kullanılır. TCP bağlantısı olup olmadığını hello hizmet veri yolu Geçişi Yöneticisi bağlantı noktası 9350 toodetermine araştırmaları. Varsa, 9352 adlı bağlantı noktasının da olduğu varsayılır. Veri trafiği 9352 bağlantı noktası üzerinden gider. <br/><br/>Giden bağlantılar toothese bağlantı noktalarına izin verecek. |
-| 5671 |9352 adlı bağlantı noktası veri trafiği için kullanıldığında, bağlantı noktası 5671 hello denetim kanalını kullanılır. <br/><br/>Giden bağlantılar toothis bağlantı noktasına izin verin. |
-| 80, 443 |Bu bağlantı noktaları, bazı veri isteklerini tooAzure için kullanılır. Ayrıca, 9352 ve 5671 bağlantı noktaları kullanılabilir değilse *sonra* 80 ve 443 numaralı bağlantı noktalarını veri iletimi ve hello denetim kanalı için kullanılan hello geri dönüş bağlantı noktaları olduğundan.<br/><br/>Giden bağlantılar toothese bağlantı noktalarına izin verecek. <br/><br/>**Not** olmayan diğer TCP bağlantı noktaları geri dönüş bağlantı noktaları hello yerine hello gibi toouse bu önerilir. Merhaba HTTP/WebSocket, veri kanallarına yönelik yerel TCP yerine hello protokol olarak kullanılır. Düşük performansa neden olabilir. |
+| 9350 - 9354 |Bu bağlantı noktaları veri aktarımı için kullanılır. Hizmet Veri Yolu geçişi yöneticisi, TCP bağlantısı olup olmadığını saptamak için 9350 adlı bağlantı noktasını incelemelidir. Varsa, 9352 adlı bağlantı noktasının da olduğu varsayılır. Veri trafiği 9352 bağlantı noktası üzerinden gider. <br/><br/>Bu bağlantı noktalarına giden bağlantılara izin verin. |
+| 5671 |9352 adlı bağlantı noktası veri trafiği için kullanıldığında, 5671 bağlantı noktası denetim kanalını kullanılır. <br/><br/>Bu bağlantı noktasına giden bağlantılara izin verin. |
+| 80, 443 |Bu bağlantı noktaları Azure’e bazı veri isteklerini iletmek için kullanılır. Ayrıca, 9352 ve 5671 bağlantı noktaları kullanıma hazır değilse, *bu nedenle* 80 ve 443 bağlantı noktaları, veri iletimi ve denetim kanalı için kullanılan temel bağlantı noktalarıdır.<br/><br/>Bu bağlantı noktalarına giden bağlantılara izin verin. <br/><br/>**Not** Diğer TCP bağlantı noktaları yerine bunların temel bağlantı noktası olarak kullanılması önerilmez. HTTP/WebSocket, veri kanallarına yönelik yerel TCP yerine protokol olarak kullanılır. Düşük performansa neden olabilir. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Karma Bağlantıları oluşturma ve yönetme](integration-hybrid-connection-create-manage.md)<br/>
-[Azure Web Apps tooan bağlanmak şirket içi kaynak](../app-service-web/web-sites-hybrid-connection-get-started.md)<br/>
-[Bir Azure web uygulamasından tooon içi SQL Server'a bağlanma](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)<br/>
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 [Microsoft Azure’de BizTalk hizmetlerinin yönetilmesi için REST API](http://msdn.microsoft.com/library/azure/dn232347.aspx)
@@ -101,6 +99,3 @@ TCP bağlantı noktaları aşağıdaki hello karma bağlantılar tarafından kul
 [BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](biztalk-dashboard-monitor-scale-tabs.md)<br/>
 
 [HCImage]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionImage.png
-[HybridConnectionTab]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionTab.png
-[HCOnPremSetup]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionOnPremSetup.png
-[HCManageConnection]: ./media/integration-hybrid-connection-overview/WABS_HybridConnectionManageConn.png

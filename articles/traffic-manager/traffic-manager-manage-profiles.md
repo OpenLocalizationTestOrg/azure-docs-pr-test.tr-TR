@@ -1,5 +1,5 @@
 ---
-title: aaaManage Azure Traffic Manager profillerini | Microsoft Docs
+title: "Azure Traffic Manager profillerini yönetme| Microsoft Belgeleri"
 description: "Bu makale, bir Azure Traffic Manager profili oluşturma, devre dışı bırakma, etkinleştirme ve silme konularında size yardımcı olur."
 services: traffic-manager
 documentationcenter: 
@@ -14,58 +14,58 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.openlocfilehash: 0c6ab0c451581d039514a9de0b525b3937e45a85
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: a5164282264124835692bc72a4ab61891aa7af9d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Bir Azure Traffic Manager profilini yönetme
 
-Trafik Yöneticisi profillerine trafik yönlendirme yöntemleri toocontrol hello dağıtımını trafik tooyour bulut hizmetini veya Web sitesi uç noktaları kullanın. Bu makalede açıklanır nasıl toocreate bu profilleri ve yönetin.
+Traffic Manager profilleri, trafiğin bulut hizmetlerinize veya web sitesi uç noktalarına dağıtımını denetlemek için trafik yönlendirme yöntemlerini kullanır. Bu makalede, bu profillerin nasıl oluşturulacağı ve yönetileceği açıklanmıştır.
 
 ## <a name="create-a-traffic-manager-profile"></a>Traffic Manager profili oluşturma
 
-Hello Azure portal kullanarak bir Traffic Manager profili oluşturabilirsiniz. Profilinizi oluşturduktan sonra hello Azure portalında uç noktaları, izleme ve diğer ayarları yapılandırabilirsiniz. Trafik Yöneticisi profili başına too200 uç noktaları yukarı destekler. Bununla birlikte, çoğu kullanım senaryosu yalnızca birkaç uç nokta gerektirir.
+Azure portalını kullanarak bir Traffic Manager profili oluşturabilirsiniz. Profilinizi oluşturduktan sonra, Azure portalında uç noktaları, izleme ayarlarını ve diğer ayarları yapılandırabilirsiniz. Traffic Manager her profil için en fazla 200 uç noktayı destekler. Bununla birlikte, çoğu kullanım senaryosu yalnızca birkaç uç nokta gerektirir.
 
-### <a name="toocreate-a-traffic-manager-profile"></a>toocreate bir Traffic Manager profili
+### <a name="to-create-a-traffic-manager-profile"></a>Traffic Manager profili oluşturma
 
-1. Toohello içinde bir tarayıcıdan oturum [Azure portal](http://portal.azure.com). Henüz bir hesabınız yoksa, [bir aylık ücretsiz denemeye](https://azure.microsoft.com/free/) kaydolabilirsiniz. 
-2. Merhaba üzerinde **Hub** menüsünde tıklatın **yeni** > **ağ** > **tümünü görmek**, tıklatın **trafiği Yöneticisi** profil tooopen hello **oluşturma trafik Yöneticisi profili** dikey penceresinde, ardından **oluşturma**.
-3. Merhaba üzerinde **oluşturma trafik Yöneticisi profili** dikey penceresinde, aşağıdaki gibi tamamlandı:
-    1. **Ad** alanında profiliniz için bir ad belirtin. Bu ad toobe hello trafficmanager.net bölge içinde benzersiz olmalıdır ve sonuçları hello DNS adıyla <name>, kullanılan tooaccess olan trafficmanager.net Traffic Manager profilinizin.
-    2. İçinde **yönlendirme yöntemi**seçin hello **öncelik** yönlendirme yöntemi.
-    3. İçinde **abonelik**, bu profili altında toocreate istediğiniz hello abonelik seçin
-    4. İçinde **kaynak grubu**, yeni bir kaynak grubu tooplace altında bu profili oluşturun.
-    5. İçinde **kaynak grubu konumu**, hello hello kaynak grubu konumunu seçin. Bu ayar, hello kaynak grubu toohello konumunu gösterir ve genel olarak dağıtılacak trafik Yöneticisi profili hello üzerinde hiçbir etkisi olmaz.
-    6. **Oluştur**'a tıklayın.
-    7. Trafik Yöneticisi profilinize Hello genel dağıtım tamamlandıktan sonra ilgili kaynak grubunda hello kaynaklardan biri listelenir.
+1. Bir tarayıcıdan [Azure portalında](http://portal.azure.com) oturum açın. Henüz bir hesabınız yoksa, [bir aylık ücretsiz denemeye](https://azure.microsoft.com/free/) kaydolabilirsiniz. 
+2. **Hub** menüsünde **Yeni** > **Ağ** > **Tümünü gör**’e tıklayın, **Traffic Manager** profiline tıklayarak **Traffic Manager profili oluştur** dikey penceresini açın, ardından **Oluştur**’a tıklayın.
+3. **Traffic Manager profili oluştur** dikey penceresini aşağıdaki gibi doldurun:
+    1. **Ad** alanında profiliniz için bir ad belirtin. Bu adın trafficmanager.net bölgesinde benzersiz olması ve Traffic Manager profilinize erişmek için kullanılan <name>, trafficmanager.net DNS adı ile sonuçlanması gerekir.
+    2. **Yönlendirme yöntemi** alanında **Öncelik** yönlendirme yöntemini seçin.
+    3. **Abonelik** alanında bu profili hangi abonelik altında oluşturacağınızı seçin
+    4. **Kaynak Grubu** alanında bu profilin yerleştirileceği yeni bir kaynak grubu oluşturun.
+    5. **Kaynak grubu konumu** alanında kaynak grubunun konumunu seçin. Bu ayar, kaynak grubunun konumunu ifade eder ve genel olarak dağıtılacak Traffic Manager profilini etkilemez.
+    6. **Oluştur**’a tıklayın.
+    7. Traffic Manager profilinizin genel dağıtımı, tamamlandığında ilgili kaynak grubunda kaynaklardan biri olarak listelenir.
 
 ## <a name="disable-enable-or-delete-a-profile"></a>Bir profili devre dışı bırakma, etkinleştirme veya silme
 
-Bu trafik Yöneticisi kullanıcı istekleri toohello yapılandırılmış uç noktaları başvurmuyor için varolan bir profili devre dışı bırakabilirsiniz. Trafik Yöneticisi profili devre dışı bıraktığınızda, hello profili ve hello profilinde içerilen hello bilgi olduğu gibi kalır ve hello Traffic Manager arabiriminden düzenlenebilir.  Hello profili yeniden etkinleştirdiğinizde başvurular devam edin. Hello Azure portalında bir Traffic Manager profili oluşturduğunuzda, otomatik olarak etkinleştirilir. Bir profilin artık gerekli olmadığına karar verirseniz profili silebilirsiniz.
+Mevcut bir profili devre dışı bırakarak Traffic Manager’ın kullanıcı istekleri için yapılandırılan uç noktalara başvurmamasını sağlayabilirsiniz. Bir Traffic Manager profilini devre dışı bıraktığınızda, profil ve profilde yer alan bilgiler değişmeden kalır ve Traffic Manager arabiriminden düzenlenebilir.  Referanslar, profili yeniden etkinleştirdiğinizde devam eder. Azure portalında bir Traffic Manager profili oluşturduğunuzda profil otomatik olarak etkinleştirilir. Bir profilin artık gerekli olmadığına karar verirseniz profili silebilirsiniz.
 
-### <a name="toodisable-a-profile"></a>toodisable bir profili
+### <a name="to-disable-a-profile"></a>Bir profili devre dışı bırakma
 
-1. Özel etki alanı kullanıyorsanız, Internet DNS sunucunuzdaki hello CNAME kaydını artık tooyour trafik Yöneticisi profili işaret şekilde değiştirin.
-2. Trafik durur olma toohello uç noktaları hello Traffic Manager profili ayarları yoluyla yönlendirilmiş.
-3. Toohello içinde bir tarayıcıdan oturum [Azure portal](http://portal.azure.com).
-2. Merhaba Hello portal'ın arama çubuğunda arama **trafik Yöneticisi profili** toomodify istediğiniz ve hello hello trafik Yöneticisi profiline ardından adı görüntülenen o hello sonuçlanır.
-3. Merhaba, **trafik Yöneticisi profili** dikey penceresinde tıklatın **genel bakış**, hello genel bakış dikey penceresinde tıklayın **devre dışı**ve toodisable hello trafik Yöneticisi profili onaylayın.
+1. Özel etki alanı adı kullanıyorsanız İnternet DNS sunucunuzdaki CNAME kaydını, artık Traffic Manager profilinizi göstermeyecek şekilde değiştirin.
+2. Traffic Manager profil ayarları aracılığıyla trafiğin uç noktalara yönlendirilmesi durdurulur.
+3. Bir tarayıcıdan [Azure portalında](http://portal.azure.com) oturum açın.
+2. Portalın arama çubuğunda, değiştirmek istediğiniz **Traffic Manager profili** adını arayın ve ardından gösterilen sonuçlardaki Traffic Manager profiline tıklayın.
+3. **Traffic Manager profili** dikey penceresinde **Genel Bakış**’a, Genel Bakış dikey penceresinde **Devre Dışı Bırak**’a tıklayın ve ardından Traffic Manager profilini devre dışı bırakmak istediğinizi onaylayın.
 
-### <a name="tooenable-a-profile"></a>tooenable bir profili
+### <a name="to-enable-a-profile"></a>Bir profili etkinleştirme
 
-1. Toohello içinde bir tarayıcıdan oturum [Azure portal](http://portal.azure.com).
-2. Merhaba Hello portal'ın arama çubuğunda arama **trafik Yöneticisi profili** toomodify istediğiniz ve hello hello trafik Yöneticisi profiline ardından adı görüntülenen o hello sonuçlanır.
-3. Merhaba, **trafik Yöneticisi profili** dikey penceresinde tıklatın **genel bakış**ve'i tıklatın ardından hello genel bakış dikey penceresinde **etkinleştirmek**.
-5. Özel etki alanı kullanıyorsanız, Internet DNS sunucusu toopoint toohello etki alanı adını Traffic Manager profilinizin üzerinde bir CNAME kaynak kaydı oluşturun.
-6. Yönlendirilmiş toohello uç noktaları yeniden trafiğidir.
+1. Bir tarayıcıdan [Azure portalında](http://portal.azure.com) oturum açın.
+2. Portalın arama çubuğunda, değiştirmek istediğiniz **Traffic Manager profili** adını arayın ve ardından gösterilen sonuçlardaki Traffic Manager profiline tıklayın.
+3. **Traffic Manager profili** dikey penceresinde **Genel Bakış**’a ve sonra Genel Bakış dikey penceresinde **Etkinleştir**’e tıklayın.
+5. Özel etki alanı adı kullanıyorsanız İnternet DNS sunucunuzda Traffic Manager profilinizin etki alanı adını gösterecek bir CNAME kaynak kaydı oluşturun.
+6. Trafik yeniden uç noktalara yönlendirilir.
 
-### <a name="toodelete-a-profile"></a>toodelete bir profili
+### <a name="to-delete-a-profile"></a>Bir profili silme
 
-1. Merhaba, Internet DNS sunucunuzdaki DNS kaynak kaydını artık toohello Traffic Manager profilinizin etki alanı adına işaret eden bir CNAME kaynak kaydı kullandığından emin olun.
-2. Merhaba Hello portal'ın arama çubuğunda arama **trafik Yöneticisi profili** toomodify istediğiniz ve hello hello trafik Yöneticisi profiline ardından adı görüntülenen o hello sonuçlanır.
-3. Merhaba, **trafik Yöneticisi profili** dikey penceresinde tıklatın **genel bakış**, hello genel bakış dikey penceresinde tıklayın **silmek**ve toodelete hello trafik Yöneticisi profili onaylayın.
+1. İnternet DNS sunucunuzdaki DNS kaynak kaydının Traffic Manager profilinize ait etki alanı adına işaret eden bir CNAME kaynak kaydını artık kullanmadığından emin olun.
+2. Portalın arama çubuğunda, değiştirmek istediğiniz **Traffic Manager profili** adını arayın ve ardından gösterilen sonuçlardaki Traffic Manager profiline tıklayın.
+3. **Traffic Manager profili** dikey penceresinde **Genel Bakış**’a, Genel Bakış dikey penceresinde **Sil**’e tıklayın ve ardından Traffic Manager profilini silmek istediğinizi onaylayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

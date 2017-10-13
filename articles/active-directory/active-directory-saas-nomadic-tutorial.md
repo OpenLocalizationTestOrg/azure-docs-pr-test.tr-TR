@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile Nomadic | Microsoft Docs"
-description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile Nomadic arasında."
+description: "Çoklu oturum açma Azure Active Directory ile Nomadic arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,184 +14,184 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 8c1d3e350ce03c373cf475b2786ec299a7ce5f80
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1817a1395c2ffa7268abfff268d9d041f7f21a57
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nomadic"></a>Öğretici: Azure Active Directory Tümleştirme Nomadic ile
 
-Bu öğreticide, bilgi nasıl toointegrate Nomadic Azure Active Directory'ye (Azure AD).
+Bu öğreticide, Azure Active Directory (Azure AD) ile Nomadic tümleştirmek öğrenin.
 
-Nomadic Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
+Nomadic Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Erişim tooNomadic sahip Azure AD'de kontrol edebilirsiniz.
-- Kullanıcıların tooautomatically get açan tooNomadic (çoklu oturum açma) Azure AD hesaplarına ile etkinleştirebilirsiniz.
-- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir.
+- Nomadic erişimi, Azure AD'de kontrol edebilirsiniz.
+- Otomatik olarak için Nomadic (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-tooconfigure Nomadic ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
+Azure AD tümleştirme Nomadic ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
 - Bir Nomadic çoklu oturum açma abonelik etkin
 
 > [!NOTE]
-> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
+Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [burada bir bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
-1. Merhaba Galerisi'nden Nomadic ekleme
+1. Galeriden Nomadic Ekle
 2. Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-## <a name="add-nomadic-from-hello-gallery"></a>Merhaba Galerisi'nden Nomadic ekleme
-Azure AD'ye tooconfigure hello tümleştirme Nomadic, tooadd Nomadic hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
+## <a name="add-nomadic-from-the-gallery"></a>Galeriden Nomadic Ekle
+Azure AD Nomadic tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Nomadic eklemeniz gerekir.
 
-**tooadd Nomadic hello galerisinden hello aşağıdaki adımları gerçekleştirin:**
+**Galeriden Nomadic eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
-    ![Hello Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi][1]
 
-2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
-    ![Merhaba kurumsal uygulamalar dikey penceresi][2]
+    ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
-    ![Merhaba yeni uygulama düğmesi][3]
+    ![Yeni Uygulama düğmesi][3]
 
-4. Merhaba arama kutusuna yazın **Nomadic**seçin **Nomadic** sonuç panelinden ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
+4. Arama kutusuna **Nomadic**seçin **Nomadic** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
 
-    ![Merhaba sonuçları listesinde nomadic](./media/active-directory-saas-nomadic-tutorial/tutorial_nomadic_addfromgallery.png)
+    ![Sonuçlar listesinde nomadic](./media/active-directory-saas-nomadic-tutorial/tutorial_nomadic_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Nomadic sınayın.
 
-Tek toowork'ın oturum açma hangi hello karşılık gelen Nomadic içinde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcı ve ilgili kullanıcı Nomadic hello arasında bir bağlantı ilişkisi kurulan toobe gerekir.
+Tekli çalışmaya oturum için Azure AD Nomadic karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Nomadic ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Merhaba hello değeri Nomadic içinde atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.
+Nomadic içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
 
-tooconfigure ve Nomadic ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Nomadic ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
-3. **[Nomadic test kullanıcısı oluşturma](#create-a-nomadic-test-user)**  -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir Nomadic içinde karşılık gelen.
-4. **[Hello Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
-5. **[Test çoklu oturum açma](#test-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Nomadic test kullanıcısı oluşturma](#create-a-nomadic-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Nomadic sağlamak için.
+4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma Nomadic uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Nomadic uygulamanızda yapılandırın.
 
-**tooconfigure Azure AD çoklu oturum açma ile Nomadic, hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma ile Nomadic yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello hello üzerinde Azure portal'ın **Nomadic** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **Nomadic** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-nomadic-tutorial/tutorial_nomadic_samlbase.png)
 
-3. Merhaba üzerinde **Nomadic etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **Nomadic etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Oturum açma bilgileri nomadic etki alanı ve URL'leri tek](./media/active-directory-saas-nomadic-tutorial/tutorial_nomadic_url.png)
 
-    a. Merhaba, **oturum açma URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<company name>.nomadic.fm/signin`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<company name>.nomadic.fm/signin`
 
-    b. Merhaba, **tanımlayıcısı** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın: `https://<company name>.nomadic.fm/auth/saml2/sp`,`https://<company name>.staging.nomadic.fm/auth/saml2/sp`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<company name>.nomadic.fm/auth/saml2/sp`,`https://<company name>.staging.nomadic.fm/auth/saml2/sp`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu güncelleştirme değerler ile Merhaba gerçek oturum açma URL'si ve tanımlayıcısı. Kişi [Nomadic istemci destek ekibi](mailto:help@nomadic.fm) tooget bu değerleri. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [Nomadic istemci destek ekibi](mailto:help@nomadic.fm) bu değerleri almak için. 
  
 
 
-4. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve hello meta veri dosyası, bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
 
-    ![Merhaba sertifika indirme bağlantısı](./media/active-directory-saas-nomadic-tutorial/tutorial_nomadic_certificate.png) 
+    ![Sertifika indirme bağlantısı](./media/active-directory-saas-nomadic-tutorial/tutorial_nomadic_certificate.png) 
 
 5. Tıklatın **kaydetmek** düğmesi.
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-nomadic-tutorial/tutorial_general_400.png)
 
-6.  tooget SSO yapılandırılmış uygulamanızın, kişi [Nomadic destek ekibi](mailto:help@nomadic.fm) ve indirilen hello ile verin **meta verileri**.
+6.  Uygulamanız için yapılandırılmış SSO almak için başvurun [Nomadic destek ekibi](mailto:help@nomadic.fm) ve indirilen ile verin **meta verileri**.
 
 > [!TIP]
-> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
    ![Bir Azure AD test kullanıcısı oluşturma][100]
 
-**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba hello sol bölmede Azure portal hello tıklatın **Azure Active Directory** düğmesi.
+1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
 
-    ![Hello Azure Active Directory düğmesi](./media/active-directory-saas-nomadic-tutorial/create_aaduser_01.png)
+    ![Azure Active Directory düğmesi](./media/active-directory-saas-nomadic-tutorial/create_aaduser_01.png)
 
-2. Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-    !["Kullanıcılar ve Gruplar" Merhaba "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-nomadic-tutorial/create_aaduser_02.png)
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-nomadic-tutorial/create_aaduser_02.png)
 
-3. tooopen hello **kullanıcı** iletişim kutusu, tıklatın **Ekle** hello hello üstündeki **tüm kullanıcılar** iletişim kutusu.
+3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
-    ![Merhaba Ekle düğmesi](./media/active-directory-saas-nomadic-tutorial/create_aaduser_03.png)
+    ![Ekle düğmesi](./media/active-directory-saas-nomadic-tutorial/create_aaduser_03.png)
 
-4. Merhaba, **kullanıcı** iletişim kutusunda, hello aşağıdaki adımları gerçekleştirin:
+4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
-    ![Merhaba kullanıcı iletişim kutusu](./media/active-directory-saas-nomadic-tutorial/create_aaduser_04.png)
+    ![Kullanıcı iletişim kutusu](./media/active-directory-saas-nomadic-tutorial/create_aaduser_04.png)
 
-    a. Merhaba, **adı** kutusuna **BrittaSimon**.
+    a. İçinde **adı** kutusuna **BrittaSimon**.
 
-    b. Merhaba, **kullanıcı adı** kutusuna, kullanıcının Britta Simon hello e-posta adresini yazın.
+    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
 
-    c. Select hello **Göster parola** onay kutusunu işaretleyin ve ardından hello görüntülenen hello değerini aşağı yazma **parola** kutusu.
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
     d. **Oluştur**'a tıklayın.
  
 ### <a name="create-a-nomadic-test-user"></a>Nomadic test kullanıcısı oluşturma
 
-Bu bölümde, Nomadic içinde Britta Simon adlı bir kullanıcı oluşturun. Lütfen çalışmak [Nomadic destek ekibi](mailto:help@nomadic.fm) tooadd hello kullanıcılar hello Nomadic Platform.
+Bu bölümde, Nomadic içinde Britta Simon adlı bir kullanıcı oluşturun. Lütfen çalışmak [Nomadic destek ekibi](mailto:help@nomadic.fm) Nomadic platform kullanıcıları eklemek için.
 
-### <a name="assign-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atayın
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, erişim tooNomadic vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
+Bu bölümde, Britta Nomadic için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
-![Merhaba kullanıcı rolü atayın][200] 
+![Kullanıcı rolü atayın][200] 
 
-**tooassign Britta Simon tooNomadic hello aşağıdaki adımları gerçekleştirin:**
+**Nomadic için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Merhaba uygulamalar listesinde **Nomadic**.
+2. Uygulamalar listesinde **Nomadic**.
 
-    ![Merhaba Nomadic hello uygulamalar listesinde bağlantı](./media/active-directory-saas-nomadic-tutorial/tutorial_nomadic_app.png)  
+    ![Nomadic bağlantı uygulamalar listesinde](./media/active-directory-saas-nomadic-tutorial/tutorial_nomadic_app.png)  
 
-3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
-    ![Merhaba "Kullanıcılar ve Gruplar" bağlantı][202]
+    !["Kullanıcılar ve Gruplar" bağlantı][202]
 
 4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
 
-    ![Merhaba eklemek atama bölmesi][203]
+    ![Ekleme atama bölmesi][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -199,14 +199,14 @@ Bu bölümde, erişim tooNomadic vererek Britta Simon toouse Azure çoklu oturum
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
 
-Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Merhaba Nomadic kutucuğa tıkladığınızda de erişim paneli Merhaba, otomatik olarak oturum açma tooyour Nomadic uygulama almanız gerekir.
-Erişim paneli hakkında daha fazla bilgi için bkz: [giriş toohello erişim paneli](active-directory-saas-access-panel-introduction.md). 
+Nomadic kutucuğa tıkladığınızda erişim panelinde, otomatik olarak Nomadic uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 

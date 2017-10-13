@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure bulut Hizmetleri belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
-description: "Öğreticiler, API başvuru ve diğer belgeleri göster, nasıl toouse bulut Hizmetleri toohost ve yüksek oranda kullanılabilir ve ölçeklenebilir bulut uygulamalar ve API'ler çalıştırın."
+title: "Azure Cloud Services Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Öğreticiler, API başvuruları ve diğer belgeler, yüksek oranda kullanılabilir ve ölçeklenebilir bulut uygulamaları ve API'ler barındırmak ve çalıştırmak için Cloud Services’ı kullanmaya ilişkin bilgiler içerir."
 services: cloud-services
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 80793de5a66c9f125c23caf2664fbf08015298ab
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 566daede7e0b32110ceae2afa473e427992bc3a8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cloud-services-documentation"></a>Cloud Services Belgeleri
 
-Bilgi nasıl toouse bulut Hizmetleri toohost ve çalışma yüksek oranda kullanılabilir, ölçeklenebilir bulut uygulamalar ve API'ler.  Öğreticiler, API başvuru ve diğer belgelerin nasıl toomanage sanal makine barındıran ve yapılandırma, düzeltme eki ve yazılım yükleme gösterir.
+Cloud Services’ı kullanarak yüksek oranda kullanılabilir ve ölçeklenebilir bulut uygulamaları ve API'ler barındırma ve çalıştırma hakkında bilgi edinin.  Öğreticiler, API başvuruları ve diğer belgeler, sanal makine konaklarını yönetme ve yazılımları yapılandırma, yükleme ve yazılımlara düzeltme eki uygulama ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -107,8 +107,14 @@ Bilgi nasıl toouse bulut Hizmetleri toohost ve çalışma yüksek oranda kullan
                 <div class="card">
                     <div class="cardText">
                         <h3>Diller</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/ee758711">.csdef XMLSchema</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/ee758710">.cscfg XMLSchema</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-file">.csdef XML Şeması</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-loadbalancerprobe">LoadBalancerProbe Şeması</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-webrole">WebRole Şeması</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-workerrole">WorkerRole Şeması</a></p>
+                        <p><a href="/azure/cloud-services/schema-csdef-networktrafficrules">NetworkTrafficRules Şeması</a></p>
+                        <p><a href="/azure/cloud-services/schema-cscfg-file">.cscfg XML Şeması</a></p>
+                        <p><a href="/azure/cloud-services/schema-cscfg-role">Rol Şeması</a></p>
+                        <p><a href="/azure/cloud-services/schema-cscfg-networkconfiguration">NetworkConfiguration Şeması</a></p>
                     </div>
                 </div>
             </div>
@@ -127,5 +133,3 @@ Bilgi nasıl toouse bulut Hizmetleri toohost ve çalışma yüksek oranda kullan
         </div>
     </li>
 </ul>
-
-

@@ -1,6 +1,6 @@
 ---
-title: aaaWhat olan bir bulut hizmeti modeli ve paket | Microsoft Docs
-description: "Merhaba bulut hizmeti modeli (.csdef, .cscfg) ve Azure paketine (.cspkg) açıklanır"
+title: Bir bulut hizmeti modeli ve paket nedir | Microsoft Docs
+description: "Bulut hizmeti modeli (.csdef, .cscfg) ve Azure paketine (.cspkg) açıklanır"
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.openlocfilehash: 5280cdca4810859b6afdbbe1359fc2fabe871894
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 21fbdbc4c24440c6fbbd7487cfbb2e0a3140aa96
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="what-is-hello-cloud-service-model-and-how-do-i-package-it"></a>Merhaba bulut hizmeti modeli nedir ve nasıl paket?
-Bir bulut hizmeti üç bileşenlerini hello hizmet tanımı oluşturulur *(.csdef)*, hizmet yapılandırması hello *(.cscfg)*ve bir hizmet paketi *(.cspkg)*. Her iki hello **ServiceDefinition.csdef** ve **ServiceConfig.cscfg** dosyaları XML tabanlı ve topluca hello modeli olarak adlandırılan hello bulut hizmeti ve nasıl yapılandırılır; hello yapısını açıklar. Merhaba **ServicePackage.cspkg** hello oluşturulan bir zip dosyası **ServiceDefinition.csdef** ve bunun yanı sıra, tüm gerekli hello ikili tabanlı bağımlılıkları içerir. Azure, her iki hello bir bulut hizmeti oluşturur **ServicePackage.cspkg** ve hello **ServiceConfig.cscfg**.
+# <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Bulut hizmeti modeli nedir ve nasıl paket?
+Bir bulut hizmeti üç bileşenlerini hizmet tanımı oluşturulur *(.csdef)*, hizmet yapılandırması *(.cscfg)*ve bir hizmet paketi *(.cspkg)*. Her iki **ServiceDefinition.csdef** ve **ServiceConfig.cscfg** dosyaları XML tabanlı ve topluca modeli olarak adlandırılan bulut hizmeti ve nasıl yapılandırıldığını; yapısını açıklar. **ServicePackage.cspkg** oluşturulduğu bir zip dosyası **ServiceDefinition.csdef** ve bunun yanı sıra, ikili tabanlı tüm gerekli bağımlılıklar içerir. Azure hem de bir bulut hizmeti oluşturur **ServicePackage.cspkg** ve **ServiceConfig.cscfg**.
 
-Azure'da Hello bulut hizmeti çalışır duruma geldiğinde hello yeniden yapılandırabilirsiniz **ServiceConfig.cscfg** dosyası, ancak hello tanımı alter olamaz.
+Azure'da bulut hizmeti çalışır duruma geldiğinde üzerinden yapılandırabilirsiniz **ServiceConfig.cscfg** dosyası, ancak tanımı alter olamaz.
 
-## <a name="what-would-you-like-tooknow-more-about"></a>Ne hakkında daha fazla tooknow istiyorsunuz?
-* Merhaba hakkında daha fazla tooknow istediğiniz [ServiceDefinition.csdef](#csdef) ve [ServiceConfig.cscfg](#cscfg) dosyaları.
+## <a name="what-would-you-like-to-know-more-about"></a>Ne hakkında daha fazla bilgi edinmek istiyorsunuz?
+* Daha fazla bilgi almak istiyorum [ServiceDefinition.csdef](#csdef) ve [ServiceConfig.cscfg](#cscfg) dosyaları.
 * Zaten bu hakkında bilebilirim ver [bazı örnekler](#next-steps) üzerinde ne ı yapılandırabilirsiniz.
-* Toocreate hello istediğiniz [ServicePackage.cspkg](#cspkg).
+* Oluşturmak istediğiniz [ServicePackage.cspkg](#cspkg).
 * Visual Studio kullanarak ve istiyorum...
   * [Bir bulut hizmeti oluştur][vs_create]
   * [Var olan bir bulut hizmetini yeniden yapılandırın][vs_reconfigure]
@@ -38,7 +38,7 @@ Azure'da Hello bulut hizmeti çalışır duruma geldiğinde hello yeniden yapıl
 <a name="csdef"></a>
 
 ## <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
-Merhaba **ServiceDefinition.csdef** dosyayı belirtir Azure tooconfigure tarafından kullanılan hello ayarları bir bulut hizmeti. Merhaba [Azure Hizmet tanım Şeması (.csdef dosyası)](https://msdn.microsoft.com/library/azure/ee758711.aspx) hello izin verilen biçim için bir hizmet tanımı dosyası sağlar. Merhaba aşağıdaki örnek hello Web ve çalışan rolleri için tanımlanan hello ayarlarını gösterir:
+**ServiceDefinition.csdef** dosyasını bir bulut hizmeti yapılandırmak için Azure tarafından kullanılan ayarları belirtir. [Azure Hizmet tanım Şeması (.csdef dosyası)](https://msdn.microsoft.com/library/azure/ee758711.aspx) Hizmet tanım dosyası için izin verilen biçim sağlar. Aşağıdaki örnek, Web ve çalışan rolleri için tanımlanan ayarları gösterir:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -89,38 +89,38 @@ Merhaba **ServiceDefinition.csdef** dosyayı belirtir Azure tooconfigure tarafı
 </ServiceDefinition>
 ```
 
-Toohello başvurabilir [Hizmet tanım Şeması](https://msdn.microsoft.com/library/azure/ee758711.aspx) daha iyi burada kullanılan hello XML Şeması anlamak için Bununla birlikte, İşte bazı hello öğeleri hızlı bir açıklaması:
+Başvurabilirsiniz [Hizmet tanım Şeması](https://msdn.microsoft.com/library/azure/ee758711.aspx) daha iyi burada kullanılan XML Şeması anlamak için Bununla birlikte, İşte bazı öğelerin hızlı bir açıklaması:
 
 **Siteleri**  
-IIS7'de barındırılan Web siteleri veya web uygulamaları için Hello tanımlarını içerir.
+IIS7'de barındırılan Web siteleri veya web uygulamaları için tanımları içerir.
 
 **InputEndpoints**  
-Uç noktalar için Hello tanımları içeren toocontact hello bulut hizmeti kullanılır.
+Bulut hizmeti ile iletişim kurmada kullanılan uç noktalar için tanımları içerir.
 
 **InternalEndpoints**  
-Rol örnekleri toocommunicate birbirleriyle tarafından kullanılan uç noktaları için Hello tanımlarını içerir.
+Rol örnekleri tarafından birbirleri ile iletişim kurmak için kullanılan uç noktalar için tanımları içerir.
 
 **ConfigurationSettings**  
-Belirli bir rol özellikleri için Hello ayarı tanımlarını içerir.
+Belirli bir rol özelliklerinin ayarı tanımlarını içerir.
 
 **Sertifikalar**  
-Bir rol için gerekli sertifikaları için Hello tanımlarını içerir. Merhaba önceki kod örneğinde hello yapılandırmasını Azure bağlanmak için kullanılan bir sertifika gösterilmektedir.
+Bir rol için gerekli sertifikaları için tanımları içerir. Önceki kod örneğinde Azure Connect yapılandırma için kullanılan bir sertifika gösterilmektedir.
 
 **LocalResources**  
-Yerel depolama kaynaklarını Hello tanımlarını içerir. Yerel depolama kaynağı hello sanal makinenin bir rol örneği çalıştığı hello dosya sisteminde ayrılmış bir dizindir.
+Yerel depolama alanı kaynakları için tanımları içerir. Yerel depolama kaynağı, bir rol örneği çalıştığı sanal makinenin dosya sisteminde ayrılmış bir dizindir.
 
 **İçeri aktarmalar**  
-İçeri aktarılan modüller Hello tanımlarını içerir. Hello önceki kod örneğinde, Uzak Masaüstü Bağlantısı ve Azure bağlanmak için hello modülleri gösterir.
+İçeri aktarılan modül tanımlarını içerir. Önceki kod örneğinde, Uzak Masaüstü Bağlantısı ve Azure bağlanmak için modülleri gösterir.
 
 **Başlangıç**  
-Merhaba rol başladığında çalıştırılan görevleri içerir. Merhaba görevler bir .cmd veya yürütülebilir dosya içinde tanımlanır.
+Rol başladığında çalıştırılan görevleri içerir. Görevler bir .cmd veya yürütülebilir dosya içinde tanımlanır.
 
 <a name="cscfg"></a>
 
 ## <a name="serviceconfigurationcscfg"></a>ServiceConfiguration.cscfg
-Bulut hizmetiniz için hello ayarlarının Hello yapılandırmasını hello başlangıç değerleri belirlenir **ServiceConfiguration.cscfg** dosya. Bu dosyadaki her rol için toodeploy istediğiniz örneklerinin hello sayısını belirtin. Merhaba değerleri hello hizmet tanımı dosyasında tanımlanan hello yapılandırma ayarları için toohello hizmet yapılandırma dosyası eklenir. Merhaba bulut hizmetiyle ilişkili tüm yönetim sertifikaları için Hello parmak izleri toohello dosya de eklenir. Merhaba [Azure hizmet yapılandırma şeması (.cscfg dosyası)](https://msdn.microsoft.com/library/azure/ee758710.aspx) hello izin verilen biçim için bir hizmet yapılandırma dosyası sağlar.
+Bulut hizmetiniz için ayarları yapılandırma değerleri tarafından belirlenen **ServiceConfiguration.cscfg** dosya. Bu dosyadaki her rol için dağıtmak istediğiniz örneklerinin sayısını belirtin. Hizmet tanımı dosyasında tanımlanan yapılandırma ayarları için değerleri service yapılandırma dosyasına eklenir. Bulut hizmeti ile ilişkilendirilmiş herhangi bir yönetim sertifika parmak izleri de dosyaya eklenir. [Azure hizmet yapılandırma şeması (.cscfg dosyası)](https://msdn.microsoft.com/library/azure/ee758710.aspx) için bir hizmet yapılandırma dosyası izin verilen biçim sağlar.
 
-Merhaba hizmet yapılandırma dosyası Merhaba uygulaması ile paketlenmiştir değil ancak ayrı bir dosya olarak karşıya yüklenen tooAzure olduğu ve kullanılan tooconfigure hello bulut hizmeti. Bulut hizmetinizi gerek olmadan yeni bir hizmet yapılandırma dosyası karşıya yükleyebilirsiniz. Merhaba bulut hizmeti çalışırken hello yapılandırma değerlerini hello bulut hizmeti için değiştirilebilir. Merhaba aşağıdaki örnek hello Web ve çalışan rolleri için tanımlanan hello yapılandırma ayarlarını gösterir:
+Hizmet yapılandırma dosyası uygulama ile paketlenmiştir değil, ancak ayrı bir dosya olarak Azure karşıya ve bulut hizmeti yapılandırmak için kullanılır. Bulut hizmetinizi gerek olmadan yeni bir hizmet yapılandırma dosyası karşıya yükleyebilirsiniz. Bulut hizmeti çalışırken bulut hizmeti için yapılandırma değerlerini değiştirilebilir. Aşağıdaki örnek, Web ve çalışan rolleri için tanımlanan yapılandırma ayarlarını gösterir:
 
 ```xml
 <?xml version="1.0"?>
@@ -140,28 +140,28 @@ Merhaba hizmet yapılandırma dosyası Merhaba uygulaması ile paketlenmiştir d
 </ServiceConfiguration>
 ```
 
-Toohello başvurabilir [hizmet yapılandırma şeması](https://msdn.microsoft.com/library/azure/ee758710.aspx) burada kullanılan daha iyi anlamak hello XML Şeması, ancak hello öğeleri hızlı bir açıklaması aşağıda verilmiştir:
+Başvurabilirsiniz [hizmet yapılandırma şeması](https://msdn.microsoft.com/library/azure/ee758710.aspx) daha iyi burada kullanılan XML Şeması anlamak için ancak öğeleri hızlı bir açıklaması aşağıda verilmiştir:
 
 **Örnekleri**  
-Örnekleri hello rol için çalışan sayısı hello yapılandırır. tooprevent, bulut hizmet olası yükseltmeleri sırasında kullanılamaz hale gelmesini web dönük rollerinizi birden fazla örneğini dağıtmanız önerilir. Birden fazla örneği dağıtarak hello toohello yönergeleri uymak [Azure işlem hizmet düzeyi sözleşmesi (SLA)](http://azure.microsoft.com/support/legal/sla/), Internet'e yönelik rolleri, iki %99,95 harici bağlantı garanti eder ya da daha fazla rol örnekleri için bir hizmet dağıtılır.
+Çalışan rolü için örnek sayısını yapılandırır. Bulut hizmetinizi olası yükseltmeleri sırasında kullanılamaz hale gelmesini önlemek için web dönük rollerinizi birden fazla örneğini dağıtmanız önerilir. Birden fazla örneği dağıtarak, yönergelere karşıladığınızdan [Azure işlem hizmet düzeyi sözleşmesi (SLA)](http://azure.microsoft.com/support/legal/sla/), garanti %99,95 harici bağlantı Internet'e yönelik rolleri, iki veya daha fazla rol örnekleri bir hizmet için dağıtılır.
 
 **ConfigurationSettings**  
-Çalışan rolü için örnekler hello Hello ayarlarını yapılandırır. Merhaba Hello adını `<Setting>` öğeleri hello Ayar tanımlarına hello hizmet tanımı dosyasında eşleşmesi gerekir.
+Bir rolün çalışan örneklerini için ayarları yapılandırır. Adını `<Setting>` öğeleri hizmet tanımı dosyası ayarı tanımlarında eşleşmesi gerekir.
 
 **Sertifikalar**  
-Merhaba hizmeti tarafından kullanılan hello sertifikaları yapılandırır. Merhaba önceki kod örneğinde nasıl toodefine hello hello RemoteAccess modülü için sertifika gösterilmektedir. Merhaba hello değerini *parmak izi* toohello parmak izi hello sertifika toouse özniteliği ayarlanmalıdır.
+Hizmet tarafından kullanılan sertifikalar yapılandırır. Önceki kod örneğinde RemoteAccess modülü için sertifikayı tanımlayan gösterilmektedir. Değeri *parmak izi* özniteliği kullanmak için sertifika parmak izi için ayarlanmalıdır.
 
 <p/>
 
 > [!NOTE]
-> Merhaba sertifika parmak izi Hello toohello yapılandırma dosyasını bir metin düzenleyicisi kullanarak eklenebilir. Ya da hello değer üzerinde hello eklenebilir **sertifikaları** hello sekmesinde **özellikleri** Visual Studio'da hello rolünün sayfası.
+> Sertifika parmak izini bir metin düzenleyicisi kullanarak yapılandırma dosyasına eklenebilir. Veya, değer üzerinde eklenebilir **sertifikaları** sekmesinde **özellikleri** Visual Studio'da rolünün sayfası.
 > 
 > 
 
 ## <a name="defining-ports-for-role-instances"></a>Rol örnekleri için bağlantı noktalarını tanımlama
-Azure yalnızca bir giriş noktası tooa web rolü sağlar. Tüm trafiği aracılığıyla bir IP adresi oluştuğunu anlamına gelir. Merhaba ana bilgisayar üstbilgisi toodirect hello isteği toohello doğru konuma yapılandırarak, Web siteleri tooshare bir bağlantı noktası yapılandırabilirsiniz. Başlangıç IP adresi uygulamaları toolisten toowell bilinen bağlantı noktalarını da yapılandırabilirsiniz.
+Azure web rolü için yalnızca bir giriş noktası sağlar. Tüm trafiği aracılığıyla bir IP adresi oluştuğunu anlamına gelir. İstek doğru konuma yönlendirmek için ana bilgisayar üstbilgisi yapılandırarak bir bağlantı noktasını paylaşmak için Web sitelerinizi yapılandırabilirsiniz. IP adresi iyi bilinen bağlantı noktalarını dinlemek için uygulamalarınızı da yapılandırabilirsiniz.
 
-Merhaba aşağıdaki örnek bir Web sitesi ve web uygulaması içeren bir web rolü için başlangıç yapılandırmasını gösterir. Hello Web sitesi bağlantı noktası 80 üzerinde hello varsayılan giriş konumu olarak yapılandırılır ve hello web uygulamalardır yapılandırılmış tooreceive isteklerinden "mail.mysite.cloudapp.net" adlı bir alternatif ana bilgisayar üstbilgisi.
+Aşağıdaki örnek bir Web sitesi ve web uygulaması içeren bir web rolü için yapılandırmayı gösterir. Web sitesi bağlantı noktası 80 üzerinde varsayılan giriş konumu olarak yapılandırılmış ve web uygulamaları "mail.mysite.cloudapp.net" adlı bir alternatif ana bilgisayar üstbilgisi istekleri almak için yapılandırılır.
 
 ```xml
 <WebRole>
@@ -196,55 +196,55 @@ Merhaba aşağıdaki örnek bir Web sitesi ve web uygulaması içeren bir web ro
 ```
 
 
-## <a name="changing-hello-configuration-of-a-role"></a>Bir rolün Hello yapılandırmasını değiştirme
-Azure'da hello hizmet çevrimdışı bırakmadan çalışırken, bulut hizmetinizin hello yapılandırma güncelleştirebilirsiniz. toochange yapılandırma bilgilerini, yeni bir yapılandırma dosyası ya da yükleyebilir veya düzenleme hello yapılandırma dosyasında yerleştirin ve hizmetini çalıştıran tooyour uygulayın. Merhaba aşağıdaki değişiklikleri hizmet toohello yapılandırmasını yapılabilir:
+## <a name="changing-the-configuration-of-a-role"></a>Bir rolü yapılandırmasını değiştirme
+Azure üzerinde hizmet çevrimdışı bırakmadan çalışırken, bulut hizmetinin yapılandırmasını güncelleştirebilirsiniz. Yapılandırma bilgilerini değiştirmek için yeni bir yapılandırma dosyası karşıya yükleme veya yerinde yapılandırma dosyasını düzenlemenize ve çalışan hizmetinize uygulayın. Bir hizmet yapılandırması için aşağıdaki değişiklikler yapılabilir:
 
-* **Merhaba değerleri yapılandırma ayarlarını değiştirme**  
-  Bir yapılandırma ayarı değişiklikleri, bir rol örneği hello örneği çevrimiçi durumdayken tooapply hello değişiklik veya toorecycle hello örnek düzgün biçimde seçin ve hello örneği çevrimdışı durumdayken hello değişikliği uygulamak.
-* **Merhaba Hizmeti topolojisi rol örneklerinin değiştirme**  
-  Topolojisi değişiklikleri bir örneği burada kaldırılmakta dışında çalışan örneklerini etkilemez. Tüm kalan örnekleri geri dönüşüm toobe genellikle gerekmez; Ancak, rol örnekleri toorecycle yanıt tooa topoloji değişikliği seçebilirsiniz.
-* **Merhaba sertifika parmak izi değiştirme**  
-  Rol örneği çevrimdışı olduğunda, yalnızca bir sertifika güncelleştirebilirsiniz. Bir sertifika eklenmiş, silinmiş veya rol örneği çevrimiçi durumdayken değişti, Azure düzgün biçimde hello örneği çevrimdışı tooupdate hello sertifika alır ve hello değişiklik tamamlandıktan sonra yeniden çevrimiçi duruma getirin.
+* **Yapılandırma ayarlarının değerleri değiştirme**  
+  Ne zaman bir yapılandırma değişiklikleri ayarı değişikliği örneği çevrimiçi veya çevrimdışı olduğunda örneğinin düzgün bir şekilde geri dönüşüm ve örnek değişikliği uygulamak için geçerliyken, bir rol örneği seçebilirsiniz.
+* **Rol örneklerinin Hizmeti topolojisi değiştirme**  
+  Topolojisi değişiklikleri bir örneği burada kaldırılmakta dışında çalışan örneklerini etkilemez. Tüm kalan örnekleri genellikle geri dönüştürülmesi gerekmez; Ancak, bir topoloji değişikliği yanıta rol örneklerinin geri dönüşüm seçebilirsiniz.
+* **Sertifika parmak izini değiştirme**  
+  Rol örneği çevrimdışı olduğunda, yalnızca bir sertifika güncelleştirebilirsiniz. Bir sertifika eklenmiş, silinmiş veya rol örneği çevrimiçi durumdayken değişti, Azure düzgün biçimde örneği çevrimdışı bir sertifikayı güncelleştirmek ve değişiklik tamamlandıktan sonra yeniden çevrimiçi duruma getirmek için alır.
 
 ### <a name="handling-configuration-changes-with-service-runtime-events"></a>Yapılandırma değişiklikleriyle hizmeti çalışma zamanı olayları işleme
-Merhaba [Azure çalışma zamanı kitaplığı](https://msdn.microsoft.com/library/azure/mt419365.aspx) hello içeren [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx) ad alanı bir rolden Azure ortamı hello ile etkileşim kurmaya yönelik sınıflar sağlar. Merhaba [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) sınıfı önce ve sonra bir yapılandırma değişikliği yükseltilmiş olayları aşağıdaki hello tanımlar:
+[Azure çalışma zamanı kitaplığı](https://msdn.microsoft.com/library/azure/mt419365.aspx) içeren [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx) ad alanı bir rolden Azure ortamı ile etkileşim kurmaya yönelik sınıflar sağlar. [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) sınıfı önce ve sonra bir yapılandırma değişikliği yükseltilmiş aşağıdaki olaylar tanımlar:
 
 * **[Değiştirme](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx) olayı**  
-  Merhaba yapılandırma değişikliği uygulanan tooa belirtilen gerekirse fırsat tootake hello rol örnekleri aşağı vermiş bir rol örneği önce gerçekleşir.
+  Yapılandırma değişikliği bir iletmenize gerekirse rol örnekleri almak için bir rolün belirtilen bir örneğini uygulanmadan önce gerçekleşir.
 * **[Değiştirilen](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changed.aspx) olayı**  
-  Merhaba yapılandırma değişikliği uygulanan tooa belirtilen bir rol örneği olduğunda oluşur.
+  Belirtilen bir rol örneği için yapılandırma değişikliği uygulandıktan sonra oluşur.
 
 > [!NOTE]
-> Sertifika değişiklikleri her zaman bir rolün örnekleri hello çevrimdışına çünkü hello RoleEnvironment.Changing veya RoleEnvironment.Changed olayları yükseltmeyin.
+> Sertifika değişiklikleri her zaman bir rolün örnekleri çevrimdışına çünkü RoleEnvironment.Changing veya RoleEnvironment.Changed olayları yükseltmeyin.
 > 
 > 
 
 <a name="cspkg"></a>
 
 ## <a name="servicepackagecspkg"></a>ServicePackage.cspkg
-bir uygulamayı Azure bulut hizmeti olarak toodeploy, ilk paketi Merhaba uygulaması hello uygun biçimde gerekir. Merhaba kullanabilirsiniz **CSPack** komut satırı aracı (Merhaba ile yüklü [Azure SDK'sı](https://azure.microsoft.com/downloads/)) toocreate hello paket dosyası alternatif bir tooVisual Studio olarak.
+Bir uygulamayı Azure bulut hizmeti olarak dağıtmak için önce uygun biçimdeki uygulama paketi gerekir. Kullanabileceğiniz **CSPack** komut satırı aracı (yüklenmiş [Azure SDK'sı](https://azure.microsoft.com/downloads/)) Visual Studio alternatif olarak paket dosyasını oluşturmak için.
 
-**CSPack** kullanır hello hello hizmet tanımı dosya ve hizmet yapılandırma dosyası toodefine hello hello paketinin içeriğini içeriğini. **CSPack** hello kullanarak bir uygulama paketi dosyası (.cspkg tooAzure yükleyebilirsiniz) oluşturur [Azure portal](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Varsayılan olarak, adlı hello paket `[ServiceDefinitionFileName].cspkg`, ancak hello kullanarak farklı bir ad belirtebilirsiniz `/out` seçeneği **CSPack**.
+**CSPack** Hizmet tanım dosyası ve hizmet yapılandırma dosyasının içeriğini paket içeriğini tanımlamak için kullanır. **CSPack** kullanarak Azure'a yükleyebileceğiniz bir uygulama paketi dosyası (.cspkg) oluşturur [Azure portal](cloud-services-how-to-create-deploy-portal.md#create-and-deploy). Varsayılan olarak, adlı paket `[ServiceDefinitionFileName].cspkg`, ancak kullanarak farklı bir ad belirtebilirsiniz `/out` seçeneği **CSPack**.
 
 **CSPack** bulunur  
 `C:\Program Files\Microsoft SDKs\Azure\.NET SDK\[sdk-version]\bin\`
 
 > [!NOTE]
-> CSPack.exe (windows üzerinde) kullanılabilir hello çalıştırarak **Microsoft Azure komut istemi** hello SDK ile yüklenen kısayol.  
+> CSPack.exe (windows üzerinde) kullanılabilir çalıştırarak **Microsoft Azure komut istemi** SDK ile birlikte yüklenen kısayol.  
 > 
-> Hello CSPack.exe programını tek başına toosee belgelerine tüm hello olası anahtarları ve komutları çalıştırın.
+> Tüm olası anahtarları ve komutları ile ilgili belgeler görmek için kendi başına CSPack.exe programını çalıştırın.
 > 
 > 
 
 <p />
 
 > [!TIP]
-> Bulut hizmetinizi yerel olarak çalıştırma hello **Microsoft Azure işlem öykünücüsü**, hello kullan **/copyonly** seçeneği. Bu seçenek hello hello uygulama tooa dizin düzenini içinden hello işlem öykünücüsü çalıştırılabilmesi için ikili dosyaları kopyalar.
+> Bulut hizmetinizi yerel olarak çalıştırmak **Microsoft Azure işlem öykünücüsü**, kullanın **/copyonly** seçeneği. Bu seçenek, uygulama, bunlar işlem öykünücüsü çalıştırılabilir bir dizin düzeni için ikili dosyaları kopyalar.
 > 
 > 
 
-### <a name="example-command-toopackage-a-cloud-service"></a>Örnek komut toopackage bir bulut hizmeti
-Merhaba aşağıdaki örnek bir web rolü hello bilgilerini içeren bir uygulama paketi oluşturur. Merhaba hizmet tanımı dosyası toouse Hello komutu belirtir, ikili dosyaları burada olabilir hello dizin bulundu ve hello paket dosyasının adı hello.
+### <a name="example-command-to-package-a-cloud-service"></a>Bir bulut hizmeti paketlemek için örnek komut
+Aşağıdaki örnek, bir web rolü için bilgileri içeren bir uygulama paketi oluşturur. Komut, ikili dosyaları bulunabileceği, dizini kullanmak için hizmet tanımı dosyası ve paket dosyası adını belirtir.
 
 ```cmd
 cspack [DirectoryName]\[ServiceDefinition]
@@ -253,7 +253,7 @@ cspack [DirectoryName]\[ServiceDefinition]
        /out:[OutputFileName]
 ```
 
-Merhaba uygulama bir web rolü ve çalışan rolü içeriyorsa, hello aşağıdaki komutu kullanılır:
+Uygulama bir web rolü ve çalışan rolü içeriyorsa, aşağıdaki komutu kullanılır:
 
 ```cmd
 cspack [DirectoryName]\[ServiceDefinition]
@@ -263,18 +263,18 @@ cspack [DirectoryName]\[ServiceDefinition]
        /role:[RoleName];[RoleBinariesDirectory];[RoleAssemblyName]
 ```
 
-Burada hello değişkenleri şunlardır:
+Burada değişkenleri şunlardır:
 
 | Değişken | Değer |
 | --- | --- |
-| \[DirectoryName\] |Merhaba alt hello .csdef dosyası hello Azure projesi, içerir hello kök proje dizini altında. |
-| \[ServiceDefinition\] |Merhaba hizmet tanımı dosyası Hello adı. Varsayılan olarak, bu dosyayı ServiceDefinition.csdef olarak adlandırılır. |
-| \[Çıkışdosyaadı\] |Merhaba adı hello için paket dosyası oluşturulur. Genellikle, bu Merhaba uygulaması toohello adına ayarlanır. Hiçbir dosya adı belirtilirse, hello uygulama paketi olarak oluşturuldu \[ApplicationName\].cspkg. |
-| \[Rol adı\] |Merhaba hizmet tanımı dosyasında tanımlanan hello rolünün Hello adı. |
-| \[RoleBinariesDirectory] |hello ikili dosyaları hello rolü için başlangıç konumu. |
-| \[VirtualPath\] |Merhaba hello siteler bölümünde hello hizmet tanımı tanımlanan her sanal yol için fiziksel dizinler. |
-| \[PhysicalPath\] |Merhaba hello site düğümünde hello hizmet tanımı tanımlanan her sanal yol için hello içeriğinin fiziksel dizinleri. |
-| \[RoleAssemblyName\] |Merhaba rolü için ikili dosya hello Hello adı. |
+| \[DirectoryName\] |Azure projesi .csdef dosyası içeren kök proje dizini altında alt dizin. |
+| \[ServiceDefinition\] |Hizmet tanımı dosyası adı. Varsayılan olarak, bu dosyayı ServiceDefinition.csdef olarak adlandırılır. |
+| \[Çıkışdosyaadı\] |Oluşturulan paket dosyasının adı. Genellikle, bu uygulama adına ayarlanır. Hiçbir dosya adı belirtilirse, uygulama paketi olarak oluşturuldu \[ApplicationName\].cspkg. |
+| \[Rol adı\] |Hizmet tanımı dosyasında tanımlanan rolün adı. |
+| \[RoleBinariesDirectory] |Rolü için ikili dosyalarının konumu. |
+| \[VirtualPath\] |Hizmet tanımı siteler bölümünde tanımlanan her sanal yol için fiziksel dizinler. |
+| \[PhysicalPath\] |Hizmet tanımı site düğümde tanımlanan her sanal yol için içerik fiziksel dizinleri. |
+| \[RoleAssemblyName\] |Rolü için ikili dosya adı. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bulut hizmeti paket oluşturma ve istiyorum...

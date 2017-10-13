@@ -1,6 +1,6 @@
 ---
-title: "Uzak Masaüstü bağlantısı için Azure bulut Hizmetleri rolünde aaaEnable | Microsoft Docs"
-description: "Nasıl tooconfigure azure bulut hizmeti uygulama tooallow Uzak Masaüstü bağlantıları"
+title: "Azure bulut Hizmetleri rolünde için Uzak Masaüstü Bağlantısı etkinleştirme | Microsoft Docs"
+description: "Azure bulut hizmeti uygulamanız Uzak Masaüstü bağlantılarına izin verecek şekilde yapılandırma"
 services: cloud-services
 documentationcenter: 
 author: mmccrory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: mmccrory
-ms.openlocfilehash: 55d7043df571c2e88b04aa9ef01dc8ae1d6784f7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0ff7fde5f3753aa6a24fb0af54d68d0dc0bd96a4
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Azure bulut Hizmetleri rolünde için Uzak Masaüstü Bağlantısı etkinleştir
 > [!div class="op_single_selector"]
@@ -29,46 +29,46 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Uzak Masaüstü tooaccess hello Masaüstü Azure'da çalışan bir rolün sağlar. Çalışırken uygulamanız ile sorunları tanılamak ve Uzak Masaüstü Bağlantısı tootroubleshoot kullanın.
+Uzak Masaüstü, Azure'da çalışan rolü Masaüstü erişmenize olanak tanır. Uzak Masaüstü Bağlantısı çalışırken, uygulamanızın sorunları tanılamak ve gidermek için kullanabilirsiniz.
 
-Hizmet tanımında hello Uzak Masaüstü modüller ekleyerek geliştirme sırasında rolde bir Uzak Masaüstü Bağlantısı etkinleştirebilirsiniz veya tooenable Uzak Masaüstü hello Uzak Masaüstü uzantısı aracılığıyla seçebilirsiniz. Uygulamanızı tooredeploy gerek kalmadan Merhaba uygulaması bile dağıtıldıktan sonra Uzak Masaüstü etkinleştirebilirsiniz gibi hello tercih edilen yaklaşım toouse hello Uzak Masaüstü uzantısıdır.
+Uzak Masaüstü Uzak Masaüstü uzantısı aracılığıyla etkinleştirmeyi seçebilirsiniz veya hizmet tanımında Uzak Masaüstü modüller ekleyerek geliştirme sırasında rolünüze Uzak Masaüstü Bağlantısı etkinleştirebilirsiniz. Tercih edilen yaklaşım uygulamanızı yeniden dağıtmak zorunda kalmadan uygulama bile dağıtıldıktan sonra Uzak Masaüstü'nü etkinleştirme gibi Uzak Masaüstü uzantısı kullanmaktır.
 
-## <a name="configure-remote-desktop-from-hello-azure-portal"></a>Azure portal hello Uzak Masaüstü'nü yapılandırma
-hello Azure portal hello Uzak Masaüstü uzantısı yaklaşımı kullanır, bu nedenle bile hello uygulama dağıtıldıktan sonra Uzak Masaüstü etkinleştirebilirsiniz. Merhaba **Uzak Masaüstü** bulut hizmetinizin dikey tooenable Uzak Masaüstü sağlar, değişiklik hello yerel yönetici hesabı kullanılan tooconnect toohello sanal makineler, hello sertifika kimlik doğrulamasında kullanılan ve hello ayarlayın sona erme tarihi.
+## <a name="configure-remote-desktop-from-the-azure-portal"></a>Uzak Masaüstü Azure portalından yapılandırın
+Azure portalı Uzak Masaüstü uzantısı yaklaşımı kullanır, bu nedenle bile uygulama dağıtıldıktan sonra Uzak Masaüstü etkinleştirebilirsiniz. **Uzak Masaüstü** dikey bulut hizmetiniz için Uzak Masaüstü'nü etkinleştirmek için sanal makinelere bağlanmak için kullanılan yerel yönetici hesabını değiştirirseniz olanak tanır, sertifika kimlik doğrulamasında kullanılan ve sona erme tarihini ayarlayın.
 
-1. Tıklatın **bulut Hizmetleri**hello bulut hizmeti hello adına tıklayın ve ardından **Uzak Masaüstü**.
+1. Tıklatın **bulut Hizmetleri**, bulut hizmeti adına tıklayın ve ardından **Uzak Masaüstü**.
 
     ![Bulut Hizmetleri Uzak Masaüstü](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop.png)
 
-2. Uzak Masaüstü tooenable tüm rolleri veya tek bir rol için istediğiniz sonra hello değiştirici hello değerini çok değiştirme olup olmadığını seçin**etkin**.
+2. Tek bir rol için veya tüm roller için Uzak Masaüstü'nü etkinleştirin, ardından değiştirici değerini değiştirmek isteyip istemediğinizi **etkin**.
 
-3. Kullanıcı adı, parola, süre sonu ve sertifika hello gerekli alanları doldurun.
+3. Kullanıcı adı, parola, süre sonu ve sertifika için gerekli alanları doldurun.
 
     ![Bulut Hizmetleri Uzak Masaüstü](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Details.png)
 
    > [!WARNING]
-   > İlk olarak Uzak Masaüstü'nü etkinleştirin ve (onay işareti) Tamam'ı tıklatın, tüm rol örneklerini yeniden başlatılır. tooprevent yeniden başlatma, hello sertifika kullanılan tooencrypt hello parolası hello rolünün yüklenmesi gerekir. tooprevent bir yeniden başlatma [hello bulut hizmeti için bir sertifika karşıya](cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate) ve toothis iletişim döndürür.
+   > İlk olarak Uzak Masaüstü'nü etkinleştirin ve (onay işareti) Tamam'ı tıklatın, tüm rol örneklerini yeniden başlatılır. Yeniden başlatma önlemek için parolayı şifrelemek için kullanılan sertifikanın rolünün yüklenmesi gerekir. Bir yeniden başlatmayı engellemek için [bulut hizmeti için bir sertifika karşıya](cloud-services-configure-ssl-certificate.md#step-3-upload-a-certificate) ve bu iletişim kutusuna dönün.
    >
    >
-3. İçinde **rolleri**seçin tooupdate istediğiniz ya da seçin hello rol **tüm** tüm rolleri için.
+3. İçinde **rolleri**, güncelleştirme veya seçmek istediğiniz rolü seçin **tüm** tüm rolleri için.
 
-4. Tamamladığınızda, yapılandırmayı güncelleştirmelerinizi tıklatın **kaydetmek**. Rolü örneklerinizi hazır tooreceive bağlantıları önce birkaç dakika sürebilir.
+4. Tamamladığınızda, yapılandırmayı güncelleştirmelerinizi tıklatın **kaydetmek**. Rolü örneklerinizi bağlantıları almaya hazır önce birkaç dakika sürebilir.
 
 ## <a name="remote-into-role-instances"></a>Uzaktan rol örnekleri içine
-Uzak Masaüstü hello rollerinde etkinleştirildikten sonra bir bağlantıdan doğrudan hello Azure Portal başlatabilirsiniz:
+Uzak Masaüstü roller üzerinde etkinleştirildikten sonra Azure Portalı'ndan doğrudan bir bağlantı başlatabilirsiniz:
 
-1. Tıklatın **örnekleri** tooopen hello **örnekleri** dikey.
+1. Tıklatın **örnekleri** açmak için **örnekleri** dikey.
 2. Yapılandırılmış Uzak Masaüstü sahip rol örneği seçin.
-3. Tıklatın **Bağlan** toodownload bir RDP dosyası hello rol örneği için.
+3. Tıklatın **Bağlan** rol örneği için bir RDP dosyası indirilemedi.
 
     ![Bulut Hizmetleri Uzak Masaüstü](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Connect.png)
 
-4. Tıklatın **açık** ve ardından **Bağlan** toostart hello Uzak Masaüstü Bağlantısı.
+4. Tıklatın **açık** ve ardından **Bağlan** Uzak Masaüstü bağlantısı başlatmak için.
 
 >[!NOTE]
-> Bulut hizmetiniz bir NSG durduğunu değilse, bağlantı noktalarında trafiğine izin veren toocreate kuralları gerekebilir **3389** ve **20000**.  Uzak Masaüstü bağlantı noktasını kullanır **3389**.  Bulut hizmeti örnekleri yükü dengelenmiş, olduğundan, hangi örneğinin tooconnect doğrudan denetleyemezsiniz.  Merhaba *RemoteForwarder* ve *RemoteAccess* aracıları RDP trafiği yönetmek ve hello istemci toosend bir RDP izin ver ve bir tek tek örnek tooconnect belirtin.  Merhaba *RemoteForwarder* ve *RemoteAccess* aracıları gerektiren bu bağlantı noktasını **20000*** açılıp, hangi engellenmiş olabilir bir NSG varsa.
+> Bulut hizmetiniz bir NSG durduğunu değilse, bağlantı noktalarında trafiğine izin veren kuralları oluşturmanız gerekebilir **3389** ve **20000**.  Uzak Masaüstü bağlantı noktasını kullanır **3389**.  Bulut hizmeti örnekleri yükü dengelenmiş, olduğundan, doğrudan bağlanmak için hangi örneğinin denetleyemezsiniz.  *RemoteForwarder* ve *RemoteAccess* aracıları RDP trafiği yönetmek ve istemcisinin bir RDP tanımlama bilgisi göndermek ve bağlanmak için tek bir örnek belirtin.  *RemoteForwarder* ve *RemoteAccess* aracıları gerektiren bu bağlantı noktasını **20000*** açılıp, hangi engellenmiş olabilir bir NSG varsa.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-[Nasıl tooConfigure bulut Hizmetleri](cloud-services-how-to-configure.md)
+[Bulut hizmetleri yapılandırmak için nasıl](cloud-services-how-to-configure.md)
 [bulut SSS - Uzak Masaüstü Hizmetleri](cloud-services-faq.md)

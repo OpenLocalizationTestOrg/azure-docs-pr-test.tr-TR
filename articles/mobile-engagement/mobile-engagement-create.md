@@ -1,6 +1,6 @@
 ---
-title: "Azure Mobile Engagement uygulaması aaaCreate | Microsoft Docs"
-description: "Nasıl toocreate Azure ve uygulamalarınızı ile yönetme Başlat yeni bir Mobile Engagement uygulama koleksiyonu hello Mobile Engagement portal açıklar."
+title: "Azure Mobile Engagement Uygulaması oluşturma | Microsoft Belgeleri"
+description: "Azure’da yeni bir Mobile Engagement Uygulama Koleksiyonu oluşturmayı ve Mobile Engagement portalıyla uygulamalarınızı yönetmeye başlamayı açıklar."
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,37 +14,37 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: piyushjo
-ms.openlocfilehash: 4da27e626dacfb6fcfbcb87458c37ea75689a33b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 47c1e122f6f38654cd63bb59e50e68803f76c83d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-mobile-engagement-app"></a>Azure Mobile Engagement Uygulaması oluşturma
-Bu makalede gösterilmektedir nasıl toouse hello **hızlı Oluştur** yöntemi toocreate yeni bir **Azure Mobile Engagement** uygulama. Merhaba makale ayrıca gösterir nasıl toonavigate tooyour **Mobile Engagement** izleme ve uygulamalarınızı yönetmeye sipariş toostart portal. 
+Bu makale yeni bir **Azure Mobile Engagement** Uygulaması oluşturmak için **Hızlı Oluştur** yöntemini kullanmayı gösterir. Makale ayrıca uygulamalarınızı izlemeye ve yönetmeye başlamak için **Mobile Engagement** portalına nasıl gideceğinizi gösterir. 
 
-Minimum "temel tümleştirme" birtakım eklemelisiniz sipariş toobe mümkün toocollect veri uygulamanız için not alın ve anında iletme bildirimleri göndermek. Merhaba tümleştirme belgelerinin tamamı hello bulunabilir [Mobile Engagement tümleştirmesi](mobile-engagement-windows-store-integrate-engagement.md).
+Uygulamalarınız için veri toplayabilmek ve anında iletme bildirimleri gönderebilmek için minimum “temel tümleştirme” grubu eklemeniz gerektiğini unutmayın. Tam tümleştirme belgeleri [Mobile Engagement tümleştirmesi](mobile-engagement-windows-store-integrate-engagement.md)’nde bulunabilir.
 
 > [!IMPORTANT]
-> toocomplete tüm Azure Mobile Engagement öğreticisini etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Ücretsiz Deneme</a>.
+> Bir Azure Mobile Engagement öğreticisini tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Ücretsiz Deneme</a>.
 > 
 > 
 
 ## <a name="setup-mobile-engagement-for-your-mobile-app-in-azure"></a>Azure’da mobil uygulamanız için Mobile Engagement kurma
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="navigate-tooyour-mobile-engagement-portal"></a>Tooyour Mobile Engagement portalına gidin
-toostart izleme ve yönetme, uygulamanızın tooyour Mobile Engagement portalına gidin hello tıklayarak **Engagement portal** hello üst çubuğu düğmesini.
+## <a name="navigate-to-your-mobile-engagement-portal"></a>Mobile Engagement portalınıza gidin.
+Uygulamanızı izlemeye ve yönetmeye başlamak için üst çubuktaki **Engagement portal** düğmesine tıklayarak Mobile Engagement portalınıza gidin.
 
-Hello Mobile Engagement portalında olduktan sonra çözümlemek, oluşturmak ve kesimleri yönetebilir, toohello kullanıcılar, vb..:    
+Mobile Engagement portalındayken, segmentleri çözümleyebilir, oluşturabilir, yönetebilir, kullanıcılara erişebilir ve bunlara benzer birçok işlem yapabilirsiniz:    
 
 * [Uygulamanız hakkında gerçek zamanlı verileri izleyin](mobile-engagement-user-interface-monitor.md)
 * [Uygulamanız hakkındaki geçmiş verilerini çözümleyin](mobile-engagement-user-interface-analytics.md)
-* [Oluşturma ve kullanıcılara tooidentify kullanım desenlerini kesimleri yönetme](mobile-engagement-user-interface-segments.md)
-* [Anında iletme bildirimleri ile uygulamanızın toohello kullanıcıları çıkışı ulaşmak](mobile-engagement-user-interface-reach.md)
+* [Kullanım düzenlerini tanımlamak için kullanıcı kesimleri oluşturun ve yönetin](mobile-engagement-user-interface-segments.md)
+* [Anında iletme bildirimleri ile uygulamanızın kullanıcılarına ulaşın](mobile-engagement-user-interface-reach.md)
 
 ## <a name="see-also"></a>Ayrıca Bkz.
 [Mobile Engagement stratejinizi tanımlama](mobile-engagement-define-your-mobile-engagement-strategy.md)
 
-[Azure Mobile Engagement kullanmaya başlama](mobile-engagement-windows-store-dotnet-get-started.md) (Merhaba sayfanın üst kısmındaki hello diğer mobil platformları seçebilirsiniz).
+[Azure Mobile Engagement kullanmaya başlama](mobile-engagement-windows-store-dotnet-get-started.md) (sayfanın üstünde diğer mobil platformları seçebilirsiniz).
 

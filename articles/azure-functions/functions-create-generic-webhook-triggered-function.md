@@ -1,6 +1,6 @@
 ---
-title: "Azure genel bir Web kancası tarafından tetiklenen bir işlev aaaCreate | Microsoft Docs"
-description: "Azure işlevleri toocreate bir Web kancası Azure tarafından çağrılan sunucusuz bir işlevi kullanın."
+title: "Azure genel bir Web kancası tarafından tetiklenen bir işlev oluşturun | Microsoft Docs"
+description: "Azure işlevleri, bir Web kancası Azure tarafından çağrılan sunucusuz bir işlev oluşturmak için kullanın."
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -16,21 +16,21 @@ ms.workload: na
 ms.date: 08/12/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 0a4868da91d216c8d20930ce7ec82eaa059c75ff
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f283f8d79c5ae5fb6a72c84c9e9edb7bb8de4a83
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-a-function-triggered-by-a-generic-webhook"></a>Genel bir Web kancası tarafından tetiklenen bir işlev oluşturun
 
-Azure işlevleri sağlayan bir VM oluşturun veya bir web uygulaması yayımlama toofirst gerek kalmadan sunucusuz bir ortamda kodunuzu yürütün. Örneğin, Azure İzleyici tarafından verilen bir uyarı tarafından tetiklenen bir işlev toobe yapılandırabilirsiniz. Bu konuda, bir kaynak grubu olduğunda tooexecute C# kodu tooyour abonelik nasıl eklenen gösterir.   
+Azure İşlevleri, öncelikle bir VM oluşturmak veya bir web uygulaması yayımlamak zorunda kalmadan kodunuzu sunucusuz bir ortamda yürütmenize olanak tanır. Örneğin, Azure İzleyici tarafından verilen bir uyarı tarafından tetiklenen bir işlev yapılandırabilirsiniz. Bu konu bir kaynak grubu aboneliğinize eklendiğinde, C# kodunun nasıl çalıştırılacağını gösterir.   
 
-![Genel Web kancası hello Azure portal işlevinde tetiklendi](./media/functions-create-generic-webhook-triggered-function/function-completed.png)
+![Azure portalında işlevi genel Web kancası tetiklendi](./media/functions-create-generic-webhook-triggered-function/function-completed.png)
 
 ## <a name="prerequisites"></a>Ön koşullar 
 
-toocomplete Bu öğretici:
+Bu öğreticiyi tamamlamak için:
 
 + Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -40,68 +40,68 @@ toocomplete Bu öğretici:
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-Ardından, hello yeni işlev uygulamada bir işlev oluşturun.
+Ardından, yeni işlev uygulamasında bir işlev oluşturun.
 
 ## <a name="create-function"></a>Genel Web kancası tetiklenen bir işlev oluşturun
 
-1. Merhaba, işlev uygulaması'nı genişletin ve  **+**  sonraki çok düğmesini**işlevler**. Bu işlev olan Merhaba, birinci işlevi uygulamanızı seçin **özel işlevi**. Merhaba eksiksiz işlev şablonları görüntüler.
+1. İşlev uygulamanızı genişletin ve **İşlevler**'in yanındaki **+** düğmesine tıklayın. Bu işlev listedeki birinci işlevi uygulamanız gerekiyorsa seçin **özel işlevi**. Böylece işlev şablonlarının tamamı görüntülenir.
 
-    ![Hello Azure portalı hızlı başlangıç sayfasında işlevleri](./media/functions-create-generic-webhook-triggered-function/add-first-function.png)
+    ![Azure portalındaki İşlevler hızlı başlangıç sayfası](./media/functions-create-generic-webhook-triggered-function/add-first-function.png)
 
-2. Select hello **Genel Web kancası - C#** şablonu. C# işlevi için bir ad yazın ve ardından **oluşturma**.
+2. Seçin **Genel Web kancası - C#** şablonu. C# işlevi için bir ad yazın ve ardından **oluşturma**.
 
-     ![Hello Azure portalına Genel Web kancası tetiklenen bir işlev oluşturun](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png) 
+     ![Azure portalında tetiklenen Genel Web kancası işlevi oluşturma](./media/functions-create-generic-webhook-triggered-function/functions-create-generic-webhook-trigger.png) 
 
-2. Yeni işlevinizi tıklatın **<> / Get işlevi URL**, daha sonra kopyalayın ve hello değeri kaydedin. Bu değer tooconfigure hello Web kancası kullanın. 
+2. Yeni işlevinizi tıklatın **<> / Get işlevi URL**, daha sonra kopyalayın ve değeri kaydedin. Web kancası yapılandırmak için bu değeri kullanın. 
 
-    ![Merhaba işlevi kod gözden geçirme](./media/functions-create-generic-webhook-triggered-function/functions-copy-function-url.png)
+    ![İşlev kodunu gözden geçirme](./media/functions-create-generic-webhook-triggered-function/functions-copy-function-url.png)
          
 Ardından, bir etkinlik günlüğü uyarı Azure İzleyicisi'nde bir Web kancası uç noktası oluşturun. 
 
 ## <a name="create-an-activity-log-alert"></a>Bir etkinlik günlüğü uyarı oluşturabilir.
 
-1. De Azure portal Merhaba, toohello gidin **İzleyici** hizmeti, select **uyarıları**, tıklatıp **etkinlik günlüğü uyarı Ekle**.   
+1. Azure portalında gidin **İzleyici** hizmeti, select **uyarıları**, tıklatıp **etkinlik günlüğü uyarı Ekle**.   
 
     ![İzleme](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert.png)
 
-2. Merhaba tabloda belirtildiği gibi Hello ayarları kullanın:
+2. Tabloda belirtilen ayarları kullanın:
 
     ![Bir etkinlik günlüğü uyarı oluşturabilir.](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert-settings.png)
 
     | Ayar      |  Önerilen değer   | Açıklama                              |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Etkinlik günlüğü uyarı adı** | kaynak-grubu-oluştur-uyarı | Merhaba etkinlik günlüğü uyarı adı. |
-    | **Abonelik** | Aboneliğiniz | Bu öğretici için kullandığınız hello abonelik. | 
-    |  **Kaynak Grubu** | myResourceGroup | Merhaba uyarı kaynakları dağıtılan hello kaynak grubu. Kullanarak hello aynı kaynak grubunu hello öğreticiyi tamamladıktan sonra işlev uygulaması daha kolay tooclean kolaylaştırır gibi. |
-    | **Olay kategorisi** | Yönetim | Bu kategori tooAzure kaynakları yapılan değişiklikleri içerir.  |
-    | **Kaynak türü** | Kaynak grupları | Uyarıları tooresource Grup etkinlikleri filtreler. |
+    | **Etkinlik günlüğü uyarı adı** | kaynak-grubu-oluştur-uyarı | Etkinlik günlüğü uyarı adı. |
+    | **Abonelik** | Aboneliğiniz | Bu öğretici için kullanmakta olduğunuz abonelik. | 
+    |  **Kaynak Grubu** | myResourceGroup | Uyarı kaynakları dağıtılan kaynak grubu. Aynı kaynak grubunda işlevi kullanarak öğreticiyi tamamladıktan sonra temizlemek kolaylaştırır. |
+    | **Olay kategorisi** | Yönetim | Bu kategori Azure kaynaklarında yapılan değişiklikleri içerir.  |
+    | **Kaynak türü** | Kaynak grupları | Kaynak grubu etkinlikler için uyarı filtreleri. |
     | **Kaynak Grubu**<br/>ve **kaynak** | Tümü | Tüm kaynaklar izleyin. |
-    | **İşlem adı** | Kaynak Grubu oluşturma | Uyarıları toocreate işlemleri filtreler. |
+    | **İşlem adı** | Kaynak Grubu oluşturma | İşlemler oluşturmak için uyarıları filtreler. |
     | **Düzeyi** | Bilgilendirme | Bilgilendirici düzeyi uyarılar içerir. | 
-    | **Durumu** | Başarılı oldu | Başarılı bir şekilde tamamladınız uyarıları tooactions filtreler. |
-    | **Eylem grubu** | Yeni | Bir uyarı oluştuğunda, hello eylemi alır tanımlayan yeni bir eylem grubu oluşturun. |
-    | **Eylem grup adı** | Web kancası işlevi | Ad tooidentify hello eylem grup.  | 
-    | **Kısa ad** | funcwebhook | Merhaba eylem grubu için kısa bir ad. |  
+    | **Durumu** | Başarılı oldu | Uyarılar başarıyla tamamladınız eylemlerine filtreler. |
+    | **Eylem grubu** | Yeni | Bir uyarı verildiğinde hangi eylemini alır tanımlayan yeni bir eylem grubu oluşturun. |
+    | **Eylem grup adı** | Web kancası işlevi | Eylem grubunu tanımlamak için bir ad.  | 
+    | **Kısa ad** | funcwebhook | Eylem grubu için kısa bir ad. |  
 
-3. İçinde **Eylemler**, hello tabloda belirtildiği gibi hello ayarlarını kullanarak Eylem Ekle: 
+3. İçinde **Eylemler**, tabloda belirtildiği gibi ayarları kullanarak bir eylem ekleyin: 
 
     ![Bir eylem grubu Ekle](./media/functions-create-generic-webhook-triggered-function/functions-monitor-add-alert-settings-2.png)
 
     | Ayar      |  Önerilen değer   | Açıklama                              |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Ad** | CallFunctionWebhook | Merhaba eylem için bir ad. |
-    | **Eylem türü** | Web Kancası | Merhaba yanıt toohello uyarı, bir Web kancası URL'si adlandırılır belirtir. |
-    | **Ayrıntılar** | İşlev URL'si | Daha önce kopyaladığınız hello işlevinin Hello Web kancası URL'si yapıştırın. |v
+    | **Ad** | CallFunctionWebhook | Eylem için bir ad. |
+    | **Eylem türü** | Web Kancası | Uyarı yanıta bir Web kancası URL'si olarak adlandırılmasıdır. |
+    | **Ayrıntılar** | İşlev URL'si | Daha önce kopyaladığınız işlevi Web kancası URL'sini yapıştırın. |v
 
-4. Tıklatın **Tamam** toocreate hello uyarı ve eylem grubu.  
+4. Tıklatın **Tamam** uyarı ve eylem grubu oluşturulamıyor.  
 
-bir kaynak grubu, aboneliğinizde oluşturulduğunda hello Web kancası şimdi adı verilir. Ardından, işlevi toohandle hello hello hello istek gövdesinde JSON günlük verilerini hello kodunu güncelleştirin.   
+Bir kaynak grubu, aboneliğinizde oluşturulduğunda Web kancası şimdi adı verilir. Ardından, istek gövdesinde JSON günlük verileri işlemek için işlev kodunu güncelleştirin.   
 
-## <a name="update-hello-function-code"></a>Merhaba işlev kodunu güncelleştirmesi
+## <a name="update-the-function-code"></a>İşlev kodunu güncelleştirme
 
-1. Merhaba portalında geri tooyour işlevi uygulamasına gidin ve işlevinizi genişletin. 
+1. Portal işlevi uygulamanızda geri gidin ve işlevinizi genişletin. 
 
-2. Merhaba C# kodu hello portalında hello işlevindeki koddan hello ile değiştirin:
+2. Portalda işlevindeki C# betik kodu aşağıdaki kodla değiştirin:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -115,12 +115,12 @@ bir kaynak grubu, aboneliğinizde oluşturulduğunda hello Web kancası şimdi a
     {
         log.Info($"Webhook was triggered!");
     
-        // Get hello activityLog object from hello JSON in hello message body.
+        // Get the activityLog object from the JSON in the message body.
         string jsonContent = await req.Content.ReadAsStringAsync();
         JToken activityLog = JObject.Parse(jsonContent.ToString())
             .SelectToken("data.context.activityLog");
     
-        // Return an error if hello resource in hello activity log isn't a resource group. 
+        // Return an error if the resource in the activity log isn't a resource group. 
         if (activityLog == null || !string.Equals((string)activityLog["resourceType"], 
             "Microsoft.Resources/subscriptions/resourcegroups"))
         {
@@ -131,7 +131,7 @@ bir kaynak grubu, aboneliğinizde oluşturulduğunda hello Web kancası şimdi a
             });
         }
     
-        // Write information about hello created resource group toohello streaming log.
+        // Write information about the created resource group to the streaming log.
         log.Info(string.Format("Resource group '{0}' was {1} on {2}.",
             (string)activityLog["resourceGroupName"],
             ((string)activityLog["subStatus"]).ToLower(), 
@@ -141,19 +141,19 @@ bir kaynak grubu, aboneliğinizde oluşturulduğunda hello Web kancası şimdi a
     }
     ```
 
-Şimdi, aboneliğinizde yeni bir kaynak grubu oluşturarak hello işlevi test edebilirsiniz.
+Şimdi, aboneliğinizde yeni bir kaynak grubu oluşturarak işlevi test edebilirsiniz.
 
-## <a name="test-hello-function"></a>Test hello işlevi
+## <a name="test-the-function"></a>İşlevi test etme
 
-1. Hello kaynak grubu simgesini'hello Azure portal, select hello sol **+ Ekle**, bir **kaynak grubu adı**seçip **oluşturma** toocreate boş bir kaynak grubu.
+1. Kaynak grubu seçin Azure portalının sol simgesini **+ Ekle**, bir **kaynak grubu adı**ve seçin **oluşturma** boş bir kaynak grubu oluşturmak için.
     
     ![Bir kaynak grubu oluşturun.](./media/functions-create-generic-webhook-triggered-function/functions-create-resource-group.png)
 
-2. Tooyour işlevi geri dönün ve hello genişletin **günlükleri** penceresi. Hello kaynak grubu oluşturulduktan sonra hello etkinlik günlüğü uyarı Tetikleyicileri hello Web kancası ve hello işlevi yürütür. Merhaba hello toohello günlükleri yazılan yeni kaynak grubu adını bakın.  
+2. İşlevinizi için geri dönün ve genişletin **günlükleri** penceresi. Kaynak grubu oluşturulduktan sonra Web kancası etkinlik günlüğü uyarıyı tetikleyen ve işlev yürütür. Günlüklere yazılan yeni kaynak grubu adını görürsünüz.  
 
     ![Bir test uygulama ayarı ekleyin.](./media/functions-create-generic-webhook-triggered-function/function-view-logs.png)
 
-3. (İsteğe bağlı) Geri dönün ve oluşturduğunuz hello kaynak grubunu silebilirsiniz. Bu etkinlik Tetik hello işlevi değil unutmayın. Bunun nedeni, operations filtrelenir hello uyarı tarafından Sil. 
+3. (İsteğe bağlı) Geri dönün ve sizin oluşturduğunuz kaynak grubunu silebilirsiniz. Bu etkinlik Tetik işlevi değil unutmayın. Bunun nedeni, operations filtrelenir uyarı tarafından silin. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -165,5 +165,5 @@ Genel bir Web kancası bir istek alındığında çalıştırılan bir işlev ol
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-Web kancası bağlamaları hakkında daha fazla bilgi için bkz. [Azure İşlevleri HTTP ve web kancası bağlamaları](functions-bindings-http-webhook.md). C# ' ta, işlevleri geliştirme hakkında daha fazla toolearn bkz [Azure işlevleri C# betik Geliştirici Başvurusu](functions-reference-csharp.md).
+Web kancası bağlamaları hakkında daha fazla bilgi için bkz. [Azure İşlevleri HTTP ve web kancası bağlamaları](functions-bindings-http-webhook.md). C# işlevleri geliştirme hakkında daha fazla bilgi için bkz: [Azure işlevleri C# betik Geliştirici Başvurusu](functions-reference-csharp.md).
 

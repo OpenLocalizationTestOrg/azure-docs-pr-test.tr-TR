@@ -1,6 +1,6 @@
 ---
-title: "aaaSKU serisi kullanılamaz | Microsoft Docs"
-description: "Bazı SKU serisi bu bölge için seçilen hello abonelik için kullanılamaz."
+title: "SKU serisi kullanılamaz | Microsoft Docs"
+description: "Bazı SKU serisi bu bölge için seçilen abonelik için kullanılamaz."
 services: Azure Supportability
 documentationcenter: 
 author: ganganarayanan
@@ -14,35 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: gangan
-ms.openlocfilehash: 76d45894c75c714fb3165b86add4be9012cbd5bc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3dc32bfb88e43e82cc4b3f43e31ce20d4302b688
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sku-series-unavailable"></a>SKU serisi kullanılamıyor
-Bazı bölgelerde belirli SKU'ları üzerinde yeni abonelikler otomatik olarak kullanılabilir değil.  Bu durum ortaya çıkabilir zaman [daha güçlü SKU'ları, bir bölgede sunulan](https://azure.microsoft.com/updates/announcing-new-dv2-series-virtual-machine-size/) ve eski SKU hello hello popülerliği reddettiğinde.
-Selamlama iletisine "*bazı SKU serisi, bu bölge için seçilen hello abonelik için kullanılamaz*" bir destek isteği tooincrease işlem çekirdek kotası oluştururken görüntülenir.
+Bazı bölgelerde belirli SKU'ları üzerinde yeni abonelikler otomatik olarak kullanılabilir değil.  Bu durum ortaya çıkabilir zaman [daha güçlü SKU'ları, bir bölgede sunulan](https://azure.microsoft.com/updates/announcing-new-dv2-series-virtual-machine-size/) ve eski popülerliği SKU reddettiğinde.
+İleti "*bazı SKU serisi, bu bölge için seçilen abonelik için kullanılamaz*" işlem çekirdek Kotayı artırmak için bir destek isteği oluşturulurken görüntülenir.
 
-Merhaba SKU kullanılabilirliğine inceleyebilirsiniz [bölgeye göre Azure Hizmetleri](https://azure.microsoft.com/regions/#services) sayfası. 
+Üzerinde SKU kullanılabilirlik inceleyebilirsiniz [bölgeye göre Azure Hizmetleri](https://azure.microsoft.com/regions/#services) sayfası. 
 
-toorequest erişim tooa aboneliğinizden, sınırlı SKU "Abonelik yönetimi" destek isteği oluşturun.
+Aboneliğinizden kısıtlanmış bir SKU erişim istemek için bir "Abonelik yönetimi" destek isteği oluşturun.
 
-* Merhaba temel bilgileri sayfasında, "Abonelik yönetimi" olarak sorun türü seçin ve "İleri" yi tıklatın.
+* Temel bilgileri sayfasında "Abonelik yönetimi" olarak sorun türü seçin ve "İleri" yi tıklatın.
 
 ![Temel Bilgiler dikey penceresi](./media/SKU-series-unavailable/BasicsSubMgmt.png)
 
-* Merhaba sorun sayfasında "diğer genel sorular" Merhaba sorun türü seçin ve hello tam bölge ve görme olmayan SKU girin.
-  Bu, hello destek işlemi hızlandırmak yardımcı olur.
+* Sorun sayfasında "diğer genel sorular" sorun türü seçin ve tam bölge ve görme olmayan SKU girin.
+  Bu destek sürecini hızlandırmak yardımcı olur.
 
 ![Sorun](./media/SKU-series-unavailable/ProblemSubMgmt.png)
 
-* Merhaba irtibat bilgileri sayfasında, iletişim bilgilerinizi girin ve "Oluştur" seçeneğine tıklayın.
+* İletişim bilgileri sayfasında, iletişim bilgilerinizi girin ve "Oluştur" seçeneğine tıklayın.
 
 ![İletişim Bilgileri](./media/SKU-series-unavailable/ContactInformation.png)
 
 ## <a name="feedback"></a>Geri Bildirim
-Her zaman açık toofeedback ve öneriler duyuyoruz! Bize gönderin, [önerileri](https://feedback.azure.com/forums/266794-support-feedback). Ayrıca, bizimle devreye [Twitter](https://twitter.com/azuresupport) veya hello [MSDN Forumları](https://social.msdn.microsoft.com/Forums/azure).
+Biz her zaman görüş ve öneriler için açık! Bize gönderin, [önerileri](https://feedback.azure.com/forums/266794-support-feedback). Ayrıca, bizimle devreye [Twitter](https://twitter.com/azuresupport) veya [MSDN Forumları](https://social.msdn.microsoft.com/Forums/azure).
 
 ## <a name="learn-more"></a>Daha fazla bilgi edinin
 [Azure destek SSS](https://azure.microsoft.com/support/faq)

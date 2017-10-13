@@ -1,6 +1,6 @@
 ---
-title: "bir Azure sanal makine ölçek kümesi üzerinde bir uygulama aaaDeploy | Microsoft Docs"
-description: "Toodeploy basit otomatik ölçeklendirmeyi uygulama bir Azure Resource Manager şablonu kullanarak bir sanal makine ölçekte öğrenin."
+title: "Azure sanal makine ölçek kümesinde uygulama dağıtma | Microsoft Docs"
+description: "Azure Resource Manager şablonunu kullanarak bir sanal makine ölçek kümesinde basit bir otomatik ölçeklendirme uygulaması dağıtmayı öğrenin."
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: rwike77
@@ -15,25 +15,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/24/2017
 ms.author: ryanwi
-ms.openlocfilehash: 6fccc310312cabfcdddfcbcd2d154fc5cc440417
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 07883a33382cc660b043c99872312a9e77228253
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-an-autoscaling-app-using-a-template"></a>Şablon kullanarak bir otomatik ölçeklendirme uygulaması dağıtma
 
-[Azure Resource Manager şablonları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) mükemmel şekilde toodeploy ilgili kaynaklar gruplarıdır. Bu öğretici derlemeler [dağıtmak basit ölçek kümesini](virtual-machine-scale-sets-mvss-start.md) ve nasıl toodeploy bir Azure Resource Manager şablonu kullanarak bir ölçekte basit otomatik ölçeklendirmeyi uygulama ayarlama açıklanmaktadır.  PowerShell'i, CLI veya hello portal kullanarak otomatik ölçeklendirmeyi ayarlayalım de ayarlayabilirsiniz. Daha fazla bilgi edinmek için bkz. [Otomatik ölçeklendirmeye genel bakış](virtual-machine-scale-sets-autoscale-overview.md).
+[Azure Resource Manager şablonları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment), ilgili kaynak gruplarını dağıtmanın harika bir yoludur. Bu öğretici, [Basit bir ölçek kümesi dağıtma](virtual-machine-scale-sets-mvss-start.md) öğreticisini temel alır ve Azure Resource Manager şablonu kullanılarak bir ölçek kümesinde basit bir otomatik ölçeklendirme uygulamasının nasıl dağıtılacağını açıklar.  PowerShell, CLI veya portalı kullanarak da otomatik ölçeklendirme ayarlayabilirsiniz. Daha fazla bilgi edinmek için bkz. [Otomatik ölçeklendirmeye genel bakış](virtual-machine-scale-sets-autoscale-overview.md).
 
 ## <a name="two-quickstart-templates"></a>İki hızlı başlangıç şablonu
-Ölçek kümesi dağıtırken bir [VM Uzantısını](../virtual-machines/virtual-machines-windows-extensions-features.md) kullanarak bir platform görüntüsü üzerine yeni yazılım yükleyebilirsiniz. VM uzantısı, dağıtım sonrası yapılandırma ve Azure sanal makinelerinde uygulama dağıtımı gibi otomasyon görevleri sunan küçük bir uygulamadır. ' Nde sağlanan iki farklı örnek şablonları [Azure/azure-hızlı başlangıç-şablonları](https://github.com/Azure/azure-quickstart-templates) VM uzantıları kullanarak toodeploy ölçeği otomatik ölçeklendirmeyi uygulamasını nasıl ayarlanacağını gösterir.
+Ölçek kümesi dağıtırken bir [VM Uzantısını](../virtual-machines/virtual-machines-windows-extensions-features.md) kullanarak bir platform görüntüsü üzerine yeni yazılım yükleyebilirsiniz. VM uzantısı, dağıtım sonrası yapılandırma ve Azure sanal makinelerinde uygulama dağıtımı gibi otomasyon görevleri sunan küçük bir uygulamadır. [Azure/azure-quickstart-templates](https://github.com/Azure/azure-quickstart-templates) bölümünde, VM uzantıları kullanılarak bir ölçek kümesine nasıl otomatik ölçeklendirme uygulaması dağıtılacağını gösteren iki farklı örnek sağlanmıştır.
 
 ### <a name="python-http-server-on-linux"></a>Linux’ta Python HTTP sunucusu
-Merhaba [Linux Python HTTP sunucusunda](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) örnek şablonu Linux ölçek kümesinde çalışan Basit otomatik ölçeklendirmeyi uygulama dağıtır.  [Bottle](http://bottlepy.org/docs/dev/), bir Python web çerçevesi ve basit bir HTTP sunucusu, özel bir komut dosyası VM uzantısı kullanılarak ayarlanan hello ölçeğinde her bir VM üzerinde dağıtılır. tüm sanal makineler arasında ortalama CPU kullanımı % 60'den büyük olduğunda ve hello ortalama CPU kullanımı % 30'den az olduğunda ölçeklendirir hello ölçek ölçekler ayarlayın.
+[Linux’ta Python HTTP sunucusu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) örnek şablonu, bir Linux ölçek kümesinde çalışan basit bir otomatik ölçeklendirme uygulaması dağıtır.  Özel betik VM uzantısı kullanılarak ölçek kümesindeki her VM’de bir Python web çerçevesi olan [Bottle](http://bottlepy.org/docs/dev/) ve basit bir HTTP sunucusu dağıtılır. Tüm VM’lerdeki ortalama CPU kullanımı %60’ı aştığında ölçek kümesinin ölçeği otomatik olarak artırılırken, ortalama CPU kullanımı %30’un altında düştüğünde ölçek azaltılır.
 
-Ayrıca toohello ölçek kaynak hello kümesi *azuredeploy.json* örnek şablonu ayrıca sanal ağ, genel IP adresi, yük dengeleyici ve otomatik ölçeklendirme ayarlarını kaynakları bildirir.  Bir şablonda bu kaynakları oluşturma hakkında daha fazla bilgi edinmek için bkz. [Otomatik ölçeklendirmeli Linux ölçek kümesi](virtual-machine-scale-sets-linux-autoscale.md).
+Ölçek kümesi kaynağına ek olarak *azuredeploy.json* örnek şablonu da sanal ağ, genel IP adresi, yük dengeleyici ve otomatik ölçeklendirme ayarları kaynakları bildirir.  Bir şablonda bu kaynakları oluşturma hakkında daha fazla bilgi edinmek için bkz. [Otomatik ölçeklendirmeli Linux ölçek kümesi](virtual-machine-scale-sets-linux-autoscale.md).
 
-Merhaba, *azuredeploy.json* şablonu, hello `extensionProfile` hello özelliğinin `Microsoft.Compute/virtualMachineScaleSets` kaynağı özel betik uzantısı belirtir. `fileUris`Merhaba komut dosyaları konumunu belirtir. Bu durumda, iki dosyaları: *workserver.py*, basit bir HTTP sunucusu tanımlar ve *installserver.sh*Bottle yükler ve başlatır hello HTTP sunucusu. `commandToExecute`Merhaba ölçek kümesi dağıtıldıktan sonra hello komutu toorun belirtir.
+*azuredeploy.json* şablonunda, `Microsoft.Compute/virtualMachineScaleSets` kaynağının `extensionProfile` özelliği özel bir betik uzantısını belirtir. `fileUris`, betiğin konumunu belirtir. Bu örnekte iki dosya vardır: Basit bir HTTP sunucusu tanımlayan *workserver.py* ve Bottle’ı yükleyip HTTP sunucusunu başlatan *installserver.sh*. `commandToExecute`, ölçek kümesi dağıtıldıktan sonra çalıştırılacak komutu belirtir.
 
 ```json
           "extensionProfile": {
@@ -59,11 +59,11 @@ Merhaba, *azuredeploy.json* şablonu, hello `extensionProfile` hello özelliğin
 ```
 
 ### <a name="aspnet-mvc-application-on-windows"></a>Windows’da ASP.NET MVC uygulaması
-Merhaba [ASP.NET MVC uygulaması Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) örnek şablonu IIS'de Windows ölçek kümesinde çalışan basit bir ASP.NET MVC uygulaması dağıtır.  IIS ve hello MVC uygulama dağıtılan hello kullanarak [PowerShell istenen durum yapılandırması (DSC)](virtual-machine-scale-sets-dsc.md) VM uzantısı.  Merhaba ölçek kümesinde ölçekler (VM örneği aynı anda) CPU kullanımı olduğunda % 50'den büyük 5 dakikadır. 
+[Windows’da ASP.NET MVC uygulaması](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) örnek şablonu, Windows ölçek kümesinde IIS’de çalışan basit bir ASP.NET MVC uygulaması dağıtır.  IIS ve MVC uygulaması, [PowerShell istenen durum yapılandırması (DSC)](virtual-machine-scale-sets-dsc.md) VM uzantısı kullanılarak dağıtılır.  VM örneğindeki CPU kullanımı 5 dakika boyunca aralıksız olarak %50’nin üzerinde kalırsa ölçek kümesinin ölçeği artar. 
 
-Ayrıca toohello ölçek kaynak hello kümesi *azuredeploy.json* örnek şablonu ayrıca sanal ağ, genel IP adresi, yük dengeleyici ve otomatik ölçeklendirme ayarlarını kaynakları bildirir. Bu şablon, uygulama yükseltme işlemini de gösterir.  Bir şablonda bu kaynakları oluşturma hakkında daha fazla bilgi edinmek için bkz. [Otomatik ölçeklendirmeli Windows ölçek kümesi](virtual-machine-scale-sets-windows-autoscale.md).
+Ölçek kümesi kaynağına ek olarak *azuredeploy.json* örnek şablonu da sanal ağ, genel IP adresi, yük dengeleyici ve otomatik ölçeklendirme ayarları kaynakları bildirir. Bu şablon, uygulama yükseltme işlemini de gösterir.  Bir şablonda bu kaynakları oluşturma hakkında daha fazla bilgi edinmek için bkz. [Otomatik ölçeklendirmeli Windows ölçek kümesi](virtual-machine-scale-sets-windows-autoscale.md).
 
-Merhaba, *azuredeploy.json* şablonu, hello `extensionProfile` hello özelliğinin `Microsoft.Compute/virtualMachineScaleSets` kaynağı belirtir bir [istenen durum yapılandırması (DSC)](virtual-machine-scale-sets-dsc.md) IIS ve varsayılan yükleyen uzantısı WebDeploy paketi Web uygulamasından.  Merhaba *IISInstall.ps1* komut dosyası IIS hello sanal makineye yükler ve hello bulunan *DSC* klasör.  Merhaba MVC web uygulaması hello bulunan *WebDeploy* klasör.  Merhaba yolları toohello yükleme betiği ve hello web uygulaması hello tanımlanmış `powershelldscZip` ve `webDeployPackage` hello parametrelerinde *azuredeploy.parameters.json* dosya. 
+*azuredeploy.json* şablonunda, `Microsoft.Compute/virtualMachineScaleSets` kaynağının `extensionProfile` özelliği bir [istenen durum yapılandırması (DSC)](virtual-machine-scale-sets-dsc.md) uzantısı belirtir ve bu da bir WebDeploy paketinden IIS’yi ve varsayılan bir web uygulamasını yükler.  *IISInstall.ps1* betiği sanal makinede IIS’yi yükler ve *DSC* klasöründe bulunur.  MVC web uygulaması *WebDeploy* klasöründe bulunur.  Yükleme betiği ve web uygulamasının yolları, *azuredeploy.parameters.json* dosyasındaki `powershelldscZip` ve `webDeployPackage` parametrelerinde tanımlanır. 
 
 ```json
           "extensionProfile": {
@@ -93,11 +93,11 @@ Merhaba, *azuredeploy.json* şablonu, hello `extensionProfile` hello özelliğin
           }
 ```
 
-## <a name="deploy-hello-template"></a>Merhaba şablonu dağıtma
-Merhaba en basit yolu toodeploy hello [Linux Python HTTP sunucusunda](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) veya [ASP.NET MVC uygulaması Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) şablonudur toouse hello **tooAzure dağıtmak** düğmesi hello bulundu Merhaba readme dosyalarında github'da.  PowerShell veya Azure CLI toodeploy hello örnek şablonları de kullanabilirsiniz.
+## <a name="deploy-the-template"></a>Şablonu dağıtma
+[Linux’ta Python HTTP sunucusu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) veya [Windows’da ASP.NET MVC uygulaması](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) şablonunu dağıtmanın en basit yolu, GitHub’daki benioku dosyalarında bulunan **Azure’a Dağıt** düğmesini kullanmaktır.  Örnek şablonları dağıtmak için PowerShell veya Azure CLI aracını da kullanabilirsiniz.
 
 ### <a name="powershell"></a>PowerShell
-Kopya hello [Linux Python HTTP sunucusunda](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) veya [ASP.NET MVC uygulaması Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) hello GitHub deposuna tooa klasöründeki dosyaları, yerel bilgisayarınızda.  Açık hello *azuredeploy.parameters.json* hello dosya ve güncelleştirme hello varsayılan değerleri `vmssName`, `adminUsername`, ve `adminPassword` parametreleri. PowerShell Betiği çok aşağıdaki hello Kaydet*deploy.ps1* hello içinde hello aynı klasöre *azuredeploy.json* şablonu. toodeploy hello örnek çalıştırmak şablon hello *deploy.ps1* bir PowerShell komut penceresi betikten.
+[Linux’ta Python HTTP sunucusu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale) veya [Windows’da ASP.NET MVC uygulaması](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale) dosyalarını GitHub deposundan yerel bilgisayarınızdaki bir klasöre kopyalayın.  *azuredeploy.parameters.json* dosyasını açıp `vmssName`, `adminUsername` ve `adminPassword` parametrelerini güncelleştirin. Aşağıdaki PowerShell betiğini *azuredeploy.json* şablonuyla aynı klasördeki *deploy.ps1* öğesine kaydedin. Örnek şablonu dağıtmak için bir PowerShell komut penceresinden *deploy.ps1* betiğini çalıştırın.
 
 ```powershell
 param(
@@ -163,7 +163,7 @@ if($resourceProviders.length) {
 $resourceGroup = Get-AzureRmResourceGroup -Name $resourceGroupName -ErrorAction SilentlyContinue
 if(!$resourceGroup)
 {
-    Write-Host "Resource group '$resourceGroupName' does not exist. toocreate a new resource group, please enter a location.";
+    Write-Host "Resource group '$resourceGroupName' does not exist. To create a new resource group, please enter a location.";
     if(!$resourceGroupLocation) {
         $resourceGroupLocation = Read-Host "resourceGroupLocation";
     }
@@ -174,7 +174,7 @@ else{
     Write-Host "Using existing resource group '$resourceGroupName'";
 }
 
-# Start hello deployment
+# Start the deployment
 Write-Host "Starting deployment...";
 if(Test-Path $parametersFilePath) {
     New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath -TemplateParameterFile $parametersFilePath;
@@ -191,7 +191,7 @@ IFS=$'\n\t'
 
 # -e: immediately exit if any command has a non-zero exit status
 # -o: prevents errors in a pipeline from being masked
-# IFS new value is less likely toocause confusing bugs when looping arrays or arguments (e.g. $@)
+# IFS new value is less likely to cause confusing bugs when looping arrays or arguments (e.g. $@)
 
 usage() { echo "Usage: $0 -i <subscriptionId> -g <resourceGroupName> -n <deploymentName> -l <resourceGroupLocation>" 1>&2; exit 1; }
 
@@ -238,12 +238,12 @@ if [[ -z "$deploymentName" ]]; then
 fi
 
 if [[ -z "$resourceGroupLocation" ]]; then
-    echo "Enter a location below toocreate a new resource group else skip this"
+    echo "Enter a location below to create a new resource group else skip this"
     echo "ResourceGroupLocation:"
     read resourceGroupLocation
 fi
 
-#templateFile Path - template file toobe used
+#templateFile Path - template file to be used
 templateFilePath="template.json"
 
 if [ ! -f "$templateFilePath" ]; then
@@ -264,7 +264,7 @@ if [ -z "$subscriptionId" ] || [ -z "$resourceGroupName" ] || [ -z "$deploymentN
     usage
 fi
 
-#login tooazure using your credentials
+#login to azure using your credentials
 az account show 1> /dev/null
 
 if [ $? != 0 ];
@@ -272,7 +272,7 @@ then
     az login
 fi
 
-#set hello default subscription id
+#set the default subscription id
 az account set --name $subscriptionId
 
 set +e

@@ -1,6 +1,6 @@
 ---
-title: "Ayrıca \"bir dizin (REST API - Azure Search) sorgu | Microsoft Docs\""
-description: "Azure Search'te bir arama sorgusu oluşturun ve arama parametrelerini toofilter ve sıralama arama sonuçlarını kullanın."
+title: Dizin sorgulama (REST API - Azure Search) | Microsoft Docs
+description: "Azure Search'te bir arama sorgusu oluşturun ve arama sonuçlarını filtrelemek ve sıralamak için arama parametrelerini kullanın."
 services: search
 documentationcenter: 
 manager: jhubbard
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/12/2017
 ms.author: ashmaka
-ms.openlocfilehash: 2f12238b8f4b045f536489cfc8766fb68307bbe2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 49062bec233ad35cd457f9665fa94c1855343582
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="query-your-azure-search-index-using-hello-rest-api"></a>Merhaba REST API kullanarak Azure Search dizininizi sorgulama
+# <a name="query-your-azure-search-index-using-the-rest-api"></a>REST API kullanarak Azure Search dizininizi sorgulama
 > [!div class="op_single_selector"]
 >
 > * [Genel Bakış](search-query-overview.md)
@@ -29,37 +29,37 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Bu makalede tooquery kullanarak bir dizinin nasıl hello gösterilmektedir [Azure Search REST API'sini](https://docs.microsoft.com/rest/api/searchservice/).
+Bu makale, [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)'sini kullanarak bir dizinin nasıl sorgulanacağını gösterir.
 
 Bu kılavuzda başlamadan önce, [Azure Search dizini oluşturmuş](search-what-is-an-index.md) ve [bunu verilerle doldurmuş](search-what-is-data-import.md) olmanız gerekir. Arka plan bilgileri için bkz. [Azure Search'te tam metin araması nasıl çalışır](search-lucene-query-architecture.md)?
 
 ## <a name="identify-your-azure-search-services-query-api-key"></a>Azure Search hizmet sorgunuzun api anahtarını tanımlama
-Bir anahtar hello Azure Search REST API'sini karşı tüm arama işlemlerinin hello bileşenidir *api anahtarını* sağladığınız hello hizmeti için oluşturulan. Geçerli bir anahtar sahip istek başına temelinde, hello isteği gönderiliyor hello uygulama ve bunu işleyen hello hizmeti arasında güven oluşturur.
+Azure Search REST API'sine karşı tüm arama işlemlerinin önemli bir bileşeni, sağladığınız hizmet için oluşturulan *api anahtarıdır*. İstek başına geçerli bir anahtara sahip olmak, isteği gönderen uygulama ve bunu işleyen hizmet arasında güven oluşturur.
 
-1. toofind hizmetinizin api anahtarlarından, toohello kaydolabilirsiniz [Azure portalı](https://portal.azure.com/)
-2. Tooyour Azure Search hizmet dikey penceresine gidin
-3. Merhaba "Anahtarlar" simgesine tıklayın
+1. Hizmetinizin api anahtarlarını bulmak için [Azure portalında](https://portal.azure.com/) oturum açabilirsiniz
+2. Azure Search hizmetinizin dikey penceresine gidin
+3. "Anahtarlar" simgesine tıklayın
 
 Hizmetiniz, *yönetici anahtarlarına* ve *sorgu anahtarlarına* sahiptir.
 
-* Birincil ve ikincil *yönetici anahtarları* tooall operations hello özelliği toomanage hello hizmeti dahil olmak üzere, tam haklar, oluşturun ve dizinler, dizin oluşturucular ve veri kaynaklarını silin. Tooregenerate hello birincil anahtar ve tam tersini karar verirseniz toouse hello ikincil anahtar devam edebilmesi için bu iki anahtar vardır.
-* *Sorgu anahtarları* salt okunur erişim tooindexes ve belgeleri verin ve arama istekleri gönderen genellikle dağıtılmış tooclient uygulamalardır.
+* Birincil ve ikincil *yönetici anahtarlarınız*; hizmeti yönetme, dizinler, dizin oluşturucular ve veri kaynakları ekleme ve silme de dahil olmak üzere her türlü işlem için tüm hakları verir. Birincil anahtarı yeniden oluşturmaya karar verirseniz ikincil anahtarı kullanmaya devam edebilmeniz ve tam tersini yapabilmeniz için iki anahtar vardır.
+* *Sorgu anahtarları*, dizinler ve belgeler için salt okunur erişim verir ve genellikle, arama istekleri gönderen istemci uygulamalarına dağıtılır.
 
-Bir dizini sorgulama hello amacıyla, sorgu anahtarlarınızdan birini kullanabilirsiniz. Yönetici anahtarlarınız da sorgular için kullanılabilir, ancak bu daha iyi hello aşağıdaki gibi uygulama kodunuzda bir sorgu anahtarı kullanmanız gerekir [en az ayrıcalık prensibi](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
+Bir dizini sorgulama amacıyla, sorgu anahtarlarınızdan birini kullanabilirsiniz. Yönetici anahtarlarınız da sorgular için kullanılabilir ancak uygulama kodunuzda bir sorgu anahtarı kullanmanız gerekir. Böylece [En az ayrıcalık prensibi](https://en.wikipedia.org/wiki/Principle_of_least_privilege) daha iyi takip edilmiş olur.
 
 ## <a name="formulate-your-query"></a>Sorgunuzu düzenleme
-İki yolu vardır çok[hello REST API kullanarak dizininizi aramanın](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Bir HTTP POST isteği tooissue sorgu parametrelerinizin hello istek gövdesindeki bir JSON nesnesinde tanımlandığı yoludur. Merhaba başka bir yolla tooissue bir HTTP GET isteği burada sorgu parametrelerinizin hello istek URL'si içinde tanımlanır. POST sahip daha [esnek sınırlara](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) hello Sorgu parametrelerinin boyutu açısından get'ten üzerinde. Bu nedenle, GET'i kullanmanın daha kullanışlı olduğu özel durumlar olmadığı sürece POST kullanmanızı öneririz.
+[REST API kullanarak dizininizi aramanın](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) iki yolu bulunur. Bu yollardan biri, sorgu parametrelerinizin istek gövdesindeki bir JSON nesnesinde tanımlanacağı bir HTTP POST isteği göndermektir. Diğer yol ise sorgu parametrelerinizin istek URL'si içinde tanımlanacağı bir HTTP GET isteği göndermektir. POST, sorgu parametrelerinin boyutu açısından GET'ten daha [esnek sınırlara](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) sahiptir. Bu nedenle, GET'i kullanmanın daha kullanışlı olduğu özel durumlar olmadığı sürece POST kullanmanızı öneririz.
 
-POST ve GET için tooprovide gerekir, *hizmet adı*, *dizin adı*ve hello uygun *API sürümü* (Merhaba geçerli API sürümü `2016-09-01` hello zaman Bu belgenin yayımlandığı) hello istek URL'si. GET için hello *sorgu dizesi* hello hello URL hello sorgu parametreleri Burada sağladığınız sonudur. Aşağıda hello URL biçimi için bkz:
+POST ve GET için *hizmet adınızı*, *dizin adını* ve uygun *API sürümünü* (bu belgenin yayımlandığı sırada geçerli API sürümü `2016-09-01`) istek URL'sinde sağlamanız gerekir. GET için sorgu parametrelerini URL'nin sonundaki *sorgu dizesine* sağlarsınız. URL biçimi için aşağıya bakın:
 
     https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2016-09-01
 
-Merhaba olduğu POST hello için aynı, ancak yalnızca api sürümü hello sorgu dizesi parametreleri ile biçimlendirin.
+POST için biçim aynıdır ancak sorgu dizesi parametrelerinde yalnızca api sürümü olur.
 
 #### <a name="example-queries"></a>Örnek Sorgular
 Burada "hotels" adlı bir dizinde birkaç örnek sorgu verilmiştir. Bu sorgular, hem GET hem de POST biçiminde gösterilir.
 
-Merhaba tüm dizinde "budget" Merhaba dönem için arama ve yalnızca hello dönmek `hotelName` alan:
+Tüm dizinde "budget" terimi araması yapın ve yalnızca `hotelName` alanını döndürün:
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=budget&$select=hotelName&api-version=2016-09-01
@@ -71,7 +71,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-Bir filtre toohello dizin toofind Oteller geceliği 150 gece dolardan ucuz uygulamak ve dönüş hello `hotelId` ve `description`:
+Geceliği 150 dolardan ucuz oteller bulmak için dizinde bir filtre uygulayıp `hotelId` ve `description` sonuçlarını döndürün:
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2016-09-01
@@ -84,7 +84,7 @@ POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-ve
 }
 ```
 
-Arama hello tüm dizin, belirli bir alana göre sıralama (`lastRenovationDate`) azalan sırada hello ilk iki sonucu alın ve yalnızca Göster `hotelName` ve `lastRenovationDate`:
+Tüm dizinde arama yapın, belirli bir alana göre (`lastRenovationDate`) azalan sıralamada sıralama yapın, ilk iki sonucu alın ve yalnızca `hotelName` ve `lastRenovationDate` öğesinin gösterilmesini sağlayın:
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate&api-version=2016-09-01
@@ -104,11 +104,11 @@ Artık HTTP istek URL'nizin (GET için) veya gövdenizin (POST için) parçası 
 #### <a name="request-and-request-headers"></a>İstek ve İstek Üst Bilgileri
 GET için iki, POST için ise üç istek üst bilgisi tanımlamanız gerekir:
 
-1. Merhaba `api-key` üstbilgi bulunan adımda ı yukarıdaki toohello sorgu anahtarını ayarlamanız gerekir. Bir yönetici anahtarı hello kullanabilirsiniz `api-key` üstbilgisi, ancak önerilir salt okunur erişim tooindexes ve belgeler özel olarak verir gibi bir sorgu anahtarı kullanmanızı öneririz.
-2. Merhaba `Accept` üstbilgisi çok ayarlanmalıdır`application/json`.
-3. Yalnızca POST için hello `Content-Type` üstbilgisi çok ayarlanmalıdır`application/json`.
+1. `api-key` üst bilgisi, yukarıdaki 1. adımda bulduğunuz sorgu anahtarına ayarlanmalıdır. `api-key` üst bilgisi olarak bir yönetici anahtarı da kullanabilirsiniz ancak dizinlere ve belgelere açık bir şekilde salt okunur erişimi verdiğinden, bir sorgu anahtarı kullanmanızı öneririz.
+2. `Accept` üst bilgisi `application/json` şeklinde ayarlanmalıdır.
+3. Yalnızca POST için `Content-Type` üst bilgisi `application/json` olarak ayarlanmalıdır.
 
-Merhaba hello "motel" terimini arayan basit bir sorgu kullanarak Azure Search REST API'sini kullanarak HTTP GET isteği toosearch hello "hotels" dizini için aşağıya bakın:
+"Motel" terimini arayan basit bir sorgu kullanarak Azure Search REST API'sini kullanıp "hotels" dizininde arama yapmaya yönelik bir HTTP GET isteği için aşağıya bakın:
 
 ```
 GET https://[service name].search.windows.net/indexes/hotels/docs?search=motel&api-version=2016-09-01
@@ -116,7 +116,7 @@ Accept: application/json
 api-key: [query key]
 ```
 
-İşte aynı hello örnek sorgu, HTTP POST kullanılarak bu süre:
+Aşağıda bu sefer HTTP POST kullanılmış şekilde aynı örnek sorgu verilmiştir:
 
 ```
 POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2016-09-01
@@ -129,7 +129,7 @@ api-key: [query key]
 }
 ```
 
-Başarılı bir sorgu isteği bir durum koduna neden olacak `200 OK` ve hello arama sonuçları hello yanıt gövdesinde JSON olarak döndürülür. İşte hello "hotels" dizininin içinde hello örnek verilerle varsayıldığında hello sorgunun yukarıda için hangi hello sonuçları [Veri Al'ı kullanarak Azure Search REST API hello](search-import-data-rest-api.md) (JSON, daha anlaşılır olması için biçimlendirilmiş bu hello unutmayın).
+Başarılı bir sorgu isteği, `200 OK` Durum Koduna sonucunu verir ve arama sonuçları, yanıt gövdesinde JSON olarak döndürülür. Yukarıdaki sorgunun sonuçları, "hotels" dizininin [REST API kullanarak Azure Search'te Veri İçeri Aktarma](search-import-data-rest-api.md)'da verilen örnek verilerle doldurulduğu varsayıldığında şöyledir (JSON'un netlik sağlaması için biçimlendirildiğini unutmayın).
 
 ```JSON
 {
@@ -162,4 +162,4 @@ Başarılı bir sorgu isteği bir durum koduna neden olacak `200 OK` ve hello ar
 }
 ```
 
-toolearn daha, lütfen şu adresi ziyaret hello "Yanıt" bölümünü [Search belgeleri](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Hata durumunda döndürülebilen diğer HTTP durum kodları hakkında daha fazla bilgi için bkz. [HTTP durum kodları (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
+Daha fazla bilgi edinmek için lütfen [Search Belgeleri](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)'nin "Yanıt" bölümünü ziyaret edin. Hata durumunda döndürülebilen diğer HTTP durum kodları hakkında daha fazla bilgi için bkz. [HTTP durum kodları (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).

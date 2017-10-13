@@ -1,6 +1,6 @@
 ---
-title: "Azure Mobile Apps ile iOS aaaAdd kimlik doğrulaması"
-description: "Bilgi nasıl toouse Azure Mobile Apps tooauthenticate kimlik sağlayıcıları, AAD, Google, Facebook, Twitter ve Microsoft dahil olmak üzere çeşitli, iOS uygulamanızın kullanıcılarının."
+title: "İOS Azure Mobile Apps ile kimlik doğrulaması ekleme"
+description: "İOS uygulamanızın kimlik sağlayıcıları, AAD, Google, Facebook, Twitter ve Microsoft dahil olmak üzere çeşitli kullanıcıların kimliklerini doğrulamak için Azure Mobile Apps kullanmayı öğrenin."
 services: app-service\mobile
 documentationcenter: ios
 author: ggailey777
@@ -14,47 +14,47 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: glenga
-ms.openlocfilehash: df129e1c7517582db0e4705e0a6e98345ac8a48c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 21a2cc6c1eaf4b34cbe8c2d7c4dbb69c8730cf32
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="add-authentication-tooyour-ios-app"></a>Kimlik doğrulama tooyour iOS uygulaması ekleyin
+# <a name="add-authentication-to-your-ios-app"></a>İOS uygulamanıza kimlik doğrulaması ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
-Bu öğretici kapsamında, kimlik doğrulama toohello ekleme [iOS Hızlı Başlat] desteklenen kimlik sağlayıcısı kullanarak proje. Bu öğretici hello üzerinde temel [iOS Hızlı Başlat] önce tamamlamanız gereken öğretici.
+Bu öğretici kapsamında, kimlik doğrulaması ekleme [iOS Hızlı Başlat] desteklenen kimlik sağlayıcısı kullanarak proje. Bu öğretici dayanır [iOS Hızlı Başlat] önce tamamlamanız gereken öğretici.
 
-## <a name="register"></a>Kimlik doğrulaması için uygulamanızı kaydetmenizi ve hello uygulama hizmetini yapılandırma
+## <a name="register"></a>Kimlik doğrulaması için uygulamanızı kaydetme ve uygulama hizmetini yapılandırma
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Uygulama toohello izin verilen dış yönlendirme URL'lerini ekleme
+## <a name="redirecturl"></a>Uygulamanız için izin verilen dış yönlendirme URL'leri ekleme
 
-Uygulamanız için yeni bir URL şemasını tanımlamak güvenli kimlik doğrulaması gerektirir.  Merhaba kimlik doğrulama işlemi tamamlandıktan sonra bu hello authentication sistem tooredirect geri tooyour uygulamasını sağlar.  Bu öğreticide, URL şemasının kullanırız _appname_ boyunca.  Ancak, seçtiğiniz herhangi bir URL şeması kullanabilirsiniz.  Benzersiz tooyour mobil uygulama olmalıdır.  th sunucu tarafı tooenable hello yönlendirme:
+Uygulamanız için yeni bir URL şemasını tanımlamak güvenli kimlik doğrulaması gerektirir.  Bu kimlik doğrulama işlemi tamamlandıktan sonra uygulamanıza geri yönlendirmek bir kimlik doğrulama sistemi sağlar.  Bu öğreticide, URL şemasının kullanırız _appname_ boyunca.  Ancak, seçtiğiniz herhangi bir URL şeması kullanabilirsiniz.  Mobil uygulamanız için benzersiz olmalıdır.  Th sunucu tarafında yeniden yönlendirmeyi etkinleştirmek için:
 
-1. Merhaba, [Azure portal], uygulama hizmetinizi seçin.
+1. İçinde [Azure portal], uygulama hizmetinizi seçin.
 
-2. Merhaba tıklatın **kimlik doğrulama / yetkilendirme** menü seçeneği.
+2. Tıklatın **kimlik doğrulama / yetkilendirme** menü seçeneği.
 
-3. Tıklatın **Azure Active Directory** hello altında **kimlik doğrulama sağlayıcıları** bölümü.
+3. Tıklatın **Azure Active Directory** altında **kimlik doğrulama sağlayıcıları** bölümü.
 
-4. Set hello **yönetim modu** çok**Gelişmiş**.
+4. Ayarlama **yönetim modu** için **Gelişmiş**.
 
-5. Merhaba, **yeniden yönlendirme URL'lere izin**, girin `appname://easyauth.callback`.  Merhaba _appname_ bu içinde hello URL şeması mobil uygulamanız için bir dizedir.  Bir protokol (harf kullanın ve yalnızca sayı ve bir harf ile başlar) için normal URL belirtimi izlemelisiniz.  Merhaba çeşitli yerlerde URL şeması ile mobil uygulama kodunuzu tooadjust gerekeceğinden, seçtiğiniz hello dize Not olmanız gerekir.
+5. İçinde **yeniden yönlendirme URL'lere izin**, girin `appname://easyauth.callback`.  _Appname_ Bu dize, mobil uygulamanız için URL düzenidir.  Bir protokol (harf kullanın ve yalnızca sayı ve bir harf ile başlar) için normal URL belirtimi izlemelisiniz.  Çeşitli yerlerde URL şeması ile mobil uygulama kodunuzu ayarlamak ihtiyaç duyacağınız seçtiğiniz dizeyi Not olmanız gerekir.
 
 6. **Tamam** düğmesine tıklayın.
 
 7. **Kaydet** düğmesine tıklayın.
 
-## <a name="permissions"></a>İzinleri tooauthenticated kullanıcılarını kısıtlayın
+## <a name="permissions"></a>Kimliği doğrulanmış kullanıcılar için izinleri kısıtla
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-Xcode'da, basın **çalıştırmak** toostart hello uygulama. Merhaba uygulama tooaccess arka ucu kimliği doğrulanmamış bir kullanıcı olarak çalıştığı bir özel durum oluşturulur, ancak hello *Todoıtem* tablo artık kimlik doğrulaması gerektirir.
+Xcode'da, basın **çalıştırmak** uygulamayı başlatmak için. Uygulama arka ucu kimliği doğrulanmamış bir kullanıcı olarak erişmeye çalıştığı bir özel durum oluşturulur ancak *Todoıtem* tablo artık kimlik doğrulaması gerektirir.
 
-## <a name="add-authentication"></a>Kimlik doğrulama tooapp Ekle
+## <a name="add-authentication"></a>Kimlik doğrulaması için uygulama ekleme
 **Objective-C**:
 
-1. Mac'inizde açmak *QSTodoListViewController.m* xcode'da ve yöntemi aşağıdaki hello ekleyin:
+1. Mac'inizde açmak *QSTodoListViewController.m* xcode'da ve aşağıdaki yöntemi ekleyin:
 
     ```Objective-C
     - (void)loginAndGetData
@@ -76,17 +76,17 @@ Xcode'da, basın **çalıştırmak** toostart hello uygulama. Merhaba uygulama t
     }
     ```
 
-    Değişiklik *google* çok*microsoftaccount*, *twitter*, *facebook*, veya *windowsazureactivedirectory* kimlik sağlayıcınız olarak Google kullanmıyorsanız. Facebook kullanmak istiyorsanız, gerekir [beyaz liste Facebook etki alanları] [ 1] uygulamanızda.
+    Değişiklik *google* için *microsoftaccount*, *twitter*, *facebook*, veya *windowsazureactivedirectory* kimlik sağlayıcınız olarak Google kullanmıyorsanız. Facebook kullanmak istiyorsanız, gerekir [beyaz liste Facebook etki alanları] [ 1] uygulamanızda.
 
-    Hello yerine **urlScheme** uygulamanız için benzersiz bir ada sahip.  Merhaba urlScheme olması hello aynı hello hello belirtilen URL şeması protokolü olarak **yeniden yönlendirme URL'lere izin** hello Azure portal alanındaki. kimlik doğrulama isteği tamamlandıktan sonra hello urlScheme hello kimlik doğrulama geri çağırma tooswitch geri tooyour uygulama tarafından kullanılır.
+    Değiştir **urlScheme** uygulamanız için benzersiz bir ada sahip.  UrlScheme belirtilen URL şeması protokolü ile aynı olmalıdır **yeniden yönlendirme URL'lere izin** Azure portalında alan. UrlScheme kimlik doğrulama geri çağırmasının tarafından kimlik doğrulama isteği tamamlandıktan sonra geri uygulamanıza geçiş yapmak için kullanılır.
 
-2. Değiştir `[self refresh]` içinde `viewDidLoad` içinde *QSTodoListViewController.m* koddan hello ile:
+2. Değiştir `[self refresh]` içinde `viewDidLoad` içinde *QSTodoListViewController.m* aşağıdaki kod ile:
 
     ```Objective-C
     [self loginAndGetData];
     ```
 
-3. Açık hello `QSAppDelegate.h` dosya ve hello aşağıdaki kodu ekleyin:
+3. Açık `QSAppDelegate.h` dosya ve aşağıdaki kodu ekleyin:
 
     ```Objective-C
     #import "QSTodoService.h"
@@ -94,7 +94,7 @@ Xcode'da, basın **çalıştırmak** toostart hello uygulama. Merhaba uygulama t
     @property (strong, nonatomic) QSTodoService *qsTodoService;
     ```
 
-4. Açık hello `QSAppDelegate.m` dosya ve hello aşağıdaki kodu ekleyin:
+4. Açık `QSAppDelegate.m` dosya ve aşağıdaki kodu ekleyin:
 
     ```Objective-C
     - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
@@ -109,9 +109,9 @@ Xcode'da, basın **çalıştırmak** toostart hello uygulama. Merhaba uygulama t
     }
     ```
 
-   Bu kodu doğrudan hello satır okuma önce ekleyin `#pragma mark - Core Data stack`.  Değiştir _appname_ 1. adımda kullanılan olan hello urlScheme değeri.
+   Bu kod satırı okuma hemen öncesine eklemek `#pragma mark - Core Data stack`.  Değiştir _appname_ olan 1. adımda kullanılan urlScheme değeri.
 
-5. Açık hello `AppName-Info.plist` dosya (uygulamanızın hello adıyla değiştirerek AppName) ve kod aşağıdaki hello ekleyin:
+5. Açık `AppName-Info.plist` (uygulamanızın adıyla değiştirerek AppName) dosyasını bulun ve aşağıdaki kodu ekleyin:
 
     ```XML
     <key>CFBundleURLTypes</key>
@@ -127,15 +127,15 @@ Xcode'da, basın **çalıştırmak** toostart hello uygulama. Merhaba uygulama t
     </array>
     ```
 
-    Bu kod içinde hello yerleştirilmelidir `<dict>` öğesi.  Hello yerine _appname_ dize (dizi için içinde **CFBundleURLSchemes**) 1. adımda seçtiğiniz hello uygulama adı ile.  Ayrıca bu hello plist Düzenleyicisi - hello tıklayarak değişiklik yapabilirsiniz `AppName-Info.plist` dosyasını XCode tooopen hello plist düzenleyicisinde.
+    Bu kod içinde yerleştirilmelidir `<dict>` öğesi.  Değiştir _appname_ dize (dizi için içinde **CFBundleURLSchemes**) 1. adımda seçtiğiniz uygulama adı ile.  Ayrıca bu plist Düzenleyicisi - tıklayarak değişiklik yapabilirsiniz `AppName-Info.plist` plist Düzenleyicisi'ni açmak için XCode dosyasında.
 
-    Hello yerine `com.microsoft.azure.zumo` dize **CFBundleURLName** , Apple ile paket tanımlayıcı.
+    Değiştir `com.microsoft.azure.zumo` dize **CFBundleURLName** , Apple ile paket tanımlayıcı.
 
-6. Tuşuna *çalıştırmak* toostart hello uygulama ve oturum açın. Oturum açtıktan sonra mümkün tooview hello Yapılacaklar listesi olması ve güncelleştirmelerinin olması gerekir.
+6. Tuşuna *çalıştırmak* uygulamayı başlatın ve sonra oturum açın. Oturum açtıktan sonra Yapılacaklar listesi görebilir ve güncelleştirme yapmak olmalıdır.
 
 **SWIFT**:
 
-1. Mac'inizde açmak *ToDoTableViewController.swift* xcode'da ve yöntemi aşağıdaki hello ekleyin:
+1. Mac'inizde açmak *ToDoTableViewController.swift* xcode'da ve aşağıdaki yöntemi ekleyin:
 
     ```swift
     func loginAndGetData() {
@@ -162,17 +162,17 @@ Xcode'da, basın **çalıştırmak** toostart hello uygulama. Merhaba uygulama t
     }
     ```
 
-    Değişiklik *google* çok*microsoftaccount*, *twitter*, *facebook*, veya *windowsazureactivedirectory* kimlik sağlayıcınız olarak Google kullanmıyorsanız. Facebook kullanmak istiyorsanız, gerekir [beyaz liste Facebook etki alanları] [ 1] uygulamanızda.
+    Değişiklik *google* için *microsoftaccount*, *twitter*, *facebook*, veya *windowsazureactivedirectory* kimlik sağlayıcınız olarak Google kullanmıyorsanız. Facebook kullanmak istiyorsanız, gerekir [beyaz liste Facebook etki alanları] [ 1] uygulamanızda.
 
-    Hello yerine **urlScheme** uygulamanız için benzersiz bir ada sahip.  Merhaba urlScheme olması hello aynı hello hello belirtilen URL şeması protokolü olarak **yeniden yönlendirme URL'lere izin** hello Azure portal alanındaki. kimlik doğrulama isteği tamamlandıktan sonra hello urlScheme hello kimlik doğrulama geri çağırma tooswitch geri tooyour uygulama tarafından kullanılır.
+    Değiştir **urlScheme** uygulamanız için benzersiz bir ada sahip.  UrlScheme belirtilen URL şeması protokolü ile aynı olmalıdır **yeniden yönlendirme URL'lere izin** Azure portalında alan. UrlScheme kimlik doğrulama geri çağırmasının tarafından kimlik doğrulama isteği tamamlandıktan sonra geri uygulamanıza geçiş yapmak için kullanılır.
 
-2. Merhaba satırları Kaldır `self.refreshControl?.beginRefreshing()` ve `self.onRefresh(self.refreshControl)` sonunda `viewDidLoad()` içinde *ToDoTableViewController.swift*. Çağrı çok ekleyin`loginAndGetData()` kendi yerinde:
+2. Satırları kaldırmak `self.refreshControl?.beginRefreshing()` ve `self.onRefresh(self.refreshControl)` sonunda `viewDidLoad()` içinde *ToDoTableViewController.swift*. Bir çağrı ekleyin `loginAndGetData()` kendi yerinde:
 
     ```swift
     loginAndGetData()
     ```
 
-3. Açık hello `AppDelegate.swift` dosya ve satır toohello aşağıdaki hello ekleyin `AppDelegate` sınıfı:
+3. Açık `AppDelegate.swift` dosya ve aşağıdaki satırı ekleyin `AppDelegate` sınıfı:
 
     ```swift
     var todoTableViewController: ToDoTableViewController?
@@ -187,9 +187,9 @@ Xcode'da, basın **çalıştırmak** toostart hello uygulama. Merhaba uygulama t
     }
     ```
 
-    Hello yerine _appname_ 1. adımda kullanılan olan hello urlScheme değeri.
+    Değiştir _appname_ olan 1. adımda kullanılan urlScheme değeri.
 
-4. Açık hello `AppName-Info.plist` dosya (uygulamanızın hello adıyla değiştirerek AppName) ve kod aşağıdaki hello ekleyin:
+4. Açık `AppName-Info.plist` (uygulamanızın adıyla değiştirerek AppName) dosyasını bulun ve aşağıdaki kodu ekleyin:
 
     ```xml
     <key>CFBundleURLTypes</key>
@@ -205,13 +205,13 @@ Xcode'da, basın **çalıştırmak** toostart hello uygulama. Merhaba uygulama t
     </array>
     ```
 
-    Bu kod içinde hello yerleştirilmelidir `<dict>` öğesi.  Hello yerine _appname_ dize (dizi için içinde **CFBundleURLSchemes**) 1. adımda seçtiğiniz hello uygulama adı ile.  Ayrıca bu hello plist Düzenleyicisi - hello tıklayarak değişiklik yapabilirsiniz `AppName-Info.plist` dosyasını XCode tooopen hello plist düzenleyicisinde.
+    Bu kod içinde yerleştirilmelidir `<dict>` öğesi.  Değiştir _appname_ dize (dizi için içinde **CFBundleURLSchemes**) 1. adımda seçtiğiniz uygulama adı ile.  Ayrıca bu plist Düzenleyicisi - tıklayarak değişiklik yapabilirsiniz `AppName-Info.plist` plist Düzenleyicisi'ni açmak için XCode dosyasında.
 
-    Hello yerine `com.microsoft.azure.zumo` dize **CFBundleURLName** , Apple ile paket tanımlayıcı.
+    Değiştir `com.microsoft.azure.zumo` dize **CFBundleURLName** , Apple ile paket tanımlayıcı.
 
-5. Tuşuna *çalıştırmak* toostart hello uygulama ve oturum açın. Oturum açtıktan sonra mümkün tooview hello Yapılacaklar listesi olması ve güncelleştirmelerinin olması gerekir.
+5. Tuşuna *çalıştırmak* uygulamayı başlatın ve sonra oturum açın. Oturum açtıktan sonra Yapılacaklar listesi görebilir ve güncelleştirme yapmak olmalıdır.
 
-Uygulama hizmeti kimlik doğrulama elmalar Inter uygulama iletişimi kullanır.  Bu konu hakkında daha fazla ayrıntı için toohello başvurun [Apple belgeleri][2]
+Uygulama hizmeti kimlik doğrulama elmalar Inter uygulama iletişimi kullanır.  Bu konu hakkında daha fazla ayrıntı için başvurmak [Apple belgeleri][2]
 <!-- URLs. -->
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist

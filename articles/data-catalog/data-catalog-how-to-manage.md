@@ -1,6 +1,6 @@
 ---
-title: "Azure veri Kataloğu aaaManage veri varlıklarını | Microsoft Docs"
-description: "Merhaba makale nasıl toocontrol görünürlük ve veri varlıklarının sahipliğini Azure veri Kataloğu'nda kayıtlı vurgular."
+title: "Azure veri Kataloğu'nda veri varlıklarını yönetme | Microsoft Docs"
+description: "Makaleyi görünürlük ve Azure veri Kataloğu'nda kayıtlı veri varlıklarının sahipliğini denetleme vurgular."
 services: data-catalog
 documentationcenter: 
 author: steelanddata
@@ -15,61 +15,61 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.openlocfilehash: 48a634b92d7da19c32c9e551f295eec257f54f1d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8b9159b7bc4f7b2dac12d9012c6c903e75a6ac16
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Azure veri Kataloğu'nda veri varlıklarını yönetme
 ## <a name="introduction"></a>Giriş
-Böylece kolayca bulmak ve tooperform analiz gerekir ve kararları hello veri kaynaklarını anlamasına azure veri Kataloğu veri kaynağı bulma için tasarlanmıştır. Sizin ve diğer kullanıcıların bulmak ve kullanılabilir veri kaynaklarını çok çeşitli hello anlamak bulma yeteneklere hello büyük etkisi olun. Bu öğeleri aklınızda tüm kayıtlı veri kaynaklarının toobe görünür tooand bulunabilirlik tüm katalog kullanıcıları tarafından veri Kataloğu'nun hello varsayılan davranışı içindir.
+Böylece kolayca bulmak ve analiz gerçekleştirmek ve kararlar için gereken veri kaynaklarını anlamasına azure veri Kataloğu veri kaynağı bulma için tasarlanmıştır. Sizin ve diğer kullanıcıların bulmak ve kullanılabilir veri kaynakları çok çeşitli anlamak bulma yeteneklere büyük etkisi olun. Aklınızda bu öğeler ile görünür ve tüm katalog kullanıcıları tarafından bulunabilir olması için tüm kayıtlı veri kaynakları veri Kataloğu varsayılan davranışını içindir.
 
-Veri Kataloğu verme, erişim toohello verileri kendisi. Veri erişimi hello veri kaynağı hello sahibi tarafından denetlenir. Veri Kataloğu ile veri kaynaklarını bulmasına ve hello kataloğa kayıtlı bir ilgili toohello kaynak hello meta verileri görüntüleyebilirsiniz.
+Veri Kataloğu, veri erişim sağlamaz. Veri erişimini veri kaynağının sahibi tarafından denetlenir. Veri Kataloğu ile veri kaynaklarını bulmasına ve kataloğa kayıtlı kaynaklarla ilgili meta verileri görüntüleyebilirsiniz.
 
-Burada veri kaynakları yalnızca görünür toospecific kullanıcılar veya belirli grupların toomembers olmalıdır durumlar olabilir. Bu senaryolarda, kullanıcılar hello katalog içindeki kayıtlı veri kaynaklarının sahipliğini almak ve hello oldukları hello kaynakların güvenilirliğini denetlemek.
+Burada veri kaynaklarının yalnızca belirli kullanıcılara veya belirli grupların üyelerine görünmesi gereken durumlar olabilir. Kullanıcılar bu senaryolarda katalog içindeki kayıtlı veri varlıklarının sahipliğini ve sahip olduğunuz kaynakların güvenilirliğini denetlemek.
 
 > [!NOTE]
-> Bu makalede açıklanan hello işlevi yalnızca hello, Azure veri Kataloğu standart sürümü kullanılabilir. Merhaba ücretsiz sürüm sahipliği ve veri varlık görünürlüğü kısıtlamak için özellikleri sağlamaz.
+> Bu makalede açıklanan işlevselliği, yalnızca, Azure veri Kataloğu standart sürümü kullanılabilir. Ücretsiz sürüm sahipliği ve kısıtlama veri varlığına görünürlük yeteneklerini sağlamaz.
 >
 >
 
 ## <a name="manage-ownership-of-data-assets"></a>Veri varlıklarının sahipliğini yönetme
-Varsayılan olarak, veri Kataloğu'nda kayıtlı veri varlıklarını sahipsiz. Herhangi bir kullanıcı izni tooaccess hello Kataloğu ile bulabilir ve bu varlıklarına açıklama. Kullanıcılar, sahipsiz veri varlıklarının sahipliğini ve hello oldukları hello varlıklarının görünürlüğünü sınırlayın.
+Varsayılan olarak, veri Kataloğu'nda kayıtlı veri varlıklarını sahipsiz. Kataloğu'na erişmek için izne sahip herhangi bir kullanıcı bulmak ve bu varlıklarına açıklama. Kullanıcılar, sahipsiz veri varlıklarının sahipliğini ve sahip olduğunuz kaynakların güvenilirliğini sınırlayın.
 
-Veri Kataloğu'ndaki bir veri varlığına ait olduğunda, yalnızca hello sahipleri tarafından yetkilendirilmiş kullanıcılar hello varlık bulmak ve meta verilerini görüntülemek ve yalnızca hello sahipleri hello varlık hello Kataloğu'ndan silebilirsiniz.
+Veri Kataloğu'ndaki bir veri varlığına ait olduğunda, yalnızca sahipleri tarafından yetkilendirilmiş kullanıcılar varlık bulmak ve meta verilerini görüntülemek ve yalnızca sahiplerinin varlık Kataloğu'ndan silebilirsiniz.
 
 > [!NOTE]
-> Veri Kataloğu sahipliği hello kataloğunda depolanmış hello meta etkiler. Sahipliği hello temel alınan veri kaynağında tüm izinleri confer değil.
+> Veri Kataloğu sahipliği kataloğunda depolanan meta veriler etkiler. Sahipliği temel alınan veri kaynağında tüm izinleri confer değil.
 >
 >
 
 ### <a name="take-ownership"></a>Sahipliği alın
-Kullanıcılar, hello seçerek veri varlıklarının sahipliğini alabilir **Sahipliği Al** hello veri Kataloğu portalında seçeneği. Özel izinler gerekli tootake sahipliğini sahipsiz veri varlığına ' dir. Herhangi bir kullanıcı bir sahipsiz veri varlığı sahipliğini alabilir.
+Kullanıcılar, seçerek veri varlıklarının sahipliğini alabilir **Sahipliği Al** veri Kataloğu portalında seçeneği. Özel izinler sahipsiz veri varlığına sahipliğini almak için gereklidir. Herhangi bir kullanıcı bir sahipsiz veri varlığı sahipliğini alabilir.
 
 ### <a name="add-owners-and-co-owners"></a>Sahipleri ve ikincil sahipler ekleme
 Bir veri varlığına zaten sahip değilse, diğer kullanıcıların yalnızca Sahiplik alınamıyor. Bunlar birlikte sahipleri olarak var olan bir sahibi tarafından eklenmiş olması gerekir. Tüm sahibi ikincil sahip ek kullanıcı veya güvenlik grupları ekleyebilir.
 
 > [!NOTE]
-> Bu en iyi yöntem toohave herhangi bir veri varlığına ait sahipleri olarak en az iki kişiler aranır.
+> Herhangi bir ait veri varlığını sahiplerini olarak en az iki kişiler için iyi bir uygulamadır.
 >
 >
 
 ### <a name="remove-owners"></a>Sahipleri Kaldır
 Tüm varlık sahibi ikincil sahip eklemeniz yeterlidir gibi tüm varlık sahibi tüm ikincil sahip kaldırabilirsiniz.
 
-Bir sahibi olarak kendisine veya kendisini kaldırır bir varlık sahibi artık hello varlık yönetebilirsiniz. Merhaba varlık sahibinin sahibi olarak kendisine veya kendisini kaldırır ve diğer ortak sahip yoktur, hello varlık durumu sahipsiz tooan döner.
+Bir sahibi olarak kendisine veya kendisini kaldırır bir varlık sahibi artık varlık yönetebilirsiniz. Varlık sahibinin sahibi olarak kendisine veya kendisini kaldırır ve diğer ortak sahip yoktur, varlık sahipsiz durumuna geri döner.
 
 ## <a name="control-visibility"></a>Denetim görünürlüğü
-Veri varlığına sahipleri hello oldukları hello veri varlıklarının görünürlüğünü kontrol edebilirsiniz. toorestrict görünürlüğü hello varsayılan olarak, tüm veri Kataloğu kullanıcıları bulmak ve görünüm veri varlığına hello burada hello varlık sahibi değiştirmek hello görünürlük ayarından **herkesin** çok**sahipler ve bu kullanıcılar** hello özelliklerinde hello varlık. Sahipleri, belirli kullanıcılar ve güvenlik grupları daha sonra ekleyebilirsiniz.
+Veri varlığına sahip oldukları veri varlıklarının görünürlüğünü kontrol edebilirsiniz. Burada tüm veri Kataloğu kullanıcıları bulmak ve veri varlığına görüntülemek, varsayılan olarak görünürlüğü kısıtlamak için varlık sahibinin görünürlük ayarından geçiş yapabilirsiniz **herkesin** için **sahipler ve bu kullanıcılar** içinde Varlık özellikleri. Sahipleri, belirli kullanıcılar ve güvenlik grupları daha sonra ekleyebilirsiniz.
 
 > [!NOTE]
-> Mümkün olduğunda, varlık sahipliği ve görünürlük izinleri toosecurity grupları ve tooindividual kullanıcıları değil atanması gerekir.
+> Mümkün olduğunda, varlık sahipliği ve görünürlük izinleri güvenlik gruplarına bireysel kullanıcılara atanması gerekir.
 >
 >
 
 ## <a name="catalog-administrators"></a>Katalog yöneticileri
-Veri Kataloğu yöneticileri örtük olarak hello katalogdaki tüm varlıkları ikincil sahip olur. Varlık sahipleri görünürlük yöneticileri kaldıramazsınız ve yöneticiler sahipliği ve tüm veri varlıklarını hello kataloğunda görünürlük yönetebilir.
+Veri Kataloğu yöneticileri örtük olarak katalogdaki tüm varlıkları ikincil sahip olur. Varlık sahipleri görünürlük yöneticileri kaldıramazsınız ve yöneticiler sahipliği ve tüm veri varlıklarını kataloğunda görünürlük yönetebilir.
 
 ## <a name="summary"></a>Özet
-Merhaba veri Kataloğu kitle kaynak modeli toometadata ve veri varlık bulma tüm katalog kullanıcıları toocontribute sağlar ve keşfedin. Merhaba, veri Kataloğu standart sürümü, sahipliği ve Yönetimi toolimit hello görünürlük ve belirli veri varlıklarını kullanımı için tasarlanmıştır.
+Meta veri ve veri varlık bulma için veri Kataloğu kitle kaynak modeli katkıda ve bulmak tüm katalog kullanıcıları sağlar. , Veri Kataloğu standart sürümü, görünürlük ve belirli veri varlıklarını kullanımını sınırlamak için sahipliği ve yönetimi için tasarlanmıştır.

@@ -1,6 +1,6 @@
 ---
-title: "Raporlama seçenekleri için Azure Mobile Engagement Android SDK aaaAdvanced"
-description: "Nasıl toodo raporlama toocapture analizi için Azure Mobile Engagement Android SDK Gelişmiş açıklar"
+title: "Gelişmiş Azure Mobile Engagement Android SDK için raporlama seçenekleri"
+description: "Analiz için Azure Mobile Engagement Android SDK yakalamak için Gelişmiş raporlama yapmak açıklar"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 5c8f4ea36c54715f4e09fd43c96132c15019a71b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2a1445afa2c2fca1a31ad9c012b9c8a917ebf65c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="advanced-reporting-with-engagement-on-android"></a>Gelişmiş Android katılım ile raporlama
 > [!div class="op_single_selector"]
@@ -29,28 +29,28 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Bu konuda, Android uygulamanızdaki ek raporlama senaryolar açıklanmaktadır. Hello oluşturulan bu seçenekleri toohello uygulaması uygulayabilirsiniz [Başlarken](mobile-engagement-android-get-started.md) Öğreticisi.
+Bu konuda, Android uygulamanızdaki ek raporlama senaryolar açıklanmaktadır. Bu seçenekler oluşturduğunuz uygulama uygulayabileceğiniz [Başlarken](mobile-engagement-android-get-started.md) Öğreticisi.
 
 ## <a name="prerequisites"></a>Ön koşullar
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
-Başlangıç Öğreticisi, tamamlandı kasıtlı olarak doğrudan ve basit ancak Gelişmiş seçebileceğiniz seçenekleri.
+Tamamlandı öğretici kasıtlı olarak doğrudan ve basit ancak Gelişmiş seçebileceğiniz seçenekleri.
 
 ## <a name="modifying-your-activity-classes"></a>Değiştirme, `Activity` sınıfları
-Merhaba, [Başlarken Öğreticisi](mobile-engagement-android-get-started.md), tüm toodo sahip olan toomake, `*Activity` alt sınıfların devral hello karşılık gelen `Engagement*Activity` sınıfları. Örneğin, eski etkinliklerinizi Genişletilmiş `ListActivity`, genişletme yapacağı `EngagementListActivity`.
+İçinde [Başlarken Öğreticisi](mobile-engagement-android-get-started.md), tüm yapmak için var olan yapmak için `*Activity` alt sınıfların devralır denk gelen `Engagement*Activity` sınıfları. Örneğin, eski etkinliklerinizi Genişletilmiş `ListActivity`, genişletme yapacağı `EngagementListActivity`.
 
 > [!IMPORTANT]
-> Kullanırken `EngagementListActivity` veya `EngagementExpandableListActivity`, emin olun herhangi bir çağrıda çok`requestWindowFeature(...);` hello çağrısından önce çok yapılan`super.onCreate(...);`, aksi halde bir kilitlenme oluşur.
+> Kullanırken `EngagementListActivity` veya `EngagementExpandableListActivity`, aşağıdakilerden emin olun çağrı `requestWindowFeature(...);` çağırmadan önce yapılan `super.onCreate(...);`, aksi halde bir kilitlenme oluşur.
 > 
 > 
 
-Bu sınıfların hello bulabilirsiniz `src` klasörünü ve bunları projenize kopyalayabilirsiniz. Merhaba sınıflardır ayrıca hello **JavaDoc**.
+Bu sınıfları bulabilirsiniz `src` klasörünü ve bunları projenize kopyalayabilirsiniz. Ayrıca, sınıflardır **JavaDoc**.
 
 ## <a name="alternate-method-call-startactivity-and-endactivity-manually"></a>Alternatif yöntem: çağrı `startActivity()` ve `endActivity()` el ile
-Olamaz ya da toooverload istiyor musunuz, `Activity` sınıfları, bunun yerine başlatabilir ve hello çağırarak etkinliklerinizi bitiş `EngagementAgent`'s doğrudan yöntemleri.
+Olamaz ya da tekrar etmek istiyor musunuz, `Activity` sınıfları, bunun yerine başlangıç ve çağırarak etkinliklerinizi bitiş `EngagementAgent`'s doğrudan yöntemleri.
 
 > [!IMPORTANT]
-> Merhaba Android SDK hiçbir zaman hello çağırır `endActivity()` Merhaba uygulaması kapalı olduğunda bile yöntemi (Android, uygulamaları hiçbir zaman kapalı). Bu nedenle, olan *yüksek oranda* toocall hello önerilen `startActivity()` hello yönteminde `onResume` , geri çağırma *tüm* etkinlikleri ve hello `endActivity()` hello yönteminde `onPause()` geri arama, *tüm* etkinliklerinizi. Bu hello tek yolu toobe oturumları sızdırılmaz emin olur. Bir oturum sızmasını varsa (bir oturum bekleyen olduğu sürece hello hizmet bağlı kalır bu yana) hello katılım hizmet hiçbir zaman hello katılım arka ucundan bağlantısını keser.
+> Android SDK hiçbir zaman çağırır `endActivity()` uygulama kapalı olduğunda bile yöntemi (Android, uygulamaları hiçbir zaman kapalı). Bu nedenle, olan *yüksek oranda* çağırmak için önerilen `startActivity()` yönteminde `onResume` , geri çağırma *tüm* , etkinlikler ve `endActivity()` yönteminde `onPause()` , geri çağırma *Tüm* etkinliklerinizi. Bu oturumlar sızdırılmaz emin olmak için tek yoludur. Bir oturum sızmasını varsa (bir oturum bekleyen olduğu sürece hizmet bağlı kalır bu yana) katılım hizmet hiçbir zaman katılım arka ucundan bağlantısını keser.
 > 
 > 
 
@@ -62,7 +62,7 @@ Olamaz ya da toooverload istiyor musunuz, `Activity` sınıfları, bunun yerine 
       protected void onResume()
       {
         super.onResume();
-        String activityNameOnEngagement = EngagementAgentUtils.buildEngagementActivityName(getClass()); // Uses short class name and removes "Activity" at hello end.
+        String activityNameOnEngagement = EngagementAgentUtils.buildEngagementActivityName(getClass()); // Uses short class name and removes "Activity" at the end.
         EngagementAgent.getInstance(this).startActivity(this, activityNameOnEngagement, null);
       }
 
@@ -74,12 +74,12 @@ Olamaz ya da toooverload istiyor musunuz, `Activity` sınıfları, bunun yerine 
       }
     }
 
-Bu örnekte, benzer toohello `EngagementActivity` sınıfı ve kaynak kodu hello sağlanan türevleri `src` klasör.
+Bu örnek benzer `EngagementActivity` sınıfı ve kaynak kodu sağlanır türevleri `src` klasör.
 
 ## <a name="using-applicationoncreate"></a>Application.onCreate() kullanma
-Yerleştirdiğiniz içinde herhangi bir kod `Application.onCreate()` ve başka bir uygulamada geri aramalar hello katılım hizmeti dahil olmak üzere tüm uygulama işlemleri için çalıştırılır. Gereksiz bellek ayırma ve hello Engagement'ın işlemdeki iş parçacıklarını gibi istenmeyen yan etkileri olabilir veya yinelenen yayın alıcıları veya hizmetleri.
+Yerleştirdiğiniz içinde herhangi bir kod `Application.onCreate()` ve başka bir uygulamada geri aramalar katılım hizmeti dahil olmak üzere tüm uygulama işlemleri için çalıştırılır. Gereksiz bellek ayırma ve iş parçacıkları Engagement'ın işlemi veya yinelenen yayın alıcıları ya da Hizmetleri gibi istenmeyen yan etkileri olabilir.
 
-Geçersiz kılarsanız `Application.onCreate()`, aşağıdaki kod parçacığını hello başında hello ekleme öneririz, `Application.onCreate()` işlevi:
+Geçersiz kılarsanız `Application.onCreate()`, aşağıdaki kod parçacığını başında ekleme öneririz, `Application.onCreate()` işlevi:
 
      public void onCreate()
      {
@@ -89,17 +89,17 @@ Geçersiz kılarsanız `Application.onCreate()`, aşağıdaki kod parçacığın
        ... Your code...
      }
 
-Yapabileceğiniz hello aynı şeyi `Application.onTerminate()`, `Application.onLowMemory()`, ve `Application.onConfigurationChanged(...)`.
+Aynı şeyi yapmak `Application.onTerminate()`, `Application.onLowMemory()`, ve `Application.onConfigurationChanged(...)`.
 
-Ayrıca genişletebilirsiniz `EngagementApplication` genişletme yerine `Application`: geri çağırma hello `Application.onCreate()` işlem denetimi ve çağrıları hello `Application.onApplicationProcessCreate()` hello geçerli işlem hello bir barındırma hello katılım hizmeti değil ise, hello aynı kuralları için yalnızca uygulama diğer geri aramalar hello.
+Ayrıca genişletebilirsiniz `EngagementApplication` genişletme yerine `Application`: geri çağırma `Application.onCreate()` işlem denetimi yapar ve çağrıları `Application.onApplicationProcessCreate()` yalnızca geçerli işlem katılım hizmetini barındıran bir durumda değilse, aynı kuralları için diğer uygulama geri aramalar.
 
-## <a name="tags-in-hello-androidmanifestxml-file"></a>Merhaba AndroidManifest.xml dosyasında etiketleri
-Merhaba hizmet etiketine hello AndroidManifest.xml dosyasında hello `android:label` özniteliği verir toochoose hello hello katılım hizmet adını tooend kullanıcıların telefonlarını hello "Çalışan hizmetleri" ekranında göründüğü gibi. Bu öznitelik çok ayar önerilen`"<Your application name>Service"` (örneğin, `"AcmeFunGameService"`).
+## <a name="tags-in-the-androidmanifestxml-file"></a>AndroidManifest.xml dosyasında etiketleri
+AndroidManifest.xml dosyasında hizmet etiketinde `android:label` özniteliği telefonlarını "Hizmetleri çalışır" ekranında son kullanıcılara göründüğü gibi katılım hizmetin adını seçmenize olanak sağlar. Bu özniteliği ayarlamak önerilen `"<Your application name>Service"` (örneğin, `"AcmeFunGameService"`).
 
-Belirten hello `android:process` özniteliği (katılım aynı işlemi, uygulamanızın ana/kullanıcı Arabirimi iş parçacığı potansiyel olarak daha az yanıt getirir hello çalıştıran) kendi işleminde katılım hizmeti çalıştığında bu hello sağlar.
+Belirtme `android:process` özniteliği sağlar katılım hizmet (uygulamanızın ana/kullanıcı Arabirimi iş parçacığı potansiyel olarak daha az yanıt getirir katılım aynı işlem içinde çalışan) kendi işleminde çalışır.
 
 ## <a name="building-with-proguard"></a>ProGuard ile oluşturma
-Uygulama paketinizi ProGuard ile yapılandırdıysanız, bazı sınıfları tookeep gerekir. Yapılandırma parçacığını aşağıdaki hello kullanabilirsiniz:
+Uygulama paketinizi ProGuard ile yapılandırdıysanız, bazı sınıfları tutmanız gerekir. Aşağıdaki yapılandırma parçacığını kullanabilirsiniz:
 
     -keep public class * extends android.os.IInterface
     -keep class com.microsoft.azure.engagement.reach.activity.EngagementWebAnnouncementActivity$EngagementReachContentJS {

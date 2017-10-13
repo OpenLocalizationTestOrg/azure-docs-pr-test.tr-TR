@@ -1,6 +1,6 @@
 ---
-title: "kayıt ve ürün aaaHow toodelegate kullanıcı aboneliği"
-description: "Nasıl toodelegate kullanıcı kayıt ve ürün abonelik tooa üçüncü taraf Azure API Management'te öğrenin."
+title: "Kullanıcı kaydı ve ürün aboneliği nasıl"
+description: "Azure API Management'te üçüncü bir tarafa kullanıcı kayıt ve ürün aboneliği temsilci öğrenin."
 services: api-management
 documentationcenter: 
 author: antonba
@@ -14,122 +14,122 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 406648db2d2f37c4dcda466294726d331cc0551b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2637ab6405f2d4ea1da84981295a144874dfa4f6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toodelegate-user-registration-and-product-subscription"></a>Nasıl toodelegate kullanıcı kayıt ve ürün aboneliği
-Temsilci toouse sağlayan Geliştirici oturum-açma/kaydolma ve abonelik tooproducts olarak işlemek için varolan Web sitenizi toousing hello hello Geliştirici Portalı'nda yerleşik bir işlevi değil. Bu Web sitesi tooown hello kullanıcı verilerinizi sağlar ve özel bir şekilde hello doğrulama bu adımları gerçekleştirin.
+# <a name="how-to-delegate-user-registration-and-product-subscription"></a>Kullanıcı kaydı ve ürün aboneliği nasıl
+Temsilci seçme, geliştirici oturum-açma/kaydolma ve abonelik Geliştirici Portalı'nda yerleşik işlevini kullanarak aksine ürünlere işlemek için varolan Web sitenizi kullanmanıza olanak sağlar. Bu kullanıcı verileri kendi ve özel bir biçimde adımları doğrulama gerçekleştirmek Web sitenizi sağlar.
 
 ## <a name="delegate-signin-up"></a>İçin temsilci seçme Geliştirici oturum açma ve kaydolma
-Merhaba API Management Geliştirici Portalı'ndan başlatılan böyle bir istek için giriş noktası hello gibi davranır, sitenizde toocreate özel temsilci endpoint gerekir toodelegate Geliştirici oturum açma ve kaydolma tooyour varolan Web sitesi.
+Geliştirici temsilci seçmek için oturum açma ve kaydolma varolan Web sitesine, bir özel temsilci uç noktası sitenizdeki API Management Geliştirici Portalı'ndan başlatılan böyle bir istek için giriş noktası görevi gören oluşturmanız gerekir.
 
-Merhaba son iş akışı şu şekilde olacaktır:
+Son iş akışı şu şekilde olacaktır:
 
-1. Geliştirici hello API Management Geliştirici Portalı hello oturum açma veya kaydolma bağlantısına tıklar
-2. Yeniden yönlendirilen toohello temsilci endpoint tarayıcısıdır
-3. Temsilci endpoint iade tooor sunar UI soran kullanıcı toosign açma veya kaydolma yönlendirir
-4. Başarılıysa hello kullanıcı bunlar başlattığınız yeniden yönlendirilen geri toohello API Management Geliştirici portal sayfasıdır
+1. API Management Geliştirici Portalı oturum açma veya kaydolma bağlantıda Geliştirici tıklar
+2. Tarayıcı temsilci uç noktasına yönlendirilir
+3. Temsilci uç noktası iade yönlendirir veya kullanıcı oturum açma veya kaydolma isteyen kullanıcı Arabirimi gösterir
+4. Başarı, kullanıcı bunlar başlattığınız API Management Geliştirici Portalı sayfasına geri yönlendirilir
 
-toobegin, ilk kurulum API Management tooroute temsilci uç noktanızı şimdi ister. Merhaba API Management yayımcı Portalı'nda tıklatın **güvenlik** ve hello ardından **temsilci** sekmesi. Merhaba onay kutusunu tooenable 'Temsilci oturum açma ve kaydolma' tıklayın.
+Başlamak için şimdi ilk kurulum API yönlendirmek için yönetim temsilci uç noktanızı ister. API Management yayımcı Portalı'nda tıklatın **güvenlik** ve ardından **temsilci** sekmesi. 'Temsilci oturum açma ve kaydolma' etkinleştirmek için onay kutusuna tıklayın.
 
 ![Temsilci seçme sayfası][api-management-delegation-signin-up]
 
-* Hangi özel temsilci uç noktanızı hello URL'sini ve olması hello girin karar **temsilci uç nokta URL'si** alan. 
-* Merhaba içinde **temsilci kimlik doğrulama anahtarı** alan isteği hello doğrulama tooensure için sağlanan imza tooyou gerçekten Azure API Yönetimi'nden gelen kullanılan toocompute olacak bir gizlilik girin. Merhaba tıklayabilirsiniz **oluşturmak** düğmesini toohave API yönetim rastgele oluşturmak bir anahtarı sizin için.
+* Hangi özel temsilci uç nokta URL'sini ve olması içinde girin karar **temsilci uç nokta URL'si** alan. 
+* İçinde **temsilci kimlik doğrulama anahtarı** alan doğrulama isteği Azure API Yönetimi'nden gerçekten geldiğinden emin olun, sağlanan imza hesaplamak için kullanılan bir gizli anahtarı girin. Tıklayabilirsiniz **oluşturmak** API yönetim sizin için rastgele bir anahtar oluşturmak için düğmesi.
 
-Toocreate hello gereksinim artık **temsilci endpoint**. Tooperform çeşitli eylemleri içerir:
+Oluşturmanıza gerek artık **temsilci endpoint**. Çeşitli eylemleri gerçekleştirmek şunları içerir:
 
-1. Bir istek form aşağıdaki hello alırsınız:
+1. Bir isteği şu biçimde alırsınız:
    
    > *http://www.yourwebsite.com/apimdelegation?Operation=SignIn&returnUrl= {kaynak sayfasının URL'sini} & salt = {dize} & SIG = {dize}*
    > 
    > 
    
-    Sorgu parametreleri hello oturum açma / kaydolma çalışması için:
+    Sorgu parametreleri oturum açma / kaydolma örneği için:
    
    * **işlem**: olduğu - yalnızca olabilir temsilci istek türünü tanımlayan **Signın** bu durumda
-   * **returnUrl**: hello kullanıcı bir oturum açma veya kaydolma bağlantısına tıklattığınız hello sayfasının URL'sini hello
+   * **returnUrl**: kullanıcı bir oturum açma veya kaydolma bağlantısına tıklattığınız sayfasının URL'si
    * **Salt**: güvenlik karma hesaplama için kullanılan özel bir salt dizesi
-   * **SIG**: kendi karşılaştırma tooyour için kullanılan bir hesaplanmış güvenlik karma toobe hesaplanan karma
-2. Bu hello istek Azure API Yönetimi'nden (isteğe bağlı, ancak güvenlik için önerilen yüksek oranda) gelen doğrulayın
+   * **SIG**: kendi karşılaştırma için kullanılacak bir hesaplanmış güvenlik karma karma hesaplanır
+2. İstek Azure API Yönetimi'nden (isteğe bağlı, ancak güvenlik için önerilen yüksek oranda) geldiğini doğrulamak
    
-   * Merhaba üzerinde dayalı bir dize HMAC SHA512 karmasını işlem **returnUrl** ve **salt** sorgu parametreleri ([aşağıda sağlanan örnek kod]):
+   * Temel bir dize HMAC SHA512 karmasını işlem **returnUrl** ve **salt** sorgu parametreleri ([aşağıda sağlanan örnek kod]):
      
      > HMAC (**salt** + '\n' + **returnUrl**)
      > 
      > 
-   * Merhaba yukarıda hesaplanan karma toohello hello değerini karşılaştırın **SIG** sorgu parametresi. Merhaba iki karmalar eşleşiyorsa toohello sonraki adımda taşıdığınızda, aksi takdirde hello isteği reddedecek.
-3. Sign-ın/oturum-yukarı için bir istek aldığını onaylayın: Merhaba **işlemi** sorgu parametresi çok ayarlanacak "**Signın**".
-4. Kullanıcı Arabirimi toosign açma veya kaydolma ile mevcut hello kullanıcı
-5. Merhaba kullanıcı kaydolduğunuz ise, toocreate karşılık gelen bir hesap için API Management'te sağlayın. [Bir kullanıcı oluşturmak] hello API Management REST API ile. Bunu yaparken, aynı kullanıcı deponuzda olduğu veya, izlemek tooan kimliği hello kullanıcı kimliği toohello ayarlamak emin olun.
-6. Ne zaman hello kullanıcı başarıyla kimlik doğrulaması:
+   * Yukarıdaki hesaplanan karma değerini karşılaştırmak **SIG** sorgu parametresi. İki karmalar eşleşiyorsa, sonraki adıma geçin, aksi takdirde isteği reddeder.
+3. Sign-ın/oturum-yukarı için bir istek aldığını onaylayın: **işlemi** sorgu parametresi ayarlanacak "**Signın**".
+4. Kullanıcının oturum açma veya kaydolma için kullanıcı Arabirimi ile sunması
+5. Kullanıcı kaydolduğunuz ise karşılık gelen bir hesap için API Management'te oluşturmanız gerekir. [Bir kullanıcı oluşturmak] API Management REST API ile. Bunu yaparken, kullanıcı kimliği, kullanıcı deposunda olan aynı veya, izlemek bir kimlik olarak ayarlayın emin olun.
+6. Ne zaman kullanıcı başarıyla kimlik doğrulaması:
    
-   * [bir çoklu oturum açma (SSO) belirteci isteği] hello API Management REST API aracılığıyla
-   * returnUrl sorgu parametresi toohello SSO hello API çağrısından yukarıdaki aldığınız URL Ekle:
+   * [bir çoklu oturum açma (SSO) belirteci isteği] API Management REST API aracılığıyla
+   * API çağrısından alınan SSO URL'ye returnUrl sorgu parametresi ekleyin:
      
      > Örneğin https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
      > 
      > 
-   * URL yeniden yönlendirme hello kullanıcı toohello yukarıdaki üretilen
+   * kullanıcı için yukarıdaki üretilen URL'sini yeniden yönlendirme
 
-Toplama toohello içinde **Signın** işlemi de gerçekleştirebilirsiniz hesap yönetimi aşağıdaki hello önceki adımları ve işlemleri aşağıdaki hello birini kullanarak.
+Ek olarak **Signın** işlemi de gerçekleştirebilirsiniz hesap yönetimi önceki adımları izleyerek ve aşağıdaki işlemlerden birini kullanarak.
 
 * **Parola değiştirme**
 * **ChangeProfile**
 * **CloseAccount**
 
-Hesap yönetimi işlemleri için sorgu parametreleri aşağıdaki hello geçmesi gerekir.
+Hesap yönetimi işlemleri için aşağıdaki sorgu parametreleri geçmesi gerekir.
 
 * **işlem**: (parola değiştirme, ChangeProfile veya CloseAccount) için temsilci seçme isteği türünü tanımlar
-* **UserId**: hello hesap toomanage hello kullanıcı kimliği
+* **UserId**: yönetmek için hesabının kullanıcı kimliği
 * **Salt**: güvenlik karma hesaplama için kullanılan özel bir salt dizesi
-* **SIG**: kendi karşılaştırma tooyour için kullanılan bir hesaplanmış güvenlik karma toobe hesaplanan karma
+* **SIG**: kendi karşılaştırma için kullanılacak bir hesaplanmış güvenlik karma karma hesaplanır
 
 ## <a name="delegate-product-subscription"></a>Ürün aboneliği için temsilci seçme
-Ürün aboneliği için temsilci seçme toodelegating kullanıcı oturum açma/yukarı benzer şekilde çalışır. Merhaba son iş akışı aşağıdaki gibi olur:
+Ürün aboneliği için temsilci seçme, benzer şekilde kullanıcı oturum açma/yukarı için temsilci seçme için çalışır. Son iş akışını aşağıdaki gibi olur:
 
-1. Geliştirici hello API Management Geliştirici Portalı'nda bir ürün seçer ve hello abone ol düğmesini tıklattığında
-2. Yeniden yönlendirilen toohello temsilci endpoint tarayıcısıdır
-3. Temsilci endpoint gerekli ürün abonelik adımları gerçekleştirir - bu tooyou ve faturalama bilgileri, ek sorular sormak veya yalnızca hello bilgilerini depolamak ve herhangi bir kullanıcı eylemi gerektirmeyen yeniden yönlendirme tooanother sayfa toorequest gerektirdiği
+1. Geliştirici API Management Geliştirici Portalı'nda bir ürün seçer ve abone ol düğmesini tıklattığında
+2. Tarayıcı temsilci uç noktasına yönlendirilir
+3. Temsilci endpoint gerekli ürün abonelik adımları gerçekleştirir - Bu size kalmıştır ve ek sorular sormak veya yalnızca bilgilerini depolamak ve herhangi bir kullanıcı eylemi gerektirmeyen fatura bilgi istemek için başka bir sayfasına yeniden yönlendirmeye gerektirdiği
 
-Merhaba üzerinde tooenable hello işlevselliği **temsilci** sayfasında **temsilci ürün aboneliği**.
+İşlevselliğini etkinleştirmek için **temsilci** sayfasında **temsilci ürün aboneliği**.
 
-Ardından hello temsilci endpoint hello aşağıdaki eylemleri gerçekleştirir emin olun:
+Ardından temsilci uç noktası aşağıdaki eylemleri gerçekleştirir emin olun:
 
-1. Bir istek form aşağıdaki hello alırsınız:
+1. Bir isteği şu biçimde alırsınız:
    
-   > *{işlemi} http://www.yourwebsite.com/apimdelegation?Operation= & ProductID {ürün toosubscribe} = & UserID = {isteği yapan kullanıcı} & salt = {dize} & SIG = {dize}*
+   > *{işlemi} http://www.yourwebsite.com/apimdelegation?Operation= & ProductID {abone olmak için ürün} = & UserID = {isteği yapan kullanıcı} & salt = {dize} & SIG = {dize}*
    > 
    > 
    
-    Sorgu parametreleri hello ürün abonelik çalışması için:
+    Sorgu parametreleri ürün abonelik örneği için:
    
-   * **işlem**: olmasından temsilci istek türünü tanımlar. Ürün abonelik için istekleri hello geçerli seçenekler şunlardır:
-     * "Abone": ürünle birlikte verilen bir istek toosubscribe hello kullanıcı tooa sağlanan kimliği (aşağıya bakın)
-     * "Aboneliği": İstek toounsubscribe bir ürün kullanıcıdan
-     * "Yenile": requst toorenew (örneğin erecek) bir abonelik
-   * **ProductID**: hello hello ürün hello kullanıcının Kimliğini istenen toosubscribe için
-   * **UserId**: kendisi için hello istek yapıldığında hello kullanıcının Kimliğini hello
+   * **işlem**: olmasından temsilci istek türünü tanımlar. Ürün abonelik için istekleri geçerli seçenekler şunlardır:
+     * "Abone": kullanıcı ile belirli bir ürüne abone olmak için bir istek sağlanan kimliği (aşağıya bakın)
+     * "Aboneliği": bir kullanıcı bir üründen aboneliğinizi iptal etmek için bir istek
+     * "Yenile": bir requst (örneğin erecek) bir aboneliği yenilemek için
+   * **ProductID**: kullanıcının istenen abone olmak için ürün kimliği
+   * **UserId**: kendisi için istek yapıldığında kullanıcının kimliği
    * **Salt**: güvenlik karma hesaplama için kullanılan özel bir salt dizesi
-   * **SIG**: kendi karşılaştırma tooyour için kullanılan bir hesaplanmış güvenlik karma toobe hesaplanan karma
-2. Bu hello istek Azure API Yönetimi'nden (isteğe bağlı, ancak güvenlik için önerilen yüksek oranda) gelen doğrulayın
+   * **SIG**: kendi karşılaştırma için kullanılacak bir hesaplanmış güvenlik karma karma hesaplanır
+2. İstek Azure API Yönetimi'nden (isteğe bağlı, ancak güvenlik için önerilen yüksek oranda) geldiğini doğrulamak
    
-   * HMAC SHA512 üzerinde hello dayalı bir dizenin işlem **ProductID**, **UserID** ve **salt** sorgu parametreleri:
+   * HMAC SHA512 dayalı bir dizenin işlem **ProductID**, **UserID** ve **salt** sorgu parametreleri:
      
      > HMAC (**salt** + '\n' + **ProductID** + '\n' + **UserID**)
      > 
      > 
-   * Merhaba yukarıda hesaplanan karma toohello hello değerini karşılaştırın **SIG** sorgu parametresi. Merhaba iki karmalar eşleşiyorsa toohello sonraki adımda taşıdığınızda, aksi takdirde hello isteği reddedecek.
-3. İçinde istenen işlemi hello türüne göre herhangi bir ürün Abonelik işlem gerçekleştirme **işlemi** -örn: faturalandırma, ayrıntılı sorular, vb..
-4. Merhaba kullanıcı toohello ürün, tarafında başarıyla abone üzerinde hello kullanıcı toohello API Management ürün abone [ürün abonelik için REST API çağırma hello].
+   * Yukarıdaki hesaplanan karma değerini karşılaştırmak **SIG** sorgu parametresi. İki karmalar eşleşiyorsa, sonraki adıma geçin, aksi takdirde isteği reddeder.
+3. İçinde istenen işlem türüne göre herhangi bir ürün Abonelik işlem gerçekleştirme **işlemi** -örn: faturalandırma, ayrıntılı sorular, vb..
+4. Başarıyla abone olma, tarafındaki ürün kullanıcıya üzerinde kullanıcı tarafından API Management ürüne abone [ürün abonelik için REST API çağırmayı].
 
 ## <a name="delegate-example-code"></a> Örnek kod
-Bu kod örnekleri Göster nasıl tootake hello *temsilci doğrulama anahtarı*hello yayımcı portalının temsilci ekranında hello ayarlayın, toocreate sonra olan bir HMAC kullanılan hello hello geçerliliğini kanıtlayan toovalidate hello imza geçirilen returnUrl. Merhaba hello ProductID ve küçük değişiklik kullanıcı kimliği için aynı kodu çalışır.
+Bu kod örnekleri nasıl alınacağını Göster *temsilci doğrulama anahtarı*, ayarlanmış yayımcı portalına temsilci ekranda geçirilen returnUrl geçerliliğini kanıtlayan sonra imzayı doğrulamak için kullanılan bir HMAC oluşturmak için . Küçük değişiklik kullanıcı kimliği ve ProductID için aynı kodu çalışır.
 
-**C# kod toogenerate karmasını returnUrl**
+**ReturnUrl karmasını oluşturmak için C# kodu**
 
 ```c#
 using System.Security.Cryptography;
@@ -141,12 +141,12 @@ string signature;
 using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
 {
     signature = Convert.ToBase64String(encoder.ComputeHash(Encoding.UTF8.GetBytes(salt + "\n" + returnUrl)));
-    // change too(salt + "\n" + productId + "\n" + userId) when delegating product subscription
-    // compare signature toosig query parameter
+    // change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
+    // compare signature to sig query parameter
 }
 ```
 
-**NodeJS kod toogenerate returnUrl karmasını**
+**NodeJS kod returnUrl karmasını oluşturmak için**
 
 ```
 var crypto = require('crypto');
@@ -157,14 +157,14 @@ var salt = 'salt query parameter';
 
 var hmac = crypto.createHmac('sha512', new Buffer(key, 'base64'));
 var digest = hmac.update(salt + '\n' + returnUrl).digest();
-// change too(salt + "\n" + productId + "\n" + userId) when delegating product subscription
-// compare signature toosig query parameter
+// change to (salt + "\n" + productId + "\n" + userId) when delegating product subscription
+// compare signature to sig query parameter
 
 var signature = digest.toString('base64');
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Temsilci seçme hakkında daha fazla bilgi için video aşağıdaki hello bakın.
+Temsilci seçme hakkında daha fazla bilgi için aşağıdaki videoya bakın.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Delegating-User-Authentication-and-Product-Subscription-to-a-3rd-Party-Site/player]
 > 
@@ -174,7 +174,7 @@ Temsilci seçme hakkında daha fazla bilgi için video aşağıdaki hello bakın
 [Delegating product subscription]: #delegate-product-subscription
 [bir çoklu oturum açma (SSO) belirteci isteği]: http://go.microsoft.com/fwlink/?LinkId=507409
 [bir kullanıcı oluşturun]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
-[ürün abonelik için REST API çağırma hello]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
+[ürün abonelik için REST API çağırmayı]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
 [Next steps]: #next-steps
 [aşağıda sağlanan örnek kod]: #delegate-example-code
 

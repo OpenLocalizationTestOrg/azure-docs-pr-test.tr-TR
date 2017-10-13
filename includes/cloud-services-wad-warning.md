@@ -1,5 +1,5 @@
 > [!WARNING]
-> Mevcut bir rolü üzerinde tanılamayı etkinleştirdiğinizde hello paket dağıtıldığında etkinleştirdiğiniz tüm uzantıları devre dışı bırakılır. Bunlar:
+> Mevcut bir rolü üzerinde tanılamayı etkinleştirdiğinizde, paket dağıtıldığında etkinleştirdiğiniz tüm uzantıları devre dışı bırakılır. Bunlar:
 >
 > * Microsoft İzleme Aracısı tanılama
 > * Microsoft Azure güvenlik izleme
@@ -11,5 +11,5 @@
 > * Windows Azure Uzak Masaüstü uzantısı
 > * Windows Azure günlük Toplayıcı
 >
-> Güncelleştirilmiş hello rol dağıttıktan sonra uzantılarınızın hello Azure Portal veya PowerShell aracılığıyla yeniden etkinleştirebilir.
+> Güncelleştirilmiş rol dağıttıktan sonra uzantılarınızın Azure Portal veya PowerShell aracılığıyla yeniden etkinleştirebilir.
 >

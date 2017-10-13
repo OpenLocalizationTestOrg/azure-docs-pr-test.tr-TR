@@ -1,6 +1,6 @@
 ---
-title: "önceden yapılandırılmış çözüm aaaPredictive bakım | Microsoft Docs"
-description: "Hello Azure IOT paketi Tahmine dayalı bakım açıklamasını önceden yapılandırılmış çözümü."
+title: "Önceden yapılandırılmış tahmine dayalı bakım çözümüne genel bakış | Microsoft Docs"
+description: "Azure IoT Paketi önceden yapılandırılmış tahmine dayalı bakım çözüm açıklaması."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,125 +15,125 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 2d09801467d33db6b7d6333fa071aea2bf573f20
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 8bad198488c4940a83eb32ec02122a91d47ca86c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="predictive-maintenance-preconfigured-solution-overview"></a>Önceden yapılandırılmış tahmine dayalı bakım çözümüne genel bakış
 
-Merhaba *Tahmine dayalı Bakım* [önceden yapılandırılmış çözüm] [ lnk_preconfigured_solutions] hello biri [Microsoft Azure IOT paketi] [ lnk_iot_suite] önceden yapılandırılmış çözümler. Bu çözüm, gerçek zamanlı cihaz telemetri koleksiyonunu [Azure Machine Learning][lnk-machine-learning] kullanılarak oluşturulan tahmine dayalı modelle tümleştirir.
+Önceden yapılandırılmış *tahmine dayalı bakım* [önceden yapılandırılmış çözümü][lnk_preconfigured_solutions], önceden yapılandırılmış [Microsoft Azure IoT Paketi][lnk_iot_suite] çözümlerinden biridir. Bu çözüm, gerçek zamanlı cihaz telemetri koleksiyonunu [Azure Machine Learning][lnk-machine-learning] kullanılarak oluşturulan tahmine dayalı modelle tümleştirir.
 
-Azure IOT paketi ile ve hızlı bir şekilde ve kolayca tooand İzleyici varlıklar bağlanmak, gerçek zamanlı panolar ve görselleştirmeleri telemetri analiz edin. Hello Tahmine dayalı bakım çözümü hello panolar ve görselleştirmeleri, verimlilikleri yönetebilen ve gelir akışlarını geliştiren yeni zekaya sahip sağlar.
+Azure IoT Paketi’yle varlıklara hızlı ve kolay bağlanıp bunları izleyebilir ve telemetri verilerini panolar ve görselleştirmelerle gerçek zamanlı analiz edebilirsiniz. Tahmine dayalı bakım çözümünde, panolar ve görselleştirmeler size verimliliği yönetmenizi ve gelir akışlarını geliştirmenizi sağlayacak yeni bilgiler sunar.
 
-## <a name="hello-scenario"></a>Merhaba senaryosu
+## <a name="the-scenario"></a>Senaryo
 
-Fabrikam, rekabetçi fiyatlarıyla büyük müşteri deneyimine odaklanan bölgesel bir havayoludur. Uçuş rötarlarının bir nedeni bakım sorunlarıdır ve uçak motorunun bakımı özellikle zordur. Böylece olarak kendi motorları muayene eder ve tooa planı göre bakım zamanlar Fabrikam uçuş sırasında maliyeti, motor arızasından kaçınmalısınız. Ancak, uçak motorları her zaman yıpranmaz aynı hello. Motorlardı bazı gereksiz bakımlar gerçekleştirilir. Daha da önemlisi, bakım yapılana kadar çıkan sorunlar nedeniyle uçağın yerde kalmasıdır. Bir konumda Uçağın olduğunda, burada doğru teknisyenlerin Merhaba veya yedek parçaların kullanılabilir değil, bu sorunları özellikle maliyetli olabilir.
+Fabrikam, rekabetçi fiyatlarıyla büyük müşteri deneyimine odaklanan bölgesel bir havayoludur. Uçuş rötarlarının bir nedeni bakım sorunlarıdır ve uçak motorunun bakımı özellikle zordur. Fabrikam’ın ne olursa olsun uçuş sırasında motor arızasını önlemesi gerekmektedir; bu nedenle düzenli olarak motorları muayene eder ve bakım işlemlerini bir plana göre zamanlar. Ancak, uçak motorları her zaman aynı şekilde yıpranmaz. Motorlardı bazı gereksiz bakımlar gerçekleştirilir. Daha da önemlisi, bakım yapılana kadar çıkan sorunlar nedeniyle uçağın yerde kalmasıdır. Uçak, doğru teknisyenlerin ve yedek parçaların olmadığı bir yerdeyse bu sorunlar maliyetli gecikmelere neden olabilir.
 
-Fabrikam uçağının, Hello motorları, uçuş sırasında motor koşullarını izleyen algılayıcılar ile donatılmıştır. Fabrikam hello Tahmine dayalı bakım çözümü toocollect hello algılayıcı verilerini hello uçuş sırasında toplanan kullanır. Motor çalışması yıllarca biriktirdikten sonra hatası verileri Fabrikam'ın veri bilimcilerine şekilde toopredict hello uçak motorunun kalan kullanım ömrü (RUL) modeli oluşturmuştur. Merhaba modeli dört hello altyapısı algılayıcı verilerinden ve tooeventual hatası müşteri adayları motor yıpranmasıyla ilişkili arasında bir ilişki kullanır. Fabrikam tooperform normal incelemeleri tooensure güvenliği devam ederken, bunu şimdi hello modelleri toocompute hello RUL her motor için her uçuştan sonra kullanabilirsiniz. Merhaba modeli hello motorlarından hello uçuş sırasında toplanan hello telemetri kullanır. Fabrikam artık arızanın ve bakım planının ileri tarihli noktalarını tahmin edebiliyor ve önceden onarıyor.
+Fabrikam uçağının motorları, uçuş sırasında motor koşullarını izleyen algılayıcılarla donatılmıştır. Fabrikam, uçuş sırasında toplanan algılayıcı verilerini toplamak için tahmine dayalı bakım çözümünü kullanır. Motor çalışması ve arızaları verilerini yıllarca biriktirdikten sonra, Fabrikam’ın veri bilim insanları uçak motorunun Kalan Kullanım Ömrü’nü (RUL) tahmin etmek için bir yol modeli oluşturmuştur. Bu model, dört motor algılayıcısından alınan veriler ve arızalara neden olan motor yıpranmaları arasındaki bağıntıyı kullanmaktadır. Fabrikam güvenliği sağlamak için normal muayeneleri yapmaya devam ederken, her uçuştan sonra her motor için RUL hesaplayacak modelleri kullanmaktadır. Bu model, uçuş sırasında motorlardan toplanan telemetriyi kullanır. Fabrikam artık arızanın ve bakım planının ileri tarihli noktalarını tahmin edebiliyor ve önceden onarıyor.
 
 > [!NOTE]
-> Merhaba çözüm modeli asıl motor yıpranması verilerini kullanır.
+> Çözüm modeli asıl motor yıpranması verilerini kullanır.
 
-Bakım gerekli olduğunda hello noktayı tahmin ederek çalışmasını, Fabrikam, işlemleri tooreduce maliyetleri en iyi duruma getirebilirsiniz.
+Fabrikam, maliyet düşürmek amacıyla bakımın gerektiği noktayı tahmin ederek çalışmasını en iyi hale getirebilir.
 
 Bakım düzenleyicileri, zamanlayıcılar ile çalışarak:
 
-- Belirli bir konumda Uçağın ile bakım toocoincide planlayın.
-- Yeterli zaman bozmadan hello uçak toobe hizmet dışına için kullanılabilir olduğundan emin olun.
-- tooschedule teknisyenleri tooensure Uçağın bekleme süresi olmadan verimli bir şekilde sunulur.
+- Bakımı uçak belirli bir konumda durduğunda başlayacak şekilde planlar.
+- Uçağın, zamanlamayı bozmadan yeterli hizmet dışı kalma süresine sahip olmasını sağlar.
+- Teknisyenleri, uçağı bekleme süresi olmadan verimli bir şekilde servise sokmayı sağlayacak şekilde zamanlamak için.
 
 Stok denetimi yöneticileri bakım planlarını alır; bu nedenle, sipariş sürecini ve yedek parça stoğunu en iyi hale getirebilirler.
 
-Bu etkinlikler Fabrikam toominimize Uçağın yerdeki süresini etkinleştir ve Yolcuların ve personelin hello güvenliğini sağlarken işletim maliyetlerini azaltabilirsiniz.
+Bu etkinlikler, bir yandan da yolcuların ve personelin güvenliğini sağlayarak Fabrikam’ın uçağın yerdeki süresini en aza indirmesini ve çalıştırma maliyetini düşürmesini sağlar.
 
-toounderstand nasıl [Azure IOT paketi] [ lnk_iot_suite] hello müşterilerin gereksinim toorealize hello olası sağlar Tahmine dayalı bakım bu gözden [bilgi grafiği] [lnk_infographic].
+[Azure IoT Paketi][lnk_iot_suite]'nin, müşterilerin gerçekleştirmeleri gereken tahmine dayalı bakım potansiyeli becerilerini nasıl sağladığını anlamak için bu [bilgi görselini][lnk_infographic] gözden geçirin.
 
-## <a name="how-hello-predictive-maintenance-solution-is-built"></a>Merhaba Tahmine dayalı bakım çözümü nasıl oluşturulur
+## <a name="how-the-predictive-maintenance-solution-is-built"></a>Tahmine dayalı bakım çözümünü yapılandırma
 
-Hello çözüm bir var olan Azure Machine Learning modeli IOT paketi hizmetleriyle toplanan cihaz telemetrisi çalışma bu özellikler bir şablon tooshow kullanır. Microsoft'ta bir [regresyon modeli] [ lnk_regression_model] herkese açık verilerine dayalı uçak motorunun<sup>\[1\]</sup>ve adım adım nasıl toouse hello model konusunda yönergeler.
+Çözüm, IoT Paketi hizmetleriyle toplanan cihaz telemetrisinden bu becerileri göstermek için şablon olarak kullanılabilen mevcut Azure Machine Learning modelini geliştirir. Microsoft, genel kullanıma sunulan verileri<sup>\[1\]</sup> temel alarak uçak motorunun bir [gerileme modelini][lnk_regression_model] oluşturmuştur ve modelin nasıl kullanılacağını gösteren adım adım yönergeleri yayımlamıştır.
 
-Hello Azure IOT Tahmine dayalı bakım çözümü bu şablondan oluşturulan hello regresyon modeli kullanır. Merhaba modeli Azure aboneliğinize dağıtılır ve otomatik olarak oluşturulan bir API üretir. Merhaba çözüm içeren bir alt kümesini 4 (toplamda 100) temsil eden veri sınama hello motorları ve hello 4 (of toplamda 21) algılayıcı veri akışı. Yeterli tooprovide hello eğitilen model ait doğru sonuç verilerdir.
+Azure IoT tahmine dayalı bakım çözümü, bu şablondan oluşturulan regresyon modelini kullanır. Bu model, Azure aboneliğinize dağıtılır ve otomatik olarak oluşturulan bir API ile kullanıma sunulur. Çözümde, 4 (toplamda 100) motoru temsil eden test verilerinin bir alt kümesi ve 4 (toplamda 21) algılayıcı veri akışı bulunur. Bu veriler, eğitilmiş modelden doğru bir sonuç elde etmek için yeterlidir.
 
 *\[1\] A. Saxena ve K. Goebel (2008). "Turbofan Engine Degradation Simulation Data Set" (Turbofan Motor Bozulması Benzetimi Veri Kümesi), NASA Ames Prognostics Veri Deposu (http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/), NASA Ames Research Center, Moffett Field, CA*
 
 ## <a name="get-started-with-predictive-maintenance"></a>Tahmine dayalı bakım ile çalışmaya başlama
 
-Bu öğretici nasıl tooprovision hello Tahmine dayalı bakım çözümü gösterir. Bu ayrıca, hello hello Tahmine dayalı bakım çözümü, temel özellikleri açıklanmaktadır. Bu özelliklerin yanı sıra hello önceden yapılandırılmış çözümü dağıtır hello çözüm Panosu üzerinden erişebilirsiniz.
+Bu öğreticide tahmine dayalı bakım çözümünün nasıl sağlanacağı gösterilmektedir. Ayrıca, tahmine dayalı bakım çözümünün temel özelliklerinde rehberlik sağlar. Bu özelliklerin birçoğuna önceden yapılandırılmış çözüm ile birlikte dağıtılan çözüm panosundan erişebilirsiniz.
 
-toocomplete Bu öğreticide, bir etkin Azure aboneliği gerekir.
+Bu öğreticiyi tamamlamak için etkin bir Azure aboneliğinizin olması gerekir.
 
 > [!NOTE]
 > Hesabınız yoksa yalnızca birkaç dakika içinde ücretsiz bir deneme sürümü hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü][lnk_free_trial].
 
-1. Çok oturum[azureiotsuite.com] [ lnk-azureiotsuite] Azure kullanarak hesap kimlik bilgilerini ve tıklatın  **+**  toocreate bir çözüm.
-1. Tıklatın **seçin** hello **Tahmine dayalı Bakım** döşeme.
+1. Azure hesabı kimlik bilgilerinizi kullanarak [azureiotsuite.com][lnk-azureiotsuite] adresinde oturum açın ve çözüm oluşturmak için **+** seçeneğine tıklayın.
+1. **Tahmine dayalı bakım** kutucuğunu **seçin**.
 1. Tahmine dayalı bakım için önceden yapılandırılmış çözümünüze ait bir **Çözüm adı** girin.
-1. Select hello **bölge** ve **abonelik** toouse tooprovision hello çözüm istiyorsunuz.
-1. Tıklatın **çözümü Oluştur** toobegin hello sağlama işlemi. Bu işlem genellikle birkaç dakika toorun alır.
+1. Çözümü sağlamak için kullanmak istediğiniz **Bölge** ve **Abonelik** seçimini yapın.
+1. Hazırlama işlemini başlatmak için **Çözümü Oluştur**'a tıklayın. Bu işlemin çalışması genellikle birkaç dakika sürer.
 
-### <a name="wait-for-hello-provisioning-process-toocomplete"></a>İşlem toocomplete sağlama Merhaba bekleyin
+### <a name="wait-for-the-provisioning-process-to-complete"></a>Hazırlama işleminin tamamlanmasını bekleme
 
-1. Çözümünüzle birlikte Hello kutucuğa tıklayın **sağlama** durumu.
-1. Bildirim hello **hazırlama durumlarına** gibi Azure Hizmetleri Azure aboneliğinize dağıtılır.
-1. Hazırlama tamamlandığında durum değişikliklerini çok hello**hazır**.
-1. Merhaba döşeme toosee hello hello sağ bölmede çözümünüzün ayrıntılarını'ı tıklatın. Bu bölmesinden hello çözüm panosu ve erişim hello Machine Learning çalışma alanı başlatabilirsiniz.
+1. Çözümünüzün **Hazırlama** durumuna sahip olan kutucuğuna tıklayın.
+1. Azure hizmetleri Azure aboneliğinize dağıtılırken **Hazırlama durumlarına** dikkat edin.
+1. Hazırlama tamamlandığında durum **Hazır** olarak değişir.
+1. Kutucuğa tıkladığınızda sağ bölmede çözümünüzün ayrıntılarını görürsünüz. Bu bölmeden çözüm panosunu başlatabilir ve Machine Learning çalışma alanına erişebilirsiniz.
 
 > [!NOTE]
-> Merhaba önceden yapılandırılmış çözümü dağıtma sorunlarla karşılaşırsanız, gözden [hello azureiotsuite.com sitesindeki izinler] [ lnk-permissions] ve hello [SSS] [ lnk-faq]. Merhaba sorunları devam ederse, bir hizmet bileti hello üzerinde oluşturma [portal][lnk-portal].
+> Önceden yapılandırılmış çözümün dağıtımında sorunlarla karşılaşırsanız bkz. [Azureiotsuite.com sitesindeki izinler][lnk-permissions] ve [SSS][lnk-faq]. Sorunlar devam ederse [portalda][lnk-portal] bir hizmet bileti oluşturun.
 
-Çözümünüz için listelenmeyen toosee beklediğiniz ayrıntılar bulunur? [User Voice](https://feedback.azure.com/forums/321918-azure-iot)'da bize özellik önerileri verin.
+Görmeyi beklediğiniz ancak çözümünüz için listelenmemiş ayrıntılar mı var? [User Voice](https://feedback.azure.com/forums/321918-azure-iot)'da bize özellik önerileri verin.
 
-## <a name="view-hello-solution"></a>Merhaba çözümü görüntüle
+## <a name="view-the-solution"></a>Çözümü görüntüleme
 
-Bu bölümde, hello çözümü kullanıcı Arabirimi aracılığıyla size yol gösterir.
+Bu bölüm çözüm kullanıcı arabiriminde size yol gösterir.
 
 ### <a name="predictive-maintenance-dashboard"></a>Tahmine Dayalı Bakım Panosu
 
-Merhaba web uygulamasındaki bu sayfa Powerbı JavaScript denetimlerini kullanır (Merhaba bkz [Powerbı-visuals repository][lnk-powerbi]) toovisualize:
+Web uygulamasındaki bu sayfa PowerBI JavaScript denetimlerini (bkz. [PowerBI-visuals repository][lnk-powerbi]) kullanarak şunları görselleştirir:
 
-* blob depolama hello Stream Analytics işlerine Hello çıktı verileri.
-* Merhaba RUL ve döngüsü uçak motoru başına sayısı.
+* Blob depolamada Stream Analytics işlerine ait çıktı verileri.
+* Uçak motoru başına RUL ve döngüsü sayısı.
 
-### <a name="observing-hello-behavior-of-hello-cloud-solution"></a>Merhaba hello bulut çözümünün davranışını Gözlemleme
+### <a name="observing-the-behavior-of-the-cloud-solution"></a>Bulut çözümünün davranışını gözlemleme
 
-İçinde Azure portal Merhaba, toohello kaynak grubuna gidin hello çözüm adı ile hazırlanan kaynaklarınızı tooview seçtiniz.
+Azure portalda sağlanan kaynaklarınızı görüntülemek için seçtiğiniz çözüm adına sahip kaynak grubuna gidin.
 
 ![][img-resource-group]
 
-Merhaba önceden yapılandırılmış çözümü hazırlarken, bir bağlantı toohello Machine Learning çalışma alanı içeren bir e-posta alırsınız. Merhaba toohello Machine Learning çalışma alanına da gidebilirsiniz [azureiotsuite.com] [ lnk-azureiotsuite] sağlanan çözümünüz için sayfa. Merhaba çözüm hello olduğunda bir kutucuğu bu sayfada kullanılabilir **hazır** durumu.
+Önceden yapılandırılmış çözümü hazırlarken, Machine Learning çalışma alanına bağlantısı da olan bir e-posta alırsınız. Sağladığınız çözümün [azureiotsuite.com][lnk-azureiotsuite] sayfasındaki kutucuktan da Machine Learning çalışma alanına gidebilirsiniz. Çözüm **Hazır** durumda olduğunda bu sayfada bir kutucuk kullanılabilir.
 
 ![][img-machine-learning]
 
-Merhaba çözüm portalında hello örneği iki motorları her dört algılayıcılar uçak başına ile dört sanal cihaz toorepresent iki uçak ile sağlandığında görebilirsiniz. Toohello çözüm portalına ilk gittiğinizde hello benzetim durdurulur.
+Çözüm portalında, uçak başına her biri dört algılayıcı içeren iki motorun düştüğü iki uçağı temsil etmek için örneğin dört sanal cihazla dağıtıldığını görebilirsiniz. Çözüm portalına ilk gittiğinizde benzetim durdurulur.
 
 ![][img-simulation-stopped]
 
-Tıklatın **benzetimi Başlat** toobegin hello benzetimi. Merhaba algılayıcı geçmişi, RUL, döngüler ve RUL geçmişini doldurmak hello Pano.
+Benzetimi başlatmak için **Benzetimi başlat**’a tıklayın. Algılayıcı geçmişi, RUL, Döngüler ve RUL geçmişi panoda yer alır.
 
 ![][img-simulation-running]
 
-RUL değeri 160 altındaysa (gösterim amaçlı seçilen rastgele eşik) olduğunda hello çözüm portalı RUL görüntülemek bir uyarı simgesi sonraki bir toohello görüntüler. Merhaba çözüm portalı da hello uçak motorunu sarı vurgular. Nasıl hello RUL değerleri bir genel düşüş eğilimi dikkat edin, ancak toobounce yukarı ve aşağı eğilimindedir. Bu davranış hello değişen döngü uzunlukları ve hello model doğruluğundan sonuçlanır.
+RUL değeri 160’tan (gösterim amaçlı seçilen rastgele bir eşik) azsa, çözüm portalında RUL görüntüsünün yanında bir uyarı simgesi görüntülenir. Çözüm portalı da uçak motorunu sarı renkle vurgular. RUL değerlerinde topluca genel bir düşüş eğilimi olsa da aşağı ve yukarı sıçramalar da olduğunu fark edebilirsiniz. Bu davranış, değişen döngü uzunlukları ve model doğruluğundan sonuçlanır.
 
 ![][img-simulation-warning]
 
-Merhaba tam benzetim, 148 Döngüyü yaklaşık 35 dakika toocomplete alır. Merhaba 160 RUL eşiği ilk seferinde yaklaşık 5 dakika Merhaba karşılanır ve her iki motor hello eşiğine yaklaşık 8 dakikada vardı.
+Tam benzetim, 148 döngüyü tamamlamak için yaklaşık 35 dakika sürer. 160 RUL eşiği ilk seferinde yaklaşık 5 dakikayı karşılar, her iki motor da yaklaşık 8 dakikada eşiği yakalar.
 
-Merhaba benzetim 148 döngü için hello tam veri kümesinde çalışır ve son RUL ve döngü değerlerinde de kapanır.
+Benzetim 148 döngü için tam veri kümesinde çalışır, son RUL ve döngü değerlerinde de kapanır.
 
-Merhaba benzetimi herhangi durdurabilirsiniz noktası ancak tıklatarak **benzetimi Başlat** yürütmelerini hello hello dataset hello başından benzetimi.
+Benzetimi istediğiniz an durdurabilirsiniz; ancak, **Benzetimi Başlat**’a tıkladığınızda benzetim veri kümesinin başından başlayarak yeniden oynatılır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure IOT okuma Tahmine dayalı bakım senaryolarını nasıl sağladığı hakkında daha fazla toolearn [hello nesnelerin interneti'nden değer yakalama][lnk_capture_value].
+Azure IoT’nin tahmine dayalı bakım senaryolarını etkinleştirmesi hakkında daha fazla bilgi için [Nesnelerin İnterneti’nden değer yakalama][lnk_capture_value] makalesini okuyun.
 
-Ele bir [izlenecek] [ lnk-predictive-walkthrough] hello Tahmine dayalı bakım çözümü.
+Tahmine dayalı bakım çözümünün [adım adım kılavuzunu][lnk-predictive-walkthrough] inceleyin.
 
-Merhaba bazıları diğer özellikleri ve yetenekleri hello IOT paketi önceden yapılandırılmış çözümleri ayrıca keşfedebilirsiniz:
+Önceden yapılandırılmış IoT Suite çözümlerinin diğer özelliklerinden bazılarını da keşfedebilirsiniz:
 
 * [IoT Paketi için sık sorulan sorular][lnk-faq]
-* [Merhaba IOT güvenlikten plan][lnk-security-groundup]
+* [Baştan sona IoT güvenliği][lnk-security-groundup]
 
 [img-resource-group]: media/iot-suite-predictive-overview/resource-group.png
 [img-simulation-stopped]: media/iot-suite-predictive-overview/simulation-stopped.png

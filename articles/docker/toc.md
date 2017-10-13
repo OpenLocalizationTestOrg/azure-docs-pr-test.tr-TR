@@ -5,7 +5,7 @@
 ## [Docker ve PostgreSQL ile Python Web Uygulaması](/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app)
 ## [Docker Swarm ve VSTS ile CI/CD](/azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine)
 ## [Docker, Jenkins ve Linux ile CI/CD](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd)
-# Nasıl tooguides
+# Nasıl yapılır kılavuzları
 ## [Docker VM uzantısı](/azure/virtual-machines/linux/dockerextension)
 ## [Docker Makinesi](/azure/virtual-machines/linux/docker-machine)
 ## [Docker kapsayıcı kayıt defteri](/azure/container-registry/container-registry-get-started-portal)

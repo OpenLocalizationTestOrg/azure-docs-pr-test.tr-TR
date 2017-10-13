@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate azure'da bir şablondan bir Windows VM | Microsoft Docs"
-description: "Resource Manager şablonu kullanın ve PowerShell tooeasily yeni bir Windows VM oluşturun."
+title: "Azure'da bir şablondan bir Windows VM oluşturma | Microsoft Docs"
+description: "Resource Manager şablonu ve PowerShell kolayca yeni bir Windows VM oluşturmak için kullanın."
 services: virtual-machines-windows
 documentationcenter: 
 author: davidmu1
@@ -16,23 +16,23 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: davidmu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 630111482c7dc046091632e2ed458ac143325d59
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ddab80262fe27c1f5995858ec7de75d7c46df081
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Bir Windows sanal makine bir Resource Manager şablonu oluşturma
 
-Bu makale size nasıl gösterir toodeploy bir Azure Resource Manager PowerShell kullanarak şablonu. oluşturduğunuz hello şablon tek bir alt ağ ile yeni bir sanal ağ içinde Windows Server çalıştıran tek bir sanal makine dağıtır.
+Bu makalede PowerShell kullanarak bir Azure Resource Manager şablonu dağıtma gösterilmektedir. Oluşturduğunuz şablon, tek bir alt ağ ile yeni bir sanal ağ içinde Windows Server çalıştıran tek bir sanal makine dağıtır.
 
-Merhaba sanal makine kaynağı ayrıntılı bir açıklaması için bkz: [sanal makineleri bir Azure Resource Manager şablonunda](template-description.md). Bir şablona tüm hello kaynaklar hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonu Kılavuzu](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+Sanal makine kaynağı ayrıntılı bir açıklaması için bkz: [sanal makineleri bir Azure Resource Manager şablonunda](template-description.md). Bir şablona tüm kaynaklar hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonu Kılavuzu](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
-Toodo hello bu makaledeki adımları yaklaşık beş dakika sürer.
+Bu makaledeki adımları yapmak için yaklaşık beş dakika sürer.
 
 ## <a name="install-azure-powershell"></a>Azure PowerShell'i yükleme
 
-Bkz: [nasıl tooinstall Azure PowerShell'i ve yapılandırma](../../powershell-install-configure.md) hello Azure PowerShell'in en son sürümünü yükleme, aboneliğinizi seçme ve tooyour hesabında imzalama hakkında bilgi.
+Azure PowerShell’in en son sürümünü yükleme, aboneliğinizi seçme ve hesabınızda oturum açma hakkında bilgi almak için bkz. [Azure PowerShell’i yükleme ve yapılandırma](../../powershell-install-configure.md).
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
@@ -44,17 +44,17 @@ Tüm kaynaklar dağıtılmalıdır bir [kaynak grubu](../../azure-resource-manag
     Get-AzureRmLocation | sort DisplayName | Select DisplayName
     ```
 
-2. Merhaba kaynak grubu seçtiğiniz hello konumda oluşturun. Bu örnek, bir kaynak grubu hello oluşturulmasını gösterir **myResourceGroup** hello içinde **Batı ABD** konumu:
+2. Kaynak grubu seçtiğiniz konumda oluşturun. Bu örnek, bir kaynak grubu oluşturulmasını gösterir **myResourceGroup** içinde **Batı ABD** konumu:
 
     ```powershell   
     New-AzureRmResourceGroup -Name "myResourceGroup" -Location "West US"
     ```
 
-## <a name="create-hello-files"></a>Merhaba dosyaları oluşturma
+## <a name="create-the-files"></a>Dosyaları oluşturma
 
-Bu adımda, hello kaynakları dağıtan bir şablonu ve parametre değerlerini toohello şablon sağlayan bir parametre dosyası oluşturun. Kullanılan tooperform Azure Resource Manager operations bir yetkilendirme dosya oluşturabilir.
+Bu adımda, kaynakları dağıtan bir şablon dosyası ve şablon parametre değerlerini sağlayan bir parametre dosyası oluşturun. Ayrıca Azure Resource Manager işlemlerini gerçekleştirmek için kullanılan bir yetkilendirme dosyasını oluşturursunuz.
 
-1. Adlı bir dosya oluşturun *CreateVMTemplate.json* ve bu JSON kodunu tooit ekleyin:
+1. Adlı bir dosya oluşturun *CreateVMTemplate.json* ve bu JSON kodu ekleyin:
 
     ```json
     {
@@ -159,7 +159,7 @@ Bu adımda, hello kaynakları dağıtan bir şablonu ve parametre değerlerini t
     }
     ```
 
-2. Adlı bir dosya oluşturun *Parameters.json* ve bu JSON kodunu tooit ekleyin:
+2. Adlı bir dosya oluşturun *Parameters.json* ve bu JSON kodu ekleyin:
 
     ```json
     {
@@ -182,18 +182,18 @@ Bu adımda, hello kaynakları dağıtan bir şablonu ve parametre değerlerini t
     New-AzureStorageContainer -Name "templates" -Context $context -Permission Container
     ```
 
-4. Merhaba dosyaları toohello depolama hesabı karşıya yükle:
+4. Dosyaları karşıya yükleme için depolama hesabı:
 
     ```powershell
     Set-AzureStorageBlobContent -File "C:\templates\CreateVMTemplate.json" -Context $context -Container "templates"
     Set-AzureStorageBlobContent -File "C:\templates\Parameters.json" -Context $context -Container templates
     ```
 
-    Değişiklik hello - hello dosyaların depolandığı dosya yolları toohello konumu.
+    Değişiklik dosyaların depolandığı konumun dosya yolları.
 
-## <a name="create-hello-resources"></a>Merhaba kaynakları oluşturun
+## <a name="create-the-resources"></a>Kaynakları oluşturun
 
-Merhaba parametreleri kullanarak hello şablonunu dağıtın:
+Parametreleri kullanarak şablonu dağıtmak:
 
 ```powershell
 $templatePath = "https://" + $storageName + ".blob.core.windows.net/templates/CreateVMTemplate.json"
@@ -202,10 +202,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -Name "m
 ```
 
 > [!NOTE]
-> Ayrıca, şablonları ve yerel dosyaları parametrelerinden dağıtabilirsiniz. toolearn daha, fazla [Azure Storage ile Azure PowerShell'i kullanma](../../storage/common/storage-powershell-guide-full.md).
+> Ayrıca, şablonları ve yerel dosyaları parametrelerinden dağıtabilirsiniz. Daha fazla bilgi için bkz: [Azure Storage ile Azure PowerShell'i kullanma](../../storage/common/storage-powershell-guide-full.md).
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-- Merhaba dağıtımı ile ilgili sorunlar varsa, bir göz atalım [ortak Azure dağıtım hataları Azure Resource Manager ile ilgili sorunları giderme](../../resource-manager-common-deployment-errors.md).
-- Bilgi nasıl toocreate ve bir sanal makinede yönetmek [oluşturma ve hello Azure PowerShell modülü ile Windows sanal makineleri yönetme](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Dağıtım ile ilgili sorunlar varsa, bir göz atalım [ortak Azure dağıtım hataları Azure Resource Manager ile ilgili sorunları giderme](../../resource-manager-common-deployment-errors.md).
+- Oluşturma ve bir sanal makinede yönetme hakkında bilgi edinin [oluşturma ve Azure PowerShell modülü ile Windows sanal makineleri yönetme](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

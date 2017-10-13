@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure çok faktörlü kimlik doğrulaması belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
-description: "Bilgi nasıl toodeploy çok faktörlü kimlik doğrulama yöntemlerini aralıklı sağlayan basit bir oturum açma işlemi. Öğreticiler, bir SDK ve daha fazlası."
+title: "Azure Multi-Factor Authentication Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Basit bir oturum açma işlemi sağlayan çeşitli doğrulama yöntemleriyle çok faktörlü kimlik doğrulaması dağıtmayı öğrenin. Öğreticiler, bir SDK ve daha fazlası."
 services: multi-factor-authentication
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 0ede2ad48a3d4e756aeb0b1f6bc0e07e4e7b1fcc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 25c21170df0ae5ef3dc57943448963059550fa1b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="multi-factor-authentication-documentation"></a>Multi-Factor Authentication Belgeleri
 
-Bilgi nasıl toodeploy ve Azure multi-Factor Authentication, iki adımlı kimlik doğrulama sistemi yönetin. Öğreticiler, bir SDK ve diğer belgeleri göster, nasıl basit bir oturum açma işlemini sağlarken toodeliver güçlü kimlik doğrulama yöntemlerini aralıklı.
+İki adımlı bir kimlik doğrulama sistemi olan Azure Multi-Factor Authentication’ı nasıl dağıtacağınızı ve yöneteceğinizi öğrenin. Öğreticiler, SDK ve diğer belgeler, çeşitli doğrulama yöntemleriyle basit bir oturum açma süreci sağlama ve güçlü kimlik doğrulama olanakları sunma ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -88,7 +88,7 @@ Bilgi nasıl toodeploy ve Azure multi-Factor Authentication, iki adımlı kimlik
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Merhaba bulutta Azure multi factor Authentication kullanmaya başlama</h3>
+                        <h3>Bulutta Azure Multi-Factor Authentication kullanmaya başlama</h3>
                     </div>
                 </div>
             </div>

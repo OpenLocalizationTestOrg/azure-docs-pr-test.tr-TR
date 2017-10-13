@@ -1,18 +1,18 @@
-Bu yapılandırmaya başlamadan önce tooyour Azure hesabı oturum açmanız gerekir. Merhaba cmdlet hello Azure hesabınızda oturum açma kimlik bilgilerini ister. Kullanılabilir tooAzure PowerShell şekilde oturum açtıktan sonra hesap ayarlarınızı indirir. Daha fazla bilgi için [Windows PowerShell’i Resource Manager ile kullanma](../articles/powershell-azure-resource-manager.md) konusuna bakın.
+Bu yapılandırmaya başlamadan önce Azure hesabınızda oturum açmalısınız. Bu cmdlet, Azure hesabınıza ilişkin oturum açma kimlik bilgilerinizi girmenizi ister. Oturum açtıktan sonra, Azure PowerShell'de kullanabilmeniz için hesap ayarlarınızı indirir. Daha fazla bilgi için [Windows PowerShell’i Resource Manager ile kullanma](../articles/powershell-azure-resource-manager.md) konusuna bakın.
 
-toolog, yükseltilmiş ayrıcalıklarla PowerShell Konsolunuzu açın ve tooyour hesap bağlanın. Bağlandığınız örnek toohelp aşağıdaki hello kullan:
+Oturum açmak için PowerShell konsolunuzu yükseltilmiş ayrıcalıklarla açın ve hesabınıza bağlanın. Bağlanmanıza yardımcı olması için aşağıdaki örneği kullanın:
 
 ```powershell
 Login-AzureRmAccount
 ```
 
-Birden çok Azure aboneliğiniz varsa, hello hesabının hello abonelikleri kontrol edin.
+Birden çok Azure aboneliğiniz varsa, hesabın aboneliklerini denetleyin.
 
 ```powershell
 Get-AzureRmSubscription
 ```
 
-Merhaba abonelik toouse istediğinizi belirtin.
+Kullanmak istediğiniz aboneliği belirtin.
 
 ```powershell
 Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"

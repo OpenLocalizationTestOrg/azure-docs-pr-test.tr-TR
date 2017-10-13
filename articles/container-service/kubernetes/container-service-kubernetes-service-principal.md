@@ -1,9 +1,9 @@
 ---
-title: "Azure Kubernetes küme aaaService asıl | Microsoft Docs"
+title: "Azure Kubernetes kümesi için hizmet sorumlusu | Microsoft Belgeleri"
 description: "Azure Container Service içindeki bir Kubernetes kümesi için Azure Active Directory hizmet sorumlusu oluşturma ve yönetme"
 services: container-service
 documentationcenter: 
-author: dlepow
+author: neilpeterson
 manager: timlt
 editor: 
 tags: acs, azure-container-service, kubernetes
@@ -13,131 +13,126 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
-ms.author: danlep
+ms.date: 09/26/2017
+ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 7a01624c5ac3fa717dbcbd570e05ceb4d917c53a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 14975454cbc0afcfbdbd3aa6b52983be4d4b1785
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Container Service’te bir Kubernetes kümesi için Azure AD hizmet sorumlusu oluşturma
 
 
-Azure kapsayıcı Hizmeti'nde bir Kubernetes kümesi gerektiren bir [Azure Active Directory hizmet asıl](../../active-directory/develop/active-directory-application-objects.md) toointeract Azure API'leri ile. Merhaba hizmet sorumlusu gereklidir toodynamically yönetmek kaynakları gibi [kullanıcı tanımlı yollar](../../virtual-network/virtual-networks-udr-overview.md) ve hello [katman 4 Azure yük dengeleyici](../../load-balancer/load-balancer-overview.md). 
+Azure Container Service'te Kubernetes kümesi, Azure API'leri ile etkileşime geçmek için [Azure Active Directory hizmet sorumlusu](../../active-directory/develop/active-directory-application-objects.md) gerektirir. Hizmet sorumlusu, [kullanıcı tanımlı yollar](../../virtual-network/virtual-networks-udr-overview.md) ve [4. Katman Azure Load Balancer](../../load-balancer/load-balancer-overview.md) gibi kaynakları dinamik olarak yönetmek için gereklidir.
 
 
-Bu makale bir hizmet yukarı farklı seçenekler tooset Kubernetes kümeniz için asıl gösterir. Örneğin, yüklü ve hello ayarlarsanız [Azure CLI 2.0](/cli/azure/install-az-cli2), hello çalıştırabilirsiniz [ `az acs create` ](/cli/azure/acs#create) komutu toocreate hello Kubernetes küme ve hello hizmeti hello asıl aynı anda.
+Bu makalede Kubernetes kümeniz için hizmet sorumlusu ayarlamak üzere kullanabileceğiniz farklı seçenekler gösterilmektedir. Örneğin, [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklemesini ve kurulumunu yaptıysanız, [`az acs create`](/cli/azure/acs#create) komutunu çalıştırarak Kubernetes kümesini ve hizmet sorumlusunu aynı anda oluşturabilirsiniz.
 
 
-## <a name="requirements-for-hello-service-principal"></a>Merhaba hizmet sorumlusu için gereksinimler
+## <a name="requirements-for-the-service-principal"></a>Hizmet sorumlusu için gereksinimler
 
-Karşılıyor gereksinimlerine hello veya yeni bir tane oluşturun var olan bir Azure AD hizmet sorumlusu kullanabilirsiniz.
+Aşağıdaki gereksinimleri karşılayan mevcut bir Azure AD hizmet sorumlusunu kullanabilir veya yeni bir tane oluşturabilirsiniz.
 
-* **Kapsam**: hello abonelik hello kaynak grubunda kullanılan toodeploy hello Kubernetes küme veya hello abonelik toodeploy hello küme (daha az giderilirken) kullanılır.
+* **Kapsam**: kümeyi dağıtmak için kullanılan abonelik.
 
 * **Rol**: **Katkıda bulunan**
 
 * **Gizli anahtar**: Bir parola olmalıdır. Şu anda sertifika kimlik doğrulaması için ayarlanmış bir hizmet sorumlusunu kullanamazsınız.
 
-> [!IMPORTANT] 
-> bir hizmet sorumlusu toocreate, aboneliğinizde Azure AD kiracısı ve tooassign hello uygulama tooa rolüne sahip bir uygulama izinleri tooregister olmalıdır. Merhaba gerekli izinlere sahip toosee [hello Portal denetleyin](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions). 
+> [!IMPORTANT]
+> Bir hizmet sorumlusu oluşturmak için, Azure AD kiracınızla bir uygulamayı kaydetme ve uygulamanızı aboneliğinizdeki bir role atama izinlerinizin olması gerekir. Gerekli izinlere sahip olup olmadığınızı görmek için [Portal’dan denetleyin](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions).
 >
 
 ## <a name="option-1-create-a-service-principal-in-azure-ad"></a>1. Seçenek: Azure AD'de hizmet sorumlusu oluşturma
 
-Kubernetes kümenizi dağıtmadan önce bir Azure AD hizmet sorumlusu toocreate istiyorsanız, Azure çeşitli yöntemler sağlar. 
+Kubernetes kümenizi dağıtmadan önce bir Azure AD hizmet sorumlusu oluşturmak isterseniz, Azure birkaç yöntem sunar.
 
-Aşağıdaki örnek komutlar hello Göster, nasıl toodo bu hello [Azure CLI 2.0](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). Alternatif olarak kullanarak bir hizmet asıl oluşturabilirsiniz [Azure PowerShell](../../azure-resource-manager/resource-group-authenticate-service-principal.md), hello [portal](../../azure-resource-manager/resource-group-create-service-principal-portal.md), veya diğer yöntemleri.
+Aşağıdaki örnek komut bunu [Azure CLI 2.0](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md) ile nasıl gerçekleştirebileceğinizi göstermektedir. Veya [Azure PowerShell](../../azure-resource-manager/resource-group-authenticate-service-principal.md), [portal](../../azure-resource-manager/resource-group-create-service-principal-portal.md) ya da diğer yöntemleri kullanarak bir hizmet sorumlusu oluşturabilirsiniz.
 
 ```azurecli
 az login
 
 az account set --subscription "mySubscriptionID"
 
-az group create -n "myResourceGroupName" -l "westus"
+az group create --name "myResourceGroup" --location "westus"
 
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName"
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
 ```
 
-Çıktı (burada Redaksiyonu yapılmış gösterilen) benzer toohello aşağıda verilmiştir:
+Aşağıdakine benzer bir çıktı döndürülür (burada gösterilen sonuç kısaltılmıştır):
 
 ![Hizmet sorumlusu oluşturma](./media/container-service-kubernetes-service-principal/service-principal-creds.png)
 
-Vurgulanan hello olan **istemci kimliği** (`appId`) ve hello **gizli** (`password`), Küme dağıtımı için hizmet asıl parametreleri olarak kullanma.
+Vurgulanmış olan **istemci kimliği** (`appId`) ve **gizli anahtar** (`password`), küme dağıtımı için hizmet sorumlusu parametreleri olarak kullandığınız değerlerdir.
 
 
-### <a name="specify-service-principal-when-creating-hello-kubernetes-cluster"></a>Hizmet sorumlusu hello Kubernetes küme oluştururken belirtin
+### <a name="specify-service-principal-when-creating-the-kubernetes-cluster"></a>Kubernetes kümesi oluştururken hizmet sorumlusu belirtme
 
-Merhaba sağlamak **istemci kimliği** (hello olarak da bilinir `appId`, uygulama kimliği için) ve **gizli** (`password`) var olan bir hizmet olarak hello oluşturduğunuzda parametreler sorumlusu Kubernetes küme. Bu makalede başlayan hello hello gereksinimlerine Hello hizmet sorumlusu karşıladığından emin olun.
+Kubernetes kümesini oluştururken, mevcut bir hizmet sorumlusunun **istemci kimliğini** (Uygulama kimliği anlamına gelen `appId` olarak da bilinir) ve **gizli anahtarını** (`password`) parametre olarak belirtin. Hizmet sorumlusunun bu makalenin başında verilen gereksinimleri karşıladığından emin olun.
 
-Hello kullanarak hello Kubernetes kümesini dağıtırken bu parametreleri belirtebilirsiniz [Azure komut satırı arabirimi (CLI) 2.0](container-service-kubernetes-walkthrough.md), [Azure portal](../dcos-swarm/container-service-deployment.md), veya diğer yöntemleri.
+Kubernetes kümesini dağıtırken, bu parametreleri [Azure Komut Satırı Arabirimi (CLI) 2.0](container-service-kubernetes-walkthrough.md), [Azure portalı](../dcos-swarm/container-service-deployment.md) veya diğer yöntemleri kullanarak belirtebilirsiniz.
 
->[!TIP] 
->Merhaba belirtirken **istemci kimliği**, emin toouse hello olması `appId`, değil hello `ObjectId`, hello hizmet asıl.
+>[!TIP]
+>**İstemci kimliğini** belirtirken, hizmet sorumlusunun `ObjectId` değerini değil `appId` değerini kullandığınızdan emin olun.
 >
 
-Merhaba aşağıdaki örnek bir yolu toopass hello Azure CLI 2.0 hello parametrelerle gösterir. Bu örnek hello kullanır [Kubernetes hızlı başlatma şablonunu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes).
+Aşağıdaki örnekte Azure CLI 2.0 ile parametreleri iletme yollarından biri gösterilmektedir. Bu örnekte [Kubernetes hızlı başlangıç şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes) kullanılmıştır.
 
-1. [Karşıdan](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) hello şablon parametreleri dosyası `azuredeploy.parameters.json` github'dan.
+1. `azuredeploy.parameters.json` şablon parametre dosyasını GitHub’dan [indirin](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json).
 
-2. toospecify hello hizmet sorumlusu için değerleri girin `servicePrincipalClientId` ve `servicePrincipalClientSecret` hello dosyasında. (Ayrıca tooprovide için kendi değerlerinizi ihtiyacınız `dnsNamePrefix` ve `sshRSAPublicKey`. Merhaba ikinci hello SSH ortak anahtarı tooaccess hello kümedir.) Merhaba dosyasını kaydedin.
+2. Hizmet sorumlusunu belirtmek için dosyada `servicePrincipalClientId` ve `servicePrincipalClientSecret` değerlerini girin. (Ayrıca `dnsNamePrefix` ve `sshRSAPublicKey` için kendi değerlerinizi de belirtmeniz gerekir. İkincisi, kümeye erişmek için kullanılacak SSH ortak anahtarıdır.) Dosyayı kaydedin.
 
     ![Hizmet sorumlusu parametrelerini iletme](./media/container-service-kubernetes-service-principal/service-principal-params.png)
 
-3. Aşağıdaki komut, kullanarak çalışma hello `--parameters` tooset hello yol toohello azuredeploy.parameters.json dosyası. Bu komut hello küme çağrılan oluşturduğunuz bir kaynak grubunda dağıtır `myResourceGroup` hello Batı ABD bölgesindeki.
+3. Aşağıdaki komutu `--parameters` ile çalıştırarak azuredeploy.parameters.json dosyasının yolunu belirtin. Bu komut, kümeyi Batı ABD bölgesinde `myResourceGroup` adıyla oluşturduğunuz bir kaynak grubuna dağıtır.
 
     ```azurecli
     az login
 
     az account set --subscription "mySubscriptionID"
 
-    az group create --name "myResourceGroup" --location "westus" 
-    
+    az group create --name "myResourceGroup" --location "westus"
+
     az group deployment create -g "myResourceGroup" --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" --parameters @azuredeploy.parameters.json
     ```
 
 
-## <a name="option-2-generate-a-service-principal-when-creating-hello-cluster-with-az-acs-create"></a>Seçeneği 2: Merhaba küme oluştururken, bir hizmet sorumlusu oluşturma`az acs create`
+## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>2. Seçenek: `az acs create` ile küme oluştururken hizmet sorumlusu oluşturma
 
-Merhaba çalıştırırsanız [ `az acs create` ](/cli/azure/acs#create) komutu toocreate Kubernetes küme Merhaba, hello seçeneği toogenerate bir hizmet sorumlusu otomatik olarak olur.
+Kubernetes kümesini oluşturmak için [`az acs create`](/cli/azure/acs#create) komutunu çalıştırırsanız, otomatik olarak bir hizmet sorumlusu oluşturma seçeneğine sahip olursunuz.
 
-Diğer Kubernetes kümesi oluşturma seçeneklerinde olduğu gibi, `az acs create` çalıştırırken mevcut bir hizmet sorumlusunun parametrelerini belirtebilirsiniz. Ancak, bu parametreyi de atladığınızda hello Azure CLI otomatik olarak kullanmak için bir tane kapsayıcı hizmeti ile oluşturur. Bu saydam hello dağıtımı sırasında gerçekleşir. 
+Diğer Kubernetes kümesi oluşturma seçeneklerinde olduğu gibi, `az acs create` çalıştırırken mevcut bir hizmet sorumlusunun parametrelerini belirtebilirsiniz. Ancak, bu parametreleri atlarsanız Azure CLI, Container Service ile kullanılacak bir hizmet sorumlusunu otomatik olarak oluşturur. Bu işlem dağıtım sırasında saydam bir şekilde gerçekleştirilir.
 
-Merhaba aşağıdaki komutu Kubernetes küme oluşturur ve SSH anahtarları ve hizmet asıl kimlik bilgilerini oluşturur:
+Aşağıdaki komut, bir Kubernetes kümesi oluşturmaya ek olarak hem SSH anahtarlarını hem de hizmet sorumlusu kimlik bilgilerini üretir:
 
 ```console
 az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys --orchestrator-type kubernetes
 ```
 
 > [!IMPORTANT]
-> Hesabınızı hello Azure AD ve abonelik izinleri toocreate yoksa ve bir hizmet sorumlusu hello komutu benzer bir hata çok oluşturur`Insufficient privileges toocomplete hello operation.`
-> 
+> Hesabınızda Azure AD ve hizmet sorumlusu oluşturmaya yönelik abonelik izinleri yoksa, komut `Insufficient privileges to complete the operation.` benzeri bir hata oluşturur
+>
 
 ## <a name="additional-considerations"></a>Diğer konular
 
-* Bir hizmet asıl izinleri toocreate aboneliğinizde sahip değilseniz, tooask gerekebilecek Azure AD veya abonelik Yöneticisi tooassign hello gerekli izinleri ya da Azure kapsayıcı hizmeti ile bir hizmet asıl toouse için isteyin. 
+* Aboneliğinizde hizmet sorumlusu oluşturma izniniz yoksa, Azure AD veya abonelik yöneticinizden gerekli izinleri atamasını istemeniz veya Azure Container Service ile kullanılacak hizmet sorumlusunu sormanız gerekebilir.
 
-* Merhaba hizmet sorumlusu Kubernetes için hello küme yapılandırmasının bir parçasıdır. Ancak, hello kimlik toodeploy hello küme kullanmayın.
+* Kubernetes için hizmet sorumlusu, küme yapılandırmasının bir parçasıdır. Ancak, kümeyi dağıtmak için kimlik kullanmayın.
 
-* Her hizmet sorumlusunun bir Azure AD uygulamasıyla ilişkilendirilmiş olması gerekir. Merhaba hizmet sorumlusu Kubernetes kümesi için geçerli tüm Azure ile ilişkilendirilebilir AD uygulama adı (örneğin: `https://www.contoso.org/example`). Merhaba uygulaması Hello URL'sini toobe gerçek bir uç nokta yok.
+* Her hizmet sorumlusunun bir Azure AD uygulamasıyla ilişkilendirilmiş olması gerekir. Bir Kubernetes kümesinin hizmet sorumlusu, geçerli herhangi bir Azure AD uygulama adıyla ilişkilendirilebilir (örneğin: `https://www.contoso.org/example`). Uygulama URL'sinin gerçek bir uç nokta olması gerekmez.
 
-* Merhaba hizmet sorumlusu belirlerken **istemci kimliği**, hello hello değerini kullanabilirsiniz `appId` (Bu makalede gösterildiği gibi) veya hello karşılık gelen hizmet sorumlusu `name` (örneğin,`https://www.contoso.org/example`).
+* Hizmet sorumlusu **İstemci Kimliğini** belirtirken `appId` değerini (bu makalede gösterilen şekilde) veya karşılık gelen hizmet sorumlusu `name` değerini (örneğin, `https://www.contoso.org/example`) kullanabilirsiniz.
 
-* Hello Yöneticisi ve hello Kubernetes kümedeki sanal makineleri aracı üzerinde hello hizmet asıl kimlik hello dosya /etc/kubernetes/azure.json depolanır.
+* Kubernetes kümesindeki ana ve aracı VM’lerde hizmet sorumlusu kimlik bilgileri, /etc/kubernetes/azure.json dosyasında saklanır.
 
-* Merhaba kullandığınızda `az acs create` toogenerate hello hizmet sorumlusu komutu otomatik olarak, hello hizmet asıl kimlik toohello dosya ~/.azure/acsServicePrincipal.json hello makinede kullanılan toorun hello komutu yazılır. 
+* Hizmet sorumlusunu otomatik olarak oluşturmak için `az acs create` komutunu kullandığınızda, hizmet sorumlusu kimlik bilgileri komutun çalıştırıldığı bilgisayarda ~/.azure/acsServicePrincipal.json dosyasına yazılır.
 
-* Merhaba kullandığınızda `az acs create` toogenerate hello hizmet sorumlusu komutu otomatik olarak, hello hizmet sorumlusu kimliğini de bir [Azure kapsayıcı kayıt defteri](../../container-registry/container-registry-intro.md) hello aynı oluşturulan abonelik.
-
-
-
+* `az acs create` komutu ile hizmet sorumlusunu otomatik olarak oluşturduğunuzda, hizmet sorumlusu aynı abonelikte oluşturulan bir [Azure kapsayıcı kayıt defteri](../../container-registry/container-registry-intro.md) ile de kimlik doğrulaması yapabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Kapsayıcı hizmeti kümenizde [Kubernetes ile çalışmaya başlama](container-service-kubernetes-walkthrough.md).
 
-* tootroubleshoot hello hizmet sorumlusu Kubernetes için bkz: Merhaba [ACS altyapısı belgelerine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes.md#troubleshooting).
-
-
+* Kubernetes hizmet sorumlusu sorunlarını gidermek için bkz. [ACS Altyapısı belgeleri](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes.md#troubleshooting).

@@ -1,6 +1,6 @@
 ---
-title: "Şirket içi Azure bağlantıları için VPN aygıtları aaaAbout | Microsoft Docs"
-description: "Bu makalede VPN cihazları ve S2S VPN Gateway şirketler arası bağlantılar için IPsec parametreleri ele alınmaktadır. Bağlantılar tooconfiguration yönergeler ve örnekler verilmiştir."
+title: "Şirket içi Azure bağlantıları için VPN cihazları hakkında | Microsoft Docs"
+description: "Bu makalede VPN cihazları ve S2S VPN Gateway şirketler arası bağlantılar için IPsec parametreleri ele alınmaktadır. Yapılandırma yönergeleri ve örnekler için bağlantılar verilmektedir."
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
@@ -15,27 +15,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: yushwang;cherylmc
-ms.openlocfilehash: 8b84afbf93d807342ecd56ab369d5909a13343e9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 7b7e5f0f089cc87c9e63eee1fd3d29b7a2c0d49f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Siteden Siteye VPN Gateway bağlantıları için VPN cihazları ve IPsec/IKE parametreleri hakkında
 
-Bir VPN cihazı gerekli tooconfigure bir VPN ağ geçidi kullanarak siteden siteye (S2S) şirketler arası VPN bağlantısı ' dir. Güvenli bağlantılar, şirket içi ağlar ve sanal ağlarınız arasında istediğiniz zaman veya siteden siteye bağlantıları kullanılan toocreate karma bir çözüm olabilir. Bu makalede, doğrulanmış VPN cihazlarının listesi ve VPN ağ geçitleri için IPsec/IKE parametrelerinin listesi verilmektedir.
+Bir VPN ağ geçidi kullanılarak Siteden Siteye (S2S) şirketler arası VPN bağlantısı yapılandırmak için bir VPN cihazı gereklidir. Siteden siteye bağlantılar karma çözüm oluşturmak amacıyla ya da şirket içi ağlarınız ile sanal ağlarınız arasında güvenli bağlantılar istediğinizde kullanılabilir. Bu makalede, doğrulanmış VPN cihazlarının listesi ve VPN ağ geçitleri için IPsec/IKE parametrelerinin listesi verilmektedir.
 
 > [!IMPORTANT]
-> Şirket içi VPN cihazlarınız ve VPN ağ geçitleri arasında bağlantı sorunları yaşıyorsanız, çok başvuran[bilinen cihaz uyumluluk sorunları](#known).
->
+> Şirket içi VPN cihazlarınızla VPN ağ geçitleri arasında bağlantı sorunları yaşıyorsanız lütfen [Bilinen cihaz uyumluluk sorunları](#known) konusuna başvurun.
 >
 
-### <a name="items-toonote-when-viewing-hello-tables"></a>Merhaba tabloları görüntülerken öğeleri toonote:
+### <a name="items-to-note-when-viewing-the-tables"></a>Tabloları görüntülerken dikkate alınacaklar:
 
-* Azure VPN ağ geçitleri terimlerinde bir değişiklik meydana gelmiştir. Yalnızca hello adlarını değiştirilmiştir. İşlevsellik değişmez.
+* Azure VPN ağ geçitleri terimlerinde bir değişiklik meydana gelmiştir. Yalnızca adlar değişmiştir. İşlevsellik değişmez.
   * Statik Yönlendirme = PolicyBased
   * Dinamik Yönlendirme = RouteBased
-* HighPerformance VPN ağ geçidi ve RouteBased VPN ağ geçidi için belirtimler olan hello aynı, aksi belirtilmediği sürece. Örneğin, RouteBased VPN gateway'ler ile uyumlu olan hello doğrulanan VPN cihazları da hello HighPerformance VPN ağ geçidi ile uyumlu değildir.
+* Yüksek Performanslı VPN ağ geçidi ve RouteBased VPN ağ geçidi özellikleri, aksi belirtilmedikçe aynıdır. Örneğin, RouteBased VPN ağ geçitleri ile uyumlu doğrulanmış VPN cihazları, Yüksek Performanslı VPN ağ geçidi ile de uyumludur.
 
 ## <a name="devicetable"></a>Doğrulanmış VPN cihazları ve cihaz yapılandırma kılavuzları
 
@@ -43,9 +42,9 @@ Bir VPN cihazı gerekli tooconfigure bir VPN ağ geçidi kullanarak siteden site
 > Siteden Siteye bağlantı yapılandırırken, VPN cihazınız için genel kullanıma yönelik bir IPv4 IP adresi gereklidir.
 >
 
-Cihaz satıcılarıyla işbirliği yaparak bir grup standart VPN cihazını doğruladık. Tüm hello cihazların Merhaba cihaz ailelerindeki listesi aşağıdaki hello içinde VPN gateway'ler ile çalışması gerekir. Bkz: [hakkında VPN ağ geçidi ayarlarını](vpn-gateway-about-vpn-gateway-settings.md#vpntype) toounderstand hello VPN türü hello tooconfigure istediğiniz VPN ağ geçidi çözüm için (PolicyBased veya RouteBased) kullanın.
+Cihaz satıcılarıyla işbirliği yaparak bir grup standart VPN cihazını doğruladık. Aşağıdaki listede bulunan cihaz ailelerinde yer alan tüm cihazlar, VPN ağ geçitleriyle birlikte kullanılabilir. Yapılandırmak istediğiniz VPN Gateway çözümüne yönelik VPN türü kullanımını (PolicyBased veya RouteBased) anlamak için bkz. [VPN Gateway Ayarları Hakkında](vpn-gateway-about-vpn-gateway-settings.md#vpntype).
 
-toohelp VPN Cihazınızı yapılandırmak, tooappropriate cihaz ailesine karşılık gelen toohello bağlantılara bakın. Merhaba bağlantılar tooconfiguration yönergeleri en iyi çaba ilkesine göre sağlanır. VPN cihazı desteği için lütfen cihaz üreticinize başvurun.
+VPN cihazınızı yapılandırma konusunda yardım almak için, uygun cihaz ailesine karşılık gelen bağlantılara başvurun. Mümkün olan en iyi yapılandırma yönergeleri verilmiştir. VPN cihazı desteği için lütfen cihaz üreticinize başvurun.
 
 |**Satıcı**          |**Cihaz ailesi**     |**En düşük işletim sistemi sürümü** |**PolicyBased yapılandırma yönergeleri** |**RouteBased yapılandırma yönergeleri** |
 | ---                | ---                  | ---                   | ---            | ---           |
@@ -55,9 +54,9 @@ toohelp VPN Cihazınızı yapılandırmak, tooappropriate cihaz ailesine karşı
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall X-serisi |Barracuda Güvenlik Duvarı 6.5  |[Yapılandırma kılavuzu](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |Uyumlu değil |
 | Brocade            |Vyatta 5400 vRouter   |Sanal Yönlendirici 6.6R3 GA|[Yapılandırma kılavuzu](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) |Uyumlu değil |
 | Denetim Noktası |Güvenlik Ağ Geçidi |R77.30 |[Yapılandırma kılavuzu](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Yapılandırma kılavuzu](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
-| Cisco              |ASA       |8.3 |[Yapılandırma örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |Uyumlu değil |
+| Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |[Yapılandırma örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |[Yapılandırma kılavuzu*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |[Yapılandırma örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[Yapılandırma örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
-| Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Yapılandırma örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Yapılandırma örnekleri*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |[Yapılandırma örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[Yapılandırma örnekleri**](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 ve sonraki sürümleri |[Yapılandırma kılavuzu](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Uyumlu değil |
 | F5 |BIG-IP serisi |12.0 |[Yapılandırma kılavuzu](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Yapılandırma kılavuzu](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.4.2 |  |[Yapılandırma kılavuzu](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |
@@ -68,25 +67,28 @@ toohelp VPN Cihazınızı yapılandırmak, tooappropriate cihaz ailesine karşı
 | Juniper |SSG |ScreenOS 6.2 |[Yapılandırma örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |[Yapılandırma örnekleri](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
 | Microsoft |Yönlendirme ve Uzaktan Erişim Hizmeti |Windows Server 2012 |Uyumlu değil |[Yapılandırma örnekleri](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
 | Open Systems AG |Mission Control Security Ağ Geçidi |Yok |[Yapılandırma kılavuzu](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |Uyumlu değil |
-| Openswan |Openswan |2.6.32 |(Çok yakında) |Uyumlu değil |
 | Palo Alto Networks |PAN-OS çalıştıran tüm cihazlar |PAN-OS<br>PolicyBased: 6.1.5 veya üzeri<br>RouteBased: 7.1.4 |[Yapılandırma kılavuzu](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Yapılandırma kılavuzu](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
-| SonicWall |TZ Series, NSA Series<br>SuperMassive Series<br>E-Class NSA Series |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |[SonicOS 6.2 için yapılandırma kılavuzu](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[SonicOS 5.9 için yapılandırma kılavuzu](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |[SonicOS 6.2 için yapılandırma kılavuzu](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[SonicOS 5.9 için yapılandırma kılavuzu](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
+| SonicWall |TZ Series, NSA Series<br>SuperMassive Series<br>E-Class NSA Series |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |Desteklenmiyor|[Yapılandırma kılavuzu](https://www.sonicwall.com/en-us/support/knowledge-base/170505320011694) |
 | WatchGuard |Tümü |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Yapılandırma kılavuzu](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Yapılandırma kılavuzu](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 
-(*) ISR 7200 Serisi yönlendiriciler yalnızca PolicyBased VPN'leri destekler.
+> [!NOTE]
+>
+> (*) Cisco ASA 8.4 ve üzeri sürümleri IKEv2 desteği ekler, "UsePolicyBasedTrafficSelectors" seçeneğiyle özel IPsec/IKE ilkesini kullanarak Azure VPN ağ geçidine bağlanabilir. Bu [nasıl yapılır makalesine](vpn-gateway-connect-multiple-policybased-rm-ps.md) başvurun.
+>
+> (**) ISR 7200 Serisi yönlendiriciler yalnızca PolicyBased VPN’leri destekler.
 
 ## <a name="additionaldevices"></a>Doğrulanmayan VPN cihazları
 
-Cihazınızı hello doğrulanan VPN cihazları tablosunda listede görmüyorsanız, Cihazınızı yine de siteden siteye bağlantı çalışabilir. Ek destek ve yapılandırma yönergeleri için cihaz üreticinize başvurun.
+Cihazınızı Doğrulanan VPN cihazları tablosunda görmüyor olsanız bile cihazınız yine de Siteden Siteye bir bağlantı ile çalışabilir. Ek destek ve yapılandırma yönergeleri için cihaz üreticinize başvurun.
 
 ## <a name="editing"></a>Cihaz yapılandırma örneklerini düzenleme
 
-Merhaba sağlanan VPN cihazı yapılandırma örneğini indirdikten sonra tooreplace gerekir hello bazıları değerleri ortamınız için tooreflect hello ayarları.
+Sağlanan VPN cihazı yapılandırma örneğini indirdikten sonra, ortamınıza ilişkin ayarları yansıtacak şekilde bazı değerleri değiştirmeniz gerekir.
 
-### <a name="tooedit-a-sample"></a>tooedit bir örnek:
+### <a name="to-edit-a-sample"></a>Bir örneği düzenlemek için:
 
-1. Not Defteri'ni kullanarak hello örneği açın.
-2. Arama ve tüm değiştirme <*metin*> dizeleri hello değerlerle tooyour ortamı ilgilidir. Emin tooinclude olması < ve >. Bir ad belirtildiğinde, seçtiğiniz hello adının benzersiz olması gerekir. Bir komut çalışmazsa, lütfen cihazınızın üretici belgelerine başvurun.
+1. Not Defteri'ni kullanarak örneği açın.
+2. Tüm <*text*> dizelerini arayın ve ortamınızla ilgili değerlerle değiştirin. < and > eklediğinizden emin olun. Bir ad belirtildiğinde, seçtiğiniz adın benzersiz olması gerekir. Bir komut çalışmazsa, lütfen cihazınızın üretici belgelerine başvurun.
 
 | **Örnek metin** | **Şununla değiştirin:** |
 | --- | --- |
@@ -99,17 +101,18 @@ Merhaba sağlanan VPN cihazı yapılandırma örneğini indirdikten sonra toorep
 | &lt;SP_AzureNetworkSubnetMask&gt; |Alt ağ maskesi belirtin. Örnek: 255.255.0.0 |
 | &lt;SP_OnPremisesNetworkIpRange&gt; |Şirket içi aralığı belirtin. Örnek: 10.2.1.0 |
 | &lt;SP_OnPremisesNetworkSubnetMask&gt; |Şirket içi alt ağ maskesini belirtin. Örnek: 255.255.255.0 |
-| &lt;SP_AzureGatewayIpAddress&gt; |Bu bilgi belirli tooyour sanal ağı ve Yönetim Portalı hello yer olarak **ağ geçidi IP adresi**. |
-| &lt;SP_PresharedKey&gt; |Bu bilgiler belirli tooyour sanal ağ ve hello yönetme anahtarı olarak Yönetim Portalı bulunur. |
+| &lt;SP_AzureGatewayIpAddress&gt; |Bu bilgiler sanal ağınıza özeldir ve **Ağ geçidi IP adresi** olarak Yönetim Portalı’nda yer almaktadır. |
+| &lt;SP_PresharedKey&gt; |Bu bilgiler sanal ağınıza özeldir ve Yönetme Anahtarı olarak Yönetim Portalı’nda yer almaktadır. |
 
 ## <a name="ipsec"></a>IPsec/IKE parametreleri
 
-> [!NOTE]
-> Aşağıdaki tablonun hello listelenen hello değerleri hello VPN ağ geçidi tarafından şu anda var. desteklenir, ancak hiçbir mekanizmasıdır toospecify sizin için veya algoritmaları ya da parametreleri belirli bir bileşimini hello VPN ağ geçidi seçin. Tüm kısıtlamaları hello şirket içi VPN cihazı belirtmeniz gerekir. Ayrıca, **MSS**’i **1350**’de sıkıştırmanız gerekir.
-> 
+> [!IMPORTANT]
+> 1. Aşağıdaki tablolar Azure VPN ağ geçitlerinin varsayılan yapılandırmada kullandığı algoritma ve parametre birleşimlerini içerir. Azure Kaynak Yönetimi dağıtım modeli kullanılarak oluşturulan rota tabanlı VPN ağ geçitleri için, her ayrı bağlantı üzerinde özel bir ilke belirleyebilirsiniz. Ayrıntılı yönergeler için lütfen [IPsec/IKE ilkesini yapılandırma](vpn-gateway-ipsecikepolicy-rm-powershell.md) bölümüne başvurun.
+>
+> 2. Ayrıca, TCP **MSS**’yi **1350**’de sıkıştırmanız gerekir. VPN cihazlarınız MSS sıkıştırmayı desteklemiyorsa, alternatif olarak tünel arabiriminde **MTU**’yu **1400** bayt olarak ayarlayabilirsiniz.
 >
 
-Aşağıdaki tablolar hello:
+Aşağıdaki tablolarda:
 
 * SA = Güvenlik İlişkisi
 * IKE Aşama 1 "Ana Mod" olarak da adlandırılır
@@ -139,7 +142,7 @@ Aşağıdaki tablolar hello:
 
 ### <a name ="RouteBasedOffers"></a>RouteBased VPN IPsec Güvenlik İlişkisi (IKE Hızlı Mod SA) Teklifleri
 
-Merhaba aşağıdaki tabloda IPSec SA (IKE hızlı mod) tekliflerini listeler. Teklifler olan listelenen hello sipariş tercihine göre bu hello teklif sunulan veya kabul edildi.
+Aşağıdaki tabloda IPsec SA (IKE Hızlı Mod) Teklifleri listelenir. Teklifler, teklifin sunulduğu ya da kabul edildiği tercih sırasına göre listelenmiştir.
 
 #### <a name="azure-gateway-as-initiator"></a>Başlatıcı olarak Azure Gateway
 
@@ -183,20 +186,20 @@ Merhaba aşağıdaki tabloda IPSec SA (IKE hızlı mod) tekliflerini listeler. T
 | 25|AES128        |SHA256            |14           |
 | 26|3DES          |SHA1              |14           |
 
-* RouteBased ve Yüksek Performanslı VPN ağ geçitleri ile IPsec ESP NULL şifrelemesini belirtebilirsiniz. Null tabanlı şifreleme Aktarımdaki koruma toodata sağlamaz ve yalnızca maksimum kullanılmalıdır performans ve minimum gecikme gereklidir. İstemcileri toouse bunu VNet-VNet iletişim senaryolarında veya şifreleme hello çözümde başka bir yere uygulanmakta olduğunda tercih edebilirsiniz.
-* Merhaba Internet üzerinden şirket içi bağlantılar için şifreleme ve karma algoritmaları hello tabloları, kritik iletişiminizin tooensure güvenlik yukarıda listelenen hello varsayılan Azure VPN ağ geçidi ayarlarını kullanın.
+* RouteBased ve Yüksek Performanslı VPN ağ geçitleri ile IPsec ESP NULL şifrelemesini belirtebilirsiniz. Null tabanlı şifreleme aktarımdaki verilere koruma sağlamaz ve yalnızca maksimum performans ve minimum gecikme gerekli olduğunda kullanılmalıdır. İstemciler, bunu Sanal Ağ-Sanal Ağ iletişim senaryolarında ya da çözümdeki başka bir yere şifreleme uygulandığında kullanmayı seçebilir.
+* İnternet üzerinden şirket içi ve dışı bağlantı için, kritik iletişiminizin güvenliğini sağlamak üzere yukarıdaki tablolarda listelenen şifreleme ve karma algoritmalarla birlikte varsayılan Azure VPN ağ geçidi ayarlarını kullanın.
 
 ## <a name="known"></a>Bilinen cihaz uyumluluk sorunları
 
 > [!IMPORTANT]
-> Bunlar olan hello üçüncü taraf VPN aygıtları ve Azure VPN ağ geçitleri arasında bilinen uyumluluk sorunları. Hello Azure ekibi, burada listelenen sorunları tooaddress hello hello satıcıları ile etkin olarak çalışıyor. Merhaba sorunları çözüldükten sonra bu sayfayı hello en güncel bilgilerle güncelleştirilir. Lütfen bu sayfayı düzenli aralıklarla kontrol edin.
+> Bunlar, üçüncü taraf VPN cihazları ile Azure VPN ağ geçitleri arasında bilinen uyumluluk sorunlarıdır. Azure ekibi, burada listelenen sorunların giderilmesi için satıcılarla etkin olarak çalışmaktadır. Sorunlar çözüldüğünde bu sayfada en güncel bilgilerle güncelleştirilecektir. Lütfen bu sayfayı düzenli aralıklarla kontrol edin.
 >
 >
 
 ### <a name="feb-16-2017"></a>16 Şubat 2017
 
-**Sürüm önceki too7.1.4 Palo Alto Networks aygıtlarla** Azure yol tabanlı VPN için: Palo Alto ağlardan VPN aygıtları ile PAN-OS sürümü önceki too7.1.4 kullanıyorsanız ve bağlantı yaşıyor tooAzure rota tabanlı VPN ağ geçitleri sorunları Merhaba aşağıdaki adımları gerçekleştirin:
+Azure rota tabanlı VPN için **7.1.4’ten eski bir sürüme sahip Palo Alto Networks cihazları**: Palo Alto Networks tarafından sağlanan ve PAN-OS sürümü 7.1.4’ten eski olan VPN cihazları kullanıyor ve Azure rota tabanlı VPN ile bağlantı sorunları yaşıyorsanız aşağıdaki adımları gerçekleştirin:
 
-1. Palo Alto Networks Cihazınızı Hello bellenim sürümünü denetleyin. PAN-OS sürümünüzü 7.1.4 eski ise too7.1.4 yükseltin.
-2. Merhaba Palo Alto Networks aygıtta hello Aşama 2 SA (veya hızlı mod SA) yaşam süresi too28 800 saniyedir (8 saat) değiştirdiğinizde toohello Azure VPN ağ geçidi bağlanma.
-3. Bağlantı sorunları yaşamaya devam ediyorsanız, hello Azure portal ' bir destek isteği açın.
+1. Palo Alto Networks cihazınızın üretici yazılımı sürümünü denetleyin. PAN-OS sürümünüz 7.1.4’ten eskiyse 7.1.4 sürümüne yükseltin
+2. Palo Alto Networks cihazında, Azure VPN Gateway’e bağlanırken kullanılan Phase 2 SA (veya Quick Mode SA) ömrünü 28.800 saniye (8 saat) olarak değiştirin.
+3. Hala bir bağlantı sorunu yaşıyorsanız Azure portalından bir destek isteği oluşturun.

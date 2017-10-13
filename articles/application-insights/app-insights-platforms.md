@@ -1,6 +1,6 @@
 ---
-title: "Application Insights: Diller, platformlar ve tümleştirmeler| Microsoft Belgeleri"
-description: "Application Insights için diller, platformları ve tümleştirmeler bulunmaktadır"
+title: "Application Insights: programlama dilleri, platformlar ve tümleştirmeler| Microsoft Belgeleri"
+description: "Application Insights için programlama dilleri, platformlar ve tümleştirmeler bulunmaktadır"
 services: application-insights
 documentationcenter: 
 author: OlegAnaniev-MSFT
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: bwren
-ms.openlocfilehash: 14b363c934a018ce72be97d1a0b74a6c2210656e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: d49ad2ff584f42c0e4732a5cff60d23cdf631512
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="developer-analytics-languages-platforms-and-integrations"></a>Geliştirici analizleri: diller, platformlar ve tümleştirmeler
+# <a name="developer-analytics-languages-platforms-and-integrations"></a>Geliştirici analizleri: programlama dilleri, platformlar ve tümleştirmeler
 Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygulamalardır. Bunlardan bazıları üçüncü taraflar aracılığıyla sunulur.
 
-## <a name="languages---officially-supported-by-application-insights-team"></a>Application Insights ekibi tarafından resmi olarak desteklenen diller
+## <a name="languages---officially-supported-by-application-insights-team"></a>Application Insights ekibi tarafından resmi olarak desteklenen programlama dilleri
 * [C#|VB (.NET)](app-insights-asp-net.md)
 * [Java](app-insights-java-get-started.md)
 * [JavaScript web sayfaları](app-insights-javascript.md)
+* [Node.JS](app-insights-nodejs.md)
 
-## <a name="languages---community-supported"></a>Topluluk tarafından desteklenen diller
-* [Node.JS](https://github.com/Microsoft/ApplicationInsights-node.js)
+## <a name="languages---community-supported"></a>Topluluk tarafından desteklenen programlama dilleri
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 * [Ruby](https://rubygems.org/gems/application_insights)
@@ -41,7 +41,7 @@ Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygula
 * [ASP.NET Core](app-insights-asp-net-core.md)
 * [Android](https://github.com/Microsoft/ApplicationInsights-Android) (HockeyApp)
 * [Azure Web Apps](app-insights-azure-web-apps.md)
-* [Azure Bulut Hizmetleri](app-insights-cloudservices.md); hem web hem de çalışan rolleri dahil
+* [Azure Bulut Hizmetleri](app-insights-cloudservices.md)&#151;hem web hem de çalışan rolleri dahil
 * [Azure İşlevleri](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 * [Docker](app-insights-docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
@@ -81,5 +81,5 @@ Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygula
 * [Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 * [Akış Analizi](app-insights-export-power-bi.md)
 
-## <a name="projects"></a>Kendi SDK’nizi derleme
-Hiç henüz bir SDK diliniz veya platformunuz için belki de istediğiniz bir toobuild? SDK'ları hello listelenen varolan hello hello kodunu bakalım [github'da Application Insights SDK projesi](https://github.com/Microsoft/AppInsights-Home).
+## <a name="projects"></a>Kendi SDK'nizi oluşturun
+Programlama diliniz veya platformunuz için henüz bir SDK yoksa belki de bir SDK oluşturmanızın zamanı gelmiştir. [GitHub’da Application Insights SDK projesi](https://github.com/Microsoft/AppInsights-Home) altında listelenen mevcut SDK kodlarını gözden geçirin.

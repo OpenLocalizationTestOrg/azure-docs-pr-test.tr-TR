@@ -1,6 +1,6 @@
 ---
-title: "Azure API Management aaaDeploy Hizmetleri toomultiple Azure bölgeleri | Microsoft Docs"
-description: "Nasıl toodeploy bir Azure API Management hizmet örneği toomultiple Azure öğrenin bölgeleri."
+title: "Birden çok Azure bölgeler ile Azure API Management services dağıtma | Microsoft Docs"
+description: "Azure API Management hizmet örneği için birden fazla Azure bölgesine dağıtmayı öğrenin."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,54 +14,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 04a3e762261237d73a769320a21363f99f1d20cb
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1c39fee739c2f5fd4b928e1e76e1ea57f072b5f8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toodeploy-an-azure-api-management-service-instance-toomultiple-azure-regions"></a>Nasıl toodeploy bir Azure API Management hizmet örneği toomultiple Azure bölgeleri
-API Management istenen Azure bölgeleri herhangi bir sayıda arasında API yayımcılar toodistribute tek bir API management hizmeti sağlayan bölgeli dağıtımını destekler. Bu istek tarafından algılanan gecikme API tüketicileri coğrafi olarak dağıtılmış ve bir bölge çevrimdışı olursa hizmet kullanılabilirliği de geliştirir azaltılmasına yardımcı olur. 
+# <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Azure API Management hizmet örneği birden çok Azure bölgeler ile dağıtma
+API Management istenen Azure bölgeleri herhangi bir sayıda arasında tek bir API management hizmeti dağıtmak API yayımcılar sağlayan bölgeli dağıtımını destekler. Bu istek tarafından algılanan gecikme API tüketicileri coğrafi olarak dağıtılmış ve bir bölge çevrimdışı olursa hizmet kullanılabilirliği de geliştirir azaltılmasına yardımcı olur. 
 
-Bir API Management hizmeti başlangıçta oluşturulduğunda, yalnızca bir tane içeriyor [birim] [ unit] ve hangi birincil bölge hello olarak atanmış bir tek Azure bölgesinde, bulunur. Ek bölgeler kolayca hello Azure Portal eklenebilir. Bir API Management ağ geçidi sunucusu dağıtılan tooeach bölgedir ve arama trafiği yönlendirilmiş toohello en yakın ağ geçidi olacaktır. Bir bölge çevrimdışı olması durumunda hello otomatik olarak yeniden yönlendirilmiş toohello sonraki en yakın ağ geçidi trafiğidir. 
+Bir API Management hizmeti başlangıçta oluşturulduğunda, yalnızca bir tane içeriyor [birim] [ unit] ve birincil bölge belirlenmiş tek bir Azure bölgesi bulunur. Ek bölgeler kolayca Azure Portalı aracılığıyla eklenebilir. Bir API Management ağ geçidi sunucusu her bölgeye dağıtılır ve arama trafiği için en yakın ağ geçidi yönlendirilir. Bir bölge çevrimdışı olursa, otomatik olarak sonraki en yakın ağ geçidine yeniden yönlendirilmiş bir trafiğidir. 
 
 > [!IMPORTANT]
-> Bölgeli dağıtım kullanılabilir yalnızca hello  **[Premium] [ Premium]**  katmanı.
+> Bölgeli dağıtım bulunan yalnızca  **[Premium] [ Premium]**  katmanı.
 > 
 > 
 
-## <a name="add-region"></a>Bir API Management hizmeti örneği tooa yeni bölge dağıtma
+## <a name="add-region"></a>API Management hizmet örneği için yeni bir bölge dağıtma
 > [!NOTE]
-> Henüz bir API Management hizmeti örneği oluşturmadıysanız, bkz: [bir API Management hizmet örneği oluşturma] [ Create an API Management service instance] hello içinde [Azure API Management ile çalışmaya başlama] [ Get started with Azure API Management] Öğreticisi.
+> Henüz bir API Management hizmeti örneği oluşturmadıysanız, [Azure API Management'i kullanmaya başlama][Get started with Azure API Management] öğreticisinde [API Management hizmet örneği oluşturma][Create an API Management service instance]'ya bakın.
 > 
 > 
 
-Toohello Hello Azure Portal gidin **ölçek ve fiyatlandırma** , API Management hizmet örneğinizin sayfası. 
+Azure Portalı'nda gidin **ölçek ve fiyatlandırma** , API Management hizmet örneğinizin sayfası. 
 
 ![Ölçek sekmesi][api-management-scale-service]
 
-toodeploy tooa yeni bölge, tıklatıldığında **+ Ekle bölge** hello araç çubuğundan.
+Yeni bir bölgeye dağıtmayı tıklayın **+ Ekle bölge** araç çubuğundan.
 
 ![Bölgesi ekleme][api-management-add-region]
 
-Merhaba aşağı açılan listeden Hello konum seçin ve hello kaydırıcı için birimleriyle hello sayısını ayarlayın.
+Aşağı açılan listeden konumu seçin ve kaydırıcı ile birim sayısını ayarlayın.
 
 ![Birimler belirtin][api-management-select-location-units]
 
-Tıklatın **Ekle** tooplace seçiminizi hello konumları tablosundaki. 
+Tıklatın **Ekle** konumlar tablosunda seçiminizi yerleştirilecek. 
 
-Yapılandırılan tüm konumları elde edene kadar bu işlemi yineleyin ve'ı tıklatın **kaydetmek** hello araç toostart hello dağıtım işlemi.
+Yapılandırılan tüm konumları elde edene kadar bu işlemi yineleyin ve'ı tıklatın **kaydetmek** dağıtım işlemini başlatmak için araç çubuğundan.
 
 ## <a name="remove-region"></a>Bir konumdan bir API Management hizmeti örneği Sil
-Toohello Hello Azure Portal gidin **ölçek ve fiyatlandırma** , API Management hizmet örneğinizin sayfası. 
+Azure Portalı'nda gidin **ölçek ve fiyatlandırma** , API Management hizmet örneğinizin sayfası. 
 
 ![Ölçek sekmesi][api-management-scale-service]
 
-Gibi hello konumu tooremove hello kullanarak hello bağlam menüsünü açın **...**  düğmesi hello sağ ucunda hello tablo. Select hello **silmek** seçeneği.
+Kaldırmak istediğiniz konumu için bağlam menüsünü kullanarak açın **...**  tablo sağ ucunda düğmesi. Seçin **silmek** seçeneği.
 
 ![Bölgeyi Kaldır][api-management-remove-region]
 
-Merhaba silmeyi onaylamak ve tıklayın **kaydetmek** tooapply hello değişiklikleri.
+Silme işlemini onaylamak ve tıklayın **kaydetmek** değişiklikleri uygulamak için.
 
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
 
@@ -73,7 +73,7 @@ Merhaba silmeyi onaylamak ve tıklayın **kaydetmek** tooapply hello değişikli
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 [Get started with Azure API Management]: api-management-get-started.md
 
-[Deploy an API Management service instance tooa new region]: #add-region
+[Deploy an API Management service instance to a new region]: #add-region
 [Delete an API Management service instance from a region]: #remove-region
 
 [unit]: http://azure.microsoft.com/pricing/details/api-management/

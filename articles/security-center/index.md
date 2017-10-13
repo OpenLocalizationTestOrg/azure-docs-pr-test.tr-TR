@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure Güvenlik Merkezi belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
-description: "Bilgi nasıl tooset güvenlik izleme ve ilke yönetimi Azure kaynakları için ayarlama. Öğreticiler, REST API başvurusu ve diğer belgeler."
+title: "Azure Güvenlik Merkezi Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Azure kaynakları için güvenlik izleme ve ilke yönetimi ayarlamayı öğrenin. Öğreticiler, REST API başvurusu ve diğer belgeler."
 services: security-center
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: b2bed6a128c7c767687871389f982d6155c6161d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 8a17bd97f758db843cecc53b02722344d6b9d6dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-center-documentation"></a>Güvenlik Merkezi Belgeleri
 
-Toouse Güvenlik Merkezi tooget görünürlük ve denetim olanağı, Azure kaynaklarınızın güvenliğini nasıl hello öğrenin.  Öğreticiler, REST API Başvurusu ve diğer belgeleri göster, nasıl tooset ile güvenlik çözümlerinin geniş ekosistemiyle çalışır güvenlik izleme ve ilke yönetimi ayarlama.
+Güvenlik Merkezi’ni kullanarak Azure kaynaklarınızın güvenliğine ilişkin görünürlük ve denetim elde etme hakkında bilgi edinin.  Öğreticiler, REST API başvurusu ve diğer belgeler, çok sayıda güvenlik çözümü ekosistemiyle birlikte çalışabilen güvenlik izleme ve ilke yönetimi ayarlama ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>

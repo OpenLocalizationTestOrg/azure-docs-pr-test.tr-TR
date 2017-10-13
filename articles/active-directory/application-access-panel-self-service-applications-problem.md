@@ -1,6 +1,6 @@
 ---
-title: "Self Servis uygulamaya erişim kullanarak aaaProblem | Microsoft Docs"
-description: "Sorunları ilgili tooself hizmet uygulaması erişim sorunlarını giderme"
+title: "Self Servis uygulamaya erişim ile sorunu | Microsoft Docs"
+description: "Self Servis uygulamaya erişim izni ilgili sorunları giderme"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -14,74 +14,74 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewer: japere
-ms.openlocfilehash: 2487be1df191a4e7fd0bcc0ebbe4ea62fae0fd5d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 217726709a1fdb02275de5a76a1352ea9c350600
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="problem-using-self-service-application-access"></a>Self Servis uygulamaya erişim ile sorunu
 
-Self Servis uygulama erişimi olan mükemmel şekilde tooallow kullanıcılar tooself-uygulamaları bulmak, isteğe bağlı olarak hello iş grubu tooapprove erişimi toothose uygulamaları izin verin. Merhaba iş grubu toomanage hello kimlik toothose kullanıcılar kendi access panel üzerinde parola çoklu oturum uygulamaları sağdan için atanan izin verebilirsiniz.
+Self Servis uygulamaya erişim uygulamaları, kendi kendine Bul yapmalarına izin vermek için mükemmel bir yoldur bu uygulamalara erişimi onaylamak için iş grubuna isteğe bağlı olarak sağlar. Bu kullanıcılar için parola çoklu oturum uygulamalar üzerinde sağ bunların erişim paneller atanan kimlik bilgilerini yönetmek iş grubuna izin verebilirsiniz.
 
-Kullanıcılarınıza kendi erişim paneli uygulamaları kendi kendine bulabilmesi için öncelikle tooenable gerek **Self Servis uygulamaya erişim** tooallow kullanıcılar tooself istediğiniz tooany uygulamaları-bulmak ve erişim isteği.
+Kullanıcılarınıza kendi erişim paneli uygulamaları kendi kendine bulabilmesi için öncelikle etkinleştirmeniz gerekiyor **Self Servis uygulamaya erişim** otomatik olarak bulmak ve istemek kullanıcılara izin vermek istediğiniz herhangi bir uygulama erişimi.
 
-## <a name="general-issues-toocheck-first"></a>Genel toocheck ilk sorunları
+## <a name="general-issues-to-check-first"></a>İlk denetlemek için genel sorunlar
 
--   Self Servis uygulama erişiminin doğru yapılandırıldığından emin olun. "Nasıl tooconfigure Self Servis uygulamaya erişim" bakın.
+-   Self Servis uygulama erişiminin doğru yapılandırıldığından emin olun. "Self-Servis uygulama erişim ilkesi nasıl yapılandırılır" konusuna bakın.
 
--   Merhaba kullanıcı veya grup süredir emin olun toorequest Self Servis uygulamaya erişim etkin.
+-   Kullanıcı veya grup Self Servis uygulamaya erişim istemek için etkinleştirilmiş olduğundan emin olun.
 
--   Merhaba kullanıcı Self Servis uygulamaya erişim için doğru yerde hello ziyaret emin olun. Kullanıcıların tootheir gidin [uygulama erişim Paneli'ne](https://myapps.microsoft.com/) hello tıklatıp **+ Ekle** düğmesini toofind hello uygulamaları toowhich Self Servis erişim etkinleştirdiğiniz.
+-   Kullanıcı Self Servis uygulamaya erişim için doğru yere ziyaret emin olun. Kullanıcılar gidin kendi [uygulama erişim Paneli'ne](https://myapps.microsoft.com/) tıklatıp **+ Ekle** Self Servis erişim etkin uygulamalar Bul düğmesi.
 
--   Self Servis uygulamaya erişim yalnızca son yapılandırıldıysa, hello Self Servis erişim değişikliklerini görünen toosign içeri ve dışarı yeniden hello kullanıcının erişim paneline sonra birkaç dakika toosee deneyin.
+-   Self Servis uygulamaya erişim yalnızca son yapılandırıldıysa, içeri ve dışarı kullanıcının erişim paneline birkaç dakika sonra Self Servis erişim değişikliklerini görüntülenmediğini görmek için oturum yeniden deneyin.
 
-## <a name="how-tooconfigure-self-service-application-access"></a>Nasıl tooconfigure Self Servis uygulamaya erişim
+## <a name="how-to-configure-self-service-application-access"></a>Self Servis uygulama erişimi yapılandırma
 
-tooenable Self Servis uygulama erişim tooan uygulaması, aşağıdaki hello adımları izleyin:
+Bir uygulama Self Servis uygulama erişimi etkinleştirmek için aşağıdaki adımları izleyin:
 
-1.  Açık hello [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
 
-2.  Açık hello **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** hello ana sol taraftaki gezinti menüsünde hello sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
 
-3.  Yazın **"Azure Active Directory**" Merhaba filtre arama kutusunda ve select hello **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
-4.  Tıklatın **kurumsal uygulamalar** hello Azure Active Directory sol taraftaki gezinti menüsünde.
+4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  Tıklatın **tüm uygulamaları** tooview tüm uygulamalarınızın listesi.
+5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-  * Burada göstermek istediğiniz Merhaba uygulaması görmüyorsanız hello kullan **filtre** denetim hello hello üstündeki **tüm uygulamalar listesini** ve kümesi hello **Göster** çok seçenek **Tüm uygulamalar.**
+  * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm uygulamaları.**
 
-6.  Tooenable Self Servis erişim toofrom hello listesi hello uygulamasını seçin.
+6.  Self Servis etkinleştirmek istediğiniz uygulamayı seçin listeden erişmek için.
 
-7.  Merhaba uygulamanın yüklediği sonra tıklayın **Self Servis** hello uygulamanın sol taraftaki gezinti menüsünde.
+7.  Uygulamanın yüklediği sonra tıklayın **Self Servis** uygulamanın sol taraftaki gezinti menüsünde.
 
-8.  tooenable bu uygulama için Self Servis uygulama erişimi etkinleştirmek hello **toorequest erişim toothis uygulama kullanıcıların?** çok geçiş**Evet.**
+8.  Bu uygulama için Self Servis uygulama erişimini etkinleştirmek için Aç **bu uygulamaya erişmek kullanıcıların?** geç **Evet.**
 
-9.  Ardından, access toothis uygulaması eklenmesi, isteyen tooselect hello Grup toowhich kullanıcılar'ı tıklatın hello Seçici sonraki toohello etiket **toowhich grubuna atanan kullanıcıların eklenmesi?** ve bir grubu seçin.
+9.  Ardından, isteyen hangi kullanıcıların bu uygulamaya erişim eklenecek grubu seçmek için etiketi yanındaki seçiciyi **hangi grubuna atanan kullanıcıların eklenmesi?** ve bir grubu seçin.
 
-10. **İsteğe bağlı:** kullanıcıların erişim izin verilmeden önce bir iş onay toorequire isterseniz, hello ayarlamak **erişim toothis uygulama vermeden önce onay gerektirir?** çok geçiş**Evet**.
+10. **İsteğe bağlı:** önce iş onayı iste isterseniz, kullanıcılara erişim verilir, Ayarla **bu uygulamaya erişim vermeden önce onay gerektirir?** geç **Evet**.
 
-11. **İsteğe bağlı: yalnızca parola çoklu oturum üzerinde kullanan uygulamalar için** toothis uygulama onaylanan kullanıcılar için gönderilen bu iş onaylayanlar toospecify hello parolaları tooallow isterseniz hello ayarlamak **izin onaylayanlar tooset Bu uygulama için kullanıcının parola?**  çok geçiş**Evet**.
+11. **İsteğe bağlı: yalnızca parola çoklu oturum üzerinde kullanan uygulamalar için** onaylanan kullanıcılar için bu uygulamaya gönderilen parolalar belirtmek bu iş onaylayanlar izin vermek istiyorsanız, Ayarla **bu uygulama için kullanıcının parola ayarlamak onaylayanlar izin?** geç **Evet**.
 
-12. **İsteğe bağlı:** tooapprove erişim toothis uygulama, izin verilen toospecify hello iş onaylayanlar tıklatın hello Seçici sonraki toohello etiket **kimin tooapprove erişim toothis uygulama verilir?** tooselect ayarlama too10 ayrı ayrı iş onaylayanlar.
+12. **İsteğe bağlı:** bu uygulamaya erişimi onaylamak için izin verilen iş onaylayanlar belirtmek için etiketi yanındaki seçiciyi **kimin bu uygulamaya erişimi onaylamak için verilir?** en fazla 10 ayrı ayrı iş onaylayanlar seçin.
 
  >[!NOTE]
  > Grupları desteklenmez.
  >
  >
 
-13. **İsteğe bağlı:** **rolleri kullanıma uygulamalar için**, tooassign Self Servis onaylanan kullanıcılar tooa rol istiyorsanız hello Seçici sonraki toohello tıklatın **toowhich rol kullanıcılar bu atanmalıdır Uygulama?**  tooselect hello rol toowhich bu kullanıcılar atanabilir.
+13. **İsteğe bağlı:** **rolleri kullanıma uygulamalar için**, Self Servis onaylanan kullanıcılar role atamak istiyorsanız Seçici tıklayın **hangi rolü için kullanıcıları bu uygulamada atanmalıdır?** , bu kullanıcılar atanabilir rol seçin.
 
-14. Merhaba tıklatın **kaydetmek** hello dikey toofinish hello üstündeki düğmesi.
+14. Tıklatın **kaydetmek** tamamlamak için dikey pencerenin üstündeki düğmesi.
 
-Self Servis uygulama yapılandırması tamamlandığında, kullanıcılar tootheir gezinebilir [uygulama erişim Paneli'ne](https://myapps.microsoft.com/) hello tıklatıp **+ Ekle** düğmesini toofind hello uygulamaları toowhich etkinleştirdiğiniz Self Servis erişim. İş onaylayanlar Ayrıca bkz. bir bildirim kendi [uygulama erişim Paneli'ne](https://myapps.microsoft.com/). Bir kullanıcı kendi onay gerektiren erişim tooan uygulama istendiğinde bildiren bir e-posta etkinleştirebilirsiniz. 
+Self Servis uygulama yapılandırması tamamlandığında, kullanıcılar için gezinebilir kendi [uygulama erişim Paneli'ne](https://myapps.microsoft.com/) tıklatıp **+ Ekle** Self Servis erişim etkin uygulamalar Bul düğmesi. İş onaylayanlar Ayrıca bkz. bir bildirim kendi [uygulama erişim Paneli'ne](https://myapps.microsoft.com/). Bir kullanıcı kendi onay gerektiren bir uygulamaya erişim istendiğinde bildiren bir e-posta etkinleştirebilirsiniz. 
 
-Bu onaylar birden çok onaylayanlar belirtirseniz, tek bir onaylayan erişim toohello uygulamayı Onayla yani tek onay iş akışları yalnızca destekler.
+Bu onaylar birden çok onaylayanlar belirtirseniz, tek bir onaylayan uygulaması'na erişimi onaylamak yani tek onay iş akışları yalnızca destekler.
 
-## <a name="if-these-troubleshooting-steps-do-not-resolve-hello-issue"></a>Bu sorun giderme adımları hello sorunu çözmezse 
+## <a name="if-these-troubleshooting-steps-do-not-resolve-the-issue"></a>Bu sorun giderme adımları sorunu çözmezse 
 
-bir destek bileti varsa aşağıdaki bilgilerle hello ile açın:
+bir destek bileti aşağıdaki bilgilerle varsa açın:
 
 -   Bağıntı hata kimliği
 

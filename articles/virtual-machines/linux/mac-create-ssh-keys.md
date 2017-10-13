@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate kullanımı bir SSH anahtar ve çifti Azure Linux VM'ler için | Microsoft Docs"
-description: "Nasıl toocreate ve kullanımda bir SSH ortak ve özel anahtar çifti Linux VM'ler için Azure tooimprove hello kimlik doğrulama işlemi güvenliğini hello."
+title: "Azure’da Linux VM’ler için SSH anahtar çifti oluşturma ve kullanma | Microsoft Docs"
+description: "Kimlik doğrulaması işleminin güvenliğini artırmak için Azure’da Linux VM’leri için SSH ortak ve özel anahtar çifti oluşturma ve kullanma."
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
@@ -15,24 +15,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 7fb94841d34d5bc006f3134adf91102ddce5f174
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 6fcdcc96c7762e2362aebf909ef25f4a5ab62f99
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-toocreate-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Azure Linux VM'ler için toocreate ve kullanım bir SSH ortak ve özel anahtarı nasıl eşleştirin
-Güvenli Kabuk (SSH) anahtar çifti ile azure'da hello parolaları toolog gereksinimini kimlik doğrulaması için SSH anahtarları kullanan sanal makineleri (VM'ler) oluşturabilirsiniz. Bu makalede nasıl tooquickly oluşturmak ve bir SSH Protokolü sürüm 2 RSA ortak ve özel anahtar dosyası çifti Linux VM'ler için kullanma gösterilmektedir. Daha ayrıntılı adımları ve ek örnekler için bkz: [ayrıntılı adımları toocreate SSH anahtar çiftleriniz ve sertifikaları](create-ssh-keys-detailed.md).
+# <a name="how-to-create-and-use-an-ssh-public-and-private-key-pair-for-linux-vms-in-azure"></a>Azure’da Linux VM’ler için SSH ortak ve özel anahtar çifti oluşturma
+Güvenli kabuk (SSH) anahtar çiftiyle Azure’da sanal makineler (VM) oluşturabilirsiniz. Bu sayede kimlik doğrulaması için SSH anahtarlarını kullanarak oturum açmak için parolalara duyulan gereksinimi ortadan kaldırırsınız. Bu makalede Linux VM’ler için bir SSH protokolü sürüm 2 RSA ortak ve özel anahtar dosyası çiftini hızlı bir şekilde oluşturma ve kullanma adımları anlatılmaktadır. Daha ayrıntılı adımlar ve başka örnekler için bkz. [SSH anahtar çiftleri ve sertifikaları oluşturmaya yönelik ek adımlar](create-ssh-keys-detailed.md).
 
 ## <a name="create-an-ssh-key-pair"></a>SSH anahtar çifti oluşturma
-Kullanım hello `ssh-keygen` komutu hello oluşturulan varsayılan toocreate SSH ortak ve özel anahtar dosyaları `~/.ssh` dizin, ancak farklı bir konum ve ek parolayı (bir parola tooaccess hello özel anahtar dosyası) belirtebilirsiniz olduğunda istenir. Merhaba yanıtlama Bash Kabuk komut aşağıdaki hello çalıştırmak, kendi bilgilerle ister.
+SSH ortak ve özel anahtar dosyaları oluşturmak için `ssh-keygen` komutunu kullanın. Bunlar varsayılan olarak `~/.ssh` dizininde oluşturulur ancak istendiğinde farklı bir konum ve bir ek parola (özel anahtar dosyasına erişmek için parola) belirtebilirsiniz. Aşağıdaki komutu bir Bash kabuğundan çalıştırın ve komut istemlerini kendi bilgilerinizle yanıtlayın.
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
 
-## <a name="use-hello-ssh-key-pair"></a>Merhaba SSH anahtar çiftini kullanın
-azure'da, Linux VM Yerleştir hello ortak anahtarı olan depolanan varsayılan `~/.ssh/id_rsa.pub`, bunları oluşturduğunuzda hello konumu değiştirmediyse. Merhaba kullanırsanız [Azure CLI 2.0](/cli/azure) toocreate, VM hello kullandığınızda bu ortak anahtar hello konumunu belirtin [az vm oluşturma](/cli/azure/vm#create) hello ile `--ssh-key-path` seçeneği. Hello Azure portal veya Resource Manager şablonunda hello ortak anahtar dosyası toouse hello içeriğini kopyalayıp, tüm ek boşluk kopyalama emin olun. Örneğin, OS X kullanıyorsanız hello ortak anahtar dosyası iletebildiğiniz (varsayılan olarak, **~/.ssh/id_rsa.pub**) çok**pbcopy** toocopy hello içeriği (vardır gibiaynışeyihellodiğerLinuxprogramları`xclip`).
+## <a name="use-the-ssh-key-pair"></a>SSH anahtar çiftini kullanma
+Azure’da Linux VM’nize yerleştirdiğiniz ortak anahtar, oluştururken zaman konumu değiştirmediğiniz sürece varsayılan olarak `~/.ssh/id_rsa.pub` içinde depolanır. VM’nizi oluşturmak için [Azure CLI 2.0](/cli/azure) kullanırsanız, `--ssh-key-path` seçeneği ile [az vm create](/cli/azure/vm#create) kullanırken bu ortak anahtarın konumunu belirtin. Azure portalında veya bir Resource Manager şablonunda kullanmak üzere ortak anahtar dosyasının içeriğini kopyalar ve yapıştırırsanız, fazladan boşluk kopyalamadığınızdan emin olun. Örneğin, OS X kullanıyorsanız, ortak anahtar dosyası (varsayılan olarak, **~/.ssh/id_rsa.pub**) içeriklerini kopyalamak için **pbcopy**’e iletebilirsiniz (bunu yapmak için `xclip` gibi diğer Linux programları da kullanılabilir).
 
 SSH ortak anahtarları hakkında bilgi sahibi değilseniz, aşağıdaki gibi `~/.ssh/id_rsa.pub` öğesini kendi ortak anahtar dosyası konumunuz ile değiştirip `cat` çalıştırarak ortak anahtarınızı görebilirsiniz:
 
@@ -40,20 +40,20 @@ SSH ortak anahtarları hakkında bilgi sahibi değilseniz, aşağıdaki gibi `~/
 cat ~/.ssh/id_rsa.pub
 ```
 
-Merhaba ortak anahtarı ile Azure VM'de VM tooyour SSH kullanarak hello IP adresi veya VM DNS adını (tooreplace unutmayın `azureuser` ve `myvm.westus.cloudapp.azure.com` aşağıda hello yönetici kullanıcı adı ve hello tam etki alanı adı--veya IP adresi):
+Azure VM’nizdeki ortak anahtarla, VM’nizin IP adresini veya DNS adını kullanarak SSH’yi VM’inize ekleyin (aşağıda, `azureuser` ve `myvm.westus.cloudapp.azure.com` öğelerini yönetici kullanıcı adı ve tam etki alanı adı veya IP adresi ile değiştirmeyi unutmayın):
 
 ```bash
 ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
-Anahtar çifti oluştururken bir parola sağladıysanız hello oturum açma işlemi sırasında istendiğinde hello parola girin. (Merhaba sunucu tooyour eklenen `~/.ssh/known_hosts` klasörü ve olmaz sorulan tooconnect yeniden hello ortak anahtar kadar Azure VM değişikliklerinizi veya hello sunucu adı kaldırılır `~/.ssh/known_hosts`.)
+Anahtar çiftinizi oluştururken bir parola sağladıysanız, oturum açma işlemi sırasında istendiğinde parolayı girin. (Sunucu `~/.ssh/known_hosts` klasörünüze eklenir ve Azure VM’nizdeki ortak anahtar değiştirilene veya sunucu adı `~/.ssh/known_hosts` konumundan kaldırılana kadar yeniden bağlanmanız istenmez.)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-SSH anahtarları kullanılarak oluşturulan sanal makineleri devre dışı parolaları ile yapılandırılmış varsayılan olarak, böylelikle daha pahalı olması ve bu nedenle zor deneme yanılma yoluyla yapılan zorla toomake tahmin çalışır. Bu konu başlığında, hızlı kullanım için basit bir SSH anahtar çifti oluşturma açıklanmaktadır. SSH anahtar çifti oluşturma daha fazla yardıma gereksinim veya ek sertifika gerektiren bakın [ayrıntılı adımları toocreate SSH anahtar çiftleriniz ve sertifikaları](create-ssh-keys-detailed.md).
+SSH anahtarları kullanılarak oluşturulan VM’ler, varsayılan olarak parola kullanımı devre dışı bırakılmış şekilde yapılandırılır; böylece parola tahminiyle gerçekleştirilen saldırı girişimleri önemli ölçüde daha pahalı ve zor hale getirilir. Bu konu başlığında, hızlı kullanım için basit bir SSH anahtar çifti oluşturma açıklanmaktadır. SSH anahtar çiftinizi oluşturma konusunda daha fazla yardıma ihtiyacınız varsa veya ek sertifikalara gereksinim duyuyorsanız bkz. [SSH anahtar çiftleri ve sertifikaları oluşturmaya yönelik ayrıntılı adımlar](create-ssh-keys-detailed.md).
 
-Hello Azure portal, CLI ve şablonlar kullanarak, SSH anahtar çifti kullanan sanal makineleri oluşturabilirsiniz:
+Azure portalı, CLI ve şablonları kullanarak SSH anahtar çiftinizi kullanan VM’ler oluşturabilirsiniz:
 
-* [Hello Azure portal kullanarak güvenli bir Linux VM oluşturma](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Hello Azure CLI 2.0 kullanarak güvenli bir Linux VM oluşturma)](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure portalını kullanarak güvenli bir Linux VM oluşturma](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure CLI 2.0 kullanarak güvenli bir Linux VM oluşturma](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure şablonu kullanarak güvenli bir Linux VM oluşturma](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

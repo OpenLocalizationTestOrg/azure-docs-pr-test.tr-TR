@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure CDN belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
-description: "Nasıl tooany aygıt toouse içerik teslim ağı (CDN) toodeliver içeriği genel veri merkezleri öğrenin. Öğreticiler, API başvuruları ve diğer belgeler."
+title: "Azure CDN Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "İçerik Teslim Ağı’nı (CDN) kullanarak küresel veri merkezlerinden herhangi bir cihaza nasıl içerik sağlayabileceğinizi öğrenin. Öğreticiler, API başvuruları ve diğer belgeler."
 services: cdn
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 9d1a26398369233d75f3647a5a68f3e7f8698eb9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: de858f5d3b9af7a36f2a8deab9105a4a61752cdb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cdn-documentation"></a>CDN Belgeleri
 
-Nasıl toouse içerik teslim ağı (CDN) toodeliver yüksek bant genişliği içerik başka bir deyişle barındırılan Azure veya başka bir yerde öğrenin. Öğreticiler, API başvuru ve diğer belgelerin nasıl tooany aygıt toouse CDN toodeliver içeriği genel veri merkezleri gösterir.
+İçerik Teslim Ağı’nı (CDN) kullanarak Azure’da veya başka bir yerde barındırılan yüksek bant genişlikli içerikleri nasıl sunabileceğinizi öğrenin. Öğreticiler, API başvuruları ve diğer belgelerde, CDN’i kullanarak küresel veri merkezlerinden herhangi bir cihaza içerik sunma işleminin nasıl yapılacağı açıklanmıştır.
 
 <ul class="panelContent cardsFTitle">
     <li>

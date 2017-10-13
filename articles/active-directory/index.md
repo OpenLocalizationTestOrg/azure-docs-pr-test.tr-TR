@@ -1,9 +1,9 @@
 ---
 layout: LandingPage
-description: "Nasıl toosynchronize dizinler ve etkinleştir çoklu oturum açmayı öğrenin. Belge gösterir, nasıl toointegrate kimlik yönetimi özelliklerinin tam paketi."
-title: "aaaAzure Active Directory belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
+description: "Dizinleri eşitleme ve çoklu oturum açmayı etkinleştirme hakkında bilgi edinin. Belgelerde eksiksiz bir kimlik yönetimi özellikleri paketini nasıl tümleştirebileceğiniz açıklanmıştır."
+title: "Azure Active Directory Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
 services: active-directory
-author: carolz
+author: czeumault
 manager: carolz
 ms.assetid: 
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: a99aa3cc979a518c5b53cb1540f037b6776fb157
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: a0a9b69824829d0b7a07583210eaddb1f39bcf88
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory Belgeleri
 
-Nasıl toosynchronize dizinler ve etkinleştir çoklu oturum açmayı öğrenin Azure Active Directory'ye (Azure AD). Öğreticiler, API başvuru ve diğer belgelerin nasıl toointegrate kimlik yönetimi özelliklerini dahil çok faktörlü kimlik doğrulaması, cihaz kaydı, rol tabanlı erişim denetimine ve güvenlik izleme ve uyarı gösterir.
+Azure Active Directory (Azure AD) ile dizinleri eşitleme ve çoklu oturum açmayı etkinleştirme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, çok faktörlü kimlik doğrulaması, cihaz kaydı, rol tabanlı erişim denetimi, güvenlik izleme ve uyarılar gibi kimlik yönetimi özelliklerini nasıl tümleştirebileceğinizle ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>

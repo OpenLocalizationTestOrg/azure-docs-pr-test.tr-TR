@@ -1,6 +1,6 @@
 ---
-title: "SQL veri ambarı - aaaAzure Başlarken Öğreticisi | Microsoft Docs"
-description: "Bu öğretici nasıl öğretilmektedir tooprovision ve yük verileri Azure SQL veri ambarında. Ayrıca hello temelleri ölçeklendirme, duraklatma ve ayarlama hakkında bilgi edineceksiniz."
+title: "Azure SQL Veri Ambarı - başlangıç öğreticisi | Microsoft Docs"
+description: "Bu öğreticide verilerin sağlanması ve Azure SQL Veri Ambarı'na yüklenmesi gösterilir. Ayrıca, ölçekleme, duraklatma ve ayarlama ile ilgili temel bilgileri öğrenirsiniz."
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -15,32 +15,32 @@ ms.workload: data-services
 ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
-ms.openlocfilehash: edd2a21b0fe49ca8e9792c7c512310339a822c55
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 39efa954fa1eb3d7d93dbeceac48b96d865349ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>SQL Veri Ambarı'nı kullanmaya başlayın
 
-Bu öğreticide gösterilmiştir nasıl tooprovision ve yük verileri Azure SQL veri ambarında. Ayrıca hello temelleri ölçeklendirme, duraklatma ve ayarlama hakkında bilgi edineceksiniz. İşlemi tamamladığınızda, hazır tooquery olması ve veri ambarınız keşfedin.
+Bu öğreticide verilerin sağlanması ve Azure SQL Veri Ambarı'na yüklenmesi gösterilir. Ayrıca, ölçekleme, duraklatma ve ayarlama ile ilgili temel bilgileri öğrenirsiniz. Öğreticiyi tamamladığınızda, veri tabanınızı sorgulayabilir ve araştırabilirsiniz.
 
-**Zaman toocomplete tahmini:** hello önkoşulları karşıladığınızı sonra yaklaşık 30 dakika toocomplete geçen örnek kod ile uçtan uca öğretici budur. 
+**Tahmini tamamlanma süresi:** Ön koşulları yerine getirmeniz durumunda yaklaşık 30 dakikada tamamlanan bir örnek kod ile birlikte uçtan uca öğreticidir. 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Başlangıç Öğreticisi SQL veri ambarı temel kavramları hakkında bilgi sahibi olduğunu varsayar. Bir tanıtım gerekirse bkz. [SQL Veri Ambarı nedir?](sql-data-warehouse-overview-what-is.md) 
+Bu öğreticide SQL Veri Ambarı ile ilgili temel kavramları bildiğiniz varsayılır. Bir tanıtım gerekirse bkz. [SQL Veri Ambarı nedir?](sql-data-warehouse-overview-what-is.md) 
 
 ### <a name="sign-up-for-microsoft-azure"></a>Microsoft Azure’a kaydolun
-Zaten bir Microsoft Azure hesabınız yoksa, bu hizmet için bir toouse toosign gerekir. Zaten bir hesabınız varsa, bu adımı geçebilirsiniz. 
+Bir Microsoft Azure hesabınız yoksa, bu hizmeti kullanabilmek için kaydolmanız gerekir. Zaten bir hesabınız varsa, bu adımı geçebilirsiniz. 
 
-1. Toohello hesabı sayfalarında gezinmek [https://azure.microsoft.com/account/](https://azure.microsoft.com/account/)
+1. Hesap sayfalarına [https://azure.microsoft.com/account/](https://azure.microsoft.com/account/) gidin
 2. Ücretsiz bir Azure hesabı oluşturun veya bir hesap satın alın.
-3. Merhaba yönergeleri izleyin
+3. Talimatları uygulayın
 
 ### <a name="install-appropriate-sql-client-drivers-and-tools"></a>Uygun SQL istemci sürücülerini ve araçlarını yükleyin
 
-Çoğu SQL istemci araçları JDBC, ODBC veya ADO.NET kullanarak tooSQL veri ambarına bağlanabilir. Toohello çok sayıda SQL Data Warehouse destekleyen T-SQL özelliklerini, bazı istemci uygulamaları ile SQL veri ambarı tamamen uyumlu değildir.
+Çoğu SQL istemci aracı, JDBC, ODBC veya ADO.NET kullanarak SQL Veri Ambarı’na bağlanabilir. SQL Veri Ambarı’nın desteklediği çok sayıda T-SQL özelliği nedeniyle bazı istemci uygulamalar SQL Veri Ambarı ile tam olarak uyumlu değildir.
 
 Bir Windows işletim sistemi çalıştırıyorsanız [Visual Studio] veya [SQL Server Management Studio] kullanmanız önerilir.
 
@@ -50,7 +50,7 @@ Bir Windows işletim sistemi çalıştırıyorsanız [Visual Studio] veya [SQL S
 
 ## <a name="create-a-sql-data-warehouse"></a>SQL Data Warehouse oluşturma
 
-SQL Veri Ambarı, yüksek düzeyde paralel işleme için tasarlanmış özel bir veritabanı türüdür. Merhaba veritabanı birden çok düğümüne dağıtılmış ve paralel sorgular işler. SQL veri ambarı tüm hello düğümleri hello etkinliklerini düzenler bir denetim düğümü vardır. Merhaba düğümlerin kendilerini SQL veritabanı toomanage verilerinizi kullanın.  
+SQL Veri Ambarı, yüksek düzeyde paralel işleme için tasarlanmış özel bir veritabanı türüdür. Veritabanı birden fazla düğüme dağıtılmıştır ve sorguları paralel olarak işler. SQL Veri Ambarı tüm düğümlerin etkinliklerini düzenleyen bir denetim düğümüne sahiptir. Düğümler, verilerinizi yönetmek için SQL Veritabanı kullanır.  
 
 > [!NOTE]
 > SQL Veri Ambarı'nın oluşturulması ek hizmet ücretlerinin alınmasına neden olabilir.  Ayrıntılı bilgi için bkz. [SQL Veri Ambarı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
@@ -58,14 +58,14 @@ SQL Veri Ambarı, yüksek düzeyde paralel işleme için tasarlanmış özel bir
 
 ### <a name="create-a-data-warehouse"></a>Veri ambarı oluşturma
 
-1. Merhaba içine oturum [Azure portal](https://portal.azure.com).
+1. [Azure portal](https://portal.azure.com) oturum açın.
 2. **Yeni** > **Veritabanları** > **SQL Veri Ambarı** öğelerine tıklayın.
 
     ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png) ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
 
 3. Dağıtım ayrıntılarını doldurun
 
-    **Veritabanı Adı**: İstediğiniz bir adı seçin. Birden çok veri ambarlarında varsa adları dahil hello bölge, ortam, örneğin gibi ayrıntıları önerilir *westus 1 test mydw*.
+    **Veritabanı Adı**: İstediğiniz bir adı seçin. Birden fazla veri ambarınız varsa, verdiğiniz adlarda bölge, ortam vb. ayrıntıların olması önerilir, örn. *mydw-westus-1-test*.
 
     **Abonelik**: Azure aboneliğiniz
 
@@ -75,61 +75,61 @@ SQL Veri Ambarı, yüksek düzeyde paralel işleme için tasarlanmış özel bir
 
     **Kaynak**: Boş Veritabanı
 
-    **Sunucu**: oluşturduğunuz Select hello sunucu [önkoşulları].
+    **Sunucu**: [Önkoşullar] içerisinde, oluşturduğunuz sunucu seçin.
 
-    **Harmanlama**: hello varsayılan harmanlama sql_latin1_general_cp1_cı_as bırakın.
+    **Harmanlama**: Varsayılan harmanlamayı SQL_Latin1_General_CP1_CI_AS şeklinde bırakın.
 
-    **Performans seçin**: hello standart 400DWU ile başlayan öneririz.
+    **Performans seçin**: Standart 400DWU ile başlamanız önerilir.
 
-4. Seçin **PIN toodashboard** ![PIN tooDashboard](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
+4. **Panoya sabitle** ![Panoya Sabitle](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png) öğesini seçin
 
-5. Arkanıza yaslanın ve, veri ambarı toodeploy için bekleyin! Birkaç dakika için bu işlemi tootake normaldir. veri ambarınız hazır toouse olduğunda hello portal size bildirir. 
+5. Arkanıza yaslanın ve veri ambarınızın dağıtılmasını bekleyin! Bu işlemin birkaç dakika sürmesi normal bir durumdur. Veri ambarınız kullanıma hazır olduğunda portal size bildirir. 
 
-## <a name="connect-toosql-data-warehouse"></a>TooSQL veri ambarına bağlanma
+## <a name="connect-to-sql-data-warehouse"></a>SQL Data Warehouse'a bağlanma
 
-Bu öğretici, SQL Server Management Studio (SSMS) tooconnect toohello veri ambarı kullanır. Bu desteklenen bağlayıcılar tooSQL veri ambarına bağlanabilir: ADO.NET, JDBC, ODBC ve PHP. Microsoft tarafından desteklenmeyen araçlar için işlevselliğin sınırlı olabileceğini unutmayın.
+Bu öğreticide veri ambarına bağlanmak için SQL Server Management Studio (SSMS) kullanılır. SQL Veri Ambarı’na desteklenen şu bağlayıcılar üzerinden bağlanabilirsiniz: ADO.NET, JDBC, ODBC ve PHP. Microsoft tarafından desteklenmeyen araçlar için işlevselliğin sınırlı olabileceğini unutmayın.
 
 
 ### <a name="get-connection-information"></a>Bağlantı bilgilerini alma
 
-tooconnect tooyour veri ambarı, gereksinim duyduğunuz hello oluşturduğunuz mantıksal SQL sunucusu üzerinden tooconnect [önkoşulları].
+Veri ambarınıza bağlanmak için [Önkoşullar] içerisinde oluşturduğunuz mantıksal SQL sunucusu aracılığıyla bağlanmanız gerekir.
 
-1. Veri ambarınız hello Pano veya kaynaklarınız için bu aramada seçin.
+1. Panodan veri ambarınızı seçin veya kaynaklarınızda arayın.
 
     ![SQL Veri Ambarı Panosu](./media/sql-data-warehouse-get-started-tutorial/sql-dw-dashboard.png)
 
-2. Merhaba mantıksal SQL sunucusu için tam ad Hello bulun.
+2. Mantıksal SQL sunucusu için tam adı bulun.
 
     ![Sunucu Adını seçin](./media/sql-data-warehouse-get-started-tutorial/select-server.png)
 
-3. SSMS açıp Nesne Gezgini tooconnect toothis sunucusu oluşturduğunuz hello server yönetici kimlik bilgileriyle kullanmak [önkoşulları]
+3. SSMS’yi açın ve [Önkoşullar] içerisinde oluşturduğunuz sunucu yöneticisi kimlik bilgilerini kullanarak bu sunucuya bağlanmak için nesne gezginini kullanın
 
     ![SSMS ile bağlanma](./media/sql-data-warehouse-get-started-tutorial/ssms-connect.png)
 
-Tüm kalırsa doğru artık bağlı tooyour mantıksal SQL sunucusu olması gerekir. Sunucu Yöneticisi hello gibi oturum bu yana hello ana veritabanı da dahil, hello sunucu tarafından barındırılan tooany veritabanının bağlanabilir. 
+Her şey yolunda giderse, mantıksal SQL sunucunuza şu anda bağlı olmanız gerekir. Sunucu yöneticisi olarak oturum açtığınız için, ana veritabanı dahil sunucu tarafından barındırılan herhangi bir veritabanına bağlanabilirsiniz. 
 
-Yalnızca bir sunucu yönetici hesabı ve hello herhangi bir kullanıcı çoğu ayrıcalıklarına sahiptir. Dikkatli olun değil tooallow kuruluş tooknow hello Yönetici parolanızı çok fazla kişilere. 
+Yalnızca bir sunucu yönetici hesabı vardır ve herhangi bir kullanıcıya göre en fazla ayrıcalığa sahiptir. Yönetici parolasını kuruluşunuzda çok sayıda kişinin bilmemesine dikkat edin. 
 
-Bir Azure active directory yönetici hesabına da sahip olabilirsiniz. Merhaba ayrıntıları buraya sunuyoruz yok. Azure Active Directory kimlik doğrulaması kullanma hakkında daha fazla toolearn istiyorsanız, bkz: [Azure AD kimlik doğrulaması](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication).
+Bir Azure active directory yönetici hesabına da sahip olabilirsiniz. Onunla ilgili ayrıntılar burada verilmemektedir. Azure Active Directory kimlik doğrulaması hakkında daha fazla bilgi almak isterseniz bkz. [Azure AD kimlik doğrulaması](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication).
 
 Ardından, ek oturumlar ve kullanıcılar oluşturma hakkında bilgi verilir.
 
 
 ## <a name="create-a-database-user"></a>Veritabanı kullanıcısı oluşturma
 
-Bu adımda, bir kullanıcı hesabı tooaccess veri ambarınız oluşturun. Ayrıca toogive o kullanıcı hello özelliği toorun büyük miktarda bellek ve CPU kaynaklarını ile nasıl sorgular gösteriyoruz.
+Bu adımda, veri ambarınıza erişmek için bir kullanıcı hesabı oluşturursunuz. Ayrıca, o kullanıcıya büyük miktarda bellek ve CPU kaynağı ile sorguları çalıştırma olanağı verme işlemi gösterilir.
 
-### <a name="notes-about-resource-classes-for-allocating-resources-tooqueries"></a>Kaynakları tooqueries ayırma için kaynak sınıfları ile ilgili notlar
+### <a name="notes-about-resource-classes-for-allocating-resources-to-queries"></a>Sorgulara kaynak ayırmaya yönelik kaynak sınıfları ile ilgili notlar
 
-- tookeep verilerinizi güvenli, üretim veritabanlarınızı hello server yönetim toorun sorguları kullanmayın. Merhaba herhangi bir kullanıcı çoğu ayrıcalıklarına sahip ve tooperform kullanarak kullanıcı verilerine operations yerleştirir verileriniz risk altında. Hello Sunucu Yöneticisi tooperform yönetim işlemlerini tasarlanmıştır olduğundan, ayrıca, dosya işlemleri bellek ve CPU kaynaklarını yalnızca küçük bir ayırma ile çalışır. 
+- Verilerinizin güvenliğini sürdürmek için, üretim veritabanlarınızda sorgu çalıştırırken sunucu yöneticisini kullanmayın. Sunucu yöneticisi herhangi bir kullanıcıdan daha fazla ayrıcalığa sahiptir ve kullanıcı verileri üzerinde işlem yapmak için bu hesabın kullanılması, verilerinizi riske sokar. Ayrıca, sunucu yöneticisi yönetim işlemlerini yapmaya yönelik olduğundan, işlemleri az miktarda bellek ve CPU kaynağı ayırarak gerçekleştirir. 
 
-- SQL veri ambarı adlı kaynak sınıfları, bellek, CPU kaynaklarını ve eşzamanlılık yuvaları toousers farklı miktarlarda tooallocate önceden tanımlanmış veritabanı rollerini kullanır. Her kullanıcı tooa küçük, Orta, büyük veya çok büyük bir kaynak sınıfı ait olabilir. Merhaba kullanıcının kaynak sınıfı hello kaynakları hello kullanıcının sahip toorun sorguları belirler ve yükleme işlemleri.
+- SQL Veri Ambarı, kullanıcılara farklı miktarda bellek, CPU kaynağı ve eşzamanlı kullanım hakkı ayırmak için kaynak sınıfı olarak adlandırılan önceden tanımlanmış veritabanı rolleri kullanır. Her kullanıcı küçük, orta, büyük veya çok büyük bir kaynak sınıfına ait olabilir. Kullanıcının kaynak sınıfı, kullanıcının sorguları ve yük işlemlerini çalıştırması için sahip olması gereken kaynakları belirler.
 
-- En iyi veri sıkıştırma için hello kullanıcı tooload büyük veya çok büyük kaynak ayırma gerekebilir. Kaynak sınıfları hakkında daha fazla bilgiyi [burada](./sql-data-warehouse-develop-concurrency.md#resource-classes) bulabilirsiniz:
+- En iyi veri sıkıştırma için kullanıcının büyük veya çok büyük kaynak ayırmaları ile yüklemesi gerekebilir. Kaynak sınıfları hakkında daha fazla bilgiyi [burada](./sql-data-warehouse-develop-concurrency.md#resource-classes) bulabilirsiniz:
 
 ### <a name="create-an-account-that-can-control-a-database"></a>Veritabanını denetleyebilen bir hesap oluşturma
 
-Sunucu Yöneticisi Merhaba, oturum açmış olduğunuz olduğundan izinleri toocreate oturumları ve kullanıcıları sahip.
+Şu anda sunucu yöneticisi olarak oturum açtığınız için oturum ve kullanıcı oluşturma izinleriniz vardır.
 
 1. SSMS veya başka bir sorgu istemcisini kullanarak **ana** için yeni bir sorgu açın.
 
@@ -137,62 +137,61 @@ Sunucu Yöneticisi Merhaba, oturum açmış olduğunuz olduğundan izinleri tooc
 
     ![Asıl1’de Yeni Sorgu](./media/sql-data-warehouse-get-started-tutorial/query-on-master.png)
 
-2. Merhaba sorgu penceresinde, bu T-SQL komut toocreate MedRCLogin adlı oturum açma ve kullanıcı LoadingUser adlı çalıştırın. Bu oturum açma toohello mantıksal SQL sunucusuna bağlanabilir.
+2. Sorgu penceresinde bu T-SQL komutunu çalıştırarak MedRCLogin adlı bir oturum ve LoadingUser adlı bir kullanıcı oluşturun. Bu oturum bilgileri mantıksal SQL sunucusuna bağlanabilir.
 
     ```sql
     CREATE LOGIN MedRCLogin WITH PASSWORD = 'a123reallySTRONGpassword!';
-    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
-3. Şimdi hello sorgulama *SQL Data Warehouse veritabanı*, temel bir veritabanı kullanıcısı oluşturmalıdır hello tooaccess oluşturulan oturum açma ve hello veritabanı işlemleri.
+3. *SQL Veri Ambarı veritabanını* sorgularken, veritabanına erişmek ve üzerinde işlem gerçekleştirmek üzere oluşturduğunuz oturum bilgilerine göre bir veritabanı kullanıcısı oluşturun.
 
     ```sql
     CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
-4. Merhaba veritabanı kullanıcı denetimi izinleri toohello veritabanı NYT adlı verin. 
+4. Veritabanı kullanıcısına NYT adlı veritabanı üzerinde denetim izinleri verin. 
 
     ```sql
-    GRANT CONTROL ON DATABASE::[NYT] tooLoadingUser;
+    GRANT CONTROL ON DATABASE::[NYT] to LoadingUser;
     ```
     > [!NOTE]
-    > Veritabanı adınız kısa çizgi varsa, emin toowrap olması köşeli ayraçlar içinde! 
+    > Veritabanı adınızda kısa çizgi varsa, köşeli ayraç içine aldığınızdan emin olun! 
     >
 
-### <a name="give-hello-user-medium-resource-allocations"></a>Merhaba kullanıcı orta kaynak ayırma verin
+### <a name="give-the-user-medium-resource-allocations"></a>Kullanıcıya orta büyüklükte kaynak ayırmalar sağlayın
 
-1. Bu T-SQL komut toomake çalıştırmak üyesi mediumrc adlı hello Orta kaynak sınıfı, bir BT. 
+1. Bu T-SQL komutunu çalıştırarak mediumrc adlı orta büyüklükte kaynak sınıfının üyesi yapın. 
 
     ```sql
     EXEC sp_addrolemember 'mediumrc', 'LoadingUser';
     ```
     > [!NOTE]
-    > Tıklatın [burada](sql-data-warehouse-develop-concurrency.md#resource-classes) toolearn eşzamanlılık ve kaynak sınıfları hakkında daha fazla! 
+    > Eşzamanlılık ve kaynak sınıfları hakkında daha fazla bilgi için [buraya](sql-data-warehouse-develop-concurrency.md#resource-classes) tıklayın! 
     >
 
-2. Toohello mantıksal sunucu hello yeni kimlik bilgilerinizle bağlanmak
+2. Yeni kimlik bilgileri ile mantıksal sunucuya bağlanma
 
     ![Yeni Oturum Bilgileriyle oturum açın](./media/sql-data-warehouse-get-started-tutorial/new-login.png)
 
 
 ## <a name="load-data-from-azure-blob-storage"></a>Azure blob depolamadan veri yükleme
 
-Artık hazır tooload verileri veri ambarınıza bulunur. Bu adım nasıl ortak bir Azure depolama biriminden tooload New York şehrinde ücreti cab verileri blob gösterir. 
+Şimdi veri ambarınıza veri yüklemeye hazırsınız. Bu adımda, New York taksi verilerini genel bir Azure depolama blobundan nasıl yükleyeceğiniz gösterilmektedir. 
 
-- SQL veri ambarı tooload verisine toofirst olan yaygın bir yolu hello veri tooAzure blob depolama taşıyın ve veri ambarına yük. toomake bunu daha kolay toounderstand nasıl tooload, New York ücreti cab veri zaten bir ortak Azure storage blobu barındırılan sunuyoruz. 
+- SQL Veri Ambarı’na veri yüklemenin yaygın bir yolu, öncelikle verilerin Azure blob depolamaya taşınması, ardından veri ambarınıza yüklenmesidir. Yükleme işleminin anlaşılmasını kolaylaştırmak için, genel bir Azure depolama blobunda barındırılmakta olan New York taksi verilerini kullanacağız. 
 
-- Gelecekte başvurmak, toolearn nasıl tooget veri tooAzure blob depolama veya doğrudan kaynağınızdan SQL veri ambarında, bkz: tooload hello [yüklemeye genel bakış](sql-data-warehouse-overview-load.md).
+- [Yüklemeye genel bakış](sql-data-warehouse-overview-load.md) bölümünde, verilerinizi Azure blob depolama alanına alma veya doğrudan kaynağınızdan SQL Veri Ambarı’na yükleme konusunda ileride işinize yarayacak bilgiler edinebilirsiniz.
 
 
 ### <a name="define-external-data"></a>Dış veri tanımlama
 
-1. Bir ana anahtar oluşturun. Yalnızca toocreate her veritabanı için bir kez bir ana anahtar gerekir. 
+1. Bir ana anahtar oluşturun. Veritabanı başına yalnızca bir kez ana anahtar oluşturmanız gerekir. 
 
     ```sql
     CREATE MASTER KEY;
     ```
 
-2. Merhaba hello ücreti cab verileri içeren Azure blob Hello konumunu tanımlayın.  
+2. Taksi verilerini içeren Azure blobunun konumunu tanımlayın.  
 
     ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
@@ -203,11 +202,11 @@ Artık hazır tooload verileri veri ambarınıza bulunur. Bu adım nasıl ortak 
     );
     ```
 
-3. Merhaba dış dosya biçimleri tanımlayın
+3. Harici dosya biçimlerini tanımlayın
 
-    Merhaba ```CREATE EXTERNAL FILE FORMAT``` komuttur kullanılan toospecify hello dış veri içeren dosyaları biçimi. Sınırlayıcı adlı bir veya daha fazla karakter ile ayrılmış metinler içerir. Tanıtım amacıyla hello ücreti cab verileri hem de sıkıştırılmamış veri gzip sıkıştırılmış veri olarak depolanır.
+    ```CREATE EXTERNAL FILE FORMAT``` komutu, dış verileri içeren dosyaların biçimini belirtmek için kullanılır. Sınırlayıcı adlı bir veya daha fazla karakter ile ayrılmış metinler içerir. Tanıtım amacıyla, taksi verileri hem sıkıştırılmamış veri hem de gzip sıkıştırılmış verisi olarak depolanmıştır.
 
-    Bunları çalıştırmak T-SQL toodefine iki farklı biçimlerde komutlar: sıkıştırılmamış ve sıkıştırılmış.
+    Bu T-SQL komutlarını çalıştırarak iki farklı biçimi tanımlayın: sıkıştırılmamış ve sıkıştırılmış.
 
     ```sql
     CREATE EXTERNAL FILE FORMAT uncompressedcsv
@@ -238,7 +237,7 @@ Artık hazır tooload verileri veri ambarınıza bulunur. Bu adım nasıl ortak 
     ```sql
     CREATE SCHEMA ext;
     ```
-5. Merhaba dış tablolar oluşturun. Bu tablolar Azure blob depolamada saklanan verilere başvurur. T-SQL komutlarını toocreate aşağıdaki hello tüm noktası toohello Azure blob biz önceden bizim dış veri kaynağında tanımlanan birkaç dış tablolara çalıştırın.
+5. Harici tabloları oluşturun. Bu tablolar Azure blob depolamada saklanan verilere başvurur. Aşağıdaki T-SQL komutlarını çalıştırarak, tamamı dış veri kaynağımızda daha önce tanımladığımız Azure blobunu işaret eden dış tablolar oluşturun.
 
 ```sql
     CREATE EXTERNAL TABLE [ext].[Date] 
@@ -415,11 +414,11 @@ Artık hazır tooload verileri veri ambarınıza bulunur. Bu adım nasıl ortak 
     ;
 ```
 
-### <a name="import-hello-data-from-azure-blob-storage"></a>Merhaba verileri Azure blob depolama alanından içeri aktarın.
+### <a name="import-the-data-from-azure-blob-storage"></a>Azure blob depolamadan veri alma
 
-SQL Veri Ambarı, CREATE TABLE AS SELECT (CTAS) adlı bir anahtar deyimini destekler. Bu deyim bir select deyimi hello sonuçlarına dayalı yeni bir tablo oluşturur. Merhaba yeni tablolu hello hello sonuçlarını select deyimi gibi hello aynı sütun ve veri türleri.  Bu bir Azure blob depolama alanına SQL Data Warehouse zarif bir şekilde tooimport verilerdir.
+SQL Veri Ambarı, CREATE TABLE AS SELECT (CTAS) adlı bir anahtar deyimini destekler. Bu deyim bir select deyiminin sonuçlarına göre yeni bir tablo oluşturur. Yeni tablo, select deyiminin sonuçları ile aynı sütunlara ve veri türlerine sahiptir.  Bu yöntem, Azure blob depolamadan SQL Veri Ambarı’na veri almanın güzel bir yoludur.
 
-1. Bu komut dosyası tooimport verilerinizi çalıştırın.
+1. Verilerinizi içeri aktarmak için bu betiği çalıştırın.
 
     ```sql
     CREATE TABLE [dbo].[Date]
@@ -496,7 +495,7 @@ SQL Veri Ambarı, CREATE TABLE AS SELECT (CTAS) adlı bir anahtar deyimini deste
 
 2. Verilerinizi yüklenirken görüntüleyin.
 
-   Birkaç GB veri yüklüyorsunuz ve yüksek performanslı kümelenmiş columnstore dizinlerine sıkıştırıyorsunuz. Merhaba yük dinamik yönetim görünümlerini (Dmv'leri) tooshow hello durumunu kullanan sorgu aşağıdaki hello çalıştırın. SQL Data Warehouse bazı ağır lifting desteklemiyor sırada hello sorgu başlattıktan sonra bir kahve ve bir yemek alın.
+   Birkaç GB veri yüklüyorsunuz ve yüksek performanslı kümelenmiş columnstore dizinlerine sıkıştırıyorsunuz. Yüklemenin durumunu göstermek için, dinamik yönetim görünümleri (DMV’ler) kullanan aşağıdaki sorguyu çalıştırın. Sorguyu başlattıktan sonra, SQL Veri Ambarı ağır yükü kaldırırken siz bir kahve alıp arkanıza yaslanın.
     
     ```sql
     SELECT
@@ -539,51 +538,51 @@ SQL Veri Ambarı, CREATE TABLE AS SELECT (CTAS) adlı bir anahtar deyimini deste
 
 ## <a name="improve-query-performance"></a>Sorgu performansını artırma
 
-SQL veri ambarı tooachieve hello yüksek performans tooprovide tasarlanmış ve çeşitli yolları tooimprove sorgu performansı vardır.  
+Sorgu performansını artırmanın ve SQL Veri Ambarı’nın tasarım amacı olan yüksek hızlı performans elde etmenin birkaç yolu vardır.  
 
-### <a name="see-hello-effect-of-scaling-on-query-performance"></a>Merhaba etkisini sorgu performansına ölçeklendirme bakın 
+### <a name="see-the-effect-of-scaling-on-query-performance"></a>Ölçeklendirmenin sorgu performansı üzerindeki etkisine bakın 
 
-Tek yönlü tooimprove sorgu performansı veri ambarınız için hello DWU hizmet düzeyi değiştirerek tooscale kaynaklarını aşıyor. Her hizmet düzeyi daha fazla maliyet getirir, ancak dilediğiniz zaman kaynakların ölçeğini azaltabilir veya kaynakları duraklatabilirsiniz. 
+Sorgu performansını artırmanın bir yolu, veri ambarınız için DWU hizmet düzeyini değiştirerek kaynakları ölçeklendirmektir. Her hizmet düzeyi daha fazla maliyet getirir, ancak dilediğiniz zaman kaynakların ölçeğini azaltabilir veya kaynakları duraklatabilirsiniz. 
 
 Bu adımda, iki farklı DWU ayarında performansı karşılaştırırsınız.
 
-İlk olarak, biz nasıl bir işlem düğümünde hakkında bir fikir sınıflandırıp DWU gerçekleştirebileceğiniz, kendi too100 aşağı hello boyutlandırma şimdi ölçeklendirin.
+İlk olarak, bir işlem düğümünün kendi kendine nasıl çalışabileceğini anlamak için boyutu ölçeklendirerek 100 DWU’ya düşürelim.
 
-1. Toohello portal gidin ve SQL veri ambarı seçin.
+1. Portala gidin ve SQL Veri Ambarı’nızı seçin.
 
-2. Ölçek hello SQL Data Warehouse dikey penceresinde seçin. 
+2. SQL Veri Ambarı dikey penceresinde ölçeği seçin. 
 
     ![Portaldan Ölçek DW](./media/sql-data-warehouse-get-started-tutorial/scale-dw.png)
 
-3. Merhaba performans too100 DWU çubuğu ölçeğini ve Kaydet'i tıklatın.
+3. Performans çubuğunun ölçeğini düşürerek 100 DWU yapın ve kaydet öğesine tıklayın.
 
     ![Ölçek ve kayıt](./media/sql-data-warehouse-get-started-tutorial/scale-and-save.png)
 
-4. Ölçek işlemi toofinish bekleyin.
+4. Ölçek işleminizin tamamlanmasını bekleyin.
 
     > [!NOTE]
-    > Sorguları hello ölçek değiştirilirken çalıştırılamıyor. Ölçeklendirme, o anda çalışmakta olan sorgularınızı **sonlandırır**. Merhaba işlem sona erdiğinde bunları yeniden başlatabilirsiniz.
+    > Ölçek değiştirilirken sorgular çalıştırılamaz. Ölçeklendirme, o anda çalışmakta olan sorgularınızı **sonlandırır**. İşlemi tamamladığında sorgularınızı yeniden başlatabilirsiniz.
     >
     
-5. Merhaba üst milyon girişleri tüm hello sütunlar için seçerek hello seyahat veri üzerinde bir tarama işlemi yapın. İstekli toomove hızla girdiğinizi, ücretsiz tooselect daha az sayıda satır hissedilmesini. Bu işlem toorun geçen hello süreyi not edin.
+5. Tüm sütunlar için üst milyon girişler seçerek, giden veriler üzerinde tarama işlemi gerçekleştirin. Hızlı ilerlemek istiyorsanız, daha az satır seçmekten çekinmeyin. Bu işlemin çalıştırılması için geçen süreyi not edin.
 
     ```sql
     SELECT TOP(1000000) * FROM dbo.[Trip]
     ```
-6. Veri ambarınız ölçeklendirme too400 DWU yedekleyin. Her 100 DWU başka bir işlem düğümü tooyour Azure SQL Data Warehouse eklemeyi unutmayın.
+6. Veri ambarınızı 400 DWU’ya geri ölçeklendirin. Her 100 DWU’nun, Azure SQL Veri Ambarı’nıza başka bir işlem düğümü eklediğini unutmayın.
 
-7. Merhaba sorguyu yeniden çalıştırın! Önemli bir fark dikkat göreceksiniz. 
+7. Sorguyu tekrar çalıştırın! Önemli bir fark dikkat göreceksiniz. 
 
     > [!NOTE]
-    > Hello sorgu çok miktarda veri döndürdüğünden hello bant genişliği kullanılabilirliğini SSMS çalışan hello makinenin performans düşüklüğü olabilir. Bu da herhangi bir performans artışıyla karşılaşmamanıza yol açabilir.
+    > Sorgu çok miktarda veri döndürdüğünden, SSMS çalıştıran makinenin bant genişliğinin kullanılabilirliğine yönelik olarak performans sorunu ortaya çıkabilir. Bu da herhangi bir performans artışıyla karşılaşmamanıza yol açabilir.
 
 > [!NOTE]
-> SQL Veri Ambarı, yüksek düzeyde paralel işleme kullanır. Tarama veya milyonlarca satır analitik işlevleri gerçekleştirmek sorguları hello true Azure SQL Data Warehouse gücünü karşılaşırsınız.
+> SQL Veri Ambarı, yüksek düzeyde paralel işleme kullanır. Milyonlarca satır üzerinde tarama yapan veya analiz işlevleri gerçekleştiren sorgular, Azure SQL Veri Ambarı’nın gerçek gücünü deneyimler.
 >
 
-### <a name="see-hello-effect-of-statistics-on-query-performance"></a>Sorgu performans istatistikleri Hello etkisini görmek
+### <a name="see-the-effect-of-statistics-on-query-performance"></a>İstatistiklerin sorgu performansı üzerindeki etkisine bakın
 
-1. Birleştirmeler tarih tablosu hello seyahat tabloyla hello sorgu çalıştırma
+1. Tarih tablosu Seyahat tablosu ile birleştiren bir sorgu çalıştırın
 
     ```sql
     SELECT TOP (1000000) 
@@ -615,10 +614,10 @@ Bu adımda, iki farklı DWU ayarında performansı karşılaştırırsınız.
         ON  tr.DateID = dt.DateID
     ```
 
-    Merhaba birleştirme gerçekleştirmeden önce SQL veri ambarı tooshuffle veri içerdiğinden bu sorguyu biraz uzun sürebilir. Birleştirmeler yok tooshuffle veri hello tasarlanmış toojoin verilerde olmaları durumunda aynı şekilde bu dağıtılır. Bu daha derin bir konudur. 
+    SQL Veri Ambarı’nın birleştirme işleminden önce verileri karıştırması gerektiğinden bu sorgu biraz uzun sürer. Birleşimler, verileri dağıtıldığı şekilde birleştirmek üzere tasarlanırsa verilerin karıştırılması gerekmez. Bu daha derin bir konudur. 
 
 2. İstatistikler fark yaratır. 
-3. Bu deyim toocreate istatistikleri hello birleştirme sütunu üzerinde çalıştırın.
+3. Birleşim sütunlarında istatistikler oluşturmak için bu deyimi çalıştırın.
 
     ```sql
     CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
@@ -628,16 +627,16 @@ Bu adımda, iki farklı DWU ayarında performansı karşılaştırırsınız.
     > [!NOTE]
     > SQL DW istatistikleri sizin için otomatik olarak yönetmez. İstatistikleri sorgu performansı için önemlidir ve istatistikleri oluşturmanız ve güncelleştirmeniz önemle tavsiye edilir.
     > 
-    > **Çoğu avantajı sütunlarda söz konusu birleşimlerde GROUP BY yan tümcesi ve sütun bulundu hello kullanılan sütun istatistikleri sağlayarak hello kazanır.**
+    > **En çok faydayı, birleştirmelerin bulunduğu sütunlar, WHERE yan tümcesinde kullanılan sütunlar ve GROUP BY içinde bulunan sütunlar için istatistik tutarak elde edebilirsiniz.**
     >
 
-3. Önkoşulları Hello sorguyu yeniden çalıştırın ve tüm performans farklar inceleyin. Sorgu performansı Hello farklılıkları ölçeklendirmeyi olarak olarak keskin olmaz olsa da, bir faturalamak dikkat etmelidir. 
+3. Önkoşullar’dan sorguyu yeniden çalıştırın ve tüm performans farklarını inceleyin. Sorgu performansı farklılıkları ölçek büyütme kadar güçlü olmaz, ancak bir hız yükselmesi fark edersiniz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Şimdi hazır tooquery olduğunuz ve keşfedin. En iyi yöntemlerimize veya ipuçlarımıza bakın.
+Şimdi sorgulamaya ve incelemeye hazırsınız. En iyi yöntemlerimize veya ipuçlarımıza bakın.
 
-İşiniz bittiğinde, örneğinizi olun emin toopause hello gün için keşfetme! Üretimde muazzam tasarrufları duraklatma ve ölçeklendirme toomeet yaşayabilirsiniz iş gereksinimlerinizi.
+Keşfetmeyi bitirdiğinizde, örneğinizi duraklatmayı unutmayın! Üretimde, iş gereksinimlerinizi karşılamak üzere, duraklatma ve ölçeklendirme yoluyla muazzam tasarruflar sağlayabilirsiniz.
 
 ![Duraklat](./media/sql-data-warehouse-get-started-tutorial/pause.png)
 
@@ -651,20 +650,20 @@ Bu adımda, iki farklı DWU ayarında performansı karşılaştırırsınız.
 
 [Büyük Ölçekli İlişkisel Veri Ambarı Oluşturmaya Yönelik En İyi 10 Yöntem][]
 
-[Geçirme verilerini tooAzure SQL veri ambarı][]
+[Azure SQL Veri Ambarı’na Veri Geçirme][]
 
 [Eşzamanlılık ve İş Yükü Yönetimi]: sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example
 [Azure SQL Veri Ambarı için en iyi yöntemler]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
 [Sorgu İzleme]: sql-data-warehouse-manage-monitor.md
 [Büyük Ölçekli İlişkisel Veri Ambarı Oluşturmaya Yönelik En İyi 10 Yöntem]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/
-[Geçirme verilerini tooAzure SQL veri ambarı]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
+[Azure SQL Veri Ambarı’na Veri Geçirme]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
 
 
 
 [!INCLUDE [Additional Resources](../../includes/sql-data-warehouse-article-footer.md)]
 
 <!-- Internal Links -->
-[önkoşulları]: sql-data-warehouse-get-started-tutorial.md#prerequisites
+[Önkoşullar]: sql-data-warehouse-get-started-tutorial.md#prerequisites
 
 <!--Other Web references-->
 [Visual Studio]: https://www.visualstudio.com/

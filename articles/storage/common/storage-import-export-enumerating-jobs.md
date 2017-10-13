@@ -1,6 +1,6 @@
 ---
-title: "aaaList Azure içeri/dışarı aktarma işlerinizin tümünü | MicrosoftDocs"
-description: "Bilgi nasıl hello Azure içeri/dışarı aktarma hizmeti tüm işlerin bir abonelikte toolist."
+title: "Tüm Azure içeri/dışarı aktarma işleriniz listesi | MicrosoftDocs"
+description: "Tüm bir Abonelikteki Azure içeri/dışarı aktarma hizmeti işlerini listelemek öğrenin."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 0e12bf3dc3f2084a1987ac362cf8d1041059543c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1977bfc0e516088310f45ecdd960287eeed2c2d8
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="enumerating-jobs-in-hello-azure-importexport-service"></a>İşler'hello Azure içeri/dışarı aktarma hizmeti numaralandırma
-tooenumerate tüm işleri çağrısı hello gibi bir abonelik [listesi işleri](/rest/api/storageimportexport/jobs#Jobs_List) işlemi. `List Jobs`öznitelikler aşağıdaki hello yanı sıra işler listesini döndürür:
+# <a name="enumerating-jobs-in-the-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti işlerinde numaralandırma
+Bir Abonelikteki tüm işleri Numaralandırılacak çağrısı [listesi işleri](/rest/api/storageimportexport/jobs#Jobs_List) işlemi. `List Jobs`işlerini ve bunun yanı sıra aşağıdaki öznitelikler listesi döndürür:
 
--   (içeri veya dışarı) işin başlangıç türü
+-   İşin (içeri veya dışarı) türü
 
--   Merhaba geçerli iş durumu
+-   Geçerli iş durumu
 
--   Merhaba işin ilişkili depolama hesabı
+-   İş depolama hesabını ilişkili
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Merhaba içeri/dışarı aktarma hizmeti REST API'si kullanma](storage-import-export-using-the-rest-api.md)
+* [İçeri/dışarı aktarma hizmeti REST API'si kullanma](storage-import-export-using-the-rest-api.md)

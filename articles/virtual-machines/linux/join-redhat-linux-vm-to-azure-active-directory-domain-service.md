@@ -1,6 +1,6 @@
 ---
-title: aaaJoin RedHat Linux VM tooan Azure Active Directory DS | Microsoft Docs
-description: "Nasıl toojoin var olan bir RedHat Enterprise Linux 7 VM tooan Azure Active Directory etki alanı hizmeti."
+title: "Bir Azure Active Directory DS RedHat Linux VM katılma | Microsoft Docs"
+description: "Bir Azure Active Directory etki alanı hizmeti için mevcut bir RedHat Enterprise Linux 7 VM'yi katılmaya nasıl."
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2016
 ms.author: v-livech
-ms.openlocfilehash: f3ba3c764e253191753f1cc5fc8c3b85c53818af
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2e46a0f3c9bdbe267d121b4bf62e25d5d411fcc2
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="join-a-redhat-linux-vm-tooan-azure-active-directory-domain-service"></a>RedHat Linux VM tooan Azure Active Directory etki alanı Hizmeti'ne katılın
+# <a name="join-a-redhat-linux-vm-to-an-azure-active-directory-domain-service"></a>Bir Azure Active Directory etki alanı hizmeti RedHat Linux VM katılma
 
-Bu makalede, etki alanı toojoin Red Hat Enterprise Linux (RHEL) 7 sanal makine tooan Azure Active Directory etki alanı Hizmetleri (AADDS) nasıl yönetileceğini gösterir.  Hello gereksinimleri şunlardır:
+Bu makalede bir Red Hat Enterprise Linux (RHEL) 7 sanal makine bir Azure Active Directory etki alanı Hizmetleri (AADDS) yönetilen etki alanına katılma kullanmayı gösterir.  Gereksinimler şunlardır:
 
 - [Bir Azure hesabı](https://azure.microsoft.com/pricing/free-trial/)
 
@@ -34,7 +34,7 @@ Bu makalede, etki alanı toojoin Red Hat Enterprise Linux (RHEL) 7 sanal makine 
 
 _Tüm örnekleri kendi ayarlarınızla değiştirin._
 
-### <a name="switch-hello-azure-cli-tooclassic-deployment-mode"></a>Hello azure CLI tooclassic dağıtım moda geç
+### <a name="switch-the-azure-cli-to-classic-deployment-mode"></a>Azure CLI Klasik dağıtım moduna geç
 
 ```azurecli
 azure config mode asm
@@ -59,7 +59,7 @@ azure vm create myVM \
 -l "West US"
 ```
 
-### <a name="ssh-toohello-vm"></a>SSH toohello VM
+### <a name="ssh-to-the-vm"></a>Sanal Makineye SSH uygulama
 
 ```bash
 ssh -i ~/.ssh/id_rsa ahmet@myVM
@@ -77,9 +77,9 @@ sudo yum update
 sudo yum -y install realmd sssd krb5-workstation krb5-libs
 ```
 
-Merhaba Linux sanal makinede yüklü gerekli hello paketlerini, hello sonraki görev toojoin hello sanal makine toohello yönetilen etki alanıdır.
+Gerekli paketleri Linux sanal makinede yüklü olan, sonraki görev sanal makineyi yönetilen etki alanına belirlemektir.
 
-### <a name="discover-hello-aad-domain-services-managed-domain"></a>Merhaba AAD etki alanı Hizmetleri yönetilen etki Bul
+### <a name="discover-the-aad-domain-services-managed-domain"></a>AAD etki alanı Hizmetleri yönetilen etki Bul
 
 ```bash
 sudo realm discover mydomain.com
@@ -87,19 +87,19 @@ sudo realm discover mydomain.com
 
 ### <a name="initialize-kerberos"></a>Kerberos başlatma
 
-Toohello 'AAD DC Yöneticiler' grubuna üye olduğu bir kullanıcı belirttiğinizden emin olun. Yalnızca bu kullanıcılar, bilgisayarlar toohello yönetilen etki alanına eklenebilir.
+'AAD DC Yöneticiler' grubuna ait bir kullanıcı belirttiğinizden emin olun. Yalnızca bu kullanıcıların bilgisayarları yönetilen etki alanına katılmasını sağlayabilir.
 
 ```bash
 kinit ahmet@mydomain.com
 ```
 
-### <a name="join-hello-machine-toohello-domain"></a>Merhaba makine toohello etki alanına katılma
+### <a name="join-the-machine-to-the-domain"></a>Makine etki alanına ekleme
 
 ```bash
 sudo realm join --verbose mydomain.com -U 'ahmet@mydomain.com'
 ```
 
-### <a name="verify-hello-machine-is-joined-toohello-domain"></a>Merhaba makine birleştirilmiş toohello etki alanı olduğunu doğrulayın
+### <a name="verify-the-machine-is-joined-to-the-domain"></a>Makine etki alanına katılan doğrulayın
 
 ```bash
 ssh -l ahmet@mydomain.com mydomain.cloudapp.net
@@ -109,4 +109,4 @@ ssh -l ahmet@mydomain.com mydomain.cloudapp.net
 
 * [Red Hat güncelleştirme altyapısı (RHUI) isteğe bağlı Red Hat Enterprise Linux VM'ler için Azure'da için](update-infrastructure-redhat.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Sanal makineler Azure Kaynak Yöneticisi'nde için anahtar kasasını oluşturup](key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Dağıtma ve Azure Resource Manager şablonları ve hello Azure CLI kullanarak sanal makineleri yönetme](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Dağıtma ve Azure Resource Manager şablonları ve Azure CLI kullanarak sanal makineleri yönetme](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

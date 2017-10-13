@@ -1,5 +1,5 @@
-#### <a name="tooshut-down-a-virtual-device"></a>Sanal cihazı aşağı tooshut
-1. Toohello yönetim portalında oturum açın.
-2. Tıklatın **sanal makineleri**, ve ardından sanal cihazı seçin hello.
+#### <a name="to-shut-down-a-virtual-device"></a>Sanal cihazı kapatmak için
+1. Yönetim Portalı’na giriş yapın.
+2. **Virtual Machines**’e tıklayın ve sanal cihazı seçin.
 3. **Kapat**’a tıklayın.
 

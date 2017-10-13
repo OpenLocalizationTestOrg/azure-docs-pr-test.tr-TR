@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure Automation DSC genel bakış | Microsoft Docs"
+title: "Azure Otomasyonu DSC genel bakış | Microsoft Docs"
 description: "Bir genel bakış, Azure Otomasyonu istenen durum yapılandırması (DSC), koşulları ve bilinen sorunlar"
 services: automation
 documentationcenter: dev-center-name
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 06/15/2017
 ms.author: eslesar
-ms.openlocfilehash: 5b8e5104c7b5bed848c015ac26a8b7d1f5b24de9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 468321fa6863d78bc0d179fbe5c2ed6195040d50
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-automation-dsc-overview"></a>Azure Otomasyonu DSC genel bakış
 
-Azure Otomasyonu DSC, toowrite sağlayan bir Azure hizmetidir, yönetmek ve PowerShell istenen durum yapılandırması (DSC) derlemek [yapılandırmaları](https://msdn.microsoft.com/powershell/dsc/configurations), içeri aktarma [DSC kaynakları](https://msdn.microsoft.com/powershell/dsc/resources)ve atayın Merhaba bulutta tüm yapılandırmaları tootarget düğümleri.
+Azure Otomasyonu DSC, yazma, yönetmek ve PowerShell istenen durum yapılandırması (DSC) derlemek için sağlayan bir Azure hizmetidir [yapılandırmaları](https://msdn.microsoft.com/powershell/dsc/configurations), içeri aktarma [DSC kaynakları](https://msdn.microsoft.com/powershell/dsc/resources)ve tüm bulutta hedef düğümleri yapılandırmaları atayabilirsiniz.
 
 ## <a name="why-use-azure-automation-dsc"></a>Azure Otomasyonu DSC neden kullanılır?
 
@@ -30,39 +30,39 @@ Azure Otomasyonu DSC Azure dışında DSC kullanarak birkaç avantajı sağlar.
 
 ### <a name="built-in-pull-server"></a>Yerleşik çekme sunucu
 
-Azure Automation'ın sağladığı bir [DSC istek sunucusuyla](https://msdn.microsoft.com/en-us/powershell/dsc/pullserver) hedef düğümleri otomatik olarak yapılandırmaları alması için bunları istenen toohello durumu uygun ve uyumlulukları hakkında rapor.
-Azure Otomasyonu Hello yerleşik çekme sunucusunda yukarı hello gerek tooset ortadan kaldırır ve kendi çekme sunucunuz.
-Azure Otomasyonu sanal veya fiziksel Windows veya Linux makineler, hello Bulut veya şirket içi hedefleyebilirsiniz.
+Azure Automation'ın sağladığı bir [DSC istek sunucusuyla](https://msdn.microsoft.com/en-us/powershell/dsc/pullserver) hedef düğümleri otomatik olarak yapılandırmaları alması için bunları, belirtilen istenen duruma uyumlu ve uyumlulukları hakkında rapor.
+Yerleşik çekme sunucunun Azure Automation ayarlama ve kendi çekme sunucunuz gereğini ortadan kaldırır.
+Azure Otomasyonu sanal veya fiziksel Windows veya Linux makineler, bulutta veya şirket içi hedefleyebilirsiniz.
 
 ### <a name="management-of-all-your-dsc-artifacts"></a>Tüm DSC yapıları Yönetimi
 
-Azure Otomasyonu DSC getirir aynı yönetim katmanı çok hello[PowerShell istenen durum Yapılandırması](https://msdn.microsoft.com/powershell/dsc/overview) gibi Azure Otomasyonu PowerShell komut dosyası için sunar.
+Azure Otomasyonu DSC aynı yönetim katmanı getirir [PowerShell istenen durum Yapılandırması](https://msdn.microsoft.com/powershell/dsc/overview) gibi Azure Otomasyonu PowerShell komut dosyası için sunar.
 
-Hello Azure portal veya PowerShell, tüm, DSC yapılandırmalarını, kaynak ve hedef düğümleri yönetebilirsiniz.
+Azure portal veya PowerShell, tüm, DSC yapılandırmalarını, kaynak ve hedef düğümleri yönetebilirsiniz.
 
-![Hello Azure Otomasyonu dikey penceresi ekran görüntüsü](./media/automation-dsc-overview/azure-automation-blade.png)
+![Azure Otomasyonu dikey penceresi ekran görüntüsü](./media/automation-dsc-overview/azure-automation-blade.png)
 
 ### <a name="import-reporting-data-into-log-analytics"></a>Günlük analizi raporlama verilerini alma
 
-Azure Otomasyonu DSC'ye yönetilen düğümler ayrıntılı raporlama durum veri toohello yerleşik çekme sunucusuna gönderir.
-Bu veri tooyour Microsoft Operations Management Suite (OMS) günlük analizi çalışma alanı Azure Otomasyonu DSC toosend yapılandırabilirsiniz.
-toosend DSC durum veri tooyour günlük analizi çalışma alanı, nasıl görürüm toolearn [İleri Azure Otomasyonu veri tooOMS günlük analizi raporlama DSC](automation-dsc-diagnostics.md).
+Azure Otomasyonu DSC'ye yönetilen düğümler ayrıntılı raporlama Durum verilerini yerleşik çekme sunucusuna gönderir.
+Bu veriler, Microsoft Operations Management Suite (OMS) günlük analizi çalışma alanına göndermek için Azure Otomasyonu DSC yapılandırabilirsiniz.
+Günlük analizi çalışma alanına DSC Durum verilerini gönderme hakkında bilgi edinmek için bkz: [İleri Azure Otomasyonu OMS günlük analizi veri raporlama DSC](automation-dsc-diagnostics.md).
 
 ## <a name="introduction-video"></a>Tanıtım videosu
 
-Tooreading izlemeyi mi tercih ediyorsunuz? Mayıs 2015, ne zaman Azure Otomasyonu DSC ilk duyurulan video aşağıdaki hello göz vardır.
+Okumak yerine izlemeyi mi tercih ediyorsunuz? Aşağıdaki video Mayıs 2015, ne zaman Azure Otomasyonu DSC ilk duyurulan göz vardır.
 
 >[!NOTE]
->Merhaba kavramları ve bu videoda ele alınan ömrünü doğru olsa da, bu videonun kaydedilmesinden sonra Azure Otomasyonu DSC değişmiştir.
->Genel kullanıma sunulmuştur, hello Azure portal çok daha geniş bir kullanıcı Arabirimine sahiptir ve birçok ek özellikleri desteklemektedir.
+>Kavramlar ve bu videoda ele alınan ömrünü doğru olsa da, bu videonun kaydedilmesinden sonra Azure Otomasyonu DSC değişmiştir.
+>Genel kullanıma sunulmuştur, Azure Portal'da daha geniş bir kullanıcı Arabirimine sahiptir ve birçok ek özellikleri desteklemektedir.
 
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Azure Otomasyonu DSC'ye tooonboard düğümleri toobe yönetilen nasıl toolearn bakın [Azure Otomasyonu DSC tarafından Yönetim için hazırlama makineler](automation-dsc-onboarding.md)
-* Azure Automation DSC kullanmaya tooget bakın [Azure Otomasyonu DSC ile çalışmaya başlama](automation-dsc-getting-started.md)
-* toolearn tootarget düğümleri atayabilirsiniz bir DSC yapılandırmaları derleme hakkında bkz [Azure Otomasyonu DSC yapılandırmalarında derleme](automation-dsc-compile.md)
+* Bilgi edinmek için nasıl Azure Otomasyonu DSC'ye yönetilecek yerleşik düğümleri için bkz: [Azure Otomasyonu DSC tarafından Yönetim için hazırlama makineler](automation-dsc-onboarding.md)
+* Azure Automation DSC kullanmaya başlamak için bkz: [Azure Otomasyonu DSC ile çalışmaya başlama](automation-dsc-getting-started.md)
+* Böylece hedef düğümleri atayabilirsiniz DSC yapılandırmaları derleme hakkında bilgi edinmek için [Azure Otomasyonu DSC yapılandırmalarında derleme](automation-dsc-compile.md)
 * Azure Otomasyonu DSC için PowerShell cmdlet başvuru için bkz: [Azure Otomasyonu DSC cmdlet'leri](/powershell/module/azurerm.automation/#automation)
 * Fiyatlandırma bilgileri için bkz: [Azure Otomasyonu DSC fiyatlandırma](https://azure.microsoft.com/pricing/details/automation/)
-* toosee sürekli dağıtım ardışık düzeninde, Azure Automation DSC kullanmaya ilişkin bir örnek görmek [sürekli dağıtım tooIaaS VM'ler kullanarak Azure Otomasyonu DSC ve Chocolatey](automation-dsc-cd-chocolatey.md)
+* Sürekli dağıtım ardışık düzeninde Azure Automation DSC kullanmaya ilişkin bir örnek görmek için bkz: [Iaas VM'ler kullanarak Azure Otomasyonu DSC ve Chocolatey sürekli dağıtım](automation-dsc-cd-chocolatey.md)

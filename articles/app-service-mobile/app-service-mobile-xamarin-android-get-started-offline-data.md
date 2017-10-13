@@ -1,6 +1,6 @@
 ---
-title: "aaaEnable çevrimdışı eşitleme Azure mobil uygulamanızın (Xamarin Android)"
-description: "Bilgi nasıl toouse mobil uygulama hizmeti toocache ve eşitleme çevrimdışı veri Xamarin Android uygulamanızdaki"
+title: "Azure mobil uygulaması (Xamarin Android) için çevrimdışı eşitlemeyi etkinleştirme"
+description: "Önbellek ve eşitleme çevrimdışı verilere Xamarin Android uygulamanızda mobil uygulama hizmeti kullanmayı öğrenin"
 documentationcenter: xamarin
 author: ggailey777
 manager: syntaxc4
@@ -14,65 +14,65 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 216ba76ae49f583273cc61b63114a415eca2477b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 471433c7ef2f6f128210ed145f685b42b44eea92
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>Xamarin.Android mobil uygulamanız için çevrimdışı eşitlemeyi etkinleştirme
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu öğretici Xamarin.Android için Azure Mobile Apps hello çevrimdışı eşitleme özelliğini sunar. Çevrimdışı eşitleme son kullanıcıların toointeract görüntüleme, ekleme veya ağ bağlantısı olduğunda bile veri--değiştirme mobil bir uygulama ile--sağlar. Değişiklikler yerel bir veritabanında depolanır.
-Merhaba aygıt yeniden çevrimiçi olduktan sonra bu değişiklikleri hello uzak hizmeti ile eşitlenir.
+Bu öğretici Xamarin.Android için Azure Mobile Apps, çevrimdışı eşitleme özelliği sunmaktadır. Çevrimdışı eşitleme son kullanıcıların görüntüleme, ekleme veya ağ bağlantısı olduğunda bile veri--değiştirme bir mobil uygulamayla--etkileşime olanak sağlar. Değişiklikler yerel bir veritabanında depolanır.
+Cihaz yeniden çevrimiçi olduğunda, bu değişiklikleri uzak hizmeti ile eşitlenir.
 
-Bu öğreticide, hello istemci hello öğretici projeden güncelleştirme [bir Xamarin Android uygulaması oluşturma] toosupport hello Azure Mobile Apps çevrimdışı özellikleri. Kullanmıyorsanız, hızlı başlangıç sunucu projesi hello indirilen, hello veri erişim uzantı paketleri tooyour projesi eklemeniz gerekir. Server uzantısı paketleri hakkında daha fazla bilgi için bkz: [hello .NET arka uç sunucusu SDK ile Azure Mobile Apps için iş](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Bu öğreticide, öğreticiyi istemci projeden güncelleştirme [bir Xamarin Android uygulaması oluşturma] Azure Mobile Apps çevrimdışı özelliklerini desteklemek için. İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, veri erişim uzantısı paketlerini projenize eklemeniz gerekir. Server uzantısı paketleri hakkında daha fazla bilgi için bkz: [.NET arka uç sunucusu SDK ile Azure Mobile Apps için iş](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-Merhaba çevrimdışı eşitleme özelliği hakkında daha fazla toolearn hello konusuna bakın [Azure Mobile Apps çevrimdışı veri eşitleme].
+Çevrimdışı eşitleme özelliği hakkında daha fazla bilgi için Ek Yardım konusuna [Azure Mobile Apps çevrimdışı veri eşitleme].
 
-## <a name="update-hello-client-app-toosupport-offline-features"></a>Merhaba istemci uygulaması toosupport çevrimdışı özelliklere güncelleştirme
-Çevrimdışı bir senaryoda olduğunda azure mobil uygulama çevrimdışı özellikler, yerel bir veritabanı ile toointeract sağlar. toouse bu özellikler, uygulamanızda başlatma bir [SyncContext] tooa yerel deposu. Tablonuz hello [IMobileServiceSyncTable] [IMobileServiceSyncTable] aracılığıyla başvuru arabirimi. SQLite hello aygıtta hello yerel deposu olarak kullanılır.
+## <a name="update-the-client-app-to-support-offline-features"></a>Çevrimdışı özellikleri desteklemek için İstemci uygulamayı güncelleştirme
+Azure mobil uygulama çevrimdışı özellikler, çevrimdışı bir senaryoda olduğunda yerel bir veritabanı ile etkileşim kurmasına olanak sağlar. Bu özellikler, uygulamanızda kullanmak için başlatma bir [SyncContext] yerel depolama. Ardından tablonuz [IMobileServiceSyncTable] [IMobileServiceSyncTable] arabirimi aracılığıyla başvuru. SQLite yerel depolama aygıtında olarak kullanılır.
 
-1. Merhaba NuGet Paket Yöneticisi hello tamamlandı hello projesinde Visual Studio'da açın [bir Xamarin Android uygulaması oluşturma] Öğreticisi.  Arayıp hello Yükle **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet paketi.
-2. Merhaba ToDoActivity.cs dosyasını açın ve hello açıklamadan çıkarın `#define OFFLINE_SYNC_ENABLED` tanımı.
-3. Visual Studio'da hello basın **F5** anahtar toorebuild ve çalışma hello istemci uygulaması. Merhaba uygulaması çevrimdışı eşitleme etkinleştirilmeden önce onu aynı vermedi hello çalışır. Ancak, hello yerel veritabanı, artık çevrimdışı bir senaryoda kullanılabilir verilerle doldurulur.
+1. Visual Studio'da NuGet Paket Yöneticisi de tamamladığınız projesinde açın [bir Xamarin Android uygulaması oluşturma] Öğreticisi.  Arayın ve yükleyin **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet paketi.
+2. ToDoActivity.cs dosyasını açın ve açıklama durumundan çıkarmanız `#define OFFLINE_SYNC_ENABLED` tanımı.
+3. Visual Studio'da basın **F5** anahtarı yeniden oluşturun ve istemci uygulaması çalıştırın. Çevrimdışı eşitleme etkinleştirilmeden önce yaptığınız gibi uygulamayı aynı şekilde çalışır. Ancak, yerel veritabanı, artık çevrimdışı bir senaryoda kullanılabilir verilerle doldurulur.
 
-## <a name="update-sync"></a>Merhaba uygulama toodisconnect hello arka güncelleştir
-Bu bölümde, hello bağlantı tooyour mobil uygulama arka uç toosimulate bir çevrimdışı duruma bölün. Veri öğeleri eklediğinizde, özel durum işleyicisi, bu hello uygulama çevrimdışı modda olduğunu bildirir. Bu durumda, hello yerel eklenen yeni öğeler depolamak ve bağlı bir durumda bir itme çalıştırıldığında hello mobil uygulama arka ucuna eşitlenir.
+## <a name="update-sync"></a>Arka ucunuzdan bağlantısını kesmek için uygulamayı güncelleştirme
+Bu bölümde, bir çevrimdışı duruma benzetimini yapmak için mobil uygulama arka ucu için bağlantıyı kesin. Veri öğeleri eklediğinizde, özel durum işleyici uygulama çevrimdışı modda olduğunu söyler. Bu durumda, yeni öğeler yerel depoya eklendi ve bağlı bir durumda bir itme çalıştırıldığında mobil uygulama arka ucuna eşitlenir.
 
-1. ToDoActivity.cs hello paylaşılan projesinde düzenleyin. Değişiklik hello **applicationURL** toopoint tooan geçersiz URL:
+1. ToDoActivity.cs paylaşılan projesinde düzenleyin. Değişiklik **applicationURL** geçersiz bir URL'ye yönlendirin:
 
          const string applicationURL = @"https://your-service.azurewebsites.fail";
 
-    Ayrıca, wifi ve hello aygıt cep telefonu ağlarda devre dışı bırakma veya uçak modu kullanılarak çevrimdışı davranışı sergiler.
-2. Tuşuna **F5** hello uygulama toobuild ve çalıştırın. Ne zaman başlatılan uygulama hello üzerinde yenileme başarısız oldu, eşitleme dikkat edin.
-3. Yeni öğeler girin ve anında iletme her tıkladığınızda [CancelledByNetworkError] durumu ile başarısız fark **kaydetmek**. Ancak, toohello mobil uygulama arka ucu gönderilemez kadar hello yeni Yapılacaklar öğelerini hello yerel depoda mevcut.  Bir üretim hello istemci uygulaması hala gibi davranır bu özel durumlar bastırmak, uygulama toohello mobil uygulamanızın arka ucuna bağlı.
-4. Merhaba uygulamasını kapatın ve oluşturduğunuz hello yeni öğeler kalıcı toohello yerel deposu olduğunu tooverify yeniden başlatın.
-5. (İsteğe bağlı) Visual Studio'da açın **Sunucu Gezgini**. Tooyour veritabanında gidin **Azure**->**SQL veritabanları**. Veritabanınıza sağ tıklatıp **SQL Server nesne Gezgini'nde Aç**. Şimdi tooyour SQL veritabanı tablosunda ve içeriği göz atabilirsiniz. Merhaba arka uç veritabanı Hello verilerde değişmediğini doğrulayın.
-6. (İsteğe bağlı) Formda bir GET sorgu kullanarak, mobil arka uç Fiddler veya Postman tooquery gibi REST aracını `https://<your-mobile-app-backend-name>.azurewebsites.net/tables/TodoItem`.
+    Ayrıca, wifi ve aygıt cep telefonu ağlarda devre dışı bırakma veya uçak modu kullanılarak çevrimdışı davranışı sergiler.
+2. Tuşuna **F5** oluşturun ve uygulamayı çalıştırın. Uygulama başlatıldığında üzerinde yenileme başarısız oldu, eşitleme dikkat edin.
+3. Yeni öğeler girin ve anında iletme her tıkladığınızda [CancelledByNetworkError] durumu ile başarısız fark **kaydetmek**. Ancak, mobil uygulama arka ucuna gönderilemez kadar yeni Yapılacaklar öğelerini yerel depoda mevcut.  Bu özel durumlar bastırmak hala mobil uygulama arka ucuna bağlı olarak, bir üretim uygulamasında istemci uygulaması davranır.
+4. Uygulamasını kapatın ve oluşturduğunuz yeni öğeleri yerel depoya kalıcı olduğunu doğrulamak için yeniden başlatın.
+5. (İsteğe bağlı) Visual Studio'da açın **Sunucu Gezgini**. Veritabanınızda gidin **Azure**->**SQL veritabanları**. Veritabanınıza sağ tıklatıp **SQL Server nesne Gezgini'nde Aç**. Şimdi, SQL veritabanı tablosunda ve içeriği göz atabilirsiniz. Arka uç veritabanındaki verileri değişmediğini doğrulayın.
+6. (İsteğe bağlı) Bir REST Fiddler veya Postman gibi biçiminde bir GET sorgu kullanarak, mobil arka uç sorgu aracını `https://<your-mobile-app-backend-name>.azurewebsites.net/tables/TodoItem`.
 
-## <a name="update-online-app"></a>Mobil uygulama arka Hello uygulama tooreconnect güncelleştir
-Bu bölümde, hello uygulama toohello mobil uygulama arka ucu yeniden bağlanın. Merhaba uygulaması ilk kez çalıştırdığınızda, hello `OnCreate` olay işleyicisi çağrılarını `OnRefreshItemsSelected`. Bu yöntemi çağırır `SyncAsync` yerel depolama hello arka uç veritabanı ile toosync.
+## <a name="update-online-app"></a>Mobil uygulama arka yeniden bağlanmak için uygulamayı güncelleştirme
+Bu bölümde, mobil uygulama arka ucu uygulamaya yeniden bağlanın. Uygulama ilk kez çalıştırdığınızda `OnCreate` olay işleyicisi çağrılarını `OnRefreshItemsSelected`. Bu yöntemi çağırır `SyncAsync` yerel deponuza arka uç veritabanı ile eşitlemek için.
 
-1. ToDoActivity.cs hello paylaşılan projeyi açın ve hello değişikliğinizi geri **applicationURL** özelliği.
-2. Tuşuna hello **F5** anahtar toorebuild ve çalışma hello uygulama. Merhaba uygulama yerel değişikliklerinizi anında iletme ve çekme işlemlerini hello kullanarak hello Azure mobil uygulama arka ucu ile eşitlenen `OnRefreshItemsSelected` yöntemini yürütür.
-3. (İsteğe bağlı) SQL Server Nesne Gezgini veya Fiddler gibi bir REST araç kullanarak veri görünümü hello güncelleştirildi. Bildirim hello veri hello Azure mobil uygulama arka uç veritabanı ve hello yerel deposu arasında eşitlendi.
-4. Merhaba uygulamanın hello onay tıklayın birkaç öğeleri toocomplete bunları hello yerel deposunda kutusu.
+1. Paylaşılan projesinde ToDoActivity.cs açın ve, değişikliği geri **applicationURL** özelliği.
+2. Tuşuna **F5** anahtarı yeniden oluşturmak ve uygulamayı çalıştırmak için. Uygulama yerel değişikliklerinizi anında iletme ve çekme işlemlerini kullanarak Azure mobil uygulama arka ucu ile eşitlenen zaman `OnRefreshItemsSelected` yöntemini yürütür.
+3. (İsteğe bağlı) SQL Server Nesne Gezgini veya Fiddler gibi bir REST araç kullanılarak güncelleştirilmiş verileri görüntüleyin. Bildirim verileri Azure mobil uygulama arka uç veritabanı ve yerel depo arasında eşitlendi.
+4. Uygulamada, yerel depoda tamamlanması birkaç öğelerin yanındaki onay kutusuna tıklayın.
 
-   `CheckItem`çağrıları `SyncAsync` hello mobil uygulama arka ucu ile tamamlandı toosync her öğesi. `SyncAsync`hem İtme hem de çekme çağırır. **Bir tabloda bir çekme yürütme zaman hello istemci yapılan değişiklikler için bir itme her zaman otomatik olarak yürütülür**. Bu, tüm tabloları ilişkileri yanı sıra Yerel Depodaki tutarlı kalmasını sağlar. Bu davranış beklenmeyen bir itme neden olabilir. Bu davranış hakkında daha fazla bilgi için bkz: [Azure Mobile Apps çevrimdışı veri eşitleme].
+   `CheckItem`çağrıları `SyncAsync` mobil uygulama arka ucu ile Eşitleme tamamlandı her öğesine. `SyncAsync`hem İtme hem de çekme çağırır. **İstemci için değişiklikler yaptı bir tabloda bir çekme execute olduğunda, bir itme her zaman otomatik olarak yürütülmeden**. Bu, tüm tabloları ilişkileri yanı sıra Yerel Depodaki tutarlı kalmasını sağlar. Bu davranış beklenmeyen bir itme neden olabilir. Bu davranış hakkında daha fazla bilgi için bkz: [Azure Mobile Apps çevrimdışı veri eşitleme].
 
-## <a name="review-hello-client-sync-code"></a>Merhaba istemci eşitleme kodu gözden geçirme
-Başlangıç Öğreticisi tamamlandığında yüklediğiniz hello Xamarin istemci projesi [bir Xamarin Android uygulaması oluşturma] zaten yerel bir SQLite veritabanı kullanarak çevrimdışı eşitlemeyi destekleyen kodunu içerir. Burada, hello Eğitmen kodu zaten eklenmiş bir kısa genel bakış verilmiştir. Merhaba özelliği kavramsal bir genel bakış için bkz: [Azure Mobile Apps çevrimdışı veri eşitleme].
+## <a name="review-the-client-sync-code"></a>İstemci eşitleme kodu gözden geçirme
+Öğretici tamamlandığında yüklediğiniz Xamarin istemci projesi [bir Xamarin Android uygulaması oluşturma] zaten yerel bir SQLite veritabanı kullanarak çevrimdışı eşitlemeyi destekleyen kodunu içerir. Aşağıda, öğretici kodu zaten eklenmiş bir kısa genel bakış verilmiştir. Özellik kavramsal bir genel bakış için bkz: [Azure Mobile Apps çevrimdışı veri eşitleme].
 
-* Tablo işlemleri gerçekleştirilmeden önce hello yerel depolama başlatılmalıdır. Merhaba yerel deposu veritabanı başlatılmış zaman `ToDoActivity.OnCreate()` yürütür `ToDoActivity.InitLocalStoreAsync()`. Bu yöntem hello kullanarak yerel bir SQLite veritabanı oluşturur `MobileServiceSQLiteStore` hello Azure Mobile Apps istemci SDK'sı tarafından sağlanan sınıfı.
+* Tablo işlemleri gerçekleştirilmeden önce yerel deposu başlatılması gerekir. Yerel deposu veritabanı başlatılmış zaman `ToDoActivity.OnCreate()` yürütür `ToDoActivity.InitLocalStoreAsync()`. Bu yöntem, yerel SQLite kullanarak bir veritabanı oluşturur `MobileServiceSQLiteStore` Azure Mobile Apps istemci SDK'sı tarafından sağlanan sınıfı.
 
-    Merhaba `DefineTable` yöntemi, sağlanan hello türündeki hello alanlar eşleşen hello yerel deposunda bir tablo oluşturur `ToDoItem` bu durumda. Merhaba türü tooinclude hello uzak veritabanındaki tüm hello sütunları yok. Bu, olası toostore yalnızca bir sütun alt kümesi olur.
+    `DefineTable` Yöntemi, sağlanan türü alanları eşleşen yerel deposunda bir tablo oluşturur `ToDoItem` bu durumda. Türü Uzak veritabanında bulunan tüm sütunlar içermesi gerekmez. Yalnızca bir sütun alt kümesini depolamak mümkündür.
 
         // ToDoActivity.cs
         private async Task InitLocalStoreAsync()
         {
-            // new code tooinitialize hello SQLite store
+            // new code to initialize the SQLite store
             string path = Path.Combine(System.Environment
                 .GetFolderPath(System.Environment.SpecialFolder.Personal), localDbFilename);
 
@@ -84,18 +84,18 @@ Başlangıç Öğreticisi tamamlandığında yüklediğiniz hello Xamarin istemc
             var store = new MobileServiceSQLiteStore(path);
             store.DefineTable<ToDoItem>();
 
-            // Uses hello default conflict handler, which fails on conflict
-            // toouse a different conflict handler, pass a parameter tooInitializeAsync.
+            // Uses the default conflict handler, which fails on conflict
+            // To use a different conflict handler, pass a parameter to InitializeAsync.
             // For more details, see http://go.microsoft.com/fwlink/?LinkId=521416.
             await client.SyncContext.InitializeAsync(store);
         }
-* Merhaba `toDoTable` üyesi `ToDoActivity` hello olan `IMobileServiceSyncTable` yerine tür `IMobileServiceTable`. Merhaba IMobileServiceSyncTable tüm oluşturma, okuma, güncelleştirme ve (CRUD) tablo işlemleri toohello yerel deposu veritabanı silme yönlendirir.
+* `toDoTable` Üyesi `ToDoActivity` değil `IMobileServiceSyncTable` yerine tür `IMobileServiceTable`. IMobileServiceSyncTable tüm oluşturma, okuma, güncelleştirme ve silme (CRUD) tablo işlemleri yerel depolama alanı veritabanına yönlendirir.
 
-    Ne zaman değişiklikleri toohello Azure mobil uygulama arka ucu çağırarak gönderilen karar `IMobileServiceSyncContext.PushAsync()`. Merhaba eşitleme bağlamı tablo ilişkileri izleme ve bir istemci uygulaması değiştiren tüm tablolarda değişiklikleri Ftp'den korunmasına yardımcı olur `PushAsync` olarak adlandırılır.
+    Ne zaman değişiklikleri Azure mobil uygulama arka ucuna çağırarak gönderilen karar `IMobileServiceSyncContext.PushAsync()`. Eşitleme bağlamı izleme ve bir istemci uygulaması değiştiren tüm tablolarda değişiklikleri Ftp'den tablo ilişkileri korunmasına yardımcı olur `PushAsync` olarak adlandırılır.
 
-    sağlanan hello kod çağrıları `ToDoActivity.SyncAsync()` hello todoıtem listesi yenilenir veya todoıtem eklenen veya tamamlanan her toosync. Merhaba kod eşitlemeler her yerel değişiklikten sonra.
+    Sağlanan kod çağrıları `ToDoActivity.SyncAsync()` todoıtem liste yenilendiğinde veya todoıtem eklenen veya tamamlanan her eşitleme. Kod eşitlemeler her yerel değişiklikten sonra.
 
-    Sağlanan hello kodda, tüm kayıtları hello uzak `TodoItem` tablo sorgulanabilir ancak sorgu kimliği ve sorgu geçirerek da olası toofilter kayıtları olan çok`PushAsync`. Daha fazla bilgi için hello bölümüne bakın *Artımlı eşitleme* içinde [Azure Mobile Apps çevrimdışı veri eşitleme].
+    Sağlanan kodda, tüm kayıtları uzaktan `TodoItem` tablo sorgulanabilir ancak sorgu kimliği geçirerek kayıtlarını filtreleyip için sorgu mümkündür `PushAsync`. Daha fazla bilgi için bkz *Artımlı eşitleme* içinde [Azure Mobile Apps çevrimdışı veri eşitleme].
 
         // ToDoActivity.cs
         private async Task SyncAsync()
@@ -104,7 +104,7 @@ Başlangıç Öğreticisi tamamlandığında yüklediğiniz hello Xamarin istemc
                 await client.SyncContext.PushAsync();
                 await toDoTable.PullAsync("allTodoItems", toDoTable.CreateQuery()); // query ID is used for incremental sync
             } catch (Java.Net.MalformedURLException) {
-                CreateAndShowDialog (new Exception ("There was an error creating hello Mobile Service. Verify hello URL"), "Error");
+                CreateAndShowDialog (new Exception ("There was an error creating the Mobile Service. Verify the URL"), "Error");
             } catch (Exception e) {
                 CreateAndShowDialog (e, "Error");
             }

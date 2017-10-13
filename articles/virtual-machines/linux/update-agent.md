@@ -1,6 +1,6 @@
 ---
-title: "aaaUpdate hello Azure Linux Aracısı github'dan | Microsoft Docs"
-description: "Bilgi nasıl tooupdate github'dan Azure toohello en son sürümünde, Linux VM için Azure Linux Aracısı"
+title: "Github'dan Azure Linux Aracısı güncelleştirme | Microsoft Docs"
+description: "Azure Linux Aracısı, Azure Linux VM'de için en son sürüme Github'dan güncelleştirme konusunda bilgi edinin"
 services: virtual-machines-linux
 documentationcenter: 
 author: SuperScottz
@@ -15,22 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mingzhan
-ms.openlocfilehash: 4ce7c56efc1e6563e6415f7687573f9fb9e7b4c3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c79e37976a58ae5384b5856e0f7f258a773ef0fd
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="how-tooupdate-hello-azure-linux-agent-on-a-vm"></a>Nasıl tooupdate hello Azure Linux Aracısı'nı bir VM
+# <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Bir VM üzerinde Azure Linux Aracısı güncelleştirme
 
-tooupdate, [Azure Linux Aracısı](https://github.com/Azure/WALinuxAgent) azure'da bir Linux VM üzerinde önceden olmanız gerekir:
+Güncelleştirmek için [Azure Linux Aracısı](https://github.com/Azure/WALinuxAgent) azure'da bir Linux VM üzerinde önceden olmanız gerekir:
 
 - Azure'da çalışan bir Linux VM.
-- Bağlantı toothat Linux VM SSH kullanarak.
+- SSH kullanarak, Linux VM bağlantı.
 
-Her zaman hello Linux distro deposundaki bir paket için ilk denetlemelisiniz. Mümkünse kullanılabilir hello paketi hello en son sürümünü değil olabilir, ancak, Otomatik Güncelleştirme'yi etkinleştirme hello Linux Aracısı her zaman hello en son güncelleştirmeyi alın garanti eder. Merhaba paket yöneticileri yüklerken sorunlarla olmalıdır, destek hello distro satıcıdan arama.
+Her zaman Linux distro depodaki bir paket için ilk denetlemelisiniz. Kullanılabilir paketi otomatik güncelleştirme'yi etkinleştirme en son sürümü, ancak, Linux Aracısı'nı her zaman en son güncelleştirmeleri al sağlayacak olmayabilir mümkündür. Paket yöneticileri yüklerken sorunlarla olmalıdır, destek distro satıcıdan arama.
 
-## <a name="updating-hello-azure-linux-agent"></a>Hello Azure Linux Aracısı güncelleştirme
+## <a name="updating-the-azure-linux-agent"></a>Azure Linux Aracısı'nı güncelleştirme
 
 ## <a name="ubuntu"></a>Ubuntu
 
@@ -46,7 +46,7 @@ apt list --installed | grep walinuxagent
 sudo apt-get -qq update
 ```
 
-#### <a name="install-hello-latest-package-version"></a>Merhaba son Paket sürümü yükleyin
+#### <a name="install-the-latest-package-version"></a>Son paket sürümü yükleyin
 
 ```bash
 sudo apt-get install walinuxagent
@@ -54,7 +54,7 @@ sudo apt-get install walinuxagent
 
 #### <a name="ensure-auto-update-is-enabled"></a>Otomatik güncelleştirme etkinleştirildiğinden emin olun
 
-Etkinleştirilirse, ilk olarak, toosee denetleyin:
+İlk olarak, etkin olup olmadığını denetleyin:
 
 ```bash
 cat /etc/waagent.conf
@@ -67,13 +67,13 @@ cat /etc/waagent.conf
 AutoUpdate.Enabled=y
 ```
 
-tooenable çalıştırın:
+Çalışma etkinleştirmek için:
 
 ```bash
 sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
-### <a name="restart-hello-waagent-service"></a>Merhaba waagent hizmetini yeniden başlatın
+### <a name="restart-the-waagent-service"></a>Waagent hizmetini yeniden başlatın
 
 #### <a name="restart-agent-for-1404"></a>14.04 için aracıyı yeniden başlatın
 
@@ -103,14 +103,14 @@ dpkg -l | grep waagent
 sudo apt-get -qq update
 ```
 
-#### <a name="install-hello-latest-package-version"></a>Merhaba son Paket sürümü yükleyin
+#### <a name="install-the-latest-package-version"></a>Son paket sürümü yükleyin
 
 ```bash
 sudo apt-get install waagent
 ```
 
 #### <a name="enable-agent-auto-update"></a>Aracı için otomatik güncelleştirmeyi etkinleştir
-Debian bu sürümü bir sürümü mevcut değil > = 2.0.16, bu nedenle edinebilmeleri için kullanılamıyor. Merhaba komutu yukarıda Hello çıktısını hello paket güncel olup olmadığını gösterir.
+Debian bu sürümü bir sürümü mevcut değil > = 2.0.16, bu nedenle edinebilmeleri için kullanılamıyor. Yukarıdaki komut çıktısı paket güncel olup olmadığını gösterir.
 
 ### <a name="debian-8-jessie--debian-9-stretch"></a>Debian 8 "Jessie" / "Debian 9 uzatma"
 
@@ -126,14 +126,14 @@ apt list --installed | grep walinuxagent
 sudo apt-get -qq update
 ```
 
-#### <a name="install-hello-latest-package-version"></a>Merhaba son Paket sürümü yükleyin
+#### <a name="install-the-latest-package-version"></a>Son paket sürümü yükleyin
 
 ```bash
 sudo apt-get install waagent
 ```
 #### <a name="ensure-auto-update-is-enabled"></a>Otomatik güncelleştirme etkinleştirildiğinden emin olun 
 
-Etkinleştirilirse, ilk olarak, toosee denetleyin:
+İlk olarak, etkin olup olmadığını denetleyin:
 
 ```bash
 cat /etc/waagent.conf
@@ -146,13 +146,13 @@ cat /etc/waagent.conf
 AutoUpdate.Enabled=y
 ```
 
-tooenable çalıştırın:
+Çalışma etkinleştirmek için:
 
 ```bash
 sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
-### <a name="restart-hello-waagent-service"></a>Merhaba waagent hizmetini yeniden başlatın
+### <a name="restart-the-waagent-service"></a>Waagent hizmetini yeniden başlatın
 
 ```
 sudo systemctl restart walinuxagent.service
@@ -174,7 +174,7 @@ sudo yum list WALinuxAgent
 sudo yum check-update WALinuxAgent
 ```
 
-#### <a name="install-hello-latest-package-version"></a>Merhaba son Paket sürümü yükleyin
+#### <a name="install-the-latest-package-version"></a>Son paket sürümü yükleyin
 
 ```bash
 sudo yum install WALinuxAgent
@@ -182,7 +182,7 @@ sudo yum install WALinuxAgent
 
 #### <a name="ensure-auto-update-is-enabled"></a>Otomatik güncelleştirme etkinleştirildiğinden emin olun 
 
-Etkinleştirilirse, ilk olarak, toosee denetleyin:
+İlk olarak, etkin olup olmadığını denetleyin:
 
 ```bash
 cat /etc/waagent.conf
@@ -195,13 +195,13 @@ cat /etc/waagent.conf
 AutoUpdate.Enabled=y
 ```
 
-tooenable çalıştırın:
+Çalışma etkinleştirmek için:
 
 ```bash
 sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
-### <a name="restart-hello-waagent-service"></a>Merhaba waagent hizmetini yeniden başlatın
+### <a name="restart-the-waagent-service"></a>Waagent hizmetini yeniden başlatın
 
 ```
 sudo service waagent restart
@@ -221,7 +221,7 @@ sudo yum list WALinuxAgent
 sudo yum check-update WALinuxAgent
 ```
 
-#### <a name="install-hello-latest-package-version"></a>Merhaba son Paket sürümü yükleyin
+#### <a name="install-the-latest-package-version"></a>Son paket sürümü yükleyin
 
 ```bash
 sudo yum install WALinuxAgent  
@@ -229,7 +229,7 @@ sudo yum install WALinuxAgent
 
 #### <a name="ensure-auto-update-is-enabled"></a>Otomatik güncelleştirme etkinleştirildiğinden emin olun 
 
-Etkinleştirilirse, ilk olarak, toosee denetleyin:
+İlk olarak, etkin olup olmadığını denetleyin:
 
 ```bash
 cat /etc/waagent.conf
@@ -242,13 +242,13 @@ cat /etc/waagent.conf
 AutoUpdate.Enabled=y
 ```
 
-tooenable çalıştırın:
+Çalışma etkinleştirmek için:
 
 ```bash
 sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
-### <a name="restart-hello-waagent-service"></a>Merhaba waagent hizmetini yeniden başlatın
+### <a name="restart-the-waagent-service"></a>Waagent hizmetini yeniden başlatın
 
 ```bash
 sudo systemctl restart waagent.service
@@ -266,9 +266,9 @@ zypper info python-azure-agent
 
 #### <a name="check-available-updates"></a>Kullanılabilir güncelleştirmeleri denetle
 
-Çıktı yukarıda Hello hello paket toodate olup olmadığını gösterir.
+Yukarıdaki çıkış paketi güncel olup olmadığını gösterir.
 
-#### <a name="install-hello-latest-package-version"></a>Merhaba son Paket sürümü yükleyin
+#### <a name="install-the-latest-package-version"></a>Son paket sürümü yükleyin
 
 ```bash
 sudo zypper install python-azure-agent
@@ -276,7 +276,7 @@ sudo zypper install python-azure-agent
 
 #### <a name="ensure-auto-update-is-enabled"></a>Otomatik güncelleştirme etkinleştirildiğinden emin olun 
 
-Etkinleştirilirse, ilk olarak, toosee denetleyin:
+İlk olarak, etkin olup olmadığını denetleyin:
 
 ```bash
 cat /etc/waagent.conf
@@ -289,13 +289,13 @@ cat /etc/waagent.conf
 AutoUpdate.Enabled=y
 ```
 
-tooenable çalıştırın:
+Çalışma etkinleştirmek için:
 
 ```bash
 sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
-### <a name="restart-hello-waagent-service"></a>Merhaba waagent hizmetini yeniden başlatın
+### <a name="restart-the-waagent-service"></a>Waagent hizmetini yeniden başlatın
 
 ```bash
 sudo /etc/init.d/waagent restart
@@ -311,9 +311,9 @@ zypper info python-azure-agent
 
 #### <a name="check-available-updates"></a>Kullanılabilir güncelleştirmeleri denetle
 
-Yukarıdaki hello gelen Hello çıktısında, bu, hello paket değerine kadar tarih olup olmadığını gösterir.
+Yukarıdaki çıktıda Bu, paket değerine kadar tarih olup olmadığını gösterir.
 
-#### <a name="install-hello-latest-package-version"></a>Merhaba son Paket sürümü yükleyin
+#### <a name="install-the-latest-package-version"></a>Son paket sürümü yükleyin
 
 ```bash
 sudo zypper install python-azure-agent
@@ -321,7 +321,7 @@ sudo zypper install python-azure-agent
 
 #### <a name="ensure-auto-update-is-enabled"></a>Otomatik güncelleştirme etkinleştirildiğinden emin olun 
 
-Etkinleştirilirse, ilk olarak, toosee denetleyin:
+İlk olarak, etkin olup olmadığını denetleyin:
 
 ```bash
 cat /etc/waagent.conf
@@ -334,13 +334,13 @@ cat /etc/waagent.conf
 AutoUpdate.Enabled=y
 ```
 
-tooenable çalıştırın:
+Çalışma etkinleştirmek için:
 
 ```bash
 sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
-### <a name="restart-hello-waagent-service"></a>Merhaba waagent hizmetini yeniden başlatın
+### <a name="restart-the-waagent-service"></a>Waagent hizmetini yeniden başlatın
 
 ```bash
 sudo systemctl restart waagent.service
@@ -348,15 +348,15 @@ sudo systemctl restart waagent.service
 
 ## <a name="oracle-6-and-7"></a>Oracle 6 ve 7
 
-Oracle Linux için bu hello emin `Addons` depo etkindir. Tooedit hello dosya `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) veya `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux) hello satır değiştirip `enabled=0` çok`enabled=1` altında **[ol6_addons]** veya **[ol7_addons]** Bu dosyada.
+Oracle Linux için olduğundan emin olun `Addons` depo etkindir. Dosyayı düzenlemek seçin `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) veya `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux), satır değiştirip `enabled=0` için `enabled=1` altında **[ol6_addons]** veya **[ol7_addons]** bu dosyadaki.
 
-Ardından, tooinstall hello en son sürümünü hello Azure Linux Aracısı, türü:
+Ardından, Azure Linux Aracısı'nın en son sürümünü yüklemek için şunu yazın:
 
 ```bash
 sudo yum install WALinuxAgent
 ```
 
-Merhaba eklenti deposu bulamazsanız hello tooyour Oracle Linux sürüm göre .repo dosyanızı sonunda bu satırları yalnızca ekleyebilirsiniz:
+Eklenti deposu bulamazsanız, Oracle Linux sürüme göre .repo dosyanızı sonunda bu satırları yalnızca ekleyebilirsiniz:
 
 Oracle Linux 6 sanal makineler için:
 
@@ -386,15 +386,15 @@ Ardından yazın:
 sudo yum update WALinuxAgent
 ```
 
-Genellikle tüm tooinstall gereken herhangi bir nedenden dolayı doğrudan https://github.com aşağıdaki kullanım hello ondan adımlar varsa ancak, gereken budur.
+Genellikle tüm gerekir, ancak herhangi bir nedenden dolayı doğrudan https://github.com yüklemeniz gerekiyorsa, aşağıdaki adımları kullanın budur.
 
 
-## <a name="update-hello-linux-agent-when-no-agent-package-exists-for-distribution"></a>Dağıtım için hiçbir aracı paketi mevcut olduğunda hello Linux Aracısı güncelleştirme
+## <a name="update-the-linux-agent-when-no-agent-package-exists-for-distribution"></a>Dağıtım için hiçbir aracı paketi mevcut olduğunda Linux aracısını güncelleştirme
 
-(Varsayılan olarak, Redhat, CentOS ve Oracle Linux sürümleri 6.4 ve 6.5 gibi yüklemeyin bazı distro'lar vardır) wget yazarak yüklemek `sudo yum install wget` hello komut satırında.
+(Varsayılan olarak, Redhat, CentOS ve Oracle Linux sürümleri 6.4 ve 6.5 gibi yüklemeyin bazı distro'lar vardır) wget yazarak yüklemek `sudo yum install wget` komut satırında.
 
-### <a name="1-download-hello-latest-version"></a>1. Merhaba en son sürümünü indirme
-Açık [hello github'da Azure Linux Aracısı sürümü](https://github.com/Azure/WALinuxAgent/releases) bir web sayfası ve hello en son sürüm numarasını öğrenin. (Geçerli sürümünüzü yazarak bulabilirsiniz `waagent --version`.)
+### <a name="1-download-the-latest-version"></a>1. En son sürümü yükleyin
+Açık [github'da Azure Linux Aracısı sürüm](https://github.com/Azure/WALinuxAgent/releases) bir web sayfası ve en son sürüm numarasını öğrenin. (Geçerli sürümünüzü yazarak bulabilirsiniz `waagent --version`.)
 
 #### <a name="for-version-22x-or-later-type"></a>Sürüm için 2.2.x veya daha sonra yazın:
 ```bash
@@ -403,7 +403,7 @@ unzip v2.2.x.zip.zip
 cd WALinuxAgent-2.2.x
 ```
 
-Merhaba aşağıdaki satırı sürüm 2.2.0 örnek olarak kullanılmıştır:
+Aşağıdaki satırı sürüm 2.2.0 örnek olarak kullanılmıştır:
 
 ```bash
 wget https://github.com/Azure/WALinuxAgent/archive/v2.2.14.zip
@@ -411,10 +411,10 @@ unzip v2.2.14.zip
 cd WALinuxAgent-2.2.14
 ```
 
-### <a name="2-install-hello-azure-linux-agent"></a>2. Hello Azure Linux Aracısı yükleme
+### <a name="2-install-the-azure-linux-agent"></a>2. Azure Linux Aracısı'nı yükleme
 
 #### <a name="for-version-22x-use"></a>Sürüm için 2.2.x, kullanın:
-Tooinstall hello paket gerekebilir `setuptools` ilk--bkz [burada](https://pypi.python.org/pypi/setuptools). Ardından çalıştırın:
+Paket yüklemeniz gerekebilir `setuptools` ilk--bkz [burada](https://pypi.python.org/pypi/setuptools). Ardından çalıştırın:
 
 ```bash
 sudo python setup.py install
@@ -422,7 +422,7 @@ sudo python setup.py install
 
 #### <a name="ensure-auto-update-is-enabled"></a>Otomatik güncelleştirme etkinleştirildiğinden emin olun
 
-Etkinleştirilirse, ilk olarak, toosee denetleyin:
+İlk olarak, etkin olup olmadığını denetleyin:
 
 ```bash
 cat /etc/waagent.conf
@@ -435,13 +435,13 @@ cat /etc/waagent.conf
 AutoUpdate.Enabled=y
 ```
 
-tooenable çalıştırın:
+Çalışma etkinleştirmek için:
 
 ```bash
 sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
-### <a name="3-restart-hello-waagent-service"></a>3. Merhaba waagent hizmetini yeniden başlatın
+### <a name="3-restart-the-waagent-service"></a>3. Waagent hizmetini yeniden başlatın
 Linux distro'lar çoğu için:
 
 ```bash
@@ -460,14 +460,14 @@ CoreOS için kullanın:
 sudo systemctl restart waagent
 ```
 
-### <a name="4-confirm-hello-azure-linux-agent-version"></a>4. Hello Azure Linux Aracısı sürüm onaylayın
+### <a name="4-confirm-the-azure-linux-agent-version"></a>4. Azure Linux Aracısı sürüm onaylayın
     
 ```bash
 waagent -version
 ```
 
-CoreOS için yukarıdaki komut hello çalışmayabilir.
+CoreOS için yukarıdaki komut çalışmayabilir.
 
-Bu hello Azure Linux Aracısı sürüm toohello yeni sürümü güncelleştirilmiş görürsünüz.
+Azure Linux Aracısı sürüm yeni sürüme güncelleştirilip güncelleştirilmediğini görürsünüz.
 
-Hello Azure Linux Aracısı ile ilgili daha fazla bilgi için bkz: [Azure Linux Aracısı Benioku](https://github.com/Azure/WALinuxAgent).
+Azure Linux Aracısı ile ilgili daha fazla bilgi için bkz: [Azure Linux Aracısı Benioku](https://github.com/Azure/WALinuxAgent).

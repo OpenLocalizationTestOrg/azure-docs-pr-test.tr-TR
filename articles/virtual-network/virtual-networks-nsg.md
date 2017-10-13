@@ -1,6 +1,6 @@
 ---
-title: "azure'da aaaNetwork güvenlik grupları | Microsoft Docs"
-description: "Tooisolate ve denetim trafiğinin nasıl gerçekleştiğini ağ güvenlik gruplarını kullanarak Azure'da hello dağıtılmış Güvenlik Duvarı'nı kullanarak sanal ağlarınıza içinde öğrenin."
+title: "Azure’da ağ güvenlik grupları | Microsoft Docs"
+description: "Azure'daki dağıtılmış güvenlik duvarını kullanan sanal ağlarınızdaki trafik akışını yalıtmak ve denetlemek için Ağ Güvenlik Gruplarının nasıl kullanılacağı konusunda bilgi edinin."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,68 +14,68 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: 3528ce833dab17977327c3c9ae0e78316e5e6a05
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: fac6ee69b5f0377e0515ac9abeb28788cbef9b79
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Ağ güvenlik grupları ile ağ trafiğini filtreleme
 
-Bir ağ güvenlik grubu (NSG) izin veren veya reddeden ağ trafiği tooresources tooAzure sanal ağ (VNet) bağlı güvenlik kurallarının bir listesini içerir. Nsg'ler ilişkili toosubnets, tek tek sanal makineleri (Klasik) olabilir veya tek tek ağ arabirimleri (NIC) tooVMs (Resource Manager) bağlı. Bir NSG'yi ilişkili tooa alt olduğunda hello kuralları tooall kaynaklara bağlı toohello alt uygulayın. Trafik daha da bir NSG tooa VM veya NIC ilişkilendirerek kısıtlanabilir
+Ağ güvenlik grubu (NSG), Azure Sanal Ağlara (VNet) bağlı kaynaklara ağ trafiğine izin veren veya reddeden güvenlik kurallarının listesini içerir. Ağ güvenlik grupları (NSG’ler), alt ağlarla, ayrı ayrı VM’lerle (klasik) veya VM’lere bağlı ağ arabirimleri ile ilişkilendirilebilir (Resource Manager). Bir NSG bir alt ağ ile ilişkilendirildiğinde kurallar alt ağa bağlı tüm kaynaklar için geçerli olur. Bir NSG’nin bir VM veya ağ arabirimi ile ilişkilendirilmesi yoluyla da trafik kısıtlanabilir.
 
 > [!NOTE]
-> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../resource-manager-deployment-model.md). Bu makalede, her iki modeli kullanarak yer almaktadır, ancak Microsoft, en yeni dağıtımların hello Resource Manager modelini kullanmasını önerir.
+> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../resource-manager-deployment-model.md). Bu makale her iki modelin de nasıl kullanıldığını kapsıyor olsa da, Microsoft en yeni dağıtımların Resource Manager modelini kullanmasını önermektedir.
 
 ## <a name="nsg-resource"></a>NSG kaynağı
-Nsg'ler aşağıdaki özelliklere hello içerir:
+NSG'ler aşağıdaki özellikleri içerir:
 
 | Özellik | Açıklama | Kısıtlamalar | Dikkat edilmesi gerekenler |
 | --- | --- | --- | --- |
-| Ad |Merhaba NSG için ad |Merhaba bölge içinde benzersiz olmalıdır.<br/>Harf, sayı, alt çizgi, nokta ve kısa çizgi içerebilir.<br/>Bir harf veya sayı ile başlamalıdır.<br/>Bir harf, sayı veya alt çizgi ile bitmelidir.<br/>80 karakterden uzun olamaz. |Birden fazla Nsg toocreate gerekebileceği kolay tooidentify hello işlevi nsg'lerinizin kolaylaştıran bir adlandırma kuralınızın bulunduğundan emin olun. |
-| Bölge |Azure [bölge](https://azure.microsoft.com/regions) burada hello NSG oluşturulur. |Nsg'ler yalnızca ilişkili tooresources hello içinde olması hello NSG aynı bölgede. |kaç adet Nsg'ye hakkında toolearn bölge başına olabilir okuma hello [Azure sınırlar](../azure-subscription-service-limits.md#virtual-networking-limits-classic) makalesi.|
-| Kaynak grubu |Merhaba [kaynak grubu](../azure-resource-manager/resource-group-overview.md#resource-groups) hello NSG bulunmaktadır. |Bir NSG bir kaynak grubunda var ancak hello kaynak hello parçası olduğu sürece, herhangi bir kaynak grubunda ilişkili tooresources olabilir hello NSG olduğu Azure bölgesinin. |Kaynak grupları birden çok kaynak birlikte bir dağıtım birimi olarak kullanılan toomanage yok.<br/>Merhaba NSG'yi ilişkili olduğu kaynaklarla gruplandırmayı değerlendirebilirsiniz. |
-| Kurallar |Hangi trafiklere izin verildiğini veya reddedildiğini tanımlayan gelen veya giden kuralları. | |Merhaba bkz [NSG kuralları](#Nsg-rules) bu makalenin. |
+| Ad |NSG'nin adı |Bölge içinde benzersiz olmalıdır.<br/>Harf, sayı, alt çizgi, nokta ve kısa çizgi içerebilir.<br/>Bir harf veya sayı ile başlamalıdır.<br/>Bir harf, sayı veya alt çizgi ile bitmelidir.<br/>80 karakterden uzun olamaz. |Birden fazla NSG oluşturmanız gerekebileceği için NSG'lerinizin işlevini tanımlamanızı kolaylaştıran bir adlandırma kuralınızın bulunduğundan emin olun. |
+| Bölge |NSG'nin oluşturulduğu Azure [bölgesi](https://azure.microsoft.com/regions). |NSG’ler yalnızca NSG ile aynı bölgede bulunan kaynaklarla ilişkilendirilebilir. |Bir bölgede kaç tane NSG’ye sahip olabileceğiniz hakkında bilgi almak için [Azure limitleri](../azure-subscription-service-limits.md#virtual-networking-limits-classic) makalesini okuyun.|
+| Kaynak grubu |NSG'nin mevcut olduğu [kaynak grubu](../azure-resource-manager/resource-group-overview.md#resource-groups). |Bir NSG bir kaynak grubunda mevcut olsa da, kaynağın NSG'nin ait olduğu Azure bölgesinin bir parçası olması koşuluyla, NSG herhangi bir kaynak grubuyla ilişkilendirilebilir. |Kaynak grupları, birden fazla kaynak grubunun birlikte bir dağıtım birimi olarak yönetilmesi için kullanılır.<br/>NSG'yi ilişkili olduğu kaynaklarla gruplandırmayı değerlendirebilirsiniz. |
+| Kurallar |Hangi trafiklere izin verildiğini veya reddedildiğini tanımlayan gelen veya giden kuralları. | |Bu makalenin [NSG kuralları](#Nsg-rules) bölümüne bakın. |
 
 > [!NOTE]
-> Uç nokta tabanlı ACL'ler ve ağ güvenlik grupları desteklenmez aynı VM örneğinde hello. Toouse bir NSG'yi istediğiniz ve bir uç nokta ACL'si zaten kullanıyor, ilk hello uç nokta ACL'sini kaldırın. nasıl tooremove bir ACL okuma toolearn hello [yönetme erişim denetim listeleri (ACL'ler) PowerShell kullanarak uç noktalar için](virtual-networks-acl-powershell.md) makalesi.
+> Uç nokta tabanlı ACL'ler ve ağ güvenlik grupları, aynı VM örneğinde desteklenmez. Bir NSG'yi kullanmak istiyorsanız ve bir uç nokta ACL'si zaten kullanılıyorsa öncelikle uç nokta ACL'sini kaldırın. ACL’yi kaldırma hakkında bilgi için bkz. [PowerShell kullanarak Uç Noktalar için Erişim Denetim Listelerini (ACL’ler) yönetme](virtual-networks-acl-powershell.md).
 > 
 
 ### <a name="nsg-rules"></a>NSG kuralları
-NSG kuralları aşağıdaki özelliklere hello içerir:
+NSG kuralları aşağıdaki özellikleri içerir:
 
 | Özellik | Açıklama | Kısıtlamalar | Dikkat edilmesi gerekenler |
 | --- | --- | --- | --- |
-| **Ad** |Merhaba kural adı. |Merhaba bölge içinde benzersiz olmalıdır.<br/>Harf, sayı, alt çizgi, nokta ve kısa çizgi içerebilir.<br/>Bir harf veya sayı ile başlamalıdır.<br/>Bir harf, sayı veya alt çizgi ile bitmelidir.<br/>80 karakterden uzun olamaz. |Bir NSG içinde çeşitli kurallara sahip olabilir, bu nedenle tooidentify hello işlevini sağlayan bir adlandırma kuralını uyguladığınızdan emin olun. |
-| **Protokol** |Protokol toomatch hello kuralı için. |TCP, UDP veya * |Kullanarak * ICMP (yalnızca Doğu-Batı trafiği) bir protokolünü içeren gibi olarak UDP ve TCP yanı sıra ve hello ihtiyacınız olan kuralların sayısını azaltabilir.<br/>AT aynı Merhaba, kullanarak istediğiniz zaman * kullanmanız önerilir böylece çok geniş bir yaklaşım olabilir * yalnızca gerekli olduğunda. |
-| **Kaynak bağlantı noktası aralığı** |Kaynak bağlantı noktası aralığı toomatch hello kuralı için. |Tek bir bağlantı noktası numarasından 1 too65535, bağlantı noktası aralığı (örneğin: 1-65535), veya * (tüm bağlantı noktaları için). |Kaynak bağlantı noktaları kısa ömürlü olabilir. İstemci programınız belirli bir bağlantı noktasını kullanmadığı sürece, çoğu durum için * kullanın.<br/>Olası tooavoid hello gerektiği kadar birden çok kural için toouse bağlantı noktası aralıkları deneyin.<br/>Birden çok bağlantı noktası veya bağlantı noktası aralığı virgülle birleştirilemez. |
-| **Hedef bağlantı noktası aralığı** |Hedef bağlantı noktası aralığı toomatch hello kuralı için. |Tek bir bağlantı noktası numarasından 1 too65535, bağlantı noktası aralığı (örneğin: 1-65535), veya \* (için tüm bağlantı noktaları). |Olası tooavoid hello gerektiği kadar birden çok kural için toouse bağlantı noktası aralıkları deneyin.<br/>Birden çok bağlantı noktası veya bağlantı noktası aralığı virgülle birleştirilemez. |
-| **Kaynak adres ön eki** |Kaynak adres ön eki veya etiketi toomatch hello kuralı için. |tek IP adresi (örnek: 10.10.10.10), IP alt ağı (örnek: 192.168.1.0/24), [varsayılan etiket](#default-tags) veya * (tüm adresler için). |Aralıklar, varsayılan etiketler kullanmayı düşünün ve * tooreduce hello kural sayısı. |
-| **Hedef adres ön eki** |Hedef adres ön eki veya etiketi toomatch hello kuralı için. | tek IP adresi (örnek: 10.10.10.10), IP alt ağı (örnek: 192.168.1.0/24), [varsayılan etiket](#default-tags) veya * (tüm adresler için). |Aralıklar, varsayılan etiketler kullanmayı düşünün ve * tooreduce hello kural sayısı. |
-| **Yön** |Merhaba kuralı için trafiği toomatch yönü. |Gelen veya giden. |Gelen veya giden kuralları, yöne bağlı olarak ayrı ayrı işlenir. |
-| **Öncelik** |Kuralları hello öncelik sırasına göre denetlenir. Bir kural uygulandığı zaman eşleştirme için başka hiçbir kural test edilmez. | 100 ile 4096 arasında bir sayı. | Hello gelecekte oluşturacağınız yeni kurallar için her kural tooleave alanı için 100 ile öncelikleri lü adımlarla atlayarak kuralları oluşturmayı düşünün. |
-| **Erişim** |Merhaba kuralın eşleşmesi durumunda erişim tooapply türü. | İzin ver veya reddet. | Bir paket için bir izin verme kuralı bulunmazsa, hello paketin bırakılacağını göz önünde bulundurun. |
+| **Ad** |Kuralın adı. |Bölge içinde benzersiz olmalıdır.<br/>Harf, sayı, alt çizgi, nokta ve kısa çizgi içerebilir.<br/>Bir harf veya sayı ile başlamalıdır.<br/>Bir harf, sayı veya alt çizgi ile bitmelidir.<br/>80 karakterden uzun olamaz. |Bir NSG içinde çeşitli kurallara sahip olabilirsiniz, bu nedenle kuralınızın işlevini tanımlayan bir adlandırma kuralını uyguladığınızdan emin olun. |
+| **Protokol** |Kural ile eşleştirilecek protokol. |TCP, UDP veya * |Protokol olarak * kullanmak ICMP'yi (yalnızca Doğu-Batı trafiği), aynı zamanda UDP'yi ve TCP'yi içerir ve ihtiyacınız olan kuralların sayısını azaltabilir.<br/>Bununla birlikte, * kullanmak çok geniş bir yaklaşım olabilir, bu nedenle yalnızca gerçekten gerekli olduğu zaman * kullandığınızdan emin olun. |
+| **Kaynak bağlantı noktası aralığı** |Kural ile eşleştirilecek kaynak bağlantı noktası aralığı. |1 - 65535 aralığındaki tek bağlantı noktası numarası, bağlantı noktası aralığı (yani 1 - 65535) veya * (tüm bağlantı noktaları için). |Kaynak bağlantı noktaları kısa ömürlü olabilir. İstemci programınız belirli bir bağlantı noktasını kullanmadığı sürece, çoğu durum için * kullanın.<br/>Birden çok kurala ihtiyaç duyulmasını önlemek için mümkün olduğunca bağlantı noktası aralıklarını kullanmaya çalışın.<br/>Birden çok bağlantı noktası veya bağlantı noktası aralığı virgülle birleştirilemez. |
+| **Hedef bağlantı noktası aralığı** |Kural ile eşleştirilecek hedef bağlantı noktası aralığı. |1'den 65535'e kadar olan tek bağlantı noktası, bağlantı noktası aralığı (yani 1-65535) veya \* (tüm bağlantı noktaları için). |Birden çok kurala ihtiyaç duyulmasını önlemek için mümkün olduğunca bağlantı noktası aralıklarını kullanmaya çalışın.<br/>Birden çok bağlantı noktası veya bağlantı noktası aralığı virgülle birleştirilemez. |
+| **Kaynak adres ön eki** |Kural ile eşleştirilecek kaynak adres ön eki veya etiketi. |tek IP adresi (örnek: 10.10.10.10), IP alt ağı (örnek: 192.168.1.0/24), [varsayılan etiket](#default-tags) veya * (tüm adresler için). |Kuralların sayısını azaltmak için aralıklar, varsayılan etiketler ve * kullanmayı düşünün. |
+| **Hedef adres ön eki** |Kural ile eşleştirilecek hedef adres ön eki veya etiketi. | tek IP adresi (örnek: 10.10.10.10), IP alt ağı (örnek: 192.168.1.0/24), [varsayılan etiket](#default-tags) veya * (tüm adresler için). |Kuralların sayısını azaltmak için aralıklar, varsayılan etiketler ve * kullanmayı düşünün. |
+| **Yön** |Kural için eşleştirilecek trafik yönü. |Gelen veya giden. |Gelen veya giden kuralları, yöne bağlı olarak ayrı ayrı işlenir. |
+| **Öncelik** |Kurallar öncelik sırasına göre denetlenir. Bir kural uygulandığı zaman eşleştirme için başka hiçbir kural test edilmez. | 100 ile 4096 arasında bir sayı. | Gelecekte oluşturabileceğiniz yeni kurallara alan bırakmak amacıyla, her kural için öncelikleri 100'lü adımlarla atlayarak kuralları oluşturmayı düşünün. |
+| **Erişim** |Kuralın eşleşmesi durumunda uygulanacak erişim türü. | İzin ver veya reddet. | Bir paket için izin verme kuralı bulunmazsa paketin bırakılacağını göz önünde bulundurun. |
 
-NSG'ler iki kural kümesi içerir: Gelen ve giden. bir kural için Hello öncelik her küme içinde benzersiz olmalıdır. 
+NSG'ler iki kural kümesi içerir: Gelen ve giden. Bir kurala ait öncelik her küme içinde benzersiz olmalıdır. 
 
 ![NSG kuralının işlenmesi](./media/virtual-network-nsg-overview/figure3.png) 
 
-Merhaba önceki resimde NSG kuralların nasıl işlendiği gösterilmektedir.
+Önceki resimde NSG kurallarının nasıl işlendiği gösterilmektedir.
 
 ### <a name="default-tags"></a>Varsayılan Etiketler
-Varsayılan, sistem tarafından sağlanan tanımlayıcıları tooaddress IP adreslerinin bir kategori etiketleridir. Hello varsayılan etiketleri kullanabilirsiniz **kaynak adres ön eki** ve **hedef adres ön eki** herhangi bir kural özelliklerini. Kullanabileceğiniz üç varsayılan etiket vardır:
+Varsayılan etiketler, bir IP adresi kategorisini belirtmek için sistem tarafından sağlanan tanımlayıcılardır. Herhangi bir kuralın **kaynak adres ön eki** ve **hedef adres ön eki** özelliklerinde varsayılan etiketleri kullanabilirsiniz. Kullanabileceğiniz üç varsayılan etiket vardır:
 
-* **VirtualNetwork** (Resource Manager) (**vırtual_network** classic için): hello sanal ağ adresi alanını (Azure'da tanımlanan CIDR aralıkları) bu etiketi içeren, tüm bağlı şirket içi adres alanlarını ve bağlı Azure sanal ağlar (yerel ağlar).
-* **AzureLoadBalancer** (Resource Manager) (Klasik için **AZURE_LOADBALANCER**): Bu etiket Azure altyapı infrastructure yük dengeleyicisini belirtir. Merhaba etiketi burada Azure'nın sistem durumu araştırmalarının Azure veri merkezi kaynağı tooan çevirir.
-* **Internet** (Resource Manager) (**Internet** classic için): Bu etiket hello sanal ağ dışında ve genel Internet ile ulaşılabilen hello IP adresi alanını belirtir. Merhaba aralık içerir hello [Azure ait genel IP alanı](https://www.microsoft.com/download/details.aspx?id=41653).
+* **VirtualNetwork** (Resource Manager) (klasik için **VIRTUAL_NETWORK**): Bu etiket, sanal ağ adresi alanını (Azure'da tanımlanan CIDR aralıkları), bağlı olan tüm şirket içi adres alanlarını ve bağlı Azure sanal ağlarını (yerel ağlar) içerir.
+* **AzureLoadBalancer** (Resource Manager) (Klasik için **AZURE_LOADBALANCER**): Bu etiket Azure altyapı infrastructure yük dengeleyicisini belirtir. Bu etiket, Azure'ın sistem durumu araştırmalarının kaynağı olan bir Azure veri merkezi IP'sine çevrilir.
+* **Internet** (Resource Manager) (klasik için **INTERNET**): Bu etiket, sanal ağın dışında olan ve genel İnternet ile ulaşılabilen IP adresi alanını belirtir. Bu aralık [Azure'a ait genel IP alanını](https://www.microsoft.com/download/details.aspx?id=41653) içerir.
 
 ### <a name="default-rules"></a>Varsayılan kurallar
-Tüm NSG'ler bir varsayılan kurallar kümesini içerir. Merhaba varsayılan kurallar silinemez ancak hello en düşük öncelik atandığı için oluşturduğunuz hello kurallarıyla kılınabilir. 
+Tüm NSG'ler bir varsayılan kurallar kümesini içerir. Varsayılan kurallar silinemez ancak en düşük önceliğe atanmış oldukları için sizin oluşturduğunuz kurallar tarafından geçersiz kılınabilirler. 
 
-Merhaba varsayılan kuralları ve trafik şu şekilde izin vermeyecek izin ver:
+Varsayılan kurallar, trafiğe aşağıdaki gibi izin verir ve reddeder:
 - **Sanal ağ:** Kaynağı bir sanal ağ olan ve bir sanal ağda biten trafiğe hem gelen hem de giden yönlerde izin verilir.
 - **Internet:** Giden trafiğe izin verilir, ancak gelen trafik engellenir.
-- **Yük Dengeleyici:** izin Azure'nın yük dengeleyici tooprobe hello durumunu VM'ler ve rol örnekleri. Yük dengeli bir küme kullanmıyorsanız bu kuralı geçersiz kılabilirsiniz.
+- **Yük dengeleyici:** VM’lerinizin ve rol örneklerinizin durumunu sorgulayan Azure yük dengeleyicisi. Yük dengeli bir küme kullanmıyorsanız bu kuralı geçersiz kılabilirsiniz.
 
 **Gelen trafik için varsayılan kurallar**
 
@@ -94,32 +94,32 @@ Merhaba varsayılan kuralları ve trafik şu şekilde izin vermeyecek izin ver:
 | DenyAllOutBound | 65500 | * | * | * | * | * | Reddet |
 
 ## <a name="associating-nsgs"></a>NSG'leri ilişkilendirme
-Bir NSG tooVMs, NIC'lerle ve alt ağlar, aşağıdaki gibi kullandığınız hello dağıtım modeline bağlı olarak ilişkilendirebilirsiniz:
+Kullandığınız dağıtım modeline bağlı olarak, bir NSG'yi VM'lerle, ağ arabirimleriyle ve alt ağlarla aşağıdaki gibi ilişkilendirebilirsiniz:
 
-* **VM (yalnızca klasik):** güvenlik kuralları uygulanır tooall trafiği hello VM /. 
-* **NIC (yalnızca Resource Manager):** güvenlik kuralları uygulanır tooall/hello NIC hello NSG trafiğidir için ilişkili. Multi-NIC VM ile farklı uygulama (veya aynı hello) NSG tooeach NIC ayrı ayrı. 
-* **Alt ağ (Resource Manager ve klasik):** güvenlik kuralları uygulanır tooany trafiği/herhangi bir kaynağa bağlı toohello VNet.
+* **VM (yalnızca klasik):** Güvenlik kuralları VM’ye/VM’den tüm trafiğe uygulanır. 
+* **Ağ arabirimi (yalnızca Resource Manager):** Güvenlik kuralları, NSG’nin ilişkili olduğu ağ arabirimine gelen ve buradan giden trafiğin tamamına uygulanır. Birden çok ağ arabirimi içeren sanal makinelerde, her ağ arabirimine farklı NSG uygulayabileceğiniz gibi her birine aynı NSG’yi uygulayabilirsiniz. 
+* **Alt ağ (Resource Manager ve klasik):** Güvenlik kuralları, sanal ağa bağlı kaynaklara/kaynaklardan tüm trafiğe uygulanır.
 
-Farklı Nsg'leri tooa VM (veya hello dağıtım modeline bağlı olarak NIC) ilişkilendirin ve NIC'nin veya VM'nin bağlı olduğu alt ağ hello. Uygulanan toohello trafiği, sipariş Merhaba, her nsg'deki öncelik tarafından takip güvenlik kuralları:
+Bir VM (veya dağıtım modeline bağlı olarak, ağ arabirimi) ve bu VM'nin (veya ağ arabiriminin) bağlı olduğu alt ağ ile farklı NSG’ler ilişkilendirebilirsiniz. Her NSG'deki öncelik temel alınarak, güvenlik kuralları aşağıdaki sırayla trafiğe uygulanır:
 
 - **Gelen trafik**
 
-  1. **NSG uygulanır toosubnet:** NSG bir alt ağ bir eşleşen kuralı toodeny trafiği varsa, hello paket bırakılır.
+  1. **Alt ağa uygulanan NSG:** Alt ağ NSG'sinde trafiği reddetmeye yönelik bir eşleştirme kuralı varsa paket bırakılır.
 
-  2. **NSG uygulanan tooNIC** (Resource Manager) veya VM (Klasik): varsa VM\NIC NSG trafiği engellediği bir eşleşen kuralı sahipse, paketleri NSG bir alt ağ trafiğe izin veren bir eşleşen kuralı olsa bile VM\NIC, hello atlanıyor.
+  2. **NSG’yi Ağ arabirimine (Resource Manager) veya VM’ye (klasik) uygulama**: VM’nin/ağ arabiriminin NSG'sinde trafiği reddetmeye yönelik bir eşleşme kuralı varsa, alt ağ NSG'sinde trafiğe izin vermeye yönelik bir eşleşme kuralı olsa bile paketler VM’de/ağ arabiriminde bırakılır.
 
 - **Giden trafik**
 
-  1. **NSG uygulanan tooNIC** (Resource Manager) veya VM (Klasik): VM\NIC NSG trafiği engellediği eşleşen bir kuralı varsa, paket bırakılır.
+  1. **NSG’yi ağ arabirimine (Resource Manager) veya VM’ye (klasik) uygulama**: VM’nin/ağ arabiriminin NSG’sinde trafiği reddetmeye yönelik bir eşleşme kuralı varsa, paketler bırakılır.
 
-  2. **NSG uygulanır toosubnet:** NSG bir alt ağ trafiğini engellediği eşleşen bir kuralı varsa, trafiğe izin veren bir eşleşen kuralı VM\NIC NSG olsa bile, paketler, bırakılır.
+  2. **NSG’yi alt ağa uygulama:** Bir alt ağ NSG’sinde trafiği engelleyen bir eşleşme kuralı varsa, VM’nin/ağ arabiriminin NSG’sinde trafiğe izin veren bir eşleşme kuralı olsa bile paketler bırakılır.
 
 > [!NOTE]
-> Yalnızca bir tek NSG tooa alt ağı, VM veya NIC ilişkilendirebilirsiniz rağmen; ilişkilendirmek istediğiniz kadar çok kaynak aynı NSG tooas hello.
+> Tek bir NSG'yi, yalnızca bir alt ağ, VM veya ağ arabirimi ile ilişkilendirebilirsiniz. Ancak aynı NSG'yi istediğiniz sayıda kaynak ile ilişkilendirebilirsiniz.
 >
 
 ## <a name="implementation"></a>Uygulama
-Merhaba Resource Manager veya araçları aşağıdaki hello kullanarak Klasik dağıtım modellerinde Nsg'leri uygulayabilirsiniz:
+Aşağıdaki araçları kullanarak NSG’leri Resource Manager veya klasik dağıtım modellerine uygulayabilirsiniz:
 
 | Dağıtım aracı | Klasik | Resource Manager |
 | --- | --- | --- |
@@ -130,65 +130,65 @@ Merhaba Resource Manager veya araçları aşağıdaki hello kullanarak Klasik da
 | Azure Resource Manager şablonu   | Hayır  | [Evet](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="planning"></a>Planlama
-Nsg'leri uygulamadan önce aşağıdaki soruları tooanswer hello gerekir:
+NSG'leri uygulamadan önce aşağıdaki soruları yanıtlamanız gerekir:
 
-1. Hangi tür kaynaklara gelen toofilter trafiği tooor istiyor musunuz? Ağ arabirimleri (Resource Manager), VM’ler (klasik), Cloud Services, Uygulama Hizmeti Ortamları ve VM Ölçek Kümeleri gibi kaynakları bağlayabilirsiniz. 
-2. Toofilter trafiğe çift varolan vnet'lerdeki bağlı toosubnets hello kaynakları misiniz?
+1. Hangi tür kaynakların gelen veya giden trafiğini filtrelemek istersiniz? Ağ arabirimleri (Resource Manager), VM’ler (klasik), Cloud Services, Uygulama Hizmeti Ortamları ve VM Ölçek Kümeleri gibi kaynakları bağlayabilirsiniz. 
+2. Gelen/giden trafiği filtrelemek istediğiniz kaynaklar, mevcut sanal ağlardaki alt ağlara mı bağlı?
 
-Hello Azure ağ güvenliği planlaması hakkında daha fazla bilgi için okuma [bulut Hizmetleri ve ağ güvenliği](../best-practices-network-security.md) makalesi. 
+Azure'da ağ güvenliği planlaması konusunda daha fazla bilgi için [Bulut hizmetleri ve ağ güvenliği](../best-practices-network-security.md) makalesini okuyun. 
 
 ## <a name="design-considerations"></a>Tasarım konusunda dikkat edilmesi gerekenler
-Merhaba toohello sorulara hello yanıtlar öğrendikten sonra [planlama](#Planning) bölümünde, Nsg'lerinizi tanımlamadan önce bölümleri aşağıdaki hello gözden geçirin:
+[Planlama](#Planning) bölümündeki soruların yanıtlarını öğrendiğiniz zaman, NSG'lerinizi tanımlamadan önce aşağıdaki bölümleri gözden geçirin:
 
 ### <a name="limits"></a>Sınırlar
-Toohello sayısını bir abonelikte olabilir ve NSG başına kural sayısı sınırlamaları vardır. Merhaba okuma hello sınırları hakkında daha fazla toolearn [Azure sınırlar](../azure-subscription-service-limits.md#networking-limits) makalesi.
+Bir abonelikte sahip olabileceğiniz NSG sayısı ve NSG başına kural sayısı sınırlıdır. Sınırlar hakkında daha fazla bilgi için [Azure limitleri](../azure-subscription-service-limits.md#networking-limits) makalesini okuyun.
 
 ### <a name="vnet-and-subnet-design"></a>Sanal ağ ve alt ağ tasarımı
-Nsg'ler uygulanan toosubnets olabileceği için hello sayısını kaynaklarınızı alt ağa göre gruplandırma ve Nsg'ler toosubnets uygulayarak en aza indirebilirsiniz.  Tooapply Nsg'ler toosubnets karar verirseniz, var olan sanal ağlarınızın ve alt ağlarınızın Nsg'ler göz önünde tanımlanmış olduğunu fark edebilirsiniz. NSG tasarımınızı toodefine yeni sanal ağlar ve alt ağları toosupport ihtiyacınız ve yeni kaynaklar tooyour yeni alt dağıtın. Ardından, kaynakları toohello yeni alt ağlar varolan bir geçiş stratejisi toomove tanımlayabilirsiniz. 
+NSG'ler alt ağlara uygulanabildiğinden kaynaklarınızı alt ağa göre gruplayıp NSG'leri alt ağlara uygulayarak NSG sayısını en aza indirebilirsiniz.  NSG'leri alt ağlara uygulamaya karar verirseniz var olan sanal ağlarınızın ve alt ağlarınızın NSG'ler göz önüne alınmadan tanımlanmış olduğunu fark edebilirsiniz. NSG tasarımınızı destekleyen yeni sanal ağlar ile alt ağlar tanımlamanız ve yeni kaynaklarınızı yeni alt ağlarınıza dağıtmanız gerekebilir. Bu işlemlerden sonra var olan kaynaklarınızı yeni alt ağlara taşımak için bir geçiş stratejisi tanımlayabilirsiniz. 
 
 ### <a name="special-rules"></a>Özel kurallar
-Kuralları aşağıdaki hello tarafından izin verilen trafiği engellerseniz altyapınız temel Azure Hizmetleri ile iletişim kuramıyor:
+Aşağıdaki kuralların izin verdiği trafiği engellerseniz, altyapınız temel Azure hizmetleriyle iletişim kuramaz:
 
-* **Merhaba ana bilgisayar düğümünün sanal IP'si:** temel altyapı hizmetleri gibi DHCP, DNS ve sistem durumu izleme hello sanallaştırılmış ana bilgisayar üzerinden IP adresi 168.63.129.16 sağlanır. Bu genel IP adresi tooMicrosoft aittir ve tüm bölgelerde bu amaç için kullanılan hello yalnızca sanallaştırılmış IP adresidir. Bu IP adresi hello VM barındırma toohello fiziksel IP adresi hello sunucu makinesinin (ana bilgisayar düğümü) eşler. Hello DHCP geçiş, hello DNS özyinelemeli çözümleyici ve hello araştırma kaynağı hello için yük dengeleyici durum araştırması ve hello makine durumu araştırması hello ana bilgisayar düğümü çalışır. İletişim toothis IP adresi saldırının değil.
-* **Lisanslama (Anahtar Yönetimi Hizmeti):** VM’lerde çalışan Windows görüntülerinin lisanslanması gerekir. tooensure lisans isteği sorgularını işleyen anahtar yönetimi hizmeti ana bilgisayar sunucuları toohello gönderilir. Merhaba istek bağlantı noktası 1688 üzerinden giden yapılır.
+* **Ana bilgisayar düğümünün sanal IP'si:** DHCP, DNS ve sistem durumunu izleme gibi temel altyapı hizmetleri, 168.63.129.16 numaralı sanallaştırılmış ana bilgisayar IP adresi yoluyla sağlanır. Bu genel IP adresi Microsoft'a aittir ve tüm bölgelerde bu amaç için kullanılan tek sanallaştırılmış IP adresi olarak kullanılır. Bu IP adresi, VM’yi barındıran sunucu makinesinin (ana bilgisayar düğümü) fiziksel IP adresiyle eşleşir. Ana bilgisayar düğümü, yük dengeleyici durum araştırması ve makine durumu araştırması için araştırma kaynağı, DNS özyinelemeli çözümleyici ve DHCP geçişi olarak görev yapar. Bu IP adresi ile iletişim bir saldırı değildir.
+* **Lisanslama (Anahtar Yönetimi Hizmeti):** VM’lerde çalışan Windows görüntülerinin lisanslanması gerekir. Lisanslama için, lisans isteği sorgularını işleyen Anahtar Yönetimi Hizmeti ana bilgisayar sunucularına bir lisans isteği gönderilir. İstek, bağlantı noktası 1688 üzerinden gönderilir.
 
 ### <a name="icmp-traffic"></a>ICMP trafiği
-Merhaba geçerli NSG kuralları yalnızca protokolleri izin *TCP* veya *UDP*. *ICMP* için belirli bir etiket bulunmaz. Ancak, ICMP trafiği sanal ağ içinde herhangi bir bağlantı noktası ve protokol hello VNet içinde gelen trafiği tooand izin veren hello AllowVNetInBound varsayılan kuralı izin verilir.
+Geçerli NSG kuralları yalnızca *TCP* veya *UDP* protokollerine izin verir. *ICMP* için belirli bir etiket bulunmaz. Ancak, sanal ağ içindeki herhangi bir bağlantı noktası ve protokolün gelen ve giden trafiğine izin veren AllowVNetInBound varsayılan kuralı tarafından bir sanal ağ içinde ICMP trafiğine izin verilir.
 
 ### <a name="subnets"></a>Alt ağlar
-* Merhaba yükünüzün gerektirdiği katmanların sayısını göz önünde bulundurun. Her katman bir NSG uygulanır toohello alt ağ ile bir alt ağ kullanılarak yalıtılabilir. 
-* Bir VPN ağ geçidi veya expressroute bağlantı hattı için bir alt ağ tooimplement ihtiyacınız varsa, yapmanız **değil** bir NSG toothat alt uygulayın. Aksi halde sanal ağlar arası veya şirket içi ve dışı karma bağlantılar çalışmayabilir. 
-* Tooimplement ağ sanal gereç (NVA) gerekiyorsa, hello NVA tooits kendi alt bağlanmak ve kullanıcı tanımlı yolları (UDR) tooand NVA hello oluşturun. Alt ağ düzeyinde NSG toofilter trafiği ve bu alt ağ dışındaki bir uygulayabilirsiniz. Merhaba okuma Udr'ler hakkında daha fazla toolearn [kullanıcı tanımlı yollar](virtual-networks-udr-overview.md) makalesi.
+* İş yükünüzün gerektirdiği katmanların sayısını göz önünde bulundurun. Her katman bir alt ağ kullanılarak yalıtılabilir, bunun için alt ağa bir NSG uygulanır. 
+* Bir VPN ağ geçidi veya ExpressRoute bağlantı hattı için bir alt ağ uygulamanız gerekiyorsa bu alt ağa bir NSG **uygulamayın**. Aksi halde sanal ağlar arası veya şirket içi ve dışı karma bağlantılar çalışmayabilir. 
+* Bir ağ sanal gereci (NVA) uygulamanız gerekirse, NVA’yı kendi alt ağına bağlayın ve NVA’ya/NVA’dan kullanıcı tanımlı yollar (UDR) oluşturun. Bu alt ağa gelen ve giden trafiği filtrelemek için alt ağ düzeyinde bir NSG uygulayabilirsiniz. UDR’ler hakkında daha fazla bilgi için [Kullanıcı tanımlı yollar](virtual-networks-udr-overview.md) makalesini okuyun.
 
 ### <a name="load-balancers"></a>Yük dengeleyiciler
-* Merhaba Yük Dengeleme ve ağ adresi çevirisi (NAT) kuralları her iş yüklerinizi tarafından kullanılan her yük dengeleyici için göz önünde bulundurun. NAT, NIC'ler (Resource Manager) veya VM'ler/bulut Hizmetleri rol örnekleri (Klasik) içeren ilişkili tooa arka uç havuzu kurallardır. Merhaba yük dengeleyicilerde uygulanan hello kurallar yoluyla eşlenen yalnızca trafiğe izin her arka uç havuzu için bir NSG oluşturmayı düşünün. Her bir arka uç havuzu için bir NSG oluşturma toohello arka uç havuzu (yerine doğrudan hello yük dengeleyici aracılığıyla), gelen trafiğin de filtrelenmesini olduğunu güvence altına alır.
-* Klasik dağıtımlarda, bir yük dengeleyici tooports Vm'lerinizdeki veya rol örnekleri bağlantı noktalarına eşleyen uç noktalar oluşturursunuz. Resource Manager ile genel kullanıma yönelik bireysel yük dengeleyicinizi de oluşturabilirsiniz. gelen trafik için Hello hedef bağlantı hello gerçek bağlantı noktası hello VM veya rol örneğine, olmayan bir yük dengeleyici tarafından kullanıma sunulan hello bağlantı noktasıdır. Merhaba kaynak bağlantı noktası ve adresi VM üzerinde bir bağlantı noktası ve adresi olduğunu hello bağlantı toohello için hello Internet'teki Uzak bilgisayar, değil hello bağlantı noktası ve hello yük dengeleyici tarafından kullanıma sunulan hello.
-* Bir iç yük dengeleyici (ILB) gelen Nsg'ler toofilter trafik oluşturduğunuzda, uygulanan hello kaynak bağlantı noktasının ve adres aralığı olan bilgisayar, hello yük dengeleyici kaynaklanan hello. Merhaba hedef bağlantı noktasının ve adres aralığı bilgilerdir hello hedef bilgisayarın, hello yük dengeleyici.
+* İş yükleriniz tarafından kullanılan her bir yük dengeleyicisi için yük dengeleme ve ağ adresi çevirisi (NAT) kurallarını göz önünde bulundurun. NAT kuralları, ağ arabirimini (Resource Manager) veya VM/Cloud Services rol örneklerini (klasik) içeren bir arka uç havuzuna bağlanır. Yalnızca yük dengeleyicilerde uygulanan kurallar yoluyla eşlenen trafiğe izin vermek üzere, her arka uç havuzu için bir NSG oluşturmayı düşünün. Her bir arka uç havuzu için bir NSG oluşturulması, arka uç havuzuna doğrudan (yük dengeleyici üzerinden değil) gelen trafiğin de filtrelenmesini garanti eder.
+* Klasik dağıtımlarda, bir yük dengeleyicideki bağlantı noktalarını VM'lerinizdeki veya rol örneklerinizdeki bağlantı noktalarına eşleyen uç noktalar oluşturursunuz. Resource Manager ile genel kullanıma yönelik bireysel yük dengeleyicinizi de oluşturabilirsiniz. Gelen trafik için hedef bağlantı noktası, yük dengeleyici tarafından kullanıma sunulan bağlantı noktası değil, VM veya rol örneğindeki gerçek bağlantı noktasıdır. VM'ye gelen bağlantıya ait kaynak bağlantı noktası ve adresi yük dengeleyici tarafından kullanıma sunulan bağlantı noktası ve adresi değil, İnternet'teki uzak bilgisayar üzerindeki bir bağlantı noktası ve adresidir.
+* Bir iç yük dengeleyici (ILB) üzerinden gelen trafiği filtrelemek üzere NSG’ler oluşturduğunuzda, uygulanan kaynak bağlantı noktası ve adres aralığı yük dengeleyiciden değil, kaynak bilgisayardan gelir. Hedef bağlantı noktası ve adres aralığı, yük dengeleyiciye değil, hedef bilgisayara aittir.
 
 ### <a name="other"></a>Diğer
-* Uç nokta tabanlı erişim denetimi listeleri (ACL) ve Nsg'ler hello üzerinde desteklenmiyor aynı VM örneği. Toouse bir NSG'yi istediğiniz ve bir uç nokta ACL'si zaten kullanıyor, ilk hello uç nokta ACL'sini kaldırın. Hakkında bilgi için uç nokta ACL, bir tooremove bkz hello [uç nokta ACL'lerini yönetme](virtual-networks-acl-powershell.md) makalesi.
-* Kaynak Yöneticisi'nde, bir NIC başına temelinde birden çok NIC tooenable Yönetimi (uzaktan erişim) ile ilişkili NSG tooa NIC VM'ler için kullanabilirsiniz. Benzersiz Nsg'ler tooeach NIC ilişkilendirme NIC'ler arasında trafik türlerini ayrımı sağlar.
-* Diğer sanal ağlardan gelen trafik filtreleme, yük Dengeleyiciler, benzer toohello kullanımı, hello uzak bilgisayar, değil hello ağ geçidi hello sanal ağlara bağlanma hello kaynak adres aralığını kullanmanız gerekir.
-* Çoğu Azure hizmeti bağlı tooVNets olamaz. Bir Azure kaynağı bağlı tooa VNet değilse, bir NSG toofilter trafiği toohello kaynağı kullanamazsınız.  Merhaba hizmet bağlı tooa VNet olabilir olup olmadığını hello Hizmetleri hello belgelerini okuyun toodetermine kullanın.
+* Uç nokta tabanlı access control listeleri (ACL) ve NSG'ler, aynı VM örneğinde desteklenmez. Bir NSG'yi kullanmak istiyorsanız ve bir uç nokta ACL'si zaten kullanılıyorsa öncelikle uç nokta ACL'sini kaldırın. Bir uç nokta ACL’yi kaldırma hakkında bilgi için [Uç nokta ACL’leri yönetme](virtual-networks-acl-powershell.md) makalesine bakın.
+* Resource Manager’da birden çok ağ arabirimi içeren VM'ler için, bir ağ arabirimi ile ilişkilendirilmiş NSG kullanarak ağ arabirimi temelinde yönetimi (uzaktan erişim) etkinleştirebilirsiniz. Her bir ağ arabirimi ile benzersiz NSG’lerin ilişkilendirilmesi, ağ arabirimleri arasında trafik türlerinin ayılmasını sağlar.
+* Yük dengeleyicilerin kullanımına benzer şekilde, diğer sanal ağlardan gelen trafiği filtrelerken sanal ağları bağlayan ağ geçidini değil, uzak bilgisayarın kaynak adres aralığını kullanmanız gerekir.
+* Çoğu Azure hizmeti sanal ağlara bağlanamaz. Bir Azure kaynağı bir sanal ağa bağlı değilse, kaynağa giden trafiği filtrelemek için bir NSG kullanabilirsiniz.  Kullandığınız hizmetlerin sanal ağa bağlanıp bağlanamayacaklarını belirlemek için bu hizmetlerin belgelerini okuyun.
 
 ## <a name="sample-deployment"></a>Örnek dağıtımı
-Bu makalede, hello bilgilerinin tooillustrate Merhaba uygulaması resim aşağıdaki hello gösterilen iki katmanı uygulaması için yaygın bir senaryo göz önünde bulundurun:
+Bu makaledeki bilgilerin uygulanmasına ilişkin bir örnek görmek üzere, aşağıdaki resimde gösterilen iki katmanlı uygulamayla yaygın bir senaryo düşünün:
 
 ![NSG'ler](./media/virtual-network-nsg-overview/figure1.png)
 
-Merhaba diyagramda gösterildiği gibi hello *Web1* ve *Web2* VM'ler olan bağlı toohello *ön uç* alt ağı ve hello *DB1* ve *DB2* VM'ler olan bağlı toohello *arka uç* alt ağ.  Her iki alt ağ hello parçası olan *TestVNet* VNet. Merhaba uygulama bileşenleri her bir Azure VM bağlı tooa VNet içinde çalıştırın. Merhaba senaryonun gereksinimlerine hello vardır:
+Diyagramda gösterildiği gibi, *Web1* ile *Web2* VM'leri *FrontEnd* alt ağına ve *DB1* ile *DB2* VM'leri *BackEnd* alt ağına bağlanır.  Her iki alt ağ da *TestVNet* sanal ağının parçasıdır. Uygulama bileşenlerinin her biri, sanal ağa bağlı bir Azure VM içinde çalışır. Senaryo aşağıdaki gereksinimlere sahiptir:
 
-1. Merhaba WEB ve veritabanı sunucuları arasındaki trafiğin ayrılması.
-2. Yükü Dengeleme kuralları iletme trafiğini hello yük dengeleyici tooall web sunucularından bağlantı noktası 80 üzerinde.
-3. Merhaba yük dengeleyici hello WEB1 VM üzerinde tooport 3389 numaralı bağlantı noktası 50001 üzerinde gelen dengeleyicisi NAT kuralları iletme trafik yükleyin.
-4. Hiçbir erişim toohello hello Internet, 2 ve 3 gereksinimleri dışında ön uç veya arka uç Vm'lerden.
-5. Hiçbir giden Internet erişimi hello WEB veya DB sunucularından.
-6. Merhaba ön uç alt ağından erişim tooport 3389 herhangi bir web sunucusunun verilir.
-7. Merhaba ön uç alt ağından erişim tooport 3389 herhangi bir DB sunucusunun verilir.
-8. Merhaba ön uç alt ağından erişim tooport 1433 tüm DB sunucuların verilir.
+1. WEB ve DB sunucuları arasındaki trafiğin ayrılması.
+2. Trafiği 80 numaralı bağlantı noktasındaki tüm web sunucularına yük dengeleyiciden ileten yük dengeleme kuralları.
+3. Yük dengeleyici NAT kuralları, bağlantı noktası 50001 üzerinden yük dengeleyiciye gelen trafiği WEB1 VM üzerindeki bağlantı noktası 3389’a iletir.
+4. 2 ve 3 numaralı gereksinimler dışında İnternet'ten ön uç veya arka uç VM'lerine erişim olmaması.
+5. WEB veya DB sunucularından giden İnternet erişimi olmaması.
+6. Herhangi bir web sunucusunun 3389 numaralı bağlantı noktasına FrontEnd alt ağından erişime izin verilir.
+7. Herhangi bir DB sunucusunun 3389 numaralı bağlantı noktasına FrontEnd alt ağından erişime izin verilir.
+8. Tüm DB sunucularının 1433 numaralı bağlantı noktasına FrontEnd alt ağından erişime izin verilir.
 9. DB sunucularındaki farklı ağ arabirimlerinde yönetim trafiğinin (3389 numaralı bağlantı noktası) ve veritabanı trafiğinin (1433) ayrılması.
 
-1-6 (dışında gereksinimlerini 3 ve 4) tüm yalıtılmış toosubnet alanları gereksinimleridir. Merhaba aşağıdaki Nsg'ler hello önceki gerekli Nsg'ler hello sayısını en aza indirerek gereksinimleri:
+1-6 gereksinimlerinin tümü (3 ve 4 gereksinimleri hariç) alt ağ alanlarıyla sınırlandırılmıştır. Aşağıdaki NSG'ler önceki gereksinimleri karşılarken, gerekli NSG sayısını en aza indirir:
 
 ### <a name="frontend"></a>FrontEnd
 **Gelen kuralları**
@@ -218,7 +218,7 @@ Merhaba diyagramda gösterildiği gibi hello *Web1* ve *Web2* VM'ler olan bağl�
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Deny-Internet-All | Reddet | 100 | * | * | Internet | * | * |
 
-Aşağıdaki Nsg'ler oluşturulur ve sanal makineleri aşağıdaki hello tooNICs ilişkili hello:
+Aşağıdaki NSG'ler oluşturulur ve aşağıdaki VM'ler içinde ağ arabirimleri ile ilişkilendirilir:
 
 ### <a name="web1"></a>WEB1
 **Gelen kuralları**
@@ -229,7 +229,7 @@ Aşağıdaki Nsg'ler oluşturulur ve sanal makineleri aşağıdaki hello tooNICs
 | Allow-Inbound-HTTP-Internet | İzin Ver | 200 | Internet | * | * | 80 | TCP |
 
 > [!NOTE]
-> Merhaba kaynak adres aralığı hello önceki kuralları için **Internet**, hello yük dengeleyici sanal IP adresini hello değil. Merhaba kaynak bağlantı noktası * 500001. Yük Dengeleyiciler için NAT kuralları olan değil hello NSG güvenlik kuralları ile aynı. NSG güvenlik kuralları her zaman ilgili toohello orijinal kaynağı ve son hedefi trafik **değil** hello yük dengeleyici hello iki arasında. 
+> Önceki kuralların kaynak adres aralığı, yük dengeleyicinin sanal IP adresi değil, **Internet**’tir. Kaynak bağlantı noktası 500001 değil, * şeklindedir. Yük dengeleyiciler için NAT kuralları, NSG güvenlik kurallarıyla aynı değildir. NSG güvenlik kuralları her zaman için trafiğin orijinal kaynağı ve son hedefi ile ilgilidir, ikisi arasındaki yük dengeleyicisiyle **değil**. 
 > 
 > 
 
@@ -255,7 +255,7 @@ Aşağıdaki Nsg'ler oluşturulur ve sanal makineleri aşağıdaki hello tooNICs
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Allow-Inbound-SQL-Front-end | İzin Ver | 100 | 192.168.1.0/24 | * | * | 1433 | TCP |
 
-Merhaba Nsg'ler bazıları ilişkili tooindividual NIC'ler olduğundan, hello Resource Manager aracılığıyla dağıtılan kaynaklar için kurallardır. Nasıl ilişkilendirildiklerine bağlı olarak, kurallar alt ağ ve ağ arabirimi için birleştirilir. 
+Bazı NSG’ler ayrı ayrı ağ arabirimleri ile ilişkili olduğundan, kurallar Resource Manager aracılığıyla dağıtılan kaynaklar için geçerlidir. Nasıl ilişkilendirildiklerine bağlı olarak, kurallar alt ağ ve ağ arabirimi için birleştirilir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [NSG Dağıtma (Resource Manager)](virtual-networks-create-nsg-arm-pportal.md).

@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure tanılama 1.2 yapılandırma şeması | Microsoft Docs"
+title: "Azure tanılama 1.2 yapılandırma şeması | Microsoft Docs"
 description: "YALNIZCA Azure sanal makineler, sanal makine ölçek kümeleri, Service Fabric veya Bulut Hizmetleri ile Azure SDK 2.5 kullanıyorsanız ilgilidir."
 services: monitoring-and-diagnostics
 documentationcenter: .net
@@ -14,23 +14,23 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: 31559317b696556a64b51b58800b176ade9a4679
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1e9cc6d0950945df8c4fba74d8e1f6196be224f0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Azure tanılama 1.2 yapılandırma şeması
 > [!NOTE]
-> Azure tanılama hello kullanılan bileşen toocollect performans sayaçları ve diğer Azure sanal makineler, sanal makine ölçek kümeleri, Service Fabric ve Cloud Services istatistiklerine ' dir.  Bu sayfa, yalnızca bu hizmetlerden biri kullanıyorsanız geçerlidir.
+> Azure tanılama Azure sanal makineler, sanal makine ölçek kümeleri, Service Fabric ve bulut Hizmetleri performans sayaçları ve diğer istatistikleri toplamak için kullanılan bileşendir.  Bu sayfa, yalnızca bu hizmetlerden biri kullanıyorsanız geçerlidir.
 >
 
 Azure tanılama Azure monitör, Application Insights ve günlük analizi gibi diğer Microsoft tanılama ürünlerle kullanılır.
 
-Bu şemayı hello tanılama İzleyicisi başlatıldığında tooinitialize tanılama yapılandırma ayarlarını kullanabilirsiniz hello olası değerleri tanımlar.  
+Bu şemayı tanılama İzleyicisi başlatıldığında tanılama yapılandırma ayarlarını başlatmak için kullanabileceğiniz olası değerler tanımlar.  
 
 
- Merhaba ortak yapılandırma dosyası şeması tanımı hello aşağıdaki PowerShell komutunu yürüterek yükleyin:  
+ Genel yapılandırma dosyası şeması tanımı aşağıdaki PowerShell komutunu yürüterek yükleyin:  
 
 ```PowerShell  
 (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File –Encoding utf8 -FilePath 'C:\temp\WadConfig.xsd'  
@@ -38,8 +38,8 @@ Bu şemayı hello tanılama İzleyicisi başlatıldığında tooinitialize tanı
 
  Azure tanılama kullanma hakkında daha fazla bilgi için bkz: [Azure Cloud Services etkinleştirme tanılamada](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/).  
 
-## <a name="example-of-hello-diagnostics-configuration-file"></a>Merhaba tanılama yapılandırma dosyası örneği  
- Aşağıdaki örnek hello tipik tanılama yapılandırma dosyası gösterir:  
+## <a name="example-of-the-diagnostics-configuration-file"></a>Tanılama yapılandırma dosyası örneği  
+ Aşağıdaki örnek bir genel tanılama yapılandırma dosyası gösterir:  
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -91,116 +91,116 @@ Bu şemayı hello tanılama İzleyicisi başlatıldığında tooinitialize tanı
 ```  
 
 ## <a name="diagnostics-configuration-namespace"></a>Tanılama yapılandırması Namespace  
- Merhaba tanılama yapılandırma dosyası için Hello XML ad alanı şöyledir:  
+ Tanılama yapılandırma dosyası için XML ad alanı şöyledir:  
 
 ```  
 http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
 ```  
 
 ## <a name="publicconfig-element"></a>PublicConfig öğesi  
- Merhaba tanılama yapılandırma dosyasının en üst düzey öğesi. Merhaba aşağıdaki tabloda hello yapılandırma dosyasının hello öğelerini açıklar.  
+ Tanılama yapılandırma dosyasının en üst düzey öğesi. Aşağıdaki tabloda yapılandırma dosyasının öğelerini açıklar.  
 
 |Öğe adı|Açıklama|  
 |------------------|-----------------|  
-|**WadCfg**|Gereklidir. Merhaba telemetri verileri toobe için yapılandırma ayarlarını toplanır.|  
-|**StorageAccount**|hello Azure depolama hesabı toostore hello verilerde Hello adı. Bu da bir parametre olarak hello kümesi AzureServiceDiagnosticsExtension cmdlet'ini çalıştırırken belirtilebilir.|  
-|**LocalResourceDirectory**|Merhaba sanal makine toobe Hello dizinde İzleme Aracısı toostore olay verilerini hello tarafından kullanılır. Aksi halde kümesi, hello varsayılan dizin kullanılır:<br /><br /> Worker/web rolü için:`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Bir sanal makine için:`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Gerekli öznitelikler şunlardır:<br /><br /> -                      **yol** - hello Azure tanılama tarafından kullanılan hello sistem toobe dizininde.<br /><br /> -                      **expandEnvironment** -ortam değişkenleri hello yol adında genişletilmiş olup olmadığını denetler.|  
+|**WadCfg**|Gerekli. Toplanacak telemetri verileri için yapılandırma ayarları.|  
+|**StorageAccount**|Verileri depolamak için Azure Storage hesabının adı. Bu da bir parametre olarak Set-AzureServiceDiagnosticsExtension cmdlet'ini çalıştırırken belirtilebilir.|  
+|**LocalResourceDirectory**|Olay verilerini depolamak için izleme aracısı tarafından kullanılacak sanal makinede dizin. Aksi halde kümesi, varsayılan dizini kullanılır:<br /><br /> Worker/web rolü için:`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Bir sanal makine için:`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Gerekli öznitelikler şunlardır:<br /><br /> -                      **yol** -Azure tanılama tarafından kullanılmak üzere sistemde dizin.<br /><br /> -                      **expandEnvironment** -ortam değişkenleri yol adındaki genişletilmiş olup olmadığını denetler.|  
 
 ## <a name="wadcfg-element"></a>WadCFG öğesi  
-Toplanan hello telemetri verileri toobe için yapılandırma ayarlarını tanımlar. Aşağıdaki tablonun hello alt öğeleri açıklanmıştır:  
+Toplanacak telemetri verilerini yapılandırma ayarlarını tanımlar. Aşağıdaki tabloda, alt öğeleri açıklanmıştır:  
 
 |Öğe adı|Açıklama|  
 |------------------|-----------------|  
-|**DiagnosticMonitorConfiguration**|Gereklidir. İsteğe bağlı öznitelikleri şunlardır:<br /><br /> -                     **overallQuotaInMB** -hello maksimum hello tarafından tüketilen yerel disk alanı miktarını tanılama verilerini çeşitli türlerde toplanan tarafından Azure tanılama. Merhaba varsayılan ayar 5120 MB'tır.<br /><br /> -                     **useProxyServer** -IE ayarlarının kümesinde olarak Azure tanılama yapılandırmak toouse hello proxy sunucusu ayarları.|  
-|**CrashDumps**|Kilitlenme bilgi dökümleri koleksiyonunu etkinleştirin. İsteğe bağlı öznitelikleri şunlardır:<br /><br /> -                     **kapsayıcı adı** -toostore kilitlenme bilgi dökümleri kullanılan Azure Storage hesabı toobe hello blob kapsayıcısında hello adı.<br /><br /> -                     **crashDumpType** -yapılandırır Azure tanılama toocollect Mini ya da tam kilitlenme dökümleri.<br /><br /> -                     **directoryQuotaPercentage**-hello yüzdesini yapılandırır **overallQuotaInMB** toobe hello VM üzerinde kilitlenme dökümleri için ayrılmış.|  
-|**DiagnosticInfrastructureLogs**|Azure tanılama tarafından oluşturulan günlükleri koleksiyonunu etkinleştirin. Merhaba Tanılama Altyapısı günlükleri hello tanılama sistem kendisini sorun giderme için yararlıdır. İsteğe bağlı öznitelikleri şunlardır:<br /><br /> -                     **scheduledTransferLogLevelFilter** -toplanan hello günlüklerini hello en düşük önem derecesi yapılandırır.<br /><br /> -                     **scheduledTransferPeriod** -toohello minute en yakın yuvarlanan zamanlanmış aktarımları toostorage hello aralığıdır. Merhaba değeri bir [XML "Süre veri türü."](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
-|**Dizinleri**|Bir dizinin içeriğini hello koleksiyonunu etkinleştirir Merhaba, IIS erişim isteği günlükleri ve/veya IIS günlüklerini başarısız oldu. İsteğe bağlı öznitelik:<br /><br /> **scheduledTransferPeriod** -toohello minute en yakın yuvarlanan zamanlanmış aktarımları toostorage hello aralığıdır. Merhaba değeri bir [XML "Süre veri türü."](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
+|**DiagnosticMonitorConfiguration**|Gerekli. İsteğe bağlı öznitelikleri şunlardır:<br /><br /> -                     **overallQuotaInMB** -tanılama verilerini çeşitli türleri tarafından tüketilen yerel disk alanı miktarını Azure tanılama tarafından toplanır. Varsayılan ayar 5120 MB'tır.<br /><br /> -                     **useProxyServer** -IE ayarlarının kümesinde olarak ara sunucu ayarlarını kullanmak için Azure Tanılama'yı yapılandırın.|  
+|**CrashDumps**|Kilitlenme bilgi dökümleri koleksiyonunu etkinleştirin. İsteğe bağlı öznitelikleri şunlardır:<br /><br /> -                     **kapsayıcı adı** -kilitlenme bilgi dökümleri depolamak için kullanılacak Azure depolama hesabınızdaki blob kapsayıcısının adı.<br /><br /> -                     **crashDumpType** -Mini ya da tam kilitlenme toplamak için Azure Tanılama'yı yapılandırır dökümünü yapar.<br /><br /> -                     **directoryQuotaPercentage**-yüzdesini yapılandırır **overallQuotaInMB** VM kilitlenme dökümleri için ayrılmış olmalıdır.|  
+|**DiagnosticInfrastructureLogs**|Azure tanılama tarafından oluşturulan günlükleri koleksiyonunu etkinleştirin. Tanılama Altyapısı günlükleri, tanılama sistem sorun giderme için yararlıdır. İsteğe bağlı öznitelikleri şunlardır:<br /><br /> -                     **scheduledTransferLogLevelFilter** -toplanan günlüklerini en düşük önem derecesi yapılandırır.<br /><br /> -                     **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML "Süre veri türü."](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
+|**Dizinleri**|Bir dizin, IIS başarısız erişim isteği günlükleri ve/veya IIS günlüklerini içeriğini koleksiyonunu sağlar. İsteğe bağlı öznitelik:<br /><br /> **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML "Süre veri türü."](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
 |**EtwProviders**|EventSource ETW olayları koleksiyonu yapılandırır ve/veya ETW bildirim dayalı sağlayıcıları.|  
-|**Ölçümler**|Bu öğe toogenerate hızlı sorguları için en iyi hale getirilmiş bir performans sayacı tablo sağlar. Hello tanımlanan her performans sayacı **performans sayaçları** öğesi hello ölçümleri toplama toohello performans sayacı tablo tablosunda depolanır. Gerekli öznitelik:<br /><br /> **ResourceId** -hello kaynak hello Azure tanılama dağıttığınız sanal makine Kimliğini budur. Merhaba alma **ResourceId** hello gelen [Azure portal](https://portal.azure.com). Seçin **Gözat** -> **kaynak grupları** -> **< adı\>**. Merhaba tıklatın **özellikleri** döşeme ve hello hello değerini kopyalayın **kimliği** alan.|  
-|**Performans sayaçları**|Performans sayaçları Hello koleksiyonunu sağlar. İsteğe bağlı öznitelik:<br /><br /> **scheduledTransferPeriod** -toohello minute en yakın yuvarlanan zamanlanmış aktarımları toostorage hello aralığıdır. Değer bir [XML "Süre veri türü".](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
-|**WindowsEventLog**|Merhaba koleksiyonu, Windows olay günlüklerini sağlar. İsteğe bağlı öznitelik:<br /><br /> **scheduledTransferPeriod** -toohello minute en yakın yuvarlanan zamanlanmış aktarımları toostorage hello aralığıdır. Değer bir [XML "Süre veri türü".](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
+|**Ölçümler**|Bu öğe hızlı sorguları için en iyi hale getirilmiş bir performans sayacı tablo oluşturmanıza olanak sağlar. Tanımlanan her performans sayacı **performans sayaçları** öğesi performans sayacı tablo yanı sıra ölçüm tablosunda depolanır. Gerekli öznitelik:<br /><br /> **ResourceId** -bu Azure tanılama dağıttığınız sanal makine kaynak kimliğidir. Alma **ResourceId** gelen [Azure portal](https://portal.azure.com). Seçin **Gözat** -> **kaynak grupları** -> **< adı\>**. Tıklatın **özellikleri** döşeme ve değerini kopyalayın **kimliği** alan.|  
+|**Performans sayaçları**|Performans sayaçları koleksiyonunu sağlar. İsteğe bağlı öznitelik:<br /><br /> **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML "Süre veri türü".](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
+|**WindowsEventLog**|Windows olay günlüklerini toplama sağlar. İsteğe bağlı öznitelik:<br /><br /> **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML "Süre veri türü".](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
 
 ## <a name="crashdumps-element"></a>CrashDumps öğesi  
- Kilitlenme bilgi dökümleri koleksiyonunu sağlar. Aşağıdaki tablonun hello alt öğeleri açıklanmıştır:  
+ Kilitlenme bilgi dökümleri koleksiyonunu sağlar. Aşağıdaki tabloda, alt öğeleri açıklanmıştır:  
 
 |Öğe adı|Açıklama|  
 |------------------|-----------------|  
-|**CrashDumpConfiguration**|Gereklidir. Gerekli öznitelik:<br /><br /> **işlemadı** - hello kilitlenme dökümü için kullanmak istediğiniz Azure tanılama toocollect hello işlemin adı.|  
-|**crashDumpType**|Azure tanılama toocollect mini ya da tam kilitlenme dökümleri yapılandırır.|  
-|**directoryQuotaPercentage**|Merhaba yüzdesini yapılandırır **overallQuotaInMB** toobe hello VM üzerinde kilitlenme dökümleri için ayrılmış.|  
+|**CrashDumpConfiguration**|Gerekli. Gerekli öznitelik:<br /><br /> **işlemadı** -adı işlemi için kilitlenme bilgilerini toplamak için Azure tanılama istiyor.|  
+|**crashDumpType**|Mini ya da tam kilitlenme dökümleri toplamak için Azure tanılama yapılandırır.|  
+|**directoryQuotaPercentage**|Yüzdesini yapılandırır **overallQuotaInMB** VM kilitlenme dökümleri için ayrılmış olmalıdır.|  
 
 ## <a name="directories-element"></a>Dizinleri öğesi  
- Bir dizinin içeriğini hello koleksiyonunu etkinleştirir Merhaba, IIS erişim isteği günlükleri ve/veya IIS günlüklerini başarısız oldu. Aşağıdaki tablonun hello alt öğeleri açıklanmıştır:  
+ Bir dizin, IIS başarısız erişim isteği günlükleri ve/veya IIS günlüklerini içeriğini koleksiyonunu sağlar. Aşağıdaki tabloda, alt öğeleri açıklanmıştır:  
 
 |Öğe adı|Açıklama|  
 |------------------|-----------------|  
-|**Veri kaynakları**|Dizinleri toomonitor listesi.|  
-|**FailedRequestLogs**|Bu öğe hello yapılandırmasında dahil olmak üzere başarısız isteklerin tooan IIS siteniz veya uygulamanız hakkında günlükleri koleksiyonunu sağlar. İzleme seçenekleri altında da etkinleştirmeniz gerekir **sistem. Web sunucusu** içinde **Web.config**.|  
-|**IISLogs**|Bu öğe hello yapılandırmasında dahil olmak üzere IIS günlüklerini hello koleksiyonunu sağlar:<br /><br /> **kapsayıcı adı** -toostore hello IIS günlüklerini kullanılan Azure Storage hesabı toobe hello blob kapsayıcısında hello adı.|  
+|**Veri kaynakları**|İzlemek için dizinlerin listesi.|  
+|**FailedRequestLogs**|Bu öğe yapılandırmada dahil olmak üzere bir IIS site veya uygulama başarısız istekler hakkında günlükleri koleksiyonunu sağlar. İzleme seçenekleri altında da etkinleştirmeniz gerekir **sistem. Web sunucusu** içinde **Web.config**.|  
+|**IISLogs**|Bu öğe yapılandırmada dahil olmak üzere, IIS günlüklerini koleksiyonunu sağlar:<br /><br /> **kapsayıcı adı** -IIS günlükleri depolamak için kullanılacak Azure depolama hesabınızdaki blob kapsayıcısının adı.|  
 
 ## <a name="datasources-element"></a>Veri kaynakları öğesi  
- Dizinleri toomonitor listesi. Aşağıdaki tablonun hello alt öğeleri açıklanmıştır:  
+ İzlemek için dizinlerin listesi. Aşağıdaki tabloda, alt öğeleri açıklanmıştır:  
 
 |Öğe adı|Açıklama|  
 |------------------|-----------------|  
-|**DirectoryConfiguration**|Gereklidir. Gerekli öznitelik:<br /><br /> **kapsayıcı adı** -Azure depolama alanınızı hello blob kapsayıcısında hello adını hesap kullanılan toobe toostore hello günlük dosyaları.|  
+|**DirectoryConfiguration**|Gerekli. Gerekli öznitelik:<br /><br /> **kapsayıcı adı** -günlük dosyalarını depolamak için kullanılacak Azure depolama hesabınızdaki blob kapsayıcısının adı.|  
 
 ## <a name="directoryconfiguration-element"></a>DirectoryConfiguration öğesi  
- **DirectoryConfiguration** ya da hello içerebilir **mutlak** veya **LocalResource** öğesi ikisini birden belirtmeyin. Aşağıdaki tablonun hello alt öğeleri açıklanmıştır:  
+ **DirectoryConfiguration** ya da içerebilir **mutlak** veya **LocalResource** öğesi ikisini birden belirtmeyin. Aşağıdaki tabloda, alt öğeleri açıklanmıştır:  
 
 |Öğe adı|Açıklama|  
 |------------------|-----------------|  
-|**Mutlak**|mutlak yol toohello directory toomonitor hello. Aşağıdaki öznitelikler hello gereklidir:<br /><br /> -                     **Yol** -mutlak bir yol toohello directory toomonitor hello.<br /><br /> -                      **expandEnvironment** -Path ortam değişkenleri genişletilmiş olup olmadığını yapılandırır.|  
-|**LocalResource**|Merhaba yolu göreli tooa yerel kaynak toomonitor. Gerekli öznitelikler şunlardır:<br /><br /> -                     **Ad** -hello hello dizin toomonitor içeren yerel kaynak<br /><br /> -                     **relativePath** -hello dizin toomonitor içeren yolu göreli tooName hello|  
+|**Mutlak**|İzlemek için dizinine mutlak yolu. Aşağıdaki öznitelikler gereklidir:<br /><br /> -                     **Yol** -izlemek için dizinine mutlak yolu.<br /><br /> -                      **expandEnvironment** -Path ortam değişkenleri genişletilmiş olup olmadığını yapılandırır.|  
+|**LocalResource**|İzlemek için bir yerel kaynağı göreli yolu. Gerekli öznitelikler şunlardır:<br /><br /> -                     **Ad** -izlemek için dizinini içeren yerel kaynağı<br /><br /> -                     **relativePath** -izlemek için dizin içeren adı göreli yolu|  
 
 ## <a name="etwproviders-element"></a>EtwProviders öğesi  
- EventSource ETW olayları koleksiyonu yapılandırır ve/veya ETW bildirim dayalı sağlayıcıları. Aşağıdaki tablonun hello alt öğeleri açıklanmıştır:  
+ EventSource ETW olayları koleksiyonu yapılandırır ve/veya ETW bildirim dayalı sağlayıcıları. Aşağıdaki tabloda, alt öğeleri açıklanmıştır:  
 
 |Öğe adı|Açıklama|  
 |------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Koleksiyon üretilen olayların yapılandırır [EventSource sınıfı](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Gerekli öznitelik:<br /><br /> **Sağlayıcı** -hello EventSource olay hello sınıfı adı.<br /><br /> İsteğe bağlı öznitelikleri şunlardır:<br /><br /> -                     **scheduledTransferLogLevelFilter** -hello minimum önem düzeyi tootransfer tooyour depolama hesabı.<br /><br /> -                     **scheduledTransferPeriod** -toohello minute en yakın yuvarlanan zamanlanmış aktarımları toostorage hello aralığıdır. Değer bir [XML süresi veri türü](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
-|**EtwManifestProviderConfiguration**|Gerekli öznitelik:<br /><br /> **Sağlayıcı** -hello Olay sağlayıcısı GUİD'si hello<br /><br /> İsteğe bağlı öznitelikleri şunlardır:<br /><br /> - **scheduledTransferLogLevelFilter** -hello minimum önem düzeyi tootransfer tooyour depolama hesabı.<br /><br /> -                     **scheduledTransferPeriod** -toohello minute en yakın yuvarlanan zamanlanmış aktarımları toostorage hello aralığıdır. Değer bir [XML süresi veri türü](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
+|**EtwEventSourceProviderConfiguration**|Koleksiyon üretilen olayların yapılandırır [EventSource sınıfı](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Gerekli öznitelik:<br /><br /> **Sağlayıcı** -EventSource olay sınıfı adı.<br /><br /> İsteğe bağlı öznitelikleri şunlardır:<br /><br /> -                     **scheduledTransferLogLevelFilter** -depolama hesabınıza aktarmak için en düşük önem düzeyi.<br /><br /> -                     **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML süresi veri türü](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
+|**EtwManifestProviderConfiguration**|Gerekli öznitelik:<br /><br /> **Sağlayıcı** -GUID Olay sağlayıcısı<br /><br /> İsteğe bağlı öznitelikleri şunlardır:<br /><br /> - **scheduledTransferLogLevelFilter** -depolama hesabınıza aktarmak için en düşük önem düzeyi.<br /><br /> -                     **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML süresi veri türü](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
 
 ## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration öğesi  
- Koleksiyon üretilen olayların yapılandırır [EventSource sınıfı](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Aşağıdaki tablonun hello alt öğeleri açıklanmıştır:  
+ Koleksiyon üretilen olayların yapılandırır [EventSource sınıfı](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Aşağıdaki tabloda, alt öğeleri açıklanmıştır:  
 
 |Öğe adı|Açıklama|  
 |------------------|-----------------|  
-|**DefaultEvents**|İsteğe bağlı öznitelik:<br /><br /> **eventDestination** - hello hello tablo toostore hello olayları adı|  
-|**Olay**|Gerekli öznitelik:<br /><br /> **Kimliği** -hello olay hello kimliği.<br /><br /> İsteğe bağlı öznitelik:<br /><br /> **eventDestination** - hello hello tablo toostore hello olayları adı|  
+|**DefaultEvents**|İsteğe bağlı öznitelik:<br /><br /> **eventDestination** -olayları depolamak için tablonun adı|  
+|**Olay**|Gerekli öznitelik:<br /><br /> **Kimliği** -olay kimliği.<br /><br /> İsteğe bağlı öznitelik:<br /><br /> **eventDestination** -olayları depolamak için tablonun adı|  
 
 ## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration öğesi  
- Aşağıdaki tablonun hello alt öğeleri açıklanmıştır:  
+ Aşağıdaki tabloda, alt öğeleri açıklanmıştır:  
 
 |Öğe adı|Açıklama|  
 |------------------|-----------------|  
-|**DefaultEvents**|İsteğe bağlı öznitelik:<br /><br /> **eventDestination** - hello hello tablo toostore hello olayları adı|  
-|**Olay**|Gerekli öznitelik:<br /><br /> **Kimliği** -hello olay hello kimliği.<br /><br /> İsteğe bağlı öznitelik:<br /><br /> **eventDestination** - hello hello tablo toostore hello olayları adı|  
+|**DefaultEvents**|İsteğe bağlı öznitelik:<br /><br /> **eventDestination** -olayları depolamak için tablonun adı|  
+|**Olay**|Gerekli öznitelik:<br /><br /> **Kimliği** -olay kimliği.<br /><br /> İsteğe bağlı öznitelik:<br /><br /> **eventDestination** -olayları depolamak için tablonun adı|  
 
 ## <a name="metrics-element"></a>Ölçümleri öğesi  
- Toogenerate hızlı sorguları için en iyi hale getirilmiş bir performans sayacı tablo sağlar. Aşağıdaki tablonun hello alt öğeleri açıklanmıştır:  
+ Hızlı sorguları için en iyi hale getirilmiş bir performans sayacı tablo oluşturmanıza olanak sağlar. Aşağıdaki tabloda, alt öğeleri açıklanmıştır:  
 
 |Öğe adı|Açıklama|  
 |------------------|-----------------|  
-|**MetricAggregation**|Gerekli öznitelik:<br /><br /> **scheduledTransferPeriod** -toohello minute en yakın yuvarlanan zamanlanmış aktarımları toostorage hello aralığıdır. Değer bir [XML süresi veri türü](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
+|**MetricAggregation**|Gerekli öznitelik:<br /><br /> **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML süresi veri türü](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters öğesi  
- Performans sayaçları Hello koleksiyonunu sağlar. Aşağıdaki tablonun hello alt öğeleri açıklanmıştır:  
+ Performans sayaçları koleksiyonunu sağlar. Aşağıdaki tabloda, alt öğeleri açıklanmıştır:  
 
 |Öğe adı|Açıklama|  
 |------------------|-----------------|  
-|**PerformanceCounterConfiguration**|Aşağıdaki öznitelikler hello gereklidir:<br /><br /> -                     **counterSpecifier** - hello hello performans sayacının adı. Örneğin, `\Processor(_Total)\% Processor Time`. tooget hello komutunu çalıştırın, ana bilgisayardaki performans sayaçlarının listesi `typeperf`.<br /><br /> -                     **sampleRate** -ne sıklıkta hello sayaç örneklenen.<br /><br /> İsteğe bağlı öznitelik:<br /><br /> **Birim** -hello ölçü hello sayacı.|  
+|**PerformanceCounterConfiguration**|Aşağıdaki öznitelikler gereklidir:<br /><br /> -                     **counterSpecifier** -performans sayacının adı. Örneğin, `\Processor(_Total)\% Processor Time`. Performans listesini almak için ana bilgisayarınızda sayaçları komutu çalıştırın `typeperf`.<br /><br /> -                     **sampleRate** -sayaç ne sıklıkta örneklenen.<br /><br /> İsteğe bağlı öznitelik:<br /><br /> **Birim** -sayaç ölçü birimi.|  
 
 ## <a name="performancecounterconfiguration-element"></a>PerformanceCounterConfiguration öğesi  
- Aşağıdaki tablonun hello alt öğeleri açıklanmıştır:  
+ Aşağıdaki tabloda, alt öğeleri açıklanmıştır:  
 
 |Öğe adı|Açıklama|  
 |------------------|-----------------|  
-|**ek açıklama**|Gerekli öznitelik:<br /><br /> **displayName** -hello sayaç hello görünen adı<br /><br /> İsteğe bağlı öznitelik:<br /><br /> **yerel ayar** -hello sayaç adı görüntülerken, yerel ayar toouse hello|  
+|**ek açıklama**|Gerekli öznitelik:<br /><br /> **displayName** -sayaç görünen adı<br /><br /> İsteğe bağlı öznitelik:<br /><br /> **yerel ayar** -sayaç adı görüntülerken kullanılacak yerel ayar|  
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog öğesi  
- Aşağıdaki tablonun hello alt öğeleri açıklanmıştır:  
+ Aşağıdaki tabloda, alt öğeleri açıklanmıştır:  
 
 |Öğe adı|Açıklama|  
 |------------------|-----------------|  
-|**Veri kaynağı**|Merhaba Windows olay günlüklerini toocollect. Gerekli öznitelik:<br /><br /> **ad** -hello windows olayları toobe açıklayan hello XPath sorgusu toplanır. Örneğin:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> tüm olayları toocollect belirtin "*".|
+|**Veri kaynağı**|Windows olay günlüklerini toplamak üzere. Gerekli öznitelik:<br /><br /> **ad** - toplanacak windows olayları tanımlayan XPath sorgusu. Örneğin:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Tüm olaylarını toplamak için belirtin "*".|

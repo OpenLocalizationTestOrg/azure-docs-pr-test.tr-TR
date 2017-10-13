@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure Mobile Engagement - anahtar özellikleri"
-description: "Azure Mobile Engagement Hello anahtar özelliklerini açıklar"
+title: "Azure Mobile Engagement - anahtar özellikleri"
+description: "Azure Mobile Engagement temel özelliklerini tanımlar"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,46 +14,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 46906033046fc6dd915fb6943f5f89d4b4a27704
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8270a223ca31c623c1b760a64c0e4d64fb85e080
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-mobile-engagement---key-features"></a>Azure Mobile Engagement - anahtar özellikleri
-Bu makalede hello Mobile Engagement platformu hello temel özellikleri hakkında üst düzey bir genel bakış sunulmaktadır. 
+Bu makalede, Mobile Engagement platformu'nın temel özellikleri hakkında üst düzey bir genel bakış sağlar. 
 
 ## <a name="general"></a>**Genel**
 * **Tüm önde gelen platformlar için SDK'lar Bul** SDK'ları önemli tüm platformlar için - kullanılabilir iOS, Android, Evrensel Windows, Windows Phone Silverlight, Kindle, Cordova. 
-  Kolay toointegrate SDK'ları ve tercih ettiğiniz herhangi bir platformda başlattığınız yararlı belgelerine tooget sunuyoruz. 
-* **Ayrı SaaS portal** pazarlama ekibinin hello gerek toogo hello Azure Yönetim Portalı aracılığıyla olmadan kolay erişim toohello sağlar. 
-* **Açık REST API'leri kullanılabilirliğini** toointegrate ve açık platformu API'lerini kullanarak CRM/CMS/BT sistemleriyle otomatikleştirmek, açık REST API'leri ve .NET SDK'sı tooconsume tooeasily izin vermek bu API'leri tümleştirme sağlar ve Mobile Engagement ile otomatikleştirmek. Bkz: [bu](mobile-engagement-api-authentication.md) Ayrıntılar için. 
-* **Power BI Bağlayıcısı** hello anahtar analytics grafikleri Power BI panosuna içine çıkışı çekebilir. Bu bkz [Kılavuzu](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-mobile/)
-* **Güvenlik ve gizlilik uyumluluğunu** Azure Mobile Engagement hello Azure ailesinin bir parçası olan tüm hello güvenlik ve gizlilik için bir bulut hizmeti beklenen geçici standart en iyi yöntemler izler.
+  Kolay SDK'lar ve yararlı belgelerine tercih ettiğiniz herhangi bir platformda başlamanıza yardımcı olmak için tümleştirmek için sunuyoruz. 
+* **Ayrı SaaS portal** Azure Yönetim Portalı aracılığıyla gitmek zorunda kalmadan pazarlama ekibinin kolay erişim sağlar. 
+* **Açık REST API'leri kullanılabilirliğini** tümleştirme ve açık platformu API'lerini kullanarak CRM/CMS/BT sistemleriyle otomatikleştirmek için açık REST API'leri ve .NET SDK'sı, kolayca tümleştirmek ve Mobile Engagement ile otomatikleştirmek izin verebilir bu API'leri kullanmak için sunuyoruz. Bkz: [bu](mobile-engagement-api-authentication.md) Ayrıntılar için. 
+* **Power BI Bağlayıcısı** Power BI panosuna içine anahtar analytics grafikleri çıkışı çekebilir. Bu bkz [Kılavuzu](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-mobile/)
+* **Güvenlik ve gizlilik uyumluluğunu** Azure Mobile Engagement Azure ailesinin bir parçası olan tüm standart en iyi yöntemler güvenlik ve gizlilik için bir bulut hizmeti beklenen geçici izler.
 
 ## <a name="actionable-analytics"></a>**Eyleme dönüştürülebilir analiz**
-* **İzleme verilerini gerçek zamanlı** gerçek zamanlı analytics oturumları, olaylar, hatalar ve kilitlenme gibi ayrıntıları tüm gerçek zamanlı olarak gösteren bizim İzleyici modülünü kullanarak izleyebilirsiniz. Bu bir göz atalım [makale](mobile-engagement-concepts.md) tooget hello temel kavramları anlamanız. 
+* **İzleme verilerini gerçek zamanlı** gerçek zamanlı analytics oturumları, olaylar, hatalar ve kilitlenme gibi ayrıntıları tüm gerçek zamanlı olarak gösteren bizim İzleyici modülünü kullanarak izleyebilirsiniz. Bu bir göz atalım [makale](mobile-engagement-concepts.md) temel kavramlarını anlamak. 
   
     ![][1]
   
     ![][2]        
-* **Toplanan verileri görüntülemek** uygulama sürümü ve zaman dönemlere ilişkin bağlı olarak verilerinizi ayrıca tooeasily filtre sağlayan bizim Analytics modülü kullanarak toplu analiz verilerinizi daha zengin bir görünümünü elde.
+* **Toplanan verileri görüntülemek** ayrıca kolayca verilerinizi uygulama sürümü ve zaman dönemlere ilişkin göre filtre uygulamak izin veren bizim Analytics modülü kullanarak toplu analiz verilerinizi daha zengin bir görünümünü elde edersiniz.
   
     ![][3]        
 * **Kullanıcılar ve bekletme düzeni Öngörüler alın**
   
     ![][4]        
-* **Kullanıcılarınızın'ten gelen nerede ve ne kadar süre bulundukları Öngörüler elde Merhaba ekranında harcama**
+* **Kullanıcılarınızın'ten gelen nerede ve ne kadar süre bulundukları Öngörüler alın ekranında harcama**
   
     ![][5]        
   
     ![][6]        
-* **Hangi ekranlar, uygulama kullanıcılarınızın ziyaret olan ve nasıl kullanabilir, en iyi duruma getirme hello kullanıcı yolu öğrenin** bu toodiscover ekranları ve istediğiniz özellikleri yardımcı olur.
+* **Hangi ekranlar, uygulama kullanıcılarınızın ziyaret olan ve nasıl kullanabilir, en iyi duruma getirme kullanıcı yolunu öğrenin** Bu ekranlar ve istediğiniz özellikleri bulmak için yardımcı olur.
   
     ![][7]        
   
     ![][8]        
-* **İçine hello en sık rastlanan uygulamanızda olaylardır Öngörüler alın ve bu olaylara göre iş sürecinin anlamak** 
+* **İçine en sık rastlanan bir uygulamanızı olaylardır Öngörüler alın ve bu olaylara göre iş sürecinin anlamak** 
   
     ![][9]    
 * **Yaygın hatalar ve kilitlenme izlemek ve Geliştirme ekibiniz için öngörü edinme**
@@ -61,20 +61,20 @@ Bu makalede hello Mobile Engagement platformu hello temel özellikleri hakkında
     ![][10]        
   
     ![][11]    
-* **Hangi aygıtları ve ağları uygulamanızdan erişen uygulama kullanıcılar, toooptimize hello uygulama olduğunu anlama** 
+* **Hangi aygıtları ve ağları olan, uygulama kullanıcılarınızın erişme, uygulamanızdan uygulama en iyi duruma getirme anlama** 
   
     ![][12]    
 
 ## <a name="targeted--personalized-push-notifications"></a>**Hedeflenen & kişiselleştirilmiş anında iletme bildirimleri**
-* **Merhaba toplanan verileri hiçbirinde dayalı bir segment oluşturmanız** herhangi hello olay/oturum/etkinlik/iş/kilitlenme/hata/etiketleri veri bunun için kullanabilirsiniz.
+* **Toplanan veriler hiçbirinde dayalı bir segment oluşturmanız** bunu olayı/oturum/etkinlik/iş/kilitlenme/hata/etiketleri verilerin hiçbirini için kullanabilirsiniz.
   
     ![][13]
   
     ![][14]        
-* **İçinde gün oluşturulan kesimleri gününüzün Hello geçmişi İzle**
+* **İçinde gün oluşturulan kesimleri gününüzün geçmişini izleme**
   
     ![][15]    
-* **Hedeflenen bildirimleri göndermek** eski/yeni kullanıcılar vb. veya tooyour özel oluşturulan segment gibi sık kullanılan hedefleme
+* **Hedeflenen bildirimleri göndermek** eski/yeni kullanıcılar vb. gibi veya özel oluşturulan segmentinize için yaygın olarak kullanılan hedefleme
   
     ![][16]    
 * **Senaryonuz için uygun şekilde uygulama anında iletme bildirimleri hem çıkış-in-app/system & zengin HTML tabanlı Gönder**
@@ -82,33 +82,33 @@ Bu makalede hello Mobile Engagement platformu hello temel özellikleri hakkında
     ![][17]    
   
     ![][18]    
-* **Belirli bir ekran/etkinlik hello uygulamasında yukarı uygulama bildirimleri tooshow hedef**
+* **Belirli bir ekran/etkinlik uygulamasında göstermek için hedef uygulama bildirimleri**
   
     ![][19]    
-* **"Eylem" Merhaba Kullanıcı bildirim tıkladığında belirtin** bir Web sayfası açmak veya hello uygulama tooa belirli ekranında hello tıklatın hello bildirim içinde gezinme kadar basit olabilir. 
+* **Kullanıcı bir bildirim tıklattığında "eylem" belirtin** bir Web sayfası açmak veya belirli bir ekrana bildirim tıklatın, uygulama içinde gezinme kadar basit olabilir. 
   
     ![][20]
-* **Yerelleştirilmiş bildirimleri göndermek** toohello uygulama kullanıcılarınızın en rahat oldukları hello dilde cezbeden böylece. 
+* **Yerelleştirilmiş bildirimleri göndermek** böylece en rahat oldukları dil uygulama kullanıcılar cezbeden. 
   
     ![][21]    
 * **Kampanyalarınızın için bir başlangıç ve bitiş saatini belirtin** 
   
     ![][22]    
-* **Kolayca bildirimlerinizi test** bir test cihazı kaydetme ve bu aygıt hello test bildirim tooonly göndererek.
+* **Kolayca bildirimlerinizi test** bir test cihazı kaydetme ve yalnızca bu cihaza test bildirimi göndererek.
   
     ![][23]    
-* **Bir uygulama içi bildirim tooshow kolayca Hızlı Yoklama/anket ayarlama**  
+* **Bir uygulama içi bildirim Hızlı Yoklama/anket göstermeyi kolayca ayarlama**  
   
     ![][24]
-* **Anında iletme kampanya istatistikleri almak** , bildirimler toogive için nasıl başarılı hakkında bir fikir bildirimlerinizi olduğunuz.
+* **Anında iletme kampanya istatistikleri almak** bildirimlerinizi bildirimlerinizi nasıl başarılı hakkında bir fikir vermek için.
   
     ![][25]    
-* **Kolayca kişiselleştirme ve app-bilgi/etiketleri ve emojis kullanarak karakter tooyour bildirimleri verin** 
+* **Kolayca kişiselleştirme ve app-bilgi/etiketler ve emojis kullanarak bildirimlerinizi karakter verin** 
   
     ![][26]    
   
     ![][27]    
-* **Ayarlamak kullanıcıların istenmeyen posta gönderme sınırları tooprevent** toosend çok iter tooyour uygulama kullanıcılarının istediğiniz ve istenmeyen posta olarak bakmayı yok. Bu burada gönderme sınırları özelliğimizi tooconfigure gönderim sınırları kesimi hello bazda sağlayan yararlıdır. 
+* **Kullanıcıların istenmeyen posta önlemek için anında sınırını ayarlama** çok sayıda iter, uygulama kullanıcılarınızın göndermek ve istenmeyen posta olarak bakmayı istemezsiniz. Bu burada gönderme sınırları özelliğimizi kesimi bazda gönderim sınırlarını yapılandırmak sağlayan yararlıdır. 
   
     ![][28]            
 

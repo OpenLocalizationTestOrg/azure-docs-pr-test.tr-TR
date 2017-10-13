@@ -1,6 +1,6 @@
 ---
-title: "aaaGet Xamarin.iOS uygulamaları için Azure App Service Mobile Apps ile başlatılan | Microsoft Docs"
-description: "Xamarin.iOS geliştirme için Mobile Apps kullanmaya Bu öğretici tooget izleyin."
+title: "Xamarin iOS uygulamaları için Azure Uygulama Hizmeti Mobile Apps’i Kullanmaya Başlama | Microsoft Belgeleri"
+description: "Xamarin.iOS geliştirme için Mobile Apps kullanmaya başlamak için bu öğreticiyi izleyin."
 services: app-service\mobile
 documentationcenter: xamarin
 author: ggailey777
@@ -14,66 +14,66 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: syntaxc4
-ms.openlocfilehash: 524c5ac4d8a29d7cb858f74132aad5d6e2201d02
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 8dc965df2cd45366970effb29f246b0045a94717
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-xamarinios-app"></a>Yeni bir Xamarin.iOS uygulaması oluşturma
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu öğretici nasıl tooadd bir bulut tabanlı arka uç hizmeti tooa Xamarin.iOS mobil uygulamasına Azure mobil uygulaması arka ucunu kullanarak gösterir.  Hem yeni bir mobil arka uç hem de Azure’da uygulama verilerini depolayan basit bir *Yapılacaklar listesi* oluşturursunuz.
+Bu öğreticide, bir Xamarin.iOS mobil uygulamasına Azure mobil uygulaması arka ucunu kullanarak bulut tabanlı arka uç hizmetini nasıl ekleyeceğiniz gösterilir.  Hem yeni bir mobil arka uç hem de Azure’da uygulama verilerini depolayan basit bir *Yapılacaklar listesi* oluşturursunuz.
 
-Bu öğreticiyi tamamlamak Azure App Service'te hello Mobile Apps özelliğini kullanmayla ilgili diğer tüm Xamarin.iOS öğreticileri için önkoşuldur.
+Bu öğreticiyi tamamlamak, Azure App Service’de Mobile Apps özelliğini kullanmayla ilgili diğer tüm Xamarin.iOS öğreticileri için ön koşuldur.
 
-## <a name="prerequisites"></a>Ön koşullar
-toocomplete Bu öğretici önkoşulları aşağıdaki hello gerekir:
+## <a name="prerequisites"></a>Önkoşullar
+Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız gerekir:
 
-* Etkin bir Azure hesabı. Bir hesabınız yoksa, bir Azure deneme sürümünü kaydolabilir ve deneme bittikten sonra dahi kullanmaya devam edebileceğiniz too10 ücretsiz mobil uygulama alın. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
+* Etkin bir Azure hesabı. Hesabınız yoksa Azure deneme sürümü için kaydolun ve deneme süreniz bittikten sonra bile kullanmaya devam edebileceğiniz 10 ücretsiz mobil uygulama edinin. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
 * Xamarin ile Visual Studio. Yönergeler için bkz. [Visual Studio ve Xamarin için Kurulum ve Yükleme](https://msdn.microsoft.com/library/mt613162.aspx).
 * Xcode v7.0 veya daha sonraki sürümü ve Xamarin Studio Community yüklü bir Mac. Bkz. [Visual Studio ve Xamarin için kurulum ve yükleme](https://msdn.microsoft.com/library/mt613162.aspx) ve [Mac kullanıcıları için kurulum, yükleme ve doğrulamalar](https://msdn.microsoft.com/library/mt488770.aspx) (MSDN).
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Azure Mobil Uygulama arka ucu oluşturma
-Bu adımları toocreate bir mobil uygulama arka ucu izleyin.
+Mobil Uygulama arka ucu oluşturmak için bu adımları izleyin.
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="configure-hello-server-project"></a>Merhaba sunucu projesi yapılandırmak
-Artık, mobil istemci uygulamalarınız tarafından kullanılabilecek bir Azure Mobil Uygulama arka ucu sağladınız. Ardından, basit bir "Yapılacaklar listesi" için bir sunucu projesi indirme arka uç ve tooAzure yayımlayın.
+## <a name="configure-the-server-project"></a>Sunucu projesi yapılandırma
+Artık, mobil istemci uygulamalarınız tarafından kullanılabilecek bir Azure Mobil Uygulama arka ucu sağladınız. Ardından, basit bir "Yapılacaklar listesi" arka ucu için sunucu projesi indirin ve Azure’a yayımlayın.
 
-Aşağıdaki adımları tooconfigure hello sunucu projesi toouse hello ya da hello Node.js veya .NET arka uç izleyin.
+Sunucu projesini Node.js veya .NET arka ucunu kullanacak şekilde yapılandırmak için bu adımları izleyin.
 
 [!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-hello-xamarinios-app"></a>Merhaba Xamarin.iOS uygulamasını indirme ve çalıştırma
-1. Açık hello [Azure portal] bir tarayıcı penceresinde.
-2. Hello ayarları dikey mobil uygulamanızın penceresinde **Get Started** > **Xamarin.iOS**. 3. adımın altında, henüz seçili değilse **Yeni uygulama oluştur**’a tıklayın.  Merhaba İleri'yi **karşıdan** düğmesi.
+## <a name="download-and-run-the-xamarinios-app"></a>Xamarin iOS uygulamasını indirme ve çalıştırma
+1. Bir tarayıcı penceresine [Azure portal]’ı açın.
+2. Mobil Uygulamanızın dikey penceresinde, **Kullanmaya Başlama** > **Xamarin.iOS**.’a tıklayın. 3. adımın altında, henüz seçili değilse **Yeni uygulama oluştur**’a tıklayın.  Sonra **İndir** düğmesine tıklayın.
 
-      Tooyour mobil arka uç bağlanan bir istemci uygulaması indirilir. Merhaba sıkıştırılmış proje dosyasını yerel bilgisayarınıza kaydedin ve kaydettiğiniz yeri not edin.
-3. İndirdiğiniz Merhaba projeyi çıkarın ve Xamarin Studio (veya Visual Studio) açın.
+      Mobil arka ucunuza bağlanan istemci uygulaması indirilir. Sıkıştırılmış proje dosyasını yerel bilgisayarınıza kaydedin ve kaydettiğiniz yeri not edin.
+3. İndirdiğiniz projeyi çıkarın ve Xamarin Studio veya Visual Studio'da açın.
 
     ![][9]
 
     ![][8]
-4. Merhaba F5 anahtar toobuild hello proje tuşuna basın ve hello uygulamayı hello iPhone öykünücüsünde başlatın.
-5. Merhaba uygulamada gibi anlamlı bir metin yazın *Xamarin öğren*ve ardından hello  **+**  düğmesi.
+4. F5 tuşuna basarak projeyi oluşturun ve uygulamayı iPhone öykünücüsünde başlatın.
+5. Uygulamada, *Xamarin öğren* gibi anlamlı bir metin yazın ve ardından **+** düğmesine tıklayın.
 
     ![][10]
 
-    Veriler hello istek hello Todoıtem tablosuna eklenir. Merhaba tabloda depolanan öğeler hello mobil uygulama arka ucu tarafından döndürülür ve veriler hello listesinde görüntülenir.
+    İstekten alınan veriler TodoItem tablosuna eklenir. Tabloda depolanan öğeler mobil uygulama arka ucu tarafından döndürülür ve veriler listede görüntülenir.
 
 > [!NOTE]
-> Mobil uygulama arka uç tooquery erişen hello kodu gözden geçirin ve hello QSTodoService.cs C# dosyasına veri eklemek.
+> Sorgulamak ve QSTodoService.cs C# dosyasına veri eklemek için, mobil uygulamanızın arka ucuna erişen kodu gözden geçirebilirsiniz.
 >
 >
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Çevrimdışı eşitleme tooyour uygulama Ekle](app-service-mobile-xamarin-ios-get-started-offline-data.md)
-* [Kimlik doğrulama tooyour uygulama Ekle](app-service-mobile-xamarin-ios-get-started-users.md)
-* [Anında iletme bildirimleri tooyour Xamarin.Android uygulaması ekleyin](app-service-mobile-xamarin-ios-get-started-push.md)
-* [Nasıl toouse hello Azure Mobile Apps için yönetilen](app-service-mobile-dotnet-how-to-use-client-library.md)
+* [Uygulamanıza Çevrimdışı Eşitleme ekleme](app-service-mobile-xamarin-ios-get-started-offline-data.md)
+* [Uygulamanıza kimlik doğrulaması ekleme](app-service-mobile-xamarin-ios-get-started-users.md)
+* [Xamarin.Android uygulamanıza anında iletme bildirimleri ekleme](app-service-mobile-xamarin-ios-get-started-push.md)
+* [Azure Mobile Apps için yönetilen istemciyi kullanma](app-service-mobile-dotnet-how-to-use-client-library.md)
 
 <!-- Anchors. -->
 [Getting started with mobile app backends]:#getting-started

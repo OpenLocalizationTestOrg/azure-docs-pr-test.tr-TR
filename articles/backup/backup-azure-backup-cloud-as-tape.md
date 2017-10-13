@@ -1,6 +1,6 @@
 ---
-title: "aaaUse Azure Backup tooreplace bant altyapınızın | Microsoft Docs"
-description: "Azure Backup sağlayan bant benzeri semantiği toobackup nasıl sağladığını öğrenin ve Azure veri geri yükleme"
+title: "Bant altyapınızın yerini alması için Azure Yedekleme'yi | Microsoft Docs"
+description: "Yedekleme ve geri yükleme verilerini azure'da olanak veren bant benzeri semantiği Azure Backup'nasıl sağladığını öğrenin"
 services: backup
 documentationcenter: 
 author: trinadhk
@@ -15,53 +15,53 @@ ms.workload: storage-backup-recovery
 ms.date: 1/10/2017
 ms.author: saurse;trinadhk;markgal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4c5b095d95d39267c54b1eed9427bda09658bb94
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f0f3152daf5f91f7c9e540797bf09b21969d2d33
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="move-your-long-term-storage-from-tape-toohello-azure-cloud"></a>Uzun vadeli depolama alanınızı Azure bulut bant toohello taşıma
+# <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Uzun vadeli depolama için Azure bulut banttan taşıma
 Azure yedekleme ve System Center Data Protection Manager müşteriler yapabilirsiniz:
 
-* En iyi şekilde hello kuruluşunuzun gereksinimlerine uygun tablolarındaki verileri yedekleyin.
-* Uzun süre Hello yedekleme verilerini korur
+* Kuruluşunuzun gereksinimlerine en uygun tablolarındaki verileri yedekleyin.
+* Uzun süre yedekleme verilerini korur
 * (Bant yerine) kendi uzun vadeli bekletme parçası gereken Azure olun.
 
-Bu makalede, müşteriler yedekleme ve bekletme ilkeleri nasıl etkinleştirebilirsiniz açıklanmaktadır. Bantları tooaddress kullanan müşteriler, artık bu özelliğin hello kullanılabilirliği ile güçlü ve uygun bir alternatif olan kendi uzun-süreli saklama gerekir. Merhaba özelliği hello son hello Azure Backup sürümündeki etkinleştirilmişse (kullanılabilen [burada](http://aka.ms/azurebackup_agent)). System Center DPM müşteriler için güncelleştirmeniz gerekir, en az DPM 2012 R2 DPM ile kullanmadan önce UR5 hello Azure Backup hizmeti.
+Bu makalede, müşteriler yedekleme ve bekletme ilkeleri nasıl etkinleştirebilirsiniz açıklanmaktadır. Kendi uzun-süreli saklama adres için bantları kullanacak müşterilerin, artık bu özelliğin kullanılabilirliği ile güçlü ve uygun bir alternatif sahip. En son sürümünü Azure yedekleme özelliği etkinleştirilmişse (kullanılabilen [burada](http://aka.ms/azurebackup_agent)). System Center DPM müşteriler şekilde güncelleştirilmesi gerekir, en az DPM 2012 R2 DPM Azure Backup hizmeti ile kullanmadan önce UR5.
 
-## <a name="what-is-hello-backup-schedule"></a>Merhaba yedekleme zamanlaması nedir?
-Merhaba yedekleme zamanlaması hello yedekleme işlemi hello sıklığını belirtir. Örneğin, yedeklemeler 6 pm saatinde ve gece alınır ekran aşağıdaki hello hello ayarlarını belirtin.
+## <a name="what-is-the-backup-schedule"></a>Yedekleme zamanlaması nedir?
+Yedekleme zamanlaması, yedekleme işlemi sıklığını belirtir. Örneğin, aşağıdaki ekran ayarlarında yedeklemeleri 6 pm saatinde ve gece alınır gösterir.
 
 ![Günlük Zamanlama](./media/backup-azure-backup-cloud-as-tape/dailybackupschedule.png)
 
-Müşterileri de haftalık bir yedekleme zamanlayabilirsiniz. Örneğin, hello ekran aşağıdaki hello ayarlarında yedeklemeleri her alternatif Pazar & Çarşamba 09:30:00 ve 1: 00'da gerçekleştirilen gösterir.
+Müşterileri de haftalık bir yedekleme zamanlayabilirsiniz. Örneğin, aşağıdaki ekran ayarlarında yedeklemeleri her alternatif Pazar & Çarşamba 09:30:00 ve 1: 00'da alınacağını belirtin.
 
 ![Haftalık Zamanlama](./media/backup-azure-backup-cloud-as-tape/weeklybackupschedule.png)
 
-## <a name="what-is-hello-retention-policy"></a>Merhaba bekletme ilkesi nedir?
-Merhaba bekletme ilkesi hello yedekleme depolanmalıdır hello süresini belirtir. Yalnızca tüm yedekleme noktaları için "sabit ilke" belirtmek yerine, müşteriler hello yedeklemenin ne zaman farklı bekletme ilkeleri göre belirtebilirsiniz. Örneğin, bir işletimsel kurtarma noktası olarak hizmet veren, günlük, geçen hello yedekleme noktası 90 gün boyunca korunur. her üç aylık denetim amacıyla hello sonunda gerçekleştirilecek hello yedekleme noktası uzun bir süre için korunur.
+## <a name="what-is-the-retention-policy"></a>Bekletme İlkesi nedir?
+Bekletme İlkesi yedeğin depolanması gereken süreyi belirtir. Müşteriler, yalnızca tüm yedekleme noktaları için "sabit ilke" belirtmek yerine, yedeklemenin ne zamana göre farklı bekletme ilkeleri belirtebilirsiniz. Örneğin, bir işletimsel kurtarma noktası olarak hizmet veren, günlük, geçen yedekleme noktası 90 gün boyunca korunur. Denetim amacıyla her üç aylık dönemin sonunda alınan yedekleme noktası uzun bir süre için korunur.
 
 ![Bekletme İlkesi](./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png)
 
-Merhaba, toplam "Bu ilkede belirtilen bekletme noktalarını" sayısıdır 90 (günlük noktaları) + 40 (her biri 10 Yıl Çeyrek) 130 =.
+"Bu ilkede belirtilen bekletme noktalarını" toplam sayısı olan 90 (günlük noktaları) + 40 (her biri 10 Yıl Çeyrek) 130 =.
 
 ## <a name="example--putting-both-together"></a>Örnek – hem de bir araya getirme
 ![Örnek ekran](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
 1. **Günlük Bekletme İlkesi**: günlük alınan yedeklemeler yedi gün boyunca saklanır.
 2. **Haftalık Bekletme İlkesi**: her gün gece ve 6 PM Cumartesi alınan yedeklemeler için dört hafta korunur
-3. **Aylık Bekletme İlkesi**: Gece ve 6 pm her ayın son Cumartesi hello'alınan yedeklemeler için 12 ay boyunca korunur
-4. **Yıllık Bekletme İlkesi**: hello'te gece her Mart Son Cumartesi alınan yedeklemeler, 10 yılı aşkın korunur
+3. **Aylık Bekletme İlkesi**: Gece ve her ayın son Cumartesi 6 pm alınan yedeklemeler için 12 ay boyunca korunur
+4. **Yıllık Bekletme İlkesi**: her Mart Son Cumartesi gece alınan yedeklemeler, 10 yılı aşkın korunur
 
-Merhaba "bekletme noktalarını" toplam sayısı (içinden bir müşteri geri yükleyebilir, veri noktaları) hello önceki diyagramda aşağıdaki gibi hesaplanır:
+"Bekletme noktalarını" toplam sayısı (içinden bir müşteri geri yükleyebilir, veri noktaları) önceki diyagramda aşağıdaki gibi hesaplanır:
 
 * iki yedi gün = 14 gün başına kurtarma noktalarını
 * iki haftada bir dört hafta = 8 için kurtarma noktalarını
 * iki aylık 12 ay = 24 için kurtarma noktalarını
 * bir işaret 10 yıl = 10 kurtarma başına yıllık
 
-Merhaba toplam kurtarma noktaları 56 sayısıdır.
+Toplam kurtarma noktaları 56 sayısıdır.
 
 > [!NOTE]
 > Azure yedekleme kurtarma noktalarının sayısı üzerinde bir kısıtlama yoktur.
@@ -69,12 +69,12 @@ Merhaba toplam kurtarma noktaları 56 sayısıdır.
 >
 
 ## <a name="advanced-configuration"></a>Gelişmiş yapılandırma
-Tıklayarak **Değiştir** ekran önceki hello müşteriler bekletme zamanlamaları belirterek daha fazla esneklik bulunur.
+Tıklayarak **Değiştir** önceki ekranında müşteriler bekletme zamanlamaları belirterek daha fazla esneklik bulunur.
 
 ![Değiştir](./media/backup-azure-backup-cloud-as-tape/modify.png)
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 Azure yedekleme hakkında daha fazla bilgi için bkz:
 
-* [Giriş tooAzure yedekleme](backup-introduction-to-azure-backup.md)
+* [Azure Backup'a giriş](backup-introduction-to-azure-backup.md)
 * [Azure Backup'ı deneyin](backup-try-azure-backup-in-10-mins.md)

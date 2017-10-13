@@ -1,6 +1,6 @@
 ---
-title: "Medya Kodlayıcısı Premium akışıyla aaaAdvanced kodlama | Microsoft Docs"
-description: "Bilgi nasıl Medya Kodlayıcısı Premium akışıyla tooencode. Kod örnekleri C# dilinde yazılmıştır ve .NET için Media Services SDK'sı hello kullanın."
+title: "Medya Kodlayıcısı Premium akışıyla kodlama Gelişmiş | Microsoft Docs"
+description: "Medya Kodlayıcısı Premium akışıyla kodlamak öğrenin. Kod örnekleri, C# dilinde yazılmıştır ve .NET için Media Services SDK'sını kullanın."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 5a1c3d019a5c8fbf9bda2da751a7eff4c4907d97
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2b03853bf07e05c07fd730d5e8a8563963887921
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Medya Kodlayıcısı Premium akışıyla kodlama Gelişmiş
 > [!NOTE]
@@ -29,47 +29,47 @@ ms.lasthandoff: 10/06/2017
 Premium Kodlayıcı sorular için mepd adresindeki Microsoft.com e-posta.
 
 ## <a name="overview"></a>Genel Bakış
-Microsoft Azure Media Services hello Tanıtımı **Medya Kodlayıcısı Premium iş akışı** medya işlemcisi. Bu işlemci teklifleri Gelişmiş özellikleri, premium isteğe bağlı iş akışları için kodlama.
+Microsoft Azure Media Services Tanıtımı **Medya Kodlayıcısı Premium iş akışı** medya işlemcisi. Bu işlemci teklifleri Gelişmiş özellikleri, premium isteğe bağlı iş akışları için kodlama.
 
-Merhaba aşağıdaki konular anahat çok ilgili ayrıntıları**Medya Kodlayıcısı Premium iş akışı**:
+Aşağıdaki konular ilgili ayrıntıları anahat **Medya Kodlayıcısı Premium iş akışı**:
 
-* [Merhaba Medya Kodlayıcısı Premium iş akışı tarafından desteklenen biçimler](media-services-premium-workflow-encoder-formats.md) – anlatılmaktadır hello dosya biçimlerini ve tarafından desteklenen codec bileşenleri **Medya Kodlayıcısı Premium iş akışı**.
-* [Genel bakış ve Azure karşılaştırma isteğe bağlı medya kodlayıcılar üzerine](media-services-encode-asset.md) karşılaştırır hello kodlama yeteneklerini **Medya Kodlayıcısı Premium iş akışı** ve **Medya Kodlayıcısı standart**.
+* [Medya Kodlayıcısı Premium iş akışı tarafından desteklenen biçimler](media-services-premium-workflow-encoder-formats.md) – Discusses dosya biçimlerini ve desteklenen codec bileşenleri tarafından **Medya Kodlayıcısı Premium iş akışı**.
+* [Genel bakış ve Azure karşılaştırma isteğe bağlı medya kodlayıcılar üzerine](media-services-encode-asset.md) kodlama özelliklerini karşılaştırır **Medya Kodlayıcısı Premium iş akışı** ve **Medya Kodlayıcısı standart**.
 
-Bu konuda gösterilir nasıl tooencode ile **Medya Kodlayıcısı Premium iş akışı** .NET kullanarak.
+Bu konu ile kodlamak gösterilmiştir **Medya Kodlayıcısı Premium iş akışı** .NET kullanarak.
 
-Merhaba görevlerde kodlama **Medya Kodlayıcısı Premium iş akışı** bir iş akışı dosyası adlı bir ayrı yapılandırma dosyası gerektirir. Bu dosyalar .workflow uzantısına sahiptir ve hello kullanılarak oluşturulan [iş akışı Tasarımcısı](media-services-workflow-designer.md) aracı.
+Görevler için kodlama **Medya Kodlayıcısı Premium iş akışı** bir iş akışı dosyası adlı bir ayrı yapılandırma dosyası gerektirir. Bu dosyalar .workflow uzantısına sahiptir ve kullanılarak oluşturulan [iş akışı Tasarımcısı](media-services-workflow-designer.md) aracı.
 
-Merhaba varsayılan iş akışı dosyalarını alabilir [burada](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Başlangıç klasörü de bu dosyaları hello açıklamasını içerir.
+Varsayılan iş akışı dosyalarını alabilir [burada](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). Klasör, bu dosyaların açıklaması da içerir.
 
-Merhaba iş akışı dosyalarını karşıya toobe tooyour Media Services hesabı bir varlık olarak gerekir ve bu varlık görev kodlama toohello geçirilmesi gerekir.
+Bir varlık olarak Media Services hesabınıza karşıya yüklenecek iş akışı dosyalarını gerekir ve bu varlık kodlama görevi geçirilmesi.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
 
-Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dosyası bağlantı bilgileriyle doldurmak [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md). 
+Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) bölümünde açıklandığı gibi bağlantı bilgileriyle doldurun. 
 
 ## <a name="encoding-example"></a>Kodlama örneği
 
-Merhaba aşağıdaki örnekte gösterilmiştir nasıl tooencode ile **Medya Kodlayıcısı Premium iş akışı**.
+Aşağıdaki örnek ile kodlamak gösterilmiştir **Medya Kodlayıcısı Premium iş akışı**.
 
-Aşağıdaki adımları hello gerçekleştirilir:
+Aşağıdaki adımlar gerçekleştirilir:
 
 1. Bir varlık oluşturun ve bir iş akışı dosyasını karşıya yükleyin.
 2. Bir varlık oluşturun ve bir kaynak medya dosyasını karşıya yükleyin.
-3. Merhaba "Medya Kodlayıcısı Premium iş akışı" medya işlemcisi alın.
+3. "Medya Kodlayıcısı Premium iş akışı" medya işlemcisi alın.
 4. Bir işi ve bir görev oluşturun.
 
-    Çoğu durumda, hello yapılandırma dizesi hello görev için boştur (aşağıdaki örneğine hello ister). (Tootooset çalışma zamanı özellikleri dinamik olarak gerektirir) bazı Gelişmiş senaryolar vardır; bu durumda bir XML dizesi toohello kodlama görevi sağlar. Bu tür senaryoların örnekleri şunlardır: bir katmana, Dikiş, subtitling paralel veya sıralı medya oluşturma.
-5. İki giriş varlıklar toohello görev ekleyin.
+    Çoğu durumda, görev için yapılandırma dizesi boştur (aşağıdaki örnekte ister). (İçin çalışma zamanı özellikleri dinamik olarak ayarlamak gerekir) bazı Gelişmiş senaryolar vardır; bu durumda kodlama görev bir XML dizesini sağlar. Bu tür senaryoların örnekleri şunlardır: bir katmana, Dikiş, subtitling paralel veya sıralı medya oluşturma.
+5. İki giriş varlıklar göreve ekleyin.
 
-    1. 1 – hello iş akışı varlık.
-    2. 2 – hello varlığı.
+    1. 1 – iş akışı varlık.
+    2. 2 – varlığı.
 
     >[!NOTE]
-    >Merhaba iş akışı varlık toohello görev hello medya varlık önce eklenmesi gerekir.
-   Bu görev için Hello yapılandırma dizesi boş olmalıdır.
+    >İş akışı varlık görev medya varlık önce eklenmesi gerekir.
+   Bu görev için yapılandırma dizesi boş olmalıdır.
    
-6. Merhaba kodlama işi gönderin.
+6. Kodlama işinin gönderin.
 
         using System;
         using System.Linq;
@@ -136,42 +136,42 @@ Aşağıdaki adımları hello gerçekleştirilir:
                 {
                     // Declare a new job.
                     IJob job = _context.Jobs.Create("Premium Workflow encoding job");
-                    // Get a media processor reference, and pass tooit hello name of the
-                    // processor toouse for hello specific task.
+                    // Get a media processor reference, and pass to it the name of the
+                    // processor to use for the specific task.
                     IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Premium Workflow");
 
-                    // Create a task with hello encoding details, using a string preset.
+                    // Create a task with the encoding details, using a string preset.
                     ITask task = job.Tasks.AddNew("Premium Workflow encoding task",
                         processor,
                         "",
                         TaskOptions.None);
 
-                    // Specify hello input asset toobe encoded.
+                    // Specify the input asset to be encoded.
                     task.InputAssets.Add(workflow);
                     task.InputAssets.Add(video); // we add one asset
-                                                 // Add an output asset toocontain hello results of hello job.
+                                                 // Add an output asset to contain the results of the job.
                                                  // This output is specified as AssetCreationOptions.None, which
-                                                 // means hello output asset is not encrypted.
+                                                 // means the output asset is not encrypted.
                     task.OutputAssets.AddNew("Output asset",
                         AssetCreationOptions.None);
 
-                    // Use hello following event handler toocheck job progress.  
+                    // Use the following event handler to check job progress.  
                     job.StateChanged += new
                             EventHandler<JobStateChangedEventArgs>(StateChanged);
 
-                    // Launch hello job.
+                    // Launch the job.
                     job.Submit();
 
-                    // Check job execution and wait for job toofinish.
+                    // Check job execution and wait for job to finish.
                     Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
                     progressJobTask.Wait();
 
-                    // If job state is Error hello event handling
+                    // If job state is Error the event handling
                     // method for job progress should log errors.  Here we check
                     // for error state and exit if needed.
                     if (job.State == JobState.Error)
                     {
-                        throw new Exception("\nExiting method due toojob error.");
+                        throw new Exception("\nExiting method due to job error.");
                     }
 
                     return job.OutputMediaAssets[0];

@@ -1,6 +1,6 @@
 ---
-title: "(yatay bölümleme) ölçeklendirilmiş bulut veritabanları arasında aaaReport | Microsoft Docs"
-description: "nasıl toouse arası veritabanı veritabanı sorguları"
+title: "Rapor (yatay bölümleme) ölçeklendirilmiş bulut veritabanları arasında | Microsoft Docs"
+description: "Veritabanı veritabanı sorgularını kullanma"
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -14,53 +14,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: mlandzic
-ms.openlocfilehash: e34f398f8d408cffd91a70fc2cfbda73daec3550
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8eb56d44c3a261f6325d4fc91f169d09bf108160
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Ölçeklendirilen bulut veritabanları arasında (Önizleme) raporu
-Tek bir bağlantı noktası kullanarak birden çok Azure SQL veritabanından raporlar oluşturmak bir [esnek sorgu](sql-database-elastic-query-overview.md). Merhaba veritabanları yatay (aynı zamanda "parçalı" olarak da bilinir) bölümlenmiş olması gerekir.
+Tek bir bağlantı noktası kullanarak birden çok Azure SQL veritabanından raporlar oluşturmak bir [esnek sorgu](sql-database-elastic-query-overview.md). Veritabanlarını yatay (aynı zamanda "parçalı" olarak da bilinir) bölümlenmiş olması gerekir.
 
-Var olan bir veritabanı varsa, bkz: [veritabanları tooscaled kullanıma veritabanlarını taşıma varolan](sql-database-elastic-convert-to-use-elastic-tools.md).
+Var olan bir veritabanı varsa, bkz: [ölçeklendirilmiş veritabanları için var olan veritabanlarını taşıma](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-toounderstand hello SQL nesneleri tooquery gerektiği için bkz: [sorgu yatay olarak bölümlenmiş veritabanları arasında](sql-database-elastic-query-horizontal-partitioning.md).
+Sorgu için gerekli olan SQL nesneler anlamak için bkz: [sorgu yatay olarak bölümlenmiş veritabanları arasında](sql-database-elastic-query-horizontal-partitioning.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
-İndirme ve çalıştırma hello [esnek veritabanı araçlarını örneği ile çalışmaya başlama](sql-database-elastic-scale-get-started.md).
+İndirme ve çalıştırma [esnek veritabanı araçlarını örneği ile çalışmaya başlama](sql-database-elastic-scale-get-started.md).
 
-## <a name="create-a-shard-map-manager-using-hello-sample-app"></a>Merhaba örnek uygulaması kullanarak Yöneticisi bir parça eşlemesi oluşturma
-Burada Yöneticisi birlikte hello parça veri ekleme tarafından izlenen birkaç parça parça eşleme oluşturur. Tooalready görülüyorsa parçalı veriler parça Kurulum'a olması, hello aşağıdaki adımları atlayın ve toohello sonraki bölümde taşıyın.
+## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Harita manager örnek uygulamasını kullanarak bir parça oluşturma
+Burada birkaç parça parça veri ekleme tarafından izlenen, birlikte Yöneticisi bir parça eşleme oluşturur. Parçalı veriler parça Kurulumu zaten olması görülüyorsa, aşağıdaki adımları atlayın ve sonraki bölüme taşıyın.
 
-1. Derleme ve çalıştırma hello **esnek veritabanı araçlarını kullanmaya başlama** örnek uygulama. Adım 7 hello bölümünde kadar Hello adımları [hello örnek uygulamasını indirme ve çalıştırma](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). Adım 7 Hello sonunda, komut istemine aşağıdaki hello görürsünüz:
+1. Derleme ve çalıştırma **esnek veritabanı araçlarını kullanmaya başlama** örnek uygulama. Adım 7 bölümünde kadar adımları [örnek uygulamasını indirme ve çalıştırma](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). Adım 7 sonunda, aşağıdaki komut istemi görürsünüz:
 
     ![Komut İstemi][1]
-2. Merhaba komut penceresinde "1" yazın ve tuşuna basın **Enter**. Bu hello parça eşleme Yöneticisi oluşturur ve iki parça toohello sunucu ekler. Daha sonra "3" yazın ve basın **Enter**; hello eylem dört kez yineler. Bu örnek verileri satır, parça ekler.
-3. Merhaba [Azure portal](https://portal.azure.com) üç yeni veritabanları sunucunuzun göstermesi gerekir:
+2. Komut penceresinde "1" yazın ve tuşuna basın **Enter**. Bu parça eşleme Yöneticisi oluşturur ve iki parça sunucusuna ekler. Daha sonra "3" yazın ve basın **Enter**; eylem dört kez yineler. Bu örnek verileri satır, parça ekler.
+3. [Azure portal](https://portal.azure.com) üç yeni veritabanları sunucunuzun göstermesi gerekir:
 
    ![Visual Studio onayı][2]
 
-   Bu noktada, veritabanları arası sorguları hello esnek veritabanı istemci kitaplıkları desteklenir. Örneğin, hello komut penceresinde 4 seçeneğini kullanın. bir çok parça sorgudan Hello sonuçlar her zaman bir **UNION ALL** tüm parça hello sonuçları.
+   Bu noktada, veritabanları arası sorguları esnek veritabanı istemci kitaplıkları desteklenir. Örneğin, komut penceresinde 4 seçeneğini kullanın. Çok parça sorgusundan gelen sonuçları her zaman olan bir **UNION ALL** tüm parça sonuçları.
 
-   Merhaba sonraki bölümde, daha zengin hello verilerin parça sorgulama destekleyen bir örnek veritabanı uç noktası oluşturun.
+   Sonraki bölümde, verilerin parça arasında daha zengin sorgulama destekleyen bir örnek veritabanı uç noktası oluşturun.
 
 ## <a name="create-an-elastic-query-database"></a>Esnek sorgu veritabanı oluşturma
-1. Açık hello [Azure portal](https://portal.azure.com) ve oturum açın.
-2. Hello yeni Azure SQL veritabanı oluşturma parça kurulumunuzu aynı sunucu. Ad hello veritabanını "ElasticDBQuery."
+1. Açık [Azure portal](https://portal.azure.com) ve oturum açın.
+2. Parça kurulumunuzu aynı sunucuda yeni bir Azure SQL veritabanı oluşturun. "ElasticDBQuery." veritabanı adı
 
     ![Azure portalı ve fiyatlandırma katmanı][3]
 
     > [!NOTE]
-    > Varolan bir veritabanını kullanabilirsiniz. Bunu yapabilirsiniz tooexecute istediğiniz hello parça biri olması gerekir değil sorgularınızı üzerinde. Bu veritabanı, esnek veritabanı sorgusu için meta veri nesnelerinin hello oluşturmak için kullanılır.
+    > Varolan bir veritabanını kullanabilirsiniz. Bunu yapmak, sorgularınızı yürütmek istediğiniz parça birini olmamalıdır. Bu veritabanı, esnek veritabanı sorgusu için meta veri nesnesi oluşturmak için kullanılır.
     >
 
 ## <a name="create-database-objects"></a>Veritabanı nesneleri oluşturma
 ### <a name="database-scoped-master-key-and-credentials"></a>Veritabanı kapsamlı ana anahtar ve kimlik bilgileri
-Kullanılan tooconnect toohello parça eşleme Yöneticisi ve hello parça şunlardır:
+Bunlar, parça parça eşleme Yöneticisi'ni bağlamak için kullanılır:
 
 1. SQL Server Management Studio veya SQL Server veri araçları Visual Studio'da açın.
-2. TooElasticDBQuery veritabanına bağlanmak ve aşağıdaki T-SQL komutlarıyla hello yürütün:
+2. ElasticDBQuery veritabanına bağlanmak ve aşağıdaki T-SQL komutları yürütün:
 
         CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>';
 
@@ -68,10 +68,10 @@ Kullanılan tooconnect toohello parça eşleme Yöneticisi ve hello parça şunl
         WITH IDENTITY = '<username>',
         SECRET = '<password>';
 
-    "username" ve "parola" olması hello aynı yordamının 6. adımında kullanılan oturum açma bilgileri olarak [hello örnek uygulamasını indirme ve çalıştırma](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) içinde [esnek veritabanı araçlarını kullanmaya başlama](sql-database-elastic-scale-get-started.md).
+    "username" ve "parola" olmalıdır yordamının 6. adımında kullanılan oturum açma bilgileri aynı [örnek uygulamasını indirme ve çalıştırma](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) içinde [esnek veritabanı araçlarını kullanmaya başlama](sql-database-elastic-scale-get-started.md).
 
 ### <a name="external-data-sources"></a>Dış veri kaynakları
-bir dış veri kaynağına toocreate komutu hello ElasticDBQuery veritabanında aşağıdaki hello yürütün:
+Dış veri kaynağı oluşturmak için ElasticDBQuery veritabanında aşağıdaki komutu yürütün:
 
     CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH
       (TYPE = SHARD_MAP_MANAGER,
@@ -81,10 +81,10 @@ bir dış veri kaynağına toocreate komutu hello ElasticDBQuery veritabanında 
        SHARD_MAP_NAME = 'CustomerIDShardMap'
     ) ;
 
- Merhaba esnek veritabanı araçlarını örneğini kullanarak Yöneticisi hello parça eşleme ve parça eşleme oluşturduysanız "CustomerIDShardMap" Merhaba hello parça eşleme adıdır. Ancak, bu örnek için özel kurulum kullandıysanız, uygulamanızda seçtiğiniz hello parça eşleme adı olması gerekir.
+ Esnek veritabanı araçlarını örnek kullanarak parça eşleme Yöneticisi ve parça eşleme oluşturduysanız "CustomerIDShardMap" parça eşleme adıdır. Ancak, bu örnek için özel kurulum kullandıysanız, uygulamanızda seçtiğiniz parça eşleme adı olması gerekir.
 
 ### <a name="external-tables"></a>Dış tablolar
-Komut ElasticDBQuery veritabanında aşağıdaki hello yürüterek hello parça hello Müşteriler tablosunda eşleşen bir dış tablo oluşturun:
+ElasticDBQuery veritabanı üzerinde şu komutu yürüterek parça Müşteriler tablosunda eşleşen bir dış tablo oluşturun:
 
     CREATE EXTERNAL TABLE [dbo].[Customers]
     ( [CustomerId] [int] NOT NULL,
@@ -98,33 +98,33 @@ Komut ElasticDBQuery veritabanında aşağıdaki hello yürüterek hello parça 
 ## <a name="execute-a-sample-elastic-database-t-sql-query"></a>Bir örnek esnek veritabanı T-SQL sorgusu yürütme
 Dış veri kaynağınızda ve dış tablolarınızı tanımladıktan sonra dış tablolar üzerindeki tam T-SQL artık kullanabilirsiniz.
 
-Bu sorgu hello ElasticDBQuery veritabanında yürütün:
+Bu sorgu ElasticDBQuery veritabanında yürütün:
 
     select count(CustomerId) from [dbo].[Customers]
 
-Merhaba sorgulayan tüm hello parça sonuçları toplar ve çıktı aşağıdaki hello verir görürsünüz:
+Sorgu sonuçları tüm parça toplar ve aşağıdaki çıkış verir görürsünüz:
 
 ![Çıkış Ayrıntıları][4]
 
-## <a name="import-elastic-database-query-results-tooexcel"></a>Esnek veritabanı sorgu sonuçları tooExcel alma
- Merhaba sonuçlarını bir sorgu tooan Excel dosyasını içeri aktarabilirsiniz.
+## <a name="import-elastic-database-query-results-to-excel"></a>Esnek veritabanı sorgu sonuçları Excel'e Al
+ Gelen bir sorgunun sonuçlarını bir Excel dosyasını içeri aktarabilirsiniz.
 
 1. Excel 2013'ü başlatın.
-2. Toohello gidin **veri** Şerit.
+2. Gidin **veri** Şerit.
 3. Tıklatın **diğer kaynaklardan** tıklatıp **SQL Server'dan**.
 
    ![Excel Import diğer kaynaklardan][5]
-4. Merhaba, **Veri Bağlantı Sihirbazı** hello sunucu adını ve oturum açma kimlik bilgilerini yazın. Ardından **İleri**'ye tıklayın.
-5. Merhaba iletişim kutusunda **hello verileri içeren Select hello veritabanı**seçin hello **ElasticDBQuery** veritabanı.
-6. Select hello **müşteriler** tablo hello liste görünümünde ve tıklayın **sonraki**. Ardından **son**.
-7. Merhaba, **veri içeri aktarma** formunda, altında **nasıl bu verileri tooview çalışma kitabınızı istediğinizi seçin**seçin **tablo** tıklatıp **Tamam**.
+4. İçinde **Veri Bağlantı Sihirbazı** sunucu adını ve oturum açma kimlik bilgilerini yazın. Ardından **İleri**'ye tıklayın.
+5. İletişim kutusunda **istediğiniz verileri içeren bir veritabanı seçin**seçin **ElasticDBQuery** veritabanı.
+6. Seçin **müşteriler** Tablo liste görünümünde ve tıklayın **sonraki**. Ardından **son**.
+7. İçinde **veri içeri aktarma** formunda, altında **nasıl çalışma kitabınızı bu verileri görüntülemek istediğinizi seçin**seçin **tablo** tıklatıp **Tamam**.
 
-Tüm satırları hello **müşteriler** tablo, farklı parça içinde depolanan doldurmak hello Excel sayfası.
+Tüm satırların **müşteriler** tablo, farklı parça içinde depolanan doldurmak Excel sayfası.
 
-Şimdi, Excel'in güçlü veri görselleştirme işlevlerini kullanabilirsiniz. Tooconnect BI ve veri tümleştirme araçları toohello esnek sorgu veritabanınızı kimlik bilgileri ve hello bağlantı dizesi, sunucu adı, veritabanı adı kullanabilirsiniz. SQL Server, aracı için bir veri kaynağı olarak desteklendiğinden emin olun. Toohello esnek sorgu veritabanını ve herhangi bir SQL Server veritabanı gibi dış tablolara ve SQL Server tablolarını aracınızı toowith bağlamak başvurabilir.
+Şimdi, Excel'in güçlü veri görselleştirme işlevlerini kullanabilirsiniz. BI ve veri tümleştirme araçlarınızı esnek sorgu veritabanına bağlanmak için sunucu adını, veritabanı adının ve kimlik bilgileri ile bağlantı dizesi kullanabilirsiniz. SQL Server, aracı için bir veri kaynağı olarak desteklendiğinden emin olun. Herhangi bir SQL Server veritabanı gibi dış tablolar ve aracı ile bağlanacağı SQL Server tablolarını ve esnek sorgu veritabanı başvurabilirsiniz.
 
 ### <a name="cost"></a>Maliyet
-Merhaba esnek veritabanı sorgusu özelliğini kullanmak için ek ücret yoktur.
+Esnek veritabanı sorgusu özelliğini kullanmak için ek ücret yoktur.
 
 Fiyatlandırma bilgileri için bkz: [SQL veritabanı fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/sql-database/).
 

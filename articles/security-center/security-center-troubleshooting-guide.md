@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure Güvenlik Merkezi sorun giderme kılavuzu | Microsoft Docs"
-description: "Bu belge Azure Güvenlik Merkezi'nde tootroubleshoot sorunları yardımcı olur."
+title: "Azure Güvenlik Merkezi Sorun Giderme Kılavuzu | Microsoft Belgeleri"
+description: "Bu belge Azure Güvenlik Merkezi’ndeki sorunları gidermenize yardımcı olur."
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -14,62 +14,62 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: yurid
-ms.openlocfilehash: 78b3c49eb66fe3a4f80efbba3a47a87b039c07ac
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 0e0a0ce5c0795cec0e47cd5f729099f4762381a2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure Güvenlik Merkezi Sorun Giderme Kılavuzu
-Bu kılavuz, tootroubleshoot Güvenlik Merkezi ile ilgili sorunlarla bilgi teknolojisi (BT) uzmanları, bilgi güvenlik Çözümleyicileri ve, kuruluşlarının Azure Güvenlik Merkezi kullanıyor ve bulut yöneticileri içindir.
+Bu kılavuz, kuruluşları Azure Güvenlik Merkezi'ni kullanmayı planlayan ve Güvenlik Merkezi ile ilgili sorunları gidermeye ihtiyaç duyan bilgi teknolojisi (BT) uzmanları, bilgi güvenlik analizi uzmanları ve bulut yöneticileri içindir.
 
 >[!NOTE] 
->Güvenlik Merkezi erken Haziran 2017'den itibaren hello Microsoft İzleme Aracısı toocollect ve depolama verileri kullanır. Bkz: [Azure Güvenlik Merkezi platformu geçiş](security-center-platform-migration.md) toolearn daha fazla. Bu makaledeki Hello bilgiler geçiş toohello sonra Microsoft İzleme Aracısı Güvenlik Merkezi işlevlerini temsil eder.
+>Haziran 2017'nin ilk günlerinden itibaren Güvenlik Merkezi, veri toplamak ve depolamak için Microsoft Monitoring Agent'ı kullanmaktadır. Daha fazla bilgi edinmek için [Azure Güvenlik Merkezi Platform Geçişi](security-center-platform-migration.md) makalesine bakın. Bu makaledeki bilgiler, Microsoft Monitoring Agent'a geçiş sonrasındaki Güvenlik Merkezi işlevselliğine yöneliktir.
 >
 
 ## <a name="troubleshooting-guide"></a>Sorun giderme kılavuzu
-Bu kılavuz, tootroubleshoot Güvenlik Merkezi sorunları nasıl ilişkilendirileceğini açıklar. Güvenlik Merkezi'nde bitti hello sorun giderme çoğu kurulur hello bakarak [denetim günlüğü](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) hello kayıtlarını bileşeni başarısız oldu. Denetim günlükleri ile aşağıdakileri belirleyebilirsiniz:
+Bu kılavuzda Güvenlik Merkezi ile ilgili sorunların nasıl giderildiği açıklanmaktadır. Güvenlik Merkezi’nde yapılan sorun giderme işlemlerinin birçoğu, öncelikle başarısız bileşenlere ilişkin [Denetim Günlüğü](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) kayıtlarına bakılarak gerçekleştirilir. Denetim günlükleri ile aşağıdakileri belirleyebilirsiniz:
 
 * Hangi işlemlerin gerçekleştirildiği
-* Merhaba işlemi kimin başlattığını
-* Ne zaman hello işlemi oluştu
-* Merhaba işlem Hello durumu
-* Merhaba işlemi yardımcı olabilecek diğer özelliklerin değerlerine Hello araştırma
+* İşlemi kimin başlattığı
+* İşlemin ne zaman oluştuğu
+* İşlemin durumu
+* İşlemi araştırmanıza yardımcı olabilecek diğer özelliklerin değerleri
 
-okuma işlemleri (GET) içermez ancak hello denetim günlüğü kaynaklarınız üzerinde gerçekleştirilen tüm yazma işlemlerini (PUT, POST, DELETE) içerir.
+Denetim günlüğü, kaynaklarınız üzerinde gerçekleştirilen tüm yazma işlemlerini (PUT, POST, DELETE) içerir, ancak okuma işlemlerini (GET) içermez.
 
 ## <a name="microsoft-monitoring-agent"></a>Microsoft Monitoring Agent
-Güvenlik Merkezi, Microsoft Monitoring Agent hello kullanır – hello Operations Management Suite ve günlük analizi hizmeti – toocollect güvenlik verileri, Azure sanal makineler tarafından kullanılan aynı aracı hello budur. Veri toplama etkinleştirilir ve hello Aracısı doğru hello hedef makinede kurduktan sonra aşağıdaki hello işlemi yürütme olmalıdır:
+Güvenlik Merkezi, Azure sanal makinelerinizden güvenlik verilerini toplamak için Microsoft Monitoring Agent’ı (Operations Management Suite ve Log Analytics hizmeti tarafından kullanılan aracının aynısı) kullanır. Veri toplama etkinleştirilip aracı hedef makineye doğru şekilde yüklendikten sonra, aşağıdaki işlem yürütülmelidir:
 
 * HealthService.exe
 
-Merhaba Hizmetleri Yönetim Konsolu (services.msc) açarsanız, aşağıda gösterildiği gibi de hello Microsoft İzleme Aracısı hizmeti çalışıyor görürsünüz:
+Hizmet yönetimi konsolunu (services.msc) açarsanız, aynı zamanda Microsoft Monitoring Agent hizmetinin aşağıda gösterildiği gibi çalıştığını görürsünüz:
 
 ![Hizmetler](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
 
-hello Aracısı'nın hangi sürümü kullandığınız toosee açmak **Görev Yöneticisi'ni**, hello içinde **işlemleri** sekmesini bulmak hello **Microsoft İzleme Aracısı hizmeti**, üzerinde sağ tıklayın ve tıklatın **özellikleri**. Merhaba, **ayrıntıları** sekmesinde, aşağıda gösterildiği gibi hello dosya sürümü bakın:
+Sahip olduğunuz aracı sürümünü görmek için **Görev Yöneticisi**’ni açın, **İşlemler** sekmesinde **Microsoft Monitoring Agent Hizmeti**’ni bulun, sağ tıklayın ve **Özellikler**’e tıklayın. **Ayrıntılar** sekmesinde aşağıda gösterildiği gibi dosya sürümüne bakın:
 
 ![Dosya](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
    
 
 ## <a name="microsoft-monitoring-agent-installation-scenarios"></a>Microsoft Monitoring Agent yükleme senaryoları
-Merhaba Microsoft İzleme Aracısı, bilgisayarınızda yüklerken farklı sonuçlar üretebilir iki yükleme senaryosunda vardır. desteklenen hello senaryolar şunlardır:
+Microsoft Monitoring Agent’ı bilgisayarınıza yüklerken farklı sonuçlar üretebilen iki yükleme senaryosu vardır. Desteklenen senaryolar şunlardır:
 
-* **Güvenlik Merkezi tarafından otomatik olarak yüklenen aracı**: Bu senaryoda konumları, Güvenlik Merkezi ve günlük arama yapabilir tooview hello uyarıları olacaktır. Merhaba abonelik hello kaynağın ait olduğu için hello güvenlik ilkesinde yapılandırılan e-posta bildirimleri toohello e-posta adresi alırsınız.
+* **Aracı Güvenlik Merkezi tarafından otomatik olarak yüklenir**: Bu senaryoda hem Güvenlik Merkezi hem de Günlük aramasında uyarıları görüntüleyebilirsiniz. Kaynağın ait olduğu aboneliğe ait güvenlik ilkesinde yapılandırılmış e-posta adresine e-posta bildirimleri alırsınız.
 .
-* **Aracı el ile bir VM'de yüklü bulunan Azure'da**: kullanıyorsanız bu senaryoda, aracıları el ile önceki tooFebruary 2017 yüklenip, yalnızca üzerinde hello filtre uygularsanız hello Güvenlik Merkezi Portal'da mümkün tooview hello uyarılarını olacaktır Abonelik hello çalışma ait. Merhaba abonelik hello kaynak filtreye, ait olduğu durumda mümkün toosee herhangi bir uyarı olmayacaktır. Merhaba abonelik hello çalışma ait olduğu için hello güvenlik ilkesinde yapılandırılan e-posta bildirimleri toohello e-posta adresi alırsınız.
+* **Aracı, Azure’da bulunan bir VM’ye el ile yüklenir**: Bu senaryoda, Şubat 2017’den önce indirilip yüklenmiş aracılar kullanıyorsanız, uyarıları yalnızca çalışma alanının ait olduğu abonelikte filtrelemeniz durumunda Güvenlik Merkezi portalında görüntüleyebilirsiniz. Kaynağın ait olduğu abonelikte filtrelemeniz halinde, herhangi bir uyarı göremezsiniz. Çalışma alanının ait olduğu aboneliğe ait güvenlik ilkesinde yapılandırılmış e-posta adresine e-posta bildirimleri alırsınız.
 
 >[!NOTE]
-> Hello ikinci olarak, açıklanan tooavoid hello davranışı hello hello Aracısı'nın en son sürümü karşıdan emin olun.
+> İkinci durumda açıklanan davranışı önlemek için aracının en son sürümünü indirdiğinizden emin olun.
 > 
 
 ## <a name="troubleshooting-monitoring-agent-network-requirements"></a>Monitoring agent ağ gereksinimi sorunlarını giderme
-Başlangıç bağlantı noktası numaraları ve etki alanı URL'leri dahil toonetwork erişimine, aracıları tooconnect tooand kaydolun Güvenlik Merkezi ile olmaları gerekir.
+Aracıların Güvenlik Merkezi’ne bağlanması ve kaydolması için, bağlantı noktası numaraları ve etki alanı URL’leri dahil olmak üzere ağ kaynaklarına erişebilmesi gerekir.
 
-- Proxy sunucuları için uygun proxy sunucu kaynakları Aracısı ayarlarında yapılandırılan hello tooensure gerekir. Daha fazla bilgi için bu makaleyi okuyun [nasıl toochange hello proxy ayarlarını](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings).
-- Erişim toohello Internet kısıtlamak, güvenlik duvarları için güvenlik duvarı toopermit erişim tooOMS tooconfigure gerekir. Aracı ayarlarında bir işlem yapılması gerekmez.
+- Proxy sunucuları için, aracı ayarlarında uygun proxy sunucusu kaynaklarının yapılandırıldığından emin olmanız gerekir. [Proxy ayarlarını değiştirme](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings) hakkında daha fazla bilgi için bu makaleyi okuyun.
+- İnternet’e erişimi kısıtlayan güvenlik duvarları için, güvenlik duvarınızı OMS erişimine izin verecek şekilde yapılandırmanız gerekir. Aracı ayarlarında bir işlem yapılması gerekmez.
 
-Aşağıdaki tablonun hello iletişimi için gerekli kaynakları gösterir.
+Aşağıdaki tabloda iletişim için gereken kaynaklar gösterilmektedir.
 
 | Aracı Kaynağı | Bağlantı Noktaları | HTTPS denetlemesini atlama |
 |---|---|---|
@@ -78,40 +78,40 @@ Aşağıdaki tablonun hello iletişimi için gerekli kaynakları gösterir.
 | *.blob.core.windows.net | 443 | Evet |
 | *.azure-automation.net | 443 | Evet |
 
-Merhaba aracıyla ekleme sorunlarla karşılaşırsanız, emin tooread hello makale olun [nasıl tootroubleshoot Operations Management Suite ekleme sorunları](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
+Aracıyla ekleme sorunları yaşarsanız, [Operations Management Suite ekleme sorunlarını giderme](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) makalesini okuduğunuzdan emin olun.
 
 
 ## <a name="troubleshooting-endpoint-protection-not-working-properly"></a>Uç nokta korumasıyla ilgili sorunları giderme işlemi düzgün çalışmıyor
 
-Merhaba Konuk aracısı olan her şeyi hello üst işlemi hello [Microsoft Antimalware](../security/azure-security-antimalware.md) uzantı vermiyor. Merhaba Konuk Aracısı işlemi başarısız olduğunda, hello hello Konuk Aracısı bir alt işlem olarak çalışır Microsoft Antimalware de başarısız.  Bu gibi senaryolarda önerilen tooverify hello seçenekleri takip ediyor:
+Konuk aracı, [Microsoft Kötü Amaçlı Yazılımdan Koruma](../security/azure-security-antimalware.md) uzantısının gerçekleştirdiği tüm işlemlerin üst işlemidir. Konuk aracı işleminin başarısız olması durumunda konuk aracının alt işlemi olarak çalışan Microsoft Kötü Amaçlı Yazılımdan Koruma da başarısız olabilir.  Bu gibi senaryolarda aşağıdaki seçenekleri doğrulamanız önerilir:
 
-- Hello VM özel görüntü hedefidir ve hello Oluşturucusu hello VM, hiçbir zaman Konuk aracısı yüklü değilse.
-- Merhaba hedef sonra bir Linux VM hello kötü amaçlı yazılımdan koruma uzantısı'nın hello Windows sürümünü yükleme Windows VM yerine bir Linux VM ise başarısız olur. Merhaba Linux Konuk Aracısı işletim sistemi sürümü ve gerekli paketleri açısından özel gereksinimleri vardır ve bu gereksinimleri karşılanmadı hello VM aracısı yok ya da çalışmaz. 
-- Merhaba VM Konuk aracısının eski bir sürümüyle oluşturulduysa. Olduysa, bazı eski aracıları otomatik kendisini toohello daha yeni sürümü güncelleştirme değil ve bu toothis sorunu neden olduğunu aklınızda bulundurun. Her zaman kendi görüntülerinizden oluşturuyorsanız hello Konuk Aracısı en son sürümünü kullanın.
-- Bazı üçüncü taraf yönetim yazılımı hello Konuk aracısını devre dışı veya erişim toocertain dosya konumları engelleyin. Üçüncü taraf, VM'de yüklü varsa, bu hello aracı hello dışlama listesinde olduğundan emin olun.
-- Belirli güvenlik duvarı ayarları veya ağ güvenlik grubu (NSG) Konuk Aracısı gelen ağ trafiğini tooand engelleyebilir.
+- Hedef sanal makine özel bir görüntü mü ve sanal makineyi oluşturan kişi konuk aracısını hiç yüklememiş mi?
+- Hedef bir Windows sanal makinesi değil de Linux sanal makinesiyse, kötü amaçlı yazılımdan koruma uzantısının Windows sürümünün Linux sanal makinesine yüklenmesi başarısız olur. Linux konuk aracısının işletim sistemi sürümü ve gerekli paketler açısından belirli gereksinimleri vardır ve bu gereksinimler karşılanmazsa sanal makine aracısı burada da çalışmaz. 
+- Sanal makine konuk aracısının eski bir sürümüyle mi oluşturulmuş? Bu durumda, bazı eski aracıların kendini otomatik olarak daha yeni bir sürüme güncelleştiremediğini ve bu soruna yol açabileceğini unutmamanız gerekir. Kendi görüntülerinizi oluşturuyorsanız konuk aracısının her zaman en son sürümünü kullanın.
+- Bazı üçüncü taraf yönetim yazılımları konuk aracısını devre dışı bırakabilir ya da aracının belirli dosya konumlarına erişmesini engelleyebilir. Sanal makinenizde üçüncü taraf yazılım yüklüyse aracının dışlama listesinde olduğundan emin olun.
+- Belirli güvenlik duvarı ayarları ya da Ağ Güvenlik Grubu (NSG), konuk aracısı için giden ve gelen trafiği engelleyebilir.
 - Belirli bir Erişim Denetimi Listesi (ACL) disk erişimini engelleyebilir.
-- Disk alanı yetersizliği hello Konuk aracısının düzgün çalışmasını engelleyebilir. 
+- Disk alanının yetersiz olması konuk aracısının düzgün çalışmasını engelleyebilir. 
 
-Microsoft kötü amaçlı yazılımdan koruma kullanıcı arabirimini devre dışı varsayılan hello tarafından okuma [etkinleştirme Microsoft kötü amaçlı yazılımdan koruma kullanıcı arabiriminde Azure Kaynak Yöneticisi Vm'leri dağıtım sonrası](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/09/enabling-microsoft-antimalware-user-interface-post-deployment/) hakkında daha fazla bilgi için tooenable, gerekiyorsa.
+Microsoft Kötü Amaçlı Yazılımdan Koruma Kullanıcı Arabirimi varsayılan olarak devre dışıdır; gerektiğinde bu arabirimi nasıl etkinleştirebileceğiniz hakkında daha fazla bilgi edinmek için [Azure Resource Manager Sanal Makinelerinde Dağıtımdan Sonra Microsoft Kötü Amaçlı Yazılımdan Koruma Kullanıcı Arabirimi’ni Etkinleştirme](https://blogs.msdn.microsoft.com/azuresecurity/2016/03/09/enabling-microsoft-antimalware-user-interface-post-deployment/) konusunu okuyun.
 
-## <a name="troubleshooting-problems-loading-hello-dashboard"></a>Merhaba Pano yükleme sorunlarını giderme
+## <a name="troubleshooting-problems-loading-the-dashboard"></a>Pano yükleme sorunlarını giderme
 
-Merhaba Güvenlik Merkezi panosunu yüklenirken sorunlarla karşılaşırsanız, hello abonelik tooSecurity Merkezi (yani hello ilk kullanıcı hello abonelikle Güvenlik Merkezi açan) kaydeder, hello kullanıcı emin olun ve tooturn ister misiniz hello kullanıcının veri toplama olmalıdır *sahibi* veya *katkıda bulunan* hello abonelikte. Ayrıca kullanıcılar ile o andan *okuyucu* hello üzerinde abonelik hello Pano/uyarıları/öneri/İlkesi görebilirsiniz.
+Güvenlik Merkezi panosunu yüklemeyle ilgili sorun yaşıyorsanız, aboneliği Güvenlik Merkezi’ne kaydeden kullanıcı (Güvenlik Merkezi’ni bu abonelikle ilk kez açan kullanıcı) ile veri toplamayı etkinleştirmek isteyen kullanıcının abonelikte *Sahip* veya *Katkıda Bulunan* rolüne sahip olduğundan emin olun. O andan itibaren, abonelikte *Okuyucu* rolüne sahip kullanıcılar da pano/uyarılar/öneri/ilke sayfasını görebilir.
 
 ## <a name="contacting-microsoft-support"></a>Microsoft Destek ile iletişim kurma
-Bu makalede sağlanan hello yönergeleri kullanarak bazı sorunlar tanımlanabilir, diğerleri de bulabilir hello Güvenlik Merkezi ortak belgelenen [Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter). Ancak, daha fazla sorun giderme bilgisi gerekirse, **Azure portalında** aşağıda gösterildiği gibi yeni bir destek isteği oluşturabilirsiniz: 
+Bazı sorunlar bu makalede verilen yönergeler kullanılarak tanımlanabilirken, bazılarını Güvenlik Merkezi genel [Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter)’nda da bulabilirsiniz. Ancak, daha fazla sorun giderme bilgisi gerekirse, **Azure portalında** aşağıda gösterildiği gibi yeni bir destek isteği oluşturabilirsiniz: 
 
 ![Microsoft Destek](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
 
 ## <a name="see-also"></a>Ayrıca bkz.
-Bu belgede, nasıl öğrenilen Azure Güvenlik Merkezi'nde güvenlik ilkelerini tooconfigure. Azure Güvenlik Merkezi hakkında daha fazla toolearn hello aşağıdaki bakın:
+Bu belgede, Azure Güvenlik Merkezi'nde güvenlik ilkelerinin nasıl yapılandırılacağını öğrendiniz. Azure Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Azure Güvenlik Merkezi planlama ve işlemler Kılavuzu](security-center-planning-and-operations-guide.md) — öğrenin nasıl tooplan ve hello tasarım konuları tooadopt Azure Güvenlik Merkezi anladığınızdan emin olun.
-* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) — nasıl toomonitor hello Azure kaynaklarınızın sistem durumunu öğrenin
-* [Azure Güvenlik Merkezi'nde Uyarıları yönetme ve yanıt toosecurity](security-center-managing-and-responding-alerts.md) — öğrenin nasıl toomanage ve yanıt toosecurity uyarıları
-* [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) — nasıl toomonitor hello iş ortağı çözümlerinizin sistem durumunu öğrenin.
-* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) — hello hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz
+* [Azure Güvenlik Merkezi Planlama ve İşlemler Kılavuzu](security-center-planning-and-operations-guide.md) - Azure Güvenlik Merkezi'ni benimsemek için tasarım ile ilgili dikkat edilmesi gerekenleri planlama ve anlama hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) - Azure kaynaklarınızın sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin
+* [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve ele alma](security-center-managing-and-responding-alerts.md) - Güvenlik uyarılarını yönetme ve ele alma hakkında bilgi edinin
+* [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) - İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) - Hizmet kullanımı ile ilgili sık sorulan soruları burada bulabilirsiniz
 * [Azure Güvenlik Blogu](http://blogs.msdn.com/b/azuresecurity/) - Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz
 

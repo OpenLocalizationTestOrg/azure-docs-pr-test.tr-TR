@@ -1,6 +1,6 @@
 ---
-title: aaaPassing tooAzure DSC kullanarak kimlik bilgileri | Microsoft Docs
-description: "PowerShell istenen durum yapılandırması kullanarak tooAzure sanal makineleri kimlik bilgilerini güvenli bir şekilde geçirme hakkında genel bakış"
+title: "DSC kullanarak Azure için kimlik bilgilerini geçirme | Microsoft Docs"
+description: "PowerShell istenen durum yapılandırması kullanarak Azure sanal makineleri için kimlik bilgileri güvenli bir şekilde geçirme hakkında genel bakış"
 services: virtual-machines-windows
 documentationcenter: 
 author: zjalexander
@@ -16,23 +16,23 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 09/15/2016
 ms.author: zachal
-ms.openlocfilehash: 306ecd3fd481f49a0beca5052fc7531a52999330
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: acd768c0219ec23c0453a65c575faf5213d9c616
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="passing-credentials-toohello-azure-dsc-extension-handler"></a>Kimlik bilgileri toohello Azure DSC uzantısı işleyici geçirme
+# <a name="passing-credentials-to-the-azure-dsc-extension-handler"></a>Kimlik bilgileri Azure DSC uzantısı işleyicisine geçirme
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-Bu makalede, Azure için hello istenen durum yapılandırması uzantısı yer almaktadır. Merhaba DSC uzantısı işleyicisi genel bir bakış bulunabilir [giriş toohello Azure istenen durum yapılandırması uzantısı işleyici](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Bu makalede, Azure için istenen durum yapılandırması uzantısı yer almaktadır. DSC uzantı işleyicisi genel bir bakış bulunabilir [Azure istenen durum yapılandırması uzantısı işleyici giriş](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 ## <a name="passing-in-credentials"></a>Kimlik bilgilerinde
-Merhaba yapılandırma işleminin bir parçası olarak tooset gerekebilir kullanıcı hesapları, Erişim Hizmetleri veya kullanıcı bağlamında bir program yüklemek. toodo bu işlemleri tooprovide kimlik bilgileri gerekir. 
+Yapılandırma işleminin bir parçası olarak gerektiğinde kullanıcı hesaplarını, ayarlamak için hizmetlere erişmek veya kullanıcı bağlamında bir program yüklemek. Bu işlemler yapmak için kimlik bilgilerini sağlamanız gerekir. 
 
-DSC kimlik bilgileri, hello yapılandırma geçirilen ve güvenli bir şekilde MOF dosyasında depolanan parametreli yapılandırmalarını sağlar. Hello Azure uzantısı işleyici sertifikaların otomatik yönetimi sağlayarak kimlik bilgileri yönetimi basitleştirir. 
+DSC kimlik bilgileri, yapılandırmaya geçirilen ve güvenli bir şekilde MOF dosyasında depolanan parametreli yapılandırmalarını sağlar. Azure uzantısı işleyici sertifikaların otomatik yönetimi sağlayarak kimlik bilgileri yönetimi basitleştirir. 
 
-Merhaba belirtilen parola ile yerel bir kullanıcı hesabı oluşturur DSC yapılandırma betiği aşağıdaki hello göz önünde bulundurun:
+Belirtilen parola ile yerel bir kullanıcı hesabı oluşturur aşağıdaki DSC yapılandırma betiği göz önünde bulundurun:
 
 *user_configuration.ps1*
 
@@ -60,13 +60,13 @@ configuration Main
 } 
 ```
 
-Önemli tooinclude olan *düğümü localhost* hello yapılandırmasının bir parçası olarak. Bu bildirimi eksikse, hello uzantısı işleyici hello düğümü localhost deyimi için özel olarak göründüğü gibi hello aşağıdaki adımları çalışmaz. Ayrıca tooinclude hello typecast önemlidir *[PsCredential]*gibi hello uzantısı tooencrypt hello kimlik bilgisi bu belirli tür tetikler. 
+Eklenmesi önemlidir *düğümü localhost* yapılandırmasının bir parçası olarak. Bu bildirimi yoksa, uzantı işleyici düğümü localhost deyim için özel olarak göründüğü gibi aşağıdaki adımları çalışmaz. Typecast eklemek önemlidir *[PsCredential]*gibi belirli bu tür kimlik bilgilerini şifrelemek için uzantı tetikler. 
 
-Bu komut dosyası tooblob depolama yayımlayın:
+Bu komut dosyası blob depolama alanına yayımlayın:
 
 `Publish-AzureVMDscConfiguration -ConfigurationPath .\user_configuration.ps1`
 
-Hello Azure DSC uzantısı ayarlayabilir ve hello kimlik bilgilerini girin:
+Azure DSC uzantısı ayarlayabilir ve kimlik bilgilerini girin:
 
 ```
 $configurationName = "Main"
@@ -80,16 +80,16 @@ $vm = Set-AzureVMDSCExtension -VM $vm -ConfigurationArchive $configurationArchiv
 $vm | Update-AzureVM
 ```
 ## <a name="how-credentials-are-secured"></a>Kimlik bilgileri güvenliği nasıl
-Bu kodu çalıştırmak için kimlik bilgilerini ister. Sağlanan sonra onu kısaca bellekte depolanır. Ne zaman onu yayımlanır ile `Set-AzureVmDscExtension` cmdlet, bunu HTTPS toohello VM aktarılan, Azure burada depolar hello yerel VM sertifika kullanarak diskte şifrelenmiş. Bellek ve yeniden şifrelenmiş toopass kısaca şifresi çözülmüş sonra onu tooDSC.
+Bu kodu çalıştırmak için kimlik bilgilerini ister. Sağlanan sonra onu kısaca bellekte depolanır. Ne zaman onu yayımlanır ile `Set-AzureVmDscExtension` cmdlet, bu VM için HTTPS üzerinden iletilen, Azure burada depolar yerel VM sertifika kullanarak diskte şifrelenmiş. Ardından bu kısaca bellekte şifresi çözülür ve DSC için geçirmek için yeniden şifrelenir.
 
-Bu davranış farklıdır [hello uzantısı işleyici olmadan güvenli yapılandırmaları kullanarak](https://msdn.microsoft.com/powershell/dsc/securemof). Hello Azure ortamı sertifikalar yoluyla güvenli şekilde tootransmit yapılandırma verilerini sağlar. Merhaba DSC uzantısı işleyici kullanırken hiçbir gerek tooprovide $CertificatePath veya bir $CertificateID yoktur / ConfigurationData $Thumbprint girişi.
+Bu davranış farklıdır [uzantısı işleyici olmadan güvenli yapılandırmaları kullanarak](https://msdn.microsoft.com/powershell/dsc/securemof). Azure ortamı yapılandırma verilerinin sertifikalar yoluyla güvenli bir şekilde iletmek için bir yöntem sunar. DSC uzantı işleyici kullanırken, $CertificatePath veya bir $CertificateID sağlamak için gerek yoktur / ConfigurationData $Thumbprint girişi.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Hello Azure DSC uzantısı işleyici hakkında daha fazla bilgi için bkz: [giriş toohello Azure istenen durum yapılandırması uzantısı işleyici](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Azure DSC uzantısı işleyici hakkında daha fazla bilgi için bkz: [Azure istenen durum yapılandırması uzantısı işleyici giriş](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-Merhaba inceleyin [hello DSC uzantısı için Azure Resource Manager şablonu](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+İncelemek [DSC uzantısı için Azure Resource Manager şablonu](extensions-dsc-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-PowerShell DSC hakkında daha fazla bilgi için [hello PowerShell Belge Merkezi ziyaret](https://msdn.microsoft.com/powershell/dsc/overview). 
+PowerShell DSC hakkında daha fazla bilgi için [PowerShell Belge Merkezi ziyaret](https://msdn.microsoft.com/powershell/dsc/overview). 
 
-PowerShell DSC ile yönetebileceğiniz toofind işlevsellikler [hello PowerShell Galerisi Gözat](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) daha fazla DSC kaynakları için.
+PowerShell DSC ile yönetebileceğiniz ek işlevsellik bulmak için [PowerShell Galerisi Gözat](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) daha fazla DSC kaynakları için.
 

@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure sanal ağ belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
-description: "Toouse hello sanal bir ağa nasıl bulut öğrenin. Belgeleri nasıl toodeploy bir VNet toolaunch kaynakları kullanın ve bir şirket içi ağ ile tümleştirmek gösterir."
+title: "Azure Sanal Ağ Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Bulutta sanal ağ kullanmayı öğrenin. Belgelerde, sanal ağ dağıtma, kaynakları başlatmak için sanal ağ kullanma ve şirket içi ağ ile tümleştirme işlemlerinin nasıl yapılacağı gösterilmiştir."
 services: virtual-network
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: ecaecfab31a2bbfb46a712a035e07a059fa40be7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 6ae5c9019f292a18bc4ae8afe8d615977e8e6c9d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="virtual-network-documentation"></a>Sanal Ağ Belgeleri
 
-Sanal ağ (VNet) bir mantıksal temsilini hello ağınızdaki toouse nasıl bulut öğrenin. Belgeleri, nasıl ayarlamak ve bir sanal ağ yönetme, toolaunch sanal makineleri veya Bulut Hizmetleri kullanın, hello VNet tooyour şirket içi ağ bağlanmak ve kaynaklar üzerinde denetim tutarken ağ toohello bulutunuzu genişletin gösterir.
+Buluttaki ağınızın mantıksal bir gösterimi olan Sanal Ağ’ı nasıl kullanabileceğinizi öğrenin. Belgelerde, bir sanal ağı ayarlama ve yönetme, Sanal Makineleri veya Cloud Services’ı başlatmak için sanal ağ kullanma, sanal ağı şirket içi ağınıza bağlama ve kaynaklar üzerindeki denetiminizi sürdürürken ağınızı buluta genişletme işlemlerinin nasıl yapılacağı gösterilmiştir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -70,7 +70,7 @@ Sanal ağ (VNet) bir mantıksal temsilini hello ağınızdaki toouse nasıl bulu
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Hello Azure portal kullanarak sanal ağ ile çalışmaya başlama</h3>
+                        <h3>Azure portalı kullanarak Sanal Ağ oluşturmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ Sanal ağ (VNet) bir mantıksal temsilini hello ağınızdaki toouse nasıl bulu
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Hello Azure CLI kullanarak sanal ağ ile çalışmaya başlama</h3>
+                        <h3>Azure CLI kullanarak Sanal Ağ oluşturmaya başlama</h3>
                     </div>
                 </div>
             </div>

@@ -14,52 +14,52 @@ ms.topic: article
 ms.devlang: na
 ms.date: 05/05/2017
 ms.author: joroja
-ms.openlocfilehash: 979b8a264eb819ee4a208b9171a53a5ffbf062c3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a5f222e5b11e05286152a9f1cc55d2c3fc27a9dc
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Azure Active Directory B2C özel ilke genel Önizleme için sürüm notları
-Merhaba özel İlkesi özellik kümesini artık genel Önizleme için tüm Azure Active Directory B2C altında değerlendirme için kullanılabilir (Azure AD B2C) müşteriler. Bu özellik kümesi hello en karmaşık kimlik çözümleri oluşturma Gelişmiş kimlik geliştiricileri yöneliktir.  
+Özel ilke özellik kümesi artık genel Önizleme için tüm Azure Active Directory B2C altında değerlendirme için kullanılabilir (Azure AD B2C) müşteriler. Bu özellik kümesi, Gelişmiş kimlik geliştiricileri en karmaşık kimlik çözümleri oluşturma yöneliktir.  
 
-Günümüzde, bu özellik kümesi geliştiriciler tooconfigure hello kimlik deneyimi Framework XML dosyasını düzenleyerek aracılığıyla doğrudan gerektirir. Bu yapılandırma, güçlü ve karmaşık yöntemidir. Merhaba kullanan kimlik geliştiriciler Gelişmiş kimlik deneyimi Framework tooinvest kılavuzlarına tamamladıktan ve başvuru belgeleri okuma biraz zaman planlamanız gerekir. 
+Günümüzde, bu özellik kümesi XML dosyasını düzenleyerek aracılığıyla doğrudan kimlik deneyimi Framework yapılandırmak geliştiricilere gerektirir. Bu yapılandırma, güçlü ve karmaşık yöntemidir. Gelişmiş kimlik kimlik deneyimi Framework kullanan geliştiriciler kılavuzlarına tamamladıktan ve başvuru belgeleri okuma biraz zaman yatırım planlamanız gerekir. 
 
 ## <a name="features-included-in-this-public-preview"></a>Bu genel önizlemede bulunan özellikler
-Hello genel Önizleme'de sunulan hello yeni özelliklerle, geliştiriciler hello aşağıdaki görevleri gerçekleştirebilirsiniz:<br>
+Genel önizlemede sunulan yeni özelliklerle geliştiriciler aşağıdaki görevleri gerçekleştirebilirsiniz:<br>
 
 * Özel ilkeler kullanarak yazar ve karşıya yükleme özel kimlik doğrulama kullanıcı Yolculuklar. 
    * Kullanıcı Yolculuklar alışverişleri adım adım talep sağlayıcıları arasında açıklanmaktadır. 
    * Koşullu kullanıcı Yolculuklar dallanma tanımlayın. 
 * Özel kimlik doğrulama kullanıcı Yolculuklar REST API etkin Hizmetleri'nde tümleştirin.  
-* Openıdconnect standart hello ile uyumlu olan kimlik sağlayıcıları ile Federasyon ekleyin. <br>
-* Federasyon toohello SAML 2.0 protokolü uyması kimlik sağlayıcıları ile ekleyin. 
+* Standart Openıdconnect ile uyumlu olan kimlik sağlayıcıları ile Federasyon ekleyin. <br>
+* SAML 2.0 protokolünü kullanan kimlik sağlayıcıları ile Federasyon ekleyin. 
 
-## <a name="terms-of-hello-public-preview"></a>Merhaba genel Önizleme koşulları
+## <a name="terms-of-the-public-preview"></a>Genel Önizleme koşulları
 
-* Toouse hello yeni özellikler yalnızca değerlendirme amacıyla öneririz.<br>
+* Yalnızca değerlendirme amacıyla yeni özellikleri kullanmak için önerilir.<br>
 * Yeni özellikler, bir üretim ortamında kullanılması amaçlanmamıştır.<br>
-* Hizmet düzeyi sözleşmelerine (SLA) toohello yeni özellikleri geçerli değildir. <br>
+* Hizmet düzeyi sözleşmelerine (SLA) için yeni özellikleri geçerli değildir. <br>
 * Destek istekleri normal destek kanallarını Dosyalanan. <br>
 * Genel kullanılabilirlik taahhüt edilen tarih yoktur.<br>
-* Bizim tedbirli ve herhangi bir nedenle, Microsoft bayrak ve reddetme veya senaryoları ve hello Azure AD B2C ürün kurucu tooserve müşteri kimlik ve erişim yönetimi (CIAM) platformu olarak hello kapsamını aşan kullanıcı Yolculuklar kısıtlama.
+* Bizim tedbirli ve herhangi bir nedenle, Microsoft bayrak ve reddetme veya senaryoları ve bir müşteri kimlik ve erişim yönetimi (CIAM) platformu olarak hizmet vermek için Azure AD B2C ürün kurucu kapsamını aşan kullanıcı Yolculuklar kısıtlama.
 
 ## <a name="responsibilities-of-custom-policy-feature-set-developers"></a>Özel ilke özellik kümesi geliştiricilerin sorumlulukları
-El ile ilke yapılandırması Azure AD B2C platformu temel düşük düzeyli erişim toohello verir ve benzersiz, tam olarak özelleştirilebilir güven framework hello oluşturulmasında sonuçlanır. Olası alternatifler özel kimlik sağlayıcıları, güven ilişkileri dış hizmetler ve adım adım iş akışları ile tümleştirmeleri bunları kullanan geliştiriciler Gelişmiş hello üzerinde büyük taleplerini yerleştirin.
+El ile ilke yapılandırması, Azure AD B2C temel platform düşük düzeyli erişim verir ve benzersiz, tam olarak özelleştirilebilir güven framework oluşturulmasında sonuçlanır. Olası alternatifler özel kimlik sağlayıcıları, güven ilişkileri dış hizmetler ve adım adım iş akışları ile tümleştirmeleri bunları kullanan gelişmiş geliştiriciler üzerinde büyük taleplerini yerleştirin.
 
-toofully avantajı hello genel Önizlemesi'nden, geliştiricilerin hello özel İlkesi özellik kümesini kullanma yönergeleri izleyerek toohello uygun olan öneririz:
-* Merhaba kimlik deneyimi altyapısı Hello yapılandırma dilini ve anahtar/parolalar yönetimi konusunda bilgi sahibi olur.
+Genel Önizlemesi'nden tam olarak yararlanmak için özel İlkesi özellik kümesini kullanan geliştiriciler için aşağıdaki yönergelere uyması öneririz:
+* Anahtar/parolalar yönetimi ve kimlik deneyimi altyapısı yapılandırma dili ile Windows'un öğrenin.
 * Senaryolar ve özel tümleştirmeler sahipliğini alın.
 * Sistemli senaryo test gerçekleştirin.
 * Yazılım geliştirme ve en iyi yöntemlerle en az bir geliştirme ve test ortamı ve bir üretim ortamında hazırlama izleyin.
-* Merhaba kimlik sağlayıcıları ve Hizmetleri ile tümleştirme yeni gelişmeler hakkında bilgi sahibi olma. Örneğin, gizli ve zamanlanmış ve zamanlanmamış değişiklikleri toohello hizmetinin değişiklikleri takip edin.
-* Etkin izleme işlevini ayarlama ve üretim ortamlarında hello yeteneğini izleyin.
-* İletişim e-posta adresleri güncel tutun ve esnek toohello Microsoft live site takım e-postaları kalır.
-* Tavsiye edilir toodo giderek hello durumlarda Microsoft live site ekibi zamanında eyleme. 
+* Kimlik sağlayıcılar ve Hizmetleri ile tümleştirme yeni gelişmeler hakkında bilgi sahibi olma. Örneğin, değişiklikleri gizli ve hizmet zamanlanmış ve zamanlanmamış değişiklikleri takip edin.
+* Etkin izleme işlevini ayarlama ve üretim ortamlarını yanıtlama izleyin.
+* İletişim e-posta adresleri güncel tutun ve Microsoft live site takım e-postalar için yanıt verebilir durumda kalır.
+* Microsoft live site ekibi tarafından bunu tavsiye zaman zamanında eylemi gerçekleştirin. 
 
 
 >[!NOTE]
->Bu özellikler sonunda daha erişilebilir tooall geliştiriciler yaparak Azure AD yerleşik İlkeleri'nde bulunabilir.
+>Bu özellikler sonunda tüm geliştiriciler için daha erişilebilir hale getirme Azure AD yerleşik İlkeleri'nde bulunabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Özel ilkelerini kullanmaya başlama](active-directory-b2c-get-started-custom.md).

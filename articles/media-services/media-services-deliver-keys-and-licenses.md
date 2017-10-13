@@ -1,6 +1,6 @@
 ---
-title: "aaaUse Azure Media Services toodeliver DRM lisansları veya AES anahtarları"
-description: "Bu makalede Azure Media Services (AMS) toodeliver PlayReady ve/veya Widevine lisansları ve AES anahtarları kullanabilirsiniz ancak (kodlama, şifreleme, akış) rest hello nasıl şirket içi sunucularınızı kullanma."
+title: "DRM lisansları veya AES anahtarları göndermek için Azure Media Services'i kullanma"
+description: "Bu makalede PlayReady sağlamak üzere Azure Media Services (AMS) nasıl kullanabileceğinizi açıklar ve/veya Widevine lisansları ve AES anahtarları (kodlama, şifreleme, akış) rest yapmak ancak şirket içi sunucularınızı kullanma."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,37 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: a81da2973c79e5182ae58aeca7a0f14f3fc7c9ae
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 263a381dc72105eea60ad9b39434599ff04a4531
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="use-azure-media-services-toodeliver-drm-licenses-or-aes-keys"></a>Azure Media Services toodeliver DRM lisansları veya AES anahtarları kullanın
-Azure Media Services (AMS) tooingest sağlar, kodlama, içerik koruma ekleyin ve içeriğinizin akışını (bkz [bu](media-services-protect-with-drm.md) makale Ayrıntılar için). Ancak, yalnızca toouse AMS toodeliver lisansları ve/veya anahtarları istediğiniz ve kodlama, şifreleme ve kendi şirket içi sunucular kullanarak akış müşteriler vardır. Bu makalede nasıl AMS toodeliver PlayReady ve/veya Widevine lisansları kullanabilirsiniz ancak geri kalan şirket içi sunucularınızla hello açıklanmaktadır. 
+# <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>DRM lisansları veya AES anahtarları göndermek için Azure Media Services'i kullanma
+Azure Media Services (AMS), alma, kodlama, içerik koruma ekleyin ve içeriğinizin akışını sağlar (bkz [bu](media-services-protect-with-drm.md) makale Ayrıntılar için). Ancak, yalnızca AMS lisans ve/veya anahtarları teslim etmek ve kodlama, şifreleme ve kendi şirket içi sunucular kullanarak akış yapmak için kullanmak isteyen müşteriler vardır. Bu makalede, PlayReady ve/veya Widevine lisansları teslim ancak geri kalan şirket içi sunucularınızla yapmak için AMS nasıl kullanabileceğiniz açıklanır. 
 
 ## <a name="overview"></a>Genel Bakış
-Media Services, PlayReady ve Widevine DRM lisansları ve AES-128 anahtarları teslim etmek için bir hizmet sunar. Media Services de hello haklarını yapılandırmanıza olanak tanıyan API'ler sağlar ve hello DRM korumalı içeriği hello DRM çalışma zamanı tooenforce için bir kullanıcı istediğiniz kısıtlamaları geri kazanır. Bir kullanıcı istekleri hello korunan içerik, Merhaba oynatıcı uygulaması hello AMS lisans hizmetinden bir lisans ister. (yetkiliyse) hello AMS lisans hizmeti hello lisans toohello player gönderirsiniz. Merhaba PlayReady ve Widevine lisansları hello istemci player toodecrypt ve akış Merhaba içeriğine tarafından kullanılan hello şifre çözme anahtarını içerir.
+Media Services, PlayReady ve Widevine DRM lisansları ve AES-128 anahtarları teslim etmek için bir hizmet sunar. Media Services korumalı içeriği hakları ve DRM çalışma zamanı kullanıcı DRM kayıttan yürüttüğünde uygulanmasını istediğiniz kısıtlamaları yapılandırmanıza olanak tanıyan API'ler de sağlar. Bir kullanıcının korumalı içeriği istediğinde, oynatıcı uygulaması AMS lisans hizmetinden bir lisans ister. (Yetkiliyse) AMS lisans hizmeti lisans oynatıcıya. PlayReady ve Widevine lisansları istemci oynatıcısının içeriğin akış ve şifresini çözmek için kullanılan şifre çözme anahtarını içerir.
 
-Media Services lisans ya da anahtar istekleri yapabilen Kullanıcıları yetkilendirmek, birden çok yöntemini destekler. Merhaba içerik anahtarının yetkilendirme ilkesini yapılandırın ve hello İlkesi, bir veya daha fazla kısıtlamaları sahip olabilir: açık veya belirteç kısıtlama. Merhaba belirteç kısıtlamalı ilkenin, bir güvenli belirteç hizmeti (STS) tarafından verilmiş bir belirteç tarafından eklenmelidir. Media Services, hello basit Web belirteçleri (SWT) biçimi ve JSON Web Token (JWT) biçimlerindeki belirteçleri destekler.
+Media Services lisans ya da anahtar istekleri yapabilen Kullanıcıları yetkilendirmek, birden çok yöntemini destekler. İçerik anahtarının yetkilendirme ilkesini yapılandırın ve ilkeyi bir veya daha fazla kısıtlamaları olabilir: açık veya belirteç kısıtlama. Belirteç kısıtlamalı ilkenin beraberinde bir Güvenli Belirteç Hizmeti (STS) tarafından verilmiş bir belirteç bulunmalıdır. Media Services, basit Web belirteçleri (SWT) biçimini ve JSON Web Token (JWT) biçimlerindeki belirteçleri destekler.
 
-Merhaba Aşağıdaki diyagramda hello ana adımlar tootake toouse AMS toodeliver PlayReady ve/veya Widevine lisansları gerekir, ancak geri kalan şirket içi sunucularınızla hello gösterilmektedir.
+Aşağıdaki diyagramda, AMS kullanın PlayReady ve/veya Widevine lisansları teslim ancak geri kalan şirket içi sunucularınız ile yapmak için atmanız gereken ana adımları gösterir.
 
 ![PlayReady ile koruma](./media/media-services-deliver-keys-and-licenses/media-services-diagram1.png)
 
 ## <a name="download-sample"></a>Örnek indirme
-Bu makalede açıklanan hello örnek indirebilirsiniz [burada](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses).
+Bu makalede açıklanan örneği [buradan](https://github.com/Azure/media-services-dotnet-deliver-drm-licenses) indirebilirsiniz.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
 
-1. Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dosyası bağlantı bilgileriyle doldurmak [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md). 
-2. Öğeleri çok aşağıdaki hello eklemek**appSettings** app.config dosyasında tanımlanan:
+1. Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) bölümünde açıklandığı gibi bağlantı bilgileriyle doldurun. 
+2. App.config dosyanızda tanımlanan **appSettings**’e aşağıdaki öğeleri ekleyin:
 
     <add key="Issuer" value="http://testacs.com"/> <add key="Audience" value="urn:test"/>
 
 ## <a name="net-code-example"></a>.NET kodu örneği
 
-Aşağıdaki kod örneğine hello nasıl toocreate bir ortak anahtar içerik ve PlayReady veya Widevine lisans edinme URL'si almak gösterir. Tooget ihtiyacınız hello AMS bilgilerinden parçalarını aşağıdaki ve şirket içi sunucunuzu yapılandırın: **içerik anahtarı**, **anahtarı kimliği**, **lisans edinme URL'si**. Şirket içi sunucunuzu yapılandırdıktan sonra kendi akış sunucusundan akış. Merhaba şifrelenmiş akış noktaları tooAMS lisans sunucusu bu yana, player AMS lisans ister. Belirteç kimlik doğrulamasını seçerseniz, hello AMS lisans sunucusu HTTPS gönderilen hello belirteci doğrular ve (geçerli ise) hello lisans geri tooyour player teslim eder. (Merhaba kod örneği yalnızca nasıl toocreate bir ortak anahtar içerik ve PlayReady veya Widevine lisans edinme URL'si almak gösterir. Toodelivery AES-128 anahtarları istiyorsanız, toocreate Zarf içerik anahtarı gerekir ve bir anahtar alım URL'sini alma ve [bu](media-services-protect-with-aes128.md) makalesi gösterir nasıl toodo da).
+Aşağıdaki kod örneği, ortak bir içerik anahtarı oluşturun ve PlayReady veya Widevine lisans edinme URL'si almak gösterilmektedir. AMS şu bilgileri alın ve şirket içi sunucunuzu yapılandırmak gereken: **içerik anahtarı**, **anahtarı kimliği**, **lisans edinme URL'si**. Şirket içi sunucunuzu yapılandırdıktan sonra kendi akış sunucusundan akış. Şifrelenmiş akış noktalarına AMS lisans sunucusunu bu yana, player AMS lisans ister. Belirteç kimlik doğrulamasını seçerseniz, AMS lisans sunucusu HTTPS gönderilen belirteç doğrular ve (geçerli ise) lisans aygıta geri teslim eder. (Kod örneği yalnızca ortak bir içerik anahtarı oluşturun ve PlayReady veya Widevine lisans edinme URL'si almak gösterilmektedir. Teslim AES-128 anahtarları istiyorsanız, bir zarf içerik anahtarı oluşturun ve bir anahtar alım URL'sini alma gerekir ve [bu](media-services-protect-with-aes128.md) makalede nasıl yapılacağı gösterilmektedir).
 
     using System;
     using System.Collections.Generic;
@@ -58,7 +58,7 @@ Aşağıdaki kod örneğine hello nasıl toocreate bir ortak anahtar içerik ve 
     {
         class Program
         {
-            // Read values from hello App.config file.
+            // Read values from the App.config file.
             private static readonly string _AADTenantDomain =
                 ConfigurationManager.AppSettings["AADTenantDomain"];
             private static readonly string _RESTAPIEndpoint =
@@ -85,7 +85,7 @@ Aşağıdaki kod örneğine hello nasıl toocreate bir ortak anahtar içerik ve 
 
                 IContentKey key = CreateCommonTypeContentKey();
 
-                // Print out hello key ID and Key in base64 string format
+                // Print out the key ID and Key in base64 string format
                 Console.WriteLine("Created key {0} with key value {1} ",
                     key.Id, System.Convert.ToBase64String(key.GetClearKeyValue()));
 
@@ -146,7 +146,7 @@ Aşağıdaki kod örneğine hello nasıl toocreate bir ortak anahtar içerik ve 
 
                 contentKeyAuthorizationPolicy.Options.Add(PlayReadyPolicy);
                 contentKeyAuthorizationPolicy.Options.Add(WidevinePolicy);
-                // Associate hello content key authorization policy with hello content key.
+                // Associate the content key authorization policy with the content key.
                 contentKey.AuthorizationPolicyId = contentKeyAuthorizationPolicy.Id;
                 contentKey = contentKey.UpdateAsync().Result;
             }
@@ -189,7 +189,7 @@ Aşağıdaki kod örneğine hello nasıl toocreate bir ortak anahtar içerik ve 
                 contentKeyAuthorizationPolicy.Options.Add(PlayReadyPolicy);
                 contentKeyAuthorizationPolicy.Options.Add(WidevinePolicy);
 
-                // Associate hello content key authorization policy with hello content key
+                // Associate the content key authorization policy with the content key
                 contentKey.AuthorizationPolicyId = contentKeyAuthorizationPolicy.Id;
                 contentKey = contentKey.UpdateAsync().Result;
 
@@ -211,52 +211,52 @@ Aşağıdaki kod örneğine hello nasıl toocreate bir ortak anahtar içerik ve 
 
             static private string ConfigurePlayReadyLicenseTemplate()
             {
-                // hello following code configures PlayReady License Template using .NET classes
-                // and returns hello XML string.
+                // The following code configures PlayReady License Template using .NET classes
+                // and returns the XML string.
 
-                //hello PlayReadyLicenseResponseTemplate class represents hello template 
-                //for hello response sent back toohello end user. 
-                //It contains a field for a custom data string between hello license server 
-                //and hello application (may be useful for custom app logic) 
+                //The PlayReadyLicenseResponseTemplate class represents the template 
+                //for the response sent back to the end user. 
+                //It contains a field for a custom data string between the license server 
+                //and the application (may be useful for custom app logic) 
                 //as well as a list of one or more license templates.
 
                 PlayReadyLicenseResponseTemplate responseTemplate =
                     new PlayReadyLicenseResponseTemplate();
 
-                // hello PlayReadyLicenseTemplate class represents a license template 
+                // The PlayReadyLicenseTemplate class represents a license template 
                 // for creating PlayReady licenses
-                // toobe returned toohello end users. 
-                // It contains hello data on hello content key in hello license 
-                // and any rights or restrictions toobe 
-                // enforced by hello PlayReady DRM runtime when using hello content key.
+                // to be returned to the end users. 
+                // It contains the data on the content key in the license 
+                // and any rights or restrictions to be 
+                // enforced by the PlayReady DRM runtime when using the content key.
                 PlayReadyLicenseTemplate licenseTemplate = new PlayReadyLicenseTemplate();
 
-                // Configure whether hello license is persistent 
-                // (saved in persistent storage on hello client) 
-                // or non-persistent (only held in memory while hello player is using hello license).  
+                // Configure whether the license is persistent 
+                // (saved in persistent storage on the client) 
+                // or non-persistent (only held in memory while the player is using the license).  
                 licenseTemplate.LicenseType = PlayReadyLicenseType.Nonpersistent;
 
-                // AllowTestDevices controls whether test devices can use hello license or not.  
-                // If true, hello MinimumSecurityLevel property of hello license
-                // is set too150.  If false (hello default), 
-                // hello MinimumSecurityLevel property of hello license is set too2000.
+                // AllowTestDevices controls whether test devices can use the license or not.  
+                // If true, the MinimumSecurityLevel property of the license
+                // is set to 150.  If false (the default), 
+                // the MinimumSecurityLevel property of the license is set to 2000.
                 licenseTemplate.AllowTestDevices = true;
 
-                // You can also configure hello Play Right in hello PlayReady license by using hello PlayReadyPlayRight class. 
-                // It grants hello user hello ability tooplayback hello content subject toohello zero or more restrictions 
-                // configured in hello license and on hello PlayRight itself (for playback specific policy). 
-                // Much of hello policy on hello PlayRight has toodo with output restrictions 
-                // which control hello types of outputs that hello content can be played over and 
+                // You can also configure the Play Right in the PlayReady license by using the PlayReadyPlayRight class. 
+                // It grants the user the ability to playback the content subject to the zero or more restrictions 
+                // configured in the license and on the PlayRight itself (for playback specific policy). 
+                // Much of the policy on the PlayRight has to do with output restrictions 
+                // which control the types of outputs that the content can be played over and 
                 // any restrictions that must be put in place when using a given output.
-                // For example, if hello DigitalVideoOnlyContentRestriction is enabled, 
-                //then hello DRM runtime will only allow hello video toobe displayed over digital outputs 
-                //(analog video outputs won’t be allowed toopass hello content).
+                // For example, if the DigitalVideoOnlyContentRestriction is enabled, 
+                //then the DRM runtime will only allow the video to be displayed over digital outputs 
+                //(analog video outputs won’t be allowed to pass the content).
 
                 // IMPORTANT: These types of restrictions can be very powerful 
-                // but can also affect hello consumer experience. 
-                // If hello output protections are configured too restrictive, 
-                // hello content might be unplayable on some clients. 
-                // For more information, see hello PlayReady Compliance Rules document.
+                // but can also affect the consumer experience. 
+                // If the output protections are configured too restrictive, 
+                // the content might be unplayable on some clients. 
+                // For more information, see the PlayReady Compliance Rules document.
 
                 // For example:
                 //licenseTemplate.PlayRight.AgcAndColorStripeRestriction = new AgcAndColorStripeRestriction(1);
@@ -336,5 +336,5 @@ Aşağıdaki kod örneğine hello nasıl toocreate bir ortak anahtar içerik ve 
 
 [AES-128 dinamik şifreleme ve anahtar teslim hizmeti kullanma](media-services-protect-with-aes128.md)
 
-[İş ortakları toodeliver Widevine lisansları tooAzure Media Services'i kullanma](media-services-licenses-partner-integration.md)
+[Azure Media Services’ta Widevine lisanslarını teslim etmek için iş ortaklarıyla çalışma](media-services-licenses-partner-integration.md)
 

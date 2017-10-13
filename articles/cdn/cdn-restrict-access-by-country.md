@@ -1,6 +1,6 @@
 ---
-title: "Azure CDN içeriğini ülkeye göre aaaRestrict | Microsoft Docs"
-description: "Nasıl toorestrict tooyour Azure CDN içerik kullanarak erişimini izin ver hello coğrafi filtreleme özelliği hakkında bilgi edinin."
+title: "Azure CDN içeriğini ülkeye göre kısıtla | Microsoft Docs"
+description: "Erişim coğrafi filtreleme özelliğini kullanarak, Azure CDN içeriğine erişimi kısıtlamak öğrenin."
 services: cdn
 documentationcenter: 
 author: lichard
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: ffdd994612b6c9cfbf1a6e29d260709b4afa86e1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 30160088d9c770400f342e67527e1cf1cabc4f6b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>Azure CDN içeriğini ülkeye göre kısıtla
 
 ## <a name="overview"></a>Genel Bakış
-Kullanıcı varsayılan olarak, içerik istediğinde, hello içerik hello kullanıcı bu istekten burada yapılan bağımsız olarak sunulur. Bazı durumlarda, toorestrict erişim tooyour içerik ülkeye göre isteyebilirsiniz. Bu konuda açıklanmaktadır nasıl toouse hello **coğrafi filtreleme** sipariş tooconfigure hello hizmeti tooallow veya blok erişimini ülkeye göre özelliği.
+Kullanıcı varsayılan olarak, içerik istediğinde, içerik kullanıcı bu istekten burada yapılan bağımsız olarak sunulur. Bazı durumlarda, içeriğinizi ülkeye göre erişimi sınırlamak isteyebilirsiniz. Bu konuda nasıl kullanılacağı açıklanmaktadır **coğrafi filtreleme** izin vermek veya ülkeye göre erişimi engellemek için bu hizmeti yapılandırmak için özellik.
 
 > [!IMPORTANT]
-> Merhaba Verizon ve Akamai ürünleri sağlamak hello aynı coğrafi filtreleme işlevselliği ancak destekledikleri arı ülke kodlarına küçük bir fark vardır. Adım 3'için bir bağlantı toohello farkları bakın.
+> Verizon ve Akamai ürünleri aynı coğrafi filtreleme işlevselliği sağlar ancak destekledikleri arı ülke kodlarına küçük bir fark vardır. Adım 3 farklar bağlantısına bakın.
 
 
-Kısıtlama, bu tür tooconfiguring dikkat edilecek noktalar hakkında bilgi için hello bkz [konuları](cdn-restrict-access-by-country.md#considerations) hello konu hello sonunda bölüm.  
+Bu tür bir kısıtlama yapılandırma için geçerli konuları hakkında daha fazla bilgi için bkz: [konuları](cdn-restrict-access-by-country.md#considerations) konunun sonunda bölüm.  
 
 ![Ülke filtreleme](./media/cdn-filtering/cdn-country-filtering-akamai.png)
 
-## <a name="step-1-define-hello-directory-path"></a>1. adım: hello dizin yolu tanımlama
-Uç noktanız hello portalındaki seçin ve bu özellik hello coğrafi filtreleme sekmesinde hello sol gezinti toofind bulun.
+## <a name="step-1-define-the-directory-path"></a>1. adım: dizin yolu tanımlama
+Uç noktanız portalındaki seçin ve bu özelliği bulmak için sol gezinti coğrafi filtreleme sekmesini bulun.
 
-Bir ülke filtresi yapılandırırken hello göreli yol toohello konumu toowhich kullanıcılar izin verilen veya erişimi reddedilen belirtmeniz gerekir. Tüm dosyaları ile coğrafi filtreleme uygulayabilirsiniz "/" veya seçili klasörler dizin yolu "/ resimler /" belirterek. Ayrıca coğrafi filtreleme tooa tek dosyalı hello dosya belirterek uygulayabilirsiniz ve bırakarak hello eğik "/ resimler/şehir.PNG silebilir".
+Bir ülke filtresi yapılandırırken, kullanıcılar izin verilen ya da erişim reddedildi konumunun göreli yolunu belirtmeniz gerekir. Tüm dosyaları ile coğrafi filtreleme uygulayabilirsiniz "/" veya seçili klasörler dizin yolu "/ resimler /" belirterek. Ayrıca coğrafi filtreleme tek bir dosyaya dosyasını belirtmek ve eğik bırakarak uygulayabilirsiniz "/ resimler/şehir.PNG silebilir".
 
 Örnek dizin yolu Filtresi:
 
@@ -45,26 +45,26 @@ Bir ülke filtresi yapılandırırken hello göreli yol toohello konumu toowhich
     /Photos/Strasbourg/
       /Photos/Strasbourg/city.png
 
-## <a name="step-2-define-hello-action-block-or-allow"></a>2. adım: hello eylem tanımlama: Engelle veya izin ver
-**Engelle:** hello kullanıcılardan belirtilen ülkeler bu özyinelemeli yolundan istenen erişim tooassets izni verilmez. Bu konumda hiçbir diğer ülke filtreleme seçenekleri yapılandırıldıysa diğer tüm kullanıcıların erişim verilmez.
+## <a name="step-2-define-the-action-block-or-allow"></a>2. adım: eylem tanımlama: Engelle veya izin ver
+**Engelle:** belirtilen ülkelerin kullanıcılardan izni verilmez erişim o özyinelemeli yolundan istenen varlıklar için. Bu konumda hiçbir diğer ülke filtreleme seçenekleri yapılandırıldıysa diğer tüm kullanıcıların erişim verilmez.
 
-**İzin ver:** hello kullanıcılardan yalnızca belirtilen ülkeler bu özyinelemeli yolundan istenen erişim tooassets izin verilir.
+**İzin ver:** yalnızca belirtilen ülkelerin kullanıcılardan, özyinelemeli yolundan istenen varlıklarına erişimine izin verilir.
 
-## <a name="step-3-define-hello-countries"></a>3. adım: hello ülkelerde tanımlama
-Tooblock istediğiniz veya hello yolu için izin hello ülke seçin. 
+## <a name="step-3-define-the-countries"></a>3. adım: ülkelerin tanımlama
+Engellemek veya yolu için izin vermek istediğiniz ülkelerin seçin. 
 
-Örneğin, /Photos/Strasbourg/engelleme hello kural dosyaları dahil süzer:
+Örneğin, /Photos/Strasbourg/engelleme kuralı dosyaları dahil süzer:
 
     http://<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg
     http://<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg
 
 
 ### <a name="country-codes"></a>Ülke kodu
-Merhaba **coğrafi filtreleme** özelliği için güvenli bir dizin, bir istek izin verilen ya da engellenen ülke kodları toodefine hello ülkelerde kullanır. Ülke kodu hello bulacaksınız [Azure CDN ülke kodlarına](https://msdn.microsoft.com/library/mt761717.aspx). 
+**Coğrafi filtreleme** özelliği, bir istek izin verilen ya da güvenli bir dizin için engellenen ülkelerin tanımlamak için ülke kodlarına kullanır. Ülke kodu bulacaksınız [Azure CDN ülke kodlarına](https://msdn.microsoft.com/library/mt761717.aspx). 
 
 ## <a id="considerations"></a>Dikkat edilecek noktalar
-* Verizon too90 dakika veya değişiklikleri tooyour ülke filtreleme yapılandırması tootake etkisi Akamai ile birkaç dakika sürebilir.
+* Verizon veya Akamai, birkaç dakika yapılandırmasının devreye girmesi için filtreleme ülkeniz değişiklikleri 90 dakikaya kadar sürebilir.
 * Bu özellik joker karakterleri desteklemez (örneğin, ' *').
-* Merhaba göreli yol ile ilişkili hello coğrafi filtreleme yapılandırması uygulanan yinelemeli olarak toothat yol olacaktır.
-* Yalnızca bir kural uygulanan toohello olabilir aynı göreli yol (Bu noktası toohello birden fazla ülke filtre oluşturulamıyor aynı göreli yolu. Bununla birlikte, bir klasör birden fazla ülke filtre olabilir. Ülke filtreleri toohello özyinelemeli yapısı budur. Diğer bir deyişle, önceden yapılandırılmış bir klasörün bir alt farklı ülke filtre atanabilir.
+* Göreli yol ile ilişkili coğrafi filtreleme yapılandırması yol uygulanan yinelemeli olacaktır.
+* Yalnızca bir kural (noktası aynı göreli yolu için birden fazla ülke filtre oluşturulamıyor. aynı göreli yol uygulanabilir Bununla birlikte, bir klasör birden fazla ülke filtre olabilir. Ülke filtreleri özyinelemeli doğası nedeniyle budur. Diğer bir deyişle, önceden yapılandırılmış bir klasörün bir alt farklı ülke filtre atanabilir.
 

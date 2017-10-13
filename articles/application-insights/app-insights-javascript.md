@@ -1,5 +1,5 @@
 ---
-title: "JavaScript için aaaAzure Application Insights web uygulamaları | Microsoft Docs"
+title: "JavaScript web uygulamaları için Azure Application Insights | Microsoft Docs"
 description: "Sayfa görünümü ve oturum sayısını, web istemci verilerini alın ve kullanım desenlerini izleyin. JavaScript web sayfalarında özel durumları ve performans sorunlarını yakalayın."
 services: application-insights
 documentationcenter: 
@@ -13,30 +13,30 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.openlocfilehash: 986db3c3776471f9f8556f4e09f2d02aad022549
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4e8a77e3644bb726d1b8e2050dab61893ccfa3c9
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="application-insights-for-web-pages"></a>Web sayfaları için Application Insights
-Merhaba performans ve web sayfası veya uygulama kullanımı hakkında bilgi edinin. Eklerseniz [Application Insights](app-insights-overview.md) tooyour sayfa komut dosyası, sayfa yükler ve AJAX çağrıları, sayıları ve tarayıcı özel durumlar ve AJAX hataları yanı sıra kullanıcıları ve oturum sayıları ayrıntılarını zamanlamaları alın. Bunların tümü sayfaya, istemci işletim sistemi ve tarayıcı sürümüne, coğrafi konuma ve başka boyutlara göre kesimlere ayrılmıştır. Hata sayısı veya yavaş sayfa yüklemesi hakkında uyarı ayarlayabilirsiniz. Ve JavaScript kodunuzda izleme çağrıları ekleyerek hello farklı özellikler, web sayfası uygulamanızın nasıl kullanıldığını izleyebilirsiniz.
+Web sayfanızın veya uygulamanızın performansı ve kullanımı hakkında bilgi edinin. Sayfa betiğinize [Application Insights](app-insights-overview.md)’ı ekleyerek, sayfa yüklemelerinin ve AJAX çağrılarının zamanlamalarının yanı sıra, tarayıcı özel durumları ile AJAX hatalarının sayılarını ve ayrıntılarını, ayrıca kullanıcı ve oturum sayılarını elde edebilirsiniz. Bunların tümü sayfaya, istemci işletim sistemi ve tarayıcı sürümüne, coğrafi konuma ve başka boyutlara göre kesimlere ayrılmıştır. Hata sayısı veya yavaş sayfa yüklemesi hakkında uyarı ayarlayabilirsiniz. Ayrıca JavaScript kodunuza izleme çağrıları ekleyerek web sayfası uygulamanızın farklı özelliklerinin nasıl kullanıldığını izleyebilirsiniz.
 
 Application Insights tüm web sayfalarıyla kullanılabilir; kısa bir JavaScript eklemeniz yeterlidir. Web hizmetinizin [Java](app-insights-java-get-started.md) veya [ASP.NET](app-insights-asp-net.md) olması halinde, sunucunuzdan ve istemcilerinizden telemetri tümleştirebilirsiniz.
 
 ![portal.azure.com adresinde uygulamanızın kaynağını açıp Tarayıcı’ya tıklayın](./media/app-insights-javascript/03.png)
 
-Bir abonelik gerekiyor[Microsoft Azure](https://azure.com). Takımınızın kurumsal bir aboneliği varsa, Microsoft Account tooit hello sahibi tooadd isteyin. Geliştirme ve küçük ölçekli kullanımın herhangi bir maliyeti olmayacaktır.
+Bir [Microsoft Azure](https://azure.com) aboneliğine ihtiyacınız olacaktır. Takımınızın kurumsal bir aboneliği varsa sahibinden Microsoft Hesabınızı eklemesini isteyin. Geliştirme ve küçük ölçekli kullanımın herhangi bir maliyeti olmayacaktır.
 
 ## <a name="set-up-application-insights-for-your-web-page"></a>Web sayfalarınız için Application Insights’ı ayarlama
-Hello yükleyicisi kod parçacığını tooyour web sayfaları, aşağıdaki şekilde ekleyin.
+Yükleyici kod parçacığını web sayfalarınıza aşağıdaki şekilde ekleyin.
 
 ### <a name="open-or-create-application-insights-resource"></a>Application Insights kaynağı açma veya oluşturma
-sayfanızın performansı ve kullanımı hakkında verilerin görüntülendiği Hello Application Insights kaynağı değil. 
+Sayfanızın performansı ve kullanımı hakkında verilerin görüntülendiği yer Application Insights kaynağıdır. 
 
 [Azure portalda](https://portal.azure.com) oturum açın.
 
-Uygulamanızın hello sunucu tarafı için izlemeyi zaten ayarladıysanız zaten bir kaynağa sahip:
+Uygulamanız sunucu tarafı için izlemeyi zaten ayarladıysanız zaten bir kaynağınız vardır:
 
 ![Gözat, Geliştirici Hizmetleri, Application Insights’ı seçin.](./media/app-insights-javascript/01-find.png)
 
@@ -46,36 +46,36 @@ Yoksa, bir tane oluşturun:
 
 *Hala sorularınız mı var?* [Kaynak oluşturma hakkında daha fazla bilgi](app-insights-create-new-resource.md).
 
-### <a name="add-hello-sdk-script-tooyour-app-or-web-pages"></a>Merhaba SDK komut dosyası tooyour uygulama ya da web sayfalarına ekleme
-Hızlı Başlangıç'ta web sayfaları için hello betik alın:
+### <a name="add-the-sdk-script-to-your-app-or-web-pages"></a>Uygulamanıza veya web sayfalarınıza SDK betiği ekleme
+Hızlı Başlangıç’ta web sayfaları için betik alın:
 
-![Uygulama genel bakış dikey pencerenizde, Hızlı Başlat'ı seçin, web sayfalarımı kod toomonitor alın. Merhaba betiği kopyalayın.](./media/app-insights-javascript/02-monitor-web-page.png)
+![Uygulamaya genel bakış dikey pencerenizde, Hızlı Başlat, Web sayfalarımı izlemeyi sağlayan kodu al'ı seçin. Betiği kopyalayın.](./media/app-insights-javascript/02-monitor-web-page.png)
 
-Merhaba hemen önce Hello komut dosyası Ekle `</head>` etiketi her sayfada tootrack istiyor. Web sitenizi bir ana sayfa varsa, hello betiği buraya koyabilirsiniz. Örneğin:
+Betiği, izlemek istediğiniz her sayfanın `</head>` etiketinin hemen önüne ekleyin. Web sayfanızda bir ana sayfa varsa betiği buraya koyabilirsiniz. Örneğin:
 
 * ASP.NET MVC projesinde `View\Shared\_Layout.cshtml` içine koyabilirsiniz
-* Bir SharePoint sitesinde hello Denetim Masası'nda açmak [Site Ayarları / ana sayfa](app-insights-sharepoint.md).
+* SharePoint sitesinde, denetim masasında [Site Ayarları / Ana Sayfa](app-insights-sharepoint.md)’yı açın.
 
-Hello betik hello veri tooyour Application Insights kaynağı yönlendirir hello izleme anahtarını içerir. 
+Betikte, verileri Application Insights kaynağınıza yönlendiren izleme anahtarı bulunur. 
 
-([Hello betik daha ayrıntılı açıklaması. ](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
+([Betiğin daha ayrıntılı açıklaması](http://apmtips.com/blog/2015/03/18/javascript-snippet-explained/))
 
 *(İyi bilinen web sayfası altyapısı kullanıyorsanız, Application Insights bağdaştırıcılarını araştırın. Örneğin, [AngularJS modülü](http://ngmodules.org/modules/angular-appinsights) var.)*
 
 ## <a name="detailed-configuration"></a>Ayrıntılı yapılandırma
-Çoğunlukla gerekmese de, ayarlayabileceğiniz birkaç [parametre](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) vardır. Örneğin, devre dışı bırakın ya da (tooreduce trafiği) sayfa görünümü rapor edilen Ajax çağrılarını hello sayısını sınırlayın. Veya toplu hale olmadan hata ayıklama modu toohave telemetri taşıma hello ardışık düzeninden hızlı bir şekilde ayarlayabilirsiniz.
+Çoğunlukla gerekmese de, ayarlayabileceğiniz birkaç [parametre](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) vardır. Örneğin, sayfa başına görünümde bildirilen Ajax çağrılarını devre dışı bırakabilir veya çağrıların sayısını sınırlayabilirsiniz. Alternatif olarak, hata ayıklama modunu; telemetriyi toplu hale getirilmeden, ardışık düzende taşıyacak şekilde ayarlayabilirsiniz.
 
-tooset Bu parametreler hello kod parçacığında bu satırı arayın ve sonra virgülle ayrılmış daha fazla öğe ekleyin:
+Bu parametreleri ayarlamak için kod parçacığında bu satırı bulun ve şunun arkasına virgülle ayrılmış daha fazla öğe ekleyin:
 
     })({
       instrumentationKey: "..."
       // Insert here
     });
 
-Merhaba [kullanılabilir parametrelerin](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) içerir:
+[Kullanılabilir parametreler](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) şunlardır:
 
     // Send telemetry immediately without batching.
-    // Remember tooremove this when no longer required, as it
+    // Remember to remove this when no longer required, as it
     // can affect browser performance.
     enableDebug: boolean,
 
@@ -85,10 +85,10 @@ Merhaba [kullanılabilir parametrelerin](https://github.com/Microsoft/Applicatio
     // Don't log ajax calls.
     disableAjaxTracking: boolean,
 
-    // Limit number of Ajax calls logged, tooreduce traffic.
+    // Limit number of Ajax calls logged, to reduce traffic.
     maxAjaxCallsPerView: 10, // default is 500
 
-    // Time page load up tooexecution of first trackPageView().
+    // Time page load up to execution of first trackPageView().
     overridePageViewDuration: boolean,
 
     // Set these dynamically for an authenticated user.
@@ -98,57 +98,57 @@ Merhaba [kullanılabilir parametrelerin](https://github.com/Microsoft/Applicatio
 
 
 ## <a name="run"></a>Uygulamanızı çalıştırma
-Web uygulamanızı çalıştırmak ve kullanacağını bir toogenerate telemetri ve bir birkaç saniye bekleyin. Her iki çalışma hello kullanarak şunları yapabilirsiniz **F5** anahtar geliştirme makinenizde yayımlayabilir ve kullanıcıların bunu yürütmesine olanak tanır.
+Web uygulamanızı çalıştırın, telemetri oluşturmak için bir süre bunu kullanın ve birkaç saniye bekleyin. Geliştirme makinenizdeki **F5** tuşunu kullanarak bunu çalıştırabilir ya da yayımlayabilir ve kullanıcıların bunu yürütmesine izin verebilirsiniz.
 
-Bir web uygulaması tooApplication Öngörüler gönderiyor toocheck hello telemetri istiyorsanız, tarayıcınızın hata ayıklama araçlarını kullanın (**F12** birçok tarayıcılarda). Veri toodc.services.visualstudio.com gönderilir.
+Web uygulamasının Application Insights’a gönderdiği telemetriyi denetlemek istiyorsanız, tarayıcınızın hata ayıklama araçlarını kullanın (birçok tarayıcıda **F12**). Veriler dc.services.visualstudio.com adresine gönderilir.
 
 ## <a name="explore-your-browser-performance-data"></a>Tarayıcı performans verilerinizi araştırma
-Açık hello tarayıcı dikey tooshow kullanıcılarınızın tarayıcılarından performans verilerini bir araya getirilir.
+Kullanıcılarınızın tarayıcılarından toplanan performans verilerini göstermek için Tarayıcı dikey penceresini açın.
 
 ![portal.azure.com adresinde uygulamanızın kaynağını açıp Ayarlar, Tarayıcı’ya tıklama](./media/app-insights-javascript/03.png)
 
-*Henüz veri yok mu? Tıklatın **yenileme** hello sayfanın üst kısmındaki hello. Hala hiçbir şey yok mu? Bkz. [Sorun giderme](app-insights-troubleshoot-faq.md).*
+*Henüz veri yok mu? Sayfanın üstündeki **Yenile**'ye tıklayın. Hala hiçbir şey yok mu? Bkz. [Sorun giderme](app-insights-troubleshoot-faq.md).*
 
-Merhaba tarayıcı dikey penceresi bir [ölçüm Gezgini dikey](app-insights-metrics-explorer.md) hazır filtrelerin ve grafik seçimlerinin ile. Ve hello sonucu sık kullanılan olarak kaydetmek istiyorsanız hello zaman aralığını, filtreleri ve grafik yapılandırmasını düzenleyebilir. Tıklatın **Varsayılanları Geri Yükle** tooget geri toohello asıl dikey pencere yapılandırmasına.
+Tarayıcı dikey penceresi, hazır filtrelerin ve grafik seçimlerinin bulunduğu [Ölçüm Gezgini dikey penceresidir](app-insights-metrics-explorer.md). İsterseniz zaman aralığını, filtreleri ve grafik yapılandırmasını düzenleyebilir ve sonucu sık kullanılan olarak kaydedebilirsiniz. Asıl dikey pencere yapılandırmasına dönmek için **Varsayılanları geri yükle**’ye tıklayın.
 
 ## <a name="page-load-performance"></a>Sayfa yükleme performansı
-Merhaba üst kısım sayfa yükleme sürelerinin bölümlenmiş bir grafik bulunur. Merhaba grafiğin toplam yüksekliği Hello kullanıcılarınızın tarayıcılarda uygulamanızdan hello ortalama süre tooload ve görüntü sayfaları temsil eder. Merhaba tarayıcı olayları, Düzen ve çalışan komut dosyaları da dahil olmak üzere işlenen tüm zaman uyumlu yük kadar hello ilk HTTP isteği gönderdiğinde hello zamandan ölçülür. AJAX çağrılarından web bölümleri yükleme gibi zaman uyumsuz görevleri içermez.
+Üst kısım sayfa yükleme sürelerinin bölümlenmiş bir grafiğidir. Grafiğin toplam yüksekliği yüklenecek ortalama süreyi ve kullanıcılarınızın tarayıcılarda uygulamanızdan görüntülenecek sayfaları temsil eder. Süre, düzen ve çalışma betikleri de dahil tüm zaman uyumlu yük etkinlikleri işlenene kadar tarayıcının ilk HTTP isteğini gönderdiği zamandan ölçülür. AJAX çağrılarından web bölümleri yükleme gibi zaman uyumsuz görevleri içermez.
 
-Merhaba grafik kesim hello toplam sayfa yükleme süresi hello [W3C tarafından tanımlanan standart zamanlamalara](http://www.w3.org/TR/navigation-timing/#processing-model). 
+Grafik, toplam sayfa yükleme süresini [W3C tarafından tanımlanan standart zamanlamalara](http://www.w3.org/TR/navigation-timing/#processing-model) böler. 
 
 ![](./media/app-insights-javascript/08-client-split.png)
 
-Bu hello Not *ağa bağlanma* zaman nedeni genellikle beklenenden daha düşük hello tarayıcı toohello sunucusundan gelen tüm istekleri üzerinden ortalama bir değer. Zaten bir etkin bağlantı toohello sunucusu olduğundan tek tek isteklerin bağlantı süresi 0 ' var.
+*Ağa bağlanma* süresinin çoğunlukla beklediğinizden kısa olduğunu unutmayın; bunun nedeni, tarayıcıdan sunucuya yapılan tüm isteklerin ortalaması olmasıdır. Tek tek isteklerin çoğunun bağlantı süresi 0 değerindedir; çünkü sunucuya zaten etkin bir bağlantı vardır.
 
 ### <a name="slow-loading"></a>Yavaş mı yükleniyor?
-Yavaş sayfa yüklenmesi kullanım memnuniyetsizliğinin başlıca kaynaklarından biridir. Merhaba grafik yavaş sayfa yüklemeleri gösteriyorsa, kolay toodo olan bazı tanılama araştırmalarını.
+Yavaş sayfa yüklenmesi kullanım memnuniyetsizliğinin başlıca kaynaklarından biridir. Grafik yavaş sayfa yüklemeleri gösteriyorsa, bazı tanılama araştırmalarını yapmak kolaydır.
 
-Merhaba grafik uygulamanızda hello tüm sayfa yüklerinin ortalamasını gösterir. Merhaba sorun toosee tooparticular sayfaları, daha fazla hello dikey penceresini aşağı görünüm sınırlı, tarafından bölümlenmiş kılavuzun bulunduğu sayfası URL'si:
+Grafik, uygulamanızdaki tüm sayfa yüklerinin ortalamasını gösterir. Sorunun belirli sayfalara sınırlı olup olmadığını görmek için, sayfa URL'siyle bölümlenmiş kılavuzun bulunduğu dikey pencereyi daha fazla inceleyin:
 
 ![](./media/app-insights-javascript/09-page-perf.png)
 
-Merhaba sayfa görünümü sayısına ve standart sapmaya dikkat edin. Ardından Hello sayfa sayısı çok azsa hello sorun kullanıcıları çok etkilemez. Yüksek bir standart sapma (karşılaştırılabilir toohello ortalama kendisini) çok sayıda tek tek ölçüler arasında farklılık gösterir.
+Sayfa görünümü sayısına ve standart sapmaya dikkat edin. Sayfa sayısı çok azsa, sorun kullanıcıları çok etkilemez. Yüksek bir standart sapma (ortalamayla karşılaştırılabilir) tek tek ölçüler arasında çok sayıda farklılık gösterir.
 
-**Tek URL’yi ve tek sayfa görünümünü yakınlaştırma.** Tüm sayfa adı toosee tarayıcı grafikleri filtrelenmez yalnızca toothat URL dikey tıklayın; ve daha sonra bir sayfa görünümü örneği üzerinde.
+**Tek URL’yi ve tek sayfa görünümünü yakınlaştırma.** Tam da bu URL için filtre uygulanmış tarayıcı grafiklerinin dikey penceresini görüntülemek için sayfa adlarından istediğinize tıklayın; bundan sonra da bir sayfa görünümü örneğine tıklayın.
 
 ![](./media/app-insights-javascript/35.png)
 
-Tıklatın `...` bu olay için özelliklerin tam listesi için veya hello Ajax çağrılarını ve bağlantılı etkinlikleri inceleyin. Yavaş Ajax çağrıları etkileyen hello genel sayfa yükleme süresi zaman uyumlu olmaları durumunda. İlgili olaylar hello için sunucu isteklerini içerir (web sunucunuza Application Insights'ı ayarladıysanız) aynı URL.
+Bu etkinlikle ilgili özelliklerin tam listesi için `...` seçeneğine tıklayın veya Ajax çağrılarını ve bağlantılı etkinlikleri inceleyin. Zaman uyumluysalar, Yavaş Ajax çağrıları genel sayfa yükleme süresini etkiler. İlgili etkinlikler aynı URL için sunucu isteklerini ekler (web sunucunuza Application Insights kurduysanız).
 
-**Zaman içerisinde performans sayfası.** Belirli zamanlarda yükselme olup geri hello tarayıcılar dikey penceresine, hello sayfa görünümü yükleme süresi kılavuzunu çizgi grafiği toosee değiştirin:
+**Zaman içerisinde performans sayfası.** Tarayıcılar dikey penceresine dönün, Sayfa Görünümü Yükleme Süresi kılavuzunu çizgi grafiği olarak değiştirerek belirli zamanlarda yükselme olup olmadığına bakın:
 
-![Merhaba head hello kılavuzunun tıklayın ve yeni bir grafik türü seçin](./media/app-insights-javascript/10-page-perf-area.png)
+![Kılavuzun başlığına tıklayın ve yeni bir grafik türü seçin](./media/app-insights-javascript/10-page-perf-area.png)
 
-**Diğer boyutlara göre bölme.** Belki de sayfalarınızın yavaş tooload üzerinde belirli bir tarayıcı, istemci işletim sistemi veya kullanıcı yer misiniz? Yeni bir grafik ekleyin ve hello ile denemeler **Group by** boyut.
+**Diğer boyutlara göre bölme.** Sayfalarınızın yavaş yüklenme nedeni belirli bir tarayıcı, istemci işletim sistemi veya kullanıcı konumu olabilir mi? Yeni bir grafik ekleyin ve denemenizi **Gruplandır** boyutuyla yapın.
 
 ![](./media/app-insights-javascript/21.png)
 
 ## <a name="ajax-performance"></a>AJAX Performansı
-Web sayfalarınızda AJAX çağrılarının iyi iş çıkardığından emin olun. Bunlar genellikle kullanılan toofill sayfanızı zaman uyumsuz olarak bölümlerdir. Merhaba genel sayfa hemen yüklenebilse de, kullanıcılarınızın boş web bölümlerine bakıp burada veri tooappear bunlara bekleniyor kırıklığına uğrayabilirler.
+Web sayfalarınızda AJAX çağrılarının iyi iş çıkardığından emin olun. Bunlar çoğunlukla zaman uyumsuz olarak sayfanızı bölümlerini doldurmak için kullanılır. Genel sayfa hemen yüklenebilse de, kullanıcılarınızın boş web bölümlerine bakıp burada veri görünmesini bekleyerek hayal kırıklığına uğrayabilirler.
 
-Web sayfasından oluşturulan AJAX çağrıları hello tarayıcılar dikey penceresinde bağımlılıklar olarak gösterilir.
+Web sayfasından oluşturulan AJAX çağrıları Tarayıcılar dikey penceresinde bağımlılıklar olarak gösterilir.
 
-Merhaba dikey pencerenin üst kısmındaki hello Özet grafikleri vardır:
+Dikey pencerenin üst kısmında özet grafikleri vardır:
 
 ![](./media/app-insights-javascript/31.png)
 
@@ -159,62 +159,62 @@ daha aşağıda da ayrıntılı kılavuzlar:
 Belirli ayrıntılar için herhangi bir satıra tıklayın.
 
 > [!NOTE]
-> Merhaba dikey penceresinde hello tarayıcılar filtresini silerseniz, bu grafiklere hem sunucu hem de AJAX bağımlılıkları eklenir. Tooreconfigure hello filtre Varsayılanları Geri Yükle'yi tıklatın.
+> Dikey pencerede Tarayıcılar filtresini silerseniz, bu grafiklere hem sunucu hem de AJAX bağımlılıkları eklenir. Filtreyi yeniden yapılandırmak için Varsayılanları Geri Yükle'ye tıklayın.
 > 
 > 
 
-**başarısız Ajax çağrılarını içine toodrill** toohello bağımlılık hataları kılavuzuna kaydırın ve satır toosee belirli örnekleri'ye tıklayın.
+**Başarısız Ajax çağrılarını incelemek için** Bağımlılık hataları kılavuzuna gidin ve belirli örnekleri görmek için bir satıra tıklayın.
 
 ![](./media/app-insights-javascript/37.png)
 
 
-Tıklatın `...` hello tam telemetri için bir Ajax çağrısı için.
+Ajax çağrısıyla ilgili tam telemetri için `...` seçeneğine tıklayın.
 
 ### <a name="no-ajax-calls-reported"></a>Hiç Ajax çağrısı bildirilmedi mi?
-Web sayfanızın hello betikten yapılan tüm HTTP/HTTPS çağrıları AJAX çağrılarını içerir. Bunların bildirildiğini görmüyorsanız, bu hello kod parçacığını hello ayarlanmış değil denetlemek `disableAjaxTracking` veya `maxAjaxCallsPerView` [parametreleri](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
+Ajax çağrılarında web sayfanızın betiğinden oluşturulan HTTP/HTTPS çağrıları vardır. Bunların bildirildiğini görmüyorsanız, kod parçacığının `disableAjaxTracking` öğesini veya `maxAjaxCallsPerView` [parametrelerini](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) ayarlayıp ayarlamadığını denetleyin.
 
 ## <a name="browser-exceptions"></a>Tarayıcı özel durumları
-Merhaba tarayıcılar dikey penceresinde, bir özel durum Özet grafiği ve özel durum türleri daha fazla hello dikey penceresini aşağı oluşan bir kılavuz yoktur.
+Tarayıcılar dikey penceresinde bir özel durum özet grafiği, dikey pencerenin daha aşağısındaysa özel durum türleri kılavuzu bulunur.
 
 ![](./media/app-insights-javascript/39.png)
 
-Tarayıcı özel durumlarının bildirildiğini görmüyorsanız, bu hello kod parçacığını hello ayarlanmış değil denetlemek `disableExceptionTracking` [parametresi](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config).
+Tarayıcı özel durumlarının bildirildiğini görmüyorsanız, kod parçacığının `disableExceptionTracking`[parametresini](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) ayarlayıp ayarlamadığını denetleyin.
 
 ## <a name="inspect-individual-page-view-events"></a>Tek tek sayfa görünümü etkinliklerini inceleme
 
 Sayfa görünümü telemetrisi çoğunlukla Application Insights tarafından analiz edilir; yalnızca birikmeli raporları, tüm kullanıcıların ortalamasını görürsünüz. Ancak, hata ayıklama amacıyla tek tek sayfa görünümü etkinliklerine de bakabilirsiniz.
 
-Merhaba tanılama Ara dikey penceresinde filtreleri tooPage görünümü ayarlayın.
+Tanılama Ara dikey penceresinde Filtreler’i Sayfa Görünümü olarak ayarlayın.
 
 ![](./media/app-insights-javascript/12-search-pages.png)
 
-Tüm olay toosee daha fazla ayrıntı seçin. Merhaba Ayrıntılar sayfasında "..." toosee daha fazla ayrıntı tıklayın.
+Daha fazla ayrıntı için herhangi bir olayı seçin. Daha da fazla ayrıntı görmek için, ayrıntılar sayfasında "..." öğesine tıklayın.
 
 > [!NOTE]
-> Kullanırsanız [arama](app-insights-diagnostic-search.md), toomatch tam sözcükleri özen gösterin: "Abou" ve "bout girişleri" eşleşmiyor "About".
+> [Ara](app-insights-diagnostic-search.md) seçeneğini kullanırsanız, tam sözcükleri eşleştirmeye özen gösterin: "Hak" ve "Hakkın" girişleri "About" sözcüğüyle eşleşmez.
 > 
 > 
 
-Ayrıca hello güçlü kullanabilirsiniz [günlük analizi sorgu dili](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) toosearch sayfa görünümleri.
+Ayrıca sayfa görünümlerini aramak için güçlü [Log Analytics dilinden](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) de yararlanabilirsiniz.
 
 ### <a name="page-view-properties"></a>Sayfa görünümü özellikleri
 * **Sayfa görünümü süresi** 
   
-  * Varsayılan olarak, hello alır tooload hello sayfa zaman, (yardımcı dosyalar ancak Ajax çağrıları gibi hariç zaman uyumsuz görevleri dahil) istemci isteği toofull yükleyin. 
-  * Ayarlarsanız `overridePageViewDuration` hello içinde [sayfa Yapılandırması](#detailed-configuration), istemci isteği tooexecution Merhaba, aralığını ilk hello `trackPageView`. Merhaba betik hello başlatma sonra normal konumundan trackPageView taşındıysa, farklı bir değer yansıtır.
-  * Varsa `overridePageViewDuration` ayarlanır ve bağımsız değişkeni hello sağlanan süre `trackPageView()` çağrısı hello bağımsız değişken değeri yerine kullanılır. 
+  * Varsayılan olarak, istemcinin tam yükleme isteğine ait sayfa yükleme süresi (yardımcı dosyalar da dahildir, ancak Ajax çağırıları gibi zaman uyumsuz görevler hariç tutulur). 
+  * `overridePageViewDuration` seçeneğini [sayfa yapılandırması](#detailed-configuration) içinde ayarlarsanız, ilk `trackPageView` yürütmesi için istemci isteğinin zaman aralığıdır. betiğin başlatılmasından sonra trackPageView öğesini normal konumundan taşırsanız farklı bir değer yansıtır.
+  * `overridePageViewDuration` ayarlanmış ve süre bağımsız değişkeni `trackPageView()` çağrısında verilmişse, bunun yerine bağımsız değişken değeri kullanılır. 
 
 ## <a name="custom-page-counts"></a>Özel sayfa sayıları
-Varsayılan olarak, yeni bir sayfa hello istemci tarayıcısına her yüklenişinde bir sayfa sayısı oluşur.  Ancak toocount ek sayfa görünümlerini isteyebilirsiniz. Örneğin, bir sayfa içeriğini sekmelerde görüntüleyebilir ve hello kullanıcı sekmeler arasında geçiş yaptığında toocount bir sayfa istiyor. Veya JavaScript kodu hello sayfasındaki hello tarayıcının URL'sini değiştirmeden yeni içerik yükleyebilir.
+Varsayılan olarak, istemci tarayıcısına yeni bir sayfanın her yüklenişinde bir sayfa sayısı oluşur.  Ancak, ek sayfa görünümlerini de saymak isteyebilirsiniz. Örneğin, sayfa içeriğini sekmelerde görüntüleyebilir; sizse kullanıcı sekmeler arasında geçiş yaptığında sayfayı saymak istersiniz. Sayfadaki JavaScript kodu tarayıcının URL’sini değiştirmeden yeni içerik yükleyebilir.
 
-İstemci kodunuzda hello uygun noktada gibi JavaScript çağrısı ekleyin:
+İstemci kodunun uygun bir noktasına buradaki gibi JavaScript çağrısı ekleyin:
 
     appInsights.trackPageView(myPageName);
 
-Merhaba sayfa adı, URL olarak ancak "#" sonra hepsi aynı karakterleri hello içerebilir veya "?" göz ardı edilir.
+Sayfa adında,URL’deki karakterlerin aynısı bulunabilir, ancak "#" veya "?" karakterinden sonraki her şey göz ardı edilir.
 
 ## <a name="usage-tracking"></a>Kullanımı izleme
-Uygulamanızla kullanıcılarınızın neler çıkışı toofind istiyorsunuz?
+Uygulamanızla kullanıcılarınızın neler yaptığını bilmek ister misiniz?
 
 * [Kullanımı izleme hakkında bilgi edinin](app-insights-web-track-usage.md)
 * [Özel etkinlikler ve ölçüm API’si hakkında bilgi edinin](app-insights-api-custom-events-metrics.md).

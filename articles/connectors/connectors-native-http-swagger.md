@@ -1,6 +1,6 @@
 ---
-title: "aaaCall REST uç HTTP + Swagger ile Azure Logic Apps bağlayıcı | Microsoft Docs"
-description: "Swagger aracılığıyla logic apps Merhaba HTTP + Swagger bağlayıcı ile tooREST uç noktaları bağlayın"
+title: "REST uç HTTP + Swagger ile çağrı Azure Logic Apps bağlayıcı | Microsoft Docs"
+description: "HTTP + Swagger ile Swagger aracılığıyla mantığı uygulamalardan REST Uç noktalara bağlanmak Bağlayıcısı"
 services: logic-apps
 author: jeffhollan
 manager: anneta
@@ -15,81 +15,81 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: baaa57689ff41fcd052f9d86086e36619ddec46e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3e9229d94e96aad7b769d0e55d208d856e3b80bc
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="get-started-with-hello-http--swagger-action"></a>Merhaba HTTP + Swagger eylem ile başlayın
+# <a name="get-started-with-the-http--swagger-action"></a>HTTP + Swagger ile başlama eylemi
 
-İlk sınıf bağlayıcı tooany REST uç noktası aracılığıyla oluşturabileceğiniz bir [Swagger belgesinin](https://swagger.io) kullandığınızda Merhaba HTTP + Swagger eylem mantığı uygulama akışınızda. Logic apps toocall birinci sınıf bir mantıksal Uygulama Tasarımcısı deneyim herhangi bir REST uç nokta da genişletebilirsiniz.
+Tüm REST uç noktası aracılığıyla birinci sınıf bir bağlayıcı oluşturabilirsiniz bir [Swagger belgesinin](https://swagger.io) kullandığınızda, HTTP + Swagger mantığı uygulama akışınızın eylem. Birinci sınıf bir mantıksal Uygulama Tasarımcısı deneyim herhangi bir REST uç nokta çağırmak için mantıksal uygulamalar da genişletebilirsiniz.
 
-toocreate logic apps, bağlayıcılar ile nasıl görürüm toolearn [yeni bir mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).
+Logic apps ile bağlayıcılar oluşturmayı öğrenmek için bkz: [yeni bir mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="use-http--swagger-as-a-trigger-or-an-action"></a>HTTP kullan + tetikleyicinin veya bir eylem olarak Swagger
 
-Merhaba HTTP + Swagger tetikleyici ve eylem iş hello aynı hello [HTTP eylemi](connectors-native-http.md) ancak hello API yapısı ve hello çıkışlarından göstererek mantığı Uygulama Tasarımcısı'nda daha iyi bir deneyim sağlamak [Swagger meta verileri](https://swagger.io) . Tetikleyici olarak da hello HTTP + Swagger Bağlayıcısı'nı da kullanabilirsiniz. Tooimplement yoklama tetikleyicinin isterseniz, açıklanan hello yoklama desenler izleyen [özel API'leri toocall mantığı uygulamalardan diğer API'leri, hizmetleri ve sistemleri oluşturmak](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
+HTTP + tetiklemek Swagger ve aynı iş eylemi [HTTP eylemi](connectors-native-http.md) ancak API yapısı ve çıkışlarından göstererek mantığı Uygulama Tasarımcısı'nda daha iyi bir deneyim sağlamak [Swagger meta verileri](https://swagger.io). HTTP de kullanabilirsiniz + Swagger bağlayıcı tetikleyici olarak. Yoklama Tetik uygulamak istiyorsanız, açıklanan yoklama modeli izleyen [diğer API'leri, hizmetleri ve sistemleri mantığı uygulamalardan çağırmak için özel API oluşturma](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
 Daha fazla bilgi edinmek [mantığı uygulama tetikleyiciler ve Eylemler](connectors-overview.md).
 
-Toouse nasıl hello HTTP + Swagger örneği İşte işlem olarak bir mantıksal uygulama bir iş akışında bir eylemi.
+Kullanım HTTP + Swagger işlem olarak bir mantıksal uygulama bir iş akışında bir eylemi nasıl örnek aşağıda verilmiştir.
 
-1. Select hello **yeni adım** düğmesi.
+1. Seçin **yeni adım** düğmesi.
 2. Seçin **Eylem Ekle**.
-3. Merhaba eylem arama kutusuna yazın **swagger** toolist Merhaba HTTP + Swagger eylem.
+3. Eylem arama kutusuna yazın **swagger** listesi HTTP + Swagger eylem.
    
     ![HTTP + Swagger seçin eylemi](./media/connectors-native-http-swagger/using-action-1.png)
-4. Merhaba Swagger belgesinin URL'sini yazın:
+4. Swagger belgesinin URL'sini yazın:
    
-   * CORS etkinleştirdiyseniz ve toowork hello mantığı Uygulama Tasarımcısı hello URL gelen bir HTTPS uç noktası olmalıdır.
-   * Merhaba Swagger belgesinin bu gereksinimi karşılamıyorsa, kullanabileceğiniz [Azure Storage ile CORS'yi](#hosting-swagger-from-storage) toostore hello belge.
-5. Tıklatın **sonraki** tooread ve işleme gelen hello Swagger belgesinin.
-6. Merhaba HTTP çağrısı için gerekli olan parametreleri ekleyin.
+   * Mantıksal Uygulama Tasarımcısı'ndan çalışmak için URL bir HTTPS uç noktası olması gerekir ve CORS etkinleştirdiniz.
+   * Swagger belgesinin bu gereksinimi karşılamıyorsa, kullanabileceğiniz [Azure Storage CORS'yi ile](#hosting-swagger-from-storage) belge depolamak için.
+5. Tıklatın **sonraki** okuyun ve Swagger belgeyi işlemek için.
+6. HTTP çağrısı için gerekli olan parametreleri ekleyin.
    
     ![Tam HTTP eylemi](./media/connectors-native-http-swagger/using-action-2.png)
-7. toosave ve mantıksal uygulamanızı yayımlamak için tıklayın **kaydetmek** tasarımcı araç.
+7. Kaydetmek ve mantıksal uygulamanızı yayımlamak için **kaydetmek** tasarımcı araç.
 
 ### <a name="host-swagger-from-azure-storage"></a>Azure depolama biriminden konak Swagger
-Tooreference değil barındırılan veya hello Tasarımcısı için hello güvenlik ve çıkış noktaları arası gereksinimlerini karşılamıyor Swagger belgesinin isteyebilirsiniz. tooresolve Bu sorun, Azure depolama alanına hello Swagger belgesinin depolar ve CORS tooreference hello belge etkinleştirin.  
+Değil barındırılan ya da, güvenlik ve tasarımcı çıkış noktaları arası gereksinimlerini karşılamıyor Swagger belgeye başvurmak isteyebilirsiniz. Bu sorunu çözmek için Swagger belgesinin Azure depolama alanına depolar ve belgeye başvurmak CORS etkinleştirin.  
 
-Hello adımları toocreate şunlardır, yapılandırma ve Azure depolama alanına Swagger belgeleri depolar:
+Oluşturma, yapılandırma ve Azure depolama alanında Swagger belgeleri depolamak için adımlar şunlardır:
 
-1. [Azure Blob storage ile Azure depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md). tooperform Bu adım, izinleri ayarlama çok**genel erişim**.
+1. [Azure Blob storage ile Azure depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md). Bu adımı gerçekleştirmek için izinleri ayarla **genel erişim**.
 
-2. CORS hello blob üzerindeki etkinleştirin. 
+2. CORS blob üzerindeki etkinleştirin. 
 
-   tooautomatically bu ayarı yapılandırmak için kullanabileceğiniz [bu PowerShell Betiği](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1).
+   Bu ayarı otomatik olarak yapılandırmak için kullanabileceğiniz [bu PowerShell Betiği](https://github.com/logicappsio/EnableCORSAzureBlob/blob/master/EnableCORSAzureBlob.ps1).
 
-3. Merhaba Swagger dosyası toohello blob karşıya yükleyin. 
+3. Swagger dosyası için blob karşıya yükleyin. 
 
-   Bu adımı hello gerçekleştirebilirsiniz [Azure portal](https://portal.azure.com) veya gibi bir araçtan [Azure Storage Gezgini](http://storageexplorer.com/).
+   Bu adımdaki gerçekleştirebilirsiniz [Azure portal](https://portal.azure.com) veya gibi bir araçtan [Azure Storage Gezgini](http://storageexplorer.com/).
 
-4. Azure Blob Depolama bir HTTPS bağlantısı toohello belgesinde başvuru. 
+4. Bir HTTPS bağlantısı Azure Blob Depolama belgesine başvurun. 
 
-   Merhaba bağlantı bu biçimi kullanır:
+   Bağlantı bu biçimi kullanır:
 
    `https://*storageAccountName*.blob.core.windows.net/*container*/*filename*`
 
 ## <a name="technical-details"></a>Teknik Ayrıntılar
-Aşağıda verilmiştir hello ayrıntıları hello tetikleyiciler ve Eylemler için bu HTTP + Swagger bağlayıcısını destekler.
+Tetikleyiciler ve Eylemler için Ayrıntılar verilmiştir, bu HTTP + Swagger bağlayıcısını destekler.
 
 ## <a name="http--swagger-triggers"></a>HTTP + Swagger Tetikleyicileri
-Bir tetikleyici bir mantıksal uygulama tanımlı kullanılan toostart hello iş akışı olabilecek bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi edinin.](connectors-overview.md) Merhaba HTTP + Swagger Bağlayıcısı bir tetikleyici vardır.
+Bir tetikleyici bir mantıksal uygulama tanımlı iş akışını başlatmak için kullanılan bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi edinin.](connectors-overview.md) HTTP + Swagger Bağlayıcısı bir tetikleyici vardır.
 
 | Tetikleyici | Açıklama |
 | --- | --- |
-| HTTP + Swagger |Bir HTTP çağrısı yapmak ve hello yanıt içeriği döndürür |
+| HTTP + Swagger |Bir HTTP çağrısı yapmak ve yanıt içeriği döndürür |
 
 ## <a name="http--swagger-actions"></a>HTTP + Swagger Eylemler
-Bir eylem, bir mantıksal uygulama tanımlı hello iş akışı tarafından gerçekleştirilen bir işlemdir. [Eylemler hakkında daha fazla bilgi edinin.](connectors-overview.md) Merhaba HTTP + Swagger bağlayıcının bir olası eylem.
+Bir eylem, bir mantıksal uygulama içinde tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. [Eylemler hakkında daha fazla bilgi edinin.](connectors-overview.md) HTTP + Swagger bağlayıcının bir olası eylem.
 
 | Eylem | Açıklama |
 | --- | --- |
-| HTTP + Swagger |Bir HTTP çağrısı yapmak ve hello yanıt içeriği döndürür |
+| HTTP + Swagger |Bir HTTP çağrısı yapmak ve yanıt içeriği döndürür |
 
 ### <a name="action-details"></a>Eylem ayrıntıları
-Merhaba HTTP + Swagger bağlayıcı olası bir eylem ile birlikte gelir. Aşağıda, her hello Eylemler, gerekli ve isteğe bağlı giriş alanları ve bunların kullanımıyla ilişkili çıkış ayrıntıları karşılık gelen hello hakkında bilgi verilmektedir.
+HTTP + Swagger bağlayıcı olası bir eylem ile birlikte gelir. Aşağıda, her eylemleri, bunların gerekli ve isteğe bağlı giriş alanları ve kullanımı ile ilişkilendirilmiş ilgili çıkış ayrıntıları hakkında bilgi verilmektedir.
 
 #### <a name="http--swagger"></a>HTTP + Swagger
 Giden HTTP isteğinden Swagger meta verileri Yardım olun.
@@ -97,11 +97,11 @@ Bir yıldız işareti (*) gerekli bir alan anlamına gelir.
 
 | Görünen ad | Özellik adı | Açıklama |
 | --- | --- | --- |
-| Yöntemi * |Yöntemi |HTTP fiili toouse. |
-| URI * |URI |Merhaba HTTP isteği için URI. |
-| Üstbilgileri |Üstbilgileri |HTTP üstbilgileri tooinclude JSON nesnesinin. |
-| Gövde |Gövde |Merhaba HTTP istek gövdesi. |
-| Kimlik Doğrulaması |Kimlik doğrulaması |İstek için kimlik doğrulama toouse. Daha fazla bilgi için bkz: Merhaba [HTTP Bağlayıcısı](connectors-native-http.md#authentication). |
+| Yöntemi * |Yöntemi |HTTP fiili'kullanılacak. |
+| URI * |URI |HTTP isteği için URI. |
+| Üstbilgileri |Üstbilgileri |Eklenecek HTTP üstbilgilerini JSON nesnesinin. |
+| Gövde |Gövde |HTTP istek gövdesi. |
+| Kimlik Doğrulaması |Kimlik doğrulaması |İstek için kullanılacak kimlik doğrulaması. Daha fazla bilgi için bkz: [HTTP Bağlayıcısı](connectors-native-http.md#authentication). |
 
 **Çıkış Ayrıntıları**
 
@@ -114,7 +114,7 @@ HTTP yanıtı
 | Durum kodu |Int |HTTP durum kodu |
 
 ### <a name="http-responses"></a>HTTP yanıtları
-Çağrıları toovarious Eylemler yaparken, belirli yanıtları alabilirsiniz. Karşılık gelen yanıtları ve açıklamaları özetleyen tablosu aşağıdadır.
+Çeşitli eylemler için çağrıları yapılırken belirli yanıtları alabilirsiniz. Karşılık gelen yanıtları ve açıklamaları özetleyen tablosu aşağıdadır.
 
 | Ad | Açıklama |
 | --- | --- |

@@ -1,6 +1,6 @@
 ---
-title: Windows PowerShell'de Azure bulut hizmeti aaaScale | Microsoft Docs
-description: "(Klasik) Bilgi nasıl toouse PowerShell tooscale bir web rolü veya içinde veya azure'da çalışan rolü."
+title: "Windows PowerShell'de Azure bulut hizmeti ölçeklendirin | Microsoft Docs"
+description: "(Klasik) Bir web rolü veya çalışan rolü veya Azure'da ölçeklendirmek için PowerShell kullanmayı öğrenin."
 services: cloud-services
 documentationcenter: 
 author: mmccrory
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: mmccrory
-ms.openlocfilehash: cfac6660e84f8ae24e4e9bdd5bf2016fb9cd7045
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a7ae8ff202d403dff19b8c9a6a09492235db27ac
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-tooscale-a-cloud-service-in-powershell"></a>Nasıl tooscale bir bulut hizmeti PowerShell'de
+# <a name="how-to-scale-a-cloud-service-in-powershell"></a>Bir bulut hizmeti PowerShell'de ölçeklendirme
 
-Ekleyerek veya kaldırarak örnekleri, bir web rolü veya çalışan rolü veya Windows PowerShell tooscale kullanabilirsiniz.  
+Bir web rolü veya çalışan rolü giriş veya çıkış ekleyerek veya kaldırarak örnekleri ölçeklendirmek için Windows PowerShell'i kullanabilirsiniz.  
 
-## <a name="log-in-tooazure"></a>İçinde tooAzure oturum
+## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
 Aboneliğinizi PowerShell aracılığıyla herhangi bir işlem gerçekleştirmeden önce oturum gerekir:
 
@@ -32,50 +32,50 @@ Aboneliğinizi PowerShell aracılığıyla herhangi bir işlem gerçekleştirmed
 Add-AzureAccount
 ```
 
-Hesabınızla ilişkili birden çok aboneliğiniz varsa, bulut hizmetinizin bulunduğu bağlı olarak toochange hello geçerli abonelik gerekebilir. toocheck hello geçerli abonelik, çalıştırın:
+Hesabınızla ilişkili birden çok aboneliğiniz varsa, bulut hizmetinizin bulunduğu bağlı olarak geçerli abonelik değiştirmeniz gerekebilir. Geçerli aboneliğe denetlemek için çalıştırın:
 
 ```powershell
 Get-AzureSubscription -Current
 ```
 
-Toochange hello geçerli abonelik gerekiyorsa, çalıştırın:
+Geçerli aboneliğe değiştirmeniz gerekiyorsa, çalıştırın:
 
 ```powershell
 Set-AzureSubscription -SubscriptionId <subscription_id>
 ```
 
-## <a name="check-hello-current-instance-count-for-your-role"></a>Merhaba geçerli örnek sayısını rolünüz için denetleyin
+## <a name="check-the-current-instance-count-for-your-role"></a>Geçerli örnek sayısını rolünüz için denetleyin
 
-toocheck hello geçerli durumunu sizin rolünüz çalıştırın:
+Rolünüze geçerli durumunu denetlemek için çalıştırın:
 
 ```powershell
 Get-AzureRole -ServiceName '<your_service_name>' -RoleName '<your_role_name>'
 ```
 
-Geçerli işletim sistemi sürümü ve örneğindeki sayımına dahil hello rolünün hakkında bilgi geri almanız gerekir. Bu durumda, tek bir örnek hello rolüne sahip.
+Geçerli işletim sistemi sürümü ve örneğindeki sayımına dahil rolünün hakkında bilgi geri almanız gerekir. Bu durumda, rolü tek bir örneği vardır.
 
-![Merhaba rolü hakkında bilgi](./media/cloud-services-how-to-scale-powershell/get-azure-role.png)
+![Rolü hakkında bilgi](./media/cloud-services-how-to-scale-powershell/get-azure-role.png)
 
-## <a name="scale-out-hello-role-by-adding-more-instances"></a>Daha fazla örnekleri ekleyerek Hello rolünün ölçeğini genişletme
+## <a name="scale-out-the-role-by-adding-more-instances"></a>Daha fazla örnekleri ekleyerek rolünün ölçeğini genişletme
 
-tooscale rolünüze çıkışı geçişi hello istenen örneklerinin sayısını hello olarak **sayısı** parametresi toohello **kümesi AzureRole** cmdlet:
+Rolünün ölçeğini genişletmek için örnek istenen sayısı geçirmek **sayısı** parametresi **kümesi AzureRole** cmdlet:
 
 ```powershell
 Set-AzureRole -ServiceName '<your_service_name>' -RoleName '<your_role_name>' -Slot <target_slot> -Count <desired_instances>
 ```
 
-Merhaba cmdlet blokları hello yeni örnekleri sırasında kısa bir süre içinde sağlanan ve başlatıldı. Yeni bir PowerShell penceresi ve çağrı açarsanız, bu süre boyunca **Get-AzureRole** daha önce gösterildiği gibi hello yeni hedef örneği sayısını görürsünüz. Ve hello rol durumu hello portalında inceleyin, başlamasını hello yeni örnek görmelisiniz:
+Cmdlet blokları yeni örnekleri sırasında kısa bir süre içinde sağlanan ve başlatıldı. Yeni bir PowerShell penceresi ve çağrı açarsanız, bu süre boyunca **Get-AzureRole** daha önce gösterildiği gibi yeni hedef örneği sayısını görürsünüz. Ve Portalı'nda rol durumu inceleyin, başlamasını yeni örnek görmeniz gerekir:
 
 ![VM örneği portalında başlatılıyor](./media/cloud-services-how-to-scale-powershell/role-instance-starting.png)
 
-Merhaba yeni örnekleri başladıktan sonra hello cmdlet başarıyla döndürür:
+Yeni örnekleri başladıktan sonra cmdlet başarıyla döndürür:
 
 ![Rol örneği artış başarılı](./media/cloud-services-how-to-scale-powershell/set-azure-role-success.png)
 
-## <a name="scale-in-hello-role-by-removing-instances"></a>Ölçek kaldırarak hello rolü örnekleri
+## <a name="scale-in-the-role-by-removing-instances"></a>Rol örnekleri kaldırarak ölçeklendirme
 
-Hello örnekleri kaldırarak bir rolde ölçeklendirebilirsiniz aynı şekilde. Kümesi hello **sayısı** parametresini **kümesi AzureRole** toohello numarası örneklerini hello ölçek işleminde tamamlandıktan sonra toohave istiyor.
+Aynı şekilde örnekleri kaldırarak bir rolde ölçeklendirebilirsiniz. Ayarlama **sayısı** parametresini **kümesi AzureRole** istediğinizi ölçek işlemi tamamlandıktan sonra örnek sayısı için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-PowerShell bulut hizmetlerinden için olası tooconfigure otomatik ölçek olmadığı. bkz, toodo [nasıl tooauto ölçeklendirme bir bulut hizmeti](cloud-services-how-to-scale-portal.md).
+PowerShell bulut hizmetlerinden için Otomatik ölçek yapılandırmak mümkün değil. Bunu yapmak için bkz: [ölçek bir bulut hizmeti otomatik olarak nasıl](cloud-services-how-to-scale-portal.md).

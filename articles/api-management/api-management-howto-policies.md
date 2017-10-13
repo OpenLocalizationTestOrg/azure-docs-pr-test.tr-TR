@@ -1,6 +1,6 @@
 ---
-title: Azure API Management'te aaaPolicies | Microsoft Docs
-description: "Nasıl toocreate, düzenlemek ve API yönetimi ilkelerini yapılandırma öğrenin."
+title: Azure API Management ilkeleri | Microsoft Docs
+description: "Oluşturma, düzenleme ve API yönetimi ilkelerini yapılandırma öğrenin."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,58 +14,58 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 9ab0f884a655004cb10c05085034df1795f512e6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7c1f235343074ec11c635097f2b094a10f3fe781
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="policies-in-azure-api-management"></a>Azure API Management ilkeleri
-Azure API Management'te hello publisher toochange hello davranışını yapılandırma yoluyla hello API izin hello sisteminin güçlü bir özellik ilkelerdir. Merhaba istek üzerinde sırayla yürütülen deyimlerin bir koleksiyon veya bir API yanıtını ilkelerdir. Sık kullanılan deyimler XML tooJSON biçimi dönüştürme içerir ve bir geliştiriciden gelen çağrıların toorestrict hello miktarını sınırlamak oranı çağırın. Çok daha fazla ilke hello kutu dışı kullanılabilir.
+Azure API Management'te yapılandırma yoluyla API'nin davranışını değiştirmek yayımcının sisteminin güçlü bir özellik ilkelerdir. İstek üzerinde sırayla yürütülen deyimlerin bir koleksiyon veya bir API yanıtını ilkelerdir. Sık kullanılan deyimler, XML'den JSON biçimi dönüştürme içerir ve bir geliştiriciden gelen çağrıların miktarını sınırlamak için hız sınırı çağırın. Kutudan çıktığında çok daha fazla ilke kullanılabilir.
 
-Merhaba bkz [İlkesi başvurusu] [ Policy Reference] ilke deyimleri ve ayarlarının tam listesi için.
+Bkz: [İlkesi başvurusu] [ Policy Reference] ilke deyimleri ve ayarlarının tam listesi için.
 
-İlkeler, yönetilen hello API hello API tüketici arasında bulunur hello ağ geçidi içinde uygulanır. Merhaba ağ geçidi tüm istekleri alır ve bunları değiştirilmemiş genellikle iletir API temel toohello. Ancak bir ilke değişiklikleri tooboth hello gelen istek ve giden yanıt uygulayabilirsiniz.
+İlkeler, yönetilen API API tüketici arasında bulunur geçidi içinde uygulanır. Ağ geçidi, tüm istekleri alır ve bunları temel API değiştirilmemiş genellikle iletir. Ancak bir ilke gelen talep ve giden yanıt için değişiklikleri uygulayabilirsiniz.
 
-Merhaba ilke aksini belirtmedikçe ilke ifadelerini öznitelik değerleri ya da metin değerleri hello API Management ilkeleri olarak kullanılabilir. Hello gibi bazı ilkeler [kontrol akışı] [ Control flow] ve [değişken Ayarla] [ Set variable] ilkeler ilke ifadelerini temel alarak. Daha fazla bilgi için bkz: [ilkeleri Gelişmiş] [ Advanced policies] ve [ilke ifadelerini][Policy expressions].
+İlke ifadeleri herhangi bir API Management ilkesinde, ilke aksini belirtmedikçe, öznitelik değerleri ya da metin değerleri olarak kullanılabilir. Gibi bazı ilkeler [kontrol akışı] [ Control flow] ve [değişken Ayarla] [ Set variable] ilkeler ilke ifadelerini temel alarak. Daha fazla bilgi için bkz: [ilkeleri Gelişmiş] [ Advanced policies] ve [ilke ifadelerini][Policy expressions].
 
-## <a name="scopes"></a>Nasıl tooconfigure ilkeleri
-Genel veya hello kapsamını ilkeleri yapılandırılabilir bir [ürün][Product], [API] [ API] veya [işlemi] [Operation]. bir ilke tooconfigure toohello ilkeleri Düzenleyicisi'nde hello yayımcı portalına gidin.
+## <a name="scopes"></a>İlkelerinin nasıl yapılandırılacağını
+Genel veya kapsamını ilkeleri yapılandırılabilir bir [ürün][Product], [API] [ API] veya [işlemi] [Operation]. Bir ilke yapılandırmak için İlke Düzenleyicisi'nde yayımcı portalına gidin.
 
 ![İlkeleri menüsü][policies-menu]
 
-Merhaba ilkeleri Düzenleyicisi üç ana bölümden oluşur: Merhaba burada ilkeleri düzenlenmesi (soldaki) ve hello deyimleri listesinde (sağdaki) ilke kapsamı (üst) hello İlkesi tanımı:
+İlke Düzenleyicisi'ni üç ana bölümden oluşur: ilke kapsamı (üst), burada ilkeleri düzenlenmesi (soldaki) ve deyimleri (sağdaki) listesinde ilke tanımı:
 
 ![İlke Düzenleyicisi][policies-editor]
 
-önce hangi hello İlkesi uygulamalıdır hello kapsam seçmeniz gerekir. bir ilke yapılandırma toobegin. Merhaba ekran görüntüsü aşağıda hello **Starter** ürün seçilidir. Bu hello kare simgesi sonraki toohello ilkesi adı bir ilke zaten bu düzeyde uygulandığını gösterir unutmayın.
+Bir ilke yapılandırmaya başlamak için ilkenin uygulanacağı kapsamı seçin. Aşağıdaki ekran görüntüsünde **Starter** ürün seçilidir. İlke adı yanındaki kare simgesini bir ilke zaten bu düzeyde uygulanan olduğuna dikkat edin.
 
 ![Kapsam][policies-scope]
 
-Bir ilke uygulanmış olduğundan, hello yapılandırma hello tanımı görünümünde gösterilir.
+Bir ilke uygulanmış olduğundan, yapılandırma tanımı görünümünde gösterilir.
 
 ![Yapılandırma][policies-configure]
 
-salt okunur Hello İlkesi görüntülenen ilk. Sipariş tooedit hello tanımı tıklatın hello **ilkesini yapılandırma** eylem.
+İlke salt okunur görüntülenen ilk. Tanımı öğesini düzenlemek için **ilkesini yapılandırma** eylem.
 
 ![Düzenle][policies-edit]
 
-Merhaba ilke tanımı gelen ve giden ifadeler tanımlayan basit bir XML dosyasıdır. doğrudan hello tanımı penceresinde Hello XML düzenlenebilir. Deyimleri listesini sağ toohello ve deyimleri geçerli toohello geçerli kapsam etkin ve vurgulanmış sağlanır; Merhaba tarafından gösterildiği gibi **çağrı hızını sınırla** hello ekran yukarıdaki deyiminde.
+İlke tanımı gelen ve giden ifadeler tanımlayan basit bir XML dosyasıdır. XML tanımı penceresinden doğrudan düzenlenebilir. Deyimleri listesini sağa sağlanır ve deyimleri geçerli kapsam için geçerli etkin ve vurgulanmış; tarafından gösterildiği gibi **çağrı hızını sınırla** deyimi yukarıdaki ekran görüntüsü.
 
-Etkin bir deyimi tıklatarak ekleyecek hello imlecin hello tanımı görünümünde hello konumda uygun XML hello. 
+Etkin bir deyimi tıklatarak uygun XML tanım görünümü imlecin konumda ekler. 
 
 > [!NOTE]
-> Tooadd istediğiniz hello ilkesi etkin değilse, bu ilkeye hello doğru kapsamında olduğundan emin olun. Her ilke bildirimi, bazı kapsamlar ve ilke bölümler kullanılmak üzere tasarlanmıştır. tooreview hello İlkesi bölümler için bir ilke kapsamı denetleyip hello **kullanım** bölüm hello söz konusu ilkenin [İlkesi başvurusu][Policy Reference].
+> Eklemek istediğiniz ilke etkin değilse, bu ilkeye doğru kapsamında olduğundan emin olun. Her ilke bildirimi, bazı kapsamlar ve ilke bölümler kullanılmak üzere tasarlanmıştır. İlke bölüm ve bir ilke kapsamları gözden geçirmek için kontrol **kullanım** bölüm söz konusu ilkenin [İlkesi başvurusu][Policy Reference].
 > 
 > 
 
-İlke deyimleri tam listesi ve ayarlarına hello kullanılabilir [İlkesi başvurusu][Policy Reference].
+İlke deyimleri tam listesi ve bunların ayarları kullanılabilir olan [İlkesi başvurusu][Policy Reference].
 
-Örneğin, toospecified IP adreslerini tooadd yeni bir deyim toorestrict gelen istekleri, yalnızca hello Merhaba içeriğine içinde hello imleci `inbound` XML öğesi ve tıklatın hello **sınırla çağıran IP'leri** deyimi.
+Örneğin, gelen istekleri belirtilen IP adreslerini kısıtlamak için yeni bir sistem eklemek için imleci hemen içeriğini iç koyun `inbound` XML öğesi tıklatıp **sınırla çağıran IP'leri** deyimi.
 
 ![Kısıtlama ilkeleri][policies-restrict]
 
-Bu bir XML parçacığını toohello ekler `inbound` öğesi nasıl tooconfigure hello üzerinde deyimi rehberlik sağlar.
+Bu bir XML parçacığını ekler `inbound` öğesi deyim yapılandırma hakkında yönergeler sağlar.
 
 ```xml
 <ip-filter action="allow | forbid">
@@ -74,7 +74,7 @@ Bu bir XML parçacığını toohello ekler `inbound` öğesi nasıl tooconfigure
 </ip-filter>
 ```
 
-toolimit istekleri Gelen ve kabul yalnızca bir IP adresinden, 1.2.3.4 hello XML aşağıdaki gibi değiştirin:
+Gelen istekleri sınırlamak ve kabul etmek için yalnızca bir IP adresinden, 1.2.3.4 XML aşağıdaki gibi değiştirin:
 
 ```xml
 <ip-filter action="allow">
@@ -84,43 +84,43 @@ toolimit istekleri Gelen ve kabul yalnızca bir IP adresinden, 1.2.3.4 hello XML
 
 ![Kaydet][policies-save]
 
-Tamamlandığında hello deyimleri hello ilkesi için yapılandırma, tıklayın **kaydetmek** ve hello değişiklikleri yayılan toohello API Yönetimi ağ geçidi hemen.
+Tamamlandığında deyimleri ilke için yapılandırma, tıklayın **kaydetmek** ve değişiklikleri API Yönetimi ağ geçidi hemen yayılır.
 
 ## <a name="sections"></a>Anlama ilkesi yapılandırma
-Bir ilke için bir istek ve yanıt sırayla yürütmek deyimleri dizisidir. Merhaba yapılandırma bölündüğü uygun şekilde `inbound`, `backend`, `outbound`, ve `on-error` bölümler hello yapılandırma aşağıdaki gösterildiği gibi.
+Bir ilke için bir istek ve yanıt sırayla yürütmek deyimleri dizisidir. Yapılandırma uygun şekilde bölünür `inbound`, `backend`, `outbound`, ve `on-error` bölümler aşağıdaki yapılandırmada gösterildiği gibi.
 
 ```xml
 <policies>
   <inbound>
-    <!-- statements toobe applied toohello request go here -->
+    <!-- statements to be applied to the request go here -->
   </inbound>
   <backend>
-    <!-- statements toobe applied before hello request is forwarded too
-         hello backend service go here -->
+    <!-- statements to be applied before the request is forwarded to 
+         the backend service go here -->
   </backend>
   <outbound>
-    <!-- statements toobe applied toohello response go here -->
+    <!-- statements to be applied to the response go here -->
   </outbound>
   <on-error>
-    <!-- statements toobe applied if there is an error condition go here -->
+    <!-- statements to be applied if there is an error condition go here -->
   </on-error>
 </policies> 
 ```
 
-Merhaba bir isteğin işlenmesi sırasında bir hata varsa, tüm kalan hello adımları `inbound`, `backend`, veya `outbound` bölümleri atlanır ve yürütme atlar hello toohello deyimlerinde `on-error` bölümü. Hello İlkesi deyimleri yerleştirerek `on-error` gözden geçirebileceğiniz hello hata hello kullanarak bölüm `context.LastError` özelliği, inceleyin ve hello kullanarak hello hata yanıtı özelleştirme `set-body` İlkesi ve bir hata oluşursa ne olacağını yapılandırın. Hata kodları yerleşik adımları ve ilke deyimleri hello işlenmesi sırasında oluşabilecek hatalar için vardır. Daha fazla bilgi için bkz: [hata API Management ilkeleri işleme](https://msdn.microsoft.com/library/azure/mt629506.aspx).
+Bir isteğin işlenmesi sırasında bir hata varsa, tüm kalan adımları `inbound`, `backend`, veya `outbound` bölümleri atlanır ve yürütme atlar ifadeler için `on-error` bölümü. İlke deyimlerinde yerleştirerek `on-error` gözden geçirebileceğiniz hata kullanarak bölüm `context.LastError` özelliği inceleyebilir ve hata yanıtı kullanarak özelleştirin `set-body` İlkesi ve bir hata oluşursa ne olacağını yapılandırın. Hata kodları ve ilke deyimleri işleme sırasında oluşabilecek hatalar için yerleşik adımları vardır. Daha fazla bilgi için bkz: [hata API Management ilkeleri işleme](https://msdn.microsoft.com/library/azure/mt629506.aspx).
 
-İlkeleri farklı düzeylerde (Genel, ürün, API ve işlem) belirtilebilir beri hello yapılandırma yolu sizin için toospecify hello sipariş hello ilke tanımının deyimlerini saygı toohello üst ilkesiyle yürütmek sağlar. 
+Yapılandırma ilkeleri farklı düzeylerde (Genel, ürün, API ve işlem) belirtilebilir bu yana ilke tanımının deyimleri göre üst ilkesi yürütme sırasını belirlemek bir yol sağlar. 
 
-İlke kapsamları sırasının hello değerlendirilir.
+İlke kapsamları aşağıdaki sırayla değerlendirilir.
 
 1. Genel kapsamlı
 2. Ürün kapsamı
 3. API kapsamı
 4. İşlem kapsamı
 
-Merhaba deyimleri bunları içinde hello toohello yerleşimini göre değerlendirilir `base` varsa, öğesi. Genel ilke sahip hiç üst İlkesi ve hello kullanarak `<base>` öğesi içindeki etkisi yoktur.
+Bunların içindeki deyimleri yerleşimini göre değerlendirilir `base` varsa, öğesi. Genel ilke üst öğeye sahip İlkesi ve kullanarak `<base>` öğesi içindeki etkisi yoktur.
 
-Merhaba genel düzeyinde ve bir API için yapılandırılmış bir ilke bir ilke varsa, API'nin kullanıldığı her Örneğin, ardından her iki ilke uygulanır. API Management belirleyici hello temel öğe aracılığıyla birleşik İlkesi deyimlerinin sıralama için sağlar. 
+Genel düzeyinde ve bir API için yapılandırılmış bir ilke bir ilke varsa, API'nin kullanıldığı her Örneğin, ardından her iki ilke uygulanır. API Management belirleyici temel öğe aracılığıyla birleşik İlkesi deyimlerinin sıralama için sağlar. 
 
 ```xml
 <policies>
@@ -132,9 +132,9 @@ Merhaba genel düzeyinde ve bir API için yapılandırılmış bir ilke bir ilke
 </policies>
 ```
 
-Merhaba örnek ilke tanımı'nda yukarıdaki, hello `cross-domain` deyimini yürütün, sırayla misiniz tüm yüksek ilkeleri uyulması önce hello tarafından `find-and-replace` ilkesi. 
+Yukarıdaki örnek ilke tanımı'ndaki `cross-domain` hangi sırayla, misiniz yüksek ilkeleri tarafından uyulması önce deyimi yürütün `find-and-replace` ilkesi. 
 
-hello İlkesi Düzenleyicisi'nde hello geçerli kapsamdaki toosee hello ilkeleri **yeniden hesapla seçili kapsam için etkin ilke**.
+İlkeler ilke düzenleyicisinde geçerli kapsamdaki görmek için tıklatın **yeniden hesapla seçili kapsam için etkin ilke**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 İlke ifadelerini temel video aşağıdaki çıkışı denetleyin.

@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure Media Services hata kodları | Microsoft Docs"
-description: "Merhaba konu Azure Media Services hata kodları genel bir bakış sağlar."
+title: "Azure Media Services hata kodları | Microsoft Docs"
+description: "Konu Azure Media Services hata kodları genel bir bakış sağlar."
 author: Juliako
 manager: cfowler
 editor: 
@@ -14,91 +14,91 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako
-ms.openlocfilehash: de1ffd6dee8901a3051eb5032536c3669482d6b3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 39886a955124429302609dd9d5a7c20ae7f498d9
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-media-services-error-codes"></a>Azure Media Services hata kodları
-Microsoft Azure Media Services kullanırken, Media Services desteklenmez tooactions zaman aşımına uğramak kimlik doğrulama belirteçleri gibi sorunları bağlı olarak hello hizmetinden HTTP hata kodları alabilirsiniz. Merhaba bir listesi aşağıda verilmiştir **HTTP hata kodları** , döndürülüp döndürülmediğini Media Services tarafından ve bunlar için hello olası neden olur.  
+Microsoft Azure Media Services kullanırken, Media Services desteklenmeyen Eylemler süresinin dolmasını kimlik doğrulama belirteçleri gibi sorunları bağlı olarak hizmetinden HTTP hata kodları alabilirsiniz. Bir listesi aşağıda verilmiştir **HTTP hata kodları** , döndürülüp döndürülmediğini Media Services ve olası nedenleri tarafından bunlar için.  
 
 ## <a name="400-bad-request"></a>400 Hatalı istek
-Merhaba isteği geçersiz bilgiler içeriyor ve son reddedilir nedenleri aşağıdaki hello tooone:
+İstek geçersiz bilgiler içerir ve aşağıdaki nedenlerden biri reddedilemiyor:
 
-* Desteklenmeyen bir API sürümü belirtildi. Merhaba en güncel sürümü için bkz: [Media Services REST API geliştirme için Kurulum](media-services-rest-how-to-use.md).
-* Media Services Hello API sürümü belirtilmedi. Nasıl toospecify hello API sürümü hakkında daha fazla bilgi için bkz: [Media Services Operations REST API Başvurusu](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
+* Desteklenmeyen bir API sürümü belirtildi. En güncel sürümü için bkz: [Media Services REST API geliştirme için Kurulum](media-services-rest-how-to-use.md).
+* Media Services API sürümü belirtilmedi. API sürümü belirtme hakkında daha fazla bilgi için bkz: [Media Services Operations REST API Başvurusu](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
   
   > [!NOTE]
-  > Merhaba .NET veya Java SDK'ları tooconnect tooMedia kullanıyorsanız, hizmetleri, hello API sürümü belirtildi sizin için ne zaman deneyin ve Media Services karşı bazı eylemler gerçekleştirme.
+  > Media Services'e bağlanmak için .NET veya Java SDK'ları kullanıyorsanız, ne zaman deneyin ve Media Services karşı bazı eylemler gerçekleştirme API sürümü sizin için belirtilir.
   > 
   > 
-* Tanımlanmamış özellik belirtilmedi. Merhaba hata iletisinde Hello özelliği adıdır. Belirli bir varlık üyeleri olan özellikler belirtilebilir. Bkz: [Azure Media Services REST API Başvurusu](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference) varlıkları ve özelliklerinin listesi.
-* Geçersiz bir özellik değeri belirtildi. Merhaba hata iletisinde Hello özelliği adıdır. Merhaba önceki bağlantı için geçerli özellik türleri ve değerleri bakın.
+* Tanımlanmamış özellik belirtilmedi. Hata iletisinde özelliği adıdır. Belirli bir varlık üyeleri olan özellikler belirtilebilir. Bkz: [Azure Media Services REST API Başvurusu](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference) varlıkları ve özelliklerinin listesi.
+* Geçersiz bir özellik değeri belirtildi. Hata iletisinde özelliği adıdır. Geçerli bir özellik türlerini ve değerlerini önceki bağlantısına bakın.
 * Bir özellik değeri eksik ve gereklidir.
-* Belirtilen hello URL parçası hatalı bir değer içeriyor.
-* Bir girişim yapıldı WriteOnce özelliği tooupdate yapılan.
-* Bir girişim yapıldı belirtilmedi veya belirlenemedi birincil bir AssetFile Giriş bir varlığı olan bir işi toocreate yapılan.
-* Bir girişim yapıldı tooupdate bir SAS Bulucu yapılan. SAS bulucular yalnızca oluşturulan veya silinebilir. Bulucular akış güncelleştirilebilir. Daha fazla bilgi için bkz: [Bulucular](https://docs.microsoft.com/rest/api/media/operations/locator).
+* Belirtilen URL parçası hatalı bir değer içeriyor.
+* WriteOnce özelliği güncelleştirmek için girişimde bulunuldu.
+* Bir giriş varlığı belirtilmedi veya belirlenemedi birincil bir AssetFile sahip bir iş oluşturmak için girişimde bulunuldu.
+* Bir SAS Bulucu güncelleştirmek için girişimde bulunuldu. SAS bulucular yalnızca oluşturulan veya silinebilir. Bulucular akış güncelleştirilebilir. Daha fazla bilgi için bkz: [Bulucular](https://docs.microsoft.com/rest/api/media/operations/locator).
 * Desteklenmeyen bir işlem veya sorgu gönderildi.
 
 ## <a name="401-unauthorized"></a>401 Yetkisiz
-Hello isteği olmayan kimlik doğrulaması (bunu yetkilendirilebilir önce) son tooone hello aşağıdaki nedenlerden biri:
+(Bunu yetkilendirilebilir önce) istek aşağıdaki nedenlerden biri dolayısıyla doğrulanamadı:
 
 * Kimlik doğrulama üstbilgisi eksik.
 * Hatalı kimlik doğrulaması üstbilgi değeri.
-  * Merhaba belirtecinin süresi doldu. 
-  * Merhaba belirteci geçersiz bir imza içeriyor.
+  * Belirtecin süresi sona erdi. 
+  * Belirteç geçersiz bir imza içeriyor.
 
 ## <a name="403-forbidden"></a>403 Yasak
-Merhaba isteği son verilmez nedenleri aşağıdaki hello tooone:
+İstek aşağıdaki nedenlerden biri dolayısıyla izin verilmiyor:
 
-* Merhaba Media Services hesabı bulunamadı veya silinmiş olabilir.
-* Merhaba Media Services hesabı devre dışı bırakılır ve HTTP GET hello istek türü değil. Hizmet işlemleri de 403 bir yanıt döndürür.
-* Merhaba kimlik doğrulama belirteci hello kullanıcının kimlik bilgileri içermiyor: AccountName ve/veya Subscriptionıd. Media Services hesabınızı hello Azure Yönetim Portalı için hello Media Services UI uzantısı bu bilgileri bulabilirsiniz.
-* Merhaba kaynak erişilemez.
+* Media Services hesabı bulunamadı veya silinmiş olabilir.
+* Media Services hesabı devre dışı bırakılır ve HTTP GET isteği türü değil. Hizmet işlemleri de 403 bir yanıt döndürür.
+* Kimlik doğrulama belirteci kullanıcının kimlik bilgileri içermiyor: AccountName ve/veya Subscriptionıd. Azure Yönetim Portalı'nda Media Services hesabınız için medya Hizmetleri UI uzantısı'nda bu bilgileri bulabilirsiniz.
+* Kaynak erişilemez.
   
-  * Bir girişim yapıldı Media Services hesabınız için kullanılabilir olmayan bir MediaProcessor toouse yapılan.
-  * Media Services tarafından tanımlanan bir JobTemplate tooupdate girişimde bulunuldu.
-  * Bir girişim yapıldı toooverwrite bazı diğer Media Services hesabı Bulucu yapılan.
-  * Bir girişim yapıldı bazı diğer Media Services hesabı ContentKey toooverwrite yapılan.
-* Merhaba kaynak hello Media Services hesabı için ulaşıldı tooa hizmet kotasını nedeniyle oluşturulamadı. Merhaba Hizmeti kotaları hakkında daha fazla bilgi için bkz: [kotaları ve kısıtlamaları](media-services-quotas-and-limitations.md).
+  * Media Services hesabınız için kullanılabilir olmayan bir MediaProcessor kullanmak için girişimde bulunuldu.
+  * Media Services tarafından tanımlanan bir JobTemplate güncelleştirmek için girişimde bulunuldu.
+  * Bazı diğer Media Services hesabı Bulucu üzerine yazmak için girişimde bulunuldu.
+  * Bazı diğer Media Services hesabı ContentKey üzerine yazmak için girişimde bulunuldu.
+* Kaynak için Media Services hesabı ulaşıldı hizmet kotasını nedeniyle oluşturulamadı. Hizmeti kotaları hakkında daha fazla bilgi için bkz: [kotaları ve kısıtlamaları](media-services-quotas-and-limitations.md).
 
 ## <a name="404-not-found"></a>404 Bulunamadı
-Merhaba isteği bir kaynakta izin verilmiyor, aşağıdaki nedenlerden hello son tooone:
+İstek, aşağıdaki nedenlerin birinden dolayı bir kaynakta izin verilmiyor:
 
-* Bir girişim yapıldı var olmayan bir varlık tooupdate yapılan.
-* Bir girişim yapıldı var olmayan bir varlık toodelete yapılan.
-* Bir girişim yapıldı toocreate yok tooan varlık bağlantıları varlıkta yapılan.
-* Bir girişim yapıldı var olmayan bir varlık tooGET yapılan.
-* Bir girişim yapıldı hello Media Services hesabı ile ilişkili olmayan bir depolama hesabı toospecify yapılan.  
+* Var olmayan bir varlığı güncelleştirmek için girişimde bulunuldu.
+* Var olmayan bir varlığı silmek için girişimde bulunuldu.
+* Var olmayan bir varlığa bağlanan bir varlık oluşturmak için girişimde bulunuldu.
+* Var olmayan bir varlık almak için girişimde bulunuldu.
+* Media Services hesabıyla ilişkilendirilmemiş bir depolama hesabı belirtmek için girişimde bulunuldu.  
 
 ## <a name="409-conflict"></a>409 çakışma
-Merhaba isteği son verilmez nedenleri aşağıdaki hello tooone:
+İstek aşağıdaki nedenlerden biri dolayısıyla izin verilmiyor:
 
-* Birden fazla AssetFile hello varlık içindeki hello belirtilen ada sahip.
-* İkinci bir toocreate birincil girişimde bulunuldu AssetFile hello varlık içinde.
-* Girişiminde bulunuldu toocreate ContentKey hello ile belirtilen kimliği zaten kullanılıyor.
-* Girişiminde bulunuldu toocreate hello bulucuyla belirtilen kimliği zaten kullanılıyor.
-* Birden fazla IngestManifestFile hello IngestManifest içinde hello belirtilen ada sahip.
-* Bir girişim yapıldı ikinci bir depolama şifreleme ContentKey toohello toolink yapılan depolama şifrelenmiş varlık.
-* Girişiminde bulunuldu toolink hello aynı ContentKey toohello varlık.
-* Bir Bulucu tooan, depolama kapsayıcısı artık eksik veya varlık hello varlık ile ilişkili toocreate girişimde bulunuldu.
-* Bir girişim yapıldı toocreate yapılan bir Bulucu tooan 5 bulucular zaten kullanımda olan varlık. (Azure depolama bir depolama kapsayıcısı üzerinde beş paylaşılan erişim ilkeleri hello sınırının zorlar.)
-* Bir varlık tooan IngestManifestAsset depolama hesabına bağlama hello depolama hesabıyla aynı kullanılan hello hello üst IngestManifest tarafından değil.  
+* Birden fazla AssetFile varlık içinde belirtilen ada sahip.
+* Varlık içindeki ikinci bir birincil AssetFile oluşturmak için girişimde bulunuldu.
+* Zaten kullanılan belirtilen kimliğe bir ContentKey oluşturmak için girişimde bulunuldu.
+* Zaten kullanılan belirtilen kimliğe bir Bulucu oluşturmanız için girişimde bulunuldu.
+* Birden fazla IngestManifestFile IngestManifest içinde belirtilen ada sahip.
+* Depolama şifrelenmiş varlık için ikinci bir depolama şifreleme ContentKey bağlamak için girişimde bulunuldu.
+* Varlık için aynı ContentKey bağlamak için girişimde bulunuldu.
+* Depolama kapsayıcısı eksik ya da artık varlıkla ilişkilendirilen bir varlık için bir Bulucu oluşturmanız için girişimde bulunuldu.
+* 5 bulucular zaten kullanımda olan bir varlık için bir Bulucu oluşturmanız için girişimde bulunuldu. (Azure depolama sınırını bir depolama kapsayıcısı üzerinde beş paylaşılan erişim ilkeleri zorunlu tutar.)
+* Bir malın depolama hesabı için bir IngestManifestAsset bağlama IngestManifest üst tarafından kullanılan depolama hesabı ile aynı değil.  
 
 ## <a name="500-internal-server-error"></a>500 İç sunucu hatası
-Merhaba hello istek işlenirken, Media Services hello işleme devam etmesini engelleyen bazı hatayla karşılaşıyor. Bu son olabilir nedenleri aşağıdaki hello tooone:
+İsteğin işlenmesi sırasında Media Services işleme devam etmesini engelleyen bazı hatayla karşılaşır. Bunun nedeni, aşağıdakilerden biri olabilir:
 
-* Merhaba Media Services hesabın hizmet kota bilgileri geçici olarak kullanılamadığından bir varlık veya iş oluşturma başarısız olur.
-* Merhaba hesabın depolama hesabı bilgilerini geçici olarak kullanılamadığından bir varlık veya IngestManifest blob depolama kapsayıcısını oluşturma başarısız olur.
+* Media Services hesabın hizmet kota bilgileri geçici olarak kullanılamadığından bir varlık veya iş oluşturma başarısız olur.
+* Hesabın depolama hesabı bilgilerini geçici olarak kullanılamadığından bir varlık veya IngestManifest blob depolama kapsayıcısını oluşturma başarısız olur.
 * Diğer beklenmeyen hata oluştu.
 
 ## <a name="503-service-unavailable"></a>503 Hizmet kullanılamıyor
-Merhaba, şu anda işleyemiyor tooreceive istekleri sunucusudur. Aşırı istekleri toohello hizmeti tarafından bu hataya neden. Media Services mekanizması azaltma hello kaynak kullanımı aşırı isteği toohello hizmet uygulamalar için sınırlar.
+Sunucu isteklerini almak şu anda alamıyor. Bu hatanın nedeni aşırı isteklerine hizmet. Media Services mekanizması azaltma hizmete aşırı istekte uygulamalar için kaynak kullanımını kısıtlar.
 
 > [!NOTE]
-> Aldığınız hello nedeni hakkında daha ayrıntılı bilgi onay hello hata iletisi ve hata kodu dize tooget hello 503 hatası. Bu hata, azaltma her zaman gelmez.
+> Hata iletisi ve hata kodu dizesi 503 hatası aldığınız nedeni hakkında daha ayrıntılı bilgi almak için denetleyin. Bu hata, azaltma her zaman gelmez.
 > 
 > 
 
@@ -108,10 +108,10 @@ Olası durum açıklamaları şunlardır:
 * "Sunucu meşgul. Birden çok saniyede {0} istekler kısıtlanan."
 * "Sunucu meşgul. Fazlasını {0} istekleri {1} saniye içinde kısıtlanan."
 
-toohandle bu hatayı üstel geri alma yeniden deneme mantığı kullanılmasını öneririz. Ardışık hata yanıtları denemeler arasındaki aşamalı olarak uzun bekler kullanarak anlamına gelir.  Daha fazla bilgi için bkz: [geçici hata işleme uygulama blok](https://msdn.microsoft.com/library/hh680905.aspx).
+Bu hatayı işlemeye üstel geri alma yeniden deneme mantığı kullanmanızı öneririz. Ardışık hata yanıtları denemeler arasındaki aşamalı olarak uzun bekler kullanarak anlamına gelir.  Daha fazla bilgi için bkz: [geçici hata işleme uygulama blok](https://msdn.microsoft.com/library/hh680905.aspx).
 
 > [!NOTE]
-> Kullanıyorsanız [.Net için Azure Media Services SDK](https://github.com/Azure/azure-sdk-for-media-services/tree/master), hello hello 503 hatası için yeniden deneme mantığı hello SDK tarafından uygulandıktan.  
+> Kullanıyorsanız [.Net için Azure Media Services SDK](https://github.com/Azure/azure-sdk-for-media-services/tree/master), 503 hatası için yeniden deneme mantığı SDK tarafından uygulanır.  
 > 
 > 
 

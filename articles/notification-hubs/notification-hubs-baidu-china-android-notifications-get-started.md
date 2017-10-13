@@ -1,6 +1,6 @@
 ---
-title: "aaaGet Baidu kullanarak Azure Notification Hubs ile çalışmaya | Microsoft Docs"
-description: "Bu öğreticide, bilgi nasıl Baidu kullanarak toouse Azure Notification Hubs toopush bildirimleri tooAndroid cihazları."
+title: "Baidu kullanarak Azure Notification Hubs ile çalışmaya başlama | Microsoft Belgeleri"
+description: "Bu öğreticide, Baidu kullanarak Android cihazlarına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını öğrenirsiniz."
 services: notification-hubs
 documentationcenter: android
 author: ysxu
@@ -14,149 +14,149 @@ ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: yuaxu
-ms.openlocfilehash: 2767fdd3bb04674e7a531634237cc05cd8c21cb8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: df3bbda15e1245b6068c2b8290d0c96856051f1f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Baidu kullanarak Azure Notification Hubs ile çalışmaya başlama
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Baidu bulut anında iletme toosend anında iletme bildirimleri toomobile aygıtları kullanabileceğiniz bir Çin bulut hizmetidir. Bu hizmet, burada tooAndroid hello varlığını farklı uygulama mağazalarının ve anında iletme nedeniyle karmaşıktır anında iletme bildirimleri teslim hizmetleri, ayrıca genellikle bağlı tooGCM (Google olmayan Android cihazları toohello kullanılabilirliğini Çin'de yararlıdır Mesajlaşma bulut).
+Baidu bulut anında iletme, mobil cihazlara anında iletme bildirimleri göndermede kullanabileceğiniz bir Çin bulut hizmetidir. Farklı uygulama mağazalarının ve anında iletme hizmetlerinin varlığı ve de genellikle GCM'ye (Google Cloud Messaging) bağlı olmayan Android cihazlarının kullanılabilirliği nedeniyle, bu hizmet özellikle Android'e anında iletme bildirimleri göndermenin karmaşık olduğu Çin'de kullanışlıdır.
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu öğretici için aşağıdakiler gereklidir:
 
-* Hello karşıdan yükleyebileceğiniz, (varsayıyoruz Eclipse kullanın) android SDK <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android sitesi</a>
+* <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android sitesinden</a> indirebileceğiniz Android SDK'sı (Eclipse kullanacağınız varsayılır)
 * [Mobile Services Android SDK'sı]
-* [Baidu anında iletme Android SDK]
+* [Baidu Anında İletme Android SDK’sını]
 
 > [!NOTE]
-> toocomplete Bu öğretici, etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F).
+> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-baidu-get-started%2F).
 > 
 > 
 
 ## <a name="create-a-baidu-account"></a>Bir Baidu hesabı oluşturma
-Baidu toouse, bir Baidu hesabınızın olması gerekir. Zaten varsa, toohello içinde oturum [Baidu portalında] ve toohello bir sonraki adımı atlayın. Aksi takdirde hakkında yönergeleri izleyerek hello bkz toocreate bir Baidu hesabı.  
+Baidu kullanmak için bir Baidu hesabınızın olması gerekir. Zaten varsa [Baidu portalında] oturum açın ve sonraki adıma atlayın. Aksi halde, bir Baidu hesabının nasıl oluşturulacağı hakkında aşağıdaki yönergelere bakın.  
 
-1. Toohello Git [Baidu portalında] hello tıklatıp**登录**(**oturum açma**) bağlantı. Tıklatın**立即注册**toostart hello hesap kayıt işlemi.
+1. [Baidu portalında] gidin ve **登录** (**Oturum Açma**) bağlantısına tıklayın. Hesap kayıt işlemini başlatmak için **立即注册** seçeneğine tıklayın.
    
    ![][1]
-2. Merhaba gerekli ayrıntıları girin: telefon/e-posta adresi, parola ve doğrulama kodu — tıklatıp **kaydolma**.
+2. Gerekli ayrıntıları girin (telefon/e-posta adresi, parola ve doğrulama kodu) ve **Kaydol**'a tıklayın.
    
    ![][2]
-3. Bir e-posta toohello e-posta adresine gönderilecek bir bağlantı tooactivate ile Baidu hesabınızı girilen.
+3. Girdiğiniz e-posta adresine, Baidu hesabınızı etkinleştirmek için bir bağlantıya sahip bir e-posta gönderilir.
    
    ![][3]
-4. Tooyour e-posta hesabında oturum, hello Baidu etkinleştirme posta açın ve Baidu hesabınızı hello etkinleştirme bağlantı tooactivate tıklatın.
+4. E-posta hesabınızda oturum açın, Baidu etkinleştirme e-postasını açın ve Baidu hesabınızı etkinleştirmek için etkinleştirme bağlantısına tıklayın.
    
    ![][4]
 
-Baidu hesabınızı etkinleştirdikten sonra toohello içinde oturum [Baidu portalında].
+Baidu hesabınızı etkinleştirdikten sonra, [Baidu portalında] oturum açın.
 
 ## <a name="register-as-a-baidu-developer"></a>Bir Baidu geliştiricisi olarak kaydolma
-1. İçinde toohello oturum açtıktan sonra [Baidu portalında], tıklatın**更多 >>** (**daha fazla**).
+1. [Baidu portalında] oturum açtıktan sonra, **更多>>** (**daha fazlası**) öğesine tıklayın.
    
       ![][5]
-2. Aşağı kaydırın hello**站长与开发者服务 (yayımlanması ve geliştirici Hizmetleri)** 'ye tıklayın**百度开放云平台**(**Baidu bulut platformu açmak**).
+2. **站长与开发者服务 (Web Uzmanı ve Geliştirici Hizmetleri)** bölümde aşağı kaydırın ve **百度开放云平台** (**Baidu açık bulut platformu**) öğesine tıklayın.
    
       ![][6]
-3. Merhaba sonraki sayfasında, tıklatın**开发者服务**(**Geliştirici Hizmetleri**) hello sağ üst köşede.
+3. Sonraki sayfada sağ üst köşedeki **开发者服务** (**Geliştirici Hizmetleri**) öğesine tıklayın.
    
       ![][7]
-4. Merhaba sonraki sayfasında, tıklatın**注册开发者**(**kayıtlı geliştiriciler**) hello sağ üst köşesinde hello menüsünden.
+4. Sonraki sayfada sağ üst köşedeki menüden **注册开发者** (**Kayıtlı Geliştiriciler**) öğesine tıklayın.
    
       ![][8]
-5. Bir doğrulama kısa mesajı almak için adınızı, açıklamayı ve cep telefonu numarasını girin ve ardından **送验证码** (**Doğrulama Kodu Gönder**) öğesine tıklayın. Uluslararası telefon numaraları için parantez içinde tooenclose hello ülke kodu gerekir. Örneğin, bir Amerika Birleşik Devletleri numarası için bu **(1) 1234567890** şeklinde olacaktır.
+5. Bir doğrulama kısa mesajı almak için adınızı, açıklamayı ve cep telefonu numarasını girin ve ardından **送验证码** (**Doğrulama Kodu Gönder**) öğesine tıklayın. Uluslararası telefon numaraları için ülke kodunu parantez içine almanız gerekir. Örneğin, bir Amerika Birleşik Devletleri numarası için bu **(1) 1234567890** şeklinde olacaktır.
    
       ![][9]
-6. Ardından hello aşağıdaki örnekte gösterildiği gibi bir doğrulama numarasına sahip bir kısa mesaj almalısınız:
+6. Ardından, aşağıdaki örnekte gösterildiği gibi bir doğrulama numarasına sahip bir kısa mesaj almanız gerekir:
    
       ![][10]
-7. Merhaba iletisi Hello doğrulama numarasını girin**验证码**(**onay kodu**).
-8. Son olarak, hello Geliştirici kayıt hello Baidu anlaşmayı kabul eden ve'ı tıklatarak tamamlayın**提交**(**gönderme**). Kayıt başarılı şekilde tamamlandığını sayfasında aşağıdaki hello görürsünüz:
+7. İletideki doğrulama numarasını **验证码** (**Doğrulama kodu**) konumuna girin.
+8. Son olarak, Baidu sözleşmesini kabul edip **提交** (**Gönder**) öğesine tıklayarak geliştirici kaydını tamamlayın. Kayıt başarılı bir şekilde tamamlandığında aşağıdaki sayfayı görürsünüz:
    
       ![][11]
 
 ## <a name="create-a-baidu-cloud-push-project"></a>Bir Baidu bulut anında iletme projesi oluşturma
 Bir Baidu bulut anında iletme projesi oluşturduğunuzda, uygulama kimliğinizi, API anahtarınızı ve gizli anahtarınızı alırsınız.
 
-1. İçinde toohello oturum açtıktan sonra [Baidu portalında], tıklatın**更多 >>** (**daha fazla**).
+1. [Baidu portalında] oturum açtıktan sonra, **更多>>** (**daha fazlası**) öğesine tıklayın.
    
       ![][5]
-2. Aşağı kaydırın hello**站长与开发者服务**(**yayımlanması ve geliştirici Hizmetleri**) bölümünde ve tıklatın**百度开放云平台**(**Baidu bulut platformu açmak**).
+2. **站长与开发者服务** (**Web Uzmanı ve Geliştirici Hizmetleri**) bölümde aşağı kaydırın ve **百度开放云平台** (**Baidu açık bulut platformu**) öğesine tıklayın.
    
       ![][6]
-3. Merhaba sonraki sayfasında, tıklatın**开发者服务**(**Geliştirici Hizmetleri**) hello sağ üst köşede.
+3. Sonraki sayfada sağ üst köşedeki **开发者服务** (**Geliştirici Hizmetleri**) öğesine tıklayın.
    
       ![][7]
-4. Merhaba sonraki sayfasında, tıklatın**云推送**(**bulut itme**) hello gelen**云服务**(**bulut Hizmetleri**) bölümü.
+4. Sonraki sayfada **云服务** (**Cloud Services**) bölümünden **云推送** (**Bulut Anında İletme**) öğesine tıklayın.
    
       ![][12]
-5. Kayıtlı bir geliştirici olduktan sonra gördüğünüz**管理控制台**(**Yönetim Konsolu**) hello üst menüsünde. **开发者服务管理** (**Geliştirici Hizmeti Yönetimi**) öğesine tıklayın.
+5. Kayıtlı bir geliştirici olduğunuzda, en üstteki menüde **管理控制台** (**Yönetim Konsolu**) öğesini görürsünüz. **开发者服务管理** (**Geliştirici Hizmeti Yönetimi**) öğesine tıklayın.
    
       ![][13]
-6. Merhaba sonraki sayfasında, tıklatın**创建工程**(**proje oluştur**).
+6. Sonraki sayfada **创建工程** (**Proje Oluşturma**) öğesine tıklayın.
    
       ![][14]
 7. Bir uygulama adı girin ve **创建** (**Oluştur**) öğesine tıklayın.
    
       ![][15]
-8. Bir Baidu bulut anında iletme projesi başarılı bir şekilde oluşturulduktan sonra, **Uygulama Kimliği**, **API Anahtarı** ve **Gizli Anahtar** değerlerini içeren bir sayfa görürsünüz. Merhaba API anahtarı ve daha sonra kullanacağımız gizli anahtarı not edin.
+8. Bir Baidu bulut anında iletme projesi başarılı bir şekilde oluşturulduktan sonra, **Uygulama Kimliği**, **API Anahtarı** ve **Gizli Anahtar** değerlerini içeren bir sayfa görürsünüz. Daha sonra kullanacağımız API anahtarı ve gizli anahtarı not edin.
    
       ![][16]
-9. Tıklayarak Hello projesi anında iletme bildirimleri için yapılandırma**云推送**(**bulut anında iletme**) hello sol bölmedeki.
+9. Sol bölmedeki **云推送** (**Bulut Anında İletme**) öğesine tıklayarak projeyi anında iletme bildirimleri için yapılandırın.
    
       ![][31]
-10. Merhaba Hello sonraki sayfasında, tıklatın**推送设置**(**ayarları göndermek**) düğmesi.
+10. Sonraki sayfada **推送设置** (**Anında İletme ayarları**) düğmesine tıklayın.
     
     ![][32]  
-11. Merhaba Android projenizde kullanacağınız hello paket adı Hello yapılandırma sayfasında, eklemek**应用包名**(**uygulama paketi**) alan ve ardından**保存设置**() **Kaydetmek**).  
+11. Yapılandırma sayfasında Android projenizde kullanacağınız paket adını **应用包名** (**Uygulama paketi**) alanına ekleyin ve ardından **保存设置** (**Kaydet**) öğesine tıklayın.  
     
     ![][33]
 
-Merhaba gördüğünüz**保存成功!** (**Başarıyla kaydedildi!**) iletisini görürsünüz.
+Şunu görürsünüz: **保存成功！** (**Başarıyla kaydedildi!**) iletisini görürsünüz.
 
 ## <a name="configure-your-notification-hub"></a>Bildirim hub'ınızı yapılandırma
-1. İçinde toohello oturum [Klasik Azure portalı]ve ardından **+ yeni** Merhaba ekranında hello sonundaki.
+1. [Klasik Azure Portalı]'nda oturum açın ve ardından ekranın alt kısmındaki **+YENİ**'ye tıklayın.
 2. **Uygulama Hizmetleri**'ne tıklayın, **Service Bus**'a tıklayın, **Notification Hub**'a tıklayın ve ardından **Hızlı Oluştur**'a tıklayın.
-3. İçin bir ad, **bildirim hub'ı**seçin hello **bölge** ve hello **Namespace** burada bu bildirim hub'ı oluşturulur ve ardından  **Yeni bir Notification Hub Oluştur**.  
+3. **Notification Hub**'ınız için bir ad sağlayın, bu bildirim hub'ının oluşturulacağı **Bölge** ve **Ad Alanı**'nı seçin ve ardından **Yeni bir Notification Hub Oluştur**'a tıklayın.  
    
       ![][17]
-4. Bildirim hub'ınızı oluşturduğunuz hello ad alanına tıklayın ve ardından **bildirim hub'ları** hello üstünde.
+4. Bildirim hub'ınızı oluşturduğunuz ad alanına tıklayın ve ardından üst kısımdaki **Notification Hubs**'a tıklayın.
    
       ![][18]
-5. Oluşturulan ve ardından select hello bildirim hub'ı **yapılandırma** hello üst menüsünde.
+5. Oluşturduğunuz bildirim hub'ını seçin ve ardından, üstteki menüden **Yapılandır**'a tıklayın.
    
       ![][19]
-6. Toohello aşağı **baidu bildirim ayarları** bölümünde ve hello Baidu konsolundan Baidu bulut anında iletme projeniz için daha önce edindiğiniz gizli anahtar ve hello API anahtarını girin. **Kaydet** düğmesine tıklayın.
+6. **Baidu bildirim ayarları** bölümüne doğru aşağı kaydırın ve Baidu bulut anında iletme projeniz için önceden Baidu konsolundan elde ettiğiniz API anahtarını ve gizli anahtarı girin. **Kaydet** düğmesine tıklayın.
    
       ![][20]
-7. Merhaba tıklatın **Pano** sekmesinde hello üst hello bildirim hub'ı ve ardından **bağlantı dizesini görüntüle**.
+7. Bildirim hub'ı için en üstteki **Pano** sekmesine tıklayın ve ardından **Bağlantı Dizesini Görüntüle**'ye tıklayın.
    
       ![][21]
-8. Merhaba Not **DefaultListenSharedAccessSignature** ve **DefaultFullSharedAccessSignature** hello gelen **erişim bağlantısı bilgileri** penceresi.
+8. **Erişim bağlantı bilgileri** penceresinde **DefaultListenSharedAccessSignature** ve **DefaultFullSharedAccessSignature**'ı not edin.
    
     ![][22]
 
-## <a name="connect-your-app-toohello-notification-hub"></a>Uygulama toohello bildirim hub'ınıza bağlanın
+## <a name="connect-your-app-to-the-notification-hub"></a>Uygulamanızı bildirim hub'ına bağlama
 1. Eclipse ADT'de yeni bir Android projesi (**Dosya** > **Yeni** > **Android Uygulama Projesi**) oluşturun.
    
     ![][23]
-2. Girin bir **uygulama adı** ve o hello olun **gereken Minimum SDK** sürümü çok Ayarla**API 16: Android 4.1**.
+2. Bir **Uygulama Adı** girin ve **Gereken Minimum SDK** sürümünün **API 16: Android 4.1** olarak ayarlandığından emin olun.
    
     ![][24]
-3. Tıklatın **sonraki** ve hello kadar hello Sihirbazı aşağıdaki devam **etkinlik Oluştur** penceresi görüntülenir. Olduğundan emin olun **boş etkinlik** seçili ve son olarak select **son** toocreate yeni bir Android uygulaması.
+3. **İleri**'ye tıklayın ve **Etkinlik Oluştur** penceresi görünene kadar sihirbazı izlemeye devam edin. **Blank Activity**'nin seçildiğinden emin olun ve son olarak yeni bir Android Uygulaması oluşturmak için **Son**'u seçin.
    
     ![][25]
-4. Bu hello emin olun **proje derleme hedefi** doğru olarak ayarlanmış.
+4. **Proje Derleme Hedefi**'nin doğru ayarlandığından emin olun.
    
     ![][26]
-5. Hello Hello notification-hubs-0.4.jar dosyasını indirin **dosyaları** hello sekmesinde [Notification-Hubs-Android-SDK Bintray'deki üzerinde](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4). Merhaba dosya toohello ekleme **kitaplıklar** klasörü Eclipse projenizin ve yenileme hello *kitaplıklar* klasör.
-6. İndirip hello sıkıştırmasını [Baidu anında iletme Android SDK]açın hello **kitaplıklar** klasörünü ve ardından kopyalama hello **libs-x.y.z** jar dosyasını ve hello **pushservice**  &  **MIPS** hello klasörlerde **kitaplıklar** Android uygulamanızın klasör.
-7. Açık hello **AndroidManifest.xml** dosya Android projesi ve Baidu SDK hello tarafından gerekli olan hello izinleri ekleyin.
+5. [Bintray'deki Notification-Hubs-Android-SDK'sının](https://bintray.com/microsoftazuremobile/SDK/Notification-Hubs-Android-SDK/0.4) **Dosyalar** sekmesinden notification-hubs-0.4.jar dosyasını indirin. Dosyaları Eclipse projenizin **libs** klasörüne ekleyin ve *libs* klasörünü yenileyin.
+6. [Baidu Anında İletme Android SDK’sını] indirip sıkıştırmasını açın, **libs** klasörünü açın ve ardından Android uygulamanızdaki **libs** klasörüne **pushservice-x.y.z** jar dosyasını ve **armeabi** & **mips** klasörlerini kopyalayın.
+7. Android projenizin **AndroidManifest.xml** dosyasını açın ve Baidu SDK'sı için gereken izinleri ekleyin.
    
         <uses-permission android:name="android.permission.INTERNET" />
         <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -170,10 +170,10 @@ Merhaba gördüğünüz**保存成功!** (**Başarıyla kaydedildi!**) iletisini
         <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
         <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
         <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
-8. Merhaba eklemek **android: name** özelliği tooyour **uygulama** öğesinde **AndroidManifest.xml**değiştirerek *yourprojectname* (için Örneğin, **com.example.BaiduTest**). Bu proje adı hello Baidu konsolunda yapılandırdığınız hello bir eşleştiğinden emin olun.
+8. **AndroidManifest.xml**'deki **uygulama** öğenize **android:name** özelliğini ekleyip *yourprojectname*'i değiştirin (ör. **com.example.BaiduTest**). Bu proje adının, Baidu konsolunda yapılandırdığınız adla eşleştiğinden emin olun.
    
         <application android:name="yourprojectname.DemoApplication"
-9. Merhaba hello sonra yapılandırmasını hello uygulama öğesi içinde aşağıdaki ekleme **. MainActivity** etkinlik öğesinden değiştirme *yourprojectname* (örneğin, **com.example.BaiduTest**):
+9. **.MainActivity** etkinlik öğesinden sonra uygulama öğesinin içine aşağıdaki yapılandırmayı ekleyip *yourprojectname*'i değiştirin (ör. **com.example.BaiduTest**):
    
         <receiver android:name="yourprojectname.MyPushMessageReceiver">
             <intent-filter>
@@ -212,12 +212,12 @@ Merhaba gördüğünüz**保存成功!** (**Başarıyla kaydedildi!**) iletisini
                 <action android:name="com.baidu.android.pushservice.action.PUSH_SERVICE" />
             </intent-filter>
         </service>
-10. Adlı yeni bir sınıf ekleyin **ConfigurationSettings.java** toohello projesi.
+10. Projeye **ConfigurationSettings.java** adlı yeni bir sınıf ekleyin.
     
      ![][28]
     
      ![][29]
-11. Aşağıdaki kod tooit hello ekleyin:
+11. Buna aşağıdaki kodu ekleyin:
     
         public class ConfigurationSettings {
                 public static String API_KEY = "...";
@@ -225,8 +225,8 @@ Merhaba gördüğünüz**保存成功!** (**Başarıyla kaydedildi!**) iletisini
                 public static String NotificationHubConnectionString = "...";
             }
     
-    Merhaba değeri olarak ayarlayın **apı_key** ne hello Baidu bulut projesinden daha önce alınan ile **NotificationHubName** hello Klasik Azure Portalı'ndan bildirim hub'ı adıyla ve  **NotificationHubConnectionString** defaultlistensharedaccesssignature hello Klasik Azure portalı ile.
-12. Adlı yeni bir sınıf ekleyin **DemoApplication.java**ve kod tooit aşağıdaki hello ekleyin:
+    **API_KEY**'i daha önce Baidu bulut projesinden aldığınız değerle, **NotificationHubName**'i Klasik Azure Portalı'ndaki bildirim hub'ı adınızla ve **NotificationHubConnectionString**'i de Klasik Azure Portalı'ndaki DefaultListenSharedAccessSignature ile ayarlayın.
+12. **DemoApplication.java** adlı yeni bir sınıf ekleyin ve bu sınıfa aşağıdaki kodu ekleyin:
     
         import com.baidu.frontia.FrontiaApplication;
     
@@ -236,7 +236,7 @@ Merhaba gördüğünüz**保存成功!** (**Başarıyla kaydedildi!**) iletisini
                 super.onCreate();
             }
         }
-13. Adlı başka bir yeni sınıf ekleyin **MyPushMessageReceiver.java**ve kod tooit aşağıdaki hello ekleyin. Merhaba Baidu anında iletme sunucusundan alınan anında iletme bildirimleri tanıtıcıları hello hello sınıfı var.
+13. **MyPushMessageReceiver.java** adlı başka bir yeni sınıf ekleyin ve bu sınıfa aşağıdaki kodu ekleyin. Bu, Baidu anında iletme sunucusundan alınan anında iletme bildirimlerini işleyen sınıftır.
     
         import java.util.List;
         import android.content.Context;
@@ -246,7 +246,7 @@ Merhaba gördüğünüz**保存成功!** (**Başarıyla kaydedildi!**) iletisini
         import com.microsoft.windowsazure.messaging.NotificationHub;
     
         public class MyPushMessageReceiver extends FrontiaPushMessageReceiver {
-            /** TAG tooLog */
+            /** TAG to Log */
             public static NotificationHub hub = null;
             public static String mChannelId, mUserId;
             public static final String TAG = MyPushMessageReceiver.class
@@ -344,29 +344,29 @@ Merhaba gördüğünüz**保存成功!** (**Başarıyla kaydedildi!**) iletisini
                 Log.d(TAG, messageString);
             }
         }
-14. Açık **MainActivity.java**ve toohello aşağıdaki hello ekleyin **onCreate** yöntemi:
+14. **MainActivity.java**'yı açın ve aşağıdakini **onCreate** yöntemine ekleyin:
     
             PushManager.startWork(getApplicationContext(),
                     PushConstants.LOGIN_TYPE_API_KEY, ConfigurationSettings.API_KEY);
-15. İçeri aktarma deyimlerini hello üstünde aşağıdaki hello açın:
+15. En üstteki içeri aktarma deyimlerini açın:
     
             import com.baidu.android.pushservice.PushConstants;
             import com.baidu.android.pushservice.PushManager;
 
-## <a name="send-notifications-tooyour-app"></a>Bildirimleri tooyour uygulama Gönder
-Hello bildirimleri göndererek uygulamanızda bildirim alma hızlı bir şekilde test edebilirsiniz [Azure portal](https://portal.azure.com/) hello kullanarak **Gönder** hello ekran aşağıdaki gösterildiği gibi hello bildirim hub'ı üzerinde düğmesi:
+## <a name="send-notifications-to-your-app"></a>Uygulamanıza bildirimler gönderme
+Aşağıdaki ekranda gösterildiği [Azure Portal](https://portal.azure.com/)'da bildirim hub’ındaki **Gönder** düğmesini kullanarak uygulamanızda bildirim almayı hızlıca test edebilirsiniz.
 
 ![](./media/notification-hubs-baidu-get-started/notification-hub-test-send-baidu.png)
 
-Anında iletme bildirimleri normalde, uyumlu bir kitaplık kullanılarak Mobile Services veya ASP.NET gibi bir arka uç hizmetinde gönderilir. Bir kitaplık arka ucunuz için kullanılabilir durumda değilse, hello REST API'sini kullanabilirsiniz doğrudan toosend bildirim iletileri.
+Anında iletme bildirimleri normalde, uyumlu bir kitaplık kullanılarak Mobile Services veya ASP.NET gibi bir arka uç hizmetinde gönderilir. Arka ucunuz için uygun bir kitaplık yoksa bildirim iletilerini göndermek için doğrudan REST API’sini kullanabilirsiniz.
 
-Bu öğreticide, basit tutmak ve yalnızca arka uç hizmeti yerine bir konsol uygulamasındaki bildirim hub'ları için hello .NET SDK kullanarak bildirim göndererek istemci uygulamanızı test etme gösterme. Merhaba öneririz [Notification Hubs kullanma toopush bildirimleri toousers](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) hello bir ASP.NET arka ucundan bildirim göndermek için sonraki adım olarak Öğreticisi. Ancak, aşağıdaki yaklaşımlardan hello bildirim göndermek için kullanılabilir:
+Bu öğreticide konuyu basit bir şekilde işleyeceğiz ve yalnızca bir arka uç hizmeti yerine bir konsol uygulamasındaki bildirim hub'ları için .NET SDK ile bildirim göndererek istemci uygulamanızı test etmeyi göstereceğiz. Bir ASP.NET arka ucundan bildirim göndermek için sonraki adım olarak [Kullanıcılara anında iletme bildirimleri göndermek için Notification Hubs’ı kullanma](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) öğreticisini öneririz. Bununla birlikte, bildirim göndermek için aşağıdaki yaklaşımlar kullanılabilir:
 
-* **REST arabirimi**: hello kullanarak herhangi bir arka uç platform bildirim destekleyebilir [REST arabirimini](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
-* **Microsoft Azure Notification Hubs .NET SDK'sı**: hello Visual Studio için Nuget Paket Yöneticisi, çalışması [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
-* **Node.js**: [nasıl toouse node.js'den Notification Hubs](notification-hubs-nodejs-push-notification-tutorial.md).
-* **Mobile Apps**: bir örneği için Notification Hubs ile tümleştirilmiş Azure App Service Mobile Apps arka uç toosend bildirimleri bkz [Ekle anında iletme bildirimleri tooyour mobil uygulama](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
-* **Java / PHP**: REST API'lerini kullanarak toosend bildirim nasıl hello ilişkin bir örnek için bkz: "nasıl toouse Java/php'den Notification Hubs" ([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
+* **REST Arabirimi**: [REST arabirimini](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx) kullanarak herhangi bir arka uç platformunda bildirimi destekleyebilirsiniz.
+* **Microsoft Azure Notification Hubs .NET SDK'sı**: Visual Studio için Nuget Paket Yöneticisi'nde [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/) komutunu çalıştırın.
+* **Node.js**: [Node.js'den Notification Hubs'ı kullanma](notification-hubs-nodejs-push-notification-tutorial.md).
+* **Mobile Apps**: Notification Hubs ile tümleştirilmiş Azure Uygulama Hizmeti Mobile Apps arka ucundan nasıl bildirim gönderildiğinin bir örneği için bkz. [Mobil uygulamalarınıza anında iletme bildirimleri ekleme](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).
+* **Java/PHP**: REST API'ler kullanarak nasıl bildirim gönderildiğinin bir örneği için bkz. "Java/PHP'den Notification Hubs'ı kullanma"([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md)).
 
 ## <a name="optional-send-notifications-from-a-net-console-app"></a>(İsteğe bağlı) Bir .NET konsol uygulamasından bildirim gönderme
 Bu bölümde, bir .NET konsol uygulaması kullanarak bildirim göndermeyi göstereceğiz.
@@ -374,17 +374,17 @@ Bu bölümde, bir .NET konsol uygulaması kullanarak bildirim göndermeyi göste
 1. Yeni bir Visual C# konsol uygulaması oluşturun:
    
     ![][30]
-2. Hello Paket Yöneticisi konsolu penceresinde, hello ayarlamak **varsayılan proje** tooyour yeni konsol uygulama projesi ve sonra hello konsol penceresinde hello aşağıdaki komutu yürütün:
+2. Paket Yöneticisi Konsolu penceresinde, **Varsayılan projeyi** yeni konsol uygulaması projeniz olarak ayarlayın ve ardından konsol penceresinde aşağıdaki komutu yürütün:
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-    Bu yönerge başvuru toohello Azure Notification Hubs SDK'sı ekler hello kullanarak <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet paketini</a>.
+    Bu yönerge, <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet paketini</a> kullanarak Azure Notification Hubs SDK'sına bir başvuru ekler.
    
     ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
-3. Açık hello dosya **Program.cs** ve hello aşağıdakileri ekleyin deyimi kullanarak:
+3. **Program.cs**'yi açın ve aşağıdaki kullanım deyimini ekleyin:
    
         using Microsoft.Azure.NotificationHubs;
-4. İçinde `Program` sınıfı, yöntem aşağıdaki hello ekleyebilir ve *DefaultFullSharedAccessSignatureSASConnectionString* ve *NotificationHubName* elinizde hello değerlere sahip.
+4. `Program` sınıfınızda, aşağıdaki yöntemi ekleyin ve *DefaultFullSharedAccessSignatureSASConnectionString* ve *NotificationHubName* değerlerini sizdeki değerlerle değiştirin.
    
         private static async void SendNotificationAsync()
         {
@@ -392,19 +392,19 @@ Bu bölümde, bir .NET konsol uygulaması kullanarak bildirim göndermeyi göste
             string message = "{\"title\":\"((Notification title))\",\"description\":\"Hello from Azure\"}";
             var result = await hub.SendBaiduNativeNotificationAsync(message);
         }
-5. Hello aşağıdaki satırları ekleyin, **ana** yöntemi:
+5. Aşağıdaki satırları **Main** yönteminize ekleyin:
    
          SendNotificationAsync();
          Console.ReadLine();
 
 ## <a name="test-your-app"></a>Uygulamanızı test etme
-Bu uygulama, yalnızca gerçek bir telefonla connect tootest bir USB kablosu kullanarak telefon tooyour bilgisayar hello. Bu eylem uygulamanız iliştirilmiş hello telefon yükler.
+Bu uygulamayı gerçek bir telefonla test etmek için telefonu bir USB kablosu kullanarak bilgisayarınıza bağlamanız yeterlidir. Bu işlem uygulamanızı iliştirilmiş telefona yükler.
 
-Merhaba öykünücüsünde hello Eclipse üst araç çubuğunda, bu uygulamayla tootest tıklatın **çalıştırmak**ve ardından uygulamanızı seçin: hello öykünücüsü, yüklendiğinde başlatır ve çalıştırmalarını hello uygulama.
+Bu uygulamayı öykünücüyle test etmek için, Eclipse üst araç çubuğunda **Çalıştır**'a tıklayın ve ardından uygulamanızı seçin: öykünücü başlatılır, uygulama yüklenir ve çalıştırılır.
 
-Merhaba uygulama Baidu anında bildirim hizmeti hello hello UserID' ve 'Channelıd' alır ve hello bildirim hub'ı ile kaydeder.
+Uygulama, Baidu Anında iletme bildirimi hizmetinden 'userId' ve 'channelId' alır ve bildirim hub'ı ile kaydeder.
 
-bir test bildirimi toosend hello Klasik Azure portalı hello hata ayıklama sekmesini kullanabilirsiniz. Merhaba .NET konsol uygulaması Visual Studio için oluşturulduysa, yalnızca Visual Studio toorun hello uygulamada hello F5 tuşuna basın. Merhaba uygulaması hello üst bildirim alanında cihaz veya öykünücü görünür bir bildirim gönderir.
+Bir test bildirimi göndermek için, Klasik Azure Portalı'nın hata ayıklama sekmesini kullanabilirsiniz. Visual Studio için .NET konsol uygulamasını oluşturduysanız uygulamayı çalıştırmak için Visual Studio'da F5 tuşuna basmanız yeterlidir. Uygulama, cihazınızın veya öykünücünüzün bildirim alanının üst kısmında görünecek bir bildirim gönderir.
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-baidu-get-started/BaiduRegistration.png
@@ -443,6 +443,6 @@ bir test bildirimi toosend hello Klasik Azure portalı hello hata ayıklama sekm
 
 <!-- URLs. -->
 [Mobile Services Android SDK'sı]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Baidu anında iletme Android SDK]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
-[Klasik Azure portalı]: https://manage.windowsazure.com/
+[Baidu Anında İletme Android SDK’sını]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
+[Klasik Azure Portalı]: https://manage.windowsazure.com/
 [Baidu portalında]: http://www.baidu.com/

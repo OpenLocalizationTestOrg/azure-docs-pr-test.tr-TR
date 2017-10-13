@@ -1,6 +1,6 @@
 ---
-title: "diğer dizinlerden veya iş ortağı şirketlerdeki Azure Active Directory'de aaaAdd kullanıcılar | Microsoft Docs"
-description: "Açıklar nasıl tooadd kullanıcılar veya Azure Active Directory'de dış ve yeni Konuk kullanıcılar dahil olmak üzere, kullanıcı bilgilerini değiştirebilirsiniz."
+title: "Azure Active Directory'de diğer dizinlerden veya iş ortağı şirketlerden kullanıcılar ekleme | Microsoft Docs"
+description: "Azure Active Directory'de dış ve yeni konuk kullanıcılar dahil olmak üzere kullanıcıların eklenmesini veya kullanıcı bilgilerinin değiştirilmesini açıklar."
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -12,70 +12,70 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/25/2017
+ms.date: 10/10/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
-ms.openlocfilehash: 92099e5792365c307b0f3d4f2dff5dd8424aeab4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 30dbd21c6d21aa55c2c7e84c315fba098674ddd8
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-users-from-other-directories-or-partner-companies-in-azure-active-directory"></a>Azure Active Directory'de diğer dizinlerden veya iş ortağı şirketlerden kullanıcılar ekleme
 
-Bu makalede açıklanır nasıl tooadd kullanıcıların Azure Active Directory'de diğer dizinlerden veya iş ortağı şirketlerden kullanıcılar ekleyebilirsiniz. Kuruluşunuzdaki yeni kullanıcı ekleme ve Microsoft hesabına sahip kullanıcıların eklenmesi hakkında daha fazla bilgi için bkz: [yeni kullanıcılar tooAzure Active Directory eklemek](active-directory-create-users.md). 
+Bu makalede Azure Active Directory'de diğer dizinlerden kullanıcıların eklenmesi veya iş ortağı şirketlerden kullanıcıların eklenmesi açıklanmaktadır. Kuruluşunuzdaki yeni kullanıcıların ve Microsoft hesabına sahip kullanıcıların eklenmesi hakkında daha fazla bilgi için bkz. [Azure Active Directory'ye yeni kullanıcı ekleme](active-directory-create-users.md). 
 
 > [!IMPORTANT]
-> Microsoft önerir hello kullanarak Azure AD'yi yönetme [Azure AD Yönetim Merkezi](https://aad.portal.azure.com) hello yerine Azure portal hello bu makalede başvurulan Klasik Azure portalı. Nasıl tooadd B2B işbirliği Konuk kullanıcılar hello Azure AD Yönetim Merkezi için bkz: [Azure AD B2B işbirliği nedir?](active-directory-b2b-what-is-azure-ad-b2b.md)
+> Microsoft, Azure AD’yi bu makalede bahsedilen Klasik Azure Portalı yerine Azure portalındaki [Azure AD yönetim merkezini](https://aad.portal.azure.com) kullanarak yönetmenizi öneriyor. Azure AD yönetim merkezinde B2B işbirliği konuk kullanıcıları eklemek için bkz. [Azure AD B2B işbirliği nedir?](active-directory-b2b-what-is-azure-ad-b2b.md)
 
-Eklenen kullanıcılar varsayılan olarak yönetici izinlerine sahip olmayan, ancak herhangi bir zamanda roller toothem atayabilirsiniz.
+Eklenen kullanıcılar varsayılan olarak yönetici izinlerine sahip olmaz ancak bu kullanıcılara herhangi bir zamanda roller atayabilirsiniz.
 
 ## <a name="add-a-user"></a>Kullanıcı ekleme
-1. İçinde toohello oturum [Klasik Azure portalı](https://manage.windowsazure.com) hello dizin için genel yönetici olan bir hesapla.
+1. Dizin için genel yönetici olan bir hesapla [klasik Azure portalında](https://manage.windowsazure.com) oturum açın.
 2. **Active Directory**'yi seçin ve ardından dizininizi açın.
-3. Select hello **kullanıcılar** sekmesini tıklatın ve ardından hello komut çubuğunda seçin **Kullanıcı Ekle**.
-4. Merhaba üzerinde **bu kullanıcı hakkında bize** sayfasında **kullanıcı türünü**, şunlardan birini seçin:
+3. **Users (Kullanıcılar)** sekmesini seçin ve ardından komut çubuğunda **Add User (Kullanıcı Ekle)** seçeneğini belirleyin.
+4. **Tell us about this user (Bu kullanıcı hakkındaki görüşlerinizi bize bildirin)** sayfasında, **Type of user (Kullanıcı türü)** kısmında aşağıdaki seçeneklerden birini belirleyin:
 
-   * **Başka bir Azure AD dizinindeki kullanıcı** – başka bir Azure AD dizininden kaynaklanan bir kullanıcı hesabı tooyour dizini ekler. Başka bir dizindeki bir kullanıcıyı yalnızca bu dizinin de bir kullanıcısı olduğunuzda ekleyebilirsiniz.
-   * **İş ortağı şirketlerdeki kullanıcılar** -tooinvite ve iş ortağı şirket kullanıcıları tooyour dizin yetkilendirmek (bkz [Azure Active Directory B2B işbirliği](active-directory-b2b-what-is-azure-ad-b2b.md)). Çok gerekir[e-posta adreslerini belirterek bir CSV dosyası yükleme](active-directory-b2b-references-csv-file-format.md).
-5. Merhaba kullanıcı **profil** sayfasında, adı ve Soyadı, kullanıcı dostu bir ad ve bir kullanıcı rolüyle hello sağlayın **rolleri** listesi. Kullanıcı ve yönetici rolleri hakkında daha fazla bilgi için bkz. [Azure AD'de yönetici rolü atama](active-directory-assign-admin-roles.md). Belirtin çok olup olmadığını**çok faktörlü kimlik doğrulamasını etkinleştir** hello kullanıcı için.
-6. Merhaba üzerinde **Get geçici parola** sayfasında, **oluşturma**.
+   * **User in another Azure AD directory (Başka bir Azure AD dizinindeki kullanıcı)** - kaynağı başka bir Azure AD dizini olan bir kullanıcı hesabını dizininize ekler. Başka bir dizindeki bir kullanıcıyı yalnızca bu dizinin de bir kullanıcısı olduğunuzda ekleyebilirsiniz.
+   * **Users in partner companies (İş ortağı şirketlerindeki kullanıcılar)** - iş ortağı şirketi kullanıcılarını dizininize davet etmek ve yetkilendirmek için kullanılır (bkz. [Azure Active Directory B2B işbirliği](active-directory-b2b-what-is-azure-ad-b2b.md)). [E-posta adreslerini belirterek bir CSV dosyasını karşıya yüklemeniz](active-directory-b2b-references-csv-file-format.md) gerekir.
+5. **Profile (Profil)** sayfasında bir ad ve soyad, kolay ad ve **Roles (Roller)** listesinden bir kullanıcı rolü sağlayın. Kullanıcı ve yönetici rolleri hakkında daha fazla bilgi için bkz. [Azure AD'de yönetici rolü atama](active-directory-assign-admin-roles.md). Kullanıcı için **Enable Multi-Factor Authentication (Multi-Factor Authentication'ı Etkinleştir)** seçeneğinin belirlenip belirlenmeyeceğini belirtin.
+6. **Get temporary password (Geçici parola alma)** sayfasında, **Create (Oluştur)** seçeneğini belirleyin.
 
 > [!IMPORTANT]
-> Kuruluşunuz birden fazla etki alanı kullanıyorsa bir kullanıcı hesabı eklediğinizde, sorunları aşağıdaki hello hakkında bilmeniz gerekenler:
+> Kuruluşunuz birden fazla etki alanı kullanıyorsa bir kullanıcı hesabını eklerken aşağıdakileri bilmeniz gerekir:
 >
-> * tooadd kullanıcı hesapları ile etki alanları arasında aynı kullanıcı asıl adı (UPN) hello **ilk** ekleme, örneğin, geoffgrisso@contoso.onmicrosoft.com, **arkasından** geoffgrisso@contoso.com.
+> * Etki alanlarında aynı kullanıcı asıl adına (UPN) sahip kullanıcı hesaplarını eklemek için, örneğin, **önce** geoffgrisso@contoso.onmicrosoft.com hesabını ve **ardından** geoffgrisso@contoso.com hesabını ekleyin.
 > * geoffgrisso@contoso.onmicrosoft.com eklemeden önce geoffgrisso@contoso.com **eklemeyin**.
 >
 
-Bir kullanıcının kimliği şirket içi Active Directory hizmetinizle eşitlenir bilgilerini değiştirirseniz, hello Klasik Azure portalı hello kullanıcı bilgilerini değiştiremezsiniz. toochange Merhaba kullanıcı bilgileri, şirket içi Active Directory Yönetim araçlarınızı kullanın.
+Bilgilerini değiştirdiğiniz bir kullanıcının kimliği şirket içi Active Directory hizmetinizle eşitlenmişse kullanıcı bilgilerini klasik Azure portalında değiştiremezsiniz. Kullanıcı bilgilerini değiştirmek için şirket içi Active Directory yönetim araçlarınızı kullanın.
 
 ## <a name="add-external-users"></a>Dış kullanıcılar ekleme
-Aynı zamanda kullanıcılara ait olduğunuz başka bir Azure AD directory toowhich veya iş ortağı şirketlerden bir CSV dosyasını karşıya yükleyerek ekleyebilirsiniz. tooadd bir dış kullanıcı için **kullanıcı türü**, belirtin **başka bir Microsoft Azure AD dizinindeki kullanıcı** veya **iş ortağı şirketlerdeki kullanıcılar**.
+Aynı zamanda ait olduğunuz başka bir Azure AD dizininden veya bir CSV dosyasını karşıya yükleyerek iş ortağı şirketlerden kullanıcılar ekleyebilirsiniz. **Type of User (Kullanıcı Türü)** için bir dış kullanıcı eklerken **User in another Microsoft Azure AD directory (Başka bir Microsoft Azure AD dizinindeki kullanıcı)** veya **Users in partner companies (İş ortağı şirketlerindeki kullanıcılar)** seçeneğini belirtin.
 
-Her iki türdeki kullanıcıların da kaynağı başka bir dizindir ve **dış kullanıcılar** olarak eklenirler. Dış kullanıcılar gereksinim tooadd yeni hesaplar ve kimlik bilgileri olmadan bir dizindeki diğer kullanıcılarla işbirliği yapabilir. Dış kullanıcılar kendi giriş dizininde ile oturum açın ve bu kimlik doğrulaması eklenmiş oldukları diğer tüm dizinleri toowhich için çalışır kimlik doğrulaması.
+Her iki türdeki kullanıcıların da kaynağı başka bir dizindir ve **dış kullanıcılar** olarak eklenirler. Dış kullanıcılar, yeni hesaplar ve kimlik bilgileri ekleme gereksinimleri olmadan bir dizindeki diğer kullanıcılarla işbirliği yapabilir. Dış kullanıcılar oturum açarken giriş dizinleriyle kimlik doğrulaması yapar ve bu kimlik doğrulaması eklenmiş oldukları diğer tüm dizinlerde de geçerli olur.
 
 ## <a name="external-user-management-and-limitations"></a>Dış kullanıcı yönetimi ve sınırlamalar
-Bir kullanıcı başka bir dizin tooyour dizinden eklediğinizde, bu kullanıcı dizininizde bir dış kullanıcı olur. Merhaba görünen adı ve kullanıcı adı kullanıcının giriş dizininden kopyalanır ve hello dizininizdeki dış kullanıcı için kullanılır. Daha sonra hello dış kullanıcı hesabının özellikleri tamamen bağımsız olur. Özellik değişiklikleri toohello kullanıcı kendi giriş dizininde yapılırsa, bu değişiklikleri yayılmaz toohello dizininizdeki dış kullanıcı hesabı.
+Başka bir dizinden kendi dizininize kullanıcı eklediğinizde bu kullanıcı sizin dizininizde bir dış kullanıcı olur. Görünen ad ve kullanıcı adı bu kullanıcının giriş dizininden kopyalanır ve sizin dizininizdeki dış kullanıcı için kullanılır. Daha sonrasında dış kullanıcı hesabının özellikleri tamamen bağımsız olur. Kullanıcının kendi giriş dizininde özellikleri değiştirilirse bu değişiklikler dizininizdeki dış kullanıcı hesabına yayılmaz.
 
-Merhaba hello iki hesap arasındaki tek bağlantı, bu hello kullanıcının her zaman zaman kendi giriş dizininde veya Microsoft hesabında kimlik doğrulaması ' dir. İşte bu nedenle bir seçenek tooreset hello parola bakın yok veya bir dış kullanıcı için çok faktörlü kimlik doğrulamasını etkinleştirin. Şu anda hello giriş dizininde veya Microsoft hesabı hello kimlik doğrulama ilkesini hello tek hello kullanıcının oturum açtığı zaman değerlendirilen ' dir.
+İki hesap arasındaki tek bağlantı, kullanıcının her zaman kendi giriş dizininde veya Microsoft hesabında kimlik doğrulaması yapmasıdır. Bir dış kullanıcı için parolayı sıfırlama veya çok faktörlü kimlik doğrulaması seçeneğini görmemenizin nedeni budur. Şu anda kullanıcı oturum açtığı zaman değerlendirilen tek ilke, giriş dizininin veya Microsoft hesabının kimlik doğrulama ilkesidir.
 
 > [!NOTE]
-> Hala erişim tooyour dizin engeller hello dizininde hello dış kullanıcı devre dışı bırakabilirsiniz.
+> Dış kullanıcıyı dizinde yine de devre dışı bırakabilirsiniz, bu durumda dizininize erişim engellenir.
 >
 >
 
-Bir kullanıcı kendi giriş dizininde silinirse veya Microsoft hesabını iptal ederse, hello dış kullanıcı dizininizde hala vardır. Ancak, bunlar bir giriş dizininde veya Microsoft hesabı ile kimlik doğrulaması yapamadığı için dizininizdeki hello kullanıcı kaynaklarına erişemez.
+Bir kullanıcı kendi giriş dizininde silinirse veya Microsoft hesabını iptal ederse sizin dizininizde dış kullanıcı var olmaya devam eder. Ancak dizininizdeki kullanıcı bir giriş dizininde veya Microsoft hesabında kimlik doğrulaması yapamadığı için kaynaklara erişemez.
 
 ### <a name="services-that-currently-support-access-by-azure-ad-external-users"></a>Şu anda Azure AD dış kullanıcılarının erişimini destekleyen hizmetler
-* **Klasik Azure portalı**: birden çok dizin toomanage her bu dizinlerin yöneticisi olan bir dış kullanıcının verir.
-* **SharePoint Online**: dış paylaşım etkinleştirilmişse bir dış kullanıcı tooaccess SharePoint Online yetkili kaynaklarına sağlar.
-* **Dynamics CRM**: hello kullanıcı PowerShell yoluyla lisanslanmışsa bir dış kullanıcı tooaccess kaynakları Dynamics CRM'deki yetkili sağlar.
-* **Dynamics AX**: hello kullanıcı PowerShell yoluyla lisanslanmışsa bir dış kullanıcı tooaccess kaynakları Dynamics AX'teki yetkili sağlar. Merhaba sınırlamalar [Azure AD dış kullanıcılarının](#known-limitations-of-azure-ad-external-users) Dynamics AX tooexternal kullanıcılar da geçerlidir.
+* **Klasik Azure portalı**: Birden çok dizinin yöneticisi olan bir dış kullanıcının bu dizinlerin her birini yönetmesine izin verir.
+* **SharePoint Online**: Dış paylaşım etkinleştirilmişse bir dış kullanıcının SharePoint Online yetkili kaynaklarına erişmesine izin verir.
+* **Dynamics CRM**: Kullanıcı PowerShell yoluyla lisanslanmışsa bir dış kullanıcının Dynamics CRM'deki yetkili kaynaklara erişmesine izin verir.
+* **Dynamics AX**: Kullanıcı PowerShell yoluyla lisanslanmışsa bir dış kullanıcının Dynamics AX'teki yetkili kaynaklara erişmesine izin verir. [Azure AD dış kullanıcıları](#known-limitations-of-azure-ad-external-users) için geçerli olan sınırlamalar Dynamics AX'teki dış kullanıcılar için de geçerlidir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Yeni kullanıcılar tooAzure Active Directory ekleme](active-directory-create-users.md)
+* [Azure Active Directory'ye yeni kullanıcı ekleme](active-directory-create-users.md)
 * [Azure AD'yi yönetme](active-directory-administer.md)
 * [Azure AD'de parolaları yönetme](active-directory-manage-passwords.md)
 * [Azure AD'de grupları yönetme](active-directory-manage-groups.md)

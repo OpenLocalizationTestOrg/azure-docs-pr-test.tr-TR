@@ -1,5 +1,5 @@
 ---
-title: "Azure veri ambarında geliştirmek için aaaResources | Microsoft Docs"
+title: "Azure veri ambarında geliştirmek için kaynaklar | Microsoft Docs"
 description: "Geliştirme kavramları, tasarım kararları, öneriler ve SQL Data Warehouse için kodlama teknikleri."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,17 +15,17 @@ ms.workload: data-services
 ms.custom: develop
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.openlocfilehash: 67e3a6a3e2664919c3445ea5d5eba251054de020
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b85a4f09e561e429aa5bf46ec680014487fb40c7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>SQL Data Warehouse için tasarım kararları ve kodlama teknikleri
-Bu geliştirme makalelere toobetter anlamak temel tasarım kararları, öneriler ve kodlama teknikleri SQL Data Warehouse için göz.
+SQL Data Warehouse için temel tasarım kararları, öneriler ve kodlama teknikleri daha iyi anlamak için bu geliştirme makalelere göz atın.
 
 ## <a name="key-design-decisions"></a>Temel tasarım kararları
-Merhaba aşağıdaki makalelere hello temel kavramları ve SQL Data Warehouse kullanarak dağıtılmış veri ambarınız hello geliştirme için toounderstand gerekir tasarım kararları bazıları vurgula:
+Aşağıdaki makaleler bazı temel kavramları ve SQL Data Warehouse kullanarak dağıtılmış veri ambarınız geliştirme için anlamak için gereken tasarım kararlarını vurgula:
 
 * [bağlantıları][connections]
 * [Eşzamanlılık][concurrency]
@@ -50,7 +50,7 @@ Bu makaleler, belirli kodlama teknikleri, ipuçları ve öneriler SQL veri ambar
 * [değişken ataması][variable assignment]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Merhaba geliştirme makalelerine işlendikten sonra hello aracılığıyla göz [Transact-SQL Başvurusu] [ Transact-SQL reference] SQL Data Warehouse için desteklenen hello sözdizimi hakkında daha fazla ayrıntı için sayfa.
+Geliştirme makalelerine işlendikten sonra aracılığıyla göz [Transact-SQL Başvurusu] [ Transact-SQL reference] SQL Data Warehouse için desteklenen sözdizimi hakkında daha fazla ayrıntı için sayfa.
 
 <!--Image references-->
 

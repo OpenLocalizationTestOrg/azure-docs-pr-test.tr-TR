@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure Mobile Engagement belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
-description: "Bilgi nasıl mobil uygulama kullanımı ve gerçek zamanlı kullanıcı Segmentasyonu ve nasıl tooenable bağlamsal anında iletme bildirimleri ve uygulama içi Mesajlaşma tooget Öngörüler."
+title: "Azure Mobile Engagement Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Mobil uygulama kullanımı ve gerçek zamanlı kullanıcı segmentasyonuna ilişkin öngörüler edinme ve bağlamsal farkındalığa sahip anında iletme bildirimleri ve uygulama içi mesajlaşmayı etkinleştirme konusunda bilgi edinin."
 services: mobile-engagement
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: c9d9dd859914d620b6e3c287bbde1906142f4736
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 5f682ba16b52b9a084505b8212c4b6f043bb94c9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="mobile-engagement-documentation"></a>Mobile Engagement Belgeleri
 
-Tooincrease nasıl hello kullanım, bekletme ve mobil uygulamaları ile Mobile Engagement farklılaştırabilmelerini öğrenin. Öğreticiler, SDK'ları ve diğer belgeleri göster, nasıl tooget Öngörüler uygulama kullanımı ve gerçek zamanlı kullanıcı Segmentasyonu ve nasıl tooenable bağlamsal anında iletme bildirimleri ve uygulama içi Mesajlaşma.
+Mobile Engagement ile mobil uygulamaların kullanımını, kullanım süresini ve kazancını nasıl artırabileceğinizi öğrenin. Öğreticiler, SDK’lar ve diğer belgeler, uygulama kullanımı ve gerçek zamanlı kullanıcı segmentasyonuna ilişkin bilgileri nasıl edineceğinizi açıklamanın yanı sıra bağlamsal farkındalığa sahip anında iletme bildirimlerini ve uygulama içi mesajlaşmayı etkinleştirme konularıyla ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>

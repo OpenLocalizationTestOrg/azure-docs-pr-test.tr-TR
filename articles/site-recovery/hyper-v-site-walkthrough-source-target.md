@@ -1,6 +1,6 @@
 ---
-title: "Merhaba kaynak ve hedef Azure Site Recovery ile Hyper-V çoğaltma tooAzure (System Center VMM olmadan) için yukarı aaaSet | Microsoft Docs"
-description: "Azure Site Recovery ile Hyper-V sanal makineleri tooAzure depolama çoğaltma için kaynak ve hedef ayarlarını Hello adımları tooset özetler"
+title: "Kaynak ve hedef Hyper-V çoğaltma Azure Site Recovery ile Azure'a (System Center VMM olmadan) için ayarlama | Microsoft Docs"
+description: "Hyper-V sanal makineleri çoğaltma Azure Site Recovery ile Azure depolama için kaynak ve hedef ayarları ayarlamak için adımları özetler"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,75 +14,75 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.openlocfilehash: 105b90e6ac053d5b842c54a36c460a26d0f5c2ef
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b38eb3a011d46f2239891ea1d1bcac2a4059a866
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="step-8-set-up-hello-source-and-target-for-hyper-v-replication-tooazure"></a>8. adım: hello kaynak ve hedef Hyper-V çoğaltma tooAzure için ayarlama
+# <a name="step-8-set-up-the-source-and-target-for-hyper-v-replication-to-azure"></a>8. adım: kaynak ve hedef Hyper-V çoğaltma Azure için ayarlayın
 
-Bu makalede nasıl çoğaltırken tooconfigure kaynak ve hedef ayarları şirket içi Hyper-V sanal makineleri (System Center VMM olmadan) tooAzure hello kullanarak [Azure Site Recovery](site-recovery-overview.md) hello Azure portal hizmeti.
+Bu makalede çoğaltma azure'a, Hyper-V sanal makineleri (System Center VMM olmadan) şirket içi, kaynak ve hedef ayarlarının nasıl yapılandırılacağı kullanarak [Azure Site Recovery](site-recovery-overview.md) Azure portalında hizmet.
 
-POST açıklamaları ve soruları hello altındaki bu makalenin veya hello [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+POST açıklamaları ve soruları alt bu makalenin veya üzerinde [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
-## <a name="set-up-hello-source-environment"></a>Merhaba kaynak ortamını ayarlama
+## <a name="set-up-the-source-environment"></a>Kaynak ortamı ayarlama
 
-Merhaba Hyper-V sitesini kurmak, hello Azure Site Recovery sağlayıcısı ve hello Azure kurtarma Hizmetleri aracısını Hyper-V ana bilgisayarlarına yükleyin ve hello site hello kasaya kaydetmek.
+Hyper-V sitesini kurmak, Azure Site kurtarma Sağlayıcısı'nı ve Azure kurtarma Hizmetleri aracısını Hyper-V ana bilgisayarlarına yükleyin ve site kasaya kaydetmek.
 
-1. İçinde **altyapıyı hazırlama**, tıklatın **kaynak**. Hyper-V konakları veya kümeleri için kapsayıcı olarak yeni bir Hyper-V sitesi tooadd tıklatın **+ Hyper-V sitesi**.
+1. İçinde **altyapıyı hazırlama**, tıklatın **kaynak**. Hyper-V konakları veya kümeleri için yeni bir Hyper-V sitesi bir kapsayıcı olarak eklemek için tıklatın **+ Hyper-V sitesi**.
 
     ![Kaynağı ayarlama](./media/hyper-v-site-walkthrough-source-target/set-source1.png)
-2. İçinde **oluşturma Hyper-V sitesi**, başlangıç sitesi için bir ad belirtin. Daha sonra, **Tamam**'a tıklayın. Şimdi, oluşturduğunuz ve tıklatın hello siteyi seçin **+ Hyper-V Server** tooadd server toohello sitesi.
+2. İçinde **oluşturma Hyper-V sitesi**, site için bir ad belirtin. Daha sonra, **Tamam**'a tıklayın. Şimdi, oluşturduğunuz ve tıklatın siteyi seçin **+ Hyper-V Server** siteye bir sunucu ekleme.
 
     ![Kaynağı ayarlama](./media/hyper-v-site-walkthrough-source-target/set-source2.png)
 
 3. İçinde **Sunucu Ekle** > **sunucu türü**, denetleyin **Hyper-V server** görüntülenir.
 
-    - İstediğiniz tooadd hello ile uyumlu hello Hyper-V sunucu emin olun [Önkoşullar](#on-premises-prerequisites), ve olduğu mümkün tooaccess hello belirtilen URL'leri.
-    - Hello Azure Site Recovery sağlayıcısı yükleme dosyasını indirin. Bu dosya tooinstall hello sağlayıcısı çalıştırın ve her Hyper-V ana kurtarma Hizmetleri aracısını hello.
+    - Eklemek istediğiniz Hyper-V server ile uyumlu olduğundan emin olun [Önkoşullar](#on-premises-prerequisites)ve belirtilen URL'leri erişebilir.
+    - Azure Site Recovery Sağlayıcısı yükleme dosyasını indirin. Her Hyper-V ana bilgisayarda sağlayıcı ve kurtarma Hizmetleri Aracısı'nı yüklemek için bu dosyayı çalıştırın.
 
     ![Kaynağı ayarlama](./media/hyper-v-site-walkthrough-source-target/set-source3.png)
 
 
-## <a name="install-hello-provider-and-agent"></a>Merhaba sağlayıcı ve aracı yükleme
+## <a name="install-the-provider-and-agent"></a>Sağlayıcı ve aracı yükleme
 
-1. Her ana bilgisayarda Hello sağlayıcı kurulum dosyasını çalıştırın toohello Hyper-V sitesi eklendi. Hyper-V kümesi üzerinde yüklüyorsanız, her küme düğümünde Kurulumu çalıştırın. Düğümleri arasında geçirmek olsa bile yükleme ve her Hyper-V küme düğümü kaydetme VM'ler korunduğunu sağlar.
+1. Sağlayıcıyı Hyper-V siteye eklenen her ana bilgisayarda kurulum dosyasını çalıştırın. Hyper-V kümesi üzerinde yüklüyorsanız, her küme düğümünde Kurulumu çalıştırın. Düğümleri arasında geçirmek olsa bile yükleme ve her Hyper-V küme düğümü kaydetme VM'ler korunduğunu sağlar.
 2. **Microsoft Update** kısmından güncelleştirmeleri seçebilirsiniz. Böylece, Sağlayıcı güncelleştirmeleri Microsoft Update ilkenize uygun şekilde yüklenir.
-3. İçinde **yükleme**, kabul etmek veya hello varsayılan sağlayıcı yükleme konumunu değiştirmek ve tıklatın **yükleme**.
-4. İçinde **kasa ayarlarını**, tıklatın **Gözat** indirdiğiniz tooselect hello kasa anahtarı dosyasını. Hello Azure Site Recovery abonelik hello kasa adı belirtin ve hello Hyper-V site toowhich hello Hyper-V sunucusuna ait.
+3. **Yükleme** bölümünde varsayılan Sağlayıcı yükleme konumunu kabul edin veya değiştirin ve **Yükle**'ye tıklayın.
+4. İçinde **kasa ayarlarını**, tıklatın **Gözat** indirdiğiniz kasa anahtarı dosyasını seçin. Azure Site Recovery abonelik, kasa adını ve Hyper-V sunucusuna ait olduğu Hyper-V sitesi belirtin.
 
     ![Sunucu kaydı](./media/hyper-v-site-walkthrough-source-target/provider3.png)
 
-5. İçinde **Proxy ayarlarını**, Hyper-V konakları üzerinde çalışan sağlayıcı üzerinden Site Recovery tooAzure bağlanır hello hello Internet nasıl belirtin.
+5. İçinde **Proxy ayarlarını**, Hyper-V konakları üzerinde çalışan sağlayıcının Azure Site Recovery için Internet üzerinden nasıl bağlandığını belirtin.
 
-    * Merhaba sağlayıcısı tooconnect doğrudan select istiyorsanız **tooAzure Site Recovery Ara sunucu olmadan doğrudan bağlan**.
-    * Var olan ara sunucunuz kimlik doğrulaması gerektiren veya hello sağlayıcı bağlantısı için özel bir ara sunucu toouse istiyorsanız, seçin **tooAzure Site kurtarma proxy sunucusu kullanarak bağlanmak**.
+    * Sağlayıcı'nın doğrudan bağlanmasını istiyorsanız **Proxy olmadan doğrudan Azure Site Recovery hizmetine bağlan** seçeneğini belirleyin.
+    * Var olan ara sunucunuz kimlik doğrulaması gerektiren veya sağlayıcı bağlantılarında özel bir ara sunucu kullanmak istiyorsanız **Azure Site Recovery proxy sunucu kullanma Bağlan**.
     * Bir proxy sunucu kullanıyorsanız:
-        - Başlangıç adresi, bağlantı noktası ve kimlik bilgilerini belirtin
-        - Hello açıklanan emin hello URL'leri olun [Önkoşullar](#prerequisites) hello proxy üzerinden izin verilir.
+        - Adresi, bağlantı noktası ve kimlik bilgilerini belirtin
+        - Bölümünde açıklanan URL'lere emin olun [Önkoşullar](#prerequisites) proxy üzerinden izin verilir.
 
     ![internet](./media/hyper-v-site-walkthrough-source-target/provider7.png)
 
-6. Yükleme tamamlandıktan sonra tıklatın **kaydetmek** hello kasadaki tooregister hello sunucu.
+6. Yükleme tamamlandıktan sonra tıklatın **kaydetmek** sunucuyu kasaya kaydetmek için.
 
     ![Yükleme konumu](./media/hyper-v-site-walkthrough-source-target/provider2.png)
 
-7. Kayıt tamamlandıktan sonra hello Hyper-V sunucusundan meta veriler, Azure Site Recovery tarafından alınır ve hello sunucu görüntülenir **Site Recovery altyapısı** > **Hyper-V konakları**.
+7. Kayıt tamamlandıktan sonra Hyper-V sunucusundan meta veriler, Azure Site Recovery tarafından alınır ve sunucu görüntülenen **Site Recovery altyapısı** > **Hyper-V konakları**.
 
 
-## <a name="set-up-hello-target-environment"></a>Merhaba hedef ortamını ayarlama
+## <a name="set-up-the-target-environment"></a>Hedef ortamı ayarlama
 
-Çoğaltma için Hello Azure depolama hesabı belirtin ve hello Azure ağ toowhich Azure Vm'lerinin yük devretme sonrasında bağlanır.
+Azure depolama hesabı için çoğaltma ve yük devretme sonrasında Azure Vm'lerinin bağlanacağı Azure ağını belirtin.
 
 1. Tıklatın **altyapıyı hazırlama** > **hedef**.
-2. Merhaba abonelik ve yük devretme sonrasında toocreate hello Azure VM'ler istediğiniz hello kaynak grubunu seçin. Merhaba dağıtımı seçin model toouse (Klasik veya resource management) azure'da hello VM'ler istiyor.
+2. Abonelik ve yük devretme sonrasında Azure sanal makinelerini oluşturmak istediğiniz kaynak grubunu seçin. Azure (Klasik veya resource management) VM'ler için kullanmak istediğiniz dağıtım modelini seçin.
 
 3. Site Recovery, bir veya birden çok uyumlu Azure depolama hesabınızın ve ağınızın olup olmadığını denetler.
 
-    - Bir depolama hesabınız yoksa tıklatın **+ depolama** toocreate bir Resource Manager tabanlı hesap satır içi. 
-    - Bir Azure ağı yoksa tıklatın **+ ağ** toocreate bir Resource Manager tabanlı ağ satır içi.
+    - Bir depolama hesabınız yoksa tıklatın **+ depolama** bir Resource Manager tabanlı hesap satır içi oluşturmak için. 
+    - Bir Azure ağı yoksa tıklatın **+ ağ** bir Resource Manager tabanlı ağ satır içi oluşturmak için.
 
 
 
@@ -91,4 +91,4 @@ Merhaba Hyper-V sitesini kurmak, hello Azure Site Recovery sağlayıcısı ve he
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Çok Git[adım 9: bir çoğaltma ilkesini ayarlayın](hyper-v-site-walkthrough-replication.md)
+Git [adım 9: bir çoğaltma ilkesini ayarlayın](hyper-v-site-walkthrough-replication.md)

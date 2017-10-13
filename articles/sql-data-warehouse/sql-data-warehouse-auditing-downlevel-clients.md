@@ -1,5 +1,5 @@
 ---
-title: "aaaSQL veri ambarı alt düzey istemcileri destekleyen veri denetimi için | Microsoft Docs"
+title: "SQL veri ambarı alt düzey istemcileri destekleyen veri denetimi için | Microsoft Docs"
 description: "Verileri denetlemek için SQL Data Warehouse alt düzey istemci desteği hakkında bilgi edinin"
 services: sql-data-warehouse
 documentationcenter: 
@@ -15,29 +15,29 @@ ms.topic: article
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 377488680eb297c3e9b1dc754c003c5b19b47996
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a7ea6141285a0098339f1e071af2592dd4535c12
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sql-data-warehouse----downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>SQL Data Warehouse - denetime ve dinamik veri maskeleme için alt düzey istemci desteği
 [Denetim](sql-data-warehouse-auditing-overview.md) TDS yeniden yönlendirmeyi destekleyen SQL istemcileri ile çalışır.
 
-TDS 7.4 uygulayan herhangi bir istemci yeniden yönlendirme de desteklemelidir. Özel durumlar toothis JDBC 4.0 yeniden yönlendirme değil uygulanmıştır Node.JS için hangi hello yeniden yönlendirme özelliğini tam olarak desteklenmiyor ve Tedious içerir.
+TDS 7.4 uygulayan herhangi bir istemci yeniden yönlendirme de desteklemelidir. Bu özel durumlar yeniden yönlendirme özelliğini tam olarak desteklenmez ve Node.JS hangi yeniden yönlendirmesi için Tedious uygulanmadı JDBC 4.0 içerir.
 
-"Alt düzey istemciler için", yani TDS sürüm 7.3 desteklemek ve aşağıda - server FQDN hello bağlantı dizesinde hello değiştirilmelidir:
+"Alt düzey istemciler için", yani hangi destek TDS sürüm 7.3 ve aşağıda - sunucunun FQDN bağlantı dizesi değiştirilmelidir:
 
-Özgün sunucunun FQDN hello bağlantı dizesinde: <*sunucu adı*>. database.windows.net
+Bağlantı dizesindeki özgün sunucunun FQDN: <*sunucu adı*>. database.windows.net
 
-Merhaba bağlantı dizesinde değiştirilmiş sunucu FQDN: <*sunucu adı*> .database. **güvenli**. windows.net
+Bağlantı dizesindeki değiştirilmiş sunucu FQDN: <*sunucu adı*> .database. **güvenli**. windows.net
 
 "Alt düzey istemciler" kısmi bir listesine içerir:
 
 * .NET 4.0 ve aşağıdaki
 * ODBC 10.0 ve aşağıdaki.
-* (JDBC TDS 7.4, TDS yeniden yönlendirme özelliğini tam olarak desteklenmez hello desteklerken) JDBC
+* JDBC (JDBC TDS 7.4 desteklerken, bu TDS yeniden yönlendirme özelliğini tam olarak desteklenmez)
 * Can sıkıcı (için Node.JS)
 
-**Açıklama:** hello sunucu FDQN değişikliği yukarıda bir yapılandırma gereksinimini adım olmadan her veritabanı (geçici azaltma) de bir SQL Server düzeyi denetim ilkesi uygulamak için yararlı olabilir.     
+**Açıklama:** yukarıdaki sunucunun FDQN değişikliği bir yapılandırma gereksinimini adım olmadan her veritabanı (geçici azaltma) de bir SQL Server düzeyi denetim ilkesi uygulamak için yararlı olabilir.     
 

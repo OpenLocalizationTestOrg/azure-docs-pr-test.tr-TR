@@ -1,6 +1,6 @@
 ---
-title: "aaaMedia Hizmetleri PlayReady lisans şablonu genel bakış"
-description: "Bu konuda tooconfigure PlayReady lisansları kullanılan PlayReady lisans şablonu genel bir bakış sağlar."
+title: "Medya Hizmetleri PlayReady lisans şablonu genel bakış"
+description: "Bu konu, PlayReady lisansları yapılandırmak için kullanılan bir PlayReady lisans şablonu genel bir bakış sağlar."
 author: juliako
 manager: cfowler
 editor: 
@@ -14,33 +14,33 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 5a5ba930c56f70038db204681486ebc4308199fa
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: be19f616e36916655390cd05e738e93c08dcdf68
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="media-services-playready-license-template-overview"></a>Medya Hizmetleri PlayReady lisans şablonu genel bakış
-Azure Media Services, artık Microsoft PlayReady lisansları teslim etmek için bir hizmet sunar. Merhaba son kullanıcı player (örneğin, Silverlight) tooplay çalıştığında, PlayReady korumalı içeriği, bir istek gönderilen toohello lisans teslimat hizmeti tooobtain lisans. Merhaba lisans hizmeti hello isteği onaylarsa, gönderilen toohello istemcisi olan hello lisans verir ve olması kullanılan toodecrypt ve play hello belirtilen içerik.
+Azure Media Services, artık Microsoft PlayReady lisansları teslim etmek için bir hizmet sunar. Son kullanıcı player (örneğin, Silverlight) korumalı PlayReady içeriğinizi oynatma denediğinde, bir istek lisans edinmeye yönelik lisans teslimat hizmeti gönderilir. Lisans hizmeti isteği onaylarsa, istemciye gönderilen ve şifresini çözmek ve belirtilen içeriği yürütmek için kullanılan lisans verir.
 
-Media Services PlayReady lisanslarınızı yapılandırmanıza olanak tanıyan API'ler de sağlar. Bir kullanıcı tooplayback çalışırken, PlayReady DRM çalışma zamanı tooenforce Merhaba istediğiniz kısıtlamaları korumalı içeriği ve lisansları hello hakları içerir.
+Media Services PlayReady lisanslarınızı yapılandırmanıza olanak tanıyan API'ler de sağlar. Lisansları hakları ve PlayReady DRM çalışma zamanı için bir kullanıcı kayıttan yürütme korumalı içeriği çalışırken uygulamak istediğinize kısıtlamaları içerir.
 Aşağıda, belirtebilirsiniz PlayReady lisans kısıtlamaları bazı örnekleri şunlardır:
 
-* Merhaba DateTime hangi hello Lisans geçerli değil.
-* Merhaba hello Lisans sona erdiğinde tarih saat değeri. 
-* İçin hello lisans toobe hello istemcide kalıcı depolama alanına kaydedildi. Kalıcı lisansları genellikle kullanılan tooallow çevrimdışı kayıttan yürütme hello içerik var.
-* Merhaba en düşük güvenlik düzeyi bir oynatıcı içeriğinizi tooplay olması gerekir. 
-* Merhaba hello çıkış denetimleri audio\video içerik koruma düzeyi çıktı. 
-* Hello çıkış (3.5) içinde hello bölümünde denetimleri daha fazla bilgi için bkz: [PlayReady uyumluluk kuralları](https://www.microsoft.com/playready/licensing/compliance/) belge.
+* Lisans geçerli olduğu tarih saat.
+* Lisans sona erdiğinde tarih saat değeri. 
+* Kalıcı depolama alanına istemcide kaydedilmesi için lisans. Kalıcı lisanslar genellikle çevrimdışı kayıttan yürütme içeriğin izin vermek için kullanılır.
+* Bir oynatıcı içeriğinizi yürütmek için gereken en düşük güvenlik düzeyi. 
+* Audio\video içerik için çıkış denetimleri için çıkış koruma düzeyi. 
+* Daha fazla bilgi için çıkış denetimleri (3.5) bölümüne bakın [PlayReady uyumluluk kuralları](https://www.microsoft.com/playready/licensing/compliance/) belge.
 
 > [!NOTE]
-> Şu anda yalnızca hello PlayRight hello PlayReady lisans (Bu hakkı gereklidir) yapılandırabilirsiniz. Merhaba PlayRight hello istemci hello özelliği tooplayback hello içeriği sağlar. Merhaba PlayRight de kısıtlamaları belirli tooplayback yapılandırılmasına olanak tanır. Daha fazla bilgi için bkz: [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight).
+> Şu anda, (Bu hakkı gereklidir) PlayReady lisans PlayRight yalnızca yapılandırabilirsiniz. PlayRight istemci içeriği kayıttan yürütme için olanak sağlar. Kayıttan yürütme için belirli kısıtlamalar yapılandırma PlayRight de sağlar. Daha fazla bilgi için bkz: [PlayReadyPlayRight](media-services-playready-license-template-overview.md#PlayReadyPlayRight).
 > 
 > 
 
-Media Services kullanarak tooconfigure PlayReady lisansları hello Media Services PlayReady lisans şablonu yapılandırmanız gerekir. Merhaba şablonu XML dosyasında tanımlanır.
+PlayReady lisansları Media Services'i kullanarak yapılandırmak için Media Services PlayReady lisans şablonu yapılandırmanız gerekir. Şablon XML içinde tanımlandı.
 
-Merhaba aşağıdaki örnekte bir temel akış lisans yapılandırır hello basit (ve en yaygın) şablonu gösterir. Bu lisansı ile istemcileriniz mümkün tooplayback olacaktır, PlayReady korumalı içeriği.
+Aşağıdaki örnek, bir temel akış lisans yapılandırır basit (ve en yaygın) şablonu gösterir. Bu lisansı ile istemcileriniz için kayıttan yürütme gerçekleştirebilir, PlayReady korumalı içeriği.
 
     <?xml version="1.0" encoding="utf-8"?>
     <PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" 
@@ -53,30 +53,30 @@ Merhaba aşağıdaki örnekte bir temel akış lisans yapılandırır hello basi
       </LicenseTemplates>
     </PlayReadyLicenseResponseTemplate>
 
-Merhaba XML toohello PlayReady lisans şablonu XML Şeması hello PlayReady lisans şablonu XML Şeması bölümünde tanımlanan uyumludur.
+PlayReady lisans şablonunda XML Şeması bölümünde tanımlanan PlayReady lisans şablonu XML şeması için XML uyumlu.
 
-Media Services de kullanılan tooserialized ve seri durumdan çıkarılmış tooand hello XML gelen olabilir .NET sınıfları kümesini tanımlar. Ana sınıf bir açıklaması için bkz: [Media Services .NET sınıfları](media-services-playready-license-template-overview.md#classes). kullanılan tooconfigure lisans şablonları olan.
+Media Services, ayrıca bir dizi serileştirilmiş ve XML gelen ve giden seri kullanılabilir .NET sınıfları tanımlar. Ana sınıf bir açıklaması için bkz: [Media Services .NET sınıfları](media-services-playready-license-template-overview.md#classes). Lisans şablonları yapılandırmak için kullanılır.
 
-.NET kullanan bir uçtan uca örnek tooconfigure hello PlayReady lisans şablonu sınıfları için bkz: [dinamik şifreleme kullanarak PlayReady ve lisans teslimat hizmeti](media-services-protect-with-drm.md).
+PlayReady lisans şablonu yapılandırmak için .NET sınıfları kullanan uçtan uca örnek için bkz: [dinamik şifreleme kullanarak PlayReady ve lisans teslimat hizmeti](media-services-protect-with-drm.md).
 
-## <a id="classes"></a>Kullanılan tooconfigure lisans şablonlarıdır Media Services .NET sınıfları
-Merhaba ana .NET sınıfları kullanılan tooconfigure Media Services PlayReady lisans şablonlarıdır Hello aşağıda verilmiştir. Bu sınıfların tanımlanan toohello türlerini eşleme [PlayReady lisans şablonu XML Şeması](media-services-playready-license-template-overview.md#schema).
+## <a id="classes"></a>Lisans şablonları yapılandırmak için kullanılan Media Services .NET sınıfları
+Medya Hizmetleri PlayReady lisans şablonları yapılandırmak için kullanılan ana .NET sınıflar verilmiştir. Bu sınıfların eşleme tanımlanan türlerine [PlayReady lisans şablonu XML Şeması](media-services-playready-license-template-overview.md#schema).
 
-Merhaba [MediaServicesLicenseTemplateSerializer](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer.aspx) sınıfının kullanılan tooserialize olması ve hello Media Services lisans şablondan XML tooand seri durumdan.
+[MediaServicesLicenseTemplateSerializer](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer.aspx) sınıfı seri hale getirmek ve Media Services lisans şablonu XML gelen ve giden serisini kaldırmak için kullanılır.
 
 ### <a name="playreadylicenseresponsetemplate"></a>PlayReadyLicenseResponseTemplate
-[PlayReadyLicenseResponseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate.aspx) -gönderilen hello yanıtı geri toohello son kullanıcı için bu sınıf hello şablonu temsil eder. Bir veya daha fazla lisans şablonların listesi yanı sıra hello lisans sunucusu ve Merhaba uygulaması (için özel uygulama mantığını yararlı olabilir) arasında bir özel veri dize için bir alan içeriyor.
+[PlayReadyLicenseResponseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate.aspx) -Bu sınıf son kullanıcıya gönderilen yanıtı için şablonu temsil eder. Bir veya daha fazla lisans şablonların listesi yanı sıra lisans sunucusunu ve (için özel uygulama mantığını yararlı olabilir) uygulama arasında özel verileri dize için bir alan içeriyor.
 
-Bu hello "üst düzey" Merhaba şablonu hiyerarşisindeki sınıftır. Merhaba yanıt şablonu lisans şablonları listesini içerir ve hello lisans şablonları içerir (doğrudan veya dolaylı olarak) anlamına tüm hello hello şablonu veri toobe seri hale diğer sınıflar.
+Bu şablonu hiyerarşisindeki "üst düzey" sınıftır. Yanıt şablonu lisans şablonları listesini içerir ve lisans şablonları (doğrudan veya dolaylı olarak) dahil anlamına tüm şablonu verileri seri hale yapmak diğer sınıflar.
 
 ### <a name="playreadylicensetemplate"></a>PlayReadyLicenseTemplate
-[PlayReadyLicenseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx) -hello sınıfı, PlayReady lisansları toobe toohello son kullanıcılar döndürülen oluşturmak için bir lisans şablonu temsil eder. Hello içerik anahtarı hello lisans hello verilerini içerir ve hakları veya kısıtlamaları toobe tarafından hello PlayReady DRM çalışma zamanı hello içerik anahtarı kullanarak zorunlu tutulur.
+[PlayReadyLicenseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx) -son kullanıcılara döndürülecek PlayReady lisansları oluşturmak için bir lisans şablonu sınıfı temsil eder. Lisans ve hak veya kısıtlamaları PlayReady DRM çalışma zamanı tarafından içerik anahtarı kullanırken zorlanacak içerik anahtarı üzerindeki verileri içerir.
 
 ### <a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
-[PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx) -Bu sınıf hello PlayReady lisans PlayRight temsil eder. Merhaba içerik konu toohello sıfır veya daha fazla kısıtlama hello lisans ve hello PlayRight kendisini (için kayıttan yürütme belirli bir ilke) yapılandırılmış hello kullanıcı hello özelliği tooplayback verir. Merhaba PlayRight hello İlkesi çoğunu toodo hello içerik üzerinden çalınabilir çıkışları hello türlerini denetlemek çıkış kısıtlamaları ve belirli bir çıkış kullanırken yerinde götürüldüğü kısıtlamalar vardır. Örneğin, DRM çalışma zamanı yalnızca hello DigitalVideoOnlyContentRestriction etkin, ardından Merhaba, dijital çıkışları (analog video çıkışına toopass hello içerik izin verilmeyecek) görüntülenen hello video toobe izin verir.
+[PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx) -Bu sınıf PlayReady lisans PlayRight temsil eder. Kullanıcı kayıttan yürütme lisans hem de (için kayıttan yürütme belirli bir ilke) PlayRight kendisini yapılandırılan sıfır veya daha fazla kısıtlamalarına tabidir içerik yeteneği verir. PlayRight ilkesindeki çoğunu üzerinden içerik çalınabilir çıkışları türlerini denetleyen çıkış kısıtlamaları ve belirli bir çıkış kullanırken yerinde götürüldüğü herhangi bir kısıtlamanın ile ilgilidir. Örneğin, DigitalVideoOnlyContentRestriction etkinleştirilirse, DRM çalışma zamanı yalnızca dijital çıkışları (analog video çıkışına içeriği geçirmek kullanmasına izin verilmeyecek) görüntülenecek video sağlayacaktır.
 
 > [!IMPORTANT]
-> Bu tür kısıtlamaların çok güçlü olabilir ancak hello tüketici deneyimini de etkileyebilir. Merhaba çıkışı korumalardan çok kısıtlayıcı olarak yapılandırılırsa, hello içerik bazı istemcilerde unplayable olabilir. Daha fazla bilgi için bkz: Merhaba [PlayReady uyumluluk kuralları](https://www.microsoft.com/playready/licensing/compliance/) belge.
+> Bu tür kısıtlamaların çok güçlü olabilir ancak tüketici deneyimini de etkileyebilir. Çıktı korumaları çok kısıtlayıcı olarak yapılandırılırsa, içeriğin bazı istemcilerde unplayable olabilir. Daha fazla bilgi için bkz: [PlayReady uyumluluk kuralları](https://www.microsoft.com/playready/licensing/compliance/) belge.
 > 
 > 
 

@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure SQL veritabanı JSON özellikleri | Microsoft Docs"
-description: "Azure SQL veritabanı tooparse, sorgu ve JavaScript nesne gösterimi (JSON) gösteriminde biçim verileri sağlar."
+title: "Azure SQL veritabanı JSON özellikleri | Microsoft Docs"
+description: "Azure SQL veritabanı ayrıştırma, sorgu ve JavaScript nesne gösterimi (JSON) gösteriminde biçim verileri sağlar."
 services: sql-database
 documentationcenter: 
 author: jovanpop-msft
@@ -15,11 +15,11 @@ ms.author: jovanpop
 ms.workload: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: 30a31a1b01482ec276646b6fd6ca0c1f581168d4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 883e661107dd838f5c381cdef2c7f891b9a9389c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Azure SQL veritabanında JSON özellikleri ile çalışmaya başlama
 Ayrıştırma ve sorgu JavaScript nesne gösterimi gösterilen veriler azure SQL veritabanı sağlar [(JSON)](http://www.json.org/) biçimlendirmek ve ilişkisel verilerinizi JSON metni olarak verin.
@@ -29,16 +29,16 @@ JSON, modern web ve mobil uygulamalarda veri değişimi için kullanılan bir po
 Azure SQL veritabanı, JSON verileriyle kolayca çalışmanızı ve veritabanınızı modern Hizmetleri ile tümleştirme sağlar.
 
 ## <a name="overview"></a>Genel Bakış
-Azure SQL veritabanı işlevleri JSON verilerle çalışmak için aşağıdaki hello sağlar:
+Azure SQL veritabanı, JSON verilerle çalışmak için aşağıdaki işlevleri sağlar:
 
 ![JSON işlevleri](./media/sql-database-json-features/image_1.png)
 
-JSON metni varsa, verileri JSON öğesinden çıkarın veya hello yerleşik işlevlerini kullanarak JSON doğru şekilde yapılandırıldığını doğrulayın [JSON_VALUE](https://msdn.microsoft.com/library/dn921898.aspx), [JSON_QUERY](https://msdn.microsoft.com/library/dn921884.aspx), ve [ISJSON](https://msdn.microsoft.com/library/dn921896.aspx) . Merhaba [json_modıfy](https://msdn.microsoft.com/library/dn921892.aspx) işlevi JSON metni içindeki değeri güncelleştirmenize olanak sağlar. Daha gelişmiş sorgulama ve analiz, için [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) işlevi bir dizi satır JSON nesnelerinin bir dizisi dönüştürme. Herhangi bir SQL sorgu sonuç kümesi döndürdü hello üzerinde çalıştırılabilir. Son olarak, var olan bir [FOR JSON](https://msdn.microsoft.com/library/dn921882.aspx) olanak sağlayan yan tümcesi biçimlendirmek ilişkisel tabloları JSON metni olarak depolanan veriler.
+JSON metni varsa, verileri JSON öğesinden çıkarın veya yerleşik işlevlerini kullanarak JSON doğru şekilde yapılandırıldığını doğrulayın [JSON_VALUE](https://msdn.microsoft.com/library/dn921898.aspx), [JSON_QUERY](https://msdn.microsoft.com/library/dn921884.aspx), ve [ISJSON](https://msdn.microsoft.com/library/dn921896.aspx). [Json_modıfy](https://msdn.microsoft.com/library/dn921892.aspx) işlevi JSON metni içindeki değeri güncelleştirmenize olanak sağlar. Daha gelişmiş sorgulama ve analiz, için [OPENJSON](https://msdn.microsoft.com/library/dn921885.aspx) işlevi bir dizi satır JSON nesnelerinin bir dizisi dönüştürme. Herhangi bir SQL sorgu döndürülen sonuç kümesi üzerinde çalıştırılabilir. Son olarak, var olan bir [FOR JSON](https://msdn.microsoft.com/library/dn921882.aspx) olanak sağlayan yan tümcesi biçimlendirmek ilişkisel tabloları JSON metni olarak depolanan veriler.
 
 ## <a name="formatting-relational-data-in-json-format"></a>JSON biçiminde ilişkisel veri biçimlendirme
-JSON içinde bir yanıt sağlar ve katman hello veritabanından veri alır biçimlendirin veya istemci tarafı JavaScript çerçeveler veya verileri kabul kitaplıkları JSON olarak biçimlendirilmiş bir web hizmeti varsa, doğrudan SQL sorgusunda JSON olarak veritabanı içeriğinizi biçimlendirebilirsiniz. Artık sonuçları Azure SQL veritabanından JSON, olarak biçimlendirir toowrite uygulama koduna sahip veya bazı JSON seri hale getirme kitaplığı tooconvert Tablo sorgusu sonuçları dahil edin ve nesneleri tooJSON biçimi serileştirme. Bunun yerine, Azure SQL veritabanında JSON olarak JSON yan tümcesi tooformat SQL sorgu sonuçları için hello kullanmak ve doğrudan uygulamanızda kullanın.
+JSON içinde bir yanıt sağlar ve katman veritabanından veri alır biçimlendirin veya istemci tarafı JavaScript çerçeveler veya verileri kabul kitaplıkları JSON olarak biçimlendirilmiş bir web hizmeti varsa, doğrudan SQL sorgusunda JSON olarak veritabanı içeriğinizi biçimlendirebilirsiniz. Artık sonuçları JSON olarak Azure SQL veritabanından biçimler uygulama kod yazmak zorunda veya Tablo sorgusu sonuçları dönüştürmek ve JSON biçimine nesneleri seri hale getirmek için bazı JSON seri hale getirme kitaplığı içerir. Bunun yerine, FOR JSON yan tümcesi SQL sorgu sonuçları Azure SQL veritabanında JSON olarak biçimlendirmek ve doğrudan, uygulamanızda kullanmak üzere kullanabilirsiniz.
 
-Aşağıdaki örneğine hello hello Sales.Customer tablodaki hello FOR JSON yan tümcesi kullanılarak JSON olarak biçimlendirilir:
+Aşağıdaki örnekte, Sales.Customer tablodaki FOR JSON yan tümcesi kullanılarak JSON olarak biçimlendirilir:
 
 ```
 select CustomerName, PhoneNumber, FaxNumber
@@ -46,7 +46,7 @@ from Sales.Customers
 FOR JSON PATH
 ```
 
-Merhaba FOR JSON PATH'i yan tümcesi hello hello sorgunun sonuçlarını JSON metin olarak biçimlendirir. Merhaba hücre değerlerini JSON değerleri olarak oluşsa sütun adları anahtarlar kullanılır:
+FOR JSON PATH'i yan tümcesi sorgunun sonuçları JSON metin olarak biçimlendirir. Hücre değerlerini JSON değerleri olarak oluşsa sütun adları anahtarlar kullanılır:
 
 ```
 [
@@ -56,9 +56,9 @@ Merhaba FOR JSON PATH'i yan tümcesi hello hello sorgunun sonuçlarını JSON me
 ]
 ```
 
-Merhaba sonuç kümesi, burada her satır ayrı bir JSON nesnesi olarak biçimlendirilmiş bir JSON dizisi olarak biçimlendirilir.
+Sonuç kümesi, burada her satır ayrı bir JSON nesnesi olarak biçimlendirilmiş bir JSON dizisi olarak biçimlendirilir.
 
-Sütun diğer adları noktalı gösterim kullanılarak JSON Sonuç kümenizi hello çıkış biçimini özelleştirebilirsiniz YOLUNU gösterir. Sorgu aşağıdaki hello hello "CustomerName" anahtarı hello çıkış JSON biçiminde hello adını değiştirir ve telefon ve Faks numaraları hello "Başvurun" alt nesnesinde yerleştirir:
+Sütun diğer adları noktalı gösterim kullanılarak JSON Sonuç kümenizi çıkış biçimini özelleştirebilirsiniz YOLUNU gösterir. Aşağıdaki sorgu çıkış JSON biçiminde "CustomerName" anahtar adını değiştirir ve telefon ve Faks numaraları "Başvurun" alt nesnesinde yerleştirir:
 
 ```
 select CustomerName as Name, PhoneNumber as [Contact.Phone], FaxNumber as [Contact.Fax]
@@ -67,7 +67,7 @@ where CustomerID = 931
 FOR JSON PATH, WITHOUT_ARRAY_WRAPPER
 ```
 
-Bu sorgunun Hello çıktı şu şekildedir:
+Bu sorgu çıktısı şu şekildedir:
 
 ```
 {
@@ -79,9 +79,9 @@ Bu sorgunun Hello çıktı şu şekildedir:
 }
 ```
 
-Bu örnekte, biz dizi yerine tek bir JSON nesnesi hello belirterek döndürülen [wıthout_array_wrapper](https://msdn.microsoft.com/library/mt631354.aspx) seçeneği. Sorgu sonucu olarak tek bir nesne döndürme biliyorsanız, bu seçeneği kullanabilirsiniz.
+Bu örnekte, biz dizi yerine tek bir JSON nesnesi belirterek döndürülen [wıthout_array_wrapper](https://msdn.microsoft.com/library/mt631354.aspx) seçeneği. Sorgu sonucu olarak tek bir nesne döndürme biliyorsanız, bu seçeneği kullanabilirsiniz.
 
-Merhaba ana hello FOR JSON yan tümcesi, iç içe geçmiş JSON nesnelerinin veya dizi olarak biçimlendirilmiş veritabanınızı karmaşık hiyerarşik veri döndürmek sağlar değeridir. iç içe geçmiş bir sipariş dizisi olarak toohello müşteri ait nasıl tooinclude siparişleri örnekte gösterildiği aşağıdaki hello:
+Ana FOR JSON yan tümcesi, iç içe geçmiş JSON nesnelerinin veya dizi olarak biçimlendirilmiş veritabanınızı karmaşık hiyerarşik veri döndürmek sağlar değeri. Aşağıdaki örnek, iç içe geçmiş bir sipariş dizisi olarak müşteriye ait siparişleri dahil et gösterilmektedir:
 
 ```
 select CustomerName as Name, PhoneNumber as Phone, FaxNumber as Fax,
@@ -94,7 +94,7 @@ FOR JSON AUTO, WITHOUT_ARRAY_WRAPPER
 
 ```
 
-Ayrı sorgulara tooget müşteri verileri ve toofetch ilgili siparişleri bir liste göndermek yerine, tüm hello gerekli verileri tek bir sorgu ile hello örnek çıktı aşağıdaki gösterildiği gibi alabilirsiniz:
+Müşteri verilerini almak için sorguları ayırın ve ardından ilgili siparişleri listesini getirmek için gerekli tüm verileri tek bir sorgu ile alabilirsiniz aşağıdaki örnek çıktıda görüldüğü gibi göndermek yerine:
 
 ```
 {
@@ -110,7 +110,7 @@ Ayrı sorgulara tooget müşteri verileri ve toofetch ilgili siparişleri bir li
 ```
 
 ## <a name="working-with-json-data"></a>JSON verileriyle çalışma
-Karmaşık alt nesneler, dizileri veya hiyerarşik veri varsa, kesinlikle yapılandırılmış veri yoksa veya zaman içinde veri yapılarını gelişmesi, hello JSON biçiminde herhangi bir karmaşık veri yapısını, toorepresent yardımcı olabilir.
+Karmaşık alt nesneler, dizileri veya hiyerarşik veri varsa, kesinlikle yapılandırılmış veri yoksa veya zaman içinde veri yapılarını gelişmesi, JSON biçimi, herhangi bir karmaşık veri yapısını temsil etmek için yardımcı olabilir.
 
 JSON herhangi bir dize türü Azure SQL veritabanında gibi kullanılabilecek bir metinsel biçimidir. Standart NVARCHAR JSON verilerini depolamak ya da gönder:
 
@@ -128,18 +128,18 @@ AS BEGIN
 END
 ```
 
-Bu örnekte kullanılan JSON verilerini Hello hello NVARCHAR(MAX) türü kullanılarak temsil edilir. JSON bu tabloya eklenen veya hello aşağıdaki örnekte gösterildiği gibi standart Transact-SQL söz dizimini kullanarak hello saklı yordamının bağımsız değişken olarak sağlanan:
+Bu örnekte kullanılan JSON verilerini NVARCHAR(MAX) türü kullanılarak temsil edilir. JSON bu tabloya eklenen veya aşağıdaki örnekte gösterildiği gibi standart Transact-SQL söz dizimini kullanarak saklı yordam bağımsız değişken olarak sağlanan:
 
 ```
 EXEC InsertProduct 'Toy car', '{"Price":50,"Color":"White","tags":["toy","children","games"]}'
 ```
 
-Ayrıca herhangi bir istemci tarafı dili veya Azure SQL veritabanında dize verilerle çalışır kitaplığı JSON verilerle çalışır. JSON, bellek için iyileştirilmiş bir tablo veya bir sistem sürümü tutulan tablo gibi hello NVARCHAR türü destekleyen herhangi bir tabloda depolanabilir. JSON herhangi bir kısıtlama hello istemci tarafı kodlar veya hello veritabanı katmanı sunmaz.
+Ayrıca herhangi bir istemci tarafı dili veya Azure SQL veritabanında dize verilerle çalışır kitaplığı JSON verilerle çalışır. JSON, bellek için iyileştirilmiş bir tablo veya bir sistem sürümü tutulan tablo gibi NVARCHAR türü destekleyen herhangi bir tabloda depolanabilir. JSON herhangi bir kısıtlama istemci-tarafı koduna veya veritabanı katmanı sunmaz.
 
 ## <a name="querying-json-data"></a>JSON veri sorgulama
 Azure SQL tablolarda depolanan JSON olarak biçimlendirilmiş verileri varsa, JSON işlevler içinde herhangi bir SQL sorgu bu verileri kullanmanıza olanak tanır.
 
-Azure SQL veritabanı let kullanılabilir JSON işlevleri başka bir SQL veri türü olarak JSON olarak biçimlendirilmiş verileri kabul eder. Kolayca değerleri JSON metni hello ayıklamak ve herhangi bir sorgu JSON verilerini kullanın:
+Azure SQL veritabanı let kullanılabilir JSON işlevleri başka bir SQL veri türü olarak JSON olarak biçimlendirilmiş verileri kabul eder. Kolayca değerleri JSON Metinden ayıklamak ve herhangi bir sorgu JSON verilerini kullanın:
 
 ```
 select Id, Title, JSON_VALUE(Data, '$.Color'), JSON_QUERY(Data, '$.tags')
@@ -151,13 +151,13 @@ set Data = JSON_MODIFY(Data, '$.Price', 60)
 where Id = 1
 ```
 
-Merhaba JSON_VALUE işlevi bir değer hello veri sütununda depolanan JSON metinden ayıklar. Bu işlev bir JavaScript benzeri yolu tooreference bir değeri JSON metni tooextract kullanır. Ayıklanan hello değeri herhangi bir kısmını SQL sorgusu kullanılabilir.
+JSON_VALUE işlevi bir değer veri sütununda depolanan JSON metinden ayıklar. Bu işlev bir JavaScript benzeri yolu ayıklamak için JSON metin değerinde başvurmak için kullanır. Ayıklanan değerin herhangi bir kısmını SQL sorgusu kullanılabilir.
 
-Merhaba JSON_QUERY işlevi benzer tooJSON_VALUE ' dir. JSON_VALUE farklı olarak, bu işlev dizileri veya JSON metninde yerleştirilir nesneleri gibi karmaşık alt nesne ayıklar.
+JSON_QUERY işlevi için JSON_VALUE benzer. JSON_VALUE farklı olarak, bu işlev dizileri veya JSON metninde yerleştirilir nesneleri gibi karmaşık alt nesne ayıklar.
 
-Merhaba json_modıfy işlevi hello değerinin hello yolunu güncelleştirilmelidir hello JSON metnini, aynı zamanda hello eskisinin üzerine yeni bir değer belirtmenize olanak sağlar. Bu şekilde hello tüm yapısını yeniden ayrıştırmayı olmadan kolayca JSON metnini güncelleştirebilirsiniz.
+Json_modıfy işlevi değerinin yolunu güncelleştirilmelidir JSON metnini, aynı zamanda eskisinin üzerine yeni bir değer belirtmenize olanak sağlar. Bu şekilde tüm yapısını yeniden ayrıştırmayı olmadan kolayca JSON metnini güncelleştirebilirsiniz.
 
-JSON standart metin olarak kaydedildiği metin sütunlarında depolanan hello değerleri düzgün biçimlendirilmiş garanti vardır. Standart Azure SQL veritabanı denetimi kısıtlamaları ve hello ISJSON işlevi kullanarak, JSON sütunda depolanan metin düzgün biçimlendirildiğinden doğrulayabilirsiniz:
+JSON standart metin olarak kaydedildiği metin sütunlarında depolanan değerleri düzgün biçimlendirilmiş garanti vardır. Standart Azure SQL veritabanı denetimi kısıtlamaları ve ISJSON işlevi kullanarak, JSON sütunda depolanan metin düzgün biçimlendirildiğinden doğrulayabilirsiniz:
 
 ```
 ALTER TABLE Products
@@ -165,18 +165,18 @@ ALTER TABLE Products
         CHECK (ISJSON(Data) > 0)
 ```
 
-Merhaba giriş metni düzgün biçimlendirildiğinden, JSON, hello ISJSON işlevi hello değeri 1 döndürür. Her INSERT veya update JSON sütunun üzerinde bu kısıtlamayı yeni metin değeri hatalı biçimlendirilmiş JSON olmadığından emin olun.
+Giriş metni düzgün biçimlendirildiğinden, JSON, ISJSON işlevi, 1 değerini döndürür. Her INSERT veya update JSON sütunun üzerinde bu kısıtlamayı yeni metin değeri hatalı biçimlendirilmiş JSON olmadığından emin olun.
 
 ## <a name="transforming-json-into-tabular-format"></a>JSON tablo biçimine dönüştürme
 Azure SQL veritabanı, tablo biçiminde ve yükleme veya sorgu JSON veri JSON koleksiyonlara dönüştürme sağlar.
 
-OPENJSON JSON metni ayrıştırır, JSON nesnelerinin bir dizisi bulur, hello dizi hello öğelerini aracılığıyla tekrarlanan ve hello elde edilen sonucu hello dizinin her bir öğe için bir satır döndürür tablo değerli bir işlevdir.
+OPENJSON JSON metni ayrıştırır, JSON nesnelerinin bir dizisi bulur, dizinin öğeleri tekrarlanan ve elde edilen sonucu dizideki her öğe için bir satır döndürür tablo değerli bir işlevdir.
 
 ![JSON tablo](./media/sql-database-json-features/image_2.png)
 
-Merhaba yukarıdaki örnekte, biz nerede toolocate hello açılması gerekir (Merhaba $expand. JSON dizisi belirtebilirsiniz Siparişleri yolu), hangi sütunların sonucu olarak döndürülmelidir ve toofind hello burada döndürülecek JSON değerleri olarak hücreleri.
+Yukarıdaki örnekte, biz açılması gerekir ($expand. JSON dizisi bulmanın nerede depolanacağını belirtebilirsiniz Siparişleri yolu), hangi sütunların sonuç ve hücreler olarak döndürülecek JSON değerlerin nereden olarak döndürülmelidir.
 
-Biz hello JSON dizisinde dönüştürebilirsiniz @orders değişkenine bir dizi satır, bu sonuç kümesi çözümlemek veya standart bir tabloya satır ekleme:
+Biz bir JSON dizisi dönüştürebilirsiniz @orders değişkenine bir dizi satır, bu sonuç kümesi çözümlemek veya standart bir tabloya satır ekleme:
 
 ```
 CREATE PROCEDURE InsertOrders(@orders nvarchar(max))
@@ -194,14 +194,14 @@ AS BEGIN
 
 END
 ```
-bir JSON dizisi olarak biçimlendirilmiş ve bir parametre toohello depolanan yordamı ayrıştırılır ve hello siparişleri tabloya eklenen olarak sağlanan siparişleri Hello topluluğu.
+Bir JSON dizisi olarak biçimlendirilmiş ve saklı yordama parametre ayrıştırılır ve siparişleri tabloya eklenen verilen siparişler topluluğu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-toolearn toointegrate uygulamanıza bağlı olarak, JSON denetleyin nasıl bu kaynakları:
+JSON uygulamanıza tümleştirmek öğrenmek için aşağıdaki kaynaklara gözatın:
 
 * [TechNet blogu](https://blogs.technet.microsoft.com/dataplatforminsider/2016/01/05/json-in-sql-server-2016-part-1-of-4/)
 * [MSDN belgelerine](https://msdn.microsoft.com/library/dn921897.aspx)
 * [Kanal 9 video](https://channel9.msdn.com/Shows/Data-Exposed/SQL-Server-2016-and-JSON-Support)
 
-JSON, uygulamanıza tümleştirmek için çeşitli senaryoları hakkında toolearn bkz hello gösterileri bu [Channel 9 video](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) veya kullanım örneğinde eşleşen bir senaryo Bul [JSON Blog yazılarını](http://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/).
+JSON uygulamanıza tümleştirmek için çeşitli senaryoları hakkında bilgi edinmek için bu demo görmek [Channel 9 video](https://channel9.msdn.com/Events/DataDriven/SQLServer2016/JSON-as-a-bridge-betwen-NoSQL-and-relational-worlds) veya kullanım örneğinde eşleşen bir senaryo Bul [JSON Blog yazılarını](http://blogs.msdn.com/b/sqlserverstorageengine/archive/tags/json/).
 

@@ -1,6 +1,6 @@
 ---
-title: "aaaThreat algılama - Azure SQL veritabanı | Microsoft Docs"
-description: "Tehdit algılama, olası güvenlik tehditlerine toohello veritabanı gösteren anormal veritabanı etkinliklerini algılar."
+title: "Tehdit algılama - Azure SQL veritabanı | Microsoft Docs"
+description: "Tehdit algılama veritabanına olası güvenlik tehditlerini gösteren anormal veritabanı etkinliklerini algılar."
 services: sql-database
 documentationcenter: 
 author: rmatchoro
@@ -15,34 +15,34 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: ronmat; ronitr
-ms.openlocfilehash: 0879d20eff515a4e69358b5a98ceccf57fbd0ea2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: bd3de9ed0131edc683763b0fe7f4a2ae74533944
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sql-database-threat-detection"></a>SQL veritabanı tehdit algılama
 
-SQL tehdit algılama olağan dışı ve zararlı denemeleri tooaccess veya yararlanma veritabanı gösteren anormal etkinlikler algılar.
+SQL tehdit algılama erişmek veya veritabanlarını yararlanmak için alışılmadık ve zararlı denemeleri gösteren anormal etkinlikler algılar.
 
 ## <a name="overview"></a>Genel Bakış
 
-SQL tehdit algılama müşteriler toodetect sağlar ve güvenlik uyarıları anormal etkinlikler sağlayarak göründüklerinde toopotential tehditlerine yanıt güvenliği, yeni bir katman sağlar.  Kullanıcılar, şüpheli veritabanı etkinliklerini, olası güvenlik açıkları ve SQL ekleme saldırıları yanı sıra anormal veritabanı erişimi desenleri bağlı bir uyarı alırsınız. SQL tehdit algılama uyarıları şüpheli etkinlik ayrıntılarını sağlayın ve eylem nasıl önerilir tooinvestigate ve hello tehdidi azaltmak. Kullanıcıları kullanarak hello şüpheli olayları Araştır [SQL veritabanı denetimi](sql-database-auditing.md) bir girişim tooaccess sağlamazsa toodetermine ihlal etme veya hello veritabanındaki verileri yararlanma. Tehdit algılama basit tooaddress olası tehditler toohello veritabanı hello gerek toobe güvenlik Uzman olmadan kolaylaştırır veya sistemleri izleme Gelişmiş Güvenlik yönetin.
+SQL tehdit algılama, müşterilerin algılamak ve anormal etkinlikler güvenlik uyarıları sağlayarak göründüklerinde olası risklere yanıt sağlayan bir güvenlik yeni bir katman sağlar.  Kullanıcılar, şüpheli veritabanı etkinliklerini, olası güvenlik açıkları ve SQL ekleme saldırıları yanı sıra anormal veritabanı erişimi desenleri bağlı bir uyarı alırsınız. SQL tehdit algılama uyarıları şüpheli etkinlik ayrıntılarını sağlayın ve eylem araştırmak ve tehdidi azaltmak nasıl öneririz. Kullanıcıları kullanarak şüpheli olayları Araştır [SQL veritabanı denetimi](sql-database-auditing.md) bunlar erişim, ihlal ya da veritabanındaki verileri yararlanma girişimi sonucu olmadığını belirlemek için. Tehdit algılama, veritabanına Uzman güvenlik olması veya sistemleri izleme Gelişmiş Güvenlik yönetmek zorunda kalmadan adresi olası tehditlere kolaylaştırır.
 
-Örneğin, SQL ekleme hello ortak Web uygulaması güvenlik sorunlarını hello Internet, veri güdümlü kullanılan tooattack uygulamalar üzerinde biridir. Saldırganlar uygulama güvenlik açıkları tooinject kötü amaçlı SQL deyimlerini uygulama giriş alanlarına ihlal veya hello veritabanındaki verileri değiştirme yararlanın.
+Örneğin, SQL ekleme veri güdümlü uygulamaları saldırmak için kullanılıyorsa Internet üzerinde ortak Web uygulaması güvenlik sorunlarını biridir. Saldırganlar uygulama giriş alanları, kötü amaçlı SQL deyimleri eklemesine uygulama güvenlik açıkları ihlal veya veritabanındaki verileri değiştirme yararlanın.
 
-SQL tehdit algılama uyarıları ile tümleşir [Azure Güvenlik Merkezi](https://azure.microsoft.com/en-us/services/security-center/), ve her korumalı SQL veritabanı sunucusu aynı fiyat hello $15/düğümü/SQL her korumalı burada ay, adresindeki Azure Güvenlik Merkezi standart katmanı olarak Fatura edilecek Veritabanı sunucusu, bir düğüm olarak sayılır. Tootry davet ediyoruz için 60 gün onu boş. 
+SQL tehdit algılama uyarıları ile tümleşir [Azure Güvenlik Merkezi](https://azure.microsoft.com/en-us/services/security-center/), ve her korumalı SQL veritabanı sunucusu, Azure Güvenlik Merkezi standart katmanını, $15/düğümü/SQL her korumalı burada ay, aynı fiyatla Fatura edilecek Veritabanı sunucusu, bir düğüm olarak sayılır. Sizi bu hizmeti 60 gün süresince ücretsiz denemeye davet ediyoruz. 
 
-## <a name="set-up-threat-detection-for-your-database-in-hello-azure-portal"></a>Tehdit algılama'hello Azure portal veritabanınızda için ayarlama
-1. Hello Azure başlatma sırasında portal [https://portal.azure.com](https://portal.azure.com).
-2. Merhaba SQL toomonitor istediğiniz veritabanını toohello yapılandırma dikey gidin. Hello ayarları dikey penceresinde, seçin **denetim ve tehdit algılama**. 
+## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Tehdit algılama Azure portalında veritabanınız için ayarlama
+1. Azure portalında başlatma [https://portal.azure.com](https://portal.azure.com).
+2. İzlemek istediğiniz SQL veritabanı yapılandırma dikey penceresine gidin. Ayarlar dikey penceresinde seçin **denetim ve tehdit algılama**. 
     ![Gezinti Bölmesi][1]
-3. Merhaba, **denetim ve tehdit algılama** yapılandırma dikey Aç **ON** hello tehdit algılama ayarlarını görüntüler denetim.
+3. İçinde **denetim ve tehdit algılama** yapılandırma dikey Aç **ON** tehdit algılama ayarlarını görüntüler denetim.
   
     ![Gezinti Bölmesi][2]
 4. Kapatma **ON** tehdit algılama.
-5. Güvenlik Uyarıları anormal veritabanı etkinliklerini algılandığında alacak e-postaları Hello listesini yapılandırın.
-6. Tıklatın **kaydetmek** hello içinde **denetim ve tehdit algılama** dikey toosave hello yeni veya güncelleştirilmiş denetim ve tehdit algılama ayarlar.
+5. Güvenlik Uyarıları anormal veritabanı etkinliklerini algılandığında alacak e-postaları listesini yapılandırın.
+6. Tıklatın **kaydetmek** içinde **denetim ve tehdit algılama** yeni veya güncelleştirilmiş denetim ve tehdit algılama ayarlarını kaydetmek için dikey.
        
     ![Gezinti Bölmesi][3]
 
@@ -52,20 +52,20 @@ Bir komut dosyası örneği için bkz: [denetim ve tehdit algılama PowerShell k
 
 ## <a name="explore-anomalous-database-activities-upon-detection-of-a-suspicious-event"></a>Şüpheli bir olay algılandığında anormal veritabanı etkinliklerini keşfedin
 1. Anormal veritabanı etkinliklerini algılandığında bir e-posta bildirimi alırsınız. <br/>
-   Merhaba e-posta hello şüpheli güvenlik olayı hello yapısını hello anormal etkinlikler, veritabanı adı, sunucu adını, uygulama adı ve hello olay süresi dahil olmak üzere bilgileri sağlarız. Ayrıca, hello e-posta olası nedenler bilgileri sağlarız ve önerilen eylemler tooinvestigate ve hello olası tehdit toohello veritabanı azaltmak.<br/>
+   E-posta anormal etkinlikler, veritabanı adı, sunucu adını, uygulama adı ve olay süresi yapısını dahil olmak üzere şüpheli güvenlik olayı üzerinde bilgi sağlar. Ayrıca, e-posta olası nedenler bilgileri sağlarız ve önerilen eylemleri araştırmak ve veritabanına olası tehdidi azaltmak için.<br/>
      
     ![Gezinti Bölmesi][4]
-2. Merhaba e-posta uyarısı doğrudan bağlantı toohello SQL denetim günlüğü içerir. Bu bağlantı başlatır hello Azure portal ve açılır hello SQL denetim kayıtlarının hello şüpheli olay hello sırada etrafında'yı tıklatın. Bir denetim kaydı tooview hello şüpheli veritabanı etkinliklerini, yürütüldüğü daha kolay toofind hello SQL deyimlerini yapma hakkında daha fazla ayrıntı tıklayın (kimin, ne yaptığını ve ne zaman) ve hello olay yasal veya kötü amaçlı olup olmadığını belirlemek (örn. uygulama Güvenlik Açığı tooSQL ekleme yararlanan, birisi ihlal hassas verileri, vb.).<br/>
+2. E-posta uyarısı SQL denetim günlüğü doğrudan bir bağlantı içerir. Bu bağlantıyı tıklatmak, Azure Portalı'nı başlatır ve şüpheli olay sırada çevresinde SQL denetim kayıtlarının açar. Bir denetim kaydı yürütüldü SQL deyimlerini bulmayı kolaylaştıracak şüpheli veritabanı etkinliklerini daha fazla ayrıntı görüntülemek için tıklatın (kimin, ne yaptığını ve ne zaman) ve olay yasal veya kötü amaçlı olup olmadığını belirleme (örn. uygulama Güvenlik Açığı SQL Yerleştirmeye yararlanan, birisi ihlal hassas verileri, vb.).<br/>
    ![Gezinti Bölmesi][5]
 
 
-## <a name="explore-threat-detection-alerts-for-your-database-in-hello-azure-portal"></a>Tehdit algılama uyarıları hello Azure portal veritabanınızda keşfedin
+## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Tehdit algılama uyarıları veritabanınızı Azure portalında keşfedin
 
-SQL veritabanı tehdit algılama, uyarıları ile tümleşir [Azure Güvenlik Merkezi](https://azure.microsoft.com/en-us/services/security-center/). Merhaba veritabanı dikey penceresinde hello Azure portal parçaları hello etkin tehditleri durumunu içinde dinamik bir SQL güvenlik kutucuğu. 
+SQL veritabanı tehdit algılama, uyarıları ile tümleşir [Azure Güvenlik Merkezi](https://azure.microsoft.com/en-us/services/security-center/). Azure portalında veritabanı dikey canlı bir SQL güvenlik kutucuğu etkin tehditleri durumunu izler. 
 
    ![Gezinti Bölmesi][6]
    
-1. Merhaba SQL güvenlik kutucuğa tıklandığında hello Azure Güvenlik Merkezi uyarıları dikey penceresini başlatır ve hello veritabanında algılanan etkin SQL tehditleri genel bir bakış sağlar. 
+1. SQL tıklayarak güvenlik kutucuğu, Azure Güvenlik Merkezi uyarıları dikey penceresini başlatır ve veritabanı üzerinde algılanan etkin SQL tehditleri genel bir bakış sağlar. 
 
   ![Gezinti Bölmesi][7]
 
@@ -76,10 +76,10 @@ SQL veritabanı tehdit algılama, uyarıları ile tümleşir [Azure Güvenlik Me
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Tehdit algılama hakkında daha fazla bilgi için başlangıç adresini ziyaret [Azure blogu](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
+* Tehdit algılama hakkında daha fazla bilgi edinmek için bkz [Azure blogu](https://azure.microsoft.com/en-us/blog/azure-sql-database-threat-detection-general-availability-in-spring-2017/) 
 * Daha fazla bilgi edinmek [Azure SQL veritabanı denetimi](sql-database-auditing.md)
 * Daha fazla bilgi edinmek [Azure Güvenlik Merkezi](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
-* Fiyatlandırma hakkında daha fazla ayrıntı için lütfen bkz hello [SQL Database fiyatlandırması sayfası](https://azure.microsoft.com/en-us/pricing/details/sql-database/)  
+* Fiyatlandırma hakkında daha fazla ayrıntı için lütfen bkz. [SQL Database fiyatlandırması sayfası](https://azure.microsoft.com/en-us/pricing/details/sql-database/)  
 * PowerShell komut dosyası örneği için bkz: [PowerShell kullanarak denetim ve tehdit algılama yapılandırın](scripts/sql-database-auditing-and-threat-detection-powershell.md)
 
 

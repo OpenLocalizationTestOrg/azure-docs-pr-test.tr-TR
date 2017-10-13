@@ -1,6 +1,6 @@
 ---
-title: "VMware Azure aaaAzure Site Recovery dağıtımı Planlayıcısı | Microsoft Docs"
-description: "Hello Azure Site Recovery dağıtımı Planlayıcısı Kullanıcı Kılavuzu'na budur."
+title: "VMware’den Azure’a Azure Site Recovery dağıtım planlayıcısı| Microsoft Docs"
+description: "Bu belge Azure Site Recovery dağıtım planlayıcısı kullanıcı kılavuzudur."
 services: site-recovery
 documentationcenter: 
 author: nsoneji
@@ -14,157 +14,157 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/28/2017
 ms.author: nisoneji
-ms.openlocfilehash: a8c13cd47850575769e0186528807bc525bdeec7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 60b0641076c2fa8ed2feb5c64e7b119519f46cf4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery dağıtım planlayıcısı
-Bu makalede hello Azure Site Recovery dağıtımı Planlayıcısı kullanıcı VMware Azure üretim dağıtımları için bir kılavuzdur.
+Bu makale, VMware’den Azure’a üretim dağıtımları için Azure Site Recovery Dağıtım Planlayıcısı kullanım kılavuzudur.
 
 ## <a name="overview"></a>Genel Bakış
 
-Site Recovery kullanarak tüm VMware sanal makineleri (VM'ler) korumaya başlamadan önce yeterli bant genişliği ayırma günlük veri değişikliği hızınızı üzerinde toomeet istenen kurtarma noktası hedefi (RPO) bağlı. Emin toodeploy hello doğru sayıda yapılandırma sunucularına ve içi sunucuları işlemi olabilir.
+Site Recovery kullanarak herhangi bir VMware sanal makinesini (VM) korumaya başlamadan önce, istenen kurtarma noktası hedefini (RPO) karşılayacak günlük veri değişikliği hızınıza göre yeterli bant genişliğini ayırmanız gerekir. Şirket içinde doğru sayıda yapılandırma sunucusu ve işlem sunucusu dağıttığınızdan emin olun.
 
-Toocreate hello sağ türü ve hedef Azure depolama hesabı sayısı da gerekir. Zaman içinde artan kullanım nedeniyle kaynak üretim sunucularınızdaki büyümeyi hesaba katarak standart veya premium depolama hesapları oluşturun. İş yükü özelliklerine (örneğin, ikinci [IOPS] ya da veri dalgalanmasına başına okuma/yazma g/ç işlemleri) dayanarak VM başına hello depolama türü seçin ve Site Recovery sınırlar.
+Ayrıca doğru tür ve sayıda hedef Azure depolama hesabı oluşturmanız gerekir. Zaman içinde artan kullanım nedeniyle kaynak üretim sunucularınızdaki büyümeyi hesaba katarak standart veya premium depolama hesapları oluşturun. İş yükü özelliklerine (örneğin, saniyede okuma/yazma G/Ç işlemi [IOPS] veya veri değişim sıklığı) ve Site Recovery limitlerine göre VM başına depolama türü seçin.
 
-Merhaba Site Recovery dağıtımı Planlayıcısı genel Önizleme yalnızca hello VMware Azure senaryo için şu anda kullanılabilir olan bir komut satırı aracıdır. Uzaktan bu araçla (üretim etkisi doğabilecek) toounderstand hello bant genişliği ve Azure depolama gereksinimleri için başarılı çoğaltma kullanarak VMware sanal makinelerini profil ve yük devretme sınamasını. Tüm Site Recovery bileşenleri şirket içi yüklemeden hello aracını çalıştırabilirsiniz. Ancak, doğru tooget üretilen iş sonuçları elde, sonunda toodeploy hello ilk adımlarından biri değiştireceği hello en düşük gereksinimlerini karşılayan hello Site Recovery yapılandırma sunucusu Windows Server hello Planlayıcısı çalıştırmanızı öneririz Üretim dağıtımında.
+Azure Site Recovery dağıtım planlayıcısı genel önizlemesi, şu anda yalnızca VMware’den Azure’a senaryoları için kullanılabilen bir komut satırı aracıdır. Başarılı çoğaltma ve yük devretme testine yönelik bant genişliği ve Azure depolama gereksinimlerini anlamak için, bu aracı kullanarak VMware sanal makinelerinizin profilini uzaktan oluşturabilirsiniz (herhangi bir üretim etkisi olmadan). Şirket içinde herhangi bir Site Recovery bileşeni yüklemeden aracı çalıştırabilirsiniz. Ancak, elde edilen aktarım hızı sonuçlarını doğru şekilde almak için, planlayıcıyı üretim dağıtımının ilk adımlarından birinde dağıtmanız gereken Site Recovery yapılandırma sunucusunun en düşük gereksinimlerini karşılayan bir Windows Server üzerinde çalıştırmanız önerilir.
 
-Merhaba aracı aşağıdaki ayrıntılara hello sağlar:
+Araç aşağıdaki bilgileri sağlar:
 
 **Uyumluluk değerlendirmesi**
 
 * Disk sayısı, disk boyutu, IOPS, değişim sıklığı ve önyükleme türüne (EFI/BIOS) göre VM uygunluk değerlendirmesi
-* Değişim çoğaltması için gerekli tahmini hello ağ bant genişliği
+* Delta çoğaltma için gereken tahmini ağ bant genişliği
 
 **Ağ bant genişliği ile RPO değerlendirmesi karşılaştırması**
 
-* Değişim çoğaltması için gerekli tahmini hello ağ bant genişliği
-* Site Recovery, şirket içi tooAzure alabilirsiniz hello işleme
-* verilen sürede toocomplete ilk çoğaltma bant genişliği üzerinde hello tabanlı VM'ler toobatch Hello sayısı tahmini
+* Delta çoğaltma için gereken tahmini ağ bant genişliği
+* Site Recovery’nin şirket içinden Azure’a alabileceği aktarım hızı
+* Belirli bir süre içinde ilk çoğaltmayı tamamlamak için tahmin edilen bant genişliğine göre toplu hale getirilecek VM sayısı
 
 **Azure altyapı gereksinimleri**
 
-* Her VM için Hello depolama türü (standart veya premium depolama hesabı) gereksinimi
-* Çoğaltma için ayarlanan standart ve premium depolama hesapları toobe Hello toplam sayısı
+* Her VM için depolama türü (standart veya premium depolama hesabı) gereksinimi
+* Çoğaltma için ayarlanacak toplam standart ve premium depolama hesabı sayısı
 * Azure Depolama kılavuzuna göre depolama hesabı adlandırma önerileri
-* Tüm VM'ler için Hello depolama hesabı yerleştirme
-* test yük devretme veya yük devretme hello abonelikte önce Azure çekirdek toobe Hello sayısını ayarlama
-* Hello Azure VM önerilen boyutu her içi VM
+* Tüm sanal makineler için depolama hesabı yerleşimi
+* Abonelik üzerinde yük devretme testi veya yük devretme öncesinde ayarlanacak Azure çekirdek sayısı
+* Şirket içindeki her VM için önerilen Azure VM boyutu
 
 **Şirket içi altyapı gereksinimleri**
-* Merhaba yapılandırma sunucularına sayısı gerekli ve şirket içi işlem sunucuları toobe dağıtılabilir
+* Şirket içinde dağıtılması gereken yapılandırma sunucusu ve işlem sunucusu sayısı
 
 >[!IMPORTANT]
 >
->Kullanım zamanla büyük olasılıkla tooincrease olduğundan, tüm hesaplamalar yüzde 30 büyüme faktörü iş yükü özellikleri içindeki varsayılarak ve ölçümleri profil tüm hello 95 yüzdebirlik değeri kullanılarak gerçekleştirilir önceki aracı hello (Okuma/sn, yazma karmaşıklığı ve bu nedenle İleri). Büyüme faktörü ve yüzdelik dilim hesaplaması öğelerinin her ikisi de yapılandırılabilir özelliktedir. Büyüme faktörü hakkında daha fazla toolearn hello "büyüme faktörü hususlar" bölümüne bakın. Yüzdelik değer hakkında daha fazla toolearn hello "Merhaba hesaplama için kullanılan yüzdelik değer" bölümüne bakın.
+>Kullanım zaman içinde çoğalabileceğinden, önceki tüm araç hesaplamaları iş yükü özelliklerinde yüzde 30’luk bir büyüme olduğu varsayılarak ve tüm profil oluşturma ölçümlerinin (okuma/yazma IOPS, değişim hızı vb) yüzde 95’lik dilim değeri kullanılarak yapılır. Büyüme faktörü ve yüzdelik dilim hesaplaması öğelerinin her ikisi de yapılandırılabilir özelliktedir. Büyüme faktörü hakkında daha fazla bilgi almak için "Büyüme faktörü ile ilgili dikkat edilecek noktalar" bölümüne bakın. Yüzdelik dilim değeri hakkında daha fazla bilgi için "Hesaplama için kullanılan yüzdelik dilim değeri" bölümüne bakın.
 >
 
 ## <a name="requirements"></a>Gereksinimler
-Merhaba aracı iki ana aşaması vardır: profil oluşturma ve rapor oluşturma. Bir üçüncü seçenek toocalculate işleme yalnızca yoktur. hangi hello profili oluşturma ve üretilen iş ölçüm başlatılan hello sunucu için Hello gereksinimleri, aşağıdaki tablonun hello sunulur:
+Araçta başlıca iki aşama vardır: profil oluşturma ve rapor oluşturma. Yalnızca aktarım hızını hesaplamaya yönelik üçüncü bir seçenek de mevcuttur. Profil oluşturma ve aktarım hızı ölçümünün başlatıldığı sunucuya yönelik gereksinimler, aşağıdaki tabloda sunulmuştur:
 
 | Sunucu gereksinimi | Açıklama|
 |---|---|
-|Profil oluşturma ve aktarım hızı ölçümü| <ul><li>İşletim sistemi: Microsoft Windows Server 2012 R2<br>(en az hello ideal eşleşen [boyut hello yapılandırma sunucusu için öneriler](https://aka.ms/asr-v2a-on-prem-components))</li><li>Makine yapılandırması: 8 vCPU, 16 GB RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual Studio 2012 için Microsoft Visual C++ Yeniden Dağıtılabilir](https://aka.ms/vcplusplus-redistributable)</li><li>Internet erişimi tooAzure bu sunucudan</li><li>Azure depolama hesabı</li><li>Merhaba sunucusunda yönetici erişimi</li><li>En az 100 GB boş disk alanı (30 günlük profili oluşturulmuş ve her biri ortalama üç diske sahip 1000 VM varsayıldığında)</li><li>VMware vCenter istatistikleri düzeyi ayarları too2 veya yüksek düzey olarak ayarlanmalıdır.</li><li>443 bağlantı noktası izin ver: ASR dağıtım Planlayıcısı Bu bağlantı noktası tooconnect toovCenter sunucusunda/ESXi ana kullanır</ul></ul>|
+|Profil oluşturma ve aktarım hızı ölçümü| <ul><li>İşletim sistemi: Microsoft Windows Server 2012 R2<br>(En azından [yapılandırma sunucusuna yönelik boyut önerileri](https://aka.ms/asr-v2a-on-prem-components) ile eşleşmesi idealdir)</li><li>Makine yapılandırması: 8 vCPU, 16 GB RAM, 300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual Studio 2012 için Microsoft Visual C++ Yeniden Dağıtılabilir](https://aka.ms/vcplusplus-redistributable)</li><li>Bu sunucudan Azure’a İnternet erişimi</li><li>Azure depolama hesabı</li><li>Sunucu üzerinde yönetici erişimi</li><li>En az 100 GB boş disk alanı (30 günlük profili oluşturulmuş ve her biri ortalama üç diske sahip 1000 VM varsayıldığında)</li><li>VMware vCenter istatistik düzeyi ayarları 2 veya daha yüksek bir düzeye ayarlanmalıdır</li><li>443 bağlantı noktasına izin verin. ASR Dağıtım Planlayıcısı, vCenter sunucusu/ESXi konağına bağlanmak için bu bağlantı noktasını kullanır</ul></ul>|
 | Rapor oluşturma | Microsoft Excel 2013 ve üzerinin yüklü olduğu herhangi bir Windows PC ya da Windows Server |
-| Kullanıcı izinleri | Tooaccess hello VMware vCenter server/VMware vSphere ESXi konağı profil oluşturma sırasında kullanılan hello kullanıcı hesabı için salt okunur izni |
+| Kullanıcı izinleri | Profil oluşturma sırasında VMware vCenter sunucusuna/VMware vSphere ESXi ana bilgisayarına erişmek için kullanılan kullanıcı hesabına yönelik salt okunur izin |
 
 > [!NOTE]
 >
->Merhaba aracı yalnızca VM'ler VMDK ve RDM'nin disklerle profil. VM profilini iSCSI veya NFS diskleri ile oluşturamaz. Site Recovery VMware sunucuları için iSCSI ve NFS diskleri desteklemiyor, ancak bir hello dağıtım Planlayıcısı hello Konuk içinde değil ve yalnızca vCenter performans sayaçlarını kullanarak profilleri çünkü hello aracı bu disk türleri görünürlük sahip değil.
+>Araç yalnızca VMDK ve RDM disklerine sahip VM’lerin profilini oluşturabilir. VM profilini iSCSI veya NFS diskleri ile oluşturamaz. Site Recovery, VMware sunucuları için iSCSI ve NFS disklerini desteklese de, dağıtım planlayıcısının konuk içinde bulunmaması ve yalnızca vCenter performans sayaçlarını kullanarak profil oluşturması nedeniyle araç bu disk türlerini görüntüleyemez.
 >
 
-## <a name="download-and-extract-hello-public-preview"></a>İndirmeyi ve ayıklamayı hello genel Önizleme
-1. Hello hello en son sürümünü indirme [Site Recovery dağıtımı Planlayıcısı genel Önizleme](https://aka.ms/asr-deployment-planner).  
-Merhaba aracı bir .zip klasörde paketlenmiştir. Merhaba hello aracının geçerli sürümü yalnızca hello VMware Azure senaryoyu destekler.
+## <a name="download-and-extract-the-public-preview"></a>Genel önizlemeyi indirin ve ayıklayın
+1. [Site Recovery dağıtım planlayıcısı genel önizlemesinin](https://aka.ms/asr-deployment-planner) son sürümünü indirin.  
+Araç bir zip klasöründe paketlenmiştir. Aracın geçerli sürümü yalnızca VMware’den Azure’a senaryosunu destekler.
 
-2. Merhaba .zip klasörü toohello Windows server toorun hello aracı istediğiniz kopyalayın.  
-Profili hello VM'ler toobe tutan ağ erişim tooconnect toohello vCenter sunucusu/vSphere ESXi ana Hello sunucusu varsa, Windows Server 2012 R2'den hello aracını çalıştırabilirsiniz. Ancak, donanım yapılandırmasını hello karşılayan bir sunucuda hello aracı çalıştırmanızı öneririz [yapılandırma sunucusu boyutlandırma kılavuz](https://aka.ms/asr-v2a-on-prem-components). Site Recovery bileşenleri şirket içi zaten dağıttıysanız, hello yapılandırma sunucusundan hello aracını çalıştırın.
+2. Zip klasörünü, aracı çalıştırmak istediğiniz Windows sunucusuna kopyalayın.  
+Sunucu, profili oluşturulacak VM’leri tutan vCenter sunucusu/vSphere ESXi ana bilgisayarına bağlanmak için ağ erişimine sahipse, aracı Windows Server 2012 R2’den çalıştırabilirsiniz. Ancak, aracı donanım yapılandırması [yapılandırma sunucusu boyutlandırma yönergeleri](https://aka.ms/asr-v2a-on-prem-components) ile eşleşen bir sunucu üzerinde çalıştırmanız önerilir. Site Recovery bileşenlerini şirket içinde zaten dağıttıysanız, aracı yapılandırma sunucusundan çalıştırın.
 
- Merhaba sahip olmasını öneririz (-yerleşik işlem sunucusu olan) hello yapılandırma sunucuya hello aracını çalıştırdığınız hello sunucuda olarak aynı donanım yapılandırması. Bu tür bir yapılandırma, Site Recovery çoğaltma sırasında elde edebileceğiniz bu hello aracı raporları eşleşmeleri hello gerçek aktarım hızı bu elde hello verimlilik sağlar. kullanılabilir ağ bant genişliği hello sunucuda ve hello sunucusunun donanım yapılandırması (CPU, depolama ve benzeri) Hello verimlilik hesaplama bağlıdır. Başka bir sunucudan hello aracı çalıştırırsanız hello verimlilik, sunucu tooMicrosoft Azure hesaplanır. Ayrıca, hello sunucusunun Hello donanım yapılandırması, hello yapılandırma sunucusu farklı olabilir çünkü aracı raporları hello elde hello verimlilik kesin olmayabilir.
+ Aracı çalıştırdığınız sunucuda, yapılandırma sunucusu (yerleşik bir işlem sunucusuna sahiptir) ile aynı donanım yapılandırmasına sahip olmanız önerilir. Bu tür bir yapılandırma, araç tarafından elde edildiği rapor edilen aktarım hızının, Site Recovery tarafından profil oluşturma sırasında elde edilebilecek gerçek aktarım hızı ile eşleşmesini sağlar. Aktarım hızı hesaplaması, sunucu üzerinde kullanılabilir ağ bant genişliğine ve sunucunun donanım yapılandırmasına (CPU, depolama vb.) bağlıdır. Aracı başka bir sunucudan çalıştırırsanız, bu sunucudan Microsoft Azure’a aktarım hızı hesaplanır. Ayrıca, sunucunun donanım yapılandırması, yapılandırma sunucusundan farklı olabileceği için, aracın elde edildiğini rapor ettiği aktarım hızı hatalı olabilir.
 
-3. Merhaba .zip klasöre ayıklayın.  
-birden çok dosya ve alt Hello klasör içerir. Merhaba yürütülebilir hello üst klasöründeki ASRDeploymentPlanner.exe dosyasıdır.
+3. .zip klasörünü ayıklayın.  
+Klasör birden fazla dosya ve alt klasör içerir. Yürütülebilir dosya, üst klasördeki ASRDeploymentPlanner.exe dosyasıdır.
 
     Örnek:  
-    Merhaba .zip dosyasını tooE kopyalayın: \ sürücü ve ayıklayın.
+    .zip dosyasını E:\ sürücüsüne kopyalayıp ayıklayın.
    E:\ASR Deployment Planner-Preview_v1.2.zip
 
     E:\ASR Deployment Planner-Preview_v1.2\ ASR Deployment Planner-Preview_v1.2\ ASRDeploymentPlanner.exe
 
 ## <a name="capabilities"></a>Özellikler
-Merhaba komut satırı aracı (ASRDeploymentPlanner.exe) üç modu aşağıdaki hello birini çalıştırabilirsiniz:
+Komut satırı aracını (ASRDeploymentPlanner.exe) aşağıdaki üç modun herhangi birinde çalıştırabilirsiniz:
 
 1. Profil oluşturma  
 2. Rapor oluşturma
 3. Aktarım hızı alma
 
-İlk olarak, modu toogather VM veri dalgalanmasına ve IOPS profil hello aracını çalıştırın. Ardından, hello aracı toogenerate hello rapor toofind, hello ağ bant genişliği ve depolama gereksinimleri çalıştırın.
+İlk olarak, VM veri değişim sıklığı ve IOPS verilerini toplamak için profil oluşturma modunda aracı çalıştırın. Ardından, ağ bant genişliği ve depolama gereksinimlerini bulmak üzere raporu oluşturmak için aracı çalıştırın.
 
 ## <a name="profiling"></a>Profil oluşturma
-Profil oluşturma modunda hello dağıtım planlayıcısı aracı toohello vCenter sunucusu/vSphere ESXi ana toocollect performans verileri hello VM hakkında bağlanır.
+Profil oluşturma modunda dağıtım planlayıcısı aracı, sanal makineye ilişkin performans verilerini toplamak için vCenter sunucusu/vSphere ESXi ana bilgisayarına bağlanır.
 
-* Doğrudan bağlantı toothem yapmış profil hello üretim VM'ler, hello performansını etkilemez. Tüm performans verilerini hello vCenter sunucusu/vSphere ESXi ana bilgisayardan toplanır.
-* olduğunu düşünülerek etkisi hello sunucuda profil nedeniyle, hello aracı sorguları hello vCenter sunucusu/vSphere ESXi ana her 15 dakikada tooensure. Bu sorgu aralığı profil doğruluğu tehlikeye Hello aracı dakikada 's performans sayacı verilerini depoladığından değil.
+* Profil oluşturma işlemi sırasında üretim VM’leri ile doğrudan bağlantı kurulmadığı için bu VM’lerin performansı etkilenmez. Tüm performans verileri vCenter sunucusu/ vSphere ESXi ana bilgisayarından toplanır.
+* Profil oluşturma nedeniyle sunucu üzerindeki etkinin önemsiz olduğundan emin olmak için, araç vCenter sunucusu/vSphere EXSi ana bilgisayarını 15 dakikada bir sorgular. Araç her dakikaya ait performans sayacı verilerini depoladığı için, sorgu aralığı profil oluşturma doğruluğunu tehlikeye atmaz.
 
-### <a name="create-a-list-of-vms-tooprofile"></a>Sanal makineleri tooprofile listesi oluşturma
-İlk olarak, profili hello VM'ler toobe listesini gerekir. Aşağıdaki yordamı hello hello VMware vSphere Powerclı komutları kullanarak bir vCenter sunucusu/vSphere ESXi ana bilgisayarda sanal makineleri tüm hello adlarını alabilirsiniz. Alternatif olarak, bir dosya hello kolay adlarını listelemek veya VM'ler tooprofile el ile istediğiniz IP adreslerini hello.
+### <a name="create-a-list-of-vms-to-profile"></a>Profili oluşturulacak sanal makinelerin listesini oluşturma
+İlk olarak, profili oluşturulacak sanal makinelerin bir listesi gerekir. Aşağıdaki yordamda VMware vSphere PowerCLI komutlarını kullanarak bir VMware vCenter sunucusu/vSphere ESXi ana bilgisayarındaki tüm sanal makinelerin adlarını alabilirsiniz. Alternatif olarak, profilini el ile oluşturmak istediğiniz sanal makinelerin kolay adlarını veya IP adreslerini bir dosyada listeleyebilirsiniz.
 
-1. Oturum açma toohello VM, VMware vSphere Powerclı yüklenir.
-2. Merhaba VMware vSphere Powerclı konsolunu açın.
-3. Merhaba yürütme İlkesi hello komut dosyası için etkinleştirildiğinden emin olun. Etkinleştirilirse, hello VMware vSphere Powerclı konsolunu Yönetici modunda başlatın ve hello aşağıdaki komutu çalıştırarak etkinleştirin:
+1. VMware vSphere PowerCLI’nin yüklü olduğu sanal makinede oturum açın.
+2. VMware vSphere PowerCLI konsolunu açın.
+3. Betik için yürütme ilkesinin etkin olduğundan emin olun. Devre dışı bırakılmışsa, VMware vSphere PowerCLI konsolunu yönetici modunda başlatın ve aşağıdaki komutu çalıştırarak etkinleştirin:
 
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
-4. Connect VIServer cmdlet hello adı olarak tanınmıyor, komutu aşağıdaki optionly gerek toorun hello olabilir.
+4. cmdlet adı olarak Connect-VIServer tanınmıyorsa aşağıdaki komutu çalıştırmanız gerekebilir.
  
             Add-PSSnapin VMware.VimAutomation.Core 
 
-5. tooget bir vCenter sunucusu/vSphere ESXi sanal makinelerin tüm hello adlarını barındırmak ve hello listesi çalışma hello iki komutları burada listelenen bir .txt dosyasında depolar.
+5. Bir vCenter sunucusu/vSphere ESXi ana bilgisayarındaki tüm VM’lerin adlarını almak ve listeyi bir .txt dosyasında depolamak için burada listelenen iki komutu çalıştırın.
 &lsaquo;Sunucu adı&rsaquo;, &lsaquo;kullanıcı adı&rsaquo;, &lsaquo;parola&rsaquo;, &lsaquo;outputfile.txt&rsaquo; değerlerini girdilerinizle değiştirin.
 
             Connect-VIServer -Server <server name> -User <user name> -Password <password>
 
             Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
 
-6. Merhaba çıktı dosyasını Not Defteri'nde açın ve ardından hello adları tooprofile tooanother dosyası (örneğin, ProfileVMList.txt), satır başına bir VM adı istediğiniz tüm VM'lerin kopyalayın. Bu dosya giriş toohello kullanılan *- VMListFile* hello komut satırı aracı parametresi.
+6. Çıktı dosyasını Not Defteri’nde açın ve sonra profilini oluşturmak istediğiniz tüm VM’lerin adlarını, her satıra bir VM gelecek şekilde başka bir dosyaya (örneğin, ProfileVMList.txt) kopyalayın. Bu dosya, komut satırı aracının *-VMListFile* parametresinin girdisi olarak kullanılır.
 
-    ![VM adı listesinde hello dağıtım Planlayıcısı](./media/site-recovery-deployment-planner/profile-vm-list.png)
+    ![Dağıtım planlayıcısındaki VM ad listesi](./media/site-recovery-deployment-planner/profile-vm-list.png)
 
 ### <a name="start-profiling"></a>Profil oluşturmaya başlama
-Hello profili VM'ler toobe listesini oluşturduktan sonra profil oluşturma modu hello aracını çalıştırabilirsiniz. Profil oluşturma modunda hello aracı toorun zorunlu ve isteğe bağlı parametreleri hello listesi aşağıdadır.
+Profili oluşturulacak sanal makinelerin listesini oluşturduktan sonra, aracı profil oluşturma modunda çalıştırabilirsiniz. Aracın profil oluşturma modunda çalıştırılmasına yönelik zorunlu ve isteğe bağlı parametreler aşağıda verilmiştir.
 
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 
 | Parametre adı | Açıklama |
 |---|---|
 | -Operation | StartProfiling |
-| -Server | Merhaba tam etki alanı adı veya profili toobe olan VM'ler olduğundan hello vCenter sunucusu/vSphere ESXi ana bilgisayarın IP adresi.|
-| -User | Merhaba kullanıcı adı tooconnect toohello vCenter sunucusu/vSphere ESXi ana bilgisayar. Merhaba kullanıcı en az toohave salt okunur erişim verilmesi gerekir.|
-| -VMListFile | hello profili VM'ler toobe listesini içeren hello dosyası. Merhaba dosya yolunu mutlak veya göreli olabilir. Merhaba dosya her satırda bir VM adı/IP adresi olmalıdır. Merhaba dosyasında belirtilen sanal makine adı olması hello hello vCenter sunucusu/vSphere ESXi ana bilgisayarda hello VM adı ile aynı.<br>Örneğin, hello dosyası VMList.txt VM'ler aşağıdaki hello içerir:<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
-| -NoOfDaysToProfile | hangi profil oluşturma için toobe olduğu gün sayısını Hello çalıştırın. 15 ortamınızdaki iş yükü düzeni hello hello tooensure belirtilen dönem gözlenir ve tooprovide doğru bir öneri kullanılan günden fazla profil çalıştırmanızı öneririz. |
-| -Directory | (İsteğe bağlı) hello Evrensel Adlandırma Kuralı (UNC) veya yerel dizin yolu toostore profil oluşturma sırasında oluşturulan veri profil oluşturma. Bir dizin adı verilmemişse hello geçerli yolu altında 'ProfiledData' adlı hello dizin hello varsayılan dizini olarak kullanılır. |
-| -Password | (İsteğe bağlı) hello parola toouse tooconnect toohello vCenter sunucusu/vSphere ESXi ana bilgisayar. Bir şimdi belirtmezseniz, hello komutu çalıştırıldığında için istenir.|
-| -StorageAccountName | Kullanılan toofind hello işleme çoğaltma verilerini ulaşılabilir (isteğe bağlı) hello depolama hesabı adı tooAzure şirket içi. Merhaba aracı yüklemeleri test veri toothis depolama hesabı toocalculate üretilen.|
-| -StorageAccountKey | Tooaccess hello depolama hesabı kullandı (isteğe bağlı) hello depolama hesabı anahtarı. Toohello Azure portalına gidin > depolama hesapları ><*depolama hesabı adı*>> Ayarlar > erişim anahtarları > Key1 (veya Klasik depolama hesabı için birincil erişim anahtarı). |
-| -Ortam | (isteğe bağlı) Bu, hedef Azure depolama hesabı ortamınızdır. Şu üç değerden herhangi birini alabilir: AzureCloud,AzureUSGovernment, AzureChinaCloud. Varsayılan seçenek AzureCloud değeridir. Hedef Azure bölgesi Azure ABD devlet kurumları veya Azure Çin bulut olduğunda hello parametresini kullanın. |
+| -Server | Sanal makineleri için profil oluşturulacak vCenter sunucusunun/vSphere ESXi ana bilgisayarının tam etki alanı adı.|
+| -User | vCenter sunucusuna/vSphere ESXi ana bilgisayarına bağlanmak için kullanıcı adı. Kullanıcının en azından salt okunur erişimi olmalıdır.|
+| -VMListFile | Profili oluşturulacak sanal makinelerin listesini içeren dosya. Dosya yolu mutlak veya göreli olabilir. Bu dosya her satırda bir VM adı/IP adresi içermelidir. Dosyada belirtilen sanal makine adı, vCenter sunucusu/vSphere ESXi ana bilgisayarındaki VM adıyla aynı olmalıdır.<br>Örneğin, VMList.txt dosyası aşağıdaki sanal makineleri içerir:<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
+| -NoOfDaysToProfile | Profil oluşturmanın çalıştırılacağı gün sayısı. Ortamınızda belirtilen süre içindeki iş yükü deseninin doğru bir öneri sağlayacak şekilde gözlemlenip kullanılması için profil oluşturma işleminin 15 günden uzun süre çalıştırılmaması önerilir. |
+| -Directory | (İsteğe bağlı) Profil oluşturma sırasında oluşturulan profil oluşturma verilerini depolamak için evrensel adlandırma kuralı (UNC) veya yerel dizin yolu. Dizin adı belirtilmemişse, geçerli yolun altındaki ‘ProfiledData’ adlı dizin varsayılan dizin olarak kullanılır. |
+| -Password | (İsteğe bağlı) vCenter sunucusuna/vSphere ESXi ana bilgisayarına bağlanmak için kullanılacak parola. Şu anda belirtmezseniz, komut yürütülürken sorulacaktır.|
+| -StorageAccountName | (İsteğe bağlı) Şirket içinden Azure’a veri çoğaltma için ulaşılabilir aktarım hızını bulmak için depolama hesabı adı. Araç, aktarım hızını hesaplamak için test verilerini bu depolama hesabına yükler.|
+| -StorageAccountKey | (İsteğe bağlı) Depolama hesabına erişmek için kullanılan depolama hesabı anahtarı. Azure portalı > Depolama hesapları > <*Depolama hesabı adı*> > Ayarlar > Erişim Anahtarları > Anahtar1 (veya klasik depolama hesabı için birincil erişim anahtarı) öğesine gidin. |
+| -Ortam | (isteğe bağlı) Bu, hedef Azure depolama hesabı ortamınızdır. Şu üç değerden herhangi birini alabilir: AzureCloud,AzureUSGovernment, AzureChinaCloud. Varsayılan seçenek AzureCloud değeridir. Hedef Azure bölgeniz Azure US Government veya Azure China bulutları olduğunda ilgili parametreyi kullanın. |
 
 
-Vm'leriniz için en az 15 too30 gün Profil öneririz. Dönem profil hello sırasında ASRDeploymentPlanner.exe çalıştıran tutar. Merhaba aracı profil oluşturma zaman girişi gün içinde alır. Tooprofile birkaç saat veya dakika hello aracının hızlı testi için hello genel önizlemede isterseniz, hello eşdeğer ölçü gün tooconvert hello zaman gerekir. Örneğin, 30 dakika boyunca tooprofile hello giriş 30/(60*24) olmalıdır = 0.021 gün. zaman profil izin hello en az 30 dakikadır.
+VM’lerinizin en az 15 ila 30 günlük profilinin oluşturulması önerilir. Profil oluşturma süresi boyunca ASRDeploymentPlanner.exe çalışmaya devam eder. Araç, profil oluşturma süre girdisini gün cinsinden alır. Aracın hızlı bir testi için birkaç saat veya dakika boyunca profil oluşturmak isterseniz, genel önizleme sürümünde saati karşılık gelen gün ölçüsüne dönüştürmeniz gerekir. Örneğin, 30 dakika boyunca profil oluşturmak için girdinin 30/(60*24) = 0,021 gün olması gerekir. İzin verilen en kısa profil oluşturma süresi 30 dakikadır.
 
-Profil oluşturma sırasında bir depolama hesabı adı ve Site Recovery çoğaltma hello yapılandırma sunucusundan veya işlem sunucusu tooAzure hello zamanında elde edebilirsiniz anahtar toofind hello verimlilik isteğe bağlı olarak geçirebilirsiniz. Merhaba depolama hesabı adı ve anahtarı profil oluşturma sırasında değil iletilirse, hello aracı ulaşılabilir verim hesaplamaz.
+Profil oluşturma sırasında, Site Recovery’nin çoğaltma sırasında yapılandırma sunucusu veya işlem sunucusundan Azure’a elde edilebileceği aktarım hızını bulmak için, isteğe bağlı olarak bir depolama hesabı adı ve anahtarı geçirebilirsiniz. Profil oluşturma sırasında depolama hesabı adı ve anahtarı geçirilmezse, araç ulaşılabilir aktarım hızını hesaplamaz.
 
-Merhaba aracı VM'ler çeşitli kümeleri için birden çok örneğini çalıştırabilirsiniz. Merhaba VM adları kümeleri profil hello hiçbirinde yinelenmeyecek emin olun. Örneğin, on VM'ler profili (VM1 VM10 aracılığıyla) ve birkaç gün sonra başka bir beş VM'ler tooprofile istiyorsanız (Merhaba ikinci VM'ler kümesi için başka bir komut satırı konsolundan hello aracını çalıştırabilirsiniz VM11 VM15 aracılığıyla), (VM11 VM15 aracılığıyla). Merhaba ikinci VM'ler kümesi herhangi bir VM ad hello ilk profil örneğinden sahip değil veya farklı bir çıkış dizini hello ikinci çalıştırmak için kullandığınız emin olun. Merhaba aracının iki örneğini profil oluşturma için kullanılıyorsa hello aynı VM'ler ve kullanım aynı çıktı dizini Merhaba, oluşturulan hello rapor yanlış olur.
+Çeşitli sanal makine kümeleri için aracın birden çok örneğini çalıştırabilirsiniz. Sanal makine adlarının, profil kümelerinin hiçbirinde yinelenmediğinden emin olun. Örneğin, on sanal makine (VM1 - VM10) profili oluşturdunuz ve birkaç gün sonra beş sanal makine (VM11 - VM15) profili daha oluşturmak istiyorsunuz; bu durumda, ikinci sanal makine kümesi (VM11 - VM15) için başka bir komut satırı konsolundan aracı çalıştırabilirsiniz. Ancak, ikinci sanal makine kümesinde birinci profil oluşturma örneğinden herhangi bir sanal makine adı olmadığından veya ikinci çalıştırma için farklı bir çıktı dizini kullandığınızdan emin olun. Aracın iki örneği aynı sanal makinelerin profilini oluşturmak için kullanılır ve aynı çıktı dizinini kullanırsa, oluşturulan rapor hatalı olacaktır.
 
-VM yapılandırmaları kez hello işleminin profilini oluşturmaya hello başında yakalanan ve VMDetailList.xml adlı bir dosyada depolanır. Merhaba rapor oluşturulduğunda bu bilgiler kullanılır. Profil oluşturma hello başına toohello ucundan VM yapılandırması (örneğin, bir artan sayısı çekirdek, diskler veya NIC) herhangi bir değişiklik sayılmaz. Profili bir VM yapılandırması hello indirmelere, hello genel önizlemede profil oluşturma sırasında değiştiyse İşte hello geçici çözüm tooget son VM ayrıntıları hello rapor oluşturulurken:
+Sanal makine yapılandırması, profil oluşturma işleminin başında bir kez yakalanır ve VMDetailList.xml adlı bir dosyada depolanır. Rapor oluşturulduğunda bu bilgiler kullanılır. Profil oluşturmanın başlangıcı ile bitişi arasında VM yapılandırmasında meydana gelen hiçbir değişiklik (örneğin, çekirdek, disk veya ağ arabirimi sayısının artması) yakalanmaz. Profili oluşturulmuş bir VM yapılandırması profil oluşturma sırasında değiştiyse, genel önizleme sürümünde rapor oluştururken en son VM bilgilerini almaya yönelik geçici çözüm aşağıda verilmiştir:
 
-* VMdetailList.xml yedekleyin ve hello dosyayı geçerli konumundan silin.
-* -Kullanıcı ve - parola bağımsız değişkenler geçirme hello zaman rapor oluşturma.
+* VMdetailList.xml dosyasını yedekleyip, dosyayı geçerli konumundan silin.
+* -User ve -Password bağımsız değişkenlerini rapor oluşturma sırasında geçirin.
 
-komut profil hello dizin profil hello birkaç dosyaları oluşturur. Bunu yaptığınızda bu nedenle rapor oluşturma etkilediğinden hello dosyalardan birini silmeyin.
+Profil oluşturma komutu, profil oluşturma dizininde birkaç dosya oluşturur. Rapor oluşturmayı etkileyeceği için hiçbir dosyayı silmeyin.
 
-#### <a name="example-1-profile-vms-for-30-days-and-find-hello-throughput-from-on-premises-tooazure"></a>Örnek 1: Profil VM'ler için 30 gün ve şirket içi tooAzure hello akışından Bul
+#### <a name="example-1-profile-vms-for-30-days-and-find-the-throughput-from-on-premises-to-azure"></a>Örnek 1: 30 günlük sanal makine profili oluşturma ve şirket içinden Azure’a aktarım hızını bulma
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  30  -User vCenterUser1 -StorageAccountName  asrspfarm1 -StorageAccountKey Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==
 ```
@@ -175,63 +175,63 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_Pro
 ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  15  -User vCenterUser1
 ```
 
-#### <a name="example-3-profile-vms-for-1-hour-for-a-quick-test-of-hello-tool"></a>Örnek 3: Profili VM'ler hello Aracı'nın hızlı testi için 1 saat için
+#### <a name="example-3-profile-vms-for-1-hour-for-a-quick-test-of-the-tool"></a>Örnek 3: Aracın hızlı bir testine yönelik 1 saatlik VM profili oluşturma
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfDaysToProfile  0.04  -User vCenterUser1
 ```
 
 >[!NOTE]
 >
->* Hello sunucu hello aracı ise yeniden başlatılıncaya kadar veya kilitlendi, üzerinde çalışan veya kapatın, aracı Ctrl kullanarak hello + C, hello profili verileri korunur. Ancak, son 15 dakika profili veri eksik hello olasılığını yoktur. Merhaba sunucu yeniden başlatıldıktan sonra bu tür bir örnekte profil oluşturma modunda hello aracı yeniden çalıştırın.
->* Ne zaman hello depolama hesabı adı ve anahtarı geçirilir, hello aracı ölçüleri hello verimlilik profil hello son adımı sırasında. Profil oluşturma tamamlanmadan önce hello aracı kapattıysanız, hello işleme hesaplanan değil. oluşturmadan toofind hello verimlilik Merhaba raporu, hello GetThroughput işlemi hello komut satırı konsolundan çalıştırabilirsiniz. Aksi takdirde, oluşturulan hello rapor hello verimlilik bilgi içermez.
+>* Aracın çalıştığı sunucu yeniden başlatılırsa veya kilitlenmişse ya da Ctrl+C tuşlarını kullanarak aracı kapatırsanız, profili oluşturulan veriler korunur. Ancak, profili oluşturulan verilen son 15 dakikası kaybedilebilir. Böyle bir durumda, sunucu yeniden başlatıldıktan sonra aracı profil oluşturma modunda yeniden çalıştırmanız gerekir.
+>* Depolama hesabı adı ve anahtarı geçirildiğinde, araç profil oluşturma işleminin son adımında aktarım hızını ölçer. Profil oluşturma tamamlanmadan önce araç kapatılırsa, aktarım hızı hesaplanmaz. Raporu oluşturmadan önce aktarım hızını bulmak için, komut satırı konsolundan GetThroughput işlemini çalıştırabilirsiniz. Aksi takdirde, oluşturulan rapor aktarım hızı bilgilerini içermez.
 
 
 ## <a name="generate-a-report"></a>Rapor oluşturma
-Merhaba aracı tüm hello dağıtım önerileri özetler hello rapor çıktısı, makrosu özellikli Microsoft Excel dosyasına (XLSM dosyası) oluşturur. Merhaba rapor DeploymentPlannerReport_ adlı <*benzersiz bir sayısal tanımlayıcı*> .xlsm ve içinde yerleştirilen hello belirtilen dizin.
+Araç, rapor çıktısı olarak tüm dağıtım önerilerini özetleyen makro özellikli bir Microsoft Excel dosyası (XLSM dosyası) oluşturur. Rapor, DeploymentPlannerReport_<*benzersiz sayısal tanımlayıcı*>.xlsm olarak adlandırılıp belirtilen dizine yerleştirilir.
 
-Profil oluşturma tamamlandıktan sonra rapor oluşturma modunda hello aracını çalıştırabilirsiniz. Aşağıdaki tablonun hello zorunlu ve isteğe bağlı aracı parametreleri toorun rapor oluşturma modunda listesini içerir.
+Profil oluşturma tamamlandıktan sonra, aracı rapor oluşturma modunda çalıştırabilirsiniz. Aşağıdaki tabloda, rapor oluşturma modunda çalışmaya yönelik zorunlu ve isteğe bağlı parametreler listelenmiştir.
 
 `ASRDeploymentPlanner.exe -Operation GenerateReport /?`
 
 |Parametre adı | Açıklama |
 |-|-|
 | -Operation | GenerateReport |
-| -Server |  Merhaba vCenter/vSphere sunucusu tam olarak nitelenmiş etki alanı adı veya IP adresi (kullanımı hello aynı adı veya profil hello zamanında kullanılan IP adresi) burada, rapor oluşturulan toobe olan VM'ler hello profili konumlandırıldığını. Profil oluşturma hello aynı anda bir vCenter sunucusu kullandıysanız, bir vSphere sunucusu rapor oluşturma ve tam tersini kullanamayacağınızı unutmayın.|
-| -VMListFile | Rapor hello profili VM'ler hello listesini içeren hello için oluşturulan toobe dosyasıdır. Merhaba dosya yolunu mutlak veya göreli olabilir. Merhaba dosyası, bir VM adı veya IP adresi satır başına içermelidir. Merhaba dosyasında belirtilen hello VM adları olması hello hello vCenter sunucusu/vSphere ESXi konağına ve hangi profil oluşturma sırasında kullanılan eşleşme hello VM adları ile aynı.|
-| -Directory | (İsteğe bağlı) hello UNC veya yerel dizin yolu burada hello profili verileri (profil oluşturma sırasında oluşturulan dosyaları) depolanır. Bu veriler, hello raporu oluşturmak için gereklidir. Bir ad belirtilmezse, 'ProfiledData' dizini kullanılır. |
-| -GoalToCompleteIR | (İsteğe bağlı) hello VM'ler hello ilk çoğaltmasının hangi hello profili saat sayısını tamamlandı toobe gerekir. oluşturulan hello rapor sağlar, ilk çoğaltma tamamlanması belirtilen hello VM hello sayısı zaman. Merhaba, 72 saat varsayılandır. |
-| -User | (İsteğe bağlı) hello kullanıcı adı toouse tooconnect toohello vCenter/vSphere sunucusu. Merhaba, hello hello disk sayısı, çekirdek sayısı ve NIC'ler, hello rapordaki toouse sayısı gibi VM'ler kullanılan toofetch hello en son yapılandırma bilgilerini adıdır. Merhaba adı sağlanmadı hello kickoff profil hello başında toplanan hello yapılandırma bilgileri kullanılır. |
-| -Password | (İsteğe bağlı) hello parola toouse tooconnect toohello vCenter sunucusu/vSphere ESXi ana bilgisayar. Merhaba parola parametre olarak belirtilmezse, hello komutu çalıştırıldığında için daha sonra istenir. |
-| -DesiredRPO | (İsteğe bağlı) hello istenen kurtarma noktası hedefi, dakika cinsinden. Merhaba varsayılan değer 15 dakikadır.|
-| -Bandwidth | MB/sn cinsinden bant genişliği. Merhaba parametresi toouse toocalculate hello Merhaba elde edilebilir RPO bant genişliği belirtilmiş. |
-| -StartDate | (İsteğe bağlı) Merhaba, MM tarih ve saat Başlat-GG-YYYY:HH:MM (24 saat biçiminde). *StartDate* değeri *EndDate* ile birlikte belirtilmelidir. StartDate belirtildiğinde, hello rapor StartDate ve EndDate arasındaki toplanan hello profili veriler için oluşturulur. |
-| -EndDate | (İsteğe bağlı) hello son tarih ve saat AA-GG-YYYY:HH:MM (24 saat biçiminde). *EndDate* değeri *StartDate* ile birlikte belirtilmelidir. EndDate belirtildiğinde, hello rapor StartDate ve EndDate arasındaki toplanan hello profili veriler için oluşturulur. |
-| -GrowthFactor | Yüzde olarak ifade (isteğe bağlı) hello büyüme faktörü. Merhaba, yüzde 30 varsayılandır. |
-| -UseManagedDisks | (Optional) UseManagedDisks - Evet/Hayır. Varsayılan değer Evet’tir. sanal makinelerin tek bir depolama hesabına yerleştirilebilir Hello sayı olup olmadığını sanal makinelerin yük devretme ve Test yük devretme yönetilmeyen disk yerine yönetilen diskteki yapılır göz önünde bulundurularak hesaplanır. |
+| -Server |  Raporu oluşturulacak profili oluşturulmuş sanal makinelerin bulunduğu vCenter/vSphere sunucusu tam etki alanı adı veya IP adresi (profil oluşturma sırasında kullandığınız adın veya IP adresinin aynısını kullanın). Profil oluşturma sırasında bir vCenter sunucusu kullandıysanız, rapor oluşturma için vSphere sunucusu kullanamazsınız.|
+| -VMListFile | Raporun oluşturulacağı profili oluşturulmuş sanal makinelerin listesini içeren dosya. Dosya yolu mutlak veya göreli olabilir. Bu dosya her satırda bir VM adı veya IP adresi içermelidir. Dosyada belirtilen VM adları, vCenter sunucusu/vSphere ESXi ana bilgisayarındakilerle aynı olmalı ve profil oluşturma sırasında kullanılanla eşleşmelidir.|
+| -Directory | (İsteğe bağlı) Profili oluşturulan verilerin (profil oluşturma sırasında oluşturulan dosyalar) depolandığı UNC veya yerel dizin yolu. Bu veriler, rapor oluşturmak için gereklidir. Bir ad belirtilmezse, 'ProfiledData' dizini kullanılır. |
+| -GoalToCompleteIR | (İsteğe bağlı) Profili oluşturulan sanal makinelerin ilk çoğaltmasının tamamlanması gereken saat sayısı. Oluşturulan rapor, ilk çoğaltması belirtilen süre içinde tamamlanması gereken VM sayısını sağlar. Varsayılan değer 72 saattir. |
+| -User | (İsteğe bağlı) vCenter/vSphere sunucusuna bağlanmak için kullanılacak kullanıcı adı. Bu ad, sanal makinelerin disk sayısı, çekirdek sayısı, ağ arabirimi sayısı gibi raporda kullanılacak en son yapılandırma bilgilerini getirmek için kullanılır. Bir ad belirtilmezse, profil oluşturma işleminin başında toplanan yapılandırma bilgileri kullanılır. |
+| -Password | (İsteğe bağlı) vCenter sunucusuna/vSphere ESXi ana bilgisayarına bağlanmak için kullanılacak parola. Parola parametre olarak belirtilmezse, daha sonra komut yürütülürken sorulacaktır. |
+| -DesiredRPO | (İsteğe bağlı) Dakika cinsinden istenen kurtarma noktası hedefi. Varsayılan değer 15 dakikadır.|
+| -Bandwidth | MB/sn cinsinden bant genişliği. Belirtilen bant genişliği için ulaşılabilecek RPO’yu hesaplamak için kullanılan parametre. |
+| -StartDate | (İsteğe bağlı) AA-GG-YYYY:SS:DD (24 saat biçiminde) cinsinden başlangıç tarihi ve saati. *StartDate* değeri *EndDate* ile birlikte belirtilmelidir. StartDate belirtildiğinde, StartDate ile EndDate arasında toplanan profili oluşturulmuş veriler için rapor oluşturulur. |
+| -EndDate | (İsteğe bağlı) AA-GG-YYYY:SS:DD (24 saat biçiminde) cinsinden bitiş tarihi ve saati. *EndDate* değeri *StartDate* ile birlikte belirtilmelidir. EndDate belirtildiğinde, StartDate ile EndDate arasında toplanan profili oluşturulmuş veriler için rapor oluşturulur. |
+| -GrowthFactor | (İsteğe bağlı) Yüzde olarak ifade edilen büyüme faktörü. Varsayılan değer yüzde 30'dur. |
+| -UseManagedDisks | (Optional) UseManagedDisks - Evet/Hayır. Varsayılan değer Evet’tir. Tek bir depolama hesabında bulunabilecek sanal makine sayısı, sanal makinelerin Yük devretme işleminin/Yük devretme testinin yönetilmeyen disk yerine yönetilen disk üzerinde yapılıp yapılmadığına bağlı olarak hesaplanır. |
 
-#### <a name="example-1-generate-a-report-with-default-values-when-hello-profiled-data-is-on-hello-local-drive"></a>Örnek 1: hello profili veri hello yerel sürücüde olduğunda varsayılan değerlerine sahip bir rapor oluşturur
+#### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Örnek 1: Profili oluşturulan veriler yerel sürücüde olduğunda raporu varsayılan değerlerle oluşturma
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “\\PS1-W2K12R2\vCenter1_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
-#### <a name="example-2-generate-a-report-when-hello-profiled-data-is-on-a-remote-server"></a>Örnek 2: hello profili verilerini uzak bir sunucuda olduğunda bir rapor oluşturur
-Merhaba Uzak dizin üzerinde okuma/yazma erişimi olmalıdır.
+#### <a name="example-2-generate-a-report-when-the-profiled-data-is-on-a-remote-server"></a>Örnek 2: Profili oluşturulan veriler uzak bir sunucuda olduğunda rapor oluşturma
+Uzak dizin üzerinde okuma/yazma erişiminiz olmalıdır.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “\\PS1-W2K12R2\vCenter1_ProfiledData” -VMListFile “\\PS1-W2K12R2\vCenter1_ProfiledData\ProfileVMList1.txt”
 ```
 
-#### <a name="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-toocomplete-ir-within-specified-time"></a>Örnek 3: belirtilen süre içinde bir özel bant genişliği ve hedef toocomplete IR sahip bir rapor oluşturun
+#### <a name="example-3-generate-a-report-with-a-specific-bandwidth-and-goal-to-complete-ir-within-specified-time"></a>Örnek 3: Belirli bir bant genişliği ve belirtilen süre içinde IR tamamlama hedefi ile rapor oluşturma
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -Bandwidth 100 -GoalToCompleteIR 24
 ```
 
-#### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-hello-default-30-percent"></a>Örnek 4: hello varsayılan yüzde 30 yerine yüzde 5 büyüme faktörü ile bir rapor oluşturun
+#### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>Örnek 4: Yüzde 30’luk varsayılan değer yerine yüzde 5 büyüme faktörü ile rapor oluşturma
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
 ```
 
 #### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>Örnek 5: Profili oluşturulan verilerin bir alt kümesi ile rapor oluşturma
-Örneğin, 30 gün içinde profili veri ve toogenerate bir rapor yalnızca 20 gün boyunca istiyor.
+Örneğin, 30 günlük profili oluşturulmuş verilerinizin olduğunu ve raporu yalnızca 20 gün için oluşturduğunuzu varsayalım.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -StartDate  01-10-2017:12:30 -EndDate 01-19-2017:12:30
 ```
@@ -241,12 +241,12 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com 
 ASRDeploymentPlanner.exe -Operation GenerateReport -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -DesiredRPO 5
 ```
 
-## <a name="percentile-value-used-for-hello-calculation"></a>Merhaba hesaplama için kullanılan yüzdelik değer
-**Bir rapor oluşturduğunda mu hello aracı kullanım profil oluşturma sırasında hangi hello performans ölçümleri varsayılan yüzde birlik değerini toplanan?**
+## <a name="percentile-value-used-for-the-calculation"></a>Hesaplama için kullanılan yüzdelik değer
+**Rapor oluşturulurken, profil oluşturma sırasında toplanan performans ölçümlerinin hangi varsayılan yüzdelik dilim değeri araç tarafından kullanılır?**
 
-Merhaba aracı Varsayılanları toohello 95 yüzde birlik değerini okuma/yazma IOPS, IOPS ve tüm hello Vm'leri profil oluşturma sırasında toplanan veri dalgalanmasına yazma. Bu ölçüm, VM'ler nedeniyle geçici olayları görebilirsiniz bu hello 100 yüzdebirlik depo sağlar hedef depolama hesabı ve kaynak bant genişliği gereksinimlerini kullanılmaz toodetermine olduğu. Örneğin, geçici olay günde bir kez gerçekleştirilen bir yedekleme işi, düzenli aralıklarla yapılan veritabanı dizini oluşturma veya analiz raporu oluşturma etkinliği ya da kısa süreli diğer benzer olaylar olabilir.
+Aracın, tüm sanal makinelerin profili oluşturulurken toplanan okuma/yazma IOPS, yazma IOPS ve veri değişim sıklığı için varsayılan değeri yüzde 95’lik dilimdir. Bu ölçüm, VM’lerinizin geçici olaylar nedeniyle görebileceği %100’lük dilim artışının, hedef depolama hesabı ve kaynak bant genişliği gereksinimlerini belirlemek için kullanılmamasını sağlar. Örneğin, geçici olay günde bir kez gerçekleştirilen bir yedekleme işi, düzenli aralıklarla yapılan veritabanı dizini oluşturma veya analiz raporu oluşturma etkinliği ya da kısa süreli diğer benzer olaylar olabilir.
 
-Azure'da Hello iş yükleri çalıştırırken 95 yüzdebirlik değerleri kullanarak en iyi performans sağlar, gerçek iş yükü özellikleri ve doğru bir resmini sağlar hello. Biz bu numarayı toochange gerekir düşündüğünüz değil. Merhaba değerini (toohello 90 yüzdebirlik, örneğin) değiştirirseniz, hello yapılandırma dosyasını Güncelleştir *ASRDeploymentPlanner.exe.config* hello varsayılan klasör ve hello profili var olan yeni bir rapor toogenerate Kaydet veriler.
+Yüzde 95’lik dilim değeri, gerçek iş yükü özelliklerinin gerçek bir resmini verir ve bu iş yükleri Azure üzerinde çalışırken en iyi performansı sağlar. Bu sayıyı değiştirmenizin gerekli olacağı düşünülmemektedir. Bu sayıyı değiştirirseniz (örn. yüzde 90’lık dilime), bu *ASRDeploymentPlanner.exe.config* yapılandırma dosyasını varsayılan klasörde güncelleştirebilir ve kaydederek var olan profili oluşturulmuş verilere ilişkin yeni bir rapor oluşturabilirsiniz.
 ```
 <add key="WriteIOPSPercentile" value="95" />      
 <add key="ReadWriteIOPSPercentile" value="95" />      
@@ -256,17 +256,17 @@ Azure'da Hello iş yükleri çalıştırırken 95 yüzdebirlik değerleri kullan
 ## <a name="growth-factor-considerations"></a>Büyüme faktörü ile ilgili dikkat edilmesi gerekenler
 **Dağıtımları planlarken neden büyüme faktörünü göz önünde bulundurmalıyım?**
 
-Bu, olası artış kullanım zaman içindeki varsayılarak, iş yükü özellikleri büyüme için kritik tooaccount olur. İş yükü özelliklerini değiştirirseniz koruma yerinde olduktan sonra koruma için tooa farklı depolama hesabı devre dışı bırakma ve hello korumayı yeniden etkinleştirmeden geçemezsiniz.
+Zaman içindeki kullanımın olası artışı varsayılarak, iş yükü özelliklerinizde büyümenin hesaba katılması önemlidir. Koruma uygulandıktan sonra iş yükü özellikleriniz değişirse, korumayı devre dışı bırakıp yeniden etkinleştirmeden farklı bir depolama hesabına geçiş yapamazsınız.
 
-Örneğin, bugün sanal makinenizin standart bir depolama çoğaltma hesabına uygun olduğunu düşünelim. Merhaba sonraki üç ay, büyük olasılıkla toooccur bazı değişiklikler şunlardır:
+Örneğin, bugün sanal makinenizin standart bir depolama çoğaltma hesabına uygun olduğunu düşünelim. Önümüzdeki üç ay üzerinde bazı değişiklikler oluşabilir:
 
-* Merhaba VM üzerinde çalışan Merhaba uygulaması kullanıcı Hello sayısını artırır.
-* Site Recovery çoğaltma ayak tutabilirsiniz böylece hello elde edilen artan karmaşıklık hello VM üzerinde hello VM toogo toopremium depolama gerektirir.
-* Sonuç olarak, toodisable sahip ve koruma tooa premium depolama hesabı yeniden etkinleştirin.
+* VM üzerinde çalışan uygulamanın kullanıcı sayısı artar.
+* VM üzerinde artan değişim hızı, Site Recovery çoğaltmasının gerçekleştirilebilmesi için VM’nizin premium depolamaya geçmesini gerektirir.
+* Sonuç olarak, bir premium depolama hesabında korumayı devre dışı bırakıp yeniden etkinleştirmeniz gerekir.
 
-Dağıtım planlama sırasında ve hello varsayılan değer yüzde 30 durumdayken büyüme için planlama öneririz. Üzerinde uygulama kullanımı düzeni ve büyüme tahminleri hello uzman olan ve bu numarayı uygun şekilde değiştirebilirsiniz Rapor oluştururken oluştu. Ayrıca, birden çok raporlar oluşturabilir hello çeşitli büyüme faktörleriyle ile aynı veri profili ve en iyi sizin için ne tür hedef depolama ve kaynak bant genişliği öneriler çalışacağını belirler.
+Büyümeyi dağıtım planlaması sırasında ve varsayılan değer yüzde 30 iken planlamanız önerilir. Uygulamalarınızın kullanım desenini ve büyüme tahminlerini en iyi siz bilirsiniz ve rapor oluştururken bu sayıyı uygun şekilde siz değiştirebilirsiniz. Ayrıca, profili oluşturulmuş aynı verilerle farklı büyüme faktörleri içeren birden fazla rapor oluşturabilir ve en çok işinize yarayacak hedef depolama ile kaynak bant genişliği önerilerini belirleyebilirsiniz.
 
-Merhaba oluşturulan Microsoft Excel raporu aşağıdaki bilgilerle hello içerir:
+Oluşturulan Microsoft Excel raporu aşağıdaki bilgileri içerir:
 
 * [Girdi](site-recovery-deployment-planner.md#input)
 * [Öneriler](site-recovery-deployment-planner.md#recommendations-with-desired-rpo-as-input)
@@ -279,24 +279,24 @@ Merhaba oluşturulan Microsoft Excel raporu aşağıdaki bilgilerle hello içeri
 
 ## <a name="get-throughput"></a>Aktarım hızı alma
 
-Site Recovery elde edebilirsiniz tooestimate hello işleme tooAzure GetThroughput modunda hello aracı çoğaltma sırasında şirket içi. Merhaba aracı hello verimlilik aracı hello hello sunucusundan çalıştıran hesaplar. İdeal olarak, bu sunucu hello yapılandırma sunucusu boyutlandırma kılavuzu temel alır. Site Recovery bileşenleri şirket içi altyapısı zaten dağıttıysanız, hello aracı hello yapılandırma sunucusunda çalıştırın.
+Site Recovery’nin çoğaltma sırasında şirket içinden Azure’a elde edebildiği aktarım hızını tahmin etmek için aracı GetThroughput modunda çalıştırın. Araç, üzerinde çalıştığı sunucudan aktarım hızını hesaplar. Bu sunucunun yapılandırma sunucusu boyutlandırma kılavuzunu temel alması idealdir. Site Recovery altyapı bileşenlerini şirket içinde zaten dağıttıysanız, aracı yapılandırma sunucusunda çalıştırın.
 
-Komut satırı konsolunu açın ve toohello Site Recovery dağıtımı planlama aracı klasörüne gidin. ASRDeploymentPlanner.exe dosyasını aşağıdaki parametrelerle çalıştırın.
+Bir komut satırı konsolu açın ve Site Recovery dağıtım planlama aracının klasörüne gidin. ASRDeploymentPlanner.exe dosyasını aşağıdaki parametrelerle çalıştırın.
 
 `ASRDeploymentPlanner.exe -Operation GetThroughput /?`
 
 |Parametre adı | Açıklama |
 |-|-|
 | -Operation | GetThroughput |
-| -Directory | (İsteğe bağlı) hello UNC veya yerel dizin yolu burada hello profili verileri (profil oluşturma sırasında oluşturulan dosyaları) depolanır. Bu veriler, hello raporu oluşturmak için gereklidir. Bir dizin adı belirtilmezse ‘ProfiledData’ dizini kullanılır. |
-| -StorageAccountName | Şirket içi tooAzure veri çoğaltma için kullanılan tüketilen toofind hello bant genişliği hello depolama hesabı adı. tüketilen hello aracı yüklemeleri test veri toothis depolama hesabı toofind hello bant genişliği. |
-| -StorageAccountKey | tooaccess hello depolama hesabı kullandı hello depolama hesabı anahtarı. Toohello Azure portalına gidin > depolama hesapları ><*depolama hesabı adı*>> Ayarlar > erişim anahtarları > Key1 (veya bir Klasik depolama hesabı için birincil erişim anahtarını). |
-| -VMListFile | tüketilen hesaplama hello için bant genişliği profili VM'ler toobe hello listesini içeren hello dosyası. Merhaba dosya yolunu mutlak veya göreli olabilir. Merhaba dosya her satırda bir VM adı/IP adresi olmalıdır. Merhaba dosyasında belirtilen hello VM adları olması hello hello VM adları hello vCenter sunucusu/vSphere ESXi ana bilgisayarda aynı.<br>Örneğin, hello dosyası VMList.txt VM'ler aşağıdaki hello içerir:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
-| -Ortam | (isteğe bağlı) Bu, hedef Azure depolama hesabı ortamınızdır. Şu üç değerden herhangi birini alabilir: AzureCloud,AzureUSGovernment, AzureChinaCloud. Varsayılan seçenek AzureCloud değeridir. Hedef Azure bölgesi Azure ABD devlet kurumları veya Azure Çin bulut olduğunda hello parametresini kullanın. |
+| -Directory | (İsteğe bağlı) Profili oluşturulan verilerin (profil oluşturma sırasında oluşturulan dosyalar) depolandığı UNC veya yerel dizin yolu. Bu veriler, rapor oluşturmak için gereklidir. Bir dizin adı belirtilmezse ‘ProfiledData’ dizini kullanılır. |
+| -StorageAccountName | Şirket içinden Azure’a veri çoğaltma için kullanılan bant genişliğini bulmak için depolama hesabı adı. Araç, kullanılan bant genişliğini bulmak için test verilerini bu depolama hesabına yükler. |
+| -StorageAccountKey | Depolama hesabına erişmek için kullanılan depolama hesabı anahtarı. Azure portalı > Depolama hesapları > <*Depolama hesabı adı*> > Ayarlar > Erişim Anahtarları > Anahtar1 (veya klasik depolama hesabı için birincil erişim anahtarı) öğesine gidin. |
+| -VMListFile | Kullanılan bant genişliğini hesaplamak için profili oluşturulacak sanal makinelerin listesini içeren dosya. Dosya yolu mutlak veya göreli olabilir. Bu dosya her satırda bir VM adı/IP adresi içermelidir. Dosyada belirtilen sanal makine adı, vCenter sunucusu/vSphere ESXi ana bilgisayarındaki VM adıyla aynı olmalıdır.<br>Örneğin, VMList.txt dosyası aşağıdaki sanal makineleri içerir:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
+| -Ortam | (isteğe bağlı) Bu, hedef Azure depolama hesabı ortamınızdır. Şu üç değerden herhangi birini alabilir: AzureCloud,AzureUSGovernment, AzureChinaCloud. Varsayılan seçenek AzureCloud değeridir. Hedef Azure bölgeniz Azure US Government veya Azure China bulutları olduğunda ilgili parametreyi kullanın. |
 
-Merhaba aracı oluşturur birkaç 64 MB'lık asrvhdfile <> # .vhd dosyaları (burada "#" Merhaba dosyalarının sayısıdır) hello belirtilen dizinde. Merhaba aracı hello dosyaları toohello depolama hesabı toofind hello üretilen yükler. Merhaba verimlilik ölçülen sonra hello aracı hello depolama hesabından ve hello yerel sunucudan tüm hello dosyaları siler. Üretilen iş hesaplama sırasında hello aracı herhangi bir nedenle sonlandırıldıysa hello depolama veya hello yerel sunucudan hello dosyaları silin değil. Toodelete olacaktır bunları el ile.
+Araç, belirtilen dizinde 64 MB’lık birkaç asrvhdfile<#>.vhd (“#” sayıdır) dosyası oluşturur. Araç, aktarım hızını bulmak için dosyaları depolama hesabına yükler. Aktarım hızı ölçüldükten sonra araç tüm dosyaları depolama hesabından ve yerel sunucudan siler. Araç aktarım hızını hesaplarken herhangi bir nedenle sonlandırılırsa, dosyaları depolama alanından veya yerel sunucudan silmez. Bunları el ile silmeniz gerekir.
 
-Merhaba üretilen iş belirtilen bir noktada zamanında ölçülür ve bu Site kurtarma, çoğaltma sırasında elde edebilirsiniz hello en fazla üretilen tüm diğer etkenlere bağlı kalır koşuluyla aynı hello. Örneğin, herhangi bir uygulama çoğaltma sırasında aynı ağ, hello gerçek verimlilik değişir hello hakkında daha fazla bant genişliği tüketmesi başlarsa. Bir yapılandırma sunucusundan hello GetThroughput komutu çalıştırıyorsanız, hello aracı tüm korumalı sanal makineleri ve devam eden çoğaltmayı farkında değildir. Merhaba hello ölçülen işleme hello hello VM'ler korumalı işlemini çalıştırın GetThroughput karmaşıklığı yüksek veri varsa farklı sonucudur. Hello aracı çeşitli noktalarda toounderstand profil oluşturma sırasında zaman düzeyleri çeşitli zamanlarda elde edilebilir hangi verimlilik çalıştırmanızı öneririz. Merhaba raporda hello aracı hello son ölçülen işleme gösterir.
+Aktarım hızı belirli bir zaman noktasında ölçülür ve diğer tüm faktörlerin aynı kalması koşuluyla Site Recovery’nin çoğaltma sırasında ulaşabileceği en yüksek aktarım hızıdır. Örneğin, herhangi bir uygulama aynı ağ üzerinde daha fazla bant genişliği tüketmeye başlarsa, çoğaltma sırasında gerçek aktarım hızı farklılık gösterir. Bir yapılandırma sunucusundan GetThroughput komutunu çalıştırıyorsanız, araç korunan sanal makineleri ve devam eden çoğaltmayı fark etmez. Korunan VM’ler yüksek veri değişim sıklığına sahip olduğunda GetThroughput işlemi çalıştırılırsa, ölçülen aktarım hızının sonucu farklı olur. Çeşitli zamanlarda hangi aktarım hızı düzeylerine ulaşılabileceğini anlamak için, profil oluşturma sırasında farklı zaman noktalarında aracın çalıştırılması önerilir. Raporda, araç son ölçülen aktarım hızını gösterir.
 
 ### <a name="example"></a>Örnek
 ```
@@ -305,98 +305,98 @@ ASRDeploymentPlanner.exe -Operation GetThroughput -Directory  E:\vCenter1_Profil
 
 >[!NOTE]
 >
-> Hello aracı hello sahip bir sunucu üzerinde aynı depolama ve CPU özelliklerini hello yapılandırma sunucusu olarak.
+> Aracı, yapılandırma sunucusu ile aynı depolama ve CPU özelliklerine sahip bir sunucuda çalıştırın.
 >
-> Çoğaltma için hello önerilen bant genişliği toomeet hello RPO hello süresinin yüzde 100 olarak ayarlayın. Merhaba aracı tarafından raporlanan elde hello verimlilik artış görmüyorsanız, hello sağ bant genişliği, ayarladıktan sonra aşağıdaki hello:
+> Çoğaltma için, önerilen bant genişliğini sürenin yüzde 100’ünü karşılayacak şekilde ayarlayın. Doğru bant genişliğini sağladıktan sonra araç tarafından ulaşıldığı bildirilen aktarım hızında herhangi bir artış görmezseniz aşağıdakileri yapın:
 >
->  1. Toodetermine herhangi bir ağ, Site Recovery verimlilik sınırlama hizmet kalitesi (QoS) olup olmadığını denetleyin.
+>  1. Site Recovery aktarım hızını sınırlayan herhangi bir ağ Hizmet Kalitesi (QoS) olup olmadığını denetleyin.
 >
->  2. Site Recovery kasası hello fiziksel olarak desteklenen Microsoft Azure bölgesi toominimize ağ gecikmesini en yakın olup toodetermine denetleyin.
+>  2. Ağ gecikme süresini en aza indirmek için, Site Recovery kasanızın desteklenen en yakın fiziksel Microsoft Azure bölgesinde olup olmadığını denetleyin.
 >
->  3. Yerel depolama özellikleri toodetermine hello donanım (örneğin, HDD tooSSD) artırabilir olup olmadığını denetleyin.
+>  3. Donanımı iyileştirip iyileştiremeyeceğinizi (örneğin, HDD’den SSD’ye) belirlemek için yerel depolama özelliklerini denetleyin.
 >
->  4. Merhaba işlem sunucusu Hello Site Recovery ayarları çok değiştirmek[hello çoğaltma için kullanılan ağ bant genişliği miktarını artırmak](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
+>  4. [Çoğaltma için kullanılan ağ bant genişliği miktarını artırmak](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth) üzere işlem sunucusundaki Site Recovery ayarlarını değiştirin.
 
 ## <a name="recommendations-with-desired-rpo-as-input"></a>Girdi olarak istenen RPO ile öneriler
 
 ### <a name="profiled-data"></a>Profili oluşturulan veriler
 
-![Merhaba dağıtım Planlayıcısı Hello profili veri görünümü](./media/site-recovery-deployment-planner/profiled-data-period.png)
+![Dağıtım planlayıcısında profili oluşturulmuş veriler görünümü](./media/site-recovery-deployment-planner/profiled-data-period.png)
 
-**Profili veri süresi**: hello dönemi sırasında hangi hello profil çalıştırıldı. Belirli bir döneme ait hello raporu, rapor oluşturma sırasında StartDate ve EndDate seçenekleri kullanarak oluşturur sürece varsayılan olarak, tüm profili verileri hello aracı hello hesaplamadaki içerir.
+**Profili oluşturulmuş veri süresi**: Profil oluşturma işleminin gerçekleştirildiği süre. Varsayılan olarak, rapor oluşturma sırasında StartDate ve EndDate seçenekleri kullanılarak rapor belirli bir süre için oluşturulmadıkça araç, profili oluşturulmuş tüm verileri hesaplamaya dahil eder.
 
-**Sunucu adı**: hello adı veya IP adresini hello VMware vCenter veya ESXi ana bilgisayar, sanal makineleri rapor oluşturulur.
+**Sunucu Adı**: sanal makinelerinin raporu oluşturulan VMware vCenter veya ESXi ana bilgisayarının adı ya da IP adresi.
 
-**RPO istenen**: hello kurtarma noktası hedefi, dağıtımınız için. Varsayılan olarak, ağ bant genişliği için RPO değerleri 15, 30 ve 60 dakika cinsinden hesaplanır hello gereklidir. Merhaba seçimi temel alınarak, etkilenen hello değerler hello sayfasında güncelleştirilir. Merhaba kullandıysanız *DesiredRPOinMin* değeri hello istenen RPO sonuçlarda gösterilen hello raporu, oluşturma sırasında parametre.
+**İstenen RPO**: Dağıtımınıza yönelik kurtarma noktası hedefi. Varsayılan olarak, gerekli ağ bant genişliği 15, 30 ve 60 dakikalık RPO değerleri için hesaplanır. Seçim temel alınarak, etkilenen değerler sayfada güncelleştirilir. Raporu oluştururken *DesiredRPOinMin* parametresini kullandıysanız, değer İstenen RPO sonucunda gösterilir.
 
 ### <a name="profiling-overview"></a>Profil oluşturmaya genel bakış
 
-![Merhaba dağıtım Planlayıcısı sonuçlarında profil oluşturma](./media/site-recovery-deployment-planner/profiling-overview.png)
+![Dağıtım planlayıcısında profil oluşturma sonuçları](./media/site-recovery-deployment-planner/profiling-overview.png)
 
-**Toplam sanal makineleri profili**: hello profili verisini kullanılabilir sanal makineleri toplam sayısı. Merhaba VMListFile değil profili tüm VM'lerin adı varsa, bu VM'lerin hello rapor oluşturma dikkate alınmaz ve hello toplam profili VM'ler sayısını edilmez.
+**Profili Oluşturulan Toplam Sanal Makine Sayısı**: Profili oluşturulan verileri bulunan sanal makinelerin toplam sayısı. VMListFile dosyasında profili oluşturulmamış sanal makineler varsa, bu sanal makineler rapor oluşturma işleminde göz önünde bulundurulmaz ve profili oluşturulan toplam sanal makine sayısının dışında tutulur.
 
-**Uyumlu sanal makinelere**: Merhaba korumalı tooAzure Site RECOVERY'yi kullanarak olabilir VM sayısı. Bunu hello toplam hangi hello için gerekli ağ bant genişliği, depolama hesabı sayısı, Azure çekirdek sayısı ve yapılandırma sunucuları ve ek işlem sunucuları sayısı hesaplanır uyumlu VM'ler sayısıdır. Merhaba ayrıntıları her uyumlu VM hello "Uyumlu VM'ler" bölümünde kullanılabilir.
+**Uyumlu Sanal Makineler**: Site Recovery kullanılarak Azure’da korunabilen sanal makine sayısı. Bu sayı, gerekli ağ bant genişliği, depolama hesabı sayısı, Azure çekirdek sayısı ve yapılandırma sunucusu ile ek işlem sunucularının sayısının hesaplandığı uyumlu sanal makinelerin toplamıdır. Her uyumlu VM’nin ayrıntıları "Uyumlu VM’ler" bölümünde bulunabilir.
 
-**Uyumsuz sanal makineleri**: Merhaba Site Recovery ile koruma için uyumsuz profili VM sayısı. Uyumsuzluk Hello nedenlerle hello "Uyumsuz VM'ler" bölümünde belirtilmiştir. Merhaba VMListFile değil profili herhangi bir VM adlarını varsa, bu VM'lerin hello uyumsuz VM'ler sayısını hariç tutulur. Bu sanal makineleri hello "uyumsuz VM'ler" bölümünün hello sonunda "veri bulunamadı"olarak listelenir.
+**Uyumsuz Sanal Makineler**: Site Recovery ile koruma için uygun olmayan, profili oluşturulmuş sanal makine sayısı. Uyumsuzluğun nedenleri, “Uyumsuz VM’ler” bölümünde belirtilmiştir. VMListFile içinde profili oluşturulmamış bir sanal makinenin adı varsa, bu sanal makineler uyumsuz sanal makine sayısının dışında bırakılır. Bu sanal makineler, “Uyumsuz VM’ler” bölümünün sonunda “Veri bulunamadı” olarak listelenir.
 
-**İstenen RPO**: Dakika cinsinden istediğiniz kurtarma noktası hedefi. Merhaba rapor için üç RPO değerleri oluşturulur: 15 (varsayılan), 30-60 dakika. Merhaba bant genişliği öneri hello rapordaki hello sayfasının sağ hello üstünde hello istenen RPO aşağı açılan listesinde yaptığınız seçime göre değişir. Hello kullanarak, hello rapor oluşturulan durumunda *- DesiredRPO* özel bir değer parametresi, bu özel değer hello istenen RPO aşağı açılan listesinde hello varsayılan olarak gösterilir.
+**İstenen RPO**: Dakika cinsinden istediğiniz kurtarma noktası hedefi. Rapor üç RPO değeri için oluşturulur: 15 (varsayılan), 30 ve 60 dakika. Rapordaki bant genişliği önerisi, tablonun sağ üst köşesinde bulunan İstenen RPO açılır listesindeki seçiminize göre değişir. Raporu özel bir değer ile *-DesiredRPO* parametresini kullanarak oluşturduysanız, bu özel değer İstenen RPO açılır listesinde varsayılan olarak gösterilir.
 
 ### <a name="required-network-bandwidth-mbps"></a>Gerekli ağ bant genişliği (Mb/sn)
 
-![Merhaba dağıtım Planlayıcısı gerekli ağ bant genişliği](./media/site-recovery-deployment-planner/required-network-bandwidth.png)
+![Dağıtım planlayıcısında gerekli ağ bant genişliği](./media/site-recovery-deployment-planner/required-network-bandwidth.png)
 
-**toomeet RPO hello süresinin yüzde 100:** hello önerilen toobe MB/sn cinsinden bant genişliği, istenen RPO toomeet hello süresinin yüzde 100 ayrılmış. Bu bant genişliği miktarını olmalıdır herhangi bir RPO ihlal tüm uyumlu VM'ler tooavoid kararlı durum değişim çoğaltması için ayrılmış.
+**Yüzde 100 RPO süresini karşılamak için:** İstediğiniz yüzde 100 RPO süresini karşılamak için Mb/sn cinsinden ayrılacak önerilen bant genişliğidir. Bu bant genişliği miktarı, herhangi bir RPO ihlalini önlemek üzere tüm uyumlu sanal makinelerinizin kararlı durum delta çoğaltması için ayrılmalıdır.
 
-**toomeet RPO yüzde 90'hello süre**: İstenen RPO hello süresinin yüzde 100 hello gerekli bant genişliği toomeet ayarlanamaz, geniş bant fiyatlandırma nedeniyle ya da herhangi bir nedenle toogo ayarını daha düşük bir bant genişliğine sahip karşılamak seçebileceğini, İstenen RPO yüzde 90'hello süre. Bu daha düşük bant genişliği ayarı toounderstand hello etkilerini, hello sayısını ve süresini RPO ihlalleri tooexpect üzerinde bir çözümlemeleri hello rapor sağlar.
+**Yüzde 90 RPO süresini karşılamak için**: Geniş bant fiyatlandırması veya istediğiniz yüzde 100 RPO süresini karşılamak için gereken bant genişliğini ayarlayamamanız durumunda başka bir nedenle, istediğiniz yüzde 90 RPO süresini karşılayabilen daha düşük bir bant genişliği ayarlamayı seçebilirsiniz. Daha düşük olan bu bant genişliğini ayarlamanın etkilerini anlamak için, raporda beklenen RPO ihlallerinin sayısı ve süresine ilişkin bir ne yapmalı analizi sağlar.
 
-**Arşivlenmiş verimlilik:** çalıştırdığınız hello GetThroughput komutu toohello Microsoft Azure bölgesini hello depolama hesabının bulunduğu hello sunucusundan hello işleme. Bu işleme sayı yapılandırma sunucusu veya işlem sunucusu depolama ve ağ özellikleri kalır sağlanan kullanarak Site Recovery uyumlu sanal makineleri aynı aynı hello hello koruduğunuzda, elde edebileceğiniz tahmini hello düzeyini gösterir Merhaba sunucu hello aracını çalıştırmanız gerekir.
+**Elde Edilen Aktarım Hızı**: Depolama hesabının bulunduğu Microsoft Azure bölgesine GetThroughput komutunu gönderdiğiniz sunucudan aktarım hızıdır. Bu aktarım hızı sayısı, yapılandırma sunucusu veya işlem sunucusu depolama ve ağ özelliklerinin, aracı çalıştırdığınız sunucudaki özelliklerle aynı kalması şartıyla, Site Recovery kullanarak uyumlu VM’leri korurken elde edebileceğiniz tahmini düzeyi gösterir.
 
-Çoğaltma için hello önerilen bant genişliği toomeet hello RPO hello süresinin yüzde 100 ayarlamanız gerekir. Merhaba aracı tarafından raporlanan elde hello verimlilik, herhangi bir artış görmüyorsanız, hello bant genişliği'ni ayarladıktan sonra aşağıdaki hello yapın:
+Çoğaltma için, önerilen bant genişliğini sürenin yüzde 100’ünü karşılayacak şekilde ayarlamanız gerekir. Bant genişliğini ayarladıktan sonra araç tarafından ulaşıldığı bildirilen aktarım hızında herhangi bir artış görmezseniz aşağıdakileri yapın:
 
-1. Toosee herhangi bir ağ, Site Recovery verimlilik sınırlama hizmet kalitesi (QoS) olup olmadığını denetleyin.
+1. Site Recovery aktarım hızını sınırlayan herhangi bir ağ Hizmet Kalitesi (QoS) olup olmadığını denetleyin.
 
-2. Site Recovery kasası hello fiziksel olarak desteklenen Microsoft Azure bölgesi toominimize ağ gecikmesini en yakın olup toosee denetleyin.
+2. Ağ gecikme süresini en aza indirmek için, Site Recovery kasanızın desteklenen en yakın fiziksel Microsoft Azure bölgesinde olup olmadığını denetleyin.
 
-3. Yerel depolama özellikleri toodetermine hello donanım (örneğin, HDD tooSSD) artırabilir olup olmadığını denetleyin.
+3. Donanımı iyileştirip iyileştiremeyeceğinizi (örneğin, HDD’den SSD’ye) belirlemek için yerel depolama özelliklerini denetleyin.
 
-4. Merhaba işlem sunucusu Hello Site Recovery ayarları çok değiştirmek[hello tutar ağ bant genişliği çoğaltma için kullanılan artırmak](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
+4. [Çoğaltma için kullanılan ağ bant genişliği miktarını artırmak](./site-recovery-plan-capacity-vmware.md#control-network-bandwidth) üzere işlem sunucusundaki Site Recovery ayarlarını değiştirin.
 
-Merhaba aracı yapılandırma sunucusu ya da sanal makineleri zaten korumalı işlem sunucusu çalıştırıyorsanız birkaç kez hello aracını çalıştırın. Merhaba verimlilik sayı değişiklikleri zamandaki o noktada işlenmekte olan karmaşası hello miktarını bağlı olarak elde.
+Aracı korunan sanal makinelere zaten sahip olan bir yapılandırma sunucusu veya işlem sunucusu üzerinde çalıştırıyorsanız, aracı birkaç kez çalıştırın. Elde edilen aktarım hızı sayısı, zamanın o noktasında işlenen değişim hızı miktarına bağlı olarak değişir.
 
 Tüm kurumsal Site Recovery dağıtımları için [ExpressRoute](https://aka.ms/expressroute) kullanılması önerilir.
 
 ### <a name="required-storage-accounts"></a>Gerekli depolama hesapları
-Tüm gerekli tooprotect olan grafik gösterir (standart ve premium) hello sayısı toplam depolama hesapları aşağıdaki hello uyumlu VM'ler hello. Her VM için hangi depolama hesabı toouse toolearn hello "VM depolama yerleştirme" bölümüne bakın.
+Aşağıdaki grafikte tüm uyumlu sanal makineleri korumak için gereken depolama hesaplarının (standart ve premium) toplam sayısı gösterilmektedir. Her bir VM için kullanılacak depolama hesabını öğrenmek için "VM depolama yerleşimi" bölümüne bakın.
 
-![Gerekli depolama hesaplarında hello dağıtım Planlayıcısı](./media/site-recovery-deployment-planner/required-azure-storage-accounts.png)
+![Dağıtım planlayıcısında gerekli depolama hesapları](./media/site-recovery-deployment-planner/required-azure-storage-accounts.png)
 
 ### <a name="required-number-of-azure-cores"></a>Gerekli Azure çekirdek sayısı
-Tüm yük devretme veya test yük devretme hello önce uyumlu VM'ler ayarlamanız çekirdek toobe toplam sayısı hello sonucudur. Çok az çekirdek hello abonelikte varsa, Site Recovery toocreate VM'ler hello aynı anda başarısız olur. yük devretme veya yük devretme testi.
+Bu sonuç, tüm uyumlu sanal makinelerin yük devretme işlemi ya da yük devretme testi öncesinde ayarlanması gereken toplam çekirdek sayısıdır. Abonelikte çok az sayıda çekirdek varsa, yük devretme testi veya yük devretme sırasında Azure Site Recovery, sanal makineleri oluşturamaz.
 
-![Merhaba dağıtım Planlayıcısı içinde Azure çekirdek sayısı](./media/site-recovery-deployment-planner/required-number-of-azure-cores.png)
+![Dağıtım planlayıcısında gereken Azure çekirdek sayısı](./media/site-recovery-deployment-planner/required-number-of-azure-cores.png)
 
 ### <a name="required-on-premises-infrastructure"></a>Gerekli şirket içi altyapısı
-Bu şekil hello toplam sayısıdır yapılandırma sunucularına ve, tooprotect yeterli yapılandırılmış ek işlem sunucuları toobe tüm uyumlu VM'ler hello. Desteklenen hello bağlı olarak [boyut hello yapılandırma sunucusu için öneriler](https://aka.ms/asr-v2a-on-prem-components), hello aracı ek sunucular önerilir. hangisi ilk hello yapılandırma sunucusu veya hello ek işlem sunucusu isabet, Hello öneri hello hello gün başına karmaşası veya hello üst sınırını (VM başına üç disk ortalama varsayılarak) korumalı VM'lerin daha büyük temel alır. Her gün ve korumalı disklerin toplam sayısı toplam karmaşıklığa hello ayrıntılarını hello "Giriş" bölümünde bulabilirsiniz.
+Bu sayı, tüm uyumlu sanal makineleri korumak için yapılandırılması gereken yapılandırma sunucusu ve ek işlem sunucularının toplam sayısıdır. [Yapılandırma sunucusu için desteklenen boyut önerilerine](https://aka.ms/asr-v2a-on-prem-components) bağlı olarak, araç ek sunucular önerebilir. Öneri, günlük değişim sıklığı veya en fazla korunan VM sayısından (VM başına ortalama üç disk olduğu varsayılarak) yapılandırma sunucusu veya ek işlem sunucusunda ilk gerçekleşen olaya göre yapılır. Günlük toplam değişim sıklığı ve toplam korunan disk sayısına ilişkin ayrıntılar “Girdi” tablosunda bulunabilir.
 
-![Şirket içi altyapıda hello dağıtım Planlayıcısı](./media/site-recovery-deployment-planner/required-on-premises-infrastructure.png)
+![Dağıtım planlayıcısında gerekli şirket içi altyapı](./media/site-recovery-deployment-planner/required-on-premises-infrastructure.png)
 
 ### <a name="what-if-analysis"></a>Benzetim analiz
-Bu çözümleme, kaç tane ihlalleri hello süresinin yüzde 90'yalnızca istenen hello RPO toobe için daha düşük bir bant genişliği karşılanır ayarladığınızda dönemi profil hello sırasında gerçekleşebilir özetlenmektedir. Belirli bir günde bir veya daha fazla RPO ihlali ortaya çıkabilir. Merhaba grafik hello yoğun hello günün RPO gösterir.
-Bu analize dayalı olarak, tüm gün ve yoğun günde isabet RPO arasında RPO ihlalleri hello sayısı ile kabul edilebilir ise hello daha düşük bant genişliği belirtilen karar verebilirsiniz. Kabul edilebilir ise, çoğaltma için hello daha düşük bant genişliği ayırma, başka önerilen toomeet hello RPO hello süresinin yüzde 100 istendiği gibi hello daha yüksek bant genişliği ayırma.
+Bu analiz, sürenin yalnızca yüzde 90’ını karşılamasını istediğiniz RPO için daha düşük bir bant genişliği ayarladığınızda profil oluşturma sırasında kaç tane ihlal oluşabileceğini özetler. Belirli bir günde bir veya daha fazla RPO ihlali ortaya çıkabilir. Grafik, günün yoğun RPO değerini gösterir.
+Bu analizi temel alarak, belirtilen düşük bant genişliği ile tüm günlerdeki RPO ihlali sayısının ve bir gündeki en yoğun RPO gerçekleşme zamanının kabul edilebilir olup olmadığına karar verebilirsiniz. Değer kabul edilebilir düzeydeyse, çoğaltma için düşük bant genişliği ayırabilirsiniz; aksi takdirde, istenilen yüzde 100 RPO süresini karşılamak üzere önerilen yüksek bant genişliğini ayırmanız gerekir.
 
-![Çözümlemeleri hello dağıtım Planlayıcısı içinde](./media/site-recovery-deployment-planner/what-if-analysis.png)
+![Dağıtım planlayıcısında benzetim analizi](./media/site-recovery-deployment-planner/what-if-analysis.png)
 
 ### <a name="recommended-vm-batch-size-for-initial-replication"></a>İlk çoğaltma için önerilen VM toplu iş boyutu
-Bu bölümde, bant genişliği toomeet RPO ayarlanan hello süresinin yüzde 100 istenen hello hello ile 72 saat içinde paralel toocomplete hello ilk çoğaltma, korumalı VM'lerin sayısını önerilen öneririz. Bu değer yapılandırılabilir bir değerdir. toochange, rapor oluşturma zamanında kullanım hello *GoalToCompleteIR* parametresi.
+Bu bölümde, ayarlanmakta olan sürenin %100 RPO değerini karşılamak amacıyla ilk çoğaltmayı önerilen bant genişliği ile 72 saat içinde tamamlamak için paralel olarak korunması gereken sanal makine sayısı önerilmektedir. Bu değer yapılandırılabilir bir değerdir. Rapor oluşturma zamanında bu değeri değiştirmek için *GoalToCompleteIR* parametresini kullanın.
 
-Merhaba grafiği burada gösterir bant genişliği değerleri aralığı ve hello ortalama dayalı bir hesaplanan VM toplu iş boyutu sayısı toocomplete ilk çoğaltma 72 saat olarak algılanan VM boyutu tüm hello uyumlu VM'ler.
+Buradaki grafikte, tüm uyumlu makinelerde algılanan ortalama sanal makine boyutuna göre 72 saat içinde ilk çoğaltmayı tamamlamak için bir bant genişliği değer aralığı ve hesaplanmış sanal makine toplu iş boyutu sayısı gösterilmektedir.
 
-Merhaba genel önizlemede hello raporu hangi sanal makineleri bir toplu işlemde eklenmesi gereken belirtmiyor. Her sanal makinenin boyutu hello "uyumlu VM'ler" bölümü toofind gösterilen hello disk boyutu kullanın ve bunları toplu işlemi için seçin ya da bilinen iş yükü özellikler temelinde hello VM'ler seçebilirsiniz. Hello tamamlanma zamanı hello ilk çoğaltma değişiklikleri orantılı hello gerçek VM disk boyutuna göre kullanılan disk alanı ve kullanılabilir ağ verimliliği.
+Genel önizleme sürümünde rapor, bir toplu işe hangi sanal makinelerin dahil edilmesi gerektiğini belirtmez. Her bir sanal makinenin boyutunu bulmak ve bir toplu işe yönelik sanal makinelerinizi seçmek ya da bilinen iş yükü özelliklerine göre seçim yapmak için, “Uyumlu VM’ler” bölümünde gösterilen disk boyutunu kullanabilirsiniz. İlk çoğaltmayı tamamlama süresi, gerçek VM disk boyutu, kullanılan disk alanı ve kullanılabilir ağ aktarım hızı ile doğru orantılı bir şekilde değişir.
 
 ![Önerilen VM toplu iş boyutu](./media/site-recovery-deployment-planner/recommended-vm-batch-size.png)
 
 ### <a name="growth-factor-and-percentile-values-used"></a>Kullanılan büyüme faktörü ve yüzdelik değerler
-Bu bölümde hello hello altındaki sayfa gösterir hello yüzdelik değer tüm hello performans sayaçlarının (varsayılan olarak 95) hello profili VM'ler için kullanılan ve hello büyüme faktörü (varsayılan değer yüzde 30) hesaplamalarının hello kullanılır.
+Tablonun alt kısmındaki bu bölümde, profili oluşturulan sanal makinelerin tüm performans sayaçları için kullanılan yüzdelik dilim değeri (varsayılan değer yüzde 95’lik dilim) ve tüm hesaplamalarda kullanılan büyüme faktörü (varsayılan değer yüzde 30) gösterilmektedir.
 
 ![Kullanılan büyüme faktörü ve yüzdelik değerler](./media/site-recovery-deployment-planner/max-iops-and-data-churn-setting.png)
 
@@ -404,129 +404,129 @@ Bu bölümde hello hello altındaki sayfa gösterir hello yüzdelik değer tüm 
 
 ![Girdi olarak kullanılabilir bant genişliği ile ilgili öneriler](./media/site-recovery-deployment-planner/profiling-overview-bandwidth-input.png)
 
-Site Recovery çoğaltması için x MB/sn’den fazla bant genişliği ayarlayamayacağınızı bildiğiniz bir durumla karşılaşabilirsiniz. Merhaba aracı tooinput kullanılabilir bant genişliği sağlar (kullanarak hello - bant genişliği parametre rapor oluşturma sırasında) ve ulaşılabilir RPO dakika cinsinden hello Al. Ulaşılabilir bir RPO değeri ile tooset ek bant genişliği yukarı gerekir ya da bu rpo'lu bir olağanüstü durum kurtarma çözümüne sahip olan Tamam olduğunu karar verebilirsiniz.
+Site Recovery çoğaltması için x MB/sn’den fazla bant genişliği ayarlayamayacağınızı bildiğiniz bir durumla karşılaşabilirsiniz. Araç, kullanılabilir bant genişliğini girmenize (rapor oluşturma sırasında -Bandwidth parametresini kullanarak) ve dakika cinsinden ulaşılabilir RPO değerini almanıza olanak tanır. Bu ulaşılabilir RPO değeriyle ek bant genişliği ayarlamanızın gerekli olup olmadığına veya bu RPO ile bir olağanüstü durum kurtarma çözümüne sahip olmak isteyip istemediğinize karar verebilirsiniz.
 
 ![500 MB/sn bant genişliği için elde edilebilen RPO](./media/site-recovery-deployment-planner/achievable-rpos.png)
 
 ## <a name="input"></a>Girdi
-Merhaba giriş çalışma hello genel bir bakış VMware ortam profili sağlar.
+Girdi çalışma sayfası, profili oluşturulmuş VMware ortamına genel bir bakış sağlar.
 
-![VMware ortamı hello genel bakış profili](./media/site-recovery-deployment-planner/Input.png)
+![Profili oluşturulmuş VMware ortamına genel bakış](./media/site-recovery-deployment-planner/Input.png)
 
-**Başlangıç tarihi** ve **bitiş tarihi**: hello profil oluşturma rapor oluşturmak amacıyla kabul verilerini hello başlangıç ve bitiş tarihleri. Varsayılan olarak, hello başlangıç tarihi profil oluşturma başlatıldığında, başlangıç tarihidir ve hello bitiş tarihi başlangıç tarihi profil durduğunda. Bu parametrelerle Hello rapor oluşturulursa bu hello 'StartDate' ve 'EndDate' değerleri olabilir.
+**Başlangıç Tarihi** ve **Bitiş Tarihi**: Rapor oluşturma için göz önünde bulundurulan profil oluşturma verilerinin başlangıç ve bitiş tarihleri. Varsayılan olarak, başlangıç tarihi profil oluşturmanın başladığı, bitiş tarihi ise profil oluşturmanın durdurulduğu tarihtir. Rapor bu parametrelerle oluşturulduysa bunlar ‘StartDate’ ve ‘EndDate’ değerleri olabilir.
 
-**Toplam sayısı gün Profil**: hello toplam arasında hello profil oluşturma gün sayısı başlangıç ve bitiş tarihleri hangi Merhaba rapor oluşturulur.
+**Profil oluşturulan toplam gün sayısı**: Raporun oluşturulduğu başlangıç ile bitiş tarihleri arasında profil oluşturulan toplam gün sayısı.
 
-**Uyumlu sanal makine sayısı**: uyumlu VM'ler hangi gerekli hello ağ bant genişliği için toplam sayısını Merhaba, gereken sayıda depolama hesapları, Microsoft Azure çekirdek yapılandırma sunucularına ve ek işlem sunucusu hesaplanır.
+**Uyumlu sanal makine sayısı**: Gerekli ağ bant genişliği, gerekli depolama hesabı sayısı, Microsoft Azure çekirdek sayısı ve yapılandırma sunucusu ile ek işlem sunucularının sayısının hesaplandığı uyumlu sanal makinelerin toplamı.
 
-**Uyumlu tüm sanal makineleri disklerde toplam sayısı**: hello biri olarak kullanılan hello numarası girdi yapılandırma sunucularına ve ek işlem sunucuları toobe hello dağıtımında kullanılan toodecide hello sayısı.
+**Tüm uyumlu sanal makinelerdeki toplam disk sayısı**: Bu sayı, dağıtımda kullanılacak yapılandırma sunucusu ve ek işlem sunucusu sayısına karar vermeye yönelik girdilerden biri olarak kullanılır.
 
-**Disk uyumlu sanal makine başına ortalama sayısı**: hello ortalama disk sayısı hesaplanan tüm uyumlu VM'ler arasında.
+**Bir uyumlu sanal makinedeki ortalama disk sayısı**: Tüm uyumlu sanal makinelerde hesaplanan ortalama disk sayısıdır.
 
-**Ortalama disk boyutu (GB)**: hello ortalama disk boyutu tüm uyumlu VM'ler üzerindeki hesaplanır.
+**Ortalama disk boyutu (GB)**: Tüm uyumlu sanal makinelerde hesaplanan ortalama disk boyutudur.
 
-**RPO (dakika) istenen**: ya da hello varsayılan kurtarma noktası hedefi veya hello geçirilen değer hello 'DesiredRPO' parametresi için rapor oluşturma tooestimate gerekli hello aynı anda bant genişliği.
+**İstenen RPO (dakika)**: Varsayılan kurtarma noktası hedefi veya rapor oluşturma sırasında gerekli bant genişliğini tahmin etmek üzere ‘DesiredRPO’ parametresi için geçirilen değer.
 
-**Bant genişliği (Mbps) istenen**: Merhaba rapor oluşturma tooestimate hello aynı anda hello 'Bant genişliği' parametresi için geçirilen değer elde edilebilir RPO.
+**İstenen bant genişliği (Mb/sn)**: Rapor oluşturma sırasında ulaşılabilir RPO’yu tahmin etmek üzere ‘Bandwidth’ parametresi için geçirdiğiniz değerdir.
 
-**Gözlemlenen tipik veri dalgalanmasına (GB) günde**: hello ortalama veri dalgalanmasına gözlemlenen tüm profil gün boyunca. Bu sayı, hello girişleri toodecide hello yapılandırması sunucuların sayısını ve ek işlem sunucuları toobe hello dağıtımında kullanılan biri olarak kullanılır.
+**Bir günde gözlemlenen tipik veri değişim sıklığı (GB)**: Profil oluşturulan tüm günlerde gözlemlenen ortalama veri değişim sıklığıdır. Bu sayı, dağıtımda kullanılacak yapılandırma sunucusu ve ek işlem sunucusu sayısına karar vermeye yönelik girdilerden biri olarak kullanılır.
 
 
 ## <a name="vm-storage-placement"></a>VM-depolama yerleşimi
 
 ![VM-depolama yerleşimi](./media/site-recovery-deployment-planner/vm-storage-placement.png)
 
-**Disk depolama türü**: tüm hello hello bahsedilen karşılık gelen VM'ler kullanılan tooreplicate olan herhangi bir standart veya premium depolama hesabı **VM'ler tooPlace** sütun.
+**Disk Depolama Türü**: **Yerleştirilecek VM’ler** sütununda bahsedilen tüm ilgili sanal makineleri çoğaltmak için kullanılan standart veya premium depolama hesabıdır.
 
-**Önek önerilen**: hello depolama hesabını adlandırma için kullanılabilecek hello önerilen üç karakterli öneki. Kendi önek kullanabilirsiniz, ancak hello aracın öneri izleyen hello [depolama hesapları için adlandırma kuralı bölüm](https://aka.ms/storage-performance-checklist).
+**Önerilen Ön Ek**: depolama hesabını adlandırmak için kullanılabilecek, üç karakterli bir önerilen ön ektir. Kendi ön ekinizi kullanabilirsiniz, ancak aracın önerisi [depolama hesapları için bölüm adlandırma kuralına](https://aka.ms/storage-performance-checklist) uygundur.
 
-**Hesap adı önerilen**: hello önerilen önekini ekleyin sonra hello depolama hesabı adı. Merhaba adı içinde hello açılı ayraçları (< ve >) özel girişinizi ile değiştirin.
+**Önerilen Hesap Adı**: Önerilen ön eki ekledikten sonra depolama hesabı adı. Köşeli ayraç (< ve >) içindeki adı özel girdinizle değiştirin.
 
-**Depolama hesabı oturum**: tüm hello çoğaltma günlükleri bir standart depolama hesabında depolanır. Bir ek bir standart depolama hesabı için günlük depolama tooa premium depolama hesabı çoğaltması VM'ler için ayarlayın. Tek bir standart kayıt depolama hesabı, birden fazla premium çoğaltma depolama hesabı tarafından kullanılabilir. Çoğaltılmış toostandard depolama hesaplarını kullanacak olan VM'ler hello günlükleri için aynı depolama hesabı.
+**Kayıt Depolama Hesabı:** Tüm çoğaltma kayıtları standart bir depolama hesabında depolanır. Premium depolama hesabına çoğaltılan sanal makineler için günlük depolamaya yönelik ek bir standart depolama hesabı oluşturun. Tek bir standart kayıt depolama hesabı, birden fazla premium çoğaltma depolama hesabı tarafından kullanılabilir. Standart depolama hesaplarına çoğaltılan sanal makineler, kayıtlarla aynı depolama hesabını kullanır.
 
-**Günlük hesap adı önerilen**: hello önerilen önekini ekleyin sonra depolama günlük hesap adınız. Merhaba adı içinde hello açılı ayraçları (< ve >) özel girişinizi ile değiştirin.
+**Önerilen Günlük Hesabı Adı**: Önerilen ön eki ekledikten sonra depolama günlük hesabı adı. Köşeli ayraç (< ve >) içindeki adı özel girdinizle değiştirin.
 
-**Yerleştirme Özet**: hello özetini hello depolama hesabı VM'lerin yükünü çoğaltma hello aynı anda toplam ve yük devretme veya yük devretme testi. Bu depolama hesabında, toplam yerleştirilen tüm VM'ler arasında IOPS yazma (Çoğaltma) IOPS, toplam kurulum boyutu tüm diskleri ve disk toplam sayısı, sanal makineleri eşlenen toohello depolama hesabı, toplam okuma/yazma hello toplam sayısını içerir.
+**Yerleştirme Özeti**: Çoğaltma ve yük devretme testi veya yük devretme sırasında depolama hesabındaki toplam sanal makine yükünün özeti. Buna depolama hesabıyla eşlenmiş toplam sanal makine sayısı, bu depolama hesabına yerleştirilen tüm sanal makinelerdeki toplam okuma/yazma IOPS sayısı, toplam yazma (çoğaltma) IOPS sayısı, tüm disklerde ayarlanan toplam boyut ve toplam disk sayısı dahildir.
 
-**Sanal makineler tooPlace**: tüm listesini hello en iyi performans ve kullanım için depolama hesabı verilen hello yerleştirilmelidir VM'ler.
+**Yerleştirilecek Sanal Makineler**: En iyi performans ve kullanım için belirli bir depolama hesabına yerleştirilmesi gereken tüm sanal makinelerin listesi.
 
 ## <a name="compatible-vms"></a>Uyumlu VM’ler
 ![Uyumlu VM'lerin Excel elektronik tablosu](./media/site-recovery-deployment-planner/compatible-vms.png)
 
-**VM adı**: VM adını veya bir rapor oluşturulduğunda hello VMListFile kullanılan IP adresini hello. Bu sütun, aynı zamanda ekli toohello VM'ler hello diskleri (VMDKs) listeler. toodistinguish vCenter VM'ler yinelenen adları veya IP adresleri ile Merhaba adlarını hello ESXi ana bilgisayar adını içerir. Merhaba listelenen ESXi hello bir dönem profil hello sırasında hello aracı tespit ettiğinizde burada hello VM yerleştirilen yöneticisidir.
+**VM Adı**: Bir rapor oluşturulurken VMListFile içinde kullanılan VM adı veya IP adresi. Bu sütunda ayrıca sanal makinelere bağlanan diskler (VMDK) listelenir. Yinelenen adlara veya IP adreslerine sahip vCenter sanal makinelerini birbirinden ayırt etmek için, adlar ESXi ana bilgisayar adını içerir. Listelenen ESXi ana bilgisayarı, profil oluşturma sırasında araç keşfettiğinde VM’in yerleştirildiği yerdir.
 
-**VM Uyumluluğu**: Değerler **Evet** ve **Evet**\* şeklindedir. **Evet** \* için hangi hello VM için uygun olan örnekleri [Azure Premium Storage](https://aka.ms/premium-storage-workload). Burada, yüksek karmaşası hello profili veya IOPS disk hello P20 veya P30 kategorideki uygun ancak hello hello diskin boyutunu P10 veya P20 tooa eşlenen toobe neden olur. Merhaba depolama hesabı, premium depolama disk tabanlı için boyutuna bir disk toomap yazın karar verir. Örneğin:
+**VM Uyumluluğu**: Değerler **Evet** ve **Evet**\* şeklindedir. **Evet**\* değer, VM’nin [Azure Premium Depolama](https://aka.ms/premium-storage-workload) için uygun olduğu örneklere yöneliktir. Burada, profili oluşturulmuş yüksek değişim sıklığı veya IOPS diski P20 ya da P30 kategorisine uyar, ancak diskin boyutu diskin bir P10 veya P20 ile eşlenmesine neden olur. Depolama hesabı, bir diskin boyutuna göre hangi premium depolama disk türüne eşleneceğine karar verir. Örneğin:
 * <128 GB bir P10’dur.
-* 128 GB too512 bir P20 GB'dir.
-* 512 GB too1024 bir P30 GB'dir.
-* 1025 bir P40 GB too2048 GB'dir.
-* 2049 bir P50 GB too4095 GB'dir.
+* 128 GB ile 512 GB arası P20'dir.
+* 512 GB ile 1024 GB arası P30'dur.
+* 1025 GB ile 2048 GB arası P40'dır.
+* 2049 GB ile 4095 GB arası P50'dir.
 
-Bir disk Hello iş yükü özelliklerini put, bunu, hello P20 veya P30 kategori, ancak hello boyutu eşler, tooa alt premium depolama disk türü, hello aracı bu VM olarak işaretler **Evet**\*. Merhaba aracı ayrıca premium depolama disk türü önerilen hello hello kaynak disk boyutu toofit değiştirin ya da hello hedef disk türü yük devretme sonrasında değiştirmek, önerir.
+Bir diskin iş yükü özellikleri diski P20 veya P30 kategorisine koyarken boyutu nedeniyle daha düşük bir premium depolama disk türüne eşleniyorsa, araç bu VM’yi **Evet**\* olarak işaretler. Araç ayrıca kaynak disk boyutunu önerilen premium depolama disk türüne uyacak şekilde değiştirmenizi veya hedef disk türünü yük devretme sonrasını değiştirmenizi önerir.
 
 **Depolama Türü**: Standart veya Premium.
 
-**Önek önerilen**: hello üç karakterli depolama hesabı öneki.
+**Önerilen Ön Ek**: Üç karakterli depolama hesabı ön ekidir.
 
-**Depolama hesabı**: hello önerilen depolama hesabı öneki kullanan hello adı.
+**Depolama Hesabı**: Önerilen depolama hesabı ön ekini kullanan ad.
 
-**R/W IOPS (ile büyüme faktörü)**: en yüksek iş yükü okuma/yazma IOPS hello diskteki hello (varsayılan olarak 95) hello gelecekteki büyüme faktörü dahil olmak üzere (varsayılan değer yüzde 30). Toplam okuma/yazma VM IOPS hello Not her zaman hello VM'in bağımsız diskler okuma/yazma IOPS hello toplamı değil, hello yoğun okuma/yazma hello VM IOPS hello Sum, tek tek disk hello yoğun olduğundan/IOPS hello dakikada sırasında okuma Profil oluşturma süresi.
+**Okuma/Yazma IOPS (Büyüme Faktörü ile)**: Disk üzerinde gelecekteki büyüme faktörünü de (varsayılan değer yüzde 30) içeren en yoğun iş yükü okuma/yazma IOPS değeridir (varsayılan değer yüzde 95’lik dilim). Sanal makinenin en yoğun okuma/yazma IOPS değeri profil oluşturma işleminin her dakikası boyunca tek disklerin okuma/yazma IOPS değerinin toplamı olduğundan, bir sanal makinenin toplam okuma/yazma IOPS değeri her zaman sanal makinenin ayrı disklerinin okuma/yazma IOPS değerine eşit değildir.
 
-**Veri karmaşıklığı MB/sn (ile büyüme faktörü) içinde**: hello yoğun karmaşıklık oranı hello disk üzerinde (varsayılan olarak 95) hello gelecekteki büyüme faktörü dahil olmak üzere (varsayılan değer yüzde 30). Bu hello Not toplam veri dalgalanmasına hello VM, her zaman hello VM'in bağımsız diskler veri dalgalanmasına hello toplamını hello yoğun veri dalgalanmasına hello VM, hello yoğun, tek tek disklerini karmaşası hello toplamı, her dönem profil hello dakikada olduğundan değil.
+**Mb/sn cinsinden Veri Değişim Sıklığı (Büyüme Faktörü ile)**: Disk üzerinde gelecekteki büyüme faktörünü de (varsayılan değer yüzde 30) içeren en yüksek erime oranıdır (varsayılan değer yüzde 95’lik dilim). Sanal makinenin en yoğun veri değişim sıklığı, profil oluşturma döneminin her dakikasında içindeki ayrı disklerin veri değişim sıklığı toplamının tepe noktası olduğundan, sanal makinenin toplam veri değişim sıklığı her zaman sanal makinedeki ayrı disklerin veri değişim sıklığının toplamı olmayacaktır.
 
-**Azure VM boyutu**: Bu VM şirket için ideal hello eşlenen Azure Cloud Services sanal makine boyutu. Merhaba eşleme hello şirket içi sanal makinenin bellek çekirdek/diskleri/NIC ve okuma/yazma IOPS sayısını temel alır. Merhaba her zaman tüm hello şirket içi VM özelliklerini eşleşen hello düşük Azure VM boyutu önerilir.
+**Azure VM Boyutu**: Bu şirket içi sanal makine için eşlenen ideal Azure Cloud Services makine boyutudur. Eşleme, şirket içi sanal makinenin belleğine, disk/çekirdek/ağ arabirimi sayısına ve okuma/yazma IOPS değerine bağlıdır. Her zaman şirket içi VM özelliklerinin tümüyle eşleşen en düşük Azure VM boyutunun kullanılması önerilir.
 
-**Disk sayısı**: Merhaba hello VM üzerinde sanal makine disklerini (VMDKs) toplam sayısı.
+**Disk Sayısı**: Sanal makine üzerindeki toplam disk sayısı (VMDK).
 
-**Disk boyutu (GB)**: Merhaba hello VM, tüm disklerin toplam kurulum boyutu. Hello aracı ayrıca hello VM hello bağımsız diskler için hello disk boyutunu gösterir.
+**Disk boyutu (GB)**: Sanal makinenin tüm disklerinin toplam kurulum boyutu. Araç ayrıca sanal makinedeki ayrı diskler için disk boyutunu gösterir.
 
-**Çekirdek**: hello sayısı CPU çekirdeklerinin hello VM üzerinde.
+**Çekirdek**: Sanal makine üzerindeki CPU çekirdeği sayısı.
 
-**Bellek (MB)**: hello RAM hello VM üzerinde.
+**Bellek (MB)**: VM üzerindeki RAM.
 
-**NIC**: Merhaba hello VM NIC'ler sayısına.
+**NIC**: VM üzerindeki NIC sayısı.
 
-**Önyükleme türü**: hello VM önyükleme türü. BIOS veya EFI olabilir. Şu anda Azure Site Recovery yalnızca BIOS önyükleme türünü destekler. EFI Önyükleme türündeki tüm hello sanal makineleri uyumsuz VM'ler çalışma sayfasında listelenir.
+**Önyükleme Türü**: VM’nin önyükleme türüdür. BIOS veya EFI olabilir. Şu anda Azure Site Recovery yalnızca BIOS önyükleme türünü destekler. EFI önyükleme türündeki tüm sanal makineler Uyumsuz VM'ler çalışma sayfasında listelenmiştir.
 
-**İşletim sistemi türü**: hello hello VM işletim sistemi türü değil. Windows veya Linux ya da başka bir işletim sistemi olabilir.
+**İşletim sistemi türü**: VM’nin işletim sistemi türü. Windows veya Linux ya da başka bir işletim sistemi olabilir.
 
 ## <a name="incompatible-vms"></a>Uyumsuz VM’ler
 
 ![Uyumsuz VM'lerin Excel elektronik tablosu](./media/site-recovery-deployment-planner/incompatible-vms.png)
 
-**VM adı**: VM adını veya bir rapor oluşturulduğunda hello VMListFile kullanılan IP adresini hello. Bu sütun, aynı zamanda ekli toohello VM'ler hello VMDKs listeler. toodistinguish vCenter VM'ler yinelenen adları veya IP adresleri ile Merhaba adlarını hello ESXi ana bilgisayar adını içerir. Merhaba listelenen ESXi hello bir dönem profil hello sırasında hello aracı tespit ettiğinizde burada hello VM yerleştirilen yöneticisidir.
+**VM Adı**: Bir rapor oluşturulurken VMListFile içinde kullanılan VM adı veya IP adresi. Bu sütunda ayrıca sanal makinelere bağlanan VMDK’lar listelenir. Yinelenen adlara veya IP adreslerine sahip vCenter sanal makinelerini birbirinden ayırt etmek için, adlar ESXi ana bilgisayar adını içerir. Listelenen ESXi ana bilgisayarı, profil oluşturma sırasında araç keşfettiğinde VM’in yerleştirildiği yerdir.
 
-**VM Uyumluluk**: VM verilen hello neden Site Recovery ile kullanım için uyumsuz olduğunu gösterir. Merhaba nedenleri hello VM uyumsuz her disk için açıklanan ve temel üzerinde yayımlanan [depolama sınırları](https://aka.ms/azure-storage-scalbility-performance), hello aşağıdakilerden herhangi birini olabilir:
+**VM Uyumluluğu**: Belirli bir sanal makinenin, Site Recovery ile kullanım için neden uyumlu olmadığını gösterir. Sanal makinenin her uyumsuz diski için, yayımlanan [depolama sınırlarına](https://aka.ms/azure-storage-scalbility-performance) göre nedenler aşağıdakilerden biri olabilir:
 
 * Disk boyutu > 4095 GB’dir. Azure Depolama şu anda 4095 GB’den büyük veri diski boyutlarını desteklememektedir.
 * İşletim sistemi diski >2048 GB'dir. Azure Depolama şu anda 2048 GB’den büyük işletim sistemi diski boyutunu desteklememektedir.
 * Önyükleme türü EFI’dir. Şu anda Azure Site Recovery yalnızca BIOS önyükleme türündeki sanal makineleri destekler.
 
-* Toplam VM boyutu (çoğaltma + TFO) desteklenen hello depolama hesabı boyut sınırını (35 TB) aşıyor. Merhaba maksimum desteklenen Azure veya Site kurtarma için sınırları standart depolama aşan bir performans karakteristiğini hello VM içinde tek bir diske sahip olduğunda bu uyumsuzluk genellikle oluşur. Bu tür bir örneğini hello VM hello premium depolama bölgeye iter. Ancak, desteklenen premium depolama hesabı 35 TB boyutta ve tek bir VM korumalı maksimum hello birden çok depolama hesaplarında korunamaz. Ayrıca korumalı bir VM üzerinde bir yük devretme testi çalıştırıldığında, hello çalıştığını unutmayın nerede çoğaltma İleri aşamalara aynı depolama hesabı. Bu örnekte, yük devretme toosucceed paralel olarak test etmek ve 2 x hello disk çoğaltma tooprogress için hello boyutunu ayarlayın.
+* Toplam VM boyutu (çoğaltma + TFO), desteklenen depolama hesabı boyut sınırını (35 TB) aşıyor. Bu uyumsuzluk genellikle sanal makine içindeki tek bir diskin standart depolama için desteklenen Azure veya Site Recovery sınırlarını aşan bir performans özelliği olduğunda gerçekleşir. Bu tür bir örnek, sanal makineyi premium depolama bölgesine iter. Ancak, bir premium depolama hesabı için desteklenen en büyük boyut 35 TB’dir ve tek bir korunan sanal makine birden fazla depolama hesabında korunamaz. Ayrıca, korunan bir sanal makine üzerinde yük devretme testi yürütüldüğünde, test ile çoğaltma aynı depolama hesabında devam eder. Bu örnekte, çoğaltmanın ilerlemesi ve yük devretme testinin paralel olarak başarılı olması için disk boyutunun 2 katını ayarlayın.
 * Kaynak IOPS, depolama IOPS için disk başına desteklenen 5000 limitini aşıyor.
 * Kaynak IOPS, depolama IOPS için VM başına desteklenen 80.000 limitini aşıyor.
-* Ortalama veri dalgalanmasına hello disk için ortalama g/ç boyutu 10 MB/sn desteklenen Site Recovery veri karmaşası sınırını aşıyor.
-* Toplam veri dalgalanmasına hello VM üzerindeki tüm diskleri arasında VM başına 54 MBps hello maksimum desteklenen Site Recovery veri karmaşası sınırını aşıyor.
-* Ortalama etkili yazma IOPS 840 disk için desteklenen hello Site kurtarma IOPS sınırını aşıyor.
-* Hesaplanan anlık görüntü depolama, 10 TB desteklenen hello anlık görüntü depolama sınırını aşıyor.
+* Ortalama veri değişim sıklığı, disk için ortalama G/Ç’ye yönelik 10 Mb/sn’lik Site Recovery veri değişim sıklığı limitini aşıyor.
+* Sanal makine üzerindeki tüm disklerde bulunan toplam veri değişim sıklığı, VM başına 54 MB/sn’lik desteklenen Site Recovery veri değişim sıklığı sınırını aşıyor.
+* Algılanan ortalama yazma IOPS değeri, disk için 840 olan desteklenen Site Recovery IOPS limitini aşıyor.
+* Hesaplanan anlık görüntü depolama alanı, 10 TB’lik desteklenen anlık görüntü depolama limitini aşıyor.
 
-**R/W IOPS (ile büyüme faktörü)**: hello diskteki hello en yüksek iş yükü IOPS (varsayılan olarak 95) hello gelecekteki büyüme faktörü dahil olmak üzere (varsayılan değer yüzde 30). Toplam okuma/yazma hello VM IOPS hello Not her zaman hello VM'in bağımsız diskler okuma/yazma IOPS hello toplamı değil, hello yoğun okuma/yazma hello VM IOPS hello Sum, tek tek disk hello yoğun olduğundan/IOPS hello dakikada sırasında okuma Profil oluşturma süresi.
+**Okuma/Yazma IOPS (Büyüme Faktörü ile)**: Disk üzerinde gelecekteki büyüme faktörünü de (varsayılan değer yüzde 30) içeren en yoğun iş yükü IOPS değeridir (varsayılan değer yüzde 95’lik dilim). Sanal makinenin en yoğun okuma/yazma IOPS değeri profil oluşturma işleminin her dakikası boyunca tek disklerin okuma/yazma IOPS değerinin toplamı olduğundan, bir sanal makinenin toplam okuma/yazma IOPS değeri her zaman sanal makinenin ayrı disklerinin okuma/yazma IOPS değerine eşit değildir.
 
-**Veri karmaşıklığı MB/sn (ile büyüme faktörü) içinde**: hello yoğun karmaşıklık oranı diskteki hello gelecekteki büyüme faktörü (varsayılan 30 yüzde) dahil olmak üzere hello (varsayılan 95 yüzdebirlik). Bu hello Not toplam veri dalgalanmasına hello VM, her zaman hello VM'in bağımsız diskler veri dalgalanmasına hello toplamını hello yoğun veri dalgalanmasına hello VM, hello yoğun, tek tek disklerini karmaşası hello toplamı, her dönem profil hello dakikada olduğundan değil.
+**Mb/sn cinsinden Veri Değişim Sıklığı (Büyüme Faktörü ile)**: disk üzerinde gelecekteki büyüme faktörünü de (varsayılan değer yüzde 30) içeren en yüksek erime oranıdır (varsayılan değer yüzde 95’lik dilim). Sanal makinenin en yoğun veri değişim sıklığı, profil oluşturma döneminin her dakikasında içindeki ayrı disklerin veri değişim sıklığı toplamının tepe noktası olduğundan, sanal makinenin toplam veri değişim sıklığı her zaman sanal makinedeki ayrı disklerin veri değişim sıklığının toplamı olmayacaktır.
 
-**Disk sayısı**: Merhaba hello VM üzerinde VMDKs toplam sayısı.
+**Disk Sayısı**: Sanal makine üzerindeki toplam VMDK sayısı.
 
-**Disk boyutu (GB)**: Merhaba hello VM, tüm disklerin toplam kurulum boyutu. Hello aracı ayrıca hello VM hello bağımsız diskler için hello disk boyutunu gösterir.
+**Disk boyutu (GB)**: Sanal makinenin tüm disklerinin toplam kurulum boyutu. Araç ayrıca sanal makinedeki ayrı diskler için disk boyutunu gösterir.
 
-**Çekirdek**: hello sayısı CPU çekirdeklerinin hello VM üzerinde.
+**Çekirdek**: Sanal makine üzerindeki CPU çekirdeği sayısı.
 
-**Bellek (MB)**: hello RAM miktarının hello VM.
+**Bellek (MB)**: VM üzerindeki RAM miktarı.
 
-**NIC**: Merhaba hello VM NIC'ler sayısına.
+**NIC**: VM üzerindeki NIC sayısı.
 
-**Önyükleme türü**: hello VM önyükleme türü. BIOS veya EFI olabilir. Şu anda Azure Site Recovery yalnızca BIOS önyükleme türünü destekler. EFI Önyükleme türündeki tüm hello sanal makineleri uyumsuz VM'ler çalışma sayfasında listelenir.
+**Önyükleme Türü**: VM’nin önyükleme türüdür. BIOS veya EFI olabilir. Şu anda Azure Site Recovery yalnızca BIOS önyükleme türünü destekler. EFI önyükleme türündeki tüm sanal makineler Uyumsuz VM'ler çalışma sayfasında listelenmiştir.
 
-**İşletim sistemi türü**: hello hello VM işletim sistemi türü değil. Windows veya Linux ya da başka bir işletim sistemi olabilir.
+**İşletim sistemi türü**: VM’nin işletim sistemi türü. Windows veya Linux ya da başka bir işletim sistemi olabilir.
 
 
 ## <a name="site-recovery-limits"></a>Site Recovery limitleri
@@ -540,28 +540,28 @@ Premium P10 disk | 32 KB veya daha büyük | 8 Mb/sn | Disk başına 672 GB
 Premium P20 veya P30 disk | 8 KB  | 5 Mb/sn | Disk başına 421 GB
 Premium P20 veya P30 disk | 16 KB veya daha büyük |10 Mb/sn | Disk başına 842 GB
 
-Bunlar yüzde 30 G/Ç çakışmasını varsayan ortalama sayılardır. Site Recovery; çakışma oranı, büyük yazma boyutları ve gerçek iş yükü G/Ç davranışına göre daha yüksek aktarım hızını işleyebilir. Merhaba önceki numaraları tipik biriktirme listesi yaklaşık beş dakika varsayalım. Diğer bir deyişle, veriler karşıya yüklendikten sonra işlenir ve beş dakika içinde kurtarma noktası oluşturulur.
+Bunlar yüzde 30 G/Ç çakışmasını varsayan ortalama sayılardır. Site Recovery; çakışma oranı, büyük yazma boyutları ve gerçek iş yükü G/Ç davranışına göre daha yüksek aktarım hızını işleyebilir. Yukarıdaki sayılar yaklaşık beş dakikalık tipik bir kapsamı varsayar. Diğer bir deyişle, veriler karşıya yüklendikten sonra işlenir ve beş dakika içinde kurtarma noktası oluşturulur.
 
-Bu limitler yaptığımız testleri temel alsa da mümkün olan tüm uygulama G/Ç birleşimlerini kapsamamaktadır. Gerçek sonuçlar, uygulamanızın G/Ç karışımına göre değişebilir. En iyi sonuçlar için dağıtım planlaması yaptıktan sonra bile, her zaman bir sınama yük devretme tooget hello true performans resmi kullanarak test kapsamlı uygulama gerçekleştirmek öneririz.
+Bu limitler yaptığımız testleri temel alsa da mümkün olan tüm uygulama G/Ç birleşimlerini kapsamamaktadır. Gerçek sonuçlar, uygulamanızın G/Ç karışımına göre değişebilir. En iyi sonuçlar için, gerçek performans görüntüsünü elde etmek üzere, dağıtım planlamasından sonra bile yük devretme testi kullanılarak her zaman kapsamlı uygulama testleri gerçekleştirilmesi önerilir.
 
-## <a name="updating-hello-deployment-planner"></a>Güncelleştirme hello dağıtım Planlayıcısı
-tooupdate hello dağıtım Planlayıcısı aşağıdaki hello:
+## <a name="updating-the-deployment-planner"></a>Dağıtım planlayıcısını güncelleştirme
+Dağıtım planlayıcısını güncelleştirmek için aşağıdakileri yapın:
 
-1. Hello hello en son sürümünü indirme [Azure Site Recovery dağıtımı Planlayıcısı](https://aka.ms/asr-deployment-planner).
+1. [Azure Site Recovery dağıtım planlayıcısı](https://aka.ms/asr-deployment-planner)’nın en son sürümünü indirin.
 
-2. Kopya hello .zip klasörü tooa toorun istediğiniz sunucu üzerinde.
+2. .zip klasörünü çalıştırmak istediğiniz sunucuya kopyalayın.
 
-3. Merhaba .zip klasöre ayıklayın.
+3. .zip klasörünü ayıklayın.
 
-4. Merhaba aşağıdakilerden birini yapın:
- * Merhaba en son sürümünü bir profil düzeltme içermiyor ve profil oluşturma hello Planlayıcısı geçerli sürümü üzerinde devam eden zaten ise, hello profil devam edin.
- * Merhaba en son sürümünü bir profil düzeltme içeriyorsa, bu, geçerli sürümü profil oluşturmayı durdurmak ve hello yeni sürümle hello profil yeniden başlatmanız önerilir.
+4. Aşağıdakilerden birini yapın:
+ * En son sürüm bir profil oluşturma düzeltmesi içermiyor ve profil oluşturma planlayıcının geçerli sürümünde devam ediyorsa, profil oluşturmaya devam edin.
+ * En son sürüm bir profil oluşturma düzeltmesi içeriyorsa, geçerli sürümünüzde profil oluşturmayı durdurmanız ve profil oluşturma işlemini yeni sürümle yeniden başlatmanız önerilir.
 
   >[!NOTE]
   >
-  >Böylece hello aracı profil verileri üzerinde ekler aynı çıkış dizini yolu hello yeni sürümle, geçişi hello profil başlattığınızda, varolan dosyaların hello. Eksiksiz profili veri olacaktır toogenerate hello rapor kullanılır. Farklı bir çıkış dizini geçirmezseniz, yeni dosyalar oluşturulur ve eski veri profili kullanılmaz toogenerate hello rapor.
+  >Yeni sürümle profil oluşturma işlemini başlattığınızda, aracın profil verilerini mevcut dosyalara iliştirebilmesi için aynı çıktı dizini yolunu geçirin. Raporu oluşturmak için profili oluşturulmuş verilerin tamamı kullanılır. Farklı bir çıktı dizininden geçerseniz, yeni dosyalar oluşturulur ve profili oluşturulmuş eski veriler rapor oluşturma işleminde kullanılamaz.
   >
-  >Her yeni dağıtım Planlayıcısı hello .zip dosyasının birikmeli bir güncelleştirmedir. Toocopy hello yeni dosyalar toohello önceki klasörü gerek yoktur. Yeni bir klasör oluşturup kullanabilirsiniz.
+  >Her yeni dağıtım planlayıcısı, .zip dosyasının toplu bir güncelleştirmesidir. En yeni dosyaları önceki klasöre kopyalamanız gerekmez. Yeni bir klasör oluşturup kullanabilirsiniz.
 
 
 ## <a name="version-history"></a>Sürüm geçmişi
@@ -571,7 +571,7 @@ Güncelleştirme: 19 Temmuz 2017
 
 Aşağıdaki yeni özellik eklenmiştir:
 
-* Rapor oluşturmaya büyük diskler (> 1 TB) için destek eklenmiştir. Artık dağıtım Planlayıcısı tooplan çoğaltma disk boyutları 1 TB'den (fazla 4095 GB) büyük olan sanal makineler için kullanabilirsiniz.
+* Rapor oluşturmaya büyük diskler (> 1 TB) için destek eklenmiştir. Artık dağıtım planlayıcısını kullanarak disk boyutları 1 TB'den büyük (4095 GB'ye kadar) sanal makineler için çoğaltma planlayabilirsiniz.
 [Azure Site Recovery'de büyük disk desteği](https://azure.microsoft.com/en-us/blog/azure-site-recovery-large-disks/)
 
 
@@ -580,7 +580,7 @@ Güncelleştirme: 9 Mart 2017
 
 Aşağıdaki yeni özellik eklenmiştir:
 
-* Rapor oluşturma işlemine Yönetilen Disk desteği eklendi. Merhaba sanal makine sayısı tooa tek bir depolama yerleştirilebilir hesabıdır disk yönetiliyorsa göre hesaplanan yük devretme ve Test yük devretme için seçilmiş.        
+* Rapor oluşturma işlemine Yönetilen Disk desteği eklendi. Tek bir depolama hesabına yerleştirilebilecek sanal makine sayısı, Yük Devretme/Yük devretme testi için yönetilen disk seçilip seçilmemesine bağlı olarak hesaplanır.        
 
 
 ### <a name="12"></a>1.2
@@ -588,26 +588,26 @@ Güncelleştirme: 7 Nisan 2017
 
 Aşağıdaki düzeltmeler eklendi:
 
-* Eklenen önyükleme hello sanal makine uyumlu veya uyumsuz hello koruma için ise her sanal makine toodetermine (BIOS veya EFI) denetle yazın.
-* Eklenen OS hello uyumlu VM'ler her sanal makine için bilgi ve uyumsuz VM'ler çalışma yazın.
-* Merhaba GetThroughput işlemi hello ABD devlet kurumları ve Çin Microsoft Azure bölgelerde artık desteklenmektedir.
+* Sanal makinenin koruma için uyumlu olup olmadığının belirlenmesi için her sanal makine için önyükleme türü ( BIOS veya EFI) denetimi eklendi.
+* Uyumlu VM’ler ve Uyumsuz VM’ler çalışma sayfalarında her sanal makine için işletim sistemi türü bilgisi eklendi.
+* GetThroughput işlemi, Microsoft Azure’un US Government ve Çin bölgelerinde artık desteklenir.
 * vCenter ve ESXi Server için birkaç tane daha ön koşul denetimi eklendi.
-* Yanlış raporun üretildiği toonon İngilizce yerel ayarları ayarlandığında.
+* Yerel ayarlar İngilizce dışında bir seçeneğe ayarlandığında hatalı rapor oluşturuluyordu.
 
 
 ### <a name="11"></a>1.1
 Güncelleştirme: 9 Mart 2017
 
-Sorunları aşağıdaki sabit hello:
+Aşağıdaki sorunlar çözülmüştür:
 
-* Merhaba aracı VM'ler hello vCenter iki veya daha fazla VM'ler ile aynı adı veya IP adresi çeşitli ESXi ana bilgisayarları arasında hello varsa profil olamaz.
-* Kopyalama ve arama hello uyumlu VM'ler ve uyumsuz VM'ler çalışma sayfaları için devre dışı bırakılmıştır.
+* vCenter farklı ESXi ana bilgisayarları üzerinde aynı ad veya IP adresine sahip iki veya daha fazla sanal makineye sahipse araç, sanal makinelerin profilini oluşturamaz.
+* Uyumlu VM'ler ve Uyumsuz VM’ler çalışma sayfaları için kopyalama ve arama devre dışı bırakıldı.
 
 ### <a name="10"></a>1.0
 Güncelleme: 23 Şubat 2017
 
-Azure Site Recovery dağıtımı Planlayıcısı genel Önizleme 1.0 bilinen sorunlar (yaklaşan güncelleştirmelerinde ele toobe) hello aşağıdakileri içerir:
+Azure Site Recovery Dağıtım Planlayıcısı genel önizleme 1.0 sürümünde aşağıdaki bilinen sorunlar bulunmaktadır (gelecek güncelleştirmelerde giderilecek):
 
-* Hyper V için Azure dağıtımları için VMware Azure senaryoları için yalnızca Hello aracı çalışır. Hyper V için Azure senaryolarının hello kullanmanız [Hyper-V kapasite planlayıcısı aracı](./site-recovery-capacity-planning-for-hyper-v-replication.md).
-* Merhaba GetThroughput işlemi hello ABD devlet kurumları ve Çin Microsoft Azure bölgeleri desteklenmiyor.
-* Merhaba aracı VM'ler hello vCenter sunucusu iki veya daha fazla VM'ler ile aynı adı veya IP adresi çeşitli ESXi ana bilgisayarları arasında hello varsa profil olamaz. Bu sürümde, yinelenen VM adlarını veya IP adresleri hello VMListFile profil hello aracı atlar. Merhaba geçici çözüm tooprofile hello VM'ler ESXi ana bilgisayar hello vCenter sunucusu yerine kullanmaktır. Her ESXi ana bilgisayarı için bir örnek çalıştırmanız gerekir.
+* Araç yalnızca VMware’den Azure’a senaryosu için çalışır, Hyper-V’den Azure’a dağıtımlar için çalışmaz. Hyper-V’den Azure’a dağıtım senaryosu için [Hyper-V kapasite planlayıcısı aracını](./site-recovery-capacity-planning-for-hyper-v-replication.md) kullanın.
+* GetThroughput işlemi, Microsoft Azure’un US Government ve Çin bölgelerinde desteklenmez.
+* vCenter sunucusu farklı ESXi ana bilgisayarları üzerinde aynı ad veya IP adresine sahip iki veya daha fazla sanal makineye sahipse araç, sanal makinelerin profilini oluşturamaz. Bu sürümde, araç VMListFile dosyasındaki yinelenen sanal makine adları veya IP adresleri için profil oluşturmayı atlar. Bunun geçici çözümü, sanal makine profillerinin vCenter sunucusu yerine bir ESXi ana bilgisayarı kullanılarak oluşturulmasıdır. Her ESXi ana bilgisayarı için bir örnek çalıştırmanız gerekir.

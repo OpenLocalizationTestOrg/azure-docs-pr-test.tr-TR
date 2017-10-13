@@ -1,6 +1,6 @@
 ---
-title: "Azure Event Hubs .NET standart kullanarak aaaReceive olaylarından | Microsoft Docs"
-description: "İleti hello EventProcessorHost ile .NET standart alma kullanmaya başlama"
+title: ".NET standart kullanarak Azure Event Hubs'tan gelen olayları alma | Microsoft Docs"
+description: "EventProcessorHost bulunan iletiler alma standart .NET içinde kullanmaya başlama"
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2017
 ms.author: sethm
-ms.openlocfilehash: c3983f2668ac8f65522e44a1609dfd2eed31b7d6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cc62792dad0284f9514664795fdfb32e94a85943
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="get-started-receiving-messages-with-hello-event-processor-host-in-net-standard"></a>Merhaba olay işleyicisi konağı iletilerle .NET standart alma kullanmaya başlama
+# <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Olay işleyicisi konağı iletilerle .NET standart alma kullanmaya başlama
 
 > [!NOTE]
 > Bu örnek edinilebilir [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver).
 
-Bu öğretici nasıl toowrite .NET Core konsol kullanarak bir event hub'ından iletileri alan uygulaması gösterir **EventProcessorHost**. Merhaba çalıştırabilirsiniz [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) çözümü olarak-hello dizeler, olay hub'ı ve depolama hesabı değerleri ile yerini alacak olan. Ya da izleyebilirsiniz hello adımları Bu öğretici toocreate kendi.
+Bu öğretici kullanarak bir event hub'ından iletileri alan bir .NET Core konsol uygulamasının nasıl yazılacağını gösterir **EventProcessorHost**. Çalıştırabilirsiniz [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) çözümü olarak-olduğundan, olay hub'ı ve depolama hesabı değerleriniz ile dizeleri değiştirme. Veya, kendi oluşturmak için Bu öğreticide adımları izleyebilirsiniz.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* [Microsoft Visual Studio 2015 veya 2017](http://www.visualstudio.com). Bu öğretici kullanımı Visual Studio 2017 Hello örneklerde, ancak Visual Studio 2015'de desteklenir.
+* [Microsoft Visual Studio 2015 veya 2017](http://www.visualstudio.com). Bu öğretici kullanım Visual Studio 2017 ancak Visual Studio 2015 örneklerde de desteklenir.
 * [.NET core Visual Studio 2015 veya 2017 Araçları](http://www.microsoft.com/net/core).
 * Azure aboneliği.
 * Bir Azure Event Hubs ad alanı.
@@ -37,38 +37,38 @@ Bu öğretici nasıl toowrite .NET Core konsol kullanarak bir event hub'ından i
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs ad alanı ve bir olay hub’ı oluşturma  
 
-Merhaba ilk adımdır toouse hello [Azure portal](https://portal.azure.com) toocreate hello olay hub'ları için bir ad yazın ve hello uygulamanızı hello olay hub'ı ile toocommunicate gerektiğini yönetim kimlik bilgilerini alın. toocreate bir ad alanı ve olay hub'ı izleyin hello yordamda [bu makalede](event-hubs-create.md)ve ardından aşağıdaki adımları hello ile devam edin.  
+İlk adım kullanmaktır [Azure portal](https://portal.azure.com) olay hub'ları türü için bir ad alanı oluşturmak ve event hub ile iletişim kurması için uygulamanız gereken yönetim kimlik bilgilerini elde etmek için. Bir ad alanı ve olay hub'ı oluşturmak için yordamı izleyin [bu makalede](event-hubs-create.md)ve ardından aşağıdaki adımlarla devam edin.  
 
 ## <a name="create-an-azure-storage-account"></a>Azure Storage hesabı oluşturma  
 
-1. İçinde toohello oturum [Azure portal](https://portal.azure.com).  
-2. Merhaba sol gezinti bölmesinde hello portalı tıklatın **yeni**, tıklatın **depolama**ve ardından **depolama hesabı**.  
-3. Hello depolama hesabı dikey penceresinde hello alanları tamamlayın ve ardından **oluşturma**.
+1. [Azure Portal](https://portal.azure.com) oturum açın.  
+2. Portalın sol gezinti bölmesinde tıklatın **yeni**, tıklatın **depolama**ve ardından **depolama hesabı**.  
+3. Depolama hesabı dikey penceresindeki alanları doldurun ve ardından **oluşturma**.
 
     ![Depolama hesabı oluşturma][1]
 
-4. Merhaba gördükten sonra **dağıtımları başarılı** iletisi, hello yeni depolama hesabı hello adına tıklayın. Merhaba, **Essentials** dikey penceresinde tıklatın **BLOB'lar**. Ne zaman hello **Blob hizmeti** dikey penceresi açıldığında, tıklatın **+ kapsayıcı** hello üstünde. Merhaba kapsayıcı bir ad verin ve ardından hello kapatın **Blob hizmeti** dikey.  
-5. Tıklatın **erişim anahtarları** hello Sol dikey ve kopyalama hello adı hello depolama kapsayıcısı, hello depolama hesabı ve hello değerini **key1**. Bu değerleri tooNotepad veya başka bir geçici konuma kaydedin.  
+4. Gördükten sonra **dağıtımları başarılı** ileti, yeni depolama hesabı adını tıklatın. İçinde **Essentials** dikey penceresinde tıklatın **BLOB'lar**. Zaman **Blob hizmeti** dikey penceresi açıldığında, tıklatın **+ kapsayıcı** üstünde. Kapsayıcı bir ad verin ve ardından kapatın **Blob hizmeti** dikey.  
+5. Tıklatın **erişim anahtarları** Sol dikey kopyalayıp adını depolama kapsayıcısı, depolama hesabı ve değerini **key1**. Bu değerleri Not Defteri'nde veya başka bir geçici konuma kaydedin.  
 
 ## <a name="create-a-console-application"></a>Konsol uygulaması oluşturma
 
-Visual Studio’yu çalıştırın. Merhaba gelen **dosya** menüsünde tıklatın **yeni**ve ardından **proje**. .NET Core konsol uygulaması oluşturun.
+Visual Studio’yu çalıştırın. **Dosya** menüsünde **Yeni**'ye ve ardından **Proje**'ye tıklayın. .NET Core konsol uygulaması oluşturun.
 
 ![Yeni Proje][2]
 
-## <a name="add-hello-event-hubs-nuget-package"></a>Merhaba olay hub'ları NuGet paketi ekleme
+## <a name="add-the-event-hubs-nuget-package"></a>Olay hub'ları NuGet paketi ekleme
 
-Merhaba eklemek [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) ve [ `Microsoft.Azure.EventHubs.Processor` ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) aşağıdaki adımları izleyerek .NET standart kitaplığı NuGet paketleri tooyour proje: 
+Ekleme [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) ve [ `Microsoft.Azure.EventHubs.Processor` ](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) .NET standart kitaplığı NuGet paketlerini projenize aşağıdaki adımları izleyerek: 
 
-1. Yeni oluşturulan hello projesine sağ tıklatın ve **NuGet paketlerini Yönet**.
-2. Merhaba tıklatın **Gözat** sekmesini ve ardından "Microsoft.Azure.EventHubs" ve select hello arama **Microsoft.Azure.EventHubs** paket. Tıklatın **yükleme** toocomplete hello yükleme, ardından bu iletişim kutusunu kapatın.
-3. 1 ve 2. adımları yineleyin ve hello yükleme **Microsoft.Azure.EventHubs.Processor** paket.
+1. Yeni oluşturulan projeye sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin.
+2. Tıklatın **Gözat** sekmesini ve ardından "Microsoft.Azure.EventHubs" ve select arama **Microsoft.Azure.EventHubs** paket. Yüklemeyi tamamlamak için **Yükle**'ye tıklayın, ardından bu iletişim kutusunu kapatın.
+3. 1 ve 2. adımları yineleyin ve yükleme **Microsoft.Azure.EventHubs.Processor** paket.
 
-## <a name="implement-hello-ieventprocessor-interface"></a>Merhaba Ieventprocessor arabirimini uygulama
+## <a name="implement-the-ieventprocessor-interface"></a>Ieventprocessor arabirimini uygulama
 
-1. Çözüm Gezgini'nde, sağ hello proje tıklatın **Ekle**ve ardından **sınıfı**. Ad hello yeni sınıf **SimpleEventProcessor**.
+1. Çözüm Gezgini'nde projeye sağ tıklayın, **Ekle**ve ardından **sınıfı**. Yeni sınıf **SimpleEventProcessor**.
 
-2. Merhaba SimpleEventProcessor.cs dosyasını açın ve hello aşağıdakileri ekleyin `using` deyimleri toohello dosyasının üst kısmında hello.
+2. SimpleEventProcessor.cs dosyasını açın ve aşağıdakileri ekleyin `using` deyimlerini dosyanın en üstüne ekleyin.
 
     ```csharp
     using Microsoft.Azure.EventHubs;
@@ -76,7 +76,7 @@ Merhaba eklemek [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/M
     using System.Threading.Tasks;
     ```
 
-3. Uygulama hello `IEventProcessor` arabirimi. Merhaba Hello tüm içeriğini değiştirin `SimpleEventProcessor` koddan hello sınıfıyla:
+3. Uygulama `IEventProcessor` arabirimi. Tüm içeriğini değiştirin `SimpleEventProcessor` aşağıdaki kodla sınıfı:
 
     ```csharp
     public class SimpleEventProcessor : IEventProcessor
@@ -112,9 +112,9 @@ Merhaba eklemek [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/M
     }
     ```
 
-## <a name="write-a-main-console-method-that-uses-hello-simpleeventprocessor-class-tooreceive-messages"></a>Merhaba SimpleEventProcessor sınıfı tooreceive iletileri kullanan bir ana Konsolu yöntemi yazma
+## <a name="write-a-main-console-method-that-uses-the-simpleeventprocessor-class-to-receive-messages"></a>SimpleEventProcessor sınıfı iletileri almak için kullandığı bir ana Konsolu yöntemi yazma
 
-1. Merhaba aşağıdakileri ekleyin `using` hello Program.cs dosyasının deyimleri toohello üst.
+1. Aşağıdaki `using` deyimlerini Program.cs dosyasının üst kısmına ekleyin.
 
     ```csharp
     using Microsoft.Azure.EventHubs;
@@ -122,7 +122,7 @@ Merhaba eklemek [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/M
     using System.Threading.Tasks;
     ```
 
-2. Ekleme sabitlerin toohello `Program` hello olay hub bağlantı dizesine, olay hub'ı adı, depolama hesabı kapsayıcı adı, depolama hesabı adı ve depolama hesabı anahtarı için sınıf. Aşağıdaki kod, bunlara karşılık gelen değerler ile Merhaba yer tutucuları değiştirme hello ekleyin.
+2. Sabitlere eklemek `Program` olay hub bağlantı dizesine, olay hub'ı adı, depolama hesabı kapsayıcı adı, depolama hesabı adı ve depolama hesabı anahtarı için sınıf. Yer tutucuları bunlara karşılık gelen değerler ile değiştirerek aşağıdaki kodu ekleyin.
 
     ```csharp
     private const string EhConnectionString = "{Event Hubs connection string}";
@@ -134,7 +134,7 @@ Merhaba eklemek [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/M
     private static readonly string StorageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", StorageAccountName, StorageAccountKey);
     ```   
 
-3. Adlı yeni bir yöntem ekleyin `MainAsync` toohello `Program` sınıfı, şu şekilde:
+3. Adlı yeni bir yöntem ekleyin `MainAsync` için `Program` sınıfı, şu şekilde:
 
     ```csharp
     private static async Task MainAsync(string[] args)
@@ -148,18 +148,18 @@ Merhaba eklemek [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/M
             StorageConnectionString,
             StorageContainerName);
 
-        // Registers hello Event Processor Host and starts receiving messages
+        // Registers the Event Processor Host and starts receiving messages
         await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
 
-        Console.WriteLine("Receiving. Press ENTER toostop worker.");
+        Console.WriteLine("Receiving. Press ENTER to stop worker.");
         Console.ReadLine();
 
-        // Disposes of hello Event Processor Host
+        // Disposes of the Event Processor Host
         await eventProcessorHost.UnregisterEventProcessorAsync();
     }
     ```
 
-3. Kod toohello satırının aşağıdaki hello eklemek `Main` yöntemi:
+3. Aşağıdaki kod satırını ekleyin `Main` yöntemi:
 
     ```csharp
     MainAsync(args).GetAwaiter().GetResult();
@@ -197,25 +197,25 @@ Merhaba eklemek [ `Microsoft.Azure.EventHubs` ](https://www.nuget.org/packages/M
                     StorageConnectionString,
                     StorageContainerName);
 
-                // Registers hello Event Processor Host and starts receiving messages
+                // Registers the Event Processor Host and starts receiving messages
                 await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
 
-                Console.WriteLine("Receiving. Press ENTER toostop worker.");
+                Console.WriteLine("Receiving. Press ENTER to stop worker.");
                 Console.ReadLine();
 
-                // Disposes of hello Event Processor Host
+                // Disposes of the Event Processor Host
                 await eventProcessorHost.UnregisterEventProcessorAsync();
             }
         }
     }
     ```
 
-4. Merhaba programını çalıştırın ve herhangi bir hata olduğundan emin olun.
+4. Programı çalıştırın ve herhangi bir hata olmadığından emin olun.
 
-Tebrikler! Şimdi, iletileri hello olay işleyicisi konağı kullanarak bir event hub'ından aldınız.
+Tebrikler! İletilerin bir event hub'ından olay işleyicisi konağı kullanarak şimdi aldınız.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bağlantılar aşağıdaki hello ziyaret ederek Event Hubs hakkında daha fazla bilgi edinebilirsiniz:
+Aşağıdaki bağlantıları inceleyerek Event Hubs hakkında daha fazla bilgi edinebilirsiniz:
 
 * [Event Hubs’a genel bakış](event-hubs-what-is-event-hubs.md)
 * [Olay Hub’ı oluşturma](event-hubs-create.md)

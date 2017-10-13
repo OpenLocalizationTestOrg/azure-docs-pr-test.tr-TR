@@ -1,6 +1,6 @@
 ---
-title: aaaDefine Mobile Engagement stratejinizi | Microsoft Docs
-description: "Bilgi nasıl tooonboard ve analizler ve anında iletme bildirimleri ile Mobile Engagement en iyi duruma getirme."
+title: "Mobile Engagement stratejinizi tanımlama | Microsoft Belgeleri"
+description: "Analizler ve anında iletme bildirimleri ile Mobile Engagement’ı eklemeyi ve iyileştirmeyi öğrenin."
 services: mobile-engagement
 documentationcenter: Mobile
 author: piyushjo
@@ -14,120 +14,120 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: afe32cb71019092eb28f2a8557404d60ad48ada4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: db68bd3ebf7efde1d23820445f07c83c8c27dc20
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="define-your-mobile-engagement-strategy"></a>Mobile Engagement stratejinizi tanımlama
-*Uygulamanızı bir nedenle yazdınız: toohave kullanıcılarınızın bunu kullanın!*
+*Uygulamanızı bir nedenle yazdınız: kullanıcılarınız kullansın diye!*
 
-İnanıyoruz kesinlikle put mükemmel baş toomake çalışılırken çaba, kullanıcıların hayran kalacağı harika bir uygulama. Ayrıca muhtemelen bir oldukça büyük pazarlama bütçe tooacquire kullanıcıların yatırımı. Ancak hello ilk heyecan verici dönemin ardından kullanıcıların, sonra bunları uygulamanızı kullanan yavaş Dur görebilirsiniz. *Bu Azure Mobile Engagement İşte!* : toostick dolaşma ve tooincrementally izin uygulamanız test edip öğrenme.
+Kullanıcıların hayran kalacağı harika bir uygulama oluşturmak için çok çaba gösterdiğinize inanıyoruz. Büyük olasılıkla, kullanıcı kazanmak için ciddi bir pazarlama yatırımı da yaptınız. Ancak kullanıcı sayısının tavan yaptığı o ilk heyecan verici dönemin ardından kullanıcıların yavaş yavaş uygulamanızı kullanmayı bıraktığını görebilirsiniz. *Azure Mobile Engagement işte bu iş için burada!*: Kullanıcıların uygulamanızı kullanmaya devam etmelerini, böylece sizin de test edip öğrenme yoluyla uygulamayı sürekli geliştirmenizi sağlıyoruz.
 
-Bizim yaklaşım tooimproving tutma ve kullanım uygulaması kullanıcılara anında iletme bildirimleri ve uygulama içi iletiler aracılığıyla, ancak iletiler ve iletişim, toothem, uygulamanızdaki her according tootheir davranışa çok özel bir şekilde çekici dayanır. Amacımız hello doğru zamanı ve hello doğru konuma hello doğru hedef kitleye ile iletişim toolet ' dir.
+Kullanıcıların elde tutulmasını ve kullanımı geliştirmeye yaklaşımımız, anında iletme bildirimleri ve Uygulama içi iletiler aracılığıyla uygulama kullanıcılarının katılımını sağlamaktan geçiyor. Ancak bu iletiler ve iletişim, her kullanıcının uygulamadaki davranışlarına göre kendisine özgü, çok özel bir şekilde tasarlanıyor. Amacımız, doğru hedef kitleyle, doğru zamanda ve doğru yerde iletişim kurmanızı sağlamaktır.
 
-Ancak bunun için toostart ile gerekir *kullanıcılarınızı anlamakla*, ardından, yaptıklarına veya özelliklerine (bunlara Segment diyoruz) temel alan gruplar ve ardından ilgili iletişimler tooeach segment oluşturun.
+Ancak, bunun için işe *kullanıcılarınızı anlamakla* başlamanız gerekir. Ardından, yaptıklarına veya özelliklerine göre gruplar oluşturun (bunlara segment diyoruz) ve her segment için, o segmentle ilgili iletişimler oluşturun.
 
 ## <a name="mobile-engagement-serves-your-objectives"></a>Mobile Engagement hedeflerinize hizmet eder
 *Elde tutma ve kullanım hakkında konuştuk, ancak amacımız nedir?*
 
 Mobile Engagement stratejinizi oluştururken önce uygulamanızın hedeflerine ve ana performans göstergelerine (KPI) bakmak gerekir.
 
-Merhaba hedeflerine ve toodefine, katılım sağlayan kullanım örneklerinizi doğru bakış açısından hello ile Yardım KPI'leri tanımlayarak başlatın.
+Hedefleri ve KPI'leri tanımlayarak işe başlamak, katılım sağlayan kullanım örneklerinizi doğru bakış açısından tanımlamanıza yardımcı olur.
 
-Kullanım örnekleri, BT sisteminiz tarafından tetiklenen yardımcı program bildirimine toomake toocommunicate hello basit bir karşılamadan, toohello çok arasında değişen kullanıcılarınız Gelişmiş istediğinizi Kampanyalar basit bir listesi verilmiştir. İyi oluşturulmuş bir kullanım örneği en az içermelidir hello sorularının cevabını *what-kim-ne zaman*:
+Kullanım örnekleri, kullanıcılarınız ile iletişim kurmak üzere oluşturmak isteyeceğiniz basit bir kampanyalar listesidir. Basit bir karşılamadan, BT sisteminiz tarafından tetiklenen çok gelişmiş bir yardımcı program bildirimine kadar farklı kampanyalar içerebilir. İyi oluşturulmuş bir kullanım örneği, en azından *ne-kim-ne zaman* sorularının cevabını içermelidir:
 
 1. Çok kısa bir ad (örneğin bir "Hoş geldiniz kampanyası").
-2. **Ne**: bir ileti örneği (örneğin, "memnun toohave, yerleşik! Toologin tooget unutmayın, 1 aylık ücretsiz! "). Bu iletiyi yok mümkün toochange olacak nihai yollarla, dilediğiniz zaman bağlıdır, ancak genellikle toosay istediğiniz toostart göz önünde bulundurulması hangi size yardımcı olur.
-3. **Kimin**: (örneğin, "Merhaba uygulama hello için önce başlatılan tüm kullanıcılar 3 gün önce zaman, hello oturum açma sayfasını ziyaret etmiş ancak değil oturum açma") bu iletiyi alacak hello kesimi.
+2. **Ne**: Bir ileti örneği (örneğin, "Aramıza katıldığınıza çok sevindik! İlk ayınızı ücretsiz elde etmek için oturum açmayı unutmayın!"). Bu ileti son halinde değildir ve istediğiniz zaman değiştirilebilir, ancak ne söylemek istediğiniz hakkında düşünmeye başlamak çoğu zaman işinizi kolaylaştırır.
+3. **Kim**: Bu iletiyi alacak segment (örneğin, "Uygulamayı ilk kez 3 gün önce başlatan, oturum açma sayfasını ziyaret etmiş ancak oturum açmamış olan tüm kullanıcılar").
    * Evet, böyle bir şeyi Azure Mobile Engagement ile kolayca yapabilirsiniz :)
-   * Bu yeniden toobe yok hello doğru verileri topladığınız segmentlerinizi istediğiniz zaman tanımlayabilirsiniz, ancak erken segment ölçütü tooensure üzerinde önemli toodefine olduğu gibi son.
-4. **Zaman**: kampanyanızın zamanlaması hello. Belirli bir tarihte veya bir tetikleyiciye bağlı olarak belirli bir eylemden sonra olabilir. Mobile Engagement önemli bir olasılık toorightly zaman miktarı iletişimi sunar.
+   * Bu tanım da son halinde olmak zorunda değildir. Segmentlerinizi istediğiniz zaman tanımlayabilirsiniz, ancak doğru verilerin toplandığından emin olmak açısından segmentlere ayırmayı erken tanımlamak önemlidir.
+4. **Ne Zaman**: Kampanyanızın zamanlaması Belirli bir tarihte veya bir tetikleyiciye bağlı olarak belirli bir eylemden sonra olabilir. Mobile Engagement, iletişiminizin doğru zamanlanmasını sağlamak amacıyla ciddi sayıda olasılık sunar.
 
-Kullanım örnekleri ve segmentin tanımlandıktan sonra bir uygulama içinde toplanması gereken bir kılavuz toodefine hello veri sağlar. Bu, hello rolüdür bir *"etiket planı"*. Bir etiket planı hello veri koleksiyonu, tooensure toohello geliştiriciler belirtilen sağlar. Bu nedenle, geliştiricilerin mümkün tooembed Mobile Engagement, hello önerilir, toowork kampanyalarınızın hello doğru verilerle sağ kurulumu. Aynı zamanda toorun testleri tooensure hello tümleştirmenin doğru olduğundan ve gerekenler toplar çok önemli olacaktır.
+Kullanım örnekleri ve segmentin tanımlanması, uygulama içinde toplanması gereken verileri tanımlamak için bir kılavuz sağlar. Bu rolü, *"etiket planı"* üstlenir. Etiket planı, veri toplama özelliğinin geliştiriciler için belirtildiğinden emin olmanıza olanak sağlar. Böylece geliştiriciler, kampanyalarınızda doğru verilerle çalışmanız için Mobile Engagement’a doğru kurulumu ekleyebilir. Tümleştirmenin doğru olduğundan ve ihtiyacınız olan verileri topladığından emin olmak için testler yürütmek de çok önemli olacaktır.
 
-Bir Pazarlamacılar mümkün toosee analizlerinizi gerçek zamanlı, kitlenizi segmentlere ve olması toosend akıllı başlatmak gibi hello tümleştirmeye dayalı şekilde uygulamalar yayımlandıktan sonra son kullanıcılar ya da hello uygulama dışında anında iletme bildirimi tooengage hedeflenen.
+Tümleştirmeye dayalı şekilde, uygulamalar yayımlandıktan sonra bir pazarlamacı olarak analizlerinizi gerçek zamanlı görebilecek, hedef kitlenizi segmentlere ayırabilecek ve son kullanıcılar ile uygulama içinde veya dışında etkileşim kurmak için akıllı, hedefe yönelik anında iletme bildirimleri göndermeye başlayabileceksiniz.
 
-### <a name="use-cases-tooget-started"></a>Kullanım örnekleri tooget başlatıldı
-1. Hoş Geldiniz stratejisi: hello başlatma uygulamasının hello sırada D + 2/5/10/15 gün toore devreye hello ilk oturum ve artış ilk çalıştırma bekletme sonra hello son kullanıcı davranışına göre çeşitli anında iletme bildirimi kampanyaları oluşturun.
-2. Merhaba son kullanıcı toosend hello bilgileri yalnızca tooend-büyük olasılıkla tooengage olan kullanıcıların Hello davranışını yeni içerik (özellik, makale/video veya ürün) yükseltirsiniz.
-3. Merhaba uygulaması oranı: değerinden 1, en olası toorate hello uygulama 5 yıldız hello deposunda yüzdesi temel kullanıcı hedefleyin.
-4. Abonelik artırma: bunları henüz görmemiş değerli içerikleri tooend-kullanıcılar tooincrease abonelik yükseltin.
-5. Öğretici: Herkes için zorunlu öğreticilere son verin. Neden uygulama mükemmel öğreticiler ve daha sonra bunları yalnızca hello kullanıcı toonot kullanım görünüyorsa uygulama içi iletiler aracılığıyla uygulama hello veya bir özelliği kullanmakta zorluk çekiyorsa tetikleyicisi yapı?
+### <a name="use-cases-to-get-started"></a>Başlamak için kullanım örnekleri
+1. Hoş geldiniz stratejisi: Uygulamanın başlatılmasındaki son kullanıcı davranışına dayalı olarak ilk oturumdan 2/5/10/15 gün sonra yeniden etkileşim kurmaya yönelik çeşitli anında iletme bildirimi kampanyaları oluşturun ve ilk kez kullananların elde tutulmasını artırın.
+2. Son kullanıcı davranışından faydalanıp bilgileri yalnızca katılım olasılığı yüksek olan son kullanıcılara göndererek yeni içerik (özellik, makale/video veya ürün) tanıtın.
+3. Uygulamaya not verme: Uygulamanıza mağazada 5 yıldız verme olasılığı en yüksek olan, kullanıcı tabanınızın yüzde 1’inden düşük bir kısmını hedefleyin.
+4. Abonelik artırma: Değerli içerikleri bunları henüz görmemiş olan son kullanıcılara tanıtarak abonelik sayısını artırın.
+5. Öğretici: Herkes için zorunlu öğreticilere son verin. Uygulama içi mükemmel öğreticiler oluşturup, yalnızca kullanıcı uygulamayı kullanmıyormuş gibi görünüyor veya bir özelliği kullanmakta zorluk çekiyorsa uygulama içi iletilerle bu öğreticileri tetiklemek daha iyi bir fikir değil mi?
 
-## <a name="why-do-you-need-analytics-tooengage"></a>Neden analizi tooengage gerekiyor mu?
-Bu noktada fark etmiş olabileceğiniz gibi yalnızca herkese giden bir anında iletme bildirimi kullanmak yeterli değildir. Merhaba temel kavramı, Mobile Engagement toohelp Pazarlamacılar ve geliştiricilerin hello doğru zamanda hello doğru son kullanıcıyla etkileşim ve hello sağ yerleştirin. tooknow bu üç ana kavramı temel toogather Analytics uygulamanızdan ve toosegment kullanın, İzleyici. Davranış segmentleri diğer veritabanınızdan veya CRM’den ya da çapraz bir kanaldan verilerle tamamlanırsa analiz daha da güç kazanır. Mobile Engagement yerden veri almaya olanak sağlar ve tootarget hello doğru hedef kitleye kullanır.
+## <a name="why-do-you-need-analytics-to-engage"></a>Katılım sağlamak için neden analize ihtiyaç var?
+Bu noktada fark etmiş olabileceğiniz gibi yalnızca herkese giden bir anında iletme bildirimi kullanmak yeterli değildir. Mobile Engagement’ın temel kavramı, pazarlamacı ve geliştiricilerin doğru son kullanıcıyla, doğru zamanda ve doğru yerde etkileşmesine yardımcı olmaktır. Bu üç ana kavramı bilebilmek için, uygulamanızdan analizler toplayıp bunları kullanarak hedef kitlenizi segmentlere ayırmanız şarttır. Davranış segmentleri diğer veritabanınızdan veya CRM’den ya da çapraz bir kanaldan verilerle tamamlanırsa analiz daha da güç kazanır. Mobile Engagement, her kaynaktan veri almaya olanak sağlar ve bu verileri doğru hedef kitleye seslenmek için kullanır.
 
-kitlenizi çekici zaman toobe hello en bağlamsal, onu mümkündür önemli toohave hello bilgi hello son kullanıcılar davranışının tooknow durumlarını gerçek zamanlı. Veri toplama, Pazarlamacılar toofocus gerçekten ne üzerine tooplay kullanım örnekleri önemlidir ve kendi mobil katılım strateji hedeflerine ulaşmasına olanak sağlar. Daha önce ayarlamak hello hedeflere ulaşmak olduğu da neden hello en iyi uygulama aslında değil toogather herhangi bir şey hello neden ve her şeyi hello analytics ancak yalnızca o toofocus izin hangi üzerinde toolearn ve kullanım örnekleri istiyor. Bu hello en iyi yolu toostart, deneyin, test ve nasıl anında iletme bildirimi toouse hello çözüm ve adres akıllı öğrenin ve bir uygulama toobring hello bekletme artırmak bu bir başarı öyküsü düzeyinde.
+Hedef kitlenizle iletişimde konuya en uygun mesajı verebilmek için son kullanıcılarınızın davranışları hakkında bilgi sahibi olmanız ve durumlarını gerçek zamanlı olarak bilmeniz çok önemlidir. Veri toplanması, pazarlamacıların kullanım örneklerini yürütürken önemli noktalara odaklanmasına ve mobil katılım strateji hedeflerine ulaşmasına olanak tanır.  Önceden belirlenen hedeflere ulaşmak için en iyi yöntem, her önüne gelen analizi toplamak yerine, öğrenmek istediklerinize ve kullanım örneklerinize odaklanmanıza olanak tanıyan analizlere yönelmektir. Başlatma, deneme, çözümü test edip kullanmayı öğrenme, akıllı anında iletme bildirimi gönderme ve uygulamayı başarı öyküsü düzeyine taşıyacak şekilde kullanıcıların elde tutulmasını artırma şeklindeki sistemin en iyi yolu budur.
 
 > [!NOTE]
-> Unutmayın: Çok fazla veri hello veriye zarar verir!
+> Unutmayın: Çok fazla veri, veriye zarar verir!
 > 
 > 
 
 ### <a name="use-cases-and-best-practices"></a>Kullanım örnekleri ve en iyi yöntemler
-Hello biz kısaca bazı ele alacağız aşağıdaki bölümlerde başlattığınız bizim müşteriler tooget karşılaştığımız gelen kullanım örnekleri anahtar.
+Aşağıdaki bölümlerde, başlamanıza yardımcı olması için müşterilerimiz aracılığıyla karşılaştığımız bazı önemli kullanım örneklerini kısaca ele alacağız.
 
 #### <a name="media"></a>Medya
-Merhaba hello son kullanıcı tarafından tüketilen içerik türünü toplayın ve ardından bu davranışı tootarget belirli türlerine göre daha büyük bir olasılıkla tooconsume olacaktır içerik yalnızca tooan İzleyici hello hedef kitlenizi segmentlere. Tüm kullanıcı tabanına istenmeyen posta gönderilmesini önler ve elde tutmayı artırır.
+Son kullanıcı tarafından tüketilen içerik türünü toplayın ve hedef kitleyi bu davranışa göre segmentlere ayırarak belirli içerik türlerini bu içerikle ilgilenme olasılığı en yüksek olan kitleye hedefleyin. Tüm kullanıcı tabanına istenmeyen posta gönderilmesini önler ve elde tutmayı artırır.
 
 #### <a name="m-commerce"></a>M-ticaret
-Merhaba ürün kategorileri içinde hello uygulama ve hedef kitle toopromote en sık ziyaret edilen indirim toplayabilir veya yeni ürün son kullanıcı hello bu kategorideki büyük olasılıkla toopurchase olacaktır. Tooboost gelirleri hedefleyin. Yeniden hello hedefi toospam değil!
+Uygulamada en sık ziyaret edilen ürün kategorilerini toplayın ve indirim veya yeni ürün tanıtırken bu kategoride ürün satın alma olasılığı daha yüksek olan son kullanıcıları hedefleyin. Gelirleri artırmayı hedefleyin. Burada da hedefimiz istenmeyen posta göndermemek!
 
 #### <a name="gaming"></a>Oyun
-Bir son kullanıcı ve başlangıç zamanı harcadığı hello oyundaki seviyesini toplamak kalmış olabilecek ve büyük olasılıkla toojump tooa sonraki bir ödül teklifini düzeyi olacaktır belirtilen dönem tootarget hello İzleyici.
+Son kullanıcının oyundaki seviyesini ve belirli bir dönemde harcadığı zamanı toplayarak takılıp kalmış olabilecek ve sonraki seviyeye atlamak için bir ödül teklifini kabul etme olasılığı daha yüksek olan kitleyi hedefleyin.
 
-Belirli olaylar hakkında bazı zaman tootry tooencourage için bunları tooreturn oynamamış bir no'lu tebliğ kapsamında teşvik toothose kullanıcılarla iletişim kurar.
+Bir süredir oynamamış kullanıcılar için bir teşvik içeren belirli olaylar konusunda iletişim kurarak böyle kullanıcıları geri dönmeye özendirin.
 
 #### <a name="retail"></a>Perakende
-Merhaba ürünleri ya da bir hedef kitle Sık Kullanılanlar veya davranışı ve sürücü hello İzleyici tooyour deposu tooincrease satın alma gelirlerini göre daha büyük bir olasılıkla tooconsume olmalıdır markaları toplayın.
+Hedef kitlenin sevdiği ürünlere veya davranışlarına dayalı olarak tüketme olasılığı yüksek olan ürünleri ya da markaları toplayın ve kitleyi mağazanıza yönlendirerek satın alma gelirlerini artırın.
 
 #### <a name="banking"></a>Bankacılık
-Hello ilk hello uygulama başlatılırken bir hesap oluşturan son kullanıcılara verileri toplar. Toodeploy hedeflenen anında iletme bildirimi ile bir Hoş Geldiniz stratejisi hedeflenir ve hello hesap aboneliklerinin sayısını artırın.
+Uygulamanın ilk başlatılması sırasında bir hesap oluşturan son kullanıcılara ait verileri toplayın. Hedefe yönelik bir anında iletme bildirimi ile bir hoş geldiniz stratejisi kullanıp hesap aboneliklerinin sayısını artırmayı hedefleyin.
 
-### <a name="how-toocreate-a-great-tag-plan"></a>Nasıl toocreate harika bir etiket planı?
-Bir etiket planı hello kullanıcı yolu veya yeterli analytics toounderstand kullanıcı davranışı ve düzgün şekilde segment hello kullanıcı temel toplanan toohave olması gereken tüm hello etiketleri (veri) sağlayan Merhaba uygulaması'nın iş akışı bir tür açıklamasını gibi olması gerekir. Bu teknik bir işlem değildir. Bu nedenle, Pazarlamacılar kendi Mobile Engagement stratejilerine göre toocollect istedikleri mümkün toospecify hello verilerdir.
+### <a name="how-to-create-a-great-tag-plan"></a>Harika bir etiket planı nasıl oluşturulur?
+Etiket planı, kullanıcı davranışlarını anlamak ve kullanıcı tabanını düzgün bir şekilde segmentlere ayırmak için yeterli analize sahip olmak açısından toplanması gereken tüm etiketleri (veri) sağlayan bir çeşit kullanıcı yolu açıklaması veya uygulamanın iş akışı gibi olmalıdır. Bu teknik bir işlem değildir. Bu nedenle, pazarlamacılar Mobile Engagement stratejilerine göre toplamak istedikleri verileri belirtebilir.
 
-Hello minimum tootag en az tüm hello ekranlar olduğu (adlı *etkinlikleri* Mobile Engagement içinde) bir uygulama. Bu, hello kullanıcı yolu belirlenmesine yardımcı olur.
+Yapılacak minimum işlem, bir uygulamanın en azından tüm ekranlarını (Mobile Engagement’ta *etkinlikler* olarak bilinir) etiketlemektir. Bu, kullanıcı yolunun belirlenmesine yardımcı olur.
 
-Etkinlik, bir düğmeye tıklanması gibi eylem bilgilerini toplayan *olaylar* ekleyebilir. Bu hello uygulama içerisindeki etkileşimler toplanabilir hello koleksiyonunu sağlar. Bu nedenle, Pazarlamacılar sorgulayabilmesi tooknow hangi kullanıcıların ziyaret ve neler yaptıklarını verilmiştir.
+Etkinlik, bir düğmeye tıklanması gibi eylem bilgilerini toplayan *olaylar* ekleyebilir. Böylece uygulama içerisindeki etkileşimler toplanabilir. Bu sayede pazarlamacılar, kullanıcıların ziyaret ettiği ekranları ve neler yaptıklarını bilebilirler.
 
-`Jobs`süreli eylemlerdir. Bu kullanıcı toocreate için bir hesap veya toologin örneği için süreyi Pazarlamacılar toounderstand için çok kullanışlıdır. Bu ayrıca, bir web hizmeti toocall gereken süreyi geliştiriciler toomonitor için yararlı olabilir.
+`Jobs`süreli eylemlerdir. Bir kullanıcının hesap oluşturmasının veya oturum açmasının ne kadar sürdüğünü pazarlamacının anlayabilmesi için çok kullanışlıdır. Bir web hizmetini çağırmanın ne kadar sürdüğünü izleyebilmeleri için geliştiricilere de faydalı olabilir.
 
-`Errors`Kullanıcıların uygulamanızda sorunlar yaşıyorsanız, izlenen tooknow de olabilir. Örneğin, sık sık bağlantı sorunlarıyla karşılaşılması.
+`Errors`kullanıcıların uygulamanızda sorunlar yaşayıp yaşamadığını öğrenmek için de izlenebilir. Örneğin, sık sık bağlantı sorunlarıyla karşılaşılması.
 
-Bu tür verilerin tümü parametrelerle Genişletilebilir (*ek bilgiler* Mobile Engagement içinde) hello uygulamadan dinamik veri toogather izin verme. Önemli tooallow ayrıntılı kesimleme budur. Örneğin, Pazarlamacılar hello tükettiği içerik türüne göre bir segmente yerleştirebilir. içerik türünü Hello hello dinamik bilgilerinin bir etkinlik veya bir olay olacaktır.
+Bu tür verilerin tümü parametrelerle genişletilerek (Mobile Engagement’ta *ek bilgiler*) uygulamadan dinamik veri toplamanıza olanak sağlanabilir. Bu ayrıntılı segmentlere ayırma için önemlidir. Örneğin, pazarlamacılar kullanıcıyı tükettiği içerik türüne göre bir segmente yerleştirebilir. İçerik türü, etkinlik veya olaya ilişkin dinamik bilgi olacaktır.
 
-*Uygulama bilgileri* Merhaba uygulaması veya hello kullanıcı tooconfirm hello durumu gerçek zamanlı olarak verir verilerdir. Bu aynı zamanda hedef kitle tabanını toocategorize yardımcı olur ve hızlı bir şekilde. Örneğin, bunu hello kullanıcı veya oturum açmayı veya kendi abonelik sona erme tarihi doğru/yanlış durumunu kullanabilirsiniz.
+*Uygulama bilgileri*, uygulamanın veya kullanıcının durumunu gerçek zamanlı olarak doğrulamanıza olanak tanıyan verilerdir. Bu veriler, aynı zamanda hedef kitle tabanını kategorilere ayırıp hızlı bir şekilde hedeflemeye yardımcı olur. Örneğin, kullanıcının oturum açıp açmadığına ilişkin bir doğru/yanlış durumunu veya kullanıcının abonelik sona erme tarihini kullanabilir.
 
 #### <a name="example-of-tags"></a>Etiket örneği
-*Kullanım örneği: Segment İzleyici davranışı tootarget hello doğru son kullanıcıyla hello doğru anında iletme bildirimi içeriği*
+*Kullanım örneği: Doğru son kullanıcıyı, doğru anında iletme bildirimi içeriğiyle hedeflemek için hedef kitle davranışlarını segmentlere ayırın.*
 
-1. Bir ürün kategorisini anında iletme bildirimi toopromote gönder: hello ziyaret ettikleri ürün kategorisine göre dayalı davranışı veri toosegment İzleyici toplayın x kez belirli bir dönem veya bunlar ekledikleri içinde belirli bir öğe. toplanan hello verileri toosegment izin vermek ve ardından bir anında iletme bildirimi toohello doğru hedef kitleye'ni gönderin.
-2. Oranı hello uygulama: sosyal ağ üzerinde hello İzleyici tarafından paylaşılan hello içerik göre verileri toplar. Amaçlar toosegment hello İzleyici hello belirleyerek *elçilerini* , uygulamanızın. Bir anında iletme bildirimi uygulama kullanıldığında hello elçiler, uygulama tooask toorate hello deposunda uygulamanızı 5 yıldız en iyi hedef kitle hello'dır.
+1. Bir ürün kategorisini tanıtmak üzere anında iletme bildirimi gönderin: Hedef kitleyi belirli bir dönemde x kez ziyaret ettikleri ürün kategorisine veya sepetlerine ekledikleri belirli bir ürüne göre segmentlere ayırmak için davranış verileri toplayın. Toplanan veriler, segmentlere ayırıp doğru hedef kitleye bir anında iletme bildirimi göndermenize olanak tanıyacaktır.
+2. Uygulamaya not ver: Bir sosyal ağ üzerindeki hedef kitle tarafından paylaşılan içeriğe dayalı veri toplayın. Uygulamanızın *elçilerini* belirleyerek hedef kitleyi segmentlere ayırmayı amaçlar. Elçiler, uygulama içi bir anında iletme bildirimi kullanarak uygulamanıza mağazada 5 yıldız vermeleri istenebilecek en uygun hedef kitledir.
    
    ![][1]
 
 *Kullanım örneği: Bildirim temelli veriler*
 
-1. Uyarı haberleri segmenti oluşturun: bildirim temelli veriler toosegment hedef kitleyi tercihlerine göre topla. Belirli bir kitleyi gerçekten ilgilendiren belirli bir konuda anında iletme bildirimi gönderilmesine olanak tanır.
-2. Oturum açma durumuna göre hedef kitleyi segmentlere ayırın. Bir kullanıcının bağlı olduğu veya hesap oluşturup oluşturmadığını veri tooknow toplayın. Henüz oturum açmamış olan hedeflenmesine yardımcı olur ve bir anında iletme bildirimi tooencourage son kullanıcı tooconvert gönderir.
+1. Uyarı haberleri segmenti oluşturun: Bildirim temelli veriler toplayarak hedef kitleyi tercihlerine göre segmentlere ayır. Belirli bir kitleyi gerçekten ilgilendiren belirli bir konuda anında iletme bildirimi gönderilmesine olanak tanır.
+2. Oturum açma durumuna göre hedef kitleyi segmentlere ayırın. Kullanıcının bağlı olup olmadığını veya hesap oluşturup oluşturmadığını öğrenmek için veri toplayın. Henüz oturum açmamış olan son kullanıcıların hedeflenmesine yardımcı olur ve son kullanıcıyı aranıza katılmaya teşvik eden bir anında iletme bildirimi gönderir.
    ![][2]
 
 ### <a name="next-steps"></a>Sonraki adımlar
-* Ziyaret [Mobile Engagement kavramları] toolearn temel Mobile Engagement kavramları hakkında daha fazla bilgi.
-* Ziyaret [Mobile Engagement uygulaması oluşturma](mobile-engagement-create.md) toocreate Azure ve hello Mobile Engagement portalıyla uygulamalarınızı yönetmeye başlangıç yeni bir Mobile Engagement uygulama koleksiyonu.
-* Ziyaret [en iyi uygulamalar](mobile-engagement-getting-started-best-practices.md) ayrıntıları içine toogo.
-* Ziyaret [oyun uygulaması senaryosu](mobile-engagement-gaming-scenario.md) örnek bir oyun uygulaması ile Mobile Engagement'ı uygulama hakkında toolearn. 
-* Ziyaret [medya uygulaması senaryosu](mobile-engagement-media-scenario.md) örnek bir medya uygulaması ile Mobile Engagement'ı uygulama hakkında toolearn. 
-* Ziyaret [öğreticileri] toolearn hello uygulaması hakkında daha fazla.
+* Temel Mobile Engagement kavramları hakkında daha fazla bilgi edinmek için [Mobile Engagement Kavramları] makalesini ziyaret edin.
+* Azure’da yeni bir Mobile Engagement Uygulama Koleksiyonu oluşturmak ve Mobile Engagement portalıyla uygulamalarınızı yönetmeye başlamak için [Mobile Engagement Uygulaması Oluşturma](mobile-engagement-create.md) makalesini ziyaret edin.
+* Ayrıntılı bilgiler için [Best practices](mobile-engagement-getting-started-best-practices.md) (En iyi uygulamalar) makalesini ziyaret edin.
+* Örnek bir oyun uygulaması ile Mobile Engagement’ı uygulama hakkında bilgi edinmek için [Oyun Uygulaması senaryosu](mobile-engagement-gaming-scenario.md) makalesini ziyaret edin. 
+* Örnek bir medya uygulaması ile Mobile Engagement’ı uygulama hakkında bilgi edinmek için [Medya Uygulaması senaryosu](mobile-engagement-media-scenario.md) makalesini ziyaret edin. 
+* Uygulama hakkında daha fazla bilgi edinmek için [Öğreticiler] makalesini ziyaret edin.
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-define-your-mobile-engagement-strategy/use-case1.png
 [2]: ./media/mobile-engagement-define-your-mobile-engagement-strategy/use-case2.png
 
 <!-- URLs. -->
-[Mobile Engagement kavramları]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
-[öğreticileri]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
+[Mobile Engagement Kavramları]: http://azure.microsoft.com/documentation/articles/mobile-engagement-concepts/
+[Öğreticiler]: http://azure.microsoft.com/documentation/articles/mobile-engagement-ios-get-started/
 

@@ -1,6 +1,6 @@
 ---
-title: "aaaHow tooenable uygulamalar arası SSO'nun ADAL kullanarak Android üzerinde | Microsoft Docs"
-description: "Nasıl toouse hello özelliklerini uygulamalarınızı boyunca çoklu oturum açma ADAL SDK tooenable hello. "
+title: "Uygulamalar arası SSO'nun ADAL kullanarak Android üzerinde etkinleştirme | Microsoft Docs"
+description: "Çoklu oturum açma, uygulamalar arasında etkinleştirmek için ADAL SDK özelliklerini kullanma "
 services: active-directory
 documentationcenter: 
 author: danieldobalian
@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 3867e15030e5516464e4dbd92ba35894430daf00
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9c7e959530a836fe5ddf74708363a636c39b3cc6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-tooenable-cross-app-sso-on-android-using-adal"></a>Nasıl tooenable uygulamalar arası SSO'nun ADAL kullanarak Android üzerinde
-Böylece kullanıcılar yalnızca tooenter kimlik bilgilerini bir kez gerekir ve bu kimlik bilgilerini otomatik olarak iş uygulamalarda çoklu oturum açma (SSO) sağlayarak müşteriler tarafından şimdi beklenir. ekranda bir telefon araması veya ilerideki kodu gibi ek bir etmen (2FA) kez birlikte küçük, genellikle kullanıcı adı ve parola girme hello zorluk hızlı memnuniyetsizliği kullanıcı sonuçlarında var. toodo bu ürün için birden fazla kez
+# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Uygulamalar arası SSO'nun ADAL kullanarak Android üzerinde etkinleştirme
+Kullanıcıların yalnızca bir kez kimlik bilgilerini girin ve bu kimlik bilgilerini otomatik olarak gerekir böylece çoklu oturum açma (SSO) iş arasında sağlayan uygulamalar artık müşteriler tarafından bekleniyordu. Ekranda bir telefon araması veya ilerideki kodu gibi ek bir etmen (2FA) kez birlikte küçük, genellikle kullanıcı adı ve parola girme zorluk hızlı memnuniyetsizliği kullanıcı sonuçlarında ürününüz için birden fazla kez bunun var.
 
-Ayrıca, Microsoft Accounts veya Office365 iş hesabından gibi diğer uygulamaları kullanabilir bir kimlik platformu uygularsanız, müşterilerin kimlik bilgileri bu toobe kullanılabilir toouse tüm uygulamalar arasında Hayır, hello satıcı önemli bekler.
+Ayrıca, Microsoft Accounts veya Office365 iş hesabından gibi diğer uygulamaları kullanabilir bir kimlik platformu uygularsanız, müşteriler bu kimlik bilgileri, tüm uygulamalarını satıcı olsun genelinde kullanılabilir olmasını bekler.
 
-Merhaba, Microsoft Identity SDK ile birlikte Microsoft Identity platform tüm bu sabit sizin ve SSO ya da kendi paketi uygulamaların veya olarak içinde müşterilerinizle özelliği toodelight hello verir çalışır bizim Aracısı yetenek ve Doğrulayıcı Merhaba tüm aygıt üzerinden uygulamaları.
+Bizim Microsoft Identity SDK ile birlikte Microsoft Identity platform bu sabit iş sizin için yapar ve SSO müşterilerinizle kendi uygulama paketinin içinde ya da delight olanağı sağlar veya bizim Aracısı özellik ve tüm aygıt arasında kimlik doğrulayıcı uygulamalar ile.
 
-Bu kılavuz size nasıl söyleyecektir tooconfigure bizim SDK, uygulama tooprovide içinde bu avantajı tooyour müşteriler.
+Bu kılavuz, müşterilerinize Bu kolaylık sağlamak için uygulamanızda bizim SDK'yı yapılandırmak nasıl söyler.
 
 Bu kılavuz için geçerlidir:
 
@@ -37,36 +37,36 @@ Bu kılavuz için geçerlidir:
 * Azure Active Directory B2B
 * Azure Active Directory Koşullu Erişim
 
-Merhaba belge önceki varsayar nasıl çok bildiğiniz[sağlamak hello eski portalı uygulamalarında Azure Active Directory için](active-directory-how-to-integrate.md) ve uygulamanızı hello ile tümleşik [Microsoft Identity Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android) .
+Önceki belge bildiğiniz varsayar nasıl [sağlamak eski portalı uygulamalarında Azure Active Directory için](active-directory-how-to-integrate.md) ve uygulamanız ile tümleşik [Microsoft Identity Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 
-## <a name="sso-concepts-in-hello-microsoft-identity-platform"></a>Microsoft kimlik platformu hello SSO kavramlar
+## <a name="sso-concepts-in-the-microsoft-identity-platform"></a>Microsoft Identity platformuna SSO kavramlar
 ### <a name="microsoft-identity-brokers"></a>Microsoft Identity aracıları
-Microsoft hello kimlik bilgilerini farklı satıcılardan uygulamalar arasında köprü oluşturma için izin uygulamaları mobil her platform için sağlar ve nerede tek güvenli bir yerde gerektiren özel Gelişmiş özellikleri sağlar toovalidate kimlik bilgileri. Bunlar diyoruz **aracıların**. İOS ve Android bunlar müşteriler bağımsız olarak yüklemek veya toohello aygıt bazılarını veya tümünü hello cihaz için kendi çalışan yöneten bir şirket tarafından gönderilen indirilebilir uygulamaları aracılığıyla sağlanır. Bu aracıları yönetme güvenlik yalnızca bazı uygulamalar veya ne BT yöneticileri işlemleriniz dayalı hello tüm cihaz desteği. Windows, bu işlev toohello işletim sistemi, teknik olarak Web kimlik doğrulama Aracısı hello bilinen yerleşik bir hesabı seçicide tarafından sağlanır.
+Microsoft kimlik farklı satıcılardan uygulamalar arasında köprü oluşturma için izin uygulamaları mobil her platform için sağlar ve kimlik doğrulamaya nerede tek güvenli bir yerde gerektiren özel Gelişmiş özellikleri sağlar. Bunlar diyoruz **aracıların**. İOS ve Android bunlar müşteriler bağımsız olarak yüklemek veya bazı veya tüm cihaz için kendi çalışan yöneten bir şirket tarafından cihaza gönderilir indirilebilir uygulamaları aracılığıyla sağlanır. Bu aracıları yönetme güvenlik yalnızca bazı uygulamalar veya ne BT yöneticileri işlemleriniz bağlı tüm cihaz desteği. Windows, bu işlev, Web kimlik doğrulama aracısı olarak teknik olarak bilinen işletim sistemi içinde yerleşik bir hesabı seçicide tarafından sağlanır.
 
-Hakkında daha fazla bilgi için bu aracıların ve nasıl müşterilerinizin bunları okuyun hello Microsoft Identity platform için kullanıcıların oturum açma akışını görebileceğiniz kullanırız.
+Hakkında daha fazla bilgi için bu aracıların ve nasıl müşterilerinizin bunları okuyun Microsoft Identity platform için kullanıcıların oturum açma akışını görebileceğiniz kullanırız.
 
 ### <a name="patterns-for-logging-in-on-mobile-devices"></a>Mobil cihazlarda günlüğe kaydetme için desenleri
-Erişim toocredentials cihazlarda hello Microsoft Identity platformuna yönelik iki temel düzenlerden izleyin:
+Kimlik cihazlarda erişime Microsoft Identity platformuna yönelik iki temel düzenlerden izleyin:
 
 * Olmayan Aracısı Yardımlı oturum açmalar
 * Yardımlı Oturum Aracısı
 
 #### <a name="non-broker-assisted-logins"></a>Olmayan Aracısı Yardımlı oturum açmalar
-Olmayan Aracısı Yardımlı satır içi hello uygulamayla gerçekleşir ve hello cihazda bu uygulama için hello yerel depolama kullanan oturum açma deneyimlerini oturumlardır. Bu depolama uygulamalar arasında paylaşılıyor olabilir ancak sıkı şekilde bağlı toohello uygulama ya da bu kimlik bilgilerini kullanarak uygulama paketi hello kimlik bilgileridir. Bir kullanıcı adı ve parola hello uygulamanın kendi içinde girdiğinizde, bu büyük olasılıkla birçok mobil uygulamalarda tecrübe ettiklerinize.
+Olmayan Aracısı Yardımlı satır içi uygulamayla gerçekleşir ve bu uygulama için cihazda yerel depolama kullanan oturum açma deneyimlerini oturumlardır. Bu depolama uygulamalar arasında paylaşılıyor olabilir, ancak kimlik bilgileri uygulama veya bu kimlik bilgilerini kullanarak uygulama paketi sıkı bir şekilde bağlıdır. Bir kullanıcı adı ve parola uygulama içinde girdiğinizde, bu büyük olasılıkla birçok mobil uygulamalarda tecrübe ettiklerinize.
 
-Bu oturumlar hello aşağıdaki faydaları vardır:
+Bu oturumlar aşağıdaki avantajlara sahiptir:
 
-* Kullanıcı deneyimi tamamen hello uygulaması içinde zaten var.
-* Kimlik bilgileri, hello tarafından imzalanmış uygulamalar arasında paylaşılabilir aynı sertifika, çoklu oturum açma deneyimini tooyour suite uygulamaların sağlama.
-* Denetim Günlüğü'nde hello deneyimi geçici toohello uygulama önce ve sonra oturum açma sağlanır.
+* Kullanıcı deneyimi tamamen uygulaması içinde zaten var.
+* Kimlik bilgileri, çoklu oturum açma deneyimini paketiniz uygulamaları için sağlama aynı sertifika tarafından imzalanan uygulamalar arasında paylaşılabilir.
+* Oturum açma deneyimi geçici denetim önce ve sonra oturum açma uygulamaya sağlanır.
 
-Bu oturumlar dezavantajları aşağıdaki hello vardır:
+Bu oturumlar aşağıdaki dezavantajları vardır:
 
 * Kullanıcı yalnızca bu Microsoft uygulamanızı yapılandırılmış Identities arasında Microsoft Identity kullanan tüm uygulamalar boyunca çoklu oturum açma deneyimi olamaz.
-* Uygulamanız, koşullu erişim veya kullanımı hello Intune ürün paketi gibi daha gelişmiş iş özellikleriyle kullanılamaz.
+* Uygulamanızı koşullu erişim gibi daha gelişmiş iş özellikleriyle kullanılamaz veya ürün Intune paketi kullanın.
 * Uygulamanızı iş kullanıcıları için sertifika tabanlı kimlik doğrulamasını destekleyemez.
 
-Merhaba Microsoft Identity SDK'ları, uygulamaları tooenable SSO hello paylaşılan depolama ile nasıl bir temsilini şöyledir:
+Microsoft Identity SDK'ları uygulamalarınızı SSO'yu etkinleştirmek için paylaşılan depolama ile nasıl bir temsilini şöyledir:
 
 ```
 +------------+ +------------+  +-------------+
@@ -83,35 +83,35 @@ Merhaba Microsoft Identity SDK'ları, uygulamaları tooenable SSO hello paylaş�
 ```
 
 #### <a name="broker-assisted-logins"></a>Yardımlı Oturum Aracısı
-Aracısı destekli hello Aracısı uygulama içinde oluşur ve hello depolama ve güvenlik hello Aracısı tooshare kimlik bilgilerinin hello Microsoft Identity platform uygulanan tüm uygulamalar için hello aygıtta kullanan oturum açma deneyimlerini oturumlardır. Bu, uygulamalarınız hello Aracısı toosign kullanıcılar kullandığını anlamına gelir. İOS ve Android cihazlarda bu aracıların müşteriler bağımsız olarak yüklemek veya toohello aygıt hello cihaz kendi kullanıcı yöneten bir şirket tarafından gönderilen indirilebilir uygulamaları aracılığıyla sağlanır. Merhaba Microsoft Authenticator uygulaması iOS bu tür bir uygulama örneğidir. Windows bu işlevselliği toohello işletim sistemi, teknik olarak Web kimlik doğrulama Aracısı hello bilinen yerleşik bir hesabı seçicide tarafından sağlanır.
-Merhaba deneyimi platforma göre değişir ve kesintiye uğratan toousers bazen olabilir değilse doğru şekilde yönetilir. Merhaba Facebook uygulamanın yüklü olması ve başka bir uygulamadan Facebook bağlanmak kullanırsanız bu deseni ile en biliyor. Merhaba Microsoft kimlik platformu kullandığı aynı düzeni hello.
+Aracısı destekli Aracısı uygulama içinde oluşur ve kimlik bilgilerini Microsoft Identity platform uygulanan tüm uygulamalar için cihazda paylaşmak için depolama ve aracının güvenlik kullanan oturum açma deneyimlerini oturumlardır. Bu, uygulamalarınız kullanıcılar Oturum Aracısı kullandığını anlamına gelir. İOS ve Android cihazlarda bu aracıların müşteriler bağımsız olarak yüklemeniz veya kendi kullanıcı aygıt yöneten bir şirket tarafından cihaza gönderilir indirilebilir uygulamaları aracılığıyla sağlanır. İos'ta Microsoft Authenticator uygulama bu tür bir uygulama örneğidir. Windows bu işlevsellik, Web kimlik doğrulama aracısı olarak teknik olarak bilinen işletim sistemi içinde yerleşik bir hesabı seçicide tarafından sağlanır.
+Deneyimi platforma göre değişir ve bazen kullanıcılara işlemleri karışıklığa neden olabilir değilse doğru şekilde yönetilir. Facebook uygulamanın yüklü olması ve başka bir uygulamadan Facebook bağlanmak kullanırsanız bu deseni ile en biliyor. Microsoft Identity platformu aynı düzeni kullanır.
 
-İOS için bu tooa "geçiş" animasyon Burada, uygulamanızın hello Microsoft Authenticator uygulamaları toohello arka toohello ön hello kullanıcı tooselect için gelen gönderilen toosign ile istediğiniz hangi hesabı doğurur.  
+Bu bir "geçiş" Müşteri adayları iOS için kullanıcının oturum açmak istediğiniz hangi hesabı seçmek ön Burada, uygulamanızın Microsoft Authenticator uygulamaları arka gönderilir animasyon gelir.  
 
-Android ve Windows hello hesabı seçicide daha az kesintiye uğratan toohello kullanıcı olan, uygulamanızın üzerinde görüntülenir.
+Android ve Windows hesabı seçicide kullanıcıya daha az kesintiye uğratan olan, uygulamanızın üzerinde görüntülenir.
 
-#### <a name="how-hello-broker-gets-invoked"></a>Merhaba Aracısı nasıl çağrılır
-Uyumlu bir aracı hello Microsoft Authenticator uygulaması, hello Microsoft Identity SDK'ları otomatik olarak ayarlanır gibi hello aygıtta yüklüyse, bir kullanıcı herhangi bir hesabı kullanarak toolog istedikleri belirttiğinde hello broker çağırma iş hello Merhaba Microsoft Identity platform. Bu hesap, kişisel Microsoft Account, bir iş veya Okul hesabı veya bir sağladığınız hesap ve konak B2C ve B2B Ürünlerimiz kullanarak azure'da olabilir. 
+#### <a name="how-the-broker-gets-invoked"></a>Aracısı'nı nasıl çağrılır
+Microsoft Authenticator uygulaması gibi cihaz uyumlu bir aracı yüklenmişse Microsoft Identity SDK'ları otomatik olarak bir kullanıcı Microsoft Identity platformdan herhangi bir hesabı kullanarak oturum açması istedikleri belirttiğinde, Aracısı çağırma çalışma yapın. Bu hesap, kişisel Microsoft Account, bir iş veya Okul hesabı veya bir sağladığınız hesap ve konak B2C ve B2B Ürünlerimiz kullanarak azure'da olabilir. 
  
- #### <a name="how-we-ensure-hello-application-is-valid"></a>Biz Merhaba uygulaması nasıl emin geçerlidir
+ #### <a name="how-we-ensure-the-application-is-valid"></a>Biz uygulamayı nasıl emin geçerlidir
  
- Merhaba gerek tooensure hello bir uygulama çağrısı hello Aracısı destekli Aracısı oturum açma bilgilerini sağladığımız önemli toohello güvenlik kimliğidir. İOS ne Android kötü amaçlı uygulamalar ve "yasal uygulamanın tanımlayıcı aldatıcı" Merhaba yasal uygulaması için amacı hello belirteçleri almak için yalnızca belirli bir uygulama için geçerli olan benzersiz tanımlayıcıları zorlar. Biz her zaman zamanında hello doğru uygulama ile iletişim kuran tooensure, biz hello Geliştirici tooprovide özel redirectURI kendi uygulama Microsoft ile kaydedilirken isteyin. **Geliştiricilerin bu yeniden yönlendirme URI'si nasıl oluşturabilir aşağıda ayrıntılı olarak ele alınmıştır.** Bu özel redirectURI ve toobe benzersiz toohello uygulama Google Play mağazası hello tarafından güvence altına hello sertifika parmak izi hello uygulamasının içerir. Bir uygulama hello Aracısı hello Android işletim sistemi tooprovide ister hello Aracısı çağırdığında hello ile sertifika parmak izi, çağrılan hello Aracısı. Merhaba Aracısı bu sertifika parmak izi tooMicrosoft hello çağrısı tooour kimlik sistemi sağlar. Hello sertifika parmak izi Merhaba uygulaması hello sertifika parmak iziyle eşleşmiyor kayıt sırasında toous hello geliştirici tarafından sağlanan, hello kaynak hello uygulama istenirken için size erişim toohello belirteçleri reddeder. Bu denetim yalnızca hello geliştirici tarafından kayıtlı hello uygulama belirteçlerini almasını sağlar.
+ Aracısı Aracısı sağladığımız güvenlik önemli bir uygulama çağrısı kimliğinden emin olmak için gereken oturumları destekli. İOS ne Android kötü amaçlı uygulamalar "yasal uygulamanın tanımlayıcı aldatıcı" ve yasal uygulamanın amacı belirteçleri almak için yalnızca belirli bir uygulama için geçerli olan benzersiz tanımlayıcıları zorlar. Biz her zaman doğru uygulama çalışma zamanında ile iletişim kuran emin olmak için size özel redirectURI kendi uygulama Microsoft ile kaydedilirken sağlamak için geliştirici isteyin. **Geliştiricilerin bu yeniden yönlendirme URI'si nasıl oluşturabilir aşağıda ayrıntılı olarak ele alınmıştır.** Bu özel redirectURI ve Google Play mağazası tarafından uygulama için benzersiz olmasını sağlamış uygulamanın sertifika parmak izi içerir. Bir uygulama Aracısı çağırdığında Aracısı Aracısı adlı sertifika parmak iziyle sağlamak için Android işletim sistemi sorar. Aracısı'nı bu sertifika parmak izi kimliğini sistemimizde çağrısında Microsoft'a sağlar. Sertifika parmak izi uygulamanın bize kayıt sırasında geliştirici tarafından sağlanan sertifika parmak izi eşleşmiyorsa, biz uygulama istenirken kaynak belirteçleri için erişimi reddeder. Bu denetim yalnızca geliştirici tarafından kayıtlı uygulama belirteçlerini almasını sağlar.
 
-**Microsoft Identity SDK Hello hello Aracısı çağıran veya hello aracı olmayan Yardımlı akış kullanıyorsa, hello Geliştirici hello seçimine sahiptir.** Hello geliştirici değil toouse hello Aracısı destekli akış seçerse, ancak bunlar hello yararı SSO kimlik bilgilerini kullanarak bu hello kullanıcı kaybedersiniz hello aygıtta eklemiş olabilir ve kendi uygulama Microsoft iş özelliklerle kullanılmasını engeller Koşullu erişim, Intune yönetim özellikleri ve sertifika tabanlı kimlik doğrulaması gibi müşterilerinin sağlar.
+**Microsoft Identity SDK Aracısı çağıran veya aracı olmayan Yardımlı akış kullanıyorsa, geliştirici seçimi vardır.** Bununla birlikte Geliştirici Aracısı destekli akışı kullanmayacak şekilde seçerse kullanıcı cihazda eklemiş olabilir ve kendi uygulama Microsoft, müşterilerinin koşullu erişim, Intune yönetim özellikleri ve sertifika tabanlı kimlik doğrulaması gibi sağlar iş özellikleriyle kullanılmasını engeller SSO kimlik bilgilerini kullanma avantajına kaybedersiniz.
 
-Bu oturumlar hello aşağıdaki faydaları vardır:
+Bu oturumlar aşağıdaki avantajlara sahiptir:
 
-* Kullanıcı, kendi hello satıcı olursa olsun tüm uygulamalar arasında SSO karşılaşır.
-* Uygulamanız, koşullu erişim gibi daha gelişmiş iş özellikleri kullanın veya ürün hello Intune paketi kullanın.
+* Kullanıcı, satıcı olsun tüm kullanıcıların uygulamaları üzerinden SSO karşılaşır.
+* Uygulamanız, koşullu erişim gibi daha gelişmiş iş özellikleri kullanın veya ürün Intune paketi kullanın.
 * Uygulamanızı iş kullanıcıları için sertifika tabanlı kimlik doğrulamasını destekler.
-* Çok daha güvenli oturum açma hello uygulama ve hello kullanıcı hello kimliği doğrulandı gibi ek güvenlik algoritmalarını ve şifreleme ile Merhaba Aracısı uygulaması tarafından karşılaşırsınız.
+* Uygulama ve kullanıcı kimliği olarak çok daha güvenli oturum açma deneyimi ek güvenlik algoritmalarını ve şifreleme ile Aracısı uygulama tarafından doğrulandı.
 
-Bu oturumlar dezavantajları aşağıdaki hello vardır:
+Bu oturumlar aşağıdaki dezavantajları vardır:
 
-* Kimlik bilgileri seçilen sırada hello kullanıcı iOS uygulamanızın deneyimi dışında geçti.
-* Kayıp hello özelliği toomanage hello oturum açma deneyimi müşterilerinize uygulamanızın içinde.
+* Kimlik bilgileri seçilen sırada kullanıcının iOS uygulamanızın deneyimi dışında geçti.
+* Uygulamanızda müşterileriniz için oturum açma deneyimi yönetme olanağı kaybı.
 
-Nasıl hello Microsoft Identity SDK'ları hello çalışmak Aracısı uygulamaları tooenable SSO bir temsilini şöyledir:
+Microsoft Identity SDK'ları SSO'yu etkinleştirmek için Aracısı uygulamalarla nasıl çalıştığını bir temsilini şöyledir:
 
 ```
 +------------+ +------------+   +-------------+
@@ -138,27 +138,27 @@ Nasıl hello Microsoft Identity SDK'ları hello çalışmak Aracısı uygulamala
 
 ```
 
-Bu bilgiler ile çağrılmak mümkün toobetter olmalıdır anlamanıza ve SSO hello Microsoft Identity platform ve SDK'ları kullanarak uygulamanızdaki uygulamanıza.
+Daha iyi anlamanıza ve SSO Microsoft Identity platform ve SDK'ları kullanarak uygulamanızdaki uygulamanıza açabilmelisiniz bu arka plan bilgileri ile çağrılmak.
 
 ## <a name="enabling-cross-app-sso-using-adal"></a>ADAL kullanarak uygulamalar arası SSO'nun etkinleştirme
-Merhaba ADAL Android SDK burada kullandığımız için:
+Burada ADAL Android SDK'sı için kullanın:
 
 * Aracı olmayan Yardımlı SSO Uygulama paketiniz için Aç
 * Aracısı destekli SSO desteği Aç
 
 ### <a name="turning-on-sso-for-non-broker-assisted-sso"></a>Aracı olmayan için SSO üzerinde kapatma SSO Destekli
-Uygulamalar arasında aracı olmayan Yardımlı SSO için hello Microsoft Identity SDK'ları yönetmek SSO hello karmaşıklığını çoğunu sizin için. Bu, hello Önbelleği'nde hello doğru kullanıcı bulma ve bakımını yapma, tooquery için oturum açan kullanıcıların listesini içerir.
+Uygulamalar arasında aracı olmayan Yardımlı SSO için Microsoft Identity SDK'ları SSO karmaşıklığını çoğunu sizin için yönetin. Bu doğru kullanıcı önbellekte bulma ve bakımı, sorgu oturum açan kullanıcıların listesini içerir.
 
-Aşağıdaki toodo hello ihtiyacınız sahip uygulamalar arasında SSO tooenable:
+Aşağıdakileri yapmak gereken kendi uygulamalarında SSO'yu etkinleştirmek için:
 
-1. Tüm, uygulamaların kullanıcı hello aynı istemci Kimliğini veya uygulama kimliği emin olun
-2. Tüm uygulamalarınızın aynı SharedUserID ayarlamak hello emin olun.
-3. Tüm depolama paylaştırabilirsiniz deposundan hello Google Play aynı imzalama sertifika, uygulama paylaşımı hello olun.
+1. Tüm uygulamalar kullanıcı aynı istemci Kimliğini veya uygulama kimliği emin olun
+2. Tüm uygulamalarınızın aynı SharedUserID kümesine sahip olun.
+3. Depolama paylaştırabilirsiniz tüm uygulamalar aynı imzalama sertifikası Google Play Mağazası'ndan paylaşmadığından emin olun.
 
-#### <a name="step-1-using-hello-same-client-id--application-id-for-all-hello-applications-in-your-suite-of-apps"></a>1. adım: Aynı istemci kimliği hello kullanarak / tüm uygulamaların paketiniz uygulamalarda hello için uygulama kimliği
-Bu tooshare belirteçleri, uygulamalar arasında izin verildiğini sırayla hello Microsoft Identity platform tooknow için uygulamalarınızın her birinde aynı istemci Kimliğini veya uygulama kimliği tooshare hello gerekir Bu ilk uygulamanızı hello Portalı'nda kayıtlı yükleyen tooyou sağlanan hello benzersiz tanımlayıcısıdır.
+#### <a name="step-1-using-the-same-client-id--application-id-for-all-the-applications-in-your-suite-of-apps"></a>1. adım: aynı istemci Kimliğini kullanarak / uygulama kimliği paketiniz uygulamalarının tüm uygulamalar için
+Belirteçleri, uygulamalar arasında paylaşmak için izin bilmeniz Microsoft Identity Platform sırayla uygulamalarınızın her birinde aynı istemci Kimliğini veya uygulama kimliği paylaşmak gerekir Bu portalda ilk uygulamanızı kaydolurken, size sağlanan benzersiz bir tanımlayıcıdır.
 
-Farklı uygulamaları nasıl kullanacağını merak ediyor toohello onu kullanıyorsa, Microsoft Identity hizmet hello aynı uygulama kimliği Merhaba cevaptır ile Merhaba **yeniden yönlendirme URI'ler**. Her uygulamanın birden çok yeniden yönlendirme hello hazırlama Portalı'nda kayıtlı URI'ler olabilir. Her uygulama paketiniz içinde farklı bir yeniden yönlendirme URI'sine sahip olur. Bu sistem, bir örnek aşağıda verilmiştir:
+Aynı uygulama kimliği kullanıyorsa, farklı uygulamalar Microsoft Identity hizmetine nasıl kullanacağını merak ediyor olabilirsiniz Yanıt olan **yeniden yönlendirme URI'ler**. Her uygulamanın birden çok yeniden yönlendirme hazırlama Portalı'nda kayıtlı URI'ler olabilir. Her uygulama paketiniz içinde farklı bir yeniden yönlendirme URI'sine sahip olur. Bu sistem, bir örnek aşağıda verilmiştir:
 
 App1 yeniden yönlendirme URİ'si:`msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D`
 
@@ -168,7 +168,7 @@ App3 yeniden yönlendirme URİ'si:`msauth://com.example.userapp2/Pt85PxIyvbLkbKU
 
 ....
 
-Bunlar altında yuvalanmış aynı istemci kimliği hello / uygulama kimliği ve Aranan göre hello redirect URI SDK yapılandırmanızda toous döndürür.
+Bu durum, aynı istemci kimliği altında iç içe geçmiş / uygulama kimliği ve yeniden yönlendirme URI'si dönmek için bize SDK yapılandırmanızda dayanan Aranan.
 
 ```
 +-------------------+
@@ -194,31 +194,31 @@ Bunlar altında yuvalanmış aynı istemci kimliği hello / uygulama kimliği ve
 ```
 
 
-*Bu yeniden yönlendirme URI biçimi hello Not aşağıda açıklanmıştır. Toosupport hello Aracısı istediğiniz sürece herhangi bir yeniden yönlendirme URI'si kullanabilir, bu durumda bunlar şunun gibi hello yukarıdaki görünmesi gerekir*
+*Bu yeniden yönlendirme URI biçimi açıklanmıştır aşağıda olduğunu unutmayın. Aracısı desteklemek istediğiniz sürece, bu durumda yukarıdaki şöyle benzemelidir herhangi yeniden yönlendirme URI'si kullanabilir*
 
 #### <a name="step-2-configuring-shared-storage-in-android"></a>2. adım: Android paylaşılan depolama ortamı yapılandırma
-Ayar hello `SharedUserID` hello bu belgenin kapsamında değildir ancak hello hello Google Android belgeleri okuyarak öğrenilebilecek [bildirim](http://developer.android.com/guide/topics/manifest/manifest-element.html). Önemli olan, sharedUserID çağrılacağı ve tüm uygulamalar için kullanmak istediğinize karar ' dir.
+Ayarı `SharedUserID` bu belgenin kapsamı dışındadır, ancak üzerinde Google Android belgeleri okuyarak öğrenilebilecek [bildirim](http://developer.android.com/guide/topics/manifest/manifest-element.html). Önemli olan, sharedUserID çağrılacağı ve tüm uygulamalar için kullanmak istediğinize karar ' dir.
 
-Merhaba olduktan sonra `SharedUserID` hazır toouse SSO olduğunuz tüm uygulamalarınızda.
+Bulduktan sonra `SharedUserID` tüm uygulamalarınızda SSO kullanmaya hazır olursunuz.
 
 > [!WARNING]
-> Uygulamalar arasında depolama paylaştığınızda herhangi bir uygulama bu bölge kullanıcılar silin veya tüm hello belirteçleri, uygulamanızda da kötüsü silin. Merhaba belirteçleri toodo arka plan çalışması üzerinde kullanan uygulamalar varsa, özellikle felaket niteliğinde budur. Depolama paylaşımı hello Microsoft Identity SDK'ları aracılığıyla tüm kaldırma işlemleri çok dikkatli olmalıdır anlamına gelir.
+> Uygulamalar arasında depolama paylaştığınızda herhangi bir uygulama bu bölge kullanıcılar silin veya tüm belirteçleri, uygulamanızda da kötüsü silin. Bu iş arka plan için belirteçleri kullanan uygulamalar varsa, özellikle felaket niteliğinde değildir. Depolama paylaşımı Microsoft Identity SDK'ları aracılığıyla tüm kaldırma işlemleri çok dikkatli olmalıdır anlamına gelir.
 > 
 > 
 
-İşte bu kadar! Microsoft Identity SDK Hello şimdi tüm uygulamalar için kimlik bilgileri paylaşacaktır. Merhaba kullanıcı listesinde de uygulama örnekleri arasında paylaşılır.
+İşte bu kadar! Microsoft Identity SDK'sı, artık tüm uygulamalar için kimlik bilgileri paylaşacaktır. Kullanıcı listesini, ayrıca uygulama örnekleri arasında paylaşılır.
 
 ### <a name="turning-on-sso-for-broker-assisted-sso"></a>SSO destekli aracısı için SSO üzerinde kapatma
-Merhaba hello cihazda yüklü Aracısı olduğu bir uygulama toouse yeteneği **varsayılan olarak devre dışı**. İçinde uygulamanızın toouse sipariş hello Aracısı ile bazı ek yapılandırma adımları ve bazı kodu tooyour uygulama eklemeniz gerekir.
+Bir uygulama cihazda yüklü herhangi bir aracı kullanmak için özelliği **varsayılan olarak devre dışı**. Uygulamanızı Aracısı ile kullanmak için bazı ek yapılandırma adımları ve uygulamanız için bazı kod eklemeniz gerekir.
 
-Merhaba adımları toofollow şunlardır:
+İzlemeniz gereken adımlar şunlardır:
 
-1. Uygulama kodun çağrısı toohello MS SDK Aracısı modunda etkinleştirme
-2. Yeni yeniden yönlendirme URI'si oluşturmak ve bu tooboth hello uygulama ve uygulama kaydınızı sağlayın
-3. Merhaba Android bildiriminde hello doğru izinleri ayarlama
+1. MS SDK, uygulama kodun çağrıda Aracısı modunu etkinleştir
+2. Yeni bir yeniden yönlendirme URI'sine kurmak ve hem uygulama hem de uygulama kaydınızı sağlayın
+3. Android bildirimindeki doğru izinleri ayarlama
 
 #### <a name="step-1-enable-broker-mode-in-your-application"></a>1. adım: uygulamanızı Aracısı modunda etkinleştirme
-hello "ayarlar" ya da kimlik doğrulama örneğinizi ilk kurulumu oluşturduğunuzda, uygulama toouse hello Aracısı hello özelliği açıktır. Kodunuzda ApplicationSettings türünüz ayarlayarak bunu yapabilirsiniz:
+"Ayarlar" ya da kimlik doğrulama örneğinizi ilk kurulumu oluşturduğunuzda özelliği Aracısı'nı kullanmak, uygulamanız için etkinleştirilir. Kodunuzda ApplicationSettings türünüz ayarlayarak bunu yapabilirsiniz:
 
 ```
 AuthenticationSettings.Instance.setUseBroker(true);
@@ -226,18 +226,18 @@ AuthenticationSettings.Instance.setUseBroker(true);
 
 
 #### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>2. adım: yeni yeniden yönlendirme URI'si URL şeması ile oluşturma
-Her zaman hello kimlik bilgisi toohello doğru uygulama belirteçleri döndürürüz, sipariş tooensure içinde toomake geri tooyour uygulaması, Android işletim sistemi hello şekilde doğrulayabilirsiniz diyoruz emin gerekir. Merhaba Android işletim sistemi hello Google Play mağazasına hello hello sertifika karmasını kullanır. Standart dışı bir uygulama tarafından sahte olamaz. Bu nedenle, biz bu hello belirteçleri toohello doğru uygulama döndürüldüğünü bizim Aracısı uygulama tooensure URI'sini hello birlikte yararlanın. Tooestablish biz bizim Geliştirici Portalı'nda tek tek bir yeniden yönlendirme URI'si bu benzersiz yeniden yönlendirme URI'si hem de uygulama ve kümesi gerektirir.
+Her zaman doğru uygulamaya kimlik bilgisi belirteçleri biz dönmek emin olmak için size geri Android işletim sistemi doğrulayabilirsiniz şekilde uygulamanıza diyoruz emin olmanız gerekir. Android işletim sistemi Google Play Mağazası'nda sertifika karmasını kullanır. Standart dışı bir uygulama tarafından sahte olamaz. Bu nedenle, biz bu belirteçleri doğru uygulama döndürüldüğünden emin olmak için Aracısı uygulamamız URI'sini birlikte yararlanın. Bizim Geliştirici Portalı'nda bir yeniden yönlendirme URI'si olarak ayarlayın ve bu benzersiz yeniden yönlendirme URI'si hem uygulamanızda kurmak isteriz.
 
-Yeniden yönlendirme URI'si hello uygun biçiminde olmalıdır:
+Yeniden yönlendirme URI'si uygun biçiminde olmalıdır:
 
 `msauth://packagename/Base64UrlencodedSignature`
 
 örn: *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 
-Bu yeniden yönlendirme URI'si uygulama kaydınızı hello kullanarak belirtilen toobe gereken [Azure portal](https://portal.azure.com/). Azure AD uygulama kaydı hakkında daha fazla bilgi için bkz: [Azure Active Directory ile tümleştirme](active-directory-how-to-integrate.md).
+Bu yeniden yönlendirme URI'sini kullanarak, uygulama kaydı belirtilmesi gerekiyor [Azure portal](https://portal.azure.com/). Azure AD uygulama kaydı hakkında daha fazla bilgi için bkz: [Azure Active Directory ile tümleştirme](active-directory-how-to-integrate.md).
 
-#### <a name="step-3-set-up-hello-correct-permissions-in-your-application"></a>3. adım: uygulamanızda hello doğru izinleri ayarlayın
-Aracısı uygulamamız Android uygulamalar arasında hello Hesapları Yöneticisi özelliği hello Android işletim sistemi toomanage kimlik bilgileri kullanır. Sipariş toouse hello Aracısı Android uygulama bildiriminizi izinleri toouse AccountManager hesapları olmalıdır. Bu ayrıntılı hello olarak ele alınmıştır [Google hesabı Manager belgeleri burada](http://developer.android.com/reference/android/accounts/AccountManager.html)
+#### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>3. adım: uygulamanızın doğru izinleri ayarlayın
+Aracısı uygulamamız Android uygulamalar arasında kimlik bilgilerini yönetmek için Android işletim sistemi Hesap Yöneticisi özelliğini kullanır. Android Aracısı'nı kullanmak için uygulama bildiriminizi AccountManager hesaplarını kullanmak için izinleri olmalıdır. Bu ayrıntılı olarak ele alınmıştır [Google hesabı Manager belgeleri burada](http://developer.android.com/reference/android/accounts/AccountManager.html)
 
 Özellikle, bu izinler şunlardır:
 
@@ -248,5 +248,5 @@ MANAGE_ACCOUNTS
 ```
 
 ### <a name="youve-configured-sso"></a>SSO yapılandırdıktan!
-Şimdi hello Microsoft Identity SDK otomatik olarak hem kimlik bilgileri, uygulamalar arasında paylaşmak ve cihazlarının varsa hello Aracısı çağırma.
+Şimdi Microsoft Identity SDK otomatik olarak hem kimlik bilgileri, uygulamalar arasında paylaşmak ve cihazlarında varsa, aracı çağırma.
 

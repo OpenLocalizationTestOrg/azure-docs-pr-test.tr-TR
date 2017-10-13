@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure Güvenlik Merkezi veri güvenliği | Microsoft Docs"
+title: "Azure Güvenlik Merkezi Veri Güvenliği | Microsoft Belgeleri"
 description: "Bu belgede Azure Güvenlik Merkezi'nde verilerin yönetilmesi ve korunması açıklanmaktadır."
 services: security-center
 documentationcenter: na
@@ -14,41 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2017
 ms.author: yurid
-ms.openlocfilehash: 30f8b11272dc5df6d485608abdaa62ba57e63f23
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 6f95cf7631664f4630edbbcdadfd1d98105fdb98
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-center-data-security"></a>Azure Güvenlik Merkezi Veri Güvenliği
-toohelp müşteriler engellemenize, algılamanıza ve toothreats yanıt, Azure Güvenlik Merkezi toplar ve yapılandırma bilgileri, meta verileri, olay günlükleri, kilitlenme döküm dosyaları ve daha da dahil olmak üzere, güvenlikle ilgili verileri işler. Microsoft aynılarını toostrict uyumluluk ve güvenlik yönergelerine — toooperating hizmet kodlama gelen.
+Müşterilerin tehditleri önlemesine, algılamasına ve yanıt vermesine yardımcı olmak amacıyla Azure Güvenlik Merkezi, güvenlikle ilgili veriler, meta veriler, olay günlükleri, kilitlenme dökümü dosyaları ve diğer verileri toplar ve işler. Microsoft kodlamadan hizmet çalıştırma konularına kadar her alanda uyumluluk ve güvenlik yönergelerine kesin olarak bağlı kalmaktadır.
 
 Bu makalede Azure Güvenlik Merkezi'nde verilerin yönetilmesi ve korunması açıklanmaktadır.
 
 >[!NOTE] 
->İçinde erken Haziran 2017'den itibaren Güvenlik Merkezi hello Microsoft İzleme Aracısı toocollect kullanmak ve verileri depolamak. Bkz: [Azure Güvenlik Merkezi platformu geçiş](security-center-platform-migration.md) toolearn daha fazla. Bu makaledeki Hello bilgiler geçiş toohello sonra Microsoft İzleme Aracısı Güvenlik Merkezi işlevlerini temsil eder.
+>Haziran 2017'nin ilk günlerinden itibaren Güvenlik Merkezi, veri toplamak ve depolamak için Microsoft Monitoring Agent'ı kullanacak. Daha fazla bilgi edinmek için [Azure Güvenlik Merkezi Platform Geçişi](security-center-platform-migration.md) makalesine bakın. Bu makaledeki bilgiler, Microsoft Monitoring Agent'a geçiş sonrasındaki Güvenlik Merkezi işlevselliğine yöneliktir.
 >
 
 
 ## <a name="data-sources"></a>Veri kaynakları
-Azure Güvenlik Merkezi güvenlik durumuna kaynakları tooprovide görünürlük aşağıdaki hello verilerini analiz eder, güvenlik açıklarını belirleme ve bunları azaltmanın yollarını önerilir ve etkin tehditleri algılayabilir:
+Azure Güvenlik Merkezi, güvenlik durumunuzu görüntüleme, güvenlik açıklarını tanımlayıp çözümler önerme ve etkin tehditleri saptama amacıyla aşağıdaki kaynaklarda bulunan verileri analiz eder:
 
-- Azure Hizmetleri: hello Azure hizmetlerinin yapılandırmasına ilişkin ilgili hizmetin kaynak sağlayıcısıyla iletişim kurarak dağıtmış olan bilgileri kullanır.
+- Azure Hizmetleri: Dağıttığınız Azure hizmetlerinin yapılandırmasına ilişkin bilgileri, ilgili hizmetin kaynak sağlayıcısıyla iletişim kurarak kullanır.
 - Ağ Trafiği: Microsoft’un altyapısından kaynak/hedef IP/bağlantı noktası, paket boyutu ve ağ protokolü gibi örneği alınmış ağ trafiği meta verilerini kullanır.
 - İş Ortağı Çözümleri: Güvenlik duvarları ve kötü amaçlı yazılımdan koruma çözümleri gibi tümleşik iş ortağı çözümlerinden güvenlik uyarılarını kullanır. 
-- Sanal Makineleriniz ve Sunucularınız: Sanal makinelerinizdeki yapılandırma bilgilerinin yanı sıra Windows olay ve denetim günlükleri, IIS günlükleri, syslog iletileri ve kilitlenme bilgi dökümü dosyaları gibi güvenlik olaylarına ilişkin bilgileri kullanır. Ayrıca, bir uyarı oluşturulduğunda, Azure Güvenlik Merkezi etkilenen hello VM diskin anlık görüntüsünü oluşturmak ve adli amaçlar için bir kayıt defteri dosyası gibi hello VM diskten makine yapıları ilgili toohello uyarı ayıklayın.
+- Sanal Makineleriniz ve Sunucularınız: Sanal makinelerinizdeki yapılandırma bilgilerinin yanı sıra Windows olay ve denetim günlükleri, IIS günlükleri, syslog iletileri ve kilitlenme bilgi dökümü dosyaları gibi güvenlik olaylarına ilişkin bilgileri kullanır. Ayrıca, bir uyarı oluşturulduğunda Azure Güvenlik Merkezi etkilenen VM diskinin anlık görüntüsünü oluşturur ve adli amaçlar için kayıt defteri dosyası gibi uyarıyla ilgili makine yapıtlarını VM diskinden ayıklar.
 
 
 ## <a name="data-protection"></a>Veri koruma
-**Veriler arasında ayrım yapma**: veri hello hizmet boyunca her bir bileşende baz mantıksal olarak ayrı tutulur. Tüm veriler kuruluşa göre etiketlenir. Bu etiketleme hello veri yaşam döngüsü boyunca devam ederse ve her hello hizmet katmanında uygulanır.
+**Veri ayırma**: Veriler hizmet boyunca her bir bileşende mantıksal olarak ayrı tutulur. Tüm veriler kuruluşa göre etiketlenir. Bu etiketleme, veri yaşam döngüsü boyunca devam eder ve her bir hizmet katmanında uygulanır.
 
-**Veri erişimi**: içinde tooprovide güvenlik önerileri sipariş ve olası güvenlik tehditlerini araştırmak, Microsoft personeli erişebilir toplanan bilgiler ve kilitlenme döküm dosyaları da dahil olmak üzere Azure Hizmetleri tarafından analiz işlem oluşturma olayları, VM Disk anlık görüntüler ve yapıları kasıtsız olarak müşteri verilerini veya sanal makinelerinizi kişisel verileri içerebilir. Biz toohello uyması [Microsoft çevrimiçi hizmet koşulları ve gizlilik bildirimini](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), Microsoft olmayan müşteri verilerini veya kullanacağınız bilgi reklam ya da benzeri ticari amaçlarla türetilen olduğunu belirtin. Yalnızca müşteri verileri, Azure ile bu hizmetleri sağlamayla uyumlu amaçlar da dahil olmak üzere Hizmetleri gerekli tooprovide olarak kullanırız. Tüm hakları tooCustomer verileri korur.
+**Veri erişimi**: Microsoft personeli, güvenlik önerileri sunmak ve olası güvenlik tehditlerini araştırmak amacıyla Azure hizmetleri tarafından sunulan, Müşteri Verilerini ya da sanal makinelerinizdeki kişisel verileri de içerebilecek kilitlenme dökümü dosyaları, işlem oluşturma olayları, VM diski anlık görüntüleri ve yapıtları dahil toplanan veya analiz edilen bilgilere erişebilir. Microsoft’un Müşteri Verilerini kullanmayacağını veya reklam ya da benzeri ticari amaçlarla bundan bilgi türetmeyeceğini belirten [Microsoft Çevrimiçi Hizmet Koşulları ve Gizlilik Bildirimi](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) belgesine bağlı kalıyoruz. Müşteri Verileri yalnızca size Azure hizmetlerini sağlamak için, bu hizmetleri sağlamayla uyumlu amaçlar da dahil olmak üzere gerektiğinde kullanılır. Müşteri Verileri üzerindeki tüm haklarınız saklıdır.
 
-**Veri kullanımı**: Microsoft desenleri kullanır ve tehdit bilgileri birden çok görülen kiracılar tooenhance bizim önleme ve algılama yeteneklerini; biz açıklanan hello gizlilik taahhütlerine uygun olarak bunu bizim [gizlilik Deyimi](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx).
+**Veri kullanımı**: Microsoft önleme ve algılama özelliklerimizi geliştirmek amacıyla birden fazla kiracıda görülen modelleri ve tehdit bilgilerini kullanır; bunu [Gizlilik Bildirimi](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx) belgemizde açıklanan gizlilik taahhütlerine uygun şekilde yaparız.
 
 ## <a name="data-location"></a>Veri konumu
 
-**Çalışma alanları**: bir çalışma alanı Geos aşağıdaki Merhaba belirtilir ve Azure sanal kilitlenme bilgi dökümleri ve bazı uyarı veri türleri dahil olmak üzere makinelerinizden, toplanan verilerin çalışma en yakın hello depolanır. 
+**Çalışma Alanlarınız**: Aşağıdaki coğrafi bölgeler için bir çalışma alanı belirtilir ve kilitlenme bilgi dökümlerinin yanı sıra bazı uyarı verisi türleri de dahil olmak üzere Azure sanal makinelerinizden toplanan veriler en yakın çalışma alanında depolanır. 
 
 | VM'nin Bulunduğu Coğrafi Bölge                        | Çalışma Alanının Bulunduğu Coğrafi Bölge |
 |-------------------------------|---------------|
@@ -58,29 +58,29 @@ Azure Güvenlik Merkezi güvenlik durumuna kaynakları tooprovide görünürlük
 | Avustralya                     | Avustralya     |
 
  
-VM disk anlık görüntüler hello depolanan hello VM disk aynı depolama hesabı.
+VM diski anlık görüntüleri, VM diski ile aynı depolama hesabına kaydedilir.
  
-Sanal makineler ve diğer ortamlarda çalıştıran sunucular için örneğin şirket hello çalışma ve toplanan verilerin depolandığı bölge belirtebilirsiniz. 
+Başka ortamlarda çalışan sanal makineler ve sunucular için (ör. şirket içi), toplanan verilerin depolanacağı çalışma alanını ve bölgeyi belirtebilirsiniz. 
 
-**Azure Güvenlik Merkezi deposunda**: iş ortağı uyarılar dahil olmak üzere güvenlik uyarıları hakkında bilgi bölgesel depolanan hello toohello konumunu according ilgili Azure kaynak, ancak sistem durumu hakkında bilgi ve öneri hello Amerika Birleşik Devletleri veya toocustomer'ın konumu göre Avrupa merkezi olarak depolanır.
-Azure Güvenlik Merkezi, kilitlenme döküm dosyalarının kısa ömürlü kopyalarını toplar ve açıktan yararlanma girişimlerinin ve başarılı uzlaşmaların kanıtı olarak analiz eder. Azure Güvenlik Merkezi gerçekleştirir bu analizi içinde aynı coğrafi çalışma hello gibi hello ve analiz tamamlandığında kısa ömürlü kopyaları siler hello.
+**Azure Güvenlik Merkezi Depolama Alanı**: İş ortağı uyarılarının da dahil olduğu güvenlik uyarıları hakkındaki bilgiler, ilgili Azure kaynağının konumuna göre bölgesel olarak depolanırken güvenlik sistem durumu ve öneriler hakkındaki bilgiler, müşterinin konumuna göre merkezi olarak Amerika Birleşik Devletleri'nde veya Avrupa'da depolanır.
+Azure Güvenlik Merkezi, kilitlenme döküm dosyalarının kısa ömürlü kopyalarını toplar ve açıktan yararlanma girişimlerinin ve başarılı uzlaşmaların kanıtı olarak analiz eder. Azure Güvenlik Merkezi bu analizi çalışma alanıyla aynı coğrafi bölgede gerçekleştirir ve analiz tamamlandığında kısa ömürlü kopyaları siler.
 
-Makine yapıları merkezi olarak içinde depolanan VM hello gibi aynı bölgede hello. 
+Makine yapıları VM ile aynı bölgede merkezi olarak depolanır. 
 
 
 ## <a name="managing-data-collection-from-virtual-machines"></a>Sanal makinelerden veri toplamayı yönetme
 
-Azure'da Güvenlik Merkezi'ni etkinleştirdiğinizde her Azure aboneliğiniz için veri toplama etkinleştirilir. Aboneliklerinizde hello Azure Güvenlik Merkezi güvenlik ilkesi bölümü için veri koleksiyonu açık da kapatabilirsiniz. Veri toplama açık olduğunda Azure Güvenlik Merkezi hükümleri hello Microsoft İzleme Aracısı tüm mevcut Azure sanal makineleri ve oluşturulan yeni bir tane desteklenmiyor. Merhaba Microsoft Monitoring agent için çeşitli güvenlik tarar ilgili yapılandırmaları ve olayları içine [Windows için olay izleme](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) izlerinde. Ayrıca, hello işletim sistemi hello makine çalışan hello sürecinde olay günlüğü olaylarını ortaya koyar. Bu tür verilerin örnekleri şunlardır: işletim sistemi türü ve sürümü, işletim sistemi günlükleri (Windows olay günlükleri), çalışan işlemler, makine adı, IP adresleri, oturum açmış kullanıcı ve kiracı kimliği. Merhaba Microsoft Monitoring Agent olay günlüğü girişleri okur ve ETW izler ve analiz için tooyour çalışma alanları kopyalar. Merhaba Microsoft Monitoring Agent ayrıca kilitlenme döküm dosyaları tooyour çalışma alanları kopyalar.
+Azure'da Güvenlik Merkezi'ni etkinleştirdiğinizde her Azure aboneliğiniz için veri toplama etkinleştirilir. Abonelikleriniz için veri toplamayı Azure Güvenlik Merkezi'nin Güvenlik İlkesi bölümünden de etkinleştirebilirsiniz. Veri toplama etkin olduğunda Azure Güvenlik Merkezi, desteklenen tüm mevcut Azure sanal makinelerinde ve yeni oluşturulan sanal makinelerde Microsoft Monitoring Agent'ı hazırlar. Microsoft Monitoring Agent, [Windows için Olay İzleme](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) izlerinde güvenlikle ilgili çeşitli yapılandırmaları ve olayları tarar. Ayrıca, işletim sistemi, makinenin çalışması sırasında olay günlüğü olaylarını ortaya koyar. Bu tür verilerin örnekleri şunlardır: işletim sistemi türü ve sürümü, işletim sistemi günlükleri (Windows olay günlükleri), çalışan işlemler, makine adı, IP adresleri, oturum açmış kullanıcı ve kiracı kimliği. Microsoft Monitoring Agent, olay günlüğü girişleri ile ETW izlerini okur ve analiz için çalışma alanlarınıza kopyalar. Microsoft Monitoring Agent ayrıca kilitlenme bilgi dökümü dosyalarını da çalışma alanlarınıza kopyalar.
 
-Azure Güvenlik Merkezi ücretsiz kullanıyorsanız, güvenlik ilkesi hello sanal makinelerden veri toplamayı devre dışı bırakabilirsiniz. Veri toplama hello standart katmanında abonelikler için gereklidir. Veri toplama devre dışı bırakılsa bile, VM diski anlık görüntüleri ve yapıt toplama işlemi etkin olmaya devam eder.
+Azure Güvenlik Merkezi Ücretsiz sürümünü kullanıyorsanız Güvenlik İlkesi'nde sanal makinelerden veri toplamayı devre dışı bırakabilirsiniz. Veri Toplama, Standart katmandaki abonelikler için gereklidir. Veri toplama devre dışı bırakılsa bile, VM diski anlık görüntüleri ve yapıt toplama işlemi etkin olmaya devam eder.
 
 
 ## <a name="see-also"></a>Ayrıca bkz.
-Bu belgede Azure Güvenlik Merkezi'nde verilerin yönetilmesi ve korunması hakkında bilgi aldınız. Azure Güvenlik Merkezi hakkında daha fazla toolearn bakın:
+Bu belgede Azure Güvenlik Merkezi'nde verilerin yönetilmesi ve korunması hakkında bilgi aldınız. Azure Güvenlik Merkezi hakkında daha fazla bilgi edinmek bkz.:
 
-* [Azure Güvenlik Merkezi planlama ve işlemler Kılavuzu](security-center-planning-and-operations-guide.md) — öğrenin nasıl tooplan ve hello tasarım konuları tooadopt Azure Güvenlik Merkezi anladığınızdan emin olun.
-* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) — nasıl toomonitor hello Azure kaynaklarınızın sistem durumunu öğrenin
-* [Azure Güvenlik Merkezi'nde Uyarıları yönetme ve yanıt toosecurity](security-center-managing-and-responding-alerts.md) — öğrenin nasıl toomanage ve yanıt toosecurity uyarıları
-* [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) — nasıl toomonitor hello iş ortağı çözümlerinizin sistem durumunu öğrenin.
-* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) — hello hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz
+* [Azure Güvenlik Merkezi Planlama ve İşlemler Kılavuzu](security-center-planning-and-operations-guide.md) - Azure Güvenlik Merkezi'ni benimsemek için tasarım ile ilgili dikkat edilmesi gerekenleri planlama ve anlama hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md) - Azure kaynaklarınızın sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin
+* [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve ele alma](security-center-managing-and-responding-alerts.md) - Güvenlik uyarılarını yönetme ve ele alma hakkında bilgi edinin
+* [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md) - İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) - Hizmet kullanımı ile ilgili sık sorulan soruları burada bulabilirsiniz
 * [Azure Güvenlik Blogu](http://blogs.msdn.com/b/azuresecurity/) - Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz

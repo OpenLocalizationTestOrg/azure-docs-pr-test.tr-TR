@@ -1,6 +1,6 @@
 ---
-title: "Kaynak Yöneticisi sağlayıcısı işlemleri aaaAzure | Microsoft Docs"
-description: "Merhaba Microsoft Azure Resource Manager kaynak sağlayıcıları kullanılabilir işlemleri ayrıntıları hello"
+title: "Azure Resource Manager sağlayıcısı işlemleri | Microsoft Docs"
+description: "Microsoft Azure Resource Manager kaynak sağlayıcılarla işlemleri ayrıntıları"
 services: active-directory
 documentationcenter: 
 author: jboeshart
@@ -12,33 +12,33 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
-ms.openlocfilehash: 2d2f912ecbade335667d68fdc42ce03a2930a0eb
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 95c6a1e9cfadeb19a0ec5a53fffb15ef220bfec0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager kaynak sağlayıcısı işlemleri
 
-Bu belge her Microsoft Azure Resource Manager kaynak sağlayıcısı için kullanılabilir hello işlemleri listeler. Bu özel roller tooprovide ayrıntılı rol tabanlı erişim denetimi (RBAC) izinleri tooresources Azure içinde kullanılabilir. Lütfen bu kapsamlı bir liste değildir ve işlemleri eklenen veya her bir sağlayıcı güncelleştirilmiş kaldırıldıkça unutmayın. İşlemi dizeleri izleyin hello biçimi `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Geçerli ve kapsamlı bir liste için lütfen kullanın `Get-AzureRmProviderOperation` (PowerShell'de) veya `azure provider operations show` (içinde Azure CLI) toolist işlemleri Azure kaynak sağlayıcıları.
+Bu belge her Microsoft Azure Resource Manager kaynak sağlayıcısı için kullanılabilir olan işlemleri listeler. Bu özel rollerinde Azure kaynaklarına ayrıntılı rol tabanlı erişim denetimi (RBAC) izinlerini sağlamak için kullanılabilir. Lütfen bu kapsamlı bir liste değildir ve işlemleri eklenen veya her bir sağlayıcı güncelleştirilmiş kaldırıldıkça unutmayın. İşlemi dizeleri izleyin biçimi `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Geçerli ve kapsamlı bir liste için lütfen kullanın `Get-AzureRmProviderOperation` (PowerShell'de) veya `azure provider operations show` (Azure CLI), Azure kaynak sağlayıcılarının listesi işlemleri için.
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
 | İşlem | Açıklama |
 |---|---|
 |/ configuration/eylem|Güncelleştirmeler Kiracı yapılandırması.|
-|/ services/eylem|Bir hizmet örneği hello Kiracı olarak güncelleştirir.|
+|/ services/eylem|Kiracı içinde bir hizmet örneği güncelleştirir.|
 |/ configuration/yazma|Bir kiracı yapılandırma oluşturur.|
-|/Configuration/Read|Merhaba Kiracı yapılandırması okur.|
-|/ services/yazma|Bir hizmet örneği hello Kiracı oluşturur.|
-|/Services/Read|Merhaba Kiracı Hello hizmeti örneklerinin okur.|
-|/Services/DELETE|Merhaba Kiracı içinde bir hizmet örneği siler.|
-|/Services/servicemembers/Action|Bir hizmet üye örneği hello hizmetinde oluşturur.|
-|/Services/servicemembers/Read|Merhaba hizmet üye örneği hello hizmetindeki okur.|
-|/Services/servicemembers/DELETE|Bir hizmet üye örneği hello hizmetindeki siler.|
-|/Services/servicemembers/Alerts/Read|Merhaba uyarılar için bir hizmet üye okur.|
-|/Services/Alerts/Read|Bir hizmet için Hello uyarıları okur.|
-|/Services/Alerts/Read|Bir hizmet için Hello uyarıları okur.|
+|/Configuration/Read|Kiracı yapılandırması okur.|
+|/ services/yazma|Bir hizmet örneği Kiracı oluşturur.|
+|/Services/Read|Hizmet örnekleri kiracısında okur.|
+|/Services/DELETE|Kiracı içinde bir hizmet örneği siler.|
+|/Services/servicemembers/Action|Bir hizmet üye örneği hizmetinde oluşturur.|
+|/Services/servicemembers/Read|Hizmet hizmet üye örneği okur.|
+|/Services/servicemembers/DELETE|Bir hizmet üye örneği hizmet siler.|
+|/Services/servicemembers/Alerts/Read|Uyarılar için bir hizmet üye okur.|
+|/Services/Alerts/Read|Bir hizmet uyarılarını okur.|
+|/Services/Alerts/Read|Bir hizmet uyarılarını okur.|
 
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
 
@@ -46,7 +46,7 @@ Bu belge her Microsoft Azure Resource Manager kaynak sağlayıcısı için kulla
 |---|---|
 |/ generateRecommendations/eylem|Öneriler oluşturur|
 |/ suppressions/eylem|/ Suppressions güncelleştirme|
-|/ Kayıt/eylem|Merhaba Microsoft Advisor Hello aboneliği kaydeder|
+|/ Kayıt/eylem|Microsoft Advisor için aboneliği kaydeder|
 |/generateRecommendations/Read|Önerileri durumuna alır oluştur|
 |/Recommendations/Read|Öneriler okur|
 |/suppressions/Read|Suppressions alır|
@@ -56,11 +56,11 @@ Bu belge her Microsoft Azure Resource Manager kaynak sağlayıcısı için kulla
 
 | İşlem | Açıklama |
 |---|---|
-|/Servers/Read|Merhaba alır hello bilgileri Analysis Server belirtildi.|
-|/ sunucuları/yazma|Oluşturur veya güncelleştirir hello belirtilen Analysis Server.|
-|/Servers/DELETE|Siler Analysis Server hello.|
-|/Servers/suspend/Action|Merhaba Analysis Server askıya alır.|
-|/Servers/Resume/Action|Analysis Server hello sürdürür.|
+|/Servers/Read|Belirtilen Analysis Server'ın bilgilerini alır.|
+|/ sunucuları/yazma|Oluşturur veya belirtilen Analysis Server güncelleştirir.|
+|/Servers/DELETE|Analiz sunucusu siler.|
+|/Servers/suspend/Action|Analiz sunucusu askıya alır.|
+|/Servers/Resume/Action|Analiz sunucusu sürdürür.|
 |/ sunucuları/checkNameAvailability<br>/ Eylem|Analysis Server adının geçerli olup olmadığını denetler ve içinde değil kullanın.|
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
@@ -75,30 +75,30 @@ Bu belge her Microsoft Azure Resource Manager kaynak sağlayıcısı için kulla
 |/Service/DELETE|API Management hizmeti örneği Sil|
 |/Service/updatehostname/Action|Kurulum, güncelleştirmeniz ya da bir API Management hizmeti için özel etki alanı adlarını kaldırın|
 |/Service/uploadcertificate/Action|Bir API Management hizmeti için SSL sertifikasını karşıya yükle|
-|/Service/Backup/Action|Yedekleme API Management hizmeti toohello belirtilen kapsayıcıda kullanıcı sağlanan depolama hesabı|
-|/Service/Restore/Action|API Management hizmeti bir kullanıcı tarafından sağlanan depolama hesabı belirtilen kapsayıcıda hello geri yükleme|
+|/Service/Backup/Action|Bir kullanıcı belirtilen kapsayıcıda yedekleme API Management hizmetine sağlanan depolama hesabı|
+|/Service/Restore/Action|API Management hizmeti belirtilen bir kullanıcı tarafından sağlanan depolama hesabı kapsayıcısında geri yükleme|
 |/Service/managedeployments/Action|SKU/birimlerini, API Management Hizmet Ekle/Kaldır bölgesel dağıtımları değiştirme|
-|/Service/getssotoken/Action|Yönetici olarak API Management hizmet eski portalı içine kullanılan toologin olabilir SSO belirtecini alır|
-|/Service/applynetworkconfigurationupdates/Action|Sanal ağ toopick çalışan güncelleştirmeleri hello Microsoft.ApiManagement kaynakları, ağ ayarları güncelleştirildi.|
+|/Service/getssotoken/Action|Kullanılabilir alır SSO belirteci için API Management hizmet eski portalı yönetici olarak oturum aç|
+|/Service/applynetworkconfigurationupdates/Action|Güncelleştirilmiş ağ ayarları seçmek üzere sanal ağda çalışan Microsoft.ApiManagement kaynakları güncelleştirir.|
 |/Service/operationresults/Read|Uzun süre çalışan işlemin geçerli durumunu alır|
-|/Service/networkStatus/Read|Merhaba ağ erişim kaynakların durumunu alır.|
+|/Service/networkStatus/Read|Kaynakların ağ erişim durumunu alır.|
 |/Service/loggers/Read|Günlükçüleri listesini almak veya Günlükçü ayrıntılarını alma|
 |/Service/loggers/Write|Yeni Günlükçü ekleme veya güncelleştirme mevcut Günlükçü ayrıntıları|
 |/Service/loggers/DELETE|Varolan Günlükçü Kaldır|
 |/Service/Users/Read|Kayıtlı kullanıcıların listesini almak veya bir kullanıcı hesabı ayrıntılarını alma|
 |/Service/Users/Write|Yeni bir kullanıcı veya varolan bir kullanıcı hesabı ayrıntılarını güncelleştirme kaydetme|
 |/Service/Users/DELETE|Kullanıcı hesabını kaldırma|
-|/Service/Users/generateSsoUrl/Action|SSO URL oluşturur. Merhaba URL kullanılan tooaccess Yönetici portalı olabilir|
+|/Service/Users/generateSsoUrl/Action|SSO URL oluşturur. URL yönetim portalına erişmek için kullanılabilir|
 |/Service/Users/Subscriptions/Read|Kullanıcı abonelikleri listesini al|
 |/Service/Users/Keys/Read|Kullanıcı anahtarları listesini al|
 |/Service/Users/Groups/Read|Kullanıcı gruplarının listesini alma|
 |/Service/tenant/operationResults/Read|İşlem sonuçları listesini al veya belirli bir işlemin sonucunu Al|
-|/Service/tenant/Policy/Read|Merhaba Kiracı için ilke yapılandırmasını alma|
-|/Service/tenant/Policy/Write|Merhaba Kiracı ilke yapılandırmasını ayarlayın|
-|/Service/tenant/Policy/DELETE|Merhaba Kiracı için ilke yapılandırmasını kaldırın|
-|/Service/tenant/Configuration/Save/Action|Yürütme yapılandırma anlık görüntü toohello belirtilen dalında hello deposu oluşturur|
-|/Service/tenant/Configuration/Deploy/Action|Bir dağıtım görev tooapply değişiklikleri hello belirtilen git şube toohello yapılandırmadan veritabanındaki çalıştırır.|
-|/Service/tenant/Configuration/Validate/Action|Merhaba belirtilen git şube değişikliklerden doğrular|
+|/Service/tenant/Policy/Read|Kiracı için ilke yapılandırmasını alma|
+|/Service/tenant/Policy/Write|Kiracı ilke yapılandırmasını ayarlayın|
+|/Service/tenant/Policy/DELETE|Kiracı için ilke yapılandırmasını kaldırın|
+|/Service/tenant/Configuration/Save/Action|Yürütme deposunda belirtilen dal yapılandırma anlık görüntü oluşturur|
+|/Service/tenant/Configuration/Deploy/Action|Değişiklikler veritabanına yapılandırmasında belirtilen git daldan uygulamak için bir dağıtım görev çalıştırır.|
+|/Service/tenant/Configuration/Validate/Action|Belirtilen git şube değişikliklerden doğrular|
 |/Service/tenant/Configuration/operationResults/Read|İşlem sonuçları listesini al veya belirli bir işlemin sonucunu Al|
 |/Service/tenant/Configuration/syncState/Read|En son git eşitleme durumunu Al|
 |/Service/tenant/Access/Read|Kiracı erişmek bilgileri ayrıntıları|
@@ -109,8 +109,8 @@ Bu belge her Microsoft Azure Resource Manager kaynak sağlayıcısı için kulla
 |/Service/identityProviders/Write|Varolan bir kimlik sağlayıcısı'nın yeni bir kimlik sağlayıcısı veya Güncelleştirme ayrıntıları oluşturun|
 |/Service/identityProviders/DELETE|Varolan kimlik sağlayıcısı Kaldır|
 |/Service/Subscriptions/Read|Ürün Aboneliklerin listesini alın veya ürün aboneliği ayrıntılarını alma|
-|/Service/Subscriptions/Write|Varolan bir kullanıcı tooan mevcut ürün abone veya var olan abonelik ayrıntıları güncelleştirin. Bu işlem kullanılan toorenew abonelik olabilir|
-|/Service/Subscriptions/DELETE|Aboneliği silin. Bu işlem kullanılan toodelete abonelik olabilir|
+|/Service/Subscriptions/Write|Mevcut bir kullanıcının var olan bir ürüne abone veya var olan abonelik ayrıntıları güncelleştirin. Bu işlem, aboneliğinizi yenilemek için kullanılabilir|
+|/Service/Subscriptions/DELETE|Aboneliği silin. Bu işlem aboneliğini silmek için kullanılabilir|
 |/Service/Subscriptions/regeneratePrimaryKey/Action|Abonelik birincil anahtarını yeniden oluşturma|
 |/Service/Subscriptions/regenerateSecondaryKey/Action|Abonelik ikincil anahtarını yeniden oluşturma|
 |/Service/backends/Read|Arka uçlarını listesini almak veya arka uç ayrıntılarını alma|
@@ -132,8 +132,8 @@ Bu belge her Microsoft Azure Resource Manager kaynak sağlayıcısı için kulla
 |/Service/Products/Write|Yeni ürün oluşturmak veya mevcut ürün ayrıntıları güncelleştir|
 |/Service/Products/DELETE|Varolan ürünü kaldırın|
 |/Service/Products/Subscriptions/Read|Ürün Aboneliklerin listesini alın|
-|/Service/Products/apis/Read|API eklenen tooexisting ürün listesini al|
-|/Service/Products/apis/Write|Varolan API tooexisting ürün ekleme|
+|/Service/Products/apis/Read|Varolan bir ürüne eklenmiş API'leri listesini al|
+|/Service/Products/apis/Write|Varolan bir ürüne varolan API ekleme|
 |/Service/Products/apis/DELETE|Var olan ürün varolan API Kaldır|
 |/Service/Products/Policy/Read|Varolan ürünün ilke yapılandırmasını alma|
 |/Service/Products/Policy/Write|Varolan bir ürün için ilke yapılandırma kümesi|
@@ -154,7 +154,7 @@ Bu belge her Microsoft Azure Resource Manager kaynak sağlayıcısı için kulla
 |/Service/Groups/Write|Yeni grubu oluşturmak veya var olan Grup ayrıntılarını güncelleştir|
 |/Service/Groups/DELETE|Varolan bir grubu Kaldır|
 |/Service/Groups/Users/Read|Grup kullanıcıların listesini al|
-|/Service/Groups/Users/Write|Varolan kullanıcı tooexisting grubu Ekle|
+|/Service/Groups/Users/Write|Varolan bir gruba varolan kullanıcı Ekle|
 |/Service/Groups/Users/DELETE|Varolan bir kullanıcı var olan grubundan Kaldır|
 |/Service/authorizationServers/Read|Yetkilendirme sunucularının listesini alın veya yetkilendirme sunucusu ayrıntılarını alma|
 |/Service/authorizationServers/Write|Var olan bir yetkilendirme sunucusu Güncelleştirme ayrıntıları veya yeni bir yetkilendirme sunucusu oluşturma|
@@ -172,21 +172,21 @@ Bu belge her Microsoft Azure Resource Manager kaynak sağlayıcısı için kulla
 
 | İşlem | Açıklama |
 |---|---|
-|/ appidentities/okuma|Ağ geçidi hello ile kayıtlı kaynak (web sitesi) döndürür hello.|
+|/ appidentities/okuma|Ağ geçidi ile kayıtlı kaynak (web sitesi) döndürür.|
 |/ appidentities/yazma|Yeni bir uygulama kimliği oluşturur.|
 |/ appidentities/Sil|Varolan bir uygulama kimlik siler.|
-|/deploymenttemplates/listMetadata/Action|UI hello API uygulaması paket ile ilişkili meta verileri listeler.|
-|/deploymenttemplates/Generate/Action|Dağıtım şablonu tooprovision API uygulaması örnekler döndürür.|
-|/ ağ geçitleri/okuma|Merhaba ağ geçidi örneği döndürür.|
+|/deploymenttemplates/listMetadata/Action|UI API uygulama paketiyle ilişkili meta verileri listeler.|
+|/deploymenttemplates/Generate/Action|Bir dağıtım şablonu sağlama API uygulaması örnekler döndürür.|
+|/ ağ geçitleri/okuma|Ağ geçidi örneğini döndürür.|
 |/ ağ geçitleri/yazma|Yeni bir ağ geçidi oluşturur veya mevcut kümeyi güncelleştirir.|
 |/ ağ geçitleri/Sil|Var olan bir ağ geçidi örneği siler.|
 |/Gateways/listLoginUris/Action|Belirteç Deposu doldurur ve OAuth oturum açma URI döndürür.|
 |/Gateways/listKeys/Action|Ağ geçidi gizli döndürür.|
-|/Gateways/tokens/Write|Merhaba verilen ada sahip yeni bir Zumo belirteci oluşturur.|
-|/Gateways/Registrations/Read|Ağ geçidi hello ile kayıtlı kaynak (web sitesi) döndürür hello.|
-|/Gateways/Registrations/Write|Bir kaynağı (web sitesi) ağ geçidi hello ile kaydeder.|
-|/Gateways/Registrations/DELETE|Merhaba ağ geçidi kaynağı (web sitesi) kaydını siler.|
-|/ apiapps/okuma|API uygulaması örneği döndürür hello.|
+|/Gateways/tokens/Write|Verilen ada sahip yeni bir Zumo belirteci oluşturur.|
+|/Gateways/Registrations/Read|Ağ geçidi ile kayıtlı kaynak (web sitesi) döndürür.|
+|/Gateways/Registrations/Write|Bir kaynağı (web sitesi) ağ geçidi ile kaydeder.|
+|/Gateways/Registrations/DELETE|Ağ geçidi kaynağı (web sitesi) kaydını siler.|
+|/ apiapps/okuma|API uygulaması örneğini döndürür.|
 |/ apiapps/yazma|Yeni bir API uygulaması oluşturur veya mevcut kümeyi güncelleştirir.|
 |/ apiapps/Sil|Var olan bir API uygulaması örneğini siler.|
 |/apiapps/listStatus/Action|API uygulaması durumu döndürür.|
@@ -197,27 +197,27 @@ Bu belge her Microsoft Azure Resource Manager kaynak sağlayıcısı için kulla
 
 | İşlem | Açıklama |
 |---|---|
-|/ elevateAccess/eylem|Arayan hello Kiracı kapsamda kullanıcı erişimi Yöneticisi erişim verir hello|
-|/classicAdministrators/Read|Merhaba Yöneticiler hello abonelik için okur.|
-|/ classicAdministrators/yazma|Ekleyin veya yönetici tooa abonelik değiştirin.|
-|/classicAdministrators/DELETE|Hello Yöneticisi hello abonelikten kaldırır.|
-|/Locks/Read|Merhaba alır kilitleri kapsam belirtilmiş.|
-|/ kilitleri/yazma|Belirtilen hello kilitleri ekleyin kapsamı.|
-|/Locks/DELETE|Merhaba DELETE kilitleri kapsam belirtilmiş.|
+|/ elevateAccess/eylem|Çağırana kiracı kapsamında Kullanıcı Erişim Yöneticisi erişimi verir|
+|/classicAdministrators/Read|Abonelik için yöneticileri okur.|
+|/ classicAdministrators/yazma|Abonelik için yönetici ekleyin veya değiştirin.|
+|/classicAdministrators/DELETE|Yöneticiyi abonelikten çıkarır.|
+|/Locks/Read|Belirtilen kapsamdaki kilitleri alın.|
+|/ kilitleri/yazma|Belirtilen kapsamdaki kilitleri ekleyin.|
+|/Locks/DELETE|Belirtilen kapsamdaki kilitleri silin.|
 |/policyAssignments/Read|İlke ataması hakkında bilgi edinin.|
-|/ policyAssignments/yazma|Bir ilke oluşturmak hello atamasının Belirtilen kapsam.|
-|/policyAssignments/DELETE|Delete hello ilke atamasının kapsamı belirtilmiş.|
-|/Permissions/Read|Merhaba çağıran belirli bir kapsamda sahip olduğu tüm hello izinleri listeler.|
+|/ policyAssignments/yazma|Belirtilen kapsamda bir ilke ataması oluşturun.|
+|/policyAssignments/DELETE|Belirtilen kapsamdaki bir ilke atamasını silin.|
+|/Permissions/Read|Arayanın, belirtilen bir kapsamda sahip olduğu tüm izinleri listeler.|
 |/roleDefinitions/Read|Rol tanımı hakkında bilgi alın.|
 |/ roleDefinitions/yazma|Belirtilen izinlerle ve atanabilir kapsamlarla birlikte özel bir rol tanımı oluşturun veya güncelleştirin.|
-|/roleDefinitions/DELETE|Silme hello belirtilen özel rol tanımı.|
+|/roleDefinitions/DELETE|Belirtilen özel rol tanımını silin.|
 |/providerOperations/Read|Tüm kaynak sağlayıcılarına ilişkin işlemleri alın. Bunlar rol tanımlarında kullanılabilir.|
 |/policyDefinitions/Read|İlke tanımı hakkında bilgi edinin.|
 |/ policyDefinitions/yazma|Bir özel ilke tanımı oluşturun.|
 |/policyDefinitions/DELETE|Bir ilke tanımı silin.|
 |/roleAssignments/Read|Bir rol ataması hakkında bilgi alın.|
-|/ roleAssignments/yazma|Bir rol oluşturmak hello atamasının Belirtilen kapsam.|
-|/roleAssignments/DELETE|Delete hello rol atamasının kapsamı belirtilmiş.|
+|/ roleAssignments/yazma|Belirtilen kapsamda bir rol ataması oluşturun.|
+|/roleAssignments/DELETE|Belirtilen kapsamdaki rol atamasını silin.|
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -252,8 +252,8 @@ Bu belge her Microsoft Azure Resource Manager kaynak sağlayıcısı için kulla
 |/automationAccounts/Jobs/Stop/Action|Bir Azure Otomasyonu işini durdurur|
 |/automationAccounts/Jobs/suspend/Action|Bir Azure Otomasyonu işini askıya alır|
 |/automationAccounts/Jobs/Resume/Action|Bir Azure Otomasyonu işini sürdürür|
-|/automationAccounts/Jobs/runbookContent/Action|Merhaba iş yürütme hello aynı anda Hello hello Azure Otomasyonu runbook içeriğini alır|
-|/automationAccounts/Jobs/Output/Action|Bir işin Hello çıktısını alır|
+|/automationAccounts/Jobs/runbookContent/Action|İş yürütme sırasında Azure Otomasyonu runbook içeriğini alır|
+|/automationAccounts/Jobs/Output/Action|Bir işin çıktısını alır|
 |/automationAccounts/Jobs/Read|Bir Azure Otomasyonu işini alır|
 |/automationAccounts/Jobs/Write|Bir Azure Otomasyonu işi oluşturur|
 |/automationAccounts/Jobs/Stop/Action|Bir Azure Otomasyonu işini durdurur|
@@ -266,15 +266,15 @@ Bu belge her Microsoft Azure Resource Manager kaynak sağlayıcısı için kulla
 |/automationAccounts/variables/Read|Bir Azure Otomasyonu değişken varlığını okur|
 |/automationAccounts/variables/Write|Bir Azure Otomasyonu değişken varlığı oluşturur veya güncelleştirir|
 |/automationAccounts/variables/DELETE|Bir Azure Otomasyonu değişken varlığını siler|
-|/automationAccounts/runbooks/readContent/Action|Hello bir Azure Otomasyonu runbook içeriğini alır|
+|/automationAccounts/runbooks/readContent/Action|Bir Azure Otomasyonu runbook içeriğini alır|
 |/automationAccounts/runbooks/Read|Bir Azure Otomasyonu runbook'unu alır|
 |/automationAccounts/runbooks/Write|Oluşturur veya bir Azure Otomasyonu runbook'u güncelleştirir|
 |/automationAccounts/runbooks/DELETE|Bir Azure Otomasyonu runbook'unu siler|
-|/automationAccounts/runbooks/Draft/readContent/Action|Hello Azure Otomasyonu runbook taslağının içeriğini alır|
-|/automationAccounts/runbooks/Draft/writeContent/Action|Hello bir Azure Otomasyonu runbook taslağının içeriğini oluşturur|
+|/automationAccounts/runbooks/Draft/readContent/Action|Bir Azure Otomasyonu runbook taslağının içeriğini alır|
+|/automationAccounts/runbooks/Draft/writeContent/Action|Bir Azure Otomasyonu runbook taslağının içeriğini oluşturur|
 |/automationAccounts/runbooks/Draft/Read|Bir Azure Otomasyonu runbook taslağı alır|
 |/automationAccounts/runbooks/Draft/Publish/Action|Bir Azure Otomasyonu runbook taslağı yayımlar|
-|/automationAccounts/runbooks/Draft/undoEdit/Action|Düzenlemeleri tooan Azure Otomasyonu runbook taslağı Geri Al|
+|/automationAccounts/runbooks/Draft/undoEdit/Action|Bir Azure Otomasyonu runbook taslağı düzenlemeleri geri alma|
 |/automationAccounts/runbooks/Draft/testJob/Read|Bir Azure Otomasyonu runbook taslağı test işini alır|
 |/automationAccounts/runbooks/Draft/testJob/Write|Bir Azure Otomasyonu runbook taslağı test işi oluşturur|
 |/automationAccounts/runbooks/Draft/testJob/Stop/Action|Bir Azure Otomasyonu runbook taslağı test işini durdurur|
@@ -293,21 +293,21 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 
 | İşlem | Açıklama |
 |---|---|
-|/ Kayıt/eylem|Merhaba hello toplu kaynak sağlayıcısı için aboneliği kaydeder ve toplu işlem hesaplarını hello oluşturulmasını sağlar|
+|/ Kayıt/eylem|Batch kaynak sağlayıcısı için aboneliği kaydeder ve Batch hesaplarının oluşturulmasını etkinleştirir|
 |/ batchAccounts/yazma|Yeni bir Batch hesabı oluşturur veya var olan bir toplu işlem hesabını güncelleştirir|
-|/batchAccounts/Read|Toplu işlem hesaplarını listeler veya toplu işlem hesabı hello özelliklerini alır|
+|/batchAccounts/Read|Bir toplu işlem hesabının özelliklerini alır veya toplu işlem hesaplarını listeler|
 |/batchAccounts/DELETE|Batch hesabını siler|
 |/batchAccounts/listkeys/Action|Bir toplu işlem hesabı için anahtarlar erişim listeleri|
 |/batchAccounts/regeneratekeys/Action|Erişim anahtarları bir toplu işlem hesabı için yeniden oluşturur|
-|/batchAccounts/syncAutoStorageKeys/Action|Toplu işlem hesabı için yapılandırılmış hello otomatik depolama hesabının erişim anahtarlarını eşitler|
-|/batchAccounts/Applications/Read|Uygulamaları listeler veya bir uygulamanın hello özelliklerini alır|
+|/batchAccounts/syncAutoStorageKeys/Action|Toplu işlem hesabı için yapılandırılmış otomatik depolama hesabının erişim anahtarlarını eşitler|
+|/batchAccounts/Applications/Read|Uygulamaları listeler veya bir uygulamanın özelliklerini alır|
 |/batchAccounts/Applications/Write|Yeni bir uygulama oluşturur veya varolan bir uygulamayı güncelleştirir|
 |/batchAccounts/Applications/DELETE|Bir uygulamayı siler|
-|/batchAccounts/Applications/Versions/Read|Bir uygulama paketi Hello özelliklerini alır|
+|/batchAccounts/Applications/Versions/Read|Bir uygulama paketi özelliklerini alır|
 |/batchAccounts/Applications/Versions/Write|Yeni bir uygulama paketi oluşturur veya var olan uygulama paketini güncelleştirir|
 |/batchAccounts/Applications/Versions/Activate/Action|Bir uygulama paketi etkinleştirir|
 |/batchAccounts/Applications/Versions/DELETE|Bir uygulama paketini siler|
-|/Locations/Quotas/Read|Merhaba alır toplu kotaları hello belirtilen Azure bölgesi aboneliğinizi belirtilen|
+|/Locations/Quotas/Read|Belirtilen Azure bölge belirtilen abonelik toplu kotaları alır|
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
@@ -322,39 +322,39 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/ mapApis/okuma|Okuma işlemi|
 |/ mapApis/yazma|Yazma işlemi|
 |/ mapApis/Sil|Silme işlemi|
-|/mapApis/regenerateKey/Action|Başlangıç anahtarı oluşturur|
-|/mapApis/listSecrets/Action|Liste hello gizli|
-|/mapApis/listSingleSignOnToken/Action|Okuma tek oturum üzerinde Yetkilendirme belirteci için kaynak hello|
-|/ Operations/okuma|Merhaba işlemi açıklaması.|
+|/mapApis/regenerateKey/Action|Anahtarı Yeniden Oluşturur|
+|/mapApis/listSecrets/Action|Parolaları Listeler|
+|/mapApis/listSingleSignOnToken/Action|Kaynak İçin Çoklu Oturum Açma Yetkilendirme Belirtecini Okuyun|
+|/ Operations/okuma|İşlem açıklaması.|
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 
 | İşlem | Açıklama |
 |---|---|
 |/ checknameavailability/eylem|Yeni bir Redis önbelleği ile kullanmak için bir ad olup olmadığını denetler|
-|/ Kayıt/eylem|Merhaba 'Microsoft.Cache' kaynak sağlayıcısı ile bir aboneliği kaydeder|
-|/ kaydı/eylem|Bir abonelikle Hello 'Microsoft.Cache' kaynak sağlayıcısı kaydını siler|
-|/ redis/yazma|Merhaba Redis Önbelleği'nin ayarlarını ve yapılandırmasını hello Yönetim Portalı'nda değiştirme|
-|/redis/Read|Merhaba Redis Önbelleği'nin ayarlarını ve yapılandırmasını hello yönetim portalında görüntüleyin|
-|/redis/DELETE|Delete hello tüm Redis önbelleği|
-|/redis/listKeys/Action|Görünüm hello hello Yönetim Portalı'nda Redis önbelleği erişim anahtarlarının değerini|
-|/redis/regenerateKey/Action|Redis önbelleği erişim anahtarlarının hello Yönetim Portalı'nda Hello değerini değiştirin|
+|/ Kayıt/eylem|'Microsoft.Cache' kaynak sağlayıcısı ile bir aboneliği kaydeder|
+|/ kaydı/eylem|Bir abonelikle 'Microsoft.Cache' kaynak sağlayıcısı kaydını siler|
+|/ redis/yazma|Redis Önbelleği'nin ayarlarını ve yapılandırmasını yönetim portalında değiştirin|
+|/redis/Read|Redis Önbelleği'nin ayarlarını ve yapılandırmasını yönetim portalında görüntüleyin|
+|/redis/DELETE|Redis Önbelleği'nin tamamını sil|
+|/redis/listKeys/Action|Redis Önbelleği erişim anahtarlarının değerini yönetim portalında görüntüleyin|
+|/redis/regenerateKey/Action|Redis Önbelleği erişim anahtarlarının değerini yönetim portalında değiştirin|
 |/redis/import/Action|Birden çok blob'dan belirli bir biçimdeki verileri Redis'e aktar|
-|/redis/Export/Action|Redis veri tooprefixed depolama BLOB'lar belirtilen biçiminde dışarı aktarma|
+|/redis/Export/Action|Redis verilerini belirtilen biçimde ön ekli depolama blob'larına aktar|
 |/redis/forceReboot/Action|Veri kaybı olasılığı olan bir önbellek örneği yeniden başlatmayı zorlayın.|
 |/redis/Stop/Action|Bir önbellek örneği durdurun.|
 |/redis/Start/Action|Bir önbellek örneği başlatın.|
-|/redis/metricDefinitions/Read|Redis önbelleği için Hello kullanılabilir ölçümleri alır|
-|/redis/firewallRules/Read|Merhaba IP güvenlik duvarı kuralları bir Redis önbelleği Al|
-|/redis/firewallRules/Write|Merhaba IP güvenlik duvarı kuralları bir Redis önbelleği Düzenle|
+|/redis/metricDefinitions/Read|Bir Redis Önbelleği için kullanılabilir ölçümleri alır|
+|/redis/firewallRules/Read|IP güvenlik duvarı kuralları bir Redis önbelleği Al|
+|/redis/firewallRules/Write|IP güvenlik duvarı kuralları bir Redis önbelleği Düzenle|
 |/redis/firewallRules/DELETE|IP güvenlik duvarı kuralları bir Redis önbelleği Sil|
-|/redis/listUpgradeNotifications/Read|Liste hello önbellek kiracısı için en son yükseltme bildirimlerini hello.|
+|/redis/listUpgradeNotifications/Read|Önbellek kiracısı için en son Yükseltme Bildirimlerini listeleyin.|
 |/redis/linkedservers/Read|Bağlantılı bir redis önbelleği ile ilişkilendirilen sunucular alın.|
-|/redis/linkedservers/Write|Bağlantılı sunucu tooa Redis önbelleği ekleme|
+|/redis/linkedservers/Write|Bir Redis önbelleğine bağlantılı sunucu ekleme|
 |/redis/linkedservers/DELETE|Bağlantılı sunucu bir Redis Önbelleği'nden silin|
-|/redis/patchSchedules/Read|Merhaba, Redis önbelleği zamanlamasını düzeltme eki uygulama alır|
-|/redis/patchSchedules/Write|Bir Redis önbelleği zamanlama düzeltme eki uygulama hello değiştirme|
-|/redis/patchSchedules/DELETE|Redis önbelleği Hello düzeltme zamanlaması silme|
+|/redis/patchSchedules/Read|Redis önbelleği düzeltme eki uygulama zamanlamasını alır|
+|/redis/patchSchedules/Write|Bir Redis önbelleği düzeltme eki uygulama zamanlamasını Değiştir|
+|/redis/patchSchedules/DELETE|Redis önbelleği düzeltme eki planını Sil|
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 
@@ -362,192 +362,192 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |---|---|
 |/ provisionGlobalAppServicePrincipalInUserTenant/eylem|Hizmet uygulaması sorumlusu için hizmet asıl sağlama|
 |/ validateCertificateRegistrationInformation/eylem|Sertifika satın alma nesnesi gönderme olmadan doğrula|
-|/ Kayıt/eylem|Merhaba aboneliği için Hello Microsoft Certificates kaynak sağlayıcısı kaydetme|
+|/ Kayıt/eylem|Aboneliği için Microsoft Certificates kaynak sağlayıcısı kaydetme|
 |/ certificateOrders/yazma|Yeni bir certificateOrder eklemek veya mevcut bir güncelleştirme|
 |/ certificateOrders/Sil|Varolan bir AppServiceCertificate Sil|
-|/ certificateOrders/okuma|CertificateOrders Hello listesini al|
+|/ certificateOrders/okuma|CertificateOrders listesini al|
 |/certificateOrders/reissue/Action|Varolan bir certificateorder yeniden gönderin|
 |/certificateOrders/renew/Action|Varolan bir certificateorder yenileme|
-|/certificateOrders/retrieveCertificateActions/Action|Sertifika eylemlerin Hello listesini alma|
+|/certificateOrders/retrieveCertificateActions/Action|Sertifika eylemlerin listesini alma|
 |/certificateOrders/retrieveEmailHistory/Action|Sertifika e-posta geçmişini alma|
 |/certificateOrders/resendEmail/Action|Yeniden Gönder sertifika e-posta|
 |/certificateOrders/verifyDomainOwnership/Action|Etki alanı sahipliğini doğrulayın|
-|/certificateOrders/resendRequestEmails/Action|İstek e-postaları tooanother e-posta adresi yeniden gönderin|
+|/certificateOrders/resendRequestEmails/Action|Başka bir e-posta adresine e-postalar isteği yeniden gönderin|
 |/certificateOrders/resendRequestEmails/Action|Site korumalı için verilen bir uygulama hizmet sertifikası alma|
 |/certificateOrders/Certificates/Write|Yeni bir sertifika ekleyin veya mevcut bir güncelleştirme|
 |/certificateOrders/Certificates/DELETE|Varolan bir sertifikayı Sil|
-|/certificateOrders/Certificates/Read|Merhaba sertifikaların listesini al|
+|/certificateOrders/Certificates/Read|Sertifikaların listesini al|
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
 | İşlem | Açıklama |
 |---|---|
-|/ Kayıt/eylem|TooClassic işlem kaydetme|
-|/ checkDomainNameAvailability/eylem|Verilen etki alanı adı Hello kullanılabilirliğini denetler.|
-|/ moveSubscriptionResources/eylem|Tüm Klasik kaynaklar tooa farklı aboneliğe taşıyın.|
-|/ validateSubscriptionMoveAvailability/eylem|Klasik taşıma işlemi için Hello aboneliğin kullanılabilirlik doğrulayın.|
-|/operatingSystemFamilies/Read|Merhaba konuk işletim sistemi aileleri Microsoft Azure'da kullanılabilen listeler ve ayrıca hello işletim sistemi sürümleri için her f kullanılabilir listeler
-|/Capabilities/Read|Merhaba özelliklerini gösterir|
-|/operatingSystems/Read|Merhaba Microsoft Azure üzerinde şu anda kullanılabilir hello konuk işletim sistemi sürümleri listelenmiştir.|
-|/resourceTypes/skus/Read|Desteklenen kaynak türleri için Hello Sku listesini alır.|
-|/domainNames/Read|Kaynaklar için Hello etki alanı adlarını döndürür.|
-|/ domainNames/yazma|Ekleyin veya kaynaklar için hello etki alanı adlarını değiştirin.|
-|/domainNames/DELETE|Kaynaklar için Hello etki alanı adlarını kaldırın.|
-|/domainNames/Swap/Action|Hazırlama yuvası toohello üretim yuvasına hello değiştirir.|
-|/domainNames/serviceCertificates/Read|Kullanılan hizmet sertifikalarını döndürür hello.|
-|/domainNames/serviceCertificates/Write|Ekleyin veya kullanılan hello hizmet sertifikaları değiştirin.|
-|/domainNames/serviceCertificates/DELETE|Kullanılan hello hizmet sertifikalarını silin.|
-|/domainNames/serviceCertificates/operationStatuses/Read|Merhaba hello etki alanı adları hizmet sertifikaları için işlem durumunu okur.|
-|/domainNames/Capabilities/Read|Merhaba etki alanı adı özelliklerini gösterir|
-|/domainNames/Extensions/Read|Etki alanı adı uzantılarını döndürür hello.|
-|/domainNames/Extensions/Write|Merhaba etki alanı adı uzantıları ekleyin.|
-|/domainNames/Extensions/DELETE|Merhaba etki alanı adı uzantılarını kaldırın.|
-|/domainNames/Extensions/operationStatuses/Read|Merhaba hello etki alanı adları uzantıları için işlem durumunu okur.|
-|/domainNames/Active/Write|Merhaba etkin etki alanı adını ayarlar.|
-|/domainNames/slots/Read|Merhaba dağıtım yuvaları gösterir.|
-|/domainNames/slots/Write|Oluşturur veya hello dağıtım güncelleştirin.|
+|/ Kayıt/eylem|Classic Compute'a Kaydol|
+|/ checkDomainNameAvailability/eylem|Bir etki alanı adının kullanılabilirliğini denetler.|
+|/ moveSubscriptionResources/eylem|Tüm klasik kaynakları farklı bir aboneliğe taşıyın.|
+|/ validateSubscriptionMoveAvailability/eylem|Klasik taşıma işlemi için aboneliğin uygunluk durumunu doğrulayın.|
+|/operatingSystemFamilies/Read|Microsoft Azure'da kullanılabilen konuk işletim sistemi aileleri listeler ve aynı zamanda işletim sistemi sürümleri için her f kullanılabilir listeler
+|/Capabilities/Read|Özellikleri gösterir|
+|/operatingSystems/Read|Microsoft Azure'da kullanılabilen geçerli konuk işletim sistemi sürümlerini listeler.|
+|/resourceTypes/skus/Read|Desteklenen kaynak türleri için Sku listesini alır.|
+|/domainNames/Read|Kaynaklar için etki alanı adlarını döndürün.|
+|/ domainNames/yazma|Kaynaklar için etki alanı adlarını ekleyin veya değiştirin.|
+|/domainNames/DELETE|Kaynaklar için etki alanı adlarını kaldırın.|
+|/domainNames/Swap/Action|Hazırlama yuvasını üretim yuvasıyla değiştirir.|
+|/domainNames/serviceCertificates/Read|Kullanılan hizmet sertifikalarını döndürür.|
+|/domainNames/serviceCertificates/Write|Kullanılan hizmet sertifikalarını ekleyin veya değiştirin.|
+|/domainNames/serviceCertificates/DELETE|Kullanılan hizmet sertifikalarını silin.|
+|/domainNames/serviceCertificates/operationStatuses/Read|Etki alanı adları hizmet sertifikaları için işlem durumunu okur.|
+|/domainNames/Capabilities/Read|Etki alanı adı özelliklerini gösterir|
+|/domainNames/Extensions/Read|Etki alanı adı uzantılarını döndürür.|
+|/domainNames/Extensions/Write|Etki alanı adı uzantıları ekleyin.|
+|/domainNames/Extensions/DELETE|Etki alanı adı uzantılarını kaldırın.|
+|/domainNames/Extensions/operationStatuses/Read|Etki alanı uzantıları için işlem durumunu okur.|
+|/domainNames/Active/Write|Etkin etki alanı adını ayarlar.|
+|/domainNames/slots/Read|Dağıtım yuvalarını gösterir.|
+|/domainNames/slots/Write|Dağıtımı oluşturur veya güncelleştirir.|
 |/domainNames/slots/DELETE|Bir dağıtım yuvasını siler.|
 |/domainNames/slots/Start/Action|Bir dağıtım yuvası başlatır.|
-|/domainNames/slots/Stop/Action|Merhaba dağıtım yuvası askıya alır.|
-|/domainNames/slots/operationStatuses/Read|Merhaba hello etki alanı adı yuvaları için işlem durumunu okur.|
-|/domainNames/slots/Roles/Read|Merhaba rol hello dağıtım yuvası için alın.|
-|/domainNames/slots/Roles/extensionReferences/Read|Merhaba dağıtım yuvası rolü uzantı başvurusunu döndürür hello.|
-|/domainNames/slots/Roles/extensionReferences/Write|Ekleyin veya hello dağıtım yuvası rolü uzantı başvurusunu hello değiştirin.|
-|/domainNames/slots/Roles/extensionReferences/DELETE|Merhaba hello dağıtım yuvası rolü uzantı başvurusunu kaldırın.|
-|/domainNames/slots/Roles/extensionReferences/operationStatuses/Read|Merhaba hello etki alanı adı yuvaları uzantı başvuruları için işlem durumunu okur.|
-|/domainNames/slots/Roles/roleInstances/Read|Merhaba rol örneğini alır.|
+|/domainNames/slots/Stop/Action|Dağıtım yuvasını askıya alır.|
+|/domainNames/slots/operationStatuses/Read|Etki alanı adı yuvaları için işlem durumunu okur.|
+|/domainNames/slots/Roles/Read|Dağıtım yuvası için rolü alın.|
+|/domainNames/slots/Roles/extensionReferences/Read|Dağıtım yuvası rolüne ait uzantı başvurusunu döndürür.|
+|/domainNames/slots/Roles/extensionReferences/Write|Dağıtım yuvası rolüne ait uzantı başvurusunu ekleyin veya değiştirin.|
+|/domainNames/slots/Roles/extensionReferences/DELETE|Dağıtım yuvası rolüne ait uzantı başvurusunu kaldırın.|
+|/domainNames/slots/Roles/extensionReferences/operationStatuses/Read|Etki alanı adı yuvaları uzantı başvuruları için işlem durumunu okur.|
+|/domainNames/slots/Roles/roleInstances/Read|Rol örneğini alın.|
 |/domainNames/slots/Roles/roleInstances/restart/Action|Rol örneği yeniden başlatır.|
-|/domainNames/slots/Roles/roleInstances/reimage/Action|Reimages hello rol örneği.|
-|/domainNames/slots/Roles/roleInstances/operationStatuses/Read|Merhaba hello etki alanı adı yuvası rolleri rol örnekleri için işlem durumunu okur.|
-|/domainNames/slots/State/Start/Write|Değişiklikleri dağıtım yuvası durumunu toostopped hello.|
-|/domainNames/slots/State/stop/Write|Değişiklikleri dağıtım yuvası durumunu toostarted hello.|
-|/domainNames/slots/upgradeDomain/Write|Yükseltme hello etki alanı yol.|
-|/domainNames/internalLoadBalancers/Read|Merhaba iç yük dengeleyicileri alır.|
+|/domainNames/slots/Roles/roleInstances/reimage/Action|Rol örneğinin yeniden görüntüsünü oluşturur.|
+|/domainNames/slots/Roles/roleInstances/operationStatuses/Read|Etki alanı adı yuvası rolleri rol örnekleri için işlem durumunu okur.|
+|/domainNames/slots/State/Start/Write|Dağıtım yuvası durumunu durduruldu olarak değiştirir.|
+|/domainNames/slots/State/stop/Write|Dağıtım yuvası durumunu başlatıldı olarak değiştirir.|
+|/domainNames/slots/upgradeDomain/Write|Etki alanını yükseltir.|
+|/domainNames/internalLoadBalancers/Read|İç load balancer'ları alır.|
 |/domainNames/internalLoadBalancers/Write|Yeni bir iç yük dengeleme oluşturur.|
 |/domainNames/internalLoadBalancers/DELETE|Yeni bir iç yük dengelemeyi kaldırın.|
-|/domainNames/internalLoadBalancers/operationStatuses/Read|Merhaba etki alanı adları iç yük dengeleyicileri için hello işlem durumunu okur.|
-|/domainNames/loadBalancedEndpointSets/Read|Merhaba yük dengeli uç nokta kümelerini gösterir|
-|/domainNames/loadBalancedEndpointSets/operationStatuses/Read|Yük dengeli uç nokta kümelerini Hello etki alanı adları için hello işlem durumunu okur.|
-|/domainNames/availabilitySets/Read|Hello kaynak ayarlanan hello kullanılabilirliğini gösterir.|
-|/Quotas/Read|Merhaba kota hello abonelik için alın.|
+|/domainNames/internalLoadBalancers/operationStatuses/Read|Etki alanı adları iç load balancer'ları için işlem durumunu okur.|
+|/domainNames/loadBalancedEndpointSets/Read|Yük dengeli uç nokta kümelerini gösterir|
+|/domainNames/loadBalancedEndpointSets/operationStatuses/Read|Etki alanı adları yük dengeli uç nokta kümeleri için işlem durumunu okur.|
+|/domainNames/availabilitySets/Read|Kaynak için kullanılabilirlik kümesini görüntüleyin.|
+|/Quotas/Read|Abonelik için kotayı alın.|
 |/virtualMachines/Read|Sanal makinelerin listesini alır.|
 |/ virtualMachines/yazma|Sanal makineleri ekleyin veya değiştirin.|
 |/virtualMachines/DELETE|Sanal makineler kaldırır.|
-|/virtualMachines/Start/Action|Merhaba sanal makineyi başlatın.|
-|/virtualMachines/Redeploy/Action|Merhaba sanal makine yeniden dağıtır.|
+|/virtualMachines/Start/Action|Sanal makineyi başlatın.|
+|/virtualMachines/Redeploy/Action|Sanal makine yeniden dağıtır.|
 |/virtualMachines/restart/Action|Sanal makineler yeniden başlatır.|
-|/virtualMachines/Stop/Action|Sanal makine durakları hello.|
-|/virtualMachines/Shutdown/Action|Merhaba sanal makinesi kapatılamadı.|
-|/virtualMachines/attachDisk/Action|Bir veri diski tooa sanal makineye iliştirir.|
+|/virtualMachines/Stop/Action|Sanal makineyi durdurur.|
+|/virtualMachines/Shutdown/Action|Sanal makineyi kapatın.|
+|/virtualMachines/attachDisk/Action|Sanal makineye bir veri diski ekler.|
 |/virtualMachines/detachDisk/Action|Bir veri diskini sanal makineden ayırır.|
-|/virtualMachines/downloadRemoteDesktopConnectionFile/Action|Sanal makine için Hello RDP dosyasını indirir.|
-|/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups/okuma|Merhaba Hello ağ arabirimiyle ilişkilendirilmiş ağ güvenlik grubunu alır.|
-|/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups/yazma|Merhaba ağ arabirimiyle ilişkilendirilmiş ağ güvenlik grubu ekler.|
-|/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups/silme|Merhaba Hello ağ arabirimiyle ilişkilendirilmiş ağ güvenlik grubunu siler.|
-|/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups/operationStatuses/okuma|Ağ güvenlik gruplarıyla ilişkili hello sanal makineler için Hello işlem durumunu okur.|
-|/virtualMachines/providers/Microsoft.Insights/metricDefinitions/Read|Merhaba ölçümleri tanımlarını alır.|
-|/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/Read|Merhaba tanılama ayarlarını al.|
+|/virtualMachines/downloadRemoteDesktopConnectionFile/Action|Sanal makine için RDP dosyasını indirir.|
+|/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups/okuma|Ağ arabirimiyle ilişkilendirilmiş ağ güvenlik grubunu alır.|
+|/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups/yazma|Ağ arabirimiyle ilişkilendirilmiş bir ağ güvenlik grubunu ekler.|
+|/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups/silme|Ağ arabirimiyle ilişkilendirilmiş ağ güvenlik grubunu siler.|
+|/virtualMachines/networkInterfaces /<br>associatedNetworkSecurityGroups/operationStatuses/okuma|Ağ güvenlik gruplarıyla ilişkili sanal makineler için işlem durumunu okur.|
+|/virtualMachines/providers/Microsoft.Insights/metricDefinitions/Read|Ölçüm tanımlarını alır.|
+|/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/Read|Tanılama ayarlarını alın.|
 |/virtualMachines/providers/Microsoft.Insights/diagnosticSettings/Write|Tanılama ayarlarını ekleyin veya değiştirin.|
-|/virtualMachines/Metrics/Read|Merhaba ölçümleri alır.|
-|/virtualMachines/operationStatuses/Read|Merhaba hello sanal makineler için işlem durumunu okur.|
-|/virtualMachines/Extensions/Read|Merhaba sanal makine uzantısını alır.|
-|/virtualMachines/Extensions/Write|Merhaba sanal makine uzantısını yerleştirir.|
-|/virtualMachines/Extensions/operationStatuses/Read|Merhaba hello sanal makine uzantıları için işlem durumunu okur.|
-|/virtualMachines/asyncOperations/Read|Merhaba olası zaman uyumsuz işlemleri alır|
+|/virtualMachines/Metrics/Read|Ölçümleri alır.|
+|/virtualMachines/operationStatuses/Read|Sanal makineler için işlem durumunu okur.|
+|/virtualMachines/Extensions/Read|Sanal makine uzantısını alır.|
+|/virtualMachines/Extensions/Write|Sanal makine uzantısını yerleştirir.|
+|/virtualMachines/Extensions/operationStatuses/Read|Sanal makine uzantıları için işlem durumunu okur.|
+|/virtualMachines/asyncOperations/Read|Olası zaman uyumsuz işlemleri alır|
 |/virtualMachines/Disks/Read|Veri disklerinin listesini alır|
-|/virtualMachines/associatedNetworkSecurityGroups/Read|Merhaba Hello sanal makineyle ilişkilendirilmiş ağ güvenlik grubunu alır.|
-|/virtualMachines/associatedNetworkSecurityGroups/Write|Merhaba sanal makineyle ilişkilendirilmiş ağ güvenlik grubu ekler.|
-|/virtualMachines/associatedNetworkSecurityGroups/DELETE|Merhaba Hello sanal makineyle ilişkilendirilmiş ağ güvenlik grubunu siler.|
-|/virtualMachines/associatedNetworkSecurityGroups/operationStatuses/Read|Ağ güvenlik gruplarıyla ilişkili hello sanal makineler için Hello işlem durumunu okur.|
+|/virtualMachines/associatedNetworkSecurityGroups/Read|Sanal makineyle ilişkilendirilmiş ağ güvenlik grubunu alır.|
+|/virtualMachines/associatedNetworkSecurityGroups/Write|Sanal makineyle ilişkilendirilmiş bir ağ güvenlik grubu ekler.|
+|/virtualMachines/associatedNetworkSecurityGroups/DELETE|Sanal makineyle ilişkilendirilmiş ağ güvenlik grubunu siler.|
+|/virtualMachines/associatedNetworkSecurityGroups/operationStatuses/Read|Ağ güvenlik gruplarıyla ilişkili sanal makineler için işlem durumunu okur.|
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
 | İşlem | Açıklama |
 |---|---|
-|/ Kayıt/eylem|TooClassic ağ kaydetme|
-|/gatewaySupportedDevices/Read|Desteklenen aygıtlar Hello listesini alır.|
-|/reservedIps/Read|Ayrılmış IP'ler alır hello|
+|/ Kayıt/eylem|Classic Network'e Kaydol|
+|/gatewaySupportedDevices/Read|Desteklenen cihazların listesini alır.|
+|/reservedIps/Read|Ayrılmış IP'leri alır|
 |/ ReservedIP/yazma|Yeni bir ayrılmış IP ekleyin|
 |/reservedIps/DELETE|Ayrılmış bir IP'yi silin.|
 |/reservedIps/Link/Action|Ayrılmış bir IP'ye bağlantı oluşturun|
 |/reservedIps/Join/Action|Ayrılmış bir IP'ye katılın|
-|/reservedIps/operationStatuses/Read|Merhaba hello ayrılmış IP'ler için işlem durumunu okur.|
-|/virtualNetworks/Read|Merhaba sanal ağ alın.|
+|/reservedIps/operationStatuses/Read|Ayrılmış IP'ler için işlem durumunu okur|
+|/virtualNetworks/Read|Sanal ağı alın.|
 |/ virtualNetworks/yazma|Yeni bir sanal ağ ekleyin.|
-|/virtualNetworks/DELETE|Merhaba sanal ağ siler.|
+|/virtualNetworks/DELETE|Sanal ağı siler.|
 |/virtualNetworks/Peer/Action|Bir sanal ağı başka bir sanal ağ ile eşler.|
-|/virtualNetworks/Join/Action|Merhaba sanal ağ birleştirir.|
-|/virtualNetworks/checkIPAddressAvailability/Action|Bir sanal ağdaki belirli bir IP adresi Hello kullanılabilirliğini denetler.|
-|/virtualNetworks/Capabilities/Read|Merhaba özelliklerini gösterir|
-|/virtualNetworks/alt ağlar /<br>associatedNetworkSecurityGroups/okuma|Merhaba Hello alt ağ ile ilişkilendirilmiş ağ güvenlik grubunu alır.|
-|/virtualNetworks/alt ağlar /<br>associatedNetworkSecurityGroups/yazma|Merhaba alt ağ ile ilişkilendirilmiş ağ güvenlik grubu ekler.|
-|/virtualNetworks/alt ağlar /<br>associatedNetworkSecurityGroups/silme|Merhaba Hello alt ağ ile ilişkilendirilmiş ağ güvenlik grubunu siler.|
-|/virtualNetworks/alt ağlar /<br>associatedNetworkSecurityGroups/operationStatuses/okuma|Merhaba hello sanal ağ ağ güvenlik grubuyla alt ağı için işlem durumunu okur.|
-|/virtualNetworks/operationStatuses/Read|Merhaba hello sanal ağlar için işlem durumunu okur.|
-|/virtualNetworks/Gateways/Read|Merhaba sanal ağ geçitlerini alır.|
+|/virtualNetworks/Join/Action|Sanal ağa katılır.|
+|/virtualNetworks/checkIPAddressAvailability/Action|Bir sanal ağdaki belirli bir IP adresinin kullanılabilirliğini denetler.|
+|/virtualNetworks/Capabilities/Read|Özellikleri gösterir|
+|/virtualNetworks/alt ağlar /<br>associatedNetworkSecurityGroups/okuma|Alt ağ ile ilişkilendirilmiş ağ güvenlik grubunu alır.|
+|/virtualNetworks/alt ağlar /<br>associatedNetworkSecurityGroups/yazma|Alt ağ ile ilişkilendirilmiş bir ağ güvenlik grubu ekler.|
+|/virtualNetworks/alt ağlar /<br>associatedNetworkSecurityGroups/silme|Alt ağ ile ilişkilendirilmiş ağ güvenlik grubunu siler.|
+|/virtualNetworks/alt ağlar /<br>associatedNetworkSecurityGroups/operationStatuses/okuma|Ağ güvenlik grubuyla ilişkili sanal ağ alt ağı için işlem durumunu okur.|
+|/virtualNetworks/operationStatuses/Read|Sanal ağlar için işlem durumunu okur.|
+|/virtualNetworks/Gateways/Read|Sanal ağ geçitlerini alır.|
 |/virtualNetworks/Gateways/Write|Bir sanal ağ geçidi ekler.|
-|/virtualNetworks/Gateways/DELETE|Merhaba sanal ağ geçidini siler.|
-|/virtualNetworks/Gateways/startDiagnostics/Action|Merhaba sanal ağ geçidi için tanılamayı başlatır.|
-|/virtualNetworks/Gateways/stopDiagnostics/Action|Merhaba sanal ağ geçidi için tanılamayı durdurur hello.|
-|/virtualNetworks/Gateways/downloadDiagnostics/Action|Merhaba ağ geçidi tanılama indirir.|
-|/virtualNetworks/Gateways/listCircuitServiceKey/Action|Merhaba devre hizmet anahtarını alır.|
-|/virtualNetworks/Gateways/downloadDeviceConfigurationScript/Action|Merhaba cihaz yapılandırma betiğini indirir.|
-|/virtualNetworks/Gateways/listPackage/Action|Merhaba sanal ağ geçidi paketini listeler.|
-|/virtualNetworks/Gateways/operationStatuses/Read|Merhaba hello sanal ağ geçitleri için işlem durumunu okur.|
-|/virtualNetworks/Gateways/Packages/Read|Merhaba sanal ağ geçidi paketini alır.|
-|/virtualNetworks/Gateways/Connections/Read|Merhaba bağlantıların listesini alır.|
-|/virtualNetworks/Gateways/Connections/Connect/Action|Bir site toosite ağ geçidi bağlantısına bağlanır.|
-|/virtualNetworks/Gateways/Connections/Disconnect/Action|Bir site toosite ağ geçidi bağlantısını keser.|
-|/virtualNetworks/Gateways/Connections/test/Action|Bir site toosite ağ geçidi bağlantısını test eder.|
-|/virtualNetworks/Gateways/clientRevokedCertificates/Read|Okuma hello istemci sertifikalarını iptal etti.|
+|/virtualNetworks/Gateways/DELETE|Sanal ağ geçidini siler.|
+|/virtualNetworks/Gateways/startDiagnostics/Action|Sanal ağ geçidi için tanılamayı başlatır.|
+|/virtualNetworks/Gateways/stopDiagnostics/Action|Sanal ağ geçidi için tanılamayı durdurur.|
+|/virtualNetworks/Gateways/downloadDiagnostics/Action|Ağ geçidi tanılamasını indirir.|
+|/virtualNetworks/Gateways/listCircuitServiceKey/Action|Devre hizmet anahtarını alır.|
+|/virtualNetworks/Gateways/downloadDeviceConfigurationScript/Action|Cihaz yapılandırma betiğini indirir.|
+|/virtualNetworks/Gateways/listPackage/Action|Sanal ağ geçidi paketini listeler.|
+|/virtualNetworks/Gateways/operationStatuses/Read|Sanal ağ geçitleri için işlem durumunu okur.|
+|/virtualNetworks/Gateways/Packages/Read|Sanal ağ geçidi paketini alır.|
+|/virtualNetworks/Gateways/Connections/Read|Bağlantıların listesini alır.|
+|/virtualNetworks/Gateways/Connections/Connect/Action|Bir siteden siteye ağ geçidi bağlantısına bağlanır.|
+|/virtualNetworks/Gateways/Connections/Disconnect/Action|Bir siteden siteye ağ geçidi bağlantısını keser.|
+|/virtualNetworks/Gateways/Connections/test/Action|Bir siteden siteye ağ geçidi bağlantısını test eder.|
+|/virtualNetworks/Gateways/clientRevokedCertificates/Read|İptal edilen istemci sertifikalarını okuyun.|
 |/virtualNetworks/Gateways/clientRevokedCertificates/Write|Bir istemci sertifikasını iptal eder.|
 |/virtualNetworks/Gateways/clientRevokedCertificates/DELETE|Bir istemci sertifikası iptalini geri alır.|
-|/virtualNetworks/Gateways/clientRootCertificates/Read|Merhaba istemci kök sertifikalarını bulun.|
+|/virtualNetworks/Gateways/clientRootCertificates/Read|İstemci kök sertifikalarını bulun.|
 |/virtualNetworks/Gateways/clientRootCertificates/Write|Yeni bir istemci kök sertifikasını karşıya yükler.|
-|/virtualNetworks/Gateways/clientRootCertificates/DELETE|Merhaba sanal ağ geçidi istemci sertifikasını siler.|
+|/virtualNetworks/Gateways/clientRootCertificates/DELETE|Sanal ağın ağ geçidi istemci sertifikasını siler.|
 |/virtualNetworks/Gateways/clientRootCertificates/download/Action|Parmak izine göre sertifika indirir.|
-|/virtualNetworks/Gateways/clientRootCertificates/listPackage/Action|Merhaba sanal ağ geçidi sertifika paketini listeler.|
-|/networkSecurityGroups/Read|Merhaba ağ güvenlik grubunu alır.|
+|/virtualNetworks/Gateways/clientRootCertificates/listPackage/Action|Sanal ağ geçidi sertifika paketini listeler.|
+|/networkSecurityGroups/Read|Ağ güvenlik grubunu alır.|
 |/ networkSecurityGroups/yazma|Yeni bir ağ güvenlik grubu ekler.|
-|/networkSecurityGroups/DELETE|Merhaba ağ güvenlik grubunu siler.|
-|/networkSecurityGroups/operationStatuses/Read|Merhaba hello ağ güvenlik grubu için işlem durumunu okur.|
-|/networkSecurityGroups/securityRules/Read|Merhaba güvenlik kuralı alır.|
+|/networkSecurityGroups/DELETE|Ağ güvenlik grubunu siler.|
+|/networkSecurityGroups/operationStatuses/Read|Ağ güvenlik grubu için işlem durumunu okur.|
+|/networkSecurityGroups/securityRules/Read|Güvenlik kuralını alır.|
 |/networkSecurityGroups/securityRules/Write|Güvenlik kuralı alır veya güncelleştirir.|
-|/networkSecurityGroups/securityRules/DELETE|Merhaba güvenlik kuralını siler.|
-|/networkSecurityGroups/securityRules/operationStatuses/Read|Merhaba ağ güvenlik grubu güvenlik kuralları için Hello işlem durumunu okur.|
-|/Quotas/Read|Merhaba kota hello abonelik için alın.|
+|/networkSecurityGroups/securityRules/DELETE|Güvenlik kuralını siler.|
+|/networkSecurityGroups/securityRules/operationStatuses/Read|Aü güvenlik grubu için işlem durumunu okur.|
+|/Quotas/Read|Abonelik için kotayı alın.|
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
 | İşlem | Açıklama |
 |---|---|
-|/ Kayıt/eylem|Kayıt tooClassic depolama|
-|/ checkStorageAccountAvailability/eylem|Bir depolama hesabı hello kullanılabilirliğini denetler.|
-|/Capabilities/Read|Merhaba özelliklerini gösterir|
-|/publicImages/Read|Merhaba genel sanal makine görüntüsünü alır.|
-|/images/Read|Merhaba resim döndürür.|
-|/storageAccounts/Read|Merhaba depolama hesabı hesabın verilen hello ile döndürür.|
+|/ Kayıt/eylem|Klasik Depolamaya Kaydeder|
+|/ checkStorageAccountAvailability/eylem|Bir depolama hesabının kullanılabilirliğini denetler.|
+|/Capabilities/Read|Özellikleri gösterir|
+|/publicImages/Read|Ortak sanal makine görüntüsünü alır.|
+|/images/Read|Görüntüyü döndürür.|
+|/storageAccounts/Read|Belirli bir hesaba yönelik depolama hesabını döndürün.|
 |/ storageAccounts/yazma|Yeni bir depolama hesabı ekler.|
-|/storageAccounts/DELETE|Merhaba depolama hesabı silin.|
-|/storageAccounts/listKeys/Action|Merhaba hello depolama hesapları için erişim anahtarlarını listeler.|
-|/storageAccounts/regenerateKey/Action|Merhaba depolama hesabı için Hello var olan erişim anahtarlarını yeniden oluşturur.|
-|/storageAccounts/operationStatuses/Read|Merhaba kaynak için Hello işlem durumunu okur.|
-|/storageAccounts/images/Read|Depolama hesabı görüntüsünü döndürür hello.|
+|/storageAccounts/DELETE|Depolama hesabını silin.|
+|/storageAccounts/listKeys/Action|Depolama hesaplarının erişim anahtarlarını listeler.|
+|/storageAccounts/regenerateKey/Action|Depolama hesabı için var olan erişim anahtarlarını yeniden oluşturur.|
+|/storageAccounts/operationStatuses/Read|Kaynağın işlem durumunu okur.|
+|/storageAccounts/images/Read|Depolama hesabı görüntüsünü döndürür.|
 |/storageAccounts/images/DELETE|Belirli bir depolama hesabı görüntüsünü siler.|
-|/storageAccounts/Disks/Read|Depolama hesabı disk döndürür hello.|
+|/storageAccounts/Disks/Read|Depolama hesabı diskini döndürür.|
 |/storageAccounts/Disks/Write|Depolama hesabı diski ekler.|
 |/storageAccounts/Disks/DELETE|Verilen depolama hesabı diskini siler.|
-|/storageAccounts/Disks/operationStatuses/Read|Merhaba kaynak için Hello işlem durumunu okur.|
-|/storageAccounts/osImages/Read|Depolama hesabı işletim sistemi görüntüsünü döndürür hello.|
+|/storageAccounts/Disks/operationStatuses/Read|Kaynağın işlem durumunu okur.|
+|/storageAccounts/osImages/Read|Depolama hesabı işletim sistemi görüntüsünü döndürür.|
 |/storageAccounts/osImages/DELETE|Belirtilen bir depolama hesabı işletim sistemi görüntüsünü siler.|
-|/storageAccounts/Services/Read|Merhaba kullanılabilir hizmetler alın.|
-|/storageAccounts/Services/metricDefinitions/Read|Merhaba ölçümleri tanımlarını alır.|
-|/storageAccounts/Services/Metrics/Read|Merhaba ölçümleri alır.|
-|/storageAccounts/Services/diagnosticSettings/Read|Merhaba tanılama ayarlarını al.|
+|/storageAccounts/Services/Read|Kullanılabilir hizmetleri alın.|
+|/storageAccounts/Services/metricDefinitions/Read|Ölçüm tanımlarını alır.|
+|/storageAccounts/Services/Metrics/Read|Ölçümleri alır.|
+|/storageAccounts/Services/diagnosticSettings/Read|Tanılama ayarlarını alın.|
 |/storageAccounts/Services/diagnosticSettings/Write|Tanılama ayarlarını ekleyin veya değiştirin.|
-|/Disks/Read|Depolama hesabı disk döndürür hello.|
-|/osImages/Read|Merhaba işletim sistemi görüntüsünü döndürür.|
-|/Quotas/Read|Merhaba kota hello abonelik için alın.|
+|/Disks/Read|Depolama hesabı diskini döndürür.|
+|/osImages/Read|İşletim sistemi görüntüsünü döndürür.|
+|/Quotas/Read|Abonelik için kotayı alın.|
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
@@ -559,103 +559,103 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/Accounts/listKeys/Action|Liste anahtarları|
 |/Accounts/regenerateKey/Action|Anahtarı yeniden|
 |/Accounts/skus/Read|Mevcut bir kaynağı için kullanılabilir SKU'lar okur.|
-|/Accounts/usages/Read|Merhaba kota kullanımı için mevcut bir kaynağı alın.|
-|/ Operations/okuma|Merhaba işlemi açıklaması.|
+|/Accounts/usages/Read|Kota kullanımı için mevcut bir kaynağı alın.|
+|/ Operations/okuma|İşlem açıklaması.|
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 
 | İşlem | Açıklama |
 |---|---|
-|/ RateCard/okuma|Veri, kaynak/ölçer meta verileri ve abonelik verilen hello için hızlarını döndürür sunar.|
-|/ UsageAggregates/okuma|Microsoft Azure'nın tüketim abonelik tarafından alır. Merhaba sonucunu içerir toplamalar kullanım verileri, abonelik ve kaynak ilgili bilgi için belirli bir zaman aralığı.|
+|/ RateCard/okuma|Veri, kaynak/ölçer meta verileri ve belirtilen abonelik için hızlarını döndürür sunar.|
+|/ UsageAggregates/okuma|Microsoft Azure'nın tüketim abonelik tarafından alır. Sonuç toplamalar içeren kullanım verileri, abonelik ve kaynak ilgili bilgi için belirli bir zaman aralığı.|
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
 | İşlem | Açıklama |
 |---|---|
 |/ Kayıt/eylem|Aboneliği Microsoft.Compute kaynak sağlayıcısına kaydeder|
-|/restorePointCollections/Read|Bir geri yükleme noktası koleksiyon Hello özelliklerini alır|
+|/restorePointCollections/Read|Bir geri yükleme noktası koleksiyon özelliklerini alır|
 |/ restorePointCollections/yazma|Yeni bir geri yükleme noktası koleksiyonu oluşturur veya mevcut kümeyi güncelleştirir|
-|/restorePointCollections/DELETE|Siler hello geri yükleme noktası toplama ve içerilen geri yükleme noktaları|
-|/restorePointCollections/restorePoints/Read|Bir geri yükleme noktası Hello özelliklerini alır|
+|/restorePointCollections/DELETE|Geri yükleme koleksiyonu'nın üzerine gelin ve içerdiği siler geri yükleme noktaları|
+|/restorePointCollections/restorePoints/Read|Bir geri yükleme noktası özelliklerini alır|
 |/restorePointCollections/restorePoints/Write|Yeni bir geri yükleme noktası oluşturur|
-|/restorePointCollections/restorePoints/DELETE|Merhaba geri yükleme noktası siler|
-|/restorePointCollections/restorePoints/retrieveSasUris/Action|Bir geri yükleme noktası blob SAS URI'ler birlikte Hello özelliklerini alır|
-|/virtualMachineScaleSets/Read|Bir sanal makine ölçek kümesi Hello özelliklerini alır|
+|/restorePointCollections/restorePoints/DELETE|Geri yükleme noktası siler|
+|/restorePointCollections/restorePoints/retrieveSasUris/Action|Bir geri yükleme noktası blob SAS URI'ler birlikte özelliklerini alır|
+|/virtualMachineScaleSets/Read|Bir sanal makine ölçek kümesinin özelliklerini alın|
 |/ virtualMachineScaleSets/yazma|Yeni bir sanal makine ölçek kümesi oluşturur veya mevcut kümeyi güncelleştirir|
-|/virtualMachineScaleSets/DELETE|Merhaba sanal makine ölçek kümesini siler|
-|/virtualMachineScaleSets/Start/Action|Merhaba sanal makine ölçek kümesinin örneklerini başlatır hello|
-|/virtualMachineScaleSets/powerOff/Action|Merhaba hello sanal makine ölçek kümesinin örneklerini kapatır|
-|/virtualMachineScaleSets/restart/Action|Merhaba hello sanal makine ölçek kümesinin örneklerini yeniden başlatır|
-|/virtualMachineScaleSets/deallocate/Action|Kapatır ve hello hello sanal makine ölçek kümesinin örneklerini sürümleri hello işlem kaynakları |
-|/virtualMachineScaleSets/manualUpgrade/Action|El ile Merhaba sanal makine ölçek kümesinin örneklerini toolatest modeli güncelleştirir|
+|/virtualMachineScaleSets/DELETE|Sanal makine ölçek kümesini siler|
+|/virtualMachineScaleSets/Start/Action|Sanal makine ölçek kümesinin örneklerini başlatır|
+|/virtualMachineScaleSets/powerOff/Action|Sanal makine ölçek kümesinin örneklerini kapatır|
+|/virtualMachineScaleSets/restart/Action|Sanal makine ölçek kümesinin örneklerini yeniden başlatır|
+|/virtualMachineScaleSets/deallocate/Action|Sanal makineyi kapatır ve sanal makine ölçek kümesi örneklerinin işlem kaynaklarını serbest bırakır |
+|/virtualMachineScaleSets/manualUpgrade/Action|Örnekleri, sanal makine ölçek kümesinin son modeline el ile güncelleştirir|
 |/virtualMachineScaleSets/Scale/Action|İçinde ölçeklendirmek / ölçeği Genişlet örnek sayısını var olan bir sanal makine ölçek kümesi|
-|/virtualMachineScaleSets/instanceView/Read|Merhaba sanal makine ölçek kümesi Hello örnek görünümünü alır|
-|/virtualMachineScaleSets/skus/Read|Varolan bir sanal makine ölçek kümesi için geçerli SKU'ları listeler hello|
-|/virtualMachineScaleSets/virtualMachines/Read|Merhaba VM ölçek kümesindeki bir sanal makinenin özelliklerini alır.|
+|/virtualMachineScaleSets/instanceView/Read|Sanal makine ölçek kümesinin örnek görünümünü alır|
+|/virtualMachineScaleSets/skus/Read|Mevcut bir sanal makine ölçek kümesi için geçerli SKU'ları listeler|
+|/virtualMachineScaleSets/virtualMachines/Read|VM Ölçek Kümesindeki bir Sanal Makinenin özelliklerini alır|
 |/virtualMachineScaleSets/virtualMachines/DELETE|VM Ölçek Kümesindeki belirli bir Sanal Makineyi silin.|
 |/virtualMachineScaleSets/virtualMachines/Start/Action|VM Ölçek Kümesindeki bir Sanal Makine örneğini başlatır.|
 |/virtualMachineScaleSets/virtualMachines/powerOff/Action|VM Ölçek Kümesindeki bir Sanal Makine örneğini kapatır.|
 |/virtualMachineScaleSets/virtualMachines/restart/Action|VM Ölçek Kümesindeki bir Sanal Makine örneğini yeniden başlatır.|
-|/virtualMachineScaleSets/virtualMachines/deallocate/Action|Kapatır ve sürümler hello işlem kaynakları VM ölçek kümesindeki bir sanal makine için.|
-|/virtualMachineScaleSets/virtualMachines/instanceView/Read|VM ölçek kümesindeki bir sanal makine Hello örnek görünümünü alır.|
-|/images/Read|Merhaba görüntü Hello özelliklerini alır|
+|/virtualMachineScaleSets/virtualMachines/deallocate/Action|VM Ölçek Kümesindeki bir Sanal Makineyi kapatır ve işlem kaynaklarını serbest bırakır.|
+|/virtualMachineScaleSets/virtualMachines/instanceView/Read|VM Ölçek Kümesindeki bir Sanal Makinenin örnek görünümünü alır.|
+|/images/Read|Görüntü özelliklerini alır|
 |/ görüntüleri/yazma|Yeni bir görüntü oluşturur veya mevcut kümeyi güncelleştirir|
-|/images/DELETE|Merhaba görüntüsünü siler|
+|/images/DELETE|Görüntü siler|
 |/Operations/Read|Microsoft.Compute kaynak sağlayıcısındaki kullanılabilir işlemleri listele|
-|/Disks/Read|Bir Disk Hello özelliklerini alır|
+|/Disks/Read|Diskin özelliklerini alır|
 |/ diskleri/yazma|Yeni bir Disk oluşturur veya mevcut Diski güncelleştirir|
-|/Disks/DELETE|Disk siler hello|
-|/Disks/beginGetAccess/Action|Blob erişimi için Hello hello Disk SAS URI'sini Al|
-|/Disks/endGetAccess/Action|Merhaba hello Disk SAS URI'sini iptal etme|
-|/snapshots/Read|Bir anlık görüntü Hello özelliklerini alır|
+|/Disks/DELETE|Diski siler|
+|/Disks/beginGetAccess/Action|Blob erişimi için Diskin SAS URI'sini alır|
+|/Disks/endGetAccess/Action|Diskin SAS URI'sini iptal eder|
+|/snapshots/Read|Anlık Görüntünün özelliklerin alır|
 |/ Anlık görüntüler/yazma|Yeni bir Anlık Görüntü oluşturur veya mevcut Anlık Görüntüyü güncelleştirir|
 |/snapshots/DELETE|Anlık Görüntüyü siler|
-|/availabilitySets/Read|Bir kullanılabilirlik kümesi Hello özelliklerini alır|
+|/availabilitySets/Read|Bir kullanılabilirlik kümesinin özelliklerini al|
 |/ availabilitySets/yazma|Yeni bir kullanılabilirlik kümesi oluşturur veya mevcut kümeyi güncelleştirir|
-|/availabilitySets/DELETE|Merhaba kullanılabilirlik kümesini siler|
-|/availabilitySets/vmSizes/Read|Oluşturma veya güncelleştirme hello kullanılabilirlik kümesindeki sanal makine için kullanılabilir boyutları Listele|
-|/virtualMachines/Read|Bir sanal makine Hello özelliklerini alır|
+|/availabilitySets/DELETE|Kullanılabilirlik kümesini siler|
+|/availabilitySets/vmSizes/Read|Kullanılabilirlik kümesinde bir sanal makine oluşturmak veya güncelleştirmek için kullanılabilir boyutları listele|
+|/virtualMachines/Read|Bir sanal makinenin özelliklerini alır|
 |/ virtualMachines/yazma|Yeni bir sanal makine oluşturur veya mevcut sanal makineyi güncelleştirir|
-|/virtualMachines/DELETE|Merhaba sanal makinesini siler|
-|/virtualMachines/Start/Action|Başlatır hello sanal makine|
-|/virtualMachines/powerOff/Action|Merhaba sanal makineyi kapatır. Sanal makine hello Not faturalandırılır toobe devam eder.|
+|/virtualMachines/DELETE|Sanal makineyi siler|
+|/virtualMachines/Start/Action|Sanal makineyi başlatır|
+|/virtualMachines/powerOff/Action|Sanal makineyi kapatır. Sanal makinenin faturalandırılmaya devam edecek unutmayın.|
 |/virtualMachines/Redeploy/Action|Sanal makine yeniden dağıtır|
-|/virtualMachines/restart/Action|Merhaba sanal makine yeniden başlatılıyor|
-|/virtualMachines/deallocate/Action|Merhaba sanal makine ve sürümler hello işlem kaynakları kapatır|
-|/virtualMachines/generalize/Action|Merhaba sanal makine durumu tooGeneralized ayarlar ve hello sanal makineyi yakalama için hazırlar|
-|/virtualMachines/Capture/Action|Sanal sabit diskleri kopyalayarak Hello sanal makineyi yakalar ve kullanılan toocreate benzer sanal makineler olabilir bir şablon oluşturur|
-|/virtualMachines/convertToManagedDisks/Action|Merhaba blob tabanlı disklerin hello sanal makine toomanaged disklerin dönüştürür|
-|/virtualMachines/vmSizes/Read|Merhaba sanal makine güncelleştirmek için kullanılabilir boyutları listeler|
-|/virtualMachines/instanceView/Read|Ayrıntılı çalışma zamanı durumunu hello sanal makine ve kaynaklarının alır hello|
-|/virtualMachines/Extensions/Read|Bir sanal makine uzantısı Hello özelliklerini alır|
+|/virtualMachines/restart/Action|Sanal makineyi yeniden başlatır|
+|/virtualMachines/deallocate/Action|Sanal makineyi kapatır ve işlem kaynaklarını serbest bırakır|
+|/virtualMachines/generalize/Action|Sanal makine durumunu Genelleştirmiş olarak ayarlar ve sanal makineyi yakalama için hazırlar|
+|/virtualMachines/Capture/Action|Sanal sabit diskleri kopyalayarak sanal makineyi yakalar ve benzer sanal makineler oluşturmak için kullanılabilecek bir şablon oluşturur|
+|/virtualMachines/convertToManagedDisks/Action|Sanal makinenin blob tabanlı disklerin yönetilen disklere dönüştürür|
+|/virtualMachines/vmSizes/Read|Sanal makineyi güncelleştirmek için kullanılabilir boyutları listeler|
+|/virtualMachines/instanceView/Read|Sanal makine ve kaynaklarının ayrıntılı çalışma zamanı durumunu alır|
+|/virtualMachines/Extensions/Read|Bir sanal makine uzantısının özelliklerini alır|
 |/virtualMachines/Extensions/Write|Yeni bir sanal makine uzantısı oluşturur veya mevcut uzantıyı güncelleştirir|
-|/virtualMachines/Extensions/DELETE|Merhaba sanal makine uzantısını siler|
+|/virtualMachines/Extensions/DELETE|Sanal makine uzantısını siler|
 |/Locations/vmSizes/Read|Bir konumdaki kullanılabilir sanal makine boyutlarını listeler|
-|/Locations/usages/Read|Hizmet sınırları ve geçerli kullanım miktarlarını hello aboneliğin işlem kaynakları için bir konumda alır.|
-|/Locations/Operations/Read|Zaman uyumsuz bir işlem Hello durumunu alır|
+|/Locations/usages/Read|Aboneliğin bir konumdaki işlem kaynaklarında bulunan hizmet sınırlarını ve geçerli kullanım miktarlarını alır|
+|/Locations/Operations/Read|Bir zaman uyumsuz işlemin durumunu alır|
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
 | İşlem | Açıklama |
 |---|---|
-|/ Kayıt/eylem|Merhaba hello kapsayıcı kayıt kaynak sağlayıcısı için aboneliği kaydeder ve kapsayıcı kayıt defterleri hello oluşturulmasını sağlar.|
+|/ Kayıt/eylem|Kapsayıcı kayıt kaynak sağlayıcısı için aboneliği kaydeder ve kapsayıcı kayıt defterleri oluşturulmasını sağlar.|
 |/checknameavailability/Read|Bu kayıt defteri adının geçerli olduğundan ve kullanımda olup olmadığını denetler.|
-|/registries/Read|Kapsayıcı kayıt defterleri listesini döndürür hello veya hello belirtilen kapsayıcı kayıt defteri özelliklerini alır hello.|
-|/ kayıt defterleri/yazma|Kapsayıcı kayıt defteri ile oluşturur hello belirtilen parametreleri veya hello özellikleri veya etiketleri hello belirtilen kapsayıcı kayıt defteri için güncelleştirin.|
+|/registries/Read|Kapsayıcı kayıt defterleri listesini döndürür veya belirtilen kapsayıcı kayıt defteri özellikleri alır.|
+|/ kayıt defterleri/yazma|Belirtilen parametrelerle bir kapsayıcı kayıt oluşturur veya özellikleri veya etiketleri belirtilen kapsayıcı kayıt defteri için güncelleştirin.|
 |/registries/DELETE|Varolan bir kapsayıcı kayıt siler.|
-|/registries/listCredentials/Action|Merhaba belirtilen kapsayıcı kayıt defteri Hello oturum açma kimlik bilgileri listeler.|
-|/registries/regenerateCredential/Action|Merhaba belirtilen kapsayıcı kayıt defteri Hello oturum açma kimlik bilgilerini yeniden oluşturur.|
+|/registries/listCredentials/Action|Belirtilen kapsayıcı kayıt defteri için oturum açma kimlik bilgilerini listeler.|
+|/registries/regenerateCredential/Action|Belirtilen kapsayıcı kayıt defteri için oturum açma kimlik bilgilerini yeniden oluşturur.|
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 
 | İşlem | Açıklama |
 |---|---|
-|/containerServices/Subscriptions/Read|Merhaba aboneliğe göre belirtilen kapsayıcı hizmetlerini Al|
-|/containerServices/resourceGroups/Read|Merhaba kaynak grubuna göre belirtilen kapsayıcı hizmetlerini Al|
-|/containerServices/resourceGroups/ContainerServiceName/Read|Kapsayıcı hizmetini alır hello belirtilen|
-|/containerServices/resourceGroups/ContainerServiceName/Write|Kapsayıcı hizmetini yerleştirir veya güncelleştirmeleri hello belirtilen|
-|/containerServices/resourceGroups/ContainerServiceName/DELETE|Kapsayıcı hizmetini siler hello belirtilen|
+|/containerServices/Subscriptions/Read|Aboneliğe göre belirtilen Kapsayıcı Hizmetlerini alın|
+|/containerServices/resourceGroups/Read|Kaynak Grubuna göre belirtilen Kapsayıcı Hizmetlerini alın|
+|/containerServices/resourceGroups/ContainerServiceName/Read|Belirtilen Kapsayıcı Hizmetini alır|
+|/containerServices/resourceGroups/ContainerServiceName/Write|Belirtilen Kapsayıcı Hizmetini Yerleştirir veya Güncelleştirir|
+|/containerServices/resourceGroups/ContainerServiceName/DELETE|Belirtilen Kapsayıcı Hizmetini siler|
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 
@@ -678,10 +678,10 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/hubs/Read|Tüm Azure müşteri Öngörüler hub'ı okuyun|
 |/ hubs/yazma|Tüm Azure müşteri Öngörüler Hub güncelle|
 |/hubs/DELETE|Tüm Azure müşteri Öngörüler hub'ını silmek|
-|/hubs/providers/Microsoft.Insights/metricDefinitions/Read|Kaynak için Hello kullanılabilir ölçümleri alır|
-|/hubs/providers/Microsoft.Insights/diagnosticSettings/Read|Hello hello kaynağın tanılama ayarını alır|
-|/hubs/providers/Microsoft.Insights/diagnosticSettings/Write|Oluşturur veya hello kaynağın tanılama ayarını hello güncelleştirir|
-|/hubs/providers/Microsoft.Insights/logDefinitions/Read|Kaynak için Hello kullanılabilir günlüklerini alır|
+|/hubs/providers/Microsoft.Insights/metricDefinitions/Read|Kaynak için kullanılabilir ölçümleri alır|
+|/hubs/providers/Microsoft.Insights/diagnosticSettings/Read|Kaynak için tanılama ayarını alır|
+|/hubs/providers/Microsoft.Insights/diagnosticSettings/Write|Kaynak için tanılama ayarını oluşturur veya güncelleştirir|
+|/hubs/providers/Microsoft.Insights/logDefinitions/Read|Kaynak için kullanılabilir günlüklerini alır|
 |/hubs/authorizationPolicies/Read|Herhangi bir Azure müşteri öngörü paylaşılan erişim imzası İlkesi okuma|
 |/hubs/authorizationPolicies/Write|Herhangi bir Azure müşteri Öngörüler paylaşılan erişim imzası ilke güncelle|
 |/hubs/authorizationPolicies/DELETE|Tüm Azure müşteri Öngörüler paylaşılan erişim imzası ilkelerini Sil|
@@ -713,8 +713,8 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |---|---|
 |/ checkNameAvailability/eylem|Kiracı için katalog adı kullanılabilirliğini denetler.|
 |/Catalogs/Read|Katalog ya da kataloglar abonelik veya kaynak grubu altında için özellikleri alır.|
-|/ kataloglar/yazma|Katalog veya güncelleştirmeler hello etiketleri ve hello katalog özelliklerini oluşturur.|
-|/Catalogs/DELETE|Başlangıç kataloğu siler.|
+|/ kataloglar/yazma|Katalog oluşturur veya etiketleri ve Katalog özelliklerini güncelleştirir.|
+|/Catalogs/DELETE|Katalog siler.|
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -740,20 +740,20 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 
 | İşlem | Açıklama |
 |---|---|
-|/Accounts/Read|Merhaba DataLakeAnalytics hesabı hakkında bilgi alın.|
-|/ hesapları/yazma|Oluşturun veya hello DataLakeAnalytics hesabı güncelleştirin.|
-|/Accounts/DELETE|Merhaba DataLakeAnalytics hesabı silin.|
+|/Accounts/Read|DataLakeAnalytics hesabı hakkında bilgi alın.|
+|/ hesapları/yazma|Oluşturun veya DataLakeAnalytics hesabı güncelleştirin.|
+|/Accounts/DELETE|DataLakeAnalytics hesabı silin.|
 |/Accounts/firewallRules/Read|Bir güvenlik duvarı kuralı hakkında bilgi alın.|
 |/Accounts/firewallRules/Write|Oluşturun veya bir güvenlik duvarı kuralı güncelleştirin.|
 |/Accounts/firewallRules/DELETE|Bir güvenlik duvarı kuralını siler.|
-|/Accounts/storageAccounts/Read|Bağlantılı Depolama hesabı Merhaba DataLakeAnalytics hesap alın.|
-|/Accounts/storageAccounts/Write|Bir depolama hesabı toohello DataLakeAnalytics hesabı bağlayın.|
-|/Accounts/storageAccounts/DELETE|Merhaba DataLakeAnalytics hesabı depolama hesabından bağlantısını.|
-|/Accounts/storageAccounts/Containers/Read|Depolama hesabı hello altında kapsayıcıları Al|
-|/Accounts/storageAccounts/Containers/listSasTokens/Action|Merhaba depolama kapsayıcısı için SAS belirteci listesi|
-|/Accounts/dataLakeStoreAccounts/Read|Bağlantılı DataLakeStore hesabı Merhaba DataLakeAnalytics hesabı edinin.|
-|/Accounts/dataLakeStoreAccounts/Write|DataLakeStore hesap toohello DataLakeAnalytics hesabı bağlayın.|
-|/Accounts/dataLakeStoreAccounts/DELETE|Merhaba DataLakeAnalytics hesap DataLakeStore hesabından bağlantısını.|
+|/Accounts/storageAccounts/Read|Bağlantılı Depolama hesabı için DataLakeAnalytics hesabı edinin.|
+|/Accounts/storageAccounts/Write|Bir depolama hesabı DataLakeAnalytics hesabına bağlayın.|
+|/Accounts/storageAccounts/DELETE|Bir depolama hesabı DataLakeAnalytics hesabından bağlantısını.|
+|/Accounts/storageAccounts/Containers/Read|Depolama hesabında kapsayıcıları Al|
+|/Accounts/storageAccounts/Containers/listSasTokens/Action|Depolama kapsayıcısı için SAS belirteci listesi|
+|/Accounts/dataLakeStoreAccounts/Read|Bağlantılı DataLakeStore hesabı DataLakeAnalytics hesabı edinin.|
+|/Accounts/dataLakeStoreAccounts/Write|DataLakeStore hesap DataLakeAnalytics hesabına bağlayın.|
+|/Accounts/dataLakeStoreAccounts/DELETE|DataLakeAnalytics hesabından DataLakeStore hesabı bağlantısını.|
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 
@@ -773,18 +773,18 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 
 | İşlem | Açıklama |
 |---|---|
-|/ Kayıt/eylem|Merhaba Iothub kaynak sağlayıcısı ve etkinleştirir hello oluşturulması için Iothub kaynakları Hello abonelik kaydı|
+|/ Kayıt/eylem|Iothub kaynak sağlayıcısı için abonelik kaydı ve Iothub kaynakların oluşturulmasını sağlar|
 |/ checkNameAvailability/eylem|Onay, Iothub adı kullanılamıyor|
 |/ kullanımları/okuma|Abonelik bu sağlayıcı için kullanım ayrıntıları alın.|
 |/ operations/okuma|Tüm ResourceProvider işlemleri Al|
-|/ iotHubs/okuma|Merhaba Iothub kaynaklar alır|
+|/ iotHubs/okuma|Iothub kaynaklar alır|
 |/ iotHubs/yazma|Iothub kaynak güncelle|
 |/ iotHubs/Sil|Iothub kaynağı silme|
 |/iotHubs/listkeys/Action|Tüm Iothub anahtarları alma|
 |/iotHubs/exportDevices/Action|Dışarı aktarma cihazları|
 |/iotHubs/importDevices/Action|Cihazları içeri aktarma|
-|/ IotHubs/metricDefinitions/okuma|Merhaba Iothub hizmet Hello kullanılabilir ölçümleri alır|
-|/iotHubs/iotHubKeys/listkeys/Action|Iothub anahtar hello verilen ad|
+|/ IotHubs/metricDefinitions/okuma|Iothub hizmeti için kullanılabilir ölçümleri alır|
+|/iotHubs/iotHubKeys/listkeys/Action|Verilen ada Iothub anahtarı alma|
 |/iotHubs/iotHubStats/Read|Iothub istatistiklerini alın|
 |/iotHubs/quotaMetrics/Read|Kota ölçümleri alma|
 |/iotHubs/eventHubEndpoints/consumerGroups/Write|EventHub tüketici grubu oluşturma|
@@ -792,25 +792,25 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/iotHubs/eventHubEndpoints/consumerGroups/DELETE|EventHub tüketici grubu Sil|
 |/iotHubs/Routing/Routes/$ testall/eylem|Bir ileti tüm var olan yollar karşı test etme|
 |/iotHubs/Routing/Routes/$ testnew/eylem|Bir ileti sağlanan test rota karşı test etme|
-|/ IotHubs/diagnosticSettings/okuma|Hello hello kaynağın tanılama ayarını alır|
-|/ IotHubs/diagnosticSettings/yazma|Oluşturur veya hello kaynağın tanılama ayarını hello güncelleştirir|
+|/ IotHubs/diagnosticSettings/okuma|Kaynak için tanılama ayarını alır|
+|/ IotHubs/diagnosticSettings/yazma|Kaynak için tanılama ayarını oluşturur veya güncelleştirir|
 |/iotHubs/skus/Read|Geçerli Iothub SKU'ları alma|
 |/iotHubs/Jobs/Read|İş ayrıntıları Iothub gönderme|
-|/iotHubs/routingEndpointsHealth/Read|Bir Iothub için tüm yönlendirme uç noktaları Hello durumunu alır|
+|/iotHubs/routingEndpointsHealth/Read|Bir Iothub için tüm yönlendirme uç noktaları durumunu alır|
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
 | İşlem | Açıklama |
 |---|---|
-|/ Abonelik/kayıt/eylem|Merhaba aboneliği kaydeder|
+|/ Abonelik/kayıt/eylem|Aboneliği kaydeder|
 |/Labs/DELETE|Labs silin.|
 |/Labs/Read|Labs okuyun.|
 |/ labs/yazma|Ekleyin veya labs değiştirin.|
 |/Labs/ListVhds/Action|Liste disk görüntülerini özel görüntü oluşturma için kullanılabilir.|
-|/Labs/GenerateUploadUri/Action|Özel disk görüntüleri tooa Laboratuvar yüklemek için bir URI oluşturur.|
+|/Labs/GenerateUploadUri/Action|Özel disk görüntülerini laboratuvara yüklemek için bir URI oluşturur.|
 |/Labs/CreateEnvironment/Action|Sanal makineler bir laboratuar ortamında oluşturun.|
-|/Labs/ClaimAnyVm/Action|Merhaba Laboratuvar rastgele claimable sanal makinede talep.|
-|/Labs/ExportResourceUsage/Action|Dışarı aktarma bir depolama hesabına Laboratuvar kaynak kullanımı hello|
+|/Labs/ClaimAnyVm/Action|Laboratuvar rastgele claimable sanal makinede talep.|
+|/Labs/ExportResourceUsage/Action|Laboratuvar kaynak kullanımı bir depolama hesabına dışa aktarır.|
 |/Labs/Users/DELETE|Kullanıcı profillerini silin.|
 |/Labs/Users/Read|Kullanıcı profillerini okuyun.|
 |/Labs/Users/Write|Ekleyin veya kullanıcı profillerini değiştirin.|
@@ -823,8 +823,8 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/Labs/Users/Disks/DELETE|Diskleri silin.|
 |/Labs/Users/Disks/Read|Diskleri okuyun.|
 |/Labs/Users/Disks/Write|Ekleyin veya diskleri değiştirin.|
-|/Labs/Users/Disks/Attach/Action|Ekleme ve hello kira hello disk toohello sanal makine oluşturun.|
-|/Labs/Users/Disks/detach/Action|Ayırma ve sonu hello kira hello diskin toohello sanal makineye bağlı.|
+|/Labs/Users/Disks/Attach/Action|Ekleme ve disk sanal makineye kira oluşturun.|
+|/Labs/Users/Disks/detach/Action|Ayırma ve sanal makineye bağlı disk kira bölün.|
 |/Labs/customImages/DELETE|Özel resimler silin.|
 |/Labs/customImages/Read|Özel resimler okuyun.|
 |/Labs/customImages/Write|Ekleyin veya özel resimler değiştirin.|
@@ -835,7 +835,7 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/Labs/artifactSources/Read|Yapı kaynaklarını okuyun.|
 |/Labs/artifactSources/Write|Ekleyin veya Yapı kaynaklarını değiştirin.|
 |/Labs/artifactSources/artifacts/Read|Yapıları okuyun.|
-|/Labs/artifactSources/artifacts/GenerateArmTemplate/Action|Yapı verilen hello için bir ARM şablonu oluşturur, gerekli hello dosyaları tooa depolama hesabı yükler ve oluşturulan hello yapı doğrular.|
+|/Labs/artifactSources/artifacts/GenerateArmTemplate/Action|Belirtilen yapı için bir ARM şablonu oluşturur, bir depolama hesabı için gereken dosyaları yükler ve oluşturulan yapı doğrular.|
 |/Labs/artifactSources/armTemplates/Read|Azure resource manager şablonları okuyun.|
 |/Labs/costs/Read|Maliyetleri okuyun.|
 |/Labs/costs/Write|Ekleyin veya maliyetleri değiştirin.|
@@ -860,9 +860,9 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/Labs/virtualMachines/Write|Sanal makineleri ekleyin veya değiştirin.|
 |/Labs/virtualMachines/Start/Action|Bir sanal makineyi başlatın.|
 |/Labs/virtualMachines/Stop/Action|Bir sanal makineyi durdurma|
-|/Labs/virtualMachines/ApplyArtifacts/Action|Yapıları toovirtual makine uygulayın.|
-|/Labs/virtualMachines/AddDataDisk/Action|Yeni veya var olan veri diski toovirtual makine ekleyin.|
-|/Labs/virtualMachines/DetachDataDisk/Action|Merhaba belirtilen hello sanal makinede diski kullanımdan çıkarın.|
+|/Labs/virtualMachines/ApplyArtifacts/Action|Yapılar, sanal makine için geçerlidir.|
+|/Labs/virtualMachines/AddDataDisk/Action|Yeni veya var olan veri diski sanal makineye Ekle.|
+|/Labs/virtualMachines/DetachDataDisk/Action|Belirtilen sanal makinede diski kullanımdan çıkarın.|
 |/Labs/virtualMachines/Claim/Action|Var olan bir sanal makine sahipliğini alın|
 |/Labs/virtualMachines/ListApplicableSchedules/Action|Tüm geçerli zamanlamaları listeler|
 |/Labs/virtualMachines/Schedules/DELETE|Zamanlamalar silin.|
@@ -872,7 +872,7 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/Labs/notificationChannels/DELETE|Notificationchannels silin.|
 |/Labs/notificationChannels/Read|Notificationchannels okuyun.|
 |/Labs/notificationChannels/Write|Ekleyin veya notificationchannels değiştirin.|
-|/Labs/notificationChannels/Notify/Action|Bildirim tooprovided kanalı gönderin.|
+|/Labs/notificationChannels/Notify/Action|Bildirim sağlanan kanala göndermek.|
 |/Schedules/DELETE|Zamanlamalar silin.|
 |/Schedules/Read|Zamanlamalar okuyun.|
 |/ zamanlamaları/yazma|Ekleyin veya zamanlamalarını değiştirin.|
@@ -889,20 +889,20 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/ databaseAccounts/yazma|Bir veritabanı hesaplarını güncelleştirin.|
 |/databaseAccounts/listKeys/Action|Veritabanı hesabı listesi anahtarları|
 |/databaseAccounts/regenerateKey/Action|Veritabanı hesabı anahtarlarını döndürün|
-|/databaseAccounts/listConnectionStrings/Action|Merhaba bağlantı dizeleri için bir veritabanı hesabı edinin|
+|/databaseAccounts/listConnectionStrings/Action|Bağlantı dizeleri için bir veritabanı hesabı edinin|
 |/databaseAccounts/changeResourceGroup/Action|Veritabanı hesabı, kaynak grubu Değiştir|
-|/databaseAccounts/failoverPriorityChange/Action|Veritabanı hesabı bölgelerinin yük devretme önceliklerini değiştirin. Kullanılan tooperform el ile yük devretme işlemi budur|
-|/databaseAccounts/DELETE|Merhaba veritabanı hesaplarını siler.|
-|/databaseAccounts/metricDefinitions/Read|Merhaba veritabanı hesabı ölçümleri tanımları okur.|
-|/databaseAccounts/Metrics/Read|Merhaba veritabanı hesabı ölçümleri okur.|
-|/databaseAccounts/usages/Read|Merhaba veritabanı hesabı kullanımları okur.|
-|/databaseAccounts/Databases/Collections/metricDefinitions/Read|Merhaba koleksiyonu ölçüm tanımlarını okur.|
-|/databaseAccounts/Databases/Collections/Metrics/Read|Merhaba koleksiyonu ölçümleri okur.|
-|/databaseAccounts/Databases/Collections/usages/Read|Merhaba koleksiyonu kullanımları okur.|
-|/databaseAccounts/Databases/metricDefinitions/Read|Merhaba veritabanı ölçüm tanımlarını okur|
-|/databaseAccounts/Databases/Metrics/Read|Merhaba veritabanı ölçümleri okur.|
-|/databaseAccounts/Databases/usages/Read|Merhaba veritabanı kullanımları okur.|
-|/databaseAccounts/readonlykeys/Read|Merhaba veritabanı hesabı readonly anahtarları okur.|
+|/databaseAccounts/failoverPriorityChange/Action|Veritabanı hesabı bölgelerinin yük devretme önceliklerini değiştirin. Bu el ile yük devretme işlemi gerçekleştirmek için kullanılır|
+|/databaseAccounts/DELETE|Veritabanı hesaplarını siler.|
+|/databaseAccounts/metricDefinitions/Read|Veritabanı hesabı ölçümleri tanımları okur.|
+|/databaseAccounts/Metrics/Read|Veritabanı hesabı ölçümleri okur.|
+|/databaseAccounts/usages/Read|Veritabanı hesabı kullanımları okur.|
+|/databaseAccounts/Databases/Collections/metricDefinitions/Read|Koleksiyon ölçüm tanımlarını okur.|
+|/databaseAccounts/Databases/Collections/Metrics/Read|Koleksiyon ölçümleri okur.|
+|/databaseAccounts/Databases/Collections/usages/Read|Koleksiyon kullanımları okur.|
+|/databaseAccounts/Databases/metricDefinitions/Read|Ölçüm tanımlarını veritabanını okur|
+|/databaseAccounts/Databases/Metrics/Read|Veritabanı ölçümleri okur.|
+|/databaseAccounts/Databases/usages/Read|Veritabanı kullanımları okur.|
+|/databaseAccounts/readonlykeys/Read|Veritabanı hesabı readonly anahtarları okur.|
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 
@@ -911,9 +911,9 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/ generateSsoRequest/eylem|Etki alanı denetim Merkezi'nde oturum için bir istek oluşturun.|
 |/ validateDomainRegistrationInformation/eylem|Etki alanı satın alma nesnesi gönderme olmadan doğrula|
 |/ checkDomainAvailability/eylem|Bir etki alanı satın almak için uygun olup olmadığını denetleyin|
-|/ listDomainRecommendations/eylem|Anahtar sözcüklere dayalı hello liste etki alanı önerileri Al|
-|/ Kayıt/eylem|Merhaba aboneliği için Hello Microsoft Domains kaynak sağlayıcısı kaydetme|
-|/ etki alanı/okuma|Merhaba etki alanlarının listesini alın|
+|/ listDomainRecommendations/eylem|Anahtar sözcüklere dayalı liste etki alanı önerileri Al|
+|/ Kayıt/eylem|Aboneliği için Microsoft Domains kaynak sağlayıcısı kaydetme|
+|/ etki alanı/okuma|Etki alanlarının listesini alın|
 |/ etki alanı/yazma|Yeni bir etki alanı eklemek veya mevcut bir güncelleştirme|
 |/ etki alanı/Sil|Varolan bir etki alanını silin.|
 |/Domains/operationresults/Read|Bir etki alanı işlemi Al|
@@ -922,40 +922,40 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 
 | İşlem | Açıklama |
 |---|---|
-|/lcsprojects/Read|Tooa kullanıcıya ait görüntü Microsoft Dynamics yaşam döngüsü Hizmetleri projeleri|
-|/ lcsprojects/yazma|Oluşturun ve toohello kullanıcıya ait Microsoft Dynamics yaşam döngüsü Hizmetleri projeleri güncelleştirin. Yalnızca hello ad ve açıklama özellikleri güncelleştirilebilir. Merhaba abonelik ve konumda hello projeyle ilişkili oluşturulduktan sonra güncelleştirilemiyor|
-|/lcsprojects/DELETE|Toohello kullanıcıya ait Microsoft Dynamics yaşam döngüsü Hizmetleri projeleri sil|
-|/lcsprojects/clouddeployments/Read|Microsoft Dynamics AX 2012 R3 değerlendirme dağıtımları tooa kullanıcıya ait bir Microsoft Dynamics yaşam döngüsü Hizmetleri projesinde görüntüleme|
-|/lcsprojects/clouddeployments/Write|Microsoft Dynamics AX 2012 R3 değerlendirme dağıtımı tooa kullanıcı ait bir Microsoft Dynamics yaşam döngüsü Hizmetleri projesi oluşturun. Azure Yönetim Portalı'ndan dağıtımları yönetilebilir.|
-|/lcsprojects/connectors/Read|Tooa Microsoft Dynamics yaşam döngüsü Hizmetleri Proje ait bağlayıcılar okuma|
-|/lcsprojects/connectors/Write|Oluşturma ve tooa Microsoft Dynamics yaşam döngüsü Hizmetleri Proje ait bağlayıcılar güncelleştirme|
+|/lcsprojects/Read|Bir kullanıcıya ait görüntü Microsoft Dynamics yaşam döngüsü Hizmetleri projeleri|
+|/ lcsprojects/yazma|Oluşturun ve kullanıcıya ait Microsoft Dynamics yaşam döngüsü Hizmetleri projeleri güncelleştirin. Yalnızca ad ve açıklama özellikleri güncelleştirilebilir. Oluşturulduktan sonra projeyle ilişkili konumu ve abonelik güncelleştirilemiyor|
+|/lcsprojects/DELETE|Kullanıcıya ait Microsoft Dynamics yaşam döngüsü Hizmetleri projeleri sil|
+|/lcsprojects/clouddeployments/Read|Microsoft Dynamics AX 2012 R3 değerlendirme dağıtımları bir kullanıcıya ait bir Microsoft Dynamics yaşam döngüsü Hizmetleri Proje görüntüler.|
+|/lcsprojects/clouddeployments/Write|Microsoft Dynamics AX 2012 R3 değerlendirme dağıtım bir kullanıcıya ait bir Microsoft Dynamics yaşam döngüsü Hizmetleri projesi oluşturun. Azure Yönetim Portalı'ndan dağıtımları yönetilebilir.|
+|/lcsprojects/connectors/Read|Microsoft Dynamics yaşam döngüsü Hizmetleri projeye ait okuma bağlayıcılar|
+|/lcsprojects/connectors/Write|Oluşturma ve Microsoft Dynamics yaşam döngüsü Hizmetleri projeye ait bağlayıcılar güncelleştirme|
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
 | İşlem | Açıklama |
 |---|---|
 |/ checkNameAvailability/eylem|İlgili abonelikte ad alanının kullanılabilirliğini denetler.|
-|/ Kayıt/eylem|Merhaba hello EventHub kaynak sağlayıcısı için aboneliği kaydeder ve EventHub kaynak hello oluşturmayı etkinleştirir|
-|/ ad alanları/yazma|Namespace kaynak oluşturun ve özelliklerini güncelleştirin. Etiketleri ve hello Namespace durumunu, güncelleştirilebilir hello özelliklerdir.|
-|/namespaces/Read|Namespace kaynak açıklaması Hello listesini al|
+|/ Kayıt/eylem|Aboneliği EventHub kaynak sağlayıcısı için kaydeder ve EventHub kaynaklarının oluşturulmasını sağlar|
+|/ ad alanları/yazma|Namespace kaynak oluşturun ve özelliklerini güncelleştirin. Etiketleri ve Namespace durumunu, güncelleştirilebilir özelliklerdir.|
+|/namespaces/Read|Ad Alanı Kaynak Açıklamasının listesini alır|
 |/ ad alanları/Sil|Namespace kaynağı silme|
 |/namespaces/metricDefinitions/Read|Namespace ölçümleri kaynak açıklamaları listesini al|
-|/namespaces/authorizationRules/Read|Ad alanları yetkilendirme kuralları açıklama Hello listesini alın.|
-|/namespaces/authorizationRules/Write|Namespace düzeyi yetkilendirme kuralları oluşturun ve özelliklerini güncelleştirin. Merhaba yetkilendirme kuralları erişim hakları, hello birincil ve ikincil anahtarları güncelleştirilebilir.|
-|/namespaces/authorizationRules/DELETE|Namespace yetkilendirme kuralını silin. Merhaba varsayılan Namespace yetkilendirme kuralı silinemez. |
-|/namespaces/authorizationRules/listkeys/Action|Merhaba bağlantı dizesi toohello Namespace Al|
-|/namespaces/authorizationRules/regenerateKeys/Action|Merhaba birincil veya ikincil anahtarı toohello kaynak yeniden oluştur|
+|/namespaces/authorizationRules/Read|Ad Alanı Yetkilendirme Kuralları açıklamasının listesini alır.|
+|/namespaces/authorizationRules/Write|Namespace düzeyi yetkilendirme kuralları oluşturun ve özelliklerini güncelleştirin. Yetkilendirme kuralları erişim hakları, birincil ve ikincil anahtarları güncelleştirilebilir.|
+|/namespaces/authorizationRules/DELETE|Namespace yetkilendirme kuralını silin. Namespace yetkilendirme varsayılan kural silinemiyor. |
+|/namespaces/authorizationRules/listkeys/Action|Ad Alanı için Bağlantı Dizesini alın|
+|/namespaces/authorizationRules/regenerateKeys/Action|Kaynağın Birincil veya İkincil anahtarını yeniden oluşturun|
 |/namespaces/eventhubs/Write|Oluşturma veya güncelleştirme EventHub özellikleri.|
 |/namespaces/eventhubs/Read|EventHub kaynak açıklamaları listesini al|
-|/namespaces/eventhubs/DELETE|İşlem toodelete EventHub kaynak|
+|/namespaces/eventhubs/DELETE|EventHub kaynağı silme işlemi|
 |/namespaces/eventHubs/consumergroups/Write|Oluşturma veya güncelleştirme ConsumerGroup özellikleri.|
 |/namespaces/eventHubs/consumergroups/Read|ConsumerGroup kaynak açıklamaları listesini al|
-|/namespaces/eventHubs/consumergroups/DELETE|İşlem toodelete ConsumerGroup kaynak|
-|/namespaces/eventhubs/authorizationRules/Read| EventHub yetkilendirme kuralları Hello listesini al|
-|/namespaces/eventhubs/authorizationRules/Write|EventHub yetkilendirme kuralları oluşturun ve özelliklerini güncelleştirin. Merhaba yetkilendirme kuralları erişim hakları, hello birincil ve ikincil anahtarları güncelleştirilebilir.|
-|/namespaces/eventhubs/authorizationRules/DELETE|İşlem toodelete EventHub yetkilendirme kuralları|
-|/namespaces/eventhubs/authorizationRules/listkeys/Action|Merhaba bağlantı dizesi tooEventHub Al|
-|/namespaces/eventhubs/authorizationRules/regenerateKeys/Action|Merhaba birincil veya ikincil anahtarı toohello kaynak yeniden oluştur|
+|/namespaces/eventHubs/consumergroups/DELETE|ConsumerGroup kaynağı silme işlemi|
+|/namespaces/eventhubs/authorizationRules/Read| EventHub yetkilendirme kuralları listesini al|
+|/namespaces/eventhubs/authorizationRules/Write|EventHub yetkilendirme kuralları oluşturun ve özelliklerini güncelleştirin. Yetkilendirme kuralları erişim hakları, birincil ve ikincil anahtarları güncelleştirilebilir.|
+|/namespaces/eventhubs/authorizationRules/DELETE|EventHub yetkilendirme kuralları silmek için işlemi|
+|/namespaces/eventhubs/authorizationRules/listkeys/Action|EventHub bağlantı dizesi alma|
+|/namespaces/eventhubs/authorizationRules/regenerateKeys/Action|Kaynağın Birincil veya İkincil anahtarını yeniden oluşturun|
 |/namespaces/diagnosticSettings/Read|Namespace tanılama ayarları kaynak açıklamaları listesini al|
 |/namespaces/diagnosticSettings/Write|Namespace tanılama ayarları kaynak açıklamaları listesini al|
 |/namespaces/logDefinitions/Read|Namespace günlükleri kaynak açıklamaları listesini al|
@@ -964,9 +964,9 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 
 | İşlem | Açıklama |
 |---|---|
-|/providers/Features/Read|Belirtilen kaynak sağlayıcısındaki bir abonelik Hello özelliğini alır.|
-|/providers/Features/Register/Action|Belirli kaynak sağlayıcısındaki bir abonelik Hello özelliğini kaydeder.|
-|/Features/Read|Bir aboneliğin Hello özelliklerini alır.|
+|/providers/Features/Read|Belirli bir kaynak sağlayıcısındaki bir abonelik özelliğini alır.|
+|/providers/Features/Register/Action|Belirli bir kaynak sağlayıcısındaki bir abonelik özelliğini kaydeder.|
+|/Features/Read|Bir aboneliğin özelliklerini alır.|
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
@@ -986,19 +986,19 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 
 | İşlem | Açıklama |
 |---|---|
-|/ Kayıt/eylem|Merhaba hello içeri/dışarı aktarma kaynak sağlayıcısı için aboneliği kaydeder ve içeri/dışarı aktarma işleri hello oluşturulmasını sağlar.|
-|/ işleri/yazma|Bir işin oluşturur hello belirtilen parametreleri veya hello özellikleri veya etiketleri hello belirtilen iş için güncelleştirin.|
-|/Jobs/Read|Merhaba belirtilen proje için Hello özelliklerini alır veya hello işlerin listesini döndürür.|
-|/Jobs/listBitLockerKeys/Action|Merhaba belirtilen iş için Hello BitLocker anahtarları alır.|
+|/ Kayıt/eylem|İçeri/dışarı aktarma kaynak sağlayıcısı için aboneliği kaydeder ve içeri/dışarı aktarma işleri oluşturulmasını sağlar.|
+|/ işleri/yazma|Belirtilen parametrelerle bir işi oluşturur veya özellikleri veya etiketleri belirtilen iş için güncelleştirin.|
+|/Jobs/Read|Belirtilen iş için özellikleri alır veya işlerin listesini döndürür.|
+|/Jobs/listBitLockerKeys/Action|Belirtilen iş için BitLocker anahtarları alır.|
 |/Jobs/DELETE|Var olan bir işi siler.|
-|/Locations/Read|Merhaba özellikleri hello belirtilen konum veya verir hello listesi konumları için alır.|
+|/Locations/Read|Belirtilen konum için özellikleri alır veya konumların listesini döndürür.|
 
 ## <a name="microsoftinsights"></a>Microsoft.ınsights
 
 | İşlem | Açıklama |
 |---|---|
-|/ Kayıt/eylem|Merhaba microsoft Öngörüler sağlayıcısını Kaydet|
-|/ AlertRules/yazma|Yazma tooan uyarı kuralı yapılandırma|
+|/ Kayıt/eylem|Microsoft Insights sağlayıcısını kaydedin|
+|/ AlertRules/yazma|Bir uyarı kuralı yapılandırmasına yazılıyor|
 |/ AlertRules/silme|Uyarı kuralı yapılandırması siliniyor|
 |/ AlertRules/okuma|Uyarı kuralı yapılandırması okunuyor|
 |/ AlertRules/etkinleştirilmiş/eylem|Uyarı kuralı etkinleştirildi|
@@ -1009,21 +1009,21 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/eventtypes/Values/Read|Yönetim olayı tür değerlerini oku|
 |/eventtypes/digestevents/Read|Yönetim olayı türü özetini oku|
 |/ Ölçümleri/okuma|Ölçümleri|
-|/ LogProfiles/yazma|Tooa günlük profili yapılandırması yazma|
+|/ LogProfiles/yazma|Günlük profili yapılandırması için yazma|
 |/ LogProfiles/silme|Günlük profilleri yapılandırmasını silme|
 |/ LogProfiles/okuma|Okuma günlük profilleri|
-|/ AutoscaleSettings/yazma|Tooan otomatik ölçeklendirme ayarı yapılandırması yazma|
+|/ AutoscaleSettings/yazma|Otomatik ölçek ayarı yapılandırması yazılıyor|
 |/ AutoscaleSettings/silme|Otomatik ölçek ayarı yapılandırması siliniyor|
 |/ AutoscaleSettings/okuma|Otomatik ölçek ayarı yapılandırması okunuyor|
 |/ AutoscaleSettings/Scaleup/eylem|Otomatik Ölçek ölçeği artırma işlemi|
 |/ AutoscaleSettings/Scaledown/eylem|Otomatik ölçeklendirme ölçek işlemi|
 |/AutoscaleSettings/providers/Microsoft.Insights/MetricDefinitions/Read|Ölçüm tanımlarını oku|
-|/ ActivityLogAlerts/etkinleştirilmiş/eylem|Etkinlik günlüğü uyarı tetiklenen hello|
-|/ DiagnosticSettings/yazma|Yazma toodiagnostic ayarlarını yapılandırma|
+|/ ActivityLogAlerts/etkinleştirilmiş/eylem|Etkinlik günlüğü uyarının|
+|/ DiagnosticSettings/yazma|Tanılama ayarları yapılandırmasına yazma|
 |/ DiagnosticSettings/silme|Tanılama ayarları yapılandırması siliniyor|
 |/ DiagnosticSettings/okuma|Tanılama ayarları yapılandırmasını okuma|
 |/ LogDefinitions/okuma|Okuma günlük tanımları|
-|/ ExtendedDiagnosticSettings/yazma|Yazma tooextended tanılama ayarlarını yapılandırma|
+|/ ExtendedDiagnosticSettings/yazma|Yazma genişletilmiş tanılama ayarlarını yapılandırma|
 |/ ExtendedDiagnosticSettings/silme|Genişletilmiş tanılama ayarlarını yapılandırması siliniyor|
 |/ ExtendedDiagnosticSettings/okuma|Genişletilmiş tanılama ayarlarını yapılandırma okuma|
 
@@ -1033,56 +1033,56 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |---|---|
 |/ Kayıt/eylem|Bir aboneliği kaydeder|
 |/checkNameAvailability/Read|Bir anahtar kasası adının geçerli ve kullanımda olup olmadığını denetler|
-|/vaults/Read|Bir anahtar kasası hello özelliklerini görüntüleme|
-|/ kasalar/yazma|Yeni bir anahtar kasası veya güncelleştirme hello özellikleri olan bir anahtar kasası oluşturma|
+|/vaults/Read|Anahtar kasasının özelliklerini görüntüleyin|
+|/ kasalar/yazma|Yeni bir anahtar kasası oluşturun veya var olan bir anahtar kasasının özelliklerini güncelleştirin|
 |/vaults/DELETE|Bir anahtar kasasını silme|
-|/vaults/Deploy/Action|Azure kaynaklarını dağıtırken etkinleştirir toosecrets bir anahtar kasasına erişim|
-|/vaults/Secrets/Read|Bir gizli anahtar, ancak kendi değer hello özellikleri görüntüle|
-|/vaults/Secrets/Write|Yeni bir parola veya güncelleştirme hello değeri var olan bir gizli oluşturun|
-|/vaults/accessPolicies/Write|Varolan bir erişim ilkesi birleştirme veya değiştirerek güncelleştirmek veya yeni bir erişim ilkesi tooa kasası ekleyin.|
-|/deletedVaults/Read|Geçici silinen anahtar kasalarını hello özelliklerini görüntüleme|
-|/Locations/operationResults/Read|Bir uzun çalışma işleminin onay hello sonucu|
-|/Locations/deletedVaults/Read|Bir geçici silinen anahtar kasası hello özelliklerini görüntüleme|
+|/vaults/Deploy/Action|Azure kaynaklarını dağıtırken bir anahtar kasasına gizli erişim sağlar|
+|/vaults/Secrets/Read|Bir gizli dizinin özelliklerini (değeri hariç) görüntüleyin|
+|/vaults/Secrets/Write|Yeni bir gizli dizi oluşturun veya var olan bir gizli dizinin değerini güncelleştirin|
+|/vaults/accessPolicies/Write|Var olan bir erişim ilkesini, birleştirme veya değiştirme yoluyla güncelleştirin ya da kasaya yeni bir erişim ilkesi ekleyin.|
+|/deletedVaults/Read|Geçici silinen anahtar kasalarını özelliklerini görüntüleme|
+|/Locations/operationResults/Read|Onay uzun çalışma işleminin sonucu|
+|/Locations/deletedVaults/Read|Bir geçici silinen anahtar kasası özelliklerini görüntüleme|
 |/Locations/deletedVaults/PURGE/Action|Bir geçici silinen anahtar kasası Temizle|
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
 | İşlem | Açıklama |
 |---|---|
-|/workflows/Read|Merhaba iş akışını okur.|
-|/ İş akışları/yazma|Oluşturur veya hello iş akışı güncelleştirir.|
-|/workflows/DELETE|Merhaba iş akışı siler.|
-|/workflows/Run/Action|Merhaba iş akışı bir farklı çalıştır başlatır.|
-|/workflows/disable/Action|Merhaba iş akışını devre dışı bırakır.|
-|/workflows/Enable/Action|Merhaba iş akışı sağlar.|
-|/workflows/Validate/Action|Merhaba iş akışı doğrular.|
-|/workflows/Move/Action|İş akışı, var olan abonelik kimliği, kaynak grubu ve/veya ad tooa farklı bir abonelik kimliği, kaynak grubu ve/veya ad taşır.|
-|/workflows/listSwagger/Action|Merhaba iş akışı swagger tanımlarını alır.|
-|/workflows/regenerateAccessKey/Action|Merhaba erişim anahtar parolaları yeniden oluşturur.|
-|/workflows/listCallbackUrl/Action|Merhaba geri çağırma URL'si için iş akışı alır.|
-|/workflows/Versions/Read|Merhaba iş akışı sürümü okur.|
-|/workflows/Versions/Triggers/listCallbackUrl/Action|Merhaba geri çağırma URL'si için tetikleyici alır.|
-|/ İş akışları/çalışan/okuma|Merhaba iş akışını çalıştırmak okur.|
-|/workflows/Runs/Cancel/Action|Bir iş akışının Hello çalıştırma iptal eder.|
-|/workflows/Runs/Actions/Read|Merhaba iş akışı eylemini çalıştırmak okur.|
-|/workflows/Runs/Operations/Read|Merhaba iş akışı çalıştırılması işlem durumunu okur.|
-|/workflows/Triggers/Read|Merhaba tetikleyici okur.|
-|/workflows/Triggers/Run/Action|Merhaba tetikleyici yürütür.|
-|/workflows/Triggers/listCallbackUrl/Action|Merhaba geri çağırma URL'si için tetikleyici alır.|
-|/workflows/Triggers/histories/Read|Merhaba tetikleyici geçmişlerini okur.|
-|/workflows/Triggers/histories/resubmit/Action|Merhaba iş akışı tetikleyici yeniden gönderir.|
-|/workflows/accessKeys/Read|Merhaba erişim tuşu okur.|
-|/workflows/accessKeys/Write|Merhaba erişim anahtarını güncelleştirir veya oluşturur.|
-|/workflows/accessKeys/DELETE|Merhaba erişim anahtarı siler.|
-|/workflows/accessKeys/List/Action|Merhaba erişim anahtarı gizli anahtarları listeler.|
-|/workflows/accessKeys/Regenerate/Action|Merhaba erişim anahtar parolaları yeniden oluşturur.|
-|/Locations/workflows/Validate/Action|Merhaba iş akışı doğrular.|
+|/workflows/Read|İş akışını okur.|
+|/ İş akışları/yazma|İş akışını oluşturur veya güncelleştirir.|
+|/workflows/DELETE|İş akışını siler.|
+|/workflows/Run/Action|İş akışının çalıştırılmasını başlatır.|
+|/workflows/disable/Action|İş akışını devre dışı bırakır.|
+|/workflows/Enable/Action|İş akışını etkinleştirir.|
+|/workflows/Validate/Action|İş akışını doğrular.|
+|/workflows/Move/Action|İş Akışını mevcut abonelik kimliği, kaynak grubu ve/veya adından farklı bir abonelik kimliğine, kaynak grubuna ve/veya ada taşır.|
+|/workflows/listSwagger/Action|İş akışı swagger tanımlarını alır.|
+|/workflows/regenerateAccessKey/Action|Erişim anahtarı parolalarını yeniden oluşturur.|
+|/workflows/listCallbackUrl/Action|Geri çağırma URL'si için iş akışı alır.|
+|/workflows/Versions/Read|İş akışı sürümünü okur.|
+|/workflows/Versions/Triggers/listCallbackUrl/Action|Geri çağırma URL'si için tetikleyici alır.|
+|/ İş akışları/çalışan/okuma|İş akışı çalıştırmasını okur.|
+|/workflows/Runs/Cancel/Action|İş akışının çalıştırılmasını iptal eder.|
+|/workflows/Runs/Actions/Read|İş akışı çalıştırma eylemini okur.|
+|/workflows/Runs/Operations/Read|İş akışı çalıştırma işlemi durumunu okur.|
+|/workflows/Triggers/Read|Tetikleyiciyi okur.|
+|/workflows/Triggers/Run/Action|Tetikleyiciyi yürütür.|
+|/workflows/Triggers/listCallbackUrl/Action|Geri çağırma URL'si için tetikleyici alır.|
+|/workflows/Triggers/histories/Read|Tetikleyici geçmişlerini okur.|
+|/workflows/Triggers/histories/resubmit/Action|İş akışı tetikleyici yeniden gönderir.|
+|/workflows/accessKeys/Read|Erişim anahtarını okur.|
+|/workflows/accessKeys/Write|Erişim anahtarı oluşturur veya güncelleştirir.|
+|/workflows/accessKeys/DELETE|Erişim anahtarını siler.|
+|/workflows/accessKeys/List/Action|Erişim anahtarı parolalarını listeler.|
+|/workflows/accessKeys/Regenerate/Action|Erişim anahtarı parolalarını yeniden oluşturur.|
+|/Locations/workflows/Validate/Action|İş akışını doğrular.|
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 
 | İşlem | Açıklama |
 |---|---|
-|/ Kayıt/eylem|Merhaba hello machine learning web hizmeti kaynak sağlayıcısı için aboneliği kaydeder ve web hizmetleri hello oluşturulmasını sağlar.|
+|/ Kayıt/eylem|Machine learning web hizmeti kaynak sağlayıcısı için aboneliği kaydeder ve web hizmetleri oluşturulmasını sağlar.|
 |/ Webservices'a/eylem|Desteklenen bölgeler için bölgesel Web hizmeti özellikleri oluşturma|
 |/commitmentPlans/Read|Taahhüt Plan öğrenme herhangi bir makineye okuma|
 |/ commitmentPlans/yazma|Herhangi bir Machine Learning taahhüt planının güncelle|
@@ -1122,46 +1122,46 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 
 | İşlem | Açıklama |
 |---|---|
-|/ Kayıt/eylem|Merhaba aboneliği kaydeder|
-|/ kaydı/eylem|Merhaba abonelik kaydını siler|
-|/ checkTrafficManagerNameAvailability/eylem|Trafik Yöneticisi göreli DNS adı Hello kullanılabilirliğini denetler.|
-|/dnszones/Read|JSON biçiminde Hello DNS bölgesini alın. Etiketler, etag, numberOfRecordSets ve maxNumberOfRecordSets Hello bölge özellikleri içerir. Bu komut hello bölge içindeki kayıt kümelerini hello almıyorsa unutmayın.|
-|/ dnszones/yazma|Oluşturun veya bir kaynak grubunda DNS bölgesi güncelleştirin.  Bir DNS bölgesi kaynağındaki kullanılan tooupdate hello etiketler. Bu komut kullanılan toocreate veya güncelleştirme kayıt kümelerini hello bölgedeki olamaz unutmayın.|
-|/dnszones/DELETE|JSON biçiminde Hello DNS bölgesini silin. Etiketler, etag, numberOfRecordSets ve maxNumberOfRecordSets Hello bölge özellikleri içerir.|
-|/dnszones/MX/Read|'MX' Hello türündeki kayıt kümesini JSON biçiminde alın. Hello kayıt kümesi TTL hello yanı sıra kayıtların listesini, etiketleri ve etag'i içerir.|
-|/dnszones/MX/Write|Oluşturun veya bir DNS bölgesi içinde 'MX' türündeki bir kayıt kümesini güncelleştirin. Belirtilen hello hello kayıt kümesindeki geçerli kayıt hello kayıtlarla değiştirilir.|
-|/dnszones/MX/DELETE|Verilen ada Hello kayıt kümesini kaldırın ve DNS bölgesinden ' MX' yazın.|
+|/ Kayıt/eylem|Aboneliği kaydeder|
+|/ kaydı/eylem|Abonelik kaydını siler|
+|/ checkTrafficManagerNameAvailability/eylem|Trafik Yöneticisi göreli DNS adı kullanılabilirliğini denetler.|
+|/dnszones/Read|JSON biçimindeki DNS bölgesini alın. Etiketler, etag, numberOfRecordSets ve maxNumberOfRecordSets bölge özellikleri içerir. Bu komutun bölge içindeki kayıt kümelerini almıyorsa unutmayın.|
+|/ dnszones/yazma|Oluşturun veya bir kaynak grubunda DNS bölgesi güncelleştirin.  Bir DNS bölgesi kaynağındaki etiketleri güncelleştirmek için kullanılır. Bu komut oluşturmak veya bölge içindeki kayıt kümelerini güncelleştirmek için kullanılamaz olduğunu unutmayın.|
+|/dnszones/DELETE|JSON biçimindeki DNS bölgesini silin. Etiketler, etag, numberOfRecordSets ve maxNumberOfRecordSets bölge özellikleri içerir.|
+|/dnszones/MX/Read|'MX' türündeki kayıt kümesini JSON biçiminde alın. Kayıt kümesi kayıtları yanı sıra TTL, etiketler ve etag'in listesini içerir.|
+|/dnszones/MX/Write|Oluşturun veya bir DNS bölgesi içinde 'MX' türündeki bir kayıt kümesini güncelleştirin. Belirtilen kayıtlar kayıt kümesindeki geçerli kayıt yerini alır.|
+|/dnszones/MX/DELETE|Bir verilen ad kayıt kümesini kaldırın ve DNS bölgesinden ' MX' yazın.|
 |/dnszones/NS/Read|DNS NS türündeki kayıt kümesini alır|
 |/dnszones/NS/Write|Oluşturur veya DNS NS türündeki kayıt kümesini güncelleştirir|
-|/dnszones/NS/DELETE|Merhaba DNS NS türündeki kayıt kümesini siler|
-|/dnszones/AAAA/Read|'AAAA' Hello türündeki kayıt kümesini JSON biçiminde alın. Hello kayıt kümesi TTL hello yanı sıra kayıtların listesini, etiketleri ve etag'i içerir.|
-|/dnszones/AAAA/Write|Oluşturun veya bir DNS bölgesi içinde 'AAAA' türündeki bir kayıt kümesini güncelleştirin. Belirtilen hello hello kayıt kümesindeki geçerli kayıt hello kayıtlarla değiştirilir.|
-|/dnszones/AAAA/DELETE|Verilen ada Hello kayıt kümesini kaldırın ve DNS bölgesinden ' AAAA' yazın.|
-|/dnszones/CNAME/Read|'CNAME' Hello türündeki kayıt kümesini JSON biçiminde alın. Merhaba kayıt kümesi hello TTL, etiketler ve etag'in içerir.|
-|/dnszones/CNAME/Write|Oluşturun veya bir DNS bölgesi içinde 'CNAME' türündeki bir kayıt kümesini güncelleştirin. Belirtilen hello hello kayıt kümesindeki geçerli kayıt hello kayıtlarla değiştirilir.|
-|/dnszones/CNAME/DELETE|Verilen ada Hello kayıt kümesini kaldırın ve DNS bölgesinden ' CNAME' yazın.|
+|/dnszones/NS/DELETE|NS türündeki DNS kayıt kümesini siler|
+|/dnszones/AAAA/Read|'AAAA' türündeki kayıt kümesini JSON biçiminde alın. Kayıt kümesi kayıtları yanı sıra TTL, etiketler ve etag'in listesini içerir.|
+|/dnszones/AAAA/Write|Oluşturun veya bir DNS bölgesi içinde 'AAAA' türündeki bir kayıt kümesini güncelleştirin. Belirtilen kayıtlar kayıt kümesindeki geçerli kayıt yerini alır.|
+|/dnszones/AAAA/DELETE|Bir verilen ad kayıt kümesini kaldırın ve DNS bölgesinden ' AAAA' yazın.|
+|/dnszones/CNAME/Read|'CNAME' türündeki kayıt kümesini JSON biçiminde alın. Kayıt kümesi TTL, etiketler ve etag'in içerir.|
+|/dnszones/CNAME/Write|Oluşturun veya bir DNS bölgesi içinde 'CNAME' türündeki bir kayıt kümesini güncelleştirin. Belirtilen kayıtlar kayıt kümesindeki geçerli kayıt yerini alır.|
+|/dnszones/CNAME/DELETE|Bir verilen ad kayıt kümesini kaldırın ve DNS bölgesinden ' CNAME' yazın.|
 |/dnszones/SOA/Read|DNS SOA türündeki kayıt kümesini alır|
 |/dnszones/SOA/Write|Oluşturur veya DNS SOA türündeki kayıt kümesini güncelleştirir|
-|/dnszones/SRV/Read|'SRV' Hello türündeki kayıt kümesini JSON biçiminde alın. Hello kayıt kümesi TTL hello yanı sıra kayıtların listesini, etiketleri ve etag'i içerir.|
+|/dnszones/SRV/Read|'SRV' türündeki kayıt kümesini JSON biçiminde alın. Kayıt kümesi kayıtları yanı sıra TTL, etiketler ve etag'in listesini içerir.|
 |/dnszones/SRV/Write|SRV türündeki kayıt kümesini oluştur veya güncelleştir|
-|/dnszones/SRV/DELETE|Verilen ada Hello kayıt kümesini kaldırın ve DNS bölgesinden ' SRV' yazın.|
-|/dnszones/PTR/Read|'PTR' Hello türündeki kayıt kümesini JSON biçiminde alın. Hello kayıt kümesi TTL hello yanı sıra kayıtların listesini, etiketleri ve etag'i içerir.|
-|/dnszones/PTR/Write|Oluşturun veya bir DNS bölgesi içinde 'PTR' türündeki bir kayıt kümesini güncelleştirin. Belirtilen hello hello kayıt kümesindeki geçerli kayıt hello kayıtlarla değiştirilir.|
-|/dnszones/PTR/DELETE|Verilen ada Hello kayıt kümesini kaldırın ve DNS bölgesinden ' PTR' yazın.|
-|/dnszones/A/Read|Merhaba 'A' türündeki kayıt kümesini JSON biçiminde alın. Hello kayıt kümesi TTL hello yanı sıra kayıtların listesini, etiketleri ve etag'i içerir.|
-|/dnszones/A/Write|Oluşturun veya bir DNS bölgesi içinde 'A' türündeki bir kayıt kümesini güncelleştirin. Belirtilen hello hello kayıt kümesindeki geçerli kayıt hello kayıtlarla değiştirilir.|
-|/dnszones/A/DELETE|Verilen ada Hello kayıt kümesini kaldırın ve DNS bölgesinden ' A' yazın.|
-|/dnszones/txt/Read|'TXT' Hello türündeki kayıt kümesini JSON biçiminde alın. Hello kayıt kümesi TTL hello yanı sıra kayıtların listesini, etiketleri ve etag'i içerir.|
-|/dnszones/txt/Write|Oluşturun veya bir DNS bölgesi içinde 'TXT' türündeki bir kayıt kümesini güncelleştirin. Belirtilen hello hello kayıt kümesindeki geçerli kayıt hello kayıtlarla değiştirilir.|
-|/dnszones/txt/DELETE|Verilen ada Hello kayıt kümesini kaldırın ve DNS bölgesinden ' TXT' yazın.|
+|/dnszones/SRV/DELETE|Bir verilen ad kayıt kümesini kaldırın ve DNS bölgesinden ' SRV' yazın.|
+|/dnszones/PTR/Read|'PTR' türündeki kayıt kümesini JSON biçiminde alın. Kayıt kümesi kayıtları yanı sıra TTL, etiketler ve etag'in listesini içerir.|
+|/dnszones/PTR/Write|Oluşturun veya bir DNS bölgesi içinde 'PTR' türündeki bir kayıt kümesini güncelleştirin. Belirtilen kayıtlar kayıt kümesindeki geçerli kayıt yerini alır.|
+|/dnszones/PTR/DELETE|Bir verilen ad kayıt kümesini kaldırın ve DNS bölgesinden ' PTR' yazın.|
+|/dnszones/A/Read|'A' türündeki kayıt kümesini JSON biçiminde alın. Kayıt kümesi kayıtları yanı sıra TTL, etiketler ve etag'in listesini içerir.|
+|/dnszones/A/Write|Oluşturun veya bir DNS bölgesi içinde 'A' türündeki bir kayıt kümesini güncelleştirin. Belirtilen kayıtlar kayıt kümesindeki geçerli kayıt yerini alır.|
+|/dnszones/A/DELETE|Bir verilen ad kayıt kümesini kaldırın ve DNS bölgesinden ' A' yazın.|
+|/dnszones/txt/Read|'TXT' türündeki kayıt kümesini JSON biçiminde alın. Kayıt kümesi kayıtları yanı sıra TTL, etiketler ve etag'in listesini içerir.|
+|/dnszones/txt/Write|Oluşturun veya bir DNS bölgesi içinde 'TXT' türündeki bir kayıt kümesini güncelleştirin. Belirtilen kayıtlar kayıt kümesindeki geçerli kayıt yerini alır.|
+|/dnszones/txt/DELETE|Bir verilen ad kayıt kümesini kaldırın ve DNS bölgesinden ' TXT' yazın.|
 |/dnszones/Recordsets/Read|DNS kayıt kümelerini türleri arasında alır|
 |/networkInterfaces/Read|Ağ arabirimi tanımını alır. |
 |/ networkInterfaces/yazma|Bir ağ arabirimi oluşturur veya mevcut bir ağ arabirimini güncelleştirir. |
-|/networkInterfaces/Join/Action|Bir sanal makine tooa ağ arabirimiyle birleştirir|
+|/networkInterfaces/Join/Action|Bir sanal makine bir ağ arabirimiyle birleştirir|
 |/networkInterfaces/DELETE|Bir ağ arabirimi siler|
-|/networkInterfaces/effectiveRouteTable/Action|Yol tablosu hello Vm ağ arabiriminde yapılandırılan Al|
-|/networkInterfaces/effectiveNetworkSecurityGroups/Action|Ağ güvenlik grupları yapılandırılmış üzerinde ağ arabirimi, hello Vm Al|
-|/networkInterfaces/loadBalancers/Read|Alır ağ arabirimi hello tüm hello yük dengeleyicileri parçasıdır|
+|/networkInterfaces/effectiveRouteTable/Action|Vm ağ arabiriminde yapılandırılan yönlendirme tablosunu Al|
+|/networkInterfaces/effectiveNetworkSecurityGroups/Action|Ağ güvenlik grupları yapılandırılmış üzerinde ağ arabirimi, Vm Al|
+|/networkInterfaces/loadBalancers/Read|Ağ arabiriminin parçası olduğu tüm yük dengeleyicileri alır|
 |/networkInterfaces/ipconfigurations/Read|Ağ arabirimi IP yapılandırması tanımını alır. |
 |/publicIPAddresses/Read|Bir genel ip adresi tanımını alır.|
 |/ Publicıpaddresses/yazma|Bir ortak IP adresi oluşturur veya mevcut bir ortak IP adresini güncelleştirir. |
@@ -1174,26 +1174,26 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/routeFilters/Rules/Read|Bir rota filtre kuralı tanımını alır|
 |/routeFilters/Rules/Write|Bir rota filtre kuralı oluşturur veya mevcut bir rota filtre kuralını güncelleştirir|
 |/routeFilters/Rules/DELETE|Bir rota filtre kuralı tanımını siler|
-|/networkWatchers/Read|Merhaba Ağ İzleyicisi tanımını Al|
+|/networkWatchers/Read|Ağ İzleyicisi tanımını Al|
 |/ networkWatchers/yazma|Ağ İzleyicisi oluşturur veya mevcut bir Ağ İzleyicisi'ni güncelleştirir|
 |/networkWatchers/DELETE|Ağ İzleyicisi siler|
 |/networkWatchers/configureFlowLog/Action|Akış günlüğü hedef kaynak için yapılandırır.|
-|/networkWatchers/ipFlowVerify/Action|Merhaba paket izin verilen veya belirli bir hedef tooor reddedildi döndürür.|
-|/networkWatchers/nextHop/Action|Belirtilen hedef ve hedef IP adresi, hello sonraki atlama türü dönün ve sonraki IP adresi umuyoruz.|
-|/networkWatchers/queryFlowLogStatus/Action|Bir kaynak günlüğü akış Hello durumunu alır.|
-|/networkWatchers/queryTroubleshootResult/Action|Daha önce hello veya sorun giderme işlemi şu anda çalışan sonucundan sorun giderme hello alır.|
-|/networkWatchers/securityGroupView/Action|Yapılandırılmış hello ve etkili ağ güvenlik grubu kurallarının bir VM üzerinde uygulanan görüntüleyin.|
+|/networkWatchers/ipFlowVerify/Action|Paket izin verilen veya için veya belirli bir hedef reddedildi döndürür.|
+|/networkWatchers/nextHop/Action|Belirtilen hedef ve hedef IP adresi, sonraki atlama türü dönün ve sonraki IP adresi umuyoruz.|
+|/networkWatchers/queryFlowLogStatus/Action|Akış bir kaynakta oturum durumunu alır.|
+|/networkWatchers/queryTroubleshootResult/Action|Sorun giderme sonucun daha önce çalışan veya şu anda çalışan sorun giderme işlemi alır.|
+|/networkWatchers/securityGroupView/Action|Bir VM üzerinde uygulanan yapılandırılmış ve etkili ağ güvenlik grubu kural görüntüleyin.|
 |/networkWatchers/topology/Action|Ağ düzeyinde görünümünü kaynakları ve ilişkilerini bir kaynak grubunda alır.|
 |/networkWatchers/Troubleshoot/Action|Bir ağ kaynağına Azure sorun giderme başlar.|
 |/networkWatchers/packetCaptures/queryStatus/Action|Özellikleri ve paket yakalama kaynak durumu hakkındaki bilgileri alır.|
-|/networkWatchers/packetCaptures/Stop/Action|Paket yakalama oturumu çalıştıran hello durdurun.|
-|/networkWatchers/packetCaptures/Read|Merhaba paket yakalama tanımını Al|
+|/networkWatchers/packetCaptures/Stop/Action|Çalışan paket yakalama oturumunu durdurun.|
+|/networkWatchers/packetCaptures/Read|Paket yakalama tanımını Al|
 |/networkWatchers/packetCaptures/Write|Paket yakalama oluşturur|
 |/networkWatchers/packetCaptures/DELETE|Paket yakalama siler|
 |/loadBalancers/Read|Yük Dengeleyici tanımını alır|
 |/ loadBalancers/yazma|Bir yük dengeleyici oluşturur veya mevcut bir Yük Dengeleyiciyi güncelleştirir|
 |/loadBalancers/DELETE|Bir yük dengeleyici siler|
-|/loadBalancers/networkInterfaces/Read|Bir yük dengeleyici altındaki tooall hello ağ arabirimlerine başvuruları alır|
+|/loadBalancers/networkInterfaces/Read|Bir yük dengeleyici altındaki tüm ağ arabirimlerine başvuruları alır|
 |/loadBalancers/loadBalancingRules/Read|Yük Dengeleyici Yük Dengeleme kuralı tanımını alır|
 |/loadBalancers/backendAddressPools/Read|Yük Dengeleyici arka uç adres havuzu tanımını alır|
 |/loadBalancers/backendAddressPools/Join/Action|Bir yük dengeleyici arka uç adres havuzuna katılır|
@@ -1205,12 +1205,12 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/loadBalancers/inboundNatRules/Join/Action|Bir yük dengeleyici gelen nat kuralına katılır|
 |/loadBalancers/outboundNatRules/Read|Yük Dengeleyici giden nat kuralı tanımını alır|
 |/loadBalancers/probes/Read|Yük Dengeleyici araştırmasını alır|
-|/loadBalancers/virtualMachines/Read|Bir yük dengeleyici altındaki tooall hello sanal makineleri başvuruları alır|
+|/loadBalancers/virtualMachines/Read|Bir yük dengeleyici altındaki tüm sanal makinelere başvuruları alır|
 |/loadBalancers/frontendIPConfigurations/Read|Yük Dengeleyici ön uç IP yapılandırması tanımını alır|
-|/trafficManagerGeographicHierarchies/Read|Merhaba trafik Yöneticisi Geographic hiyerarşisi coğrafi trafik yönlendirme yöntemini hello ile kullanılabilen bölgeler içeren alır|
+|/trafficManagerGeographicHierarchies/Read|Trafik Yöneticisi Geographic coğrafi trafik yönlendirme yöntemini ile kullanılabilen bölgeler içeren hiyerarşisi alır|
 |/bgpServiceCommunities/Read|BGP hizmet toplulukları Al|
 |/applicationGatewayAvailableWafRuleSets/Read|Uygulama ağ geçidi kullanılabilir Waf kural kümesi alır|
-|/virtualNetworks/Read|Merhaba sanal ağ tanımını Al|
+|/virtualNetworks/Read|Sanal ağ tanımını Al|
 |/ virtualNetworks/yazma|Bir sanal ağ oluşturur veya mevcut bir sanal ağı güncelleştirir|
 |/virtualNetworks/DELETE|Bir sanal ağ siler|
 |/virtualNetworks/Peer/Action|Başka bir sanal ağ ile sanal ağ eşleri|
@@ -1221,18 +1221,18 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/virtualNetworks/Subnets/Write|Bir sanal ağ alt ağı oluşturur veya varolan bir sanal ağ alt ağı güncelleştirir|
 |/virtualNetworks/Subnets/DELETE|Bir sanal ağ alt ağını siler|
 |/virtualNetworks/Subnets/Join/Action|Bir sanal ağ birleştirir|
-|/virtualNetworks/Subnets/joinViaServiceTunnel/Action|Depolama hesabı veya SQL veritabanı tooa etkin hizmet tünel alt ağ olarak kaynak birleştirir.|
-|/virtualNetworks/Subnets/virtualMachines/Read|Bir sanal ağ alt ağında tooall hello sanal makinelere başvuruları alır|
-|/virtualNetworks/checkIpAddressAvailability/Read|IP adresi hello belirtilen sanal ağda kullanılabilir olup olmadığını denetleyin|
-|/virtualNetworks/virtualMachines/Read|Sanal bir ağa tooall hello sanal makinelere başvuruları alır|
+|/virtualNetworks/Subnets/joinViaServiceTunnel/Action|Kaynak depolama hesabı veya SQL veritabanı gibi bir hizmet etkin tünel alt ağa birleştirir.|
+|/virtualNetworks/Subnets/virtualMachines/Read|Bir sanal ağ alt ağında tüm sanal makinelere başvuruları alır|
+|/virtualNetworks/checkIpAddressAvailability/Read|Belirtilen sanal ağ IP adresi olup olmadığını denetleyin|
+|/virtualNetworks/virtualMachines/Read|Bir sanal ağ tüm sanal makinelere başvuruları alır|
 |/expressRouteServiceProviders/Read|Hızlı rota hizmeti sağlayıcılarını alır|
 |/dnsoperationresults/Read|DNS İşlem sonuçlarını alır|
 |/localnetworkgateways/Read|LocalNetworkGateway alır|
 |/ localnetworkgateways/yazma|Oluşturur veya mevcut bir LocalNetworkGateway güncelleştirir|
 |/localnetworkgateways/DELETE|LocalNetworkGateway siler|
-|/trafficManagerProfiles/Read|Merhaba trafik Yöneticisi Profil yapılandırmasını alın. Bu, DNS ayarlarını, trafik yönlendirme ayarlarını, uç nokta izleme ayarlarını ve hello Bu trafik Yöneticisi profili tarafından yönlendirilen uç noktaların listesini içerir.|
-|/ trafficManagerProfiles/yazma|Trafik Yöneticisi profili oluşturun veya var olan bir Traffic Manager profilini hello yapılandırmasını değiştirin. Bu, etkinleştirme veya bir profili devre dışı bırakma ve DNS ayarlarını, trafik yönlendirme ayarlarını veya uç nokta izleme ayarlarını değiştirme içerir. Merhaba trafik Yöneticisi profili tarafından yönlendirilen uç noktaların eklenen, etkin devre dışı veya kaldırılabilir.|
-|/trafficManagerProfiles/DELETE|Merhaba trafik Yöneticisi profilini silin. Trafik Yöneticisi profili Hello ile ilişkili tüm ayarlar kaybedilir ve hello profil artık olabilir tooroute trafiği kullanılır.|
+|/trafficManagerProfiles/Read|Trafik Yöneticisi Profil yapılandırmasını alın. Bu, DNS ayarlarını, trafik yönlendirme ayarlarını, uç nokta izleme ayarlarını ve bu trafik Yöneticisi profili tarafından yönlendirilen uç noktaların listesini içerir.|
+|/ trafficManagerProfiles/yazma|Trafik Yöneticisi profili oluşturun veya var olan bir Traffic Manager profilini yapılandırmasını değiştirin. Bu, etkinleştirme veya bir profili devre dışı bırakma ve DNS ayarlarını, trafik yönlendirme ayarlarını veya uç nokta izleme ayarlarını değiştirme içerir. Trafik Yöneticisi profili tarafından yönlendirilen uç noktaların eklenmiş, kaldırılmış, devre dışı veya etkinleştirilebilir.|
+|/trafficManagerProfiles/DELETE|Trafik Yöneticisi profilini silin. Trafik Yöneticisi profili ile ilişkilendirilmiş tüm ayarlar kaybedilir ve profil artık trafiği yönlendirmek için kullanılabilir.|
 |/dnsoperationstatuses/Read|Bir DNS işlemin durumunu alır |
 |/Operations/Read|Kullanılabilir işlemleri Al|
 |/expressRouteCircuits/Read|Bir ExpressRouteCircuit Al|
@@ -1277,67 +1277,67 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/routeTables/Routes/Write|Bir yol oluşturur veya mevcut bir yolu güncelleştirir|
 |/routeTables/Routes/DELETE|Bir rota tanımını siler|
 |/Locations/operationResults/Read|Bir zaman uyumsuz POST veya DELETE işleminin işlem sonucunu alır|
-|/Locations/checkDnsNameAvailability/Read|Merhaba DNS etiketi yoksa denetimleri konumu belirtilen|
-|/Locations/usages/Read|Merhaba kaynak kullanımı ölçümlerini alır|
+|/Locations/checkDnsNameAvailability/Read|DNS etiketi belirtilen konumda kullanılabilir olup olmadığını denetler|
+|/Locations/usages/Read|Kaynak kullanımı ölçümlerini alır|
 |/Locations/Operations/Read|Zaman uyumsuz bir işlemin durumunu gösteren işlem kaynağını alır|
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 | İşlem | Açıklama |
 |---|---|
-|/ Kayıt/eylem|Merhaba hello NotifciationHubs kaynak sağlayıcısı için aboneliği kaydeder ve ad alanları ve NotificationHubs hello oluşturulmasını sağlar|
-|/ CheckNamespaceAvailability/eylem|Verilen Namespace kaynak adı NotificationHub hizmet hello içinde kullanılabilir olup olmadığını denetler.|
-|/ Ad alanları/yazma|Namespace kaynak oluşturun ve özelliklerini güncelleştirin. Etiketleri ve hello Namespace durumunu, güncelleştirilebilir hello özelliklerdir.|
-|/ Ad alanları/okuma|Namespace kaynak açıklaması Hello listesini al|
+|/ Kayıt/eylem|Aboneliği NotificationHubs kaynak sağlayıcısı için kaydeder ve Ad Alanları ve NotificationHubs oluşturulmasını sağlar|
+|/ CheckNamespaceAvailability/eylem|Belirli bir Ad Alanı kaynak adının NotificationHub hizmetinde kullanılabilir olup olmadığını denetler.|
+|/ Ad alanları/yazma|Namespace kaynak oluşturun ve özelliklerini güncelleştirin. Etiketleri ve Namespace durumunu, güncelleştirilebilir özelliklerdir.|
+|/ Ad alanları/okuma|Ad Alanı Kaynak Açıklamasının listesini alır|
 |/ Ad alanları/silme|Namespace kaynağı silme|
-|/ Ad alanları/authorizationRules/eylem|Ad alanları yetkilendirme kuralları açıklama Hello listesini alın.|
+|/ Ad alanları/authorizationRules/eylem|Ad Alanı Yetkilendirme Kuralları açıklamasının listesini alır.|
 |/ Ad alanları/CheckNotificationHubAvailability/eylem|Belirli bir NotificationHub adının bir Ad Alanı içinde kullanılabilir olup olmadığını denetler.|
-|/ Ad alanları/authorizationRules/yazma|Namespace düzeyi yetkilendirme kuralları oluşturun ve özelliklerini güncelleştirin. Merhaba yetkilendirme kuralları erişim hakları, hello birincil ve ikincil anahtarları güncelleştirilebilir.|
-|/ Ad alanları/authorizationRules/okuma|Ad alanları yetkilendirme kuralları açıklama Hello listesini alın.|
-|/ Ad alanları/authorizationRules/silme|Namespace yetkilendirme kuralını silin. Merhaba varsayılan Namespace yetkilendirme kuralı silinemez. |
-|/ Ad alanları/authorizationRules/listkeys/eylem|Merhaba bağlantı dizesi toohello Namespace Al|
-|/ Ad alanları/authorizationRules/regenerateKeys/eylem|Namespace yetkilendirme kuralı yeniden birincil/SecondaryKey, belirt hello toobe gereken anahtar yeniden oluşturuldu|
+|/ Ad alanları/authorizationRules/yazma|Namespace düzeyi yetkilendirme kuralları oluşturun ve özelliklerini güncelleştirin. Yetkilendirme kuralları erişim hakları, birincil ve ikincil anahtarları güncelleştirilebilir.|
+|/ Ad alanları/authorizationRules/okuma|Ad Alanı Yetkilendirme Kuralları açıklamasının listesini alır.|
+|/ Ad alanları/authorizationRules/silme|Namespace yetkilendirme kuralını silin. Namespace yetkilendirme varsayılan kural silinemiyor. |
+|/ Ad alanları/authorizationRules/listkeys/eylem|Ad Alanı için Bağlantı Dizesini alın|
+|/ Ad alanları/authorizationRules/regenerateKeys/eylem|Namespace yetkilendirme kuralı yeniden birincil/SecondaryKey, yeniden oluşturulması gerekiyor anahtarını belirtin|
 |/ Ad alanları/NotificationHubs/yazma|Bildirim hub'ı oluşturun ve özelliklerini güncelleştirin. Özelliklerini çoğunlukla PNS kimlik bilgilerini içerir. Yetkilendirme kuralları ve TTL|
 |/ Ad alanları/NotificationHubs/okuma|Notification Hub Kaynak Açıklamalarının listesini alın|
 |/ Ad alanları/NotificationHubs/silme|Bildirim hub'ı kaynağı silme|
-|/ Ad alanları/NotificationHubs/authorizationRules/eylem|Bildirim hub'ı yetkilendirme kuralları Hello listesini al|
+|/ Ad alanları/NotificationHubs/authorizationRules/eylem|NotificationHub Yetkilendirme Kurallarının listesini alın|
 |/ Ad alanları/NotificationHubs/pnsCredentials/eylem|Tüm bildirim hub'ı PNS kimlik bilgilerini alın. Bu içerir, WNS, MPNS, APNS, GCM ve Baidu kimlik bilgileri|
 |/ Ad alanları/NotificationHubs/debugSend/eylem|Test amaçlı bir anında iletme bildirimi gönderin.|
 |/ Ad alanları/NotificationHubs/metricDefinitions/okuma|Namespace ölçümleri kaynak açıklamaları listesini al|
-|/Namespaces/NotificationHubs /<br>authorizationRules/yazma|Bildirim hub'ı yetkilendirme kuralları oluşturun ve özelliklerini güncelleştirin. Merhaba yetkilendirme kuralları erişim hakları, hello birincil ve ikincil anahtarları güncelleştirilebilir.|
-|/Namespaces/NotificationHubs /<br>authorizationRules/okuma|Bildirim hub'ı yetkilendirme kuralları Hello listesini al|
+|/Namespaces/NotificationHubs /<br>authorizationRules/yazma|Bildirim hub'ı yetkilendirme kuralları oluşturun ve özelliklerini güncelleştirin. Yetkilendirme kuralları erişim hakları, birincil ve ikincil anahtarları güncelleştirilebilir.|
+|/Namespaces/NotificationHubs /<br>authorizationRules/okuma|NotificationHub Yetkilendirme Kurallarının listesini alın|
 |/Namespaces/NotificationHubs /<br>authorizationRules/silme|NotificationHub Yetkilendirme Kurallarını Sil|
-|/Namespaces/NotificationHubs /<br>listkeys/authorizationRules/eylem|Merhaba bağlantı dizesi toohello bildirim hub'ı alın|
-|/Namespaces/NotificationHubs /<br>regenerateKeys/authorizationRules/eylem|Bildirim hub'ı yetkilendirme kuralı yeniden birincil/SecondaryKey, belirt hello toobe gereken anahtar yeniden oluşturuldu|
+|/Namespaces/NotificationHubs /<br>listkeys/authorizationRules/eylem|Notification Hub Bağlantı Dizesini alın|
+|/Namespaces/NotificationHubs /<br>regenerateKeys/authorizationRules/eylem|Notification Hub Yetkilendirme Kuralı Birincil/İkincil Anahtarı Yeniden Oluşturma, Yeniden oluşturulması gereken Anahtarı belirtin|
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
 | İşlem | Açıklama |
 |---|---|
-|/ Kayıt/eylem|Bir abonelik tooa kaynak sağlayıcısı kaydedin.|
-|/linkTargets/Read|Bir Azure aboneliği ile ilişkili olmayan var olan hesapları listeler. toolink bu Azure aboneliği tooa çalışma alanı, kullanımı, bir müşteri kimliği özelliğinde hello Müşteri Kimliği hello çalışma alanı oluşturma işlemi bu işlem tarafından döndürülen.|
-|/ workspaces/yazma|Yeni çalışma alanında ya da bağlantılar tooan mevcut çalışma hello Müşteri Kimliği hello varolan çalışma alanından sağlayarak oluşturur.|
+|/ Kayıt/eylem|Bir kaynak sağlayıcısı için bir abonelik kaydedin.|
+|/linkTargets/Read|Bir Azure aboneliği ile ilişkili olmayan var olan hesapları listeler. Bu Azure aboneliği bir çalışma alanına bağlamak için bu işlem çalışma alanı Oluştur işlemi Müşteri Kimliği özelliğinde tarafından döndürülen bir müşteri kimliği kullanın.|
+|/ workspaces/yazma|Yeni çalışma alanında ya da varolan bir çalışma alanı bağlantıları varolan çalışma alanından Müşteri Kimliği sağlayarak oluşturur.|
 |/Workspaces/Read|Var olan bir çalışma alır|
-|/Workspaces/DELETE|Bir çalışma alanı siler. Merhaba çalışma bağlanmışsa sonra oluşturulma zamanında mevcut çalışma tooan silinmez bağlantılı toois olduğu çalışma hello.|
-|/Workspaces/generateregistrationcertificate/Action|Kayıt sertifikası için hello çalışma alanı oluşturur. Bu sertifika kullanılan tooconnect Microsoft System Center Operation Manager toohello çalışma alanıdır.|
-|/Workspaces/sharedKeys/Action|Merhaba çalışma alanı için paylaşılan hello anahtarları alır. Bu anahtarları kullanılan tooconnect Microsoft operasyonel Öngörüler aracıları toohello çalışma ' dir.|
+|/Workspaces/DELETE|Bir çalışma alanı siler. Çalışma alanı oluşturma zamanında mevcut bir çalışma alanına bağlı değilse bağlı çalışma silinmez.|
+|/Workspaces/generateregistrationcertificate/Action|Kayıt sertifikası için çalışma alanı oluşturur. Bu sertifika, Microsoft System Center Operation Manager çalışma alanına bağlamak için kullanılır.|
+|/Workspaces/sharedKeys/Action|Çalışma alanı için paylaşılan anahtarları alır. Bu anahtarları Microsoft operasyonel Öngörüler aracıları için çalışma alanına bağlanmak için kullanılır.|
 |/Workspaces/Search/Action|Bir arama sorgusunu çalıştırır|
 |/Workspaces/Datasources/Read|Veri kaynakları bir çalışma alanı altında alın.|
 |/Workspaces/Datasources/Write|Veri kaynakları çalışma alanı altında oluştur/güncelleştir.|
 |/Workspaces/Datasources/DELETE|Çalışma alanı altında veri kaynakları silin.|
-|/Workspaces/managementGroups/Read|Merhaba adları ve meta verileri için System Center Operations Manager Yönetim grupları bağlı toothis çalışma alır.|
-|/Workspaces/Schema/Read|Merhaba arama şeması için hello çalışma alır.  Arama şeması kullanıma sunulan hello alanları ve bunların türlerini içerir.|
-|/Workspaces/usages/Read|Merhaba çalışma alanı tarafından okunan veriler hello miktarı dahil olmak üzere bir çalışma alanı için kullanım verilerini alır.|
-|/Workspaces/intelligencepacks/Read|Verilen worksapce için görünür olan tüm Intelligence paketlerini listeler ve hello paketi etkin veya bu çalışma alanı için devre dışı olup olmadığını da listeler.|
+|/Workspaces/managementGroups/Read|Bu çalışma alanına bağlı System Center Operations Manager Yönetim grupları adları ve meta veriler alır.|
+|/Workspaces/Schema/Read|Arama şeması için çalışma alır.  Arama şeması sunulan alanlar ve bunların türleri içerir.|
+|/Workspaces/usages/Read|Çalışma alanı tarafından okunan veri miktarını da dahil olmak üzere bir çalışma alanı için kullanım verilerini alır.|
+|/Workspaces/intelligencepacks/Read|Verilen worksapce için görünür olan tüm Intelligence paketlerini listeler ve paketi etkin veya bu çalışma alanı için devre dışı olup olmadığını da listeler.|
 |/Workspaces/intelligencepacks/Enable/Action|Belirli bir çalışma alanı için bir destek paketi sağlar.|
 |/Workspaces/intelligencepacks/disable/Action|Belirli bir çalışma alanı için bir destek paketi devre dışı bırakır.|
-|/Workspaces/sharedKeys/Read|Merhaba çalışma alanı için paylaşılan hello anahtarları alır. Bu anahtarları kullanılan tooconnect Microsoft operasyonel Öngörüler aracıları toohello çalışma ' dir.|
+|/Workspaces/sharedKeys/Read|Çalışma alanı için paylaşılan anahtarları alır. Bu anahtarları Microsoft operasyonel Öngörüler aracıları için çalışma alanına bağlanmak için kullanılır.|
 |/Workspaces/savedSearches/Read|Kaydedilmiş bir arama sorgusunu alır|
 |/Workspaces/savedSearches/Write|Kaydedilmiş bir arama sorgusunu oluşturur|
 |/Workspaces/savedSearches/DELETE|Kaydedilmiş bir arama sorgusunu siler|
-|/Workspaces/storageinsightconfigs/Write|Yeni depolama yapılandırması oluşturur. Bu yapılandırmalar, mevcut bir depolama hesabını konumundan kullanılan toopull verilerdir.|
+|/Workspaces/storageinsightconfigs/Write|Yeni depolama yapılandırması oluşturur. Bu yapılandırmalar, varolan bir depolama hesabındaki bir konumdan veri çekmek için kullanılır.|
 |/Workspaces/storageinsightconfigs/Read|Bir depolama yapılandırmasını alır.|
-|/Workspaces/storageinsightconfigs/DELETE|Bir depolama yapılandırması siler. Bu, Microsoft operasyonel Öngörüler'hello depolama hesabından veri okuma durdurur.|
+|/Workspaces/storageinsightconfigs/DELETE|Bir depolama yapılandırması siler. Depolama hesabından veri okuma bu Microsoft operasyonel Öngörüler durdurur.|
 |/Workspaces/configurationScopes/Read|Yapılandırma kapsam Al|
 |/Workspaces/configurationScopes/Write|Yapılandırma kapsamını ayarlama|
 |/Workspaces/configurationScopes/DELETE|Yapılandırma kapsamını Sil|
@@ -1346,7 +1346,7 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 
 | İşlem | Açıklama |
 |---|---|
-|/ Kayıt/eylem|Bir abonelik tooa kaynak sağlayıcısı kaydedin.|
+|/ Kayıt/eylem|Bir kaynak sağlayıcısı için bir abonelik kaydedin.|
 |/ solutions/yazma|Yeni bir OMS çözümü oluşturun|
 |/Solutions/Read|OMS çözüm çıkma Al|
 |/Solutions/DELETE|Varolan bir OMS çözümü Sil|
@@ -1357,20 +1357,20 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |---|---|
 |/ Kasalar/backupJobsExport/eylem|Dışarı aktarma işleri|
 |/ Kasalar/yazma|Kasa Oluştur işlemi, 'vault' türünde bir Azure kaynağı oluşturur|
-|/ Kasalar/okuma|Merhaba kasası alma işlemi hello Azure kaynak türü 'Kasası' temsil eden bir nesneyi alır|
-|/ Kasalar/silme|Azure kaynak türü 'Kasası' Hello kasa silme işlemi siler hello belirtildi|
-|/ Kasalar/refreshContainers/okuma|Merhaba kapsayıcı listesini yeniler|
-|/ Kasalar/backupJobsExport/operationResults/okuma|Döndürür hello dışarı aktarma işi işleminin sonucu.|
+|/ Kasalar/okuma|Kasa alma işlemi Azure kaynak türü 'Kasası' temsil eden bir nesneyi alır|
+|/ Kasalar/silme|Kasa silme işlemi 'Kasası' türünde belirtilen Azure kaynak siler|
+|/ Kasalar/refreshContainers/okuma|Kapsayıcı listesini yeniler|
+|/ Kasalar/backupJobsExport/operationResults/okuma|Dışa aktarma işi işleminin sonucunu döndürür.|
 |/ Kasalar/backupOperationResults/okuma|Kurtarma Hizmetleri Kasası için Yedekleme işleminin Sonucunu döndürür.|
-|/ Kasalar/monitoringAlerts/okuma|Merhaba uyarıları hello kurtarma Hizmetleri kasası için alır.|
-|/Vaults/monitoringAlerts / {uniqueAlertId} / okuma|Merhaba hello uyarı ayrıntılarını alır.|
+|/ Kasalar/monitoringAlerts/okuma|Uyarılar için kurtarma Hizmetleri kasası alır.|
+|/Vaults/monitoringAlerts / {uniqueAlertId} / okuma|Uyarı ayrıntılarını alır.|
 |/ Kasalar/backupSecurityPIN/okuma|Güvenlik PIN döndürür bilgi kurtarma Hizmetleri kasası.|
 |/vaults/replicationEvents/Read|Tüm olayları okuma|
 |/ Kasalar/backupProtectableItems/okuma|Tüm Korunabilir Öğelerin listesini döndürür.|
 |/vaults/replicationFabrics/Read|Tüm yapıları okuma|
 |/vaults/replicationFabrics/Write|Tüm yapıları güncelle|
 |/vaults/replicationFabrics/Remove/Action|Doku Kaldır|
-|/vaults/replicationFabrics/checkConsistency/Action|Merhaba doku tutarlılık denetimleri|
+|/vaults/replicationFabrics/checkConsistency/Action|Doku Tutarlılığını Denetler|
 |/vaults/replicationFabrics/DELETE|Tüm yapıları sil|
 |/vaults/replicationFabrics/renewcertificate/Action||
 |/vaults/replicationFabrics/deployProcessServerImage/Action|İşlem sunucusu görüntüsünü Dağıt|
@@ -1426,27 +1426,27 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/vaults/replicationRecoveryPlans/testFailoverCleanup/Action|Test yük devretmesi temizliğini kurtarma planı|
 |/vaults/replicationRecoveryPlans/failoverCommit/Action|Yük devretmenin yürütülmesi kurtarma planı|
 |/vaults/replicationRecoveryPlans/reProtect/Action|Kurtarma planı koruyun|
-|/ Kasalar/extendedInformation/okuma|Merhaba genişletilmiş bilgi al işlemi hello Azure kaynak türü temsil eden bir nesnenin genişletilmiş bilgisi alır? kasası?|
-|/ Kasalar/extendedInformation/yazma|Merhaba genişletilmiş bilgi al işlemi hello Azure kaynak türü temsil eden bir nesnenin genişletilmiş bilgisi alır? kasası?|
-|/ Kasalar/extendedInformation/silme|Merhaba genişletilmiş bilgi al işlemi hello Azure kaynak türü temsil eden bir nesnenin genişletilmiş bilgisi alır? kasası?|
+|/ Kasalar/extendedInformation/okuma|Daha Fazla Bilgi Al işlemi, ?vault? türündeki Azure kaynağını temsil eden nesnenin Daha Fazla Bilgi değerini alır.|
+|/ Kasalar/extendedInformation/yazma|Daha Fazla Bilgi Al işlemi, ?vault? türündeki Azure kaynağını temsil eden nesnenin Daha Fazla Bilgi değerini alır.|
+|/ Kasalar/extendedInformation/silme|Daha Fazla Bilgi Al işlemi, ?vault? türündeki Azure kaynağını temsil eden nesnenin Daha Fazla Bilgi değerini alır.|
 |/ Kasalar/backupManagementMetaData/okuma|Kurtarma Hizmetleri Kasası için Yedekleme Yönetimi Meta Verilerini döndürür.|
-|/ Kasalar/backupProtectionContainers/okuma|Tüm kapsayıcıları ait toohello abonelik döndürür|
-|/ Kasalar/backupFabrics/operationResults/okuma|Merhaba işlemin durumunu döndürür|
+|/ Kasalar/backupProtectionContainers/okuma|Aboneliğine ait tüm kapsayıcıları döndürür|
+|/ Kasalar/backupFabrics/operationResults/okuma|İşlemin durumunu döndürür|
 |/ Kasalar/backupFabrics/protectionContainers/okuma|Tüm kayıtlı kapsayıcıları döndürür|
 |/ Kasalar/backupFabrics/protectionContainers /<br>operationResults/okuma|Koruma Kapsayıcısı üzerinde gerçekleştirilen İşlemin sonuçlarını alır.|
-|/ Kasalar/backupFabrics/protectionContainers /<br>protectedItems/okuma|Merhaba korumalı öğesi ayrıntılarını döndürür nesnesi|
+|/ Kasalar/backupFabrics/protectionContainers /<br>protectedItems/okuma|Korumalı öğe nesne ayrıntılarını döndürür|
 |/ Kasalar/backupFabrics/protectionContainers /<br>protectedItems/yazma|Bir yedekleme korumalı öğesi oluşturma|
 |/ Kasalar/backupFabrics/protectionContainers /<br>protectedItems/silme|Öğe silme korumalı|
 |/ Kasalar/backupFabrics/protectionContainers /<br>Yedekleme/protectedItems/eylem|Korumalı Öğe için Yedekleme gerçekleştirir.|
 |/ Kasalar/backupFabrics/protectionContainers /<br>protectedItems/operationResults/okuma|Korumalı Öğeler üzerinde Gerçekleştirilen İşlemin Sonuçlarını alın.|
-|/ Kasalar/backupFabrics/protectionContainers /<br>protectedItems/operationStatus/okuma|Korumalı öğeler üzerinde gerçekleştirilen işlemin hello durumunu döndürür.|
+|/ Kasalar/backupFabrics/protectionContainers /<br>protectedItems/operationStatus/okuma|Korumalı Öğeler üzerinde Gerçekleştirilen İşlemin durumunu döndürür.|
 |/ Kasalar/backupFabrics/protectionContainers /<br>protectedItems/recoveryPoints/okuma|Korumalı Öğeler için Kurtarma Noktalarını alın.|
 |/ Kasalar/backupFabrics/protectionContainers /<br>protectedItems/recoveryPoints /<br>geri yükleme/eylem|Korumalı Öğeler için Kurtarma Noktalarını geri yükleyin.|
 |/ Kasalar/backupFabrics/protectionContainers /<br>protectedItems/recoveryPoints /<br>provisionInstantItemRecovery/eylem|Korumalı öğe için sağlama anlık öğe kurtarma|
 |/ Kasalar/backupFabrics/protectionContainers /<br>protectedItems/recoveryPoints /<br>revokeInstantItemRecovery/eylem|Anlık öğe kurtarma için korumalı öğe iptal etme|
 |/ Kasalar/kullanımları/okuma|Bir Kurtarma Hizmetleri Kasası için kullanım ayrıntılarını döndürür.|
 |/vaults/usages/Read|Herhangi bir kasa kullanımı okuma|
-|/ Kasalar/sertifika/yazma|Merhaba güncelleştirme kaynak sertifika işlemi hello kaynak/kasa kimlik bilgileri sertifikası güncelleştirir.|
+|/ Kasalar/sertifika/yazma|Güncelleştirme kaynağı sertifika işlemi kaynak/kasa kimlik bilgileri sertifikası güncelleştirir.|
 |/ Kasalar/tokenInfo/okuma|Kurtarma Hizmetleri kasası için belirteç bilgileri döndürür.|
 |/vaults/replicationAlertSettings/Read|Tüm uyarı ayarlarını okuma|
 |/vaults/replicationAlertSettings/Write|Tüm uyarı ayarlarını güncelle|
@@ -1454,13 +1454,13 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/ Kasalar/storageConfig/okuma|Döndürür depolama yapılandırması kurtarma Hizmetleri kasası.|
 |/ Kasalar/storageConfig/yazma|Güncelleştirmeler depolama yapılandırması kurtarma Hizmetleri kasası.|
 |/ Kasalar/backupUsageSummaries/okuma|Özetleri korunan öğeler ve korunan sunucular için bir kurtarma Hizmetleri döndürür.|
-|/ Kasalar/backupProtectedItems/okuma|Tüm korumalı öğeler hello listesi döndürür.|
+|/ Kasalar/backupProtectedItems/okuma|Tüm Korumalı Öğelerin listesini döndürür.|
 |/ Kasalar/backupconfig/vaultconfig/okuma|Döndürür yapılandırma kurtarma Hizmetleri kasası.|
 |/ Kasalar/backupconfig/vaultconfig/yazma|Güncelleştirmeler yapılandırması kurtarma Hizmetleri kasası.|
-|/ Kasalar/registeredIdentities/yazma|Merhaba hizmet kapsayıcısı kaydetme işlemi kullanılan tooregister kurtarma hizmeti ile bir kapsayıcı olabilir.|
-|/ Kasalar/registeredIdentities/okuma|Merhaba alma işlemi kullanılabilir kapsayıcıları için bir kaynak kayıtlı Merhaba kapsayıcılara alın.|
-|/ Kasalar/registeredIdentities/silme|Merhaba kaydı kapsayıcı işlemi kullanılan toounregister bir kapsayıcı olabilir.|
-|/ Kasalar/registeredIdentities/operationResults/okuma|Merhaba alma işlemi işlemi kullanılan get hello işlem durumunu olması ve hello için zaman uyumsuz olarak neden sonuçları işlemi gönderildi|
+|/ Kasalar/registeredIdentities/yazma|Hizmet kapsayıcısı kaydetme işlemi, bir kapsayıcı kurtarma Hizmeti'ne kaydolmak için kullanılabilir.|
+|/ Kasalar/registeredIdentities/okuma|Alma işlemi kullanılabilir kapsayıcıları için bir kaynak kayıtlı kapsayıcıları alın.|
+|/ Kasalar/registeredIdentities/silme|Kapsayıcı kaydı işlemi, bir kapsayıcı kaydını silmek için kullanılabilir.|
+|/ Kasalar/registeredIdentities/operationResults/okuma|Zaman uyumsuz olarak gönderilen işlemi için sonuç ve işlem durumunu alma işlemi işlemi kullanılabilir sonuçlar elde|
 |/vaults/replicationJobs/Read|Herhangi bir işi okuma|
 |/vaults/replicationJobs/Cancel/Action|İşi iptal et|
 |/vaults/replicationJobs/restart/Action|İşi yeniden başlatın|
@@ -1470,11 +1470,11 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/ Kasalar/backupPolicies/silme|Bir koruma ilkesini Sil|
 |/ Kasalar/backupPolicies/operationResults/okuma|İlke İşleminin Sonuçlarını alın.|
 |/ Kasalar/backupPolicies/operationStatus/okuma|İlke işlemin durumunu alın.|
-|/ Kasalar/vaultTokens/okuma|Merhaba kasası belirteci işlemi kullanılan tooget kasası belirteci kasası düzeyi arka uç işlemleri için olabilir.|
-|/ Kasalar/monitoringConfigurations/notificationConfiguration/okuma|Merhaba kurtarma Hizmetleri kasası bildirim yapılandırmasını alır.|
+|/ Kasalar/vaultTokens/okuma|Kasa belirteci işlemi kasası düzeyi arka uç işlemleri için kasa belirtecini almak için kullanılabilir.|
+|/ Kasalar/monitoringConfigurations/notificationConfiguration/okuma|Kurtarma Hizmetleri kasası bildirim yapılandırmasını alır.|
 |/ Kasalar/backupJobs/okuma|Tüm iş nesneleri döndürür|
-|/ Kasalar/backupJobs/iptal/eylem|Merhaba işi iptal et|
-|/ Kasalar/backupJobs/operationResults/okuma|Döndürür hello iş işleminin sonucu.|
+|/ Kasalar/backupJobs/iptal/eylem|İşi iptal|
+|/ Kasalar/backupJobs/operationResults/okuma|İş İşleminin Sonucunu döndürür.|
 |/Locations/allocateStamp/Action|AllocateStamp hizmeti tarafından kullanılan iç bir işlemdir|
 |/Locations/allocatedStamp/Read|GetAllocatedStamp, hizmet tarafından kullanılan iç işlemdir.|
 
@@ -1483,41 +1483,41 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 | İşlem | Açıklama |
 |---|---|
 |/ checkNamespaceAvailability/eylem|İlgili abonelikte ad alanının kullanılabilirliğini denetler.|
-|/ Kayıt/eylem|Hello hello geçiş kaynak sağlayıcısı için aboneliği kaydeder ve geçiş kaynak hello oluşturmayı etkinleştirir|
-|/ ad alanları/yazma|Namespace kaynak oluşturun ve özelliklerini güncelleştirin. Etiketleri ve hello Namespace durumunu, güncelleştirilebilir hello özelliklerdir.|
-|/namespaces/Read|Namespace kaynak açıklaması Hello listesini al|
+|/ Kayıt/eylem|Aboneliği geçiş kaynak sağlayıcısı için kaydeder ve Geçiş kaynaklarının oluşturulmasını sağlar|
+|/ ad alanları/yazma|Namespace kaynak oluşturun ve özelliklerini güncelleştirin. Etiketleri ve Namespace durumunu, güncelleştirilebilir özelliklerdir.|
+|/namespaces/Read|Ad Alanı Kaynak Açıklamasının listesini alır|
 |/ ad alanları/Sil|Namespace kaynağı silme|
-|/namespaces/authorizationRules/Write|Namespace düzeyi yetkilendirme kuralları oluşturun ve özelliklerini güncelleştirin. Merhaba yetkilendirme kuralları erişim hakları, hello birincil ve ikincil anahtarları güncelleştirilebilir.|
-|/namespaces/authorizationRules/DELETE|Namespace yetkilendirme kuralını silin. Merhaba varsayılan Namespace yetkilendirme kuralı silinemez. |
-|/namespaces/authorizationRules/listkeys/Action|Merhaba bağlantı dizesi toohello Namespace Al|
+|/namespaces/authorizationRules/Write|Namespace düzeyi yetkilendirme kuralları oluşturun ve özelliklerini güncelleştirin. Yetkilendirme kuralları erişim hakları, birincil ve ikincil anahtarları güncelleştirilebilir.|
+|/namespaces/authorizationRules/DELETE|Namespace yetkilendirme kuralını silin. Namespace yetkilendirme varsayılan kural silinemiyor. |
+|/namespaces/authorizationRules/listkeys/Action|Ad Alanı için Bağlantı Dizesini alın|
 |/namespaces/HybridConnections/Write|Oluşturma veya güncelleştirme HybridConnection özellikleri.|
 |/namespaces/HybridConnections/Read|HybridConnection kaynak açıklamaları listesini al|
-|/namespaces/HybridConnections/DELETE|İşlem toodelete HybridConnection kaynak|
-|/namespaces/HybridConnections/authorizationRules/Write|HybridConnection yetkilendirme kuralları oluşturun ve özelliklerini güncelleştirin. Merhaba yetkilendirme kuralları erişim hakları, hello birincil ve ikincil anahtarları güncelleştirilebilir.|
-|/namespaces/HybridConnections/authorizationRules/DELETE|İşlem toodelete HybridConnection yetkilendirme kuralları|
-|/namespaces/HybridConnections/authorizationRules/listkeys/Action|Merhaba bağlantı dizesi tooHybridConnection Al|
+|/namespaces/HybridConnections/DELETE|HybridConnection kaynağı silme işlemi|
+|/namespaces/HybridConnections/authorizationRules/Write|HybridConnection yetkilendirme kuralları oluşturun ve özelliklerini güncelleştirin. Yetkilendirme kuralları erişim hakları, birincil ve ikincil anahtarları güncelleştirilebilir.|
+|/namespaces/HybridConnections/authorizationRules/DELETE|İşlemin HybridConnection yetkilendirme kurallarını silmek için|
+|/namespaces/HybridConnections/authorizationRules/listkeys/Action|Bağlantı dizesi HybridConnection Al|
 |/namespaces/WcfRelays/Write|Oluşturma veya güncelleştirme WcfRelay özellikleri.|
 |/namespaces/WcfRelays/Read|WcfRelay kaynak açıklamaları listesini al|
-|/namespaces/WcfRelays/DELETE|İşlem toodelete WcfRelay kaynak|
-|/namespaces/WcfRelays/authorizationRules/Write|WcfRelay yetkilendirme kuralları oluşturun ve özelliklerini güncelleştirin. Merhaba yetkilendirme kuralları erişim hakları, hello birincil ve ikincil anahtarları güncelleştirilebilir.|
-|/namespaces/WcfRelays/authorizationRules/DELETE|İşlem toodelete WcfRelay yetkilendirme kuralları|
-|/namespaces/WcfRelays/authorizationRules/listkeys/Action|Merhaba bağlantı dizesi tooWcfRelay Al|
+|/namespaces/WcfRelays/DELETE|WcfRelay kaynağı silme işlemi|
+|/namespaces/WcfRelays/authorizationRules/Write|WcfRelay yetkilendirme kuralları oluşturun ve özelliklerini güncelleştirin. Yetkilendirme kuralları erişim hakları, birincil ve ikincil anahtarları güncelleştirilebilir.|
+|/namespaces/WcfRelays/authorizationRules/DELETE|İşlemin WcfRelay yetkilendirme kurallarını silmek için|
+|/namespaces/WcfRelays/authorizationRules/listkeys/Action|Bağlantı dizesi WcfRelay Al|
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
 
 | İşlem | Açıklama |
 |---|---|
-|/ AvailabilityStatuses/okuma|Kapsam alır hello kullanılabilirlik durumlarını hello tüm kaynakları için belirtilen|
-|/ AvailabilityStatuses/geçerli/okuma|Kaynak alır hello kullanılabilirlik durumu hello belirtildi|
+|/ AvailabilityStatuses/okuma|Belirtilen kapsamdaki tüm kaynaklar için kullanılabilirlik durumlarını alır|
+|/ AvailabilityStatuses/geçerli/okuma|Belirtilen kaynak için kullanılabilirlik durumunu alır|
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
 | İşlem | Açıklama |
 |---|---|
-|/ checkResourceName/eylem|Merhaba kaynak adının geçerliliğini denetle.|
-|/providers/Read|Merhaba sağlayıcıların listesini al.|
-|/Subscriptions/Read|Merhaba Aboneliklerin listesini alır.|
-|/Subscriptions/operationresults/Read|Merhaba abonelik İşlem sonuçlarını alır.|
+|/ checkResourceName/eylem|Kaynak adının geçerliliğini denetle.|
+|/providers/Read|Sağlayıcıların listesini al.|
+|/Subscriptions/Read|Aboneliklerin listesini alır.|
+|/Subscriptions/operationresults/Read|Abonelik işlem sonuçlarını alır.|
 |/Subscriptions/providers/Read|Kaynak sağlayıcılarını alır veya listeler.|
 |/Subscriptions/tagNames/Read|Abonelik etiketlerini alır veya listeler.|
 |/Subscriptions/tagNames/Write|Bir abonelik etiketi ekler.|
@@ -1529,19 +1529,19 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/Subscriptions/resourceGroups/Read|Kaynak gruplarını alır veya listeler.|
 |/Subscriptions/resourceGroups/Write|Kaynak grubunu oluşturur veya güncelleştirir.|
 |/Subscriptions/resourceGroups/DELETE|Bir kaynak grubunu ve tüm kaynaklarını siler.|
-|/Subscriptions/resourceGroups/moveResources/Action|Kaynakları bir kaynak grubu tooanother taşır.|
-|/Subscriptions/resourceGroups/validateMoveResources/Action|Bir kaynak grubu tooanother kaynakların taşımak doğrulayın.|
-|/Subscriptions/resourcegroups/Resources/Read|Merhaba kaynak grubu için Hello kaynakları alır.|
+|/Subscriptions/resourceGroups/moveResources/Action|Kaynakları bir kaynak grubundan diğerine taşır.|
+|/Subscriptions/resourceGroups/validateMoveResources/Action|Bir kaynak grubundan diğerine kaynak taşıma işlemini doğrular.|
+|/Subscriptions/resourcegroups/Resources/Read|Kaynak grubun kaynaklarını alır.|
 |/Subscriptions/resourcegroups/Deployments/Read|Dağıtımları alır veya listeler.|
 |/Subscriptions/resourcegroups/Deployments/Write|Bir dağıtımı oluşturur veya güncelleştirir.|
 |/Subscriptions/resourcegroups/Deployments/operationstatuses/Read|Alır veya dağıtım işlemi durumları listeler.|
 |/Subscriptions/resourcegroups/Deployments/Operations/Read|Dağıtım işlemlerini alır veya listeler.|
-|/Subscriptions/Locations/Read|Merhaba desteklenen konumların listesini alır.|
+|/Subscriptions/Locations/Read|Desteklenen konumların listesini alır.|
 |/Links/Read|Kaynak bağlantılarını alır veya listeler.|
 |/ bağlantılar/yazma|Bir kaynak bağlantısını oluşturur veya güncelleştirir.|
 |/Links/DELETE|Bir kaynak bağlantısını siler.|
-|/tenants/Read|Kiracılar Hello listesini alır.|
-|/Resources/Read|Filtrelere göre kaynak Hello listesini alın.|
+|/tenants/Read|Kiracı listesini alır.|
+|/Resources/Read|Filtrelere göre kaynak listelerini al.|
 |/Deployments/Read|Dağıtımları alır veya listeler.|
 |/ dağıtımları/yazma|Bir dağıtımı oluşturur veya güncelleştirir.|
 |/Deployments/DELETE|Bir dağıtımı siler.|
@@ -1569,40 +1569,40 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 
 | İşlem | Açıklama |
 |---|---|
-|/ Kayıt/eylem|Merhaba hello arama kaynak sağlayıcısı için aboneliği kaydeder ve arama hizmetleri hello oluşturulmasını sağlar.|
-|/ checkNameAvailability/eylem|Merhaba hizmet adı kullanılabilirliğini denetler.|
-|/ searchServices/yazma|Oluşturur veya hello arama hizmeti güncelleştirir.|
-|/searchServices/Read|Merhaba arama hizmeti okur.|
-|/searchServices/DELETE|Merhaba arama hizmeti siler.|
-|/searchServices/Start/Action|Merhaba arama hizmetini başlatır.|
-|/searchServices/Stop/Action|Merhaba arama hizmetini durdurur.|
-|/searchServices/listAdminKeys/Action|Merhaba yönetici anahtarları okur.|
-|/searchServices/regenerateAdminKey/Action|Merhaba yönetici anahtarını yeniden oluşturur.|
-|/searchServices/createQueryKey/Action|Merhaba sorgu anahtarı oluşturur.|
-|/searchServices/queryKey/Read|Merhaba sorgu anahtarları okur.|
-|/searchServices/queryKey/DELETE|Merhaba sorgu anahtarını siler.|
+|/ Kayıt/eylem|Arama kaynak sağlayıcısı için aboneliği kaydeder ve arama hizmetleri oluşturulmasını sağlar.|
+|/ checkNameAvailability/eylem|Hizmet adı kullanılabilirliğini denetler.|
+|/ searchServices/yazma|Arama hizmeti güncelleştirir veya oluşturur.|
+|/searchServices/Read|Arama hizmeti okur.|
+|/searchServices/DELETE|Arama hizmeti siler.|
+|/searchServices/Start/Action|Arama hizmetini başlatır.|
+|/searchServices/Stop/Action|Arama hizmetini durdurur.|
+|/searchServices/listAdminKeys/Action|Yönetici anahtarları okur.|
+|/searchServices/regenerateAdminKey/Action|Yönetici anahtarını yeniden oluşturur.|
+|/searchServices/createQueryKey/Action|Sorgu anahtarı oluşturur.|
+|/searchServices/queryKey/Read|Sorgu anahtarları okur.|
+|/searchServices/queryKey/DELETE|Sorgu anahtarı siler.|
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 
 | İşlem | Açıklama |
 |---|---|
-|/jitNetworkAccessPolicies/Read|Merhaba yalnızca zaman ağ erişim ilkelerini alır|
+|/jitNetworkAccessPolicies/Read|Yalnızca zaman ağ erişim ilkelerini alır|
 |/ jitNetworkAccessPolicies/yazma|Yeni bir tam zamanı ağ erişim ilkesi oluşturur veya mevcut kümeyi güncelleştirir|
 |/jitNetworkAccessPolicies/initiate/Action|Yalnızca zaman ağ erişim ilkesi başlatır|
-|/securitySolutionsReferenceData/Read|Merhaba güvenlik çözümleri başvuru verileri alır|
-|/securityStatuses/Read|Merhaba güvenlik sistem durumlarını için Azure kaynaklarını alır.|
-|/webApplicationFirewalls/Read|Merhaba web uygulaması güvenlik duvarı alır|
+|/securitySolutionsReferenceData/Read|Güvenlik çözümleri başvuru verileri alır|
+|/securityStatuses/Read|Güvenlik sistem durumlarını için Azure kaynaklarını alır.|
+|/webApplicationFirewalls/Read|Web uygulaması güvenlik duvarı alır|
 |/ webApplicationFirewalls/yazma|Yeni bir web uygulaması güvenlik duvarı oluşturur veya mevcut kümeyi güncelleştirir|
 |/webApplicationFirewalls/DELETE|Bir web uygulaması güvenlik duvarı siler|
-|/securitySolutions/Read|Merhaba güvenlik çözümleri alır|
+|/securitySolutions/Read|Güvenlik çözümleri alır|
 |/ securitySolutions/yazma|Yeni bir güvenlik çözümü oluşturur veya mevcut kümeyi güncelleştirir|
 |/securitySolutions/DELETE|Bir güvenlik çözümü siler|
 |/Tasks/Read|Tüm kullanılabilir güvenlik önerileri alır|
 |/Tasks/dismiss/Action|Güvenlik açısından kapatın|
 |/Tasks/Activate/Action|Güvenlik açısından etkinleştir|
-|/Policies/Read|Merhaba güvenlik ilkesini alır|
-|/ ilkeler/yazma|Güvenlik İlkesi güncelleştirmeleri hello|
-|/applicationWhitelistings/Read|Merhaba uygulama whitelistings alır|
+|/Policies/Read|Güvenlik İlkesi alır|
+|/ ilkeler/yazma|Güvenlik İlkesi güncelleştirmeleri|
+|/applicationWhitelistings/Read|Uygulama whitelistings alır|
 |/ applicationWhitelistings/yazma|Yeni uygulamaları güvenilir listesine ekleme oluşturur veya mevcut kümeyi güncelleştirir|
 
 ## <a name="microsoftservermanagement"></a>Microsoft.ServerManagement
@@ -1613,8 +1613,8 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/ ağ geçitleri/yazma|Oluşturur veya bir ağ geçidi güncelleştirir|
 |/Gateways/DELETE|Bir ağ geçidini siler|
 |/Gateways/Read|Bir ağ geçidi alır|
-|/Gateways/regenerateprofile/Action|Merhaba ağ geçidi profili oluşturur|
-|/Gateways/upgradetolatest/Action|Yükseltmeler hello ağ geçidi toohello en son sürümü|
+|/Gateways/regenerateprofile/Action|Ağ geçidi profili oluşturur|
+|/Gateways/upgradetolatest/Action|Ağ geçidi son sürümüne yükseltme|
 |/ düğümleri/yazma|oluşturur veya bir düğüm güncelleştirir|
 |/Nodes/DELETE|Bir düğüm siler|
 |/Nodes/Read|Bir düğüm alır|
@@ -1627,41 +1627,41 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 | İşlem | Açıklama |
 |---|---|
 |/ checkNameAvailability/eylem|İlgili abonelikte ad alanının kullanılabilirliğini denetler.|
-|/ Kayıt/eylem|Merhaba hello ServiceBus kaynak sağlayıcısı için aboneliği kaydeder ve ServiceBus kaynak hello oluşturmayı etkinleştirir|
-|/ ad alanları/yazma|Namespace kaynak oluşturun ve özelliklerini güncelleştirin. Etiketleri ve hello Namespace durumunu, güncelleştirilebilir hello özelliklerdir.|
-|/namespaces/Read|Namespace kaynak açıklaması Hello listesini al|
+|/ Kayıt/eylem|Aboneliği ServiceBus kaynak sağlayıcısı için kaydeder ve ServiceBus kaynaklarının oluşturulmasını sağlar|
+|/ ad alanları/yazma|Namespace kaynak oluşturun ve özelliklerini güncelleştirin. Etiketleri ve Namespace durumunu, güncelleştirilebilir özelliklerdir.|
+|/namespaces/Read|Ad Alanı Kaynak Açıklamasının listesini alır|
 |/ ad alanları/Sil|Namespace kaynağı silme|
 |/namespaces/metricDefinitions/Read|Namespace ölçümleri kaynak açıklamaları listesini al|
-|/namespaces/authorizationRules/Write|Namespace düzeyi yetkilendirme kuralları oluşturun ve özelliklerini güncelleştirin. Merhaba yetkilendirme kuralları erişim hakları, hello birincil ve ikincil anahtarları güncelleştirilebilir.|
-|/namespaces/authorizationRules/Read|Ad alanları yetkilendirme kuralları açıklama Hello listesini alın.|
-|/namespaces/authorizationRules/DELETE|Namespace yetkilendirme kuralını silin. Merhaba varsayılan Namespace yetkilendirme kuralı silinemez. |
-|/namespaces/authorizationRules/listkeys/Action|Merhaba bağlantı dizesi toohello Namespace Al|
-|/namespaces/authorizationRules/regenerateKeys/Action|Merhaba birincil veya ikincil anahtarı toohello kaynak yeniden oluştur|
+|/namespaces/authorizationRules/Write|Namespace düzeyi yetkilendirme kuralları oluşturun ve özelliklerini güncelleştirin. Yetkilendirme kuralları erişim hakları, birincil ve ikincil anahtarları güncelleştirilebilir.|
+|/namespaces/authorizationRules/Read|Ad Alanı Yetkilendirme Kuralları açıklamasının listesini alır.|
+|/namespaces/authorizationRules/DELETE|Namespace yetkilendirme kuralını silin. Namespace yetkilendirme varsayılan kural silinemiyor. |
+|/namespaces/authorizationRules/listkeys/Action|Ad Alanı için Bağlantı Dizesini alın|
+|/namespaces/authorizationRules/regenerateKeys/Action|Kaynağın Birincil veya İkincil anahtarını yeniden oluşturun|
 |/namespaces/diagnosticSettings/Read|Namespace tanılama ayarları kaynak açıklamaları listesini al|
 |/namespaces/diagnosticSettings/Write|Namespace tanılama ayarları kaynak açıklamaları listesini al|
 |/namespaces/Queues/Write|Oluşturma veya güncelleştirme sıra özellikleri.|
 |/namespaces/Queues/Read|Sıra kaynak açıklamaları listesini al|
-|/namespaces/Queues/DELETE|İşlem toodelete sırası kaynağı|
-|/namespaces/Queues/authorizationRules/Write|Sıra yetkilendirme kuralları oluşturun ve özelliklerini güncelleştirin. Merhaba yetkilendirme kuralları erişim hakları, hello birincil ve ikincil anahtarları güncelleştirilebilir.|
-|/namespaces/Queues/authorizationRules/Read| Sıra yetkilendirme kuralları Hello listesini al|
-|/namespaces/Queues/authorizationRules/DELETE|İşlem toodelete sıra yetkilendirme kuralları|
-|/namespaces/Queues/authorizationRules/listkeys/Action|Merhaba bağlantı dizesi tooQueue Al|
-|/namespaces/Queues/authorizationRules/regenerateKeys/Action|Merhaba birincil veya ikincil anahtarı toohello kaynak yeniden oluştur|
+|/namespaces/Queues/DELETE|Sıra kaynağı silme işlemi|
+|/namespaces/Queues/authorizationRules/Write|Sıra yetkilendirme kuralları oluşturun ve özelliklerini güncelleştirin. Yetkilendirme kuralları erişim hakları, birincil ve ikincil anahtarları güncelleştirilebilir.|
+|/namespaces/Queues/authorizationRules/Read| Sıra yetkilendirme kuralları listesini al|
+|/namespaces/Queues/authorizationRules/DELETE|İşlem sırası yetkilendirme kuralları silmek için|
+|/namespaces/Queues/authorizationRules/listkeys/Action|Bağlantı dizesi sıraya al|
+|/namespaces/Queues/authorizationRules/regenerateKeys/Action|Kaynağın Birincil veya İkincil anahtarını yeniden oluşturun|
 |/namespaces/logDefinitions/Read|Namespace günlükleri kaynak açıklamaları listesini al|
 |/namespaces/topics/Write|Oluşturma veya güncelleştirme konu özellikleri.|
 |/namespaces/topics/Read|Konu kaynak açıklamaları listesini al|
-|/namespaces/topics/DELETE|İşlem toodelete konu kaynak|
-|/namespaces/topics/authorizationRules/Write|Konu yetkilendirme kuralları oluşturun ve özelliklerini güncelleştirin. Merhaba yetkilendirme kuralları erişim hakları, hello birincil ve ikincil anahtarları güncelleştirilebilir.|
-|/namespaces/topics/authorizationRules/Read| Konu yetkilendirme kuralları Hello listesini al|
-|/namespaces/topics/authorizationRules/DELETE|İşlem toodelete konu yetkilendirme kuralları|
-|/namespaces/topics/authorizationRules/listkeys/Action|Merhaba bağlantı dizesi tooTopic Al|
-|/namespaces/topics/authorizationRules/regenerateKeys/Action|Merhaba birincil veya ikincil anahtarı toohello kaynak yeniden oluştur|
+|/namespaces/topics/DELETE|Konu kaynağı silme işlemi|
+|/namespaces/topics/authorizationRules/Write|Konu yetkilendirme kuralları oluşturun ve özelliklerini güncelleştirin. Yetkilendirme kuralları erişim hakları, birincil ve ikincil anahtarları güncelleştirilebilir.|
+|/namespaces/topics/authorizationRules/Read| Konu yetkilendirme kuralları listesini al|
+|/namespaces/topics/authorizationRules/DELETE|İşlemin konu yetkilendirme kurallarını silmek için|
+|/namespaces/topics/authorizationRules/listkeys/Action|Bağlantı dizesi konuya Al|
+|/namespaces/topics/authorizationRules/regenerateKeys/Action|Kaynağın Birincil veya İkincil anahtarını yeniden oluşturun|
 |/namespaces/topics/Subscriptions/Write|Oluşturma veya güncelleştirme TopicSubscription özellikleri.|
 |/namespaces/topics/Subscriptions/Read|TopicSubscription kaynak açıklamaları listesini al|
-|/namespaces/topics/Subscriptions/DELETE|İşlem toodelete TopicSubscription kaynak|
+|/namespaces/topics/Subscriptions/DELETE|TopicSubscription kaynağı silme işlemi|
 |/namespaces/topics/Subscriptions/Rules/Write|Oluşturma veya güncelleştirme kuralı özellikleri.|
 |/namespaces/topics/Subscriptions/Rules/Read|Kuralın kaynak açıklamaları listesini al|
-|/namespaces/topics/Subscriptions/Rules/DELETE|İşlem toodelete kuralı kaynağı|
+|/namespaces/topics/Subscriptions/Rules/DELETE|Kural kaynağı silme işlemi|
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
@@ -1670,24 +1670,24 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/Servers/Read|Bir abonelikte bir kaynak grubunda sunucularının bir listesini döndürür|
 |/ sunucuları/yazma|Yeni bir sunucu oluşturun veya bir kaynak grubunda bir abonelik üzerinde var olan sunucu özelliklerini değiştirin|
 |/Servers/DELETE|Bir sunucuyu ve tüm kapsanan veritabanları ve esnek havuzlar silin|
-|/Servers/import/Action|Şema ve veri DacPac paketinden hello sunucuda yeni bir veritabanı oluşturun ve dağıtın|
-|/Servers/Upgrade/Action|Yeni işlevsellik hello en son sürümünü sunucu üzerinde kullanılabilir etkinleştirin ve veritabanları edition dönüştürme harita belirtin|
+|/Servers/import/Action|Sunucuda yeni bir veritabanı oluşturun ve şeması ve verisi DacPac paketinden dağıtma|
+|/Servers/Upgrade/Action|Yeni işlevsellik server son sürümünde kullanılabilir etkinleştirin ve veritabanları edition dönüştürme harita belirtin|
 |/Servers/VulnerabilityAssessmentScans/Action|Güvenlik Açığı değerlendirmesi sunucu tarama yürütme|
-|/Servers/operationResults/Read|İşlem kullanılan alt sürüm toohigher sunucu yükseltme tootrack ilerlemesi|
+|/Servers/operationResults/Read|İşlem sunucu yükseltme sürecini daha düşük sürümden için daha yüksek izlemek için kullanılır|
 |/Servers/operationResults/DELETE|Sunucu sürüm yükseltme devam eden durdurma|
-|/Servers/securityAlertPolicies/Read|Belirli bir sunucuda yapılandırılan hello sunucu tehdit algılama ilkesi ayrıntılarını alma|
-|/Servers/securityAlertPolicies/Write|Merhaba sunucu tehdit algılama verilen bir sunucu için değiştirme|
-|/Servers/securityAlertPolicies/operationResults/Read|Tehdit algılama İlkesi ayarlama işlemi hello sunucusunun sonuçları Al|
+|/Servers/securityAlertPolicies/Read|Verilen bir sunucu üzerinde yapılandırılmış sunucu tehdit algılama ilkesi ayrıntılarını alma|
+|/Servers/securityAlertPolicies/Write|Verilen bir sunucu için sunucu tehdit algılama değiştirme|
+|/Servers/securityAlertPolicies/operationResults/Read|Tehdit algılama İlkesi ayarlama işlemi sunucusunun sonuçları Al|
 |/Servers/Administrators/Read|Sunucu Yöneticisi ile ilgili ayrıntıları alma|
 |/Servers/Administrators/Write|Sunucu Yöneticisi güncelle|
-|/Servers/Administrators/DELETE|Sunucu Yöneticisi hello sunucusundan silin|
-|/Servers/recoverableDatabases/Read|Bu işlem, Canlı veritabanı toorestore veritabanı toolast bilinen iyi yedekleme noktası olağanüstü durum kurtarma için kullanılır. Merhaba en son iyi yedeklemeden hakkında bilgi verir, ancak gerçekte hello veritabanını geri değil.|
+|/Servers/Administrators/DELETE|Sunucu Yöneticisi sunucusundan silin|
+|/Servers/recoverableDatabases/Read|Bu işlem, Canlı veritabanı olağanüstü durum kurtarma için bilinen son iyi yedekleme noktasına veritabanını geri yüklemek için kullanılır. En son iyi yedeklemeden hakkında bilgi verir, ancak gerçekte veritabanını geri değil.|
 |/Servers/serviceObjectives/Read|Hizmet düzeyi hedefleri (performans katmanı olarak da bilinir) belirli bir sunucuda bulunan listesini alma|
 |/Servers/firewallRules/Read|Sunucu güvenlik duvarı kuralı ayrıntıları alma|
-|/Servers/firewallRules/Write|IP adresi aralığı tooconnect toohello sunucu izin denetimleri sunucu güvenlik duvarı kuralı oluştur veya güncelleştir|
-|/Servers/firewallRules/DELETE|Merhaba sunucusundan güvenlik duvarı kuralını siler|
+|/Servers/firewallRules/Write|Sunucuya bağlanmak için izin verilen IP adresi aralığı denetimleri sunucu güvenlik duvarı kuralı oluştur veya güncelleştir|
+|/Servers/firewallRules/DELETE|Sunucudan güvenlik duvarı kuralını siler|
 |/Servers/administratorOperationResults/Read|Sunucu Yöneticisi işlem sonuçları Al|
-|/Servers/recommendedElasticPools/Read|Esnek veritabanı havuzları tooreduce maliyet için öneri almak veya historica kaynak kullanımı temelinde performansı|
+|/Servers/recommendedElasticPools/Read|Maliyet veya historica kaynak kullanımı temelinde performansını artırmak esnek veritabanı havuzları için öneri alma|
 |/Servers/recommendedElasticPools/Metrics/Read|Verilen bir sunucu için önerilen esnek veritabanı havuzlarına ilişkin ölçümleri alma|
 |/Servers/recommendedElasticPools/Databases/Read|Önerilen esnek veritabanı havuzu verilen bir sunucu için uygulamasına eklenmelidir veritabanları alma|
 |/Servers/elasticPools/Read|Verilen bir sunucu üzerinde esnek veritabanı havuzu ayrıntılarını alma|
@@ -1695,239 +1695,239 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/Servers/elasticPools/DELETE|Var olan esnek veritabanı havuzunu silme|
 |/Servers/elasticPools/operationResults/Read|Verilen esnek veritabanı havuzu işlemle ilgili ayrıntıları alma|
 |/Servers/elasticPools/providers/Microsoft.Insights/<br>metricDefinitions/okuma|Dönüş türleri esnek veritabanı havuzları için kullanılabilir ölçümleri|
-|/Servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings/okuma|Hello hello kaynağın tanılama ayarını alır|
-|/Servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings/yazma|Oluşturur veya hello kaynağın tanılama ayarını hello güncelleştirir|
+|/Servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings/okuma|Kaynak için tanılama ayarını alır|
+|/Servers/elasticPools/providers/Microsoft.Insights/<br>diagnosticSettings/yazma|Kaynak için tanılama ayarını oluşturur veya güncelleştirir|
 |/Servers/elasticPools/Metrics/Read|Esnek veritabanı havuzu kaynak kullanımı ölçümlerini Döndür|
 |/Servers/elasticPools/elasticPoolDatabaseActivity/Read|Etkinlikleri ve esnek veritabanı havuzu parçası olan belirli bir veritabanı üzerinde ayrıntıları alma|
-|/Servers/elasticPools/advisors/Read|Danışmanlar hello esnek havuz için kullanılabilir bir listesini döndürür|
+|/Servers/elasticPools/advisors/Read|Esnek havuz için kullanılabilir danışmanlar listesini döndürür|
 |/Servers/elasticPools/advisors/Write|Güncelleştirme otomatik yürütme esnek havuz düzeyde bir advisor durumu.|
-|/Servers/elasticPools/advisors/recommendedActions/Read|Belirtilen Danışmanı hello esnek havuz için önerilen eylemleri listesini döndürür|
-|/Servers/elasticPools/advisors/recommendedActions/Write|Önerilen eylem hello esnek havuz üzerinde hello Uygula|
+|/Servers/elasticPools/advisors/recommendedActions/Read|Esnek havuz için belirtilen Danışmanı'nın önerilen eylemleri listesini döndürür|
+|/Servers/elasticPools/advisors/recommendedActions/Write|Esnek havuz üzerinde önerilen eylemi uygulayın|
 |/Servers/elasticPools/elasticPoolActivity/Read|Etkinlikleri ve verilen esnek veritabanı havuzu ayrıntıları alma|
 |/Servers/elasticPools/Databases/Read|Liste ve esnek veritabanı havuzu verilen bir sunucu üzerinde bir parçası olan veritabanları ayrıntılarını alma|
-|/Servers/auditingPolicies/Read|Denetim İlkesi belirli bir sunucuda yapılandırılan hello varsayılan sunucu tablosu ayrıntılarını alma|
-|/Servers/auditingPolicies/Write|Belli bir sunucu için Denetim hello varsayılan sunucu Tablo değiştirme|
+|/Servers/auditingPolicies/Read|Denetim İlkesi belirli bir sunucuda yapılandırılan varsayılan sunucu tablosu ayrıntılarını alma|
+|/Servers/auditingPolicies/Write|Varsayılan sunucu tablo belli bir sunucu için Denetim değiştirme|
 |/Servers/disasterRecoveryConfiguration/operationResults/Read|Olağanüstü durum kurtarma yapılandırması İşlem sonuçlarını alır|
-|/Servers/advisors/Read|Danışmanlar hello sunucu için kullanılabilir bir listesini döndürür|
+|/Servers/advisors/Read|Sunucu için kullanılabilir danışmanlar listesini döndürür|
 |/Servers/advisors/Write|Güncelleştirmeleri otomatik-sunucu düzeyinde bir Danışmanı durumunu yürütün.|
-|/Servers/advisors/recommendedActions/Read|Belirtilen Danışmanı hello sunucu için önerilen eylemleri listesini döndürür|
-|/Servers/advisors/recommendedActions/Write|Önerilen eylem hello sunucuda hello Uygula|
-|/Servers/usages/Read|Merhaba sunucu içindeki tüm veritabanları tarafından sunucu DTU kota ve geçerli DTU tüketim döndürür|
+|/Servers/advisors/recommendedActions/Read|Sunucusu için belirtilen Danışmanı'nın önerilen eylemleri listesini döndürür|
+|/Servers/advisors/recommendedActions/Write|Sunucudaki önerilen eylemi uygulayın|
+|/Servers/usages/Read|Sunucu içindeki tüm veritabanları tarafından sunucu DTU kota ve geçerli DTU tüketim döndürür|
 |/Servers/elasticPoolEstimates/Read|Zaten bu sunucu için oluşturulan esnek havuz tahminler listesini döndürür|
 |/Servers/elasticPoolEstimates/Write|Sağlanan veritabanı listesi için yeni esnek havuz tahmini oluşturur|
-|/Servers/auditingSettings/Read|Denetim İlkesi belirli bir sunucuda yapılandırılan hello sunucu blob ayrıntılarını alma|
-|/Servers/auditingSettings/Write|Merhaba sunucu blob belli bir sunucu için Denetim değiştirme|
-|/Servers/auditingSettings/operationResults/Read|Sonuç İlkesi ayarlama işlemi denetim hello sunucu BLOB alma|
-|/Servers/backupLongTermRetentionVaults/Read|Bu işlem kullanılan tooget bir yedekleme uzun süreli saklama kasası olur. Merhaba kasaya kayıtlı toothis sunucusu hakkında bilgi döndürür.|
+|/Servers/auditingSettings/Read|Verilen bir sunucu üzerinde yapılandırılmış sunucu blob denetim ilkesi ayrıntılarını alma|
+|/Servers/auditingSettings/Write|Sunucu blob belli bir sunucu için Denetim değiştirme|
+|/Servers/auditingSettings/operationResults/Read|Sonuç İlkesi ayarlama işlemi denetim sunucu BLOB alma|
+|/Servers/backupLongTermRetentionVaults/Read|Bu işlem, bir yedekleme uzun süreli saklama kasası almak için kullanılır. Bu sunucuya kayıtlı olduğu kasanın hakkında bilgi döndürür.|
 |/Servers/backupLongTermRetentionVaults/Write|Bir yedekleme uzun süreli saklama kasası kaydetme|
 |/Servers/restorableDroppedDatabases/Read|Hala bekletme ilkesi içinde olan belirli bir sunucuda bırakılan veritabanlarının bir listesini alır. Bu işlem, veritabanlarını ve silme tarihi gibi ilişkili meta verileri listesini döndürür.|
 |/Servers/Databases/Read|Bir abonelikte bir kaynak grubunda sunucularının bir listesini döndürür|
 |/Servers/Databases/Write|Yeni bir sunucu oluşturun veya bir kaynak grubunda bir abonelik üzerinde var olan sunucu özelliklerini değiştirin|
 |/Servers/Databases/DELETE|Bir sunucuyu ve tüm kapsanan veritabanları ve esnek havuzlar silin|
-|/Servers/Databases/Export/Action|Şema ve veri DacPac paketinden hello sunucuda yeni bir veritabanı oluşturun ve dağıtın|
+|/Servers/Databases/Export/Action|Sunucuda yeni bir veritabanı oluşturun ve şeması ve verisi DacPac paketinden dağıtma|
 |/Servers/Databases/VulnerabilityAssessmentScans/Action|Güvenlik Açığı değerlendirmesi veritabanı taraması yürütün.|
 |/Servers/Databases/pause/Action|Veri ambarı edition veritabanı duraklatılamadı|
 |/Servers/Databases/Resume/Action|Veri ambarı edition veritabanı sürdürülemedi|
-|/Servers/Databases/operationResults/Read|İşlem kullanılır tootrack ilerleme durumunu ölçek gibi uzun süren veritabanı işlemi.|
+|/Servers/Databases/operationResults/Read|İşlem, Ölçek gibi uzun süre çalışan veritabanı işlemin ilerlemesini izlemek için kullanılır.|
 |/Servers/Databases/replicationLinks/Read|Belirli bir veritabanı için kurulmuş yineleme bağlantıları hakkında dönüş ayrıntıları|
-|/Servers/Databases/replicationLinks/DELETE|Zorla ve olası veri kaybı ile Merhaba çoğaltma ilişkisi Sonlandır|
-|/Servers/Databases/replicationLinks/unlink/Action|Merhaba çoğaltma ilişkisi zorla veya hello ortağıyla eşitlemeden sonra Sonlandır|
-|/Servers/Databases/replicationLinks/Failover/Action|Yük devretme hello birincil, tüm değişiklikleri eşitlemeden sonra bu veritabanını hello çoğaltma ilişkinin birincil ve yapmayı hello uzak birincil ikincil bir siteyi içine duruma getirme|
-|/Servers/Databases/replicationLinks/forceFailoverAllowDataLoss/Action|Bu veritabanı hello çoğaltma ilişkinin birincil ve yapmayı hello uzaktan ikincil birincil yapmadan yük devretme olası veri kaybı olmadan hemen|
-|/Servers/Databases/replicationLinks/updateReplicationMode/Action|Çoğaltma modu bağlantı toosynchronous için veya zaman uyumsuz moddayken güncelleştirme|
+|/Servers/Databases/replicationLinks/DELETE|Çoğaltma ilişkisinin zorla ve olası veri kaybı ile Sonlandır|
+|/Servers/Databases/replicationLinks/unlink/Action|Çoğaltma ilişkisinin zorla veya ortağıyla eşitlemeden sonra Sonlandır|
+|/Servers/Databases/replicationLinks/Failover/Action|Bu veritabanı çoğaltma ilişkinin birincil siteyi yapma ve uzak bir ikincil birincil yapmadan tüm eşitlemeden sonra Yük devretme birincil sunucudan değiştirir|
+|/Servers/Databases/replicationLinks/forceFailoverAllowDataLoss/Action|Olası veri kaybı olmadan hemen bu veritabanı çoğaltma ilişkinin birincil siteyi yapma ve uzak bir ikincil birincil yapmadan yük devretme|
+|/Servers/Databases/replicationLinks/updateReplicationMode/Action|Bağlantı zaman uyumlu veya zaman uyumsuz modu için güncelleştirme çoğaltma modu|
 |/Servers/Databases/replicationLinks/operationResults/Read|Veritabanı çoğaltma bağlantılarında uzun süre çalışan işlemlerinin durumunu Al|
-|/Servers/Databases/dataMaskingPolicies/Read|İlke verilen bir veritabanı üzerinde yapılandırılan maskeleme hello veri ayrıntılarını alma|
+|/Servers/Databases/dataMaskingPolicies/Read|İlke verilen bir veritabanı üzerinde yapılandırılan maskeleme veri ayrıntılarını alma|
 |/Servers/Databases/dataMaskingPolicies/Write|İlke verilen bir veritabanı için maskeleme verileri değiştirme|
-|/Servers/Databases/dataMaskingPolicies/Rules/Read|Belirli bir veritabanı üzerinde yapılandırılan ilke kuralı maskeleme hello veri ayrıntılarını alma|
+|/Servers/Databases/dataMaskingPolicies/Rules/Read|Belirli bir veritabanı üzerinde yapılandırılan ilke kuralı maskeleme veri ayrıntılarını alma|
 |/Servers/Databases/dataMaskingPolicies/Rules/Write|Verilen bir veritabanı için ilke kuralı maskeleme verileri değiştirme|
-|/Servers/Databases/securityAlertPolicies/Read|Belirli bir veritabanı üzerinde yapılandırılan hello tehdit algılama ilkesi ayrıntılarını alma|
-|/Servers/Databases/securityAlertPolicies/Write|Verilen bir veritabanı için Hello tehdit algılama ilkesini değiştirme|
+|/Servers/Databases/securityAlertPolicies/Read|Belirli bir veritabanı üzerinde yapılandırılan tehdit algılama ilkesi ayrıntılarını alma|
+|/Servers/Databases/securityAlertPolicies/Write|Verilen bir veritabanı tehdit algılama ilkesini değiştirme|
 |/Servers/Databases/providers/Microsoft.Insights/<br>metricDefinitions/okuma|Dönüş türleri veritabanları için kullanılabilir ölçümleri|
-|/Servers/Databases/providers/Microsoft.Insights/<br>diagnosticSettings/okuma|Hello hello kaynağın tanılama ayarını alır|
-|/Servers/Databases/providers/Microsoft.Insights/<br>diagnosticSettings/yazma|Oluşturur veya hello kaynağın tanılama ayarını hello güncelleştirir|
-|/Servers/Databases/providers/Microsoft.Insights/<br>logDefinitions/okuma|Veritabanları için Hello kullanılabilir günlüklerini alır|
+|/Servers/Databases/providers/Microsoft.Insights/<br>diagnosticSettings/okuma|Kaynak için tanılama ayarını alır|
+|/Servers/Databases/providers/Microsoft.Insights/<br>diagnosticSettings/yazma|Kaynak için tanılama ayarını oluşturur veya güncelleştirir|
+|/Servers/Databases/providers/Microsoft.Insights/<br>logDefinitions/okuma|Veritabanları için kullanılabilir günlüklerini alır|
 |/Servers/Databases/topQueries/Read|Döndürür seçili sorgu için çalışma zamanı istatistikleri seçilen zaman aralığı içinde toplanır.|
-|/Servers/Databases/topQueries/queryText/Read|Seçili sorgu kimliği için Hello Transact-SQL metnini döndürür|
+|/Servers/Databases/topQueries/queryText/Read|Seçili sorgu kimliği için Transact-SQL metnini döndürür|
 |/Servers/Databases/topQueries/Statistics/Read|Döndürür seçili sorgu için çalışma zamanı istatistikleri seçilen zaman aralığı içinde toplanır.|
-|/Servers/Databases/connectionPolicies/Read|Belirli bir veritabanı üzerinde yapılandırılan hello bağlantı ilkesi ayrıntılarını alma|
+|/Servers/Databases/connectionPolicies/Read|Belirli bir veritabanı üzerinde yapılandırılan bağlantı ilkesi ayrıntılarını alma|
 |/Servers/Databases/connectionPolicies/Write|Verilen bir veritabanı için bağlantı ilkesini değiştirme|
 |/Servers/Databases/Metrics/Read|Veritabanı kaynak kullanımı ölçümlerini Döndür|
-|/Servers/Databases/auditRecords/Read|Merhaba veritabanı blob Denetim kayıtlarını alma|
+|/Servers/Databases/auditRecords/Read|Veritabanı blob Denetim kayıtlarını alma|
 |/Servers/Databases/transparentDataEncryption/Read|Durum ve verilen bir veritabanı için saydam veri şifreleme güvenlik özelliği ayrıntılarını alma|
 |/Servers/Databases/transparentDataEncryption/Write|Etkinleştirmek veya devre dışı verilen bir veritabanı için saydam veri şifreleme|
 |/Servers/Databases/transparentDataEncryption/operationResults/Read|Durum ve verilen bir veritabanı için saydam veri şifreleme güvenlik özelliği ayrıntılarını alma|
-|/Servers/Databases/auditingPolicies/Read|Verilen bir veritabanı üzerinde yapılandırılmış hello tablo denetim ilkesi ayrıntılarını alma|
-|/Servers/Databases/auditingPolicies/Write|Verilen bir veritabanı için Hello tablo denetim ilkesini değiştirme|
-|/Servers/Databases/dataWarehouseQueries/Read|Seçili sorgu kimliği için Hello veri ambarı dağıtım sorgu bilgilerini döndürür|
-|/ sunucuları / / dataWarehouseQueries/veritabanları<br>dataWarehouseQuerySteps/okuma|Seçili adımı kimliği için veri ambarı sorgusu sorgu adım bilgiler verir hello dağıtılmış|
-|/Servers/Databases/serviceTierAdvisors/Read|Sorgu yürütme istatistikleri tooimprove performansına dayalı veritabanı yukarı veya aşağı Ölçeklendirmesi hakkında öneri dönün veya maliyetini azaltmak|
-|/Servers/Databases/advisors/Read|Danışmanlar hello veritabanı için kullanılabilir bir listesini döndürür|
+|/Servers/Databases/auditingPolicies/Read|Belirli bir veritabanı üzerinde yapılandırılan tablo denetim ilkesi ayrıntılarını alma|
+|/Servers/Databases/auditingPolicies/Write|Verilen bir veritabanı için tablo denetim ilkesini değiştirme|
+|/Servers/Databases/dataWarehouseQueries/Read|Seçili sorgu kimliği için veri ambarı dağıtım sorgu bilgilerini döndürür|
+|/ sunucuları / / dataWarehouseQueries/veritabanları<br>dataWarehouseQuerySteps/okuma|Seçili adımı kimliği için veri ambarı sorgusu dağıtılmış sorgu adım bilgileri döndürür|
+|/Servers/Databases/serviceTierAdvisors/Read|Performansı veya maliyetini azaltmak için sorgu yürütme istatistikleri temel veritabanı yukarı veya aşağı Ölçeklendirmesi hakkında öneri Döndür|
+|/Servers/Databases/advisors/Read|Veritabanı için kullanılabilir danışmanlar listesini döndürür|
 |/Servers/Databases/advisors/Write|Güncelleştirme otomatik yürütme veritabanı düzeyinde bir advisor durumu.|
-|/Servers/Databases/advisors/recommendedActions/Read|Önerilen Eylemler hello veritabanı için belirtilen Danışmanı'nın listesini döndürür|
-|/Servers/Databases/advisors/recommendedActions/Write|Önerilen eylem hello veritabanında hello Uygula|
+|/Servers/Databases/advisors/recommendedActions/Read|Veritabanı için belirtilen Danışmanı'nın önerilen eylemleri listesini döndürür|
+|/Servers/Databases/advisors/recommendedActions/Write|Veritabanı üzerinde önerilen eylemi uygulayın|
 |/Servers/Databases/usages/Read|Ulaşılabilen dönüş veritabanı maksimum boyutu ve verilerle dolu geçerli boyutu|
-|/Servers/Databases/queryStore/Read|Merhaba veritabanı için Query Store ayarlarının geçerli değerleri döndürür|
-|/Servers/Databases/queryStore/Write|Yazılım güncelleştirmelerinin hello veritabanı için Query Store ayarı|
-|/Servers/Databases/auditingSettings/Read|Verilen bir veritabanı üzerinde yapılandırılmış hello blob denetim ilkesi ayrıntılarını alma|
-|/Servers/Databases/auditingSettings/Write|Verilen bir veritabanı için Hello blob denetim ilkesini değiştirme|
+|/Servers/Databases/queryStore/Read|Veritabanı için Query Store ayarlarının geçerli değerleri döndürür|
+|/Servers/Databases/queryStore/Write|Veritabanı için Query Store ayarı güncelleştirir|
+|/Servers/Databases/auditingSettings/Read|Belirli bir veritabanı üzerinde yapılandırılan blob denetim ilkesi ayrıntılarını alma|
+|/Servers/Databases/auditingSettings/Write|Verilen bir veritabanı için blob denetim ilkesini değiştirme|
 |/Servers/Databases/schemas/Tables/recommendedIndexes/Read|Bir veritabanı üzerinde dizin önerileri listesini alma|
 |/Servers/Databases/schemas/Tables/recommendedIndexes/Write|Dizin önerisi Uygula|
 |/Servers/Databases/schemas/Tables/Columns/Read|Bir tablodaki sütunların listesini alma|
-|/Servers/Databases/missingindexes/Read|Veritabanı dizinleri toocreate ilgili öneriler dönmek, değiştirmek veya sipariş tooimprove sorgu performansı silme|
+|/Servers/Databases/missingindexes/Read|Veritabanı dizinlerini oluşturmak, değiştirmek veya sorgu performansını artırmak için silmek için ilgili öneriler Döndür|
 |/Servers/Databases/missingindexes/Write|Belirli bir veritabanında veritabanı dizin önerilerini kullanın|
 |/Servers/Databases/importExportOperationResults/Read|Veritabanı alma ayrıntılarını döndürür veya depolama hesabında bulunan DacPac'den dışarı aktarma işlemi|
-|/Servers/importExportOperationResults/Read|Veritabanı alma işlemleri belirli bir sunucuda depolama hesabından ayrıntılarla dönüş hello listesi|
+|/Servers/importExportOperationResults/Read|Veritabanını içeri aktarma işlemleri için ayrıntıları listesiyle belirli bir sunucuda depolama hesabından Döndür|
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 | İşlem | Açıklama |
 |---|---|
-|/ Kayıt/eylem|Merhaba hello depolama kaynak sağlayıcısı için aboneliği kaydeder ve hello depolama hesaplarının oluşturulmasını etkinleştirir.|
+|/ Kayıt/eylem|Depolama kaynak sağlayıcısı için aboneliği kaydeder ve depolama hesaplarının oluşturulmasını etkinleştirir.|
 |/checknameavailability/Read|Hesap adının geçerliliğini ve kullanımda olup olmadığını denetler.|
-|/ storageAccounts/yazma|Belirtilen hello ile bir depolama hesabı oluşturur parametreleri güncelleştirme hello özellikleri veya etiketleri veya özel ekler hello için etki alanı belirtilen depolama hesabı.|
+|/ storageAccounts/yazma|Belirtilen parametrelerle bir depolama hesabı oluşturur, özellikleri veya etiketleri güncelleştirir ya da belirtilen depolama hesabına özel etki alanı ekler.|
 |/storageAccounts/DELETE|Mevcut bir depolama hesabını siler.|
-|/storageAccounts/listkeys/Action|Belirtilen depolama hesaba hello hello erişim anahtarlarını döndürür.|
-|/storageAccounts/regeneratekey/Action|Belirtilen depolama hesaba hello hello erişim anahtarlarını yeniden oluşturur.|
-|/storageAccounts/Read|Depolama hesaplarının listesini döndürür hello veya hello alır hello özelliklerini depolama hesabı belirtildi.|
-|/storageAccounts/listAccountSas/Action|Döndürür hello hesap SAS belirteci hello için depolama hesabı belirtilmedi.|
+|/storageAccounts/listkeys/Action|Belirtilen depolama hesabının erişim anahtarlarını döndürür.|
+|/storageAccounts/regeneratekey/Action|Belirtilen depolama hesabının erişim anahtarlarını yeniden oluşturur.|
+|/storageAccounts/Read|Depolama hesaplarının listesini döndürür veya belirtilen depolama hesabının özelliklerini alır.|
+|/storageAccounts/listAccountSas/Action|Belirtilen depolama hesabı için hesap SAS belirteci döndürür.|
 |/storageAccounts/listServiceSas/Action|Depolama hizmet SAS belirteci|
 |/storageAccounts/Services/diagnosticSettings/Write|Depolama hesabı tanılama ayarlarını oluştur/güncelleştir.|
-|/skus/Read|Merhaba Microsoft.Storage tarafından desteklenen SKU'ları listeler.|
-|/usages/Read|Sınır döndürür hello ve abonelik hello hello kaynaklarında geçerli kullanım sayısını belirtilen|
-|/Operations/Read|Zaman uyumsuz bir işlem yoklamalar hello durumu.|
+|/skus/Read|Microsoft.Storage tarafından desteklenen SKU'ları listeler.|
+|/usages/Read|Belirtilen abonelikteki kaynakların sınır ve geçerli kullanım sayısını döndürür|
+|/Operations/Read|Bir zaman uyumsuz işlemin durumunu yoklar.|
 |/Locations/deleteVirtualNetworkOrSubnets/Action|Sanal ağ veya alt ağ silindiğinden emin Microsoft.Storage bildirir|
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
 | İşlem | Açıklama |
 |---|---|
-|/managers/clearAlerts/Action|Merhaba Aygıt Yöneticisi ile ilişkili tüm hello uyarıların temizleyin.|
-|/managers/getActivationKey/Action|Merhaba Aygıt Yöneticisi'ni etkinleştirme anahtarı edinin.|
-|/managers/regenerateActivationKey/Action|Merhaba Aygıt Yöneticisi'ni etkinleştirme anahtarı yeniden oluşturun.|
-|/managers/regenarateRegistationCertificate/Action|Kayıt sertifikası hello cihaz yöneticileri için yeniden oluşturun.|
-|/managers/getEncryptionKey/Action|Merhaba Aygıt Yöneticisi'ni için şifreleme anahtarı alma.|
-|/managers/Read|Merhaba cihaz Yöneticileri alır veya listeler|
-|/managers/DELETE|Merhaba cihaz yöneticileri siler|
-|/ yöneticileri/yazma|Merhaba cihaz yöneticileri güncelle|
+|/managers/clearAlerts/Action|Aygıt Yöneticisi ile ilişkili tüm uyarıları temizleyin.|
+|/managers/getActivationKey/Action|Etkinleştirme anahtarı için Aygıt Yöneticisi'ni alın.|
+|/managers/regenerateActivationKey/Action|Etkinleştirme anahtarı için Aygıt Yöneticisi'ni yeniden oluşturun.|
+|/managers/regenarateRegistationCertificate/Action|Kayıt sertifikası için cihaz yöneticileri yeniden oluşturun.|
+|/managers/getEncryptionKey/Action|Şifreleme anahtarı için Aygıt Yöneticisi'ni alma.|
+|/managers/Read|Cihaz Yöneticileri alır veya listeler|
+|/managers/DELETE|Cihaz yöneticileri siler|
+|/ yöneticileri/yazma|Cihaz yöneticileri güncelle|
 |/managers/configureDevice/Action|Bir aygıt yapılandırır|
-|/managers/listActivationKey/Action|Merhaba StorSimple Aygıt Yöneticisi'ni Hello etkinleştirme anahtarı alır.|
+|/managers/listActivationKey/Action|StorSimple cihaz Yöneticisi'nin etkinleştirme anahtarı alır.|
 |/managers/listPublicEncryptionKey/Action|Ortak şifreleme anahtarlarını bir StorSimple cihaz Yöneticisi'nin listeleyin.|
 |/managers/listPrivateEncryptionKey/Action|Özel şifreleme anahtarı için bir StorSimple cihaz Yöneticisi alır.|
 |/managers/provisionCloudAppliance/Action|Yeni bir bulut uygulaması oluşturun.|
 |/ Yöneticileri/yazma|Kasa Oluştur işlemi, 'vault' türünde bir Azure kaynağı oluşturur|
-|/ Yöneticileri/okuma|Merhaba kasası alma işlemi hello Azure kaynak türü 'Kasası' temsil eden bir nesneyi alır|
-|/ Yöneticileri/silme|Azure kaynak türü 'Kasası' Hello kasa silme işlemi siler hello belirtildi|
-|/managers/storageAccountCredentials/Write|Oluşturma veya hello depolama hesabının kimlik bilgilerini güncelleştirme|
-|/managers/storageAccountCredentials/Read|Merhaba depolama hesabının kimlik bilgilerini alır veya listeler|
-|/managers/storageAccountCredentials/DELETE|Merhaba depolama hesabının kimlik bilgilerini siler|
+|/ Yöneticileri/okuma|Kasa alma işlemi Azure kaynak türü 'Kasası' temsil eden bir nesneyi alır|
+|/ Yöneticileri/silme|Kasa silme işlemi 'Kasası' türünde belirtilen Azure kaynak siler|
+|/managers/storageAccountCredentials/Write|Depolama hesabı bilgilerini güncelle|
+|/managers/storageAccountCredentials/Read|Depolama hesabı bilgilerini alır veya listeler|
+|/managers/storageAccountCredentials/DELETE|Depolama hesabı bilgilerini siler|
 |/managers/storageAccountCredentials/listAccessKey/Action|Depolama hesabı kimlik bilgileri listesi erişim tuşları|
-|/managers/accessControlRecords/Read|Merhaba erişim denetimi kayıtları alır veya listeler|
-|/managers/accessControlRecords/Write|Merhaba erişim denetimi kayıtları oluştur veya güncelleştir|
-|/managers/accessControlRecords/DELETE|Merhaba erişim denetimi kayıtları siler|
-|/managers/Metrics/Read|Merhaba ölçümleri alır veya listeler|
-|/managers/bandwidthSettings/Read|Liste hello bant genişliği ayarları (yalnızca 8000 Series)|
+|/managers/accessControlRecords/Read|Erişim denetimi kayıtları alır veya listeler|
+|/managers/accessControlRecords/Write|Erişim denetimi kayıtları oluştur veya güncelleştir|
+|/managers/accessControlRecords/DELETE|Erişim denetimi kayıtları siler|
+|/managers/Metrics/Read|Ölçümleri alır veya listeler|
+|/managers/bandwidthSettings/Read|Bant genişliği ayarlarını listesi (yalnızca 8000 Series)|
 |/managers/bandwidthSettings/Write|Yeni bir oluşturur veya güncelleştirir bant genişliği ayarları (yalnızca 8000 Series)|
 |/managers/bandwidthSettings/DELETE|Var olan bir bant genişliği ayarları siler (yalnızca 8000 Series)|
-|/ Yöneticileri/extendedInformation/okuma|Merhaba genişletilmiş bilgi al işlemi hello Azure kaynak türü temsil eden bir nesnenin genişletilmiş bilgisi alır? kasası?|
-|/ Yöneticileri/extendedInformation/yazma|Merhaba genişletilmiş bilgi al işlemi hello Azure kaynak türü temsil eden bir nesnenin genişletilmiş bilgisi alır? kasası?|
-|/ Yöneticileri/extendedInformation/silme|Merhaba genişletilmiş bilgi al işlemi hello Azure kaynak türü temsil eden bir nesnenin genişletilmiş bilgisi alır? kasası?|
-|/managers/Alerts/Read|Merhaba uyarıları alır veya listeler|
-|/managers/storageDomains/Read|Merhaba depolama etki alanları alır veya listeler|
-|/managers/storageDomains/Write|Oluşturma veya güncelleme hello depolama etki alanları|
-|/managers/storageDomains/DELETE|Merhaba depolama etki alanları siler|
+|/ Yöneticileri/extendedInformation/okuma|Daha Fazla Bilgi Al işlemi, ?vault? türündeki Azure kaynağını temsil eden nesnenin Daha Fazla Bilgi değerini alır.|
+|/ Yöneticileri/extendedInformation/yazma|Daha Fazla Bilgi Al işlemi, ?vault? türündeki Azure kaynağını temsil eden nesnenin Daha Fazla Bilgi değerini alır.|
+|/ Yöneticileri/extendedInformation/silme|Daha Fazla Bilgi Al işlemi, ?vault? türündeki Azure kaynağını temsil eden nesnenin Daha Fazla Bilgi değerini alır.|
+|/managers/Alerts/Read|Uyarıları alır veya listeler|
+|/managers/storageDomains/Read|Depolama etki alanları alır veya listeler|
+|/managers/storageDomains/Write|Oluşturma veya güncelleme depolama etki alanları|
+|/managers/storageDomains/DELETE|Depolama etki alanları siler|
 |/managers/Devices/scanForUpdates/Action|Bir cihaz güncelleştirmeleri için tarama.|
 |/managers/Devices/download/Action|Bir aygıt için dowload güncelleştirmeler.|
 |/managers/Devices/install/Action|Bir cihazda güncelleştirmeleri yükleyin.|
-|/managers/Devices/Read|Merhaba aygıtları alır veya listeler|
-|/managers/Devices/Write|Merhaba aygıtları güncelle|
-|/managers/Devices/DELETE|Merhaba aygıtları siler|
+|/managers/Devices/Read|Aygıtları alır veya listeler|
+|/managers/Devices/Write|Aygıtları güncelle|
+|/managers/Devices/DELETE|Aygıtları siler|
 |/managers/Devices/Deactivate/Action|Bir aygıtı devre dışı bırakır.|
 |/managers/Devices/publishSupportPackage/Action|Destek paketi Microsoft Support sorun giderme için bir cihazın yayımlayın.|
-|/managers/Devices/Failover/Action|Merhaba aygıt yük devretmesi.|
-|/managers/Devices/sendTestAlertEmail/Action|Tooconfigured e-posta alıcılarını test uyarı e-posta gönderin.|
-|/managers/Devices/installUpdates/Action|Merhaba cihazlarda güncelleştirmeleri yükler|
-|/managers/Devices/listFailoverSets/Action|Liste hello yük devretme için varolan bir cihazın ayarlar.|
-|/managers/Devices/listFailoverTargets/Action|Merhaba aygıtların listesi yük devri hedefleri|
-|/managers/Devices/publicEncryptionKey/Action|Merhaba Aygıt Yöneticisi'nin listesini ortak şifreleme anahtarı|
-|/ yöneticileri/aygıtları/hardwareComponentGroups /<br>Okuma|Liste hello donanım bileşen grupları|
+|/managers/Devices/Failover/Action|Cihaz yük devretmesi.|
+|/managers/Devices/sendTestAlertEmail/Action|Yapılandırılan e-posta alıcılara test uyarı e-posta gönderin.|
+|/managers/Devices/installUpdates/Action|Aygıtlarda güncelleştirmeleri yükler|
+|/managers/Devices/listFailoverSets/Action|Varolan bir aygıt için yük devretme kümeleri listeleyin.|
+|/managers/Devices/listFailoverTargets/Action|Aygıtların listesi yük devri hedefleri|
+|/managers/Devices/publicEncryptionKey/Action|Aygıt Yöneticisi'ni listesi ortak şifreleme anahtarı|
+|/ yöneticileri/aygıtları/hardwareComponentGroups /<br>Okuma|Donanım bileşen grupları listesi|
 |/ yöneticileri/aygıtları/hardwareComponentGroups /<br>changeControllerPowerState/eylem|Donanım bileşen grupları denetleyicisi güç durumunu değiştir|
-|/managers/Devices/Metrics/Read|Merhaba ölçümleri alır veya listeler|
-|/managers/Devices/chapSettings/Write|Oluşturma veya güncelleştirme hello Chap ayarları|
-|/managers/Devices/chapSettings/Read|Merhaba Chap ayarları alır veya listeler|
-|/managers/Devices/chapSettings/DELETE|Merhaba Chap ayarları siler|
-|/managers/Devices/backupScheduleGroups/Read|Merhaba Yedekleme Zamanlama grupları alır veya listeler|
-|/managers/Devices/backupScheduleGroups/Write|Merhaba yedekleme zamanlaması grupları oluştur veya güncelleştir|
-|/managers/Devices/backupScheduleGroups/DELETE|Merhaba Yedekleme Zamanlama grupları siler|
-|/managers/Devices/updateSummary/Read|Merhaba güncelleştirme özeti alır veya listeler|
+|/managers/Devices/Metrics/Read|Ölçümleri alır veya listeler|
+|/managers/Devices/chapSettings/Write|Chap ayarları güncelle|
+|/managers/Devices/chapSettings/Read|Chap ayarları alır veya listeler|
+|/managers/Devices/chapSettings/DELETE|Chap ayarları siler|
+|/managers/Devices/backupScheduleGroups/Read|Yedeklemeyi zamanlama grupları alır veya listeler|
+|/managers/Devices/backupScheduleGroups/Write|Yedekleme zamanlaması grupları oluştur veya güncelleştir|
+|/managers/Devices/backupScheduleGroups/DELETE|Yedekleme zamanlaması gruplarını siler|
+|/managers/Devices/updateSummary/Read|Güncelleştirme özeti alır veya listeler|
 |/ yöneticileri/aygıtları/migrationSourceConfigurations /<br>Alma/eylem|Geçiş için kaynak yapılandırmaları alma|
-|/ yöneticileri/aygıtları/migrationSourceConfigurations /<br>startMigrationEstimate/eylem|Bir iş tooestimate hello süresi hello geçiş işlemi başlatın.|
+|/ yöneticileri/aygıtları/migrationSourceConfigurations /<br>startMigrationEstimate/eylem|Geçiş işleminin süresi tahmin etmek için bir proje başlatın.|
 |/ yöneticileri/aygıtları/migrationSourceConfigurations /<br>startMigration/eylem|Kaynak yapılandırmaları kullanarak geçiş Başlat|
 |/ yöneticileri/aygıtları/migrationSourceConfigurations /<br>confirmMigration/eylem|Başarılı bir geçiş doğrular ve onu uygulayın.|
-|/ yöneticileri/aygıtları/migrationSourceConfigurations /<br>fetchMigrationEstimate/eylem|Merhaba durum hello geçiş tahmin işinin getirin.|
-|/ yöneticileri/aygıtları/migrationSourceConfigurations /<br>fetchMigrationStatus/eylem|Merhaba durum hello geçiş için getirin.|
-|/ yöneticileri/aygıtları/migrationSourceConfigurations /<br>fetchConfirmMigrationStatus/eylem|Fetch hello geçişinin durumunu doğrulayın.|
-|/managers/Devices/alertSettings/Read|Merhaba uyarı ayarlarını alır veya listeler|
-|/managers/Devices/alertSettings/Write|Oluşturma veya hello uyarı ayarlarını güncelleştirme|
-|/managers/Devices/networkSettings/Read|Merhaba ağ ayarlarını alır veya listeler|
+|/ yöneticileri/aygıtları/migrationSourceConfigurations /<br>fetchMigrationEstimate/eylem|Durum geçiş tahmin işinin getirin.|
+|/ yöneticileri/aygıtları/migrationSourceConfigurations /<br>fetchMigrationStatus/eylem|Geçiş için durum getirin.|
+|/ yöneticileri/aygıtları/migrationSourceConfigurations /<br>fetchConfirmMigrationStatus/eylem|Geçiş Onayla durumunu getirin.|
+|/managers/Devices/alertSettings/Read|Uyarı ayarlarını alır veya listeler|
+|/managers/Devices/alertSettings/Write|Uyarı ayarlarını güncelle|
+|/managers/Devices/networkSettings/Read|Ağ ayarlarını alır veya listeler|
 |/managers/Devices/networkSettings/Write|Yeni bir oluşturur veya ağ ayarlarını güncelleştirir|
-|/managers/Devices/Jobs/Read|Merhaba işleri alır veya listeler|
+|/managers/Devices/Jobs/Read|İşlerini alır veya listeler|
 |/managers/Devices/Jobs/Cancel/Action|Bir çalışan işi iptal etme|
-|/managers/Devices/metricsDefinitions/Read|Merhaba ölçümleri tanımlarını alır veya listeler|
+|/managers/Devices/metricsDefinitions/Read|Ölçüm tanımlarını alır veya listeler|
 |/managers/Devices/volumeContainers/Write|Yeni bir oluşturur veya güncelleştirir birim kapsayıcıları (yalnızca 8000 Series)|
-|/managers/Devices/volumeContainers/Read|Liste hello birim kapsayıcıları (yalnızca 8000 Series)|
+|/managers/Devices/volumeContainers/Read|Birim kapsayıcıları listesi (yalnızca 8000 Series)|
 |/managers/Devices/volumeContainers/DELETE|Var olan bir birim kapsayıcıları siler (yalnızca 8000 Series)|
 |/managers/Devices/volumeContainers/listEncryptionKeys/Action|Birim kapsayıcıları şifreleme anahtarlarının listesi|
 |/managers/Devices/volumeContainers/rolloverEncryptionKey/Action|Geçiş şifreleme anahtarlarının birim kapsayıcıları|
-|/managers/Devices/volumeContainers/Metrics/Read|Liste hello ölçümleri|
-|/managers/Devices/volumeContainers/Volumes/Read|Liste hello birimleri|
+|/managers/Devices/volumeContainers/Metrics/Read|Ölçümleri listesi|
+|/managers/Devices/volumeContainers/Volumes/Read|Birimleri listesi|
 |/managers/Devices/volumeContainers/Volumes/Write|Yeni bir oluşturur veya birimleri güncelleştirir|
 |/managers/Devices/volumeContainers/Volumes/DELETE|Var olan birimler siler|
-|/managers/Devices/volumeContainers/Volumes/Metrics/Read|Liste hello ölçümleri|
-|/managers/Devices/volumeContainers/Volumes/metricsDefinitions/Read|Liste hello ölçümleri tanımları|
-|/managers/Devices/volumeContainers/metricsDefinitions/Read|Liste hello ölçümleri tanımları|
-|/managers/Devices/iscsiservers/Read|Merhaba iSCSI sunucuları alır veya listeler|
-|/managers/Devices/iscsiservers/Write|Merhaba iSCSI sunucuları güncelle|
-|/managers/Devices/iscsiservers/DELETE|Merhaba iSCSI sunucuları siler|
+|/managers/Devices/volumeContainers/Volumes/Metrics/Read|Ölçümleri listesi|
+|/managers/Devices/volumeContainers/Volumes/metricsDefinitions/Read|Ölçümleri tanımları listesi|
+|/managers/Devices/volumeContainers/metricsDefinitions/Read|Ölçümleri tanımları listesi|
+|/managers/Devices/iscsiservers/Read|İSCSI sunucuları alır veya listeler|
+|/managers/Devices/iscsiservers/Write|İSCSI sunucuları güncelle|
+|/managers/Devices/iscsiservers/DELETE|İSCSI sunucuları siler|
 |/managers/Devices/iscsiservers/Backup/Action|Bir iSCSI sunucusu yedek alın.|
-|/managers/Devices/iscsiservers/Metrics/Read|Merhaba ölçümleri alır veya listeler|
-|/managers/Devices/iscsiservers/Disks/Read|Merhaba diskleri alır veya listeler|
-|/managers/Devices/iscsiservers/Disks/Write|Merhaba diskleri güncelle|
-|/managers/Devices/iscsiservers/Disks/DELETE|Merhaba diskleri siler|
-|/managers/Devices/iscsiservers/Disks/Metrics/Read|Merhaba ölçümleri alır veya listeler|
-|/managers/Devices/iscsiservers/Disks/metricsDefinitions/Read|Merhaba ölçümleri tanımlarını alır veya listeler|
-|/managers/Devices/iscsiservers/metricsDefinitions/Read|Merhaba ölçümleri tanımlarını alır veya listeler|
-|/managers/Devices/Backups/Read|Merhaba yedekleme kümesi alır veya listeler|
-|/managers/Devices/Backups/DELETE|Yedekleme kümesi siler hello|
-|/managers/Devices/Backups/Restore/Action|Tüm hello birimleri yedekleme kümesinden geri yükleyin.|
+|/managers/Devices/iscsiservers/Metrics/Read|Ölçümleri alır veya listeler|
+|/managers/Devices/iscsiservers/Disks/Read|Diskleri alır veya listeler|
+|/managers/Devices/iscsiservers/Disks/Write|Diskleri güncelle|
+|/managers/Devices/iscsiservers/Disks/DELETE|Diskleri siler|
+|/managers/Devices/iscsiservers/Disks/Metrics/Read|Ölçümleri alır veya listeler|
+|/managers/Devices/iscsiservers/Disks/metricsDefinitions/Read|Ölçüm tanımlarını alır veya listeler|
+|/managers/Devices/iscsiservers/metricsDefinitions/Read|Ölçüm tanımlarını alır veya listeler|
+|/managers/Devices/Backups/Read|Yedekleme kümesini alır veya listeler|
+|/managers/Devices/Backups/DELETE|Yedekleme kümesini siler|
+|/managers/Devices/Backups/Restore/Action|Tüm birimlerin bir yedekleme kümesinden geri yükleyin.|
 |/managers/Devices/Backups/Elements/Clone/Action|Bir paylaşımı veya bir yedekleme öğesi kullanarak birimi kopyalama.|
 |/managers/Devices/backupPolicies/Write|Yeni bir oluşturur veya yedekleme ilkeleri güncelleştirir (yalnızca 8000 Series)|
-|/managers/Devices/backupPolicies/Read|Liste hello yedekleme ilkeleri (yalnızca 8000 Series)|
+|/managers/Devices/backupPolicies/Read|(Yalnızca 8000 serisi) listesi yedekleme ilkeleri|
 |/managers/Devices/backupPolicies/DELETE|Mevcut bir yedekleme ilkeleri siler (yalnızca 8000 Series)|
-|/managers/Devices/backupPolicies/Backup/Action|El ile yedekleme toocreate isteğe hello İlkesi tarafından korunan tüm hello birimlerin yedek alın.|
+|/managers/Devices/backupPolicies/Backup/Action|İsteğe bağlı oluşturmak için el ile yedekleme İlkesi tarafından korunan tüm birimlerin yedek alın.|
 |/managers/Devices/backupPolicies/Schedules/Write|Yeni bir oluşturur veya zamanlamaları güncelleştirir|
-|/managers/Devices/backupPolicies/Schedules/Read|Liste hello zamanlamaları|
+|/managers/Devices/backupPolicies/Schedules/Read|Zamanlamaları listesi|
 |/managers/Devices/backupPolicies/Schedules/DELETE|Var olan zamanlamalar siler|
-|/managers/Devices/securitySettings/Update/Action|Merhaba güvenlik ayarlarını güncelleştirin.|
-|/managers/Devices/securitySettings/Read|Liste hello güvenlik ayarları|
-|/ yöneticileri/aygıtları/securitySettings /<br>syncRemoteManagementCertificate/eylem|Bir aygıt için Hello uzak yönetim sertifikası eşitleyin.|
+|/managers/Devices/securitySettings/Update/Action|Güvenlik ayarlarını güncelleştirin.|
+|/managers/Devices/securitySettings/Read|Güvenlik ayarları listesi|
+|/ yöneticileri/aygıtları/securitySettings /<br>syncRemoteManagementCertificate/eylem|Bir aygıtı için uzaktan yönetim sertifikası eşitleyin.|
 |/managers/Devices/securitySettings/Write|Yeni bir oluşturur veya güvenlik ayarlarını güncelleştirir|
-|/managers/Devices/fileservers/Read|Merhaba dosya sunucuları alır veya listeler|
-|/managers/Devices/fileservers/Write|Oluşturma veya güncelleştirme hello dosya sunucuları|
-|/managers/Devices/fileservers/DELETE|Merhaba dosya sunucuları siler|
+|/managers/Devices/fileservers/Read|Dosya sunucuları alır veya listeler|
+|/managers/Devices/fileservers/Write|Dosya sunucuları güncelle|
+|/managers/Devices/fileservers/DELETE|Dosya sunucuları siler|
 |/managers/Devices/fileservers/Backup/Action|Bir dosya sunucusunda yedekleme gerçekleştirin.|
-|/managers/Devices/fileservers/Metrics/Read|Merhaba ölçümleri alır veya listeler|
-|/managers/Devices/fileservers/Shares/Write|Merhaba paylaşımları güncelle|
-|/managers/Devices/fileservers/Shares/Read|Merhaba paylaşımları alır veya listeler|
-|/managers/Devices/fileservers/Shares/delete|Merhaba paylaşımları siler|
-|/managers/Devices/fileservers/Shares/Metrics/Read|Merhaba ölçümleri alır veya listeler|
-|/managers/Devices/fileservers/Shares/metricsDefinitions/Read|Merhaba ölçümleri tanımlarını alır veya listeler|
-|/managers/Devices/fileservers/metricsDefinitions/Read|Merhaba ölçümleri tanımlarını alır veya listeler|
-|/managers/Devices/timeSettings/Read|Merhaba saat ayarlarını alır veya listeler|
+|/managers/Devices/fileservers/Metrics/Read|Ölçümleri alır veya listeler|
+|/managers/Devices/fileservers/Shares/Write|Paylaşımlar güncelle|
+|/managers/Devices/fileservers/Shares/Read|Paylaşımlar alır veya listeler|
+|/managers/Devices/fileservers/Shares/delete|Paylaşımlar siler|
+|/managers/Devices/fileservers/Shares/Metrics/Read|Ölçümleri alır veya listeler|
+|/managers/Devices/fileservers/Shares/metricsDefinitions/Read|Ölçüm tanımlarını alır veya listeler|
+|/managers/Devices/fileservers/metricsDefinitions/Read|Ölçüm tanımlarını alır veya listeler|
+|/managers/Devices/timeSettings/Read|Saat ayarlarını alır veya listeler|
 |/managers/Devices/timeSettings/Write|Yeni bir oluşturur veya saat ayarlarını güncelleştirir|
-|/ Yöneticileri/sertifika/yazma|Merhaba güncelleştirme kaynak sertifika işlemi hello kaynak/kasa kimlik bilgileri sertifikası güncelleştirir.|
-|/managers/cloudApplianceConfigurations/Read|Liste hello bulut Gereci desteklenen yapılandırmalar|
-|/managers/metricsDefinitions/Read|Merhaba ölçümleri tanımlarını alır veya listeler|
-|/managers/encryptionSettings/Read|Merhaba şifreleme ayarlarını alır veya listeler|
+|/ Yöneticileri/sertifika/yazma|Güncelleştirme kaynağı sertifika işlemi kaynak/kasa kimlik bilgileri sertifikası güncelleştirir.|
+|/managers/cloudApplianceConfigurations/Read|Liste bulut uygulaması desteklenen yapılandırmalar|
+|/managers/metricsDefinitions/Read|Ölçüm tanımlarını alır veya listeler|
+|/managers/encryptionSettings/Read|Şifreleme ayarları alır veya listeler|
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 
@@ -1938,10 +1938,10 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/ streamingjobs/okuma|Akış analizi işi okuma|
 |/ streamingjobs/yazma|Akış analizi işi yazma|
 |/ streamingjobs/Sil|Akış analizi işi Sil|
-|/streamingjobs/providers/Microsoft.Insights/metricDefinitions/Read|İçin streamingjobs Hello kullanılabilir ölçümleri alır|
+|/streamingjobs/providers/Microsoft.Insights/metricDefinitions/Read|Streamingjobs için kullanılabilir ölçümleri alır|
 |/streamingjobs/providers/Microsoft.Insights/diagnosticSettings/Read|Tanılama ayarını okuyun.|
 |/streamingjobs/providers/Microsoft.Insights/diagnosticSettings/Write|Tanılama ayarını yazma.|
-|/streamingjobs/providers/Microsoft.Insights/logDefinitions/Read|İçin streamingjobs Hello kullanılabilir günlüklerini alır|
+|/streamingjobs/providers/Microsoft.Insights/logDefinitions/Read|Streamingjobs için kullanılabilir günlüklerini alır|
 |/streamingjobs/Transformations/Read|Okuma Stream Analytics işi dönüştürme|
 |/streamingjobs/Transformations/Write|Stream Analytics işi dönüştürme yazma|
 |/streamingjobs/Transformations/DELETE|Stream Analytics işi dönüştürme Sil|
@@ -1956,25 +1956,25 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 
 | İşlem | Açıklama |
 |---|---|
-|/ Kayıt/eylem|TooSupport kaynak sağlayıcısını kaydeder|
-|/supportTickets/Read|(Durum, önem derecesi, kişi ayrıntıları ve iletişimler dahil) destek biletleri ayrıntılarını alır veya Aboneliklerdeki destek biletleri hello listesini alır.|
+|/ Kayıt/eylem|Destek Kaynağı Sağlayıcısına Kayıt Yapar|
+|/supportTickets/Read|Durum, önem derecesi, kişi ayrıntıları ve iletişimler gibi Destek Biletleri ayrıntılarını alır veya aboneliklerdeki Destek Biletleri listesini alır.|
 |/ supportTickets/yazma|Oluşturur veya bir destek bileti güncelleştirir. Bir destek bileti oluşturabilirsiniz teknik için faturalama, kota veya abonelik yönetimi ile ilgili sorunlar. Önem derecesi, kişi ayrıntıları ve iletişimler için mevcut destek biletlerinin güncelleştirebilirsiniz.|
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 
 | İşlem | Açıklama |
 |---|---|
-|/ kaydı/eylem|Merhaba aboneliği için Microsoft.Web kaynak sağlayıcısı kaydını silin.|
+|/ kaydı/eylem|Aboneliği için Microsoft.Web kaynak sağlayıcısı kaydını silin.|
 |/ Doğrula/eylem|Doğrulayın.|
-|/ Kayıt/eylem|Microsoft.Web kaynak sağlayıcısı hello abonelik için kaydolun.|
-|/ hostingEnvironments/okuma|Uygulama hizmeti ortamı'Hello özelliklerini alır|
+|/ Kayıt/eylem|Microsoft.Web kaynak sağlayıcısı abonelik için kaydolun.|
+|/ hostingEnvironments/okuma|Bir uygulama hizmeti ortamı özelliklerini alır|
 |/ hostingEnvironments/yazma|Yeni bir uygulama hizmeti ortamı oluşturma veya varolan bir güncelleştirme|
 |/ hostingEnvironments/Sil|Bir uygulama hizmeti ortamını silme|
 |/hostingEnvironments/reboot/Action|Uygulama hizmeti ortamı'nda tüm makineleri yeniden başlatın|
 |/hostingenvironments/Resume/Action|Barındırma ortamları sürdürün.|
 |/hostingenvironments/suspend/Action|Barındırma ortamları askıya alın.|
 |/hostingenvironments/metricdefinitions/Read|Ortamlar ölçüm tanımlarını barındırma alın.|
-|/hostingEnvironments/workerPools/Read|Bir uygulama hizmeti ortamı çalışan havuzunda Hello özelliklerini alır|
+|/hostingEnvironments/workerPools/Read|Bir uygulama hizmeti ortamı çalışan havuzunda özelliklerini alır|
 |/hostingEnvironments/workerPools/Write|Uygulama hizmeti ortamı'nda yeni bir çalışan havuzu oluşturmak veya mevcut bir güncelleştirme|
 |/hostingenvironments/workerpools/metricdefinitions/Read|Ortamlar Workerpools ölçüm tanımlarını barındırma alın.|
 |/hostingenvironments/workerpools/Metrics/Read|Ortamlar Workerpools ölçümleri barındırma alın.|
@@ -1985,7 +1985,7 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/hostingenvironments/usages/Read|Ortamlar kullanımları barındırma alın.|
 |/hostingenvironments/capacities/Read|Ortamlar kapasiteleri barındırma alın.|
 |/hostingenvironments/Operations/Read|Ortamlar işlemleri barındırma alın.|
-|/hostingEnvironments/multiRolePools/Read|Bir uygulama hizmeti ortamı ön uç havuzunda Hello özelliklerini alır|
+|/hostingEnvironments/multiRolePools/Read|Bir uygulama hizmeti ortamı ön uç havuzunda özelliklerini alır|
 |/hostingEnvironments/multiRolePools/Write|Uygulama hizmeti ortamı'nda yeni bir ön uç havuzu oluşturmak veya mevcut bir güncelleştirme|
 |/hostingenvironments/multirolepools/metricdefinitions/Read|Ortamlar birden havuzları ölçüm tanımlarını barındırma alın.|
 |/hostingenvironments/multirolepools/Metrics/Read|Ortamlar birden havuzları ölçümleri barındırma alın.|
@@ -1995,8 +1995,8 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/publishingusers/Read|Kullanıcılar yayımlanıyor alın.|
 |/ publishingusers/yazma|Kullanıcılar yayımlanıyor güncelleştirin.|
 |/checknameavailability/Read|Kaynak adı kullanılabilir olup olmadığını denetleyin.|
-|/ geoRegions/okuma|Coğrafi bölgeler Hello listesini alın.|
-|/ Siteler/okuma|Bir Web uygulaması Hello özelliklerini alır|
+|/ geoRegions/okuma|Coğrafi bölgelerin listesini alın.|
+|/ Siteler/okuma|Bir Web uygulaması özelliklerini alır|
 |/ Siteler/yazma|Yeni bir Web uygulaması oluşturun veya var olan bir güncelleştirme|
 |/ Siteler/Sil|Var olan bir Web uygulamasının Sil|
 |/Sites/Backup/Action|Yeni bir web uygulaması yedekleme oluşturma|
@@ -2007,7 +2007,7 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/Sites/Stop/Action|Bir Web uygulamasını Durdur|
 |/Sites/slotsswap/Action|Web uygulaması dağıtım yuvalarını değiştirme|
 |/Sites/slotsdiffs/Action|Web uygulaması yuvaları arasındaki farklar yapılandırmasında Al|
-|/Sites/applySlotConfig/Action|Hedef yuva toohello geçerli web uygulamasından Web uygulaması yuvası yapılandırmasını Uygula|
+|/Sites/applySlotConfig/Action|Itanium tabanlı sistemler için Web uygulaması yuvası yapılandırması hedef yuvadan geçerli web uygulaması için geçerlidir|
 |/Sites/resetSlotConfig/Action|Web uygulaması yapılandırmasında Sıfırla|
 |/Sites/Functions/Action|İşlevler Web uygulamaları.|
 |/Sites/listsyncfunctiontriggerstatus/Action|Liste eşitleme işlevi tetikleyici durum Web uygulamaları.|
@@ -2054,9 +2054,9 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/Sites/slots/Stop/Action|Bir Web uygulaması yuvası Durdur|
 |/Sites/slots/slotsswap/Action|Web uygulaması dağıtım yuvalarını değiştirme|
 |/Sites/slots/slotsdiffs/Action|Web uygulaması yuvaları arasındaki farklar yapılandırmasında Al|
-|/Sites/slots/applySlotConfig/Action|Web uygulaması yuvası yapılandırması yuvadan hedef yuva toohello geçerli uygulayın.|
+|/Sites/slots/applySlotConfig/Action|Itanium tabanlı sistemler için Web uygulaması yuvası yapılandırması hedef yuvadan geçerli yuvası için geçerlidir.|
 |/Sites/slots/resetSlotConfig/Action|Web uygulaması yuvası yapılandırması Sıfırla|
-|/Sites/slots/Read|Bir Web uygulaması dağıtım yuvası Hello özelliklerini alır|
+|/Sites/slots/Read|Bir Web uygulaması dağıtım yuvası özelliklerini alır|
 |/Sites/slots/NewPassword/Action|#Newpassword Web Apps yuvaları.|
 |/Sites/slots/Sync/Action|Eşitleme Web Apps yuvaları.|
 |/Sites/slots/operationresults/Read|Web uygulamaları yuvaları İşlem sonuçlarını alır.|
@@ -2098,7 +2098,7 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/Sites/slots/sourcecontrols/DELETE|Web uygulaması yuvası'nın kaynak denetimini yapılandırma ayarlarını Sil|
 |/Sites/slots/Restore/Read|Web uygulamaları yuvaları geri alın.|
 |/Sites/slots/analyzecustomhostname/Read|Web alma uygulamaları yuvaları analiz özel ana bilgisayar adı.|
-|/Sites/slots/Backups/Read|Bir web uygulaması yuvaları yedekleme Hello özelliklerini alır|
+|/Sites/slots/Backups/Read|Bir web uygulaması yuvaları yedekleme özelliklerini alır|
 |/Sites/slots/Backups/List/Action|Liste Web Apps yuvaları yedeklemeler.|
 |/Sites/slots/Backups/Restore/Action|Web uygulamaları yuvaları yedekleri geri yükleyin.|
 |/Sites/slots/Deployments/DELETE|Web uygulamaları yuvaları dağıtımları silin.|
@@ -2109,7 +2109,7 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/Sites/hybridconnection/Read|Web uygulamaları karma bağlantı alın.|
 |/Sites/hybridconnection/Write|Web uygulamaları karma bağlantı güncelleştirin.|
 |/Sites/recommendationhistory/Read|Web uygulamaları öneri geçmişi alın.|
-|/Sites/Recommendations/Read|Web uygulaması için öneriler Hello listesini alın.|
+|/Sites/Recommendations/Read|Web uygulaması için öneriler listesi alınamadı.|
 |/Sites/Recommendations/disable/Action|Web uygulamaları önerileri devre dışı bırakın.|
 |/Sites/config/Read|Web uygulaması yapılandırma ayarlarını al|
 |/Sites/config/List/Action|Kimlik bilgileri, uygulama ayarlarının ve bağlantı dizeleri yayımlama gibi Web uygulamanızın hassas, güvenlik ayarlarını Listele|
@@ -2124,7 +2124,7 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/Sites/sourcecontrols/DELETE|Web uygulamanızın kaynak denetimini yapılandırma ayarlarını Sil|
 |/Sites/Restore/Read|Web uygulamaları geri alın.|
 |/Sites/analyzecustomhostname/Read|Özel ana bilgisayar adını analiz edin.|
-|/Sites/Backups/Read|Web uygulamanızın yedekleme Hello özelliklerini alır|
+|/Sites/Backups/Read|Web uygulamanızın yedekleme özelliklerini alır|
 |/Sites/Backups/List/Action|Liste Web Apps yedeklemeler.|
 |/Sites/Backups/Restore/Action|Web uygulamaları yedekleri geri yükleyin.|
 |/Sites/snapshots/Read|Web uygulamaları anlık görüntülerini alın.|
@@ -2145,10 +2145,10 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/Sites/Diagnostics/frebanalysis/Read|Web Apps tanılama FREB analiz alın.|
 |/availablestacks/Read|Kullanılabilir yığınları alın.|
 |/isusernameavailable/Read|Kullanıcı adı kullanılabilir olup olmadığını denetleyin.|
-|/Microsoft.Web/apiManagementAccounts/<br>API/okuma|API Hello listesini alın.|
+|/Microsoft.Web/apiManagementAccounts/<br>API/okuma|API listesini alın.|
 |/Microsoft.Web/apiManagementAccounts/<br>API/yazma|Yeni bir API eklemek veya var olan bir güncelleştirin.|
 |/Microsoft.Web/apiManagementAccounts/<br>API/silme|Varolan bir API silin.|
-|/Microsoft.Web/apiManagementAccounts/<br>API/bağlantıları/okuma|Merhaba bağlantıların listesini alır.|
+|/Microsoft.Web/apiManagementAccounts/<br>API/bağlantıları/okuma|Bağlantıların listesini alır.|
 |/Microsoft.Web/apiManagementAccounts/<br>API/bağlantıları/yazma|Var olan bir güncelleştirme ya da yeni bir bağlantı kaydedin.|
 |/Microsoft.Web/apiManagementAccounts/<br>API/bağlantıları/silme|Varolan bir bağlantıyı silin.|
 |/Microsoft.Web/apiManagementAccounts/<br>API/bağlantıları/connectionAcls/okuma|ConnectionAcls okuma|
@@ -2158,7 +2158,7 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/Microsoft.Web/apiManagementAccounts/<br>API/apiAcls/okuma|ConnectionAcls okuma|
 |/Microsoft.Web/apiManagementAccounts/<br>API/apiAcls/yazma|API ACL'ler güncelle|
 |/Microsoft.Web/apiManagementAccounts/<br>API/apiAcls/silme|API ACL'ler Sil|
-|/ ServerFarm öğesine verilir/okuma|Bir uygulama hizmeti planı üzerinde Hello özelliklerini alma|
+|/ ServerFarm öğesine verilir/okuma|Bir uygulama hizmeti planı üzerinde özelliklerini alma|
 |/ ServerFarm öğesine verilir/yazma|Yeni bir uygulama hizmeti planı oluşturma veya var olan bir güncelleştirme|
 |/ ServerFarm öğesine verilir/Sil|Var olan bir uygulama hizmeti planı silme|
 |/serverfarms/restartSites/Action|Tüm Web uygulamaları bir uygulama hizmeti planı'nda yeniden başlatın.|
@@ -2182,24 +2182,24 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/serverfarms/usages/Read|Uygulama hizmeti planları kullanımları alın.|
 |/serverfarms/hybridconnectionnamespaces/relays/Sites/Read|Uygulama hizmeti planları karma bağlantı ad alanları geçişler Web uygulamalarını alır.|
 |/ishostnameavailable/Read|Ana bilgisayar adı kullanılabilir olup olmadığını denetleyin.|
-|/ connectionGateways/okuma|Bağlantı ağ geçidi Hello listesi alın.|
+|/ connectionGateways/okuma|Bağlantı ağ geçidi listesi alın.|
 |/ connectionGateways/yazma|Oluşturur veya bir bağlantı ağ geçidi güncelleştirir.|
 |/ connectionGateways/Sil|Bir bağlantı ağ geçidi siler.|
 |/connectionGateways/Join/Action|Bir bağlantı ağ geçidi birleştirir.|
 |/classicmobileservices/Read|Klasik mobil hizmet edinebilirsiniz.|
 |/skus/Read|SKU'ları alır.|
-|/ Sertifika/okuma|Merhaba sertifikaların listesini alın.|
+|/ Sertifika/okuma|Sertifikaların listesini alın.|
 |/ Sertifika/yazma|Yeni bir sertifika ekleyin veya mevcut bir güncelleştirin.|
 |/ Sertifika/Sil|Varolan bir sertifikayı silin.|
 |/Operations/Read|İşlemleri alın.|
-|/ önerileri/okuma|Abonelikler için öneriler Hello listesini alın.|
+|/ önerileri/okuma|Abonelikler için öneriler listesi alınamadı.|
 |/ishostingenvironmentnameavailable/Read|Barındırma ortamı adı olup olmadığını alır.|
-|/ apiManagementAccounts/okuma|ApiManagementAccounts Hello listesini alın.|
+|/ apiManagementAccounts/okuma|ApiManagementAccounts listesini alın.|
 |/ apiManagementAccounts/yazma|Yeni bir ApiManagementAccount eklemek veya mevcut bir güncelleştirme|
 |/ apiManagementAccounts/Sil|Varolan bir ApiManagementAccount Sil|
-|/apiManagementAccounts/connectionAcls/Read|Bağlantı ACL'ler Hello listesini alın.|
+|/apiManagementAccounts/connectionAcls/Read|Bağlantı ACL listesi alınamadı.|
 |/apiManagementAccounts/apiAcls/Read|ConnectionAcls okuma|
-|/ bağlantıları/okuma|Merhaba bağlantıların listesini alır.|
+|/ bağlantıları/okuma|Bağlantıların listesini alır.|
 |/ bağlantıları/yazma|Oluşturur veya bağlantı güncelleştirir.|
 |/ bağlantıları/Sil|Bir bağlantı siler.|
 |/Connections/Join/Action|Bir bağlantı birleştirir.|
@@ -2214,12 +2214,12 @@ Bu sağlayıcı tam bir ARM sağlayıcı ve ARM işlemleri sağlamaz.
 |/Locations/managedapis/Read|Konumları yönetilen API'ler alın.|
 |/Locations/apioperations/Read|Konumları API işlemleri alın.|
 |/Locations/connectiongatewayinstallations/Read|Konumları bağlantı ağ geçidi yüklemeleri alın.|
-|/ listSitesAssignedToHostName/okuma|Toohostname atanmış siteler adlarını alır.|
+|/ listSitesAssignedToHostName/okuma|Ana bilgisayar adı için atanmış siteler adlarını alır.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Nasıl çok öğrenin[özel bir rol oluşturmak](role-based-access-control-custom-roles.md).
+- Bilgi edinmek için nasıl [özel bir rol oluşturmak](role-based-access-control-custom-roles.md).
 
-- Gözden geçirme hello [yerleşik RBAC roller](role-based-access-built-in-roles.md).
+- Gözden geçirme [yerleşik RBAC roller](role-based-access-built-in-roles.md).
 
-- Nasıl toomanage erişim atamalarını öğrenin [kullanıcı tarafından](role-based-access-control-manage-assignments.md) veya [kaynak tarafından](role-based-access-control-configure.md) 
+- Erişim atamalarını yönetmeyi öğrenin [kullanıcı tarafından](role-based-access-control-manage-assignments.md) veya [kaynak tarafından](role-based-access-control-configure.md) 

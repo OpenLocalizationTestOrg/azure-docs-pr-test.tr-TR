@@ -1,6 +1,6 @@
 ---
-title: "aaaSQL veri ambarı Transact-SQL dil öğeleri | Microsoft Docs"
-description: "SQL Data Warehouse için kullanılan hello Transact-SQL dil öğeleri için bağlantılar tooreference içerik listesi."
+title: "SQL veri ambarı Transact-SQL dil öğeleri | Microsoft Docs"
+description: "İçin referans içerik bağlantıları için SQL Data Warehouse için kullanılan Transact-SQL dil öğeleri listesi."
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: reference
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: db7500b2a1f69a9e3dccddafd27a9cd0d95f9baf
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7a20cd8f3c2f304d12a49755dbe6e04f9b1d36df
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="language-elements"></a>Dil öğeleri
 ## <a name="core-elements"></a>Temel öğeler
@@ -57,7 +57,7 @@ ms.lasthandoff: 10/06/2017
 * [/ (Bölme)](https://msdn.microsoft.com/library/ms175009.aspx)
 * [Modül](https://msdn.microsoft.com/library/ms190279.aspx)
 
-## <a name="wildcard-characters-toomatch"></a>Joker karakterler toomatch
+## <a name="wildcard-characters-to-match"></a>Eşleştirmek için joker karakterler
 * [= (Eşittir)](https://msdn.microsoft.com/library/ms175118.aspx)
 * [> (Büyük)](https://msdn.microsoft.com/library/ms178590.aspx)
 * [< (Küçüktür)](https://msdn.microsoft.com/library/ms179873.aspx)

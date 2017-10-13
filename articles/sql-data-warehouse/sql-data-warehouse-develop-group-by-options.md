@@ -1,5 +1,5 @@
 ---
-title: "SQL veri ambarı seçeneklerinde tarafından aaaGroup | Microsoft Docs"
+title: "SQL veri ambarı seçeneklerinde grupla | Microsoft Docs"
 description: "Çözümleri geliştirme için Azure SQL Data Warehouse seçeneklerinde tarafından Grup uygulamak için ipuçları."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,14 +15,14 @@ ms.workload: data-services
 ms.custom: queries
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.openlocfilehash: cc443c2af4e3ef2babd74d78aa6fb57bb3c1c7ea
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: da71cb834c13da5d0f5690f471efc6c696163f30
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>SQL veri ambarı seçeneklerinde göre gruplandırmak
-Merhaba [GROUP BY] [ GROUP BY] yan tümcesinde kullanılan tooaggregate veri tooa Özet satır kümesi. Ayrıca, geçici doğrudan Azure SQL Data Warehouse tarafından desteklenmiyor gibi çalıştığını bu gereksinimi toobe cihazın işlevselliğini genişleten birkaç seçenek vardır.
+[GROUP BY] [ GROUP BY] yan tümcesi Özet bir satır kümesi için veri toplama için kullanılır. Ayrıca, geçici doğrudan Azure SQL Data Warehouse tarafından desteklenmiyor olarak çalışması için gereken kendi işlevselliğini genişleten birkaç seçenek vardır.
 
 Bu seçenekler
 
@@ -31,9 +31,9 @@ Bu seçenekler
 * GROUP BY ile KÜPÜ
 
 ## <a name="rollup-and-grouping-sets-options"></a>Toplama ve gruplandırma kümeleri seçenekleri
-Merhaba burada en basit seçenek olan toouse `UNION ALL` güvenmek yerine tooperform hello toplaması açık sözdizimi yerine hello. Merhaba sonucu olan tam olarak hello aynı
+Burada en basit seçenek kullanmaktır `UNION ALL` yerine toplama gerçekleştirmek için açık sözdizimi, bağlı olan yerine. Tam olarak aynı sonucudur
 
-Aşağıda, bir grubu hello kullanarak deyimi tarafından örneğidir `ROLLUP` seçeneği:
+Aşağıda, bir gruba deyimi kullanılarak örneğidir `ROLLUP` seçeneği:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -48,13 +48,13 @@ GROUP BY ROLLUP (
 ;
 ```
 
-Toplama kullanarak toplamalar aşağıdaki hello istediniz:
+Toplama kullanarak aşağıdaki toplamalar istediniz:
 
 * Ülke ve bölgeye
 * Ülke
 * Genel toplam
 
-tooreplace bu toouse gerekir `UNION ALL`; açıkça gerekli hello toplamalar belirtme tooreturn hello aynı sonuçları:
+Bu kullanması gerekecektir değiştirmek için `UNION ALL`; aynı sonuçları döndürmek için açıkça gerekli toplamalar belirtme:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -81,14 +81,14 @@ FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey;
 ```
 
-Tüm toodo ihtiyacımız olan benimsemeyi GROUPING SETS asıl aynı hello ancak yalnızca toplama düzeyleri hello için UNION ALL bölümler oluşturma toosee istiyoruz.
+GRUPLANDIRMA yapmamız gereken ayarlar tüm için aynı asıl adı benimsemeyi ancak yalnızca görmeyi istiyoruz toplama düzeyleri için UNION ALL bölümler oluşturma
 
 ## <a name="cube-options"></a>Küp seçenekleri
-Olası toocreate bir grup tarafından WITH CUBE olduğu hello UNION ALL yaklaşımı kullanarak. Merhaba hello kod sıkıcı ve yönetilmeleri hızlı bir şekilde olabilecek bir sorundur. toomitigate bu bu yaklaşımı daha gelişmiş kullanabilirsiniz.
+Bir grup tarafından ile UNION ALL yaklaşımı kullanarak KÜPÜ oluşturmak mümkündür. Kod sıkıcı ve yönetilmeleri hızlı bir şekilde olabilecek sorunudur. Bunu azaltmak için bu yaklaşım daha gelişmiş kullanabilirsiniz.
 
-Yukarıdaki örnekte hello kullanalım.
+Yukarıdaki örnekte kullanalım.
 
-Merhaba ilk adımı toodefine hello 'toocreate istiyoruz toplama tüm hello düzeylerini tanımlar cube' dir. Önemli tootake Not hello hello iki türetilmiş tabloların çapraz birleşimi olan. Bu tüm hello düzeylerini bize oluşturur. Merhaba rest hello kod gerçekten biçimlendirme için yoktur.
+İlk adım, 'biz oluşturmak istediğiniz bir toplama tüm düzeylerini tanımlar cube' tanımlamaktır. CROSS JOIN iki türetilmiş tabloların not almanız önemlidir. Bu tüm düzeyleri bize oluşturur. Kod kalan gerçekten biçimlendirme için yoktur.
 
 ```sql
 CREATE TABLE #Cube
@@ -119,11 +119,11 @@ SELECT Cols
 FROM GrpCube;
 ```
 
-Merhaba Hello sonuçlarını CTAS altında görülebilir:
+CTAS sonuçlarını aşağıda görebilirsiniz:
 
 ![][1]
 
-Hello ikinci adım, bir hedef tablo toostore geçici sonuçları toospecify şöyledir:
+Ara Sonuçların depolanacağı bir hedef tablo belirtmek için ikinci adım şöyledir:
 
 ```sql
 DECLARE
@@ -146,7 +146,7 @@ WITH
 ;
 ```
 
-Merhaba üçüncü tooloop bizim hello toplama gerçekleştirme sütunları küp üzerinde bir adımdır. Merhaba sorgu hello #Cube geçici tablosunda her satır için bir kez çalıştır ve hello #Results geçici tablosunda hello sonuçları deposunu
+Üçüncü adım bizim toplama gerçekleştirme sütunları küp üzerinde döngü oluşturmaktır. Sorgu #Cube geçici tablodaki her satır için bir kez çalıştır ve #Results geçici tablosunda Sonuçların depolanacağı
 
 ```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
@@ -170,7 +170,7 @@ BEGIN
 END
 ```
 
-Son olarak biz hello #Results geçici tablodaki okuyarak hello sonuçlar döndürebilir
+Son olarak biz #Results geçici tablosundan okuyarak sonuçlar döndürebilir
 
 ```sql
 SELECT *
@@ -179,7 +179,7 @@ ORDER BY 1,2,3
 ;
 ```
 
-Merhaba kod bölümlere ayırma ve döngü yapısı hello oluşturma kodu daha yönetilebilir ve sürdürülebilir haline gelir.
+Kod bölümlere ayırma ve döngü yapısı oluşturma kodu daha yönetilebilir ve sürdürülebilir haline gelir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla geliştirme ipuçları için bkz: [geliştirmeye genel bakış][development overview].

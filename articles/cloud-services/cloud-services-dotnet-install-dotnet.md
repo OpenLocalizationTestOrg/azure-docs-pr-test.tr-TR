@@ -1,6 +1,6 @@
 ---
-title: Azure Cloud Services rolleri .NET aaaInstall | Microsoft Docs
-description: "Bu makalede nasıl toomanually yüklemesi hello .NET Framework üzerinde bulut hizmeti web ve çalışan rolleri açıklayan"
+title: "Azure Cloud Services rollerinde .NET yükleme | Microsoft Docs"
+description: "Bu makalede, .NET Framework üzerinde bulut hizmeti web ve çalışan rolleri el ile yüklemek açıklar"
 services: cloud-services
 documentationcenter: .net
 author: thraka
@@ -14,48 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: adegeo
-ms.openlocfilehash: 45f0f30221292f98c591511b091b02ebe1c1272c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a9cffa275ae6b9315b821d3160b17a997a1523f7
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Azure Cloud Services rollerinde .NET yükleme
-Bu makalede, nasıl Azure konuk işletim sistemi gelir yok .NET Framework'ün tooinstall sürümlerini hello açıklanmaktadır. Bulut hizmeti web ve çalışan rolleri hello konuk işletim sistemi tooconfigure üzerinde .NET kullanabilirsiniz.
+Bu makalede, Azure konuk işletim Sistemleri ile gelir yok .NET Framework sürümleri yüklemeyi açıklar. Bulut hizmeti web ve çalışan rolleri yapılandırmak için konuk işletim sisteminde .NET kullanın.
 
-Örneğin, Merhaba, herhangi bir .NET 4.6 sürümünden ile gelmez, konuk işletim sistemi ailesi 4, .NET 4.6.1 yükleyebilirsiniz. (Merhaba konuk işletim sistemi ailesi 5 .NET 4.6 ile gelir.) Merhaba hello en son bilgiler için Azure konuk işletim sistemi sürümü, hello bkz [Azure konuk işletim sistemi sürüm haber](cloud-services-guestos-update-matrix.md). 
+Örneğin, herhangi bir .NET 4.6 sürümünden ile gelmez konuk işletim sistemi ailesi 4, .NET 4.6.1 yükleyebilirsiniz. (5 konuk işletim sistemi ailesi .NET 4.6 ile gelir.) En son Azure konuk işletim sistemi sürümleri hakkında bilgi için [Azure konuk işletim sistemi sürüm haber](cloud-services-guestos-update-matrix.md). 
 
 >[!IMPORTANT]
->Hello Azure SDK 2.9 .NET 4.6 hello konuk işletim sistemi ailesi 4 veya önceki bir sürümü dağıtma bir kısıtlama var. Merhaba kısıtlama için bir düzeltme hello üzerinde kullanılabilir [Microsoft Docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9) site.
+>Azure SDK 2.9 .NET 4.6 konuk işletim sistemi ailesi 4 veya önceki bir sürümü dağıtma üzerine bir kısıtlama var. Kısıtlama için bir düzeltme edinilebilir [Microsoft Docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9) site.
 
-Bulut hizmeti projenizi bir parçası olarak hello .NET web yükleyicisi tooinstall .NET web ve çalışan rolleri içerir. Merhaba rolün başlangıç görevleri bir parçası olarak Hello Yükleyicisi'ni başlatın. 
+.NET web ve çalışan rollerinde yüklemek için bulut hizmeti projenizi bir parçası olarak .NET web yükleyicisi içerir. Yükleyici rolün başlangıç görevleri bir parçası olarak başlatın. 
 
-## <a name="add-hello-net-installer-tooyour-project"></a>Merhaba .NET yükleyici tooyour proje ekleyin
-Merhaba, .NET Framework için toodownload hello web yükleyicisi hello sürüm tooinstall istediğinizi seçin:
+## <a name="add-the-net-installer-to-your-project"></a>.NET yükleyici projenize ekleyin
+.NET Framework için web yükleyici indirmek için yüklemek istediğiniz sürümü seçin:
 
 * [.NET 4.7 web yükleyicisi](http://go.microsoft.com/fwlink/?LinkId=825298)
 * [.NET 4.6.1 web yükleyicisi](http://go.microsoft.com/fwlink/?LinkId=671729)
 
-tooadd hello Yükleyicisi için bir *web* rol:
+Yükleyicisi eklemek için bir *web* rol:
   1. İçinde **Çözüm Gezgini**altında **rolleri** , bulut hizmet projenize sağ tıklayın, *web* rolü ve select **Ekle**  >  **Yeni klasör**. Adlı bir klasör oluşturun **bin**.
-  2. Merhaba bin klasörü sağ tıklatın ve seçin **Ekle** > **varolan öğeyi**. Merhaba .NET Yükleyicisi'ni seçin ve toohello bin klasörü ekleyin.
+  2. Bin klasörü sağ tıklatın ve seçin **Ekle** > **varolan öğeyi**. .NET Yükleyicisi'ni seçin ve bin klasörüne ekleyin.
   
-tooadd hello Yükleyicisi için bir *çalışan* rol:
-* Sağ tıklayın, *çalışan* rolü ve select **Ekle** > **varolan öğeyi**. Merhaba .NET Yükleyicisi'ni seçin ve toohello rolünü ekleyin. 
+Yükleyicisi eklemek için bir *çalışan* rol:
+* Sağ tıklayın, *çalışan* rolü ve select **Ekle** > **varolan öğeyi**. .NET Yükleyicisi'ni seçin ve role ekleyin. 
 
-Bu şekilde toohello rol içerik klasördeki dosyalar eklendiğinde bunlar otomatik olarak tooyour bulut hizmet paketi eklenir. Merhaba olan sonra hello sanal makinede dağıtılan tooa tutarlı konumu dosyaları. Böylece tüm rolleri hello yükleyici kopyasını, bulut hizmeti içindeki her web ve çalışan rolü için bu işlemi yineleyin.
+Bu şekilde rol içerik klasörüne dosyalar eklendiğinde bunlar otomatik olarak, bulut hizmet paketi eklenir. Dosyaları daha sonra sanal makinede tutarlı bir konumuna dağıtılır. Böylece tüm rolleri yükleyici kopyasını, bulut hizmeti içindeki her web ve çalışan rolü için bu işlemi yineleyin.
 
 > [!NOTE]
-> Uygulamanız .NET 4.6 hedefliyorsa bile, bulut hizmeti rolü'nde .NET 4.6.1 yüklemeniz gerekir. Merhaba konuk işletim sistemi içeren hello Bilgi Bankası [3098779 güncelleştirme](https://support.microsoft.com/kb/3098779) ve [3097997 güncelleştirme](https://support.microsoft.com/kb/3097997). .NET 4.6 hello Bilgi Bankası güncelleştirmeleri üzerinde yüklüyse, .NET uygulamaları çalıştırdığınızda, sorunlar oluşabilir. Bu sorunlar, tooavoid sürümü 4.6 yerine .NET 4.6.1 yükleyin. Daha fazla bilgi için bkz: Merhaba [Bilgi Bankası makalesi 3118750](https://support.microsoft.com/kb/3118750).
+> Uygulamanız .NET 4.6 hedefliyorsa bile, bulut hizmeti rolü'nde .NET 4.6.1 yüklemeniz gerekir. Bilgi Bankası konuk işletim sistemi içeren [3098779 güncelleştirme](https://support.microsoft.com/kb/3098779) ve [3097997 güncelleştirme](https://support.microsoft.com/kb/3097997). .NET 4.6 üstünde Bilgi Bankası güncelleştirmeler yüklediyseniz, .NET uygulamalarınızın çalıştırdığınızda sorunlar oluşabilir. Bu sorunları önlemek için sürümü 4.6 yerine .NET 4.6.1 yükleyin. Daha fazla bilgi için bkz: [Bilgi Bankası makalesi 3118750](https://support.microsoft.com/kb/3118750).
 > 
 > 
 
 ![Rol içeriğiyle Installer dosyaları][1]
 
 ## <a name="define-startup-tasks-for-your-roles"></a>Başlangıç görevleri, rolleri tanımlama
-Bir rolü başlamadan önce başlangıç görevleri tooperform işlemleri kullanabilirsiniz. Herhangi bir uygulama kodu çalıştırmadan önce bu hello framework hello başlangıç görevinin parçası sağlar gibi hello .NET Framework yükleme yüklenir. Başlangıç görevleri hakkında daha fazla bilgi için bkz: [Azure'da başlangıç görevleri çalıştırma](cloud-services-startup-tasks.md). 
+Başlangıç görevi, bir rol başlamadan önce işlemlerini gerçekleştirmek için kullanabilirsiniz. Başlangıç görevinin bir parçası .NET Framework yükleme herhangi bir uygulama kodu çalıştırmadan önce framework yüklendiğini sağlar. Başlangıç görevleri hakkında daha fazla bilgi için bkz: [Azure'da başlangıç görevleri çalıştırma](cloud-services-startup-tasks.md). 
 
-1. Aşağıdaki içerik toohello ServiceDefinition.csdef dosyasına hello altında hello eklemek **WebRole** veya **örn** düğüm tüm rolleri için:
+1. ServiceDefinition.csdef dosyasında altına aşağıdaki içeriği ekleyin **WebRole** veya **örn** düğüm tüm rolleri için:
    
     ```xml
     <LocalResources>
@@ -75,29 +75,29 @@ Bir rolü başlamadan önce başlangıç görevleri tooperform işlemleri kullan
     </Startup>
     ```
    
-    Merhaba önceki yapılandırma hello konsol komutu çalıştırır `install.cmd` .NET Framework ile yönetici ayrıcalıkları tooinstall hello. Merhaba yapılandırma da oluşturur bir **LocalStorage** adlı öğe **NETFXInstall**. Merhaba başlangıç betiği bu yerel depolama kaynağı hello geçici klasörü toouse ayarlar. 
+    Önceki yapılandırma Konsolu komutu çalıştırır `install.cmd` .NET Framework'ü yüklemek için yönetici ayrıcalıklarına sahip. Yapılandırma da oluşturur bir **LocalStorage** adlı öğe **NETFXInstall**. Başlangıç betiği bu yerel depolama kaynağı kullanmak için geçici klasörü ayarlar. 
     
     > [!IMPORTANT]
-    > tooensure düzeltmek hello framework, bu kaynak tooat kümesi hello boyutu yüklemesi en az 1024 MB.
+    > Framework'ün doğru yükleme sağlamak için bu kaynak boyutu en az 1024 MB olarak ayarlayın.
     
     Başlangıç görevleri hakkında daha fazla bilgi için bkz: [ortak Azure Cloud Services başlangıç görevleri](cloud-services-startup-tasks-common.md).
 
-2. Adlı bir dosya oluşturun **Install.cmd** ve hello aşağıdaki toohello betiğin yüklemek ekleyin.
+2. Adlı bir dosya oluşturun **Install.cmd** ve aşağıdaki yükleme betik dosyasına ekleme.
 
-    Merhaba betik hello belirtilen hello .NET Framework sürümünü hello makinede hello kayıt defteri sorgulayarak yüklü olup olmadığını denetler. Merhaba .NET sürüm yüklü değilse, daha sonra hello .NET web yükleyicisi açılır. toohelp sorunları gidermek, hello betik günlüklerini depolanan tüm etkinlik toohello startuptasklog-(geçerli tarih ve saat) .txt dosya **InstallLogs** yerel depolama.
+    Komut dosyası belirtilen .NET Framework sürümünü makinede kayıt sorgulayarak yüklü olup olmadığını denetler. .NET sürüm yüklü değilse .NET web yükleyicisi açılmış. Sorunları gidermenize yardımcı olması için betik tüm etkinlik depolanan startuptasklog-(geçerli tarih ve saat) .txt dosya oturum **InstallLogs** yerel depolama.
 
     > [!IMPORTANT]
-    > Temel metin düzenleyici gibi Windows Not Defteri'ni toocreate hello Install.cmd dosyasını kullanın. Visual Studio toocreate bir metin dosyasını kullanın ve hello uzantısı too.cmd değiştirirseniz hello dosya UTF-8 bayt sırası işareti içeriyor olabilir. Merhaba komut Hello ilk satırını çalıştırdığınızda bu işareti hataya neden olabilir. tooavoid bu hatayı hello bayt sırası işlemesi atlanabilir REM deyimi komut dosyası hello ilk satırının başlangıç yapın. 
+    > Install.cmd dosyasını oluşturmak için Windows Not Defteri gibi bir temel metin düzenleyicisi kullanın. Bir metin dosyası oluşturun ve uzantı için .cmd değiştirmek için Visual Studio kullanıyorsanız, dosya UTF-8 bayt sırası işareti içeriyor olabilir. Komut dosyasının ilk satırını çalıştırdığınızda bu işareti hataya neden olabilir. Bu hatayı önlemek için komut dosyasının ilk satırı bayt sırası işlemesi atlanabilir REM deyimi olun. 
     > 
     >
    
     ```cmd
-    REM Set hello value of netfx tooinstall appropriate .NET Framework. 
-    REM ***** tooinstall .NET 4.5.2 set hello variable netfx too"NDP452" *****
-    REM ***** tooinstall .NET 4.6 set hello variable netfx too"NDP46" *****
-    REM ***** tooinstall .NET 4.6.1 set hello variable netfx too"NDP461" *****
-    REM ***** tooinstall .NET 4.6.2 set hello variable netfx too"NDP462" *****
-    REM ***** tooinstall .NET 4.7 set hello variable netfx too"NDP47" *****
+    REM Set the value of netfx to install appropriate .NET Framework. 
+    REM ***** To install .NET 4.5.2 set the variable netfx to "NDP452" *****
+    REM ***** To install .NET 4.6 set the variable netfx to "NDP46" *****
+    REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" *****
+    REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" *****
+    REM ***** To install .NET 4.7 set the variable netfx to "NDP47" *****
     set netfx="NDP47"
 
     REM ***** Set script start timestamp *****
@@ -108,7 +108,7 @@ Bir rolü başlamadan önce başlangıç görevleri tooperform işlemleri kullan
     REM ***** Exit script if running in Emulator *****
     if %ComputeEmulatorRunning%=="true" goto exit
 
-    REM ***** Needed toocorrectly install .NET 4.6.1, otherwise you may see an out of disk space error *****
+    REM ***** Needed to correctly install .NET 4.6.1, otherwise you may see an out of disk space error *****
     set TMP=%PathToNETFXInstall%
     set TEMP=%PathToNETFXInstall%
 
@@ -167,7 +167,7 @@ Bir rolü başlamadan önce başlangıç görevleri tooperform işlemleri kullan
         echo .NET (%netfx%) install failed with Error Code %ERRORLEVEL%. Further logs can be found in %netfxinstallerlog% >> %startuptasklog%
 
     :restart
-    echo Restarting toocomplete .NET (%netfx%) installation >> %startuptasklog%
+    echo Restarting to complete .NET (%netfx%) installation >> %startuptasklog%
     EXIT /B %ERRORLEVEL%
 
     :installed
@@ -181,20 +181,20 @@ Bir rolü başlamadan önce başlangıç görevleri tooperform işlemleri kullan
     ```
    
    > [!NOTE]
-   > Bu komut dosyası gösterilmektedir nasıl tooinstall .NET 4.5.2 veya sürekliliği, .NET 4.5.2 zaten mevcut olsa bile için sürüm 4.6 hello Azure konuk işletim sistemi. Doğrudan sürümü 4.6, yerine .NET 4.6.1 hello açıklandığı gibi yüklemeniz gerekir [Bilgi Bankası makalesi 3118750](https://support.microsoft.com/kb/3118750).
+   > .NET 4.5.2 zaten Azure konuk işletim sisteminde kullanılabilir olsa bile bu betiği .NET 4.5.2 veya sürümü 4.6 sürekliliği için nasıl yükleneceğini gösterir. Doğrudan sürümü 4.6, yerine .NET 4.6.1 açıklandığı gibi yüklemeniz gerekir [Bilgi Bankası makalesi 3118750](https://support.microsoft.com/kb/3118750).
    > 
    > 
 
-3. Kullanarak hello Install.cmd dosya tooeach Rol Ekle **Ekle** > **varolan öğeyi** içinde **Çözüm Gezgini** bu konunun önceki kısımlarında açıklandığı gibi. 
+3. Install.cmd dosyasını kullanarak her role eklemek **Ekle** > **varolan öğeyi** içinde **Çözüm Gezgini** bu konunun önceki kısımlarında açıklandığı gibi. 
 
-    Bu adım tamamlandıktan sonra tüm rolleri hello .NET yükleyici dosyası ve hello Install.cmd dosyasını olması gerekir.
+    Bu adım tamamlandıktan sonra tüm rolleri Install.cmd dosyasını ve .NET yükleyici dosyası olmalıdır.
 
    ![Rol içeriğe sahip tüm dosyalar][2]
 
-## <a name="configure-diagnostics-tootransfer-startup-logs-tooblob-storage"></a>Tanılama tootransfer başlangıç günlükleri tooBlob depolamayı yapılandırma
-Yükleme sorunlarını giderme toosimplify, hello başlatma işlemi tarafından oluşturulan tüm günlük dosyalarını komut dosyası veya .NET yükleyici tooAzure Blob storage'hello Azure tanılama tootransfer yapılandırabilirsiniz. Bu yaklaşımı kullanarak, Blob depolama alanından hello günlük dosyalarını indirme yerine hello rol tooremote Desktop'a tarafından hello günlüklerini görüntüleyebilirsiniz.
+## <a name="configure-diagnostics-to-transfer-startup-logs-to-blob-storage"></a>Blob depolama alanına başlangıç günlükleri aktarmak için tanılama Yapılandır
+Yükleme sorunlarını giderme basitleştirmek için başlangıç betiği veya Azure Blob depolama alanına .NET yükleyici tarafından oluşturulan tüm günlük dosyaları aktarmak için Azure tanılama yapılandırabilirsiniz. Bu yaklaşımı kullanarak, rol içine, Uzak Masaüstü'nü gerek kalmadan yerine Blob depolama alanından günlük dosyaları indirme günlükleri görüntüleyebilirsiniz.
 
-tooconfigure tanılama hello diagnostics.wadcfgx dosyasını açın ve içerik hello altında aşağıdaki hello eklemek **dizinleri** düğümü: 
+Tanılama yapılandırmak için diagnostics.wadcfgx dosyasını açın ve aşağıdaki içeriği altında eklemek **dizinleri** düğümü: 
 
 ```xml 
 <DataSources>
@@ -204,18 +204,18 @@ tooconfigure tanılama hello diagnostics.wadcfgx dosyasını açın ve içerik h
 </DataSources>
 ```
 
-Bu XML hello hello günlük dizininde tanılama tootransfer hello dosyaları yapılandırır **NETFXInstall** kaynak toohello hello tanılama depolama hesabı **netfx yükleme** blob kapsayıcısı.
+Tanılama günlük dizininde dosya aktarmak için bu XML yapılandırır **NETFXInstall** kaynak tanılama depolama hesabı **netfx yükleme** blob kapsayıcısı.
 
 ## <a name="deploy-your-cloud-service"></a>Bulut hizmetinize dağıtın
-Bulut hizmetinizi dağıttığınızda, henüz yüklü değilse hello başlangıç görevleri hello .NET Framework yükleyin. Bulut hizmeti rollerinizi hello olan *meşgul* hello framework yüklenirken durum. Merhaba framework yüklemesi bir yeniden başlatma gerektirirse, hello hizmet rolleri de yeniden başlatılabilir. 
+Bulut hizmetinizi dağıttığınızda, başlangıç görevleri henüz yüklü değilse .NET Framework yükleyin. Bulut hizmeti rollerinizi bulunan *meşgul* framework yüklenirken durum. Framework yüklemesi bir yeniden başlatma gerektirirse, hizmet rolleri de yeniden başlatılabilir. 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
-* [Merhaba .NET Framework yükleme][Installing hello .NET Framework]
+* [.NET Framework yükleme][Installing the .NET Framework]
 * [Hangi .NET Framework sürümlerinin yüklü olduğunu belirleme][How to: Determine Which .NET Framework Versions Are Installed]
 * [.NET Framework yükleme sorunlarını giderme][Troubleshooting .NET Framework Installations]
 
 [How to: Determine Which .NET Framework Versions Are Installed]: https://msdn.microsoft.com/library/hh925568.aspx
-[Installing hello .NET Framework]: https://msdn.microsoft.com/library/5a4x27ek.aspx
+[Installing the .NET Framework]: https://msdn.microsoft.com/library/5a4x27ek.aspx
 [Troubleshooting .NET Framework Installations]: https://msdn.microsoft.com/library/hh925569.aspx
 
 <!--Image references-->

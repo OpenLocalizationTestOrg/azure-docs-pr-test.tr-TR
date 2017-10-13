@@ -1,6 +1,6 @@
 ---
-title: "aaaConfiguring ve Visual Studio ile depolama öykünücüsü hello kullanarak | Microsoft Docs"
-description: "Yapılandırma ve Visual Studio ile Merhaba depolama öykünücüsünü kullanma"
+title: "Yapılandırma ve Visual Studio ile depolama öykünücüsünü kullanma | Microsoft Docs"
+description: "Yapılandırma ve Visual Studio ile depolama öykünücüsünü kullanma"
 services: visual-studio-online
 documentationcenter: na
 author: kraigb
@@ -14,45 +14,45 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/17/2017
 ms.author: kraigb
-ms.openlocfilehash: d590f21146c86bcb7bfa6b6164b92c6df5938d5b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f4cd8ccc3b186cf2b4178b7d8a98d8928c705cbc
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="configuring-and-using-hello-storage-emulator-with-visual-studio"></a>Yapılandırma ve Visual Studio ile Merhaba depolama öykünücüsünü kullanma
+# <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Yapılandırma ve Visual Studio ile depolama öykünücüsünü kullanma
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Hello Azure SDK geliştirme ortamı hello depolama öykünücüsü, hello Blob, kuyruk ve tablo depolama hizmetleri, yerel geliştirme makinenizde Azure'da kullanılabilir benzetim yapan bir yardımcı program içerir. Kullanıyorsanız hello Azure storage hizmetleri kullanan bir bulut hizmeti oluşturma veya herhangi bir dış uygulama çağrıları depolama hizmetleri hello yazma, kodunuzu hello storage öykünücüsüne karşı yerel olarak test edebilirsiniz. Microsoft Visual Studio için Hello Azure Araçları Visual Studio'ya hello depolama öykünücüsünü yönetim tümleştirin. Merhaba depolama öykünücüsü veritabanı ilk kullanımda Hello Azure Araçları başlatmak, çalıştırdığınızda veya Visual Studio kodunuzdan hata ayıklama ve salt okunur erişim toohello depolama öykünücüsü veri hello Azure Storage Gezgini aracılığıyla sağlayan depolama öykünücüsü hizmeti başlatır hello.
+Azure SDK geliştirme ortamı depolama öykünücüsü, Blob, kuyruk ve tablo depolama hizmetleri, yerel geliştirme makinenizde Azure'da kullanılabilir benzetim yapan bir yardımcı program içerir. Kullanıyorsanız Azure storage hizmetleri kullanan bir bulut hizmeti oluşturma ve depolama hizmetleri çağıran herhangi bir dış uygulama yazma, kodunuzu yerel depolama öykünücüsünü karşı test edebilirsiniz. Microsoft Visual Studio için Azure Araçları, Visual Studio'ya depolama öykünücüsünü yönetimini tümleştirin. Azure Araçları ilk kullanımda depolama öykünücüsü veritabanını başlatılamadı, çalıştırmak veya Visual Studio kodunuzdan hata ayıklama depolama öykünücüsü hizmeti başlatılır ve Azure Storage Gezgini üzerinden depolama öykünücüsü veri salt okunur erişim sağlar.
 
-Merhaba depolama öykünücüsü sistem gereksinimleri ve özel yapılandırma yönergeleri de dahil olmak üzere hakkında ayrıntılı bilgi için bkz: [kullanım hello geliştirme ve sınama için Azure Storage öykünücüsü](storage/common/storage-use-emulator.md).
-
-> [!NOTE]
-> Bazı hello depolama öykünücüsü benzetimi ve hello Azure storage Hizmetleri arasındaki işlevsel farklılıklar vardır. Bkz: [arasındaki farklar depolama öykünücüsü hello ve Azure depolama hizmetleri](storage/common/storage-use-emulator.md) hello hello belirli farklılıklar hakkında bilgi için Azure SDK belgeleri içinde.
-> 
-> 
-
-## <a name="configuring-a-connection-string-for-hello-storage-emulator"></a>Merhaba depolama öykünücüsü için bağlantı dizesini yapılandırma
-bir rolü içindeki kodundan tooaccess hello depolama öykünücüsü, tooconfigure bir bağlantı dizesi bu noktaları toohello depolama öykünücüsü ve daha sonra değiştirilen toopoint tooan Azure depolama hesabı olabilir isteyeceksiniz. Bir bağlantı dizesi çalışma zamanı tooconnect tooa depolama hesabı rolünüze okuyabilen bir yapılandırma ayardır. Hakkında daha fazla bilgi için bkz toocreate bağlantı dizeleri, [yapılandırma hello Azure uygulama](https://msdn.microsoft.com/library/azure/2da5d6ce-f74d-45a9-bf6b-b3a60c5ef74e#BK_SettingsPage).
+Sistem gereksinimleri ve özel yapılandırma yönergeleri de dahil olmak üzere depolama öykünücüsünü hakkında ayrıntılı bilgi için bkz: [geliştirme ve sınama için Azure Storage öykünücüsünü kullanma](storage/common/storage-use-emulator.md).
 
 > [!NOTE]
-> Hello kullanarak bir başvuru toohello depolama öykünücüsü hesabı kodunuzdan döndürebilir **DevelopmentStorageAccount** özelliği. Tooaccess hello kodunuzdan depolama öykünücüsü, ancak uygulama tooAzure toopublish planlıyorsanız, Azure depolama hesabınızın toocreate bir bağlantı dizesi tooaccess ihtiyacınız ve kod toouse değiştirmek isterseniz, bu yaklaşım düzgün çalışır, yayımlamadan önce bağlantı dizesi. Bir bağlantı dizesi, bir Azure depolama hesabı hello depolama öykünücüsü hesabı arasında sıklıkla geçiş yapıyorsanız, bu işlemi basitleştirir.
+> Bazı depolama öykünücüsü benzetimi ve Azure storage Hizmetleri arasındaki işlevsel farklılıklar vardır. Bkz: [farklar arasında depolama öykünücüsü ve Azure Storage Hizmetleri](storage/common/storage-use-emulator.md) belirli farklılıklar hakkında bilgi için Azure SDK belgelerinde.
 > 
 > 
 
-## <a name="initializing-and-running-hello-storage-emulator"></a>Başlatma ve hello depolama öykünücüsünün çalışır durumda
-Çalıştırın ya da hizmetiniz Visual Studio'da hata ayıklama Visual Studio hello depolama öykünücüsü otomatik olarak başlatır belirtebilirsiniz. Çözüm Gezgini'nde hello kısayol menüsünü açın, **Azure** proje ve seçin **özellikleri**. Merhaba üzerinde **geliştirme** sekmede hello **Başlat Azure Storage öykünücüsü** listesinde, seçin **True** (Bu zaten toothat değer ayarlanmamışsa).
-
-Merhaba çalıştırın ya da hizmetiniz Visual Studio'dan hello depolama öykünücüsü hata ayıklama ilk kez bir başlatma işlemi başlatır. Bu işlem yerel bağlantı noktaları için hello depolama öykünücüsü ayırır ve hello depolama öykünücüsü veritabanı oluşturur. Merhaba depolama öykünücüsü veritabanı silinmedikçe tamamlandıktan sonra bu işlem toorun yeniden gerekmez.
+## <a name="configuring-a-connection-string-for-the-storage-emulator"></a>Depolama öykünücüsü için bağlantı dizesini yapılandırma
+Bir rolü içindeki kodundan depolama öykünücüsünü erişmek için bir Azure depolama hesabı işaret edecek şekilde daha sonra değiştirilebilir ve depolama öykünücüsünü işaret eden bir bağlantı dizesi yapılandırmak istediğiniz. Bir bağlantı dizesi rolünüze bir depolama hesabına bağlanmak için çalışma zamanında okuyabilen bir yapılandırma ayardır. Bağlantı dizeleri oluşturma hakkında daha fazla bilgi için bkz: [Azure uygulamayı yapılandırma](https://msdn.microsoft.com/library/azure/2da5d6ce-f74d-45a9-bf6b-b3a60c5ef74e#BK_SettingsPage).
 
 > [!NOTE]
-> Hello Azure Araçları, Hello Haziran 2012 sürüm ile başlayarak, hello depolama öykünücüsü, varsayılan olarak, SQL Express LocalDB çalışır. SQL Express 2005 veya 2008, varsayılan örneği karşı hello depolama öykünücüsü hello Azure Araçları önceki sürümlerde çalışır önce yüklemeniz gereken hello Azure SDK'sı yükleyebilirsiniz. Merhaba storage öykünücüsüne karşı SQL Express veya bir adlandırılmış'ın adlandırılmış örneği veya Microsoft SQL Server varsayılan örneğini de çalıştırabilirsiniz. Tooconfigure hello depolama öykünücüsü toorun hello varsayılan örnek dışında bir örneğiyle gerekirse bkz [kullanım hello geliştirme ve sınama için Azure Storage öykünücüsü](storage/common/storage-use-emulator.md).
+> Kullanarak bir depolama öykünücüsü hesabı başvuru kodunuzdan döndürebilir **DevelopmentStorageAccount** özelliği. Bu yaklaşım depolama öykünücüsünü kodunuzdan erişmek istiyor ancak Azure uygulamanızı yayımlamayı düşünüyorsanız, Azure depolama hesabınıza erişmek ve bu bağlantıyı kullanmak için kodunuzu değiştirmek için bir bağlantı dizesi oluşturmanız gerekecektir düzgün çalışır yayımlamadan önce dizesi. Bir bağlantı dizesi, bir Azure depolama hesabı ve depolama öykünücüsü hesabı arasında sıklıkla geçiş yapıyorsanız, bu işlemi basitleştirir.
 > 
 > 
 
-toostart, durdurmak ve bunları sıfırlamak ve Hello depolama öykünücüsü hello yerel depolama Hizmetleri kullanıcı arabirimi tooview hello durumunu sağlar. Merhaba depolama öykünücüsü Hizmet başladıktan sonra hello kullanıcı arabirimi görüntüler veya Başlat veya hello bildirim alanı simgesini sağ tıklanarak hello Hizmeti Durdur hello Microsoft Azure öykünücüsünü hello Windows görev çubuğunda.
+## <a name="initializing-and-running-the-storage-emulator"></a>Başlatma ve depolama öykünücüsü çalıştırma
+Çalıştırın ya da hizmetiniz Visual Studio'da hata ayıklama Visual Studio otomatik olarak depolama öykünücüsünü başlatır belirtebilirsiniz. Çözüm Gezgini'nde için kısayol menüsünü açın, **Azure** proje ve seçin **özellikleri**. Üzerinde **geliştirme** sekmesinde **Başlat Azure Storage öykünücüsü** listesinde, seçin **True** (Bu zaten bu değer ayarlanmamışsa).
+
+İlk kez çalıştırma ya da hizmetiniz Visual Studio'da hata ayıklama depolama öykünücüsünü başlatma işlemini başlatır. Bu işlem yerel bağlantı noktaları için depolama öykünücüsü ayırır ve depolama öykünücüsü veritabanı oluşturur. Tamamlandıktan sonra bu işlem depolama öykünücüsü veritabanı silinmedikçe çalıştırmanız gerekmez.
+
+> [!NOTE]
+> Azure Araçları Haziran 2012 sürüm ile başlayarak, depolama öykünücüsü, varsayılan olarak, SQL Express LocalDB çalışır. SQL Express 2005 veya 2008, varsayılan örneği karşı depolama öykünücüsü Azure Araçları önceki sürümlerde çalışır önce yüklemeniz gereken Azure SDK'sı yükleyebilirsiniz. Storage öykünücüsüne karşı SQL Express veya bir adlandırılmış'ın adlandırılmış örneği veya Microsoft SQL Server varsayılan örneğini de çalıştırabilirsiniz. Örneği varsayılan örnek dışında karşı çalıştırmak için bkz: depolama öykünücüsünü yapılandırmanız gerekiyorsa [geliştirme ve sınama için Azure Storage öykünücüsünü kullanma](storage/common/storage-use-emulator.md).
+> 
+> 
+
+Depolama öykünücüsü yerel depolama hizmetlerinin durumunu görüntüleyin ve başlatmak için durdurmak ve bunları sıfırlamak için bir kullanıcı arabirimi sağlar. Depolama öykünücüsü Hizmet başladıktan sonra kullanıcı arabirimi görüntüler veya başlatabilir veya Microsoft Azure öykünücüsü Windows görev çubuğundaki bildirim alanı simgesine sağ tıklayarak hizmetini durdurun.
 
 ## <a name="viewing-storage-emulator-data-in-server-explorer"></a>Server Explorer'da depolama öykünücüsü verileri görüntüleme
-Depolama öykünücüsü de dahil olmak üzere depolama hesaplarınızı tablo verileri hello ve Sunucu Gezgininde Hello Azure Depolama düğümü blob tooview veri ve değişiklik ayarlarını sağlar. Bkz: [Depolama Gezgini (Önizleme) ile Azure Blob Storage'ı yönetme kaynaklarını](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs) daha fazla bilgi için.
+Sunucu Gezgininde Azure depolama, veri görüntülemek ve depolama öykünücüsü de dahil olmak üzere, depolama hesapları blob ve tablo verilerinizi ayarlarını değiştirmek sağlar. Bkz: [Depolama Gezgini (Önizleme) ile Azure Blob Storage'ı yönetme kaynaklarını](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs) daha fazla bilgi için.
 

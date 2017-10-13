@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure toplu belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
-description: "Bilgi nasıl toouse toorun büyük ölçekli paralel ve yüksek performanslı bilgi işlem uygulamalar verimli bir şekilde toplu. Öğreticiler, API başvuruları ve diğer belgeler."
+title: "Azure Batch Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Batch’i kullanarak büyük ölçekli paralel ve yüksek performanslı bilgi işlem uygulamalarını verimli bir şekilde nasıl çalıştırabileceğinizi öğrenin. Öğreticiler, API başvuruları ve diğer belgeler."
 services: batch
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 25172c7b3462794643d1cba539fcd0d9a6c4c62e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 31e15ecb995f0a5b1164296132db15e8de7e4363
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="batch-documentation"></a>Batch Belgeleri
 
-Bulut toouse toplu toorun büyük ölçekli paralel ve yüksek performanslı bilgi işlem uygulamalar verimli bir şekilde içinde nasıl hello öğrenin. Öğreticiler, API başvuru ve diğer belgelerin nasıl toodefine hello Azure işlem kaynakları tooexecute uygulamalarınızı paralel veya ölçekte el ile yapılandırma veya altyapı yönetme olmadan gösterir.
+Batch’i kullanarak bulutta büyük ölçekli paralel ve yüksek performanslı bilgi işlem uygulamalarını verimli bir şekilde nasıl çalıştırabileceğinizi öğrenin. Öğreticiler, API başvuruları ve diğer belgelerde, altyapıyı el ile yapılandırmanıza veya yönetmenize gerek kalmadan uygulamalarınızın paralel veya yüksek ölçekli olarak yürütülmesine yönelik Azure işlem kaynakları tanımlama hakkında bilgi sağlanmıştır.
 
 <ul class="panelContent cardsFTitle">
     <li>

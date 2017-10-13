@@ -1,6 +1,6 @@
 ---
-title: "kimlik doğrulaması ve Azure MFA sunucusu aaaRADIUS | Microsoft Docs"
-description: "Bu, RADIUS kimlik doğrulaması ve Azure multi-Factor Authentication Sunucusu'nu dağıtmada yardımcı olacak hello Azure multi-Factor authentication sayfasıdır."
+title: "RADIUS Kimlik Doğrulaması ve Azure MFA Sunucusu | Microsoft Belgeleri"
+description: "Bu, RADIUS Kimlik Doğrulaması ve Azure Multi-Factor Authentication Sunucusu’nu dağıtmada yardımcı olacak Azure Multi-factor authentication sayfasıdır."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -11,69 +11,74 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/26/2017
+ms.date: 08/25/2017
 ms.author: kgremban
-ms.reviewer: yossib
+ms.reviewer: 
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: dac061b83f2657c67192a7aa9c5de63ffeffaaa8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 4dfa56ba6f80193e643965b97b6439c62f7873e0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>RADIUS kimlik doğrulamasını ve Azure Multi-Factor Authentication Sunucusuyla tümleştirme
-RADIUS kimlik doğrulamasını yapılandırmak ve Azure MFA sunucusu tooenable Hello RADIUS kimlik doğrulaması bölümü kullanın. RADIUS, standart, bu istekleri tooaccept kimlik doğrulama istekleri ve tooprocess protocol ' dir. Hello Azure multi-Factor Authentication sunucusu RADIUS sunucusu olarak işlev görür. RADIUS istemciniz (VPN Gereci) ve Active Directory (AD), LDAP dizini ya da başka bir RADIUS sunucusu tooadd Azure multi-Factor Authentication olabilir, kimlik doğrulama hedefi ekleyin. Azure çok faktörlü kimlik doğrulama (MFA) toofunction için hem hello istemci sunucuları hem de hello kimlik doğrulama hedefi ile iletişim kurabilmesi için hello Azure MFA sunucusu yapılandırmanız gerekir. Hello Azure MFA sunucusu RADIUS istemcisinden gelen istekleri kabul hello kimlik doğrulama hedefi karşı kimlik bilgilerini doğrular, Azure multi-Factor Authentication ekler ve bir yanıtı geri toohello RADIUS istemcisi gönderir. Merhaba birincil kimlik doğrulaması ve hello Azure çok faktörlü kimlik doğrulaması başarılı olursa hello kimlik doğrulama isteği yalnızca başarılı olur.
+
+RADIUS, kimlik doğrulama isteklerini kabul etmek ve bu istekleri işlemek için standart bir protokoldür. Azure Multi-Factor Authentication Sunucusu bir RADIUS sunucusu olarak görev yapabilir. İki aşamalı doğrulamayı eklemek için RADIUS istemciniz (VPN gereci) ile kimlik doğrulama hedefiniz arasına eklersiniz. Kimlik doğrulama hedefiniz, Active Directory, LDAP dizini ya da başka bir RADIUS sunucusu olabilir. Azure Multi-Factor Authentication’ın (MFA) çalışması için Azure MFA Sunucusu’nu hem istemci sunucuları hem de kimlik doğrulama hedefi ile iletişim kurabilecek şekilde yapılandırmalısınız. Azure MFA Sunucusu, RADIUS istemcisinden gelen istekleri kabul eder, kimlik doğrulama hedefine göre kimlik bilgilerini doğrular, Azure Multi-Factor Authentication ekler ve RADIUS istemcisine bir yanıt döndürür. Kimlik doğrulama isteği yalnızca hem birincil kimlik doğrulamasının hem de Azure Multi-Factor Authentication’ın başarılı olması durumunda başarılı olur.
 
 > [!NOTE]
-> Merhaba MFA sunucusu yalnızca PAP (parola kimlik doğrulama protokolü) ve MSCHAPv2 destekler (Microsoft Karşılıklı Kimlik Doğrulama Protokolü) RADIUS protokollerini RADIUS sunucusu olarak hareket ederken.  Merhaba MFA sunucusu bu protokolü destekleyen bir RADIUS proxy tooanother RADIUS sunucusu olarak hareket ettiğinde, EAP (Genişletilebilir Kimlik Doğrulama Protokolü) gibi diğer protokoller kullanılabilir.
+> MFA sunucusu, RADIUS sunucusu olarak hareket ederken, yalnızca PAP (parola kimlik doğrulama protokolü) ve MSCHAPv2 (Microsoft Karşılıklı Kimlik Doğrulama Protokolü ) RADIUS protokollerini destekler.  MFA sunucusu bu protokolü destekleyen başka bir RADIUS sunucusu için RADIUS proxy işlevi görüyorsa, EAP (genişletilebilir kimlik doğrulama protokolü) gibi diğer protokoller kullanılabilir.
 >
-> Merhaba MFA sunucusu alternatif protokolleri kullanarak başarılı bir RADIUS sınama yanıtı başlatamaz beri bu yapılandırmada, tek yönlü SMS ve OATH belirteçleri çalışmaz.
+> Bu yapılandırmada, MFA Sunucusu alternatif protokolleri kullanarak başarılı bir RADIUS Sınama yanıtı başlatamadığından, tek yönlü SMS ve OATH belirteçleri çalışmaz.
 
 ![Radius Kimlik Doğrulaması](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
 ## <a name="add-a-radius-client"></a>RADIUS istemcisi ekleme
-tooconfigure RADIUS kimlik doğrulaması, Windows Server yükleme hello Azure çok faktörlü kimlik doğrulama sunucusu. Bir Active Directory ortamınız varsa, hello sunucu birleştirilmiş toohello etki alanı hello ağ içinde olmalıdır. Aşağıdaki yordam tooconfigure hello Azure çok faktörlü kimlik doğrulama sunucusu hello kullan:
+RADIUS kimlik doğrulamasını yapılandırmak için, bir Windows sunucusuna Azure Multi-Factor Authentication Sunucusu yükleyin. Bir Active Directory ortamınız varsa, sunucu ağ içindeki etki alanına eklenmelidir. Azure Multi-Factor Authentication Sunucusu’nu yapılandırmak için aşağıdaki yordamı uygulayın:
 
-1. Hello Azure multi-Factor Authentication sunucusu, hello hello soldaki menüde RADIUS kimlik doğrulaması simgesine tıklayın.
-2. Merhaba denetleyin **RADIUS kimlik doğrulamasını etkinleştir** onay kutusu.
-3. Hello Azure MFA RADIUS hizmet RADIUS isteklerini standart olmayan bağlantı noktalarına toolisten gerekiyorsa hello istemciler sekmesinde hello kimlik doğrulama ve hesap oluşturma bağlantı noktaları değiştirin.
+1. Azure Multi-Factor Authentication Sunucusu’nda, soldaki menüde RADIUS Kimlik Doğrulaması simgesine tıklayın.
+2. **RADIUS kimlik doğrulamasını etkinleştir** onay kutusunu işaretleyin.
+3. Azure MFA RADIUS hizmetinin RADIUS isteklerini standart olmayan bağlantı noktalarında dinlemesi gerekiyorsa, İstemciler sekmesinden Kimlik Doğrulama ve Hesap Oluşturma bağlantı noktalarını değiştirin.
 4. **Ekle**'ye tıklayın.
-5. Toohello Azure multi-Factor Authentication sunucusu, bir uygulama adı (isteğe bağlı) ve paylaşılan gizlilik kimliğini doğrulayacak hello gereçte/sunucuda Hello IP adresini girin.
+5. Azure Multi-Factor Authentication Sunucusu için kimlik doğrulaması yapacak gerecin/sunucunun IP adresini, bir uygulama adı (isteğe bağlı) ve paylaşılan bir gizli dizi girin.
 
-  Merhaba uygulama adı Azure multi-Factor Authentication raporlarında görünür ve SMS veya mobil uygulama kimlik doğrulama iletilerinde görüntülenebilir.
+  Uygulama adı raporlarda görünür ve SMS veya mobil uygulama kimlik doğrulama iletilerinde görüntülenebilir.
 
-  Merhaba gizli gereksinimlerini toobe hello aynı hem hello Azure çok faktörlü kimlik doğrulama sunucusu ve gereçte/sunucuda paylaşılan.
+  Paylaşılan gizli dizinin Azure Multi-Factor Authentication Sunucusu’nda ve gereçte/sunucuda aynı olması gerekir.
 
-6. Merhaba denetleyin **multi-Factor Authentication iste kullanıcı eşleşme** tüm kullanıcılar Sunucu'ya aktarılmışsa ya da hello sunucu ve konu toomulti faktörlü kimlik doğrulaması olarak içeri aktarılacak varsa kutusu. Kullanıcıların önemli sayıda sunucu hello henüz içeri aktarılmadı ve/veya iki aşamalı doğrulamayı muaf tutulacaksa hello kutunun işaretini kaldırın.
-7. Merhaba denetleyin **etkinleştir geri dönüş OATH belirteci** bir geri dönüş toohello bant dışı olarak telefon araması, SMS, mobil doğrulama uygulamalardan toouse OATH parolalarını istediğiniz ya da anında bildirim kutusu.
+6. Tüm kullanıcılar Sunucu’ya aktarılmışsa ve multi-factor authentication’a tabi olacaksa, **Multi-Factor Authentication İste kullanıcı eşleme** kutusunu işaretleyin. Sunucu’ya henüz aktarılmamış veya iki aşamalı doğrulamadan muaf tutulacak çok sayıda kullanıcı varsa kutunun işaretini kaldırın.
+7. Mobil doğrulama uygulamalarınızdan edindiğiniz OATH parolalarını yedekleme yöntemi olarak kullanmak istiyorsanız **Yedek OATH belirtecini etkinleştir** kutusunu işaretleyin.
 8. **Tamam** düğmesine tıklayın.
 
-Gerektiği kadar ek RADIUS istemcileri 8 tooadd 4 adımlarını yineleyin.
+4 adımdan 8 adıma kadar yapılan işlemleri tekrarlayarak dilediğiniz kadar RADIUS istemcisi ekleyebilirsiniz.
 
 ## <a name="configure-your-radius-client"></a>RADIUS istemcinizi yapılandırma
 
-1. Merhaba tıklatın **hedef** sekmesi.
-2. Hello Azure MFA sunucusu, Active Directory ortamında etki alanına katılmış bir sunucuda yüklüyse, Windows etki alanını seçin.
+1. **Hedef** sekmesine tıklayın.
+2. Azure MFA Sunucusu Active Directory ortamında etki alanına katılmış bir sunucuda yüklüyse, Windows etki alanını seçin.
 3. Kullanıcılara LDAP dizinine göre kimlik doğrulaması uygulanması gerekiyorsa **LDAP bağlaması**’nı seçin.
 
-  toouse LDAP bağlaması hello dizin tümleştirme simgesine tıklayın ve böylece hello sunucu tooyour dizin bağlayabilirsiniz hello hello ayarları sekmesinde LDAP yapılandırmasını düzenleyin. LDAP yapılandırma yönergeleri hello bulunabilir [LDAP Proxy Yapılandırma Kılavuzu'nda](multi-factor-authentication-get-started-server-ldap.md).
+  Sunucu’nun dizininize bağlanabilmesi için Dizin Tümleştirme simgesine tıklayın ve Ayarlar sekmesinde LDAP yapılandırmasını düzenleyin. LDAP yapılandırma yönergeleri [LDAP Proxy yapılandırma kılavuzunda](multi-factor-authentication-get-started-server-ldap.md) bulunabilir.
 
 4. Kullanıcılara başka bir RADIUS sunucusuna göre kimlik doğrulaması yapılması gerekiyorsa, RADIUS sunucularını seçin.
-5. Tıklatın **Ekle** tooconfigure hello sunucu toowhich hello Azure MFA sunucusu olacak proxy hello RADIUS istekleri.
-6. Merhaba RADIUS sunucusu Ekle iletişim kutusunda başlangıç IP adresi hello RADIUS sunucusu ve paylaşılan gizlilik girin.
+5. Azure MFA Sunucusu’nun RADIUS istekleri için proxy olarak kullanacağı sunucuyu yapılandırmak için **Ekle**’ye tıklayın.
+6. RADIUS Sunucusu Ekle iletişim kutusuna RADIUS sunucusunun IP adresi İle paylaşılan bir gizli dizi girin.
 
-  Merhaba gizli gereksinimlerini toobe hello paylaşılan aynı hem hello Azure çok faktörlü kimlik doğrulama sunucusu ve RADIUS sunucusu. Merhaba RADIUS sunucusu tarafından farklı bağlantı noktaları kullanılıyorsa hello kimlik doğrulama bağlantı noktasını ve hesap bağlantı noktasını değiştirin.
+  Paylaşılan gizli dizinin Azure Multi-Factor Authentication Sunucusu’nda ve RADIUS sunucusunda aynı olması gerekir. RADIUS sunucusu tarafından farklı bağlantı noktaları kullanılıyorsa, Kimlik Doğrulama bağlantı noktasını ve Hesap bağlantı noktasını değiştirin.
 
 7. **Tamam** düğmesine tıklayın.
-8. Böylece Azure MFA sunucusu hello tooit gönderilen erişim isteklerini işleyebilir hello Azure MFA sunucusu başka bir RADIUS sunucusuna RADIUS istemcisi olarak hello ekleyin. Aynı paylaşılan gizliliği hello Azure çok faktörlü kimlik doğrulama sunucusu yapılandırılmış hello kullanın.
+8. Azure MFA Sunucusu’ndan gönderilen erişim isteklerini işleyebilmesi için Azure MFA Sunucusu’nu başka bir RADIUS sunucusunda RADIUS istemcisi olarak ekleyin. Azure Multi-Factor Authentication Sunucusu’nda yapılandırılanla aynı paylaşılan gizli diziyi kullanın.
 
-Daha fazla RADIUS sunucuları bu adımları tooadd yineleyin ve hangi hello Azure MFA sunucusu çağrı bunları ile Merhaba hello sırasını yapılandırın **Yukarı Taşı** ve **Aşağı Taşı** düğmeler.
+Başka RADIUS sunucuları eklemek için bu adımları yineleyin. **Yukarı Taşı** ve **Aşağı Taşı** düğmeleriyle Azure MFA Sunucusu’nun bunları çağıracağı sırayı yapılandırabilirsiniz.
 
-Bu hello Azure multi-Factor Authentication sunucusu yapılandırmasını tamamlar. Hello sunucu yapılandırılmış hello istemcilerden gelen RADIUS erişim istekleri için yapılandırılan hello bağlantı noktalarını şimdi dinliyor.   
+Azure Multi-Factor Authentication Sunucusu’nu başarıyla yapılandırdınız. Sunucu artık yapılandırılan istemcilerden gelen RADIUS erişim istekleri için yapılandırılan bağlantı noktalarını dinler.   
 
 ## <a name="radius-client-configuration"></a>RADIUS İstemcisi yapılandırması
-tooconfigure hello RADIUS istemcisi hello yönergeleri kullanın:
+RADIUS istemcisini yapılandırmak için yönergeleri kullanın:
 
-* Merhaba RADIUS sunucusu olarak hareket edecek RADIUS toohello Azure multi-Factor Authentication Sunucusu'nun IP adresi aracılığıyla, gereçte/sunucuda tooauthenticate yapılandırın.
-* Aynı paylaşılan daha önce yapılandırılan gizlilik hello kullanın.
-* Var. zaman toovalidate hello kullanıcının kimlik bilgilerini hello RADIUS zaman aşımı too30-60 saniye olarak yapılandırın, iki aşamalı doğrulamayı gerçekleştirmek, bunların yanıtını alma ve sonra toohello RADIUS erişim isteğini yanıtlamaya.
+* Gerecinizi/sunucunuzu, RADIUS sunucusu olarak görev yapan Azure Multi-Factor Authentication Sunucusu’nun IP adresi için RADIUS aracılığıyla kimlik doğrulaması yapacak şekilde yapılandırın.
+* Daha önce yapılandırılanla aynı paylaşılan gizli diziyi kullanın.
+* Kullanıcının kimlik bilgilerini doğrulama, iki aşamalı kimlik doğrulaması gerçekleştirme, bunların yanıtını alma ve sonra RADIUS erişim isteğini yanıtlamaya yetecek kadar zaman olması için RADIUS zaman aşımını 30-60 saniye olarak yapılandırın.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Bulutta Azure Multi-Factor Authentication kullanıyorsanız [RADIUS kimlik doğrulaması ile tümleştirmeyi](multi-factor-authentication-nps-extension.md) öğrenin. 

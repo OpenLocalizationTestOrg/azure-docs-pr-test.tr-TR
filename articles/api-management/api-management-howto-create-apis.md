@@ -1,6 +1,6 @@
 ---
-title: aaaHow toocreate Azure API Management API'leri
-description: "Bilgi nasıl toocreate ve Azure API Management'te API'leri yapılandırın."
+title: "Azure API Management'te API oluşturma"
+description: "Oluşturma ve Azure API Management'te API'leri yapılandırmak hakkında bilgi edinin."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,64 +14,64 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 48ed8d93947253aa1e67ad995927ed6101cac072
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ab08256fbc3caca05bf23a12016ad2acf4fc7412
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toocreate-apis-in-azure-api-management"></a>Nasıl toocreate Azure API Management API'leri
-API Management bir API İstemci uygulamaları tarafından çağrılabilen işlemler kümesini temsil eder. Yeni API hello yayımcı portalında oluşturulur ve ardından operations eklenen hello istenen. Merhaba işlemleri eklendikten sonra hello API tooa ürün eklenir ve yayımlanabilir. Bir API yayımlandığında, geliştiriciler tarafından kullanılan abone tooand olabilir.
+# <a name="how-to-create-apis-in-azure-api-management"></a>Azure API Management'te API oluşturma
+API Management bir API İstemci uygulamaları tarafından çağrılabilen işlemler kümesini temsil eder. Yeni API'leri yayımcı portalında oluşturulur ve ardından istenen işlemleri eklenir. Operations eklendikten sonra API bir ürüne eklenebilir ve yayımlanabilir. Bir API yayımlandığında abone ve geliştiriciler tarafından kullanılır.
 
-Bu kılavuz, hello işleminde hello ilk adımı gösterir: nasıl toocreate ve yeni bir API API Management içinde yapılandırın. Operations ekleme ve bir ürün yayımlama hakkında daha fazla bilgi için bkz: [nasıl tooadd işlemleri tooan API] [ How tooadd operations tooan API] ve [nasıl toocreate ürün ve yayımlama] [ How toocreate and publish a product].
+Bu kılavuz, işlemde ilk adımı gösterir: oluşturma ve yeni bir API API Management içinde yapılandırın. Operations ekleme ve bir ürün yayımlama hakkında daha fazla bilgi için bkz: [API'ye işlem ekleme] [ How to add operations to an API] ve [nasıl oluşturulacağı ve bir ürün yayımlama][How to create and publish a product].
 
 ## <a name="create-new-api"></a>Yeni bir API oluşturma
-API oluşturulur ve hello yayımcı portalında yapılandırılır. tooaccess hello yayımcı portalı, tıklatın **yayımcı portalına** API Management hizmetiniz için hello Azure Portalı'nda.
+API oluşturulur ve yayımcı portalında yapılandırılır. Yayımcı portalına erişmek için tıklatın **yayımcı portalına** API Management hizmetiniz için Azure Portalı'nda.
 
 ![Yayımcı portalı][api-management-management-console]
 
-> Henüz bir API Management hizmeti örneği oluşturmadıysanız, bkz: [bir API Management hizmet örneği oluşturma] [ Create an API Management service instance] hello içinde [Azure API Management ile çalışmaya başlama] [ Get started with Azure API Management] Öğreticisi.
+> Henüz bir API Management hizmeti örneği oluşturmadıysanız, [Azure API Management'i kullanmaya başlama][Get started with Azure API Management] öğreticisinde [API Management hizmet örneği oluşturma][Create an API Management service instance]'ya bakın.
 > 
 > 
 
-Tıklatın **API'leri** hello gelen **API Management** sol hello ve ardından menüsünde **API ekleme**.
+Tıklatın **API'leri** gelen **API Management** sol menüsünde ve ardından **API ekleme**.
 
 ![API oluşturma][api-management-create-api]
 
-Kullanım hello **yeni API ekleme** penceresi tooconfigure hello yeni API.
+Kullanım **yeni API ekleme** yeni API yapılandırmak için penceresi.
 
 ![Yeni API ekle][api-management-add-new-api]
 
-alanları aşağıdaki hello kullanılan tooconfigure hello yeni API ' dir.
+Aşağıdaki alanları yeni API yapılandırmak için kullanılır.
 
-* **Web API adı** hello API için benzersiz ve açıklayıcı bir ad sağlar. Merhaba Geliştirici ve yayımcı portallarında görüntülenir.
-* **Web hizmeti URL'si** başvuruları hello hello API uygulama HTTP hizmeti. API management toothis adresi isteklerini iletir.
-* **Web API'si URL soneki** eklenmiş toohello temel hello API management hizmeti URL'sidir. Merhaba temel URL bir API Management hizmet örneği tarafından barındırılan tüm API'leri yaygındır. API Management API'leri kendi soneki ayırır ve bu nedenle hello soneki her API için belirtilen yayımcı için benzersiz olmalıdır.
-* **Web API'si URL şeması** hangi protokollerin kullanılan tooaccess hello API olabileceğini belirler. HTTPs varsayılan olarak belirtilir.
-* toooptionally bu yeni API tooa ürün eklemek için hello tıklatın **ürünler (isteğe bağlı)** açılır ve bir ürün seçin. Bu adım, yinelenen birden çok tooadd hello API toomultiple ürünleri kez olabilir.
+* **Web API adı** API için benzersiz ve açıklayıcı bir ad sağlar. Geliştirici ve yayımcı portallarında görüntülenir.
+* **Web hizmeti URL'si** API uygulama HTTP hizmeti başvuruyor. API management bu adrese isteklerini iletir.
+* **Web API'si URL soneki** API management hizmeti temel URL'si eklenir. Temel URL bir API Management hizmet örneği tarafından barındırılan tüm API'leri yaygındır. API Management API'leri kendi soneki ayırır ve bu nedenle soneki her API için belirtilen yayımcı için benzersiz olmalıdır.
+* **Web API'si URL şeması** API erişmek için hangi protokollerin kullanılabileceğini belirler. HTTPs varsayılan olarak belirtilir.
+* İsteğe bağlı olarak bu yeni API ürün eklemek için tıklatın **ürünler (isteğe bağlı)** açılır ve bir ürün seçin. Bu adım, birden fazla ürün için API eklemek için birden çok kez yinelenebilir.
 
-Değerleri yapılandırılmış Hello istenen sonra tıklayın **kaydetmek**. Merhaba yeni API oluşturulduktan sonra hello hello API için Özet sayfasında hello yayımcı Portalı'nda görüntülenir.
+İstenen değerleri yapılandırıldıktan sonra tıklatın **kaydetmek**. Yeni API oluşturulduktan sonra API için Özet sayfasında yayımcı portalında görüntülenir.
 
 ![API özeti][api-management-api-summary]
 
 ## <a name="configure-api-settings"></a>API yapılandırma ayarları
-Merhaba kullanabilirsiniz **ayarları** tooverify sekmesinde ve API hello yapılandırmasını düzenleyin. **Web API adı**, **Web hizmeti URL'si**, ve **Web API'si URL soneki** hello API oluşturulduğunda ve değiştirilebilir başlangıçta burada ayarlanır. **Açıklama** isteğe bağlı bir açıklama sağlar ve **Web API'si URL şeması** hangi protokollerin kullanılan tooaccess hello API olabileceğini belirler.
+Kullanabileceğiniz **ayarları** doğrulayın ve API yapılandırmasını düzenlemek için sekmesini. **Web API adı**, **Web hizmeti URL'si**, ve **Web API'si URL soneki** API oluşturulduğunda ve değiştirilebilir başlangıçta burada ayarlanır. **Açıklama** isteğe bağlı bir açıklama sağlar ve **Web API'si URL şeması** API erişmek için hangi protokollerin kullanılabileceğini belirler.
 
 ![API ayarları][api-management-api-settings]
 
-tooconfigure ağ geçidi hello arka uç hizmeti için uygulama hello API, kimlik doğrulaması hello **güvenlik** sekmesini hello **kimlik bilgileriyle** açılan kullanılan tooconfigure olabilir **HTTP temel** veya **istemci sertifikalarını** kimlik doğrulaması. toouse HTTP temel kimlik doğrulaması, istenen hello kimlik bilgilerini girmeniz yeterlidir. İstemci sertifikası kimlik doğrulamasını kullanma hakkında daha fazla bilgi için bkz: [nasıl toosecure arka uç hizmetlerini kullanan istemci sertifikası kimlik Azure API Management'te][How toosecure back-end services using client certificate authentication in Azure API Management].
+API uygulama arka uç hizmetine ağ geçidi kimlik doğrulamasını yapılandırmak için seçin **güvenlik** sekmesi. **Kimlik bilgileriyle** açılan yapılandırmak için kullanılabilir **HTTP temel** veya **istemci sertifikalarını** kimlik doğrulaması. HTTP temel kimlik doğrulaması kullanmak için istenen kimlik bilgilerini girmeniz yeterlidir. İstemci sertifikası kimlik doğrulamasını kullanma hakkında daha fazla bilgi için bkz: [arka uç hizmetlerini kullanan istemci sertifikası kimlik doğrulaması Azure API Management'te güvenliğini sağlamak nasıl][How to secure back-end services using client certificate authentication in Azure API Management].
 
-Merhaba **güvenlik** sekmesi ayrıca kullanılan tooconfigure olması **kullanıcı yetkilendirme** OAuth 2.0 kullanan. Daha fazla bilgi için bkz: [nasıl tooauthorize Geliştirici kullanarak hesapları Azure API Management'te OAuth 2.0][How tooauthorize developer accounts using OAuth 2.0 in Azure API Management].
+**Güvenlik** sekmesinde de kullanılabilir yapılandırmak için **kullanıcı yetkilendirme** OAuth 2.0 kullanan. Daha fazla bilgi için bkz: [Azure API Management'te OAuth 2.0 kullanan Geliştirici hesaplarını yetkilendirmede nasıl][How to authorize developer accounts using OAuth 2.0 in Azure API Management].
 
 ![Temel kimlik doğrulama ayarları][api-management-api-settings-credentials]
 
-Tıklatın **kaydetmek** toosave değişikliklerini API ayarları toohello yapın.
+Tıklatın **kaydetmek** API ayarları yaptığınız değişiklikleri kaydetmek için.
 
 ## <a name="next-steps"> </a>Sonraki adımlar
-Bir API oluşturulduğunu ve yapılandırılan hello ayarları hello sonraki adımlar sonra tooadd hello işlemleri toohello API, hello API tooa ürün ekleme ve böylece geliştiriciler için kullanılabilir yayımlayın. Daha fazla bilgi için aşağıdaki makaleler hello bakın.
+Bir API oluşturup yapılandırılan ayarları, sonraki adımlar için API işlemleri eklemek üzeresiniz sonra bir ürüne API ekleme ve böylece geliştiriciler için kullanılabilir yayımlayın. Daha fazla bilgi için aşağıdaki makalelere bakın.
 
-* [Nasıl tooadd işlemleri tooan API][How tooadd operations tooan API]
-* [Nasıl toocreate ürün ve yayımlama][How toocreate and publish a product]
+* [API'ye işlem ekleme][How to add operations to an API]
+* [Oluşturma ve bir ürün yayımlama][How to create and publish a product]
 
 [api-management-create-api]: ./media/api-management-howto-create-apis/api-management-create-api.png
 [api-management-management-console]: ./media/api-management-howto-create-apis/api-management-management-console.png
@@ -87,10 +87,10 @@ Bir API oluşturulduğunu ve yapılandırılan hello ayarları hello sonraki ad�
 [Configure API operations]: #configure-api-operations
 [Next steps]: #next-steps
 
-[How tooadd operations tooan API]: api-management-howto-add-operations.md
-[How toocreate and publish a product]: api-management-howto-add-products.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
 
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
-[How toosecure back-end services using client certificate authentication in Azure API Management]: api-management-howto-mutual-certificates.md
-[How tooauthorize developer accounts using OAuth 2.0 in Azure API Management]: api-management-howto-oauth2.md
+[How to secure back-end services using client certificate authentication in Azure API Management]: api-management-howto-mutual-certificates.md
+[How to authorize developer accounts using OAuth 2.0 in Azure API Management]: api-management-howto-oauth2.md

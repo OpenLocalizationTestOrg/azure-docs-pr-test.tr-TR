@@ -13,4 +13,4 @@ Parolaları, yönetilen depolama hesabı anahtarlarını ve kasa işlemleri:
 | Tüm işlemleri |2000 |
 |
 
-<sup>1</sup> tüm işlem türleri için anahtar kasası başına 5 x, bir abonelik genelinde sınırı yoktur. Abonelik başına diğer işlemleri abonelik başına 10 saniye sınırlı too5000 işlemleri bulunan örnek için HSM -.
+<sup>1</sup> tüm işlem türleri için anahtar kasası başına 5 x, bir abonelik genelinde sınırı yoktur. Abonelik başına 10 saniye içinde diğer işlemleri abonelik başına 5000 işlemleri için sınırlı Örneğin, HSM -.

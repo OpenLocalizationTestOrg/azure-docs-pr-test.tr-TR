@@ -1,6 +1,6 @@
 ---
-title: "Hyper-V çoğaltma tooAzure için System Center VMM aaaPrepare | Microsoft Docs"
-description: "Açıklar nasıl tooprepare System Center VMM sunucusuna Azure Site Recovery kullanarak Hyper-V çoğaltma tooAzure için"
+title: "System Center VMM Hyper-V çoğaltma Azure için hazırlama | Microsoft Docs"
+description: "System Center VMM sunucusu Hyper-V çoğaltma Azure Site Kurtarma'yı kullanarak Azure için hazırlamayı açıklar"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,37 +14,37 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
-ms.openlocfilehash: 773b06afaf7d3eea1fe64f050bf3970943cf466a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ec118ed837dbf140083b3ae1e4ecd41c81562018
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/29/2017
 ---
-# <a name="step-6-prepare-vmm-servers-and-hyper-v-hosts-for-hyper-v-replication-tooazure"></a>6. adım: VMM sunucuları ve Hyper-V konakları için Hyper-V çoğaltma tooAzure hazırlama
+# <a name="step-6-prepare-vmm-servers-and-hyper-v-hosts-for-hyper-v-replication-to-azure"></a>6. adım: Hyper-V çoğaltma Azure için VMM sunucuları ve Hyper-V ana bilgisayarları hazırlama
 
-Ayarladıktan sonra [Azure bileşenleri](vmm-to-azure-walkthrough-prepare-azure.md) hello dağıtımı için Azure Site Recovery ile bu makale tooprepare şirket içi VMM sunucuları ve Hyper-V konakları toointeract hello yönergeleri kullanın.
+Ayarladıktan sonra [Azure bileşenleri](vmm-to-azure-walkthrough-prepare-azure.md) şirket içi VMM sunucuları ve Azure Site Recovery ile etkileşim kurmak için Hyper-V konakları hazırlamak için bu makaledeki dağıtımı için yönergeleri kullanın.
 
-Bu makaleyi okuduktan sonra hello altındaki tüm yorumlar post veya üzerinde hello teknik sorular sormak [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Bu makaleyi okuduktan sonra altındaki bir yorum gönderin ya da teknik sorular [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="prepare-vmm-servers"></a>VMM sunucuları hazırlama
 
-- Site Recovery çoğaltma (site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers) hello destek gereksinimlerini karşılayan en az bir VMM sunucusu gerekir.
-- Emin olun hello VMM sunucusu için hazır [ağ eşlemesi](vmm-to-azure-walkthrough-network.md#network-mapping-for-replication-to-azure).
-- Merhaba VMM sunucusunun bu URL'leri erişebildiğinden emin olun
+- Site Recovery çoğaltma (site-recovery-support-matrix-to-azure.md#support-for-datacenter-management-servers) için destek gereksinimlerini karşılayan en az bir VMM sunucusu gerekir.
+- VMM sunucusu için hazır olduğundan emin olun [ağ eşlemesi](vmm-to-azure-walkthrough-network.md#network-mapping-for-replication-to-azure).
+- VMM sunucusunun bu URL'leri erişebildiğinden emin olun
 
     [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
     
-- IP adresi tabanlı güvenlik duvarı kuralları varsa, iletişim tooAzure izin emin olun.
-- Merhaba izin [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653)ve hello HTTPS (443 numaralı) bağlantı noktası.
-- IP adres aralıklarını hello aboneliğinizin Azure bölgesi ve Batı ABD (erişim denetimi ve kimlik yönetimi için kullanılan) izin verir.
+- IP adresi tabanlı güvenlik duvarı kurallarına sahipseniz bu kuralların Azure ile iletişim kurmaya izin verdiğinden emin olun.
+- [Azure Veri Merkezi IP Aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653)'na ve HTTPS (443) bağlantı noktasına izin verin.
+- Aboneliğinizin Azure bölgesi ve Batı ABD (Access Control ve Identity Management için kullanılır) için IP adresi aralıklarına izin verin.
 
-Site Recovery dağıtımı sırasında hello Site kurtarma sağlayıcısı indirin ve her VMM sunucusuna yükleyin. Kurtarma Hizmetleri kasası hello Hello VMM sunucusu kayıtlı.
+Site Recovery dağıtımı sırasında Site kurtarma Sağlayıcısı'nı indirin ve her VMM sunucusuna yükleyin. VMM sunucusu kurtarma Hizmetleri kasasına kayıtlı.
 
 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Çok Git[adım 7: bir kasa oluşturun](vmm-to-azure-walkthrough-create-vault.md)
+Git [adım 7: bir kasa oluşturun](vmm-to-azure-walkthrough-create-vault.md)
 

@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure Cosmos DB SQL kopya sayfası PDF | Microsoft Docs"
-description: "Yazdırılabilir SQL kopya sayfası, kendi veritabanında - hızlı başvuru SQL Azure Cosmos veritabanı SQL söz dizimi tooquery JSON belgeleri kullanmanıza yardımcı olur PDF"
+title: "Azure Cosmos veritabanı SQL kopya sayfası PDF | Microsoft Docs"
+description: "Yazdırılabilir SQL kopya sayfası, kendi veritabanında - hızlı başvuru SQL Azure Cosmos veritabanı SQL söz dizimi JSON belgelerini sorgulamak için kullanmanıza yardımcı olur PDF"
 keywords: "SQL kopya sayfası, sql hızlı başvuru sayfası pdf, sql sorgu kopya sayfası"
 services: cosmos-db
 documentationcenter: 
@@ -15,31 +15,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: mimig
-ms.openlocfilehash: 4f0e822602874a6487927f3940af6bf71df05f7a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cd314049a536ad4a95e243eac26aa044c90c8164
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-cosmos-db-documentdb-api-sql-query-cheat-sheet-pdf"></a>Azure Cosmos DB: DocumentDB API SQL sorgu kopya sayfası PDF
-Merhaba **Azure Cosmos DB: DocumentDB API SQL sorgu kopya sayfası** hızla yazma sorguları DocumentDB API veriler için bir kolay tooprint PDF ortak veritabanı sorguları, anahtar sözcükler, yerleşik işlevler ve işleçler görüntüleyerek yardımcı olur başvuru sayfası. 
+**Azure Cosmos DB: DocumentDB API SQL sorgu kopya sayfası** hızla DocumentDB API veri yazma sorgularında ortak veritabanı sorguları, anahtar sözcükler, yerleşik işlevler ve işleçler PDF başvuru yazdırmak bir kolay içinde görüntüleyerek yardımcı olur Sayfa. 
 
-Cosmos DB destekler ilişkisel, hiyerarşik ve uzamsal sorgulama JSON belgeleri kullanarak [SQL](documentdb-sql-query.md) bir şema veya ikincil dizinler belirtmeden. Toplama toohello standart ANSI SQL anahtar sözcükleri ve işleçler Cosmos DB JavaScript kullanıcı tanımlı işlevler (UDF'ler), JavaScript işleçleri ve çok sayıda yerleşik işlevleri destekler.
+Cosmos DB destekler ilişkisel, hiyerarşik ve uzamsal sorgulama JSON belgeleri kullanarak [SQL](documentdb-sql-query.md) bir şema veya ikincil dizinler belirtmeden. Standart ANSI SQL anahtar sözcükleri ve işleçler ek olarak, Cosmos DB JavaScript kullanıcı tanımlı işlevler (UDF'ler), JavaScript işleçleri ve çok sayıda yerleşik işlevleri destekler.
 
-## <a name="download-hello-cosmos-db-sql-query-cheat-sheet-pdf"></a>Merhaba Cosmos veritabanı SQL sorgu kopya sayfası PDF indirin
-Merhaba SQL sorgu kopya sayfası karşıdan yükleniyor ve hızlı başvuru olarak kullanarak daha hızlı sorgularınızı yazma. Merhaba SQL kopya sayfası PDF iki örnek JSON belgelerini yaygın kullanılan sorguları tooretrieve verileri gösterir. tookeep, yakındaki sayfa harf boyutunda (11 x 8.5.) hello tek taraflı SQL sorgu kopya sayfa yazdırabilir.
+## <a name="download-the-cosmos-db-sql-query-cheat-sheet-pdf"></a>Cosmos veritabanı SQL sorgu kopya sayfası PDF indirin
+SQL sorgu kopya sayfası karşıdan yükleniyor ve hızlı başvuru olarak kullanarak daha hızlı sorgularınızı yazma. SQL kopya sayfası PDF iki örnek JSON belgeleri verileri almak için kullanılan ortak sorguları gösterir. Nearby, kalmasını sağlamak için tek taraflı SQL sorgu kopya sayfasında sayfa harf boyutu (8.5 x 11 inç) yazdırabilirsiniz.
 
-**Merhaba SQL kopya sayfası buradan indirin: [Microsoft Azure Cosmos DB SQL kopya sayfası](http://go.microsoft.com/fwlink/?LinkId=623215)**
+**SQL kopya sayfası indirin: [Microsoft Azure Cosmos DB SQL kopya sayfası](http://go.microsoft.com/fwlink/?LinkId=623215)**
 
-![Azure Cosmos veritabanı SQL sorgu kopya sayfası: hızlı başvuru PDF toohello SQL söz dizimi Azure Cosmos DB tarafından - desteklenen SQL kopya sayfası, SQL kopya sayfası PDF, SQL hızlı başvuru][cheat-sheet]
+![Azure Cosmos veritabanı SQL sorgu kopya sayfası: Azure Cosmos DB tarafından - desteklenen SQL kopya sayfası, SQL kopya sayfası PDF, SQL hızlı başvuru SQL söz dizimi hızlı başvuru PDF][cheat-sheet]
 
 [cheat-sheet]: ./media/documentdb-sql-query-cheat-sheet/microsoft-documentdb-sql-query-cheat-sheet-v4.png
 
 
 ## <a name="more-help-with-writing-sql-queries"></a>SQL sorguları yazma hakkında daha fazla yardım
-* Bir ilerleme hello sorgu seçeneklerinin Cosmos DB'de kullanılabilir için bkz: [sorgu Cosmos DB](documentdb-sql-query.md).
-* İlgili hello başvuru belgelerini, bkz: [Azure Cosmos DB DocumentDB API'si: SQL söz dizimi başvurusu](https://msdn.microsoft.com/library/azure/dn782250.aspx).
+* Bir ilerleme Cosmos DB'de kullanılabilir sorgu seçenekleri için bkz: [sorgu Cosmos DB](documentdb-sql-query.md).
+* İlgili başvuru belgeleri için bkz: [Azure Cosmos DB DocumentDB API'si: SQL söz dizimi başvurusu](https://msdn.microsoft.com/library/azure/dn782250.aspx).
 
 ## <a name="release-notes"></a>Sürüm notları
-29/7/2016 tooinclude üst güncelleştirildi.
+7/29/üst içerecek şekilde 2016 tarihinde güncelleştirildi.
 

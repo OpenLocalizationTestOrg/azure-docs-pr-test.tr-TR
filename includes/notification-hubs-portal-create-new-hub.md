@@ -1,21 +1,28 @@
 
 
-1. Toohello üzerinde oturum [Azure Portal](https://portal.azure.com)ve ardından **+ yeni** hello adresindeki hello ekranın sol üst.
-2. **Yeni**’ye, ardından da **Web + Mobil**’e tıklayın. Gerekiyorsa kayarak ilerleyin ve **Notification Hub**’a tıklayın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+
+2. **Yeni** > **Web + Mobil** > **Bildirim Hub'ı** öğesini seçin.
    
-      ![Azure Portal - Notification Hubs oluşturma](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
+      ![Azure portalı - Bildirim hub'ı oluşturma](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
       
-3. Hello benzersiz bir ad belirttiğinizden emin olun **bildirim hub'ı** alan. **Bölge**, **Abonelik** ve **Kaynak Grubu** (zaten varsa) öğeleri için istediğiniz değerleri seçin. 
+3. **Bildirim Hub'ı** kutusuna benzersiz bir ad yazın. **Bölge**, **Abonelik** ve **Kaynak Grubu** (zaten varsa) seçimi yapın. 
    
-    Toocreate hello hub istediğiniz bir hizmet veri yolu ad alanı zaten varsa, hello seçin **var olanı Seç** hello seçeneğinde **Namespace** alan.  Aksi takdirde, başlangıç ad alanı adı kullanılabilir olduğu sürece hello hub adına göre oluşturulan hello varsayılan adı kullanabilirsiniz. 
+    Hub'ı oluşturmak istediğiniz bir hizmet veri yolu ad alanı varsa aşağıdakileri gerçekleştirin:
+
+    a. **Ad Alanı** alanında **Var Olanı Seç** bağlantısını seçin. 
    
-    Hazır olduktan sonra **Oluştur**’a tıklayın.
+    b. **Oluştur**’u seçin.
+
+    Hizmet veri yolu ad alanınız yoksa hub adına göre oluşturulan (ad alanı adı varsa) varsayılan adı kullanabilirsiniz.
    
-      ![Azure Portal - Bildirim hub'ı özelliklerini ayarlama](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
-4. Merhaba ad alanı ve bildirim hub'ı oluşturulduktan sonra ilgili portal sayfasına çekildiği toohello olacaktır. 
+      ![Azure portalı - Bildirim hub'ı özelliklerini ayarlama](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
+
+    Ad alanını ve bildirim hub'ını oluşturduktan sonra Azure portalı açılır. 
    
-      ![Azure Portal - Bildirim hub'ı portal sayfası](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-page.png)
-5. Tıklayın **ayarları** ve ardından **erişim ilkeleri** -, bunları toohandle anında iletme bildirimleri daha sonra ihtiyacınız olacak şekilde kullanılabilir tooyou yapılan hello iki bağlantı dizeleri not edin.
+      ![Azure portalı - Bildirim hub'ı portal sayfası](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-page.png)
+
+4. **Ayarlar** > **Erişim İlkeleri**'ni seçin. Verilen iki bağlantı dizesini not edin. Bu dizelere daha sonra anında iletme bildirimleri için ihtiyaç duyacaksınız.
    
-      ![Azure Portal - Bildirim hub'ı bağlantı dizeleri](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
+      ![Azure portalı - Bildirim hub'ı bağlantı dizeleri](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
 

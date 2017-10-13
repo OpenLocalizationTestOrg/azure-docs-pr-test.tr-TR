@@ -1,6 +1,6 @@
 ---
-title: "aaaGet Azure PowerShell kullanarak DNS ile başlatılan | Microsoft Docs"
-description: "Bilgi nasıl toocreate bir DNS bölgesi ve Azure DNS kaydında. Bu adım adım kılavuzu toocreate ve ilk DNS bölgenizi yönetmek ve PowerShell kullanarak kaydedin."
+title: "PowerShell ile Azure DNS kullanmaya başlama | Microsoft Docs"
+description: "Azure DNS'te DNS bölgesi ve kaydı oluşturma hakkında bilgi edinin. Bu kılavuzda, PowerShell kullanarak ilk DNS bölgenizi ve kaydınızı oluşturup yönetmeniz için adım adım talimatlar sunulmaktadır."
 services: dns
 documentationcenter: na
 author: jtuliani
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-ms.openlocfilehash: 0f9dead1e4b44fcc74c84a024c41cdfaeb02b5d3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 48f7ba325f61b4a91c0208b4c99058da801bee19
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-dns-using-powershell"></a>PowerShell ile Azure DNS’i kullanmaya başlama
 
@@ -29,15 +29,15 @@ ms.lasthandoff: 10/06/2017
 > * [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-getstarted-cli.md)
 
-Bu makalede, ilk DNS bölgesi ve Azure PowerShell kullanarak kaydı hello adımları toocreate anlatılmaktadır. Ayrıca, hello Azure portal kullanarak aşağıdaki adımları gerçekleştirin veya platformlar arası Azure CLI hello.
+Bu makalede, Azure PowerShell kullanarak ilk DNS bölgesi ve kaydınızı oluşturma adımları gösterilmektedir. Ayrıca, Azure portal veya platformlar arası Azure CLI kullanarak aşağıdaki adımları gerçekleştirebilirsiniz.
 
-Bir DNS bölgesi belirli bir etki alanı için kullanılan toohost hello DNS kayıtlarını ' dir. Azure DNS, etki alanınızda barındırma toostart toocreate bir DNS bölgesi için o etki alanı adı gerekiyor. Ardından bu DNS bölgesinde etki alanınız için tüm DNS kayıtları oluşturulur. Son olarak, toopublish, DNS bölge toohello Internet tooconfigure hello ad sunucuları hello etki alanı için gerekir. Bu adımların her biri aşağıda açıklanmıştır.
+DNS bölgesi belirli bir etki alanıyla ilgili DNS kayıtlarını barındırmak için kullanılır. Etki alanınızı Azure DNS'de barındırmaya başlamak için bir DNS bölgesi oluşturmanız gerekir. Ardından bu DNS bölgesinde etki alanınız için tüm DNS kayıtları oluşturulur. Son olarak, DNS bölgenizi Internet'te yayımlamak için etki alanının ad sunucularını yapılandırmanız gerekir. Bu adımların her biri aşağıda açıklanmıştır.
 
-Bu yönergeler, zaten yüklü ve tooAzure PowerShell imzalı varsayalım. Yardım için bkz. [PowerShell kullanarak nasıl toomanage DNS bölgeleri](dns-operations-dnszones.md).
+Bu yönergeler, Azure PowerShell’i zaten yüklediğinizi ve oturum açtığınızı varsayar. Yardım için bkz. [PowerShell ile DNS bölgelerini yönetme](dns-operations-dnszones.md).
 
-## <a name="create-hello-resource-group"></a>Merhaba kaynak grubu oluştur
+## <a name="create-the-resource-group"></a>Kaynak grubunu oluşturma
 
-Merhaba DNS bölgesi oluşturmadan önce bir kaynak grubu toocontain hello DNS bölgesi oluşturulur. Merhaba aşağıdaki hello komut gösterir.
+DNS bölgesini oluşturmadan önce, DNS Bölgesi’ni içerecek bir kaynak grubu oluşturulur. Aşağıda, komut gösterilmektedir.
 
 ```powershell
 New-AzureRMResourceGroup -name MyResourceGroup -location "westus"
@@ -45,7 +45,7 @@ New-AzureRMResourceGroup -name MyResourceGroup -location "westus"
 
 ## <a name="create-a-dns-zone"></a>DNS bölgesi oluşturma
 
-Bir DNS bölgesi hello kullanılarak oluşturulan `New-AzureRmDnsZone` cmdlet'i. Merhaba aşağıdaki örnek adlı bir DNS bölgesi oluşturur *contoso.com* adlı hello kaynak grubunda *MyResourceGroup*. Merhaba örnek toocreate bir DNS bölgesi Hello değerleri kendinizinkilerle değiştirerek kullanın.
+DNS bölgesi, `New-AzureRmDnsZone` cmdlet’i kullanılarak oluşturulur. Aşağıdaki örnek, *MyResourceGroup* adlı kaynak grubunda *contoso.com* adlı bir DNS bölgesi oluşturur. Değerleri kendinizinkilerle değiştirerek DNS bölgesini oluşturmak için örneği kullanın.
 
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
@@ -53,18 +53,18 @@ New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
 
 ## <a name="create-a-dns-record"></a>DNS kaydı oluşturma
 
-Hello kullanarak kayıt kümeleri oluşturma `New-AzureRmDnsRecordSet` cmdlet'i. Merhaba aşağıdaki örnekte bir kayıt hello göreli adı "www" hello "contoso.com", "Contoso.com" kaynak grubunda DNS bölgesi içinde oluşturur. Merhaba tam hello kayıt kümesi "www.contoso.com" adıdır. Merhaba kayıt türü "A", "1.2.3.4" IP adresiyle, ve hello TTL 3600 saniyedir.
+`New-AzureRmDnsRecordSet` cmdlet’ini kullanarak kayıt kümeleri oluşturabilirsiniz. Aşağıdaki örnekte, "MyResourceGroup" kaynak grubu içindeki "contoso.com" DNS Bölgesinde göreli adı "www" olan bir kaynak oluşturulmaktadır. "www.contoso.com", kayıt kümesinin tam adıdır. Kayıt türü "A", IP adresi "1.2.3.4" ve TTL 3600 saniyedir.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "1.2.3.4")
 ```
 
-Diğer kayıt türleri için birden fazla kayıt ve toomodify mevcut kayıtları ile kayıt kümeleri için bkz: [yönetmek DNS kayıtlarını ve kayıt kümelerini Azure PowerShell kullanarak](dns-operations-recordsets.md). 
+Diğer kayıt türleri, birden fazla kayıt içerek kayıt kümeleri ve var olan kayıtların değiştirilmesi hakkında bilgi için bkz. [Azure PowerShell kullanarak DNS kayıtlarını ve kayıt kümelerini yönetme](dns-operations-recordsets.md). 
 
 
 ## <a name="view-records"></a>Kayıtları görüntüleme
 
-toolist hello DNS kayıtları, bölge içindeki kullanın:
+Bölgenizdeki DNS kayıtlarını listelemek için şu seçenekleri kullanın:
 
 ```powershell
 Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyResourceGroup
@@ -73,9 +73,9 @@ Get-AzureRmDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyResourceGroup
 
 ## <a name="update-name-servers"></a>Ad sunucularını güncelleştirme
 
-Sonra DNS bölgesi ve kayıtları doğru şekilde ayarlanan, tooconfigure gerek memnun, etki alanı adı toouse hello Azure DNS ad sunucuları. Bu DNS kayıtlarınızı hello Internet toofind üzerindeki diğer kullanıcılarla sağlar.
+DNS bölgenizin ve kayıtlarınızın doğru şekilde ayarlandığına karar verdikten sonra, Azure DNS ad sunucularını kullanmak için etki alanınızın adını yapılandırmanız gerekir. Bunun yapılması, İnternet üzerindeki diğer kullanıcıların DNS kayıtlarınızı bulmasını sağlar.
 
-Merhaba bölgenizin ad sunucuları tarafından hello verilen `Get-AzureRmDnsZone` cmdlet:
+Bölgenizin ad sunucuları `Get-AzureRmDnsZone` cmdlet’i tarafından belirtilir:
 
 ```powershell
 Get-AzureRmDnsZone -ZoneName contoso.com -ResourceGroupName MyResourceGroup
@@ -89,11 +89,11 @@ NumberOfRecordSets    : 3
 MaxNumberOfRecordSets : 5000
 ```
 
-Bu ad sunucuları hello etki alanı adı kayıt (Merhaba etki alanı adı satın aldığınız yerden) ile yapılandırılmalıdır. Şirketiniz hello seçeneği tooset hello ad sunucuları hello etki alanı için yukarı sunar. Daha fazla bilgi için bkz: [, etki alanı tooAzure DNS temsilci](dns-domain-delegation.md).
+Bu ad sunucuları, etki alanı adı kayıt şirketi (etki alanı adını satın aldığınız şirket) ile birlikte yapılandırılmalıdır. Kayıt şirketiniz, etki alanı için ad sunucularını ayarlama seçeneğini sunar. Daha fazla bilgi için bkz. [Etki alanınızı Azure DNS’e devretme](dns-domain-delegation.md).
 
 ## <a name="delete-all-resources"></a>Tüm kaynakları silme
 
-Bu makalede, adım aşağıdaki Al hello oluşturulan tüm kaynakları toodelete:
+Bu makalede oluşturulan tüm kaynakları silmek için, aşağıdaki adımları izleyin:
 
 ```powershell
 Remove-AzureRMResourceGroup -Name MyResourceGroup
@@ -101,9 +101,9 @@ Remove-AzureRMResourceGroup -Name MyResourceGroup
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure DNS hakkında daha fazla toolearn bkz [Azure DNS'ye genel bakış](dns-overview.md).
+Azure DNS hakkında daha fazla bilgi için bkz. [Azure DNS'e genel bakış](dns-overview.md).
 
-Azure DNS'de DNS bölgelerini yönetme hakkında daha fazla toolearn bkz [Azure PowerShell kullanarak DNS yönetme DNS bölgelerini](dns-operations-dnszones.md).
+Azure DNS’te DNS bölgelerini yönetme hakkında daha fazla bilgi için bkz. [PowerShell ile Azure DNS’te DNS bölgelerini yönetme](dns-operations-dnszones.md).
 
-Azure DNS'de DNS kayıtlarını yönetme hakkında daha fazla toolearn bkz [yönetmek DNS kayıtlarını ve kayıt kümelerini PowerShell kullanarak Azure DNS'de](dns-operations-recordsets.md).
+Azure DNS’te DNS kayıtlarını yönetme hakkında daha fazla bilgi için bkz. [PowerShell ile Azure DNS’te DNS kayıtlarını yönetme](dns-operations-recordsets.md).
 

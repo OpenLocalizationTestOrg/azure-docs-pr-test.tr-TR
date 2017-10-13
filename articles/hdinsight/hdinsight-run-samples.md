@@ -1,6 +1,6 @@
 ---
-title: "aaaRun hello Hadoop örnekleri Hdınsight - Azure | Microsoft Docs"
-description: "Hello Azure Hdınsight hizmeti sağlanan hello örnekleriyle kullanmaya başlayın. MapReduce programları veri kümelerinde çalışan bir PowerShell komut dosyası kullanın."
+title: "Hdınsight - Azure Hadoop örneklerini çalıştırma | Microsoft Docs"
+description: "Azure Hdınsight hizmeti sağlanan örneklerle kullanmaya başlayın. MapReduce programları veri kümelerinde çalışan bir PowerShell komut dosyası kullanın."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -16,30 +16,30 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 544856a2cdfe5154cbd9bf1fb05db081af86cd46
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 741cce6f2c81efed1e4bd0547fcb46a231815263
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Hadoop MapReduce Windows tabanlı Hdınsight'ta örneklerini çalıştırma
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-Örnekleri bir dizi MapReduce işleri kullanma Azure Hdınsight Hadoop kümeleri üzerinde çalışan başlamak toohelp sağlanır. Bu örneklerin her hello Hdınsight oluşturduğunuz yönetilen kümeleri kullanılabilir hale getirilir. Bu örnekleri çalıştırma hakkında bilgi edinin, Azure PowerShell cmdlet'leri toorun işleri Hadoop kümeleri kullanarak.
+Örnekler kümesi kullanarak Azure Hdınsight Hadoop kümeleri üzerinde başlatılan çalışan MapReduce işleri sağlamanıza yardımcı olması için sağlanır. Bu örneklerin her oluşturduğunuz yönetilen Hdınsight kümeleri kullanılabilir hale getirilir. Bu örnekleri çalıştırma hakkında bilgi edinin, Hadoop kümelerine işlerini çalıştırmak için Azure PowerShell cmdlet'lerini kullanarak ile.
 
 * [**Word sayısı**][hdinsight-sample-wordcount]: bir metin dosyasındaki word oluşum sayar.
-* [**C# sözcük sayımı akış**][hdinsight-sample-csharp-streaming]: bir metin dosyası kullanarak sayıları word oluşum hello Hadoop akış arabirimi.
-* [**Pi tahmin**][hdinsight-sample-pi-estimator]: bir istatistik kullanır (yarı Monte Carlo) yöntemi tooestimate hello pi değerini.
-* [**10 GB Graysort**][hdinsight-sample-10gb-graysort]: Hdınsight kullanarak genel amaçlı GraySort bir 10 GB dosyasını çalıştırın. Üç işleri toorun vardır: Teragen toogenerate hello veri, Terasort toosort hello veri ve Teravalidate tooconfirm hello veri doğru sıralanmıştır.
+* [**C# sözcük sayımı akış**][hdinsight-sample-csharp-streaming]: Hadoop akış arabirimini kullanarak bir metin dosyasındaki word oluşum sayar.
+* [**Pi tahmin**][hdinsight-sample-pi-estimator]: bir istatistik kullanır (yarı Monte Carlo) pi değerini tahmin etmek için yöntem.
+* [**10 GB Graysort**][hdinsight-sample-10gb-graysort]: Hdınsight kullanarak genel amaçlı GraySort bir 10 GB dosyasını çalıştırın. Çalıştırmak için üç iş vardır: verileri sıralamak için Terasort ve verilerin düzgün bir şekilde sıralanmış olduğunu onaylamak için Teravalidate verileri oluşturmak için Teragen.
 
 > [!NOTE]
-> Merhaba kaynak kodu hello ek bulunabilir.
+> Kaynak kodu ekinde bulunabilir.
 
-Java tabanlı MapReduce programlama ve akış ve Windows PowerShell içinde kullanılan hello cmdlet'leri ile ilgili belgeler gibi Hadoop ilgili teknolojileri için hello Web'de çok ek belgeler mevcut betik oluşturma. Bu kaynaklar hakkında daha fazla bilgi için bkz:
+Java tabanlı MapReduce programlama ve akış ve Windows PowerShell içinde kullanılan cmdlet'ler hakkında belgeler gibi Hadoop ilgili teknolojileri için Web'de çok ek belgeler mevcut betik oluşturma. Bu kaynaklar hakkında daha fazla bilgi için bkz:
 
 * [Hdınsight'ta Hadoop için Java MapReduce programlar geliştirmek](hdinsight-develop-deploy-java-mapreduce-linux.md)
 * [HDInsight'ta Hadoop işlerini gönderme](hdinsight-submit-hadoop-jobs-programmatically.md)
-* [Giriş tooAzure Hdınsight][hdinsight-introduction]
+* [Azure Hdınsight giriş][hdinsight-introduction]
 
 Günümüzde, çoğu kişi Hive veya Pig MapReduce seçin.  Daha fazla bilgi için bkz.
 
@@ -49,25 +49,25 @@ Günümüzde, çoğu kişi Hive veya Pig MapReduce seçin.  Daha fazla bilgi iç
 **Önkoşullar**:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Hdınsight kümesi**. Merhaba, bu tür kümeler oluşturulabilir çeşitli yollar hakkında yönergeler için bkz: [Hdınsight'ta oluşturmak Hadoop kümeleri](hdinsight-hadoop-provision-linux-clusters.md).
+* **Hdınsight kümesi**. İçinde bu tür kümeler oluşturulabilir çeşitli yollar hakkında yönergeler için bkz: [Hdınsight'ta oluşturmak Hadoop kümeleri](hdinsight-hadoop-provision-linux-clusters.md).
 * **Azure PowerShell içeren bir iş istasyonu**.
 
     > [!IMPORTANT]
-    > Azure Service Manager kullanılarak HDInsight kaynaklarının yönetilmesi için Azure PowerShell desteği **kullanım dışıdır** ve 1 Ocak 2017 tarihine kadar kaldırılacaktır. Azure Resource Manager ile çalışan hello adımları bu belgenin kullanımı hello yeni Hdınsight cmdlet'lerini.
+    > Azure Service Manager kullanılarak HDInsight kaynaklarının yönetilmesi için Azure PowerShell desteği **kullanım dışıdır** ve 1 Ocak 2017 tarihine kadar kaldırılacaktır. Bu belgede yer alan adımlar, Azure Resource Manager ile çalışan yeni HDInsight cmdlet'lerini kullanır.
     >
-    > Hello adımları [yüklemek ve Azure PowerShell yapılandırma](/powershell/azureps-cmdlets-docs) tooinstall hello en son Azure PowerShell sürümü. Komut dosyalarınız varsa bu gereksinimi toobe Azure Resource Manager ile çalışma toouse hello yeni cmdlet'leri değişiklik için bkz: [geçiş tooAzure Resource Manager tabanlı geliştirme araçları Hdınsight kümeleri için](hdinsight-hadoop-development-using-azure-resource-manager.md).
+    > Adımları [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs) Azure PowerShell'in en son sürümünü yüklemek için. Azure Resource Manager ile çalışan yeni cmdlet'lerle kullanmak için değiştirilmesi gereken komut dosyalarınız varsa, bkz: [için Hdınsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçme](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
 ## <a name="hdinsight-sample-wordcount"></a>Sayısı - Java word
-MapReduce proje toosubmit, önce bir MapReduce işi tanımı oluşturun. Merhaba iş tanımında hello MapReduce program jar dosyasını ve hello jar dosyasını hello konumunu belirtin **wasb:///example/jars/hadoop-mapreduce-examples.jar**hello sınıf adı ve hello bağımsız değişkenler.  Merhaba wordcount MapReduce program iki bağımsız değişkeni alır: kullanılan toocount sözcükleri ve çıktı hello konumunu hello kaynak dosya.
+MapReduce projesini gönderme için önce bir MapReduce işi tanımı oluşturun. İş tanımında MapReduce program jar dosyasını ve jar dosyasını konumunu belirtin **wasb:///example/jars/hadoop-mapreduce-examples.jar**, sınıf adını ve bağımsız değişkenler.  Wordcount MapReduce program iki bağımsız değişkeni alır: sözcükler ve çıkış konumunu hesaplamak için kullanılan kaynak dosyası.
 
-Merhaba kaynak kodu hello bulunabilir [ek A](#apendix-a---the-word-count-MapReduce-program-in-java).
+Kaynak kodu bulunabilir [ek A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
-Java MapReduce geliştirmenin hello yordamı için program için bkz: - [hdınsight'ta Hadoop için Java MapReduce geliştirmek programlar](hdinsight-develop-deploy-java-mapreduce-linux.md)
+Java MapReduce geliştirme yordamı için program için bkz: - [hdınsight'ta Hadoop için Java MapReduce geliştirmek programlar](hdinsight-develop-deploy-java-mapreduce-linux.md)
 
-**toosubmit bir word sayısı MapReduce işi**
+**Word sayısı MapReduce işi göndermek için**
 
 1. Açık **Windows PowerShell ISE**. Yönergeler için bkz: [yükleyin ve Azure PowerShell yapılandırma][powershell-install-configure].
-2. PowerShell Betiği aşağıdaki hello yapıştırın:
+2. Aşağıdaki PowerShell betiğini yapıştırın:
 
     ```powershell
     $subscriptionName = "<Azure Subscription Name>"
@@ -76,14 +76,14 @@ Java MapReduce geliştirmenin hello yordamı için program için bkz: - [hdınsi
 
     Select-AzureRmSubscription -SubscriptionName $subscriptionName
 
-    # Define hello MapReduce job
+    # Define the MapReduce job
     $mrJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
                                 -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "wordcount" `
                                 -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 
-    # Submit hello job and wait for job completion
-    $cred = Get-Credential -Message "Enter hello HDInsight cluster HTTP user credential:"
+    # Submit the job and wait for job completion
+    $cred = Get-Credential -Message "Enter the HDInsight cluster HTTP user credential:"
     $mrJob = Start-AzureRmHDInsightJob `
                         -ResourceGroupName $resourceGroupName `
                         -ClusterName $clusterName `
@@ -96,7 +96,7 @@ Java MapReduce geliştirmenin hello yordamı için program için bkz: - [hdınsi
         -HttpCredential $cred `
         -JobId $mrJob.JobId
 
-    # Get hello job output
+    # Get the job output
     $cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
     $defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
     $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount)[0].Value
@@ -112,36 +112,36 @@ Java MapReduce geliştirmenin hello yordamı için program için bkz: - [hdınsi
         -JobId $mrJob.JobId `
         -DisplayOutputType StandardError
 
-    # Download hello job output toohello workstation
+    # Download the job output to the workstation
     $storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccount -StorageAccountKey $defaultStorageAccountKey
     Get-AzureStorageBlobContent -Container $defaultStorageContainer -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
-    # Display hello output file
+    # Display the output file
     cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
     ```
 
-    Merhaba MapReduce işi adlı bir dosya oluşturur *bölümü r 00000*sözcükleri içerir ve hello sayar. Merhaba komut dosyası kullanan hello **findstr** tüm hello toolist sözcükleri komutu içeren *"yok"*.
-3. Merhaba ilk üç değişkenleri ayarlayın ve hello komut dosyasını çalıştırın.
+    MapReduce işi adlı bir dosya oluşturur *bölümü r 00000*, sözcükleri ve sayılarını içerir. Komut dosyası kullanan **findstr** içeren tüm sözcükleri listelemek için komut *"yok"*.
+3. İlk üç değişkenleri ayarlayın ve betiği çalıştırın.
 
 ## <a name="hdinsight-sample-csharp-streaming"></a>Sayısı - C# akış word
-Hadoop, toowrite eşleme sağlar ve Java dışındaki dillerde işlevleri azaltmak akış bir API tooMapReduce sağlar.
+Hadoop harita yazma ve Java dışındaki dillerde işlevleri azaltmak sağlar MapReduce akış bir API sağlar.
 
 > [!NOTE]
-> Bu öğreticide Hello adımlar yalnızca tooWindows tabanlı Hdınsight kümeleri geçerlidir. Linux tabanlı Hdınsight kümeleri için akış örneği için bkz: [programları Hdınsight için akış Python geliştirme](hdinsight-hadoop-streaming-python.md).
+> Bu öğreticideki adımlar, yalnızca Windows tabanlı Hdınsight kümeleri için geçerlidir. Linux tabanlı Hdınsight kümeleri için akış örneği için bkz: [programları Hdınsight için akış Python geliştirme](hdinsight-hadoop-streaming-python.md).
 
-Merhaba örneği, hello Eşleyici ve hello reducer hello girdiden okunan yürütülebilir dosyalar [stdin] [ stdin-stdout-stderr] (--satır) ve hello çıkış çok yayma[stdout] [stdin-stdout-stderr]. Merhaba program hello metin tüm hello sözcükleri sayar.
+Örnekte, Eşleyici ve reducer girdiden okunan yürütülebilir dosyalar [stdin] [ stdin-stdout-stderr] (--satır) ve çıktıyı yayma [stdout] [ stdin-stdout-stderr]. Program metindeki tüm sözcükleri sayar.
 
-İçin yürütülebilir bir dosya belirtildiğinde **mappers**, hello Eşleyici başlatıldığında hello ayrı bir işlem yürütülebilir her Eşleyici görev başlatır. Merhaba Eşleyici görev çalıştırır, kendi giriş satırlarına dönüştürür ve akışları hello satırları toohello [stdin] [ stdin-stdout-stderr] hello işleminin.
+İçin yürütülebilir bir dosya belirtildiğinde **mappers**, Eşleyici başlatıldığında her Eşleyici görev yürütülebilir ayrı bir işlem olarak başlatır. Eşleyici görev çalışırken, kendi giriş satırlarına dönüştürür ve satırlarına akışları [stdin] [ stdin-stdout-stderr] işleminin.
 
-Hello bu arada, hello Eşleyici hello satır yönelimli çıktı hello işlem hello stdout'tan toplar. Merhaba Eşleyici hello çıkış olarak toplanan bir anahtar/değer çifti her satırın dönüştürür. Varsayılan olarak, toohello ilk sekme karakteri hizalamak hello öneki hello anahtar ve hello kalan (Merhaba sekme karakteri hariç) hello satırının başlangıç değeridir. Merhaba satırda sekme karakteri varsa, tüm satırı başlangıç anahtarı olarak kabul edilir ve hello değeri null.
+Bu arada, Eşleyici satır yönelimli çıkış işlemi stdout'tan toplar. Eşleyici çıkış olarak toplanan bir anahtar/değer çifti her satırın dönüştürür. Varsayılan olarak, ilk sekme karakteri kadar bir satır önek anahtar ve (sekme karakteri hariç) satırın geri kalan değerdir. Satırda sekme karakteri varsa, tüm satır anahtarı olarak kabul edilir ve değeri null.
 
-İçin yürütülebilir bir dosya belirtildiğinde **reducers**, hello reducer başlatıldığında hello ayrı bir işlem yürütülebilir her reducer görev başlatır. Merhaba reducer görev çalıştırır, kendi giriş anahtar/değer çiftleri satırlarına dönüştürür ve hello satırları toohello akışları [stdin] [ stdin-stdout-stderr] hello işleminin.
+İçin yürütülebilir bir dosya belirtildiğinde **reducers**, reducer başlatıldığında her reducer görev yürütülebilir ayrı bir işlem olarak başlatır. Reducer görev çalışır, kendi giriş anahtar/değer çiftleri satırlarına dönüştürür ve satırlarına akışları [stdin] [ stdin-stdout-stderr] işleminin.
 
-Hello hello reducer bu arada, hello hello satır yönelimli çıkış toplar [stdout] [ stdin-stdout-stderr] hello işleminin. Merhaba reducer hello çıkış olarak toplanan her satır tooa anahtar/değer çifti dönüştürür. Varsayılan olarak, toohello ilk sekme karakteri hizalamak hello öneki hello anahtar ve hello kalan (Merhaba sekme karakteri hariç) hello satırının başlangıç değeridir.
+Bu arada, satır yönelimli çıktısını reducer toplar [stdout] [ stdin-stdout-stderr] işleminin. Reducer çıkış olarak toplanan bir anahtar/değer çifti her satırın dönüştürür. Varsayılan olarak, ilk sekme karakteri kadar bir satır önek anahtar ve (sekme karakteri hariç) satırın geri kalan değerdir.
 
-**word sayısı iş akışında toosubmit C#**
+**Bir C word sayısı iş akış # göndermek için**
 
-* Merhaba yordamı izleyin [sayısı - Java Word](#word-count-java)ve hello iş tanımı satır aşağıdaki hello ile değiştirin:
+* Yordamı izleyin [sayısı - Java Word](#word-count-java)ve iş tanımı aşağıdaki satırla değiştirin:
 
     ```powershell
     $mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
@@ -152,18 +152,18 @@ Hello hello reducer bu arada, hello hello satır yönelimli çıkış toplar [st
                             -OutputPath "/example/data/StreamingOutput/wc.txt"
     ```
 
-    Merhaba çıktı dosyası olacaktır:
+    Çıktı dosyası olacaktır:
 
         example/data/StreamingOutput/wc.txt/part-00000
 
 ## <a name="hdinsight-sample-pi-estimator"></a>PI tahmin
-Merhaba pi tahmin bir istatistik kullanır (yarı Monte Carlo) yöntemi tooestimate hello pi değerini. Rastgele bir birim içinde yerleştirilen noktaları kare ayrıca kalan içinde bu kare hello daire ile bir olasılık eşit toohello alanı içinde bir daire içinde pi/4. pi değerini Hello R hello oranı hello daire toohello toplam sayısı hello kare içinde noktalarını içinde olduğunda puan hello sayısının olduğu 4R başlangıç değerinden tahmin edilebilir. Merhaba büyük hello kullanılan noktaları, hello daha iyi hello tahmin örneğidir.
+Pi tahmin bir istatistik kullanır (yarı Monte Carlo) pi değerini tahmin etmek için yöntem. Rastgele bir birim içinde yerleştirilen noktaları kare ayrıca kalan daire alana eşit bir olasılık ile bu kare içinde içinde bir daire içinde pi/4. Pi değerini R kare içinde noktalarını toplam sayısı için bir daire içinde olduğunda puan sayısının oranını olduğu 4R değerinden tahmin edilebilir. Büyük kullanılan noktaları, daha iyi tahmin örneğidir.
 
-Bu örnek için sağlanan hello betik Hadoop jar işi gönderir ve bir değerle toorun yukarı 16 haritalar, her biri gerekli toocompute 10 milyon örnek noktaları hello parametre değerlerini tarafından olduğu ayarlanır. Bu parametre değerleri olabilir tooimprove tahmini hello pi değerini değiştirildi. Başvuru için hello ilk 10 ondalık pi'nin 3.1415926535 yerlerdir.
+Bu örnek için sağlanan komut dosyasını Hadoop jar işi gönderir ve en fazla 16 haritalar, her biri 10 milyon örnek noktaları işlem için parametre değerleri ile gerekli bir değerle çalıştırdığınızda ayarlanır. Bu parametre değerlerini tahmini pi değerini artırmak için değiştirilebilir. Başvuru için ilk 10 ondalık pi'nin 3.1415926535 yerlerdir.
 
-**toosubmit pi tahmin işi**
+**Pi tahmin işi göndermek için**
 
-* Merhaba yordamı izleyin [sayısı - Java Word](#word-count-java)ve hello iş tanımı satır aşağıdaki hello ile değiştirin:
+* Yordamı izleyin [sayısı - Java Word](#word-count-java)ve iş tanımı aşağıdaki satırla değiştirin:
 
     ```powershell
     $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -173,25 +173,25 @@ Bu örnek için sağlanan hello betik Hadoop jar işi gönderir ve bir değerle 
     ```
 
 ## <a name="hdinsight-sample-10gb-graysort"></a>10 GB Graysort
-Bu örnek uygun bir 10 GB veri kullanır, böylece oldukça hızlı bir şekilde çalıştırılabilir. Merhaba MapReduce uygulamaları Owen O'Malley ve 2009 0.578 TB/dak (100 TB 173 dakika cinsinden) oranı ile Merhaba yıllık genel amaçlı ("daytona") terabayt sıralama Kıyaslama won Arun Murthy tarafından geliştirilen kullanır. Bu ve diğer sıralama değerlendirmeleri hakkında daha fazla bilgi için bkz: Merhaba [Sortbenchmark](http://sortbenchmark.org/) site.
+Bu örnek uygun bir 10 GB veri kullanır, böylece oldukça hızlı bir şekilde çalıştırılabilir. Owen O'Malley ve 2009 0.578 TB/dak (100 TB 173 dakika cinsinden) oranı ile yıllık genel amaçlı ("daytona") terabayt sıralama Kıyaslama won Arun Murthy tarafından geliştirilen MapReduce uygulamaları kullanır. Bu ve diğer sıralama değerlendirmeleri hakkında daha fazla bilgi için bkz: [Sortbenchmark](http://sortbenchmark.org/) site.
 
 Bu örnek, MapReduce programlar üç kümesi kullanır:
 
-1. **TeraGen** veri toosort toogenerate hello satırlarını kullanabileceğiniz bir MapReduce programdır.
-2. **TeraSort** hello giriş verisi örnekleri ve toplam sıralamaya MapReduce toosort hello verilerini kullanır. TeraSort standart sıralama MapReduce işlevlerin her azaltın hello anahtar aralığını tanımlamak örneklenen N-1 anahtarları sıralı listesini kullanan özel bir bölümleyici dışında ' dir. Özellikle, [i-1] örnek tüm anahtarları böyle < = anahtar < örnek [i] tooreduce gönderilen ediyorum. Bu hello çıktısını azaltmak i + 1 değerinden hello çıkışları i azaltmak garanti tüm.
-3. **TeraValidate** bu hello çıkışı doğrulayan bir MapReduce programı genel sıralanmış olan. Merhaba çıktı dizini içinde dosya başına bir harita oluşturur ve her eşleme her anahtar değerinden küçük veya buna eşit olmasını sağlar toohello öncekinin. Hello harita işlevi de oluşturur hello kayıtlarının ilk ve son anahtarları her dosya ve hello azaltmak işlevi bu hello sağlar i dosyasının ilk anahtar hello son anahtarı dosyası i-1 büyük. Herhangi bir sorun hello bir çıkış olarak bildirilen bozuk hello anahtarlarla azaltın.
+1. **TeraGen** sıralamak için veri satırı oluşturmak için kullanabileceğiniz bir MapReduce programdır.
+2. **TeraSort** giriş verilerini örnekleri ve MapReduce toplam sıralamaya verileri sıralamak için kullanır. TeraSort standart sıralama MapReduce işlevlerin her azaltma için anahtar aralığı tanımlayın örneklenen N-1 anahtarları sıralı listesini kullanan özel bir bölümleyici dışında ' dir. Özellikle, [i-1] örnek tüm anahtarları böyle < = anahtar < örnek [i] i azaltmak için gönderilir. Bu çıkışı azaltmak i + 1 değerinden çıkışları i azaltmak garanti tüm.
+3. **TeraValidate** çıkış genel olarak kullanılan doğrulayan bir MapReduce programdır. Belirtilen çıkış dizinine dosya başına bir harita oluşturur ve her eşleme her anahtar öncekinin küçük veya buna eşit olmasını sağlar. Harita işlevi de her dosyanın ilk ve son anahtarların kayıtlar oluşturur ve dosya ilk anahtarı dosyası i-1 son anahtarı büyüktür azaltma işlevi sağlar. Herhangi bir sorun bozuk anahtarlarla azaltın, çıkış olarak raporlanır.
 
-Merhaba giriş ve çıkış biçimi, tüm üç uygulamaları tarafından kullanılan okur ve hello metin dosyaları hello doğru biçimde yazar. Merhaba Hello çıktısını azaltmak hello Kıyaslama bağlamı bağlamı hello çıktı verilerini toomultiple düğümlerinde çoğaltılması gerektirmediğinden çoğaltma hello varsayılan 3, yerine too1 ayarladı.
+Üç uygulama tarafından kullanılan giriş ve çıkış biçimi okur ve metin dosyaları doğru biçimde yazar. Kıyaslama bağlamı bağlamı çıktı verilerini birden çok düğüm açın çoğaltılması gerektirmediğinden azaltın çıktısını çoğaltma 1, 3, varsayılan yerine kümesine sahiptir.
 
-Üç görev hello örnek, karşılık gelen her tooone hello girişte açıklanan hello MapReduce programlar tarafından gereklidir:
+Üç görevleri tarafından her birine girişte açıklanan MapReduce programları karşılık gelen örnek gereklidir:
 
-1. Merhaba çalıştırarak sıralamak için hello verileri oluşturmak **TeraGen** MapReduce işi.
-2. Merhaba çalıştırarak hello verileri sıralama **TeraSort** MapReduce işi.
-3. Merhaba verileri doğru şekilde hello çalıştırarak sıralandıktan olduğunu onaylayın **TeraValidate** MapReduce işi.
+1. Çalıştırarak sıralamak için verileri oluşturmak **TeraGen** MapReduce işi.
+2. Çalıştırarak verileri sıralamak **TeraSort** MapReduce işi.
+3. Verileri doğru çalıştırarak sıralandıktan olduğunu onaylayın **TeraValidate** MapReduce işi.
 
-**toosubmit hello işleri**
+**İşlerini göndermek için**
 
-* Merhaba yordamı izleyin [sayısı - Java Word](#word-count-java), kullanım hello izleyerek iş tanımları:
+* Yordamı izleyin [sayısı - Java Word](#word-count-java)ve aşağıdaki iş tanımları kullanın:
 
     ```powershell
     $teragen = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -211,15 +211,15 @@ Merhaba giriş ve çıkış biçimi, tüm üç uygulamaları tarafından kullan�
     ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makale ve her hello örnekleri hello makalelerde, nasıl toorun hello örnekleri ile Merhaba Hdınsight kümeleri Azure PowerShell kullanarak dahil öğrendiniz. Hdınsight ile Pig, Hive ve MapReduce kullanma hakkında daha fazla öğreticileri için aşağıdaki konularda hello bakın:
+Bu makalede ve her örnekleri makaleler, Azure PowerShell kullanarak Hdınsight kümeleri ile dahil örnekleri çalıştırmak nasıl öğrendiniz. Hdınsight ile Pig, Hive ve MapReduce kullanma hakkında daha fazla öğreticileri için aşağıdaki konulara bakın:
 
-* [Hadoop ile Hive Hdınsight tooanalyze mobil ahize kullanımda kullanmaya başlama][hdinsight-get-started]
+* [Hadoop ile hdınsight'ta Hive mobil ahize kullanımını çözümleme için kullanmaya başlama][hdinsight-get-started]
 * [Hdınsight'ta Hadoop ile pig kullanma][hdinsight-use-pig]
 * [Hdınsight'ta Hadoop ile Hive kullanma][hdinsight-use-hive]
 * [Hdınsight'ta Hadoop işleri gönderme][hdinsight-submit-jobs]
 * [Azure Hdınsight SDK Belgeleri][hdinsight-sdk-documentation]
 
-## <a name="appendix-a---hello-word-count-source-code"></a>Ek A - hello Word sayısı kaynak kodu
+## <a name="appendix-a---the-word-count-source-code"></a>Ek A - Word sayısı kaynak kodu
 
 ```java
 package org.apache.hadoop.examples;
@@ -291,11 +291,11 @@ System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
 ```
 
-## <a name="appendix-b---hello-word-count-streaming-source-code"></a>Ek B - kaynak kodu akış hello sözcük sayımı
-Merhaba azaltmak gibi arabirimi toocount hello bir belgeden akışı sözcük sayısını hello MapReduce program hello konsoluna bir eşleme arabirimi toostream hello metin olarak Merhaba cat.exe uygulaması ve Merhaba wc.exe uygulaması kullanır. Merhaba Eşleyici ve reducer hello standart giriş akışından (stdin) karakterleri, satır satır, okuma ve toohello standart çıktı akışı (stdout) yazma.
+## <a name="appendix-b---the-word-count-streaming-source-code"></a>Ek B - kaynak kodu akış sözcük sayımı
+MapReduce program cat.exe uygulama konsolu ve bir belgeden akışı sözcük sayısını azaltın arabirimi olarak wc.exe uygulama metin akışını sağlamak için bir eşleme arabirimi olarak kullanır. Eşleyici ve reducer standart giriş akışı (stdin) karakterleri, satır satır, okuma ve standart çıktı akışı (stdout) yazma.
 
 ```csharp
-// hello source code for hello cat.exe (Mapper).
+// The source code for the cat.exe (Mapper).
 
 using System;
 using System.IO;
@@ -326,10 +326,10 @@ namespace cat
 }
 ```
 
-Merhaba hello cat.cs dosya kullandığı Eşleyici kodda bir [StreamReader] [ streamreader] nesne tooread hello karakter günlüklerden hello akış toohello standart çıktı akışı hello gelen akış toohello konsolunun Merhaba statik ile [Console.Writeline] [ console-writeline] yöntemi.
+Cat.cs dosyasındaki Eşleyici kodu kullanan bir [StreamReader] [ streamreader] statikilestandartçıktıakışınaakışaYazarkonsolgelenakışınkarakterleriokumakiçinnesnesi[ Console.Writeline] [ console-writeline] yöntemi.
 
 ```csharp
-// hello source code for wc.exe (Reducer) is:
+// The source code for wc.exe (Reducer) is:
 
 using System;
 using System.IO;
@@ -375,28 +375,28 @@ namespace wc
 }
 ```
 
-Merhaba hello wc.cs dosya kullanır reducer kodda bir [StreamReader] [ streamreader] tooread karakter akışından çıkış hello cat.exe Eşleyicisi tarafından kaldırılmış hello standart giriş nesnesi. Merhaba hello karakterlerle okuduğu [Console.Writeline] [ console-writeline] yöntemi, bu sayıları hello sözcükler alanları ve her sözcüğün hello sonuna satır sonu karakterleri sayma. Ardından hello toplam toohello standart çıktı akışı hello ile Yazar [Console.Writeline] [ console-writeline] yöntemi.
+Wc.cs dosyasında reducer kodu kullanan bir [StreamReader] [ streamreader] cat.exe Eşleyicisi tarafından çıktı silinmiş standart giriş akışı karakter okunacak nesne. Karakterlerle okuduğu [Console.Writeline] [ console-writeline] yöntemi, bu sayıları sözcükleri alanları ve her sözcüğün sonuna satır sonu karakterleri sayma. Standart çıktı akışına ile toplam sonra Yazar [Console.Writeline] [ console-writeline] yöntemi.
 
-## <a name="appendix-c---hello-pi-estimator-source-code"></a>Ek C - hello Pi tahmin kaynak kodu
-Merhaba pi tahmin hello Eşleyici ve reducer işlevleri içeren Java kod incelemesi aşağıdaki kullanılabilir. Merhaba Eşleyici program rastgele bir birim kare içinde yerleştirilen noktaları belirtilen sayıda oluşturur ve ardından hello hello daire içinde bu noktalarını sayar. Merhaba reducer program tarafından hello mappers sayılan noktaları toplanır ve hello R hello oranı hello daire toohello toplam sayısı hello kare içinde noktalarını içinde sayılan puan hello sayısının olduğu hello formül 4R gelen pi değerini tahmin eder.
+## <a name="appendix-c---the-pi-estimator-source-code"></a>Ek C - Pi tahmin kaynak kodu
+Pi tahmin Eşleyici ve reducer işlevleri içeren Java kod incelemesi aşağıdaki kullanılabilir. Eşleyici program rastgele bir birim kare içinde yerleştirilen noktaları belirtilen sayıda oluşturur ve dairenin içine bu noktalarını sayısını sayar. Reducer program tarafından mappers sayılan noktaları toplanır ve R kare içinde noktalarını toplam sayısı için bir daire içinde sayılan puan sayısının oranını olduğu formül 4R gelen pi değerini tahmin eder.
 
 ```java
 /**
-* Licensed toohello Apache Software Foundation (ASF) under one
-* or more contributor license agreements. See hello NOTICE file
+* Licensed to the Apache Software Foundation (ASF) under one
+* or more contributor license agreements. See the NOTICE file
 * distributed with this work for additional information
-* regarding copyright ownership. hello ASF licenses this file
-* tooyou under hello Apache License, Version 2.0 (the
+* regarding copyright ownership. The ASF licenses this file
+* to you under the Apache License, Version 2.0 (the
 * "License"); you may not use this file except in compliance
-* with hello License. You may obtain a copy of hello License at
+* with the License. You may obtain a copy of the License at
 *
 * http://www.apache.org/licenses/LICENSE-2.0
 *
-* Unless required by applicable law or agreed tooin writing, software
-* distributed under hello License is distributed on an "AS IS" BASIS,
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or     implied.
-* See hello License for hello specific language governing permissions and
-* limitations under hello License.
+* See the License for the specific language governing permissions and
+* limitations under the License.
 */
 
 package org.apache.hadoop.examples;
@@ -428,21 +428,21 @@ import org.apache.hadoop.mapred.SequenceFileOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
-//A Map-reduce program tooestimate hello value of Pi
+//A Map-reduce program to estimate the value of Pi
 //using quasi-Monte Carlo method.
 //
 //Mapper:
 //Generate points in a unit square
-//and then count points inside/outside of hello inscribed circle of hello square.
+//and then count points inside/outside of the inscribed circle of the square.
 //
 //Reducer:
-//Accumulate points inside/outside results from hello mappers.
+//Accumulate points inside/outside results from the mappers.
 //Let numTotal = numInside + numOutside.
-//hello fraction numInside/numTotal is a rational approximation of
-//hello value (Area of hello circle)/(Area of hello square),
-//where hello area of hello inscribed circle is Pi/4
-//and hello area of unit square is 1.
-//Then, Pi is estimated value toobe 4(numInside/numTotal).
+//The fraction numInside/numTotal is a rational approximation of
+//the value (Area of the circle)/(Area of the square),
+//where the area of the inscribed circle is Pi/4
+//and the area of unit square is 1.
+//Then, Pi is estimated value to be 4(numInside/numTotal).
 //
 
 public class PiEstimator extends Configured implements Tool {
@@ -451,8 +451,8 @@ static private final Path TMP_DIR = new Path(
 PiEstimator.class.getSimpleName() + "_TMP_3_141592654");
 
 //2-dimensional Halton sequence {H(i)},
-//where H(i) is a 2-dimensional point and i >= 1 is hello index.
-//Halton sequence is used toogenerate sample points for Pi estimation.
+//where H(i) is a 2-dimensional point and i >= 1 is the index.
+//Halton sequence is used to generate sample points for Pi estimation.
 private static class HaltonSequence {
 // Bases
 static final int[] P = {2, 3};
@@ -464,8 +464,8 @@ private double[] x;
 private double[][] q;
 private int[][] d;
 
-//Initialize tooH(startindex),
-//so hello sequence begins with H(startindex+1).
+//Initialize to H(startindex),
+//so the sequence begins with H(startindex+1).
 HaltonSequence(long startindex) {
 index = startindex;
 x = new double[K.length];
@@ -490,7 +490,7 @@ x[i] += d[i][j] * q[i][j];
 }
 
 //Compute next point.
-//Assume hello current point is H(index).
+//Assume the current point is H(index).
 //Compute H(index+1).
 //@return a 2-dimensional point with coordinates in [0,1)^2
 double[] nextPoint() {
@@ -512,13 +512,13 @@ return x;
 
 //Mapper class for Pi estimation.
 //Generate points in a unit square and then
-//count points inside/outside of hello inscribed circle of hello square.
+//count points inside/outside of the inscribed circle of the square.
 public static class PiMapper extends MapReduceBase
 implements Mapper<LongWritable, LongWritable, BooleanWritable, LongWritable> {
 
 //Map method.
-//@param offset samples starting from hello (offset+1)th sample.
-//@param size hello number of samples for this map
+//@param offset samples starting from the (offset+1)th sample.
+//@param size the number of samples for this map
 //@param out output {ture->numInside, false->numOutside}
 //@param reporter
 public void map(LongWritable offset,
@@ -534,7 +534,7 @@ for(long i = 0; i < size.get(); ) {
 //generate points in a unit square
 final double[] point = haltonsequence.nextPoint();
 
-//count points inside/outside of hello inscribed circle of hello square
+//count points inside/outside of the inscribed circle of the square
 final double x = point[0] - 0.5;
 final double y = point[1] - 0.5;
 if (x*x + y*y > 0.25) {
@@ -557,13 +557,13 @@ out.collect(new BooleanWritable(false), new LongWritable(numOutside));
 }
 
 //Reducer class for Pi estimation.
-//Accumulate points inside/outside results from hello mappers.
+//Accumulate points inside/outside results from the mappers.
 public static class PiReducer extends MapReduceBase
 implements Reducer<BooleanWritable, LongWritable, WritableComparable<?>, Writable> {
 
 private long numInside = 0;
 private long numOutside = 0;
-private JobConf conf; //configuration for accessing hello file system
+private JobConf conf; //configuration for accessing the file system
 
 //Store job configuration.
 @Override
@@ -571,9 +571,9 @@ public void configure(JobConf job) {
 conf = job;
 }
 
-// Accumulate number of points inside/outside results from hello mappers.
-// @param isInside Is hello points inside?
-// @param values An iterator tooa list of point counts
+// Accumulate number of points inside/outside results from the mappers.
+// @param isInside Is the points inside?
+// @param values An iterator to a list of point counts
 // @param output dummy, not used here.
 // @param reporter
 
@@ -588,10 +588,10 @@ for(; values.hasNext(); numOutside += values.next().get());
 }
 }
 
-//Reduce task done, write output tooa file.
+//Reduce task done, write output to a file.
 @Override
 public void close() throws IOException {
-//write output tooa file
+//write output to a file
 Path outDir = new Path(TMP_DIR, "out");
 Path outFile = new Path(outDir, "reduce-out");
 FileSystem fileSys = FileSystem.get(conf);
@@ -604,7 +604,7 @@ writer.close();
 }
 
 //Run a map/reduce job for estimating Pi.
-//@return hello estimated value of Pi.
+//@return the estimated value of Pi.
 public static BigDecimal estimate(int numMaps, long numPoints, JobConf jobConf
 )
 throws IOException {
@@ -624,7 +624,7 @@ jobConf.setReducerClass(PiReducer.class);
 jobConf.setNumReduceTasks(1);
 
 // turn off speculative execution, because DFS doesn't handle
-// multiple writers toohello same file.
+// multiple writers to the same file.
 jobConf.setSpeculativeExecution(false);
 
 //setup input/output directories
@@ -716,26 +716,26 @@ System.exit(ToolRunner.run(null, new PiEstimator(), argv));
 }
 ```
 
-## <a name="appendix-d---hello-10gb-graysort-source-code"></a>Ek D - hello 10gb graysort kaynak kodu
-Merhaba kod hello TeraSort MapReduce program için bu bölümdeki İnceleme için sunulur.
+## <a name="appendix-d---the-10gb-graysort-source-code"></a>Ek D - 10gb graysort kaynak kodu
+Bu bölümdeki İnceleme için TeraSort MapReduce programın kodunu sunulur.
 
 ```java
 /**
-    * Licensed toohello Apache Software Foundation (ASF) under one
-    * or more contributor license agreements.  See hello NOTICE file
+    * Licensed to the Apache Software Foundation (ASF) under one
+    * or more contributor license agreements.  See the NOTICE file
     * distributed with this work for additional information
-    * regarding copyright ownership.  hello ASF licenses this file
-    * tooyou under hello Apache License, Version 2.0 (the
+    * regarding copyright ownership.  The ASF licenses this file
+    * to you under the Apache License, Version 2.0 (the
     * "License"); you may not use this file except in compliance
-    * with hello License.  You may obtain a copy of hello License at
+    * with the License.  You may obtain a copy of the License at
     *
     *     http://www.apache.org/licenses/LICENSE-2.0
     *
-    * Unless required by applicable law or agreed tooin writing, software
-    * distributed under hello License is distributed on an "AS IS" BASIS,
+    * Unless required by applicable law or agreed to in writing, software
+    * distributed under the License is distributed on an "AS IS" BASIS,
     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    * See hello License for hello specific language governing permissions and
-    * limitations under hello License.
+    * See the License for the specific language governing permissions and
+    * limitations under the License.
     */
 
 package org.apache.hadoop.examples.terasort;
@@ -763,10 +763,10 @@ import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
 /**
-    * Generates hello sampled split points, launches hello job,
-    * and waits for it toofinish.
+    * Generates the sampled split points, launches the job,
+    * and waits for it to finish.
     * <p>
-    * toorun hello program:
+    * To run the program:
     * <b>bin/hadoop jar hadoop-examples-*.jar terasort in-dir out-dir</b>
     */
 
@@ -798,7 +798,7 @@ public class TeraSort extends Configured implements Tool {
     }
 
     /**
-        * An inner trie node that contains 256 children based on hello next
+        * An inner trie node that contains 256 children based on the next
         * character.
         */
     static class InnerTrieNode extends TrieNode {
@@ -832,7 +832,7 @@ public class TeraSort extends Configured implements Tool {
     }
 
     /**
-        * A leaf trie node that does string compares toofigure out where hello given
+        * A leaf trie node that does string compares to figure out where the given
         * key belongs between lower..upper.
         */
     static class LeafTrieNode extends TrieNode {
@@ -864,11 +864,11 @@ public class TeraSort extends Configured implements Tool {
     }
 
     /**
-        * Read hello cut points from hello given sequence file.
-        * @param fs hello file system
-        * @param p hello path tooread
-        * @param job hello job config
-        * @return hello strings toosplit hello partitions on
+        * Read the cut points from the given sequence file.
+        * @param fs the file system
+        * @param p the path to read
+        * @param job the job config
+        * @return the strings to split the partitions on
         * @throws IOException
         */
     private static Text[] readPartitions(FileSystem fs, Path p,
@@ -886,14 +886,14 @@ public class TeraSort extends Configured implements Tool {
     }
 
     /**
-        * Given a sorted set of cut points, build a trie that will find hello correct
+        * Given a sorted set of cut points, build a trie that will find the correct
         * partition quickly.
-        * @param splits hello list of cut points
-        * @param lower hello lower bound of partitions 0..numPartitions-1
-        * @param upper hello upper bound of partitions 0..numPartitions-1
-        * @param prefix hello prefix that we have already checked against
-        * @param maxDepth hello maximum depth we will build a trie for
-        * @return hello trie node that will divide hello splits correctly
+        * @param splits the list of cut points
+        * @param lower the lower bound of partitions 0..numPartitions-1
+        * @param upper the upper bound of partitions 0..numPartitions-1
+        * @param prefix the prefix that we have already checked against
+        * @param maxDepth the maximum depth we will build a trie for
+        * @return the trie node that will divide the splits correctly
         */
     private static TrieNode buildTrie(Text[] splits, int lower, int upper,
                                         Text prefix, int maxDepth) {
@@ -903,7 +903,7 @@ public class TeraSort extends Configured implements Tool {
         }
         InnerTrieNode result = new InnerTrieNode(depth);
         Text trial = new Text(prefix);
-        // append an extra byte on toohello prefix
+        // append an extra byte on to the prefix
         trial.append(new byte[1], 0, 1);
         int currentBound = lower;
         for(int ch = 0; ch < 255; ++ch) {
@@ -919,7 +919,7 @@ public class TeraSort extends Configured implements Tool {
         result.child[ch] = buildTrie(splits, lower, currentBound, trial,
                                         maxDepth);
         }
-        // pick up hello rest
+        // pick up the rest
         trial.getBytes()[depth] = 127;
         result.child[255] = buildTrie(splits, currentBound, upper, trial,
                                     maxDepth);

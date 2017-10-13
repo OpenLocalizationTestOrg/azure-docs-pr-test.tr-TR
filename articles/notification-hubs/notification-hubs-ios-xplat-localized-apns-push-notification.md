@@ -1,6 +1,6 @@
 ---
-title: "aaaNotification Hubs yerelleştirilmiş çiğnemekten haber Öğreticisi iOS için"
-description: "Son dakika haberi bildirimleri (iOS) nasıl toouse Azure hizmet veri yolu bildirim hub'ları toosend yerelleştirilmiş öğrenin."
+title: "Bildirim hub'ları yerelleştirilmiş çiğnemekten haber öğretici için iOS"
+description: "Yerelleştirilmiş son dakika haberi bildirimleri (iOS) göndermek için Azure hizmet veri yolu bildirim hub'ları kullanmayı öğrenin."
 services: notification-hubs
 documentationcenter: ios
 author: ysxu
@@ -14,13 +14,13 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
-ms.openlocfilehash: 9fe88c0440e93b72d349574160ddcd85a7ba0be0
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: fd2b7d9dfd4f432bbcbaa3ed76f8bec0b9677e17
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="use-notification-hubs-toosend-localized-breaking-news-tooios-devices"></a>Bildirim hub'ları yerelleştirilmiş toosend son dakika haberleri tooiOS aygıtları'nı kullanın
+# <a name="use-notification-hubs-to-send-localized-breaking-news-to-ios-devices"></a>İOS cihazları için yerelleştirilmiş son dakika haberleri göndermek için Notification Hubs kullanma
 > [!div class="op_single_selector"]
 > * [Windows mağazası C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
@@ -28,26 +28,26 @@ ms.lasthandoff: 10/06/2017
 > 
 
 ## <a name="overview"></a>Genel Bakış
-Bu konu, nasıl gösterir toouse hello [şablonları](notification-hubs-templates-cross-platform-push-messages.md) dil ve cihaz tarafından yerelleştirilmiş haberi bildirimleri çiğnemekten Azure Notification Hubs toobroadcast özelliğidir. Bu öğreticide oluşturduğunuz hello iOS uygulaması ile başlamanız [son dakika haberleri Notification Hubs kullanma toosend]. Tamamlandığında, ilgilendiğiniz kategorileri için mümkün tooregister olacaktır, hangi tooreceive hello bildirimleri bir dil belirtin ve yalnızca anında iletme bildirimlerini seçili hello kategorileri için o dilde alırsınız.
+Bu konuda nasıl kullanılacağını gösterir [şablonları](notification-hubs-templates-cross-platform-push-messages.md) dil ve cihaz tarafından yerelleştirilmiş son dakika haberi bildirimleri yayınlamak için Azure Notification Hubs özelliğidir. Bu öğreticide oluşturduğunuz iOS uygulaması ile başlamanız [son dakika haberleri göndermek için Notification Hubs kullanma]. Tamamlandığında, ilgilendiğiniz kategorileri için kaydetme, hangi bildirimleri almak ve o dilde yalnızca seçili kategorileri için anında iletme bildirimleri almak bir dil belirtin mümkün olacaktır.
 
-İki bölümden toothis senaryo vardır:
+Bu senaryo iki bölümü vardır:
 
-* iOS uygulamanızın istemci cihazları toospecify bir dil ve haber kategorileri çiğnemekten toosubscribe toodifferent olanak tanır;
-* Merhaba arka uç yayınlar hello kullanarak hello bildirimleri **etiketi** ve **şablonu** Azure bildirim hub'larını feautres.
+* iOS uygulamanızın istemci aygıtlar bir dil belirtin ve farklı son dakika haberleri kategorilere abone olmak için olanak tanır;
+* arka uç kullanarak bildirimleri yayınlar **etiketi** ve **şablonu** Azure bildirim hub'larını feautres.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Önceden hello tamamlamış olmalıdır [son dakika haberleri Notification Hubs kullanma toosend] öğretici ve bu öğreticinin bu kodu doğrudan derlemeler için kullanılabilir, hello koduna sahip.
+Önceden tamamlamış olmalıdır [son dakika haberleri göndermek için Notification Hubs kullanma] öğretici ve bu öğreticinin bu kodu doğrudan derlemeler için kullanılabilir, koda sahip.
 
 Visual Studio 2012 veya sonraki sürümünü isteğe bağlıdır.
 
 ## <a name="template-concepts"></a>Şablon kavramları
-İçinde [son dakika haberleri Notification Hubs kullanma toosend] kullanılan bir uygulama yerleşik **etiketleri** toosubscribe toonotifications farklı haber kategorileri için.
-Birçok uygulama, ancak, birden çok pazarda hedef ve yerelleştirme gerektirir. Bunun anlamı hello bildirimleri kendilerini Merhaba içeriğine sahip yerelleştirilmiş toobe ve teslim toohello cihaz kümesini düzeltin.
-Bu konudaki göstereceğiz nasıl toouse hello **şablonu** özellik bildirim hub'larını tooeasily teslim yerelleştirilmiş son dakika haberi bildirimleri.
+İçinde [son dakika haberleri göndermek için Notification Hubs kullanma] kullanılan bir uygulama yerleşik **etiketleri** farklı haber kategorileri için Bildirimlere abone olma.
+Birçok uygulama, ancak, birden çok pazarda hedef ve yerelleştirme gerektirir. Bildirimler içeriğe sahip yerelleştirilmiş ve aygıtların doğru kümesine teslim anlamına gelir.
+Bu konudaki nasıl kullanılacağını göstereceğiz **şablonu** kolayca yerelleştirilmiş son dakika haberi bildirimleri göndermek için Notification Hubs özelliğidir.
 
-Not: tek yönlü toosend yerelleştirilmiş bildirimleri toocreate her etiket birden çok sürümünün olduğu. Örneğin, toosupport İngilizce, Fransızca ve Mandarin, üç farklı etiketler world haberler için ihtiyacımız: "world_en", "world_fr" ve "world_ch". Toosend sonra hello world haber tooeach bu etiketlerin yerelleştirilmiş bir sürümü gerekir. Bu konudaki şablonları tooavoid hello artışı etiketleri ve birden fazla ileti gönderme hello gereksinimi kullanın.
+Not: yerelleştirilmiş bildirimleri göndermek için bir yol her etiket birden fazla sürümünü oluşturmaktır. Örneğin, İngilizce, Fransızca ve Mandarin desteklemek için üç farklı etiketler world haberler için ihtiyacımız: "world_en", "world_fr" ve "world_ch". Biz sonra world haber yerelleştirilmiş bir sürümünde bu etiketlerin her biri için göndermesi gerekir. Bu konudaki etiketleri artışı ve birden fazla ileti gönderme gereksinimi önlemek için şablonlar kullanın.
 
-Yüksek bir düzeyde bir şekilde toospecify şablonlarıdır nasıl belirli bir aygıt bir bildirim almanız gerekir. Merhaba şablon, uygulama arka ucu tarafından gönderilen Merhaba ileti parçası olan tooproperties bakarak hello tam yük biçimi belirtir. Örneğimizde, biz tüm desteklenen diller içeren bir yerel ayar belirsiz ileti gönderir:
+Yüksek bir düzeyde şablonları belirli bir aygıt bir bildirim nasıl alacağını belirtmek için bir yoldur. Şablon, uygulama arka ucu tarafından gönderilen ileti parçası olan özellikler için bakarak tam yük biçimi belirtir. Örneğimizde, biz tüm desteklenen diller içeren bir yerel ayar belirsiz ileti gönderir:
 
     {
         "News_English": "...",
@@ -55,7 +55,7 @@ Yüksek bir düzeyde bir şekilde toospecify şablonlarıdır nasıl belirli bir
         "News_Mandarin": "..."
     }
 
-Ardından cihazlarını toohello doğru özellik başvuran bir şablonla kaydetmek sağlayacaktır. Örneğin, Fransızca haberler için tooregister istediği bir iOS uygulaması hello aşağıdaki kaydeder:
+Ardından aygıtları doğru özelliğine başvuran bir şablon ile kaydetmeye sağlayacaktır. Kaydetmek için Fransızca haber isteyen bir iOS uygulaması örneği için aşağıdaki kaydeder:
 
     {
         aps:{
@@ -65,19 +65,19 @@ Ardından cihazlarını toohello doğru özellik başvuran bir şablonla kaydetm
 
 Şablonlar, daha fazla bilgi bulabilir hakkında içinde çok güçlü bir özellik olan bizim [şablonları](notification-hubs-templates-cross-platform-push-messages.md) makalesi.
 
-## <a name="hello-app-user-interface"></a>Merhaba uygulama kullanıcı arabirimi
-Biz şimdi hello konuda oluşturulan hello çiğnemekten haber uygulama değiştirecek [son dakika haberleri Notification Hubs kullanma toosend] toosend yerelleştirilmiş şablonları kullanarak son dakika haberleri.
+## <a name="the-app-user-interface"></a>Uygulama kullanıcı arabirimi
+Biz şimdi konu başlığı altında oluşturulan yeni haber uygulama değiştirecek [son dakika haberleri göndermek için Notification Hubs kullanma] son dakika haberleri şablonları kullanarak göndermek için yerelleştirilmiş.
 
-MainStoryboard_iPhone.storyboard, biz destekleyecek hello üç dilleri ile bölümlenmiş bir denetim ekleyin: İngilizce, Fransızca ve Mandarin.
+MainStoryboard_iPhone.storyboard, biz destekleyen üç dilleri ile bölümlenmiş bir denetim ekleyin: İngilizce, Fransızca ve Mandarin.
 
 ![][13]
 
-Ardından emin tooadd bir IBOutlet, ViewController.h aşağıda gösterildiği gibi yapın:
+Ardından aşağıda gösterildiği gibi ViewController.h bir IBOutlet eklediğinizden emin olun:
 
 ![][14]
 
-## <a name="building-hello-ios-app"></a>Yapı hello iOS uygulaması
-1. Merhaba, Notification.h eklemek *retrieveLocale* yöntemi, hello deposu değiştirmek ve yöntemleri aşağıda gösterildiği gibi abone olun:
+## <a name="building-the-ios-app"></a>İOS uygulaması oluşturma
+1. Notification.h ekleme *retrieveLocale* yöntemi, mağaza değiştirmek ve yöntemleri aşağıda gösterildiği gibi abone:
    
         - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;
    
@@ -87,7 +87,7 @@ Ardından emin tooadd bir IBOutlet, ViewController.h aşağıda gösterildiği g
    
         - (int) retrieveLocale;
    
-    Merhaba, Notification.m içinde değişiklik *storeCategoriesAndSubscribe* hello yerel ayar parametresi ekleme ve hello kullanıcı varsayılan ayarlarında depolayarak yöntemi:
+    Notification.m içinde değişiklik *storeCategoriesAndSubscribe* yerel ayar parametresi ekleme ve kullanıcı varsayılan ayarlarında depolayarak yöntemi:
    
         - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet *)categories completion:(void (^)(NSError *))completion {
             NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
@@ -98,7 +98,7 @@ Ardından emin tooadd bir IBOutlet, ViewController.h aşağıda gösterildiği g
             [self subscribeWithLocale: locale categories:categories completion:completion];
         }
    
-    Merhaba değiştirme *abone* yöntemi tooinclude hello yerel ayar:
+    Ardından değiştirin *abone* sınırlarsınız yöntemi:
    
         - (void) subscribeWithLocale: (int) locale categories:(NSSet *)categories completion:(void (^)(NSError *))completion{
             SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:@"<connection string>" notificationHubPath:@"<hub name>"];
@@ -121,9 +121,9 @@ Ardından emin tooadd bir IBOutlet, ViewController.h aşağıda gösterildiği g
             [hub registerTemplateWithDeviceToken:self.deviceToken name:@"localizednewsTemplate" jsonBodyTemplate:template expiryTemplate:@"0" tags:categories completion:completion];
         }
    
-    Nasıl hello yöntemi şimdi kullanıyoruz Not *registerTemplateWithDeviceToken*, yerine *registerNativeWithDeviceToken*. Biz için bir şablon kaydederken (uygulamamıza tooregister farklı şablonlar isteyebilirsiniz gibi) size tooprovide hello json şablonunu ve ayrıca hello şablon için bir ad sahiptir. Bu haberler için toomake emin tooreceive hello notifciations istiyoruz, kategori etiketleri olarak emin tooregister kılın.
+    Nasıl yöntemi şimdi kullanıyoruz Not *registerTemplateWithDeviceToken*, yerine *registerNativeWithDeviceToken*. Biz için bir şablon kaydederken (uygulamamıza farklı şablonlarını kaydetmek isteyebilirsiniz gibi) için json şablonunu ve ayrıca şablon için bir ad sağlayın sahip. Bu haber notifciations almaya emin olmak istiyoruz gibi kategoriler etiketler kaydetmek emin olun.
    
-    Bir yöntem tooretrieve hello yerel hello kullanıcı varsayılan ayarlardan ekleyin:
+    Yerel kullanıcı varsayılan ayarlardan almak için bir yöntem ekleyin:
    
         - (int) retrieveLocale {
             NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
@@ -132,11 +132,11 @@ Ardından emin tooadd bir IBOutlet, ViewController.h aşağıda gösterildiği g
    
             return locale < 0?0:locale;
         }
-2. Biz bizim bildirimleri sınıfı değiştirilmiş, toomake bizim ViewController kullandığına emin sahibiz hello Kullan yeni UISegmentControl. Merhaba satırında aşağıdaki hello eklemek *viewDidLoad* şu anda seçili olan yöntemi toomake emin tooshow hello yerel ayar:
+2. Biz bizim bildirimleri sınıfı değiştirilmiş, bizim ViewController yeni UISegmentControl kullanmak yapar emin olmak gerekir. Aşağıdaki satırda ekleme *viewDidLoad* şu anda seçili yerel göstermek emin olmak için yöntem:
    
         self.Locale.selectedSegmentIndex = [notifications retrieveLocale];
    
-    Ardından, *abone* yöntemi çağrısı toohello değiştirme *storeCategoriesAndSubscribe* toohello aşağıdaki:
+    Ardından, *abone* yöntemi, aramanız için değiştirme *storeCategoriesAndSubscribe* şu:
    
         [notifications storeCategoriesAndSubscribeWithLocale: self.Locale.selectedSegmentIndex categories:[NSSet setWithArray:categories] completion: ^(NSError* error) {
             if (!error) {
@@ -148,7 +148,7 @@ Ardından emin tooadd bir IBOutlet, ViewController.h aşağıda gösterildiği g
                 NSLog(@"Error subscribing: %@", error);
             }
         }];
-3. Son olarak, tooupdate hello olması *didRegisterForRemoteNotificationsWithDeviceToken* , AppDelegate.m yönteminde böylece uygulamanız başladığında kaydınızı doğru yenileyebilirsiniz. Çağrı toohello değiştirme *abone* hello aşağıdaki bildirimlerle yöntemi:
+3. Son olarak, güncelleştirmeye sahip *didRegisterForRemoteNotificationsWithDeviceToken* , AppDelegate.m yönteminde böylece uygulamanız başladığında kaydınızı doğru yenileyebilirsiniz. Aramanız için değiştirme *abone* aşağıdaki bildirimler yöntemi:
    
         NSSet* categories = [self.notifications retrieveCategories];
         int locale = [self.notifications retrieveLocale];
@@ -161,8 +161,8 @@ Ardından emin tooadd bir IBOutlet, ViewController.h aşağıda gösterildiği g
 ## <a name="optional-send-localized-template-notifications-from-net-console-app"></a>(isteğe bağlı) .NET konsol uygulamasından yerelleştirilmiş şablon bildirimleri gönderin.
 [!INCLUDE [notification-hubs-localized-back-end](../../includes/notification-hubs-localized-back-end.md)]
 
-## <a name="optional-send-localized-template-notifications-from-hello-device"></a>(isteğe bağlı) Merhaba aygıttan yerelleştirilmiş şablon bildirimleri gönderme
-Erişim tooVisual Studio sahip veya toojust sınama hello aygıtta hello uygulamasından doğrudan yerelleştirilmiş hello şablon bildirim göndermek istediğiniz yok olur.  Basit yapabilecekleriniz yerelleştirilmiş hello şablon parametreleri toohello ekleme `SendNotificationRESTAPI` hello önceki öğreticide tanımladığınız yöntemi.
+## <a name="optional-send-localized-template-notifications-from-the-device"></a>(isteğe bağlı) Aygıttan yerelleştirilmiş şablon bildirimleri gönderme
+Visual Studio erişimi veya yalnızca istiyorsanız yok cihaza uygulamanın doğrudan yerelleştirilmiş şablon bildirimleri gönderme sınayın.  Basit yapabilecekleriniz yerelleştirilmiş şablon parametreleri ekleme `SendNotificationRESTAPI` önceki öğreticide tanımladığınız yöntemi.
 
         - (void)SendNotificationRESTAPI:(NSString*)categoryTag
         {
@@ -171,18 +171,18 @@ Erişim tooVisual Studio sahip veya toojust sınama hello aygıtta hello uygulam
 
             NSString *json;
 
-            // Construct hello messages REST endpoint
+            // Construct the messages REST endpoint
             NSURL* url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@/messages/%@", HubEndpoint,
                                                HUBNAME, API_VERSION]];
 
-            // Generated hello token toobe used in hello authorization header.
+            // Generated the token to be used in the authorization header.
             NSString* authorizationToken = [self generateSasToken:[url absoluteString]];
 
-            //Create hello request tooadd hello template notification message toohello hub
+            //Create the request to add the template notification message to the hub
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
             [request setHTTPMethod:@"POST"];
 
-            // Add hello category as a tag
+            // Add the category as a tag
             [request setValue:categoryTag forHTTPHeaderField:@"ServiceBusNotification-Tags"];
 
             // Template notification
@@ -201,13 +201,13 @@ Erişim tooVisual Studio sahip veya toojust sınama hello aygıtta hello uygulam
             // JSON Content-Type
             [request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];
 
-            //Authenticate hello notification message POST request with hello SaS token
+            //Authenticate the notification message POST request with the SaS token
             [request setValue:authorizationToken forHTTPHeaderField:@"Authorization"];
 
-            //Add hello notification message body
+            //Add the notification message body
             [request setHTTPBody:[json dataUsingEncoding:NSUTF8StringEncoding]];
 
-            // Send hello REST request
+            // Send the REST request
             NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request
                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
                {
@@ -248,7 +248,7 @@ Erişim tooVisual Studio sahip veya toojust sınama hello aygıtta hello uygulam
 
 <!-- URLs. -->
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
-[son dakika haberleri Notification Hubs kullanma toosend]: /manage/services/notification-hubs/breaking-news-ios
+[son dakika haberleri göndermek için Notification Hubs kullanma]: /manage/services/notification-hubs/breaking-news-ios
 [Mobile Service]: /develop/mobile/tutorials/get-started
 [Notification Hubs ile kullanıcılara bildirin: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
 [Notification Hubs ile kullanıcılara bildirin: Mobil hizmetler]: /manage/services/notification-hubs/notify-users
@@ -259,11 +259,11 @@ Erişim tooVisual Studio sahip veya toojust sınama hello aygıtta hello uygulam
 [Get started with data]: /develop/mobile/tutorials/get-started-with-data-ios
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-ios
 [Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-ios
-[Push notifications tooapp users]: /develop/mobile/tutorials/push-notifications-to-users-ios
+[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-ios
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 [JavaScript and HTML]: ../get-started-with-push-js.md
 
 [Windows Developer Preview registration steps for Mobile Services]: ../mobile-services-windows-developer-preview-registration.md
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs How-toofor iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx

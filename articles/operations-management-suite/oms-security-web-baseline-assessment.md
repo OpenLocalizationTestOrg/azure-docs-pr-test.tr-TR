@@ -1,6 +1,6 @@
 ---
-title: "Operations Management Suite güvenlik ve denetim çözüm temel temeli değerlendirme aaaWeb | Microsoft Docs"
-description: "Bu belgede nasıl toouse web OMS güvenlik ve denetim çözüm tooperform tüm izlenen web sunucuları uyumluluk ve güvenlik amaç için bir taban çizgisi değerlendirmesi temel değerlendirmesi açıklanmaktadır."
+title: "Operations Management Suite Güvenlik ve Denetim Çözümünde Web Temeli Değerlendirmesi | Microsoft Docs"
+description: "Bu belgede; uyumluluk ve güvenlik amaçlarıyla, izlenen tüm web sunucularında bir temel değerlendirmenin gerçekleştirilmesi için OMS Güvenlik ve Denetim çözümünde web temeli değerlendirmesinin nasıl kullanılacağı açıklanmaktadır."
 services: operations-management-suite
 documentationcenter: na
 author: YuriDio
@@ -15,67 +15,67 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: yurid
-ms.openlocfilehash: dafa9d3d93fae31748306b60ee40b285dd59c802
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 40b0c6ca933ea02ac9f5fe3bfaaf87a310542a8d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="web-baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Operations Management Suite Güvenlik ve Denetim Çözümünde Web Temeli Değerlendirmesi
-Bu belge, OMS güvenlik kullanmanıza yardımcı olur ve izlenen kaynaklarınızın güvenli durumunu denetleme web temeli değerlendirme yetenekleri tooaccess hello.
+Bu belge, izlenen kaynaklarınızın güvenli durumunu değerlendirmek üzere OMS Güvenlik ve Denetim web temeli değerlendirmesi özelliklerini kullanmanıza yardımcı olur.
 
 ## <a name="what-is-web-baseline-assessment"></a>Web temeli değerlendirmesi nedir?
-OMS Güvenliği şu anda işletim sistemleri için güvenlik temeli değerlendirmesi sağlamaktadır. Bunu hello işletim sistemi ayarlarını, sunucularınızın her 24 saatte tarar ve savunmasız olabilecek ayarları görünüme sağlar. Bu seçenek hakkında daha fazla bilgi için [Operations Management Suite Güvenlik ve Denetim Çözümünde Temel Değerlendirmesi](https://docs.microsoft.com/azure/operations-management-suite/oms-security-baseline) makalesini okuyun.
+OMS Güvenliği şu anda işletim sistemleri için güvenlik temeli değerlendirmesi sağlamaktadır. Sunucularınızın işletim sistemi ayarlarını 24 saatte bir taramakta ve savunmasız olabilecek ayarları görüntülemeyi sağlamaktadır. Bu seçenek hakkında daha fazla bilgi için [Operations Management Suite Güvenlik ve Denetim Çözümünde Temel Değerlendirmesi](https://docs.microsoft.com/azure/operations-management-suite/oms-security-baseline) makalesini okuyun.
 
-Merhaba hello Web temeli değerlendirme toofind savunmasız olabilecek web sunucusu ayarları hedefidir. Merhaba web temel yapılandırmalar için üç birincil kaynağı hello: .NET, ASP.NET ve IIS yapılandırması.  Yalnızca işletim sistemi temel değerlendirme hello gibi OMS güvenlik tooscan geçiyor, her 24hrs web sunucuları ve bunları güvenlik durumunu görünüme sağlayın.  Internet Information Service (IIS), çeşitli site ve uygulama düzeyleri toobe ilgili geçersiz kılınmış sağlayan, yapılandırmaları büyük ölçüde özelleştirilebilir. Merhaba tarayıcı toplama toohello varsayılan kök düzeyinde her uygulama/site düzeyinde hello ayarlarını denetler. Bu tooidentify savunmasız olabilecek ayarları yardımcı olur ve hızlı bir şekilde, bu ayarlar için bizim önerileri birlikte düzeltin.
+Web Temeli değerlendirmesinin amacı, savunmasız olabilecek web sunucusu ayarlarını bulmaktır. Web temeli yapılandırmaları için üç birincil kaynak şunlardır: .NET, ASP.NET ve IIS yapılandırması.  İşletim sistemi temel değerlendirmesinde olduğu gibi, OMS Güvenliği web sunucularınızı 24 saatte bir tarar ve güvenlik durumlarını görüntüler.  Internet Information Service (IIS) hizmetinde yapılandırmalar yüksek oranda özelleştirilebilir durumdadır, sonuç olarak çeşitli site ve uygulama düzeyleri geçersiz kılınabilir. Tarayıcı varsayılan kök düzeye ek olarak her bir uygulama/site düzeyindeki ayarları denetler. Bunun yapılması, savunmasız olabilecek ayarları tanımlayıp, bu ayarlara ilişkin önerilerimizle birlikte hızlıca düzeltmenize yardımcı olur.
 
 >[!NOTE] 
->Merhaba ortak yapılandırma tanımlayıcıları ve temel bu OMS güvenliği tarafından kullanılan kurallar indirebilirsiniz [sayfa](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335?redir=0).
+>OMS güvenliği tarafından kullanılan Ortak Yapılandırma Tanımlayıcılarını ve Temel Kuralları [bu sayfadan](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335?redir=0) indirebilirsiniz.
 
 
 ## <a name="web-security-baseline-assessment"></a>Web güvenlik temeli değerlendirmesi
 
-Bu önizleme için hello özelliği hello OMS arama seçeneği ve hello OMS güvenlik ve denetim Pano aracılığıyla erişilebilir. Tooperform tahsis hello sorgu Hello adımları izleyin:
+Bu önizlemede özelliğe OMS Arama seçeneği ile OMS Güvenlik ve Denetim Panosu’ndan erişilebilir. Uygun sorguyu gerçekleştirmek için aşağıdaki adımları izleyin:
 
-1. Merhaba, **Microsoft Operations Management Suite** ana Pano tıklatın **güvenlik ve Denetim** döşeme.
-2. Merhaba, **güvenlik ve Denetim** panoyu hello Web temel perspektif sonraki toohello işletim sistemi temel perspektif görebilirsiniz.
+1. **Microsoft Operations Management Suite** ana panosunda, **Güvenlik ve Denetim** kutucuğuna tıklayın.
+2. **Güvenlik ve Denetim** panosunda işletim sistemi temel perspektifinin yanında Web Temeli perspektifini görebilirsiniz.
    
     ![OMS Güvenlik ve Denetim Web Güvenliği Temeli Değerlendirmesi](./media/oms-security-web-baseline/oms-security-web-baseline-fig5.png)
 
-3. Merhaba sol bölmesinde Web kıyasla sunucuları toohello temel hello yüzde olarak ortalamasını tüm hesaplanan hello sunucularında geçirilen kuralları ve hello değerlendirilen sunucularının listesini hello sayısını gösterir.
-4. Hello bölmesini listeler hello benzersiz sağ tarafından başarısız kuralları *önem*, ve *RuleType*. Kurallardan herhangi birinin hello sağ bölmede üzerinde tıklatarak bu kuralın hello Ayrıntılar gösterilir. Bir örnek hello görüntüsü aşağıda gösterilmiştir. değerlendirilir hello kural altında listelenen *kuralı ayarı*. Merhaba *AzId* hello temel kurallar izlemek için Microsoft tarafından kullanılan her bir kuralı için benzersiz bir tanımlayıcı alanı. Merhaba toothat kullanıcılar ayrıca görebilir *beklenen sonuç* (Microsoft'un önerilen değeri) ve diğer ayrıntıları ilgili hello kural hello güvenlik etkisi.
+3. Sol bölmede, temele kıyasla Web Sunucusu sayısı, değerlendirilen tüm sunucularda geçirilen kuralların ortalama yüzdesi ve değerlendirilmiş Sunucuların listesi gösterilir.
+4. Sağ bölmede *Önem Derecesi* ve *RuleType* parametrelerine göre başarısız olan benzersiz kurallar listelenmektedir. Sağ bölmedeki kurallardan herhangi birine tıklandığında bu kuralın ayrıntıları gösterilir. Aşağıdaki görüntüde bir örnek gösterilmiştir. Değerlendirilen kural, *Kural Ayarı* altında listelenmiştir. Microsoft tarafından temel kuralları izlemek için kullanılan her bir kurala yönelik benzersiz tanıtıcı olan *AzId* alanı. Buna ek olarak, kullanıcılar *Beklenen Sonucu* (Microsoft'un önerdiği değer) ve kuralın güvenlik etkisi ile ilgili diğer ayrıntıları görebilir.
     
     ![Sorgu](./media/oms-security-web-baseline/oms-security-web-baseline-fig6.png)
 
-5. Tooreview hello sonuçları kendi sorgular oluşturabilirsiniz. 
+5. Sonuçlarını gözden geçirmek için kendi sorgularınızı oluşturabilirsiniz. 
 
-kullanabileceğiniz hello ilk sorgudur hello **Web temeli değerlendirme özeti**. Merhaba, **burada başlangıç arama** alanına, bu sorgu yazın: *türü SecurityBaselineSummary BaselineType = Web =*. Merhaba, bir çıktı örneği aşağıdadır:
+Kullanabileceğiniz ilk sorgu **Web Temeli Değerlendirme Özeti**’dir. **Aramaya buradan başlayın** alanına şu sorguyu yazın: Type*=SecurityBaselineSummary BaselineType=Web*. Aşağıda bir örnek çıktı gösterilmektedir:
 
 ![Sorgu Sonucu](./media/oms-security-web-baseline/oms-security-web-baseline-fig7.png)
 
 >[!NOTE] 
 >Bu sorguda her kayıt, tek bir sunucu üzerindeki değerlendirme özetini gösterir.
 
-Hello olduğunuzda **günlük arama**, farklı sorgular tooobtain hello web temeli değerlendirme hakkında daha fazla bilgi yazabilirsiniz. Ayrıca toohello önceki sorgu olanları bu Önizleme'de aşağıdaki hello de kullanabilirsiniz:
+**Günlük Araması** menüsüne geldikten sonra, web temeli değerlendirmesi hakkında daha fazla bilgi almak için farklı sorgular yazabilirsiniz. Önceki sorguya ek olarak, bu önizlemede aşağıdaki sorguyu kullanabilirsiniz:
 
-**Web Temeli Kural Değerlendirmesi**: Her kayıt, tek bir sunucudaki tek bir web temeli kural değerlendirmesini temsil eder. Başarısız bir kural için tüm veriler hello içerdiği *SitePath* üzerinde hangi hello kural, hello değerlendirildi *beklenen sonuç*ve hello *gerçek sonucu*.
+**Web Temeli Kural Değerlendirmesi**: Her kayıt, tek bir sunucudaki tek bir web temeli kural değerlendirmesini temsil eder. Başarısız bir kurala ilişkin tüm verileri, kuralın değerlendirildiği *SitePath* değerini, *Beklenen Sonuç* ve *Gerçek Sonuç* değerlerini içerir.
 
 Sorgu: *Type=SecurityBaseline BaselineType=Web AnalyzeResult=Failed*
 
 ![Sorgu Sonucu 2](./media/oms-security-web-baseline/oms-security-web-baseline-fig8.png)
 
-**Belirli bir sunucu için tüm sonuçları göster**: Bu sorgu nasıl toosee sonuçlarını gösterir belirli bir sunucunun: Sorgu: *türü SecurityBaseline BaselineType = Web bilgisayar = BaselineTestVM1 =*
+**Belirli bir sunucu için tüm sonuçları göster**: Bu sorgu, belirli bir sunucuya ait sonuçlara nasıl bakılacağını gösterir: Sorgu: *Type=SecurityBaseline BaselineType=Web Computer=BaselineTestVM1*
 
 ![Sorgu Sonucu 3](./media/oms-security-web-baseline/oms-security-web-baseline-fig3.png)
 
-Bu kayıtları/sorguları toocreate kendi panolar, raporlar ve uyarılar kullanabilirsiniz. Burada, tooyour Pano ekleyebileceğiniz örnek UI denetimi verilmiştir. Bilgi edinebilirsiniz nasıl toovisualize OMS Görünüm Tasarımcısı kullanarak verilerinizi [burada](https://blogs.technet.microsoft.com/msoms/2016/06/30/oms-view-designer-visualize-your-data-your-way/). Merhaba ekranında aşağıdaki bu özelleştirme yaptıktan sonra hello döşemenin nasıl örneği nasıl görüneceği gösterilmektedir.
+Bu kayıtları/sorguları, kendi pano, rapor veya uyarılarınızı oluşturmak için kullanabilirsiniz. Panonuza ekleyebileceğiniz bir örnek kullanıcı arabirimi denetimi aşağıda gösterilmektedir. OMS Görünüm Tasarımcısı kullanarak verilerinizi nasıl görselleştirebileceğinizi [buradan](https://blogs.technet.microsoft.com/msoms/2016/06/30/oms-view-designer-visualize-your-data-your-way/) öğrenebilirsiniz. Aşağıdaki ekran, bu özelleştirme yapıldıktan sonra kutucuğun nasıl görüneceğine ilişkin bir örnektir.
 
 ![pano](./media/oms-security-web-baseline/oms-security-web-baseline-fig4.png)
 
 ## <a name="see-also"></a>Ayrıca bkz.
-Bu belgede OMS Güvenlik ve Denetim Web Temeli değerlendirmesi hakkında bilgi edindiniz. toolearn OMS güvenlik hakkında daha fazla bilgi makaleleri aşağıdaki hello bakın:
+Bu belgede OMS Güvenlik ve Denetim Web Temeli değerlendirmesi hakkında bilgi edindiniz. OMS Güvenlik hakkında daha fazla bilgi edinmek için şu makalelere göz atın:
 
 * [Operations Management Suite'e (OMS) genel bakış](operations-management-suite-overview.md)
-* [İzleme ve yanıt tooSecurity uyarıları Operations Management Suite güvenlik ve denetim çözümü](oms-security-responding-alerts.md)
+* [Operations Management Suite Güvenlik ve Denetim Çözümünde Güvenlik Uyarılarını İzleme ve Yanıtlama](oms-security-responding-alerts.md)
 * [Operations Management Suite Güvenlik ve Denetim Çözümünde Kaynakları İzleme](oms-security-monitoring-resources.md)
 

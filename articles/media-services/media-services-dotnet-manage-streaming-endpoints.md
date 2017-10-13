@@ -1,6 +1,6 @@
 ---
-title: "Akış uç noktaları .NET SDK'sı aaaManage. | Microsoft Belgeleri"
-description: "Bu konu, nasıl Azure portal ile toomanage akış uç noktalarını hello gösterir."
+title: ".NET SDK'sı akış uç noktalarını yönetin. | Microsoft Belgeleri"
+description: "Bu konu Azure portal ile akış uç noktalarını yönetme gösterir."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -15,45 +15,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 30c092a8ebf4e2b2902392f4cf98f46d812ccdbc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2f4f464f8604b6f453d6b50b736c6a3a889a3408
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>.NET SDK'sı akış uç noktalarını yönetme
 
 >[!NOTE]
->Tooreview hello emin olun [genel bakış](media-services-streaming-endpoints-overview.md) konu. Ayrıca, gözden [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+>Gözden geçirdiğinizden emin olun [genel bakış](media-services-streaming-endpoints-overview.md) konu. Ayrıca, gözden [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
 
-Bu konudaki Hello kod nasıl toodo hello kullanarak görevleri aşağıdaki hello Azure Media Services .NET SDK'sı gösterir:
+Bu konudaki kod Azure Media Services .NET SDK kullanarak aşağıdaki görevlerin nasıl yapılacağını gösterir:
 
-- Merhaba varsayılan akış uç noktası inceleyin.
+- Varsayılan akış uç inceleyin.
 - Oluşturma/yeni akış uç noktası ekleyin.
 
-    Toohave düşünüyorsanız, birden çok akış uç noktalarını toohave isteyebilirsiniz farklı CDN'ler veya CDN ve doğrudan erişim.
+    Farklı CDN'ler veya CDN ve doğrudan erişimi olmasını planlıyorsanız, birden çok akış uç noktalarını sahip olmak isteyebilirsiniz.
 
     > [!NOTE]
     > Akış uç noktanızı çalışır durumda olduğunda yalnızca faturalandırılır.
     
-- Akış uç noktası hello güncelleştirin.
+- Akış uç noktasını güncelleyin.
     
-    Toocall hello Update() işlevi emin olun.
+    Update() işlevi çağırdığınızdan emin olun.
 
-- Akış uç noktası hello silin.
+- Akış uç silin.
 
     >[!NOTE]
-    >Merhaba varsayılan akış uç noktası silinemiyor.
+    >Varsayılan akış uç silinemiyor.
 
-Nasıl tooscale hello akış uç noktası hakkında daha fazla bilgi için bkz: [bu](media-services-portal-scale-streaming-endpoints.md) konu.
+Akış uç ölçeklendirme hakkında daha fazla bilgi için bkz: [bu](media-services-portal-scale-streaming-endpoints.md) konu.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
 
-Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dosyası bağlantı bilgileriyle doldurmak [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md). 
+Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) bölümünde açıklandığı gibi bağlantı bilgileriyle doldurun. 
 
 ## <a name="add-code-that-manages-streaming-endpoints"></a>Akış uç noktalarını yönetir kodu ekleyin
     
-Merhaba Program.cs Hello kodda koddan hello ile değiştirin:
+Program.cs kodu aşağıdaki kodla değiştirin:
 
     using System;
     using System.Configuration;
@@ -65,7 +65,7 @@ Merhaba Program.cs Hello kodda koddan hello ile değiştirin:
     {
         class Program
         {
-        // Read values from hello App.config file.
+        // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
         ConfigurationManager.AppSettings["AADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =

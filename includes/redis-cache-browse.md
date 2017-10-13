@@ -1,14 +1,14 @@
-Önbellekleri hello erişilebilir [Azure portal](https://portal.azure.com) hello kullanarak **Gözat** dikey.
+Önbelleklere, [Azure portalındaki](https://portal.azure.com) **Gözat** dikey penceresi kullanılarak erişilebilir.
 
 ![Azure Redis Önbelleği Gözat Dikey Penceresi](media/redis-cache-browse/redis-cache-browse.png)
 
-önbellekleri, tooview tıklatın **daha fazla hizmet > Redis önbellekleri**. Yakın zamanda tooa Redis önbelleği attıysanız, tıklayabilirsiniz **Redis önbellekleri** listeden tıklamadan doğrudan hello **daha fazla hizmet**.
+Önbelleklerinizi görüntülemek için **Daha fazla hizmet > Redis Önbellekleri** seçeneğine tıklayın. Daha önce bir Redis Önbelleğine göz attıysanız **Daha fazla hizmet** seçeneğine tıklamayıp listede doğrudan **Redis Önbellekleri**'ne tıklayabilirsiniz.
 
-İstenen hello önbellek tooview seçin ve bu önbelleği hello ayarlarını yapılandırın.
+Ayarlarını görüntülemek ve yapılandırmak için istediğiniz önbelleği seçin.
 
 ![Azure Redis Önbelleği Gözat Önbellek Listesi](media/redis-cache-browse/redis-caches.png)
 
-Görüntülemek ve Merhaba, önbellekten yapılandırmak **Redis önbelleği** dikey.
+Önbelleğinizi **Redis Önbelleği** dikey penceresinden görüntüleyebilir ve yapılandırabilirsiniz.
 
 ![Redis Önbelleği Tüm Ayarları](media/redis-cache-browse/redis-cache-blade.png)
 

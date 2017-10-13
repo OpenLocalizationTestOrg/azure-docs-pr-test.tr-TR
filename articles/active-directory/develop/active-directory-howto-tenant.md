@@ -1,6 +1,6 @@
 ---
-title: "Azure AD kiracısı aaaHow tooget | Microsoft Docs"
-description: "Nasıl tooget bir Azure Active Directory kaydı ve uygulamaları oluşturmak için Kiracı."
+title: "Azure AD kiracısı edinme | Microsoft Belgeleri"
+description: "Uygulamaları kaydetmek ve oluşturmak üzere Azure Active Directory kiracısı edinme."
 services: active-directory
 documentationcenter: 
 author: bryanla
@@ -15,52 +15,52 @@ ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: dcc6b3109528cf763bda9bd527344ea9ab5c0d69
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: fe33d490b754e2f793f5c7a13dc55ca038b1b71c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-tooget-an-azure-active-directory-tenant"></a>Nasıl tooget bir Azure Active Directory Kiracı
-Azure Active Directory'de (Azure AD) [kiracı](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant), bir kuruluşun temsilcisidir.  Merhaba, bir kuruluşun alır ve bunu Azure, Microsoft Intune veya Office 365 gibi Microsoft bulut hizmetine kaydolduğunda sahibi Azure AD hizmeti adanmış bir örneğidir.  Her Azure AD kiracısı benzersizdir ve diğer Azure AD kiracılarından ayrıdır.  
+# <a name="how-to-get-an-azure-active-directory-tenant"></a>Azure Active Directory kiracısı edinme
+Azure Active Directory'de (Azure AD) [kiracı](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant), bir kuruluşun temsilcisidir.  Bir kuruluşun, Azure, Microsoft Intune veya Office 365 gibi bir Microsoft bulut hizmetine kaydolduğunda aldığı ve sahip olduğu adanmış bir Azure AD hizmeti örneğidir.  Her Azure AD kiracısı benzersizdir ve diğer Azure AD kiracılarından ayrıdır.  
 
-Bir kiracı hello kullanıcılar bir şirket ve hello hakkında bilgileri - kendi parolalarını, kullanıcı profili verilerini, izinlerini ve benzeri barındırır.  Ayrıca, grupları, uygulamalar ve tooan kuruluşa ve kuruluşun ilgili diğer bilgileri de içerir.
+Kiracı, bir şirket içindeki kullanıcıları ve bunlarla ilgili bilgileri (parolalarını, kullanıcı profili verilerini, izinlerini vb.) barındırır.  Ayrıca bir kuruluşa ve kuruluşun güvenliğine ilişkin grupları, uygulamaları ve diğer bilgileri de içerir.
 
-tooallow Azure AD kullanıcıların toosign tooyour uygulamada kendi Kiracı uygulamanızı kaydetmeniz gerekir.  Bir Azure AD kiracısında uygulama yayımlamak **tamamen ücretsizdir**.  Hatta çoğu geliştirici, deneme, geliştirme, hazırlama ve test etme amacıyla çeşitli kiracılar ve uygulamalar oluşturur.  Gelişmiş dizin özelliklerinden tootake istediklerinde kaydolun ve uygulamanızı kullanan kuruluşlar toopurchase lisansları isteğe bağlı olarak seçebilirsiniz.
+Azure AD kullanıcılarının uygulamanızda oturum açmasına olanak tanımak için uygulamanızı kendi kiracınıza kaydetmeniz gerekir.  Bir Azure AD kiracısında uygulama yayımlamak **tamamen ücretsizdir**.  Hatta çoğu geliştirici, deneme, geliştirme, hazırlama ve test etme amacıyla çeşitli kiracılar ve uygulamalar oluşturur.  Uygulamanıza kaydolan ve uygulamanızı kullanan kuruluşlar, gelişmiş dizin özelliklerinden faydalanmak istemeleri halinde isteğe bağlı olarak lisans satın almayı tercih edebilir.
 
-Peki, Azure AD kiracısını nasıl edinebilirsiniz?  Merhaba işlem bir biraz farklı olabilir:
+Peki, Azure AD kiracısını nasıl edinebilirsiniz?  Bu işlem, aşağıdaki koşullarda biraz farklı olabilir:
 
 * [Mevcut bir Office 365 aboneliğiniz varsa](#use-an-existing-office-365-subscription)
 * [Bir Microsoft Hesabı ile ilişkili olan mevcut bir Azure aboneliğiniz varsa](#use-an-msa-azure-subscription)
 * [Bir kuruluş hesabı ile ilişkili olan mevcut bir Azure aboneliğiniz varsa](#use-an-organizational-azure-subscription)
-* [Yukarıdaki hello hiçbiri sahip değilseniz ve sıfırdan toostart istediğiniz](#start-from-scratch)
+* [Yukarıdakilerden hiçbirine sahip değilseniz ve sıfırdan başlamak istiyorsanız](#start-from-scratch)
 
 ## <a name="use-an-existing-office-365-subscription"></a>Mevcut bir Office 365 aboneliğini kullanma
-Mevcut bir Office 365 aboneliğiniz varsa zaten bir Azure AD kiracınız vardır! İçinde toohello oturum [Azure portal](https://portal.azure.com) ile O365 hesabınızı ve Azure AD kullanmaya başlayın.
+Mevcut bir Office 365 aboneliğiniz varsa zaten bir Azure AD kiracınız vardır! O365 hesabınızla [Azure portal](https://portal.azure.com)’da oturum açabilir ve Azure AD’yi kullanmaya başlayabilirsiniz.
 
 ## <a name="use-an-msa-azure-subscription"></a>MSA Azure aboneliğini kullanma
-Daha önce bireysel Microsoft Hesabınız ile bir Azure aboneliğine kaydolduysanız kiracınız zaten mevcuttur!  Oturum zaman içinde toohello [Azure Portal](https://portal.azure.com), tooyour varsayılan Kiracı içinde otomatik olarak günlüğe kaydedilir. Uygun - boş toouse yazarken bu Kiracı bkz olan ancak toocreate bir kuruluş yöneticisi hesabı isteyebilirsiniz.
+Daha önce bireysel Microsoft Hesabınız ile bir Azure aboneliğine kaydolduysanız kiracınız zaten mevcuttur!  [Azure Portal](https://portal.azure.com)’da oturum açtığınızda, otomatik olarak varsayılan kiracınızda oturumunuz açılır. Bu kiracıyı uygun gördüğünüz şekilde kullanabilirsiniz ancak bir Kuruluş yöneticisi hesabı oluşturmak isteyebilirsiniz.
 
-toodo, bu adımları izleyin.  Alternatif olarak, yeni bir kiracı toocreate istiyor ve benzer bir işlemi izleyerek Kiracı içinde bir yönetici oluşturmak.
+Bunu yapmak için şu adımları uygulayın.  Alternatif olarak, benzer bir işlemi izleyerek yeni bir kiracı oluşturmak ve kiracı içinde bir yönetici oluşturmak isteyebilirsiniz.
 
-1. Merhaba günlüğüne [Azure Portal](https://portal.azure.com) bireysel hesabınızla
-2. Merhaba portal toohello "Azure Active Directory" bölümüne gidin (Merhaba sol gezinti çubuğunda altında bulunan **daha Hizmetleri**)
-3. Toohello "Varsayılan dizin" otomatik olarak imzalanmış, yoksa hesap adınızı hello sağ üst köşedeki tıklayarak dizinleri geçiş yapabilirsiniz.
-4. Merhaba gelen **hızlı görevleri** bölümünde, seçin **kullanıcı ekleme**.
-5. İçinde kullanıcı ekleme Formu'nu Merhaba, aşağıdaki ayrıntılara hello sağlayın:
+1. Bireysel hesabınızla [Azure Portal](https://portal.azure.com)'da oturum açın
+2. Portalın "Azure Active Directory" bölümüne (sol gezinti çubuğunda, **Diğer Hizmetler**’in altında bulunur) gidin
+3. Otomatik olarak "Varsayılan Dizin"de oturumunuzun açılması gerekir. Oturum açılmazsa sağ üst köşede hesap adınıza tıklayarak dizinleri değiştirebilirsiniz.
+4. **Hızlı Görevler** bölümünde **Kullanıcı ekle**’yi seçin.
+5. Kullanıcı Ekleme Formu'nda şu bilgileri sağlayın:
 
    * Ad: (uygun bir değer seçin)
    * Kullanıcı adı: (bu yönetici için bir kullanıcı adı seçin)
-   * Profil: (ad, son adı, iş unvanı ve bölüm için uygun değerleri hello doldurma)
+   * Profil: (Ad, Soyadı, İş unvanı ve Bölüm için uygun değerleri girin)
    * Rol: Genel Yönetici
-6. Tamamladığınızda, kullanıcı ekleme Formu'nu, Merhaba ve hello yeni yönetici kullanıcı hello geçici parola alma, bu yeni kullanıcı sipariş toochange hello parola ile toologin ihtiyaç duyacağınız bu parolayı emin toorecord olabilir. Merhaba parola da gönderebilirsiniz doğrudan alternatif bir e-posta kullanarak toohello kullanıcı.
-7. Tıklayın **oluşturma** toocreate hello yeni kullanıcı.
-8. toochange hello geçici parola, günlüğüne [https://login.microsoftonline.com](https://login.microsoftonline.com) bu yeni kullanıcı hesabı ve istendiğinde hello parolayı değiştirin.
+6. Kullanıcı Ekleme Formu'nu doldurduktan ve yeni yönetici kullanıcı için geçici parolayı aldıktan sonra, parolayı değiştirmek üzere bu yeni kullanıcı ile oturum açmanız gerekeceğinden, bu parolayı kaydettiğinizden emin olun. Ayrıca alternatif bir e-posta adresi kullanarak parolayı doğrudan kullanıcıya da gönderebilirsiniz.
+7. Yeni kullanıcıyı oluşturmak için **Oluştur**’a tıklayın.
+8. Geçici parolayı değiştirmek için [https://login.microsoftonline.com](https://login.microsoftonline.com) adresinde bu yeni kullanıcı hesabı ile oturum açın ve istendiğinde parolayı değiştirin.
 
 ## <a name="use-an-organizational-azure-subscription"></a>Kuruluş Azure aboneliği kullanma
-Daha önce kuruluş hesabınızla bir Azure aboneliğine kaydolduysanız kiracınız zaten mevcuttur!  Merhaba, [Azure Portal](https://portal.azure.com), çok gittiğinizde kiracıyı bulmanız gerekir "Daha Hizmetleri" ve "Azure Active Directory."  Gördüğünüz gibi bu kiracıyı uygun ücretsiz toouse var.
+Daha önce kuruluş hesabınızla bir Azure aboneliğine kaydolduysanız kiracınız zaten mevcuttur!  [Azure Portal](https://portal.azure.com)’da, "Diğer Hizmetler" ve "Azure Active Directory"e gittiğinizde bir kiracı bulmanız gerekir.  Bu kiracıyı uygun gördüğünüz şekilde kullanabilirsiniz.
 
 ## <a name="start-from-scratch"></a>Sıfırdan başlama
-Tüm hello yukarıdaki arkadaşınızdan tooyou ise, endişelenmeyin.  Adresini ziyaret [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) toosign Azure için yeni bir kuruluş ile.  Merhaba işlemi tamamladığınızda, kayıt sırasında seçtiğiniz hello etki alanı adıyla kendi Azure AD Kiracı sahip olur.  Merhaba, [Azure Portal](https://portal.azure.com), çok giderek kiracınızı bulabilirsiniz "Azure Active Directory'de" Merhaba sol NAV
+Yukarıdakilerin hiçbiri sizin için bir anlam ifade etmiyorsa endişelenmeyin.  Yeni bir kuruluş ile Azure'a kaydolmak üzere [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) adresini ziyaret etmeniz yeterlidir.  İşlemi tamamladığınızda, kayıt sırasında seçtiğiniz etki alanı adıyla kendi Azure AD kiracınıza sahip olacaksınız.  [Azure Portal](https://portal.azure.com)'da, sol gezinti çubuğunda bulunan "Azure Active Directory" konumuna giderek kiracınızı bulabilirsiniz.
 
-Azure'a kaydolma hello işleminin bir parçası gerekli tooprovide kredi kartı bilgileri olacaktır.  Güvenle devam edebilirsiniz; Azure AD'de uygulama yayınlama veya yeni kiracı oluşturma işlemleri için sizden ücret tahsil edilmeyecektir.
+Azure'a kaydolma işleminin bir parçası olarak, kredi kartı bilgileri sağlamanız gerekecektir.  Güvenle devam edebilirsiniz; Azure AD'de uygulama yayınlama veya yeni kiracı oluşturma işlemleri için sizden ücret tahsil edilmeyecektir.

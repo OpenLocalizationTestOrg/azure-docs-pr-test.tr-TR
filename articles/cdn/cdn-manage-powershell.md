@@ -1,6 +1,6 @@
 ---
-title: PowerShell ile Azure CDN aaaManage | Microsoft Docs
-description: "Nasıl toouse hello Azure PowerShell cmdlet'leri toomanage Azure CDN öğrenin."
+title: "PowerShell ile Azure CDN yönetme | Microsoft Docs"
+description: "Azure CDN yönetmek için Azure PowerShell cmdlet'lerini kullanmayı öğrenin."
 services: cdn
 documentationcenter: 
 author: zhangmanling
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 269373136d4ef018e4d31f147456b4be2253b463
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5bd2eed7b34cafa43e8f38279890405d4ae55568
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>Azure CDN PowerShell ile yönetme
-PowerShell hello en esnek yöntemler toomanage birini Azure CDN profili ve uç noktaları sağlar.  Etkileşimli olarak veya tooautomate yönetim görevlerini komut dosyaları yazarak PowerShell'i kullanabilirsiniz.  Bu öğretici birkaç gösterir hello en yaygın görevlerin PowerShell toomanage ile Azure CDN profili ve uç noktaları gerçekleştirebilirsiniz.
+PowerShell Azure CDN profili ve uç noktaları yönetmek için en esnek yöntemi sağlar.  Yönetim görevlerini otomatikleştirmek için etkileşimli olarak veya komut dosyaları yazarak PowerShell'i kullanabilirsiniz.  Bu öğretici birkaç gösterir Azure CDN profili ve uç noktaları yönetmek için PowerShell ile en yaygın görevleri gerçekleştirebilirsiniz.
 
 ## <a name="prerequisites"></a>Ön koşullar
-toouse PowerShell toomanage Azure CDN profili ve uç noktaları, hello Azure PowerShell Modülü yüklü olması gerekir.  toolearn nasıl tooinstall Azure PowerShell ve tooAzure hello kullanarak bağlanmak `Login-AzureRmAccount` cmdlet'ini bkz [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview).
+Azure CDN profili ve uç noktaları yönetmek için PowerShell kullanmak için Azure PowerShell Modülü yüklü olması gerekir.  Azure PowerShell'i yükleyin ve Azure kullanarak bağlanma hakkında bilgi edinmek için `Login-AzureRmAccount` cmdlet'ini bkz [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview).
 
 > [!IMPORTANT]
 > İle oturum açmanız gerekir `Login-AzureRmAccount` Azure PowerShell cmdlet'lerini çalıştırmadan önce.
 > 
 > 
 
-## <a name="listing-hello-azure-cdn-cmdlets"></a>Hello Azure CDN cmdlet'leri listeleme
-Hello kullanarak tüm hello Azure CDN cmdlet'leri listelediğiniz `Get-Command` cmdlet'i.
+## <a name="listing-the-azure-cdn-cmdlets"></a>Azure CDN cmdlet'leri listeleme
+Tüm Azure CDN cmdlet'leri kullanma listeleyebilirsiniz `Get-Command` cmdlet'i.
 
 ```text
 PS C:\> Get-Command -Module AzureRM.Cdn
@@ -62,7 +62,7 @@ Cmdlet          Unpublish-AzureRmCdnEndpointContent                2.0.0      Az
 ```
 
 ## <a name="getting-help"></a>Yardım alma
-Herhangi bir hello kullanarak bu cmdlet'leri ile Yardım alabilirsiniz `Get-Help` cmdlet'i.  `Get-Help`Kullanım ve sözdizimi sağlar ve isteğe bağlı olarak örnekler gösterilmektedir.
+Herhangi bir kullanarak bu cmdlet'leri ile Yardım alabilirsiniz `Get-Help` cmdlet'i.  `Get-Help`Kullanım ve sözdizimi sağlar ve isteğe bağlı olarak örnekler gösterilmektedir.
 
 ```text
 PS C:\> Get-Help Get-AzureRmCdnProfile
@@ -86,59 +86,59 @@ DESCRIPTION
 RELATED LINKS
 
 REMARKS
-    toosee hello examples, type: "get-help Get-AzureRmCdnProfile -examples".
+    To see the examples, type: "get-help Get-AzureRmCdnProfile -examples".
     For more information, type: "get-help Get-AzureRmCdnProfile -detailed".
     For technical information, type: "get-help Get-AzureRmCdnProfile -full".
 
 ```
 
 ## <a name="listing-existing-azure-cdn-profiles"></a>Liste mevcut Azure CDN profili
-Merhaba `Get-AzureRmCdnProfile` cmdlet parametre olmadan tüm mevcut CDN profili alır.
+`Get-AzureRmCdnProfile` Hiçbir parametre olmadan cmdlet'i tüm mevcut CDN profili alır.
 
 ```powershell
 Get-AzureRmCdnProfile
 ```
 
-Bu çıktı yöneltilen toocmdlets numaralandırması için olabilir.
+Numaralandırma için cmdlet'leri yöneltilen bu çıkış.
 
 ```powershell
-# Output hello name of all profiles on this subscription.
+# Output the name of all profiles on this subscription.
 Get-AzureRmCdnProfile | ForEach-Object { Write-Host $_.Name }
 
 # Return only **Azure CDN from Verizon** profiles.
 Get-AzureRmCdnProfile | Where-Object { $_.Sku.Name -eq "StandardVerizon" }
 ```
 
-Ayrıca hello profilinin adını ve kaynak grubu belirterek tek bir profil geri dönebilirsiniz.
+Profil adı ve kaynak grubu belirterek tek bir profil de döndürebilir.
 
 ```powershell
 Get-AzureRmCdnProfile -ProfileName CdnDemo -ResourceGroupName CdnDemoRG
 ```
 
 > [!TIP]
-> Farklı kaynak gruplarında oldukları sürece birden çok CDN ile aynı adı, hello profilleri olası toohave olur.  Merhaba atlama `ResourceGroupName` parametresi eşleşen bir ada sahip tüm profillerini döndürür.
+> Farklı kaynak gruplarında oldukları sürece aynı ada sahip birden çok CDN profili olması mümkündür.  Atlama `ResourceGroupName` parametresi eşleşen bir ada sahip tüm profillerini döndürür.
 > 
 > 
 
 ## <a name="listing-existing-cdn-endpoints"></a>Liste mevcut CDN uç noktası
-`Get-AzureRmCdnEndpoint`tek bir uç nokta veya bir profildeki tüm hello uç noktaları alabilir.  
+`Get-AzureRmCdnEndpoint`tek bir uç nokta veya bir profildeki tüm uç noktaları alabilir.  
 
 ```powershell
 # Get a single endpoint.
 Get-AzureRmCdnEndpoint -ProfileName CdnDemo -ResourceGroupName CdnDemoRG -EndpointName cdndocdemo
 
-# Get all of hello endpoints on a given profile. 
+# Get all of the endpoints on a given profile. 
 Get-AzureRmCdnEndpoint -ProfileName CdnDemo -ResourceGroupName CdnDemoRG
 
-# Return all of hello endpoints on all of hello profiles.
+# Return all of the endpoints on all of the profiles.
 Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint
 
-# Return all of hello endpoints in this subscription that are currently running.
+# Return all of the endpoints in this subscription that are currently running.
 Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Where-Object { $_.ResourceState -eq "Running" }
 ```
 
 ## <a name="creating-cdn-profiles-and-endpoints"></a>CDN profili ve uç noktaları oluşturma
-`New-AzureRmCdnProfile`ve `New-AzureRmCdnEndpoint` kullanılan toocreate CDN profili ve uç noktaları.
+`New-AzureRmCdnProfile`ve `New-AzureRmCdnEndpoint` CDN profili ve uç noktaları oluşturmak için kullanılır.
 
 ```powershell
 # Create a new profile
@@ -159,16 +159,16 @@ New-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -Sku
 # Retrieve availability
 $availability = Get-AzureRmCdnEndpointNameAvailability -EndpointName "cdnposhdoc"
 
-# If available, write a message toohello console.
+# If available, write a message to the console.
 If($availability.NameAvailable) { Write-Host "Yes, that endpoint name is available." }
 Else { Write-Host "No, that endpoint name is not available." }
 ```
 
 ## <a name="adding-a-custom-domain"></a>Özel bir etki alanı ekleme
-`New-AzureRmCdnCustomDomain`bir özel etki alanı adı tooan mevcut uç ekler.
+`New-AzureRmCdnCustomDomain`özel etki alanı için mevcut bir uç noktası ekler.
 
 > [!IMPORTANT]
-> CNAME hello açıklandığı gibi DNS sağlayıcınız ile ayarlamalısınız [nasıl toomap özel etki alanı tooContent teslim ağı (CDN) uç noktası](cdn-map-content-to-custom-domain.md).  Merhaba eşleme kullanan uç noktasını değiştirmeden önce sınayabilirsiniz `Test-AzureRmCdnCustomDomain`.
+> CNAME açıklandığı gibi DNS sağlayıcınız ile ayarlamalısınız [özel etki alanını içerik teslim ağı (CDN) uç noktasına eşleme nasıl](cdn-map-content-to-custom-domain.md).  Eşleme kullanan uç noktasını değiştirmeden önce sınayabilirsiniz `Test-AzureRmCdnCustomDomain`.
 > 
 > 
 
@@ -176,10 +176,10 @@ Else { Write-Host "No, that endpoint name is not available." }
 # Get an existing endpoint
 $endpoint = Get-AzureRmCdnEndpoint -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -EndpointName cdnposhdoc
 
-# Check hello mapping
+# Check the mapping
 $result = Test-AzureRmCdnCustomDomain -CdnEndpoint $endpoint -CustomDomainHostName "cdn.contoso.com"
 
-# Create hello custom domain on hello endpoint
+# Create the custom domain on the endpoint
 If($result.CustomDomainValidated){ New-AzureRmCdnCustomDomain -CustomDomainName Contoso -HostName "cdn.contoso.com" -CdnEndpoint $endpoint }
 ```
 
@@ -194,7 +194,7 @@ $endpoint = Get-AzureRmCdnEndpoint -ProfileName CdnPoshDemo -ResourceGroupName C
 $endpoint.IsCompressionEnabled = $true
 $endpoint.ContentTypesToCompress = "text/javascript","text/css","application/json"
 
-# Save hello changed endpoint and apply hello changes
+# Save the changed endpoint and apply the changes
 Set-AzureRmCdnEndpoint -CdnEndpoint $endpoint
 ```
 
@@ -213,10 +213,10 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Unpublish-AzureRmCdnEndpointCon
 ```
 
 ## <a name="startingstopping-cdn-endpoints"></a>Başlatma/durdurma CDN uç noktası
-`Start-AzureRmCdnEndpoint`ve `Stop-AzureRmCdnEndpoint` kullanılan toostart kullanılabilir ve tekil uç noktalarını ya da grupları uç noktaları durdurun.
+`Start-AzureRmCdnEndpoint`ve `Stop-AzureRmCdnEndpoint` tekil uç noktalarını ya da grupları uç noktaları durdurmak ve başlatmak için kullanılabilir.
 
 ```powershell
-# Stop hello cdndocdemo endpoint
+# Stop the cdndocdemo endpoint
 Stop-AzureRmCdnEndpoint -ProfileName CdnDemo -ResourceGroupName CdnDemoRG -EndpointName cdndocdemo
 
 # Stop all endpoints
@@ -227,13 +227,13 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Start-AzureRmCdnEndpoint
 ```
 
 ## <a name="deleting-cdn-resources"></a>CDN kaynakları silme
-`Remove-AzureRmCdnProfile`ve `Remove-AzureRmCdnEndpoint` kullanılan tooremove profilleri ve uç noktaları olabilir.
+`Remove-AzureRmCdnProfile`ve `Remove-AzureRmCdnEndpoint` profilleri ve uç noktaları kaldırmak için kullanılır.
 
 ```powershell
 # Remove a single endpoint
 Remove-AzureRmCdnEndpoint -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG -EndpointName cdnposhdoc
 
-# Remove all hello endpoints on a profile and skip confirmation (-Force)
+# Remove all the endpoints on a profile and skip confirmation (-Force)
 Get-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG | Get-AzureRmCdnEndpoint | Remove-AzureRmCdnEndpoint -Force
 
 # Remove a single profile
@@ -241,7 +241,7 @@ Remove-AzureRmCdnProfile -ProfileName CdnPoshDemo -ResourceGroupName CdnDemoRG
 ```
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Bilgi nasıl tooautomate Azure CDN ile [.NET](cdn-app-dev-net.md) veya [Node.js](cdn-app-dev-node.md).
+Azure CDN’yi [.NET](cdn-app-dev-net.md) veya [Node.js](cdn-app-dev-node.md) ile nasıl otomatik hale getireceğinizi öğrenin.
 
-toolearn CDN özellikleri hakkında bkz [CDN'ye genel bakış](cdn-overview.md).
+CDN özellikleri hakkında bilgi edinmek için [CDN'ye genel bakış](cdn-overview.md).
 

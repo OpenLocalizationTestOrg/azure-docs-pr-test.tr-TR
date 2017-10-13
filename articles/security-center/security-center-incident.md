@@ -1,6 +1,6 @@
 ---
-title: "Azure Güvenlik Merkezi'nde güvenlik uyarılarını aaaHandling | Microsoft Docs"
-description: "Bu belge toouse Azure Güvenlik Merkezi özellikleri toohandle güvenlik olaylarına yardımcı olur."
+title: "Azure Güvenlik Merkezi'nde güvenlik uyarılarını işleme | Microsoft Belgeleri"
+description: "Bu belge, güvenlik olaylarını işlemek için Azure Güvenlik Merkezi özelliklerini kullanmanıza yardımcı olur."
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -14,50 +14,50 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: yurid
-ms.openlocfilehash: edb911c298a2ce93cd0ea5b22ce002005040090f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: a302f8cb2555eef469a24da2523fdd9b97cc5730
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="handling-security-incidents-in-azure-security-center"></a>Azure Güvenlik Merkezi’nde Güvenlik Olaylarını İşleme
-Önceliklendirme ve güvenlik uyarıları İnceleme olabilir zaman bile hello en becerikli güvenlik analistleri için alıcı ve çoğu için sabit tooeven bilmeniz nerede olduğu toobegin. Kullanarak [analytics](security-center-detection-capabilities.md) ayrı arasında tooconnect hello bilgi [güvenlik uyarıları](security-center-managing-and-responding-alerts.md), Güvenlik Merkezi, bir saldırı kampanya tek bir görünümünü sağlayabilir ve ilişkili tüm hello uyarılar – yapabilecekleriniz hızlı bir şekilde hangi eylemleri hello saldırgan sürdü ve hangi kaynaklara etkilendiğini anlayın.
+Güvenlik uyarılarının önceliklendirilmesi ve araştırılması en nitelikli güvenlik analiz uzmanları için bile vakit harcayıcı olabilir ve birçoğu için nereden başlanacağını bilmek bile zordur. Farklı [güvenlik uyarıları](security-center-managing-and-responding-alerts.md) arasındaki bilgileri bağlamak için [Analiz](security-center-detection-capabilities.md) özelliğini kullanan Güvenlik Merkezi, bir saldırı kampanyasını ve tüm ilgili uyarıları tek bir yerde görmenizi sağlayabilir; saldırganın hangi işlemleri yaptığını ve hangi kaynakların etkilendiğini hızlıca görebilirsiniz.
 
-Bu belge nasıl toouse güvenlik uyarısı Güvenlik Merkezi tooassist özelliği, güvenlik olaylarını işleme açıklanır.
+Bu belge Güvenlik Merkezi’ndeki güvenlik uyarısı özelliğinin güvenlik olaylarını işlemenize nasıl yardımcı olduğunu ele almaktadır.
 
 ## <a name="what-is-a-security-incident"></a>Güvenlik olayı nedir?
-Güvenlik Merkezi'nde bir güvenlik olayı, bir kaynağın [sonlandırma zinciri](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) desenleri ile hizalanan tüm uyarılarının toplamıdır. Olaylar görünür hello [güvenlik uyarıları](security-center-managing-and-responding-alerts.md) döşeme ve dikey. Bir olay, tooobtain sağlayan hello ilgili uyarıların listesi, her oluşumu hakkında daha fazla bilgi görüntüleyebilirsiniz.
+Güvenlik Merkezi'nde bir güvenlik olayı, bir kaynağın [sonlandırma zinciri](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) desenleri ile hizalanan tüm uyarılarının toplamıdır. Olaylar [Güvenlik Uyarıları](security-center-managing-and-responding-alerts.md) kutucuğunda ve dikey penceresinde görüntülenir. Bir Olay, her olay hakkında daha fazla bilgi almanızı sağlayan ilgili uyarıların listesini ortaya çıkarır.
 
 ## <a name="managing-security-incidents"></a>Güvenlik olaylarını yönetme
-Hello güvenlik uyarıları kutucuğuna bakarak geçerli güvenlik olayları gözden geçirebilirsiniz. Hello Azure portalına erişmek ve her güvenlik olay hakkında daha fazla ayrıntı toosee hello adımları izleyin:
+Geçerli güvenlik olaylarınızı güvenlik uyarıları kutucuğuna bakarak gözden geçirebilirsiniz. Azure Portal’a erişin ve aşağıdaki adımları izleyerek her bir güvenlik olayına ilişkin daha fazla ayrıntı görüntüleyin:
 
-1. Merhaba Güvenlik Merkezi panosunda hello görürsünüz **güvenlik uyarıları** döşeme.
+1. Güvenlik Merkezi panosunda **Güvenlik uyarıları** kutucuğunu görürsünüz.
 
     ![Güvenlik Merkezi'nde güvenlik uyarıları kutucuğu](./media/security-center-incident/security-center-incident-fig1.png)
 
-2. Bu kutucuğu tooexpand ve bir güvenlik olayı algılandığında varsa, aşağıda gösterildiği gibi hello güvenlik uyarıları grafik altında görünür tıklatın:
+2. Bu kutucuğa tıklayarak kutucuğu genişletin; bir güvenlik olayı algılanırsa aşağıda gösterildiği gibi güvenlik uyarıları grafiğinin altında görünür:
 
     ![Güvenlik olayı](./media/security-center-incident/security-center-incident-fig2.png)
 
-3. Karşılaştırıldığında, tooother uyarıları Hello güvenlik olay açıklaması farklı bir simge sahip olmadığına dikkat edin. ' I tıklatın, üzerinde tooview bu olay hakkında daha ayrıntılı.
+3. Güvenlik olayı açıklamasının diğer uyarılardan farklı bir simgeye sahip olduğuna dikkat edin. Bu olay hakkında daha fazla ayrıntı görüntülemek için üzerine tıklayın.
 
     ![Güvenlik olayı](./media/security-center-incident/security-center-incident-fig3.png)
 
-4. Merhaba üzerinde **olay** daha görürsünüz dikey geçerli durumunu (, bu durumda yüksek olan), önem derecesi, tam açıklamasını içerir, bu güvenlik olay hakkında ayrıntıları (Bu durumda hala olduğunu *etkin*, hangi hello kullanıcı anlamına gelir, bir eylem tooit gerçekleştirilecek kurmadı - bu hello olay hello içinde sağ tıklayarak yapılabilir **güvenlik uyarıları** dikey), hello saldırıya kaynak (Bu durumda *VM1*) hello olay için düzeltme adımları hello ve hello alt bölmede bu olayın dahil edilen hello uyarıların vardır. Her uyarı hakkında daha fazla bilgi tooobtain istiyorsanız, onu ve başka bir dikey pencere yalnızca'ı tıklatın, aşağıda gösterildiği gibi açılır:
+4. **Olay** dikey penceresinde, bu güvenlik olayının tam açıklaması, önem düzeyi (bu durumda yüksektir), olayın geçerli durumu (bu durumda hala *etkindir* ve kullanıcının uyarı için henüz bir eylem gerçekleştirmediğini gösterir; bu işlem, **Güvenlik uyarıları** dikey penceresinde olaya tıklanarak gerçekleştirilebilir), saldırılan kaynak (bu durumda *VM1*), ve düzeltme adımları dahil olmak üzere olayla ilgili daha fazla ayrıntıyı görürsünüz ve alt bölmede bu olaya dahil edilen uyarılar yer alır. Her uyarı hakkında daha fazla bilgi edinmek istiyorsanız, uyarıya tıklayarak aşağıda gösterildiği gibi başka bir dikey pencere açılmasını sağlayın:
 
     ![Güvenlik olayı](./media/security-center-incident/security-center-incident-fig4.png)
 
-Bu dikey penceresinde Hello bilgi according toohello uyarı değişir. Okuma [yönetme ve yanıt toosecurity Azure Güvenlik Merkezi'nde uyarıları](security-center-managing-and-responding-alerts.md) hakkında daha fazla bilgi için toomanage Bu uyarılar. Bu özellik ile ilgili bazı önemli noktalar:
+Bu dikey penceredeki bilgiler uyarıya göre farklılık gösterir. Bu uyarıların nasıl yönetileceği hakkında daha fazla bilgi için [Azure Güvenlik Merkezi’nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md) konusunu okuyun. Bu özellik ile ilgili bazı önemli noktalar:
 
-* Yeni bir filtre görünüm tooIncident uyarıları yalnızca, yalnızca toocustomize ya da her ikisini de sağlar.
-* Merhaba aynı uyarının bir olay (varsa) yanı sıra toobe tek başına uyarı olarak görünür bir parçası olarak bulunabilir.
+* Yeni bir filtre, görünümünüzü Yalnızca olay, Yalnızca uyarılar veya her ikisi için özelleştirmenizi sağlar.
+* Aynı uyarı bir Olayın (varsa) parçası olabilir ve aynı zamanda tek başına uyarı olarak görünebilir.
 
 ## <a name="see-also"></a>Ayrıca bkz.
-Bu belgede, Güvenlik Merkezi'nde güvenlik olay özelliği toouse hello nasıl öğrendiniz. Güvenlik Merkezi hakkında daha fazla toolearn hello aşağıdaki bakın:
+Bu belgede, Güvenlik Merkezi'nde güvenlik olayı özelliğini nasıl kullanacağınız hakkında bilgi edindiniz. Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Yönetme ve Azure Güvenlik Merkezi'nde toosecurity uyarılarını yanıt](security-center-managing-and-responding-alerts.md)
+* [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md)
 * [Azure Güvenlik Merkezi Algılama Özellikleri](security-center-detection-capabilities.md)
 * [Azure Güvenlik Merkezi Planlama ve İşlemler Kılavuzu](security-center-planning-and-operations-guide.md)
-* [Yönetme ve Azure Güvenlik Merkezi'nde toosecurity uyarılarını yanıt](security-center-managing-and-responding-alerts.md)
-* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md)--hello hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
+* [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md)
+* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md) - Hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
 * [Azure Güvenlik blogu](http://blogs.msdn.com/b/azuresecurity/) - Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz

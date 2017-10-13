@@ -1,6 +1,6 @@
 ---
-title: "JSON - Azure Logic Apps aaaDefine iş akışlarıyla | Microsoft Docs"
-description: "Nasıl logic apps için JSON içinde toowrite iş akışı tanımları"
+title: "JSON - Azure Logic Apps ile iş akışları tanımlama | Microsoft Docs"
+description: "İş akışı tanımları JSON'de logic apps için yazma"
 author: jeffhollan
 manager: anneta
 editor: 
@@ -15,23 +15,23 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/29/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 0d69d334ecee9c3e7f8684cfde68ef0e85280358
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7f9e5a10066df8a464c285273e77a85c0d562ebb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-workflow-definitions-for-logic-apps-using-json"></a>JSON kullanarak logic apps için iş akışı tanımları oluşturma
 
-İş akışı tanımları için oluşturabileceğiniz [Azure Logic Apps](logic-apps-what-are-logic-apps.md) basit ve bildirim temelli JSON dili. Henüz yapmadıysanız, ilk gözden [nasıl toocreate ilk mantıksal uygulamanızı mantığı Uygulama Tasarımcısı ile](logic-apps-create-a-logic-app.md). Ayrıca bkz.: Merhaba [tam hello iş akışı tanımlama dili başvurusu](http://aka.ms/logicappsdocs).
+İş akışı tanımları için oluşturabileceğiniz [Azure Logic Apps](logic-apps-what-are-logic-apps.md) basit ve bildirim temelli JSON dili. Henüz yapmadıysanız, ilk gözden [mantığı Uygulama Tasarımcısı ile ilk mantıksal uygulamanızı oluşturmak nasıl](logic-apps-create-a-logic-app.md). Ayrıca bkz [tam başvuru için iş akışı tanımlama dili](http://aka.ms/logicappsdocs).
 
 ## <a name="repeat-steps-over-a-list"></a>Bir liste arasındaki adımları yineleyin
 
-too10, 000 öğeleri vardır ve her öğe için bir eylem gerçekleştirmek, hello kullanma bir dizi aracılığıyla tooiterate [foreach türü](logic-apps-loops-and-scopes.md).
+10.000 öğelerine sahip bir dizi yinelemek ve her öğe için bir eylem gerçekleştirmek için kullanmanız [foreach türü](logic-apps-loops-and-scopes.md).
 
 ## <a name="handle-failures-if-something-goes-wrong"></a>Bir sorun yaşanırsa hataları işleme
 
-Tooinclude genellikle, istediğiniz bir *düzeltme adım* — yürütür bazı mantığı *ve yalnızca,* biri veya birkaçı çağrılarınızı başarısız. Bu örnek verileri çeşitli yerlerden alır, ancak hello çağrısı başarısız olursa, böylece biz daha sonra bu hata izleyebilirsiniz tooPOST bir ileti yere istiyoruz:  
+Genellikle, dahil etmek istediğiniz bir *düzeltme adım* — yürütür bazı mantığı *ve yalnızca,* biri veya birkaçı çağrılarınızı başarısız. Bu örnek verileri çeşitli yerlerden alır, ancak çağrısı başarısız olursa, böylece biz daha sonra bu hata izleyebilirsiniz ileti yere POSTALAMA istiyoruz:  
 
 ```
 {
@@ -66,13 +66,13 @@ Tooinclude genellikle, istediğiniz bir *düzeltme adım* — yürütür bazı m
 }
 ```
 
-toospecify, `postToErrorMessageQueue` sonra yalnızca çalışan `readData` sahip `Failed`, hello kullan `runAfter` özelliği, örneğin, olası bir değer listesi toospecify böylece `runAfter` olabilir `["Succeeded", "Failed"]`.
+Belirtmek için `postToErrorMessageQueue` sonra yalnızca çalışan `readData` sahip `Failed`, kullanın `runAfter` olası değerler listesini belirtmek için özellik, örneğin, böylece `runAfter` olabilir `["Succeeded", "Failed"]`.
 
-Bu örnek şimdi hello hata işlemesi nedeniyle son olarak, biz artık farklı çalıştır hello işaretlemek `Failed`. Çalıştırma hello sahip, bu örnekte bu hata işleme için hello adım eklediğimiz olduğundan `Succeeded` rağmen tek bir adımda `Failed`.
+Bu örnek şimdi hata işlemesi nedeniyle son olarak, biz artık Çalıştır işaretlemek `Failed`. Bu örnekte bu hata işleme için adım eklediğimiz çünkü Çalıştır sahip `Succeeded` rağmen tek bir adımda `Failed`.
 
 ## <a name="execute-two-or-more-steps-in-parallel"></a>İki veya daha fazla adım Paralel yürütme
 
-toorun paralel olarak birden çok eylem hello `runAfter` özelliği çalışma zamanında eşdeğer olmalıdır. 
+Paralel olarak birden çok eylem çalıştırmak için `runAfter` özelliği çalışma zamanında eşdeğer olmalıdır. 
 
 ```
 {
@@ -122,13 +122,13 @@ toorun paralel olarak birden çok eylem hello `runAfter` özelliği çalışma z
 }
 ```
 
-Bu örnekte, her ikisi de `branch1` ve `branch2` toorun sonra ayarlanır `readData`. Sonuç olarak, her iki dalları paralel olarak çalıştırın. Her iki dalları için Hello zaman damgası aynıdır.
+Bu örnekte, her ikisi de `branch1` ve `branch2` çalışacak şekilde ayarlanmış `readData`. Sonuç olarak, her iki dalları paralel olarak çalıştırın. Her iki dalları için zaman damgası aynıdır.
 
 ![Paralel](media/logic-apps-author-definitions/parallel.png)
 
 ## <a name="join-two-parallel-branches"></a>İki paralel dalları katılma
 
-Toorun öğeleri toohello ekleyerek paralel olarak ayarlanan iki eylem katılabilirsiniz `runAfter` hello önceki örnekte olduğu gibi özelliği.
+Öğelerine ekleyerek paralel olarak çalışacak şekilde ayarlanmış iki eylem katılabilirsiniz `runAfter` özelliği önceki örnekte olduğu gibi.
 
 ```
 {
@@ -199,9 +199,9 @@ Toorun öğeleri toohello ekleyerek paralel olarak ayarlanan iki eylem katılabi
 
 ![Paralel](media/logic-apps-author-definitions/join.png)
 
-## <a name="map-list-items-tooa-different-configuration"></a>Liste öğeleri tooa farklı yapılandırma eşleme
+## <a name="map-list-items-to-a-different-configuration"></a>Liste öğeleri için farklı bir yapılandırma eşleme
 
-Ardından, bir özelliğin hello değere göre tooget farklı içerik istiyoruz diyelim. Parametre olarak değerleri toodestinations haritasını oluşturabilir:  
+Ardından, bir özellik değeri temel alınarak farklı içerik almak istiyoruz diyelim. Parametre olarak değerleri hedeflere haritasını oluşturabilir:  
 
 ```
 {
@@ -271,19 +271,19 @@ Ardından, bir özelliğin hello değere göre tooget farklı içerik istiyoruz 
 }
 ```
 
-Bu durumda, biz ilk makalelerin listesini alın. Parametre olarak tanımlandı hello kategoriye göre hello ikinci adım harita toolook hello URL yukarı hello içeriği almak için kullanır.
+Bu durumda, biz ilk makalelerin listesini alın. İkinci adım parametre olarak tanımlandı kategoriye göre içeriği almak için URL aramak için bir harita kullanır.
 
-Burada bazı kez toonote: 
+Burada dikkat edilecek bazı süresi: 
 
-*   Merhaba [ `intersection()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) işlevi hello kategori tanımlanan kategorilere bilinen hello birini eşleşip eşleşmediğini denetler.
+*   [ `intersection()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) İşlevi kategori bilinen tanımlı kategorilerden birini eşleşip eşleşmediğini denetler.
 
-*   Biz hello kategori aldıktan sonra biz hello öğesi köşeli ayraç kullanarak hello eşlemesinden çekebilir:`parameters[...]`
+*   Biz kategori aldıktan sonra biz köşeli ayraç kullanarak harita öğesinden çekebilir:`parameters[...]`
 
 ## <a name="process-strings"></a>İşlem dizeleri
 
-Çeşitli işlevler toomanipulate dizelerini kullanabilirsiniz. Örneğin, biz toopass tooa sistem istiyoruz, ancak biz karakter kodlama için uygun işleme hakkında emin olmayan bir dize olduğunu varsayalım. Bir seçenektir toobase64 bu dizesini kodlayın. Ancak, bir URL'de kaçış tooavoid tooreplace birkaç karakter çağıracaksınız. 
+Dizeleri işlemek için çeşitli işlevleri kullanabilirsiniz. Örneğin, bir sisteme geçirmek için istiyoruz bir dize sahip olduğumuz ancak biz karakter kodlama için uygun işleme hakkında emin değilseniz varsayalım. Bir seçenektir base64 için bu dizesini kodlayın. Ancak, bir URL kaçış önlemek için sizi birkaç karakterlerini değiştirmek için adımıdır. 
 
-Hello ilk beş karakter olmayan kullanıldığı için de bir dizenin hello sipariş adını istiyoruz.
+İlk beş karakter olmayan kullanıldığından de sipariş adını alt dizeyi istiyoruz.
 
 ```
 {
@@ -318,23 +318,23 @@ Hello ilk beş karakter olmayan kullanıldığı için de bir dizenin hello sipa
 }
 ```
 
-Toooutside içinde çalışma:
+Çalışmasını içinde için dışında:
 
-1. Merhaba alma [ `length()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#length) hello sipariş ın eden adı için böylece biz geri alma hello toplam karakter sayısı.
+1. Alma [ `length()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#length) için sipariş eden'ın adı, böylece biz geri alma toplam karakter sayısı.
 
 2. Daha kısa bir dize istiyoruz çünkü 5 çıkarın.
 
-3. Aslında, hello ele [ `substring()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring). Biz dizininde Başlat `5` ve hello dize geri kalanı hello gidin.
+3. Aslında, ele [ `substring()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#substring). Biz dizininde Başlat `5` ve dizenin geri kalanı gidin.
 
-4. Bu alt dizeyi tooa Dönüştür [ `base64()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64) dize.
+4. Bu alt dizeyi Dönüştür bir [ `base64()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#base64) dize.
 
-5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace)Tüm hello `+` ile karakterleri `-` karakter.
+5. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace)tüm `+` ile karakterleri `-` karakter.
 
-6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace)Tüm hello `/` ile karakterleri `_` karakter.
+6. [`replace()`](https://msdn.microsoft.com/library/azure/mt643789.aspx#replace)tüm `/` ile karakterleri `_` karakter.
 
 ## <a name="work-with-date-times"></a>Tarih süreleri ile çalışma
 
-Özellikle doğal olarak desteklemeyen bir veri kaynağından alınan toopull veriler çalışırken tarih kez yararlı olabilir *Tetikleyicileri*. Tarih Saatler ne kadar çeşitli adımları kaplayan bulmak için de kullanabilirsiniz.
+Özellikle doğal olarak desteklemeyen bir veri kaynağından veri almasına izin verirken tarih kez yararlı olabilir *Tetikleyicileri*. Tarih Saatler ne kadar çeşitli adımları kaplayan bulmak için de kullanabilirsiniz.
 
 ```
 {
@@ -386,18 +386,18 @@ Toooutside içinde çalışma:
 }
 ```
 
-Bu örnekte, biz hello ayıklamak `startTime` hello önceki adımdaki. Biz hello geçerli saati almak ve bir ikinci çıkarma sonra:
+Bu örnekte, biz ayıklamak `startTime` önceki adımdan. Biz geçerli saati almak ve bir ikinci çıkarma sonra:
 
 [`addseconds(..., -1)`](https://msdn.microsoft.com/library/azure/mt643789.aspx#addseconds) 
 
-İsterseniz zaman, diğer birimleri kullanabilirsiniz `minutes` veya `hours`. Son olarak, biz bu iki değer karşılaştırabilirsiniz. Hello ilk değer hello ikinci değer sonra bir saniyeden küçükse hello sipariş ilk yerleştirilen geçen.
+İsterseniz zaman, diğer birimleri kullanabilirsiniz `minutes` veya `hours`. Son olarak, biz bu iki değer karşılaştırabilirsiniz. İlk değer ikinci değer sonra bir saniyeden küçükse sırasını ilk yerleştirilen geçen.
 
-tooformat tarihleri dize biçimlendiricileri kullanırız. Örneğin, tooget hello RFC1123, kullandığımız [ `utcnow('r')` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow). Tarih biçimlendirme hakkında toolearn bkz [iş akışı tanımlama dili](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow).
+Tarihleri biçimlendirmek için dize biçimlendiricileri kullanabilirsiniz. Örneğin, RFC1123 almak için kullanırız [ `utcnow('r')` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow). Tarih biçimlendirme hakkında bilgi edinmek için [iş akışı tanımlama dili](https://msdn.microsoft.com/library/azure/mt643789.aspx#utcnow).
 
 ## <a name="deployment-parameters-for-different-environments"></a>Farklı ortamlar için dağıtım parametreleri
 
-Genellikle, bir geliştirme ortamı, hazırlık ortamı ve bir üretim ortamında dağıtım yaşam döngüleri vardır. Örneğin, kullanabilirsiniz hello tüm ortamlarda aynı tanımın ancak farklı veritabanlarını kullanır. Benzer şekilde, toouse isteyebilirsiniz farklı bölgelere yüksek kullanılabilirlik için aynı tanımın hello ancak her mantıksal uygulama örneğini tootalk toothat bölgenin veritabanı istiyor.
-Bu senaryo parametrelerinin alma farklı *çalışma zamanı* Burada bunun yerine, kullanmanız gereken hello `trigger()` hello önceki örnekte olduğu gibi işlev.
+Genellikle, bir geliştirme ortamı, hazırlık ortamı ve bir üretim ortamında dağıtım yaşam döngüleri vardır. Örneğin, aynı tanımın tüm bu ortamlarda ancak farklı veritabanlarını kullanır. Benzer şekilde, aynı tanımın farklı bölgeler arasında yüksek kullanılabilirlik için kullanın, ancak her logic app örneği bölgenin veritabanı ile iletişim kurmak istediğiniz isteyebilirsiniz.
+Bu senaryo parametrelerinin alma farklı *çalışma zamanı* Burada bunun yerine, kullanmanız gereken `trigger()` önceki örnekte olduğu gibi işlev.
 
 Bu örnek gibi temel bir tanımıyla başlatabilirsiniz:
 
@@ -429,13 +429,13 @@ Bu örnek gibi temel bir tanımıyla başlatabilirsiniz:
 }
 ```
 
-Merhaba gerçek içinde `PUT` hello parametre sağlayabilir hello logic apps için istek `uri`. Varsayılan değeri artık mevcut olmadığından, bu parametre hello mantığı uygulama yükü gerektirir:
+Fiili olarak `PUT` isteği logic apps için parametre sağlayabilir `uri`. Varsayılan değeri artık mevcut olmadığından, bu parametre mantığı uygulama yükü gerektirir:
 
 ```
 {
     "properties": {},
         "definition": {
-          // Use hello definition from above here
+          // Use the definition from above here
         },
         "parameters": {
             "connection": {
@@ -447,6 +447,6 @@ Merhaba gerçek içinde `PUT` hello parametre sağlayabilir hello logic apps iç
 }
 ``` 
 
-Her bir ortamda hello için farklı bir değer sağlayabilir `connection` parametresi. 
+Her bir ortamda için farklı bir değer sağlayabilir `connection` parametresi. 
 
-Tüm oluşturmak ve mantıksal uygulamaları yönetmek için seçenekleri hello hello bakın [REST API belgeleri](https://msdn.microsoft.com/library/azure/mt643787.aspx). 
+Oluşturma ve mantıksal uygulamaları yönetmek için tüm seçenekleri için bkz: [REST API belgeleri](https://msdn.microsoft.com/library/azure/mt643787.aspx). 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric durum bilgisi olan Hizmetleri'ndeki aaaIntroduction tooReliable koleksiyonları | Microsoft Docs"
-description: "Service Fabric durum bilgisi olan hizmetler sağlayan güvenilir koleksiyonları toowrite yüksek oranda kullanılabilir, ölçeklenebilir ve düşük gecikme süreli bulut uygulamalarını sağlar."
+title: "Azure Service Fabric durum bilgisi olan Hizmetleri'ndeki güvenilir koleksiyonlara giriş | Microsoft Docs"
+description: "Service Fabric durum bilgisi olan hizmetler, yüksek oranda kullanılabilir, ölçeklenebilir ve düşük gecikme süreli bulut uygulamaları yazmak etkinleştirmeniz güvenilir koleksiyonları sağlar."
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -14,44 +14,44 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: mcoskun
-ms.openlocfilehash: 9f67c48f13e8b91b84977e127e2545cbb9d9a158
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d0247ba0242af05ca6dcd8049ff9116683538fa5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="introduction-tooreliable-collections-in-azure-service-fabric-stateful-services"></a>Azure Service Fabric durum bilgisi olan Hizmetleri'ndeki giriş tooReliable koleksiyonları
-Tek bilgisayar uygulamaları yazıyordunuz gibi sorgulamanıza güvenilir koleksiyonları toowrite yüksek oranda kullanılabilir, ölçeklenebilir ve düşük gecikme süreli bulut uygulamaları etkinleştirir. Merhaba hello sınıflarda **Microsoft.ServiceFabric.Data.Collections** ad alanı, durumu otomatik olarak yüksek oranda kullanılabilir hale koleksiyonları kümesini sağlar. Geliştiriciler tooprogram yalnızca toohello güvenilir koleksiyonu API gerekir ve güvenilir hello kopyalanan ve yerel durumu yönetmek koleksiyonlar sağlayabilirsiniz.
+# <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Azure Service Fabric durum bilgisi olan Hizmetleri'ndeki güvenilir koleksiyonlara giriş
+Güvenilir koleksiyonları tek bilgisayar uygulamaları yazıyordunuz gibi sorgulamanıza yüksek oranda kullanılabilir, ölçeklenebilir ve düşük gecikme süreli bulut uygulamaları yazmak etkinleştirin. Sınıflarda **Microsoft.ServiceFabric.Data.Collections** ad alanı, durumu otomatik olarak yüksek oranda kullanılabilir hale koleksiyonları kümesini sağlar. Geliştiriciler yalnızca güvenilir koleksiyonu API'lerini program ve güvenilir çoğaltılır ve yerel durumunu yönetme koleksiyonları izin gerekir.
 
-Merhaba anahtar arasındaki güvenilir koleksiyonları ve diğer yüksek kullanılabilirlik teknolojiler (örneğin, Redis, Azure tablo hizmeti ve Azure kuyruk hizmeti) hello durumu yerel olarak hello hizmet örneği içinde de yüksek oranda kullanılabilir yapılan sırasında saklanacağını farktır. Bunun anlamı:
+Güvenilir koleksiyonları ve diğer yüksek kullanılabilirlik teknolojiler (örneğin, Redis, Azure tablo hizmeti ve Azure kuyruk hizmeti) arasındaki temel farklılık, durumu yerel olarak hizmet örneği de yüksek oranda kullanılabilir yapılan sırasında saklanacağını ' dir. Bunun anlamı:
 
 * Tüm okuma yerel, bunlar düşük gecikme sağlar ve yüksek verimlilik okur.
-* İçinde düşük gecikme süresi sonuçları hello minimum sayısı ağ IOs, tüm yazma işlemlerini uygulanır ve yüksek verimlilik yazar.
+* Hangi içinde düşük gecikme süresi sonuçları en az sayıda ağ IOs, tüm yazma işlemlerini uygulanır ve yüksek verimlilik yazar.
 
 ![Koleksiyonları evrimi görüntüsü.](media/service-fabric-reliable-services-reliable-collections/ReliableCollectionsEvolution.png)
 
-Güvenilir koleksiyonlar zorlayıcı hello doğal evrimi hello **System.Collections** sınıfları: yeni bir karmaşıklığını artırmadan hello Bulut ve birden çok bilgisayar uygulamaları için tasarlanmış koleksiyonları kümesi Merhaba Geliştirici. Bu nedenle, güvenilir koleksiyonları şunlardır:
+Güvenilir koleksiyonlar zorlayıcı doğal evrimi **System.Collections** sınıfları: geliştiricisi karmaşıklık artırmadan Bulut ve birden çok bilgisayar uygulamaları için tasarlanmış koleksiyonları yeni bir dizi. Bu nedenle, güvenilir koleksiyonları şunlardır:
 
 * Çoğaltılmış: Durum değişiklikleri yüksek kullanılabilirlik için çoğaltılır.
-* Kalıcı: Büyük ölçekli kesintileri (örneğin, bir veri merkezi güç kesintisi) karşı dayanıklılık için kalıcı toodisk verilerdir.
-* Zaman uyumsuz: Zaman uyumsuz tooensure apı'leridir iş parçacığı GÇ yansıtılmasını zaman engellenmez.
-* İşlem: bir hizmet içinde birden çok güvenilir koleksiyonları kolayca yönetilebilir API'leri hello soyutlama hareketlerinin kullanın.
+* Kalıcı: Veri kalıcı büyük ölçekli kesintileri (örneğin, bir veri merkezi güç kesintisi) karşı dayanıklılık için diske.
+* Zaman uyumsuz: API'leri zaman uyumsuz iş parçacığı GÇ yansıtılmasını zaman engellenmez emin olun.
+* İşlem: bir hizmet içinde birden çok güvenilir koleksiyonları kolayca yönetilebilir API işlemleri soyutlama kullanın.
 
-Güvenilir koleksiyonları daha kolay uygulama durumu hakkında akıl hello kutusunu toomake dışında güçlü tutarlılık garanti sağlar.
-Güçlü tutarlılık hello tüm işlem hello birincil dahil olmak üzere çoğaltmaları bir çoğunluğu çekirdek yalnızca oturum açılmış sonra işlemeleri son işlem sağlanarak elde edilir.
-Hello zaman uyumsuz tamamlama döndürmeden önce tooachieve zayıf tutarlılık, geri toohello istemci/istek sahibi uygulamaları kabul.
+Güvenilir koleksiyonları güçlü tutarlılık mantığı uygulama durumu hakkında kolaylaştırmak için kutu dışı garanti sağlar.
+Güçlü tutarlılık, tüm işlem çoğaltmalar birincil dahil olmak üzere, üzerinde bir çoğunluğu çekirdek yalnızca oturum açılmış sonra işlemeleri son işlem sağlanarak elde edilir.
+Uygulamalar daha zayıf tutarlılık elde etmek için zaman uyumsuz tamamlama döndürmeden önce geri istemci/istemciye kabul.
 
-Merhaba güvenilir koleksiyonları API'leri olan bir eş zamanlı koleksiyonları API'leri evrimi (hello bulunan **System.Collections.Concurrent** ad alanı):
+Bir eş zamanlı koleksiyonları API'leri evrimi güvenilir koleksiyonları apı'leridir (bulunan **System.Collections.Concurrent** ad alanı):
 
-* Zaman uyumsuz: eşzamanlı koleksiyonlarından farklı olarak hello işlemleri kalıcı ve çoğaltılmasını olduğundan, bir görev döndürür.
-* Hayır out Parametreleri: kullanan `ConditionalValue<T>` tooreturn bool ve bir değer yerine out parametreleri. `ConditionalValue<T>`benzer `Nullable<T>` T toobe yapı gerektirmez, ancak.
-* İşlemler: bir işlemde birden çok güvenilir koleksiyonlar üzerinde bir işlem nesnesi tooenable hello kullanıcı toogroup eylemlerini kullanır.
+* Zaman uyumsuz: eşzamanlı koleksiyonlarından farklı işlemler kalıcı ve çoğaltılmasını olduğundan, bir görev döndürür.
+* Hayır out Parametreleri: kullanan `ConditionalValue<T>` bool ve out parametreleri yerine bir değer döndürmek için. `ConditionalValue<T>`benzer `Nullable<T>` T yapı olmasını gerektirmez, ancak.
+* İşlemler: bir işlemde birden çok güvenilir koleksiyonları Grup eylemleri kullanıcıya etkinleştirmek için işlem nesnesi kullanır.
 
 Bugün, **Microsoft.ServiceFabric.Data.Collections** üç koleksiyonları içerir:
 
-* [Güvenilir sözlük](https://msdn.microsoft.com/library/azure/dn971511.aspx): anahtar/değer çiftlerinin çoğaltılmış, işlem ve zaman uyumsuz bir koleksiyonunu temsil eder. Benzer çok**ConcurrentDictionary**, hem de anahtar hello ve hello değeri, herhangi bir türde olabilir.
-* [Güvenilir sıra](https://msdn.microsoft.com/library/azure/dn971527.aspx): bir çoğaltılmış, işlem ve zaman uyumsuz katı ilk çıkar (FIFO) sırayı temsil eder. Benzer çok**ConcurrentQueue**, hello değeri, herhangi bir türde olabilir.
-* [Güvenilir eşzamanlı sıra](service-fabric-reliable-services-reliable-concurrent-queue.md): sıra yüksek verimlilik için sıralama çoğaltılmış, işlem ve zaman uyumsuz bir en iyi çaba temsil eder. Benzer toohello **ConcurrentQueue**, hello değeri, herhangi bir türde olabilir.
+* [Güvenilir sözlük](https://msdn.microsoft.com/library/azure/dn971511.aspx): anahtar/değer çiftlerinin çoğaltılmış, işlem ve zaman uyumsuz bir koleksiyonunu temsil eder. Benzer şekilde **ConcurrentDictionary**, anahtar ve değer herhangi bir türde olabilir.
+* [Güvenilir sıra](https://msdn.microsoft.com/library/azure/dn971527.aspx): bir çoğaltılmış, işlem ve zaman uyumsuz katı ilk çıkar (FIFO) sırayı temsil eder. Benzer şekilde **ConcurrentQueue**, değer herhangi bir türde olabilir.
+* [Güvenilir eşzamanlı sıra](service-fabric-reliable-services-reliable-concurrent-queue.md): sıra yüksek verimlilik için sıralama çoğaltılmış, işlem ve zaman uyumsuz bir en iyi çaba temsil eder. Benzer şekilde **ConcurrentQueue**, değer herhangi bir türde olabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Güvenilir koleksiyonu kılavuzları ve önerileri](service-fabric-reliable-services-reliable-collections-guidelines.md)

@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile ADP Globalview | Microsoft Docs"
-description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile ADP Globalview arasında."
+description: "Çoklu oturum açma Azure Active Directory ADP Globalview arasındaki yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,119 +13,119 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: aee2d56f05b486d12facbc41c9503455094604ec
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e9a5e65c484dfb98d1a7bc63d55f6ef92039554b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp-globalview"></a>Öğretici: Azure Active Directory Tümleştirme ADP Globalview ile
 
-Bu öğreticide, bilgi nasıl toointegrate ADP Globalview Azure Active Directory'ye (Azure AD).
+Bu öğreticide, Azure Active Directory (Azure AD) ile ADP Globalview tümleştirmek öğrenin.
 
-ADP Globalview Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
+ADP Globalview Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Erişim tooADP Globalview sahip Azure AD'de kontrol edebilirsiniz
-- Kullanıcıların tooautomatically get açan tooADP Globalview (çoklu oturum açma) Azure AD hesaplarına sahip etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir
+- ADP Globalview erişimi, Azure AD'de kontrol edebilirsiniz
+- Azure AD hesaplarına otomatik olarak (çoklu oturum açma) için ADP Globalview açan kullanıcılarınıza etkinleştirebilirsiniz
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-tooconfigure ADP Globalview ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
+Azure AD tümleştirme ADP Globalview ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
 - Bir ADP Globalview çoklu oturum açma abonelik etkin
 
 > [!NOTE]
-> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
+Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
-1. Merhaba Galerisi'nden ADP Globalview ekleme
+1. Galeriden ADP Globalview ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-adp-globalview-from-hello-gallery"></a>Merhaba Galerisi'nden ADP Globalview ekleme
-Azure AD'ye tooconfigure hello tümleştirme ADP Globalview, tooadd ADP Globalview hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
+## <a name="adding-adp-globalview-from-the-gallery"></a>Galeriden ADP Globalview ekleme
+Azure AD ADP Globalview tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden ADP Globalview eklemeniz gerekir.
 
-**tooadd ADP Globalview hello galerisinden hello aşağıdaki adımları gerçekleştirin:**
+**Galeriden ADP Globalview eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
     ![Uygulamalar][3]
 
-4. Merhaba arama kutusuna yazın **ADP Globalview**.
+4. Arama kutusuna **ADP Globalview**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-adglobalview-tutorial/tutorial_adpglobalview_search.png)
 
-5. Merhaba Sonuçlar panelinde seçin **ADP Globalview**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
+5. Sonuçlar panelinde seçin **ADP Globalview**ve ardından **Ekle** uygulama eklemek için düğmesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-adglobalview-tutorial/tutorial_adpglobalview_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 Bu bölümde, yapılandırmanız ve ADP Globalview ile Azure AD çoklu oturum açmayı test "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı
 
-Tek toowork'ın oturum açma hangi hello karşılık gelen ADP Globalview içinde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcı ve ilgili kullanıcı ADP Globalview hello arasında bir bağlantı ilişkisi kurulan toobe gerekir.
+Tekli çalışmaya oturum için Azure AD ADP Globalview karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ADP Globalview ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Bu bağlantı ilişkisi hello hello değerini atayarak kurulur **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** ADP Globalview içinde.
+Bu bağlantı değeri atayarak ilişkisi **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** ADP Globalview içinde.
 
-tooconfigure ve ADP Globalview ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma ADP Globalview ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
-3. **[ADP Globalview test kullanıcısı oluşturma](#creating-an-adp-globalview-test-user)**  -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir ADP Globalview içinde karşılık gelen.
-4. **[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[ADP Globalview test kullanıcısı oluşturma](#creating-an-adp-globalview-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı ADP Globalview sağlamak için.
+4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma ADP Globalview uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma ADP Globalview uygulamanızda yapılandırın.
 
-**tooconfigure Azure AD çoklu oturum açma ADP Globalview ile Merhaba aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma ile ADP Globalview yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello hello üzerinde Azure portal'ın **ADP Globalview** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **ADP Globalview** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-adglobalview-tutorial/tutorial_adpglobalview_samlbase.png)
 
-3. Merhaba üzerinde **ADP Globalview etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **ADP Globalview etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-adglobalview-tutorial/tutorial_adpglobalview_url.png)
 
-     Merhaba, **tanımlayıcısı** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın: `https://<subdomain>.globalview.adp.com/federate` veya`https://<subdomain>.globalview.adp.com/federate2`
+     İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<subdomain>.globalview.adp.com/federate` veya`https://<subdomain>.globalview.adp.com/federate2`
 
     > [!NOTE] 
-    > Merhaba değeri gerçek değil. Merhaba değeri ile Merhaba güncelleştirin gerçek tanımlayıcısı. Kişi [ADP Globalview Destek](https://www.adp.com/contact-us/overview.aspx) tooget hello değeri.
+    > Değer gerçek değil. Değerin gerçek tanımlayıcısı ile güncelleştirin. Kişi [ADP Globalview Destek](https://www.adp.com/contact-us/overview.aspx) değeri alınamıyor.
  
-4. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve hello sertifika dosyayı bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-adglobalview-tutorial/tutorial_adpglobalview_certificate.png) 
 
-5. Merhaba ADP GlobalView uygulama hello SAML onaylar, tooadd özel öznitelik eşlemelerini tooyour SAML belirteci öznitelikleri yapılandırma gerektiren belirli bir biçimde, bekliyor. 
+5. ADP GlobalView uygulaması SAML onaylar SAML belirteci öznitelikleri yapılandırmanıza özel öznitelik eşlemelerini ekleyin gerektiren belirli bir biçimde bekliyor. 
 
-6. Aşağıdaki ekran görüntüsü hello için bir örneği gösterir. Merhaba talep adlarının her zaman olması **"PersonImmutableID"** ve hangisinin biz eşlenen içeren tooExtensionAttribute2 hello değeri hello hello kullanıcının EmployeeID. Burada Azure AD tooADP GlobalView hello kullanıcı eşlemeyi EmployeeID hello üzerinde gerçekleştirilir ancak tooa farklı değer de uygulama ayarlarınızı temel alan eşleyebilirsiniz. İş hello ADP GlobalView takım ilk toouse hello doğru tanıtıcısı bir kullanıcı ile ve bu değerle hello eşleyin **"PersonImmutableID"** talep. Ayrıca hello resimde görüldüğü gibi hello e-posta ve UserID talep eşleyebilirsiniz.
+6. Aşağıdaki ekran görüntüsü için bir örneği gösterir. Her zaman talep adları olması **"PersonImmutableID"** ve hangisinin biz eşlenen kullanıcı EmployeeID içeren ExtensionAttribute2 değer. Eşleşen kullanıcıya Azure AD'den ADP GlobalView üzerinde EmployeeID burada yapılır, ancak Ayrıca uygulama ayarlarınıza göre farklı bir değere eşleme. Önce bir kullanıcının doğru tanıtıcısı kullanın ve bu değeri ile eşlemek için ADP GlobalView ekibi ile çalışabilirsiniz **"PersonImmutableID"** talep. Ayrıca, aşağıdaki resimde gösterildiği gibi e-posta ve UserID talep eşleyebilirsiniz.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-adglobalview-tutorial/tutorial_adpglobalview_attribute.png)
 
-7. Merhaba, **kullanıcı öznitelikleri** hello bölüm **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği hello görüntüde gösterildiği gibi yapılandırmak ve hello aşağıdaki adımları gerçekleştirin:
+7. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
     | Öznitelik adı | Öznitelik değeri |
     | ------------------- | -------------------- |    
@@ -133,22 +133,22 @@ Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin
     | E-posta               | User.Mail |
     | Kullanıcı Kimliği              | User.userPrincipalName|
     
-    a. Tıklatın **Ekle özniteliği** tooopen hello **özniteliği eklemek** iletişim.
+    a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-adglobalview-tutorial/tutorial_attribute_04.png)
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-adglobalview-tutorial/tutorial_attribute_05.png)
 
-    b. Merhaba, **adı** metin kutusuna, ilgili satır için gösterilen türü hello öznitelik adı.
+    b. İçinde **adı** metin kutusuna, ilgili satır için gösterilen öznitelik adı yazın.
 
-    c. Merhaba gelen **değeri** listesinde, ilgili satır için gösterilen türü hello öznitelik değeri.
+    c. Gelen **değeri** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
     
     d. **Tamam**’a tıklayın.
 
     > [!NOTE] 
-    > Merhaba SAML onayı yapılandırmadan önce toocontact gerekir, [ADP Globalview Destek](https://www.adp.com/contact-us/overview.aspx) ve kiracınız için hello benzersiz tanımlayıcı özniteliği hello değerini isteyin. Değer bu tooconfigure hello özel talep uygulamanız gerekir. 
+    > SAML onayı yapılandırmadan önce başvurmanız gerekir, [ADP Globalview Destek](https://www.adp.com/contact-us/overview.aspx) ve kiracınız için benzersiz tanımlayıcı özniteliği değeri isteyin. Uygulamanız için özel talep yapılandırmak için bu değeri gerekir. 
 
-8. Merhaba üzerinde **ADP Globalview yapılandırma** 'yi tıklatın **yapılandırma ADP Globalview** tooopen **yapılandırma oturum açma** penceresi. Kopya hello **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** hello gelen **hızlı başvuru bölümü.**
+8. Üzerinde **ADP Globalview yapılandırma** 'yi tıklatın **yapılandırma ADP Globalview** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-adglobalview-tutorial/tutorial_adpglobalview_configure.png) 
 
@@ -156,63 +156,63 @@ Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-adglobalview-tutorial/tutorial_general_400.png)
 
-10. tooconfigure çoklu oturum açma üzerinde **ADP Globalview** yan, indirilen toosend hello ihtiyacınız **sertifika (Base64)**, **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** çok[ADP Globalview Destek](https://www.adp.com/contact-us/overview.aspx).
+10. Çoklu oturum açma yapılandırmak için **ADP Globalview** yan, indirilen göndermek için ihtiyacınız **sertifika (Base64)**, **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** için [ADP Globalview Destek](https://www.adp.com/contact-us/overview.aspx).
 
 > [!TIP]
-> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-adglobalview-tutorial/create_aaduser_01.png) 
 
-2.  Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2.  Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-adglobalview-tutorial/create_aaduser_02.png) 
 
-3. tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle** hello üstteki hello iletişim.
+3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-adglobalview-tutorial/create_aaduser_03.png) 
 
-4. Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-adglobalview-tutorial/create_aaduser_04.png) 
 
-    a. Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
 
-    b. Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
 
-    c. Seçin **Göster parola** ve hello hello değerini yazma **parola**.
+    c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**'a tıklayın.
  
 ### <a name="creating-an-adp-globalview-test-user"></a>ADP Globalview test kullanıcısı oluşturma
 
-Bu bölümde Hello amacı toocreate Britta Simon ADP GlobalView adlı bir kullanıcı var. Çalışmak [ADP Globalview Destek](https://www.adp.com/contact-us/overview.aspx) tooadd hello hello ADP GlobalView hesap kullanıcılar. 
+Bu bölümün amacı Britta Simon ADP GlobalView adlı bir kullanıcı oluşturmaktır. Çalışmak [ADP Globalview Destek](https://www.adp.com/contact-us/overview.aspx) ADP GlobalView hesap kullanıcılar eklemek için. 
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
 
-Bu bölümde, erişim tooADP Globalview vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
+Bu bölümde, Britta ADP Globalview erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
 ![Kullanıcı atama][200] 
 
-**tooassign Britta Simon tooADP Globalview, hello aşağıdaki adımları gerçekleştirin:**
+**ADP Globalview Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Merhaba uygulamalar listesinde **ADP Globalview**.
+2. Uygulamalar listesinde **ADP Globalview**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-adglobalview-tutorial/tutorial_adpglobalview_app.png) 
 
-3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
     ![Kullanıcı atama][202] 
 
@@ -220,7 +220,7 @@ Bu bölümde, erişim tooADP Globalview vererek Britta Simon toouse Azure çoklu
 
     ![Kullanıcı atama][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -228,13 +228,13 @@ Bu bölümde, erişim tooADP Globalview vererek Britta Simon toouse Azure çoklu
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümde Hello amacı olan tootest hello erişim paneli, Azure AD SSO yapılandırmayı kullanarak.  
+Bu bölümün amacı erişim paneli kullanılarak Azure AD SSO yapılandırmanızı test etmektir.  
 
-ADP GlobalView döşeme hello erişim paneli hello tıkladığınızda, otomatik olarak oturum açma ADP GlobalView uygulama tooyour almanız gerekir.
+Erişim paneli ADP GlobalView parçasında tıklattığınızda, otomatik olarak ADP GlobalView uygulamanıza açan.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

@@ -1,6 +1,6 @@
 ---
-title: "bir yük devretme sınaması için Hyper-V VM çoğaltma tooa Azure Site Recovery ile ikincil site aaaRun | Microsoft Docs"
-description: "Nasıl toorun bir yük devretme sınaması için Hyper-V VM çoğaltma tooa ikincil System Center VMM site Azure Site Recovery ile açıklar."
+title: "Azure Site Recovery ile ikincil site için bir yük devretme sınaması için Hyper-V VM çoğaltma çalıştırın | Microsoft Docs"
+description: "Azure Site Recovery ile ikincil System Center VMM siteye bir yük devretme sınaması için Hyper-V VM çoğaltma çalıştırılacağını açıklar."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,44 +14,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.openlocfilehash: a60411541c2db001c573735bcb0d651f6618f295
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 23d235d326273e7ec59feee6588a39f685401e52
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="step-10-run-a-test-failover-for-hyper-v-replication-tooa-secondary-site"></a>10. adım: bir yük devretme sınaması için Hyper-V çoğaltma tooa ikincil site çalıştırma
+# <a name="step-10-run-a-test-failover-for-hyper-v-replication-to-a-secondary-site"></a>10. adım: yük devretme sınaması Hyper-V çoğaltma için ikincil bir siteye çalıştırma
 
 
-Hyper-V sanal makineleri (VM'ler) için çoğaltma ile etkinleştirdikten sonra [Azure Site Recovery](site-recovery-overview.md), bu makale toorun yük devretme testi kullanın. Yük devretme testi çoğaltmanın üretim ortamınızı etkilemeden düzgün çalıştığını doğrular. 
+Hyper-V sanal makineleri (VM'ler) için çoğaltma ile etkinleştirdikten sonra [Azure Site Recovery](site-recovery-overview.md), yük devretme testi çalıştırmak için bu makaleyi kullanın. Yük devretme testi çoğaltmanın üretim ortamınızı etkilemeden düzgün çalıştığını doğrular. 
 
 
-Bu makaleyi okuduktan sonra tüm yorumlar hello altındaki ya da hello sonrası [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Bu makaleyi okuduktan sonra yapmak istediğiniz tüm yorumları makalenin alt kısmında veya [Azure Kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)'nda paylaşabilirsiniz.
 
 
 ## <a name="before-you-start"></a>Başlamadan önce
 
-- Yük devretme testi tetiklendiğinde hello ağ toowhich hello test çoğaltma sanal makineleri bağlanacak belirtebilirsiniz. [Daha fazla bilgi edinin](site-recovery-test-failover-vmm-to-vmm.md#network-options-in-site-recovery) hello ağ seçenekleri hakkında.
+- Yük devretme testi tetiklendiğinde test çoğaltma sanal makineleri bağlanacağı ağ belirtebilirsiniz. [Daha fazla bilgi edinin](site-recovery-test-failover-vmm-to-vmm.md#network-options-in-site-recovery) ağ seçenekleri hakkında.
 - Ağ eşleme sırasında seçtiğiniz bir ağ seçmeyin öneririz.
-- Bu makaledeki yönergeleri Hello açıklamak nasıl toofail tek bir VM üzerinde. Hakkında bilgi edinin [kurtarma planları oluşturma](site-recovery-create-recovery-plans.md) toofail birden çok VM birlikte istiyorsanız.
+- Bu makaledeki yönergeleri, tek bir VM vermesine açıklar. Hakkında bilgi edinin [kurtarma planları oluşturma](site-recovery-create-recovery-plans.md) birden çok VM birlikte başarısız istiyorsanız.
 - Hakkında bilgi edinin [yük devretme sınaması işlemlerini sınırlamalar](site-recovery-test-failover-vmm-to-vmm.md#things-to-note).
-- Merhaba tooa VM yük devretme testi sırasında verilen IP adresi olduğundan hello VM hello aynı IP adresi almasını (Merhaba IP adresi hello test yük devretme ağda kullanılabilir olduğunu pek fazla) planlanmış veya planlanmamış bir yük devretme için. Başlangıç IP adresi hello test yük devretme ağında kullanılabilir değilse, hello VM hello test yük devretme ağı testinde kullanılabilirse başka bir IP adresi alır.
-- Üretim ağınızda toodo yük devretme sınaması için uçtan uca ağ bağlantısı makinenin tam validatation istiyorsanız, dikkat edin:
-    - Merhaba hello test yük devretme yapılırken birincil VM kapatılmalıdır. Aksi durumda, iki VM aynı kimlik hello çalıştıran hello ile aynı hello ağ aynı anda. 
-    - Yük devretme hello temizleme test ettiğinizde tootest VM'ler değişiklik yaparsanız, bu değişiklikler kaybolur. Bu değişiklikler çoğaltılmış geri toohello olmayan birincil VM.
-    - Testleri bir üretim ağı toodowntime üretim iş yükleri için yol açar. Kullanıcıların değil toouse ister hello olağanüstü durum kurtarma ayrıntıya devam ederken hello uygulama.  
+- Bir VM'ye yük devretme testi sırasında verilen IP adresi, VM alacağı aynı IP adresidir (IP adresi test yük devretme ağda kullanılabilir olduğunu pek fazla) planlanmış veya planlanmamış bir yük devretme için. IP adresi test yük devretme ağda kullanılabilir değilse, VM test yük devretme ağı testinde kullanılabilirse başka bir IP adresi alır.
+- Yük devretme sınaması için uçtan uca ağ bağlantısı makinenin tam validatation, üretim ağınıza yapmak istiyorsanız, dikkat edin:
+    - Test yük devretme yapılırken birincil VM kapatılmalıdır. Aksi takdirde, aynı kimliğe sahip iki VM aynı ağda birlikte aynı anda çalıştırırsınız. 
+    - Yük devretmeyi temiz olduğunda VM'ler test etmek için değişiklikler yapmak isterseniz, bu değişiklikler kaybolur. Bu değişiklikler birincil VM çoğaltılmadığından.
+    - Testleri bir üretim ağı üretim iş yükleri için kapalı kalma süresi yol açar. Olağanüstü durum kurtarma ayrıntıya devam ederken uygulama kullanmamayı kullanıcılar isteyin.  
 
 
 ## <a name="run-a-test-failover-for-a-vm"></a>Bir VM için yük devretme testi çalıştırma
 
-1. tek bir VM üzerinde toofail içinde **çoğaltılan öğeler**, hello VM tıklayın > **yük devretme testi**.
-2. İçinde **sınama yük devretmesi**, test sanal makineleri bağlı toonetworks hello test yük devretme sonrasında nasıl olacağını belirtin. 
-3. Tıklatın **Tamam** toobegin hello yük devretme. Merhaba üzerinde ilerleme durumunu izlemek **işleri** sekmesi.
-5. Yük devretme işlemi tamamlandıktan sonra o hello test sanal makineleri Başlat başarıyla doğrulayın.
-6. İşiniz bittiğinde tıklatın **temizleme yük devretme testi** hello kurtarma planı üzerinde.
-7. İçinde **notları**hello yük devretme testiyle ilişkili gözlemlerinizi kaydetmek ve kaydedin. Bu adım hello sanal makineler ve yük devretme testi sırasında oluşturulan ağlar siler.
+1. Tek bir VM'ye yük devretme için **çoğaltılan öğeler**, VM tıklayın > **yük devretme testi**.
+2. İçinde **sınama yük devretmesi**, test yük devretme sonrasında nasıl test sanal makineleri ağa bağlanacak belirtin. 
+3. Yük devretmeyi başlatmak için **Tamam**'a tıklayın. İlerleme durumunu izlemek **işleri** sekmesi.
+5. Yük devretme işlemi tamamlandıktan sonra test sanal makineleri başarıyla başlatıldığını doğrulayın.
+6. İşiniz bittiğinde tıklatın **temizleme yük devretme testi** kurtarma planı üzerinde.
+7. İçinde **notları**, kaydetme ve yük devretme testiyle ilişkili gözlemlerinizi kaydetmek. Bu adım, yük devretme testi sırasında oluşturulan ağlar ve sanal makinelere siler.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Merhaba dağıtımı test ettikten sonra diğer türleri hakkında daha fazla bilgi [yük devretme](site-recovery-failover.md).
+Dağıtımı test ettikten sonra diğer türleri hakkında daha fazla bilgi [yük devretme](site-recovery-failover.md).

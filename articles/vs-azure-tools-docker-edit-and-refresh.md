@@ -1,6 +1,6 @@
 ---
-title: "yerel bir Docker kapsayıcısı aaaDebugging uygulamalarında | Microsoft Docs"
-description: "Nasıl toomodify yerel Docker kapsayıcısı içinde çalışan bir uygulama hello kapsayıcı düzenleme ve yenileme aracılığıyla yenileyin ve hata ayıklama kesme noktaları ayarlayın öğrenin"
+title: "Yerel bir Docker kapsayıcısı uygulamalarında hata ayıklama | Microsoft Docs"
+description: "Yerel bir Docker kapsayıcısı içinde çalışan bir uygulamayı değiştirmek öğrenin, düzenleme ve yenileme aracılığıyla kapsayıcı yenileyin ve hata ayıklama kesme noktaları ayarlayın"
 services: azure-container-service
 documentationcenter: na
 author: mlearned
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/22/2016
 ms.author: mlearned
-ms.openlocfilehash: ff64e62fbb93901a29b5496bd5e17d2c4ea5ca99
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: fcd58736d8915a61683a416fb9bf3892ba7b7bd8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>Yerel Docker kapsayıcısındaki uygulamalar için hata ayıklama
 ## <a name="overview"></a>Genel Bakış
-Docker için Visual Studio Araçları Hello bir tutarlı bir yol toodevelop sağlar ve uygulamanızda yerel olarak Linux Docker kapsayıcısı doğrulayın.
-Bir kod değişikliği yaptığınızda toorestart hello kapsayıcısı yok.
-Bu makalede nasıl toouse hello "Düzenle ve Yenile" özelliği toostart yerel bir Docker kapsayıcısı ASP.NET çekirdek Web uygulamasında gerekli değişiklikleri yapın ve ardından bu değişiklikleri hello tarayıcı toosee yenileyin gösterilmektedir.
-Bu makalede ayrıca nasıl gösterilmektedir hata ayıklama için tooset kesme noktaları.
+Docker için Visual Studio Araçları, geliştirmek ve uygulamanızda yerel olarak Linux Docker kapsayıcısı doğrulamak için tutarlı bir yol sağlar.
+Kapsayıcı bir kod değişikliği yaptığınız her zaman yeniden başlatmanız gerekmez.
+Bu makalede "Düzenle ve Yenile" özelliği bir yerel Docker kapsayıcısı bir ASP.NET çekirdek Web uygulaması başlatın, gerekli değişiklikleri yapın ve bu değişiklikleri görmek için tarayıcıyı yenilemek için nasıl kullanılacağı gösterilmektedir.
+Bu makalede ayrıca hata ayıklama kesme noktalarını ayarlama gösterilmektedir.
 
 > [!NOTE]
 > Windows kapsayıcı desteği gelecekteki bir sürümde geliyor
@@ -33,15 +33,15 @@ Bu makalede ayrıca nasıl gösterilmektedir hata ayıklama için tooset kesme n
 >
 
 ## <a name="prerequisites"></a>Ön koşullar
-Araçlar aşağıdaki hello yüklü olması gerekir.
+Aşağıdaki araçları yüklü olması gerekir.
 
 * [Visual Studio en son sürümü](https://www.visualstudio.com/downloads/)
 * [Microsoft ASP.NET Core 1.0 SDK'sı](https://go.microsoft.com/fwlink/?LinkID=809122)
 
-yerel olarak toorun Docker kapsayıcıları için yerel docker istemci gerekir.
-Hello kullanabilirsiniz [Docker araç](https://www.docker.com/products/docker-toolbox), Hyper-V toobe devre dışı gerektiren veya kullanabilirsiniz [Docker için Windows](https://www.docker.com/get-docker), Hyper-V kullanır ve Windows 10 gerektirir.
+Yerel olarak Docker kapsayıcıları çalıştırmak için bir yerel docker istemci gerekir.
+Kullanabilirsiniz [Docker araç](https://www.docker.com/products/docker-toolbox)devre dışı bırakılması Hyper-V gerektirir veya kullanabilirsiniz [Windows için Docker](https://www.docker.com/get-docker), Hyper-V kullanır ve Windows 10 gerektirir.
 
-Docker araç kullanıyorsanız, çok gerekir[hello Docker istemcisini yapılandırma](vs-azure-tools-docker-setup.md)
+Docker araç kullanıyorsanız, gerekecektir [Docker istemciyi Yapılandırma](vs-azure-tools-docker-setup.md)
 
 ## <a name="1-create-a-web-app"></a>1. Web uygulaması oluşturma
 [!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
@@ -50,46 +50,46 @@ Docker araç kullanıyorsanız, çok gerekir[hello Docker istemcisini yapıland�
 [!INCLUDE [Add docker support](../includes/vs-azure-tools-docker-add-docker-support.md)]
 
 ## <a name="3-edit-your-code-and-refresh"></a>3. Kod ve yenileme Düzenle
-tooquickly yinelemek değişiklikleri, uygulamanızı bir kapsayıcıdaki başlatın ve IIS Express ile olduğu gibi bunları görüntüleme toomake değişiklikler devam.
+Hızlı bir şekilde değişiklikleri yinelemek için bir kapsayıcı içindeki uygulamanızı başlatın ve değişiklik yapmak IIS Express ile olduğu gibi bunları görüntüleme devam edebilirsiniz.
 
-1. Merhaba çözüm yapılandırma çok ayarlamak`Debug` ve tuşuna basın  **&lt;CTRL + F5 >** toobuild, docker görüntü ve yerel olarak çalıştırın.
+1. Çözüm yapılandırma kümesi `Debug` ve basın  **&lt;CTRL + F5 >** docker görüntünüzü oluşturmak ve yerel olarak çalıştırmak için.
 
-    Merhaba kapsayıcı görüntü oluşturulduğundan ve Docker kapsayıcısı içinde çalışan sonra Visual Studio varsayılan tarayıcınızda hello Web uygulaması başlatın.
-    Merhaba Microsoft Edge tarayıcı kullanıyorsanız veya aksi halde hatalar varsa, bkz: [sorun giderme](vs-azure-tools-docker-troubleshooting-docker-errors.md) bölümü.
-2. Toohello toomake değişikliklerimizi burada yapacağız olduğundan sayfa hakkında gidin.
-3. TooVisual Studio dönün ve açık `Views\Home\About.cshtml`.
-4. HTML içerik toohello hello dosyasının sonuna aşağıdaki hello ekleyin ve hello değişiklikleri kaydedin.
+    Kapsayıcı görüntü oluşturulduğundan ve Docker kapsayıcısı içinde çalışan sonra Visual Studio, varsayılan tarayıcıda Web uygulamasını başlatır.
+    Microsoft Edge tarayıcı kullanıyorsanız veya aksi halde hatalar varsa, bkz: [sorun giderme](vs-azure-tools-docker-troubleshooting-docker-errors.md) bölümü.
+2. Bizim değişiklik yapmak için burada yapacağız olan hakkında sayfasına gidin.
+3. Visual Studio'ya dönmek ve açık `Views\Home\About.cshtml`.
+4. Aşağıdaki HTML içeriğini dosyanın sonuna ekleyin ve değişiklikleri kaydedin.
 
     ```
     <h1>Hello from a Docker Container!</h1>
     ```
-5. Hello çıktı penceresinde hello .NET derleme tamamlandığında ve bu satırları görmek görüntüleme, geri tooyour tarayıcı geçin ve sayfa hakkında hello yenileyin.
+5. .NET derleme tamamlandığında ve bu satırları görmek için çıkış penceresine görüntüleme, tarayıcınızın geri geçin ve hakkında sayfayı yenileyin.
 
    ```
    Now listening on: http://*:80
-   Application started. Press Ctrl+C tooshut down
+   Application started. Press Ctrl+C to shut down
    ```
 6. Yaptığınız değişiklikleri uygulandı!
 
 ## <a name="4-debug-with-breakpoints"></a>4. Kesme noktaları ile hata ayıklama
-Genellikle, değişiklikleri daha ayrıntılı denetleme, Visual Studio'nun özellikleri hata ayıklama hello yararlanarak gerekir.
+Genellikle, değişiklikleri daha ayrıntılı denetleme, Visual Studio hata ayıklama özelliklerini yararlanarak gerekir.
 
-1. Dönüş tooVisual Studio ve Aç`Controllers\HomeController.cs`
-2. Merhaba About() yöntemi Merhaba içeriğine hello şununla değiştirin:
+1. Visual Studio'ya geri dönün ve açın`Controllers\HomeController.cs`
+2. About() yöntemi içeriğini aşağıdakiyle değiştirin:
 
    ```
    string message = "Your application description page from within a Container";
    ViewData["Message"] = message;
    ````
-3. Kesme noktası toohello Merhaba sol kümesi `string message`... satır.
-4. İsabet  **&lt;F5 >** toostart hata ayıklama.
-5. Sayfa toohit hakkında toohello isabetini gidin.
-6. TooVisual Studio tooview hello kesme geçin ve ileti hello değerini inceleyin.
+3. Sol tarafında bir kesme noktası belirleyerek `string message`... satır.
+4. İsabet  **&lt;F5 >** hata ayıklama başlatılamıyor.
+5. Kesme noktası isabet hakkında sayfasına gidin.
+6. Kesme noktası görüntülemek için Visual Studio geçin ve ileti değerini inceleyin.
 
    ![][2]
 
 ## <a name="summary"></a>Özet
-İle [Docker için Visual Studio 2015 Araçları](https://aka.ms/DockerToolsForVS), yerel olarak Docker kapsayıcısı içinde geliştirmenin hello üretim daha iyi çalışma hello verimliliği elde edebilirsiniz.
+İle [Docker için Visual Studio 2015 Araçları](https://aka.ms/DockerToolsForVS), Docker kapsayıcısı içinde geliştirmenin üretim daha iyi ile yerel olarak çalışan verimliliği elde edebilirsiniz.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 [Visual Studio Docker geliştirme sorunlarını giderme](vs-azure-tools-docker-troubleshooting-docker-errors.md)
@@ -100,17 +100,17 @@ Genellikle, değişiklikleri daha ayrıntılı denetleme, Visual Studio'nun öze
 * [Visual Studio Code için docker Araçları](http://aka.ms/dockertoolsforvscode) -daha fazla e2e senaryo gelen docker dosyalarını düzenlemek için dil Hizmetleri
 * [Windows kapsayıcı bilgileri](http://aka.ms/containers)-Windows Server ve Nano Server bilgileri
 * [Azure kapsayıcı hizmeti](https://azure.microsoft.com/services/container-service/) - [Azure kapsayıcı hizmeti içerik](http://aka.ms/AzureContainerService)
-* Docker ile çalışmaya ilişkin daha fazla örnek için bkz: [Docker ile çalışma](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker) hello gelen [tanıtımında](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). Merhaba tanıtımında demo öğesinden daha fazla quickstarts için bkz: [Azure geliştirici araçları hızlı başlangıç ipuçları](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
+* Docker ile çalışmaya ilişkin daha fazla örnek için bkz: [Docker ile çalışma](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker) gelen [tanıtımında](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). HealthClinic.biz tanıtımından daha fazla hızlı başlangıç ipuçları için bkz. [Azure Geliştirici Araçları Hızlı Başlangıç İpuçları](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 
 ## <a name="various-docker-tools"></a>Çeşitli Docker araçları
 [Bazı harika docker Araçlar (Steve Lasker'ın blogu)](https://blogs.msdn.microsoft.com/stevelasker/2016/03/25/some-great-docker-tools/)
 
 ## <a name="good-articles"></a>İyi makaleler
-[Giriş tooMicroservices NGINX gelen](https://www.nginx.com/blog/introduction-to-microservices/)
+[Mikro giriş NGINX gelen](https://www.nginx.com/blog/introduction-to-microservices/)
 
 ## <a name="presentations"></a>Sunular
 * [Steve Lasker: VS Las Vegas 2016 - Docker e2e Canlı](https://github.com/SteveLasker/Presentations/blob/master/VSLive2016/Vegas/)
-* [Yapı 2016 - Burada, adresindeki Demo @ giriş tooASP.NET çekirdek](https://channel9.msdn.com/Events/Build/2016/B810)
+* [ASP.NET Core giriş yapı 2016 - Burada, adresindeki Demo @](https://channel9.msdn.com/Events/Build/2016/B810)
 * [Kapsayıcılardaki Channel 9 .NET uygulamaları geliştirme](https://blogs.msdn.microsoft.com/stevelasker/2016/02/19/developing-asp-net-apps-in-docker-containers/)
 
 [2]: ./media/vs-azure-tools-docker-edit-and-refresh/breakpoint.png

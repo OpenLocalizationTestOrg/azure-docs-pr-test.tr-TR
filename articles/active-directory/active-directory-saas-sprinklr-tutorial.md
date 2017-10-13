@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile Sprinklr | Microsoft Docs"
-description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile Sprinklr arasında."
+description: "Çoklu oturum açma Azure Active Directory ile Sprinklr arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,111 +13,111 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 14b467c72d4a453ed7ad248eadcdade710f105af
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6e1622cd55e3b0e8063604ac9dc0cb0673fa9753
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Öğretici: Azure Active Directory Tümleştirme Sprinklr ile
 
-Bu öğreticide, bilgi nasıl toointegrate Sprinklr Azure Active Directory'ye (Azure AD).
+Bu öğreticide, Azure Active Directory (Azure AD) ile Sprinklr tümleştirmek öğrenin.
 
-Sprinklr Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
+Sprinklr Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Erişim tooSprinklr sahip Azure AD'de kontrol edebilirsiniz
-- Kullanıcıların tooautomatically get açan tooSprinklr (çoklu oturum açma) Azure AD hesaplarına sahip etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir
+- Sprinklr erişimi, Azure AD'de kontrol edebilirsiniz
+- Otomatik olarak için Sprinklr (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-tooconfigure Sprinklr ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
+Azure AD tümleştirme Sprinklr ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
 - Bir Sprinklr çoklu oturum açma etkin abonelik
 
 > [!NOTE]
-> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
+Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
-1. Merhaba Galerisi'nden Sprinklr ekleme
+1. Galeriden Sprinklr ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-sprinklr-from-hello-gallery"></a>Merhaba Galerisi'nden Sprinklr ekleme
-Azure AD'ye tooconfigure hello tümleştirme Sprinklr, tooadd Sprinklr hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
+## <a name="adding-sprinklr-from-the-gallery"></a>Galeriden Sprinklr ekleme
+Azure AD Sprinklr tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Sprinklr eklemeniz gerekir.
 
-**tooadd Sprinklr hello galerisinden hello aşağıdaki adımları gerçekleştirin:**
+**Galeriden Sprinklr eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
     ![Uygulamalar][3]
 
-4. Merhaba arama kutusuna yazın **Sprinklr**.
+4. Arama kutusuna **Sprinklr**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-sprinklr-tutorial/tutorial_sprinklr_search.png)
 
-5. Merhaba Sonuçlar panelinde seçin **Sprinklr**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
+5. Sonuçlar panelinde seçin **Sprinklr**ve ardından **Ekle** uygulama eklemek için düğmesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-sprinklr-tutorial/tutorial_sprinklr_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı Sprinklr ile test etme
 
-Tek toowork'ın oturum açma hangi hello karşılık gelen Sprinklr içinde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcı ve ilgili kullanıcı Sprinklr hello arasında bir bağlantı ilişkisi kurulan toobe gerekir.
+Tekli çalışmaya oturum için Azure AD Sprinklr karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Sprinklr ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Merhaba hello değeri Sprinklr içinde atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.
+Sprinklr içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
 
-tooconfigure ve Sprinklr ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Sprinklr ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
-3. **[Sprinklr test kullanıcısı oluşturma](#creating-a-sprinklr-test-user)**  -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir Sprinklr içinde karşılık gelen.
-4. **[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Sprinklr test kullanıcısı oluşturma](#creating-a-sprinklr-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Sprinklr sağlamak için.
+4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma Sprinklr uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Sprinklr uygulamanızda yapılandırın.
 
-**tooconfigure Azure AD çoklu oturum açma ile Sprinklr, hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma ile Sprinklr yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello hello üzerinde Azure portal'ın **Sprinklr** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **Sprinklr** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-sprinklr-tutorial/tutorial_sprinklr_samlbase.png)
 
-3. Merhaba üzerinde **Sprinklr etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **Sprinklr etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-sprinklr-tutorial/tutorial_sprinklr_url.png)
 
-    a. Merhaba, **oturum açma URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<subdomain>.sprinklr.com`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.sprinklr.com`
 
-    b. Merhaba, **tanımlayıcısı** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<subdomain>.sprinklr.com`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.sprinklr.com`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Merhaba değeri ile Merhaba güncelleştirin gerçek oturum açma URL'si ve tanımlayıcısı. Kişi [Sprinklr istemci destek ekibi](https://www.sprinklr.com/contact-us/) tooget bu değerleri. 
+    > Bu değerler gerçek değildir. Gerçek oturum açma URL'si ve tanımlayıcı değeri güncelleştirin. Kişi [Sprinklr istemci destek ekibi](https://www.sprinklr.com/contact-us/) bu değerleri almak için. 
  
-4. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve hello sertifika dosyayı bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-sprinklr-tutorial/tutorial_sprinklr_certificate.png) 
 
@@ -125,15 +125,15 @@ Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-sprinklr-tutorial/tutorial_general_400.png)
 
-6. Merhaba üzerinde **Sprinklr yapılandırma** 'yi tıklatın **yapılandırma Sprinklr** tooopen **yapılandırma oturum açma** penceresi. Kopya hello **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** hello gelen **hızlı başvuru bölümü.**
+6. Üzerinde **Sprinklr yapılandırma** 'yi tıklatın **yapılandırma Sprinklr** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
-7. Farklı web tarayıcısı penceresinde tooyour Sprinklr şirket sitede yönetici olarak oturum açın.
+7. Farklı web tarayıcısı penceresinde Sprinklr şirket sitenize yönetici olarak oturum açın.
 
-8. Çok Git**Yönetim \> ayarları**.
+8. Git **Yönetim \> ayarları**.
    
     ![Yönetim](./media/active-directory-saas-sprinklr-tutorial/ic782907.png "Yönetim")
 
-9. Çok Git**iş ortağı yönetme \> çoklu oturum açma** üzerinde hello sol bölmesinden.
+9. Git **iş ortağı yönetme \> çoklu oturum açma** üzerinde sol bölmeden.
    
     ![İş ortağı yönetme](./media/active-directory-saas-sprinklr-tutorial/ic782908.png "iş ortağı yönetme")
 
@@ -141,75 +141,75 @@ Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin
    
     ![Çoklu oturum açmaların](./media/active-directory-saas-sprinklr-tutorial/ic782909.png "çoklu oturum açmaların")
 
-11. Merhaba üzerinde **çoklu oturum açma** sayfasında, hello aşağıdaki adımları gerçekleştirin:
+11. Üzerinde **çoklu oturum açma** sayfasında, aşağıdaki adımları gerçekleştirin:
    
     ![Çoklu oturum açmaların](./media/active-directory-saas-sprinklr-tutorial/ic782910.png "çoklu oturum açmaların")
 
-    a. Merhaba, **adı** metin kutusuna, yapılandırmanız için bir ad yazın (örneğin: *WAADSSOTest*).
+    a. İçinde **adı** metin kutusuna, yapılandırmanız için bir ad yazın (örneğin: *WAADSSOTest*).
 
     b. Seçin **etkin**.
 
     c. Seçin **yeni SSO sertifikayı kullanmak**.
              
-    e. Base-64 kodlanmış sertifikanızı kopyalama hello panonuza bunu içerik Not Defteri'nde açın ve toohello yapıştırın **kimlik sağlayıcısı sertifikası** metin kutusu.
+    e. Base-64 kodlanmış sertifikanızı Not Defteri'nde açın, içeriğini, panoya kopyalayın ve yapıştırın kendisine **kimlik sağlayıcısı sertifikası** metin kutusu.
 
-    f. Yapıştır hello **SAML varlık kimliği** hello Azure portalından kopyalandığından değeri **varlık kimliği** metin kutusu.
+    f. Yapıştır **SAML varlık kimliği** Azure portalından kopyaladığınız değeri **varlık kimliği** metin kutusu.
 
-    g. Yapıştır hello **SAML çoklu oturum açma hizmet URL'si** hello Azure portalından kopyalandığından değeri **kimlik sağlayıcısı oturum açma URL'si** metin kutusu.
+    g. Yapıştır **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyaladığınız değeri **kimlik sağlayıcısı oturum açma URL'si** metin kutusu.
 
-    h. Yapıştır hello **Sign-Out URL** hello Azure portalından kopyalandığından değeri **kimlik sağlayıcısı oturum kapatma URL'si** metin kutusu.
+    h. Yapıştır **Sign-Out URL** Azure portalından kopyaladığınız değeri **kimlik sağlayıcısı oturum kapatma URL'si** metin kutusu.
      
     ı. Olarak **SAML kullanıcı kimliği türü**seçin **onaylamayı içeren kullanıcı "s sprinklr.com kullanıcıadı**.
 
-    j. Olarak **SAML kullanıcı kimliği konumu**seçin **kullanıcı kimliğidir hello ad tanımlayıcısı öğesinde hello konu deyimi**.
+    j. Olarak **SAML kullanıcı kimliği konumu**seçin **kullanıcı kimliğidir konu deyim ad tanımlayıcısı öğesinde**.
 
     k. **Kaydet** düğmesine tıklayın.
        
     ![SAML](./media/active-directory-saas-sprinklr-tutorial/ic782911.png "SAML")
 
 > [!TIP]
-> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-sprinklr-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-sprinklr-tutorial/create_aaduser_02.png) 
 
-3. tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle** hello üstteki hello iletişim.
+3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-sprinklr-tutorial/create_aaduser_03.png) 
 
-4. Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-sprinklr-tutorial/create_aaduser_04.png) 
 
-    a. Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
 
-    b. Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
 
-    c. Seçin **Göster parola** ve hello hello değerini yazma **parola**.
+    c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**'a tıklayın.
  
 ### <a name="creating-a-sprinklr-test-user"></a>Sprinklr test kullanıcısı oluşturma
 
-1. İçinde tooyour Sprinklr şirket site yönetici olarak oturum açın.
+1. Sprinklr şirket sitenize yönetici olarak oturum açın.
 
-2. Çok Git**Yönetim \> ayarları**.
+2. Git **Yönetim \> ayarları**.
    
     ![Yönetim](./media/active-directory-saas-sprinklr-tutorial/ic782907.png "Yönetim")
 
-3. Çok Git**yönetmek istemci \> kullanıcılar** hello sol bölmesinden.
+3. Git **yönetmek istemci \> kullanıcılar** sol bölmeden.
    
     ![Ayarları](./media/active-directory-saas-sprinklr-tutorial/ic782914.png "ayarları")
 
@@ -217,11 +217,11 @@ Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir te
    
     ![Ayarları](./media/active-directory-saas-sprinklr-tutorial/ic782915.png "ayarları")
 
-5. Merhaba üzerinde **düzenleme kullanıcı** iletişim kutusunda, hello aşağıdaki adımları gerçekleştirin:
+5. Üzerinde **düzenleme kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
    
     ![Kullanıcı düzenleme](./media/active-directory-saas-sprinklr-tutorial/ic782916.png "düzenleme kullanıcı") 
 
-    a. Merhaba, **e-posta**, **ad** ve **Soyadı** metin kutuları, tooprovision istediğiniz bir Azure AD kullanıcı hesabının türü hello bilgileri.
+    a. İçinde **e-posta**, **ad** ve **Soyadı** metin kutuları, sağlamak istediğiniz bir Azure AD kullanıcı hesabı bilgilerini yazın.
 
     b. Seçin **parola devre dışı**.
 
@@ -232,36 +232,36 @@ Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir te
     e. Tıklatın **güncelleştirme**.
    
      >[!IMPORTANT]
-     >**Parola devre dışı** seçili tooenable içinde kullanıcı toolog bir kimlik sağlayıcısı aracılığıyla olması gerekir. 
+     >**Parola devre dışı** bir kimlik sağlayıcısı oturum açma kullanıcı seçilmesi gerekir. 
      
-6. Çok Git**rol**ve ardından hello aşağıdaki adımları gerçekleştirin:
+6. Git **rol**ve ardından aşağıdaki adımları gerçekleştirin:
    
     ![İş ortağı rolleri](./media/active-directory-saas-sprinklr-tutorial/ic782917.png "ortak rolleri")
 
-    a. Merhaba gelen **Global** listesinde **tüm\_izinleri**.  
+    a. Gelen **Global** listesinde **tüm\_izinleri**.  
 
     b. Tıklatın **güncelleştirme**.
 
 >[!NOTE]
->API'leri, Azure AD kullanıcı hesapları Sprinklr tooprovision tarafından sağlanan veya herhangi diğer Sprinklr kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz. 
+>API Azure AD kullanıcı hesaplarını sağlamak için Sprinklr tarafından sağlanan veya herhangi diğer Sprinklr kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz. 
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
 
-Bu bölümde, erişim tooSprinklr vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
+Bu bölümde, Britta Sprinklr için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
 ![Kullanıcı atama][200] 
 
-**tooassign Britta Simon tooSprinklr hello aşağıdaki adımları gerçekleştirin:**
+**Sprinklr için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Merhaba uygulamalar listesinde **Sprinklr**.
+2. Uygulamalar listesinde **Sprinklr**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-sprinklr-tutorial/tutorial_sprinklr_app.png) 
 
-3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
     ![Kullanıcı atama][202] 
 
@@ -269,7 +269,7 @@ Bu bölümde, erişim tooSprinklr vererek Britta Simon toouse Azure çoklu oturu
 
     ![Kullanıcı atama][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -277,13 +277,13 @@ Bu bölümde, erişim tooSprinklr vererek Britta Simon toouse Azure çoklu oturu
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Merhaba Sprinklr hello erişim paneli parçasında tıkladığınızda, otomatik olarak oturum açma tooyour Sprinklr uygulama hello erişim paneli hakkında daha fazla bilgi almak, bkz: [giriş toohello erişim paneli](active-directory-saas-access-panel-introduction.md). 
+Erişim paneli Sprinklr parçasında tıkladığınızda, erişim paneli hakkında daha fazla bilgi için bkz, otomatik olarak Sprinklr uygulamanıza açan almalısınız [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 

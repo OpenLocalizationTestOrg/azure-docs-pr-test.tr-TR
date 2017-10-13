@@ -1,9 +1,9 @@
 ---
-title: "Klasik Azure CLI aaaCreate bir dahili yük dengeleyici - | Microsoft Docs"
-description: "Nasıl bir iç yük dengeleyici kullanarak toocreate hello Azure CLI hello Klasik dağıtım modelinde öğrenin"
+title: "İç yük dengeleyicisi oluşturma - Azure CLI klasik | Microsoft Docs"
+description: "Klasik dağıtım modelinde Azure CLI kullanarak iç yük dengeleyici oluşturmayı öğrenin"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: ef29dfda5f7a75a411bbabe8b688a31c6bf81113
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: f740633230b2479f77d7d09a31dbbf3f72ffb174
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="get-started-creating-an-internal-load-balancer-classic-using-hello-azure-cli"></a>Hello Azure CLI kullanarak bir iç yük dengeleyici (Klasik) oluşturmaya başlamak
+# <a name="get-started-creating-an-internal-load-balancer-classic-using-the-azure-cli"></a>Azure CLI kullanarak iç yük dengeleyici (klasik) oluşturmaya başlama
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
@@ -31,24 +31,24 @@ ms.lasthandoff: 10/06/2017
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!IMPORTANT]
-> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md).  Bu makalede, hello Klasik dağıtım modeli kullanılarak yer almaktadır. Microsoft, en yeni dağıtımların hello Resource Manager modelini kullanmasını önerir. Nasıl çok öğrenin[hello Resource Manager modelini kullanarak bu adımları uygulamadan](load-balancer-get-started-ilb-arm-cli.md).
+> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md).  Bu makale klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. [Bu adımları Resource Manager modeli kullanarak gerçekleştirmeyi](load-balancer-get-started-ilb-arm-cli.md) öğrenin.
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
-## <a name="toocreate-an-internal-load-balancer-set-for-virtual-machines"></a>sanal makineler için bir iç yük dengeleyici toocreate ayarlayın
+## <a name="to-create-an-internal-load-balancer-set-for-virtual-machines"></a>Sanal makineler için iç yük dengeleyici oluşturma
 
-bir iç yük dengeleyicisi ayarlayın ve hello kendi trafiği tooit göndereceğiniz sunucuları toocreate gerçekleştirmelisiniz hello aşağıdaki:
+İç yük dengeleyici kümesi ve trafiğini bu kümeye gönderen sunucuları oluşturmak için aşağıdaki adımları uygulamanız gerekir:
 
-1. İç yük iş yükünün bir yük dengeli kümesi hello sunucular arasında dengeli gelen trafik toobe hello uç nokta olacak Dengeleme örneği oluşturun.
-2. Merhaba gelen trafiği almak toohello sanal makineleri karşılık gelen uç noktalarını ekleyin.
-3. Kendi trafiği toohello sanal IP (VIP) adresi iç Yük Dengeleme hello örneğinin toosend hello trafiği toobe yük dengeli gönderme hello sunucularını yapılandırın.
+1. Gelen trafiğin uç noktası olacak ve bu trafiğe yük dengeli bir kümenin sunucularında yük dengelemesi yapan bir İç Yük Dengeleme örneği oluşturun.
+2. Gelen trafiği alan sanal makinelere karşılık gelen uç noktalar ekleyin.
+3. Sunucuları trafiklerini İç Yük Dengeleme örneğinin sanal IP (VIP) adresine gönderecek şekilde yapılandırın.
 
 ## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>CLI kullanarak iç yük dengeleyici oluşturma adımları
 
-Bu kılavuz, nasıl bir iç yük dengeleyici toocreate yukarıdaki hello senaryosu üzerine temel gösterir.
+Bu kılavuz, yukarıdaki senaryoya göre iç yük dengeleyicinin nasıl oluşturulacağını göstermektedir.
 
-1. Azure CLI hiç kullanmadıysanız bkz [hello Azure CLI yükleyip](../cli-install-nodejs.md) ve sonra Azure hesabınızı ve aboneliğinizi toohello noktaya hello talimatlarını izleyin.
-2. Merhaba çalıştırmak **azure config modu** aşağıda gösterildiği gibi komut tooswitch tooclassic modu.
+1. Hiç Azure CLI kullanmadıysanız bkz. [Azure CLI’yi Yükleme ve Yapılandırma](../cli-install-nodejs.md); sonra da, Azure hesabınızı ve aboneliğinizi seçtiğiniz noktaya kadar yönergeleri uygulayın.
+2. Klasik moda geçmek için **azure config mode** komutunu aşağıda gösterildiği gibi çalıştırın.
 
     ```azurecli
     azure config mode asm
@@ -60,11 +60,11 @@ Bu kılavuz, nasıl bir iç yük dengeleyici toocreate yukarıdaki hello senaryo
 
 ## <a name="create-endpoint-and-load-balancer-set"></a>Uç nokta ve yük dengeleyici kümesi oluşturma
 
-Merhaba senaryo hello sanal makineler "DB1" ve "DB2" "mytestcloud" adlı bir bulut hizmetinde varsayar. Her iki sanal makine de "subnet-1" alt ağına sahip "testvnet" adlı bir sanal ağ kullanmaktadır.
+Bu senaryo, "mytestcloud" adlı bir bulut hizmetinde çalışan "DB1" ve "DB2" adlı iki sanal makine olduğunu varsaymaktadır. Her iki sanal makine de "subnet-1" alt ağına sahip "testvnet" adlı bir sanal ağ kullanmaktadır.
 
 Bu kılavuzda hem özel hem de yerel bağlantı noktası olarak 1433 numaralı bağlantı noktası kullanılarak bir iç yük dengeleyici kümesi oluşturulmaktadır.
 
-Bu, bir ortak IP adresini kullanarak doğrudan bir iç yük dengeleyici tooguarantee hello veritabanı sunucuları sunulan olmaz arka uç hello kullanarak SQL sanal makineleri sahip olduğu ortak bir senaryodur.
+Bu, genelde veritabanı sunucularının genel IP adresi kullanarak doğrudan sunulmamasını garanti etmek için arka uçta iç yük dengeleyici kullanan SQL sanal makineleri olduğuna kullanılan bir senaryodur.
 
 ### <a name="step-1"></a>1. Adım
 
@@ -76,9 +76,9 @@ azure service internal-load-balancer add --serviceName mytestcloud --internalLBN
 
 Daha fazla bilgi için bkz. `azure service internal-load-balancer --help`.
 
-Merhaba komutunu kullanarak hello iç yük dengeleyici özelliklerini kontrol edebilirsiniz `azure service internal-load-balancer list` *bulut hizmeti adı*.
+`azure service internal-load-balancer list` *bulut hizmeti adı* komutunu kullanarak iç yük dengeleyici özelliklerini denetleyebilirsiniz.
 
-Burada hello çıktısı örneği aşağıdaki gibidir:
+Çıktı örneği aşağıda verilmiştir:
 
     azure service internal-load-balancer list my-testcloud
     info:    Executing command service internal-load-balancer list
@@ -91,7 +91,7 @@ Burada hello çıktısı örneği aşağıdaki gibidir:
 
 ### <a name="step-2"></a>2. Adım
 
-Merhaba iç yük dengeleyici hello Birinci uç nokta eklediğinizde Ayarla yapılandırın. Bu adımda ayarlama hello uç noktasını, sanal makine ve araştırma bağlantı noktası toohello iç yük dengeleyici ilişkilendireceğiniz.
+İlk uç noktayı eklediğinizde iç yük dengeleyici kümesini yapılandırırsınız. Bu adımda uç noktası, sanal makine ve araştırma bağlantı noktasını iç yük dengeleyici kümesiyle ilişkilendirebilirsiniz.
 
 ```azurecli
 azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
@@ -99,13 +99,13 @@ azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 
 
 ### <a name="step-3"></a>3. Adım
 
-Merhaba yük dengeleyici Yapılandırması kullanılarak doğrulayın `azure vm show` *sanal makine adı*
+`azure vm show` *sanal makine adı* komutunu kullanarak yük dengeleyici yapılandırmasını doğrulayın
 
 ```azurecli
 azure vm show DB1
 ```
 
-Merhaba çıkış olacaktır:
+Çıktı aşağıdaki şekilde olacaktır:
 
     azure vm show DB1
     info:    Executing command vm show
@@ -156,7 +156,7 @@ Merhaba çıkış olacaktır:
 
 ## <a name="create-a-remote-desktop-endpoint-for-a-virtual-machine"></a>Bir sanal makine için uzak masaüstü uç noktası oluşturma
 
-Uzak Masaüstü uç nokta tooforward ağ trafiğini kullanarak belirli bir sanal makine için bir genel bağlantı noktası tooa yerel bağlantı noktasından oluşturabileceğiniz `azure vm endpoint create`.
+`azure vm endpoint create` kullanarak belirli bir sanal makine için genel bağlantı noktasına gelen trafiği yerel bağlantı noktasına yönlendirme amacıyla uzak masaüstü uç noktası oluşturabilirsiniz.
 
 ```azurecli
 azure vm endpoint create web1 54580 -k 3389
@@ -164,9 +164,9 @@ azure vm endpoint create web1 54580 -k 3389
 
 ## <a name="remove-virtual-machine-from-load-balancer"></a>Sanal makineyi yük dengeleyiciden kaldırma
 
-İlişkili hello uç noktası siliniyor tarafından ayarlanmış bir iç yük dengeleyici sanal makine kaldırabilirsiniz. Merhaba endpoint kaldırıldıktan sonra hello sanal makine artık ayarlamak toohello yük dengeleyici ait olmaz.
+İlgili uç noktayı silerek iç yük dengeleyici kümesinde yer alan bir sanal makineyi kaldırabilirsiniz. Uç nokta kaldırıldığında ilgili sanal makine artık yük dengeleyici kümesine ait olmayacaktır.
 
-Yukarıdaki Hello örneği kullanarak, "DB1" sanal makine için oluşturulmuş hello endpoint iç yük dengeleyiciden "ilbset" Merhaba komutunu kullanarak kaldırabilirsiniz `azure vm endpoint delete`.
+Yukarıdaki örneği kullanarak "DB1" sanal makinesi için oluşturulan uç noktayı "ilbset" iç yük dengeleyici kümesinden `azure vm endpoint delete` komutuyla kaldırabilirsiniz.
 
 ```azurecli
 azure vm endpoint delete DB1 tcp-1433-1433

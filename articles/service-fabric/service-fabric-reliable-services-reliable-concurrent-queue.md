@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric aaaReliableConcurrentQueue
+title: Azure Service Fabric ReliableConcurrentQueue
 description: "ReliableConcurrentQueue paralel enqueues sağlar ve dequeues yüksek verimlilik sırasıdır."
 services: service-fabric
 documentationcenter: .net
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: sangarg
-ms.openlocfilehash: 78a9905996b9ab265c1288d2b49753638d7bc445
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 122cb48149477f295a65b8ee623c647b6db10a86
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="introduction-tooreliableconcurrentqueue-in-azure-service-fabric"></a>Azure Service Fabric içinde giriş tooReliableConcurrentQueue
-Güvenilir eşzamanlı sırası bir zaman uyumsuz işlem ve çoğaltılmış hangi özellikleri yüksek eşzamanlılık sıraya alma sıradır ve işlemleri dequeue. Tasarlanmış toodeliver yüksek verimlilik ve sakin hello katı FIFO tarafından sağlanan sıralama ile düşük gecikme süresi olan [güvenilir sıra](https://msdn.microsoft.com/library/azure/dn971527.aspx) ve bunun yerine bir en yüksek çaba sıralama sağlar.
+# <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Azure Service Fabric ReliableConcurrentQueue giriş
+Güvenilir eşzamanlı sırası bir zaman uyumsuz işlem ve çoğaltılmış hangi özellikleri yüksek eşzamanlılık sıraya alma sıradır ve işlemleri dequeue. Tarafından sağlanan sıralama, katı FIFO gevşetme tarafından yüksek verimlilik ve düşük gecikme süresi sunacak şekilde tasarlanan [güvenilir sıra](https://msdn.microsoft.com/library/azure/dn971527.aspx) ve bunun yerine bir en yüksek çaba sıralama sağlar.
 
 ## <a name="apis"></a>API'ler
 
@@ -33,20 +33,20 @@ Güvenilir eşzamanlı sırası bir zaman uyumsuz işlem ve çoğaltılmış han
 
 ## <a name="comparison-with-reliable-queuehttpsmsdnmicrosoftcomlibraryazuredn971527aspx"></a>Karşılaştırma [güvenilir sırası](https://msdn.microsoft.com/library/azure/dn971527.aspx)
 
-Güvenilir eşzamanlı sıra sunulur alternatif olarak çok[güvenilir sıra](https://msdn.microsoft.com/library/azure/dn971527.aspx). Burada katı FIFO sıralama gerekli değildir, durumlarda kullanılmalıdır olarak FIFO gerektiren bir kolaylığını eşzamanlılık ile güvence altına alır.  [Güvenilir sıra](https://msdn.microsoft.com/library/azure/dn971527.aspx) kullanan kilitleri tooenforce FIFO, tooenqueue izin verilen en fazla bir işlem ile ve aynı anda toodequeue izin çoğu bir işlem sırası. Buna karşılık, güvenilir eşzamanlı sıra kısıtlaması sıralama hello rahatlatır ve kendi enqueue herhangi sayı eşzamanlı işlemler toointerleave sağlar ve işlemleri dequeue. En yüksek çaba sıralama ancak hello göreli bir güvenilir eşzamanlı kuyruğundaki iki değer sıralamasını hiçbir zaman olabilir garanti sağlanmış.
+Alternatif olarak güvenilir eşzamanlı sıra sunulan [güvenilir sıra](https://msdn.microsoft.com/library/azure/dn971527.aspx). Burada katı FIFO sıralama gerekli değildir, durumlarda kullanılmalıdır olarak FIFO gerektiren bir kolaylığını eşzamanlılık ile güvence altına alır.  [Güvenilir sıra](https://msdn.microsoft.com/library/azure/dn971527.aspx) sıraya alma için izin verilen en fazla bir işlem ve aynı anda dequeue izin verilen en fazla bir işlem ile FIFO sıralama zorlamak için kilitler kullanır. Buna karşılık, güvenilir eşzamanlı sıra sıralama kısıtlaması rahatlatır ve bunların enqueue Interleave ve işlemleri dequeue sayı eşzamanlı işlemler sağlar. En yüksek çaba sıralama ancak güvenilir eşzamanlı sıradaki iki değer göreli sıralamasını hiçbir zaman olabilir garanti sağlanmış.
 
 Güvenilir eşzamanlı sıra daha yüksek verimlilik ve daha düşük gecikme sağlar [güvenilir sıra](https://msdn.microsoft.com/library/azure/dn971527.aspx) enqueues gerçekleştirme birden çok eşzamanlı işlem olduğunda ve/veya dequeues.
 
-Merhaba ReliableConcurrentQueue hello için örnek kullanım örneği [Message Queue](https://en.wikipedia.org/wiki/Message_queue) senaryo. Bu senaryoda, bir veya daha fazla ileti üreticileri oluşturun ve öğeleri toohello sıra ekleyin ve bir veya daha fazla ileti tüketiciye hello sırasından ileti çekmek ve işlenecekleri. Birden çok üreticileri ve tüketicileri eşzamanlı işlemleri içinde sırasını tooprocess hello kullanma bağımsız olarak çalışabilir.
+Örnek Kullanım örneği ReliableConcurrentQueue için [Message Queue](https://en.wikipedia.org/wiki/Message_queue) senaryo. Bu senaryoda, bir veya daha fazla ileti üreticileri oluşturun ve öğeleri kuyruğa ekleyin ve bir veya daha fazla ileti tüketiciye sırasından ileti çekmek ve işlenecekleri. Birden çok üreticileri ve tüketicileri sırasını işlemek için eş zamanlı işlemleri kullanarak bağımsız olarak çalışabilir.
 
 ## <a name="usage-guidelines"></a>Kullanım yönergeleri
-* Merhaba sıra hello sırasındaki hello öğelerin bir düşük bekletme süresine sahip bekliyor. Diğer bir deyişle, hello öğeleri hello sırada uzun bir süredir kalmak değil.
-* Merhaba sıra katı FIFO sıralama garanti etmez.
-* Merhaba sıra kendi yazma okumaz. Bir öğe sıraya alınan bir işlem içinde ise, hello içinde görünür tooa dequeuer olmaz aynı işlem.
-* Dequeues birbirinden yalıtılmış değildir. Öğesi, *A* işlemde kuyruktan çıkarıldı *txnA*rağmen *txnA* öğe kaydedilmiş, değil *A* görünür tooa eşzamanlı olmaz işlem *txnB*.  Varsa *txnA* durdurur, *A* çok görünür olacak*txnB* hemen.
-* *TryPeekAsync* davranışı kullanarak uygulanabilir bir *TryDequeueAsync* ve hello işlemi iptal ediliyor. Bunun bir örneğini hello programlama desenleri bölümünde bulunabilir.
-* İşlem olmayan sayısıdır. Kullanılan tooget hello hello kuyruğundaki öğelerin sayısı hakkında bir fikir olabilir ancak bir nokta zaman temsil eder ve bağlı dayanıyordu olamaz.
-* Merhaba işlem etkinken pahalı hello üzerinde işleme öğeleri kuyruktan çıkarıldı gerçekleştirilmemelidir hello sistemde bir performans etkisi olabilir tooavoid uzun süre çalışan işlemleri.
+* Sıranın kuyruğundaki öğelerin düşük saklama dönemi olmasını bekliyor. Diğer bir deyişle, öğeleri sıraya uzun bir süredir kalmak değil.
+* Sıranın katı FIFO sıralama garanti etmez.
+* Sıranın kendi yazma okumaz. Bir öğe sıraya alınan bir işlem içinde ise, aynı işlem içinde dequeuer için görünür olmaz.
+* Dequeues birbirinden yalıtılmış değildir. Öğesi, *A* işlemde kuyruktan çıkarıldı *txnA*rağmen *txnA* öğe kaydedilmiş, değil *A* eşzamanlı bir işlem için görünür olmaz *txnB*.  Varsa *txnA* durdurur, *A* için görünür olacak *txnB* hemen.
+* *TryPeekAsync* davranışı kullanarak uygulanabilir bir *TryDequeueAsync* ve işlem iptal ediliyor. Buna örnek olarak programlama desenleri bölümünde bulunabilir.
+* İşlem olmayan sayısıdır. Kuyrukta, öğelerin sayısı hakkında bir fikir edinmek için kullanılabilir, ancak bir nokta zaman temsil eder ve bağlı dayanıyordu olamaz.
+* İşlem bir performans etkisi sistemde olabilir uzun süre çalışan işlemleri önlemek için etkin durumdayken dequeued öğeleri üzerindeki pahalı işleme gerçekleştirilmemelidir.
 
 ## <a name="code-snippets"></a>Kod parçacıkları
 Bize birkaç kod parçacıkları ve bunların beklenen çıkış bakın. Özel durum işleme, bu bölümde göz ardı edilir.
@@ -66,7 +66,7 @@ using (var txn = this.StateManager.CreateTransaction())
 }
 ```
 
-Bu hello görevi başarıyla tamamlandı varsayar ve, hello sıra değiştirme eşzamanlı işlem vardı. Merhaba kullanıcı hello kuyruk toocontain hello öğeleri siparişleri aşağıdaki hello hiçbirinde bekleyebilirsiniz:
+Görevi başarıyla tamamlandı ve o orada sıranın değiştirme eşzamanlı işlem olduğunu varsayalım. Kullanıcı öğelerinin herhangi birinde aşağıdaki siparişleri bulunduğu için kuyruğa bekleyebilirsiniz:
 
 > 10, 20
 
@@ -95,11 +95,11 @@ using (var txn = this.StateManager.CreateTransaction())
 }
 ```
 
-Merhaba görevleri hello görevleri paralel olarak çalışan ve hello sıra değiştirerek diğer eşzamanlı işlem vardı işleminin başarıyla tamamlandığını varsayalım. Hiçbir çıkarım hello hello kuyruğundaki öğelerin sırasını hakkında yapılabilir. Bu kod parçacığını için hello öğeleri hello 4 hiçbirinde görünebilir! olası sıralamalarını.  Merhaba sıra tookeep hello öğeleri hello özgün (sıradaki) sırada deneyecek, ancak zorlanmış tooreorder olabilir tooconcurrent operations veya hataları nedeniyle bunları.
+Görevleri görevleri paralel olarak çalışan ve sıranın değiştirilmesi diğer eşzamanlı işlem vardı işleminin başarıyla tamamlandığını varsayalım. Hiçbir çıkarım kuyruğundaki öğelerin sırasını hakkında yapılabilir. Bu kod parçacığını için öğeleri 4 hiçbirinde görünebilir! olası sıralamalarını.  Sıranın özgün (sıradaki) sırayla öğeleri tutmak deneyecek, ancak bunları eşzamanlı işlem veya hataları nedeniyle yeniden sıralamak için zorlanabilir.
 
 
 ### <a name="dequeueasync"></a>DequeueAsync
-Burada, beklenen hello çıkışlar tarafından izlenen TryDequeueAsync kullanmak için bazı kod parçacıkları bulunmaktadır. Bu hello kuyruğa zaten hello kuyruğundaki öğelerin aşağıdaki hello doldurulur varsayın:
+Burada, beklenen çıktı tarafından takip TryDequeueAsync kullanmak için bazı kod parçacıkları bulunmaktadır. Sıranın sırasındaki aşağıdaki öğelerin ile önceden doldurulur varsayın:
 > 10, 20, 30, 40, 50, 60
 
 - *Durum 1: Tek Dequeue görevi*
@@ -115,7 +115,7 @@ using (var txn = this.StateManager.CreateTransaction())
 }
 ```
 
-Bu hello görevi başarıyla tamamlandı varsayar ve, hello sıra değiştirme eşzamanlı işlem vardı. Merhaba hello sırasındaki hello öğelerin sırasını hakkında hiçbir çıkarımı yapılan bu yana herhangi üç hello öğelerinin, herhangi bir sırada kuyruktan çıkarıldı. Merhaba sıra tookeep hello öğeleri hello özgün (sıradaki) sırada deneyecek, ancak zorlanmış tooreorder olabilir tooconcurrent operations veya hataları nedeniyle bunları.  
+Görevi başarıyla tamamlandı ve o orada sıranın değiştirme eşzamanlı işlem olduğunu varsayalım. Kuyruğundaki öğelerin sırasını hakkında hiçbir çıkarımı yapılan olduğundan, tüm üç öğe, herhangi bir sırada kuyruktan çıkarıldı. Sıranın özgün (sıradaki) sırayla öğeleri tutmak deneyecek, ancak bunları eşzamanlı işlem veya hataları nedeniyle yeniden sıralamak için zorlanabilir.  
 
 - *Durum 2: Paralel görev Dequeue*
 
@@ -141,13 +141,13 @@ using (var txn = this.StateManager.CreateTransaction())
 }
 ```
 
-Merhaba görevleri hello görevleri paralel olarak çalışan ve hello sıra değiştirerek diğer eşzamanlı işlem vardı işleminin başarıyla tamamlandığını varsayalım. Merhaba hello sırasındaki hello öğelerin sırasını hakkında hiçbir çıkarımı yapılan beri hello listeleri *dequeue1* ve *dequeue2* her herhangi bir sırada iki tüm öğeleri içerir.
+Görevleri görevleri paralel olarak çalışan ve sıranın değiştirilmesi diğer eşzamanlı işlem vardı işleminin başarıyla tamamlandığını varsayalım. Listeler kuyruğundaki öğelerin sırasını hakkında hiçbir çıkarımı yapılan bu yana *dequeue1* ve *dequeue2* her herhangi bir sırada iki tüm öğeleri içerir.
 
-aynı öğe olacak hello *değil* hem listelerde görüntülenir. Bu nedenle, dequeue1 varsa *10*, *30*, dequeue2 olacaktır *20*, *40*.
+Aynı öğe *değil* hem listelerde görüntülenir. Bu nedenle, dequeue1 varsa *10*, *30*, dequeue2 olacaktır *20*, *40*.
 
 - *Durum 3: İşlem iptali ile sıralama Dequeue*
 
-Yürütülen olan bir işlem durduruluyor hello sıra hello başındaki hello öğeleri geri koyar dequeues. içinde hello öğeleri hello sıra hello başındaki geri yerleştirilir hello sipariş garanti edilmez. Bize koddan hello bakın:
+Yürütülen olan bir işlem durduruluyor sıranın head üzerinde öğeleri geri koyar dequeues. Hangi öğelerin sıra head üzerinde geri getirilme sırasını garanti edilmez. Bize aşağıdaki koda bakın:
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
@@ -155,25 +155,25 @@ using (var txn = this.StateManager.CreateTransaction())
     await this.Queue.TryDequeueAsync(txn, cancellationToken);
     await this.Queue.TryDequeueAsync(txn, cancellationToken);
 
-    // Abort hello transaction
+    // Abort the transaction
     await txn.AbortAsync();
 }
 ```
-Merhaba öğeleri sırasının hello kuyruktan çıkarıldı varsayın:
+Öğeleri aşağıdaki sırayla kuyruktan çıkarıldı varsayın:
 > 10, 20
 
-Biz hello hareketi iptal zaman hello öğeleri geri toohello head hello sırasının siparişleri aşağıdaki hello hiçbirinde eklenir:
+Biz hareketi iptal, öğeleri aşağıdaki siparişleri hiçbirinde sırasının head dön eklenir:
 > 10, 20
 
 > 20, 10
 
-Merhaba aynı burada hello işlem değildi başarıyla tüm durumlarda için geçerlidir *kabul edilen*.
+Aynı işlem bulunduğu değil başarıyla tüm durumlarda geçerlidir *kabul edilen*.
 
 ## <a name="programming-patterns"></a>Programlama desenleri
 Bu bölümde, bize en birkaç programlama ara desenleri ReliableConcurrentQueue kullanarak faydalı olabilir.
 
 ### <a name="batch-dequeues"></a>Toplu Dequeues
-A önerilir programlama düzeni hello Tüketici Görev toobatch için kendi bir gerçekleştirmek yerine dequeues aynı anda dequeue. Merhaba kullanıcı her toplu iş veya hello toplu iş boyutu arasındaki toothrottle gecikmelerini seçebilirsiniz. Merhaba aşağıdaki kod parçacığını bu programlama modeli gösterir.  Merhaba işlem kaydedildikten sonra bir hata işleme sırasında toooccur olsaydı, hello işlenmemiş öğeleri işlenmemiş olmadan kaybolacak Bu örnekte, hello işleme yapıldığını unutmayın.  Alternatif olarak, hello işlem tamamlandı ancak bu performansı üzerinde olumsuz bir etkisi olabilir ve zaten işleme hello öğelerinin gerektirir hello hareketin kapsamı içinde işlenir.
+A önerilir programlama düzeni toplu tüketici görevi için bir gerçekleştirmek yerine dequeues aynı anda dequeue. Kullanıcının her toplu iş veya toplu iş boyutu arasındaki gecikmelerini kısıtlama seçebilirsiniz. Aşağıdaki kod parçacığını bu programlama modeli gösterir.  Bu örnekte unutmayın, işlem kaydedildikten sonra bir arıza işlenirken meydana olsaydı, işlenmemiş öğeleri işlenmemiş olmadan kaybolacak işlem yapılmaz.  Alternatif olarak, bu performansı üzerinde olumsuz bir etkisi olabilir ve önceden işlenmiş öğelerinin işleme gerektirir ancak işleme işlemdeki kapsamında yapılabilir.
 
 ```
 int batchSize = 5;
@@ -194,12 +194,12 @@ while(!cancellationToken.IsCancellationRequested)
 
             if (ret.HasValue)
             {
-                // If an item was dequeued, add toohello buffer for processing
+                // If an item was dequeued, add to the buffer for processing
                 processItems.Add(ret.Value);
             }
             else
             {
-                // else break hello for loop
+                // else break the for loop
                 break;
             }
         }
@@ -207,7 +207,7 @@ while(!cancellationToken.IsCancellationRequested)
         await txn.CommitAsync();
     }
 
-    // Process hello dequeues
+    // Process the dequeues
     for (int i = 0; i < processItems.Count; ++i)
     {
         Console.WriteLine("Value : " + processItems[i]);
@@ -219,7 +219,7 @@ while(!cancellationToken.IsCancellationRequested)
 ```
 
 ### <a name="best-effort-notification-based-processing"></a>En yüksek çaba bildirim tabanlı işleme
-Başka bir ilginç programlama modeli hello sayısı API kullanır. Burada, size en yüksek çaba bildirim tabanlı işleme hello sıranın uygulayabilirsiniz. Merhaba sıra sayısı, sıraya alma bir kullanılan toothrottle veya dequeue görev olabilir.  Merhaba işlem dışında Hello işleneceğini beri işleme sırasında bir hata oluşursa, hello önceki örnekte olduğu gibi işlenmemiş öğeleri kayıp olabileceğini unutmayın.
+Başka bir ilginç programlama modeli sayısı API kullanır. Burada, size en yüksek çaba bildirim tabanlı sıra için işlem uygulayabilirsiniz. Sıra sayısı bir sıraya veya bir dequeue görev kısıtlama için kullanılabilir.  İşlem dışında işleneceğini beri işleme sırasında bir hata oluşursa, önceki örnekte olduğu gibi işlenmemiş öğeleri kayıp olabileceğini unutmayın.
 
 ```
 int threshold = 5;
@@ -231,11 +231,11 @@ while(!cancellationToken.IsCancellationRequested)
     {
         cancellationToken.ThrowIfCancellationRequested();
 
-        // If hello queue does not have hello threshold number of items, delay hello task and check again
+        // If the queue does not have the threshold number of items, delay the task and check again
         await Task.Delay(TimeSpan.FromMilliseconds(delayMs), cancellationToken);
     }
 
-    // If there are approximately threshold number of items, try and process hello queue
+    // If there are approximately threshold number of items, try and process the queue
 
     // Buffer for dequeued items
     List<int> processItems = new List<int>();
@@ -250,7 +250,7 @@ while(!cancellationToken.IsCancellationRequested)
 
             if (ret.HasValue)
             {
-                // If an item was dequeued, add toohello buffer for processing
+                // If an item was dequeued, add to the buffer for processing
                 processItems.Add(ret.Value);
             }
         } while (processItems.Count < threshold && ret.HasValue);
@@ -258,7 +258,7 @@ while(!cancellationToken.IsCancellationRequested)
         await txn.CommitAsync();
     }
 
-    // Process hello dequeues
+    // Process the dequeues
     for (int i = 0; i < processItems.Count; ++i)
     {
         Console.WriteLine("Value : " + processItems[i]);
@@ -267,9 +267,9 @@ while(!cancellationToken.IsCancellationRequested)
 ```
 
 ### <a name="best-effort-drain"></a>En yüksek çaba boşaltma
-Merhaba sıra boşaltmayı toohello eşzamanlı yapısını hello veri yapısı garanti edilemez.  Bu olası belirli çağrı tooTryDequeueAsync, etkinliklerini hiçbir kullanıcı işlemleri hello sırasına yürütülen olsa bile, sıraya alınan önceden olan bir öğeyi döndürmeyebilir ve kaydedilmiş olur.  Merhaba sıraya alınan öğe çok garanti*sonunda* bir bant dışı iletişim mekanizması kararlı durum olsa bile bu hello sıraya ulaştı bağımsız bir tüketici bilemezsiniz ancak görünür toodequeue hale tüm üreticileri durdurulur ve yeni bir Sıraya alma işlemlerine izin verilir. Bu nedenle, hello boşaltma en altına uygulandığı gibi yüksek çaba işlemdir.
+Sıranın boşaltmayı veri yapısı eşzamanlı yapısı nedeniyle garanti edilemez.  Bu olası TryDequeueAsync belirli bir çağrı, etkinliklerini sırada hiçbir kullanıcı işlemleri yürütülen olsa bile, sıraya alınan önceden olan bir öğeyi döndürmeyebilir ve kaydedilmiş olur.  Sıraya alınan öğe garanti *sonunda* dequeue için bir bant dışı iletişim mekanizması bağımsız bir tüketici sıranın kararlı durum tüm üreticileri durduruldu ve hiç yeni sıraya alma işlemlerine izin verildiğinden olsa bile ulaştı ancak bilemezsiniz görünür hale gelmiştir. Bu nedenle, boşaltma en altına uygulandığı gibi yüksek çaba işlemdir.
 
-Hello kullanıcı tüm başka üretici ve tüketici görevleri durdurmak ve herhangi bir yürütülen işlemler toocommit veya toodrain hello sırası çalışmadan önce iptal beklemeniz gerekir.  Merhaba kullanıcı hello kuyruğundaki öğelerin sayısı beklenen hello biliyorsa, bunlar tüm öğeleri kuyruktan çıkarıldı sinyalleri bir bildirim ayarlayalım ayarlayabilirsiniz.
+Kullanıcı tüm başka üretici ve tüketici görevleri durdurmak ve tamamlanmaya veya iptal, sıranın boşaltmak denemeden önce yürütülen işlemler için beklemeniz gerekir.  Kullanıcı beklenen kuyruğundaki öğelerin sayısı biliyorsa, bunlar tüm öğeleri kuyruktan çıkarıldı sinyalleri bir bildirim ayarlayalım ayarlayabilirsiniz.
 
 ```
 int numItemsDequeued;
@@ -289,7 +289,7 @@ do
 
             if(ret.HasValue)
             {
-                // Buffer hello dequeues
+                // Buffer the dequeues
                 processItems.Add(ret.Value);
             }
         } while (ret.HasValue && processItems.Count < batchSize);
@@ -297,7 +297,7 @@ do
         await txn.CommitAsync();
     }
 
-    // Process hello dequeues
+    // Process the dequeues
     for (int i = 0; i < processItems.Count; ++i)
     {
         Console.WriteLine("Value : " + processItems[i]);
@@ -306,7 +306,7 @@ do
 ```
 
 ### <a name="peek"></a>Göz At
-ReliableConcurrentQueue hello sağlamaz *TryPeekAsync* API. Kullanıcıların alabilirsiniz hello gözlem anlamsal kullanarak bir *TryDequeueAsync* ve hello işlemi iptal ediliyor. Bu örnekte, dequeues yalnızca hello öğenin değeri büyükse işlenen *10*.
+ReliableConcurrentQueue sağlamaz *TryPeekAsync* API. Kullanıcıların alabilirsiniz gözlem anlamsal kullanarak bir *TryDequeueAsync* ve işlem iptal ediliyor. Bu örnekte, dequeues yalnızca öğenin değeri büyükse işlenen *10*.
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
@@ -318,7 +318,7 @@ using (var txn = this.StateManager.CreateTransaction())
     {
         if (ret.Value > 10)
         {
-            // Process hello item
+            // Process the item
             Console.WriteLine("Value : " + ret.Value);
             valueProcessed = true;
         }
@@ -342,5 +342,5 @@ using (var txn = this.StateManager.CreateTransaction())
 * [Güvenilir hizmetler yedekleme ve geri yükleme (olağanüstü durum kurtarma)](service-fabric-reliable-services-backup-restore.md)
 * [Güvenilir durum Yöneticisi yapılandırması](service-fabric-reliable-services-configuration.md)
 * [Service Fabric Web API Hizmetleri'ni kullanmaya başlama](service-fabric-reliable-services-communication-webapi.md)
-* [Gelişmiş kullanımını hello güvenilir Hizmetleri programlama modeli](service-fabric-reliable-services-advanced-usage.md)
+* [Gelişmiş kullanımını programlama modeli güvenilir hizmetler](service-fabric-reliable-services-advanced-usage.md)
 * [Güvenilir koleksiyonlar için Geliştirici Başvurusu](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)

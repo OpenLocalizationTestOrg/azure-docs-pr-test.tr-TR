@@ -1,5 +1,5 @@
 ---
-title: "SQL veri ambarı aaaStored yordamlarda | Microsoft Docs"
+title: "Saklı yordamlar SQL veri ambarı'nda | Microsoft Docs"
 description: "Saklı yordamlar çözümleri geliştirmek için Azure SQL Data Warehouse'da uygulamak için ipuçları."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,37 +15,37 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.openlocfilehash: 416252dd3dea95c66aa5e886860b933b22578002
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e42d80f0ca35f3fbb67389c66d072bc40d8a8d2c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="stored-procedures-in-sql-data-warehouse"></a>Saklı yordamlar SQL veri ambarı
-SQL veri ambarı SQL Server'da bulunan hello Transact-SQL özelliklerini çoğunu destekler. Daha da önemlisi biz tooleverage toomaximize hello çözümünüzün performansını istediğiniz belirli özellikleri genişletme vardır.
+SQL veri ambarı SQL Server'da bulunan Transact-SQL özelliklerinin çoğunu destekler. Daha da önemlisi ölçek genişletme biz çözümünüzün performansını en üst düzeye çıkarmak için yararlanmak isteyen belirli özellikler vardır.
 
-Ancak, toomaintain hello ölçek ve var. SQL veri ambarı performansını ayrıca bazı özellikler ve davranış farklılıkları ve diğerleri desteklenmeyen işlev değildir.
+Ancak, korumak için ölçek ve var. SQL veri ambarı performansını ayrıca bazı özellikler ve davranış farklılıkları ve diğerleri desteklenmeyen işlevsellik değildir.
 
-Bu makalede nasıl tooimplement saklı yordamlar SQL Data warehouse'da açıklanmaktadır.
+Bu makalede, SQL Data Warehouse içinde saklı yordamlar uygulamak açıklanmaktadır.
 
 ## <a name="introducing-stored-procedures"></a>Saklı yordamlar Tanıtımı
-Saklı yordamlar SQL kodunuzu Kapsüllenen harika bir yöntemdir; Bu, hello veri ambarında Kapat tooyour veri depolama. Merhaba kod yönetilebilir birimler halinde kapsülleyerek saklı yordamlar çözümleri modülarize etmek geliştiricilerin yardımcı; kod büyük re-usability kolaylaştırmanın. Her bir saklı yordam parametreleri toomake kabul edebilir bunları bile daha esnektir.
+Saklı yordamlar SQL kodunuzu Kapsüllenen harika bir yöntemdir; verilerinizi veri ambarındaki yakın depolama. Kod yönetilebilir birimler halinde kapsülleyerek saklı yordamlar çözümleri modülarize etmek geliştiricilerin yardımcı; kod büyük re-usability kolaylaştırmanın. Her bir saklı yordam, ayrıca bunları daha esnek hale getirmek için parametre kabul edebilir.
 
-SQL veri ambarı Basitleştirilmiş ve kolaylaştırılmış saklı yordam uygulamasını sağlar. Bu saklı yordam hello sunucusudur hello büyük karşılaştırıldığında fark tooSQL önceden derlenmiş kod değil. Veri ambarları genellikle hello derleme süresi ile daha az endişe duyuyoruz. Merhaba saklı yordamı kodu doğru büyük veri birimlerine karşı çalışırken en iyi duruma getirilmiş emin daha önemlidir. Merhaba toosave saat, dakika ve saniyeleri değil milisaniye hedeftir. Bu nedenle SQL mantığı için kapsayıcı olarak daha yararlı toothink saklı yordamların orantılıdır.     
+SQL veri ambarı Basitleştirilmiş ve kolaylaştırılmış saklı yordam uygulamasını sağlar. SQL Server'a karşılaştırma büyük fark saklı yordamı önceden derlenmiş kod olmamasıdır. Veri ambarları genellikle derleme süresi ile daha az endişe duyuyoruz. Saklı yordam kodu doğru büyük veri birimlerine karşı çalışırken en iyi duruma getirilmiş emin daha önemlidir. Saat, dakika ve saniyeleri değil milisaniye kaydetmek için belirtilir. Bu nedenle saklı yordamlar SQL mantığı için kapsayıcı olarak düşünmek daha yardımcı olur.     
 
-SQL veri ambarı yürütüldüğünde, saklı yordam hello SQL deyimleri ayrıştırılır, çevrilen ve çalışma zamanında en iyi duruma getirilmiş. Bu işlem sırasında her deyim dağıtılmış sorgular dönüştürülür. Merhaba hello veri karşı gerçekleştirilmeden SQL kodu gönderildi farklı toohello sorgudur.
+SQL Data Warehouse, saklı yordam yürüttüğünde SQL deyimlerini, çevrilen ve çalışma zamanında en iyi duruma getirilmiş ayrıştırılır. Bu işlem sırasında her deyim dağıtılmış sorgular dönüştürülür. Veri karşı gerçekleştirilmeden SQL kodunu gönderilen sorgu farklıdır.
 
 ## <a name="nesting-stored-procedures"></a>İç içe geçme saklı yordamlar
-Ne zaman saklı yordamlar diğer saklı yordamlar çağırabilir veya hello iç saklı yordam veya kod çağırma toobe iç içe geçmiş denirse ardından dinamik sql Yürüt.
+Ne zaman saklı yordamlar diğer saklı yordamlar çağırabilir veya iç saklı yordam veya kod çağırma iç içe söylenir sonra dinamik sql Yürüt.
 
-SQL veri ambarı en fazla 8 iç içe geçme düzeyi destekler. Biraz farklı tooSQL sunucu budur. SQL Server'da Hello iç içe geçirme düzeyi 32'dir.
+SQL veri ambarı en fazla 8 iç içe geçme düzeyi destekler. Bu SQL Server için biraz farklıdır. SQL Server iç içe geçirme düzeyi 32'dir.
 
-Merhaba üst düzey saklı yordam çağrısı toonest düzey 1 karşılık gelir.
+Üst düzey saklı yordam çağrısı düzey 1 iç içe karşılık gelir.
 
 ```sql
 EXEC prc_nesting
 ```
-Merhaba depolanan yordamı de başka bir yürütme çağrı yapar sonra bu hello iç içe geçirme düzeyi too2 artırır
+Ardından saklı yordamı da başka bir yürütme çağrı yaparsa bu 2 iç içe geçirme düzeyi artırır
 
 ```sql
 CREATE PROCEDURE prc_nesting
@@ -54,7 +54,7 @@ EXEC prc_nesting_2  -- This call is nest level 2
 GO
 EXEC prc_nesting
 ```
-Ardından Hello ikinci yordam sonra bazı dinamik sql çalıştırırsa bu hello iç içe geçirme düzeyi too3 artırır
+Ardından ikinci yordam sonra bazı dinamik sql çalıştırırsa bu iç içe geçirme düzeyi 3 artırır
 
 ```sql
 CREATE PROCEDURE prc_nesting_2
@@ -64,12 +64,12 @@ GO
 EXEC prc_nesting
 ```
 
-Not SQL Data Warehouse desteklememektedir@NESTLEVEL. İç içe geçirme düzeyi izini tookeep kendiniz gerekir. Merhaba 8 iç içe geçirme düzeyi sınırı karşılaşır ancak, bunu yaparsanız kodunuzu toore iş gerekir ve ", böylece bu sınırı içinde sığar düzleştirmek" olası değil.
+Not SQL Data Warehouse desteklememektedir@NESTLEVEL. Bir iç içe geçirme düzeyi kendiniz izlenmesi gerekir. 8 iç içe geçirme düzeyi sınırı karşılaşır ancak bunu yaparsanız bu sınırı içinde uyduğunu böylece kodunuzu yeniden çalışmaya ve "düzleştirmek" gerekir olası değil.
 
 ## <a name="insertexecute"></a>EKLE... YÜRÜTME
-SQL veri ambarı tooconsume hello sonuç kümesi, INSERT deyimi olan bir saklı yordam izin vermez. Ancak, kullanabileceğiniz alternatif bir yaklaşım yoktur.
+SQL veri ambarı INSERT deyimi olan bir saklı yordam sonuç kümesini kullanmasına izin vermez. Ancak, kullanabileceğiniz alternatif bir yaklaşım yoktur.
 
-Lütfen aşağıdaki makaleye bakın toohello başvurun [geçici tablolara] konusunda bir örnek toodo bu.
+Lütfen üzerinde aşağıdaki makaleye bakın [geçici tablolara] bunun nasıl yapılacağı hakkında bir örnek.
 
 ## <a name="limitations"></a>Sınırlamalar
 SQL veri ambarı'nda uygulanmadı Transact-SQL saklı yordamları bazı yönleri vardır.

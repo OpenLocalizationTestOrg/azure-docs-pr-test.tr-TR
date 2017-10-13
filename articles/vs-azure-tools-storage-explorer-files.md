@@ -1,6 +1,6 @@
 ---
-title: "Depolama Gezgini (Önizleme) Azure File storage ile aaaUsing | Microsoft Docs"
-description: "Bilgi nasıl toouse Depolama Gezgini (Önizleme) toowork dosya paylaşımları ve dosyaları nasıl öğrenin."
+title: "Depolama Gezgini’ni (Önizleme) Azure Dosya Depolama ile kullanma | Microsoft Belgeleri"
+description: "Depolama Gezgini’ni (Önizleme) dosya paylaşımları ve dosyalarla çalışmak üzere kullanma hakkında bilgi alın."
 services: storage
 documentationcenter: na
 author: cawaMS
@@ -14,129 +14,129 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 98eb3cde711ae3dbfdb6ffaec23ae24f822370e9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 964691758254531cb92a5b1cbe055ef61d25dba8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-storage-explorer-preview-with-azure-file-storage"></a>Depolama Gezgini’ni (Önizleme) Azure Dosya Depolama ile kullanma
 
-Depolama dosya sunan bir hizmet hello kullanılarak bulut paylaşır azure dosyası hello standart sunucu ileti bloğu (SMB) protokolü. SMB 2.1 ve SMB 3.0 desteklenir. Azure File storage, dosya paylaşımları tooAzure üzerinde maliyetli yeniden yazdırmaya gerek duymadan ve hızla kullanan eski uygulamalar geçirebilirsiniz. Dosya depolama tooexpose verileri kullanabileceğiniz genel olarak toohello world veya toostore uygulama verilerini özel olarak. Bu makalede, nasıl toouse Depolama Gezgini (Önizleme) toowork dosya paylaşımları ve dosyaları öğreneceksiniz.
+Azure Dosya Depolama, standart Sunucu İleti Blogu (SMB) Protokolü kullanarak bulutta dosya paylaşımı sunan bir hizmettir. SMB 2.1 ve SMB 3.0 desteklenir. Azure File Storage, Azure’a dosya paylaşımı kullanan eski uygulamaları maliyetli yeniden yazdırmaya ihtiyaç duymadan ve hızla taşıyabilmenizi sağlar. Verileri genel olarak herkese açık kullanıma sunmak veya uygulama verilerini özel olarak depolamak için Dosya Depolama’yı kullanabilirsiniz. Bu makalede, dosya paylaşımları ve dosyalarla çalışmak üzere Depolama Gezgini’ni (Önizleme) nasıl kullanacağınızı öğreneceksiniz.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu makaledeki toocomplete hello adımları, hello aşağıdakiler gerekir:
+Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 
 - [Depolama Gezgini (önizleme) indirip yükleme](http://www.storageexplorer.com/)
 
-- [Tooa Azure depolama hesabı veya hizmetine bağlanmak](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
+- [Bir Azure depolama hesabı veya hizmetine bağlanma](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-file-share"></a>Dosya Paylaşımı oluşturma
 
 Tüm dosyalar, basitçe dosyaların mantıksal bir gruplandırması olan dosya paylaşımında bulunmalıdır. Bir hesapta sınırsız sayıda dosya paylaşımı olabilir ve her paylaşım sınırsız sayıda dosya depolayabilir.
 
-Aşağıdaki adımları hello nasıl toocreate bir dosya paylaşımı Depolama Gezgini (Önizleme) içinde gösterilmektedir.
+Aşağıdaki adımlar, Depolama Gezgini (Önizleme) içinde bir dosya paylaşımı oluşturma işlemini göstermektedir.
 
 1. Depolama Gezgini’ni (Önizleme) açın.
 
-2. Merhaba sol bölmede toocreate hello dosya paylaşımı içinde istediğiniz hello depolama hesabı genişletin
+2. Sol bölmede, Dosya Paylaşımını oluşturmak istediğiniz depolama hesabını genişletin
 
-3. Sağ **dosya paylaşımları**ve - hello bağlam menüsünden - seçin **dosya paylaşımı oluştur**.
+3. **Dosya Paylaşımları**’na sağ tıklayın ve bağlam menüsünden **Dosya Paylaşımı Oluştur**’u seçin.
 
     ![Dosya Paylaşımı Oluşturma](media/vs-azure-tools-storage-explorer-files/image1.png)
 
-4. Bir metin kutusu altında hello görünür **dosya paylaşımları** klasör. Dosya Paylaşımı için Hello adı girin. Merhaba bkz [adlandırma kuralları paylaşmak](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container) bölümünde bir liste için kurallar ve dosya paylaşımları adlandırma kısıtlamaları.
+4. **Dosya Paylaşımları** klasörünün altında bir metin kutusu görünür. Dosya paylaşımınızın adını girin. Dosya paylaşımlarını adlandırmayla ilgili kural ve kısıtlamaların listesi için [Paylaşım adlandırma kuralları](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container) bölümüne bakın.
 
-    ![Adlandırma hello paylaşımı](media/vs-azure-tools-storage-explorer-files/image2.png)
+    ![Paylaşımı adlandırma](media/vs-azure-tools-storage-explorer-files/image2.png)
 
-5. Tuşuna **Enter** Bitti'yi toocreate Merhaba, dosya paylaşımı veya **Esc** toocancel. Merhaba dosya paylaşımı başarıyla oluşturulduktan sonra uygulamanın altında hello görüntülenecek **dosya paylaşımları** klasörü hello için seçtiğiniz depolama hesabı.
+5. Dosya paylaşımını oluşturma işlemi tamamlandığında **Enter** tuşuna veya iptal etmek için **Esc** tuşuna basın. Dosya paylaşımı başarıyla oluşturulduktan sonra, seçili depolama hesabının **Dosya Paylaşımları** klasörü altında gösterilir.
 
-    ![Merhaba yeni paylaşım](media/vs-azure-tools-storage-explorer-files/image3.png)
+    ![Yeni paylaşım](media/vs-azure-tools-storage-explorer-files/image3.png)
 
 ## <a name="view-a-file-shares-contents"></a>Dosya paylaşımının içeriğini görüntüleme
 
 Dosya paylaşımları, dosya ve klasörler içerir (klasörler de dosya içerebilir).
 
-Merhaba aşağıdaki adımları tooview hello bir dosyanın içeriğini Depolama Gezgini (Önizleme) içinde nasıl paylaşmak gösterilmektedir: +
+Aşağıdaki adımlar, Depolama Gezgini’ndeki (Önizleme) bir dosya paylaşımının içeriğini görüntüleme işlemini göstermektedir:+
 
 1. Depolama Gezgini’ni (Önizleme) açın.
 
-2. Merhaba sol bölmede, tooview istediğiniz hello dosya paylaşımı içeren hello depolama hesabı'nı genişletin.
+2. Sol bölmede, görüntülemek istediğiniz dosya paylaşımını içeren depolama hesabını genişletin.
 
-3. Merhaba depolama hesabının genişletin **dosya paylaşımları**.
+3. Depolama hesabının **Dosya Paylaşımları**’nı genişletin.
 
-4. Sağ hello dosya paylaşımı, tooview istiyor ve - hello bağlam menüsünden - seçin **açık**. Ayrıca tooview istediğiniz hello dosya paylaşımı çift tıklatabilirsiniz.
+4. Görüntülemek istediğiniz dosya paylaşımına sağ tıklayın ve bağlam menüsünden **Aç**’ı seçin. Ayrıca, görüntülemek istediğiniz dosya paylaşımına çift tıklayabilirsiniz.
 
     ![Paylaşımı açma](media/vs-azure-tools-storage-explorer-files/image4.png)
 
-5. Merhaba ana bölmede hello dosya paylaşımının içeriğini görüntüler.
+5. Ana bölmede dosya paylaşımının içeriğini gösterilir.
     
-    ![paylaşımın içeriği hello](media/vs-azure-tools-storage-explorer-files/image5.png)
+    ![Paylaşımın içeriği](media/vs-azure-tools-storage-explorer-files/image5.png)
 
 ## <a name="delete-a-file-share"></a>Dosya paylaşımını silme
 
-Dosya paylaşımları kolayca oluşturulabilir ve gerektiğinde silinebilir. (toosee toodelete tek tek dosyaların başvurmak nasıl toohello bölüm [bir dosya paylaşımında dosyalar yönetme](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).)
+Dosya paylaşımları kolayca oluşturulabilir ve gerektiğinde silinebilir. (Dosyaları tek tek silmek için [Bir dosya paylaşımındaki dosyaları yönetme](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container) bölümüne bakın.)
 
-Aşağıdaki adımları hello nasıl toodelete bir dosya paylaşımı Depolama Gezgini (Önizleme) içinde gösterilmiştir:
+Aşağıdaki adımlar, Depolama Gezgini (Önizleme) içinde bir dosya paylaşımını silme işlemini göstermektedir:
 
 1. Depolama Gezgini’ni (Önizleme) açın.
 
-2. Merhaba sol bölmede, tooview istediğiniz hello dosya paylaşımı içeren hello depolama hesabı'nı genişletin.
+2. Sol bölmede, görüntülemek istediğiniz dosya paylaşımını içeren depolama hesabını genişletin.
 
-3. Merhaba depolama hesabının genişletin **dosya paylaşımları**.
+3. Depolama hesabının **Dosya Paylaşımları**’nı genişletin.
 
-4. Sağ hello dosya paylaşımı, toodelete istiyor ve - hello bağlam menüsünden - seçin **silmek**. Tuşlarına da basabilirsiniz **silmek** toodelete hello şu anda seçili dosya paylaşımı.
+4. Silmek istediğiniz dosya paylaşımına sağ tıklayın ve bağlam menüsünden **Sil**’i seçin. Ayrıca **Sil** tuşuna basarak o anda seçili dosya paylaşımını silebilirsiniz.
 
     ![Sil](media/vs-azure-tools-storage-explorer-files/image6.png)
 
-5. Seçin **Evet** toohello onay iletişim kutusu.
+5. Onay iletişim kutusunda **Evet**’i seçin.
     
     ![Onay iletişim kutusu](media/vs-azure-tools-storage-explorer-files/image7.png)
 
 ## <a name="copy-a-file-share"></a>Dosya paylaşımını kopyalama
 
-Depolama Gezgini (Önizleme) toocopy bir dosya paylaşımı toohello Pano sağlar ve bu dosya paylaşımına başka bir depolama hesabı yapıştırın. (toosee toocopy tek tek dosyaların başvurmak nasıl toohello bölüm [bir dosya paylaşımında dosyalar yönetme](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container).)
+Depolama Gezgini’ni (Önizleme) kullanarak bir dosya paylaşımını panoya kopyalayabilir, ardından bu dosya paylaşımını başka bir depolama hesabına yapıştırabilirsiniz. (Dosyaları tek tek kopyalamak için [Bir dosya paylaşımındaki dosyaları yönetme](https://docs.microsoft.com//azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container) bölümüne bakın.)
 
-Aşağıdaki adımları hello nasıl toocopy bir dosya paylaşımı bir depolama hesabı tooanother gösterilmektedir.
+Aşağıdaki adımlar, dosya paylaşımını bir depolama hesabından diğerine kopyalama işlemini göstermektedir.
 
 1. Depolama Gezgini’ni (Önizleme) açın.
 
-2. Merhaba sol bölmede, toocopy istediğiniz hello dosya paylaşımı içeren hello depolama hesabı'nı genişletin.
+2. Sol bölmede, kopyalamak istediğiniz dosya paylaşımını içeren depolama hesabını genişletin.
 
-3. Merhaba depolama hesabının genişletin **dosya paylaşımları**.
+3. Depolama hesabının **Dosya Paylaşımları**’nı genişletin.
 
-4. Sağ hello dosya paylaşımı, toocopy istiyor ve - hello bağlam menüsünden - seçin **kopyalama dosya paylaşımı**.
+4. Kopyalamak istediğiniz dosya paylaşımına sağ tıklayın ve bağlam menüsünden **Dosya Paylaşımını Kopyala**’yı seçin.
 
     ![Dosya Paylaşımını Kopyala](media/vs-azure-tools-storage-explorer-files/image8.png)
 
-5. Hangi içine, toopaste hello dosya paylaşmak istediğiniz - hello bağlam menüsünden - seçin hello istenen "hedef" depolama hesabını sağ tıklatıp **Yapıştır dosya paylaşımı**.
+5. Dosya paylaşımını yapıştırmak istediğiniz "hedef" depolama hesabına sağ tıklayın ve bağlam menüsünden **Dosya Paylaşımını Yapıştır**’ı seçin.
 
     ![Dosya Paylaşımını Yapıştır](media/vs-azure-tools-storage-explorer-files/image9.png)
 
-## <a name="get-hello-sas-for-a-file-share"></a>Bir dosya paylaşımı için Hello SAS alma
+## <a name="get-the-sas-for-a-file-share"></a>Dosya paylaşımı için SAS alma
 
-A [paylaşılan erişim imzası (SAS)](https://docs.microsoft.com//azure/storage/storage-dotnet-shared-access-signature-part-1) depolama hesabınızda atanmış erişim tooresources sağlar. Başka bir deyişle, bir istemci depolama hesabınızdaki izinleri tooobjects süre ve belirtilen bir izin kümesi ile belirli bir süre için hesap erişim tuşlarınızı tooshare gerek kalmadan sınırlı verebilirsiniz.
+[Paylaşılan erişim imzası (SAS)](https://docs.microsoft.com//azure/storage/storage-dotnet-shared-access-signature-part-1), depolama hesabınızdaki kaynaklara temsilci erişimi sağlar. Başka bir deyişle, hesap erişim anahtarlarınızı paylaşmak zorunda kalmadan, depolama hesabınızdaki nesnelere belirli bir süre için ve belirli bir izin kümesiyle sınırlı istemci izinleri verebilirsiniz.
 
-Merhaba aşağıdaki adımları göstermek toocreate bir dosya için bir SAS nasıl paylaşmak: +
+Aşağıdaki adımlar, bir dosya paylaşımı için SAS oluşturma işlemini göstermektedir:+
 
 1. Depolama Gezgini’ni (Önizleme) açın.
 
-2. Hello sol bölmesinde, SAS tooget öğrenmek isterseniz hello dosya paylaşımı içeren hello depolama hesabı'nı genişletin.
+2. Sol bölmede, SAS almak istediğiniz dosya paylaşımını içeren depolama hesabını genişletin.
 
-3. Merhaba depolama hesabının genişletin **dosya paylaşımları**.
+3. Depolama hesabının **Dosya Paylaşımları**’nı genişletin.
 
-4. Merhaba istenen dosya paylaşımı sağ tıklatın ve - hello bağlam menüsünden - seçin **paylaşılan erişim imzası Al**.
+4. İstediğiniz dosya paylaşımına sağ tıklayın ve bağlam menüsünden **Paylaşılan Erişim İmzası Al**’ı seçin.
 
     ![Paylaşılan Erişim İmzası Al](media/vs-azure-tools-storage-explorer-files/image10.png)
 
-5. Merhaba, **paylaşılan erişim imzası** iletişim kutusunda, hello İlkesi, başlangıç ve sona erme tarihleri, saat dilimini belirtin ve erişim düzeyleri hello kaynak için istediğiniz.
+5. **Paylaşılan Erişim İmzası** iletişim kutusunda ilkeyi, başlangıç ve sona erme tarihlerini, saat dilimini ve kaynak için istediğiniz erişim düzeylerini belirtin.
 
     ![SAS iletişim kutusu](media/vs-azure-tools-storage-explorer-files/image11.png)
 
-6. Merhaba SAS seçeneklerini belirtme tamamladığınızda seçin **oluşturma**.
+6. SAS seçeneklerini belirtmeyi tamamladığınızda **Oluştur**’u seçin.
 
-7. İkinci bir **paylaşılan erişim imzası** iletişim listeleri hello hello URL ile birlikte dosya paylaşımı ve tooaccess kullanabileceğiniz QueryStrings hello depolama kaynağı sonra görüntülenir. Seçin **kopya** toocopy toohello Pano istediğiniz sonraki toohello URL.
+7. Bu durumda, depolama kaynağına erişmek için kullanabileceğiniz URL ve QueryStrings ile birlikte dosya paylaşımını listeleyen ikinci bir **Paylaşılan Erişim İmzası** iletişim kutusu görüntülenir. Panoya kopyalamak istediğiniz URL’nin yanındaki **Kopyala** öğesini seçin.
     
     ![İkinci SAS iletişim kutusu](media/vs-azure-tools-storage-explorer-files/image12.png)
 
@@ -144,31 +144,31 @@ Merhaba aşağıdaki adımları göstermek toocreate bir dosya için bir SAS nas
 
 ## <a name="manage-access-policies-for-a-file-share"></a>Bir dosya paylaşımı için Erişim İlkelerini yönetme
 
-Merhaba aşağıdaki adımları göstermek nasıl toomanage (ekleme ve kaldırma) erişim ilkeleri bir dosya paylaşımı için: +. Merhaba erişim ilkeleri, SAS üzerinden kişiler tanımlı bir süre boyunca tooaccess hello depolama dosya kaynağı kullanabilir URL'ler oluşturmak için kullanılır.
+Aşağıdaki adımlar, bir dosya paylaşımı için erişim ilkelerini yönetme (ekleme ve kaldırma) işlemlerini gösterir:+. Erişim İlkeleri, kullanıcıların tanımlı bir süre boyunca Depolama Dosya kaynaklarına erişmek için kullanabileceği SAS URL’lerini oluşturmak için kullanılır.
 
 1. Depolama Gezgini’ni (Önizleme) açın.
 
-2. Hello sol bölmede, erişim ilkeleri toomanage istediğiniz hello dosya paylaşımı içeren hello depolama hesabı'nı genişletin.
+2. Sol bölmede, erişim ilkelerini yönetmek istediğiniz dosya paylaşımını içeren depolama hesabını genişletin.
 
-3. Merhaba depolama hesabının genişletin **dosya paylaşımları**.
+3. Depolama hesabının **Dosya Paylaşımları**’nı genişletin.
 
-4. Merhaba istenen dosya paylaşımı seçin ve - hello bağlam menüsünden - seçin **erişim ilkelerini Yönet**.
+4. İstediğiniz dosya paylaşımını ve bağlam menüsünden **Erişim İlkelerini Yönet**’i seçin.
 
     ![Erişim ilkelerini yönet bağlam menüsü](media/vs-azure-tools-storage-explorer-files/image13.png)
 
-5. Merhaba **erişim ilkeleri** iletişim hello seçili dosya paylaşımı için oluşturulmuş tüm erişim ilkeleri listeler.
+5. **Erişim İlkeleri** iletişim kutusunda, seçili dosya paylaşımı için daha önce oluşturulmuş erişim ilkeleri listelenir.
     
     ![Erişim İlkeleri](media/vs-azure-tools-storage-explorer-files/image14.png)
 
-6. Merhaba erişim ilkesi yönetim görevi bağlı olarak aşağıdaki adımları izleyin:
+6. Erişim ilkesi yönetim görevine bağlı olarak aşağıdaki adımları izleyin:
     
-    - **Yeni bir erişim ilkesi ekleme** - **Ekle**’yi seçin. Oluşturduktan sonra hello **erişim ilkeleri** iletişim yeni eklenen hello görüntüler erişim ilkesi (varsayılan ayarlarla).
+    - **Yeni bir erişim ilkesi ekleme** - **Ekle**’yi seçin. Oluşturulduktan sonra, **Erişim İlkeleri** iletişim kutusunda yeni eklenen erişim ilkesi (varsayılan ayarlarla birlikte) gösterilir.
 
     - **Erişim ilkesini düzenleme** - İstediğiniz düzenlemeleri yapıp **Kaydet**’i seçin.
 
-    - **Erişim ilkesini kaldırmak** - seçin **kaldırmak** tooremove istediğiniz sonraki toohello erişim ilkesi.
+    - **Erişim ilkesini kaldırma** - Kaldırmak istediğiniz erişim ilkesinin yanındaki **Kaldır** öğesini seçin.
 
-7. Merhaba daha önce oluşturduğunuz erişim ilkesi kullanarak yeni bir SAS URL'si oluşturun:
+7. Daha önce oluşturduğunuz Erişim İlkesi'ni kullanarak yeni bir SAS URL'si oluşturun:
     
     ![SAS alma](media/vs-azure-tools-storage-explorer-files/image15.png)
     
@@ -176,88 +176,88 @@ Merhaba aşağıdaki adımları göstermek nasıl toomanage (ekleme ve kaldırma
 
 ## <a name="managing-files-in-a-file-share"></a>Bir dosya paylaşımındaki dosyaları yönetme
 
-Bir dosya paylaşımı oluşturduktan sonra bir dosya toothat dosya paylaşımı karşıya yükleme, bir dosya tooyour yerel bilgisayarda indirin, yerel bilgisayarınıza ve daha pek çok dosya açma.
+Bir dosya paylaşımı oluşturduktan sonra, bu dosya paylaşımına dosya yükleyebilir, bir dosyayı yerel bilgisayarınıza indirebilir, yerel bilgisayarınızda bir dosyayı açabilir ve daha fazlasını yapabilirsiniz.
 
-Merhaba aşağıdaki adımları nasıl toomanage hello dosyaları (ve klasörler) içinde bir dosya paylaşımı gösterilmektedir.
+Aşağıdaki adımlar bir dosya paylaşımındaki dosyaları (ve klasörleri) yönetme işlemini göstermektedir.
 
 1.  Depolama Gezgini’ni (Önizleme) açın.
 
-2.  Merhaba sol bölmede, toomanage istediğiniz hello dosya paylaşımı içeren hello depolama hesabı'nı genişletin.
+2.  Sol bölmede, yönetmek istediğiniz dosya paylaşımını içeren depolama hesabını genişletin.
 
-3.  Merhaba depolama hesabının genişletin **dosya paylaşımları**.
+3.  Depolama hesabının **Dosya Paylaşımları**’nı genişletin.
 
-4.  Merhaba dosya paylaşımı tooview istediğiniz çift tıklayın.
+4.  Görüntülemek istediğiniz dosya paylaşımına çift tıklayın.
 
-5.  Merhaba ana bölmede hello dosya paylaşımının içeriğini görüntüler.
+5.  Ana bölmede dosya paylaşımının içeriğini gösterilir.
 
-    ![paylaşımın içeriği hello](media/vs-azure-tools-storage-explorer-files/image17.png)
+    ![Paylaşımın içeriği](media/vs-azure-tools-storage-explorer-files/image17.png)
 
-6.  Merhaba ana bölmede hello dosya paylaşımının içeriğini görüntüler.
+6.  Ana bölmede dosya paylaşımının içeriğini gösterilir.
 
-7.  Tooperform istediğiniz Hello göreve bağlı olarak aşağıdaki adımları izleyin:
+7.  Gerçekleştirmek istediğiniz göreve bağlı olarak aşağıdaki adımları izleyin:
 
-    - **Dosyaları tooa dosya paylaşımı karşıya yükle**
+    - **Bir dosya paylaşımına dosya yükleme**
 
-        a.  Merhaba ana bölmede ait araç çubuğunda seçin **karşıya**ve ardından **dosya yükleme** hello açılan menüsünden.
+        a.  Ana bölmedeki araç çubuğunda **Karşıya Yükle**’yi ve ardından açılır listedeki **Dosyaları Karşıya Yükle**’yi seçin.
 
         ![Dosyaları karşıya yükleme](media/vs-azure-tools-storage-explorer-files/image18.png)
         
-        b. Merhaba, **dosyaları karşıya yükleme** iletişim, select hello üç nokta (**...** ) düğmesini hello hello sağ tarafındaki **dosyaları** metin kutusu tooselect hello dosyaları tooupload istiyor.
+        b. **Dosyaları Karşıya Yükle** iletişim kutusunda, **Dosyalar** metin kutusunun sağ tarafındaki üç noktayı (**…**) seçerek karşıya yüklemek istediğiniz dosyaları belirleyin.
 
         ![Dosya ekleme](media/vs-azure-tools-storage-explorer-files/image19.png)
 
         c. **Karşıya Yükle**’yi seçin.
 
-    - **Bir klasör tooa dosya paylaşımı karşıya yükle**
+    - **Bir dosya paylaşımına klasör yükleme**
         
-        a. Merhaba ana bölmede ait araç çubuğunda seçin **karşıya**ve ardından **karşıya yükleme klasörü** hello açılan menüsünden.
+        a. Ana bölmedeki araç çubuğunda **Karşıya Yükle**’yi ve ardından açılır listedeki **Klasörü Karşıya Yükle**’yi seçin.
 
         ![Klasörü karşıya yükle menüsü](media/vs-azure-tools-storage-explorer-files/image20.png)
 
-        b. Merhaba, **karşıya yükleme klasörü** iletişim, select hello üç nokta (**...** ) düğmesini hello hello sağ tarafındaki **klasörü** içeriği tooupload istediğiniz metin kutusu tooselect hello klasörü.
+        b. **Klasörü karşıya yükle** iletişim kutusunda, **Klasör** metin kutusunun sağ tarafındaki üç noktayı (**…**) seçerek içeriklerini karşıya yüklemek istediğiniz klasörü belirleyin.
 
-        c. İsteğe bağlı olarak, hangi hello seçilen klasörün içeriğini karşıya yükleneceği bir hedef klasör belirtin. Merhaba hedef klasörü yoksa, oluşturulur.
+        c. İsteğe bağlı olarak, seçili klasörün içeriklerinin yükleneceği bir hedef klasör belirtin. Hedef klasör mevcut değilse, oluşturulur.
 
         d. **Karşıya Yükle**’yi seçin.
 
-    - **Bir dosya tooyour yerel bilgisayarda indirin**
+    - **Bir dosyayı yerel bilgisayarınıza indirme**
         
-        a. Toodownload istediğiniz hello dosyasını seçin.
+        a. İndirmek istediğiniz dosyayı seçin.
         
-        b. Merhaba ana bölmede ait araç çubuğunda seçin **karşıdan**.
+        b. Ana bölmedeki araç çubuğunda **İndir**’i seçin.
         
-        c. Merhaba, **toosave hello dosyasını indirdiğiniz belirt** iletişim kutusunda, indirilen hello dosyasına hello konumu belirtin ve hello toogive istediğiniz adı.
+        c. **İndirilen dosyanın kaydedileceği konumu seçin** iletişim kutusunda, dosyanın indirilmesini istediğiniz konumu ve dosyaya vermek istediğiniz adı belirtin.
 
         d. **Kaydet**’i seçin.
 
     - **Bir dosyayı yerel bilgisayarınızda açma**
         
-        a.  Tooopen istediğiniz hello dosyasını seçin.
+        a.  Açmak istediğiniz dosyayı seçin.
         
-        b.  Merhaba ana bölmede ait araç çubuğunda seçin **açık**.
+        b.  Ana bölmedeki araç çubuğunda **Aç**’ı seçin.
         
-        c.  Merhaba dosyası indirilir ve hello dosyanın temel alınan dosya türü ile ilişkili hello uygulama kullanılarak açılır.
+        c.  Dosya indirilir ve dosyanın temel alınan dosya türü ile ilişkili uygulama kullanılarak açılır.
 
-    - **Bir dosya toohello Panoya Kopyala**
+    - **Bir dosyayı panoya kopyalama**
 
-        a. Toocopy istediğiniz hello dosyasını seçin.
+        a. Kopyalamak istediğiniz dosyayı seçin.
 
-        b. Merhaba ana bölmede ait araç çubuğunda seçin **kopya**.
+        b. Ana bölmedeki araç çubuğunda **Kopyala**’yı seçin.
 
-        c. Hello sol bölmede tooanother dosya paylaşımına gidin ve çift tooview hello ana bölmede içinde.
+        c. Sol bölmede başka bir dosya paylaşımına gidin ve ana bölmede görüntülemek için çift tıklayın.
 
-        d. Merhaba ana bölmede ait araç çubuğunda seçin **Yapıştır** toocreate hello dosyasının bir kopyası.
+        d. Ana bölmedeki araç çubuğunda **Yapıştır**’ı seçerek dosyanın bir kopyasını oluşturun.
 
     - **Dosyayı silme**
 
-        a. Toodelete istediğiniz hello dosyasını seçin.
+        a. Silmek istediğiniz dosyayı seçin.
 
-        b. Merhaba ana bölmede ait araç çubuğunda seçin **silmek**.
+        b. Ana bölmedeki araç çubuğunda **Sil**’i seçin.
 
-        c. Seçin **Evet** toohello onay iletişim kutusu.
+        c. Onay iletişim kutusunda **Evet**’i seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Görünüm hello [en son Depolama Gezgini (Önizleme) sürüm notları ve videolar](http://www.storageexplorer.com/).
+- [En son Depolama Gezgini (Önizleme) sürüm notlarını ve videolarını](http://www.storageexplorer.com/) görüntüleyin.
 
-- Nasıl çok öğrenin[Azure BLOB'ları, tabloları, kuyrukları ve dosyaları kullanan uygulamalar oluşturmak](https://azure.microsoft.com/documentation/services/storage/).
+- [Azure bloblarını, tablolarını, kuyruklarını ve dosyalarını kullanarak uygulama oluşturma](https://azure.microsoft.com/documentation/services/storage/) hakkında bilgi edinin.

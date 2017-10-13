@@ -1,6 +1,6 @@
 ---
-title: "Siber güvenlik aaaMicrosoft Hizmetleri'nde | Microsoft Docs"
-description: "Merhaba makale Microsoft Hizmetleri ilgili toocybersecurity hakkında bir giriş sağlar ve nasıl tooobtain bu hizmetler hakkında daha fazla bilgi."
+title: "Siber güvenlik Microsoft Hizmetleri | Microsoft Docs"
+description: "Makaleyi siber güvenlik ve bu hizmetler hakkında daha fazla bilgi edinme ilgili Microsoft Hizmetleri hakkında tanıtılmaktadır."
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
-ms.openlocfilehash: d29832f0ffa10020ab44ff69306971e55d393b97
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1560ea8b224be0f6bc723f64d8f154805b2771e5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Siber güvenlik Microsoft Hizmetleri
-Microsoft Services kapsamlı bir yaklaşım toosecurity, kimlik ve siber güvenlik sağlar. Microsoft Services güvenlik dizisi sağlar ve stratejisi, planlama, uygulama ve kurumsal müşterilerimizin yardımcı olabilecek devam eden destek arasında kimlik hizmetlerine stratejik hedeflerine Hizala bütünsel güvenlik çözümleri uygulayın.
+Microsoft Services güvenlik, kimlik ve siber güvenlik kapsamlı bir yaklaşım sağlar. Microsoft Services güvenlik dizisi sağlar ve stratejisi, planlama, uygulama ve kurumsal müşterilerimizin yardımcı olabilecek devam eden destek arasında kimlik hizmetlerine stratejik hedeflerine Hizala bütünsel güvenlik çözümleri uygulayın.
 
-Doğrudan erişim tooproduct geliştirme ekiplerinin ile biz tümleştirme çözümleri oluşturma ve hello en son güvenlik geliştirmek ve bizim ürünleri toohelp kimlik yeteneklerine bizim müşterinin iş ve sürücüyü yeniliklerle koruyun.
+Ürün geliştirme ekiplerinin, doğrudan erişim ile biz tümleştirme çözümleri oluşturma ve bizim müşterinin iş ve sürücüyü yeniliklerle korunmasına yardımcı olmak için kimlik yeteneklerine Ürünlerimizin ve en son güvenlik geliştirmek.
 
-Korumak ve hello dünyanın en büyük kuruluşların sağlayan yardımcı olan güven temelinde, teknik uzmanları farklı bizim grubu çok sayıda güvenlik ve kimlik deneyimi sunmak iyi eğitilmiş uzmanlar oluşur.
+Korumak ve dünyanın en büyük kuruluşların sağlayan yardımcı olan güven temelinde, teknik uzmanları farklı bizim grubu çok sayıda güvenlik ve kimlik deneyimi sunmak iyi eğitilmiş uzmanlar oluşur.
 
 Microsoft Services tarafından sağlanan hizmetleri hakkında daha fazla bilgi edinin:
 

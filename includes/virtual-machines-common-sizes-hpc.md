@@ -1,10 +1,10 @@
 <!-- A-series - compute-intensive instances, H-series -->
 
-Merhaba A8-A11 ve H-serisi boyutları olarak da bilinir: *işlem yoğunluklu örnekler*. Bu boyutlar çalıştıran hello donanım tasarlanmış ve işlem yoğunluklu için en iyi duruma getirilmiş ve ağ kullanımı yoğun uygulamalar, yüksek performanslı bilgi işlem (HPC) dahil olmak üzere uygulamalar, model ve benzetimleri küme. Merhaba A8-A11 serisi Intel Xeon E5-2670 2.6 GHZ @ ve Intel Xeon E5-2667 v3 3,2 GHz @ hello H-serisi kullanır. 
+A8-A11 ve H Serisi boyutlar *yoğun işlem gücü kullanımlı örnekler* olarak da bilinir. Bu boyutları çalıştıran donanım; yüksek performanslı bilgi işlem (HPC) kümesi uygulamaları, modellemeler ve simülasyonlar gibi yoğun işlem ve ağ kullanımlı uygulamalar için tasarlanmış ve iyileştirilmiştir. A8-A11 Serisinde, Intel Xeon E5-2670 @ 2,6 GHZ, H Serisinde ise Intel Xeon E5-2667 v3 @ 3,2 GHz işlemciler kullanılmaktadır. 
 
-Azure H-serisi sanal makine VM'ler molecular modelleme ve hesaplama sıvı dinamiği gibi yüksek son hesaplama gereksinimlerine yönelik hello İleri nesil yüksek performanslı bilgi işlem yok. Bu 8 ila 16 vCPU VM'ler DDR4 bellek bulunduğu hello Intel Haswell E5-2667 V3 işlemci teknolojisine yerleşiktir ve geçici depolama SSD tabanlı. 
+Azure H Serisi sanal makineler, moleküler modelleme ve hesaplamalı akışkanlar dinamiği gibi üst düzey işlem hesaplama gereksinimlerine hitap eden yeni nesil yüksek performanslı bilgi işlem VM'leridir. Intel Haswell E5-2667 V3 işlemci teknolojisini kullanan bu 8 ve 16 vCPU VM'ler, DDR4 belleğe ve SSD tabanlı geçici depolamaya sahiptir. 
 
-Ayrıca toohello önemli ölçüde CPU gücü hello H-serisi FDR InfiniBand ve birkaç bellek yapılandırmaları toosupport bellek yoğun hesaplama gereksinimleri kullanarak düşük gecikme süresi RDMA ağ için çeşitli seçenekler sunar.
+H Serisi önemli miktarda CPU gücünün yanı sıra, FDR InfiniBand ile düşük gecikmeli RDMA ağ iletişimi için farklı seçeneklere ek olarak yoğun bellek kullanımlı işlem gereksinimlerini için çok sayıda bellek yapılandırması sunar.
 
 
 

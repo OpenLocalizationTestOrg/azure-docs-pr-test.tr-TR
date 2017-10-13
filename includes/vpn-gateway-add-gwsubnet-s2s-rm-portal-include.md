@@ -1,9 +1,9 @@
-1. Merhaba Portalı'nda toocreate bir sanal ağ geçidi istediğiniz toohello sanal ağı gidin.
-2. Merhaba, **ayarları** bölüm, VNet sayfasının tıklatın **alt ağlar** tooexpand hello alt sayfası.
-3. Merhaba üzerinde **alt ağlar** sayfasında, **+ ağ geçidi alt ağı** hello üst tooopen hello adresindeki **alt ağ Ekle** sayfası.
+1. Portalda, sanal ağ geçidini oluşturmak istediğiniz sanal ağa gidin.
+2. VNet’inizin sayfasının **Ayarlar** bölümünde, Alt Ağlar sayfasını genişletmek için **Alt Ağlar**'a tıklayın.
+3. **Alt ağlar** sayfasında, üstteki **+Alt ağ**’a tıklayarak **Alt ağ ekle** sayfasını açın.
 
-  ![Merhaba ağ geçidi alt ağı eklemek](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/add-gw-subnet.png "hello ağ geçidi alt ağı Ekle")
-4. Merhaba **adı** alt ağınızı hello oturum otomatik olarak doldurulur 'GatewaySubnet' değeri. Merhaba GatewaySubnet değeri hello ağ geçidi alt ağı sırada Azure toorecognize hello alt ağ için gereklidir. Merhaba otomatik doldurulmuş ayarlamak **adres aralığı** yapılandırma gereksinimlerinizi toomatch değerleri.
+  ![Ağ geçidi alt ağını ekleme](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/add-gw-subnet.png "Ağ geçidi alt ağını ekleme")
+4. Alt ağınız için **Ad** alanı otomatik olarak ‘GatewaySubnet’ değeriyle doldurulur. Alt ağın Azure tarafından ağ geçidi alt ağı olarak tanınması için GatewaySubnet değeri gereklidir. Otomatik olarak doldurulmuş **Adres aralığı** değerlerini, yapılandırma gereksinimlerinize uyacak şekilde ayarlayın.
 
-  ![Merhaba ağ geçidi alt ağı ekleme](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/gwsubnetip.png "hello ağ geçidi alt ağı ekleme")
-5. toocreate alt Merhaba, tıklatın **Tamam** hello sayfanın hello sonundaki.
+  ![Ağ geçidi alt ağını ekleme](./media/vpn-gateway-add-gwsubnet-s2s-rm-portal-include/gwsubnetip.png "Ağ geçidi alt ağını ekleme")
+5. Alt ağ oluşturmak için sayfanın altından **Tamam**’a tıklayın.

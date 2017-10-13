@@ -2,13 +2,13 @@
 
 `sender.js` adlı yeni bir JavaScript dosyası oluşturun.
 
-### <a name="add-hello-relay-npm-package"></a>Merhaba geçiş NPM paket ekleme
+### <a name="add-the-relay-npm-package"></a>Geçiş NPM paketini ekleme
 
 Proje klasörünüzdeki bir Düğüm komut isteminden `npm install hyco-ws` komutunu çalıştırın.
 
-### <a name="write-some-code-toosend-messages"></a>Toosend iletileri biraz kod yazma
+### <a name="write-some-code-to-send-messages"></a>İleti göndermek için bazı kodlar yazma
 
-1. Merhaba aşağıdakileri ekleyin `constants` hello toohello üstündeki `sender.js` dosya.
+1. Aşağıdaki `constants` öğesini `sender.js` dosyasının başına ekleyin.
    
     ```js
     const WebSocket = require('hyco-ws');
@@ -18,14 +18,14 @@ Proje klasörünüzdeki bir Düğüm komut isteminden `npm install hyco-ws` komu
             output: process.stdout
         });;
     ```
-2. Sabitler toohello aşağıdaki hello eklemek `sender.js` hello karma bağlantı ayrıntılar için. Köşeli ayraçlar Hello yer tutucuları hello karma bağlantıyı oluştururken aldığınız hello değerlerle değiştirin.
+2. Karma bağlantı ayrıntıları için şu sabitleri `sender.js` dosyasına ekleyin. Köşeli ayraçlar içindeki yer tutucuları, karma bağlantıyı oluştururken aldığınız değerlerle değiştirin.
    
-   1. `const ns`-Geçiş ad alanı hello. Emin toouse hello tam ad alanı adı olmalıdır; Örneğin, `{namespace}.servicebus.windows.net`.
-   2. `const path`-hello karma bağlantı hello adı.
-   3. `const keyrule`-hello hello SAS anahtarının adı.
-   4. `const key`-hello SAS anahtarı değeri.
+   1. `const ns` - Geçiş ad alanı. Tam ad alanı adını kullandığınızdan emin olun: örneğin, `{namespace}.servicebus.windows.net`.
+   2. `const path` - Karma bağlantının adı.
+   3. `const keyrule` - SAS anahtarının adı.
+   4. `const key` - SAS anahtarının değeri.
 
-3. Aşağıdaki kodu toohello hello eklemek `sender.js` dosyası:
+3. `sender.js` dosyasına aşağıdaki kodu ekleyin:
    
     ```js
     WebSocket.relayedConnect(

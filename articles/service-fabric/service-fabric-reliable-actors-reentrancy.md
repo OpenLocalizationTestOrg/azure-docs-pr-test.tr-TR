@@ -1,6 +1,6 @@
 ---
-title: "Aktör tabanlı Azure mikro aaaReentrancy | Microsoft Docs"
-description: "Service Fabric güvenilir aktörler için giriş tooreentrancy"
+title: "Aktör tabanlı Azure mikro yeniden girişi | Microsoft Docs"
+description: "Service Fabric Reliable Actors yeniden giriş için giriş"
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.openlocfilehash: 61c69bcf0f100e075d19ba155954c05789b71761
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 00fcccb379bf1ba3875fbaba57a05b00fa228622
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="reliable-actors-reentrancy"></a>Güvenilir aktörler yeniden giriş
-Merhaba Reliable Actors çalışma zamanı, varsayılan olarak, mantıksal çağrısı Bağlam tabanlı yeniden giriş sağlar. Hello olmaları durumunda aktörler toobe yeniden girme için böylece aynı çağrı bağlam zinciri. Örneğin, ileti tooActor C. gönderen bir ileti tooActor B, A aktör gönderir Aktör C aktör A çağırırsa izin verecek şekilde hello ileti işleme bir parçası olarak hello desteklemeyeceğini, iletisidir. İşlem tamamlanana kadar farklı çağrı içeriği parçası olan diğer tüm iletileri aktör A engellenir.
+Reliable Actors çalışma zamanı varsayılan olarak, mantıksal çağrısı Bağlam tabanlı yeniden giriş sağlar. Bu aynı çağrı bağlam zincirinde olmaları durumunda desteklemeyeceğini olmasını aktörler sağlar. Örneğin, A aktör aktör C'ye ileti gönderen aktör B'ye ileti gönderir Aktör C aktör A çağırırsa izin verecek şekilde ileti işleme bir parçası olarak desteklemeyeceğini, iletisidir. İşlem tamamlanana kadar farklı çağrı içeriği parçası olan diğer tüm iletileri aktör A engellenir.
 
-İki seçenek hello tanımlanan aktör yeniden giriş için kullanılabilir `ActorReentrancyMode` enum:
+İki seçenek tanımlanan aktör yeniden giriş için kullanılabilir `ActorReentrancyMode` enum:
 
 * `LogicalCallContext`(varsayılan davranış)
 * `Disallowed`-yeniden giriş devre dışı bırakır
@@ -42,9 +42,9 @@ public enum ActorReentrancyMode
     Disallowed(2)
 }
 ```
-Yeniden giriş yapılandırılabilir bir `ActorService`'s kayıt sırasında ayarları. Merhaba ayar hello aktör hizmetinde oluşturulan tooall aktör örnekleri uygulanır.
+Yeniden giriş yapılandırılabilir bir `ActorService`'s kayıt sırasında ayarları. Aktör hizmeti oluşturulan tüm aktör örnekleri ayar uygulanır.
 
-Merhaba aşağıdaki örnekte gösterilir hello yeniden giriş modu çok ayarlar bir aktör hizmeti`ActorReentrancyMode.Disallowed`. Bu durumda, bir aktör desteklemeyeceğini ileti tooanother aktör, türünde bir özel durum gönderirse `FabricException` oluşturulur.
+Aşağıdaki örnek, yeniden giriş modunu ayarlar için bir aktör hizmeti gösterir `ActorReentrancyMode.Disallowed`. Bu durumda, bir aktör başka bir aktör, türünde bir özel durum desteklemeyeceğini iletisi gönderirse `FabricException` oluşturulur.
 
 ```csharp
 static class Program
@@ -110,4 +110,4 @@ static class Program
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Merhaba yeniden girişi hakkında daha fazla bilgi [aktör API başvuru belgeleri](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* Yeniden girişi hakkında daha fazla bilgi [aktör API başvuru belgeleri](https://msdn.microsoft.com/library/azure/dn971626.aspx)

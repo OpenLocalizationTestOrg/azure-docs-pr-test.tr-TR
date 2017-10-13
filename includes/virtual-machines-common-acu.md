@@ -2,10 +2,10 @@
 
 
 
-Hello Azure işlem birimi (ACU) tooprovide Azure SKU'ları üzerinde işlem (CPU) performans karşılaştırma bir şekilde hello kavramı oluşturduk. Bu büyük olasılıkla toosatisfy SKU olan kolayca tanımlamanıza yardımcı olur, performans gereksinimlerinizi.  ACU şu anda Küçük (Standard_A1) VM'de 100 olarak standart haline getirilmiş ve diğer tüm SKU'lar, standart bir karşılaştırmalı testte sunabilecekleri yaklaşık hıza göre derecelendirilmiştir. 
+Azure SKU'larının işlem (CPU) performansını karşılaştırabilmek için Azure İşlem Birimi (ACU) birimini ortaya çıkardık. Bu birim, performans ihtiyaçlarınızı karşılayabilecek SKU'yu kolayca belirlemenize yardımcı olacak.  ACU şu anda Küçük (Standard_A1) VM'de 100 olarak standart haline getirilmiş ve diğer tüm SKU'lar, standart bir karşılaştırmalı testte sunabilecekleri yaklaşık hıza göre derecelendirilmiştir. 
 
 > [!IMPORTANT]
-> Merhaba ACU yalnızca bir kılavuz olarak sağlanmıştır.  iş yükü Hello sonuçları değişebilir. 
+> ACU yalnızca rehberlik etme amacı taşımaktadır.  İş yükünüzle aldığınız sonuçlar farklılık gösterebilir. 
 > 
 > 
 
@@ -35,6 +35,6 @@ Hello Azure işlem birimi (ACU) tooprovide Azure SKU'ları üzerinde işlem (CPU
 | [L4s L32s](../articles/virtual-machines/windows/sizes-storage.md) |180-240* |
 | [M](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) | 160-180** |
 
-İle işaretlenen ACUs bir * Intel® Turbo teknolojisi tooincrease CPU sıklığı kullanın ve performans artışı sağlar.  Merhaba hello artırma miktarı hello VM boyutu, iş yükü ve hello üzerinde çalışan diğer iş yüklerini göre değişebilir aynı ana bilgisayar.
+* işaretli ACU'lar, CPU frekansını artırmak ve performans artışı sağlamak için Intel® Turbo Boost teknolojisinden faydalanır.  Performans artışının oranı VM boyutuna, iş yüküne ve aynı ana bilgisayarda çalışan iş yüklerine göre değişiklik gösterebilir.
 
 ** Hiper iş parçacığı. 

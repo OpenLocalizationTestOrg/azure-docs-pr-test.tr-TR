@@ -1,29 +1,29 @@
 
 
-## <a name="use-hello-portal-toomove-a-vm-tooa-different-subscription"></a>Merhaba portal toomove VM tooa farklı bir abonelik kullanın
-Bir VM taşıyabilirsiniz ve kaynakları tooa farklı abonelik hello portal kullanarak ilişkili.
+## <a name="use-the-portal-to-move-a-vm-to-a-different-subscription"></a>Farklı bir abonelik için bir VM taşımak üzere portalı kullanın
+Bir VM taşıyabilirsiniz ve ilişkili kaynakları Portalı'nı kullanarak farklı bir abonelik için.
 
-1. Açık hello [Azure portal](https://portal.azure.com).
-2. Tıklatın **Gözat** > **sanal makineleri** ve hello VM hello listeden toomove istediğinizi seçin.
+1. [Azure portalı](https://portal.azure.com) açın.
+2. Tıklatın **Gözat** > **sanal makineleri** ve listeden taşımak istediğiniz VM seçin.
    
-    ![Merhaba Kurşun Kalem simgesini tooopen hello taşıma kaynaklar dikey tıklattığınız hello Essentials bölümünün ekran görüntüsü.](./media/virtual-machines-common-move-vm/move-button.png)
-3. Merhaba, **Essentials** bölümünde, üzerinde hello tıklatın **değiştirmek abonelik** Kurşun Kalem simgesini sonraki toohello abonelik adı. Merhaba **taşıma kaynakları** dikey penceresi açılır.
+    ![Ekran Essentials bölümünün burada taşıma kaynaklar dikey penceresini açmak için Kalem simgesine tıklayın.](./media/virtual-machines-common-move-vm/move-button.png)
+3. İçinde **Essentials** bölümünde, tıklayın **değiştirmek abonelik** kalem adının yanındaki simge abonelik. **Taşıma kaynakları** dikey penceresi açılır.
    
-    ![Merhaba taşıma kaynak dikey penceresinin ekran görüntüsü.](./media/virtual-machines-common-move-vm/move.png)
-4. Her hello kaynakları toomove birini seçin. Çoğu durumda, tüm hello isteğe bağlı kaynakları listelenen taşımanız gerekir.
-5. Select hello **abonelik** VM toobe hello istediğiniz taşındı.
-6. Var olan seçin **kaynak grubu** veya yeni bir kaynak grubu oluşturulan bir ad toohave yazın.
-7. İşiniz bittiğinde, yeni kaynak kimlikleri oluşturulur ve bu taşındıktan sonra VM hello ile kullanılan toobe gerektiğini anlamak seçin ardından **Tamam**.
+    ![Taşıma kaynak dikey penceresinin ekran görüntüsü.](./media/virtual-machines-common-move-vm/move.png)
+4. Her taşımak istediğiniz kaynakları seçin. Çoğu durumda, tüm listelenen isteğe bağlı kaynakları taşımanız gerekir.
+5. Seçin **abonelik** istediğiniz yere taşınmasını VM.
+6. Var olan seçin **kaynak grubu** veya oluşturulan yeni bir kaynak grubu için bir ad yazın.
+7. İşiniz bittiğinde, yeni kaynak kimlikleri oluşturulacak ve bunlar taşındıktan sonra VM ile kullanılması gerektiğini anlamak seçin ardından **Tamam**.
 
-## <a name="use-hello-portal-toomove-a-vm-tooanother-resource-group"></a>Merhaba portal toomove VM tooanother kaynak grubu kullanın
-Hello portal kullanarak kaynakları tooanother kaynak grubu ilişkili ve VM taşıyabilirsiniz.
+## <a name="use-the-portal-to-move-a-vm-to-another-resource-group"></a>Bir VM başka bir kaynak grubuna taşımak üzere portalı kullanın
+Bir VM taşıyabilirsiniz ve ilişkili kaynakları Portalı'nı kullanarak başka bir kaynak grubuna.
 
-1. Açık hello [Azure portal](https://portal.azure.com).
-2. Tıklatın **Gözat** > **kaynak grupları** ve hello VM içeren select hello kaynak grubu.
-3. Merhaba, **kaynak grubu** dikey penceresinde, select **taşıma** hello menüsünde.
+1. [Azure portalı](https://portal.azure.com) açın.
+2. Tıklatın **Gözat** > **kaynak grupları** ve VM içeren kaynak grubunu seçin.
+3. İçinde **kaynak grubu** dikey penceresinde, select **taşıma** menüsünde.
    
-    ![Merhaba kaynak grupları menüsünde hello taşıma düğmesinin Ekran görüntüsü.](./media/virtual-machines-common-move-vm/move-rg.png)
-4. Merhaba, **taşıma kaynakları** dikey penceresinde taşınmış hello kaynakları toobe ve sonra da var olan bir kaynak grubu adı yazın veya toocreate yeni bir kaynak grubu seçin. İşiniz bittiğinde, yeni kaynak kimlikleri oluşturulur ve bu taşındıktan sonra VM hello ile kullanılan toobe gerektiğini anlamak seçin ardından **Tamam**
+    ![Kaynak grupları menüsünde taşıma düğmesinin Ekran görüntüsü.](./media/virtual-machines-common-move-vm/move-rg.png)
+4. İçinde **taşıma kaynakları** taşınmasına ve ya da var olan bir kaynak türü için kaynakları grup adı veya yeni bir kaynak grubu oluşturmayı seçin dikey penceresinde, seçin. İşiniz bittiğinde, yeni kaynak kimlikleri oluşturulacak ve bunlar taşındıktan sonra VM ile kullanılması gerektiğini anlamak seçin ardından **Tamam**
    
-    ![Merhaba taşıma kaynak dikey penceresinin ekran görüntüsü.](./media/virtual-machines-common-move-vm/move-rg-list.png)
+    ![Taşıma kaynak dikey penceresinin ekran görüntüsü.](./media/virtual-machines-common-move-vm/move-rg-list.png)
 

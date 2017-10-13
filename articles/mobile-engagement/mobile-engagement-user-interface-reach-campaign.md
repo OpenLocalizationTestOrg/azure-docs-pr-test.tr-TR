@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure Mobile Engagement kullanıcı arabirimi - Reach kampanya"
-description: "Laern nasıl toocreate ve Azure Mobile Engagement kullanarak anında iletme bildirimi kampanyaları yönetme"
+title: "Azure Mobile Engagement kullanıcı arabirimi - Reach kampanya"
+description: "Laern oluşturmak ve anında iletme bildirimi yönetmek için Azure Mobile Engagement kullanarak kampanyaları nasıl"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 825e550ace63a34d1a90b10fa976a61eb15a6d04
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: fc88db8db11d1ed12fa95c2087c9a32b21bf4de5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toocreate-and-manage-push-notification-campaigns"></a>Nasıl toocreate ve anında iletme bildirimi kampanyaları yönetme
-Toosend bir anında iletme bildirimi gereksinim duyduğunuz tüm hello bilgileri sağlayarak karmaşık formül hello hello UI toocreate yeni bir itme kampanya ulaşma bölümünü kullanabilirsiniz. Merhaba seçenekler itme kampanyanın biraz hello dört kampanya türlerine bağlı olarak değişir: Duyurular, anketler, veri iter ve Kutucuklar (yalnızca Windows Phone).
+# <a name="how-to-create-and-manage-push-notification-campaigns"></a>Oluşturma ve anında iletme bildirimi kampanyaları yönetme
+Kullanıcı arabirimini ulaşma bölümünü bir anında iletme bildirimi göndermek için gereken tüm bilgileri sağlayarak karmaşık bir formülü yeni bir itme kampanya oluşturmak için kullanabilirsiniz. Anında iletme kampanya seçenekleri dört kampanya türlerine bağlı olarak biraz farklılık: Duyurular, anketler, veri iter ve Kutucuklar (yalnızca Windows Phone).
 
 ### <a name="option-applies-to"></a>Seçenek için geçerlidir:
 * Diller: Tüm (Duyurular, anketler, veri gönderimleri, kutucukları)
@@ -35,18 +35,18 @@ Toosend bir anında iletme bildirimi gereksinim duyduğunuz tüm hello bilgileri
 ![Reach Campaign1][20]
 
 ## <a name="languages"></a>Diller
-Merhaba dilleri açılan menü toosend toouse farklı dillerde ayarlayın, anında iletme toodevices farklı bir sürümünü kullanabilirsiniz. Varsayılan olarak, tüm cihazlar aynı hangi dilde toouse ayarlandıktan bağımsız olarak Anında hello alır. Kendi cihaz kümesi tooa farklı dil kullanıcılarla hello itme hello varsayılan dil sürümünü alır. Merhaba itme kampanya seçeneklerinin birçoğu toospecify alternatif içerik her seçtiğiniz hello ek diller için sağlar. 
+Dilleri açılan menüsünde, anında iletme farklı bir sürümünü farklı dillerde kullanacak şekilde ayarlanmış olan cihazlara göndermek için kullanabilirsiniz. Varsayılan olarak, tüm cihazlar aynı itme kullanmak üzere ayarlanmış hangi dilde bağımsız olarak alır. Kullanıcılar için farklı bir dil cihazını itme varsayılan dil sürümünü alır. Anında iletme kampanya seçeneklerinin birçoğu, her seçtiğiniz ek diller için alternatif içerik belirtmenizi sağlar. 
 
 ![Reach Campaign2][21]
 
 ### <a name="language-differences-apply-to"></a>Dil farklar geçerlidir:
-* Diller: Benzersiz dilleri toplama toohello varsayılan dilde seçilebilir.
+* Diller: Benzersiz dilleri yanı sıra varsayılan dili seçilebilir.
 * Kampanya: Aynı tüm diller için
-* Bildirim: Her dil için benzersiz ayrıca toohello varsayılan dil
-* İçeriği: Her dil için benzersiz ayrıca toohello varsayılan dil
+* Bildirim: Varsayılan dil yanı sıra her dil için benzersiz olmalıdır
+* İçeriği: Varsayılan dil yanı sıra her dil için benzersiz olmalıdır
 * İzleyici: ayrı dil ölçüte göre filtre uygulanabilir
 * Zaman çerçevesi: tüm diller için aynı
-* Sınama: tooeach dil aynı anda gönderilebilir.
+* Sınama: her dil için aynı anda gönderilebilir.
 
 ### <a name="supported-languages"></a>Desteklenen diller:
 * Arapça (ar) 
@@ -89,27 +89,27 @@ Merhaba dilleri açılan menü toosend toouse farklı dillerde ayarlayın, anın
 * Vietnam dili (VI) 
 
 ## <a name="campaign"></a>Kampanya
-Tooignore hello İzleyici itme kampanya bölümünü planlamak ve bu kampanyayı hello Reach API'sini aracılığıyla (ve bazı öğeler hello düşük düzey itme API ile) yerine göndermek gibi hello kampanya bölüm tooset hello adı ve kategori kampanyanızın de kullanabilirsiniz. Kategoriler, önceden tanımlanmış ayarlarına dayanarak bir özel bildirim şablonu toocontrol uygulama bildirimleri ile kullanılabilir. Varolan "Kategoriler" Merhaba Reach API'sini aracılığıyla listesini elde edebilirsiniz.
+Kampanya bölüm adı ve kategoriyi de kampanyanızın itme kampanya İzleyici bölümünü yoksay ve bunun yerine bu kampanyayı Reach API'sini (ve bazı öğeler düşük düzeyde anında API) aracılığıyla göndermek planlıyorsanız olarak ayarlamak için kullanabilirsiniz. Kategoriler denetim uygulama bildirimleri önceden tanımlanmış ayarlarınızı temel alan özel bildirim şablonu ile kullanılabilir. Varolan "Kategoriler" Reach API'sini aracılığıyla listesini elde edebilirsiniz.
 
 > [!WARNING]
-> Merhaba kampanya otomatik olarak göndermez, hello seçeneği "Yoksay İzleyici toousers hello API aracılığıyla bir gönderim" hello "Kampanya" bölümünde Reach kampanya kullanırsanız toosend gerekir, hello Reach API'sini kullanarak el ile.
+> Kampanya otomatik olarak göndermez, Reach kampanya "Kampanyası" bölümünde "Yoksay İzleyici API aracılığıyla kullanıcılara bir gönderim" seçeneğini kullanırsanız, el ile ulaşmak API üzerinden göndermek gerekir.
 
 ![Reach Campaign3][22]
 
 ### <a name="option-applies-to"></a>Seçenek için geçerlidir:
 * Ad: tüm
 * Kategori: Duyurular, anketler
-* Hedef kitleyi yok sayın itme toousers hello API üzerinden gönderilir: tüm
+* Hedef kitleyi yok sayın anında iletme, API üzerinden kullanıcılara gönderilecek: tüm
 
 ## <a name="notification"></a>Bildirim
-Merhaba bildirim bölümü tooset temel ayarları, anında iletme dahil etmek için kullanabilirsiniz: Merhaba hello anında iletme, selamlama iletisine, bir uygulama görüntüsü başlığını veya atlanabilir tüm ise. Birçok bildirim belirli toohello platform aygıtınızın ayarlardır. "Uygulama" veya "uygulama dışında" bir gönderim seçebilirsiniz veya her ikisini de. (Kullanıcılar can "katılımı" veya "çevirin" dışında "uygulamasının" iter Merhaba işletim sistemi düzeyinde cihazlarına ve Azure Mobile Engagement almayacak unutmayın mümkün toooverride bu ayarı olabilir. Ayrıca "uygulama" Merhaba ulaşma API işler ve "uygulama dışı" iter unutmayın. "Hello itme API"uygulamasının out"çok iter kullanılan toohandle olabilir.) İter, resim veya HTML içeriğini, uygulama veya tooanother konumunuzda uygulamanız (Android SDK 2.1.0 veya gerekli sonraki hedefi kategorileri) dışında bağlama için ayrıntılı bağlantılar dahil olmak üzere özelleştirilebilir. Merhaba simgesini veya iOS rozet değiştirmek ve metin veya web içerik (html içerik, URL bağlantı tooanother konum içinde veya dışında hello uygulama popup) gönderin. Ayrıca, Android cihazları çaldır veya itme hello ile Titret. (, Android SDK izinler dosya tooring bildirim veya bir cihazı Titret doğru hello olduğunu unutmayın.) Var. şu anda hiçbir endüstri Android "büyük resimdeki" boyutları için standart ekran boyutlarına her cihazda farklı ancak neredeyse her ekran boyutuna 400 x 100 resimleri iş beri.
+Bildirim bölümü, anında iletme dahil etmek için temel ayarları ayarlamak için kullanabileceğiniz: gönderme, ileti, bir uygulama görüntüsü başlığı veya atlanabilir tüm ise. Birçok bildirim ayarlarını Cihazınızı platforma özgüdür. "Uygulama" veya "uygulama dışında" bir gönderim seçebilirsiniz veya her ikisini de. (Kullanıcılar can "katılımı" veya "çevirin" dışında "uygulamasının" işletim sistemi cihazlarını düzeyi iter ve Azure Mobile Engagement bu ayarı geçersiz kılmak mümkün olmaz unutmayın. Ayrıca "uygulama" Reach API'sini işler ve "uygulama dışı" iter unutmayın. Anında iletme API "uygulama dışında" iter çok işlemek için kullanılabilir.) İter, resim veya HTML içeriğini, uygulamanızı dışında veya başka bir konuma uygulamanız (Android SDK 2.1.0 veya gerekli sonraki hedefi kategorileri) içinde bağlama için ayrıntılı bağlantılar dahil olmak üzere özelleştirilebilir. Simge veya iOS rozet değiştirmek ve metin veya web içerik (html içerik, URL bağlantı başka bir konum içinde veya dışında uygulama ile popup) gönderin. Ayrıca, Android cihazları çaldır veya itme Titret. (Doğru gerekeceğini unutmayın Android SDK izinleri bildirim halka veya bir cihazı Titret dosyaya.) Var. şu anda hiçbir endüstri Android "büyük resimdeki" boyutları için standart ekran boyutlarına her cihazda farklı ancak neredeyse her ekran boyutuna 400 x 100 resimleri iş beri.
 
 ### <a name="delivery-types"></a>Teslim türleri:
-* Yalnızca uygulama dışında: hello bildirim teslim edilemiyor hello kullanıcı Merhaba uygulaması kullanılmadığında.
-* Uygulama yalnızca bildirim dışında Hello Apple veya Google (GCM ya da APNS sertifikası) bir sertifika gerektirir.
-* Uygulama yalnızca: hello bildirim görüntülendiğinde yalnızca hello uygulama çalışırken.
-* Merhaba bildirim hello Capptain teslim sistemi tooreach hello kullanıcı kullanır. Merhaba düzeni/görünümünü, anında tam olarak özelleştirebilirsiniz.
-* Herhangi bir zaman: Veya değil ya da Merhaba uygulaması çalıştıran bildirim göndermek bu seçeneği sağlar.
+* Yalnızca uygulama dışında: kullanıcı uygulamayı kullanmadığında bildirim teslim edilecek.
+* Uygulama yalnızca bildirim dışı Apple veya Google (GCM ya da APNS sertifikası) bir sertifika gerektirir.
+* Uygulama yalnızca: yalnızca uygulama çalışırken bildirim görüntülenir.
+* Bildirim Capptain teslim sistemi kullanıcı erişmek için kullanır. Düzen/görünümünü, anında tam olarak özelleştirebilirsiniz.
+* Herhangi bir zaman: Ya da uygulama veya çalıştığı bildirim göndermek bu seçeneği sağlar.
 
 ![Reach Campaign4][23]
 
@@ -117,7 +117,7 @@ Merhaba bildirim bölümü tooset temel ayarları, anında iletme dahil etmek i�
 * Bildirim: Duyurular, anketler
 
 ## <a name="content"></a>İçerik
-Merhaba içerik bölümü toomodify hello içerik Duyurular, anketler, veri iter ve Kutucuklar (yalnızca Windows Phone) kullanabilirsiniz. Merhaba içerik anında iletme kampanyalarını kampanya belirli toohello türü ayarıdır. 
+İçerik bölümü içeriği Duyurular, anketler, veri iter ve Kutucuklar (yalnızca Windows Phone) değiştirmek için kullanabilirsiniz. İçerik anında iletme kampanyalarını kampanya türüne belirli ayarıdır. 
 
 ### <a name="see-also"></a>Ayrıca bkz.
 * [UI belgeleri - ulaşmak - içerik gönderme][Link 29]
@@ -125,15 +125,15 @@ Merhaba içerik bölümü toomodify hello içerik Duyurular, anketler, veri iter
 ![Reach Campaign5][24]
 
 ## <a name="audience"></a>Hedef kitle
-Kampanya veya kampanyanızı özelleştirilmiş ölçütlere göre sınırları hello İzleyici bölüm toodefine standart öğeleri toolimit listesini kullanabilirsiniz. Merhaba standart seçenekleri tooLimit kümesinin kitlenizi toopush tooeither yeni veya eski kullanıcılara veya yalnızca yerel gönderim kullanıcılar sağlar. Merhaba itme alma kullanıcıların kota toolimit hello sayısını da ayarlayabilirsiniz. El ile nasıl kampanyanızı filtrelenmiş tooinclude olduğu için hello ifade düzenleyebileceğiniz bir veya daha fazla ölçüt tootarget kullanıcı. Bir hedef kitle ifadesi el ile yazabilirsiniz. Bu tür bir ifade hello ölçütler arasındaki ilişkiyi açıkça tanımlamanız gerekir. Bir ölçüt büyük harfle başlamalı ve boşluk içeremez bir tanımlayıcı tarafından tanımlanır. Merhaba ölçütler arasındaki ilişkiyi Hello kullanarak tanımlanabilen 'and', 'or', 'not' işleçleri yanı sıra '(',')'. Örnek: "Criterion1 veya (Criterion1 ve değil Criterion2)".
+Hedef kitle bölümü, standart bir kampanya veya kampanyanızı özelleştirilmiş ölçütlere göre sınırları sınırlamak için öğe listesi tanımlamak için kullanabilirsiniz. Standart kitlenizi sınırlamak için seçenekleri kümesi, yeni veya eski kullanıcılara veya yalnızca yerel gönderim kullanıcılara anında iletme olanak sağlar. Anında iletme alan kullanıcıların sayısını sınırlamak için bir kota de ayarlayabilirsiniz. Hedef kullanıcılar için bir veya daha fazla ölçüt eklemek için kampanyanızı nasıl filtre için ifade el ile düzenleyebilirsiniz. Bir hedef kitle ifadesi el ile yazabilirsiniz. Bu tür bir ifade, ölçütler arasındaki ilişkiyi açıkça tanımlamanız gerekir. Bir ölçüt büyük harfle başlamalı ve boşluk içeremez bir tanımlayıcı tarafından tanımlanır. Ölçütler arasındaki ilişkiyi kullanılarak tanımlanabilir 'and', 'or', 'not' işleçleri yanı sıra '(',')'. Örnek: "Criterion1 veya (Criterion1 ve değil Criterion2)".
 
 > [!NOTE]
-> Kampanyalarda bulunan büyük bir izleyici ile tarama hedefleme hello sunucu tarafı yavaş olabilir, özellikle toostart çalışırsanız, birden çok Kampanyalar aynı hello zaman.
+> Kampanyalarda bulunan büyük bir izleyici ile tarama hedefleme sunucu tarafı özellikle aynı anda birden çok Kampanyalar başlatmayı denerseniz yavaş olabilir.
 
 * Mümkünse, yalnızca bir kampanya aynı anda başlatın.
-* En çok yalnızca başlangıç dört kampanyaları birer birer hello.
-* Yalnızca tooyour etkin kullanıcıları itme (onay kutusu "yalnızca yerel gönderim kullanılarak ulaşılabilen kullanıcıları devreye" ve "yalnızca etkin kullanıcıları göster") böylece hala hello uygulamasını yüklemediyseniz ve kullanmak, kullanıcılarınızın taranan toobe gerekir.
-  Kitlenizi tanımlandığında hello kullanabilirsiniz kaç kullanıcının bu anında alacaksınız çıkışı düğmesi toofind benzetimini. Bu, büyük olasılıkla (Bu kullanıcıların rastgele bir örneği temel alarak bir tahmindir) Bu İzleyici tarafından hedeflenen bilinen kullanıcıların sayısını hello işlem. Merhaba uygulamayı kaldırmış kullanıcıların da bu hedef kitleye dahil olduğu, ancak ulaşılamıyor unutmayın.
+* En fazla yalnızca dört Kampanyalar aynı anda başlatın.
+* Yalnızca etkin kullanıcılara anında iletme (onay kutusu "yalnızca yerel gönderim kullanılarak ulaşılabilen kullanıcıları devreye" ve "yalnızca etkin kullanıcıları göster") böylece hala uygulamasını yüklemediyseniz ve kullanmak, kullanıcılarınızın taranacak gerekir.
+  Kitlenizi tanımlandıktan sonra bu itme kaç kullanıcı alacak bulmak için benzetim düğmesini kullanabilirsiniz. Bu, büyük olasılıkla (Bu kullanıcıların rastgele bir örneği temel alarak bir tahmindir) Bu İzleyici tarafından hedeflenen bilinen kullanıcıların sayısını hesaplayın. Uygulamayı kaldırmış kullanıcıların da bu hedef kitleye dahil olduğu, ancak ulaşılamıyor unutmayın.
 
 ### <a name="see-also"></a>Ayrıca bkz.
 * [UI belgeleri - Reach - yeni itme ölçüt][Link 28]
@@ -152,10 +152,10 @@ Kampanya veya kampanyanızı özelleştirilmiş ölçütlere göre sınırları 
 * Yalnızca yerel gönderim kullanılarak ulaşılabilen kullanıcıları devreye sok: Duyurular, anketler
 
 ## <a name="time-frame"></a>Zaman çerçevesi
-Merhaba gönderim veya başlangıç zamanını boş toostart hello kampanya hemen bırakabilirsiniz hello zaman çerçevesi bölüm tooset kullanabilirsiniz. Hello son saat dilimi kullanarak hello kampanya kullanıcılarınızın Asya'da bekler ve iter birer birer hello world eşleşme hello zaman çerçevesi içindeki tüm saat dilimleri için kampanyanızı ayarlanıncaya kadar küçük toplu Gönder'den önceki bir gün başlayabilir, unutmayın. Merhaba itme başlatmadan önce toorequest hello zaman hello telefondan olduğundan hello son kullanıcıların saat dilimi kullanarak da gecikmeler kampanyalarda neden olabilir.
+Gönderim veya zaman çerçevesi kampanya hemen başlatmak için boş bırakabilirsiniz ayarlamak için zaman çerçevesi bölüm kullanabilirsiniz. Son kullanıcılar saat dilimi kullanarak kampanya kullanıcılarınızın Asya'da beklediğiniz ve kampanyanızı için zaman çerçevesi dünyadaki tüm saat dilimleri eşleşen kadar bir seferde iter küçük toplu göndermek'den önceki bir gün başlayabilir, unutmayın. İstek süresi telefonunuzdan itme başlatmadan önce olduğundan son kullanıcının saat dilimi kullanarak da gecikmeler kampanyalarda neden olabilir.
 
 > [!NOTE]
-> Bitiş tarihi önbelleğe alabilir olmadan kampanyaları iter yerel olarak hala görünen ve bunları sonra el ile tam kampanyalar. tooavoid Bu davranış, özel kampanyalar için bitiş zamanı.
+> Bitiş tarihi önbelleğe alabilir olmadan kampanyaları iter yerel olarak hala görünen ve bunları sonra el ile tam kampanyalar. Özel bir bitiş saati kampanyalar için bu davranışı önlemek için.
 
 ### <a name="see-also"></a>Ayrıca bkz.
 * [Ulaşmaya - nasıl yapılır – planlama][Link 3] 
@@ -166,10 +166,10 @@ Merhaba gönderim veya başlangıç zamanını boş toostart hello kampanya heme
 * Zaman çerçevesi: Duyurular, anketler, döşeme
 
 ## <a name="test"></a>Test etme
-Merhaba kampanya kaydetmeden önce bu itme tooyour kendi test aygıt hello Test bölümü toosend kullanabilirsiniz. Bu kampanya için özel tüm diller yapılandırdıysanız, her dilde hello itme test edebilirsiniz. "Hesabım" test aygıttan ayarlayabilirsiniz.
+Test bölümü kampanya kaydetmeden önce bu itme kendi test aygıta göndermek için kullanabilirsiniz. Tüm özel diller bu kampanya için yapılandırdıysanız, her dilde göndererek test edebilirsiniz. "Hesabım" test aygıttan ayarlayabilirsiniz.
 
 > [!NOTE]
-> Merhaba düğmesini kullandığınızda veriler günlüğe kaydedilir hiçbir sunucu tarafı çok "test" iter, veriler yalnızca gerçek anında iletme kampanyalarını için günlüğe kaydedilir.
+> "Test etmek için" düğmesini kullandığınızda veriler günlüğe kaydedilir hiçbir sunucu tarafı iter, veriler yalnızca gerçek anında iletme kampanyalarını için günlüğe kaydedilir.
 
 ### <a name="see-also"></a>Ayrıca bkz.
 * [UI belgeleri - hesabım][Link 14]

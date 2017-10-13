@@ -1,6 +1,6 @@
 ---
 title: "Azure AD Connect eşitleme: bir yapılandırma değişikliği Azure AD Connect eşitleme yaptığınızda | Microsoft Docs"
-description: "Toomake toohello yapılandırmasını değiştirme Azure AD CONNECT'te nasıl eşitleme aracılığıyla anlatılmaktadır."
+description: "Azure AD Connect eşitleme yapılandırmasında değişiklik konusunda size yol göstermektedir."
 services: active-directory
 documentationcenter: 
 author: andkjell
@@ -14,394 +14,394 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 78e96d9166831a668439c2b8aa6a0022bc472da4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 63a7ae9d39e1a74294637172efd607ee41b2d69b
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="azure-ad-connect-sync-how-toomake-a-change-toohello-default-configuration"></a>Azure AD Connect eşitleme: nasıl toomake değişiklik toohello varsayılan yapılandırması
-Bu konuda Hello amacı toowalk size nasıl toomake Azure AD Connect eşitleme toohello Varsayılan yapılandırmada değiştirir. Bu, bazı ortak senaryolar için adımları sağlar. Bu bilgiyle, bazı basit değişiklikler tooyour kendi kendi iş kurallarına göre yapılandırma mümkün toomake olmalıdır.
+# <a name="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration"></a>Azure AD Connect eşitleme: varsayılan yapılandırmanın bir değişiklik yapma
+Bu konunun amacı, Azure AD Connect eşitleme varsayılan yapılandırmasında değişiklik konusunda size yol sağlamaktır. Bu, bazı ortak senaryolar için adımları sağlar. Bu bilgiyle, kendi iş kurallarına göre kendi yapılandırma bazı basit değişiklikler yapmak yapabiliyor olmanız gerekir.
 
 ## <a name="synchronization-rules-editor"></a>Eşitleme kuralları Düzenleyicisi
-Merhaba eşitleme kuralları Düzenleyicisi kullanılan toosee ve değişiklik hello varsayılan yapılandırmadır. Merhaba Başlat menüsü hello altında bulabilirsiniz **Azure AD Connect** grubu.  
+Eşitleme kuralları Düzenleyicisi görmek ve varsayılan yapılandırmasını değiştirmek için kullanılır. Başlat menüsünün altında bulabilirsiniz **Azure AD Connect** grubu.  
 ![Başlat menüsü ile eşitleme kural Düzenleyicisi](./media/active-directory-aadconnectsync-change-the-configuration/startmenu2.png)
 
-Açtığınızda, hello varsayılan out-of-box kuralları bakın.
+Açtığınızda, varsayılan out-of-box kuralları bakın.
 
 ![Eşitleme kuralı Düzenleyicisi](./media/active-directory-aadconnectsync-change-the-configuration/sre2.png)
 
-### <a name="navigating-in-hello-editor"></a>Merhaba Düzenleyicisi'nde gezinme
-Merhaba aşağı açılan listeler hello Düzenleyicisi hello üstündeki tooquickly Bul belirli bir kural izin verin. Örneğin, hello özniteliği proxyAddresses dahil olduğu toosee hello kuralları istiyorsanız hello aşağı açılan listeler toohello aşağıdakileri değiştirin:  
+### <a name="navigating-in-the-editor"></a>Düzenleyicide gezinme
+Aşağı açılan listeler düzenleyicisinin üstünde, belirli bir kural hızla bulmak izin verir. Öznitelik proxyAddresses dahil olduğu kuralları görmek istiyorsanız, aşağı açılan listeler Örneğin, aşağıdaki değiştirin:  
 ![SRE filtreleme](./media/active-directory-aadconnectsync-change-the-configuration/filtering.png)  
-tooreset filtreleme ve yük yeni bir yapılandırma basın **F5** hello klavyede.
+Filtreleme sıfırlamak ve yeni yapılandırmayı basın **F5** klavyedeki.
 
-sağ toohello üst, bir düğmeye sahip **Yeni Kural Ekle**. Bu düğme kullanılan toocreate kendi özel kuralıdır.
+Sağ üst için bir düğmeye sahip **Yeni Kural Ekle**. Bu düğme, kendi özel bir kural oluşturmak için kullanılır.
 
-Merhaba altındaki bir seçili eşitleme kuralı hareket düğmelerini sahip. **Düzen** ve **silmek** onlara beklediğiniz yapın. **Dışarı aktarma** hello eşitleme kuralı yeniden oluşturmak için bir PowerShell Betiği oluşturur. Bu yordam toomove bir sunucu tooanother eşitleme kuraldan verir.
+Alt kısmındaki düğmeleri hareket için bir seçili eşitleme kuralı vardır. **Düzen** ve **silmek** onlara beklediğiniz yapın. **Dışarı aktarma** eşitleme kuralı yeniden oluşturmak için bir PowerShell Betiği oluşturur. Bu yordam, bir eşitleme kuralı bir sunucudan diğerine taşımanıza olanak verir.
 
 ## <a name="create-your-first-custom-rule"></a>İlk, özel bir kural oluşturun
-Merhaba en yaygın değişiklikler toohello öznitelik akışları değişikliktir. Merhaba veri kaynağı dizininizde Azure AD olduğu gibi olmayabilir. Bu bölümdeki Hello örnekte toomake hello verilen ad, bir kullanıcının her zaman içinde olmasını istediğiniz **uygun durumda**.
+Öznitelik akışları değişiklikler en yaygın değişikliktir. Veri kaynağı dizininizde Azure AD olduğu gibi olmayabilir. Bu bölümdeki örnekte, bir kullanıcının verilen adı her zaman içinde olduğundan emin olmak istediğiniz **uygun durumda**.
 
-### <a name="disable-hello-scheduler"></a>Merhaba Zamanlayıcısı'nı devre dışı bırak
-Merhaba [Zamanlayıcı](active-directory-aadconnectsync-feature-scheduler.md) varsayılan olarak 30 dakikada bir çalışır. Değişiklik yapmadan ve yeni kurallarınızı sorun giderme, başlangıç değil emin toomake istiyor. tootemporarily hello Zamanlayıcısı'nı devre dışı bırakmak, PowerShell'i başlatın ve çalıştırın`Set-ADSyncScheduler -SyncCycleEnabled $false`
+### <a name="disable-the-scheduler"></a>Zamanlayıcı'yı devre dışı bırak
+[Zamanlayıcı](active-directory-aadconnectsync-feature-scheduler.md) varsayılan olarak 30 dakikada bir çalışır. Değişiklik yapmadan ve yeni kurallarınızı sorun giderme, başlangıç değil emin olmak istersiniz. Geçici olarak Zamanlayıcı'yı devre dışı bırakmak için PowerShell'i başlatın ve çalıştırın`Set-ADSyncScheduler -SyncCycleEnabled $false`
 
-![Merhaba Zamanlayıcısı'nı devre dışı bırak](./media/active-directory-aadconnectsync-change-the-configuration/schedulerdisable.png)  
+![Zamanlayıcı'yı devre dışı bırak](./media/active-directory-aadconnectsync-change-the-configuration/schedulerdisable.png)  
 
-### <a name="create-hello-rule"></a>Merhaba kuralı oluşturma
+### <a name="create-the-rule"></a>Kural oluşturma
 1. Tıklatın **Yeni Kural Ekle**.
-2. Merhaba üzerinde **açıklama** sayfa hello aşağıdakileri girin:  
+2. Üzerinde **açıklama** sayfasında aşağıdakileri girin:  
    ![Filtreleme kuralını gelen](./media/active-directory-aadconnectsync-change-the-configuration/description2.png)  
-   * Ad: hello kural açıklayıcı bir ad verin.
-   * Açıklama: birisi hangi hello kural anlamaları için bazı açıklama içindir.
-   * Bağlı sistem: hello sistem hello nesnesi bulunabilir. Bu durumda, hello Active Directory bağlayıcısını seçin.
+   * Ad: kural açıklayıcı bir ad verin.
+   * Açıklama: birisi kural içindir anlamaları için bazı açıklama.
+   * Bağlı sistem: sistemi nesnenin bulunabilir. Bu durumda, Active Directory bağlayıcısını seçin.
    * Bağlı sistem/meta veri deposu nesne türü: Seçin **kullanıcı** ve **kişi** sırasıyla.
-   * Bağlantı türü: Bu değeri çok değiştirmek**katılma**.
-   * Öncelik: hello sistemde benzersiz olan bir değer sağlayın. Daha yüksek önceliği daha düşük bir sayısal değer belirtir.
+   * Bağlantı türü: Bu değer ile değiştirmek **katılma**.
+   * Öncelik: sistemdeki benzersiz olan bir değer sağlayın. Daha yüksek önceliği daha düşük bir sayısal değer belirtir.
    * Etiket: boş bırakın. Yalnızca out-of-box kuralları Microsoft'tan bir değerle doldurulmuş bu kutu olması gerekir.
-3. Merhaba üzerinde **Scoping filtre** want **givenName ISNOTNULL**.  
+3. Üzerinde **Scoping filtre** want **givenName ISNOTNULL**.  
    ![Gelen kuralı kapsamı filtresi](./media/active-directory-aadconnectsync-change-the-configuration/scopingfilter.png)  
-   Bu bölüm, hangi nesnelerin hello kuralın geçerli olacağı kullanılan toodefine değildir. Boş bırakılırsa, hello kural tooall kullanıcı nesnelerinin geçerli olur. Ancak, konferans odaları, hizmet hesapları ve diğer kişiler olmayan kullanıcı nesneleri içerir.
-4. Merhaba üzerinde **katılma kuralları**, bu alanı boş bırakın.
-5. Merhaba üzerinde **dönüşümleri** sayfasında, hello FlowType çok değiştirme**ifade**. Select hello Target özniteliği **givenName**ve kaynağında girin `PCase([givenName])`.
+   Bu bölümde, kuralın geçerli olacağı nesneleri tanımlamak için kullanılır. Boş bırakılırsa, kuralı tüm kullanıcı nesneleri için geçerli olur. Ancak, konferans odaları, hizmet hesapları ve diğer kişiler olmayan kullanıcı nesneleri içerir.
+4. Üzerinde **katılma kuralları**, bu alanı boş bırakın.
+5. Üzerinde **dönüşümleri** sayfasında, FlowType değiştirmek **ifade**. Hedef öznitelik Seç **givenName**ve kaynağında girin `PCase([givenName])`.
    ![Gelen kuralı dönüşümleri](./media/active-directory-aadconnectsync-change-the-configuration/transformations.png)  
-   Merhaba eşitleme altyapısı, hem de hello işlev adı ve hello hello özniteliğin adını duyarlıdır. Bir sorun yazarsanız, hello kural eklediğinizde, bir uyarı görürsünüz. Merhaba Düzenleyicisi toosave sağlar ve tooreopen hello kuralı ve doğru hello kuralı olması gereken şekilde, devam edin.
-6. Tıklatın **Ekle** toosave hello kuralı.
+   Eşitleme altyapısı, hem de işlev adı ve öznitelik adı duyarlıdır. Bir sorun yazarsanız, kural eklediğinizde, bir uyarı görürsünüz. Kural yeniden açın ve hatayı düzeltmek gerekir böylece Düzenleyicisi'ni kaydetmek ve devam etmek sağlar.
+6. Tıklatın **Ekle** kuralını kaydetmek için.
 
-Yeni özel kuralın hello ile diğer görünmesi gereken hello sistemde eşitleme kuralları.
+Yeni özel kuralın sistemdeki diğer eşitleme kuralları görünür olması gerekir.
 
-### <a name="verify-hello-change"></a>Merhaba değişikliği doğrulayın
-Bu yeni değişiklikle toomake hataları atma değil ve beklendiği gibi çalıştığından emin istiyor. Sahip olduğunuz nesneleri Hello sayısına bağlı olarak, bu adımı iki farklı şekilde toodo vardır.
+### <a name="verify-the-change"></a>Değişikliği doğrulayın
+Bu yeni değişiklikle hataları atma değil ve beklendiği gibi çalıştığından emin olmak istiyorsunuz. Sahip olduğunuz nesneleri sayısına bağlı olarak, bu adımı tamamlamak için iki farklı yolu vardır.
 
 1. Tüm nesneler üzerinde tam bir eşitleme çalıştırın
 2. Tek bir nesne üzerinde bir önizleme ve tam eşitleme çalıştırma
 
-Başlat **eşitleme hizmeti** hello Başlat menüsünden. Merhaba Bu bölümde bu araç tüm adımlardır.
+Başlat **eşitleme hizmeti** Başlat menüsünden. Bu bölümde bu araç tüm adımlardır.
 
 1. **Tüm nesneler üzerinde tam eşitleme**  
-   Seçin **Bağlayıcılar** hello üstünde. Merhaba, bir değişiklik tooin hello önceki bölümde yaptığınız bağlayıcı tanımlamak, bu durumda Active Directory etki alanı Hizmetleri hello ve seçin. Seçin **çalıştırmak** Eylemler ve select **tam eşitleme** ve **Tamam**.
+   Seçin **Bağlayıcılar** üstünde. Bu durumda Active Directory etki alanı Hizmetleri, önceki bölümde bir değişiklik yaptığınız bağlayıcı tanımlamak ve seçin. Seçin **çalıştırmak** Eylemler ve select **tam eşitleme** ve **Tamam**.
    ![Tam eşitleme](./media/active-directory-aadconnectsync-change-the-configuration/fullsync.png)  
-   Merhaba nesneler artık hello meta veri deposunda güncelleştirilir. Şimdi toolook hello nesnede hello meta dizesinde istiyorsunuz.
+   Nesneler meta veri deposunda şimdi güncelleştirilir. Şimdi, meta veri nesnesinde bakmak istiyorsunuz.
 2. **Önizleme ve tek bir nesne üzerinde tam eşitleme**  
-   Seçin **Bağlayıcılar** hello üstünde. Merhaba, bir değişiklik tooin hello önceki bölümde yaptığınız bağlayıcı tanımlamak, bu durumda Active Directory etki alanı Hizmetleri hello ve seçin. Seçin **bağlayıcı alanı arama**. Kapsam toofind toouse tootest hello değiştirmek istediğiniz bir nesne kullanın. Merhaba nesnesi seçin ve tıklatın **Önizleme**. Merhaba yeni ekranında şunları seçin **Commit Önizleme**.  
+   Seçin **Bağlayıcılar** üstünde. Bu durumda Active Directory etki alanı Hizmetleri, önceki bölümde bir değişiklik yaptığınız bağlayıcı tanımlamak ve seçin. Seçin **bağlayıcı alanı arama**. Kapsam değişikliği test etmek için kullanmak istediğiniz bir nesneyi bulmak için kullanın. Nesne seçin ve tıklatın **Önizleme**. Yeni ekranında şunları seçin **Commit Önizleme**.  
    ![Önizleme Yürüt](./media/active-directory-aadconnectsync-change-the-configuration/commitpreview.png)  
-   Merhaba değişiklik taahhüt toohello meta veri deposu sunulmuştur.
+   Değişiklik için meta veri deposu artık kararlıdır.
 
-**Merhaba meta veri deposu hello nesnesinde bakın**  
-Şimdi birkaç örnek nesneleri toomake emin hello değer beklenen toopick ve o hello kural istiyorsunuz. Seçin **meta veri deposu arama** hello üstten. Toofind hello ilgili nesneleri gereken herhangi bir filtre ekleyin. Merhaba Arama sonuçlarından nesneyi açın. Merhaba öznitelik değerleri arayın ve ayrıca hello doğrulayın **eşitleme kuralları** beklendiği gibi kural hello sütun.  
+**Meta veri nesnesinde bakın**  
+Şimdi, beklenen değer emin olmak için birkaç örnek nesneleri ve kuralın uygulanacağı çekme istiyorsunuz. Seçin **meta veri deposu arama** üstten. İlgili nesneleri bulmak için gereken herhangi bir filtre ekleyin. Arama sonuçlarından nesneyi açın. Öznitelik değerleri arayın ve ayrıca doğrulayın **eşitleme kuralları** beklendiği gibi kuralın uygulandığı sütun.  
 ![Meta veri deposu arama](./media/active-directory-aadconnectsync-change-the-configuration/mvsearch.png)  
 
-### <a name="enable-hello-scheduler"></a>Merhaba Zamanlayıcısını Etkinleştir
-Her şeyin beklendiği gibi ise, hello Zamanlayıcı yeniden etkinleştirebilirsiniz. PowerShell çalıştırmak `Set-ADSyncScheduler -SyncCycleEnabled $true`.
+### <a name="enable-the-scheduler"></a>Zamanlayıcısını Etkinleştir
+Her şeyin beklendiği gibi ise, Zamanlayıcı yeniden etkinleştirebilirsiniz. PowerShell çalıştırmak `Set-ADSyncScheduler -SyncCycleEnabled $true`.
 
 ## <a name="other-common-attribute-flow-changes"></a>Diğer ortak öznitelik akışı değişiklikleri
-toomake tooan öznitelik akışı nasıl değiştiğini Hello önceki bölümde açıklanan. Bu bölümde, bazı ek örnekler verilmiştir. toocreate hello eşitleme kuralı nasıl kısaltılmıştır Merhaba adımları, ancak hello tam adımlar hello önceki bölümünde bulabilirsiniz.
+Önceki bölümde bir öznitelik akışı değişiklik açıklanmıştır. Bu bölümde, bazı ek örnekler verilmiştir. Eşitleme kuralı oluşturmak adımlar kısaltılmış, ancak tam adımlar önceki bölümde bulabilirsiniz.
 
-### <a name="use-another-attribute-than-hello-default"></a>Başka bir öznitelik hello varsayılan kullanın
-Fabrikam'daki, hello yerel alfabe verilen ad, Soyadı ve görünen ad için kullanıldığı bir orman yoktur. Merhaba bu öznitelikler Latin karakterlerini gösterimini hello uzantı öznitelikleri bulunabilir. Azure AD'de Hello genel adres listesi oluşturulurken ve Office 365 hello kuruluşunuzda kullanılan bunun yerine bu öznitelikler toobe.
+### <a name="use-another-attribute-than-the-default"></a>Varsayılandan başka bir öznitelik kullanın
+Fabrikam'daki, yerel alfabe verilen ad, Soyadı ve görünen ad için kullanıldığı bir orman yoktur. Bu öznitelikler Latin karakterlerini gösterimini uzantı öznitelikleri bulunabilir. Azure AD içinde genel adres listesinde oluştururken ve Office 365, kuruluşun istediği yerine kullanılacak bu öznitelikler.
 
-Varsayılan yapılandırma ile bir nesne hello yerel ormandaki şöyle görünür:  
+Varsayılan yapılandırma ile yerel orman nesneden şöyle görünür:  
 ![Öznitelik akışı 1](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp1.png)
 
-toocreate diğer öznitelik akışları sahip bir kural hello aşağıdaki:
+Diğer öznitelik akışları ile bir kural oluşturmak için aşağıdakileri yapın:
 
-* Başlat **Synchronization Rule Editor** hello Başlat menüsünden.
-* İle **gelen** hala seçili toohello sol, hello düğmesini **Yeni Kural Ekle**.
-* Merhaba kuralı, bir ad ve açıklama verin. Merhaba şirket içi Active Directory ve hello ilgili nesne türlerini seçin. İçinde **bağlantı türü**seçin **katılma**. Öncelik, başka bir kural tarafından kullanılmayan bir sayı seçin. Bu örnekte Hello değeri 50 kullanılabilmesi için hello out-of-box kuralları 100 ile başlatın.
+* Başlat **Synchronization Rule Editor** Başlat menüsünden.
+* İle **gelen** sola seçiliyken, düğmesini **Yeni Kural Ekle**.
+* Kural, bir ad ve açıklama verin. Şirket içi Active Directory ve ilgili nesne türlerini seçin. İçinde **bağlantı türü**seçin **katılma**. Öncelik, başka bir kural tarafından kullanılmayan bir sayı seçin. 50 değeri bu örnekte, böylece out-of-box kuralları 100 ile başlatın.
   ![Öznitelik akışı 2](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp2.png)
-* Kapsam boş bırakın getirin (diğer bir deyişle, hello ormanındaki tooall kullanıcı nesnelerinin geçerli).
-* (Out-of-box kural tanıtıcı birleşimlerin hello izin veren olan) katılma kurallarını boş bırakın.
-* Dönüşümleri, akışları aşağıdaki hello oluşturun:  
+* Kapsam boş bırakın getirin (diğer bir deyişle, ormandaki tüm kullanıcı nesneleri uygulanması gereken).
+* Birleşim kuralları boş bırakın (diğer bir deyişle, birleşimlerin işlemek out-of-box kural sağlar).
+* Dönüşümleri, aşağıdaki akışları oluşturun:  
   ![Öznitelik akışı 3](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp3.png)
-* Tıklatın **Ekle** toosave hello kuralı.
-* Çok Git**Eşitleme Hizmeti Yöneticisi'ni**. Üzerinde **Bağlayıcılar**, select hello hello kural eklediğimiz burada bağlayıcı. Seçin **çalıştırmak**, ve **tam eşitleme**. Tam eşitleme hello geçerli kurallarını kullanarak tüm nesneleri yeniden hesaplar.
+* Tıklatın **Ekle** kuralını kaydetmek için.
+* Git **Eşitleme Hizmeti Yöneticisi'ni**. Üzerinde **Bağlayıcılar**, kural eklediğimiz burada Bağlayıcısı'nı seçin. Seçin **çalıştırmak**, ve **tam eşitleme**. Tam eşitleme, geçerli kurallarını kullanarak tüm nesneleri yeniden hesaplar.
 
-Bu özel bu kuralla aynı nesne hello hello sonucu.  
+Bu bu özel kuralın ile aynı nesne için kaynaklanır:  
 ![Öznitelik akışı 4](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp4.png)
 
 ### <a name="length-of-attributes"></a>Öznitelikleri uzunluğu
-Dize özniteliklerin varsayılan kümesi toobe tarafından dizine ve hello en fazla 448 karakter uzunluğundadır. Daha fazla bilgi içerebilir dizesi öznitelikleri ile çalışıyorsanız, emin tooinclude hello aşağıdaki hello öznitelik akışı olun:  
+Dize özniteliklerin dizine olarak ayarlanmalıdır varsayılan ve en fazla 448 karakterdir. Daha içerebilir dizesi öznitelikleri ile çalışıyorsanız, aşağıdaki öznitelik akışı eklediğinizden emin olun:  
 `attributeName` <- `Left([attributeName],448)`
 
-### <a name="changing-hello-userprincipalsuffix"></a>Merhaba userPrincipalSuffix değiştirme
-Merhaba userPrincipalName özniteliği Active Directory'de her zaman hello kullanıcılar tarafından bilinmiyor ve oturum açma kimliği hello gibi uygun olmayabilir. Hello Azure AD Connect eşitleme Yükleme Sihirbazı'nı farklı bir öznitelik çekme sağlar örneğin posta. Ancak bazı durumlarda hello özniteliği hesaplanması gerekir. Örneğin, iki Azure AD dizini, bir üretim için ve test etmek için bir hello şirket Contoso sahiptir. Kiracı toouse hello oturum açma kimliği başka bir soneki hello kullanıcılar kendi test istedikleri  
+### <a name="changing-the-userprincipalsuffix"></a>UserPrincipalSuffix değiştirme
+UserPrincipalName özniteliği Active Directory'de her zaman kullanıcılar tarafından bilinmiyor ve oturum açma kimliği olarak uygun olmayabilir. Örneğin, farklı bir öznitelik çekme eşitleme Yükleme Sihirbazı'nı sağlar Azure AD Connect posta. Ancak bazı durumlarda öznitelik hesaplanması gerekir. Örneğin, Contoso şirket, iki Azure AD dizini, bir üretim için ve test etmek için bir sahiptir. Oturum açma kimliği başka bir sonek kullanmak üzere kendi test Kiracı kullanıcılar istedikleri  
 `userPrincipalName` <- `Word([userPrincipalName],1,"@") & "@contosotest.com"`
 
-Bu ifadede, her şeyi sol Merhaba ilk Al @-sign (Word) ve sabit bir dize ile Birleştir.
+Bu ifadede her şeyi ele ilk sol @-sign (Word) ve sabit bir dize ile Birleştir.
 
-### <a name="convert-a-multi-value-tooa-single-value"></a>Bir çoklu değer tooa tek değerli Dönüştür
-Active Directory Kullanıcıları ve Bilgisayarları'nda değerli tek Ara olsa bile Active Directory'de bazı öznitelikler hello şemada birden çok değerli. Merhaba Açıklama özniteliği örneğidir.  
+### <a name="convert-a-multi-value-to-a-single-value"></a>Tek değerli birden çok değerli Dönüştür
+Active Directory Kullanıcıları ve Bilgisayarları'nda değerli tek Ara olsa bile Active Directory'de bazı öznitelikler şemada birden çok değerli. Açıklama özniteliği örneğidir.  
 `description` <- `IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
 
-Bu ifade hello özniteliği hello özniteliğinde hello ilk öğe (öğe) ele bir değere sahip durumda kaldırın baştaki ve sondaki boşlukları (kırpma) ve ardından canlı hello hello dizedeki ilk 448 karakter (soldaki).
+Bu ifadede öznitelik ilk öğe (öğe) ele bir değer özniteliği sahip olmaması durumunda, baştaki ve sondaki boşlukları (kırpma) kaldırın ve ardından (soldaki) ilk 448 karakter dizesini tutun.
 
 ### <a name="do-not-flow-an-attribute"></a>Bir öznitelik akışı değil
-Merhaba senaryo Bu bölüm için arka plan için bkz: [kontrol hello öznitelik akış süreci](active-directory-aadconnectsync-understanding-declarative-provisioning.md#control-the-attribute-flow-process).
+Bu bölümde senaryo arka planda için bkz: [öznitelik akışı işlemini denetleyen](active-directory-aadconnectsync-understanding-declarative-provisioning.md#control-the-attribute-flow-process).
 
-Toonot bir öznitelik akışı iki yolu vardır. Merhaba ilk hello Yükleme Sihirbazı'nda kullanılabilir ve çok verir[seçili öznitelikleri kaldırmak](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering). Merhaba özniteliği önce hiçbir zaman uyumlu yaptıysanız bu seçenek çalışır. Ancak, toosynchronize bu öznitelik başlamış olması ve daha sonra bu özelliğiyle çıkarırsanız, ardından hello eşitleme altyapısı hello özniteliği yönetme durdurur ve hello varolan değerleri Azure AD içinde kalır.
+Bir öznitelik akışı olmayan iki yolu vardır. İlk Yükleme Sihirbazı'nda kullanılabilir ve böylece [seçili öznitelikleri kaldırmak](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering). Bu seçenek, hiçbir zaman önce öznitelik eşitlenmiş durumunda çalışır. Ancak, bu öznitelik eşitlemek ve daha sonra bu özellik ile kaldırmak başlattıysanız, öznitelik ve var olan değerleri yönetme eşitleme altyapısı durakları Azure AD'de bırakılır.
 
-Tooremove hello özniteliğin değerini istediğiniz ve hello gelecekteki akış değil emin olun, bunun yerine özel bir kural oluşturun.
+Özniteliğin değerini kaldırın ve gelecekte akmaz emin olmak istiyorsanız, bunun yerine özel bir kural oluşturmak.
 
-Fabrikam'daki, biz biz toohello eşitleme öznitelikleri bulut hello bazıları var olmamalıdır, gerçekleştirilmiş. Bu öznitelikler Azure AD'den kaldırılır emin toomake istiyoruz.  
+Fabrikam'daki, biz bazı biz buluta eşitleme öznitelikleri var olmamalıdır, gerçekleştirilmiş. Bu öznitelikler Azure AD'den kaldırılır emin olmak istiyoruz.  
 ![Hatalı uzantı öznitelikleri](./media/active-directory-aadconnectsync-change-the-configuration/badextensionattribute.png)
 
-* Yeni bir gelen eşitleme kuralı oluşturmak ve hello açıklama doldurmak ![açıklamaları](./media/active-directory-aadconnectsync-change-the-configuration/syncruledescription.png)
-* Öznitelik akışları türü oluşturma **ifade** ve hello kaynağıyla **AuthoritativeNull**. değişmez değer Hello **AuthoritativeNull** toopopulate hello değerini daha düşük bir öncelik eşitleme kuralı çalıştığında olsa bile hello değeri hello MV boş olması gerektiğini gösterir.
+* Yeni bir gelen eşitleme kuralı oluşturabilir ve bir açıklama doldurabilirsiniz ![açıklamaları](./media/active-directory-aadconnectsync-change-the-configuration/syncruledescription.png)
+* Öznitelik akışları türü oluşturma **ifade** ve kaynağı ile **AuthoritativeNull**. Sabit **AuthoritativeNull** değerini doldurmak daha düşük bir öncelik eşitleme kuralı çalıştığında olsa bile değerin MV boş olması gerektiğini gösterir.
   ![Uzantı öznitelikleri dönüşümü](./media/active-directory-aadconnectsync-change-the-configuration/syncruletransformations.png)
-* Merhaba eşitleme kuralı kaydedin. Başlat **eşitleme hizmeti**, hello bağlayıcı bulmak, seçmek **çalıştırmak**, ve **tam eşitleme**. Bu adım, tüm öznitelik akışları yeniden hesaplar.
-* Bu hello değişiklikleri hello bağlayıcı alanı arama yaparak dışarı toobe hakkında yöneliktir doğrulayın.
+* Eşitleme kuralı kaydedin. Başlat **eşitleme hizmeti**, bağlayıcı bulmak, seçmek **çalıştırmak**, ve **tam eşitleme**. Bu adım, tüm öznitelik akışları yeniden hesaplar.
+* Hedeflenen değişiklikleri bağlayıcı alanı arama yaparak dışarı aktarılacak olduğunu doğrulayın.
   ![Hazırlanan Sil](./media/active-directory-aadconnectsync-change-the-configuration/deletetobeexported.png)
 
 ## <a name="create-rules-with-powershell"></a>PowerShell ile kuralları oluşturma
-Yalnızca birkaç değişiklik toomake sahip olduğunuzda hello eşitleme kuralı Düzenleyicisi'ni kullanarak düzgün çalışır. Birden çok değişikliği toomake gerekiyorsa, PowerShell daha iyi bir seçenek olabilir. Gelişmiş özellikler yalnızca PowerShell ile kullanılabilir.
+Yalnızca yapmak için birkaç değişiklik olduğunda eşitleme kuralı Düzenleyicisi'ni kullanarak düzgün çalışır. Birçok değişiklik yapmanız gerekirse, PowerShell daha iyi bir seçenek olabilir. Gelişmiş özellikler yalnızca PowerShell ile kullanılabilir.
 
-### <a name="get-hello-powershell-script-for-an-out-of-box-rule"></a>Merhaba PowerShell komut dosyası için bir out-of-box kuralını Al
-toosee hello out-of-box kural, select hello kural hello eşitleme oluşturulan PowerShell komut dosyası kuralları Düzenleyicisi ve tıklatın **verme**. PowerShell hello bu eylemi sağlar, oluşturulan hello kural komut dosyası.
+### <a name="get-the-powershell-script-for-an-out-of-box-rule"></a>PowerShell komut dosyası için bir out-of-box kuralını Al
+Bir out-of-box kuralı oluşturulan komut dosyası, eşitleme kuralları Düzenleyicisi'nde kuralı seçin ve tıklatın PowerShell görmek için **verme**. Bu eylem, kural oluşturulan PowerShell komut dosyası sağlar.
 
 ### <a name="advanced-precedence"></a>Gelişmiş önceliği
-Merhaba out-of-box eşitleme kuralları öncelik değeri 100 ile başlatın. Birçok ormanlar varsa ve toomake gereken birçok özel değişiklikler sonra 99 eşitleme kuralları yeterli olmayabilir.
+Out-of-box eşitleme kuralları öncelik değeri 100 ile başlatın. Daha sonra birçok ormanlar varsa ve birçok özel değişiklikler yapmanız gerekir, 99 eşitleme kuralları yeterli olmayabilir.
 
-Merhaba hello out-of-box kurallardan önce eklenen ek kurallar istediğiniz eşitleme altyapısı söyleyebilirsiniz. tooget Bu davranış, şu adımları izleyin:
+Eşitleme altyapısı out-of-box kurallardan önce eklenen ek kurallar istediğiniz söyleyebilirsiniz. Bu davranışı elde etmek üzere aşağıdaki adımları izleyin:
 
-1. İşareti hello ilk out-of-box eşitleme kuralı (Merhaba bu kuralıdır **içinde AD kullanıcı katılma gelen**) hello eşitleme kuralı Düzenleyicisi'ni seçip **verme**. Merhaba SR tanımlayıcı değeri kopyalayın.  
+1. İlk out-of-box eşitleme kuralı işaretlemek (Bu kural **içinde AD kullanıcı katılma gelen**) eşitleme kuralı Düzenleyicisi'ni seçip **verme**. SR tanımlayıcı değeri kopyalayın.  
 ![PowerShell değişikliği öncesinde](./media/active-directory-aadconnectsync-change-the-configuration/powershell1.png)  
-2. Merhaba yeni eşitleme kuralı oluşturun. Merhaba eşitleme kuralı Düzenleyicisi toocreate kullanabilirsiniz. Merhaba kural tooa PowerShell betiğini dışarı aktarın.
-3. Merhaba özelliğinde **PrecedenceBefore**, hello out-of-box kuraldan hello tanımlayıcı değeri ekleyin. Set hello **öncelik** çok**0**. Merhaba tanımlayıcı özniteliği benzersiz olduğundan ve başka bir kural adresinden bir GUID yeniden kullanma değil emin olun. Ayrıca bu hello emin olun **ImmutableTag** özelliği ayarlı değil; Bu özellik yalnızca bir out-of-box kuralı için ayarlamanız gerekir. Merhaba PowerShell komut dosyasını kaydedin ve çalıştırın. Merhaba, özel kural hello öncelik değeri 100 atanır ve diğer tüm out-of-box kurallar artırılır sonucudur.  
+2. Yeni eşitleme kuralı oluşturun. Eşitleme kuralı Düzenleyicisi'ni oluşturmak için kullanabilirsiniz. Kural için bir PowerShell betiğini dışarı aktarın.
+3. Özelliğindeki **PrecedenceBefore**, out-of-box kuraldan tanımlayıcı değeri ekleyin. Ayarlama **öncelik** için **0**. Benzersiz tanımlayıcı özniteliği ve başka bir kural adresinden bir GUID yeniden kullanma değil emin olun. Da emin olmanız **ImmutableTag** özelliği ayarlı değil; Bu özellik yalnızca bir out-of-box kuralı için ayarlamanız gerekir. PowerShell komut dosyasını kaydedin ve çalıştırın. Özel kural öncelik değeri 100 atanır ve diğer tüm out-of-box kurallar artırılır sonucudur.  
 ![Değişiklikten sonra PowerShell](./media/active-directory-aadconnectsync-change-the-configuration/powershell2.png)  
 
-Aynı hello kullanarak birçok özel eşitleme kuralları olabilir **PrecedenceBefore** değer gerektiğinde.
+Aynı kullanarak birçok özel eşitleme kuralları olabilir **PrecedenceBefore** değer gerektiğinde.
 
 
 ## <a name="enable-synchronization-of-preferreddatalocation"></a>PreferredDataLocation eşitlemeyi etkinleştir
-Azure AD Connect destekleyen hello eşitlenmesi **PreferredDataLocation** için öznitelik **kullanıcı** sürüm 1.1.524.0 ve sonra nesneleri. Daha açık belirtmek gerekirse, aşağıdaki değişiklikleri sunulmuştur:
+Azure AD Connect eşitleme destekleyen **PreferredDataLocation** için öznitelik **kullanıcı** sürüm 1.1.524.0 ve sonra nesneleri. Daha açık belirtmek gerekirse, aşağıdaki değişiklikleri sunulmuştur:
 
-* Merhaba şema hello nesne türünün **kullanıcı** hello Azure AD Bağlayıcısı türü dize olan ve tek değerli tooinclude PreferredDataLocation özniteliği genişletilir.
+* Nesne türü şeması **kullanıcı** Azure AD Bağlayıcısı türü dize olan ve tek değerli PreferredDataLocation özniteliği kapsayacak şekilde genişletilir.
 
-* Merhaba şema hello nesne türünün **kişi** hello meta veri türü dize olan ve tek değerli tooinclude PreferredDataLocation özniteliği genişletilir.
+* Nesne türü şeması **kişi** meta veri deposunda türü dize olan ve tek değerli PreferredDataLocation özniteliği kapsayacak şekilde genişletilir.
 
-Şirket içi Active Directory içinde karşılık gelen bir PreferredDataLocation öznitelik olduğundan varsayılan olarak, eşitlemede hello PreferredDataLocation özniteliği etkin değil. Eşitleme el ile etkinleştirmeniz gerekir.
-
-> [!IMPORTANT]
-> Şu anda Azure AD hello PreferredDataLocation öznitelikte eşitlenmiş kullanıcı nesneleri hem bulut doğrudan Azure AD PowerShell kullanılarak yapılandırılan kullanıcı nesneleri toobe sağlar. Merhaba PreferredDataLocation öznitelik eşitlemesi etkinleştirildiğinde, Azure AD PowerShell tooconfigure hello özniteliğini kullanarak durdurmalısınız **kullanıcı nesneleri eşitlenen** Azure AD Connect bunları göre geçersiz kılar Şirket içi Active Directory'de Hello kaynak öznitelik değerleri.
+Şirket içi Active Directory içinde karşılık gelen bir PreferredDataLocation öznitelik olduğundan varsayılan olarak, eşitleme için PreferredDataLocation özniteliği etkin değil. Eşitleme el ile etkinleştirmeniz gerekir.
 
 > [!IMPORTANT]
-> 1 Eylül 2017 üzerinde Azure AD artık hello PreferredDataLocation özniteliği üzerinde sağlayacak **kullanıcı nesneleri eşitlenen** toobe doğrudan Azure AD PowerShell kullanılarak yapılandırılmış. Kullanıcı nesneleri tooconfigure PreferredLocation öznitelikte eşitlenen, yalnızca Azure AD Connect kullanmanız gerekir.
+> Şu anda Azure AD, Azure AD PowerShell kullanarak doğrudan olacak şekilde yapılandırılmış PreferredDataLocation özniteliği eşitlenmiş kullanıcı nesneleri hem bulut kullanıcı nesneleri sağlar. PreferredDataLocation öznitelik eşitlemesi etkinleştirildiğinde, öznitelik yapılandırmak için Azure AD PowerShell kullanarak durdurmalısınız **kullanıcı nesneleri eşitlenen** Azure AD Connect bunları şirket içi Active Directory'de kaynak öznitelik değerleri temel alarak geçersiz kılar.
 
-Eşitleme hello PreferredDataLocation özniteliğinin etkinleştirmeden önce aşağıdakileri yapmalısınız:
+> [!IMPORTANT]
+> 1 Eylül 2017 üzerinde Azure AD artık PreferredDataLocation özniteliği üzerinde izin **kullanıcı nesneleri eşitlenen** doğrudan Azure AD PowerShell kullanarak yapılandırılmalıdır. Eşitlenen kullanıcı nesnelerindeki PreferredLocation özniteliği yapılandırmak için yalnızca Azure AD Connect kullanmanız gerekir.
 
- * İlk olarak, hello kaynak özniteliği kullanılan hangi şirket içi Active Directory öznitelik toobe karar verin. Türünde olmalı **dize** ve **tek değerli**.
+Eşitleme PreferredDataLocation özniteliğinin etkinleştirmeden önce aşağıdakileri yapmalısınız:
 
- * Daha önce hello PreferredDataLocation özniteliği üzerinde yapılandırdıysanız Azure AD PowerShell kullanarak Azure AD içinde eşzamanlı kullanıcı nesneleri varolan, gerekir **backport** hello öznitelik değerleri toohello karşılık gelen kullanıcı nesneleri Şirket içi Active Directory'de.
+ * İlk olarak, kaynak özniteliği olarak kullanılmak üzere hangi şirket içi Active Directory öznitelik karar verin. Türünde olmalı **dize** ve **tek değerli**.
+
+ * Daha önce PreferredDataLocation özniteliği üzerinde yapılandırdıysanız Azure AD PowerShell kullanarak Azure AD içinde eşzamanlı kullanıcı nesneleri varolan, şunları yapmalısınız **backport** karşılık gelen kullanıcı nesnelerine şirket içi Active Directory'deki öznitelik değerleri.
  
     > [!IMPORTANT]
-    > Değil backport hello öznitelik değerleri toohello ilgili kullanıcı şirket içi Active Directory içindeki nesneleri bunu yaparsanız, Azure AD Connect eşitleme hello PreferredDataLocation özniteliği için olduğunda Azure AD'de hello varolan öznitelik değerlerini kaldırın etkin.
+    > Şirket içi Active Directory'de karşılık gelen kullanıcı nesneleri için öznitelik değerlerini değil backport bunu yaparsanız, Azure AD Connect eşitleme PreferredDataLocation özniteliği için etkinleştirildiğinde Azure AD'de mevcut öznitelik değerlerini kaldırın.
 
- * Merhaba kaynak özniteliği yapılandırmanız önerilir daha sonra doğrulama için kullanılabilecek artık, şirket içi en az bir birkaç AD kullanıcı nesneleri.
+ * Kaynak özniteliği yapılandırmanız önerilir daha sonra doğrulama için kullanılabilecek artık, şirket içi en az bir birkaç AD kullanıcı nesneleri.
  
-Merhaba adımları tooenable eşitleme hello PreferredDataLocation özniteliğinin olarak özetlenebilir:
+Eşitleme PreferredDataLocation özniteliğinin etkinleştirme adımları olarak özetlenebilir:
 
 1. Eşitleme Zamanlayıcı'yı devre dışı bırakın ve devam eden bir eşitleme doğrulayın
 
-2. Merhaba kaynak özniteliği toohello şirket içi AD Bağlayıcısı eklemek şeması
+2. Şirket içi kaynak özniteliği eklemek AD Bağlayıcısı şeması
 
-3. PreferredDataLocation toohello Azure AD Bağlayıcısı şema ekleyin
+3. Azure AD Bağlayıcısı şemaya PreferredDataLocation Ekle
 
-4. Şirket içi Active Directory'den gelen eşitleme kuralı tooflow hello öznitelik değeri oluşturun
+4. Şirket içi Active Directory'den öznitelik değeri akışı için bir gelen eşitleme kuralı oluşturma
 
-5. Bir giden eşitleme kuralı tooflow hello öznitelik değeri tooAzure AD oluşturma
+5. Azure AD öznitelik değerini akışı için bir giden eşitleme kuralı oluşturma
 
 6. Tam eşitleme döngüsü çalıştırın
 
 7. Eşitleme Zamanlayıcı etkinleştir
 
 > [!NOTE]
-> Bu bölümde Hello kalan adımları ayrıntıları ele alınmaktadır. Özel eşitleme kuralları olmadan tek orman topolojisi ile Azure AD dağıtımının hello bağlamda açıklanmıştır. Çoklu orman topolojisini varsa, özel eşitleme kuralları yapılandırılmış veya bir hazırlama sunucusunda, buna göre tooadjust hello adımları gerekir.
+> Bu bölümde rest Ayrıntıları'nda aşağıdaki adımları kapsar. Özel eşitleme kuralları olmadan tek orman topolojisi ile bir Azure AD dağıtımı bağlamında açıklanmıştır. Çoklu orman topolojisini varsa, özel eşitleme kuralları yapılandırılmış veya bir hazırlama sunucusunda, adımları uygun şekilde ayarlamanız gerekir.
 
 ### <a name="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>1. adım: Eşitleme Zamanlayıcısı'nı devre dışı bırakın ve devam eden bir eşitleme doğrulayın
-Eşitleme güncelleştirme hello ortadaki durumdayken eşitleme kurulur olun kuralları tooavoid istenmeyen değişiklikler olma tooAzure AD dışarı. toodisable hello yerleşik eşitleme Zamanlayıcı:
+Azure AD dışarı aktarılan istenmeyen değişiklikleri önlemek için eşitleme kuralları güncelleştiriliyor ortasında durumdayken eşitleme gerçekleşir emin olun. Yerleşik Eşitleme Zamanlayıcısı'nı devre dışı bırakmak için:
 
- 1. Hello Azure AD Connect sunucusunda PowerShell oturumu başlatın.
+ 1. Azure AD Connect sunucusunda PowerShell oturumu başlatın.
 
  2. Zamanlanan eşitleme cmdlet'ini çalıştırarak devre dışı bırakın:`Set-ADSyncScheduler -SyncCycleEnabled $false`
  
- 3. Merhaba Başlat **Eşitleme Hizmeti Yöneticisi'ni** giderek tooSTART → tarafından eşitleme hizmeti.
+ 3. Başlat **Eşitleme Hizmeti Yöneticisi'ni** Başlangıç → eşitleme hizmeti giderek.
  
- 4. Toohello Git **Operations** sekmesinde ve durumu olan işlem yok onaylayın *"sürüyor."*
+ 4. Git **Operations** sekmesinde ve durumu olan işlem yok onaylayın *"sürüyor."*
 
 ![Eşitleme Hizmeti Yöneticisi - devam eden hiçbir işlemleri denetleyin](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step1.png)
 
-### <a name="step-2-add-hello-source-attribute-toohello-on-premises-ad-connector-schema"></a>2. adım: hello kaynak özniteliği toohello şirket içi AD Bağlayıcısı ekleme şeması
-Tüm AD öznitelikleri içine aktarılır hello şirket içi AD bağlayıcı alanı. tooadd hello kaynak öznitelik toohello listesini hello öznitelikleri alındı:
+### <a name="step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema"></a>2. adım: şirket içi kaynak özniteliği ekleme AD Bağlayıcısı şeması
+Tüm AD öznitelikleri şirket alınır AD bağlayıcı alanı. Kaynak özniteliği içeri aktarılan öznitelikleri listesine eklemek için:
 
- 1. Toohello Git **Bağlayıcılar** hello Eşitleme Hizmeti Yöneticisi'ni sekmesindedir.
+ 1. Git **Bağlayıcılar** sekme Eşitleme Hizmeti Yöneticisi'nde.
  
- 2. Merhaba üzerinde sağ **şirket içi AD Bağlayıcısı** seçip **özellikleri**.
+ 2. Sağ **şirket içi AD Bağlayıcısı** seçip **özellikleri**.
  
- 3. Merhaba açılan iletişim kutusunda toohello Git **öznitelikleri Seç** sekmesi.
+ 3. Açılan iletişim kutusunda, Git **öznitelikleri Seç** sekmesi.
  
- 4. Merhaba kaynak özniteliği hello öznitelik listesinde işaretli olduğundan emin olun.
+ 4. Kaynak öznitelikte öznitelik listesinde işaretli olduğundan emin olun.
  
- 5. Tıklatın **Tamam** toosave.
+ 5. Tıklatın **Tamam** kaydetmek için.
 
-![Kaynak özniteliği tooon içi eklemek AD Bağlayıcısı şeması](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step2.png)
+![Şirket içi kaynak özniteliği eklemek AD Bağlayıcısı şeması](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step2.png)
 
-### <a name="step-3-add-preferreddatalocation-toohello-azure-ad-connector-schema"></a>3. adım: PreferredDataLocation toohello Azure AD Bağlayıcısı şema ekleme
-Varsayılan olarak, hello PreferredDataLocation özniteliği hello Azure AD Connect alanı alınan değil. içeri aktarılan özniteliklerin tooadd hello PreferredDataLocation öznitelik toohello listesi:
+### <a name="step-3-add-preferreddatalocation-to-the-azure-ad-connector-schema"></a>3. adım: Azure AD Bağlayıcısı şemaya PreferredDataLocation ekleme
+Varsayılan olarak, Azure AD Connect alanına PreferredDataLocation özniteliği alınmaz. İçeri aktarılan öznitelikleri listesi PreferredDataLocation özniteliği eklemek için:
 
- 1. Toohello Git **Bağlayıcılar** hello Eşitleme Hizmeti Yöneticisi'ni sekmesindedir.
+ 1. Git **Bağlayıcılar** sekme Eşitleme Hizmeti Yöneticisi'nde.
 
- 2. Merhaba üzerinde sağ **Azure AD Bağlayıcısı** seçip **özellikleri**.
+ 2. Sağ **Azure AD Bağlayıcısı** seçip **özellikleri**.
 
- 3. Merhaba açılan iletişim kutusunda toohello Git **öznitelikleri Seç** sekmesi.
+ 3. Açılan iletişim kutusunda, Git **öznitelikleri Seç** sekmesi.
 
- 4. Merhaba PreferredDataLocation özniteliği hello öznitelik listesinde işaretli olduğundan emin olun.
+ 4. PreferredDataLocation özniteliği öznitelik listesinde işaretli olduğundan emin olun.
 
- 5. Tıklatın **Tamam** toosave.
+ 5. Tıklatın **Tamam** kaydetmek için.
 
-![Kaynak özniteliği tooAzure AD Bağlayıcısı şema ekleyin](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step3.png)
+![Azure AD Bağlayıcısı şemaya kaynak öznitelik Ekle](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step3.png)
 
-### <a name="step-4-create-an-inbound-synchronization-rule-tooflow-hello-attribute-value-from-on-premises-active-directory"></a>4. adım: şirket içi Active Directory'den gelen eşitleme kuralı tooflow hello öznitelik değerini oluşturma
-Merhaba gelen eşitleme kuralını hello öznitelik değeri tooflow şirket içi Active Directory toohello meta veri deposu gelen hello kaynak özniteliğinden verir:
+### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>4. adım: şirket içi Active Directory'den öznitelik değeri akışı için bir gelen eşitleme kuralı oluşturma
+Gelen eşitleme kuralı öznitelik değerini meta veri deposu için şirket içi Active Directory'den kaynak özniteliğinden akış verir:
 
-1. Merhaba Başlat **eşitleme kuralları Düzenleyicisi** giderek tooSTART → tarafından Düzenleyicisi eşitleme kuralları.
+1. Başlat **eşitleme kuralları Düzenleyicisi** Başlangıç → eşitleme kuralları Düzenleyicisi giderek.
 
-2. Set hello arama filtresi **yönü** toobe **gelen**.
+2. Arama filtresi ayarlamak **yönü** olmasını **gelen**.
 
-3. Tıklatın **Yeni Kural Ekle** düğmesini toocreate yeni bir gelen kuralı.
+3. Tıklatın **Yeni Kural Ekle** düğmesi yeni gelen kuralı oluşturun.
 
-4. Merhaba altında **açıklama** sekmesinde, yapılandırma aşağıdaki hello sağlayın:
+4. Altında **açıklama** sekmesinde, aşağıdaki yapılandırma sağlayın:
  
     | Öznitelik | Değer | Ayrıntılar |
     | --- | --- | --- |
     | Ad | *Bir ad sağlayın* | Örneğin, *"içinde AD'den – kullanıcı PreferredDataLocation"* |
     | Açıklama | *Bir açıklama belirtin* |  |
-    | Bağlı sistem | *Merhaba şirket içi çekme AD Bağlayıcısı* |  |
+    | Bağlı sistem | *Şirket içi çekme AD Bağlayıcısı* |  |
     | Bağlı sistem nesne türü | **Kullanıcı** |  |
     | Meta veri deposu nesne türü | **Kişi** |  |
     | Bağlantı türü | **Birleştir** |  |
     | Önceliği | *1-99 arasında bir sayı seçin* | 1-99 özel eşitleme kuralları için ayrılmıştır. Başka bir eşitleme kuralı tarafından kullanılan bir değer seçmesi değil. |
 
-5. Toohello Git **Scoping filtre** sekmesinde ve ekleme bir **yan tümcesi aşağıdaki hello tek kapsam filtresi grubuyla**:
+5. Git **Scoping filtre** sekmesinde ve ekleme bir **tek bir kapsam filtresi grubunu aşağıdaki yan tümcesiyle**:
  
     | Öznitelik | işleci | Değer |
     | --- | --- | --- |
     | adminDescription | NOTSTARTWITH | Kullanıcı\_ | 
  
-    Kapsam filtresi, bu gelen eşitleme kuralını uygulandığı AD nesnelerini şirket içi belirler. Bu örnekte, aynı kapsam filtre olarak kullanılan hello kullanırız *"içinde AD'den – kullanıcı ortak"* hello eşitleme kuralı engeller OOB eşitleme kuralı uygulanan Azure AD kullanıcı geri yazma oluşturulan tooUser nesneler özelliği. Tootweak hello kapsam filtresi tooyour Azure AD Connect dağıtım göre gerekebilir.
+    Kapsam filtresi, bu gelen eşitleme kuralını uygulandığı AD nesnelerini şirket içi belirler. Bu örnekte, kullanırız olarak kullanılan aynı kapsam filtresi *"içinde AD'den – kullanıcı ortak"* Azure AD kullanıcı geri yazma özelliği kullanılarak oluşturulan kullanıcı nesnelerine uygulanan eşitleme kuralı engeller OOB eşitleme kuralı. Azure AD Connect dağıtımınızı göre kapsam filtresi ince ayar gerekebilir.
 
-6. Toohello Git **dönüştürme sekmesi** ve dönüştürme kuralı aşağıdaki hello uygulayın:
+6. Git **dönüştürme sekmesi** ve aşağıdaki dönüştürme kuralı uygular:
  
     | Akış türü | Target özniteliği | Kaynak | Bir kez Uygula | Birleştirme türü |
     | --- | --- | --- | --- | --- |
-    | Doğrudan | PreferredDataLocation | Merhaba kaynak özniteliği seçin | İşaretli | Güncelleştirme |
+    | Doğrudan | PreferredDataLocation | Kaynak özniteliği seçin | İşaretli | Güncelleştirme |
 
-7. Tıklatın **Ekle** toocreate hello gelen kuralı.
+7. Tıklatın **Ekle** gelen kuralı oluşturmak için.
 
 ![Gelen eşitleme kuralı oluşturma](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step4.png)
 
-### <a name="step-5-create-an-outbound-synchronization-rule-tooflow-hello-attribute-value-tooazure-ad"></a>5. adım: bir giden eşitleme kuralı tooflow hello öznitelik değeri tooAzure AD oluşturma
-Merhaba giden eşitleme kuralını hello öznitelik değeri tooflow hello meta veri deposu toohello PreferredDataLocation özniteliğinden Azure AD'de verir:
+### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>5. adım: Azure AD öznitelik değerini akışı için bir giden eşitleme kuralı oluşturma
+Giden eşitleme kuralı öznitelik değerini meta veri deposu Azure AD'de PreferredDataLocation öznitelik akış verir:
 
-1. Toohello Git **eşitleme kuralları** Düzenleyici.
+1. Git **eşitleme kuralları** Düzenleyici.
 
-2. Set hello arama filtresi **yönü** toobe **giden**.
+2. Arama filtresi ayarlamak **yönü** olmasını **giden**.
 
 3. Tıklatın **Yeni Kural Ekle** düğmesi.
 
-4. Merhaba altında **açıklama** sekmesinde, yapılandırma aşağıdaki hello sağlayın:
+4. Altında **açıklama** sekmesinde, aşağıdaki yapılandırma sağlayın:
 
     | Öznitelik | Değer | Ayrıntılar |
     | --- | --- | --- |
-    | Ad | *Bir ad sağlayın* | Örneğin, "tooAAD Out – kullanıcı PreferredDataLocation" |
+    | Ad | *Bir ad sağlayın* | Örneğin, "çıkışı için AAD – kullanıcı PreferredDataLocation" |
     | Açıklama | *Bir açıklama belirtin* |
-    | Bağlı sistem | *Merhaba AAD bağlayıcıyı seçin* |
+    | Bağlı sistem | *AAD bağlayıcı seçin* |
     | Bağlı sistem nesne türü | Kullanıcı ||
     | Meta veri deposu nesne türü | **Kişi** ||
     | Bağlantı türü | **Birleştir** ||
     | Önceliği | *1-99 arasında bir sayı seçin* | 1-99 özel eşitleme kuralları için ayrılmıştır. YDo olmayan başka bir eşitleme kuralı tarafından kullanılan bir değer seçin. |
 
-5. Toohello Git **Scoping filtre** sekmesinde ve ekleme bir **tek bir kapsam filtresi grubunu iki maddeleri**:
+5. Git **Scoping filtre** sekmesinde ve ekleme bir **iki maddeleri tek kapsam filtresi grubu**:
  
     | Öznitelik | işleci | Değer |
     | --- | --- | --- |
     | sourceObjectType | EŞİTTİR | Kullanıcı |
     | cloudMastered | EŞİT DEĞİLDİR | True |
 
-    Kapsam Filtresi hangi Azure AD bu giden eşitleme kuralının uygulandığı nesneleri belirler. Merhaba kullandığımız Bu örnekte, "Out tooAD – kullanıcı kimliği" aynı kapsam filtresi OOB eşitleme kuralı. Bunu hello eşitleme kuralı şirket içi Active Directory'den eşitlenmez uygulanan tooUser nesneleri engeller. Tootweak hello kapsam filtresi tooyour Azure AD Connect dağıtım göre gerekebilir.
+    Kapsam Filtresi hangi Azure AD bu giden eşitleme kuralının uygulandığı nesneleri belirler. Bu örnekte, "Dışı" AD – kullanıcı kimliği için aynı kapsam filtresinden kullanırız OOB eşitleme kuralı. Eşitleme kuralı şirket içi Active Directory'den eşitlenmez kullanıcı nesnelerine uygulanan engeller. Azure AD Connect dağıtımınızı göre kapsam filtresi ince ayar gerekebilir.
     
-6. Toohello Git **dönüştürme** sekmesinde ve dönüştürme kuralı aşağıdaki hello uygulayın:
+6. Git **dönüştürme** sekmesinde ve aşağıdaki dönüştürme kuralı uygulayın:
 
     | Akış türü | Target özniteliği | Kaynak | Bir kez Uygula | Birleştirme türü |
     | --- | --- | --- | --- | --- |
     | Doğrudan | PreferredDataLocation | PreferredDataLocation | İşaretli | Güncelleştirme |
 
-7. Kapat **Ekle** toocreate hello giden kuralı.
+7. Kapat **Ekle** giden kuralı oluşturmak için.
 
 ![Giden eşitleme kuralı oluştur](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step5.png)
 
 ### <a name="step-6-run-full-synchronization-cycle"></a>6. adım: Çalıştır tam eşitleme döngüsü
-Genel olarak, biz eklenen yeni öznitelikler tooboth hello AD ve Azure AD Bağlayıcısı şema ve özel eşitleme kuralları sunulan bu yana tam eşitleme döngüsü gereklidir. Merhaba değişiklikleri tooAzure AD dışarı aktarmadan önce doğrulamanız önerilir. Bir tam eşitleme döngüsü yapmak hello adımları el ile çalışırken aşağıdaki adımları tooverify hello değişiklikler hello kullanabilirsiniz. 
+AD için yeni öznitelikler ekledik genel olarak, tam eşitleme döngüsü gerekli olduğu ve Azure AD Bağlayıcısı şema ve sunulan özel eşitleme kuralları. Azure AD dışarı aktarmadan önce değişiklikleri doğrulamak önerilir. Bir tam eşitleme döngüsü yapmak adımları el ile çalışırken değişiklikleri doğrulamak için aşağıdaki adımları kullanın. 
 
-1. Çalıştırma **tam alma** hello adımında **şirket içi AD Bağlayıcısı**:
+1. Çalıştırma **tam alma** üzerinde Adım **şirket içi AD Bağlayıcısı**:
 
-   1. Toohello Git **Operations** hello Eşitleme Hizmeti Yöneticisi'ni sekmesindedir.
+   1. Git **Operations** sekme Eşitleme Hizmeti Yöneticisi'nde.
 
-   2. Merhaba üzerinde sağ **şirket içi AD Bağlayıcısı** seçip **Çalıştır...**
+   2. Sağ **şirket içi AD Bağlayıcısı** seçip **Çalıştır...**
 
-   3. Merhaba açılan iletişim kutusunda seçin **tam içeri aktarma** tıklatıp **Tamam**.
+   3. Açılan iletişim kutusunda seçin **tam içeri aktarma** tıklatıp **Tamam**.
     
-   4. İşlem toocomplete bekleyin.
+   4. İşlemin tamamlanmasını bekleyin.
 
     > [!NOTE]
-    > Üzerinde tam içeri aktarma atlayabilirsiniz hello şirket içi AD Bağlayıcısı hello kaynak özniteliği hello içeri aktarılan öznitelikleri listesinde zaten varsa. Diğer bir deyişle, toomake sırasında herhangi bir değişiklik yok [2. adım: hello kaynak özniteliği toohello şirket içi AD Bağlayıcısı eklemek şema](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
+    > Tam içeri aktarma atlayabilirsiniz şirket içi AD kaynak özniteliği zaten listesinde yer alıyorsa Bağlayıcısı öznitelikleri alındı. Diğer bir deyişle, sırasında herhangi bir değişiklik yapmak zorunda kalmadığımıza [2. adım: şirket içi kaynak özniteliği eklemek AD Bağlayıcısı şema](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema).
 
-2. Çalıştırma **tam alma** hello adımında **Azure AD Bağlayıcısı**:
+2. Çalıştırma **tam alma** üzerinde Adım **Azure AD Bağlayıcısı**:
 
-   1. Merhaba üzerinde sağ **Azure AD Bağlayıcısı** seçip **Çalıştır...**
+   1. Sağ **Azure AD Bağlayıcısı** seçip **Çalıştır...**
 
-   2. Merhaba açılan iletişim kutusunda seçin **tam içeri aktarma** tıklatıp **Tamam**.
+   2. Açılan iletişim kutusunda seçin **tam içeri aktarma** tıklatıp **Tamam**.
    
-   3. İşlem toocomplete bekleyin.
+   3. İşlemin tamamlanmasını bekleyin.
 
-3. Var olan bir kullanıcı nesnesi üzerindeki Hello eşitleme kuralı değişiklikleri doğrulayın:
+3. Eşitleme kuralı değişiklikleri var olan bir kullanıcı nesnesi üzerinde doğrulayın:
 
-Şirket içi Active Directory ve Azure AD'den PreferredDataLocation içine alınmamış içinden Hello kaynak özniteliği, ilgili bağlayıcıyı alanı hello. Tam eşitleme adımla devam etmeden önce bunu yapmanız önerilir bir **Önizleme** üzerinde var olan bir kullanıcı hello nesnesinde AD bağlayıcı alanı şirket. Seçtiğiniz hello nesnesi doldurulmuş hello kaynak özniteliği olmalıdır. Başarılı bir **Önizleme** ile Merhaba hello meta veri deposu doldurulmuş PreferredDataLocation hello eşitleme kuralları doğru şekilde yapılandırdığınız iyi bir göstergesidir. Hakkında bilgi için toodo bir **Önizleme**, toosection başvuran [hello değişikliği doğrulayın](#verify-the-change).
+Kaynak özniteliği Active Directory ve Azure AD'den PreferredDataLocation ilgili bağlayıcıyı alanına içeri aktarıldığını şirket içi. Tam eşitleme adımla devam etmeden önce bunu yapmanız önerilir bir **Önizleme** üzerinde var olan bir kullanıcı nesnesi şirket içi AD bağlayıcı alanı. Seçtiğiniz nesne doldurulmuş kaynak özniteliği olmalıdır. Başarılı bir **Önizleme** eşitleme yapılandırdığınız iyi bir gösterge kuralları doğru meta veri deposunda doldurulmuş PreferredDataLocation olduğu. Nasıl yapılacağı hakkında bilgi için bir **Önizleme**, bölümüne bakın [değişikliği doğrulayın](#verify-the-change).
 
-4. Çalıştırma **tam eşitleme** hello adımında **şirket içi AD Bağlayıcısı**:
+4. Çalıştırma **tam eşitleme** üzerinde Adım **şirket içi AD Bağlayıcısı**:
 
-   1. Merhaba üzerinde sağ **şirket içi AD Bağlayıcısı** seçip **Çalıştır...**
+   1. Sağ **şirket içi AD Bağlayıcısı** seçip **Çalıştır...**
   
-   2. Merhaba açılan iletişim kutusunda seçin **tam eşitleme** tıklatıp **Tamam**.
+   2. Açılan iletişim kutusunda seçin **tam eşitleme** tıklatıp **Tamam**.
    
-   3. İşlem toocomplete bekleyin.
+   3. İşlemin tamamlanmasını bekleyin.
 
-5. Doğrulama **bekleyen dışarı aktarmalar** tooAzure AD:
+5. Doğrulama **bekleyen dışarı aktarmaların** Azure ad:
 
-   1. Merhaba üzerinde sağ **Azure AD Bağlayıcısı** seçip **arama bağlayıcı alanı**.
+   1. Sağ **Azure AD Bağlayıcısı** seçip **arama bağlayıcı alanı**.
 
-   2. Merhaba arama bağlayıcı alanı açılan iletişim kutusunda:
+   2. Bağlayıcı alanı arama açılan iletişim kutusunda:
 
-      1. Ayarlama **kapsam** çok**bekleyen dışarı**.
+      1. Ayarlama **kapsam** için **dışa aktarma bekleyen**.
       
       2. Dahil olmak üzere, tüm üç checkboxes denetleyin **ekleme, değiştirme ve silme**.
       
-      3. Merhaba tıklatın **arama** düğmesini tooget hello değişiklikleri toobe dışarı aktarılan nesnelerle listesi. belirli bir nesne için tooexamine hello değişiklikleri hello nesne çift tıklayın.
+      3. Tıklatın **arama** dışarı değişikliklerle nesneleri listesini almak için düğmesi. Belirli nesne değişiklikleri incelemek için nesne çift tıklayın.
       
-      4. Merhaba değişiklikleri beklenen doğrulayın.
+      4. Değişiklikleri beklenen doğrulayın.
 
-6. Çalıştırma **verme** hello adımında **Azure AD Bağlayıcısı**
+6. Çalıştırma **verme** üzerinde Adım **Azure AD Bağlayıcısı**
       
-   1. Sağ hello **Azure AD Bağlayıcısı** seçip **Çalıştır...**
+   1. Sağ **Azure AD Bağlayıcısı** seçip **Çalıştır...**
    
-   2. Merhaba çalıştırmak bağlayıcı açılan iletişim kutusunda, seçin **verme** tıklatıp **Tamam**.
+   2. Bağlayıcı çalıştırmak açılan iletişim kutusunda, seçin **verme** tıklatıp **Tamam**.
    
-   3. Dışarı aktarma tooAzure AD toocomplete için bekleyin.
+   3. Tamamlamak için Azure ad dışarı aktarma bekleyin.
 
 > [!NOTE]
-> Merhaba adımları hello tam eşitleme adım ve dışa aktarma adımını hello Azure AD Bağlayıcısı üzerinde içermez fark edebilirsiniz. Merhaba adımları Hello öznitelik değerleri şirket içi Active Directory tooAzure AD yalnızca akan gerekli değildir.
+> Adımları tam eşitleme adımı ve Azure AD Bağlayıcısı üzerinde dışarı aktarma adımı içermez fark edebilirsiniz. Adımları öznitelik değerleri yalnızca Azure AD ile şirket içi Active Directory'den akmaktadır gerekli değildir.
 
 ### <a name="step-7-re-enable-sync-scheduler"></a>7. adım: Eşitleme Zamanlayıcısı'nı yeniden etkinleştirin
-Merhaba yerleşik Eşitleme Zamanlayıcısı'nı yeniden etkinleştirin:
+Yerleşik Eşitleme Zamanlayıcısı'nı yeniden etkinleştirin:
 
 1. PowerShell oturumu başlatın.
 
@@ -410,8 +410,8 @@ Merhaba yerleşik Eşitleme Zamanlayıcısı'nı yeniden etkinleştirin:
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Merhaba yapılandırma modeli hakkında daha fazla bilgiyi [anlama bildirim temelli hazırlama](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
-* Merhaba ifade dili hakkında daha fazla bilgiyi [anlama bildirim temelli hazırlama ifadelerini](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
+* Yapılandırma modeli hakkında daha fazla bilgiyi [anlama bildirim temelli hazırlama](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
+* İfade dili hakkında daha fazla bilgiyi [anlama bildirim temelli hazırlama ifadelerini](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 
 **Genel bakış konuları**
 

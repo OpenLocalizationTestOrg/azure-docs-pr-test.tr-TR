@@ -1,5 +1,5 @@
 ---
-title: "aaaRestore Azure SQL Data Warehouse'a (Azure portalı) | Microsoft Docs"
+title: "Azure SQL Data Warehouse'a (Azure portalı) geri | Microsoft Docs"
 description: "Azure SQL Data Warehouse geri yüklemek için azure portal görevler."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: backup-restore
 ms.date: 09/21/2016
 ms.author: lakshmir;barbkess
-ms.openlocfilehash: cb225d2a21b61acab70a51b69c266f8d3ffacc9a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f6bc8671410dc7015a8d2a4bea1ba11f9ae526c3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="restore-azure-sql-data-warehouse-portal"></a>Azure SQL Data Warehouse (portal) geri yükleme
 > [!div class="op_single_selector"]
@@ -29,71 +29,71 @@ ms.lasthandoff: 10/06/2017
 > * [REST][REST]
 >
 >
-Bu makalede, Azure portal kullanarak Azure SQL Data Warehouse toorestore hello nasıl öğreneceksiniz.
+Bu makalede, Azure portalını kullanarak Azure SQL Data Warehouse geri öğreneceksiniz.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-**DTU kapasitenizi doğrulayın.** SQL veri ambarı her bir örneğini varsayılan veri işleme birimi (DTU) kota olan bir SQL server tarafından (örneğin, myserver.database.windows.net) barındırılıyor. SQL veri ambarı geri yüklemeden önce SQL server'ınızdaki geri yüklemekte hello veritabanı için yeterli kalan DTU kota sahip olduğunu doğrulayın. toolearn toocalculate DTU kota veya toorequest daha fazla Dtu'lar nasıl görürüm [DTU kota değişiklik isteği][Request a DTU quota change].
+**DTU kapasitenizi doğrulayın.** SQL veri ambarı her bir örneğini varsayılan veri işleme birimi (DTU) kota olan bir SQL server tarafından (örneğin, myserver.database.windows.net) barındırılıyor. SQL veri ambarı geri yüklemeden önce SQL server'ınızdaki geri yüklemekte veritabanı için yeterli kalan DTU kota sahip olduğunu doğrulayın. DTU kota hesaplamak için ya da daha fazla Dtu'lar istemek için öğrenmek için bkz: [DTU kota değişiklik isteği][Request a DTU quota change].
 
 ## <a name="restore-an-active-or-paused-database"></a>Etkin ya da duraklatılmış bir veritabanını geri yükle
-bir veritabanı toorestore:
+Bir veritabanını geri yüklemek için:
 
-1. İçinde toohello oturum [Azure portal][Azure portal].
-2. Merhaba sol bölmesinde seçin **Gözat**ve ardından **SQL sunucuları**.
+1. [Azure portalında][Azure portal] oturum açın.
+2. Sol bölmede seçin **Gözat**ve ardından **SQL sunucuları**.
 
     ![Gözat seçin > SQL Server'lar](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
 3. Sunucunuz bulun ve seçin.
 
     ![Sunucunuzu seçin](./media/sql-data-warehouse-restore-database-portal/01-select-server.png)
-4. SQL veri ambarı Hello örneğini toorestore gelen istediğiniz ve seçin bulun.
+4. Geri yüklemek istediğiniz bir SQL Data Warehouse örneğini bulun ve seçin.
 
-    ![SQL veri ambarı toorestore Hello örneğini seçin](./media/sql-data-warehouse-restore-database-portal/01-select-active-dw.png)
-5. Merhaba veri ambarı dikey penceresinde Hello üstünde seçin **geri**.
+    ![Geri yüklemek için SQL veri ambarı örneği seçin](./media/sql-data-warehouse-restore-database-portal/01-select-active-dw.png)
+5. Veri ambarı dikey pencerenin en üstünde seçin **geri**.
 
     ![Geri yükleme seçin](./media/sql-data-warehouse-restore-database-portal/01-select-restore-from-active.png)
 6. Yeni bir belirtin **veritabanı adı**.
-7. Son SELECT hello **geri yükleme noktası**.
+7. En son seçin **geri yükleme noktası**.
 
-   Merhaba en son geri yükleme noktası seçtiğinizden emin olun. Geri yükleme noktaları Eşgüdümlü Evrensel Saat (UTC) gösterilir çünkü hello varsayılan seçeneği hello en son geri yükleme noktası olmayabilir.
+   En son geri yükleme noktası seçtiğinizden emin olun. Geri yükleme noktaları Eşgüdümlü Evrensel Saat (UTC) gösterilir çünkü varsayılan seçeneği en son geri yükleme noktası olmayabilir.
 
       ![Bir geri yükleme noktası seçin](./media/sql-data-warehouse-restore-database-portal/01-restore-blade-from-active.png)
 8. **Tamam**’ı seçin.
-9. Merhaba veritabanı geri yükleme işlemi başlayacak ve kullanabileceğiniz **bildirimleri** toomonitor hello işlemi.
+9. Veritabanı geri yükleme işlemi başlar ve kullanabileceğiniz **bildirimleri** işlemi izlemek üzere.
 
 > [!NOTE]
-> Merhaba geri yükleme tamamlandıktan sonra izleyerek, kurtarılan veritabanının yapılandırabilirsiniz [kurtarma işleminden sonra veritabanını yapılandırma][Configure your database after recovery].
+> Geri yükleme tamamlandıktan sonra kurtarılan veritabanının izleyerek yapılandırabileceğiniz [kurtarma işleminden sonra veritabanını yapılandırma][Configure your database after recovery].
 >
 >
 
 ## <a name="restore-a-deleted-database"></a>Silinen veritabanını geri yükleme
-Silinen bir veritabanını toorestore:
+Silinen bir veritabanını geri yüklemek için:
 
-1. İçinde toohello oturum [Azure portal][Azure portal].
-2. Merhaba sol bölmesinde seçin **Gözat**ve ardından **SQL sunucuları**.
+1. [Azure portalında][Azure portal] oturum açın.
+2. Sol bölmede seçin **Gözat**ve ardından **SQL sunucuları**.
 
     ![Gözat seçin > SQL Server'lar](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
 3. Sunucunuz bulun ve seçin.
 
     ![Sunucunuzu seçin](./media/sql-data-warehouse-restore-database-portal/02-select-server.png)
-4. Toohello aşağı **Operations** sunucunuzun dikey bölüm.
-5. Select hello **veritabanlarını sildi** döşeme.
+4. Ekranı aşağı kaydırarak **Operations** sunucunuzun dikey bölüm.
+5. Seçin **veritabanlarını sildi** döşeme.
 
-    ![Merhaba silinen veritabanları kutucuk seçin](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dws.png)
-6. Silinen hello veritabanını toorestore istediğinizi seçin.
+    ![Silinen veritabanları kutucuk seçin](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dws.png)
+6. Geri yüklemek istediğiniz silinen bir veritabanını seçin.
 
-    ![Bir veritabanı toorestore seçin](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dw.png)
+    ![Geri yüklemek için bir veritabanı seçin](./media/sql-data-warehouse-restore-database-portal/02-select-deleted-dw.png)
 7. Yeni bir belirtin **veritabanı adı**.
 
-    ![Merhaba veritabanı için bir ad ekleyin](./media/sql-data-warehouse-restore-database-portal/02-restore-blade-from-deleted.png)
+    ![Veritabanı için bir ad ekleyin](./media/sql-data-warehouse-restore-database-portal/02-restore-blade-from-deleted.png)
 8. **Tamam**’ı seçin.
-9. Merhaba veritabanı geri yükleme işlemi başlayacak ve kullanabileceğiniz **bildirimleri** toomonitor hello işlemi.
+9. Veritabanı geri yükleme işlemi başlar ve kullanabileceğiniz **bildirimleri** işlemi izlemek üzere.
 
 > [!NOTE]
-> Merhaba geri yükleme tamamlandıktan sonra veritabanınızı tooconfigure bkz [kurtarma işleminden sonra veritabanını yapılandırma][Configure your database after recovery].
+> Geri yükleme tamamlandıktan sonra veritabanını yapılandırmak için bkz: [kurtarma işleminden sonra veritabanını yapılandırma][Configure your database after recovery].
 >
 >
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Merhaba okuma Azure SQL veritabanı sürümlerinin hello iş sürekliliği özellikleri hakkında toolearn [Azure SQL Database iş sürekliliğine genel bakış][Azure SQL Database business continuity overview].
+Azure SQL veritabanı sürümlerini iş sürekliliği özellikleri hakkında bilgi edinmek için okuma [Azure SQL Database iş sürekliliğine genel bakış][Azure SQL Database business continuity overview].
 
 <!--Image references-->
 

@@ -1,6 +1,6 @@
 ---
-title: "aaaUse hdınsight'ta - Azure Uzak Masaüstü ile Hadoop Pig | Microsoft Docs"
-description: "Nasıl toouse hello Pig komutu toorun Pig Latin deyimleri kümeden bir Uzak Masaüstü Bağlantısı tooa Windows tabanlı Hadoop hdınsight'ta öğrenin."
+title: "Hadoop Pig hdınsight'ta - Azure Uzak Masaüstü ile kullanma | Microsoft Docs"
+description: "Hdınsight'ta bir Windows tabanlı Hadoop kümesine bir Uzak Masaüstü bağlantısı üzerinden Pig Latin deyimleri çalıştırmak için Pig komutu kullanmayı öğrenin."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,86 +16,86 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2a4565fa827cd45fdbe6194b0486df93a6561084
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5e8d4fbd8afc54c8bbc1a9a71c66d7022a7d5986
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Uzak Masaüstü bağlantısı üzerinden pig işleri çalıştırma
 [!INCLUDE [pig-selector](../../includes/hdinsight-selector-use-pig.md)]
 
-Bu belge, bir Uzak Masaüstü Bağlantısı tooa Windows tabanlı Hdınsight kümeden hello Pig komutu toorun Pig Latin deyimleri kullanmak için bir kılavuz sağlar. Pig Latin veri dönüşümleri açıklayarak toocreate MapReduce uygulamaların sağlayan yerine harita ve işlevleri azaltır.
+Bu belge, Pig Latin deyimleri Windows tabanlı Hdınsight kümesi için bir Uzak Masaüstü bağlantısı üzerinden çalıştırmak için Pig komutunu kullanarak bir kılavuz sağlar. Pig Latin veri dönüşümleri açıklayarak MapReduce uygulamalar oluşturmak yerine eşleme ve İşlevler azaltmak sağlar.
 
 > [!IMPORTANT]
-> Uzak Masaüstü, Windows hello işletim sistemi olarak kullanma Hdınsight kümelerinde yalnızca kullanılabilir. Linux hello yalnızca Hdınsight sürüm 3.4 veya büyük kullanılan işletim sistemini ' dir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Uzak Masaüstü, Windows işletim sistemi olarak kullanma Hdınsight kümelerinde yalnızca kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
-> Hdınsight 3.4 veya büyük, bkz [Hdınsight ve SSH ile Pig kullanma](hdinsight-hadoop-use-pig-ssh.md) etkileşimli olarak Pig çalıştırma hakkında bilgi için doğrudan hello işlerine bir komut satırı ile küme.
+> Hdınsight 3.4 veya büyük, bkz [Hdınsight ve SSH ile Pig kullanma](hdinsight-hadoop-use-pig-ssh.md) Pig işleri doğrudan kümede bir komut satırından çalıştırma etkileşimli olarak hakkında bilgi.
 
 ## <a id="prereq"></a>Önkoşullar
-Bu makaledeki toocomplete hello adımları, hello aşağıdaki gerekir.
+Bu makaledeki adımları tamamlamak için aşağıdakiler gerekir.
 
 * Bir Windows tabanlı Hdınsight (Hadoop hdınsight) kümesi
 * Windows 10, Windows 8 veya Windows 7 çalıştıran bir istemci bilgisayar
 
 ## <a id="connect"></a>İle Uzak Masaüstü Bağlantısı
-Merhaba Hdınsight kümesi için Uzak Masaüstü'nü etkinleştirin, ardından hello yönergeleri izleyerek tooit bağlayın [RDP kullanarak tooHDInsight kümelerine bağlanmak](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
+Hdınsight kümesi için Uzak Masaüstü'nü etkinleştirin ve ardından yönergeleri izleyerek bağlanmak [RDP kullanarak Hdınsight kümelerini Bağlan](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
 
-## <a id="pig"></a>Merhaba Pig komutunu kullanın
-1. Uzak Masaüstü bağlantı kurduktan sonra hello Başlat **Hadoop komut satırı** hello masaüstünde hello simgesini kullanarak.
-2. Toostart hello Pig komutu aşağıdaki hello kullan:
+## <a id="pig"></a>Pig komutunu kullanın
+1. Uzak Masaüstü bağlantı kurduktan sonra Başlangıç **Hadoop komut satırı** masaüstünde simgesini kullanarak.
+2. Pig komutu başlatmak için aşağıdakileri kullanın:
 
         %pig_home%\bin\pig
 
     İle sunulur bir `grunt>` istemi.
-3. Aşağıdaki ifadeyi hello girin:
+3. Aşağıdaki deyimi girin:
 
         LOGS = LOAD 'wasb:///example/data/sample.log';
 
-    Bu komut hello sample.log dosyasının Merhaba içeriğine hello GÜNLÜKLERİ dosyasına yükler. Merhaba dosyasının Merhaba içeriğine komutu aşağıdaki hello kullanarak görüntüleyebilirsiniz:
+    Bu komut sample.log dosyasının içeriğini GÜNLÜKLERİ dosyasına yükler. Aşağıdaki komutu kullanarak dosyanın içeriğini görüntüleyebilirsiniz:
 
         DUMP LOGS;
-4. Merhaba verileri her kaydından bir normal ifade tooextract yalnızca hello günlük düzeyi uygulayarak dönüştürün:
+4. Verileri yalnızca günlüğe kaydetme düzeyi her kayıttan ayıklamak için normal bir ifade uygulayarak dönüştürün:
 
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
 
-    Kullanabileceğiniz **dökümü** tooview hello veri hello dönüştürme sonra. Bu durumda, `DUMP LEVELS;`.
-5. Deyimlerini aşağıdaki hello kullanarak dönüşümleri uygulama devam edin. Kullanım `DUMP` her adımından sonra hello dönüşümünün tooview hello sonucu.
+    Kullanabileceğiniz **dökümü** dönüştürme işleminin ardından verileri görüntülemek için. Bu durumda, `DUMP LEVELS;`.
+5. Aşağıdaki deyim kullanarak dönüşümleri uygulama devam edin. Kullanım `DUMP` her adımından sonra dönüşümünün sonucu görüntülemek için.
 
     <table>
     <tr>
     <th>Deyimi</th><th>Neler yapar?</th>
     </tr>
     <tr>
-    <td>FILTEREDLEVELS = LOGLEVEL FİLTRE DÜZEYLERİYLE null; değil</td><td>Merhaba günlük düzeyi null değerini içeren satırları kaldırır ve hello sonuçları FILTEREDLEVELS depolar.</td>
+    <td>FILTEREDLEVELS = LOGLEVEL FİLTRE DÜZEYLERİYLE null; değil</td><td>Günlük düzeyini null değerini içeren satırları kaldırır ve sonuçları FILTEREDLEVELS depolar.</td>
     </tr>
     <tr>
-    <td>GROUPEDLEVELS Grup FILTEREDLEVELS LOGLEVEL tarafından; =</td><td>Grupları hello günlük düzeyi tarafından satırlar ve hello sonuçları GROUPEDLEVELS depolar.</td>
+    <td>GROUPEDLEVELS Grup FILTEREDLEVELS LOGLEVEL tarafından; =</td><td>Günlük düzeyi satır grupları ve sonuçları GROUPEDLEVELS depolar.</td>
     </tr>
     <tr>
     <td>Sıklık foreach = GROUPEDLEVELS sayısı (FILTEREDLEVELS LOGLEVEL Grup Oluştur. LOGLEVEL) sayısı gibi;</td><td>Yeni bir küme oluşturur her benzersiz günlük içeren verilerin düzeyi değeri ve kaç kez oluşur. Bu SIKLIKLARINI depolanır</td>
     </tr>
     <tr>
-    <td>Sonuç order SIKLIĞI sayısı desc tarafından; =</td><td>Merhaba günlük düzeyleri (Azalan) sayısı ve depoları sonucu sıralar</td>
+    <td>Sonuç order SIKLIĞI sayısı desc tarafından; =</td><td>Günlük düzeyleri (Azalan) sayısına göre sıralar ve sonucu depolar</td>
     </tr>
     </table>
-6.Hello kullanarak bir dönüşüm hello sonuçlarını da kaydedebilirsiniz `STORE` deyimi. Örneğin, komutu aşağıdaki hello hello kaydeder `RESULT` toohello **/example/data/pigout** kümenizin hello varsayılan depolama kapsayıcısını dizin:
+6.Kullanarak bir dönüşüm sonuçları kaydedebilirsiniz `STORE` deyimi. Örneğin, aşağıdaki kaydeder komut `RESULT` için **/example/data/pigout** kümeniz için varsayılan depolama kapsayıcısında dizin:
 
         STORE RESULT into 'wasb:///example/data/pigout'
 
    > [!NOTE]
-   > Merhaba veri hello adlı dosyaları belirtilen dizinde depolanır **bölümü nnnnn**. Merhaba dizini zaten varsa, bir hata iletisi alırsınız.
+   > Veri adlı dosyaları belirtilen dizinde depolanır **bölümü nnnnn**. Dizini zaten varsa, bir hata iletisi alırsınız.
    >
    >
-7. tooexit hello grunt komut isteminde, aşağıdaki ifadeyi hello girin.
+7. Grunt istemi çıkmak için şu deyimi girin.
 
         QUIT;
 
 ### <a name="pig-latin-batch-files"></a>Pig Latin toplu iş dosyaları
-Bir dosyada hello Pig komutu toorun yer Pig Latin de kullanabilirsiniz.
+Pig komutu, bir dosyada yer alan Pig Latin çalıştırmak için de kullanabilirsiniz.
 
-1. Merhaba grunt istemi çıktıktan sonra açmak **not defteri** ve adlı yeni bir dosya oluşturun **pigbatch.pig** hello içinde **PIG_HOME %** dizin.
-2. Türü veya Yapıştır hello aşağıdaki satırları hello **pigbatch.pig** dosya ve dosyayı kaydedin:
+1. Grunt istemi çıktıktan sonra açmak **not defteri** ve adlı yeni bir dosya oluşturun **pigbatch.pig** içinde **PIG_HOME %** dizin.
+2. Yazın veya yapıştırın içine aşağıdaki satırları **pigbatch.pig** dosya ve dosyayı kaydedin:
 
         LOGS = LOAD 'wasb:///example/data/sample.log';
         LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
@@ -104,11 +104,11 @@ Bir dosyada hello Pig komutu toorun yer Pig Latin de kullanabilirsiniz.
         FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;
         RESULT = order FREQUENCIES by COUNT desc;
         DUMP RESULT;
-3. Kullanım hello toorun hello aşağıdaki **pigbatch.pig** hello pig komutunu kullanarak dosya.
+3. Çalıştırmak için aşağıdakileri kullanın **pigbatch.pig** pig komutunu kullanarak dosya.
 
         pig %PIG_HOME%\pigbatch.pig
 
-    Merhaba toplu işi tamamlandığında aynı olarak kullanıldığında hello çıktı aşağıdaki hello görmelisiniz `DUMP RESULT;` hello önceki adımlarda:
+    Toplu işlem tamamlandığında kullanıldığında, aynı olmalıdır aşağıdaki çıktı görmeniz gerekir `DUMP RESULT;` , önceki adımlarda:
 
         (TRACE,816)
         (DEBUG,434)
@@ -118,7 +118,7 @@ Bir dosyada hello Pig komutu toorun yer Pig Latin de kullanabilirsiniz.
         (FATAL,2)
 
 ## <a id="summary"></a>Özet
-Gördüğünüz gibi hello Pig komutu, MapReduce işlemleri çalıştırın ya da bir toplu iş dosyasında depolanan Pig Latin işleri çalıştırma toointeractively sağlar.
+Gördüğünüz gibi Pig komutu etkileşimli olarak MapReduce işlemleri çalıştırın veya bir toplu iş dosyasında depolanan Pig Latin işleri çalıştırma olanak sağlar.
 
 ## <a id="nextsteps"></a>Sonraki adımlar
 Hdınsight'ta Pig hakkında genel bilgi için:

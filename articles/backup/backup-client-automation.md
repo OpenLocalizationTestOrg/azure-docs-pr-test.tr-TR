@@ -1,6 +1,6 @@
 ---
-title: "Windows Server tooAzure yukarı aaaUse PowerShell tooback | Microsoft Docs"
-description: "Bilgi nasıl toodeploy ve Azure PowerShell kullanarak yedekleme yönetme"
+title: "Azure için Windows Server'ı Yedekle için PowerShell kullanma | Microsoft Docs"
+description: "Dağıtma ve Azure PowerShell kullanarak yedekleme yönetme hakkında bilgi edinin"
 services: backup
 documentationcenter: 
 author: saurabhsensharma
@@ -14,56 +14,56 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
-ms.openlocfilehash: f13224f53abd6fbd132fee4347b0b99e8f5e2678
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d3f165c749af0553c4918b33b0d24cc1e21af2a9
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="deploy-and-manage-backup-tooazure-for-windows-serverwindows-client-using-powershell"></a>Dağıtma ve PowerShell kullanarak Windows Server/Windows İstemcisi için yedekleme tooAzure yönetme
+# <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell kullanarak Windows Server/Windows İstemcisi için Azure’a yedekleme dağıtma ve yönetme
 > [!div class="op_single_selector"]
 > * [ARM](backup-client-automation.md)
 > * [Klasik](backup-client-automation-classic.md)
 >
 >
 
-Bu makale size nasıl gösterir toouse Azure yedekleme Windows Server veya Windows İstemcisi ayarlama ve yedekleme ve kurtarma yönetmek için PowerShell.
+Bu makalede Azure yedekleme Windows Server veya Windows İstemcisi ayarlama ve yedekleme ve kurtarma yönetmek için PowerShell kullanmayı gösterir.
 
 ## <a name="install-azure-powershell"></a>Azure PowerShell'i yükleme
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
 
-Bu makalede hello Azure Resource Manager (ARM) ve hello bir kaynak grubu bir kurtarma Hizmetleri kasasına toouse etkinleştirmek MS çevrimiçi yedekleme PowerShell cmdlet'leri odaklanır.
+Bu makalede Azure Resource Manager (ARM) ve bir kaynak grubu bir kurtarma Hizmetleri kasası kullanmanızı sağlamak MS çevrimiçi yedekleme PowerShell cmdlet'leri odaklanır.
 
-Azure PowerShell 1.0 Ekim 2015'te yayımlanmıştır. Bu sürüm hello 0.9.8 yayın başarılı oldu ve bazı önemli değişiklikler hakkında özellikle hello adlandırma deseni hello cmdlet'lerinin getirildi. 1.0 cmdlet'leri izleyin hello adlandırma deseni {fiil}-AzureRm {isim}; Merhaba 0.9.8 adlarında değil ancak **Rm** (örneğin, New-Azureresourcegroup yerine New-Azurermresourcegroup). Azure PowerShell 0.9.8 kullanıldığında, önce hello Resource Manager moduna hello çalıştırarak etkinleştirmelisiniz **Switch-AzureMode AzureResourceManager** komutu. Bu komut 1.0 veya üstü gerekli değildir.
+Azure PowerShell 1.0 Ekim 2015'te yayımlanmıştır. Bu sürüm 0.9.8 başarılı bir şekilde serbest bırakır ve bazı önemli değişiklikler hakkında özellikle cmdlet'leri adlandırma desenini getirildi. 1.0 cmdlet'leri {fiil}-AzureRm{isim} adlandırma desenini izler; Buna karşın, 0.9.8 adlarında **Rm** bulunmaz (örneğin, New- AzureResourceGroup yerine New-AzureRmResourceGroup). Azure PowerShell 0.9.8 kullanıldığında, önce **Switch-AzureMode AzureResourceManager** komutunu çalıştırarak Resource Manager modunu etkinleştirmelisiniz. Bu komut 1.0 veya üstü gerekli değildir.
 
-Merhaba 0.9.8 ortamında hello 1.0 veya sonraki ortamı için yazılan komut dosyalarınızı toouse istiyorsanız dikkatle güncelleştirin ve test hello betikleri bir ön üretim ortamında üretim tooavoid kullanmadan önce beklenmeyen etkisi.
+0.9.8 için yazılan komut dosyalarınızı kullanmak isteyip istemediğinizi ortamında 1.0 veya üstü ortamı dikkatlice güncelleştirmek ve komut dosyalarını üretimde beklenmeyen etkiyi önlemek için kullanmadan önce bir ön üretim ortamında test.
 
-[Merhaba son PowerShell yayın indirme](https://github.com/Azure/azure-powershell/releases) (gerekli minimum sürüm: 1.0.0)
+[En son PowerShell sürümü indirme](https://github.com/Azure/azure-powershell/releases) (gerekli minimum sürüm: 1.0.0)
 
 [!INCLUDE [arm-getting-setup-powershell](../../includes/arm-getting-setup-powershell.md)]
 
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma hizmetleri kasası oluşturma
-Aşağıdaki adımları hello kurtarma Hizmetleri kasası oluşturmada size yol açar. Kurtarma Hizmetleri kasasına yedekleme Kasası ' farklıdır.
+Aşağıdaki adımlar bir kurtarma Hizmetleri kasası oluşturmada size yol açar. Kurtarma Hizmetleri kasasına yedekleme Kasası ' farklıdır.
 
-1. Azure Backup hello için ilk kez kullanıyorsanız hello kullanmalısınız **Register-AzureRMResourceProvider** cmdlet tooregister hello Azure Recovery hizmeti sağlayıcısı aboneliğinizle.
+1. Azure Backup ilk kez kullanıyorsanız, kullanmalısınız **Register-AzureRMResourceProvider** aboneliğinizle Azure Recovery hizmeti sağlayıcısını kaydetmek için cmdlet.
 
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
-2. tooplace ihtiyacınız hello kurtarma Hizmetleri kasası bir ARM kaynak olduğundan, bir kaynak grubu içinde. Varolan bir kaynak grubunu kullanın veya yeni bir tane oluşturun. Yeni bir kaynak grubu oluştururken hello kaynak grubu için hello ad ve konum belirtin.  
+2. Kurtarma Hizmetleri kasası bir ARM kaynak olduğundan, bir kaynak grubu içindeki yerleştirmeniz gerekir. Varolan bir kaynak grubunu kullanın veya yeni bir tane oluşturun. Yeni bir kaynak grubu oluştururken, ad ve kaynak grubu için konum belirtin.  
 
     ```
     PS C:\> New-AzureRmResourceGroup –Name "test-rg" –Location "WestUS"
     ```
-3. Kullanım hello **yeni AzureRmRecoveryServicesVault** cmdlet toocreate hello yeni Kasa. Toospecify hello hello kasa için aynı konumu hello kaynak grubu için kullanıldığından emin olun.
+3. Kullanım **yeni AzureRmRecoveryServicesVault** yeni kasası oluşturmak için cmdlet'i. Kaynak grubu için kullanılan kasa için aynı konumu belirttiğinizden emin olun.
 
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
     ```
-4. Depolama artıklık toouse Hello türünü belirtin; kullanabileceğiniz [yerel olarak yedekli depolama (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) veya [coğrafi olarak yedekli depolama (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Merhaba aşağıdaki örnek tooGeoRedundant testVault için hello - BackupStorageRedundancy seçeneği ayarlanmış gösterir.
+4. Kullanılacak depolama artıklığı türünü belirtin; kullanabileceğiniz [yerel olarak yedekli depolama (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) veya [coğrafi olarak yedekli depolama (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Aşağıdaki örnek, testVault - BackupStorageRedundancy seçeneği GeoRedundant için ayarlanmış gösterir.
 
    > [!TIP]
-   > Çok sayıda Azure yedekleme cmdlet'lerini girdi olarak hello kurtarma Hizmetleri kasası nesnesi gerektirir. Bu nedenle, bu kullanışlı toostore hello yedekleme kurtarma Hizmetleri kasası, bir değişkende nesnesidir.
+   > Çok sayıda Azure yedekleme cmdlet'lerini girdi olarak kurtarma Hizmetleri kasası nesnesi gerektirir. Bu nedenle, bir değişkende yedekleme kurtarma Hizmetleri kasası nesne depolamak uygundur.
    >
    >
 
@@ -72,10 +72,10 @@ Aşağıdaki adımları hello kurtarma Hizmetleri kasası oluşturmada size yol 
     PS C:\> Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedundancy GeoRedundant
     ```
 
-## <a name="view-hello-vaults-in-a-subscription"></a>Bir abonelikte görünüm hello kasaları
-Kullanım **Get-AzureRmRecoveryServicesVault** tooview hello hello geçerli Abonelikteki tüm kasalarının listesi. Yeni bir kasa oluşturulduğunu bu komutu toocheck veya toosee kullanabilirsiniz hangi kasalarını hello abonelikte kullanılabilir.
+## <a name="view-the-vaults-in-a-subscription"></a>Bir abonelikte kasalarını görüntüleyin
+Kullanım **Get-AzureRmRecoveryServicesVault** geçerli abonelikte tüm kasalarının listesini görüntülemek için. Bu komut, yeni bir kasa oluşturulduğunu denetleyin veya hangi kasalarını abonelikte bulunan görmek için kullanabilirsiniz.
 
-Merhaba komutu çalıştırmak **Get-AzureRmRecoveryServicesVault**, ve hello Abonelikteki tüm kasalarını listelenir.
+Komutu çalıştırmak **Get-AzureRmRecoveryServicesVault**, ve Abonelikteki tüm kasalarını listelenir.
 
 ```
 PS C:\> Get-AzureRmRecoveryServicesVault
@@ -89,10 +89,10 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 
 
-## <a name="installing-hello-azure-backup-agent"></a>Hello Azure Backup aracısını yükleme
-Hello Azure Backup aracısını yüklemeden önce indirildi ve Windows Server hello mevcut toohave hello yükleyici gerekir. Hello hello Installer hello en son sürümünü elde edebilirsiniz [Microsoft Download Center](http://aka.ms/azurebackup_agent) veya hello kurtarma Hizmetleri Kasası'nın Pano sayfası. Kolay erişilebilecek bir konuma tooan gibi Hello yükleyici Kaydet * C:\Downloads\*.
+## <a name="installing-the-azure-backup-agent"></a>Azure Backup aracısını yükleme
+Azure Backup aracısını yüklemeden önce Windows Server yükleyici indirildi ve mevcut olması gerekir. Yükleyicisi'nden en son sürümünü almak [Microsoft Download Center](http://aka.ms/azurebackup_agent) veya kurtarma Hizmetleri Kasası'nın Pano sayfası. Yükleyici gibi kolay erişilebilir bir konuma kaydedin * C:\Downloads\*.
 
-Alternatif olarak, PowerShell tooget hello Yükleyici'yi kullanın:
+Alternatif olarak, yükleyici almak için PowerShell kullanın:
  
  ```
  $MarsAURL = 'Http://Aka.Ms/Azurebackup_Agent'
@@ -101,33 +101,33 @@ Alternatif olarak, PowerShell tooget hello Yükleyici'yi kullanın:
  C:\Downloads\MARSAgentInstaller.EXE /q
  ```
 
-tooinstall hello Aracısı, komutu yükseltilmiş bir PowerShell konsolunda aşağıdaki hello çalıştırın:
+Aracıyı yüklemek için yükseltilmiş bir PowerShell konsolunda aşağıdaki komutu çalıştırın:
 
 ```
 PS C:\> MARSAgentInstaller.exe /q
 ```
 
-Bu, tüm hello varsayılan seçeneklerle hello aracı yükler. Merhaba yükleme hello arka planda birkaç dakika sürer. Merhaba belirtmezseniz */nu* seçeneği sonra hello **Windows Update** hello yükleme toocheck herhangi bir güncelleştirme için hello sonunda penceresi açılır. Bir kez yüklendikten sonra hello Aracısı hello yüklü programlar listesinde gösterilir.
+Bu, tüm varsayılan seçeneklerle Aracısı'nı yükler. Yükleme arka planda birkaç dakika sürer. Belirtmezseniz, */nu* seçeneği sonra **Windows Update** tüm güncelleştirmeleri denetlemek için yükleme işleminin sonunda penceresi açılır. Yüklendikten sonra aracı yüklü programlar listesinde gösterilir.
 
-toosee hello listesi yüklü programlar, çok Git**Denetim Masası** > **programları** > **programlar ve Özellikler**.
+Yüklü programların listesini görmek için şu adrese gidin **Denetim Masası** > **programları** > **programlar ve Özellikler**.
 
 ![Yüklü aracı](./media/backup-client-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>Yükleme Seçenekleri
-Tüm seçeneklerin aracılığıyla hello toosee komut satırı Merhaba, hello aşağıdaki komutu kullanın:
+Komut satırı kullanılabilir tüm seçenekleri görmek için aşağıdaki komutu kullanın:
 
 ```
 PS C:\> MARSAgentInstaller.exe /?
 ```
 
-Merhaba mevcut Seçenekler şunlardır:
+Mevcut seçenekler şunlardır:
 
 | Seçenek | Ayrıntılar | Varsayılan |
 | --- | --- | --- |
 | /q |Sessiz yükleme |- |
-| p: "Konum" |Yol toohello yükleme klasörünü hello Azure Yedekleme aracısı. |C:\Program Files\Microsoft Azure kurtarma Hizmetleri Aracısı |
-| / s: "Konum" |Hello Azure Backup aracısı için yol toohello Önbellek klasörü. |C:\Program Files\Microsoft Azure kurtarma Hizmetleri Agent\Scratch |
-| /m |Katılımı tooMicrosoft güncelleştirme |- |
+| p: "Konum" |Azure Backup Aracısı yükleme klasörünün yolu. |C:\Program Files\Microsoft Azure kurtarma Hizmetleri Aracısı |
+| / s: "Konum" |Azure Backup aracısı için önbellek klasör yolu. |C:\Program Files\Microsoft Azure kurtarma Hizmetleri Agent\Scratch |
+| /m |Microsoft Update'e kabulü |- |
 | /nu |Yükleme tamamlandıktan sonra güncelleştirmeleri denetleme |- |
 | /d |Microsoft Azure kurtarma Hizmetleri Aracısı kaldırır |- |
 | /ph |Proxy konağı adresi |- |
@@ -135,31 +135,31 @@ Merhaba mevcut Seçenekler şunlardır:
 | /PU |Proxy konağı kullanıcı |- |
 | /pw |Proxy parolası |- |
 
-## <a name="registering-windows-server-or-windows-client-machine-tooa-recovery-services-vault"></a>Windows Server veya Windows istemci makine tooa kurtarma Hizmetleri kasası kaydetme
-Merhaba kurtarma Hizmetleri kasası oluşturduktan sonra hello en son aracı hello kasa kimlik bilgilerini indirin ve C:\Downloads gibi uygun bir konuma depolayın.
+## <a name="registering-windows-server-or-windows-client-machine-to-a-recovery-services-vault"></a>Windows Server veya Windows istemci makinesi bir kurtarma Hizmetleri kasasına kaydetme
+Kurtarma Hizmetleri kasası oluşturduktan sonra en son aracı ve kasa kimlik bilgilerini indirin ve C:\Downloads gibi uygun bir konumda saklayın.
 
 ```
 PS C:\> $credspath = "C:\downloads"
 PS C:\> $credsfilename = Get-AzureRmRecoveryServicesVaultSettingsFile -Backup -Vault $vault1 -Path  $credspath
 ```
 
-Merhaba Windows Server veya Windows istemci makinesi üzerinde hello çalıştırmak [başlangıç OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) cmdlet tooregister hello makine hello kasası ile.
-Bu ve diğer cmdlet'leri yedekleme için kullanılan hello MSONLINE modülünden Mars AgentInstaller hello yükleme işleminin bir parçası olarak eklenen hangi hello ' dir. 
+Windows Server veya Windows istemci makinesi üzerinde çalıştırmak [başlangıç OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) makine kasaya kaydetmek için cmdlet.
+Bu ve diğer cmdlet'leri yedekleme için kullanılan Mars AgentInstaller yükleme işleminin bir parçası olarak eklenen MSONLINE modülü arasındadır. 
 
-Merhaba aracı yükleyici hello $Env güncelleştirmez: PSModulePath değişkeni. Bu modül otomatik-yüklemesi başarısız anlamına gelir. tooresolve bu yapabilirsiniz hello aşağıdaki:
+Aracı yükleyici $Env güncelleştirmez: PSModulePath değişkeni. Bu modül otomatik-yüklemesi başarısız anlamına gelir. Bu sorunu çözmek için aşağıdakileri yapabilirsiniz:
 
 ```
 PS C:\>  $Env:psmodulepath += ';C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules
 ```
 
-Alternatif olarak, el ile hello modülü betiğinizde şu şekilde yükleyebilirsiniz:
+Alternatif olarak, el ile modülü betiğinizde şu şekilde yükleyebilirsiniz:
 
 ```
 PS C:\>  Import-Module  'C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules\MSOnlineBackup'
 
 ```
 
-Merhaba çevrimiçi yedekleme cmdlet'leri yük sonra hello kasa kimlik bilgilerini Kaydet:
+Çevrimiçi Yedekleme cmdlet'leri yükledikten sonra kasa kimlik bilgilerini Kaydet:
 
 
 ```
@@ -173,16 +173,16 @@ Machine registration succeeded.
 ```
 
 > [!IMPORTANT]
-> Göreli yollar toospecify hello kasa kimlik bilgileri dosyası kullanmayın. Bir giriş toohello cmdlet'ini olarak mutlak bir yol sağlamalısınız.
+> Kasa kimlik bilgileri dosyası belirtmek için göreli yolların kullanmayın. Cmdlet'i bir girdi olarak mutlak bir yol sağlamalısınız.
 >
 >
 
 ## <a name="networking-settings"></a>Ağ ayarları
-Internet proxy sunucu üzerinden gerçekleşir toohello Windows hello Hello bağlantısını makine olduğunda hello proxy ayarlarını toohello aracı da sağlanabilir. Bu örnekte, olmadığından hiçbir Ara sunucunun biz açıkça herhangi bir proxy ile ilgili bilgi temizleme.
+Windows makine internet bağlantısını bir proxy sunucu üzerinden olduğunda, proxy ayarlarını aracıya de girilebilir. Bu örnekte, olmadığından hiçbir Ara sunucunun biz açıkça herhangi bir proxy ile ilgili bilgi temizleme.
 
-Bant genişliği kullanımı ile Merhaba seçenekleri de denetlenebilir ```work hour bandwidth``` ve ```non-work hour bandwidth``` hello haftanın belirli bir dizi için.
+Bant genişliği kullanımı seçeneklerle da denetlenebilir ```work hour bandwidth``` ve ```non-work hour bandwidth``` haftanın belirli bir dizi için.
 
-Ayar Hello proxy ve bant genişliği ayrıntıları yapılır hello kullanarak [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409%28v=wps.630%29.aspx) cmdlet:
+Proxy ve bant ayrıntılarını ayarlama yapılır kullanarak [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409%28v=wps.630%29.aspx) cmdlet:
 
 ```
 PS C:\> Set-OBMachineSetting -NoProxy
@@ -193,7 +193,7 @@ Server properties updated successfully.
 ```
 
 ## <a name="encryption-settings"></a>Şifreleme ayarları
-Merhaba gönderilen yedekleme verileri tooAzure yedekleme şifrelenmiş tooprotect hello hello veri gizliliğini ' dir. Merhaba şifreleme parolası hello "parola" toodecrypt hello geri yükleme hello aynı anda verilerdir.
+Yedekleme verilerini Azure Backup için gönderilen veri gizliliğini korumak için şifrelenir. Şifreleme Parolası "geri yükleme sırasındaki verileri şifrelemek için parola" dir.
 
 ```
 PS C:\> ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force | Set-OBMachineSetting
@@ -204,30 +204,30 @@ Server properties updated successfully
 ```
 
 > [!IMPORTANT]
-> Ayarlandıktan sonra hello parola bilgilerini güvenli ve güvenli tutar. Olan değil siz bu parolayı olmadan Azure mümkün toorestore verileri.
+> Ayarlandıktan sonra parola bilgilerini güvenli ve güvenli tutar. Olan değil veri bu parolayı Azure'dan geri yükleyebilirsiniz.
 >
 >
 
 ## <a name="back-up-files-and-folders"></a>Dosya ve klasörleri yedekleme
-Windows sunucularını ve istemcilerini tooAzure yedekleme tüm yedeklemeleri bir ilke tarafından yönetilir. Hello İlkesi üç bölümden oluşur:
+Windows sunucularını ve istemcilerini tüm yedeklemeleri Azure yedekleme için bir ilke tarafından yönetilir. İlke üç bölümden oluşur:
 
-1. A **yedekleme zamanlaması** yedeklemeler alınır ve hello hizmeti ile eşitlenmiş toobe gerektiğinde belirtir.
-2. A **bekletme zamanlaması** Azure'da ne kadar süreyle tooretain hello kurtarma noktaları belirtir.
+1. A **yedekleme zamanlaması** yedeklemeler alınır ve hizmeti ile eşitlenmiş gerektiğinde belirtir.
+2. A **bekletme zamanlaması** belirleyen ne kadar süreyle Azure kurtarma noktalarını korumak için.
 3. A **dosya ekleme/çıkarma belirtimi** belirleyen ne yedeklenmelidir.
 
-Yedekleme, otomatikleştirme beri bu belgede, hiçbir şey yapılandırılmış varsayıyoruz. Hello kullanarak yeni bir yedekleme ilkesi oluşturarak başlayın [yeni OBPolicy](https://technet.microsoft.com/library/hh770416.aspx) cmdlet'i.
+Yedekleme, otomatikleştirme beri bu belgede, hiçbir şey yapılandırılmış varsayıyoruz. Kullanarak yeni bir yedekleme ilkesi oluşturarak başlayın [yeni OBPolicy](https://technet.microsoft.com/library/hh770416.aspx) cmdlet'i.
 
 ```
 PS C:\> $newpolicy = New-OBPolicy
 ```
 
-Bu zaman hello İlkesi boş olduğunu ve diğer cmdlet'ler gerekli toodefine ne öğeleri dahil etmek veya hariç, yedeklemeler çalışacak ve burada hello yedeklemeleri depolanacak.
+İlke şu anda boş olur ve diğer cmdlet'ler öğeleri tanımlamak için kapsanan veya dışlanan, ne zaman yedeklemeleri çalışacağını ve yedeklemeleri depolanacak burada.
 
-### <a name="configuring-hello-backup-schedule"></a>Merhaba yedekleme zamanlamasını yapılandırma
-ilk Merhaba hello İlkesi 3 bölümleri hale hello kullanılarak oluşturulan hello yedekleme zamanlaması [yeni OBSchedule](https://technet.microsoft.com/library/hh770401) cmdlet'i. Merhaba yedekleme zamanlaması yedeklemeleri gerçekleştirilecek toobe gerektiğinde tanımlar. Bir zamanlama oluştururken toospecify 2 giriş parametreleri gerekir:
+### <a name="configuring-the-backup-schedule"></a>Yedekleme zamanlamasını yapılandırma
+Bir ilke 3 bölümlerinin ilk kullanılarak oluşturulan yedekleme zamanlaması olan [yeni OBSchedule](https://technet.microsoft.com/library/hh770401) cmdlet'i. Yedekleme zamanlaması yedeklemeleri yapılması gerektiğinde tanımlar. Bir zamanlama oluştururken 2 giriş parametreleri belirtmeniz gerekir:
 
-* **Merhaba haftanın günlerini** hello yedekleme çalıştırmanız gerekir. Merhaba yedekleme işi yalnızca bir gün veya her gün hello haftanın veya arasındaki herhangi bir birleşimini çalıştırabilirsiniz.
-* **Merhaba saatlerinde** hello yedekleme ne zaman çalışmalı. Too3 hello yedekleme harekete geçirildiğinde hello günün farklı saatlerinde tanımlayabilirsiniz.
+* **Haftanın günleri** , yedekleme çalıştırmanız gerekir. Yedekleme işi yalnızca bir gün veya haftanın her gün veya arasındaki herhangi bir birleşimini çalıştırabilirsiniz.
+* **Günün kez** yedeklemenin ne zaman çalışmalı. Yedekleme harekete geçirildiğinde günün en fazla 3 farklı saatleri tanımlayabilirsiniz.
 
 Örneğin, 4'e her Cumartesi ve Pazar çalışan bir yedekleme ilkesi yapılandırabilirsiniz.
 
@@ -235,20 +235,20 @@ ilk Merhaba hello İlkesi 3 bölümleri hale hello kullanılarak oluşturulan he
 PS C:\> $sched = New-OBSchedule -DaysofWeek Saturday, Sunday -TimesofDay 16:00
 ```
 
-Merhaba yedekleme zamanlaması bir ilkeyle ilişkilendirilmiş toobe gerekir ve bu hello kullanarak elde [kümesi OBSchedule](https://technet.microsoft.com/library/hh770407) cmdlet'i.
+Yedekleme zamanlaması bir ilkesiyle ilişkilendirilmesi gerekir ve bu kullanarak elde [kümesi OBSchedule](https://technet.microsoft.com/library/hh770407) cmdlet'i.
 
 ```
 PS C:> Set-OBSchedule -Policy $newpolicy -Schedule $sched
 BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName : RetentionPolicy : State : New PolicyState : Valid
 ```
 ### <a name="configuring-a-retention-policy"></a>Bir bekletme ilkesi yapılandırma
-Merhaba Bekletme İlkesi yedekleme işlerini oluşturulan noktaları korunur ne kadar süreyle kurtarma tanımlar. Hello kullanarak yeni bir bekletme ilkesi oluşturulurken [yeni OBRetentionPolicy](https://technet.microsoft.com/library/hh770425) cmdlet'ini hello yedekleme kurtarma noktalarının hello gün sayısı gereken Azure yedekleme ile korunduğunu toobe belirtebilirsiniz. Aşağıdaki Hello örnek bir bekletme ilkesi 7 gün olarak ayarlar.
+Bekletme İlkesi yedekleme işlerini oluşturulan kurtarma noktaları ne kadar süreyle saklanacağını tanımlar. Kullanarak yeni bir bekletme ilkesi oluşturulurken [yeni OBRetentionPolicy](https://technet.microsoft.com/library/hh770425) cmdlet, yedekleme kurtarma noktalarının Azure yedekleme ile korunması gereken gün sayısını belirtebilirsiniz. Aşağıdaki örnek bir bekletme ilkesi 7 gün olarak ayarlar.
 
 ```
 PS C:\> $retentionpolicy = New-OBRetentionPolicy -RetentionDays 7
 ```
 
-Merhaba bekletme ilkesi hello cmdlet'ini kullanarak hello ana ilkesiyle ilişkili olmalıdır [kümesi OBRetentionPolicy](https://technet.microsoft.com/library/hh770405):
+Bekletme İlkesi cmdlet'ini kullanarak ana ilkesiyle ilişkili olmalıdır [kümesi OBRetentionPolicy](https://technet.microsoft.com/library/hh770405):
 
 ```
 PS C:\> Set-OBRetentionPolicy -Policy $newpolicy -RetentionPolicy $retentionpolicy
@@ -272,16 +272,16 @@ RetentionPolicy : Retention Days : 7
 State           : New
 PolicyState     : Valid
 ```
-### <a name="including-and-excluding-files-toobe-backed-up"></a>Yedeklenen dosyaları toobe hariç ve dahil
-Bir ```OBFileSpec``` nesnesi eklenen ve bir yedek dışlanan hello dosyaları toobe tanımlar. Bu bir kapsam hello çıkışı dosya ve klasörlerin bir makinede korumalı kurallar kümesidir. Birçok ekleme veya hariç tutma kuralları gerektiği gibi dosya ve bir ilke ile ilişkilendirmek gibi sahip olabilir. Yeni bir OBFileSpec nesnesi oluştururken şunları yapabilirsiniz:
+### <a name="including-and-excluding-files-to-be-backed-up"></a>Dahil ve yedeklenecek dosyaları dışlama
+Bir ```OBFileSpec``` nesnesi bulunan ve bir yedek dışlanan dosyaları tanımlar. Bu, korumalı dosyaları ve klasörleri bir makinede kullanıma kapsam kurallar kümesidir. Birçok ekleme veya hariç tutma kuralları gerektiği gibi dosya ve bir ilke ile ilişkilendirmek gibi sahip olabilir. Yeni bir OBFileSpec nesnesi oluştururken şunları yapabilirsiniz:
 
-* Merhaba dosya ve klasörleri toobe dahil belirtin
-* Dışlanan dosya ve klasörleri toobe hello belirtin
-* Özyinelemeli bir klasör (veya) olup yalnızca üst düzey dosyalarında hello belirtilen klasör hello yedeklenmelidir verilerin yedeğini yukarı belirtin.
+* Dosyaları ve dahil edilecek klasörleri belirtin
+* Dosya ve klasörleri dışarıda belirtin
+* Özyinelemeli bir klasör (veya) olup yalnızca üst düzey dosyaları belirtilen klasöre yedeklenmelidir verilerin yedeğini yukarı belirtin.
 
-Merhaba ikinci hello yeni OBFileSpec komutta hello - özyinelemesiz bayrağı kullanılarak elde edilir.
+İkinci yeni OBFileSpec komutta - özyinelemesiz bayrağı kullanılarak sağlanır.
 
-Merhaba aşağıdaki örnekte, biz birimi yedekleyin C: ve D: ve hello OS ikili hello Windows klasöründeki ve herhangi bir geçici klasörde dosyaları hariç. hello kullanarak iki dosya belirtimleri oluşturacağız şekilde toodo [yeni OBFileSpec](https://technet.microsoft.com/library/hh770408) cmdlet - eklenmesi, diğeri dışarıda bırakma için. Merhaba Dosya belirtimleri oluşturduktan sonra hello kullanarak hello İlkesi ile ilişkili [Ekle OBFileSpec](https://technet.microsoft.com/library/hh770424) cmdlet'i.
+Aşağıdaki örnekte, biz birimi yedekleyin C: ve D: ve işletim sistemi ikili dosyaları Windows klasöründeki ve geçici klasörleri dışarıda. Oluşturacağız Bunu yapmak için iki belirtimleri kullanarak dosya [yeni OBFileSpec](https://technet.microsoft.com/library/hh770408) cmdlet - eklenmesi, diğeri dışarıda bırakma için. Dosya belirtimleri oluşturduktan sonra ilkeyi kullanarak ilişkili oldukları [Ekle OBFileSpec](https://technet.microsoft.com/library/hh770424) cmdlet'i.
 
 ```
 PS C:\> $inclusions = New-OBFileSpec -FileSpec @("C:\", "D:\")
@@ -372,19 +372,19 @@ State           : New
 PolicyState     : Valid
 ```
 
-### <a name="applying-hello-policy"></a>Hello İlkesi uygulama
-Şimdi hello İlkesi tamamlandıktan ve ilişkili bir yedekleme zamanlaması, bekletme ilkesi ve dosyaların bir ekleme/çıkarma listesi vardır. Bu ilkeyi şimdi için Azure Backup toouse kaydedilmiş olabilir. İlke, yeni oluşturulan hello uygulamadan önce mevcut hiçbir yedekleme ilkeleri hello kullanarak hello sunucuyla ilişkili olduğundan emin olun [Kaldır OBPolicy](https://technet.microsoft.com/library/hh770415) cmdlet'i. Hello ilkesi kaldırma için onay ister. tooskip hello onay kullanmak hello ```-Confirm:$false``` hello cmdlet ile bayrağı.
+### <a name="applying-the-policy"></a>İlke uygulama
+Şimdi İlkesi tamamlandıktan ve ilişkili bir yedekleme zamanlaması, bekletme ilkesi ve dosyaların bir ekleme/çıkarma listesi vardır. Bu ilkeyi şimdi kullanmak Azure Backup için kaydedilmiş olabilir. Yeni oluşturulan İlkesi, uygulamadan önce mevcut hiçbir yedekleme ilkeleri kullanılarak sunucu ile ilişkilendirilen olduğundan emin olun [Kaldır OBPolicy](https://technet.microsoft.com/library/hh770415) cmdlet'i. İlkeyi kaldırmayı onay ister. Onay Kullan'ı atlamanızı ```-Confirm:$false``` bayrağı cmdlet ile.
 
 ```
 PS C:> Get-OBPolicy | Remove-OBPolicy
-Microsoft Azure Backup Are you sure you want tooremove this backup policy? This will delete all hello backed up data. [Y] Yes [A] Yes tooAll [N] No [L] No tooAll [S] Suspend [?] Help (default is "Y"):
+Microsoft Azure Backup Are you sure you want to remove this backup policy? This will delete all the backed up data. [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
 ```
 
-Uygulanıyor hello İlkesi yapılır hello kullanarak [kümesi OBPolicy](https://technet.microsoft.com/library/hh770421) cmdlet'i. Bu ayrıca onaylamanız istenir. tooskip hello onay kullanmak hello ```-Confirm:$false``` hello cmdlet ile bayrağı.
+İlke nesnesi yürüten yapılır kullanarak [kümesi OBPolicy](https://technet.microsoft.com/library/hh770421) cmdlet'i. Bu ayrıca onaylamanız istenir. Onay Kullan'ı atlamanızı ```-Confirm:$false``` bayrağı cmdlet ile.
 
 ```
 PS C:> Set-OBPolicy -Policy $newpolicy
-Microsoft Azure Backup Do you want toosave this backup policy ? [Y] Yes [A] Yes tooAll [N] No [L] No tooAll [S] Suspend [?] Help (default is "Y"):
+Microsoft Azure Backup Do you want to save this backup policy ? [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
 BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s)
 DsList : {DataSource
          DatasourceId:4508156004108672185
@@ -425,7 +425,7 @@ RetentionPolicy : Retention Days : 7
 State : Existing PolicyState : Valid
 ```
 
-Hello kullanarak hello mevcut bir yedekleme İlkesi hello ayrıntılarını görüntüleyebilirsiniz [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) cmdlet'i. Daha fazla hello kullanarak ayrıntıya [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) cmdlet'i hello yedekleme zamanlamasını ve hello için [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) hello bekletme ilkeleri için cmdlet
+Kullanarak varolan yedekleme ilkesi ayrıntılarını görüntüleyebilirsiniz [Get-OBPolicy](https://technet.microsoft.com/library/hh770406) cmdlet'i. Kullanarak daha fazla ayrıntıya [Get-OBSchedule](https://technet.microsoft.com/library/hh770423) cmdlet'i için yedekleme zamanlamasını ve [Get-OBRetentionPolicy](https://technet.microsoft.com/library/hh770427) bekletme ilkeleri için cmdlet
 
 ```
 PS C:> Get-OBPolicy | Get-OBSchedule
@@ -466,32 +466,32 @@ IsRecursive : True
 ```
 
 ### <a name="performing-an-ad-hoc-backup"></a>Bir geçici yedekleme gerçekleştirme
-Bir yedekleme İlkesi ayarladıktan sonra hello yedeklemeleri hello zamanlama meydana gelir. Bir geçici yedekleme tetikleme ayrıca hello kullanarak olası [başlangıç OBBackup](https://technet.microsoft.com/library/hh770426) cmdlet:
+Bir yedekleme İlkesi ayarladıktan sonra yedeklemeler zamanlama meydana gelir. Bir geçici yedekleme tetikleme olduğunu da olası kullanarak [başlangıç OBBackup](https://technet.microsoft.com/library/hh770426) cmdlet:
 
 ```
 PS C:> Get-OBPolicy | Start-OBBackup
 Initializing
 Taking snapshot of volumes...
 Preparing storage...
-Generating backup metadata information and preparing hello metadata VHD...
-Data transfer is in progress. It might take longer since it is hello first backup and all data needs toobe transferred...
-Data transfer completed and all backed up data is in hello cloud. Verifying data integrity...
+Generating backup metadata information and preparing the metadata VHD...
+Data transfer is in progress. It might take longer since it is the first backup and all data needs to be transferred...
+Data transfer completed and all backed up data is in the cloud. Verifying data integrity...
 Data transfer completed
 In progress...
 Job completed.
-hello backup operation completed successfully.
+The backup operation completed successfully.
 ```
 
 ## <a name="restore-data-from-azure-backup"></a>Verileri Azure yedekten geri yükleyin
-Bu bölümde, veri kurtarma Azure Backup otomatikleştirmek için hello adımlarında size yol gösterir. Bunu yapmak, böylece hello aşağıdaki adımları içerir:
+Bu bölümde, veri kurtarma Azure Backup otomatikleştirmek için adımlarda size kılavuzluk eder. Bunun yapılması, aşağıdaki adımları içerir:
 
-1. Merhaba kaynak birimi seçin
-2. Bir yedekleme noktası toorestore seçin
-3. Bir öğe toorestore seçin
-4. Tetikleyici hello geri yükleme işlemi
+1. Kaynak birim seçin
+2. Geri yüklemek için bir yedekleme noktası seçin
+3. Geri yüklemek için bir öğe seçin
+4. Tetikleyici geri yükleme işlemi
 
-### <a name="picking-hello-source-volume"></a>Çekme hello kaynak birim
-Sipariş toorestore öğeyi Azure Backup'da, ilk tooidentify hello kaynak hello öğesinin gerekir. Biz hello bağlamında bir Windows Server veya Windows İstemcisi hello komutları yürütülürken bu yana hello makine zaten tanımlanmış. Merhaba kaynağı tanımlayan bir hello sonraki adım içeren tooidentify hello birimdir. Bu makineden yedeklenen alınabilir hello yürüterek birimleri veya kaynakları listesini [Get-OBRecoverableSource](https://technet.microsoft.com/library/hh770410) cmdlet'i. Bu komut, bu sunucu/istemciden yedeklenen tüm hello kaynakları bir dizi döndürür.
+### <a name="picking-the-source-volume"></a>Kaynak birim çekme
+Bir öğeyi Azure yedeklemeden geri yüklemek için ilk öğenin kaynağını tanımlamak gerekir. Biz Windows Server veya Windows İstemcisi bağlamında komutları yürütülürken bu yana makine zaten tanımlanır. Kaynağı tanımlayan bir sonraki adım, onu içeren birim belirlemektir. Bu makineden yedeklenen alınabilir yürüterek kaynakları veya birimlerin listesini [Get-OBRecoverableSource](https://technet.microsoft.com/library/hh770410) cmdlet'i. Bu komut, bu sunucu/istemciden yedeklenen tüm kaynakları bir dizi döndürür.
 
 ```
 PS C:> $source = Get-OBRecoverableSource
@@ -505,8 +505,8 @@ RecoverySourceName : D:\
 ServerName : myserver.microsoft.com
 ```
 
-### <a name="choosing-a-backup-point-from-which-toorestore"></a>Hangi toorestore bir yedekleme noktasının seçme
-Merhaba çalıştırarak yedekleme noktalarının bir listesini alma [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) uygun parametreleri cmdlet'iyle. Bizim örneğimizde, son yedekleme noktası hello kaynak birim hello seçeceğiz *D:* ve toorecover belirli bir dosya kullanın.
+### <a name="choosing-a-backup-point-from-which-to-restore"></a>Geri yüklemek yedek bir noktası seçme
+Çalıştırarak yedekleme noktalarının bir listesini alma [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) uygun parametreleri cmdlet'iyle. Bizim örneğimizde, en son yedekleme noktası kaynak birimin seçeceğiz *D:* ve belirli bir dosya kurtarmak için kullanın.
 
 ```
 PS C:> $rps = Get-OBRecoverableItem -Source $source[1]
@@ -532,12 +532,12 @@ ServerName : myserver.microsoft.com
 ItemSize :
 ItemLastModifiedTime :
 ```
-Merhaba nesne ```$rps``` yedekleme noktaları dizisidir. Hello ilk öğe hello son noktası ve hello n. öğeyi hello eski noktasıdır. kullanacağız toochoose hello son noktası, ```$rps[0]```.
+Nesne ```$rps``` yedekleme noktaları dizisidir. En son noktası ilk öğedir ve eski noktası n. öğedir. En son noktası seçmek için kullanacağız ```$rps[0]```.
 
-### <a name="choosing-an-item-toorestore"></a>Bir öğe toorestore seçme
-tooidentify hello tam dosya veya klasör toorestore, yinelemeli olarak kullanın hello [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet'i. Bu şekilde hello klasör hiyerarşisini yalnızca hello kullanarak gözatılabilir ```Get-OBRecoverableItem```.
+### <a name="choosing-an-item-to-restore"></a>Geri yüklemek için bir öğe seçme
+Tam dosya ya da geri yüklemek için yinelemeli kullanım klasörü tanımlamak için [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet'i. Klasör hiyerarşisi göz atabilirsiniz yalnızca kullanarak bu şekilde ```Get-OBRecoverableItem```.
 
-Bu örnekte, biz toorestore hello dosyanın istiyorsanız *finances.xls* Biz bu kullanarak başvuru hello nesne ```$filesFolders[1]```.
+Biz dosyayı geri yüklemek istiyorsanız, bu örnekte, *finances.xls* biz nesne kullanan başvurabilir ```$filesFolders[1]```.
 
 ```
 PS C:> $filesFolders = Get-OBRecoverableItem $rps[0]
@@ -578,20 +578,20 @@ ItemSize : 96256
 ItemLastModifiedTime : 21-Jun-14 6:43:02 AM
 ```
 
-Hello kullanarak öğeleri toorestore için arama yapabilirsiniz ```Get-OBRecoverableItem``` cmdlet'i. Örneğimizde, toosearch için *finances.xls* biz şu komutu çalıştırarak hello dosyada bir tanıtıcı alabilir:
+Kullanarak geri yüklemek öğeler için arama yapabilirsiniz ```Get-OBRecoverableItem``` cmdlet'i. Aranacak örneğimizde *finances.xls* biz şu komutu çalıştırarak dosyayı bir tanıtıcı alabilir:
 
 ```
 PS C:\> $item = Get-OBRecoverableItem -RecoveryPoint $rps[0] -Location "D:\MyData" -SearchString "finance*"
 ```
 
-### <a name="triggering-hello-restore-process"></a>Merhaba geri yükleme işlemini tetikler
-tootrigger hello geri yükleme işlemi, ilk toospecify hello kurtarma seçenekleri ihtiyacımız var. Bu hello kullanarak yapılabilir [yeni OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx) cmdlet'i. Bu örnek, toorestore hello dosyaları çok istediğimizi varsayalım*C:\temp*. Ayrıca hello hedef klasörü zaten mevcut dosyalarda tooskip istiyoruz varsayalım *C:\temp*. toocreate böyle bir kurtarma seçeneği, komutu aşağıdaki hello kullanın:
+### <a name="triggering-the-restore-process"></a>Geri yükleme işlemini tetikler
+Geri yükleme işlemi tetiklemek için öncelikle kurtarma seçeneklerini belirtmek ihtiyacımız. Bu kullanılarak yapılabilir [yeni OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx) cmdlet'i. Bu örnek için dosyaları geri yüklemek istiyoruz varsayalım *C:\temp*. Ayrıca hedef klasörde zaten mevcut dosyaların atlamak istiyoruz varsayalım *C:\temp*. Bu tür bir kurtarma seçeneğini oluşturmak için aşağıdaki komutu kullanın:
 
 ```
 PS C:\> $recovery_option = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
 ```
 
-Hello kullanarak hello geri yükleme işlemi şimdi tetikleyebilir [başlangıç OBRecovery](https://technet.microsoft.com/library/hh770402.aspx) seçili hello komutunu ```$item``` hello hello çıktısından ```Get-OBRecoverableItem``` cmdlet:
+Kullanarak geri yükleme işlemi şimdi tetikleyebilir [başlangıç OBRecovery](https://technet.microsoft.com/library/hh770402.aspx) seçilen komutu ```$item``` çıktısından ```Get-OBRecoverableItem``` cmdlet:
 
 ```
 PS C:\> Start-OBRecovery -RecoverableItem $item -RecoveryOption $recover_option
@@ -600,29 +600,29 @@ Estimating size of backup items...
 Estimating size of backup items...
 Estimating size of backup items...
 Job completed.
-hello recovery operation completed successfully.
+The recovery operation completed successfully.
 ```
 
 
-## <a name="uninstalling-hello-azure-backup-agent"></a>Hello Azure Backup aracısını kaldırma
-Kaldırma hello Azure Yedekleme aracısı, komutu aşağıdaki hello kullanarak gerçekleştirilebilir:
+## <a name="uninstalling-the-azure-backup-agent"></a>Azure Backup aracısını kaldırma
+Azure Backup aracısını kaldırma, aşağıdaki komutu kullanarak gerçekleştirilebilir:
 
 ```
 PS C:\> .\MARSAgentInstaller.exe /d /q
 ```
 
-Merhaba Aracısı ikili dosyalarının hello makineden kaldırma bazı sonuçları tooconsider sahiptir:
+Aracısı ikili dosyalarının makineden kaldırma dikkate alınması gereken bazı sonuçları vardır:
 
-* Merhaba dosya filtresi hello makineden kaldırır ve değişiklikleri izleme durduruldu.
-* Tüm ilke bilgilerine hello makineden kaldırıldı, ancak hello ilkesi bilgileri hello hizmetinde depolanan toobe devam eder.
+* Dosya Filtresi makineden kaldırır ve değişiklikleri izleme durduruldu.
+* Tüm ilke bilgilerine makineden kaldırıldı, ancak hizmetinde depolanması ilke bilgilerini sürdürür.
 * Tüm yedekleme zamanlamaları kaldırılır ve daha fazla yedekleme alınır.
 
-Ancak, Azure kalırken depolanan verileri hello ve hello bekletme ilkesi Kurulum göredir, tarafından korunur. Eski noktalarını otomatik olarak eski.
+Ancak, verileri Azure kalırken depolanır ve bekletme ilkesi Kurulum göredir, tarafından korunur. Eski noktalarını otomatik olarak eski.
 
 ## <a name="remote-management"></a>Uzaktan Yönetim
-Tüm hello yönetim hello Azure Yedekleme aracısı, ilkeler ve veri kaynakları çevresinde uzaktan PowerShell aracılığıyla gerçekleştirilebilir. Uzaktan yönetilecek hello makine doğru şekilde hazırlanmış toobe gerekir.
+Azure Yedekleme aracısı, ilkeler ve veri kaynakları çevresinde tüm yönetim uzaktan PowerShell aracılığıyla gerçekleştirilebilir. Uzaktan yönetilecek makine doğru hazırlanması gerekir.
 
-Varsayılan olarak, hello WinRM hizmeti el ile başlatma için yapılandırılır. Merhaba başlangıç türü çok ayarlanmalıdır*otomatik* ve hello hizmet başlatılabilir. WinRM hizmeti hello tooverify çalıştığından, hello Status özelliği hello değeri olmalıdır *çalıştıran*.
+Varsayılan olarak, WinRM hizmeti el ile başlatma için yapılandırılır. Başlangıç türünü ayarlamak *otomatik* ve hizmetin başlatılması. WinRM hizmetinin çalıştığından emin olun, durum özelliğinin değeri olmalıdır *çalıştıran*.
 
 ```
 PS C:\> Get-Service WinRM
@@ -636,14 +636,14 @@ PowerShell uzaktan iletişim için yapılandırılmış olması gerekir.
 
 ```
 PS C:\> Enable-PSRemoting -force
-WinRM is already set up tooreceive requests on this computer.
+WinRM is already set up to receive requests on this computer.
 WinRM has been updated for remote management.
 WinRM firewall exception enabled.
 
 PS C:\> Set-ExecutionPolicy unrestricted -force
 ```
 
-Merhaba makine artık uzaktan - hello hello aracı yüklemesinden başlatma yönetilebilir. Örneğin, komut dosyası izleyen hello hello aracı toohello uzak makine kopyalar ve onu yükler.
+Makine artık uzaktan - aracı yüklemesinden başlatma yönetilebilir. Örneğin, aşağıdaki komut dosyası Aracısı uzak makineye kopyalar ve onu yükler.
 
 ```
 PS C:\> $dloc = "\\REMOTESERVER01\c$\Windows\Temp"
@@ -658,5 +658,5 @@ PS C:\> Invoke-Command -Session $s -Script { param($d, $a) Start-Process -FilePa
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure yedekleme için Windows Server/istemcisi bakın hakkında daha fazla bilgi için
 
-* [Giriş tooAzure yedekleme](backup-introduction-to-azure-backup.md)
+* [Azure Backup'a giriş](backup-introduction-to-azure-backup.md)
 * [Windows sunucularını yedekleme](backup-configure-vault.md)

@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure Mobile Engagement sorun giderme kılavuzu - SDK"
+title: "Sorun giderme kılavuzu - SDK'sı azure Mobile Engagement"
 description: "Azure Mobile Engagement SDK tümleştirmesi sorunlarını giderme"
 services: mobile-engagement
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 1c082b81d898f4bdb47b8efe6cfbacfd83fe9279
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4d9d6165deb4bd0c65f1841aa7c457363a1f2865
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshooting-guide-for-sdk-integration-issues"></a>SDK tümleştirme sorunları için sorun giderme kılavuzu
-Merhaba, nasıl Azure Mobile Engagement uygulamanıza ile tümleşir karşılaşabileceğiniz olası sorunlar şunlardır.
+Azure Mobile Engagement'ın uygulamanıza nasıl tümleştirilir karşılaşabileceğiniz olası sorunlar şunlardır:
 
 ## <a name="sdk-issues-discovered-by-a-failure-in-another-area-of-your-application"></a>Bir hata, uygulamanızın başka bir alan keşfedilen SDK sorunları
 ### <a name="issue"></a>Sorun
@@ -32,9 +32,9 @@ Merhaba, nasıl Azure Mobile Engagement uygulamanıza ile tümleşir karşılaş
 * Hizmet hataları (hiçbiri Azure Mobile Engagement uygulamanız için çalışır).
 
 ### <a name="causes"></a>Neden olur.
-* Hello Azure Mobile Engagement SDK'sı ile çözümlenen toobe gereken çoğu sorunlar uygulamanız (örneğin, bir kullanıcı Arabirimi veri toplama hatası, gönderme hatası, gelişmiş özellik hatası, API hatası, uygulama kilitlenmelerine veya görünen hizmet bir hata bulunan Kesinti).  
-* Azure Mobile Engagement, belirli bir özellik, hiçbir zaman uygulamanızda önce çalıştıysa toocomplete hello tümleştirme gerekir. 
-* Azure Mobile Engagement, belirli bir özellik çalıştığı ve durdurulmuş, tooupgrade toohello son sürümü hello Azure Mobile Engagement SDK'sı ile gerekebilir. Hello Azure Mobile Engagement SDK'sı (Android, iOS, Windows ve Windows Phone) Azure Mobile Engagement tarafından desteklenen her platform için farklı bir sürümü olduğunu unutmayın.
+* Uygulamanız (örneğin, bir kullanıcı Arabirimi veri toplama hatası, gönderme hatası, gelişmiş özellik hatası, API hatası, uygulama kilitlenmelerine veya görünen hizmet kesintisi) bir hata ile Azure Mobile Engagement SDK'sı çözülmesi gereken çoğu sorunları bulunacaktır.  
+* Azure Mobile Engagement, belirli bir özellik, hiçbir zaman uygulamanızda önce çalıştıysa tümleştirme tamamlanması gerekir. 
+* Azure Mobile Engagement, belirli bir özellik çalıştığı ve durdurulmuş, en son Azure Mobile Engagement SDK'sı sürüm yükseltmeniz gerekebilir. Azure Mobile Engagement (Android, iOS, Windows ve Windows Phone) tarafından desteklenen her platform için Azure Mobile Engagement SDK'sı farklı bir sürümü olduğunu unutmayın.
 
 #### <a name="sdk-integration"></a>SDK Tümleştirmesi
 * Azure Mobile Engagement SDK'yı (Analytics) doğru biçimde tümleşik.
@@ -50,8 +50,8 @@ Merhaba, nasıl Azure Mobile Engagement uygulamanıza ile tümleşir karşılaş
 * [Sorun giderme kılavuzu - gönderme][Link 23]
 
 #### <a name="sdk-upgrade"></a>SDK yükseltme
-* Tooupgrade SDK tooresolve sorunlarının hello SDK'sı (Merhaba aygıt işletim sistemi sürümleri genellikle ilgili toonewer) daha eski sürümleriyle gerekir.
-* Aygıtınızdan uygulamanızı önceki tüm sürümlerini kaldırın ve hello uygulamanızı en yeni sürümünü yükleyin, hello hello Azure Mobile Engagement UI tooconfirm Cihazınızı hello en yeni sürümü, uygulamanızın kullanıyor, cihaz kimliği yeniden kaydedin.
+* SDK'sını (genellikle daha yeni sürümleri aygıt işletim sistemi için ilgili) SDK'ın eski sürümleri ile ilgili sorunları gidermek yükseltme yapmanız gerekir.
+* Cihazınızı uygulamanızı önceki tüm sürümlerini kaldırın ve en yeni sürümü, uygulamanızın, yeniden kaydettirin Cihazınızı uygulamanızı en yeni sürümünü kullandığını doğrulamak için Azure Mobile Engagement UI, cihaz kimliği yükleyin.
 
 **Ayrıca bkz.:**
 
@@ -59,8 +59,8 @@ Merhaba, nasıl Azure Mobile Engagement uygulamanıza ile tümleşir karşılaş
 * [SDK Belgeleri - yükseltme kılavuzları](http://go.microsoft.com/fwlink/?LinkId= 525554)
 
 #### <a name="sdk-other"></a>SDK diğer
-* Azure Mobile Engagement uygulama bildirimi "AndroidManifest.xml" hatalara neden olabilir toowork (yalnızca Android).
-* SDK tümleştirmesi ve API kullanımı ile yaygın bir sorun tooconfuse hello SDK anahtarı olan ve API anahtarını hello.
+* Uygulama bildirimi "AndroidManifest.xml" hataları Azure Mobile Engagement'ı (yalnızca Android) çalışmamasına neden olabilir.
+* SDK anahtarı ve API anahtarını karmaşık hale getirmeye SDK tümleştirmesi ve API kullanımı ile yaygın bir sorun var.
 
 **Ayrıca bkz.:**
 
@@ -68,15 +68,15 @@ Merhaba, nasıl Azure Mobile Engagement uygulamanıza ile tümleşir karşılaş
 
 ## <a name="advanced-coding-issues"></a>Sorunları kodlama Gelişmiş
 ### <a name="issue"></a>Sorun
-* Platform özel kod doğrudan Mobile Engagement, iOS, Android ve Windows Phone sorunlara neden olabilir tooAzure ilgili.
+* İOS, Android ve Windows Phone platform belirli kodu doğrudan Azure Mobile Engagement için ilgili sorunlara neden olabilir.
 
 ### <a name="causes"></a>Neden olur.
-* Birçok Azure Mobile Engagement kodlama sorunları Gelişmiş nedeni yanlış yazılan platformu tarafından belirli bir kod tooAzure Mobile Engagement doğrudan ilgili. Tooconsult belgeleri belirli toohello platform için ayrıca tooAzure Mobile Engagement belgeleri (Android, iOS, Web, Windows ve Windows Phone) geliştirdiğinize gerekir.
-* Doğru biçimde "Kategoriler" yapılandırma, bir bildirim tooanother konumdan içinde veya dışında hello uygulaması (yalnızca Android) bağlama engeller. 
-* "UIKit.framework" çok "isteğe bağlı" "simgesi bulunamadı hatası" gösterir, iOS kodunuzda ayarı bulunamadı ve/veya eski iOS cihazlarda (yalnızca iOS) çöküyor.
-* Süresi dolan sertifikaları veya doğru biçimde hello geliştirme veya üretim hello cert sürümünü kullanarak, nedenleri itme (yalnızca iOS) verir.
-* (Merhaba system center için uygulamanın oturumunu işleyişi Android ve iOS iter gibi), Azure Mobile Engagement denetleyemezsiniz bazı sınırlamalar devralınan tooa platformu vardır.
-* Azure Mobile Engagement tam başvuru için iOS ve Android için Azure Mobile Engagement tarafından kullanılan hello iç paketlerin listesini yayımlar. Azure Mobile Engagement özelliklerinden bazıları belirli toohello platform (Android, iOS, Web, Windows ve Windows Phone) olduğunu unutmayın.
+* Birçok Azure Mobile Engagement kodlama sorunları Gelişmiş nedeni yanlış yazılmış platform belirli kodu Azure Mobile Engagement için doğrudan ilgili değildir. Azure Mobile Engagement belgeleri (Android, iOS, Web, Windows ve Windows Phone) yanı sıra için geliştirdiğiniz platformu belirli belgelere gerekecektir.
+* Doğru biçimde "Kategoriler" yapılandırma, başka bir konum içinde veya dışında (yalnızca Android) uygulama bildirimden bağlanma engeller. 
+* "UIKit.framework" "isteğe bağlı" "simgesi bulunamadı hatası" gösterir, iOS kodunuzun ayarını değil ve/veya eski iOS cihazlarda (yalnızca iOS) çöküyor.
+* Süresi dolan sertifikaları veya doğru biçimde nedenler cert geliştirme veya üretim sürümünü kullanarak anında iletme (yalnızca iOS) verir.
+* Devralınan (system center için uygulamanın oturumunu işleyişi Android ve iOS iter gibi), Azure Mobile Engagement denetleyemezsiniz bir platform için bazı sınırlamalar vardır.
+* Azure Mobile Engagement tam başvuru için iOS ve Android için Azure Mobile Engagement tarafından kullanılan iç paketlerin listesini yayımlar. Azure Mobile Engagement özelliklerinden bazıları (Android, iOS, Web, Windows ve Windows Phone) platforma özgü aklınızda bulundurun.
 
 ### <a name="see-also"></a>Ayrıca bkz.
 * [Sorun giderme kılavuzu - gönderme][Link 23] 
@@ -85,12 +85,12 @@ Merhaba, nasıl Azure Mobile Engagement uygulamanıza ile tümleşir karşılaş
 
 ## <a name="application-crashes"></a>Uygulama çökme (Crash)
 ### <a name="issue"></a>Sorun
-* Uygulamanızı hello son kullanıcıların cihazda çöküyor.
+* Uygulamanız son kullanıcıların cihazda çöküyor.
 
 ### <a name="causes"></a>Neden olur.
-* Kilitlenme bilgi hello görüntülenebilir *Analytics UI* veya hello *Analytics API*
-* Cihaz kimliği test aygıtınızın hello ve hello ele bulabilir bir son kullanıcı toohelp için uygulama toocrash neden aynı eylemi, kilitlenme hello nedenini tanımlayın.
-* Uygulamaları toocrash neden ile ilgili bilinen sorunlar hello Azure Mobile Engagement SDK'sı bazen toohello hello SDK en son sürümüne yükseltme tarafından çözümlenir. Platformunuz hakkında emin toocheck hello sürüm notları, kilitlenme araştırırken olun.
+* Kilitlenme bilgi görüntülenebilir *Analytics UI* veya *Analytics API*
+* Test Cihazınızı cihaz Kimliğini bulun ve kilitlenme uygulamanıza, kilitlenme nedenini belirlemeye yardımcı olmak bir son kullanıcı için neden aynı adımları uygulayın.
+* Azure Mobile Engagement SDK'sı uygulamaların kilitlenmesine neden bilinen sorunlar bazen SDK'ın en son sürüme yükseltme tarafından çözümlenir. Sürüm Notları platformunuz hakkında kilitlenme araştırırken olduğundan emin olun.
 
 ### <a name="see-also"></a>Ayrıca bkz.
 * [SDK Belgeleri - sürüm notları][Link 5]
@@ -98,11 +98,11 @@ Merhaba, nasıl Azure Mobile Engagement uygulamanıza ile tümleşir karşılaş
 
 ## <a name="app-store-upload-failures"></a>Uygulama mağazası karşıya yükleme hataları
 ### <a name="issue"></a>Sorun
-* Toouploading hello en son sürümünü uygulama tooApple, Google veya hello Windows uygulama mağazası ilgili hatalarla ilgili.
+* Apple, Google veya Windows uygulama mağazası uygulamanızı en son sürümünü yükleme için ilgili hatalar.
 
 ### <a name="causes"></a>Neden olur.
-* Uygulama mağazaları bazen belirli özellikleri etkin blok uygulamalar (örneğin hello Apple Store hello kullanımında IDFV hello Mağazası'ndaki uygulamaların ve hello GooglePlay deposu engeller uygulamalar arasında uygulama bilgilerinin hello paylaşımı). 
-* Bir uygulama toohello deposu karşıya güçlük çekiyorsanız hello sürüm notları platform ve hello SDK geçerli sürümü hakkında denetlediğinizden emin olun.
+* Uygulama mağazaları bazen belirli özellikleri etkin blok uygulamalar (örneğin Apple Store Mağazası'ndaki uygulamaların IDFV kullanımda ve uygulamalar arasında uygulama bilgi paylaşımı GooglePlay deposu engeller). 
+* Depoya bir uygulama karşıya güçlük çekiyorsanız, platform ve SDK'ın geçerli sürümü ile ilgili sürüm notları denetlediğinizden emin olun.
 
 <!--Link references-->
 [Link 1]: mobile-engagement-user-interface.md

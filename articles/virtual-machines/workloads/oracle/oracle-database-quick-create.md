@@ -1,5 +1,5 @@
 ---
-title: "bir Oracle veritabanına Azure VM'deki aaaCreate | Microsoft Docs"
+title: "Bir Oracle veritabanına bir Azure VM oluşturma | Microsoft Docs"
 description: "Hızla bir Oracle veritabanına 12 c veritabanı ve Azure ortamınızda çalışan alın."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,36 +15,36 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/17/2017
 ms.author: rclaus
-ms.openlocfilehash: 83205154c3275d5f57b46c8acfb0cb4e5c68a412
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8683b016c4db2c66fb1dd994405b70c3d137a7fc
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Bir Oracle veritabanına bir Azure VM oluşturma
 
-Hello Azure CLI toodeploy hello Azure bir sanal makineden kullanarak bu kılavuzu ayrıntılarını [Oracle Market galeri görüntüsü](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) olarak 12 c Oracle veritabanına toocreate sipariş. Merhaba sunucu dağıtıldığında, SSH yoluyla sipariş tooconfigure hello Oracle veritabanına bağlanır. 
+Bir Azure sanal makineyi dağıtmak için Azure CLI kullanarak bu kılavuzu ayrıntılarını [Oracle Market galeri görüntüsü](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) 12 c Oracle veritabanı oluşturmak için. Sunucu dağıtıldığında, Oracle veritabanını yapılandırmak için SSH yoluyla bağlanır. 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Tooinstall seçin ve hello CLI yerel olarak kullanırsanız, bu hızlı başlangıç hello Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Çalıştırma `az --version` toofind hello sürümü. Tooinstall veya yükseltme gerekirse bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
+CLI'yi yerel olarak yükleyip kullanmayı seçerseniz bu hızlı başlangıç için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Bir kaynak grubu ile Merhaba oluşturmak [az grubu oluşturma](/cli/azure/group#create) komutu. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
+[az group create](/cli/azure/group#create) komutuyla bir kaynak grubu oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. 
 
-Merhaba aşağıdaki örnekte oluşturur adlı bir kaynak grubu *myResourceGroup* hello içinde *eastus* konumu.
+Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 ## <a name="create-virtual-machine"></a>Sanal makine oluşturma
 
-toocreate bir sanal makine (VM) kullanmak hello [az vm oluşturma](/cli/azure/vm#create) komutu. 
+Bir sanal makine (VM) oluşturmak için kullanmak [az vm oluşturma](/cli/azure/vm#create) komutu. 
 
-Merhaba aşağıdaki örnekte oluşturur adlı bir VM'den `myVM`. Zaten bir varsayılan anahtar konumda yoksa, ayrıca SSH anahtarları oluşturur. toouse belirli bir ayarla anahtarları, hello kullan `--ssh-key-value` seçeneği.  
+Aşağıdaki örnekte `myVM` adlı bir VM oluşturulur. Zaten bir varsayılan anahtar konumda yoksa, ayrıca SSH anahtarları oluşturur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.  
 
 ```azurecli-interactive 
 az vm create \
@@ -56,7 +56,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Merhaba VM oluşturduktan sonra Azure CLI aşağıdaki örneğine benzer toohello bilgileri görüntüler. Not hello değeri `publicIpAddress`. Bu adres tooaccess hello VM kullanın.
+VM oluşturduktan sonra Azure CLI aşağıdaki örneğe benzer bilgiler görüntüler. Değeri Not `publicIpAddress`. VM erişmek için bu adresi kullanın.
 
 ```azurecli
 {
@@ -71,26 +71,26 @@ Merhaba VM oluşturduktan sonra Azure CLI aşağıdaki örneğine benzer toohell
 }
 ```
 
-## <a name="connect-toohello-vm"></a>Toohello VM Bağlan
+## <a name="connect-to-the-vm"></a>VM’ye bağlanma
 
-hello VM ile SSH oturumu bir toocreate hello aşağıdaki komutu kullanın. Başlangıç IP adresi ile hello yerine `publicIpAddress` , VM için değer.
+VM ile bir SSH oturumu oluşturmak için aşağıdaki komutu kullanın. IP adresiyle değiştirin `publicIpAddress` , VM için değer.
 
 ```bash 
 ssh <publicIpAddress>
 ```
 
-## <a name="create-hello-database"></a>Merhaba veritabanı oluşturma
+## <a name="create-the-database"></a>Veritabanı oluşturma
 
-Merhaba Oracle yazılım hello Market görüntüsü üzerinde zaten yüklü. Bir örnek veritabanı gibi oluşturun. 
+Oracle yazılım Market görüntüsü üzerinde zaten yüklü. Bir örnek veritabanı gibi oluşturun. 
 
-1.  Geçiş toohello *oracle* süper kullanıcı sonra Initialize hello dinleyici günlük kaydı için:
+1.  Geçiş *oracle* süper kullanıcı sonra günlüğe kaydetme için dinleyici başlatılamadı:
 
     ```bash
     $ sudo su - oracle
     $ lsnrctl start
     ```
 
-    Merhaba çıkış benzer toohello aşağıda verilmiştir:
+    Çıkış aşağıdakine benzer:
 
     ```bash
     Copyright (c) 1991, 2014, Oracle.  All rights reserved.
@@ -98,11 +98,11 @@ Merhaba Oracle yazılım hello Market görüntüsü üzerinde zaten yüklü. Bir
     Starting /u01/app/oracle/product/12.1.0/dbhome_1/bin/tnslsnr: please wait...
 
     TNSLSNR for Linux: Version 12.1.0.2.0 - Production
-    Log messages written too/u01/app/oracle/diag/tnslsnr/myVM/listener/alert/log.xml
+    Log messages written to /u01/app/oracle/diag/tnslsnr/myVM/listener/alert/log.xml
     Listening on: (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=myVM.twltkue3xvsujaz1bvlrhfuiwf.dx.internal.cloudapp.net)(PORT=1521)))
 
-    Connecting too(ADDRESS=(PROTOCOL=tcp)(HOST=)(PORT=1521))
-    STATUS of hello LISTENER
+    Connecting to (ADDRESS=(PROTOCOL=tcp)(HOST=)(PORT=1521))
+    STATUS of the LISTENER
     ------------------------
     Alias                     LISTENER
     Version                   TNSLSNR for Linux: Version 12.1.0.2.0 - Production
@@ -114,11 +114,11 @@ Merhaba Oracle yazılım hello Market görüntüsü üzerinde zaten yüklü. Bir
     Listener Log File         /u01/app/oracle/diag/tnslsnr/myVM/listener/alert/log.xml
     Listening Endpoints Summary...
     (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=myVM.twltkue3xvsujaz1bvlrhfuiwf.dx.internal.cloudapp.net)(PORT=1521)))
-    hello listener supports no services
-    hello command completed successfully
+    The listener supports no services
+    The command completed successfully
     ```
 
-2.  Merhaba veritabanı oluşturun:
+2.  Veritabanı oluştur:
 
     ```bash
     dbca -silent \
@@ -140,17 +140,17 @@ Merhaba Oracle yazılım hello Market görüntüsü üzerinde zaten yüklü. Bir
            -ignorePreReqs
     ```
 
-    Birkaç dakika toocreate hello veritabanı alır.
+    Veritabanını oluşturmak için birkaç dakika sürer.
 
 3. Oracle değişkenlerini ayarlama
 
-Bağlanmadan önce tooset iki ortam değişkenleri gerekir: *ORACLE_HOME* ve *ORACLE_SID*.
+Bağlanmadan önce iki ortam değişkenleri ayarlamanız gerekir: *ORACLE_HOME* ve *ORACLE_SID*.
 
 ```bash
 ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 ORACLE_SID=cdb1; export ORACLE_SID
 ```
-ORACLE_HOME ve ORACLE_SID değişkenleri toohello .bashrc dosyası da ekleyebilirsiniz. Bu hello ortam değişkenleri gelecekteki oturum açma işlemleri için kaydetmeniz. Merhaba aşağıdaki onaylayın deyimleri toohello eklenmiştir `~/.bashrc` düzenleyiciyi kullanarak dosya.
+.Bashrc dosyasına ORACLE_HOME ve ORACLE_SID değişkenlerini de ekleyebilirsiniz. Bu ortam değişkenleri gelecekteki oturum açma işlemleri için kaydeder. Aşağıdaki deyimleri eklenmiştir onaylayın `~/.bashrc` düzenleyiciyi kullanarak dosya.
 
 ```bash
 # Add ORACLE_HOME. 
@@ -161,27 +161,27 @@ export ORACLE_SID=cdb1
 
 ## <a name="oracle-em-express-connectivity"></a>Oracle EM hızlı bağlantı
 
-Tooexplore hello veritabanı kullanabileceğiniz bir GUI yönetim aracı için Oracle EM Express'i ayarlayın. tooconnect tooOracle EM Express, ilk Oracle hello bağlantı noktasına ayarlamanız gerekir. 
+Veritabanı keşfetmek için kullanabileceğiniz bir GUI yönetim aracı için Oracle EM Express'i ayarlayın. Oracle EM Express'e bağlanmak için önce Oracle bağlantı noktasına ayarlamanız gerekir. 
 
-1. Sqlplus kullanarak tooyour veritabanına bağlanın:
+1. Sqlplus kullanarak veritabanınızı Bağlan:
 
     ```bash
     sqlplus / as sysdba
     ```
 
-2. Bağlantı kurulduktan sonra başlangıç bağlantı noktası 5502 EM Express için ayarlayın
+2. Bağlandıktan sonra bağlantı noktası 5502 EM Express için ayarlama
 
     ```bash
     exec DBMS_XDB_CONFIG.SETHTTPSPORT(5502);
     ```
 
-3. Açık hello kapsayıcı PDB1 değilse zaten açık, ancak ilk onay hello durumu:
+3. Kapsayıcı PDB1 değilse zaten açık, ancak ilk onay durumu açın:
 
     ```bash
     select con_id, name, open_mode from v$pdbs;
     ```
 
-    Merhaba çıkış benzer toohello aşağıda verilmiştir:
+    Çıkış aşağıdakine benzer:
 
     ```bash
       CON_ID NAME                           OPEN_MODE 
@@ -190,55 +190,55 @@ Tooexplore hello veritabanı kullanabileceğiniz bir GUI yönetim aracı için O
       3           PDB1                      MOUNT
     ```
 
-4. Varsa OPEN_MODE için hello `PDB1` okuma hello aşağıdakilere komutları tooopen PDB1 çalıştırmak yazma, değil:
+4. Varsa için OPEN_MODE `PDB1` okuma PDB1 açmak için aşağıdakilere komutları çalıştırmak yazma, değil:
 
    ```bash
     alter session set container=pdb1;
     alter database open;
    ```
 
-Tootype gerek `quit` tooend hello sqlplus oturum ve türü `exit` toologout hello oracle kullanıcı.
+Yazmanız gerekir `quit` türü ve sqlplus oturumu sona erdirmek için `exit` oracle kullanıcının oturum kapatma için.
 
 ## <a name="automate-database-startup-and-shutdown"></a>Veritabanı başlatma ve kapatma otomatikleştirme
 
-Merhaba VM yeniden başlattığınızda hello Oracle veritabanı varsayılan olarak otomatik olarak başlamıyor. Merhaba Oracle veritabanı toostart yukarı tooset otomatik olarak ilk kez oturum açtığınızda kök olarak. Ardından, oluşturun ve bazı sistem dosyaları güncelleştirin.
+VM yeniden başlattığınızda Oracle veritabanı varsayılan tarafından otomatik olarak başlamıyor. Oracle veritabanı otomatik olarak başlayacak şekilde ayarlamak için ilk kök olarak oturum açın. Ardından, oluşturun ve bazı sistem dosyaları güncelleştirin.
 
 1. Kök olarak oturum açma
     ```bash
     sudo su -
     ```
 
-2.  Merhaba dosyasını düzenleyin, sık kullanılan düzenleyicisini kullanarak `/etc/oratab` hello varsayılan değiştirip `N` çok`Y`:
+2.  Dosyasını düzenleyin, sık kullanılan düzenleyicisini kullanarak `/etc/oratab` ve varsayılan değeri değiştirmek `N` için `Y`:
 
     ```bash
     cdb1:/u01/app/oracle/product/12.1.0/dbhome_1:Y
     ```
 
-3.  Adlı bir dosya oluşturun `/etc/init.d/dbora` Yapıştır hello izleyerek içeriği:
+3.  Adlı bir dosya oluşturun `/etc/init.d/dbora` ve aşağıdaki içeriği yapıştırın:
 
     ```
     #!/bin/sh
     # chkconfig: 345 99 10
     # Description: Oracle auto start-stop script.
     #
-    # Set ORA_HOME toobe equivalent too$ORACLE_HOME.
+    # Set ORA_HOME to be equivalent to $ORACLE_HOME.
     ORA_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
     ORA_OWNER=oracle
 
     case "$1" in
     'start')
-        # Start hello Oracle databases:
-        # hello following command assumes that hello Oracle sign-in
-        # will not prompt hello user for any values.
+        # Start the Oracle databases:
+        # The following command assumes that the Oracle sign-in
+        # will not prompt the user for any values.
         # Remove "&" if you don't want startup as a background process.
         su - $ORA_OWNER -c "$ORA_HOME/bin/dbstart $ORA_HOME" &
         touch /var/lock/subsys/dbora
         ;;
 
     'stop')
-        # Stop hello Oracle databases:
-        # hello following command assumes that hello Oracle sign-in
-        # will not prompt hello user for any values.
+        # Stop the Oracle databases:
+        # The following command assumes that the Oracle sign-in
+        # will not prompt the user for any values.
         su - $ORA_OWNER -c "$ORA_HOME/bin/dbshut $ORA_HOME" &
         rm -f /var/lock/subsys/dbora
         ;;
@@ -260,7 +260,7 @@ Merhaba VM yeniden başlattığınızda hello Oracle veritabanı varsayılan ola
     ln -s /etc/init.d/dbora /etc/rc.d/rc5.d/S99dbora
     ```
 
-6.  tootest yaptığınız değişiklikleri hello VM yeniden başlatın:
+6.  Değişikliklerinizi test etmek için VM yeniden başlatın:
 
     ```bash
     reboot
@@ -268,9 +268,9 @@ Merhaba VM yeniden başlattığınızda hello Oracle veritabanı varsayılan ola
 
 ## <a name="open-ports-for-connectivity"></a>Bağlantı için açık bağlantı noktaları
 
-Merhaba son görev tooconfigure bazı dış uç noktalar değil. Yukarı tooset hello VM korur Azure ağ güvenlik grubu Merhaba, ilk SSH oturumunuzda hello (dışında SSH önceki adımda yeniden başlatıldığı zaman başlayacağı zamana) VM çıkın. 
+Son görev bazı dış uç noktalar yapılandırmaktır. Azure ağ güvenliği VM koruma grubu ayarlamak için önce SSH oturumunuzun (dışında SSH önceki adımda yeniden başlatıldığı zaman başlayacağı zamana) VM'deki çıkın. 
 
-1.  tooaccess hello Oracle veritabanı uzaktan kullanmak tooopen hello uç noktası ile ağ güvenlik grubu kural oluşturma [az ağ nsg kuralını](/cli/azure/network/nsg/rule#create) gibi: 
+1.  Oracle veritabanına uzaktan erişmek için kullandığınız uç nokta açmak için bir ağ güvenlik grubu kural oluştururken [az ağ nsg kuralını](/cli/azure/network/nsg/rule#create) gibi: 
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -282,7 +282,7 @@ Merhaba son görev tooconfigure bazı dış uç noktalar değil. Yukarı tooset 
         --destination-port-range 1521
     ```
 
-2.  tooaccess Oracle EM Express uzaktan kullanmak tooopen hello uç noktası ile ağ güvenlik grubu kural oluşturma [az ağ nsg kuralını](/cli/azure/network/nsg/rule#create) gibi:
+2.  Oracle EM Express uzaktan erişmek için kullandığınız uç nokta açmak için bir ağ güvenlik grubu kural oluştururken [az ağ nsg kuralını](/cli/azure/network/nsg/rule#create) gibi:
 
     ```azurecli-interactive
     az network nsg rule create \
@@ -294,7 +294,7 @@ Merhaba son görev tooconfigure bazı dış uç noktalar değil. Yukarı tooset 
         --destination-port-range 5502
     ```
 
-3. Gerekirse, VM'yi yeniden hello genel IP adresi elde [az ağ ortak IP Göster](/cli/azure/network/public-ip#show) gibi:
+3. Gerekirse, VM'yi yeniden ile ortak IP adresi elde [az ağ ortak IP Göster](/cli/azure/network/public-ip#show) gibi:
 
     ```azurecli-interactive
     az network public-ip show \
@@ -310,13 +310,13 @@ Merhaba son görev tooconfigure bazı dış uç noktalar değil. Yukarı tooset 
     https://<VM ip address or hostname>:5502/em
     ```
 
-Hello kullanarak oturum açtığınızda **SYS** hesap ve hello denetleyin **SYSDBA'ın olarak** onay kutusu. Kullanım hello parola **OraPasswd1** yüklemesi sırasında ayarladığınız. 
+Kullanarak oturum açtığınızda **SYS** hesap ve denetleme **SYSDBA'ın olarak** onay kutusu. Parolayı kullanmak **OraPasswd1** yüklemesi sırasında ayarladığınız. 
 
-![Merhaba Oracle OEM hızlı oturum açma sayfasının ekran görüntüsü](./media/oracle-quick-start/oracle_oem_express_login.png)
+![Oracle OEM hızlı oturum açma sayfasının ekran görüntüsü](./media/oracle-quick-start/oracle_oem_express_login.png)
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Azure üzerinde ilk Oracle veritabanınızı keşfetme tamamladıktan sonra hello VM artık gerekli olmadığında, hello kullanabilirsiniz [az grubu Sil](/cli/azure/group#delete) tooremove hello kaynak grubu, VM ve tüm ilişkili kaynakları komutu.
+Azure üzerinde ilk Oracle veritabanınızı keşfetme tamamladıktan ve VM artık gerekli olmadığında, kullanabileceğiniz [az grubu Sil](/cli/azure/group#delete) VM, kaynak grubunu kaldırmak için komut ve ilişkili tüm kaynakları.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
@@ -326,4 +326,4 @@ az group delete --name myResourceGroup
 
 Diğer hakkında bilgi edinin [Oracle çözümleri Azure üzerinde](oracle-considerations.md). 
 
-Merhaba deneyin [yükleme ve Oracle otomatik Depolama Yönetimi yapılandırma](configure-oracle-asm.md) Öğreticisi.
+Deneyin [yükleme ve Oracle otomatik Depolama Yönetimi yapılandırma](configure-oracle-asm.md) Öğreticisi.

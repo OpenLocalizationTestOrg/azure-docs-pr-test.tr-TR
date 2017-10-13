@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile Skillport | Microsoft Docs"
-description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile Skillport arasında."
+description: "Çoklu oturum açma Azure Active Directory ile Skillport arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,119 +13,119 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: jeedes
-ms.openlocfilehash: ba504c3cae5f92767eb90d8453887904690fe0c5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 668fc5ae4f964bd776904c3a9dbc2b203689d50c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Öğretici: Azure Active Directory Tümleştirme Skillport ile
 
-Bu öğreticide, bilgi nasıl toointegrate Skillport Azure Active Directory'ye (Azure AD).
+Bu öğreticide, Azure Active Directory (Azure AD) ile Skillport tümleştirmek öğrenin.
 
-Skillport Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
+Skillport Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Erişim tooSkillport sahip Azure AD'de kontrol edebilirsiniz
-- Kullanıcıların tooautomatically get açan tooSkillport (çoklu oturum açma) Azure AD hesaplarına sahip etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir
+- Skillport erişimi, Azure AD'de kontrol edebilirsiniz
+- Otomatik olarak için Skillport (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-tooconfigure Skillport ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
+Azure AD tümleştirme Skillport ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
 - Bir Skillport çoklu oturum açma etkin abonelik
 
 > [!NOTE]
-> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
+Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
-1. Merhaba Galerisi'nden Skillport ekleme
+1. Galeriden Skillport ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-skillport-from-hello-gallery"></a>Merhaba Galerisi'nden Skillport ekleme
-Azure AD'ye tooconfigure hello tümleştirme Skillport, tooadd Skillport hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
+## <a name="adding-skillport-from-the-gallery"></a>Galeriden Skillport ekleme
+Azure AD Skillport tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Skillport eklemeniz gerekir.
 
-**tooadd Skillport hello galerisinden hello aşağıdaki adımları gerçekleştirin:**
+**Galeriden Skillport eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Tıklatın **yeni uygulama** hello iletişim hello üstte düğmesi.
+3. Tıklatın **yeni uygulama** iletişim kutusunun üst kısmında düğmesi.
 
     ![Uygulamalar][3]
 
-4. Merhaba arama kutusuna yazın **Skillport**.
+4. Arama kutusuna **Skillport**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-skillport-tutorial/tutorial_skillport_search.png)
 
-5. Merhaba Sonuçlar panelinde seçin **Skillport**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
+5. Sonuçlar panelinde seçin **Skillport**ve ardından **Ekle** uygulama eklemek için düğmesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-skillport-tutorial/tutorial_skillport_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Skillport sınayın.
 
-Tek toowork'ın oturum açma hangi hello karşılık gelen Skillport içinde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcı ve ilgili kullanıcı Skillport hello arasında bir bağlantı ilişkisi kurulan toobe gerekir.
+Tekli çalışmaya oturum için Azure AD Skillport karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Skillport ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Bu bağlantı ilişkisi hello hello değerini atayarak kurulur **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** Skillport içinde.
+Bu bağlantı değeri atayarak ilişkisi **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** Skillport içinde.
 
-tooconfigure ve Skillport ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Skillport ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
-3. **[Skillport test kullanıcısı oluşturma](#creating-a-skillport-test-user)**  -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir Skillport içinde karşılık gelen.
-4. **[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Skillport test kullanıcısı oluşturma](#creating-a-skillport-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Skillport sağlamak için.
+4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma Skillport uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Skillport uygulamanızda yapılandırın.
 
-**tooconfigure Azure AD çoklu oturum açma ile Skillport, hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma ile Skillport yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello hello üzerinde Azure portal'ın **Skillport** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **Skillport** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-skillport-tutorial/tutorial_skillport_samlbase.png)
 
-3. Merhaba üzerinde **Skillport etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **Skillport etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-skillport-tutorial/tutorial_skillport_url.png)
 
-    a. Merhaba, **oturum açma URL'si** metin kutusuna, türü aşağıdaki hello kullanarak bir URL düzenleri:
+    a. İçinde **oturum açma URL'si** metin kutusuna, aşağıdaki desenleri kullanarak URL'sini yazın:
       
       AB veri merkezi:`https://<subdomain>.skillport.eu`
    
       ABD veri merkezi:`https://<subdomain>.skillport.com`
    
-    b. Merhaba, **yanıt URL'si** metin kutusuna, türü aşağıdaki hello kullanarak bir URL düzenleri:
+    b. İçinde **yanıt URL'si** metin kutusuna, aşağıdaki desenleri kullanarak URL'sini yazın:
     
       AB veri merkezi:`https://<subdomain>.skillport.eu/adfs/ls/`
     
       ABD veri merkezi:`https://<subdomain>.skillport.com/sp/ACS.saml2`
 
     > [!NOTE] 
-    > Bu değerler hello gerçek değildir. Bu değerleri hello gerçek yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Kişi [Skillport istemci destek ekibi](https://www.skillsoft.com/contact.asp) tooget bu değerleri.
+    > Bu değerler gerçek değildir. Bu değerler gerçek yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Kişi [Skillport istemci destek ekibi](https://www.skillsoft.com/contact.asp) bu değerleri almak için.
  
-4. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve hello XML dosyayı bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve XML dosyayı bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-skillport-tutorial/tutorial_skillport_certificate.png) 
 
@@ -133,60 +133,60 @@ Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-skillport-tutorial/tutorial_general_400.png)
 
-6. tooconfigure çoklu oturum açma üzerinde **Skillport** yan, indirilen toosend hello ihtiyacınız **meta veri XML** çok[Skillport destek ekibi](https://www.skillsoft.com/contact.asp). Bunlar, toohave hello iki tarafta da ayarlamanızı SAML SSO bağlantı ayarlayacaksınız.
+6. Çoklu oturum açma yapılandırmak için **Skillport** yan, indirilen göndermek için ihtiyacınız **meta veri XML** için [Skillport destek ekibi](https://www.skillsoft.com/contact.asp). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantısı kurar.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-skillport-tutorial/create_aaduser_01.png) 
 
-2. Çok Git**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar** toodisplay hello kullanıcılar listesi.
+2. Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar** kullanıcıların listesini görüntülemek için.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-skillport-tutorial/create_aaduser_02.png) 
 
-3. Merhaba iletişim Hello üstünde tıklatın **Ekle** tooopen hello **kullanıcı** iletişim.
+3. İletişim kutusunun üstündeki **Ekle** açmak için **kullanıcı** iletişim.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-skillport-tutorial/create_aaduser_03.png) 
 
-4. Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-skillport-tutorial/create_aaduser_04.png) 
 
-    a. Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
 
-    b. Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
 
-    c. Seçin **Göster parola** ve hello hello değerini yazma **parola**.
+    c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**'a tıklayın.
  
 ### <a name="creating-a-skillport-test-user"></a>Skillport test kullanıcısı oluşturma
 
-Sipariş toocreate Skillport test kullanıcı toocontact gerek [Skillport destek ekibi](https://www.skillsoft.com/contact.asp) son kullanıcı toohello gereksinimi göre birden çok iş senaryolarını sahip oldukları gibi. Bunlar, tartışma hello kullanıcılarla sonra yapılandırır.  
+İle iletişime geçmeniz Skillport test kullanıcı oluşturmak için [Skillport destek ekibi](https://www.skillsoft.com/contact.asp) son kullanıcı gereksinim göre birden çok iş senaryolarını sahip oldukları gibi. Bunlar, kullanıcılarla tartışma sonra yapılandırır.  
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
 
-Bu bölümde, erişim tooSkillport vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
+Bu bölümde, Britta Skillport için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
 ![Kullanıcı atama][200] 
 
-**tooassign Britta Simon tooSkillport hello aşağıdaki adımları gerçekleştirin:**
+**Skillport için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Merhaba uygulamalar listesinde **Skillport**.
+2. Uygulamalar listesinde **Skillport**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-skillport-tutorial/tutorial_skillport_app.png) 
 
-3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
     ![Kullanıcı atama][202] 
 
@@ -194,7 +194,7 @@ Bu bölümde, erişim tooSkillport vererek Britta Simon toouse Azure çoklu otur
 
     ![Kullanıcı atama][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -202,14 +202,14 @@ Bu bölümde, erişim tooSkillport vererek Britta Simon toouse Azure çoklu otur
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Merhaba Skillport hello erişim paneli parçasında tıkladığınızda, otomatik olarak oturum açma tooyour Skillport uygulama almanız gerekir.
+Erişim paneli Skillport parçasında tıklattığınızda, otomatik olarak Skillport uygulamanıza açan.
 Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://msdn.microsoft.com/library/dn308586). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 

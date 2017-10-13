@@ -1,6 +1,6 @@
 ---
-title: Active Directory B2C aaaAzure | Microsoft Docs
-description: "Nasıl toobuild .NET Web uygulaması ve web çağırma Azure Active Directory B2C ve OAuth 2.0 erişim belirteçleri kullanarak API."
+title: Azure Active Directory B2C | Microsoft Docs
+description: ".NET Web uygulaması oluşturma ve bir web çağırmak nasıl Azure Active Directory B2C ve OAuth 2.0 erişim belirteçleri kullanarak API."
 services: active-directory-b2c
 documentationcenter: .net
 author: parakhj
@@ -14,56 +14,56 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.openlocfilehash: 9b248e3bf18968e12aae73c07083fa8278befb3b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 48452eb68f826d1c7aa61d5e5531f941ac1422b0
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C: bir .NET web uygulamasından .NET web API'si çağırma
 
-Azure AD B2C kullanarak güçlü kimlik yönetimi özelliklerini tooyour web uygulamaları ve web API'leri ekleyebilirsiniz. Bu makalede nasıl toorequest erişim belirteçleri ve .NET "Yapılacaklar listesi" çağrılarından olun ele web uygulama tooa .NET web API'si.
+Azure AD B2C kullanarak web uygulamaları ve web API'leri için güçlü kimlik yönetimi özellikleri ekleyebilirsiniz. Bu makalede erişim belirteçleri ve bir .NET yapma çağrıları .NET "Yapılacaklar listesi" web uygulamasından web API'si istemek nasıl anlatılmaktadır.
 
-Bu makalede nasıl tooimplement oturum açma kapsamaz, kaydolma ve profil Yönetimi Azure AD B2C ile. Merhaba kullanıcının kimliği zaten doğrulanmış sonra web API'leri çağırmaya odaklanır. Henüz yapmadıysanız, aşağıdakileri yapmalısınız:
+Bu makalede, oturum açma, kaydolma nasıl uygulanacağını ve profil Yönetimi Azure AD B2C ile kapsamaz. Kullanıcının kimliği zaten doğrulanmış sonra web API'leri çağırmaya odaklanır. Henüz yapmadıysanız, aşağıdakileri yapmalısınız:
 
 * Kullanmaya başlama bir [.NET web uygulaması](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
 * Kullanmaya başlama bir [.NET web API'si](active-directory-b2c-devquickstarts-api-dotnet.md)
 
 ## <a name="prerequisite"></a>Önkoşul
 
-toobuild web çağıran bir web uygulaması API, gerekir:
+Bir web çağıran bir web uygulaması oluşturmak için API, gerekir:
 
 1. [Bir Azure AD B2C kiracısı oluşturma](active-directory-b2c-get-started.md).
 2. [Bir web kayıt API](active-directory-b2c-app-registration.md#register-a-web-api).
 3. [Bir web uygulaması kaydetmek](active-directory-b2c-app-registration.md#register-a-web-app).
 4. [İlkeleri Ayarla](active-directory-b2c-reference-policies.md).
-5. [GRANT hello web uygulama izinleri toouse hello web API'si](active-directory-b2c-access-tokens.md#publishing-permissions).
+5. [Web uygulaması web kullanma izni vermek API](active-directory-b2c-access-tokens.md#publishing-permissions).
 
 > [!IMPORTANT]
-> Merhaba istemci uygulaması ve web API hello aynı Azure AD B2C dizini kullanmanız gerekir.
+> İstemci uygulaması ve web API’si aynı Azure AD B2C dizinini kullanmalıdır.
 >
 
-## <a name="download-hello-code"></a>Merhaba kodu indirme
+## <a name="download-the-code"></a>Kodu indirme
 
-Bu öğretici için kod Hello korunduğu [GitHub](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi). Çalıştırarak hello örnek kopyalayabilirsiniz:
+Bu öğretici için kod [GitHub](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi)'da korunur. Örneği kopyalamak için şu komutu çalıştırın:
 
 ```console
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-Merhaba örnek kodu indirdikten sonra açık hello Visual Studio .sln dosyasını tooget başlatıldı. Merhaba çözüm dosyası iki proje içerir: `TaskWebApp` ve `TaskService`. `TaskWebApp`Kullanıcı hello bir MVC web uygulaması ile etkileşime giren olur. `TaskService`her kullanıcının yapılacaklar listesini depolayan hello uygulamanızın arka uç web API'dır. Bu makalede yapı hello kapsamaz `TaskWebApp` web uygulaması veya hello `TaskService` web API'si. toolearn toobuild hello .NET web uygulamasını Azure AD B2C kullanarak bkz bizim [.NET web uygulaması Öğreticisi](active-directory-b2c-devquickstarts-web-dotnet-susi.md). nasıl toobuild hello .NET web API kullanarak Azure AD B2C, güvenliği toolearn bkz bizim [.NET web API'si Öğreticisi](active-directory-b2c-devquickstarts-api-dotnet.md).
+Örnek kodu indirdikten sonra başlamak için Visual Studio .sln dosyasını açın. Çözüm dosyası iki proje içerir: `TaskWebApp` ve `TaskService`. `TaskWebApp`kullanıcı ile etkileşime giren bir MVC bir web uygulamasıdır. `TaskService`, uygulamanın, her kullanıcının yapılacaklar listesini depolayan arka uç web API'sidir. Bu makalede yapı kapsamaz `TaskWebApp` web uygulaması veya `TaskService` web API'si. Azure AD B2C kullanarak .NET web uygulaması oluşturmayı öğrenmek için bkz: bizim [.NET web uygulaması Öğreticisi](active-directory-b2c-devquickstarts-web-dotnet-susi.md). .NET web API'si Azure AD B2C kullanarak güvenliği oluşturma konusunda bilgi almak için bkz: bizim [.NET web API'si Öğreticisi](active-directory-b2c-devquickstarts-api-dotnet.md).
 
-### <a name="update-hello-azure-ad-b2c-configuration"></a>Hello Azure AD B2C yapılandırmasını güncelleştir
+### <a name="update-the-azure-ad-b2c-configuration"></a>Azure AD B2C yapılandırmasını güncelleştirme
 
-Bizim örnek yapılandırılmış toouse hello ilkeleri ve istemci bizim demo Kiracı kimliğidir. Toouse isterseniz kendi Kiracı:
+Örneğimiz, tanıtım kiracımızın ilkelerini ve istemci kimliğini kullanacak şekilde yapılandırılmıştır. Kendi Kiracı kullanmak istiyorsanız:
 
-1. Açık `web.config` hello içinde `TaskService` proje ve hello değerlerini değiştirme
+1. `TaskService` projesinde `web.config` öğesini açın ve şu değerleri değiştirin:
 
     * kiracı adınızla `ida:Tenant`
     * `ida:ClientId`web API uygulama Kimliğinizle
     * "Kaydolma veya Oturum açma" ilkenizin adıyla `ida:SignUpSignInPolicyId`
 
-2. Açık `web.config` hello içinde `TaskWebApp` proje ve hello değerlerini değiştirme
+2. `TaskWebApp` projesinde `web.config` öğesini açın ve şu değerleri değiştirin:
 
     * kiracı adınızla `ida:Tenant`
     * Web uygulamanızın kimliği ile `ida:ClientId`
@@ -76,11 +76,11 @@ Bizim örnek yapılandırılmış toouse hello ilkeleri ve istemci bizim demo Ki
 
 ## <a name="requesting-and-saving-an-access-token"></a>İsteme ve bir erişim belirteci kaydetme
 
-### <a name="specify-hello-permissions"></a>Merhaba izinleri belirtin
+### <a name="specify-the-permissions"></a>İzinleri belirtin
 
-Sipariş toomake hello çağrısı toohello web API'de, tooauthenticate hello kullanıcı (oturumu-up/oturum açma ilkeniz kullanılarak) gerekir ve [bir erişim belirteci almak](active-directory-b2c-access-tokens.md) Azure AD B2C'ndan. Sipariş tooreceive bir erişim belirteci'da, ilk hello erişim belirteci toogrant istediğiniz hello izinleri belirtmeniz gerekir. Merhaba izinleri hello belirtilen `scope` hello isteği toohello yaptığınızda parametresi `/authorize` uç noktası. Örneğin, bir erişim belirteci ile Merhaba "Okuma" olan izni toohello kaynak uygulama tooacquire hello uygulama kimliği URI'sini `https://contoso.onmicrosoft.com/tasks`, hello kapsam olacaktır `https://contoso.onmicrosoft.com/tasks/read`.
+Web API çağrısı yapmak için (oturumu-up/oturum açma ilkeniz kullanarak) kullanıcı kimlik doğrulaması gerekir ve [bir erişim belirteci almak](active-directory-b2c-access-tokens.md) Azure AD B2C'ndan. Bir erişim belirteci almak için erişim belirteci vermek istediğiniz izinleri belirtin. İzinleri belirtilen `scope` isteği yaptığınızda parametresi `/authorize` uç noktası. Örneğin, uygulama kimliği URI'si kaynak uygulamanın "Okuma" izni olan bir erişim belirteci alması için `https://contoso.onmicrosoft.com/tasks`, kapsam olacaktır `https://contoso.onmicrosoft.com/tasks/read`.
 
-Bizim örnek, açık hello dosya toospecify hello kapsamda `App_Start\Startup.Auth.cs` ve hello tanımlamak `Scope` OpenIdConnectAuthenticationOptions değişkeni.
+Bizim örnek kapsamını belirtmek için dosyayı açmak `App_Start\Startup.Auth.cs` ve tanımlayın `Scope` OpenIdConnectAuthenticationOptions değişkeni.
 
 ```CSharp
 // App_Start\Startup.Auth.cs
@@ -90,16 +90,16 @@ Bizim örnek, açık hello dosya toospecify hello kapsamda `App_Start\Startup.Au
         {
             ...
 
-            // Specify hello scope by appending all of hello scopes requested into one string (seperated by a blank space)
+            // Specify the scope by appending all of the scopes requested into one string (seperated by a blank space)
             Scope = $"{OpenIdConnectScopes.OpenId} {ReadTasksScope} {WriteTasksScope}"
         }
     );
 }
 ```
 
-### <a name="exchange-hello-authorization-code-for-an-access-token"></a>Bir erişim belirteci için Exchange hello yetkilendirme kodu
+### <a name="exchange-the-authorization-code-for-an-access-token"></a>Bir erişim belirteci yetkilendirme kodu değişimi
 
-Bir kullanıcı hello kaydolma veya oturum açma deneyimi tamamlandıktan sonra uygulamanızı Azure AD B2C ' bir yetkilendirme kodu alırsınız. Merhaba OWIN Openıd Connect Ara hello kodunu depolar, ancak bir erişim belirteci için exchange değil. Merhaba kullanabilirsiniz [MSAL Kitaplığı](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) toomake hello exchange. Bir yetkilendirme kodu alındığında Örneğimizde, biz bildirimi geri araması hello ara yazılım Openıd Connect yapılandırılmış. Merhaba geri arama, biz MSAL tooexchange hello kodu için bir belirteç kullanın ve hello belirteci hello önbelleğe kaydedin.
+Bir kullanıcı kaydı veya oturum açma deneyimi tamamlandıktan sonra uygulamanızı Azure AD B2C ' bir yetkilendirme kodu alırsınız. OWIN Openıd Connect Ara kodunu depolar, ancak bir erişim belirteci için exchange değil. Kullanabileceğiniz [MSAL Kitaplığı](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) değişikliği yapmak için. Bir yetkilendirme kodu alındığında Örneğimizde, biz bildirimi geri araması Openıd Connect Ara yapılandırılmış. Geri arama, bir belirteç kodunu exchange ve belirteç önbelleğe kaydetmek için MSAL kullanın.
 
 ```CSharp
 /*
@@ -107,14 +107,14 @@ Bir kullanıcı hello kaydolma veya oturum açma deneyimi tamamlandıktan sonra 
 */
 private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification notification)
 {
-    // Extract hello code from hello response notification
+    // Extract the code from the response notification
     var code = notification.Code;
 
     var userObjectId = notification.AuthenticationTicket.Identity.FindFirst(ObjectIdElement).Value;
     var authority = String.Format(AadInstance, Tenant, DefaultPolicy);
     var httpContext = notification.OwinContext.Environment["System.Web.HttpContextBase"] as HttpContextBase;
 
-    // Exchange hello code for a token. Make sure toospecify hello necessary scopes
+    // Exchange the code for a token. Make sure to specify the necessary scopes
     ClientCredential cred = new ClientCredential(ClientSecret);
     ConfidentialClientApplication app = new ConfidentialClientApplication(authority, Startup.ClientId,
                                             RedirectUri, cred, new NaiveSessionCache(userObjectId, httpContext));
@@ -122,19 +122,19 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 }
 ```
 
-## <a name="calling-hello-web-api"></a>Merhaba web API çağırma
+## <a name="calling-the-web-api"></a>Web API'si çağırma
 
-Bu bölümde, nasıl sırasında toouse hello belirteci alınan anlatılmaktadır oturumu-up/oturum açma Azure AD B2C ile sırayla web API tooaccess hello.
+Bu bölümde sırasında alınan simgesinin nasıl kullanılacağına ilişkin anlatılmaktadır oturumu-up/oturum açma web API'si erişmek için Azure AD B2C ile.
 
-### <a name="retrieve-hello-saved-token-in-hello-controllers"></a>Merhaba denetleyicileri kaydedilmiş hello belirteci alma
+### <a name="retrieve-the-saved-token-in-the-controllers"></a>Denetleyicileri kaydedilmiş belirteçte alma
 
-Merhaba `TasksController` hello web API ile iletişim kurmak için sorumludur ve HTTP isteklerini toohello API tooread göndermek için oluşturmak ve görevleri silin. Merhaba API Azure AD B2C tarafından korumalı olduğundan, yukarıdaki adımı hello kaydettiğiniz toofirst alma hello belirteci gerekir.
+`TasksController` Web API ile iletişim kurmasını ve okuma, oluşturun ve görevleri silme API'sine HTTP istekleri göndermek için sorumludur. API Azure AD B2C tarafından korumalı olduğundan, ilk ve Yukarıdaki adımda kaydettiğiniz belirtecini almak gerekir.
 
 ```CSharp
 // Controllers\TasksController.cs
 
 /*
-* Uses MSAL tooretrieve hello token from hello cache
+* Uses MSAL to retrieve the token from the cache
 */
 private async void acquireToken(String[] scope)
 {
@@ -143,7 +143,7 @@ private async void acquireToken(String[] scope)
 
     ClientCredential credential = new ClientCredential(Startup.ClientSecret);
 
-    // Retrieve hello token using hello provided scopes
+    // Retrieve the token using the provided scopes
     ConfidentialClientApplication app = new ConfidentialClientApplication(authority, Startup.ClientId,
                                         Startup.RedirectUri, credential,
                                         new NaiveSessionCache(userObjectID, this.HttpContext));
@@ -153,9 +153,9 @@ private async void acquireToken(String[] scope)
 }
 ```
 
-### <a name="read-tasks-from-hello-web-api"></a>Merhaba web API görevlerini okuma
+### <a name="read-tasks-from-the-web-api"></a>Web API görevlerini okuma
 
-Bir belirteç olduğunda toohello HTTP iliştirebilirsiniz `GET` hello istekte `Authorization` üstbilgi toosecurely çağrısı `TaskService`:
+Bir belirteç sahip olduğunuzda, HTTP iliştirebilirsiniz `GET` içindeki istek `Authorization` güvenli bir şekilde çağırmak için üstbilgi `TaskService`:
 
 ```CSharp
 // Controllers\TasksController.cs
@@ -164,13 +164,13 @@ public async Task<ActionResult> Index()
 {
     try {
 
-        // Retrieve hello token with hello specified scopes
+        // Retrieve the token with the specified scopes
         acquireToken(new string[] { Startup.ReadTasksScope });
 
         HttpClient client = new HttpClient();
         HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, apiEndpoint);
 
-        // Add token toohello Authorization header and make hello request
+        // Add token to the Authorization header and make the request
         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
         HttpResponseMessage response = await client.SendAsync(request);
 
@@ -179,11 +179,11 @@ public async Task<ActionResult> Index()
 
 ```
 
-### <a name="create-and-delete-tasks-on-hello-web-api"></a>Oluşturma ve hello web API görevleri silme
+### <a name="create-and-delete-tasks-on-the-web-api"></a>Oluşturma ve web API görevleri silme
 
-Aynı deseni, gönderdiğinizde izleyin hello `POST` ve `DELETE` MSAL tooretrieve hello erişim belirteci hello önbellekten kullanarak toohello web API, ister.
+Gönderdiğiniz aynı düzeni uygular `POST` ve `DELETE` önbellekten erişim belirteci almak için MSAL kullanarak API, web istekleri.
 
-## <a name="run-hello-sample-app"></a>Merhaba örnek uygulamayı çalıştırma
+## <a name="run-the-sample-app"></a>Örnek uygulamayı çalıştırma
 
-Son olarak, yapı ve her iki hello uygulamaları çalıştırın. Kaydolma ve oturum açın ve hello oturum açmış kullanıcı için Görevler oluşturun. Oturumu kapatın ve farklı bir kullanıcı olarak oturum açın. Bu kullanıcı için Görevler oluşturun. Merhaba API, aldığı hello belirtecinden hello kullanıcının kimliğini ayıkladığı için nasıl hello görevleri kullanıcı başına hello API, üzerinde olduğuna dikkat edin. Ayrıca hello kapsamlarla yürütmeyi deneyin. Merhaba iznini kaldırın çok "yazma" ve bir görev eklemeyi deneyin. Yalnızca hello kapsamını değiştirmek her zaman kullanıma emin toosign yapın.
+Son olarak, yapı ve her iki uygulamaları çalıştırın. Kaydolma ve oturum açın ve oturum açmış kullanıcı için Görevler oluşturun. Oturumu kapatın ve farklı bir kullanıcı olarak oturum açın. Bu kullanıcı için Görevler oluşturun. API, aldığı belirtecinden kullanıcının kimliğini ayıkladığı için görevlerin kullanıcı başına API üzerinde nasıl olduğuna dikkat edin. Ayrıca kapsamlarla yürütmeyi deneyin. "Yazma" ve bir görev eklemeyi deneyin iznini kaldırın. Yeni kapsam değiştirme her zaman aşımına uğrar imzalamak emin olun.
 

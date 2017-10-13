@@ -1,39 +1,39 @@
 ---
 ms.assetid: 
-title: "aaaAzure anahtar kasası azaltma Kılavuzu | Microsoft Docs"
+title: "Azure anahtar Kasası'nı Kılavuzu azaltma | Microsoft Docs"
 ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
 ms.date: 06/21/2017
-ms.openlocfilehash: a75cf96bc6503e51f14378bee598bad57e85be82
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: fe700e22c5323c2a0bdc315e349cd119798bcf40
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Azure anahtar Kasası'nı Kılavuzu azaltma
 
-Azaltma eşzamanlı çağrıları toohello Azure hizmeti tooprevent aşırı kaynakların kullanımı hello sayısını sınırlayan başlatma bir işlemdir. Azure anahtar kasası (AKV) tasarlanmış toohandle istekleri hacmi yüksek olur. Bunaltıcı bir istek sayısı ortaya çıkarsa, istemcinin istek azaltma en iyi performansı ve güvenilirliği hello AKV hizmeti için korumaya yardımcı olur.
+Azaltma kaynakların aşırı kullanımı önlemek için Azure hizmeti eşzamanlı çağrı sayısı sınırlayan başlatma bir işlemdir. Azure anahtar kasası (AKV), yüksek hacimli isteklerini işlemek için tasarlanmıştır. Bunaltıcı bir istek sayısı ortaya çıkarsa, istemcinin istek azaltma en iyi performans ve güvenilirlik AKV hizmetinin korumaya yardımcı olur.
 
-Azaltma sınırları hello senaryo göre değişir. Örneğin, büyük hacimli yazma gerçekleştiriyorsanız hello olasılığı azaltma için yalnızca okuma gerçekleştirdiğiniz varsa daha yüksek olur.
+Azaltma sınırları senaryo göre değişir. Örneğin, büyük hacimli yazma gerçekleştiriyorsanız azaltma olanağı yalnızca okuma gerçekleştirdiğiniz varsa daha yüksek olur.
 
 ## <a name="how-does-key-vault-handle-its-limits"></a>Anahtar kasası sınırlarına nasıl işler?
 
-Anahtar kasası hizmet sınırları tooprevent kötüye kaynakların vardır ve tüm anahtar Kasası'nın istemcileri için hizmet kalitesi emin olun. Bir hizmeti eşiği aşıldığında, anahtar kasası herhangi başka bir istek Bu istemciden gelen bir süre için sınırlar. Bu gerçekleştiğinde, anahtar kasası HTTP durum kodu 429 döndürür (çok sayıda istek), ve hello istekleri başarısız olur. Ayrıca, anahtar kasası tarafından izlenen hello azaltma sınırları doğrultusunda 429 bir sayı döndürür isteği başarısız oldu. 
+Kaynakların kötüye kullanımı önlemek ve tüm anahtar Kasası'nın istemcileri için hizmet kalitesi sağlamak için anahtar kasası hizmet sınırları vardır. Bir hizmeti eşiği aşıldığında, anahtar kasası herhangi başka bir istek Bu istemciden gelen bir süre için sınırlar. Bu gerçekleştiğinde, anahtar kasası HTTP durum kodu 429 döndürür (çok sayıda istek), ve istekleri başarısız olur. Ayrıca, anahtar kasası tarafından izlenen azaltma sınırları doğrultusunda 429 bir sayı döndürür isteği başarısız oldu. 
 
 Daha yüksek azaltma sınırları için geçerli iş durum varsa, lütfen bizimle iletişime geçin.
 
 
-## <a name="how-toothrottle-your-app-in-response-tooservice-limits"></a>Nasıl yanıt tooservice uygulamanızda toothrottle sınırlar
+## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>Hizmet sınırları yanıta uygulamanızda kısıtlama nasıl
 
-Merhaba şunlardır **en iyi uygulamalar** uygulamanızı azaltma için:
-- İstek başına işlemleri Hello sayısını azaltın.
-- İstekleri Hello sıklığını azaltın.
+Aşağıdakiler **en iyi uygulamalar** uygulamanızı azaltma için:
+- İstek başına işlem sayısını azaltın.
+- İstekleri sıklığını azaltın.
 - Hemen yeniden deneme kaçının. 
     - Tüm istekler, kullanım sınırları karşı tahakkuk eder.
 
-Uygulamanızın hata işleme uyguladığınızda, kullanım hello HTTP hata kodunu 429 toodetect hello gerekir istemci-tarafı azaltma. Merhaba isteği yeniden HTTP 429 hata koduyla başarısız olursa, bir Azure hizmeti sınırını hala karşılaşıyoruz. İstemci-tarafı azaltma yöntemi, başarılı olana dek hello isteği yeniden deneniyor toouse hello önerilen devam edin.
+Uygulamanızın hata işleme uyguladığınızda, istemci-tarafı azaltma ihtiyacına algılamak için HTTP hata kodunu 429 kullanın. İsteği yeniden HTTP 429 hata koduyla başarısız olursa, bir Azure hizmeti sınırını hala karşılaşıyoruz. Önerilen yöntem azaltma, onu başarılı olana kadar istek yeniden deneniyor istemci kullanmaya devam edin.
 
 ### <a name="recommended-client-side-throttling-method"></a>Önerilen istemci-tarafı azaltma yöntemi
 
@@ -49,5 +49,5 @@ Bu noktada, HTTP 429 yanıt kodları alamıyorsanız.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-Microsoft Cloud hello üzerinde azaltma daha derin yönlendirmesi için bkz: [azaltma düzeni](https://docs.microsoft.com/azure/architecture/patterns/throttling).
+Microsoft Cloud azaltma daha derin yönlendirmesi için bkz: [azaltma düzeni](https://docs.microsoft.com/azure/architecture/patterns/throttling).
 

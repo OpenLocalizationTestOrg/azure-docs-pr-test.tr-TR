@@ -1,6 +1,6 @@
 ---
-title: "Merhaba sayfasında aaaLinks için uygulama proxy'si uygulama çalışmıyor | Microsoft Docs"
-description: "Azure AD ile tümleşik uygulama proxy'si uygulamaları bağlantıların nasıl tootroubleshoot sorunlar"
+title: "Sayfadaki bağlantıları için uygulama proxy'si uygulama çalışmıyor | Microsoft Docs"
+description: "Azure AD ile tümleşik uygulama proxy'si uygulamaları kırık bağlantılı sorunlarını giderme"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,36 +13,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 77c1e22d27c7a6436d8e57e105037c2328180481
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 83c4261fab0498541591c01f9bb692b396c7b751
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="links-on-hello-page-dont-work-for-an-application-proxy-application"></a>Merhaba sayfadaki bağlantıları için uygulama proxy'si uygulama çalışmıyor
+# <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Sayfadaki bağlantıları için uygulama proxy'si uygulama çalışmıyor
 
-Bu makale yardımcı, tootroubleshoot neden bağlantılar, Azure Active Directory Uygulama proxy'si uygulamanızın üzerinde düzgün çalışmıyor.
+Bu makalede, Azure Active Directory Uygulama proxy'si uygulamanızın bağlantıları düzgün çalışmıyor neden sorun giderme yardımcı olur.
 
 ## <a name="overview"></a>Genel Bakış 
-Uygulama proxy'si uygulama yayımlandıktan sonra yayımlanan kök URL'si hello yalnızca bağlantılar hello uygulamadaki varsayılan çalışma hello içinde yer alan bağlantıları toodestinations gerektirir. Merhaba uygulamalar içindeki Hello bağlantılar çalışmayan, hello İç URL Merhaba uygulaması için büyük olasılıkla hello uygulamadaki bağlantıların tüm hello hedefler dahil değildir.
+Uygulama proxy'si uygulama yayımlandıktan sonra varsayılan olarak uygulama iş yalnızca bağlantılar hedeflere yayımlanan kök URL'si içinde yer alan bağlantıları vardır. Uygulamaların içindeki bağlantılar çalışmayan, uygulama için iç URL büyük olasılıkla uygulamadaki bağlantıların tüm hedefler dahil değildir.
 
-**Bunun nedeni?** Bir uygulama bir bağlantıya tıklandığında, uygulama proxy'si çalıştığında tooresolve hello URL içinde ya da bir iç URL olarak hello aynı uygulaması veya farklı bir harici URL'si olarak. İçinde değil tooan İç URL Hello bağlantı noktaları, aynı hello uygulama değil Bu demetlerin tooeither ait ve sonucu bir bulunamadı hatası.
+**Bunun nedeni?** Bir uygulama bir bağlantıya tıklandığında, uygulama proxy'si aynı uygulama içinde ya da bir iç URL veya bir harici URL'si olarak URL çözümlemeye çalışır. Aynı uygulama içinde yer almayan bir iç URL için bağlantı noktaları, değil ya da bu demetlerin ait ve bulunamadı bir hata.
 
 ## <a name="ways-you-can-resolve-broken-links"></a>Bağlantılar bozuk çözebilmek için yollar
 
-Bu sorunu üç yolu tooresolve vardır. Merhaba aşağıdaki içinde listelenen artan karmaşıklık seçimlerdir.
+Bu sorunu çözmek için üç yolu vardır. Aşağıdaki seçenekler karmaşıklık artan sırada listelenir.
 
-1.  Merhaba uygulama için tüm hello ilgili bağlantıları içeren bir kök Hello İç URL olduğundan emin olun. Bu içerik hello içinde aynı yayımlanmış olarak çözümlendi tüm bağlantılar toobe sağlar uygulama.
+1.  Uygulama için tüm bağlantılar içeren bir kök İç URL olduğundan emin olun. Bu, aynı uygulama içinde yayımlanan içerik olarak çözümlenmesi tüm bağlantılar sağlar.
 
-    Merhaba iç URL'sini değiştirebilirsiniz, ancak giriş sayfasında kullanıcılar için toochange hello istemiyorsanız değişiklik hello giriş sayfası URL'si toohello daha önce İç URL yayımladı. Bu çok giderek yapılabilir "Azure Active Directory" -&gt; uygulama kayıtlar -&gt; hello uygulama - seçin&gt; özellikleri. Bu özellikler sekmesinde, gördüğünüz hello alan ayarlayabileceğiniz "giriş sayfası URL'si" toobe hello istenen giriş sayfası.
+    İç URL'sini değiştirebilirsiniz, ancak kullanıcılar için giriş sayfası değiştirmek istemiyorsanız, giriş sayfası URL'si önceden yayımlanmış dahili URL'yi değiştirin. Bu, "Azure Active Directory'ye" - giderek yapılabilir&gt; uygulama kayıtlar -&gt; - uygulamayı seçin&gt; özellikleri. Bu özellikler sekmesinde, istenen giriş sayfası olarak Ayarla "giriş sayfası URL'si" alanına bakın.
 
-2.  Uygulamalarınızı tam etki alanı adlarını (FQDN) kullanıyorsanız, [özel etki alanlarını](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) toopublish uygulamalarınızı. Bu özellik hello aynı URL toobe hem dahili olarak kullanılır ve harici sağlar.
+2.  Uygulamalarınızı tam etki alanı adlarını (FQDN) kullanıyorsanız, [özel etki alanlarını](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) uygulamalarınızı yayımlamak için. Bu özellik hem dahili olarak kullanılan ve dışarıdan aynı URL'ye sağlar.
 
-    Bu seçenek hello uygulama toointernal URL'leri içindeki hello bağlantılar da dışarıdan tanınır beri hello bağlantılar, uygulamanızda uygulama proxy'si aracılığıyla harici erişilebilir olmasını sağlar. Tüm bağlantılar hala toobelong tooa gerektiğini unutmayın uygulama yayımlanır. Ancak, bu seçenek hello ile bağlantılar toobelong toohello gerekmez aynı uygulama ve toomultiple uygulamaları ait olabilir.
+    Bu seçenek iç URL'leri uygulamaya içindeki bağlantılar da dışarıdan tanınır beri uygulamanızı bağlantıları uygulama proxy'si aracılığıyla harici erişilebilir olmasını sağlar. Tüm bağlantılar hala yayımlanan uygulamaya ait olması gerektiğini unutmayın. Ancak, bu seçenek ile bağlantıları aynı uygulamaya ait gerek yoktur ve birden çok uygulamalara ait olabilir.
 
-3.  Bu seçeneklerin ikisi uygun varsa, URL çevirisi/yeniden yazma işlemi yapan yeni bir özellik için hello Önizleme katılın. Bu seçenek ile iç URL'leri veya uygulamalarınızı hello HTML gövdesinde mevcut bağlantıları olması çevrilen veya "eşlenir", dış uygulama Proxy URL'lerini toohello yayımlanan. Bu yalnızca hello HTML veya CSS bağlantılar için çalışır ve bu yardımcı bağlantı JS oluşturulursa. 
+3.  Bu seçeneklerin ikisi uygun varsa, URL çevirisi/yeniden yazma işlemi yapan yeni bir özellik için Önizleme katılın. Bu seçenek ile iç URL'leri uygulamalarınızı HTML gövdesinde mevcut bağlantıları çevrilmiş veya "Eşlenen, yayımlanan dış uygulama Proxy URL'lerini". Bu yalnızca HTML veya CSS bağlantıları için çalışır ve bu yardımcı bağlantı JS oluşturulursa. 
 
-Sonuç olarak, hello kullanarak tavsiye [özel etki alanlarını](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) mümkünse çözümü. Toojoin hello Önizleme istiyorsanız, e-posta < aadapfeedback@microsoft.com > hello applicationId(s) ile.
+Sonuç olarak, kullanarak tavsiye [özel etki alanlarını](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) mümkünse çözümü. Önizleme katılmak istiyorsanız, e-posta < aadapfeedback@microsoft.com > applicationId(s) ile.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Mevcut şirket içi proxy sunucuları ile çalışma](application-proxy-working-with-proxy-servers.md)

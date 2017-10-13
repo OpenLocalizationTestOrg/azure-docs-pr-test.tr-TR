@@ -1,6 +1,6 @@
 ---
-title: "aaaAdd hello Bing arama bağlayıcı logic apps | Microsoft Docs"
-description: "REST API parametrelerle hello Bing arama bağlayıcısı genel bakış"
+title: "Bing arama bağlayıcı mantığı uygulama ekleme | Microsoft Docs"
+description: "REST API parametreleri Bing arama bağlayıcısıyla genel bakış"
 services: 
 suite: 
 documentationcenter: 
@@ -16,24 +16,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: 839b7d85367d1fdc63b91dcfe3166e177f10eaf1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 863a15d716161bfa9d3e041174504b73a2956e8d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="get-started-with-hello-bing-search-connector"></a>Merhaba Bing arama Bağlayıcısı ile çalışmaya başlama
-TooBing arama toosearch Haberler, arama videolar ve daha fazlasını bağlayın. Bing arama ile şunları yapabilirsiniz: 
+# <a name="get-started-with-the-bing-search-connector"></a>Bing arama Bağlayıcısı ile çalışmaya başlama
+Bing Haberler, arama videolar ve daha fazla bilgi aramak için arama için bağlayın. Bing arama ile şunları yapabilirsiniz: 
 
-* İş akışınız hello verileri aramanıza Al esas oluşturun. 
-* Eylemler toosearch görüntüleri, arama hello Haberler ve daha fazlasını kullanın. Bu eylemler bir yanıt ve hello çıkış diğer eylemler için kullanılabilir yapın. Örneğin, bir video arayın ve sonra Twitter toopost Twitter beslemesi, video tooa kullanın.
+* İş akışınız aramanıza alma verileri temel alan oluşturun. 
+* Eylemler görüntüleri arama, Haberler ve daha fazla bilgi aramak için kullanın. Bu eylemler bir yanıt ve çıkış diğer eylemler için kullanılabilir yapın. Örneğin, bir video arayın ve akış bir Twitter video göndermek için Twitter kullanın.
 
 Bir mantıksal uygulama'yi şimdi oluşturmaya başlamak, bkz: [mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).
 
 ## <a name="connector-specific-details"></a>Bağlayıcı özgü ayrıntıları
 
-Tüm tetikleyiciler ve Eylemler hello swagger içinde tanımlanan görüntüleyebilir ve ayrıca hello herhangi bir sınır bkz. [Bağlayıcısı ayrıntıları](/connectors/bingsearch/).
+Tüm tetikleyiciler ve Eylemler swagger tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınır bkz [Bağlayıcısı ayrıntıları](/connectors/bingsearch/).
 
 ## <a name="more-connectors"></a>Daha fazla bağlayıcılar
-Toohello dönün [API'leri listesi](apis-list.md).
+Geri dönerek [API'leri listesi](apis-list.md).
 

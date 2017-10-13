@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure Hdınsight belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
-description: "HDInsight'ta Hadoop’u öğrenin. Belge gösterir, nasıl toouse Hadoop, Spark, HBase, R Server ve daha fazla tooprocess analiz ve büyük verileri Öngörüler elde edin."
+title: "Azure HDInsight Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "HDInsight'ta Hadoop’u öğrenin. Belgelerde Hadoop, Spark, HBase, R-Server ve daha fazlasını kullanarak büyük verileri işleme, çözümleme ve verilerden öngörü edinme konularında bilgi sağlanmıştır."
 services: hdinsight
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 592c31863df2e90886c9e9596b1a24edea79e990
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 7d639ca03261f3a9cad537dd92103c5aa6cd0af9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="azure-hdinsight-documentation"></a>Azure HDInsight Belgeleri
 
-Nasıl toouse Hadoop hello içinde bulut üzerinde Hdınsight tooanalyze akış veya geçmiş verileri öğrenin. Öğreticiler ve diğer belgelerin Göster, nasıl toocreate kümeler, işlem ve büyük veri çözümleme ve Hadoop, Spark, HBase, çözümleri geliştirmek R Server, Storm ve diğer teknolojiler hello Hadoop ekosistemindeki.
+Hadoop’u bulutta HDInsight üzerinde kullanarak akışı veya geçmiş verileri nasıl çözümleyebileceğinizi öğrenin. Öğreticilerde ve diğer belgelerde, küme oluşturma; büyük verileri işleme ve çözümleme; Hadoop, Spark, HBase, R-Server, Storm ve Hadoop ekosistemindeki diğer teknolojilerle çözüm geliştirme konularında bilgiler sağlanmıştır.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -125,6 +125,24 @@ Nasıl toouse Hadoop hello içinde bulut üzerinde Hdınsight tooanalyze akış 
                     </div>
                     <div class="cardText">
                         <h3>Apache Storm kümesi kullanarak HDInsight ile çalışmaya başlama</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<li>
+        <a href="https://github.com/hdinsight/hdinsight-dev-guide/blob/master/HDInsight%20Developer%20Guide.pdf">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/tutorial.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>HDInsight Geliştirici Kılavuzu</h3>
                     </div>
                 </div>
             </div>

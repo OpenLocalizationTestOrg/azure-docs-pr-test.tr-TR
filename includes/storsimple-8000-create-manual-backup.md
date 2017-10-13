@@ -1,28 +1,28 @@
 
 <!--author=alkohli last changed: 01/20/2017-->
 
-#### <a name="toocreate-a-manual-backup"></a>toocreate el ile yedekleme
+#### <a name="to-create-a-manual-backup"></a>El ile yedekleme oluşturmak için
 
-1. Tooyour StorSimple cihaz Yöneticisi hizmeti gidin ve ardından **aygıtları**. Aygıtları listeleme tablo Hello, Cihazınızı seçin. Çok Git**ayarlar > Yönet > Yedekleme ilkeleri**.
+1. StorSimple Cihaz Yöneticisi hizmetinize gidin ve **Cihazlar**’a tıklayın. Tablosal cihaz listesinden cihazınızı seçin. **Ayarlar > Yönet > Yedekleme ilkeleri** seçeneğine gidin.
 
-2. Merhaba **yedekleme ilkeleri** dikey penceresinde tüm hello yedekleme ilkeleri hello İlkesi tooback yedeklemek istediğiniz hello birim için de dahil olmak üzere bir tablo biçiminde listelenir. Tooback yedeklemek istediğiniz hello birim ve sağ tıklatma tooinvoke hello bağlam menüsü ile ilişkili hello ilkesi seçin. Merhaba açılır listeden seçin **Şimdi Yedekle**.
+2. **Yedekleme ilkeleri** dikey penceresi, yedeklemek istediğiniz birimle ilgili ilke de dahil olmak üzere yedekleme ilkelerini tablosal olarak listeler. Yedeklemek istediğiniz birimle ilişkili ilkeyi seçin ve bağlam menüsünü açmak için ilkeye sağ tıklayın. Açılan listeden **Şimdi yedekle**’yi seçin.
 
     ![El ile yedekleme oluşturma](./media/storsimple-8000-create-manual-backup/createmanualbu1.png)
 
-3. Merhaba, **Şimdi Yedekle** dikey penceresinde, adımları hello:
+3. **Şimdi yedekle** dikey penceresinde aşağıdaki adımları gerçekleştirin:
 
-    1. Merhaba uygun seçin **anlık görüntü türünde** hello aşağı açılan listeden: **yerel** anlık görüntü veya **bulut** anlık görüntü. Yedekleme ve geri yükleme işlemlerinin hızlı olması için yerel anlık görüntüyü, veri dayanıklılığı için bulut anlık görüntüsünü seçin.
+    1. Açılan listeden uygun **Anlık görüntü türü**’nü seçin: **Yerel** anlık görüntü veya **Bulut** anlık görüntüsü. Yedekleme ve geri yükleme işlemlerinin hızlı olması için yerel anlık görüntüyü, veri dayanıklılığı için bulut anlık görüntüsünü seçin.
 
         ![El ile yedekleme oluşturma](./media/storsimple-8000-create-manual-backup/createmanualbu2.png)
 
-    2. Tıklatın **Tamam** toostart iş toocreate bir anlık görüntü. Hello iş başarıyla oluşturulduktan sonra hello sayfanın üst kısmındaki hello bir bildirim görürsünüz.
+    2. Anlık görüntü oluşturmak üzere bir iş başlatmak için **Tamam**’a tıklayın. İş başarıyla oluşturulduktan sonra sayfanın üstünde bir bildirim görürsünüz.
 
         ![El ile yedekleme oluşturma](./media/storsimple-8000-create-manual-backup/createmanualbu4.png)
 
-    3. toomonitor hello işi, hello bildirime tıklayın. Bu toohello sürer **işleri** dikey penceresinde hello ilerleyişini görüntüleyebileceğiniz.
+    3. İşi izlemek için bildirime tıklayın. Bunu yaptığınızda, iş ilerleme durumunu görüntüleyebileceğiniz **İşler** dikey penceresine yönlendirilirsiniz.
 
 
-5. Merhaba yedekleme işi tamamlandıktan sonra toohello gidin **yedekleme kataloğu** sekmesi.
+5. Yedekleme işi tamamlandıktan sonra **Yedekleme kataloğu** sekmesine gidin.
 
-6. Merhaba filtre seçimlerini toohello uygun aygıt, yedekleme İlkesi ve zaman aralığını ayarlayın. Merhaba yedekleme hello hello kataloğunda görüntülenen yedekleme ayarları listesinde görüntülenmelidir.
+6. Filtre seçimlerini uygun aygıt, yedekleme İlkesi ve zaman aralığına ayarlayın. Yedekleme, yedekleme kataloğunda görüntülenen yedekleme ayarları listesinde görüntülenmelidir.
 

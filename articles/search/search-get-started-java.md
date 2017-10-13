@@ -1,6 +1,6 @@
 ---
-title: "Java'da Azure Search ile çalışmaya aaaGet | Microsoft Docs"
-description: "Nasıl toobuild barındırılan bir bulut uygulama programlama diliniz olarak Java kullanarak Azure üzerinde arayın."
+title: "Java’da Azure Search kullanmaya başlama | Microsoft Belgeleri"
+description: "Azure'da programlama diliniz olarak Java'yı kullanarak barındırılan bulut arama hizmeti uygulaması derleme."
 services: search
 documentationcenter: 
 author: EvanBoyle
@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
-ms.openlocfilehash: 5476a2103f3b60fe6ec78ff3d3fdba9fcff55c37
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Java'da Azure Search kullanmaya başlama
 > [!div class="op_single_selector"]
@@ -27,54 +27,54 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Nasıl toobuild özel bir Java arama arama deneyimi için Azure Search kullanan uygulamayı öğrenin. Bu öğretici hello kullanır [Azure Search Hizmeti REST API'si](https://msdn.microsoft.com/library/dn798935.aspx) tooconstruct hello nesneleri ve bu alıştırmada kullanılan işlemleri.
+Arama deneyimi için Azure Search kullanan özel bir Java arama uygulaması derlemeyi öğrenin. Bu öğretici, bu alıştırmada kullanılan nesneleri ve işlemleri oluşturmak için [Azure Search Hizmeti REST API'si](https://msdn.microsoft.com/library/dn798935.aspx)'ni kullanır.
 
-toorun hello için kaydolabilirsiniz bir Azure Search hizmeti bu örnek olmalıdır [Azure Portal](https://portal.azure.com). Bkz: [hello portalda Azure Search hizmeti oluşturma](search-create-service-portal.md) adım adım yönergeler için.
+Bu örneği çalıştırmak için, [Azure Portal](https://portal.azure.com)'da oturum açabileceğiniz bir Azure Search hizmetine sahip olmanız gerekir. Adım adım yönergeler için bkz. [Portalda Azure Search hizmeti oluşturma](search-create-service-portal.md).
 
-Biz yazılım toobuild aşağıdaki hello kullanılan ve bu örnek test edin:
+Bu örneği derlemek ve test etmek için aşağıdaki yazılımı kullandık:
 
-* [Java EE Geliştiricileri için Eclipse IDE](https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar). Toodownload hello EE sürümünü emin olun. Hello doğrulama adımlardan biri, yalnızca bu sürümde bulunan bir özelliği gerektirir.
+* [Java EE Geliştiricileri için Eclipse IDE](https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar). EE sürümünü indirdiğinizden emin olun. Doğrulama adımlarından biri, yalnızca bu sürümde bulunan bir özelliği gerektirir.
 * [JDK 8u40](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
 
-## <a name="about-hello-data"></a>Merhaba veri hakkında
-Bu örnek uygulama hello verileri kullanan [Birleşik Devletler Jeoloji Hizmetleri (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtrelenmiş hello Rhode Island eyaleti tooreduce hello veri kümesi boyutu. Bu veri toobuild akışlar, Göller ve zirveler gibi jeolojik özelliklerin yanı sıra hastaneler ve okullar gibi önemli binaları döndüren bir arama uygulaması kullanacağız.
+## <a name="about-the-data"></a>Veriler hakkında
+Bu örnek uygulama, [Birleşik Devletler Jeoloji Hizmetleri (USGS)](http://geonames.usgs.gov/domestic/download_data.htm)'nin, veri kümesi boyutunu küçültmek için Rhode Island eyaletinde filtrelenen verilerini kullanır. Akarsular, göller ve zirveler gibi jeolojik özelliklerin yanı sıra, hastaneler ve okullar gibi önemli binaları döndüren bir arama uygulaması derlemek için bu verileri kullanacağız.
 
-Bu uygulamada hello **SearchServlet.java** programı oluşturup yükleri hello dizini kullanarak bir [dizin oluşturucu](https://msdn.microsoft.com/library/azure/dn798918.aspx) hello alma yapısı, filtrelenmiş USGS veri kümesini ortak bir Azure SQL veritabanından. Önceden tanımlanmış kimlik bilgileri ve bağlantı bilgileri toohello çevrimiçi veri kaynağı hello program kodu içinde sağlanır. Veri erişimi açısından ek yapılandırma gerekli değildir.
+Bu uygulamada **SearchServlet.java** programı, filtrelenmiş USGS veri kümesini ortak bir Azure SQL Database'den alan bir [Oluşturucu](https://msdn.microsoft.com/library/azure/dn798918.aspx) yapısı kullanarak dizini derler ve yükler. Çevrimiçi veri kaynağına yönelik önceden tanımlanmış kimlik bilgileri ve bağlantı bilgileri program kodu içinde sağlanır. Veri erişimi açısından ek yapılandırma gerekli değildir.
 
 > [!NOTE]
-> Bu veri kümesi toostay hello 10.000 belge limiti hello ücretsiz fiyatlandırma katmanı altında üzerinde bir filtre uygulanmış. Merhaba standart katmanı kullanırsanız bu limit uygulanmaz ve bu kodu toouse büyük bir veri kümesini değiştirebilirsiniz. Her fiyatlandırma katmanının kapasitesi hakkında ayrıntılı bilgi için bkz: [Limitler ve kısıtlamalar](search-limits-quotas-capacity.md).
+> Ücretsiz fiyatlandırma katmanının 10.000 belge limiti altında kalmak için, bu veri kümesi üzerinde filtre uyguladık. Standart katmanı kullanırsanız bu limit uygulanmaz ve daha büyük bir veri kümesini kullanmak için bu kodu değiştirebilirsiniz. Her fiyatlandırma katmanının kapasitesi hakkında ayrıntılı bilgi için bkz: [Limitler ve kısıtlamalar](search-limits-quotas-capacity.md).
 > 
 > 
 
-## <a name="about-hello-program-files"></a>Merhaba program dosyaları hakkında
-Merhaba aşağıdaki listede ilgili toothis örnek hello dosyaları açıklanmaktadır.
+## <a name="about-the-program-files"></a>Program dosyaları hakkında
+Aşağıdaki listede, bu örnek ile ilgili dosyalar açıklanmaktadır.
 
-* Search.jsp: hello kullanıcı arabirimi sağlar
-* SearchServlet.java: yöntemler (benzer tooa denetleyicisi MVC) sağlar
+* Search.jsp: Kullanıcı arabirimini sağlar
+* SearchServlet.java: Yöntemler sağlar (MVC'deki denetleyiciye benzer)
 * SearchServiceClient.java: HTTP isteklerini işler
 * SearchServiceHelper.java: Statik yöntemler sağlayan bir yardımcı sınıfı
-* Document.Java: hello veri modeli sağlar
-* Config.Properties: hello Search Hizmeti URL'sini ve api anahtarını ayarlar
+* Document.Java: Veri modelini sağlar.
+* Config.Properties: Search hizmeti URL'sini ve API anahtarını ayarlar
 * Pom.xml: Maven bağımlılığı
 
 <a id="sub-2"></a>
 
-## <a name="find-hello-service-name-and-api-key-of-your-azure-search-service"></a>Merhaba hizmet adı ve Azure Search hizmetinizin api anahtarını bulma
-Azure Search tüm REST API çağrıları hello hizmet URL'sini ve api anahtarı sağlamanızı gerektirir. 
+## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Azure Search hizmetinizin hizmet adını ve api anahtarını bulma
+Azure Search'e yönelik tüm REST API çağrıları, hizmet URL'si ve api anahtarı sağlamanızı gerektirir. 
 
-1. İçinde toohello oturum [Azure Portal](https://portal.azure.com).
-2. Merhaba atlama çubuğunda, **Search Hizmeti** aboneliğiniz için sağlanan tüm hello Azure arama hizmetleri toolist.
-3. Toouse istediğiniz hello hizmeti seçin.
-4. Merhaba hizmet panosunda yanı sıra hello yönetici anahtarlarına erişim için anahtar simgesine hello önemli bilgiler için kutucuklar görürsünüz.
+1. [Azure Portal](https://portal.azure.com)'da oturum açın.
+2. Atlama çubuğunda, aboneliğiniz için sağlanan tüm Azure Search hizmetlerini listelemek için **Search hizmeti**'ne tıklayın.
+3. Kullanmak istediğiniz hizmeti seçin.
+4. Hizmet panosunda, yönetici anahtarlarına erişim için anahtar simgesi ile birlikte önemli bilgiler için kutucuklar görürsünüz.
    
       ![][3]
-5. Merhaba hizmet URL'sini ve bir yönetici anahtarını kopyalayın. Toohello eklediğinizde, bunları daha sonra gerekecektir **config.properties** dosya.
+5. Hizmet URL'sini ve bir yönetici anahtarını kopyalayın. Bunlara daha sonra, bunları **config.properties** dosyasına eklerken ihtiyacınız olacak.
 
-## <a name="download-hello-sample-files"></a>Merhaba örnek dosyalarını indirme
-1. Çok Git[AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo) github'da.
-2. Tıklatın **ZIP'i indir**hello .zip dosyası toodisk kaydedin ve ardından içerdiği tüm hello dosyaları ayıklayın. Ayıklamayı göz önünde bulundurun hello dosyalarının, Java Çalışma toomake daha kolay toofind hello proje daha sonra.
-3. Merhaba örnek dosyaları salt okunurdur. Klasör özelliklerini ve Temizle hello salt okunur özniteliğini sağ tıklatın.
+## <a name="download-the-sample-files"></a>Örnek dosyalarını indirme
+1. GitHub'da [AzureSearchJavaDemo](https://github.com/AzureSearch/AzureSearchJavaIndexerDemo)'ya gidin.
+2. **ZIP'i İndir**'e tıklayın, .zip dosyasını diske kaydedin ve ardından içerdiği tüm dosyaları ayıklayın. Daha sonra projeyi bulmayı kolaylaştırmak için, dosyaları Java çalışma alanınıza ayıklamayı göz önünde bulundurun.
+3. Örnek dosyaları salt okunurdur. Klasör özelliklerine sağ tıklayın ve salt okunur özniteliğini kaldırın.
 
 Sonraki tüm dosya değişiklikleri ve çalıştırma deyimleri bu klasördeki dosyalara uygulanır.  
 
@@ -82,74 +82,74 @@ Sonraki tüm dosya değişiklikleri ve çalıştırma deyimleri bu klasördeki d
 1. Eclipse'te, **File (Dosya)** > **Import (İçeri Aktar)** > **General (Genel)** > **Existing Projects into Workspace (Var olan Projeleri Çalışma Alanına)** seçeneğini belirleyin.
    
     ![][4]
-2. İçinde **Select kök dizini**, örnek dosyaları içeren toohello klasörüne göz atın. Merhaba proje klasörünü içeren hello klasörü seçin. Merhaba proje hello görünmelidir **projeleri** seçili öğe olarak listesi.
+2. **Select root directory (Kök dizini seç)** bölümünde örnek dosyaları içeren klasöre gidin. Proje klasörünü içeren klasörü seçin. Proje, **Projects (Projeler)** listesinde seçili öğe olarak görünmelidir.
    
     ![][12]
-3. **Son**'a tıklayın.
-4. Kullanım **Proje Gezgini** tooview ve düzenleme hello dosyaları. Zaten açık değilse, tıklatın **penceresi** > **görünümü göster** > **Proje Gezgini** veya hello kısayol tooopen kullanın.
+3. **Finish (Son)** düğmesine tıklayın.
+4. Dosyaları görüntülemek ve düzenlemek için **Proje Gezgini**'ni kullanın. Zaten açık değilse **Pencere** > **Görünümü Göster** > **Proje Gezgini**'ne tıklayın veya açmak için kısayolu kullanın.
 
-## <a name="configure-hello-service-url-and-api-key"></a>Merhaba hizmet URL'si ve api anahtarını yapılandırın
-1. İçinde **Proje Gezgini**, çift **config.properties** hello sunucu adını ve api anahtarını içeren tooedit hello yapılandırma ayarları.
-2. Burada bulunan hello hizmet URL'sini ve api anahtarını hello daha önce bu makalede toohello adımları başvurun [Azure Portal](https://portal.azure.com), tooget hello değerleri şimdi girdiğiniz içine **config.properties**.
-3. İçinde **config.properties**, "Api anahtarı" Merhaba hizmetinizin api anahtarı ile değiştirin. Ardından, hizmet adı (Merhaba URL http://servicename.search.windows.net hello ilk bileşeni) "hizmet adı" hello yerine geçer aynı dosya.
+## <a name="configure-the-service-url-and-api-key"></a>Hizmet URL'sini ve api anahtarını yapılandırma
+1. **Proje Gezgini**'nde, sunucu adını ve api anahtarını içeren yapılandırma ayarlarını düzenlemek için **config.properties**'e çift tıklayın.
+2. Bu makalenin, [Azure Portal](https://portal.azure.com)'da hizmet URL'sini ve api anahtarını bulduğunuz önceki adımlarına bakarak, şimdi **config.properties**'e gireceğiniz değerleri alabilirsiniz.
+3. **config.properties**'de, "Api Anahtarı"nı hizmetinizin api anahtarı ile değiştirin. Ardından, aynı dosyada hizmet adı (URL http://servicename.search.windows.net URL'sinin ilk bileşeni) "hizmet adı" ile değiştirilir.
    
     ![][5]
 
-## <a name="configure-hello-project-build-and-runtime-environments"></a>Merhaba proje, derleme ve çalışma zamanı ortamları yapılandırma
-1. Eclipse'te, proje Gezgini'nde hello projesine sağ tıklayın > **özellikleri** > **proje modelleri**.
+## <a name="configure-the-project-build-and-runtime-environments"></a>Proje, derleme ve çalışma zamanı ortamlarını yapılandırma
+1. Eclipse'te, Proje Gezgini'nde, proje > **Properties (Özellikler)** > **Project Facets (Proje Modelleri)** öğesine sağ tıklayın.
 2. **Dynamic Web Module (Dinamik Web Modülü)** öğesini, **Java**'yı ve **JavaScript**'i seçin.
    
     ![][6]
 3. **Apply (Uygula)** düğmesine tıklayın.
 4. **Window (Pencere)** > **Preferences (Tercihler)** > **Server (Sunucu)** > **Runtime Environments (Çalışma Zamanı Ortamları)** > **Add... (Ekle...)** öğesini seçin.
-5. Apache genişletin ve daha önce yüklediğiniz hello Apache Tomcat sunucusunu hello sürümünü seçin. Sistemimizde sürüm 8 yüklüdür.
+5. Apache'yi genişletin ve önceden yüklediğiniz Apache Tomcat sunucusu sürümünü seçin. Sistemimizde sürüm 8 yüklüdür.
    
     ![][7]
-6. Merhaba sonraki sayfada hello Tomcat yükleme dizinini belirtin. Windows bilgisayarda, bu büyük olasılıkla C:\Program Files\Apache Software Foundation\Tomcat *sürüm* olacaktır.
+6. Sonraki sayfada Tomcat yükleme dizinini belirtin. Windows bilgisayarda, bu büyük olasılıkla C:\Program Files\Apache Software Foundation\Tomcat *sürüm* olacaktır.
 7. **Finish (Son)** düğmesine tıklayın.
 8. **Window (Pencere)** > **Preferences (Tercihler)** > **Java** > **Installed JREs (Yüklü JRE'ler)** > **Add (Ekle)** seçeneğini belirleyin.
 9. **Add JRE (JRE Ekle)** bölümünde **Standard VM (Standart VM)** öğesini seçin.
 10. **İleri**’ye tıklayın.
 11. JRE Tanımı'nda, JRE giriş alanında **Directory (Dizin)** seçeneğine tıklayın.
-12. Çok gidin**Program Files** > **Java** ve hello daha önce yüklediğiniz JDK seçin. Bu önemli tooselect hello JDK hello JRE gösterir.
-13. Yüklü Jre'ler içinde hello seçin **JDK**. Ayarlarınız aşağıdaki ekran görüntüsüne benzer toohello görünmelidir.
+12. **Program Files (Program Dosyaları)** > **Java**'ya gidin ve daha önce yüklediğiniz JDK'yı seçin. JDK'yı JRE olarak seçmek önemlidir.
+13. Yüklü JRE'ler içinde **JDK**'yı seçin. Ayarlarınız aşağıdaki ekran görüntüsüne benzer görünmelidir.
     
     ![][9]
-14. İsteğe bağlı olarak, seçin **penceresi** > **Web tarayıcısı** > **Internet Explorer** tooopen Merhaba uygulaması bir dış tarayıcı penceresinde. Dış tarayıcı kullanmanız daha iyi bir Web uygulaması deneyimi sağlar.
+14. İsteğe bağlı olarak, uygulamayı bir dış tarayıcı penceresinde açmak için **Window (Pencere)** > **Web Browser (Web Tarayıcısı)** > **Internet Explorer**'ı seçin. Dış tarayıcı kullanmanız daha iyi bir Web uygulaması deneyimi sağlar.
     
     ![][8]
 
-Merhaba yapılandırma görevlerini tamamladınız. Ardından, yapı ve Merhaba projeyi çalıştırın.
+Yapılandırma görevlerini tamamladınız. Ardından, projeyi derleyip çalıştırırsınız.
 
-## <a name="build-hello-project"></a>Merhaba projeyi derleme
-1. Proje Gezgini'nde hello proje adına sağ tıklayın ve seçin **Çalıştır** > **Maven build...**  tooconfigure hello projesi.
+## <a name="build-the-project"></a>Projeyi derleme
+1. Proje Gezgini'nde proje adına sağ tıklayın ve projeyi yapılandırmak için **Run As (Farklı Çalıştır)** > **Maven build... (Maven derlemesi...)** seçeneğini belirleyin.
    
     ![][10]
 2. Edit Configuration (Yapılandırmayı Düzenle) alanında Targets (Hedefler) için "clean install" ("temiz yükleme") yazın ve ardından **Run (Çalıştır)** düğmesine tıklayın.
 
-Durum iletileri çıktı toohello konsol penceresi açılır. Yapı Başarısı hatasız yerleşik belirten hello proje görmeniz gerekir.
+Konsol penceresinde durum iletilerinin çıkışı alınır. Projenin hatasız olarak derlendiğini belirten DERLEME BAŞARILI iletisini görmeniz gerekir.
 
-## <a name="run-hello-app"></a>Merhaba uygulamayı çalıştırma
-Bu son adımda, bir yerel sunucu çalışma zamanı ortamında hello uygulama çalışacaktır.
+## <a name="run-the-app"></a>Uygulamayı çalıştırma
+Bu son adımda, uygulamayı bir yerel sunucu çalışma zamanı ortamında çalıştırırsınız.
 
-Eclipse'te henüz bir sunucu çalışma zamanı ortamı belirtmediyseniz öncelikle toodo gerekir.
+Eclipse'te henüz bir sunucu çalışma zamanı ortamı belirtmediyseniz öncelikle bunu yapmanız gerekir.
 
 1. Proje Gezgini'nde **WebContent**'i genişletin.
-2. **Search.jsp** > **Run As (Farklı Çalıştır)** > **Run on Server (Sunucuda Çalıştır)** öğesine sağ tıklayın. Merhaba Apache Tomcat sunucusunu seçin ve ardından **çalıştırmak**.
+2. **Search.jsp** > **Run As (Farklı Çalıştır)** > **Run on Server (Sunucuda Çalıştır)** öğesine sağ tıklayın. Apache Tomcat sunucusunu seçin ve ardından **Run (Çalıştır)** öğesine tıklayın.
 
 > [!TIP]
-> Varsayılan olmayan çalışma toostore projenizi kullandıysanız, toomodify gerekir **yapılandırma Çalıştır** toopoint toohello proje konumu tooavoid sunucu başlangıç hatasını. Proje Gezgini'nde **Search.jsp** > **Run As (Farklı Çalıştır)** > **Run Configurations (Yapılandırmaları Çalıştır)** öğesine sağ tıklayın. Merhaba Apache Tomcat sunucusunu seçin. **Arguments (Bağımsız Değişkenler)** seçeneğine tıklayın. Tıklatın **çalışma** veya **dosya sistemi** Merhaba projeyi içeren tooset hello klasör.
+> Projenizi depolamak için varsayılan olmayan bir çalışma alanı kullandıysanız sunucu başlangıç hatasını önlemek için, **Run Configuration (Yapılandırmayı Çalıştır)** öğesini proje konumunu işaret edecek şekilde değiştirmeniz gerekir. Proje Gezgini'nde **Search.jsp** > **Run As (Farklı Çalıştır)** > **Run Configurations (Yapılandırmaları Çalıştır)** öğesine sağ tıklayın. Apache Tomcat sunucusunu seçin. **Arguments (Bağımsız Değişkenler)** seçeneğine tıklayın. Projeyi içeren klasörü ayarlamak için **Workspace (Çalışma Alanı)** veya **File System (Dosya Sistemi)** seçeneğine tıklayın.
 > 
 > 
 
-Merhaba uygulamayı çalıştırdığınızda, koşulları girmeniz için bir arama kutusu sağlayan bir tarayıcı penceresi görmeniz gerekir.
+Uygulamayı çalıştırdığınızda, koşulları girmeniz için arama kutusu sağlayan bir tarayıcı penceresi görmeniz gerekir.
 
-Seçeneğine tıklamadan önce yaklaşık bir dakika bekleyin **arama** toogive hello hizmeti zaman toocreate ve yük başlangıç dizini. HTTP 404 hatası alırsanız yeniden denemeden önce biraz daha uzun toowait yeterlidir.
+Dizini oluşturması ve yüklemesi için hizmete zaman tanımak amacıyla **Search (Ara)** seçeneğine tıklamadan önce yaklaşık bir dakika bekleyin. HTTP 404 hatası alırsanız yeniden denemeden önce biraz daha uzun süre beklemeniz gerekir.
 
 ## <a name="search-on-usgs-data"></a>USGS verilerinde arama
-Merhaba USGS veri kümesini ilgili toohello Rhode Island eyaleti kayıtları içerir. Tıklatırsanız **arama** bir boş arama kutusunda hello varsayılan olduğu hello ilk 50 girişi alırsınız.
+USGS veri kümesi, Rhode Island eyaleti ile ilgili kayıtları içerir. Boş bir arama kutusunda **Search (Ara)** düğmesine tıklarsanız varsayılan seçenek olan ilk 50 girişi alırsınız.
 
-Bir arama terimi girerek hello arama motoru bir şey toogo üzerinde verecektir. Bölgesel bir ad girmeyi deneyin. "Roger Williams", Rhode Island hello ilk İdarecisi oluştu. Çok sayıda parka, binaya ve okula onun adı verildi.
+Bir arama terimi girmeniz arama alt yapısına gitmesi gereken bir hedef verir. Bölgesel bir ad girmeyi deneyin. "Roger Williams", Rhode Island'ın ilk valisiydi. Çok sayıda parka, binaya ve okula onun adı verildi.
 
 ![][11]
 
@@ -160,11 +160,11 @@ Ayrıca, bu terimlerden herhangi birini de deneyebilirsiniz:
 * kaz + şapka
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu Java ve USGS veri kümesini hello hello ilk Azure Search öğreticisidir. Zaman içinde biz özel çözümlerinizde toouse isteyebilirsiniz ek arama özellikleri Bu öğretici toodemonstrate genişletmeniz.
+Bu, Java ve USGS veri kümesini temel alan ilk Azure Search öğreticisidir. Zaman içinde, özel çözümlerinizde kullanmak isteyebileceğiniz ek arama özellikleri göstermek için bu öğreticiyi genişleteceğiz.
 
-Bazı arka plan Azure Search'te zaten varsa, bu örneği dayanak olarak daha fazla deneyim için hello kullanabilirsiniz [arama sayfası](search-pagination-page-layout.md), veya uygulama [modellenmiş bir gezinmede](search-faceted-navigation.md). Ayrıca, numaralar ekleyerek ve böylece kullanıcılar hello sonuçları belgeleri toplu işleme hello arama sonuçları sayfasını artırabilir.
+Zaten Azure Search ile ilgili belirli bir altyapınız varsa daha fazla deneyim için ([arama sayfası](search-pagination-page-layout.md)'nı büyütme veya [çok yönlü gezinme](search-faceted-navigation.md) gerçekleştirme gibi), bu örneği dayanak olarak kullanabilirsiniz. Ayrıca, numaralar ekleyerek ve belgeleri gruplayarak arama sonuçları sayfasını da geliştirebilirsiniz. Böylece, kullanıcılar sonuç sayfalarında gezinebilir.
 
-Yeni tooAzure arama? Diğer öğreticiler toodevelop bir neler yapabileceğinizi anlamak çalışırken öneririz. Ziyaret bizim [belge sayfasının](https://azure.microsoft.com/documentation/services/search/) toofind daha fazla kaynak. Merhaba bağlantılar da görüntüleyebilirsiniz bizim [Video ve öğretici listemiz](search-video-demo-tutorial-list.md) tooaccess daha fazla bilgi.
+Azure Search'ü ilk kez mi kullanıyorsunuz? Neler yapabileceğinizi anlamak için diğer öğreticileri denemenizi öneririz. Daha fazla kaynak bulmak için [belge sayfamızı](https://azure.microsoft.com/documentation/services/search/) ziyaret edin. Daha fazla bilgiye erişmek için [Video ve Öğretici listemiz](search-video-demo-tutorial-list.md)'deki bağlantıları görüntüleyebilirsiniz.
 
 <!--Image references-->
 [1]: ./media/search-get-started-java/create-search-portal-1.PNG

@@ -1,6 +1,6 @@
 ---
-title: "Azure bölgeler arasında Azure Vm'leri aaaReplicate | Microsoft Docs"
-description: "Merhaba adımlar, gerekli hello Azure portal'deki hello Azure Site Recovery hizmeti ile Azure bölgeler arasında tooreplicate Azure VM'ler özetler"
+title: "Azure bölgeler arasında Azure Vm'lerini çoğaltma | Microsoft Docs"
+description: "Azure portalında Azure Site Recovery hizmeti ile Azure bölgeler arasında Azure Vm'lerini çoğaltma için gereken adımları özetler"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,63 +14,63 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: raynew
-ms.openlocfilehash: f4ac386f040945131f8a10f02143437f4441e298
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9258613161a61e36b1d0c5796d5763c916d66859
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="replicate-azure-vms-between-regions-with-azure-site-recovery"></a>Azure Site Recovery ile bölgeler arasında Azure Vm'lerini çoğaltma
 
->Bu makale bir Azure bölgesi tooAzure sanal makineleri farklı bir bölgede Azure sanal makinelerde (VM'ler) hello adımları gerekli tooreplicate genel bir bakış sağlar. 
+>Bu makalede Azure vm'lerine farklı bir bölgede bir Azure bölgesinde Azure sanal makine (VM) çoğaltmak için gerekli olan adımları genel bir bakış sağlar. 
 
 >[!NOTE]
 >
 > Azure VM çoğaltma şu anda önizlemede değil.
 
-POST açıklamaları ve soruları hello altındaki bu makalenin veya hello [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Bu makalenin veya üzerinde altındaki açıklamaları ve soruları sonrası [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="step-1-review-architecture"></a>1. adım: Gözden geçirme mimarisi
 
-Dağıtıma başlamadan önce hello senaryo mimarisi ve toodeploy gereksinim hello bileşenleri gözden geçirin.
+Dağıtıma başlamadan önce senaryo mimarisinin ve dağıtmak için ihtiyaç duydukları bileşenleri gözden geçirin.
 
-Çok Git[1. adım: gözden hello mimarisi](azure-to-azure-walkthrough-architecture.md)
+Git [1. adım: mimarisi gözden geçirin](azure-to-azure-walkthrough-architecture.md)
 
 
 ## <a name="step-2-review-prerequisites"></a>2. adım: Gözden geçirme önkoşulları
 
-Sahip Merhaba, bir abonelik, sanal ağlar, depolama hesapları ve VM gereksinimleri çeşitli yerlerde Azure önkoşulları denetleyin.
+Abonelik, sanal ağlar, depolama hesapları ve VM gereksinimleri çeşitli yerlerde Azure önkoşulları olup olmadığını denetleyin.
 
-Çok Git[2. adım: Önkoşullar ve sınırlamalar doğrulayın](azure-to-azure-walkthrough-prerequisites.md)
+Git [2. adım: Önkoşullar ve sınırlamalar doğrulayın](azure-to-azure-walkthrough-prerequisites.md)
 
 
 ## <a name="step-3-plan-networking"></a>3. adım: ağ planlama
 
-Giden bağlantı tooreplicate ve şirket içi bağlantılarından ayarlanır istediğiniz Azure vm'lerinde kurulduğundan emin olun.
+Giden bağlantı çoğaltmak istediğiniz Azure Vm'lerinde ayarlama ve şirket içi bağlantılarından ayarlanır denetleyin.
 
-Çok Git[4. adım: ağ planı](azure-to-azure-walkthrough-network.md)
+Git [4. adım: ağ planı](azure-to-azure-walkthrough-network.md)
 
 
 
 ## <a name="step-4-create-a-vault"></a>4. adım: bir kasa oluşturma 
 
-Kurtarma Hizmetleri kasası tooorchestrate yukarı tooset gerekir ve çoğaltmayı yönetmek ve hello kaynak bölge belirtin.
+Düzenlemek ve çoğaltmayı yönetmek için bir kurtarma Hizmetleri kasasını oluşturup ve kaynak bölge belirtmeniz gerekir.
 
-Çok Git[4. adım: bir kasa oluşturun](azure-to-azure-walkthrough-vault.md)
+Git [4. adım: bir kasa oluşturun](azure-to-azure-walkthrough-vault.md)
 
 
 ## <a name="step-5-enable-replication"></a>5. adım: Çoğaltma etkinleştirme
 
 
-tooenable çoğaltma hedef konumu ayarları yapılandırmak, bir çoğaltma ilkesini ayarlayın ve hello Azure tooreplicate istediğiniz sanal makineleri seçin. Etkinleştirdikten sonra ilk çoğaltma işlemi hello VM oluşur.
+Çoğaltmayı etkinleştirmek için hedef konum ayarları yapılandırmak, bir çoğaltma ilkesini ayarlayın ve çoğaltmak istediğiniz Azure sanal makineleri seçin. Etkinleştirdikten sonra VM başlangıç çoğaltması gerçekleşir.
 
-Çok Git[5. adım: çoğaltmasını etkinleştir](azure-to-azure-walkthrough-enable-replication.md)
+Git [5. adım: çoğaltmasını etkinleştir](azure-to-azure-walkthrough-enable-replication.md)
 
 
 ## <a name="step-6-run-a-test-failover"></a>6. adım: yük devretme testi çalıştırma
 
-İlk çoğaltma sonlandırıldıktan ve değişim çoğaltması çalıştıran sonra her şeyin beklendiği gibi çalıştığından emin bir test yük devretme toomake çalıştırabilirsiniz.
+İlk çoğaltma sonlandırıldıktan ve değişim çoğaltması çalıştıran sonra her şeyin beklendiği gibi çalıştığından emin olmak için yük devretme testi çalıştırabilirsiniz.
 
-Çok Git[6. adım: yük devretme testi çalıştırma](azure-to-azure-walkthrough-test-failover.md)
+Git [6. adım: yük devretme testi çalıştırma](azure-to-azure-walkthrough-test-failover.md)
 
 

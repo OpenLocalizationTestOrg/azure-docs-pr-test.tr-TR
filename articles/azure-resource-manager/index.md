@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure Resource Manager belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
-description: "Bilgi nasıl toouse Resource Manager toodeploy ve tutarlı ve tekrarlanabilir kaynak dağıtım için bir grup ve toocreate şablonları olarak çözüm kaynaklarını yönetme."
+title: "Azure Resource Manager Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Resource Manager’ı kullanarak çözüm kaynaklarını bir grup olarak dağıtma ve yönetme; tutarlı ve tekrarlanabilir kaynak dağıtımı için şablonlar oluşturma hakkında bilgi edinin."
 services: azure-resource-manager
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: dc920b14e84bbad1a178fc91a61a1d2642d644b1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: ab6725298c9e9c496d2e20b4e68ff72af1432bb2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="azure-resource-manager-documentation"></a>Azure Resource Manager Belgeleri
 
-Nasıl toouse Resource Manager toodeploy izlemek ve çözüm kaynakları grup olarak yönetin öğrenin. Öğreticiler, API başvuru ve diğer belgelerin nasıl tooset kaynağını grupları ve tutarlı ve tekrarlanabilir dağıtım için şablonlar oluşturma gösterir.
+Resource Manager’ı kullanarak çözüm kaynaklarını bir grup olarak dağıtma, izleme ve yönetme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, kaynak grupları ayarlamanın yanı sıra tutarlı ve tekrarlanabilir dağıtım için şablonlar oluşturma ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>

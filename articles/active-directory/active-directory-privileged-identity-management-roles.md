@@ -1,6 +1,6 @@
 ---
-title: Azure AD Privileged Identity Management aaaRoles | Microsoft Docs
-description: "Hangi rollerin hello Azure Privileged Identity Management uzantısı ile ayrıcalıklı kimlikleri için kullanılan öğrenin."
+title: Azure AD Privileged Identity Management rollerinde | Microsoft Docs
+description: "Azure Privileged Identity Management uzantısı ile ayrıcalıklı kimlikleri için hangi rolleri kullanılan öğrenin."
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -15,81 +15,81 @@ ms.workload: identity
 ms.date: 07/31/2017
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: dc58d005489e3b51b3b3dbea4bf35bd795dbdfb6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c20aca4202319154b01d6398570f745636120f49
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Azure Active Directory PIM farklı yönetim rolü
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
-Azure AD'de toodifferent yönetim rolleri, kuruluşunuzdaki kullanıcılar atayabilirsiniz. Kullanıcı ekleme veya kaldırma gibi görevleri, bu rol atamaları denetlemek veya hizmet ayarlarını değiştirmek, hello mümkün tooperform Azure üzerinde AD, Office 365 ve diğer Microsoft Online Services ve bağlı uygulamaların kullanıcılardır.  
+Azure AD'de farklı yönetim rolleri, kuruluşunuzdaki kullanıcılar atayabilirsiniz. Bu rol atamaları ekleme veya kullanıcıları kaldırma ya da hizmet ayarlarını değiştirme gibi görevleri, kullanıcıların Azure üzerinde AD, Office 365 ve diğer Microsoft Online Services ve bağlı uygulamaların gerçekleştirebilir denetler.  
 
 > [!IMPORTANT]
-> Microsoft önerir hello kullanarak Azure AD'yi yönetme [Azure AD Yönetim Merkezi](https://aad.portal.azure.com) hello yerine Azure portal hello bu makalede başvurulan Klasik Azure portalı.
+> Microsoft, Azure AD’yi bu makalede bahsedilen Klasik Azure Portalı yerine Azure portalındaki [Azure AD yönetim merkezini](https://aad.portal.azure.com) kullanarak yönetmenizi öneriyor.
 
-Genel yönetici olan kullanıcılar güncelleştirebilirsiniz **kalıcı olarak** tooroles PowerShell cmdlet'lerini kullanarak Azure AD'de atanan `Add-MsolRoleMember` ve `Remove-MsolRoleMember`, ya da açıklandığı gibi hello Klasik portal üzerinden [ Azure Active Directory'de yönetici rolleri atama](active-directory-assign-admin-roles.md).
+Genel yönetici olan kullanıcılar güncelleştirebilirsiniz **kalıcı olarak** PowerShell cmdlet'lerini kullanarak Azure AD'de rol atanmış `Add-MsolRoleMember` ve `Remove-MsolRoleMember`, ya da açıklandığı gibi Klasik portal üzerinden [ Azure Active Directory'de yönetici rolleri atama](active-directory-assign-admin-roles.md).
 
-Azure AD Privileged Identity Management (PIM) Azure AD'de kullanıcıları için ayrıcalıklı erişim ilkelerini yönetir. PIM, Azure AD'de kullanıcıları tooone veya daha fazla rol atar ve birisi atayabilirsiniz toobe kalıcı olarak hello rol ya da hello rolü için uygun olarak. Ne zaman bir kullanıcı tooa rol kalıcı olarak atanan veya Azure Active Directory, Office 365 ve diğer uygulamalar tootheir rolleri atanmış hello izinlerle yönetebilecekleri sonra uygun rol atama etkinleştirir.
+Azure AD Privileged Identity Management (PIM) Azure AD'de kullanıcıları için ayrıcalıklı erişim ilkelerini yönetir. PIM kullanıcılar için bir veya daha fazla rol Azure AD'de atar ve kalıcı olarak rolünü veya rol için uygun olması birine atayın. Ne zaman bir kullanıcı bir role kalıcı olarak atanmış veya Azure Active Directory, Office 365 ve diğer uygulamalar rollerine atanmış izinlerle yönetebilecekleri sonra uygun rol atama etkinleştirir.
 
-Kalıcı bir uygun rol ataması karşı toosomeone verilen hello erişim fark yoktur. Merhaba tek fark bazı kişiler bu erişim hello zaman gerekmemesidir. Merhaba rolü için uygun yapılır ve bunu etkinleştirebilirsiniz ve devre dışı olduğunda gerekir.
+Kalıcı bir uygun rol ataması karşı kimseler verilen erişim fark yoktur. Tek fark bazı kişiler bu erişim her zaman gerekmemesidir. Rolü için uygun yapılır ve bunu etkinleştirebilirsiniz ve devre dışı olduğunda gerekir.
 
 ## <a name="roles-managed-in-pim"></a>PIM içinde yönetilen roller
-Privileged Identity Management, kullanıcıların toocommon yönetici rolleri de dahil olmak üzere, atamanıza olanak sağlar:
+Privileged Identity Management kullanıcılar dahil olmak üzere genel yönetici rolleri atama olanak sağlar:
 
-* **Genel yönetici** (şirket yönetici olarak da bilinir) erişim tooall yönetim özelliklerine sahiptir. Kuruluşunuzda birden çok genel yönetici olabilir. otomatik olarak Office 365 toopurchase açan hello kişi bir genel yönetici olur
+* **Genel yönetici** (şirket yönetici olarak da bilinir) tüm yönetim özelliklerine erişebilir. Kuruluşunuzda birden çok genel yönetici olabilir. Office 365 otomatik olarak satın almak için kaydolan kişi bir genel yönetici olur
 * **Ayrıcalıklı Rol Yöneticisi** Azure AD PIM yönetir ve diğer kullanıcılar için rol atamalarını güncelleştirir.  
 * **Faturalama Yöneticisi** satın alma işlemleri yapar, abonelikleri yönetir, destek biletlerini yönetir ve hizmetin sistem durumunu izler.
-* **Parola Yöneticisi** parolaları sıfırlar, hizmet isteklerini yönetir ve hizmetin sistem durumunu izler. Parola yönetici kullanıcılar için sınırlı tooresetting parolalar yaşıyor.
+* **Parola Yöneticisi** parolaları sıfırlar, hizmet isteklerini yönetir ve hizmetin sistem durumunu izler. Parola yöneticileri, kullanıcılar için parola sıfırlama için sınırlıdır.
 * **Hizmet Yöneticisi** hizmet isteklerini yönetir ve hizmetin sistem durumunu izler.
   
   > [!NOTE]
-  > Office 365 kullanıyorsanız, ardından hello hizmet Yönetici rolü tooa kullanıcı atamadan önce ilk hello kullanıcı yönetim izinleri tooa hizmeti, Exchange Online gibi atayın.
+  > Office 365 kullanıyorsanız, sonra bir kullanıcı, Hizmet Yöneticisi rolü atamadan önce ilk kullanıcı yönetim izinleri Exchange Online gibi bir hizmet atayın.
   > 
   > 
-* **Kullanıcı Yönetimi Yöneticisi** parolaları sıfırlar, hizmetin sistem durumunu izler ve kullanıcı hesapları, kullanıcı grupları ve hizmet isteklerini yönetir. Hello kullanıcı yönetimi Yöneticisi genel yönetici silinemez, diğer yönetici rolleri oluşturabilir veya fatura, genel ve hizmet yöneticileri için parolaları sıfırlayın.
-* **Exchange Yöneticisi** hello Exchange yönetici merkezini (Seçmeye) yönetim erişimi tooExchange çevrimiçi olan ve neredeyse her görevi'te Exchange Online gerçekleştirebilirsiniz.
-* **SharePoint Yöneticisi** hello SharePoint Online Yönetim Merkezi yönetim erişimi tooSharePoint çevrimiçi olan ve neredeyse her görev SharePoint Online'da gerçekleştirebilirsiniz.
-* **İş Yöneticisi Skype** Merhaba Skype iş Yönetim Merkezi aracılığıyla iş için yönetim erişimi tooSkype sahiptir ve neredeyse her görev Skype Kurumsal çevrimiçi gerçekleştirebilirsiniz.
+* **Kullanıcı Yönetimi Yöneticisi** parolaları sıfırlar, hizmetin sistem durumunu izler ve kullanıcı hesapları, kullanıcı grupları ve hizmet isteklerini yönetir. Kullanıcı Yönetimi yönetim genel yönetici silinemez, diğer yönetici rolleri oluşturabilir veya fatura, genel ve hizmet yöneticileri için parolaları sıfırlayın.
+* **Exchange Yöneticisi** Exchange yönetici merkezini (Seçmeye) Exchange Online yönetici erişimi olan ve neredeyse her görevi'te Exchange Online gerçekleştirebilirsiniz.
+* **SharePoint Yöneticisi** SharePoint Online Yönetim Merkezi SharePoint Online yönetim erişimi vardır ve neredeyse her görev SharePoint Online'da gerçekleştirebilirsiniz.
+* **İş Yöneticisi Skype** yönetim Skype kurumsal iş Yönetim Merkezi Skype üzerinden erişimi ve neredeyse her görev Skype Kurumsal çevrimiçi gerçekleştirebilirsiniz.
 
 Daha fazla ayrıntı için bu makaleler okuyun [Azure AD'de yönetici rolleri atama](active-directory-assign-admin-roles.md) ve [Office 365'te yönetici rolleri atama](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
 
-<!--**PLACEHOLDER: hello above article may not be hello one we want since PIM gets roles from places other that Office 365**-->
+<!--**PLACEHOLDER: The above article may not be the one we want since PIM gets roles from places other that Office 365**-->
 
 
-PIM yapabilecekleriniz [bu rolleri tooa kullanıcı atama](active-directory-privileged-identity-management-how-to-add-role-to-user.md) hello kullanıcı böylece [gerektiğinde Merhaba rolünü etkinleştirmek](active-directory-privileged-identity-management-how-to-activate-role.md).
+PIM yapabilecekleriniz [kullanıcıya bu roller atama](active-directory-privileged-identity-management-how-to-add-role-to-user.md) kullanıcı böylece [gerektiğinde rolünü etkinleştirmek](active-directory-privileged-identity-management-how-to-activate-role.md).
 
-PIM kendisini hello kullanıcı toohave daha ayrıntılı açıklanır PIM gerektiren hello rolleri başka bir kullanıcı erişimi toomanage toogive istiyorsanız [nasıl toogive erişim tooPIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
+PIM yönetmek için başka bir kullanıcı erişimi vermek istiyorsanız, PIM kullanıcının gerektiren roller daha ayrıntılı açıklanır [PIM için erişim vermek nasıl](active-directory-privileged-identity-management-how-to-give-access-to-pim.md).
 
-<!-- ## hello PIM Security Administrator Role **PLACEHOLDER: Need description of hello Security Administrator role.**-->
+<!-- ## The PIM Security Administrator Role **PLACEHOLDER: Need description of the Security Administrator role.**-->
 
 ## <a name="roles-not-managed-in-pim"></a>PIM içinde yönetilmeyen rolleri
 Exchange Online veya SharePoint Online içinde rolleri olanlar, yukarıda belirtilen dışında Azure AD'de temsil edilmez ve bu nedenle PIM görünür değildir. Bu Office 365 Hizmetleri hassas rol atamalarını değiştirme hakkında daha fazla bilgi için bkz: [Office 365'te izinleri](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-Ayrıca Azure Abonelikleriniz ve kaynak gruplarınız Azure AD'de temsil edilmez. toomanage Azure abonelikleri görmek [nasıl tooadd ya da değişiklik Azure yönetici rolleri](../billing/billing-add-change-azure-subscription-administrator.md) ve Azure RBAC bakın hakkında daha fazla bilgi için [Azure rol tabanlı erişim denetimi](role-based-access-control-configure.md).
+Ayrıca Azure Abonelikleriniz ve kaynak gruplarınız Azure AD'de temsil edilmez. Azure Aboneliklerini yönetmek için bkz: [eklemek veya Azure yönetici rollerini değiştirmek nasıl](../billing/billing-add-change-azure-subscription-administrator.md) ve Azure RBAC bakın hakkında daha fazla bilgi için [Azure rol tabanlı erişim denetimi](role-based-access-control-configure.md).
 
-<!--**hello above links might be replaced by ones that are from within this documentation repository **-->
+<!--**The above links might be replaced by ones that are from within this documentation repository **-->
 
 
 ## <a name="user-roles-and-signing-in"></a>Kullanıcı rolleri ve oturum açma
-Bazı Microsoft Hizmetleri ve uygulamaları için bir kullanıcı tooa rol atama olmayabilir yeterli tooenable o kullanıcı toobe bir yönetici olmalıdır.
+Bazı Microsoft Hizmetleri ve uygulamaları için bir kullanıcı rol atama o kullanıcının yönetici olmasını sağlamak yeterli olmayabilir.
 
-Klasik Azure portalına erişim toohello gerektirir hello kullanıcı bir Hizmet Yöneticisi veya bir Azure aboneliğinin ortak yönetici, hello kullanıcı olmasa bile toomanage Azure abonelikleri hello.  Örneğin, Azure AD Klasik portalında Merhaba, bir kullanıcı için toomanage yapılandırma ayarları, Azure AD genel yönetici ve bir Azure aboneliği abonelik ortak yönetici olması gerekir.  nasıl tooadd kullanıcılar tooAzure abonelikleri görmek toolearn [nasıl tooadd ya da değişiklik Azure yönetici rolleri](../billing/billing-add-change-azure-subscription-administrator.md).
+Kullanıcı Azure Aboneliklerini yönetmek gerekmez dahi, Klasik Azure portalına erişim Hizmet Yöneticisi veya bir Azure aboneliğinin ortak yönetici kullanıcı olmasını gerektirir.  Örneğin, Azure AD Klasik portalında için yapılandırma ayarlarını yönetmek için bir kullanıcı Azure AD genel yönetici ve bir Azure aboneliği abonelik ortak yönetici olması gerekir.  Kullanıcılar Azure aboneliklerine eklemeyi öğrenmek için bkz: [eklemek veya Azure yönetici rollerini değiştirmek nasıl](../billing/billing-add-change-azure-subscription-administrator.md).
 
-Online Services gerektirebilir erişim tooMicrosoft hello kullanıcı da atanabilir bir lisans hello hizmetin portalını açın veya yönetim görevlerini gerçekleştirmek için önce.
+Kullanıcı ayrıca atanabilir bir lisans hizmetin portalını açın veya yönetim görevlerini gerçekleştirmek için önce Microsoft Online Services erişimi gerektirebilir.
 
-## <a name="assign-a-license-tooa-user-in-azure-ad"></a>Azure AD içinde lisans tooa kullanıcı atama
-1. İçinde toohello oturum [Klasik Azure portalı](http://manage.windowsazure.com) bir genel yönetici hesabını veya bir ortak yönetici hesabı.
-2. Seçin **tüm öğeleri** hello ana menüden.
-3. İle toowork ve lisansları kendisiyle ilişkilendirilmiş istediğiniz hello dizini seçin.
-4. Seçin **lisansları**. kullanılabilir lisans Hello listesi görüntülenir.
-5. Toodistribute istediğiniz hello lisans içeren hello lisans planını seçin.
+## <a name="assign-a-license-to-a-user-in-azure-ad"></a>Azure AD'de bir kullanıcıya bir lisans atama
+1. Oturum [Klasik Azure portalı](http://manage.windowsazure.com) bir genel yönetici hesabını veya bir ortak yönetici hesabı.
+2. Seçin **tüm öğeleri** ana menüden.
+3. Çalışmak istediğiniz dizini seçin ve onunla ilişkili lisans sahip.
+4. Seçin **lisansları**. Kullanılabilir lisans listesi görüntülenir.
+5. Dağıtmak istediğiniz lisansları içeren lisans planını seçin.
 6. Seçin **kullanıcı atama**.
-7. Tooassign bir lisans istiyor select hello kullanıcı için.
-8. Merhaba tıklatın **atamak** düğmesi.  Merhaba kullanıcı artık tooAzure oturum açabilir.
+7. Bir lisans atamak istediğiniz kullanıcıyı seçin.
+8. tıklatın **atamak** düğmesi.  Kullanıcı artık Azure'a oturum açabilir.
 
-<!--Every topic should have next steps and links toohello next logical set of content tookeep hello customer engaged-->
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Sonraki adımlar
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

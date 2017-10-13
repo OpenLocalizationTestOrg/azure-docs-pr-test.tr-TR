@@ -1,5 +1,5 @@
 ---
-title: "aaaWindows Phone Silverlight SDK yükseltme yordamları"
+title: "Windows Phone Silverlight SDK yükseltme yordamları"
 description: "Windows Phone Silverlight SDK yükseltme yordamları için Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,51 +14,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: d72e7b8a59ef2c0a95b22efbf1e5257271399ddc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f87f65788075c7f4067e77946e1bcbc8f3709317
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-phone-silverlight-sdk-upgrade-procedures"></a>Windows Phone Silverlight SDK yükseltme yordamları
-Uygulamanıza bizim SDK daha eski bir sürümü zaten bütünleştirdiyseniz noktaları hello SDK yükseltirken aşağıdaki tooconsider hello sahip.
+Uygulamanıza bizim SDK daha eski bir sürümü zaten bütünleştirdiyseniz, SDK'yı yükseltirken aşağıdaki noktaları dikkate almanız gerekir.
 
-Merhaba SDK çeşitli sürümleri eksik birkaç yordamları toofollow olabilir. 0.10.1 geçirirseniz örneğin hello izleyin toofirst sahip too0.11.0 "0.9.0'dan gelen too0.10.1" yordamı sonra hello "0.10.1 gelen too0.11.0" yordamı.
+SDK çeşitli sürümleri eksik, birçok yordamı uygulamanız gerekebilir. Örneğin, 0.10.1 önce "Kimden 0.9.0'dan 0.10.1 için" yordamını takip etmek için sahip 0.11.0 sonra "Kimden 0.10.1 0.11.0 için" yordamı geçiş ise.
 
-## <a name="from-200-too330"></a>2.0.0 gelen too3.3.0
+## <a name="from-200-to-330"></a>2.0.0 3.3.0 için
 ### <a name="test-logs"></a>Test günlükleri
-Konsol günlükleri Hello SDK tarafından üretilen artık etkin/devre dışı bırakılmış/filtrelenmiş olabilir. toocustomize Bu, güncelleştirme hello özellik `EngagementAgent.Instance.TestLogEnabled` tooone hello kullanılabilir hello değerinin `EngagementTestLogLevel` numaralandırma, örneğin:
+SDK'sı tarafından üretilen konsol günlükleri artık etkin/devre dışı bırakılmış/filtrelenmiş olabilir. Bu özelleştirmek için özellik güncelleştirme `EngagementAgent.Instance.TestLogEnabled` bulunan değer birine `EngagementTestLogLevel` numaralandırma, örneğin:
 
             EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
             EngagementAgent.Instance.Init();
 
-## <a name="from-111-too200"></a>1.1.1 gelen too2.0.0
-Merhaba toomigrate'nın Azure Mobile Engagement tarafından desteklenen bir uygulamaya bir SDK tümleştirmesi hello Capptain hizmet gelen Capptain SAS tarafından nasıl sunulan açıklanmıştır. 
+## <a name="from-111-to-200"></a>1.1.1 2.0.0 için
+Aşağıdaki nasıl Azure Mobile Engagement tarafından desteklenen bir uygulamaya Capptain SAS tarafından sunulan Capptain hizmetinden bir SDK tümleştirmesi geçirileceğini açıklar. 
 
 > [!IMPORTANT]
-> Capptain ve Mobile Engagement olan değil hello aynı Hizmetleri ve yalnızca aşağıda verilen hello yordamı nasıl toomigrate hello istemci uygulamaları vurgular. Geçirme hello SDK hello uygulama hello Capptain sunucuları toohello Mobile Engagement sunuculardan veri geçişi YAPILMAZ
+> Capptain ve Mobile Engagement aynı Hizmetleri değildir ve aşağıda verilen yordamı yalnızca istemci uygulaması geçirmek nasıl vurgular. Uygulama SDK'yı geçirme verilerinizi Capptain sunucularından Mobile Engagement sunucuya geçişi YAPILMAZ
 > 
 > 
 
-Önceki bir sürümünden geçiş yapıyorsanız, lütfen hello Capptain web sitesi toomigrate too1.1.1 ilk başvurun sonra hello aşağıdaki yordamı uygulayın
+Önceki bir sürümünden geçiş yapıyorsanız, Lütfen 1.1.1 için önce geçirmenizi sonra aşağıdaki yordamı uygulamak için Capptain web sitesine bakın
 
 ### <a name="nuget-package"></a>Nuget paketi
 Değiştir **Capptain.WindowsPhone** tarafından **MicrosoftAzure.MobileEngagement** Nuget paketi.
 
 ### <a name="applying-mobile-engagement"></a>Mobil katılım uygulama
-Merhaba SDK kullanan hello terim `Engagement`. Proje toomatch tooupdate gereken bu değişikliği.
+Terimi SDK kullanan `Engagement`. Projenizi bu değişikliği eşleşecek şekilde güncelleştirmeniz gerekir.
 
-Toouninstall, geçerli Capptain nuget paketi gerekir. Tüm değişikliklerinizi Capptain Kaynaklar klasörünü kaldırılacak göz önünde bulundurun. Tookeep istiyorsanız, bu dosyaların bir kopyasını sonra yapın.
+Geçerli Capptain nuget paketini kaldırmanız gerekir. Tüm değişikliklerinizi Capptain Kaynaklar klasörünü kaldırılacak göz önünde bulundurun. Bu dosyaları saklamak isterseniz bir kopyasını oluşturun.
 
-Bundan sonra projenizde hello yeni Microsoft Azure katılım nuget paketini yükleyin. Doğrudan üzerinde bulabilirsiniz [Nuget](http://www.nuget.org/packages/MicrosoftAzure.MobileEngagement). Tüm kaynak dosyaları katılım tarafından kullanılan ve hello yeni katılım DLL tooyour ekler bu eylem değiştirir başvuruları yansıtın.
+Bundan sonra projenizde yeni Microsoft Azure katılım nuget paketini yükleyin. Doğrudan üzerinde bulabilirsiniz [Nuget](http://www.nuget.org/packages/MicrosoftAzure.MobileEngagement). Bu eylem, katılım tarafından kullanılan tüm kaynakları dosyalarının yerini alır ve yeni katılım DLL, proje başvuruları ekler.
 
-Proje başvuruları Capptain DLL başvurularını silerek tooclean sahip. Bunu yapmazsanız Capptain hello sürümü çakışır ve hataları gerçekleşir.
+Proje başvuruları Capptain DLL başvurularını silerek temizlemeniz gerekir. Bunu yapmazsanız Capptain sürümü çakışır ve hataları gerçekleşir.
 
-Capptain kaynakları özelleştirdiyseniz, eski dosyaları içeriğinizi kopyalayın ve bunları hello yeni katılım dosyalarında yapıştırın. Xaml ve cs dosyaları güncelleştirilmiş toobe gerektiğini unutmayın.
+Capptain kaynakları özelleştirdiyseniz, eski dosyaları içeriğinizi kopyalayın ve bunları yeni katılım dosyalar yapıştırın. Xaml ve cs dosyaları güncelleştirilmesi gerektiğini unutmayın.
 
-Bu adımlar tamamlandığında tooreplace eski Capptain başvurular hello yeni katılım başvurular tarafından yeterlidir.
+Bu adımlar tamamlandığında yeni katılım başvurular tarafından eski Capptain başvuruları değiştirin yeterlidir.
 
-1. Tüm Capptain ad güncelleştirilmiş toobe sahip.
+1. Tüm Capptain ad alanlarını güncelleştirilmesi gerekiyor.
    
     Geçişten önce:
    
@@ -108,18 +108,18 @@ Bu adımlar tamamlandığında tooreplace eski Capptain başvurular hello yeni k
         xmlns:engagement="clr-namespace:Microsoft.Azure.Engagement;assembly=Microsoft.Azure.Engagement.EngagementAgent.WP"
         ...
         </engagement:EngagementPage>
-4. İçin diğer kaynakları Capptain resimler gibi Merhaba, bunlar da yeniden adlandırılmış toouse "Katılım" kaldırılmış lütfen unutmayın.
+4. İçin diğer kaynaklar Capptain resimler gibi bunlar ayrıca "Katılım" kullanacak şekilde yeniden adlandırıldığı gerektiğini lütfen unutmayın.
 
 ### <a name="application-id--sdk-key"></a>Uygulama Kimliği / SDK anahtarı
-Katılım bağlantı dizesini kullanır. Bir uygulama kimliği ve Mobile Engagement SDK'sı anahtarla toospecify yoksa, toospecify bir bağlantı dizesi yeterlidir. Bunu EngagementConfiguration dosyanızı ayarlayabilirsiniz.
+Katılım bağlantı dizesini kullanır. Mobile Engagement ile bir uygulama kimliği ve bir SDK anahtarı belirtmeniz gerekmez, yalnızca bir bağlantı dizesi belirtmeniz gerekir. Bunu EngagementConfiguration dosyanızı ayarlayabilirsiniz.
 
-Merhaba katılım yapılandırma ayarlanabilir, `Resources\EngagementConfiguration.xml` projenizin dosya.
+Katılım yapılandırma ayarlanabilir, `Resources\EngagementConfiguration.xml` projenizin dosya.
 
-Bu dosya toospecify düzenleyin:
+Belirtmek için bu dosyayı düzenleyin:
 
 * Uygulama bağlantı dizenizi etiketleri arasına `<connectionString>` ve `<\connectionString>`.
 
-Çalışma zamanında, bunun yerine, çağırabilirsiniz hello aşağıdaki toospecify istiyorsanız yöntemi hello katılım aracı başlatmadan önce:
+Bunun yerine çalışma zamanında belirtmek istiyorsanız, katılım aracı başlatmadan önce aşağıdaki yöntemini çağırabilirsiniz:
 
         /* Engagement configuration. */
         EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
@@ -128,10 +128,10 @@ Bu dosya toospecify düzenleyin:
         /* Initialize Engagement angent with above configuration. */
         EngagementAgent.Instance.Init(engagementConfiguration);
 
-Merhaba bağlantı dizesi, uygulamanız için hello Klasik Azure portalı görüntülenir.
+Bağlantı dizesi, uygulamanız için Azure Klasik Portalı'nda görüntülenir.
 
 ### <a name="items-name-change"></a>Öğe adı değişikliği
-Tüm öğeleri adlı *capptain* adlandırılmış *engagement*. Benzer şekilde *Capptain* çok*Engagement*.
+Tüm öğeleri adlı *capptain* adlandırılmış *engagement*. Benzer şekilde *Capptain* için *Engagement*.
 
 Yaygın olarak kullanılan Capptain öğeleri örnekleri:
 

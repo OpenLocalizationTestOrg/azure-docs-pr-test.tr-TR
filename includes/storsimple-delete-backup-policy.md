@@ -1,10 +1,10 @@
 
 <!--author=SharS last changed: 11/06/15-->
 
-#### <a name="toodelete-a-storsimple-backup-policy"></a>toodelete StorSimple yedekleme İlkesi
-1. Merhaba aygıtta **Hızlı Başlangıç** hello sayfasında, **yedekleme ilkeleri** sekmesi. Bu toohello sürecek **yedekleme ilkeleri** sayfası.
-2. Hello İlkesi hello karşılık gelen satırda hello ilk sütun dışında herhangi bir yere tıklayarak seçin ve ardından **silmek** hello sayfanın hello sonundaki.
-3. Onayınız istenir. Bir yedekleme ilkesi silme tüm hello silecek unutmayın yedeklemeleri ilişkilendirilmiş. Tıklatın **Evet** toodelete.
+#### <a name="to-delete-a-storsimple-backup-policy"></a>StorSimple yedekleme ilkesini silmek için
+1. Cihazın **Hızlı Başlangıç** sayfasında **Yedekleme İlkeleri** sekmesine tıklayın. Bunun yapılması sizi **Yedekleme İlkeleri** sayfasına götürür.
+2. Karşılık gelen satırda ilk sütun dışında herhangi bir yere tıklayarak ilkeyi seçin ve ardından **silmek** sayfanın sonundaki.
+3. Onayınız istenir. Bir yedekleme İlkesi silinmesi ilişkili tüm yedeklemeler silecek unutmayın. Tıklatın **Evet** silmek için.
 
-Merhaba **yedekleme ilkeleri** sayfa güncelleştirilmiş toodisplay hello yeni ilkelerin listesini olacaktır.
+**Yedekleme ilkeleri** ilkeleri yeni listesini görüntülemek için sayfa güncelleştirilir.
 

@@ -1,5 +1,5 @@
 ---
-title: "aaaData güvenlik ve şifreleme en iyi yöntemler | Microsoft Docs"
+title: "Veri güvenliği ve şifreleme en iyi uygulamalar | Microsoft Docs"
 description: "Bu makalede veri güvenliği için en iyi yöntemler kümesi sağlar ve şifreleme kullanılarak Azure özellikleri."
 services: security
 documentationcenter: na
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
-ms.openlocfilehash: 5057c85ed3107921462a40045e716675ea41e4bb
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 81136e53756adfdba2f07c103b042499fe2967db
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Azure veri güvenliği ve şifreleme en iyi uygulamalar
-Hello anahtarları toodata koruma hello bulutta birini hello olası durumlar verilerinizi ortaya çıkabilecek ve bu durum için hangi denetimlerin kullanılabilir hesap. Azure veri güvenlik ve şifreleme en iyi uygulamaları Hello amaçla hello önerileri verilerinin durumları aşağıdaki hello geçici bir çözüm olacaktır:
+Veri koruma bulutta anahtarlarından birini verilerinizi ortaya çıkabilecek ve bu durum için hangi denetimlerin kullanılabilir olası durumlar için hesap. Amacıyla Azure veri güvenlik ve şifreleme en iyi uygulamaları önerileri aşağıdaki verilerinin durumları geçici bir çözüm olacaktır:
 
 * : Çalışmıyorken Bu depolama nesneleri, kapsayıcıları ve statik olarak fiziksel medyada mevcut türleri manyetik veya optik disk olması tüm bilgileri içerir.
-* Aktarım sırasında: Ne zaman veri aktarılmakta olan bileşenleri, konumlara veya programları arasında gibi hello ağ üzerinden bir hizmet veri yolundan (şirket içi toocloud ve ExpressRoute gibi karma bağlantılar dahil olmak üzere tersi,) üzerinden veya bir giriş/çıkış sırasında işlem, bu düşündüğünüz olarak hareket halinde.
+* Aktarım sırasında: Ne zaman veri bileşenleri, konumlara veya ağ bir hizmet veri yolu (Başlangıç, bulut şirket içi ve ExpressRoute gibi karma bağlantılar dahil olmak üzere tersi,) programları gibi üzerinde arasında ya da bir giriş/çıkış işlemi sırasında aktarıldığı , da olduğu düşünülen hareket halinde.
 
-Bu makalede Azure data güvenlik ve şifreleme en iyi uygulamaları koleksiyonu aşağıdakiler ele alınacaktır. Bu en iyi uygulamaları ile Azure veri güvenliği deneyimi bizim türetilen ve şifreleme ve hello karşılaştığında müşterilerin kendiniz gibi.
+Bu makalede Azure data güvenlik ve şifreleme en iyi uygulamaları koleksiyonu aşağıdakiler ele alınacaktır. Bu en iyi uygulamaları, Azure veri güvenliği, şifreleme ve kendiniz gibi müşterilerin deneyimleri bizim deneyimlerden türetilir.
 
 En iyi her uygulama için açıklayacağız:
 
-* Hangi hello en iyi uygulamadır
-* Neden bu en iyi uygulama tooenable istiyor
-* Tooenable hello en iyi yöntem başarısız olursa ne hello sonucu olabilir
-* Olası alternatifler toohello en iyi uygulama
-* Tooenable hello en iyi yöntem nasıl öğrenin
+* En iyi uygulama nedir
+* Bu en iyi uygulama etkinleştirmek istediğiniz neden
+* En iyi uygulama olarak etkinleştirmek başarısız olursa ne sonucu olabilir
+* En iyi uygulama için olası alternatifler
+* Nasıl en iyi uygulama olarak etkinleştirmek bilgi edinebilirsiniz
 
-Bu makalenin yazıldığı hello aynı anda var Bu Azure veri güvenliği ve şifreleme en iyi yöntemler makalesi anlaşma fikir ve Azure platformu özellikleri ve özellik kümeleri dayanır. Bu makalede olacaktır ve görüşlerini ve teknolojileri değiştirmek zaman içinde bu değişiklikleri düzenli olarak tooreflect üzerinde güncelleştirildi.
+Bu makalenin yazıldığı sırada oldukları gibi bu Azure veri güvenliği ve şifreleme en iyi yöntemler makalesi anlaşma fikir ve Azure platformu özellikleri ve özellik kümeleri dayanır. Zaman içinde görüşlerini ve teknolojileri değiştirebilirsiniz ve bu makalede bu değişiklikleri yansıtacak şekilde düzenli olarak güncelleştirilir.
 
 Bu makalede ele alınan azure veri güvenlik ve şifreleme en iyi uygulamalar şunlardır:
 
@@ -50,110 +50,110 @@ Bu makalede ele alınan azure veri güvenlik ve şifreleme en iyi uygulamalar ş
 * Dosya düzeyinde veri şifrelemeyi zorunlu kılma
 
 ## <a name="enforce-multi-factor-authentication"></a>Çok faktörlü kimlik doğrulamasını zorunlu
-veri erişimi ilk adımda Hello ve Microsoft Azure denetiminde tooauthenticate hello kullanıcıdır. [Azure multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md) yalnızca bir kullanıcı adı ve parola'den başka bir yöntem kullanarak kullanıcının kimliğini doğrulayan bir yöntemdir. Bu kimlik doğrulama yöntemi kullanıcı talebine basit bir oturum açma işlemi için buluştururken koruma erişim toodata ve uygulamaları yardımcı olur.
+İlk adımda veri erişimi ve Microsoft Azure denetiminde kullanıcının kimliğini etkinleştirmektir. [Azure multi-Factor Authentication (MFA)](../multi-factor-authentication/multi-factor-authentication.md) yalnızca bir kullanıcı adı ve parola'den başka bir yöntem kullanarak kullanıcının kimliğini doğrulayan bir yöntemdir. Bu kimlik doğrulama yöntemi yardımcı erişimi korumaya veri ve uygulamalara basit bir oturum açma işlemi için kullanıcı talebine toplantı oluştu.
 
-Kullanıcılarınız için Azure MFA etkinleştirerek, güvenlik toouser oturum açmalarına ve işlemlerine ikinci bir katmanı ekliyorsunuz. Bu durumda, bir işlem bir dosya sunucusunda veya, SharePoint Online'da bulunan bir belge erişiyor. Azure MFA, güvenliği aşılmış bir kimlik bilgisi erişim tooorganization'ın veri olduğunu BT tooreduce hello olasılığı da yardımcı olur.
+Kullanıcılarınız için Azure MFA etkinleştirerek, kullanıcı oturum açmaları ve işlemleri için ikinci bir güvenlik katmanı ekliyorsunuz. Bu durumda, bir işlem bir dosya sunucusunda veya, SharePoint Online'da bulunan bir belge erişiyor. Ayrıca, Azure MFA yardımcı BT güvenliği aşılmış bir kimlik bilgisi kuruluşunuzun veri erişimi olmasını olasılığını azaltmak için.
 
-Örneğin: kullanıcılarınız için Azure MFA zorlamak ve hello kullanıcının kimlik bilgileri aşılıp aşılmadığını toouse bir telefon araması veya kısa mesaj doğrulama yapılandırın, hello saldırgan olmaz kendisine erişim toouser'ın telefon olmaz beri mümkün tooaccess herhangi bir kaynak olabilir. Bu ek kimlik koruması katmanı eklemeyin kuruluşlar toodata güvenliğinin aşılmasına neden olabilir kimlik bilgisi hırsızlığı saldırısına için daha açıktır.
+Örneğin: kullanıcılarınız için Azure MFA zorlamak ve kullanıcının kimlik bilgileri aşılıp aşılmadığını bir telefon araması veya kısa mesaj doğrulaması kullanacak şekilde yapılandırın, saldırganın kendisinin kullanıcının telefonuna erişemeyecektir beri herhangi bir kaynağa erişim mümkün olmayacaktır. Bu ek kimlik koruması katmanı eklemeyin kuruluşlar veri güvenliğinin aşılmasına neden kimlik bilgisi hırsızlığı saldırısına daha açıktır.
 
-Bir alternatif tookeep hello kimlik doğrulama denetimi isteyen kuruluşların için şirket içi olan toouse [Azure çok faktörlü kimlik doğrulama sunucusu](../multi-factor-authentication/multi-factor-authentication-get-started-server.md), MFA şirket içi olarak da bilinir. Bu yöntemi kullanarak hello MFA sunucusu şirket içi korurken mümkün tooenforce çok faktörlü kimlik doğrulaması yine olacaktır.
+Kimlik doğrulama denetimi içi tutmak istediğiniz kuruluşlar için bir alternatif kullanmaktır [Azure çok faktörlü kimlik doğrulama sunucusu](../multi-factor-authentication/multi-factor-authentication-get-started-server.md), MFA şirket içi olarak da bilinir. Bu yöntemi kullanarak çok faktörlü kimlik doğrulaması, MFA sunucusu şirket içi korurken zorlayabilir devam edersiniz.
 
-Azure MFA hakkında daha fazla bilgi için lütfen hello makaleyi okuyun [hello bulutta Azure multi Factor Authentication ile çalışmaya başlama](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+Azure MFA hakkında daha fazla bilgi için lütfen makaleyi okuyun [bulutta Azure multi-Factor Authentication kullanmaya Başlarken](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 
 ## <a name="use-role-based-access-control-rbac"></a>Kullanım rol tabanlı erişim denetimi (RBAC)
-Merhaba üzerinde bağlı erişimi kısıtlayabilirsiniz [tooknow gerek](https://en.wikipedia.org/wiki/Need_to_know) ve [en az ayrıcalık](https://en.wikipedia.org/wiki/Principle_of_least_privilege) güvenlik ilkeleri. Bu, veri erişimi için tooenforce güvenlik ilkeleri istediğiniz kuruluşlar için zorunludur. Azure rol tabanlı erişim denetimi (RBAC) kullanılan tooassign izinleri toousers, gruplar ve uygulamalar belirli bir kapsamda olabilir. bir rol ataması Hello kapsamını bir abonelik, bir kaynak grubu veya tek bir kaynak olabilir.
+Temelinde erişimi kısıtlayabilirsiniz [bilmeniz](https://en.wikipedia.org/wiki/Need_to_know) ve [en az ayrıcalık](https://en.wikipedia.org/wiki/Principle_of_least_privilege) güvenlik ilkeleri. Bu, veri erişimi için güvenlik ilkelerini zorlamak istiyorsanız kuruluşlar için zorunludur. Azure rol tabanlı erişim denetimi (RBAC), kullanıcılar, gruplar ve uygulamalar belirli bir kapsamda izinleri atamak için kullanılabilir. Rol atamasının kapsamı, bir abonelik, bir kaynak grubu veya tek bir kaynak olabilir.
 
-Yararlanabileceğiniz [yerleşik RBAC rolleri](../active-directory/role-based-access-built-in-roles.md) Azure'da tooassign toousers ayrıcalıkları. Kullanmayı *depolama hesabı katkıda bulunan* toomanage depolama hesapları gereken bulut operatörleri için ve *Klasik depolama hesabı katkıda bulunan* rol toomanage Klasik depolama hesapları. Toomanage Vm'leri ve depolama hesabı gerekiyor bulut operatörleri için bunları çok eklemeyi düşünün*sanal makine Katılımcısı* rol.
+Yararlanabileceğiniz [yerleşik RBAC rolleri](../active-directory/role-based-access-built-in-roles.md) ayrıcalıkları kullanıcılara atamak için azure'da. Kullanmayı *depolama hesabı katkıda bulunan* depolama hesaplarını yönetmek için gereken bulut operatörleri için ve *Klasik depolama hesabı katkıda bulunan* Klasik depolama hesaplarını yönetmek için rol. Sanal makineleri ve depolama hesabı yönetmesi gereken bulut operatörleri için onlara eklemeyi düşünün *sanal makine Katılımcısı* rol.
 
-Veri erişim denetimi RBAC gibi özellikler yararlanarak zorlamaz kuruluşlar kendi kullanıcıları için gerekenden daha fazla ayrıcalık vermiş. Merhaba ilk yerinde olmamalıdır erişim toodata olan bazı kullanıcılar sağlayarak bu toodata güvenliğinin aşılmasına neden olabilir.
+Veri erişim denetimi RBAC gibi özellikler yararlanarak zorlamaz kuruluşlar kendi kullanıcıları için gerekenden daha fazla ayrıcalık vermiş. Bazı kullanıcılar ilk başta olmamalıdır veri erişmesini sağlayarak bu verileri güvenliğinin aşılmasına neden olabilir.
 
-Merhaba makale okuyarak Azure RBAC hakkında daha fazla bilgiyi [Azure rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md).
+Makaleyi okuyarak Azure RBAC hakkında daha fazla bilgiyi [Azure rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md).
 
 ## <a name="encrypt-azure-virtual-machines"></a>Azure Virtual Machines şifreleme
-Çoğu kuruluş için [bekleyen verileri şifreleme](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) veri gizliliği, uyumluluk ve veri egemenliği doğru zorunlu bir adımdır. Azure Disk şifrelemesi, BT yöneticileri tooencrypt Windows ve Linux Iaas sanal makine (VM) diskleri sağlar. Azure Disk şifrelemesi hello endüstri standart BitLocker özelliği, Windows ve Linux tooprovide birim şifreleme hello işletim sistemi için hello DM-Crypt özelliği ve hello veri diskleri yararlanır.
+Çoğu kuruluş için [bekleyen verileri şifreleme](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) veri gizliliği, uyumluluk ve veri egemenliği doğru zorunlu bir adımdır. Azure Disk şifrelemesi, Windows ve Linux Iaas sanal makine (VM) diskleri şifrelemek BT yöneticilerine sağlar. Azure Disk şifrelemesi endüstri standart BitLocker özelliği, Windows ve Linux işletim sistemi ve veri diskleri için birim şifrelemesi sağlamak için DM-Crypt özelliği yararlanır.
 
-Azure Disk şifrelemesi yararlanabilirsiniz toohelp korumak ve kuruluşunuzun güvenlik ve uyumluluk gereksinimlerini veri toomeet koruyun. Kuruluşlar, şifreleme kullanarak da düşünmelisiniz toohelp riskleri ilgili toounauthorized veri erişimi etkisini azaltır. Sürücüleri önceki toowriting hassas verileri toothem şifrelemeniz önerilir.
+Koruma ve Kuruluş güvenliği ve uyumluluk gereksinimleri karşılamak için verilerinizi korumaya yardımcı olmak için Azure Disk şifrelemesi yararlanabilirsiniz. Kuruluşlar, ayrıca riskleri ilgili yetkisiz veri erişimi azaltmaya yardımcı olmak için şifreleme kullanmayı düşünmeniz gerekir. Ayrıca, bunlara hassas verileri yazma önce sürücüleri şifreleme önerilir.
 
-Emin tooencrypt VM veri birimleri ve önyükleme birimi sipariş tooprotect verilerini Azure depolama hesabınızdaki REST yapın. Koruma hello şifreleme anahtarları ve gizli anahtarları yararlanarak [Azure anahtar kasası](../key-vault/key-vault-whatis.md).
+Azure depolama hesabınızdaki kalan verileri korumak için VM veri birimleri ve önyükleme birimi şifrelemek emin olun. Şifreleme anahtarları ve gizli anahtarları yararlanarak koruma [Azure anahtar kasası](../key-vault/key-vault-whatis.md).
 
-Şirket içi Windows sunucuları için şifreleme en iyi uygulamaları izleyerek hello göz önünde bulundurun:
+Şirket içi Windows sunucuları için en iyi yöntemler aşağıdaki şifreleme göz önünde bulundurun:
 
 * Kullanım [BitLocker](https://technet.microsoft.com/library/dn306081.aspx) için veri şifreleme
 * Kurtarma bilgileri AD DS'de depolar.
-* BitLocker anahtarları aşılmış herhangi bir sorun varsa, tüm örneklerini hello sürücü veya sizin hello BitLocker meta verilerini hello sürücünün tamamını yeniden şifrelemek ve şifresini çözmek hello sürücü tooremove ya da biçimlendirmek öneririz.
+* BitLocker anahtarları tehlikeye, ya da sürücüdeki tüm örneklerini BitLocker meta verileri kaldırmak için sürücüyü biçimlendirmek öneririz veya şifresini çözmek ve sürücünün tamamını yeniden şifrelemek herhangi bir sorun varsa.
 
-Veri şifrelemeyi zorunlu olmayan kuruluşlar büyük olasılıkla açığa toobe toodata veri hırsızlığı kötü amaçlı veya standart dışı kullanıcılar gibi bütünlüğü sorunlar var ve yetkisiz erişim toodata Temizle biçiminde sağlamasını hesapları tehlikeye. Bu riskleri yanı sıra, sektör düzenlemelerini ile toocomply kullanan şirket gerekir kanıtlamak dikkatli ve hello doğru güvenlik denetimleri tooenhance veri güvenliği kullanma.
+Veri şifrelemeyi zorunlu olmayan kuruluşlar, veri hırsızlığı kötü amaçlı veya standart dışı kullanıcılar gibi veri bütünlüğü sorunları maruz kalabilir olasılığı daha yüksektir ve Temizle biçimindeki verileri yetkisiz erişim elde hesapları tehlikeye. Bu riskleri yanı sıra endüstri düzenlemelerle uyumlu olması kullanan şirket gerekir kanıtlamak dikkatli ve veri güvenliğini artırmak için doğru güvenlik denetimleri kullanarak.
 
-Merhaba makale okuyarak Azure Disk şifrelemesi hakkında daha fazla bilgiyi [için Azure Disk şifrelemesi Windows ve Linux Iaas VM'ler](azure-security-disk-encryption.md).
+Azure Disk şifrelemesi hakkında daha fazla makalesini okuyarak bilgi [için Azure Disk şifrelemesi Windows ve Linux Iaas VM'ler](azure-security-disk-encryption.md).
 
 ## <a name="use-hardware-security-modules"></a>Donanım güvenlik modülleri kullanma
-Endüstri şifreleme çözümleri gizli anahtarlarına tooencrypt verileri kullanın. Bu nedenle, bu anahtarları güvenli şekilde depolanan önemlidir. Kullanılan tooencrypt veri çevrelerini toostore gizli anahtarları olacağından anahtar yönetimi veri koruması'nın ayrılmaz bir parçası olur.
+Endüstri şifreleme çözümleri gizli anahtarlarına verileri şifrelemek için kullanın. Bu nedenle, bu anahtarları güvenli şekilde depolanan önemlidir. Anahtar Yönetimi, verileri şifrelemek için kullanılan gizli anahtarlarını depolamak için de olduğundan veri koruması'nın ayrılmaz bir parçası haline gelir.
 
-Azure disk şifrelemesi kullanan [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) toohelp, denetlemek ve disk şifreleme anahtarları ve gizli anahtarları Azure bekleyen hello sanal makine disklerdeki tüm veriler şifrelenir sağlarken anahtar kasası aboneliğinizde yönetme depolama alanı. Azure anahtar kasası tooaudit anahtarları ve ilke kullanım kullanmanız gerekir.
+Azure disk şifrelemesi kullanan [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) denetlemek ve disk şifreleme anahtarları ve gizli anahtar kasası aboneliğinizde yönetmenize yardımcı olmak için while Azure bekleyen sanal makine disklerdeki tüm veriler şifrelenir sağlama depolama alanı. Anahtarları ve ilke kullanımı denetlemek için Azure anahtar kasası kullanmanız gerekir.
 
-Verilerinizi kullanılan tooencrypt olan yer tooprotect hello gizli anahtarları uygun güvenlik denetimleri sahip birçok devralınmış riskleri ilgili toonot vardır. Saldırganlar erişiminiz varsa toohello gizli anahtarları, bunlar mümkün toodecrypt hello veriler ve tooconfidential bilgilerine erişme potansiyeline sahip.
+Uygun güvenlik denetimleri, verileri şifrelemek için kullanılan gizli anahtarların korunmasına yerinde olmaması için ilgili birçok devralınmış riskleri vardır. Saldırganlar gizli anahtarlarına erişimi varsa, verilerin şifresini çözmek ve gizli bilgilere erişme potansiyeline sahip olacaktır.
 
-Merhaba makale okuyarak Azure sertifika yönetimi için genel öneriler hakkında daha fazla bilgiyi [Azure sertifika yönetimi: ilgilenmenin](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/).
+Azure sertifika yönetimi için genel öneriler hakkında daha fazla makalesini okuyarak bilgi [Azure sertifika yönetimi: ilgilenmenin](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/).
 
 Azure anahtar kasası hakkında daha fazla bilgi için okuma [Azure anahtar kasası ile çalışmaya başlama](../key-vault/key-vault-get-started.md).
 
 ## <a name="manage-with-secure-workstations"></a>Güvenli iş istasyonları ile yönetme
-Hello çoğunluğu hello saldırıları hedef hello son kullanıcı bu yana, saldırı hello birincil noktalarından birini hello uç noktası olur. Bir saldırgan hello endpoint etkilediğinde, kendisinin hello kullanıcının kimlik bilgilerini toogain erişim tooorganization ait veri yararlanabilirsiniz. Çoğu uç nokta saldırıları son kullanıcıların kendi yerel iş istasyonlarını Yöneticiler hello bulunmasına mümkün tootake avantajlarından ' dir.
+Son kullanıcı saldırılar çoğunluğu hedef olduğundan uç nokta saldırı birincil noktalarından birini haline gelir. Bir saldırgan uç nokta etkilediğinde, kendisinin kuruluşunuzun verilerini erişmek için kullanıcı kimlik bilgilerini yararlanabilirsiniz. Çoğu uç nokta saldırıları son kullanıcıların kendi yerel iş istasyonlarını Yöneticiler bulunmasına yararlanamazsınız.
 
-Güvenli yönetim iş istasyonu kullanarak bu riskleri azaltabilirsiniz. Kullanmanızı öneririz bir [ayrıcalıklı erişim iş istasyonları (PENÇE)](https://technet.microsoft.com/library/mt634654.aspx) tooreduce hello saldırı yüzeyini iş istasyonları. Bu güvenli yönetim iş istasyonları, bunlardan bazıları azaltmaya yardımcı olabilir saldırıları Yardım verilerinizi daha güvenli olduğundan emin olun. Emin toouse PENÇE tooharden ve kilit istasyonunuzu olun. Bu önemli adım tooprovide yüksek güvenlik çıkışların hassas hesapları, görevleri ve veri koruması için olur.
+Güvenli yönetim iş istasyonu kullanarak bu riskleri azaltabilirsiniz. Kullanmanızı öneririz bir [ayrıcalıklı erişim iş istasyonları (PENÇE)](https://technet.microsoft.com/library/mt634654.aspx) iş istasyonları saldırı yüzeyini azaltmak için. Bu güvenli yönetim iş istasyonları, bunlardan bazıları azaltmaya yardımcı olabilir saldırıları Yardım verilerinizi daha güvenli olduğundan emin olun. Sağlamlaştırmak ve iş istasyonunuzu kilitlemek için PENÇE kullandığınızdan emin olun. Bu, yüksek güvenlik çıkışların hassas hesapları, görevleri ve veri koruması sağlamak için önemli bir adımdır.
 
-Uç nokta koruma eksikliği verilerinizi riske, bu hello veri konumu (Bulut veya şirket içi) bağımsız olarak kullanılan tooconsume veri tüm cihazlar arasında güvenlik ilkeleri emin tooenforce olun.
+Endpoint Protection olmaması, verilerinizi riske, verileri veri konumu (Bulut veya şirket içi) bağımsız olarak kullanmak için kullanılan tüm cihazlar arasında güvenlik ilkelerini zorlamak emin olun.
 
-Ayrıcalıklı hakkında daha fazla erişim iş istasyonu hello makale okuyarak öğrenebilirsiniz [ayrıcalıklı erişimi güvenli hale getirme](https://technet.microsoft.com/library/mt631194.aspx).
+Ayrıcalıklı hakkında daha fazla erişim iş istasyonu makalesini okuyarak öğrenebilirsiniz [ayrıcalıklı erişimi güvenli hale getirme](https://technet.microsoft.com/library/mt631194.aspx).
 
 ## <a name="enable-sql-data-encryption"></a>SQL veri şifrelemeyi etkinleştir
-[Azure SQL veritabanında saydam veri şifreleme](https://msdn.microsoft.com/library/dn948096.aspx) (TDE), gerçek zamanlı şifreleme ve şifre çözme hello veritabanının, ilişkili yedeklemelerinizi gerçekleştirerek kötü amaçlı etkinliği hello tehdide karşı korunmasına yardımcı olur ve işlem günlüğü dosyalarını REST gerektiren değişiklikler toohello uygulama.  TDE, bir simetrik anahtar adlı hello veritabanı şifreleme anahtarı kullanarak veritabanının tamamını hello depolanmasını şifreler.
+[Azure SQL veritabanında saydam veri şifreleme](https://msdn.microsoft.com/library/dn948096.aspx) (TDE), gerçek zamanlı şifreleme ve şifre çözme veritabanının, ilişkili yedeklemelerinizi gerçekleştirerek kötü amaçlı etkinliği tehdide karşı korunmasına yardımcı olur ve işlem günlüğü dosyalarını REST uygulamasında yapılacak değişiklikler gerektirir.  TDE, veritabanının tamamını Depolama veritabanı şifreleme anahtarını adlı bir simetrik anahtar kullanarak şifreler.
 
-Merhaba tüm depolama bile şifreli olduğunda tooalso şifrelemek, veritabanınızı çok önemlidir. Bu veri koruması derinliği yaklaşımda hello savunma uygulamasıdır. Kullanıyorsanız [Azure SQL veritabanı](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) ve tooprotect hassas verileri istiyor kredi kartı veya sosyal güvenlik numarası gibi birçok hello gereksinimleri karşılayan 140-2 doğrulanmış 256 bit AES şifreleme FIPS veritabanlarıyla şifreleyebilirsiniz. endüstri standartları (örn., HIPAA, PCI).
+Tüm depolama bile şifreli olduğunda, aynı zamanda, veritabanınızı şifrelemek çok önemlidir. Bu veri koruması derinliği yaklaşımda savunma uygulamasıdır. Kullanıyorsanız [Azure SQL veritabanı](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) ve kredi kartı veya sosyal güvenlik numarası gibi hassas verileri korumak istiyorsanız, birçoğu gereksinimlerini karşılayan 140-2 doğrulanmış 256 bit AES şifreleme FIPS veritabanlarıyla şifreleyebilirsiniz endüstri standartları (örn., HIPAA, PCI).
 
-İlgili dosyaları çok önemli toounderstand olan[arabellek havuzu genişletme](https://msdn.microsoft.com/library/dn133176.aspx) (BPE) TDE kullanarak bir veritabanı şifreli olduğunda şifrelenmez. BitLocker'ı veya hello gibi dosya sistemi düzeyinde şifreleme araçları kullanmalısınız [şifreleme dosya sistemi](https://technet.microsoft.com/library/cc700811.aspx) (EFS) dosyaları için BPE ilgili.
+Dosyaları ile ilgili anlaşılması önemlidir [arabellek havuzu genişletme](https://msdn.microsoft.com/library/dn133176.aspx) (BPE) TDE kullanarak bir veritabanı şifreli olduğunda şifrelenmez. BitLocker gibi dosya sistemi düzeyinde şifreleme araçları kullanmanız gerekir veya [şifreleme dosya sistemi](https://technet.microsoft.com/library/cc700811.aspx) (EFS) dosyaları için BPE ilgili.
 
-Yetkili bir kullanıcı bu yana gibi bir güvenlik yöneticisi veya bir veritabanı yöneticisi Hello veritabanı ile TDE, şifreli olsa bile hello verilere erişebilir hello önerileri aşağıda da izlemelidir:
+Yetkili bir kullanıcı bu yana veritabanı ile TDE, şifreli olsa bile bir güvenlik yöneticisi veya bir veritabanı yöneticisi verilere erişebilirsiniz gibi aşağıdaki önerileri de izlemelisiniz:
 
-* Merhaba veritabanı düzeyinde SQL kimlik doğrulaması
+* Veritabanı düzeyinde SQL kimlik doğrulaması
 * RBAC rollerini kullanarak azure AD kimlik doğrulaması
-* Kullanıcılar ve uygulamalar ayrı hesaplar tooauthenticate kullanmanız gerekir. Bu şekilde toousers ve uygulamaları hello izinler sınırlayabilir ve kötü amaçlı etkinliğin hello riskleri azaltın
-* Uygulama veritabanı düzeyi güvenlik (örneğin, db_datareader veya db_datawriter) sabit veritabanı rollerinin veya kullanarak izinler tooselected veritabanı nesnelerini uygulama toogrant için özel rolleri oluşturabilirsiniz
+* Kullanıcılar ve uygulamalar ayrı hesaplarının kimliğini doğrulamak için kullanmanız gerekir. Bu şekilde kullanıcılar ve uygulamalar için izinler sınırlayabilir ve kötü amaçlı etkinliği riskleri azaltın
+* Uygulama veritabanı düzeyi güvenlik (örneğin, db_datareader veya db_datawriter) sabit veritabanı rollerinin veya kullanarak seçili veritabanı nesnelerini açık izinleri vermek, uygulamanız için özel rolleri oluşturabilirsiniz
 
 Veritabanı düzeyinde şifreleme kullanılarak olmayan kuruluşlar daha açıktır. SQL veritabanlarında bulunan verilere tehlikeye atabilir saldırıları için olabilir.
 
-Merhaba makale okuyarak SQL TDE'nin şifreleme hakkında daha fazla bilgiyi [saydam veri şifrelemesi ile Azure SQL veritabanı](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx).
+SQL TDE'nin şifreleme hakkında daha fazla makalesini okuyarak bilgi [saydam veri şifrelemesi ile Azure SQL veritabanı](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx).
 
 ## <a name="protect-data-in-transit"></a>Aktarımdaki verileri korumak
-Aktarımdaki verileri koruma temel veri koruma stratejinizin parçası olmalıdır. Verileri geri ve İleri birçok konumlardan taşıma beri hello genel SSL/TLS protokolleri tooexchange verileri her zaman farklı konumlar arasında kullanmanız önerilir. Bazı durumlarda, şirket içi ve bulut arasındaki tooisolate hello tüm iletişim kanalını isteyebilirsiniz sanal özel ağ (VPN) kullanarak altyapı.
+Aktarımdaki verileri koruma temel veri koruma stratejinizin parçası olmalıdır. Verileri geri ve İleri birçok konumlardan taşıma olduğundan, genel, her zaman SSL/TLS protokolleri farklı konumlar arasında veri değişimi için kullanmanız önerilir. Bazı durumlarda, şirket içi ve bulut arasındaki tüm iletişim kanalını ayırmak isteyebilirsiniz sanal özel ağ (VPN) kullanarak altyapı.
 
 Şirket içi altyapınızı ve Azure arasında taşıma verileri için HTTPS veya VPN gibi uygun güvenlik önlemleri göz önünde bulundurmalısınız.
 
-Birden çok iş istasyonları şirket içi tooAzure toosecure erişimden gereken kuruluşlar için kullanmak [Azure siteden siteye VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md).
+Azure birden çok iş istasyonlarında bulunan şirket içi erişimi güvenli hale getirmek için gereken kuruluşlar için kullanmak [Azure siteden siteye VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md).
 
-Bir iş istasyonundan toosecure erişmeniz kuruluşlar için şirket içi tooAzure, kullanım bulunan [noktası siteye VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md).
+Azure bulunan bir iş istasyonu şirket içi erişimi güvenli hale getirmek için gereken kuruluşlar için kullanmak [noktası siteye VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md).
 
-Büyük veri kümeleri taşınabilir ayrılmış bir yüksek hızlı WAN bağlantısı üzerinden gibi [ExpressRoute](https://azure.microsoft.com/services/expressroute/). Toouse ExpressRoute seçerseniz, ayrıca uygulama düzeyi hello kullanarak hello verileri şifreleyebilir [SSL/TLS](https://support.microsoft.com/kb/257591) veya diğer protokoller için ek koruma.
+Büyük veri kümeleri taşınabilir ayrılmış bir yüksek hızlı WAN bağlantısı üzerinden gibi [ExpressRoute](https://azure.microsoft.com/services/expressroute/). ExpressRoute kullanmayı seçerseniz, ayrıca uygulama düzeyi kullanarak verileri şifreleyebilir [SSL/TLS](https://support.microsoft.com/kb/257591) veya diğer protokoller için ek koruma.
 
-Hello Azure portalı Azure Storage ile etkileşim, tüm işlemleri HTTPS oluşur. [Storage REST API'sini](https://msdn.microsoft.com/library/azure/dd179355.aspx) HTTPS üzerinden de ile kullanılan toointeract olabilir [Azure Storage](https://azure.microsoft.com/services/storage/) ve [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/).
+Azure Portalı aracılığıyla Azure Storage ile etkileşim, tüm işlemleri HTTPS oluşur. [Storage REST API'sini](https://msdn.microsoft.com/library/azure/dd179355.aspx) HTTPS de kullanılabilir ile etkileşim kurmasına üzerinden [Azure Storage](https://azure.microsoft.com/services/storage/) ve [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/).
 
-Aktarım tooprotect verileri başarısız kuruluşlar için daha açıktır [man-in--middle saldırıları](https://technet.microsoft.com/library/gg195821.aspx), [gizli dinleme](https://technet.microsoft.com/library/gg195641.aspx) ve oturumu ele geçirme. Bu saldırıların erişim tooconfidential veri sağlamasını hello ilk adımı olabilir.
+Aktarımdaki verileri korumak için başarısız olan kuruluşlar için daha açıktır [man-in--middle saldırıları](https://technet.microsoft.com/library/gg195821.aspx), [gizli dinleme](https://technet.microsoft.com/library/gg195641.aspx) ve oturumu ele geçirme. Bu tür saldırıları gizli verilere erişmesini ilk adımı olabilir.
 
-Merhaba makale okuyarak Azure VPN seçeneği hakkında daha fazla bilgiyi [planlama ve tasarım VPN ağ geçidi için](../vpn-gateway/vpn-gateway-plan-design.md).
+Azure VPN seçeneği hakkında daha fazla makalesini okuyarak bilgi [planlama ve tasarım VPN ağ geçidi için](../vpn-gateway/vpn-gateway-plan-design.md).
 
 ## <a name="enforce-file-level-data-encryption"></a>Dosya düzeyinde veri şifrelemeyi zorunlu kılma
-Bir başka hello verileriniz için güvenlik düzeyini artırabilirsiniz koruma katmanı hello dosyasının kendisini, hello dosya konumu bağımsız olarak şifreleme.
+Bir başka verileriniz için güvenlik düzeyini artırabilirsiniz koruma katmanı dosya konumuna bakılmaksızın dosyasının kendisini, şifreleme.
 
-[Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) kullandığı şifreleme, kimlik ve yetkilendirme ilkeleri toohelp güvenli dosyalarınızın ve e-posta. Azure RMS birden çok cihazda çalışır — telefonları, Tablet ve PC'leri hem kuruluşunuz içinde hem de kuruluşunuz dışındaki koruma tarafından. Azure RMS bile, kuruluşunuzun sınırları dışına çıktığında hello veriler devam koruma düzeyini eklediğinden bu olası bir yetenektir.
+[Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) dosyalarınızın ve e-posta güvenli hale getirmek için şifreleme, kimlik ve yetkilendirme ilkelerini kullanır. Azure RMS birden çok cihazda çalışır — telefonları, Tablet ve PC'leri hem kuruluşunuz içinde hem de kuruluşunuz dışındaki koruma tarafından. Azure RMS bile, kuruluşunuzun sınırları dışına çıktığında veriler devam koruma düzeyini eklediğinden bu olası bir yetenektir.
 
-Azure RMS tooprotect dosyalarınızı kullandığınızda, endüstri standardı şifreleme ile tam destek kullanmakta olduğunuz [FIPS 140-2](http://csrc.nist.gov/groups/STM/cmvp/standards.html). Veri koruma için Azure RMS yararlanan, hello denetimi altında olmayan kopyalanan toostorage olsa bile hello koruma hello dosyayla kalır hello güvence sahip bir bulut depolama hizmeti gibi BT'nin. Merhaba aynı e-posta ile paylaşılan dosyaları için gerçekleşir, hello dosya eki tooan e-posta eki olarak korunur, yönergelerle ek nasıl tooopen hello korumalı.
+Dosyalarınızı korumak için Azure RMS kullandığınızda, endüstri standardı şifreleme ile tam destek kullanmakta olduğunuz [FIPS 140-2](http://csrc.nist.gov/groups/STM/cmvp/standards.html). Veri koruma için Azure RMS yararlanan, denetimi altında olmayan depolama kopyaladığınız olsa dahi koruma dosyayla beraber kalır güvence sahip bir bulut depolama hizmeti gibi BT'nin. Aynı oluştuğunda e-posta ile paylaşılan dosyaları dosya yönergeleri içeren bir e-posta eki olarak korunur korumalı ekin nasıl açılacağına dair.
 
-Azure RMS benimseme için planlama yaparken hello şunları öneririz:
+Azure RMS benimseme için planlama yaparken şunları öneririz:
 
-* Merhaba yüklemek [RMS sharing uygulaması](https://technet.microsoft.com/library/dn339006.aspx). Bu uygulama tarafından bir Office Eklentisi-kullanıcıların kolayca dosyaları doğrudan koruyabilmeniz için Office uygulamalarıyla ile tümleşir.
-* Uygulamaları ve Hizmetleri toosupport Azure RMS yapılandırma
+* Yükleme [RMS sharing uygulaması](https://technet.microsoft.com/library/dn339006.aspx). Bu uygulama tarafından bir Office Eklentisi-kullanıcıların kolayca dosyaları doğrudan koruyabilmeniz için Office uygulamalarıyla ile tümleşir.
+* Uygulamaları ve Hizmetleri Azure RMS'yi destekleyecek şekilde yapılandırma
 * Oluşturma [özel şablonlar](https://technet.microsoft.com/library/dn642472.aspx) iş gereksinimlerinizi yansıtır. Örneğin: tüm üst gizliliği uygulanması gereken üst gizli veriler için bir şablon ilgili e-postaları.
 
-Üzerinde zayıf kuruluşlar [veri sınıflandırması](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) ve dosya koruması daha açıktır. toodata sızıntısı olabilir. Uygun dosya koruma, kuruluşların iş öngörüleri, uygunsuz kullanım izleme mümkün tooobtain olmalı ve kötü amaçlı erişime toofiles önlemek olmaz.
+Üzerinde zayıf kuruluşlar [veri sınıflandırması](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) ve dosya koruması veri sızıntısını daha açıktır. Uygun dosya koruma kuruluşlar iş Öngörüler elde, uygunsuz kullanım için izleyebilir ve kötü amaçlı erişimi engellemek için dosyaları mümkün olmayacaktır.
 
-Merhaba makale okuyarak Azure RMS hakkında daha fazla bilgiyi [Azure Rights Management ile çalışmaya başlama](https://technet.microsoft.com/library/jj585016.aspx).
+Azure RMS hakkında daha fazla makalesini okuyarak bilgi [Azure Rights Management ile çalışmaya başlama](https://technet.microsoft.com/library/jj585016.aspx).

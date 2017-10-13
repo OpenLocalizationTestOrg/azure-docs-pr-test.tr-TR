@@ -1,9 +1,9 @@
 ---
-title: "aaaCreate bir Internet'e yönelik Yük Dengeleyici - Klasik Azure portalı | Microsoft Docs"
-description: "Klasik Azure portalı toocreate Klasik dağıtım modeli kullanarak bir Internet'e yönelik Yük Dengeleyici hello nasıl öğrenin"
+title: "İnternet’e yönelik yük dengeleyicisi oluşturma - Klasik Azure portalı | Microsoft Docs"
+description: "Klasik Azure portalını kullanarak klasik dağıtımda İnternet’e yönelik yük dengeleyici oluşturmayı öğrenin"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: 27b0d5af6e7b493fa94a9dfbfa260483ae95a2fb
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: e07b6808f2401ac7b2b21e5f8816bac5a15b50b9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-hello-azure-classic-portal"></a>Internet'e yönelik yük dengeleyicisi (Klasik) hello Klasik Azure portalı oluşturmaya başlamak
+# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-classic-portal"></a>Klasik Azure portalında İnternet’e yönelik yük dengeleyici (klasik) oluşturmaya başlama
 
 > [!div class="op_single_selector"]
-> * [Klasik Azure Portalı](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
+> * [Klasik Azure portalı](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-classic-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-classic-cli.md)
 > * [Azure Cloud Services](../load-balancer/load-balancer-get-started-internet-classic-cloud.md)
@@ -32,33 +32,33 @@ ms.lasthandoff: 10/06/2017
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 > [!IMPORTANT]
-> Azure kaynaklarıyla çalışmadan önce Azure'da şu anda iki dağıtım modeli olduğunu önemli toounderstand olduğu: Azure Resource Manager ve klasik. Azure kaynaklarıyla çalışmadan önce [dağıtım modellerini ve araçlarlarını](../azure-classic-rm.md) iyice anladığınızdan emin olun. Bu makalenin hello üstünde hello sekmeleri tıklayarak farklı araçlarla ilgili hello belgeleri görüntüleyebilirsiniz. Bu makalede, hello Klasik dağıtım modeli yer almaktadır. Ayrıca [nasıl toocreate Internet'e yönelik Yük Dengeleyici Azure Resource Manager kullanarak bilgi](load-balancer-get-started-internet-arm-ps.md).
+> Azure kaynaklarıyla çalışmadan önce Azure’da şu anda iki dağıtım modeli olduğunu anlamak önemlidir: Azure Resource Manager ve klasik. Azure kaynaklarıyla çalışmadan önce [dağıtım modellerini ve araçlarlarını](../azure-classic-rm.md) iyice anladığınızdan emin olun. Bu makalenin en üstündeki sekmelere tıklayarak farklı araçlarla ilgili belgeleri görüntüleyebilirsiniz. Bu makale, klasik dağıtım modelini kapsamaktadır. [Azure Resource Manager kullanarak İnternet’e yönelik yük dengeleyici oluşturma](load-balancer-get-started-internet-arm-ps.md) sayfasını da inceleyebilirsiniz.
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
 ## <a name="set-up-an-internet-facing-load-balancer-for-virtual-machines"></a>Sanal makineler için İnternet’e yönelik yük dengeleyici kurma
 
-Sipariş tooload Bakiye gelen ağ trafiğinin içinde hello Internet hello sanal makineler bir bulut hizmeti arasında yük dengeli kümesi oluşturmanız gerekir. Bu yordam hello sanal makineleri oluşturmuş ve tüm varsayar hello içinde aynı bulut hizmeti.
+İnternet’ten gelen ağ trafiğine bir bulut hizmetindeki sanal makinelerde yük dengeleme gerçekleştirmek için yük dengeli küme oluşturmanız gerekir. Bu yordam, sanal makineleri önceden oluşturduğunuzu ve tümünün aynı bulut hizmetinde olduğunu varsaymaktadır.
 
-**sanal makineler için yük dengeli kümesi tooconfigure**
+**Sanal makineler için yük dengeli küme yapılandırma**
 
-1. Hello Klasik Azure portalı, tıklatın **sanal makineleri**ve ardından Yük dengeli hello kümesindeki bir sanal makine hello adına tıklayın.
+1. Klasik Azure portalında **Sanal Makineler**’e ve ardından yük dengeli kümedeki bir sanal makinenin adına tıklayın.
 2. **Uç noktaları**’na ve ardından **Ekle**’ye tıklayın.
-3. Merhaba üzerinde **bir uç nokta tooa sanal makine eklemek** sayfasında, hello sağ oka tıklayın.
-4. Merhaba üzerinde **hello hello uç nokta ayrıntılarını belirtin** sayfa:
+3. **Sanal makineye bir uç nokta ekleyin** sayfasında sağ oka tıklayın.
+4. **Uç nokta ayrıntılarını belirtin** sayfasında:
 
-   * İçinde **adı**hello uç noktası için bir ad yazın veya yaygın protokoller için önceden tanımlanmış uç noktaları hello listeden hello adı seçin.
-   * İçinde **Protokolü**, gerektiğinde uç noktası, TCP veya UDP, hello türü tarafından gerekli hello protokolü seçin.
-   * İçinde **genel bağlantı noktası ve özel bağlantı noktası**, sanal makine toouse hello gerektiği gibi istediğiniz başlangıç bağlantı noktası numaralarını yazın. Uygulamanız için uygun şekilde hello sanal makine tooredirect trafiği üzerinde hello özel bağlantı noktası ve güvenlik duvarı kuralları'nı kullanabilirsiniz. Merhaba özel bağlantı noktası olması hello hello genel bağlantı noktası ile aynı. Örneğin, web (HTTP) trafiği için bir uç nokta için bağlantı noktası, 80 tooboth hello ortak ve özel bağlantı noktası atayabilirsiniz.
+   * **Ad** alanına uç nokta için bir ad yazın veya sık kullanılan protokoller için önceden tanımlı uç nokta listesinden bir ad seçin.
+   * **Protokol** alanında uç nokta türüne göre gerekli olan TCP veya UDP protokolünü seçin.
+   * **Genel Bağlantı Noktası ve Özel Bağlantı Noktası** alanlarına sanal makinenin kullanmasını istediğiniz bağlantı noktası numaralarını yazın. Trafiği uygulamanız için gereken şekilde yönlendirmek üzere sanal makinede özel bağlantı noktası ve güvenlik duvarı kuralları kullanabilirsiniz. Özel bağlantı noktası ile genel bağlantı noktası aynı olabilir. Örneğin, web (HTTP) trafiği uç noktası için 80 numaralı bağlantı noktasını hem genel hem de özel bağlantı noktası olarak atayabilirsiniz.
 
-5. Seçin **bir yük dengeli kümesi oluşturma**ve ardından hello sağ oka tıklayın.
-6. Merhaba üzerinde **hello yük dengeli küme Yapılandır** sayfasında, hello yük dengeli kümesi için bir ad yazın ve hello Azure yük dengeleyici araştırması davranışını hello değerlerini atayın. Merhaba yük dengeli kümesi Hello sanal makinelerin kullanılabilir tooreceive gelen trafiği varsa hello yük dengeleyici araştırmalar toodetermine kullanır.
-7. Merhaba onay işareti toocreate hello yük dengeli uç'a tıklayın. Görürsünüz **Evet** hello içinde **yük dengeli kümesi adı** hello sütunu **uç noktaları** hello sanal makine için sayfa.
-8. Merhaba Portalı'nda tıklatın **sanal makineleri**, ek bir sanal makine yükü dengelenmiş hello kümesindeki hello adına tıklayın, tıklatın **uç noktaları**ve ardından **Ekle**.
-9. Merhaba üzerinde **bir uç nokta tooa sanal makine eklemek** sayfasında, **uç nokta tooan varolan yük dengeli kümesi ekleme**hello yük dengeli kümesi hello adını seçin ve ardından hello sağ oka tıklayın.
-10. Merhaba üzerinde **hello hello uç nokta ayrıntılarını belirtin** sayfasında, hello uç noktası için bir ad yazın ve ardından hello onay işaretine tıklayın.
+5. **Yük dengeli küme oluştur**’u seçip sağ oka tıklayın.
+6. **Yük dengeli kümeyi yapılandır** sayfasında yük dengeli küme için bir ad girin ve Azure Load Balancer’ın araştırma davranışı değerini belirleyin. Azure Load Balancer, yük dengeli kümedeki sanal makinelerin gelen trafiği almaya uygun olup olmadığını belirlemek için araştırmaları kullanır.
+7. Yük dengeli uç nokta oluşturmak için onay işaretine tıklayın. Sanal makineye ait **Uç noktaları** sayfasının **Yük dengeli küme adı** sütununda **Evet** görüntülenir.
+8. Portalda **Sanal Makineler**’e tıklayın, yük dengeli kümedeki diğer sanal makinelerden birinin adına tıklayın, **Uç noktalar**’a tıklayın ve ardından **Ekle**’ye tıklayın.
+9. **Sanal makineye bir uç nokta ekleyin** sayfasında **Var olan yük dengeli kümeye uç nokta ekleyin**’e tıklayın, yük dengeli kümenin adını seçin ve sağ oka tıklayın.
+10. **Uç nokta ayrıntılarını belirtin** sayfasında uç noktası için bir ad girin ve onay işaretine tıklayın.
 
-Merhaba ek sanal makineler için yük dengeli hello kümesinde, 8-10 adımları yineleyin.
+Yük dengeli kümedeki diğer sanal makineler için 8-10 arası adımları tekrarlayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Scheduler aaaWhat mi? | Microsoft Belgeleri
-description: "Azure Zamanlayıcı verir toodeclaratively Eylemler toorun hello bulutta açıklanmaktadır. Sonra, bu eylemleri otomatik olarak zamanlar ve çalıştırır."
+title: Azure Scheduler nedir? | Microsoft Belgeleri
+description: "Azure Scheduler, bulutta çalıştırmak üzere eylemleri bildirimli olarak tanımlamanızı sağlar. Sonra, bu eylemleri otomatik olarak zamanlar ve çalıştırır."
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
@@ -14,34 +14,34 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 062e25ae473510264dc0038198c05e7ac1e86210
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: a3bf1aacd6978499d7ef77cbcb451a06b857ac38
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-scheduler"></a>Azure Scheduler nedir?
-Azure Zamanlayıcı verir toodeclaratively Eylemler toorun hello bulutta açıklanmaktadır. Sonra, bu eylemleri otomatik olarak zamanlar ve çalıştırır.  Zamanlayıcı olmadığından bu kullanarak [Azure portal hello](scheduler-get-started-portal.md), kod, [REST API](https://msdn.microsoft.com/library/mt629143.aspx), ya da Azure PowerShell.
+Azure Scheduler, bulutta çalıştırmak üzere eylemleri bildirimli olarak tanımlamanızı sağlar. Sonra, bu eylemleri otomatik olarak zamanlar ve çalıştırır.  Scheduler bunu [Azure portal](scheduler-get-started-portal.md), kod, [REST API](https://msdn.microsoft.com/library/mt629143.aspx) ya da Azure PowerShell kullanarak yapar.
 
 Scheduler zamanlanan iş oluşturur, korur ve çağırır.  Scheduler iş yükü barındırmaz ya da kod çalıştırmaz. Yalnızca başka bir yerde (Azure’da, şirket içi ya da başka sağlayıcıda) barındırılan kodu *çağırır*. HTTP, HTTPS, depolama kuyruğu, hizmet veri yolu kuyruğu ya da hizmet veri yolu konusu aracılığıyla çağırır.
 
-Zamanlayıcı zamanlamaları [işleri](scheduler-concepts-terms.md), bir gözden geçirebileceğiniz ve kesin ve güvenilir bir şekilde zamanlamaları iş yükleri toobe çalıştırın iş yürütme sonuçlarının geçmişini tutar. Azure WebJobs (Azure App Service Web Apps özelliğini hello parçası) ve diğer Azure zamanlama özellikleri hello arka planda Zamanlayıcısı'nı kullanın. Merhaba [Scheduler REST API](https://msdn.microsoft.com/library/mt629143.aspx) hello bu eylemler için iletişimi yönetmeye yardımcı olur. Bu şekilde, Scheduler kolayca [karmaşık zamanlamalar ve gelişmiş yineleme oluşturmayı](scheduler-advanced-complexity.md) destekler.
+Scheduler [işleri](scheduler-concepts-terms.md) zamanlar, birinin gözden geçirebileceği iş yürütme sonuçlarının geçmişini tutar ve yürütülecek iş yüklerini kesin ve güvenilir bir şekilde çalışması zamanlar. Azure WebJobs (Azure App Service’te Web Apps özelliğini bir parçası) ve diğer Azure zamanlama özellikleri arka planda Scheduler kullanır. [Scheduler REST API](https://msdn.microsoft.com/library/mt629143.aspx) bu eylemler için iletişimi yönetmeye yardımcı olur. Bu şekilde, Scheduler kolayca [karmaşık zamanlamalar ve gelişmiş yineleme oluşturmayı](scheduler-advanced-complexity.md) destekler.
 
-Kendilerini Scheduler toohello kullanımını ödünç birkaç senaryo vardır. Örneğin:
+Kendilerini Scheduler kullanımına ödünç veren çeşitli senaryolar vardır. Örneğin:
 
 * *Yinelenen uygulama eylemleri:* Twitter’dan akışa düzenli aralıklarla veri toplama.
-* *Günlük bakım:* Günlüklerin günlük ayıklanması, yedeklemelerin ve diğer bakım görevlerinin gerçekleştirilmesi. Örneğin, bir yönetici tooback hello veritabanını 1: 00'da tercih edebilirsiniz her gün hello için sonraki dokuz ay.
+* *Günlük bakım:* Günlüklerin günlük ayıklanması, yedeklemelerin ve diğer bakım görevlerinin gerçekleştirilmesi. Örneğin, bir yönetici, sonraki dokuz ay boyunca her gün saat 01: 00'da veritabanını yedeklemeyi seçebilir.
 
-Zamanlayıcı toocreate sağlar, Güncelleştir, Sil, görüntülemek ve işlerini yönetmek ve [iş koleksiyonları](scheduler-concepts-terms.md) komut dosyalarını kullanarak programlı ve hello Portalı'nda.
+Scheduler, programlı olarak, betikleri kullanarak ve portalda işler ve [iş koleksiyonları](scheduler-concepts-terms.md) oluşturmanızı, silmenizi, görüntülemenizi ve yönetmenizi sağlar.
 
 ## <a name="see-also"></a>Ayrıca bkz.
  [Azure Scheduler kavramları, terminolojisi ve varlık hiyerarşisi](scheduler-concepts-terms.md)
 
- [Zamanlayıcı hello Azure portalını kullanmaya başlama](scheduler-get-started-portal.md)
+ [Azure portalında Scheduler’ı kullanmaya başlama](scheduler-get-started-portal.md)
 
  [Azure Scheduler’da planlar ve faturalama](scheduler-plans-billing.md)
 
- [Nasıl toobuild karmaşık zamanlar ve Gelişmiş yineleme Azure Scheduler ile](scheduler-advanced-complexity.md)
+ [Azure Scheduler ile karmaşık zamanlamalar ve gelişmiş yineleme oluşturma](scheduler-advanced-complexity.md)
 
  [Azure Scheduler REST API başvurusu](https://msdn.microsoft.com/library/mt629143)
 

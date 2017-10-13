@@ -1,5 +1,5 @@
 > [!IMPORTANT]
-> Projenizde kullanılan hello SCP.Net hello Storm sürümüyle Hdınsight kümenize mevcut eşleşmelidir. Hangi sürümü kullanmanız gereken tablo toodetermine aşağıdaki hello kullan:
+> Projenizde kullanılan SCP.Net Storm sürümüyle Hdınsight kümenize mevcut eşleşmelidir. Kullanmanız gereken hangi sürümünün kullanılacağını belirlemek için aşağıdaki tabloyu kullanın:
 > 
 > | Hdınsight sürümü | Apache Storm sürüm | SCP.NET sürüm | Varsayılan Mono sürümü |
 > |:---:|:---:|:---:|:---:|

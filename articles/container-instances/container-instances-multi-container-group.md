@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure kapsayıcı örnekleri - birden çok kapsayıcı grubu | Azure belgeleri"
+title: "Azure kapsayıcı örnekleri - birden çok kapsayıcı grubu | Azure belgeleri"
 description: "Azure kapsayıcı örnekleri - birden çok kapsayıcı grubu"
 services: container-instances
 documentationcenter: 
@@ -17,25 +17,25 @@ ms.workload: na
 ms.date: 07/26/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 976f578cd2a9bf7f05ab97f24662139bb72062ea
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 140f58582645ea32f77e901eb13364ed145bbecf
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="deploy-a-container-group"></a>Kapsayıcı grubu dağıtma
 
-Azure kapsayıcı örnekleri birden çok kapsayıcı kullanarak tek bir ana bilgisayar üzerine hello dağıtımını destekleyen bir *kapsayıcı grubu*. Bu günlüğe kaydetme, izleme veya başka bir yapılandırma için bir uygulama sepet oluştururken bir hizmetin ikinci bir bağlı işlem nerede ihtiyaç yararlıdır. 
+Azure kapsayıcı örnekleri birden çok kapsayıcı kullanarak tek bir ana bilgisayar üzerine dağıtımını destekleyen bir *kapsayıcı grubu*. Bu günlüğe kaydetme, izleme veya başka bir yapılandırma için bir uygulama sepet oluştururken bir hizmetin ikinci bir bağlı işlem nerede ihtiyaç yararlıdır. 
 
 Bu belge, Azure Resource Manager şablonu kullanarak basit çok kapsayıcı sepet yapılandırma çalıştıran anlatılmaktadır.
 
-## <a name="configure-hello-template"></a>Merhaba şablonu yapılandırma
+## <a name="configure-the-template"></a>Şablon yapılandırma
 
-Adlı bir dosya oluşturun `azuredeploy.json` ve kopyalama hello aşağıdaki json içine. 
+Adlı bir dosya oluşturun `azuredeploy.json` ve aşağıdaki json dosyasını buraya kopyalayın. 
 
-Bu örnekte, bir kapsayıcı grubu iki kapsayıcıları ve genel bir IP adresi ile tanımlanır. Merhaba ilk kapsayıcı hello grubunun Internet karşılıklı uygulamasını çalıştırır. Merhaba ikinci kapsayıcı, hello sepet bir HTTP isteği toohello ana web uygulamasını hello grubun yerel ağ aracılığıyla yapar. 
+Bu örnekte, bir kapsayıcı grubu iki kapsayıcıları ve genel bir IP adresi ile tanımlanır. İlk kapsayıcı grubunun Internet karşılıklı uygulamasını çalıştırır. İkinci kapsayıcı, sepet grubun yerel ağ aracılığıyla ana web uygulaması için bir HTTP isteği yapar. 
 
-Bir HTTP yanıt kodu 200 dışında Tamam aldıysanız bu sepet örnek genişletilmiş tootrigger bir uyarı olabilir. 
+Bu sepet örnek, bir HTTP yanıt kodu 200 dışında Tamam aldıysanız, bir uyarıyı tetiklemek için genişletilemiyor. 
 
 ```json
 {
@@ -109,7 +109,7 @@ Bir HTTP yanıt kodu 200 dışında Tamam aldıysanız bu sepet örnek genişlet
   }
 ```
 
-toouse özel kapsayıcı görüntü kayıt defteri biçimini izleyen hello bir nesne toohello json belgesi ekleyin.
+Bir özel kapsayıcı görüntü kayıt defterini kullanmak için json belgesi aşağıdaki biçime sahip bir nesne ekleyin.
 
 ```json
 "imageRegistryCredentials": [
@@ -121,15 +121,15 @@ toouse özel kapsayıcı görüntü kayıt defteri biçimini izleyen hello bir n
 ]
 ```
 
-## <a name="deploy-hello-template"></a>Merhaba şablonu dağıtma
+## <a name="deploy-the-template"></a>Şablonu dağıtma
 
-Bir kaynak grubu ile Merhaba oluşturmak [az grubu oluşturma](/cli/azure/group#create) komutu.
+[az group create](/cli/azure/group#create) komutuyla bir kaynak grubu oluşturun.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
 ```
 
-Merhaba Hello şablonla dağıtmak [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#create) komutu.
+Şablonla dağıtmak [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#create) komutu.
 
 ```azurecli-interactive
 az group deployment create --name myContainerGroup --resource-group myResourceGroup --template-file azuredeploy.json
@@ -139,7 +139,7 @@ Birkaç saniye içinde Azure'dan ilk yanıt alırsınız.
 
 ## <a name="view-deployment-state"></a>Dağıtım durumunu görüntüle
 
-Merhaba dağıtımının, kullanım hello tooview hello durumu `az container show` komutu. Bu uygulama hangi hello erişilebilir sağlanan hello genel IP adresi döndürür.
+Dağıtım durumunu görüntülemek için kullanın `az container show` komutu. Bu uygulama erişilebilen sağlanan genel IP adresini döndürür.
 
 ```azurecli-interactive
 az container show --name myContainerGroup --resource-group myResourceGroup -o table
@@ -155,7 +155,7 @@ myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-s
 
 ## <a name="view-logs"></a>Günlükleri görüntüle   
 
-Görüntüleme hello kullanarak bir kapsayıcı hello günlük çıktısı `az container logs` komutu. Merhaba `--container-name` bağımsız değişkeni hangi toopull günlükleri hello kapsayıcıdan belirtir. Bu örnekte, hello ilk kapsayıcı belirtilir. 
+Kullanarak bir kapsayıcı günlük çıktısını görüntüleyin `az container logs` komutu. `--container-name` Bağımsız değişkeni günlüklerini kapsayıcıyı belirtir. Bu örnekte, ilk kapsayıcı belirtilir. 
 
 ```azurecli-interactive
 az container logs --name myContainerGroup --container-name aci-tutorial-app --resource-group myResourceGroup
@@ -171,7 +171,7 @@ istening on port 80
 ::1 - - [27/Jul/2017:17:35:38 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-hello yan araba kapsayıcısı toosee hello günlükleri, hello çalıştırmak aynı belirten hello ikinci kapsayıcı adı komutu.
+Yan araba kapsayıcısı için günlükleri görmek için ikinci kapsayıcı adı belirterek aynı komutu çalıştırın.
 
 ```azurecli-interactive
 az container logs --name myContainerGroup --container-name aci-tutorial-sidecar --resource-group myResourceGroup
@@ -193,11 +193,11 @@ Last-Modified: Sun, 16 Jul 2017 02:08:22 GMT
 Date: Mon, 17 Jul 2017 18:27:36 GMT
 ```
 
-Gördüğünüz gibi hello sepet düzenli aralıklarla bir HTTP isteği toohello ana web uygulaması çalıştığı hello grubun yerel ağ tooensure üzerinden yapılmasıdır.
+Gördüğünüz gibi sepet bir HTTP isteği düzenli aralıklarla çalıştığından emin olmak için ana web uygulamasına grubun yerel ağ üzerinden yapılmasıdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu belgede Azure kapsayıcı örneği birden çok kapsayıcı dağıtmak için gerekli hello adımları ele. Azure kapsayıcı örnekleri deneyimi bir bitiş tooend için hello Azure kapsayıcı örnekleri öğretici bakın.
+Bu belgede bir çok kapsayıcı Azure kapsayıcı örneği dağıtmak için gerekli olan adımları ele. Bir uçtan uca Azure kapsayıcı örnekleri deneyimi için Azure kapsayıcı örnekleri öğretici bakın.
 
 > [!div class="nextstepaction"]
 > [Azure kapsayıcı örnekleri öğretici]:./container-instances-tutorial-prepare-app.md

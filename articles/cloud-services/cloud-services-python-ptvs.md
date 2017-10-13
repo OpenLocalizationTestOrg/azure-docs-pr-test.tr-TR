@@ -1,6 +1,6 @@
 ---
-title: "aaaGet başlatılan Python ve Azure Cloud Services | Microsoft Docs"
-description: "Visual Studio toocreate Azure bulut hizmetlerine web rolleri ve çalışan rolleri dahil olmak üzere için Python araçları kullanarak genel bakış."
+title: "Python ve Azure Cloud Services kullanmaya başlama | Microsoft Belgeleri"
+description: "Web rolleri ve çalışan rolleri dahil olmak üzere Azure Cloud Services oluşturmak üzere Visual Studio için Python Araçları’nı kullanma hakkında genel bilgi edinin."
 services: cloud-services
 documentationcenter: python
 author: thraka
@@ -14,15 +14,15 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: f5fd85e754839f146abe912351c59dc4a148c990
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 030a09c05ac4b480c9326b8a9ebc585339f312b5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Visual Studio için Python web ve çalışan rolleri içeren Python Araçları
 
-Bu makalede, [Visual Studio için Python Araçları][Python Tools for Visual Studio] ile Python web ve çalışan rollerini kullanmaya genel bir bakış sunulmuştur. Bilgi nasıl toouse Visual Studio toocreate ve Python kullanan temel bir bulut hizmeti dağıtın.
+Bu makalede, [Visual Studio için Python Araçları][Python Tools for Visual Studio] ile Python web ve çalışan rollerini kullanmaya genel bir bakış sunulmuştur. Visual Studio’yu kullanarak Python kullanan temel bir Bulut Hizmetinin nasıl oluşturulup dağıtılacağını öğrenin.
 
 ## <a name="prerequisites"></a>Ön koşullar
 * [Visual Studio 2013, 2015 veya 2017](https://www.visualstudio.com/)
@@ -35,45 +35,45 @@ Bu makalede, [Visual Studio için Python Araçları][Python Tools for Visual Stu
 [!INCLUDE [create-account-and-websites-note](../../includes/create-account-and-websites-note.md)]
 
 ## <a name="what-are-python-web-and-worker-roles"></a>Python web ve çalışan rolleri nelerdir?
-Azure, uygulama çalıştırmak için üç işlem modeli sağlar: [Azure App Service’teki Web Apps özelliği][execution model-web sites], [Azure Sanal Makineler][execution model-vms] ve [Azure Cloud Services][execution model-cloud services]. Python bu üç modeli de destekler. Web ve çalışan rolleri içeren Cloud Services *Hizmet Olarak Platform (PaaS)* sunar. Çalışan rolü kullanıcı etkileşimi ve girişinden bağımsız zaman uyumsuz, uzun süre çalışan veya kalıcı görevleri çalıştırabilir sırada bir bulut hizmetinde bir web rolü adanmış bir Internet Information Services (IIS) web sunucusu toohost ön uç web uygulamaları, sağlar.
+Azure, uygulama çalıştırmak için üç işlem modeli sağlar: [Azure App Service’teki Web Apps özelliği][execution model-web sites], [Azure Sanal Makineler][execution model-vms] ve [Azure Cloud Services][execution model-cloud services]. Python bu üç modeli de destekler. Web ve çalışan rolleri içeren Cloud Services *Hizmet Olarak Platform (PaaS)* sunar. Web rolü, bir bulut hizmetinde ön uç web uygulamalarını barındırmak için özel Internet Information Services (IIS) web sunucusu sağlar. Çalışan rolü ise kullanıcı etkileşimi ve girişinden bağımsız zaman uyumsuz, uzun çalışan ve kalıcı görevleri çalıştırabilir.
 
 Daha fazla bilgi için bkz. [Bulut Hizmeti nedir?].
 
 > [!NOTE]
-> *Toobuild basit bir Web sitesi mi arıyorsunuz?*
-> Senaryonuz yalnızca basit Web sitesi ön uç içeriyorsa, Azure App Service'te hello basit Web Apps özelliğini kullanmayı düşünün. Web siteniz büyüdükçe ve gereksinimleriniz değiştikçe kolayca bulut hizmeti tooa yükseltebilirsiniz. Merhaba bkz <a href="/develop/python/">Python Geliştirici Merkezi</a> hello Azure App Service'te Web Apps özelliğini geliştirme kapak makaleler için.
+> *Basit bir web sitesi mi oluşturmak istiyorsunuz?*
+> Senaryonuz yalnızca basit bir web sitesi ön ucu içeriyorsa, Azure Uygulama Hizmeti’ndeki basit Web Apps özelliğini kullanmayı düşünün. Web siteniz büyüdükçe ve gereksinimleriniz değiştikçe kolayca Bulut Hizmetleri’ne yükseltebilirsiniz. Azure App Service’teki Web Apps özelliğini geliştirme hakkındaki makaleler için <a href="/develop/python/">Python Geliştirici Merkezi</a>’ne bakın.
 > <br />
 > 
 > 
 
 ## <a name="project-creation"></a>Proje oluşturma
-Visual Studio'da seçebileceğiniz **Azure bulut hizmeti** hello içinde **yeni proje** iletişim kutusunda **Python**.
+Visual Studio’da, **Python** altındaki **Yeni Proje** iletişim kutusunda **Azure Bulut Hizmeti**’ni seçebilirsiniz.
 
 ![Yeni Proje İletişim Kutusu](./media/cloud-services-python-ptvs/new-project-cloud-service.png)
 
-Hello Azure bulut hizmeti sihirbazında, yeni web ve çalışan rolleri oluşturabilirsiniz.
+Azure Bulut Hizmeti sihirbazında, yeni web ve çalışan rolleri oluşturabilirsiniz.
 
 ![Azure Bulut Hizmeti İletişim Kutusu](./media/cloud-services-python-ptvs/new-service-wizard.png)
 
-Merhaba çalışan rolü şablonu Demirbaş kod tooconnect tooan Azure depolama hesabı veya Azure Service Bus ile gelir.
+Çalışan rolü şablonu, Azure depolama hesabına veya Azure Service Bus’a bağlamak üzere demirbaş kod ile birlikte gelir.
 
 ![Bulut Hizmeti Çözümü](./media/cloud-services-python-ptvs/worker.png)
 
-Web veya çalışan rolleri tooan olan bir bulut hizmetini herhangi bir zamanda ekleyebilirsiniz.  Çözümünüzde tooadd mevcut projeleri seçin veya yenilerini oluşturun.
+Herhangi bir zamanda mevcut bulut hizmetine web veya çalışan rolleri ekleyebilirsiniz.  Çözümünüze ister mevcut projeleri ekleyin, ister yeni projeler oluşturun.
 
 ![Rol Komutu Ekleme](./media/cloud-services-python-ptvs/add-new-or-existing-role.png)
 
 Bulut hizmetiniz farklı dillerde uygulanan roller içerebilir.  Örneğin, Python veya C# çalışan rolleri ile Django kullanılarak uygulanan bir Python web rolünüz olabilir.  Service Bus kuyruklarını veya depolama kuyruklarını kullanarak rolleriniz arasında kolaya iletişim kurabilirsiniz.
 
-## <a name="install-python-on-hello-cloud-service"></a>Python hello bulut hizmetini yükleme
+## <a name="install-python-on-the-cloud-service"></a>Bulut hizmetine Python yükleme
 > [!WARNING]
-> Visual Studio ile (Merhaba zaman bu makalenin en son güncelleştirildiği) yüklü olan hello Kurulum komut çalışmaz. Bu bölümde geçici bir çözüm açıklanmaktadır.
+> Visual Studio ile yüklenen ayar betikleri (bu makalenin son güncelleştirildiği tarihte) çalışmamaktadır. Bu bölümde geçici bir çözüm açıklanmaktadır.
 > 
 > 
 
-Merhaba ana hello Kurulum kodlarıyla python yüklemeyin sorunudur. İlk olarak, iki tanımlamak [başlangıç görevleri](cloud-services-startup-tasks.md) hello içinde [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) dosya. Merhaba ilk görevi (**PrepPython.ps1**) indirir ve hello Python çalışma zamanı yükler. Merhaba ikinci görev (**PipInstaller.ps1**) olabilecek bağımlılıkları PIP tooinstall çalıştırır.
+Ayar betikleri ile ilgili temel sorun python yüklememesidir. İlk olarak, [ServiceDefinition.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) dosyasında iki [başlangıç görevi](cloud-services-startup-tasks.md) tanımlayın. İlk görev (**PrepPython.ps1**) Python çalışma zamanını indirir ve yükler. İkinci görev (**PipInstaller.ps1**) sahip olabileceğiniz tüm bağımlılıkları yüklemek üzere pip çalıştırır.
 
-komut dosyaları aşağıdaki hello Python 3.5 hedefleme yazılmıştır. Toouse hello sürüm istiyorsanız, python, kümesi hello 2.x **PYTHON2** değişkeni dosya çok**üzerinde** hello iki başlangıç görevi ve hello çalışma zamanı görev için: `<Variable name="PYTHON2" value="<mark>on</mark>" />`.
+Aşağıdaki betikler Python 3.5 hedeflenerek yazılmıştır. Python 2.x sürümünü kullanmak istiyorsanız **PYTHON2** değişken dosyasını iki başlangıç görevi ve `<Variable name="PYTHON2" value="<mark>on</mark>" />` çalışma zamanı görevi için **açık** olarak ayarlayın.
 
 ```xml
 <Startup>
@@ -100,7 +100,7 @@ komut dosyaları aşağıdaki hello Python 3.5 hedefleme yazılmıştır. Toouse
 </Startup>
 ```
 
-Merhaba **PYTHON2** ve **PYPATH** toohello çalışan başlangıç görevi değişkenleri eklenmiştir. Merhaba **PYPATH** değişkeni Merhaba, yalnızca kullanılan **PYTHON2** değişkenini çok ayarlamak**üzerinde**.
+**PYTHON2** ve **PYPATH** değişkenlerinin çalışan başlangıç görevine eklenmesi gerekir. **PYPATH** değişkeni yalnızca **PYTHON2** değişkeni **açık** olarak ayarlandığında kullanılır.
 
 ```xml
 <Runtime>
@@ -166,10 +166,10 @@ Merhaba **PYTHON2** ve **PYPATH** toohello çalışan başlangıç görevi deği
 
 
 
-Ardından, hello oluşturun **PrepPython.ps1** ve **PipInstaller.ps1** hello dosyalarında **. / bin** rolünüze klasörü.
+Ardından, rolünüzün **./bin** klasöründe **PrepPython.ps1** ve **PipInstaller.ps1** dosyalarını oluşturun.
 
 #### <a name="preppythonps1"></a>PrepPython.ps1
-Bu betik python yükler. Merhaba, **PYTHON2** ortam değişkenini çok ayarlamak**üzerinde**, Python 2.7 yüklendikten sonra Aksi takdirde Python 3.5 yüklenir.
+Bu betik python yükler. **PYTHON2** ortam değişkeni **açık** olarak ayarlanırsa Python 2.7 yüklenir, aksi takdirde Python 3.5 yüklenir.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -195,7 +195,7 @@ if (-not $is_emulated){
             $outFile = "${env:TEMP}\python-2.7.12.amd64.msi"
         }
 
-        Write-Output "Not found, downloading $url too$outFile$nl"
+        Write-Output "Not found, downloading $url to $outFile$nl"
         Invoke-WebRequest $url -OutFile $outFile
         Write-Output "Installing$nl"
 
@@ -215,7 +215,7 @@ if (-not $is_emulated){
 ```
 
 #### <a name="pipinstallerps1"></a>PipInstaller.ps1
-Bu komut dosyası PIP çağırır ve tüm hello bağımlılıklarını hello yükler **requirements.txt** dosya. Merhaba, **PYTHON2** ortam değişkenini çok ayarlamak**üzerinde**, Python 2.7 kullanılırsa, aksi halde Python 3.5 kullanılır.
+Bu betik pip çağırır ve tüm bağımlılıkları **requirements.txt** dosyasına yükler. **PYTHON2** ortam değişkeni **açık** olarak ayarlanırsa Python 2.7 kullanılır, aksi takdirde Python 3.5 kullanılır.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -244,13 +244,13 @@ if (-not $is_emulated){
 
 #### <a name="modify-launchworkerps1"></a>LaunchWorker.ps1’i değiştirme
 > [!NOTE]
-> Merhaba durumda bir **çalışan rolü** projesi **LauncherWorker.ps1** gerekli tooexecute hello başlatma dosyasını bir dosyadır. İçinde bir **web rolü** projesi, hello başlangıç dosyasına bunun yerine hello Proje Özellikleri'nde tanımlanır.
+> Bir **çalışan rolü** projesinde, başlangıç dosyasını yürütmek için **LauncherWorker.ps1** dosyası gereklidir. Bir **web rolü** projesinde ise başlangıç dosyası, bunun yerine proje özelliklerinde tanımlanır.
 > 
 > 
 
-Merhaba **bin\LaunchWorker.ps1** hazırlık iş ancak birçok gerçekten işe yaramazsa toodo ilk olarak oluşturuldu. Bu dosyayı Merhaba içeriğine komut dosyası izleyen hello ile değiştirin.
+**bin\LaunchWorker.ps1** başlangıçta çok fazla hazırlık çalışması yapmak için oluşturulmuştur, ancak gerçekten çalışmamaktadır. Bu dosyanın içeriğini aşağıdaki betikle değiştirin.
 
-Bu komut dosyasını hello çağıran **worker.py** python projenizden dosya. Merhaba, **PYTHON2** ortam değişkenini çok ayarlamak**üzerinde**, Python 2.7 kullanılırsa, aksi halde Python 3.5 kullanılır.
+Bu betik python projenizden **worker.py** dosyasını çağırır. **PYTHON2** ortam değişkeni **açık** olarak ayarlanırsa Python 2.7 kullanılır, aksi takdirde Python 3.5 kullanılır.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -274,7 +274,7 @@ else
 {
     Write-Output "Running (EMULATED) worker.py$nl"
 
-    # Customize tooyour local dev environment
+    # Customize to your local dev environment
 
     if ($is_python2) {
         cd..
@@ -288,7 +288,7 @@ else
 ```
 
 #### <a name="pscmd"></a>ps.cmd
-Merhaba Visual Studio şablonları oluşturmuş bir **ps.cmd** hello dosyasında **. / bin** klasör. Bu kabuk betiği hello PowerShell sarmalayıcı betikleri yukarıdaki çağırır ve adlı hello PowerShell sarmalayıcı hello adını temel alarak günlük kaydını sağlar. Bu dosya oluşturulmadıysa içinde olması gerekenler aşağıda verilmiştir. 
+Visual Studio şablonları **./bin** klasöründe bir **ps.cmd** dosyası oluşturmuş olmalıdır. Bu kabuk betiği yukarıdaki PowerShell sarmalayıcı betiklerini çağırır ve çağrılan PowerShell sarmalayıcısının adına göre günlük kaydı yapar. Bu dosya oluşturulmadıysa içinde olması gerekenler aşağıda verilmiştir. 
 
 ```bat
 @echo off
@@ -302,38 +302,38 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 
 ## <a name="run-locally"></a>Yerel olarak çalıştırma
-Bulut hizmeti projenizi başlangıç başlangıç projesi olarak ayarla ve F5 tuşuna basarsanız, hello bulut hizmeti hello yerel Azure öykünücüsünde çalışır.
+Bulut hizmeti projenizi başlangıç projesi olarak ayarlar ve F5 tuşuna basarsanız, bulut hizmeti yerel Azure öykünücüsünde çalışır.
 
-PTVS destekler; ancak başlatma hata ayıklama hello öykünücüsünde (örneğin, kesme noktaları) çalışmaz.
+PTVS öykünücüde başlatmayı desteklese de, hata ayıklama (örneğin, kesme noktaları) çalışmaz.
 
-toodebug, web ve çalışan rolleri hello rolü projesi hello başlangıç projesi olarak ayarlayın ve yerine hata ayıklama.  Ayrıca, birden fazla başlangıç projesi ayarlayabilirsiniz.  Merhaba çözüme sağ tıklayın ve ardından **başlangıç projelerini Ayarla**.
+Web ve çalışan rollerinizin hatalarını ayıklamak için rol projesini başlangıç projesi olarak ayarlayabilir ve bunun hatalarını ayıklayabilirsiniz.  Ayrıca, birden fazla başlangıç projesi ayarlayabilirsiniz.  Çözüme sağ tıklayın ve ardından **Başlangıç Projelerini Ayarla**’yı seçin.
 
 ![Çözüm Başlangıç Projesi Özellikleri](./media/cloud-services-python-ptvs/startup.png)
 
-## <a name="publish-tooazure"></a>TooAzure yayımlama
-toopublish, hello çözümde hello bulut hizmeti projesine sağ tıklayın ve ardından **Yayımla**.
+## <a name="publish-to-azure"></a>Azure’da Yayımlama
+Yayımlamak için, çözümdeki bulut hizmeti projesine sağ tıklayın ve ardından **Yayımla**’yı seçin.
 
 ![Microsoft Azure Yayımlama Oturumu Açma](./media/cloud-services-python-ptvs/publish-sign-in.png)
 
-Merhaba Sihirbazı izleyin. Gerekirse uzak masaüstünü etkinleştirin. Uzak Masaüstü toodebug bir şey gerektiğinde faydalıdır.
+Sihirbazı izleyin. Gerekirse uzak masaüstünü etkinleştirin. Uzak masaüstü hata ayıklamanız gerektiğinde yararlıdır.
 
 Yapılandırma ayarları bittiğinde **Yayımla**’ya tıklayın.
 
-Merhaba çıktı penceresinde devam eden bazı işlemler görünür, ardından hello Microsoft Azure Etkinlik Günlüğü penceresini görürsünüz.
+Çıktı penceresinde devam eden bazı işlemler görünür, ardından Microsoft Azure Etkinlik Günlüğü penceresini görürsünüz.
 
 ![Microsoft Azure Etkinlik Günlüğü Penceresi](./media/cloud-services-python-ptvs/publish-activity-log.png)
 
-Birkaç dakika toocomplete, ardından web dağıtım alır ve/veya çalışan rolleri Azure üzerinde çalışan!
+Dağıtımın tamamlanması birkaç dakika sürer, ardından web ve/veya çalışan rolleri Azure üzerinde çalışır!
 
 ### <a name="investigate-logs"></a>Günlükleri araştırma
-Merhaba bulut hizmeti sanal makine başlatıldığında ve Python yüklendikten sonra hata iletileri hello günlükleri toofind bakabilirsiniz. Bu günlükler hello bulunan **C:\Resources\Directory\\{rolü} \LogFiles** klasör. **PrepPython.err.txt** Python yüklediyseniz hello betik toodetect bulunduğunda gelen en az bir hata var ve **PipInstaller.err.txt** PIP eski bir sürümü hakkında şikayetçi.
+Bulut hizmeti sanal makinesi başlatılıp Python’u yükledikten sonra herhangi bir hata iletisini bulmak için günlüklere bakabilirsiniz. Bu günlükler **C:\Resources\Directory\\{role}\LogFiles** klasöründe bulunur. Betiğin Python’un yüklü olup olmadığını algılamaya çalışmasından itibaren **PrepPython.err.txt** dosyasında en az bir hata olur ve **PipInstaller.err.txt** eskimiş bir pip sürümünü şikayet edebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Visual Studio için Python Araçları'ndaki web ve çalışan rolleri ile çalışma hakkında daha ayrıntılı bilgi için hello PTVS belgelerine bakın:
+Visual Studio için Python Araçları’ndaki web ve çalışan rolleri ile çalışma hakkında daha ayrıntılı bilgi için PTVS belgelerine bakın:
 
 * [Bulut Hizmeti Projeleri][Cloud Service Projects]
 
-Azure Storage veya Service Bus kullanarak gibi web ve çalışan rolleri, Azure hizmetlerini kullanma hakkında daha fazla ayrıntı için aşağıdaki makaleleri hello bakın:
+Web ve çalışan rollerinizden Azure Storage veya Service Bus gibi Azure hizmetlerini kullanma hakkında daha ayrıntılı bilgi için aşağıdaki makalelere göz atın:
 
 * [Blob Hizmeti][Blob Service]
 * [Tablo Hizmeti][Table Service]
@@ -344,7 +344,7 @@ Azure Storage veya Service Bus kullanarak gibi web ve çalışan rolleri, Azure 
 <!--Link references-->
 
 [Bulut Hizmeti nedir?]: cloud-services-choose-me.md
-[execution model-web sites]: ../app-service-web/app-service-web-overview.md
+[execution model-web sites]: ../app-service/app-service-web-overview.md
 [execution model-vms]:../virtual-machines/windows/overview.md
 [execution model-cloud services]: cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/

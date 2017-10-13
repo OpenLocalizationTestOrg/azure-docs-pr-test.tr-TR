@@ -1,28 +1,28 @@
 ## <a name="defining-a-backup-policy"></a>Yedekleme ilkesi tanımlama
-Bir yedekleme İlkesi zaman hello veri anlık görüntülerinin alınma ve bu anlık görüntülerin ne kadar süreyle saklanacağını bir matrisini tanımlar. VM yedeklemesi için bir ilke tanımlandığında, yedekleme işini *günde bir kez* tetikleyebilirsiniz. Yeni bir ilke oluşturduğunuzda, uygulanan toohello kasası olur. Merhaba yedekleme İlkesi arabirimi şöyle görünür:
+Yedekleme ilkesi veri anlık görüntülerinin ne zaman alınacağının ve bu anlık görüntülerin ne kadar süreyle saklanacağının bir matrisini tanımlar. VM yedeklemesi için bir ilke tanımlandığında, yedekleme işini *günde bir kez* tetikleyebilirsiniz. Yeni bir ilke oluşturduğunuzda bu ilke kasaya uygulanır. Yedekleme İlkesi arabirimi şöyle görünür:
 
 ![Yedekleme ilkesi](./media/backup-create-policy-for-vms/backup-policy.png)
 
-bir ilke toocreate:
+İlke oluşturmak için:
 
-1. Hello için bir ad girin **ilke adı**.
-2. Verilerinizin anlık görüntüleri Günlük veya Haftalık aralıklarla alınabilir. Kullanım hello **yedekleme sıklığı** açılır menü toochoose olup veri anlık görüntülerinin günlük mü, yoksa haftalık.
+1. **İlke adı** için bir ad girin.
+2. Verilerinizin anlık görüntüleri Günlük veya Haftalık aralıklarla alınabilir. Veri anlık görüntülerinin günlük mü, yoksa haftalık mı olacağını seçmek için **Yedekleme Sıklığı** açılan menüsünü kullanın.
    
-   * Günlük bir aralık seçin, vurgulanmış hello denetim tooselect hello hello günün saatini hello anlık görüntü için kullanın. toochange hello saat hello saat seçimini kaldırıp hello yeni saati seçin.
+   * Günlük aralığını seçerseniz, anlık görüntünün alınacağı günün saatini seçmek için vurgulanan denetimi kullanın. Saati değiştirmek için saat seçimini kaldırıp yeni saati seçin.
      
      ![Günlük yedekleme ilkesi](./media/backup-create-policy-for-vms/backup-policy-daily.png) <br/>
-   * Haftalık aralığını seçerseniz, hello vurgulanan denetimleri tooselect hello gün hello haftanın ve hello saat gün tootake hello anlık görüntüsünün kullanın. Merhaba gün menüsünde, bir veya birden çok gün seçin. Merhaba saat menüsünde bir saat seçin. toochange hello saat hello seçili saatin seçimini ve hello yeni saati seçin.
+   * Haftalık aralığını seçerseniz, anlık görüntü alınacak haftanın günlerini ve günün saatini seçmek için vurgulanan denetimleri kullanın. Gün menüsünde, bir veya birden çok gün seçin. Saat menüsünde bir saat seçin. Saati değiştirmek için seçili saatin seçimini kaldırıp yeni saati seçin.
      
      ![Haftalık yedekleme ilkesi](./media/backup-create-policy-for-vms/backup-policy-weekly.png)
-3. Varsayılan olarak, tüm **Elde Tutma Aralığı** seçenekleri seçilidir. Toouse istemediğiniz tüm bekletme aralığı sınırının seçimini kaldırın. Ardından, hello aralıkları toouse belirtin.
+3. Varsayılan olarak, tüm **Elde Tutma Aralığı** seçenekleri seçilidir. Kullanmak istemediğiniz elde tutma aralığı sınırının seçimini kaldırın. Ardından, kullanılacak aralıkları belirtin.
    
-    Aylık ve yıllık elde tutma aralıkları günlük veya haftalık artışı temel toospecify hello anlık görüntüleri izin verin.
+    Aylık ve Yıllık elde tutma aralıkları günlük veya haftalık artışı temel alan anlık görüntüleri belirtmenizi sağlar.
    
    > [!NOTE]
-   > VM korurken yedekleme işi günde bir kez çalıştırılır. Merhaba zaman zaman hello yedekleme çalıştırılana olduğu hello aynı her elde tutma aralığı için.
+   > VM korurken yedekleme işi günde bir kez çalıştırılır. Yedeklemenin çalıştırıldığı saat her elde tutma aralığı için olanla aynıdır.
    > 
    > 
-4. Hello ilkesi için tüm seçenekleri ayarladıktan sonra hello dikey penceresinde hello üstünde tıklatın **kaydetmek**.
+4. İlkeyle ilgili tüm seçeneklerin ayarlanmasından sonra, dikey pencerenin en üstünde **Kaydet**’e tıklayın.
    
-    Merhaba yeni ilke hemen uygulanan toohello kasası olur.
+    Yeni ilke hemen kasaya uygulanır.
 

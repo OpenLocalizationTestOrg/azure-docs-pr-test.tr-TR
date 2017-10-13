@@ -1,6 +1,6 @@
 ---
-title: bir StorSimple EBOD denetleyicisi aaaReplace | Microsoft Docs
-description: "Açıklar nasıl tooremove ve StorSimple 8600 model Cihazınızı biri veya her ikisi EBOD denetleyicilerinde değiştirin."
+title: "Bir StorSimple EBOD denetleyicisi Değiştir | Microsoft Docs"
+description: "Bir StorSimple 8600 model Cihazınızı biri veya her ikisi EBOD denetleyicilerinde kaldırdığınızda ve açıklanmaktadır."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,41 +14,41 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.openlocfilehash: 5d29de2ee30bfdd70910050eee5cfa1d293d444f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 23d819ddc3bbcbaf2847cdcc9191407ead0ff43d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>EBOD denetleyicisi, StorSimple Cihazınızda değiştirin
 ## <a name="overview"></a>Genel Bakış
-Bu öğretici açıklar nasıl tooreplace hatalı EBOD Denetleyici Modülü, Microsoft Azure StorSimple Cihazınızda. EBOD Denetleyici Modülü tooreplace, şunları yapmanız gerekir:
+Bu öğretici, hatalı bir EBOD Denetleyici Modülü, Microsoft Azure StorSimple Cihazınızda Değiştir açıklanmaktadır. EBOD Denetleyici Modülü değiştirmek için aktarmanız gerekir:
 
-* Merhaba hatalı EBOD denetleyicisi Kaldır
+* Hatalı EBOD denetleyicisi Kaldır
 * Yeni bir EBOD denetleyicisi yükleme
 
-Başlamadan önce aşağıdaki bilgilerle hello göz önünde bulundurun:
+Başlamadan önce aşağıdaki bilgileri göz önünde bulundurun:
 
-* Boş EBOD modülleri tüm kullanılmayan yuvaları eklenmesi gerekir. bir yuva açık olarak bırakılırsa hello muhafaza düzgün seyrek erişimli değil.
-* Merhaba EBOD denetleyicisi hot Swap ve yerini veya kaldırılabilir. Yenisini elde edene kadar başarısız bir modül kaldırmayın. Merhaba değiştirme işlemini başlattığınızda, 10 dakika içinde bitmesi gerekir.
+* Boş EBOD modülleri tüm kullanılmayan yuvaları eklenmesi gerekir. Bir yuva açık olarak bırakılırsa muhafaza düzgün seyrek erişimli değil.
+* EBOD denetleyicisi hot Swap ve yerini veya kaldırılabilir. Yenisini elde edene kadar başarısız bir modül kaldırmayın. Değiştirme işlemini başlattığınızda, 10 dakika içinde bitmesi gerekir.
 
 > [!IMPORTANT]
-> Tooremove denemeden önce veya herhangi bir StorSimple bileşeni değiştirin, hello gözden emin olun [güvenliği simgesi kuralları](storsimple-safety.md#safety-icon-conventions) ve diğer [güvenlik önlemlerini](storsimple-safety.md).
+> Kaldırın veya herhangi bir StorSimple bileşeni değiştirmek denemeden önce gözden geçirmenizi emin olun [güvenliği simgesi kuralları](storsimple-safety.md#safety-icon-conventions) ve diğer [güvenlik önlemlerini](storsimple-safety.md).
 > 
 > 
 
 ## <a name="remove-an-ebod-controller"></a>EBOD denetleyicisi Kaldır
-EBOD denetleyicisi StorSimple Cihazınızı modülünde Hello değiştirme başarısız oldu önce o hello emin olun diğer EBOD denetleyici modülü etkin ve çalışır durumda. Merhaba aşağıdaki yordamı ve tabloyu nasıl tooremove hello EBOD Denetleyici Modülü açıklanmaktadır.
+StorSimple Cihazınızı başarısız EBOD denetleyicisi modülünde değiştirmeden önce bir EBOD denetleyici modülü etkin ve çalışıyor olduğundan emin olun. Aşağıdaki yordamı ve tabloyu EBOD denetleyicisi modülün nasıl kaldırılacağı açıklanmaktadır.
 
-#### <a name="tooremove-an-ebod-module"></a>tooremove EBOD Modülü
-1. Açık hello Klasik Azure portalı.
-2. Çok gidin**aygıtları** > **Bakım** > **donanım durum**ve hello hello durumu için KILAVUZLUK doğrulayın etkin EBOD hello Denetleyici Modülü yeşil ve hello LED başarısız hello EBOD Denetleyici Modülü için kırmızı.
-3. Merhaba cihaz arkasına hello adresindeki başarısız hello EBOD Denetleyici Modülü bulun.
-4. Merhaba EBOD modülü hello sistem dışı çıkarmadan önce hello EBOD denetleyicisi modülü toohello denetleyicisi bağlanmak hello kabloları kaldırın.
-5. Merhaba tam SAS bağlantı noktasına bağlı toohello denetleyicisi olduğundan hello EBOD Denetleyici Modülü not edin. Merhaba EBOD modülü değiştirdikten sonra gerekli toorestore hello sistem toothis yapılandırması olacaktır. 
+#### <a name="to-remove-an-ebod-module"></a>EBOD modülünü kaldırmak için
+1. Azure Klasik Portalı'nı açın.
+2. Gidin **aygıtları** > **Bakım** > **donanım durum**, doğrulayın active EBOD denetleyicisi LED durumu Modül yeşil ve başarısız EBOD Denetleyici Modülü LED kırmızı.
+3. Cihaz arkasındaki başarısız EBOD Denetleyici Modülü bulun.
+4. Sistem dışı EBOD modülü çıkarmadan önce EBOD Denetleyici Modülü denetleyicisine bağlanmak kabloları kaldırın.
+5. Denetleyiciye bağlı EBOD Denetleyici Modülü tam SAS bağlantı noktasını not edin. EBOD modülü değiştirdikten sonra sistem bu yapılandırmayı geri yüklemek için gerekli. 
    
    > [!NOTE]
-   > Genellikle, bu olarak etiketli bağlantı noktası A olacaktır **içinde ana bilgisayar** diyagramı aşağıdaki hello içinde.
+   > Genellikle, bu olarak etiketli bağlantı noktası A olacaktır **içinde ana bilgisayar** Aşağıdaki diyagramda.
    > 
    > 
    
@@ -68,21 +68,21 @@ EBOD denetleyicisi StorSimple Cihazınızı modülünde Hello değiştirme başa
    | 8 |Bağlantı noktası C (yalnızca Fabrika kullanın) |
 
 ## <a name="install-a-new-ebod-controller"></a>Yeni bir EBOD denetleyicisi yükleme
-Merhaba aşağıdaki yordamı ve tabloyu açıklayan nasıl tooinstall bir StorSimple Cihazınızı EBOD denetleyicisi modülünde.
+Aşağıdaki yordamı ve tabloyu StorSimple Cihazınızı EBOD Denetleyici Modülü yükleneceği açıklanmaktadır.
 
-#### <a name="tooinstall-an-ebod-controller"></a>tooinstall EBOD denetleyicisi
-1. Merhaba EBOD aygıt zarar, özellikle toohello arabirimi bağlayıcı için denetleyin. Tüm PIN'ler Bükülü hello yeni EBOD denetleyicisi yüklemeyin.
-2. Merhaba tutma hello içinde konumu, slayt hello hello tutma devreye kadar hello muhafaza modüle açın.
+#### <a name="to-install-an-ebod-controller"></a>EBOD denetleyicisi yüklemek için
+1. EBOD aygıt arabirimi bağlayıcıya özellikle hasara karşı denetleyin. Tüm PIN'ler Bükülü yeni EBOD denetleyicisi yüklemeyin.
+2. Mandal devreye kadar açık konumda tutma ile modülü muhafaza kaydırın.
    
     ![EBOD denetleyicisi yükleniyor](./media/storsimple-ebod-controller-replacement/IC741050.png)
    
-    **Şekil 2** yükleme hello EBOD Denetleyici Modülü
-3. Kapat hello Mandal. Merhaba Mandal prosese gibi bir tıklama sesi.
+    **Şekil 2** EBOD denetleyici modülü yükleniyor
+3. Mandal kapatın. Mandal prosese gibi bir tıklama sesi.
    
     ![EBOD mandalı bırakılıyor](./media/storsimple-ebod-controller-replacement/IC741047.png)
    
-    **Şekil 3** hello EBOD modülü mandalı kapatılıyor
-4. Merhaba kabloları yeniden bağlanın. Merhaba değiştirme önce mevcut hello tam yapılandırmasını kullanın. Diyagram aşağıdaki hello bakın ve tablo hakkında ayrıntılar için tooconnect hello kabloları.
+    **Şekil 3** EBOD modülü mandalı kapatılıyor
+4. Kabloları yeniden bağlanın. Değiştirme önce mevcut tam yapılandırmasını kullanın. Aşağıdaki diyagramda ve tablo kabloları bağlanma hakkında ayrıntılı bilgi için bkz.
    
     ![Kabloyla 4U cihazınızın güç bağlantısını yapma](./media/storsimple-ebod-controller-replacement/IC770723.png)
    

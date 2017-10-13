@@ -1,6 +1,6 @@
 ---
-title: "aaaGetting başlatılan esnek veritabanı işleriyle | Microsoft Docs"
-description: "nasıl toouse esnek veritabanı işleri"
+title: "Esnek veritabanı işlerine Başlarken | Microsoft Docs"
+description: "Esnek veritabanı işleri kullanma"
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -14,37 +14,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-ms.openlocfilehash: bc5894d2df4235738ab961db4f69c11cdf786cc6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 05c20e880d4eb1eacdecc0c4c7e7491dfe1e6a89
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Esnek veritabanı işlerine Başlarken
-Esnek veritabanı iş (Önizleme) tooreliability sağlayan Azure SQL veritabanı için birden fazla veritabanı otomatik olarak yeniden denenmeden sırasında span T-SQL betiklerini yürütmek ve nihai tamamlama sağlama güvence altına alır. Merhaba hello esnek veritabanı iş özelliği hakkında daha fazla bilgi için lütfen bkz [özelliği genel bakış sayfasında](sql-database-elastic-jobs-overview.md).
+Azure SQL Database esnek veritabanı işleri (Önizleme) sağlar, güvenilirlik için birden fazla veritabanı otomatik olarak yeniden deneniyor ve nihai tamamlama garanti sağlama sırasında span T-SQL komut dosyalarını çalıştır. Esnek veritabanı iş özelliği hakkında daha fazla bilgi için lütfen bkz [özelliği genel bakış sayfasında](sql-database-elastic-jobs-overview.md).
 
-Bu konuda bulunan hello örnek genişletir [esnek veritabanı araçlarını kullanmaya başlama](sql-database-elastic-scale-get-started.md). Tamamlandığında, şunları yapacaksınız: öğrenin nasıl toocreate ve ilgili veritabanları grubunu yönetme işlerini yönetin. Gerekli toouse hello esnek ölçek sipariş tootake esnek iş hello yararları avantajlarından araçlarında olmadığı.
+Bu konuda bulunan örnek genişletir [esnek veritabanı araçlarını kullanmaya başlama](sql-database-elastic-scale-get-started.md). Tamamlandığında, şunları yapacaksınız: bir grup ilişkili veritabanlarını yönetmek işleri oluşturmak ve yönetmek öğrenin. Esnek iş avantajlarından yararlanmak için esnek ölçek araçlarını kullanmak için gerekli değildir.
 
 ## <a name="prerequisites"></a>Ön koşullar
-İndirme ve çalıştırma hello [esnek veritabanı araçlarını örneği ile çalışmaya başlama](sql-database-elastic-scale-get-started.md).
+İndirme ve çalıştırma [esnek veritabanı araçlarını örneği ile çalışmaya başlama](sql-database-elastic-scale-get-started.md).
 
-## <a name="create-a-shard-map-manager-using-hello-sample-app"></a>Merhaba örnek uygulaması kullanarak Yöneticisi bir parça eşlemesi oluşturma
-Burada Yöneticisi birlikte hello parça veri ekleme tarafından izlenen birkaç parça parça eşleme oluşturur. Parçalı verileri ile ayarlanması parça zaten varsa, hello aşağıdaki adımları atlayın ve sonraki bölümde toohello taşıyın.
+## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Harita manager örnek uygulamasını kullanarak bir parça oluşturma
+Burada birkaç parça parça veri ekleme tarafından izlenen, birlikte Yöneticisi bir parça eşleme oluşturur. Parçalı veriler bunlara ayarlayın parça zaten varsa, aşağıdaki adımları atlayın ve sonraki bölüme taşıyın.
 
-1. Derleme ve çalıştırma hello **esnek veritabanı araçlarını kullanmaya başlama** örnek uygulama. Adım 7 hello bölümünde kadar Hello adımları [hello örnek uygulamasını indirme ve çalıştırma](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). Adım 7 Hello sonunda, komut istemine aşağıdaki hello görürsünüz:
+1. Derleme ve çalıştırma **esnek veritabanı araçlarını kullanmaya başlama** örnek uygulama. Adım 7 bölümünde kadar adımları [örnek uygulamasını indirme ve çalıştırma](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). Adım 7 sonunda, aşağıdaki komut istemi görürsünüz:
 
    ![Komut İstemi](./media/sql-database-elastic-query-getting-started/cmd-prompt.png)
 
-2. Merhaba komut penceresinde "1" yazın ve tuşuna basın **Enter**. Bu hello parça eşleme Yöneticisi oluşturur ve iki parça toohello sunucu ekler. Daha sonra "3" yazın ve basın **Enter**; Bu eylem dört kez yineler. Bu örnek verileri satır, parça ekler.
-3. Merhaba [Azure Portal](https://portal.azure.com) üç yeni veritabanları göstermesi gerekir:
+2. Komut penceresinde "1" yazın ve tuşuna basın **Enter**. Bu parça eşleme Yöneticisi oluşturur ve iki parça sunucusuna ekler. Daha sonra "3" yazın ve basın **Enter**; Bu eylem dört kez yineler. Bu örnek verileri satır, parça ekler.
+3. [Azure Portal](https://portal.azure.com) üç yeni veritabanları göstermesi gerekir:
 
    ![Visual Studio onayı](./media/sql-database-elastic-query-getting-started/portal.png)
 
-   Bu noktada, tüm hello veritabanları hello parça eşlemesindeki yansıtan özel veritabanını koleksiyonu oluşturacağız. Bu, bize toocreate izin ve yeni bir tablo arasında parça eklemek bir işi çalıştırın.
+   Bu noktada, parça eşlemindeki tüm veritabanları yansıtan bir özel veritabanı koleksiyon oluşturacağız. Bu, bize oluşturmak ve yeni bir tablo arasında parça ekleme işlemi yürütmek izin verir.
 
-Burada size genellikle bir parça eşleme hedef hello kullanarak oluşturacak **yeni AzureSqlJobTarget** cmdlet'i. Hello parça eşleme manager veritabanının veritabanı hedef olarak ayarlanmış olması gerekir ve ardından hello belirli parça eşleme hedef olarak belirtilir. Bunun yerine, biz giderek tooenumerate tüm hello hello Server'daki veritabanlarıdır ve hello veritabanları toohello yeni özel koleksiyon ana veritabanı hello durumla ekleyin.
+Burada size genellikle bir parça eşleme oluşturacak kullanarak hedef **yeni AzureSqlJobTarget** cmdlet'i. Parça eşleme manager veritabanı, veritabanı hedefi olarak ayarlamanız gerekir ve ardından belirli parça eşleme hedef olarak belirtilir. Bunun yerine, biz sunucudaki tüm veritabanları numaralandırır ve veritabanlarını yeni özel koleksiyon ana veritabanı dışında eklemek adımıdır.
 
-## <a name="creates-a-custom-collection-and-add-all-databases-in-hello-server-toohello-custom-collection-target-with-hello-exception-of-master"></a>Özel bir koleksiyon oluşturur ve tüm veritabanları hello sunucusu toohello özel koleksiyon hedef ana hello durumla ekleyin.
+## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>Özel bir koleksiyon oluşturur ve tüm veritabanları ana hariç olmak üzere özel koleksiyon hedef sunucu ekleyin.
    ```
     $customCollectionName = "dbs_in_server"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
@@ -98,7 +98,7 @@ Burada size genellikle bir parça eşleme hedef hello kullanarak oluşturacak **
 
         if ($ErrorCategory -eq 'UniqueConstraintViolatedException')
         {
-             Write-Host $currentdb "is already in hello custom collection target" $CustomCollectionName"."
+             Write-Host $currentdb "is already in the custom collection target" $CustomCollectionName"."
         }
 
         else
@@ -128,7 +128,7 @@ Burada size genellikle bir parça eşleme hedef hello kullanarak oluşturacak **
     Write-Output $script
    ```
 
-## <a name="create-hello-job-tooexecute-a-script-across-hello-custom-group-of-databases"></a>Merhaba iş tooexecute bir komut dosyası hello özel grubu veritabanları arasında oluştur
+## <a name="create-the-job-to-execute-a-script-across-the-custom-group-of-databases"></a>Veritabanları özel grup arasında bir betik yürütmek için proje oluşturma
 
    ```
     $jobName = "create on server dbs"
@@ -140,10 +140,10 @@ Burada size genellikle bir parça eşleme hedef hello kullanarak oluşturacak **
     Write-Output $job
    ```
 
-## <a name="execute-hello-job"></a>Merhaba iş yürütme
-PowerShell Betiği aşağıdaki hello kullanılan tooexecute var olan bir iş olabilir:
+## <a name="execute-the-job"></a>İş yürütme
+Aşağıdaki PowerShell betiğini, varolan bir projeyi yürütmek için kullanılabilir:
 
-Değişken tooreflect istenen hello iş adı toohave yürütülen aşağıdaki hello güncelleştirin:
+Aşağıdaki değişkeni istenen iş yürütülmesini yansıtacak şekilde güncelleştirin:
 
    ```
     $jobName = "create on server dbs"
@@ -151,8 +151,8 @@ Değişken tooreflect istenen hello iş adı toohave yürütülen aşağıdaki h
     Write-Output $jobExecution
    ```
 
-## <a name="retrieve-hello-state-of-a-single-job-execution"></a>Tek iş yürütme Hello durumunu alır
-Kullanım hello aynı **Get-AzureSqlJobExecution** hello cmdlet'iyle **ıncludechildren'ın** parametresi tooview hello alt iş yürütmeleri durumunu öğesine hello her karşı her iş yürütme için belirli bir durumda Merhaba işi tarafından hedef veritabanı.
+## <a name="retrieve-the-state-of-a-single-job-execution"></a>Tek iş yürütme durumunu alır
+Aynı **Get-AzureSqlJobExecution** cmdlet'iyle **ıncludechildren'ın** öğesine her iş yürütme iş tarafından hedeflenen her bir veritabanına karşı özel durumu olan alt iş yürütmeleri durumunu görüntülemek için parametre.
 
    ```
     $jobExecutionId = "{Job Execution Id}"
@@ -160,8 +160,8 @@ Kullanım hello aynı **Get-AzureSqlJobExecution** hello cmdlet'iyle **ıncludec
     Write-Output $jobExecutions
    ```
 
-## <a name="view-hello-state-across-multiple-job-executions"></a>Birden çok iş yürütmeleri arasında hello durumunu görüntüle
-Merhaba **Get-AzureSqlJobExecution** cmdlet'i aracılığıyla sağlanan hello parametreleri filtre birden çok iş yürütmeleri kullanılan toodisplay olabilir birden fazla isteğe bağlı parametreler vardır. Merhaba aşağıdaki hello olası yolları toouse Get-AzureSqlJobExecution bazılarını göstermektedir:
+## <a name="view-the-state-across-multiple-job-executions"></a>Birden çok iş yürütmeleri arasında durumunu görüntüleyin
+**Get-AzureSqlJobExecution** cmdlet'i aracılığıyla sağlanan parametreleri filtre birden çok iş yürütmeleri görüntülemek için kullanılan birden fazla isteğe bağlı parametreler vardır. Get-AzureSqlJobExecution kullanmak için olası yollardan bazılarını şunlar gösterilmektedir:
 
 Tüm etkin üst düzey iş yürütmeleri Al:
 
@@ -208,7 +208,7 @@ Etkin olmayan işler de dahil olmak üzere belirtilen özel bir koleksiyonu hede
     Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
    ```
 
-Belirli iş yürütme içinde iş görev yürütmeleri Hello listesini al:
+Belirli iş yürütme içinde iş görev yürütmeleri listesini al:
 
    ```
     $jobExecutionId = "{Job Execution Id}"
@@ -218,7 +218,7 @@ Belirli iş yürütme içinde iş görev yürütmeleri Hello listesini al:
 
 İş görev yürütme ayrıntıları alın:
 
-PowerShell Betiği aşağıdaki hello kullanılan tooview hello yürütme hatalarını ayıklama özellikle yararlıdır iş görevi yürütmede ayrıntılarını olabilir.
+Aşağıdaki PowerShell betiğini yürütme hatalarını ayıklama özellikle yararlıdır iş görevi yürütmede ayrıntılarını görüntülemek için kullanılabilir.
    ```
     $jobTaskExecutionId = "{Job Task Execution Id}"
     $jobTaskExecution = Get-AzureSqlJobTaskExecution -JobTaskExecutionId $jobTaskExecutionId
@@ -226,7 +226,7 @@ PowerShell Betiği aşağıdaki hello kullanılan tooview hello yürütme hatala
    ```
 
 ## <a name="retrieve-failures-within-job-task-executions"></a>İş görevi yürütmeleri içinde hataları alma
-Merhaba JobTaskExecution nesnesi hello yaşam döngüsü boyunca bir ileti özelliği birlikte hello görev için bir özellik içerir. Bir iş görevi yürütmede başarısız olursa hello yaşam döngüsü özelliği çok ayarlanacak*başarısız* ve toohello elde edilen özel durum iletisi ve kendi yığını hello ileti özelliği ayarlanacaktır. Bir işi başarılı olmadı önemli tooview hello için belirli bir işi başarılı olmadı iş görevleri ayrıntılarını olur.
+JobTaskExecution nesnesi, görev bir ileti özelliği birlikte yaşam döngüsü için bir özellik içerir. Bir iş görevi yürütmede başarısız olduysa, yaşam döngüsü özelliği olarak ayarlanacaktır *başarısız* ve sonuçta elde edilen özel durum iletisi ve kendi yığını ileti özelliği ayarlanır. Bir işi başarısız oldu, belirli bir iş için başarılı olmadı iş görevleri ayrıntılarını görüntülemek önemlidir.
 
    ```
     $jobExecutionId = "{Job Execution Id}"
@@ -240,8 +240,8 @@ Merhaba JobTaskExecution nesnesi hello yaşam döngüsü boyunca bir ileti özel
         }
    ```
 
-## <a name="waiting-for-a-job-execution-toocomplete"></a>İş yürütme toocomplete için bekleniyor
-PowerShell Betiği aşağıdaki hello iş görev toocomplete için kullanılan toowait olabilir:
+## <a name="waiting-for-a-job-execution-to-complete"></a>Bir iş yürütmenin tamamlanması bekleniyor
+Aşağıdaki PowerShell betiğini bir iş görevinin tamamlanmasını beklemek için kullanılabilir:
 
    ```
     $jobExecutionId = "{Job Execution Id}"
@@ -253,14 +253,14 @@ Esnek veritabanı iş destekler işleri başlatırken uygulanan özel yürütme 
 
 Yürütme ilkelerini tanımlamak için şu anda izin ver:
 
-* Adı: Merhaba yürütme İlkesi tanımlayıcısı.
+* Adı: Yürütme İlkesi tanımlayıcısı.
 * İş zaman aşımı: bir iş tarafından esnek veritabanı işi iptal edilecek önce toplam süre.
-* İlk yeniden deneme aralığı: Aralığı toowait ilk yeniden denemeden önce.
-* En fazla yeniden deneme aralığı: Yeniden deneme aralıkları toouse Cap.
-* Yeniden deneme aralığı geri Çekilme katsayısı: Katsayısı toocalculate hello sonraki aralıkta yeniden denemeler arasında kullanılır.  Merhaba aşağıdaki formül kullanılır: (ilk yeniden deneme aralığı) * Math.pow ((aralığı geri Çekilme katsayısı) (yeniden deneme sayısı) - 2).
-* En fazla deneme: hello sayısının işindeki yeniden deneme girişimleri tooperform.
+* İlk yeniden deneme aralığı: ilk yeniden denemeden önce beklenecek aralığı.
+* En fazla yeniden deneme aralığı: kullanılacak Cap yeniden deneme aralıkları.
+* Aralık geri Çekilme katsayısı yeniden deneme: Katsayısı sonraki yeniden deneme aralığını hesaplamak için kullanılır.  Aşağıdaki formül kullanılır: (ilk yeniden deneme aralığı) * Math.pow ((aralığı geri Çekilme katsayısı) (yeniden deneme sayısı) - 2).
+* En fazla deneme: En fazla yeniden deneme sayısını içinde bir işi gerçekleştirmek çalışır.
 
-Merhaba varsayılan yürütme İlkesi hello aşağıdaki değerleri kullanır:
+Varsayılan yürütme ilkesi aşağıdaki değerleri kullanır:
 
 * Ad: Varsayılan yürütme İlkesi
 * İş zaman aşımı: 1 hafta
@@ -269,7 +269,7 @@ Merhaba varsayılan yürütme İlkesi hello aşağıdaki değerleri kullanır:
 * Yeniden deneme aralığı katsayısı: 2
 * En fazla deneme: 2.147.483.647
 
-İstenen hello yürütme ilkesi oluşturun:
+İstenen yürütme ilkesi oluşturun:
 
    ```
     $executionPolicyName = "{Execution Policy Name}"
@@ -283,7 +283,7 @@ Merhaba varsayılan yürütme İlkesi hello aşağıdaki değerleri kullanır:
    ```
 
 ### <a name="update-a-custom-execution-policy"></a>Özel yürütme ilkesini güncelleştirin
-İstenen hello yürütme İlkesi tooupdate güncelleştirin:
+Güncelleştirmek için istenen yürütme İlkesi güncelleştirmesi:
 
    ```
     $executionPolicyName = "{Execution Policy Name}"
@@ -297,28 +297,28 @@ Merhaba varsayılan yürütme İlkesi hello aşağıdaki değerleri kullanır:
    ```
 
 ## <a name="cancel-a-job"></a>Bir işi iptal etme
-Esnek veritabanı iş işleri iptal isteklerini destekler.  Esnek veritabanı iş şu anda yürütülmekte olan bir işi iptal isteği algılarsa, toostop hello iş deneyecek.
+Esnek veritabanı iş işleri iptal isteklerini destekler.  Esnek veritabanı iş şu anda yürütülmekte olan bir işi iptal isteği algılarsa, işi durdurmayı deneyecek.
 
 Esnek veritabanı iş iptal gerçekleştirebilirsiniz iki farklı yolu vardır:
 
-1. Şu anda yürütülmekte olan iptal etme görevleri: bir görevi şu anda çalışırken iptal algılanırsa, şu anda yürütülmekte olan hello görev yönünü hello içinde iptal denenecek.  Örneğin: iptal çalışırken şu anda gerçekleştirilen uzun süre çalışan bir sorgusu ise, bir deneme toocancel hello sorgu olacaktır.
-2. İptal etme görev yeniden deneme: iptal hello denetimi iş parçacığı tarafından algılanırsa, bir görev için yürütme başlatılmadan önce hello denetimi iş parçacığı hello görev başlatma önlemek ve hello isteği iptal edildi olarak bildirin.
+1. Şu anda yürütülmekte olan iptal etme görevleri: bir görevi şu anda çalışırken iptal algılanırsa, görevi şu anda yürütülen en boy içinde iptal denenir.  Örneğin: iptal çalışırken şu anda gerçekleştirilen uzun süre çalışan bir sorgusu ise, sorguyu iptal etme girişimi olacaktır.
+2. İptal etme görev yeniden deneme: iptal denetimi iş parçacığı tarafından algılanırsa, bir görev için yürütme başlatılmadan önce denetimi iş parçacığı görev başlatma önlemek ve istek iptal edildi olarak bildirin.
 
-İş iptali için üst iş istediyseniz hello iptal isteği hello üst iş ve tüm alt işlerini uyulacaktır.
+İş iptali için üst iş istediyseniz üst iş ve tüm alt işlerini iptal isteğini uyulacaktır.
 
-toosubmit iptal isteği kullanmak hello **Stop-AzureSqlJobExecution** cmdlet'i ve kümesi hello **JobExecutionId** parametresi.
+İptal isteği göndermek için kullanmak **Stop-AzureSqlJobExecution** cmdlet'i ve **JobExecutionId** parametresi.
 
    ```
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```
 
-## <a name="delete-a-job-by-name-and-hello-jobs-history"></a>Bir iş adı ve hello işin geçmişini sil
-Esnek veritabanı iş işleri zaman uyumsuz silinmesini destekler. Bir işi silinmek üzere işaretlenmiş ve tüm iş yürütmeleri için hello işini tamamladıktan sonra hello sistem hello iş ve tüm iş geçmişini siler. Merhaba sistem etkin iş yürütmeleri otomatik olarak iptal etmek değil.  
+## <a name="delete-a-job-by-name-and-the-jobs-history"></a>İş adı ve iş geçmişini sil
+Esnek veritabanı iş işleri zaman uyumsuz silinmesini destekler. Bir işi silinmek üzere işaretlenmiş ve tüm iş yürütmeleri işi tamamlandıktan sonra sistem iş ve tüm iş geçmişi silinir. Sistem etkin iş yürütmeleri otomatik olarak iptal etmek değil.  
 
-Bunun yerine, Dur AzureSqlJobExecution çağrılan toocancel etkin iş yürütmeleri olması gerekir.
+Bunun yerine, Dur AzureSqlJobExecution etkin iş yürütmeleri iptal etmek için çağrılması gerekir.
 
-tootrigger iş silme, kullanım hello **Kaldır AzureSqlJob** cmdlet'i ve kümesi hello **JobName** parametresi.
+İş silme tetiklemek için kullanabileceğiniz **Kaldır AzureSqlJob** cmdlet'i ve ayarlayın **JobName** parametresi.
 
    ```
     $jobName = "{Job Name}"
@@ -326,9 +326,9 @@ tootrigger iş silme, kullanım hello **Kaldır AzureSqlJob** cmdlet'i ve kümes
    ```
 
 ## <a name="create-a-custom-database-target"></a>Özel veritabanını hedef oluşturma
-Özel veritabanı hedefleri yürütme doğrudan veya bir özel veritabanı grubundaki eklemek için kullanılabilen esnek veritabanı işlerinde tanımlanabilir. Bu yana **esnek havuzlar** henüz doğrudan desteklenmeyen hello PowerShell API'leri, yalnızca bir özel veritabanı hedef ve hello havuzundaki tüm hello veritabanları kapsayan özel veritabanı koleksiyon hedef oluşturun.
+Özel veritabanı hedefleri yürütme doğrudan veya bir özel veritabanı grubundaki eklemek için kullanılabilen esnek veritabanı işlerinde tanımlanabilir. Bu yana **esnek havuzlar** henüz doğrudan desteklenmeyen PowerShell API'leri, yalnızca bir özel veritabanı hedef ve havuzdaki tüm veritabanları kapsayan özel veritabanı koleksiyon hedef oluşturun.
 
-Aşağıdaki değişkenleri tooreflect istenen hello veritabanı bilgilerle hello ayarlayın:
+İstenen veritabanı bilgilerini yansıtmak için aşağıdaki değişkenleri ayarlayın:
 
    ```
     $databaseName = "{Database Name}"
@@ -337,19 +337,19 @@ Aşağıdaki değişkenleri tooreflect istenen hello veritabanı bilgilerle hell
    ```
 
 ## <a name="create-a-custom-database-collection-target"></a>Özel veritabanı koleksiyon hedef oluşturma
-Özel veritabanı koleksiyon hedefi tanımlı tooenable yürütme arasında birden çok tanımlanmış veritabanı hedefi olabilir. Bir veritabanı grubu oluşturulduktan sonra veritabanları ilişkili toohello özel koleksiyon hedef olabilir.
+Özel veritabanı koleksiyon hedef yürütme arasında birden çok tanımlanmış veritabanı hedefleri etkinleştirmek için tanımlanabilir. Bir veritabanı grubu oluşturulduktan sonra özel toplama hedef veritabanları ilişkilendirilebilir.
 
-Değişkenleri tooreflect hello istenen özel koleksiyon hedef yapılandırması aşağıdaki hello ayarlayın:
+İstenen özel koleksiyon hedef yapılandırmayı yansıtacak şekilde aşağıdaki değişkenleri ayarlayın:
 
    ```
     $customCollectionName = "{Custom Database Collection Name}"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
    ```
 
-### <a name="add-databases-tooa-custom-database-collection-target"></a>Veritabanlarını tooa özel veritabanı koleksiyon hedefi ekleyin
-Veritabanı hedefleri özel veritabanı koleksiyon hedefleri toocreate grubu ile ilişkili olabilir. Özel veritabanı koleksiyon hedef hedefleyen bir iş oluşturulduğunda, yürütme hello aynı anda genişletilmiş tootarget hello veritabanları ilişkili toohello grubu olacaktır.
+### <a name="add-databases-to-a-custom-database-collection-target"></a>Özel veritabanını koleksiyonu hedefe veritabanları ekleme
+Veritabanı hedefleri veritabanlarının bir grup oluşturmak için özel veritabanı koleksiyon hedefleri ile ilişkili olabilir. Özel veritabanı koleksiyon hedef hedefleyen bir iş oluşturulduğunda, yürütme sırasında grubu için ilişkili veritabanlarını hedeflemek için genişletilir.
 
-İstenen hello veritabanı tooa belirli özel koleksiyon ekleyin:
+İstenen veritabanı belirli özel bir koleksiyona ekleyin:
 
    ```
     $serverName = "{Database Server Name}"
@@ -358,8 +358,8 @@ Veritabanı hedefleri özel veritabanı koleksiyon hedefleri toocreate grubu ile
     Add-AzureSqlJobChildTarget -CustomCollectionName $customCollectionName -DatabaseName $databaseName -ServerName $databaseServerName
    ```
 
-#### <a name="review-hello-databases-within-a-custom-database-collection-target"></a>Özel veritabanı koleksiyon hedef içinde Hello veritabanları gözden geçirin
-Kullanım hello **Get-AzureSqlJobTarget** cmdlet tooretrieve hello alt veritabanları özel veritabanı koleksiyon hedef içinde.
+#### <a name="review-the-databases-within-a-custom-database-collection-target"></a>Özel veritabanı koleksiyon hedef içinde veritabanları gözden geçirin
+Kullanım **Get-AzureSqlJobTarget** özel veritabanı koleksiyon hedef içinde alt veritabanları almak üzere.
 
    ```
     $customCollectionName = "{Custom Database Collection Name}"
@@ -368,8 +368,8 @@ Kullanım hello **Get-AzureSqlJobTarget** cmdlet tooretrieve hello alt veritaban
     Write-Output $childTargets
    ```
 
-### <a name="create-a-job-tooexecute-a-script-across-a-custom-database-collection-target"></a>Bir iş tooexecute özel veritabanı koleksiyon hedef arasında bir komut dosyası oluşturun
-Kullanım hello **yeni AzureSqlJob** cmdlet toocreate özel veritabanı koleksiyon hedef tarafından tanımlanan veritabanlarının bir gruba göre bir işi. Esnek veritabanı iş karşılık gelen her tooa veritabanı hello özel veritabanı koleksiyon hedefle ilişkili ve hello betik her veritabanına karşı yürütüldüğünden emin olmayı birden çok alt işlere hello iş genişletin. Yeniden ıdempotent toobe dayanıklı tooretries betiklerdir önemlidir.
+### <a name="create-a-job-to-execute-a-script-across-a-custom-database-collection-target"></a>Özel veritabanı koleksiyon hedef arasında bir betik yürütmek için bir proje oluşturun
+Kullanım **yeni AzureSqlJob** özel veritabanı koleksiyon hedef tarafından tanımlanan veritabanlarının bir gruba göre bir iş oluşturmak için cmdlet'i. Esnek veritabanı iş her bir veritabanına karşılık gelen özel veritabanı koleksiyon hedefle ilişkili birden çok alt işlere işi'ni genişletin ve komut dosyası her veritabanına karşı yürütülür emin olun. Yeniden, komut dosyaları, deneme dayanıklı olmasını ıdempotent olduğunu önemlidir.
 
    ```
     $jobName = "{Job Name}"
@@ -382,13 +382,13 @@ Kullanım hello **yeni AzureSqlJob** cmdlet toocreate özel veritabanı koleksiy
    ```
 
 ## <a name="data-collection-across-databases"></a>Veritabanları arasında veri toplama
-**Esnek veritabanı iş** grubu bir sorgu yürütülürken destekler ve hello sonuçları tooa belirtilen veritabanının tablo gönderir. Merhaba tablo, her veritabanı hello olgu toosee hello sorgunun sonuçlarını sonra sorgulanabilir. Bu zaman uyumsuz mekanizması tooexecute birçok veritabanı arasında bir sorgu sağlar. Geçici olarak devre dışı bırakılıyor hello veritabanlarından birini gibi hata durumları otomatik olarak yeniden deneme işlenir.
+**Esnek veritabanı iş** grubu bir sorgu yürütülürken destekler ve sonuçları belirtilen veritabanının tabloya gönderir. Tablonun her veritabanından sorgunun sonuçlarını görmek için Olgu sonra sorgulanabilir. Bu, birçok veritabanı arasında bir sorguyu yürütmek için zaman uyumsuz bir mekanizma sağlar. Geçici olarak devre dışı bırakılıyor veritabanlarından birini gibi hata durumları otomatik olarak yeniden deneme işlenir.
 
-henüz yoksa, hello belirtilen hedef tablo otomatik olarak oluşturulur, hello eşleşen hello şeması sonuç kümesi döndürdü. Bir komut dosyası yürütme birden çok sonuç kümesi döndürürse, esnek veritabanı işlerini yalnızca hello ilk sağlanan bir toohello hedef tablo gönderir.
+Bunu henüz, döndürülen sonuç kümesi şemasını eşleştirme yoksa, belirtilen hedef tablonun otomatik olarak oluşturulur. Bir komut dosyası yürütme birden çok sonuç kümesi döndürürse, esnek veritabanı işlerini yalnızca birinci sağlanan hedef tabloyla gönderir.
 
-PowerShell Betiği aşağıdaki hello kullanılan tooexecute sonuçlarını belirtilen tabloya toplama bir komut dosyası olabilir. Bu komut dosyasını bir T-SQL betiği, tek bir sonuç kümesi çıkarır oluşturulup oluşturulmadığını ve bir özel veritabanı koleksiyon hedef oluşturulan varsayar.
+Aşağıdaki PowerShell komut dosyası sonuçlarını belirtilen tabloya toplama bir betik yürütmek için kullanılabilir. Bu komut dosyasını bir T-SQL betiği, tek bir sonuç kümesi çıkarır oluşturulup oluşturulmadığını ve bir özel veritabanı koleksiyon hedef oluşturulan varsayar.
 
-Tooreflect hello istenen komut, kimlik bilgileri ve yürütme hedef aşağıdaki hello ayarlayın:
+İstenen komut, kimlik bilgileri ve yürütme hedef yansıtmak için aşağıdakileri ayarlayın:
 
    ```
     $jobName = "{Job Name}"
@@ -412,7 +412,7 @@ Tooreflect hello istenen komut, kimlik bilgileri ve yürütme hedef aşağıdaki
    ```
 
 ## <a name="create-a-schedule-for-job-execution-using-a-job-trigger"></a>Bir iş tetikleyici kullanarak iş yürütme için bir zamanlama oluşturmak
-PowerShell Betiği aşağıdaki hello kullanılan toocreate yeniden zamanlama olabilir. Bu komut dosyasını bir dakikalık bir zaman aralığı kullanır, ancak yeni AzureSqlJobSchedule - DayInterval, - HourInterval, - MonthInterval ve - WeekInterval parametreleri de destekler. Yalnızca bir kez yürütme zamanlamaları oluşturulabilir göre geçirme - kez.
+Aşağıdaki PowerShell betiğini yeniden bir zamanlama oluşturmak için kullanılabilir. Bu komut dosyasını bir dakikalık bir zaman aralığı kullanır, ancak yeni AzureSqlJobSchedule - DayInterval, - HourInterval, - MonthInterval ve - WeekInterval parametreleri de destekler. Yalnızca bir kez yürütme zamanlamaları oluşturulabilir göre geçirme - kez.
 
 Yeni bir zamanlama oluşturun:
    ```
@@ -423,10 +423,10 @@ Yeni bir zamanlama oluşturun:
     Write-Output $schedule
    ```
 
-### <a name="create-a-job-trigger-toohave-a-job-executed-on-a-time-schedule"></a>Bir iş tetikleyici toohave zaman zamanlamaya göre çalıştırılan bir iş oluşturun
-Bir iş Tetikleyici tanımlı toohave yürütülen iş according tooa saat zamanlama olabilir. PowerShell Betiği aşağıdaki hello kullanılan toocreate iş tetikleyici olabilir.
+### <a name="create-a-job-trigger-to-have-a-job-executed-on-a-time-schedule"></a>Bir zaman zamanlamaya göre çalıştırılan bir iş için bir iş Tetikleyici oluşturma
+Bir iş tetikleyici bir saat zamanlamaya göre çalıştırılan bir iş için tanımlanabilir. Aşağıdaki PowerShell betiğini bir işi tetikleyici oluşturmak için kullanılabilir.
 
-Değişkenleri toocorrespond toohello istenen iş aşağıdaki hello ayarlayabilir ve zamanlayın:
+İstenen iş ve zamanlama karşılık gelen için aşağıdaki değişkenleri ayarlayın:
 
    ```
     $jobName = "{Job Name}"
@@ -435,9 +435,9 @@ Değişkenleri toocorrespond toohello istenen iş aşağıdaki hello ayarlayabil
     Write-Output $jobTrigger
    ```
 
-### <a name="remove-a-scheduled-association-toostop-job-from-executing-on-schedule"></a>Zamanlamaya göre yürütülmesini zamanlanmış ilişkilendirme toostop işi kaldırma
-iş yürütme iş tetikleyici, hello iş tetikleyici aracılığıyla yinelenmeye toodiscontinue kaldırılabilir.
-Yürütülmekte olan iş tetikleyici toostop bir işi kaldırma hello kullanarak according tooa zamanlaması **Kaldır AzureSqlJobTrigger** cmdlet'i.
+### <a name="remove-a-scheduled-association-to-stop-job-from-executing-on-schedule"></a>Zamanlamaya göre yürütülmesini işini durdurmak için zamanlanmış bir ilişkilendirmesini Kaldır
+Bir iş tetikleyici aracılığıyla yeniden iş yürütme kesmek için iş tetikleyici kaldırılabilir.
+Bir zamanlamaya göre çalıştırılmasını bir işi durdurmak için bir iş tetikleyiciyi kaldırmak **Kaldır AzureSqlJobTrigger** cmdlet'i.
 
    ```
     $jobName = "{Job Name}"
@@ -445,27 +445,27 @@ Yürütülmekte olan iş tetikleyici toostop bir işi kaldırma hello kullanarak
     Remove-AzureSqlJobTrigger -ScheduleName $scheduleName -JobName $jobName
    ```
 
-## <a name="import-elastic-database-query-results-tooexcel"></a>Esnek veritabanı sorgu sonuçları tooExcel alma
- Merhaba sonuçlarını bir sorgu tooan Excel dosyasını içeri aktarabilirsiniz.
+## <a name="import-elastic-database-query-results-to-excel"></a>Esnek veritabanı sorgu sonuçları Excel'e Al
+ Gelen bir sorgunun sonuçlarını bir Excel dosyasını içeri aktarabilirsiniz.
 
 1. Excel 2013'ü başlatın.
-2. Toohello gidin **veri** Şerit.
+2. Gidin **veri** Şerit.
 3. Tıklatın **diğer kaynaklardan** tıklatıp **SQL Server'dan**.
 
    ![Excel Import diğer kaynaklardan](./media/sql-database-elastic-query-getting-started/exel-sources.png)
 
-4. Merhaba, **Veri Bağlantı Sihirbazı** hello sunucu adını ve oturum açma kimlik bilgilerini yazın. Ardından **İleri**'ye tıklayın.
-5. Merhaba iletişim kutusunda **hello verileri içeren Select hello veritabanı**seçin hello **ElasticDBQuery** veritabanı.
-6. Select hello **müşteriler** tablo hello liste görünümünde ve tıklayın **sonraki**. Ardından **son**.
-7. Merhaba, **veri içeri aktarma** formunda, altında **nasıl bu verileri tooview çalışma kitabınızı istediğinizi seçin**seçin **tablo** tıklatıp **Tamam**.
+4. İçinde **Veri Bağlantı Sihirbazı** sunucu adını ve oturum açma kimlik bilgilerini yazın. Ardından **İleri**'ye tıklayın.
+5. İletişim kutusunda **istediğiniz verileri içeren bir veritabanı seçin**seçin **ElasticDBQuery** veritabanı.
+6. Seçin **müşteriler** Tablo liste görünümünde ve tıklayın **sonraki**. Ardından **son**.
+7. İçinde **veri içeri aktarma** formunda, altında **nasıl çalışma kitabınızı bu verileri görüntülemek istediğinizi seçin**seçin **tablo** tıklatıp **Tamam**.
 
-Tüm satırları hello **müşteriler** tablo, farklı parça içinde depolanan doldurmak hello Excel sayfası.
+Tüm satırların **müşteriler** tablo, farklı parça içinde depolanan doldurmak Excel sayfası.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık, Excel'in veri işlevleri de kullanabilirsiniz. Veritabanı adı, sunucu adıyla Hello bağlantı dizesi kullanın ve tooconnect BI ve veri tümleştirme araçları toohello esnek sorgu veritabanınızı kimlik bilgileri. SQL Server, aracı için bir veri kaynağı olarak desteklendiğinden emin olun. Toohello esnek sorgu veritabanını ve herhangi bir SQL Server veritabanı gibi dış tablolara ve SQL Server tablolarını aracınızı toowith bağlamak bakın.
+Artık, Excel'in veri işlevleri de kullanabilirsiniz. Bağlantı dizesi, BI ve veri tümleştirme araçları esnek sorgu veritabanına bağlanmak için sunucu adı, veritabanı adının ve kimlik bilgilerini kullanın. SQL Server, aracı için bir veri kaynağı olarak desteklendiğinden emin olun. Herhangi bir SQL Server veritabanı gibi dış tablolar ve aracı ile bağlanacağı SQL Server tablolarını ve esnek sorgu veritabanı bakın.
 
 ### <a name="cost"></a>Maliyet
-Merhaba esnek veritabanı sorgu özelliğini kullanmak için ek ücret yoktur. Ancak, şu anda bu özellik bir uç noktası olarak yalnızca premium veritabanlarında kullanılabilir, ancak hello parça herhangi bir hizmet katmanı olabilir.
+Esnek veritabanı sorgu özelliğini kullanmak için ek ücret yoktur. Ancak, şu anda bu özellik bir uç noktası olarak yalnızca premium veritabanlarında kullanılabilir, ancak parça herhangi bir hizmet katmanı olabilir.
 
 Fiyatlandırma bilgileri için bkz: [SQL veritabanı fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/sql-database/).
 

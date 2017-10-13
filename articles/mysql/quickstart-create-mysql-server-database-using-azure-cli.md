@@ -1,6 +1,6 @@
 ---
 title: "Hızlı Başlangıç: MySQL için Azure Veritabanı sunucusu Oluşturma - Azure CLI | Microsoft Docs"
-description: "Bu hızlı başlangıç nasıl toouse hello Azure CLI toocreate bir Azure kaynak grubu içindeki MySQL sunucusu için bir Azure veritabanı açıklar."
+description: "Bu hızlı başlangıçta, Azure CLI aracını kullanarak bir Azure kaynak grubunda nasıl MySQL için Azure Veritabanı sunucusu oluşturabileceğiniz açıklanır."
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
@@ -11,70 +11,70 @@ ms.devlang: azure-cli
 ms.topic: hero-article
 ms.date: 06/13/2017
 ms.custom: mvc
-ms.openlocfilehash: 708d0cce12e812cb464adcf7e83e6f85c196bafe
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 3d66efa6935150c665a3f568e60c35ddbd70e8be
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Azure CLI aracını kullanarak MySQL için Azure Veritabanı sunucusu oluşturma
-Bu hızlı başlangıç nasıl toouse hello Azure CLI toocreate bir Azure kaynak grubu içindeki MySQL sunucusu için bir Azure veritabanı yaklaşık beş dakika içinde açıklar. Hello Azure CLI kullanılan toocreate olan ve hello komut satırından veya komut dosyalarında Azure kaynaklarını yönetin.
+Bu hızlı başlangıçta, Azure CLI aracını kullanarak bir Azure kaynak grubunda yaklaşık beş dakikada nasıl MySQL için Azure Veritabanı sunucusu oluşturabileceğiniz açıklanır. Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Tooinstall seçin ve hello CLI yerel olarak kullanırsanız, bu konuda hello Azure CLI Sürüm 2.0 veya üstü çalıştığını gerektirir. Çalıştırma `az --version` toofind hello sürümü. Tooinstall veya yükseltme gerekirse bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
-Birden çok aboneliğiniz varsa, hello kaynak yok veya için fatura hello uygun abonelik seçin. [az account set](/cli/azure/account#set) komutunu kullanarak hesabınız altındaki belirli bir abonelik kimliğini seçin.
+Birden fazla aboneliğiniz varsa kaynağın mevcut olduğu ve faturalandırıldığı uygun aboneliği seçin. [az account set](/cli/azure/account#set) komutunu kullanarak hesabınız altındaki belirli bir abonelik kimliğini seçin.
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
-Oluşturma bir [Azure kaynak grubu](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) hello kullanarak [az grubu oluşturma](https://docs.microsoft.com/cli/azure/group#create) komutu. Kaynak grubu, Azure kaynaklarının grup olarak dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
+[az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) komutunu kullanarak bir [Azure kaynak grubu](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) oluşturun. Kaynak grubu, Azure kaynaklarının grup olarak dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
-Merhaba aşağıdaki örnekte oluşturur adlı bir kaynak grubu `myresourcegroup` hello içinde `westus` konumu.
+Aşağıdaki örnek `westus` konumunda `myresourcegroup` adlı bir kaynak grubu oluşturur.
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>MySQL için Azure Veritabanı sunucusu oluşturma
-MySQL sunucusu için bir Azure veritabanı ile Merhaba oluşturma **az mysql sunucusu oluşturun** komutu. Bir sunucu birden çok veritabanını yönetebilir. Genellikle her proje veya kullanıcı için farklı bir veritabanı kullanılır.
+**az mysql server create** komutunu kullanarak MySQL için Azure Veritabanı sunucusu oluşturun. Bir sunucu birden çok veritabanını yönetebilir. Genellikle her proje veya kullanıcı için farklı bir veritabanı kullanılır.
 
-Merhaba aşağıdaki örnek bir Azure veritabanı bulunan MySQL sunucusu için oluşturur `westus` hello kaynak grubunda `myresourcegroup` adla `myserver4demo`. Merhaba sunucu sahip bir yönetici oturumu adlı `myadmin` ve parola `Password01!`. Merhaba sunucusu ile oluşturulur **temel** performans katmanı ve **50** hello Server'daki tüm hello veritabanları arasında paylaşılan birimler işlem. İşlem ve depolama yukarı veya aşağı hello uygulamanızın gereksinimlerine bağlı olarak ölçekleme yapabilirsiniz.
+Aşağıdaki örnekte, `westus` bölgesinde bulunan `myresourcegroup` kaynak grubundaki `myserver4demo` adlı MySQL sunucusu için bir Azure Veritabanı oluşturulur. Sunucunun `myadmin` şeklinde bir oturum adı ve `Password01!` şeklinde bir parolası vardır. Sunucu **Temel** performans katmanıyla oluşturulmuştur ve sunucudaki tüm veritabanları **50** işlem birimini ortak olarak kullanır. Uygulama gereksinimlerine bağlı olarak işlem ve depolama ölçeğini büyütebilir veya küçültebilirsiniz.
 
 ```azurecli-interactive
 az mysql server create --resource-group myresourcegroup --name myserver4demo --location westus --admin-user myadmin --admin-password Password01! --performance-tier Basic --compute-units 50
 ```
 
 ## <a name="configure-firewall-rule"></a>Güvenlik duvarı kuralını yapılandırma
-Hello kullanarak MySQL sunucu düzeyinde güvenlik duvarı kuralı için bir Azure veritabanı oluştur **az mysql server güvenlik duvarı kuralı oluşturmak** komutu. Sunucu düzeyinde güvenlik duvarı kuralı hello gibi bir dış uygulamaya verir **mysql.exe** komut satırı aracını veya MySQL çalışma ekranı tooconnect tooyour sunucu hello Azure MySQL hizmeti güvenlik duvarı üzerinden. 
+**az mysql server firewall-rule create** komutunu kullanarak MySQL için Azure Veritabanı sunucusu düzeyinde bir güvenlik duvarı kuralı oluşturun. Sunucu düzeyindeki bir güvenlik duvarı kuralı, **mysql.exe** komut satırı aracı veya MySQL Workbench gibi bir dış uygulamanın Azure MySQL hizmetinin güvenlik duvarı üzerinden sunucunuza bağlanmasına imkan tanır. 
 
-Merhaba aşağıdaki örnek, bu örnekte hello tüm olası IP adres aralığı olan önceden tanımlanmış adres aralığı için bir güvenlik duvarı kuralı oluşturur.
+Aşağıdaki örnekte önceden tanımlanmış bir adres aralığı için bir güvenlik duvarı kuralı oluşturulmaktadır. Bu örnek için aralık, olası tüm IP adresleri aralığıdır.
 
 ```azurecli-interactive
 az mysql server firewall-rule create --resource-group myresourcegroup --server myserver4demo --name AllowYourIP --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 ## <a name="configure-ssl-settings"></a>SSL ayarlarını yapılandırma
-Varsayılan olarak sunucunuz ile istemci uygulamaları arasında SSL bağlantıları zorunlu tutulur.  Bu "hareket halinde" güvenliğini sağlar hello Internet üzerinden hello veri akışı şifreleme verileri.  Bu hızlı başlangıç daha kolay toomake, biz SSL bağlantıları için sunucunuzu devre dışı bırakın.  Üretim sunucuları için bunu yapmanız önerilmez.  Daha fazla bilgi için bkz: [yapılandırma SSL bağlantısı'nda uygulama toosecurely bağlanmak tooAzure veritabanı için MySQL](./howto-configure-ssl.md).
+Varsayılan olarak sunucunuz ile istemci uygulamaları arasında SSL bağlantıları zorunlu tutulur.  Bu, İnternet üzerinden veri akışını şifreleyerek “hareket halindeki” verilerinizin güvenli olmasını sağlar.  Bu hızlı başlangıcı daha da kolaylaştırmak üzere sunucunuz için SSL bağlantılarını devre dışı bırakıyoruz.  Üretim sunucuları için bunu yapmanız önerilmez.  Daha ayrıntılı bilgi için bkz. [MySQL için Azure Veritabanı'na güvenli bir şekilde bağlanmak üzere uygulamanızda SSL bağlantısını yapılandırma](./howto-configure-ssl.md).
 
-Merhaba aşağıdaki örnek, MySQL server zorunlu SSL devre dışı bırakır.
+Aşağıdaki örnekte, MySQL sunucunuzda SSL’yi zorunlu tutma ayarı devre dışı bırakılır.
  
  ```azurecli-interactive
  az mysql server update --resource-group myresourcegroup --name myserver4demo -g -n --ssl-enforcement Disabled
  ```
 
-## <a name="get-hello-connection-information"></a>Merhaba bağlantı bilgilerini alma
+## <a name="get-the-connection-information"></a>Bağlantı bilgilerini alma
 
-tooconnect tooyour server tooprovide konağı bilgileri ve erişim kimlik bilgileri gerekir.
+Sunucunuza bağlanmak için ana bilgisayar bilgilerini ve erişim kimlik bilgilerini sağlamanız gerekir.
 
 ```azurecli-interactive
 az mysql server show --resource-group myresourcegroup --name myserver4demo
 ```
 
-Merhaba, JSON biçiminde sonucudur. Merhaba Not **fullyQualifiedDomainName** ve **Admınıstratorlogın**.
+Sonuç JSON biçimindedir. **fullyQualifiedDomainName** ve **administratorLogin** bilgilerini not alın.
 ```json
 {
   "administratorLogin": "myadmin",
@@ -99,12 +99,12 @@ Merhaba, JSON biçiminde sonucudur. Merhaba Not **fullyQualifiedDomainName** ve 
 }
 ```
 
-## <a name="connect-toohello-server-using-hello-mysqlexe-command-line-tool"></a>Merhaba mysql.exe komut satırı aracını kullanarak toohello sunucuya bağlanın
-Hello kullanarak tooyour sunucusuna **mysql.exe** komut satırı aracı. MySQL'i [buradan](https://dev.mysql.com/downloads/) indirerek bilgisayarınıza yükleyebilirsiniz. Bunun yerine, ayrıca hello tıklatarak **deneyin** düğmesini kod örnekleri üzerinde veya hello `>_` hello üst sağ araç hello Azure portal ve başlatma hello düğmesinden **Azure bulut Kabuk**.
+## <a name="connect-to-the-server-using-the-mysqlexe-command-line-tool"></a>mysql.exe komut satırı aracını kullanarak sunucuya bağlanma
+**mysql.exe** komut satırı aracını kullanarak sunucunuza bağlanın. MySQL'i [buradan](https://dev.mysql.com/downloads/) indirerek bilgisayarınıza yükleyebilirsiniz. Bunun yerine kod örneklerindeki **Deneyin** düğmesine veya Azure portalında sağ üstte bulunan `>_` düğmesine tıklayabilir ve **Azure Cloud Shell**'i başlatabilirsiniz.
 
-Merhaba sonraki komutları yazın: 
+Aşağıdaki komutları yazın: 
 
-1. Sunucu toohello kullanarak bağlan **mysql** komut satırı aracı:
+1. **mysql** komut satırı aracını kullanarak sunucuya bağlanın:
 ```azurecli-interactive
  mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
 ```
@@ -113,12 +113,12 @@ Merhaba sonraki komutları yazın:
 ```sql
  mysql> status
 ```
-Her şey yolunda giderse hello komut satırı aracı metin aşağıdaki hello çıkış:
+Her şey yolunda giderse komut satırı aracı aşağıdaki metni oluşturmalıdır:
 
 ```dos
 C:\Users\>mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p
 Enter password: ***********
-Welcome toohello MySQL monitor.  Commands end with ; or \g.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 65512
 Server version: 5.6.26.0 MySQL Community Server (GPL)
 
@@ -128,7 +128,7 @@ Oracle is a registered trademark of Oracle Corporation and/or its
 affiliates. Other names may be trademarks of their respective
 owners.
 
-Type 'help;' or '\h' for help. Type '\c' tooclear hello current input statement.
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 mysql> status
 --------------
@@ -158,27 +158,27 @@ mysql>
 > [!TIP]
 > Ek komutlar için bkz. [MySQL 5.7 Başvuru Kılavuzu - Bölüm 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
 
-## <a name="connect-toohello-server-using-hello-mysql-workbench-gui-tool"></a>Merhaba MySQL çalışma ekranı GUI aracını kullanarak toohello sunucuya bağlanın
-1.  Merhaba, istemci bilgisayardaki MySQL çalışma ekranı uygulaması başlatın. MySQL Workbench uygulamasını [buradan](https://dev.mysql.com/downloads/workbench/) indirip yükleyebilirsiniz.
+## <a name="connect-to-the-server-using-the-mysql-workbench-gui-tool"></a>MySQL Workbench GUI aracını kullanarak sunucuya bağlanma
+1.  İstemci bilgisayarınızda MySQL Workbench uygulamasını başlatın. MySQL Workbench uygulamasını [buradan](https://dev.mysql.com/downloads/workbench/) indirip yükleyebilirsiniz.
 
-2.  Merhaba, **yeni bağlantı kurma** iletişim kutusunda, aşağıdaki bilgilerle hello girin **parametreleri** sekmesi:
+2.  **Setup New Connection** (Yeni Bağlantı Oluştur) iletişim kutusundaki **Parameters** (Parametreler) sekmesine aşağıdaki bilgileri girin:
 
    ![yeni bağlantı oluştur](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
 
 | **Ayar** | **Önerilen Değer** | **Açıklama** |
 |---|---|---|
 |   Bağlantı Adı | Bağlantım | Bu bağlantı için bir etiket belirtin (herhangi bir şey olabilir) |
-| Bağlantı Yöntemi | Standart (TCP/IP) seçeneğini belirleyin | TCP/IP Protokolü tooconnect tooAzure veritabanı için MySQL kullanmak > |
+| Bağlantı Yöntemi | Standart (TCP/IP) seçeneğini belirleyin | MySQL için Azure Veritabanı'na bağlanmak için TCP/IP protokolünü kullanın |
 | Ana Bilgisayar Adı | myserver4demo.mysql.database.azure.com | Daha önce not aldığınız sunucu adı. |
-| Bağlantı noktası | 3306 | MySQL için Hello varsayılan bağlantı noktası kullanılır. |
-| Kullanıcı adı | myadmin@myserver4demo | Merhaba Sunucu Yöneticisi oturum açma, daha önce not ettiğiniz. |
-| Parola | **** | Daha önce yapılandırılmış hello yönetici hesabı parolasını kullanın. |
+| Bağlantı noktası | 3306 | MySQL için varsayılan bağlantı noktası kullanılır. |
+| Kullanıcı adı | myadmin@myserver4demo | Daha önce not aldığınız sunucu yöneticisi oturum açma bilgileri. |
+| Parola | **** | Önceden yapılandırdığınız yönetici parolasını kullanın. |
 
-Tıklatın **Bağlantıyı Sına** tüm parametrelerin doğru yapılandırılmışsa tootest.
-Artık, hello bağlantıyı tıklatabilir toosuccessfully toohello sunucusuna bağlanın.
+Tüm parametrelerin doğru yapılandırılıp yapılandırılmadığını test etmek için **Bağlantıyı Sına**’ya tıklayın.
+Şimdi bağlantıya tıklayarak sunucuya başarıyla bağlanabilirsiniz.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-Başka bir hızlı başlangıç/öğretici için bu kaynakları gerek duymuyorsanız, komutu aşağıdaki hello yaparak silebilirsiniz: 
+Bu kaynaklara başka bir hızlı başlangıç/öğretici için gereksinim duymuyorsanız aşağıdaki komutu çalıştırarak kaynakları silebilirsiniz: 
 
 ```azurecli-interactive
 az group delete --name myresourcegroup

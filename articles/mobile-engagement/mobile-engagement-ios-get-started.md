@@ -1,6 +1,6 @@
 ---
-title: "Objective C'de iOS için Azure Mobile Engagement başlangıç aaaGet | Microsoft Docs"
-description: "Bilgi nasıl iOS uygulamaları için analizler ve anında iletme bildirimleri ile Azure Mobile Engagement toouse."
+title: "Objective C'de iOS için Azure Mobile Engagement ile Çalışmaya Başlama | Microsoft Belgeleri"
+description: "iOS uygulamaları için analizler ve anında iletme bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin."
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,60 +14,60 @@ ms.devlang: objective-c
 ms.topic: hero-article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.openlocfilehash: 51a5013f23d2d04a7b9b30c83b47017898b2bb00
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 1b87a2ebb35b31ee3d3139ecead6267e62eb1033
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-ios-apps-in-objective-c"></a>Objective C’de iOS uygulamaları için Azure Mobile Engagement kullanmaya başlama
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-Bu konu, nasıl gösterir toouse Azure Mobile Engagement toounderstand uygulama kullanımı ve gönderme anında iletme bildirimleri toosegmented kullanıcılar tooan iOS uygulaması.
+Bu konuda, uygulama kullanımınızı anlamak ve bir iOS uygulamasının segmentli kullanıcılarına anında iletme bildirimleri göndermek için nasıl Azure Mobile Engagement kullanılacağı gösterilmektedir.
 Bu öğreticide, temel verileri toplayan ve Apple Anında İletme Bildirimi Sistemi’ni (APNS) kullanarak anında iletme bildirimleri alan boş bir iOS uygulaması oluşturursunuz.
 
-Bu öğretici hello aşağıdakileri gerektirir:
+Bu öğretici için aşağıdakiler gereklidir:
 
 * MAC App Store'dan yükleyebileceğiniz XCode 8
-* Merhaba [Mobile Engagement iOS SDK'sı]
+* [Mobile Engagement iOS SDK]
 
 Bu öğreticiyi tamamlamak iOS uygulamalarına ilişkin tüm Mobile Engagement öğreticileri için önkoşuldur.
 
 > [!NOTE]
-> toocomplete Bu öğretici, etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-get-started).
+> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-ios-get-started).
 >
 >
 
 ## <a id="setup-azme"></a>iOS uygulamanız için Mobile Engagement kurma
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Uygulamanızın toohello Mobile Engagement arka ucuna bağlanmak
-Bu öğreticide "Merhaba en az gerekli toocollect veri kümesi ve bir anında iletme bildirimi gönderme bir"temel tümleştirme"gösterilmektedir. Merhaba tümleştirme belgelerinin tamamı hello bulunabilir [Mobile Engagement iOS SDK tümleştirmesi](mobile-engagement-ios-sdk-overview.md)
+## <a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
+Bu öğreticide, veri toplamak ve anında iletme bildirimi göndermek için gerekli en küçük grup olan bir "temel tümleştirme" gösterilmektedir. Tümleştirme belgelerinin tamamı [Mobile Engagement iOS SDK tümleştirmesi](mobile-engagement-ios-sdk-overview.md)’nde bulunabilir.
 
-XCode toodemonstrate hello tümleştirme ile temel bir uygulama oluşturacağız.
+Tümleştirmeyi göstermek için XCode ile temel bir uygulama oluşturacağız.
 
 ### <a name="create-a-new-ios-project"></a>Yeni bir iOS projesi oluşturma
 [!INCLUDE [Create a new iOS Project](../../includes/mobile-engagement-create-new-ios-app.md)]
 
-### <a name="connect-your-app-toohello-mobile-engagement-backend"></a>Uygulamanızın toohello Mobile Engagement arka ucuna bağlanmak
-1. Merhaba karşıdan [Mobile Engagement iOS SDK'sı].
-2. Merhaba ayıklayın. tar.gz dosyasını bilgisayarınızdaki tooa klasöre.
-3. Merhaba projesine sağ tıklayın ve ardından **eklemek için dosyaları**.
+### <a name="connect-your-app-to-the-mobile-engagement-backend"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
+1. [Mobile Engagement iOS SDK]’yı indirin.
+2. .tar.gz dosyasını bilgisayarınızdaki bir klasöre ayıklayın.
+3. Projeye sağ tıklayıp **Add files to** (Dosyaları şuraya ekle) seçeneğine tıklayın.
 
     ![][1]
-4. Toohello hello SDK'sını ayıkladığınız klasöre gidin, seçin hello `EngagementSDK` klasörünü tıklatın **seçenekleri** hello sol alt köşedeki ve o hello onay kutusunu emin olun **gerekirse öğeleri Kopyala** ve hello Hedef onay kutusunu denetlenir sonra basın **Tamam**.
+4. SDK’yı ayıkladığınız klasöre gidip `EngagementSDK` klasörünü seçin, sol alt köşedeki **Seçenekler**’e tıklayın ve **Gerekirse öğeleri kopyala** onay kutusuyla hedefinizin onay kutusunun onay işaretli olduğundan emin olduktan sonra **Tamam**’a basın.
 
     ![][2]
-5. Açık hello **derleme aşamaları** sekmesinde ve hello **bağlantı ikiliyi kitaplıklara** menüsünde hello çerçeveleri aşağıda gösterildiği gibi ekleyin:
+5. **Build Phases** (Derleme Aşamaları) sekmesini açın, **Link Binary With Libraries** (İkiliyi Kitaplıklara Bağla) menüsünde çerçeveleri aşağıda gösterildiği gibi ekleyin:
 
     ![][3]
-6. Toohello uygulamanızın Azure portalında dön **bağlantı bilgisi** sayfası ve kopyalama hello bağlantı dizesi.
+6. Uygulamanızın**Bağlantı Bilgileri** sayfasında Azure Portalı’na geri gidin ve bağlantı dizesini kopyalayın.
 
     ![][4]
-7. Aşağıdaki kod satırı hello eklemek, **AppDelegate.m** dosya.
+7. **AppDelegate.m** dosyanıza aşağıdaki kod satırını ekleyin.
 
         #import "EngagementAgent.h"
-8. Şimdi hello hello bağlantı dizesini yapıştırın `didFinishLaunchingWithOptions` temsilci.
+8. Şimdi, bağlantı dizesini `didFinishLaunchingWithOptions` temsilcisine yapıştırın.
 
         - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
         {
@@ -75,15 +75,15 @@ XCode toodemonstrate hello tümleştirme ile temel bir uygulama oluşturacağız
               [EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];
               [...]
         }
-9. `setTestLogEnabled`SDK günlükleri için tooidentify sorunları sağlayan isteğe bağlı bir ifadedir.
+9. `setTestLogEnabled`, sorunları belirleyebilmeniz için SDK günlüklerini etkinleştiren isteğe bağlı bir ifadedir.
 
 ## <a id="monitor"></a>Gerçek zamanlı izlemeyi etkinleştirme
-Verileri gönderme ve hello kullanıcıların etkin olduğundan emin olmak sipariş toostart içinde en az bir ekran (etkinlik) toohello Mobile Engagement arka göndermeniz gerekir.
+Veri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak için, Mobile Engagement arka ucuna en az bir ekran (Etkinlik) göndermelisiniz.
 
-1. Açık hello **ViewController.h** dosya ve içeri aktarma **EngagementViewController.h**:
+1. **ViewController.h** dosyasını açıp **EngagementViewController.h** dosyasını içeri aktarın:
 
     `#import "EngagementViewController.h"`
-2. Şimdi hello hello Süper sınıfını değiştirmek **ViewController** tarafından arabirim `EngagementViewController`:
+2. **ViewController** arabiriminin süper sınıfını `EngagementViewController` ile değiştirin:
 
     `@interface ViewController : EngagementViewController`
 
@@ -91,25 +91,25 @@ Verileri gönderme ve hello kullanıcıların etkin olduğundan emin olmak sipar
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
 ## <a id="integrate-push"></a>Anında iletme bildirimlerini ve uygulama içi mesajlaşmayı etkinleştirme
-Mobile Engagement anında iletme bildirimleri ve uygulama içi Mesajlaşma hello Kampanyalar bağlamında toointeract kullanıcılarınız ve REACH sağlar. Bu modül hello Mobile Engagement portalında REACH adı verilir.
-Merhaba aşağıdaki bölümlerde, app tooreceive bunları ayarlayın.
+Mobile Engagement, kullanıcılarınız ile etkileşim kurmanızı ve onlara kampanyalar bağlamında anında iletme bildirimleri ve uygulama içi mesajlaşma aracılığıyla erişmenizi sağlar. Mobile Engagement portalında bu modüle REACH adı verilir.
+Aşağıdaki bölümler bunları almak için uygulamanızı ayarlar.
 
-### <a name="enable-your-app-tooreceive-silent-push-notifications"></a>Uygulama tooreceive sessiz anında iletme bildirimlerini etkinleştirme
+### <a name="enable-your-app-to-receive-silent-push-notifications"></a>Sessiz Anında İletme Bildirimlerini almak üzere uygulamanızı etkinleştirme
 [!INCLUDE [mobile-engagement-ios-silent-push](../../includes/mobile-engagement-ios-silent-push.md)]
 
-### <a name="add-hello-reach-library-tooyour-project"></a>Merhaba ulaşma kitaplığı tooyour projesini ekleyin
+### <a name="add-the-reach-library-to-your-project"></a>Reach kitaplığını projenize ekleyin.
 1. Projenize sağ tıklayın.
 2. **Add files to** (Dosyaları şuraya ekle) seçeneğine tıklayın.
-3. Merhaba SDK'sını ayıkladığınız toohello klasöre gidin.
-4. Select hello `EngagementReach` klasör.
+3. SDK’yı ayıkladığınız klasöre gidin.
+4. `EngagementReach` klasörünü seçin.
 5. **Ekle**'ye tıklayın.
 
 ### <a name="modify-your-application-delegate"></a>Uygulama Temsilcinizi değiştirme
-1. Geri **AppDeletegate.m** dosya, hello Engagement Reach modülünü içeri aktarın.
+1. **AppDeletegate.m** dosyana geri dönüp Engagement Reach modülünü içeri aktarın.
 
         #import "AEReachModule.h"
         #import <UserNotifications/UserNotifications.h>
-2. İç hello `application:didFinishLaunchingWithOptions` yöntemi, bir Reach modülü oluşturun ve tooyour mevcut Engagement başlatma satır geçirin:
+2. `application:didFinishLaunchingWithOptions` yöntemi içerisinde bir Reach modülü oluşturun ve bu modülü mevcut Engagement başlatma satırınıza geçirin:
 
         - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
             AEReachModule * reach = [AEReachModule moduleWithNotificationIcon:[UIImage imageNamed:@"icon.png"]];
@@ -118,8 +118,8 @@ Merhaba aşağıdaki bölümlerde, app tooreceive bunları ayarlayın.
             return YES;
         }
 
-### <a name="enable-your-app-tooreceive-apns-push-notifications"></a>Uygulama tooreceive APNS anında iletme bildirimlerini etkinleştirme
-1. Satır toohello aşağıdaki hello eklemek `application:didFinishLaunchingWithOptions` yöntemi:
+### <a name="enable-your-app-to-receive-apns-push-notifications"></a>APNS Anında İletme Bildirimlerini almak üzere uygulamanızı etkinleştirme
+1. `application:didFinishLaunchingWithOptions` yöntemine aşağıdaki satırı ekleyin:
 
         if (NSFoundationVersionNumber >= NSFoundationVersionNumber_iOS_8_0)
         {
@@ -136,20 +136,20 @@ Merhaba aşağıdaki bölümlerde, app tooreceive bunları ayarlayın.
         {
             [application registerForRemoteNotificationTypes:(UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
         }
-2. Merhaba eklemek `application:didRegisterForRemoteNotificationsWithDeviceToken` yöntemini aşağıdaki şekilde:
+2. `application:didRegisterForRemoteNotificationsWithDeviceToken` yöntemini aşağıdaki şekilde ekleyin:
 
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
         {
              [[EngagementAgent shared] registerDeviceToken:deviceToken];
             NSLog(@"Registered Token: %@", deviceToken);
         }
-3. Merhaba eklemek `didFailToRegisterForRemoteNotificationsWithError` yöntemini aşağıdaki şekilde:
+3. `didFailToRegisterForRemoteNotificationsWithError` yöntemini aşağıdaki şekilde ekleyin:
 
         - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
         {
-           NSLog(@"Failed tooget token, error: %@", error);
+           NSLog(@"Failed to get token, error: %@", error);
         }
-4. Merhaba eklemek `didReceiveRemoteNotification:fetchCompletionHandler` yöntemini aşağıdaki şekilde:
+4. `didReceiveRemoteNotification:fetchCompletionHandler` yöntemini aşağıdaki şekilde ekleyin:
 
         - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
         {
@@ -159,7 +159,7 @@ Merhaba aşağıdaki bölümlerde, app tooreceive bunları ayarlayın.
 [!INCLUDE [mobile-engagement-ios-send-push-push](../../includes/mobile-engagement-ios-send-push.md)]
 
 <!-- URLs. -->
-[Mobile Engagement iOS SDK'sı]: http://aka.ms/qk2rnj
+[Mobile Engagement iOS SDK]: http://aka.ms/qk2rnj
 
 <!-- Images. -->
 [1]: ./media/mobile-engagement-ios-get-started/xcode-add-files.png

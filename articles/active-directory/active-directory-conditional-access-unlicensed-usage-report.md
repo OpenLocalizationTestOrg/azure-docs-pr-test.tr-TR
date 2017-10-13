@@ -1,6 +1,6 @@
 ---
-title: "aaaUnlicensed kullanım raporu | Microsoft Docs"
-description: "Azure AD özelliklerini kullanan lisanssız kullanıcılar tanımlamak yardımcı Ücretli lisanssız kullanım raporu hello."
+title: "Lisanssız kullanım raporu | Microsoft Docs"
+description: "Kullanmakta olduğunuz lisanssız kullanıcıları tanımlamak lisanssız kullanım raporu yardımcı olur, Azure AD özelliklerini Ücretli."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -13,35 +13,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: markvi
-ms.openlocfilehash: c44d1756b4641d7ca88434017eedb6c5e2567cb0
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c0b4f455f067e825362bdecc02ea62d7984f0d31
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="unlicensed-usage-report"></a>Lisanssız kullanım raporu
-Azure AD özelliklerini kullanan lisanssız kullanıcılar tanımlamak yardımcı Ücretli lisanssız kullanım raporu hello. Bu, satın aldığınız lisansların ve Ek lisanslar gerektiğinde bildiğiniz tooidentify daha iyi kullanımını toomake sağlar. 
+Kullanmakta olduğunuz lisanssız kullanıcıları tanımlamak lisanssız kullanım raporu yardımcı olur, Azure AD özelliklerini Ücretli. Bu, daha iyi hale getirmek için satın aldığınız lisansların kullanmanız ve Ek lisanslar gerekebilir tanımlamak için çalıştığınızı sağlar. 
 
-Merhaba rapor özelliklerini hello son 30 gün Ücretli hello etkin kullanımını gösterir. 
+Rapor son 30 gün içinde Ücretli özellikler etkin kullanımını gösterir. 
 
 ## <a name="report-structure"></a>Rapor yapısı
 | Sütun adı | Açıklama |
 |:--- |:--- |
-| Lisanssız kullanıcı |Merhaba kullanıcının adı |
-| Özellik |Merhaba özellik adı. Örneğin: koşullu erişim |
-| Erişilen uygulama |Merhaba özelliğiyle erişilen hello uygulamasının Hello adı. Örneğin: Office 365 SharePoint Online |
+| Lisanssız kullanıcı |Kullanıcının adı |
+| Özellik |Özellik adı. Örneğin: koşullu erişim |
+| Erişilen uygulama |Özelliği ile erişilen uygulamanın adı. Örneğin: Office 365 SharePoint Online |
 
 > [!NOTE]
-> 'Lisanssız sütunu doldurulur kullanıcı' 1003000090D8B285 gibi bir Kimliğe sahip bir kullanıcı hesabı silindiyse hello
+> Bir kullanıcı hesabı silindiyse 'Lisanssız kullanıcı' sütunu, 1003000090D8B285 gibi bir kimliği kullanılarak doldurulur.
 > 
 > 
 
 ## <a name="conditional-access-feature"></a>Koşullu erişim özelliği
 Bir Azure AD Premium lisansı yoksa uygulanan koşullu erişim ilkesine sahip bir hizmeti eriştiklerinde lisanssız kullanıcılar işaretlenir. 
 
-Bu tooMFA geçerlidir / aygıt yanı sıra konumu ilkeleri ilkeler, Intune kullanın.
+Bu MFA için geçerlidir / aygıt yanı sıra konumu ilkeleri ilkeler, Intune kullanın.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Office 365 ve diğer Azure Active Directory ile koşullu erişim kullanarak bağlı uygulamalar](active-directory-conditional-access.md)
-* [Koşullu erişim tooAzure AD ile çalışmaya başlama](active-directory-conditional-access-azuread-connected-apps.md) 
+* [Azure AD koşullu erişimi kullanmaya başlama](active-directory-conditional-access-azuread-connected-apps.md) 
 

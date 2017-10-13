@@ -1,5 +1,5 @@
 ---
-title: "Azure Traffic Manager coğrafi yönlendirme türü tarafından kullanılan aaaCountry/bölge hiyerarşi | Microsoft Docs"
+title: "Azure Traffic Manager coğrafi yönlendirme türü tarafından kullanılan ülke/bölge hiyerarşi | Microsoft Docs"
 description: "Bu makalede Azure trafik Yöneticisi coğrafi yönlendirme türü tarafından kullanılan ülke/bölge hiyerarşi listeler"
 services: traffic-manager
 documentationcenter: 
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: d09fc896951fa1086822d69316468e7a98861591
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 93db099e9e25856e13c398c4a03a5728d178e5dd
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Coğrafi trafik yönlendirme yöntemini için Azure Traffic Manager tarafından kullanılan ülke/bölge hiyerarşisi
 
-Bu makalede hello ülke ve bölgelerden hello tarafından kullanılan listeler **Geographic** trafik yönlendirme metodu Azure trafik Yöneticisi'nde. Ayrıca bu bilgileri programlı olarak çağırarak alabilirsiniz [Azure Traffic Manager'ın REST API](https://docs.microsoft.com/rest/api/trafficmanager/). 
+Ülke ve bölgelerden tarafından kullanılan bu makalede listelenmektedir **Geographic** trafik yönlendirme metodu Azure trafik Yöneticisi'nde. Ayrıca bu bilgileri programlı olarak çağırarak alabilirsiniz [Azure Traffic Manager'ın REST API](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
 - WORLD(World)
 
@@ -384,7 +384,7 @@ Bu makalede hello ülke ve bölgelerden hello tarafından kullanılan listeler *
 
             - US-WY(Wyoming)
 
-        - VC (Saint Vincent ve Grenadinler hello)
+        - VC (Saint Vincent ve Grenadinler)
 
         - VG (İngiliz þehirlerini)
 

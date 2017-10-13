@@ -1,6 +1,6 @@
 ---
-title: "tek başına Azure Service Fabric kümesi aaaSet | Microsoft Docs"
-description: "Merhaba üzerinde çalışan üç düğümü ile geliştirme tek başına küme oluşturma aynı bilgisayar. Bu kurulumu tamamladıktan sonra hazır toocreate çoklu makine bir küme olacaktır."
+title: "Tek başına Azure Service Fabric kümesi ayarlama | Microsoft Docs"
+description: "Aynı bilgisayarda çalışan üç düğüme sahip tek başına bir geliştirme kümesi oluşturun. Bu kurulumu tamamladıktan sonra çok makineli bir küme oluşturmaya hazır hale gelirsiniz."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,46 +14,46 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/06/2017
 ms.author: dekapur
-ms.openlocfilehash: e4d0ea9fc3b8475160bd8ed19fd3716463791cc5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 5c8f4c784eed7b64810a3dd1c36c043d22a66936
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-your-first-service-fabric-standalone-cluster"></a>İlk tek başına Service Fabric kümenizi oluşturma
-Herhangi bir sanal makineler veya Windows Server 2012 R2 veya Windows Server 2016, şirket içi çalıştıran bilgisayarlar üzerinde veya hello bulutta bir Service Fabric tek başına kümesi oluşturabilirsiniz. Bu hızlı başlangıç toocreate geliştirme tek başına küme yalnızca birkaç dakika içinde yardımcı olur.  Kılavuzu tamamladığınızda, uygulama dağıtabileceğiniz tek bir bilgisayarda çalışan üç düğümlü bir kümeniz olur.
+Şirket içinde veya bulutta Windows Server 2012 R2 ya da Windows Server 2016 çalıştıran herhangi bir sanal makinede tek başına Service Fabric kümesi oluşturabilirsiniz. Bu hızlı başlangıç kılavuzu, yalnızca birkaç dakika içerisinde tek başına bir geliştirme kümesi oluşturmanıza yardımcı olur.  Kılavuzu tamamladığınızda, uygulama dağıtabileceğiniz tek bir bilgisayarda çalışan üç düğümlü bir kümeniz olur.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-Service Fabric paketi toocreate Service Fabric tek başına kümelerinin bir kurulum sağlar.  [Merhaba Kurulum paketini indirin](http://go.microsoft.com/fwlink/?LinkId=730690).  Merhaba bilgisayarınıza veya sanal makine hello kurulum paketi tooa klasörü hello geliştirme küme burada ayarladığınız sıkıştırmasını açın.  Merhaba Kurulum paketini Merhaba içeriğine ayrıntılı olarak açıklanmıştır [burada](service-fabric-cluster-standalone-package-contents.md).
+Service Fabric, tek başına Service Fabric kümeleri oluşturmak için bir kurulum paketi sağlar.  [Kurulum paketini indirin](http://go.microsoft.com/fwlink/?LinkId=730690).  Kurulum paketini, geliştirme kümesini kuracağınız bilgisayar veya sanal makinedeki bir klasöre çıkarın.  Kurulum paketinin içeriği [burada](service-fabric-cluster-standalone-package-contents.md) ayrıntılı olarak açıklanmıştır.
 
-dağıtma ve hello küme yapılandırma hello Küme Yöneticisi hello bilgisayar üzerinde yönetici ayrıcalıklarına sahip olmalıdır. Service Fabric’i bir etki alanı denetleyicisine yükleyemezsiniz.
+Kümeyi dağıtan ve yapılandıran küme yöneticisinin bilgisayarda yönetici ayrıcalıklarına sahip olması gerekir. Service Fabric’i bir etki alanı denetleyicisine yükleyemezsiniz.
 
-## <a name="validate-hello-environment"></a>Merhaba ortamı doğrula
-Merhaba *TestConfiguration.ps1* bir küme belirli bir ortamda dağıtılabilir olup olmadığını hello tek başına paketindeki komut dosyası en iyi yöntemler Çözümleyicisi toovalidate kullanılır. [Dağıtımı hazırlığı](service-fabric-cluster-standalone-deployment-preparation.md) listeleri hello ön koşullar ve ortam gereksinimleri. Merhaba geliştirme küme oluşturup oluşturamayacağını hello betik tooverify çalıştırın:
+## <a name="validate-the-environment"></a>Ortamı doğrulama
+Tek başına paketteki *TestConfiguration.ps1* betiği, bir kümenin belirli bir ortamda dağıtılıp dağıtılamayacağını doğrulamak için bir en iyi yöntem çözümleyicisi olarak kullanılır. [Dağıtım hazırlığı](service-fabric-cluster-standalone-deployment-preparation.md) belgesinde, ön koşullar ve ortam gereksinimleri listelenir. Geliştirme kümesini oluşturabileceğinizi doğrulamak için betiği çalıştırın:
 
 ```powershell
 .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json
 ```
-## <a name="create-hello-cluster"></a>Merhaba kümesi oluşturma
-Birkaç örnek küme yapılandırma dosyaları hello kurulum paketi ile yüklenir. *ClusterConfig.Unsecure.DevCluster.json* hello basit küme yapılandırması: tek bir bilgisayarda çalışan bir güvenli olmayan, üç düğümlü küme.  Diğer yapılandırma dosyalarında X.509 sertifikalarıyla ya da Windows güvenliğiyle korunan tek veya çok makineli kümeler açıklanır.  Toomodify hello varsayılan yapılandırma ayarlarından herhangi birini Bu öğretici için gereken ancak hello yapılandırma dosyası aracılığıyla bakın ve hello ayarları ile tanışın yok.  Merhaba **düğümleri** bölüm hello kümede üç düğüm hello açıklar: adı, IP adresi [düğüm türü, hata etki alanı ve yükseltme etki alanı](service-fabric-cluster-manifest.md#nodes-on-the-cluster).  Merhaba **özellikleri** bölümü tanımlar hello [güvenlik, güvenilirlik düzeyi, tanılama koleksiyonu ve düğüm türlerini](service-fabric-cluster-manifest.md#cluster-properties) hello kümesi için.
+## <a name="create-the-cluster"></a>Kümeyi oluşturma
+Kurulum paketiyle birlikte birkaç örnek küme yapılandırma dosyası yüklenir. Tek bir bilgisayarda çalışan korumasız ve üç düğümlü bir küme olan *ClusterConfig.Unsecure.DevCluster.json*, en basit küme yapılandırmasıdır.  Diğer yapılandırma dosyalarında X.509 sertifikalarıyla ya da Windows güvenliğiyle korunan tek veya çok makineli kümeler açıklanır.  Bu öğreticide varsayılan yapılandırma ayarlarından herhangi birini değiştirmeniz gerekmez, ancak yapılandırma dosyasını inceleyip ayarları tanıyın.  **Düğümler** bölümünde, kümedeki üç düğüm açıklanmaktadır: ad, IP adresi, [düğüm türü, hata etki alanı ve yükseltme etki alanı](service-fabric-cluster-manifest.md#nodes-on-the-cluster).  **Özellikler** bölümü kümenin [güvenlik, güvenilirlik düzeyi, tanılama koleksiyonu ve düğüm türlerini](service-fabric-cluster-manifest.md#cluster-properties) tanımlar.
 
-Bu küme güvenli değildir.  Herkes anonim olarak bağlanıp yönetim işlemleri gerçekleştirebileceğinden, üretim kümeleri her zaman X.509 sertifikaları veya Windows güvenliği kullanılarak güvenli hale getirilmelidir.  Güvenlik yalnızca küme oluşturma sırasında yapılandırılır ve hello Küme oluşturulduktan sonra olası tooenable güvenlik değil.  Okuma [bir küme güvenli](service-fabric-cluster-security.md) toolearn Service Fabric kümesi güvenliği hakkında daha fazla bilgi.  
+Bu küme güvenli değildir.  Herkes anonim olarak bağlanıp yönetim işlemleri gerçekleştirebileceğinden, üretim kümeleri her zaman X.509 sertifikaları veya Windows güvenliği kullanılarak güvenli hale getirilmelidir.  Güvenlik yalnızca küme oluşturma sırasında yapılandırılır ve küme oluşturulduktan sonra güvenliği etkinleştirmek mümkün değildir.  Service Fabric küme güvenliği hakkında daha fazla bilgi edinmek için [Küme güvenliğini sağlama](service-fabric-cluster-security.md) makalesini okuyun.  
 
-Merhaba çalıştırmak, toocreate hello üç düğümü geliştirme küme *CreateServiceFabricCluster.ps1* bir yönetici PowerShell oturumunda komut dosyası:
+Üç düğümlü geliştirme kümesini oluşturmak için bir yönetici PowerShell oturumundan *CreateServiceFabricCluster.ps1* betiğini çalıştırın:
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json -AcceptEULA
 ```
 
-Merhaba Service Fabric çalışma zamanı paketini otomatik olarak indirilir ve küme oluşturma sırasında yüklenir.
+Service Fabric çalışma zamanı paketi küme oluşturulurken otomatik olarak indirilir ve yüklenir.
 
-## <a name="connect-toohello-cluster"></a>Toohello kümesine bağlanın
-Üç düğümlü geliştirme kümeniz artık çalışıyor. Merhaba ServiceFabric PowerShell modülü hello çalışma zamanı ile yüklenir.  Bu hello küme hello çalışan doğrulayabilirsiniz aynı bilgisayarda veya uzak bir bilgisayardan hello Service Fabric çalışma zamanı.  Merhaba [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet'i bir bağlantı toohello kümesi oluşturur.   
+## <a name="connect-to-the-cluster"></a>Kümeye bağlanma
+Üç düğümlü geliştirme kümeniz artık çalışıyor. ServiceFabric PowerShell modülü çalışma zamanıyla birlikte yüklenir.  Aynı bilgisayardan ya da Service Fabric çalışma zamanına sahip uzak bir bilgisayardan kümenin çalıştığını doğrulayabilirsiniz.  [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet’i, kümeyle bir bağlantı kurar.   
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint localhost:19000
 ```
-Bkz: [Bağlan tooa güvenli küme](service-fabric-connect-to-secure-cluster.md) bağlanan tooa kümenin diğer örnekler için. Bağlantı toohello küme sonra hello kullanmak [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet toodisplay hello küme ve durum bilgilerini her düğüm için düğüm listesi. Her düğüm için **HealthState** değerinin *OK* olması gerekir.
+Bir kümeye bağlanmayla ilgili diğer örnekler için bkz. [Güvenli bir kümeye bağlanma](service-fabric-connect-to-secure-cluster.md). Kümeye bağlandıktan sonra, kümedeki düğümlerin listesini ve her bir düğümün durum bilgilerini görüntülemek için [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) cmdlet’ini kullanın. Her düğüm için **HealthState** değerinin *OK* olması gerekir.
 
 ```powershell
 PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer> Get-ServiceFabricNode |Format-Table
@@ -65,30 +65,30 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
                      vm0      localhost       NodeType0 5.6.220.9494 0                     Up 00:02:43   00:00:00              OK
 ```
 
-## <a name="visualize-hello-cluster-using-service-fabric-explorer"></a>Service Fabric explorer'ı kullanarak hello küme Görselleştirme
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), kümenizi görselleştirmek ve uygulamaları yönetmek için iyi bir araçtır.  Service Fabric Explorer hizmettir çok giderek bir tarayıcı kullanarak erişim hello kümede çalışan bir[http://localhost: 19080/Explorer](http://localhost:19080/Explorer). 
+## <a name="visualize-the-cluster-using-service-fabric-explorer"></a>Service Fabric Explorer’ı kullanarak kümeyi görselleştirme
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), kümenizi görselleştirmek ve uygulamaları yönetmek için iyi bir araçtır.  Service Fabric Explorer, kümede çalışan ve bir tarayıcıda [http://localhost:19080/Explorer](http://localhost:19080/Explorer) adresine giderek erişebileceğiniz bir hizmettir. 
 
-Merhaba küme Panosu uygulama ve düğüm durumu özetini dahil olmak üzere kümenizi genel bir bakış sağlar. Merhaba düğümü görünüm hello küme hello fiziksel düzenini gösterir. Belirli bir düğümde, hangi uygulamalara kod dağıtıldığını denetleyebilirsiniz.
+Küme panosu, kümenize uygulama ve düğüm durumunun özetini de içeren bir genel bakış sağlar. Düğüm görünümü, kümenin fiziksel düzenini gösterir. Belirli bir düğümde, hangi uygulamalara kod dağıtıldığını denetleyebilirsiniz.
 
 ![Service Fabric Explorer][service-fabric-explorer]
 
-## <a name="remove-hello-cluster"></a>Merhaba küme Kaldır
-Merhaba çalıştırmak tooremove bir küme *RemoveServiceFabricCluster.ps1* PowerShell Betiği hello paket klasörüne ve hello yol toohello JSON yapılandırma dosyası geçirin. İsteğe bağlı olarak hello silme hello günlük için bir konum belirtebilirsiniz.
+## <a name="remove-the-cluster"></a>Kümeyi kaldırma
+Bir kümeyi kaldırmak için paket klasöründen *RemoveServiceFabricCluster.ps1* PowerShell betiğini çalıştırın ve yolu JSON yapılandırma dosyasına geçirin. İsteğe bağlı olarak silme işleminin günlüğü için bir konum belirtebilirsiniz.
 
 ```powershell
-# Removes Service Fabric cluster nodes from each computer in hello configuration file.
+# Removes Service Fabric cluster nodes from each computer in the configuration file.
 .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json -Force
 ```
 
-PowerShell Betiği hello paket klasöründen aşağıdaki hello çalıştırmak hello bilgisayardan tooremove hello Service Fabric çalışma.
+Service Fabric çalışma zamanını bilgisayardan kaldırmak için paket klasöründen aşağıdaki PowerShell betiğini çalıştırın.
 
 ```powershell
-# Removes Service Fabric from hello current computer.
+# Removes Service Fabric from the current computer.
 .\CleanFabric.ps1
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Geliştirme tek başına küme ayarlama, makaleler hello deneyin:
+Artık bir tek başına geliştirme kümesi ayarladığınıza göre aşağıdaki makaleleri deneyebilirsiniz:
 * [Çok makineli tek başına küme ayarlama](service-fabric-cluster-creation-for-windows-server.md) ve güvenliği etkinleştirme.
 * [PowerShell kullanarak uygulama dağıtma](service-fabric-deploy-remove-applications.md)
 

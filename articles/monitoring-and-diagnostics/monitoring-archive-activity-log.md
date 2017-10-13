@@ -1,6 +1,6 @@
 ---
-title: "aaaArchive hello Azure etkinlik günlüğü | Microsoft Docs"
-description: "Tooarchive Azure etkinliklerinizi nasıl oturum depolama hesabındaki uzun vadeli bekletme için öğrenin."
+title: "Azure etkinlik günlüğü arşiv | Microsoft Docs"
+description: "Bir depolama hesabı, uzun vadeli bekletme için Azure etkinlik günlüğü arşiv öğrenin."
 author: johnkemnetz
 manager: orenr
 editor: 
@@ -14,47 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-ms.openlocfilehash: 58c6d3a3a31398287f66f76999d48f2942ab5109
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0e3a5b84f57eac96249430fa1c2c4cc076c2926a
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="archive-hello-azure-activity-log"></a>Arşiv hello Azure etkinlik günlüğü
-Bu makalede, biz hello Azure portal, PowerShell cmdlet'lerini veya platformlar arası CLI tooarchive nasıl kullanabileceğinizi gösterir, [ **Azure etkinlik günlüğü** ](monitoring-overview-activity-logs.md) depolama hesabındaki. Bu seçenek (ile Merhaba bekletme ilkesi üzerinde tam denetim) 90 gün boyunca daha uzun, etkinlik günlüğü, statik çözümleme denetim veya yedekleme tooretain istiyorsanız yararlıdır. Tooretain yalnızca gerekiyorsa, olayları 90 gün veya daha az, etkinlik günlüğü olaylarını arşivleme etkinleştirmeden hello Azure platformu 90 gün boyunca tutulur beri tooset arşivleme tooa depolama hesabı, gerek yoktur.
+# <a name="archive-the-azure-activity-log"></a>Arşiv Azure etkinlik günlüğü
+Bu makalede, biz arşivlemek için Azure portal, PowerShell cmdlet'leri veya platformlar arası CLI nasıl kullanabileceğinizi gösterir, [ **Azure etkinlik günlüğü** ](monitoring-overview-activity-logs.md) depolama hesabındaki. Bu seçenek, Denetim, statik çözümleme veya yedekleme (ile bekletme ilkesi üzerinde tam denetim) 90 gün daha uzun süre, etkinlik günlüğü korumak istiyorsanız kullanışlıdır. Yalnızca, olayları 90 gün boyunca Koru gerek isterseniz daha az, etkinlik günlüğü olaylarını arşivleme etkinleştirmeden Azure platform 90 gün boyunca tutulur bu yana bir depolama hesabına arşivleme ayarlamanız gerekmez.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Başlamadan önce çok ihtiyacınız[depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) arşiv etkinlik günlüğü toowhich. Böylece daha iyi erişim toomonitoring veri denetimi içinde depolanmış, diğer izleme olmayan verilere sahip varolan bir depolama hesabı kullanmamanızı öneririz. Tanılama günlüklerini ve ölçümleri tooa depolama hesabı arşivlemeye çalışıyorsunuz, etkinlik günlüğü için de tookeep tüm izleme verilerini merkezi bir konumda ancak, bu algılama toouse bu depolama hesabı kalmasına neden olabilir. kullandığınız hello depolama hesabı, genel amaçlı depolama hesabı, blob storage hesabı olması gerekir. Merhaba depolama hesabı hello toobe yok uygun RBAC erişim tooboth abonelikleri hello ayarı yapılandıran hello kullanıcının sahip olduğu sürece günlükleri yayma hello abonelik aynı abonelik.
+Başlamadan önce şunları gerçekleştirmeniz [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) etkinlik günlüğü arşiv. Böylece daha iyi İzleme verilerine erişimi denetleyebilirsiniz içine depolanmış, diğer izleme olmayan verilere sahip varolan bir depolama hesabı kullanmamanızı öneririz. Tanılama günlüklerini ve ölçümler bir depolama hesabına arşivlemeye çalışıyorsunuz, ancak, merkezi bir konumda tüm izleme verilerini korumak için etkinlik günlüğü de bu depolama hesabını kullanmak için anlamlı olabilir. Kullandığınız depolama hesabı, genel amaçlı depolama hesabı, blob storage hesabı olması gerekir. Depolama hesabı ayarı yapılandıran kullanıcı her iki aboneliğin uygun RBAC erişime sahip olduğu sürece günlükleri yayma abonelik ile aynı abonelikte olması gerekmez.
 
 ## <a name="log-profile"></a>Günlük profili
-tooarchive hello etkinlik günlüğü hello aşağıdaki yöntemlerden birini kullanarak, ayarladığınız hello **günlük profili** aboneliği. Merhaba günlük profili hello depolanan ya da akışı olayların türünü tanımlar ve hello çıkışları — depolama hesabı ve/veya olay hub'ı. Ayrıca bir depolama hesabında depolanan olayları için hello bekletme ilkesi (gün tooretain sayısı) tanımlar. Merhaba bekletme ilkesi toozero ayarlarsanız, olaylar süresiz olarak depolanır. Aksi takdirde, bu tooany değerinin 1 ile 2147483647 arasında ayarlanabilir. Bekletme ilkeleri uygulanan gün başına, hello bitiş saati (UTC) oturum şekilde hello bekletme ilkesi sunulmuştur hello günden silinir. Bir günlük bir Bekletme İlkesi nesneniz varsa, örneğin, bugün hello günün hello başında hello hello gün dünden günlüklerinden silinecek. [Daha fazla bilgiyi hakkında günlük profilleri burada](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 
+Aşağıdaki yöntemlerden birini kullanarak Etkinlik günlüğü arşivlemek için ayarladığınız **günlük profili** aboneliği. Günlük profili depolanan ya da akışı olayları ve çıkışları türünü tanımlar — depolama hesabı ve/veya olay hub'ı. Ayrıca bir depolama hesabında depolanan olayları için bekletme ilkesi (tutulacağı gün sayısı) tanımlar. Bekletme İlkesi sıfır olarak ayarlanırsa, olaylar süresiz olarak depolanır. Aksi takdirde, bu 1 ile 2147483647 arasında herhangi bir değere ayarlanabilir. Bekletme ilkeleri uygulanan başına günlük, olduğundan, ilke (UTC) dışında tutma sunulmuştur gün günlüklerinden gün sonunda silinir. Örneğin, bir günlük bir Bekletme İlkesi nesneniz varsa, günün bugün başında dünden önceki gün günlüklerinden silinecek. [Daha fazla bilgiyi hakkında günlük profilleri burada](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 
 
-## <a name="archive-hello-activity-log-using-hello-portal"></a>Arşiv hello hello portal kullanarak Etkinlik günlüğü
-1. Merhaba Hello Portalı'nda tıklatın **etkinlik günlüğü** hello sol taraftaki gezinti bağlantısına. Merhaba etkinlik günlüğü için bir bağlantı görmüyorsanız, hello tıklatın **daha Hizmetleri** ilk bağlantı.
+## <a name="archive-the-activity-log-using-the-portal"></a>Portalı kullanarak Etkinlik günlüğü
+1. Portalı'nda tıklatın **etkinlik günlüğü** sol taraftaki gezinti bağlantısı. Etkinlik günlüğü için bir bağlantı görmüyorsanız tıklatın **daha Hizmetleri** ilk bağlantı.
    
-    ![TooActivity günlük dikey gidin](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
-2. Merhaba dikey penceresinde Hello üstünde tıklatın **verme**.
+    ![Etkinlik günlüğü dikey penceresine gidin](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
+2. Dikey pencerenin üstündeki **verme**.
    
-    ![Merhaba Dışa Aktar düğmesini tıklatın](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
-3. Merhaba kutuyu için görünür hello dikey penceresinde, **verme tooa depolama hesabı** ve bir depolama hesabı seçin.
+    ![Dışa Aktar düğmesini tıklatın](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
+3. Görüntülenen dikey penceresinde, onay kutusunu için **dışarı aktarma bir depolama hesabına** ve bir depolama hesabı seçin.
    
     ![Bir depolama hesabı ayarlama](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
-4. Merhaba kaydırıcı veya metin kutusunu kullanarak, depolama hesabınızı etkinlik günlüğü olaylarını tutulmalıdır gün sayısı tanımlayın. Verilerinizi hello depolama hesabında süresiz olarak kalıcı toohave tercih ederseniz, bu sayı toozero ayarlayın.
+4. Kaydırıcı veya metin kutusunu kullanarak, depolama hesabınızı etkinlik günlüğü olaylarını tutulmalıdır gün sayısı tanımlayın. Verilerinizi süresiz olarak kalıcı'u depolama hesabına sahip tercih ederseniz, bu sayı sıfır olarak ayarlayın.
 5. **Kaydet** düğmesine tıklayın.
 
-## <a name="archive-hello-activity-log-via-powershell"></a>Arşiv hello PowerShell aracılığıyla etkinlik günlüğü
+## <a name="archive-the-activity-log-via-powershell"></a>Arşiv PowerShell aracılığıyla etkinlik günlüğü
 ```
 Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus -RetentionInDays 180 -Categories Write,Delete,Action
 ```
 
 | Özellik | Gerekli | Açıklama |
 | --- | --- | --- |
-| StorageAccountId |Hayır |Kaynak Kimliğini hello depolama hesabı toowhich etkinlik günlükleri kaydedilmesi gerekir. |
-| Konumlar |Evet |Toocollect etkinlik günlüğü olaylarını istediğiniz bölgeler virgülle ayrılmış listesi. Tüm bölgelerin bir listesi görüntüleyebilirsiniz [bu sayfasını ziyaret tarafından](https://azure.microsoft.com/en-us/regions) veya kullanarak [Azure Yönetimi REST API hello](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| retentionInDays |Evet |Hangi olayların tutulacağını için 1 ile 2147483647 arasında gün sayısı. Sıfır değeri hello günlükleri süresiz olarak depolar (sürekli). |
+| StorageAccountId |Hayır |Kaynak Kimliği depolama hesabının etkinlik günlükleri kaydedilmesi gerekir. |
+| Konumlar |Evet |Etkinlik günlüğü olaylarını toplamak istediğiniz bölgeler virgülle ayrılmış listesi. Tüm bölgelerin bir listesi görüntüleyebilirsiniz [bu sayfasını ziyaret tarafından](https://azure.microsoft.com/en-us/regions) veya kullanarak [Azure Yönetimi REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
+| retentionInDays |Evet |Hangi olayların tutulacağını için 1 ile 2147483647 arasında gün sayısı. Sıfır değeri günlükleri süresiz olarak depolar (sürekli). |
 | Kategoriler |Evet |Toplanması gereken olay kategorileri virgülle ayrılmış listesi. Olası değerler şunlardır: yazma, silme ve eylem. |
 
-## <a name="archive-hello-activity-log-via-cli"></a>Arşiv hello CLI aracılığıyla etkinlik günlüğü
+## <a name="archive-the-activity-log-via-cli"></a>Arşiv CLI yoluyla etkinlik günlüğü
 ```
 azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --locations global,westus,eastus,northeurope --retentionInDays 180 –categories Write,Delete,Action
 ```
@@ -62,13 +62,13 @@ azure insights logprofile add --name my_log_profile --storageId /subscriptions/s
 | Özellik | Gerekli | Açıklama |
 | --- | --- | --- |
 | ad |Evet |Günlük profilinin adı. |
-| storageId |Hayır |Kaynak Kimliğini hello depolama hesabı toowhich etkinlik günlükleri kaydedilmesi gerekir. |
-| Konumları |Evet |Toocollect etkinlik günlüğü olaylarını istediğiniz bölgeler virgülle ayrılmış listesi. Tüm bölgelerin bir listesi görüntüleyebilirsiniz [bu sayfasını ziyaret tarafından](https://azure.microsoft.com/en-us/regions) veya kullanarak [Azure Yönetimi REST API hello](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
-| retentionInDays |Evet |Hangi olayların tutulacağını için 1 ile 2147483647 arasında gün sayısı. Sıfır değeri hello günlükleri süresiz olarak depolar (sürekli). |
+| storageId |Hayır |Kaynak Kimliği depolama hesabının etkinlik günlükleri kaydedilmesi gerekir. |
+| Konumları |Evet |Etkinlik günlüğü olaylarını toplamak istediğiniz bölgeler virgülle ayrılmış listesi. Tüm bölgelerin bir listesi görüntüleyebilirsiniz [bu sayfasını ziyaret tarafından](https://azure.microsoft.com/en-us/regions) veya kullanarak [Azure Yönetimi REST API](https://msdn.microsoft.com/library/azure/gg441293.aspx). |
+| retentionInDays |Evet |Hangi olayların tutulacağını için 1 ile 2147483647 arasında gün sayısı. Sıfır değeri günlükleri süresiz olarak depolar (sürekli). |
 | kategorileri |Evet |Toplanması gereken olay kategorileri virgülle ayrılmış listesi. Olası değerler şunlardır: yazma, silme ve eylem. |
 
-## <a name="storage-schema-of-hello-activity-log"></a>Merhaba etkinlik günlüğü depolama şeması
-Arşivleme kurduktan sonra bir etkinlik günlüğü olay oluştuktan hemen sonra bir depolama kapsayıcısı hello depolama hesabı oluşturulur. Merhaba BLOB'lar hello kapsayıcı içindeki aynı hello etkinlik günlüğü ve tanılama günlüklerini arasında biçimi hello izleyin. Bu BLOB Hello yapıdır:
+## <a name="storage-schema-of-the-activity-log"></a>Etkinlik günlüğü depolama şeması
+Arşivleme kurduktan sonra bir etkinlik günlüğü olay oluştuktan hemen sonra bir depolama kapsayıcısı depolama hesabında oluşturulur. Kapsayıcı içinde BLOB'ları, tanılama günlüklerini ve etkinlik günlüğü arasında aynı biçimde izleyin. Bu BLOB'ları yapıdır:
 
 > Öngörüler-işletimsel-günlükleri/name = varsayılan/ResourceId/ABONELİKLERİ = / {abonelik kimliği} / y = {dört basamaklı sayısal year} / m = {iki basamaklı sayısal ay} / d = {iki basamaklı sayısal günü} / h {iki basamaklı 24 saatlik hour}/m=00/PT1H.json =
 > 
@@ -80,9 +80,9 @@ Arşivleme kurduktan sonra bir etkinlik günlüğü olay oluştuktan hemen sonra
 > 
 > 
 
-Her bir PT1H.json blob hello blob URL'SİNDE belirtilen hello saat içinde gerçekleşen olayların JSON blobu içerir (örneğin h = 12). Bunlar ortaya çıktığında hello mevcut saat sırasında eklenmiş toohello PT1H.json dosya olaylardır. Merhaba dakika değeri (m 00 =) her zaman etkinlik günlüğü olaylarını tek tek bloblar saat başına ayrılmış bu yana 00.
+Her bir PT1H.json blob JSON blobu blob URL'SİNDE belirtilen saat içinde gerçekleşen olayların içerir (örneğin h = 12). Bunlar ortaya çıktığında mevcut saatte olayları PT1H.json dosyasına eklenir. Dakika değeri (m 00 =) her zaman etkinlik günlüğü olaylarını tek tek bloblar saat başına ayrılmış bu yana 00.
 
-Merhaba PT1H.json dosyası içinde her olay bu biçim aşağıdaki hello "kayıtlar" dizisinde depolanır:
+PT1H.json dosya içinde her olay bu biçim aşağıdaki "kayıtlar" dizisinde depolanır:
 
 ```
 {
@@ -143,28 +143,28 @@ Merhaba PT1H.json dosyası içinde her olay bu biçim aşağıdaki hello "kayıt
 
 | Öğe adı | Açıklama |
 | --- | --- |
-| time |Merhaba olay hello Azure hizmetini işleme hello tarafından oluşturulan zaman damgası karşılık gelen hello olay isteği. |
-| resourceId |Kaynak Kimliğini hello kaynak etkilenmiş. |
-| operationName |Merhaba işlemin adı. |
-| category |Merhaba eylem kategorisi örn. Yazma, okuma, eylem. |
-| resultType |Merhaba Hello türü neden, örn. Başarılı, başarısız, Başlat |
-| resultSignature |Merhaba kaynak türüne bağlıdır. |
-| durationMs |Milisaniye cinsinden hello işlemi süresi |
-| callerIpAddress |Merhaba işlemi, UPN Talebi veya kullanılabilirliğine göre SPN talep yürüttü hello kullanıcının IP adresi. |
-| correlationId |Genellikle bir GUID hello dize biçiminde. Bir correlationıd değeri paylaşan olayları ait toohello aynı uber eylemi. |
-| identity |JSON blob Hello yetkilendirme ve talep açıklayan. |
-| Yetkilendirme |BLOB hello olay RBAC özelliklerinin. Genellikle hello "eylem", "rol" ve "scope" özellikleri içerir. |
-| düzeyi |Merhaba olay düzeyi. Değerleri aşağıdaki hello birini: "Kritik", "Error"Uyarı",", "Bilgi" ve "Ayrıntılı" |
-| location |Bölge hangi hello konumda oluştu (veya genel). |
-| properties |Kümesi `<Key, Value>` hello hello olay ayrıntılarını açıklayan çiftleri (yani sözlük). |
+| time |Olay işleme olay karşılık gelen isteği Azure hizmeti tarafından oluşturulan zaman damgası. |
+| resourceId |Etkilenen kaynağının kaynak kimliği. |
+| operationName |İşlemin adı. |
+| category |Eylem kategorisi örn. Yazma, okuma, eylem. |
+| resultType |Sonuç türü örn. Başarılı, başarısız, Başlat |
+| resultSignature |Kaynak türüne bağlıdır. |
+| durationMs |Milisaniye cinsinden işlem süresi |
+| callerIpAddress |İşlem, UPN Talebi veya kullanılabilirliğine göre SPN talep yürüttü kullanıcının IP adresi. |
+| correlationId |Genellikle bir GUID dize biçiminde. Bir correlationıd değeri paylaşan olayları aynı uber eyleme ait. |
+| identity |Yetkilendirme ve talep tanımlayan JSON blobu. |
+| Yetkilendirme |BLOB olay RBAC özelliklerinin. Genellikle "eylem", "rol" ve "scope" özellikleri içerir. |
+| düzeyi |Olay düzeyi. Aşağıdaki değerlerden birini: "Kritik", "Error"Uyarı",", "Bilgi" ve "Ayrıntılı" |
+| location |Bölge konumu gerçekleştiği (veya genel). |
+| properties |Kümesi `<Key, Value>` olay ayrıntılarını açıklayan çiftleri (yani sözlük). |
 
 > [!NOTE]
-> Merhaba özellikleri ve bu özellikleri kullanımını hello kaynak bağlı olarak değişebilir.
+> Özellikleri ve bu özellikleri kullanımını kaynak bağlı olarak değişebilir.
 > 
 > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [BLOB'ları çözümleme için karşıdan yükle](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
-* [Merhaba etkinlik günlüğü tooEvent hub akışı](monitoring-stream-activity-logs-event-hubs.md)
-* [Merhaba etkinlik günlüğü hakkında daha fazla bilgi](monitoring-overview-activity-logs.md)
+* [Akış Event hubs'a etkinlik günlüğü](monitoring-stream-activity-logs-event-hubs.md)
+* [Etkinlik günlüğü hakkında daha fazla bilgi](monitoring-overview-activity-logs.md)
 

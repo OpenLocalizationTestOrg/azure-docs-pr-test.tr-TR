@@ -1,6 +1,6 @@
 ---
-title: "aaaConvert bir Azure Resource Manager ölçeği ayarlamak şablonu toouse yönetilen disk | Microsoft Docs"
-description: "Bir ölçek kümesi şablonu tooa yönetilen disk ölçek kümesi şablonu dönüştürün."
+title: "Yönetilen disk kullanmak üzere bir Azure Resource Manager ölçek kümesi şablonu Dönüştür | Microsoft Docs"
+description: "Ölçek kümesi şablon yönetilen disk ölçek kümesi şablona dönüştürebilirsiniz."
 keywords: "Sanal makine ölçekleme kümeleri"
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -16,19 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
 ms.author: negat
-ms.openlocfilehash: 66c2217647e57ed2cfa39660c0175710ae2e63be
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2f5cb85703888c5056611d466f508547ee72e44b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="convert-a-scale-set-template-tooa-managed-disk-scale-set-template"></a>Bir ölçek kümesi şablonu tooa yönetilen disk ölçek kümesi şablonu Dönüştür
+# <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Ölçek kümesi şablon yönetilen disk ölçek kümesi şablona dönüştürme
 
-Müşterilerin bir ölçeği yönetilen disk kullanmayan Ayarla oluşturmak için Resource Manager şablonu ile toomodify istiyor, toouse yönetilen disk. Bu makalede gösterilmektedir nasıl toodo kullanarak bu, örneğin hello çekme isteğinden [Azure hızlı başlangıç şablonlarını](https://github.com/Azure/azure-quickstart-templates), örnek Resource Manager şablonları için topluluk odaklı bir depo. Merhaba tam çekme isteği görülme burada: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998), ve hello ilgili hello fark bölümlerdir aşağıda açıklamalarının yanı sıra:
+Yönetilen disk kullanmayan bir ölçek kümesi oluşturmak için Resource Manager şablonu ile müşteriler, yönetilen disk kullanacak şekilde değiştirmek isteyebilirsiniz. Bu makalede, örnek olarak bir çekme isteğinden kullanarak bunu gösterilmektedir [Azure hızlı başlangıç şablonlarını](https://github.com/Azure/azure-quickstart-templates), örnek Resource Manager şablonları için topluluk odaklı bir depo. Tam çekme isteği burada görülebilir: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998), ve açıklamalarının yanı sıra bazı aşağıda fark ilgili bölümleri:
 
-## <a name="making-hello-os-disks-managed"></a>Yönetilen hello OS diskleri yapma
+## <a name="making-the-os-disks-managed"></a>Yönetilen işletim sistemi diskleri yapma
 
-Aşağıdaki Hello fark içinde birkaç değişkenleri ilgili toostorage hesabı ve disk özelliklerini kaldırdınız görebilirsiniz. Depolama hesabı türü gereklidir artık (Standard_LRS varsayılandır hello), ancak biz istediğinizde, biz yine da belirtebilirsiniz. Yalnızca Standard_LRS ve Premium_LRS yönetilen disk ile desteklenir. Yeni depolama hesabı soneki, benzersiz bir dize dizisi ve sa sayısı hello eski şablon toogenerate depolama hesabı adları kullanılmıştır. Yönetilen disk depolama hesapları hello müşterinin adına otomatik olarak oluşturur. çünkü bu değişkenleri artık hello yeni şablona gereklidir. Yönetilen disk otomatik olarak adları hello temel alınan depolama blob kapsayıcıları ve diskleri için benzer şekilde, vhd kapsayıcı adı ve işletim sistemi disk adı artık gerekli değildir.
+Depolama hesabı ve disk özelliklerine ilgili çeşitli değişkenler kaldırdınız aşağıdaki fark görebiliriz. Depolama hesabı türü gereklidir artık (Standard_LRS varsayılan değerdir), ancak biz istediğinizde, biz yine da belirtebilirsiniz. Yalnızca Standard_LRS ve Premium_LRS yönetilen disk ile desteklenir. Yeni depolama hesabı soneki, benzersiz bir dize dizisi ve sa sayısı eski şablonunda depolama hesabı adları oluşturmak için kullanılmıştır. Yönetilen disk depolama hesapları müşterinin adına otomatik olarak oluşturur. çünkü bu değişkenleri artık yeni şablona gerekli değildir. Yönetilen disk otomatik olarak adları temel alınan depolama blob kapsayıcıları ve diskleri olduğundan benzer şekilde, vhd kapsayıcı adı ve işletim sistemi disk adı artık gerekli değildir.
 
 ```diff
    "variables": {
@@ -52,7 +52,7 @@ Aşağıdaki Hello fark içinde birkaç değişkenleri ilgili toostorage hesabı
 ```
 
 
-Aşağıda, biz hello fark, biz hello güncelleştirilmiş bakın hello erken gerekli sürümü ölçek kümesi ile yönetilen disk destek olduğu API sürümü too2016-04-30-Önizleme, hesaplayabilirsiniz. Biz yine yönetilmeyen diskleri hello yeni API sürümüyle hello eski sözdizimi isterseniz kullanabilirsiniz olduğunu unutmayın. Diğer bir deyişle, biz yalnızca güncelleştirme hello işlem API sürümü ve başka bir şey değişmez, hello şablon olarak toowork önce devam etmelidir.
+Aşağıdaki fark biz işlem güncelleştirilmiş görebiliriz 2016-04-30-ölçek kümesi ile yönetilen disk desteği için gerekli en erken sürümü olan önizlemeye API sürümü. Biz yine yönetilmeyen diskleri eski sözdizimi yeni API sürümüyle isterseniz kullanabilirsiniz olduğunu unutmayın. Diğer bir deyişle, biz yalnızca işlem güncelleştirirseniz API sürümü ve başka bir şey değişmez, şablon önceki gibi çalışmaya devam etmelidir.
 
 ```diff
 @@ -86,7 +74,7 @@
@@ -66,7 +66,7 @@ Aşağıda, biz hello fark, biz hello güncelleştirilmiş bakın hello erken ge
    },
 ```
 
-Aşağıdaki Hello fark biz hello depolama hesabı kaynağı hello kaynakları diziden tamamen kaldırdığınızı görebilirsiniz. Yönetilen disk bunları otomatik olarak bizim adımıza oluşturduğundan artık bunları ihtiyacımız var.
+Aşağıdaki fark biz depolama hesabı kaynağı kaynakları diziden tamamen kaldırdığınızı görebilirsiniz. Yönetilen disk bunları otomatik olarak bizim adımıza oluşturduğundan artık bunları ihtiyacımız var.
 
 ```diff
 @@ -113,19 +101,6 @@
@@ -91,7 +91,7 @@ Aşağıdaki Hello fark biz hello depolama hesabı kaynağı hello kaynakları d
        "location": "[resourceGroup().location]",
 ```
 
-Merhaba fark Aşağıda, biz de hello kaldırıyorsunuz bakın bağlıdır, depolama hesapları oluşturma hello ölçek kümesi toohello döngüden başvuran yan tümcesi. Merhaba eski şablonunda bu hello depolama hesapları hello ölçek kümesi oluşturma başladı, ancak bu yan tümcesi artık yönetilen diskle gereklidir önce oluşturulan sağlama. Biz de hello vhd kapsayıcıları özelliğini kaldırın ve bu özellikler otomatik olarak tarafından yönetilen disk hello başlık altında işlenir gibi işletim sistemi disk adı özelliği hello. Biz onlardan varsa, eklediğimiz `"managedDisk": { "storageAccountType": "Premium_LRS" }` biz premium OS diskleri istediyseniz hello "osDisk" yapılandırma. Yalnızca bir büyük harf olan VM'ler veya küçük'ın ' hello VM sku premium diskleri kullanabilirsiniz.
+Aşağıdaki fark biz kaldırma görebiliriz depolama hesapları oluşturma döngü ayarlamak ölçekten başvuran yan tümcesi bağlıdır. Eski şablonunda, bu depolama hesapları ölçek kümesi oluşturma başladı, ancak bu yan tümcesi artık yönetilen diskle gereklidir önce oluşturulan sağlama. Bu özellikler otomatik olarak başlık altında yönetilen disk tarafından işlenen olarak biz de vhd kapsayıcıları özelliği ve işletim sistemi disk adı özelliği kaldırın. Biz onlardan varsa, eklediğimiz `"managedDisk": { "storageAccountType": "Premium_LRS" }` biz premium OS diskleri istediyseniz "osDisk" yapılandırma. Yalnızca bir büyük harf olan VM'ler veya küçük'ın ' VM'yi sku premium diskleri kullanabilirsiniz.
 
 ```diff
 @@ -183,7 +158,6 @@
@@ -120,12 +120,12 @@ Merhaba fark Aşağıda, biz de hello kaldırıyorsunuz bakın bağlıdır, depo
 
 ```
 
-Merhaba ölçek kümesi yapılandırması olup toouse yönetilen veya yönetilmeyen disk için açık bir özellik yok. Merhaba ölçek kümesini hello depolama profilinde mevcut olan hello özelliklerine göre hangi toouse bilir. Bu nedenle, hello sağ hello depolama profilinde hello ölçek kümesinin özelliklerdir hello şablonu tooensure değiştirirken önemlidir.
+Yönetilen veya yönetilmeyen disk kullanıp kullanmayacağınızı için ölçek kümesi yapılandırmasında açık bir özellik yok. Ölçek kümesini kullanmak için depolama profilinde mevcut özelliklerine göre bilir. Bu nedenle, Ölçek kümesi depolama profilinde hakkı özellikleri sağlamak için şablon değiştirirken önemlidir.
 
 
 ## <a name="data-disks"></a>Veri diskleri
 
-Yukarıdaki Hello değişiklikleri ile Merhaba ölçek kümesi kullanır yönetilen disklerde hello işletim sistemi, ancak, veri diskleri disk? tooadd veri diskleri, aynı "osDisk" düzey hello en altındaki "storageProfile" Merhaba "dataDisks" özelliğini ekleyin. Merhaba hello özelliğinin değeri her biri "(bir VM üzerinde veri disk başına benzersiz olması gerekir) LUN'un" özellikleri vardır, JSON nesnelerini listesidir "("boş"olduğundan şu anda hello yalnızca seçeneği desteklenir) createOption" ve "diskSizeGB" (Merhaba gigabayt cinsinden hello diskin boyutunu; olmalıdır büyüktür 0 ile 1024'ten az) gibi hello aşağıdaki örneğine içinde: 
+Yukarıdaki değişikliklerle ölçek kümesi kullanan yönetilen diskler işletim sistemi için ancak, veri diskleri disk? Veri diskleri eklemek için "storageProfile" altında "dataDisks" özelliği "osDisk" ile aynı düzeyde ekleyin. Her biri "(bir VM üzerinde veri disk başına benzersiz olması gerekir) LUN'un" özellikleri vardır, JSON nesnelerin bir listesini, özellik değeri "createOption" ("boş" şu anda yalnızca desteklenen seçenektir) ve "diskSizeGB" (gigabayt olarak; disk boyutu büyük olmalı 0 ile 1024'ten az) aşağıdaki örnekteki gibi: 
 
 ```
 "dataDisks": [
@@ -137,13 +137,13 @@ Yukarıdaki Hello değişiklikleri ile Merhaba ölçek kümesi kullanır yöneti
 ]
 ```
 
-Belirtirseniz `n` diskleri bu dizideki her VM hello ölçek kümesi alır `n` veri diski. Ancak, bu veri diskleri ham aygıtların olduğunu unutmayın. Bunlar biçimlendirilmemiş. Bu toohello müşteri tooattach, paritition ve biçiminde hello diskleri kullanmadan önce olur. Biz de isteğe bağlı olarak, belirtebilirsiniz `"managedDisk": { "storageAccountType": "Premium_LRS" }` , her veri diski nesnesi toospecify premium veri diski olması gerekir. Yalnızca bir büyük harf olan VM'ler veya küçük'ın ' hello VM sku premium diskleri kullanabilirsiniz.
+Belirtirseniz `n` diskleri bu dizideki her VM ölçek kümesi alır `n` veri diski. Ancak, bu veri diskleri ham aygıtların olduğunu unutmayın. Bunlar biçimlendirilmemiş. Bu, paritition, ekleme ve kullanmadan önce diskleri biçimlendirin müşteriye kadar olur. Biz de isteğe bağlı olarak, belirtebilirsiniz `"managedDisk": { "storageAccountType": "Premium_LRS" }` her veri diski nesnesinde bir premium veri diski gerektiğini belirtin. Yalnızca bir büyük harf olan VM'ler veya küçük'ın ' VM'yi sku premium diskleri kullanabilirsiniz.
 
-Veri diskleri ölçek kümeleri ile kullanma hakkında daha fazla toolearn bkz [bu makalede](./virtual-machine-scale-sets-attached-disks.md).
+Veri diskleri ölçek kümeleri ile kullanma hakkında daha fazla bilgi için bkz: [bu makalede](./virtual-machine-scale-sets-attached-disks.md).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Örneğin Ölçek kümeleri kullanarak Resource Manager şablonları arama "vmss için" hello [Azure hızlı başlangıç şablonlarını github deposuna](https://github.com/Azure/azure-quickstart-templates).
+Örneğin Ölçek kümeleri kullanarak Resource Manager şablonları arama "vmss için" içinde [Azure hızlı başlangıç şablonlarını github deposuna](https://github.com/Azure/azure-quickstart-templates).
 
-Genel bilgi için hello denetleyin [ölçek kümeleri için ana giriş sayfasının](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
+Genel bilgi için kullanıma [ölçek kümeleri için ana giriş sayfasının](https://azure.microsoft.com/services/virtual-machine-scale-sets/).
 

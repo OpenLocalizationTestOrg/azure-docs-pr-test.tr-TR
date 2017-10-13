@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery kullanarak koruma aaaExclude disklerden | Microsoft Docs
-description: "Neden ve nasıl Çoğaltmada VMware tooAzure ve Hyper-V tooAzure senaryoları için tooexclude VM diskleri açıklar."
+title: "Azure Site Recovery kullanarak disk korumasını hariç tutma | Microsoft Docs"
+description: "VMware’den Azure’a ve Hyper-V’den Azure’a senaryolarında VM disklerinin çoğaltma işleminden nasıl ve neden hariç tutulacağı açıklanmaktadır."
 services: site-recovery
 documentationcenter: 
 author: nsoneji
@@ -14,129 +14,129 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2017
 ms.author: nisoneji
-ms.openlocfilehash: f47146bc57aeab3fce90123d0894fa86dde93417
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: fccbe88e3c0c2b2f3e9958f5f2f27adc017e4d03
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="exclude-disks-from-replication"></a>Diskleri çoğaltmanın dışında tutma
-Bu makalede nasıl tooexclude Çoğaltmada diskler açıklanmaktadır. Bu dışlama tüketilen hello çoğaltma bant genişliğini iyileştirmek veya böyle diskleri kullanan hello hedef tarafı kaynakları en iyi duruma getirme. Merhaba özelliği VMware tooAzure ve Hyper-V tooAzure senaryoları için desteklenir.
+Bu makalede, disklerin çoğaltmanın dışında nasıl tutulacağı açıklanmaktadır. Bu dışında tutma, kullanılan çoğaltma bant genişliğini iyileştirebilir veya bu gibi disklerin kullandığı hedef tarafı kaynakları iyileştirebilir. Bu özellik, VMware’den Azure’a ve Hyper-V’den Azure’a senaryoları için desteklenir.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Varsayılan olarak, bir makinedeki tüm diskler çoğaltılır. VMware tooAzure çoğaltıyorsanız çoğaltma etkinleştirmeden önce çoğaltma diskten tooexclude, el ile Merhaba Mobility hizmeti hello makinede yüklemeniz gerekir.
+Varsayılan olarak, bir makinedeki tüm diskler çoğaltılır. Bir diski çoğaltmanın dışında tutmak için, VMware’den Azure’a çoğaltma yapıyorsanız çoğaltmayı etkinleştirmeden önce Mobility hizmetini makineye el ile yüklemeniz gerekir.
 
 
 ## <a name="why-exclude-disks-from-replication"></a>Diskleri çoğaltmanın dışında tutma nedenleri nelerdir?
 Disklerin çoğaltmanın dışında tutulması, çoğu zaman aşağıdaki nedenlerden dolayı gereklidir:
 
-- Dışlanan hello diskte churned hello verileri önemli değildir veya yinelenmiş toobe gerek yoktur.
+- Hariç tutulan diskteki değişen veriler önemli değildir veya çoğaltılmaları gerekmez.
 
-- Bu karmaşası çoğaltmamasının toosave depolama ve ağ kaynaklarını istiyor.
+- Bu dalgalanmayı çoğaltmayarak depolama ve ağ kaynaklarından tasarruf sağlamak istersiniz.
 
-## <a name="what-are-hello-typical-scenarios"></a>Merhaba tipik senaryolar nelerdir?
-Dışarıda tutmak için çok iyi adaylar olan belirli veri değişim sıklığı örnekleri tanımlayabilirsiniz. Örnekler içerebilir tooa disk belleği dosyası (pagefile.sys) yazar ve Microsoft SQL Server'ın toohello tempdb dosyasına yazar. Merhaba iş yükü ve hello depolama alt sistemi bağlı olarak, Başlangıç disk belleği dosyası karmaşası önemli miktarda kaydedebilirsiniz. Ancak, bu verileri hello birincil site tooAzure çoğaltma yoğun kaynak olacaktır. Bu nedenle, aşağıdaki adımları toooptimize çoğaltma hello işletim sistemi ve Başlangıç disk belleği dosyası sahip tek bir sanal diskten bir sanal makinenin hello kullanabilirsiniz:
+## <a name="what-are-the-typical-scenarios"></a>Tipik senaryolar nelerdir?
+Dışarıda tutmak için çok iyi adaylar olan belirli veri değişim sıklığı örnekleri tanımlayabilirsiniz. Örnekler, disk belleği dosyasına (pagefile.sys) yazma ve Microsoft SQL Server tempdb dosyasına yazmayı içerebilir. İş yüküne ve depolama alt sistemine bağlı olarak, disk belleği dosyasında önemli miktarda dalgalanma kaydedebilir. Ancak bu verilerin birincil siteden Azure'a çoğaltılması yoğun bir kaynak kullanımına neden olacaktır. Bu nedenle, hem işletim sistemi hem de disk belleği dosyası bulunan tek bir sanal diske sahip bir sanal makinenin çoğaltılmasını iyileştirmek üzere aşağıdaki adımları kullanabilirsiniz:
 
-1. Bölünmüş hello tek sanal diske iki sanal disk. Bir sanal disk hello işletim sistemi, ve Başlangıç disk belleği dosyası hello diğer sahiptir.
-2. Başlangıç disk belleği dosyası disk çoğaltmanın dışında tutabilir.
+1. Tek sanal diski iki sanal diske bölün. Bir sanal diskte işletim sistemi ve diğerinde disk belleği dosyası vardır.
+2. Disk belleği dosyasını çoğaltmanın dışında tutun.
 
-Benzer şekilde, aşağıdaki adımları toooptimize hem hello Microsoft SQL Server tempdb lanı sahip bir disk hello kullanın ve sistem veritabanı dosyasının hello:
+Benzer şekilde, Microsoft SQL Server tempdb dosyasına ve sistem veritabanı dosyasına sahip bir diski en iyi duruma getirmek için aşağıdaki adımları kullanabilirsiniz:
 
-1. Merhaba sistem veritabanı ve tempdb iki farklı disklerde tutun.
-2. Merhaba tempdb disk çoğaltmanın dışında tutabilir.
+1. Sistem veritabanını ve tempdb dosyasını iki farklı diskte tutabilirsiniz.
+2. Tempdb diskini çoğaltmanın dışında tutabilirsiniz.
 
-## <a name="how-tooexclude-disks-from-replication"></a>Nasıl tooexclude Çoğaltmada diskler?
+## <a name="how-to-exclude-disks-from-replication"></a>Diskler nasıl çoğaltmanın dışında tutulur?
 
-### <a name="vmware-tooazure"></a>VMware tooAzure
-Merhaba izleyin [çoğaltmasını etkinleştir](site-recovery-vmware-to-azure.md) iş akışı tooprotect hello Azure Site kurtarma portalından bir sanal makine. Merhaba Dördüncü adımda hello iş akışının, hello kullanmanız **DISK tooREPLICATE** sütun tooexclude diskleri çoğaltma. Varsayılan olarak, tüm diskler çoğaltma için seçilir. Çoğaltma ve ardından tam hello adımları tooenable çoğaltma tooexclude istediğiniz disklerin Hello onay kutusunu temizleyin.
+### <a name="vmware-to-azure"></a>Vmware’den Azure’a
+Azure Site Recovery portalından bir sanal makineyi korumak için [Çoğaltmayı etkinleştir](site-recovery-vmware-to-azure.md) iş akışını izleyin. İş akışının dördüncü adımında, diskleri çoğaltmanın dışında tutmak için **DISK TO REPLICATE** sütununu kullanın. Varsayılan olarak, tüm diskler çoğaltma için seçilir. Çoğaltmanın dışında tutmak istediğiniz disklerin onay kutusunu temizleyin ve ardından çoğaltmayı etkinleştirme adımlarını tamamlayın.
 
-![Diskleri çoğaltmanın dışında tutabilir ve VMware tooAzure yeniden çalışma için çoğaltmayı etkinleştirme](./media/site-recovery-exclude-disk/v2a-enable-replication-exclude-disk1.png)
+![Diskleri çoğaltmanın dışında tutma ve VMware’den Azure’a yeniden çalışma için çoğaltmayı etkinleştirin](./media/site-recovery-exclude-disk/v2a-enable-replication-exclude-disk1.png)
 
 
 >[!NOTE]
 >
-> * Merhaba Mobility hizmeti zaten yüklü diskleri hariç tutabilirsiniz. Merhaba Mobility hizmeti yalnızca çoğaltma etkinleştirildikten sonra hello zorlama mekanizmasını kullanarak yüklü olduğundan toomanually yükleme hello Mobility hizmeti gerekir.
+> * Yalnızca Mobility hizmetinin zaten yüklü olduğu diskleri dışarıda tutabilirsiniz. Mobility hizmeti yalnızca, çoğaltma etkinleştirildikten sonra gönderim mekanizması kullanılarak yüklendiğinden Mobility hizmetini elle yüklemeniz gerekir.
 > * Yalnızca temel diskler çoğaltma dışı bırakılabilir. İşletim sistemi veya dinamik diskler dışarıda tutulamaz.
-> * Çoğaltmayı etkinleştirdikten sonra, diskleri çoğaltma ekleyemez veya kaldıramazsınız. Tooadd istediğiniz veya bir disk hariç, toodisable koruma hello makine için ihtiyaç ve yeniden etkinleştirin.
-> * Yük devretme tooAzure sonra bir uygulama toooperate için gerekli olan bir disk bıraksanız çoğaltılan Merhaba uygulaması çalıştırabilmeniz için toocreate hello diski el ile azure'da gerekir. Alternatif olarak, bir kurtarma planı toocreate hello diskine hello makinenin yük devretme sırasında Azure Otomasyon tümleştirebilirsiniz.
-> * Windows sanal makine: Azure'da elle oluşturduğunuz diskler yeniden çalışır duruma getirilmez. Örneğin, üç disk için yük devretme gerçekleştirirseniz ve iki diski doğrudan Azure Sanal Makineler'de oluşturursanız, yalnızca yük devretme gerçekleştirilen üç disk yeniden çalışır duruma getirilir. Yeniden çalışma veya şirket içi tooAzure gelen yeniden koruma el ile oluşturulan diskleri ekleyemezsiniz.
+> * Çoğaltmayı etkinleştirdikten sonra, diskleri çoğaltma ekleyemez veya kaldıramazsınız. Disk eklemek veya dışarıda tutmak istiyorsanız, makinenin korumasını devre dışı bırakmanız ve ardından yeniden etkinleştirmeniz gerekir.
+> * Bir uygulamanın çalışması için gerekli olan bir diski hariç tutarsanız, Azure'a yük devretme gerçekleştirildikten sonra, çoğaltılan uygulamanın çalışabilmesi için diski Azure'da el ile oluşturmanız gerekir. Alternatif olarak, makinenin yük devri esnasında diski oluşturmak için Azure otomasyonunu bir kurtarma planıyla tümleştirebilirsiniz.
+> * Windows sanal makine: Azure'da elle oluşturduğunuz diskler yeniden çalışır duruma getirilmez. Örneğin, üç disk için yük devretme gerçekleştirirseniz ve iki diski doğrudan Azure Sanal Makineler'de oluşturursanız, yalnızca yük devretme gerçekleştirilen üç disk yeniden çalışır duruma getirilir. Elle oluşturduğunuz diskleri, yeniden çalışır duruma getirmeye veya şirket içinden Azure'a yeniden koruma uygulama işlemlerine dahil edemezsiniz.
 > * Linux sanal makinesi: Azure’da ele oluşturduğunuz diskler yenide çalışır duruma getirilir. Örneğin, üç disk için yük devretme gerçekleştirirseniz ve iki diski doğrudan Azure'da oluşturursanız, beş diskin tümü yeniden çalışır duruma getirilir. El ile oluşturulmuş diskleri, yeniden çalışmanın dışında tutamazsınız.
 >
 
-### <a name="hyper-v-tooazure"></a>Hyper-V tooAzure
-Merhaba izleyin [çoğaltmasını etkinleştir](site-recovery-hyper-v-site-to-azure.md) iş akışı tooprotect hello Azure Site kurtarma portalından bir sanal makine. Merhaba Dördüncü adımda hello iş akışının, hello kullanmanız **DISK tooREPLICATE** sütun tooexclude diskleri çoğaltma. Varsayılan olarak, tüm diskler çoğaltma için seçilir. Çoğaltma ve ardından tam hello adımları tooenable çoğaltma tooexclude istediğiniz disklerin Hello onay kutusunu temizleyin.
+### <a name="hyper-v-to-azure"></a>Hyper-V’den Azure’a
+Azure Site Recovery portalından bir sanal makineyi korumak için [Çoğaltmayı etkinleştir](site-recovery-hyper-v-site-to-azure.md) iş akışını izleyin. İş akışının dördüncü adımında, diskleri çoğaltmanın dışında tutmak için **DISK TO REPLICATE** sütununu kullanın. Varsayılan olarak, tüm diskler çoğaltma için seçilir. Çoğaltmanın dışında tutmak istediğiniz disklerin onay kutusunu temizleyin ve ardından çoğaltmayı etkinleştirme adımlarını tamamlayın.
 
-![Diskleri çoğaltmanın dışında tutabilir ve Hyper-V tooAzure yeniden çalışma için çoğaltmayı etkinleştirme](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
+![Diskleri çoğaltmanın dışında tutun ve Hyper-V’den Azure’a yeniden çalışma için çoğaltmayı etkinleştirin](./media/site-recovery-vmm-to-azure/enable-replication6-with-exclude-disk.png)
 
 >[!NOTE]
 >
-> * Yalnızca temel diskler çoğaltma dışında bırakılabilir. İşletim sistemi diskleri dışarıda tutulamaz. Dinamik diskleri dışarıda tutmamanızı öneririz. Azure Site Recovery, temel veya dinamik hello Konuk sanal makinesinde sanal sabit disk (VHD) tanımlanamıyor.  Tüm bağımlı dinamik birimi disklerinin dışarıda bırakılmazsa hello korumalı dinamik disk başarısız disk, bir yük devretme sanal makinede olur ve Merhaba, disk üzerindeki verileri erişilebilir değil.
-> * Çoğaltmayı etkinleştirdikten sonra, diskleri çoğaltma ekleyemez veya kaldıramazsınız. Tooadd istediğiniz veya bir disk hariç, toodisable koruma hello sanal makine için ihtiyaç ve yeniden etkinleştirin.
-> * Bir uygulama toooperate için gerekli olan bir disk bıraksanız çoğaltılan Merhaba uygulaması çalıştırabilmeniz için yük devretme tooAzure sonra toocreate hello diski el ile azure'da ihtiyacınız vardır. Alternatif olarak, bir kurtarma planı toocreate hello diskine hello makinenin yük devretme sırasında Azure Otomasyon tümleştirebilirsiniz.
-> * Azure'da elle oluşturduğunuz diskler yeniden çalışır duruma getirilmez. Örneğin, üzerinde üç disk başarısız ve doğrudan Azure sanal makineleri iki disk oluşturursanız, üzerinden başarısız yalnızca üç disk geri Azure tooHyper-V ile başarısız. Yeniden çalışma veya Hyper-V tooAzure ters çoğaltmayı el ile oluşturulan diskleri ekleyemezsiniz.
+> * Yalnızca temel diskler çoğaltma dışında bırakılabilir. İşletim sistemi diskleri dışarıda tutulamaz. Dinamik diskleri dışarıda tutmamanızı öneririz. Azure Site Recovery, konuk sanal makinede hangi sanal sabit diskin (VHD) temel veya dinamik olduğunu tanımlayamaz.  Bağımlı dinamik birim disklerin tümü dışlanmazsa, korumalı dinamik disk yük devredilen bir sanal makinede hatalı disk haline gelir ve bu diskteki verilere erişim sağlanamaz.
+> * Çoğaltmayı etkinleştirdikten sonra, diskleri çoğaltma ekleyemez veya kaldıramazsınız. Disk eklemek veya dışarıda tutmak istiyorsanız, sanal makine için korumayı devre dışı bırakmanız ve ardından yeniden etkinleştirmeniz gerekir.
+> * Bir uygulamanın çalışması için gerekli olan bir diski hariç tutarsanız, Azure'a yük devretme gerçekleştirildikten sonra, çoğaltılan uygulamanın çalışabilmesi için diski Azure'da el ile oluşturmanız gerekir. Alternatif olarak, makinenin yük devri esnasında diski oluşturmak için Azure otomasyonunu bir kurtarma planıyla tümleştirebilirsiniz.
+> * Azure'da elle oluşturduğunuz diskler yeniden çalışır duruma getirilmez. Örneğin, üç disk için yük devretme gerçekleştirir ve iki diski doğrudan Azure Sanal Makinelerinde oluşturursanız, yalnızca yük devretme gerçekleştirilen üç disk Azure'dan Hyper-V'ye yeniden çalışır hale getirilir. Yeniden çalışır hale getirilirken veya Hyper-V’den Azure’a ters çoğaltmada elle oluşturulmuş diskler dahil edilemez.
 
 
 
 ## <a name="end-to-end-scenarios-of-exclude-disks"></a>Disk dışarıda bırakmaya ilişkin uçtan uca senaryolar
-Şimdi iki senaryo toounderstand hello dışlama disk özelliği göz önünde bulundurun:
+Disk dışarıda tutma özelliğini daha iyi anlamak için iki senaryoyu düşünelim:
 
 - SQL Server tempdb diski
 - Disk belleği dosyası (pagefile.sys) diski
 
-### <a name="exclude-hello-sql-server-tempdb-disk"></a>Merhaba SQL Server tempdb disk Dışla
+### <a name="exclude-the-sql-server-tempdb-disk"></a>SQL Server tempdb diskini dışarıda tutma
 Dışlanabilecek bir tempdb’si olan bir SQL Server sanal makinesi düşünelim.
 
-Merhaba hello sanal disk SalesDB adıdır.
+Sanal disk adı SalesDB şeklindedir.
 
-Diskleri hello kaynak sanal makinede aşağıdaki gibidir:
+Kaynak sanal makinedeki diskler aşağıdaki gibidir:
 
 
-**Disk adı** | **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Merhaba diskteki veri türü**
+**Disk adı** | **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Diskteki veri türü**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | İşletim sistemi diski
 DB-Disk1| Disk1 | D:\ | SQL sistem veritabanı ve Kullanıcı Veritabanı1
-DB-Disk2 (korumadan dışlanan hello disk) | Disk2 | E:\ | Geçici dosyalar
-DB-Disk3 (korumadan dışlanan hello disk) | Disk3 | F:\ | SQL tempdb veritabanı (klasör yolu (F:\MSSQL\Data\) < /br/>< /br/> Yük devretme önce hello klasör yolunu not alın.
+DB-Disk2 (Disk, korumanın dışında tutuldu) | Disk2 | E:\ | Geçici dosyalar
+DB-Disk3 (Disk, korumanın dışında tutuldu) | Disk3 | F:\ | SQL tempdb veritabanı (klasör yolu (F:\MSSQL\Data\) </br /> </br />Yük devretmeden önce klasör yolunu yazın.
 DB-Disk4 | Disk4 |G:\ |Kullanıcı Veritabanı2
 
-Merhaba SalesDB sanal makine korurken hello sanal makinenin iki disk üzerindeki verileri karmaşıklığı geçici, olduğundan Disk2 ve Disk3 çoğaltmanın dışında tutabilir. Azure Site Recovery bu diskleri çoğaltmaz. Yük devretme, bu disklerin hello yük devretme üzerindeki sanal makinede Azure mevcut olmaz.
+Sanal makinenin iki diskindeki veri değişim sıklığı geçici olduğundan, SalesDB sanal makinesini korurken Disk2 ve Disk3’ü çoğaltmanın dışında tutun. Azure Site Recovery bu diskleri çoğaltmaz. Yük devretmede, bu diskler Azure’da yük devretme sanal makinesinde mevcut olmaz.
 
-Merhaba yük devretme sonrasında Azure sanal makinesi disklerde aşağıdaki gibidir:
+Yük devretme sonrasında Azure sanal makinesindeki diskler aşağıdaki gibidir:
 
-**Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Merhaba diskteki veri türü**
+**Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Diskteki veri türü**
 --- | --- | ---
 DISK0 | C:\ | İşletim sistemi diski
-Disk1 | E:\ | Geçici depolama < /br / >< /br / > Azure hello ilk kullanılabilir sürücü harfi atar ve bu disk ekler.
+Disk1 | E:\ | Geçici depolama</br /> </br />Azure bu diski ekler ve kullanılabilir ilk sürücü harfini buna atar.
 Disk2 | D:\ | SQL sistem veritabanı ve Kullanıcı Veritabanı1
 Disk3 | G:\ | Kullanıcı Veritabanı2
 
-Disk2 ve Disk3 hello SalesDB sanal makineden dışlandığından E: hello ilk sürücü harfi hello kullanılabilir listeden ' dir. Azure E: toohello geçici depolama birimi atar. Tüm çoğaltılan hello disklerde hello sürücü harfleri kalır hello aynı.
+Disk2 ve Disk3, SalesDB sanal makinesinin dışında tutulduğundan, kullanılabilir sürücü harfleri listesindeki ilk harf E: olur. Azure, geçici depolama birimine E: harfini atar. Tüm çoğaltılan diskler için, sürücü harfleri aynı kalır.
 
-Merhaba SQL tempdb disk Disk3 (tempdb klasör yolu F:\MSSQL\Data\), çoğaltmadan dışlandı. Merhaba disk hello yük devretme sanal makinede kullanılabilir değil. Sonuç olarak, hello SQL hizmeti durdurulmuş bir durumda olduğundan ve hello F:\MSSQL\Data yolu gerekiyor.
+SQL tempdb diski olan Disk3 (tempdb klasör yolu F:\MSSQL\Data\), çoğaltmadan dışlanmıştır. Disk yük devretme sanal makinesinde kullanılabilir değildir. Sonuç olarak, SQL hizmeti durdurulmuş durumdadır ve F:\MSSQL\Veri yolu gerekir.
 
-Bu yol iki yolu toocreate vardır:
+Bu yolu oluşturmanın iki yöntemi vardır:
 
 - Yeni bir disk ekleyin ve tempdb klasör yolunu atayın.
-- Varolan bir geçici depolama diski hello tempdb klasör yolu için kullanın.
+- tempdb klasör yolu için var olan geçici bir depolama diski kullanın.
 
 #### <a name="add-a-new-disk"></a>Yeni bir disk ekleme:
 
-1. SQL tempdb.mdf ve yük devretme önce tempdb.ldf hello yollarını aşağı yazın.
-2. Azure portal Hello yeni disk toohello yük devretme sahip bir sanal makine hello aynı veya daha fazla boyutu, hello kaynak SQL tempdb disk (Disk3) ekleyin.
-3. İçinde toohello Azure sanal makinesinde oturum açın. Merhaba disk Yönetimi'ni (diskmgmt.msc) konsolundan başlatamadı ve biçiminde hello disk yeni eklenen.
-4. Aynı sürücü hello SQL tempdb disk (F:) tarafından kullanılan harfi atama hello.
-5. Merhaba F: birimini (F:\MSSQL\Data) üzerinde bir tempdb klasör oluşturun.
-6. Merhaba hizmet konsolundan Hello SQL hizmetini başlatın.
+1. Yük devretme öncesinde SQL tempdb.mdf ve tempdb.ldf yollarını yazın.
+2. Azure portalında, yük devretme sanal makinesine, kaynak SQL tempdb diskiyle (Disk3) aynı boyutta veya daha büyük yeni bir disk ekleyin.
+3. Azure sanal makinesinde oturum açın. Disk yönetimi (diskmgmt.msc) konsolundan yeni eklenen diski başlatıp biçimlendirin.
+4. SQL tempdb diski tarafından kullanılan sürücü harfinin aynısını (F:) atayın.
+5. F: biriminde bir tempdb klasörü (F:\MSSQL\Data) oluşturun.
+6. Hizmet konsolundan SQL hizmetini başlatın.
 
-#### <a name="use-an-existing-temporary-storage-disk-for-hello-sql-tempdb-folder-path"></a>Varolan bir geçici depolama diski hello SQL tempdb klasör yolu için kullanın:
+#### <a name="use-an-existing-temporary-storage-disk-for-the-sql-tempdb-folder-path"></a>SQL tempdb klasör yolu için var olan geçici bir depolama diski kullanın:
 
 1. Bir komut istemi açın.
-2. SQL Server kurtarma modunda hello komut isteminden çalıştırın.
+2. Komut isteminden kurtarma modunda SQL Server çalıştırın.
 
         Net start MSSQLSERVER /f / T3608
 
-3. SQLCMD toochange hello tempdb yol toohello yeni yol aşağıdaki hello çalıştırın.
+3. tempdb yolunu yeni yola değiştirmek için aşağıdaki sqlcmd’yi çalıştırın.
 
         sqlcmd -A -S SalesDB        **Use your SQL DBname**
         USE master;     
@@ -149,50 +149,50 @@ Bu yol iki yolu toocreate vardır:
         GO
 
 
-4. Merhaba Microsoft SQL Server hizmetini durdurun.
+4. Microsoft SQL Server hizmetini durdurun.
 
         Net stop MSSQLSERVER
-5. Merhaba Microsoft SQL Server hizmetini başlatın.
+5. Microsoft SQL Server hizmetini başlatın.
 
         Net start MSSQLSERVER
 
-Geçici depolama diskini Azure Kılavuzu izleyerek toohello bakın:
+Geçici depolama diski için aşağıdaki Azure kılavuzuna bakın:
 
-* [Azure VM'ler toostore SQL Server TempDB ve arabellek havuzu uzantıları SSD kullanma](https://blogs.technet.microsoft.com/dataplatforminsider/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/)
+* [SQL Server TempDB’yi ve Arabellek Havuzu Uzantılarını depolamak için Azure sanal makinelerde SSD kullanma](https://blogs.technet.microsoft.com/dataplatforminsider/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/)
 * [Azure Sanal Makineler’de SQL Server için performansa yönelik en iyi uygulamalar](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance)
 
-### <a name="failback-from-azure-tooan-on-premises-host"></a>Yeniden çalışma (konaktan Azure tooan şirket içi)
-Artık Azure tooyour şirket içi VMware veya Hyper-V ana bilgisayarından üzerinden başarısız olduğunda, çoğaltılan hello diskleri anlayalım. Azure'da elle oluşturduğunuz diskler çoğaltılmaz. Örneğin, üç disk için yük devretme gerçekleştirir ve iki diski doğrudan Azure Sanal Makinelerinde oluşturursanız, yalnızca yük devretme gerçekleştirilen üç disk yeniden çalışır hale getirilir. Yeniden çalışma veya şirket içi tooAzure gelen yeniden koruma el ile oluşturulan diskleri ekleyemezsiniz. Ayrıca hello geçici depolama disk tooon içi konakları yinelemez.
+### <a name="failback-from-azure-to-an-on-premises-host"></a>Yeniden çalışır hale getirme (Azure'dan şirket içi bir ana bilgisayara)
+Şimdi, Azure'dan şirket içi VMware veya Hyper-V ana bilgisayarınıza yük devretme yaptığınızda çoğaltılan disklere bakalım. Azure'da elle oluşturduğunuz diskler çoğaltılmaz. Örneğin, üç disk için yük devretme gerçekleştirir ve iki diski doğrudan Azure Sanal Makinelerinde oluşturursanız, yalnızca yük devretme gerçekleştirilen üç disk yeniden çalışır hale getirilir. Elle oluşturduğunuz diskleri, yeniden çalışır duruma getirmeye veya şirket içinden Azure'a yeniden koruma uygulama işlemlerine dahil edemezsiniz. Ayrıca, geçici depolama diskini şirket içi ana bilgisayarlarına da çoğaltmaz.
 
-#### <a name="failback-toooriginal-location-recovery"></a>Yeniden çalışma toooriginal konum kurtarma
+#### <a name="failback-to-original-location-recovery"></a>Özgün konum kurtarması için yeniden çalışma
 
-Merhaba önceki örnekte hello Azure sanal makinesinin disk yapılandırması aşağıdaki gibidir:
+Önceki örnekte, Azure sanal makinesinin disk yapılandırması aşağıdaki gibidir:
 
-**Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Merhaba diskteki veri türü**
+**Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Diskteki veri türü**
 --- | --- | ---
 DISK0 | C:\ | İşletim sistemi diski
-Disk1 | E:\ | Geçici depolama < /br / >< /br / > Azure hello ilk kullanılabilir sürücü harfi atar ve bu disk ekler.
+Disk1 | E:\ | Geçici depolama</br /> </br />Azure bu diski ekler ve kullanılabilir ilk sürücü harfini buna atar.
 Disk2 | D:\ | SQL sistem veritabanı ve Kullanıcı Veritabanı1
 Disk3 | G:\ | Kullanıcı Veritabanı2
 
 
-#### <a name="vmware-tooazure"></a>VMware tooAzure
-Yeniden çalışma toohello özgün konumuna yapıldığında hello geri dönme sanal makine disk yapılandırması dışlanan diskleri yok. VMware tooAzure dışlanan diskleri hello geri dönme sanal makinede kullanılabilir olmaz.
+#### <a name="vmware-to-azure"></a>Vmware’den Azure’a
+Yeniden çalışma özgün konumda gerçekleştirildiğinde, yeniden çalışma sanal makinesi disk yapılandırmasında dışarıda tutulan diskler olmaz. VMware’den Azure'a çoğaltmanın dışında tutulan diskler, yeniden çalışır hale getirme sanal makinesinde mevcut olmayacaktır.
 
-Planlı yük devretmeyi sonra Azure tooon içi VMware, hello VMWare sanal makinesi (özgün konum) disklerde aşağıdaki gibidir:
+Azure'dan şirket içi VMware’e planlı yük devretmenin ardında, VMWare sanal makinesindeki (özgün konum) diskler aşağıdaki gibidir:
 
-**Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Merhaba diskteki veri türü**
+**Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Diskteki veri türü**
 --- | --- | ---
 DISK0 | C:\ | İşletim sistemi diski
 Disk1 | D:\ | SQL sistem veritabanı ve Kullanıcı Veritabanı1
 Disk2 | G:\ | Kullanıcı Veritabanı2
 
-#### <a name="hyper-v-tooazure"></a>Hyper-V tooAzure
-Yeniden çalışma toohello özgün konumuna olduğunda hello geri dönme sanal makine disk yapılandırma kalır aynı Hyper-V için özgün sanal makine disk yapılandırma olarak hello. Hyper-V sitesi tooAzure dışlanan diskleri hello geri dönme sanal makinede kullanılabilir.
+#### <a name="hyper-v-to-azure"></a>Hyper-V’den Azure’a
+Yeniden çalışma özgün konum için olduğunda, yeniden çalışma sanal makinesi disk yapılandırması, Hyper-V’ye ait özgün sanal makine disk yapılandırması ile aynı kalır. Hyper-V sitesinden Azure'a çoğaltmanın dışında tutulan diskler, yeniden çalışır hale getirme sanal makinesinde mevcut olacaktır.
 
-Azure tooon içi Hyper-V'ye planlı yük devretme sonrasında hello Hyper-V sanal makinesi (özgün konum) disklerde aşağıdaki gibidir:
+Azure'dan şirket içi Hyper-V’ye planlı yük devretmenin ardından, Hyper-V sanal makinesindeki (özgün konum) diskler aşağıdaki gibidir:
 
-**Disk Adı** | **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Merhaba diskteki veri türü**
+**Disk Adı** | **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Diskteki veri türü**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 |   C:\ | İşletim sistemi diski
 DB-Disk1 | Disk1 | D:\ | SQL sistem veritabanı ve Kullanıcı Veritabanı1
@@ -201,69 +201,69 @@ DB-Disk3 (Dışlanan disk) | Disk3 | F:\ | SQL tempdb veritabanı (klasör yolu 
 DB-Disk4 | Disk4 | G:\ | Kullanıcı Veritabanı2
 
 
-#### <a name="exclude-hello-paging-file-pagefilesys-disk"></a>Başlangıç disk belleği dosyası (pagefile.sys) disk Dışla
+#### <a name="exclude-the-paging-file-pagefilesys-disk"></a>Disk belleği dosyası (pagefile.sys) diskini dışarıda tutma
 
 Dışarıda tutulabilecek bir disk belleği dosyası diski olan bir sanal makine düşünelim.
 İki durum vardır.
 
-#### <a name="case-1-hello-paging-file-is-configured-on-hello-d-drive"></a>Durum 1: Başlangıç disk belleği dosyası hello D: sürücü üzerinde yapılandırılmış
-Merhaba disk yapılandırması şöyledir:
+#### <a name="case-1-the-paging-file-is-configured-on-the-d-drive"></a>Durum 1: Disk belleği dosyası D: sürücüsünde yapılandırılmıştır
+Disk yapılandırması aşağıdaki gibidir:
 
 
-**Disk adı** | **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Merhaba diskteki veri türü**
+**Disk adı** | **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Diskteki veri türü**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | İşletim sistemi diski
-DB disk 1 (Merhaba korumadan dışlanan hello disk) | Disk1 | D:\ | pagefile.sys
+DB-Disk1 (Disk, korumanın dışında tutuldu) | Disk1 | D:\ | pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Kullanıcı verileri 1
 DB-Disk3 | Disk3 | F:\ | Kullanıcı verileri 2
 
-Başlangıç disk belleği dosyası ayarlarını hello kaynak sanal makinede şunlardır:
+Kaynak sanal makinedeki disk belleği dosyası ayarları şunlardır:
 
 ![Kaynak sanal makinedeki disk belleği dosyası ayarları](./media/site-recovery-exclude-disk/pagefile-on-d-drive-sourceVM.png)
 
 
-VMware tooAzure veya Hyper-V tooAzure hello sanal makinenin yük devretme sonrasında Azure sanal makinesi hello disklerde aşağıdaki gibidir:
+Sanal makinenin VMware’den Azure’a veya Hyper-V’den Azure’a yük devretmesi yapıldıktan sonra, Azure sanal makinesindeki diskler aşağıdaki gibi olur:
 
-**Disk adı** | **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Merhaba diskteki veri türü**
+**Disk adı** | **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Diskteki veri türü**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | İşletim sistemi diski
 DB-Disk1 | Disk1 | D:\ | Geçici depolama</br /> </br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Kullanıcı verileri 1
 DB-Disk3 | Disk3 | F:\ | Kullanıcı verileri 2
 
-Disk 1 (D:) dışlandığından D: hello ilk sürücü harfi hello kullanılabilir listeden olabilir. Azure D: toohello geçici depolama birimi atar. D: hello Azure sanal makinesi üzerinde mevcut olduğundan, Başlangıç disk belleği dosyası ayarı hello sanal makine kalır aynı hello.
+Disk1 (D:) dışarıda tutulduğundan, D: kullanılabilir listedeki ilk sürücü harfidir. Azure, geçici depolama birimine D: harfini atar. D: Azure sanal makinesinde kullanılabilir olduğundan, sanal makinenin disk belleği dosyası ayarı aynı kalır.
 
-Başlangıç disk belleği dosyası ayarlarını hello Azure sanal makinesi üzerinde şunlardır:
+Azure sanal makinesindeki disk belleği dosyası ayarları şunlardır:
 
 ![Azure sanal makinesindeki disk belleği dosyası ayarları](./media/site-recovery-exclude-disk/pagefile-on-Azure-vm-after-failover.png)
 
-#### <a name="case-2-hello-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Durum 2: Başlangıç disk belleği dosyası (dışında D: sürücüsü) başka bir sürücüde yapılandırılmış
+#### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Durum 2: Disk belleği dosyası başka bir sürücüde (D: sürücüsü dışında) yapılandırılmıştır
 
-Merhaba kaynak sanal makine disk yapılandırması şöyledir:
+Kaynak sanal makine disk yapılandırması şöyledir:
 
-**Disk adı** | **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Merhaba diskteki veri türü**
+**Disk adı** | **Konuk işletim sistemi disk no.** | **Sürücü harfi** | **Diskteki veri türü**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | İşletim sistemi diski
-DB disk 1 (korumadan dışlanan hello disk) | Disk1 | G:\ | pagefile.sys
+DB-Disk1 (Disk, korumanın dışında tutuldu) | Disk1 | G:\ | pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Kullanıcı verileri 1
 DB-Disk3 | Disk3 | F:\ | Kullanıcı verileri 2
 
-Başlangıç disk belleği dosyası ayarlarını hello şirket içi sanal makine üzerinde şunlardır:
+Şirket içi sanal makinedeki disk belleği dosyası ayarları şunlardır:
 
-![Dosya ayarlarını hello şirket içi sanal makinedeki disk belleği](./media/site-recovery-exclude-disk/pagefile-on-g-drive-sourceVM.png)
+![Şirket içi sanal makinedeki disk belleği dosyası ayarları](./media/site-recovery-exclude-disk/pagefile-on-g-drive-sourceVM.png)
 
-VMware/Hyper-V tooAzure gelen hello sanal makinenin yük devretme sonrasında Azure sanal makinesi hello disklerde aşağıdaki gibidir:
+Sanal makinenin VMware’den/Hyper-V’den Azure’a yük devretmesi yapıldıktan sonra, Azure sanal makinesindeki diskler aşağıdaki gibi olur:
 
-**Disk adı**| **Konuk işletim sistemi disk no.**| **Sürücü harfi** | **Merhaba diskteki veri türü**
+**Disk adı**| **Konuk işletim sistemi disk no.**| **Sürücü harfi** | **Diskteki veri türü**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0  |C:\ |İşletim sistemi diski
 DB-Disk1 | Disk1 | D:\ | Geçici depolama</br /> </br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Kullanıcı verileri 1
 DB-Disk3 | Disk3 | F:\ | Kullanıcı verileri 2
 
-D: hello ilk sürücü harfi kullanılabilir hello listeden olduğundan, Azure D: toohello geçici depolama birimi atar. Tüm çoğaltılan hello disklerde hello sürücü harfi kalır aynı hello. Merhaba G: disk kullanılabilir olmadığından hello sistem hello C: sürücüsündeki disk belleği dosyası başlangıç için kullanın.
+D: kullanılabilir sürücü harfleri listesindeki ilk harf olduğundan, Azure geçici depolama birimine D: harfini atar. Tüm çoğaltılan diskler için, sürücü harfi aynı kalır. G: disk kullanılabilir olmadığından, sistem disk belleği dosyası için C: sürücüsünü kullanır.
 
-Başlangıç disk belleği dosyası ayarlarını hello Azure sanal makinesi üzerinde şunlardır:
+Azure sanal makinesindeki disk belleği dosyası ayarları şunlardır:
 
 ![Azure sanal makinesindeki disk belleği dosyası ayarları](./media/site-recovery-exclude-disk/pagefile-on-Azure-vm-after-failover-2.png)
 

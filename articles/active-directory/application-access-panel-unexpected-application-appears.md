@@ -1,6 +1,6 @@
 ---
-title: "aaaHow uygulamaları hello erişim panelinde görüntülenir | Microsoft Docs"
-description: "Bir uygulama hello erişim paneli görünen neden sorun giderme"
+title: "Erişim paneli uygulamaları nasıl göründüğünü | Microsoft Docs"
+description: "Bir uygulama erişim panelinde görünen neden sorun giderme"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -14,129 +14,129 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviewr: japere
-ms.openlocfilehash: 14ee732c4ed5260cba878e949cf9d90877aee67e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f8ccf2cf66b49940bc7f2b9f4764020efc04838e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="how-applications-appear-on-hello-access-panel"></a>Uygulamaları hello erişim panelinde görüntülenme
+# <a name="how-applications-appear-on-the-access-panel"></a>Erişim paneli uygulamaları nasıl göründüğünü
 
-Merhaba erişim paneli bir kullanıcı bir iş sağlayan bir web tabanlı portal ya da Okul hesabı Azure Active Directory (Azure AD) tooview ve başlangıç bulut tabanlı uygulamalarda bu hello Azure AD Yöneticisi bunları erişim izni. Bu uygulamalar hello Azure AD portalında hello kullanıcı adına yapılandırılır. Hello Yöneticisi hello uygulama toohello kullanıcı doğrudan veya bir kullanıcı hello kullanıcının erişim Panoda görünmesini hello uygulamada kaynaklanan bir parçası olan tooa Grup sağlayabilirsiniz.
+Erişim için bir iş veya Okul hesabı Azure Active Directory'de (görüntülemek ve Azure AD Yöneticisi bunları erişim izni bulut tabanlı uygulamalar başlatmak için Azure AD) olan bir kullanıcı sağlayan bir web tabanlı portal panosudur. Bu uygulamalar, Azure AD portalında kullanıcı adına yapılandırılır. Yönetici kullanıcının uygulamaya doğrudan sağlayabilir veya bir gruba bir kullanıcı kullanıcının erişim panelinde görünen uygulama sonuçta parçasıdır.
 
-## <a name="general-issues-toocheck-first"></a>Genel toocheck ilk sorunları
+## <a name="general-issues-to-check-first"></a>İlk denetlemek için genel sorunlar
 
--   Merhaba uygulaması kaldırılırsa bir uygulamayı yalnızca bir kullanıcıdan kaldırıldı veya grup hello kullanıcının üyesi olduğu, toosign giriş ve çıkış yeniden hello kullanıcının erişim paneline sonra birkaç dakika toosee deneyin.
+-   Bir uygulamayı yalnızca bir kullanıcı veya kullanıcının üyesi olduğu Grup kaldırıldıysa, içeri ve dışarı kullanıcının erişim paneline birkaç dakika sonra uygulama kaldırılırsa, görmek için oturum yeniden deneyin.
 
--   Bir lisans yalnızca bir kullanıcı veya grup hello kullanıcı kaldırıldıysa bu üyesi hello boyutu ve karmaşıklığı yapılan değişiklikleri toobe hello grubunun bağlı olarak uzun bir süre devam edebilir ' dir. Erişim paneli hello oturum açmadan önce ek süresi için izin verin.
+-   Bir lisans yalnızca bir kullanıcı veya grup kaldırıldıysa bu üyesi boyutu ve karmaşıklığı grubunun yapılacak değişiklikler için bağlı olarak uzun bir süre devam edebilir kullanıcıdır. Erişim paneline oturum açmadan önce ek süresi için izin verin.
 
-## <a name="problems-related-tooassigning-applications-toousers"></a>Sorunları ilgili tooassigning uygulamaları toousers
+## <a name="problems-related-to-assigning-applications-to-users"></a>Uygulamaları kullanıcılara atamak için ilgili sorunlar
 
-Bunlar daha önce tooit atanmış çünkü bir kullanıcı bir uygulama kullanıcıların erişim panelinde görüyor olabilirsiniz. Bazı yolları toocheck aşağıda verilmiştir:
+Bunlar daha önce kendisine atanmış çünkü bir kullanıcı bir uygulama kullanıcıların erişim panelinde görüyor olabilirsiniz. Aşağıda denetlemek için bazı yöntemler şunlardır:
 
--   [Bir kullanıcı toohello uygulama atandığından emin olun](#check-if-a-user-is-assigned-to-the-application)
+-   [Kullanıcı uygulamaya atandığından emin olun](#check-if-a-user-is-assigned-to-the-application)
 
--   [Bir kullanıcının bir lisansı altında olup olmadığını denetleyin ilgili toohello uygulama](#check-if-a-user-is-under-a-license-related-to-the-application)
+-   [Bir kullanıcının uygulamayla ilgili bir lisansı altında olup olmadığını denetleyin](#check-if-a-user-is-under-a-license-related-to-the-application)
 
 
-### <a name="check-if-a-user-is-assigned-toohello-application"></a>Bir kullanıcı toohello uygulama atandığından emin olun
+### <a name="check-if-a-user-is-assigned-to-the-application"></a>Kullanıcı uygulamaya atandığından emin olun
 
-toocheck toohello uygulama atanmış bir kullanıcı yoksa, hello adımları izleyin:
+Kullanıcı uygulamaya atanıp atanmadığını denetlemek için aşağıdaki adımları izleyin:
 
-1.  Açık hello [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
 
-2.  Açık hello **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** hello ana sol taraftaki gezinti menüsünde hello sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
 
-3.  Yazın **"Azure Active Directory**" Merhaba filtre arama kutusunda ve select hello **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
-4.  Tıklatın **kurumsal uygulamalar** hello Azure Active Directory sol taraftaki gezinti menüsünde.
+4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  Tıklatın **tüm uygulamaları** tooview tüm uygulamalarınızın listesi.
+5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-6.  **Arama** için söz konusu hello uygulamasının hello adı.
+6.  **Arama** için söz konusu uygulamanın adı.
 
 7.  tıklatın **kullanıcılar ve gruplar**.
 
-8.  Kullanıcı toohello uygulama atanmışsa toosee denetleyin.
+8.  Kullanıcı uygulamaya atanıp atanmadığını denetleyin.
 
-  * Merhaba uygulamasından tooremove hello kullanıcının istiyorsanız **hello satıra tıklayın** hello kullanıcı seçin ve **silmek**.
+  * Uygulamasından kullanıcıyı kaldırmak istiyorsanız, **satıra tıklayın** seçin ve kullanıcı **silmek**.
 
-### <a name="check-if-a-user-is-under-a-license-related-toohello-application"></a>Bir kullanıcının bir lisansı altında olup olmadığını denetleyin ilgili toohello uygulama
+### <a name="check-if-a-user-is-under-a-license-related-to-the-application"></a>Bir kullanıcının uygulamayla ilgili bir lisansı altında olup olmadığını denetleyin
 
-toocheck bir kullanıcıya ait atanmış lisansların, aşağıdaki hello adımları izleyin:
+Bir kullanıcının atanan lisansları denetlemek için aşağıdaki adımları izleyin:
 
-1.  Açık hello [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
 
-2.  Açık hello **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** hello ana sol taraftaki gezinti menüsünde hello sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
 
-3.  Yazın **"Azure Active Directory**" Merhaba filtre arama kutusunda ve select hello **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
-4.  Tıklatın **kullanıcılar ve gruplar** hello Gezinti menüsünde.
+4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklatın **tüm kullanıcılar**.
 
-6.  **Arama** ilgilendiğiniz hello kullanıcı için ve **hello satıra tıklayın** tooselect.
+6.  **Arama** ilgilendiğiniz kullanıcı için ve **satıra tıklayın** seçin.
 
-7.  tıklatın **lisansları** toosee lisansları hello kullanıcı şu anda atanmış.
+7.  tıklatın **lisansları** , şu anda kullanıcı lisansları görmek üzere atanır.
 
-   * Merhaba kullanıcı atanan tooan Office lisansı ise bu etkinleştirin birinci taraf Office uygulamaları tooappear hello kullanıcının erişim panelinde.
+   * Kullanıcı bir Office atanırsa, kullanıcının erişim panelinde için bu etkinleştir birinci taraf Office uygulamalarını lisans.
 
-## <a name="problems-related-tooassigning-applications-toogroups"></a>Sorunları ilgili tooassigning uygulamaları toogroups
+## <a name="problems-related-to-assigning-applications-to-groups"></a>Gruplarına atamayla ilgili sorunlar
 
-Merhaba uygulaması atanmış bir grubun parçası olmadığından bir kullanıcı bir uygulama kullanıcıların erişim panelinde görüyor olabilirsiniz. Bazı yolları toocheck aşağıda verilmiştir:
+Uygulama atanmış bir grubun parçası olmadığından bir kullanıcı bir uygulama kullanıcıların erişim panelinde görüyor olabilirsiniz. Aşağıda denetlemek için bazı yöntemler şunlardır:
 
 -   [Bir kullanıcı grup üyeliklerini denetleyin](#check-a-users-group-memberships)
 
--   [Bir kullanıcı tooa lisans atanmış bir grup üyesi olup olmadığını denetleyin](#check-if-a-user-is-a-member-of-a-group-assigned-to-a-license)
+-   [Bir kullanıcı için bir lisans atanması grubunun bir üyesi olup olmadığını denetleyin](#check-if-a-user-is-a-member-of-a-group-assigned-to-a-license)
 
 ### <a name="check-a-users-group-memberships"></a>Bir kullanıcı grup üyeliklerini denetleyin
 
-toocheck bir grubun üyeliğini, aşağıdaki hello adımları izleyin:
+Bir grubun üyeliğini denetlemek için aşağıdaki adımları izleyin:
 
-1.  Açık hello [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
 
-2.  Açık hello **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** hello ana sol taraftaki gezinti menüsünde hello sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
 
-3.  Yazın **"Azure Active Directory**" Merhaba filtre arama kutusunda ve select hello **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
-4.  Tıklatın **kullanıcılar ve gruplar** hello Gezinti menüsünde.
-
-5.  tıklatın **tüm kullanıcılar**.
-
-6.  **Arama** ilgilendiğiniz hello kullanıcı için ve **hello satıra tıklayın** tooselect.
-
-7.  tıklatın **gruplar.**
-
-8.  Kullanıcı grubunun bir parçası ise onay toosee toohello uygulama atanır.
-
-   * Merhaba grubundan tooremove hello kullanıcının istiyorsanız **hello satıra tıklayın** hello grubu ve select silin.
-
-### <a name="check-if-a-user-is-a-member-of-a-group-assigned-tooa-license"></a>Bir kullanıcı tooa lisans atanmış bir grup üyesi olup olmadığını denetleyin
-
-1.  Açık hello [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
-
-2.  Açık hello **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** hello ana sol taraftaki gezinti menüsünde hello sonundaki.
-
-3.  Yazın **"Azure Active Directory**" Merhaba filtre arama kutusunda ve select hello **Azure Active Directory** öğesi.
-
-4.  Tıklatın **kullanıcılar ve gruplar** hello Gezinti menüsünde.
+4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklatın **tüm kullanıcılar**.
 
-6.  **Arama** ilgilendiğiniz hello kullanıcı için ve **hello satıra tıklayın** tooselect.
+6.  **Arama** ilgilendiğiniz kullanıcı için ve **satıra tıklayın** seçin.
 
 7.  tıklatın **gruplar.**
 
-8.  belirli bir grup Hello satırının'ı tıklatın.
+8.  Kullanıcı uygulamaya atanan bir grubun parçası olup olmadığını denetleyin.
 
-9.  tıklatın **lisansları** toosee hangi lisansları hello Grup tooit atanan.
+   * Kullanıcıyı gruptan kaldırmak istiyorsanız, **satıra tıklayın** seçin ve Grup DELETE.
 
-  * Merhaba grubu atanan tooan Office lisansı ise bu belirli birinci taraf Office uygulamaları tooappear hello kullanıcının erişim panelinde sağlayabilir.
+### <a name="check-if-a-user-is-a-member-of-a-group-assigned-to-a-license"></a>Bir kullanıcı için bir lisans atanması grubunun bir üyesi olup olmadığını denetleyin
+
+1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
+
+3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
+
+4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+
+5.  tıklatın **tüm kullanıcılar**.
+
+6.  **Arama** ilgilendiğiniz kullanıcı için ve **satıra tıklayın** seçin.
+
+7.  tıklatın **gruplar.**
+
+8.  belirli bir grup satıra tıklayın.
+
+9.  tıklatın **lisansları** hangi grubun lisansları görmek için atanır.
+
+  * Bu kullanıcının erişim panelinde için belirli birinci taraf Office uygulamalarını etkinleştirebilir bir Office lisansı için Grup atanmışsa.
 
 
-## <a name="if-these-troubleshooting-steps-do-not-hello-resolve-hello-issue"></a>Sorun giderme adımları değil hello varsa hello sorunu çözün
+## <a name="if-these-troubleshooting-steps-do-not-the-resolve-the-issue"></a>Bu sorun giderme adımları sorunu çözümleme yaparsanız
 
-bir destek bileti varsa aşağıdaki bilgilerle hello ile açın:
+bir destek bileti aşağıdaki bilgilerle varsa açın:
 
 -   Bağıntı hata kimliği
 

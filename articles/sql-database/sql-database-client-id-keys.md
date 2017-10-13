@@ -1,5 +1,5 @@
 ---
-title: "Uygulama kimlik doğrulama - Azure SQL veritabanı için aaaGet değerleri | Microsoft Docs"
+title: "Uygulama kimlik doğrulama - Azure SQL veritabanı değerlerini alma | Microsoft Docs"
 description: "SQL veritabanı koddan erişmek için bir hizmet sorumlusu oluşturun."
 services: sql-database
 documentationcenter: 
@@ -16,30 +16,30 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/30/2016
 ms.author: sstein
-ms.openlocfilehash: b57dc075ec9e679da9f2f5fa53e02312539cdf07
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ec6256e9c5bb0d9c8d15d0f673cea70b3915eb34
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="get-hello-required-values-for-authenticating-an-application-tooaccess-sql-database-from-code"></a>Koddan uygulama tooaccess SQL veritabanı kimlik doğrulaması için gerekli hello değerlerini alma
-toocreate ve burada Azure kaynaklarınızı oluşturulmuş hello Azure Active Directory (AAD) etki alanında hello Abonelikteki uygulamanızı kaydetmeniz gerekir kodundan SQL veritabanını yönetme.
+# <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Bir uygulama kodundan SQL veritabanına erişmek için kimlik doğrulaması için gereken değerleri alma
+Oluşturup koddan SQL veritabanını yönetmek için burada Azure kaynaklarınızı oluşturulan Azure Active Directory (AAD) etki alanında Abonelikteki uygulamanızı kaydetmeniz gerekir.
 
-## <a name="create-a-service-principal-tooaccess-resources-from-an-application"></a>Bir hizmet asıl tooaccess kaynakları bir uygulama oluşturun.
-Toohave hello son gereksinim [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) yüklü ve çalışır. Ayrıntılı bilgi için bkz: [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azureps-cmdlets-docs).
+## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>Bir hizmet asıl kaynaklarına erişmek için bir uygulama oluşturun
+En son gerek [Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) yüklü ve çalışır. Ayrıntılı bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).
 
-Merhaba aşağıdaki PowerShell betiğini hello Active Directory (AD) uygulama ve hello hizmet asıl tooauthenticate C# uygulamamıza ihtiyacımız olmadığını oluşturur. Merhaba betik Merhaba önceki C# örnek değerleri çıkarır. Ayrıntılı bilgi için bkz: [kullanım Azure PowerShell toocreate bir hizmet sorumlusu tooaccess kaynakları](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+Aşağıdaki PowerShell betiği Active Directory (AD) uygulamasını ve C# uygulamamızda kimlik doğrulamak için gereken hizmet sorumlusunu oluşturur. Betik önceki C# örneği için gereken değerleri çıkarır. Ayrıntılı bilgi için bkz. [Kaynaklara erişmek üzere hizmet sorumlusu oluşturmak için Azure PowerShell kullanma](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
-    # Sign in tooAzure.
+    # Sign in to Azure.
     Add-AzureRmAccount
 
-    # If you have multiple subscriptions, uncomment and set toohello subscription you want toowork with.
+    # If you have multiple subscriptions, uncomment and set to the subscription you want to work with.
     #$subscriptionId = "{xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}"
     #Set-AzureRmContext -SubscriptionId $subscriptionId
 
     # Provide these values for your new AAD app.
-    # $appName is hello display name for your app, must be unique in your directory.
-    # $uri does not need toobe a real uri.
+    # $appName is the display name for your app, must be unique in your directory.
+    # $uri does not need to be a real uri.
     # $secret is a password you create.
 
     $appName = "{app-name}"
@@ -49,19 +49,19 @@ Merhaba aşağıdaki PowerShell betiğini hello Active Directory (AD) uygulama v
     # Create a AAD app
     $azureAdApplication = New-AzureRmADApplication -DisplayName $appName -HomePage $Uri -IdentifierUris $Uri -Password $secret
 
-    # Create a Service Principal for hello app
+    # Create a Service Principal for the app
     $svcprincipal = New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
 
-    # tooavoid a PrincipalNotFound error, I pause here for 15 seconds.
+    # To avoid a PrincipalNotFound error, I pause here for 15 seconds.
     Start-Sleep -s 15
 
-    # If you still get a PrincipalNotFound error, then rerun hello following until successful. 
+    # If you still get a PrincipalNotFound error, then rerun the following until successful. 
     $roleassignment = New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 
 
-    # Output hello values we need for our C# application toosuccessfully authenticate
+    # Output the values we need for our C# application to successfully authenticate
 
-    Write-Output "Copy these values into hello C# sample app"
+    Write-Output "Copy these values into the C# sample app"
 
     Write-Output "_subscriptionId:" (Get-AzureRmContext).Subscription.SubscriptionId
     Write-Output "_tenantId:" (Get-AzureRmContext).Tenant.TenantId
@@ -73,5 +73,5 @@ Merhaba aşağıdaki PowerShell betiğini hello Active Directory (AD) uygulama v
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [SQL veritabanı C# ile oluşturma](sql-database-get-started-csharp.md)
-* [Bağlantı tooSQL veritabanı tarafından kullanarak Azure Active Directory kimlik doğrulaması](sql-database-aad-authentication.md)
+* [Azure Active Directory kimlik doğrulamasını kullanarak SQL veritabanına bağlanma](sql-database-aad-authentication.md)
 

@@ -1,22 +1,22 @@
 
-1. Merhaba, **karma bağlantılar** dikey penceresinde hello karma bağlantı yeni oluşturulan tıklayın ve ardından **dinleyicisi Kur**.
+1. İçinde **karma bağlantılar** dikey penceresinde, oluşturulan, ardından yeni karma bağlantıyı tıklatarak **dinleyicisi Kur**.
    
     ![Dinleyici Kur'a tıklayın](./media/app-service-hybrid-connections-manager-install/D04ClickListenerSetup.png)
-2. Merhaba **karma bağlantı özelliklerini** dikey pencere açılır. Altında **şirket içi karma Bağlantı Yöneticisi**, seçin **indirme ve el ile yapılandırma**indirilen hello HybridConnectionManager.msi paketi kaydetmek ve kopyalama hello ağ geçidi bağlantı dizesi.
+2. **Karma bağlantı özelliklerini** dikey pencere açılır. Altında **şirket içi karma Bağlantı Yöneticisi**, seçin **indirme ve el ile yapılandırma**indirilen HybridConnectionManager.msi paketi kaydedin ve ağ geçidi bağlantı dizesini kopyalayın.
    
-    ![Tooinstall burayı tıklatın](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
-3. Bir yönetici komut isteminden komut toostart hello Yükleyici aşağıdaki hello yazın:
+    ![Yüklemek için burayı tıklatın](./media/app-service-hybrid-connections-manager-install/D05ClickToInstallHCM.png)
+3. Bir yönetici komut isteminden yükleyiciyi başlatmak için aşağıdaki komutu yazın:
    
         start HybridConnectionManager.msi
-4. Merhaba sonra yükleyicisini çalıştırır, tıklatın **şimdi değil**, toohello %ProgramFiles%\Microsoft\HybridConnectionManager klasörüne göz atın, HCMConfigWizard.exe çalıştırın ve tıklatın **Evet** hello içinde **kullanıcı Hesap denetim** iletişim.
-5. Daha önce kopyaladığınız hello karma bağlantı dizesini yapıştırın ve tıklatın **Tamam**. 
+4. Yükleyici çalıştıktan sonra tıklatın **şimdi değil**, %ProgramFiles%\Microsoft\HybridConnectionManager klasöre göz atın, HCMConfigWizard.exe çalıştırın ve tıklatın **Evet** içinde **kullanıcı hesabı Denetim** iletişim.
+5. Daha önce kopyaladığınız karma bağlantı dizesini yapıştırın ve tıklayın **Tamam**. 
    
     ![Yükleme](./media/app-service-hybrid-connections-manager-install/D08aHCMInstallManual.png)
-6. Merhaba yükleme tamamlandığında tıklayın **Kapat**.
+6. Yükleme tamamlandığında tıklayın **Kapat**.
    
     ![Kapat'ı tıklatın](./media/app-service-hybrid-connections-manager-install/D09HCMInstallComplete.png)
    
-    Merhaba üzerinde **karma bağlantılar** dikey penceresinde, hello **durum** sütun şimdi gösterir **bağlı**. 
+    Üzerinde **karma bağlantılar** dikey penceresinde **durum** sütun şimdi gösterir **bağlı**. 
    
     ![Bağlı durumu](./media/app-service-hybrid-connections-manager-install/D10HCStatusConnected.png)
 

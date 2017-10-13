@@ -1,5 +1,5 @@
 ---
-title: "aaaMonitor Azure Kubernetes küme - Operations Management | Microsoft Docs"
+title: "İzleyici Azure Kubernetes küme - Operations Management | Microsoft Docs"
 description: "Microsoft Operations Management Suite kullanarak Azure kapsayıcı hizmeti kümesinde Kubernetes izleme"
 services: container-service
 documentationcenter: 
@@ -17,29 +17,29 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 7474ee1571134ffe43ff8e4041cf5a64f5635bb7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: bd5c81435c091d25bc14710589b7c043e9f56a25
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-microsoft-operations-management-suite-oms"></a>İzleyici bir Azure kapsayıcı hizmeti kümesi Microsoft Operations Management Suite (OMS)
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu kılavuz, sahibi olduğunuzu varsayar [Azure kapsayıcı hizmeti kullanarak Kubernetes küme oluşturulan](container-service-kubernetes-walkthrough.md).
 
-Ayrıca, hello sahibi olduğunuzu varsayar `az` Azure CLI ve `kubectl` araçları yüklü.
+Ayrıca, sahibi olduğunuzu varsayar `az` Azure CLI ve `kubectl` araçları yüklü.
 
-Merhaba varsa test edebilirsiniz `az` çalıştırarak yüklü aracı:
+Varsa, test edebilirsiniz `az` çalıştırarak yüklü aracı:
 
 ```console
 $ az --version
 ```
 
-Merhaba yoksa `az` yüklü, aracı yönergeler vardır [burada](https://github.com/azure/azure-cli#installation).  
-Alternatif olarak, kullanabileceğiniz [Azure bulut Kabuk](https://docs.microsoft.com/en-us/azure/cloud-shell/overview), hello olan `az` Azure CLI ve `kubectl` Araçları zaten yüklenmiş.  
+Sahip değilseniz `az` yüklü, aracı yönergeler vardır [burada](https://github.com/azure/azure-cli#installation).  
+Alternatif olarak, kullanabileceğiniz [Azure bulut Kabuk](https://docs.microsoft.com/en-us/azure/cloud-shell/overview), sahip olduğu `az` Azure CLI ve `kubectl` Araçları zaten yüklenmiş.  
 
-Merhaba varsa test edebilirsiniz `kubectl` çalıştırarak yüklü aracı:
+Varsa, test edebilirsiniz `kubectl` çalıştırarak yüklü aracı:
 
 ```console
 $ kubectl version
@@ -50,12 +50,12 @@ Sahip değilseniz `kubectl` yüklü çalıştırabilirsiniz:
 $ az acs kubernetes install-cli
 ```
 
-kubectl aracına kubernetes anahtarları varsa tootest çalıştırabilirsiniz:
+Kubectl aracınızı çalıştırabilirsiniz yüklü kubernetes anahtarları varsa test etmek için:
 ```console
 $ kubectl get nodes
 ```
 
-Merhaba, komut hataları, kubectl aracına tooinstall kubernetes küme anahtarları gerekiyor. Bu komutu aşağıdaki hello ile yapabilirsiniz:
+Yukarıdaki komut hataları çıkışı, kubernetes küme anahtarları kubectl aracına yüklemeniz gerekiyorsa. Bunu aşağıdaki komutla yapabilirsiniz:
 ```console
 RESOURCE_GROUP=my-resource-group
 CLUSTER_NAME=my-acs-name
@@ -64,46 +64,46 @@ az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUST
 
 ## <a name="monitoring-containers-with-operations-management-suite-oms"></a>Operations Management Suite (OMS) ile izleme kapsayıcıları
 
-Microsoft Operations Management (OMS) yönetmenize ve şirket içi korumak ve altyapı bulut yardımcı olan Microsoft'un bulut tabanlı BT yönetimi çözümüdür. Kapsayıcı, bir çözümde hello kapsayıcı envanterini görüntüleme, performans ve günlükleri tek bir konumda yardımcı olan OMS günlük analizi çözümüdür. Denetim, merkezi konumda hello günlükleri görüntüleyerek kapsayıcıları sorun giderme ve bir ana bilgisayar üzerindeki fazladan kapsayıcı tüketen gürültülü bulabilirsiniz.
+Microsoft Operations Management (OMS) yönetmenize ve şirket içi korumak ve altyapı bulut yardımcı olan Microsoft'un bulut tabanlı BT yönetimi çözümüdür. Kapsayıcı, tek bir konumda kapsayıcı envanter, performans ve günlükleri görüntülemenize yardımcı OMS günlük analizi çözümde çözümüdür. Denetim, merkezi konumda günlükler görüntüleyerek kapsayıcıları sorun giderme ve bir ana bilgisayar üzerindeki fazladan kapsayıcı tüketen gürültülü bulabilirsiniz.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
-Kapsayıcı çözüm hakkında daha fazla bilgi için lütfen toothe bakın [kapsayıcı çözüm günlük analizi](../../log-analytics/log-analytics-containers.md).
+Kapsayıcı çözüm hakkında daha fazla bilgi için lütfen başvurmak [kapsayıcı çözüm günlük analizi](../../log-analytics/log-analytics-containers.md).
 
 ## <a name="installing-oms-on-kubernetes"></a>OMS Kubernetes üzerinde yükleme
 
 ### <a name="obtain-your-workspace-id-and-key"></a>Çalışma alanı kimliği ve anahtarı edinin
-Merhaba OMS Aracısı tootalk toohello hizmeti için bir çalışma alanı kimliği ve çalışma alanı anahtarı ile yapılandırılmış toobe gerekir. Hesap tooget hello çalışma alanı kimliği ve anahtarı toocreate bir OMS ihtiyacınız adresindeki <https://mms.microsoft.com>. Lütfen başlangıç adımları toocreate bir hesap izleyin. Merhaba hesabı oluşturulurken tamamladıktan sonra tooobtain kimliği ve anahtarı tıklayarak ihtiyacınız **ayarları**, ardından **bağlı kaynakları**ve ardından **Linux sunucuları**, aşağıda gösterildiği gibi.
+İçin OMS aracısı hizmetine iletişim kurabilecek şekilde bir çalışma alanı kimliği ve çalışma alanı anahtarı ile yapılandırılması gerekir. Çalışma alanı kimliği ve anahtarı OMS hesabı oluşturmanız gerekir almak için <https://mms.microsoft.com>. Lütfen bir hesap oluşturmak için aşağıdaki adımları izleyin. İşiniz bittiğinde tıklayarak kimliği ve anahtarı elde etmeniz hesabı oluşturma, **ayarları**, sonra **bağlı kaynakları**ve ardından **Linux sunucuları**, aşağıda gösterildiği gibi.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
-### <a name="install-hello-oms-agent-using-a-daemonset"></a>Bir DaemonSet kullanarak hello OMS aracı yükleme
-DaemonSets Kubernetes toorun tarafından kullanılan bir kapsayıcı hello kümedeki her ana bilgisayarda tek bir örneği.
+### <a name="install-the-oms-agent-using-a-daemonset"></a>Bir DaemonSet kullanarak OMS aracısı yükleyin
+DaemonSets Kubernetes tarafından bir kapsayıcı tek bir örneği kümedeki her ana bilgisayarda çalıştırmak için kullanılır.
 Bunlar izleme aracıları çalıştırmak için mükemmel.
 
-Merhaba işte [DaemonSet YAML dosya](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes). Kaydedin tooa dosya adlı `oms-daemonset.yaml` ve hello yer tutucu değerlerini değiştirme `WSID` ve `KEY` çalışma alanı kimliği ve anahtarı hello dosyasında.
+Burada [DaemonSet YAML dosya](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes). Adlı bir dosyaya Kaydet `oms-daemonset.yaml` ve yer tutucu değerlerini değiştirme `WSID` ve `KEY` çalışma alanı kimliği ve anahtarı dosyasında.
 
-Çalışma alanı kimliği ve anahtarı toohello DaemonSet yapılandırma ekledikten sonra kümenizdeki hello ile Merhaba OMS Aracısı yükleyebilirsiniz `kubectl` komut satırı aracı:
+Çalışma alanı kimliği ve anahtarı DaemonSet yapılandırma ekledikten sonra kümenizdeki ile OMS Aracısı'nı yükleyebilirsiniz `kubectl` komut satırı aracı:
 
 ```console
 $ kubectl create -f oms-daemonset.yaml
 ```
 
-### <a name="installing-hello-oms-agent-using-a-kubernetes-secret"></a>Merhaba OMS Aracısı Kubernetes gizli anahtarı kullanarak yükleme
-tooprotect OMS çalışma alanı kimliği ve anahtarı Kubernetes gizli DaemonSet YAML dosyasının bir parçası olarak kullanabilirsiniz.
+### <a name="installing-the-oms-agent-using-a-kubernetes-secret"></a>Kubernetes gizli anahtarı kullanarak OMS Aracısı yükleniyor
+OMS çalışma alanı Kimliğinizi korumak ve anahtarını Kubernetes gizli DaemonSet YAML dosyasının bir parçası olarak kullanabilirsiniz.
 
- - Merhaba komut dosyası, gizli şablon dosyası ve hello DaemonSet YAML dosya kopyalama (gelen [depo](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) ve üzerinde hello olduklarından emin olmak aynı dizin. 
+ - Komut dosyası, gizli şablon dosyasını ve DaemonSet YAML dosyasını kopyalayın (gelen [depo](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) ve aynı dizinde olduklarından emin olun. 
       - Komut dosyası - gizli gen.sh üretiliyor gizli
       - Gizli şablon - gizli template.yaml
    - DaemonSet YAML dosyası - omsagent ds secrets.yaml
- - Merhaba komut dosyasını çalıştırın. Merhaba betik Merhaba OMS çalışma alanı kimliği ve birincil anahtar sorar. Lütfen, Ekle ve çalıştırabilirsiniz şekilde hello betik gizli yaml dosyası oluşturur.   
+ - Komut dosyasını çalıştırın. Komut dosyası OMS çalışma alanı kimliği ve birincil anahtar için sorar. Lütfen, yerleştirin ve onu çalıştırabilmeniz için komut dosyasını bir gizli yaml dosyası oluşturulur.   
    ```
    #> sudo bash ./secret-gen.sh 
    ```
 
-   - Merhaba gizli pod hello aşağıdakini çalıştırarak oluşturun:``` kubectl create -f omsagentsecret.yaml ```
+   - Gizli pod aşağıdaki çalıştırarak oluşturun:``` kubectl create -f omsagentsecret.yaml ```
  
-   - toocheck, Hello aşağıdaki komutu çalıştırın: 
+   - Denetlemek için şu komutu çalıştırın: 
 
    ``` 
    root@ubuntu16-13db:~# kubectl get secrets
@@ -127,4 +127,4 @@ tooprotect OMS çalışma alanı kimliği ve anahtarı Kubernetes gizli DaemonSe
   - Arka plan programı kümesi çalıştırarak, omsagent oluşturma``` kubectl create -f omsagent-ds-secrets.yaml ```
 
 ### <a name="conclusion"></a>Sonuç
-İşte bu kadar! Birkaç dakika sonra tooyour OMS Pano akan mümkün toosee veriler olmalıdır.
+İşte bu kadar! Birkaç dakika sonra OMS panonuz akan verileri görüyor olmalısınız.

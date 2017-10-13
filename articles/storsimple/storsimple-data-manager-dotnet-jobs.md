@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Azure StorSimple veri Yöneticisi işleri için .NET SDK'sı aaaUse | Microsoft Docs"
-description: "Toouse .NET SDK'sı toolaunch StorSimple veri Yöneticisi'ni (özel olarak incelenmektedir) nasıl işler öğrenin"
+title: "Microsoft Azure StorSimple veri Yöneticisi işleri .NET SDK'yı kullanma | Microsoft Docs"
+description: "StorSimple veri Yöneticisi işleri (özel olarak incelenmektedir) başlatmak için .NET SDK'sını kullanmayı öğrenin"
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
@@ -14,65 +14,65 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
-ms.openlocfilehash: b07fe64369574c994fd28d42786aa02dca435ccc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 44d243a034b20b99faf284c8615e470bc6f9d020
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="use-hello-net-sdk-tooinitiate-data-transformation-private-preview"></a>Kullanım .net SDK hello tooinitiate veri dönüştürme (özel olarak incelenmektedir)
+# <a name="use-the-net-sdk-to-initiate-data-transformation-private-preview"></a>Veri dönüştürme (özel olarak incelenmektedir) başlatmak için .net SDK'sını kullanın
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu makalede hello veri dönüştürme özelliğini hello StorSimple veri Yöneticisi hizmeti tootransform StorSimple cihaz verileri içinde nasıl kullanabileceğiniz açıklanır. Merhaba dönüştürülen veriler daha sonra diğer Azure hizmetleriyle hello bulutta tarafından kullanılır. Merhaba makale ayrıca bir örnek .NET konsol uygulaması tooinitiate veri dönüştürme işi oluşturmak ve tamamlanmasını izlemek izlenecek toohelp sahiptir.
+Bu makalede, StorSimple cihaz verileri dönüştürmek için StorSimple veri Yöneticisi hizmeti içindeki veri dönüştürme özelliği nasıl kullanabileceğiniz açıklanır. Dönüştürülen veriler daha sonra diğer Azure hizmetleriyle bulutta tarafından mı tüketiliyor. Makale ayrıca veri dönüştürme işi başlatmak için örnek bir .NET konsol uygulaması oluşturmaya yardımcı olmak için bir kılavuz vardır ve tamamlanmasını izlemek.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 Başlamadan önce şunları yapın:
 *   Visual Studio 2012, 2013, 2015 veya yüklü 2017 sistemiyle.
 *   Azure Powershell yüklü. [Azure Powershell indirme](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-*   Yapılandırma ayarları tooinitialize hello veri dönüştürme işi (yönergeleri tooobtain bu ayarları buraya dahil).
+*   Veri dönüştürme işlemini başlatmak için yapılandırma ayarlarını (Bu ayarları almak için yönergeleri dahil burada).
 *   Bir kaynak grubu içinde karma veri kaynağındaki doğru şekilde yapılandırılmış bir iş tanımı.
-*   Tüm gerekli hello DLL'ler. Bu DLL'ler hello indirme [GitHub deposunu](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
-*   `Get-ConfigurationParams.ps1`[betik](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) hello github'da depodan.
+*   Tüm gerekli DLL'leri. Bu DLL'lerden karşıdan [GitHub deposunu](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
+*   `Get-ConfigurationParams.ps1`[betik](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) github'da depodan.
 
 ## <a name="step-by-step"></a>Adım adım
 
-Aşağıdaki adımları toouse .NET toolaunch veri dönüştürme işi hello gerçekleştirin.
+Veri dönüştürme işi başlatmak için .NET kullanmak için aşağıdaki adımları gerçekleştirin.
 
-1. tooretrieve hello yapılandırma parametreleri de adımları izleyerek hello:
-    1. Merhaba karşıdan `Get-ConfigurationParams.ps1` hello github depo komut dosyasından `C:\DataTransformation` konumu.
-    1. Merhaba çalıştırmak `Get-ConfigurationParams.ps1` hello github deposunu betikten. Merhaba aşağıdaki komutu yazın:
+1. Yapılandırma parametreleri almak için aşağıdaki adımları uygulayın:
+    1. Karşıdan `Get-ConfigurationParams.ps1` github depo komut `C:\DataTransformation` konumu.
+    1. Çalıştırma `Get-ConfigurationParams.ps1` github deposuna betikten. Aşağıdaki komutu yazın:
 
         ```
         C:\DataTransformation\Get-ConfigurationParams.ps1 -SubscriptionName "AzureSubscriptionName" -ActiveDirectoryKey "AnyRandomPassword" -AppName "ApplicationName"
          ```
-        ActiveDirectoryKey ve AppName hello için herhangi bir değer geçirebilirsiniz.
+        AppName ve ActiveDirectoryKey için herhangi bir değer geçirebilirsiniz.
 
 
-2. Bu komut dosyası değerlerini aşağıdaki hello çıkarır:
+2. Bu komut dosyasını aşağıdaki değerleri çıkarır:
     * İstemci kimliği
     * Kiracı Kimliği
-    * Active Directory anahtar (bir Yukarıda girilen hello ile aynı)
+    * Active Directory anahtar (aynı Yukarıda girilen)
     * Abonelik Kimliği
 
 3. Visual Studio 2012 kullanarak, 2013 veya 2015, C# .NET konsol uygulaması oluşturun.
 
     1. Başlatma **Visual Studio 2012/2013/2015**.
-    1. Tıklatın **dosya**, çok noktası**yeni**, tıklatıp **proje**.
+    1. **Dosya**’ya tıklayın, **Yeni**’nin üzerine gelin ve **Proje**’ye tıklayın.
     2. **Şablonlar**’ı genişletin ve **Visual C#** seçeneğini belirleyin.
-    3. Seçin **konsol uygulaması** hello sağ proje türlerinde hello listesinden.
-    4. Girin **DataTransformationApp** hello için **adı**.
-    5. Seçin **C:\DataTransformation** hello için **konumu**.
-    6. Tıklatın **Tamam** toocreate hello projesi.
+    3. Sağ taraftaki proje türleri listesinden **Konsol Uygulaması**’nı seçin.
+    4. Girin **DataTransformationApp** için **adı**.
+    5. Seçin **C:\DataTransformation** için **konumu**.
+    6. Projeyi oluşturmak için **Tamam**'a tıklayın.
 
-4.  Şimdi, tüm DLL'ler hello mevcut ekleyin [DLL'leri](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) klasörü olarak **başvuruları** oluşturduğunuz hello projesinde. toodownload hello dll dosyaları hello aşağıdaki:
+4.  Şimdi, mevcut tüm DLL'ler ekleyin [DLL'leri](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) klasörü olarak **başvuruları** oluşturduğunuz projesinde. Dll dosyaları indirmek için aşağıdakileri yapın:
 
-    1. Visual Studio'da çok gidin**Görünüm > Çözüm Gezgini**.
-    1. Veri dönüştürme uygulaması projesinin Hello ok toohello sol tıklayın. Tıklatın **başvuruları** ve çok sağ**Başvuru Ekle**.
-    2. Hello paketler klasörü toohello konumunu bulun, tüm hello DLL'ler seçin ve tıklatın **Ekle**ve ardından **Tamam**.
+    1. Visual Studio'da Git **Görünüm > Çözüm Gezgini**.
+    1. Veri dönüştürme uygulama projesi solundaki oka tıklayın. Tıklatın **başvuruları** ve ardından sağ tıklatarak **Başvuru Ekle**.
+    2. Paketleri klasör konumuna göz atın, tüm DLL'ler seçin ve tıklatın **Ekle**ve ardından **Tamam**.
 
-5. Merhaba aşağıdakileri ekleyin **kullanarak** hello projesindeki deyimleri toohello kaynak dosyasını (Program.cs).
+5. Aşağıdaki **using** bildirimlerini projedeki kaynak dosyasına (Program.cs) ekleyin.
 
     ```
     using System;
@@ -84,10 +84,10 @@ Aşağıdaki adımları toouse .NET toolaunch veri dönüştürme işi hello ger
     ```
 
 
-6. koddan hello hello veri dönüştürme işi örneği başlatır. Bu hello eklemek **Main yönteminin**. Daha önce edindiğiniz gibi yapılandırma parametreleri Hello değerlerini değiştirin. Merhaba değerlerini içinde takın **kaynak grubu adı** ve **karma veri kaynağı adı**. Merhaba **kaynak grubu adı** hello hello karma veri kaynağı üzerinde hangi hello iş tanımı yapılandırılmışsa barındıran biridir.
+6. Aşağıdaki kod, veri dönüştürme işi örneği başlatır. Bu konuda eklemek **Main yönteminin**. Yapılandırma parametrelerinin değerlerini daha önce edindiğiniz şekilde değiştirin. Değerlerini içinde takın **kaynak grubu adı** ve **karma veri kaynağı adı**. **Kaynak grubu adı** iş tanımı yapılandırılmışsa karma veri kaynağı barındıran sunucudur.
 
     ```
-    // Setup hello configuration parameters.
+    // Setup the configuration parameters.
     var configParams = new ConfigurationParams
     {
         ClientId = "client-id",
@@ -98,12 +98,12 @@ Aşağıdaki adımları toouse .NET toolaunch veri dönüştürme işi hello ger
         ResourceName = "resource-name"
     };
 
-    // Initialize hello Data Transformation Job instance.
+    // Initialize the Data Transformation Job instance.
     DataTransformationJob dataTransformationJob = new DataTransformationJob(configParams);
 
     ```
 
-7. Hangi hello ile iş tanımı toobe gereken parametreleri çalıştırın hello belirtin
+7. Hangi iş tanımı çalıştırılması gerektiğini parametrelerini belirtin
 
     ```
     string jobDefinitionName = "job-definition-name";
@@ -114,65 +114,65 @@ Aşağıdaki adımları toouse .NET toolaunch veri dönüştürme işi hello ger
 
     (VEYA)
 
-    Çalışma zamanı sırasında toochange hello iş tanımı parametrelerini istiyorsanız, hello aşağıdaki kodu ekleyin:
+    Çalışma zamanı sırasında iş tanımı parametrelerini değiştirmek istiyorsanız, aşağıdaki kodu ekleyin:
 
     ```
     string jobDefinitionName = "job-definition-name";
     // Must start with a '\'
     var rootDirectories = new List<string> {@"\root"};
 
-    // Name of hello volume on hello StorSimple device.
+    // Name of the volume on the StorSimple device.
     var volumeNames = new List<string> {"volume-name"};
 
     var dataTransformationInput = new DataTransformationInput
     {
-        // If you require hello latest existing backup toobe picked else use TakeNow tootrigger a new backup.
+        // If you require the latest existing backup to be picked else use TakeNow to trigger a new backup.
         BackupChoice = BackupChoice.UseExistingLatest.ToString(),
-        // Name of hello StorSimple device.
+        // Name of the StorSimple device.
         DeviceName = "device-name",
-        // Name of hello container in Azure storage where hello files will be placed after execution.
+        // Name of the container in Azure storage where the files will be placed after execution.
         ContainerName = "container-name",
-        // File name filter (search pattern) toobe applied on files under hello root directory. * - Match all files.
+        // File name filter (search pattern) to be applied on files under the root directory. * - Match all files.
         FileNameFilter = "*",
         // List of root directories.
         RootDirectories = rootDirectories,
-        // Name of hello volume on StorSimple device on which hello relevant data is present. 
+        // Name of the volume on StorSimple device on which the relevant data is present. 
         VolumeNames = volumeNames
     };
     
     ```
 
-8. Hello başlatma sonra aşağıdaki kodu tootrigger hello iş tanımı bir veri dönüştürme işi hello ekleyin. Merhaba uygun takın **iş tanımı adını**.
+8. Başlatma iş tanımı bir veri dönüştürme işi tetiklemek için aşağıdaki kodu ekleyin. Uygun takın **iş tanımı adını**.
 
     ```
-    // Trigger a job, retrieve hello jobId and hello retry interval for polling.
+    // Trigger a job, retrieve the jobId and the retry interval for polling.
     int retryAfter;
     string jobId = dataTransformationJob.RunJobAsync(jobDefinitionName, 
     dataTransformationInput, out retryAfter);
 
     ```
 
-9. Bu iş hello StorSimple birim toohello belirtilen kapsayıcısı üzerinde hello kök dizininin altında mevcut hello eşleşen dosyaları karşıya yükler. Bir dosyayı karşıya yüklendiğinde, bir ileti hello sırada bırakılan (Merhaba içinde hello kapsayıcı aynı depolama hesabı) hello ile aynı hello iş tanımı adlandırın. Bu iletiyi başka hello dosyasının işlemeyi bir tetikleyici tooinitiate kullanılabilir.
+9. Bu iş StorSimple birim kök dizininin altındaki mevcut eşleşen dosyaları belirtilen kapsayıcı yükler. Bir dosyayı karşıya yüklendiğinde, bir ileti sırasına (aynı depolama hesabındaki kapsayıcı olarak) iş tanımı aynı ada sahip bırakılır. Bu ileti her dosyanın işlenmesi başlatmak için bir tetikleyici olarak kullanılabilir.
 
-10. Merhaba iş tetiklendi sonra aşağıdaki kodu tootrack hello iş tamamlanma hello ekleyin.
+10. İş tetiklendi sonra iş için tamamlanma izlemek için aşağıdaki kodu ekleyin.
 
     ```
     Job jobDetails = null;
 
-    // Poll hello job.
+    // Poll the job.
     do
     {
         jobDetails = dataTransformationJob.GetJob(jobDefinitionName, jobId);
 
-        // Wait before polling for hello status again.
+        // Wait before polling for the status again.
         Thread.Sleep(TimeSpan.FromSeconds(retryAfter));
 
     } while (jobDetails.Status == JobStatus.InProgress);
 
-    // Completion status of hello job.
+    // Completion status of the job.
     Console.WriteLine("JobStatus: {0}", jobDetails.Status);
     
-    // toohold hello console before exiting.
+    // To hold the console before exiting.
     Console.Read();
 
     ```
@@ -180,4 +180,4 @@ Aşağıdaki adımları toouse .NET toolaunch veri dönüştürme işi hello ger
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[StorSimple veri Yöneticisi kullanıcı Arabirimi tootransform verilerinizi kullanma](storsimple-data-manager-ui.md).
+[StorSimple veri Yöneticisi'ni kullanın, verilerinizi dönüştürmek için kullanıcı Arabirimi](storsimple-data-manager-ui.md).

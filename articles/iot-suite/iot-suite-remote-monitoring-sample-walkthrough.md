@@ -1,6 +1,6 @@
 ---
-title: "aaaRemote önceden yapılandırılmış izleme çözümünde gezinme | Microsoft Docs"
-description: "Hello Azure IOT önceden yapılandırılmış çözümü uzaktan izlemenin ve mimarisinin açıklaması."
+title: "Önceden yapılandırılmış Uzaktan İzleme çözümünde gezinme | Microsoft Belgeleri"
+description: "Azure IOT önceden yapılandırılmış çözümü uzaktan izlemenin ve mimarisinin açıklaması."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,132 +15,132 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.openlocfilehash: 57a336bd94938c2b9ee5d3456ea8e45446cf3d33
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: b28105f300723b542fa6d1aebc569439d5c73dc4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Önceden yapılandırılmış uzaktan izleme çözümünde gezinme
 
-IOT paketi Uzaktan izleme hello [önceden yapılandırılmış çözüm] [ lnk-preconfigured-solutions] olan bir uygulaması, bir uçtan uca izleme çözümünün uzak konumlarda çalışan birden fazla makine için. Merhaba çözüm temel Azure hizmetlerini tooprovide hello iş senaryosunun genel uygulamasını birleştirir. Merhaba çözüm kendi uygulamanız için bir başlangıç noktası olarak kullanabilirsiniz ve [özelleştirme] [ lnk-customize] , toomeet kendi belirli iş gereksinimlerinizi.
+IoT Paketi önceden yapılandırılmış [uzaktan izleme çözümü][lnk-preconfigured-solutions], uzak konumlarda çalışan birden fazla makine için uçtan uca izleme çözümünün bir uygulamasıdır. Bu çözüm, iş senaryosunun genel uygulamasını sağlamak üzere temel Azure hizmetlerini bir araya getirir. Çözümü kendi uygulamanız için bir başlangıç noktası olarak kullanabilir ve özel iş gereksinimlerinizi karşılayacak şekilde [özelleştirebilirsiniz][lnk-customize].
 
-Bu makalede bazı temel öğeleri hello Uzaktan izleme çözümü tooenable hello anlatılmaktadır nasıl çalıştığını toounderstand. Bu bilgiler şunları yapmanıza yardımcı olur:
+Bu makalede uzaktan izleme çözümünün nasıl çalıştığını anlamanız için çözümün temel öğelerinden bazıları açıklanmaktadır. Bu bilgiler şunları yapmanıza yardımcı olur:
 
-* Merhaba çözümde sorunları giderin.
-* Plan nasıl toocustomize toohello çözüm toomeet belirli gereksinimlerinizi. 
+* Çözümdeki sorunları giderme.
+* Çözümü kendinize özel gereksinimleri karşılayacak şekilde nasıl özelleştireceğinizi planlama. 
 * Azure hizmetlerini kullanan kendi IoT çözümünüzü tasarlama.
 
 ## <a name="logical-architecture"></a>Mantıksal mimari
 
-Diyagram aşağıdaki hello hello hello önceden yapılandırılmış çözümün mantıksal bileşenlerinin ana hatların vermektedir:
+Aşağıdaki diyagram önceden yapılandırılmış çözümün mantıksal bileşenlerinin ana hatların vermektedir:
 
 ![Mantıksal mimari](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture.png)
 
 ## <a name="simulated-devices"></a>Sanal cihazlar
 
-Merhaba önceden yapılandırılmış çözümde hello sanal cihaz bir soğutma aygıtı (örneğin, bir yapının klimaları veya tesisin havalandırma birimi) temsil eder. Merhaba önceden yapılandırılmış çözümü dağıttığınızda, Çalıştır dört sanal cihaz da otomatik olarak sağlamak bir [Azure WebJob][lnk-webjobs]. Benzetimli hello aygıtlar, tooexplore hello davranışı hello gerek toodeploy olmadan hello çözümün herhangi bir fiziksel cihaza kolaylaştırır. toodeploy gerçek fiziksel bir aygıtı Bkz hello [Uzaktan izleme çözümü, aygıt toohello bağlanmak] [ lnk-connect-rm] Öğreticisi.
+Önceden yapılandırılmış çözümde, sanal cihaz bir soğutma cihazını temsil eder (örneğin, bir yapının klimaları veya bir tesisin havalandırma birimi). Önceden yapılandırılmış çözümü dağıttığınızda bir [Azure WebJob][lnk-webjobs] içinde çalışan dört sanal cihazı da otomatik olarak sağlamış olursunuz. Sanal cihazlar herhangi bir fiziksel cihaza dağıtmaya gerek olmadan çözümün davranışını keşfetmenizi kolaylaştırır. Gerçek bir fiziksel cihaz dağıtmak için [Cihazınızı önceden yapılandırılmış uzaktan izleme çözümüne bağlama][lnk-connect-rm] öğreticisine bakın.
 
 ### <a name="device-to-cloud-messages"></a>Cihazdan buluta iletiler
 
-Her sanal cihaz ileti türleri tooIoT Hub aşağıdaki hello gönderebilirsiniz:
+Her sanal cihaz IoT Hub'ına aşağıdaki ileti türlerini gönderebilir:
 
 | İleti | Açıklama |
 | --- | --- |
-| Başlangıç |Merhaba cihaz başlatıldığında, gönderen bir **cihaz bilgileri** toohello arka uç kendi hakkında bilgileri içeren ileti. Cihazın desteklediği yöntemleri hello ve bu verileri hello cihaz kimliği ve hello komutların listesini içerir. |
-| Varlık |Bir aygıt düzenli aralıklarla gönderir bir **varlığı** hello aygıt algılayıcı hello varlığını algılayabilir olup olmadığını tooreport iletisi. |
-| Telemetri |Bir aygıt düzenli aralıklarla gönderir bir **telemetri** hello sıcaklık ve nem hello aygıttan toplanan sanal değerlerini bildiren bir ileti algılayıcılar benzetimli. |
+| Başlangıç |Cihaz başlatıldığında, arka uca kendisiyle ilgili bilgiler içeren bir **device-info** iletisi gönderir. Bu veriler, cihaz kimliği ile cihazın desteklediği komut ve yöntemlerin listesini içerir. |
+| Varlık |Bir cihaz, cihazın bir sensörün varlığını algılayıp algılamadığını bildirmek üzere düzenli aralıklarla bir **varlık** iletisi gönderir. |
+| Telemetri |Bir cihaz, düzenli aralıklarla cihazın sanal sensörlerinden toplanan sıcaklık ve nem sanal değerlerini bildiren bir **telemetri** iletisi gönderir. |
 
 > [!NOTE]
-> Merhaba çözüm hello aygıt Cosmos DB veritabanında alan ve hello cihaz çifti tarafından desteklenen komutları hello listesini depolar.
+> Çözüm, cihaz tarafından desteklenen komutların listesini cihaz ikizinde değil, Cosmos DB veritabanında depolar.
 
 ### <a name="properties-and-device-twins"></a>Özellikler ve cihaz ikizleri
 
-Merhaba sanal cihazlar Gönder cihaz özellikleri toohello aşağıdaki hello [twin] [ lnk-device-twins] hello IOT hub ' *özellikleri bildirilen*. Merhaba aygıt gönderir bildirilen özellikleri başlangıçta ve yanıt tooa **cihaz durumunu değiştir** komut veya yöntemi.
+Sanal cihazlar IoT hub içindeki [ikize][lnk-device-twins] aşağıdaki cihaz özelliklerini *bildirilen özellikler* olarak gönderir. Cihaz başlangıçta ve bir **Cihaz Durumunu Değiştir** komut ya da yöntemine yanıt olarak bildirilen özellikleri gönderir.
 
 | Özellik | Amaç |
 | --- | --- |
-| Config.TelemetryInterval | Sıklık (saniye) hello cihaz telemetri gönderir |
-| Config.TemperatureMeanValue | Merhaba benzetimli sıcaklık telemetri Hello ortalama değerini belirtir |
-| Device.DeviceID |Sağlanan veya bir aygıt hello çözümde oluşturulduğunda atanan kimliği |
-| Device.DeviceState | Merhaba aygıt tarafından bildirilen durum |
-| Device.CreatedTime |Zaman hello aygıt hello çözümde oluşturuldu |
-| Device.StartupTime |Zaman hello aygıt başlatıldı. |
-| Device.LastDesiredPropertyChange |Merhaba son istenen özelliği Hello sürüm numarasını değiştirme |
-| Device.Location.Latitude |Merhaba cihazın enlem konumu |
-| Device.Location.Longitude |Merhaba cihazın boylam konumu |
+| Config.TelemetryInterval | Cihazın telemetri gönderme sıklığı (saniye) |
+| Config.TemperatureMeanValue | Sanal sıcaklık telemetrisi için ortalama değeri belirtir |
+| Device.DeviceID |Çözümde cihaz oluşturulduğunda sağlanan veya atanan kimlik |
+| Device.DeviceState | Cihaz tarafından bildirilen durum |
+| Device.CreatedTime |Çözümde cihazın oluşturulduğu zaman |
+| Device.StartupTime |Cihazın başlatıldığı saat |
+| Device.LastDesiredPropertyChange |En son istenen özellik değişikliğinin sürüm numarası |
+| Device.Location.Latitude |Cihazın enlem konumu |
+| Device.Location.Longitude |Cihazın boylam konumu |
 | System.Manufacturer |Cihaz üreticisi |
-| System.ModelNumber |Merhaba cihazın model numarası |
-| System.SerialNumber |Merhaba cihaz seri numarası |
-| System.FirmwareVersion |Geçerli hello cihazdaki üretici yazılımı sürümü |
-| System.Platform |Merhaba cihazın Platform mimarisi |
-| System.Processor |İşlemci çalışan hello aygıtı |
-| System.InstalledRAM |Merhaba cihazda yüklü RAM miktarı |
+| System.ModelNumber |Cihazın model numarası |
+| System.SerialNumber |Cihazın seri numarası |
+| System.FirmwareVersion |Geçerli cihazdaki üretici yazılımı sürümü |
+| System.Platform |Cihazın platform mimarisi |
+| System.Processor |Cihazı çalıştıran işlemci |
+| System.InstalledRAM |Cihazda yüklü RAM miktarı |
 
-Merhaba benzetici, örnek değerlerle sanal cihazlarda bu özelliklerin çekirdeğini oluşturur. Merhaba simulator başlatır sanal cihaz, hello cihaz her zaman hello önceden tanımlanmış meta verileri tooIoT Hub bildirilen özellikleri olarak bildirir. Bildirilen özellikleri yalnızca hello aygıt tarafından güncelleştirilebilir. toochange bildirilen bir özellik, çözüm Portalı'nda istenen bir özellik Ayarla. Merhaba cihaza hello sorumluluğunda olan:
+Benzetici, örnek değerlerle sanal cihazlarda bu özelliklerin çekirdeğini oluşturur. Simülatör sanal cihazı her başlattığında, cihaz IoT Hub'ına önceden tanımlanmış meta verileri bildirilen özellik olarak gönderir. Bildirilen özellikler yalnızca cihaz tarafından güncelleştirilebilir. Bildirilen bir özelliği değiştirmek için çözüm portalında istenen bir özelliği ayarlayın. Aşağıdaki işlemler cihazın sorumluluğundadır:
 
-1. Düzenli aralıklarla istenen hello IOT hub'ından alınamıyor.
-2. İstenen başlangıç özellik değeri ile yapılandırmasını güncelleştirin.
-3. Merhaba yeni değer geri toohello hub'ı bildirilen bir özellik olarak gönderin.
+1. İstenen özellikleri IoT hub'ından düzenli olarak alma.
+2. Yapılandırmasını istenen özellik değeriyle güncelleştirme.
+3. Yeni değeri bildirilen özellik olarak hub’a geri gönderme.
 
-Merhaba çözüm panodan kullandığınız *özellikleri istenen* tooset özellikleri hello kullanarak bir cihazdaki [cihaz çifti][lnk-device-twins]. Genellikle, bir cihaz hello hub tooupdate kendi iç durumu ve rapor hello geri bildirilen bir özellik olarak değiştirmek istediğiniz özellik değeri okur.
+Çözüm panosundan, [cihaz ikizini][lnk-device-twins] kullanarak bir cihaz üzerindeki özellikleri ayarlamak üzere *istenen özellikleri* kullanabilirsiniz. Genellikle, cihaz iç durumunu güncelleştirmek üzere istenen özellik değerini hub’dan okur ve değişikliği bildirilen bir özellik olarak geri bildirir.
 
 > [!NOTE]
-> Merhaba sanal cihaz kodu yalnızca hello kullanan **Desired.Config.TemperatureMeanValue** ve **Desired.Config.TelemetryInterval** istenen özellikleri tooupdate hello bildirilen geri gönderilen özellikleri tooIoT Hub. Diğer tüm istenen özelliği değişiklik isteklerini hello sanal cihazda göz ardı edilir.
+> Sanal cihaz kodu, IoT Hub’ına geri gönderilen bildirilen özellikleri güncelleştirmek üzere yalnızca istenen **Desired.Config.TemperatureMeanValue** ve **Desired.Config.TelemetryInterval** özelliklerini kullanır. Diğer tüm istenen özellik değişiklik istekleri, sanal cihazda yok sayılır.
 
 ### <a name="methods"></a>Yöntemler
 
-Merhaba sanal cihazlar yöntemler aşağıdaki hello işleyebilir ([doğrudan yöntemleri][lnk-direct-methods]) hello çözüm portalı hello IOT hub'ı aracılığıyla çağrılır:
+Sanal cihazlar IoT hub aracılığıyla çözüm portalından çağrılan aşağıdaki yöntemleri ([doğrudan yöntemler][lnk-direct-methods]) işleyebilir:
 
 | Yöntem | Açıklama |
 | --- | --- |
-| InitiateFirmwareUpdate |Merhaba aygıt tooperform bellenim güncelleştirme yönlendirir |
-| Yeniden başlatma |Merhaba aygıt tooreboot bildirir |
-| FactoryReset |Bir fabrika ayarlarına sıfırlayıp hello aygıt tooperform bildirir |
+| InitiateFirmwareUpdate |Cihazdan üretici yazılımı güncelleştirmesi yapmasını ister |
+| Yeniden başlatma |Cihazdan yeniden başlatma ister |
+| FactoryReset |Cihazdan fabrika sıfırlaması yapmasını ister |
 
-Bazı yöntemler bildirilen özellikleri tooreport ilerlemeyi kullanın. Örneğin, hello **InitiateFirmwareUpdate** yöntemi zaman uyumsuz olarak hello cihazda çalışan hello güncelleştirme benzetimini yapar. Merhaba zaman uyumsuz görev geri toosend durum güncelleştirmeleri devam ederken hello yöntemi hemen hello aygıtta döndürür toohello çözüm panosunu kullanma özellikleri bildirdi.
+Bazı yöntemler ilerleme durumunu bildirmek üzere bildirilen özellikleri kullanır. Örneğin, **InitiateFirmwareUpdate** yöntemi, güncelleştirmeyi cihaz üzerinde zaman uyumsuz olarak çalıştırma işlemini taklit eder. Yöntem cihaz üzerinde hemen döndürülürken, zaman uyumsuz görev bildirilen özellikleri kullanarak çözüm panosuna durum güncelleştirmeleri göndermeye devam eder.
 
 ### <a name="commands"></a>Komutlar
 
-Benzetimli hello cihazlar hello çözüm portalı hello IOT hub'ı aracılığıyla gönderilen komutları (bulut-cihaz iletilerini) aşağıdaki hello işleyebilir:
+Sanal cihazlar IoT hub aracılığıyla çözüm portalından gönderilen aşağıdaki komutları (buluttan cihaza iletiler) işleyebilir:
 
 | Komut | Açıklama |
 | --- | --- |
-| PingDevice |Gönderen bir *ping* Canlı toohello aygıt toocheck |
-| StartTelemetry |Telemetri göndermesini başlatır hello cihaz |
-| StopTelemetry |Cihazın telemetri göndermesini durdurur hello |
-| ChangeSetPointTemp |Değişiklikleri hello ayar noktası değerini hangi hello rastgele verilerin oluşturulur |
-| DiagnosticTelemetry |Aygıt benzeticisi toosend ek bir telemetri değeri (externalTemp) Tetikleyicileri hello |
-| ChangeDeviceState |Merhaba cihaz için Genişletilmiş durum özelliğini değiştirir ve hello aygıttan hello cihaz bilgi iletisi gönderir |
+| PingDevice |Canlı olup olmadığını denetlemek için cihaza bir *ping* gönderir |
+| StartTelemetry |Cihazın telemetri göndermesini başlatır |
+| StopTelemetry |Cihazın telemetri göndermesini durdurur |
+| ChangeSetPointTemp |Çevresinde rastgele verilerin oluşturulduğu ayar noktası değerini değiştirir |
+| DiagnosticTelemetry |Ek bir telemetri değeri (externalTemp) göndermek için cihaz benzeticisini tetikler |
+| ChangeDeviceState |Cihazla ilgili genişletilmiş durum özelliğini değiştirir ve cihazdan cihaz bilgi iletisi gönderir |
 
 > [!NOTE]
 > Bu komutlar (buluttan cihaza iletiler) ile yöntemlerin (doğrudan yöntemler) bir karşılaştırması için bkz. [Buluttan cihaza iletişim kılavuzu][lnk-c2d-guidance].
 
 ## <a name="iot-hub"></a>IoT Hub’ı
 
-Merhaba [IOT hub'ı] [ lnk-iothub] hello aygıtlardan hello buluta gönderilen verileri alır ve kullanılabilir toohello Azure Stream Analytics (ASA) işini kolaylaştırır. Her akış ASA işi cihazlarınızdan gelen iletileri ayrı IOT Hub tüketici grubu tooread hello akışı kullanır.
+[IoT hub][lnk-iothub], cihazlardan buluta gönderilen verileri alır ve Azure Stream Analytics (ASA) işlerinde kullanılabilir hale getirir. ASA işinin kullandığı her akış, cihazlarınızdaki ileti akışını okumak için ayrı bir IoT Hub tüketici grubu kullanır.
 
-IOT hub'hello çözümde de hello:
+IoT hub çözümde aynı zamanda şunları yapar:
 
-- Merhaba kimlikleri ve tooconnect toohello portal izin verilen tüm hello cihazların kimlik doğrulama anahtarlarını depolayan bir kimlik kayıt defteri tutar. Etkinleştirme ve cihazları hello kimlik kayıt defteri aracılığıyla devre dışı bırakabilirsiniz.
-- Komutları tooyour cihazların Merhaba çözüm portalı adına gönderir.
-- Merhaba çözüm portalı adına cihazlarınızda yöntemleri çağırır.
-- Tüm kayıtlı cihazlar için cihaz ikizlerini tutar. Cihaz çifti bir cihaz tarafından raporlanan hello özellik değerlerini depolar. Cihaz çifti hello çözüm portalında, sonraki bağlandığında hello aygıt tooretrieve ayarlamak istediğiniz özellikleri de depolar.
-- Zamanlamaları birden çok aygıt tooset özelliklerini işleri veya birden çok aygıta yöntemleri çağırma.
+- Portala bağlanmasına izin verilen tüm cihazların kimliklerini ve kimlik doğrulama anahtarlarını depolayan bir kimlik kayıt defteri tutar. Cihazları kimlik kayıt defterinden etkinleştirebilir ve devre dışı bırakabilirsiniz.
+- Çözüm portalı adına cihazlarınıza komut gönderir.
+- Çözüm portalı adına cihazlarınızda komut çağırır.
+- Tüm kayıtlı cihazlar için cihaz ikizlerini tutar. Cihaz ikizi bir cihaz tarafından bildirilen özellik değerlerini depolar. Cihaz ikizi ayrıca cihaz bir kez daha bağlandığında alabilmesi için çözüm portalında ayarlanmış istenen özellikleri depolar.
+- Birden fazla cihaza ait özellikleri ayarlamak veya birden fazla cihaz üzerinde yöntem çağırmak için işleri zamanlar.
 
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 
-Uzaktan izleme çözümü, hello içinde [Azure akış analizi] [ lnk-asa] (ASA) işleme veya depolama hello IOT hub tooother arka uç bileşenleri tarafından alınan aygıt iletileri gönderir. Farklı ASA işleri Merhaba iletileri Merhaba içeriğine göre belirli işlevler gerçekleştirir.
+Uzaktan izleme çözümünde [Azure Stream Analytics ][lnk-asa] (ASA), IoT hub tarafından alınan cihaz iletilerini işleme veya depolama amacıyla diğer arka uç bileşenlerine gönderir. Farklı ASA işleri, iletilerin içeriğine göre belirli işlevler gerçekleştirir.
 
-**İş 1: Cihaz bilgileri** hello gelen ileti akışından cihaz bilgileri iletilerine filtre uygular ve bunları tooan olay hub'ı uç gönderir. Bir aygıt cihaz bilgileri iletilerini başlangıçta ve yanıt tooa gönderir **Senddeviceınfo** komutu. Bu iş şu Sorgu tanımını tooidentify hello kullanır **cihaz bilgileri** iletileri:
+**İş 1: Cihaz bilgileri** gelen ileti akışından cihaz bilgileri iletilerine filtre uygular ve bunları olay hub'ı uç noktasına gönderir. Cihaz, başlangıçta ve **SendDeviceInfo** komutuna yanıt olarak cihaz bilgi iletileri gönderir. Bu iş **device-info** iletilerini tanımlamak için aşağıdaki sorgu tanımını kullanır:
 
 ```
 SELECT * FROM DeviceDataStream Partition By PartitionId WHERE  ObjectType = 'DeviceInfo'
 ```
 
-Bu iş daha ayrıntılı işleme için kendi çıktı tooan olay hub'ı gönderir.
+Bu iş daha ayrıntılı işleme için Olay Hub’ına çıktısını gönderir.
 
-**İş 2: Kurallar** cihaz başına eşiklere karşılık gelen sıcaklık ve nem telemetrisi değerlerini değerlendirir. Eşik değerleri hello çözüm portalında kullanılabilir hello kurallar düzenleyicisinde ayarlanır. Her cihaz/değer çifti, Akış Analizi’nin **Başvuru Verileri** olarak okuduğu blob’daki zaman damgası tarafından depolanır. Merhaba iş herhangi boş olmayan değerleri hello hello cihaz için ayarlanan eşikle karşılaştırır. Merhaba aşarsa, ' >' koşulunu, hello iş bir **alarm** bu hello eşik gösteren olay aşılırsa ve hello cihaz, değer ve zaman damgası değerlerini sağlar. Bu iş bir alarm tetiklemesi gereken sorgu tanımı tooidentify telemetri iletilerini aşağıdaki hello kullanır:
+**İş 2: Kurallar** cihaz başına eşiklere karşılık gelen sıcaklık ve nem telemetrisi değerlerini değerlendirir. Eşik değerleri çözüm portalında yer alan kurallar düzenleyicisinde ayarlanır. Her cihaz/değer çifti, Akış Analizi’nin **Başvuru Verileri** olarak okuduğu blob’daki zaman damgası tarafından depolanır. İş, boş olmayan değerleri cihaz için ayarlanan eşikle karşılaştırır. ' >' koşulunu aşarsa, iş eşiğin aşıldığını belirten bir **alarm** olayı verir; cihaz, değer ve zaman damgası değerlerini de sağlar. Bu iş bir alarm tetiklemesi gereken telemetri iletilerini belirlemek üzere aşağıdaki sorgu tanımını kullanır:
 
 ```
 WITH AlarmsData AS 
@@ -181,9 +181,9 @@ INTO DeviceRulesHub
 FROM AlarmsData
 ```
 
-Merhaba iş kendi çıktı tooan olay hub'ı başka bir işleme için gönderir ve hello çözüm portalı hello uyarı bilgilerini nerede okuyabileceği her uyarı tooblob depolama ayrıntılarını kaydeder.
+İş daha ayrıntılı işleme için çıktısını Olay Hub’ına gönderir ve her bir uyarının ayrıntılarını, çözüm portalının uyarı bilgilerini okuyabileceği blob depolamaya kaydeder.
 
-**Ş 3: Telemetri** hello gelen cihaz telemetrisi akışını iki yolla çalıştırır. Merhaba önce hello aygıtları toopersistent blob depolamadan uzun vadeli depolama için tüm telemetri iletilerini gönderir. Merhaba, ortalama, minimum ve Maksimum nem beş dakikalık kayan pencere üzerinde değerleri ve bu verileri tooblob depolama gönderir ikinci hesaplar. Merhaba çözüm portalı blob depolama toopopulate hello grafikten hello telemetri verilerini okur. Bu iş hello aşağıdaki sorgu tanımını kullanır:
+**ş 3: Telemetri**, gelen cihaz telemetrisi akışını iki yolla çalıştırır. İlk olarak tüm telemetri iletilerini cihazlardan uzun süreli depolama için kalıcı blob depolamaya gönderir. İkincisi beş dakikalık bir kayan pencerede ortalama, en düşük ve en yüksek nem değerlerini ölçer ve bu verileri blob depolamaya gönderir. Çözüm portalı blob depolama alanından telemetri verilerini okuyarak grafikleri doldurur. Bu iş şu sorgu tanımını kullanır:
 
 ```
 WITH 
@@ -228,49 +228,49 @@ GROUP BY
 
 ## <a name="event-hubs"></a>Event Hubs
 
-Merhaba **cihaz bilgileri** ve **kuralları** ASA işleri çıktı kendi veri tooEvent hub tooreliably İleri toohello üzerinde **olay işlemcisi** hello Web işi çalışıyor.
+ASA işleri **cihaz bilgisi** ve **kurallar** verilerini, WebJob’da çalışan **Olay İşleyicisi**’ne güvenli bir şekilde iletmek üzere Event Hubs’a gönderir.
 
 ## <a name="azure-storage"></a>Azure Storage
 
-Merhaba çözüm Azure blob depolama toopersist hello çözümde hello aygıtlardan tüm hello ham ve Özet telemetri verilerini kullanır. Merhaba portal blob depolama toopopulate hello grafikten hello telemetri verilerini okur. telemetri aşıldı değerleri hello eşik değerleri yapılandırıldığında toodisplay uyarıları kaydeden blob depolama alanından hello veri hello çözüm portalı okur. Merhaba çözüm ayrıca hello çözüm portalında ayarladığınız blob depolama toorecord hello eşik değerleri kullanır.
+Çözüm, çözümdeki cihazlarda bulunan tüm ham ve özet telemetri verilerini kalıcı hale getirmek için Azure Blob Depolama kullanır. Portal, blob depolama alanından telemetri verilerini okuyarak grafikleri doldurur. Uyarıları görüntülemek için çözüm portalı, telemetri değerleri yapılandırılmış eşik değerlerini aştığında kayıt altına alan blob depolama alanından verileri okur. Çözüm, çözüm portalında sizin ayarladığınız eşik değerlerini kaydetmek için de blob depolama alanını kullanır.
 
 ## <a name="webjobs"></a>WebJobs
 
-Ayrıca toohosting hello cihaz benzeticilerini hello WebJobs hello çözümde de konak hello **olay işlemcisi** komut yanıtlarını işleyen bir Azure WebJob içinde çalışan. Komut yanıtı iletileri tooupdate hello cihaz komut geçmişini (Merhaba Cosmos DB veritabanında depolanır) kullanır.
+WebJobs cihaz benzeticilerini barındırmaya ek olarak çözüm içinde komut yanıtlarını işleyen bir Azure WebJob içinde çalışan **Olay İşleyicisi**’ni de barındırır. Cihaz komut geçmişini (Cosmos DB veritabanında depolanır) güncelleştirmek için komut yanıtı iletilerini kullanır.
 
 ## <a name="cosmos-db"></a>Cosmos DB
 
-Merhaba çözüm hello aygıtları bağlı toohello çözüm Cosmos DB veritabanı toostore bilgilerini kullanır. Bu bilgiler hello geçmişi hello çözüm Portalı'ndan toodevices gönderilen komutları ve hello çözüm Portalı'ndan çağrılan yöntemler içerir.
+Çözüm, kendisine bağlı cihazlarla ilgili bilgileri depolamak için bir Cosmos DB veritabanı kullanır. Bu bilgiler çözüm portalından cihazlara gönderilen komutların ve çözüm portalından çağrılan yöntemlerin geçmişini içerir.
 
 ## <a name="solution-portal"></a>Çözüm portalı
 
-Merhaba çözüm portalı hello önceden yapılandırılmış çözümün bir parçası dağıtılan bir web uygulamasıdır. Merhaba anahtar hello çözüm portalında hello Pano ve hello cihaz listesi sayfalarıdır.
+Çözüm portalı, önceden yapılandırılmış çözümün bir parçası olarak dağıtılan bir web uygulamasıdır. Çözüm portalındaki temel sayfalar pano ve cihaz listesidir.
 
 ### <a name="dashboard"></a>Pano
 
-Merhaba web uygulamasındaki bu sayfa Powerbı javascript denetimlerini kullanır (bkz [Powerbı-visuals repo](https://www.github.com/Microsoft/PowerBI-visuals)) hello cihazlardan toovisualize hello telemetri verileri. Merhaba çözüm hello ASA telemetri işini toowrite hello telemetri verileri tooblob depolama kullanır.
+Web uygulamasındaki bu sayfa, cihazlardaki telemetri verilerini görselleştirmek için PowerBI javascript denetimlerini kullanır (bkz. [PowerBI-visuals repo](https://www.github.com/Microsoft/PowerBI-visuals)). Çözüm, blob depolama alanına telemetri verilerini yazmak için ASA telemetri işini kullanır.
 
 ### <a name="device-list"></a>Cihaz listesi
 
-Bu sayfadan hello çözüm portalında şunları yapabilirsiniz:
+Çözüm portalındaki bu sayfadan şunları yapabilirsiniz:
 
-* Yeni bir cihaz hazırlayın. Bu eylemin hello benzersiz cihaz kimliğini ayarlar ve hello kimlik doğrulama anahtarı oluşturur. Merhaba çözüme özel Cosmos DB veritabanı ve hello aygıt tooboth hello IOT Hub kimlik kayıt defteri hakkında bilgi yazar.
+* Yeni bir cihaz hazırlayın. Bu eylem, benzersiz cihaz kimliğini ayarlar ve kimlik doğrulaması anahtarını oluşturur. Hem IoT Hub kimlik kayıt defterine hem de çözüme özel Cosmos DB veritabanına cihaz hakkındaki bilgileri yazar.
 * Cihaz özelliklerini yönetin. Bu eylem, mevcut özellikleri görüntülemeyi ve yeni özelliklerle güncelleştirmeyi kapsar.
-* Komutları tooa aygıt gönderin.
-* Bir aygıt için Hello komut geçmişini görüntüleme.
+* Cihaza komut gönderme.
+* Cihaz için komut geçmişini görüntüleme.
 * Cihazları etkinleştirin ve devre dışı bırakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Merhaba aşağıdaki TechNet blog gönderileri hello Uzaktan izleme çözümü hakkında daha ayrıntılı bilgi sağlar:
+Aşağıdaki TechNet blog gönderileri önceden yapılandırılmış uzaktan izleme çözümü hakkında daha ayrıntılı bilgi sağlar:
 
-* [IOT paketi - altında hello başlık - Uzaktan izleme](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
+* [IoT Paketi - Başlık Altında - Uzaktan İzleme](http://social.technet.microsoft.com/wiki/contents/articles/32941.iot-suite-under-the-hood-remote-monitoring.aspx)
 * [IoT Paketi - Uzaktan İzleme - Canlı ve Sanal Cihaz Ekleme](http://social.technet.microsoft.com/wiki/contents/articles/32975.iot-suite-remote-monitoring-adding-live-and-simulated-devices.aspx)
 
-Makaleler hello okuyarak IOT paketi ile çalışmaya başlayabilirsiniz:
+Aşağıdaki makaleleri okuyarak IoT Paketi ile çalışmaya başlayabilirsiniz:
 
-* [Uzaktan izleme çözümü, aygıt toohello Bağlan][lnk-connect-rm]
-* [Merhaba azureiotsuite.com sitesindeki izinler][lnk-permissions]
+* [Cihazınızı önceden yapılandırılmış uzaktan izleme çözümüne bağlama][lnk-connect-rm]
+* [azureiotsuite.com sitesindeki izinler][lnk-permissions]
 
 [lnk-preconfigured-solutions]: iot-suite-what-are-preconfigured-solutions.md
 [lnk-customize]: iot-suite-guidance-on-customizing-preconfigured-solutions.md

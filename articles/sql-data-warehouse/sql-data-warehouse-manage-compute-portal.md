@@ -1,6 +1,6 @@
 ---
-title: "aaaManage işlem güç Azure SQL Data warehouse'da (Azure portalı) | Microsoft Docs"
-description: "Azure portal görevleri toomanage güç işlem. Dwu ayarlayarak işlem kaynaklarını ölçeklendirme. Veya, duraklatma ve sürdürme kaynakları toosave maliyetlerini işlem."
+title: "Azure SQL Data warehouse'da (Azure portalı) işlem güç yönetimi | Microsoft Docs"
+description: "İşlem gücüne yönetmek için azure portal görevleri. Dwu ayarlayarak işlem kaynaklarını ölçeklendirme. Veya, duraklatma ve sürdürme işlem kaynaklarını maliyet tasarrufu sağlamak."
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.openlocfilehash: b2e84b3763e97ce88c190eecfb64b2d06f727229
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 63888d5dd103b585cf18e4787d3e779810163e3d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-azure-portal"></a>Azure SQL Data warehouse'da (Azure portalı) işlem güç yönetimi
 > [!div class="op_single_selector"]
@@ -35,15 +35,15 @@ ms.lasthandoff: 10/06/2017
 ## <a name="scale-compute-power"></a>Ölçek işlem gücü
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
-toochange işlem kaynakları:
+İşlem kaynakları değiştirmek için:
 
-1. Açık hello [Azure portal][Azure portal], veritabanınızı açın ve tıklayın **ölçek**.
+1. Açık [Azure portal][Azure portal], veritabanınızı açın ve'ı tıklatın **ölçek**.
 
     ![Ölçek'ı tıklatın][1]
-2. Merhaba ölçek dikey penceresinde hello kaydırıcıyı sola veya toochange hello DWU ayarını sağ.
+2. Ölçek dikey penceresinde, kaydırıcıyı sola veya sağa DWU ayarını değiştirmek taşıyın.
 
     ![Kaydırıcıyı taşıyın][2]
-3. **Kaydet** düğmesine tıklayın. Bir onay iletisi görüntülenir. Tıklatın **Evet** tooconfirm veya **hiçbir** toocancel.
+3. **Kaydet** düğmesine tıklayın. Bir onay iletisi görüntülenir. Tıklatın **Evet** onaylamak için veya **hiçbir** iptal etmek için.
 
     ![Kaydet’e tıklayın.][3]
 
@@ -52,16 +52,16 @@ toochange işlem kaynakları:
 ## <a name="pause-compute"></a>Duraklatma işlem
 [!INCLUDE [SQL Data Warehouse pause description](../../includes/sql-data-warehouse-pause-description.md)]
 
-bir veritabanı toopause:
+Bir veritabanı duraklatmak için:
 
-1. Açık hello [Azure portal] [ Azure portal] ve veritabanınızı açın. Durum bu hello fark **çevrimiçi**.
+1. Açık [Azure portal] [ Azure portal] ve veritabanınızı açın. Durum olduğuna dikkat edin **çevrimiçi**.
 
     ![Çevrimiçi durumu][6]
-2. toosuspend işlem ve bellek kaynakları tıklatın **duraklatma**, ve ardından bir onay iletisi görüntülenir. Tıklatın **Evet** tooconfirm veya **hiçbir** toocancel.
+2. İşlem ve bellek kaynakları askıya almak için tıklayın **duraklatma**, ve ardından bir onay iletisi görüntülenir. Tıklatın **Evet** onaylamak için veya **hiçbir** iptal etmek için.
 
     ![Duraklatma onaylayın][7]
-3. SQL veri ambarı hello veritabanı başlatılırken hello durumudur **duraklatma**.
-4. Merhaba durum olduğunda **duraklatıldı**hello duraklatma işlemi yapılır ve, artık Dwu için ücretlendirilirsiniz.
+3. SQL veri ambarı veritabanı başlatılırken durumudur **duraklatma**.
+4. Durum olduğunda **duraklatıldı**, duraklatma işlemi yapılır ve, artık Dwu için ücretlendirilirsiniz.
 
     ![Duraklatma durumu][4]
 
@@ -70,16 +70,16 @@ bir veritabanı toopause:
 ## <a name="resume-compute"></a>Resume işlem
 [!INCLUDE [SQL Data Warehouse resume description](../../includes/sql-data-warehouse-resume-description.md)]
 
-bir veritabanı tooresume:
+Bir veritabanı devam ettirmek için:
 
-1. Açık hello [Azure portal] [ Azure portal] ve veritabanınızı açın. Durum bu hello fark **duraklatıldı**.
+1. Açık [Azure portal] [ Azure portal] ve veritabanınızı açın. Durum olduğuna dikkat edin **duraklatıldı**.
 
     ![Duraklatma veritabanı][4]
-2. tooresume hello veritabanı tıklatın **Başlat**, ve ardından bir onay iletisi görüntülenir. Tıklatın **Evet** tooconfirm veya **hiçbir** toocancel.
+2. Veritabanı sürdürmek için **Başlat**, ve ardından bir onay iletisi görüntülenir. Tıklatın **Evet** onaylamak için veya **hiçbir** iptal etmek için.
 
     ![Resume onaylayın][5]
-3. SQL veri ambarı hello veritabanı başlatılırken hello durum "Sürdürülüyor" olur.
-4. Merhaba durum olduğunda **çevrimiçi**, hello veritabanı hazır.
+3. SQL veri ambarı veritabanı başlatılırken durum "Sürdürülüyor" olur.
+4. Durum olduğunda **çevrimiçi**, hazır bir veritabanıdır.
 
     ![Çevrimiçi durumu][6]
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric ile aaaReport ve onay durumunu | Microsoft Docs
-description: "Hizmet kodunuzdan nasıl toosend durumu raporları ve toocheck hello durumu, Azure Service Fabric hello sistem durumu izleme araçları kullanarak hizmetinizin nasıl sağladığını öğrenin."
+title: Rapor ve Azure Service Fabric ile sistem durumu denetimi | Microsoft Docs
+description: "Hizmet kodunuzdan sistem durumu raporları göndermek nasıl Azure Service Fabric sağlayan sistem durumu izleme araçları kullanarak Hizmetinizin durumunu denetlemek nasıl öğrenin."
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,66 +14,66 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/19/2017
 ms.author: dekapur
-ms.openlocfilehash: bcb838fefe3f2054447e1731d709e455560260e9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 83981d5bec14c06c509f1a8a4153dc23298f5ce0
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="report-and-check-service-health"></a>Hizmet durumunu raporlama ve denetleme
-Hizmetlerinizin sorunlarla, özelliği toorespond tooand düzeltme olaylar ve kesintileri bağlıdır özelliği toodetect hello sorunlarınızı hızla. Sorunları ve hataları toohello Azure Service Fabric sistem durumu Yöneticisi hizmeti kodunuzdan rapor standart sistem durumu izleme Service Fabric toocheck hello sistem durumunu sağlar araçları kullanabilirsiniz.
+Hizmetlerinizin sorunlarla yanıt ve olayları ve kesintileri düzeltme yeteneğinizi sorunları hızla algılamak için yeteneğinizi bağlıdır. Sorunları ve hataları Azure Service Fabric sistem durumu hizmeti kodunuzdan yöneticiye, standart sistem durumu izleme sistem durumunu denetlemek için Service Fabric sağlayan araçları kullanabilirsiniz.
 
-Merhaba hizmetinden sistem durumu raporu olan üç yolu vardır:
+Sistem durumu hizmetinden raporu olan üç yolu vardır:
 
 * Kullanım [bölüm](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition) veya [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext) nesneleri.  
-  Merhaba kullanabilirsiniz `Partition` ve `CodePackageActivationContext` tooreport hello hello geçerli bağlam parçası olan öğeleri durumunu nesneleri. Örneğin, bir çoğaltma bir parçası olarak çalışan bir kod yalnızca bu çoğaltma, ait hello bölüm ve bir parçası olan hello uygulama sistem durumu bildirebilirsiniz.
+  Kullanabileceğiniz `Partition` ve `CodePackageActivationContext` geçerli bağlamı parçası olan öğeleri durumunu bildirmek için nesneleri. Örneğin, bir çoğaltma bir parçası olarak çalışan bir kod yalnızca bu çoğaltma, ait olduğu bölüm ve bir parçası olan uygulama sistem durumu bildirebilirsiniz.
 * Kullanım `FabricClient`.   
-  Kullanabileceğiniz `FabricClient` tooreport durumu hello küme değilse hello hizmet kodundan [güvenli](service-fabric-cluster-security.md) veya yönetici ayrıcalıkları olan hello Hizmeti çalışıyorsa. Çoğu gerçek dünya senaryoları değil güvenli olmayan kümeler kullanın veya yönetici ayrıcalıkları sağlayın. İle `FabricClient`, sistem durumu hello kümesinin parçası olan herhangi bir varlıkta bildirebilirsiniz. İdeal olarak, ancak hizmet kod yalnızca ilgili tooits kendi sistem durumu raporları göndermesi gerekir.
-* Merhaba REST API'leri hello küme, uygulama, dağıtılan bir uygulama, hizmet, hizmet paketi, bölüm, çoğaltma veya düğüm düzeylerini kullanın. Bu, kullanılan tooreport durumu bir kapsayıcı içinde olabilir.
+  Kullanabileceğiniz `FabricClient` rapor durumu kümeyi değilse, hizmet kodundan için [güvenli](service-fabric-cluster-security.md) veya yönetici ayrıcalıkları olan hizmeti çalışıyorsa. Çoğu gerçek dünya senaryoları değil güvenli olmayan kümeler kullanın veya yönetici ayrıcalıkları sağlayın. İle `FabricClient`, sistem durumu kümesinin parçası olan herhangi bir varlıkta bildirebilirsiniz. İdeal olarak, ancak hizmet kod yalnızca kendi sağlığı ile ilgili raporları göndermesi gerekir.
+* Küme, uygulama, dağıtılan bir uygulama, hizmet, hizmet paketi, bölüm, çoğaltma veya düğüm düzeyleri REST API'leri kullanın. Bu sistem durumu bir kapsayıcıdaki raporlamak için kullanılabilir.
 
-Bu makalede, hello hizmet kodundan durumu raporları bir örnek adım adım anlatılmaktadır. Service Fabric tarafından sağlanan hello araçları kullanılan toocheck hello sistem durumunu nasıl olabilir Hello örnek ayrıca gösterir. Bu makalede Hızlı Giriş toohello durumunu Service Fabric yeteneklerini izleme hedeflenen toobe olduğu. Daha ayrıntılı bilgi için bu makalenin hello sonunda hello bağlantıyla Başlat sistem durumu hakkında ayrıntılı makaleleri hello dizi okuyabilir.
+Bu makalede, hizmet kodundan durumu raporları bir örnek adım adım anlatılmaktadır. Bu örnek ayrıca sistem durumunu denetlemek için Service Fabric tarafından sağlanan araçları nasıl kullanılabileceğini gösterir. Bu makale, Service Fabric yeteneklerini izleme sistem durumu bir giriş olması amaçlanmıştır. Daha ayrıntılı bilgi için bu makalenin sonunda bağlantıyla Başlat sistem durumu hakkında kapsamlı makaleleri bir dizi okuyabilir.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Merhaba aşağıdakilerin yüklü olması gerekir:
+Aşağıdakilerin yüklü olması gerekir:
 
 * Visual Studio 2015 veya Visual Studio 2017
 * Service Fabric SDK
 
-## <a name="toocreate-a-local-secure-dev-cluster"></a>toocreate yerel güvenli geliştirme küme
-* PowerShell'i yönetici ayrıcalıklarıyla açın ve hello aşağıdaki komutları çalıştırın:
+## <a name="to-create-a-local-secure-dev-cluster"></a>Yerel güvenli geliştirme küme oluşturmak için
+* PowerShell'i yönetici ayrıcalıklarıyla açın ve aşağıdaki komutları çalıştırın:
 
-![Gösteren nasıl komutları toocreate güvenli geliştirme küme](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/create-secure-dev-cluster.png)
+![Güvenli geliştirme kümesi oluşturmayı gösteren komutları](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/create-secure-dev-cluster.png)
 
-## <a name="toodeploy-an-application-and-check-its-health"></a>toodeploy bir uygulama ve sistem durumu denetleyin
+## <a name="to-deploy-an-application-and-check-its-health"></a>Bir uygulamayı dağıtmak ve durumunu denetlemek için
 1. Visual Studio'yu yönetici olarak açın.
-2. Hello kullanarak bir proje oluşturma **durum bilgisi olan hizmet** şablonu.
+2. Kullanarak bir proje oluşturma **durum bilgisi olan hizmet** şablonu.
    
     ![Durum bilgisi olan hizmeti ile bir Service Fabric uygulaması oluşturma](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/create-stateful-service-application-dialog.png)
-3. Tuşuna **F5** toorun hello uygulama hata ayıklama modunda. Merhaba, dağıtılan toohello yerel küme uygulamasıdır.
-4. Merhaba uygulaması çalıştırdıktan sonra hello bildirim alanında hello yerel Küme Yöneticisi simgesini sağ tıklatın ve seçin **yerel kümeyi Yönet** hello kısayol menüsü tooopen Service Fabric Explorer gelen.
+3. Tuşuna **F5** uygulamayı hata ayıklama modunda çalıştırın. Uygulamayı yerel kümeye dağıtılır.
+4. Uygulama çalışmaya başladıktan sonra bildirim alanında yerel Küme Yöneticisi simgesine sağ tıklayın ve seçin **yerel kümeyi Yönet** Service Fabric Explorer açmak için kısayol menüsünden.
    
     ![Bildirim alanından Service Fabric Explorer'ı açın](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/LaunchSFX.png)
-5. Bu görüntü olduğu gibi Hello uygulama sağlığını görüntülenmesi gerekir. Şu anda Merhaba uygulaması hatasız sağlıklı olmalıdır.
+5. Uygulama durumunu olduğu gibi bu görüntüyü görüntülenmesi gerekir. Şu anda uygulama hatasız sağlıklı olmalıdır.
    
     ![Service Fabric Explorer'da sağlıklı uygulama](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/sfx-healthy-app.png)
-6. Ayrıca, hello sistem durumu PowerShell kullanarak da kontrol edebilirsiniz. Kullanabileceğiniz ```Get-ServiceFabricApplicationHealth``` uygulamanın durumu ve kullanabilir toocheck ```Get-ServiceFabricServiceHealth``` toocheck bir hizmetin sistem durumu. hello ait hello sistem durumu raporu aynı PowerShell'de bu görüntüde uygulamasıdır.
+6. Ayrıca, sistem durumu PowerShell kullanarak da kontrol edebilirsiniz. Kullanabileceğiniz ```Get-ServiceFabricApplicationHealth``` uygulamaya ait sağlık ve denetlemek için kullanabileceğiniz ```Get-ServiceFabricServiceHealth``` bir hizmetin sistem durumu denetlemek için. Sistem Durumu raporu PowerShell'de aynı uygulama için bu görüntüyü kullanılır.
    
     ![PowerShell'de sağlıklı uygulama](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/ps-healthy-app-report.png)
 
-## <a name="tooadd-custom-health-events-tooyour-service-code"></a>tooadd özel durum olayları tooyour servis kodu
-Visual Studio'da Hello Service Fabric proje şablonları örnek kod içerir. Merhaba aşağıdaki adımlar hizmet kodunuzdan özel durum olayları nasıl raporlayabilirsiniz gösterir. Bu raporlar otomatik olarak durumunu Service Fabric, Service Fabric Explorer, Azure portal durum görünümü ve PowerShell gibi sağladığı izleme için standart araçları hello gösterilir.
+## <a name="to-add-custom-health-events-to-your-service-code"></a>Özel durum olayları hizmet kodunuzun eklemek için
+Visual Studio Service Fabric proje şablonlarını örnek kod içerir. Aşağıdaki adımlar, nasıl özel durum olayları hizmet kodunuzdan bildirebilirsiniz gösterir. Bu raporlar otomatik olarak Service Fabric, Service Fabric Explorer, Azure portal durum görünümü ve PowerShell gibi sağladığı sistem durumu izleme için standart Araçları'nda görünür.
 
-1. Visual Studio'da daha önce oluşturduğunuz hello uygulamasını yeniden açın veya hello kullanarak yeni bir uygulama oluşturma **durum bilgisi olan hizmet** Visual Studio şablonu.
-2. Merhaba Stateful1.cs dosyasını açın ve hello bulun `myDictionary.TryGetValueAsync` hello çağrı `RunAsync` yöntemi. Bu yöntem döndürdüğünü gördüğünüz bir `result` bu uygulamada hello anahtar mantığı tookeep sayısı çalışıyor olduğundan ayrı tutma hello sayacının geçerli değeri hello. Bu gerçek bir uygulamada olsaydı ve bir hata sonucu hello eksikliği temsil varsa, bu olay tooflag istersiniz.
-3. tooreport bir hata sonucu hello eksikliği temsil eden bir sistem durumu olayı aşağıdaki adımları hello ekleyin.
+1. Visual Studio'da daha önce oluşturduğunuz uygulamayı kapatıp yeniden açmanız veya kullanarak yeni bir uygulama oluşturma **durum bilgisi olan hizmet** Visual Studio şablonu.
+2. Stateful1.cs dosyasını açın ve Bul `myDictionary.TryGetValueAsync` Çağır `RunAsync` yöntemi. Bu yöntem döndürdüğünü gördüğünüz bir `result` çalışan sayısı tutmak için bu uygulamayı anahtar mantık olduğu için geçerli sayaç değerini tutan. Bu gerçek bir uygulamada olsaydı ve bir hata sonucu eksikliği temsil varsa, bu olay bayrak istersiniz.
+3. Bir hata sonucu eksikliği temsil eden sistem durumu olayı bildirmek için aşağıdaki adımları ekleyin.
    
-    a. Merhaba eklemek `System.Fabric.Health` ad alanı toohello Stateful1.cs dosya.
+    a. Ekleme `System.Fabric.Health` Stateful1.cs dosyaya ad alanı.
    
     ```csharp
     using System.Fabric.Health;
     ```
    
-    b. Koddan sonra hello hello eklemek `myDictionary.TryGetValueAsync` çağırın
+    b. Sonra aşağıdaki kodu ekleyin `myDictionary.TryGetValueAsync` çağırın
    
     ```csharp
     if (!result.HasValue)
@@ -82,9 +82,9 @@ Visual Studio'da Hello Service Fabric proje şablonları örnek kod içerir. Mer
         this.Partition.ReportReplicaHealth(healthInformation);
     }
     ```
-    Bir durum bilgisi olan hizmetinden raporlandığını çünkü biz çoğaltma sistem durumu raporu. Merhaba `HealthInformation` parametre rapor edilen hello sistem durumu sorun hakkında bilgi depolar.
+    Bir durum bilgisi olan hizmetinden raporlandığını çünkü biz çoğaltma sistem durumu raporu. `HealthInformation` Parametre rapor edilen sistem durumu sorun hakkında bilgi depolar.
    
-    Durum bilgisiz hizmet oluşturduysanız koddan hello kullanın
+    Durum bilgisiz hizmet oluşturduysanız, aşağıdaki kodu kullanın
    
     ```csharp
     if (!result.HasValue)
@@ -93,15 +93,15 @@ Visual Studio'da Hello Service Fabric proje şablonları örnek kod içerir. Mer
         this.Partition.ReportInstanceHealth(healthInformation);
     }
     ```
-4. Hizmetinizin yönetici ayrıcalıklarıyla çalıştığından veya hello küme değilse [güvenli](service-fabric-cluster-security.md), de kullanabilirsiniz `FabricClient` aşağıdaki adımları hello gösterildiği gibi tooreport sistem durumu.  
+4. Hizmetinizin yönetici ayrıcalıklarıyla çalıştırıyorsa veya küme değilse [güvenli](service-fabric-cluster-security.md), aynı zamanda `FabricClient` aşağıdaki adımlarda gösterildiği gibi sistem durumu raporu için.  
    
-    a. Merhaba oluşturma `FabricClient` örneği hello sonra `var myDictionary` bildirimi.
+    a. Oluşturma `FabricClient` sonra örnek `var myDictionary` bildirimi.
    
     ```csharp
     var fabricClient = new FabricClient(new FabricClientSettings() { HealthReportSendInterval = TimeSpan.FromSeconds(0) });
     ```
    
-    b. Koddan sonra hello hello eklemek `myDictionary.TryGetValueAsync` çağırın.
+    b. Sonra aşağıdaki kodu ekleyin `myDictionary.TryGetValueAsync` çağırın.
    
     ```csharp
     if (!result.HasValue)
@@ -113,7 +113,7 @@ Visual Studio'da Hello Service Fabric proje şablonları örnek kod içerir. Mer
         fabricClient.HealthManager.ReportHealth(replicaHealthReport);
     }
     ```
-5. Şimdi bu arızanın benzetimini gerçekleştirin ve bunu hello sistem durumu izleme araçları görünmesini bakın. toosimulate hello hatası, yorum hello sistem durumu raporlama daha önce eklediğiniz kodu hello ilk satırı çıkışı. Merhaba ilk satırını açıklama sonra hello kodu örneği aşağıdaki hello gibi görünecektir.
+5. Şimdi bu arızanın benzetimini gerçekleştirin ve bu sistem durumu izleme araçları görünmesini bakın. Hata benzetimi için sistem durumu, daha önce eklediğiniz kod raporlama ilk satırı açıklama. İlk satırını açıklama sonra kod aşağıdaki gibi görünecektir.
    
     ```csharp
     //if(!result.HasValue)
@@ -122,24 +122,24 @@ Visual Studio'da Hello Service Fabric proje şablonları örnek kod içerir. Mer
         this.Partition.ReportReplicaHealth(healthInformation);
     }
     ```
-   Bu kod hello sistem durumu raporu her zaman harekete `RunAsync` yürütür. Merhaba değişiklik yaptıktan sonra basın **F5** toorun Merhaba uygulaması.
-6. Merhaba uygulaması çalıştırdıktan sonra Service Fabric Explorer toocheck hello hello uygulama durumunu açın. Bu süre, Service Fabric Explorer hello uygulamanın sağlıksız olduğunu gösterir. Daha önce eklediğimiz hello koddan bildirilen hello hata nedeniyle budur.
+   Bu kodu her zaman sistem durumu raporu harekete `RunAsync` yürütür. Değişikliği yaptıktan sonra basın **F5** uygulamayı çalıştırın.
+6. Uygulamayı çalıştırdıktan sonra uygulama durumunu denetlemek için Service Fabric Explorer açın. Bu süre, Service Fabric Explorer uygulamanın sağlıksız olduğunu gösterir. Daha önce eklediğimiz koddan bildirilen hata nedeniyle budur.
    
     ![Service Fabric Explorer'da düzgün çalışmayan uygulama](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/sfx-unhealthy-app.png)
-7. Merhaba ağaç görünümünde Service Fabric Explorer hello birincil çoğaltma seçerseniz, görürsünüz **sistem durumu** çok bir hata gösterir. Service Fabric Explorer da olan Ayrıntılar eklenen toohello hello sistem durumu raporu görüntüler `HealthInformation` hello kodu parametresi. Gördüğünüz hello aynı sistem durumu raporlarının PowerShell ve Azure portal hello.
+7. Service Fabric Explorer ağaç görünümünde birincil çoğaltma seçerseniz, görürsünüz **sistem durumu** çok bir hata gösterir. Service Fabric Explorer de eklenmiştir sistem durumu rapor ayrıntıları görüntüler `HealthInformation` kodu parametresi. PowerShell ve Azure portalı aynı sistem durumu raporları görebilirsiniz.
    
     ![Service Fabric Explorer'da çoğaltma durumu](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/replica-health-error-report-sfx.png)
 
-Bu çoğaltma silinene kadar veya başka bir raporu tarafından değiştirilene kadar bu rapor hello sistem durumu Yöneticisi'nde kalır. Biz ayarlanmamış olduğundan `TimeToLive` hello bu sistem durumu raporu için `HealthInformation` nesne hello rapor her zaman geçerli olsun.
+Bu çoğaltma silinene kadar veya başka bir raporu tarafından değiştirilene kadar bu rapor sistem durumu Yöneticisi'nde kalır. Biz ayarlanmamış olduğundan `TimeToLive` bu sistem durumu raporu için `HealthInformation` nesne, rapor her zaman geçerli olsun.
 
-Sistem durumu hello çoğaltma bu durumda olan hello en parçalı düzeyde, bildirilen olduğunu öneririz. Üzerindeki sistem durumu bildirebilirsiniz `Partition`.
+Sistem durumu çoğaltma bu durumda olan en ayrıntılı düzeyi, bildirilen olduğunu öneririz. Üzerindeki sistem durumu bildirebilirsiniz `Partition`.
 
 ```csharp
 HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);
 this.Partition.ReportPartitionHealth(healthInformation);
 ```
 
-tooreport sistem durumunu `Application`, `DeployedApplication`, ve `DeployedServicePackage`, kullanmak `CodePackageActivationContext`.
+Rapor sistem durumunu için `Application`, `DeployedApplication`, ve `DeployedServicePackage`, kullanmak `CodePackageActivationContext`.
 
 ```csharp
 HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);

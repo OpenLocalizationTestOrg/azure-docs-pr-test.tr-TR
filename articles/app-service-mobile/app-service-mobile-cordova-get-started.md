@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate bir Cordova uygulamasını Azure App Service Mobile Apps | Microsoft Docs"
-description: "Apache Cordova geliştirme için Azure mobil uygulaması arka uçlarını kullanmaya Bu öğretici tooget izleyin"
+title: "Azure Uygulama Hizmeti Mobile Apps’de Cordova uygulaması oluşturma | Microsoft Belgeleri"
+description: "Apache Cordova geliştirme için Azure mobil uygulaması arka uçlarını kullanmaya başlamak için bu öğreticiden yararlanın."
 services: app-service\mobile
 documentationcenter: javascript
 author: ggailey777
@@ -16,46 +16,46 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 07/07/2017
 ms.author: glenga
-ms.openlocfilehash: 4981cbc0686c15230019ac9f30495f30cbf2c791
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: b620465cdc3cfa04933dc6e70163fc32aa9a839b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-apache-cordova-app"></a>Apache Cordova uygulaması oluşturma
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu öğretici nasıl tooadd bir bulut tabanlı arka uç hizmeti tooan Apache Cordova mobil uygulamasına Azure mobil uygulaması arka ucunu kullanarak gösterir.  Yeni bir mobil uygulama arka ucu ve uygulama verilerini Azure'da depolayan basit bir *Yapılacaklar listesi* Apache Cordova uygulaması oluşturacaksınız.
+Bu öğreticide, bir Apache Cordova mobil uygulamasına Azure mobil uygulaması arka ucunu kullanarak bulut tabanlı arka uç hizmetini nasıl ekleyeceğiniz gösterilir.  Yeni bir mobil uygulama arka ucu ve uygulama verilerini Azure'da depolayan basit bir *Yapılacaklar listesi* Apache Cordova uygulaması oluşturacaksınız.
 
-Bu öğreticiyi tamamlamak Azure App Service'te hello Mobile Apps özelliğini kullanmayla ilgili diğer tüm Apache Cordova öğreticileri için önkoşuldur.
+Bu öğreticiyi tamamlamak, Azure App Service’de Mobile Apps özelliğini kullanmayla ilgili diğer tüm Apache Cordova öğreticileri için ön koşuldur.
 
 ## <a name="prerequisites"></a>Ön koşullar
-toocomplete Bu öğretici önkoşulları aşağıdaki hello gerekir:
+Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız gerekir:
 
 * [Visual Studio Community 2017] ya da daha yeni sürümünü içeren bir bilgisayar.
 * [Apache Cordova için Visual Studio Araçları].
 * [Etkin bir Azure hesabı](https://azure.microsoft.com/pricing/free-trial/).
 
-Ayrıca Visual Studio'yu atlayabilir ve doğrudan hello Apache Cordova komut satırını kullanın.  Merhaba komut satırını kullanarak hello öğreticiyi bir Mac bilgisayarda tamamladığınızda kullanışlıdır.  Merhaba komut satırını kullanarak Apache Cordova istemci uygulamalarını derleme Bu öğretici kapsamında değildir.
+Ayrıca Visual Studio’yu atlayabilir ve doğrudan Apache Cordova komut satırını kullanabilirsiniz.  Komut satırını kullanmak, öğreticiyi bir Mac bilgisayarda tamamladığınızda kullanışlıdır.  Komut satırını kullanarak Apache Cordova istemci uygulamalarını derleme bu öğretici kapsamında değildir.
 
 ## <a name="create-an-azure-mobile-app-backend"></a>Azure mobil uygulama arka ucu oluşturma
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 [Benzer adımları gösteren bir video izleyin](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-1-Create-an-Azure-Mobile-App)
 
-## <a name="configure-hello-server-project"></a>Merhaba sunucu projesi yapılandırmak
+## <a name="configure-the-server-project"></a>Sunucu projesi yapılandırma
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-hello-apache-cordova-app"></a>Merhaba Apache Cordova uygulamasını indirme ve çalıştırma
+## <a name="download-and-run-the-apache-cordova-app"></a>Apache Cordova uygulamasını indirme ve çalıştırma
 [!INCLUDE [app-service-mobile-cordova-run-app](../../includes/app-service-mobile-cordova-run-app.md)]
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Bu hızlı başlangıç öğreticisini tamamladığınıza göre öğreticileri aşağıdaki hello tooone üzerinde Taşı:
+Bu hızlı başlangıç öğreticisini tamamladığınıza göre, şu eğitimlerden birine geçin:
 
-* [Çevrimdışı veri ekleme](app-service-mobile-cordova-get-started-offline-data.md) tooyour Apache Cordova uygulaması.
-* [Kimlik doğrulaması ekleme](app-service-mobile-cordova-get-started-users.md) tooyour Apache Cordova uygulaması.
-* [Anında iletme bildirimleri ekleme](app-service-mobile-cordova-get-started-push.md) tooyour Apache Cordova uygulaması.
+* Apache Cordova uygulamanıza [Çevrimdışı Veri Ekleme](app-service-mobile-cordova-get-started-offline-data.md).
+* Apache Cordova uygulamanıza [Kimlik Doğrulaması Ekleme](app-service-mobile-cordova-get-started-users.md).
+* Apache Cordova uygulamanıza [Anında İletme Bildirimleri Ekleme](app-service-mobile-cordova-get-started-push.md).
 
 Azure App Service temel kavramları hakkında daha fazla bilgi edinin.
 
@@ -63,7 +63,7 @@ Azure App Service temel kavramları hakkında daha fazla bilgi edinin.
 * [Kimlik doğrulaması]
 * [Anında İletme Bildirimleri]
 
-Nasıl toouse hello SDK'ları hakkında bilgi edinin.
+SDK'ları kullanmayı öğrenin.
 
 * [Apache Cordova SDK]
 * [ASP.NET Sunucusu SDK]

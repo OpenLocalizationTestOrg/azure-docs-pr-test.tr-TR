@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile Mixpanel | Microsoft Docs"
-description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile Mixpanel arasında."
+description: "Çoklu oturum açma Azure Active Directory ile Mixpanel arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,109 +13,109 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 8da8aaefee3558c37babe3e10aeba4224ceffa16
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3dd11b3477de1329c1c8e45a6dbf212b1635fd95
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>Öğretici: Azure Active Directory Tümleştirme Mixpanel ile
 
-Bu öğreticide, bilgi nasıl toointegrate Mixpanel Azure Active Directory'ye (Azure AD).
+Bu öğreticide, Azure Active Directory (Azure AD) ile Mixpanel tümleştirmek öğrenin.
 
-Mixpanel Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
+Mixpanel Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Erişim tooMixpanel sahip Azure AD'de kontrol edebilirsiniz
-- Kullanıcıların tooautomatically get açan tooMixpanel (çoklu oturum açma) Azure AD hesaplarına sahip etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir
+- Mixpanel erişimi, Azure AD'de kontrol edebilirsiniz
+- Otomatik olarak için Mixpanel (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-tooconfigure Mixpanel ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
+Azure AD tümleştirme Mixpanel ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
 - Bir Mixpanel çoklu oturum açma abonelik etkin
 
 > [!NOTE]
-> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
+Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
-1. Merhaba Galerisi'nden Mixpanel ekleme
+1. Galeriden Mixpanel ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-mixpanel-from-hello-gallery"></a>Merhaba Galerisi'nden Mixpanel ekleme
-Azure AD'ye tooconfigure hello tümleştirme Mixpanel, tooadd Mixpanel hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
+## <a name="adding-mixpanel-from-the-gallery"></a>Galeriden Mixpanel ekleme
+Azure AD Mixpanel tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Mixpanel eklemeniz gerekir.
 
-**tooadd Mixpanel hello galerisinden hello aşağıdaki adımları gerçekleştirin:**
+**Galeriden Mixpanel eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
     ![Uygulamalar][3]
 
-4. Merhaba arama kutusuna yazın **Mixpanel**.
+4. Arama kutusuna **Mixpanel**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_search.png)
 
-5. Merhaba Sonuçlar panelinde seçin **Mixpanel**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
+5. Sonuçlar panelinde seçin **Mixpanel**ve ardından **Ekle** uygulama eklemek için düğmesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Mixpanel sınayın.
 
-Tek toowork'ın oturum açma hangi hello karşılık gelen Mixpanel içinde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcı ve ilgili kullanıcı Mixpanel hello arasında bir bağlantı ilişkisi kurulan toobe gerekir.
+Tekli çalışmaya oturum için Azure AD Mixpanel karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Mixpanel ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Merhaba hello değeri Mixpanel içinde atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.
+Mixpanel içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
 
-tooconfigure ve Mixpanel ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Mixpanel ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
-3. **[Mixpanel test kullanıcısı oluşturma](#creating-a-mixpanel-test-user)**  -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir Mixpanel içinde karşılık gelen.
-4. **[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Mixpanel test kullanıcısı oluşturma](#creating-a-mixpanel-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Mixpanel sağlamak için.
+4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma Mixpanel uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Mixpanel uygulamanızda yapılandırın.
 
-**tooconfigure Azure AD çoklu oturum açma ile Mixpanel, hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma ile Mixpanel yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello hello üzerinde Azure portal'ın **Mixpanel** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **Mixpanel** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_samlbase.png)
 
-3. Merhaba üzerinde **Mixpanel etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **Mixpanel etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_url.png)
 
-     Merhaba, **oturum açma URL'si** metin kutusuna, URL'yi yazın:`https://mixpanel.com/login/`
+     İçinde **oturum açma URL'si** metin kutusuna, URL'yi yazın:`https://mixpanel.com/login/`
 
     > [!NOTE] 
-    > Lütfen adresindeki kayıt [https://mixpanel.com/register/](https://mixpanel.com/register/) tooset oturum açma kimlik bilgilerinizi ve kişi hello yukarı [Mixpanel destek ekibi](mailto:support@mixpanel.com) kiracınız için tooenable SSO ayarları. Ayrıca, üzerinde oturum URL değeri gerekirse Mixpanel destek ekibinden alabilirsiniz. 
+    > Lütfen adresindeki kayıt [https://mixpanel.com/register/](https://mixpanel.com/register/) oturum açma kimlik bilgileri ve iletişim kurmak için [Mixpanel destek ekibi](mailto:support@mixpanel.com) , kiracınızın SSO ayarlarını etkinleştirmek için. Ayrıca, üzerinde oturum URL değeri gerekirse Mixpanel destek ekibinden alabilirsiniz. 
  
-4. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve hello sertifika dosyayı bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_certificate.png) 
 
@@ -123,100 +123,100 @@ Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-mixpanel-tutorial/tutorial_general_400.png)
 
-6. Merhaba üzerinde **Mixpanel yapılandırma** 'yi tıklatın **yapılandırma Mixpanel** tooopen **yapılandırma oturum açma** penceresi. Kopya hello **SAML çoklu oturum açma hizmet URL'si** hello gelen **hızlı başvuru bölümü.**
+6. Üzerinde **Mixpanel yapılandırma** 'yi tıklatın **yapılandırma Mixpanel** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_configure.png) 
 
-7. Farklı bir tarayıcı penceresinde tooyour Mixpanel uygulama yönetici olarak oturum açma.
+7. Farklı bir tarayıcı penceresinde Mixpanel uygulamanıza bir yönetici olarak oturum.
 
-8. Merhaba sayfanın en altındaki üzerinde hello biraz tıklatın **gear** hello sol alt köşesindeki simgesi. 
+8. Sayfanın en altındaki üzerinde biraz tıklatın **gear** sol alt köşesindeki simgesi. 
    
     ![Mixpanel çoklu oturum açma](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_06.png) 
 
-9. Merhaba tıklatın **erişim güvenlik** sekmesini ve ardından **Ayarları Değiştir**.
+9. Tıklatın **erişim güvenlik** sekmesini ve ardından **Ayarları Değiştir**.
    
     ![Mixpanel ayarları](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_08.png) 
 
-10. Merhaba üzerinde **sertifikanızı değiştirme** iletişim sayfasında, tıklatın **dosya** tooupload indirilen sertifika ve ardından **sonraki**.
+10. Üzerinde **sertifikanızı değiştirme** iletişim sayfasında, tıklatın **dosya** indirilen sertifikanızı karşıya yükleyin ve ardından **sonraki**.
    
     ![Mixpanel ayarları](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_09.png) 
 
-11.  Merhaba kimlik doğrulama URL'si metin kutusuna hello üzerinde **, kimlik doğrulaması URL'sini değiştirmek** iletişim sayfasında, Yapıştır hello değerini **SAML çoklu oturum açma hizmet URL'si** hangi Azure portalından kopyaladığınız ve ardından **Sonraki**.
+11.  Kimlik doğrulama URL'si metin kutusuna üzerinde **, kimlik doğrulaması URL'sini değiştirmek** iletişim sayfasında, değerini yapıştırın **SAML çoklu oturum açma hizmet URL'si** hangi Azure portalından kopyaladığınız ve ardından **sonraki**.
    
    ![Mixpanel ayarları](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_10.png) 
 
 12. **Bitti**’ye tıklayın.
 
 > [!TIP]
-> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_02.png) 
 
-3. tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle** hello üstteki hello iletişim.
+3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_03.png) 
 
-4. Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-mixpanel-tutorial/create_aaduser_04.png) 
 
-    a. Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
 
-    b. Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
 
-    c. Seçin **Göster parola** ve hello hello değerini yazma **parola**.
+    c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**'a tıklayın.
  
 ### <a name="creating-a-mixpanel-test-user"></a>Mixpanel test kullanıcısı oluşturma
 
-Bu bölümde Hello amacı toocreate Britta Simon içinde Mixpanel adlı bir kullanıcı ' dir. 
+Bu bölümün amacı Britta Simon içinde Mixpanel adlı bir kullanıcı oluşturmaktır. 
 
-1. Üzerinde tooyour Mixpanel şirket site yönetici olarak oturum açın.
+1. Mixpanel şirket sitenize yönetici olarak oturum açma.
 
-2. Hello sayfanın hello üzerinde küçük bir dişli düğmesini hello sol köşe tooopen hello üzerinde hello tıklatın **ayarları** penceresi.
+2. Sayfanın üzerinde açmak için sol üst köşesinde küçük dişli düğmeyi tıklatın **ayarları** penceresi.
 
-3. Merhaba tıklatın **takım** sekmesi.
+3. Tıklatın **takım** sekmesi.
 
-4. Merhaba, **ekip üyesine** metin kutusuna, hello Azure Britta'nın e-posta adresini yazın.
+4. İçinde **ekip üyesine** metin kutusuna, Azure Britta'nın e-posta adresini yazın.
    
     ![Mixpanel ayarları](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_11.png) 
 
 5. Tıklatın **davet**. 
 
 > [!Note]
-> Merhaba kullanıcı bir e-posta tooset hello profil alır.
+> Kullanıcı profili ayarlamak için bir e-posta alırsınız.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
 
-Bu bölümde, erişim tooMixpanel vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
+Bu bölümde, Britta Mixpanel için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
 ![Kullanıcı atama][200] 
 
-**tooassign Britta Simon tooMixpanel hello aşağıdaki adımları gerçekleştirin:**
+**Mixpanel için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Merhaba uygulamalar listesinde **Mixpanel**.
+2. Uygulamalar listesinde **Mixpanel**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-mixpanel-tutorial/tutorial_mixpanel_app.png) 
 
-3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
     ![Kullanıcı atama][202] 
 
@@ -224,7 +224,7 @@ Bu bölümde, erişim tooMixpanel vererek Britta Simon toouse Azure çoklu oturu
 
     ![Kullanıcı atama][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -232,14 +232,14 @@ Bu bölümde, erişim tooMixpanel vererek Britta Simon toouse Azure çoklu oturu
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Merhaba Mixpanel hello erişim paneli parçasında tıkladığınızda, otomatik olarak oturum açma tooyour Mixpanel uygulama almanız gerekir.
-Merhaba erişim paneli hakkında daha fazla bilgi için bkz: [giriş toohello erişim paneli](active-directory-saas-access-panel-introduction.md).
+Erişim paneli Mixpanel parçasında tıklattığınızda, otomatik olarak Mixpanel uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 

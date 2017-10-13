@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure CLI komut dosyası örneği - şablon dağıtma | Microsoft Docs"
+title: "Azure CLI betik örnek - şablon dağıtma | Microsoft Docs"
 description: "Bir Azure Resource Manager şablonunu dağıtmak için örnek komut dosyası."
 services: azure-resource-manager
 documentationcenter: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: tomfitz
-ms.openlocfilehash: 5a94eedbd898ced29d67f8ce3023ca5c65f83af2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 974230f349aec46fde58e69658e05a13bff4296f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-resource-manager-template-deployment---azure-cli-script"></a>Azure Resource Manager şablon dağıtımı - Azure CLI komut dosyası
 
-Bu komut dosyasını bir Resource Manager şablonu tooa kaynak grubu aboneliğinizde dağıtır.
+Bu komut dosyasını bir Resource Manager şablonu bir kaynak grubu aboneliğinizde dağıtır.
 
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
@@ -37,7 +37,7 @@ IFS=$'\n\t'
 
 # -e: immediately exit if any command has a non-zero exit status
 # -o: prevents errors in a pipeline from being masked
-# IFS new value is less likely toocause confusing bugs when looping arrays or arguments (e.g. $@)
+# IFS new value is less likely to cause confusing bugs when looping arrays or arguments (e.g. $@)
 
 usage() { echo "Usage: $0 -i <subscriptionId> -g <resourceGroupName> -n <deploymentName> -l <resourceGroupLocation>" 1>&2; exit 1; }
 
@@ -84,12 +84,12 @@ if [[ -z "$deploymentName" ]]; then
 fi
 
 if [[ -z "$resourceGroupLocation" ]]; then
-    echo "Enter a location below toocreate a new resource group else skip this"
+    echo "Enter a location below to create a new resource group else skip this"
     echo "ResourceGroupLocation:"
     read resourceGroupLocation
 fi
 
-#templateFile Path - template file toobe used
+#templateFile Path - template file to be used
 templateFilePath="template.json"
 
 if [ ! -f "$templateFilePath" ]; then
@@ -110,7 +110,7 @@ if [ -z "$subscriptionId" ] || [ -z "$resourceGroupName" ] || [ -z "$deploymentN
     usage
 fi
 
-#login tooazure using your credentials
+#login to azure using your credentials
 az account show 1> /dev/null
 
 if [ $? != 0 ];
@@ -118,7 +118,7 @@ then
     az login
 fi
 
-#set hello default subscription id
+#set the default subscription id
 az account set --subscription $subscriptionId
 
 #Check for existing RG
@@ -147,7 +147,7 @@ fi
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme 
 
-Çalışma hello aşağıdaki tooremove hello kaynak grubunu ve tüm kaynaklarını komutu.
+Kaynak grubu ve tüm kaynaklarını kaldırmak için aşağıdaki komutu çalıştırın.
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -155,7 +155,7 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Komut dosyası açıklaması
 
-Bu komut dosyası komutları toocreate hello dağıtım aşağıdaki hello kullanır. Merhaba tablosundaki her öğesi toocommand belirli belgeleri bağlar.
+Bu komut dosyası dağıtımı oluşturmak için aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her öğe.
 
 | Komut | Notlar |
 |---|---|
@@ -167,8 +167,8 @@ Bu komut dosyası komutları toocreate hello dağıtım aşağıdaki hello kulla
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bir giriş toodeploying şablonları için bkz: [Resource Manager şablonları ve Azure PowerShell ile kaynakları dağıtmak](resource-group-template-deploy-cli.md).
+* Şablon dağıtımı için giriş için bkz [Resource Manager şablonları ve Azure PowerShell ile kaynakları dağıtmak](resource-group-template-deploy-cli.md).
 * Bir SAS belirteci gerektiren şablonu dağıtma hakkında daha fazla bilgi için bkz: [dağıtma özel şablonu SAS belirteci ile](resource-manager-cli-sas-token.md).
-* Şablon toodefine parametrelerinde bkz [şablonları yazma](resource-group-authoring-templates.md#parameters).
-* Kuruluşların Resource Manager tooeffectively nasıl kullanabileceğiniz hakkında rehberlik için abonelikleri yönetmek için bkz: [Azure enterprise iskele - Düzenleyici abonelik idare](resource-manager-subscription-governance.md).
+* Şablonda parametreleri tanımlamak için bkz: [şablonları yazma](resource-group-authoring-templates.md#parameters).
+* Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](resource-manager-subscription-governance.md).
 

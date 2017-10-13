@@ -1,3 +1,3 @@
 > [!IMPORTANT]
-> Merhaba cihaz kimliği müşteri destek ve sorun giderme için toplanan hello günlüklerini görünür adlandırma sırasında herhangi bir önemli bilgi nedenle emin tooavoid olun.
+> Cihaz kimliği; müşteri desteği ve sorun giderme için toplanan günlüklerde görünüyor olabilir, bu nedenle adlandırırken herhangi bir önemli bilgi vermekten kaçının.
 >

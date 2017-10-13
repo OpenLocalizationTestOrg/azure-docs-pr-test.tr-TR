@@ -1,6 +1,6 @@
 ---
-title: "aaaDeploy SAS belirteci ve PowerShell ile Azure şablonu | Microsoft Docs"
-description: "Azure Resource Manager ve Azure PowerShell toodeploy kaynakları tooAzure korunan bir şablondan SAS belirteci ile kullanın."
+title: "SAS belirteci ve PowerShell ile Azure şablonu dağıtma | Microsoft Docs"
+description: "SAS belirteci ile korunan bir şablondan kaynakları Azure'a dağıtmak için Azure Resource Manager ve Azure PowerShell kullanın."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: tomfitz
-ms.openlocfilehash: b95e096591d6213f8ef79235c8cd85705c4b79ea
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1e3cea027b599e2b1af1ced0fdf14e2cc8a0db82
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-private-resource-manager-template-with-sas-token-and-azure-powershell"></a>SAS belirteci ve Azure PowerShell ile özel Resource Manager şablonu dağıtma
 
-Şablonunuzu bir depolama hesabında bulunduğunda, access toohello şablonu kısıtlamak ve dağıtım sırasında bir paylaşılan erişim imzası (SAS) belirteci sağlayın. Bu konuda açıklanmaktadır nasıl toouse Azure PowerShell'i Resource Manager şablonları tooprovide dağıtımı sırasında bir SAS belirteci ile. 
+Şablonunuzu bir depolama hesabında bulunduğunda, şablona erişimi kısıtlayabilir ve dağıtım sırasında bir paylaşılan erişim imzası (SAS) belirteci sağlayın. Bu konu Azure PowerShell'i Resource Manager şablonları ile dağıtımı sırasında bir SAS belirteci sağlamak için nasıl kullanılacağını açıklar. 
 
-## <a name="add-private-template-toostorage-account"></a>Özel şablon toostorage hesabı Ekle
+## <a name="add-private-template-to-storage-account"></a>Özel şablon için depolama hesabı ekleme
 
-Şablonları tooa depolama hesabınızı ekleyin ve bir SAS belirteci ile dağıtım sırasında toothem bağlayın.
+Bir depolama hesabı ve bunları bir SAS belirteci ile dağıtım sırasında bağlantı şablonlarınızı ekleyebilirsiniz.
 
 > [!IMPORTANT]
-> Merhaba adımları izleyerek hello şablonu içeren hello blob erişilebilir tooonly hello hesap sahibi değil. Ancak, hello blob için bir SAS belirteci oluşturduğunuzda hello blob bu URI ile erişilebilir tooanyone olur. Başka bir kullanıcı hello URI kesişirse kullanıcı mümkün tooaccess hello şablonudur. Bir SAS belirteci kullanarak erişim tooyour şablonları sınırlama, iyi bir yoludur ancak parolalar gibi hassas verileri doğrudan hello şablonunda içermemelidir.
+> Aşağıdaki adımları izleyerek, şablonu içeren blob yalnızca hesap sahibi erişilebilir. Blob için bir SAS belirteci oluşturduğunuzda, ancak blob bu URI ile bir kişiye erişilebilir. Başka bir kullanıcı URI kesişirse kullanıcı şablonu erişebilir. Bir SAS belirteci kullanarak şablonlarınızı erişimi sınırlayan, iyi bir yoludur ancak parolalar gibi hassas verileri doğrudan şablonunda içermemelidir.
 > 
 > 
 
-Merhaba aşağıdaki örnekte bir özel depolama hesabı kapsayıcısının ayarlar ve bir şablon yükler:
+Aşağıdaki örnek, bir özel depolama hesabı kapsayıcısının ayarlar ve bir şablon yükler:
    
 ```powershell
 # create a storage account for templates
@@ -47,12 +47,12 @@ Set-AzureStorageBlobContent -Container templates -File c:\MyTemplates\storage.js
 ```
 
 ## <a name="provide-sas-token-during-deployment"></a>Dağıtım sırasında SAS belirteci sağlayın
-toodeploy özel bir şablon bir depolama hesabındaki bir SAS belirteci oluştur ve hello URI hello şablonunun dahil edin. Merhaba sona erme saati tooallow yeterli zaman toocomplete hello dağıtım ayarlayın.
+Özel bir şablon bir depolama hesabında dağıtmak için bir SAS belirteci oluştur ve şablon için URI dahil edin. Dağıtım tamamlamak için yeterli zamana olanak sona erme saati ayarlayın.
    
 ```powershell
 Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
 
-# get hello URI with hello SAS token
+# get the URI with the SAS token
 $templateuri = New-AzureStorageBlobSASToken -Container templates -Blob storage.json -Permission r `
   -ExpiryTime (Get-Date).AddHours(2.0) -FullUri
 
@@ -65,8 +65,8 @@ Bir SAS belirteci ile bağlı şablonları kullanma örneği için bkz: [Azure R
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bir giriş toodeploying şablonları için bkz: [Resource Manager şablonları ve Azure PowerShell ile kaynakları dağıtmak](resource-group-template-deploy.md).
+* Şablon dağıtımı için giriş için bkz [Resource Manager şablonları ve Azure PowerShell ile kaynakları dağıtmak](resource-group-template-deploy.md).
 * Bir şablon dağıtan bir tam örnek betik için bkz: [dağıtmak Resource Manager şablonu komut dosyası](resource-manager-samples-powershell-deploy.md)
-* Şablon toodefine parametrelerinde bkz [şablonları yazma](resource-group-authoring-templates.md#parameters).
-* Kuruluşların Resource Manager tooeffectively nasıl kullanabileceğiniz hakkında rehberlik için abonelikleri yönetmek için bkz: [Azure enterprise iskele - Düzenleyici abonelik idare](resource-manager-subscription-governance.md).
+* Şablonda parametreleri tanımlamak için bkz: [şablonları yazma](resource-group-authoring-templates.md#parameters).
+* Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](resource-manager-subscription-governance.md).
 

@@ -1,6 +1,6 @@
 ---
-title: "aaaManage StorSimple 8000 serisi aygıt denetleyicileri | Microsoft Docs"
-description: "Nasıl toostop, yeniden başlatın, kapatmak veya StorSimple cihaz denetleyicilerinin sıfırlama öğrenin."
+title: "StorSimple 8000 serisi cihaz Denetleyicilerini Yönet | Microsoft Docs"
+description: "Durdurmak, yeniden başlatın, kapatmak veya StorSimple cihaz denetleyicilerinin sıfırlama öğrenin."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,130 +14,130 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 5c59582b7ccf7cfeae9e7efbd0e4df9dc1d3871c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 75c1bdb570967b6d1902697597f0b5bf3f4ffb7c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>StorSimple cihaz Denetleyicilerini Yönet
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu öğretici, StorSimple cihaz denetleyicileri üzerinde gerçekleştirilen hello farklı işlemler açıklanmaktadır. StorSimple Cihazınızı Hello denetleyicileri yedek (eş) denetleyicileri bir Aktif-Pasif yapılandırmasında etkilenir. Belirli bir zamanda yalnızca bir denetleyici etkindir ve tüm hello disk ve ağ işlemlerini işleme. Merhaba diğer denetleyicisi edilgen modda değil. Merhaba etkin denetleyicisi başarısız olursa, hello pasif denetleyiciyi otomatik olarak etkinleşir.
+Bu öğretici, StorSimple cihaz denetleyicileri üzerinde gerçekleştirilen farklı işlemler açıklanmaktadır. StorSimple Cihazınızı denetleyicileri yedek (eş) denetleyicileri bir Aktif-Pasif yapılandırmasında etkilenir. Belirli bir zamanda yalnızca bir denetleyici etkindir ve tüm disk ve ağ işlemleri işliyor. Diğer bir edilgen modda denetleyicisidir. Etkin denetleyicisi başarısız olursa, pasif denetleyiciyi otomatik olarak etkinleşir.
 
-Bu öğretici kullanarak adım adım yönergeler toomanage hello aygıt denetleyicileri içerir:
+Bu öğretici aygıt denetleyicileri kullanarak yönetmek için adım adım yönergeleri içerir:
 
-* **Denetleyicileri** dikey aygıtınızın hello StorSimple cihaz Yöneticisi hizmeti.
+* **Denetleyicileri** dikey aygıtınızın StorSimple cihaz Yöneticisi hizmeti.
 * StorSimple için Windows PowerShell.
 
-Merhaba StorSimple cihaz Yöneticisi hizmeti üzerinden hello cihaz Denetleyicilerini Yönet öneririz. Bir eylem yalnızca StorSimple için Windows PowerShell kullanarak gerçekleştirilebilir, hello öğretici Not yapar.
+StorSimple cihaz Yöneticisi hizmeti aracılığıyla cihaz Denetleyicilerini Yönet öneririz. Bir eylem yalnızca StorSimple için Windows PowerShell kullanarak gerçekleştirilebilir, öğreticiyi Not yapar.
 
 Bu öğretici okuduktan sonra aşağıdakileri gerçekleştirebilirsiniz:
 
 * Yeniden başlatma veya kapatma StorSimple cihaz denetleyicisi
 * Bir StorSimple cihazı kapatmak
-* StorSimple cihaz toofactory Varsayılanları sıfırla
+* StorSimple Cihazınızı fabrika ayarlarına sıfırlama
 
 ## <a name="restart-or-shut-down-a-single-controller"></a>Yeniden başlatma veya kapatma tek bir denetleyici
-Bir denetleyici yeniden başlatma veya kapatma normal sistem işleminin bir parçası olarak gerekli değildir. Kapatma işlemleri tek aygıt denetleyicisi için yalnızca bir başarısız aygıt donanım bileşeni değiştirme gerektiren durumlarda yaygındır. Denetleyici yeniden başlatma, performans aşırı bellek kullanımı veya düzgün çalışmayan bir denetleyici tarafından etkilenir durumda da gerekebilir. Tooenable istiyor ve test yerini hello denetleyicisi başarılı denetleyicisi değiştirme işleminden toorestart bir denetleyici de gerekebilir.
+Bir denetleyici yeniden başlatma veya kapatma normal sistem işleminin bir parçası olarak gerekli değildir. Kapatma işlemleri tek aygıt denetleyicisi için yalnızca bir başarısız aygıt donanım bileşeni değiştirme gerektiren durumlarda yaygındır. Denetleyici yeniden başlatma, performans aşırı bellek kullanımı veya düzgün çalışmayan bir denetleyici tarafından etkilenir durumda da gerekebilir. Ve değiştirilen denetleyicisi test etkinleştirmek isterseniz, bir denetleyici başarılı denetleyicisi değiştirme sonra yeniden başlatmanız gerekebilir.
 
-Bir aygıt yeniden başlatma hello pasif denetleyiciyi kullanılabilir olduğunu varsayarak, kesintiye uğratan tooconnected başlatıcılarını değil. Bir pasif denetleyiciyi kullanılabilir değilse veya hello yeniden başlatarak kapalı, etkin açık denetleyicisi hizmeti ve kapalı kalma süresi hello kesilme neden olabilir.
+Bir aygıt yeniden başlatma pasif denetleyiciyi kullanılabilir olduğunu varsayarak bağlı başlatıcıları kesintiye uğratan değil. Bir pasif denetleyiciyi değilse kullanılabilir veya kapalı kapalı sonra etkin denetleyiciyi yeniden başlatma hizmeti ve kapalı kalma süresi kesilme neden olabilir.
 
 > [!IMPORTANT]
 > * **Bu artıklık kaybı ve kalma süresi riskin artmasına neden olur olarak çalışan bir denetleyicisinin hiçbir zaman fiziksel olarak kaldırılması gerekir.**
-> * Merhaba aşağıdaki yordam yalnızca toohello StorSimple fiziksel cihazı geçerlidir. Toostart, durdurma ve yeniden başlatma hello StorSimple bulut uygulaması nasıl görürüm hakkında bilgi için [iş hello bulut uygulaması ile](storsimple-8000-cloud-appliance-u2.md##work-with-the-storsimple-cloud-appliance).
+> * Aşağıdaki yordam yalnızca StorSimple fiziksel cihazı için geçerlidir. Başlatma, durdurma ve yeniden StorSimple bulut uygulaması hakkında daha fazla bilgi için bkz: [iş ile bulut uygulaması](storsimple-8000-cloud-appliance-u2.md##work-with-the-storsimple-cloud-appliance).
 
-Yeniden başlatın veya tek bir aygıtta denetleyicisini hello hello StorSimple cihaz Yöneticisi hizmeti Windows PowerShell veya Azure portal aracılığıyla StorSimple için kapatın.
+Yeniden başlatın veya StorSimple için StorSimple Aygıt Yöneticisi'ni hizmet ya da Windows PowerShell Azure portalı üzerinden bir tek aygıt denetleyicisini kapatın.
 
-hello Azure portalı, cihazı denetleyicilerinden toomanage gerçekleştirmek hello adımları izleyin.
+Cihaz denetleyicilerinizi Azure portalından yönetmek için aşağıdaki adımları gerçekleştirin.
 
-#### <a name="toorestart-or-shut-down-a-controller-in-azure-portal"></a>toorestart veya Azure portalında bir denetleyici kapatma
-1. StorSimple cihaz Yöneticisi hizmetinize çok Git**aygıtları**. Cihazınızı hello aygıtları listesinden seçin. 
+#### <a name="to-restart-or-shut-down-a-controller-in-azure-portal"></a>Yeniden başlatmak veya Azure portalında bir denetleyici kapatmak için
+1. StorSimple cihaz Yöneticisi hizmetinize Git **aygıtları**. Cihazınızı aygıtları listesinden seçin. 
 
     ![Bir cihaz seçin](./media/storsimple-8000-manage-device-controller/manage-controller1.png)
 
-2. Çok Git**ayarlar > denetleyicileri**.
+2. Git **ayarlar > denetleyicileri**.
    
     ![StorSimple cihaz denetleyicilerinin sağlıklı olduğunu doğrula](./media/storsimple-8000-manage-device-controller/manage-controller2.png)
-3. Merhaba, **denetleyicileri** dikey penceresinde, hem hello denetleyicileri aygıtınızda hello durumunu doğrulayın **sağlıklı**. Bir denetleyici seçin, sağ tıklayın ve ardından **yeniden** veya **kapatma**.
+3. İçinde **denetleyicileri** dikey penceresinde durum denetleyicilerinin aygıtınızda olduğundan emin olun **sağlıklı**. Bir denetleyici seçin, sağ tıklayın ve ardından **yeniden** veya **kapatma**.
 
     ![StorSimple cihaz denetleyicilerinin kapatın veya yeniden başlatma seçin](./media/storsimple-8000-manage-device-controller/manage-controller3.png)
 
-4. Bir iş toorestart oluşturulan veya hello denetleyicisi kapatmak ve varsa geçerli uyarılarla sunulur. toomonitor hello yeniden başlatma veya kapatma, Git çok**hizmet > etkinlik günlükleri** ve parametreleri belirli tooyour hizmeti tarafından filtre. Bir denetleyici kapatıldı sonra toopush hello güç düğmesi tooturn hello denetleyicisi tooturn üzerinde gerekir üzerinde.
+4. Yeniden başlatma veya kapatma denetleyici için bir iş oluşturulur ve varsa geçerli uyarılarla sunulur. Yeniden başlatma veya kapatma izlemek için Git **hizmet > etkinlik günlükleri** ve parametreleri hizmetinize özgü göre filtreleyebilirsiniz. Bir denetleyici kapatıldı, açmak için denetleyici üzerindeki açmak için güç düğmesine basın gerekecektir.
 
-#### <a name="toorestart-or-shut-down-a-controller-in-windows-powershell-for-storsimple"></a>toorestart veya StorSimple için Windows PowerShell'de denetleyicisi kapatma
-Aşağı adımları tooshut aşağıdaki hello gerçekleştirmek veya StorSimple Cihazınızı hello Windows PowerShell üzerinde tek bir denetleyici için StorSimple yeniden başlatın.
+#### <a name="to-restart-or-shut-down-a-controller-in-windows-powershell-for-storsimple"></a>Yeniden başlatma veya StorSimple için Windows PowerShell'de denetleyicisi kapatmak için
+Kapatıldı veya StorSimple için Windows powershell'den, StorSimple Cihazınızda tek bir denetleyici yeniden başlatmak için aşağıdaki adımları gerçekleştirin.
 
-1. Merhaba seri konsol veya uzak bir bilgisayardan telnet oturumu aracılığıyla erişim hello aygıtı. tooconnect tooController 0 veya denetleyici 1 izleyin hello adımlarda [kullanım PuTTY tooconnect toohello cihaz seri konsoluna](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
-2. Merhaba seri konsol menüsünde seçeneği 1, **oturum oturum tam erişim**.
-3. Merhaba başlık iletisi çok bağlı hello denetleyicisi Not (denetleyici 0 veya denetleyici 1) ve hello etkin veya Pasif (bekleme) denetleyicisi hello olup.
+1. Cihaz seri konsol veya uzak bir bilgisayardan telnet oturumu aracılığıyla erişim. Denetleyici 0 veya denetleyici 1 bağlanmak için adımları [kullan cihaz seri konsoluna bağlanmak için PuTTY](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).
+2. Seri konsol menüsünde seçeneği 1, **oturum oturum tam erişim**.
+3. Başlık iletisi (denetleyici 0 veya denetleyici 1 için) bağlı denetleyicisi Not ve etkin veya Pasif (bekleme) denetleyicisi olup.
    
-   * Merhaba isteminde türü tek bir denetleyici aşağı tooshut:
+   * Komut isteminde tek bir denetleyici kapatmak için aşağıdakileri yazın:
      
        `Stop-HcsController`
      
-       Bu, bağlandığınız hello denetleyicisi kapatır. Merhaba etkin denetleyicisi durdurursanız hello aygıt toohello pasif denetleyiciyi başarısız olur.
+       Bu, bağlandığınız denetleyicisi kapatır. Etkin denetleyicisi Durdur sonra aygıt üzerinden pasif denetleyiciyi başarısız olur.
 
-   * toorestart bir denetleyicisinde hello istemine aşağıdakileri yazın:
+   * Komut isteminde bir denetleyicisi yeniden başlatmak için aşağıdakileri yazın:
      
        `Restart-HcsController`
      
-       Bu, bağlandığınız hello denetleyicisi yeniden başlatır. Merhaba etkin denetleyicisi yeniden başlatırsanız, hello yeniden başlatmadan önce toohello pasif denetleyiciyi başarısız olur.
+       Bu, bağlandığınız denetleyicisi yeniden başlatır. Etkin denetleyicisi yeniden başlatırsanız, üzerinden yeniden başlatmadan önce pasif denetleyiciye başarısız olur.
 
 ## <a name="shut-down-a-storsimple-device"></a>Bir StorSimple cihazı kapatmak
 
-Bu bölümde nasıl tooshut tuşunu çalışan bir ya da uzak bir bilgisayardan başarısız bir StorSimple cihazı. Her iki hello aygıt denetleyicileri kapatma sonra bir aygıtı devre dışı bırakılır. Merhaba aygıt fiziksel olarak taşındığında veya hizmet dışı gerçekleştirilecek bir aygıt kapatma yapılır.
+Bu bölümde, bir çalışan veya uzak bir bilgisayardan başarısız StorSimple cihazını kapatmak üzere açıklanmaktadır. Aygıt denetleyicileri kapatma sonra bir aygıtı devre dışı bırakılır. Aygıt fiziksel olarak taşındığında veya hizmet dışı gerçekleştirilecek bir aygıt kapatma yapılır.
 
 > [!IMPORTANT]
-> Merhaba cihazı kapatmanız önce hello cihaz bileşenlerini hello durumunu kontrol edin. Tooyour aygıt gidin ve ardından **ayarlar > donanım durumu**. Merhaba, **durumu ve donanım durumunu** dikey penceresinde tüm hello bileşenlerinin hello LED durumunun yeşil olduğunu doğrulayın. Sağlıklı bir aygıtı yeşil durum vardır. Cihazınızı ise olma tooreplace düzgün çalışmayan bir bileşen kapatın, başarısız (kırmızı) görürsünüz veya düşürülmüş (sarı) durumunun hello ilgili bileşenleri.
+> Cihazı kapatmanız önce aygıt bileşenlerinin durumunu kontrol edin. Cihazınıza gidin ve ardından **ayarlar > donanım durumu**. İçinde **durumu ve donanım durumunu** dikey penceresinde tüm bileşenlerin LED durumunun yeşil olduğunu doğrulayın. Sağlıklı bir aygıtı yeşil durum vardır. Cihazınızı aşağı kapatılıyor düzgün çalışmayan bir bileşeni Değiştir, başarısız (kırmızı) veya ilgili bileşenleri için düzeyi düşürülmüş (sarı) durumu görürsünüz.
 
 
-#### <a name="tooshut-down-a-storsimple-device"></a>StorSimple cihazı aşağı tooshut
+#### <a name="to-shut-down-a-storsimple-device"></a>Bir StorSimple cihazı kapatmak için
 
-1. Kullanım hello [yeniden başlatma veya kapatma denetleyicisi](#restart-or-shut-down-a-single-controller) yordamı tooidentify ve hello pasif denetleyiciyi aygıtınızda kapat. StorSimple için hello Azure portalı veya Windows PowerShell Bu işlemi gerçekleştirebilir.
-2. Yukarıdaki adım tooshut hello etkin denetleyicisini Hello yineleyin.
-3. Merhaba şimdi geri ve hello aygıt düzlemi benzemelidir. Merhaba iki denetleyicileri tamamen kapatıldığından sonra hello hem hello denetleyicileri LED'leri durumuna kırmızı yanıp sönen. Merhaba aygıt devre dışı tooturn şu anda tamamen gerekiyorsa, güç ve soğutma modülleri (PCMs) Çevir hello güç anahtarları toohello OFF konumu. Bu hello aygıtı kapatıp açmanız gerekir.
+1. Kullanım [yeniden başlatma veya kapatma denetleyicisi](#restart-or-shut-down-a-single-controller) yordamı tanımlamak ve aygıtınızda pasif denetleyicisini kapatın. StorSimple için Azure Portalı'nı veya Windows PowerShell Bu işlemi gerçekleştirebilir.
+2. Etkin denetleyicisi kapatmak için yukarıdaki adımı yineleyin.
+3. Şimdi cihaz geri düzlemi aramanız gerekir. İki denetleyicileri tamamen kapatıldığından sonra her iki denetleyicilerinde LED'leri durumu kırmızı yanıp sönen. Aygıtı şu anda tamamen kapatmasına izin gerekiyorsa, güç ve soğutma modülleri (PCMs) güç anahtarları kapalı konuma çevir. Bu aygıtı kapatıp açmanız gerekir.
 
-## <a name="reset-hello-device-toofactory-default-settings"></a>Merhaba aygıt toofactory varsayılan ayarlarına sıfırlama
+## <a name="reset-the-device-to-factory-default-settings"></a>Cihazı fabrika varsayılan ayarlarına sıfırlama
 
 > [!IMPORTANT]
-> Aygıt toofactory varsayılan ayarlarınızı tooreset gerekiyorsa, Microsoft Support başvurun. aşağıda açıklanan hello yordam yalnızca, Microsoft Support ile birlikte kullanılmalıdır.
+> Cihazınızı fabrika varsayılan ayarlarına sıfırlamak gerekiyorsa, Microsoft Support başvurun. Aşağıda açıklanan yordam, yalnızca, Microsoft Support ile birlikte kullanılmalıdır.
 
-Bu yordam açıklar nasıl tooreset StorSimple için Windows PowerShell kullanarak, Microsoft Azure StorSimple cihaz toofactory varsayılan ayarları.
-Bir cihazı sıfırlamak tüm veriler ve ayarlar varsayılan olarak tüm küme hello kaldırır.
+Bu yordam, Microsoft Azure StorSimple Cihazınızı StorSimple için Windows PowerShell kullanarak Fabrika varsayılan ayarlarına sıfırlamak açıklar.
+Bir cihazı sıfırlamak tüm veriler ve ayarlar varsayılan olarak tüm küme kaldırır.
 
-Aşağıdaki adımları tooreset hello Microsoft Azure StorSimple cihaz toofactory varsayılan ayarlarınızı gerçekleştirin:
+Microsoft Azure StorSimple Cihazınızı fabrika varsayılan ayarlarına sıfırlamak için aşağıdaki adımları gerçekleştirin:
 
-### <a name="tooreset-hello-device-toodefault-settings-in-windows-powershell-for-storsimple"></a>tooreset hello toodefault için cihaz ayarları Windows PowerShell'de StorSimple
-1. Erişim hello cihaz seri Konsolu aracılığıyla. Merhaba başlık iletisi tooensure bağlı toohello olduğunu denetleyin **etkin** denetleyicisi.
-2. Merhaba seri konsol menüsünde seçeneği 1, **oturum oturum tam erişim**.
-3. Merhaba istemine komut tooreset hello tüm küme aşağıdaki, tüm verileri, meta verilerini ve denetleyici ayarları kaldırılıyor hello yazın:
+### <a name="to-reset-the-device-to-default-settings-in-windows-powershell-for-storsimple"></a>Cihaz StorSimple için Windows PowerShell'de varsayılan ayarlarına sıfırlamak için
+1. Cihaz seri Konsolu aracılığıyla erişim. Başlık iletisi bağlı olduğunuzdan emin olmak için kontrol **etkin** denetleyicisi.
+2. Seri konsol menüsünde seçeneği 1, **oturum oturum tam erişim**.
+3. İsteminde tüm verileri, meta verilerini ve denetleyici ayarları kaldırılıyor kümenin tamamının sıfırlamak için aşağıdaki komutu yazın:
    
     `Reset-HcsFactoryDefault`
    
-    tooinstead sıfırlama tek bir denetleyici, hello kullan [sıfırlama HcsFactoryDefault](http://technet.microsoft.com/library/dn688132.aspx) hello cmdlet'iyle `-scope` parametresi.)
+    Bunun yerine tek bir denetleyici sıfırlayabilmesi için [sıfırlama HcsFactoryDefault](http://technet.microsoft.com/library/dn688132.aspx) cmdlet'iyle `-scope` parametresi.)
    
-    Merhaba sistem birden çok kez yeniden başlatılır. Merhaba sıfırlama başarıyla tamamlandığında size bildirilecek. Hello sistem modeline bağlı olarak, bu işlem 45-60 dakika 8100 cihazınız ve 8600 toofinish 60-90 dakika sürebilir.
+    Sistem, birden çok kez yeniden başlatılır. Sıfırla başarıyla tamamlandığında size bildirilecek. Sistem modeline bağlı olarak, 45-60 dakika 8100 bir aygıt için ve bu işlemi tamamlamak bir 8600 60-90 dakika sürebilir.
    
 ## <a name="questions-and-answers-about-managing-device-controllers"></a>Sorular ve yanıtlar aygıt denetleyicileri yönetme hakkında
-Bu bölümde, biz bazı sık sorulan sorular hello özetlenen sahipseniz yönetme StorSimple cihaz denetleyicilerinin ilgili.
+Bu bölümde, biz bazı sık sorulan sorular özetlenen sahipseniz yönetme StorSimple cihaz denetleyicilerinin ilgili.
 
-**S.** Her ikisi de cihazımı denetleyicilerinde hello ne olur olan sağlıklı ve açıktır ve yeniden başlatma veya hello etkin denetleyicisi kapatma?
+**S.** Her iki denetleyicilerinde cihazımı sağlıklı ve açık olduğunda ne olacağını üzerinde ve yeniden başlatın veya etkin denetleyicisi Kapat?
 
-**C.** Hem hello denetleyicileri aygıtınızda sağlıklı ve açık ise, onaylamanız istenir. Seçebilirsiniz:
+**C.** İki denetleyiciye aygıtınızda sağlıklı ve açık ise, onaylamanız istenir. Seçebilirsiniz:
 
-* **Merhaba etkin denetleyicisi yeniden** – denetleyicisini active yeniden hello aygıt toofail toohello pasif denetleyiciyi açtığını bildirilir. Merhaba denetleyicisi yeniden başlatır.
-* **Etkin bir denetleyici Kapat** – denetleyicisini active kapatılıyor kapalı kalma süresi ile sonuçları bildirilir. Ayrıca toopush hello güç düğmesine hello aygıt tooturn hello denetleyicisinde gerekir.
+* **Etkin denetleyicisi yeniden** – denetleyicisini active yeniden cihazı pasif denetleyiciyi üzerinden vermesine neden bildirilir. Denetleyici yeniden başlatır.
+* **Etkin bir denetleyici Kapat** – denetleyicisini active kapatılıyor kapalı kalma süresi ile sonuçları bildirilir. Denetleyicide etkinleştirmek için cihazda güç düğmesine basın gerekir.
 
-**S.** Cihazımı pasif denetleyicisinde hello kullanılamıyor veya açık ise Kapalı ve yeniden başlatın veya hello etkin denetleyicisi Kapat de ne olur?
+**S.** Cihazımı pasif denetleyicisinde kullanılamıyor veya açık ise Kapalı ve yeniden başlatın veya etkin denetleyicisi Kapat de ne olur?
 
-**C.** Merhaba pasif aygıtınızda denetleyicisiyse kullanılamıyor veya kapalı kapalı ve aktarmayı seçin:
+**C.** Pasif aygıtınızda denetleyicisiyse kullanılamıyor veya kapalı kapalı ve aktarmayı seçin:
 
-* **Merhaba etkin denetleyicisi yeniden** – hello işleme devam ederseniz hello hizmetinin geçici kesilme neden olur ve onaylamanız istenir bildirilir.
-* **Etkin bir denetleyici Kapat** – devam ediliyor hello işlemi kapalı kalma süresi ile sonuçları bildirilir. Ayrıca toopush hello güç düğmesine hello aygıtta biri veya her ikisi denetleyicileri tooturn gerekir. Onayınız istenir.
+* **Etkin denetleyicisi yeniden** – işlem devam hizmetinin geçici kesilme neden olur ve onaylamanız istenir bildirilir.
+* **Denetleyicisini active Kapat** – size bildirilir, işleme devam ederseniz kapalı kalma süresi ile sonuçlanır. Ayrıca aygıtta açmak için bir veya iki denetleyicilerinde güç düğmesine basın gerekir. Onayınız istenir.
 
-**S.** Hello denetleyicisi yeniden başlatma veya kapatma başarısız olduğunda tooprogress?
+**S.** Ne zaman denetleyicisi yeniden başlatma veya kapatma mu ilerleme başarısız oluyor?
 
 **C.** Başlatma veya kapatma denetleyicisi başarısız olabilir:
 
@@ -147,17 +147,17 @@ Bu bölümde, biz bazı sık sorulan sorular hello özetlenen sahipseniz yönetm
 
 **S.** Nasıl, bir denetleyici veya yeniden kapatma anlayıp?
 
-**C.** Denetleyici dikey penceresinde hello denetleyicisi durumunu kontrol edebilirsiniz. Merhaba denetleyicisi durumu yeniden başlatma veya kapatma hello işlemi bir denetleyicisi olup olmadığını belirtir. Ayrıca, hello **uyarıları** dikey penceresinde hello denetleyicisi yeniden veya kapatıldıysa bir bilgilendirme uyarısı içerir. Merhaba denetleyicisi yeniden başlatma ve kapatma işlemleri de hello acitivity günlüklerine kaydedilir. Acitivity günlükleri hakkında daha fazla bilgi için çok Git[görüntülemek hello etkinlik günlükleri](storsimple-8000-service-dashboard.md#view-the-activity-logs).
+**C.** Denetleyici dikey denetleyicisi durumunu kontrol edebilirsiniz. Denetleyici durumu yeniden başlatma veya kapatma işleminde bir denetleyicisi olup olmadığını belirtir. Ayrıca, **uyarıları** dikey denetleyicisi yeniden veya kapatıldıysa bir bilgilendirme uyarısı içerir. Denetleyicisi yeniden başlatma ve kapatma işlemleri de acitivity günlüklerine kaydedilir. Acitivity günlükleri hakkında daha fazla bilgi için Git [etkinlik günlükleri görüntülemek](storsimple-8000-service-dashboard.md#view-the-activity-logs).
 
-**S.** Denetleyici yük devretmesi sonucunda herhangi bir etkisi toohello g/ç var mı?
+**S.** Denetleyici yük devretmesi sonucunda g/ç için herhangi bir etki var mı?
 
-**C.** Merhaba TCP bağlantılarını başlatıcıları ve etkin denetleyici arasında sonucunda denetleyici yük devretmesi sıfırlanacak, ancak işlemi hello pasif denetleyiciyi varsayar olduğunda yeniden. Bu işlem hello sürecinde g/ç etkinliğini başlatıcıları ve hello aygıtı arasında bir geçici (30 saniyeden daha az) duraklama olabilir.
+**C.** TCP bağlantılarını başlatıcıları ve etkin denetleyici arasında sonucunda denetleyici yük devretmesi sıfırlanacak, ancak işlemi pasif denetleyiciyi varsayar olduğunda yeniden. Bu işlem sürecinde g/ç etkinliğini başlatıcıları ve aygıtı arasında bir geçici (30 saniyeden daha az) duraklama olabilir.
 
-**S.** Kapatılır ve kaldırılmış sonra nasıl my denetleyicisi tooservice dönüş?
+**S.** My denetleyicisi kapatılır ve kaldırılmış sonra hizmet dönüş nasıl?
 
-**C.** bir denetleyici tooservice tooreturn, eklemeniz gerekir, hello kasaya açıklandığı gibi [Denetleyici Modülü, StorSimple Cihazınızda Değiştir](storsimple-8000-controller-replacement.md).
+**C.** Bir denetleyici hizmetine döndürmek için bu kasaya açıklandığı gibi eklemeniz gerekir [Denetleyici Modülü, StorSimple Cihazınızda Değiştir](storsimple-8000-controller-replacement.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bu öğreticide, listelenen hello yordamları kullanarak çözümlenemiyor, StorSimple cihaz denetleyicilerini ile herhangi bir sorunla karşılaştığınızda [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md).
-* Merhaba StorSimple cihaz Yöneticisi hizmetini kullanma hakkında daha fazla toolearn Git çok[kullanım StorSimple Cihazınızı StorSimple cihaz Yöneticisi hizmeti tooadminister hello](storsimple-8000-manager-service-administration.md).
+* Bu öğreticide, listelenen yordamları kullanarak çözümlenemiyor, StorSimple cihaz denetleyicilerini ile herhangi bir sorunla karşılaştığınızda [Microsoft Support başvurun](storsimple-8000-contact-microsoft-support.md).
+* StorSimple cihaz Yöneticisi hizmetini kullanma hakkında daha fazla bilgi edinmek için şu adrese gidin [StorSimple Cihazınızı yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanma](storsimple-8000-manager-service-administration.md).
 

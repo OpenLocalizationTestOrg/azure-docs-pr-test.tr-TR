@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure API Management belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
-description: "Bilgi nasıl toouse API Management toopublish API'leri güvenli bir şekilde ve ölçekte. Belge gösterir nasıl toocreate modern API ağ geçidi mevcut arka uç hizmetlerini için."
+title: "Azure API Management Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "API Management’ı kullanarak API’lerinizi güvenli bir biçimde ve yüksek ölçekte yayımlama hakkında bilgi edinin. Belgelerde, mevcut arka uç hizmetleri için modern API ağ geçitleri oluşturmaya ilişkin bilgiler sunulmuştur."
 services: api-management
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: c2bd5d7dc7c6df3ad01a704fdd28c9437d39a04b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: de56e8b5fb7866183b0f06c4ac877d7b80a282f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-documentation"></a>API Management Belgeleri
 
-Bilgi nasıl tooexternal, iş ortağı ve çalışan toouse API Management toopublish API geliştiricilere güvenli bir şekilde ve ölçekte. Öğreticiler, API başvuru ve diğer belgeleri göster, nasıl toocreate ve mevcut arka uç hizmetlerini herhangi bir yerde barındırılan modern API ağ geçitleri yönetin.
+API Management’ı kullanarak dış geliştiricilere, geliştirici iş ortaklarına ve şirket çalışanı olan geliştiricilere güvenli bir şekilde ve doğru ölçekte API yayımlama hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, herhangi bir yerde barındırılan mevcut arka uç hizmetlerine yönelik modern API ağ geçitleri oluşturma ve bunları yönetme ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>

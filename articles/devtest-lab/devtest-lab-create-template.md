@@ -1,6 +1,6 @@
 ---
-title: "Azure DevTest Labs özel görüntüyü bir VHD dosyasından aaaCreate | Microsoft Docs"
-description: "Nasıl toocreate VHD dosyasını kullanarak Azure DevTest Labs özel bir görüntü hello Azure portal öğrenin"
+title: "Bir VHD dosyasından Azure DevTest Labs özel görüntü oluşturma | Microsoft Docs"
+description: "Azure DevTest Labs Azure portalını kullanarak bir VHD'yi dosyasından içinde özel bir görüntü oluşturmayı öğrenin"
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
-ms.openlocfilehash: 80af8ea1cb72380f868df0a76c4a0dcd92e63cf5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9983ea9b847f44ed18a6169a4bdb224b63626a64
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Bir VHD dosyasındaki özel bir görüntü oluşturun
 
@@ -30,41 +30,41 @@ ms.lasthandoff: 10/06/2017
 
 ## <a name="step-by-step-instructions"></a>Adım adım yönergeler
 
-Merhaba aşağıdaki adımlar, özel bir görüntü hello Azure portal kullanarak bir VHD'yi dosyasından oluşturmada size yol:
+Aşağıdaki adımlar, Azure portalını kullanarak bir VHD'yi dosyasından özel görüntü oluşturmada size yol:
 
-1. İçinde toohello oturum [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 
-1. Seçin **daha fazla hizmet**ve ardından **DevTest Labs** hello listeden.
+1. **More services**’i (Daha fazla hizmet’i) seçip ardından listeden **DevTest Labs**’i seçin.
 
-1. Merhaba istenen Laboratuvar labs Hello listeden seçin.  
+1. İstenen Laboratuvar labs listesinden seçin.  
 
-1. Merhaba Laboratuvar'ın dikey penceresinde, seçin **yapılandırma**. 
+1. Laboratuvar 's dikey penceresinde, seçin **yapılandırma**. 
 
-1. Merhaba Laboratuvar üzerinde **yapılandırma** dikey penceresinde, select **özel görüntülerini (VHD)**.
+1. Laboratuvar üzerinde **yapılandırma** dikey penceresinde, select **özel görüntülerini (VHD)**.
 
-1. Merhaba üzerinde **özel görüntüleri** dikey penceresinde, select **+ Ekle**.
+1. Üzerinde **özel görüntüleri** dikey penceresinde, select **+ Ekle**.
 
     ![Özel görüntü ekleme](./media/devtest-lab-create-template/add-custom-image.png)
 
-1. Merhaba özel görüntü Hello adını girin. Bu ad, bir VM oluşturulurken hello temel görüntü listesinde görüntülenir.
+1. Özel görüntü adı girin. Bu ad, bir VM oluşturulurken temel görüntü listesinde görüntülenir.
 
-1. Merhaba özel görüntü Hello açıklamasını girin. Bu açıklama, bir VM oluşturulurken hello temel görüntü listesinde görüntülenir.
+1. Özel görüntü açıklamasını girin. Bu açıklama, bir VM oluşturulurken temel görüntü listesinde görüntülenir.
 
 1. Seçin **VHD**.
 
-1. Merhaba gelen **VHD** dikey penceresinde, istenen select hello VHD dosyası.
+1. Gelen **VHD** dikey penceresinde istenen VHD dosyasını seçin.
 
-1. Seçin **Tamam** tooclose hello **VHD** dikey.
+1. Seçin **Tamam** kapatmak için **VHD** dikey.
 
 1. Seçin **işletim sistemi yapılandırması**.
 
-1. Merhaba üzerinde **işletim sistemi yapılandırması** sekmesinde, ya da seçin **Windows** veya **Linux**.
+1. Üzerinde **işletim sistemi yapılandırması** sekmesinde, ya da seçin **Windows** veya **Linux**.
 
-1. Varsa **Windows** olan hello onay kutusu seçildiyse olup olmadığını *Sysprep* hello makinede çalıştırın. 
+1. Varsa **Windows** olan onay kutusunu seçildiyse olup olmadığını *Sysprep* makinede çalıştırın. 
 
-1. Seçin **Tamam** tooclose hello **işletim sistemi yapılandırması** dikey.
+1. Seçin **Tamam** kapatmak için **işletim sistemi yapılandırması** dikey.
 
-1. Seçin **Tamam** toocreate hello özel görüntü.
+1. Seçin **Tamam** özel görüntüsü oluşturulamadı.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -75,4 +75,4 @@ Merhaba aşağıdaki adımlar, özel bir görüntü hello Azure portal kullanara
 
 ##<a name="next-steps"></a>Sonraki adımlar
 
-- [VM tooyour Laboratuvar ekleme](./devtest-lab-add-vm-with-artifacts.md)
+- [Laboratuvarınızı için bir VM ekleme](./devtest-lab-add-vm-with-artifacts.md)

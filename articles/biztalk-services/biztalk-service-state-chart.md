@@ -1,6 +1,6 @@
 ---
-title: "farklı durumları ya da BizTalk Services durumları izin aaaTasks | Microsoft Docs"
-description: "Merhaba Eylemler/işlemleri farklı MABS durumunda izin: durdurmak, Başlat, yeniden başlatın, askıya alma, sürdürme, Sil, ölçeklendirme, Yukarı yapılandırma ve yedekleme güncelleştirme"
+title: "Farklı durumları ya da BizTalk Services durumları izin görevleri | Microsoft Docs"
+description: "Farklı MABS durumunda izin verilen eylemleri/operations: durdurmak, Başlat, yeniden başlatın, askıya alma, sürdürme, Sil, ölçeklendirme, Yukarı yapılandırma ve yedekleme güncelleştirme"
 services: biztalk-services
 documentationcenter: 
 author: MandiOhlinger
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-ms.openlocfilehash: 643307ba6fa9b05c82b867912feab249c42b65dd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 918154852cf4ee1b80792eaddb588f5b0237da7c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="what-you-can-and-cant-do-using-hello-biztalk-service-state"></a>Neleri olabilir ve kullanarak yapamazsınız hello BizTalk hizmeti durumu
+# <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>Ne yapıp BizTalk hizmeti durumu kullanarak olamaz
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-Merhaba geçerli durumunu hello BizTalk hizmeti bağlı olarak, ya da BizTalk hizmeti hello üzerinde gerçekleştirilemiyor işlem vardır.
+BizTalk hizmeti geçerli durumuna bağlı olarak BizTalk hizmeti gerçekleştiremez veya işlem vardır.
 
-Örneğin, yeni bir BizTalk hizmeti hello Klasik Azure Portalı'nda sağlayın. Başarıyla tamamlandığında, BizTalk hizmeti hello bulunduğu `active` durumu. Merhaba etkin durumda durdurmak, askıya alma ve hello BizTalk hizmeti silin. Hello BizTalk Hizmeti Durdur ve durdurma başarısız olduysa hello BizTalk hizmeti gider tooa `StopFailed` durumu. Merhaba, `StopFailed` durumunda, hello BizTalk hizmeti yeniden. Sürdür'gibi izin verilmeyen bir işlem denerseniz aşağıdaki hata hello oluşur:
+Örneğin, Azure Klasik portalında yeni bir BizTalk hizmeti sağlayın. Başarıyla tamamlandığında, BizTalk hizmeti olarak `active` durumu. Etkin durumda durdurmak, askıya alma ve BizTalk hizmeti silin. BizTalk hizmetini durdurun ve durdurma başarısız olduysa BizTalk hizmeti gider bir `StopFailed` durumu. İçinde `StopFailed` durumunda, BizTalk hizmeti yeniden. Sürdür'gibi izin verilmeyen bir işlem denerseniz aşağıdaki hata oluşur:
 
 `Operation not allowed`
 
-## <a name="view-hello-possible-states"></a>Görünüm hello olası durumlar
+## <a name="view-the-possible-states"></a>Olası durumlarını görüntülemek
 
-Merhaba aşağıdaki tablolarını listeleme hello işlemleri veya hello BizTalk hizmeti belirli bir durumda olduğunda yapılabilir eylemler. Bir ✔ hello işleme durumundayken bu izin anlamına gelir. Boş bir girdiyi hello o durumda gerçekleştirilemiyor anlamına gelir.
+Aşağıdaki tablolar, işlemler veya BizTalk hizmeti belirli bir durumda olduğunda yapılabilir eylemleri listeler. Bir ✔ durumundayken bu işleme izin anlamına gelir. Boş bir girdiyi durumundayken bu işlem gerçekleştirilemiyor anlamına gelir.
 
 | Hizmet durumu | Başlatma | Durdur | Yeniden Başlatma | Askıya alma | Sürdür | Sil | Ölçek | Güncelleştirme <br/> Yapılandırma | Backup |
 | --- | --- | --- | --- | --- | --- | --- |--- | --- | --- |
@@ -52,11 +52,11 @@ Merhaba aşağıdaki tablolarını listeleme hello işlemleri veya hello BizTalk
 
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-* [Merhaba Klasik Azure portalını kullanarak BizTalk hizmeti oluşturma](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-* [BizTalk Services hello Pano, İzleyici ve ölçek sekmeleri yapabilecekleriniz](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [Merhaba geliştirici, temel, standart ve Premium sürümlerinde BizTalk Services ile Al](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [Nasıl tooback ayarlama ve BizTalk hizmeti geri yükleme](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [Klasik Azure portalını kullanarak BizTalk hizmeti oluşturma](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [BizTalk Services Pano, İzleyici ve ölçek sekmeleri yapabilecekleriniz](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [BizTalk Services geliştirici, temel, standart ve Premium sürümlerinde ile Al](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [Yedekleme ve BizTalk hizmeti geri yükleme](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 * [BizTalk Services'da açıklandığı azaltma](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-* [BizTalk hizmetiniz için Hello Service Bus ve erişim denetimi verenin adı ve verenin anahtar değerlerini alma](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
-* [I Başlat'ı kullanarak Azure BizTalk Services SDK'sı nasıl hello](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [BizTalk hizmetiniz için hizmet veri yolu ve erişim denetimi verenin adı ve verenin anahtar değerlerini alma](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+* [Azure BizTalk Services SDK'sını Kullanmaya Nasıl Başlarım](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 

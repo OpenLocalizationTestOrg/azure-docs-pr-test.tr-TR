@@ -1,6 +1,6 @@
 ---
-title: "aaaHow toocreate SQL Data Warehouse için destek bileti | Microsoft Docs"
-description: "Nasıl toocreate bir destek bileti Azure SQL Data Warehouse'da."
+title: "SQL Veri Ambarı için destek bileti oluşturma | Microsoft Belgeleri"
+description: "Azure SQL Data Warehouse'da destek bileti oluşturma"
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
@@ -15,70 +15,70 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.openlocfilehash: 72f7eac82112fb7f1bfb05abca4ce40aeb3c828c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 058ff1229acee5d03db7c0305c5565ae95a85758
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-toocreate-a-support-ticket-for-sql-data-warehouse"></a>Nasıl toocreate bir destek bileti SQL Data Warehouse için
+# <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>SQL Data Warehouse için destek bileti oluşturma
 SQL Veri Ambarı’nız ile ilgili herhangi bir sorun yaşıyorsanız lütfen mühendislik ekibimizin size yardımcı olabilmesi için bir destek bileti oluşturun.
 
 > [!NOTE] 
-> 12/20/2016 itibariyle hello kaynak sistem durumu denetimi hello Azure portal'ın doğru değil. Etkin olarak toofix bu sorunu çalışıyoruz. 
+> 20.12.2016 itibarıyla Azure portalındaki kaynak durumu denetimi doğru değildir. Bu sorunu düzeltmek için etkin bir şekilde çalışıyoruz. 
 
 
 ## <a name="create-a-support-ticket"></a>Destek bileti oluşturma
-1. Açık hello [Azure portal][Azure portal].
-2. Hello giriş ekranında hello tıklatın **Yardım + Destek** döşeme.
+1. [Azure portalını][Azure portal] açın.
+2. Giriş ekranında **Yardım + destek** kutucuğuna tıklayın.
    
     ![Yardım + destek](./media/sql-data-warehouse-get-started-create-support-ticket/help-support.png)
-3. Merhaba Yardım + destek dikey penceresinde üzerinde tıklatın **yeni destek isteği**.
+3. Yardım + Destek dikey penceresinde **Yeni destek isteği**'ne tıklayın
    
     ![Yeni destek isteği](./media/sql-data-warehouse-get-started-create-support-ticket/create-support-request.png)
    
     <a name="request-quota-change"></a> 
-4. Select hello **istek türü**.
+4. **İstek Türü**'nü seçin.
    
     ![İstek türü](./media/sql-data-warehouse-get-started-create-support-ticket/request-type.png)
    
    > [!NOTE]
-   > Varsayılan olarak her SQL sunucusu (örn. myserver.database.windows.net) 45.000’lik **DTU Kotası**’na sahiptir. Bu kota yalnızca bir güvenlik sınırıdır. Bir destek bileti oluşturma ve seçerek kotayı artırabilir *kota* hello istek türü. gerekli için DTU Çarp toocalculate hello 7.5 hello toplam [DWU] [ DWU] gerekli. Örneğin, iki toohost istediğiniz bir SQL server, ardından üzerinde DW6000s 90,000 DTU kotası isteği.  Geçerli bir DTU tüketimi hello SQL server dikey penceresinden hello Portalı'nda görüntüleyebilirsiniz. Duraklatıldı ve duraklatılmamış veritabanları hello DTU kota doğru sayısı. 
+   > Varsayılan olarak her SQL sunucusu (örn. myserver.database.windows.net) 45.000’lik **DTU Kotası**’na sahiptir. Bu kota yalnızca bir güvenlik sınırıdır. Bir destek bileti oluşturarak ve istek türü olarak *Kota* ’ yı seçerek kotanızı artırabilirsiniz. DTU gereksinimlerinizi hesaplamak için gereken toplam [DWU][DWU] değerini 7,5 ile çarpın. Örneğin, tek bir SQL sunucusu üzerinde iki DW6000 barındırmak istiyorsanız, 90.000’lik DTU kotası istemeniz gerekir.  Geçerli DTU tüketiminizi portaldaki SQL server dikey penceresinden görüntüleyebilirsiniz. DTU kotasında hem duraklatılmış hem de duraklatılmamış veritabanları sayılır. 
    > 
    > 
-5. Select hello **abonelik** ana veritabanı hello sorunu Raporlama ile Merhaba.
+5. Bildirdiğiniz sorunun yaşandığı veritabanını barındıran **Aboneliği** seçin.
    
     ![Abonelik](./media/sql-data-warehouse-get-started-create-support-ticket/subscription.png)
-6. Seçin **SQL Data Warehouse** kaynak hello gibi.
+6. Kaynak olarak **SQL Data Warehouse**'u seçin.
    
     ![Kaynak](./media/sql-data-warehouse-get-started-create-support-ticket/resource.png)
 7. [Azure destek planınızı][Azure support plan] seçin.
    
    * Tüm destek düzeylerinde **faturalama, kota ve abonelik yönetimi** desteği sunulmaktadır.
-   * **Onarım** desteği [Geliştirici][Developer], [Standart][Standard], [Profesyonel Doğrudan][Professional Direct] veya [Premier][Premier] destek aracılığıyla sağlanır. Onarım sorunlardır müşteriler tarafından Azure'ı kullandığı sırada karşılaştıkları sorunlar bu neden Microsoft hello sorunu makul beklentiler olduğu.
-   * **Geliştirici rehberliği** ve **Danışmanlık Hizmetleri** hello kullanılabilir [profesyonel doğrudan] [ Professional Direct] ve [Premier] [ Premier] destek düzeyleri. 
+   * **Onarım** desteği [Geliştirici][Developer], [Standart][Standard], [Profesyonel Doğrudan][Professional Direct] veya [Premier][Premier] destek aracılığıyla sağlanır. Onarım sorunları, müşterilerin Azure'ı kullandığı sırada karşılaştıkları ve ilgili sorunun Microsoft'tan kaynaklandığına ilişkin makul bir olasılığın bulunduğu sorunlardır.
+   * **Geliştirici rehberliği** ve **danışmanlık hizmetleri**, [Profesyonel Doğrudan][Professional Direct] ve [Premier][Premier] destek düzeylerinde kullanılabilir. 
      
-     Bir Premier Destek planınız varsa SQL Data Warehouse de rapor edebilirsiniz hello sorunlarıyla ilgili [Microsoft Premier çevrimiçi portalı][Microsoft Premier online portal].  Bkz: [Azure destek planları] [ Azure support plan] toolearn çeşitli destek planları, kapsam, yanıt süreleri ve fiyatlandırma dahil olmak üzere hello hakkında daha fazla vs.  Azure desteği ile ilgili sık sorulan sorular için bkz. [Azure desteği ile ilgili SSS][Azure support FAQs].  
+     Bir Premier destek planınız varsa SQL Veri Ambarı ile ilgili sorunları [Microsoft Premier çevrimiçi portalı][Microsoft Premier online portal] üzerinden de bildirebilirsiniz.  Kapsam,yanıt süreleri ve fiyatlandırma dahil olmak üzere çeşitli destek planları hakkında daha fazla bilgi edinmek için bkz. [Azure destek planları][Azure support plan].  Azure desteği ile ilgili sık sorulan sorular için bkz. [Azure desteği ile ilgili SSS][Azure support FAQs].  
      
      ![Destek planı](./media/sql-data-warehouse-get-started-create-support-ticket/support-plan.png)
-8. Select hello **sorun türü** ve **kategori**. Bu örnekte, biz "Araçlar" Merhaba sorun türü olarak ve "İstemci araçları" Merhaba kategori olarak seçtiniz. 
+8. **Sorun Türü**'nü ve **Kategori**'yi seçin. Bu örnekte Sorun türü olarak "Araçlar", kategori olarak ise "İstemci araçları" seçimini yaptık. 
    
     ![Sorun türü kategori](./media/sql-data-warehouse-get-started-create-support-ticket/problem-type-category.png)
-9. Merhaba sorunu açıklayın ve iş etkisi hello düzeyini seçin.
+9. Sorunu açıklayın ve iş etkisi düzeyini seçin.
    
     ![Sorun açıklaması](./media/sql-data-warehouse-get-started-create-support-ticket/problem-description.png)
 10. Bu destek bileti için **iletişim bilgileriniz** önceden doldurulur. Gerekli gördüğünüz halde bilgilerinizi güncelleştirin.
     
     ![İletişim bilgileri](./media/sql-data-warehouse-get-started-create-support-ticket/contact-info.png)
-11. Tıklatın **oluşturma** toosubmit hello destek isteği.
+11. Destek isteğini göndermek için **Oluştur**'a tıklayın.
 
 ## <a name="monitor-a-support-ticket"></a>Destek biletini izleme
-Merhaba destek isteğini gönderdikten sonra hello Azure destek ekibi sizinle iletişime geçer. toocheck isteği durumu ve ayrıntıları tıklatın **destek isteklerini yönetin** hello Panoda.
+Destek isteğini gönderdikten sonra Azure destek ekibi sizinle iletişime geçer. İstek durumunuzu ve ayrıntılarını kontrol etmek için panoda bulunan **Destek isteklerini yönetin** kutucuğuna tıklayın.
 
 ![Durumu kontrol etme](./media/sql-data-warehouse-get-started-create-support-ticket/check-status.png)
 
 ## <a name="other-resources"></a>Diğer Kaynaklar
-Ayrıca, üzerinde hello ile SQL Data Warehouse topluluğuna bağlanabilirsiniz [yığın taşması] [ Stack Overflow] veya hello [Azure SQL Data Warehouse MSDN Forumu] [ Azure SQL Data Warehouse MSDN forum].
+Ayrıca, [Stack Overflow][Stack Overflow] veya [Azure SQL Veri Ambarı MSDN forumu][Azure SQL Data Warehouse MSDN forum] üzerinden SQL Veri Ambarı topluluğuna bağlanabilirsiniz.
 
 <!--Image references--> 
 

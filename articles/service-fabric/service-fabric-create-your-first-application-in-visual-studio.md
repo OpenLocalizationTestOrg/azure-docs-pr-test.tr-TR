@@ -1,5 +1,5 @@
 ---
-title: "C# ile Azure Service Fabric güvenilir hizmet aaaCreate"
+title: "C# ile Azure Service Fabric güvenilir hizmeti oluşturma"
 description: "Visual Studio ile, Azure Service Fabric üzerinde derlenmiş bir Güvenilir Hizmet uygulaması oluşturun, dağıtım ve hatalarını ayıklayın."
 services: service-fabric
 documentationcenter: .net
@@ -12,122 +12,122 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2017
+ms.date: 10/04/2017
 ms.author: ryanwi
-ms.openlocfilehash: 740c866da6e639219b529fe92ed63cbeaa702a35
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: a4bada3c099e348e2aa188fe08a67ef170ad50ed
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>İlk C# Service Fabric durum bilgisi olan reliable services uygulamanızı oluşturma
 
-Bilgi nasıl toodeploy ilk Service Fabric uygulamanızı .NET Windows için yalnızca birkaç dakika içinde. Tamamladığınızda, güvenilir hizmet uygulamasıyla çalışan bir yerel kümeniz olacaktır.
+Yalnızca birkaç dakika içinde Windows üzerinde .NET için ilk Service Fabric uygulamanızı nasıl dağıtacağınızı öğrenin. Tamamladığınızda, güvenilir hizmet uygulamasıyla çalışan bir yerel kümeniz olacaktır.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Başlamadan önce [geliştirme ortamınızı ayarladığınızdan](service-fabric-get-started.md) emin olun. Bu, hello Service Fabric SDK ve Visual Studio 2017 veya 2015 yüklenmesini içerir.
+Başlamadan önce [geliştirme ortamınızı ayarladığınızdan](service-fabric-get-started.md) emin olun. Bu, Service Fabric SDK'sını ve Visual Studio 2017 veya 2015'i yüklemeyi de içerir.
 
-## <a name="create-hello-application"></a>Merhaba uygulaması oluşturma
+## <a name="create-the-application"></a>Uygulama oluşturma
 
 Visual Studio'yu **yönetici** olarak başlatın.
 
 `CTRL`+`SHIFT`+`N` ile bir proje oluşturun
 
-Merhaba, **yeni proje** iletişim kutusunda, seçin **bulut > Service Fabric uygulaması**.
+**Yeni Proje** iletişim kutusunda **Bulut > Service Fabric Uygulaması**'nı seçin.
 
-Ad Merhaba uygulaması **MyApplication** ve basın **Tamam**.
+Uygulamaya **MyApplication** adını verin ve **Tamam**'a basın.
 
    
 ![Visual Studio'da yeni proje iletişim kutusu][1]
 
-Service Fabric uygulaması herhangi bir türde hello sonraki iletişim kutusundan oluşturabilirsiniz. Bu Hızlı Başlangıç için **Durum Bilgisi Olan Hizmet**'i seçin.
+Sonraki iletişim kutusunda her türde Service Fabric uygulaması oluşturabilirsiniz. Bu Hızlı Başlangıç için **Durum Bilgisi Olan Hizmet**'i seçin.
 
-Ad hello hizmeti **Mystatefulservice'ten** ve basın **Tamam**.
+Hizmeti **MyStatefulService** olarak adlandırın ve **Tamam**'a basın.
 
 ![Visual Studio'da yeni hizmet iletişim kutusu][2]
 
 
-Visual Studio hello uygulama projesi ve hello durum bilgisi olan hizmet projesi oluşturur ve bunları Çözüm Gezgini'nde görüntüler.
+Visual Studio uygulama projesini ve durum bilgisi olan hizmet projesini oluşturup bu projeleri Çözüm Gezgini'nde görüntüler.
 
 ![Durum bilgisi olan hizmeti içeren uygulama oluşturulduktan sonra Çözüm Gezgini][3]
 
-Merhaba uygulama projesi (**MyApplication**) herhangi bir kod doğrudan içermiyor. Bunun yerine, bir dizi hizmet projesine başvuru sağlar. Ayrıca, bunlardan farklı olarak üç tür içerik daha barındırır:
+Uygulama projesi (**MyApplication**) doğrudan kod içermez. Bunun yerine, bir dizi hizmet projesine başvuru sağlar. Ayrıca, bunlardan farklı olarak üç tür içerik daha barındırır:
 
 * **Yayımlama profilleri**  
-Toodifferent ortamları dağıtmak için profiller.
+Farklı ortamlarda dağıtıma yönelik profiller.
 
 * **Betikler**  
 Uygulamanızı dağıtmak/yükseltmek için PowerShell betiği.
 
 * **Uygulama tanımı**  
-Merhaba ApplicationManifest.xml dosyası altında içerir *ApplicationPackageRoot* uygulamanızın birleşim açıklar. İlişkili uygulama parametreleri dosyalarını olan altında *ApplicationParameters*, hangi kullanılan toospecify ortama özel parametreler olabilir. Yayımlama profili dağıtım tooa sırasında belirli bir ortamın hello belirtilen bir uygulama parametre dosyası ilişkili visual Studio seçer.
+*ApplicationPackageRoot* altında uygulamanızın birleşimini açıklayan ApplicationManifest.xml dosyasını içerir. İlişkili uygulama parametresi dosyaları *ApplicationParameters* altındadır ve ortama özgü parametreleri belirtmek için kullanılabilir. Visual Studio, belirli bir ortama dağıtım yapılırken ilişkili yayımlama profilinde belirtilen uygulama parametresi dosyasını seçer.
     
-Merhaba hizmet projesi Merhaba içeriğine genel bakış için bkz: [Reliable Services ile çalışmaya başlama](service-fabric-reliable-services-quick-start.md).
+Hizmet projesinin içeriklerine genel bakış için bkz. [Reliable Services ile çalışmaya başlama](service-fabric-reliable-services-quick-start.md).
 
-## <a name="deploy-and-debug-hello-application"></a>Dağıtma ve hello uygulamanızın hatalarını ayıklama
+## <a name="deploy-and-debug-the-application"></a>Uygulamayı dağıtma ve uygulamada hata ayıklama
 
 Artık bir uygulamanız olduğuna göre uygulamayı çalıştırın.
 
-Visual Studio'da basın `F5` hata ayıklama için toodeploy Merhaba uygulaması.
+Hata ayıklama için uygulamayı dağıtmak üzere Visual Studio'da `F5` tuşuna basın.
 
 >[!NOTE]
->Merhaba ilk kez çalıştırma ve yerel olarak hello uygulamayı Visual Studio dağıtmak hata ayıklama için yerel bir küme oluşturur. Bu işlem biraz zaman alabilir. Merhaba küme oluşturma durumunu hello Visual Studio çıktı penceresinde görüntülenir.
+>Uygulamayı yerel olarak ilk kez çalıştırdığınızda ve dağıttığınızda, Visual Studio hata ayıklama için yerel bir küme oluşturur. Bu işlem biraz zaman alabilir. Küme oluşturma durumu, Visual Studio çıkış penceresinde görüntülenir.
 
-Merhaba küme hazır olduğunda, uygulamadan hello SDK ile dahil hello yerel küme sistemi Tepsisi Yöneticisi bir bildirim alır.
+Küme hazır olduğunda SDK'da bulunan yerel küme sistem tepsisi yöneticisi uygulamasından bir bildirim alırsınız.
    
 ![Yerel küme sistemi tepsisi bildirimi][4]
 
-Bir kez hello uygulama başladığında Visual Studio otomatik olarak hello getirir **Tanılama Olay Görüntüleyicisi'ni**, burada, Hizmetleri'nden izleme çıktısını görebilirsiniz.
+Uygulama başlatıldığında, Visual Studio otomatik olarak **Tanılama Olay Görüntüleyicisi**'ni getirir. Bu görüntüleyicide hizmetlerinizin izleme çıktısını görürsünüz.
    
 ![Tanılama olayları görüntüleyicisi][5]
 
-Merhaba kullandık durum bilgisi olan hizmet şablonu yalnızca bir sayaç değeri hello artırma gösterir `RunAsync` yöntemi **MyStatefulService.cs**.
+Kullandığımız durum bilgisi olan hizmet şablonu, yalnızca **MyStatefulService.cs**'nin `RunAsync` yönteminde artan sayaç değerini gösterir.
 
-Merhaba olayları toosee birini hello düğümü hello kod çalıştığı dahil olmak üzere daha fazla ayrıntı genişletin. Bu durumda, \_Node\_2 genişletilir ancak makinenize göre değişiklik gösterebilir.
+Kodun çalıştığı düğüm dahil olmak üzere daha fazla ayrıntı görmek için olaylardan birini genişletin. Bu durumda, \_Node\_2 genişletilir ancak makinenize göre değişiklik gösterebilir.
    
 ![Tanılama olayları görüntüleyicisi ayrıntıları][6]
 
-Merhaba yerel küme tek bir makinede barındırılan beş düğüm içerir. Üretim ortamında, her düğüm ayrı fiziksel veya sanal makinelerde barındırılır. Visual Studio hello uygulanması sırasında makine toosimulate hello kaybı hata ayıklayıcı hello aynı saat, hello yerel kümede hello düğümlerinden biri aşağı atalım.
+Yerel küme, tek bir makinede barındırılan beş düğüm içerir. Üretim ortamında, her düğüm ayrı fiziksel veya sanal makinelerde barındırılır. Makine kaybı benzetimi gerçekleştirirken aynı zamanda Visual Studio hata ayıklayıcısını denemek için yerel kümedeki düğümlerden birini ele alalım.
 
-Merhaba, **Çözüm Gezgini** penceresi açık **MyStatefulService.cs**. 
+**Çözüm Gezgini** penceresinde, **MyStatefulService.cs**'yi açın. 
 
-Hello bulur `RunAsync` yöntemi ve hello yönteminin hello ilk satırında bir kesme noktası ayarlama.
+`RunAsync` yöntemini bulun ve yöntemin ilk satırında bir kesme noktası ayarlayın.
 
 ![Durum bilgisi olan hizmetin RunAsync yönteminde kesme noktası ayarlama][7]
 
-Merhaba başlatma **Service Fabric Explorer** hello üzerinde sağ tıklanarak aracı **yerel Küme Yöneticisi** sistem tepsisi uygulaması ve **yerel kümeyi Yönet**.
+**Yerel Küme Yöneticisi** sistem tepsisine sağ tıklayıp **Yerel Kümeyi Yönet**'i seçerek **Service Fabric Explorer** aracını başlatın.
 
-![Hello yerel Küme Yöneticisi ' Service Fabric Explorer'ı başlatın][systray-launch-sfx]
+![Yerel Küme Yöneticisi'nden Service Fabric Explorer'ı başlatma][systray-launch-sfx]
 
-[**Service Fabric Explorer**](service-fabric-visualizing-your-cluster.md) kümenin görsel bir gösterimini sağlar. Dağıtılan uygulamalar tooit hello kümesi ve onu oluşturan fiziksel düğümlerin hello kümesini içerir.
+[**Service Fabric Explorer**](service-fabric-visualizing-your-cluster.md) kümenin görsel bir gösterimini sağlar. Kümeye dağıtılan uygulama grubunu ve kümeyi oluşturan fiziksel düğüm grubunu içerir.
 
-Merhaba sol bölmesinde **küme > düğümler** ve kodunuzun çalıştığı Bul hello düğüm.
+Sol bölmede **Küme > Düğümler** kısmını genişletin ve kodunuzun çalıştığı düğümü bulun.
 
-Tıklatın **Eylemler > devre dışı bırak (yeniden)** makinenin yeniden başlatılması toosimulate.
+Makinenin yeniden çalıştırılmasının benzetimini gerçekleştirmek için **Eylemler > Devre Dışı Bırak (Yeniden Çalıştır)** seçeneklerine tıklayın.
 
 ![Service Fabric Explorer'da bir düğümü durdurma][sfx-stop-node]
 
-Kısa bir süre içinde isabetini göreceksiniz tooanother yaptığınız işlem bir düğüme sorunsuz bir şekilde hello hesaplama başarısız olarak Visual Studio'da isabet.
+Bir düğümde yaptığınız işlem sorunsuz şekilde başka bir düğüme devredildiğinden kısa süre içinde Visual Studio'da kesme noktası isabetini göreceksiniz.
 
 
-Ardından, toohello Tanılama Olayları Görüntüleyicisi dönün ve hello iletileri gözlemleyin. Merhaba olaylar gerçekte farklı bir düğümden geliyor olsa bile hello sayacın artmaya devam.
+Ardından, Tanılama Olayları Görüntüleyicisi'ne geri dönün ve iletileri gözlemleyin. Olaylar farklı bir düğümden geliyor olsa bile sayaç artmaya devam etti.
 
 ![Yük devretme sonrası tanılama olayları görüntüleyicisi][diagnostic-events-viewer-detail-post-failover]
 
-## <a name="cleaning-up-hello-local-cluster-optional"></a>Merhaba yerel küme (isteğe bağlı) temizleme
+## <a name="cleaning-up-the-local-cluster-optional"></a>Yerel kümeyi temizleme (isteğe bağlı)
 
-Bu yerel kümenin gerçek olduğunu unutmayın. Merhaba hata ayıklayıcı durdurma uygulama örneğinizi kaldırır ve hello uygulama türü kaydını siler. Ancak, hello küme toorun hello arka planda devam eder. Hazır toostop hello yerel küme olduğunuzda, birkaç seçenek vardır.
+Bu yerel kümenin gerçek olduğunu unutmayın. Hata ayıklayıcının durdurulması uygulama örneğinizi ve uygulama türünün kaydını kaldırır. Ama küme arka planda çalışmaya devam eder. Yerel kümeyi durdurmaya hazır olduğunuzda, birkaç seçeneğiniz vardır.
 
 ### <a name="keep-application-and-trace-data"></a>Uygulamayı ve izleme verilerini koruma
 
-Merhaba üzerinde sağ tıklayarak Hello kümeyi kapatın **yerel Küme Yöneticisi** sistem tepsisi uygulaması ve ardından **yerel kümeyi Durdur**.
+**Yerel Küme Yöneticisi** sistem tepsisi uygulamasına sağ tıklayıp **Yerel Kümeyi Durdur**'u seçerek kümeyi kapatın.
 
-### <a name="delete-hello-cluster-and-all-data"></a>Merhaba küme ve tüm verileri silme
+### <a name="delete-the-cluster-and-all-data"></a>Kümeyi ve tüm verileri silme
 
-Merhaba üzerinde sağ tıklayarak Hello kümesini kaldırmak **yerel Küme Yöneticisi** sistem tepsisi uygulaması ve ardından **yerel kümeyi Kaldır**. 
+**Yerel Küme Yöneticisi** sistem tepsisi uygulamasına sağ tıklayıp **Yerel Kümeyi Kaldır**'ı seçerek kümeyi kaldırın. 
 
-Bu seçeneği seçerseniz, Visual Studio hello küme hello çalıştırma hello uygulama sonraki sefer yeniden. Bir süredir toouse hello yerel küme planlamıyorsanız veya tooreclaim kaynakları gerekiyorsa bu seçeneği belirleyin.
+Bu seçeneği kullanırsanız, uygulamayı bir sonraki çalıştırışınızda Visual Studio kümeyi yeniden dağıtır. Bu seçeneği yalnızca yerel kümeyi bir süre kullanmayı planlamıyorsanız veya kaynaklarınızı geri kazanmanız gerekiyorsa kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Reliable services](service-fabric-reliable-services-introduction.md) hakkındaki diğer yazıları okuyun.

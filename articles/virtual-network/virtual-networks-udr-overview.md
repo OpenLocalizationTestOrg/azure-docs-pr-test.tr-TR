@@ -1,6 +1,6 @@
 ---
-title: "aaaUser tanımlı yollar ve IP iletimi azure'da | Microsoft Docs"
-description: "Azure'da sanal gereçler toonetwork tooconfigure kullanıcı tanımlı yolları (UDR) ve IP iletimi tooforward nasıl trafiği öğrenin."
+title: "Azure'da kullanıcı tanımlı rotalar ve IP İletimi | Microsoft Docs"
+description: "Azure'da trafiği ağ sanal gereçlerine iletmek için kullanıcı tanımlı yolları (UDR) ve IP İletimini nasıl yapılandıracağınızı öğrenin."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -15,50 +15,50 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f1f1d46166d5a7c776f472b7ade1354d943ece10
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 6274e0101f6fb0864c8d1efaef7fcde78b8760c3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="user-defined-routes-and-ip-forwarding"></a>Kullanıcı tanımlı yollar ve IP iletme
 
-Azure'da sanal makine (VM) tooa sanal ağ (VNet) eklediğinizde, hello VM'ler hello ağ üzerinden birbirleriyle mümkün toocommunicate otomatik olarak olduğunu fark edeceksiniz. Merhaba VM'ler olsa da farklı alt ağlarda bir ağ geçidi toospecify gerekmez. Merhaba aynı hello VM'ler toohello gelen iletişimi için doğru ortak Internet ve Azure tooyour karma bağlantısından sahip olduğunda datacenter varsa bile tooyour şirket içi ağ.
+Azure'da bir sanal ağa (VNet) sanal makineler (VM'ler) eklediğiniz zaman, VM'lerin birbirleri ile ağ üzerinde otomatik olarak iletişim kurabildiklerini fark edersiniz. VM'ler farklı alt ağlarda bulunsa bile bir ağ geçidini belirtmenize gerek yoktur. Aynı şey VM'lerden genel İnternet'e giden iletişimlerde ve hatta Azure'dan kendi veri merkezinize karma bir bağlantı bulunduğunda şirket içi ağınıza giden iletişimlerde de geçerlidir.
 
-Azure bir dizi IP trafiğinin nasıl akacağını sistem yolları toodefine kullandığından bu iletişim akışını mümkündür. Sistem yolları senaryoları aşağıdaki hello iletişiminde hello akışını denetler:
+Bu iletişim akışının mümkün olmasını sağlayan şey, Azure'ın IP trafiğinin nasıl akacağını belirlemek için kullandığı bir dizi sistem yoludur. Sistem yolları aşağıdaki senaryolarda iletişim akışını denetler:
 
-* Aynı alt ağ içinden hello.
-* Bir sanal ağ içindeki bir alt ağ tooanother.
-* Sanal makineleri toohello ' Internet.
-* Bir VNet tooanother sanal ağ VPN ağ geçidi üzerinden.
-* Bir VNet tooanother VNet eşlemesi (hizmet zincirleme) aracılığıyla VNet.
-* VNet tooyour şirket içi ağ üzerinden bir VPN ağ geçidi üzerinden.
+* Aynı alt ağ içinden.
+* Bir sanal ağ içinde bir alt ağdan başka bir alt ağa.
+* VM'lerden İnternet'e.
+* Bir VPN ağ geçidi yoluyla bir sanal ağdan başka bir sanal ağa.
+* Sanal Ağ Eşleme (Hizmet Zinciri) yoluyla bir sanal ağdan başka bir sanal ağa.
+* Bir VPN ağ geçidi yoluyla bir sanal ağdan şirket içi ağınıza.
 
-Aşağıdaki Hello şekilde VNet, iki alt ağ ve birkaç VM'yi hello içeren basit bir kurulum IP trafiğinin tooflow izin sistem yolları gösterilmektedir.
+Aşağıdaki şekilde bir sanal ağı, iki alt ağı, birkaç VM'yi ve IP trafiğinin akmasını sağlayan sistem yollarını içeren basit bir kurulum gösterilmektedir.
 
 ![Azure'daki sistem yolları](./media/virtual-networks-udr-overview/Figure1.png)
 
-Sistem yolları Hello kullanımını trafiği dağıtımınız için otomatik olarak kolaylaştırsa da, toocontrol hello bir sanal gereç yoluyla paketlerin yönlendirilmesini istediğiniz durumlar vardır. Bu nedenle, kullanıcı tanımlı yollar oluşturarak tooa belirli alt toogo tooyour sanal gereç yerine akan paketlerde için sonraki atlama hello belirtebilirsiniz ve IP iletme için hello hello sanal gereç olarak çalışan VM.
+Sistem yollarının kullanımı dağıtımınız için trafiği otomatik olarak kolaylaştırsa da, bir sanal gereç yoluyla paketlerin yönlendirilmesini denetlemek isteyeceğiniz durumlar vardır. Bunun için paketlerin belirli bir alt ağa akmak yerine bir sonraki atlamada sanal gerecinize gitmelerini belirten ve sanal gereç olarak çalışan VM için IP iletimini etkinleştiren kullanıcı tanımlı yollar oluşturabilirsiniz.
 
-Kullanıcı tanımlı yollar örneğini aşağıdaki şekilde Hello gösterir ve tooforce paketleri iletme IP tooone alt üçüncü bir alt ağdaki sanal gereç aracılığıyla başka bir toogo gönderilir.
+Aşağıdaki şekilde, bir alt ağdan başka bir alt ağa gönderilen paketleri üçüncü bir alt ağdaki sanal gereçten geçmeye zorlayan kullanıcı tanımlı yolların ve IP iletiminin bir örneği gösterilmektedir.
 
 ![Azure'daki sistem yolları](./media/virtual-networks-udr-overview/Figure2.png)
 
 > [!IMPORTANT]
-> Kullanıcı tanımlı yolların (ağ arabirimleri tooVMs bağlı gibi) bir alt ağ hello alt ağda herhangi bir kaynağa bırakarak uygulanan tootraffic edilir. Yollar toospecify oluşturulamıyor nasıl trafiği bir alt ağ Internet hello örneği için girer. trafik toocannot iletme hello Gereci olması hello hello trafiğin kaynaklandığı aynı alt ağ. Gereçleriniz için her zaman ayrı bir alt ağ oluşturun. 
+> Kullanıcı tanımlı yollar, alt ağdaki herhangi bir kaynaktan (VM’lere eklenen ağ arabirimleri gibi) alt ağdan çıkan trafiğe uygulanır. Örneğin, İnternet’ten alt ağa trafiğin nasıl girdiğini belirtmek için rotalar oluşturamazsınız. Trafiği ilettiğiniz gereç, trafiğin kaynaklandığı alt ağda yer alamaz. Gereçleriniz için her zaman ayrı bir alt ağ oluşturun. 
 > 
 > 
 
 ## <a name="route-resource"></a>Yol kaynağı
-Paketler hello fiziksel ağdaki her düğümde tanımlanan bir yol tablosu temel bir TCP/IP ağı üzerinden yönlendirilir. Bir yol tablosu tek tek rota koleksiyonu toodecide nerede tooforward paketleri hello hedef sunucudaki IP adresi tabanlı kullanılır. Bir rota hello şunlardan oluşur:
+Paketler, fiziksel ağdaki her düğümde tanımlanan bir yol tablosu temel alınarak bir TCP/IP ağı üzerinden yönlendirilir. Yol tablosu, hedef IP adresine göre paketlerin nereye iletileceğine karar veren bir tekil yollar koleksiyonudur. Bir yol aşağıdakilerden oluşur:
 
 | Özellik | Açıklama | Kısıtlamalar | Dikkat edilmesi gerekenler |
 | --- | --- | --- | --- |
-| Adres Ön Eki |Merhaba hedef CIDR toowhich hello rota 10.1.0.0/16 gibi uygulanır. |Merhaba üzerindeki adresleri temsil eden geçerli bir CIDR aralığı olmalıdır genel Internet, Azure sanal ağı veya şirket içi veri merkezi. |Merhaba emin olun **adres ön eki** hello için başlangıç adresi içermiyor **sonraki atlama adresi**, aksi takdirde paketlerinizi hello kaynak toohello sonraki atlama hiç varmadan bir döngüye girer Merhaba hedef. |
-| Sonraki atlama türü |Azure atlama hello paket Hello türü gönderilmesi. |Değerleri aşağıdaki hello biri olmalıdır: <br/> **Sanal Ağ**. Merhaba yerel sanal ağı temsil eder. Örneğin, iki alt ağlarınız varsa, 10.1.0.0/16 ve 10.2.0.0/16 içinde Merhaba aynı sanal ağ, hello rota hello yol tablosundaki her alt ağ için bir sonraki atlama değeri olacaktır *sanal ağ*. <br/> **Sanal Ağ Geçidi**. Azure S2S VPN Gateway'i temsil eder. <br/> **İnternet**. Merhaba varsayılan Internet ağ geçidi Hello Azure altyapısı tarafından sağlanan temsil eder. <br/> **Sanal Gereç**. Azure sanal ağı tooyour eklediğiniz sanal Gereci temsil eder. <br/> **None**. Bir kara deliği temsil eder. Tooa kara delik iletilen paketler hiç iletilir değil. |Kullanmayı **sanal gereç** toodirect trafiği tooa VM veya Azure yük dengeleyici iç IP adresi.  Bu tür bir IP adresi aşağıda açıklandığı gibi hello belirtimi sağlar. Kullanmayı bir **hiçbiri** hedef verilen boyunca tooa toostop paketler yazın. |
-| Sonraki atlama adresi |Merhaba sonraki atlama adresi paketlerin iletilmesi gereken hello IP adresini içerir. Sonraki atlama değerlerine yalnızca sonraki atlama türü hello olduğu yollarda izin *sanal gereç*. |Hello burada hello kullanıcı tanımlı yol uygulanır, oluşturulmak olmadan sanal ağ içinde erişilebilir bir IP adresi olmalıdır bir **sanal ağ geçidi**. Başlangıç IP adresi toobe aynı sanal ağ uygulandığı durumlarda hello veya eşlenmiş bir sanal ağ var. |Başlangıç IP adresi bir VM'yi temsil ediyorsa, etkinleştirdiğinizden emin olun [IP iletimini](#IP-forwarding) azure'da hello VM için. Merhaba IP adresini temsil hello iç IP adresi Azure yük dengeleyici, değişiklik yaparsanız eşleşen bir Yük Dengeleme kuralı her bağlantı noktası için sahip olduğunuzdan emin tooload Bakiye istiyor.|
+| Adres Ön Eki |Yolun uygulandığı hedef CIDR'si, ör. 10.1.0.0/16. |Genel İnternet, Azure sanal ağı veya şirket içi veri merkezi üzerindeki adresleri temsil eden geçerli bir CIDR aralığı olmalıdır. |**Adres ön ekinin** **Nexthop adresini** içermediğinden emin olun, aksi halde kaynaktan bir sonraki atlamaya giden paketleriniz hedefe hiç varmadan bir döngüye girer. |
+| Sonraki atlama türü |Paketin gönderilmesi gereken Azure atlama türü. |Aşağıdaki değerlerden biri olmalıdır: <br/> **Sanal Ağ**. Yerel sanal ağı temsil eder. Örneğin, aynı sanal ağ içinde 10.1.0.0/16 ve 10.2.0.0/16 şeklinde iki alt ağınız varsa yol tablosundaki her alt ağ yolunun bir sonraki atlama değeri *Sanal Ağ* olur. <br/> **Sanal Ağ Geçidi**. Azure S2S VPN Gateway'i temsil eder. <br/> **İnternet**. Azure Altyapısı tarafından sağlanan varsayılan İnternet ağ geçidini temsil eder. <br/> **Sanal Gereç**. Azure sanal ağınıza eklediğiniz sanal gereci temsil eder. <br/> **None**. Bir kara deliği temsil eder. Bir kara deliğe iletilen paketler aktarılmaz. |Trafiği bir VM veya Azure Load Balancer iç IP adresine yönlendirmek için **Sanal Gereç** kullanabilirsiniz.  Bu tür, aşağıda belirtilen şekilde bir IP adresinin belirtilmesini sağlar. Paketlerin belirli bir hedefe akmasını durdurmak için bir **None** türünü kullanmayı değerlendirin. |
+| Sonraki atlama adresi |Sonraki atlama adresi, paketlerin iletilmesi gereken IP adresini içerir. Yalnızca sonraki atlama türünün *Sanal Gereç* olduğu yollarda sonraki atlama değerlerine izin verilir. |Bir **Sanal Ağ Geçidi**’nden geçmeden Kullanıcı Tanımlı Yolun uygulandığı Sanal Ağ içerisinde erişilebilir bir IP adresi olmalıdır. IP adresi, uygulandığı Sanal Ağ üzerinde veya eşlenmiş bir Sanal Ağ üzerinde olmalıdır. |IP adresi bir VM'yi temsil ediyorsa Azure'da VM için [IP iletimini](#IP-forwarding) etkinleştirdiğinizden emin olun. IP adresi, Azure Load Balancer'ın iç IP adresini temsil ediyorsa, yük dengeleme yapmak istediğiniz her bağlantı noktasına karşılık gelen bir yük dengeleme kuralına sahip olduğunuzdan emin olun.|
 
-Azure PowerShell'de bazı hello "NextHopType" değerlerinden farklı adlara sahip:
+Azure PowerShell’de "NextHopType" değerlerinin bazıları farklı adlara sahiptir:
 
 * Sanal Ağ VnetLocal şeklindedir
 * Sanal Ağ Geçidi VirtualNetworkGateway şeklindedir
@@ -67,47 +67,47 @@ Azure PowerShell'de bazı hello "NextHopType" değerlerinden farklı adlara sahi
 * None, None şeklindedir
 
 ### <a name="system-routes"></a>Sistem yolları
-Bir sanal ağda oluşturulan her alt ağ hello aşağıdaki sistem yolu kurallarını içeren bir yol tablosu ile otomatik olarak ilişkilendirilir:
+Bir sanal ağda oluşturulan her alt ağ, aşağıdaki sistem yolu kurallarını içeren bir yol tablosu ile otomatik olarak ilişkilendirilir:
 
-* **Yerel Sanal Ağ Kuralı**: Bu kural bir sanal ağdaki her alt ağ için otomatik olarak oluşturulur. Merhaba VNet içinde hello VM'ler arasında doğrudan bağlantı yoktur ve Ara sonraki atlama olduğunu belirtir.
-* **Şirket içi kuralı**: Bu kural tooall hedefleyen trafiğe toohello şirket içi adres aralığı uygular ve VPN ağ geçidi hello sonraki atlama hedefi olarak kullanır.
-* **Internet kuralı**: Bu kural tüm giden trafiğe toohello işleme ortak Internet (adres öneki 0.0.0.0/0) ve hello olarak kullandığı hello altyapı internet ağ geçidi sonraki tüm giden trafiğe toohello için Internet atlama.
+* **Yerel Sanal Ağ Kuralı**: Bu kural bir sanal ağdaki her alt ağ için otomatik olarak oluşturulur. Sanal ağ içindeki VM'ler arasında doğrudan bir bağlantı olduğunu ve ara sonraki atlama bulunmadığını belirtir.
+* **Şirket İçi Kuralı**: Bu kural şirket içi adres aralığına giden tüm trafiğe uygulanır ve sonraki atlama hedefi olarak VPN ağ geçidini kullanır.
+* **İnternet Kuralı**: Bu kural, genel İnternet'e (adres ön eki: 0.0.0.0/0) giden tüm trafiği işler ve İnternet'e giden tüm trafik için sonraki durak olarak İnternet ağ geçidi altyapısını kullanır.
 
 ### <a name="user-defined-routes"></a>Kullanıcı tanımlı yollar
-Çoğu ortam için Azure'da zaten tanımlanmış hello sistem yolları yalnızca gerekir. Ancak, bir yol tablosu toocreate gerekir ve gibi belirli durumlarda, bir veya daha fazla yol eklemek:
+Çoğu ortam için ihtiyaç duyacağınız tek şey, Azure'da zaten tanımlanmış olan sistem yollarıdır. Ancak belirli durumlarda bir yol tablosu oluşturmanız ve bir veya daha fazla yol eklemeniz gerekebilir, örneğin:
 
-* Şirket içi ağınız üzerinden tünel toohello Internet zorlar.
+* Şirket içi ağınız yoluyla İnternet'e zorlamalı tünel uygulama.
 * Azure ortamınızda sanal gereçleri kullanma.
 
-Merhaba yukarıdaki senaryolarda bir yol tablosu toocreate sahip ve kullanıcı tanımlı yollar tooit ekleyin. Birden fazla yol tablonuz olabilir ve hello aynı yol tablosu ilişkili tooone veya daha fazla alt ağlar olabilir. Ve her alt ağ yalnızca ilişkili tooa tek yol tablosu olabilir. Tüm VM'ler ve bulut Hizmetleri bir alt ağdaki hello rota ilişkili tablo toothat alt kullanın.
+Yukarıdaki senaryolarda bir yol tablosu oluşturmanız ve buna kullanıcı tanımlı yollar eklemeniz gerekir. Birden fazla yol tablonuz olabilir ve bir yol tablosu bir veya daha fazla alt ağ ile ilişkilendirilebilir. Bununla birlikte her alt ağ yalnızca tek bir yol tablosu ile ilişkilendirilebilir. Bir alt ağda bulunan tüm VM'ler ve bulut hizmetleri bu alt ağ ile ilişkilendirilen yol tablosunu kullanır.
 
-Bir yol tablosu ilişkili toohello alt kadar alt ağlar sistem yollarına bağımlıdır. Bir ilişki oluşturulduğu zaman, hem kullanıcı tanımlı yollar hem de sistem yolları arasında En Uzun Ön Ek Eşleşmesi (LPM) temel alınarak yönlendirme uygulanır. Varsa aynı LPM eşleşen bir rota seçili sonra hello sahip birden fazla yol sırasının Merhaba, özgün temel:
+Yol tablosu bir alt ağ ile ilişkilendirilene kadar alt ağlar sistem yollarına bağımlıdır. Bir ilişki oluşturulduğu zaman, hem kullanıcı tanımlı yollar hem de sistem yolları arasında En Uzun Ön Ek Eşleşmesi (LPM) temel alınarak yönlendirme uygulanır. Aynı LPM eşleşmesine sahip birden fazla yol bulunuyorsa yol aşağıdaki sırayla ve kaynağına göre seçilir:
 
 1. Kullanıcı tanımlı yol
 2. BGP yolu (ExpressRoute kullanıldığında)
 3. Sistem yolu
 
-toolearn toocreate kullanıcı tanımlı yollar, nasıl bkz [nasıl tooCreate yönlendirir ve azure'da IP iletimini etkinleştirmeniz](virtual-network-create-udr-arm-template.md).
+Kullanıcı tanımlı yolların nasıl oluşturulacağını öğrenmek için bkz. [Azure'da Yollar Oluşturma ve IP İletimini Etkinleştirme](virtual-network-create-udr-arm-template.md).
 
 > [!IMPORTANT]
-> Kullanıcı tanımlı yollar yalnızca uygulanan tooAzure VM'ler olan ve bulut Hizmetleri. Tooadd şirket içi ağınız ve Azure arasında bir güvenlik duvarı sanal Gereci isterseniz, örneğin, toocreate toohello şirket içi adres alanı toohello sanal giden tüm trafiği ileten bir kullanıcı tanımlı yol Azure yol tablolarınız için gerekir Gereci. Ayrıca, bir kullanıcı rota (UDR) toohello GatewaySubnet tooforward hello sanal gereç yoluyla şirket içi tooAzure gelen tüm trafiği tanımlanan ekleyebilirsiniz. Bu, kısa süre önce yapılan bir eklemedir.
+> Kullanıcı tanımlı yollar yalnızca Azure VM'leri ve bulut hizmetleri için uygulanır. Örneğin, şirket içi ağınız ve Azure arasında bir güvenlik duvarı sanal gereci eklemek isterseniz Azure yol tablolarınız için şirket içi adres alanına giden tüm trafiği sanal gerece ileten bir yol oluşturmanız gerekir. Şirket içinden gelen tüm trafiği sanal gereç aracılığıyla Azure'a iletmek için GatewaySubnet'e kullanıcı tanımlı bir yol da (UDR) ekleyebilirsiniz. Bu, kısa süre önce yapılan bir eklemedir.
 > 
 > 
 
 ### <a name="bgp-routes"></a>BGP yolları
-Şirket içi ağınız ve Azure arasında bir ExpressRoute bağlantınız varsa, şirket içi ağ tooAzure BGP toopropagate yollarını etkinleştirebilirsiniz. Bu BGP yolları hello kullanılan aynı şekilde sistem yollarıyla ve kullanıcı tanımlı yollar her Azure alt. Daha fazla bilgi için bkz. [ExpressRoute'a Giriş](../expressroute/expressroute-introduction.md).
+Şirket içi ağınız ve Azure arasında bir ExpressRoute bağlantınız varsa BGP'yi etkinleştirerek şirket içi ağınızdan Azure'a giden yollar yayabilirsiniz. Bu BGP yolları, her Azure alt ağında yer alan sistem yollarıyla ve kullanıcı tanımlı yollarla aynı şekilde kullanılır. Daha fazla bilgi için bkz. [ExpressRoute'a Giriş](../expressroute/expressroute-introduction.md).
 
 > [!IMPORTANT]
-> Şirket içi ağınızdan hello sonraki atlama olarak hello VPN ağ geçidini kullanan 0.0.0.0/0 alt ağ için bir kullanıcı tanımlı yol oluşturarak tünel Azure ortamı toouse ekibinizin yapılandırabilirsiniz. Ancak bu işlem yalnızca ExpressRoute yerine bir VPN ağ geçidini kullandığınız zaman çalışır. ExpressRoute için zorlamalı tünel BGP yoluyla yapılandırılır.
+> Şirket içi ağınızda zorlamalı tünel kullanmak üzere Azure ortamınızı yapılandırabilirsiniz, bunun için sonraki atlama olarak VPN ağ geçidini kullanan 0.0.0.0/0 alt ağı için kullanıcı tanımlı bir yol oluşturun. Ancak bu işlem yalnızca ExpressRoute yerine bir VPN ağ geçidini kullandığınız zaman çalışır. ExpressRoute için zorlamalı tünel BGP yoluyla yapılandırılır.
 > 
 > 
 
 ## <a name="ip-forwarding"></a>IP iletimi
-Merhaba nedenler toocreate birini yukarıda açıklandığı gibi bir kullanıcı tanımlı yol tooforward trafiği tooa sanal gereç özelliğidir. Bir sanal gereç kullanılan uygulama toohandle ağ trafiğinin bir güvenlik duvarı veya NAT cihazı gibi herhangi bir şekilde çalışan bir VM'den fazla bir şey değildir.
+Yukarıda açıklanan şekilde, kullanıcı tanımlı bir yol oluşturmanın temel nedenlerinden biri de trafiği bir sanal gerece iletmektir. Sanal gereç, güvenlik duvarı veya NAT cihazı gibi ağ trafiğini işlemek için kullanılan bir uygulamayı çalıştıran bir VM'den fazlası değildir.
 
-Bu sanal gereç VM olan mümkün tooreceive gelen trafiği olmalıdır tooitself ele değil. tooallow VM tooreceive trafik tooother hedefleri ele, IP iletimi hello VM için etkinleştirmeniz gerekir. Bu ayar, bir ayar değildir hello konuk işletim sistemindeki bir Azure olur.
+Bu sanal gereç VM'si, kendisine yönelik olmayan gelen trafiği alabilmelidir. Bir VM'nin başka hedeflere yönelik trafiği alabilmesine izin vermek için VM'de IP İletimini etkinleştirmeniz gerekir. Bu ayar konuk işletim sisteminin değil, Azure'ın bir ayarıdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Nasıl çok öğrenin[hello Resource Manager dağıtım modelinde yollar oluşturmayı](virtual-network-create-udr-arm-template.md) ve toosubnets ilişkilendirebilirsiniz. 
-* Nasıl çok öğrenin[hello Klasik dağıtım modelinde yollar oluşturmayı](virtual-network-create-udr-classic-ps.md) ve toosubnets ilişkilendirebilirsiniz.
+* [Resource Manager dağıtım modelinde yollar oluşturmayı](virtual-network-create-udr-arm-template.md) ve bunları alt ağlar ile ilişkilendirmeyi öğrenin. 
+* [Klasik dağıtım modelinde yollar oluşturmayı](virtual-network-create-udr-classic-ps.md) ve bunları alt ağlar ile ilişkilendirmeyi öğrenin.
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric kapsayıcı uygulamanın aaaCreate | Microsoft Docs"
-description: "Azure Service Fabric üzerinde ilk Windows kapsayıcı uygulamanızı oluşturun.  Python uygulama Docker görüntüsüyle, hello görüntü tooa kapsayıcı kayıt defteri itme, yapı ve Service Fabric kapsayıcı uygulaması dağıtacak."
+title: "Azure Service Fabric kapsayıcı uygulaması oluşturma | Microsoft Docs"
+description: "Azure Service Fabric üzerinde ilk Windows kapsayıcı uygulamanızı oluşturun.  Python uygulamasıyla bir Docker görüntüsü oluşturun, görüntüyü bir kapsayıcı kayıt defterine iletin, bir Service Fabric kapsayıcı uygulaması oluşturup dağıtın."
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -14,68 +14,68 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/18/2017
 ms.author: ryanwi
-ms.openlocfilehash: b79d3a41eb2da5f7791266588fe9ea7becb0e58f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 025bde02b3f342ec3399d51819d1fa8a91f11374
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Varolan bir uygulama bir Windows kapsayıcısında Service Fabric kümesi üzerinde çalışan herhangi bir değişiklik tooyour uygulama gerektirmez. Bu makalede, bir Python içeren bir Docker görüntüsü oluşturmada size yol gösterilir [Flask](http://flask.pocoo.org/) web uygulama ve tooa Service Fabric kümesi dağıtma.  Ayrıca, kapsayıcıya alınmış uygulamanızı [Azure Container Registry](/azure/container-registry/) aracılığıyla paylaşırsınız.  Bu makale Docker hakkında temel bir anlayışınızın olduğunu varsayar. Okuma hello tarafından Docker hakkında bilgi edinebilirsiniz [Docker genel bakış](https://docs.docker.com/engine/understanding-docker/).
+Bir Service Fabric kümesindeki Windows kapsayıcısında mevcut olan bir uygulamayı çalıştırmak için uygulamanızda herhangi bir değişiklik yapılması gerekmez. Bu makalede, Python [Flask](http://flask.pocoo.org/) web uygulaması içeren bir Docker görüntüsü oluşturma ve bunu Service Fabric kümesine dağıtma işlemlerinde size yol gösterilir.  Ayrıca, kapsayıcıya alınmış uygulamanızı [Azure Container Registry](/azure/container-registry/) aracılığıyla paylaşırsınız.  Bu makale Docker hakkında temel bir anlayışınızın olduğunu varsayar. [Docker’a Genel Bakış](https://docs.docker.com/engine/understanding-docker/) makalesini okuyarak Docker hakkında bilgi edinebilirsiniz.
 
 ## <a name="prerequisites"></a>Ön koşullar
 Şunları çalıştıran bir geliştirme bilgisayarı:
 * Visual Studio 2015 veya Visual Studio 2017.
 * [Service Fabric SDK’sı ve araçları](service-fabric-get-started.md).
-*  Windows için Docker.  [Windows için Docker CE edinme (dengeli)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Yükleme ve Docker, başlangıç hello Tepsi simgesi üzerinde sağ tıklayıp sonra **geçiş tooWindows kapsayıcıları**. Windows tabanlı gerekli toorun Docker görüntüleri budur.
+*  Windows için Docker.  [Windows için Docker CE edinme (dengeli)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Docker’ı yükleyip başlattıktan sonra tepsi simgesine sağ tıklayıp **Windows kapsayıcılarına geç** öğesini seçin. Bu işlem, Windows temelinde Docker görüntülerini çalıştırmak için gereklidir.
 
 Kapsayıcı içeren Windows Server 2016 üzerinde üç veya daha fazla düğüme sahip bir Windows kümesi - [Küme oluşturun](service-fabric-cluster-creation-via-portal.md) veya [Service Fabric’i ücretsiz deneyin](https://aka.ms/tryservicefabric).
 
 Azure Container Registry’deki bir kayıt defteri - Azure aboneliğinizde [Kapsayıcı kayıt defteri oluşturun](../container-registry/container-registry-get-started-portal.md).
 
-## <a name="define-hello-docker-container"></a>Merhaba Docker kapsayıcısı tanımlayın
-Bir resim üzerinde Hello tabanlı derleme [Python görüntü](https://hub.docker.com/_/python/) Docker hub'ına bulunur.
+## <a name="define-the-docker-container"></a>Docker kapsayıcısını tanımlama
+Docker Hub’ında bulunan [Python görüntüsünü](https://hub.docker.com/_/python/) temel alan bir görüntü oluşturun.
 
-Docker kapsayıcınızı bir Dockerfile içinde tanımlayın. Merhaba Dockerfile, kapsayıcı içinde hello ortamı kurma, toorun istediğiniz hello uygulamasını yükleme ve bağlantı noktası eşleme için yönergeler içerir. Merhaba Dockerfile olan hello giriş toohello `docker build` hello görüntüsünü oluşturur komutu.
+Docker kapsayıcınızı bir Dockerfile içinde tanımlayın. Dockerfile, kapsayıcınızın içindeki ortamı ayarlama, çalıştırmak istediğiniz uygulamayı yükleme ve bağlantı noktalarını eşleme yönergelerini içerir. Dockerfile, görüntüyü oluşturan `docker build` komutunun girdisidir.
 
-Boş bir dizin oluşturun ve hello dosyası oluşturma *Dockerfile* (hiçbir dosya uzantılı). Çok Hello ekleyin*Dockerfile* ve değişikliklerinizi kaydedin:
+Boş bir dizin oluşturun ve *Dockerfile* dosyasını oluşturun (dosya uzantısı kullanmayın). Aşağıdakini *Dockerfile* dosyasına ekleyin ve değişikliklerinizi kaydedin:
 
 ```
 # Use an official Python runtime as a base image
 FROM python:2.7-windowsservercore
 
-# Set hello working directory too/app
+# Set the working directory to /app
 WORKDIR /app
 
-# Copy hello current directory contents into hello container at /app
+# Copy the current directory contents into the container at /app
 ADD . /app
 
 # Install any needed packages specified in requirements.txt
 RUN pip install -r requirements.txt
 
-# Make port 80 available toohello world outside this container
+# Make port 80 available to the world outside this container
 EXPOSE 80
 
 # Define environment variable
 ENV NAME World
 
-# Run app.py when hello container launches
+# Run app.py when the container launches
 CMD ["python", "app.py"]
 ```
 
-Okuma hello [Dockerfile başvuru](https://docs.docker.com/engine/reference/builder/) daha fazla bilgi için.
+Daha fazla bilgi için [Dockerfile başvurusunu](https://docs.docker.com/engine/reference/builder/) okuyun.
 
 ## <a name="create-a-simple-web-application"></a>Basit web uygulaması oluşturma
-Bağlantı noktası 80 üzerinden dinleyen ve "Merhaba Dünya!" başlığını döndüren bir Flask web uygulaması oluşturun.  Buna Merhaba aynı dizinde, hello dosyası oluşturma *requirements.txt*.  Merhaba aşağıdakileri ekleyin ve değişikliklerinizi kaydedin:
+Bağlantı noktası 80 üzerinden dinleyen ve "Merhaba Dünya!" başlığını döndüren bir Flask web uygulaması oluşturun.  Aynı dizinde, *requirements.txt* dosyasını oluşturun.  Aşağıdakini dosyaya ekleyin ve değişikliklerinizi kaydedin:
 ```
 Flask
 ```
 
-Merhaba oluşturabilir *app.py* dosya ve hello aşağıdakileri ekleyin:
+Ayrıca, *app.py* dosyasını da oluşturun ve aşağıdakini ekleyin:
 
 ```python
 from flask import Flask
@@ -92,16 +92,16 @@ if __name__ == "__main__":
 ```
 
 <a id="Build-Containers"></a>
-## <a name="build-hello-image"></a>Merhaba yansıması oluştur
-Merhaba çalıştırmak `docker build` web uygulamanızı çalıştıran komutu toocreate hello görüntüsü. Bir PowerShell penceresi açın ve hello Dockerfile içeren toohello dizinine gidin. Merhaba aşağıdaki komutu çalıştırın:
+## <a name="build-the-image"></a>Görüntü oluşturma
+Web uygulamanızı çalıştıran görüntüyü oluşturmak için `docker build` komutunu çalıştırın. PowerShell penceresini açın ve Dockerfile dosyasını içeren dizine gidin. Şu komutu çalıştırın:
 
 ```
 docker build -t helloworldapp .
 ```
 
-Bu komut derlemeleri Merhaba, Dockerfile içinde hello yönergeleri kullanarak yeni görüntüsü adlandırma (-t etiketleme) hello görüntü "helloworldapp". Bir görüntü oluşturma hello temel görüntü Docker hub'dan çeker ve uygulamanızı hello temel görüntü üstünde ekler yeni bir görüntü oluşturur.  
+Bu komut Dockerfile içindeki yönergeleri kullanarak yeni görüntüyü oluşturur ve "helloworldapp" olarak adlandırır (-t etiketi). Görüntü oluşturulduğunda, temel görüntü Docker Hub’ından alınır ve uygulamanızı temel görüntünün üstüne ekleyen yeni bir görüntü oluşturulur.  
 
-Merhaba yapı komutu tamamlandığında hello çalıştırmak `docker images` komutu hello yeni görüntüsü toosee bilgi:
+Oluşturma komutu tamamlandıktan sonra, yeni görüntü üzerindeki bilgileri görmek için `docker images` komutunu çalıştırın:
 
 ```
 $ docker images
@@ -110,71 +110,71 @@ REPOSITORY                    TAG                 IMAGE ID            CREATED   
 helloworldapp                 latest              8ce25f5d6a79        2 minutes ago       10.4 GB
 ```
 
-## <a name="run-hello-application-locally"></a>Merhaba uygulama yerel olarak çalıştırma
-Görüntünüzü onu hello kapsayıcı kayıt defteri yerel olarak göndermeden önce doğrulayın.  
+## <a name="run-the-application-locally"></a>Uygulamayı yerel olarak çalıştırma
+Görüntüyü kapsayıcı kayıt defterine göndermeden önce yerel olarak doğrulayın.  
 
-Merhaba uygulamayı çalıştırın:
+Uygulamayı çalıştırın:
 
 ```
 docker run -d --name my-web-site helloworldapp
 ```
 
-*ad* kapsayıcı (yerine hello kapsayıcı kimliği) çalıştıran bir ad toohello sağlar.
+*name*, çalışan kapsayıcıya bir ad verir (kapsayıcı kimliği yerine).
 
-Merhaba kapsayıcı başladıktan sonra kapsayıcı bir tarayıcıdan çalıştıran tooyour bağlanabilmesi IP adresini bulun:
+Kapsayıcı başladıktan sonra çalışan kapsayıcınıza bir tarayıcıdan bağlanabilmek için IP adresini bulun:
 ```
 docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 ```
 
-Kapsayıcı çalıştıran toohello bağlayın.  Toohello IP adresi döndürdü, örneğin "http://172.31.194.61" işaret eden bir web tarayıcısı açın. "Hello World!" Başlık hello görmeniz gerekir Merhaba tarayıcıda görüntüleyin.
+Çalışan kapsayıcıya bağlanın.  Döndürülen IP adresine işaret eden bir web tarayıcısı açın (örneğin, "http://172.31.194.61"). "Hello World!" başlığının tarayıcıda gösterildiğini görürsünüz.
 
-toostop çalıştırmak, kapsayıcı:
+Kapsayıcınızı durdurmak için şu komutu çalıştırın:
 
 ```
 docker stop my-web-site
 ```
 
-Merhaba kapsayıcı geliştirme makinenizden Sil:
+Kapsayıcıyı geliştirme makinenizden silin:
 
 ```
 docker rm my-web-site
 ```
 
 <a id="Push-Containers"></a>
-## <a name="push-hello-image-toohello-container-registry"></a>Anında iletme hello görüntü toohello kapsayıcı kayıt defteri
-Geliştirme makinenizde bu hello kapsayıcı çalıştıran doğruladıktan sonra Azure kapsayıcı kayıt defterinde hello görüntü tooyour kayıt defteri iletin.
+## <a name="push-the-image-to-the-container-registry"></a>Görüntüyü kapsayıcı kayıt defterine gönderme
+Kapsayıcının geliştirme makinenizde çalıştığını doğruladıktan sonra, görüntüyü Azure Container Registry içindeki kayıt defterinize gönderin.
 
-Çalıştırma ``docker login`` ile tooyour kapsayıcı defterinde toolog, [kayıt defteri kimlik](../container-registry/container-registry-authentication.md).
+Kapsayıcı kayıt defterinizde [kayıt defteri kimlik bilgileriniz](../container-registry/container-registry-authentication.md) ile oturum açmak için ``docker login`` komutunu çalıştırın.
 
-Merhaba aşağıdaki örnek hello kimliği ve parolası bir Azure Active Directory geçirir [hizmet sorumlusu](../active-directory/active-directory-application-objects.md). Örneğin, bir hizmet asıl tooyour kayıt defteri bir Otomasyon senaryosu için atanmış. İsterseniz, kayıt defteri kullanıcı kimliğiniz ve parolanızı kullanarak oturum açabilirsiniz.
+Aşağıdaki örnekte, bir Azure Active Directory [hizmet sorumlusunun](../active-directory/active-directory-application-objects.md) kimliği ve parolası geçirilmiştir. Örneğin, bir otomasyon senaryosu için kayıt defterinize bir hizmet sorumlusu atamış olabilirsiniz. İsterseniz, kayıt defteri kullanıcı kimliğiniz ve parolanızı kullanarak oturum açabilirsiniz.
 
 ```
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
 ```
 
-Merhaba aşağıdaki komutu bir etiket veya hello görüntünün diğer tam nitelenmiş bir yol tooyour kayıt defteri ile oluşturur. Yerler hello hello görüntüde Bu örnek ```samples``` hello kayıt defteri hello kök ad alanı tooavoid dağınıklığı.
+Aşağıdaki komut, görüntünün kayıt defterinize ait tam yolu içeren bir etiketini veya diğer adını oluşturur. Bu örnek, kayıt defterinin kökünde dağınıklığı önlemek için ```samples``` ad alanına görüntüyü yerleştirir.
 
 ```
 docker tag helloworldapp myregistry.azurecr.io/samples/helloworldapp
 ```
 
-Merhaba görüntü tooyour kapsayıcı kayıt defteri gönderin:
+Görüntüyü kapsayıcı kayıt defterinize gönderin:
 
 ```
 docker push myregistry.azurecr.io/samples/helloworldapp
 ```
 
-## <a name="create-hello-containerized-service-in-visual-studio"></a>Visual Studio'da kapsayıcılı hello hizmet oluşturma
-Merhaba Service Fabric SDK ve araçları bir hizmet şablonu toohelp sağlamak kapsayıcılı bir uygulaması oluşturun.
+## <a name="create-the-containerized-service-in-visual-studio"></a>Visual Studio’da kapsayıcıya alınmış hizmet oluşturma
+Service Fabric SDK’sı ve araçları, kapsayıcıya alınmış uygulamalar oluşturmanıza yardımcı olan bir hizmet şablonu sağlar.
 
 1. Visual Studio’yu çalıştırın.  **Dosya** > **Yeni** > **Proje**’yi seçin.
 2. **Service Fabric uygulaması**’nı seçin, "MyFirstContainer" olarak adlandırın ve **Tamam**’a tıklayın.
-3. Seçin **Konuk kapsayıcı** hello listesinden **hizmet şablonları**.
-4. İçinde **görüntü adı** "myregistry.azurecr.io/samples/helloworldapp", tooyour kapsayıcı deposu gönderilen hello görüntü girin.
+3. **Hizmet şablonları** listesinden **Konuk Kapsayıcı**’yı seçin.
+4. **Görüntü Adı** alanına, kapsayıcı deponuza gönderdiğiniz görüntünün dizini olan "myregistry.azurecr.io/samples/helloworldapp" değerini girin.
 5. Hizmetinize bir ad verin ve **Tamam**’a tıklayın.
 
 ## <a name="configure-communication"></a>İletişimi yapılandırma
-Kapsayıcılı hello hizmet iletişimi için bir uç nokta gerekir. Ekleme bir `Endpoint` hello protokolü, bağlantı noktası ve türü toohello ServiceManifest.xml dosyasını öğe. Bu makalede, kapsayıcılı hello hizmet 8081 bağlantı noktasını dinler.  Bu örnekte, 8081 numaralı sabit bağlantı noktası kullanılır.  Bağlantı noktası belirtilmediyse, bir rastgele bağlantı noktası hello uygulama bağlantı noktası aralığından seçilir.  
+Kapsayıcıya alınmış hizmetin iletişim sağlayabilmesi için bir uç nokta gerekir. ServiceManifest.xml dosyasına protokol, bağlantı noktası ve tür bilgileriyle bir `Endpoint` öğesi ekleyin. Bu makalede, kapsayıcıya alınmış hizmet 8081 numaralı bağlantı noktasında dinler.  Bu örnekte, 8081 numaralı sabit bağlantı noktası kullanılır.  Hiçbir bağlantı noktası belirtilmemişse, uygulama bağlantı noktası aralığından rastgele bir bağlantı noktası seçilir.  
 
 ```xml
 <Resources>
@@ -184,12 +184,12 @@ Kapsayıcılı hello hizmet iletişimi için bir uç nokta gerekir. Ekleme bir `
 </Resources>
 ```
 
-Bir uç nokta tanımlayarak, Service Fabric hello uç nokta toohello adlandırma hizmeti yayımlar.  Merhaba kümede çalışan diğer hizmetler bu kapsayıcı çözebilirsiniz.  Kapsayıcıya iletişimi hello kullanarak da gerçekleştirebilirsiniz [ters proxy](service-fabric-reverseproxy.md).  İletişim hello ters proxy HTTP dinleme bağlantı noktası ve ortam değişkenleri olarak toocommunicate ile istediğiniz hello Hizmetleri hello adını sağlayarak gerçekleştirilir.
+Uç nokta tanımlandığında, Service Fabric uç noktayı Adlandırma hizmetinde yayımlar.  Kümede çalışan diğer hizmetler bu kapsayıcıyı çözümleyebilir.  Ayrıca, [ters proxy](service-fabric-reverseproxy.md)’yi kullanarak kapsayıcıdan kapsayıcıya iletişim kurabilirsiniz.  İletişim, ters proxy’nin HTTP dinleme bağlantı noktasını ve iletişim kurmak istediğiniz hizmetlerin adlarının ortam değişkenleri olarak sağlanmasıyla gerçekleştirilir.
 
 ## <a name="configure-and-set-environment-variables"></a>Ortam değişkenlerini yapılandırma ve ayarlama
-Ortam değişkenleri, her kod paketi hello hizmet bildiriminde için belirtilebilir. Bu özellik, kapsayıcı olarak mı dağıtıldıklarına yoksa konuk yürütülebilir dosyası olarak mı işlendiklerine bakılmaksızın tüm hizmetlerde sağlanır. Merhaba uygulaması değerleri bildirim veya onları uygulama parametreleri olarak dağıtımı sırasında belirttiğiniz ortam değişkeni geçersiz kılabilirsiniz.
+Ortam değişkenleri, hizmet bildirimindeki her kod paketi için belirtilebilir. Bu özellik, kapsayıcı olarak mı dağıtıldıklarına yoksa konuk yürütülebilir dosyası olarak mı işlendiklerine bakılmaksızın tüm hizmetlerde sağlanır. Ortam değişkeni değerlerini, uygulama bildiriminde geçersiz kılabilir veya dağıtım sırasında uygulama parametresi olarak belirtebilirsiniz.
 
-Merhaba aşağıdaki hizmet bildirim XML parçacığını gösterir nasıl bir örneği için bir kod paketi toospecify ortam değişkenleri:
+Aşağıdaki hizmet bildirimi XML kod parçacığı, kod paketi için ortam değişkenlerinin nasıl belirtileceğini gösteren bir örnektir:
 ```xml
 <CodePackage Name="Code" Version="1.0.0">
   ...
@@ -199,7 +199,7 @@ Merhaba aşağıdaki hizmet bildirim XML parçacığını gösterir nasıl bir �
 </CodePackage>
 ```
 
-Bu ortam değişkenleri hello uygulama bildiriminde geçersiz kılınabilir:
+Bu ortam değişkenleri, uygulama bildiriminde geçersiz kılınabilir:
 
 ```xml
 <ServiceManifestImport>
@@ -211,7 +211,7 @@ Bu ortam değişkenleri hello uygulama bildiriminde geçersiz kılınabilir:
 ```
 
 ## <a name="configure-container-port-to-host-port-mapping-and-container-to-container-discovery"></a>Kapsayıcı bağlantı noktasından konak bağlantı noktasına eşlemeyi ve kapsayıcıdan kapsayıcıya keşfi yapılandırma
-Bir ana bilgisayar kullanılan bağlantı noktası toocommunicate hello kapsayıcı ile yapılandırın. üzerinde hangi hello hello kapsayıcı tooa bağlantı hello konaktaki içinde hizmet dinliyor hello bağlantı noktası başlangıç bağlantı noktası bağlamasına eşler. Ekleme bir `PortBinding` öğesinde `ContainerHostPolicies` hello ApplicationManifest.xml dosyasının öğesi.  Bu makale için `ContainerPort` 80'dir (Merhaba kapsayıcı sunan bağlantı noktası 80, belirtilen hello Dockerfile) ve `EndpointRef` "Guest1TypeEndpoint" olan (Merhaba hizmet bildiriminde önceden tanımlanmış uç nokta hello).  Gelen istekleri toohello hizmet bağlantı noktası 8081 tooport 80 hello kapsayıcısı üzerinde eşlenmiş.
+Kapsayıcıyla iletişim kurmak için kullanılan konak bağlantı noktasını yapılandırın. Bağlantı noktası bağlama, hizmetin kapsayıcı içinde dinlediği bağlantı noktasını konaktaki bağlantı noktasıyla eşler. ApplicationManifest.xml dosyasının `ContainerHostPolicies` öğesine bir `PortBinding` öğesi ekleyin.  Bu makalede `ContainerPort` değeri 80 (Dockerfile içinde belirtildiği gibi kapsayıcı 80 numaralı bağlantı noktasını gösterir) ve `EndpointRef` değeri "Guest1TypeEndpoint" (hizmet bildiriminde daha önce tanımlanmış olan uç nokta) olarak verilir.  8081 numaralı bağlantı noktasında hizmete gelen istekler, kapsayıcı üzerindeki 80 numaralı bağlantı noktasıyla eşlenir.
 
 ```xml
 <Policies>
@@ -222,7 +222,7 @@ Bir ana bilgisayar kullanılan bağlantı noktası toocommunicate hello kapsayı
 ```
 
 ## <a name="configure-container-registry-authentication"></a>Kapsayıcı kayıt defteri kimlik doğrulamasını yapılandırma
-Kapsayıcı kayıt defteri kimlik doğrulaması ekleyerek yapılandırma `RepositoryCredentials` çok`ContainerHostPolicies` hello ApplicationManifest.xml dosyasının. Merhaba hizmet toodownload hello kapsayıcı resmi hello depodan verir hello myregistry.azurecr.io kapsayıcı kayıt için Hello hesabı ve parolası ekleyin.
+ApplicationManifest.xml dosyasının `ContainerHostPolicies` öğesine bir `RepositoryCredentials` öğesi ekleyerek kapsayıcı kayıt defteri kimlik doğrulamasını yapılandırın. Hizmetin depodan kapsayıcı görüntüsünü indirmesini sağlayan myregistry.azurecr.io kapsayıcı kayıt defterine hesap ve parola ekleyin.
 
 ```xml
 <Policies>
@@ -233,9 +233,9 @@ Kapsayıcı kayıt defteri kimlik doğrulaması ekleyerek yapılandırma `Reposi
 </Policies>
 ```
 
-Merhaba küme düğümlerinin tooall dağıtmış olan bir şifreleme sertifikası kullanarak hello deposu parolayı şifrelemek öneririz. Service Fabric hello hizmet paketi toohello küme dağıtırken hello şifreleme kullanılan toodecrypt hello şifreli metin sertifikasıdır.  Merhaba Invoke-ServiceFabricEncryptText cmdlet'i kullanılan toocreate hello şifre toohello ApplicationManifest.xml dosya ekleninceye hello parolası metindir.
+Kümenin tüm düğümlerine dağıtılan bir şifreleme sertifikası kullanarak depo parolasını şifrelemenizi öneririz. Service Fabric hizmet paketi kümeye dağıttığında, şifre metninin şifresini çözmek için şifreleme sertifikası kullanılır.  Parolanın şifre metni Invoke-ServiceFabricEncryptText cmdlet’i kullanılarak oluşturulur ve bu metin ApplicationManifest.xml dosyasına eklenir.
 
-Merhaba aşağıdaki betiği yeni kendinden imzalı bir sertifika oluşturur ve bunu tooa PFX dosyası aktarır.  Merhaba sertifika olan bir anahtar kasası aktarılır ve ardından toohello Service Fabric kümesi dağıtılır.
+Aşağıdaki betik, otomatik olarak imzalanan yeni bir sertifika oluşturup bunu PFX dosyasına aktarır.  Sertifika, var olan bir anahtar kasasının içine aktarılır ve ardından Service Fabric kümesine dağıtılır.
 
 ```powershell
 # Variables.
@@ -253,26 +253,26 @@ Login-AzureRmAccount
 
 Select-AzureRmSubscription -SubscriptionId $subscriptionId
 
-# Create a self signed cert, export tooPFX file.
+# Create a self signed cert, export to PFX file.
 New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject $subjectname -Provider 'Microsoft Enhanced Cryptographic Provider v1.0' `
 | Export-PfxCertificate -FilePath $filepath -Password $certpwd
 
-# Import hello certificate tooan existing key vault.  hello key vault must be enabled for deployment.
+# Import the certificate to an existing key vault.  The key vault must be enabled for deployment.
 $cer = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certificateName -FilePath $filepath -Password $certpwd
 
 Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $groupname -EnabledForDeployment
 
-# Add hello certificate tooall hello VMs in hello cluster.
+# Add the certificate to all the VMs in the cluster.
 Add-AzureRmServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $cer.SecretId
 ```
-Hello kullanarak hello parolayı şifrelemek [Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps) cmdlet'i.
+[Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps) cmdlet’ini kullanarak parolayı şifreleyin.
 
 ```powershell
 $text = "=P==/==/=8=/=+u4lyOB=+=nWzEeRfF="
 Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint $cer.Thumbprint -Text $text -StoreLocation Local -StoreName My
 ```
 
-Hello tarafından döndürülen hello şifreli metin Hello parola yerine [Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps) cmdlet'i ve `PasswordEncrypted` çok "true".
+Parolayı, [Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps) cmdlet’i tarafından döndürülen şifre metniyle değiştirin ve `PasswordEncrypted` öğesini “true” olarak ayarlayın.
 
 ```xml
 <Policies>
@@ -288,14 +288,14 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 ```
 
 ## <a name="configure-isolation-mode"></a>Yalıtım modunu yapılandırma
-Windows, kapsayıcılar için iki yalıtım modunu destekler: İşlem ve Hyper-V. Merhaba işlem yalıtım moduyla üzerinde çalışan tüm Merhaba kapsayıcılara aynı ana bilgisayar makine paylaşımı hello çekirdek hello ana bilgisayarla hello. Merhaba Hyper-V yalıtım moduyla hello tekrar her Hyper-V kapsayıcı ve hello kapsayıcı konak arasında yalıtılır. Merhaba yalıtım modunu hello belirtilen `ContainerHostPolicies` hello uygulama bildirim dosyasının öğesinde. belirtilebilir hello yalıtım modlar `process`, `hyperv`, ve `default`. Merhaba varsayılan yalıtım modunu Varsayılanları çok`process` Windows Server'da barındıran ve çok varsayılanlarını`hyperv` Windows 10 konaklarda. Merhaba aşağıdaki kod parçacığında hello uygulama bildirim dosyasında belirtilen hello yalıtım modu nasıl gösterir.
+Windows, kapsayıcılar için iki yalıtım modunu destekler: İşlem ve Hyper-V. İşlem yalıtım moduyla, aynı konak makinesinde çalışan tüm kapsayıcılar çekirdeği konakla paylaşır. Hyper-V yalıtım moduyla, çekirdekler her Hyper-V kapsayıcısı ile kapsayıcı konağı arasında yalıtılır. Yalıtım modu, uygulama bildirimi dosyasında bulunan `ContainerHostPolicies` öğesinde belirtilir. Belirtilebilen yalıtım modları `process`, `hyperv` ve `default` modlarıdır. Varsayılan yalıtım modu, Windows Server konaklarında `process` ve Windows 10 konaklarında `hyperv` modudur. Aşağıdaki kod parçacığı uygulama bildirimi dosyasında yalıtım modunun nasıl belirtildiğini gösterir.
 
 ```xml
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
 ```
 
 ## <a name="configure-resource-governance"></a>Kaynak idaresini yapılandırma
-[Kaynak İdaresi](service-fabric-resource-governance.md) kapsayıcı hello kaynakları hello konakta kullanabileceğiniz hello kısıtlar. Merhaba `ResourceGovernancePolicy` hello uygulama bildiriminde belirtilen öğesi olan bir hizmet kod paketi için kullanılan toodeclare kaynak sınırları. Kaynak sınırları kaynakları aşağıdaki Merhaba ayarlanabilir: bellek, MemorySwap, CpuShares (CPU göreli ağırlık), MemoryReservationInMB, BlkioWeight (BlockIO göreli ağırlık).  Bu örnekte, hizmet paketi Guest1Pkg nereye yerleştirileceğini hello küme düğümlerinde bir temel alır.  Sınırlı too1024 hello kod paketi olacak şekilde bellek sınırları absolute MB bellek (ve aynı hello yumuşak garantisi rezervasyonu). Kod paketler (kapsayıcıları veya işlemler) Bu sınır ve toodo çalışırken daha fazla bellek böylece bir bellek yetersiz özel durum sonuçları mümkün tooallocate yok. Kaynak sınırı zorlaması toowork için bir hizmet paketi içindeki tüm kod paketleri belirtilen bellek sınırlarını olması gerekir.
+[Kaynak idaresi](service-fabric-resource-governance.md) kapsayıcının konakta kullanabildiği kaynakları kısıtlar. Uygulama bildiriminde belirtilen `ResourceGovernancePolicy` öğesi, hizmet kod paketinin kaynak sınırlarını tanımlamak için kullanılır. Şu kaynaklar için kaynak sınırları ayarlanabilir: Memory, MemorySwap, CpuShares (CPU göreli ağırlığı), MemoryReservationInMB, BlkioWeight (BlockIO göreli ağırlığı).  Bu örnekte, Guest1Pkg hizmet paketi bulunduğu küme düğümlerinde bir çekirdek alır.  Bellek sınırları mutlaktır; dolayısıyla, kod paketi 1024 MB bellekle (aynı genel garantili ayırmayla) sınırlıdır. Kod paketleri (kapsayıcılar veya işlemler) bu sınırı aşan miktarda bellek ayıramazlar ve bunu denediklerinde yetersiz bellek özel durumu ortaya çıkar. Kaynak sınırı zorlamasının çalışması için, hizmet paketi içindeki tüm kod paketlerinin bellek sınırlarının belirtilmiş olması gerekir.
 
 ```xml
 <ServiceManifestImport>
@@ -307,23 +307,23 @@ Windows, kapsayıcılar için iki yalıtım modunu destekler: İşlem ve Hyper-V
 </ServiceManifestImport>
 ```
 
-## <a name="deploy-hello-container-application"></a>Merhaba kapsayıcı uygulaması dağıtma
-Yaptığınız değişiklikleri kaydedin ve başlangıç uygulaması oluşturma. toopublish sağ tıklatın, uygulamanızın **MyFirstContainer** Çözüm Gezgini'nde ve select **Yayımla**.
+## <a name="deploy-the-container-application"></a>Kapsayıcı uygulamasını dağıtma
+Tüm değişikliklerinizi kaydedin ve uygulamayı derleyin. Uygulamanızı yayımlamak için Çözüm Gezgini’nde **MyFirstContainer**’a sağ tıklayın ve **Yayımla**’yı seçin.
 
-İçinde **bağlantı uç noktasının**, hello küme için hello yönetim uç noktası girin.  Örneğin, "containercluster.westus2.cloudapp.azure.com:19000". Merhaba istemci bağlantısı bulabilirsiniz hello genel bakış dikey penceresinde hello kümenizdeki için uç nokta [Azure portal](https://portal.azure.com).
+**Bağlantı Uç Noktası**’nda kümenin yönetim uç noktasını girin.  Örneğin, "containercluster.westus2.cloudapp.azure.com:19000". İstemci bağlantı uç noktasını [Azure portalında](https://portal.azure.com) kümenizin Genel Bakış dikey penceresinde bulabilirsiniz.
 
 **Yayımla**’ta tıklayın.
 
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), bir Service Fabric kümesindeki uygulama ve düğümleri inceleyip yönetmeye yönelik web tabanlı bir araçtır. Bir tarayıcı açın ve toohttp://containercluster.westus2.cloudapp.azure.com:19080/Explorer/gidin ve hello uygulama dağıtımını izleyin.  Hello uygulama dağıtır fakat hello görüntü (hangi hello görüntü boyutu bağlı olarak biraz zaman alabilir) hello küme düğümlerinde indirilene kadar bir hata durumunda iken: ![hata][1]
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), bir Service Fabric kümesindeki uygulama ve düğümleri inceleyip yönetmeye yönelik web tabanlı bir araçtır. Bir tarayıcı açıp http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ dizinine gidin ve uygulama geliştirme adımlarını izleyin.  Uygulama dağıtılır, ancak görüntü küme düğümlerine yüklenene kadar hatalı durumdadır (bu işlem, görüntü boyutuna bağlı olarak biraz zaman alabilir): ![Hata][1]
 
-Merhaba uygulamasıdır hazır olduğunda ```Ready``` durumu: ![hazır][2]
+Uygulamanın ```Ready``` durumu ![Hazır][2] olduğunda uygulama hazırdır
 
-Bir tarayıcı açın ve toohttp://containercluster.westus2.cloudapp.azure.com:8081 gidin. "Hello World!" Başlık hello görmeniz gerekir Merhaba tarayıcıda görüntüleyin.
+Bir tarayıcı açıp http://containercluster.westus2.cloudapp.azure.com:8081 adresine gidin. "Hello World!" başlığının tarayıcıda gösterildiğini görürsünüz.
 
 ## <a name="clean-up"></a>Temizleme
-Merhaba küme çalışırken tooincur ücretleri devam, göz önünde bulundurun [kümenizi silme](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  [Taraf kümeleri](http://tryazureservicefabric.westus.cloudapp.azure.com/) birkaç saat sonra otomatik olarak silinir.
+Küme çalışırken size ücret yansımaya devam edebilir, bu nedenle [kümenizi silmeyi](service-fabric-get-started-azure-cluster.md#remove-the-cluster) düşünün.  [Taraf kümeleri](http://tryazureservicefabric.westus.cloudapp.azure.com/) birkaç saat sonra otomatik olarak silinir.
 
-Merhaba görüntü toohello kapsayıcı kayıt defteri itme sonra hello yerel görüntü Geliştirme bilgisayarınızdan silebilirsiniz:
+Görüntüyü kapsayıcı kayıt defterine gönderdikten sonra yerel görüntüyü geliştirme bilgisayarınızdan silebilirsiniz:
 
 ```
 docker rmi helloworldapp
@@ -331,7 +331,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Tam Service Fabric uygulaması ve hizmet bildirimleri örneği
-Merhaba tüm hizmet ve bu makalede kullanılan uygulama bildirimleri aşağıda verilmiştir.
+Bu makalede kullanılan tam hizmet ve uygulama bildirimleri aşağıda verilmiştir.
 
 ### <a name="servicemanifestxml"></a>ServiceManifest.xml
 ```xml
@@ -342,20 +342,20 @@ Merhaba tüm hizmet ve bu makalede kullanılan uygulama bildirimleri aşağıda 
                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
-    <!-- This is hello name of your ServiceType.
-         hello UseImplicitHost attribute indicates this is a guest service. -->
+    <!-- This is the name of your ServiceType.
+         The UseImplicitHost attribute indicates this is a guest service. -->
     <StatelessServiceType ServiceTypeName="Guest1Type" UseImplicitHost="true" />
   </ServiceTypes>
 
   <!-- Code package is your service executable. -->
   <CodePackage Name="Code" Version="1.0.0">
     <EntryPoint>
-      <!-- Follow this link for more information about deploying Windows containers tooService Fabric: https://aka.ms/sfguestcontainers -->
+      <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
         <ImageName>myregistry.azurecr.io/samples/helloworldapp</ImageName>
       </ContainerHost>
     </EntryPoint>
-    <!-- Pass environment variables tooyour container: -->    
+    <!-- Pass environment variables to your container: -->    
     <EnvironmentVariables>
       <EnvironmentVariable Name="HttpGatewayPort" Value=""/>
       <EnvironmentVariable Name="BackendServiceName" Value=""/>
@@ -363,13 +363,13 @@ Merhaba tüm hizmet ve bu makalede kullanılan uygulama bildirimleri aşağıda 
 
   </CodePackage>
 
-  <!-- Config package is hello contents of hello Config directoy under PackageRoot that contains an
+  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
   <Resources>
     <Endpoints>
-      <!-- This endpoint is used by hello communication listener tooobtain hello port on which to
+      <!-- This endpoint is used by the communication listener to obtain the port on which to
            listen. Please note that if your service is partitioned, this port is shared with
            replicas of different partitions that are placed in your code. -->
       <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="8081" Protocol="http"/>
@@ -388,8 +388,8 @@ Merhaba tüm hizmet ve bu makalede kullanılan uygulama bildirimleri aşağıda 
   <Parameters>
     <Parameter Name="Guest1_InstanceCount" DefaultValue="-1" />
   </Parameters>
-  <!-- Import hello ServiceManifest from hello ServicePackage. hello ServiceManifestName and ServiceManifestVersion
-       should match hello Name and Version attributes of hello ServiceManifest element defined in the
+  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion
+       should match the Name and Version attributes of the ServiceManifest element defined in the
        ServiceManifest.xml file. -->
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
@@ -411,11 +411,11 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
     </Policies>
   </ServiceManifestImport>
   <DefaultServices>
-    <!-- hello section below creates instances of service types, when an instance of this
+    <!-- The section below creates instances of service types, when an instance of this
          application type is created. You can also create one or more instances of service type using the
          ServiceFabric PowerShell module.
 
-         hello attribute ServiceTypeName below must match hello name defined in hello imported ServiceManifest.xml file. -->
+         The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
     <Service Name="Guest1">
       <StatelessService ServiceTypeName="Guest1Type" InstanceCount="[Guest1_InstanceCount]">
         <SingletonPartition />
@@ -427,7 +427,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>Kapsayıcı zorla sonlandırılmadan önceki zaman aralığını yapılandırın
 
-Merhaba kapsayıcı Hello hizmet silme (veya bir taşıma tooanother düğümü) başlatıldıktan sonra kaldırılmadan önce hello çalışma zamanı toowait için bir zaman aralığı yapılandırabilirsiniz. Yapılandırma hello zaman aralığı gönderir hello `docker stop <time in seconds>` komutu toohello kapsayıcı.   Daha ayrıntılı bilgi için bkz. [docker durdurma](https://docs.docker.com/engine/reference/commandline/stop/). Merhaba zaman aralığı toowait hello altında belirtilen `Hosting` bölümü. Küme bildirimi parçacığını aşağıdaki hello nasıl tooset hello bekleme aralığı gösterir:
+Hizmet silme (veya başka bir düğüme taşıma) başladıktan sonra, çalışma zamanının kapsayıcı kaldırılmadan önce ne kadar bekleyeceğine ilişkin bir zaman aralığı yapılandırabilirsiniz. Zaman aralığını yapılandırma, kapsayıcıya `docker stop <time in seconds>` komutunu gönderir.   Daha ayrıntılı bilgi için bkz. [docker durdurma](https://docs.docker.com/engine/reference/commandline/stop/). Beklenecek zaman aralığı, `Hosting` bölümünde belirtilir. Aşağıdaki küme bildirimi kod parçacığı, bekleme aralığının nasıl ayarlandığını gösterir:
 
 ```xml
 {
@@ -440,12 +440,12 @@ Merhaba kapsayıcı Hello hizmet silme (veya bir taşıma tooanother düğümü)
         ]
 }
 ```
-Merhaba varsayılan zaman aralığı ayarlanır too10 saniye. Bu yapılandırma dinamik olduğundan, bir yapılandırma yalnızca yükseltme hello küme güncelleştirmelerini hello zaman aşımı süresi. 
+Varsayılan zaman aralığı 10 saniye olarak ayarlanır. Bu yapılandırma dinamik olduğundan, kümedeki yalnızca yapılandırmaya yönelik bir güncelleştirme zaman aşımını güncelleştirir. 
 
 
-## <a name="configure-hello-runtime-tooremove-unused-container-images"></a>Merhaba çalışma zamanı tooremove yapılandırma kullanılmayan kapsayıcı görüntüleri
+## <a name="configure-the-runtime-to-remove-unused-container-images"></a>Kullanılmayan kapsayıcı görüntülerini kaldırmak için çalışma zamanını yapılandırma
 
-Merhaba Service Fabric kümesi tooremove yapılandırabilirsiniz hello düğümünden kullanılmayan kapsayıcı görüntüler. Bu yapılandırma, disk alanı toobe hello düğüm üzerinde çok fazla sayıda kapsayıcı görüntüler varsa yeniden yakalanmadan sağlar.  tooenable bu özellik, güncelleştirme hello `Hosting` hello aşağıdaki kod parçacığında gösterildiği gibi hello küme bildiriminde bölümünde: 
+Service Fabric kümesini kullanılmayan kapsayıcı görüntülerini düğümden kaldıracak şekilde yapılandırabilirsiniz. Bu yapılandırma, düğümde çok fazla kapsayıcı görüntüsü varsa yeniden disk alanı elde edilmesine imkan tanır.  Bu özelliği etkinleştirmek için küme bildirimindeki `Hosting` bölümünü aşağıdaki kod parçacığında gösterildiği gibi güncelleştirin: 
 
 
 ```xml
@@ -461,15 +461,15 @@ Merhaba Service Fabric kümesi tooremove yapılandırabilirsiniz hello düğüm�
 } 
 ```
 
-Silinmemelidir görüntüler için bunları altında hello belirtebilirsiniz `ContainerImagesToSkip` parametresi. 
+Silinmemesi gereken görüntüleri `ContainerImagesToSkip` parametresi altında belirtebilirsiniz. 
 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Service Fabric’te kapsayıcı](service-fabric-containers-overview.md) çalıştırma hakkında daha fazla bilgi edinin.
-* Okuma hello [bir kapsayıcıda .NET uygulaması dağıtma](service-fabric-host-app-in-a-container.md) Öğreticisi.
-* Service Fabric Hello hakkında bilgi edinin [uygulama yaşam döngüsü](service-fabric-application-lifecycle.md).
-* Checkout hello [Service Fabric kapsayıcı kod örnekleri](https://github.com/Azure-Samples/service-fabric-dotnet-containers) github'da.
+* [Kapsayıcı içinde .NET uygulaması dağıtma](service-fabric-host-app-in-a-container.md) öğreticisini okuyun.
+* Service Fabric [uygulama yaşam döngüsü](service-fabric-application-lifecycle.md) hakkında bilgi edinin.
+* GitHub’da [Service Fabric kapsayıcı kod örneklerine](https://github.com/Azure-Samples/service-fabric-dotnet-containers) bakın.
 
 [1]: ./media/service-fabric-get-started-containers/MyFirstContainerError.png
 [2]: ./media/service-fabric-get-started-containers/MyFirstContainerReady.png

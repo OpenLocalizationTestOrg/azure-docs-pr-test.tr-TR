@@ -1,6 +1,6 @@
 ---
-title: aaaUse Azure Cosmos DB MongoChef | Microsoft Docs
-description: "Bilgi nasıl toouse bir Azure Cosmos DB ile MongoChef: API MongoDB hesabı"
+title: "Azure Cosmos DB MongoChef kullanın | Microsoft Docs"
+description: "Bir Azure Cosmos DB ile MongoChef kullanmayı öğrenin: API MongoDB hesabı"
 keywords: mongochef
 services: cosmos-db
 author: AndrewHoh
@@ -15,57 +15,57 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: anhoh
-ms.openlocfilehash: 4b047797b231c34ccc6f2ed02416525c6228d596
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 54c9799bd646b827f602e2ea2f9a15a4fc853f00
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-mongochef-with-an-azure-cosmos-db-api-for-mongodb-account"></a>Bir Azure Cosmos DB ile MongoChef kullanın: API MongoDB hesabı
 
-tooconnect tooan Azure Cosmos DB: API MongoDB hesabı için yapmanız gerekir:
+Bir Azure Cosmos DB'ye bağlanmasına: API MongoDB hesabı için yapmanız gerekir:
 
 * İndirme ve yükleme [MongoChef](http://3t.io/mongochef)
 * Azure Cosmos DB sahip: API MongoDB hesabı için [bağlantı dizesi](connect-mongodb-account.md) bilgileri
 
-## <a name="create-hello-connection-in-mongochef"></a>İçinde MongoChef Hello bağlantısı oluşturma
-tooadd Azure Cosmos DB: API Bağlantı Yöneticisi ' ni toohello MongoChef MongoDB hesabı için hello aşağıdaki adımları gerçekleştirin.
+## <a name="create-the-connection-in-mongochef"></a>İçinde MongoChef bağlantı oluşturma
+Azure Cosmos DB eklemek için: API MongoDB hesabına MongoChef Bağlantı Yöneticisi için aşağıdaki adımları gerçekleştirin.
 
-1. Azure Cosmos DB almak: API MongoDB bağlantı bilgilerini hello yönergeleri kullanarak [burada](connect-mongodb-account.md).
+1. Azure Cosmos DB almak: API MongoDB bağlantı bilgilerini yönergeleri kullanarak [burada](connect-mongodb-account.md).
 
-    ![Merhaba bağlantı dizesi dikey penceresi ekran görüntüsü](./media/mongodb-mongochef/ConnectionStringBlade.png)
-2. Tıklatın **Bağlan** tooopen Bağlantı Yöneticisi hello ve ardından **yeni bağlantı**
+    ![Bağlantı dizesi dikey penceresi ekran görüntüsü](./media/mongodb-mongochef/ConnectionStringBlade.png)
+2. Tıklatın **Bağlan** Bağlantı Yöneticisi'ni açmak için ardından **yeni bağlantı**
 
-    ![Merhaba MongoChef Bağlantı Yöneticisi ekran görüntüsü](./media/mongodb-mongochef/ConnectionManager.png)
-3. Merhaba, **yeni bağlantı** penceresinde hello **Server** sekmesinde, ana bilgisayar (FQDN) hello Azure Cosmos DB hello girin: API MongoDB hesabı ve başlangıç bağlantı noktası için.
+    ![MongoChef Bağlantı Yöneticisi ekran görüntüsü](./media/mongodb-mongochef/ConnectionManager.png)
+3. İçinde **yeni bağlantı** penceresi, **Server** sekmesinde, Azure Cosmos DB ana bilgisayar (FQDN) girin: API MongoDB hesabı ve bağlantı noktası.
 
-    ![Merhaba MongoChef Bağlantı Yöneticisi'ni sunucu sekmesinin Ekran görüntüsü](./media/mongodb-mongochef/ConnectionManagerServerTab.png)
-4. Merhaba, **yeni bağlantı** penceresinde hello **kimlik doğrulaması** sekmesinde, kimlik doğrulama modu seçin **standart (CR MONGODB veya SCARM-SHA-1)** ve hello kullanıcı adı girin ve PAROLA.  Merhaba varsayılan kimlik doğrulama db (Yönetici) kabul edin veya kendi değer sağlayın.
+    ![MongoChef Bağlantı Yöneticisi'ni sunucu sekmesinin Ekran görüntüsü](./media/mongodb-mongochef/ConnectionManagerServerTab.png)
+4. İçinde **yeni bağlantı** penceresi, **kimlik doğrulaması** sekmesinde, kimlik doğrulama modu seçin **standart (CR MONGODB veya SCARM-SHA-1)** ve kullanıcı adı ve parola girin.  Varsayılan kimlik doğrulama db (Yönetici) kabul edin veya kendi değer sağlayın.
 
-    ![Merhaba MongoChef Bağlantı Yöneticisi kimlik doğrulaması sekmesinin Ekran görüntüsü](./media/mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
-5. Merhaba, **yeni bağlantı** penceresinde hello **SSL** sekmesinde, hello denetleyin **SSL kullan Protokolü tooconnect** onay kutusunu ve hello **kabul sunucu otomatik olarak imzalanan SSL sertifikaları** radyo düğmesi.
+    ![MongoChef Bağlantı Yöneticisi kimlik doğrulaması sekmesinin Ekran görüntüsü](./media/mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
+5. İçinde **yeni bağlantı** penceresi, **SSL** sekmesi, onay **bağlanmak için SSL kullan Protokolü** onay kutusunu ve **sunucu otomatik olarak imzalanan SSL sertifikalarını kabul et**  radyo düğmesi.
 
-    ![Merhaba MongoChef Bağlantı Yöneticisi SSL sekmesinin Ekran görüntüsü](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
-6. Merhaba tıklatın **Bağlantıyı Sına** toovalidate hello bağlantı bilgilerini düğmesini tıklatın, **Tamam** tooreturn toohello yeni bağlantı penceresinde ve ardından **kaydetmek**.
+    ![MongoChef Bağlantı Yöneticisi SSL sekmesinin Ekran görüntüsü](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
+6. Tıklatın **Bağlantıyı Sına** bağlantı bilgilerini doğrulamak için düğmesi **Tamam** yeni bağlantı penceresine geri dönün ve ardından **kaydetmek**.
 
-    ![Merhaba MongoChef test bağlantısı penceresinin ekran görüntüsü](./media/mongodb-mongochef/TestConnectionResults.png)
+    ![MongoChef test bağlantısı penceresinin ekran görüntüsü](./media/mongodb-mongochef/TestConnectionResults.png)
 
-## <a name="use-mongochef-toocreate-a-database-collection-and-documents"></a>MongoChef toocreate bir veritabanı, koleksiyon ve belgeler kullanın
-toocreate bir veritabanı, koleksiyon ve belgeleri MongoChef, kullanarak hello aşağıdaki adımları gerçekleştirin.
+## <a name="use-mongochef-to-create-a-database-collection-and-documents"></a>Bir veritabanı, koleksiyon ve belge oluşturmak için MongoChef kullanın
+Bir veritabanı, koleksiyon ve MongoChef kullanarak belgeleri oluşturmak için aşağıdaki adımları gerçekleştirin.
 
-1. İçinde **Bağlantı Yöneticisi**, hello bağlantı vurgulayıp **Bağlan**.
+1. İçinde **Bağlantı Yöneticisi**, bağlantı vurgulayıp **Bağlan**.
 
-    ![Merhaba MongoChef Bağlantı Yöneticisi ekran görüntüsü](./media/mongodb-mongochef/ConnectToAccount.png)
-2. Merhaba konağa sağ tıklayın ve seçin **veritabanı ekleme**.  Bir veritabanı adı girin ve tıklayın **Tamam**.
+    ![MongoChef Bağlantı Yöneticisi ekran görüntüsü](./media/mongodb-mongochef/ConnectToAccount.png)
+2. Konağı sağ tıklatın ve seçin **veritabanı ekleme**.  Bir veritabanı adı girin ve tıklayın **Tamam**.
 
-    ![Merhaba MongoChef veritabanı ekleme seçeneği ekran görüntüsü](./media/mongodb-mongochef/AddDatabase1.png)
-3. Merhaba veritabanını sağ tıklatın ve seçin **topluluk Ekle**.  Koleksiyon adı sağlayın ve tıklatın **oluşturma**.
+    ![MongoChef veritabanı ekleme seçeneği ekran görüntüsü](./media/mongodb-mongochef/AddDatabase1.png)
+3. Veritabanını sağ tıklatın ve seçin **topluluk Ekle**.  Koleksiyon adı sağlayın ve tıklatın **oluşturma**.
 
-    ![Merhaba MongoChef topluluk Ekle seçeneği ekran görüntüsü](./media/mongodb-mongochef/AddCollection.png)
-4. Merhaba tıklatın **koleksiyonu** menü öğesi, ardından **Belge Ekle**.
+    ![MongoChef topluluk Ekle seçeneğini ekran görüntüsü](./media/mongodb-mongochef/AddCollection.png)
+4. Tıklatın **koleksiyonu** menü öğesi, ardından **Belge Ekle**.
 
-    ![Merhaba MongoChef Belge Ekle menü öğesi ekran görüntüsü](./media/mongodb-mongochef/AddDocument1.png)
-5. Merhaba aşağıdaki Hello Belge Ekle iletişim kutusuna yapıştırın ve ardından **Belge Ekle**.
+    ![MongoChef Belge Ekle menü öğesi ekran görüntüsü](./media/mongodb-mongochef/AddDocument1.png)
+5. Belge Ekle iletişim kutusunda, aşağıdaki yapıştırın ve ardından **Belge Ekle**.
 
         {
         "_id": "AndersenFamily",
@@ -83,7 +83,7 @@ toocreate bir veritabanı, koleksiyon ve belgeleri MongoChef, kullanarak hello a
         "address": { "state": "WA", "county": "King", "city": "seattle" },
         "isRegistered": true
         }
-6. Başka bir belge, bu kez içeriği aşağıdaki hello ekleyin.
+6. Başka bir belge, bu süre aşağıdaki içeriğe sahip ekleyin.
 
         {
         "_id": "WakefieldFamily",
@@ -110,7 +110,7 @@ toocreate bir veritabanı, koleksiyon ve belgeleri MongoChef, kullanarak hello a
         "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
         "isRegistered": false
         }
-7. Bir örnek sorgu yürütün. Örneğin, aileleri hello Soyadı 'Andersen', dönüş hello üst ve durum alanları arayın.
+7. Bir örnek sorgu yürütün. Örneğin, ailesi Soyadı 'Andersen' ile arayın ve üst ve durum alanları döndürür.
 
     ![Mongo Chef sorgu sonuçları ekran görüntüsü](./media/mongodb-mongochef/QueryDocument1.png)
 

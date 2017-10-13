@@ -1,5 +1,5 @@
 ---
-title: "Apache Storm kullanan Azure Event Hubs aaaReceive olaylarından | Microsoft Docs"
+title: "Apache Storm kullanan Azure Event Hubs'tan gelen olayları alma | Microsoft Docs"
 description: "Apache Storm kullanarak Event Hubs'dan alma kullanmaya başlama"
 services: event-hubs
 documentationcenter: 
@@ -14,25 +14,25 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: a0ab860ee8d504a28aac380c504c928f0d6dbc1e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3e15370c7602276ef323708632b324fe05497f41
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Apache Storm kullanarak Event Hubs'dan olayları alma
 
-[Apache Storm](https://storm.incubator.apache.org) sınırsız olarak veri akışları güvenilir işlenmesini kolaylaştırır dağıtılmış gerçek zamanlı hesaplama sistemidir. Bu bölümde, nasıl Azure olay hub'ları fırtınası toouse spout tooreceive olayları Event Hubs'dan gösterir. Apache Storm kullanarak, farklı düğümlerde barındırılan birden çok işlemler arasında olayları bölebilirsiniz. Merhaba Storm ile olay hub'ları tümleştirme olay tüketimi saydam denetim noktası oluşturma Storm'ın Zookeeper yükleme seçeneğini kullanarak, kalıcı denetim noktalarını yönetme, ilerleme durumunu basitleştirir ve olay hub'larından paralel alır.
+[Apache Storm](https://storm.incubator.apache.org) sınırsız olarak veri akışları güvenilir işlenmesini kolaylaştırır dağıtılmış gerçek zamanlı hesaplama sistemidir. Bu bölümde Azure olay hub'ları Storm spout olayları olay hub'larından almak için nasıl kullanılacağını gösterir. Apache Storm kullanarak, farklı düğümlerde barındırılan birden çok işlemler arasında olayları bölebilirsiniz. Storm ile olay hub'ları tümleştirme olay tüketimi saydam denetim noktası oluşturma Storm'ın Zookeeper yükleme seçeneğini kullanarak, kalıcı denetim noktalarını yönetme, ilerleme durumunu basitleştirir ve olay hub'larından paralel alır.
 
-Merhaba desenleri Event Hubs hakkında daha fazla bilgi almak için bkz [Event Hubs'a genel bakış][Event Hubs overview].
+Alma desenleri Event Hubs hakkında daha fazla bilgi için bkz: [Event Hubs'a genel bakış][Event Hubs overview].
 
 ## <a name="create-project-and-add-code"></a>Proje oluşturma ve kod ekleme
 
-Bu öğretici kullanan bir [Hdınsight Storm] [ HDInsight Storm] Event Hubs spout hello ile zaten gelen yükleme.
+Bu öğretici kullanan bir [Hdınsight Storm] [ HDInsight Storm] zaten kullanılabilir Event Hubs spout ile birlikte gelen yükleme.
 
-1. Merhaba izleyin [Hdınsight Storm - Get Started](../hdinsight/hdinsight-storm-overview.md) yordamı toocreate yeni Hdınsight kümesi ve Uzak Masaüstü tooit bağlanın.
-2. Kopya hello `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` dosya tooyour yerel geliştirme ortamı. Merhaba olayları storm spout içerir.
-3. Kullanım hello aşağıdaki tooinstall hello paket hello yerel Maven deposuna komutu. Bu, bir sonraki adımda hello Storm başvuru olarak proje tooadd sağlar.
+1. İzleyin [Hdınsight Storm - Get Started](../hdinsight/hdinsight-storm-overview.md) yeni bir Hdınsight kümesi oluşturma ve Uzak Masaüstü aracılığıyla bağlanmak için yordamı.
+2. Kopya `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` yerel geliştirme ortamınızı dosyasına. Bu olaylar storm spout içerir.
+3. Paketi yerel Maven deposuna yüklemek için aşağıdaki komutu kullanın. Bu, sonraki adımda Storm projesi başvuru olarak eklemenize olanak sağlar.
 
     ```shell
     mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
@@ -41,9 +41,9 @@ Bu öğretici kullanan bir [Hdınsight Storm] [ HDInsight Storm] Event Hubs spou
    
     ![][12]
 5. Seçin **varsayılan çalışma alanı konumu kullanacak**, ardından **sonraki**
-6. Select hello **maven archetype quickstart** archetype, ardından **sonraki**
+6. Seçin **maven archetype quickstart** archetype, ardından **sonraki**
 7. INSERT bir **GroupID** ve **Artifactıd**, ardından **son**
-8. İçinde **pom.xml**, hello bağımlılıklar aşağıdaki hello eklemek `<dependency>` düğümü.
+8. İçinde **pom.xml**, aşağıdaki bağımlılıkları ekleyin `<dependency>` düğümü.
 
     ```xml  
     <dependency>
@@ -75,7 +75,7 @@ Bu öğretici kullanan bir [Hdınsight Storm] [ HDInsight Storm] Event Hubs spou
     </dependency>
     ```
 
-9. Merhaba, **src** klasörünü adlı bir dosya oluşturun **Config.properties** ve içeriği izleyerek, hello değiştirerek kopyalama hello `receive rule key` ve `event hub name` değerler:
+9. İçinde **src** klasörünü adlı bir dosya oluşturun **Config.properties** ve aşağıdaki kopyalayın değiştirerek, içerik `receive rule key` ve `event hub name` değerler:
 
     ```java
     eventhubspout.username = ReceiveRule
@@ -90,8 +90,8 @@ Bu öğretici kullanan bir [Hdınsight Storm] [ HDInsight Storm] Event Hubs spou
     eventhubspout.checkpoint.interval = 10
     eventhub.receiver.credits = 10
     ```
-    Merhaba değeri **eventhub.receiver.credits** toohello Storm ardışık serbest bırakmadan önce kaç tane olayları toplu belirler. Basitlik Hello artırmak amacıyla için bu örnek, bu değer too10 ayarlar. Üretimde, genellikle toohigher değerleri ayarlanmalıdır; Örneğin, 1024.
-10. Adlı yeni bir sınıf oluşturmak **LoggerBolt** koddan hello ile:
+    Değeri **eventhub.receiver.credits** Storm ardışık düzene serbest bırakmadan önce kaç tane olayları toplu belirler. Basitleştirmek amacıyla, bu örnekte bu değer 10'a ayarlar. Üretimde, genellikle daha yüksek değerine ayarlanmalıdır; Örneğin, 1024.
+10. Adlı yeni bir sınıf oluşturmak **LoggerBolt** aşağıdaki kod ile:
     
     ```java
     import java.util.Map;
@@ -130,8 +130,8 @@ Bu öğretici kullanan bir [Hdınsight Storm] [ HDInsight Storm] Event Hubs spou
     }
     ```
     
-    Bu Storm Cıvata alınan hello olayları hello içeriğini günlüğe kaydeder. Bu, bir depolama hizmetindeki toostore diziler kolayca genişletilebilir. Merhaba [Hdınsight algılayıcı analiz öğretici] HBase bu aynı yaklaşımı toostore verileri kullanır.
-11. Adlı bir sınıf oluşturmak **LogTopology** koddan hello ile:
+    Bu Storm Cıvata alınan olayların içeriğini günlüğe kaydeder. Bu kolayca diziler depolama hizmetinde depolamak için genişletilebilir. [Hdınsight algılayıcı analiz öğretici] HBase verileri depolamak için aynı bu yaklaşımı kullanır.
+11. Adlı bir sınıf oluşturmak **LogTopology** aşağıdaki kod ile:
     
     ```java
     import java.io.FileReader;
@@ -182,9 +182,9 @@ Bu öğretici kullanan bir [Hdınsight Storm] [ HDInsight Storm] Event Hubs spou
                     namespaceName, entityPath, partitionCount, zkEndpointAddress,
                     checkpointIntervalInSeconds, receiverCredits);
         
-            // set hello number of workers toobe hello same as partition number.
-            // hello idea is toohave a spout and a logger bolt co-exist in one
-            // worker tooavoid shuffling messages across workers in storm cluster.
+            // set the number of workers to be the same as partition number.
+            // the idea is to have a spout and a logger bolt co-exist in one
+            // worker to avoid shuffling messages across workers in storm cluster.
             numWorkers = spoutConfig.getPartitionCount();
         
             if (args.length > 0) {
@@ -235,10 +235,10 @@ Bu öğretici kullanan bir [Hdınsight Storm] [ HDInsight Storm] Event Hubs spou
     }
     ```
 
-    Bu sınıf hello yapılandırma dosyası tooinstantiate hello özelliklerini kullanarak yeni bir Event Hubs spout oluşturur. Bu örnek kadar oluşturur toonote görevleri hello hello event hub'ındaki bölüm sayısı olarak sipariş toouse hello maksimum paralellik bu olay hub'ın izin içinde spout'lar önemlidir.
+    Bu sınıfın örneğini başlatmak için yapılandırma dosyasında özelliklerini kullanarak yeni bir Event Hubs spout oluşturur. Bu örneğin sayıda spout'lar görevleri olay hub'ındaki bölüm sayısı olarak bu olay hub'ı tarafından izin verilen maksimum paralellik kullanmak için oluşturduğu dikkate almak önemlidir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bağlantılar aşağıdaki hello ziyaret ederek Event Hubs hakkında daha fazla bilgi edinebilirsiniz:
+Aşağıdaki bağlantıları inceleyerek Event Hubs hakkında daha fazla bilgi edinebilirsiniz:
 
 * [Event Hubs'a genel bakış][Event Hubs overview]
 * [Olay Hub’ı oluşturma](event-hubs-create.md)

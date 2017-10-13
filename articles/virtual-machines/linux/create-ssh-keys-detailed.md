@@ -1,6 +1,6 @@
 ---
-title: "aaaDetailed adımları toocreate bir SSH anahtar çifti Azure Linux VM'ler için | Microsoft Docs"
-description: "Farklı kullanım örnekleri için belirli sertifikalar yanı sıra, azure'daki Linux VM'ler için ek adımlar toocreate bir SSH ortak ve özel anahtar çifti öğrenin."
+title: "Azure’da Linux VM’ler için SSH anahtar çifti oluşturmaya ilişkin ayrıntılı adımlar | Microsoft Belgeleri"
+description: "Azure’da farklı kullanım örnekleri için belirli sertifikalarla birlikte Linux VM’ler için bir SSH ortak ve özel anahtar çifti oluşturmaya yönelik ek adımlar hakkında bilgi alın."
 services: virtual-machines-linux
 documentationcenter: 
 author: dlepow
@@ -15,32 +15,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/28/2017
 ms.author: danlep
-ms.openlocfilehash: 9ac52ef4dc87e73b9c07ccc323adc955829e2014
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d4548c6f21d04effd57ea36e4fc0d15f77568903
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="detailed-walk-through-toocreate-an-ssh-key-pair-and-additional-certificates-for-a-linux-vm-in-azure"></a>Toocreate SSH anahtar çiftiniz ve azure'da bir Linux VM için ek sertifika aracılığıyla ayrıntılı ilerlemesi
-SSH anahtar çifti ile Parolaları toolog hello gereksinimini toousing SSH anahtarları kimlik doğrulama için varsayılan Azure üzerinde sanal makineleri oluşturabilirsiniz. Parolalar, tahmin edilebilir ve parolanızı toorelentless yanılma denemeleri tooguess, Vm'leri açın. Hello Azure CLI ya da Resource Manager şablonları ile oluşturulan VM'ler SSH ortak anahtarınız için SSH parolalı oturum açma devre dışı bırakma post dağıtım yapılandırma adımı kaldırma hello dağıtımının bir parçası olarak dahil edebilirsiniz. Bu makalede ayrıntılı adımlar ve ek örnekler oluşturma sertifikaların gibi Linux sanal makineleri ile kullanılmak üzere sağlar. Tooquickly istiyorsanız oluşturmak ve SSH anahtar çiftini kullanın, bkz: [nasıl toocreate bir SSH ortak ve özel anahtarı eşleştirin Azure Linux VM'ler için](mac-create-ssh-keys.md).
+# <a name="detailed-walk-through-to-create-an-ssh-key-pair-and-additional-certificates-for-a-linux-vm-in-azure"></a>Azure’da Linux VM için SSH anahtar çifti ve ek sertifikalar oluşturmaya yönelik ayrıntılı izlenecek yol
+SSH anahtar çiftiyle Azure'da Sanal Makineler oluşturabilirsiniz. Bu sayede kimlik doğrulaması için SSH anahtarlarının kullanımını varsayılan hale getirerek oturum açmak için parolalara duyulan gereksinimi ortadan kaldırırsınız. Parolalar tahmin edilebilir ve sanal makinelerinizi, parolanızı tahmin etmeye yönelik sayısız girişime maruz bırakır. Azure CLI veya Resource Manager şablonları ile oluşturulan sanal makineler, dağıtımın bir parçası olarak SSH ortak anahtarınızı içerebilir; böylece dağıtım sonrası SSH için parolayla girişleri devre dışı bırakma yapılandırma gereksinimini ortadan kaldırır. Bu makalede ayrıntılı adımlar ve ek örnekler oluşturma sertifikaların gibi Linux sanal makineleri ile kullanılmak üzere sağlar. Bir SSH anahtar çiftini hızlıca oluşturup kullanmak istiyorsanız bkz. [Azure’da Linux VM’ler için SSH ortak ve özel anahtar çifti oluşturma](mac-create-ssh-keys.md).
 
 ## <a name="understanding-ssh-keys"></a>SSH anahtarlarını anlama
 
-SSH ortak ve özel anahtarları hello en kolay yolu toolog tooyour Linux sunucularda kullanmaktır. [Ortak anahtar şifrelemesini](https://en.wikipedia.org/wiki/Public-key_cryptography) kolayca deneme yanılmayla parolalara göre çok daha güvenli bir şekilde toolog tooyour Linux içinde veya Azure BSD VM'de sağlar.
+SSH ortak ve özel anahtarlarını kullanmak, Linux sunucularınızda oturum açmanın en kolay yoludur. [Ortak anahtar şifrelemesi](https://en.wikipedia.org/wiki/Public-key_cryptography), Azure'daki Linux veya BSD VM'nizde oturum açmak için parolalara kıyasla çok daha güvenli bir yol sunar. Parolalar, saldırılara çok daha kolay şekilde maruz kalır.
 
-Ortak anahtarınız herkesle paylaşılabilir; ancak, özel anahtarınıza yalnızca siz (veya yerel güvenlik altyapınız) sahip olursunuz.  Hello SSH özel anahtara sahip bir [çok güvenli parola](https://www.xkcd.com/936/) (kaynak:[xkcd.com](https://xkcd.com)) toosafeguard onu.  Bu parolayı yalnızca tooaccess hello özel SSH anahtar dosyası olduğunu ve **değil** hello kullanıcı hesabı parolası.  Bir parola tooyour SSH anahtarı eklediğinizde, böylece hello özel anahtar hello parola toodecrypt gereksizdir, 128 bit AES kullanarak hello özel anahtarı şifreler.  Bir saldırgan özel anahtarınızı çalıntı varsa ve anahtarı bir parola sahip değilse, bu özel mümkün toouse olacaktır hello karşılık gelen ortak anahtara sahip bir tooany sunucuya toolog anahtarı.  Özel anahtar parola korumalı ise, Azure’daki altyapınız için ek bir güvenlik katmanı sağlayarak, bu saldırgan tarafından kullanılamaz.
+Ortak anahtarınız herkesle paylaşılabilir; ancak, özel anahtarınıza yalnızca siz (veya yerel güvenlik altyapınız) sahip olursunuz.  SSH özel anahtarının korunması için [çok güvenli parola](https://www.xkcd.com/936/) (kaynak:[xkcd.com](https://xkcd.com)) gereklidir.  Bu parola yalnızca özel SSH anahtar dosyasına erişim için kullanılır ve kullanıcı hesabı parolası **değildir**.  SSH anahtarınıza parola eklediğinizde bu parola özel anahtarı 128 bit AES kullanarak şifreler; böylece özel anahtar, şifresini çözen parola olmadan kullanılamaz.  Bir saldırganın özel anahtarınızı çalması ve bu anahtarın bir parolasının olmaması halinde saldırgan, bu özel anahtarı ilgili ortak anahtara sahip sunucularınızda oturum açmak için kullanabilir.  Özel anahtar parola korumalı ise, Azure’daki altyapınız için ek bir güvenlik katmanı sağlayarak, bu saldırgan tarafından kullanılamaz.
 
-Bu makalede, Azure Resource Manager ile dağıtımlar için önerilen 2 RSA ortak ve özel anahtar dosyası çifti (Ayrıca başvurulan tooas "ssh-rsa" anahtarlar), bir SSH Protokolü sürüm oluşturur. *SSH-rsa* anahtarları hello üzerinde gerekli [portal](https://portal.azure.com) Klasik ve Resource Manager dağıtımları için.
+Bu makalede, Azure Resource Manager ile yapılan dağıtımlar için önerilen bir SSH protokolü sürüm 2 RSA ortak ve özel anahtar dosyası çifti (aynı zamanda "ssh-rsa" anahtarları olarak adlandırılır) oluşturulur. Hem klasik hem de Resource Manager dağıtımları için [portalda](https://portal.azure.com) *ssh-rsa* anahtarları gereklidir.
 
 ## <a name="ssh-keys-use-and-benefits"></a>SSH anahtarlarının kullanımı ve avantajları
 
-En az 2048 bit, Azure gerektirir SSH Protokolü sürüm 2, RSA biçimi ortak ve özel anahtarları; Merhaba ortak anahtar dosyası sahip hello `.pub` kapsayıcı biçimi. toocreate hello anahtarları kullanmak `ssh-keygen`, bir seri soru soran ve özel anahtar ve eşleşen ortak anahtarı yazar. Bir Azure VM oluşturulduğunda, ortak anahtar toohello Azure kopyaları hello `~/.ssh/authorized_keys` hello VM klasörü. SSH anahtarları `~/.ssh/authorized_keys` kullanılan toochallenge hello istemci toomatch hello karşılık gelen özel anahtar bir SSH oturum açma bağlantısı.  Kimlik doğrulaması için SSH anahtarları kullanarak bir Azure Linux VM oluşturulduğunda, Azure hello SSHD yapılandırır sunucu toonot izin parola oturum açmalar, yalnızca SSH anahtarları.  Bu nedenle, SSH anahtarları ile Azure Linux VM'ler oluşturarak, kendiniz hello parolalarda devre dışı bırakma hello tipik dağıtım sonrası yapılandırma adımı kaydedin ve güvenli hello VM dağıtımı yardımcı olabilir **sshd_config** dosya.
+Azure en az 2048 bit, SSH protokolü sürüm 2 RSA biçiminde ortak ve özel anahtarlar gerektirir; ortak anahtar dosyası `.pub` kapsayıcısı biçimindedir. Anahtarları oluşturmak için `ssh-keygen` kullanın. Bu, bir dizi soru sorduktan sonra özel bir anahtar ve eşleşen bir ortak anahtar yazar. Bir Azure VM oluşturulduğunda Azure, ortak anahtarı VM üzerindeki `~/.ssh/authorized_keys` klasörüne kopyalar. `~/.ssh/authorized_keys` içindeki SSH anahtarları, bir istemcinin SSH oturum açma bağlantısındaki ilgili özel anahtarla eşleşip eşleşmediğini sınar.  Kimlik doğrulama için SSH anahtarları kullanılarak bir Azure Linux VM oluşturulduğunda Azure, SSHD sunucusunu parolayla girişleri devre dışı bırakarak yalnızca SSH anahtarlarına izin verecek şekilde yapılandırır.  Dolayısıyla, SSH anahtarlarıyla Azure Linux VM'leri oluşturarak VM dağıtımının güvenliğini sağlamaya yardımcı olabilirsiniz ve dağıtım sonrasında **sshd_config** dosyasında parolaları devre dışı bırakma yapılandırma adımının uygulanmasına gerek kalmaz.
 
 ## <a name="using-ssh-keygen"></a>SSH-keygen’i kullanma
 
-Bu komut, 2048 bit RSA kullanarak (şifrelenmiş) SSH anahtar çifti güvenli bir parola oluşturur ve onu geçersiz kılınan tooeasily tanımlayın.  
+Bu komut, 2048 bit RSA kullanarak parola korumalı (şifrelenmiş) bir SSH anahtar çifti oluşturur; kolayca anlaşılabilmesi için komuta açıklama eklenir.  
 
-SSH anahtarları hello tutulan varsayılan olan `~/.ssh` dizini.  Yoksa bir `~/.ssh` dizin, hello `ssh-keygen` komut oluşturur, sizin için hello ile doğru izinleri.
+SSH anahtarları, varsayılan olarak `~/.ssh` dizininde tutulur.  `~/.ssh` dizininiz yoksa `ssh-keygen` komutu, doğru izinler ile sizin için oluşturur.
 
 ```bash
 ssh-keygen \
@@ -53,18 +53,18 @@ ssh-keygen \
 
 *Komut açıklaması*
 
-`ssh-keygen`Merhaba kullanılan program toocreate hello anahtarları =
+`ssh-keygen` = anahtarları oluşturmak için kullanılan program
 
-`-t rsa`Merhaba RSA biçimi [wikipedia] olan anahtar toocreate türü =[sonunda parens](`https://en.wikipedia.org/wiki/RSA_(cryptosystem) `) 
- `-b 2048` hello anahtar bitleri =
+`-t rsa`RSA biçimi [wikipedia] oluşturulacak anahtar türü =[sonunda parens](`https://en.wikipedia.org/wiki/RSA_(cryptosystem) `) 
+ `-b 2048` = anahtar bitleri
 
-`-C "azureuser@myserver"`Merhaba ortak anahtar dosyası tooeasily eklenmiş toohello sonuna tanımlamak açıklama =.  Normalde hello açıklama olarak bir e-posta kullanılır ancak iyi ne olursa olsun, altyapınız için kullanabilirsiniz.
+`-C "azureuser@myserver"` = kolayca tanımlamak için ortak anahtar dosyasının sonuna eklenen bir açıklama.  Normalde açıklama olarak bir e-posta kullanılır ancak altyapınız için en uygun seçenek hangisiyse onu kullanabilirsiniz.
 
 ## <a name="classic-deploy-using-asm"></a>`asm` kullanarak klasik dağıtım
 
-Merhaba Klasik dağıtım modeli kullanılıyorsa (`asm` hello CLI moduna), bir SSH-RSA ortak anahtar kullanabilir veya bir RFC4716 biçimlendirilmiş pem kapsayıcısında anahtar.  Merhaba SSH-RSA ortak anahtardır daha önce bu makalede kullanarak oluşturulan öğeleri `ssh-keygen`.
+Klasik dağıtım modeli kullanılıyorsa (`asm` CLI moduna), bir SSH-RSA ortak anahtar kullanabilir veya bir RFC4716 biçimlendirilmiş pem kapsayıcısında anahtar.  SSH-RSA ortak anahtarı, bu makalenin önceki bölümlerinde `ssh-keygen` kullanılarak oluşturulan anahtardır.
 
-Mevcut bir SSH ortak anahtarı anahtarından toocreate bir RFC4716 biçimlendirilmiş:
+Var olan bir SSH ortak anahtarından RFC4716 biçimli bir anahtar oluşturmak için:
 
 ```bash
 ssh-keygen \
@@ -78,14 +78,14 @@ ssh-keygen \
 ```bash
 ssh-keygen -t rsa -b 2048 -C "azureuser@myserver"
 Generating public/private rsa key pair.
-Enter file in which toosave hello key (/home/azureuser/.ssh/id_rsa):
+Enter file in which to save the key (/home/azureuser/.ssh/id_rsa):
 Enter passphrase (empty for no passphrase):
 Enter same passphrase again:
 Your identification has been saved in /home/azureuser/.ssh/id_rsa.
 Your public key has been saved in /home/azureuser/.ssh/id_rsa.pub.
-hello key fingerprint is:
+The key fingerprint is:
 14:a3:cb:3e:78:ad:25:cc:55:e9:0c:08:e5:d1:a9:08 azureuser@myserver
-hello keys randomart image is:
+The keys randomart image is:
 +--[ RSA 2048]----+
 |        o o. .   |
 |      E. = .o    |
@@ -101,11 +101,11 @@ hello keys randomart image is:
 
 Kaydedilen anahtar dosyaları:
 
-`Enter file in which toosave hello key (/home/azureuser/.ssh/id_rsa): ~/.ssh/id_rsa`
+`Enter file in which to save the key (/home/azureuser/.ssh/id_rsa): ~/.ssh/id_rsa`
 
-Bu makalede Hello anahtar çifti adı.  Adlı bir anahtar çiftine **id_rsa** hello varsayılandır ve bazı araçlar hello bekleyebilirsiniz **id_rsa** tane olması iyi bir fikirdir böylece özel anahtar dosya adı. Merhaba dizin `~/.ssh/` SSH anahtar çiftleriniz ve hello SSH yapılandırma dosyası için hello varsayılan konumdur.  Bir tam yol belirtilmezse `ssh-keygen` hello anahtarları hello geçerli çalışma dizini içinde hello varsayılan oluşturur `~/.ssh`.
+Bu makale için anahtar çifti adı.  Anahtar çiftine **id_rsa** adı verilmesi varsayılandır ve bazı araçlar **id_rsa** özel anahtar adı bekleyebilir, bu nedenle bir tane olması iyi bir fikirdir. `~/.ssh/` dizini, SSH anahtar çiftleri ve SSH yapılandırma dosyası için varsayılan konumdur.  Tam yol belirtilmezse `ssh-keygen` tarafından oluşturulan anahtarlar varsayılan `~/.ssh` dizininde değil geçerli çalışma dizininde olur.
 
-Merhaba listesini `~/.ssh` dizin.
+`~/.ssh` dizininin listesi.
 
 ```bash
 ls -al ~/.ssh
@@ -117,28 +117,28 @@ Anahtar Parolası:
 
 `Enter passphrase (empty for no passphrase):`
 
-`ssh-keygen`tooa parola hello özel anahtar dosyası için "parola." anlamına gelir.  Bu *kesinlikle* parola tooyour özel anahtar tooadd önerilir. Bir parola koruma hello anahtar dosyası, hello dosya kimseyle bunu hello karşılık gelen ortak anahtarı var. tooany Server'daki toolog kullanabilirsiniz. Bir parola (parola) katıştırılabilecek daha fazla koruma birisi mümkün toogain erişim tooyour özel anahtar dosyası olması durumunda, size verilen zaman toochange hello anahtarları tooauthenticate kullanılan.
+`ssh-keygen`, özel anahtar dosyasının "parolasını" ifade eder.  Özel anahtarınıza bir parola eklemeniz *önemle* önerilir. Anahtar dosyasını koruyan bir parola olmadığında, dosyaya sahip herkes bunu ilgili ortak anahtara sahip herhangi bir sunucuda oturum açmak için kullanabilir. Bir parola eklemek, birinin özel anahtar dosyanıza erişim sağlama ihtimaline karşı, kimliğinizi doğrulamak için kullanılan anahtarları değiştirmeniz için size zaman tanıyarak daha fazla koruma sağlar.
 
-## <a name="using-ssh-agent-toostore-your-private-key-password"></a>SSH aracı toostore özel anahtar parolanızı kullanma
+## <a name="using-ssh-agent-to-store-your-private-key-password"></a>Özel anahtar parolanızı depolamak için ssh-agent kullanma
 
-Her SSH oturumu açışınızda özel anahtar dosya parolanızı yazmaya tooavoid kullanabileceğiniz `ssh-agent` toocache özel anahtar dosya parolanızı. Mac kullanıyorsanız, çağırdığınızda hello OSX Anahtarlığa güvenli bir şekilde hello özel anahtar parolaları depolar `ssh-agent`.
+Her SSH oturum açma işleminde özel anahtar dosya parolanızı yazmamak için `ssh-agent` kullanarak özel anahtar dosya parolanızı önbelleğe alabilirsiniz. Mac kullanıyorsanız `ssh-agent` öğesini çağırdığınızda OSX Anahtar Zinciri, özel anahtar parolalarını güvenli bir şekilde depolar.
 
-Doğrulayın ve ssh aracı ve ssh-tooinform hello SSH sistemi hello anahtar dosyaları hakkında hello parola etkileşimli olarak kullanılan toobe ihtiyacınız olmadığından böylece ekleyin.
+SSH sistemini anahtar dosyaları hakkında bilgilendirerek parola kullanma gereksinimini ortadan kaldırmak için ssh-agent ve ssh-add bilgilerini doğrulayıp kullanın.
 
 ```bash
 eval "$(ssh-agent -s)"
 ```
 
-Şimdi hello özel anahtarı çok ekleyin`ssh-agent` hello komutunu kullanarak `ssh-add`.
+Şimdi `ssh-add` komutunu kullanarak özel anahtarı `ssh-agent` öğesine ekleyin.
 
 ```bash
 ssh-add ~/.ssh/id_rsa
 ```
 
-Merhaba özel anahtar parolası şimdi depolanır `ssh-agent`.
+Özel anahtar parolası artık `ssh-agent` içinde depolanmış olur.
 
-## <a name="using-ssh-copy-id-toocopy-hello-key-tooan-existing-vm"></a>Kullanarak `ssh-copy-id` toocopy hello anahtar tooan VM var
-Bir VM zaten oluşturduysanız hello yeni SSH ortak anahtarı tooyour Linux VM yükleyebilirsiniz ile:
+## <a name="using-ssh-copy-id-to-copy-the-key-to-an-existing-vm"></a>`ssh-copy-id` kullanarak anahtarı mevcut bir VM’ye kopyalama
+Önceden bir VM oluşturduysanız şu komutu kullanarak Linux VM'nize yeni SSH ortak anahtarını yükleyebilirsiniz:
 
 ```bash
 ssh-copy-id -i ~/.ssh/id_rsa.pub ahmet@myserver
@@ -146,17 +146,17 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub ahmet@myserver
 
 ## <a name="create-and-configure-an-ssh-config-file"></a>SSH yapılandırma dosyası oluşturma ve yapılandırma
 
-Önerilen bir en iyi yöntem toocreate olduğundan ve yapılandırma bir `~/.ssh/config` dosya toospeed yukarı oturum açmalar ve SSH istemci davranışını en iyi duruma getirme için.
+Oturum açma işlemlerini hızlandırmak ve SSH istemci davranışınızı iyileştirmek için en iyi uygulama olarak bir `~/.ssh/config` dosyası oluşturmanız ve yapılandırmanız önerilir.
 
-Aşağıdaki örnek hello standart bir yapılandırmayı gösterir.
+Aşağıdaki örnek, standart bir yapılandırmayı gösterir.
 
-### <a name="create-hello-file"></a>Merhaba dosyası oluşturma
+### <a name="create-the-file"></a>Önbelleği oluşturma
 
 ```bash
 touch ~/.ssh/config
 ```
 
-### <a name="edit-hello-file-tooadd-hello-new-ssh-configuration"></a>Merhaba dosya tooadd hello yeni SSH yapılandırması düzenleyin:
+### <a name="edit-the-file-to-add-the-new-ssh-configuration"></a>Yeni SSH yapılandırması eklemek için dosyayı düzenleme:
 
 ```bash
 vim ~/.ssh/config
@@ -182,23 +182,23 @@ Host *
   IdentityFile ~/.ssh/id_rsa
 ```
 
-Her sunucu tooenable için kendi özel anahtar çiftini her toohave bölümler bu SSH yapılandırma olanağı sağlar. Merhaba varsayılan ayarları (`Host *`) olan hello belirli ana bilgisayarlar yukarıya hello config dosyasına eşleşmeyen herhangi bir ana bilgisayar için.
+Bu SSH yapılandırması, size her sunucu için bölümler sunarak her birinin kendi özel anahtar çiftinin olmasını sağlar. Varsayılan ayarlar (`Host *`), üst düzey yapılandırma dosyasındaki belirli ana bilgisayarların hiçbiriyle eşleşmeyen tüm ana bilgisayarlar içindir.
 
 ### <a name="config-file-explained"></a>Yapılandırma dosyası açıklaması
 
-`Host`Merhaba ana bilgisayar üzerinde hello terminal çağrılan Hello adı =.  `ssh fedora22`söyler `SSH` toouse hello hello ayarları blok etiketli değerlerde `Host fedora22` Not: ana bilgisayar kullanımınız için mantıklı olan ve hello gerçek ana bilgisayar herhangi bir sunucu adını temsil etmeyen her etiket olabilir.
+`Host` = terminal üzerinde çağrılan ana bilgisayar adı.  `ssh fedora22`, `SSH`'ye `Host fedora22` etiketli ayarlar bloğundaki değerlerin kullanılması gerektiğini bildirir. NOT: Konak, kullanımınız için mantıklı olan ve bir sunucunun gerçek konak adını temsil etmeyen herhangi bir etiket olabilir.
 
-`Hostname 102.160.203.241`Başlangıç IP adresi veya erişilen hello sunucusu için DNS adı =.
+`Hostname 102.160.203.241` = erişim sağlanan sunucuya ilişkin IP adresi veya DNS adı.
 
-`User ahmet`Merhaba uzak kullanıcı hesabı toouse toohello Server'da oturum açarken =.
+`User ahmet` = sunucuda oturum açarken kullanılacak uzak kullanıcı hesabı.
 
-`PubKeyAuthentication yes`= istediğiniz toouse bir SSH anahtarı toolog SSH söyler.
+`PubKeyAuthentication yes`= SSH’ye, oturum açmak için bir SSH anahtarı kullanmak istediğinizi iletir.
 
-`IdentityFile /home/ahmet/.ssh/id_id_rsa`Merhaba SSH özel anahtar ve kimlik doğrulaması için karşılık gelen ortak anahtar toouse =.
+`IdentityFile /home/ahmet/.ssh/id_id_rsa`, = kimlik doğrulaması için kullanılacak SSH özel anahtarı ve ilgili ortak anahtar.
 
 ## <a name="ssh-into-linux-without-a-password"></a>Parolasız Linux içine SSH
 
-SSH anahtar çiftiniz ve yapılandırılmış bir yapılandırma dosyasına sahip olduğunuza göre hızlı ve güvenli bir şekilde tooyour Linux VM içinde mümkün toolog şunlardır. Merhaba, bir SSH anahtarı hello komut istemlerini kullanarak tooa Server'da hello parolası için bu anahtar dosyası için ilk oturum açışınızda.
+Artık bir SSH anahtar çiftiniz ve yapılandırılmış bir SSH yapılandırma dosyasına sahip olduğunuza göre Linux VM'nizde hızlı ve güvenli şekilde oturum açabilirsiniz. SSH anahtarı kullanarak bir sunucuda ilk oturum açışınızda, komut sizden bu anahtar dosyasına ilişkin parolayı ister.
 
 ```bash
 ssh fedora22
@@ -206,12 +206,12 @@ ssh fedora22
 
 ### <a name="command-explained"></a>Komut açıklaması
 
-Zaman `ssh fedora22` yürütülür SSH ilk bulur ve hello tüm ayarları yükler `Host fedora22` blok yükler ve sonra tüm hello hello son blok ayarlarından kalan `Host *`.
+`ssh fedora22` yürütüldüğünde, SSH önce `Host fedora22` bloğundaki tüm ayarları bulur ve yükler ve sonra son blok olan `Host *` içindeki kalan tüm ayarları yükler.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
-Sonraki yukarı toocreate Azure Linux VM'ler hello yeni SSH ortak anahtarını kullanıyor.  Hello oturum açma olarak bir SSH ortak anahtarıyla oluşturulan azure VM'ler, daha iyi parolalar hello varsayılan oturum açma yöntemi ile oluşturulan VM'ler daha güvenli.  SSH anahtarları kullanılarak oluşturulan Azure VM'ler, varsayılan olarak parola kullanımı devre dışı bırakılmış şekilde yapılandırılır; böylece parola tahminiyle gerçekleştirilen saldırı girişimleri önlenir.
+Sonraki adım, yeni SSH ortak anahtarını kullanarak Azure Linux VM’ler oluşturmaktır.  Oturum açma işlemi için SSH ortak anahtarıyla oluşturulan Azure VM'ler, varsayılan oturum açma yöntemiyle (parolalar) oluşturulan VM'lere göre daha güvenlidir.  SSH anahtarları kullanılarak oluşturulan Azure VM'ler, varsayılan olarak parola kullanımı devre dışı bırakılmış şekilde yapılandırılır; böylece parola tahminiyle gerçekleştirilen saldırı girişimleri önlenir.
 
 * [Azure şablonu kullanarak güvenli bir Linux VM oluşturma](create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Hello Azure portal kullanarak güvenli bir Linux VM oluşturma](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Hello Azure CLI kullanarak güvenli bir Linux VM oluşturma](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure portalını kullanarak güvenli bir Linux VM oluşturma](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure CLI kullanarak güvenli bir Linux VM oluşturma](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

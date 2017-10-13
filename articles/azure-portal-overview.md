@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure portalına genel bakış | Microsoft Docs"
-description: "Nasıl toouse hello Microsoft Azure portal hakkında bilgi edinin."
+title: "Azure portalına genel bakış | Microsoft Docs"
+description: "Microsoft Azure portalını kullanmayı öğrenin."
 services: 
 documentationcenter: 
 author: davidwrede
@@ -14,69 +14,69 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/16/2015
 ms.author: dwrede
-ms.openlocfilehash: feca8b5e26e9cb373c5e8e688173d5856050bb28
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 71820306716c6297085a29f3ceab89b55396bfe6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-azure-portal-overview"></a>Microsoft Azure portalına genel bakış
-Merhaba Microsoft Azure portal, sağlamak ve Azure kaynaklarınızı yönetmek merkezi bir yerdir.  Bu öğretici ile Merhaba portal hakkında bilgi edinin ve bunu nasıl yapacağınızı toouse bunlardan bazıları anahtar özellikleri:
+Microsoft Azure portalı, Azure kaynaklarınızı sağlayabileceğiniz ve yönetebileceğiniz merkezi bir yerdir.  Bu öğretici, portal hakkında bilgi edinmenizi sağlar ve şu temel özellikleri nasıl kullanacağınızı gösterir:
 
 * **Kapsamlı bir market**, Microsoft ve diğer sağlayıcılar tarafından sunulan satın alabileceğiniz ve/veya sağlayabileceğiniz binlerce öğeye göz atmanızı sağlar.
-* A **birleştirilmiş ve ölçeklenebilir gezinme deneyimi** sayede önem verdiğiniz ve çeşitli yönetim işlemlerini gerçekleştirmek kolay toofind hello kaynakları.
+* **Birleştirilmiş ve ölçeklenebilir gezinme deneyimi** önem verdiğiniz kaynakları bulmanızı ve çeşitli yönetim işlemlerini gerçekleştirmenizi kolaylaştırır.
 * **Tutarlı yönetim sayfaları** (veya dikey pencereler) ayarları, eylemleri, fatura bilgilerini, durum izleme ve kullanım verilerini ve çok daha fazlasını tutarlı bir yolla kullanıma sunarak Azure'un çok çeşitli hizmetlerini yönetmenize olanak tanır.
-* A **kişisel bir deneyim** gösterir oturum açtığınız zaman toosee istediğiniz bilgileri hello özelleştirilmiş bir başlangıç ekranı oluşturmanızı sağlayan.  Herhangi bir kutucuk içeren hello yönetim dikey pencerelerini özelleştirebilirsiniz.
+* **Kişisel bir deneyim** oturum açtığınızda görmek istediğiniz bilgileri gösteren özelleştirilmiş bir başlangıç ekranı oluşturmanızı sağlar.  Kutucuk içeren tüm yönetim dikey pencerelerini özelleştirebilirsiniz.
   
   ![Azure Portal UI Yönlendirme][UIOrientation]
 
 ## <a name="before-you-get-started"></a>Başlamadan önce
-Bu öğreticide geçerli Azure aboneliği toogo gerekir.  Bir aboneliğiniz yoksa, hemen şimdi [ücretsiz deneme için kaydolabilirsiniz](https://azure.microsoft.com/pricing/free-trial/).  Abonelik aldıktan sonra hello portalında erişebilirsiniz <https://portal.azure.com>.
+Bu öğreticiyi incelemek için geçerli bir Azure aboneliğinizin olması gerekir.  Bir aboneliğiniz yoksa, hemen şimdi [ücretsiz deneme için kaydolabilirsiniz](https://azure.microsoft.com/pricing/free-trial/).  Abonelik aldıktan sonra, <https://portal.azure.com> adresinden portala erişebilirsiniz.
 
-## <a name="how-toocreate-a-resource"></a>Nasıl toocreate kaynak
-Azure’da, tek bir yerden oluşturabileceğiniz binlerce öğe içeren bir market bulunur.  Yeni bir Windows Server 2012 VM toocreate istediğinizi düşünelim.  Merhaba + yeni hub giriş noktanızdır hello Market öne çıkan kategorilerden dizi seçkin olur.  Her kategori öne çıkan öğenin küçük bir dizi tüm kategorileri ve arama işlevini gösteren bir bağlantı toohello tam Market birlikte vardır. toocreate yeni Windows Server 2012 VM hello aşağıdaki eylemleri gerçekleştirin:  
+## <a name="how-to-create-a-resource"></a>Kaynak oluşturma
+Azure’da, tek bir yerden oluşturabileceğiniz binlerce öğe içeren bir market bulunur.  Yeni bir Windows Server 2012 VM oluşturmak istediğinizi düşünelim.  +YENİ hub’ı, markette öne çıkan bir dizi seçkin kategoriye giriş noktanızdır.  Her kategoride bir dizi öne çıkan öğenin yanı sıra tüm kategorileri ve arama işlevini gösteren tüm markete bir bağlantı bulunur. Yeni bir Windows Server 2012 VM oluşturmak için aşağıdaki eylemleri gerçekleştirin:  
 
-1. Windows Server 2012 öne çıkan hello işlem kategorisinden seçin.  
+1. Windows Server 2012 öne çıkan bir öğedir, bu nedenle İşlem kategorisinden seçilebilir.  
 2. Forma bazı temel bilgileri girin.
-3. 'Oluştur' u tıklatın ve VM tooprovision hemen başlar.
+3. ‘Oluştur’a tıkladığınızda sanal makineniz anında sağlama işlemine başlar.
 
-Merhaba hub uyarı, kaynağınızın oluşturduğunuzda ve yönetim dikey pencere açılır bildirimler (her zaman tooresources daha sonra Tarayabileceğiniz).
+Bildirim hub'ı kaynağınız oluşturulduğunda ve yönetim dikey penceresi açılacağı zaman sizi uyarır (isterseniz daha sonra kaynaklara göz atabilirsiniz).
 
 ![Portal Kategorileri][PortalCategories]
 
-## <a name="how-toofind-your-resources"></a>Nasıl toofind kaynaklarınızı
-Sık erişilen kaynaklar tooyour Sabitle her zaman sabitleyebilirsiniz, ancak sık erişmediğiniz toobrowse toosomething gerekebilir.  Merhaba gözatma hub'ı aşağıda gösterildiği şekilde tooget tooall kaynaklarınızın ' dir.  Abonelik tarafından filtre uygulayabilir, sütunları seçin/yeniden boyutlandırma ve tek tek öğelere tıklayarak yönetim dikey pencerelerine toohello gidin.
+## <a name="how-to-find-your-resources"></a>Kaynaklarınızın bulma
+Sık erişilen kaynaklar başlangıç panonuza sabitleyebilirsiniz, ancak sık erişmediğiniz bir kaynağı bulmak için gezinmeniz gerekebilir.  Aşağıda gösterilen gözatma hub’ı tüm kaynaklarınızı almanın bir yoludur.  Aboneliğe göre filtre uygulayabilir, sütunları seçebilir/yeniden boyutlandırabilir ve tek tek öğelere tıklayarak yönetim dikey pencerelerine gidebilirsiniz.
 
 ![Gözatma Hub’ı][BrowseHub]
 
-## <a name="how-toomanage-and-delegate-access-tooa-resource"></a>Nasıl toomanage ve temsilci tooa kaynağa erişim
-Bu dikey pencereden, Uzak Masaüstü kullanarak toohello sanal makineye bağlanmak, temel performans ölçümlerini izlemek, erişim toothis VM kontrol rol tabanlı erişim (RBAC) kullanarak, hello VM yapılandırmak ve diğer önemli yönetim görevleri gerçekleştirebilirsiniz.  Rol tabanlı olarak erişim devretme ölçekte kritik toomanaging olur.  Tıklatın [burada](active-directory/role-based-access-control-configure.md) toolearn ilgili daha fazla. toodelegate erişim tooa kaynak, hello aşağıdaki eylemleri gerçekleştirin:
+## <a name="how-to-manage-and-delegate-access-to-a-resource"></a>Kaynağa erişimi yönetme ve erişimi devretme
+Bu dikey pencereden, uzak masaüstünü kullanarak sanal makineye bağlanabilir, temel performans ölçümlerini izleyebilir, rol tabanlı erişim (RBAC) kullanarak bu sanal makineye erişimi denetleyebilir, sanal makineyi yapılandırabilir veya diğer önemli yönetim görevleri gerçekleştirebilirsiniz.  Rol tabanlı olarak erişim devretme büyük ölçekli yönetim görevleri için kritik önem taşır.  Daha fazla bilgi edinmek için [buraya](active-directory/role-based-access-control-configure.md) tıklayın. Bir kaynağa erişim devretmek için aşağıdaki eylemleri gerçekleştirin:
 
-1. Tooyour kaynak göz atın.
-2. 'Tüm Ayarlar'a hello Essentials bölümünde tıklayın.
-3. 'Kullanıcılar' hello ayarları listesinde tıklayın.
-4. 'Add' hello komut çubuğunda'ı tıklatın.
+1. Kaynağınızı bulun.
+2. Temel Parçalar bölümünde ‘Tüm Ayarlar'a tıklayın.
+3. Ayarlar listesinde ‘Kullanıcılar’a tıklayın.
+4. Komut çubuğunda ‘Ekle’ye tıklayın.
 5. Bir kullanıcı ve rol seçin.
 
 ![Kaynak Yönetme][ManageResource]
 
-## <a name="how-tooget-help"></a>Tooget nasıl yardımcı olur
-Bir sorununuz varsa, size yardımcı olmaya hazırız.  Merhaba portal, hello sağ tarafta görebileceğiniz bir Yardım ve Destek sayfası vardır.  Bağlı olarak, [destek planı](https://azure.microsoft.com/support/plans/), destek biletlerini doğrudan hello portalında da oluşturabilirsiniz.  Bir destek bileti oluşturduktan sonra hello üzerinden bu biletin hello portal hello yaşam döngüsü yönetebilirsiniz. Toohello Yardım alabilir ve Destek sayfası tooBrowse gezinme tarafından -> Yardım + destek.  
+## <a name="how-to-get-help"></a>Yardım alma
+Bir sorununuz varsa, size yardımcı olmaya hazırız.  Portalda sağ tarafta görebileceğiniz üzere bir yardım ve destek sayfası vardır.  Ayrıca, [destek planınıza](https://azure.microsoft.com/support/plans/) bağlı olarak doğrudan portal üzerinden destek bileti oluşturabilirsiniz.  Bir destek bileti oluşturduktan sonra portal üzerinden bu biletin yaşam döngüsünü yönetebilirsiniz. Gözat -> Yardım + destek bölümüne giderek yardım ve destek sayfasına ulaşabilirsiniz.  
 
 ![Yardım ve destek][HelpSupport]
 
 ## <a name="summary"></a>Özet
 Şimdi bu öğreticide öğrendiklerinizi gözden geçirelim:
 
-* Toosign, bir abonelik edinmeniz ve nasıl toohello portalına göz öğrendiniz
-* Merhaba portal UI yönlendirilmiş var ve nasıl öğrenilen toocreate ve göz atma kaynakları
-* Size nasıl öğrenilen toocreate bir kaynak ve kaynaklara göz atın
-* Merhaba yapısı veya yönetim dikey pencerelerine ve nasıl farklı türdeki kaynakların tutarlı bir şekilde yönetebileceğiniz hakkında öğrendiniz
-* Nasıl toocustomize hello portal toobring öğrenilen hello toohello ön ve Merkezi hakkında verdiğiniz bilgileri
-* Nasıl erişim (RBAC) rolünü kullanarak toocontrol erişim tooresources temel öğrendiniz
-* Nasıl tooget Yardım ve Destek öğrendiniz
+* Kaydolmayı, abonelik almayı ve portalda gezinmeyi öğrendiniz
+* UI portalı hakkında bilgi edindiniz ve kaynak oluşturmayı ve kaynaklara göz atmayı öğrendiniz
+* Kaynak oluşturmayı ve kaynaklara göz atmayı öğrendiniz
+* Dikey pencerelerin yapısı veya yönetimi ve farklı türdeki kaynakların tutarlı şekilde yönetilmesi hakkında bilgi edindiniz
+* Sizin için önemli bilgileri ön plana çıkarmak üzere portalı nasıl özelleştireceğinizi öğrendiniz
+* Rol tabanlı erişim (RBAC) kullanarak kaynaklarına erişimi denetlemeyi öğrendiniz
+* Yardım ve destek alma yollarını öğrendiniz
 
-Merhaba Microsoft Azure portal tüketicisinin oluşturma ve yönetme hello bulut uygulamalarınızda basitleştirir.  Merhaba bakalım [yönetim blog](https://azure.microsoft.com/blog/topics/management/) tookeep toodate yukarı sürekli ki gibi [dinleme toofeedback](https://feedback.azure.com/forums/223579-azure-preview-portal/) ve geliştirmeler yapıyoruz.  [Scottgu'nun blogudur](http://weblogs.asp.net/scottgu) tüm Azure güncelleştirmelerini için başka bir harika yer toolook değil.
+Microsoft Azure portalını uygulamalarınızı bulutta oluşturma ve yönetme sürecini önemli ölçüde basitleştirir.  [Geri bildirimlerinizi önemsiyor](https://feedback.azure.com/forums/223579-azure-preview-portal/) ve buna uygun geliştirmeler yapıyoruz. En son gelişmelerden haberdar olmak için [yönetim bloguna](https://azure.microsoft.com/blog/topics/management/) göz atın.   Tüm Azure güncelleştirmelerini görebileceğiniz için bir diğer önemli yer ise [ScottGu’nun blogudur](http://weblogs.asp.net/scottgu).
 
 [UIOrientation]: ./media/azure-portal-how-to-use/azure_portal_1.png
 [PortalCategories]: ./media/azure-portal-how-to-use/azure_portal_2.png

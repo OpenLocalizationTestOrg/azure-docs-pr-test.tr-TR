@@ -1,6 +1,6 @@
 ---
-title: "aaaGet Xamarin.Android için Azure Mobile Engagement ile başlatıldı"
-description: "Bilgi nasıl toouse analizi ve Xamarin.Android uygulamaları için anında iletme bildirimleri ile Azure Mobile Engagement."
+title: "Xamarin.Android için Azure Mobile Engagement kullanmaya başlama"
+description: "Xamarin.Android Uygulamaları için Analizler ve Anında İletme Bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin."
 services: mobile-engagement
 documentationcenter: xamarin
 author: piyushjo
@@ -14,75 +14,75 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/16/2016
 ms.author: piyushjo
-ms.openlocfilehash: 9d584fea8e8153d511258cf9b6f87f31dac6aeca
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 7b3d01b32c2d5a40448fc22861cd45f612238f2f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-xamarinandroid-apps"></a>Xamarin.Android Uygulamaları için Azure Mobile Engagement kullanmaya başlama
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
-Bu konu, nasıl gösterir toouse Azure Mobile Engagement toounderstand, uygulama kullanımınızı ve toosend bir Xamarin.Android uygulamasının bildirimleri toosegmented kullanıcılarına nasıl anında iletme.
-Bu öğretici, Mobile Engagement kullanarak hello basit yayın senaryosunu gösterir. Öğreticide, temel bilgiler toplayan ve Google Cloud Messaging (GCM) kullanarak anında iletme bildirimleri gönderen, boş bir Xamarin.Android uygulaması oluşturursunuz.
+Bu konu size uygulama kullanımınızı anlamak için Azure Mobile Engagement kullanmayı ve Xamarin.Android uygulamasının kesimli kullanıcılarına anında iletme bildirimleri göndermeyi gösterir.
+Bu öğretici, Mobile Engagement kullanarak basit bir yayın senaryosunu gösterir. Öğreticide, temel bilgiler toplayan ve Google Cloud Messaging (GCM) kullanarak anında iletme bildirimleri gönderen, boş bir Xamarin.Android uygulaması oluşturursunuz.
 
 > [!NOTE]
-> Hello Azure Mobile Engagement hizmet Mart 2018 kullanımdan kaldırılır ve şu anda yalnızca kullanılabilir tooexisting müşterileri içindir. Daha fazla bilgi için bkz. [Mobile Engagement nedir?](https://azure.microsoft.com/en-us/services/mobile-engagement/).
+> Azure Mobile Engagement hizmeti, Mart 2018’de devre dışı bırakılacaktır. Şu anda yalnızca mevcut müşteriler tarafından kullanılabilmektedir. Daha fazla bilgi için bkz. [Mobile Engagement nedir?](https://azure.microsoft.com/en-us/services/mobile-engagement/).
 
-Bu öğretici hello aşağıdakileri gerektirir:
+Bu öğretici için aşağıdakiler gereklidir:
 
 * [Xamarin Studio](http://xamarin.com/studio). Xamarin ile Visual Studio’yu da kullanabilirsiniz, ancak bu öğretici Xamarin Studio'yu kullanır. Yükleme yönergeleri için bkz. [Visual Studio ve Xamarin için Kurulum ve Yükleme](https://msdn.microsoft.com/library/mt613162.aspx).
 * [Mobile Engagement Xamarin SDK](https://www.nuget.org/packages/Microsoft.Azure.Engagement.Xamarin/)
 
 > [!NOTE]
-> toocomplete Bu öğretici, etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-android-get-started).
+> Bu öğreticiyi tamamlamak için etkin bir Azure hesabınızın olması gerekir. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-xamarin-android-get-started).
 > 
 > 
 
 ## <a id="setup-azme"></a>Android uygulamanız için Mobile Engagement kurma
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a id="connecting-app"></a>Uygulamanızın toohello Mobile Engagement arka ucuna bağlanmak
-Bu öğreticide "Merhaba en az gerekli toocollect veri kümesi ve bir anında iletme bildirimi gönderme bir"temel tümleştirme"gösterilmektedir. 
+## <a id="connecting-app"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
+Bu öğreticide, veri toplamak ve anında iletme bildirimi göndermek için gerekli en küçük grup olan bir "temel tümleştirme" gösterilmektedir. 
 
-Xamarin Studio toodemonstrate hello Tümleştirmesi ile temel bir uygulama oluşturacağız.
+Tümleştirmeyi göstermek için Xamarin Studio ile temel bir uygulama oluşturacağız.
 
 ### <a name="create-a-new-xamarinandroid-project"></a>Yeni bir Xamarin.Android projesi oluşturma
-1. Başlatma **Xamarin Studio** çok Git**dosya** -> **yeni** -> **çözümü** 
+1. **Xamarin Studio**’yu başlatın **Dosya** -> **Yeni** -> **Çözüm**’e gidin. 
    
     ![][1]
-2. Seçin **Android uygulaması** seçili hello dilin olduğundan emin olun **C#** tıklatıp **sonraki**.
+2. **Android Uygulaması**’nı seçin ve ardından seçilen dilin **C#** olduğundan emin olun ve tıklatıp **Sonraki**’ye tıklayın.
    
     ![][2]
-3. Hello dolgu **App Name** ve hello **kuruluş tanımlayıcı**. Emin toocheckmark olun **Google Play Hizmetleri** ve ardından **sonraki**. 
+3. **Uygulama Adı** ve **Kuruluş Tanımlayıcı**’yı doldurun. **Google Play Hizmetleri**’ni işaretlediğinizden emin olun ve ardından **Sonraki**’ye tıklayın. 
    
     ![][3]
-4. Güncelleştirme hello **proje adı**, **çözüm adı** ve **konumu** gerekli ve tıklatırsanız **oluşturma**.
+4. Gerekliyse **Proje Adı**, **Çözüm Adı** ve **Konumu** güncelleştirin ve **Oluştur**’a tıklayın.
    
     ![][4]
 
-Xamarin Studio biz Mobile Engagement tümleştirecek hello uygulaması oluşturacaksınız. 
+Xamarin Studio, Mobile Engagement’ı tümleştireceğimiz uygulamayı oluşturur. 
 
-### <a name="connect-your-app-toomobile-engagement-backend"></a>Uygulamanızın tooMobile Engagement arka ucuna bağlanmak
-1. Merhaba sağ tıklayın **paketleri** seçip hello çözüm windows klasörü **paketleri Ekle...**
+### <a name="connect-your-app-to-mobile-engagement-backend"></a>Uygulamanızı Mobile Engagement arka ucuna bağlama
+1. Çözüm penceresinde **Paketler**’e sağ tıklayın ve **Paketleri Ekle...** öğesini seçin.
    
     ![][5]
-2. Merhaba Ara **Microsoft Azure Mobile Engagement Xamarin SDK** ve tooyour çözüme ekleyin.  
+2. **Microsoft Azure Mobile Engagement Xamarin SDK**’yı arayın ve çözümünüze ekleyin.  
    
     ![][6]
-3. Açık **MainActivity.cs** ve hello aşağıdaki using deyimlerini:
+3. **MainActivity.cs**’yi açın ve şu deyimleri kullanarak aşağıdakileri ekleyin:
    
         using Microsoft.Azure.Engagement;
         using Microsoft.Azure.Engagement.Activity;
-4. Merhaba, `OnCreate` yöntemi, Mobile Engagement arka ucuyla tooinitialize hello bağlantıyı izleyerek hello ekleyin. Tooadd emin olun, **ConnectionString**. 
+4. `OnCreate` yönteminde, Mobile Engagement arka ucuyla bağlantıyı başlatmak için aşağıdakileri ekleyin. **ConnectionString**’inizi eklediğinizden emin olun. 
    
         EngagementConfiguration engagementConfiguration = new EngagementConfiguration();
         engagementConfiguration.ConnectionString = "YourConnectionStringFromAzurePortal";
         EngagementAgent.Init(engagementConfiguration);
 
 ### <a name="add-permissions-and-a-service-declaration"></a>İzinler ve bir hizmet bildirimi ekleme
-1. Merhaba açın **Manifest.xml** dosya hello özellikleri klasörü altında. Kaynak sekmesini seçin, böylece hello XML kaynağını doğrudan güncelleştirin.
-2. Bu izinleri toohello Manifest.xml ekleyin (Merhaba altında bulunabilir **özellikleri** klasörü) projenizin hemen önce veya sonra hello `<application>` etiketi:
+1. Özellikleri klasörü altında **Manifest.xml** dosyasını açın. XML kaynağını doğrudan güncelleştirecek şekilde Kaynak sekmesini seçin.
+2. Bu izinleri projenizin Manifest.xml dosyasına (**Özellikler** klasörü altında bulunabilir) `<application>` etiketinin önüne ya da arkasına ekleyin:
    
         <uses-permission android:name="android.permission.INTERNET"/>
         <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -90,17 +90,17 @@ Xamarin Studio biz Mobile Engagement tümleştirecek hello uygulaması oluştura
         <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
         <uses-permission android:name="android.permission.VIBRATE" />
         <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
-3. Merhaba arasında Hello aşağıdakileri ekleyin `<application>` ve `</application>` toodeclare hello Aracısı hizmeti etiketler:
+3. `<application>` ve `</application>` etiketleri arasına aşağıdakileri ekleyerek aracı hizmetini bildirin:
    
         <service
              android:name="com.microsoft.azure.engagement.service.EngagementService"
              android:exported="false"
              android:label="<Your application name>"
              android:process=":Engagement"/>
-4. Yapıştırdığınız hello kodla `"<Your application name>"` hello etiketi. Bu hello görüntülenir **ayarları** burada kullanıcılar görebilir hello cihazda çalışan hizmetleri menüsü. Örneğin bu etikete "Hizmet" Merhaba sözcüğünü ekleyebilirsiniz.
+4. Yapıştırdığınız kodda, etiketteki `"<Your application name>"` öğesini değiştirin. Bu etiket, kullanıcıların cihazda çalışan hizmetleri görebileceği **Ayarlar** menüsünde görüntülenir. Örneğin bu etikete "Hizmet" sözcüğünü ekleyebilirsiniz.
 
-### <a name="send-a-screen-toomobile-engagement"></a>Ekran tooMobile katılım Gönder
-Verileri gönderme ve hello kullanıcıların etkin olduğundan emin olmak sipariş toostart içinde en az bir ekran toohello Mobile Engagement arka göndermeniz gerekir. Bunu yapmak için-o hello olun `MainActivity` devraldığı `EngagementActivity` yerine `Activity`.
+### <a name="send-a-screen-to-mobile-engagement"></a>Bir ekranı Mobile Engagement’a gönderme
+Verileri göndermeye başlamak ve kullanıcıların etkin olduğundan emin olmak için, Mobile Engagement arka ucuna en az bir ekran göndermelisiniz. Bunu yapmak için, `MainActivity` öğesinin `Activity` yerine `EngagementActivity` öğesinden devraldığından emin olun.
 
     public class MainActivity : EngagementActivity
 
@@ -122,8 +122,8 @@ Alternatif olarak, `EngagementActivity` konumundan devralamıyorsanız `.StartAc
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
 ## <a id="integrate-push"></a>Anında iletme bildirimlerini ve uygulama içi mesajlaşmayı etkinleştirme
-Mobile Engagement ile toointeract sağlar ve kullanıcılarınızın anında iletme bildirimleri ve uygulama içi Mesajlaşma hello Kampanyalar bağlamında ULAŞILIRSA. Bu modül hello Mobile Engagement portalında REACH adı verilir.
-Aşağıdaki bölümlerde Merhaba, uygulama tooreceive bunları ayarlar.
+Mobile Engagement, kampanyalar bağlamında anında iletme bildirimleri ve uygulama içi mesajlaşma ile kullanıcılarınız ve REACH ile etkileşim kurmanızı sağlar. Mobile Engagement portalında bu modüle REACH adı verilir.
+Aşağıdaki bölümler, uygulamanızı bu bildirim ve mesajları alacak şekilde ayarlar.
 
 [!INCLUDE [Enable Google Cloud Messaging](../../includes/mobile-engagement-enable-google-cloud-messaging.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure IOT Hub aaaUse doğrudan yöntemleri (.NET/.NET) | Microsoft Docs"
-description: "Nasıl toouse Azure IOT Hub yöntemleri doğrudan. .NET tooimplement doğrudan yöntemi ve hello .NET tooimplement hello doğrudan yöntemini çağıran bir hizmet uygulaması için Azure IOT hizmeti SDK'sını içeren sanal cihaz uygulaması için hello Azure IOT cihaz SDK'sını kullanın."
+title: "Azure IOT hub'ı doğrudan yöntemleri (.NET/.NET) | Microsoft Docs"
+description: "Azure IOT hub'ı doğrudan yöntemlerinin nasıl kullanılacağını. Doğrudan bir yöntem ve Azure IOT hizmeti SDK'sını doğrudan yöntemini çağıran bir hizmet uygulaması uygulamak .NET için içeren bir sanal cihaz uygulamasının uygulamak için Azure IOT cihaz SDK'sı .NET için kullanın."
 services: iot-hub
 documentationcenter: 
 author: dsk-2015
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: dkshir
-ms.openlocfilehash: d4fa093a99558ec6faf294c2583a14a722b9ac03
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9ce1fbebb6417c10618aa182e3c1d9ddf8132fb6
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="use-direct-methods-netnet"></a>Doğrudan yöntemleri (.NET/.NET) kullanın
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
-Bu öğreticide, devam eden toodevelop iki .NET konsol uygulamaları şunlardır:
+Bu öğreticide, şu iki .NET konsol uygulamaları geliştirmek için yapacaksınız:
 
-* **CallMethodOnDevice**, hello sanal cihaz uygulamasının bir yöntemi çağırır ve hello yanıt görüntüler bir arka uç uygulaması.
-* **SimulateDeviceMethods**, tooyour IOT hub'ı daha önce oluşturulan hello cihaz kimliğiyle bağlanan bir cihaza benzetim ve hello bulut tarafından adlı toohello yöntemi yanıt bir konsol uygulaması.
+* **CallMethodOnDevice**, sanal cihaz uygulamasının bir yöntemi çağırır ve yanıt görüntüler bir arka uç uygulaması.
+* **SimulateDeviceMethods**, daha önce oluşturulan cihaz kimliğiyle IOT hub'ınıza bağlanan bir cihaza benzetim bir konsol uygulaması ve yöntemi yanıtlar bulut tarafından çağrılır.
 
 > [!NOTE]
-> Merhaba makale [Azure IOT SDK'ları] [ lnk-hub-sdks] aygıtlar ve çözüm arka ucunuz hem uygulamalar toorun toobuild kullanabileceğiniz hello Azure IOT SDK'ları hakkında bilgi sağlar.
+> [IoT Hub SDK'ları][lnk-hub-sdks] makalesi, hem cihazlarınızda hem de çözüm arka ucunuzda çalıştırılacak uygulamalar oluşturmak için kullanabileceğiniz Azure IoT SDK’ları hakkında bilgi içerir.
 > 
 > 
 
-toocomplete Bu öğretici, gerekir:
+Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Visual Studio 2015 veya Visual Studio 2017.
 * Etkin bir Azure hesabı. (Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.)
@@ -42,31 +42,31 @@ toocomplete Bu öğretici, gerekir:
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-Toocreate hello cihaz kimliği programlı olarak bunun yerine isterseniz, hello hello ilgili bölümünü okuyun [.NET kullanarak sanal cihaz tooyour IOT hub'ınıza bağlanmak] [ lnk-device-identity-csharp] makalesi.
+Bunun yerine cihaz kimliğini program aracılığıyla oluşturmak istiyorsanız, ilgili bölümünü okuyun [.NET kullanarak IOT hub'ınıza sanal Cihazınızı bağlamak] [ lnk-device-identity-csharp] makalesi.
 
 
 ## <a name="create-a-simulated-device-app"></a>Sanal cihaz uygulaması oluşturma
-Bu bölümde, hello çözüm tarafından arka uç adlı tooa yöntemi yanıt veren bir .NET konsol uygulaması oluşturun.
+Bu bölümde, çözüm tarafından arka uç olarak adlandırılan bir yönteme yanıt veren bir .NET konsol uygulaması oluşturun.
 
-1. Visual Studio'da hello kullanarak bir Visual C# Windows Klasik Masaüstü projesi toohello geçerli çözüme ekleyin **konsol uygulaması** proje şablonu. Ad hello proje **SimulateDeviceMethods**.
+1. Visual Studio'da **Konsol Uygulaması** proje şablonunu kullanarak geçerli çözüme bir Visual C# Windows Klasik Masaüstü projesi ekleyin. Proje adı **SimulateDeviceMethods**.
    
     ![Yeni Visual C# Klasik Windows cihaz uygulaması][img-createdeviceapp]
     
-1. Çözüm Gezgini'nde hello sağ **SimulateDeviceMethods** proje ve ardından **NuGet paketlerini Yönet...** .
-1. Merhaba, **NuGet Paket Yöneticisi** penceresinde, seçin **Gözat** arayın ve **microsoft.azure.devices.client**. Seçin **yükleme** tooinstall hello **Microsoft.Azure.Devices.Client** paketini ve hello kullanım koşullarını kabul edin. Bu yordam indirir, yükler ve başvuru toohello ekler [Azure IOT cihaz SDK'sı] [ lnk-nuget-client-sdk] NuGet paketi ve bağımlılıklarını.
+1. Çözüm Gezgini'nde sağ **SimulateDeviceMethods** proje ve ardından **NuGet paketlerini Yönet...** .
+1. İçinde **NuGet Paket Yöneticisi** penceresinde, seçin **Gözat** arayın ve **microsoft.azure.devices.client**. Seçin **yükleme** yüklemek için **Microsoft.Azure.Devices.Client** paketini ve kullanım koşullarını kabul edin. Bu yordam indirir, yükler ve bir başvuru ekler [Azure IOT cihaz SDK'sı] [ lnk-nuget-client-sdk] NuGet paketi ve bağımlılıklarını.
    
     ![NuGet Paket Yöneticisi penceresi istemci uygulaması][img-clientnuget]
-1. Merhaba aşağıdakileri ekleyin `using` deyimleri hello hello üstündeki **Program.cs** dosyası:
+1. Aşağıdaki `using` deyimlerini **Program.cs** dosyasının üst kısmına ekleyin:
    
         using Microsoft.Azure.Devices.Client;
         using Microsoft.Azure.Devices.Shared;
 
-1. Aşağıdaki alanları toohello hello eklemek **Program** sınıfı. Merhaba yer tutucu değerini hello önceki bölümünde belirtildiği hello cihaz bağlantı dizesini değiştirin.
+1. **Program** sınıfına aşağıdaki alanları ekleyin. Yer tutucu değerini önceki bölümünde belirtildiği cihaz bağlantı dizesini değiştirin.
    
         static string DeviceConnectionString = "HostName=<yourIotHubName>.azure-devices.net;DeviceId=<yourIotDeviceName>;SharedAccessKey=<yourIotDeviceAccessKey>";
         static DeviceClient Client = null;
 
-1. Merhaba aygıtta tooimplement hello doğrudan yöntemi aşağıdaki hello ekleyin:
+1. Cihazda doğrudan yöntemi uygulamak için aşağıdakileri ekleyin:
 
         static Task<MethodResponse> WriteLineToConsole(MethodRequest methodRequest, object userContext)
         {
@@ -74,25 +74,25 @@ Bu bölümde, hello çözüm tarafından arka uç adlı tooa yöntemi yanıt ver
             Console.WriteLine("\t{0}", methodRequest.DataAsJson);
             Console.WriteLine("\nReturning response for method {0}", methodRequest.Name);
 
-            string result = "'Input was written toolog.'";
+            string result = "'Input was written to log.'";
             return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
         }
 
-1. Son olarak, aşağıdaki kod toohello hello eklemek **ana** yöntemi tooopen hello bağlantı tooyour IOT hub ve başlatma hello yöntemi dinleyicisi:
+1. Son olarak, aşağıdaki kodu ekleyin **ana** IOT hub'ınıza bağlantıyı açın ve yöntemi dinleyicisini başlatmak için yöntem:
    
         try
         {
-            Console.WriteLine("Connecting toohub");
+            Console.WriteLine("Connecting to hub");
             Client = DeviceClient.CreateFromConnectionString(DeviceConnectionString, TransportType.Mqtt);
 
             // setup callback for "writeLine" method
             Client.SetMethodHandlerAsync("writeLine", WriteLineToConsole, null).Wait();
-            Console.WriteLine("Waiting for direct method call\n Press enter tooexit.");
+            Console.WriteLine("Waiting for direct method call\n Press enter to exit.");
             Console.ReadLine();
 
             Console.WriteLine("Exiting...");
 
-            // as a good practice, remove hello "writeLine" handler
+            // as a good practice, remove the "writeLine" handler
             Client.SetMethodHandlerAsync("writeLine", null, null).Wait();
             Client.CloseAsync().Wait();
         }
@@ -102,38 +102,38 @@ Bu bölümde, hello çözüm tarafından arka uç adlı tooa yöntemi yanıt ver
             Console.WriteLine("Error in sample: {0}", ex.Message);
         }
         
-1. Buna Visual Studio Çözüm Gezgini Merhaba, çözümünüze sağ tıklayın ve ardından **başlangıç projelerini Ayarla...** . Seçin **tek başlangıç projesi**ve ardından hello **SimulateDeviceMethods** hello açılır menüsünde projesinde.        
+1. Visual Studio Çözüm Gezgini'nde Çözümünüze sağ tıklayın ve ardından **başlangıç projelerini Ayarla...** . Seçin **tek başlangıç projesi**ve ardından **SimulateDeviceMethods** açılır menüsünde projesinde.        
 
 > [!NOTE]
-> tookeep şeyler basit, Bu öğretici herhangi bir yeniden deneme ilkesi uygulamaz. Üretim kodunda yeniden deneme ilkelerini (bağlantı yeniden deneme), önerilen hello MSDN makalesinde uygulamalıdır [geçici hata işleme][lnk-transient-faults].
+> Sade ve basit bir anlatım gözetildiği için bu öğretici herhangi bir yeniden deneme ilkesi uygulamaz. Üretim kodunda yeniden deneme ilkelerini (bağlantı yeniden deneme), önerilen MSDN makalesinde uygulamalıdır [geçici hata işleme][lnk-transient-faults].
 > 
 > 
 
 ## <a name="call-a-direct-method-on-a-device"></a>Bir cihazda doğrudan bir yöntem çağrısı
-Bu bölümde, hello sanal cihaz uygulamasının bir yöntemi çağırır ve hello yanıt görüntüleyen bir .NET konsol uygulaması oluşturun.
+Bu bölümde, sanal cihaz uygulamasının bir yöntemi çağırır ve yanıt görüntüleyen bir .NET konsol uygulaması oluşturun.
 
-1. Visual Studio'da hello kullanarak bir Visual C# Windows Klasik Masaüstü projesi toohello geçerli çözüme ekleyin **konsol uygulaması** proje şablonu. Merhaba .NET Framework sürümünün 4.5.1 olduğundan emin olun veya sonraki bir sürümü. Ad hello proje **CallMethodOnDevice**.
+1. Visual Studio'da **Konsol Uygulaması** proje şablonunu kullanarak geçerli çözüme bir Visual C# Windows Klasik Masaüstü projesi ekleyin. .NET Framework sürümünün 4.5.1 veya sonraki bir sürüm olduğundan emin olun. Proje adı **CallMethodOnDevice**.
    
     ![Yeni Visual C# Windows Klasik Masaüstü projesi][img-createserviceapp]
-2. Çözüm Gezgini'nde hello sağ **CallMethodOnDevice** proje ve ardından **NuGet paketlerini Yönet...** .
-3. Merhaba, **NuGet Paket Yöneticisi** penceresinde, seçin **Gözat**, arama **microsoft.azure.devices**seçin **yükleme** tooinstall Merhaba **Microsoft.Azure.Devices** paketini ve hello kullanım koşullarını kabul edin. Bu yordam indirir, yükler ve başvuru toohello ekler [Azure IOT hizmeti SDK'sını] [ lnk-nuget-service-sdk] NuGet paketi ve bağımlılıklarını.
+2. Çözüm Gezgini'nde sağ **CallMethodOnDevice** proje ve ardından **NuGet paketlerini Yönet...** .
+3. **NuGet Paket Yöneticisi** penceresinde **Gözat**'ı seçin, **microsoft.azure.devices**'ı aratın, **Microsoft.Azure.Devices** paketini yüklemek için **Yükle**'yi seçin ve kullanım koşullarını kabul edin. Bu yordam ile [Azure IoT hizmet SDK'sı][lnk-nuget-service-sdk] NuGet paketi ve bağımlılıkları indirilir, yüklenir ve bu pakete bir başvuru eklenir.
    
     ![NuGet Paket Yöneticisi penceresi][img-servicenuget]
 
-4. Merhaba aşağıdakileri ekleyin `using` deyimleri hello hello üstündeki **Program.cs** dosyası:
+4. Aşağıdaki `using` deyimlerini **Program.cs** dosyasının üst kısmına ekleyin:
    
         using System.Threading.Tasks;
         using Microsoft.Azure.Devices;
-5. Aşağıdaki alanları toohello hello eklemek **Program** sınıfı. Merhaba hello önceki bölümde oluşturduğunuz hello hub'ın IOT Hub bağlantı dizesine sahip Hello yer tutucu değerini değiştirin.
+5. **Program** sınıfına aşağıdaki alanları ekleyin. Yer tutucu değerini, önceki bölümde hub için oluşturduğunuz IoT Hub bağlantı dizesiyle değiştirin.
    
         static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
-6. Yöntem toohello aşağıdaki hello eklemek **Program** sınıfı:
+6. **Program** sınıfına aşağıdaki yöntemi ekleyin:
    
         private static async Task InvokeMethod()
         {
             var methodInvocation = new CloudToDeviceMethod("writeLine") { ResponseTimeout = TimeSpan.FromSeconds(30) };
-            methodInvocation.SetPayloadJson("'a line toobe written'");
+            methodInvocation.SetPayloadJson("'a line to be written'");
 
             var response = await serviceClient.InvokeDeviceMethodAsync("myDeviceId", methodInvocation);
 
@@ -141,38 +141,38 @@ Bu bölümde, hello sanal cihaz uygulamasının bir yöntemi çağırır ve hell
             Console.WriteLine(response.GetPayloadAsJson());
         }
    
-    Bu yöntem adı ile doğrudan bir yöntem çağırır `writeLine` hello üzerinde `myDeviceId` aygıt. Ardından, hello konsolunda hello aygıt tarafından sağlanan hello yanıt yazar. Nasıl olası toospecify hello aygıt toorespond için zaman aşımı değeri olduğuna dikkat edin.
-7. Son olarak, aşağıdaki satırları toohello hello eklemek **ana** yöntemi:
+    Bu yöntem adı ile doğrudan bir yöntem çağırır `writeLine` üzerinde `myDeviceId` aygıt. Ardından, konsol aygıtta tarafından sağlanan yanıt yazar. Nasıl yanıt aygıta için zaman aşımı değeri belirlemek mümkün olduğunu unutmayın.
+7. Son olarak, **Main** yöntemine aşağıdaki satırları ekleyin:
    
         serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
         InvokeMethod().Wait();
-        Console.WriteLine("Press Enter tooexit.");
+        Console.WriteLine("Press Enter to exit.");
         Console.ReadLine();
 
-1. Buna Visual Studio Çözüm Gezgini Merhaba, çözümünüze sağ tıklayın ve ardından **başlangıç projelerini Ayarla...** . Seçin **tek başlangıç projesi**ve ardından hello **CallMethodOnDevice** hello açılır menüsünde projesinde.
+1. Visual Studio Çözüm Gezgini'nde Çözümünüze sağ tıklayın ve ardından **başlangıç projelerini Ayarla...** . Seçin **tek başlangıç projesi**ve ardından **CallMethodOnDevice** açılır menüsünde projesinde.
 
-## <a name="run-hello-applications"></a>Merhaba uygulamaları çalıştırma
-Hazır toorun hello uygulamaları sunulmuştur.
+## <a name="run-the-applications"></a>Uygulamaları çalıştırma
+Şimdi uygulamaları çalıştırmaya hazırsınız.
 
-1. Merhaba .NET cihaz uygulamayı çalıştırma **SimulateDeviceMethods**. IOT Hub'ınızı gelen yöntem çağrıları için dinleme başlamanız gerekir: 
+1. .NET cihaz uygulama çalıştırma **SimulateDeviceMethods**. IOT Hub'ınızı gelen yöntem çağrıları için dinleme başlamanız gerekir: 
 
     ![Cihaz uygulaması çalıştırın][img-deviceapprun]
-1. Şimdi bu hello cihaz bağlı ve hello .NET çalıştırmak için yöntem çağrılarına bekleniyor, **CallMethodOnDevice** hello sanal cihaz uygulamasının uygulama tooinvoke hello yöntemi. Merhaba konsolunda yazılmış hello aygıt yanıtı görmeniz gerekir.
+1. Artık, cihazın bağlı ve .NET çalıştırmak için yöntem çağrılarına, bekleyen **CallMethodOnDevice** sanal cihaz uygulamasının yöntemi çağırmak için uygulama. Konsolda yazılmış aygıt yanıtı görmeniz gerekir.
    
     ![Hizmet uygulaması çalıştırın][img-serviceapprun]
-1. Hello aygıt sonra bu iletiyi yazdırma tarafından toohello yöntemi tepki verir:
+1. Cihaz daha sonra bu iletiyi yazdırma tarafından yönteme tepki verdiğini:
    
-    ![Merhaba aygıtta çağrılan doğrudan yöntemi][img-directmethodinvoked]
+    ![Cihazda çağrılan doğrudan yöntemi][img-directmethodinvoked]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide hello Azure portalında yeni bir IOT hub yapılandırılmış ve ardından hello IOT hub'ın kimlik kayıt defterinde bir cihaz kimliği oluşturdunuz. Merhaba bulut tarafından çağrılan bu cihaz kimliğini tooenable benzetimli hello aygıt uygulama tooreact toomethods kullanılır. Merhaba aygıtta yöntemleri çağırır ve hello yanıt hello aygıttan görüntüleyen bir uygulama da oluşturmuş. 
+Bu öğreticide, Azure portalında yeni bir IoT hub'ı yapılandırdınız ve ardından IoT hub'ının kimlik kayıt defterinde bir cihaz kimliği oluşturdunuz. Bu cihaz kimliğini bulut tarafından çağrılan yöntemler tepki vermek sanal cihaz uygulamasının sağlamak için kullanılır. Ayrıca aygıtta yöntemleri çağırır ve aygıttan yanıt görüntüleyen bir uygulama oluşturduğunuz. 
 
-Başlarken toocontinue IOT Hub ve tooexplore diğer IOT senaryolarını bakın:
+IoT Hub’ı kullanmaya başlamak ve diğer IoT senaryolarını keşfetmek için bkz:
 
 * [IOT Hub ile çalışmaya başlama]
 * [Birden çok aygıta işleri zamanla][lnk-devguide-jobs]
 
-toolearn tooextend birden fazla cihazda IOT çözümü ve zamanlama yöntemi çağırır nasıl hello bkz [zamanlama ve yayın işleri] [ lnk-tutorial-jobs] Öğreticisi.
+Çözüm ve zamanlama yöntemini çağıran birden fazla cihazda, IOT genişletmek öğrenmek için bkz: [zamanlama ve yayın işleri] [ lnk-tutorial-jobs] Öğreticisi.
 
 <!-- Images. -->
 [img-createdeviceapp]: ./media/iot-hub-csharp-csharp-direct-methods/create-device-app.png

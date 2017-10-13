@@ -1,6 +1,6 @@
 ---
-title: "hello Azure olay hub'ları .NET Framework API'leri aaaOverview | Microsoft Docs"
-description: "Bazı hello anahtar olay hub'ları .NET Framework istemci API özeti."
+title: ".NET Framework API'ları Azure Event Hubs'a genel bakış | Microsoft Docs"
+description: "Bazı temel olay hub'ları .NET Framework istemci API özeti."
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: b0e12e43f91b025d7aa4ca03e664b9ff31b04097
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: bc525e7ca8b21e9e5f1e36b3152d71420b041700
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Event Hubs .NET Framework API genel bakış
-Bu makalede hello anahtar olay hub'ları .NET Framework istemci API özetlenmektedir. İki kategorisi vardır: Yönetim ve çalıştırma API'leri. Çalışma zamanı API'ları tüm gerekli işlemleri toosend oluşur ve bir ileti alırsınız. Yönetim işlemlerini bir olay hub'ları varlık durumu oluşturma, güncelleştirme ve silme varlıklar tarafından toomanage etkinleştirin.
+Bu makalede olay hub'ları .NET Framework istemci API anahtarı özetlenmektedir. İki kategorisi vardır: Yönetim ve çalıştırma API'leri. Çalışma zamanı API'leri bir ileti alıp göndermek için gereken tüm işlemler oluşur. Yönetim işlemlerini bir olay hub'ları varlık durumu oluşturma, güncelleştirme ve silme varlıklar olarak yönetmek etkinleştirin.
 
-İzleme senaryoları, yönetim ve çalışma zamanı span. Merhaba hello .NET API'lerini üzerinde ayrıntılı başvuru belgeleri için bkz [Service Bus .NET](/dotnet/api/microsoft.servicebus.messaging) ve [EventProcessorHost API](/dotnet/api/microsoft.azure.eventhubs.processor) başvuruları.
+İzleme senaryoları, yönetim ve çalışma zamanı span. .NET API'ları üzerinde ayrıntılı başvuru belgeleri için bkz: [Service Bus .NET](/dotnet/api/microsoft.servicebus.messaging) ve [EventProcessorHost API](/dotnet/api/microsoft.azure.eventhubs.processor) başvuruları.
 
 ## <a name="management-apis"></a>Yönetim API'leri
-tooperform yönetim işlemlerini aşağıdaki Merhaba, sahip olmanız gerekir **Yönet** hello olay hub'ları ad izinleri:
+Aşağıdaki yönetim işlemlerini gerçekleştirmek için olmalıdır **Yönet** olay hub'ları ad alanı izinleri:
 
 ### <a name="create"></a>Oluştur
 ```csharp
-// Create hello event hub
+// Create the event hub
 var ehd = new EventHubDescription(eventHubName);
 ehd.PartitionCount = SampleManager.numPartitions;
 await namespaceManager.CreateEventHubAsync(ehd);
@@ -62,7 +62,7 @@ var eventHubClient = EventHubClient.Create("Event Hub name");
 
 ### <a name="publish-message"></a>İleti yayımlama
 ```csharp
-// Create hello device/temperature metric
+// Create the device/temperature metric
 var info = new MetricEvent() { DeviceId = random.Next(SampleManager.NumDevices), Temperature = random.Next(100) };
 var data = new EventData(new byte[10]); // Byte array
 var data = new EventData(Stream); // Stream 
@@ -80,10 +80,10 @@ await client.SendAsync(data);
 
 ### <a name="create-consumer"></a>Tüketici oluşturma
 ```csharp
-// Create hello Event Hubs client
+// Create the Event Hubs client
 var eventHubClient = EventHubClient.Create(EventHubName);
 
-// Get hello default consumer group
+// Get the default consumer group
 var defaultConsumerGroup = eventHubClient.GetDefaultConsumerGroup();
 
 // All messages
@@ -109,11 +109,11 @@ msg = UnicodeEncoding.UTF8.GetString(info);
 ```
 
 ## <a name="event-processor-host-apis"></a>Olay işlemcisi konağı API'leri
-Bu API'leri kullanılabilir çalışanları bölüm dağıtarak, kullanılamayabilir dayanıklılık tooworker işlemler sağlar.
+Bu API'leri kullanılabilir çalışanları bölüm dağıtarak, kullanılamayabilir çalışan işlemleri için esneklik sağlar.
 
 ```csharp
-// Checkpointing is done within hello SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
-// Use hello EventData.Offset value for checkpointing yourself, this value is unique per partition.
+// Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
+// Use the EventData.Offset value for checkpointing yourself, this value is unique per partition.
 
 var eventHubConnectionString = System.Configuration.ConfigurationManager.AppSettings["Microsoft.ServiceBus.ConnectionString"];
 var blobConnectionString = System.Configuration.ConfigurationManager.AppSettings["AzureStorageConnectionString"]; // Required for checkpoint/state
@@ -122,11 +122,11 @@ var eventHubDescription = new EventHubDescription(EventHubName);
 var host = new EventProcessorHost(WorkerName, EventHubName, defaultConsumerGroup.GroupName, eventHubConnectionString, blobConnectionString);
 await host.RegisterEventProcessorAsync<SimpleEventProcessor>();
 
-// tooclose
+// To close
 await host.UnregisterEventProcessorAsync();
 ```
 
-Merhaba [Ieventprocessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) arabirimi şu şekilde tanımlanır:
+[Ieventprocessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) arabirimi şu şekilde tanımlanır:
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -169,12 +169,12 @@ public class SimpleEventProcessor : IEventProcessor
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Event Hubs senaryoları hakkında daha fazla toolearn bu bağlantıları ziyaret edin:
+Event Hubs senaryoları hakkında daha fazla bilgi almak için aşağıdaki bağlantıları ziyaret edin:
 
 * [Azure Event Hubs nedir?](event-hubs-what-is-event-hubs.md)
 * [Event Hubs programlama kılavuzu](event-hubs-programming-guide.md)
 
-Merhaba .NET API başvuru şunlardır:
+.NET API başvuru şunlardır:
 
 * [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
 * [Microsoft.Azure.EventHubs.EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)

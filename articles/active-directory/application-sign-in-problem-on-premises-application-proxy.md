@@ -1,6 +1,6 @@
 ---
-title: "uygulama içi tooan kullanarak oturum açmayı aaaProblems hello Azure AD uygulama proxy'si | Microsoft Docs"
-description: "Hello Azure AD uygulama proxy'si kullanarak Azure AD ile tümleşik tooan şirket içi uygulamada oluşturulamıyor toosign olduğunda karşılaştığı yaygın sorunları giderme"
+title: "Azure AD uygulama proxy'si kullanarak bir şirket içi uygulama oturum açma sorunları | Microsoft Docs"
+description: "Azure AD uygulama proxy'si kullanarak Azure AD ile tümleşik bir şirket içi uygulamasında oturum kaldıramadığınızda karşılaştığı yaygın sorunları giderme"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,47 +13,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 8a13b9b886160f4bbad5b33001b22950b6a2bb00
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5687f789355cc9769d26b53e98486bb213c66419
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="problems-signing-in-tooan-on-premises-application-using-hello-azure-ad-application-proxy"></a>Azure AD uygulama proxy'si tooan şirket içi uygulama kullanarak oturum açma sorunları hello
+# <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Azure AD uygulama proxy'si kullanarak bir şirket içi uygulama oturum açma sorunları
 
-Bir şirket içi uygulamanızı imzalama sorunlarınız varsa, sorununuzu tooresolving hello adımları izleyerek deneyebilirsiniz.
+Bir şirket içi uygulamanızı imzalama sorun yaşıyorsanız, sorunu çözmek için aşağıdaki adımları izleyerek deneyebilirsiniz.
 
-## <a name="i-can-load-my-application-but-something-on-hello-page-looks-broken"></a>Uygulamam yük yükleyebilirsiniz, ancak başlangıç sayfasında bir şey bozuk görünüyor
+## <a name="i-can-load-my-application-but-something-on-the-page-looks-broken"></a>Uygulamam yük yükleyebilirsiniz, ancak sayfasında bir şey bozuk görünüyor
 
-Merhaba aşağıdaki belgeler tooresolve yardımcı olabilecek bazı bu kategorideki hello en yaygın sorunları.
+Aşağıdaki belgeler, bu kategoriye giren yaygın sorunların çoğunu çözmenize yardımcı olabilir.
 
-  * [Toomy uygulama elde edebilirsiniz, ancak hello uygulama sayfası doğru görüntüleme değil](https://docs.microsoft.com/azure/active-directory/application-proxy-page-appearance-broken-problem/)
-  * [Toomy uygulama elde edebilirsiniz, ancak çok uzun tooload Merhaba uygulaması alır](https://docs.microsoft.com/azure/active-directory/application-proxy-page-load-speed-problem/)
-  * [Toomy uygulama elde edebilirsiniz, ancak hello uygulama sayfadaki hello bağlantıları çalışmıyor](https://docs.microsoft.com/azure/active-directory/application-proxy-page-links-broken-problem/)
+  * [Uygulamama ulaşabiliyorum ama uygulama sayfası doğru görüntülenmiyor](https://docs.microsoft.com/azure/active-directory/application-proxy-page-appearance-broken-problem/)
+  * [Uygulamama ulaşabiliyorum ama uygulamanın yüklenmesi fazla uzun sürüyor](https://docs.microsoft.com/azure/active-directory/application-proxy-page-load-speed-problem/)
+  * [Uygulamama ulaşabiliyorum ama uygulama sayfasındaki bağlantılar çalışmıyor](https://docs.microsoft.com/azure/active-directory/application-proxy-page-links-broken-problem/)
 
 ## <a name="im-having-a-connectivity-problem-my-application"></a>Uygulamam bağlantı sorun yaşıyorum
-  Merhaba aşağıdaki belgeler tooresolve yardımcı olabilecek bazı bu kategorideki hello en yaygın sorunları.
-  * [Uygulamam için hangi bağlantı noktalarının tooopen bilmiyorsanız](https://docs.microsoft.com/azure/active-directory/application-proxy-connectivity-ports-how-to/)
+  Aşağıdaki belgeler, bu kategoriye giren yaygın sorunların çoğunu çözmenize yardımcı olabilir.
+  * [Uygulamam için hangi bağlantı noktalarını açacağımı bilmiyorum](https://docs.microsoft.com/azure/active-directory/application-proxy-connectivity-ports-how-to/)
   * [Uygulamam için bağlayıcı grubunda çalışan bağlayıcı olmadığından sorunla karşılaştım](https://docs.microsoft.com/azure/active-directory/application-proxy-connectivity-no-working-connector/)
 
-## <a name="im-having-a-problem-configuring-hello-azure-ad-application-proxy-in-hello-admin-portal"></a>Merhaba Yönetici portalı'nda bir sorun yapılandırma hello Azure AD uygulama proxy'si yaşıyorum
-  Merhaba aşağıdaki belgeler tooresolve yardımcı olabilecek bazı bu kategorideki hello en yaygın sorunları.
+## <a name="im-having-a-problem-configuring-the-azure-ad-application-proxy-in-the-admin-portal"></a>Yönetim Portalı'nda Azure AD uygulama proxy'si yapılandırma bir sorun yaşıyorum
+  Aşağıdaki belgeler, bu kategoriye giren yaygın sorunların çoğunu çözmenize yardımcı olabilir.
   * [Uygulama Proxy’si uygulamasını yapılandırırken zorluk sorun yaşıyorum](https://docs.microsoft.com/azure/active-directory/application-proxy-config-how-to/)
-  * [Tooconfigure nasıl çoklu oturum açma bilmiyorsanız toomy uygulama proxy'si uygulama](https://docs.microsoft.com/azure/active-directory/application-proxy-config-sso-how-to/)
+  * [Uygulama Proxy’si uygulamamda çoklu oturum açmayı yapılandırmayı bilmiyorum](https://docs.microsoft.com/azure/active-directory/application-proxy-config-sso-how-to/)
   * [Yönetim portalında uygulamamı oluştururken bir sorunla karşılaştım](https://docs.microsoft.com/azure/active-directory/application-proxy-config-problem/)
 
-## <a name="im-having-a-problem-setting-up-back-end-authentication-toomy-application"></a>Arka uç kimlik doğrulaması toomy uygulama kurmada sorun yaşıyorum.
-  Merhaba aşağıdaki belgeler tooresolve yardımcı olabilecek bazı bu kategorideki hello en yaygın sorunları.
-  * [I bilmiyorsanız nasıl tooconfigure Kerberos Kısıtlı temsilci](https://docs.microsoft.com/azure/active-directory/application-proxy-back-end-kerberos-constrained-delegation-how-to/)
-  * [I bilmiyorsanız nasıl tooconfigure PingAccess ile Uygulamam](https://docs.microsoft.com/azure/active-directory/application-proxy-back-end-ping-access-how-to/)
+## <a name="im-having-a-problem-setting-up-back-end-authentication-to-my-application"></a>Uygulamam için arka uç kimlik doğrulaması kurmada sorun yaşıyorum
+  Aşağıdaki belgeler, bu kategoriye giren yaygın sorunların çoğunu çözmenize yardımcı olabilir.
+  * [Kerberos Sınırlı Temsilini yapılandırmayı bilmiyorum](https://docs.microsoft.com/azure/active-directory/application-proxy-back-end-kerberos-constrained-delegation-how-to/)
+  * [Uygulamamı PingAccess’le nasıl yapılandıracağımı bilmiyorum](https://docs.microsoft.com/azure/active-directory/application-proxy-back-end-ping-access-how-to/)
 
-## <a name="im-having-a-problem-when-signing-in-toomy-application"></a>Toomy uygulamada oturum açarken sorun yaşıyorum
-  Merhaba aşağıdaki belgeler tooresolve yardımcı olabilecek bazı bu kategorideki hello en yaygın sorunları.
+## <a name="im-having-a-problem-when-signing-in-to-my-application"></a>Uygulamam için oturum açarken sorun yaşıyorum
+  Aşağıdaki belgeler, bu kategoriye giren yaygın sorunların çoğunu çözmenize yardımcı olabilir.
   * ["Bu Şirket Uygulamasına Erişilemiyor" hatası alıyorum](https://docs.microsoft.com/azure/active-directory/application-proxy-sign-in-bad-gateway-timeout-error/)
 
-## <a name="im-having-a-problem-with-hello-application-proxy-agent-connector"></a>Merhaba uygulama Proxy Aracısı Bağlayıcısı ile ilgili bir sorun yaşıyorum
-  Merhaba aşağıdaki belgeler tooresolve yardımcı olabilecek bazı bu kategorideki hello en yaygın sorunları.
-  * [Merhaba uygulama Proxy Aracısı Bağlayıcısı yükleme sorunlar yaşıyorum.](https://docs.microsoft.com/azure/active-directory/application-proxy-connector-installation-problem/)
+## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>Uygulama Proxy Aracısı Bağlayıcısı ile ilgili bir sorun yaşıyorum
+  Aşağıdaki belgeler, bu kategoriye giren yaygın sorunların çoğunu çözmenize yardımcı olabilir.
+  * [Uygulama Proxy’si Aracı Bağlayıcısı’nı yüklerken sorun yaşıyorum.](https://docs.microsoft.com/azure/active-directory/application-proxy-connector-installation-problem/)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Nasıl tooprovide güvenli uzaktan erişim tooon içi uygulamalar](active-directory-application-proxy-get-started.md)
+[Şirket içi uygulamalara güvenli uzaktan erişim sağlama](active-directory-application-proxy-get-started.md)

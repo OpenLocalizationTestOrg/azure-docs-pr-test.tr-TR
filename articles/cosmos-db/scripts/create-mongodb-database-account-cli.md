@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure CLI komut dosyası oluşturma bir Azure Cosmos DB MongoDB API hesap, veritabanı ve koleksiyonu | Microsoft Docs"
+title: "Azure CLI komut dosyası oluştur Azure Cosmos DB MongoDB API'si hesabınız, veritabanı ve koleksiyonu | Microsoft Docs"
 description: "Azure CLI betik örnek - bir Azure Cosmos DB MongoDB API hesap, veritabanı ve koleksiyonu oluşturma"
 services: cosmos-db
 documentationcenter: cosmosdb
@@ -16,27 +16,27 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: mimig
-ms.openlocfilehash: 84aec7234ef8906ec9ecf87f8da58753fdb5083d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b0bf637db90cfcb987ad43ed34cb8065d28b0fcf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="azure-cosmos-db-create-an-mongodb-api-account-using-hello-azure-cli"></a>Azure Cosmos DB: hello Azure CLI kullanarak bir API MongoDB hesabı oluşturma
+# <a name="azure-cosmos-db-create-an-mongodb-api-account-using-the-azure-cli"></a>Azure Cosmos DB: Azure CLI kullanarak bir API MongoDB hesabı oluşturma
 
 Bu örnek CLI betik Azure Cosmos DB MongoDB API hesabını, veritabanını ve koleksiyonu oluşturur. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Tooinstall seçin ve hello CLI yerel olarak kullanırsanız, bu konuda hello Azure CLI Sürüm 2.0 veya üstü çalıştığını gerektirir. Çalıştırma `az --version` toofind hello sürümü. Tooinstall veya yükseltme gerekirse bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Örnek komut dosyası
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-mongodb-account/create-cosmosdb-mongodb-account.sh?highlight=15-35 "Create an Azure Cosmos DB MongoDB API account, database, and collection")]
+[!code-azurecli-interactive[Ana](../../../cli_scripts/cosmosdb/create-cosmosdb-mongodb-account/create-cosmosdb-mongodb-account.sh?highlight=15-35 "Azure Cosmos DB MongoDB API hesabı, veritabanınızı ve koleksiyonunuzu oluşturun")]
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 
-Merhaba komut dosyası örneği çalıştırdıktan sonra komutu aşağıdaki hello kullanılan tooremove hello kaynak grubu ve onunla ilişkili tüm kaynakları olabilir.
+Komut dosyası örneği çalıştırdıktan sonra kaynak grubu ve onunla ilişkili tüm kaynakları kaldırmak için aşağıdaki komutu kullanılabilir.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -44,7 +44,7 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Komut dosyası açıklaması
 
-Bu komut dosyası komutları aşağıdaki hello kullanır. Her komut hello tablosundaki toocommand belirli belgeleri bağlar.
+Bu komut dosyasını aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
 
 | Komut | Notlar |
 |---|---|
@@ -54,6 +54,6 @@ Bu komut dosyası komutları aşağıdaki hello kullanır. Her komut hello tablo
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Hello Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
+Azure CLI hakkında daha fazla bilgi için bkz: [Azure CLI belgelerine](https://docs.microsoft.com/cli/azure/overview).
 
-Ek Azure Cosmos DB CLI kod örnekleri hello bulunabilir [Azure Cosmos DB CLI belgelerine](../cli-samples.md).
+Ek Azure Cosmos DB CLI kod örnekleri bulunabilir [Azure Cosmos DB CLI belgelerine](../cli-samples.md).

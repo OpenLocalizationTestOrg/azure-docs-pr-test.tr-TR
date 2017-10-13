@@ -1,5 +1,5 @@
 ---
-title: "aaaExpressRoute müşteri yönlendirici yapılandırma örnekleri | Microsoft Docs"
+title: "ExpressRoute müşteri yönlendirici yapılandırma örnekleri | Microsoft Docs"
 description: "Bu sayfa için Cisco ve Juniper yönlendirici yönlendirici yapılandırma örnekleri sağlar."
 documentationcenter: na
 services: expressroute
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: cherylmc
-ms.openlocfilehash: b5faca0666bda6173e54abb0b6560d5f8bf8bfc2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 83a7da2db537a3c900e90432455d59e8ac56d917
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="router-configuration-samples-tooset-up-and-manage-nat"></a>Yönlendirici yapılandırması yukarı tooset örnekleri ve NAT yönetme
-Bu sayfa için Cisco ASA ve Juniper SRX series yönlendirici NAT yapılandırma örnekleri sağlar. Bunlar yalnızca kılavuzu için hedeflenen toobe örnekleri ve olarak kullanılmamalıdır. İle satıcı toocome uygun yapılandırmalarla ağınız için çalışabilirsiniz. 
+# <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>NAT ayarlamanıza için yönlendirici yapılandırması örnekleri
+Bu sayfa için Cisco ASA ve Juniper SRX series yönlendirici NAT yapılandırma örnekleri sağlar. Bu yönergeler yalnızca için örnek olacak şekilde tasarlanmıştır ve olarak kullanılmamalıdır. Ağınız için uygun yapılandırmalarla gündeme için satıcınıza çalışabilir. 
 
 > [!IMPORTANT]
-> Bu sayfayı örneklerinde zamanıyla ilgili yönergeler için hedeflenen toobe ' dir. Gereksinimlerinize satıcınızın satış / teknik ekibi ve, ağ takım toocome yukarı uygun yapılandırmaları toomeet ile birlikte çalışmalısınız. Microsoft olmayan sorunlar destek ilgili bu sayfada listelenen tooconfigurations. Destek sorunları için aygıt satıcınıza başvurmanız gerekir.
+> Bu sayfayı örneklerinde zamanıyla ilgili yönergeler için olacak şekilde tasarlanmıştır. Satıcınızın satış / teknik ekip ve ağ ekibinizin gereksinimlerinizi karşılamak için uygun yapılandırmaları gündeme birlikte çalışmalısınız. Microsoft bu sayfada listelenen yapılandırmaları ile ilgili sorunlar desteklemez. Destek sorunları için aygıt satıcınıza başvurmanız gerekir.
 > 
 > 
 
-* Yönlendirici yapılandırma örnekleri aşağıdaki tooAzure ortak ve Microsoft eşlemeleri uygulayın. NAT Azure özel eşleme için yapılandırmamalısınız. Gözden geçirme [ExpressRoute eşlemeler](expressroute-circuit-peerings.md) ve [ExpressRoute NAT gereksinimleri](expressroute-nat.md) daha fazla ayrıntı için.
+* Yönlendirici yapılandırma örnekleri aşağıdaki Azure genel ve Microsoft eşlemeleri için geçerlidir. NAT Azure özel eşleme için yapılandırmamalısınız. Gözden geçirme [ExpressRoute eşlemeler](expressroute-circuit-peerings.md) ve [ExpressRoute NAT gereksinimleri](expressroute-nat.md) daha fazla ayrıntı için.
 
-* NAT IP havuzları ayrı bağlantı toohello kullanmalısınız Internet ve ExpressRoute. Arasında aynı NAT IP havuzu hello kullanarak Internet hello ve ExpressRoute asimetrik Yönlendirme ve bağlantı kaybı neden olur.
+* İnternet'e ve ExpressRoute bağlantı için ayrı NAT IP havuzu kullanmanız gerekir. ExpressRoute ve Internet aynı NAT IP havuzu kullanarak asimetrik Yönlendirme ve bağlantı kaybı neden olur.
 
 
 ## <a name="cisco-asa-firewalls"></a>Cisco ASA güvenlik duvarları
-### <a name="pat-configuration-for-traffic-from-customer-network-toomicrosoft"></a>Müşteri ağ tooMicrosoft gelen trafiği için PAT yapılandırma
+### <a name="pat-configuration-for-traffic-from-customer-network-to-microsoft"></a>Microsoft Müşteri ağ trafiği için PAT yapılandırma
     object network MSFT-PAT
       range <SNAT-START-IP> <SNAT-END-IP>
 
@@ -54,12 +54,12 @@ Bu sayfa için Cisco ASA ve Juniper SRX series yönlendirici NAT yapılandırma 
 
     nat (outside,inside) source dynamic on-prem pat-pool MSFT-PAT destination static MSFT-Range MSFT-Range
 
-### <a name="pat-configuration-for-traffic-from-microsoft-toocustomer-network"></a>Microsoft toocustomer ağ trafiği için PAT yapılandırma
+### <a name="pat-configuration-for-traffic-from-microsoft-to-customer-network"></a>Microsoft Müşteri ağ trafiği için PAT yapılandırma
 
 **Arabirimleri ve yönü:**
 
-    Source Interface (where hello traffic enters hello ASA): inside
-    Destination Interface (where hello traffic exits hello ASA): outside
+    Source Interface (where the traffic enters the ASA): inside
+    Destination Interface (where the traffic exits the ASA): outside
 
 **Yapılandırma:**
 
@@ -87,10 +87,10 @@ NAT komutlar:
 
 
 ## <a name="juniper-srx-series-routers"></a>Juniper SRX series yönlendirici
-### <a name="1-create-redundant-ethernet-interfaces-for-hello-cluster"></a>1. Yedek Ethernet arabirimleri için hello küme oluşturma
+### <a name="1-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. Yedek Ethernet arabirimleri için küme oluşturma
     interfaces {
         reth0 {
-            description "tooInternal Network";
+            description "To Internal Network";
             vlan-tagging;
             redundant-ether-options {
                 redundancy-group 1;
@@ -103,13 +103,13 @@ NAT komutlar:
             }
         }
         reth1 {
-            description "tooMicrosoft via Edge Router";
+            description "To Microsoft via Edge Router";
             vlan-tagging;
             redundant-ether-options {
                 redundancy-group 2;
             }
             unit 100 {
-                description "tooMicrosoft via Edge Router";
+                description "To Microsoft via Edge Router";
                 vlan-id 100;
                 family inet {
                     address <IP-Address/Subnet-mask>;
@@ -121,8 +121,8 @@ NAT komutlar:
 
 ### <a name="2-create-two-security-zones"></a>2. İki güvenlik bölgeleri oluşturma
 * Güven iç ağ için hem de Untrust bölgesine sınır yönlendiricileri karşılıklı dış ağ için
-* Uygun arabirimleri toohello bölgeleri atayın
-* Merhaba arabirimlerindeki hizmetlerinin izin ver
+* Bölgelere uygun arabirimleri atayın
+* Arabirimler Services'de izin ver
 
     güvenlik {bölgeleri {güvenlik bölgesi güven {konak gelen-trafik {Sistem Hizmetleri {ping;                   } protokolleri {bgp;                   {reth0.100;}} arabirimleri               }} güvenlik bölgesi Untrust {konak gelen-trafik {Sistem Hizmetleri {ping;                   } protokolleri {bgp;                   {reth1.100;}} arabirimleri               }           }       }   }
 
@@ -159,8 +159,8 @@ NAT komutlar:
 
 
 ### <a name="4-configure-nat-policies"></a>4. NAT ilkelerini yapılandırma
-* İki NAT havuzları oluşturun. Bir giden trafiği tooMicrosoft, kullanılan tooNAT ve diğer Microsoft toohello müşteriden olacaktır.
-* TooNAT hello ilgili trafik kuralları oluşturma
+* İki NAT havuzları oluşturun. Bir NAT trafiği giden Microsoft ve diğer Microsoft müşteri için kullanılır.
+* Karşılık gelen trafiği NAT kuralları oluşturma
   
        security {
            nat {
@@ -183,7 +183,7 @@ NAT komutlar:
                    }
                    rule-set Outbound_NAT {
                        from routing-instance Internal;
-                       toorouting-instance External-ExpressRoute;
+                       to routing-instance External-ExpressRoute;
                        rule SNAT-Out {
                            match {
                                source-address 0.0.0.0/0;
@@ -199,7 +199,7 @@ NAT komutlar:
                    }
                    rule-set Inbound-NAT {
                        from routing-instance External-ExpressRoute;
-                       toorouting-instance Internal;
+                       to routing-instance Internal;
                        rule SNAT-In {
                            match {
                                source-address 0.0.0.0/0;
@@ -217,8 +217,8 @@ NAT komutlar:
            }
        }
 
-### <a name="5-configure-bgp-tooadvertise-selective-prefixes-in-each-direction"></a>5. BGP tooadvertise seçmeli önekleri her yönde yapılandırın
-İçinde toosamples başvuran [yönlendirme yapılandırma örnekleri ](expressroute-config-samples-routing.md) sayfası.
+### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. Her yönde seçmeli öneklerini BGP yapılandırın
+Örnekleri başvurmak [yönlendirme yapılandırma örnekleri ](expressroute-config-samples-routing.md) sayfası.
 
 ### <a name="6-create-policies"></a>6. İlke oluşturma
     routing-options {
@@ -316,5 +316,5 @@ NAT komutlar:
     }
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Merhaba bkz [ExpressRoute SSS](expressroute-faqs.md) daha fazla ayrıntı için.
+Daha fazla ayrıntı için bkz. [ExpressRoute SSS](expressroute-faqs.md).
 

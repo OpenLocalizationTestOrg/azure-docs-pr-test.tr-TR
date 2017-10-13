@@ -1,6 +1,6 @@
 ---
-title: "aaaExport Resource Manager şablonu Azure CLI ile | Microsoft Docs"
-description: "Azure Resource Manager ve Azure CLI tooexport bir kaynak grubundan bir şablon kullanın."
+title: "Azure CLI ile Resource Manager şablonu aktarma | Microsoft Docs"
+description: "Bir şablonu kaynak grubundan dışarı aktarmak için Azure Resource Manager ve Azure CLI kullanın."
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -13,26 +13,26 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2017
 ms.author: tomfitz
-ms.openlocfilehash: 2d44a0a6e9717504d4c2a01254d826679b381f22
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 617664129a5353e25da1e90c742c4b009db172ef
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Azure CLI ile Azure Resource Manager şablonları dışarı aktarma
 
-Resource Manager tooexport, aboneliğinizdeki mevcut kaynaklardan bir Resource Manager şablonu sağlar. Bu oluşturulan şablonu toolearn hello şablon söz dizimi veya tooautomate hello çözümünüzün yeniden dağıtımını gerektiği gibi çözümünüzü hakkında kullanabilirsiniz.
+Resource Manager, aboneliğinizde var olan kaynaklardan bir Resource Manager şablonunu dışarı aktarmanızı sağlar. Bu oluşturulan şablonu şablon söz dizimi hakkında bilgi edinmek veya çözümünüzün yeniden dağıtımını gerektiği gibi otomatikleştirmek için kullanabilirsiniz.
 
-Bir şablon iki farklı şekilde tooexport olduğunu önemli toonote şöyledir:
+Bir şablonu dışarı aktarmak için iki farklı yol vardır:
 
-* Bir dağıtım için kullanılan hello gerçek şablonu dışarı aktarabilirsiniz. Merhaba özgün şablonda tam olarak göründüğü gibi hello dışarı aktarılan şablonu tüm hello parametreler ve değişkenler içerir. Bu yaklaşım, tooretrieve şablon gerektiğinde faydalıdır.
-* Merhaba hello kaynak grubunun geçerli durumunu temsil eden bir şablonu dışarı aktarabilirsiniz. Merhaba dışarı aktarılan şablon dağıtımı için kullanılan herhangi bir şablonu dayanmıyor. Bunun yerine, hello kaynak grubunun bir anlık görüntüdür bir şablon oluşturur. Merhaba dışarı aktarılan şablon birçok sabit kodlu değer ve normalde tanımlayacağınız kadar fazla büyük olasılıkla parametre vardır. Bu yaklaşım, hello kaynak grubu değiştirdiniz. yararlıdır. Şimdi, şablon olarak toocapture hello kaynak grubu gerekir.
+* Dağıtım için kullandığınız gerçek şablonu dışarı aktarabilirsiniz. Dışarı aktarılan şablonda, tüm parametreler ve değişkenler özgün şablondaki gibidir. Bir şablon almanız gerektiğinde, bu yararlı bir yaklaşımdır.
+* Kaynak grubunun geçerli durumunu temsil eden bir şablonu dışarı aktarabilirsiniz. Dışarı aktarılan şablon, dağıtım için kullandığınız herhangi bir şablonu temel almaz. Bunun yerine, kaynak grubunun anlık görüntüsü olan bir şablon oluşturur. Dışarı aktarılan şablon birçok sabit kodlu değer ve büyük olasılıkla normalde tanımlayacağınızdan daha az sayıda parametre içerir. Bu yaklaşım, kaynak grubu değiştirdiniz. yararlıdır. Şimdi kaynak grubunu bir şablon olarak yakalamalısınız.
 
 Bu konuda, iki yaklaşım ortaya koyulmaktadır.
 
 ## <a name="deploy-a-solution"></a>Bir çözüm dağıtma
 
-bir şablonu dışarı aktarmak için iki tooillustrate yaklaşıyor, bir çözüm tooyour abonelik dağıtarak başlayalım. Aboneliğinizi tooexport istediğiniz bir kaynak grubu zaten varsa, bu çözüm toodeploy sahip değil. Ancak, bu makalenin sonraki bölümlerinde hello toohello şablonu bu çözüm için ifade eder. Merhaba örnek betik, bir depolama hesabı dağıtır.
+Bir şablonu dışarı aktarmak için her iki yaklaşımın göstermek için Aboneliğinize bir çözümü başlayalım. Aboneliğinizdeki vermek istediğiniz bir kaynak grubu zaten varsa, bu çözümü dağıtmak gerekmez. Ancak, bu makalenin sonraki bölümlerinde Bu çözüm için şablonu ifade eder. Örnek komut dosyasını bir depolama hesabı dağıtır.
 
 ```azurecli
 az group create --name ExampleGroup --location "Central US"
@@ -44,24 +44,24 @@ az group deployment create \
 
 ## <a name="save-template-from-deployment-history"></a>Şablonu dağıtım geçmişinden Kaydet
 
-Hello kullanarak bir şablonu dağıtım geçmişinden alabilirsiniz [az grubu dağıtım verme](/cli/azure/group/deployment#export) komutu. daha önce dağıttığınız örnek kaydeder hello şablonu aşağıdaki hello:
+Kullanarak bir şablonu dağıtım geçmişinden alabilirsiniz [az grubu dağıtım verme](/cli/azure/group/deployment#export) komutu. Aşağıdaki örnek, daha önce dağıttığınız şablonu kaydeder:
 
 ```azurecli
 az group deployment export --name NewStorage --resource-group ExampleGroup
 ```
 
-Merhaba şablon döndürür. Merhaba JSON kopyalayın ve bir dosya olarak kaydedin. Merhaba tam şablon dağıtımı için kullanılan olduğuna dikkat edin. Merhaba parametreleri ve değişkenleri hello şablonunu github'dan eşleşir. Bu şablonu yeniden dağıtabilirsiniz.
+Şablon döndürür. JSON kopyalayın ve bir dosya olarak kaydedin. Dağıtım için kullanılan tam şablonu olduğuna dikkat edin. Parametreler ve değişkenler github'dan şablon eşleşmesi. Bu şablonu yeniden dağıtabilirsiniz.
 
 
 ## <a name="export-resource-group-as-template"></a>Kaynak grubunu şablon olarak dışarı aktarma
 
-Bir şablon hello dağıtım geçmişinden almanın yerine hello kullanarak hello kaynak grubunun geçerli durumunu temsil eden bir şablonu alabilir [az grup verme](/cli/azure/group#export) komutu. Birçok değişiklikleri tooyour kaynak grubu yaptığınız ve varolan bir şablonu tüm hello değişiklikleri temsil ettiğinde bu komutu kullanın.
+Bir şablonu dağıtım geçmişinden almanın yerine kullanarak bir kaynak grubunun geçerli durumunu temsil eden bir şablonu alabilir [az grup verme](/cli/azure/group#export) komutu. Kaynak grubu için çok sayıda değişiklik yaptınız ve tüm değişiklikleri olan bir şablonunu temsil ettiğinde bu komutu kullanın.
 
 ```azurecli
 az group export --name ExampleGroup
 ```
 
-Merhaba şablon döndürür. Merhaba JSON kopyalayın ve bir dosya olarak kaydedin. GitHub hello şablonunda farklı olduğuna dikkat edin. Farklı parametreler ve değişken vardır. Merhaba depolama SKU ve konumu sabit kodlanmış toovalues önemlidir. Hello aşağıdaki örnekte gösterir hello dışarı aktarılan şablonu, ancak biraz farklı parametre adı şablonunuzu vardır:
+Şablon döndürür. JSON kopyalayın ve bir dosya olarak kaydedin. GitHub şablonunda farklı olduğuna dikkat edin. Farklı parametreler ve değişken vardır. Depolama SKU ve konum değerleri sabit kodlanmış. Aşağıdaki örnek, dışarı aktarılan şablon gösterir, ancak şablonunuzu biraz farklı parametre adı vardır:
 
 ```json
 {
@@ -93,7 +93,7 @@ Merhaba şablon döndürür. Merhaba JSON kopyalayın ve bir dosya olarak kayded
 }
 ```
 
-Bu şablonu yeniden dağıtabilirsiniz, ancak tahmin hello depolama hesabı için benzersiz bir ad gerektirir. Merhaba, parametre adını biraz farklıdır.
+Bu şablonu yeniden dağıtabilirsiniz, ancak depolama hesabı için benzersiz bir ad tahmin gerektirir. Parametrenizin adını biraz farklıdır.
 
 ```azurecli
 az group deployment create --name NewStorage --resource-group ExampleGroup \
@@ -103,13 +103,13 @@ az group deployment create --name NewStorage --resource-group ExampleGroup \
 
 ## <a name="customize-exported-template"></a>Dışarı aktarılan şablonu özelleştirme
 
-Bu şablon toomake değiştirebilir, daha kolay toouse ve daha esnektir. Daha fazla konumları, değişiklik hello konum özelliği toouse tooallow hello kaynak grubu ile aynı konumda hello:
+Bu şablonu kullanmayı daha kolay ve daha esnek hale getirmek için değiştirebilirsiniz. Daha fazla konumları için izin vermek için aynı konumu kaynak grubu olarak kullanmak üzere konum özelliği değiştirin:
 
 ```json
 "location": "[resourceGroup().location]",
 ```
 
-tooavoid tooguess Kaldır hello parametresi hello depolama hesabı adı için depolama hesabı için bir uniques adına sahip. Bir depolama alanı adı soneki ve depolama SKU için bir parametre ekleyin:
+Depolama hesabı için bir uniques ad tahmin yapmak zorunda kalmamak için depolama hesabı adı için parametresini kaldırın. Bir depolama alanı adı soneki ve depolama SKU için bir parametre ekleyin:
 
 ```json
 "parameters": {
@@ -132,7 +132,7 @@ tooavoid tooguess Kaldır hello parametresi hello depolama hesabı adı için de
 },
 ```
 
-Hello depolama hesabı adı hello uniqueString işleviyle oluşturan bir değişkeni ekleyin:
+Depolama hesabı adı uniqueString işlevi ile oluşturur bir değişkeni ekleyin:
 
 ```json
 "variables": {
@@ -140,13 +140,13 @@ Hello depolama hesabı adı hello uniqueString işleviyle oluşturan bir değiş
   },
 ```
 
-Merhaba hello depolama hesabı toohello değişkeninin adını ayarlayın:
+Depolama hesabı adı değişkeni ayarlayın:
 
 ```json
 "name": "[variables('storageAccountName')]",
 ```
 
-Merhaba SKU toohello parametresini ayarlayın:
+SKU parametreyi ayarlayın:
 
 ```json
 "sku": {
@@ -201,9 +201,9 @@ Merhaba SKU toohello parametresini ayarlayın:
 }
 ```
 
-Merhaba değiştirilmiş şablonunu yeniden dağıtın.
+Değiştirilen şablon yeniden dağıtın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Merhaba portal tooexport bir şablon kullanma hakkında daha fazla bilgi için bkz: [mevcut kaynaklardan Azure Resource Manager şablonunu dışarı aktarma](resource-manager-export-template.md).
-* Şablon toodefine parametrelerinde bkz [şablonları yazma](resource-group-authoring-templates.md#parameters).
+* Bir şablonu dışarı aktarmak için portalı kullanma hakkında daha fazla bilgi için bkz: [mevcut kaynaklardan Azure Resource Manager şablonunu dışarı aktarma](resource-manager-export-template.md).
+* Şablonda parametreleri tanımlamak için bkz: [şablonları yazma](resource-group-authoring-templates.md#parameters).
 * Genel dağıtım hatalarını giderme ipuçları için bkz: [ortak Azure dağıtım hataları Azure Resource Manager ile ilgili sorunları giderme](resource-manager-common-deployment-errors.md).

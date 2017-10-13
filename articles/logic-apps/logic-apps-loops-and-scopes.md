@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate döngüler ve kapsamları ya da iş akışları - Azure Logic Apps verilerde debatch | Microsoft Docs"
-description: "Veriler, kapsamları, Grup eylemlere aracılığıyla döngüler tooiterate oluşturun veya daha fazla iş akışı Azure Logic Apps içinde veri toostart debatch."
+title: "Döngüler ve kapsamları oluşturun ya da iş akışları - Azure Logic Apps verilerde debatch | Microsoft Docs"
+description: "Veri, kapsamları, Grup eylemlere yinelemek için döngüler oluşturun veya Azure Logic Apps içinde daha fazla iş akışlarını başlatmak için veri debatch."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: e612ec2e83541f028916a07bf12c44e7b1f57ad1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 413a2ba9107ca259ed577825bf0a17ff5622f1ac
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="logic-apps-loops-scopes-and-debatching"></a>Logic Apps Döngüleri, Kapsamları ve Ayırma
   
-Logic Apps diziler, koleksiyonları, toplu işleri ve bir iş akışındaki döngüler yolları toowork sayısını sağlar.
+Logic Apps, çeşitli yollarla dizilerle, koleksiyonlar, toplu işlemler, iş sağlar ve bir iş akışı içinde döngüye girer.
   
 ## <a name="foreach-loop-and-arrays"></a>ForEach döngüsü ve diziler
   
-Logic Apps bir veri kümesi üzerinde tooloop sağlar ve her öğe için bir eylemi gerçekleştirir.  Bu hello mümkündür `foreach` eylem.  Merhaba Tasarımcısı'nda tooadd belirtebilirsiniz bir her döngü için.  Merhaba dizi üzerinden tooiterate istediğiniz seçtikten sonra Eylemler eklemeye başlayabilirsiniz.  Şu anda sınırlı tooonly bir eylem foreach döngüsü başına olan, ancak bu kısıtlama hafta gelen hello kaldırılmış.  Bir kez hello döngü içinde her hello dizi değerinde gerekeni toospecify başlayabilirsiniz.
+Logic Apps, bir veri kümesi üzerinde döngü ve her öğe için bir eylem gerçekleştirmek sağlar.  Bu aracılığıyla mümkündür `foreach` eylem.  Eklenecek belirtebilirsiniz Tasarımcısı'nda bir her döngü için.  Üzerinden yinelemek istediğiniz dizi seçtikten sonra Eylemler eklemeye başlayabilirsiniz.  Şu anda foreach döngüsü başına yalnızca bir eylem için sınırlı olur, ancak bu kısıtlama, önümüzdeki haftalarda kaldırılmış.  Bir kez döngü içinde dizinin her değerinde gerçekleşmesi gerektiğini belirtmek başlayabilirsiniz.
 
 Kod görünümünü kullanıyorsanız, belirleyebileceğiniz bir aşağıdaki gibi her bir döngü için.  Bu örneği olan bir 'microsoft.com' içeren her bir e-posta adresi için bir e-posta gönderir her bir döngü için:
 
@@ -66,11 +66,11 @@ Kod görünümünü kullanıyorsanız, belirleyebileceğiniz bir aşağıdaki gi
 }
 ```
   
-  A `foreach` eylem too5, 000 satırları yukarı diziler üzerinden yineleme.  Her yineleme paralel olarak varsayılan olarak yürütülür.  
+  A `foreach` Eylem yineleme üzerinden dizi en çok 5000 satır.  Her yineleme paralel olarak varsayılan olarak yürütülür.  
 
 ### <a name="sequential-foreach-loops"></a>Sıralı ForEach döngüsü
 
-foreach döngüsü tooexecute ardışık olarak hello tooenable `Sequential` işlemi seçeneği eklenir.
+Sırayla yürütmek foreach döngüsü etkinleştirmek için `Sequential` işlemi seçeneği eklenir.
 
 ``` json
 "forEach_email": {
@@ -83,9 +83,9 @@ foreach döngüsü tooexecute ardışık olarak hello tooenable `Sequential` iş
   
 ## <a name="until-loop"></a>Döngü kadar
   
-  Bir koşul yerine getirilene kadar bir eylem veya dizi eylem gerçekleştirebilir.  Aradığınız hello yanıt elde edene kadar hello Bunun en yaygın senaryo bir uç nokta çağırıyor.  Merhaba Tasarımcısı'nda tooadd belirtebilirsiniz bir döngü kadar.  Eylemler hello döngü içinde ekledikten sonra hello çıkış koşulu yanı döngü sınırları hello.  Döngü döngüleri arasında 1 dakikalık bir gecikmeyle yoktur.
+  Bir koşul yerine getirilene kadar bir eylem veya dizi eylem gerçekleştirebilir.  Aradığınız yanıt elde edene kadar Bunun en yaygın senaryo bir uç nokta çağırıyor.  Eklenecek belirtebilirsiniz Tasarımcısı'nda bir döngü kadar.  Döngü içinde eylemler eklendikten sonra çıkış koşulu olarak döngü ayarlayabileceğiniz sınırlar.  Döngü döngüleri arasında 1 dakikalık bir gecikmeyle yoktur.
   
-  Kod görünümünü kullanıyorsanız, belirleyebileceğiniz bir döngü ister aşağıda kadar.  Bu hello değeri 'Tamamlandı' hello yanıt gövdesi olana kadar bir HTTP uç noktası çağrılmadan bir örnektir.  Ne zaman tamamlanır ya da 
+  Kod görünümünü kullanıyorsanız, belirleyebileceğiniz bir döngü ister aşağıda kadar.  Bu yanıt gövdesi 'Tamamlandı' değerine sahip kadar bir HTTP uç noktası çağrılmadan bir örnektir.  Ne zaman tamamlanır ya da 
   
   * HTTP yanıtı 'Tamamlandı' durumuna sahip
   * 1 saat boyunca çalıştı
@@ -117,9 +117,9 @@ foreach döngüsü tooexecute ardışık olarak hello tooenable `Sequential` iş
   
 ## <a name="spliton-and-debatching"></a>SplitOn ve debatching
 
-Bazen bir tetikleyici bir dizi toodebatch istediğiniz ve bir iş akışı öğesi başına başlatmak öğeleri alabilirsiniz.  Bu hello gerçekleştirilebilir `spliton` komutu.  Varsayılan olarak, tetikleyici swagger bir dizi bir yükü belirtiyorsa, bir `spliton` eklenir ve bir çalışma öğesi başına başlatın.  SplitOn yalnızca tooa tetikleyici eklenebilir.  Bu el ile yapılandırılabildiğinden veya tanımı kod görünümünde geçersiz kılındı.  Şu anda SplitOn too5, 000 öğeleri yukarı diziler debatch.  Sahip olamaz bir `spliton` ve ayrıca hello zaman uyumlu yanıt desenini uygular.  Adında herhangi bir iş akışının sahip bir `response` eylem ayrıca çok`spliton` zaman uyumsuz olarak çalışacak ve hemen gönder `202 Accepted` yanıt.  
+Bazen bir tetikleyici bir dizi debatch ve bir iş akışı öğesi başına başlatmak istediğiniz öğeleri alabilirsiniz.  Bu aracılığıyla gerçekleştirilebilir `spliton` komutu.  Varsayılan olarak, tetikleyici swagger bir dizi bir yükü belirtiyorsa, bir `spliton` eklenir ve bir çalışma öğesi başına başlatın.  SplitOn yalnızca bir tetikleyiciye eklenebilir.  Bu el ile yapılandırılabildiğinden veya tanımı kod görünümünde geçersiz kılındı.  Şu anda SplitOn debatch en fazla 5000 öğeleri dizi.  Sahip olamaz bir `spliton` ve ayrıca zaman uyumlu yanıt desenini uygular.  Adında herhangi bir iş akışının sahip bir `response` ek olarak eylem `spliton` zaman uyumsuz olarak çalışacak ve hemen gönder `202 Accepted` yanıt.  
 
-SplitOn kod görünümünde aşağıdaki örneğine hello belirtilebilir.  Bu öğeleri dizisini alır ve her satırda debatches.
+SplitOn kod görünümünde aşağıdaki örnek olarak belirtilebilir.  Bu öğeleri dizisini alır ve her satırda debatches.
 
 ```
 {
@@ -139,7 +139,7 @@ SplitOn kod görünümünde aşağıdaki örneğine hello belirtilebilir.  Bu ö
 
 ## <a name="scopes"></a>Kapsamları
 
-Bu, olası toogroup birlikte bir kapsamı kullanarak eylemleri bir dizi olur.  Özel durum işleme uygulamak için özellikle yararlıdır.  Merhaba Tasarımcısı'nda yeni bir kapsam ekleyin ve onu içinde herhangi bir eylem eklemeye başlamak.  Merhaba aşağıdaki gibi kod görünümünde kapsamları tanımlayabilirsiniz:
+Bir dizi eylem birlikte bir kapsamı kullanarak Grup mümkündür.  Özel durum işleme uygulamak için özellikle yararlıdır.  Tasarımcıda yeni bir kapsam ekleyin ve onu içinde herhangi bir eylem eklemeye başlamak.  Aşağıdaki gibi kod görünümünde kapsamları tanımlayabilirsiniz:
 
 
 ```

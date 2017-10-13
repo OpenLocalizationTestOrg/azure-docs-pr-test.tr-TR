@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure İzleyici CLI 1.0 hızlı başlangıç örnekleri. | Microsoft Belgeleri"
-description: "Azure İzleyicisi özelliklerine ilişkin örnek CLI 1.0 komutlar. Azure İzleyici toosend Uyarı bildirimlerini sağlayan bir Microsoft Azure hizmet, arama web URL'leri yapılandırılmış telemetri verilerini ve otomatik ölçeklendirme bulut Hizmetleri, sanal makinelerin ve Web uygulamaları değerlerine göre."
+title: "Azure CLI 1.0 İzleyici hızlı başlangıç örnekleri. | Microsoft Belgeleri"
+description: "Azure İzleyicisi özelliklerine ilişkin örnek CLI 1.0 komutlar. Azure İzleyicisi uyarı bildirimleri gönderebilir, yapılandırılmış telemetri verilerini ve otomatik ölçeklendirme bulut Hizmetleri, sanal makinelerin ve Web uygulamaları değerlerine göre web URL'leri çağrı olanak sağlayan bir Microsoft Azure hizmetidir."
 author: kamathashwin
 manager: orenr
 editor: 
@@ -14,101 +14,101 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: ashwink
-ms.openlocfilehash: 6cd9cd62b3a1977276563f5e43f5384ccca66247
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ec4512500dc3c77a40d2ebd1e6b460d5bb005811
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-monitor--cross-platform-cli-10-quick-start-samples"></a>Azure İzleyici platformlar arası CLI 1.0 hızlı başlangıç örnekleri
-Bu makale Azure İzleyicisi özelliklerine erişim komut satırı arabirimi (CLI) komutları toohelp örnek gösterir. Azure İzleyici tooAutoScale bulut Hizmetleri, sanal makineler ve Web uygulamaları ve toosend Uyarı bildirimlerinin veya yapılandırılmış telemetri verilerini değerlerine göre çağrısı web URL'leri sağlar.
+Bu makalede, örnek Azure İzleyicisi özelliklerine erişmenize yardımcı olması için komut satırı arabirimi (CLI) komutları gösterir. Azure İzleyici otomatik ölçeklendirme bulut Hizmetleri, sanal makineleri ve Web uygulamaları ve uyarı bildirimleri gönderebilir veya web URL'leri yapılandırılmış telemetri verilerini değerlerine göre arama için sağlar.
 
 > [!NOTE]
-> Azure İzleyicisi "Azure Öngörüler" olarak adlandırılmıştı için hello yeni 25 Eylül 2016'ya kadar adıdır. Ancak, başlangıç ad alanları ve bu nedenle aşağıdaki hello komutları hala hello "ınsights" içeriyor.
+> Azure İzleyicisi "Azure Öngörüler" olarak adlandırılmıştı için yeni 25 Eylül 2016'ya kadar adıdır. Bununla birlikte, ad alanları ve bu nedenle aşağıdaki komutları yine "ınsights" içerir.
 > 
 > 
 
 ## <a name="prerequisites"></a>Ön koşullar
-Hello Azure CLI henüz yüklemediyseniz bkz [yükleme hello Azure CLI](../cli-install-nodejs.md). Azure CLI ile emin değilseniz, daha fazla bilgiyi adresinden hakkında [kullanım hello Mac, Linux ve Windows Azure Resource Manager ile Azure CLI](../xplat-cli-azure-resource-manager.md).
+Azure CLI henüz yüklemediyseniz bkz [Azure CLI yükleme](../cli-install-nodejs.md). Azure CLI ile emin değilseniz, daha fazla bilgiyi adresinden hakkında [Mac, Linux ve Windows Azure Resource Manager ile Azure CLI kullanılmaya](../xplat-cli-azure-resource-manager.md).
 
-Windows hello npm yükleme [Node.js Web sitesi](https://nodejs.org/). Hello yüklemeyi tamamladıktan sonra yönetici olarak çalıştır ayrıcalıklarıyla CMD.exe kullanarak npm yüklendiği hello klasöründen hello aşağıdakileri yürütün:
+Windows, gelen npm yükleme [Node.js Web sitesi](https://nodejs.org/). Yönetici olarak çalıştır ayrıcalıklarıyla CMD.exe kullanarak yüklemeyi tamamladıktan sonra aşağıdaki npm yüklendiği klasöründen yürütün:
 
 ```console
 npm install azure-cli --global
 ```
 
-Ardından, tooany klasörü/konum istediğiniz ve hello komut satırı yazın gidin:
+Ardından, tüm klasör/istediğiniz ve komut satırına şunu yazın konuma gidin:
 
 ```console
 azure help
 ```
 
-## <a name="log-in-tooazure"></a>İçinde tooAzure oturum
-Merhaba ilk adımı toologin tooyour Azure hesabı oluşturur.
+## <a name="log-in-to-azure"></a>Azure'da oturum açma
+İlk adım, Azure hesabınızda oturum açın.
 
 ```console
 azure login
 ```
 
-Bu komutu çalıştırdıktan sonra toosign hello yönergeleri Merhaba ekranında aracılığıyla sizde. Daha sonra hesap, Tenantıd ve varsayılan abonelik kimliği bakın Tüm komutlar hello varsayılan aboneliğinizin bağlamında çalışır.
+Bu komutu çalıştırdıktan sonra ekrandaki yönergeleri aracılığıyla oturum açmaya sahip. Daha sonra hesap, Tenantıd ve varsayılan abonelik kimliği bakın Tüm komutlar, varsayılan abonelik bağlamında çalışır.
 
-Geçerli aboneliğiniz toolist hello ayrıntılarını komutu aşağıdaki hello kullanın.
+Geçerli aboneliğiniz ayrıntılarını listelemek için aşağıdaki komutu kullanın.
 
 ```console
 azure account show
 ```
 
-toochange çalışma bağlam tooa farklı abonelik, komutu aşağıdaki kullanım hello.
+Farklı bir aboneliğe çalışma bağlamını değiştirmek için aşağıdaki komutu kullanın.
 
 ```console
 azure account set "subscription ID or subscription name"
 ```
 
-toouse Azure Resource Manager ve Azure İzleyicisi komutları, Azure Kaynak Yöneticisi modunda toobe gerekir.
+Azure Resource Manager ve Azure İzleyici komutlarını kullanmak için Azure Kaynak Yöneticisi modunda olması gerekir.
 
 ```console
 azure config mode arm
 ```
 
-desteklenen tüm Azure İzleyici komutların listesini tooview hello aşağıdakileri gerçekleştirin.
+Tüm desteklenen Azure İzleyici komutlarının listesini görüntülemek için aşağıdakileri gerçekleştirin.
 
 ```console
 azure insights
 ```
 
 ## <a name="view-activity-log-for-a-subscription"></a>Bir abonelik için etkinlik günlüğü görüntüle
-tooview etkinlik günlük olaylarının bir listesi hello aşağıdakileri gerçekleştirin.
+Etkinlik günlüğü olaylarını listesini görüntülemek için aşağıdakileri gerçekleştirin.
 
 ```console
 azure insights logs list [options]
 ```
 
-Tooview aşağıdaki hello tüm kullanılabilir seçenekleri deneyin.
+Tüm kullanılabilir seçenekleri görüntülemek için aşağıdakileri deneyin.
 
 ```console
 azure insights logs list -help
 ```
 
-İşte bir örnek toolist günlükleri resourceGroup tarafından
+Bir kaynak grubu tarafından listesi günlüklerine örneği
 
 ```console
 azure insights logs list --resourceGroup "myrg1"
 ```
 
-Çağıran tarafından örnek toolist günlükleri
+Liste günlükleri çağıran tarafından örneği
 
 ```console
 azure insights logs list --caller "myname@company.com"
 ```
 
-Örnek toolist günlükleri çağıran bir kaynağına göre içinde bir başlangıç ve bitiş tarihi yazın
+İçinde bir başlangıç ve bitiş tarihi listesine örnek kaynak türünde çağıran tarafından günlüğe kaydeder
 
 ```console
 azure insights logs list --resourceProvider "Microsoft.Web" --caller "myname@company.com" --startTime 2016-03-08T00:00:00Z --endTime 2016-03-16T00:00:00Z
 ```
 
 ## <a name="work-with-alerts"></a>Uyarılarla çalışma
-Merhaba bölüm toowork uyarılarla hello bilgileri kullanabilirsiniz.
+Uyarılarla çalışma için bölümündeki bilgileri kullanın.
 
 ### <a name="get-alert-rules-in-a-resource-group"></a>Uyarı kuralları bir kaynak grubunda Al
 ```console
@@ -134,7 +134,7 @@ azure insights alerts rule delete abhingrgtest123 andy0323
 ```
 
 ## <a name="log-profiles"></a>Günlük profilleri
-Bu bölümde toowork günlük profilleriyle Hello bilgileri kullanın.
+Günlük profilleri ile çalışmak için bu bölümdeki bilgileri kullanın.
 
 ### <a name="get-a-log-profile"></a>Günlük profilini Al
 ```console
@@ -165,7 +165,7 @@ azure insights logprofile add --name default --storageId /subscriptions/1a66ce04
 
 
 ## <a name="diagnostics"></a>Tanılama
-Bu bölümde toowork tanılama ayarlarla Hello bilgileri kullanın.
+Tanılama ayarları ile çalışmak için bu bölümdeki bilgileri kullanın.
 
 ### <a name="get-a-diagnostic-setting"></a>Tanılama bir ayar edinme
 ```console
@@ -184,7 +184,7 @@ azure insights diagnostic set --resourceId /subscriptions/df602c9c-7aa0-407d-a6f
 
 
 ## <a name="autoscale"></a>Otomatik Ölçeklendirme
-Bu bölümde toowork otomatik ölçeklendirme ayarlarla Hello bilgileri kullanın. Bu örnekler toomodify gerekir.
+Otomatik ölçeklendirme ayarları ile çalışmak için bu bölümdeki bilgileri kullanın. Bu örnekler değiştirmeniz gerekir.
 
 ### <a name="get-autoscale-settings-for-a-resource-group"></a>Bir kaynak grubu için otomatik ölçeklendirme ayarlarını al
 ```console

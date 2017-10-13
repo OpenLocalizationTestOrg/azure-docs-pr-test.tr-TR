@@ -25,42 +25,42 @@
 ### [Bir rol için trafik kuralları yapılandırma](cloud-services-enable-communication-role-instances.md)
 ### [Bulut Hizmeti yaşam döngüsü olaylarını işleme](cloud-services-role-lifecycle-dotnet.md)
 ### [Socket.io (Node.js)](cloud-services-nodejs-chat-app-socketio.md)
-### [Twilio toomake bir telefon araması (.NET) kullanın](../partner-twilio-cloud-services-dotnet-phone-call-web-role.md)
+### [Twilio kullanarak telefon görüşmesi yapma (.NET)](../partner-twilio-cloud-services-dotnet-phone-call-web-role.md)
 ### [New Relic](../store-new-relic-cloud-services-dotnet-application-performance-management.md)
 
 ### Başlangıç görevlerini yapılandırma
 #### [Başlangıç görevleri oluşturma](cloud-services-startup-tasks.md)
 #### [Genel başlangıç görevleri](cloud-services-startup-tasks-common.md)
-#### [Bir bulut hizmeti rolü görev tooInstall .NET kullanın](cloud-services-dotnet-install-dotnet.md)
+#### [Bir Bulut Hizmeti rolünde görev kullanarak .NET Yükleme](cloud-services-dotnet-install-dotnet.md)
 
 ### Uzak Masaüstü’nü Yapılandırma
-#### [Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [Klasik portal](cloud-services-role-enable-remote-desktop.md)
-#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Azure PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## Dağıtma
 ### Portalda bulut hizmeti oluşturma ve dağıtma
-#### [Portal](cloud-services-how-to-create-deploy-portal.md)
+#### [Azure portal](cloud-services-how-to-create-deploy-portal.md)
 #### [Klasik portal](cloud-services-how-to-create-deploy.md)
 ### [PowerShell’de boş bir bulut hizmeti kapsayıcısı oluşturma](cloud-services-powershell-create-cloud-container.md)
 ### Özel bir etki alanı adı yapılandırma
 #### [Portal](cloud-services-custom-domain-name-portal.md)
 #### [Klasik portal](cloud-services-custom-domain-name.md)
 ### [Bulut hizmeti dağıtımı hazırlama (Node.js)](cloud-services-nodejs-stage-application.md)
-### [Tooa özel bağlanma etki alanı denetleyicisi](cloud-services-connect-to-custom-domain.md)
+### [Özel bir Etki Alanı Denetleyicisi’ne bağlanma](cloud-services-connect-to-custom-domain.md)
 
 ## Hizmeti yönetme
 ### Genel yönetim görevleri
-#### [Portal](cloud-services-how-to-manage-portal.md)
+#### [Azure portal](cloud-services-how-to-manage-portal.md)
 #### [Klasik portal](cloud-services-how-to-manage.md)
 ### Bulut Hizmetini Yapılandırma
-#### [Portal](cloud-services-how-to-configure-portal.md)
+#### [Azure portal](cloud-services-how-to-configure-portal.md)
 #### [Klasik portal](cloud-services-how-to-configure.md)
 ### [Azure Otomasyonu’nu kullanarak bir Bulut Hizmetini yönetme](automation-manage-cloud-services.md)
 ### Otomatik ölçeklendirmeyi yapılandırma
-#### [Portal](cloud-services-how-to-scale-portal.md)
+#### [Azure portal](cloud-services-how-to-scale-portal.md)
 #### [Klasik portal](cloud-services-how-to-scale.md)
-### [Python toomanage Azure kaynakları kullanın](cloud-services-python-how-to-use-service-management.md)
+### [Python ile Azure Kaynaklarını yönetme](cloud-services-python-how-to-use-service-management.md)
 
 ### [Konuk işletim sistemi düzeltme ekleri](cloud-services-guestos-msrc-releases.md)
 ### Konuk işletim sistemini kullanımdan kaldırma
@@ -80,13 +80,13 @@
 ### [Performansı test etme](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [Visual Studio Profil Oluşturma Testi](cloud-services-performance-testing-visual-studio-profiler.md)
 ### Tanılamayı etkinleştirme
-#### [PowerShell](cloud-services-diagnostics-powershell.md)
+#### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 ### [Azure Tanılama'daki performans sayaçlarını kullanma](cloud-services-dotnet-diagnostics-performance-counters.md)
 ### [Azure Depolama’daki tanılama verilerini depolama ve görüntüleme](cloud-services-dotnet-diagnostics-storage.md)
 ### [Tanılama ile Bulut Hizmetini İzleme](cloud-services-dotnet-diagnostics-trace-flow.md)
-### [Tanılama veri tooApp Öngörüler Gönder](cloud-services-dotnet-diagnostics-applicationinsights.md)
+### [Tanılama verilerini App Insights’a gönderme](cloud-services-dotnet-diagnostics-applicationinsights.md)
 
 ## Sorun giderme
 ### Hata ayıklama 
@@ -98,7 +98,7 @@
 ### [Bulut Hizmeti rollerinin geri dönüşüme uğramasının yaygın nedenleri](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md)
 ### [Varsayılan TEMP klasörünün boyutu, rol için yeterli büyüklükte değil](cloud-services-troubleshoot-default-temp-folder-size-too-small-web-worker-role.md)
 ### [Yaygın dağıtım sorunları](cloud-services-troubleshoot-deployment-problems.md)
-### [Rol toostart başarısız oldu](cloud-services-troubleshoot-roles-that-fail-start.md)
+### [Rol başlatılamadı](cloud-services-troubleshoot-roles-that-fail-start.md)
 ### [Kurtarma kılavuzu](cloud-services-disaster-recovery-guidance.md)
 ### Cloud Services SSS
 #### [Uygulama ve hizmet kullanılabilirliği hakkında SSS](cloud-services-application-and-service-availability-faq.md)
@@ -108,8 +108,14 @@
 
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
-## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
-## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
+## [.csdef XML Şeması](schema-csdef-file.md)
+### [LoadBalancerProbe Şeması](schema-csdef-loadbalancerprobe.md)
+### [WebRole Şeması](schema-csdef-webrole.md)
+### [WorkerRole Şeması](schema-csdef-workerrole.md)
+### [NetworkTrafficRules Şeması](schema-csdef-networktrafficrules.md)
+## [.cscfg XML Şeması](schema-cscfg-file.md)
+### [Rol Şeması](schema-cscfg-role.md)
+### [NetworkConfiguration Şeması](schema-cscfg-networkconfiguration.md)
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 
 # Kaynaklar

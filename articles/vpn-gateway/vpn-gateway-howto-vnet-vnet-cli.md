@@ -1,5 +1,5 @@
 ---
-title: "Sanal ağ tooanother VNet bağlanın: Azure CLI | Microsoft Docs"
+title: "Bir sanal ağı başka bir sanal ağa bağlama: Azure CLI | Microsoft Docs"
 description: "Bu makalede, Azure Resource Manager ve Azure CLI kullanarak sanal ağları birbirine bağlama konusu incelenmektedir."
 services: vpn-gateway
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
-ms.openlocfilehash: 70113914bcae03c80f9ad133ff081d1cf37fc309
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: ff859bd9dbbf30c461cdba8409c77b04ff97b1f6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Azure CLI kullanarak sanal ağlar arası VPN ağ geçidi bağlantısı yapılandırma
 
-Bu makale size nasıl gösterir toocreate sanal ağlar arasında bir VPN ağ geçidi bağlantısı. Merhaba sanal ağları olabilir hello aynı ya da farklı bölgelerde ve gelen aynı hello ya da farklı Aboneliklerde. Bağlanan sanal ağlar farklı aboneliklerden hello abonelikleri ile ilişkili toobe gerekmediğinde aynı Active Directory Kiracı hello. 
+Bu makalede, sanal ağlar arasında VPN ağ geçidi bağlantısının nasıl oluşturulduğu gösterilir. Sanal ağlar aynı ya da farklı bölgelerde ve aynı ya da farklı aboneliklerde bulunuyor olabilirler. Farklı aboneliklerden sanal ağları bağlarken aboneliklerin aynı Active Directory kiracısıyla ilişkilendirilmiş olması gerekmez. 
 
-Bu makaledeki adımları Hello toohello Resource Manager dağıtım modeli uygulayın ve Azure CLI kullanın. Liste aşağıdaki hello farklı bir seçeneği seçerek farklı dağıtım aracını veya dağıtım modelini kullanarak bu yapılandırma ayrıca oluşturabilirsiniz:
+Bu makaledeki adımlar Resource Manager dağıtım modeli için geçerlidir ve Azure CLI kullanılır. Ayrıca aşağıdaki listeden farklı bir seçenek belirtip farklı bir dağıtım aracı veya dağıtım modeli kullanarak da bu yapılandırmayı oluşturabilirsiniz:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
@@ -37,43 +37,43 @@ Bu makaledeki adımları Hello toohello Resource Manager dağıtım modeli uygul
 >
 >
 
-Sanal ağ tooanother sanal ağ (VNet-VNet) bağlanma benzer tooconnecting bir VNet tooan şirket içi site konumu değil. Her iki bağlantı türü bir VPN ağ geçidi tooprovide IPSec/IKE kullanarak güvenli bir tünel kullanın. Sanal ağlar hello varsa aynı bölgede VNet eşlemesi kullanarak bunları bağlanma tooconsider isteyebilir. VNet eşlemesi VPN ağ geçidini kullanmaz. Daha fazla bilgi için bkz. [VNet eşlemesi](../virtual-network/virtual-network-peering-overview.md).
+Bir sanal ağı başka bir sanal ağa bağlamak (VNet'ten VNet'e), bir VNet'i şirket içi site konumuna bağlamakla aynıdır. Her iki bağlantı türü de IPsec/IKE kullanarak güvenli bir tünel sunmak üzere bir VPN ağ geçidi kullanır. VNet’leriniz aynı bölgedeyse VNet Eşlemesi kullanarak bağlamayı düşünebilirsiniz. VNet eşlemesi VPN ağ geçidini kullanmaz. Daha fazla bilgi için bkz. [VNet eşlemesi](../virtual-network/virtual-network-peering-overview.md).
 
-Hatta Sanal Ağdan Sanal Ağa iletişim çok siteli yapılandırmalarla bile birleştirilebilir. Hello Aşağıdaki diyagramda gösterildiği gibi arası sanal ağ bağlantısı ile şirket içi bağlantılar birleştiren ağ topolojileri kurabilmenize olanak sağlar:
+Hatta Sanal Ağdan Sanal Ağa iletişim çok siteli yapılandırmalarla bile birleştirilebilir. Bunun yapılması aşağıdaki diyagramda da görüldüğü gibi şirket içi ve şirket dışı bağlantıyla sanal ağ içi bağlantıyı birleştiren ağ topolojileri kurabilmenize olanak sağlar:
 
 ![Bağlantılar hakkında](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
 
 ### <a name="why"></a>Sanal ağları neden bağlamalıyız?
 
-Aşağıdaki nedenlerden Merhaba tooconnect sanal ağlar isteyebilirsiniz:
+Sanal ağları aşağıdaki sebeplerden dolayı bağlamak isteyebilirsiniz:
 
 * **Çapraz bölge coğrafi artıklığı ve coğrafi-durum**
 
   * Kendi coğrafi çoğaltma veya eşitlemenizi, güvenli bağlantıyla İnternet’te uç noktalara gitmeden ayarlayabilirsiniz.
-  * Azure Traffic Manager ve Load Balancer ile birçok Azure bölgesinde coğrafi yedeklilik imkanıyla yüksek oranda kullanılabilir iş yükü oluşturabilirsiniz. Bir önemli SQL Always On kullanılabilirlik grupları: birden fazla Azure bölgesine yayılan ile yukarı tooset örnektir.
+  * Azure Traffic Manager ve Load Balancer ile birçok Azure bölgesinde coğrafi yedeklilik imkanıyla yüksek oranda kullanılabilir iş yükü oluşturabilirsiniz. Buna önemli bir örnek olarak SQL Always On ile birden fazla Azure bölgesine yayılan Kullanılabilirlik Grupları’nı birlikte kurmak verilebilir.
 * **Yalıtım veya yönetim sınır bölgesel çok katmanlı uygulamalar**
 
-  * İçinde hello aynı bölge tooisolation ya da yönetim gereksinimleri birbirlerine bağlı birden çok sanal ağ ile çok katmanlı uygulamalar ayarlayabilirsiniz.
+  * Yalıtım ve yönetim gereksinimlerinden dolayı aynı bölge içinde birbirlerine bağlı birden fazla sanal ağ ile çok katmanlı uygulamalar kurabilirsiniz.
 
-VNet-VNet bağlantıları hakkında daha fazla bilgi için bkz: Merhaba [VNet-VNet ile ilgili SSS](#faq) hello bu makalenin sonunda.
+Sanal ağlar arası bağlantılar hakkında daha fazla bilgi için bu makalenin sonunda yer alan [Sanal ağlar arası bağlantılar hakkında SSS](#faq) bölümünü inceleyin.
 
 ### <a name="which-set-of-steps-should-i-use"></a>Hangi adımları tamamlamalıyım? 
 
-Bu makalede iki farklı adım kümesi görürsünüz. Adımlar için bir dizi [içinde bulunan sanal ağlar aynı abonelik hello](#samesub), diğeri [farklı Aboneliklerde bulunan sanal ağlar](#difsub).
+Bu makalede iki farklı adım kümesi görürsünüz. Bir adım kümesi [Aynı abonelikte bulunan sanal ağlar](#samesub), diğer adım kümesi ise [Farklı aboneliklerde bulunan sanal ağlar](#difsub) içindir.
 
-## <a name="samesub"></a>Hello olan sanal ağlara bağlantı aynı abonelik
+## <a name="samesub"></a>Aynı abonelikte olan sanal ağları bağlanma
 
 ![v2v diyagramı](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
 ### <a name="before-you-begin"></a>Başlamadan önce
 
-Başlamadan önce hello hello CLI komutları (2.0 veya üstü) en son sürümünü yükleyin. Merhaba CLI komutları yükleme hakkında daha fazla bilgi için bkz: [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli).
+Başlamadan önce, CLI komutlarının en son sürümünü (2.0 veya üzeri) yükleyin. CLI komutlarını yükleme hakkında bilgi için bkz. [Azure CLI 2.0’ı yükleme](/cli/azure/install-azure-cli).
 
 ### <a name="Plan"></a>IP adresi aralıklarınızı planlama
 
-Aşağıdaki adımları hello, kullanıcıların kendi ağ geçidi alt ağları ve yapılandırmalarıyla birlikte iki sanal ağ oluşturun. Ardından hello arasında bir VPN bağlantısı iki Vnet oluşturuyoruz. Önemli tooplan başlangıç IP adresi aralıklarını ağ yapılandırmanızı olur. Sanal ağ aralıklarınızın ya da yerel ağ aralıklarınızın hiçbir şekilde çakışmadığından emin olmalısınız. Bu örneklerde bir DNS sunucusu eklemiyoruz. Sanal ağlarınız için ad çözümlemesi istiyorsanız bkz. [Ad çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+Aşağıdaki adımlarda kendi ağ geçidi alt ağları ve yapılandırmalarıyla birlikte iki sanal ağ oluşturulur. Daha sonra iki sanal ağ arasında bir VPN bağlantısı oluşturulur. Ağ yapılandırmanız için IP adres aralıklarını planlamanız önemlidir. Sanal ağ aralıklarınızın ya da yerel ağ aralıklarınızın hiçbir şekilde çakışmadığından emin olmalısınız. Bu örneklerde bir DNS sunucusu eklemiyoruz. Sanal ağlarınız için ad çözümlemesi istiyorsanız bkz. [Ad çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
-Merhaba örnekleri değerleri aşağıdaki hello kullanırız:
+Örneklerde aşağıdaki değerler kullanılmaktadır:
 
 **Değerler TestVNet1 için:**
 
@@ -107,7 +107,7 @@ Merhaba örnekleri değerleri aşağıdaki hello kullanırız:
 * ConnectionType: VNet2VNet
 
 
-### <a name="Connect"></a>1. adım - tooyour. abonelik'e bağlanma
+### <a name="Connect"></a>1. Adım: Aboneliğinize bağlanma
 
 [!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-numbers-include.md)]
 
@@ -118,32 +118,32 @@ Merhaba örnekleri değerleri aşağıdaki hello kullanırız:
   ```azurecli
   az group create -n TestRG1  -l eastus
   ```
-2. TestVNet1 için TestVNet1 ve hello alt ağlar oluşturun. Bu örnekte, TestVNet1 adlı bir sanal ağ ve FrontEnd adlı bir alt ağ oluşturulur.
+2. TestVNet1’i ve TestVNet1’in alt ağlarını oluşturun. Bu örnekte, TestVNet1 adlı bir sanal ağ ve FrontEnd adlı bir alt ağ oluşturulur.
 
   ```azurecli
   az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24
   ```
-3. Merhaba arka uç alt ağ için ek adres alanı oluşturun. Bu adımda, biz daha önce oluşturduğumuz iki hello adres alanını belirtin ve ek adres alanı tooadd istiyoruz Merhaba, dikkat edin. Bunun nedeni, hello [az ağ vnet güncelleştirmesi](https://docs.microsoft.com/cli/azure/network/vnet#update) komutu hello önceki ayarların üzerine yazar. Emin toospecify tüm hello adres öneklerinin bu komutunu kullanırken olun.
+3. Arka uç alt ağı için ek bir adres alanı oluşturun. Bu adımda hem daha önce oluşturduğumuz adres alanını hem de eklemek istediğimiz ek etki alanını belirttiğimize dikkat edin. Bunun nedeni, [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet#az_network_vnet_update) komutunun önceki ayarların üzerine yazmasıdır. Bu komutu kullanırken tüm adres ön eklerini belirttiğinizden emin olun.
 
   ```azurecli
   az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestRG1
   ```
-4. Merhaba arka uç alt ağ oluşturun.
+4. Arka uç alt ağını oluşturun.
   
   ```azurecli
   az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestRG1 --address-prefix 10.12.0.0/24 
   ```
-5. Merhaba ağ geçidi alt ağı oluşturun. Bu hello ağ geçidi alt ağı 'GatewaySubnet' adlı dikkat edin. Bu ad gereklidir. Bu örnekte, hello ağ geçidi alt ağı/27 kullanmaktadır. Olası toocreate ağ geçidi alt ağı /29 küçük olmakla birlikte, en az/28 veya /27 seçerek daha fazla adreslerini içeren daha büyük bir alt ağı oluşturmanızı öneririz. Bu, gelecekteki hello isteyebileceğiniz yeterli adresleri tooaccommodate olası ek yapılandırmalar için izin verir.
+5. Ağ geçidi alt ağını oluşturun. Ağ geçidi alt ağının 'GatewaySubnet' olarak adlandırıldığına dikkat edin. Bu ad gereklidir. Bu örnekte ağ geçidi alt ağı bir /27 kullanmaktadır. /29 kadar küçük bir ağ geçidi alt ağı oluşturmak mümkün olsa da en az /28 veya /27’yi seçerek daha fazla adres içeren büyük bir alt ağ oluşturmanızı öneririz. Bu, gelecekte isteyebileceğiniz ek yapılandırmaları da içerecek yeteri kadar adres sağlayacaktır.
 
   ```azurecli 
   az network vnet subnet create --vnet-name TestVNet1 -n GatewaySubnet -g TestRG1 --address-prefix 10.12.255.0/27
   ```
-6. Ağınız için oluşturacağınız bir ortak IP adresi toobe ayrılmış toohello ağ geçidi isteği. Bu hello AllocationMethod dinamik olduğuna dikkat edin. Başlangıç IP adresi toouse istediğiniz belirtemezsiniz. Dinamik olarak ayrılan tooyour geçididir.
+6. Sanal ağınız için oluşturacağınız ağ geçidine ayrılacak genel IP adresi isteyin. AllocationMethod değerinin Dinamik olduğuna dikkat edin. Kullanmak istediğiniz IP adresini belirtemezsiniz. IP adresi, ağ geçidinize dinamik olarak ayrılır.
 
   ```azurecli
   az network public-ip create -n VNet1GWIP -g TestRG1 --allocation-method Dynamic
   ```
-7. TestVNet1 için Hello sanal ağ geçidi oluşturun. Sanal Ağdan Sanal Ağa yapılandırmaları, RouteBased bir VPNType gerektirir. 'Wait--yok-' parametresi hello kullanarak bu komutu çalıştırırsanız, herhangi bir geri bildirim veya çıkış görmüyorum. Merhaba 'wait--yok-' parametresi hello ağ geçidi toocreate hello arka planda izin verir. Bu hello VPN ağ geçidi hemen oluşturmayı tamamladığında anlamına gelmez. Bir ağ geçidi oluşturma 45 dakika veya daha fazla hello ağ geçidi kullandığınız SKU bağlı olarak genellikle alabilir.
+7. TestVNet1 için sanal ağ geçidini oluşturun. Sanal Ağdan Sanal Ağa yapılandırmaları, RouteBased bir VPNType gerektirir. Bu komutu '--no-wait' parametresiyle çalıştırırsanız herhangi bir geri bildirim veya çıktı görmezsiniz. '--no-wait' parametresi, ağ geçidinin arka planda oluşturulmasına olanak tanır. VPN ağ geçidi oluşturma işleminin hemen tamamlandığı anlamına gelmez. Bir ağ geçidinin oluşturulması, kullandığınız ağ geçidi SKU’suna bağlı olarak 45 dakika veya daha uzun sürebilir.
 
   ```azurecli
   az network vnet-gateway create -n VNet1GW -l eastus --public-ip-address VNet1GWIP -g TestRG1 --vnet TestVNet1 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
@@ -168,7 +168,7 @@ Merhaba örnekleri değerleri aşağıdaki hello kullanırız:
   az network vnet update -n TestVNet4 --address-prefixes 10.41.0.0/16 10.42.0.0/16 -g TestRG4 
   az network vnet subnet create --vnet-name TestVNet4 -n BackEnd -g TestRG4 --address-prefix 10.42.0.0/24 
   ```
-4. Merhaba ağ geçidi alt ağı oluşturun.
+4. Ağ geçidi alt ağını oluşturun.
 
   ```azurecli
    az network vnet subnet create --vnet-name TestVNet4 -n GatewaySubnet -g TestRG4 --address-prefix 10.42.255.0/27
@@ -178,25 +178,25 @@ Merhaba örnekleri değerleri aşağıdaki hello kullanırız:
   ```azurecli
   az network public-ip create -n VNet4GWIP -g TestRG4 --allocation-method Dynamic
   ```
-6. Merhaba TestVNet4 sanal ağ geçidi oluşturun.
+6. TestVNet4 sanal ağ geçidini oluşturun.
 
   ```azurecli
   az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### <a name="createconnect"></a>4. adım - hello bağlantıları oluşturma
+### <a name="createconnect"></a>4. Adım - Bağlantıları oluşturma
 
-Artık VPN ağ geçitleri olan iki sanal ağınız var. Merhaba sonraki hello sanal ağ geçitleri arasında toocreate VPN ağ geçidi bağlantıları adımdır. Merhaba örnekler yukarıdaki kullandıysanız, VNet ağ geçitleri farklı kaynak gruplarında olduğunda. Ağ geçitleri farklı kaynak gruplarında olduğunda tooidentify gerekir ve her ağ geçidi için hello kaynak kimlikleri bağlantı kurarken belirtin. Sanal ağlar hello varsa aynı kaynak grubu, hello kullanabilirsiniz [yönergeleri ikinci kümesi](#samerg) toospecify hello kaynak kimlikleri gerektiğinden yok.
+Artık VPN ağ geçitleri olan iki sanal ağınız var. Bir sonraki adım, sanal ağın ağ geçitleri arasındaki VPN ağ geçidi bağlantılarını oluşturmaya yöneliktir. Yukarıdaki örnekleri kullandıysanız, VNet ağ geçitleriniz farklı kaynak gruplarındadır. Ağ geçitleri farklı kaynak gruplarında olduğunda, bir bağlantı oluşturduğunuz sırada her ağ geçidinin kaynak kimliklerini tanımlamanız ve belirtmeniz gerekir. VNet’leriniz aynı kaynak grubundaysa, kaynak kimliklerini belirtmeniz gerekmeyeceğinden [ikinci yönerge kümesini](#samerg) kullanabilirsiniz.
 
-### <a name="diffrg"></a>tooconnect farklı kaynak gruplarında bulunan sanal ağlar
+### <a name="diffrg"></a>Farklı kaynak gruplarında bulunan VNet’leri bağlamak için
 
-1. Merhaba, kaynak kimliği VNet1GW komutu aşağıdaki hello hello çıktısından alın:
+1. Aşağıdaki komutun çıktısından VNet1GW öğesinin Kaynak Kimliğini alın:
 
   ```azurecli
   az network vnet-gateway show -n VNet1GW -g TestRG1
   ```
 
-  Hello çıktısında hello Bul "kimliği:" satır. Merhaba hello tırnak işareti içinde gerekli toocreate hello bağlantı hello sonraki bölümde değerlerdir. Böylece, kolayca bunları bağlantınızı oluştururken yapıştırabilirsiniz bu değerleri tooa metin düzenleyici, Not Defteri gibi kopyalayın.
+  Çıktıda "id:" satırını bulun. Bir sonraki bölümde bağlantıyı oluşturmak için tırnak içindeki değerler gerekir. Bağlantınızı oluştururken kolayca yapıştırabilmek için bu değerleri Notepad gibi bir metin düzenleyicisine kopyalayın.
 
   Örnek çıktı:
 
@@ -215,38 +215,38 @@ Artık VPN ağ geçitleri olan iki sanal ağınız var. Merhaba sonraki hello sa
   "ipConfigurations":
   ```
 
-  Sonra Hello değerleri kopyalamak **"id":** hello tırnak işareti içinde.
+  **"id":** ifadesinden sonra gelen tırnak içindeki değerleri kopyalayın.
 
   ```
   "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW"
  ```
 
-2. Merhaba, kaynak kimliği VNet4GW ve kopyalama hello değerleri tooa metin düzenleyicisi alın.
+2. VNet4GW öğesinin Kaynak Kimliğini alın ve değerleri bir metin düzenleyicisine kopyalayın.
 
   ```azurecli
   az network vnet-gateway show -n VNet4GW -g TestRG4
   ```
 
-3. Merhaba TestVNet1 tooTestVNet4 bağlantı oluşturun. Bu adımda TestVNet1 tooTestVNet4 hello bağlantı oluşturun. Merhaba örneklerde paylaşılan bir anahtarı yok. Merhaba paylaşılan anahtar için kendi değerlerinizi kullanabilirsiniz. Merhaba hello paylaşılan anahtara şeydir önemli hem bağlantılarında eşleşmesi gerekir. Bağlantı oluşturma toocomplete sırasında kısa sürer.
+3. TestVNet1 - TestVNet4 bağlantısını oluşturun. Bu adımda TestVNet1 - TestVNet4 arasında bağlantı oluşturursunuz. Örneklerde sözü geçen bir paylaşılan anahtar vardır. Paylaşılan anahtar için kendi değerlerinizi kullanabilirsiniz. Paylaşılan anahtarın her iki bağlantıyla da eşleşiyor olması önemlidir. Bağlantı oluşturma işleminin tamamlanması biraz zaman alır.
 
   ```azurecli
   az network vpn-connection create -n VNet1ToVNet4 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "aabbcc" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG4/providers/Microsoft.Network/virtualNetworkGateways/VNet4GW 
   ```
-4. Merhaba TestVNet4 tooTestVNet1 bağlantı oluşturun. TestVNet4 tooTestVNet1 hello bağlantı oluşturma dışında bu benzer toohello yukarıdaki bir adımdır. Merhaba paylaşılan anahtarların eşleştiğinden emin olun. Tooestablish hello bağlantı birkaç dakika sürer.
+4. TestVNet4 - TestVNet1 bağlantısı oluşturun. Bu adım, bağlantıyı TestVNet4’ten TestVNet1’e yönüne kuracak olmanız dışında yukarıdaki adımla aynıdır. Paylaşılan anahtarların eşleştiğinden emin olun. Bağlantının kurulması birkaç dakika sürer.
 
   ```azurecli
   az network vpn-connection create -n VNet4ToVNet1 -g TestRG4 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG4/providers/Microsoft.Network/virtualNetworkGateways/VNet4GW -l westus --shared-key "aabbcc" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1G
   ```
 5. Bağlantılarınızı doğrulayın. Bkz. [Bağlantınızı doğrulama](#verify).
 
-### <a name="samerg"></a>tooconnect hello aynı bulunan sanal ağlar kaynak grubu
+### <a name="samerg"></a>Aynı kaynak grubunda bulunan VNet’leri bağlamak için
 
-1. Merhaba TestVNet1 tooTestVNet4 bağlantı oluşturun. Bu adımda TestVNet1 tooTestVNet4 hello bağlantı oluşturun. Bildirim hello kaynak grupları olan hello hello örneklerde aynı. Merhaba örneklerde paylaşılan bir anahtar de görebilirsiniz. Merhaba paylaşılan anahtar için kendi değerlerinizi kullanabilirsiniz, ancak hello paylaşılan anahtar için her iki bağlantı eşleşmelidir. Bağlantı oluşturma toocomplete sırasında kısa sürer.
+1. TestVNet1 - TestVNet4 bağlantısını oluşturun. Bu adımda TestVNet1 - TestVNet4 arasında bağlantı oluşturursunuz. Örneklerdeki kaynak gruplarının aynı olduğuna dikkat edin. Örneklerde paylaşılan bir anahtardan söz edildiğini de göreceksiniz. Paylaşılan anahtar için kendi değerlerinizi kullanabilirsiniz, ancak her iki bağlantı için de paylaşılan anahtarın eşleşmesi gerekir. Bağlantı oluşturma işleminin tamamlanması biraz zaman alır.
 
   ```azurecli
   az network vpn-connection create -n VNet1ToVNet4 -g TestRG1 --vnet-gateway1 VNet1GW -l eastus --shared-key "eeffgg" --vnet-gateway2 VNet4GW
   ```
-2. Merhaba TestVNet4 tooTestVNet1 bağlantı oluşturun. TestVNet4 tooTestVNet1 hello bağlantı oluşturma dışında bu benzer toohello yukarıdaki bir adımdır. Merhaba paylaşılan anahtarların eşleştiğinden emin olun. Tooestablish hello bağlantı birkaç dakika sürer.
+2. TestVNet4 - TestVNet1 bağlantısı oluşturun. Bu adım, bağlantıyı TestVNet4’ten TestVNet1’e yönüne kuracak olmanız dışında yukarıdaki adımla aynıdır. Paylaşılan anahtarların eşleştiğinden emin olun. Bağlantının kurulması birkaç dakika sürer.
 
   ```azurecli
   az network vpn-connection create -n VNet4ToVNet1 -g TestRG1 --vnet-gateway1 VNet4GW -l eastus --shared-key "eeffgg" --vnet-gateway2 VNet1GW
@@ -257,15 +257,15 @@ Artık VPN ağ geçitleri olan iki sanal ağınız var. Merhaba sonraki hello sa
 
 ![v2v diyagramı](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
-Bu senaryoda TestVNet1 ve TestVNet5 bağlanır. Merhaba sanal ağlar farklı Aboneliklerde bulunur. Merhaba abonelikleri hello ile ilişkili toobe gerek yoktur aynı Active Directory kiracısı. Bu yapılandırma için Hello adımları sipariş tooconnect TestVNet1 tooTestVNet5 ek bir VNet-VNet bağlantı ekleyin.
+Bu senaryoda TestVNet1 ve TestVNet5 bağlanır. VNet’ler farklı aboneliklerde yer alır. Aboneliklerin aynı Active Directory kiracısıyla ilişkilendirilmiş olması gerekmez. Bu yapılandırmanın adımları TestVNet1’i TestVNet5’e bağlamak için Sanal Ağdan Sanal Ağa bir bağlantı daha ekler.
 
 ### <a name="TestVNet1diff"></a>5. Adım - TestVNet1’i oluşturma ve yapılandırma
 
-Bu yönergeleri, önceki bölümlerde hello hello adımlardan devam edin. Tamamlamanız gereken [1. adım](#Connect) ve [2. adım](#TestVNet1) toocreate TestVNet1 yapılandırmak ve VPN ağ geçidi için TestVNet1 hello. Oluşturursanız, bu adımlara devam çakışmamasını rağmen bu yapılandırma için gerekli toocreate TestVNet4 hello önceki bölümden değildir. 1. ve 2. Adımı tamamladıktan sonra 6. Adıma (aşağıda) geçin.
+Bu yönergeler, önceki bölümlerde yer alan adımların devamıdır. TestVNet1 için TestVNet1 ve VPN ağ geçidini oluşturup yapılandırmak için [1. Adımı](#Connect) ve [2. Adımı](#TestVNet1) tamamlamalısınız.  Bu yapılandırma için önceki bölümdeki TestVNet4’ü oluşturmanız gerekmez, ancak oluşturursanız bu adımlarla çakışmaz. 1. ve 2. Adımı tamamladıktan sonra 6. Adıma (aşağıda) geçin.
 
-### <a name="verifyranges"></a>6. adım - başlangıç IP adresi aralıklarını doğrulama
+### <a name="verifyranges"></a>6. Adım - IP adresi aralıklarını doğrulama
 
-Ek bağlantılar oluştururken, başlangıç IP adresi alanı hello yeni sanal ağın hiçbirini diğer aralıklarınız veya yerel ağ geçidi aralıkları ile çakışmaması önemli tooverify bağlıdır. Bu alıştırmada, hello TestVNet5 için değerler aşağıdaki hello kullanabilirsiniz:
+Ek bağlantılar oluşturulduğu sırada, yeni sanal ağın IP adresi alanının kendi Sanal Ağ aralıklarınız veya yerel ağ geçidi aralıkları ile çakışmadığını doğrulayın. Bu alıştırmada TestVNet5 için aşağıdaki değerleri kullanabilirsiniz:
 
 **Değerler TestVNet5 için:**
 
@@ -284,9 +284,9 @@ Ek bağlantılar oluştururken, başlangıç IP adresi alanı hello yeni sanal a
 
 ### <a name="TestVNet5"></a>7. Adım - TestVNet5’i oluşturma ve yapılandırma
 
-Bu adım hello hello yeni abonelik, 5. abonelik bağlamında yapılmalıdır. Bu bölümü hello aboneliğin sahibi olan farklı bir kuruluşta hello Yöneticisi tarafından gerçekleştirilebilir. Abonelikleri kullanımı arasındaki tooswitch ' az hesabı listesi--tüm ' toolist hello abonelikleri kullanılabilir tooyour hesabı sonra kullanın ' az hesabı kümesi--abonelik <subscriptionID>' toouse istediğiniz tooswitch toohello abonelik.
+Bu adım, yeni abonelik (5. Abonelik) bağlamında tamamlanmalıdır. Bu kısım, aboneliğin sahibi olan farklı bir kuruluşun yöneticisi tarafından tamamlanabilir. Abonelikler arasında geçiş yapmak için 'az account list --all' komutunu kullanarak hesabınızda kullanılabilen tüm abonelikleri listeleyin ve ardından 'az account set --subscription <subscriptionID>' komutuyla kullanmak istediğiniz aboneliğe geçin.
 
-1. Bağlı tooSubscription 5 olan, sonra bir kaynak grubu oluşturmak emin olun.
+1. 5. Aboneliğe bağlı olduğunuzdan emin olun ve bir kaynak grubu oluşturun.
 
   ```azurecli
   az group create -n TestRG5  -l japaneast
@@ -304,7 +304,7 @@ Bu adım hello hello yeni abonelik, 5. abonelik bağlamında yapılmalıdır. Bu
   az network vnet subnet create --vnet-name TestVNet5 -n BackEnd -g TestRG5 --address-prefix 10.52.0.0/24
   ```
 
-4. Merhaba ağ geçidi alt ağı ekleyin.
+4. Ağ geçidi alt ağını ekleyin.
 
   ```azurecli
   az network vnet subnet create --vnet-name TestVNet5 -n GatewaySubnet -g TestRG5 --address-prefix 10.52.255.0/27
@@ -315,23 +315,23 @@ Bu adım hello hello yeni abonelik, 5. abonelik bağlamında yapılmalıdır. Bu
   ```azurecli
   az network public-ip create -n VNet5GWIP -g TestRG5 --allocation-method Dynamic
   ```
-6. Merhaba TestVNet5 ağ geçidini oluşturma
+6. TestVNet5 ağ geçidini oluşturma
 
   ```azurecli
   az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### <a name="connections5"></a>8. adım - hello bağlantıları oluşturma
+### <a name="connections5"></a>8. Adım - Bağlantıları oluşturma
 
-Biz bu adımla olarak işaretlenmiş iki CLI oturumları bölme **[abonelik 1]**, ve **[5. abonelik]** hello ağ geçitleri hello farklı Aboneliklerde olduğundan. Abonelikleri kullanımı arasındaki tooswitch ' az hesabı listesi--tüm ' toolist hello abonelikleri kullanılabilir tooyour hesabı sonra kullanın ' az hesabı kümesi--abonelik <subscriptionID>' toouse istediğiniz tooswitch toohello abonelik.
+Bu örnekteki ağ geçitleri farklı aboneliklerde olduğundan, bu adımı **[1. Abonelik]** ve **[5. Abonelik]** olarak işaretlenen iki CLI oturumuna ayırdık. Abonelikler arasında geçiş yapmak için 'az account list --all' komutunu kullanarak hesabınızda kullanılabilen tüm abonelikleri listeleyin ve ardından 'az account set --subscription <subscriptionID>' komutuyla kullanmak istediğiniz aboneliğe geçin.
 
-1. **[1. abonelik]**  Oturum açın ve tooSubscription 1 bağlanın. Çalışma hello aşağıdaki tooget hello adını ve Kimliğini hello hello çıktısından ağ geçidi komutu:
+1. **[1. Abonelik]** Oturum açın ve 1. Aboneliğe bağlanın. Çıktıdan Ağ Geçidinin adını ve kimliğini almak için şu komutu çalıştırın:
 
   ```azurecli
   az network vnet-gateway show -n VNet1GW -g TestRG1
   ```
 
-  Merhaba çıktısını Kopyala "kimliği:". Hello kimliği ve hello hello VNet ağ geçidi (VNet1GW) toohello yöneticinin adı 5. aboneliğin e-posta veya başka bir yöntemle gönderin.
+  "id:" çıktısını kopyalayın. VNet ağ geçidinin (VNet1GW) kimliğini ve adını e-postayla veya başka bir yolla 5. Aboneliğin yöneticisine gönderin.
 
   Örnek çıktı:
 
@@ -339,35 +339,35 @@ Biz bu adımla olarak işaretlenmiş iki CLI oturumları bölme **[abonelik 1]**
   "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW"
   ```
 
-2. **[5. abonelik]**  Oturum açın ve tooSubscription 5 bağlanın. Çalışma hello aşağıdaki tooget hello adını ve Kimliğini hello hello çıktısından ağ geçidi komutu:
+2. **[5. Abonelik]** Oturum açın ve 5. Aboneliğe bağlanın. Çıktıdan Ağ Geçidinin adını ve kimliğini almak için şu komutu çalıştırın:
 
   ```azurecli
   az network vnet-gateway show -n VNet5GW -g TestRG5
   ```
 
-  Merhaba çıktısını Kopyala "kimliği:". Hello kimliği ve hello hello VNet ağ geçidi (vnet5gw'un) toohello yöneticisinin adını abonelik 1 e-posta veya başka bir yöntemle gönderin.
+  "id:" çıktısını kopyalayın. VNet ağ geçidinin (VNet5GW) kimliğini ve adını e-postayla veya başka bir yolla 1. Aboneliğin yöneticisine gönderin.
 
-3. **[1. abonelik]**  Bu adımda TestVNet1 tooTestVNet5 hello bağlantı oluşturun. Merhaba paylaşılan anahtar için kendi değerlerinizi kullanabilirsiniz, ancak hello paylaşılan anahtar için her iki bağlantı eşleşmelidir. Bağlantı oluşturma toocomplete sırasında kısa sürebilir. TooSubscription 1 bağlandığınızdan emin olun.
+3. **[1. Abonelik]** Bu adımda TestVNet1 ile TestVNet5 arasında bağlantı oluşturursunuz. Paylaşılan anahtar için kendi değerlerinizi kullanabilirsiniz, ancak her iki bağlantı için de paylaşılan anahtarın eşleşmesi gerekir. Bir bağlantı oluşturmak çok zaman almaz. 1 Abonelik’e bağlandığınızdan emin olun.
 
   ```azurecli
   az network vpn-connection create -n VNet1ToVNet5 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "eeffgg" --vnet-gateway2 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW
   ```
 
-4. **[5. abonelik]**  TestVNet5 tooTestVNet1 hello bağlantı oluşturma dışında bu benzer toohello yukarıdaki bir adımdır. Bu hello paylaşılan anahtarlar eşleşme ve tooSubscription 5 bağlanmak emin olun.
+4. **[5. Abonelik]** Bu adım, bağlantıyı TestVNet5’ten TestVNet1’e doğru kuracak olmanızın dışında yukarıdaki adımla aynıdır. Paylaşılan anahtarların eşleştiğinden ve 5. Aboneliğe bağlandığınızdan emin olun.
 
   ```azurecli
   az network vpn-connection create -n VNet5ToVNet1 -g TestRG5 --vnet-gateway1 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW -l japaneast --shared-key "eeffgg" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW
   ```
 
-## <a name="verify"></a>Merhaba bağlantılarını doğrulama
+## <a name="verify"></a>Bağlantıları doğrulama
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
 [!INCLUDE [verify connections v2v cli](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 ## <a name="faq"></a>Sanal ağlar arası bağlantılar hakkında SSS
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bağlantınız tamamlandıktan sonra sanal makineleri tooyour sanal ağları ekleyebilirsiniz. Daha fazla bilgi için bkz: Merhaba [Virtual Machines belgeleri](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
-* BGP hakkında daha fazla bilgi için bkz: Merhaba [BGP genel bakış](vpn-gateway-bgp-overview.md) ve [nasıl tooconfigure BGP](vpn-gateway-bgp-resource-manager-ps.md).
+* Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi edinmek için bkz. [Sanal Makineler ile ilgili belgeler](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+* BGP hakkında bilgi edinmek için [BGP’ye Genel Bakış](vpn-gateway-bgp-overview.md) ve [BGP’yi yapılandırma](vpn-gateway-bgp-resource-manager-ps.md) makalelerine bakın.

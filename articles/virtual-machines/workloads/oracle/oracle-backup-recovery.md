@@ -1,6 +1,6 @@
 ---
-title: "bir Azure Linux sanal makine üzerinde veritabanı aaaBack yukarı ve Kurtarma bir Oracle veritabanına 12c | Microsoft Docs"
-description: "Azure ortamınızda nasıl tooback yedeklemek ve kurtarmak bir Oracle veritabanına 12 c veritabanı öğrenin."
+title: "Yedekleme ve kurtarma, Azure Linux sanal makinede bir Oracle veritabanına 12 c veritabanı | Microsoft Docs"
+description: "Yedekleme ve Azure ortamınızda bir Oracle veritabanına 12 c veritabanını kurtarma hakkında bilgi edinin."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
@@ -15,40 +15,40 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 5/17/2017
 ms.author: rclaus
-ms.openlocfilehash: 68846f4efce5eabdb71cd71772e003838154e93b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9a2293f13b90e9a4cb11b4169fad969dd622a9a6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Yedekleme ve bir Azure Linux sanal makine üzerinde bir Oracle veritabanına 12 c veritabanını kurtarma
 
-Azure CLI toocreate kullanın ve bir komut isteminden Azure kaynaklarınızı yönetmek veya betiklerini kullanın. Bu makalede, Azure CLI betikleri toodeploy Azure Marketi galeri görüntünün bir Oracle veritabanına 12 c veritabanından kullanırız.
+Komut oluşturma veya bir komut isteminden Azure kaynaklarınızı yönetmek için Azure CLI kullanın. Bu makalede, Azure Marketi galeri görüntünün bir Oracle veritabanına 12 c veritabanından dağıtmak için Azure CLI betiklerini kullanın.
 
-Başlamadan önce Azure CLI'ın yüklü olduğundan emin olun. Daha fazla bilgi için bkz: Merhaba [Azure CLI Yükleme Kılavuzu'na](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Başlamadan önce Azure CLI'ın yüklü olduğundan emin olun. Daha fazla bilgi için bkz: [Azure CLI Yükleme Kılavuzu'na](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-## <a name="prepare-hello-environment"></a>Merhaba ortamını hazırlayın
+## <a name="prepare-the-environment"></a>Ortamı hazırlama
 
 ### <a name="step-1-prerequisites"></a>1. adım: Önkoşullar
 
-*   tooperform hello yedekleme ve kurtarma işlemi, Oracle veritabanı 12 c yüklü bir örneğine sahip bir Linux VM önce oluşturmanız gerekir. Merhaba Market görüntüsü kullandığınız VM adlandırılan toocreate hello *Oracle: Oracle-veritabanı-Ee:12.1.0.2:latest*.
+*   Yedekleme ve kurtarma işlemini gerçekleştirmek için Oracle veritabanı 12 c yüklü bir örneğine sahip bir Linux VM önce oluşturmanız gerekir. VM'yi oluşturmak için kullandığınız Market görüntüsü adlı *Oracle: Oracle-veritabanı-Ee:12.1.0.2:latest*.
 
-    toolearn nasıl toocreate bir Oracle veritabanına bkz hello [Oracle veritabanı hızlı başlangıç oluşturma](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-database-quick-create).
+    Bir Oracle veritabanı oluşturmayı öğrenmek için bkz: [Oracle veritabanı hızlı başlangıç oluşturma](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-database-quick-create).
 
 
-### <a name="step-2-connect-toohello-vm"></a>2. adım: toohello VM bağlanma
+### <a name="step-2-connect-to-the-vm"></a>2. adım: VM'ye bağlanın
 
-*   Güvenli Kabuk (SSH) oturumu hello VM ile toocreate komutu aşağıdaki hello kullanın. Başlangıç IP adresi ve hello ana bilgisayar adı birleşimi ile hello yerine `publicIpAddress` , VM için değer.
+*   VM ile güvenli Kabuk (SSH) oturum oluşturmak için aşağıdaki komutu kullanın. IP adresi ve ana bilgisayar adı birlikte yerine `publicIpAddress` , VM için değer.
 
     ```bash 
     ssh <publicIpAddress>
     ```
 
-### <a name="step-3-prepare-hello-database"></a>3. adım: hello veritabanını hazırlama
+### <a name="step-3-prepare-the-database"></a>3. adım: veritabanını hazırlama
 
 1.  Bu adım adlı bir VM üzerinde çalışan bir Oracle örneğini (cdb1) olduğunu varsayar *myVM*.
 
-    Merhaba çalıştırmak *oracle* süper kullanıcı kök ve hello dinleyicisi başlatılamadı:
+    Çalıştırma *oracle* süper kullanıcı kök ve ardından dinleyicisi başlatılamadı:
 
     ```bash
     $ sudo su - oracle
@@ -58,11 +58,11 @@ Başlamadan önce Azure CLI'ın yüklü olduğundan emin olun. Daha fazla bilgi 
     Starting /u01/app/oracle/product/12.1.0/dbhome_1/bin/tnslsnr: please wait...
 
     TNSLSNR for Linux: Version 12.1.0.2.0 - Production
-    Log messages written too/u01/app/oracle/diag/tnslsnr/myVM/listener/alert/log.xml
+    Log messages written to /u01/app/oracle/diag/tnslsnr/myVM/listener/alert/log.xml
     Listening on: (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=myVM.twltkue3xvsujaz1bvlrhfuiwf.dx.internal.cloudapp.net)(PORT=1521)))
 
-    Connecting too(ADDRESS=(PROTOCOL=tcp)(HOST=)(PORT=1521))
-    STATUS of hello LISTENER
+    Connecting to (ADDRESS=(PROTOCOL=tcp)(HOST=)(PORT=1521))
+    STATUS of the LISTENER
     ------------------------
     Alias                     LISTENER
     Version                   TNSLSNR for Linux: Version 12.1.0.2.0 - Production
@@ -74,11 +74,11 @@ Başlamadan önce Azure CLI'ın yüklü olduğundan emin olun. Daha fazla bilgi 
     Listener Log File         /u01/app/oracle/diag/tnslsnr/myVM/listener/alert/log.xml
     Listening Endpoints Summary...
     (DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=myVM.twltkue3xvsujaz1bvlrhfuiwf.dx.internal.cloudapp.net)(PORT=1521)))
-    hello listener supports no services
-    hello command completed successfully
+    The listener supports no services
+    The command completed successfully
     ```
 
-2.  (İsteğe bağlı) Merhaba veritabanı arşiv günlük modunda olduğundan emin olun:
+2.  (İsteğe bağlı) Veritabanı arşiv günlük modunda olduğundan emin olun:
 
     ```bash
     $ sqlplus / as sysdba
@@ -94,16 +94,16 @@ Başlamadan önce Azure CLI'ın yüklü olduğundan emin olun. Daha fazla bilgi 
     SQL> ALTER DATABASE OPEN;
     SQL> ALTER SYSTEM SWITCH LOGFILE;
     ```
-3.  (İsteğe bağlı) Bir tablo tootest hello yürütme oluşturun:
+3.  (İsteğe bağlı) Yürütme test etmek için bir tablo oluşturun:
 
     ```bash
     SQL> alter session set "_ORACLE_SCRIPT"=true ;
     Session altered.
     SQL> create user scott identified by tiger;
     User created.
-    SQL> grant create session tooscott;
+    SQL> grant create session to scott;
     Grant succeeded.
-    SQL> grant create table tooscott;
+    SQL> grant create table to scott;
     Grant succeeded.
     SQL> alter user scott quota 100M on users;
     User altered.
@@ -115,7 +115,7 @@ Başlamadan önce Azure CLI'ın yüklü olduğundan emin olun. Daha fazla bilgi 
     SQL> commit;
     Commit complete.
     ```
-4.  Doğrulamak veya hello yedekleme dosyasının konumunu ve boyutunu değiştirin:
+4.  Doğrulamak veya yedekleme dosyasının konumunu ve boyutunu değiştirin:
 
     ```bash
     $ sqlplus / as sysdba
@@ -125,7 +125,7 @@ Başlamadan önce Azure CLI'ın yüklü olduğundan emin olun. Daha fazla bilgi 
     db_recovery_file_dest                string      /u01/app/oracle/fast_recovery_area
     db_recovery_file_dest_size           big integer 4560M
     ```
-5. Oracle kurtarma Yöneticisi'ni (RMAN) tooback hello veritabanını kullanın:
+5. Veritabanını yedeklemek için Oracle kurtarma Yöneticisi'ni (RMAN) kullanın:
 
     ```bash
     $ rman target /
@@ -134,11 +134,11 @@ Başlamadan önce Azure CLI'ın yüklü olduğundan emin olun. Daha fazla bilgi 
 
 ### <a name="step-4-application-consistent-backup-for-linux-vms"></a>4. adım: Uygulama tutarlı yedekleme Linux VM'ler
 
-Uygulamayla tutarlı yedeklemeler yeni bir özelliktir Azure yedekleme. Oluşturun ve komut dosyaları tooexecute önce ve sonra hello VM anlık görüntü (anlık görüntü öncesi ve sonrası anlık görüntü) seçin.
+Uygulamayla tutarlı yedeklemeler yeni bir özelliktir Azure yedekleme. Oluşturun ve önce ve VM anlık görüntüsü (anlık görüntü öncesi ve anlık görüntü sonrası) sonra çalıştırılacak komut dosyalarını seçin.
 
-1. Merhaba JSON dosyasını indirin.
+1. JSON dosyasını indirin.
 
-    VMSnapshotScriptPluginConfig.json https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig indirin. Merhaba dosya içeriklerini benzer toohello aşağıdaki bakın:
+    VMSnapshotScriptPluginConfig.json https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig indirin. Dosya içeriği şuna benzer:
 
     ```azurecli
     {
@@ -155,7 +155,7 @@ Uygulamayla tutarlı yedeklemeler yeni bir özelliktir Azure yedekleme. Oluştur
     }
     ```
 
-2. Merhaba VM üzerinde Hello /etc/azure klasörü oluşturun:
+2. VM /etc/azure klasörü oluşturun:
 
     ```bash
     $ sudo su -
@@ -163,13 +163,13 @@ Uygulamayla tutarlı yedeklemeler yeni bir özelliktir Azure yedekleme. Oluştur
     # cd /etc/azure
     ```
 
-3. Merhaba JSON dosyasını kopyalayın.
+3. JSON dosyasını kopyalayın.
 
-    VMSnapshotScriptPluginConfig.json toohello /etc/azure klasörüne kopyalayın.
+    VMSnapshotScriptPluginConfig.json /etc/azure klasörüne kopyalayın.
 
-4. Merhaba JSON dosyasını düzenleyin.
+4. JSON dosyasını düzenleyin.
 
-    Merhaba VMSnapshotScriptPluginConfig.json dosya tooinclude hello Düzenle `PreScriptLocation` ve `PostScriptlocation` parametreleri. Örneğin:
+    VMSnapshotScriptPluginConfig.json dosyasını içerecek şekilde düzenleyin `PreScriptLocation` ve `PostScriptlocation` parametreleri. Örneğin:
 
     ```azurecli
     {
@@ -186,7 +186,7 @@ Uygulamayla tutarlı yedeklemeler yeni bir özelliktir Azure yedekleme. Oluştur
     }
     ```
 
-5. Merhaba, anlık görüntü öncesi ve anlık görüntü sonrası komut dosyalarını oluşturun.
+5. Anlık görüntü öncesi ve anlık görüntü sonrası komut dosyalarını oluşturun.
 
     Anlık görüntü öncesi ve anlık görüntü sonrası betikleri "soğuk yedekleme" için bir örneği burada verilmiştir (Çevrimdışı Yedekleme, kapatma ve yeniden başlatma ile):
 
@@ -226,7 +226,7 @@ Uygulamayla tutarlı yedeklemeler yeni bir özelliktir Azure yedekleme. Oluştur
     su - $ORA_OWNER -c "sqlplus / as sysdba @/etc/azure/post_script.sql" > /etc/azure/pre_script_$v_date.log
     ```
 
-    /Etc/Azure/pre_script.SQL için gereksinimlerinizi başına hello dosyasının Merhaba içeriğine değiştirin:
+    /Etc/Azure/pre_script.SQL için gereksinimlerinizi başına dosyasının içeriğini değiştirin:
 
     ```bash
     alter tablespace SYSTEM begin backup;
@@ -236,7 +236,7 @@ Uygulamayla tutarlı yedeklemeler yeni bir özelliktir Azure yedekleme. Oluştur
     alter system archive log stop;
     ```
 
-    /Etc/Azure/post_script.SQL için gereksinimlerinizi başına hello dosyasının Merhaba içeriğine değiştirin:
+    /Etc/Azure/post_script.SQL için gereksinimlerinizi başına dosyasının içeriğini değiştirin:
 
     ```bash
     alter tablespace SYSTEM end backup;
@@ -253,9 +253,9 @@ Uygulamayla tutarlı yedeklemeler yeni bir özelliktir Azure yedekleme. Oluştur
     # chmod 700 /etc/azure/post_script.sh
     ```
 
-7. Merhaba betikleri sınayın.
+7. Komut dosyaları sınayın.
 
-    tootest hello komut dosyaları, ilk olarak, kök olarak oturum açın. Ardından, herhangi bir hata olduğundan emin olun:
+    Komut dosyalarını sınamak için ilk olarak, kök olarak oturum açın. Ardından, herhangi bir hata olduğundan emin olun:
 
     ```bash
     # /etc/azure/pre_script.sh
@@ -265,25 +265,25 @@ Uygulamayla tutarlı yedeklemeler yeni bir özelliktir Azure yedekleme. Oluştur
 Daha fazla bilgi için bkz: [Linux VM'ler için uygulamayla tutarlı yedekleme](https://azure.microsoft.com/en-us/blog/announcing-application-consistent-backup-for-linux-vms-using-azure-backup/).
 
 
-### <a name="step-5-use-azure-recovery-services-vaults-tooback-up-hello-vm"></a>5. adım: Hello VM yukarı tooback kullanım Azure kurtarma Hizmetleri kasaları
+### <a name="step-5-use-azure-recovery-services-vaults-to-back-up-the-vm"></a>5. adım: VM'yi yedeklemek için kullanım Azure kurtarma Hizmetleri kasaları
 
-1.  İçinde Azure portal Merhaba, arama **kurtarma Hizmetleri kasaları**.
+1.  Azure portalında arama **kurtarma Hizmetleri kasaları**.
 
     ![Kurtarma Hizmetleri kasaları sayfası](./media/oracle-backup-recovery/recovery_service_01.png)
 
-2.  Merhaba üzerinde **kurtarma Hizmetleri kasaları** dikey, tooadd yeni bir kasa tıklayın **Ekle**.
+2.  Üzerinde **kurtarma Hizmetleri kasaları** yeni bir kasa eklemek için dikey tıklayın **Ekle**.
 
     ![Kurtarma Hizmetleri kasaları Sayfası Ekle](./media/oracle-backup-recovery/recovery_service_02.png)
 
-3.  toocontinue, tıklatın **myVault**.
+3.  Devam etmek için tıklatın **myVault**.
 
     ![Kurtarma Hizmetleri kasaları ayrıntı sayfaları](./media/oracle-backup-recovery/recovery_service_03.png)
 
-4.  Merhaba üzerinde **myVault** dikey penceresinde tıklatın **yedekleme**.
+4.  Üzerinde **myVault** dikey penceresinde tıklatın **yedekleme**.
 
     ![Kurtarma Hizmetleri kasaları sayfa yedekleme](./media/oracle-backup-recovery/recovery_service_04.png)
 
-5.  Merhaba üzerinde **yedekleme hedefi** dikey penceresinde, kullanım hello varsayılan değerleri **Azure** ve **sanal makine**. **Tamam** düğmesine tıklayın.
+5.  Üzerinde **yedekleme hedefi** dikey penceresinde, varsayılan değerleri kullanmak **Azure** ve **sanal makine**. **Tamam** düğmesine tıklayın.
 
     ![Kurtarma Hizmetleri kasaları ayrıntı sayfaları](./media/oracle-backup-recovery/recovery_service_05.png)
 
@@ -291,37 +291,37 @@ Daha fazla bilgi için bkz: [Linux VM'ler için uygulamayla tutarlı yedekleme](
 
     ![Kurtarma Hizmetleri kasaları İlkesi ayrıntı sayfası yedekleme](./media/oracle-backup-recovery/recovery_service_06.png)
 
-7.  Merhaba üzerinde **sanal makine Seç** dikey penceresinde, select hello **myVM1** onay kutusunu işaretleyin ve ardından **Tamam**. Merhaba tıklatın **yedeklemeyi etkinleştir** düğmesi.
+7.  Üzerinde **sanal makine Seç** dikey penceresinde, seçin **myVM1** onay kutusunu işaretleyin ve ardından **Tamam**. Tıklatın **yedeklemeyi etkinleştir** düğmesi.
 
-    ![Kurtarma Hizmetleri kasaları öğeleri toohello yedekleme Ayrıntı Sayfası](./media/oracle-backup-recovery/recovery_service_07.png)
+    ![Kurtarma Hizmetleri kasaları öğelerini yedekleme Ayrıntı Sayfası](./media/oracle-backup-recovery/recovery_service_07.png)
 
     > [!IMPORTANT]
-    > Tıklattıktan sonra **yedeklemeyi etkinleştir**, hello yedekleme işlemi hello zamanlanmış süresi sona erene kadar başlamıyor. Sonraki adım hello tooset, tam hemen bir yedek ayarlama.
+    > Tıklattıktan sonra **yedeklemeyi etkinleştir**, yedekleme işlemi zamanlanan saat süresi doluncaya kadar başlamıyor. Hemen bir yedekleme ayarlamak için sonraki adımı tamamlayın.
 
-8.  Merhaba üzerinde **myVault - yedekleme öğeleri** dikey altında **yedekleme öğesi sayısı**, seçin hello yedekleme öğesi sayısı.
+8.  Üzerinde **myVault - yedekleme öğeleri** dikey altında **yedekleme öğesi sayısı**, yedekleme öğesi sayısı seçin.
 
     ![Kurtarma Hizmetleri kasaları myVault Ayrıntı Sayfası](./media/oracle-backup-recovery/recovery_service_08.png)
 
-9.  Merhaba üzerinde **yedekleme öğeleri (Azure sanal makine)** hello sayfasının hello sağ taraftaki dikey tıklayın hello üç nokta (**...** ) düğmesine tıklayın ve ardından **Şimdi Yedekle**.
+9.  Üzerinde **yedekleme öğeleri (Azure sanal makine)** sayfanın sağ taraftaki dikey tıklayın üç nokta (**...** ) düğmesine tıklayın ve ardından **Şimdi Yedekle**.
 
     ![Yedekleme şimdi komutu Kurtarma Hizmetleri kasaları](./media/oracle-backup-recovery/recovery_service_09.png)
 
-10. Merhaba tıklatın **yedekleme** düğmesi. Merhaba yedekleme işlemi toofinish bekleyin. Ardından, çok Git[adım 6: kaldırmak hello veritabanı dosyalarını](#step-6-remove-the-database-files).
+10. Tıklatın **yedekleme** düğmesi. Yedekleme işleminin tamamlanması için bekleyin. Ardından, Git [adım 6: veritabanı dosyalarını kaldırmak](#step-6-remove-the-database-files).
 
-    Merhaba yedekleme işinin tooview hello durumu tıklatın **işleri**.
+    Yedekleme işinin durumunu görüntülemek için **işleri**.
 
     ![Kurtarma Hizmetleri kasaları sayfa işi](./media/oracle-backup-recovery/recovery_service_10.png)
 
-    Merhaba hello yedekleme işinin durumunu görüntü aşağıdaki hello görünür:
+    Yedekleme işinin durumu aşağıdaki görüntüde görünür:
 
     ![Kurtarma Hizmetleri kasaları iş durumu sayfası](./media/oracle-backup-recovery/recovery_service_11.png)
 
-11. Bir uygulama tutarlı yedekleme için hello günlük dosyasındaki hataları giderin. Merhaba günlük dosyası /var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux/1.0.9114.0 bulunur.
+11. Bir uygulama tutarlı yedekleme için günlük dosyasındaki hataları giderin. Günlük dosyası /var/log/azure/Microsoft.Azure.RecoveryServices.VMSnapshotLinux/1.0.9114.0 bulunur.
 
-### <a name="step-6-remove-hello-database-files"></a>6. adım: hello veritabanı dosyaları kaldırın 
-Bu makalenin sonraki bölümlerinde nasıl tootest hello kurtarma işlemi öğreneceksiniz. Merhaba kurtarma işlemi test etmeden önce tooremove hello veritabanı dosyaları sahiptir.
+### <a name="step-6-remove-the-database-files"></a>6. adım: veritabanı dosyalarını kaldırma 
+Bu makalenin sonraki bölümlerinde kurtarma işlemini test öğreneceksiniz. Kurtarma işlemi sınayabilirsiniz önce veritabanı dosyalarını kaldırmanız gerekir.
 
-1.  Merhaba belirtilmedi ve yedekleme dosyalarını kaldırın:
+1.  Tablo alanı ve yedekleme dosyalarını kaldırın:
 
     ```bash
     $ sudo su - oracle
@@ -331,7 +331,7 @@ Bu makalenin sonraki bölümlerinde nasıl tootest hello kurtarma işlemi öğre
     $ rm -rf *
     ```
     
-2.  (İsteğe bağlı) Merhaba Oracle örneğini kapatın:
+2.  (İsteğe bağlı) Oracle örneğini kapatın:
 
     ```bash
     $ sqlplus / as sysdba
@@ -339,38 +339,38 @@ Bu makalenin sonraki bölümlerinde nasıl tootest hello kurtarma işlemi öğre
     ORACLE instance shut down.
     ```
 
-## <a name="restore-hello-deleted-files-from-hello-recovery-services-vaults"></a>Kurtarma Hizmetleri kasaları hello hello silinmiş dosyaları geri yükle
-silinen dosyaları, aşağıdaki adımları tam hello toorestore hello:
+## <a name="restore-the-deleted-files-from-the-recovery-services-vaults"></a>Kurtarma Hizmetleri kasalarının silinmiş dosyaları geri yükle
+Silinen dosyaların geri yüklemek için aşağıdaki adımları tamamlayın:
 
-1. Merhaba Hello Azure portal, arama *myVault* kurtarma Hizmetleri kasaları öğesi. Merhaba üzerinde **genel bakış** dikey altında **yedekleme öğeleri**, öğe hello sayısını seçin.
+1. Azure portalında arama *myVault* kurtarma Hizmetleri kasaları öğesi. Üzerinde **genel bakış** dikey altında **yedekleme öğeleri**, öğe sayısını seçin.
 
     ![Kurtarma Hizmetleri kasaları myVault yedekleme öğeleri](./media/oracle-backup-recovery/recovery_service_12.png)
 
-2. Altında **yedekleme öğesi sayısı**, öğe hello sayısını seçin.
+2. Altında **yedekleme öğesi sayısı**, öğe sayısını seçin.
 
     ![Kurtarma Hizmetleri kasaları Azure sanal makine yedekleme öğesi sayısı](./media/oracle-backup-recovery/recovery_service_13.png)
 
-3. Merhaba üzerinde **myvm1** dikey penceresinde tıklatın **dosya kurtarma (Önizleme)**.
+3. Üzerinde **myvm1** dikey penceresinde tıklatın **dosya kurtarma (Önizleme)**.
 
-    ![Dosya Kurtarma sayfası ekran görüntüsü hello kurtarma Hizmetleri kasaları](./media/oracle-backup-recovery/recovery_service_14.png)
+    ![Dosya Kurtarma sayfası ekran görüntüsü kurtarma Hizmetleri kasaları](./media/oracle-backup-recovery/recovery_service_14.png)
 
-4. Merhaba üzerinde **dosya kurtarma (Önizleme)** bölmesinde tıklatın **karşıdan yükleme komut dosyası**. Daha sonra hello yükleme (.sh) dosya tooa klasör hello istemci bilgisayara kaydedin.
+4. Üzerinde **dosya kurtarma (Önizleme)** bölmesinde tıklatın **karşıdan yükleme komut dosyası**. Ardından, yükleme (.sh) dosyasını istemci bilgisayarda bir klasöre kaydedin.
 
     ![Yükleme komut dosyasını kaydetme seçenekleri](./media/oracle-backup-recovery/recovery_service_15.png)
 
-5. Merhaba .sh dosya toohello VM kopyalayın.
+5. VM .sh dosyasını kopyalayın.
 
-    Aşağıdaki örnek hello nasıl güvenli kopyalama (scp) komut toomove toouse hello dosya toohello VM gösterir. Merhaba VM üzerinde ayarladığınız yeni dosyasındaki hello içeriği toohello Pano ve Yapıştır hello içeriği kopyalayabilirsiniz.
+    Aşağıdaki örnekte nasıl güvenli bir kopyasını (scp) kullanmak için dosyayı VM'ye taşımak için komutu gösterir. İçeriği panoya kopyalayabilirsiniz ve içeriği VM üzerinde ayarlanmış yeni bir dosya yapıştırın.
 
     > [!IMPORTANT]
-    > Aşağıdaki örneğine hello hello IP adresi ve klasör değerleri güncelleştirdiğinizden emin olun. Merhaba değerleri hello dosyasının kaydedildiği toohello klasörü eşlemeniz gerekir.
+    > Aşağıdaki örnekte, IP adresi ve klasör değerleri güncelleştirdiğinizden emin olun. Değerleri dosyasının kaydedildiği klasöre eşlenmelidir.
 
     ```bash
     $ scp Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh <publicIpAddress>:/<folder>
     ```
-6. Merhaba kök tarafından ait şekilde hello dosyasını değiştirin.
+6. Dosyanın kök tarafından ait şekilde değiştirin.
 
-    Böylece hello kök tarafından ait aşağıdaki örneğine hello hello dosyasını değiştirin. Ardından, izinleri değiştirin.
+    Aşağıdaki örnekte, dosyanın kök tarafından ait şekilde değiştirin. Ardından, izinleri değiştirin.
 
     ```bash 
     $ ssh <publicIpAddress>
@@ -379,24 +379,24 @@ silinen dosyaları, aşağıdaki adımları tam hello toorestore hello:
     # chmod 755 /<folder>/Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh
     # /<folder>/Linux_myvm1_xx-xx-2017 xx-xx-xx PM.sh
     ```
-    Merhaba aşağıdaki örnek komut dosyası önceki hello çalıştırın, sonra gördükleri gösterir. Sorulduğunda toocontinue, girin **Y**.
+    Aşağıdaki örnek, önceki komut dosyasını çalıştırın, sonra gördükleri gösterir. Devam etmek için istendiğinde girin **Y**.
 
     ```bash
     Microsoft Azure VM Backup - File Recovery
     ______________________________________________
-    hello script requires 'open-iscsi' and 'lshw' toorun.
-    Do you want us tooinstall 'open-iscsi' and 'lshw' on this machine?
-    Please press 'Y' toocontinue with installation, 'N' tooabort hello operation. : Y
+    The script requires 'open-iscsi' and 'lshw' to run.
+    Do you want us to install 'open-iscsi' and 'lshw' on this machine?
+    Please press 'Y' to continue with installation, 'N' to abort the operation. : Y
     Installing 'open-iscsi'....
     Installing 'lshw'....
 
-    Connecting toorecovery point using ISCSI service...
+    Connecting to recovery point using ISCSI service...
 
     Connection succeeded!
 
-    Please wait while we attach volumes of hello recovery point toothis machine...
+    Please wait while we attach volumes of the recovery point to this machine...
 
-    ************ Volumes of hello recovery point and their mount paths on this machine ************
+    ************ Volumes of the recovery point and their mount paths on this machine ************
 
     Sr.No.  |  Disk  |  Volume  |  MountPath
 
@@ -404,20 +404,20 @@ silinen dosyaları, aşağıdaki adımları tam hello toorestore hello:
 
     2)  | /dev/sde  |  /dev/sde2  |  /root/myVM-20170517093913/Volume2
 
-    ************ Open File Explorer toobrowse for files. ************
+    ************ Open File Explorer to browse for files. ************
 
-    After recovery, tooremove hello disks and close hello connection toohello recovery point, please click 'Unmount Disks' in step 3 of hello portal.
+    After recovery, to remove the disks and close the connection to the recovery point, please click 'Unmount Disks' in step 3 of the portal.
 
-    Please enter 'q/Q' tooexit...
+    Please enter 'q/Q' to exit...
     ```
 
-7. Erişim toohello takılı birimleri onaylandı.
+7. Bağlanan birimler için erişim doğrulanır.
 
-    tooexit, girin **q**ve takılı hello birimler için arama yapın. Merhaba listesini eklenen bir komut isteminde şunu girin toocreate **df -k**.
+    Çıkmak için girin **q**ve bağlanan birimler için arama yapın. Bir komut isteminde eklenen birimlerin listesini oluşturmak için girin **df -k**.
 
-    ![Merhaba df -k komutu](./media/oracle-backup-recovery/recovery_service_16.png)
+    ![Df -k komutu](./media/oracle-backup-recovery/recovery_service_16.png)
 
-8. Komut dosyası toocopy hello eksik aşağıdaki kullanım hello dosyalar geri toohello klasörler:
+8. Eksik dosyaları yeniden klasörlerine kopyalamak için aşağıdaki komut dosyasını kullanın:
 
     ```bash
     # cd /root/myVM-2017XXXXXXX/Volume2/u01/app/oracle/fast_recovery_area/CDB1/backupset/2017_xx_xx
@@ -429,7 +429,7 @@ silinen dosyaları, aşağıdaki adımları tam hello toorestore hello:
     # cd /u01/app/oracle/oradata/cdb1
     # chown oracle:oinstall *.dbf
     ```
-9. Komut dosyası izleyen hello RMAN toorecover hello veritabanı kullanın:
+9. Aşağıdaki komut dosyasında RMAN veritabanını kurtarmak için kullanın:
 
     ```bash
     # sudo su - oracle
@@ -441,93 +441,93 @@ silinen dosyaları, aşağıdaki adımları tam hello toorestore hello:
     RMAN> SELECT * FROM scott.scott_table;
     ```
     
-10. Merhaba disk çıkarın.
+10. Disk çıkarın.
 
-    Merhaba hello üzerinde Azure portal'ın **dosya kurtarma (Önizleme)** dikey penceresinde tıklatın **çıkarın diskleri**.
+    Azure portalında üzerinde **dosya kurtarma (Önizleme)** dikey penceresinde tıklatın **çıkarın diskleri**.
 
     ![Diskleri komutunu çıkarın](./media/oracle-backup-recovery/recovery_service_17.png)
 
-## <a name="restore-hello-entire-vm"></a>Geri yükleme tüm VM hello
+## <a name="restore-the-entire-vm"></a>Tüm VM geri yükleme
 
-Merhaba kurtarma Hizmetleri kasalarının hello silinen dosyaların geri yerine geri yükleyebileceğiniz tüm VM hello.
+Kurtarma Hizmetleri kasalarının silinen dosyaların geri yerine tüm VM'yi geri yükleyebilirsiniz.
 
 ### <a name="step-1-delete-myvm"></a>1. adım: Sil myVM
 
-*   Toohello Hello Azure portal, Git **myVM1** kasa ve ardından **silmek**.
+*   Azure portalında Git **myVM1** kasa ve ardından **silmek**.
 
     ![Kasa delete komutu](./media/oracle-backup-recovery/recover_vm_01.png)
 
-### <a name="step-2-recover-hello-vm"></a>2. adım: hello VM kurtarma
+### <a name="step-2-recover-the-vm"></a>2. adım: VM kurtarma
 
-1.  Çok Git**kurtarma Hizmetleri kasaları**ve ardından **myVault**.
+1.  Git **kurtarma Hizmetleri kasaları**ve ardından **myVault**.
 
     ![myVault giriş](./media/oracle-backup-recovery/recover_vm_02.png)
 
-2.  Merhaba üzerinde **genel bakış** dikey altında **yedekleme öğeleri**, öğe hello sayısını seçin.
+2.  Üzerinde **genel bakış** dikey altında **yedekleme öğeleri**, öğe sayısını seçin.
 
     ![myVault öğeleri yedekleyin](./media/oracle-backup-recovery/recover_vm_03.png)
 
-3.  Merhaba üzerinde **yedekleme öğeleri (Azure sanal makine)** dikey penceresinde, select **myvm1**.
+3.  Üzerinde **yedekleme öğeleri (Azure sanal makine)** dikey penceresinde, select **myvm1**.
 
     ![Kurtarma VM sayfası](./media/oracle-backup-recovery/recover_vm_04.png)
 
-4.  Merhaba üzerinde **myvm1** dikey penceresinde hello üç nokta düğmesine (**...** ) düğmesine tıklayın ve ardından **geri VM**.
+4.  Üzerinde **myvm1** dikey penceresinde, üç nokta işaretine (**...** ) düğmesine tıklayın ve ardından **geri VM**.
 
     ![VM komutu geri yükleme](./media/oracle-backup-recovery/recover_vm_05.png)
 
-5.  Merhaba üzerinde **seçin geri yükleme noktası** dikey penceresinde, toorestore istediğiniz ve ardından select hello öğesi **Tamam**.
+5.  Üzerinde **seçin geri yükleme noktası** dikey penceresinde, geri yüklemek istediğiniz öğeyi seçin ve ardından **Tamam**.
 
-    ![Select hello geri yükleme noktası](./media/oracle-backup-recovery/recover_vm_06.png)
+    ![Geri yükleme noktası seçin](./media/oracle-backup-recovery/recover_vm_06.png)
 
     Uygulama tutarlı yedeklemeyi etkinleştirdiyseniz, dikey Mavi çubuk görüntülenir.
 
-6.  Merhaba üzerinde **geri yükleme yapılandırmasını** dikey penceresinde, select hello sanal makine adı, hello kaynak grubu seçin ve ardından **Tamam**.
+6.  Üzerinde **geri yükleme yapılandırmasını** dikey penceresinde, sanal makine adı seçin, bir kaynak grubu seçin ve ardından **Tamam**.
 
     ![Yapılandırma değerleri geri yükle](./media/oracle-backup-recovery/recover_vm_07.png)
 
-7.  toorestore hello VM tıklatın hello **geri** düğmesi.
+7.  VM geri yüklemek için **geri** düğmesi.
 
-8.  tooview hello durumu hello geri yükleme işleminin **işleri**ve ardından **yedekleme işlerini**.
+8.  Geri yükleme işleminin durumunu görüntülemek için **işleri**ve ardından **yedekleme işlerini**.
 
     ![Yedekleme işleri durumu komutu](./media/oracle-backup-recovery/recover_vm_08.png)
 
-    Merhaba aşağıdaki şekilde hello hello geri yükleme işleminin durumunu gösterir:
+    Aşağıdaki şekilde geri yükleme işlemi durumunu gösterir:
 
-    ![Merhaba geri yükleme işlemi durumu](./media/oracle-backup-recovery/recover_vm_09.png)
+    ![Geri yükleme işlemi durumu](./media/oracle-backup-recovery/recover_vm_09.png)
 
-### <a name="step-3-set-hello-public-ip-address"></a>3. adım: hello genel IP adresi ayarlama
-Hello VM geri yüklendikten sonra hello ortak IP adresi ayarlamak.
+### <a name="step-3-set-the-public-ip-address"></a>3. adım: genel IP adresi ayarlama
+VM geri yüklendikten sonra ortak IP adresini ayarlayın.
 
-1.  Merhaba arama kutusuna **genel IP adresi**.
+1.  Arama kutusuna **genel IP adresi**.
 
     ![Ortak IP adresleri listesi](./media/oracle-backup-recovery/create_ip_00.png)
 
-2.  Merhaba üzerinde **ortak IP adresleri** dikey penceresinde tıklatın **Ekle**. Merhaba üzerinde **ortak IP adresi oluştur** dikey penceresinde için **adı**seçin hello genel IP adı. **Kaynak grubu** olarak **Var olanı kullan**’ı seçin. Sonra, **Oluştur**’a tıklayın.
+2.  Üzerinde **ortak IP adresleri** dikey penceresinde tıklatın **Ekle**. Üzerinde **ortak IP adresi oluştur** dikey penceresinde için **adı**, genel IP adı seçin. **Kaynak grubu** olarak **Var olanı kullan**’ı seçin. Sonra, **Oluştur**’a tıklayın.
 
     ![IP adresi oluşturun](./media/oracle-backup-recovery/create_ip_01.png)
 
-3.  tooassociate hello ortak IP adresiyle hello ağ arabirimi hello VM için arama için ve select **myVMip**. Ardından **ilişkilendirmek**.
+3.  Ortak IP adresine sahip ağ arabirimi VM için ilişkilendirmek için aramak ve seçmek **myVMip**. Ardından **ilişkilendirmek**.
 
     ![IP adresi ilişkilendirme](./media/oracle-backup-recovery/create_ip_02.png)
 
-4.  İçin **kaynak türü**seçin **ağ arabirimi**. Merhaba myVM örneği tarafından kullanılan hello ağ arabirimi seçin ve ardından **Tamam**.
+4.  İçin **kaynak türü**seçin **ağ arabirimi**. MyVM örneği tarafından kullanılan ağ arabirimi seçin ve ardından **Tamam**.
 
     ![Kaynak türü ve NIC değerleri seçin](./media/oracle-backup-recovery/create_ip_03.png)
 
-5.  Arayın ve hello portalından verilen myVM hello örneği açın. Merhaba hello VM ile ilişkili IP adresi görünür hello myVM üzerinde **genel bakış** dikey.
+5.  Arayın ve portaldan verilen myVM örneği açın. VM ile ilişkili IP adresi üzerinde myVM yer **genel bakış** dikey.
 
     ![IP adresi değeri](./media/oracle-backup-recovery/create_ip_04.png)
 
-### <a name="step-4-connect-toohello-vm"></a>4. adım: toohello VM bağlanma
+### <a name="step-4-connect-to-the-vm"></a>4. adım: VM'ye bağlanın
 
-*   tooconnect toohello VM, komut dosyası izleyen hello kullan:
+*   VM'e bağlanmak için aşağıdaki komut dosyasını kullanın:
 
     ```bash 
     ssh <publicIpAddress>
     ```
 
-### <a name="step-5-test-whether-hello-database-is-accessible"></a>5. adım: hello veritabanı erişilebilir olup olmadığını sınamak
-*   tootest erişilebilirlik, aşağıdaki komut dosyası kullan hello:
+### <a name="step-5-test-whether-the-database-is-accessible"></a>5. adım: veritabanı erişilebilir olup olmadığını sınamak
+*   Erişilebilirlik sınamak için aşağıdaki komut dosyasını kullanın:
 
     ```bash 
     $ sudo su - oracle
@@ -536,10 +536,10 @@ Hello VM geri yüklendikten sonra hello ortak IP adresi ayarlamak.
     ```
 
     > [!IMPORTANT]
-    > Merhaba, veritabanı **başlangıç** komut, bir hata, toorecover hello veritabanı oluşturur, bkz: [adım 6: kullanım RMAN toorecover hello veritabanı](#step-6-optional-use-rman-to-recover-the-database).
+    > Varsa veritabanı **başlangıç** komutu bir hata oluşturur, veritabanını kurtarmak için bkz: [adım 6: kullanmak veritabanını kurtarmak için RMAN](#step-6-optional-use-rman-to-recover-the-database).
 
-### <a name="step-6-optional-use-rman-toorecover-hello-database"></a>6. adım: (İsteğe bağlı) kullanım RMAN toorecover hello veritabanı
-*   toorecover hello veritabanı, aşağıdaki komut dosyası kullan hello:
+### <a name="step-6-optional-use-rman-to-recover-the-database"></a>6. adım: Veritabanını kurtarmak (isteğe bağlı) kullanım RMAN
+*   Veritabanını kurtarmak için aşağıdaki komutu kullanın:
 
     ```bash
     # sudo su - oracle
@@ -551,11 +551,11 @@ Hello VM geri yüklendikten sonra hello ortak IP adresi ayarlamak.
     RMAN> SELECT * FROM scott.scott_table;
     ```
 
-Merhaba yedekleme ve kurtarma hello Oracle veritabanı 12c veritabanının Azure Linux VM'de şimdi tamamlandı.
+Yedekleme ve kurtarma Azure Linux VM'de Oracle veritabanı 12c veritabanının şimdi tamamlandı.
 
-## <a name="delete-hello-vm"></a>Merhaba VM silme
+## <a name="delete-the-vm"></a>VM silme
 
-VM artık hello olduğunda komut tooremove hello kaynak grubu, hello VM ve tüm ilgili kaynaklar aşağıdaki hello kullanabilirsiniz:
+VM artık ihtiyacınız olduğunda, kaynak grubu, VM ve tüm ilgili kaynaklar kaldırmak için aşağıdaki komutu kullanabilirsiniz:
 
 ```azurecli
 az group delete --name myResourceGroup

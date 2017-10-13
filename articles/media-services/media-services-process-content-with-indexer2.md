@@ -1,6 +1,6 @@
 ---
-title: "Azure Media Indexer 2 Önizleme ile medya dosyalarını aaaIndexing | Microsoft Docs"
-description: "Azure Media Indexer medya dosyalarınızı aranabilir toomake içeriği ve toogenerate tam metin dökümü kapalı açıklamalı alt yazı ve anahtar sözcükler için sağlar. Bu konuda nasıl toouse Media Indexer 2 Önizleme gösterir."
+title: "Azure Media Indexer 2 Önizleme ile medya dosyalarını dizin oluşturma | Microsoft Docs"
+description: "Azure Media Indexer medya dosyalarınızı içeriğini aranabilir yapmanıza ve kapalı açıklamalı alt yazı ve anahtar sözcükler için tam metin dökümü oluşturmak üzere sağlar. Bu konu, Media Indexer 2 Önizleme kullanmayı gösterir."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,48 +14,48 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: adsolank;juliako;
-ms.openlocfilehash: f83fa0db58b828ffa29933d68ce108b4906dcd78
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0afdd1c04e50215a55fb92c70b1210d1f80d8e3f
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Azure Media Indexer 2 Önizleme ile medya dosyalarını dizin oluşturma
 ## <a name="overview"></a>Genel Bakış
-Merhaba **Azure Media Indexer 2 Önizleme** medya işlemcisi (MP) etkinleştirir, toomake medya dosyaları ve içerik aranabilir, yanı sıra kapalı açıklamalı alt yazı parçaları oluştur. Karşılaştırılan toohello önceki sürümü [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 Önizleme** daha hızlı dizin oluşturma işlemi gerçekleştirir ve daha geniş dil desteği sunar. Desteklenen diller, İngilizce, İspanyolca, Fransızca, Almanca, İtalyanca, Çince (Mandarin, Basitleştirilmiş), Portekizce, Arapça ve Japonca içerir.
+**Azure Media Indexer 2 Önizleme** medya işlemcisi (MP) yanı sıra medya dosyaları ve içerik aranabilir yapmanıza kapalı açıklamalı alt yazı parçaları oluşturmak olanak sağlar. Önceki sürümü karşılaştırıldığında [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 Önizleme** daha hızlı dizin oluşturma işlemi gerçekleştirir ve daha geniş dil desteği sunar. Desteklenen diller, İngilizce, İspanyolca, Fransızca, Almanca, İtalyanca, Çince (Mandarin, Basitleştirilmiş), Portekizce, Arapça ve Japonca içerir.
 
-Merhaba **Azure Media Indexer 2 Önizleme** MP şu anda önizlemede.
+**Azure Media Indexer 2 Önizleme** MP şu anda önizlemede.
 
-Bu konu, nasıl ile toocreate dizin oluşturma işleri gösterir **Azure Media Indexer 2 Önizleme**.
+Bu konu ile dizin oluşturma işleri oluşturmak nasıl gösterir **Azure Media Indexer 2 Önizleme**.
 
 > [!NOTE]
-> ilgili önemli noktalar aşağıdaki hello Uygula:
+> Aşağıdaki maddeler geçerlidir:
 > 
 > Dizin Oluşturucu 2 Azure Çin ve Azure kamu desteklenmiyor.
 > 
-> İçerik dizin oluştururken emin toouse açıkça konuşma (olmadan, arka plan müzik, parazit, efektleri veya mikrofon hiss) sahip medya dosyalarını olun. Uygun içeriğin bazı örnekleri şunlardır: kaydedilen toplantılar, dersleri veya sunuları. Merhaba aşağıdaki içerik dizin oluşturma işlemi için uygun olmayabilir: filmler, TV programları karma ses ve ses efekti ile herhangi bir şey kötü içeriği arka plan gürültü (hiss) ile kaydedilmiş.
+> İçerik dizin oluştururken açıkça konuşma (olmadan, arka plan müzik, parazit, efektleri veya mikrofon hiss) sahip medya dosyalarını kullandığınızdan emin olun. Uygun içeriğin bazı örnekleri şunlardır: kaydedilen toplantılar, dersleri veya sunuları. Aşağıdaki içerik dizin oluşturma işlemi için uygun olmayabilir: filmler, TV programları karma ses ve ses efekti ile herhangi bir şey kötü içeriği arka plan gürültü (hiss) ile kaydedilmiş.
 > 
 > 
 
-Bu konu hakkında ayrıntılar verir **Azure Media Indexer 2 Önizleme** ve gösterir nasıl toouse .NET için Media Services SDK'sı ile
+Bu konu hakkında ayrıntılar verir **Azure Media Indexer 2 Önizleme** ve .NET için Media Services SDK'sı ile kullanmak nasıl gösterir
 
 ## <a name="input-and-output-files"></a>Giriş ve çıkış dosyaları
 ### <a name="input-files"></a>Giriş dosyaları
 Ses veya video dosyaları
 
 ### <a name="output-files"></a>Çıkış dosyaları
-Bir dizin oluşturma işi kapalı açıklamalı alt yazı dosyaları biçimleri aşağıdaki hello oluşturabilirsiniz:  
+Bir dizin oluşturma işi kapalı açıklamalı alt yazı dosyaları aşağıdaki biçimlerde oluşturabilirsiniz:  
 
 * **SAMI**
 * **TTML**
 * **WebVTT**
 
-Bu biçimler kapalı açıklamalı alt yazı (CC) dosyalarında kullanılan toomake ses olabilir ve erişilebilir toopeople işitme engelli ile video dosyaları.
+Bu biçimler dosyalarında ses ve video dosyaları işitme engelli kişiler için erişilebilir hale getirmek için kullanılan açıklamalı alt yazı (CC) kapatıldı.
 
 ## <a name="task-configuration-preset"></a>Görev yapılandırması (hazır)
 Bir dizin oluşturma, görev ile **Azure Media Indexer 2 Önizleme**, bir yapılandırma hazır belirtmeniz gerekir.
 
-Merhaba aşağıdaki JSON kullanılabilir parametreleri ayarlar.
+Aşağıdaki JSON kullanılabilir parametreleri ayarlar.
 
     {
       "version":"1.0",
@@ -72,7 +72,7 @@ Merhaba aşağıdaki JSON kullanılabilir parametreleri ayarlar.
     }
 
 ## <a name="supported-languages"></a>Desteklenen diller
-Azure Media Indexer 2 Önizleme konuşma metin dilleri (Merhaba dil adı hello görev yapılandırmasında, kullanım 4 karakter kodu köşeli aşağıda gösterildiği gibi belirtirken) aşağıdaki hello için destekler:
+Azure Media Indexer 2 Önizleme konuşma metin (dil adı görev yapılandırmasında, kullanım 4 karakter kodu köşeli aşağıda gösterildiği gibi belirtirken) için şu dilleri destekler:
 
 * İngilizce [en-us]
 * İspanyolca [EsEs]
@@ -89,14 +89,14 @@ Azure Media Indexer 2 Önizleme konuşma metin dilleri (Merhaba dil adı hello g
 
 ## <a name="supported-file-types"></a>Desteklenen dosya türleri
 
-Desteklenen dosya türleri hakkında daha fazla bilgi için bkz: hello [desteklenen codec bileşenleri/biçimleri](media-services-media-encoder-standard-formats.md#input-containerfile-formats) bölüm.
+Desteklenen dosya türleri hakkında daha fazla bilgi için bkz: [desteklenen codec bileşenleri/biçimleri](media-services-media-encoder-standard-formats.md#input-containerfile-formats) bölümü.
 
 ## <a name="net-sample-code"></a>.NET örnek kod
 
-Merhaba aşağıdaki program gösterir nasıl yapılır:
+Aşağıdaki program gösterir nasıl yapılır:
 
-1. Bir varlık oluşturun ve hello varlığa bir medya dosyasını yükleyin.
-2. Json hazır aşağıdaki hello içeren bir yapılandırma dosyasına dayalı bir dizin oluşturma görevini içeren bir iş oluşturun.
+1. Bir varlık oluşturun ve varlığa bir medya dosyasını yükleyin.
+2. Aşağıdaki json hazır içeren bir yapılandırma dosyasına dayalı bir dizin oluşturma görevini içeren bir iş oluşturun.
    
         {
           "version":"1.0",
@@ -111,11 +111,11 @@ Merhaba aşağıdaki program gösterir nasıl yapılır:
                "Type":"SpReco"
             }]
         }
-3. Merhaba çıktı dosyalarını indirin. 
+3. Çıktı dosyalarını indirin. 
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
 
-Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dosyası bağlantı bilgileriyle doldurmak [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md). 
+Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) bölümünde açıklandığı gibi bağlantı bilgileriyle doldurun. 
 
 #### <a name="example"></a>Örnek
 
@@ -131,7 +131,7 @@ Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dos
     {
         class Program
         {
-            // Read values from hello App.config file.
+            // Read values from the App.config file.
             private static readonly string _AADTenantDomain =
                 ConfigurationManager.AppSettings["AADTenantDomain"];
             private static readonly string _RESTAPIEndpoint =
@@ -151,13 +151,13 @@ Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dos
                 var asset = RunIndexingJob(@"C:\supportFiles\Indexer\BigBuckBunny.mp4",
                                             @"C:\supportFiles\Indexer\config.json");
 
-                // Download hello job output asset.
+                // Download the job output asset.
                 DownloadAsset(asset, @"C:\supportFiles\Indexer\Output");
             }
 
             static IAsset RunIndexingJob(string inputMediaFilePath, string configurationFile)
             {
-                // Create an asset and upload hello input media file toostorage.
+                // Create an asset and upload the input media file to storage.
                 IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
                     "My Indexing Input Asset",
                     AssetCreationOptions.None);
@@ -165,38 +165,38 @@ Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dos
                 // Declare a new job.
                 IJob job = _context.Jobs.Create("My Indexing Job");
 
-                // Get a reference tooAzure Media Indexer 2 Preview.
+                // Get a reference to Azure Media Indexer 2 Preview.
                 string MediaProcessorName = "Azure Media Indexer 2 Preview";
 
                 var processor = GetLatestMediaProcessorByName(MediaProcessorName);
 
-                // Read configuration from hello specified file.
+                // Read configuration from the specified file.
                 string configuration = File.ReadAllText(configurationFile);
 
-                // Create a task with hello encoding details, using a string preset.
+                // Create a task with the encoding details, using a string preset.
                 ITask task = job.Tasks.AddNew("My Indexing Task",
                     processor,
                     configuration,
                     TaskOptions.None);
 
-                // Specify hello input asset toobe indexed.
+                // Specify the input asset to be indexed.
                 task.InputAssets.Add(asset);
 
-                // Add an output asset toocontain hello results of hello job.
+                // Add an output asset to contain the results of the job.
                 task.OutputAssets.AddNew("My Indexing Output Asset", AssetCreationOptions.None);
 
-                // Use hello following event handler toocheck job progress.  
+                // Use the following event handler to check job progress.  
                 job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
 
-                // Launch hello job.
+                // Launch the job.
                 job.Submit();
 
-                // Check job execution and wait for job toofinish.
+                // Check job execution and wait for job to finish.
                 Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 
                 progressJobTask.Wait();
 
-                // If job state is Error, hello event handling
+                // If job state is Error, the event handling
                 // method for job progress should log errors.  Here we check
                 // for error state and exit if needed.
                 if (job.State == JobState.Error)

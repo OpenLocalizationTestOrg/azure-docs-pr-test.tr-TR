@@ -1,6 +1,6 @@
 ---
-title: Azure VM'ler tooManaged diskleri aaaMigrate | Microsoft Docs
-description: "Yönetilmeyen diskleri depolama hesapları toouse yönetilen diskleri kullanılarak oluşturulan Azure sanal makineleri geçirin."
+title: "Yönetilen disklere Azure Vm'leri geçirme | Microsoft Docs"
+description: "Yönetilen diskleri kullanmak için yönetilmeyen diskleri depolama hesaplarında kullanılarak oluşturulan Azure sanal makineleri geçirin."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,53 +15,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 29420f13c4ffd5b25726e0ef1aafe89347286a89
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e23697b390e03bd2b71f2c905882070d864d62ed
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="migrate-azure-vms-toomanaged-disks-in-azure"></a>Azure VM'ler tooManaged diskleri Azure geçirme
+# <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Azure yönetilen disklere Azure Vm'leri geçirme
 
-Azure yönetilen diskleri hello gereksinimini ortadan kaldırarak depolama yönetimini basitleştirir tooseparately depolama hesapları yönetin.  Ayrıca, mevcut Azure VM'ler tooManaged diskleri toobenefit bir kullanılabilirlik kümesindeki VM'lerin daha iyi güvenilirlik geçiş. Bu, farklı sanal makineleri bir kullanılabilirlik kümesindeki hello disklerin her diğer tooavoid tek noktasından hatalar yeterince yalıtılmış olmasını sağlar. Otomatik olarak kümesindeki bir kullanılabilirlik tek depolama ölçek birimi hataları toohardware ve yazılım hatalarına neden hello etkisini sınırlayan farklı depolama ölçek birimlerinin (damgaları ') içindeki farklı VM'ler diskleri yerleştirir.
+Azure yönetilen diskleri ayrı ayrı depolama hesaplarını yönetmek için gereksinimini ortadan kaldırarak depolama yönetimini basitleştirir.  Ayrıca, mevcut Azure Vm'leriniz yönetilen bir kullanılabilirlik kümesindeki VM'lerin daha iyi güvenilirlik yararlanmasını diskleri geçirebilirsiniz. Bu, farklı sanal makineleri bir kullanılabilirlik kümesindeki disklerinin yeterince yalıtılmış tek hata noktası oluşmasını önlemek için birbirinden olmasını sağlar. Bir kullanılabilirlik tek depolama ölçek birimi hataları nedeniyle donanım neden ve yazılım hataları etkisini sınırlayan kümesinde içinde farklı depolama ölçek birimlerinin (damgaları ') farklı VM'ler diskleri otomatik olarak yerleştirir.
 Gereksinimlerinize bağlı olarak, iki tür depolama seçenekleri arasında seçim yapabilirsiniz:
 
-- [Premium yönetilen diskleri](../../storage/common/storage-premium-storage.md) olan düz durumu sürücüsü (SSD) dayalı depolama medyası, bir highperformance, g/Ç kullanımı yoğun iş yükleri çalıştıran sanal makineler için düşük gecikmeli disk desteği sunar. Merhaba hızı avantajlarından ve bu disklerin geçirme tooPremium yönetilen diskleri tarafından performansını alabilir.
+- [Premium yönetilen diskleri](../../storage/common/storage-premium-storage.md) olan düz durumu sürücüsü (SSD) dayalı depolama medyası, bir highperformance, g/Ç kullanımı yoğun iş yükleri çalıştıran sanal makineler için düşük gecikmeli disk desteği sunar. Premium yönetilen disklere geçirerek hızını avantajlarından ve bu disklerin performansını alabilir.
 
-- [Standart yönetilen disk](../../storage/common/storage-standard-storage.md) geliştirme ve Test ve daha az hassas tooperformance değişkenlik olan diğer sık erişim iş yükleri için en uygun ve Sabit Disk sürücüsü (HDD) dayalı depolama medya kullanın.
+- [Standart yönetilen disk](../../storage/common/storage-standard-storage.md) geliştirme ve Test ve performans değişkenlik için daha az hassas diğer sık erişim iş yükleri için en uygun ve Sabit Disk sürücüsü (HDD) dayalı depolama medya kullanın.
 
-Aşağıdaki senaryolarda tooManaged diskleri geçirebilirsiniz:
+Aşağıdaki senaryolarda yönetilen disklere geçirebilirsiniz:
 
 | Geçir...                                            | Belge bağlantı                                                                                                                                                                                                                                                                  |
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Tek başına VM'ler ve sanal makineleri bir kullanılabilirlik kümesi toomanaged diskleri dönüştürme   | [Sanal makineleri yönetilen toouse diskleri dönüştürme](convert-unmanaged-to-managed-disks.md) |
-| Yönetilen disklerde Klasik tooResource Manager tek bir VM'den     | [Tek bir VM geçirme](migrate-single-classic-to-resource-manager.md)  | 
-| Bir sanal ağdan yönetilen disklerde Klasik tooResource Yöneticisi tüm hello Vm'lerde     | [Iaas kaynaklarını Klasik tooResource Yöneticisi geçirme](migration-classic-resource-manager-ps.md) ve ardından [VM yönetilmeyen diskleri toomanaged disklerden Dönüştür](convert-unmanaged-to-managed-disks.md) | 
+| Tek başına VM'ler ve sanal makineleri bir kullanılabilirlik kümesinde yönetilen Diske Dönüştür   | [Yönetilen diskleri kullanmak için sanal makineleri Dönüştür](convert-unmanaged-to-managed-disks.md) |
+| Bir tek VM'den Klasik yönetilen disklerde Kaynak Yöneticisi     | [Tek bir VM geçirme](migrate-single-classic-to-resource-manager.md)  | 
+| Bir sanal ağdan Klasik Kaynak Yöneticisi yönetilen disklerdeki tüm sanal makineleri     | [Iaas kaynaklarını Klasikten Resource Manager geçirme](migration-classic-resource-manager-ps.md) ve ardından [VM yönetilmeyen disklerden yönetilen Diske Dönüştür](convert-unmanaged-to-managed-disks.md) | 
 
 
 
 
 
 
-## <a name="plan-for-hello-conversion-toomanaged-disks"></a>Plan hello dönüştürme için tooManaged diskleri
+## <a name="plan-for-the-conversion-to-managed-disks"></a>Yönetilen diskleri dönüştürme için planlama
 
-Bu bölümde, VM ve disk türleri hakkında toomake hello en iyi karar yardımcı olur.
+Bu bölümde, VM ve disk türlerinde en iyi kararı yardımcı olur.
 
 
 ## <a name="location"></a>Konum
 
-Azure yönetilen diskleri kullanılabildiği bir konum seçin. TooPremium yönetilen diskleri taşıyorsanız, aynı zamanda Premium depolama burada toomove için planlama hello bölgede kullanılabilir olduğundan emin olun. Bkz: [bölgeye göre Azure Hizmetleri](https://azure.microsoft.com/regions/#services) kullanılabilir konumları hakkında güncel bilgi.
+Azure yönetilen diskleri kullanılabildiği bir konum seçin. Premium yönetilen disklere taşıyorsanız, aynı zamanda Premium depolama burada taşımayı planlıyorsanız bölgede kullanılabilir olduğundan emin olun. Bkz: [bölgeye göre Azure Hizmetleri](https://azure.microsoft.com/regions/#services) kullanılabilir konumları hakkında güncel bilgi.
 
 ## <a name="vm-sizes"></a>VM boyutları
 
-TooPremium yönetilen diskleri geçiriyorsanız, VM bulunduğu hello bölgede tooupdate hello hello VM tooPremium depolama özellikli boyutu kullanılabilir boyutuna sahip. Premium depolama özellikli hello VM boyutları gözden geçirin. Hello Azure VM boyutu belirtimleri içinde listelenen [sanal makineler için Boyutlar](sizes.md).
-Premium Storage ile birlikte çalışmak ve işleminizi iş yükü en çok uyan hello en uygun VM boyutunu seçin sanal makineleri Hello performans özellikleri gözden geçirin. Yeterli bant genişliği kullanılabilir VM toodrive hello disk trafiğinde bulunduğundan emin olun.
+Premium yönetilen disklere geçiriyorsanız, Premium depolama yeteneğine sahip bir boyut kullanılabilir VM bulunduğu bölgede VM boyutu güncelleştirmeniz gerekir. Premium depolama özelliğine sahip VM boyutları gözden geçirin. Azure VM boyutu belirtimleri listelenen [sanal makineler için Boyutlar](sizes.md).
+Premium Storage ile birlikte çalışmak ve İş yükünüzün uygun en uygun VM boyutunu seçin sanal makineleri performans özelliklerini gözden geçirin. Yeterli bant genişliği kullanılabilir disk trafiği sürücü için de kendi VM'nizi bulunduğundan emin olun.
 
 ## <a name="disk-sizes"></a>Disk boyutları
 
 **Premium yönetilen diskleri**
 
-VM ile kullanılan yönetilen premium diskleri yedi tür vardır ve her belirli IOPS ve üretilen iş sahip sınırlar. Bu sınırlar yoğun yükler ve kapasite, performans, ölçeklenebilirlik açısından, uygulamanızın hello gereksinimlerine hello Premium disk türü, VM için temel seçerken dikkate.
+VM ile kullanılan yönetilen premium diskleri yedi tür vardır ve her belirli IOPS ve üretilen iş sahip sınırlar. Bu sınırlar yoğun yükler ve kapasite, performans, ölçeklenebilirlik açısından, uygulamanızın gereksinimlerine, VM için Premium disk türü seçme temel yaparken dikkate.
 
 | Premium diskler türü  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
@@ -71,7 +71,7 @@ VM ile kullanılan yönetilen premium diskleri yedi tür vardır ve her belirli 
 
 **Standart yönetilen disk**
 
-VM ile kullanılabilecek standart yönetilen disk yedi türü vardır. Bunların her biri farklı kapasiteye sahip ancak aynı IOPS ve üretilen iş sınırı vardır. Standart yönetilen disk uygulamanızın hello kapasite gereksinimlerine göre Hello türünü seçin.
+VM ile kullanılabilecek standart yönetilen disk yedi türü vardır. Bunların her biri farklı kapasiteye sahip ancak aynı IOPS ve üretilen iş sınırı vardır. Uygulamanızı kapasite gereksinimlerine göre standart yönetilen disk türünü seçin.
 
 | Standart Disk Türü  | S4               | S6               | S10              | S20              | S30              | S40              | S50              | 
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------| 
@@ -83,11 +83,11 @@ VM ile kullanılabilecek standart yönetilen disk yedi türü vardır. Bunların
 
 **Premium yönetilen diskleri**
 
-Varsayılan olarak, ilke önbelleğe alma disktir *salt okunur* tüm Premium diskleri hello için ve *okuma-yazma* hello Premium işletim sistemi diski için toohello VM bağlı. Bu yapılandırma ayarının tooachieve hello en iyi performans için uygulamanızın IOs önerilir. (SQL Server günlük dosyaları gibi) ağır yazma ya da salt yazılır veri diskleri için daha iyi uygulama performansı elde etmek için disk önbelleğe almayı devre dışı bırakın.
+Varsayılan olarak, ilke önbelleğe alma disktir *salt okunur* tüm Premium veri diskleri için ve *okuma-yazma* için Premium işletim sistemi diski VM'ye eklenmiş. Bu yapılandırma ayarının uygulamanızın IOs için en iyi performans elde etmek için önerilir. (SQL Server günlük dosyaları gibi) ağır yazma ya da salt yazılır veri diskleri için daha iyi uygulama performansı elde etmek için disk önbelleğe almayı devre dışı bırakın.
 
 ## <a name="pricing"></a>Fiyatlandırma
 
-Gözden geçirme hello [yönetilen diskler için fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Premium diskler yönetilen fiyatlandırma hello Premium yönetilmeyen diskleri aynıdır. Ancak standart yönetilen disk için fiyatlandırma standart yönetilmeyen disklerden farklı.
+Gözden geçirme [yönetilen diskler için fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/managed-disks/). Premium diskler yönetilen fiyatlandırma Premium yönetilmeyen diskleri olarak aynıdır. Ancak standart yönetilen disk için fiyatlandırma standart yönetilmeyen disklerden farklı.
 
 
 

@@ -14,40 +14,40 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/24/2017
 ms.author: joroja
-ms.openlocfilehash: cec6c6e110514a8bbe0e0780f36738ff21ae2f00
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: eb44a0d2234c9ee3801d8b3a1655d877aa2f4fef
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>İzlenecek yol: Kullanıcı girişi doğrulama olarak Azure AD B2C kullanıcı Yolculuğunuzun REST API talep alışverişlerine tümleştirme
 
-Hello Azure Active Directory B2C altını çizen kimlik deneyimi Framework (IEF) (Azure AD B2C) hello kimlik Geliştirici toointegrate kullanıcı gezisine bir RESTful API'si ile etkileşim sağlar.  
+Azure Active Directory B2C altını çizen kimlik deneyimi Framework (IEF) (Azure AD B2C) etkileşim kullanıcı gezisine bir RESTful API'si ile tümleştirmek kimlik Geliştirici sağlar.  
 
-Bu kılavuzda Hello sonunda mümkün toocreate RESTful hizmetlerle etkileşimde bulunan bir Azure AD B2C kullanıcı gezisine olacaktır.
+Bu kılavuzun sonunda RESTful hizmetlerle etkileşimde bulunan bir Azure AD B2C kullanıcı gezisine oluşturmak mümkün olacaktır.
 
-Merhaba IEF Taleplerde verileri gönderir ve geri Taleplerde verilerini alır. Merhaba API etkileşim Hello:
+IEF Taleplerde verileri gönderir ve geri Taleplerde verilerini alır. API ile etkileşim:
 
 - Bir REST API talep exchange veya orchestration adım içinde olur bir doğrulama profili olarak tasarlanmış olabilir.
-- Genellikle hello kullanıcıdan giriş doğrular. Merhaba kullanıcı Hello değerinden reddedilirse, hello kullanıcı tooenter hello fırsat tooreturn bir hata iletisi geçerli bir değerle yeniden deneyebilirsiniz.
+- Genellikle, kullanıcıdan girdi doğrular. Kullanıcı değerinden reddedilirse, kullanıcı bir hata iletisi döndürmek için fırsat ile geçerli bir değer girmesini yeniden deneyebilirsiniz.
 
-Orchestration adım olarak hello etkileşim de tasarlayabilirsiniz. Daha fazla bilgi için bkz: [izlenecek yol: REST API tümleştirme talep Azure AD B2C kullanıcı Yolculuğunuzun bir orchestration adım olarak alışverişlerine](active-directory-b2c-rest-api-step-custom.md).
+Orchestration adım olarak etkileşim de tasarlayabilirsiniz. Daha fazla bilgi için bkz: [izlenecek yol: REST API tümleştirme talep Azure AD B2C kullanıcı Yolculuğunuzun bir orchestration adım olarak alışverişlerine](active-directory-b2c-rest-api-step-custom.md).
 
-Merhaba doğrulama profili örneğin hello başlangıç paketi dosyasını ProfileEdit.xml hello profil düzenleme kullanıcı gezisine kullanacağız.
+Doğrulama profil örneği için başlangıç paketi dosyasında ProfileEdit.xml profil düzenleme kullanıcı gezisine kullanacağız.
 
-Hello profil hello kullanıcı tarafından düzenleme bir dışlama listesinde yer sağlanan Biz bu hello adı doğrulayabilirsiniz.
+Profil düzenleme kullanıcı tarafından sağlanan adı bir çıkarma listesi parçası olmadığından emin olun.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-- Azure AD B2C Kiracı yapılandırılmış toocomplete oturumu-up/oturum açıklandığı gibi açma, yerel bir hesap [Başlarken](active-directory-b2c-get-started-custom.md).
-- REST API uç noktası toointeract ile. Bu kılavuzda, biz adında bir gösteri sitesi ayarladınız [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) bir REST API hizmetiyle.
+- Bölümünde açıklandığı gibi bir yerel hesap oturumu-up/oturum açmayı tamamlamak için yapılandırılmış bir Azure AD B2C kiracısı [Başlarken](active-directory-b2c-get-started-custom.md).
+- Etkileşim için bir REST API uç noktası. Bu kılavuzda, biz adında bir gösteri sitesi ayarladınız [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) bir REST API hizmetiyle.
 
-## <a name="step-1-prepare-hello-rest-api-function"></a>1. adım: hello REST API işlevi hazırlama
+## <a name="step-1-prepare-the-rest-api-function"></a>1. adım: REST API işlevi hazırlama
 
 > [!NOTE]
-> REST API işlevleri bu makalenin kapsamı dışındadır hello kurulması. [Azure işlevleri](https://docs.microsoft.com/azure/azure-functions/functions-reference) toocreate RESTful hizmetlerini hello bulutta mükemmel bir araç sağlar.
+> REST API işlevleri bu makalenin kapsamı dışındadır kurulması. [Azure işlevleri](https://docs.microsoft.com/azure/azure-functions/functions-reference) RESTful hizmetlerini bulutta oluşturmak için mükemmel bir araç sağlar.
 
-Olarak bekliyor bir talep aldığında bir Azure işlevi oluşturduk `playerTag`. Merhaba işlevi bu talep var olup olmadığını doğrular. Merhaba tam Azure işlev kodu erişebilirsiniz [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
+Olarak bekliyor bir talep aldığında bir Azure işlevi oluşturduk `playerTag`. Bu talep var olup olmadığını işlevini doğrular. Tam Azure işlev kodu erişebilirsiniz [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
 
 ```csharp
 if (requestContentAsJObject.playerTag == null)
@@ -65,7 +65,7 @@ if (playerTag == "mcvinny" || playerTag == "msgates123" || playerTag == "revcott
     {
       version = "1.0.0",
       status = (int) HttpStatusCode.Conflict,
-      userMessage = $"hello player tag '{requestContentAsJObject.playerTag}' is already used."
+      userMessage = $"The player tag '{requestContentAsJObject.playerTag}' is already used."
     },
     new JsonMediaTypeFormatter(),
     "application/json");
@@ -74,14 +74,14 @@ if (playerTag == "mcvinny" || playerTag == "msgates123" || playerTag == "revcott
 return request.CreateResponse(HttpStatusCode.OK);
 ```
 
-Merhaba IEF bekliyor hello `userMessage` talep bu hello Azure işlevi döndürür. 409 çakışma durumu örnek önceki hello döndürüldüğünde gibi Hello doğrulama başarısız olursa bu talebi bir dize toohello kullanıcı olarak sunulur.
+IEF bekliyor `userMessage` talep, Azure işlevi döndürür. Bu talep 409 çakışma durum önceki örnekte döndürüldüğünde gibi doğrulama başarısız olursa kullanıcıya bir dize olarak sunulur.
 
-## <a name="step-2-configure-hello-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>2. adım: hello RESTful API'si talep exchange TrustFrameworkExtensions.xml dosyanızdaki teknik bir profil olarak yapılandırın.
+## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>2. adım: RESTful API'si talep exchange TrustFrameworkExtensions.xml dosyanızdaki teknik bir profil olarak yapılandırın.
 
-Teknik bir profili hello tam hello Exchange hello RESTful hizmeti ile istenen bir yapılandırmadır. Merhaba TrustFrameworkExtensions.xml dosyasını açın ve aşağıdaki XML parçacığını hello içinde hello ekleyin `<ClaimsProviders>` öğesi.
+İstenen RESTful hizmeti ile exchange tam yapılandırmasını bir teknik profilidir. TrustFrameworkExtensions.xml dosyasını açın ve aşağıdaki XML parçacığını içine ekleyin `<ClaimsProviders>` öğesi.
 
 > [!NOTE]
-> XML, RESTful sağlayıcısı aşağıdaki hello içinde `Version=1.0.0.0` hello protokolü olarak tanımlanır. Merhaba dış hizmetiyle etkileşime gireceğini hello işlevi olarak düşünün. <!-- TODO: A full definition of hello schema can be found...link tooRESTful Provider schema definition>-->
+> Aşağıdaki XML, RESTful sağlayıcısı `Version=1.0.0.0` protokol olarak açıklanmıştır. Dış hizmetiyle etkileşime gireceğini işlevi olarak düşünün. <!-- TODO: A full definition of the schema can be found...link to RESTful Provider schema definition>-->
 
 ```xml
 <ClaimsProvider>
@@ -109,26 +109,26 @@ Teknik bir profili hello tam hello Exchange hello RESTful hizmeti ile istenen bi
 </ClaimsProvider>
 ```
 
-Merhaba `InputClaims` öğesi IEF toohello REST hizmeti hello gönderilecek hello talepleri tanımlar. Bu örnekte, hello hello talep içeriğini `givenName` toohello REST hizmeti olarak gönderilecek `playerTag`. Bu örnekte, IEF değil beklediğiniz hello geri talepleri. Bunun yerine, hello REST hizmeti ve aldığı hello durum kodlarına dayalı davranır yanıt bekler.
+`InputClaims` Öğesi IEF REST hizmeti gönderilecek Talepleri tanımlar. Bu örnekte, talep içeriğini `givenName` REST hizmeti olarak gönderilir `playerTag`. Bu örnekte, talep geri IEF beklemiyor. Bunun yerine, aldığı durum kodlarına dayalı davranır ve REST hizmeti yanıt bekler.
 
-## <a name="step-3-include-hello-restful-service-claims-exchange-in-self-asserted-technical-profile-where-you-want-toovalidate-hello-user-input"></a>3. adım: hello RESTful Hizmeti talepleri exchange toovalidate hello kullanıcı girişi istediğiniz Self sürülen teknik profiline Ekle
+## <a name="step-3-include-the-restful-service-claims-exchange-in-self-asserted-technical-profile-where-you-want-to-validate-the-user-input"></a>3. adım: RESTful Hizmeti talepleri exchange kullanıcı girişi doğrulamak istediğiniz Self sürülen teknik profiline Ekle
 
-Merhaba en yaygın hello doğrulama adımı, bir kullanıcı ile Merhaba etkileşim kullanılır. Merhaba kullanıcı girişi beklenen tooprovide olduğu tüm etkileşimler *teknik profilleri otomatik olarak uygulanan*. Bu örnekte, hello doğrulama toohello kendi Asserted ProfileUpdate teknik profili ekleyeceğiz. Bu, bağlı olan taraf (RP) ilke dosyası hello hello teknik profilidir `Profile Edit` kullanır.
+Doğrulama adımını en yaygın kullanımı bir kullanıcıyla etkileşim bağlıdır. Burada kullanıcının beklenmektedir giriş sağlamak için tüm etkileşimler *teknik profilleri otomatik olarak uygulanan*. Bu örnekte, kendi Asserted ProfileUpdate teknik profili doğrulama ekleyeceğiz. Bu teknik olduğu profilini bağlı olan taraf (RP) ilke dosyası `Profile Edit` kullanır.
 
-Teknik profili otomatik olarak uygulanan tooadd hello talep exchange toohello:
+Talep exchange Self sürülen teknik profiline eklemek için:
 
-1. Açık hello TrustFrameworkBase.xml dosyasını ve arama `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`.
-2. Bu teknik profili Hello yapılandırmasını gözden geçirin. Merhaba kullanıcısı (giriş talep) istenir talepleri ve geri hello Self sürülen Sağlayıcısı'ndan (çıkış talep) beklenen talepler olarak hello exchange hello kullanıcı ile nasıl tanımlanan gözlemleyin.
+1. TrustFrameworkBase.xml dosyasını açın ve arama `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`.
+2. Bu teknik profil yapılandırmasını gözden geçirin. Kullanıcı ile exchange kullanıcısı (giriş talep) istenir talepleri ve geri Self sürülen Sağlayıcısı'ndan (çıkış talep) beklenen talepler olarak nasıl tanımlanır gözlemleyin.
 3. Arama `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`ve bu profili orchestration 6. adım çağrılır fark `<UserJourney Id="ProfileEdit">`.
 
-## <a name="step-4-upload-and-test-hello-profile-edit-rp-policy-file"></a>4. adım: Karşıya yükleme ve test hello profil düzenleme RP ilke dosyası
+## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>4. adım: Karşıya yükleme ve test profil düzenleme RP ilke dosyası
 
-1. Merhaba hello TrustFrameworkExtensions.xml dosyasının yeni sürümünü yükleyin.
-2. Kullanım **Şimdi Çalıştır** tootest hello profil RP ilke dosyasını düzenleyin.
-3. Test hello doğrulama hello var olan adlar (örneğin, mcvinny) birini sağlayarak hello **verilen ad** alan. Her şeyin doğru şekilde ayarlanmış olması durumunda hello kullanıcı hello player etiketi zaten kullanıldığını bildiren bir ileti alırsınız.
+1. TrustFrameworkExtensions.xml dosyasının yeni sürümünü yükleyin.
+2. Kullanım **Şimdi Çalıştır** profil düzenleme RP ilke dosyası test etmek için.
+3. Doğrulama var olan adlar (örneğin, mcvinny) birini sağlayarak test **verilen ad** alan. Her şeyin doğru şekilde ayarlanmış olması durumunda kullanıcı player etiketi zaten kullanıldığını bildiren bir ileti alırsınız.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Hello profil düzenleme ve kullanıcı kayıt toogather ek bilgileri, kullanıcılarınızın değiştirin](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
+[Kullanıcılardan ek bilgi toplamak için profil düzenleme ve kullanıcı kaydı değiştirin](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 
 [İzlenecek yol: Azure AD B2C kullanıcı Yolculuğunuzun REST API talep alışverişlerine orchestration adım olarak tümleştirin.](active-directory-b2c-rest-api-step-custom.md)

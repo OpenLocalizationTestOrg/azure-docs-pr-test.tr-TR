@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL Data Warehouse aaaData türleri Kılavuzu - | Microsoft Docs"
-description: "Öneriler toodefine veri türleri SQL Data Warehouse ile uyumlu değildir."
+title: "Veri türleri Kılavuzu - Azure SQL Data Warehouse | Microsoft Docs"
+description: "SQL veri ambarı ile uyumlu olan veri türlerini tanımlamak için öneriler sunar."
 services: sql-data-warehouse
 documentationcenter: NA
 author: shivaniguptamsft
@@ -15,29 +15,29 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 06/02/2017
 ms.author: shigu;barbkess
-ms.openlocfilehash: a2f7a394feb73d273b25101735b00eb12db2b292
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5c24c71af16bd9851d9caf15fecfa4bb76f5f77e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="guidance-for-defining-data-types-for-tables-in-sql-data-warehouse"></a>SQL veri ambarı'nda tabloları veri türlerini tanımlama Kılavuzu
-SQL veri ambarı ile uyumlu olan bu önerileri toodefine tablo veri türlerini kullanın. Ayrıca veri türlerinin hello boyutu en aza toocompatibility, sorgu performansı artırır.
+Bu öneriler, SQL Data Warehouse ile uyumlu olan tablo veri türlerini tanımlamak için kullanın. Uyumluluk ek olarak, veri türlerinin boyutu en aza sorgu performansını artırır.
 
-SQL veri ambarı hello en yaygın olarak kullanılan veri türlerini destekler. Desteklenen hello veri türlerinin listesi için bkz: [veri türleri](/sql/docs/t-sql/statements/create-table-azure-sql-data-warehouse.md#datatypes) hello CREATE TABLE deyimi içinde. 
+SQL veri ambarı desteklediği veri türleri en yaygın olarak kullanılır. Desteklenen veri türleri listesi için bkz: [veri türleri](/sql/docs/t-sql/statements/create-table-azure-sql-data-warehouse.md#datatypes) CREATE TABLE deyimi içinde. 
 
 
 ## <a name="minimize-row-length"></a>Satır uzunluğu simge durumuna küçült
-Veri türlerinin Hello boyutu en aza toobetter sorgu performansı müşteri adayları hello satır uzunluğu kısaltır. Çalışan hello en küçük veri türü, verileriniz için kullanın. 
+Veri türlerinin boyutu en aza indirmek için daha iyi sorgu performansını müşteri adayları satır uzunluğu kısaltır. Çalışan en küçük veri türü, verileriniz için kullanın. 
 
-- Büyük varsayılan uzunluk karakter sütunlarla tanımlamamaya özen gösterin. Örneğin, Hello uzun değer 25 karakterden oluşuyorsa, sütun VARCHAR(25) tanımlayın. 
+- Büyük varsayılan uzunluk karakter sütunlarla tanımlamamaya özen gösterin. Örneğin, en uzun değer 25 karakterden oluşuyorsa, sütun VARCHAR(25) tanımlayın. 
 - Kullanmaktan kaçının [NVARCHAR] [ NVARCHAR] yalnızca gerektiğinde VARCHAR.
 - Mümkün olduğunda, NVARCHAR(4000) veya VARCHAR(8000) NVARCHAR(MAX) veya VARCHAR(MAX) yerine kullanın.
 
-Polybase tooload tabloları kullanıyorsanız, 1 MB hello tablo satırı tanımlanan hello uzunluğu aşamaz. Değişken uzunluklu veri sahip bir satır 1 MB aştığında hello satır ile BCP, ancak değil PolyBase yükleyebilirsiniz.
+Polybase tablolarınızı yüklemek için kullanıyorsanız, tablo satırı tanımlanan uzunluğu 1 MB aşamaz. Değişken uzunluklu veri sahip bir satır 1 MB aşarsa, satır ile BCP, ancak değil PolyBase yükleyebilirsiniz.
 
 ## <a name="identify-unsupported-data-types"></a>Desteklenmeyen veri türlerini tanımlayın
-Başka bir SQL veritabanı, veritabanınızı geçiriyorsanız, SQL veri ambarı'nda desteklenmeyen veri türleri karşılaşabilirsiniz. Bu sorgu toodiscover desteklenmeyen veri türleri, var olan SQL şemasında kullanın.
+Başka bir SQL veritabanı, veritabanınızı geçiriyorsanız, SQL veri ambarı'nda desteklenmeyen veri türleri karşılaşabilirsiniz. Desteklenmeyen veri türleri, var olan SQL şemasında bulmak için bu sorguyu kullanın.
 
 ```sql
 SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_defined], y.[name]
@@ -51,7 +51,7 @@ WHERE y.[name] IN ('geography','geometry','hierarchyid','image','text','ntext','
 
 ## <a name="unsupported-data-types"></a>Desteklenmeyen veri türleri için kullanım geçici çözümler
 
-Merhaba aşağıdaki listede hello SQL Data Warehouse desteklemediği veri türleri gösterir ve hello yerine kullanabileceğiniz verir alternatifleri veri türleri desteklenmiyor.
+Aşağıdaki liste, veri türleri SQL Data Warehouse desteklemediği ve desteklenmeyen veri türleri yerine kullanabileceğiniz sunacaktır gösterir.
 
 | Desteklenmeyen veri türü | Geçici çözüm |
 | --- | --- |
@@ -62,15 +62,15 @@ Merhaba aşağıdaki listede hello SQL Data Warehouse desteklemediği veri türl
 | [metin][ntext,text,image] |[varchar][varchar] |
 | [ntext][ntext,text,image] |[nvarchar][nvarchar] |
 | [sql_variant][sql_variant] |Sütun birkaç kesin türü belirtilmiş sütuna bölün. |
-| [Tablo][table] |Tootemporary tabloları Dönüştür. |
-| [zaman damgası][timestamp] |Kod toouse rework [datetime2] [ datetime2] ve `CURRENT_TIMESTAMP` işlevi.  Yalnızca sabit değerleri desteklenir varsayılan olarak, bu nedenle current_timestamp varsayılan kısıtlama olarak tanımlanamaz. Toomigrate satır sürümü bir zaman damgası yazılan sütun değerlerinden ihtiyacınız varsa, daha sonra kullanmak [ikili][BINARY](8) veya [VARBINARY][BINARY](8) için NOT NULL veya Satır sürümü değerleri NULL. |
+| [Tablo][table] |Geçici tablolara dönüşür. |
+| [zaman damgası][timestamp] |Kullanmak için kodu rework [datetime2] [ datetime2] ve `CURRENT_TIMESTAMP` işlevi.  Yalnızca sabit değerleri desteklenir varsayılan olarak, bu nedenle current_timestamp varsayılan kısıtlama olarak tanımlanamaz. Zaman damgası yazılan sütundan satır sürümü değerleri geçirmek gerekiyorsa, daha sonra kullanmak [ikili][BINARY](8) veya [VARBINARY][BINARY](8) için NOT NULL veya Satır sürümü değerleri NULL. |
 | [XML][xml] |[varchar][varchar] |
-| [Kullanıcı tanımlı tür][user defined types] |Mümkün olduğunda geri toohello yerel veri türüne dönüştürün. |
+| [Kullanıcı tanımlı tür][user defined types] |Geri mümkün olduğunda gibi bir yerel veri türüne dönüştürün. |
 | Varsayılan değerler | Varsayılan değerleri değişmez değerleri ve yalnızca sabitleri desteklemez.  Belirleyici olmayan ifadeleri ve İşlevler, gibi `GETDATE()` veya `CURRENT_TIMESTAMP`, desteklenmez. |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-toolearn daha bakın:
+Daha fazla bilgi için bkz:
 
 - [SQL veri ambarı en iyi uygulamalar][SQL Data Warehouse Best Practices]
 - [Tablo genel bakış][Overview]

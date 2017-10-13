@@ -1,6 +1,6 @@
 ---
-title: "Yük dengeli kümeleri ile aaaClusterize MySQL | Microsoft Docs"
-description: "Linux MySQL kümesi azure'da hello Klasik dağıtım modeliyle oluşturulan bir yük dengeli, yüksek kullanılabilirlik ayarlama"
+title: "Yük dengeli kümeleri MySQL clusterize | Microsoft Docs"
+description: "Linux MySQL kümesi azure'da Klasik dağıtım modeliyle oluşturulan bir yük dengeli, yüksek kullanılabilirlik ayarlama"
 services: virtual-machines-linux
 documentationcenter: 
 author: bureado
@@ -15,34 +15,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2015
 ms.author: jparrel
-ms.openlocfilehash: 1829fd877c4b0ed177b23a8e3404dbb3db746561
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4eaf86c9ac3e4dc2b51b88383626eda774cab0e9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="use-load-balanced-sets-tooclusterize-mysql-on-linux"></a>Yük dengeli kümeleri tooclusterize MySQL Linux'ta kullanın
+# <a name="use-load-balanced-sets-to-clusterize-mysql-on-linux"></a>MySQL Linux'ta clusterize için yük dengeli kümeleri kullanın
 > [!IMPORTANT]
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Azure Resource Manager](../../../resource-manager-deployment-model.md) ve klasik. Bu makalede, hello Klasik dağıtım modeli kullanılarak yer almaktadır. Microsoft, en yeni dağıtımların hello Resource Manager modelini kullanmasını önerir. A [Resource Manager şablonu](https://azure.microsoft.com/documentation/templates/mysql-replication/) toodeploy bir MySQL kümesi ihtiyacınız varsa kullanılabilir.
+> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Azure Resource Manager](../../../resource-manager-deployment-model.md) ve klasik. Bu makale klasik dağıtım modelini incelemektedir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. A [Resource Manager şablonu](https://azure.microsoft.com/documentation/templates/mysql-replication/) MySQL Küme dağıtımı yapmanız gerekirse kullanılabilir.
 
-Bu makalede inceler ve hello farklı yaklaşımlar kullanılabilir toodeploy yüksek oranda kullanılabilir Linux tabanlı hizmetler MySQL Server yüksek kullanılabilirlik öncü olarak keşfetme Microsoft Azure üzerinde gösterilmektedir. Bu yaklaşım gösteren bir video kullanılabilir [Channel 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL).
+Bu makalede inceler ve MySQL Server yüksek kullanılabilirlik öncü olarak keşfetme Microsoft Azure üzerinde yüksek oranda kullanılabilir Linux tabanlı hizmetler dağıtmak kullanılabilir farklı yaklaşımlara göstermektedir. Bu yaklaşım gösteren bir video kullanılabilir [Channel 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL).
 
-Biz DRBD, Corosync ve Pacemaker göre hiçbir şey paylaşılmayan, iki düğümlü ve tek yöneticili MySQL yüksek kullanılabilirlik çözümü özetler. Yalnızca bir düğüm MySQL aynı anda çalıştırır. Okuma ve yazma DRBD kaynak hello de sınırlı tooonly bir aynı anda düğümdür.
+Biz DRBD, Corosync ve Pacemaker göre hiçbir şey paylaşılmayan, iki düğümlü ve tek yöneticili MySQL yüksek kullanılabilirlik çözümü özetler. Yalnızca bir düğüm MySQL aynı anda çalıştırır. Aynı zamanda okuma ve yazma DRBD kaynaktan aynı anda yalnızca bir düğüme sınırlıdır.
 
-Microsoft Azure tooprovide hepsini işlevselliği ve uç nokta algılama, kaldırma ve hello VIP normal kurtarılması yük dengelemeli kümelerinde kullanacağınız çünkü LVS gibi bir VIP çözümü için gerek yoktur. Merhaba VIP hello bulut hizmeti ilk oluşturduğunuzda Microsoft Azure tarafından atanan genel olarak yönlendirilebilir bir IPv4 adresi değil.
+Yük dengeli kümeleri Microsoft Azure'da hepsini işlevselliği ve uç nokta algılama, kaldırma ve VIP normal kurtarılmasını sağlamak için kullanacağınız çünkü LVS gibi bir VIP çözümü için gerek yoktur. VIP, bulut hizmeti ilk oluşturduğunuzda Microsoft Azure tarafından atanan genel olarak yönlendirilebilir bir IPv4 adresidir.
 
-Diğer olası mimari NBD küme, Percona, Galera ve en az bir de dahil olmak üzere çeşitli ara yazılımı çözümler de dahil olmak üzere MySQL için bir VM olarak kullanılabilir [VM deposu](http://vmdepot.msopentech.com). Bu çözümlerin tek noktaya yayın ve çok noktaya yayın veya yayın üzerinde çoğaltabilir ve paylaşılan depolama ortamı veya birden çok ağ arabirimi güvenmeyin sürece hello senaryoları kolay toodeploy Microsoft Azure üzerinde olmalıdır.
+Diğer olası mimari NBD küme, Percona, Galera ve en az bir de dahil olmak üzere çeşitli ara yazılımı çözümler de dahil olmak üzere MySQL için bir VM olarak kullanılabilir [VM deposu](http://vmdepot.msopentech.com). Bu çözümlerin tek noktaya yayın ve çok noktaya yayın veya yayın üzerinde çoğaltabilir ve paylaşılan depolama ortamı veya birden çok ağ arabirimi güvenmeyin sürece senaryolar Microsoft Azure'da dağıtmak kolay olmalıdır.
 
-Bunlar mimarileri kümeleme PostgreSQL ve OpenLDAP gibi tooother ürün benzer bir şekilde genişletilebilir. Örneğin, bu yük dengeleyici yordamı paylaşılmadığı ile başarıyla çok ana OpenLDAP ile test edilmiştir ve bizim Channel 9 blogunda izleyebilirsiniz.
+Bunlar mimarileri kümeleme PostgreSQL ve OpenLDAP gibi diğer ürünlere yönelik benzer bir şekilde genişletilebilir. Örneğin, bu yük dengeleyici yordamı paylaşılmadığı ile başarıyla çok ana OpenLDAP ile test edilmiştir ve bizim Channel 9 blogunda izleyebilirsiniz.
 
 ## <a name="get-ready"></a>Hazırlanma
-Merhaba aşağıdakiler kaynakları ve yeteneklerini:
+Aşağıdaki kaynaklar ve yeteneklerini gerekir:
 
-  - Bir Microsoft Azure hesap mümkün toocreate bir geçerli abonelik en az iki sanal makineleri (Bu örnekte XS kullanılan)
+  - Geçerli bir abonelik, en az iki VM oluşturabilmek için bir Microsoft Azure hesabı (Bu örnekte XS kullanılan)
   - Bir ağ ve bir alt ağ
   - Bir benzeşim grubu
   - Bir kullanılabilirlik kümesi
-  - özelliği toocreate VHD'ler hello hello hello bulut hizmeti ile aynı bölgeye ve toohello Linux VM'ler ekleme
+  - Bulut hizmeti ile aynı bölgede VHD oluşturma ve Linux VM'ler ekleme olanağı
 
 ### <a name="tested-environment"></a>Sınanan ortamı
 * Ubuntu 13.10
@@ -51,36 +51,36 @@ Merhaba aşağıdakiler kaynakları ve yeteneklerini:
   * Corosync ve Pacemaker
 
 ### <a name="affinity-group"></a>Benzeşim grubu
-Toohello Klasik Azure portalında oturum açarak hello çözüm için benzeşim grubu oluşturmak seçme **ayarları**ve bir benzeşim grubu oluşturma. Daha sonra oluşturulan ayrılan kaynakları toothis benzeşim grubu atanır.
+Azure Klasik portalında oturum açarak çözüm için benzeşim grubu oluşturmak seçme **ayarları**ve bir benzeşim grubu oluşturma. Daha sonra oluşturulan ayrılan kaynakları bu benzeşim grubuna atanır.
 
 ### <a name="networks"></a>Ağlar
-Yeni bir ağ oluşturulur ve bir alt ağ hello ağı içinde oluşturulur. Bu örnek 10.10.10.0/24 ağ içinde yalnızca bir /24 alt ağ ile kullanır.
+Yeni bir ağ oluşturulur ve bir alt ağ içinde oluşturulur. Bu örnek 10.10.10.0/24 ağ içinde yalnızca bir /24 alt ağ ile kullanır.
 
 ### <a name="virtual-machines"></a>Sanal makineler
-ilk Ubuntu 13.10 VM Endorsed Ubuntu galeri görüntüsü kullanılarak oluşturulur ve adlandırılır hello `hadb01`. Yeni bir bulut hizmeti hadb adlandırılan hello işlemde oluşturulur. Bu ad paylaşılan hello daha fazla kaynak eklendiğinde, hello hizmet olacak yük dengeli yapısı gösterilmektedir. Merhaba oluşturulmasını `hadb01` hello portal olaysız ve tamamlanan kullanmaktır. SSH için bir uç nokta otomatik olarak oluşturulur ve hello yeni bir ağ seçtiniz. Artık kullanılabilirlik Merhaba VM'ler kümesi oluşturabilirsiniz.
+İlk Ubuntu 13.10 VM Endorsed Ubuntu galeri görüntüsü kullanılarak oluşturulur ve adlandırılır `hadb01`. Yeni bir bulut hizmeti hadb adlandırılan işlemde oluşturulur. Bu ad, daha fazla kaynak eklendiğinde, hizmet olacak paylaşılan, yük dengelemeli yapısı gösterilmektedir. Oluşturulmasını `hadb01` portal olaysız ve tamamlanan kullanmaktır. SSH için bir uç nokta otomatik olarak oluşturulur ve yeni bir ağ seçtiniz. Artık bir kullanılabilirlik VM'ler için kümesi oluşturabilirsiniz.
 
-İlk VM (teknik olarak hello bulut hizmeti oluşturulduğunda) oluşturulur hello sonra oluşturma ikinci VM hello `hadb02`. Merhaba VM ikinci, Ubuntu 13.10 VM galeri hello hello portal kullanarak, ancak var olan bir bulut hizmetini kullanın `hadb.cloudapp.net`, yeni bir tane oluşturmak yerine. Merhaba ağ ve kullanılabilirlik kümesi otomatik olarak seçilmesi gerekir. Bir SSH uç noktası, çok oluşturulur.
+(Teknik olarak, bulut hizmeti oluşturulduğunda) ilk VM oluşturulduktan sonra ikinci VM oluşturma `hadb02`. İkinci VM için Ubuntu 13.10 VM Galeriden Portalı'nı kullanarak, ancak var olan bir bulut hizmetini kullanın `hadb.cloudapp.net`, yeni bir tane oluşturmak yerine. Ağ ve kullanılabilirlik kümesi otomatik olarak seçilmesi gerekir. Bir SSH uç noktası, çok oluşturulur.
 
-Her iki VM oluşturulduktan sonra hello SSH bağlantı noktası için not edin `hadb01` (TCP 22) ve `hadb02` (otomatik olarak Azure tarafından atanan).
+Her iki VM oluşturulduktan sonra SSH bağlantı noktasını not edin `hadb01` (TCP 22) ve `hadb02` (otomatik olarak Azure tarafından atanan).
 
 ### <a name="attached-storage"></a>Bağlı depolama
-Yeni bir disk tooboth VM'ler ekleyin ve hello işleminde 5 GB disk oluşturun. Merhaba diskleri hello VHD kapsayıcısı ana işletim sistemi diskleriniz için kullanımda barındırılır. Diskleri oluşturup bağlı sonra var. olduğundan hiçbir gerek toorestart Linux hello çekirdek hello yeni cihaz görürsünüz. Bu aygıt genellikle değil `/dev/sdc`. Denetleme `dmesg` hello çıktı.
+Her iki VM için yeni bir disk ekleyin ve işleminde 5 GB disk oluşturabilirsiniz. Disklerin ana işletim sistemi disklerinizi kullanılmak VHD kapsayıcısında barındırılır. Diskleri oluşturup bağlı sonra çekirdek yeni cihaz görürsünüz çünkü Linux yeniden başlatmaya gerek yoktur. Bu aygıt genellikle değil `/dev/sdc`. Denetleme `dmesg` çıktısı için.
 
-Kullanarak her bir VM üzerinde bir bölüm oluşturmak `cfdisk` (birincil, Linux bölüm) ve hello yeni bölüm tablosu yazma. Bir dosya sistemi bu bölüme oluşturmayın.
+Kullanarak her bir VM üzerinde bir bölüm oluşturmak `cfdisk` (birincil, Linux bölüm) ve yeni bölüm tablosuna yazma. Bir dosya sistemi bu bölüme oluşturmayın.
 
-## <a name="set-up-hello-cluster"></a>Merhaba kümesi
-Her iki Ubuntu VM APT tooinstall Corosync, Pacemaker ve DRBD kullanın. toodo ile bunu `apt-get`çalıştırın hello aşağıdaki kodu:
+## <a name="set-up-the-cluster"></a>Küme ayarlama
+APT Corosync, Pacemaker ve DRBD her iki Ubuntu VM yüklemek için kullanın. İle bunun için `apt-get`, aşağıdaki kodu çalıştırın:
 
     sudo apt-get install corosync pacemaker drbd8-utils.
 
-MySQL şu anda yüklemeyin. Debian ve Ubuntu yükleme betikleri başlatma MySQL veri dizini üzerinde `/var/lib/mysql`, ancak hello dizin DRBD dosya sistemi tarafından değiştirilen çünkü daha sonra MySQL tooinstall gerekir.
+MySQL şu anda yüklemeyin. Debian ve Ubuntu yükleme betikleri başlatma MySQL veri dizini üzerinde `/var/lib/mysql`, ancak dizin DRBD dosya sistemi tarafından değiştirilen çünkü MySQL daha sonra yüklemeniz gerekir.
 
-Doğrulayın (kullanarak `/sbin/ifconfig`) her iki VM hello 10.10.10.0/24 alt ağ adresleri ve bunların birbirlerine ada göre ping atabildiğinizi kullanıyor. Aynı zamanda `ssh-keygen` ve `ssh-copy-id` toomake emin her iki VM, bir parola gerektirmeden SSH yoluyla kurabilir.
+Doğrulayın (kullanarak `/sbin/ifconfig`) her iki VM 10.10.10.0/24 alt ağ adresleri ve bunların birbirlerine ada göre ping atabildiğinizi kullanıyor. Aynı zamanda `ssh-keygen` ve `ssh-copy-id` her iki VM, bir parola gerektirmeden SSH yoluyla kurabilir emin olmak için.
 
 ### <a name="set-up-drbd"></a>DRBD ayarlayın
-Merhaba temel kullanan DRBD kaynak oluşturma `/dev/sdc1` tooproduce bölüm bir `/dev/drbd1` ext3 kullanılarak biçimlendirilmiş ve birincil ve ikincil düğüm kullanılan kaynak.
+Arka plandaki kullanan DRBD kaynak oluşturma `/dev/sdc1` üretmek için bölüm bir `/dev/drbd1` ext3 kullanılarak biçimlendirilmiş ve birincil ve ikincil düğüm kullanılan kaynak.
 
-1. Açık `/etc/drbd.d/r0.res` ve kopyalama hello her iki sanal makinelerin kaynak tanımı aşağıdaki:
+1. Açık `/etc/drbd.d/r0.res` ve her iki VM aşağıdaki kaynak tanımında kopyalayın:
 
         resource r0 {
           on `hadb01` {
@@ -97,70 +97,70 @@ Merhaba temel kullanan DRBD kaynak oluşturma `/dev/sdc1` tooproduce bölüm bir
           }
         }
 
-2. Merhaba kaynak kullanarak başlatmak `drbdadm` her iki VM üzerinde:
+2. Kaynak kullanarak başlatmak `drbdadm` her iki VM üzerinde:
 
         sudo drbdadm -c /etc/drbd.conf role r0
         sudo drbdadm up r0
 
-3. Üzerinde birincil VM hello (`hadb01`), hello DRBD kaynak (birincil) sahipliğini zorla:
+3. Birincil VM üzerinde (`hadb01`), DRBD kaynak (birincil) sahipliğini zorla:
 
         sudo drbdadm primary --force r0
 
-/ Proc/drbd Merhaba içeriğine incelerseniz (`sudo cat /proc/drbd`) her iki VM üzerinde görmelisiniz `Primary/Secondary` üzerinde `hadb01` ve `Secondary/Primary` üzerinde `hadb02`, bu noktada hello çözümü ile tutarlı. Merhaba 5 GB disk, hiçbir ücret toocustomers hello 10.10.10.0/24 ağ üzerinden eşitlenir.
+/ Proc/drbd içeriğini incelerseniz (`sudo cat /proc/drbd`) her iki VM üzerinde görmelisiniz `Primary/Secondary` üzerinde `hadb01` ve `Secondary/Primary` üzerinde `hadb02`, bu noktada çözümü ile tutarlı. 5 GB disk, müşterilere ücret ödemeden 10.10.10.0/24 ağ üzerinden eşitlenir.
 
-Merhaba disk eşitlendikten sonra hello dosya sistemi üzerinde oluşturabileceğiniz `hadb01`. Test amacıyla, ext2 kullandık ancak koddan hello ext3 dosya sistemi oluşturacak:
+Disk eşitlendikten sonra dosya sistemi üzerinde oluşturabileceğiniz `hadb01`. Test amacıyla, ext2 kullandık, ancak aşağıdaki kodu ext3 dosya sistemi oluşturacak:
 
     mkfs.ext3 /dev/drbd1
 
-### <a name="mount-hello-drbd-resource"></a>Merhaba DRBD kaynak Bağla
-Merhaba DRBD kaynakları artık hazır toomount olduğunuz `hadb01`. Debian ve türevleri kullanım `/var/lib/mysql` MySQL'ın veri dizini olarak. MySQL yüklemediniz çünkü hello dizin oluşturun ve hello DRBD kaynak bağlayın. tooperform kod aşağıdaki hello çalıştırmak, bu seçenek `hadb01`:
+### <a name="mount-the-drbd-resource"></a>DRBD kaynak Bağla
+Üzerinde DRBD kaynakları bağlamak artık hazırsınız `hadb01`. Debian ve türevleri kullanım `/var/lib/mysql` MySQL'ın veri dizini olarak. MySQL yüklemediniz olduğundan dizin oluşturun ve DRBD kaynak bağlayın. Bu seçenek gerçekleştirmek için aşağıdaki kodu çalıştırmak `hadb01`:
 
     sudo mkdir /var/lib/mysql
     sudo mount /dev/drbd1 /var/lib/mysql
 
 ## <a name="set-up-mysql"></a>MySQL ayarlayın
-Şimdi kullandığınız hazır tooinstall MySQL `hadb01`:
+MySQL yüklemek hazır artık `hadb01`:
 
     sudo apt-get install mysql-server
 
-İçin `hadb02`, iki seçeneğiniz vardır. Mysql /var/lib/mysql oluşturmak, yeni bir veri dizin ile doldurun ve hello içerikleri kaldırmak sunuculu, yükleyebilirsiniz. tooperform kod aşağıdaki hello çalıştırmak, bu seçenek `hadb02`:
+İçin `hadb02`, iki seçeneğiniz vardır. Mysql /var/lib/mysql oluşturmak, yeni bir veri dizin ile doldurun ve ardından içeriği kaldırmak sunuculu, yükleyebilirsiniz. Bu seçenek gerçekleştirmek için aşağıdaki kodu çalıştırmak `hadb02`:
 
     sudo apt-get install mysql-server
     sudo service mysql stop
     sudo rm –rf /var/lib/mysql/*
 
-Merhaba ikinci seçenektir toofailover çok`hadb02` ve orada mysql server yükleyin. Yükleme betikleri hello mevcut yükleme görürsünüz ve dokunma olmaz.
+Yük devretme için ikinci seçenek, `hadb02` ve orada mysql server yükleyin. Yükleme betikleri mevcut yükleme görürsünüz ve touch olmaz.
 
-Çalışma hello aşağıdaki kodu üzerinde `hadb01`:
+Aşağıdaki kod çalıştıracağınız `hadb01`:
 
     sudo drbdadm secondary –force r0
 
-Çalışma hello aşağıdaki kodu üzerinde `hadb02`:
+Aşağıdaki kod çalıştıracağınız `hadb02`:
 
     sudo drbdadm primary –force r0
     sudo apt-get install mysql-server
 
-Toofailover DRBD şimdi planlamıyorsanız hello ilk seçenek tartışmaya açık bir şekilde daha az rağmen Zarif daha kolay olur. Bu ayarladıktan sonra MySQL veritabanınızı üzerinde çalışmaya başlayabiliriz. Çalışma hello aşağıdaki kodu üzerinde `hadb02` (veya hello sunucuları hangi biri tooDRBD göre etkin olan):
+Yük devretme DRBD şimdi planlamıyorsanız, ilk seçenek tartışmaya açık bir şekilde daha az rağmen Zarif daha kolay olur. Bu ayarladıktan sonra MySQL veritabanınızı üzerinde çalışmaya başlayabiliriz. Aşağıdaki kod çalıştıracağınız `hadb02` (veya hangi sunucuların birini DRBD göre etkindir):
 
     mysql –u root –p
     CREATE DATABASE azureha;
     CREATE TABLE things ( id SERIAL, name VARCHAR(255) );
     INSERT INTO things VALUES (1, "Yet another entity");
-    GRANT ALL ON things.\* tooroot;
+    GRANT ALL ON things.\* TO root;
 
 > [!WARNING]
-> Bu son deyim etkili bir şekilde bu tablodaki hello kök kullanıcı için kimlik doğrulaması devre dışı bırakır. Bu üretim-sınıf tarafından değiştirilmesi gereken verme deyimleri ve yalnızca tanımlayıcı amaçlarla yer alır.
+> Bu son deyim etkili bir şekilde bu tablodaki kök kullanıcı için kimlik doğrulaması devre dışı bırakır. Bu üretim-sınıf tarafından değiştirilmesi gereken verme deyimleri ve yalnızca tanımlayıcı amaçlarla yer alır.
 
-(Bu kılavuzun amacı hello olan) dışında hello VM'ler toomake sorgularından isterseniz, ayrıca MySQL için ağ tooenable gerekir. Her iki VM üzerinde açmak `/etc/mysql/my.cnf` ve çok Git`bind-address`. Başlangıç adresi 127.0.0.1 değiştirmek too0.0.0.0. Merhaba dosya kaydedildikten sonra sorun bir `sudo service mysql restart` geçerli birincil üzerinde.
+(Bu kılavuzun amacı olan) VM'ler dışında sorgularından yapmak istiyorsanız, ayrıca ağ MySQL için etkinleştirmeniz gerekir. Her iki VM üzerinde açmak `/etc/mysql/my.cnf` ve Git `bind-address`. Adres 127.0.0.1 0.0.0.0 olarak değiştirin. Dosyayı kaydettikten sonra sorun bir `sudo service mysql restart` geçerli birincil üzerinde.
 
-### <a name="create-hello-mysql-load-balanced-set"></a>Merhaba MySQL yük dengeli kümesi oluşturma
-Toohello portalına geri dönün, çok Git`hadb01`ve seçin **uç noktaları**. uç noktası, bir toocreate seçin MySQL (TCP 3306) hello aşağı açılan liste ve seçin **oluştur Yeni Yük dengeli kümesi**. Ad hello yük dengeli uç nokta `lb-mysql`. Ayarlama **zaman** too5 saniye, en düşük.
+### <a name="create-the-mysql-load-balanced-set"></a>MySQL yük dengeli kümesi oluşturma
+Portalına geri dönün, Git `hadb01`ve seçin **uç noktaları**. Bir uç nokta oluşturmak için MySQL (TCP 3306) aşağı açılan listeden seçip **oluştur Yeni Yük dengeli kümesi**. Yük dengeli uç nokta adı `lb-mysql`. Ayarlama **zaman** 5 saniye, en düşük.
 
-Merhaba endpoint oluşturduktan sonra çok Git`hadb02`, seçin **uç noktaları**ve bir uç nokta oluşturun. Seçin `lb-mysql`ve ardından MySQL hello aşağı açılan listeden seçin. Bu adım için hello Azure CLI de kullanabilirsiniz.
+Uç nokta oluşturduktan sonra Git `hadb02`, seçin **uç noktaları**ve bir uç nokta oluşturun. Seçin `lb-mysql`ve ardından MySQL aşağı açılan listeden seçin. Bu adım için Azure CLI de kullanabilirsiniz.
 
-Artık hello küme el ile işlem için gereken her şeyi sahipsiniz.
+Şimdi küme el ile işlem için gereken her şeyi sahipsiniz.
 
-### <a name="test-hello-load-balanced-set"></a>Sınama Hello yük dengeli kümesi
+### <a name="test-the-load-balanced-set"></a>Sınama yük dengeli kümesi
 Testleri bir dış makineden herhangi bir MySQL istemcisi kullanarak veya bir Azure Web sitesi olarak çalışan phpMyAdmin gibi belirli uygulamaları kullanarak gerçekleştirilebilir. Bu durumda, başka bir Linux kutuda MySQL'ın komut satırı aracı kullanılır:
 
     mysql azureha –u root –h hadb.cloudapp.net –e "select * from things;"
@@ -168,7 +168,7 @@ Testleri bir dış makineden herhangi bir MySQL istemcisi kullanarak veya bir Az
 ### <a name="manually-failing-over"></a>El ile yük devrediliyor
 Yük devretme işlemlerini MySQL kapatılıyor DRBD'ın birincil değiştirme ve MySQL yeniden başlatmayı benzetimini yapabilirsiniz.
 
-tooperform bu görevi hadb01 üzerinde koddan hello çalıştır:
+Bu görevi gerçekleştirmek için aşağıdaki kodu hadb01 üzerinde çalıştırın:
 
     service mysql stop && umount /var/lib/mysql ; drbdadm secondary r0
 
@@ -179,16 +179,16 @@ Ardından, hadb02 üzerinde:
 El ile yük devri sonra uzak sorgunuzu yineleyebilir ve mükemmel çalışması gerekir.
 
 ## <a name="set-up-corosync"></a>Corosync ayarlayın
-Corosync Pacemaker toowork için gerekli hello temel küme altyapısıdır. Pacemaker işlevindeki daha benzer tooHeartbeat kalırken sinyal (ve Ultramonkey gibi diğer yöntemleri), Corosync hello CRM işlevleri, bir bölme içindir.
+Corosync çalışmaya Pacemaker için gereken temel küme altyapısıdır. Pacemaker işlevindeki sinyal daha benzer kalırken sinyal (ve Ultramonkey gibi diğer yöntemleri), Corosync CRM işlevleri bölme içindir.
 
-Merhaba ana Corosync için Azure üzerinde Corosync çok noktaya yayın üzerinden tek noktaya yayın iletişim tercih eder, ancak Microsoft Azure ağı yalnızca tek noktaya yayın destekler sınırlamadır.
+Ana Corosync için Azure üzerinde Corosync çok noktaya yayın üzerinden tek noktaya yayın iletişim tercih eder, ancak Microsoft Azure ağı yalnızca tek noktaya yayın destekler sınırlamadır.
 
-Neyse ki, Corosync çalışma tek noktaya yayın modu vardır. Merhaba yalnızca gerçek tüm düğümlerin kendilerini arasında iletişim için IP adresleri de dahil olmak üzere, yapılandırma dosyalarında toodefine hello düğümleri gerekiyor sınırlamadır. Tek noktaya yayın ve değişiklik adresi, düğüm listeler ve günlük dizinleri bağlamak için biz hello Corosync örnek dosyalarını kullanabilirsiniz (Ubuntu kullanan `/var/log/corosync` hello örnek kullanım dosyalar sırada `/var/log/cluster`) ve çekirdek araçları sağlar.
+Neyse ki, Corosync çalışma tek noktaya yayın modu vardır. Tüm düğümlerin kendilerini arasında iletişim için IP adresleri de dahil olmak üzere, yapılandırma dosyalarındaki düğümleri tanımlama gerektiğini yalnızca gerçek sınırlamadır. Tek noktaya yayın ve değişiklik adresi, düğüm listeler ve günlük dizinleri bağlamak için biz Corosync örnek dosyalarını kullanabilirsiniz (Ubuntu kullanan `/var/log/corosync` örnek kullanım dosyalar sırada `/var/log/cluster`) ve çekirdek araçları sağlar.
 
 > [!NOTE]
-> Merhaba aşağıdaki kullanın `transport: udpu` yönergesi hello el ile tanımlanan ve her iki düğüm için IP adresi.
+> Aşağıdaki `transport: udpu` yönergesi ve her iki düğüm için el ile tanımlanan IP adresi.
 
-Çalışma hello aşağıdaki kodu üzerinde `/etc/corosync/corosync.conf` iki düğüm için:
+Aşağıdaki kod çalıştıracağınız `/etc/corosync/corosync.conf` iki düğüm için:
 
     totem {
       version: 2
@@ -236,18 +236,18 @@ Her iki VM üzerindeki bu yapılandırma dosyasını kopyalayın ve her iki dü�
 
     sudo service start corosync
 
-Merhaba hizmeti başlatılıyor, kısa süre sonra hello küme hello geçerli halka kurulacaktır ve çekirdek constituted. Bu işlev günlükleri gözden geçirme veya koddan hello çalıştırarak kontrol edebilirsiniz:
+Hizmeti başlatılıyor, kısa süre sonra küme geçerli halka kurulacaktır ve çekirdek constituted. Bu işlev günlükleri gözden geçirme veya aşağıdaki kodu çalıştırarak kontrol edebilirsiniz:
 
     sudo corosync-quorumtool –l
 
-Görüntü aşağıdaki çıktı benzer toohello görürsünüz:
+Aşağıdaki görüntüye benzer bir çıktı görürsünüz:
 
 ![corosync quorumtool - m örnek çıkış](./media/mysql-cluster/image001.png)
 
 ## <a name="set-up-pacemaker"></a>Pacemaker ayarlayın
-Pacemaker kullanır kaynaklar için küme toomonitor Merhaba, ne zaman ana Git aşağı tanımlamak ve bu kaynakları toosecondaries geçin. Kaynakların kullanılabilir komut kümesi ya da LSB'si (Init benzeri) komut dosyaları, diğer seçenekler arasında tanımlanabilir.
+Pacemaker küme kaynakları için izleme, ne zaman ana Git aşağı tanımlamak ve bu kaynakları için ikincil anahtar için kullanır. Kaynakların kullanılabilir komut kümesi ya da LSB'si (Init benzeri) komut dosyaları, diğer seçenekler arasında tanımlanabilir.
 
-Pacemaker çok "kendi" Merhaba DRBD kaynak, hello bağlama noktası ve hello MySQL hizmeti istiyoruz. Pacemaker DRBD açıp kapatabilirsiniz, bağlama ve bunu çıkarın ve ardından başlatabilir ve MySQL hello sırası bozuk bir şey olduğunda, Kurulum tamamlandıktan hello birincil ile olur sağ durdurabilirsiniz.
+"DRBD kaynak, bağlama noktası ve MySQL hizmeti sahip olmasını" Pacemaker istiyoruz. Pacemaker DRBD açıp bağlama ve bunu çıkarın ve sonra durdurup başlatın hatalı bir şey birincil ile olduğunda MySQL doğru sırada, Kurulum işlemi tamamlanmış olur.
 
 Pacemaker ilk kez yüklediğinizde, yapılandırmanızı gösterilene benzer yeteri kadar basit olmalıdır:
 
@@ -256,8 +256,8 @@ Pacemaker ilk kez yüklediğinizde, yapılandırmanızı gösterilene benzer yet
     node $id="2" hadb02
       attributes standby="off"
 
-1. Çalıştırarak Hello yapılandırmasını denetleyin `sudo crm configure show`.
-2. Bir dosya oluşturun (gibi `/tmp/cluster.conf`) kaynakları aşağıdaki hello ile:
+1. Çalıştırarak yapılandırmasını denetleyin `sudo crm configure show`.
+2. Bir dosya oluşturun (gibi `/tmp/cluster.conf`) aşağıdaki kaynaklarla:
 
         primitive drbd_mysql ocf:linbit:drbd \
               params drbd_resource="r0" \
@@ -287,7 +287,7 @@ Pacemaker ilk kez yüklediğinizde, yapılandırmanızı gösterilene benzer yet
 
         property no-quorum-policy=ignore
 
-3. Merhaba dosyasına hello yapılandırma yük. Yalnızca toodo bu bir düğümünden gerekir.
+3. Dosya yapılandırmaya yükleyin. Yalnızca bu bir düğümünden yapmanız gerekir.
 
         sudo crm configure
           load update /tmp/cluster.conf
@@ -298,9 +298,9 @@ Pacemaker ilk kez yüklediğinizde, yapılandırmanızı gösterilene benzer yet
 
         sudo update-rc.d pacemaker defaults
 
-5. Kullanarak `sudo crm_mon –L`, düğümleriniz birini hello küme için hello Yöneticisi olur ve tüm hello kaynakları çalıştıran doğrulayın. Merhaba kaynakları çalıştıran bağlama ve ps toocheck kullanabilirsiniz.
+5. Kullanarak `sudo crm_mon –L`, düğümlerinden biri için Küme Yöneticisi hale geldi ve tüm kaynakları çalıştıran doğrulayın. Kaynakları çalıştığını denetlemek için bağlama ve ps kullanabilirsiniz.
 
-Aşağıdaki ekran görüntüsü gösterildiği hello `crm_mon` durdurulmuş bir düğümle (Ctrl + C seçerek çıkış):
+Aşağıdaki ekran görüntüsü gösterildiği `crm_mon` durdurulmuş bir düğümle (Ctrl + C seçerek çıkış):
 
 ![crm_mon düğüm durduruldu](./media/mysql-cluster/image002.png)
 
@@ -309,16 +309,16 @@ Bu ekran, düğüm, bir ana ve bir ikincil gösterir:
 ![crm_mon işletimsel ana/bağımlı](./media/mysql-cluster/image003.png)
 
 ## <a name="testing"></a>Test Etme
-Otomatik Yük devretme benzetimi için hazırsınız. Var olan iki yolu toodo bu: yazılım ve donanım.
+Otomatik Yük devretme benzetimi için hazırsınız. Bunu yapmanın iki yolu vardır: yazılım ve donanım.
 
-Merhaba yumuşak şekilde hello kümenin kapatma işlevini kullanır: ``crm_standby -U `uname -n` -v on``. Bu hello yöneticisinde kullanırsanız, hello bağımlı devreye girer. Bu geri toooff tooset unutmayın. Bunu yapmazsanız, crm_mon bekleme tek bir düğüm gösterir.
+Kümenin kapatma işlevi yumuşak biçimini kullanır: ``crm_standby -U `uname -n` -v on``. Bu ana kullanırsanız, ikincil devreye girer. Bu geri off olarak ayarlamayı unutmayın. Bunu yapmazsanız, crm_mon bekleme tek bir düğüm gösterir.
 
-Merhaba sabit şekilde kapanıyor hello birincil VM (hadb01) hello Portalı aracılığıyla veya değiştirerek hello hello (diğer bir deyişle, durdurmak, kapatma) VM üzerinde çalışma düzeyi. Bu Corosync ve Pacemaker bu hello Yöneticisi'nin giderek aşağı sinyal tarafından yardımcı olur. Bu test edebilirsiniz (Bakım pencereleri için yararlıdır), ancak Ayrıca, hello VM dondurma tarafından hello senaryo zorlayabilirsiniz.
+Sabit şekilde portalı üzerinden veya çalışma düzeyi (diğer bir deyişle, durdurmak, kapatma) VM'de değiştirerek birincil VM (hadb01) kapatılıyor. Bu Corosync ve ana giderek aşağı sinyal tarafından Pacemaker yardımcı olur. Bu test edebilirsiniz (Bakım pencereleri için yararlıdır), ancak Ayrıca, VM dondurma tarafından senaryo zorlayabilirsiniz.
 
 ## <a name="stonith"></a>STONITH
-Olası tooissue VM kapatma fiziksel bir aygıtı denetleyen STONITH komut dosyası yerine hello Azure CLI aracılığıyla olmalıdır. Kullanabileceğiniz `/usr/lib/stonith/plugins/external/ssh` Bankası ve hello kümenin yapılandırmasında STONITH etkinleştir. Azure CLI genel olarak yüklenmesi gerekir ve yayımlama hello ayarları ve profil hello kümenin kullanıcı için yüklenen.
+VM kapatma fiziksel bir aygıtı denetleyen STONITH komut dosyası yerine Azure CLI aracılığıyla mümkün olması gerekir. Kullanabileceğiniz `/usr/lib/stonith/plugins/external/ssh` Bankası ve kümenin yapılandırmasında STONITH etkinleştir. Azure CLI genel olarak yüklenmelidir ve yayımlama ayarlarını ve profil kümenin kullanıcı için yüklenen.
 
-Merhaba kaynak için örnek kod edinilebilir [GitHub](https://github.com/bureado/aztonith). Merhaba çok aşağıdaki ekleyerek Hello kümenin yapılandırmasını değiştirme`sudo crm configure`:
+Kaynak için örnek kod edinilebilir [GitHub](https://github.com/bureado/aztonith). Aşağıdakileri ekleyerek küme yapılandırmasını değiştirme `sudo crm configure`:
 
     primitive st-azure stonith:external/azure \
       params hostlist="hadb01 hadb02" \
@@ -327,14 +327,14 @@ Merhaba kaynak için örnek kod edinilebilir [GitHub](https://github.com/bureado
       commit
 
 > [!NOTE]
-> Merhaba betik denetimleri yukarı/aşağı gerçekleştirmez. 15 ping denetimleri Hello özgün SSH kaynak var, ancak bir Azure VM için kurtarma süresi daha fazla değişken olabilir.
+> Komut dosyası denetimleri yukarı/aşağı gerçekleştirmez. 15 ping denetimleri özgün SSH kaynak var, ancak bir Azure VM için kurtarma süresi daha fazla değişken olabilir.
 
 ## <a name="limitations"></a>Sınırlamalar
-Merhaba aşağıdaki sınırlamalar uygulanır:
+Aşağıdaki sınırlamalar uygulanır:
 
-* Merhaba, bir kaynak olarak Pacemaker kullandığı DRBD yöneten linbit DRBD kaynak komut dosyası `drbdadm down` hello düğüm yalnızca bekleme durumuna geçiyor olsa bile bir düğüm kapanırken. Hello Yöneticisi yazma alır ancak hello bağımlı hello DRBD kaynak eşitleme değil çünkü bu ideal değildir. Hello Yöneticisi graciously başarısız olmaz, hello bağımlı daha eski bir dosya sistemi durumu alabilir. Bu çözümü iki olası yolu vardır:
+* Bir kaynak olarak Pacemaker kullandığı DRBD yönetir linbit DRBD kaynak betik `drbdadm down` düğümü yalnızca bekleme durumuna geçiyor olsa bile bir düğüm kapanırken. Asıl yazma alır ancak ikincil DRBD kaynak eşitleme değil çünkü bu ideal değildir. Asıl graciously başarısız olmaz, ikincil daha eski bir dosya sistemi durumu alabilir. Bu çözümü iki olası yolu vardır:
   * Zorunlu bir `drbdadm up r0` tüm küme düğümlerinde yerel (clusterized değil) izleme olaylarını aracılığıyla içinde
-  * Merhaba linbit DRBD komut dosyası düzenleme, dikkat ederek `down` çağrılmaz`/usr/lib/ocf/resource.d/linbit/drbd`
-* Böylece uygulamaları küme durumunu algılayan ve zaman aşımı süresi daha dayanıklı hello yük dengeleyicinin en az beş saniyede toorespond gerekir. Uygulama sıraları ve sorgu middlewares gibi diğer mimarileri de yardımcı olabilir.
-* MySQL ayarlama yazma yönetilebilir hızı yapılır gerekli tooensure ve önbellekleri temizlenmiş toodisk gibi bir sıklıkla olası toominimize bellek kaybı.
-* Yazma performansı VM'de bağımlı bu DRBD tooreplicate hello aygıt tarafından kullanılan hello mekanizması olduğundan hello sanal anahtarda birbirine.
+  * Dikkat ederek linbit DRBD betik düzenleme `down` çağrılmaz`/usr/lib/ocf/resource.d/linbit/drbd`
+* Yük dengeleyicinin en az beş saniyede uygulamaları küme durumunu algılayan ve zaman aşımı süresi daha dayanıklı şekilde yanıt vermesi gerekir. Uygulama sıraları ve sorgu middlewares gibi diğer mimarileri de yardımcı olabilir.
+* MySQL ayarlama yazma yönetilebilir hızı yapılır ve bellek kaybını en aza indirmek için mümkün olduğunca sık diske önbellekleri Temizlenen sağlamak gereklidir.
+* Yazma performansı VM'de bağımlı bu DRBD tarafından cihaz çoğaltmak için kullanılan mekanizma olduğundan sanal anahtarında birbirine.

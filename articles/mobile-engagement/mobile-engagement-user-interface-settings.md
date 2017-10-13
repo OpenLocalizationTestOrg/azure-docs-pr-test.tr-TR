@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure Mobile Engagement kullanıcı arabirimi - ayarlar"
-description: "Nasıl toomanage hello Azure Mobile Engagement kullanarak uygulamanızın genel ayarları öğrenin"
+title: "Azure Mobile Engagement kullanıcı arabirimi - ayarlar"
+description: "Azure Mobile Engagement kullanarak uygulamanızı genel ayarlarını yönetmeyi öğrenin"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,73 +14,73 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 02d4a36c591fc5e097410b7e931d1c9ce81d68d5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: af5c81df2b9f288161b38625d3ac2adde8fb195d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toomanage-hello-global-settings-of-your-application"></a>Nasıl toomanage Merhaba, uygulamanızın genel ayarları
-Merhaba **ayarları** menü seçeneklerini hello platform hello uygulama ve hello izinler, verildi hello uygulama için bağlı olarak bir uygulama ayırmayı için kullanılabilir. Ayarlar hello aşağıdakileri içerir: ayrıntıları, projeler, yerel gönderim, anında iletme hız, etiket (uygulama bilgisi) ve Ticari baskının. Merhaba etiketi (uygulama bilgisi) menü seçeneği hello ayarları bölümünün, uygulamanız (SDK hello kullanarak) veya (Merhaba Device API'sini kullanarak), arka uç tarafından yönetilebilir. 
+# <a name="how-to-manage-the-global-settings-of-your-application"></a>Uygulamanızın genel ayarlarını yönetme
+**Ayarları** menü seçeneklerini uygulama ve size verildi uygulama için izinler platforma bağlı olarak bir uygulama ayırmayı için kullanılabilir. Ayarları aşağıdakileri içerir: ayrıntıları, projeler, yerel gönderim, anında iletme hız, etiket (uygulama bilgisi) ve Ticari baskının. Etiket (uygulama bilgisi) menü seçeneği ayarları bölümünün uygulamanız (SDK'yı kullanarak) veya (cihaz API'sini kullanarak), arka uç tarafından yönetilebilir. 
 
 > [!NOTE]
-> Merhaba birçok bölümlerini **Mobile Engagement** portal UI içeren hello **YARDIMINI Göster** düğmesi. Bu düğme tooget bir bölümü hakkında daha fazla kavramsal bilgi tuşuna basın.
+> Birçok bölümlerini **Mobile Engagement** portal UI içeren **YARDIMINI Göster** düğmesi. Bir bölümü hakkında daha fazla kavramsal bilgi almak için bu düğmesine basın.
 > 
 > 
 
 ## <a name="details"></a>Ayrıntılar
-Toochange hello adını ve uygulama, uygulamanızı ve rol izinlerinizi görünüm hello sahibi açıklamasını sağlar. 
+Ad ve açıklama, uygulamanızın değiştirmenize izin verir, uygulamanızı ve rol izinlerinizi sahibi görüntüleyin. 
 
-Analizi Yapılandırması sağlar hafta Başlat tooview ya da değişiklik hello gün ve hello bekletme süresini gün cinsinden.
+Analizi Yapılandırması hafta başlatmak gün ve gün bekletme zamanında görüntülemek veya değiştirmek etkinleştirir.
 
   ![Ayarları1][46]
 
 ## <a name="projects"></a>Projeleri
-Tooselect sağlayan tüm projeleri, uygulama tooappear istediğiniz. 
+Uygulamanızın görünmesini istediğiniz tüm projeleri seçmenize olanak sağlar. 
 
-Aynı zamanda arayabilirsiniz bir proje ve görünüm hello adı, açıklaması, sahibi ve rol izinlerinizi herhangi projesinin uygulamanız bir parçasıdır.
+Ayrıca, proje için arama ve adı, açıklama, sahibi ve rol izinleri, uygulamanın parçası olduğu projesinin görüntüleyebilirsiniz.
 
 Daha fazla bilgi için bkz: [UI belgelerine – giriş][Link 13]
 
   ![settings3][48]
 
 ## <a name="native-push"></a>Yerel gönderim
-Yeni bir sertifika veya silin ve var olan sertifikasının ile yerel gönderim kullanmak tooregister sağlar. Yerel gönderim Azure Mobile Engagement toopush tooyour uygulama herhangi bir anda çalışır durumda değilken bile sağlar. 
+Yeni bir sertifika veya Sil ve kullanmak için var olan sertifika ile yerel gönderim kaydetmenizi sağlar. Yerel gönderim sağlayan herhangi bir zamanda uygulamanıza göndermek Azure Mobile Engagement bile zaman çalışır durumda. 
 
-Kimlik bilgileri veya sertifikalar için en az bir yerel gönderim hizmet sağladıktan sonra "Herhangi bir zaman" seçebilirsiniz Reach kampanyaları ve ayrıca kullan hello "bildirim" parametresi hello İTME API oluştururken.
+Kimlik bilgileri veya sertifikalar için en az bir yerel gönderim hizmet sağladıktan sonra "Herhangi bir zaman" seçebilirsiniz Reach kampanyaları ve ayrıca kullan "bildirim" parametresi anında API oluştururken.
 
 ### <a name="apple-push-notification-service-apns"></a>Apple anında iletilen bildirim servisi (APNS)
-tooenable hello Apple anında iletilen bildirim Servisi'ni kullanarak yerel gönderim özelliğini sertifikanızı tooregister gerekir. Geliştirme (Geliştirme) veya üretim (üretim) olarak sertifika toospecify hello türü gerekir. Ardından, sertifika ve hello parolanızı karşıya.
+Apple anında iletilen bildirim Servisi'ni kullanarak yerel gönderim özelliğini etkinleştirmek için sertifikanızı kaydetmeniz gerekir. Sertifika türü geliştirme (Geliştirme) veya üretim (üretim) olarak belirtmeniz gerekir. Ardından, sertifikanızı ve parola karşıya.
 
-Daha fazla bilgi için bkz: [- iOS - SDK belgeleri nasıl tooPrepare uygulamanız için Apple anında iletme bildirimleri][Link 5]
+Daha fazla bilgi için bkz: [SDK Belgeleri - iOS - uygulamanız Apple anında iletme bildirimleri için hazırlama][Link 5]
 
 ![settings4][49]
 
 ### <a name="windows-push-notification-service-wpns"></a>Windows anında bildirim hizmeti (WPNS)
-tooenable Windows bildirim Hizmeti'ni kullanarak yerel gönderim, uygulamanızın kimlik bilgilerini sağlamanız gerekir. Paket güvenlik tanımlayıcınızı (SID) ve gizli anahtarınızı gerekir.
+Windows Bildirim Hizmeti'ni kullanarak Yerel Gönderim özelliğini etkinleştirmek için uygulamanızın kimlik bilgilerini sağlamanız gerekir. Paket güvenlik tanımlayıcınızı (SID) ve gizli anahtarınızı gerekir.
 
 ![settings5][50]
 
 ### <a name="google-cloud-messaging-for-android-gcm"></a>Google Cloud Messaging (GCM) Android için
-tooenable GCM kullanarak yerel gönderim özelliğini, Google toofollow hello yönergeleri gerekir. Bir sunucu basit API anahtarı yapıştırmanız gerekir sonra IP kısıtlamaları yapılandırılmış. Android v1.12.0 + için hello SDK'sı ile tümleştirme gerektirir.
+GCM kullanarak yerel gönderim özelliğini etkinleştirmek için Google yönergeleri izleyerek gerekir. Bir sunucu basit API anahtarı yapıştırmanız gerekir sonra IP kısıtlamaları yapılandırılmış. Android v1.12.0 + için SDK'sı ile tümleştirme gerektirir.
 
 Daha fazla bilgi için bkz. 
 
-* [SDK Belgeleri Android nasıl tooIntegrate GCM][Link 5]
+* [SDK Belgeleri Android GCM tümleştirme][Link 5]
 * [Google Developer GCM Kılavuzu](http://developer.android.com/guide/google/gcm/gs.html)
 
 ### <a name="amazon-device-messaging-for-android-adm"></a>Amazon cihaz Mesajlaşma (ADM) Android için
-tooenable yerel gönderim ADM kullanarak, Amazon sağlamalısınız <OAuth credentials> oluşan bir istemci kimliği ve istemci parolası (SDK'sı ile tümleştirme gerektiren Android v2.1.0 + için).
+ADM kullanarak yerel gönderim özelliğini etkinleştirmek için Amazon sağlayın <OAuth credentials> oluşan bir istemci kimliği ve istemci parolası (SDK'sı ile tümleştirme gerektiren Android v2.1.0 + için).
 
 Daha fazla bilgi için bkz. 
 
-* [SDK Belgeleri Android nasıl tooIntegrate ADM][Link 5]
+* [SDK Belgeleri Android ADM tümleştirme][Link 5]
 * [Amazon Geliştirici ADM belgeleri](https://developer.amazon.com/sdk/adm/credentials.html#Getting)
 
 ![settings6][51]
 
 ## <a name="push-speed"></a>Gönderim hızı
-Merhaba geçerli gönderim hızı, uygulamanızın gösterir ve toodefine Merhaba, uygulamanızın gönderim hızını sağlar.
+Uygulamanızın gönderim hızını tanımlamanıza olanak sağlar ve geçerli, uygulamanızın gönderim hızını gösterir.
 
   ![settings7][52]
 

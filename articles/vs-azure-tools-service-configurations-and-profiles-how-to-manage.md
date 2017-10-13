@@ -1,6 +1,6 @@
 ---
-title: "aaaHow toomanage hizmet yapılandırmalarını ve profilleri | Microsoft Docs"
-description: "Bilgi nasıl hizmet yapılandırmalarını ve profilleri yapılandırma dosyalarını toowork | hangi hello dağıtım ortamları için ayarları depolar ve bulut Hizmetleri için yayınlama ayarlarını."
+title: "Hizmet yapılandırması ve profillerini yönetme | Microsoft Docs"
+description: "Hizmet yapılandırmalarını ve profilleri yapılandırma dosyaları ile çalışmayı öğrenin | hangi dağıtım ortamları için ayarları depolar ve bulut Hizmetleri için yayınlama ayarlarını."
 services: visual-studio-online
 documentationcenter: na
 author: kraigb
@@ -14,91 +14,91 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/11/2017
 ms.author: kraigb
-ms.openlocfilehash: 1dba9df2fa57fe94dacc90ae74b05ccdc28270c1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: af1205f8c3e477d123d4835c80a68b3afd6ee5ad
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="how-toomanage-service-configurations-and-profiles"></a>Toomanage nasıl hizmet yapılandırmalarını ve profilleri
+# <a name="how-to-manage-service-configurations-and-profiles"></a>Hizmet yapılandırması ve profillerini yönetme
 ## <a name="overview"></a>Genel Bakış
-Bir bulut hizmeti yayımladığınızda, Visual Studio yapılandırma dosyaları iki tür yapılandırma bilgileri depolar: hizmet yapılandırmalarını ve Profiller. Hizmet yapılandırması (.cscfg dosyaları) hello dağıtım ortamları için bir Azure bulut hizmeti için ayarları depolar. Azure bulut hizmetlerinizi yönetir bu yapılandırma dosyalarını kullanır. Üzerindeki diğer yandan Merhaba, profilleri (.azurePubxml dosyaları) deposu için yayımlama ayarları bulut Hizmetleri. Bu, hello kullandığınızda, seçtiğiniz kaydını Yayımlama Sihirbazı ve yerel olarak Visual Studio tarafından kullanılan ayarlardır. Bu konuda açıklanmaktadır nasıl toowork yapılandırma dosyaları her iki tür.
+Bir bulut hizmeti yayımladığınızda, Visual Studio yapılandırma dosyaları iki tür yapılandırma bilgileri depolar: hizmet yapılandırmalarını ve Profiller. Hizmet yapılandırması (.cscfg dosyaları) bir Azure bulut hizmeti için dağıtım ortamları için ayarları depolar. Azure bulut hizmetlerinizi yönetir bu yapılandırma dosyalarını kullanır. Diğer taraftan, profilleri (.azurePubxml dosyaları) deposu bulut Hizmetleri ayarlarını yayımlayın. Bu ayarları Yayımlama Sihirbazı'nı kullanın ve yerel olarak Visual Studio tarafından kullanılan seçtiğiniz öğeye kaydını verilmiştir. Bu konuda, yapılandırma dosyaları her iki türdeki iş açıklanmaktadır.
 
 ## <a name="service-configurations"></a>Hizmet yapılandırması
-Her dağıtım ortamınız için birden çok hizmet yapılandırmaları toouse oluşturabilirsiniz. Örneğin, bir hizmet yapılandırması toorun kullanın ve Azure uygulaması ve başka bir hizmet yapılandırması, üretim ortamınız için test hello yerel ortam oluşturabilirsiniz.
+Her dağıtım ortamları için kullanmak üzere birden çok hizmet yapılandırması oluşturabilirsiniz. Örneğin, bir hizmet yapılandırması ve Azure uygulaması ve başka bir hizmet yapılandırması, üretim ortamınız için test çalıştırmak için kullandığınız yerel ortamı oluşturabilirsiniz.
 
-Ekleme, silme, yeniden adlandırın ve gereksinimlerinize göre bu hizmet yapılandırması değiştirme. Hello aşağıdaki çizimde gösterildiği gibi bu hizmet yapılandırması Visual Studio'dan yönetebilirsiniz.
+Ekleme, silme, yeniden adlandırın ve gereksinimlerinize göre bu hizmet yapılandırması değiştirme. Aşağıdaki çizimde gösterildiği gibi bu hizmet yapılandırması Visual Studio'dan yönetebilirsiniz.
 
 ![Hizmet yapılandırmalarını Yönet](./media/vs-azure-tools-service-configurations-and-profiles-how-to-manage/manage-service-config.png)
 
-Merhaba da açabilirsiniz **yönetmek yapılandırmaları** hello rolün özellik sayfaları iletişim kutusu. Azure projenizdeki bir rol için tooopen hello özellikleri bu rol için hello kısayol menüsünü açın ve ardından **özellikleri**. Merhaba üzerinde **ayarları** sekmesinde, hello genişletin **hizmet yapılandırmasını** listeleyin ve ardından **Yönet** tooopen hello **yönetmek yapılandırmaları**iletişim kutusu.
+Ayrıca açabilirsiniz **yönetmek yapılandırmaları** rolün özellik sayfaları iletişim kutusu. Bir rol için özellikleri Azure projenizde açmak için bu rol için kısayol menüsünü açın ve ardından **özellikleri**. Üzerinde **ayarları** sekmesinde, genişletin **hizmet yapılandırmasını** listeleyin ve ardından **Yönet** açmak için **yönetmek yapılandırmaları** iletişim kutusu.
 
-### <a name="tooadd-a-service-configuration"></a>tooadd bir hizmet yapılandırması
-1. Çözüm Gezgini'nde hello Azure projesi için hello kısayol menüsünü açın ve ardından **yönetmek yapılandırmaları**.
+### <a name="to-add-a-service-configuration"></a>Bir hizmet yapılandırması eklemek için
+1. Çözüm Gezgini'nde Azure projesi için kısayol menüsünü açın ve ardından **yönetmek yapılandırmaları**.
    
-    Merhaba **hizmet yapılandırmalarını Yönet** iletişim kutusu görüntülenir.
-2. tooadd bir hizmet yapılandırması, varolan bir yapılandırma bir kopyasını oluşturmanız gerekir. toodo bunu toocopy hello adı listesinden istediğiniz ve ardından hello yapılandırması seçin **kopya oluştur**.
-3. (İsteğe bağlı) toogive hello hizmet yapılandırması farklı bir ad hello yeni hizmet yapılandırması hello adı listesinden seçin ve ardından **yeniden adlandırma**. Merhaba, **adı** metin kutusunda, bu hizmet yapılandırması toouse istediğiniz ve ardından türü hello adı **Tamam**.
+    **Hizmet yapılandırmalarını Yönet** iletişim kutusu görüntülenir.
+2. Bir hizmet yapılandırması eklemek için varolan bir yapılandırma bir kopyasını oluşturmanız gerekir. Bunu yapmak için ad listesinden kopyalayın ve ardından istediğiniz yapılandırmayı seçin **kopya oluştur**.
+3. (İsteğe bağlı) Hizmet yapılandırması farklı bir ad vermek için yeni hizmet yapılandırması adı listesinden seçin ve ardından **yeniden adlandırma**. İçinde **adı** metin kutusuna, bu hizmet yapılandırması kullanın ve ardından istediğiniz adı yazın **Tamam**.
    
-    ServiceConfiguration adlı yeni bir hizmet yapılandırma dosyası. [Yeni adı] .cscfg, Çözüm Gezgini'nde toohello Azure projesi eklenir.
+    ServiceConfiguration adlı yeni bir hizmet yapılandırma dosyası. [Yeni adı] .cscfg, Çözüm Gezgini'nde Azure projesi eklenir.
 
-### <a name="toodelete-a-service-configuration"></a>toodelete bir hizmet yapılandırması
-1. Çözüm Gezgini'nde hello Azure projesi için hello kısayol menüsünü açın ve ardından **yönetmek yapılandırmaları**.
+### <a name="to-delete-a-service-configuration"></a>Bir hizmet yapılandırması silmek için
+1. Çözüm Gezgini'nde Azure projesi için kısayol menüsünü açın ve ardından **yönetmek yapılandırmaları**.
    
-    Merhaba **hizmet yapılandırmalarını Yönet** iletişim kutusu görüntülenir.
-2. toodelete bir hizmet yapılandırması seçin hello yapılandırma hello gelen toodelete istediğiniz **adı** listeleyin ve ardından **kaldırmak**. Bu yapılandırma toodelete istediğiniz tooverify bir iletişim kutusu görüntülenir.
+    **Hizmet yapılandırmalarını Yönet** iletişim kutusu görüntülenir.
+2. Bir hizmet yapılandırması silmek için silmek istediğiniz yapılandırmayı seçin **adı** listeleyin ve ardından **kaldırmak**. Bu yapılandırma silmek istediğiniz doğrulamak için bir iletişim kutusu görüntülenir.
 3. **Sil**’i seçin.
    
-     Merhaba hizmet yapılandırma dosyası hello Azure projesi Çözüm Gezgini'nde kaldırılır.
+     Hizmet yapılandırma dosyası, Çözüm Gezgini'nde Azure projeden kaldırılır.
 
-### <a name="toorename-a-service-configuration"></a>toorename bir hizmet yapılandırması
-1. Çözüm Gezgini'nde, hello Azure projesi için hello kısayol menüsünü açın ve ardından **yönetmek yapılandırmaları**.
+### <a name="to-rename-a-service-configuration"></a>Bir hizmet yapılandırması yeniden adlandırmak için
+1. Çözüm Gezgini'nde, Azure projesi için kısayol menüsünü açın ve ardından **yönetmek yapılandırmaları**.
    
-    Merhaba **hizmet yapılandırmalarını Yönet** iletişim kutusu görüntülenir.
-2. toorename bir hizmet yapılandırması seçin hello yeni hizmet yapılandırması hello **adı** listeleyin ve ardından **yeniden adlandırma**. Merhaba, **adı** metin kutusunda, bu hizmet yapılandırması toouse istediğiniz ve ardından türü hello adı **Tamam**.
+    **Hizmet yapılandırmalarını Yönet** iletişim kutusu görüntülenir.
+2. Yeni hizmet yapılandırmasından bir hizmet yapılandırması yeniden adlandırmak tercih **adı** listeleyin ve ardından **yeniden adlandırma**. İçinde **adı** metin kutusuna, bu hizmet yapılandırması kullanın ve ardından istediğiniz adı yazın **Tamam**.
    
-    Merhaba hello hizmet yapılandırma dosyasının adını, Çözüm Gezgini'nde Azure projesi hello değiştirilir.
+    Hizmet yapılandırma dosyasının adını Azure projesindeki Çözüm Gezgini'nde değiştirilir.
 
-### <a name="toochange-a-service-configuration"></a>toochange bir hizmet yapılandırması
-* Toochange bir hizmet yapılandırması istiyorsanız hello Azure projesi toochange istediğiniz ve ardından hello belirli rol için hello kısayol menüsünü açın **özellikleri**. Bkz: [nasıl yapılır: Visual Studio ile Azure bulut hizmeti için hello rollerini yapılandırma](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service) daha fazla bilgi için.
+### <a name="to-change-a-service-configuration"></a>Hizmet yapılandırmasını değiştirmek için
+* Hizmet yapılandırmasını değiştirmek istiyorsanız, Azure projesinde değiştirin ve ardından istediğiniz belirli bir rol için kısayol menüsünü açın **özellikleri**. Bkz: [nasıl yapılır: Visual Studio ile Azure bulut hizmeti için rolleri yapılandırmak](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service) daha fazla bilgi için.
 
 ## <a name="make-different-setting-combinations-by-using-profiles"></a>Profilleri kullanılarak farklı ayar birleşimleri olun
-Bir profil kullanarak hello otomatik olarak doldurabilir **Yayımlama Sihirbazı** farklı amaçlar için ayarları farklı bileşimleri ile. Örneğin, hata ayıklama için bir profil olabilir ve yayın için başka bir oluşturur. Bu durumda, **hata ayıklama** profil sahip olabilir **IntelliTrace** etkin ve hello **hata ayıklama** seçili, yapılandırma ve **sürüm** Profil sahip olabilir **IntelliTrace** devre dışı bırakılır ve hello **sürüm** seçili yapılandırma. Farklı bir depolama hesabı kullanarak bir hizmet farklı profiller toodeploy de kullanabilirsiniz.
+Bir profil kullanarak otomatik olarak doldurabilirsiniz **Yayımlama Sihirbazı** farklı amaçlar için ayarları farklı bileşimleri ile. Örneğin, hata ayıklama için bir profil olabilir ve yayın için başka bir oluşturur. Bu durumda, **hata ayıklama** profil sahip olabilir **IntelliTrace** etkin ve **hata ayıklama** seçili, yapılandırma ve **sürüm** Profil sahip olabilir **IntelliTrace** devre dışı ve **sürüm** seçili yapılandırma. Farklı profilleri, farklı bir depolama hesabı kullanarak bir hizmet dağıtmak için de kullanabilirsiniz.
 
-Merhaba hello Sihirbazı ilk kez çalıştırdığınızda, bir varsayılan profili oluşturulur. Visual Studio hello profil tooyour hello altında Azure projesi eklenir .azurePubXml uzantısına sahip bir dosyada depolar **profilleri** klasör. Daha sonra hello Sihirbazı'nı çalıştırdığınızda, el ile farklı seçenekler belirtirseniz, hello dosya otomatik olarak güncelleştirir. Aşağıdaki yordamı hello çalıştırmadan önce önceden bulut hizmetiniz en az bir kez yayımladığınız.
+Sihirbazı ilk kez çalıştırdığınızda, bir varsayılan profili oluşturulur. Visual Studio profil altında Azure projenize eklenen bir .azurePubXml uzantısına sahip bir dosyada depolar **profilleri** klasör. Daha sonra Sihirbazı'nı çalıştırdığınızda, farklı seçenekler el ile belirtirseniz, dosyayı otomatik olarak güncelleştirir. Aşağıdaki yordamı çalıştırmadan önce önceden bulut hizmetiniz en az bir kez yayımladığınız.
 
-### <a name="tooadd-a-profile"></a>tooadd bir profili
-1. Azure projeniz için hello kısayol menüsünü açın ve ardından **Yayımla**.
-2. Sonraki toohello **hedef profil** listesi, select hello **profili Kaydet** düğme, aşağıdaki çizimde gösterildiği hello olarak. Bu profil sizin için oluşturur.
+### <a name="to-add-a-profile"></a>Bir profili eklemek için
+1. Azure projeniz için kısayol menüsünü açın ve ardından **Yayımla**.
+2. Yanına **hedef profil** listesinde **profili Kaydet** düğmesi, aşağıdaki çizimde gösterildiği gibi. Bu profil sizin için oluşturur.
    
     ![Yeni bir profil oluşturma](./media/vs-azure-tools-service-configurations-and-profiles-how-to-manage/create-new-profile.png)
-3. Hello profil oluşturulduktan sonra seçin **< Yönet... >** hello içinde **hedef profil** listesi.
+3. Profil oluşturulduktan sonra seçin **< Yönet... >** içinde **hedef profil** listesi.
    
-    Merhaba **profillerini yönetme** iletişim kutusu görüntülenirse, aşağıdaki çizimde gösterildiği hello.
+    **Profillerini yönetme** iletişim kutusu görüntülenirse, aşağıda gösterildiği gibi.
    
     ![Profilleri Yönet iletişim kutusu](./media/vs-azure-tools-service-configurations-and-profiles-how-to-manage/manage-profiles.png)
-4. Merhaba, **adı** listesinde, bir profil seçin ve ardından **kopya oluştur**.
-5. Merhaba seçin **Kapat** düğmesi.
+4. İçinde **adı** listesinde, bir profil seçin ve ardından **kopya oluştur**.
+5. Seçin **Kapat** düğmesi.
    
-    Merhaba yeni profili hello hedef profil listesi görüntülenir.
-6. Merhaba, **hedef profil** listesinde, oluşturduğunuz select hello profili. Merhaba Yayımlama Sihirbazı ayarları seçtiğiniz hello profili hello seçeneklerden doldurulur.
-7. Select hello **önceki** ve **sonraki** toodisplay hello Yayımlama Sihirbazı'nı her sayfanın düğmeler ve ardından bu profil için hello ayarlarını özelleştirin. Bkz: [Azure uygulaması Yayımlama Sihirbazı](http://go.microsoft.com/fwlink/p/?LinkID=623085) bilgi.
-8. Hello ayarlarını özelleştirme tamamladıktan sonra Seç **sonraki** toogo geri toohello Ayarları sayfası. Bu ayarları kullanarak hello hizmet yayımladığınızda veya seçerseniz Hello profili kaydedildi **kaydetmek** profilleri sonraki toohello listesi.
+    Yeni profili hedef profil listesinde görünür.
+6. İçinde **hedef profil** listesinde, oluşturduğunuz profil seçin. Yayımlama Sihirbazı ayarları seçtiğiniz profil seçeneklerden doldurulur.
+7. Seçin **önceki** ve **sonraki** Yayımlama Sihirbazı'nın her sayfasında görüntülemek ve ardından bu profil ayarlarını özelleştirmek için düğmeler. Bkz: [Azure uygulaması Yayımlama Sihirbazı](http://go.microsoft.com/fwlink/p/?LinkID=623085) bilgi.
+8. Ayarları özelleştirme tamamladıktan sonra Seç **sonraki** ayarları sayfasına geri gidin. Profil, bu ayarları kullanarak hizmet yayımladığınızda veya seçerseniz kaydedilir **kaydetmek** profil listesine yanındaki.
 
-### <a name="toorename-or-delete-a-profile"></a>toorename veya bir profili silme
-1. Azure projeniz için hello kısayol menüsünü açın ve ardından **Yayımla**.
-2. Merhaba, **hedef profil** listesinde **Yönet**.
-3. Merhaba, **profillerini yönetme** iletişim kutusu, toodelete istediğiniz ve ardından select hello profil **kaldırmak**.
-4. Görüntülenen hello onay iletişim kutusunda **Tamam**.
+### <a name="to-rename-or-delete-a-profile"></a>Yeniden adlandırmak veya bir profilini silmek için
+1. Azure projeniz için kısayol menüsünü açın ve ardından **Yayımla**.
+2. İçinde **hedef profil** listesinde **Yönet**.
+3. İçinde **profillerini yönetme** iletişim kutusu, silmek istediğiniz profili seçin ve ardından **kaldırmak**.
+4. Görüntülenen onay iletişim kutusunda seçin **Tamam**.
 5. Seçin **Kapat**.
 
-### <a name="toochange-a-profile"></a>toochange bir profili
-1. Azure projeniz için hello kısayol menüsünü açın ve ardından **Yayımla**.
-2. Merhaba, **hedef profil** listesinde, select hello profil toochange istiyor.
-3. Select hello **önceki** ve **sonraki** toodisplay her sayfanın hello Yayımlama Sihirbazı'nı ve ardından istediğiniz hello ayarlarını değiştir düğmeleri. Bkz: [Azure uygulaması Yayımlama Sihirbazı](http://go.microsoft.com/fwlink/p/?LinkID=623085) bilgi.
-4. Hello ayarlarını değiştirme işlemini tamamladıktan sonra seçin **sonraki** toogo geri toohello **ayarları** sayfası.
-5. (İsteğe bağlı) seçin **Yayımla** hello yeni ayarlarla toopublish hello bulut hizmeti. Bulut hizmetiniz bu saat ve Kapat toopublish istemiyorsanız, Yayımlama Sihirbazı Merhaba, Visual Studio toosave hello değişiklikleri toohello profili isteyip istemediğinizi sorar.
+### <a name="to-change-a-profile"></a>Bir profili değiştirmek için
+1. Azure projeniz için kısayol menüsünü açın ve ardından **Yayımla**.
+2. İçinde **hedef profil** listesinde, değiştirmek istediğiniz profili seçin.
+3. Seçin **önceki** ve **sonraki** Yayımlama Sihirbazı her sayfasını görüntülemek ve ardından istediğiniz ayarları değiştirmek için düğmeler. Bkz: [Azure uygulaması Yayımlama Sihirbazı](http://go.microsoft.com/fwlink/p/?LinkID=623085) bilgi.
+4. Ayarları değiştirme işlemini tamamladıktan sonra seçin **sonraki** dönmek için **ayarları** sayfası.
+5. (İsteğe bağlı) seçin **Yayımla** yeni ayarlar kullanılarak bulut hizmeti yayımlamak için. Şu anda bulut hizmetinizi yayımlayın istemediğiniz ve Yayımlama Sihirbazı kapatırsanız, Visual Studio profiline değişiklikleri kaydetmek isteyip istemediğinizi sorar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-diğer Azure projeniz Visual Studio'dan bölümlerini yapılandırma hakkında daha fazla toolearn bakın [bir Azure projesi yapılandırma](http://go.microsoft.com/fwlink/p/?LinkID=623075)
+Diğer Azure projeniz Visual Studio'dan bölümlerini yapılandırma hakkında bilgi edinmek için [bir Azure projesi yapılandırma](http://go.microsoft.com/fwlink/p/?LinkID=623075)
 

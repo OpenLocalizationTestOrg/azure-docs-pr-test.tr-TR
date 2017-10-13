@@ -1,6 +1,6 @@
 ---
-title: "Bulut Hizmetleri ve Service Fabric arasında aaaDifferences | Microsoft Docs"
-description: "Geçiş için kavramsal genel bulut Hizmetleri tooService doku uygulamalardan."
+title: "Bulut Hizmetleri ve Service Fabric arasındaki farklar | Microsoft Docs"
+description: "Geçiş için kavramsal genel bulut hizmetlerinden Service Fabric uygulamaları."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,49 +14,49 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.openlocfilehash: bbc5ef4fe0fe1b0da55454cb6b766925030198fa
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 26c0256f6fa299551d92e9bcd058ca359d8c85b3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="learn-about-hello-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Geçirmeden önce hello farklarını bulut Hizmetleri ve Service Fabric öğrenin uygulamalar.
-Microsoft Azure Service Fabric hello nesil bulut uygulama düzeyde ölçeklenebilir, yüksek oranda güvenilir dağıtılmış uygulamalar için platformudur. Paketleme, dağıtma, yükseltme ve dağıtılmış bulut uygulamalarını yönetmek için birçok yeni özellik sunar. 
+# <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Bulut Hizmetleri ve Service Fabric arasındaki farklar hakkında bilgi geçirmeden önce uygulamaları.
+Microsoft Azure Service Fabric yüksek düzeyde ölçeklenebilir, yüksek oranda güvenilir dağıtılmış uygulamalar için yeni nesil bulut uygulama platformudur. Paketleme, dağıtma, yükseltme ve dağıtılmış bulut uygulamalarını yönetmek için birçok yeni özellik sunar. 
 
-Bulut Hizmetleri tooService doku tanıtım Kılavuzu toomigrating uygulamalardan budur. Öncelikle mimari odaklanır ve bulut Hizmetleri ve Service Fabric arasındaki farklar tasarlayın.
+Bu geçiş için bir giriş kılavuzdur bulut hizmetlerinden Service Fabric uygulamaları. Öncelikle mimari odaklanır ve bulut Hizmetleri ve Service Fabric arasındaki farklar tasarlayın.
 
 ## <a name="applications-and-infrastructure"></a>Uygulamalar ve altyapı
-Bulut Hizmetleri ve Service Fabric arasındaki temel fark hello VM'ler, iş yüklerini ve uygulamaları arasındaki ilişkidir. Buraya bir iş yükü, belirli bir görevi tooperform yazmak veya bir hizmet sağlamak hello kodu olarak tanımlanır.
+Bulut Hizmetleri ve Service Fabric arasındaki temel fark, VM'ler, iş yüklerini ve uygulamaları arasındaki ilişkidir. Buraya bir iş yükü, belirli bir görevi gerçekleştirmek ya da bir hizmet sağlamak için yazdığınız kodu tanımlanır.
 
-* **Bulut Hizmetleri ' dir. vm'lerle uygulamaları dağıtma hakkında** Merhaba kodları sıkı şekilde bağlı tooa VM, Web veya çalışan rolü gibi örneğidir. Bulut Hizmetleri iş yükünü toodeploy toodeploy bir ya da çalışma hello iş yükü daha fazla VM örnekleri. Uygulamalar ve sanal makineleri hiçbir ayrımı yoktur ve bu nedenle yoktur uygulamanın resmi tanımı yok. Bir uygulama, ardından bir bulut Hizmetleri dağıtımı içindeki Web veya çalışan rolü örnekleri bir dizi veya tam bir bulut Hizmetleri dağıtımını olarak düşünülebilir. Bu örnekte, bir uygulama rolü örnekleri bir küme olarak gösterilir.
+* **Bulut Hizmetleri ' dir. vm'lerle uygulamaları dağıtma hakkında** Yazdığınız kodları Web veya çalışan rolü gibi bir VM örneğine sıkı şekilde bağlı. Bulut Hizmetleri iş yükünü dağıtmak için iş yükünü çalıştırmak bir veya daha fazla VM örnekleri dağıtmaktır. Uygulamalar ve sanal makineleri hiçbir ayrımı yoktur ve bu nedenle yoktur uygulamanın resmi tanımı yok. Bir uygulama, ardından bir bulut Hizmetleri dağıtımı içindeki Web veya çalışan rolü örnekleri bir dizi veya tam bir bulut Hizmetleri dağıtımını olarak düşünülebilir. Bu örnekte, bir uygulama rolü örnekleri bir küme olarak gösterilir.
 
 ![Bulut Hizmetleri uygulamalar ve topolojisi][1]
 
-* **Service Fabric dağıtma uygulamaları tooexisting Vm'leri veya Windows veya Linux'ta Service Fabric çalışan makineler hakkındadır.** Yazdığınız hello uygulamanın dağıtılan toomultiple ortamları olabilir hello Service Fabric uygulaması platformu tarafından hemen soyutlanır altyapı, temel alınan hello tamamen ayrılmış hizmetleridir. Service Fabric iş yükünü bir "hizmet" adı verilir ve bir veya daha fazla hizmet hello Service Fabric uygulaması platformu üzerinde çalışan resmi olarak tanımlanan bir uygulama içinde gruplandırılır. Birden çok uygulama dağıtılan tooa tek Service Fabric kümesi olabilir.
+* **Service Fabric, var olan sanal makineleri veya Service Fabric Windows veya Linux çalıştıran makineler uygulamaları dağıtma hakkında ' dir.** Yazdığınız tamamen ayrılmış bir uygulama için birden çok ortamları dağıtılabilmesi amacıyla Service Fabric uygulama platformu tarafından hemen soyutlanır temel altyapısından hizmetleridir. Service Fabric iş yükünü bir "hizmet" adı verilir ve bir veya daha fazla hizmet Service Fabric uygulaması platformunda çalışan resmi olarak tanımlanan bir uygulama içinde gruplandırılır. Birden çok uygulama için tek bir Service Fabric kümesi dağıtılabilir.
 
 ![Service Fabric uygulamaları ve topolojisi][2]
 
 Bulut Hizmetleri ile bağlı iş yüklerini Azure yönetilen sanal makineleri dağıtmak için bir sistem iken Service Fabric kendisi Windows veya Linux çalıştıran bir uygulama platformu katmanıdır.
-Merhaba Service Fabric uygulama modeli, çok sayıda avantaj vardır:
+Service Fabric uygulama modeli, çok sayıda avantaj vardır:
 
-* Hızlı Dağıtım zamanları. VM örnekleri oluşturmak zaman alabilir. Service Fabric içinde tooform barındıran bir küme hello sonra Service Fabric uygulaması platformu VM'ler yalnızca dağıtılır. Bu noktadan itibaren uygulama paketleri dağıtılan toohello küme çok hızlı bir şekilde olabilir.
-* Yüksek yoğunlukta barındırma. Bulut Hizmetleri'nde bir iş yükü çalışan rolü VM barındırır. Service Fabric içinde uygulamalar çok sayıda uygulamaları tooa az sayıda daha büyük dağıtımlar için genel maliyeti düşürebilirsiniz VM'ler dağıtabileceğiniz anlamına gelir, çalıştırmasına hello VM'ler ayrıdır.
-* Azure veya şirket içi olup hello Service Fabric platform herhangi bir yerden çalıştırabilirsiniz Windows Server veya Linux makineye sahiptir. Uygulamanızın üzerinde farklı ortamlarda çalıştırabilmeniz için hello platformu hello altyapının bir soyutlama katmanı sağlar. 
-* Dağıtılmış uygulama yönetimi. Service Fabric yalnızca ana dağıtılmış uygulamalar, ancak da yardımcı olur yaşam döngüleri VM barındırma hello bağımsız olarak yönetmek veya yaşam döngüsü makine, bir platformdur.
+* Hızlı Dağıtım zamanları. VM örnekleri oluşturmak zaman alabilir. Service Fabric içinde sanal makineleri yalnızca Service Fabric uygulaması platformu barındıran bir küme oluşturmak için bir kez dağıtılır. Bu noktadan itibaren kümeye çok hızlı bir şekilde uygulama paketleri dağıtılabilir.
+* Yüksek yoğunlukta barındırma. Bulut Hizmetleri'nde bir iş yükü çalışan rolü VM barındırır. Service Fabric içinde çok sayıda büyük dağıtımlar için genel maliyeti düşürebilirsiniz VM'ler az sayıda uygulamaları dağıtabileceğiniz anlamına gelir, çalışan sanal makineleri ayrı uygulamalardır.
+* Azure veya şirket içi olup Windows Server veya Linux makineler platform herhangi bir yerden çalıştırabilirsiniz Service Fabric sahiptir. Uygulamanızın üzerinde farklı ortamlarda çalıştırabilmeniz için platform altyapının bir soyutlama katmanı sağlar. 
+* Dağıtılmış uygulama yönetimi. Service Fabric yalnızca ana dağıtılmış uygulamalar aynı yaşam döngüleri barındırma VM bağımsız olarak veya makine yaşam döngüsü de yönetmeye yardımcı olur platformudur.
 
 ## <a name="application-architecture"></a>Uygulama mimarisi
-Merhaba mimarisi bir bulut Hizmetleri uygulaması genellikle Service Bus, Azure Table ve Blob Storage, SQL, Redis ve diğerleri gibi çok sayıda dış Hizmet bağımlılıklarını içerir toomanage hello durum ve verileri bir uygulama ve Web arasındaki iletişim ve bulut Hizmetleri dağıtımında çalışan rolleri. Tam bir bulut Hizmetleri uygulamanın örnek şuna benzeyebilir:  
+Bulut Hizmetleri Uygulama Mimarisi genellikle Service Bus, Azure Table ve Blob Storage, SQL, Redis ve diğerleri gibi durum ve verileri bir uygulama ve Web arasındaki iletişimi yönetmek için çok sayıda dış Hizmet bağımlılıklarını içerir ve Bulut Hizmetleri dağıtımında çalışan rolleri. Tam bir bulut Hizmetleri uygulamanın örnek şuna benzeyebilir:  
 
 ![Bulut Hizmetleri mimarisi][9]
 
-Service Fabric uygulamaları da toouse hello aynı dış hizmetler tam bir uygulama seçebilirsiniz. Bu örnek bulut Hizmetleri mimarisi kullanarak, hello en basit geçiş yolundan bulut Hizmetleri tooService doku tooreplace yalnızca hello bulut Hizmetleri hello tutma bir Service Fabric uygulaması ile dağıtımıdır genel mimarisi hello aynı. Merhaba Web ve çalışan rolleri taşınmasını tooService doku durum bilgisi olmayan hizmetler çok az kod değişiklikleri olabilir.
+Service Fabric uygulamaları, aynı dış hizmetler tam bir uygulamada kullanmak de seçebilirsiniz. Bu örnek bulut Hizmetleri mimarisi kullanarak, en basit geçiş yolunu bulut hizmetlerinden Service Fabric yalnızca bulut Hizmetleri dağıtımı genel mimarisi aynı kalmasını bir Service Fabric uygulaması ile değiştirmektir. Web ve çalışan rolleri çok az kod değişikliklerle Service Fabric durum bilgisi olmayan hizmetler için bağlantı noktası kurulmuş.
 
 ![Basit geçişten sonra Service Fabric mimarisi][10]
 
-Bu aşamada hello sistem devam etmesi gerektiğini toowork hello aynı önceki gibi. Durum bilgisi olan uygunsa Hizmetleri gibi Service Fabric'ın durum bilgisi olan özellikleri, dış durumu depoları yararlanarak internalized. Bu eşdeğer işlevsellik tooyour uygulama hello dış hizmetler önce yaptığınız gibi sağlayan özel hizmetler yazma gerektirdiğinden daha basit bir Web ve çalışan rolleri tooService doku durum bilgisi olmayan hizmetler, geçiş daha karmaşıktır. Bunun yapılması hello avantajları şunlardır: 
+Bu aşamada, sistem bir önceki ile aynı çalışmaya devam etmesi gerekir. Durum bilgisi olan uygunsa Hizmetleri gibi Service Fabric'ın durum bilgisi olan özellikleri, dış durumu depoları yararlanarak internalized. Bu dış hizmetler önce yaptığınız gibi uygulamanız için eşdeğer işlevsellik sağlayan özel hizmetler yazma gerektirdiğinden daha basit bir Web ve çalışan rolleri geçişini Service Fabric durum bilgisi olmayan hizmetler için daha karmaşıktır. Bunun yapılması avantajları şunlardır: 
 
 * Dış bağımlılıkları kaldırma 
-* Merhaba dağıtım, yönetim ve yükseltme modelleri birleştirin. 
+* Dağıtım, yönetim ve yükseltme modeli birleştirin. 
 
 Bu hizmetler internalizing bir örneği elde edilen mimarisi şöyle:
 
@@ -66,32 +66,32 @@ Bu hizmetler internalizing bir örneği elde edilen mimarisi şöyle:
 Çoğu bulut hizmeti uygulamaları birden fazla katmanı oluşur. Benzer şekilde, Service Fabric uygulaması birden fazla hizmeti (genellikle birçok Hizmetleri) oluşur. İki ortak iletişim modelleri olan doğrudan iletişim ve dış dayanıklı bir depolama aracılığıyla.
 
 ### <a name="direct-communication"></a>Doğrudan iletişim
-İle doğrudan iletişim, katmanları doğrudan her katmanı tarafından kullanıma sunulan bitiş noktası ile iletişim kurabilir. Bulut Hizmetleri, bu rastgele bir VM rol örneği ya da seçerek anlamına gelir veya hepsini toobalance yük ve bağlantı tooits uç noktası doğrudan gibi durum bilgisiz ortamlarda.
+İle doğrudan iletişim, katmanları doğrudan her katmanı tarafından kullanıma sunulan bitiş noktası ile iletişim kurabilir. Bulut Hizmetleri, bu rastgele bir VM rol örneği ya da seçerek anlamına gelir veya hepsini Bakiye yükü ve kendi uç noktasına doğrudan bağlanma gibi durum bilgisiz ortamlarda.
 
 ![Bulut Hizmetleri doğrudan iletişim][5]
 
- Doğrudan iletişim Service Fabric ortak bir iletişim modelidir. Service Fabric tooa hizmetine bağlanın ancak hello anahtar arasındaki Service Fabric ve Cloud Services bulut Hizmetleri'nde, tooa VM bağlanmak farktır. Bu, birkaç nedenlerle önemli bir fark oluşur:
+ Doğrudan iletişim Service Fabric ortak bir iletişim modelidir. Service Fabric bir hizmete bağlanmak ancak Service Fabric ve Cloud Services arasındaki temel farklılık bir VM'ye bağlanın, içinde bulut Hizmetleri ' dir. Bu, birkaç nedenlerle önemli bir fark oluşur:
 
-* Service Fabric Hizmetleri'nde onlara konağı ilişkili toohello VM'ler olmayan; Hizmetleri hello kümede dolaşmak ve aslında, geçici beklenen toomove çeşitli nedenleri şunlardır: kaynak Dengeleme, yük devretme, uygulama ve altyapı yükseltmeleri ve yerleştirme ya da yük kısıtlamaları. Başka bir deyişle, bir hizmet örneğinin Adres dilediğiniz zaman değiştirebilirsiniz. 
+* Service Fabric Hizmetleri'nde kendilerini barındıran sanal makineleri bağlı değildir; Hizmetleri kümeye taşıyabilirsiniz ve çeşitli nedenlerle hareket etmek için aslında, beklenen: kaynak Dengeleme, yük devretme, uygulama ve altyapı yükseltmeleri ve yerleştirme ya da yük kısıtlamaları. Başka bir deyişle, bir hizmet örneğinin Adres dilediğiniz zaman değiştirebilirsiniz. 
 * Service Fabric bir VM'de her benzersiz uç noktaları birden çok hizmet barındırabilir.
 
-Service Fabric hello kullanılan tooresolve uç nokta adresleri hizmetlerinin olabilir adlandırma hizmeti adlı bir hizmet bulma mekanizma sağlar. 
+Service Fabric adlandırma bitiş noktası adreslerini Hizmetleri çözümlemek için kullanılan hizmet adlı bir hizmet bulma mekanizma sağlar. 
 
 ![Service Fabric doğrudan iletişim][6]
 
 ### <a name="queues"></a>Kuyruklar
-Bulut Hizmetleri gibi durum bilgisiz ortamlarda katmanları arasında ortak bir iletişim mekanizması toouse bir harici depolama kuyruğu toodurably olan bir katmanı tooanother iş görevleri depolamak. Yaygın bir senaryo, bir işleri tooan Azure kuyruk gönderir web katmanı veya hizmet burada çalışan rolü örnekleri dequeue ve hello işleri işlemek veri yolu değil.
+Bulut Hizmetleri gibi durum bilgisiz ortamlarda katmanları arasında ortak bir iletişim mekanizması işlemi başka bir iş görevleri bir katmanından depolamak için bir dış depolama kuyruğu kullanmaktır. Bir Azure kuyruk veya hizmet burada çalışan rolü örnekleri dequeue ve işleri işlemek veri yolu işleri gönderir web katmanı buna ortak bir senaryodur.
 
 ![Bulut Hizmetleri sıra iletişimi][7]
 
-Merhaba aynı iletişim modelini Service Fabric içinde kullanılabilir. Var olan bir bulut Hizmetleri uygulama tooService doku geçirirken bu yararlı olabilir. 
+Aynı iletişim modelini Service Fabric içinde kullanılabilir. Service Fabric varolan bir bulut Hizmetleri uygulamaya geçirirken bu yararlı olabilir. 
 
 ![Service Fabric doğrudan iletişim][8]
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Merhaba doku yalnızca hello tutma bir Service Fabric uygulaması ile bulut Hizmetleri dağıtımı Merhaba, uygulamanızın genel mimarisi kabaca tooreplace olan bulut Hizmetleri tooService en basit geçiş yolundan hello aynı. aşağıdaki makaleye bakın hello toohelp dönüştürme bir Web veya çalışan rolü tooa Service Fabric durum bilgisiz hizmeti bir kılavuz sağlar.
+En basit geçiş yolunu bulut hizmetlerinden Service Fabric uygulamanızı genel mimarisi kabaca aynı kalmasını bir Service Fabric uygulaması ile yalnızca bulut Hizmetleri dağıtımı değiştirmektir. Aşağıdaki makalede bir Web veya çalışan rolü bir Service Fabric durum bilgisiz hizmetine dönüştürme yardımcı olacak bir kılavuz sağlar.
 
-* [Basit geçiş: bir Web veya çalışan rolü tooa Service Fabric durum bilgisiz hizmet Dönüştür](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
+* [Basit geçiş: bir Service Fabric durum bilgisiz hizmetine Web veya çalışan rolü Dönüştür](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
 
 <!--Image references-->
 [1]: ./media/service-fabric-cloud-services-migration-differences/topology-cloud-services.png

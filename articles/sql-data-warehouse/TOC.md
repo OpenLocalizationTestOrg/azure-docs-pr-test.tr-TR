@@ -8,9 +8,10 @@
 # Kullanmaya Başlama
 
 ## [Başlangıç öğreticisi](sql-data-warehouse-get-started-tutorial.md)
+## [Esnek Sorgu öğreticisi](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
 ## [En iyi uygulamalar](sql-data-warehouse-best-practices.md)
 ## [Yönetme](sql-data-warehouse-overview-manage.md)
-## [Destek alın](sql-data-warehouse-get-started-create-support-ticket.md)
+
 
 
 # Nasıl yapılır?
@@ -19,8 +20,8 @@
 
 ### [Backup’a Genel Bakış](sql-data-warehouse-backups.md)
 ### [Geri Yüklemeye Genel Bakış](sql-data-warehouse-restore-database-overview.md)
-#### [Azure Portal](sql-data-warehouse-restore-database-portal.md)
-#### [PowerShell](sql-data-warehouse-restore-database-powershell.md)
+#### [Azure portal](sql-data-warehouse-restore-database-portal.md)
+#### [Azure PowerShell](sql-data-warehouse-restore-database-powershell.md)
 #### [REST](sql-data-warehouse-restore-database-rest-api.md)
 
 ## Bağlan
@@ -34,7 +35,7 @@
 
 ## Oluştur
 ### [Azure portal](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [Azure PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 ### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## Geliştirme
@@ -80,6 +81,8 @@
 ### [Power BI görselleştirme](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 ### [Akış Analizi](sql-data-warehouse-integrate-azure-stream-analytics.md)
 
+### [SQL Database ve SQL Veri Ambarı ile Esnek Sorgu](how-to-use-elastic-query-with-sql-data-warehouse.md)
+
 ## Yükleme
 
 ### Kavramlar
@@ -89,7 +92,7 @@
 ### Öğreticiler
 #### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
 
-### Nasıl tooguides
+### Nasıl yapılır kılavuzları
 #### [Örnek veriler](sql-data-warehouse-load-sample-databases.md)
 #### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
 #### [BCP](sql-data-warehouse-load-with-bcp.md)
@@ -106,7 +109,7 @@
 ### [Geçiş şeması](sql-data-warehouse-migrate-schema.md)
 ### [Geçiş kodu](sql-data-warehouse-migrate-code.md)
 ### [Geçiş verileri](sql-data-warehouse-migrate-data.md)
-### [Toopremium depolama birimini geçirme](sql-data-warehouse-migrate-to-premium-storage.md)
+### [Premium depolamaya geçiş](sql-data-warehouse-migrate-to-premium-storage.md)
 
 ## İşlemi yönetme
 
@@ -139,18 +142,22 @@
 # Başvuru
 
 ## [Kapasite sınırları](sql-data-warehouse-service-capacity-limits.md)
-## [T-SQL dil öğeleri](sql-data-warehouse-reference-tsql-language-elements.md)
-## [T-SQL bildirimleri](sql-data-warehouse-reference-tsql-statements.md)
-## [T-SQL sistem görünümleri](sql-data-warehouse-reference-tsql-system-views.md)
+## T-SQL
+### [Tam başvuru](https://docs.microsoft.com/sql/t-sql/language-reference/)
+### [SQL DW dil öğeleri](sql-data-warehouse-reference-tsql-language-elements.md)
+### [SQL DW deyimleri](sql-data-warehouse-reference-tsql-statements.md)
+## [Sistem görünümleri](sql-data-warehouse-reference-tsql-system-views.md)
 ## [PowerShell cmdlet'leri](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=databases)
-## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
+## [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
+## [Özellik istekleri](https://feedback.azure.com/forums/307516-sql-data-warehouse/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
+## [Destek](sql-data-warehouse-get-started-create-support-ticket.md)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 ## İş Ortakları

@@ -1,6 +1,6 @@
 ---
-title: "aaaHow toouse PHP ile bildirim hub'ları"
-description: "Bilgi nasıl toouse Azure Notification Hubs bir PHP arka uçtan."
+title: "PHP ile bildirim hub'ları kullanma"
+description: "Bir PHP arka ucunu Azure bildirim hub'ları kullanmayı öğrenin."
 services: notification-hubs
 documentationcenter: 
 author: ysxu
@@ -14,48 +14,48 @@ ms.devlang: php
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: yuaxu
-ms.openlocfilehash: 6cd426286a684006a07867fcf44a8ff71be7efa8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c27b6308ff528224a0398e0ff40537db05417bb0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toouse-notification-hubs-from-php"></a>Nasıl toouse php'den Notification Hubs
+# <a name="how-to-use-notification-hubs-from-php"></a>Php'den Notification Hubs kullanma
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Bir PHP/Java/Ruby arka ucunu tüm bildirim hub'ları özelliklere erişebilir hello MSDN konuda açıklandığı gibi hello bildirim hub'ı REST arabirimini kullanarak [bildirim hub'ları REST API'leri](http://msdn.microsoft.com/library/dn223264.aspx).
+Bir PHP/Java/Ruby MSDN konusunda açıklandığı gibi bildirim hub'ı REST arabirimini kullanarak uç tüm bildirim hub'ları özellikleri erişebileceğiniz [bildirim hub'ları REST API'leri](http://msdn.microsoft.com/library/dn223264.aspx).
 
 Bu konudaki gösteriyoruz nasıl yapılır:
 
 * PHP Notification Hubs özellikleri için bir REST istemci oluşturun;
-* Merhaba izleyin [Get öğreticisinde](notification-hubs-ios-apple-push-notification-apns-get-started.md) hello arka uç bölümü PHP ile uygulama tercih ettiğiniz mobil platformunuz için.
+* İzleyin [Get öğreticisinde](notification-hubs-ios-apple-push-notification-apns-get-started.md) seçim için mobil platformda, arka uç bölümü PHP ile uygulama.
 
 ## <a name="client-interface"></a>İstemci arabirimi
-Merhaba ana istemci arabirimi hello kullanılabilir aynı yöntemleri hello sağlayabilir [.NET Notification Hubs SDK'sı](http://msdn.microsoft.com/library/jj933431.aspx), bu, olanak tanır toodirectly Çevir tüm hello öğreticiler ve bu site şu anda kullanılabilir örnekleri ve Merhaba hello topluluğu tarafından katkıda Internet.
+Ana istemci arabirimi bulunan aynı yöntemleri sağlayabilir [.NET Notification Hubs SDK'sı](http://msdn.microsoft.com/library/jj933431.aspx), bu öğreticiler ve bu site şu anda kullanılabilir örnekleri doğrudan Çevir olanak sağlar ve katkıda bulunan Internet üzerindeki topluluğu.
 
-Hello kullanılabilir tüm hello kod Bul [PHP REST sarmalayıcı örnek].
+Kullanılabilir tüm kod Bul [PHP REST sarmalayıcı örnek].
 
-Örneğin, toocreate bir istemci:
+Örneğin, bir istemci oluşturmak için şunu yazın:
 
     $hub = new NotificationHub("connection string", "hubname");    
 
-toosend bir iOS yerel bildirimi:
+Bir iOS yerel bildirim göndermek için:
 
     $notification = new Notification("apple", '{"aps":{"alert": "Hello!"}}');
     $hub->sendNotification($notification, null);
 
 ## <a name="implementation"></a>Uygulama
-Zaten yaptıysanız Lütfen izleyin bizim [Get öğreticisinde] yukarı tooimplement hello arka uç olduğu toohello son bölümü.
-Ayrıca, isterseniz hello hello koddan kullanabilirsiniz [PHP REST sarmalayıcı örnek] ve doğrudan toohello Git [tam hello öğretici](#complete-tutorial) bölümü.
+Zaten yaptıysanız Lütfen izleyin bizim [Get öğreticisinde] son uç uygulamak için sahip olduğu bölüm yukarı.
+Ayrıca, isterseniz koddan kullanabilirsiniz [PHP REST sarmalayıcı örnek] ve doğrudan gitmek [öğreticiye](#complete-tutorial) bölümü.
 
-Tüm Ayrıntılar tooimplement tam REST sarmalayıcı bulunabilir hello [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). Bu bölümde biz hello ana adım gerekli tooaccess bildirim hub'ları REST uç noktalarını hello PHP uygulaması anlatmaktadır:
+Tam bir REST sarmalayıcı uygulamak için tüm ayrıntıları bulunabilir [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). Bu bölümde biz PHP uygulaması bildirim hub'ları REST uç noktalarını erişmek için gerekli ana adım anlatmaktadır:
 
-1. Merhaba bağlantı dizesini ayrıştırma
-2. Merhaba yetkilendirme belirteci oluştur
-3. Merhaba HTTP çağrısı yapmak
+1. Bağlantı dizesini ayrıştırma
+2. Yetkilendirme belirteci oluştur
+3. HTTP çağrısı yapmak
 
-### <a name="parse-hello-connection-string"></a>Merhaba bağlantı dizesini ayrıştırma
-Merhaba ana sınıfı uygulama hello istemci, hello bağlantı dizesini ayrıştırmak için olan Oluşturucusu şöyledir:
+### <a name="parse-the-connection-string"></a>Bağlantı dizesini ayrıştırma
+İstemci, bağlantı dizesini ayrıştırmak için olan Oluşturucusu uygulama ana sınıfı şöyledir:
 
     class NotificationHub {
         const API_VERSION = "?api-version=2013-10";
@@ -91,8 +91,8 @@ Merhaba ana sınıfı uygulama hello istemci, hello bağlantı dizesini ayrışt
 
 
 ### <a name="create-security-token"></a>Güvenlik belirteci oluşturma
-Merhaba güvenlik belirteci oluşturma Hello ayrıntılarını kullanılabilir [burada](http://msdn.microsoft.com/library/dn495627.aspx).
-Merhaba aşağıdaki yöntemi sahip eklenen toobe toohello **NotificationHub** hello hello geçerli istek ve hello bağlantı dizesinden ayıklanan hello kimlik URI'sini temel sınıf toocreate hello simgesi.
+Güvenlik belirteci oluşturma ayrıntılarını kullanılabilir [burada](http://msdn.microsoft.com/library/dn495627.aspx).
+Eklenecek aşağıdaki yöntemi sahip **NotificationHub** geçerli istek ve kimlik bilgileri bağlantı dizesinden ayıklanan URI'sini temel belirteç oluşturmak için sınıfı.
 
     private function generateSasToken($uri) {
         $targetUri = strtolower(rawurlencode(strtolower($uri)));
@@ -134,9 +134,9 @@ Merhaba aşağıdaki yöntemi sahip eklenen toobe toohello **NotificationHub** h
 
 Bu sınıf bir yerel bildirim gövdesi veya bir şablon bildirim durumunun özellikleri kümesi ve biçimini (yerel platform veya şablon) ve (örneğin, Apple sona erme özelliği ve WNS platforma özgü özellikleri içeren bir üstbilgi kümesi için bir kapsayıcıdır üst bilgiler).
 
-Lütfen toohello bakın [bildirim hub'ları REST API belgelerine](http://msdn.microsoft.com/library/dn495827.aspx) ve tüm kullanılabilir seçenekleri hello için belirli bildirim platformları biçimleri hello.
+Lütfen [bildirim hub'ları REST API belgelerine](http://msdn.microsoft.com/library/dn495827.aspx) ve kullanabileceğiniz tüm seçenekler için belirli bildirim platformları biçimleri.
 
-Bu sınıfla çağrılmak, biz şimdi hello gönderme hello içinde bildirim yöntemleri yazabilirsiniz **NotificationHub** sınıfı.
+Bu sınıfla çağrılmak, biz Şimdi Gönder içinde bildirim yöntemleri yazabilirsiniz **NotificationHub** sınıfı.
 
     public function sendNotification($notification, $tagsOrTagExpression="") {
         if (is_array($tagsOrTagExpression)) {
@@ -180,7 +180,7 @@ Bu sınıfla çağrılmak, biz şimdi hello gönderme hello içinde bildirim yö
             CURLOPT_POSTFIELDS => $notification->payload
         ));
 
-        // Send hello request
+        // Send the request
         $response = curl_exec($ch);
 
         // Check for errors
@@ -195,16 +195,16 @@ Bu sınıfla çağrılmak, biz şimdi hello gönderme hello içinde bildirim yö
         }
     } 
 
-Merhaba yöntemleri yukarıda bir HTTP POST isteği toohello /messages uç noktasını, bildirim hub ' ınızı hello doğru gövde ve üstbilgileri toosend hello bildirim gönderin.
+Yukarıdaki yöntemler, bildirim hub ' ınızı doğru gövde ve bildirim göndermek için üstbilgiler /messages uç noktası bir HTTP POST isteği gönderin.
 
-## <a name="complete-tutorial"></a>Tam başlangıç Öğreticisi
-Şimdi bir PHP arka ucunu hello bildirim göndererek hello Başlarken Öğreticisi tamamlayabilirsiniz.
+## <a name="complete-tutorial"></a>Öğreticiyi Tamamla
+Şimdi bir PHP arka ucunu bildirim göndererek Başlarken Öğreticisi tamamlayabilirsiniz.
 
-Bildirim hub'ları istemciniz başlatılamıyor (hello belirtildiği gibi hello bağlantı dizenizi ve hub adı yerine [Get öğreticisinde]):
+Bildirim hub'ları istemciniz başlatılamıyor (belirtildiği gibi bağlantı dizenizi ve hub adı yerine [Get öğreticisinde]):
 
     $hub = new NotificationHub("connection string", "hubname");    
 
-Ardından, hedef mobil platforma bağlı olarak hello gönderme kodu ekleyin.
+Ardından, hedef mobil platforma bağlı olarak gönderme kodu ekleyin.
 
 ### <a name="windows-store-and-windows-phone-81-non-silverlight"></a>Windows mağazası ve Windows Phone 8.1 (Silverlight olmayan)
     $toast = '<toast><visual><binding template="ToastText01"><text id="1">Hello from PHP!</text></binding></visual></toast>';
@@ -243,13 +243,13 @@ Ardından, hedef mobil platforma bağlı olarak hello gönderme kodu ekleyin.
 PHP kodunuzu çalıştırmaya şimdi, hedef cihazda görünen bir bildirim üretir.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Bu konuda size nasıl basit bir Java toocreate REST gösterdi istemci bildirim hub'ları için. Buradan şunları yapabilirsiniz:
+Bu konuda size bildirim hub'ları için basit bir Java REST istemcisi nasıl oluşturulacağını gösterir. Buradan şunları yapabilirsiniz:
 
-* Merhaba tam karşıdan [PHP REST sarmalayıcı örnek], yukarıdaki tüm hello kodunu içerir.
-* Bildirim hub'ları hello [çiğnemekten haber öğretici] özelliği etiketleme hakkında bilgi almaya devam etmek
-* [Kullanıcılara bildirme öğreticide] bildirimleri tooindividual kullanıcılar Ftp'den hakkında bilgi edinin
+* Tam karşıdan [PHP REST sarmalayıcı örnek], yukarıdaki tüm kodunu içerir.
+* Bildirim hub'ları özelliği [çiğnemekten haber öğreticide] etiketleme hakkında bilgi almaya devam etmek
+* Bildirimleri bireysel kullanıcılara [kullanıcılara bildirme öğreticide] İtme hakkında bilgi edinin
 
-Daha fazla bilgi için hello Ayrıca bkz. [PHP Geliştirici Merkezi](/develop/php/).
+Daha fazla bilgi için Ayrıca bkz. [PHP Geliştirici Merkezi](/develop/php/).
 
 [PHP REST sarmalayıcı örnek]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [Get öğreticisinde]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/

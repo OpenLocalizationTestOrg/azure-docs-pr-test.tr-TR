@@ -1,6 +1,6 @@
 ---
-title: "aaaReliable aktörler zamanlayıcılar ve anımsatıcıları | Microsoft Docs"
-description: "Giriş tootimers ve Service Fabric güvenilir aktörler için anımsatıcılar."
+title: "Güvenilir aktörler zamanlayıcılar ve anımsatıcıları | Microsoft Docs"
+description: "Service Fabric Reliable Actors zamanlayıcılar ve anımsatıcıları için giriş."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.openlocfilehash: c5116ec1923014e131130b9f4e86dd1e133bbf7e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 06b026ce06e0f16a77ac238de0af2263f272933c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="actor-timers-and-reminders"></a>Aktör zamanlayıcılar ve anımsatıcıları
-Aktör zamanlayıcılar veya anımsatıcıları kaydederek kendilerini düzenli çalışma zamanlayabilirsiniz. Bu makalede gösterilmektedir nasıl toouse zamanlayıcılar ve anımsatıcıları ve aralarındaki hello farkları açıklamaktadır.
+Aktör zamanlayıcılar veya anımsatıcıları kaydederek kendilerini düzenli çalışma zamanlayabilirsiniz. Bu makalede zamanlayıcılar ve anımsatıcıları nasıl kullanılacağını gösterir ve bunları arasındaki farklar açıklanmaktadır.
 
 ## <a name="actor-timers"></a>Aktör zamanlayıcılar
-Aktör zamanlayıcılar hello geri arama yöntemleri çalışma zamanı sağlar aktörler hello hello Aç tabanlı eşzamanlılık garanti saygı .NET veya Java Zamanlayıcı tooensure çevresinde basit bir sarmalayıcı sağlar.
+Aktör zamanlayıcılar aktörler çalışma zamanı sağladığını geri arama yöntemleri Aç tabanlı eşzamanlılık saygı emin olmak için .NET veya Java bir zamanlayıcı çevresinde basit bir sarmalayıcı garanti sağlar.
 
-Aktör hello kullanabilir `RegisterTimer`(C#) veya `registerTimer`(Java) ve `UnregisterTimer`(C#) veya `unregisterTimer`kendi tabanında (Java) yöntemleri sınıfı tooregister ve bunların zamanlayıcılar kaldırılamadı. Aşağıdaki örnek Hello süreölçer API'lerini hello kullanımını göstermektedir. Merhaba API'leri: çok benzer toohello .NET Zamanlayıcı veya Java Zamanlayıcı. Merhaba Zamanlayıcı zamanı geldiğinde bu örnekte, hello hello aktörler çalışma zamanı arama `MoveObject`(C#) veya `moveObject`(Java) yöntemi. Merhaba yöntemi toorespect hello Aç tabanlı eşzamanlılık garanti edilmez. Bu yürütme bu geri çağırma işlemi tamamlanana kadar başka bir aktör yöntemin veya Zamanlayıcı/anımsatıcı geri aramalar ediyor olacağı anlamına gelir.
+Aktör kullanabileceğiniz `RegisterTimer`(C#) veya `registerTimer`(Java) ve `UnregisterTimer`(C#) veya `unregisterTimer`(Java) yöntemlere kaydetmek ve bunların zamanlayıcılar kaydı için temel sınıf. Aşağıdaki örnek, süreölçer API'lerini kullanımını gösterir. API'ler .NET Zamanlayıcı veya Java Zamanlayıcı çok benzer. Bu örnekte, Zamanlayıcı zamanı geldiğinde aktörler çalışma zamanı çağıracak `MoveObject`(C#) veya `moveObject`(Java) yöntemi. Yöntemi, dönüş tabanlı eşzamanlılık cevaben sağlanır. Bu yürütme bu geri çağırma işlemi tamamlanana kadar başka bir aktör yöntemin veya Zamanlayıcı/anımsatıcı geri aramalar ediyor olacağı anlamına gelir.
 
 ```csharp
 class VisualObjectActor : Actor, IVisualObject
@@ -44,9 +44,9 @@ class VisualObjectActor : Actor, IVisualObject
 
         _updateTimer = RegisterTimer(
             MoveObject,                     // Callback method
-            null,                           // Parameter toopass toohello callback method
-            TimeSpan.FromMilliseconds(15),  // Amount of time toodelay before hello callback is invoked
-            TimeSpan.FromMilliseconds(15)); // Time interval between invocations of hello callback method
+            null,                           // Parameter to pass to the callback method
+            TimeSpan.FromMilliseconds(15),  // Amount of time to delay before the callback is invoked
+            TimeSpan.FromMilliseconds(15)); // Time interval between invocations of the callback method
 
         return base.OnActivateAsync();
     }
@@ -93,9 +93,9 @@ public class VisualObjectActorImpl extends FabricActor implements VisualObjectAc
                     this.registerTimer(
                             (o) -> this.moveObject(o),                        // Callback method
                             "moveObject",
-                            null,                                             // Parameter toopass toohello callback method
-                            Duration.ofMillis(10),                            // Amount of time toodelay before hello callback is invoked
-                            Duration.ofMillis(timerIntervalInMilliSeconds));  // Time interval between invocations of hello callback method
+                            null,                                             // Parameter to pass to the callback method
+                            Duration.ofMillis(10),                            // Amount of time to delay before the callback is invoked
+                            Duration.ofMillis(timerIntervalInMilliSeconds));  // Time interval between invocations of the callback method
                     return null;
                 });
     }
@@ -126,16 +126,16 @@ public class VisualObjectActorImpl extends FabricActor implements VisualObjectAc
 }
 ```
 
-yürütme Hello geri çağırma tamamlandıktan sonra hello sonraki süreyi hello süreölçer başlatır. Bu, hello geri arama yürütüyor ve hello geri araması bitirdiğinde kullanmaya çalışırken bu hello Zamanlayıcı durdurulduğunda anlamına gelir.
+Geri çağırma yürütme tamamlandıktan sonra sonraki süreyi süreölçer başlatır. Bu geri arama yürütüyor ve geri arama tamamlandığında başlatılan Zamanlayıcı durdurulduğunda anlamına gelir.
 
-Merhaba aktörler çalışma zamanı hello geri araması bitirdiğinde toohello aktör'ın durum Yöneticisi yapılan değişiklikleri kaydeder. Merhaba durum kaydetme işleminde bir hata meydana gelirse, söz konusu aktör nesne devre dışı bırakılır ve yeni bir örneğini etkinleştirilir.
+Aktörler çalışma zamanı geri araması bitirdiğinde aktör ait durum Yöneticisi için yapılan değişiklikleri kaydeder. Durum kaydetme işleminde bir hata meydana gelirse, söz konusu aktör nesne devre dışı bırakılır ve yeni bir örneğini etkinleştirilir.
 
-Çöp toplama bir parçası olarak Hello aktör devre dışı bırakıldığında tüm zamanlayıcılar durdurulur. Bir zamanlayıcı geri aramalar bundan sonra çağrılır. Ayrıca, hello aktörler çalışma zamanı devre dışı bırakma önce çalışmakta olan hello zamanlayıcılar hakkında hiçbir bilgi sürdürmez. Bu toohello aktör tooregister hello gelecekteki etkinleştirildiğinde, gereken tüm zamanlayıcılar olur. Daha fazla bilgi için üzerinde hello bölümüne bakın. [aktör çöp toplama](service-fabric-reliable-actors-lifecycle.md).
+Aktör çöp toplama bir parçası olarak devre dışı bırakıldığında tüm zamanlayıcılar durdurulur. Bir zamanlayıcı geri aramalar bundan sonra çağrılır. Ayrıca, aktörler çalışma zamanı devre dışı bırakma önce çalışmakta olan zamanlayıcılar hakkında hiçbir bilgi sürdürmez. Gelecekte etkinleştirildiğinde, gereken tüm zamanlayıcılar kaydetmek için aktör kadar olur. Daha fazla bilgi için bölümüne bakarak [aktör çöp toplama](service-fabric-reliable-actors-lifecycle.md).
 
 ## <a name="actor-reminders"></a>Aktör anımsatıcıları
-Anımsatıcıları olan bir mekanizma tootrigger bir aktör üzerinde kalıcı geri aramalar kez belirtildi. İşlevlerine benzer tootimers ' dir. Ancak zamanlayıcılar anımsatıcıları tüm koşullar altında hello aktör açıkça bunları kaydını siler veya hello aktör açıkça silinene kadar tetiklenir. Özellikle, Hello aktörler çalışma zamanı hello aktör'ın anımsatıcıları hakkında bilgi devam ederse çünkü anımsatıcıları aktör deactivations ve yük devretme işlemlerini arasında tetiklenir.
+Anımsatıcıları olan bir aktör üzerinde kalıcı geri aramalar tetiklemek için bir mekanizma kez belirtilebilir. İşlevleri için zamanlayıcılar benzer. Ancak zamanlayıcılar anımsatıcıları tüm koşullar altında aktör açıkça bunları kaydını siler veya aktör açıkça silinene kadar tetiklenir. Özellikle, aktörler çalışma zamanı aktör'ın anımsatıcıları hakkında bilgi devam ederse çünkü anımsatıcıları aktör deactivations ve yük devretme işlemlerini arasında tetiklenir.
 
-tooregister anımsatıcısı, bir aktör çağırır hello `RegisterReminderAsync` hello aşağıdaki örnekte gösterildiği gibi hello temel sınıf üzerinde sağlanan yöntemi:
+Bir anımsatıcı kaydetmek için bir aktör çağırır `RegisterReminderAsync` temel sınıf üzerinde aşağıdaki örnekte gösterildiği gibi sağlanan yöntemi:
 
 ```csharp
 protected override async Task OnActivateAsync()
@@ -161,14 +161,14 @@ protected CompletableFuture onActivateAsync()
     ActorReminder reminderRegistration = this.registerReminderAsync(
             reminderName,
             state,
-            dueTime,    //hello amount of time toodelay before firing hello reminder
-            period);    //hello time interval between firing of reminders
+            dueTime,    //The amount of time to delay before firing the reminder
+            period);    //The time interval between firing of reminders
 }
 ```
 
-Bu örnekte, `"Pay cell phone bill"` hello anımsatıcı adıdır. Aktör kullanır hello bir dize budur toouniquely anımsatıcısı tanımlayın. `BitConverter.GetBytes(amountInDollars)`(C#) hello anımsatıcı'yla ilişkili hello bağlamdır. Bu geri toohello Aktör bir bağımsız değişken toohello anımsatıcı geri çağırma, yani geçirilir `IRemindable.ReceiveReminderAsync`(C#) veya `Remindable.receiveReminderAsync`(Java).
+Bu örnekte, `"Pay cell phone bill"` anımsatıcı adıdır. Bu aktör anımsatıcısı benzersiz şekilde tanımlamak için kullandığı bir dizedir. `BitConverter.GetBytes(amountInDollars)`(C#) olduğundan anımsatıcı'yla ilişkili bağlam. Bu geri aktör anımsatıcı geri çağırma bağımsız değişken olarak yani geçirilir `IRemindable.ReceiveReminderAsync`(C#) veya `Remindable.receiveReminderAsync`(Java).
 
-Anımsatıcıları kullanmak aktörler hello uygulanmalı `IRemindable` hello aşağıdaki örnekte gösterildiği gibi arabirim.
+Anımsatıcıları kullanmak aktörler uygulanmalı `IRemindable` , aşağıdaki örnekte gösterildiği gibi arabirim.
 
 ```csharp
 public class ToDoListActor : Actor, IToDoListActor, IRemindable
@@ -209,11 +209,11 @@ public class ToDoListActorImpl extends FabricActor implements ToDoListActor, Rem
 
 ```
 
-Bir anımsatıcı tetiklendiğinde hello Reliable Actors çalışma zamanı hello çağıracağı `ReceiveReminderAsync`(C#) veya `receiveReminderAsync`hello aktör yöntemi (Java). Bir aktör birden çok anımsatıcıları kaydetmek ve hello `ReceiveReminderAsync`(C#) veya `receiveReminderAsync`(Java) yöntem çağrıldığında bu anımsatıcılar birini ne zaman tetiklenir. Merhaba aktör toohello içinde geçirilen hello anımsatıcı adı kullanabilir `ReceiveReminderAsync`(C#) veya `receiveReminderAsync`(Java) yöntemi toofigure hangi anımsatıcı tetiklendi.
+Bir anımsatıcı tetiklendiğinde Reliable Actors çalışma zamanı çağıracağı `ReceiveReminderAsync`(C#) veya `receiveReminderAsync`aktör yöntemi (Java). Bir oyuncu birden çok anımsatıcıları kaydedebilirsiniz ve `ReceiveReminderAsync`(C#) veya `receiveReminderAsync`(Java) yöntem çağrıldığında bu anımsatıcılar birini ne zaman tetiklenir. Aktör için geçirilen anımsatıcı adı kullanabilirsiniz `ReceiveReminderAsync`(C#) veya `receiveReminderAsync`hangi anımsatıcı tetiklendi şekilde yöntemi (Java).
 
-Merhaba aktörler çalışma zamanı kaydeder hello aktör'ın durumdayken hello `ReceiveReminderAsync`(C#) veya `receiveReminderAsync`(Java) çağrı tamamlanır. Merhaba durum kaydetme işleminde bir hata meydana gelirse, söz konusu aktör nesne devre dışı bırakılır ve yeni bir örneğini etkinleştirilir.
+Çalışma zamanı kaydeder aktör 's aktörler duruma `ReceiveReminderAsync`(C#) veya `receiveReminderAsync`(Java) çağrı tamamlanır. Durum kaydetme işleminde bir hata meydana gelirse, söz konusu aktör nesne devre dışı bırakılır ve yeni bir örneğini etkinleştirilir.
 
-toounregister anımsatıcısı, bir aktör çağırır hello `UnregisterReminderAsync`(C#) veya `unregisterReminderAsync`(Java) yöntemini hello aşağıdaki örnekte gösterildiği gibi.
+Bir aktör anımsatıcısı kaydı çağrılar `UnregisterReminderAsync`(C#) veya `unregisterReminderAsync`(Java) yöntemi, aşağıdaki örneklerde gösterildiği gibi.
 
 ```csharp
 IActorReminder reminder = GetReminder("Pay cell phone bill");
@@ -224,7 +224,7 @@ ActorReminder reminder = getReminder("Pay cell phone bill");
 CompletableFuture reminderUnregistration = unregisterReminderAsync(reminder);
 ```
 
-Yukarıda gösterildiği gibi hello `UnregisterReminderAsync`(C#) veya `unregisterReminderAsync`(Java) yöntemi kabul eden bir `IActorReminder`(C#) veya `ActorReminder`(Java) arabirimi. Merhaba aktör temel sınıf destekleyen bir `GetReminder`(C#) veya `getReminder`kullanılan tooretrieve hello olabilir (Java) yöntemi `IActorReminder`(C#) veya `ActorReminder`hello anımsatıcı adı geçirerek (Java) arabirimi. Merhaba aktör toopersist hello gereksinimi olmadığından bu uygundur `IActorReminder`(C#) veya `ActorReminder`hello döndürülen (Java) arabirimi `RegisterReminder`(C#) veya `registerReminder`(Java) yöntem çağrısı.
+Yukarıda gösterildiği gibi `UnregisterReminderAsync`(C#) veya `unregisterReminderAsync`(Java) yöntemi kabul eden bir `IActorReminder`(C#) veya `ActorReminder`(Java) arabirimi. Aktör temel sınıf destekleyen bir `GetReminder`(C#) veya `getReminder`almak için kullanılır (Java) yöntemi `IActorReminder`(C#) veya `ActorReminder`anımsatıcı adı geçirerek (Java) arabirimi. Aktör kalıcı gerek yoktur çünkü bu uygundur `IActorReminder`(C#) veya `ActorReminder`döndürüldü (Java) arabirimi `RegisterReminder`(C#) veya `registerReminder`(Java) yöntem çağrısı.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 Güvenilir aktör olayları ve yeniden giriş hakkında bilgi edinin:

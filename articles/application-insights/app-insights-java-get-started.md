@@ -1,5 +1,5 @@
 ---
-title: "Azure Application Insights ile aaaJava web uygulaması analizi | Microsoft Docs"
+title: "Azure Application Insights ile Java web uygulaması analizi | Microsoft Docs"
 description: "Application Insights ile Java web uygulamaları için Uygulama Performansı İzleme. "
 services: application-insights
 documentationcenter: java
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.openlocfilehash: 6555ee53a44f937350e4fa296080f7dce4f45226
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: f017b8ca42ff3560e17d8aac303a4f834d298540
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java web projesinde Application Insights ile başlarken
 
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/) yardımcı olan web geliştiricileri hello performansını ve canlı uygulamanızın kullanımını anlamak için bir genişletilebilir bir analiz hizmetidir. Çok kullanmak[performans sorunlarını ve özel durumlarını saptayıp tanılamanıza](app-insights-detect-triage-diagnose.md), ve [kod yazmayı] [ api] tootrack hangi kullanıcıların uygulamanızı yapın.
+[Application Insights](https://azure.microsoft.com/services/application-insights/), web geliştiricileri için canlı uygulamanızın performansını ve kullanımını anlamanıza yardımcı olan genişletilebilir bir analiz hizmetidir. [Performans sorunlarını ve özel durumlarını algılamak ve tanılamak](app-insights-detect-triage-diagnose.md) için bunu kullanın; uygulamanızla kullanıcıların ne yaptığını izlemek için de [kod yazın][api].
 
 ![örnek veri](./media/app-insights-java-get-started/5-results.png)
 
@@ -31,29 +31,29 @@ Application Insights; Linux, Unix veya Windows üzerinde çalışan Java uygulam
 Gerekenler:
 
 * Oracle JRE 1.6 veya sonraki sürümleri ya da Zulu JRE 1.6 veya sonraki sürümleri
-* Bir abonelik çok[Microsoft Azure](https://azure.microsoft.com/).
+* Bir [Microsoft Azure](https://azure.microsoft.com/) aboneliği.
 
-*Zaten Canlı olan bir web uygulaması varsa, hello alternatif yordam çok izleyebilirsiniz[hello SDK hello web sunucusunda çalışma zamanında ekleme](app-insights-java-live.md). Bu alternatif hello kodun yeniden engellese de, hello seçeneği toowrite kod tootrack kullanıcı etkinliği elde etmezsiniz.*
+*Zaten canlı olan bir web uygulaması varsa, [web sunucusuna çalışma zamanında SDK eklemek](app-insights-java-live.md) için alternatif bir yordam izleyebilirsiniz. Bu alternatif yordam, kodun yeniden derlenmesini engellese de, kullanıcı etkinliğini izlemek için kod yazma seçeneğini elde etmezsiniz.*
 
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Application Insights izleme anahtarı edinme
-1. İçinde toohello oturum [Microsoft Azure portal](https://portal.azure.com).
-2. Bir Application Insights kaynağı oluşturun. Merhaba uygulama türü tooJava web uygulaması ayarlayın.
+1. [Microsoft Azure portalında](https://portal.azure.com) oturum açın.
+2. Bir Application Insights kaynağı oluşturun. Uygulama türünü Java web uygulaması olarak ayarlayın.
 
     ![Ad girme, Java web uygulaması seçme ve Oluştur’a tıklama](./media/app-insights-java-get-started/02-create.png)
-3. Hello hello yeni kaynağın izleme anahtarını bulun. Toopaste bu anahtar kod projenize kısa bir süre sonra ihtiyacınız vardır.
+3. Yeni kaynağın izleme anahtarını bulun. Bu anahtarı hemen kod projenize yapıştırmalısınız.
 
-    ![Merhaba yeni kaynağa genel bakışta, Özellikler'i tıklatın ve hello izleme anahtarını kopyalama](./media/app-insights-java-get-started/03-key.png)
+    ![Yeni kaynağa genel bakışta, Özellikler'e tıklayıp izleme anahtarını kopyalama](./media/app-insights-java-get-started/03-key.png)
 
-## <a name="2-add-hello-application-insights-sdk-for-java-tooyour-project"></a>2. Java tooyour projesi için Hello Application Insights SDK ekleme
-*Projeniz için uygun şekilde Hello seçin.*
+## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. Projenize Java için Application Insights SDK’sı ekleme
+*Projeniz için uygun yolu seçin.*
 
-#### <a name="if-youre-using-eclipse-toocreate-a-maven-or-dynamic-web-project-"></a>Kullanıyorsanız, toocreate Maven veya dinamik Web projesi Tutulma...
-Kullanım hello [Java eklentisi için Application Insights SDK][eclipse].
+#### <a name="if-youre-using-eclipse-to-create-a-maven-or-dynamic-web-project-"></a>Maven veya Dinamik Web projesi oluşturmak için Eclipse kullanıyorsanız...
+[Java eklentisi için Application Insights SDK'sı][eclipse] kullanın.
 
 #### <a name="if-youre-using-maven"></a>Maven kullanıyorsanız...
-Projeniz zaten toouse Maven derleme için ayarladıysanız, aşağıdaki kodu tooyour pom.xml dosyasına hello birleştirin.
+Projenizi derleme için zaten Maven kullanmak üzere ayarlanmışsa aşağıdaki kodu pom.xml dosyanızla birleştirin.
 
-Ardından, yenileme hello proje bağımlılıkları tooget hello ikili dosyaları indirilir.
+Daha sonra, proje bağımlılıklarını ikili dosyaları indirmek için yenileyin.
 
 ```XML
 
@@ -75,13 +75,13 @@ Ardından, yenileme hello proje bağımlılıkları tooget hello ikili dosyalar�
     </dependencies>
 ```
 
-* *Derleme veya sağlama toplamı doğrulama hataları mı var?* `<version>1.0.n</version>` gibi belirli bir sürümü kullanmayı deneyin. Hello hello en son sürümünü bulacaksınız [SDK sürüm notlarında](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) veya bizim [Maven yapıtları](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
-* *Tooupdate tooa gereken yeni SDK?* Proje bağımlılıklarınızı yenileyin.
+* *Derleme veya sağlama toplamı doğrulama hataları mı var?* `<version>1.0.n</version>` gibi belirli bir sürümü kullanmayı deneyin. En son sürümü [SDK sürüm notlarında](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) veya [Maven yapıtları](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights) sitemizde bulacaksınız.
+* *Yeni SDK’ye mi güncelleştirmeniz gerekiyor?* Proje bağımlılıklarınızı yenileyin.
 
 #### <a name="if-youre-using-gradle"></a>Gradle kullanıyorsanız...
-Projeniz zaten toouse Gradle derleme için ayarladıysanız, aşağıdaki kodu tooyour build.gradle dosyasına hello birleştirin.
+Projenizi derleme için zaten Gradle kullanmak üzere ayarlanmışsa aşağıdaki kodu build.gradle dosyanızla birleştirin.
 
-Ardından yenileme hello proje bağımlılıkları tooget hello ikili dosyaları indirilir.
+Daha sonra, proje bağımlılıklarını ikili dosyaları indirmek için yenileyin.
 
 ```JSON
 
@@ -95,30 +95,30 @@ Ardından yenileme hello proje bağımlılıkları tooget hello ikili dosyaları
     }
 ```
 
-* *Derleme veya sağlama toplamı doğrulama hataları mı var? `version:'1.0.n'` gibi belirli bir sürümü kullanmayı deneyin*. *Hello hello en son sürümünü bulacaksınız [SDK sürüm notlarında](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).*
-* *tooupdate tooa yeni SDK'sı*
+* *Derleme veya sağlama toplamı doğrulama hataları mı var? `version:'1.0.n'` gibi belirli bir sürümü kullanmayı deneyin*. *En son sürümü [SDK sürüm notlarında](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) bulabilirsiniz.*
+* *Yeni SDK’ya güncelleştirmek için*
   * Proje bağımlılıklarınızı yenileyin.
 
 #### <a name="otherwise-"></a>Aksi taktirde...
-El ile Merhaba SDK ekleyin:
+SDK'yi el ile ekleyin:
 
-1. Merhaba karşıdan [Java için Application Insights SDK](https://aka.ms/aijavasdk).
-2. Hello ikili dosyaları hello zip dosyasından ayıklayıp tooyour proje ekleyin.
+1. [Java için Application Insights SDK’sı](https://aka.ms/aijavasdk) indirin.
+2. İkili dosyaları zip dosyasından ayıklayıp projenize ekleyin.
 
 ### <a name="questions"></a>Sorular...
-* *Merhaba hello arasındaki ilişki nedir `-core` ve `-web` hello zip bileşenlerinde?*
+* *Zip’teki `-core` ve `-web` bileşenleri arasındaki ilişki nedir?*
 
-  * `applicationinsights-core`tam API hello sağlar. Bu bileşen her zaman gerekecektir.
-  * `applicationinsights-web`, HTTP istek sayısını ve yanıt sürelerini izleyen ölçümleri sağlar. Bu telemetrinin otomatik olarak toplanmasını istemiyorsanız, bu bileşeni atlayabilirsiniz. Örneğin, toowrite kendi istiyorsanız.
-* *tooupdate hello değişiklikleri yayımladığınızda SDK*
+  * `applicationinsights-core` size tam API sağlar. Bu bileşen her zaman gerekecektir.
+  * `applicationinsights-web`, HTTP istek sayısını ve yanıt sürelerini izleyen ölçümleri sağlar. Bu telemetrinin otomatik olarak toplanmasını istemiyorsanız, bu bileşeni atlayabilirsiniz. Örneğin, kendiniz yazmak istiyorsanız.
+* *Değişiklikleri yayımladığınızda SDK’yı güncelleştirmek için*
 
-  * Merhaba son karşıdan [Java için Application Insights SDK](https://aka.ms/qqkaq6) ve eskilerle hello Değiştir.
-  * Değişiklikleri hello açıklanan [SDK sürüm notlarında](https://github.com/Microsoft/ApplicationInsights-Java#release-notes).
+  * En son [Java için Application Insights SDK’si](https://aka.ms/qqkaq6)’ni indirin ve eskilerle değiştirin.
+  * Değişiklikler [SDK sürüm notlarında](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) açıklanmıştır.
 
 ## <a name="3-add-an-application-insights-xml-file"></a>3. Application Insights .xml dosyasını ekleme
-Projenizde toohello kaynaklar klasörüne applicationınsights.xml dosyasını ekleyin veya tooyour projenin dağıtım sınıfı yoluna eklendiğinden emin olun. XML içine aşağıdaki hello kopyalayın.
+Projenizin kaynaklar klasörüne ApplicationInsights.xml dosyasını ekleyin veya projenizin dağıtım sınıfı yoluna eklendiğinden emin olun. Aşağıdaki XML dosyasını buraya kopyalayın.
 
-Hello Azure portal ' aldığınız hello izleme anahtarını Bununla değiştirin.
+Azure portalından aldığınız izleme anahtarını bununla değiştirin.
 
 ```XML
 
@@ -126,7 +126,7 @@ Hello Azure portal ' aldığınız hello izleme anahtarını Bununla değiştiri
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
 
 
-      <!-- hello key from hello portal: -->
+      <!-- The key from the portal: -->
 
       <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
 
@@ -140,10 +140,10 @@ Hello Azure portal ' aldığınız hello izleme anahtarını Bununla değiştiri
       </TelemetryModules>
 
       <!-- Events correlation (not required for bare API) -->
-      <!-- These initializers add context data tooeach event -->
+      <!-- These initializers add context data to each event -->
 
       <TelemetryInitializers>
-        <Add   type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
@@ -154,13 +154,13 @@ Hello Azure portal ' aldığınız hello izleme anahtarını Bununla değiştiri
 ```
 
 
-* Merhaba izleme anahtarı telemetrinin her öğesiyle birlikte gönderilir ve Application Insights toodisplay söyler kaynağınız içinde.
-* Merhaba HTTP isteği bileşeni isteğe bağlıdır. İstek ve yanıt sürelerini toohello portal hakkında telemetriyi otomatik olarak gönderir.
-* Olay bağıntısı bir toplama toohello HTTP isteği bileşendir. Merhaba sunucu tarafından alınan bir tanımlayıcı tooeach isteği atar ve bu tanımlayıcı telemetri bir özellik tooevery öğesi olarak 'Operation.Id' hello özelliği olarak ekler. Bir filtre ayarlayarak her istekle ilişkili toocorrelate hello telemetri tanır [tanılama arama][diagnostic].
-* Merhaba Application Insights anahtar geçirilebilir dinamik olarak hello Azure portalında bir sistem özelliği olarak (-DAPPLICATION_INSIGHTS_IKEY your_ikey =). Tanımlı bir özellik yoksa, Azure Uygulama Ayarlarında ortam değişkeni (APPLICATION_INSIGHTS_IKEY) denetlenir. Her iki hello özellikleri tanımsızdır hello varsayılan InstrumentationKey Applicationınsights.xml kullanılır. Bu sıra toomanage yardımcı olan farklı ortamlar için farklı InstrumentationKeys dinamik olarak.
+* İzleme anahtarı telemetrinin her öğesiyle birlikte gönderilir ve Application Insights’ın bunu kaynağınızda görüntülemesini isteyin.
+* HTTP isteği bileşeni isteğe bağlıdır. İstek ve yanıt süreleri hakkında telemetriyi otomatik olarak portala gönderir.
+* Olay bağıntısı HTTP isteği bileşenine bir ektir. Sunucu tarafından alınan her istek için bir tanımlayıcı atar ve bu tanımlayıcıyı bir özellik olarak, telemetrinin her öğesine 'Operation.Id' özelliği olarak ekler. [Tanı aramaya][diagnostic] bir filtre ayarlayarak her istekle ilişkili telemetrinin bağıntısını kurmanızı sağlar.
+* Application Insights anahtarı, Azure portalından bir sistem özelliği olarak dinamik şekilde geçirilebilir (-DAPPLICATION_INSIGHTS_IKEY=your_ikey). Tanımlı bir özellik yoksa, Azure Uygulama Ayarlarında ortam değişkeni (APPLICATION_INSIGHTS_IKEY) denetlenir. Her iki özellik de tanımlanmamışsa ApplicationInsights.xml dosyasındaki varsayılan InstrumentationKey kullanılır. Bu sıra farklı ortamlar için farklı InstrumentationKeys’i dinamik olarak yönetmenize yardımcı olur.
 
-### <a name="alternative-ways-tooset-hello-instrumentation-key"></a>Alternatif yolu tooset hello izleme anahtarı
-Application Insights SDK'sı hello anahtarı bu sırayla arar:
+### <a name="alternative-ways-to-set-the-instrumentation-key"></a>İzleme anahtarını ayarlamak için alternatif yollar
+Application Insights SDK’sı anahtarı şu sırayla arar:
 
 1. Sistem özelliği: -DAPPLICATION_INSIGHTS_IKEY=your_ikey
 2. Ortam değişkeni: APPLICATION_INSIGHTS_IKEY
@@ -174,11 +174,11 @@ Ayrıca [kod içinde ayarlayabilirsiniz](app-insights-api-custom-events-metrics.
 ```
 
 ## <a name="4-add-an-http-filter"></a>4. HTTP filtresi ekleme
-Merhaba son yapılandırma adımı, her web isteğini hello HTTP isteği bileşeni toolog sağlar. (Yalnızca hello tam API istiyorsanız gerekmez.)
+Son yapılandırma adımı HTTP isteği bileşeninin her web isteğini kaydetmesini sağlar. (Yalnızca tam API istiyorsanız gerekmez.)
 
-Bulup, proje ve uygulama filtrelerinizin yapılandırıldığı koddan hello web uygulaması düğümü altında birleştirme hello hello web.xml dosyasını açın.
+Projenizde web.xml dosyasını bulup açın ve uygulama filtrelerinizin yapılandırıldığı web uygulaması düğümü altında aşağıdaki kodu birleştirin.
 
-tooget hello en doğru sonuçlar, hello filtre önce tüm diğer filtrelerle eşlenmesi gerekir.
+En doğru sonuçlar almak için önce filtrenin tüm diğer filtrelerle eşlenmesi gerekir.
 
 ```XML
 
@@ -195,7 +195,7 @@ tooget hello en doğru sonuçlar, hello filtre önce tüm diğer filtrelerle eş
 ```
 
 #### <a name="if-youre-using-spring-web-mvc-31-or-later"></a>Spring Web MVC 3.1 veya sonraki sürümleri kullanıyorsanız
-Bu öğeleri Düzenle *-servlet.xml tooinclude hello Application Insights paketi:
+Bu öğeleri *-servlet.xml içinde Application Insights paketini içerecek şekilde düzenleyin:
 
 ```XML
 
@@ -210,7 +210,7 @@ Bu öğeleri Düzenle *-servlet.xml tooinclude hello Application Insights paketi
 ```
 
 #### <a name="if-youre-using-struts-2"></a>Struts 2 kullanıyorsanız
-Bu öğe toohello Struts yapılandırma dosyasına (genellikle adlandırılmış struts.xml veya struts default.xml) ekleyin:
+Bu öğeyi Struts yapılandırma dosyasına ekleyin (genellikle struts.xml veya struts default.xml adıyla):
 
 ```XML
 
@@ -220,46 +220,46 @@ Bu öğe toohello Struts yapılandırma dosyasına (genellikle adlandırılmış
      <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
 ```
 
-(Varsayılan yığında tanımlı dinleyiciler varsa hello dinleyiciyi yalnızca toothat yığın eklenebilir.)
+(Varsayılan yığında tanımlı dinleyiciler varsa, dinleyiciyi yalnızca o yığına eklenebilir.)
 
 ## <a name="5-run-your-application"></a>5. Uygulamanızı çalıştırma
-Geliştirme makinenizde hata ayıklama modunda çalıştırın ya da tooyour server yayımlama.
+Geliştirme makinenizde hata ayıklama modunda çalıştırın ya da sunucunuza yayımlayın.
 
 ## <a name="6-view-your-telemetry-in-application-insights"></a>6. Application Insights'da telemetrinizi görüntüleme
-Tooyour Application Insights kaynağını dönmek [Microsoft Azure portal](https://portal.azure.com).
+[Microsoft Azure portalında](https://portal.azure.com), Application Insights kaynağınıza dönün.
 
-HTTP istekleri verileri hello genel bakış dikey penceresinde görüntülenir. (Orada değilse, birkaç saniye bekleyip Yenile’ye tıklayın.)
+HTTP isteklerine ilişkin veriler genel bakış dikey penceresinde görüntülenir. (Orada değilse, birkaç saniye bekleyip Yenile’ye tıklayın.)
 
 ![örnek veri](./media/app-insights-java-get-started/5-results.png)
 
 [Ölçümler hakkında daha fazla bilgi edinin.][metrics]
 
-Daha ayrıntılı herhangi grafik toosee geçişli tıklatma ölçümleri birleştirilir.
+Daha ayrıntılı derlenmiş ölçümler görmek için herhangi bir grafiğe tıklayın.
 
 ![](./media/app-insights-java-get-started/6-barchart.png)
 
-> Application Insights varsayar MVC uygulamaları için HTTP isteklerini hello biçimi: `VERB controller/action`. Örneğin, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` ve `GET Home/Product/sdf96vws`; `GET Home/Product` içinde gruplandırılır. Bu gruplandırma, istek sayısı veya isteklerin yürütülme süresi gibi anlamlı istek toplamalarını etkinleştirir.
+> Application Insights, MVC uygulamaları için HTTP isteklerinin biçiminin şu olduğunu varsayar: `VERB controller/action`. Örneğin, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` ve `GET Home/Product/sdf96vws`; `GET Home/Product` içinde gruplandırılır. Bu gruplandırma, istek sayısı veya isteklerin yürütülme süresi gibi anlamlı istek toplamalarını etkinleştirir.
 >
 >
 
 ### <a name="instance-data"></a>Örnek veriler
-Belirli bir istek geçişli tıklatma toosee tek tek örneklerini yazın.
+Ayrı ayrı örnekleri görmek için belirli bir istek türüne tıklayın.
 
 Application Insights’ta iki tür veri görüntülenir: ortalama, sayım ve toplam olarak depolanan birleşik veriler; HTTP isteklerinin tek tek raporu, özel durumlar, sayfa görünümleri veya özel olaylar olarak görüntülenen örnek veriler.
 
-İstek Hello özellikleri görüntülendiğinde, istekler ve özel durumlar gibi ilişkili hello telemetri olayları görebilirsiniz.
+İstek özellikleri görüntülendiğinde, istekler ve özel durumlar gibi bununla ilişkili telemetri olayları görebilirsiniz.
 
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>Analiz: Güçlü sorgu dili
-Daha fazla veri birleştirdiğinizde hem tooaggregate veri ve toofind ayrı ayrı örnekleri sorguları çalıştırabilirsiniz.  [Analiz](app-insights-analytics.md) hem performans, hem de kullanım için olmasının yanı sıra tanılama için de güçlü bir araçtır.
+Daha fazla veri birleştirdiğinizde hem veri toplama, hem de tek tek örneklerini bulmak için sorguları çalıştırabilirsiniz.  [Analiz](app-insights-analytics.md) hem performans, hem de kullanım için olmasının yanı sıra tanılama için de güçlü bir araçtır.
 
 ![Analizi örneği](./media/app-insights-java-get-started/025.png)
 
-## <a name="7-install-your-app-on-hello-server"></a>7. Uygulamanızı hello sunucusuna yükleyin
-Artık uygulama toohello sunucunuza yayımlayın, kullanmak ve hello portalda hello telemetri izleyin, kullanıcıların izin verir.
+## <a name="7-install-your-app-on-the-server"></a>7. Uygulamanızı sunucuya yükleme
+Artık uygulamanızı sunucuya yayımlayın, herkesin kullanmasını sağlayın ve portalda gösterilen telemetriye bakın.
 
-* Güvenlik duvarınızın, uygulama toosend telemetri toothese bağlantı noktaları verdiğinden emin olun:
+* Güvenlik duvarınızın, uygulamanıza şu bağlantı noktalarına telemetri göndermesine izin verdiğinden emin olun:
 
   * dc.services.visualstudio.com:443
   * f5.services.visualstudio.com:443
@@ -278,21 +278,21 @@ Artık uygulama toohello sunucunuza yayımlayın, kullanmak ve hello portalda he
 
 ![Ayarlar, Hatalar’ı açın](./media/app-insights-java-get-started/21-exceptions.png)
 
-diğer özel durumlar toocollect verileri, iki seçeneğiniz vardır:
+Diğer özel durumlar hakkında veri toplamak için iki seçeneğiniz vardır:
 
-* [INSERT çağırır tootrackException() kodunuzda][apiexceptions].
-* [Sunucunuza Hello Java Agent Yükleme](app-insights-java-agent.md). Toowatch istediğiniz hello yöntemleri belirtin.
+* [Kodunuzda trackException() çağrıları ekleme][apiexceptions].
+* [Sunucunuza Java Agent yükleme](app-insights-java-agent.md). İzlemek istediğiniz yöntemleri belirtin.
 
 ## <a name="monitor-method-calls-and-external-dependencies"></a>Yöntem çağrılarını ve dış bağımlılıkları izleme
-[Merhaba Java Agent Yükleme](app-insights-java-agent.md) toolog belirtilen dahili yöntemleri ve zamanlama verileriyle JDBC yapılan çağrıları.
+Zamanlama verileriyle JDBC üzerinden yapılan belirli dahili yöntemleri ve çağrıları kaydetmek için [Java Agent yükleme](app-insights-java-agent.md) işlemini gerçekleştirin.
 
 ## <a name="performance-counters"></a>Performans sayaçları
-Açık **ayarları**, **sunucuları**, toosee bir dizi performans sayacı.
+Çeşitli performans sayaçlarını görmek için **Ayarlar**, **Sunucular**’ı açın.
 
 ![](./media/app-insights-java-get-started/11-perf-counters.png)
 
 ### <a name="customize-performance-counter-collection"></a>Performans sayacı koleksiyonunu özelleştirme
-performans sayaçları, standart kümesi hello toodisable koleksiyonu hello hello Applicationınsights.XML dosyasının kök düğümü altında koddan hello ekleyin:
+Standart performans sayaçları dizisinin koleksiyonunu devre dışı bırakmak için aşağıdaki kodu ApplicationInsights.xml dosyasının kök düğümü altına ekleyin:
 
 ```XML
     <PerformanceCounters>
@@ -301,9 +301,9 @@ performans sayaçları, standart kümesi hello toodisable koleksiyonu hello hell
 ```
 
 ### <a name="collect-additional-performance-counters"></a>Ek performans sayaçlarını toplama
-Ek performans sayaçları toobe toplanan belirtebilirsiniz.
+Toplanacak ek performans sayaçları belirtebilirsiniz.
 
-#### <a name="jmx-counters-exposed-by-hello-java-virtual-machine"></a>JMX sayaçları (Java sanal makinesi hello tarafından gösterilen)
+#### <a name="jmx-counters-exposed-by-the-java-virtual-machine"></a>JMX sayaçları (Java Sanal Makinesi tarafından gösterilen)
 
 ```XML
     <PerformanceCounters>
@@ -314,16 +314,16 @@ Ek performans sayaçları toobe toplanan belirtebilirsiniz.
     </PerformanceCounters>
 ```
 
-* `displayName`– hello Application Insights portalında görüntülenen hello adı.
-* `objectName`– hello JMX nesne adı.
-* `attribute`– hello JMX nesne adı toofetch hello özniteliği
-* `type`(isteğe bağlı) - JMX nesnenin öznitelik türü hello:
+* `displayName` – Application Insights portalında görüntülenen ad.
+* `objectName` – JMX nesne adı.
+* `attribute` – Getirilecek JMX nesne adının özniteliği
+* `type` (isteğe bağlı) - JMX nesnenin öznitelik türü:
   * Varsayılan: int veya long gibi basit bir tür.
-  * `composite`: hello performans sayacı verileri 'Attribute.Data' hello biçiminde değil
-  * `tabular`: hello performans sayacı verileri tablo satırı hello biçiminde değil
+  * `composite`: performans sayacı verileri 'Attribute.Data' biçimindedir
+  * `tabular`: performans sayacı verileri tablo satırı biçimindedir
 
 #### <a name="windows-performance-counters"></a>Windows performans sayaçları
-Her [Windows performans sayacı](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) bir kategorinin üyesidir (Merhaba, bir alanın bir sınıf üyesi olduğunu aynı şekilde). Kategoriler genel olabileceği gibi numaralı veya adlı örneklere de sahip olabilir.
+Her [Windows performans sayacı](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) bir kategorinin üyesidir (alanın bir sınıf üyesi olması gibi). Kategoriler genel olabileceği gibi numaralı veya adlı örneklere de sahip olabilir.
 
 ```XML
     <PerformanceCounters>
@@ -334,35 +334,35 @@ Her [Windows performans sayacı](https://msdn.microsoft.com/library/windows/desk
     </PerformanceCounters>
 ```
 
-* displayName – hello Application Insights portalında görüntülenen hello adı.
-* categoryName – bu performans sayacı ilişkilendirildiği hello performans sayacı kategorisi (performans nesnesi).
-* counterName – hello hello performans sayacının adını.
-* instanceName – hello hello performans sayacı kategorisi örneğinin adını ya da boş bir dize (""), tek bir örnek hello kategorisi içerir. Merhaba categoryName işlem toocollect istediğinizi hello performans sayacı olduğundan hello geçerli JVM işleminden ise, uygulamanızı çalıştıran, belirtin `"__SELF__"`.
+* displayName – Application Insights portalında görüntülenen ad.
+* categoryName – Bu performans sayacıyla ilişkili performans sayacı kategorisi (performans nesnesi).
+* counterName – Performans sayacının adı.
+* instanceName – Performans sayacı kategorisi örneğinin adı veya kategoride tek örnek varsa boş bir dize (""). categoryName adı Process olursa ve uygulamanızın çalıştığı geçerli JVM işleminden performans sayacını toplamak istiyorsanız `"__SELF__"` öğesini belirtin.
 
 Özel ölçümleriniz [Ölçüm Gezgini][metrics]'nde olduğundan performans sayaçlarınız görünürdür.
 
 ![](./media/app-insights-java-get-started/12-custom-perfs.png)
 
 ### <a name="unix-performance-counters"></a>Unix Performans sayaçları
-* [Merhaba Application Insights eklentisiyle collectd yükleyin](app-insights-java-collectd.md) tooget çok çeşitli sistem ve ağ verileri.
+* Çok çeşitli sistem ve ağ verisi almak için [Application Insights eklentisiyle collectd yükleyin](app-insights-java-collectd.md).
 
 ## <a name="get-user-and-session-data"></a>Kullanıcı ve oturum verilerini alma
-Tamam, web sunucunuzdan telemetri gönderiyorsunuz. Şimdi tooget Merhaba, uygulamanızın 360 derecelik tam görünümünü daha izleme ekleyebilirsiniz:
+Tamam, web sunucunuzdan telemetri gönderiyorsunuz. Uygulamanızın 360 derecelik tam görünümünü almak için izlemeye katabileceğiniz birkaç şey daha vardır:
 
-* [Telemetri tooyour web sayfaları eklemek] [ usage] toomonitor sayfa görünümlerini ve kullanıcı ölçümlerini.
-* [Web testleri oluşturma] [ availability] toomake uygulamanızın canlı ve duyarlı kaldığından emin.
+* Sayfa görünümlerini ve kullanıcı ölçümlerini izlemek için [web sayfalarınıza telemetri ekleyin][usage].
+* Uygulamanızın canlı ve duyarlı kaldığından emin olmak için [web testleri oluşturun][availability].
 
 ## <a name="capture-log-traces"></a>Günlük izlemelerini yakalama
-Log4J, Logback veya başka günlük altyapılarına günlüklerinden inin ve Application Insights tooslice kullanın. Merhaba günlükleri HTTP istekleri ve başka telemetriyle ilişkilendirebilirsiniz. [Nasıl olduğunu öğrenin][javalogs].
+Log4J, Logback veya diğer günlük altyapılarına ait günlükleri ayrıntılı incelemek için Application Insights’ı kullanabilirsiniz. Günlükleri HTTP istekleri ve başka telemetriyle ilişkilendirebilirsiniz. [Nasıl olduğunu öğrenin][javalogs].
 
 ## <a name="send-your-own-telemetry"></a>Kendi telemetrinizi gönderme
-Merhaba SDK yüklediniz, kendi telemetrinizi hello API toosend kullanabilirsiniz.
+Artık SDK'yı da yüklediğinize göre, kendi telemetrinizi göndermek için API'yi kullanabilirsiniz.
 
-* [Özel olayları ve ölçümleri izleme] [ api] hangi kullanıcıların uygulamanızla yaptıkları toolearn.
-* [Olayları ve günlükleri arayın] [ diagnostic] toohelp sorunları tanılayın.
+* Uygulamanızla kullanıcıların ne yaptıklarını öğrenmek için [Özel olayları ve ölçümleri izleyin][api].
+* Sorunların tanımlanması için [Olayları ve günlükleri arayın][diagnostic].
 
 ## <a name="availability-web-tests"></a>Kullanılabilirlik web testleri
-Application Insights olan yukarı düzenli aralıklarla toocheck ve düzgün yanıt Web sitenizi test edebilirsiniz. [Yukarı tooset][availability], Web testleri'ı tıklatın.
+Kullanıma hazır ve düzgün yanıt verdiğini denetlemek için Application Insights belirli aralıklarla web sitenizi test edebilir. [Ayarlamak için][availability], Web testleri'ne tıklayın.
 
 ![Web testleri’ne ve ardından Web testi ekle’ye tıklayın](./media/app-insights-java-get-started/31-config-web-test.png)
 
@@ -382,9 +382,9 @@ Yanıt süreleri grafiklerine ek olarak, siteniz devre dışı kalırsa e-posta 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Bağımlılık çağrılarını izleme](app-insights-java-agent.md)
 * [Unix Performans sayaçlarını izleme](app-insights-java-collectd.md)
-* Ekleme [tooyour web sayfalarını izleme](app-insights-javascript.md) toomonitor sayfa yükleme süresi, AJAX çağrıları, tarayıcı özel durumları.
-* Yazma [özel telemetri](app-insights-api-custom-events-metrics.md) tootrack kullanım hello tarayıcıda veya hello sunucusu.
-* Oluşturma [panolar](app-insights-dashboards.md) sisteminizi izleme toobring birlikte hello anahtar grafikleri.
+* Sayfa yükleme sürelerini, AJAX çağrılarını ve tarayıcı özel durumlarını izlemek için [web sayfalarınıza izleme ekleyin](app-insights-javascript.md).
+* Tarayıcıda veya sunucuda kullanımı izlemek için [özel telemetri](app-insights-api-custom-events-metrics.md) yazın.
+* Sisteminizi izlemek üzere anahtar grafikleri bir araya getirmek için [panolar](app-insights-dashboards.md) oluşturun.
 * Uygulamanızdan telemetri üzerinde güçlü sorgular yapmak için [Analytics](app-insights-analytics.md)'i kullanın
 * Daha fazla bilgi için bkz. [Java geliştiricileri için Azure](/java/azure).
 

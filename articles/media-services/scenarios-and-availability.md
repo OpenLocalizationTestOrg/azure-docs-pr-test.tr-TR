@@ -1,5 +1,5 @@
 ---
-title: "Azure Media Services aaaMicrosoft senaryolar ve veri merkezleri arasında özelliklerin kullanılabilirliği | Microsoft Docs"
+title: "Microsoft Azure Media Services senaryoları ve özelliklerin veri merkezleri arasında kullanılabilirliği | Microsoft Docs"
 description: "Bu konu başlığı altında, Microsoft Azure Media Services senaryolarına ve özelliklerle hizmetlerin veri merkezleri arasında kullanılabilirliğine genel bir bakış sağlanır."
 services: media-services
 documentationcenter: 
@@ -13,91 +13,91 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 3dbab6998ed5da738baf8f1e2fb096dfba336e19
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: d9994dd7bfb6b6bf949a7708c07651d667929ae4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Senaryolar ve Media Services özelliklerinin veri merkezleri arasında kullanılabilirliği
 
-Microsoft Azure Media Services (AMS) toosecurely karşıya yükleme sağlar, depolama, kodlamak ve hem isteğe bağlı ve canlı akış teslimi toovarious istemcileri için (örneğin, TV, PC ve mobil aygıtlar) video ve ses içeriklerini paketini.
+Microsoft Azure Media Services (AMS), çeşitli istemcilere (TV, PC ve mobil cihazlar gibi) isteğe bağlı olarak veya canlı akış halinde teslim amacıyla video ve ses içeriklerini güvenli bir şekilde karşıya yüklemenizi, depolamanızı, kodlamanızı ve paketlemenizi sağlar.
 
-Birden çok veri merkezlerinde Merhaba Dünya AMS çalışır. Bu veri merkezlerinde nereye koyacağınızı seçmek esneklik vermiş toogeographic bölgelerdeki gruplandırılır toobuild uygulamalarınızı. Merhaba gözden geçirebilirsiniz [bölgeler ve konumlarını listesi](https://azure.microsoft.com/regions/). 
+AMS, dünyanın dört bir yanındaki birden fazla veri merkezinde çalışmaktadır. Bu veri merkezleri, coğrafi bölgeler halinde gruplandırılarak uygulamalarınızı oluşturacağınız yeri seçme esnekliği tanır. [Bölgeler ve konumlarının listesini](https://azure.microsoft.com/regions/) gözden geçirebilirsiniz. 
 
-Bu konu başlığı altında, içeriğinizin [canlı](#live_scenarios) veya [isteğe bağlı](#vod_scenarios) teslimiyle ilgili yaygın senaryolar gösterilmektedir. Merhaba konu aynı zamanda veri merkezleri arasında ortam özellikleri ve hizmetlerin kullanılabilirliğini hakkında ayrıntılar sağlar.
+Bu konu başlığı altında, içeriğinizin [canlı](#live_scenarios) veya [isteğe bağlı](#vod_scenarios) teslimiyle ilgili yaygın senaryolar gösterilmektedir. Bu makalede, medya özellikleri ve hizmetlerinin veri merkezleri arasında kullanılabilirliği hakkındaki ayrıntılar da sağlanır.
 
 ## <a name="overview"></a>Genel Bakış
 
 ### <a name="prerequisites"></a>Ön koşullar
 
-Azure Media Services'i kullanarak toostart hello şunlara sahip olmanız:
+Azure Media Services’i kullanmaya başlamak için aşağıdakilerin bulunması gerekir:
 
 * Bir Azure hesabı. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com).
 * Bir Azure Media Services hesabı. Daha fazla bilgi için bkz. [Hesap Oluşturma](media-services-portal-create-account.md).
-* Akış uç noktası toostream içerik istediğiniz hello sahip toobe hello **çalıştıran** durumu.
+* İçerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumunda olması gerekir.
 
-    AMS hesabınızı oluştururken bir **varsayılan** akış uç noktası ekleniyor tooyour hesabı hello **durduruldu** durumu. İçerik ve Al avantajı dinamik paketleme ve dinamik şifreleme, akış uç noktası hello akış toostart sahip toobe hello **çalıştıran** durumu.
+    AMS hesabınız oluşturulduğunda, hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için akış uç noktasının **Çalışıyor** durumda olması gerekir.
 
-### <a name="commonly-used-objects-when-developing-against-hello-ams-odata-model"></a>AMS OData modeli hello karşı geliştirirken yaygın olarak kullanılan nesneleri
+### <a name="commonly-used-objects-when-developing-against-the-ams-odata-model"></a>AMS OData modeline göre geliştirirken sık kullanılan nesneler
 
-Merhaba aşağıdaki görüntüde bazılarını hello en yaygın olarak kullanılan nesneler hello Media Services OData modeline göre geliştirirken gösterir.
+Aşağıdaki resimde Media Services OData modeliyle geliştirirken en sık kullanılan nesnelerin bazıları gösterilmektedir.
 
-Merhaba görüntü tooview boyutu tam'ı tıklatın.  
+Resmi tam boyutlu görüntülemek için tıklayın.  
 
 <a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
 
-Merhaba tüm model görüntüleyebilirsiniz [burada](https://media.windows.net/API/$metadata?api-version=2.15).  
+Modelin tamamını [buradan](https://media.windows.net/API/$metadata?api-version=2.15) görüntüleyebilirsiniz.  
 
-## <a name="protect-content-in-storage-and-deliver-streaming-media-in-hello-clear-non-encrypted"></a>Depolama alanında içeriği koruma ve (şifrelenmemiş) teslim akan medyayı hello temizleyin
+## <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Depolama alanında içeriği koruma ve akan medyayı temiz olarak (şifrelenmemiş) teslim etme
 
 ![VoD iş akışı](./media/scenarios-and-availability/scenarios-and-availability01.png)
 
 1. Yüksek kaliteli bir medya dosyasını bir varlığa yükleyin.
 
-    İçeriğinizi sırasında karşıya yükleme ve deposunda kalan while sipariş tooprotect tooapply depolama şifreleme seçeneği tooyour varlığı önerilir.
-2. Bit hızı Uyarlamalı MP4 dosyaları tooa kodlayın.
+    İçeriğinizi yükleme sırasında ve depolama alanında beklerken korumak için depolama şifrelemesi seçeneğini uygulamanız önerilir.
+2. Uyarlamalı bit hızlı bir MP4 dosyaları grubuna kodlayın.
 
-    İçeriğinizi beklerken sipariş tooprotect varlığı tooapply depolama şifreleme seçeneği toohello çıkış önerilir.
+    İçeriğinizi beklerken korumak için çıktı varlığına depolama şifrelemesi seçeneğini uygulamanız önerilir.
 3. Varlık teslim ilkesini (dinamik paketleme tarafından kullanılır) yapılandırın.
 
     Varlığınıza depolama şifrelemesi uygulanmışsa varlık teslim ilkesini yapılandırmanız **gerekir**.
-4. Bir OnDemand Bulucu oluşturarak Hello varlığı yayımlayın.
+4. Bir OnDemand bulucu oluşturarak varlığı yayımlayın.
 5. Yayımlanan içeriği akışla aktarın.
 
-Merhaba veri merkezlerinde kullanılabilirliği hakkında daha fazla bilgi için bkz [kullanılabilirlik](#availability) bölümü.
+Veri merkezlerinde kullanılabilirlik hakkında bilgi için [Kullanılabilirlik](#availability) bölümüne bakın.
 
 ## <a name="protect-content-in-storage-deliver-dynamically-encrypted-streaming-media"></a>Depolama alanında içeriği koruma, dinamik olarak şifrelenmiş akan medya teslim etme
 
 ![PlayReady ile koruma](./media/media-services-content-protection-overview/media-services-content-protection-with-multi-drm.png)
 
-1. Yüksek kaliteli bir medya dosyasını bir varlığa yükleyin. Depolama şifrelemesi seçeneğini toohello varlık uygulayın.
-2. Bit hızı Uyarlamalı MP4 dosyaları tooa kodlayın. Depolama şifrelemesi seçeneğini toohello çıkış varlığına uygulayın.
-3. Kayıttan yürütme sırasında dinamik olarak şifrelenmiş toobe istediğiniz hello varlık için şifreleme içerik anahtarı oluşturun.
+1. Yüksek kaliteli bir medya dosyasını bir varlığa yükleyin. Varlığa depolama şifrelemesi seçeneğini uygulayın.
+2. Uyarlamalı bit hızlı bir MP4 dosyaları grubuna kodlayın. Çıktı varlığına depolama şifrelemesi seçeneğini uygulayın.
+3. Kayıttan yürütme sırasında dinamik olarak şifrelenmesini istediğiniz varlık için şifreleme içerik anahtarı oluşturun.
 4. İçerik anahtarı yetkilendirme ilkesini yapılandırın.
 5. Varlık teslim ilkesini (dinamik paketleme ve dinamik şifreleme tarafından kullanılır) yapılandırın.
-6. Bir OnDemand Bulucu oluşturarak Hello varlığı yayımlayın.
+6. Bir OnDemand bulucu oluşturarak varlığı yayımlayın.
 7. Yayımlanan içeriği akışla aktarın.
 
-Merhaba veri merkezlerinde kullanılabilirliği hakkında daha fazla bilgi için bkz [kullanılabilirlik](#availability) bölümü.
+Veri merkezlerinde kullanılabilirlik hakkında bilgi için [Kullanılabilirlik](#availability) bölümüne bakın.
 
-## <a name="use-media-analytics-tooderive-actionable-insights-from-your-videos"></a>Medya analizi tooderive eyleme dönüştürülebilir Öngörüler videolarınızı gelen kullanın
+## <a name="use-media-analytics-to-derive-actionable-insights-from-your-videos"></a>Medya Analizi kullanarak videolarınızdan eyleme dönüştürülebilir öngörüler türetme
 
-Medya analizi, kuruluş ve işletmelerin tooderive eyleme dönüştürülebilir Öngörüler kendi video dosyalarından kolaylaştırmak için konuşma ve görme bileşenleri koleksiyonudur. Daha fazla bilgi için bkz. [Azure Media Services Analizi’ne Genel Bakış](media-services-analytics-overview.md).
+Medya Analizi, kuruluş ve işletmelerin video dosyalarından eyleme dönüştürülebilir öngörüler türetmesini kolaylaştıran bir grup konuşma ve görme bileşenidir. Daha fazla bilgi için bkz. [Azure Media Services Analizi’ne Genel Bakış](media-services-analytics-overview.md).
 
 1. Yüksek kaliteli bir medya dosyasını bir varlığa yükleyin.
-2. İle hello açıklanan hello medya analizi hizmetlerinden birini kullanarak videolarınızı işleyin [medya analizi genel bakış](media-services-analytics-overview.md) bölümü.
-3. Medya Analizi medya işlemcileri MP4 veya JSON dosyaları üretir. Medya işlemcisi bir MP4 dosyası oluşturduysa hello dosyayı aşamalı olarak indirebilirsiniz. Medya işlemcisi bir JSON dosyası oluşturduysa hello Azure blob depolama hello dosyayı indirebilirsiniz.
+2. Videolarınızı, [Medya Analizi’ne genel bakış](media-services-analytics-overview.md) bölümünde açıklanan Medya Analizi hizmetlerinden biriyle işleyin.
+3. Medya Analizi medya işlemcileri MP4 veya JSON dosyaları üretir. Medya işlemcisi bir MP4 dosyası oluşturduysa dosyayı aşamalı olarak indirebilirsiniz. Medya işlemcisi bir JSON dosyası oluşturduysa dosyayı Azure blob depolamadan indirebilirsiniz.
 
-Merhaba veri merkezlerinde kullanılabilirliği hakkında daha fazla bilgi için bkz [kullanılabilirlik](#availability) bölümü.
+Veri merkezlerinde kullanılabilirlik hakkında bilgi için [Kullanılabilirlik](#availability) bölümüne bakın.
 
 ## <a name="deliver-progressive-download"></a>Aşamalı indirme teslimi
 
 1. Yüksek kaliteli bir medya dosyasını bir varlığa yükleyin.
-2. Tooa tek MP4 dosyasına kodlayın.
-3. Bir OnDemand veya SAS Bulucu oluşturarak Hello varlığı yayımlayın.
+2. Tek bir MP4 dosyasına kodlayın.
+3. Bir OnDemand veya SAS bulucu oluşturarak varlığı yayımlayın.
 
-    SAS Bulucu kullanıyorsanız hello içerik hello Azure blob depolama indirilir. Bu durumda, akış uç noktaları başlatılmış durumda toohave gerekmez.
+    SAS Bulucu kullanıyorsanız içerik, Azure blob depolama alanından indirilir. Bu durumda, başlatılmış durumda akış uç noktası gerekli değildir.
 4. Aşamalı olarak içerik indirin.
 
 ## <a id="live_scenarios"></a>Canlı akış olayları teslimi 
@@ -105,57 +105,57 @@ Merhaba veri merkezlerinde kullanılabilirliği hakkında daha fazla bilgi için
 1. Çeşitli canlı akış protokollerini (RTMP veya Kesintisiz Akış gibi) kullanarak canlı içerik alın.
 2. (isteğe bağlı) Akışınızı, bit hızı uyarlamalı akışa kodlayın.
 3. Canlı akışınızın önizlemesini görüntüleyin.
-4. Merhaba içeriği yaygın akış protokolleri (örneğin, MPEG DASH, kesintisiz, HLS) aracılığıyla teslim tooyour müşteriler doğrudan ya da daha fazla dağıtım tooa içerik teslim ağı (CDN).
+4. İçeriği yaygın akış protokolleri (örneğin MPEG DASH, Kesintisiz, HLS) aracılığıyla doğrudan müşterilerinize veya başkalarına dağıtım için bir Content Delivery Network’e (CDN) teslim edin.
 
     -veya-
 
-    Sipariş toobe kaydı ve deposu hello alınan içeriği daha sonra (isteğe bağlı video) akışı.
+    Alınan içeriği daha sonra akışla aktarmak üzere kaydedip depolayın (İsteğe Bağlı Video).
 
-Canlı akış yaparken yönlendirir hello aşağıdakilerden birini seçebilirsiniz:
+Canlı akış yaparken, aşağıdaki yollardan birini seçebilirsiniz:
 
 ### <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Şirket içi kodlayıcılardan çoklu bit hızlı canlı akış alan kanallar ile çalışma (doğrudan geçiş)
 
-Merhaba Aşağıdaki diyagramda hello oynayan başlıca parçaları hello AMS platformunun hello gösterilmektedir **doğrudan** iş akışı.
+Aşağıdaki diyagramda, AMS platformunun **doğrudan geçiş** iş akışında rol oynayan başlıca parçaları gösterilmektedir.
 
 ![Canlı iş akışı](./media/scenarios-and-availability/media-services-live-streaming-current.png)
 
 Daha fazla bilgi için bkz. [Şirket İçi Kodlayıcılardan Çoklu Bit Hızlı Canlı Akış Alan Kanallar ile Çalışma](media-services-live-streaming-with-onprem-encoders.md).
 
-### <a name="working-with-channels-that-are-enabled-tooperform-live-encoding-with-azure-media-services"></a>Azure Media Services ile kodlama Canlı tooperform olan kanallar ile çalışma etkin
+### <a name="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services"></a>Azure Media Services ile gerçek zamanlı kodlama gerçekleştirmek için etkinleştirilmiş kanallar ile çalışma
 
-Merhaba Aşağıdaki diyagramda hello önemli bir kanal olduğu canlı akış iş akışında oynayan parçaları hello AMS platformunun tooperform Media Services ile kodlama Canlı etkin gösterir.
+Aşağıdaki diyagramda, AMS platformunun bir Kanalın, Media Services ile kodlama gerçekleştirmek için etkinleştirildiği Canlı Akış iş akışında rol oynayan başlıca parçaları gösterilmektedir.
 
 ![Canlı iş akışı](./media/scenarios-and-availability/media-services-live-streaming-new.png)
 
-Daha fazla bilgi için bkz: [etkin tooPerform Canlı Azure Media Services ile kodlama olan kanallar ile çalışma](media-services-manage-live-encoder-enabled-channels.md).
+Daha fazla bilgi için bkz. [Azure Media Services ile Gerçek Zamanlı Kodlama Gerçekleştirmek İçin Etkinleştirilmiş Kanallar ile Çalışma](media-services-manage-live-encoder-enabled-channels.md).
 
-Merhaba veri merkezlerinde kullanılabilirliği hakkında daha fazla bilgi için bkz [kullanılabilirlik](#availability) bölümü.
+Veri merkezlerinde kullanılabilirlik hakkında bilgi için [Kullanılabilirlik](#availability) bölümüne bakın.
 
 ## <a name="consuming-content"></a>İçerik kullanma
 
-Azure Media Services sağlar hello araçları toocreate zengin gereksinim dinamik istemci oynatıcı uygulamaları dahil olmak üzere çoğu Platform: iOS cihazları, Android cihazları, Windows, Windows Phone, Xbox ve alıcı kutuları. konu aşağıdaki hello bağlantılar tooSDKs ve oynatıcı çerçevelerine Media Services akış medyadan tüketebileceği kendi istemci uygulamalarınızı toodevelop kullanabilirsiniz sağlar. Daha fazla bilgi için bkz. [Video oynatma uygulamaları geliştirme](media-services-develop-video-players.md)
+Azure Media Services, şunlar dahil olmak üzere çoğu platform için zengin ve dinamik istemci oynatıcı uygulamaları oluştururken ihtiyacınız olan araçları sağlar: iOS Cihazları, Android Cihazları, Windows, Windows Phone, Xbox ve Alıcı kutuları. Aşağıdaki konu, Media Services’den akan medyayı kullanabilecek kendi istemci uygulamalarınızı geliştirmek için yararlanabileceğiniz SDK'lar ve Oynatıcı Çerçevelerine bağlantılar sağlar. Daha fazla bilgi için bkz. [Video oynatma uygulamaları geliştirme](media-services-develop-video-players.md)
 
 ## <a name="enabling-azure-cdn"></a>Azure CDN'yi etkinleştirme
 
-Media Services, Azure CDN ile tümleştirmeyi destekler. Hakkında bilgi için bkz tooenable Azure CDN [nasıl tooManage akış uç noktalarını Media Services hesabı](media-services-portal-manage-streaming-endpoints.md).
+Media Services, Azure CDN ile tümleştirmeyi destekler. Azure CDN'yi etkinleştirme hakkında daha fazla bilgi için bkz. [Media Services Hesabında Akış Uç Noktalarını Yönetme](media-services-portal-manage-streaming-endpoints.md).
 
 ## <a id="scaling"></a>Media Services hesabını ölçeklendirme
 
 AMS müşterileri akış uç noktalarını, medya işleme ve depolamayı kendi AMS hesaplarında ölçeklendirebilir.
 
-* Media Services müşterileri **Standart** akış uç noktası veya **Premium** akış uç noktası seçebilir. **Standart** akış uç noktası çoğu akış iş yükü için uygundur. Aynı özellikleri olarak hello içeren bir **Premium** uç noktaları ve ölçekler giden bant genişliği otomatik olarak akış. 
+* Media Services müşterileri **Standart** akış uç noktası veya **Premium** akış uç noktası seçebilir. **Standart** akış uç noktası çoğu akış iş yükü için uygundur. **Premium** akış uç noktaları ile aynı özellikleri taşır ve giden bant genişliğini otomatik olarak ölçeklendirir. 
 
-    **Premium** akış uç noktaları, adanmış ve ölçeklenebilir bant genişliği kapasitesi sağlar; dolayısıyla gelişmiş iş yükleri için uygundur. **Premium** akış uç noktası olan müşteriler, varsayılan olarak bir akış birimi (SU) alır. Akış uç noktası hello SUs eklenerek genişletilebilir. Her SU ek bant genişliği kapasitesi toohello uygulama sağlar. Ölçeklendirme hakkında daha fazla bilgi için **Premium** akış uç noktaları, hello bkz [akış uç noktalarını ölçeklendirme](media-services-portal-scale-streaming-endpoints.md) konu.
+    **Premium** akış uç noktaları, adanmış ve ölçeklenebilir bant genişliği kapasitesi sağlar; dolayısıyla gelişmiş iş yükleri için uygundur. **Premium** akış uç noktası olan müşteriler, varsayılan olarak bir akış birimi (SU) alır. Akış uç noktası, SU’lar eklenerek ölçeklendirilebilir. Her SU, uygulamaya ek bant genişliği kapasitesi sağlar. **Premium** akış uç noktalarını ölçeklendirme hakkında daha fazla bilgi için, [Akış uç noktalarını ölçeklendirme](media-services-portal-scale-streaming-endpoints.md) konusuna bakın.
 
-* Bir Media Services hesabı bir ayrılmış birim görevleri işleme medyanızı işlenme hello hızı belirleyen türü ile ilişkilidir. Merhaba aşağıdaki arasında seçim yapabilirsiniz ayrılmış birim türleri: **S1**, **S2**, veya **S3**. Örneğin, aynı kodlama işi çalıştıktan daha hızlı hello kullandığınızda hello **S2** ayrılmış birim türü karşılaştırma toohello **S1** türü.
+* Media Services hesabı bir Ayrılmış Birim Türüyle ilişkilendirilir ve bu da medya işleme görevlerinizin ne hızda işleneceğini belirler. Şu ayrılmış birim türlerinden birini seçebilirsiniz: **S1**, **S2** veya **S3**. Örneğin, aynı kodlama işi **S2** ayrılmış birim türünü kullandığınızda **S1** türüne göre daha hızlı çalışır.
 
-    Ayrıca toospecifying hello ayrılmış birim türü, hesabınızla tooprovision belirtebilirsiniz **ayrılan birimler** (RUs). sağlanan RUs Hello sayısı belirli bir hesap eşzamanlı olarak işlenebilecek ortam görevleri hello sayısını belirler.
+    Ayrılmış birim türünü belirtmenin yanı sıra, hesabınızın **Ayrılmış Birimler** (RU) ile sağlanmasını da belirtebilirsiniz. Sağlanan RU sayısı, verili bir hesapta eşzamanlı olarak işlenebilecek medya görevlerinin sayısını belirler.
 
     >[!NOTE]
     >RU, tüm medya işlemesini paralel hale getirmek için çalışır ve Azure Media Indexer’ın kullanıldığı dizin oluşturma işleri de buna dahildir. Bununla birlikte kodlamadan farklı olarak, dizin oluşturma işleri daha hızlı ayrılmış birimlerde daha hızlı işlenmez.
 
     Daha fazla bilgi için bkz. [Medya işlemeyi ölçeklendirme](media-services-portal-scale-media-processing.md).
-* Media Services hesabınızı depolama hesapları tooit ekleyerek de ölçeklendirebilirsiniz. Her Depolama hesabı sınırlı too500 TB'tır. tooexpand deponuzda hello varsayılan sınırlamaların ötesine birden çok depolama hesapları tooa tek Media Services hesabı tooattach seçebilirsiniz. Daha fazla bilgi için bkz. [Depolama hesaplarını yönetme](meda-services-managing-multiple-storage-accounts.md).
+* Media Services hesabınızı, depolama hesapları ekleyerek de ölçeklendirebilirsiniz. Her depolama hesabı 500 TB ile sınırlıdır. Depolama alanınızı varsayılan sınırlamaların ötesine genişletmek için, tek bir Media Services hesabına birden çok depolama hesabı eklemeyi seçebilirsiniz. Daha fazla bilgi için bkz. [Depolama hesaplarını yönetme](meda-services-managing-multiple-storage-accounts.md).
 
 ##<a id="availability"></a> Media Services özelliklerinin veri merkezleri arasında kullanılabilirliği
 
@@ -165,11 +165,11 @@ Bu bölümde, Media Services özelliklerinin veri merkezleri arasında kullanıl
 
 #### <a name="availability"></a>Kullanılabilirlik
 
-Bölgeler şu hello Media Services hesapları oluşturabilirsiniz: Kuzey Avrupa, Batı Avrupa, Batı ABD, Doğu ABD, Güneydoğu Asya, Doğu Asya, Japonya Batı, Japonya Doğu, Brezilya Güney, Hindistan Batı, Hindistan Güney ve Hindistan orta. 
+Şu bölgelerde Media Services hesapları oluşturabilirsiniz: Kuzey Avrupa, Batı Avrupa, Batı ABD, Doğu ABD, Güneydoğu Asya, Doğu Asya, Japonya Batı, Japonya Doğu, Brezilya Güney, Hindistan Batı, Hindistan Güney ve Hindistan Orta. 
 
 ### <a name="streaming-endpoints"></a>Akış uç noktaları 
 
-Media Services müşterileri **Standart** akış uç noktası veya **Premium** akış uç noktası seçebilir. Daha fazla bilgi için bkz: Merhaba [ölçeklendirme](#scaling) bölümü.
+Media Services müşterileri **Standart** akış uç noktası veya **Premium** akış uç noktası seçebilir. Daha fazla bilgi için [ölçeklendirme](#scaling) bölümüne bakın.
 
 #### <a name="availability"></a>Kullanılabilirlik
 
@@ -197,7 +197,7 @@ AMS, isteğe bağlı iki kodlayıcı sunar: **Media Encoder Standard** ve **Medi
 
 ### <a name="analytics-media-processors"></a>Analiz medya işlemcileri
 
-Medya analizi, kuruluş ve işletmelerin tooderive eyleme dönüştürülebilir Öngörüler kendi video dosyalarından kolaylaştırır konuşma ve görme bileşenidir koleksiyonudur. Daha fazla bilgi için bkz. [Azure Media Services Analizi’ne Genel Bakış](media-services-analytics-overview.md).
+Medya Analizi, kuruluş ve işletmelerin video dosyalarından eyleme dönüştürülebilir öngörüler türetmesini kolaylaştıran bir grup konuşma ve görme bileşenidir. Daha fazla bilgi için bkz. [Azure Media Services Analizi’ne Genel Bakış](media-services-analytics-overview.md).
 
 #### <a name="availability"></a>Kullanılabilirlik
 
@@ -215,7 +215,7 @@ Medya analizi, kuruluş ve işletmelerin tooderive eyleme dönüştürülebilir 
 
 ### <a name="protection"></a>Koruma
 
-Microsoft Azure Media Services, toosecure, depolama, işleme ve teslim üzerinden bilgisayarınıza hello çıkışında medyanızdan sağlar. Daha fazla bilgi için bkz. [AMS içeriğini koruma](media-services-content-protection-overview.md).
+Microsoft Azure Media Services, medyanızı bilgisayarınızdan ayrıldığı andan başlayıp depolama, işleme ve teslim aşamaları boyunca güvenlik altına almanızı sağlar. Daha fazla bilgi için bkz. [AMS içeriğini koruma](media-services-content-protection-overview.md).
 
 #### <a name="availability"></a>Kullanılabilirlik
 
@@ -229,9 +229,9 @@ Microsoft Azure Media Services, toosecure, depolama, işleme ve teslim üzerinde
 
 ### <a name="reserved-units-rus"></a>Ayrılmış birimler (RU)
 
-sağlanan ayrılmış birim Hello sayısı belirli bir hesap eşzamanlı olarak işlenebilecek ortam görevleri hello sayısını belirler. 
+Sağlanan ayrılmış birim sayısı, verili bir hesapta eşzamanlı olarak işlenebilecek medya görevlerinin sayısını belirler. 
 
-Daha fazla bilgi için bkz: Merhaba [ölçeklendirme](#scaling) bölümü.
+Daha fazla bilgi için [ölçeklendirme](#scaling) bölümüne bakın.
 
 #### <a name="availability"></a>Kullanılabilirlik
 
@@ -239,9 +239,9 @@ Tüm veri merkezlerinde kullanılabilir.
 
 ### <a name="reserved-unit-ru-type"></a>Ayrılmış birim (RU) türü
 
-Bir Media Services hesabı görevleri işleme medyanızı işlenme hello hızını belirler ve ayrılmış birim türü ile ilişkilidir. Merhaba aşağıdaki arasında seçim yapabilirsiniz ayrılmış birim türleri: S1, S2 ve S3.
+Media Services hesabı bir Ayrılmış birim türüyle ilişkilendirilir ve bu da medya işleme görevlerinizin ne hızda işleneceğini belirler. Şu ayrılmış birim türlerinden birini seçebilirsiniz: S1, S2 ve S3.
 
-Daha fazla bilgi için bkz: Merhaba [ölçeklendirme](#scaling) bölümü.
+Daha fazla bilgi için [ölçeklendirme](#scaling) bölümüne bakın.
 
 #### <a name="availability"></a>Kullanılabilirlik
 

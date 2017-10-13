@@ -1,6 +1,6 @@
 ---
-title: "bir ad alanı türü geçiş kullanarak aaaCreate hello Azure portalı | Microsoft Docs"
-description: "Nasıl toocreate kullanarak bir geçiş ad alanı, Azure portal hello."
+title: "Azure portalını kullanarak Geçiş türünde ad alanı oluşturma | Microsoft Docs"
+description: "Azure portalı kullanılarak Geçiş ad alanı oluşturma."
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/23/2017
 ms.author: sethm
-ms.openlocfilehash: ab3abedbe63aa2d806ffd3a0db7e4aa3c99c4b0d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 27cc817fd4fc2d88b0b7d87f99d58795a6b8b864
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-relay-namespace-using-hello-azure-portal"></a>Hello Azure portal kullanarak geçiş ad alanı oluşturma
-Ad alanı, tüm Azure Geçişi bileşenleriniz için ortak bir kapsayıcıdır. Tek bir ad alanında birden fazla Geçiş bulunabilir ve ad alanları genellikle uygulama kapsayıcıları olarak görev yapar. Şu anda iki farklı şekilde toocreate geçiş ad alanı vardır.
+# <a name="create-a-relay-namespace-using-the-azure-portal"></a>Azure portalı kullanılarak Geçiş ad alanı oluşturma
+Ad alanı, tüm Azure Geçişi bileşenleriniz için ortak bir kapsayıcıdır. Tek bir ad alanında birden fazla Geçiş bulunabilir ve ad alanları genellikle uygulama kapsayıcıları olarak görev yapar. Şu anda bir geçiş ad alanı oluşturmanın iki farklı yolu vardır.
 
 1. Azure portalı (bu makale)
 2. [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) şablonları
 
-## <a name="create-a-namespace-in-hello-azure-portal"></a>Hello Azure portalında bir ad alanı oluşturma
+## <a name="create-a-namespace-in-the-azure-portal"></a>Azure portalında bir ad alanı oluşturma
 
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 

@@ -1,26 +1,26 @@
 ---
-title: "aaaAzure Mobile Apps belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
-description: "Bilgi nasıl Azure App Service toobuild ve ana bilgisayar yerel iOS, Android veya Windows Mobile Apps toouse uygulamaları veya Xamarin veya Cordova kullanarak platformlar arası uygulamalar."
-services: app-service\mobile
-author: carolz
+title: "Azure Mobile Apps Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Azure App Service’teki Mobile Apps hizmeti ile Xamarin veya Cordova’yı kullanarak yerel iOS, Android veya Windows uygulamaları ya da platformlar arası uygulamalar oluşturma ve barındırma hakkında bilgi edinin."
+services: app-service-mobile
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
-ms.service: app-service\mobile
+ms.service: app-service-mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 09b103b274c66f515d9a34bbdcb54cf0ff3a035a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: d602d833286d1906a2e9bd38d3e99d737146310b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="mobile-apps-documentation"></a>Mobile Apps Belgeleri
 
-Bilgi nasıl Azure App Service toobuild yerel iOS, Android veya Windows Mobile Apps toouse uygulamaları veya Xamarin veya Cordova kullanarak platformlar arası uygulamalar. Öğreticiler, videolar, istemci SDK Belgeleri ve daha fazlasını nasıl toobuild ve ana bilgisayar için herhangi bir mobil uygulama arka uç hello gösterir.
+Azure App Service’teki Mobile Apps hizmeti ile Xamarin veya Cordova’yı kullanarak yerel iOS, Android veya Windows uygulamaları ya da platformlar arası uygulamalar oluşturma hakkında bilgi edinin. Öğreticiler, videolar, istemci SDK belgeleri ve diğer kaynaklar, mobil uygulamalara yönelik arka uç oluşturma ve barındırma konularına ilişkin bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -142,7 +142,7 @@ Bilgi nasıl Azure App Service toobuild yerel iOS, Android veya Windows Mobile A
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>xamarin.Android uygulaması oluşturmaya başlama</h3>
+                        <h3>Xamarin.Android uygulaması oluşturmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -160,7 +160,7 @@ Bilgi nasıl Azure App Service toobuild yerel iOS, Android veya Windows Mobile A
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>xamarin.Forms uygulaması oluşturmaya başlama</h3>
+                        <h3>Xamarin.Forms uygulaması oluşturmaya başlama</h3>
                     </div>
                 </div>
             </div>

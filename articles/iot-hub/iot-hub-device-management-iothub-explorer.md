@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure iothub-explorer ile IOT cihaz Yönetimi | Microsoft Docs"
-description: "Merhaba ıothub explorer CLI aracı hello doğrudan yöntemleri ve hello Twin'ın istenen özellikleri yönetim seçenekleri özelliklerine sahip Azure IOT Hub cihaz yönetimi için kullanın."
+title: "Iothub explorer ile Azure IOT cihaz Yönetimi | Microsoft Docs"
+description: "Iothub explorer CLI aracı doğrudan yöntemleri ve Twin'ın istenen özellikleri yönetim seçenekleri özelliklerine sahip Azure IOT Hub cihaz yönetimi için kullanın."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: xshi
-ms.openlocfilehash: e0a5e6120db5c4fb12f7f8b605a56e0e4aad9217
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5b7a5057bdfb5920fbb5759bed1f5561cfa1d7e0
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="use-iothub-explorer-for-azure-iot-hub-device-management"></a>Azure IOT Hub cihaz yönetimi için ıothub explorer'ı kullanın
 
@@ -27,21 +27,21 @@ ms.lasthandoff: 10/06/2017
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[ıothub explorer](https://github.com/azure/iothub-explorer) IOT hub kayıt defterinizde bir ana bilgisayar toomanage cihaz kimliklerini çalıştırdığınız bir CLI aracıdır. Çeşitli görevleri tooperform kullanabileceğiniz yönetim seçenekleri ile birlikte gelir.
+[ıothub explorer](https://github.com/azure/iothub-explorer) bir ana bilgisayarda çalıştırmak bir CLI araçtır, IOT hub defterinde cihaz kimlikleri yönetmek için bilgisayar. Çeşitli görevleri gerçekleştirmek için kullanabileceğiniz yönetim seçenekleri ile gelir.
 
 | Yönetim seçeneği          | Görev                                                                                                                            |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| Doğrudan yöntemler             | Başlatma veya ileti gönderme veya hello cihaz yeniden başlatıldığı durdurma gibi davranacak bir aygıtı olun.                                        |
-| İstenen twin özellikleri    | Bir aygıt LED toogreen ayarlama gibi bazı durumların yerleştirin veya hello telemetri ayarı aralığı too30 dakika gönderin.         |
-| Özellikler Twin bildirdi   | Alma hello aygıtın durumunu bildirdi. Örneğin, hello aygıt LED şimdi yanıp sönen hello bildirir.                                    |
-| Twin etiketleri                  | Aygıta özgü meta veriler hello bulutta depolayın. Örneğin, bir satış makinenin dağıtım konumu hello.                         |
-| Bulut-cihaz iletilerini   | Bildirimleri tooa aygıt gönderin. Örneğin, "Bu büyük olasılıkla toorain bugün olur. Toobring bir şemsiyesi unutmayın."              |
-| Cihaz çifti sorguları        | Tüm cihaz çiftlerini tooretrieve olanlar gibi kullanılabilir hello aygıtlarını tanımlayan rasgele koşullarla sorgu. |
+| Doğrudan yöntemler             | Başlatma veya ileti gönderme veya cihaz yeniden başlatıldığı durdurma gibi davranacak bir aygıtı olun.                                        |
+| İstenen twin özellikleri    | Bir aygıt için yeşil bir Işığı ayarlama veya telemetri gönderme aralığı 30 dakika gibi bazı durumların yerleştirin.         |
+| Özellikler Twin bildirdi   | Bir aygıt bildirilen durumunu alın. Örneğin, aygıt LED şimdi yanıp sönen bildirir.                                    |
+| Twin etiketleri                  | Aygıta özgü meta verileri bulutta depolayın. Örneğin, bir satış makinenin dağıtım konumu.                         |
+| Bulut-cihaz iletilerini   | Bir aygıt için bildirimler Gönder. Örneğin, ", Bugün sizi büyük olasılıktır. Bir şemsiyesi getirmeyi unutmayın."              |
+| Cihaz çifti sorguları        | Kullanılabilir aygıtları tanımlama gibi rasgele koşullarla almak için tüm cihaz çiftlerini sorgulamak. |
 
-Daha ayrıntılı açıklama hello farklar hakkında ve bu seçenekleri kullanma konusunda yönergeler için bkz: [cihaz bulut iletişimi Kılavuzu](iot-hub-devguide-d2c-guidance.md) ve [bulut-cihaz iletişimi Kılavuzu](iot-hub-devguide-c2d-guidance.md).
+Daha ayrıntılı açıklama farklara ve bu seçenekleri kullanma konusunda yönergeler için bkz: [cihaz bulut iletişimi Kılavuzu](iot-hub-devguide-d2c-guidance.md) ve [bulut-cihaz iletişimi Kılavuzu](iot-hub-devguide-c2d-guidance.md).
 
 > [!NOTE]
-> Cihaz çiftleri, cihaz durumu bilgilerini (meta veriler, yapılandırmalar ve koşullar) depolayan JSON belgelerdir. IOT Hub cihaz çifti tooit bağlanan her aygıt için devam ettirir. Cihaz çiftlerini hakkında daha fazla bilgi için bkz: [cihaz çiftlerini ile çalışmaya başlama](iot-hub-node-node-twin-getstarted.md).
+> Cihaz çiftleri, cihaz durumu bilgilerini (meta veriler, yapılandırmalar ve koşullar) depolayan JSON belgelerdir. IOT Hub cihaz çifti ona bağlanan her aygıt için devam ettirir. Cihaz çiftlerini hakkında daha fazla bilgi için bkz: [cihaz çiftlerini ile çalışmaya başlama](iot-hub-node-node-twin-getstarted.md).
 
 ## <a name="what-you-learn"></a>Öğrenecekleriniz
 
@@ -53,16 +53,16 @@ Iothub explorer çeşitli yönetim seçenekleri ile çalıştırın.
 
 ## <a name="what-you-need"></a>Ne gerekiyor
 
-- Öğretici [Cihazınızı](iot-hub-raspberry-pi-kit-node-get-started.md) hangi hello gereksinimleri aşağıdaki kapsayan tamamlandı:
+- Öğretici [Cihazınızı](iot-hub-raspberry-pi-kit-node-get-started.md) , aşağıdaki gereksinimleri ele alınmaktadır tamamlandı:
   - Etkin bir Azure aboneliği.
   - Azure IOT hub'ı aboneliğinizdeki.
-  - Tooyour Azure IOT hub'ı iletileri gönderir bir istemci uygulaması.
-- Cihazınızı Merhaba istemci uygulaması Bu öğretici sırasında çalıştırdığından emin olun.
+  - Azure IOT hub'ına iletileri gönderen bir istemci uygulaması.
+- Cihazınız Bu öğretici sırasında istemci uygulaması ile çalıştığından emin olun.
 - iothub-explorer [yükleme ıothub explorer](https://github.com/azure/iothub-explorer) geliştirme makinenizde.
 
-## <a name="connect-tooyour-iot-hub"></a>Tooyour IOT hub'ı Bağlan
+## <a name="connect-to-your-iot-hub"></a>IOT hub'ınıza bağlanın
 
-Tooyour IOT hub'ı hello aşağıdaki komutu çalıştırarak Bağlan:
+Aşağıdaki komutu çalıştırarak IOT hub'ınıza bağlanın:
 
 ```bash
 iothub-explorer login <your IoT hub connection string>
@@ -70,13 +70,13 @@ iothub-explorer login <your IoT hub connection string>
 
 ## <a name="use-iothub-explorer-with-direct-methods"></a>Doğrudan yöntemleriyle ıothub Gezgini'ni kullanın
 
-Merhaba çağırma `start` hello aşağıdaki komutu çalıştırarak hello cihaz uygulama toosend iletileri tooyour IOT hub yöntemi:
+Çağırma `start` yöntemi aşağıdaki komutu çalıştırarak IOT hub'ınıza ileti göndermek için aygıt uygulamasında:
 
 ```bash
 iothub-explorer device-method <your device Id> start
 ```
 
-Merhaba çağırma `stop` hello cihaz uygulama toostop gönderme yöntemi hello aşağıdaki komutu çalıştırarak tooyour IOT hub'ı iletileri:
+Çağırma `stop` gönderilmesini durdurmak için cihaz uygulaması yönteminde aşağıdaki komutu çalıştırarak IOT hub'ına iletileri:
 
 ```bash
 iothub-explorer device-method <your device Id> stop
@@ -84,7 +84,7 @@ iothub-explorer device-method <your device Id> stop
 
 ## <a name="use-iothub-explorer-with-twins-desired-properties"></a>Twin'ın istenen özelliklere sahip ıothub Gezgini'ni kullanın
 
-İstenen özellik aralığı ayarlamak hello aşağıdaki komutu çalıştırarak 3000 =:
+İstenen özellik aralığını ayarlayın aşağıdaki komutu çalıştırarak 3000 =:
 
 ```bash
 iothub-explorer update-twin <your device id> {\"properties\":{\"desired\":{\"interval\":3000}}}
@@ -94,23 +94,23 @@ Bu özellik, cihazınız tarafından okunabilir.
 
 ## <a name="use-iothub-explorer-with-twins-reported-properties"></a>Twin'ın bildirilen özelliklerle ıothub Gezgini'ni kullanın
 
-Merhaba bildirilen hello çalıştırarak hello cihazın komutu aşağıdaki özelliklere alın:
+Aşağıdaki komutu çalıştırarak bildirilen cihaz özelliklerini alın:
 
 ```bash
 iothub-explorer get-twin <your device id>
 ```
 
-$Metadata hello özellikleri biridir. hangi gösterir, bu aygıtın son zamanı hello $lastUpdated gönderir veya bir ileti alır.
+$Metadata özellikleri biridir. Bu aygıtın son zamanı gösteren $lastUpdated gönderir veya bir ileti alır.
 
 ## <a name="use-iothub-explorer-with-twins-tags"></a>Twin'ın etiketleriyle ıothub Gezgini'ni kullanın
 
-Başlangıç etiketleri ve hello cihaz özelliklerini hello aşağıdaki komutu çalıştırarak görüntüler:
+Aşağıdaki komutu çalıştırarak etiketleri ve cihaz özelliklerini görüntüle:
 
 ```bash
 iothub-explorer get-twin <your device id>
 ```
 
-Bir alan rolü eklemek hello aşağıdaki komutu çalıştırarak = sıcaklık ve nem toohello cihazın:
+Bir alan rolünü ekleyin aşağıdaki komutu çalıştırarak sıcaklık ve nem aygıta =:
 
 ```bash
 iothub-explorer update-twin <your device id> "{\"tags\":{\"role\":\"temperature&humidity\"}}"
@@ -119,23 +119,23 @@ iothub-explorer update-twin <your device id> "{\"tags\":{\"role\":\"temperature&
 
 ## <a name="use-iothub-explorer-with-cloud-to-device-messages"></a>Bulut cihaza iletileriyle ıothub Gezgini'ni kullanın
 
-"Hello World" iletisini toohello aygıt hello aşağıdaki komutu çalıştırarak gönder:
+"Hello World" iletisini, aşağıdaki komutu çalıştırarak cihaza gönder:
 
 ```bash
 iothub-explorer send <device-id> "Hello World"
 ```
 
-Bkz: [iothub-explorer toosend kullanıyorsanız ve cihaz ve IOT hub'ı arasında iletileri alırsanız](iot-hub-explorer-cloud-device-messaging.md) bu komutu kullanarak, gerçek bir senaryo için.
+Bkz: [cihaz ve IOT hub'ı arasında ileti gönderme ve alma için iothub-Gezgini'ni kullanma](iot-hub-explorer-cloud-device-messaging.md) bu komutu kullanarak, gerçek bir senaryo için.
 
 ## <a name="use-iothub-explorer-with-device-twins-queries"></a>Cihaz çiftlerini sorgularıyla ıothub Gezgini'ni kullanın
 
-Sorgu bir etiket rolünün aygıtlarla 'sıcaklık ve nem' hello aşağıdaki komutu çalıştırarak =:
+Sorgu bir etiket rolünün aygıtlarla 'sıcaklık ve nem' aşağıdaki komutu çalıştırarak =:
 
 ```bash
 iothub-explorer query-twin "SELECT * FROM devices WHERE tags.role = 'temperature&humidity'"
 ```
 
-Bir etiketi rolünün olanlar dışında tüm cihazlar sorgu 'sıcaklık ve nem' hello aşağıdaki komutu çalıştırarak =:
+Bir etiketi rolünün olanlar dışında tüm cihazlar sorgu aşağıdaki komutu çalıştırarak 'sıcaklık ve nem' =:
 
 ```bash
 iothub-explorer query-twin "SELECT * FROM devices WHERE tags.role != 'temperature&humidity'"
@@ -143,6 +143,6 @@ iothub-explorer query-twin "SELECT * FROM devices WHERE tags.role != 'temperatur
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Öğrendiğinize nasıl toouse iothub-Gezgini çeşitli yönetim seçenekleri ile.
+Çeşitli yönetim seçenekleri ile ıothub Gezgini'ni kullanma öğrendiniz.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

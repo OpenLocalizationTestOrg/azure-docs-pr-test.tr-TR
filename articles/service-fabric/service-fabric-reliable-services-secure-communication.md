@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric hizmetler için güvenli iletişim aaaHelp | Microsoft Docs"
-description: "Toohelp güvenliğini nasıl iletişim güvenilir hizmetler için genel bakış çalıştıran bir Azure Service Fabric kümesi."
+title: "Güvenli iletişim için Azure Service Fabric Hizmetleri'nde Yardım | Microsoft Docs"
+description: "Güvenilir hizmetler için iletişimi güvenli hale getirmek nasıl genel bakış çalıştıran bir Azure Service Fabric kümesi."
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: 15201eb503322b17db329b319f1f42860b0f0c6b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 53119244f8f09c0c6c43f43761af1cc074f8d0af
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>Güvenli iletişim Azure Service Fabric hizmetler için Yardım
 > [!div class="op_single_selector"]
@@ -27,12 +27,12 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Güvenlik iletişim hello en önemli yönlerinden birisidir. Merhaba Reliable Services uygulama çerçevesi birkaç önceden oluşturulmuş iletişimi yığınları ve tooimprove güvenlik kullanabileceğiniz araçlar sağlar. Bu makalede nasıl kullanırken tooimprove güvenlik uzaktan iletişim hizmeti ve Windows Communication Foundation (WCF) iletişim yığını hello hakkında alınmaktadır.
+Güvenlik iletişim en önemli yönlerinden birisidir. Güvenilir hizmetler uygulama çerçevesi birkaç önceden oluşturulmuş iletişimi yığınları ve güvenliği geliştirmek için kullanabileceğiniz araçlar sağlar. Bu makalede hizmet remoting ve Windows Communication Foundation (WCF) iletişim yığını kullanırken güvenliğini artırmak hakkında alınmaktadır.
 
 ## <a name="help-secure-a-service-when-youre-using-service-remoting"></a>Hizmet remoting kullanırken hizmet korunmasına yardımcı olma
-Var olan kullanıyoruz [örnek](service-fabric-reliable-services-communication-remoting.md) , açıklar nasıl tooset uzaktan iletişim güvenilir hizmetler için ayarlama. toohelp hizmet remoting kullanırken bir hizmeti güvenli hale getirme, aşağıdaki adımları izleyin:
+Var olan kullanıyoruz [örnek](service-fabric-reliable-services-communication-remoting.md) nasıl uzaktan iletişim için güvenilir hizmetler ayarlanacağı açıklanmaktadır. Hizmet remoting kullanırken bir hizmeti güvenli hale getirmek için aşağıdaki adımları izleyin:
 
-1. Bir arabirim oluşturmak `IHelloWorldStateful`, hizmetiniz üzerinde uzaktan yordam çağrısı için kullanılabilecek hello yöntemleri tanımlar. Hizmetinizi kullanacak `FabricTransportServiceRemotingListener`, hello bildirilen `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` ad alanı. Bu bir `ICommunicationListener` remoting özellikleri sağlayan uygulama.
+1. Bir arabirim oluşturmak `IHelloWorldStateful`, hizmetiniz üzerinde uzaktan yordam çağrısı için kullanılabilecek yöntemleri tanımlar. Hizmetinizi kullanacak `FabricTransportServiceRemotingListener`, içinde bildirilen `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` ad alanı. Bu bir `ICommunicationListener` remoting özellikleri sağlayan uygulama.
 
     ```csharp
     public interface IHelloWorldStateful : IService
@@ -57,9 +57,9 @@ Var olan kullanıyoruz [örnek](service-fabric-reliable-services-communication-r
     ```
 2. Dinleyici ayarları ve güvenlik kimlik bilgileri ekleyin.
 
-    Güvenli, hizmet iletişimi hello kümedeki tüm hello düğümlerde yüklü toouse toohelp istediğiniz hello sertifikanın emin olun. Dinleyici ayarları ve güvenlik kimlik bilgileri sağlayabilir iki yolu vardır:
+    Hizmet iletişimi güvenli hale getirmek için kullanmak istediğiniz sertifikayı kümedeki tüm düğümlerde yüklü olduğundan emin olun. Dinleyici ayarları ve güvenlik kimlik bilgileri sağlayabilir iki yolu vardır:
 
-   1. Bunları doğrudan hello hizmet kodunda sağlar:
+   1. Bunları doğrudan hizmet kodunda sağlar:
 
        ```csharp
        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -94,7 +94,7 @@ Var olan kullanıyoruz [örnek](service-fabric-reliable-services-communication-r
        ```
    2. Kullanarak sağlama bir [yapılandırma paketi](service-fabric-application-model.md):
 
-       Ekleme bir `TransportSettings` hello settings.xml dosyasındaki bölümü.
+       Ekleme bir `TransportSettings` settings.xml dosyasındaki bölümü.
 
        ```xml
        <Section Name="HelloWorldStatefulTransportSettings">
@@ -110,7 +110,7 @@ Var olan kullanıyoruz [örnek](service-fabric-reliable-services-communication-r
        </Section>
        ```
 
-       Bu durumda, hello `CreateServiceReplicaListeners` yöntemi şöyle görünür:
+       Bu durumda, `CreateServiceReplicaListeners` yöntemi şöyle görünür:
 
        ```csharp
        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -124,7 +124,7 @@ Var olan kullanıyoruz [örnek](service-fabric-reliable-services-communication-r
        }
        ```
 
-        Eklerseniz bir `TransportSettings` hello settings.xml dosyasındaki bölümünü `FabricTransportRemotingListenerSettings ` tüm hello Ayarları sayfasından Bu bölüm varsayılan olarak yüklenecektir.
+        Eklerseniz bir `TransportSettings` settings.xml dosyasındaki bölümünde `FabricTransportRemotingListenerSettings ` tüm ayarları varsayılan olarak bu bölümünden yüklenir.
 
         ```xml
         <!--"TransportSettings" section .-->
@@ -132,7 +132,7 @@ Var olan kullanıyoruz [örnek](service-fabric-reliable-services-communication-r
             ...
         </Section>
         ```
-        Bu durumda, hello `CreateServiceReplicaListeners` yöntemi şöyle görünür:
+        Bu durumda, `CreateServiceReplicaListeners` yöntemi şöyle görünür:
 
         ```csharp
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -145,7 +145,7 @@ Var olan kullanıyoruz [örnek](service-fabric-reliable-services-communication-r
             };
         }
         ```
-3. Çağırdığınızda yöntemler güvenli bir hizmette hello kullanmak yerine hello remoting yığını kullanarak `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` sınıfı toocreate kullanımı bir hizmeti proxy'si `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`. Geçirin `FabricTransportRemotingSettings`, içeren `SecurityCredentials`.
+3. Çağırdığınızda yöntemler güvenli bir hizmette kullanmak yerine uzaktan iletişim yığını kullanarak `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` hizmeti proxy'si oluşturmak, kullanmak için sınıf `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`. Geçirin `FabricTransportRemotingSettings`, içeren `SecurityCredentials`.
 
     ```csharp
 
@@ -175,7 +175,7 @@ Var olan kullanıyoruz [örnek](service-fabric-reliable-services-communication-r
 
     ```
 
-    Merhaba istemci kodu bir hizmetin bir parçası çalışıyorsa, yükleyebilir `FabricTransportRemotingSettings` hello settings.xml dosyasından. Benzer toohello hizmeti kodu HelloWorldClientTransportSettings bölümünde daha önce gösterildiği gibi oluşturun. Değişiklikleri toohello istemci kodu aşağıdaki hello olun:
+    İstemci kodu bir hizmetin bir parçası çalışıyorsa, yükleyebilir `FabricTransportRemotingSettings` settings.xml dosyasından. Daha önce gösterildiği gibi hizmet koduna benzer HelloWorldClientTransportSettings bir bölüm oluşturun. İstemci kodu aşağıdaki değişiklikleri yapın:
 
     ```csharp
     ServiceProxyFactory serviceProxyFactory = new ServiceProxyFactory(
@@ -188,11 +188,11 @@ Var olan kullanıyoruz [örnek](service-fabric-reliable-services-communication-r
 
     ```
 
-    Merhaba istemci bir hizmetin bir parçası çalışır durumda değilse, client_name.settings.xml dosyası hello oluşturabilirsiniz hello client_name.exe olduğu aynı konumu. Ardından bu dosyada bir TransportSettings bölüm oluşturun.
+    İstemci bir hizmetin bir parçası çalışır durumda değilse, client_name.exe olduğu aynı konumda client_name.settings.xml dosyası oluşturabilirsiniz. Ardından bu dosyada bir TransportSettings bölüm oluşturun.
 
-    Eklerseniz, benzer toohello hizmeti, bir `TransportSettings` istemci settings.xml/client_name.settings.xml bölümünde `FabricTransportRemotingSettings` tüm hello Ayarları sayfasından Bu bölüm, varsayılan olarak yükler.
+    Hizmete benzer şekilde, eklerseniz bir `TransportSettings` istemci settings.xml/client_name.settings.xml bölümünde `FabricTransportRemotingSettings` tüm ayarları varsayılan olarak bu bölümünden yükler.
 
-    Bu durumda, hello önceki kod daha basitleştiriliyor:  
+    Bu durumda, önceki kod daha Basitleştirilmiş:  
 
     ```csharp
 
@@ -204,9 +204,9 @@ Var olan kullanıyoruz [örnek](service-fabric-reliable-services-communication-r
     ```
 
 ## <a name="help-secure-a-service-when-youre-using-a-wcf-based-communication-stack"></a>Bir WCF tabanlı iletişim yığını kullanırken hizmet korunmasına yardımcı olma
-Var olan kullanıyoruz [örnek](service-fabric-reliable-services-communication-wcf.md) nasıl tooset WCF tabanlı iletişim kurmak için güvenilir hizmetler yığın açıklar. toohelp bir WCF tabanlı iletişim yığını kullanırken bir hizmeti güvenli hale getirme, aşağıdaki adımları izleyin:
+Var olan kullanıyoruz [örnek](service-fabric-reliable-services-communication-wcf.md) , güvenilir hizmetler için bir WCF tabanlı iletişim yığını ayarlanacağı açıklanmaktadır. Bir WCF tabanlı iletişim yığını kullanırken bir hizmeti güvenli hale getirmek için aşağıdaki adımları izleyin:
 
-1. Merhaba hizmeti için toohelp güvenli hello WCF iletişimi dinleyicisi gerekir (`WcfCommunicationListener`), oluşturduğunuz. toodo bunu hello değiştirme `CreateServiceReplicaListeners` yöntemi.
+1. Hizmeti için WCF iletişimi dinleyicisi güvenli hale getirmek gereken (`WcfCommunicationListener`), oluşturduğunuz. Bunu yapmak için değiştirmeniz `CreateServiceReplicaListeners` yöntemi.
 
     ```csharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -227,7 +227,7 @@ Var olan kullanıyoruz [örnek](service-fabric-reliable-services-communication-w
             listenerBinding: GetNetTcpBinding(),
             endpointResourceName:"WcfServiceEndpoint");
 
-        // Add certificate details in hello ServiceHost credentials.
+        // Add certificate details in the ServiceHost credentials.
         wcfCommunicationListener.ServiceHost.Credentials.ServiceCertificate.SetCertificate(
             StoreLocation.LocalMachine,
             StoreName.My,
@@ -243,7 +243,7 @@ Var olan kullanıyoruz [örnek](service-fabric-reliable-services-communication-w
         return b;
     }
     ```
-2. Merhaba istemcisinde hello `WcfCommunicationClient` hello önceki oluşturulduğu sınıf [örnek](service-fabric-reliable-services-communication-wcf.md) değişmeden kalır. Ancak toooverride hello gerekir `CreateClientAsync` yöntemi `WcfCommunicationClientFactory`:
+2. İstemci `WcfCommunicationClient` önceki oluşturulduğu sınıf [örnek](service-fabric-reliable-services-communication-wcf.md) değişmeden kalır. Ancak geçersiz kılmanız gerekir `CreateClientAsync` yöntemi `WcfCommunicationClientFactory`:
 
     ```csharp
     public class SecureWcfCommunicationClientFactory<TServiceContract> : WcfCommunicationClientFactory<TServiceContract> where TServiceContract : class
@@ -277,8 +277,8 @@ Var olan kullanıyoruz [örnek](service-fabric-reliable-services-communication-w
             {
                 channelFactory = new ChannelFactory<TServiceContract>(this.clientBinding, endpointAddress);
             }
-            // Add certificate details toohello ChannelFactory credentials.
-            // These credentials will be used by hello clients created by
+            // Add certificate details to the ChannelFactory credentials.
+            // These credentials will be used by the clients created by
             // SecureWcfCommunicationClientFactory.  
             channelFactory.Credentials.ClientCertificate.SetCertificate(
                 StoreLocation.LocalMachine,
@@ -293,7 +293,7 @@ Var olan kullanıyoruz [örnek](service-fabric-reliable-services-communication-w
     }
     ```
 
-    Kullanım `SecureWcfCommunicationClientFactory` toocreate WCF iletişimi istemcisi (`WcfCommunicationClient`). Merhaba istemci tooinvoke hizmet yöntemleri kullanın.
+    Kullanım `SecureWcfCommunicationClientFactory` WCF iletişimi istemcisi oluşturmak için (`WcfCommunicationClient`). İstemci, hizmet yöntemleri çağırmak için kullanın.
 
     ```csharp
     IServicePartitionResolver partitionResolver = ServicePartitionResolver.GetDefault();

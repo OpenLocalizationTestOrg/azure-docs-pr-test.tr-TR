@@ -1,6 +1,6 @@
 ---
-title: "aaaUse Azure medya Video küçük resimleri tooCreate bir Video özeti | Microsoft Docs"
-description: "Video özetleme otomatik olarak hello kaynak video ilginç parçacıkları'i seçerek uzun videoları özetlerini oluşturmanıza yardımcı olabilir. Tooprovide hangi tooexpect uzun videoda hızlı bir genel bakış istediğinizde kullanışlıdır."
+title: "Video özetleme oluşturmak için Azure medya Video küçük resimleri kullanın | Microsoft Docs"
+description: "Video özetleme otomatik olarak kaynak video ilginç parçacıkları'i seçerek uzun videoları özetlerini oluşturmanıza yardımcı olabilir. Bu, uzun bir video beklenmesi gerekenler hızlı bir bakış sağlamak istediğinizde yararlıdır."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,26 +14,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 0a8f0bba6c12a948b940114fe4937e675688a8c7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5d5afdaf22ffea8f3b77a154acb5d0a8dda74405
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="use-azure-media-video-thumbnails-toocreate-a-video-summarization"></a>Azure medya Video küçük resimleri tooCreate bir Video özeti kullanın
+# <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Video özetleme oluşturmak için Azure medya Video küçük resimleri kullanın
 ## <a name="overview"></a>Genel Bakış
-Merhaba **Azure medya Video küçük resimleri** medya işlemcisi (MP) toocreate toopreview uzun bir video Özeti yalnızca isteyen yararlı toocustomers olan video özetini sağlar. Örneğin, müşteriler toosee kısa "özeti video" isteyebilirsiniz küçük üzerine bunlar vurgulu zaman. Merhaba parametrelerinin uyguladıkça tarafından **Azure medya Video küçük resimleri** birleştirme teknolojisi tooalgorithmically açıklayıcı subclip oluşturmak ve yapılandırma hazır hello MP güçlü görüntüsü algılama kullanabilirsiniz.  
+**Azure medya Video küçük resimleri** medya işlemcisi (MP), uzun bir video özetini Önizleme istediğiniz müşteriler için kullanışlı bir video özetini oluşturmanıza olanak sağlar. Örneğin, müşteriler kısa bir "özeti video" görmek isteyebilirsiniz küçük üzerine bunlar vurgulu zaman. Parametreleri uyguladıkça tarafından **Azure medya Video küçük resimleri** yapılandırma hazır MP'nin güçlü görüntüsü algılama ve birleştirme teknolojisi algorithmically açıklayıcı subclip oluşturmak için kullanabilirsiniz.  
 
-Merhaba **Azure medya Video küçük** MP şu anda önizlemede.
+**Azure medya Video küçük** MP şu anda önizlemede.
 
-Bu konu hakkında ayrıntılar verir **Azure medya Video küçük** ve gösterir nasıl toouse .NET için Media Services SDK'sı ile.
+Bu konu hakkında ayrıntılar verir **Azure medya Video küçük** ve Media Services SDK'sı ile .NET için nasıl kullanılacağını gösterir.
 
 ## <a name="limitations"></a>Sınırlamalar
 
-Videonuzu farklı perde, oluşan değil, bazı durumlarda, hello çıktı yalnızca tek bir görüntüsü.
+Videonuzu farklı perde, oluşan değil, bazı durumlarda, çıktı yalnızca tek bir görüntüsü.
 
 ## <a name="video-summary-example"></a>Video özeti örneği
-Hangi hello Azure medya Video küçük resimleri medya işlemcisi yapabilirsiniz ilişkin bazı örnekler şunlardır:
+Azure medya Video küçük resimleri medya işlemcisi yapabileceklerine ilişkin bazı örnekler şunlardır:
 
 ### <a name="original-video"></a>Özgün video
 [Özgün video](http://ampdemo.azureedge.net/azuremediaplayer.html?url=https%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Faed33834-ec2d-4788-88b5-a4505b3d032c%2FMicrosoft%27s%20HoloLens%20Live%20Demonstration.ism%2Fmanifest)
@@ -42,26 +42,26 @@ Hangi hello Azure medya Video küçük resimleri medya işlemcisi yapabilirsiniz
 [Video küçük resim sonucu](http://ampdemo.azureedge.net/azuremediaplayer.html?url=http%3A%2F%2Fnimbuscdn-nimbuspm.streaming.mediaservices.windows.net%2Ff5c91052-4232-41d4-b531-062e07b6a9ae%2FHololens%2520Demo_VideoThumbnails_MotionThumbnail.mp4)
 
 ## <a name="task-configuration-preset"></a>Görev yapılandırması (hazır)
-Video küçük resim görev oluştururken **Azure medya Video küçük resimleri**, bir yapılandırma hazır belirtmeniz gerekir. küçük resim örnek yukarıda Hello temel JSON yapılandırma aşağıdaki hello ile oluşturuldu:
+Video küçük resim görev oluştururken **Azure medya Video küçük resimleri**, bir yapılandırma hazır belirtmeniz gerekir. Yukarıdaki küçük örnek aşağıdaki temel JSON yapılandırma ile oluşturuldu:
 
     {"version":"1.0"}
 
-Şu anda şu parametreler hello değiştirebilirsiniz:
+Şu anda, aşağıdaki parametreleri değiştirebilirsiniz:
 
 | Param | Açıklama |
 | --- | --- |
-| outputAudio |Merhaba sonuç video, ses içerip içermeyeceğini belirtir. <br/>İzin verilen değerler: True veya False. Varsayılan true'dur. |
-| fadeInFadeOut |Belirtir desteklemediğini yavaşça geçişleri hello ayrı hareket küçük resimleri arasında kullanılır.  <br/>İzin verilen değerler: True veya False.  Varsayılan true'dur. |
-| maxMotionThumbnailDurationInSecs |Ne kadar süreyle hello tüm sonuç video belirten Tamsayı olacaktır.  Varsayılan özgün video süresine bağlıdır. |
+| outputAudio |Sonuç video, ses içerip içermeyeceğini belirtir. <br/>İzin verilen değerler: True veya False. Varsayılan true'dur. |
+| fadeInFadeOut |Belirtir desteklemediğini yavaşça geçişleri ayrı hareket küçük resimleri arasında kullanılır.  <br/>İzin verilen değerler: True veya False.  Varsayılan true'dur. |
+| maxMotionThumbnailDurationInSecs |Tüm sonuç video ne kadar süreyle olmayacağını belirten tamsayı.  Varsayılan özgün video süresine bağlıdır. |
 
-Merhaba aşağıdaki tabloda açıklanmaktadır hello varsayılan süre, ne zaman **maxMotionThumbnailInSecs** kullanılmaz.
+Varsayılan süre aşağıdaki tabloda açıklanmaktadır, ne zaman **maxMotionThumbnailInSecs** kullanılmaz.
 
 |  |  |  |
 | --- | --- | --- | --- | --- |
 | Video süresi |d < 3 min |3 min < d < 15 dakika |
 | Küçük resim süresi |15 saniye (2-3 planda) |30 saniye (3-5 planda) |
 
-Merhaba aşağıdaki JSON kullanılabilir parametreleri ayarlar.
+Aşağıdaki JSON kullanılabilir parametreleri ayarlar.
 
     {
         "version": "1.0",
@@ -74,10 +74,10 @@ Merhaba aşağıdaki JSON kullanılabilir parametreleri ayarlar.
 
 ## <a name="net-sample-code"></a>.NET örnek kod
 
-Merhaba aşağıdaki program gösterir nasıl yapılır:
+Aşağıdaki program gösterir nasıl yapılır:
 
-1. Bir varlık oluşturun ve hello varlığa bir medya dosyasını yükleyin.
-2. Json hazır aşağıdaki hello içeren bir yapılandırma dosyasına dayalı bir video küçük resim görevini içeren bir işi oluşturur. 
+1. Bir varlık oluşturun ve varlığa bir medya dosyasını yükleyin.
+2. Aşağıdaki json hazır içeren bir yapılandırma dosyasına dayalı bir video küçük resim görevini içeren bir işi oluşturur. 
    
         {                
             "version": "1.0",
@@ -87,11 +87,11 @@ Merhaba aşağıdaki program gösterir nasıl yapılır:
                 "fadeInFadeOut": "false"
             }
         }
-3. Merhaba çıktı dosyaları indirir. 
+3. Çıkış dosyaları indirir. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
 
-Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dosyası bağlantı bilgileriyle doldurmak [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md). 
+Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) bölümünde açıklandığı gibi bağlantı bilgileriyle doldurun. 
 
 #### <a name="example"></a>Örnek
 
@@ -107,7 +107,7 @@ Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dos
     {
         class Program
         {
-            // Read values from hello App.config file.
+            // Read values from the App.config file.
             private static readonly string _AADTenantDomain =
                 ConfigurationManager.AppSettings["AADTenantDomain"];
             private static readonly string _RESTAPIEndpoint =
@@ -124,17 +124,17 @@ Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dos
                 _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
 
-                // Run hello thumbnail job.
+                // Run the thumbnail job.
                 var asset = RunVideoThumbnailJob(@"C:\supportFiles\VideoThumbnail\BigBuckBunny.mp4",
                                             @"C:\supportFiles\VideoThumbnail\config.json");
 
-                // Download hello job output asset.
+                // Download the job output asset.
                 DownloadAsset(asset, @"C:\supportFiles\VideoThumbnail\Output");
             }
 
             static IAsset RunVideoThumbnailJob(string inputMediaFilePath, string configurationFile)
             {
-                // Create an asset and upload hello input media file toostorage.
+                // Create an asset and upload the input media file to storage.
                 IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
                     "My Video Thumbnail Input Asset",
                     AssetCreationOptions.None);
@@ -142,38 +142,38 @@ Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dos
                 // Declare a new job.
                 IJob job = _context.Jobs.Create("My Video Thumbnail Job");
 
-                // Get a reference tooAzure Media Video Thumbnails.
+                // Get a reference to Azure Media Video Thumbnails.
                 string MediaProcessorName = "Azure Media Video Thumbnails";
 
                 var processor = GetLatestMediaProcessorByName(MediaProcessorName);
 
-                // Read configuration from hello specified file.
+                // Read configuration from the specified file.
                 string configuration = File.ReadAllText(configurationFile);
 
-                // Create a task with hello encoding details, using a string preset.
+                // Create a task with the encoding details, using a string preset.
                 ITask task = job.Tasks.AddNew("My Video Thumbnail Task",
                     processor,
                     configuration,
                     TaskOptions.None);
 
-                // Specify hello input asset.
+                // Specify the input asset.
                 task.InputAssets.Add(asset);
 
-                // Add an output asset toocontain hello results of hello job.
+                // Add an output asset to contain the results of the job.
                 task.OutputAssets.AddNew("My Video Thumbnail Output Asset", AssetCreationOptions.None);
 
-                // Use hello following event handler toocheck job progress.  
+                // Use the following event handler to check job progress.  
                 job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
 
-                // Launch hello job.
+                // Launch the job.
                 job.Submit();
 
-                // Check job execution and wait for job toofinish.
+                // Check job execution and wait for job to finish.
                 Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 
                 progressJobTask.Wait();
 
-                // If job state is Error, hello event handling
+                // If job state is Error, the event handling
                 // method for job progress should log errors.  Here we check
                 // for error state and exit if needed.
                 if (job.State == JobState.Error)

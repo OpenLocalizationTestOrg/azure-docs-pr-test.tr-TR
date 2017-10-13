@@ -1,4 +1,4 @@
-toocreate bir önbellek toohello içinde'ilk kez oturum [Azure portal](https://portal.azure.com), tıklatıp **yeni** > **veritabanları** > **Redis önbelleği**.
+Önbellek oluşturmak için ilk olarak [Azure portalında](https://portal.azure.com) oturum açın; **Yeni** > **Veritabanları** > **Redis Önbelleği**'ne tıklayın.
 
 > [!NOTE]
 > Azure hesabınız yoksa, yalnızca birkaç dakika içinde [Ücretsiz bir Azure hesabı açabilirsiniz](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero).
@@ -8,29 +8,29 @@ toocreate bir önbellek toohello içinde'ilk kez oturum [Azure portal](https://p
 ![Yeni önbellek](media/redis-cache-create/redis-cache-new-cache-menu.png)
 
 > [!NOTE]
-> Ayrıca toocreating hello Azure portalında önbelleğe alır, bunları Kaynak Yöneticisi'ni kullanarak da oluşturabilirsiniz şablonları, PowerShell veya Azure CLI.
+> Önbellekleri Azure portalında oluşturabileceğiniz gibi, Resource Manager şablonlarını, PowerShell'i veya Azure CLI'sini kullanarak da oluşturabilirsiniz.
 > 
-> * Resource Manager şablonları kullanarak önbellek a toocreate bkz [bir şablon kullanarak Redis önbelleği oluşturma](../articles/redis-cache/cache-redis-cache-arm-provision.md).
-> * Azure PowerShell kullanarak önbellek toocreate bkz [Azure Redis önbelleğini Yönetme'Azure PowerShell ile](../articles/redis-cache/cache-howto-manage-redis-cache-powershell.md).
-> * Azure CLI kullanarak önbellek toocreate bkz [nasıl toocreate ve hello Azure komut satırı arabirimi (Azure CLI) kullanarak Azure Redis önbelleği yönetmek](../articles/redis-cache/cache-manage-cli.md).
+> * Resource Manager şablonlarını kullanarak bir önbellek oluşturmak için bkz. [Şablon kullanarak Redis önbelleği oluşturma](../articles/redis-cache/cache-redis-cache-arm-provision.md).
+> * Azure PowerShell kullanarak önbellek oluşturmak için bkz. [Azure PowerShell ile Azure Redis Önbelleğini Yönetme](../articles/redis-cache/cache-howto-manage-redis-cache-powershell.md).
+> * Azure CLI kullanarak önbellek oluşturmak için bkz. [Azure Komut Satırı Arabirimi (CLI Azure) kullanarak Azure Redis Önbelleği oluşturma ve yönetme](../articles/redis-cache/cache-manage-cli.md).
 > 
 > 
 
-Merhaba, **yeni Redis önbelleği** dikey penceresinde hello hello önbelleği için istenen yapılandırmayı belirtin.
+**Yeni Redis Önbelleği** dikey penceresinde istediğiniz yapılandırma önbelleğini belirtin.
 
 ![Önbellek oluşturma](media/redis-cache-create/redis-cache-cache-create.png) 
 
-* İçinde **Dns adı**, hello önbellek uç noktası için bir benzersiz önbellek adı toouse girin. Merhaba önbellek adı 1 ile 63 karakter arasında bir dize olması ve yalnızca rakam, harf ve hello içermelidir `-` karakter. Merhaba önbellek adı başlayamaz veya bitemez ile Merhaba `-` karakteri ve ardışık `-` karakterler geçerli değil.
-* İçin **abonelik**, hello toouse hello önbelleği için istediğiniz Azure aboneliğini seçin. Hesabınızda yalnızca bir abonelik varsa, otomatik olarak seçilir ve hello **abonelik** açılan görüntülenmeyecek.
-* **Kaynak grubu**’nda önbellek hesabınız için bir kaynak grubu seçin veya oluşturun. Daha fazla bilgi için bkz: [kullanarak kaynak gruplarını toomanage Azure kaynaklarınızı](../articles/azure-resource-manager/resource-group-overview.md). 
-* Kullanım **konumu** toospecify hello coğrafi konum önbelleğiniz barındırılır. Merhaba en iyi performans için Microsoft hello hello önbelleği oluşturma önerir hello önbellek istemci uygulamasının aynı bölgede.
-* Kullanım **fiyatlandırma katmanı** tooselect hello istenen önbellek boyutu ve özellikler.
-* **Redis kümesi** toocreate önbellekleri birden çok Redis düğümünde 53 GB'a ve tooshard veri büyük sağlar. Daha fazla bilgi için bkz: [nasıl bir Premium Azure Redis önbelleği için kümeleri tooconfigure](../articles/redis-cache/cache-how-to-premium-clustering.md).
-* **Redis kalıcılığı** , önbellek tooan Azure depolama hesabı hello özelliği toopersist sunar. Kalıcılığı yapılandırma ile ilgili yönergeler için bkz: [nasıl Premium Azure Redis önbelleği için kalıcılığı tooconfigure](../articles/redis-cache/cache-how-to-premium-persistence.md).
-* **Sanal ağ** erişim tooyour önbellek tooonly kısıtlayarak belirtilen hello içindeki istemcilerle Gelişmiş Güvenlik ve yalıtım sağlar Azure sanal ağı. Alt ağlar, erişim denetimi ilkeleri ve diğer özellikleri toofurther erişim tooRedis kısıtlamak gibi vnet'in tüm hello özelliklerini kullanabilirsiniz. Daha fazla bilgi için bkz: [tooconfigure sanal ağ Premium Azure Redis önbelleği için nasıl destek](../articles/redis-cache/cache-how-to-premium-vnet.md).
-* SSL olmayan erişim yeni önbellekler için varsayılan olarak devre dışı bırakılmıştır. tooenable hello SSL olmayan bağlantı noktası, onay **6379 (SSL şifreli) bağlantı noktasının engelini kaldırmak**.
+* **Dns adı** alanına önbellek uç noktası için kullanılacak benzersiz bir önbellek adını girin. Önbellek adı 1 - 63 karakter arasında bir dize olması ve yalnızca rakam, harf ve `-` karakterini içermelidir. Önbellek adı `-` karakteriyle başlayamaz veya bitemez ve ardışık `-` karakterler geçerli olmazlar.
+* **Abonelik** için önbelleğe yönelik kullanmak istediğiniz Azure aboneliğini girin. Hesabınızda yalnızca bir abonelik varsa bu otomatik olarak seçilir ve **Abonelik** açılan penceresi görüntülenmez.
+* **Kaynak grubu**’nda önbellek hesabınız için bir kaynak grubu seçin veya oluşturun. Daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için Kaynak gruplarını kullanma](../articles/azure-resource-manager/resource-group-overview.md). 
+* Önbelleğin barındırılacağı coğrafi konumu belirtmek için **Konum**’u kullanın. En iyi performans için, Microsoft, önbelleği önbellek istemci uygulamasının olduğu konumda oluşturmanızı kesinlikle önerir.
+* İstediğiniz önbellek boyutunu ve özelliklerini seçmek için **Fiyatlandırma katmanını** kullanın.
+* **Redis kümesi**, 53 GB'den daha büyük önbellekler oluşturmanızı ve verileri birden çok Redis düğümünde paylaşmanızı sağlar. Daha fazla bilgi için bkz. [Premium Azure Redis Önbelleği için kümeleri yapılandırma](../articles/redis-cache/cache-how-to-premium-clustering.md).
+* **Redis kalıcılığı**, önbelleğiniz bir Azure Storage hesabında kalması özelliğini sunar. Kalıcılığın yapılandırılması hakkında yönergeler için bkz. [Premium Azure Redis Önbelleği için kalıcılığı yapılandırma](../articles/redis-cache/cache-how-to-premium-persistence.md).
+* **Sanal ağ** önbelleğe erişimi yalnızca belirtilen Azure Virtual Network içindeki istemcilerle sınırlayarak gelişmiş güvenlik ve yalıtım sağlar. Redis’e erişimi daha da fazla kısıtlamak için alt ağlar, erişim denetimi, ilkeler gibi VNet’in tüm özelliklerini ve diğer özellikleri kullanabilirsiniz. Daha fazla bilgi için bkz. [Premium Azure Redis Önbelleği için Sanal Ağ desteğini yapılandırma](../articles/redis-cache/cache-how-to-premium-vnet.md).
+* SSL olmayan erişim yeni önbellekler için varsayılan olarak devre dışı bırakılmıştır. SSL olmayan bağlantı noktasını etkinleştirmek için **6379 bağlantı noktasının engelini kaldır (SSL şifrelemeli değil)** seçeneğini işaretleyin.
 
-Merhaba yeni önbellek seçenekleri yapılandırıldıktan sonra tıklatın **oluşturma**. Oluşturulan hello önbellek toobe birkaç dakika sürebilir. toocheck hello durumunu hello Sabitle hello ilerlemeyi izleyebilirsiniz. Merhaba önbellek oluşturulduktan sonra yeni önbelleğiniz bir **çalıştıran** durumu ve ile kullanım için hazır [varsayılan ayarları](../articles/redis-cache/cache-configure.md#default-redis-server-configuration).
+Yeni önbellek seçenekleri yapılandırıldıktan sonra **Oluştur**’a tıklayın. Önbelleğin oluşturulması birkaç dakika sürebilir. Durumu denetlemek için başlangıç panosunda ilerlemeyi izleyebilirsiniz. Önbellek oluşturulduktan sonra yeni önbelleğiniz **Çalışır** durumdadır ve [varsayılan ayarlarla](../articles/redis-cache/cache-configure.md#default-redis-server-configuration) kullanıma hazırdır.
 
 ![Önbellek oluşturuldu](media/redis-cache-create/redis-cache-cache-created.png)
 

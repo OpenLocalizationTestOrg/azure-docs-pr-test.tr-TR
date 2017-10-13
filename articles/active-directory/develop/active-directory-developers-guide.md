@@ -1,5 +1,5 @@
 ---
-title: "Geliştiriciler için Active Directory aaaAzure | Microsoft Docs"
+title: "Geliştiriciler için Azure Active Directory | Microsoft Docs"
 description: "Bu makale, Azure Active Directory kullanarak Microsoft iş ve okul hesaplarında oturum açmaya genel bakış sunmaktadır."
 services: active-directory
 author: dstrockis
@@ -14,22 +14,22 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4dbbea6c1e0b8a70c0c36ddd1caec5658130a003
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: dce813b885d492343428428056a2e8aada27b461
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-active-directory-for-developers"></a>Geliştiriciler için Azure Active Directory
-Azure Active Directory toosecurely oturum herhangi bir kullanıcı bir iş veya Okul hesabıyla Microsoft tarafından yedeklenen açma geliştiricilerinin sağlayan bir bulut kimlik hizmetidir.  Burada Hello belgeleri nasıl tooadd Azure AD destek endüstri standart kimlik doğrulama protokolleri, OAuth ve Openıd Connect kullanarak tooyour uygulama gösterir.
+Azure Active Directory, geliştiricilerin Microsoft tarafından desteklenen bir iş veya okul hesabına sahip herhangi bir kullanıcıya güvenli bir şekilde oturum açtırmasını sağlayan bir bulut kimlik hizmetidir.  Buradaki belgeler Azure AD’nin, sektör standardı kimlik doğrulama protokolleri olan OAuth ve OpenID Connect’i kullanarak uygulamanızı nasıl desteklediğini göstermektedir.
 
 | | |
 | --- | --- |
-|[Auth temel bilgileri](active-directory-authentication-scenarios.md) | Azure AD ile bir giriş tooauthentication |
-|[Uygulama türleri](active-directory-authentication-scenarios.md#application-types-and-scenarios) | Azure AD tarafından desteklenen hello kimlik doğrulama senaryoları genel bakış |                                
+|[Auth temel bilgileri](active-directory-authentication-scenarios.md) | Azure AD ile kimlik doğrulamaya giriş |
+|[Uygulama türleri](active-directory-authentication-scenarios.md#application-types-and-scenarios) | Azure AD tarafından desteklenen kimlik doğrulama senaryolarına genel bakış |                                
                                                                               
 ## <a name="get-started"></a>başlarken
-Destekli bu ayarlar, Azure Active Directory Kullanıcıları, kimlik doğrulama kitaplıkları toosign kullanılarak üzerinden yol.
+Bu kılavuzlu ayarlar, Azure Active Directory kullanıcılarının oturumunu açmak için kimlik doğrulama kitaplıklarımızı kullanma işleminde size yol gösterir.
 
 |  |  |  |  |
 | --- | --- | --- | --- |
@@ -40,13 +40,13 @@ Destekli bu ayarlar, Azure Active Directory Kullanıcıları, kimlik doğrulama 
 | <center>![Hizmetten hizmete](./media/active-directory-developers-guide/Service_App.png)<br />Hizmetten hizmete</center> | [Genel Bakış](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)<br /><br />[OAuth 2.0 İstemci Kimlik Bilgileri](active-directory-protocols-oauth-service-to-service.md) |  |
 
 ## <a name="guides"></a>Kılavuzlar
-Bu makaleler Azure Active Directory ile nasıl tooperform ortak görevleri bildirir.
+Bu makaleler Azure Active Directory ile genel görevlerin nasıl gerçekleştirileceği konusunda bilgi verir.
 
 |                                                                           |  |
 |---------------------------------------------------------------------------| --- |
-|[Uygulama kaydı](active-directory-integrating-applications.md)           | Nasıl tooregister Azure AD'de uygulama |
-|[Çok kiracılı uygulamalar](active-directory-devhowto-multi-tenant-overview.md)    | Toosign herhangi bir Microsoft hesabı nasıl çalışır |
-|[OAuth ve OpenID Connect](active-directory-protocols-openid-connect-code.md)| Bizim modern kimlik doğrulama protokolleri kullanarak API'leri toosign kullanıcıların ve çağrı web nasıl |
+|[Uygulama kaydı](active-directory-integrating-applications.md)           | Bir uygulamayı Azure AD’ye kaydetme |
+|[Çok kiracılı uygulamalar](active-directory-devhowto-multi-tenant-overview.md)    | Herhangi bir Microsoft iş hesabında oturum açma |
+|[OAuth ve OpenID Connect](active-directory-protocols-openid-connect-code.md)| Modern kimlik doğrulama protokollerimizi kullanarak kullanıcıların oturumunu açma ve web API’lerini çağırma |
 |[Diğer kılavuzlar...](active-directory-developers-guide-index.md#guides)        |     |
 
 ## <a name="reference"></a>Başvuru
@@ -54,13 +54,13 @@ Bu makaleler, Azure Active Directory’de kullanılan API'ler, protokol iletiler
 
 |                                                                                   | |
 | ----------------------------------------------------------------------------------| --- |
-| [Kimlik Doğrulama Kitaplıkları (ADAL)](active-directory-authentication-libraries.md)   | Merhaba kitaplıkları & SDK'ları Azure AD tarafından sağlanan genel bakış |
+| [Kimlik Doğrulama Kitaplıkları (ADAL)](active-directory-authentication-libraries.md)   | Azure AD tarafından sağlanan kitaplıklara ve SDK’lara genel bakış |
 | [Kod örnekleri](active-directory-code-samples.md)                                  | Tüm Azure AD kod örneklerinin listesi |
 | [Sözlük](active-directory-dev-glossary.md)                                      | Bu belgede kullanılan terminoloji ve sözcük tanımları |
 | [Diğer başvuru kaynakları...](active-directory-developers-guide-index.md#reference)|     |
 
 ## <a name="help--support"></a>Yardım ve Destek
-Azure Active Directory üzerinde geliştirme hello en iyi yerler tooget Yardım bunlar.
+Azure Active Directory’de geliştirme konusunda yardım almak için en iyi yerler bunlardır.
 
 |  |  
 |---|
@@ -71,4 +71,4 @@ Azure Active Directory üzerinde geliştirme hello en iyi yerler tooget Yardım 
 <br />
 
 > [!NOTE]
-> Microsoft Kişisel hesapları toosign bileşenini gerekiyorsa, hello kullanarak tooconsider isteyebilirsiniz [Azure AD v2.0 uç](active-directory-appmodel-v2-overview.md).  tek bir kimlik doğrulaması sistemine hello Birleştirici Microsoft Kişisel hesapları & Microsoft iş hesaplarından (Azure AD) Hello Azure AD v2.0 uç noktadır.
+> Kişisel Microsoft hesaplarınızda oturum açmanız gerekirse, [Azure AD v2.0 uç noktasını](active-directory-appmodel-v2-overview.md) kullanmanız gerekebilir.  Azure AD v2.0 uç noktası, kişisel Microsoft hesapları ile Microsoft iş hesaplarının (Azure AD’den) tek bir kimlik doğrulama sisteminde birleşmesidir.

@@ -1,25 +1,25 @@
 <!--author=alkohli last changed: 9/16/15-->
 
 
-#### <a name="toocable-your-device-for-power"></a>toocable güç aygıtınızın
+#### <a name="to-cable-your-device-for-power"></a>Cihazınızı güç kablosu için
 > [!NOTE]
-> StorSimple Cihazınızda iki kasaları yedekli PCMs içerir. Her kasa için hello PCMs yüklenmelidir ve toodifferent güç kaynakları tooensure yüksek kullanılabilirlik bağlı.
+> StorSimple Cihazınızda iki kasaları yedekli PCMs içerir. Her kasa için PCMs yüklü ve yüksek kullanılabilirlik sağlamak için farklı güç kaynaklarına bağlandınız.
 > 
 > 
 
-1. Tüm hello PCMs Hello güç anahtarlar hello OFF konumunda olduğundan emin olun.
-2. Merhaba birincil muhafaza, hello güç kablosu tooboth PCMs bağlayın. Aşağıdaki diyagram, kablolama hello güç kırmızıyla Hello güç kablosu tanımlanır.
-3. Merhaba birincil muhafaza kullanım ayrı güç kaynaklarında iki PCMs hello emin olun.
-4. Merhaba güç kablosu toohello güç diyagramı kablo hello gücünden gösterildiği gibi hello raf dağıtım birimlerine ekleyin.
-5. EBOD muhafazası hello için 2-4 arasındaki adımları yineleyin.
-6. Merhaba EBOD muhafazası üzerinde her PCM toohello ON konumuna hello güç anahtarı döndürerek açın.
-7. Bu hello EBOD muhafazası hello yeşil LED'leri hello EBOD denetleyicisi arkasına hello üzerinde ON işaretlidir denetleyerek açık olduğundan emin olun.
-8. Merhaba birincil muhafaza her PCM anahtar toohello ON konumunu döndürerek açın.
-9. Merhaba sistem üzerinde LED'leri etkinleştirdiniz hello aygıt denetleyicisi sağlayarak olduğunu doğrulayın.
-10. Merhaba dört LED'leri sonraki toohello SAS bağlantı noktasına hello EBOD denetleyicisi yeşil olup olmadığını doğrulayarak hello EBOD denetleyicisi hello aygıt denetleyicisi arasındaki Hello bağlantı etkin olduğundan emin olun.
+1. Tüm PCMs güç anahtarlarda OFF konumunda olduğundan emin olun.
+2. Birincil muhafaza güç kablosu her iki PCMs bağlayın. Güç kablosu altına güç kablo diyagramdaki kırmızı tanımlanır.
+3. Birincil kasada iki PCMs ayrı güç kaynakları kullandığınızdan emin olun.
+4. Güç kablosu raf dağıtım birimleri açma diyagramı kablo güç gösterildiği gibi iliştirin.
+5. EBOD muhafazası için 2-4 arasındaki adımları yineleyin.
+6. EBOD muhafazası ON konumuna her PCM üzerinde güç düğmesi döndürerek açın.
+7. EBOD muhafazası EBOD denetleyicisi arkasında yeşil LED'leri ON işaretlidir denetleyerek açık olduğunu doğrulayın.
+8. Birincil muhafaza ON konuma her PCM anahtar döndürerek açın.
+9. Sistem üzerinde LED'leri açık olan aygıt denetleyicisi sağlayarak olduğunu doğrulayın.
+10. Dört LED'leri EBOD denetleyicisi SAS bağlantı noktasını yanındaki yeşil olup olmadığını doğrulayarak EBOD denetleyicisi ve cihaz denetleyicisi arasındaki bağlantıyı etkin olduğundan emin olun.
     
     > [!IMPORTANT]
-    > tooensure sisteminiz için yüksek kullanılabilirlik, kesinlikle toohello güç düzeni diyagramı aşağıdaki hello gösterilen kablolama uyması öneririz.
+    > Sisteminiz için yüksek kullanılabilirlik sağlamak için kesinlikle Aşağıdaki diyagramda gösterildiği düzeni kablo güç izliyor olduğunuz olmasını öneririz.
     > 
     > 
     

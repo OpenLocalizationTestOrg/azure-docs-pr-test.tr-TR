@@ -1,5 +1,5 @@
 ---
-title: "aaaMobile Engagement kavramları | Microsoft Docs"
+title: "Mobile Engagement kavramları | Microsoft Belgeleri"
 description: "Azure Mobile Engagement kavramları"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,72 +14,72 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 5aa7f28c00cd641a36a6e040c6b13d802ea6ae41
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 8450651528007b4527366b89a6ad7615169f93c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-mobile-engagement-concepts"></a>Azure Mobile Engagement kavramları
-Mobile Engagement birkaç kavram ortak tooall desteklenen platformları tanımlar. Bu makalede, söz konusu kavramlar kısaca açıklanmaktadır.
+Mobile Engagement, desteklenen tüm platformlar için ortak olan birkaç kavram tanımlar. Bu makalede, söz konusu kavramlar kısaca açıklanmaktadır.
 
-Yeni tooMobile katılım olduğunda bu makale iyi bir başlangıç noktasıdır. Daha fazla bilgi ve örnekler yanı sıra olası sınırlamaları sunarak bu makalede açıklanan hello kavramları netleştirecektir Ayrıca, kullanmakta olduğunuz emin tooread hello belgeleri belirli toohello platform haline.
+Mobile Engagement’la ilgilenmeye yeni başlayanlar için bu makale iyi bir başlangıç noktasıdır. Ayrıca kullandığınız platforma özgü belgeleri de okumaya özen gösterin. Bu belgeler, ek ayrıntılar ve örneklerin yanı sıra olası sınırlamaları sunarak bu makalede açıklanan kavramları netleştirecektir.
 
 ## <a name="devices-and-users"></a>Cihazlar ve kullanıcılar
-Mobile Engagement, her cihaz için benzersiz bir tanımlayıcı oluşturarak kullanıcıları tanımlar. Bu tanımlayıcı hello cihaz tanımlayıcısı olarak adlandırılır (veya `deviceid`). Çalışan tüm uygulamaların Merhaba, aynı yolla oluşturulan cihaz paylaşımı hello aynı cihaz tanımlayıcısı.
+Mobile Engagement, her cihaz için benzersiz bir tanımlayıcı oluşturarak kullanıcıları tanımlar. Bu tanımlayıcıya, cihaz tanımlayıcısı (veya `deviceid`) adı verilir. Bu tanımlayıcı, aynı cihazda çalışan tüm uygulamaların aynı cihaz tanımlayıcısına sahip olmalarını sağlayacak şekilde oluşturulur.
 
-Örtük olarak, Mobile Engagement bir cihazı toobelong tooexactly bir kullanıcı olarak değerlendirir ve bu nedenle, kullanıcıların ve aygıtların eşdeğer kavramlar şeklinde anlamına gelir.
+Buradan açığa çıkan, Mobile Engagement’ın bir cihazı tek bir kullanıcıya ait olarak düşündüğü, kullanıcı ve cihazı eşdeğer kavramlar şeklinde gördüğüdür.
 
 ## <a name="sessions-and-activities"></a>Oturumlar ve etkinlikler
-Bir oturum, hello kullanıcı durmasına kadar kullanarak Merhaba uygulaması hello zaman hello kullanıcıdan bir kullanıcı tarafından gerçekleştirilen bir kullanımını başlatır değil.
+Oturum, uygulamayı bir kullanıcının kullanmaya başlamasından durmasına kadar süren, uygulamanın kullanıcı tarafından gerçekleştirilen bir kullanımıdır.
 
-Bir etkinlik tek bir kullanıcı tarafından gerçekleştirilen hello uygulamanın belirli bir alt bölümü kullanımıdır (genellikle bir ekran bağlıdır, ancak herhangi bir şey uygun toohello uygulaması olabilir).
+Etkinlik, uygulamanın belirli bir alt parçasının bir kullanıcı tarafından gerçekleştirilen bir kullanımıdır (genellikle bir ekrandır, ancak uygulamaya uygun her şey olabilir).
 
 Bir kullanıcı, bir seferde yalnızca bir etkinlik gerçekleştirebilir.
 
-Bir etkinlik adı (sınırlı too64 karakter) tarafından tanımlanır ve isteğe bağlı olarak bazı ek veriler (Merhaba 1024 bayt) eklenebilir.
+Etkinlik, 64 karakterle sınırlanan bir ad tarafından tanımlanır ve isteğe bağlı olarak bazı ek veriler (1024 bayt ile sınırlı) eklenebilir.
 
-Oturumlar, kullanıcılar tarafından gerçekleştirilen etkinliklerin hello serisinden otomatik olarak hesaplanır. Merhaba kullanıcı ilk etkinliğini başlar ve kendisine son etkinliğini bitirdiğinde durur bir oturum başlatır. Başka bir deyişle, bir oturumun açıkça başlatılan veya durdurulan toobe gerekmez. Bunun yerine, etkinlikler açıkça başlatılır veya durdurulur. Hiçbir etkinlik bildirilmezse, hiçbir oturum da bildirilmez.
+Oturumlar, kullanıcılar tarafından gerçekleştirilen etkinlikleri serisi kullanılarak otomatik olarak hesaplanır. Oturum, kullanıcı ilk etkinliğini başlattığında başlar ve son etkinliğini bitirdiğinde durur. Bu, oturumun açıkça başlatılması veya durdurulmasına gerek olmadığı anlamına gelir. Bunun yerine, etkinlikler açıkça başlatılır veya durdurulur. Hiçbir etkinlik bildirilmezse, hiçbir oturum da bildirilmez.
 
 ## <a name="events"></a>Olaylar
-Kullanılan tooreport anlık eylemleri (basılan düğme veya kullanıcılar tarafından okunan makaleler gibi) olaylardır.
+Olaylar, anlık eylemleri (basılan düğme veya kullanıcılar tarafından okunan makaleler gibi) bildirmek için kullanılır.
 
-Bir olay ilgili toohello geçerli oturum işi, tooa olabilir veya tek başına bir olay olabilir.
+Olay, geçerli oturum veya çalıştırılan bir iş ile ilgili olabilir ya da tek başına bir olay olabilir.
 
-Bir olay adı (sınırlı too64 karakter) tarafından tanımlanır ve isteğe bağlı olarak bazı ek veriler (Merhaba 1024 bayt) eklenebilir.
+Olay, 64 karakterle sınırlanan bir ad tarafından tanımlanır ve isteğe bağlı olarak bazı ek veriler (1024 bayt ile sınırlı) eklenebilir.
 
 ## <a name="error"></a>Hata
-Hataları (yanlış kullanıcı eylemleri veya API çağrısı hataları gibi) hello uygulama tarafından doğru şekilde algılanan kullanılan tooreport sorunlardır.
+Hatalar, uygulama tarafından doğru bir şekilde algılanan sorunları (yanlış kullanıcı eylemleri veya API çağrısı hataları gibi) bildirmek için kullanılır.
 
-İlgili toohello geçerli oturum tooa işi, bir hata olabilir veya tek başına bir hata olabilir.
+Hata, geçerli oturum veya çalıştırılan bir iş ile ilgili olabilir ya da tek başına bir hata olabilir.
 
-Hata bir ad (sınırlı too64 karakter) tarafından tanımlanır ve isteğe bağlı olarak bazı ek veriler (Merhaba 1024 bayt) eklenebilir.
+Hata, 64 karakterle sınırlanan bir ad tarafından tanımlanır ve isteğe bağlı olarak bazı ek veriler (1024 bayt ile sınırlı) eklenebilir.
 
 ## <a name="job"></a>İş
-İşlerini olan bir süresi olan kullanılan tooreport eylemleri (API çağrılarının süresi gibi görüntüleme süresi, reklamların gösterilme, arka plan görevlerinin süresi veya kullanıcı eylemlerinin süresi).
+İşler, bir süresi olan eylemleri (API çağrılarının süresi, reklamların gösterilme süresi, arka plan görevlerinin süresi veya kullanıcı eylemlerinin süresi gibi) bildirmek için kullanılır.
 
-Bir görev herhangi bir kullanıcı etkileşimi olmadan hello arka planda gerçekleştirilebildiğinden bir iş ilgili tooa oturum değil.
+Görevler herhangi bir kullanıcı etkileşimi olmadan arka planda gerçekleştirilebildiğinden bir iş, bir oturum ile ilgili değildir.
 
-Bir iş adıyla (sınırlı too64 karakter) tanımlanır ve isteğe bağlı olarak bazı ek veriler (Merhaba 1024 bayt) eklenebilir.
+İş, 64 karakterle sınırlanan bir ad tarafından tanımlanır ve isteğe bağlı olarak bazı ek veriler (1024 bayt ile sınırlı) eklenebilir.
 
 ## <a name="crash"></a>Kilitlenme
-Kilitlenme hello burada hello uygulama tarafından algılanmayan sorunların olun hataları kilitlenme Mobile Engagement SDK'sı tooreport uygulama tarafından otomatik olarak verilir.
+Kilitlenmeler, uygulama tarafından algılanmayan sorunların uygulamanın kilitlenmesine neden olduğu durumlarda uygulama hatalarını bildirmek için Mobile Engagement SDK’sı tarafından otomatik olarak düzenlenir.
 
 ## <a name="application-information"></a>Uygulama bilgileri
-Uygulama bilgileri (veya uygulama bilgisi) bazı veri toohello kullanıcıları (Bu, benzer tooweb tanımlama bilgileri, uygulama bilgileri hello hello Azure Mobile Engagement platformunda sunucu tarafında depolanır) bir uygulamanın kullanılan tootag kullanıcılar, diğer bir deyişle, tooassociate içindir.
+Uygulama bilgileri, kullanıcıları etiketlemek, yani bazı verileri bir uygulamanın kullanıcılarıyla ilişkilendirmek için kullanılır (web tanımlama bilgilerine benzer, ancak uygulama bilgileri Azure Mobile Engagement platformunda sunucu tarafında depolanır).
 
-Uygulama bilgileri, Mobile Engagement SDK API'si hello kullanarak veya hello Mobile Engagement platformu cihaz API'si kullanılarak kaydedilebilir.
+Uygulama bilgileri, Mobile Engagement SDK API'si veya Mobile Engagement platformu Cihaz API'si kullanılarak kaydedilebilir.
 
-Uygulama bilgileri bir anahtar/değer çifti ilişkili tooa aygıttır. başlangıç anahtarı hello hello uygulama bilgileri (sınırlı too64 ASCII harf [a-zA-Z], rakamlar [0-9] ve alt çizgi [_]) adıdır. Merhaba değer (sınırlı too1024 karakter), dize, tamsayı, tarih (yyyy-aa-gg) veya Boolean (true veya false) olabilir.
+Uygulama bilgileri, bir cihazla ilişkili olan bir anahtar/değer çiftidir. Anahtar, uygulama bilgilerinin adıdır (64 ASCII harfi [a-zA-Z], [0-9] rakamları ve alt çizgi [_] ile sınırlıdır). Değer (1024 karakterle sınırlı) herhangi bir dize, tamsayı, tarih (yyyy-AA-gg) ya da Boole değeri (true veya false) olabilir.
 
-Herhangi bir sayıda uygulama bilgisi hello Mobile Engagement fiyatlandırma koşulları tarafından tanımlanan hello sınırları içinde ilişkili tooa cihaz olabilir. Belirli bir anahtar için Mobile Engagement yalnızca hello son değer kümesini (Geçmiş yok) izler. Ayarlama veya bir uygulama bilgisi hello değerinin değiştirilmesi Mobile Engagement toore zorlar-bu uygulama üzerinde ayarlanmış hedef kitle ölçüt değerlendirme yani uygulama bilgileri bilgileri (varsa), kullanılan tootrigger gerçek zamanlı gönderimleri olabilir.
+Mobile Engagement fiyatlandırma koşulları tarafından tanımlanan sınırların içerisinde olduğu sürece, herhangi bir sayıda uygulama bilgisi bir cihazla ilişkilendirilebilir. Belirli bir anahtar için, Mobile Engagement yalnızca en son değer kümesini izler (tarihçe yoktur). Bir uygulama bilgisi değerinin ayarlanması veya değiştirilmesi Mobile Engagement’ı bu uygulama bilgisinde ayarlanmış hedef kitle ölçütlerini (varsa) yeniden değerlendirmeye zorlar, yani uygulama bilgileri gerçek zamanlı gönderimleri tetiklemek için kullanılabilir.
 
 ## <a name="extra-data"></a>Ek veriler
-Ek veriler (veya ekler) ekli tooevents, hatalar, etkinlikler ve işler olabilecek bazı rastgele verilerdir.
+Ek veriler (veya ekler) olaylar, hatalar, etkinlikler ve işlere eklenebilecek bazı rastgele verilerdir.
 
-Ek özellikler yapılandırılır benzer şekilde tooJSON nesneleri: anahtar/değer çiftleri ağacının yapılır. Anahtarları: sınırlı too64 ASCII harf [a-zA-Z], rakamlar [0-9] ve alt çizgi [_]) ve hello toplam boyutu (kez hello Mobile Engagement SDK'sı tarafından JSON'da kodlanmış) sınırlı too1024 karakter.
+Ekler, JSON nesnelerine benzer şekilde yapılandırılır: bir anahtar/değer çiftleri ağacından meydana gelirler. Anahtarlar 64 ASCII harf [a-zA-Z], rakamlar [0-9] ve alt çizgi [_] ile sınırlıdır ve eklerin toplam boyutu 1024 karakterle (Mobile Engagement SDK’sı tarafından JSON’da kodlandıktan sonra) sınırlıdır.
 
-Merhaba oluşan ağacın tamamı anahtar/değer çiftlerinin bir JSON nesnesi olarak depolanır. Erişilebilir toosome işlevleri Segmentler gibi gelişmiş doğrudan yine de, yalnızca hello ilk anahtarları/değerleri ayrıştırılmış toobe düzeyidir (örneğin, kolayca, en az 10 kez hello olay gönderen tüm kullanıcılardan oluşan "Bilim Kurgu severler" adlı bir segment tanımlayabilirsiniz Merhaba ek anahtarı "content_type" olan "content_viewed" kümesi toohello değer "Bilim Kurgu" hello, geçen ay olarak adlandırılır). Bu nedenle (örneğin, dizeler, tarihler, tamsayı veya Boolean) skaler değerler kullanan anahtar/değer çiftleri basit listelerinden yapılmış toosend yalnızca ek özellikler önerilir.
+Anahtar/değer çiftlerinden oluşan ağacın tamamı bir JSON nesnesi olarak depolanır. Bununla birlikte, Segmentler gibi bazı gelişmiş işlevler tarafından doğrudan erişilebilmesi için anahtarların/değerlerin yalnızca ilk düzeyi parçalanır (örneğin, “content_type” ek anahtarı “bilim kurgu” değerine ayarlanmış olan “content_viewed” olayını geçtiğimiz ay içerisinde en az 10 kez gönderen tüm kullanıcılardan oluşan "Bilim kurgu severler" adlı bir segmenti kolayca tanımlayabilirsiniz). Bu nedenle, yalnızca skaler değerler kullanan anahtar/değer çiftlerinin (dizeler, tarihler, tamsayı veya Boole değerleri gibi) basit listelerinden yapılmış ekler göndermeniz şiddetle önerilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Mobile Engagement için Windows Evrensel SDK’ya genel bakış](mobile-engagement-windows-store-sdk-overview.md)

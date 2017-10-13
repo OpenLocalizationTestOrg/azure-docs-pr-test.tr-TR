@@ -1,6 +1,6 @@
 ---
-title: "aaaStorSimple 8000 güncelleştirme 0.2 sürüm notları | Microsoft Docs"
-description: "Ocak 2015 Hello yeni özellikler ve düzeltmeler, açık sorunlar ve hello için kullanılabilir geçici çözümler açıklanmaktadır Microsoft Azure StorSimple sürüm (güncelleştirme 0.2)."
+title: "StorSimple 8000 güncelleştirme 0.2 sürüm notları | Microsoft Docs"
+description: "Ocak 2015 için yeni özellikler ve düzeltmeler, açık sorunlar ve kullanılabilir geçici çözümleri açıklar Microsoft Azure StorSimple sürüm (güncelleştirme 0.2)."
 services: storsimple
 documentationcenter: NA
 author: SharS
@@ -14,61 +14,61 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/16/2016
 ms.author: v-sharos
-ms.openlocfilehash: 1cee795df0b53d9b9276bc33074cf1a7aa188835
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2fc50f7faddb4b61ea5e7d328469fc3cc0eb6f3e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="storsimple-8000-series-update-02-release-notes---january-2015"></a>StorSimple 8000 serisi güncelleştirme 0.2 sürüm notları - Ocak 2015
 ## <a name="overview"></a>Genel Bakış
-Merhaba aşağıdaki sürüm notları hello kritik açık sorunlar hello Ocak 2015 sürümü, Microsoft Azure StorSimple için belirleyin. Bunlar ayrıca hello StorSimple yazılım listesi ve bu sürümde dahil Bellenim güncelleştirmeleri içerir. Merhaba StorSimple 8000 serisi yayın sürümü Temmuz 2014'te genel olarak kullanılabilir yaptıktan sonra bu hello ikinci sürümüdür.
+Aşağıdaki sürüm notları Microsoft Azure StorSimple Ocak 2015 sürümünde kritik açık sorunları tanımlayın. Bu sürümde bulunan StorSimple yazılımını ve bellenimini güncelleştirmeler listesini de içerir. StorSimple 8000 serisi yayın sürümü Temmuz 2014'te genel olarak kullanılabilir yaptıktan sonra bu ikinci bir sürümüdür.
 
-Bu güncelleştirme hello fiziksel aygıt yazılım sürümü hello Ekim Update'ten değiştirmez. Toobe sürüm 6.3.9600.17312 devam eder. Merhaba sanal cihaz görüntüsü tarafından kullanılan hello görüntüsü bu sürümde değiştirildi. Bu nedenle, 20/1/2015 tarihinden sonra oluşturulan tüm hello yeni sanal cihazların Merhaba sürüm 6.3.9600.17361 gösterilir.  
+Bu güncelleştirme, Ekim Update'ten fiziksel aygıt yazılım sürümü değiştirmez. Sürüm 6.3.9600.17312 olmaya devam ediyor. Sanal cihaz görüntüsü tarafından kullanılan görüntüsü bu sürümde değiştirildi. Bu nedenle, 20/1/2015 tarihinden sonra oluşturulan tüm yeni sanal cihazlar sürüm 6.3.9600.17361 gösterilir.  
 
-Lütfen aşağıdaki hello sürüm notları hello Ocak 2015 güncelleştirmesi içinde yer alan bilgilerle hello gözden geçirin.
+Lütfen Ocak 2015 güncelleştirmesi için sürüm notları içinde yer alan aşağıdaki bilgileri gözden geçirin.
 
 > [!IMPORTANT]
-> * Bu güncelleştirme Windows Update'te kullanılabilir değil ve diğer güncelleştirmeleri gibi yüklenemez. Merhaba güncelleştirmeleri hello Klasik Azure portalı kullanarak uyguladıysanız bile Cihazınızı Bu güncelleştirme almazsınız. Bu güncelleştirme, yalnızca 20 Ocak 2015 tarihinden sonra oluşturulan toovirtual aygıtları uygulanır. 
-> * Merhaba StorSimple Ocak sürümünü tüm güncelleştirmeleri toohello StorSimple fiziksel cihazı içermiyor. Yine de tüm kullanılabilir Windows güncelleştirmelerini toohello sanal aygıt uygulayabilir, de dahil olmak üzere en son güvenlik düzeltmeleri, ancak sürüm hello StorSimple fiziksel cihazı için bir değişiklik görmez.
+> * Bu güncelleştirme Windows Update'te kullanılabilir değil ve diğer güncelleştirmeleri gibi yüklenemez. Klasik Azure portalı kullanılarak güncelleştirmelerin uygulanması olsa bile, cihazınız Bu güncelleştirme almazsınız. Bu güncelleştirme, yalnızca 20 Ocak 2015 tarihinden sonra oluşturulan sanal aygıtlara uygulanır. 
+> * StorSimple Ocak sürümü StorSimple fiziksel cihazı herhangi bir güncelleştirme içermiyor. En son güvenlik düzeltmeleri de dahil olmak üzere sanal cihaza hala kullanılabilir Windows güncelleştirmelerini uygulayabilirsiniz, ancak sürüm StorSimple fiziksel cihaza ilişkin bir değişikliği görmezsiniz.
 > 
 > 
 
-## <a name="whats-new-in-hello-january-release"></a>Merhaba Ocak sürümde yenilikler
-Bu güncelleştirme, bir düzeltme içerir. ilgili toohello birimleri hello sanal cihazda çevrimdışı duruma geçiyor. (Bkz [bu sürümde giderilen sorunlar](#issues-fixed-in-the-january-release).)  
+## <a name="whats-new-in-the-january-release"></a>Ocak sürümde yenilikler
+Bu güncelleştirme, sanal cihazda çevrimdışına birimlerle ilgili bir düzeltme içerir. (Bkz [bu sürümde giderilen sorunlar](#issues-fixed-in-the-january-release).)  
 
-Merhaba güncelleştirme, yeni özellikler ve işlevsellik içermiyor.  
+Güncelleştirme, yeni özellikler ve işlevsellik içermiyor.  
 
-## <a name="issues-fixed-in-hello-january-release"></a>Merhaba Ocak sürümde giderilen sorunlar
-Merhaba aşağıdaki tabloda bu güncelleştirmede giderilen hello sorun açıklanmaktadır.
+## <a name="issues-fixed-in-the-january-release"></a>Ocak sürümde giderilen sorunlar
+Aşağıdaki tabloda bu güncelleştirmede giderilen sorun açıklanmaktadır.
 
-| Hayır. | Özellik | Sorun | Toophysical aygıt uygular | Toovirtual aygıt uygular |
+| Hayır. | Özellik | Sorun | Fiziksel cihaz için geçerlidir | Sanal cihaz için geçerlidir |
 | --- | --- | --- | --- | --- |
-| 1 |Çevrimdışı duruma geçiyor birimleri |Yüksek bulut gecikmeleri kalıcı olması için birkaç dakika zaman hello StorSimple sanal cihazı birimleri hello konaklarda çevrimdışı olur. Bu düzeltmeyi hello eşiği bulut gecikmeleri, böylece hello birimleri çevrimdışı toogo konaklarda neden olacağından hello durumlarda en aza indirmek için artırır. |Hayır |Evet |
+| 1 |Çevrimdışı duruma geçiyor birimleri |Birkaç dakika yüksek bulut gecikmeleri kalıcı, StorSimple sanal cihazı birimleri konaklarda çevrimdışı olur. Bu düzeltme, böylece birimleri konaklarda çevrimdışı duruma neden olacağından durumlarda en aza bulut gecikme eşiği artırır. |Hayır |Evet |
 
-## <a name="known-issues-in-hello-january-release"></a>Merhaba Ocak sürümdeki bilinen sorunlar
-Aşağıdaki tablonun hello bu sürümdeki bilinen sorunlara özetini sağlar.
+## <a name="known-issues-in-the-january-release"></a>Ocak sürümdeki bilinen sorunlar
+Aşağıdaki tabloda bu sürümdeki bilinen sorunlara özetini sağlar.
 
-| Hayır. | Özellik | Sorun | Yorumlar/geçici çözüm | Toophysical aygıt uygular | Toovirtual aygıt uygular |
+| Hayır. | Özellik | Sorun | Yorumlar/geçici çözüm | Fiziksel cihaz için geçerlidir | Sanal cihaz için geçerlidir |
 | --- | --- | --- | --- | --- | --- |
-| 1 |Fabrika sıfırlaması |Bazı durumlarda, bir Fabrika sıfırlaması gerçekleştirdiğinizde hello StorSimple cihazı takılmış ve bu iletisini görüntüler: **sıfırlama toofactory devam ediyor (aşama 8).** Merhaba cmdlet sürerken CTRL + C tuşlarına basın bu olur. |Fabrika sıfırlamasına başlatıldıktan sonra CTRL + C tuşlarına değil. Bu durumda zaten varsa, Microsoft Support sonraki adımlar için temasa geçin. |Evet |Hayır |
-| 2 |Disk çekirdek |Hiçbir disk çekirdek kaynaklanan hello EBOD muhafazası 8600 aygıtının diskleri Hello çoğunluğu bağlantısı kesildiyse nadir durumlarda, ardından hello depolama havuzu çevrimdışı olur. Merhaba diskleri bağlanırlar olsa bile çevrimdışı kalır. |Tooreboot hello aygıt gerekir. Merhaba sorun devam ederse, Microsoft Support sonraki adımlar için temasa geçin. |Evet |Hayır |
-| 3 |Bulut anlık görüntü hataları |Nadir durumlarda, bir bulut anlık görüntüsü hello hatasıyla başarısız olabilir **maksimum yedekleme sınırına ulaşıldı**. Merhaba 255 çevrimiçi kopyada aşarsa bu gerçekleşir aynı aygıttan, hello silindi aynı özgün birimi. | |Evet |Evet |
-| 4 |Yanlış denetleyici kimliği |Bir denetleyici değiştirme gerçekleştirildiğinde, denetleyici 0 denetleyicisi 1 olarak görünebilirler. Merhaba görüntü hello eş düğümden yüklendiğinde denetleyicisi değiştirme sırasında hello denetleyici kimliği başlangıçta hello eş denetleyicinin kimliği olarak gösterebilir  Nadir durumlarda, bu davranış bir sistem yeniden başlatıldıktan sonra görülebilir. |Hiçbir kullanıcı eylemi gerekli değildir. Merhaba denetleyicisi değiştirme işlemi tamamlandıktan sonra bu durum kendisini çözümleyin. |Evet |Hayır |
-| 5 |Cihaz izleme grafikleri |Hello StorSimple Yöneticisi hizmeti, hello cihaz izleme grafikleri basit çalışmıyor veya NTLM kimlik doğrulaması hello proxy sunucusu yapılandırmasını hello cihaz için etkinleştirilir. |Bu kimlik doğrulama tooNONE ayarlanır, StorSimple Yöneticisi hizmetine kayıtlı hello cihaz için Hello web proxy yapılandırması değiştirin. toodo StorSimple Set-HcsWebProxy cmdlet'i için bu, çalışma hello hello Windows PowerShell. |Evet |Evet |
-| 6 |Depolama hesapları |Merhaba depolama hizmeti toodelete hello depolama hesabı kullanarak desteklenmeyen bir senaryodur. Bu kullanıcı verileri alınamıyor tooa durum götürür. | |Evet |Evet |
-| 7 |Cihaz yük devretme |Aynı kaynak aygıt toodifferent hedef cihazlar desteklenmiyor hello birim kapsayıcıdan birden çok yük. |Yük devretme tek ölü aygıt toomultiple aygıtlardan veri sahipliği kaybetmek hello birim kapsayıcıları ilk aygıt üzerinden başarısız hello üzerinde hale getirir. Bu tür bir yük devretme sonrasında, bu birim kapsayıcıları görünür veya hello Klasik Azure portalında görüntülediğinizde farklı şekilde davranır. |Evet |Hayır |
-| 8 |Yükleme |SharePoint yükleme için StorSimple bağdaştırıcısı sırasında tooprovide cihaz IP hello yükleme toofinish sırada başarıyla gerekir. | |Evet |Hayır |
-| 9 |Web proxy |Web proxy yapılandırması varsa hello olarak HTTPS protokolü, belirtilen sonra aygıtı hizmeti iletişimi etkilenecek ve hello aygıt çevrimdışı. Destek paketleri aygıtınızda önemli miktarda kaynak tüketen hello işlemde de oluşturulur. |Belirtilen protokol hello gibi Hello web proxy URL'Sİ'ın HTTP olduğundan emin olun. Çok hakkında daha fazla bilgi görmek[cihazınız için web Proxy'yi Yapılandır](storsimple-configure-web-proxy.md). |Evet |Hayır |
-| 10 |Web proxy |Yapılandırma ve web proxy bir kayıtlı cihazda etkinleştirirseniz, Cihazınızda toorestart hello etkin denetleyicisine ihtiyacınız vardır. | |Evet |Hayır |
-| 11 |Yüksek bulut gecikme süresi ve yüksek g/ç iş yükü |StorSimple Cihazınızı çok yüksek bulut gecikme (saniye sırasını) ve yüksek g/ç iş yükü bileşimini karşılaştığında, düzeyi düşürülmüş bir duruma hello aygıt birimleri gidin ve hello g/ç "cihaz hazır değil" hatası ile başarısız. |Toomanually yeniden başlatma hello cihaz denetleyicilerinin gerekir veya bir aygıt yük devretme toorecover bu durumdan gerçekleştirin. |Evet |Hayır |
+| 1 |Fabrika sıfırlaması |Bazı durumlarda, bir Fabrika sıfırlaması gerçekleştirdiğinizde StorSimple cihazı takılmış ve bu iletisini görüntüler: **Fabrika sıfırlamaya devam ediyor (aşama 8).** Cmdlet sürerken CTRL + C tuşlarına basın bu olur. |Fabrika sıfırlamasına başlatıldıktan sonra CTRL + C tuşlarına değil. Bu durumda zaten varsa, Microsoft Support sonraki adımlar için temasa geçin. |Evet |Hayır |
+| 2 |Disk çekirdek |8600 cihaz EBOD muhafazası diskleri çoğunluğu hiçbir disk çekirdek kaynaklanan kesildiyse nadir durumlarda, ardından depolama havuzunun çevrimdışı olur. Diskleri yeniden bağlanır olsa bile çevrimdışı kalır. |Aygıt yeniden başlatma gerekir. Sorun devam ederse, Microsoft Support sonraki adımlar için temasa geçin. |Evet |Hayır |
+| 3 |Bulut anlık görüntü hataları |Nadir durumlarda, bir bulut anlık görüntüsü hatasıyla başarısız olabilir **maksimum yedekleme sınırına ulaşıldı**. Aynı aygıttan, silinmiş olan aynı özgün birimin 255 çevrimiçi kopyada aşarsa bu oluşur. | |Evet |Evet |
+| 4 |Yanlış denetleyici kimliği |Bir denetleyici değiştirme gerçekleştirildiğinde, denetleyici 0 denetleyicisi 1 olarak görünebilirler. Görüntü eş düğümden yüklendiğinde denetleyicisi değiştirme sırasında denetleyici kimliği başlangıçta eş denetleyicinin kimliği olarak gösterebilir  Nadir durumlarda, bu davranış bir sistem yeniden başlatıldıktan sonra görülebilir. |Hiçbir kullanıcı eylemi gerekli değildir. Denetleyici bu değişiklik tamamlandıktan sonra bu durum kendisini çözümleyin. |Evet |Hayır |
+| 5 |Cihaz izleme grafikleri |StorSimple Yöneticisi hizmet cihaz izleme grafikleri basit çalışmıyor veya NTLM kimlik doğrulaması cihaz için proxy sunucusu yapılandırmasını etkinleştirilir. |Bu kimlik doğrulama NONE olarak ayarlanmış şekilde StorSimple Yöneticisi hizmetiniz ile kayıtlı cihaz için web proxy yapılandırması değiştirin. Bunu yapmak için çalıştırın StorSimple Set-HcsWebProxy cmdlet'i için Windows PowerShell. |Evet |Evet |
+| 6 |Depolama hesapları |Depolama hesabını silmek için Depolama Birimi hizmetini kullanarak desteklenmeyen bir senaryodur. Bu kullanıcı verileri alınamıyor bir durum neden. | |Evet |Evet |
+| 7 |Cihaz yük devretme |Farklı bir hedef cihazlara aynı kaynak cihazdaki birim kapsayıcısının birden çok yük devretme desteklenmiyor. |Tek bir ölü CİHAZDAN birden çok aygıt yük devretme veri sahipliği kaybetmek birim kapsayıcıları aygıt üzerinden başarısız ilk hale getirir. Bu tür bir yük devretme sonrasında, bu birim kapsayıcıları görünür veya Klasik Azure portalında görüntülediğinizde farklı şekilde davranır. |Evet |Hayır |
+| 8 |Yükleme |SharePoint yükleme için StorSimple bağdaştırıcısı sırasında aygıt IP başarıyla tamamlamak bir yükleme için sırayla sağlamanız gerekir. | |Evet |Hayır |
+| 9 |Web proxy |Web proxy yapılandırması belirtilen protokol olarak HTTPS varsa, cihazı hizmeti iletişimi etkilenecek ve cihaz çevrimdışı. Destek paketleri aygıtınızda önemli miktarda kaynak tüketen işleminde, aynı zamanda oluşturulur. |Web proxy URL'si belirtilen protokolü olarak HTTP sahip olduğundan emin olun. Daha fazla bilgi için nasıl bakın [cihazınız için web Proxy'yi Yapılandır](storsimple-configure-web-proxy.md). |Evet |Hayır |
+| 10 |Web proxy |Yapılandırma ve web proxy bir kayıtlı cihazda etkinleştirirseniz, Cihazınızı etkin denetleyicisinde yeniden başlatmanız gerekir. | |Evet |Hayır |
+| 11 |Yüksek bulut gecikme süresi ve yüksek g/ç iş yükü |StorSimple Cihazınızı çok yüksek bulut gecikme (saniye sırasını) ve yüksek g/ç iş yükü bileşimini karşılaştığında, düzeyi düşürülmüş bir duruma aygıt birimleri gidin ve g/ç "cihaz hazır değil" hatası ile başarısız. |El ile aygıt denetleyicileri yeniden başlatın veya bu durumdan kurtarmak için bir aygıt yük devretme gerçekleştirmek gerekir. |Evet |Hayır |
 
-## <a name="physical-device-updates-in-hello-january-release"></a>Merhaba Ocak sürümdeki fiziksel aygıt güncelleştirmeleri
-Bu güncelleştirmenin herhangi diğer değişiklikleri toohello StorSimple cihazı içermiyor.
+## <a name="physical-device-updates-in-the-january-release"></a>Ocak fiziksel aygıt güncelleştirmeleri sürüm
+Bu güncelleştirme, diğer değişikliklerin StorSimple cihazı içermiyor.
 
-## <a name="serial-attached-scsi-sas-controller-and-firmware-updates-in-hello-january-release"></a>Seri Bağlı SCSI (SAS) denetleyicisi ve bellenim güncelleştirmeleri hello Ocak sürümde
-Bu sürüm, herhangi bir güncelleştirme toohello seri bağlı SCSI (SAS) denetleyicisi veya hello bellenim içermiyor. Merhaba sürücü güncelleştirmesi hello Ekim 2014 sürümünden oluştu. 
+## <a name="serial-attached-scsi-sas-controller-and-firmware-updates-in-the-january-release"></a>Seri Bağlı SCSI (SAS) denetleyicisi ve bellenim güncelleştirmeleri Ocak de serbest bırakın
+Bu sürüm seri bağlı SCSI (SAS) denetleyicisi veya bellenim herhangi bir güncelleştirme içermiyor. Sürücü güncelleştirmesinde Ekim 2014 yayın oluştu. 
 
-## <a name="virtual-device-updates-in-hello-january-release"></a>Sanal cihaz güncelleştirmeleri hello Ocak sürümde
-Bu sürüm hello sanal cihaz için güncelleştirilmiş bir görüntü içerir. 20 Ocak 2015 tarihinden sonra oluşturulan tüm hello sanal cihazlar hello yazılım sürümü 6.3.9600.17361 gösterilir.
+## <a name="virtual-device-updates-in-the-january-release"></a>Ocak sanal aygıt güncelleştirmeleri sürüm
+Bu sürümde sanal cihaz için güncelleştirilmiş bir görüntü içerir. 20 Ocak 2015 tarihinden sonra oluşturulan tüm sanal cihazlar yazılım sürümü 6.3.9600.17361 gösterilir.
 

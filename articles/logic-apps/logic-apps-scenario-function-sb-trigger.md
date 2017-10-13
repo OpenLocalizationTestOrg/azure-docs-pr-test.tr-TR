@@ -1,6 +1,6 @@
 ---
-title: "aaaScenario - tetikleyici logic apps ile Azure işlevleri ve Azure Service Bus | Microsoft Docs"
-description: "Azure işlevleri ve Azure Service Bus kullanarak işlevi tootrigger mantıksal uygulama oluşturma"
+title: "Senaryo - tetikleyici logic apps ile Azure işlevleri ve Azure Service Bus | Microsoft Docs"
+description: "Azure işlevleri ve Azure Service Bus kullanarak bir mantıksal uygulama tetiklemek için bir işlev oluşturun"
 services: logic-apps,functions
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/23/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: a7b78ebcfe492eee2e08ceeae6b9c5f8ed4717bb
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 088f10bc32dd492f82f0a10a7e5829e76f588758
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="scenario-trigger-a-logic-app-with-azure-functions-and-azure-service-bus"></a>Senaryo: bir mantıksal uygulama Azure işlevleri ve Azure Service Bus ile Tetikle
 
-Bir uzun süre çalışan dinleyicisi ya da görev toodeploy gerektiğinde Azure işlevleri toocreate tetikleyici için bir mantıksal uygulama kullanabilirsiniz. Örneğin, bir sıra üzerinde dinleyen bir işlev oluşturun ve hemen bir mantıksal uygulama itme tetikleyici olarak tetiklenecek.
+Azure işlevleri, bir uzun süre çalışan dinleyicisi veya görev dağıtmak gerektiğinde bir mantıksal uygulama için bir tetikleyici oluşturmak için kullanabilirsiniz. Örneğin, bir sıra üzerinde dinleyen bir işlev oluşturun ve hemen bir mantıksal uygulama itme tetikleyici olarak tetiklenecek.
 
-## <a name="build-hello-logic-app"></a>Merhaba mantıksal uygulama oluşturma
-Bu örnekte, tetiklenen toobe gerektiren her mantıksal uygulama için çalışan bir işleve sahip. İlk olarak, bir HTTP isteği tetikleyicisine sahip bir mantıksal uygulama oluşturun. bir kuyruk iletisi alındığında Bu uç hello işlevi çağırır.  
+## <a name="build-the-logic-app"></a>Mantıksal uygulama oluşturma
+Bu örnekte, tetiklenmesi için gereken her mantıksal uygulama için çalışan bir işleve sahip. İlk olarak, bir HTTP isteği tetikleyicisine sahip bir mantıksal uygulama oluşturun. Bir kuyruk iletisi alındığında Bu uç işlevi çağırır.  
 
 1. Bir mantıksal uygulama oluşturun.
-2. Select hello **bir HTTP isteği alındığında el ile -** tetikleyici.
-   Hello sıra iletisiyle gibi bir araç kullanarak bir JSON şeması toouse isteğe bağlı olarak, belirtebilirsiniz [jsonschema.net](http://jsonschema.net). Merhaba şema hello tetikleyici yapıştırın. Şemalar hello verileri ve akış özellikleri daha kolay hello akışı aracılığıyla hello şeklini anlamanız hello Tasarımcısı yardımcı olur.
-2. Bir kuyruk iletisi alındıktan sonra toooccur istediğiniz herhangi bir ilave adımı ekleyin. Örneğin, Office 365 aracılığıyla bir e-posta gönderin.  
-3. Merhaba mantığı uygulama toogenerate hello geri çağırma URL'si hello tetikleyici toothis mantıksal uygulama için kaydedin. Merhaba URL hello tetikleyici kartında görüntülenir.
+2. Seçin **bir HTTP isteği alındığında el ile -** tetikleyici.
+   İsteğe bağlı olarak, gibi bir araç kullanarak sıraya ileti ile kullanmak için JSON şeması belirtebilirsiniz [jsonschema.net](http://jsonschema.net). Şema tetikleyicinin yapıştırın. Şemalar, iş akışı aracılığıyla daha kolay veri ve akış özellikleri şeklini anlamanız Tasarımcısı yardımcı olur.
+2. Bir kuyruk iletisi alındıktan sonra gerçekleştirilmesini istediğiniz herhangi bir ilave adımı ekleyin. Örneğin, Office 365 aracılığıyla bir e-posta gönderin.  
+3. Bu mantıksal uygulama tetikleyiciye geri çağırma URL'si oluşturmak için mantıksal uygulama kaydedin. URL tetikleyici kart üzerinde görüntülenir.
 
-![Merhaba geri çağırma URL'si hello tetikleyici kartında görüntülenir.][1]
+![Geri çağırma URL'si tetikleyici kart üzerinde görüntülenir.][1]
 
-## <a name="build-hello-function"></a>Merhaba işlevi oluşturma
-Ardından, hello tetikleyici olarak davranır ve toohello sıra dinleyen bir işlev oluşturmanız gerekir.
+## <a name="build-the-function"></a>İşlev oluşturma
+Ardından, tetikleyici olarak davranır ve sıraya dinleyen bir işlev oluşturmanız gerekir.
 
-1. Merhaba, [Azure işlevleri portalına](https://functions.azure.com/signin)seçin **yeni işlev**seçip hello **ServiceBusQueueTrigger - C#** şablonu.
+1. İçinde [Azure işlevleri portalına](https://functions.azure.com/signin)seçin **yeni işlev**ve ardından **ServiceBusQueueTrigger - C#** şablonu.
    
     ![Azure işlevleri portalına][2]
-2. Azure hizmet veri yolu SDK'sını kullanan hello hello bağlantı toohello Service Bus kuyruğu, yapılandırma `OnMessageReceive()` dinleyicisi.
-3. (Daha önce oluşturduğunuz) bir temel işlev toocall hello mantığı uygulama uç noktası tetikleyici olarak hello kuyruk iletisini kullanarak yazın. Bir işlev tam bir örneği burada verilmiştir. Merhaba örneği kullanan bir `application/json` ileti içerik türü, ancak bu tür gerektiğinde değiştirebilirsiniz.
+2. Azure hizmet veri yolu SDK'sını kullanan Service Bus kuyruğuna bağlantıyı yapılandırmak `OnMessageReceive()` dinleyicisi.
+3. Tetikleyici olarak kuyruk iletisini kullanarak (daha önce oluşturduğunuz) mantığı uygulama uç noktasını çağırmak için bir temel işlevi yazma. Bir işlev tam bir örneği burada verilmiştir. Örnek kullanan bir `application/json` ileti içerik türü, ancak bu tür gerektiğinde değiştirebilirsiniz.
    
    ```
    using System;
@@ -63,7 +63,7 @@ Ardından, hello tetikleyici olarak davranır ve toohello sıra dinleyen bir iş
    }
    ```
 
-tootest, bir kuyruk iletisi gibi bir araç eklemek [hizmet veri yolu Gezgini](https://github.com/paolosalvatori/ServiceBusExplorer). Merhaba mantıksal uygulamayı hemen hello işlevi hello iletisini aldıktan sonra yangın bakın.
+Test etmek için bir kuyruk iletisi gibi bir araç eklemek [hizmet veri yolu Gezgini](https://github.com/paolosalvatori/ServiceBusExplorer). Hemen işlevi iletiyi aldıktan sonra yangın mantıksal uygulama bakın.
 
 <!-- Image References -->
 [1]: ./media/logic-apps-scenario-function-sb-trigger/manualtrigger.png

@@ -1,5 +1,5 @@
 ---
-title: "SQL veri ambarı SQL aaaDynamic | Microsoft Docs"
+title: "SQL veri ambarı dinamik SQL'de | Microsoft Docs"
 description: "Çözümleri geliştirme için Azure SQL Data Warehouse'da dinamik SQL kullanma ipuçları."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,14 +15,14 @@ ms.workload: data-services
 ms.custom: queries
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.openlocfilehash: 4d66eecb37621510f657d1ec9a2a935daaa16052
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 29228676373aee8dbc7b1b2a7d92ffc978333804
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="dynamic-sql-in-sql-data-warehouse"></a>SQL veri ambarı dinamik SQL
-Uygulama kodu gerekebilir SQL Data Warehouse için geliştirirken toouse dinamik sql toohelp esnek, genel ve modüler çözümler sunmak. SQL veri ambarı blob veri türleri şu anda desteklemiyor. Varchar(max) ve nvarchar(max) türlerini BLOB türler gibi bu dizelerinizi hello boyutunu sınırlayabilir. Çok büyük dizeleri oluştururken, uygulama kodunuzda bu tür kullandıysanız, toobreak hello kod öbekleri ve kullanım hello EXEC deyimi içinde yerine gerekir.
+SQL Data Warehouse için uygulama kodu geliştirirken, esnek, genel ve modüler çözümler sunmak amacıyla dinamik sql kullanmanız gerekebilir. SQL veri ambarı blob veri türleri şu anda desteklemiyor. Varchar(max) ve nvarchar(max) türlerini BLOB türler gibi bu dizelerinizi boyutunu sınırlayabilir. Çok büyük dizeleri oluştururken, uygulama kodunuzda bu tür kullandıysanız, kodu parçalara Böl ve EXEC deyimi kullanmanız gerekir.
 
 Basit bir örnek:
 
@@ -34,10 +34,10 @@ DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 ```
 
-Merhaba dize kısaysa kullanabileceğiniz [sp_executesql] [ sp_executesql] normal olarak.
+Dize kısaysa kullanabileceğiniz [sp_executesql] [ sp_executesql] normal olarak.
 
 > [!NOTE]
-> Yürütülen dinamik SQL deyimleri konu tooall TSQL doğrulama kuralları olmaya devam eder.
+> Yürütülen dinamik SQL deyimleri tüm TSQL doğrulama kurallarını tabi olmaya devam eder.
 > 
 > 
 

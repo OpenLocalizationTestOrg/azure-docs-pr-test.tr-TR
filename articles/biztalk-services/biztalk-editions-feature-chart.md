@@ -1,6 +1,6 @@
 ---
-title: "BizTalk Services sürümleri özellikleri hakkında aaaLearn | Microsoft Docs"
-description: "Merhaba hello BizTalk Services sürümlerinin özelliklerini karşılaştırın: ücretsiz, geliştirici, temel, standart ve Premium. MABS, WABS."
+title: "BizTalk Services sürümleri özellikleri hakkında bilgi edinme| Microsoft Belgeleri"
+description: "BizTalk Services sürümlerinin özelliklerini karşılaştırın: Ücretsiz, Geliştirici, Temel, Standart ve Premium. MABS, WABS."
 services: biztalk-services
 documentationcenter: 
 author: MandiOhlinger
@@ -14,41 +14,41 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 81626fa743a7190e7c78a0fd90b3054a08982b02
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 718b57a801a9ba62a0154ae42da2ac0c0741f203
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="biztalk-services-editions-chart"></a>BizTalk Services: Sürümler grafiği
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-Azure BizTalk Services çeşitli sürümler sunar. Bu makale toodetermine hangi sürümünün senaryonuz ve iş gereksinimleriniz için doğru kullanın.
+Azure BizTalk Services çeşitli sürümler sunar. Bu makaleyi senaryonuz ve iş gereksinimleriniz için hangi sürümün doğru olduğunu saptamak için kullanın.
 
-## <a name="compare-hello-editions"></a>Merhaba sürümlerini karşılaştırın
+## <a name="compare-the-editions"></a>Sürümleri karşılaştırma
 **Ücretsiz (Önizleme)**
 
-Karma Bağlantılar oluşturabilir ve yönetebilir. Kolay bir yolu tooconnect bir Azure Web sitesi tooan sistemi, SQL Server gibi şirket içi bir karma bağlantıdır.
+Karma Bağlantılar oluşturabilir ve yönetebilir. Karma Bağlantı, Azure web sitesini SQL Sunucusu gibi şirket içi bir sisteme bağlamanın kolay yoludur.
 
 **Geliştirici**
 
-Karma Bağlantılar, kolay kullanılan ticari ortak yönetim portalıyla EAI ve EDI ileti işleme, ortak EDI şemaları için destek, X12 ve AS2 üzerinde zengin EDI işlemeyi kapsar. Tüm HTTP/S, REST, FTP, WCF ve SFTP protokolleri tooread ile Merhaba bulut Hizmetleri'nde bağlayan ortak EAI senaryoları oluşturabilir ve iletileri yazma.  Bağlantı tooon içi LOB sistemlerini kullanıma hazır SAP, Oracle eBusiness, Oracle DB, Siebel ve SQL sunucusu bağdaştırıcılarıyla kullanın. Geliştirici merkezli ortamı, kolay geliştirme ve dağıtım için Visual Studio araçlarıyla birlikte kullanın. Sınırlı toodevelopment ve test amaçları yalnızca olan hiçbir hizmet düzeyi sözleşmesi (SLA).
+Karma Bağlantılar, kolay kullanılan ticari ortak yönetim portalıyla EAI ve EDI ileti işleme, ortak EDI şemaları için destek, X12 ve AS2 üzerinde zengin EDI işlemeyi kapsar. İleti okumak ve yazmak için. buluttaki hizmetleri HTTP/S, REST, FTP, WCF ve SFTP protokolleriyle bağlayan ortak EAI senaryoları oluşturabilir.  Şirket içi LOB sistemlerini kullanıma hazır SAP, Oracle eBusiness, Oracle DB, Siebel, ve SQL Sunucusu bağdaştırıcılarıyla bağlantıyı kullanır. Geliştirici merkezli ortamı, kolay geliştirme ve dağıtım için Visual Studio araçlarıyla birlikte kullanın. Geliştirme ve test amaçları Hizmet Düzeyi Sözleşmesi (SLA) olmadıkça sınırlıdır
 
 **Temel**
 
-Çoğu hello geliştiricinin yeteneklerini, karma bağlantılar, EAI köprüleri, EDI sözleşmeleri ve BizTalk bağdaştırıcı paketi bağlantılarındaki yükselişe ekler. Aynı zamanda yüksek kullanılabilirlik ve hello seçeneği tooscale bir hizmet düzeyi sözleşmesi (SLA) ile sağlar.
+Çoğu Geliştiricinin yeteneklerini, Karma Bağlantılar, EAI köprüleri, EDI Sözleşmeleri ve BizTalk Bağdaştırıcı Paketi bağlantılarındaki yükselişe ekler. Ayrıca, yüksek kullanılabilirlik ve Hizmet Düzeyi Sözleşmesi (SLA) ile ölçeklendirme seçeneği sunar.
 
 **Standart**
 
-Tüm hello temel yetenekleri, karma bağlantılar, EAI köprüleri, EDI sözleşmeleri ve BizTalk bağdaştırıcı paketi bağlantılarındaki yükselişe ekler. Aynı zamanda yüksek kullanılabilirlik ve hello seçeneği tooscale bir hizmet düzeyi sözleşmesi (SLA) ile sağlar.
+Tüm Temel yetenekleri, Karma Bağlantılar, EAI köprüleri, EDI Sözleşmeleri ve BizTalk Bağdaştırıcı Paketi bağlantılarındaki yükselişe ekler. Ayrıca, yüksek kullanılabilirlik ve Hizmet Düzeyi Sözleşmesi (SLA) ile ölçeklendirme seçeneği sunar.
 
 **Premium**
 
-Tüm hello standart yetenekleri, karma bağlantılar, EAI köprüleri, EDI sözleşmeleri ve BizTalk bağdaştırıcı paketi bağlantılarındaki yükselişe ekler. Ayrıca, arşivleme, yüksek kullanılabilirlik ve hello seçeneği tooscale bir hizmet düzeyi sözleşmesi (SLA) ile içerir.
+Tüm Standart yetenekleri, Karma Bağlantılar, EAI köprüleri, EDI Sözleşmeleri ve BizTalk Bağdaştırıcı Paketi bağlantılarındaki yükselişe ekler. Ayrıca, arşivleme, yüksek kullanılabilirlik ve Hizmet Düzeyi Sözleşmesi (SLA) ile ölçeklendirme seçeneği içerir.
 
 ## <a name="editions-chart"></a>Sürümler grafiği
-Merhaba aşağıdaki tabloda hello farklar listelenmektedir.
+Aşağıdaki tabloda farklar listelenmektedir:
 
 <table border="1">
 <tr bgcolor="FAF9F9">
@@ -84,9 +84,9 @@ Merhaba aşağıdaki tabloda hello farklar listelenmektedir.
 <td><strong>İzin verilen ölçek genişletme üst sınırı</strong></td>
 <td>Ölçek yok</td>
 <td>Ölçek yok</td>
-<td>Too8 birimler</td>
-<td>Too8 birimler</td>
-<td>Too8 birimler</td>
+<td>8 Birime Kadar</td>
+<td>8 Birime Kadar</td>
+<td>8 Birime Kadar</td>
 </tr>
 <tr>
 <td><strong>Birim başına EAI Köprü sayısı</strong></td>
@@ -123,7 +123,7 @@ TPM sözleşmeleri dahil</td>
 <td>500</td>
 </tr>
 <tr>
-<td><strong>BizTalk bağdaştırıcı hizmeti bağlantıları tooon içi LOB sistemlerini</strong></td>
+<td><strong>Şirket içi LOB sistemlerine yönelik BizTalk Bağdaştırıcı Hizmeti bağlantıları</strong></td>
 <td>Dahil değil</td>
 <td>1 bağlantı</td>
 <td>2 bağlantı</td>
@@ -210,48 +210,48 @@ Hizmet Düzeyi Sözleşmesi (SLA) için bkz. <a HREF="http://go.microsoft.com/fw
 
 ## <a name="faqs"></a>SSS
 #### <a name="what-is-a-biztalk-unit"></a>BizTalk birimi nedir?
-"Birim" Merhaba Azure BizTalk Services dağıtımının atomik düzeyi değil. Her sürüm, farklı işlem kapasitesi ve belleğe sahip bir birimle birlikte verilir. Örneğin, Temel birimde Geliştirici’ye göre daha fazla işlem varken, Standart’ta da Temel’e göre daha fazla işlem vardır vb. BizTalk Hizmetini ölçeklendirdiğinizde birimler cinsinden ölçeklendirirsiniz.
+"Birim", Azure BizTalk Services dağıtımının atomik düzeyidir. Her sürüm, farklı işlem kapasitesi ve belleğe sahip bir birimle birlikte verilir. Örneğin, Temel birimde Geliştirici’ye göre daha fazla işlem varken, Standart’ta da Temel’e göre daha fazla işlem vardır vb. BizTalk Hizmetini ölçeklendirdiğinizde birimler cinsinden ölçeklendirirsiniz.
 
-#### <a name="what-is-hello-difference-between-biztalk-services-and-azure-biztalk-vm"></a>Merhaba BizTalk Services ve Azure BizTalk VM arasındaki fark nedir?
-BizTalk Services tümleştirme çözümleri hello bulutta oluşturmak için doğru bir Platform olarak-hizmet (PaaS) mimarisini sağlar. Merhaba PaaS modeliyle odaklanmak tamamen hello uygulama mantığına ve tüm hello altyapı Yönetimi tooMicrosoft bırakın dahil olmak üzere:
+#### <a name="what-is-the-difference-between-biztalk-services-and-azure-biztalk-vm"></a>BizTalk Services ve Azure BizTalk VM arasındaki fark nedir?
+BizTalk Services, bulutta yapı tümleştirme çözümleri için doğru hizmet olarak platform (PaaS) mimarisini sağlar. PaaS modeliyle, tamamen uygulama mantığına odaklanır ve tüm altyapı yönetimini Microsoft'a bırakırsınız; buna şunlar dahildir:
 
-* Gereksinim toomanage ya da düzeltme eki sanal makine yok.
+* Sanal makineleri yönetme ve düzeltme eki gerekmez.
 * Microsoft kullanılabilirliği sağlar.
-* Ölçek isteğe bağlı yalnızca daha isteyen tarafından veya daha çok kapasite hello Azure portal aracılığıyla denetler.
+* Azure Portalı aracılığıyla yalnızca daha az veya daha çok kapasite isteyerek İsteğe bağlı ölçeği denetlersiniz.
 
-Azure Virtual Machines’deki BizTalk Server hizmet olarak altyapı (IaaS) mimarisi sağlar. Sanal makineler oluşturup bunları tam olarak, şirket içi ortamda olduğu gibi kod değişikliğine hello bulutta daha kolay toorun uygulamalarınız kolaylaştırarak yapılandırabilirsiniz. Iaas ile hello sanal makineleri yapılandırma, hello sanal makineleri (örneğin, yazılım yükleme ve OS düzeltme ekleri) yönetme ve yüksek kullanılabilirlik için hello uygulama mimariden hala sorumludur.
+Azure Virtual Machines’deki BizTalk Server hizmet olarak altyapı (IaaS) mimarisi sağlar. Kod değişikliğine gerek kalmadan bulutta mevcut uygulamaların çalışmasını kolaylaştırarak sanal makineler oluşturup bunları tam da şirket içi ortamda olduğu gibi yapılandırırsınız. IaaS ile, sanal makinelerin yapılandırılmasından, sanal makinelerin yönetilmesinden (örneğin, yazılım yükleme ve OS düzeltme ekleri), yüksek kullanılabilirlik için uygulama mimarisinden sorumlu olmayı sürdürürsünüz.
 
-Altyapı yönetimi çabanızı en aza indiren yeni tümleştirme çözümlerini derlemeye bakarsanız, BizTalk Services'ni kullanın. Tooquickly arıyorsanız mevcut BizTalk çözümlerinizi veya bir isteğe bağlı ortam toodevelop ve test BizTalk Server arayan uygulamaları kullanın BizTalk Server bir Azure sanal makinesinde.
+Altyapı yönetimi çabanızı en aza indiren yeni tümleştirme çözümlerini derlemeye bakarsanız, BizTalk Services'ni kullanın. Mevcut BizTalk çözümlerinizi hızlı geçirmeye bakıyorsanız ya da BizTalk Server uygulamalarını geliştirmek ve test etmek için isteğe bağlı ortam arıyorsanız, Azure Sanal Makinede BizTalk Server’ı kullanın.
 
-#### <a name="what-is-hello-difference-between-biztalk-adapter-service-and-hybrid-connections"></a>Merhaba BizTalk bağdaştırıcı hizmeti ve karma bağlantılar arasındaki fark nedir?
-Merhaba BizTalk Bağdaştırıcısı hizmeti Azure BizTalk hizmeti tarafından kullanılır. Merhaba BizTalk bağdaştırıcı hizmeti hello BizTalk bağdaştırıcı paketi tooconnect tooan şirket içi iş kolu (LOB) sistemine kullanır. Ve Azure Mobile Services, tooan kaynak şirket içi karma bağlantı kolay ve uygun şekilde tooconnect hello Azure App Service'te Web Apps özelliği gibi Azure uygulamalarını sağlar.
+#### <a name="what-is-the-difference-between-biztalk-adapter-service-and-hybrid-connections"></a>BizTalk Bağdaştırıcı Hizmeti ve Karma Bağlantılar arasındaki fark nedir?
+BizTalk Bağdaştırıcı Hizmeti bir Azure BizTalk Hizmeti tarafından kullanılır. BizTalk Bağdaştırıcı Hizmeti, BizTalk Bağdaştırıcı Paketini şirket içi iş kolu (LOB) sistemine bağlamak için kullanır. Karma Bağlantı, Azure App Service’de ve Azure Mobile Services’da Web Uygulamaları özelliği gibi Azure uygulamalarını şirket içi kaynağa bağlamak için kolay ve uyumlu bir yol sağlar.
 
-#### <a name="what-does-hybrid-connection-data-transfer-gb-per-unit-mean-is-this-per-minutehourdayweekmonth-what-happens-when-hello-limit-is-reached"></a>“Birim başına Karma Bağlantı Veri Aktarımı (GB)” ne anlama geliyor? Bu dakika/saat/gün/hafta/ay mı? Merhaba sınıra ulaşıldığında ne olur?
-Merhaba birim başına karma bağlantı maliyeti hello BizTalk Services sürümüne bağlıdır. Basitçe, maliyetler ne kadar veri aktarımı yaptığınıza bağlıdır. Örneğin, günde 10 GB veri aktarmanın maliyeti günde 100 GB veri aktarmanın maliyetinden daha düşüktür. Kullanım hello [fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/?scenario=full) BizTalk Services toodetermine belirli maliyetleri için. Genellikle, hello sınırları günlüktür. Merhaba sınırı aşarsanız, aşmalar GB başına 1 USD hello hızında doludur.
+#### <a name="what-does-hybrid-connection-data-transfer-gb-per-unit-mean-is-this-per-minutehourdayweekmonth-what-happens-when-the-limit-is-reached"></a>“Birim başına Karma Bağlantı Veri Aktarımı (GB)” ne anlama geliyor? Bu dakika/saat/gün/hafta/ay mı? Sınıra ulaşıldığında ne olur?
+Birim başına Karma Bağlantı maliyeti BizTalk Services sürümüne bağlıdır. Basitçe, maliyetler ne kadar veri aktarımı yaptığınıza bağlıdır. Örneğin, günde 10 GB veri aktarmanın maliyeti günde 100 GB veri aktarmanın maliyetinden daha düşüktür. Belirli maliyetleri saptamak için BizTalk Services’da [Fiyatlandırma Hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/?scenario=full) kullanın. Sınırlar genellikle günlüktür. Sınırı aşarsanız, aşmalar GB başına 1 USD oranında ücretlendirilir.
 
-#### <a name="when-i-create-an-agreement-in-biztalk-services-why-does-hello-number-of-bridges-go-up-by-two-instead-of-just-one"></a>BizTalk Services'da sözleşme oluşturduğunuzda, neden köprü sayısı hello tarafından yerine ikiye yükseliyor?
+#### <a name="when-i-create-an-agreement-in-biztalk-services-why-does-the-number-of-bridges-go-up-by-two-instead-of-just-one"></a>BizTalk Services’da sözleşme oluşturduğumda neden köprü sayısı bir yerine ikiye yükseliyor?
 Her sözleşme iki farklı köprüden oluşur: gönderme tarafı iletişim köprüsü ve alma tarafı iletişim köprüsü.
 
-#### <a name="what-happens-when-i-hit-hello-quota-limit-on-hello-number-of-bridges-or-agreements"></a>Merhaba köprü sayısına veya anlaşmaları göre hello kota sınırına ulaştı. ne olur?
-Yeni köprüleri erişilemiyor toodeploy olan veya yeni sözleşmeler oluşturamazsınız. Daha fazla toodeploy, tooscale toomore birimleri hello BizTalk hizmeti ya da daha yüksek sürüme yükseltme tooa gerekir.
+#### <a name="what-happens-when-i-hit-the-quota-limit-on-the-number-of-bridges-or-agreements"></a>Köprü sayısına veya sözleşmeye göre kota sınırına ulaştığımda ne olur?
+Yeni köprüleri dağıtamaz veya yeni sözleşmeler oluşturamazsınız. Daha fazla dağıtmak için, BizTalk hizmetinin ölçeğini daha fazla birime yükseltmelisiniz ya da daha yüksek bir sürüme geçmelisiniz.
 
-#### <a name="how-do-i-migrate-from-one-tier-of-biztalk-services-tooanother"></a>BizTalk Services tooanother bir katmandan nasıl geçişini?
-Hello ücretsiz sürüm geçirilen ya da 'ölçeklendirilmiş' tooanother katmanı olamaz ve yedeklenemiyor ve tooanother katmanı geri yüklenebilir. Başka bir katman gerekiyorsa hello yeni katmanı kullanarak yeni bir BizTalk hizmeti oluşturun. Karma bağlantılar, gerek toobe de yeniden de dahil olmak üzere hello ücretsiz sürüm kullanılarak oluşturulan yapıtların yeni BizTalk hizmeti hello. 
+#### <a name="how-do-i-migrate-from-one-tier-of-biztalk-services-to-another"></a>BizTalk Services’ın bir katmanından diğerine nasıl geçerim?
+Ücretsiz sürüm başka bir katmana geçemez veya 'yukarı ölçeklendirilemez' ve başka bir katmana yedeklenemez ve geri yüklenemez. Başka bir katman gerekiyorsa, yeni katmanı kullanarak yeni bir BizTalk Hizmeti oluşturun. Karma bağlantılar da dahil, Ücretsiz sürüm kullanılarak oluşturulan yapıtların yeni BizTalk Hizmetinde yeniden oluşturulması gerekir. 
 
-Merhaba kalan sürümler için hello yedekleme ve bir katmanı tooanother yapıtları geçirmek için geri yükleme. Örneğin, hello standart katmanındaki yapıtlarınızı yedekleyin ve ardından toohello Premium katmanına geri yükleyin. [BizTalk Services: Yedekleme ve geri yükleme](biztalk-backup-restore.md) hello desteklenen geçiş yolları açıklanmıştır ve hangi yapıtların yedeklendiğini listeler. Karma Bağlantıların yedeklenmediğini unutmayın. Yedekleme ve tooa yeni katmanı geri yükleme sonrasında, ardından hello karma bağlantıları yeniden oluşturun.  
+Diğer sürümler için, bir katmandan diğerine yapıtları geçirmek için geçiş için yedeklemeyi ve geri yüklemeyi kullanın. Örneğin, standart katmanındaki yapıtlarınızı yedekleyin, sonra da bunları Premium katmanına geri yükleyin. [BizTalk Services: Yedekleme ve Geri Yükleme](biztalk-backup-restore.md) desteklenen geçiş yollarını açıklar ve hangi yapıtların yedeklendiğini listeler. Karma Bağlantıların yedeklenmediğini unutmayın. Yeni katmana yedekleyip geri yükledikten sonra karma bağlantıları yeniden oluşturun.  
 
-#### <a name="is-hello-biztalk-adapter-service-included-in-hello-service-how-do-i-receive-hello-software"></a>Merhaba BizTalk bağdaştırıcı hizmeti hello hizmetinde dahil edildi? Merhaba yazılım nasıl alıyor musunuz?
-Evet, BizTalk bağdaştırıcı hizmeti ile Merhaba BizTalk bağdaştırıcı paketi hello hello Azure BizTalk Services SDK'sı ile birlikte [karşıdan](http://www.microsoft.com/download/details.aspx?id=39087).
+#### <a name="is-the-biztalk-adapter-service-included-in-the-service-how-do-i-receive-the-software"></a>BizTalk Bağdaştırıcı Hizmeti hizmette mi? Yazılım nasıl alırım?
+Evet, BizTalk Bağdaştırıcı Paketi bulunan BizTalk Bağdaştırıcısı Hizmeti Azure BizTalk Services SDK [indirmede](http://www.microsoft.com/download/details.aspx?id=39087) bulunur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-toocreate Azure BizTalk Services hello Azure portal, Git çok[BizTalk Services: hello Azure portalını kullanarak hazırlama](biztalk-provision-services.md). uygulamaları, Git çok oluşturma toostart[Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Azure portalında Azure BizTalk hizmetleri oluşturmak için [BizTalk Services: Azure portalını kullanarak hazırlama](biztalk-provision-services.md)’ya gidin. Uygulamalar oluşturmaya başlamak için [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197)’a gidin.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
-* [BizTalk Services: hello Azure portalını kullanarak hazırlama](biztalk-provision-services.md)<br/>
+* [BizTalk Services: Azure portalını kullanarak hazırlama](biztalk-provision-services.md)<br/>
 * [BizTalk Services: Durum Grafiğini hazırlama](biztalk-service-state-chart.md)<br/>
 * [BizTalk Services: Pano, İzleyici ve Ölçek sekmeleri](biztalk-dashboard-monitor-scale-tabs.md)<br/>
 * [BizTalk Services: Yedekleme ve Geri Yükleme](biztalk-backup-restore.md)<br/>
 * [BizTalk Services: Azaltma](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk Services: Verenin Adı ve Verenin Anahtarı](biztalk-issuer-name-issuer-key.md)<br/>
-* [I Başlat'ı kullanarak Azure BizTalk Services SDK'sı nasıl hello](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Azure BizTalk Services SDK'sını Kullanmaya Nasıl Başlarım](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 

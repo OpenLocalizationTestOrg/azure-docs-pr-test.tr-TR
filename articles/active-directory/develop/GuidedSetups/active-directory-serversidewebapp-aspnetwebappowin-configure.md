@@ -1,5 +1,5 @@
 ---
-title: aaaAzure AD v2 ASP.NET Web sunucusu Getting Started - Config | Microsoft Docs
+title: "Azure AD v2 ASP.NET Web sunucusu alma başlatıldı - Config | Microsoft Docs"
 description: "Microsoft oturum açma Openıd Connect standardını kullanan geleneksel web tarayıcı tabanlı bir uygulama ile ASP.NET çözümünü uygulama"
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,29 +15,29 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: e666be4622ad30aaa1e12e49ae56bbe1e129b2a9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0c627802ccfba230dcde2dafffee26cb1c895791
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 ## <a name="create-an-application-express"></a>(Hızlı) uygulama oluşturma
-Merhaba uygulamanızda tooregister gereksinim artık *Microsoft uygulama kayıt portalı*:
-1. Merhaba aracılığıyla uygulamanızı kaydetme [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app?appType=serverSideWebApp&appTech=aspNetWebAppOwin&step=configure)
+Uygulamanızı kaydetmeniz gerekir artık *Microsoft uygulama kayıt portalı*:
+1. Uygulamanızı aracılığıyla kaydetme [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app?appType=serverSideWebApp&appTech=aspNetWebAppOwin&step=configure)
 2.  Uygulamanız ve e-posta için bir ad girin
-3.  Kurulum destekli Hello seçeneğinin işaretli olduğundan emin olun
-4.  Merhaba yönergeleri tooadd tekrar yönlendirme URL'sini tooyour uygulama izleyin
+3.  Kurulum destekli seçeneğinin işaretli olduğundan emin olun
+4.  Uygulamanıza bir yeniden yönlendirme URL'si eklemek için yönergeleri izleyin
 
-## <a name="add-your-application-registration-information-tooyour-solution-advanced"></a>Uygulama kayıt bilgileri tooyour çözümünüz (Gelişmiş) ekleyin
-Merhaba uygulamanızda tooregister gereksinim artık *Microsoft uygulama kayıt portalı*:
-1. Toohello Git [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app) tooregister uygulama
+## <a name="add-your-application-registration-information-to-your-solution-advanced"></a>Uygulama kayıt bilgilerinizi çözümünüze (Gelişmiş) ekleyin
+Uygulamanızı kaydetmeniz gerekir artık *Microsoft uygulama kayıt portalı*:
+1. Git [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app) bir uygulamayı kaydetmek için
 2. Uygulamanız ve e-posta için bir ad girin 
-3.  Destekli kurulumu için Hello seçeneğinin işaretli olduğundan emin olun
+3.  Destekli kurulumu için seçeneğinin işaretli olduğundan emin olun
 4.  Tıklatın `Add Platform`sonra seçin`Web`
-5.  TooVisual Studio geri dönün ve, Çözüm Gezgini'nde başlangıç projesini seçin ve (bir özellik penceresinde F4 tuşuna basın görmüyorsanız) hello özellikleri penceresine bakın
-6.  SSL etkin çok değiştirme`True`
-7.  Merhaba SSL URL'sini kopyalayın ve bu URL yeniden yönlendirme URL'si toohello listesi hello kayıt Portalı'nın yönlendirme URL'si listesinde ekleyin:<br/><br/>![Proje Özellikleri](media/active-directory-serversidewebapp-aspnetwebappowin-configure/vsprojectproperties.png)<br />
-8.  Merhaba aşağıdakileri ekleyin `web.config` hello bölümünde hello kök klasöründe yer alan `configuration\appSettings`:
+5.  Visual Studio'ya geri dönün ve Çözüm Gezgini'nde, projeyi seçin ve ardından (bir özellik penceresinde F4 tuşuna basın görmüyorsanız) özellikleri penceresine bakın gidin
+6.  Değişiklik SSL etkin`True`
+7.  SSL URL'sini kopyalayın ve bu URL yönlendirme URL'si listesine kayıt Portalı'nın listesinde yönlendirme URL'si ekleyin:<br/><br/>![Proje Özellikleri](media/active-directory-serversidewebapp-aspnetwebappowin-configure/vsprojectproperties.png)<br />
+8.  Aşağıdakileri ekleyin `web.config` bölümünün altında kök klasöründe yer `configuration\appSettings`:
 
 ```xml
 <add key="ClientId" value="Enter_the_Application_Id_here" />
@@ -48,10 +48,10 @@ Merhaba uygulamanızda tooregister gereksinim artık *Microsoft uygulama kayıt 
 <!-- Workaround for Docs conversion bug -->
 <ol start="9">
 <li>
-Değiştir `ClientId` hello uygulama kimliği yalnızca kayıtlı sahip
+Değiştir `ClientId` yalnızca kayıtlı uygulama kimliği
 </li>
 <li>
-Değiştir `redirectUri` hello projenizin SSL URL ile
+Değiştir `redirectUri` projenizin SSL URL'si
 </li>
 </ol>
 <!-- End Docs -->

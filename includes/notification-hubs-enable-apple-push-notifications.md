@@ -1,118 +1,118 @@
 
 
-## <a name="generate-hello-certificate-signing-request-file"></a>Merhaba sertifika imzalama isteği dosyası oluşturma
-Merhaba Apple anında bildirim hizmeti (APNS), anında iletme bildirimleri sertifikaları tooauthenticate kullanır. Bu yönergeler toocreate hello gereken bildirim sertifikasını toosend izleyin ve bildirimleri alabilirsiniz. Bu kavramlarla ilgili daha fazla bilgi için bkz: hello resmi [Apple anında iletilen bildirim servisi](http://go.microsoft.com/fwlink/p/?LinkId=272584) belgeleri.
+## <a name="generate-the-certificate-signing-request-file"></a>Sertifika İmzalama İsteği dosyası oluşturma
+Apple Anında İletilen Bildirim Servisi (APNS), anında iletme bildirimlerinizi doğrulamak için sertifikaları kullanır. Bildirim gönderip almak için gereken bildirim sertifikasını oluşturacak bu talimatları uygulayın. Bu kavramlarla ilgili daha fazla bilgi için resmi [Apple Anında İletilen Bildirim Servisi](http://go.microsoft.com/fwlink/p/?LinkId=272584) belgelerine bakın.
 
-Merhaba sertifika imzalama isteği (CSR) dosyasını oluşturmak Apple toogenerate tarafından imzalı bir bildirim sertifikası kullanılır.
+İmzalı bir bildirim sertifikası oluşturmak için Apple tarafından kullanılan Sertifika İmzalama İsteği (CSR) dosyasını oluşturun.
 
-1. Mac'inizde hello anahtar zinciri erişimi aracını çalıştırın. Hello açılabilir **yardımcı programları** klasör veya hello **diğer** hello başlatma panelindeki klasör.
+1. Mac’inizde Anahtar Zinciri Erişimi aracını çalıştırın. **Yardımcı Programlar** klasöründen veya başlatma panelindeki **Diğer** klasöründen açılabilir.
 2. **Anahtar Zinciri Erişimi**’ne tıklayın, **Sertifika Yardımcısı**’nı genişletin ve **Sertifika Yetkilisinden Sertifika İste...** öğesine tıklayın.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-request-cert-from-ca.png)
-3. Seçin, **kullanıcı e-posta adresi** ve **ortak ad** , olduğundan emin olun **toodisk kaydedilen** seçilir ve ardından **devam**. Merhaba bırakın **CA e-posta adresi** alanı gerekli olmadığı boş.
+3. **Kullanıcı E-posta Adresi**’nizi ve **Ortak Ad**’ı seçin, **Diske kaydedilmiş**’in seçili olduğundan emin olun ve ardından **Devam**’a tıklayın. Gerekmediğinden **CA E-posta Adresi**’ni boş bırakın.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-csr-info.png)
-4. Hello sertifika imzalama isteği (CSR) dosyası için bir ad yazın **Kaydet**, seçin hello konumda **nerede**, ardından **kaydetmek**.
+4. Sertifika İmzalama İsteği (CSR) dosyası için **Farklı Kaydet**’e bir ad yazın, **Nerede**’de konum seçin ve ardından **Kaydet**’e tıklayın.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-save-csr.png)
    
-      Bu hello CSR dosyasını hello seçili konuma kaydeder; Merhaba Masaüstü Hello varsayılan konumdur. Bu dosya için seçilen hello konumu unutmayın.
+      Böylece CSR dosyası istediğiniz konuma kaydedilir; varsayılan konum Masaüstü’dür. Bu dosya için seçilen konumu unutmayın.
 
-Ardından, uygulamanızı Apple'a kaydedeceksiniz anında iletme bildirimlerini etkinleştirin ve dışarı aktarılan Bu CSR toocreate bildirim sertifikası karşıya.
+Bundan sonra, uygulamanızı Apple’a kaydedeceksiniz; anında iletme bildirimini etkinleştirip bildirim sertifikası oluşturmak için dışarı aktarılan bu CSR dosyasını karşıya yükleyin.
 
 ## <a name="register-your-app-for-push-notifications"></a>Anında iletme bildirimleri için uygulamanızı kaydetme
-toobe mümkün toosend anında iletme bildirimleri tooan iOS uygulaması, Apple ve aynı zamanda kayıt anında iletme bildirimleri için uygulamanızı kaydetmeniz gerekir.  
+iOS uygulamasına anında iletme bildirimleri gönderebilmek için uygulamanızı Apple’a kaydetmenin yanı sıra anında iletme bildirimlerini de kaydetmeniz gerekir.  
 
-1. Uygulamanızı zaten kaydolmadıysanız toohello gidin <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS sağlama portalı</a> hello Apple Geliştirici Merkezi'ndeki, Apple kimliğinizle oturum açma tıklatın **tanımlayıcıları**, ardından **uygulama kimlikleri** ve son olarak hello üzerinde tıklatın  **+**  tooregister yeni bir uygulama oturum açın.
+1. Uygulamanızı henüz kaydetmediyseniz, Apple Geliştirici Merkezi’ndeki <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Sağlama Portalı</a>’na gidin, Apple kimliğinizle oturum açın, **Tanımlayıcılar**’a, **Uygulama kimlikleri**’ne ve son olarak da **+** işaretine tıklayarak yeni uygulamayı kaydedin.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
       
-2. Yeni uygulamanız için üç alanları izleyen hello güncelleştirin ve ardından **devam**:
+2. Yeni uygulamanız için aşağıdaki üç alanı güncelleştirin ve ardından **Devam**’a tıklayın:
    
-   * **Ad**: hello uygulamanız için açıklayıcı bir ad yazın **adı** hello alanındaki **uygulama kimliği açıklaması** bölümü.
-   * **Paket tanımlayıcı**: hello altında **açık uygulama kimliği** bölümünde, girin bir **paket tanımlayıcı** hello formunda `<Organization Identifier>.<Product Name>` hello belirtildiği gibi [uygulama dağıtımı Kılavuzu](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8). Merhaba *kuruluş tanımlayıcı* ve *ürün adı* gereken kullandığınız eşleşen hello kuruluş tanımlayıcısı ve ürün adı, XCode projenizi oluşturduğunuzda kullanacağınız. Aşağıdaki hello ekran görüntüsünde, *NotificationHubs* kuruluş tanımlayıcısı kullanılır ve *GetStarted* hello ürün adı olarak kullanılır. Bu, XCode projenizde kullanacağınız hello değerlerle eşleştiğinden emin olunması, toouse hello doğru yayımlama profili ile XCode izin verir. 
-   * **Anında iletme bildirimleri**: onay hello **anında iletme bildirimleri** hello seçeneğinde **uygulama hizmetleri** bölümü.
+   * **Ad**: Uygulamanızı için **Uygulama Kimliği Açıklaması** bölümündeki **Ad** alanına açıklayıcı bir ad yazın.
+   * **Paket Tanımlayıcı** : **Açık Uygulama Kimliği** bölümünün altında, **Paket Tanımlayıcı** öğesini `<Organization Identifier>.<Product Name>` biçiminde, [Uygulama Dağıtım Kılavuzu](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8)’nda söz edildiği gibi girin. *Kuruluş Tanımlayıcı* ve kullandığınız *Ürün Adı*, XCode projenizi oluşturduğunuzda kullanacağınız kuruluş tanımlayıcısı ve ürün adıyla eşleşmelidir. Aşağıdaki ekran görüntüsünde *NotificationHubs* kuruluş tanımlayıcısı, *GetStarted* da ürün adı olarak kullanılmıştır. Bunun, XCode projenizde kullanacağınız değerlerle eşleştiğinden emin olunması XCode ile doğru yayımlama profili kullanmanızı sağlar. 
+   * **Anında İletme Bildirimleri**: **Anında İletme Bildirimleri**’ni **Uygulama Hizmetleri** bölümünde denetleyin.
      
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
      
-      Bu, uygulama Kimliğiniz oluşturulur ve tooconfirm hello bilgi ister. Tıklatın **kaydetmek** tooconfirm hello yeni bir uygulama kimliği
+      Böylece, Uygulama Kimliğiniz oluşturulur ve bilgiyi onaylamanız istenir. Yeni Uygulama Kimliğini onaylamak için **Kaydet**’e tıklayın.
      
-      Tıkladığınızda **kaydetmek**, hello görürsünüz **kayıt işlemini tamamlamak** ekranını aşağıda gösterildiği gibi. **Bitti**’ye tıklayın.
+      **Kaydet**’e tıkladıktan sonra **Kayıt tamamlandı** ekranını aşağıda gösterildiği gibi göreceksiniz. **Bitti**’ye tıklayın.
       
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
 
 
-1. Merhaba Geliştirici Merkezi'nde, uygulama kimlikleri altında az önce oluşturduğunuz ve satırına tıklayın hello uygulama Kimliğini bulun.
+1. Geliştirici Merkezi’nde, Uygulama Kimlikleri altında henüz yeni oluşturmuş olduğunuz , uygulama kimliğini bulup satırına tıklayın.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids2.png)
    
-      Merhaba uygulama Kimliğinin tıklatılması hello uygulama ayrıntılarını görüntüler. Merhaba tıklatın **Düzenle** hello altındaki düğmesi.
+      Uygulama kimliğinin tıklatılması uygulama ayrıntılarını görüntüler. Alttaki **Düzenle** düğmesine tıklayın.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-edit-appid.png)
       
-2. Merhaba ekranın toohello'e gidin ve hello tıklatın **sertifika oluştur...**  düğmesi hello bölümü altında **geliştirme bildirimi SSL sertifikası**.
+2. Ekranın altına gidin ve **Geliştirme bildirimi SSL Sertifikası** altındaki **sertifika Oluştur...** düğmesine tıklayın.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-create-cert.png)
    
-      Bu hello "iOS sertifikası Ekle" Yardımcısı görüntülenir.
+      "iOS Sertifikası Ekle" yardımcısı görüntülenir.
    
    > [!NOTE]
-   > Bu öğretici geliştirme sertifikası kullanır. Merhaba aynı işlem üretim sertifika kaydedildiğinde kullanılır. Yalnızca hello kullandığınızdan emin olun aynı sertifika türü Bildirimleri gönderirken.
+   > Bu öğretici geliştirme sertifikası kullanır. Aynı işlem üretim sertifika kaydedildiğinde de kullanılır. Bildirimleri gönderirken aynı sertifika türünü kullandığınızdan kesinlikle emin olun.
    > 
    > 
-3. Tıklatın **Dosya Seç**, hello ilk görevde oluşturduğunuz hello CSR dosyasını kaydettiğiniz toohello konumunu bulun ve ardından **Generate**.
+3. **Dosya Seç**’e tıklayın, ilk görevde oluşturduğunuz CSR dosyasını kaydettiğiniz konuma göz atın ve **Oluştur**’a tıklayın.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-cert-choose-csr.png)
-4. Merhaba sertifika hello portal tarafından oluşturulduktan sonra hello tıklatın **karşıdan** düğmesine tıklayın ve **Bitti**.
+4. Portal tarafından sertifika oluşturulduktan sonra **İndir** düğmesine ve **Bitti**’ye tıklayın.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-download-cert.png)
    
-      Bu hello sertifika indirmeleri ve yüklemeleri klasörünüzdeki tooyour bilgisayar kaydeder.
+      Böylece sertifika indirilir ve bilgisayarınızın İndirmeler klasörüne kaydedilir.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-downloaded.png)
    
    > [!NOTE]
-   > Varsayılan olarak, hello indirilen geliştirme sertifikası adlandırılan dosya **aps_development.cer**.
+   > Varsayılan olarak, indirilen geliştirme sertifikası dosyası **aps_development.cer** olarak adlandırılır.
    > 
    > 
-5. Merhaba indirilen sertifikasına çift tıklayın **aps_development.cer**.
+5. İndirilen **aps_development.cer** bildirim sertifikasına çift tıklayın.
    
-      Bu hello yeni sertifika hello Anahtarlık, aşağıda gösterildiği gibi yüklenir:
+      Yeni sertifika Anahtar Zinciri’ne aşağıda gösterildiği gibi yüklenir:
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-cert-in-keychain.png)
    
    > [!NOTE]
-   > Merhaba ad farklı olabilir, ancak ile önek alacaktır **Apple geliştirme iOS Bildirim Hizmetleri:**.
+   > Sertifikanızdaki ad farklı olabilir, ancak **Apple Geliştirme iOS Bildirim Hizmetleri:** ile önek alacaktır.
    > 
    > 
-6. Anahtarlık erişimi'nde hello oluşturduğunuz hello yeni bildirim sertifikasına sağ tıklayın **sertifikaları** kategorisi. Tıklatın **verme**, hello dosya adı, seçin hello **.p12** biçimlendirmek ve ardından **kaydetmek**.
+6. Anahtar Zinciri Erişimi’nde **Sertifikalar** kategorisinde oluşturduğunuz yeni bildirim sertifikasına sağ tıklayın. **Dışarı Aktar**’a tıklayın, dosyaya ad verin, **.p12** biçimini seçin ve **Kaydet**’e tıklayın.
    
     ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-export-cert-p12.png)
    
-    Merhaba dosya adını not ve hello dışarı aktarılan .p12 sertifikanın konumunu yapın. APNS ile kimlik doğrulaması kullanılan tooenable olacaktır.
+    Dışarı aktarılan .p12 sertifikanın dosya adını ve konumunu not edin. APNS kimlik doğrulamasını etkinleştirmek için kullanılacaktır.
    
    > [!NOTE]
    > Bu öğretici bir QuickStart.p12 dosyası oluşturur. Dosyanızın adı ve konumu farklı olabilir.
    > 
    > 
 
-## <a name="create-a-provisioning-profile-for-hello-app"></a>Merhaba uygulama için bir sağlama profili oluşturun
-1. Merhaba edilene <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS sağlama portalı</a>seçin **sağlama profilleri**seçin **tüm**ve ardından hello  **+**  Düğme toocreate yeni bir profil. Bu hello başlatır **iOS hazırlama profili** Sihirbazı
+## <a name="create-a-provisioning-profile-for-the-app"></a>Uygulama için bir sağlama profili oluşturun
+1. <a href="http://go.microsoft.com/fwlink/p/?LinkId=272456" target="_blank">iOS Sağlama Portalı</a>’na geri dönün, **Sağlama Profilleri**’ni ve **Tümü**’nü seçin, ardından da yeni profil oluşturmak için **+** düğmesine tıklayın. Böylece, **iOS Hazırlama Profili** Sihirbazı başlatılır
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
-2. Seçin **iOS uygulaması geliştirme** altında **geliştirme** hello hazırlama profili türü ve tıklatın olarak **devam**. 
-3. Ardından, yeni oluşturduğunuz hello hello uygulama Kimliğini seçin **uygulama kimliği** aşağı açılan liste ve tıklatın **devam et**
+2. **iOS Uygulaması Geliştirme**’yi, **Geliştirme** altında hazırlama profili türü olarak seçin ve **Devam**’a tıklayın. 
+3. Daha sonra, az önce **Uygulama Kimliği** açılan listesinden oluşturduğunuz uygulama kimliğini seçin ve **Devam**’a tıklayın
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-select-appid-for-provisioning.png)
-4. Merhaba, **sertifikaları Seç** ekranında, kod imzalama için kullanılan normal geliştirme sertifikanızı seçin ve tıklatın **devam**. Bu, yeni oluşturduğunuz hello bildirim sertifikası değildir.
+4. **Sertifikaları Seç** ekranında, kod imzalama için kullanılan normal geliştirme sertifikanızı seçin ve **Devam**’a tıklayın. Bu, yeni oluşturduğunuz bildirim sertifikası değildir.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-cert.png)
-5. Ardından, hello'ı seçin **aygıtları** toouse test etme ve tıklatın **devam et**
+5. Sonra da, testte kullanmak üzere **Cihazlar**’a ve **Devam**’a tıklayın
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-select-devices.png)
-6. Son olarak, hello profili için bir ad seçin **profil adı**, tıklatın **Generate**.
+6. Son olarak, profil için **Profil Adı**’nda bir ad seçin, **Oluştur**’a tıklayın.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-name-profile.png)
-7. Merhaba yeni sağlama profili oluşturulduğunda toodownload, yükleme tıklayın ve Xcode geliştirme makinenizde. Sonra da **Bitti**’ye tıklayın.
+7. Yeni sağlama profili oluşturulduğunda indirmek için buna tıklayın ve Xcode geliştirme makinesine yükleyin. Sonra da **Bitti**’ye tıklayın.
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-provisioning-profile-ready.png)

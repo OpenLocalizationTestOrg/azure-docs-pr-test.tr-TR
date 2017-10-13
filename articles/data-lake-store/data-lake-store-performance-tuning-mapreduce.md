@@ -1,5 +1,5 @@
 ---
-title: "Data Lake Store MapReduce performans ayarlama yönergeleri aaaAzure | Microsoft Docs"
+title: "Azure Data Lake Store MapReduce performans yönergeleri ayarlama | Microsoft Docs"
 description: "Azure Data Lake Store MapReduce performans kuralları ayarlama"
 services: data-lake-store
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: e21414a23530e65613c85156af0209c88ec54d2d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9528148792f083cb0e48d356e61cf61762ee954f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-store"></a>Performans MapReduce Hdınsight ve Azure Data Lake Store için yönergeler ayarlama
 
@@ -26,55 +26,55 @@ ms.lasthandoff: 10/06/2017
 ## <a name="prerequisites"></a>Ön koşullar
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
-* **Bir Azure Data Lake Store hesabı**. Yönergeler için toocreate bir, bkz: [Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md)
-* **Azure Hdınsight kümesi** erişim tooa Data Lake Store hesabı ile. Bkz: [Data Lake Store ile bir Hdınsight kümesi oluşturmayı](data-lake-store-hdinsight-hadoop-use-portal.md). Merhaba küme için Uzak Masaüstü etkinleştirdiğinizden emin olun.
+* **Bir Azure Data Lake Store hesabı**. Bir oluşturma hakkında yönergeler için bkz: [Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md)
+* **Azure Hdınsight kümesi** bir Data Lake Store hesabına erişim. Bkz: [Data Lake Store ile bir Hdınsight kümesi oluşturmayı](data-lake-store-hdinsight-hadoop-use-portal.md). Küme için Uzak Masaüstü etkinleştirdiğinizden emin olun.
 * **MapReduce kullanarak**.  Daha fazla bilgi için bkz: [hdınsight'ta Hadoop içinde kullanım MapReduce](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-use-mapreduce)  
 * **Performans ayarlama yönergeleri ADLS**.  Genel performans için bkz [Data Lake deposu performans rehberi ayarlama](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-performance-tuning-guidance)  
 
 ## <a name="parameters"></a>Parametreler
 
-MapReduce işleri çalıştırırken tooincrease performans üzerinde ADLS yapılandırabilirsiniz hello en önemli Parametreler şunlardır:
+MapReduce işleri çalıştırırken ADLS performansını artırmak için yapılandırabileceğiniz en önemli Parametreler şunlardır:
 
-* **Mapreduce.Map.Memory.MB** – hello miktarda bellek tooallocate tooeach Eşleyici
-* **Mapreduce.job.Maps** – hello harita görevleri iş başına sayısı
-* **Mapreduce.reduce.Memory.MB** – bellek tooallocate tooeach reducer hello miktarı
-* **Mapreduce.job.reduces** – hello Küçült görevleri iş başına sayısı
+* **Mapreduce.Map.Memory.MB** – her Eşleyici ayrılacak bellek miktarı
+* **Mapreduce.job.Maps** – harita görev iş başına sayısı
+* **Mapreduce.reduce.Memory.MB** – her reducer ayrılacak bellek miktarı
+* **Mapreduce.job.reduces** – Küçült görevleri iş başına sayısı
 
-**Mapreduce.Map.Memory / Mapreduce.reduce.memory** bu sayı ne kadar bellek hello harita için gereken temel ayarlanması gereken ve/veya görev azaltın.  Merhaba varsayılan değerleri mapreduce.map.memory ve mapreduce.reduce.memory Ambari hello Yarn yapılandırma görüntülenebilir.  Ambari, tooYARN gidin ve hello yapılandırmalar sekmesini görüntüleyin.  Merhaba YARN bellek görüntülenir.  
+**Mapreduce.Map.Memory / Mapreduce.reduce.memory** bu sayı ne kadar bellek eşlemesi için gereken temel ayarlanması gereken ve/veya görev azaltın.  Varsayılan değerleri mapreduce.map.memory ve mapreduce.reduce.memory Ambari Yarn yapılandırma görüntülenebilir.  Ambari, YARN için gidin ve yapılandırmalar sekmesini görüntüleyin.  YARN bellek görüntülenir.  
 
-**Mapreduce.job.Maps / Mapreduce.job.reduces** bu oluşturulan mappers veya reducers toobe hello sayısını belirler.  kaç tane mappers hello MapReduce işi için oluşturulacak bölmelerini Hello sayısını belirler.  Bu nedenle, istenen mappers hello sayısından daha az bölmelerini olup olmadığını istenenden daha az mappers alabilirsiniz.       
+**Mapreduce.job.Maps / Mapreduce.job.reduces** bu mappers veya reducers oluşturulacak en fazla sayısını belirler.  MapReduce işi için kaç tane mappers oluşturulacak bölmelerini sayısını belirler.  Bu nedenle, istenen mappers sayısından daha az bölmelerini olup olmadığını istenenden daha az mappers alabilirsiniz.       
 
 ## <a name="guidance"></a>Rehber
 
-**1. adım: çalışan işlerin sayısını belirlemek** -varsayılan olarak, MapReduce, işiniz için hello tüm küme kullanır.  Merhaba kümesinin daha az kullanılabilir kapsayıcıları sayısından daha az mappers kullanarak kullanabilirsiniz.  Bu belgedeki Hello bilgiler, uygulamanız kümenizde çalışan hello yalnızca uygulama olduğunu varsayar.      
+**1. adım: çalışan işlerin sayısını belirlemek** -varsayılan olarak, MapReduce, işiniz için tüm küme kullanır.  Kümenin daha az kullanılabilir kapsayıcıları sayısından daha az mappers kullanarak kullanabilirsiniz.  Bu belgedeki bilgiler, uygulamanız, küme üzerinde çalışan tek uygulama olduğunu varsayar.      
 
-**2. adım: mapreduce.map.memory/mapreduce.reduce.memory ayarlama** – hello harita hello bellek boyutu ve azaltmak görevler belirli işinizde bağımlı olacaktır.  Tooincrease eşzamanlılık istiyorsanız hello bellek boyutunu azaltabilirsiniz.  eşzamanlı olarak çalışan görevlerin sayısı hello Merhaba kapsayıcılara sayısına bağlıdır.  Merhaba Eşleyici veya reducer başına bellek miktarını azaltarak daha fazla kapsayıcıları, hangi aynı anda daha fazla mappers veya reducers toorun etkinleştirmek oluşturulabilir.  Azalan hello miktarda bellek çok fazla bellek yetersiz bazı işlemler toorun neden olabilir.  İşinizi çalıştırırken bir yığın hata alırsanız, Eşleyici veya reducer başına hello bellek artırmanız gerekir.  Daha fazla kapsayıcı ekleme ekleyeceksiniz dikkate almanız gereken potansiyel olarak performansı düşürebilir her ek kapsayıcısı için fazladan genel gider.  Başka bir tooget daha fazla bellek daha yüksek miktarlarda bellek sahip bir küme kullanarak veya hello kümenizdeki düğümlerin sayısını artırmayı alternatiftir.  Daha fazla bellek daha fazla eşzamanlılık anlamı kullanıldığında, daha fazla kapsayıcıları toobe olanak sağlar.  
+**2. adım: mapreduce.map.memory/mapreduce.reduce.memory ayarlama** – eşlemesi için bellek boyutu ve azaltmak görevler belirli işinizde bağımlı olacaktır.  Eşzamanlılık artırmak istiyorsanız bellek boyutunu azaltabilirsiniz.  Görevler eşzamanlı olarak çalışan sayısı kapsayıcıları sayısına bağlıdır.  Eşleyici veya reducer başına bellek miktarını azaltarak daha fazla kapsayıcıları, daha fazla mappers veya aynı anda çalışmasına reducers etkinleştirmek oluşturulabilir.  Çok fazla bellek miktarını azaltarak belleğin tükenmek üzere bazı işlemler neden olabilir.  İşinizi çalıştırırken bir yığın hata alırsanız, Eşleyici veya reducer başına bellek artırmanız gerekir.  Daha fazla kapsayıcı ekleme ekleyeceksiniz dikkate almanız gereken potansiyel olarak performansı düşürebilir her ek kapsayıcısı için fazladan genel gider.  Başka bir alternatif, yüksek miktarda bellek sahip bir küme kullanarak veya kümenizdeki düğümlerin sayısını artırarak daha fazla bellek elde etmektir.  Daha fazla bellek, daha fazla eşzamanlılık başka bir deyişle, kullanılacak, daha fazla kapsayıcı olanak sağlar.  
 
-**3. adım: Toplam YARN bellek belirleme** -tootune mapreduce.job.maps/mapreduce.job.reduces hello belleğin toplam YARN kullanılabilir düşünmelisiniz.  Bu bilgiler, Ambari içinde kullanılabilir.  TooYARN gidin ve hello yapılandırmalar sekmesini görüntüleyin.  Merhaba YARN bellek Bu pencerede görüntülenir.  Küme tooget hello toplam YARN bellekte hello YARN bellek düğümleri hello sayısıyla çarpın.
+**3. adım: Toplam YARN bellek belirleme** - mapreduce.job.maps/mapreduce.job.reduces, ayarlamak için kullanılabilir toplam YARN bellek miktarını göz önünde bulundurmanız gerekir.  Bu bilgiler, Ambari içinde kullanılabilir.  YARN için gidin ve yapılandırmalar sekmesini görüntüleyin.  YARN bellek Bu pencerede görüntülenir.  Toplam YARN bellek almak için kümedeki düğümlerin sayısını YARN bellekle çarpın.
 
     Total YARN memory = nodes * YARN memory per node
-Boş bir küme kullanıyorsanız, bellek, kümeniz için toplam YARN bellek hello olabilir.  Merhaba kapsayıcılara mappers veya reducers toohello sayısı sayısını azaltarak kümenizin belleğin bir kısmını tooonly kullanım seçebilirsiniz sonra bellek, diğer uygulamalar kullanıyorsanız toouse istiyor.  
+Boş bir küme kullanıyorsanız, bellek, kümeniz için toplam YARN bellek olabilir.  Diğer uygulamalar bellek kullanıyorsanız, kullanmak istediğiniz kapsayıcı sayısını mappers veya reducers sayısını azaltarak kümenizin belleğin bir kısmını yalnızca kullanmayı seçebilirsiniz.  
 
-**4. adım: YARN kapsayıcıları sayısını hesaplayın** – YARN kapsayıcıları dikte hello miktarını eşzamanlılık hello işi için kullanılabilir.  Toplam YARN bellek alın ve mapreduce.map.memory tarafından bölün.  
+**4. adım: YARN kapsayıcıları sayısını hesaplayın** – YARN kapsayıcıları dikte eşzamanlılık iş için kullanılabilir miktarı.  Toplam YARN bellek alın ve mapreduce.map.memory tarafından bölün.  
 
     # of YARN containers = total YARN memory / mapreduce.map.memory
 
-**5. adım: mapreduce.job.maps/mapreduce.job.reduces ayarlama** ayarlamak mapreduce.job.maps/mapreduce.job.reduces tooat kullanılabilir kapsayıcıları en az hello sayısı.  Denemeler yapabilirsiniz daha iyi performans alırsanız mappers ve reducers toosee hello sayısını artırmayı tarafından daha fazla.  Daha fazla mappers çok fazla mappers sahip performansı düşebilir şekilde ek yükü sahip olduğunuzu göz önünde bulundurun.  
+**5. adım: mapreduce.job.maps/mapreduce.job.reduces ayarlama** mapreduce.job.maps/mapreduce.job.reduces için en az biri olarak ayarlamak kullanılabilir kapsayıcıları sayısı.  Denemeler yapabilirsiniz mappers ve reducers daha iyi performans elde olmadığını görmek için sayısını artırarak daha fazla.  Daha fazla mappers çok fazla mappers sahip performansı düşebilir şekilde ek yükü sahip olduğunuzu göz önünde bulundurun.  
 
-YARN kapsayıcı Hello sayısı bellek tarafından sınırlandığı için CPU zamanlama ve CPU yalıtım varsayılan olarak kapalıdır.
+YARN kapsayıcı sayısı bellek tarafından sınırlandığı için CPU zamanlama ve CPU yalıtım varsayılan olarak kapalıdır.
 
 ## <a name="example-calculation"></a>Örnek hesaplama
 
-Diyelim ki şu anda 8 D14 düğümden oluşan bir kümeniz olduğuna ve toorun bir g/ç yoğun iş istiyor.  Yapmanız gerektiğini hello hesaplamalar şunlardır:
+Şu anda 8 D14 düğümden oluşan bir kümeniz olduğuna ve g/ç yoğun iş çalıştırmak istediğiniz varsayalım.  Yapmanız gerektiğini hesaplamalar şunlardır:
 
-**1. adım: çalışan işlerin sayısını belirlemek** -Bizim örneğimizde, biz bizim işi yalnızca bir çalışan hello olduğunu varsayın.  
+**1. adım: çalışan işlerin sayısını belirlemek** -Bizim örneğimizde, biz bizim işi yalnızca bir çalışan olduğunu varsayın.  
 
 **2. adım: mapreduce.map.memory/mapreduce.reduce.memory ayarlama** – bizim Örneğin, bir g/ç yoğun iş çalıştırıyorsanız ve 3 GB bellek eşlemesi görevler için yeterli olacağına karar verin.
 
     mapreduce.map.memory = 3GB
 **3. adım: Toplam YARN bellek belirleme**
 
-    total memory from hello cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
+    total memory from the cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
 **4. adım: Hesaplama YARN kapsayıcıları sayısı**
 
     # of YARN containers = 768GB of available memory / 3 GB of memory =   256
@@ -87,24 +87,24 @@ Diyelim ki şu anda 8 D14 düğümden oluşan bir kümeniz olduğuna ve toorun b
 
 **ADLS azaltma**
 
-Çok kiracılı bir hizmet ADLS hesabına düzey bant genişliği sınırlarını ayarlar.  Bu sınırlar isabet durumunda toosee görev hataları başlar. Bu görev günlüklerine gözlemci azaltma hataları tanımlanabilir.  Daha fazla bant genişliği, işiniz için ihtiyacınız varsa, lütfen bizimle iletişime geçin.   
+Çok kiracılı bir hizmet ADLS hesabına düzey bant genişliği sınırlarını ayarlar.  Bu sınırlar isabet, görev hataları görmek başlatılır. Bu görev günlüklerine gözlemci azaltma hataları tanımlanabilir.  Daha fazla bant genişliği, işiniz için ihtiyacınız varsa, lütfen bizimle iletişime geçin.   
 
-Kısıtlanan durumunda toocheck tooenable hello hata ayıklama hello istemci tarafında günlüğü gerekir. İşte nasıl bunu yapabilirsiniz:
+Kısıtlanan durumunda denetlemek için hata ayıklama istemci tarafında günlüğünü etkinleştirmeniz gerekir. İşte nasıl bunu yapabilirsiniz:
 
-1. PUT hello özelliği hello log4j Ambari özelliklerinde aşağıdaki > YARN > Config > yarn log4j Gelişmiş: log4j.logger.com.microsoft.azure.datalake.store=DEBUG
+1. Ambari log4j özelliklerinde aşağıdaki özelliği put > YARN > Config > yarn log4j Gelişmiş: log4j.logger.com.microsoft.azure.datalake.store=DEBUG
 
-2. Merhaba config tootake etkisi için tüm hello düğümleri/hizmetini yeniden başlatın.
+2. Tüm düğümleri/hizmet yapılandırma etkili olması yeniden başlatın.
 
-3. Kısıtlanan hello YARN günlüğü dosyasındaki hello HTTP 429 hata kodunu görürsünüz. Merhaba YARN Günlüğü dosyasıdır, içinde /tmp/&lt;kullanıcı&gt;/yarn.log
+3. Kısıtlanan HTTP 429 hata kodunu YARN günlüğü dosyasında görürsünüz. İçinde /tmp/ YARN Günlüğü dosyasıdır&lt;kullanıcı&gt;/yarn.log
 
-## <a name="examples-toorun"></a>Örnekler tooRun
+## <a name="examples-to-run"></a>Örnekleri çalıştırmak için
 
-MapReduce Azure Data Lake Store üzerinde çalışan nasıl toodemonstrate bir kümede ayarları aşağıdaki hello ile çalışan bazı örnek kod aşağıda verilmiştir:
+MapReduce Azure Data Lake Store üzerinde nasıl çalışacağını tanıtmak için aşağıdaki ayarlara sahip bir kümede çalışan bazı örnek kod aşağıda verilmiştir:
 
 * 16 düğüm D14v2
 * Hadoop kümesi HDI 3.6 çalıştırma
 
-Bir başlangıç noktası için bazı örnek komutları toorun MapReduce Teragen, Terasort ve Teravalidate aşağıda verilmiştir.  Bu komutlar, kaynaklara göre ayarlayabilirsiniz.
+İçin bir başlangıç noktası, MapReduce Teragen, Terasort ve Teravalidate çalıştırmak için bazı örnek komutları şunlardır.  Bu komutlar, kaynaklara göre ayarlayabilirsiniz.
 
 **Teragen**
 

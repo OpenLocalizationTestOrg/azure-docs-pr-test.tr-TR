@@ -1,5 +1,5 @@
 ---
-title: "aaaAuthenticating aracılığıyla parolası olmayan kimlikleri iş ve Azure AD için Windows Hello | Microsoft Docs"
+title: "Aracılığıyla parolası olmayan kimlikleri Windows Hello iş ve Azure AD için kimlik doğrulaması | Microsoft Docs"
 description: "İş ve iş için Windows Hello dağıtma hakkında ek bilgi için Windows Hello genel bakış sağlar."
 services: active-directory
 documentationcenter: 
@@ -15,59 +15,59 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
-ms.openlocfilehash: 7c1c52e10b7ab7a89ec3226ffa7cf01896267871
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 62adf8a9fd4400a056e2c0f59c79431acbad5865
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="authenticating-identities-without-passwords-through-windows-hello-for-business"></a>Kimlik doğrulama aracılığıyla parolası olmayan kimlikleri iş için Windows Hello
-Merhaba geçerli parolalar tek başına ile kimlik doğrulama yöntemlerinin yeterli tookeep kullanıcılar güvenli değildir. Kullanıcıların yeniden kullanmak ve parolaları unutmayın. Parolaları olan breachable, phishable, yatkın toocracks ve guessable. Yatkın tooattacks gibi ve bunlar da zor tooremember Al "[hello karma değer geçişi](https://technet.microsoft.com/dn785092.aspx)".
+Geçerli parolalar tek başına ile kimlik doğrulama yöntemlerinin kullanıcıların güvenli tutmak yeterli değildir. Kullanıcıların yeniden kullanmak ve parolaları unutmayın. Parolalar breachable, phishable, kırık yatkın ve guessable. Ayrıca unutmayın zor ve saldırıları gibi yatkın Al "[karma değer geçişi](https://technet.microsoft.com/dn785092.aspx)".
 
 ## <a name="about-windows-hello-for-business"></a>İş için Windows Hello hakkında
-İş için Windows Hello bir özel/ortak anahtarı veya parolaları gider sertifika tabanlı kimlik doğrulaması yaklaşım kuruluşlar ve tüketicileri için kullanılabilir. Bu form kimlik doğrulaması parolaları ve olan dayanıklı toobreaches, thefts ve kimlik avı yerini anahtar çifti kimlik bilgilerini kullanır.
+İş için Windows Hello bir özel/ortak anahtarı veya parolaları gider sertifika tabanlı kimlik doğrulaması yaklaşım kuruluşlar ve tüketicileri için kullanılabilir. Bu form kimlik doğrulaması parolaları değiştirebilir ve ihlallerinden, thefts ve kimlik avı dayanıklıdır anahtar çifti kimlik bilgilerini kullanır.
 
- İş için Windows Hello tooa Microsoft hesabı, bir Windows Server Active Directory hesabı, bir Microsoft Azure Active Directory (Azure AD) hesabı veya hızlı kimlik çevrimiçi (FIDO) kimlik doğrulamasını destekleyen Microsoft dışı hizmet kimlik doğrulaması sağlar. İşletme kaydı için bir ilk iki aşamalı doğrulama sırasında Windows Hello sonra iş için Windows Hello hello kullanıcının cihazında ayarlanır ve Windows Hello veya bir PIN olabilir bir hareketi hello kullanıcı ayarlar. Merhaba kullanıcı kimliklerini hello hareketi tooverify sağlar. Windows iş tooauthenticate hello kullanıcı için Windows Hello kullanır ve korumalı tooaccess kaynaklarını ve Hizmetleri Yardım.
+ İş için Windows Hello bir Microsoft hesabı, bir Windows Server Active Directory hesabı, bir Microsoft Azure Active Directory (Azure AD) hesabı veya hızlı kimlik çevrimiçi (FIDO) kimlik doğrulamasını destekleyen Microsoft dışı hizmet kimlik doğrulaması sağlar. İşletme kaydı için bir ilk iki aşamalı doğrulama sırasında Windows Hello sonra iş için Windows Hello kullanıcının cihazında ayarlanır ve kullanıcı Windows Hello veya bir PIN olabilir bir hareketi ayarlar. Kullanıcı kimliklerini doğrulamak için hareketi sağlar. Windows sonra iş için Windows Hello kullanıcının kimliğini doğrulamak ve korumalı kaynaklar ve hizmetlerine erişmek için yardımcı olmak için kullanır.
 
-Kullanıcı hello bir akıllı kart toosign toohello aygıt kullanır gibi hello özel anahtarı yalnızca bir PIN, Biyometri veya uzak bir aygıtı gibi "kullanıcı hareketi" yoluyla kullanılabilir hale getirilir. Bu, bağlantılı tooa sertifika ya da değiştirip asimetrik anahtar çifti bilgilerdir. Merhaba özel hello cihazı bir Güvenilir Platform Modülü (TPM) yongası varsa Onaylandı donanım anahtardır. Merhaba özel anahtar asla hello aygıt bırakır.
+Özel anahtar yalnızca bir PIN, Biyometri veya cihaza oturum açmak için kullanıcının kullandığı bir akıllı kart gibi uzak bir aygıtı gibi "kullanıcı hareketi" yoluyla kullanılabilir hale getirilir. Bu bilgiler bir sertifika veya değiştirip asimetrik anahtar çifti bağlanır. Donanım cihazı bir Güvenilir Platform Modülü (TPM) yongası varsa Onaylandı özel anahtarıdır. Özel anahtarı hiçbir zaman sürücüden ayrılmaz.
 
-Hello ortak anahtarı, Azure Active Directory ve Windows Server Active Directory (şirket içi) kaydedilir. Kimlik sağlayıcısı (IDPs) eşleme hello ortak anahtarı hello kullanıcı toohello özel anahtarı tarafından hello kullanıcıyı doğrulamak ve oturum açma bilgileri bir saat parola (OTP), PhoneFactor veya farklı bildirim mekanizması aracılığıyla sağlayın.
+Ortak anahtar, Azure Active Directory ve Windows Server Active Directory (şirket içi) kaydedilir. Kimlik sağlayıcısı (IDPs) özel anahtara kullanıcının ortak anahtarı eşleyerek kullanıcıyı doğrulamak ve oturum açma bilgileri bir saat parola (OTP), PhoneFactor veya farklı bildirim mekanizması aracılığıyla sağlayın.
 
 ## <a name="why-enterprises-should-adopt-windows-hello-for-business"></a>Neden kuruluşların iş için Windows Hello benimsemeye
 İş için Windows Hello etkinleştirerek, kuruluşların kaynaklarına göre daha da güvenli yapabilirsiniz:
 
-* İş için Windows Hello donanım tercih edilen bir seçeneğiyle ayarlama. Bu anahtarlar TPM 1.2 veya TPM 2.0 kullanılabilir olduğunda oluşturulması anlamına gelir. TPM mevcut olmadığında, yazılım hello anahtarı oluşturur.
-* Tanımlama hello karmaşıklığı ve hello uzunluğu sabitleme ve Hello kullanım, kuruluşunuzda etkinleştirilip etkinleştirilmediğini gösterir.
-* Windows Hello iş toosupport akıllı kart gibi senaryolar için sertifika tabanlı güven kullanarak yapılandırma.
+* İş için Windows Hello donanım tercih edilen bir seçeneğiyle ayarlama. Bu anahtarlar TPM 1.2 veya TPM 2.0 kullanılabilir olduğunda oluşturulması anlamına gelir. TPM mevcut olmadığında, yazılım anahtarı oluşturur.
+* PIN uzunluğu ve karmaşıklık tanımlama ve Hello kullanım, kuruluşunuzda etkinleştirilip etkinleştirilmediğini gösterir.
+* Sertifika tabanlı güven kullanarak akıllı kart benzeri senaryolarını desteklemek üzere iş için Windows Hello yapılandırma.
 
 ## <a name="how-windows-hello-for-business-works"></a>İş için Windows Hello işleyişi
-1. Anahtarları hello donanımda TPM veya yazılım tarafından oluşturulur. Birçok cihaz hello donanım cihazlarının şifreleme anahtarları ile tümleştirerek güvenliğini sağlar yerleşik bir TPM yongası vardır. TPM 1.2 veya TPM 2.0 anahtar veya oluşturulan hello anahtarlarından oluşturulan sertifika oluşturur.
-2. Bu donanım ilişkili tuşlarını Hello TPM gösterir.
-3. Tek unlock hareketi hello cihaz kilidini açar. Merhaba cihaz etki alanına katılmış veya Azure ise bu hareketi AD alanına katılmış toomultiple kaynaklara erişmesine izin verir.
+1. Anahtarları donanımda TPM veya yazılım tarafından oluşturulur. Birçok cihaz donanım cihazlarının şifreleme anahtarları ile tümleştirerek güvenliğini sağlar. yerleşik bir TPM yongası vardır. TPM 1.2 veya TPM 2.0 anahtar veya oluşturulan anahtarlarından oluşturulan sertifika oluşturur.
+2. Bu donanım bağlı anahtarlar TPM gösterir.
+3. Tek unlock hareketi cihaz kilidini açar. Cihaz etki alanına katılmış veya Azure ise bu hareketi AD alanına katılmış birden çok kaynaklara erişim izni verir.
 
-## <a name="how-hello-windows-hello-for-business-lifecycle-works"></a>İş yaşam döngüsü için Windows Hello hello nasıl çalışır?
+## <a name="how-the-windows-hello-for-business-lifecycle-works"></a>İş yaşam döngüsü için Windows Hello işleyişi
 ![İş yaşam döngüsü için Windows Hello](./media/active-directory-azureadjoin/active-directory-azureadjoin-microsoft-passport.png)
 
-Merhaba önceki diyagramda hello özel/ortak anahtar çifti ve hello doğrulama hello kimlik sağlayıcısı tarafından gösterilmektedir. Bu adımların her biri aşağıda ayrıntılı olarak açıklanmıştır:
+Önceki diyagramda özel/ortak anahtar çifti ve kimlik sağlayıcısı tarafından doğrulama gösterilmektedir. Bu adımların her biri aşağıda ayrıntılı olarak açıklanmıştır:
 
-1. Merhaba kullanıcı kimliklerini kanıtlayan birden fazla yerleşik sağlama yöntemleri (hareketleri, fiziksel akıllı kartlar, çok faktörlü kimlik doğrulaması) ve bu bilgileri tooan Azure Active Directory gibi kimlik sağlayıcısı (IDP) gönderir veya şirket içi Active Directory.
-2. Hello cihaz ardından hello anahtarı oluşturur, hello anahtar gösterir, bu anahtarı hello ortak kısmını alır, istasyon ifadelerle ekler, oturum açtığında ve toohello IDP tooregister hello anahtar gönderir.
-3. Merhaba IDP hello anahtarının ortak kısmını hello kaydeder hemen hello IDP zorluklar aygıt toosign hello özel hello anahtar bölümünü ile Merhaba.
-4. Merhaba IDP ardından doğrular ve sorunları hello kullanıcı ve hello aygıt hello korumalı kaynaklara erişmesine imkan tanıyan kimlik doğrulama belirteci hello. IDPs platformlar arası uygulamalar yazma veya tarayıcı (JavaScript/Webcrypto API) aracılığıyla destek toocreate kullanın ve Windows Hello için kullanıcılar iş kimlik bilgileri kullanın.
+1. Kullanıcı kimliklerini kanıtlayan birden fazla yerleşik sağlama yöntemleri (hareketleri, fiziksel akıllı kartlar, çok faktörlü kimlik doğrulaması) için bir kimlik sağlayıcıyı (IDP) Azure Active Directory gibi bu bilgileri gönderir ve şirket içi Active Directory.
+2. Cihaz ardından anahtarı oluşturur, anahtar gösterir, bu anahtarı ortak kısmını alır, istasyon ifadelerle ekler, oturum açtığında ve anahtar kaydetmek için IDP gönderir.
+3. Ortak anahtar kısmını IDP kaydeder hemen IDP özel anahtar bölümünü ile imzalamak için cihaz sınar.
+4. IDP doğrular ve korunan kaynaklar kullanıcı ve aygıt erişim sağlayan kimlik doğrulama belirteci verir. IDPs platformlar arası uygulamalar yazma veya oluşturmak ve Windows Hello için kullanıcılar iş kimlik bilgilerini kullanmak için tarayıcı desteği (aracılığıyla JavaScript/Webcrypto API) kullanın.
 
-## <a name="hello-deployment-requirements-for-windows-hello-for-business"></a>İş için Windows Hello Hello dağıtım gereksinimleri
-### <a name="at-hello-enterprise-level"></a>Merhaba Kurumsal düzeyde
-* Merhaba kuruluş Azure aboneliği sahiptir.
+## <a name="the-deployment-requirements-for-windows-hello-for-business"></a>Dağıtım için gereksinimleri iş için Windows Hello
+### <a name="at-the-enterprise-level"></a>Kurumsal düzeyde
+* Kuruluş Azure aboneliği sahiptir.
 
-### <a name="at-hello-user-level"></a>Merhaba kullanıcı düzeyinde
-* Merhaba kullanıcının bilgisayarı Windows 10 Professional veya Enterprise çalışır.
+### <a name="at-the-user-level"></a>Kullanıcı düzeyinde
+* Kullanıcının bilgisayarı Windows 10 Professional veya Enterprise çalışır.
 
-Ayrıntılı dağıtım yönergeleri için bkz: [hello kuruluşunuzda iş için Windows Hello etkinleştirmek](active-directory-azureadjoin-passport-deployment.md).
+Ayrıntılı dağıtım yönergeleri için bkz: [etkinleştirmek için Windows Hello kuruluştaki iş](active-directory-azureadjoin-passport-deployment.md).
 
 ## <a name="additional-information"></a>Ek bilgiler
-* [Merhaba kuruluş için Windows 10: yolları toouse cihazlar iş için](active-directory-azureadjoin-windows10-devices-overview.md)
-* [Bulut özellikleri tooWindows 10 cihazların Azure Active Directory katılım aracılığıyla genişletme](active-directory-azureadjoin-user-upgrade.md)
+* [Kurumlar için Windows 10: Cihazları iş için kullanmanın yolları](active-directory-azureadjoin-windows10-devices-overview.md)
+* [Azure Active Directory Join ile bulut işlevlerini Windows 10 cihazlarına genişletme](active-directory-azureadjoin-user-upgrade.md)
 * [Azure AD Katılımı kullanım senaryoları hakkında bilgi edinin](active-directory-azureadjoin-deployment-aadjoindirect.md)
-* [Etki alanına katılmış aygıtlar tooAzure Windows 10 deneyimleri için AD Bağlan](active-directory-azureadjoin-devices-group-policy.md)
+* [Windows 10 deneyiminden faydalanmak için etki alanına katılan cihazları Azure AD'ye bağlama](active-directory-azureadjoin-devices-group-policy.md)
 * [Azure AD'ye Katılım ayarlama](active-directory-azureadjoin-setup.md)
 

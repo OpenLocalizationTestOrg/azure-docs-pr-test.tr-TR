@@ -1,6 +1,6 @@
 ---
-title: "Ayrıca \"bir dizin (portalı - Azure Search) sorgu | Microsoft Docs\""
-description: "Hello Azure Portal'ın arama Gezgini arama sorgusu gönderin."
+title: Dizin Sorgulama (portal - Azure Search) | Microsoft Docs
+description: "Azure Portal'ın Arama Gezgini'ninde arama sorgusu gönderin."
 services: search
 manager: jhubbard
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 07/10/2017
 ms.author: ashmaka
-ms.openlocfilehash: 56bab3ef8a66eeb053fbbeb6d322acb6824fb34b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: dd68d8ed073bf7b8666ddef35a2f1f84df690b4b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="query-an-azure-search-index-using-search-explorer-in-hello-azure-portal"></a>Arama Gezgini hello Azure Portal kullanarak Azure Search dizini sorgulama
+# <a name="query-an-azure-search-index-using-search-explorer-in-the-azure-portal"></a>Azure Portal’ın Arama Gezgini’ni kullanarak Azure Search dizinini sorgulama
 > [!div class="op_single_selector"]
 > * [Genel Bakış](search-query-overview.md)
 > * [Portal](search-explorer.md)
@@ -28,41 +28,41 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Bu makalede nasıl tooquery Azure Search dizini kullanarak gösterilmektedir **arama Gezgini** hello Azure Portalı'nda. Arama Gezgini toosubmit basit veya tam Lucene sorgu dizeleri tooany var olan dizini hizmetinizde kullanabilirsiniz.
+Bu makalede, Azure Portal’ın **Arama Gezgini**’ni kullanarak bir Azure Search dizininin nasıl sorgulanacağı gösterilir. Hizmetinizde var olan herhangi bir dizine basit veya tam Lucene sorgu dizeleri göndermek için Arama Gezgini’ni kullanabilirsiniz.
 
-## <a name="open-hello-service-dashboard"></a>Açık hello hizmet Panosu
-1. Tıklatın **tüm kaynakları** sol hello tarafı hello hello atlama çubuğunda [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+## <a name="open-the-service-dashboard"></a>Hizmet panosunu açma
+1. [Azure Portal](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)'ın sol tarafındaki atlama çubuğunda **Tüm kaynaklar**’a tıklayın.
 2. Azure Search hizmetinizi seçin.
 
 ## <a name="select-an-index"></a>Dizin seçme
 
-Merhaba gelen toosearch istediğinizi seçin hello dizin **dizinleri** döşeme.
+**Dizinler** kutucuğunda aramak istediğiniz dizini seçin.
 
    ![](./media/search-explorer/pick-index.png)
 
 ## <a name="open-search-explorer"></a>Arama Gezgini’ni açma
 
-Merhaba arama Gezgini döşeme tooslide açık hello arama çubuğunu tıklayın ve sonuçlar bölmesinde.
+Arama çubuğunu ve sonuçlar bölmesini kaydırarak açmak için Arama Gezgini kutucuğuna tıklayın.
 
    ![](./media/search-explorer/search-explorer-tile.png)
 
 ## <a name="start-searching"></a>Aramayı başlatma
 
-Merhaba arama Gezgini kullanırken belirtebilirsiniz [sorgu parametreleri](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) tooformulate hello sorgu.
+Arama Gezgini'ni kullanırken sorguyu formüle etmek için [sorgu parametreleri](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) belirtebilirsiniz.
 
 1. **Sorgu dizesi**’nde sorguyu yazın ve **Ara**’ya basın. 
 
-   Merhaba sorgu dizesi, URL toosubmit hello Azure Search REST API'sini bir HTTP isteği hello uygun istek otomatik olarak ayrıştırılır.   
+   Azure Search REST API'sine HTTP isteği göndermek için, sorgu dizesi uygun istek URL'si içine otomatik olarak ayrıştırılır.   
    
-   Tüm geçerli basit veya tam Lucene sorgu söz dizimi toocreate hello isteği kullanabilirsiniz. Merhaba `*` belirli bir sırada tüm belgeleri döndüren eşdeğer tooan boş veya belirtilmemiş arama karakterdir.
+   İsteği oluşturmak için herhangi bir geçerli basit veya tam Lucene sorgu söz dizimini kullanabilirsiniz. `*` karakteri, tüm belgelerin belirli bir sırada olmaksızın döndürüldüğü boş veya belirtilmemiş aramaya eşdeğerdir.
 
-2. İçinde **sonuçları**, sorgu sonuçları ham JSON'da sunulan, aynı toohello yükü döndürülen istekleri program aracılığıyla gönderirken HTTP yanıt gövdesi.
+2. **Sonuçlar**’da sorgu sonuçları ham JSON olarak verilir; bu, HTTP Yanıt Gövdesinde programlama aracılığıyla istek verdiğinizde döndürülen yükle özdeştir.
 
    ![](./media/search-explorer/search-bar.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Merhaba kaynakları aşağıdaki ek sorgu sözdizimi bilgi ve örnekler sağlar.
+Aşağıdaki kaynaklar ek sorgu söz dizimi bilgileri ve örnekler içerir.
 
  + [Basit sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
  + [Lucene sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 

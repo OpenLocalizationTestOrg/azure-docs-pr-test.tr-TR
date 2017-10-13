@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile Zendesk | Microsoft Docs"
-description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile Zendesk arasında."
+description: "Çoklu oturum açma Azure Active Directory ile Zendesk arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,140 +13,140 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 46ccd57a4adeb810af459caaa1e592cf2b62cb8c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 51c06d838c5ed6286dfb99ea25faaaf33bad5f3c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>Öğretici: Zendesk Azure Active Directory Tümleştirme
 
-Bu öğreticide, bilgi nasıl toointegrate Zendesk Azure Active Directory'ye (Azure AD).
+Bu öğreticide, Azure Active Directory (Azure AD) ile Zendesk tümleştirmek öğrenin.
 
-Zendesk Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
+Zendesk Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Erişim tooZendesk sahip Azure AD'de kontrol edebilirsiniz
-- Kullanıcıların tooautomatically get açan tooZendesk (çoklu oturum açma) Azure AD hesaplarına sahip etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir
+- Zendesk erişimi, Azure AD'de kontrol edebilirsiniz
+- Otomatik olarak için Zendesk (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-tooconfigure Zendesk ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
+Azure AD tümleştirme Zendesk ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
 - Bir Zendesk çoklu oturum açma abonelik etkin
 
 
 > [!NOTE]
-> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
 
 
-Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
+Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
-1. Zendesk hello Galerisi'nden ekleme
+1. Galeriden Zendesk ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
 
-## <a name="adding-zendesk-from-hello-gallery"></a>Zendesk hello Galerisi'nden ekleme
-Azure AD'ye tooconfigure hello tümleştirme Zendesk, tooadd Zendesk hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
+## <a name="adding-zendesk-from-the-gallery"></a>Galeriden Zendesk ekleme
+Azure AD Zendesk tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Zendesk eklemeniz gerekir.
 
-**tooadd Zendesk hello galerisinden hello aşağıdaki adımları gerçekleştirin:**
+**Galeriden Zendesk eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba,  **[Azure Portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure Portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Tıklatın **yeni uygulama** hello iletişim hello üstte düğmesi.
+3. Tıklatın **yeni uygulama** iletişim kutusunun üst kısmında düğmesi.
 
     ![Uygulamalar][3]
 
-4. Merhaba arama kutusuna yazın **Zendesk**.
+4. Arama kutusuna **Zendesk**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_search.png)
 
-5. Merhaba Sonuçlar panelinde seçin **Zendesk**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
+5. Sonuçlar panelinde seçin **Zendesk**ve ardından **Ekle** uygulama eklemek için düğmesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Zendesk sınayın.
 
-Tek toowork'ın oturum açma hangi hello karşılık gelen Zendesk içinde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcı ve ilgili kullanıcı Zendesk hello arasında bir bağlantı ilişkisi kurulan toobe gerekir.
+Tekli çalışmaya oturum için Azure AD Zendesk karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Zendesk ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Bu bağlantı ilişkisi hello hello değerini atayarak kurulur **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** Zendesk içinde.
+Bu bağlantı değeri atayarak ilişkisi **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** Zendesk içinde.
 
-tooconfigure ve Zendesk ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Zendesk ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
-3. **[Zendesk test kullanıcısı oluşturma](#creating-a-zendesk-test-user)**  -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir Zendesk içinde karşılık gelen.
-4. **[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Zendesk test kullanıcısı oluşturma](#creating-a-zendesk-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Zendesk sağlamak için.
+4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma Zendesk uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Zendesk uygulamanızda yapılandırın.
 
-**tooconfigure Azure AD çoklu oturum açma ile Zendesk, hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma ile Zendesk yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello hello üzerinde Azure portal'ın **Zendesk** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **Zendesk** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_samlbase.png)
 
-3. Merhaba üzerinde **Zendesk etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **Zendesk etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_url.png)
 
-    a. Merhaba, **oturum açma URL'si** metin kutusuna, desen aşağıdaki hello kullanarak türü hello değeri:`https://<subdomain>.zendesk.com`
+    a. İçinde **oturum açma URL'si** metin kutusuna, şu biçimi kullanarak değeri yazın:`https://<subdomain>.zendesk.com`
 
-    b. Merhaba, **tanımlayıcısı** metin kutusuna, desen aşağıdaki hello kullanarak türü hello değeri:`https://<subdomain>.zendesk.com`
+    b. İçinde **tanımlayıcısı** metin kutusuna, şu biçimi kullanarak değeri yazın:`https://<subdomain>.zendesk.com`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerleri tanımlayıcı URL'si ve oturum açma hello gerçek URL ile güncelleştirin. Kişi [Zendesk destek ekibi](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) tooget bu değerleri. 
+    > Bu değerler gerçek değildir. Bu değerleri tanımlayıcı URL'sini ve gerçek oturum açma URL'si ile güncelleştirin. Kişi [Zendesk destek ekibi](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) bu değerleri almak için. 
 
-4. Zendesk hello SAML onaylar belirli bir biçimde bekliyor. Zorunlu SAML özniteliklere vardır ancak özniteliği isteğe bağlı olarak ekleyebileceğiniz **kullanıcı öznitelikleri** bölümü aşağıdaki adımları aşağıdaki hello tarafından: 
+4. Zendesk SAML onaylar belirli bir biçimde bekliyor. Zorunlu SAML özniteliklere vardır ancak özniteliği isteğe bağlı olarak ekleyebileceğiniz **kullanıcı öznitelikleri** izleyerek bölümü aşağıdaki adımları: 
 
      ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_attributes1.png)
 
-    a. Merhaba tıklatın **görüntüleme ve düzenleme tüm diğer özniteliklerle hello** onay kutusu.
+    a. Tıklatın **görünümü ve tüm diğer özniteliklerle düzenleme** onay kutusu.
      
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_attributes2.png)
    
-    b. Merhaba tıklatın **özniteliği eklemek** tooopen **Ekle özniteliği** iletişim.
+    b. Tıklatın **özniteliği eklemek** açmak için **Ekle özniteliği** iletişim.
     
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-zendesk-tutorial/tutorial_attribute_05.png)
 
-    c. Merhaba, **adı** metin kutusuna, türü hello öznitelik adı (örneğin **emailaddress**).
+    c. İçinde **adı** metin kutusuna, öznitelik adı yazın (örneğin **emailaddress**).
     
-    d. Merhaba gelen **değeri** listesinde, select hello öznitelik değeri (olarak **user.mail**).
+    d. Gelen **değeri** listesinde, öznitelik değeri seçin (olarak **user.mail**).
     
     e. Tıklatın **Tamam**
  
     > [!NOTE] 
-    > Varsayılan olarak Azure AD'de olmayan uzantı öznitelikleri tooadd öznitelikleri kullanın. Tıklatın [SAML ayarlanabilir kullanıcı öznitelikleri](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise-) tooget hello tam listesi SAML öznitelikleri **Zendesk** kabul eder. 
+    > Uzantı öznitelikleri, varsayılan olarak Azure AD'de olmayan öznitelikler eklemek için kullanın. Tıklatın [SAML ayarlanabilir kullanıcı öznitelikleri](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise-) tam listesini almak için SAML öznitelikleri **Zendesk** kabul eder. 
 
-5. Merhaba üzerinde **SAML imzalama sertifikası** bölümü, kopyalama hello **parmak İZİ** sertifika değeri.
+5. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalama **parmak İZİ** sertifika değeri.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_certificate.png) 
 
-6. Merhaba üzerinde **Zendesk yapılandırma** 'yi tıklatın **yapılandırma Zendesk** tooopen **yapılandırma oturum açma** penceresi. Kopya hello **Sign-Out URL ve SAML çoklu oturum açma hizmet URL'si** hello gelen **hızlı başvuru bölümü.**
+6. Üzerinde **Zendesk yapılandırma** 'yi tıklatın **yapılandırma Zendesk** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_configure.png) 
 
@@ -154,99 +154,99 @@ Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin
 
 8. Tıklatın **yönetici**.
 
-9. Merhaba sol gezinti bölmesinde **ayarları**ve ardından **güvenlik**.
+9. Sol gezinti bölmesinde **ayarları**ve ardından **güvenlik**.
 
-10. Merhaba üzerinde **güvenlik** sayfasında, hello aşağıdaki adımları gerçekleştirin: 
+10. Üzerinde **güvenlik** sayfasında, aşağıdaki adımları gerçekleştirin: 
    
      ![Güvenlik](./media/active-directory-saas-zendesk-tutorial/ic773089.png "güvenlik")
 
     ![Çoklu oturum açma](./media/active-directory-saas-zendesk-tutorial/ic773090.png "çoklu oturum açma")
 
-     a. Merhaba tıklatın **yönetici & aracıları** sekmesi.
+     a. Tıklatın **yönetici & aracıları** sekmesi.
 
      b. Seçin **çoklu oturum açma (SSO) ve SAML**ve ardından **SAML**.
 
-     c. İçinde **SAML SSO URL** metin kutusuna, Yapıştır hello değerini **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyalanan. 
+     c. İçinde **SAML SSO URL** metin değerini yapıştırın **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyalanan. 
 
-     d. İçinde **uzak oturum kapatma URL'si** metin kutusuna, Yapıştır hello değerini **Sign-Out URL** Azure portalından kopyalanan.
+     d. İçinde **uzak oturum kapatma URL'si** metin değerini yapıştırın **Sign-Out URL** Azure portalından kopyalanan.
         
-     e. İçinde **sertifika parmak izi** metin kutusuna, Yapıştır hello **parmak izi** Azure portalından kopyaladığınız sertifika değeri.
+     e. İçinde **sertifika parmak izi** metin kutusuna, Yapıştır **parmak izi** Azure portalından kopyaladığınız sertifika değeri.
      
      f. **Kaydet** düğmesine tıklayın.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-zendesk-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcıların toodisplay hello listesini Git çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-zendesk-tutorial/create_aaduser_02.png) 
 
-3. Merhaba iletişim Hello üstünde tıklatın **Ekle** tooopen hello **kullanıcı** iletişim.
+3. İletişim kutusunun üstündeki **Ekle** açmak için **kullanıcı** iletişim.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-zendesk-tutorial/create_aaduser_03.png) 
 
-4. Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-zendesk-tutorial/create_aaduser_04.png) 
 
-    a. Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
 
-    b. Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
 
-    c. Seçin **Göster parola** ve hello hello değerini yazma **parola**.
+    c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**'a tıklayın. 
 
 ### <a name="creating-a-zendesk-test-user"></a>Zendesk test kullanıcısı oluşturma
 
-içine tooenable Azure AD kullanıcıların toolog **Zendesk**, içine sağlanmalıdır **Zendesk**.  
-Merhaba uygulamalarında atanan hello rolüne bağlı olarak, hello beklenen davranıştır:
+Azure AD kullanıcıların oturum açmanız **Zendesk**, içine sağlanmalıdır **Zendesk**.  
+Uygulamalar atanan role bağlı olarak, bu beklenen bir davranıştır:
 
  1. **Son kullanıcı** hesapları otomatik olarak oturum açarken sağlandı.
- 2. **Aracı** ve **yönetici** hesapları gereken el ile derlemenizde toobe **Zendesk** oturum açmadan önce.
+ 2. **Aracı** ve **yönetici** hesapları el ile olarak sağlanması gerekir **Zendesk** oturum açmadan önce.
  
-**bir kullanıcı hesabı tooprovision hello aşağıdaki adımları gerçekleştirin:**
+**Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde tooyour oturum **Zendesk** Kiracı.
+1. Oturum, **Zendesk** Kiracı.
 
-2. Select hello **müşteri listesi** sekmesi.
+2. Seçin **müşteri listesi** sekmesi.
 
-3. Select hello **kullanıcı** sekmesine ve tıklayın **Ekle**.
+3. Seçin **kullanıcı** sekmesine ve tıklayın **Ekle**.
    
     ![Kullanıcı Ekle](./media/active-directory-saas-zendesk-tutorial/ic773632.png "Kullanıcı Ekle")
-4. Tooprovision istediğiniz ve ardından var olan bir Azure AD hesabını hello e-posta adresini yazın **kaydetmek**.
+4. Sağlamak istediğiniz ve ardından bir var olan bir Azure AD hesabının e-posta adresini yazın **kaydetmek**.
    
     ![Yeni kullanıcı](./media/active-directory-saas-zendesk-tutorial/ic773633.png "yeni kullanıcı")
 
 > [!NOTE]
-> API AAD kullanıcı hesaplarının Zendesk tooprovision tarafından sağlanan veya herhangi diğer Zendesk kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz.
+> API sağlama AAD kullanıcı hesaplarına Zendesk tarafından sağlanan veya herhangi diğer Zendesk kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz.
 
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
 
-Bu bölümde, erişim tooZendesk vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
+Bu bölümde, Britta Zendesk için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
 ![Kullanıcı atama][200] 
 
-**tooassign Britta Simon tooZendesk hello aşağıdaki adımları gerçekleştirin:**
+**Zendesk için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Merhaba uygulamalar listesinde **Zendesk**.
+2. Uygulamalar listesinde **Zendesk**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_app.png) 
 
-3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
     ![Kullanıcı atama][202] 
 
@@ -254,7 +254,7 @@ Bu bölümde, erişim tooZendesk vererek Britta Simon toouse Azure çoklu oturum
 
     ![Kullanıcı atama][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -262,14 +262,14 @@ Bu bölümde, erişim tooZendesk vererek Britta Simon toouse Azure çoklu oturum
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Merhaba Zendesk hello erişim paneli parçasında tıkladığınızda, otomatik olarak oturum açma tooyour Zendesk uygulama almanız gerekir.
-Merhaba erişim paneli hakkında daha fazla bilgi için bkz: [giriş toohello erişim paneli](active-directory-saas-access-panel-introduction.md).
+Erişim paneli Zendesk parçasında tıklattığınızda, otomatik olarak Zendesk uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 

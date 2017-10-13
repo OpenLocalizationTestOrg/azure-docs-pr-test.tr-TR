@@ -1,6 +1,6 @@
 ---
-title: "aaaRun Linux Azure üzerinde Cassandra | Microsoft Docs"
-description: "Nasıl toorun bir Cassandra küme Linux Azure Virtual Machines'de bir Node.js uygulamasını"
+title: "Cassandra ile Linux Azure üzerinde çalışan | Microsoft Docs"
+description: "Cassandra küme Linux Azure Virtual Machines'de bir Node.js uygulamasını çalıştırma"
 services: virtual-machines-linux
 documentationcenter: nodejs
 author: tomarcher
@@ -15,104 +15,104 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tarcher
-ms.openlocfilehash: 381ca301bbe88d3740cf182f9c44fada5b9ba7cc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1ff3d77ced6c9d90029b251490c05e52d9b43515
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="running-cassandra-with-linux-on-azure-and-accessing-it-from-nodejs"></a>Azure’da Linux ile Cassandra Çalıştırma ve Cassandra’ya Node.js ile Erişme
 > [!IMPORTANT] 
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, hello Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, en yeni dağıtımların hello Resource Manager modelini kullanmasını önerir. Resource Manager şablonları için bkz: [Datastax Kurumsal](https://azure.microsoft.com/documentation/templates/datastax) ve [Spark küme ve Cassandra CentOS üzerinde](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
+> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Resource Manager şablonları için bkz: [Datastax Kurumsal](https://azure.microsoft.com/documentation/templates/datastax) ve [Spark küme ve Cassandra CentOS üzerinde](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
 
 ## <a name="overview"></a>Genel Bakış
 Microsoft Azure hem de Microsoft işletim sistemleri, uygulama sunucuları, ileti Ara yanı sıra NoSQL ve SQL veritabanlarını hem ticari ve açık kaynak modellerinden iyi olarak Microsoft dışı yazılımlar olarak çalıştırılan bir açık bulut platformudur. Azure dahil olmak üzere genel Bulutları dayanıklı hizmetler oluşturma dikkatli planlama ve kasıtlı mimarisi iyi depolama katmanları olarak hem uygulama sunucuları için gerektirir. Doğal olarak Cassandra'nın dağıtılmış depolama mimarisi hataya dayanıklı küme hataları için yüksek oranda kullanılabilir sistemlerini oluşturmaya yardımcı olur. Cassandra bulut ölçeği cassandra.apache.org Apache yazılım Foundation tarafından tutulan NoSQL veritabanı olan; Cassandra Java'da yazılmış ve bu nedenle hem Linux yanı sıra Windows platformları çalıştırır.
 
-Bu makalenin Hello odak tooshow Cassandra Ubuntu üzerinde Microsoft Azure sanal makineler ve sanal ağlar yararlanarak tek ve birden çok veri merkezi kümesi olarak dağıtımıdır. birden çok disk düğüm yapılandırması gerektirdiğinden hello Küme dağıtımı en iyi duruma getirilmiş üretim iş yükleri için bu makalenin kapsamı dışında uygun halka topolojisi tasarımı ve toosupport hello modelleme verileri gereken çoğaltma, veri tutarlılığı, üretilen iş ve yüksek oranda kullanılabilirlik gereksinimleri.
+Bu makaleyi odağını, Microsoft Azure sanal makineler ve sanal ağlar yararlanarak tek ve birden çok veri merkezi küme olarak Ubuntu üzerinde Cassandra dağıtım göstermektir. Küme dağıtımı en iyi duruma getirilmiş üretim iş yükleri için birden çok disk düğüm yapılandırması, uygun halka topolojisi tasarımı ve gerekli çoğaltma, veri tutarlılığı, üretilen iş ve yüksek desteklemek için modelleme verileri gerektirir, bu makalenin kapsamı dışında aynıdır Kullanılabilirlik gereksinimleri.
 
-Bu makale, yapı hello Cassandra küme söz konusu temel yaklaşım tooshow Docker, Chef veya altyapı dağıtımı hello çok daha kolay hale getirebilir Puppet karşılaştırıldığında alır.  
+Ne göstermek için temel bir yaklaşım Cassandra küme oluşturma ile ilgili bu makalede alır, Docker, Chef veya altyapı dağıtımı çok kolaylaştırabilir Puppet karşılaştırılan.  
 
-## <a name="hello-deployment-models"></a>Merhaba dağıtım modelleri
-Microsoft Azure ağ biri hello Erişim Yasak tooattain ince tanecikli ağ güvenliği olabilir yalıtılmış özel kümeleri hello dağıtımını sağlar.  Bu makalede temel düzeyde hello Cassandra dağıtım gösteren ilgili olduğundan, biz hello tutarlılık düzeyi ve verimlilik için hello en iyi depolama tasarımı odaklanır değil. Bizim kuramsal küme için ağ gereksinimleri hello listesi aşağıdadır:
+## <a name="the-deployment-models"></a>Dağıtım modelleri
+Microsoft Azure ağ erişimini hassas ağ güvenliği elde kısıtlanabilir yalıtılmış özel kümeleri dağıtımını sağlar.  Bu makalede temel düzeyde Cassandra dağıtım gösteren ilgili olduğundan, biz tutarlılık düzeyi ve verimlilik için en iyi depolama tasarımı odaklanır değil. Ağ gereksinimleri bizim kuramsal kümesi için listesi aşağıdadır:
 
 * Dış sistemler Cassandra veritabanından içinde veya Azure dışına erişemiyor
-* Cassandra küme thrift trafiği için yük dengeleyici arkasında toobe sahip
+* Cassandra küme thrift trafiği için yük dengeleyici arkasında olması gerekir
 * Her veri merkezinde bir Gelişmiş küme kullanılabilirlik için iki grup Cassandra düğümler dağıtma
-* Uygulama sunucusu grubu erişim toohello veritabanı doğrudan sahip yalnızca hello kümeyi bu nedenle, kilitleme
+* Uygulama sunucusu grubu veritabanına doğrudan erişimi yalnızca kümeyi bu nedenle, kilitleme
 * Ortak ağ uç nokta SSH dışında
 * Her Cassandra düğümü sabit bir iç IP adresi gerekiyor
 
-Cassandra dağıtılan tooa tek Azure bölgesi veya toomultiple bölgeler hello iş yükü dağıtılan hello doğasına bağlı olabilir. Bölgeli dağıtım modeli çevrelerini tooserve son kullanıcılar daha yakından tooa belirli Coğrafya hello aracılığıyla olabilir aynı Cassandra altyapı. Cassandra'nın yerleşik düğümü çoğaltma alır dikkatli hello eşitleme çok yöneticisinin birden çok veri merkezleri kaynaklanan yazar ve hello veri tooapplications tutarlı bir görünümünü sunar. Bölgeli dağıtım ile Merhaba risk azaltma hello daha geniş Azure hizmet kesintisi durumunu da yardımcı olabilir. Cassandra'nın ince ayarlanabilir tutarlılık ve çoğaltma topolojisini uygulamaları farklı RPO ihtiyaçlarını karşılamak için yardımcı olur.
+Tek bir Azure bölgesine veya iş yükü dağıtılmış niteliğine göre birden çok bölgeye Cassandra dağıtılabilir. Bölgeli dağıtım modeli, son kullanıcıların belirli bir coğrafi konum aynı Cassandra altyapısı aracılığıyla yakın hizmet vermek için de kullanılabilir. Cassandra'nın yerleşik düğümü çoğaltma alır dikkatli çok ana eşitleme birden çok veri merkezleri kaynaklanan yazar ve uygulamalar verilere tutarlı bir görünümünü sunar. Çok bölge dağıtımı daha geniş Azure hizmet kesintisi risk azaltma ile de yardımcı olabilir. Cassandra'nın ince ayarlanabilir tutarlılık ve çoğaltma topolojisini uygulamaları farklı RPO ihtiyaçlarını karşılamak için yardımcı olur.
 
 ### <a name="single-region-deployment"></a>Tek bölge dağıtımı
-Tek bölge dağıtımı ve bölgeli modeli oluşturma toplama hello learnings ile başlar. Yukarıda belirtilen hello ağ güvenliği gereksinimleri karşılanabilir böylece azure sanal ağı yalıtılmış kullanılan toocreate alt olacaktır.  Merhaba tek bölge dağıtımı oluşturma'da açıklandığı hello işlemi Ubuntu 14.04 LTS ve Cassandra 2.08 kullanır; Ancak, hello işlem kolayca benimsenen toohello diğer Linux çeşitleri olabilir. Merhaba hello sistemle ilgili hello tek bölge dağıtımı özelliklerini bazıları şunlardır.  
+Biz tek bölge dağıtımı ile başlamalı ve bir bölgeli modeli oluşturma learnings elde etme. Azure sanal ağı, yukarıda belirtilen ağ güvenliği gereksinimleri karşılanabilir yalıtılmış alt ağlar oluşturmak üzere kullanılır.  Tek bölge dağıtımı oluşturma'da açıklandığı işlemi Ubuntu 14.04 LTS ve Cassandra 2.08 kullanır; Ancak, işlem kolayca diğer Linux çeşitleri benimsenen. Tek bölge dağıtımı sistemle ilgili özelliklerini bazıları şunlardır:  
 
-**Yüksek Kullanılabilirlik:** tootwo kullanılabilirlik ayarlar hello düğümleri yüksek kullanılabilirlik için birden çok hata etki alanları arasında yayılır Şekil 1 dağıtılan hello gösterilen Cassandra düğümleri hello. Her kullanılabilirlik kümesiyle açıklama VM'ler eşlenen too2 hata etki alanlarını olur.  Microsoft Azure kullanır hello hata etki alanı toomanage yükseltme etki alanı (örneğin, ana bilgisayar veya konuk işletim sistemi düzeltme eki uygulama/yükseltmeler, uygulama yükseltmelerini) hello kavramı sırasında (örn. donanım veya yazılım hatası) kesinti planlanmamış kavramı, zamanlanan saati yönetmek için kullanılır. Lütfen bakın [Azure uygulamaları için yüksek kullanılabilirlik ve olağanüstü durum kurtarma](http://msdn.microsoft.com/library/dn251004.aspx) yüksek kullanılabilirlik modemle hızlı bağlantılar sağlama, hata ve yükseltme etki alanlarının hello rolü için.
+**Yüksek Kullanılabilirlik:** böylece düğümleri yüksek kullanılabilirlik için birden çok hata etki alanları arasında yayılır Şekil 1'de gösterilen Cassandra düğümler için iki kullanılabilirlik kümeleri dağıtılır. Her kullanılabilirlik kümesiyle açıklama VM'ler 2 hata etki alanları için eşlenmedi.  Microsoft Azure kullanır (örneğin, ana bilgisayar veya konuk işletim sistemi düzeltme eki uygulama/yükseltmeler, uygulama yükseltmelerini) yükseltme etki alanı kavramı sırasında aşağı planlanmamış süresini (örn. donanım veya yazılım hatası) yönetmek için hata etki alanı kavramı zamanlanan saati yönetmek için kullanılır. Lütfen bakın [Azure uygulamaları için yüksek kullanılabilirlik ve olağanüstü durum kurtarma](http://msdn.microsoft.com/library/dn251004.aspx) yüksek kullanılabilirlik modemle hızlı bağlantılar sağlama, hata ve yükseltme etki alanlarının rolü.
 
 ![Tek bölge dağıtımı](./media/cassandra-nodejs/cassandra-linux1.png)
 
 Şekil 1: Tek bölge dağıtımı
 
-Bu yazma Hello anda hello açık eşleme VM'ler tooa belirli bir arıza etki alanı grubunun Azure izin vermeyen unutmayın; Bu nedenle, Şekil 1'de gösterilen bile hello dağıtım modeliyle, istatistiksel olarak olası tüm hello sanal makineleri dört yerine eşlenen tootwo hata etki alanları olabilir.
+Bu yazma zaman gruba belirli hata etki alanı VM'ler açık eşleme Azure izin vermeyen unutmayın; Bu nedenle, Şekil 1'de gösterilen bile dağıtım modeliyle, istatistiksel olarak olası tüm sanal makineleri iki hata etki alanlarını dört yerine eşlenmiş.
 
-**Yük Dengeleme Thrift trafiği:** hello web Sunucusu'ndaki Thrift istemci kitaplıkları bir iç yük dengeleyici toohello küme bağlanın. Bu hello iç yük dengeleyici toohello "data" alt ekleme işleminin hello gerektirir (Şekil 1 bakın) hello Cassandra küme barındırma hello bulut hizmeti hello bağlamında. Merhaba iç yük dengeleyici tanımlandıktan sonra her düğüm hello yük dengeli uç nokta toobe hello ek açıklamalar yük dengelenmiş kümeye daha önceden tanımlanmış yük dengeleyicisi adı eklendi gerektirir. Bkz: [Azure iç Yük Dengeleme ](../../../load-balancer/load-balancer-internal-overview.md)daha fazla ayrıntı için.
+**Yük Dengeleme Thrift trafiği:** Thrift istemci kitaplıkları web sunucusu içinde bağlanmak aracılığıyla bir iç yük dengeleyici kümeye. Bu "data" alt ağına iç yük dengeleyici ekleme işlemini gerektirir (Şekil 1 bakın) Cassandra küme barındıran bulut hizmetini bağlamında. İç yük dengeleyicisi tanımlandıktan sonra her düğüm ile önceden tanımlanmış yük dengeleyicisi adı ile bir yük dengelenmiş küme ek açıklamalar eklenmesi için yük dengeli uç nokta gerektiriyor. Bkz: [Azure iç Yük Dengeleme ](../../../load-balancer/load-balancer-internal-overview.md)daha fazla ayrıntı için.
 
-**Küme oluştururken çekirdeği:** tooselect hello en yüksek oranda kullanılabilir düğümler yeni düğümler hello gibi oluştururken çekirdeği çekirdek düğüm toodiscover hello topolojisi hello kümesinin ile iletişim kurması için önemlidir. Her kullanılabilirlik kümesinden bir düğümü çekirdek düğüm tooavoid tek hata noktası atanır.
+**Küme oluştururken çekirdeği:** yeni düğümler küme topolojisini bulmak için çekirdek düğümleri ile iletişim kuracak şekilde oluştururken çekirdeği için en yüksek oranda kullanılabilir düğümleri seçmek önemlidir. Her kullanılabilirlik kümesinden bir düğümü tek hata noktası önlemek için çekirdek düğüm olarak atanır.
 
-**Çoğaltma faktörünü ve tutarlılık düzeyi:** hello çoğaltma faktörü (RF - kopya hello kümesinde depolanan her bir satır sayısı) tarafından Cassandra'nın yerleşik yüksek kullanılabilirlik ve veri dayanıklılığı işlemleri ve tutarlılık düzeyi (sayısı çoğaltmaları toobe okunan yazılan/hello sonuç toohello çağıran döndürmeden önce). Merhaba tutarlılık düzeyi hello CRUD sorgu verme sırasında belirtilen ancak çoğaltma faktörü hello KEYSPACE (benzer tooa ilişkisel veritabanı) oluşturma sırasında belirtilir. Cassandra belgelerine bakın [tutarlılık için yapılandırma](http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) tutarlılık ayrıntılarını ve çekirdek hesaplama hello formülü için.
+**Çoğaltma faktörünü ve tutarlılık düzeyi:** Cassandra'nın yerleşik yüksek kullanılabilirlik ve veri dayanıklılığı işlemleri çoğaltma faktörüyle (RF - kopya kümesinde depolanan her bir satır sayısı) ve tutarlılık düzeyi (için yineleme sayısı sonucu çağırana döndürmeden önce okunan ve yazılan olabilir). Tutarlılık düzeyi CRUD sorgu verme sırasında belirtilen ancak çoğaltma faktörü KEYSPACE (ilişkisel bir veritabanına benzer) oluşturma sırasında belirtilir. Cassandra belgelerine bakın [tutarlılık için yapılandırma](http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) tutarlılık ayrıntılarını ve çekirdek hesaplama formülü için.
 
-Cassandra iki tür veri bütünlüğü modelleri – tutarlılık ve nihai tutarlılık destekler; Merhaba çoğaltma faktörü ve tutarlılık düzeyi birlikte hello veri yazma işlemi tamamlandığında veya sonuçta tutarlı hemen tutarlı olup olmayacağını belirler. Örneğin, veri tutarlılığı gerekli tooattain yazılmış çoğaltmaları toobe hello sayısı altındaki herhangi bir tutarlılık düzeyi bağlanırken tutarlılık düzeyi her zaman olacak hello sağlar gibi çekirdek belirtme (örn. bir TANE) ÇEKİRDEĞİNİ sonuçta tutarlı olan verileri sonuçlanır.
+Cassandra iki tür veri bütünlüğü modelleri – tutarlılık ve nihai tutarlılık destekler; Çoğaltma faktörünü ve tutarlılık düzeyi birlikte verileri yazma işlemi tamamlandığında veya sonuçta tutarlı hemen tutarlı olup olmayacağını belirler. Örneğin, veri tutarlılığı herhangi bir tutarlılık düzeyi bağlanırken tutarlılık düzeyi her zaman olduğu gibi çekirdek belirtme sağlar, elde etmek için gerektiği gibi yazılması için yineleme sayısı sonuçta tutarlı olan verileri (örneğin bir) ÇEKİRDEĞİNİ sonuçlanır.
 
-Yukarıda, 3 ve çekirdek çoğaltma faktörüyle hello 8 düğüm kümesi (2 düğümleri okumak veya tutarlılık için yazılan) okuma/yazma tutarlılık düzeyi, hello teorik kaybı çoğu 1 düğüm başına çoğaltma grubu hello uygulama başlamadan önce hello adresindeki varlığını sürdürmesini Merhaba haberiniz bile hata oluştu. Bu, tüm hello anahtar alanları okuma/yazma isteklerini iyi dengelenmiş varsayar.  Merhaba, dağıtılan hello küme için kullanacağız hello Parametreler şunlardır:
+Yukarıda, 3 ve çekirdek çoğaltma faktörüyle 8 düğüm kümesi (2 düğümleri okumak veya tutarlılık için yazılan) okuma/yazma tutarlılık düzeyi, çoğaltma grubu başına en fazla 1 düğümü teorik kaybı uygulama başlangıç bildirimde bulunmadan önce varlığını sürdürmesini hata oluştu. Bu, tüm anahtar alanları iyi dengelenmiş okuma/istekleri yazma olduğunu varsayar.  Dağıtılan küme için kullanacağız Parametreler şunlardır:
 
 Tek bölge Cassandra küme yapılandırması:
 
 | Küme parametresi | Değer | Açıklamalar |
 | --- | --- | --- |
-| Düğüm (N) sayısı |8 |Merhaba kümedeki düğümler toplam sayısı |
+| Düğüm (N) sayısı |8 |Kümedeki düğümler toplam sayısı |
 | Çoğaltma faktörü (RF) |3 |Belirli bir satırın çoğaltmaların sayısı |
-| Tutarlılık düzeyi (yazma) |QUORUM[(RF/2) +1) = 2] hello sonuç Merhaba formül yuvarlanır |Merhaba yanıt toohello çağıran gönderilmeden önce hello çoğu 2 çoğaltma Yazar; 3 çoğaltma sonunda tutarlı bir şekilde yazılır. |
-| Tutarlılık düzeyi (okuma) |Çekirdek [(RF/2) + 1 = 2] hello formülün hello sonucu aşağı yuvarlanmasını |2 çoğaltma yanıt toohello çağıran göndermeden önce okur. |
-| Çoğaltma stratejisi |NetworkTopologyStrategy bakın [veri çoğaltma](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) Cassandra belgelerinde daha fazla bilgi için |Merhaba dağıtım topolojisi anlar ve çoğaltmalar, düğümlerde yerleştirir, böylece tüm hello çoğaltmalar Merhaba üzerinde aynı sona ermez raf |
-| Snitch |GossipingPropertyFileSnitch bakın [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) Cassandra belgelerinde daha fazla bilgi için |NetworkTopologyStrategy snitch toounderstand hello topoloji kavramı kullanır. GossipingPropertyFileSnitch her düğüm toodata merkezi ve raf eşleme daha iyi denetim olanağı verir. Merhaba küme dedikodu toopropagate sonra bu bilgileri kullanır. Bu dinamik IP ayarı göreli tooPropertyFileSnitch çok daha kolaydır |
+| Tutarlılık düzeyi (yazma) |QUORUM[(RF/2) +1) = 2] formülü sonucu yuvarlanan |Yanıt çağırana gönderilmeden önce en çok 2 çoğaltma Yazar; 3 çoğaltma sonunda tutarlı bir şekilde yazılır. |
+| Tutarlılık düzeyi (okuma) |Çekirdek [(RF/2) + 1 = 2] formül sonucu yuvarlanan |2 çoğaltma, yanıtını çağırana göndermeden önce okur. |
+| Çoğaltma stratejisi |NetworkTopologyStrategy bakın [veri çoğaltma](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) Cassandra belgelerinde daha fazla bilgi için |Dağıtım topolojisi anlar ve çoğaltmalar, düğümlerde yerleştirir, böylece tüm çoğaltmaların aynı rafa monte şunun yok |
+| Snitch |GossipingPropertyFileSnitch bakın [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) Cassandra belgelerinde daha fazla bilgi için |NetworkTopologyStrategy snitch kavramı topoloji anlamak için kullanır. GossipingPropertyFileSnitch veri merkezi ve raf her düğüme eşleme daha iyi denetim olanağı verir. Küme, dedikodu sonra bu bilgileri yaymak için kullanır. Bu dinamik IP ayarında PropertyFileSnitch göre çok daha kolaydır |
 
-**Cassandra küme Azure dikkate alınacak noktalar:** Microsoft Azure sanal makineleri özelliğine disk kalıcılığını; Azure Blob Depolama kullanır Azure depolama her disk yüksek dayanıklılık için 3 çoğaltmalarının kaydeder. Her bir Cassandra tabloya eklenen veri satırının zaten 3 yinelemede depolanır ve bu nedenle veri tutarlılığını zaten hello çoğaltma faktörü (RF) 1 olsa bile dikkate anlamına gelir. Merhaba ana çoğaltma faktörle 1 olan tek bir Cassandra düğüm başarısız olsa bile hello uygulama kapalı kalma süresi yaşar sorunudur. Ancak, bir düğüm Azure yapı denetleyicisi tarafından tanınan hello sorunları (örneğin, donanım, sistem yazılım hataları) çalışmıyorsa, onu yerde kullanarak yeni bir düğüm hazırlayacağınız hello aynı depolama sürücülerini. Bir işlem birkaç dakika sürebilir bir yeni düğümü tooreplace hello eski sağlama.  Benzer şekilde konuk işletim sistemi değişiklikleri gibi planlı bakım etkinlikler, Cassandra yükseltir ve Merhaba kümede çalışırken yükseltme hello düğümlerinin Azure yapı denetleyicisi uygulama değişiklikleri gerçekleştirir.  Çalışırken yükseltme da birkaç düğüm aynı anda sürebilir ve bu nedenle hello küme birkaç bölümler için kısa kapalı kalma süresi karşılaşabilirsiniz. Ancak, hello veri toohello yerleşik Azure Storage artıklık kayıp olmaz.  
+**Cassandra küme Azure dikkate alınacak noktalar:** Microsoft Azure sanal makineleri özelliğine disk kalıcılığını; Azure Blob Depolama kullanır Azure depolama her disk yüksek dayanıklılık için 3 çoğaltmalarının kaydeder. Her bir Cassandra tabloya eklenen veri satırının zaten 3 yinelemede depolanır ve bu nedenle veri tutarlılığını zaten (RF) çoğaltma faktörü 1 olsa bile dikkate anlamına gelir. Ana çoğaltma faktörle 1 olan tek bir Cassandra düğüm başarısız olsa bile uygulama kapalı kalma süresi yaşar sorunudur. Ancak, bir düğüm Azure yapı denetleyicisi tarafından tanınan sorunları (örneğin, donanım, sistem yazılım hataları) çalışmıyorsa, aynı depolama sürücülerini kullanarak onun yerine yeni bir düğüm hazırlayacağınız. Eski bir değiştirmek için yeni bir düğüm sağlama birkaç dakika sürebilir.  Benzer şekilde konuk işletim sistemi değişiklikleri gibi planlı bakım etkinlikler, Cassandra yükseltildikten ve kümedeki düğümlerin çalışırken Azure yapı denetleyicisi uygulama değişiklikleri gerçekleştirir.  Çalışırken yükseltme de birkaç düğüm aynı anda sürebilir ve bu nedenle küme birkaç bölümler için kısa kapalı kalma süresi karşılaşabilirsiniz. Ancak, veri yerleşik Azure Storage artıklık nedeniyle kayıp olmaz.  
 
-Yüksek kullanılabilirlik gerektirmeyen tooAzure sistemleri dağıtılan için (örneğin yaklaşık 99,9 olduğu eşdeğer too8.76 SA/yıl; bkz [yüksek kullanılabilirlik](http://en.wikipedia.org/wiki/High_availability) Ayrıntılar için) RF ile mümkün toorun olabilir = 1 ve tutarlılık düzeyi = ONE.  Yüksek oranda kullanılabilirlik gereksinimleri, RF olan uygulamalar için 3 ve tutarlılık düzeyi = = çekirdek hello çoğaltmaları bir düğümlerinin hello birinin kesinti hello tolerans. RF = 1 geleneksel dağıtımlarda (örn. şirket içi), disk hataları gibi sorunlar kaynaklanan toohello olası veri kaybı nedeniyle kullanılamaz.   
+Yüksek kullanılabilirlik gerektirmeyen Azure dağıtılan sistemler için (örneğin yaklaşık 99,9 olduğu 8.76 SA/yılına eşdeğer; bkz [yüksek kullanılabilirlik](http://en.wikipedia.org/wiki/High_availability) Ayrıntılar için) RF ile çalıştırmanız mümkün olabilir = 1 ve tutarlılık düzeyi = ONE.  Yüksek oranda kullanılabilirlik gereksinimleri, RF olan uygulamalar için 3 ve tutarlılık düzeyi = = çekirdek çoğaltmaları biri düğümlerinden biri aşağı süresini tolerans. RF = 1 geleneksel dağıtımlarda (örn. şirket içi), disk hataları gibi sorunlar kaynaklanan olası veri kaybı nedeniyle kullanılamaz.   
 
 ## <a name="multi-region-deployment"></a>Çok bölge dağıtımı
-Cassandra'nın veri merkezi kullanmayan çoğaltma ve tutarlılık modeli yardımcı hello kutusu hello olmadan dışında hello bölgeli dağıtımla yukarıda açıklanan tüm dış araçları için gerekir. Burada, birden çok yöneticili yazmalar için veritabanı yansıtma için hello Kurulum oldukça karmaşık olabilir bu hello geleneksel ilişkisel veritabanlarından oldukça farklı değildir. Ayarlanmış bir çok bölgede Cassandra hello aşağıdakiler dahil hello kullanım senaryoları yardımcı olabilir:
+Yukarıda açıklanan Cassandra'nın veri merkezi kullanmayan çoğaltma ve tutarlılık modeli, tüm dış araçları gerek kalmadan sunuyoruz bölgeli dağıtım ile yardımcı olur. Burada, birden çok yöneticili yazmalar için veritabanı yansıtma için Kurulum oldukça karmaşık olabilir bu geleneksel ilişkisel veritabanlarından oldukça farklı değildir. Ayarlanmış bir çok bölgede Cassandra aşağıdakiler de dahil olmak üzere kullanım senaryoları ile yardımcı olabilir:
 
-**Yakınlık dayalı dağıtım:** Kiracı Kullanıcı Temizle eşleme ile çok kiracılı uygulamalara-için-bölge hello bölgeli kümenin düşük gecikme tarafından benefited. Örneğin, bir öğrenme yönetim sistemleri için eğitim kurumları Doğu ABD ve Batı ABD bölgeleri tooserve hello ilgili artık kampüsünde için Dağıtılmış bir kümede dağıtabilirsiniz analytics yanı sıra işlem. Merhaba veri hello zaman okuma ve yazma işlemleri sırasında yerel olarak tutarlı olabilir ve her iki hello bölgeler arasında sonuçta tutarlı olabilir. Medya dağıtım, e-ticaret ve herhangi bir şey gibi diğer örnekler vardır ve yoğunlaşmıştır coğrafi kullanıcı temel görevi gören her şeyi, bu dağıtım modeli için iyi durumdur.
+**Yakınlık dayalı dağıtım:** Kiracı Kullanıcı Temizle eşleme ile çok kiracılı uygulamalara-için-bölge bölgeli kümenin düşük gecikme tarafından benefited. Örneğin, bir öğrenme yönetim sistemleri için eğitim kurumları Doğu ABD ve Batı ABD bölgeler için ilgili artık kampüsünde sunmak için Dağıtılmış bir kümede dağıtabilirsiniz analytics yanı sıra işlem. Verileri zaman okuma ve yazma işlemleri sırasında yerel olarak tutarlı olabilir ve bölgeler arasında sonuçta tutarlı olabilir. Medya dağıtım, e-ticaret ve herhangi bir şey gibi diğer örnekler vardır ve yoğunlaşmıştır coğrafi kullanıcı temel görevi gören her şeyi, bu dağıtım modeli için iyi durumdur.
 
-**Yüksek Kullanılabilirlik:** artıklık yazılım ve donanım yüksek kullanılabilirliğini modemle hızlı bağlantılar sağlama bir anahtar etken; yapı güvenilir bulut sistemleri Microsoft Azure üzerinde ayrıntılı bilgi için bkz. Microsoft Azure üzerinde doğru artıklık elde hello yalnızca güvenilir bir bölgeli küme dağıtarak yoludur. Uygulamaları bir etkin-etkin veya etkin-Pasif modu dağıtılabilir ve hello bölgelerinden kapalı ise, Azure Traffic Manager trafik toohello etkin bölge yönlendirebilirsiniz.  Merhaba kullanılabilirlik 99,9, ise hello tek bölge dağıtımı ile iki bölge dağıtımı hello formülüne göre hesaplanan 99.9999 kullanılabilirliği elde edebilirsiniz: (1-(1-0.999) * (1-0.999)) * 100); Ayrıntılar için kağıt yukarıda Hello bakın.
+**Yüksek Kullanılabilirlik:** artıklık yazılım ve donanım yüksek kullanılabilirliğini modemle hızlı bağlantılar sağlama bir anahtar etken; yapı güvenilir bulut sistemleri Microsoft Azure üzerinde ayrıntılı bilgi için bkz. Microsoft Azure üzerinde doğru artıklık elde yalnızca güvenilir bir bölgeli küme dağıtarak yoludur. Uygulamaları bir etkin-etkin veya etkin-Pasif modu dağıtılabilir ve Azure trafik Yöneticisi bölgelerinden kapalı ise, etkin bölge trafiği yönlendirebilirsiniz.  Kullanılabilirlik 99,9, ise tek bölge dağıtımı ile iki bölge dağıtımı bir formülün hesaplanan 99.9999 kullanılabilirliğini elde edebilirsiniz: (1-(1-0.999) * (1-0.999)) * 100); Ayrıntılar için yukarıdaki incelemesine bakın.
 
-**Olağanüstü durum kurtarma:** bölgeli Cassandra küme düzgün bir şekilde tasarlanmış, dayanacak geri dönülemez veri merkezi kesintilerini. Bir bölge kapalı ise, hello dağıtılan uygulama tooother bölgeler hello son kullanıcıların hizmet veren başlatabilirsiniz. Tüm diğer iş sürekliliği uygulamaları gibi hello uygulama toobe hello veri hello zaman uyumsuz ardışık düzeninde kaynaklanan bazı veri kaybıyla dayanıklı sahiptir. Ancak, Cassandra hello kurtarma geleneksel veritabanı kurtarma işlemleri tarafından harcanan hello süre çok swifter yapar. Şekil 2 sekiz düğümlerle hello tipik bölgeli dağıtım modeli, her bölgede gösterir. Yansıtma görüntülerini Merhaba için iki bölgeleri olan simetrisi; aynı gerçek dünya tasarımları hello iş yükü türünü (örn. işlem veya analitik), RPO, RTO, veri tutarlılığı ve kullanılabilirlik gereksinimlerine bağlıdır.
+**Olağanüstü durum kurtarma:** bölgeli Cassandra küme düzgün bir şekilde tasarlanmış, dayanacak geri dönülemez veri merkezi kesintilerini. Bir bölge kapalı ise, son kullanıcıların hizmet veren diğer bölgelere dağıtılan uygulamayı başlatabilirsiniz. Diğer iş sürekliliği belirtilmesinden gibi uygulama verileri zaman uyumsuz ardışık düzeninde kaynaklanan bazı veri kaybıyla dayanıklı olması gerekir. Ancak, Kurtarma Cassandra geleneksel veritabanı kurtarma işlemleri tarafından harcanan süre çok swifter yapar. Şekil 2 sekiz düğümlerle tipik bölgeli dağıtım modeli, her bölgede gösterir. Her iki bölgeden yansıtma görüntülerini simetrisi aynı için; yine de uygun istiyor musunuz? gerçek dünya tasarımları iş yükü türünü (örn. işlem veya analitik), RPO, RTO, veri tutarlılığı ve kullanılabilirlik gereksinimlerine bağlıdır.
 
 ![Çoklu bölge dağıtımı](./media/cassandra-nodejs/cassandra-linux2.png)
 
 Şekil 2: Bölgeli Cassandra dağıtımı
 
 ### <a name="network-integration"></a>Ağ tümleştirme
-Sanal makineler üzerinde iki bölgede bulunan dağıtılan tooprivate ağlar birbirleri ile iletişim kurar kümesi VPN tüneli kullanma. Merhaba VPN tüneli hello ağ dağıtım işlemi sırasında sağlanan iki yazılım ağ geçidi bağlanır. Her iki bölgeden "web" ve "data" alt bakımından benzer ağ mimarisi; yine de sahip istiyor musunuz? Azure ağı gerektiğinde kadar alt ağlar hello oluşturulmasına izin verir ve ağ güvenliği tarafından gerektiği şekilde ACL'ler uygulayın. Merhaba küme topolojisi tasarlarken, veri merkezi iletişimi gecikme süresi ve hello ekonomik etkisini hello ağ trafiği gerek toobe kabul ağlar arası.
+Kümeleri üzerinde iki bölgede bulunan özel ağlara dağıtılan sanal makinelerin birbirleriyle VPN tüneli kullanarak iletişim kurar. VPN tüneli ağ dağıtım işlemi sırasında sağlanan iki yazılım ağ geçidi bağlanır. Her iki bölgeden "web" ve "data" alt bakımından benzer ağ mimarisi; yine de sahip istiyor musunuz? Azure ağı gerektiğinde kadar alt ağlar oluşturulmasına izin verir ve ağ güvenliği tarafından gerektiği şekilde ACL'ler uygulayın. Küme topolojisi arası tasarlama sırasında veri merkezi iletişim gecikmesi ve ağ trafiğini ekonomik etkisini ele alınması gerekir.
 
 ### <a name="data-consistency-for-multi-data-center-deployment"></a>Birden çok veri merkezi dağıtım için veri tutarlılığı
-Dağıtımları gerek toobe hello küme topolojisi etkisini performans ve yüksek kullanılabilirlik farkında dağıtılmış. Merhaba çekirdek hello bu şekilde seçtiğiniz RF ve tutarlılık düzeyi gereksinimi toobe tüm hello veri merkezleri hello kullanılabilirliğini bağımlı değil.
-Tutarlılık düzeyi (okuma ve yazma) bu hello yerel emin olmanızı sağlayacak için yüksek tutarlılık, bir LOCAL_QUORUM gerektiren bir sistem okuma ve yazma hello yerel karşılanır veri aktarılırken düğümleri toohello uzak veri merkezleri zaman uyumsuz olarak kopyalandığı.  Tablo 2 hello yapılandırma ayrıntıları daha sonra hello özetlenen hello bölgeli kümesi için yazma yukarı özetlenmiştir.
+Dağıtılmış dağıtımları performans ve yüksek kullanılabilirlik küme topolojisi etkisini farkında olması gerekiyor. RF ve tutarlılık düzeyi çekirdek tüm veri merkezleri kullanılabilirliğine bağlı olmadığından bu şekilde seçilmesi gerekir.
+Yüksek tutarlılık gereken bir sistem LOCAL_QUORUM tutarlılık düzeyi (için okuma ve yazma) veri uzak veri merkezleri için zaman uyumsuz olarak kopyalandığı sırada yerel okuma ve yazma işlemleri yerel düğümlerden karşılanır olduğundan emin olmanızı sağlar.  Tablo 2 yazma daha sonra özetlenen bölgeli küme yapılandırma ayrıntılarını özetlemektedir.
 
 **İki bölge Cassandra küme yapılandırması**
 
 | Küme parametresi | Değer | Açıklamalar |
 | --- | --- | --- |
-| Düğüm (N) sayısı |8 + 8 |Merhaba kümedeki düğümler toplam sayısı |
+| Düğüm (N) sayısı |8 + 8 |Kümedeki düğümler toplam sayısı |
 | Çoğaltma faktörü (RF) |3 |Belirli bir satırın çoğaltmaların sayısı |
-| Tutarlılık düzeyi (yazma) |LOCAL_QUORUM [(sum(RF)/2) +1) = 4] hello formülün hello sonucu aşağı yuvarlanmasını |2 düğümleri toohello ilk veri merkezi zaman uyumlu olarak yazılır; Merhaba ek 2 düğümler çekirdek için gereken zaman uyumsuz olarak toohello 2 veri merkezi yazılır. |
-| Tutarlılık düzeyi (okuma) |LOCAL_QUORUM ((RF/2) + 1) = 2 hello formülün hello sonucu aşağı yuvarlanmasını |Okuma isteği yalnızca bir bölgesinden karşılanır; Merhaba yanıt geri toohello istemci gönderilmeden önce 2 düğümleri salt okunurdur. |
-| Çoğaltma stratejisi |NetworkTopologyStrategy bakın [veri çoğaltma](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) Cassandra belgelerinde daha fazla bilgi için |Merhaba dağıtım topolojisi anlar ve çoğaltmalar, düğümlerde yerleştirir, böylece tüm hello çoğaltmalar Merhaba üzerinde aynı sona ermez raf |
-| Snitch |GossipingPropertyFileSnitch bakın [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) Cassandra belgelerinde daha fazla bilgi için |NetworkTopologyStrategy snitch toounderstand hello topoloji kavramı kullanır. GossipingPropertyFileSnitch her düğüm toodata merkezi ve raf eşleme daha iyi denetim olanağı verir. Merhaba küme dedikodu toopropagate sonra bu bilgileri kullanır. Bu dinamik IP ayarı göreli tooPropertyFileSnitch çok daha kolaydır |
+| Tutarlılık düzeyi (yazma) |LOCAL_QUORUM [(sum(RF)/2) +1) = 4] formül sonucu yuvarlanan |2 düğümleri ilk veri merkezine zaman uyumlu olarak yazılır; Çekirdek için gereken ek 2 düğümleri 2 veri merkezine zaman uyumsuz olarak yazılır. |
+| Tutarlılık düzeyi (okuma) |LOCAL_QUORUM ((RF/2) + 1) = formül sonucu aşağı yuvarlanmasını 2 |Okuma isteği yalnızca bir bölgesinden karşılanır; yanıt istemciye gönderilmeden önce 2 düğümleri salt okunurdur. |
+| Çoğaltma stratejisi |NetworkTopologyStrategy bakın [veri çoğaltma](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) Cassandra belgelerinde daha fazla bilgi için |Dağıtım topolojisi anlar ve çoğaltmalar, düğümlerde yerleştirir, böylece tüm çoğaltmaların aynı rafa monte şunun yok |
+| Snitch |GossipingPropertyFileSnitch bakın [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) Cassandra belgelerinde daha fazla bilgi için |NetworkTopologyStrategy snitch kavramı topoloji anlamak için kullanır. GossipingPropertyFileSnitch veri merkezi ve raf her düğüme eşleme daha iyi denetim olanağı verir. Küme, dedikodu sonra bu bilgileri yaymak için kullanır. Bu dinamik IP ayarında PropertyFileSnitch göre çok daha kolaydır |
 
-## <a name="hello-software-configuration"></a>Merhaba yazılım yapılandırma
-yazılım sürümleri aşağıdaki hello hello dağıtımı sırasında kullanılır:
+## <a name="the-software-configuration"></a>YAZILIM YAPILANDIRMA
+Aşağıdaki yazılım sürümlerinden dağıtımı sırasında kullanılır:
 
 <table>
 <tr><th>Yazılım</th><th>Kaynak</th><th>Sürüm</th></tr>
@@ -122,57 +122,57 @@ yazılım sürümleri aşağıdaki hello hello dağıtımı sırasında kullanı
 <tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
 </table>
 
-JRE indirme Oracle lisans, toosimplify hello dağıtım, tüm gerekli yazılım toohello Masaüstü biz precursor toohello küme olarak oluşturulacağını hello Ubuntu şablon görüntüsü daha sonra yüklemeyle hello indirme el ile kabul gerektirdiğinden dağıtımı.
+JRE indirme el ile Oracle lisans kabulü gerektirdiğinden, dağıtım basitleştirmek için gerekli tüm yazılımı biz Küme dağıtımı için bir precursor olarak oluşturulacağını Ubuntu şablon görüntüsü daha sonra yüklemeyle masaüstüne indirin.
 
-Bir dizine iyi bilinen yükleme (örneğin Windows %TEMP%/downloads veya ~/Downloads çoğu Linux dağıtımları veya Mac üzerinde) hello yerel bilgisayarda yazılım yukarıda Hello indirin.
+Yukarıdaki yazılımın bir dizine iyi bilinen yükleme (örneğin Windows %TEMP%/downloads veya ~/Downloads çoğu Linux dağıtımları veya Mac üzerinde) yerel bilgisayarda indirin.
 
 ### <a name="create-ubuntu-vm"></a>UBUNTU VM OLUŞTURMA
-Böylece Hello görüntü birçok Cassandra düğümlerini sağlamak için yeniden kullanılabilir hello işleminin bu adımında Ubuntu görüntü hello önkoşul yazılımı ile oluşturacağız.  
+Böylece görüntü birçok Cassandra düğümlerini sağlamak için yeniden kullanılabilir işleminin bu adımında Ubuntu görüntü önkoşul yazılımı ile oluşturacağız.  
 
 #### <a name="step-1-generate-ssh-key-pair"></a>1. adım: SSH anahtar çifti oluşturma
-Azure PEM ya da DER ortak anahtar zaman sağlama hello kodlanmış bir X509 gerekir. Ne bulunan hello yönergeleri kullanarak bir genel/özel anahtar çifti oluşturmak tooUse SSH Linux Azure üzerinde. Bir SSH istemcisi Windows veya Linux olarak toouse putty.exe düşünüyorsanız, tooconvert sahip hello PEM kodlanmış puttygen.exe; kullanarak RSA özel anahtar tooPPK biçimi Merhaba yönergeler için bu web sayfası yukarıda hello bulunabilir.
+Azure sağlama aynı anda PEM ya da DER ortak anahtar kodlanmış bir X509 gerekir. Nasıl yapılır Linux Azure üzerinde ile SSH kullanma konumunda bulunan yönergeleri kullanarak bir genel/özel anahtar çifti oluşturur. Bir SSH istemcisi Windows veya Linux olarak putty.exe kullanmayı planlıyorsanız, kodlanmış PEM dönüştürmeniz gerekir puttygen.exe; kullanarak PPK biçimine RSA özel anahtarı Bunun için yönergeler yukarıdaki web sayfasında bulunabilir.
 
 #### <a name="step-2-create-ubuntu-template-vm"></a>2. adım: Ubuntu şablonu VM oluşturma
-toocreate hello şablonu VM dizisi şu Azure Klasik portalı ve kullanım hello hello oturum: yeni, işlem, sanal makine, başlangıç Galerisi, UBUNTU, Ubuntu Server 14.04 LTS tıklatın ve ardından hello sağ oka tıklayın. Bir Linux VM toocreate nasıl görürüm açıklayan bir öğretici için çalışan bir sanal makine Linux oluşturun.
+VM şablonu oluşturmak için Klasik Azure portalında oturum açın ve aşağıdaki sırayı kullanır: yeni, işlem, sanal makine, başlangıç Galerisi, UBUNTU, Ubuntu Server 14.04 LTS tıklatın ve ardından sağ oka tıklayın. Bir Linux VM oluşturmayı açıklar bir öğretici için çalışan bir sanal makine Linux bkz.
 
-#1 "sanal makine yapılandırma" Merhaba ekranında bilgisinden hello girin:
+#1 "sanal makine yapılandırma" ekranında aşağıdaki bilgileri girin:
 
 <table>
 <tr><th>ALAN ADI              </td><td>       ALAN DEĞERİ               </td><td>         AÇIKLAMALAR                </td><tr>
-<tr><td>SÜRÜM YAYIN TARİHİ    </td><td> Merhaba açılan tarih seçin</td><td></td><tr>
-<tr><td>SANAL MAKİNE ADI    </td><td> CASS şablonu                   </td><td> Bu hello VM hello ana adıdır </td><tr>
-<tr><td>KATMANI                     </td><td> STANDART                           </td><td> Merhaba varsayılan adı bırakın              </td><tr>
-<tr><td>BOYUTU                     </td><td> A1                              </td><td>G/ç hello üzerinde VM tabanlı select hello gerekiyor; Bu amaçla hello varsayılan adı bırakın </td><tr>
+<tr><td>SÜRÜM YAYIN TARİHİ    </td><td> Aşağı açılan listeden bir tarih seçin</td><td></td><tr>
+<tr><td>SANAL MAKİNE ADI    </td><td> CASS şablonu                   </td><td> Bu VM ana adıdır </td><tr>
+<tr><td>KATMANI                     </td><td> STANDART                           </td><td> Varsayılan adı bırakın              </td><tr>
+<tr><td>BOYUTU                     </td><td> A1                              </td><td>G/ç gereksinimlerine göre VM seçin; Bu amaç için varsayılan adı bırakın </td><tr>
 <tr><td> YENİ BİR KULLANICI ADI             </td><td> yerelyönetici                       </td><td> "Yönetici" Ubuntu 12. xx ve sonra ayrılmış kullanıcı adı sağlanmış</td><tr>
-<tr><td> KİMLİK DOĞRULAMASI         </td><td> Onay kutusu                 </td><td>Bir SSH anahtarı ile toosecure istiyorsanız denetleyin </td><tr>
-<tr><td> SERTİFİKA             </td><td> Merhaba ortak anahtar sertifikası dosya adı </td><td> Daha önce oluşturulan hello ortak anahtarı kullanır</td><tr>
+<tr><td> KİMLİK DOĞRULAMASI         </td><td> Onay kutusu                 </td><td>Bir SSH anahtarı ile güvenli isteyip istemediğinizi denetleyin </td><tr>
+<tr><td> SERTİFİKA             </td><td> Ortak anahtar sertifikası dosya adı </td><td> Daha önce oluşturulan ortak anahtarı kullanın</td><tr>
 <tr><td> Yeni parola    </td><td> güçlü parola </td><td> </td><tr>
 <tr><td> Parolayı onaylayın    </td><td> güçlü parola </td><td></td><tr>
 </table>
 
-#2 hello "sanal makine yapılandırma" ekranında bilgisinden hello girin:
+"Sanal makine yapılandırma" ekranında #2 aşağıdaki bilgileri girin:
 
 <table>
 <tr><th>ALAN ADI             </th><th> ALAN DEĞERİ                       </th><th> AÇIKLAMALAR                                 </th></tr>
 <tr><td> BULUT HİZMETİ    </td><td> Yeni bir bulut hizmeti oluştur    </td><td>Sanal makineler gibi bir kapsayıcı işlem kaynaklarını bulut hizmetidir</td></tr>
 <tr><td> BULUT HİZMETİ DNS ADI    </td><td>ubuntu template.cloudapp.net    </td><td>Bir makine belirsiz yük dengeleyici ad verin</td></tr>
-<tr><td> BÖLGE/BENZEŞİM GRUBU/SANAL AĞ </td><td>    Batı ABD    </td><td> Web uygulamalarınızın hello Cassandra küme erişimlerin bir bölge seçin</td></tr>
-<tr><td>DEPOLAMA HESABI </td><td>    Varsayılanı kullan    </td><td>Belirli bir bölgedeki Hello varsayılan depolama hesabı ya da önceden oluşturulmuş depolama hesabı kullanın</td></tr>
+<tr><td> BÖLGE/BENZEŞİM GRUBU/SANAL AĞ </td><td>    Batı ABD    </td><td> Web uygulamalarınızın Cassandra küme erişimlerin bir bölge seçin</td></tr>
+<tr><td>DEPOLAMA HESABI </td><td>    Varsayılanı kullan    </td><td>Belirli bir bölgedeki varsayılan depolama hesabı ya da önceden oluşturulmuş depolama hesabı kullanın</td></tr>
 <tr><td>KULLANILABİLİRLİK KÜMESİ </td><td>    None </td><td>    Boş bırakın</td></tr>
-<tr><td>UÇ NOKTALARI    </td><td>Varsayılanı kullan </td><td>    Merhaba varsayılan SSH yapılandırmasını kullanın </td></tr>
+<tr><td>UÇ NOKTALARI    </td><td>Varsayılanı kullan </td><td>    Varsayılan SSH yapılandırmasını kullanın </td></tr>
 </table>
 
-Sağ oka tıklayın, #3 Merhaba ekranında hello Varsayılanları bırakabilir ve hello "onay" düğmesine toocomplete hello VM sağlama işlemi'ı tıklatın. Birkaç dakika sonra hello VM hello adı "ubuntu-şablon" ile "çalışır" durumda olması gerekir.
+Sağ oka tıklayın, #3 ekranda Varsayılanları bırakabilir ve VM sağlama işlemini tamamlamak için "denetimi" düğmesini tıklatın. Birkaç dakika sonra VM adı "ubuntu-şablon" ile "çalışır" durumda olması gerekir.
 
-### <a name="install-hello-necessary-software"></a>Merhaba gerekli yazılımı yükleyin
+### <a name="install-the-necessary-software"></a>GEREKLİ YAZILIMI YÜKLEYİN
 #### <a name="step-1-upload-tarballs"></a>1. adım: Karşıya yükleme tarballs
-SCP veya pscp kullanarak kopyalama hello daha önce yazılım çok indirilen ~ / yüklemeleri dizinini kullanarak komut biçimi aşağıdaki hello:
+SCP veya pscp kullanarak, önceden indirilen yazılım aşağıdaki komut biçimi kullanarak ~/downloads dizinine kopyalayın:
 
 ##### <a name="pscp-server-jre-8u5-linux-x64targz-localadminhk-cas-templatecloudappnethomelocaladmindownloadsserver-jre-8u5-linux-x64targz"></a>pscp server-jre-8u5-linux-x64.tar.gzlocaladmin@hk-cas-template.cloudapp.net:/home/localadmin/downloads/server-jre-8u5-linux-x64.tar.gz
-Merhaba komutu yukarıda de JRE hello Cassandra BITS için yineleyin.
+Yukarıdaki komut için olduğu gibi Cassandra BITS de JRE yineleyin.
 
-#### <a name="step-2-prepare-hello-directory-structure-and-extract-hello-archives"></a>2. adım: hello dizin yapısını hazırlamak ve hello arşivler Ayıkla
-VM Hello oturum ve hello dizin yapısını oluşturun ve yazılım hello bash aşağıdaki komut dosyası kullanarak bir süper kullanıcı olarak ayıklayın:
+#### <a name="step-2-prepare-the-directory-structure-and-extract-the-archives"></a>2. adım: dizin yapısını hazırlamak ve arşivler Ayıkla
+VM oturum ve dizin yapısını oluşturun ve yazılım bash komut dosyası kullanarak bir süper kullanıcı olarak ayıklayın:
 
     #!/bin/bash
     CASS_INSTALL_DIR="/opt/cassandra"
@@ -242,20 +242,20 @@ VM Hello oturum ve hello dizin yapısını oluşturun ve yazılım hello bash a�
     unzip $HOME/downloads/$JRE_TARBALL $JRE_INSTALL_DIR
     unzip $HOME/downloads/$CASS_TARBALL $CASS_INSTALL_DIR
 
-    #Change hello ownership toohello service credentials
+    #Change the ownership to the service credentials
 
     chown -R $SVC_USER:$GROUP $CASS_DATA_DIR
     chown -R $SVC_USER:$GROUP $CASS_LOG_DIR
-    echo "edit /etc/profile tooadd JRE toohello PATH"
+    echo "edit /etc/profile to add JRE to the PATH"
     echo "installation is complete"
 
 
-Bu komut dosyası VIM penceresine yapıştırın, emin tooremove hello satır dönmesi ('\r ") komutu aşağıdaki hello kullanarak:
+Bu komut dosyası VIM penceresine yapıştırın, satır başı kaldırdığınızdan emin olun ('\r ") aşağıdaki komutu kullanarak:
 
     tr -d '\r' <infile.sh >outfile.sh
 
 #### <a name="step-3-edit-etcprofile"></a>3. adım: vb./profilini düzenle
-Merhaba sonunda Hello aşağıdakileri ekleyin:
+Sonunda aşağıdakileri ekleyin:
 
     JAVA_HOME=/opt/java/jdk1.8.0_05
     CASS_HOME= /opt/cassandra/apache-cassandra-2.0.8
@@ -265,7 +265,7 @@ Merhaba sonunda Hello aşağıdakileri ekleyin:
     export PATH
 
 #### <a name="step-4-install-jna-for-production-systems"></a>4. adım: Yükleme JNA üretim sistemleri için
-Kullanım hello aşağıdaki komut dizisi: hello şu komutu yükleme jna-3.2.7.jar ve jna platform 3.2.7.jar too/usr/share.java directory sudo apt get yükleyecek libjna java
+Aşağıdaki komut dizisi kullanın: jna 3.2.7.jar yükleyeceğinizi ve platform jna 3.2.7.jar /usr/share.java dizinine apt sudo get libjna java şu komutu
 
 Sembolik bağlantılar $CASS_HOME/lib dizininde oluşturun, böylece Cassandra başlangıç betiği bu Kavanoz bulabilirsiniz:
 
@@ -274,35 +274,35 @@ Sembolik bağlantılar $CASS_HOME/lib dizininde oluşturun, böylece Cassandra b
     ln -s /usr/share/java/jna-platform-3.2.7.jar $CASS_HOME/lib/jna-platform.jar
 
 #### <a name="step-5-configure-cassandrayaml"></a>Adım 5: cassandra.yaml yapılandırma
-[Biz bu hello gerçek sağlama sırasında ince ayar] tüm hello sanal makineler için gerekli her VM tooreflect yapılandırmasında cassandra.yaml düzenleyin:
+[Biz bu gerçek sağlama sırasında ince ayar] tüm sanal makineler için gerekli yapılandırmayı yansıtacak şekilde her bir VM üzerinde cassandra.yaml düzenleyin:
 
 <table>
 <tr><th>Alan adı   </th><th> Değer  </th><th>    Açıklamalar </th></tr>
-<tr><td>küme_adı </td><td>    "CustomerService"    </td><td> Dağıtımınızı yansıtır hello adını kullan</td></tr>
+<tr><td>küme_adı </td><td>    "CustomerService"    </td><td> Dağıtımınızı yansıtır adı kullan</td></tr>
 <tr><td>listen_address    </td><td>[boş bırakın]    </td><td> "Localhost" Sil </td></tr>
 <tr><td>rpc_addres   </td><td>[boş bırakın]    </td><td> "Localhost" Sil </td></tr>
-<tr><td>oluştururken Çekirdeği    </td><td>"10.1.2.4, 10.1.2.6, 10.1.2.8"    </td><td>Şu oluştururken çekirdeği atanan tüm hello IP adresleri listesi.</td></tr>
-<tr><td>endpoint_snitch </td><td> org.apache.cassandra.locator.GossipingPropertyFileSnitch </td><td> Bu NetworkTopologyStrateg hello tarafından çıkarımını yapma hello veri merkezi ve hello VM hello sunucu rafı için kullanılır</td></tr>
+<tr><td>oluştururken Çekirdeği    </td><td>"10.1.2.4, 10.1.2.6, 10.1.2.8"    </td><td>Şu oluştururken çekirdeği atanan tüm IP adresleri listesi.</td></tr>
+<tr><td>endpoint_snitch </td><td> org.apache.cassandra.locator.GossipingPropertyFileSnitch </td><td> Bu veri merkezi ve VM raf çıkarımını yapma NetworkTopologyStrateg tarafından kullanılır</td></tr>
 </table>
 
-#### <a name="step-6-capture-hello-vm-image"></a>6. adım: hello VM görüntüsü yakalama
-Merhaba sanal makineye hello hostname (hk-CA-template.cloudapp.net) ve daha önce oluşturduğunuz hello SSH özel anahtarı kullanarak oturum açın. Bkz. nasıl kullanarak toolog hello komutu ssh veya putty.exe tooUse Linux için azure'da SSH ayrıntıları nasıl.
+#### <a name="step-6-capture-the-vm-image"></a>6. adım: VM görüntüsü yakalama
+Ana bilgisayar adı (hk-CA-template.cloudapp.net) ve daha önce oluşturulan SSH özel anahtar kullanılarak sanal makinede oturum açın. Bkz: nasıl yapılır Linux üzerinde ssh komutunu kullanarak veya putty.exe oturum hakkında ayrıntılar için Azure ile SSH kullanma.
 
-Eylemler toocapture hello görüntü dizisini aşağıdaki hello yürütün:
+Görüntü yakalama eylemleri aşağıdaki dizisini yürütün:
 
 ##### <a name="1-deprovision"></a>1. Deprovision
-Merhaba komutunu "sudo waagent-deprovision + kullanıcı" tooremove sanal makine örneği belirli bilgileri. İçin bkz: [nasıl tooCapture Linux sanal makine](capture-image.md) tooUse bir şablon olarak daha ayrıntılı hello görüntü yakalama işlemi.
+Komutunu "sudo waagent-deprovision + kullanıcı" sanal makine örneği belirli bilgileri kaldırmak için. İçin bkz: [Linux sanal makine yakalama](capture-image.md) görüntü yakalama işlemi hakkında daha fazla ayrıntı şablon olarak kullanmak için.
 
-##### <a name="2-shutdown-hello-vm"></a>2: kapatma hello VM
-Merhaba sanal makinenin vurgulanmış emin olun ve hello altındaki komut çubuğundan hello kapatma bağlantısına tıklayın.
+##### <a name="2-shutdown-the-vm"></a>2: VM'yi kapatma
+Sanal makine vurgulanmış olduğundan emin olun ve altındaki komut çubuğundan kapatma bağlantısına tıklayın.
 
-##### <a name="3-capture-hello-image"></a>3: yakalama hello görüntüsü
-Merhaba sanal makinenin vurgulanmış emin olun ve hello altındaki komut çubuğundan hello YAKALAMA bağlantısını tıklatın. Merhaba sonraki ekranda, (örneğin hk-cas-2-08-ub-14-04-2014071) bir görüntü adı verin ve görüntü açıklaması uygun hello "onay" işareti toofinish hello YAKALAMA işlemi'ı tıklatın.
+##### <a name="3-capture-the-image"></a>3: görüntü yakalama
+Sanal makine vurgulanmış olduğundan emin olun ve altındaki komut çubuğundan YAKALAMA bağlantısını tıklatın. Sonraki ekranda (örneğin hk-cas-2-08-ub-14-04-2014071) bir görüntü adı verin, görüntü açıklaması uygun ve YAKALAMA işlemini tamamlamak için "" işaretini tıklatın.
 
-Bu işlem birkaç saniye sürer ve hello görüntü GÖRÜNTÜLERİM Merhaba görüntü Galerisi bölümünde kullanılabilir olmalıdır. Merhaba görüntüsü başarıyla yakalandı sonra hello kaynak VM otomatik olarak silinir. 
+Bu işlem birkaç saniye sürer ve görüntünün görüntü Galerisi GÖRÜNTÜLERİM bölümünde kullanılabilir olmalıdır. Görüntüsü başarıyla yakalandı sonra kaynak VM otomatik olarak silinir. 
 
 ## <a name="single-region-deployment-process"></a>Tek bölge dağıtım işlemi
-**1. adım: hello sanal ağ oluşturma** hello Azure portalında oturum ve aşağıdaki tablonun hello gösterilen bir sanal ağ (Klasik) hello özniteliklerle oluşturun. Bkz: [hello Azure portal kullanarak bir sanal ağ (Klasik) oluşturmak](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) hello işleminin ayrıntılı adımlar için.      
+**1. adım: sanal ağ oluşturma** Azure portalı günlüğüne ve aşağıdaki tabloda gösterilen özniteliklere sahip bir sanal ağ (Klasik) oluşturun. Bkz: [Azure portalını kullanarak bir sanal ağ (Klasik) oluşturmak](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) işleminin ayrıntılı adımlar için.      
 
 <table>
 <tr><th>VM öznitelik adı</th><th>Değer</th><th>Açıklamalar</th></tr>
@@ -314,17 +314,17 @@ Bu işlem birkaç saniye sürer ve hello görüntü GÖRÜNTÜLERİM Merhaba gö
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>
 </table>
 
-Alt ağları aşağıdaki hello ekleyin:
+Aşağıdaki alt ağlar ekleyin:
 
 <table>
 <tr><th>Ad</th><th>Başlangıç IP</th><th>CIDR</th><th>Açıklamalar</th></tr>
-<tr><td>Web</td><td>10.1.1.0</td><td>/24 (251)</td><td>Merhaba web grubu için alt ağ</td></tr>
-<tr><td>Veri</td><td>10.1.2.0</td><td>/24 (251)</td><td>Merhaba veritabanı düğümleri için alt ağ</td></tr>
+<tr><td>Web</td><td>10.1.1.0</td><td>/24 (251)</td><td>Alt ağ web grubu</td></tr>
+<tr><td>Veri</td><td>10.1.2.0</td><td>/24 (251)</td><td>Veritabanı düğümleri için alt ağ</td></tr>
 </table>
 
-Veri ve Web alt ağ güvenlik grupları üzerinden hangi hello kapsamını bu makalenin kapsamı dışındadır korunabilir.  
+Veri ve Web alt ağlar, ağ güvenlik grupları kapsamını bu makalenin kapsamı dışındadır üzerinden korunabilir.  
 
-**2. adım: Sanal makine sağlamak** daha önce oluşturduğunuz hello görüntüsünü kullanarak, sunucu "hk-c-svc-Batı" Merhaba bulutta sanal makineler aşağıdaki hello oluşturur ve bunları aşağıda gösterildiği gibi toohello ilgili alt ağlarına bağlayın:
+**2. adım: Sanal makine sağlamak** daha önce oluşturduğunuz görüntüsünü kullanarak, bulut sunucusu "hk-c-svc-Batı" şu sanal makineleri oluşturur ve bunları aşağıda gösterildiği gibi ilgili alt ağa bağlayın:
 
 <table>
 <tr><th>Makine adı    </th><th>Alt ağ    </th><th>IP Adresi    </th><th>Kullanılabilirlik kümesi</th><th>DC/raf</th><th>Çekirdek?</th></tr>
@@ -340,23 +340,23 @@ Veri ve Web alt ağ güvenlik grupları üzerinden hangi hello kapsamını bu ma
 <tr><td>HK-w2-Batı-ABD    </td><td>Web    </td><td>10.1.1.5    </td><td>HK-w-aset-1    </td><td>                       </td><td>Yok</td></tr>
 </table>
 
-Hello VM'lerin listesini yukarıda oluşturma işlemi aşağıdaki hello gerektirir:
+Yukarıdaki listeye VM'lerin oluşturulması aşağıdaki işlem gerektirir:
 
 1. Belirli bir bölgedeki bir boş bulut hizmeti oluşturma
-2. Merhaba daha önce yakalanan görüntüden bir VM oluşturun ve daha önce oluşturduğunuz toohello sanal ağ ekleyin; Bu tüm hello VM'ler için yineleyin
-3. Bir iç yük dengeleyici toohello bulut hizmeti ekleyin ve toohello "data" alt ağ ekleme
-4. Daha önce oluşturduğunuz her VM için bir yük dengeli kümesi bağlı daha önce oluşturduğunuz toohello iç yük dengeleyici üzerinden thrift trafiği için bir yük dengeli uç noktası ekleme
+2. Daha önce yakalanan görüntüden bir VM oluşturun ve daha önce oluşturduğunuz sanal ağa bağlayın; Bu tüm VM'ler için yineleyin
+3. Bir iç yük dengeleyici bulut hizmetine eklemek ve "data" alt ağına bağlayın
+4. Yük dengeli uç nokta yük dengelenmiş bir küme önceden oluşturulmuş iç yük dengeleyiciye bağlı aracılığıyla thrift trafiği için daha önce oluşturduğunuz her VM için ekleme
 
-Klasik Azure portalını kullanarak işlem yukarıda Hello çalıştırılabilir; Windows makine (kullanın) erişim tooa Windows makine yoksa Azure VM'de bir PowerShell komut dosyası tooprovision aşağıdaki hello tüm 8 sanal makineleri otomatik olarak kullanın.
+Yukarıdaki işlem, Klasik Azure portalını kullanarak çalıştırılabilir; Windows makine (kullanın) bir Windows makinesine erişiminiz yoksa azure'da VM bir kullan tüm 8 sanal makineleri otomatik olarak sağlamak için aşağıdaki PowerShell betiğini kullanın.
 
 **Listesi 1: PowerShell Betiği sanal makineleri sağlama**
 
         #Tested with Azure Powershell - November 2014
         #This powershell script deployes a number of VMs from an existing image inside an Azure region
-        #Import your Azure subscription into hello current Powershell session before proceeding
-        #hello process: 1. create Azure Storage account, 2. create virtual network, 3.create hello VM template, 2. crate a list of VMs from hello template
+        #Import your Azure subscription into the current Powershell session before proceeding
+        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. crate a list of VMs from the template
 
-        #fundamental variables - change these tooreflect your subscription
+        #fundamental variables - change these to reflect your subscription
         $country="us"; $region="west"; $vnetName = "your_vnet_name";$storageAccount="your_storage_account"
         $numVMs=8;$prefix = "hk-cass";$ilbIP="your_ilb_ip"
         $subscriptionName = "Azure_subscription_name";
@@ -380,8 +380,8 @@ Klasik Azure portalını kullanarak işlem yukarıda Hello çalıştırılabilir
         New-AzureService -ServiceName $serviceName -Label "hkcass$region" -Location $azureRegion
         Write-Host "Created $serviceName"
 
-        $VMList= @()   # stores hello list of azure vm configuration objects
-        #create hello list of VMs
+        $VMList= @()   # stores the list of azure vm configuration objects
+        #create the list of VMs
         foreach($vmName in $vmNames)
         {
            $VMList += New-AzureVMConfig -Name $vmName -InstanceSize ExtraSmall -ImageName $imageName |
@@ -394,7 +394,7 @@ Klasik Azure portalını kullanarak işlem yukarıda Hello çalıştırılabilir
         #Create internal load balancer
         Add-AzureInternalLoadBalancer -ServiceName $serviceName -InternalLoadBalancerName $ilbName -SubnetName "data" -StaticVNetIPAddress "$ilbIP"
         Write-Host "Created $ilbName"
-        #Add add hello thrift endpoint toohello internal load balancer for all hello VMs
+        #Add add the thrift endpoint to the internal load balancer for all the VMs
         foreach($vmName in $vmNames)
         {
             Get-AzureVM -ServiceName $serviceName -Name $vmName |
@@ -406,22 +406,22 @@ Klasik Azure portalını kullanarak işlem yukarıda Hello çalıştırılabilir
 
 **3. adım: Her VM Cassandra yapılandırma**
 
-VM Hello oturum ve hello aşağıdakileri yapın:
+VM oturum açın ve aşağıdakileri gerçekleştirin:
 
-* Merkezi ve raf $CASS_HOME/conf/cassandra-rackdc.properties toospecify hello veri özelliklerini düzenleyin:
+* Veri merkezi ve raf özelliklerini belirtmek için $CASS_HOME/conf/cassandra-rackdc.properties düzenleyin:
   
        dc =EASTUS, rack =rack1
-* Cassandra.yaml tooconfigure çekirdek düğümleri aşağıdaki şekilde düzenleyin:
+* Çekirdek düğümlerini aşağıdaki gibi yapılandırmak için cassandra.yaml düzenleyin:
   
        Seeds: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10"
 
-**4. adım: hello VM'ler başlatmak ve hello küme test etme**
+**4. adım: sanal makineleri başlatın ve küme test etme**
 
-Merhaba düğümlerden (örneğin hk-c1-Batı-us) günlüğüne ve çalışma hello komutu toosee hello hello küme durumunu izleyen:
+Düğümler (örneğin hk-c1-Batı-us) birine oturum açın ve küme durumunu görmek için aşağıdaki komutu çalıştırın:
 
        nodetool –h 10.1.2.4 –p 7199 status
 
-Merhaba görüntü benzer toohello biri aşağıda bir 8 düğüm kümesi için görmeniz gerekir:
+Benzer şekilde bir 8 düğüm kümesi için bir görüntü görmeniz gerekir:
 
 <table>
 <tr><th>Durum</th><th>Adres    </th><th>Yükleme    </th><th>Belirteçler    </th><th>Sahibi </th><th>Ana bilgisayar kimliği    </th><th>Raf</th></tr>
@@ -435,19 +435,19 @@ Merhaba görüntü benzer toohello biri aşağıda bir 8 düğüm kümesi için 
 <tr><th>KALDIRMA    </td><td>10.1.2.11     </td><td>55.29 KB    </td><td>256    </td><td>68.8%    </td><td>GUID (kaldırılır)</td><td>rack4</td></tr>
 </table>
 
-## <a name="test-hello-single-region-cluster"></a>Test hello tek bölge kümesi
-Aşağıdaki adımları tootest hello küme hello kullan:
+## <a name="test-the-single-region-cluster"></a>Tek bölge kümesi test
+Küme test etmek için aşağıdaki adımları kullanın:
 
-1. Merhaba Powershell komutu Get-AzureInternalLoadbalancer komutunu kullanarak, hello iç yük dengeleyici hello IP adresi (örneğin Al  10.1.2.101). Merhaba komutun Hello sözdizimi aşağıda gösterilmektedir: Get-AzureLoadbalancer – [hello iç yük dengeleyici IP adresini birlikte hello ayrıntılarını görüntüler] ServiceName "hk-c-svc-Batı-us"
-2. Merhaba web grubu VM (örneğin hk-w1-Batı-us) günlüğüne Putty kullanarak veya ssh
+1. Powershell komutu Get-AzureInternalLoadbalancer komutunu kullanarak, iç yük dengeleyici IP adresi (örneğin Al  10.1.2.101). Komutun sözdizimi aşağıda gösterilmiştir: Get-AzureLoadbalancer – [IP adresini yanı sıra iç yük dengeleyicisi ayrıntılarını görüntüler] ServiceName "hk-c-svc-Batı-us"
+2. Web grubu VM (örneğin hk-w1-Batı-us) günlüğüne Putty kullanarak veya ssh
 3. $CASS_HOME/bin/cqlsh 10.1.2.101 yürütme 9160
-4. Merhaba küme çalışıyorsanız CQL komutları tooverify aşağıdaki hello kullan:
+4. Kümenin çalışıp çalışmadığını doğrulamak için aşağıdaki CQL komutları kullanın:
    
      İLE çoğaltma oluşturma KEYSPACE customers_ks = {'sınıfı': 'SimpleStrategy', 'replication_factor': 3};   Customers_ks; kullanın.   Tablo Customers(customer_id int PRIMARY KEY, firstname text, lastname text); oluşturma   INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');   INSERT INTO Customers(customer_id, firstname, lastname) değerleri (2, 'Jane', 'Etikan');
    
      SEÇİN * MÜŞTERİLERDEN;
 
-Hello gibi bir görüntü görmeniz gerekir:
+Bir görünüm aşağıdaki gibi görmeniz gerekir:
 
 <table>
   <tr><th> customer_id </th><th> FirstName </th><th> Soyadı </th></tr>
@@ -455,13 +455,13 @@ Hello gibi bir görüntü görmeniz gerekir:
   <tr><td> 2 </td><td> Jane </td><td> Doe </td></tr>
 </table>
 
-4. adımda oluşturduğunuz bu hello keyspace SimpleStrategy 3'ün bir replication_factor kullanır. Lütfen unutmayın. SimpleStrategy NetworkTopologyStrategy çok veri merkezi ancak dağıtımlar için tek bir veri merkezi dağıtımları önerilir. Replication_factor 3 düğümü hataları için dayanıklılık sunar.
+4. adımda oluşturduğunuz keyspace 3'ün bir replication_factor SimpleStrategy kullandığını unutmayın. SimpleStrategy NetworkTopologyStrategy çok veri merkezi ancak dağıtımlar için tek bir veri merkezi dağıtımları önerilir. Replication_factor 3 düğümü hataları için dayanıklılık sunar.
 
 ## <a id="tworegion"></a>Bölgeli dağıtım işlemi
-Merhaba tek bölge dağıtımı tamamlandı yararlanır ve hello ikinci bölge yüklemek için aynı işlemi hello yineleyin başlar. Merhaba anahtar arasındaki hello tek ve birden çok bölgede dağıtım hello VPN tüneli Kurulum arası bölge iletişimi için farktır; Biz başlatılır hello ağ yüklemesi ile hello VM'ler sağlamak ve Cassandra yapılandırın.
+İşlem tek bölge dağıtımı tamamlandı yararlanır ve ikinci bölge yüklemek için aynı işlemi yineleyin. Bir veya birden çok bölge dağıtımı arasındaki temel farklılık arası bölge iletişimi için VPN tüneli kurulduğundan; Biz başlatılır ağ yüklemesi ile sanal makineleri sağlamak ve Cassandra yapılandırın.
 
-### <a name="step-1-create-hello-virtual-network-at-hello-2nd-region"></a>1. adım: hello sanal ağ hello oluşturma 2 bölge
-Klasik Azure portalı Hello oturum ve hello öznitelikleri göster hello tablosundaki ile bir sanal ağ oluşturun. Bkz: [hello Klasik Azure portalı Cloud-Only sanal ağ yapılandırma](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) hello işleminin ayrıntılı adımlar için.      
+### <a name="step-1-create-the-virtual-network-at-the-2nd-region"></a>1. adım: 2 bölge sanal ağ oluşturma
+Azure Klasik portalında oturum açın ve tablodaki öznitelikleri göster ile bir sanal ağ oluşturun. Bkz: [Azure Klasik Portalı'nda Cloud-Only sanal ağ yapılandırma](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md) işleminin ayrıntılı adımlar için.      
 
 <table>
 <tr><th>Öznitelik adı    </th><th>Değer    </th><th>Açıklamalar</th></tr>
@@ -475,27 +475,27 @@ Klasik Azure portalı Hello oturum ve hello öznitelikleri göster hello tablosu
 <tr><td>CIDR    </td><td>/16 (65531)</td><td></td></tr>
 </table>
 
-Alt ağları aşağıdaki hello ekleyin:
+Aşağıdaki alt ağlar ekleyin:
 
 <table>
 <tr><th>Ad    </th><th>Başlangıç IP    </th><th>CIDR    </th><th>Açıklamalar</th></tr>
-<tr><td>Web    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Merhaba web grubu için alt ağ</td></tr>
-<tr><td>Veri    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>Merhaba veritabanı düğümleri için alt ağ</td></tr>
+<tr><td>Web    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Alt ağ web grubu</td></tr>
+<tr><td>Veri    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>Veritabanı düğümleri için alt ağ</td></tr>
 </table>
 
 
 ### <a name="step-2-create-local-networks"></a>2. adım: Yerel ağlar oluşturma
-Azure sanal ağ yerel bir ağda tooa uzak site özel bir bulut ya da başka bir Azure bölgesi de dahil olmak üzere eşleyen bir proxy adresi alanıdır. Bu proxy adres alanı ilişkili tooa uzak yönlendirme ağ toohello sağ hedefleri ağ için ağ geçididir. Bkz: [VNet tooVNet bağlantı yapılandırma](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) VNET-VNET bağlantı kurarak hello hakkında yönergeler için.
+Azure sanal ağ yerel bir ağda özel bir bulut ya da başka bir Azure bölgesi de dahil olmak üzere uzak bir siteye eşleyen bir proxy adresi alanıdır. Bu proxy adres alanı bir uzak ağ geçidi yönlendirme ağ için doğru ağ hedeflerine bağlıdır. Bkz: [Vnet'i Vnet'e bağlantı yapılandırma](../../../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md) VNET-VNET bağlantı kurma hakkında yönergeler için.
 
-Aşağıdaki ayrıntılara hello başına iki yerel ağlar oluşturun:
+Aşağıdaki ayrıntıları başına iki yerel ağlar oluşturun:
 
 | Ağ adı | VPN ağ geçidi adresi | Adres alanı | Açıklamalar |
 | --- | --- | --- | --- |
-| HK-lnet-Map-to-East-us |23.1.1.1 |10.2.0.0/16 |Merhaba yerel ağ oluşturulurken bir yer tutucu ağ geçidi adresi verin. Merhaba ağ geçidi oluşturulduktan sonra hello gerçek ağ geçidi adresi girilir. Merhaba adres alanı olduğundan emin olun tam olarak eşleşen hello ilgili uzak VNET; Bu durumda hello VNET hello Doğu ABD bölgesinde oluşturulur. |
-| HK-lnet-Map-to-West-us |23.2.2.2 |10.1.0.0/16 |Merhaba yerel ağ oluşturulurken bir yer tutucu ağ geçidi adresi verin. Merhaba ağ geçidi oluşturulduktan sonra hello gerçek ağ geçidi adresi girilir. Merhaba adres alanı olduğundan emin olun tam olarak eşleşen hello ilgili uzak VNET; Bu durumda hello VNET hello Batı ABD bölgesi oluşturulur. |
+| HK-lnet-Map-to-East-us |23.1.1.1 |10.2.0.0/16 |Yerel ağ oluşturulurken bir yer tutucu ağ geçidi adresi verin. Ağ geçidi oluşturulduktan sonra gerçek ağ geçidi adresi girilir. İlgili uzak VNET adres alanı tam olarak eşleştiğinden emin olun; Bu durumda Doğu ABD bölgesinde sanal ağ oluşturuldu. |
+| HK-lnet-Map-to-West-us |23.2.2.2 |10.1.0.0/16 |Yerel ağ oluşturulurken bir yer tutucu ağ geçidi adresi verin. Ağ geçidi oluşturulduktan sonra gerçek ağ geçidi adresi girilir. İlgili uzak VNET adres alanı tam olarak eşleştiğinden emin olun; Bu durumda Batı ABD bölgesinde sanal ağ oluşturuldu. |
 
-### <a name="step-3-map-local-network-toohello-respective-vnets"></a>3. adım: Eşleme "Yerel" Ağ toohello ilgili sanal ağları
-Hello Klasik Azure portalı, her sanal ağ seçin, "Yapılandır"'ı tıklatın, "Bağlan toohello yerel ağ" denetleyin ve aşağıdaki ayrıntılara hello başına hello yerel ağlar seçin:
+### <a name="step-3-map-local-network-to-the-respective-vnets"></a>"3. adım: Eşleme yerel" ağa ilgili sanal ağları
+Azure Klasik portalından her sanal ağ seçin, "Yapılandır"'ı tıklatın, "Yerel ağa bağlan" denetleyin ve aşağıdaki ayrıntıları başına yerel ağlar seçin:
 
 | Sanal Ağ | Yerel ağ |
 | --- | --- |
@@ -503,10 +503,10 @@ Hello Klasik Azure portalı, her sanal ağ seçin, "Yapılandır"'ı tıklatın,
 | HK-vnet-Doğu-us |HK-lnet-Map-to-West-us |
 
 ### <a name="step-4-create-gateways-on-vnet1-and-vnet2"></a>4. adım: Ağ geçitleri VNET1 ve vnet2'yi oluşturma
-Her iki hello sanal ağlar Hello panodan oluşturmak hello VPN ağ geçidi sağlama işlemini tetikler ağ geçidi'ı tıklatın. Her sanal ağ Panosu birkaç dakika hello sonra hello gerçek ağ geçidi adresi görüntülemelidir.
+Her iki sanal ağlar panodan oluşturmak sağlama işlemi VPN ağ geçidi tetikleyecek ağ geçidi'ı tıklatın. Birkaç dakika sonra her sanal ağ Panosu gerçek ağ geçidi adresi görüntülemelidir.
 
-### <a name="step-5-update-local-networks-with-hello-respective-gateway-addresses"></a>5. adım: Güncelleştirme "Yerel" ağlar hello ilgili "ağ geçidi" adresleri
-Her iki hello yerel ağlar tooreplace hello yer tutucu ağ geçidi IP sağlanan adresi hello yalnızca hello gerçek IP adresi ile ağ geçidi düzenleyin. Eşleme aşağıdaki hello kullan:
+### <a name="step-5-update-local-networks-with-the-respective-gateway-addresses"></a>5. adım: Güncelleştirme "Yerel" ağlarla ilgili "ağ geçidi" adresleri
+Yalnızca sağlanan ağ geçitleri gerçek IP adresiyle yer tutucu ağ geçidi IP adresini değiştirmek için hem yerel ağlar düzenleyin. Aşağıdaki eşleme kullanın:
 
 <table>
 <tr><th>Yerel ağ    </th><th>Sanal Ağ Geçidi</th></tr>
@@ -514,14 +514,14 @@ Her iki hello yerel ağlar tooreplace hello yer tutucu ağ geçidi IP sağlanan 
 <tr><td>HK-lnet-Map-to-West-us </td><td>Ağ geçidi hk-vnet-Doğu-ABD</td></tr>
 </table>
 
-### <a name="step-6-update-hello-shared-key"></a>6. adım: Güncelleştirme hello paylaşılan anahtar
-PowerShell komut dosyası tooupdate hello IPSec anahtarı her VPN ağ geçidi [hello artırmak amacıyla anahtarı hem hello ağ geçitleri için kullanın] aşağıdaki kullanım hello: Set-AzureVNetGatewayKey - vnetname adlı hk-vnet-Doğu-us - LocalNetworkSiteName hk-lnet-map-to-west-us - SharedKey D9E76BKK Set-AzureVNetGatewayKey - vnetname adlı hk-vnet-Batı-us - LocalNetworkSiteName hk-lnet-map-to-east-us - SharedKey D9E76BKK
+### <a name="step-6-update-the-shared-key"></a>6. adım: paylaşılan anahtar güncelleştir
+Her VPN ağ geçidi [hem ağ geçitleri için artırmak amacıyla anahtarını kullanın] IPSec anahtarı güncelleştirmek için aşağıdaki Powershell betiğini kullanın: Set-AzureVNetGatewayKey - vnetname adlı hk-vnet-Doğu-us - LocalNetworkSiteName hk-lnet-map-to-west-us - SharedKey D9E76BKK Set-AzureVNetGatewayKey - vnetname adlı hk-vnet-Batı-us - LocalNetworkSiteName hk-lnet-map-to-east-us - SharedKey D9E76BKK
 
-### <a name="step-7-establish-hello-vnet-to-vnet-connection"></a>7. adım: Merhaba VNET-VNET bağlantısı
-Hello Klasik Azure Portalı ' hem hello sanal ağlar tooestablish ağ geçidi için ağ geçidi bağlantı hello "PANO" menüsünü kullanın. Merhaba "BAĞLAN" menü öğeleri hello alt kısımdaki araç kullanın. Birkaç dakika sonra hello Pano hello bağlantı ayrıntıları grafik görüntülemelidir.
+### <a name="step-7-establish-the-vnet-to-vnet-connection"></a>7. adım: VNET-VNET bağlantısı
+Klasik Azure portalından, ağ geçidi için ağ geçidi bağlantısı kurmak için her iki sanal ağlar "PANO" menüsünü kullanın. "BAĞLAN" menü öğeleri alt kısımdaki araç kullanın. Birkaç dakika sonra Pano için grafik bağlantı ayrıntılarını görüntüleme.
 
-### <a name="step-8-create-hello-virtual-machines-in-region-2"></a>8. adım: #2 bölgede hello sanal makineler oluşturma
-Aynı adımlar veya #2 bölgede bulunan hello görüntü VHD dosyası toohello Azure depolama hesabı kopyalama aşağıdaki hello tarafından bölge #1 dağıtımı'nda açıklandığı gibi Hello Ubuntu görüntü oluşturabilir ve hello görüntü oluşturabilirsiniz. Bu görüntüyü kullanın ve yeni bir bulut hizmeti hk-c-svc-Doğu-us sanal makinelerin listesini aşağıdaki hello oluşturun:
+### <a name="step-8-create-the-virtual-machines-in-region-2"></a>8. adım: Bölge #2 sanal makineler oluşturma
+Aynı Azure depolama hesabı görüntüsünü VHD dosyasına #2 bölgede bulunan kopyalama veya adımları izleyerek bölge #1 dağıtımı'nda açıklandığı gibi Ubuntu görüntüsünü oluşturmak ve görüntü oluşturun. Bu görüntüyü kullanın ve aşağıdaki sanal makinelerin listesini yeni bir bulut hizmeti hk-c-svc-Doğu-us oluşturun:
 
 | Makine adı | Alt ağ | IP Adresi | Kullanılabilirlik kümesi | DC/raf | Çekirdek? |
 | --- | --- | --- | --- | --- | --- |
@@ -535,62 +535,62 @@ Aynı adımlar veya #2 bölgede bulunan hello görüntü VHD dosyası toohello A
 | HK-w1-Doğu-us |Web |10.2.1.4 |HK-w-aset-1 |Yok |Yok |
 | HK-w2-Doğu-us |Web |10.2.1.5 |HK-w-aset-1 |Yok |Yok |
 
-İzleme hello aynı bölge #1 olarak yönergeleri ancak 10.2.xxx.xxx adres alanı kullanın.
+Bölge #1 olarak aynı yönergeleri izleyin, ancak 10.2.xxx.xxx adres alanı kullanın.
 
 ### <a name="step-9-configure-cassandra-on-each-vm"></a>9. adım: Her VM Cassandra yapılandırma
-VM Hello oturum ve hello aşağıdakileri yapın:
+VM oturum açın ve aşağıdakileri gerçekleştirin:
 
-1. $CASS_HOME/conf/cassandra-rackdc.properties toospecify hello veri merkezi ve raf özellikleri hello biçimde düzenleyin: dc EASTUS raf = raf1 =
-2. Cassandra.yaml tooconfigure çekirdek düğümleri düzenleyin: oluştururken çekirdeği: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
+1. Veri merkezi ve raf özellikleri biçiminde belirtmek için $CASS_HOME/conf/cassandra-rackdc.properties Düzenle: dc EASTUS raf = raf1 =
+2. Çekirdek düğümlerini yapılandırmak için cassandra.yaml Düzenle: oluştururken çekirdeği: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
 
 ### <a name="step-10-start-cassandra"></a>10. adım: Cassandra Başlat
-Her bir VM oturum ve hello aşağıdaki komutu çalıştırarak hello arka planda Cassandra Başlat: $CASS_HOME/bin/cassandra
+Her bir VM oturum ve aşağıdaki komutu çalıştırarak arka planda Cassandra Başlat: $CASS_HOME/bin/cassandra
 
-## <a name="test-hello-multi-region-cluster"></a>Test hello bölgeli küme
-Artık her Azure bölgesi 8 düğümler ile dağıtılan too16 düğüm Cassandra olmuştur. Bu düğümler aynı hello ortak küme adı ve hello çekirdek düğüm yapılandırması, küme hello arasındadır. İşlem tootest hello küme aşağıdaki hello kullan:
+## <a name="test-the-multi-region-cluster"></a>Bölgeli küme test
+Artık her Azure bölgesindeki 8 düğümlerle 16 düğüme Cassandra dağıtıldı. Aynı kümedeki ortak küme adı ve çekirdek düğüm yapılandırması, bu düğümler şunlardır. Küme sınamak için aşağıdaki yordamı kullanın:
 
-### <a name="step-1-get-hello-internal-load-balancer-ip-for-both-hello-regions-using-powershell"></a>1. adım: hello iç yük dengeleyici IP PowerShell kullanarak her iki hello bölgeler için alın.
+### <a name="step-1-get-the-internal-load-balancer-ip-for-both-the-regions-using-powershell"></a>1. adım: PowerShell kullanarak her iki bölgeler için iç yük dengeleyici IP Al
 * Get-AzureInternalLoadbalancer - ServiceName "hk-c-svc-Batı-us"
 * Get-AzureInternalLoadbalancer - ServiceName "hk-c-svc-Doğu-us"  
   
-    Not hello IP adresleri (örneğin - 10.1.2.101, Doğu - Batı 10.2.2.101) görüntülenir.
+    IP adreslerini not alın (örneğin - 10.1.2.101, Doğu - Batı 10.2.2.101) görüntülenir.
 
-### <a name="step-2-execute-hello-following-in-hello-west-region-after-logging-into-hk-w1-west-us"></a>2. adım: hello aşağıdakileri oturum hk-w1-Batı-us açtıktan sonra hello Batı bölgesinde yürütün
+### <a name="step-2-execute-the-following-in-the-west-region-after-logging-into-hk-w1-west-us"></a>2. adım: aşağıdakileri oturum hk-w1-Batı-us açtıktan sonra Batı bölgesinde yürütün
 1. $CASS_HOME/bin/cqlsh 10.1.2.101 yürütme 9160
-2. CQL komutları aşağıdaki hello yürütün:
+2. Aşağıdaki CQL komutları yürütün:
    
      İLE çoğaltma oluşturma KEYSPACE customers_ks = {'sınıfı': 'NetworkToplogyStrategy', 'WESTUS': 3 'EASTUS': 3};   Customers_ks; kullanın.   Tablo Customers(customer_id int PRIMARY KEY, firstname text, lastname text); oluşturma   INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');   INSERT INTO Customers(customer_id, firstname, lastname) değerleri (2, 'Jane', 'Etikan');   SEÇİN * MÜŞTERİLERDEN;
 
-Hello gibi bir görüntü görmeniz gerekir:
+Bir görünüm aşağıdaki gibi görmeniz gerekir:
 
 | customer_id | FirstName | Soyadı |
 | --- | --- | --- |
 | 1 |John |Doe |
 | 2 |Jane |Doe |
 
-### <a name="step-3-execute-hello-following-in-hello-east-region-after-logging-into-hk-w1-east-us"></a>3. adım: oturum hk-w1-Doğu-us açtıktan sonra hello Doğu bölgede hello aşağıdakileri yürütün:
+### <a name="step-3-execute-the-following-in-the-east-region-after-logging-into-hk-w1-east-us"></a>3. adım: oturum hk-w1-Doğu-us açtıktan sonra Doğu bölgesinde aşağıdakileri yürütün:
 1. $CASS_HOME/bin/cqlsh 10.2.2.101 yürütme 9160
-2. CQL komutları aşağıdaki hello yürütün:
+2. Aşağıdaki CQL komutları yürütün:
    
      Customers_ks; kullanın.   Tablo Customers(customer_id int PRIMARY KEY, firstname text, lastname text); oluşturma   INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');   INSERT INTO Customers(customer_id, firstname, lastname) değerleri (2, 'Jane', 'Etikan');   SEÇİN * MÜŞTERİLERDEN;
 
-Aynı hello Batı bölge için görülen görüntülemek hello görmeniz gerekir:
+Batı bölgesini görüldüğü gibi aynı görüntü görmeniz gerekir:
 
 | customer_id | FirstName | Soyadı |
 | --- | --- | --- |
 | 1 |John |Doe |
 | 2 |Jane |Doe |
 
-Birkaç daha fazla eklemeleri yürütün ve bu çoğaltılmış toowest görmek-bize hello kümenin parçası.
+Birkaç daha fazla eklemeleri yürütün ve olanlar için Batı çoğaltıldığından emin bakın-bize kümesinin parçası.
 
 ## <a name="test-cassandra-cluster-from-nodejs"></a>Test Cassandra Node.js kümeden
-Merhaba "web" katmanında hello Linux VM'ler birini kullanarak daha önce crated, basit bir Node.js komut dosyası tooread önceden eklenen hello veri yürütülmez.
+"Web" crated Linux VM'ler, daha önce katmanı kullanarak, daha önce eklenen verileri okumak için basit bir Node.js betik yürütülmez.
 
 **1. adım: Node.js ve Cassandra istemcisi yükleme**
 
 1. Node.js ve npm yükleme
 2. Düğüm paketi "cassandra-istemci" yükleme npm kullanma
-3. Alınan hello veri hello json dizesi görüntüleyen hello Kabuk isteminde komut dosyası izleyen hello yürütün:
+3. Alınan veriler json dizesi görüntüleyen Kabuk isteminde aşağıdaki betiği yürütün:
    
         var pooledCon = require('cassandra-client').PooledConnection;
         var ksName = "custsupport_ks";
@@ -606,7 +606,7 @@ Merhaba "web" katmanında hello Linux VM'ler birini kullanarak daha önce crated
            var con = new pooledCon(sysConOptions);
            con.execute(cql,[],function(err) {
            if (err) {
-             console.log("Failed toocreate Keyspace: " + ksName);
+             console.log("Failed to create Keyspace: " + ksName);
              console.log(err);
            }
            else {
@@ -624,7 +624,7 @@ Merhaba "web" katmanında hello Linux VM'ler birini kullanarak daha önce crated
         var con =  new pooledCon(ksConOptions);
           con.execute(cql,params,function(err) {
               if (err) {
-                 console.log("Failed toocreate column family: " + params[0]);
+                 console.log("Failed to create column family: " + params[0]);
                  console.log(err);
               }
               else {
@@ -644,7 +644,7 @@ Merhaba "web" katmanında hello Linux VM'ler birini kullanarak daha önce crated
            updateCustomer(ksConOptions,params);
         }
    
-        //update will also insert hello record if none exists
+        //update will also insert the record if none exists
         function updateCustomer(ksConOptions,params)
         {
           var cql = 'UPDATE customers_cf SET custname=?,custaddress=? where custid=?';
@@ -656,7 +656,7 @@ Merhaba "web" katmanında hello Linux VM'ler birini kullanarak daha önce crated
           con.shutdown();
         }
    
-        //read hello two rows inserted above
+        //read the two rows inserted above
         function readCustomer(ksConOptions)
         {
           var cql = 'SELECT * FROM customers_cf WHERE custid IN (1,2)';
@@ -671,12 +671,12 @@ Merhaba "web" katmanında hello Linux VM'ler birini kullanarak daha önce crated
            con.shutdown();
         }
    
-        //exectue hello code
+        //exectue the code
         createKeyspace(createColumnFamily);
         readCustomer(ksConOptions)
 
 ## <a name="conclusion"></a>Sonuç
-Microsoft Azure tarafından bu alıştırmada gösterildiği gibi hem Microsoft, hem de açık kaynak yazılımının hello çalışmasını sağlayan esnek bir platformdur. Yüksek oranda kullanılabilir Cassandra kümeleri tek bir veri merkezi hello hello küme düğümlerinin birden çok hata etki alanlarında yayılmak üzerinden dağıtılabilir. Cassandra kümeleri de olağanüstü durum kanıtını sistemler için birden çok coğrafi olarak birbirinden uzak Azure bölgeleri üzerinden dağıtılabilir. Azure ve Cassandra birlikte etkinleştirir düzeyde ölçeklenebilir, yüksek oranda kullanılabilir yapımı hello ve olağanüstü durum kurtarılabilir bulut Hizmetleri tarafından bugünün internet Hizmetleri ölçeği.  
+Microsoft Azure tarafından bu alıştırmada gösterildiği gibi hem Microsoft, hem de açık kaynak yazılımının çalışmasını sağlayan esnek bir platformdur. Yüksek oranda kullanılabilir Cassandra kümeler, küme düğümlerini birden fazla hata etki alanlarında yayılmak aracılığıyla tek bir veri merkezi üzerinde dağıtılabilir. Cassandra kümeleri de olağanüstü durum kanıtını sistemler için birden çok coğrafi olarak birbirinden uzak Azure bölgeleri üzerinden dağıtılabilir. Azure ve Cassandra birlikte yüksek düzeyde ölçeklenebilir, yüksek oranda kullanılabilir yapımı sağlar ve olağanüstü durum kurtarılabilir bulut Hizmetleri tarafından bugünün internet Hizmetleri ölçeği.  
 
 ## <a name="references"></a>Başvurular
 * [http://cassandra.apache.org](http://cassandra.apache.org)

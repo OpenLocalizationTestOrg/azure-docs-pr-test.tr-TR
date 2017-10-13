@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure Active Directory B2C belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
-description: "Nasıl toodeploy kapsamlı tüketici kimlik yönetimini hello içinde bulut öğrenin. Belge gösterir nasıl tooprotect tüketiciye yönelik web ve mobil uygulamaları."
+title: "Azure Active Directory B2C Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Bulutta kapsamlı tüketici kimlik yönetimi dağıtmayı öğrenin. Belgelerde tüketicilere dönük web uygulamalarını ve mobil uygulamaları nasıl koruyabileceğiniz açıklanmıştır."
 services: active-directory-b2c
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: f9f6939d4d5bbe49533cad037a9085ce3da63155
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: e36baddffd634cb7d601d09ccebaf40b27798c7b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="active-directory-b2c-documentation"></a>Active Directory B2C Belgeleri
 
-Bilgi nasıl tooset ayarlama ve Active Directory B2C ile Merhaba bulutta kapsamlı tüketici kimlik yönetimini yönetme. Öğreticiler, başvuruları ve diğer belgelerin tooprotect tüketiciye yönelik web ve mobil uygulamaları ile oturum açma güvenliğini nasıl gösterir.
+Active Directory B2C ile bulutta kapsamlı tüketici kimlik yönetimi ayarlamayı ve yönetmeyi öğrenin. Öğreticiler, başvurular ve diğer belgeler, tüketiciye yönelik web uygulamalarını ve mobil uygulamaları güvenli oturum açma özelliğiyle nasıl koruyabileceğinize ilişkin bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>

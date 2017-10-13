@@ -1,15 +1,15 @@
 
 ## <a name="about-vhds"></a>VHD'ler hakkında
 
-Sayfa bloblarını Azure standart veya premium storage hesabında depolanan .vhd dosyaları Hello Azure içinde kullanılan VHD'ler var. Sayfa blobları hakkında bilgi için bkz. [Blok bloblarını ve sayfa bloblarını anlama](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Premium depolama hakkında daha fazla ayrıntı için bkz. [Yüksek performanslı premium depolama ve Azure VM'leri](../articles/storage/common/storage-premium-storage.md).
+Azure’da kullanılan VHD’ler, Azure’daki standart veya premium depolama hesabında sayfa blobları olarak depolanır. Sayfa blobları hakkında bilgi için bkz. [Blok bloblarını ve sayfa bloblarını anlama](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Premium depolama hakkında daha fazla ayrıntı için bkz. [Yüksek performanslı premium depolama ve Azure VM'leri](../articles/storage/common/storage-premium-storage.md).
 
-Azure sabit disk VHD biçiminde hello destekler. Bu disk uzaklığı X X blob uzaklığı depolanan şekilde biçimi sabit hello yerleştirir doğrusal olarak hello dosyası içinde kullanıma mantıksal disk hello. Merhaba blob hello sonunda küçük altbilgi hello VHD hello özelliklerini açıklar. Genellikle, çoğu diskleri büyük kullanılmayan aralıkları olması nedeniyle hello sabit bir biçime alanı boşa harcar. Ancak, Azure .vhd dosyaları seyrek bir biçimde sabit hem hello hello yararları almak ve dinamik diskler hello aynı depolar; böylece zaman. Daha ayrıntılı bilgi için bkz. [Sanal sabit diskleri kullanmaya başlama](https://technet.microsoft.com/library/dd979539.aspx).
+Azure, sabit bir disk VHD biçimini destekler. Sabit biçim, mantıksal diski dosya içinde doğrusal olarak düzenlediğinden, disk farkı X'in içeriği blob farkı X konumunda depolanır. Blob'un sonundaki küçük bir alt bilgi VHD'nin özelliklerini tanımlar. Çoğunlukla, sabit biçim alanı israf eder, çünkü çoğu diskte kullanılmayan büyük aralıklar vardır. Ancak, Azure .vhd dosyalarını seyrek biçimde depoladığından aynı anda hem sabit hem de dinamik disklerin avantajlarından yararlanırsınız. Daha ayrıntılı bilgi için bkz. [Sanal sabit diskleri kullanmaya başlama](https://technet.microsoft.com/library/dd979539.aspx).
 
-Bir kaynak toocreate diskleri olarak toouse istediğiniz veya salt okunur görüntüleri Azure tüm .vhd dosyaları. Bir disk veya görüntü oluşturduğunuzda, Azure .vhd dosyaları hello kopyalarını oluşturur. Bu kopyalar salt okunur veya okuma-ve-yazma, hello VHD nasıl kullandığınıza bağlı olarak yüklenebilir.
+Azure’da disk veya görüntü oluşturmak için kaynak olarak kullanmak istediğiniz tüm .vhd dosyaları salt okunur özelliktedir. Bir disk veya görüntü oluşturduğunuzda, Azure .vhd dosyalarının kopyalarını oluşturur. Bu kopyalar, VHD’yi nasıl kullandığınıza bağlı olarak salt okunur veya okuma-yazma niteliktedir.
 
-Bir görüntüden sanal makine oluşturduğunuzda, Azure hello kaynak .vhd dosyasının bir kopyasını hello sanal makine için bir disk oluşturur. tooprotect yanlışlıkla silinmeye karşı Azure toocreate bir görüntü, bir işletim sistemi diski veya veri diski kullanılan tüm kaynak .vhd dosyası bir kira yerleştirir.
+Bir görüntüden sanal makine oluşturduğunuzda Azure, sanal makine için kaynak .vhd dosyasının kopyası olan bir disk oluşturur. Yanlışlıkla silmeye karşı korumak üzere Azure, bir görüntü, işletim sistemi diski ya da veri diski oluşturmak için kullanılan her kaynak .vhd dosyasına kira koyar.
 
-Bir kaynak .vhd dosyası silmeden önce hello disk veya görüntü silerek tooremove hello kira gerekir. bir işletim sistemi diski olarak bir sanal makine tarafından kullanılan bir .vhd dosyası toodelete, hello sanal makine, hello işletim sistemi diski ve hello kaynak .vhd dosyası tümünü bir defada hello sanal makinesi siliniyor ve tüm ilişkili diskleri silme silebilirsiniz. Ancak, bir veri diskinin kaynağı olan .vhd dosyasının silinmesi, belirli bir sırada birkaç adımın uygulanmasını gerektirir. İlk olarak hello disk hello sanal makine, sonra da delete hello disk ayırma ve hello .vhd dosyasını silin.
+Bir kaynak .vhd dosyasını silmeden önce diski veya görüntüyü silerek kirayı kaldırmanız gerekir. Sanal makine tarafından işletim sistemi diski olarak kullanılan bir .vhd dosyasını silmek için, sanal makineyi ve ilişkili tüm diskleri silerek sanal makineyi, işletim sistemi diskini ve kaynak .vhd dosyasını tek seferde silebilirsiniz. Ancak, bir veri diskinin kaynağı olan .vhd dosyasının silinmesi, belirli bir sırada birkaç adımın uygulanmasını gerektirir. İlk olarak, diski sanal makineden ayırın, ardından diski ve sonra .vhd dosyasını silin.
 
 > [!WARNING]
 > Kaynak .vhd dosyasını depolama alanından silerseniz veya depolama hesabınızı silerseniz, Microsoft bu verileri kurtaramaz.
@@ -34,19 +34,19 @@ Premium Depolama, SSD’ler ile desteklenir ve G/Ç yoğunluklu iş yükleri iç
 
 ### <a name="unmanaged-disks"></a>Yönetilmeyen diskler
 
-Yönetilmeyen diskleri hello geleneksel VM'ler tarafından kullanılan diskler türüdür. Bu, kendi depolama hesabı oluşturun ve hello disk oluşturduğunuzda, bu depolama hesabı belirtin. Toomake yok içine çok sayıda disk emin olduğunuz hello aştığından aynı depolama hesabını hello [ölçeklenebilirlik hedefleri](../articles/storage/common/storage-scalability-targets.md) hello depolama hesabını (örneğin 20.000 IOPS), sanal makineleri karşılaşıldığı hello sonuçlanır. Yönetilmeyen disklerle toomaximize hello nasıl kullandığı bir veya daha fazla depolama hesapları tooget hello en iyi performansı Vm'leriniz dışında çıkışı toofigure sahip.
+Yönetilmeyen diskler, VM'ler tarafından kullanılan geleneksel türdeki disklerdir. Bunları kullanarak kendi depolama hesabınızı oluşturabilir ve diski oluştururken bu depolama hesabını belirtebilirsiniz. Depolama hesabının [ölçeklendirme hedeflerini](../articles/storage/common/storage-scalability-targets.md) (örneğin, 20.000 IOPS) aşarak VM’lerin azaltılmasına neden olabileceğinden, aynı depolama hesabına çok fazla disk yerleştirmediğinizden emin olun. Yönetilmeyen disklerde, VM’lerinizden en iyi performansı elde etmek için, bir veya daha fazla depolama hesabının kullanımını nasıl en üst düzeye çıkarabileceğinizi anlamanız gerekir.
 
 ### <a name="managed-disks"></a>Yönetilen diskler 
 
-Merhaba depolama oluşturma/yönetim hello arka planda sizin için hesap ve tooworry hello hello depolama hesabı ölçeklenebilirlik sınırları hakkında sahip olmayan sağlar diskleri tanıtıcıları yönetilen. Yalnızca hello disk boyutu ve hello performans Katmanı (standart/Premium) belirtin ve Azure oluşturur ve hello disk tarafından yönetilir. Disk ekleyin veya hello VM yukarı ve aşağı doğru ölçeklendirme gibi bile, kullanılan hello depolama hakkında tooworry yok. 
+Yönetilen Diskler, depolama hesabı oluşturma/yönetme işlemini arka planda gerçekleştirir ve depolama hesabının ölçeklenebilirlik sınırları hakkında endişe etmeniz gerekmez. Azure’un diski oluşturup yönetebilmesi için disk boyutunu ve performans katmanını (Standart/Premium) belirtmeniz yeterlidir. Disk eklediğinizde veya VM ölçeğini artırıp azalttığınızda bile kullanılan depolama alanı konusunda endişelenmeniz gerekmez. 
 
-Ayrıca, kendi özel görüntülerinizi Azure bölgesi başına bir depolama hesabındaki yönetmek ve toocreate yüzlerce VM'lerin hello içinde kullanabilirsiniz aynı abonelik. Yönetilen diskler hakkında daha fazla bilgi için lütfen hello bakın [yönetilen diskleri genel bakış](../articles/virtual-machines/windows/managed-disks-overview.md).
+Ayrıca, her Azure bölgesinde bir depolama hesabındaki özel görüntülerinizi yönetebilir ve aynı abonelikte yüzlerce VM oluşturmak için kullanabilirsiniz. Yönetilen Diskler hakkında daha fazla bilgi için bkz. [Yönetilen Disklere Genel Bakış](../articles/virtual-machines/windows/managed-disks-overview.md).
 
-Azure yönetilen diskleri yeni VM'ler için kullanın ve birçok özellik yönetilen diskleri kullanılabilir önceki yönetilmeyen diskleri toomanaged disklerinizi hello tootake avantajlarından Dönüştür öneririz.
+Yeni VM’ler için Azure Yönetilen Diskleri kullanmanız ve Yönetilen Disklerde sunulan çok sayıda özellikten yararlanmak için önceki yönetilmeyen diskleri yönetilen disklere dönüştürmeniz önerilir.
 
 ### <a name="disk-comparison"></a>Disk karşılaştırması
 
-Aşağıdaki tablonun hello hem de yönetilmeyen ve hangi toouse karar diskleri toohelp yönetilen Premium vs standart karşılaştırması sağlar.
+Aşağıdaki tabloda, kullanacağınız seçeneğe karar vermenize yardımcı olmak üzere hem yönetilmeyen hem de yönetilen diskler için Premium ve Standart katmanların karşılaştırması yapılmaktadır.
 
 |    | Azure Premium Disk | Azure Standart Disk |
 |--- | ------------------ | ------------------- |

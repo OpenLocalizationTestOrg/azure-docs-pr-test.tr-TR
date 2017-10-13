@@ -14,115 +14,115 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.openlocfilehash: 4142111231d0256960d0c02d686d51533ba2171c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c158c67a82e12501386179e19bc75fd852d7e308
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD uygulama proxy'si bir Azure AD etki alanı Hizmetleri yönetilen etki alanında dağıtma
-Azure Active Directory (AD) uygulama proxy'si hello erişilen şirket içi uygulamalar toobe yayımlayarak uzaktan çalışanlar destek yardımcı olan Internet. Azure AD etki alanı Hizmetleri ile şirket içi tooAzure altyapı Hizmetleri çalışan şimdi yükseltme-ve-shift eski uygulamalar olabilir. Ardından hello Azure AD uygulama proxy'si, kuruluşunuzdaki tooprovide güvenli uzaktan erişim toousers kullanarak bu uygulamaları yayımlayabilirsiniz.
+Azure Active Directory (AD) uygulama proxy'si, internet üzerinden erişilebilmesi için şirket içi uygulamaları yayımlama tarafından uzaktan çalışanlar destek yardımcı olur. Azure AD etki alanı Hizmetleri ile Azure altyapı hizmetleri için şirket içi çalışan şimdi yükseltme-ve-shift eski uygulamalar olabilir. Ardından, kuruluşunuzdaki kullanıcılar için güvenli uzaktan erişim sağlamak için Azure AD uygulama proxy'si kullanarak bu uygulamaları yayımlayabilirsiniz.
 
-Yeni toohello Azure AD uygulama proxy'si değilseniz, bu özellik hakkında daha fazla bilgi ile Merhaba aşağıdaki makaleye bakın: [nasıl tooprovide güvenli uzaktan erişim tooon içi uygulamaları](../active-directory/active-directory-application-proxy-get-started.md).
+Azure AD uygulama proxy'si yeniyseniz, bu özellik aşağıdaki makaleyi ile hakkında daha fazla bilgi: [güvenli uzaktan erişim sağlamak şirket içi uygulamalar](../active-directory/active-directory-application-proxy-get-started.md).
 
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-Bu makalede listelenen tooperform hello görevleri, aşağıdakiler gerekir:
+Bu makalede listelenen görevleri gerçekleştirmek için gerekir:
 
 1. Geçerli bir **Azure aboneliği**.
 2. Bir **Azure AD dizini** -ya da bir şirket içi dizin veya bir yalnızca bulut dizini ile eşitlenir.
-3. Bir **Azure AD Basic veya Premium lisansı** olan gerekli toouse hello Azure AD uygulama proxy'si.
-4. **Azure AD etki alanı Hizmetleri** hello Azure AD dizini için etkinleştirilmesi gerekir. Bunu yapmadıysanız, hello özetlenen tüm hello görevleri izleyin [Getting Started guide](active-directory-ds-getting-started.md).
+3. Bir **Azure AD Basic veya Premium lisansı** Azure AD uygulama proxy'si kullanmak için gereklidir.
+4. **Azure AD etki alanı Hizmetleri** Azure AD dizini için etkinleştirilmesi gerekir. Bunu yapmadıysanız, özetlenen tüm görevleri izleyin [Getting Started guide](active-directory-ds-getting-started.md).
 
 <br>
 
 ## <a name="task-1---enable-azure-ad-application-proxy-for-your-azure-ad-directory"></a>Görev 1 - etkinleştir Azure AD uygulama proxy'si Azure AD dizininiz için
-Aşağıdaki adımları tooenable hello Azure AD dizininiz için Azure AD uygulama proxy'si hello gerçekleştirin.
+Azure AD dizininiz için Azure AD uygulama proxy'si etkinleştirmek için aşağıdaki adımları gerçekleştirin.
 
-1. Merhaba içinde bir yönetici olarak oturum açın [Azure portal](http://portal.azure.com).
+1. Bir yönetici olarak oturum açın [Azure portal](http://portal.azure.com).
 
-2. Tıklatın **Azure Active Directory** toobring hello directory genel bakış ayarlama. Tıklatın **kurumsal uygulamalar**.
+2. Tıklatın **Azure Active Directory** directory genel bakış getirmek için. Tıklatın **kurumsal uygulamalar**.
 
     ![Azure AD dizini seçin](./media/app-proxy/app-proxy-enable-start.png)
-3. Tıklatın **uygulama proxy'si**. Bir Azure AD temel veya Azure AD Premium aboneliğiniz yoksa, bir seçenek tooenable bir deneme bakın. İki durumlu **uygulama ara sunucusunu etkinleştirme?** çok**etkinleştirmek** tıklatıp **kaydetmek**.
+3. Tıklatın **uygulama proxy'si**. Bir Azure AD temel veya Azure AD Premium aboneliğiniz yoksa, bir deneme sürümü'nü etkinleştirmek için bir seçenek görürsünüz. İki durumlu **uygulama ara sunucusunu etkinleştirme?** için **etkinleştirmek** tıklatıp **kaydetmek**.
 
     ![Uygulama Ara sunucusunu etkinleştirme](./media/app-proxy/app-proxy-enable-proxy-blade.png)
-4. toodownload bağlayıcı Merhaba, hello tıklatın **bağlayıcı** düğmesi.
+4. Bağlayıcısı'nı indirmek için tıklayın **bağlayıcı** düğmesi.
 
     ![Bağlayıcıyı indir](./media/app-proxy/app-proxy-enabled-download-connector.png)
-5. Hello indirme sayfasında hello lisans koşullarını ve Gizlilik Sözleşmesi kabul ve hello **karşıdan** düğmesi.
+5. İndirme sayfasında, lisans koşullarını ve Gizlilik Sözleşmesi kabul edin ve tıklayın **karşıdan** düğmesi.
 
     ![Yükleme Onayla](./media/app-proxy/app-proxy-enabled-confirm-download.png)
 
 
-## <a name="task-2---provision-domain-joined-windows-servers-toodeploy-hello-azure-ad-application-proxy-connector"></a>Görev 2 - sağlama etki alanına katılmış Windows sunucuları toodeploy hello Azure AD uygulama ara sunucusu Bağlayıcısı
-Windows Server sanal hello Azure AD uygulama ara sunucusu Bağlayıcısı yükleme makinelerin etki alanına katılmış gerekir. Yayımlanmakta hello uygulamalara bağlı olarak birden çok sunucu hello bağlayıcı yüklendiği tooprovision seçebilirsiniz. Yardımcı daha ağır kimlik doğrulama yükü işlemek ve bu dağıtım seçeneğini daha yüksek kullanılabilirlik sağlar.
+## <a name="task-2---provision-domain-joined-windows-servers-to-deploy-the-azure-ad-application-proxy-connector"></a>Görev 2 - Azure AD uygulama ara sunucusu Bağlayıcısı'nı dağıtmak için etki alanına katılmış Windows sunucuları hazırlama
+Windows Server sanal Azure AD uygulama ara sunucusu Bağlayıcısı'nı yükleyebilmek için makinelerin etki alanına katılmış gerekir. Yayımlanan uygulamalara bağlı olarak, bağlayıcı yüklü olduğu birden çok sunucuları sağlamak tercih edebilirsiniz. Yardımcı daha ağır kimlik doğrulama yükü işlemek ve bu dağıtım seçeneğini daha yüksek kullanılabilirlik sağlar.
 
-Merhaba bağlayıcı sunucuları sağlamak hello aynı sanal ağ (veya bağlı ve eşlenen bir sanal ağ), etkinleştirdiğiniz içinde Azure AD etki alanı Hizmetleri yönetilen etki alanı. Benzer şekilde, hello uygulama proxy'si yayımlama hello uygulamaları barındıran hello hello üzerinde yüklü toobe sunucunuz aynı Azure sanal ağı.
+Azure AD etki alanı Hizmetleri yönetilen etki alanınızı etkinleştirdiğiniz bağlayıcı sunucuları aynı sanal ağ (veya bağlı ve eşlenen bir sanal ağda) sağlayın. Benzer şekilde, uygulama proxy'si yayımlamak uygulamaları barındıran sunucuları aynı Azure sanal ağ üzerinde yüklü olması gerekir.
 
-tooprovision bağlayıcı sunucuları başlıklı hello makalesinde ana hatlarıyla hello görevleri izleyin [Windows sanal makine tooa yönetilen etki alanına Katıl](active-directory-ds-admin-guide-join-windows-vm.md).
+Bağlayıcı sunucuları sağlamak için başlıklı makalesinde ana hatlarıyla görevleri izleyin [Windows sanal makinesini yönetilen bir etki alanına katma](active-directory-ds-admin-guide-join-windows-vm.md).
 
 
-## <a name="task-3---install-and-register-hello-azure-ad-application-proxy-connector"></a>Görev 3 - yükleme ve kaydetme hello Azure AD uygulama ara sunucusu Bağlayıcısı
-Daha önce Windows Server sanal makine sağlanan ve toohello yönetilen etki alanına katıldı. Bu görevde, bu sanal makineye hello Azure AD uygulama ara sunucusu Bağlayıcısı yükler.
+## <a name="task-3---install-and-register-the-azure-ad-application-proxy-connector"></a>Görev 3 - yükleme ve kaydetme Azure AD uygulama ara sunucusu Bağlayıcısı
+Daha önce Windows Server sanal makine sağlanan ve yönetilen etki alanına katılan. Bu görevde, bu sanal makine üzerinde Azure AD uygulama ara sunucusu Bağlayıcısı'nı yükler.
 
-1. Merhaba connector yükleme paketini toohello VM hello Azure AD Web uygulaması Ara sunucusu Bağlayıcısı yüklemeniz kopyalayın.
+1. Bağlayıcı yükleme paketini Azure AD Web uygulaması Ara sunucusu Bağlayıcısı'nı yüklemek VM kopyalayın.
 
-2. Çalıştırma **AADApplicationProxyConnectorInstaller.exe** hello sanal makine üzerinde. Merhaba yazılım lisans koşullarını kabul edin.
+2. Çalıştırma **AADApplicationProxyConnectorInstaller.exe** sanal makinede. Yazılım Lisans Koşulları'nı kabul edin.
 
     ![Yükleme için koşulları kabul edin](./media/app-proxy/app-proxy-install-connector-terms.png)
-3. Yükleme sırasında istendiğinde tooregister hello Bağlayıcısı hello Azure AD dizininizin uygulama proxy'si ile demektir.
+3. Yükleme sırasında bağlayıcı Azure AD dizininizi uygulaması proxy'si ile kaydetmeniz istenir.
     * Sağlayın, **Azure AD genel yönetici kimlik bilgileri**. Genel yönetici kiracınız, Microsoft Azure kimlik bilgilerinizden farklı olabilir.
-    * Hello Yöneticisi kullanılan hesap tooregister hello bağlayıcı toohello ait olmalıdır hello uygulaması Ara sunucusu hizmetini etkinleştirdiğiniz aynı dizin. Hello Yöneticisi hello Kiracı etki alanı contoso.com ise, örneğin, olmalıdır admin@contoso.com veya diğer geçerli diğer o etki alanı üzerinde.
-    * IE Artırılmış güvenlik yapılandırması için hello sunucusu Merhaba bağlayıcısını yüklediğiniz açıksa, hello kayıt ekranı engellenebilir. tooallow erişimi, hello hata iletisindeki hello yönergeleri izleyin. Internet Explorer Artırılmış Güvenlik seçeneğinin devre dışı olduğundan emin olun.
+    * Bağlayıcı kaydetmek için kullanılan yönetici hesabını uygulaması Ara sunucusu hizmetini etkinleştirdiğiniz dizinine ait olmalıdır. Örneğin, Kiracı etki alanı contoso.com ise, yönetici olmalıdır admin@contoso.com veya diğer geçerli diğer o etki alanı üzerinde.
+    * IE Artırılmış Güvenlik Yapılandırması sunucusu Bağlayıcısı'nı yüklemekte olduğunuz açıksa, kayıt ekranı engellenebilir. Erişime izin vermek için hata iletisindeki yönergeleri izleyin. Internet Explorer Artırılmış Güvenlik seçeneğinin devre dışı olduğundan emin olun.
     * Bağlayıcı kaydı başarısız olursa bkz. [Uygulama Proxy’si Sorunlarını Giderme](../active-directory/active-directory-application-proxy-troubleshoot.md).
 
     ![Yüklü bağlayıcı](./media/app-proxy/app-proxy-connector-installed.png)
-4. tooensure hello bağlayıcı çalışma hello Azure AD uygulama ara sunucusu Bağlayıcısı sorun gidericisini düzgün çalışır. Başarılı bir rapor sonra çalışan hello sorun gidericisini görmeniz gerekir.
+4. Bağlayıcı emin olmak için Azure AD uygulama ara sunucusu Bağlayıcısı sorun'gidericisini düzgün çalışır çalıştırın. Sorun gidericisini çalıştırdıktan sonra başarılı bir rapor görmeniz gerekir.
 
     ![Sorun gidericisini başarılı](./media/app-proxy/app-proxy-connector-troubleshooter.png)
-5. Azure AD dizininizi'hello uygulama proxy sayfasında listelenen yeni yüklenmiş hello bağlayıcı görmeniz gerekir.
+5. Azure AD dizininizi uygulama proxy sayfasında listelenen yeni yüklenen bağlayıcı görmeniz gerekir.
 
     ![](./media/app-proxy/app-proxy-connector-page.png)
 
 > [!NOTE]
-> Birden çok sunucuya tooinstall bağlayıcılar hello Azure AD uygulama proxy'si yayımlanan uygulamalar kimlik doğrulaması için yüksek kullanılabilirlik tooguarantee seçebilirsiniz. Merhaba tooinstall hello Bağlayıcısı diğer sunucuları birleştirilmiş tooyour yönetilen etki alanı, yukarıda listelenen aynı adımları gerçekleştirin.
+> Azure AD uygulaması Proxy üzerinden yayımlanan uygulamalarla kimlik doğrulaması için yüksek kullanılabilirlik sağlamak için birden çok sunucuya bağlayıcıları yüklemeyi tercih edebilirsiniz. Bağlayıcı, yönetilen etki alanına katılmış diğer sunuculara yüklemek için yukarıda listelenen aynı adımları gerçekleştirin.
 >
 >
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Azure AD uygulama proxy'si hello ayarlayın ve Azure AD etki alanı Hizmetleri yönetilen etki alanınız ile tümleşik.
+Azure AD uygulama ara sunucusunu ayarlamadıysanız sahip ve Azure AD etki alanı Hizmetleri yönetilen etki alanınız ile tümleşiktir.
 
-* **Uygulamaları tooAzure sanal makinelerinizi geçirmek:** uygulamalarınızı şirket içi sunucuları tooAzure sanal makineleri birleştirilmiş tooyour yönetilen etki alanından yükseltme ve üst karakter olabilir. Bunun yapılması, sunucuları şirket içi çalışan hello altyapı maliyetinden kurtulun yardımcı olur.
+* **Uygulamalarınızı Azure sanal makineleri geçirme:** yükseltme ve-şirket içi sunucular uygulamalarınızdan Azure sanal makineler için yönetilen etki alanına katılmış kaydırma yapabilirsiniz. Bunun yapılması, çalışmakta olan sunucuları şirket içi altyapı maliyetinden kurtulun yardımcı olur.
 
-* **Azure AD uygulama proxy'si ile uygulama yayımlama:** , Azure hello Azure AD uygulama proxy'si kullanarak sanal makineleri üzerinde çalışan uygulamaları yayımlama. Daha fazla bilgi için bkz: [Azure AD uygulama proxy'si ile uygulama yayımlama](../active-directory/application-proxy-publish-azure-portal.md)
+* **Azure AD uygulama proxy'si ile uygulama yayımlama:** , Azure Azure AD uygulama proxy'si kullanarak sanal makineleri üzerinde çalışan uygulamaları yayımlama. Daha fazla bilgi için bkz: [Azure AD uygulama proxy'si ile uygulama yayımlama](../active-directory/application-proxy-publish-azure-portal.md)
 
 
 ## <a name="deployment-note---publish-iwa-integrated-windows-authentication-applications-using-azure-ad-application-proxy"></a>Dağıtım Not - Azure AD uygulama proxy'si kullanarak yayımlama IWA (tümleşik Windows kimlik doğrulaması) uygulamaları
-Tooimpersonate kullanıcılar, uygulama Proxy bağlayıcıları izin vererek tümleşik Windows kimlik doğrulaması (IWA) kullanarak oturum açma tek tooyour uygulamaları etkinleştirmek ve gönderip şirket adına belirteçleri. Merhaba bağlayıcı toogrant hello gerekli izinleri tooaccess kaynakları için hello yönetilen etki alanı kerberos Kısıtlı temsilci (KCD) yapılandırın. Merhaba kaynak tabanlı KCD mekanizması yönetilen etki alanlarında daha yüksek güvenlik için kullanın.
+Kullanıcıların, kimliğine ve göndermek ve şirket adına belirteçleri almak için uygulama proxy'si bağlayıcıları izin vererek tümleşik Windows kimlik doğrulaması (IWA) kullanarak uygulamalarınızı için çoklu oturum açmayı etkinleştir. Kerberos Kısıtlı temsilci (KCD) yönetilen etki alanı kaynaklarına erişmek için gerekli izinleri vermek bağlayıcı için yapılandırın. Kaynak tabanlı KCD mekanizması yönetilen etki alanlarında daha yüksek güvenlik için kullanın.
 
 
-### <a name="enable-resource-based-kerberos-constrained-delegation-for-hello-azure-ad-application-proxy-connector"></a>Kaynak tabanlı kerberos Kısıtlı temsilci hello Azure AD uygulama ara sunucusu Bağlayıcısı için etkinleştirme
-Kullanıcıların kimliğine bürünebileceği şekilde hello Azure uygulama ara sunucusu Bağlayıcısı kerberos Kısıtlı temsilci (KCD), hello yönetilen etki alanında yapılandırılması gerekir. Bir Azure AD etki alanı Hizmetleri tarafından yönetilen etki alanında, etki alanı yönetici ayrıcalıklarına sahip değil. Bu nedenle, **geleneksel hesap düzeyinde KCD, yönetilen bir etki alanında yapılandırılamaz**.
+### <a name="enable-resource-based-kerberos-constrained-delegation-for-the-azure-ad-application-proxy-connector"></a>Kaynak tabanlı kerberos Kısıtlı temsilci için Azure AD uygulama ara sunucusu Bağlayıcısı'nı etkinleştir
+Kullanıcıların kimliğine bürünebileceği şekilde Azure uygulama ara sunucusu Bağlayıcısı'nı kerberos Kısıtlı temsilci (KCD), yönetilen etki alanında yapılandırılması gerekir. Bir Azure AD etki alanı Hizmetleri tarafından yönetilen etki alanında, etki alanı yönetici ayrıcalıklarına sahip değil. Bu nedenle, **geleneksel hesap düzeyinde KCD, yönetilen bir etki alanında yapılandırılamaz**.
 
 Bu konuda açıklandığı gibi kaynak tabanlı KCD kullanın [makale](active-directory-ds-enable-kcd.md).
 
 > [!NOTE]
-> Toobe üyesi ihtiyacınız hello 'AAD DC yöneticileri' grubunun tooadminister hello yönetilen AD PowerShell cmdlet'lerini kullanarak etki alanı.
+> AD PowerShell cmdlet'lerini kullanarak yönetilen etki alanını yönetmek için 'AAD DC Yöneticiler' grubunun bir üyesi olmanız gerekir.
 >
 >
 
-Merhaba Get-ADComputer PowerShell cmdlet tooretrieve hello ayarları hangi hello Azure AD uygulama ara sunucusu bağlayıcısının yüklendiği hello bilgisayar için kullanın.
+Azure AD uygulama ara sunucusu Bağlayıcısı'nı yüklü olduğu bilgisayarın ayarlarını almak için Get-ADComputer PowerShell cmdlet'ini kullanın.
 ```
 $ConnectorComputerAccount = Get-ADComputer -Identity contoso100-proxy.contoso100.com
 ```
 
-Bundan sonra kaynak tabanlı KCD yukarı hello Set-ADComputer cmdlet'i tooset hello kaynak sunucusu için kullanın.
+Bundan sonra kaynak sunucu için kaynak tabanlı KCD ayarlamak için Set-ADComputer cmdlet'ini kullanın.
 ```
 Set-ADComputer contoso100-resource.contoso100.com -PrincipalsAllowedToDelegateToAccount $ConnectorComputerAccount
 ```
 
-Yönetilen etki alanınızda birden çok uygulama proxy'si bağlayıcı dağıttıysanız, tooconfigure gereken kaynak tabanlı KCD her tür bağlayıcı örneği.
+Yönetilen etki alanınızda birden çok uygulama proxy'si bağlayıcı dağıttıysanız, kaynak tabanlı KCD her tür bağlayıcı örneği için yapılandırmanız gerekir.
 
 
 ## <a name="related-content"></a>İlgili İçerik

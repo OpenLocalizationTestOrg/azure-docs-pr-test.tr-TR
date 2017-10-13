@@ -1,43 +1,59 @@
 ---
-Başlık: aaa "öğretici: hello Portalı'nda ilk Azure Search dizininizi oluşturma | Microsoft Docs"Açıklama: hello Azure portalı, önceden tanımlanmış kullanma örnek veri toogenerate bir dizin. Tam metin arama, filtreler, modeller, belirsiz arama, coğrafi arama ve daha fazlasını keşfedin.
-Hizmetleri: documentationcenter arama: '' Yazar: HeidiSteen Yöneticisi: jhubbard Düzenleyicisi: '' etiketler: azure portal
-
-MS.assetid: 21adc351-69bb-4a39-bc59-598c60c8f958 ms.service: ms.devlang arama: na ms.workload: ms.topic arama: hero-article ms.tgt_pltfrm: na ms.date: 06/26/2017 ms.author: heidist
-
+title: "Öğretici: Portalda ilk Azure Search dizininizi oluşturma | Microsoft Docs"
+description: "Azure portalında önceden tanımlanmış örnek verileri kullanarak bir dizin oluşturun. Tam metin arama, filtreler, modeller, belirsiz arama, coğrafi arama ve daha fazlasını keşfedin."
+services: search
+documentationcenter: 
+author: HeidiSteen
+manager: jhubbard
+editor: 
+tags: azure-portal
+ms.assetid: 21adc351-69bb-4a39-bc59-598c60c8f958
+ms.service: search
+ms.devlang: na
+ms.workload: search
+ms.topic: hero-article
+ms.tgt_pltfrm: na
+ms.date: 06/26/2017
+ms.author: heidist
+ms.openlocfilehash: c49989058fdd98d623c5517060f725e5f7e436d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="tutorial-create-your-first-azure-search-index-in-hello-portal"></a>Öğretici: hello Portalı'nda ilk Azure Search dizininizi oluşturma
+# <a name="tutorial-create-your-first-azure-search-index-in-the-portal"></a>Öğretici: Portalda ilk Azure Search dizininizi oluşturma
 
-Hello Azure portalı, önceden tanımlanmış örnek veri kümesi tooquickly Başlarken oluşturmak hello kullanarak dizini **veri içeri aktarma** Sihirbazı. **Search Gezgini** ile tam metin arama, filtreler, modeller, belirsiz arama ve coğrafi aramayı keşfedin.  
+Azure portalında **Verileri içeri aktar** sihirbazını kullanarak hızla bir dizin oluşturmak için önceden tanımlanmış bir örnek veri kümesiyle çalışmaya başlayın. **Search Gezgini** ile tam metin arama, filtreler, modeller, belirsiz arama ve coğrafi aramayı keşfedin.  
 
 Bu kodsuz giriş yazısı, hemen ilginç sorgular yazmaya başlayabilmeniz için önceden tanımlanmış verileri kullanmaya başlamanızı sağlar. Portal araçları kodun yerini alamayacak olsa da aşağıdaki görevler için kullanışlıdır:
 
 + Olabildiğince az artışla uygulamalı eğitim
 + **Verileri içeri aktarma**’da kod yazmadan önce bir dizin prototipi oluşturma
 + **Search gezgini**’nde test sorguları ve ayrıştırıcı söz dizimi
-+ Varolan bir görünüm yayımlanan tooyour hizmeti dizin ve özniteliklerini arayın
++ Hizmetinize yayımlanmış mevcut bir dizini görüntüleyin ve dizinin özniteliklerini arayın
 
 **Tahmini Süre:** Yaklaşık 15 dakika sürer, ancak hesap veya hizmete kaydolunması da gerekiyorsa daha uzun sürebilir. 
 
-Alternatif olarak, artırmalarını kullanarak bir [kod tabanlı giriş tooprogramming Azure Search .NET ile](search-howto-dotnet-sdk.md).
+Alternatif olarak, [.NET’te Azure Search programlamaya kod tabanlı bir giriş](search-howto-dotnet-sdk.md) kullanarak artırın.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 Bu öğretici, bir [Azure aboneliği](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) ve [Azure Search hizmeti](search-create-service-portal.md) kullanıldığını varsayar. 
 
-Bir hizmet tooprovision hemen istemiyorsanız, hello 6 dakika Tanıtımı adımları Bu öğreticide, yaklaşık üç dakika olarak bu başlangıç izleyebilir [Azure arama genel bakış videosu](https://channel9.msdn.com/Events/Connect/2016/138).
+Hemen bir hizmet sağlamak istemiyorsanız, bu [Azure Search’e Genel Bakış videosunun](https://channel9.msdn.com/Events/Connect/2016/138) üçüncü dakikasından izlemeye başlayarak bu öğreticideki adımların 6 dakikalık bir gösterimini izleyebilirsiniz.
 
 ## <a name="find-your-service"></a>Hizmetinizi bulma
-1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
-2. Hello Azure Search hizmetinizin hizmet panosunu açın. Hello hizmet döşeme tooyour Panosu sabitlerseniz alamadık, böylece hizmetinizi bulabilirsiniz: 
+1. [Azure portalında](https://portal.azure.com) oturum açın.
+2. Azure Search hizmetinizin hizmet panosunu açın. Hizmet kutucuğunu panonuza sabitlemediyseniz hizmetinizi şu şekilde bulabilirsiniz: 
    
-   * Hello harf çubuğu, tıklatın **daha fazla hizmet** hello altındaki hello sol gezinti bölmesi.
-   * Merhaba arama kutusuna yazın *arama* tooget Hizmetleri, aboneliğiniz için bir arama listesi. Hizmetinizi hello listesinde görünmesi gerekir. 
+   * Atlama Çubuğu’nda soldaki gezinti bölmesinin en altında bulunan **Diğer hizmetler**’e tıklayın.
+   * Aboneliğinizde kullanılabilen arama hizmetlerinin listesini görmek için arama kutusuna *arama* yazın. Hizmetiniz listede görünür. 
 
 ## <a name="check-for-space"></a>Alan denetleme
-Birçok müşteri hello ücretsiz hizmetle başlar. Bu, sınırlı toothree dizinleri, üç veri kaynağı ve üç dizin oluşturucu sürümüdür. Başlamadan önce ek öğeler için yeriniz olduğundan emin olun. Bu öğreticide her nesneden birer tane oluşturulur. 
+Birçok müşteri ücretsiz hizmetle başlar. Bu sürüm üç dizin, üç veri kaynağı ve üç dizin oluşturucu ile sınırlıdır. Başlamadan önce ek öğeler için yeriniz olduğundan emin olun. Bu öğreticide her nesneden birer tane oluşturulur. 
 
 > [!TIP] 
-> Merhaba hizmet panosunu döşeme kaç dizinler, dizin oluşturucular ve veri kaynaklarını zaten gösterir. Merhaba dizin oluşturucu Döşe başarı ve başarısızlık göstergelerini gösterir. Merhaba döşeme tooview hello dizin oluşturucusu sayısı'ı tıklatın. 
+> Hizmet panosundaki kutucuklar, şu anda kaç dizin, dizin oluşturucu ve veri kaynağına sahip olduğunuzu gösterir. Dizin oluşturucu kutucuğu, başarı ve başarısızlık göstergelerini gösterir. Dizin oluşturucu sayısını görüntülemek için kutucuğa tıklayın. 
 >
 > ![Dizin oluşturucular ve veri kaynakları için kutucuklar][1]
 >
@@ -45,151 +61,151 @@ Birçok müşteri hello ücretsiz hizmetle başlar. Bu, sınırlı toothree dizi
 ## <a name="create-index"></a> Dizin oluşturma ve verileri yükleme
 Arama sorguları, belirli arama davranışlarını iyileştirmek için kullanılan aranabilir verileri, meta verileri ve yapıları içeren bir *dizinde* yinelenir.
 
-tookeep hello aracılığıyla bir dizin oluşturucu kullanarak gezinilebilen yerleşik bir örnek veri kümesi kullandığımız bu görevi portal tabanlı **veri içeri aktarma** Sihirbazı. 
+Bu görevin portal tabanlı kalmasını sağlamak için **Verileri içeri aktar** sihirbazı kullanılarak gezilebilen yerleşik bir örnek veri kümesi kullanıyoruz. 
 
-#### <a name="step-1-start-hello-import-data-wizard"></a>1. adım: hello veri içeri aktarma Sihirbazını Başlat
-1. Azure Search Hizmeti Panonuzda tıklatın **veri içeri aktarma** hello komut çubuğu toostart oluşturur hem de bir dizini dolduran bir Sihirbazı'nda.
+#### <a name="step-1-start-the-import-data-wizard"></a>1. Adım: Verileri içeri aktarma sihirbazını başlatma
+1. Azure Search hizmeti panonuzda, bir dizini hem oluşturan hem de dolduran bir sihirbazı başlatmak için komut çubuğundaki **Veri içeri aktar** seçeneğine tıklayın.
    
     ![Verileri içeri aktar komutu][2]
 
-2. Başlangıç Sihirbazı'nda tıklatın **veri kaynağı** > **örnekleri** > **realestate-us-sample**. Bu veri kaynağı önceden bir ad, tür ve bağlantı bilgileriyle adlandırılır. Oluşturulan kaynak, diğer içeri aktarma işlemlerinde yeniden kullanılabilecek bir “mevcut veri kaynağı” olur.
+2. Sihirbazda **Veri Kaynağı** > **Örnekler** > **realestate-us-sample** seçeneğine tıklayın. Bu veri kaynağı önceden bir ad, tür ve bağlantı bilgileriyle adlandırılır. Oluşturulan kaynak, diğer içeri aktarma işlemlerinde yeniden kullanılabilecek bir “mevcut veri kaynağı” olur.
 
     ![Örnek veri kümesi seçme][9]
 
-3. Tıklatın **Tamam** toouse onu.
+3. Kullanmak için **Tamam**’a tıklayın.
 
-#### <a name="step-2-define-hello-index"></a>2. adım: hello dizin tanımla
-Dizin oluşturma genellikle el ile ve kod tabanlı, ancak hello Sihirbazı gezinme herhangi bir veri kaynağı için bir dizin oluşturabilirsiniz. En azından bir ad ve bir alanlar koleksiyonu dizin gerektirir, her bir belgenin belge anahtar toouniquely hello olarak işaretlenmiş bir alanla tanımlayın.
+#### <a name="step-2-define-the-index"></a>2. Adım: Dizini tanımlama
+Dizin oluşturma işlemi genellikle el ile veya kod tabanlı olarak gerçekleştirilir, ancak sihirbaz içinde gezinebileceği tüm veri kaynakları için dizin oluşturabilir. Dizin için en azından bir ad ve alan koleksiyonu gerekir ve her belgenin benzersiz olarak tanımlanabilmesi için bir alanın belge anahtarı olarak işaretlenmiş olması gerekir.
 
-Alanların veri türleri ve öznitelikleri vardır. Merhaba onay kutuları hello üstte *dizin öznitelikleri* hello alanın nasıl kullanıldığını denetleme. 
+Alanların veri türleri ve öznitelikleri vardır. Üstteki onay kutuları, alanın nasıl kullanılacağını denetleyen *dizin öznitelikleridir*. 
 
 * **Alınabilir**, arama sonuçları listesinde çıktığı anlamına gelir. Örneğin, alanlar yalnızca filtre ifadelerinde kullanıldığında bu onay kutusunun işaretini kaldırarak alanları arama sonuçları için kapsam dışı olarak işaretleyebilirsiniz. 
 * **Filtrelenebilir**, **Sıralanabilir** ve **Modellenebilir** seçeneği bir alanın filtre, sıralama veya model gezinti yapısında kullanılıp kullanılamayacağını belirler. 
 * **Aranabilir**, bir alanın tam metin aramasına dahil olduğu anlamına gelir. Dizelerde arama yapılabilir. Sayısal alanlar ve Boolean alanları genellikle aranamaz olarak işaretlenir. 
 
-Varsayılan olarak, Başlangıç Sihirbazı'nı hello veri kaynağı benzersiz tanımlayıcıları için hello anahtar alanı hello temeli olarak tarar. Dizelere alınabilir ve aranabilir öznitelikler atanmıştır. Tam sayılara alınabilir, filtrelenebilir, sıralanabilir ve modellenebilir öznitelikler atanmıştır.
+Varsayılan olarak sihirbaz tarafından anahtar alanının temeli olarak benzersiz tanımlayıcıların bulunması için veri kaynağı taranır. Dizelere alınabilir ve aranabilir öznitelikler atanmıştır. Tam sayılara alınabilir, filtrelenebilir, sıralanabilir ve modellenebilir öznitelikler atanmıştır.
 
   ![Emlak dizini oluşturuldu][3]
 
-Tıklatın **Tamam** toocreate başlangıç dizini.
+Dizini oluşturmak için **Tamam**’a tıklayın.
 
-#### <a name="step-3-define-hello-indexer"></a>3. adım: hello dizin oluşturucuyu tanımlama
-Merhaba yine de **veri içeri aktarma** Sihirbazı'nı tıklatın **dizin oluşturucu** > **adı**ve hello dizin oluşturucu için bir ad yazın. 
+#### <a name="step-3-define-the-indexer"></a>3. Adım: Dizin oluşturucuyu tanımlama
+**Verileri içeri aktarma** sihirbazından çıkmadan **Dizin Oluşturucu** > **Ad**’a tıklayın ve dizin oluşturucu için bir ad yazın. 
 
-Bu nesne, yürütülebilir bir işlemi tanımlar. Tıklattığınızda hemen sonra bunu yinelenen zamanlamaya göre ancak şimdi kullanım hello varsayılan seçeneği toorun hello dizin oluşturucu koyabilirsiniz **Tamam**.  
+Bu nesne, yürütülebilir bir işlemi tanımlar. Bunu yinelenen bir zamanlamaya göre çalıştırabilirsiniz, ancak şimdilik dizin oluşturucunun **Tamam**’a tıkladığınızda bir kere çalışması için varsayılan seçeneği kullanın.  
 
   ![emlak dizini oluşturucu][8]
 
 ## <a name="check-progress"></a>İlerleme durumunu denetleme
-toomonitor veri almak, toohello hizmet panosunu geri dönün, aşağı kaydırın ve hello çift **dizin oluşturucular** döşeme tooopen hello dizin oluşturucular listesi. Yeni oluşturulan hello dizin oluşturucu listesinde durumunu gösteren ile Merhaba görmeniz gerekir "Sürüyor" ya da dizinli belge hello sayısı ile birlikte başarılı.
+Verilerin içeri aktarılmasını izlemek için hizmet panosuna dönün, sayfayı aşağı kaydırın ve **Dizin Oluşturucular** kutucuğuna tıklayarak dizin oluşturucuların listesini açın. Yeni oluşturulan ve durumu “sürüyor” ya da başarılı olan dizin oluşturucuyu ve dizine eklenen belge sayısını görebilirsiniz.
 
    ![Dizin oluşturucu ilerleme durumu iletisi][4]
 
-## <a name="query-index"></a>Sorgu hello dizini
-Artık hazır tooquery olan bir arama dizininiz var. **Arama Gezgini** hello portalda yerleşik bir sorgu aracıdır. Arama sonuçlarının beklediğiniz gibi olduğunu doğrulayabilmeniz için bir arama kutusu sağlar. 
+## <a name="query-index"></a> Dizini sorgulama
+Artık sorgulamaya hazır bir arama dizininiz var. **Arama gezgini**, portalda yerleşik bir sorgu aracıdır. Arama sonuçlarının beklediğiniz gibi olduğunu doğrulayabilmeniz için bir arama kutusu sağlar. 
 
 > [!TIP]
-> Merhaba, [Azure arama genel bakış videosu](https://channel9.msdn.com/Events/Connect/2016/138), aşağıdaki adımları hello hello video 6m08s gösterilen.
+> [Azure Search’e Genel Bakış videosunu](https://channel9.msdn.com/Events/Connect/2016/138) 6 dakika 8 saniye ileri alarak aşağıdaki adımların gösterimini izleyebilirsiniz.
 >
 
-1. Tıklatın **arama Gezgini** hello komut çubuğunda.
+1. Komut çubuğunda **Arama gezgini**'ne tıklayın.
 
    ![Search gezgini komutu][5]
 
-2. Tıklatın **dizini Değiştir** hello üzerinde komut tooswitch çok*realestate-us-sample*.
+2. *realestate-us-sample* öğesine geçmek için komut çubuğundan **Dizini değiştir**’e tıklayın.
 
    ![Dizin ve API komutları][6]
 
-3. Tıklatın **API kümesini sürüm** REST API'leri kullanılabilir olan hello komut çubuğu toosee üzerinde. API'leri verin değil henüz genellikle yayımlanan toonew özelliklerine erişimi önizlemede. Aşağıdaki Hello sorgular için yönlendirilmiş sürece hello genel olarak kullanılabilir sürüm (2016-09-01) kullanın. 
+3. Hangi REST API’lerin kullanılabildiğini görmek için komut çubuğundan **API sürümünü ayarla**’ya tıklayın. Önizleme API’leri ile henüz genel kullanıma sunulmamış yeni özelliklere erişebilirsiniz. Aşağıdaki sorgular için yönlendirilmezseniz genel kullanıma sunulan sürümü (2016-09-01) kullanın. 
 
     > [!NOTE]
-    > [Azure Search REST API'sini](https://docs.microsoft.com/rest/api/searchservice/search-documents) ve hello [.NET kitaplığı](search-howto-dotnet-sdk.md#core-scenarios) tamamen eşdeğer olan ancak **arama Gezgini** yalnızca donanımlı toohandle REST çağrıdır. Sözdizimi için her ikisini de kabul [Basit Sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) ve [Lucene sorgu ayrıştırıcı tam](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), artı tüm arama parametrelerini bulunan hello [arama belge](https://docs.microsoft.com/rest/api/searchservice/search-documents) işlemleri.
+    > [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) ve [.NET kitaplığı](search-howto-dotnet-sdk.md#core-scenarios) birbirine tamamen eşdeğerdir, ancak **Arama gezgini** yalnızca REST çağrılarını işleyebilir. Hem [basit sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) hem de [tam Lucene sorgu ayrıştırıcısına](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) yönelik söz dizimlerinin yanı sıra [Belgede Arama](https://docs.microsoft.com/rest/api/searchservice/search-documents) işlemlerinde kullanılabilen arama parametrelerini kabul eder.
     > 
 
-4. Merhaba arama çubuğunda hello sorgu dizeleri girin ve tıklayın **arama**.
+4. Arama kutusuna aşağıdaki sorgu dizelerini girin ve **Ara**’ya tıklayın.
 
   ![Arama sorgusu örneği][7]
 
 **`search=seattle`**
 
-+ Merhaba `search` parametredir kullanılan tooinput bir anahtar sözcük aramasını tam metin araması, bu durumda, listeleri Kol ilçe, Washington durumda döndürme, içeren *Seattle* hello belge aranabilir herhangi alanında. 
++ Bu durumda tam metin aramak üzere anahtar sözcük arama girişi yapmak için `search` parametresi kullanılmıştır ve belgedeki aranabilir alanların herhangi birinde *Seattle* ifadesini içeren Washington eyaletinin King County bölgesindeki listelemeler döndürülmüştür. 
 
-+ **Arama Gezgini** belgeleri yoğun bir yapıya sahip değilse, ayrıntılı ve sabit tooread olduğu sonuçları JSON döndürür. Belgelerinizi bağlı olarak işleyici sonuçları tooextract önemli öğeleri aramak toowrite kod gerekebilir. 
++ **Search gezgini** sonuçları JSON biçiminde döndürülür. Bu biçim ayrıntılı olmakla birlikte, belgelerin yoğun bir yapısı varsa okunması zordur. Belgelerinize bağlı olarak, önemli öğeleri ayrıştırmak amacıyla arama sonuçlarını işleyen kod yazmanız gerekebilir. 
 
-+ Belgeleri hello dizindeki alınabilir olarak işaretlenmiş tüm alanlar oluşur. tooview dizin öznitelikleri hello Portalı'nda tıklatın *realestate-us-sample* hello içinde **dizinleri** döşeme.
++ Belgeler, dizinde alınabilir olarak işaretlenmiş tüm alanlardan oluşur. Portalda dizin özniteliklerini görüntülemek için **Dizinler** kutucuğundaki *realestate-us-sample* öğesine tıklayın.
 
 **`search=seattle&$count=true&$top=100`**
 
-+ Merhaba `&` simge olan herhangi bir sırada belirtilen kullanılan tooappend arama parametreleri. 
++ `&` simgesi, herhangi bir sırada belirtilebilen arama parametreleri eklemek için kullanılır. 
 
-+  Merhaba `$count=true` parametresi, döndürülen tüm belgelerin hello toplam sayısını döndürür. `$count=true` tarafından bildirilen değişiklikleri izleyerek filtre sorgularını doğrulayabilirsiniz. 
++  `$count=true` parametresi, döndürülen tüm belgelerin toplam sayısını döndürür. `$count=true` tarafından bildirilen değişiklikleri izleyerek filtre sorgularını doğrulayabilirsiniz. 
 
-+ Merhaba `$top=100` döndürür hello en yüksek derece hello toplam dışında 100 belgeleri. Varsayılan olarak, Azure Search hello ilk 50 en iyi eşleşenleri döndürür. Artırabilir ya da aracılığıyla hello azaltmak `$top`.
++ `$top=100`, tüm belgelerin arasından en yüksek puana sahip 100 belgeyi döndürür. Azure Search varsayılan olarak ilk 50 en iyi eşleşmeyi döndürür. `$top` ile bu miktarı artırabilir veya azaltabilirsiniz.
 
 **`search=*&facet=city&$top=2`**
 
-+ `search=*` boş bir aramadır. Boş aramalar her şeyi arar. Boş bir sorgu çok filtre gönderme veya model hello eksiksiz belgeler üzerinde bir açıklaması. Örneğin, bir olduğunu gezinti yapısı tooconsist hello dizindeki tüm şehirde istiyorsunuz.
++ `search=*` boş bir aramadır. Boş aramalar her şeyi arar. Boş sorgu göndermenin nedenlerinden biri, belge kümesinin tamamını filtrelemek veya görüntülemektir. Örneğin, dizindeki tüm şehirleri içeren bir gezinme yapısı görünümü oluşturmak isteyebilirsiniz.
 
-+  `facet`Gezinti döndürür tooa UI denetimi geçirebilirsiniz yapılandırın. Kategorileri ve bir sayımı döndürür. Bu durumda, kategoriler Şehir hello sayısını temel alır. Azure Search'te toplama yoktur ancak her kategorideki belge sayısını veren `facet` ile tahmini bir toplama gerçekleştirebilirsiniz.
++  `facet`, bir kullanıcı arabirimi denetimine geçirebileceğiniz bir gezinti yapısı döndürür. Kategorileri ve bir sayımı döndürür. Bu durumda, kategoriler şehir sayısını temel alır. Azure Search'te toplama yoktur ancak her kategorideki belge sayısını veren `facet` ile tahmini bir toplama gerçekleştirebilirsiniz.
 
-+ `$top=2`kullanabileceğinizi gösteren iki belge geri getirir `top` tooboth azaltın veya sonuçları artırın.
++ `$top=2` iki belge getirir ve sonuçları azaltmak veya artırmak için `top` kullanabileceğinizi gösterir.
 
 **`search=seattle&facet=beds`**
 
-+ Bu sorgu *Seattle* için yapılan metin aramasında yatakların görünümüdür. `"beds"`bir model (sayısal, 1 ile 5) çünkü hello alan olarak alınabilir, filtrelenebilir işaretlenmiş ve başlangıç dizini ve hello modellenebilir değerler içerdiğinden belirtilen, (3 yatak, 4 yatak listelerini) gruplara listeleri kategorilere için ayırmak için uygundur. 
++ Bu sorgu *Seattle* için yapılan metin aramasında yatakların görünümüdür. `"beds"` alan dizinde getirilebilen, filtrelenebilen ve görünüm oluşturulabilen bir alan olarak işaretlendiğinden bir model olarak belirtilebilir ve içerdiği değerler (sayısal, 1'den 5'e kadar), listelemelerin gruplar (3 yatak odalı, 4 yatak odalı listelemeler) halinde kategorilere ayrılması için uygundur. 
 
-+ Yalnızca filtrelenebilir alanlardan görünüm oluşturulabilir. Yalnızca alınabilir alanları hello sonuçlarında döndürülebilir.
++ Yalnızca filtrelenebilir alanlardan görünüm oluşturulabilir. Yalnızca getirilebilir alanlar sonuçlarda döndürülebilir.
 
 **`search=seattle&$filter=beds gt 3`**
 
-+ Merhaba `filter` parametre, sağlanan hello ölçütleriyle eşleşen sonuçları döndürür. Bu durumda yatak odası sayısı 3’ten büyük olanlar. 
++ `filter` parametresi, sağladığınız ölçütlerle eşleşen sonuçları döndürür. Bu durumda yatak odası sayısı 3’ten büyük olanlar. 
 
 + Filtre söz dizimi bir OData yapısıdır. Daha fazla bilgi edinmek için bkz. [OData söz dizimini filtreleme](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 **`search=granite countertops&highlight=description`**
 
-+ İsabet vurgulama başvuruyor tooformatting metni belirli bir alanda bulunan hello anahtar sözcük eşleşmeleri verilen eşleşen. Arama terimi derine açıklama kaçınma, isabet vurgulama toomake ekleyebilirsiniz, daha kolay toospot. Bu durumda, tümcecik Merhaba biçimlendirilmiş `"granite countertops"` hello açıklaması alanında daha kolay toosee değil.
++ İsabet vurgulama, belirli bir alanda eşleşme bulunduğunda anahtar sözcükle eşleşen metinlere biçimlendirme eklenmesini ifade eder. Arama teriminiz uzun bir açıklamanın belirsiz bir yerindeyse, terimi bulmayı kolaylaştırmak için isabet vurgulama ekleyebilirsiniz. Bu durumda, açıklama alanında biçimlendirilen `"granite countertops"` ifadesini görmek daha kolaydır.
 
 **`search=mice&highlight=description`**
 
-+ Tam metin arama, benzer semantiğe sahip sözcük biçimlerini bulur. Bu durumda, arama sonuçları "fare", "fare" yanıt tooa anahtar sözcük araması fare infestation sahip ev için vurgulanan metni içerir. Farklı biçimlerde hello aynı sözcük sonuçlarında dil çözümlemesi nedeniyle ortaya çıkabilir. 
++ Tam metin arama, benzer semantiğe sahip sözcük biçimlerini bulur. Bu durumda, “sıçan” anahtar sözcüğüyle yapılan bir aramanın sonuçları, fare istilasına uğramış evler için “fare” sözcüğünün vurgulandığı metinleri içerir. Dilbilimsel analiz nedeniyle sonuçlarda aynı kelimenin farklı biçimleri görüntülenebilir. 
 
-+ Azure Search, Lucene ve Microsoft’tan 56 çözümleyiciyi destekler. Azure arama tarafından kullanılan hello hello standart Lucene Çözümleyicisi varsayılandır. 
++ Azure Search, Lucene ve Microsoft’tan 56 çözümleyiciyi destekler. Azure Search tarafından standart olarak Lucene çözümleyici kullanılır. 
 
 **`search=samamish`**
 
-+ Merhaba Samammish Plato hello Seattle alanı içinde için 'samamish' gibi yanlış yazılmış sözcüklerin tooreturn eşleşmeleri tipik arama başarısız. toohandle yazım hatası hello sonraki örnekte açıklanan belirsiz aramayı kullanabilirsiniz.
++ Seattle bölgesindeki Samammish platosu için "samamish" yazılması örneğindeki gibi yazım hatası yapılan normal aramalarda bir eşleşme döndürülmez. Yazım hatalarını işlemek için bir sonraki örnekte açıklanan belirsiz aramayı kullanabilirsiniz.
 
 **`search=samamish~&queryType=full`**
 
-+ Benzer arama hello belirttiğinizde etkin `~` sembol ve yorumlar ve doğru ayrıştırmak için hello hello tam sorgu ayrıştırıcı kullanmak `~` sözdizimi. 
++ `~` sembolünü belirttiğinizde ve tam sorgu ayrıştırıcıyı kullandığınızda belirsiz arama etkinleştirilir ve `~` söz dizimi yorumlanıp doğru bir şekilde ayrıştırılır. 
 
-+ Benzer arama olduğunda kullanılabilir, ayarladığınızda oluşan hello tam sorgu ayrıştırıcı için tercih `queryType=full`. Merhaba tam sorgu ayrıştırıcı tarafından etkinleştirilen sorgu senaryolar hakkında daha fazla bilgi için bkz: [Lucene sorgu söz dizimi Azure Search'te](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
++ Belirsiz arama, `queryType=full` belirttiğinizde gerçekleşen tam sorgu ayrıştırıcı ile kullanılabilir. Tam sorgu ayrıştırıcı tarafından etkinleştirilen sorgu senaryoları hakkında daha fazla bilgi edinmek için bkz. [Azure Search’te Lucene sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
-+ Zaman `queryType` olduğu belirtilmemiş, hello varsayılan Basit Sorgu ayrıştırıcı kullanılır. Merhaba Basit Sorgu ayrıştırıcı hızlıdır ancak belirsiz arama, normal ifadeler, yakınlık araması veya diğer gelişmiş sorgu türleri gerektiriyorsa, hello tam sözdizimi gerekir. 
++ `queryType` belirtildiğinde varsayılan basit sorgu ayrıştırıcı kullanılır. Basit sorgu ayrıştırıcı daha hızlıdır ancak belirsiz arama, normal ifadeler, yakınlık araması ya da diğer gelişmiş sorgu türlerini kullanmanız gerekiyorsa tam söz dizimi gereklidir. 
 
 **`search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`**
 
-+ Jeo-uzamsal arama hello desteklenen [edm. GeographyPoint veri türü](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) koordinatları içeren bir alan. Coğrafi arama, [OData söz dizimini filtrele](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) seçeneğinde belirtilen bir tür filtredir. 
++ Koordinat içeren bir alanda [edm.GeographyPoint veri türü](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) aracılığıyla jeo-uzamsal arama desteklenir. Coğrafi arama, [OData söz dizimini filtrele](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) seçeneğinde belirtilen bir tür filtredir. 
 
-+ Merhaba örnek sorgu sonuçları değerinden 5 kilometre (enlem ve boylam koordinatları olarak belirtilir) belirli bir noktadan nerede konumsal veriler için tüm sonuçları filtreler. Ekleyerek `$count`, başlangıç uzaklığı veya hello koordinatları değiştirdiğinizde kaç sonuçların döndürülmesini görebilirsiniz. 
++ Örnek sorgu tüm sonuçları konumsal verilere göre filtreler ve belirli bir noktaya 5 kilometreden daha yakın olan sonuçlar (enlem ve boylam koordinatları olarak belirtilir) döndürülür. `$count` ekleyerek mesafeyi veya koordinatları değiştirdiğinizde döndürülen sonuç sayısını görebilirsiniz. 
 
-+ Arama uygulamanız ‘yakınımda bul’ özelliği içeriyorsa ya da harita navigasyonu kullanıyorsa jeo-uzamsal arama kullanışlıdır. Ancak tam metin arama değildir. Bir şehir veya ülke adına göre aramak için kullanıcı gereksinimleri varsa, şehir veya ülke adları, toplama toocoordinates içeren alanlar ekleyin.
++ Arama uygulamanız ‘yakınımda bul’ özelliği içeriyorsa ya da harita navigasyonu kullanıyorsa jeo-uzamsal arama kullanışlıdır. Ancak tam metin arama değildir. Bir şehir veya ülkede ada göre arama yapmak için kullanıcı gereksinimleriniz varsa koordinatlara ek olarak şehir veya bölge adlarını içeren alanlar ekleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-+ Yeni oluşturduğunuz hello nesnelerden herhangi birini değiştirin. Merhaba Sihirbazı bir kez çalıştırdıktan sonra geri dönün ve görüntülemek veya bileşenleri tek tek değiştirmek için: dizin, dizin oluşturucu veya veri kaynağı. Merhaba hello alanın veri türünü değiştirme gibi bazı düzenlemelere hello dizini izin verilmez, ancak çoğu özellik ve ayar değiştirilebilir.
++ Az önce oluşturduğunuz nesnelerden dilediğinizi değiştirin. Sihirbazı bir kez çalıştırdıktan sonra, geri dönüp bileşenleri tek tek görüntüleyebilir veya değiştirebilirsiniz: dizin, dizin oluşturucu veya veri kaynağı. Alanın veri türünü değiştirme gibi bazı düzenlemelere dizinde izin verilmez ancak çoğu özellik ve ayar değiştirilebilir.
 
-  bileşenleri tek tek tooview, tıklatın hello **dizin**, **dizin oluşturucu**, veya **veri kaynakları** var olan bir nesne listesi, Pano toodisplay yerleştirir. toolearn daha bir yeniden oluşturma gerektirmeyen dizin düzenlemeleri hakkında bkz [güncelleştirme dizini (Azure Search REST API'si)](https://docs.microsoft.com/rest/api/searchservice/update-index).
+  Bileşenlerin tek tek görüntülemek için panonuzda **Dizin**, **Dizin Oluşturucu** veya **Veri Kaynakları** kutucuğuna tıklayarak var olan nesnelerin bir listesini görüntüleyin. Yeniden derleme gerektirmeyen dizin düzenleme işlemleri hakkında daha fazla bilgi edinmek için bkz. [Dizini Güncelleştirme (Azure Search REST API’si)](https://docs.microsoft.com/rest/api/searchservice/update-index).
 
-+ Merhaba araçları ve diğer veri kaynakları ile adımları deneyin. Örnek veri kümesini hello `realestate-us-sample`, Azure Search'ün gezinebileceği bir Azure SQL veritabanı. Azure Search, Azure SQL Veritabanı'nın yanı sıra Azure Tablo depolama, Blob depolama, Azure VM'deki SQL Server ve Azure Cosmos DB'de gezinebilir ve düz veri yapılarından dizin oluşturabilir. Tüm bu veri kaynaklarının hello Sihirbazı'nda desteklenmez. Kodda bir *dizin oluşturucu* kullanarak bir dizini kolayca doldurabilirsiniz.
++ Araçları ve adımları diğer veri kaynaklarıyla kullanın. `realestate-us-sample` örnek veri kümesi, Azure Search’ün içinde gezinebileceği bir Azure SQL Veritabanı’ndan alınmıştır. Azure Search, Azure SQL Veritabanı'nın yanı sıra Azure Tablo depolama, Blob depolama, Azure VM'deki SQL Server ve Azure Cosmos DB'de gezinebilir ve düz veri yapılarından dizin oluşturabilir. Sihirbazda bu veri kaynaklarının tamamı desteklenir. Kodda bir *dizin oluşturucu* kullanarak bir dizini kolayca doldurabilirsiniz.
 
-+ Diğer tüm dizin oluşturucu olmayan veri kaynakları, burada kodunuzu yeni iter ve satır kümeleri JSON tooyour dizini içinde değiştirilen bir gönderme modeli aracılığıyla desteklenir. Daha fazla bilgi edinmek için bkz. [Azure Search’te belge ekleme, güncelleştirme veya silme](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
++ Diğer dizin oluşturucu olmayan tüm veri kaynakları bir gönderme modeli aracılığıyla desteklenir. Bu modelde, yeni ve değiştirilmiş satır kümeleri kodunuz tarafından JSON biçiminde dizininize gönderir. Daha fazla bilgi edinmek için bkz. [Azure Search’te belge ekleme, güncelleştirme veya silme](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 
 Aşağıdaki bağlantıları ziyaret ederek burada bahsedilen diğer özellikler hakkında daha fazla bilgi edinin:
 
 * [Dizin oluşturuculara genel bakış](search-indexer-overview.md)
-* [(Merhaba dizin öznitelikleri hakkında ayrıntılı bir açıklama içerir) dizin oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-index)
+* [Dizin Oluşturma (dizin özniteliklerine yönelik ayrıntılı bir açıklama içerir)](https://docs.microsoft.com/rest/api/searchservice/create-index)
 * [Arama Gezgini](search-explorer.md)
 * [Search Belgeleri (sorgu söz dizimi örneklerini içerir)](https://docs.microsoft.com/rest/api/searchservice/search-documents)
 

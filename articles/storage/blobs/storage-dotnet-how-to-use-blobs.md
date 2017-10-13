@@ -1,9 +1,9 @@
 ---
-title: "aaaGet başlatılan .NET kullanarak Azure Blob storage'ı (nesne depolama) | Microsoft Docs"
-description: "Azure Blob storage (nesne depolama) ile Merhaba bulutta yapılandırılmamış veri depolayın."
+title: ".NET kullanarak Azure Blob Depolama’yı (nesne depolama) kullanmaya başlama | Microsoft Belgeleri"
+description: "Azure Blob Storage (nesne depolama) ile bulutta yapılandırılmamış veri depolayın."
 services: storage
 documentationcenter: .net
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: d18a8fc8-97cb-4d37-a408-a6f8107ea8b3
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/27/2017
-ms.author: marsma
-ms.openlocfilehash: 3df0cf14b69d85cdc2f62cc3c8b901be102fa026
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.author: tamram
+ms.openlocfilehash: 87594d2688e3cd01f5e7db8f5be8ca513969e774
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-blob-storage-using-net"></a>.NET kullanarak Azure Blob Storage’ı kullanmaya başlayın
 
@@ -26,10 +26,10 @@ ms.lasthandoff: 10/06/2017
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
-Azure Blob Depolama hello bulutta nesne/BLOB olarak yapılandırılmamış veri depolayan bir hizmettir. Blob Storage belge, medya dosyası veya uygulama yükleyici gibi her tür metin veya ikili veri depolayabilir. BLOB Depolama başvurulan tooas nesne depolama de olabilir.
+Azure Blob Storage, bulutta nesne/blob olarak yapılandırılmamış veri depolayan bir hizmettir. Blob Storage belge, medya dosyası veya uygulama yükleyici gibi her tür metin veya ikili veri depolayabilir. Blob Storage aynı zamanda nesne depolama olarak adlandırılır.
 
 ### <a name="about-this-tutorial"></a>Bu öğretici hakkında
-Bu öğretici, Azure Blob storage kullanarak bazı genel senaryolar için .NET toowrite kodu nasıl gösterir. Kapsanan senaryolar arasında blob yükleme, listeleme, indirme ve silme yer alır.
+Bu öğreti, Azure Blob Storage kullanarak bazı genel senaryolar için .NET kodunun nasıl yazılacağını göstermektedir. Kapsanan senaryolar arasında blob yükleme, listeleme, indirme ve silme yer alır.
 
 **Ön koşullar:**
 
@@ -41,7 +41,7 @@ Bu öğretici, Azure Blob storage kullanarak bazı genel senaryolar için .NET t
 [!INCLUDE [storage-dotnet-client-library-version-include](../../../includes/storage-dotnet-client-library-version-include.md)]
 
 ### <a name="more-samples"></a>Daha fazla örnek
-Blob depolama kullanan diğer örnekler için [.NET’te Azure Blob Depolama Kullanmaya Başlama](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/). Merhaba örnek uygulamayı indirin ve çalıştırın veya hello kodu github'da göz atın.
+Blob depolama kullanan diğer örnekler için [.NET’te Azure Blob Depolama Kullanmaya Başlama](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/). Örnek uygulamayı indirip çalıştırabilir veya GitHub’daki örneğe göz atabilirsiniz.
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
@@ -50,7 +50,7 @@ Blob depolama kullanan diğer örnekler için [.NET’te Azure Blob Depolama Kul
 [!INCLUDE [storage-development-environment-include](../../../includes/storage-development-environment-include.md)]
 
 ### <a name="add-using-directives"></a>Using yönergeleri ekleme
-Merhaba aşağıdakileri ekleyin **kullanarak** hello yönergeleri toohello üst `Program.cs` dosyası:
+Aşağıdaki **using** yönergelerini `Program.cs` dosyasının üst tarafına ekleyin:
 
 ```csharp
 using Microsoft.WindowsAzure; // Namespace for CloudConfigurationManager
@@ -58,89 +58,89 @@ using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
 using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Blob storage types
 ```
 
-### <a name="parse-hello-connection-string"></a>Merhaba bağlantı dizesini ayrıştırma
+### <a name="parse-the-connection-string"></a>Bağlantı dizesini ayrıştırma
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
 
-### <a name="create-hello-blob-service-client"></a>Merhaba Blob hizmeti istemcisi oluşturma
-Merhaba **CloudBlobClient** sınıfı sağlar, size, tooretrieve kapsayıcılar ve bloblar Blob depolama alanına depolanır. Tek yönlü toocreate hello hizmeti istemcisi şöyledir:
+### <a name="create-the-blob-service-client"></a>Blob hizmeti istemcisi oluşturma
+**CloudBlobClient** sınıfı Blob Storage’da  depolanan kapsayıcıları ve blobları almanızı sağlar. Hizmet istemcisini oluşturma yöntemlerinden biri aşağıda verilmiştir:
 
 ```csharp
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
-Artık veri okuyan ve yazan veri tooBlob depolama hazır toowrite kodu bulunur.
+Artık Blob Storage’da n veri okuyan ve bu depolamaya veri yazan kodu yazmaya hazırsınız.
 
 ## <a name="create-a-container"></a>Bir kapsayıcı oluşturma
 [!INCLUDE [storage-container-naming-rules-include](../../../includes/storage-container-naming-rules-include.md)]
 
-Bu örnekte gösterilir nasıl toocreate zaten yoksa, bir kapsayıcı:
+Bu örnek, zaten yoksa, nasıl bir kapsayıcı oluşturulacağını gösterir:
 
 ```csharp
 // Retrieve storage account from connection string.
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create hello blob client.
+// Create the blob client.
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-// Retrieve a reference tooa container.
+// Retrieve a reference to a container.
 CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-// Create hello container if it doesn't already exist.
+// Create the container if it doesn't already exist.
 container.CreateIfNotExists();
 ```
 
-Varsayılan olarak, hello yeni kapsayıcı depolama erişim anahtarı toodownload bloblarınızın bu kapsayıcısından belirlemeniz gerektiği anlamına gelir. Merhaba kapsayıcı kullanılabilir tooeveryone içindeki toomake hello dosyaları istiyorsanız hello kapsayıcı toobe ortak koddan hello kullanarak ayarlayabilirsiniz:
+Varsayılan olarak yeni kapsayıcı özeldir, bu kapsayıcıdan blob indirmek için depolama erişim anahtarınızı belirlemeniz gerektiği anlamına gelir. Kapsayıcı içindeki dosyaların herkese açık olmasını istiyorsanız, aşağıdaki kodu kullanarak kapsayıcıyı herkesin erişimine açık hale getirebilirsiniz:
 
 ```csharp
 container.SetPermissions(
     new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 ```
 
-Merhaba Internet üzerinden herkes ortak bir kapsayıcıdaki blobları görebilir. Ancak, değiştirme veya yalnızca hello uygun hesap erişim tuşu veya paylaşılan erişim imzası varsa silin.
+İnternet’e bağlı olan herkes, herkese açık bir kapsayıcıdaki blobları görebilir. Ancak, uygun hesap erişim anahtarı veya paylaşılan erişim imzanız olması durumunda bunları değiştirebilir veya silebilirsiniz.
 
 ## <a name="upload-a-blob-into-a-container"></a>Bir kapsayıcıya bir blob yükleme
-Azure Blob Storage blok blobları ve sayfa bloblarını destekler.  Çoğu durumda, blok blob türü toouse önerilen hello ' dir.
+Azure Blob Storage blok blobları ve sayfa bloblarını destekler.  Çoğu durumda, kullanılması önerilen blob türü blok blobudur.
 
-tooupload dosya tooa blok blob bir kapsayıcı başvurusu alın ve blok blob başvurusu tooget kullanın. Bir blob başvurusu edindiğinizde arama hello tarafından herhangi bir veri tooit akışıdır yükleyebilirsiniz **UploadFromStream** yöntemi. Bu işlem daha önce bulunamadı veya mevcut değilse bu raporun üzerine hello blob oluşturur.
+Bir dosyayı bir blok blobuna yüklemek için bir kapsayıcı başvurusu alın ve blok blob başvurusu almak için kullanın. Bir blob başvurusu edindiğinizde **UploadFromStream** yöntemini çağırarak istediğiniz veri akışını yükleyebilirsiniz. Bu işlemle, eğer önceden oluşturulmadıysa bir blob oluşturulacaktır, aksi takdirde üzerine yazılacaktır.
 
-örnekte gösterildiği nasıl aşağıdaki hello tooupload blob bir kapsayıcı halinde ve o hello kapsayıcısı zaten oluşturulduğu varsayılmaktadır.
+Aşağıdaki örnek kapsayıcının önceden oluşturulduğunu varsayarak bir blobun bir kapsayıcıya nasıl yükleneceğini gösterir.
 
 ```csharp
 // Retrieve storage account from connection string.
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create hello blob client.
+// Create the blob client.
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-// Retrieve reference tooa previously created container.
+// Retrieve reference to a previously created container.
 CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-// Retrieve reference tooa blob named "myblob".
+// Retrieve reference to a blob named "myblob".
 CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob");
 
-// Create or overwrite hello "myblob" blob with contents from a local file.
+// Create or overwrite the "myblob" blob with contents from a local file.
 using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
 {
     blockBlob.UploadFromStream(fileStream);
 }
 ```
 
-## <a name="list-hello-blobs-in-a-container"></a>Liste hello BLOB'ları bir kapsayıcıda
-toolist hello BLOB'ları bir kapsayıcıda, ilk olarak bir kapsayıcı başvurusu alın. Merhaba kapsayıcının sonra kullanabileceğiniz **ListBlobs** yöntemi tooretrieve hello blobları ve/veya dizinleri içindeki. tooaccess hello zengin özellik ve yöntem **Ilistblobıtem**, tooa atamalısınız **CloudBlockBlob**, **CloudPageBlob**, veya  **CloudBlobDirectory** nesnesi. Merhaba türü bilinmiyor, hangi toocast türü onay toodetermine kullanabilirsiniz için. Merhaba aşağıdaki kodu nasıl tooretrieve ve çıktı hello her öğe URI'sini hello gösterir _fotoğraf_ kapsayıcı:
+## <a name="list-the-blobs-in-a-container"></a>Blob’ları bir kapsayıcıda listeleme
+Blob’ları bir kapsayıcıda listelemek için ilk olarak bir kapsayıcı başvurusu edinin. Ardından içindeki blobları ve/veya dizinleri almak için kapsayıcının **ListBlobs** yöntemini kullanabilirsiniz. Dönen **IListBlobItem** için zengin özellik ve yöntem kümesine erişmek için **CloudBlockBlob**, **CloudPageBlob** veya **CloudBlobDirectory** nesnesine yayınlamanız gerekir. Tür bilinmiyorsa, hangisine yayınlayacağınızı belirlemek için bir tür denetimi kullanabilirsiniz. Aşağıdaki kod, _resimler_ kapsayıcısındaki her nesnenin URI’sinin nasıl alınacağını ve çıkacağını gösterir:
 
 ```csharp
 // Retrieve storage account from connection string.
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create hello blob client.
+// Create the blob client.
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-// Retrieve reference tooa previously created container.
+// Retrieve reference to a previously created container.
 CloudBlobContainer container = blobClient.GetContainerReference("photos");
 
-// Loop over items within hello container and output hello length and URI.
+// Loop over items within the container and output the length and URI.
 foreach (IListBlobItem item in container.ListBlobs(null, false))
 {
     if (item.GetType() == typeof(CloudBlockBlob))
@@ -166,9 +166,9 @@ foreach (IListBlobItem item in container.ListBlobs(null, false))
 }
 ```
 
-Blob adlarına yol bilgilerini ekleyerek, geleneksel bir dosya sisteminde olduğu gibi düzenleme ve geçiş yapabileceğiniz sanal bir dizin yapısı oluşturabilirsiniz. Merhaba dizin yapısını sanal Blob depolama alanına kullanılabilir kaynakları kapsayıcılar ve bloblar yalnızca yalnızca--hello. Ancak, hello depolama istemci kitaplığı sunar bir **CloudBlobDirectory** nesne toorefer tooa sanal dizini ve bu şekilde düzenlenen BLOB'ları ile çalışmanın hello işlemini basitleştirir.
+Blob adlarına yol bilgilerini ekleyerek, geleneksel bir dosya sisteminde olduğu gibi düzenleme ve geçiş yapabileceğiniz sanal bir dizin yapısı oluşturabilirsiniz. Dizin yapısı yalnızca sanaldır; Blob depolamada kaynak olarak yalnızca kapsayıcılar ve bloblar kullanılabilir. Buna karşın depolama istemci kitaplığı sanal bir dizine yönlendirmek ve bu şekilde düzenlenen bloblarla çalışma sürecini basitleştirmek için **CloudBlobDirectory** nesnesi sağlar.
 
-Örneğin, adlandırılmış bir kapsayıcıda blok blobları kümesine aşağıdaki hello göz önünde bulundurun *fotoğraf*:
+Örneğin bir kapsayıcıda yer alan ve *resimler* olarak adlandırılan aşağıdaki blok blobları kümesine göz atın:
 
 ```
 photo1.jpg
@@ -181,7 +181,7 @@ photo1.jpg
 2011/photo7.jpg
 ```
 
-Çağırdığınızda **ListBlobs** hello üzerinde *fotoğraf* kapsayıcı (önceki kod parçacığını hello olduğu gibi), hiyerarşik bir listeleme döner. Her ikisi de içeren **CloudBlobDirectory** ve **CloudBlockBlob** hello dizinleri ve blobları hello kapsayıcıda sırasıyla temsil eden nesne. Merhaba sonuçta çıktı şuna benzer:
+*Fotoğraflar* kapsayıcısında (yukarıdaki kod parçacığında olduğu bibi) **ListBlobs** çağırdığınızda, hiyerarşik bir listeleme döndürülür. Kapsayıcıda sırasıyla dizinleri ve blobları temsil eden hem **CloudBlobDirectory** hem de **CloudBlockBlob** nesnelerini içerir. Sonuçta çıktı şuna benzer:
 
 ```
 Directory: https://<accountname>.blob.core.windows.net/photos/2010/
@@ -189,17 +189,17 @@ Directory: https://<accountname>.blob.core.windows.net/photos/2011/
 Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 ```
 
-İsteğe bağlı olarak, hello ayarlayabilirsiniz **Listblobs** hello parametresinin **ListBlobs** yönteme **doğru**. Bu durumda, hello kapsayıcıdaki her blob olarak döndürülür bir **CloudBlockBlob** nesnesi. Çağrı çok hello**ListBlobs** tooreturn düz listeleme şu şekilde görünür:
+İsteğe bağlı olarak **ListBlobs** yönteminin **UseFlatBlobListing** parametresini **true** olarak ayarlayabilirsiniz. Bu durumda kapsayıcıdaki her blob **CloudBlockBlob** nesnesi olarak döner. Düz listeleme dönmesi için **ListBlobs**’a çağrı şuna benzer:
 
 ```csharp
-// Loop over items within hello container and output hello length and URI.
+// Loop over items within the container and output the length and URI.
 foreach (IListBlobItem item in container.ListBlobs(null, true))
 {
     ...
 }
 ```
 
-ve hello sonuçlar şöyle görünür:
+ve sonuçlar şöyle görünür:
 
 ```
 Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2010/architecture/description.txt
@@ -213,43 +213,43 @@ Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/
 ```
 
 ## <a name="download-blobs"></a>Blob’ları indirme
-toodownload BLOB'lar, ilk olarak bir blob başvurusu alın ve ardından hello çağırın **DownloadToStream** yöntemi. Merhaba aşağıdaki örnek kullanır hello **DownloadToStream** yöntemi tootransfer hello blob içeriği tooa stream nesnesi tooa yerel dosya daha sonra devam edebilir.
+Blob’ları indirmek için ilk olarak bir blob başvurusu alın ve ardından **DownloadToStream** yöntemini çağırın. Aşağıdaki örnek, blob içeriklerini bir akış nesnesine aktarmak ve ardından yerel bir dosyaya kalıcı olarak almak için **DownloadToStream** yöntemini kullanır:
 
 ```csharp
 // Retrieve storage account from connection string.
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create hello blob client.
+// Create the blob client.
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-// Retrieve reference tooa previously created container.
+// Retrieve reference to a previously created container.
 CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-// Retrieve reference tooa blob named "photo1.jpg".
+// Retrieve reference to a blob named "photo1.jpg".
 CloudBlockBlob blockBlob = container.GetBlockBlobReference("photo1.jpg");
 
-// Save blob contents tooa file.
+// Save blob contents to a file.
 using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
 {
     blockBlob.DownloadToStream(fileStream);
 }
 ```
 
-Merhaba de kullanabilirsiniz **DownloadToStream** yöntemi toodownload hello içeriği blob olarak bir metin dizesi.
+Bunun yanında bir blobun içeriklerini metin dizesi olarak indirmek için **DownloadToStream** yöntemini kullanabilirsiniz.
 
 ```csharp
 // Retrieve storage account from connection string.
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create hello blob client.
+// Create the blob client.
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-// Retrieve reference tooa previously created container.
+// Retrieve reference to a previously created container.
 CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-// Retrieve reference tooa blob named "myblob.txt"
+// Retrieve reference to a blob named "myblob.txt"
 CloudBlockBlob blockBlob2 = container.GetBlockBlobReference("myblob.txt");
 
 string text;
@@ -261,48 +261,48 @@ using (var memoryStream = new MemoryStream())
 ```
 
 ## <a name="delete-blobs"></a>Blob’ları silme
-toodelete bir blob önce bir blob başvurusu alın ve ardından arama **silmek** yöntemini.
+Bir blobu silmek için ilk olarak bir blob başvurusu alın ve ardından **Sil** yöntemini çağırın.
 
 ```csharp
 // Retrieve storage account from connection string.
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create hello blob client.
+// Create the blob client.
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-// Retrieve reference tooa previously created container.
+// Retrieve reference to a previously created container.
 CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-// Retrieve reference tooa blob named "myblob.txt".
+// Retrieve reference to a blob named "myblob.txt".
 CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob.txt");
 
-// Delete hello blob.
+// Delete the blob.
 blockBlob.Delete();
 ```
 
 ## <a name="list-blobs-in-pages-asynchronously"></a>Blob’ları sayfalarda zaman uyumsuz olarak listeleme
-Çok sayıda BLOB listeliyorsanız veya toocontrol hello bir listeleme işlemi ile dönen sonuç sayısını isterseniz sonuç sayfalarında blobları listeleyebilirsiniz. Böylece yürütme tooreturn büyük bir sonuç kümesi beklenirken engellenmeyen Bu örnek nasıl tooreturn sayfalarında zaman uyumsuz olarak sonuçları gösterir.
+Çok sayıda blob listeliyorsanız veya bir listeleme işlemi ile dönen sonuç sayısını denetlemek isterseniz sonuç sayfalarında blobları listeleyebilirsiniz. Bu örnek, geniş bir sonuç kümesinin dönmesini beklerken çalıştırmanın engellenmemesi için sayfalardaki sonuçların zaman uyumsuz olarak nasıl döneceğini gösterir.
 
-Bu örnek düz bir blob listesi gösterir, ancak ayarı hello tarafından da hiyerarşik bir listeleme gerçekleştirebilirsiniz _Listblobs_ hello parametresinin **ListBlobsSegmentedAsync** yöntemi too_false_.
+Bu örnek düz bir blob listesi gösterir, ancak **ListBlobsSegmentedAsync** metodunun _useFlatBlobListing_ parametresini _false_ olarak ayarlayarak hiyerarşik bir listeleme gerçekleştirebilirsiniz.
 
-Merhaba örnek yöntemi zaman uyumsuz bir yöntem çağırdığı için onu hello ile dönmelidir _zaman uyumsuz_ anahtar sözcüğü ve döndürmelidir bir **görev** nesnesi. Merhaba await hello için belirtilen anahtar sözcüğü **ListBlobsSegmentedAsync** yöntemi hello listeleme görevi tamamlanana kadar hello örnek yönteminin yürütülmesi askıya alır.
+Örnek metot, zaman uyumsuz bir metot çağırdığı için _async_ anahtar sözcüğüyle başlamalı ve bir **Görev** nesnesi döndürmelidir. Belirtilen **ListBlobsSegmentedAsync** yöntemi için belirlenen bekleme anahtar kelimesi, listeleme görevi tamamlanana kadar örnek yöntemin çalıştırılmasını askıya alır.
 
 ```csharp
 async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer container)
 {
-    //List blobs toohello console window, with paging.
+    //List blobs to the console window, with paging.
     Console.WriteLine("List blobs in pages:");
 
     int i = 0;
     BlobContinuationToken continuationToken = null;
     BlobResultSegment resultSegment = null;
 
-    //Call ListBlobsSegmentedAsync and enumerate hello result segment returned, while hello continuation token is non-null.
-    //When hello continuation token is null, hello last page has been returned and execution can exit hello loop.
+    //Call ListBlobsSegmentedAsync and enumerate the result segment returned, while the continuation token is non-null.
+    //When the continuation token is null, the last page has been returned and execution can exit the loop.
     do
     {
-        //This overload allows control of hello page size. You can return all remaining results by passing null for hello maxResults parameter,
+        //This overload allows control of the page size. You can return all remaining results by passing null for the maxResults parameter,
         //or by calling a different overload.
         resultSegment = await container.ListBlobsSegmentedAsync("", true, BlobListingDetails.All, 10, continuationToken, null, null);
         if (resultSegment.Results.Count<IListBlobItem>() > 0) { Console.WriteLine("Page {0}:", ++i); }
@@ -312,39 +312,39 @@ async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer cont
         }
         Console.WriteLine();
 
-        //Get hello continuation token.
+        //Get the continuation token.
         continuationToken = resultSegment.ContinuationToken;
     }
     while (continuationToken != null);
 }
 ```
 
-## <a name="writing-tooan-append-blob"></a>Yazma tooan blob ekleme
-Ek blob, günlük tutma gibi ekleme işlemleri için en iyi duruma getirilmiştir. Bir blok blobu gibi bir ek blobu bloklardan oluşur, ancak yeni bir blok tooan ek blob eklediğinizde, bu her zaman eklenmiş toohello hello blob sonudur. Bir ek blobdaki mevcut bloğu güncelleştiremezsiniz veya silemezsiniz. bir blok blobu olduğu gibi bir ek blobu Hello blok kimliği gösterilmez.
+## <a name="writing-to-an-append-blob"></a>Ek blobu yazma
+Ek blob, günlük tutma gibi ekleme işlemleri için en iyi duruma getirilmiştir. Blok blobuna benzer şekilde bir ek blobu bloklardan oluşur ancak bir ek bloba yeni bir blok eklediğinizde her zaman blobun sonuna eklenir. Bir ek blobdaki mevcut bloğu güncelleştiremezsiniz veya silemezsiniz. Bir blok blobu olduğu için ek blobun blok kimliği gösterilmez.
 
-Her bir ek blobu bloğunda tooa en fazla 4 MB yukarı farklı bir boyutta olabilir ve bir ek blobu en fazla 50.000 blok içerebilir. Merhaba en fazla bir ek blobu bu nedenle biraz 195 GB'tan (4 MB X 50.000 blok) boyutudur.
+Her biri en fazla 4 MB olmak üzere bir ek blobundaki her blok farklı boyutlarda olabilir ve bir ek blobu en fazla 50.000 blok içerebilir. Bu nedenle bir ek blobunun en büyük boyutu 195 GB’den biraz fazladır (4 MB x 50.000 blok).
 
-Aşağıdaki Hello örnek yeni bir ek blob oluşturur ve basit günlük yazma işlemini benzeterek bazı veri tooit ekler.
+Aşağıdaki örnek yeni bir ek blob oluşturur ve basit bir günlük yazma işlemini benzeterek buna veri ekler.
 
 ```csharp
-//Parse hello connection string for hello storage account.
+//Parse the connection string for the storage account.
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-//Create service client for credentialed access toohello Blob service.
+//Create service client for credentialed access to the Blob service.
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-//Get a reference tooa container.
+//Get a reference to a container.
 CloudBlobContainer container = blobClient.GetContainerReference("my-append-blobs");
 
-//Create hello container if it does not already exist.
+//Create the container if it does not already exist.
 container.CreateIfNotExists();
 
-//Get a reference tooan append blob.
+//Get a reference to an append blob.
 CloudAppendBlob appendBlob = container.GetAppendBlobReference("append-blob.log");
 
-//Create hello append blob. Note that if hello blob already exists, hello CreateOrReplace() method will overwrite it.
-//You can check whether hello blob exists tooavoid overwriting it by using CloudAppendBlob.Exists().
+//Create the append blob. Note that if the blob already exists, the CreateOrReplace() method will overwrite it.
+//You can check whether the blob exists to avoid overwriting it by using CloudAppendBlob.Exists().
 appendBlob.CreateOrReplace();
 
 int numBlocks = 10;
@@ -354,41 +354,41 @@ Random rnd = new Random();
 byte[] bytes = new byte[numBlocks];
 rnd.NextBytes(bytes);
 
-//Simulate a logging operation by writing text data and byte data toohello end of hello append blob.
+//Simulate a logging operation by writing text data and byte data to the end of the append blob.
 for (int i = 0; i < numBlocks; i++)
 {
     appendBlob.AppendText(String.Format("Timestamp: {0:u} \tLog Entry: {1}{2}",
         DateTime.UtcNow, bytes[i], Environment.NewLine));
 }
 
-//Read hello append blob toohello console window.
+//Read the append blob to the console window.
 Console.WriteLine(appendBlob.DownloadText());
 ```
 
-Bkz: [anlama blok Blobları, sayfa Blobları ve ek Bloblarını](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) hello hello üç türde BLOB arasındaki farklar hakkında daha fazla bilgi.
+Üç blob türü arasındaki farklar hakkında bilgi edinmek için bkz. [Blok Blobları, Sayfa Blobları ve Ek Bloblarını anlama](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
 
 ## <a name="managing-security-for-blobs"></a>Blobların güvenliğini sağlama
-Varsayılan olarak, Azure depolama, verilerinizi hello hesabı erişim anahtarlarını elinde olan erişim toohello hesabına sahip sınırlayarak güvende tutar. Depolama hesabınızı tooshare blob verilerini gerektiğinde, önemli toodo olduğundan bunu hesap erişim tuşlarınızı hello güvenliğini tehlikeye olmadan. Ayrıca, Azure storage'da ve hello kablo üzerinden giderek güvenlidir blob veri tooensure şifreleyebilirsiniz.
+Varsayılan olarak Azure Storage, erişimi hesap erişim anahtarlarına sahip olan hesap sahibiyle sınırlandırarak verilerinizi güvende tutar. Depolama hesabınızda blob verileri paylaşmanız gerektiğinde bunu hesap erişim anahtarlarınızın güvenliğini tehlikeye atmadan yapmak önem taşır. Buna ek olarak kablo ve Azure Storage üzerinden güvenle geçmesini sağlamak için blob verilerini şifreleyebilirsiniz.
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
-### <a name="controlling-access-tooblob-data"></a>Erişim tooblob veri denetleme
-Varsayılan olarak, depolama hesabınızda blob verileri hello erişilebilir yalnızca toostorage hesap sahibi değil. Blob Storage'a karşı istek kimlik doğrulaması varsayılan olarak hello hesap erişim tuşu gerektirir. Ancak, toomake isteyebilir belirli blob veri kullanılabilir tooother kullanıcıları. İki seçeneğiniz vardır:
+### <a name="controlling-access-to-blob-data"></a>Blob verilerine erişimi denetleme
+Varsayılan olarak depolama hesabındaki blob verileri yalnızca depolama hesabı sahibi tarafından erişilebilir. Blob Depolamaya yönelik kimlik doğrulama istekleri, istek varsayılan olarak hesap erişim anahtarı gerektirir. Buna karşın çeşitli blob verilerinin diğer kullanıcılar tarafından kullanılmasını sağlamak isteyebilirsiniz. İki seçeneğiniz vardır:
 
-* **Anonim erişim:** Bir kapsayıcıyı veya bloblarını anonim erişim için genel erişime açabilirsiniz. Bkz: [anonim okuma erişimini toocontainers ve BLOB'ları yönetmek](storage-manage-access-to-resources.md) daha fazla bilgi için.
-* **Paylaşılan erişim imzası:** istemcileri belirlediğiniz izinlerle ve belirttiğiniz bir aralığında depolama hesabınızdaki atanmış erişim tooa kaynak sağlayan bir paylaşılan erişim imzası (SAS) sağlayabilirsiniz. Daha fazla bilgi edinmek için bkz. [Paylaşılan Erişim İmzaları (SAS) kullanma](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+* **Anonim erişim:** Bir kapsayıcıyı veya bloblarını anonim erişim için genel erişime açabilirsiniz. Daha fazla bilgi için bkz.: [Kapsayıcılar ve bloblar için anonim okuma erişimini yönetme](storage-manage-access-to-resources.md).
+* **Paylaşılan Erişim İmzası:** İstemcilere, belirlediğiniz izinler ve belirlediğiniz zaman aralığında depolama hesabınızdaki bir kaynağa yetkilendirmiş erişim sağlayan bir paylaşılan erişim imzası (SAS) sağlayabilirsiniz. Daha fazla bilgi edinmek için bkz. [Paylaşılan Erişim İmzaları (SAS) kullanma](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="encrypting-blob-data"></a>Blob verilerini şifreleme
-Azure depolama hello istemcide hem hello sunucuda blob verisi şifreleme özelliği destekler.
+Azure Storage hem istemci hem de sunucuda blob verisi şifreleme özelliği destekler.
 
-* **İstemci tarafı şifreleme:** tooAzure depolama karşıya yükleme ve toohello istemci indirilirken verilerin şifresini çözmek önce istemci uygulamalar içinde şifrelenen verilerin .NET desteklediği için depolama istemci kitaplığı hello. Merhaba kitaplık ayrıca depolama hesabı anahtarı yönetimi için Azure anahtar kasası ile tümleştirmeyi destekler. Daha fazla bilgi için bkz. [Microsoft Azure Storage için .NET içinde İstemci Tarafı Şifreleme](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Ayrıca bkz. [Öğretici: Azure Anahtar Kasası kullanılarak Microsoft Azure Storage’daki blobları şifreleme ve şifresini çözme](storage-encrypt-decrypt-blobs-key-vault.md).
+* **İstemci tarafı şifreleme:** .NET için Depolama İstemci Kitaplığı Azure Storage’a yüklemeden önce istemci uygulamalar içinde verilerin şifrelenmesi ve istemciye indirirken verilerin şifresinin çözülmesini destekler. Kitaplık ayrıca depolama hesabı anahtarı yönetimi için Azure Anahtar Kasası ile tümleştirmeyi destekler. Daha fazla bilgi için bkz. [Microsoft Azure Storage için .NET içinde İstemci Tarafı Şifreleme](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Ayrıca bkz. [Öğretici: Azure Anahtar Kasası kullanılarak Microsoft Azure Storage’daki blobları şifreleme ve şifresini çözme](storage-encrypt-decrypt-blobs-key-vault.md).
 * **Sunucu tarafı şifreleme**: Azure Storage artık sunucu tarafı şifreleme desteklemektedir. Bkz. [Bekleyen Veri için Azure Storage Hizmeti Şifreleme (Önizleme)](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Blob storage'nın hello temel bilgileri öğrendiğinize göre daha fazla bu bağlantılar toolearn izleyin.
+Blob Storage’ın temellerini öğrendiğinize göre, daha fazla bilgi edinmek için bu bağlantıları izleyin.
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Depolama Gezgini
-* [Microsoft Azure Depolama Gezgini (MASE)](../../vs-azure-tools-storage-manage-with-storage-explorer.md) Windows, macOS ve Linux Azure Storage verilerle görsel olarak toowork sağlayan Microsoft boş bir tek başına uygulamadır.
+* [Microsoft Azure Depolama Gezgini (MASE)](../../vs-azure-tools-storage-manage-with-storage-explorer.md), Microsoft’un Windows, macOS ve Linux üzerinde Azure Depolama verileriyle görsel olarak çalışmanızı sağlayan ücretsiz ve tek başına uygulamasıdır.
 
 ### <a name="blob-storage-samples"></a>Blob depolama örnekleri
 * [.NET’te Azure Blob Depolama Kullanmaya Başlama](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
@@ -398,6 +398,6 @@ Blob storage'nın hello temel bilgileri öğrendiğinize göre daha fazla bu ba�
 * [REST API başvurusu](/rest/api/storageservices/azure-storage-services-rest-api-reference)
 
 ### <a name="conceptual-guides"></a>Kavramsal kılavuzlar
-* [Merhaba AzCopy komut satırı yardımcı programı ile veri aktarımı](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [AzCopy komut satırı yardımcı programı ile veri aktarımı](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [.NET için Dosya depolamayı kullanmaya başlama](../files/storage-dotnet-how-to-use-files.md)
-* [Nasıl toouse Azure blob depolama hello WebJobs SDK ile](../../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
+* [WebJobs SDK ile Azure blob depolama kullanımı](https://github.com/Azure/azure-webjobs-sdk/wiki)

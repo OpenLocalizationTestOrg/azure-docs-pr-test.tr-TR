@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure AD Başlarken Cordova | Microsoft Docs"
-description: "Nasıl toobuild bir Cordova uygulaması, oturum açma için Azure AD ile tümleşir ve OAuth kullanarak Azure AD korumalı API'lerini çağırır."
+title: "Azure AD Cordova Başlarken | Microsoft Docs"
+description: "Oturum açma için Azure AD ile tümleştirilen ve OAuth kullanarak Azure AD korumalı API çağıran bir Cordova uygulaması oluşturma."
 services: active-directory
 documentationcenter: 
 author: vibronet
@@ -15,133 +15,133 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: vittorib
 ms.custom: aaddev
-ms.openlocfilehash: 573ed638c2180c5231648bcb8c49ceb6f53296f1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d9f53148787729d29a0a89cce1b8b2b83ba228f8
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="integrate-azure-ad-with-an-apache-cordova-app"></a>Azure AD tümleştirme bir Apache Cordova uygulaması
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Mobil aygıtlarda tam özellikli yerel uygulamalar olarak çalıştırabilirsiniz Apache Cordova toodevelop HTML5/JavaScript uygulamaları kullanabilir. Azure Active Directory ile (Azure AD), kurumsal düzeyde kimlik doğrulama özellikleri tooyour Cordova uygulamaları ekleyebilirsiniz.
+Apache Cordova mobil aygıtlarda tam özellikli yerel uygulamalar olarak çalıştırabilirsiniz HTML5/JavaScript uygulamaları geliştirmek için kullanabilirsiniz. Azure Active Directory ile (Azure AD), Cordova uygulamalarınızı Kurumsal düzeyde kimlik doğrulama özellikleri ekleyebilirsiniz.
 
-Cordova eklentisi Azure sarmalar AD yerel SDK'ları iOS, Android, Windows mağazası ve Windows Phone. Eklenti, uygulamanızın geliştirebilirsiniz olduğunu kullanarak toosupport kullanıcılarınızın Windows Server Active Directory hesapları, kazanç erişim tooOffice 365 ve Azure API'leri ile oturum açma ve hatta korunmasına yardımcı olur çağrıları tooyour kendi özel web API.
+Cordova eklentisi Azure sarmalar AD yerel SDK'ları iOS, Android, Windows mağazası ve Windows Phone. Kullanarak eklenti, oturum açma, kullanıcılarınızın Windows Server Active Directory hesaplarıyla desteklemek, Office 365 ve Azure API'lerini erişmek ve hatta kendi özel web API çağrıları korunmasına yardımcı olmak için uygulamanızın geliştirebilirsiniz.
 
-Bu öğreticide, hello Apache Cordova eklentisi Active Directory Authentication Library (ADAL) tooimprove basit bir uygulama için özellikler aşağıdaki hello ekleyerek kullanacağız:
+Bu öğreticide, aşağıdaki özellikler ekleyerek basit bir uygulama geliştirmek için Active Directory Authentication Library (ADAL) için eklenti Apache Cordova kullanacağız:
 
 * Yalnızca birkaç satır kod ile bir kullanıcının kimliğini doğrulamak ve bir belirteç elde edin.
-* Merhaba sonuçlarını görüntülemek ve bu dizine, belirteç tooinvoke hello grafik API'si tooquery kullanın.  
-* Merhaba ADAL belirteç önbelleği toominimize kimlik doğrulamasını kullan hello kullanıcıya sorar.
+* Bu dizini sorgulayabilir ve sonuçları görüntülemek için grafik API'sini çağırmak için bu belirteci kullanın.  
+* Kullanıcı için kimlik doğrulaması ister en aza indirmek için ADAL belirteç önbelleği kullanın.
 
-toomake Bu geliştirmeler, gerekir:
+Bu geliştirmeler yapmak için aktarmanız gerekir:
 
 1. Bir uygulamayı Azure AD'ye kaydedin.
-2. Kod tooyour uygulama toorequest belirteçleri ekleyin.
-3. Merhaba grafik API'si sorgulanırken kod toouse hello belirteci ekleyin ve sonuçları görüntüler.
-4. Merhaba Cordova dağıtım projesi oluşturmak tüm hello platformlarında, tootarget istediğiniz, hello Cordova ADAL eklenti ekleme ve test hello çözüm içinde Öykünücüler.
+2. Belirteç isteme uygulamanıza kod ekleyin.
+3. Grafik API'si sorgulamak için belirteci kullanın için kodu ekleyin ve sonuçları görüntüleyin.
+4. Hedef, Cordova ADAL eklenti eklemek ve Öykünücüler çözümü test istediğiniz tüm platformlar ile Cordova dağıtım projesi oluşturun.
 
 ## <a name="prerequisites"></a>Ön koşullar
-toocomplete Bu öğretici, gerekir:
+Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Uygulama geliştirme hakları olan bir hesabın sahip olduğu bir Azure AD kiracısı.
-* Apache Cordova toouse yapılandırmış bir geliştirme ortamı.  
+* Apache Cordova kullanmak üzere yapılandırılmış bir geliştirme ortamı.  
 
-Her ikisi de varsa, ayarlamak, doğrudan toostep 1 devam edin.
+Her ikisi de varsa, ayarlamak, doğrudan adım 1 geçin.
 
-Azure AD kiracısı yoksa, hello kullan [yönergeler tooget bir](active-directory-howto-tenant.md).
+Azure AD kiracısı yoksa kullanmak [nasıl edinebileceğinizi yönergeler](active-directory-howto-tenant.md).
 
-Apache Cordova makinenizde ayarlanan yoksa, hello aşağıdakileri yükleyin:
+Apache Cordova makinenizde ayarlanan yoksa, aşağıdaki yükleyin:
 
 * [Git](http://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 * [Node.js](https://nodejs.org/download/)
 * [Cordova CLI](https://cordova.apache.org/) (NPM Paket Yöneticisi kolayca yüklenebilir: `npm install -g cordova`)
 
-yüklemeleri önceki hello hello PC ve Mac hello çalışması gerekir
+Önceki yüklemeleri PC ve Mac çalışması gerekir
 
 Her hedef platformu farklı Önkoşullar vardır:
 
-* toobuild ve Windows Tablet/PC veya Windows Phone için uygulama çalıştırın:
+* Derleme ve Windows Tablet/PC veya Windows Phone için bir uygulamayı çalıştırmak için:
   * Yükleme [Windows Update 2 veya sonraki sürümü için Visual Studio 2013](http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-windows-8) (Express veya başka bir sürümü) veya [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs#d-community).
 
-* toobuild ve iOS için uygulama çalıştırın:
+* Derleme ve iOS için uygulama çalıştırmak için:
 
-  * Xcode yükleme 6.x veya sonraki bir sürümü. Hello karşıdan [Apple Developer site](http://developer.apple.com/downloads) veya hello [Mac App Store](http://itunes.apple.com/us/app/xcode/id497799835?mt=12).
-  * Yükleme [ios-SIM](https://www.npmjs.org/package/ios-sim). İOS simülatörü hello komut satırından içinde toostart iOS uygulamalarını bunu kullanabilirsiniz. (Kolayca hello terminal yükleyebilirsiniz: `npm install -g ios-sim`.)
-* toobuild ve Android için uygulama çalıştırın:
+  * Xcode yükleme 6.x veya sonraki bir sürümü. İndirin [Apple Developer site](http://developer.apple.com/downloads) veya [Mac App Store](http://itunes.apple.com/us/app/xcode/id497799835?mt=12).
+  * Yükleme [ios-SIM](https://www.npmjs.org/package/ios-sim). İOS uygulamaları iOS simülatörü komut satırından başlatmak için kullanabilirsiniz. (Kolayca terminal yükleyebilirsiniz: `npm install -g ios-sim`.)
+* Derleme ve Android için uygulama çalıştırmak için:
 
-  * Yükleme [Java Geliştirme Seti (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) veya sonraki bir sürümü. Emin olun `JAVA_HOME` (ortam değişkeni), toohello JDK yükleme yolu (örneğin, C:\Program Files\Java\jdk1.7.0_75) göre doğru şekilde ayarlanır.
-  * Yükleme [Android SDK](http://developer.android.com/sdk/installing/index.html?pkg=tools) ve hello ekleyin `<android-sdk-location>\tools` konum (örneğin, C:\tools\Android\android-sdk\tools) tooyour `PATH` ortam değişkeni.
-  * Android SDK Yöneticisi'ni açın (örneğin, terminal hello aracılığıyla: `android`) ve yükleyin:
+  * Yükleme [Java Geliştirme Seti (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) veya sonraki bir sürümü. Emin olun `JAVA_HOME` (ortam değişkeni) JDK yükleme yolu (örneğin, C:\Program Files\Java\jdk1.7.0_75) göre doğru olarak ayarlayın.
+  * Yükleme [Android SDK](http://developer.android.com/sdk/installing/index.html?pkg=tools) ve ekleme `<android-sdk-location>\tools` konuma (örneğin, C:\tools\Android\android-sdk\tools), `PATH` ortam değişkeni.
+  * Android SDK Yöneticisi'ni açın (örneğin, terminal aracılığıyla: `android`) ve yükleyin:
     * *Android 5.0.1 (API 21)* platform SDK'si
     * *Android SDK derleme araçlarını* sürüm 19.1.0 veya daha yenisi
     * *Android desteği depo* (ek özellikler)
 
-  Merhaba Android SDK varsayılan öykünücü örnek sağlamaz. Çalıştırarak oluşturmak `android avd` hello terminal ve ardından seçerek **oluşturma**toorun hello Android uygulamasını bir öykünücü istiyorsanız. 19 veya daha yüksek bir API düzeyi öneririz. Merhaba Android öykünücü ve oluşturma seçenekleri hakkında daha fazla bilgi için bkz: [AVD Yöneticisi](http://developer.android.com/tools/help/avd-manager.html) hello Android sitesinde.
+  Android SDK varsayılan öykünücü örnek sağlamaz. Çalıştırarak oluşturmak `android avd` terminalde seçilerek **oluşturma**, Android uygulaması bir öykünücüsünde çalıştırmak istiyorsanız. 19 veya daha yüksek bir API düzeyi öneririz. Android öykünücü ve oluşturma seçenekleri hakkında daha fazla bilgi için bkz: [AVD Yöneticisi](http://developer.android.com/tools/help/avd-manager.html) Android sitesinde.
 
 ## <a name="step-1-register-an-application-with-azure-ad"></a>1. adım: bir uygulamayı Azure AD ile kaydedin.
-Bu adım isteğe bağlıdır. Bu öğretici, kendi Kiracı sağlama yapmadan eylem örnek toosee kullanabileceğiniz önceden sağlanan değerlerin hello sağlar. Ancak, bu adımı gerçekleştirmek ve kendi uygulamaları oluştururken gerekli olacağı için hello işlemiyle aşina öneririz.
+Bu adım isteğe bağlıdır. Bu öğretici, kendi Kiracı sağlama yapmadan eylem örnek görmek için kullanabileceğiniz önceden sağlanan değerler sağlar. Ancak, bu adımı gerçekleştirmek ve kendi uygulamaları oluştururken gerekli olacağı için işlemiyle aşina öneririz.
 
-Azure AD uygulamaları bilinen belirteçleri tooonly verir. Azure AD, uygulamanızdan kullanmadan önce toocreate bir girdi için kiracınızda gerekir. Yeni bir uygulama kiracınızda tooregister:
+Azure AD yalnızca bilinen uygulamalara belirteçleri. Azure AD, uygulamanızdan kullanabilmeniz için önce bir girdi için kiracınızda oluşturmanız gerekir. Yeni bir uygulama kiracınızda kaydetmek için:
 
-1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
-2. Merhaba üst çubuğunda hesabınızı tıklatın. Merhaba, **Directory** listesinde, uygulamanızın hello Azure AD Kiracı tooregister istediğiniz yeri seçin.
-3. Tıklatın **daha Hizmetleri** hello sol bölmesinde ve ardından **Azure Active Directory**.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Üst çubuğunda hesabınızı tıklatın. İçinde **Directory** listesinde, Azure AD Kiracı uygulamanızı kaydetmek istediğiniz yeri seçin.
+3. Tıklatın **daha Hizmetleri** sol bölmesinde ve seçip **Azure Active Directory**.
 4. Tıklatın **uygulama kayıtlar**ve ardından **Ekle**.
-5. Merhaba komut istemlerini izleyin ve oluşturma bir **yerel istemci uygulaması**. (Cordova uygulamaları HTML bağlı olsa da, bir yerel istemci uygulaması oluşturuyoruz. Merhaba **yerel istemci uygulaması** seçeneği seçili olmalıdır veya Merhaba uygulaması çalışmayacak.)
-  * **Ad** uygulama toousers açıklar.
-  * **Yeniden yönlendirme URI'si** hello tooreturn belirteçleri tooyour uygulama kullanılan URI değil. Girin **http://MyDirectorySearcherApp**.
+5. Komut istemlerini izleyin ve oluşturun bir **yerel istemci uygulaması**. (Cordova uygulamaları HTML bağlı olsa da, bir yerel istemci uygulaması oluşturuyoruz. **Yerel istemci uygulaması** seçeneği seçili olmalıdır veya uygulama çalışmaz.)
+  * **Ad** kullanıcılar uygulamanıza açıklar.
+  * **Yeniden yönlendirme URI'si** belirteçleri uygulamanıza döndürmek için kullanılan bir URI. Girin **http://MyDirectorySearcherApp**.
 
-Kayıt işlemini tamamladıktan sonra Azure AD benzersiz uygulama kimliği tooyour uygulama atar. Bu değer hello sonraki bölümlerde gerekir. Merhaba uygulama sekmesinde yeni uygulama oluşturulan hello bulabilirsiniz.
+Kayıt işlemini tamamladıktan sonra Azure AD benzersiz uygulama kimliği uygulamanıza atar. Bu değeri sonraki bölümlerde bulunan gerekir. Yeni oluşturulan uygulama uygulama sekmesinde bulabilirsiniz.
 
-toorun `DirSearchClient Sample`, yeni oluşturulan hello uygulama izni tooquery hello Azure AD Graph API verin:
+Çalıştırmak için `DirSearchClient Sample`, Azure AD Graph API sorgulamak için yeni oluşturulan uygulama izni verin:
 
-1. Merhaba gelen **ayarları** sayfasında, **gerekli izinler**ve ardından **Ekle**.  
-2. Hello Azure Active Directory uygulamasını seçmek **Microsoft Graph** olarak API hello ve hello ekleyin **erişim hello dizini hello oturum açmış kullanıcı olarak** altında izni **atanan İzinleri**.  Bu, kullanıcılar için uygulama tooquery hello grafik API'si sağlar.
+1. Gelen **ayarları** sayfasında, **gerekli izinler**ve ardından **Ekle**.  
+2. Azure Active Directory uygulaması için seçin **Microsoft Graph** API olarak ve ekleme **gibi oturum açan kullanıcının dizine erişim** altında izni **izinlere temsilci**.  Bu kullanıcılar için grafik API'si sorgulamak uygulamanızı sağlar.
 
-## <a name="step-2-clone-hello-sample-app-repository"></a>2. adım: hello örnek uygulama depoyu kopyalayın
-Kabuk veya komut satırı hello aşağıdaki komutu yazın:
+## <a name="step-2-clone-the-sample-app-repository"></a>2. adım: örnek uygulama depoyu kopyalayın
+Kabuk veya komut satırı, aşağıdaki komutu yazın:
 
     git clone -b skeleton https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova.git
 
-## <a name="step-3-create-hello-cordova-app"></a>3. adım: Merhaba Cordova uygulaması oluşturma
-Birden çok yol toocreate Cordova uygulamaları vardır. Bu öğreticide, hello Cordova komut satırı arabirimi (CLI) kullanacağız.
+## <a name="step-3-create-the-cordova-app"></a>3. adım: Cordova uygulaması oluşturma
+Cordova uygulamaları oluşturmak için birden çok yolu vardır. Bu öğreticide, Cordova komut satırı arabirimi (CLI) kullanacağız.
 
-1. Kabuk veya komut satırı hello aşağıdaki komutu yazın:
+1. Kabuk veya komut satırı, aşağıdaki komutu yazın:
 
         cordova create DirSearchClient
 
-   Bu komut, hello klasör yapısını ve hello Cordova projesi için askılamayı oluşturur.
+   Bu komut, Cordova projesi için askılamayı ve klasör yapısı oluşturur.
 
-2. Toohello yeni DirSearchClient klasör taşınamadı:
+2. Yeni DirSearchClient klasöre gidin:
 
         cd .\DirSearchClient
 
-3. Hello başlangıç projesi Merhaba içeriğine, Dosya Yöneticisi veya, kabuk komutu aşağıdaki hello kullanarak hello www alt klasörüne kopyalayın:
+3. Başlangıç projesi içeriğini Kabuğu'nda Dosya Yöneticisi veya aşağıdaki komutu kullanarak www alt klasöründe kopyalayın:
 
   * Windows:`xcopy ..\NativeClient-MultiTarget-Cordova\DirSearchClient www /E /Y`
   * Mac:`cp -r  ../NativeClient-MultiTarget-Cordova/DirSearchClient/* www`
 
-4. Merhaba beyaz liste eklentisini ekleyin. Bu, hello grafik API'si çağırma için gereklidir.
+4. Beyaz liste eklentisini ekleyin. Bu grafik API'sini çağırma için gereklidir.
 
         cordova plugin add cordova-plugin-whitelist
 
-5. Toosupport istediğiniz tüm hello platformlar ekleyin. bir çalışma örneği toohave, tooexecute en az bir komutları aşağıdaki Merhaba, gerekir. Olmaz mümkün tooemulate iOS Windows olması veya bir Mac bilgisayar Windows'ta öykünmek unutmayın
+5. Desteklemek istediğiniz tüm platformlar ekleyin. Bir çalışma örneği için en az biri aşağıdaki komutları yürütün gerekir. Windows İos'ta öykünmek veya bir Mac bilgisayar Windows'ta öykünmek mümkün olmayacaktır unutmayın
 
         cordova platform add android
         cordova platform add ios
         cordova platform add windows
 
-6. Cordova eklentisi tooyour projesi için ADAL Hello ekleyin:
+6. ADAL Cordova eklentisi projenize ekleyin:
 
         cordova plugin add cordova-plugin-ms-adal
 
-## <a name="step-4-add-code-tooauthenticate-users-and-obtain-tokens-from-azure-ad"></a>4. adım: kodu tooauthenticate kullanıcı ekleyin ve Azure AD'den belirteçleri elde
-Bu öğreticide geliştirirken Merhaba uygulaması bir Basit Dizin arama özelliğini sağlar. Merhaba kullanıcı daha sonra hello dizini hello diğer herhangi bir kullanıcı adını yazın ve bazı temel öznitelikler görselleştirin. Merhaba başlangıç projesi hello tanımı hello temel kullanıcı arabiriminin hello uygulamada (www/index.html) içerir ve temel uygulama olay bağlayan hello yapı iskelesi, kullanıcı arabirimi bağlamaları döngüleri görüntü mantığında (www/js/index.js) sonuçlanır. Merhaba, sol yalnızca kimlik görevleri uygulayan tooadd hello mantığı bir görevdir.
+## <a name="step-4-add-code-to-authenticate-users-and-obtain-tokens-from-azure-ad"></a>4. adım: kullanıcıların kimlik doğrulaması ve Azure AD'den belirteçleri elde etmek için kod ekleme
+Bu öğreticide geliştirirken uygulama bir Basit Dizin arama özelliğini sağlar. Kullanıcı dizindeki diğer herhangi bir kullanıcı adını yazın ve bazı temel öznitelikler görselleştirin. Başlangıç projesi uygulamada (www/index.html) temel kullanıcı arabiriminin tanımını içerir ve temel uygulama olay bağlayan yapı iskelesi, kullanıcı arabirimi bağlamaları geçiş yapar ve görüntü mantığında (www/js/index.js) sonuçlanır. Sizin için sol yalnızca kimlik görevleri uygulayan mantığı eklemek için bir görevdir.
 
-Merhaba kodunuzda toodo gereken ilk şey uygulamanızı tanımlamak için Azure AD kullanır hello Protokolü değerleri tanıtmak olduğunu ve kaynakları, hedefleyen hello. Bu değerleri kullanılan tooconstruct hello belirteç isteklerini daha sonra olacaktır. Aşağıdaki kod parçacığında hello dosyanın üst kısmındaki hello index.js hello ekleyin:
+Kodunuzda yapmanız gereken ilk şey, Azure AD uygulamanızı ve kaynakları tanımlamak için kullandığı Protokolü değerleri, hedefleyen tanıtmak ' dir. Bu değerler, belirteç isteklerini daha sonra oluşturmak için kullanılır. Aşağıdaki kod parçacığında index.js dosyanın üst kısmında ekleyin:
 
 ```javascript
 var authority = "https://login.microsoftonline.com/common",
@@ -151,15 +151,15 @@ var authority = "https://login.microsoftonline.com/common",
     graphApiVersion = "2013-11-08";
 ```
 
-Merhaba `redirectUri` ve `clientId` değerleri, uygulamanızı Azure AD'de açıklayan hello değerler eşleşmelidir. Merhaba olanlardan bulabilirsiniz **yapılandırma** 1. adımda Bu öğreticide daha önce açıklandığı gibi hello Azure portal sekmesinde.
+`redirectUri` Ve `clientId` değerleri, uygulamanızı Azure AD'de açıklayan değerler eşleşmelidir. Olanlardan bulabilirsiniz **yapılandırma** 1. adımda Bu öğreticide daha önce açıklandığı gibi Azure portalında sekmesinde.
 
 > [!NOTE]
-> Yeni bir uygulama, kendi Kiracı kayıt değil için ettiyseniz, olduğu gibi hello önceden yapılandırılmış değerleri yalnızca yapıştırabilirsiniz. Üretim için yöneliktir uygulamalarınız için her zaman kendi giriş oluşturmalısınız olsa hello örnek çalıştıran, daha sonra görebilirsiniz.
+> Yeni bir uygulama, kendi Kiracı kayıt değil için ettiyseniz, olduğu gibi önceden yapılandırılmış değerleri yalnızca yapıştırabilirsiniz. Üretim için yöneliktir uygulamalarınız için her zaman kendi giriş oluşturmalısınız rağmen çalışan, örnek görebilirsiniz.
 
-Ardından, hello belirteç isteği kodu ekleyin. Merhaba arasında parçacığını aşağıdaki hello Ekle `search` ve `renderData` tanımları:
+Ardından, belirteci isteği kodu ekleyin. Aşağıdaki kod parçacığını arasında Ekle `search` ve `renderData` tanımları:
 
 ```javascript
-    // Shows hello user authentication dialog box if required
+    // Shows the user authentication dialog box if required
     authenticate: function (authCompletedCallback) {
 
         app.context = new Microsoft.ADAL.AuthenticationContext(authority);
@@ -168,13 +168,13 @@ Ardından, hello belirteç isteği kodu ekleyin. Merhaba arasında parçacığı
                 authority = items[0].authority;
                 app.context = new Microsoft.ADAL.AuthenticationContext(authority);
             }
-            // Attempt tooauthorize hello user silently
+            // Attempt to authorize the user silently
             app.context.acquireTokenSilentAsync(resourceUri, clientId)
             .then(authCompletedCallback, function () {
-                // We require user credentials, so this triggers hello authentication dialog box
+                // We require user credentials, so this triggers the authentication dialog box
                 app.context.acquireTokenAsync(resourceUri, clientId, redirectUri)
                 .then(authCompletedCallback, function (err) {
-                    app.error("Failed tooauthenticate: " + err);
+                    app.error("Failed to authenticate: " + err);
                 });
             });
         });
@@ -182,9 +182,9 @@ Ardından, hello belirteç isteği kodu ekleyin. Merhaba arasında parçacığı
     },
 ```
 Bu işlev, iki ana bölüme çiğnemekten tarafından inceleyelim.
-Bu örnek karşılıklı toobeing tooa belirli bir bağlı tasarlanmış toowork tüm Kiracı ile aynıdır. Merhaba kullanan hello kullanıcı tooenter herhangi bir hesabı kimlik doğrulaması anında sağlar ve ait olduğu hello isteği toohello Kiracı yönlendirir "/ ortak" uç nokta.
+Bu örnek, belirli bir bağlı tüm Kiracı çalışmak üzere tasarlanmıştır. Kullanıcının kimlik doğrulaması anında herhangi bir hesabı girmesini sağlar ve Kiracı isteğine ait olduğu yönlendirir "/ ortak" endpoint kullanır.
 
-Bir belirteç zaten depolanıyorsa hello ADAL önbellek toosee hello yöntemi ilk bu parçası olup olmadığını denetler. Bu durumda, hello yöntemi nereden hello belirteci ADAL yeniden geldiğini hello kiracılar kullanır. Bu gerekli tooavoid hello kullan "/ ortak", her zaman yeni bir hesap hello kullanıcı tooenter soran içinde sonuçları fazladan istemleri olmasıdır.
+Bu yöntem ilk kısmı bir belirteç zaten depolanmış görmek için ADAL önbelleğin olup olmadığını denetler. Öyleyse, yöntem nereden belirteç ADAL yeniden geldiğini kiracılar kullanır. "/ Ortak", kullanım her zaman yeni bir hesabı girmesini isteyen sonuçlandığından bu fazladan istemleri önlemek gereklidir.
 
 ```javascript
         app.context = new Microsoft.ADAL.AuthenticationContext(authority);
@@ -194,23 +194,23 @@ Bir belirteç zaten depolanıyorsa hello ADAL önbellek toosee hello yöntemi il
                 app.context = new Microsoft.ADAL.AuthenticationContext(authority);
             }
 ```
-Merhaba yöntemi Hello ikinci bölümü hello uygun belirteç isteği gerçekleştirir. Merhaba `acquireTokenSilentAsync` yöntemi belirtilen hello için bir belirteç ADAL tooreturn ister herhangi UX gösteren olmadan kaynak Merhaba önbellek depolanan, uygun erişim belirteci zaten varsa oluşabilir veya bir yenileme belirteci olup olmadığını kullanılan tooget yeni bir erişim belirteci herhangi bir istem göstermeden. O deneme başarısız olursa, biz geri dönmesi `acquireTokenAsync`--hangi görünür şekilde ister hello kullanıcı tooauthenticate.
+Yöntemin ikinci bölümü doğru belirteci isteği gerçekleştirir. `acquireTokenSilentAsync` Yöntemi, belirtilen kaynak için bir belirteç herhangi UX göstermeden dönmek için ADAL sorar Önbellekte depolanan, uygun erişim belirteci zaten varsa oluşabilir veya bir yenileme belirteci herhangi bir istem göstermeden yeni bir erişim belirteci almak için kullanılabilir. O deneme başarısız olursa, biz geri dönmesi `acquireTokenAsync`--hangi görünür şekilde ister kullanıcının kimlik doğrulamasını.
 
 ```javascript
-            // Attempt tooauthorize hello user silently
+            // Attempt to authorize the user silently
             app.context.acquireTokenSilentAsync(resourceUri, clientId)
             .then(authCompletedCallback, function () {
-                // We require user credentials, so this triggers hello authentication dialog box
+                // We require user credentials, so this triggers the authentication dialog box
                 app.context.acquireTokenAsync(resourceUri, clientId, redirectUri)
                 .then(authCompletedCallback, function (err) {
-                    app.error("Failed tooauthenticate: " + err);
+                    app.error("Failed to authenticate: " + err);
                 });
             });
 ```
-Biz hello belirteci sahip olduğunuza göre biz son hello grafik API'si çağırma ve istiyoruz hello arama sorgusu gerçekleştirin. Merhaba aşağıdaki kod parçacığını aşağıdaki hello Ekle `authenticate` tanımı:
+Biz belirtece sahip olduğunuza göre biz son grafik API'sini çağırmak ve istiyoruz arama sorgusu gerçekleştirin. Aşağıdaki kod parçacığını aşağıdaki Ekle `authenticate` tanımı:
 
 ```javascript
-// Makes an API call tooreceive hello user list
+// Makes an API call to receive the user list
     requestData: function (authResult, searchText) {
         var req = new XMLHttpRequest();
         var url = resourceUri + "/" + authResult.tenantId + "/users?api-version=" + graphApiVersion;
@@ -234,60 +234,60 @@ Biz hello belirteci sahip olduğunuza göre biz son hello grafik API'si çağır
     },
 
 ```
-bir kullanıcının diğer adı metin kutusuna girmek için basit bir UX sağladığı Hello başlangıç noktası dosyalar. Bu yöntem tooconstruct bir sorgu değeri, hello erişim belirteciyle birleştirmek, tooMicrosoft grafik göndermek ve hello sonuçlarını ayrıştırmak kullanır. Merhaba `renderData` yöntemi, hello başlangıç noktası dosyasında zaten mevcut hello sonuçlarını görselleştirme mvc'deki.
+Başlangıç noktası dosyaları, metin kutusuna bir kullanıcının diğer adı girmek için basit bir UX sağlanan. Bu yöntem, bir sorgu oluşturun, erişim belirteciyle birleştirmek, Microsoft Graph göndermek ve sonuçlarını ayrıştırmak için bu değeri kullanır. `renderData` Yöntemi, başlangıç noktası dosyasında zaten mevcut sonuçlarını görselleştirme mvc'deki.
 
-## <a name="step-5-run-hello-app"></a>Adım 5: hello uygulama çalıştırma
-Uygulamanız son hazır toorun ' dir. Bu işletim basittir: hello uygulama başlatıldığında hello diğer yukarı toolook istediğiniz hello kullanıcı adını girin ve sonra hello düğmesine tıklayın. Kimlik doğrulaması için istenir. Başarılı kimlik doğrulama ve başarılı arama sırasında aranır hello kullanıcı hello özniteliklerini görüntülenir.
+## <a name="step-5-run-the-app"></a>5. adım: uygulama çalıştırma
+Uygulamanızı çalıştırmak son hazırdır. Bu işletim basittir: uygulama başlatıldığında diğer aramak istediğiniz kullanıcının adını girin ve ardından düğmesine tıklayın. Kimlik doğrulaması için istenir. Başarılı kimlik doğrulama ve başarılı arama sırasında aranan kullanıcı özniteliklerini görüntülenir.
 
-Sonraki çalıştırır, herhangi bir istem göstermeden hello arama gerçekleştirilir, thanks hello toohello varlığını önceden önbelleğinde belirteç alındı.
+Sonraki çalıştırır, önceden alınmış belirtecin önbelleğinde varlığını sayesinde hiçbir istemi göstermeden arama gerçekleştirir.
 
-Merhaba uygulama çalıştırmaya hello somut adımları platforma göre değişir.
+Uygulamayı çalıştırmak için somut adımları platforma göre değişir.
 
 ### <a name="windows-10"></a>Windows 10
    Tablet/bilgisayar:`cordova run windows --archs=x64 -- --appx=uap`
 
-   Mobil (Windows 10 Mobile cihaz bağlı tooa PC gerektirir):`cordova run windows --archs=arm -- --appx=uap --phone`
+   Mobil (bir Bilgisayara bağlı bir Windows 10 mobil aygıt gerektirir):`cordova run windows --archs=arm -- --appx=uap --phone`
 
    > [!NOTE]
-   > İlk çalıştırma hello sırasında içinde toosign Geliştirici lisansı istenebilir. Daha fazla bilgi için bkz: [Geliştirici lisansı](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx).
+   > İlk çalıştırmada Geliştirici lisansı oturum açmak için istenebilir. Daha fazla bilgi için bkz: [Geliştirici lisansı](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx).
 
 ### <a name="windows-81-tabletpc"></a>Windows 8.1 Tablet/PC
    `cordova run windows`
 
    > [!NOTE]
-   > İlk çalıştırma hello sırasında içinde toosign Geliştirici lisansı istenebilir. Daha fazla bilgi için bkz: [Geliştirici lisansı](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx).
+   > İlk çalıştırmada Geliştirici lisansı oturum açmak için istenebilir. Daha fazla bilgi için bkz: [Geliştirici lisansı](https://msdn.microsoft.com/library/windows/apps/hh974578.aspx).
 
 ### <a name="windows-phone-81"></a>Windows Phone 8.1
-   bağlı bir cihazda toorun:`cordova run windows --device -- --phone`
+   Bağlı bir cihaza çalıştırmak için:`cordova run windows --device -- --phone`
 
-   toorun hello varsayılan öykünücü üzerinde:`cordova emulate windows -- --phone`
+   Varsayılan öykünücüsünde çalıştırmak için:`cordova emulate windows -- --phone`
 
-   Kullanım `cordova run windows --list -- --phone` toosee tüm kullanılabilir hedefler ve `cordova run windows --target=<target_name> -- --phone` toorun Merhaba uygulaması belirli cihaz veya öykünücü (örneğin, `cordova run windows --target="Emulator 8.1 720P 4.7 inch" -- --phone`).
+   Kullanım `cordova run windows --list -- --phone` tüm kullanılabilir hedefleri görmek için ve `cordova run windows --target=<target_name> -- --phone` belirli cihaz veya öykünücü üzerinde uygulamayı çalıştırmak için (örneğin, `cordova run windows --target="Emulator 8.1 720P 4.7 inch" -- --phone`).
 
 ### <a name="android"></a>Android
-   bağlı bir cihazda toorun:`cordova run android --device`
+   Bağlı bir cihaza çalıştırmak için:`cordova run android --device`
 
-   toorun hello varsayılan öykünücü üzerinde:`cordova emulate android`
+   Varsayılan öykünücüsünde çalıştırmak için:`cordova emulate android`
 
-   Bir öykünücü örneğinde AVD Yöneticisi'ni kullanarak daha önce hello "Önkoşullar" bölümünde açıklandığı gibi oluşturduğunuz emin olun.
+   Bir öykünücü örneğinde AVD Yöneticisi'ni kullanarak daha önce "Önkoşullar" bölümünde açıklandığı gibi oluşturduğunuz emin olun.
 
-   Kullanım `cordova run android --list` toosee tüm kullanılabilir hedefler ve `cordova run android --target=<target_name>` toorun Merhaba uygulaması belirli cihaz veya öykünücü (örneğin, `cordova run android --target="Nexus4_emulator"`).
+   Kullanım `cordova run android --list` tüm kullanılabilir hedefleri görmek için ve `cordova run android --target=<target_name>` belirli cihaz veya öykünücü üzerinde uygulamayı çalıştırmak için (örneğin, `cordova run android --target="Nexus4_emulator"`).
 
 ### <a name="ios"></a>iOS
-   bağlı bir cihazda toorun:`cordova run ios --device`
+   Bağlı bir cihaza çalıştırmak için:`cordova run ios --device`
 
-   toorun hello varsayılan öykünücü üzerinde:`cordova emulate ios`
+   Varsayılan öykünücüsünde çalıştırmak için:`cordova emulate ios`
 
    > [!NOTE]
-   > Merhaba olduğundan emin olun `ios-sim` hello öykünücüsü üzerinde yüklü paket toorun. Daha fazla bilgi için bkz: hello "Önkoşullar" bölümü.
+   > Olduğundan emin olun `ios-sim` öykünücüsünde çalıştırmak için yüklü paket. Daha fazla bilgi için "Önkoşullar" bölümüne bakın.
 
-    Use `cordova run ios --list` toosee all available targets and `cordova run ios --target=<target_name>` toorun hello application on specific device or emulator (for example, `cordova run android --target="iPhone-6"`).
+    Use `cordova run ios --list` to see all available targets and `cordova run ios --target=<target_name>` to run the application on specific device or emulator (for example, `cordova run android --target="iPhone-6"`).
 
-    Use `cordova run --help` toosee additional build and run options.
+    Use `cordova run --help` to see additional build and run options.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Başvuru için (yapılandırma değerleriniz olmadan) tamamlandı hello örnek kullanılabilir [GitHub](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient).
+Başvuru için (yapılandırma değerleriniz olmadan) tamamlanan örnek kullanılabilir [GitHub](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-Cordova/tree/complete/DirSearchClient).
 
-Şimdi Gelişmiş toomore (ve daha ilginç) taşıma senaryoları kullanabilirsiniz. Tootry isteyebilirsiniz: [Azure AD ile bir Node.js Web API'SİNİN güvenliğini](active-directory-devquickstarts-webapi-nodejs.md).
+Artık daha gelişmiş (ve daha ilginç) senaryolara geçebilirsiniz. Denemek isteyebilirsiniz: [Azure AD ile bir Node.js Web API'SİNİN güvenliğini](active-directory-devquickstarts-webapi-nodejs.md).
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]

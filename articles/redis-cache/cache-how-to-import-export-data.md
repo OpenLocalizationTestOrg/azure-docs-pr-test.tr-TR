@@ -1,6 +1,6 @@
 ---
-title: "aaaImport ve Azure Redis önbelleği verileri dışarı aktarma | Microsoft Docs"
-description: "Bilgi nasıl tooimport ve dışarı aktarma veri tooand premium Azure Redis önbelleği örnekleri ile blob depolama biriminden"
+title: "İçeri ve dışarı aktarma Azure Redis önbelleği verilerde | Microsoft Docs"
+description: "İçeri aktarma ve blob depolama, premium Azure Redis önbelleği örnekleri ile gelen ve giden verileri dışarı aktarma hakkında bilgi edinin"
 services: redis-cache
 documentationcenter: 
 author: steved0x
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: sdanie
-ms.openlocfilehash: f17464b207f1c652952f4da63ca147473fee2759
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5e6d731f0a1cecc1a191c74a45e37a9b94fd98ee
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="import-and-export-data-in-azure-redis-cache"></a>İçeri ve dışarı aktarma veri Azure Redis önbelleği
-İçeri/dışarı aktarma tooimport veri Azure Redis önbelleği veya Azure Redis önbelleği verme verileri içeri aktarma ve Redis önbelleği veritabanı'nı (RDB) anlık bir Azure premium önbellek tooa blob dışarı aktarma sağlayan bir Azure Redis önbelleği veri yönetimi, bir işlemdir Depolama hesabı. 
+İçeri/dışarı aktarma veri Azure Redis önbelleğine alma veya içeri aktarma ve Redis önbelleği veritabanı'nı (RDB) anlık görüntü premium önbellekten bir Azure blob verme Azure Redis Önbelleği'nden veri verme olanak tanıyan bir Azure Redis önbelleği veri yönetimi, bir işlemdir Depolama hesabı. 
 
-- **Dışarı aktarma** -Azure Redis önbelleği RDB anlık görüntüleri tooa sayfa blobu dışarı aktarabilirsiniz.
+- **Dışarı aktarma** -sayfa blobu için Azure Redis önbelleği RDB anlık görüntü dışarı aktarabilirsiniz.
 - **Alma** -sayfa blobu veya bir blok blobu, Redis önbelleği RDB anlık görüntüleri içeri aktarabilirsiniz.
 
-İçeri/dışarı aktarma farklı Azure Redis önbelleği örnekleri arasında toomigrate etkinleştirir veya hello önbellek kullanmadan önce verilerle doldurma.
+İçeri/dışarı aktarma, farklı Azure Redis önbelleği örnekleri arasında geçirmek veya önbellek kullanmadan önce verileri ile doldurmak sağlar.
 
-Bu makalede, Azure Redis önbelleği ile veri alma ve verme için bir kılavuz sağlar ve hello yanıtlar sağlayan sorular toocommonly.
+Bu makalede, Azure Redis önbelleği ile veri alma ve verme için bir kılavuz sağlar ve sık sorulan soruların yanıtlarını içerir.
 
 > [!IMPORTANT]
 > İçeri/dışarı aktarma Önizleme aşamasındadır ve yalnızca için kullanılabilir [premium katmanı](cache-premium-tier-intro.md) önbelleğe alır.
@@ -36,45 +36,45 @@ Bu makalede, Azure Redis önbelleği ile veri alma ve verme için bir kılavuz s
 >
 
 ## <a name="import"></a>İçeri Aktarma
-İçeri aktarma kullanılan toobring Redis uyumlu RDB dosyalarından herhangi bir bulut veya ortamını Linux, Windows ya da herhangi bir bulut sağlayıcısına Amazon Web Hizmetleri ve diğerleri gibi çalışan Redis çalıştıran herhangi bir Redis sunucu olabilir. Veri alma kolay bir yolu toocreate önceden doldurulmuş haldedir verilerle bir önbellek olur. Merhaba içeri aktarma işlemi sırasında Azure Redis önbelleği hello RDB dosyaları Azure Storage'dan belleğe yükler ve sonra hello anahtarları hello önbelleğine ekler.
+İçeri aktarma, herhangi bir bulut veya ortamını Linux, Windows ya da herhangi bir bulut sağlayıcısına Amazon Web Hizmetleri ve diğerleri gibi çalışan Redis çalıştıran herhangi bir Redis sunucudan Redis uyumlu RDB dosyaları getirmek için kullanılabilir. Veri alma, önceden doldurulmuş haldedir verilerle önbellek oluşturmak için kolay bir yoludur. İçeri aktarma işlemi sırasında Azure Redis önbelleği RDB dosyaları Azure Storage'dan belleğe yükler ve ardından anahtarları önbelleğe ekler.
 
 > [!NOTE]
-> Merhaba alma işlemi başlamadan önce Redis veritabanı (RDB) dosya veya dosyalar sayfasına yüklenir blok blobları hello de Azure depolama alanında aynı olduğundan emin olun veya bölge ve Azure Redis önbelleği örneğinizi olarak abonelik. Daha fazla bilgi için bkz: [Azure Blob storage ile çalışmaya başlama](../storage/blobs/storage-dotnet-how-to-use-blobs.md). RDB dosyanızı hello kullanarak veriliyorsa [Azure Redis önbelleği dışarı aktarma](#export) özelliği RDB dosyanızın bir sayfa blob'u zaten depolanır ve içeri aktarmak için hazırdır.
+> İçeri aktarma işlemi başlamadan önce Redis veritabanı (RDB) dosya veya dosyalar sayfası veya blok blobları aynı bölgede ve Azure Redis önbelleği örneğinizi olarak abonelik Azure depolama alanında içine karşıya emin olun. Daha fazla bilgi için bkz: [Azure Blob storage ile çalışmaya başlama](../storage/blobs/storage-dotnet-how-to-use-blobs.md). RDB dosyasını kullanarak veriliyorsa [Azure Redis önbelleği dışarı aktarma](#export) özelliği RDB dosyanızın bir sayfa blob'u zaten depolanır ve içeri aktarmak için hazırdır.
 >
 >
 
-1. tooimport bir veya daha fazla önbellek BLOB'ları dışarı [tooyour önbelleği Gözat](cache-configure.md#configure-redis-cache-settings) Azure portal hello ve tıklatın **veri içeri aktarma** hello gelen **kaynak menü**.
+1. Bir veya daha fazla dışa aktarılan önbellek BLOB, içeri aktarmak için [Gözat önbelleğiniz için](cache-configure.md#configure-redis-cache-settings) tıklatın ve Azure Portalı'ndaki **veri içeri aktarma** gelen **kaynak menü**.
 
     ![Veri içeri aktarma][cache-import-data]
-2. Tıklatın **seçin Blob(s)** ve hello veri tooimport içeren hello depolama hesabını seçin.
+2. Tıklatın **seçin Blob(s)** ve içeri aktarmak için verileri içeren depolama hesabı seçin.
 
     ![Depolama hesabı seçin][cache-import-choose-storage-account]
-3. Merhaba veri tooimport içeren hello kapsayıcı'ı tıklatın.
+3. Alınacak verileri içeren kapsayıcı'ı tıklatın.
 
     ![Kapsayıcı seçin][cache-import-choose-container]
-4. Bir veya daha fazla BLOB tooimport hello alanı toohello hello blob adı solundaki tıklayarak seçin ve ardından **seçin**.
+4. Blob adı solundaki alanda tıklayarak içeri aktarmak için bir veya daha fazla BLOB seçin ve ardından **seçin**.
 
     ![BLOB'ları seçin][cache-import-choose-blobs]
-5. Tıklatın **alma** toobegin hello içeri aktarma işlemi.
+5. Tıklatın **alma** içeri aktarma işlemini başlatmak için.
 
    > [!IMPORTANT]
-   > Merhaba önbellek hello içeri aktarma işlemi sırasında önbelleği istemcileri tarafından erişilebilir durumda değil ve hello önbelleğinde mevcut verileri silinir.
+   > Önbelleğe alma işlemi sırasında önbelleği istemcileri tarafından erişilebilir değil ve önbelleğinde mevcut verileri silinir.
    >
    >
 
     ![İçeri Aktarma][cache-import-blobs]
 
-    Hello Azure portalı aşağıdaki hello bildirimleri tarafından veya hello hello olayları görüntüleyerek hello içeri aktarma işlemi hello ilerlemesini izleyebilirsiniz [denetim günlüğü](../azure-resource-manager/resource-group-audit.md).
+    Azure portalından bildirimleri izleyerek veya olayları görüntüleyerek ilerleme durumunu alma işlemini izleyebilirsiniz [denetim günlüğü](../azure-resource-manager/resource-group-audit.md).
 
     ![İçeri aktarma ilerlemesi][cache-import-data-import-complete]
 
 ## <a name="export"></a>Dışarı Aktarma
-Dışarı aktarma Azure Redis önbelleği tooRedis uyumlu RDB dosyasında depolanan tooexport hello verileri sağlar. Bu özellik toomove verilerden bir Azure Redis önbelleği örneği tooanother veya tooanother Redis sunucusu kullanabilirsiniz. Hello dışa aktarma işlemi sırasında Azure Redis önbelleği sunucu örneği konakları hello ve depolama hesabı belirlenmiş karşıya yüklenen toohello hello dosyadır VM hello üzerinde geçici bir dosya oluşturulur. Merhaba dışa aktarma işlemi ya da durumunu başarı veya hata ile tamamlandığında hello geçici dosya silindi.
+Dışarı aktarma, Azure Redis uyumlu RDB dosyaları Redis için önbellekte depolanan veriler vermenize olanak sağlar. Verileri bir Azure Redis önbelleği örneğinden diğerine veya başka bir Redis sunucuya taşımak için bu özelliği kullanın. Dışa aktarma işlemi sırasında geçici bir dosya Azure Redis önbelleği sunucu örneğini barındıran VM oluşturulur ve dosya belirtilen depolama hesabına yüklenir. Ya da durumunu başarı veya hata ile dışarı aktarma işlemi tamamlandıktan sonra geçici dosya silindi.
 
-1. tooexport hello geçerli içeriğini hello önbellek toostorage [tooyour önbelleği Gözat](cache-configure.md#configure-redis-cache-settings) Azure portal hello ve tıklatın **dışarı veri** hello gelen **kaynak menü**.
+1. Depolama birimine önbelleğinin geçerli içeriğini dışarı aktarmak için [Gözat önbelleğiniz için](cache-configure.md#configure-redis-cache-settings) tıklatın ve Azure Portalı'ndaki **dışarı veri** gelen **kaynak menü**.
 
     ![Depolama kapsayıcısı seçin][cache-export-data-choose-storage-container]
-2. Tıklatın **depolama kapsayıcısı seçin** ve istenen hello depolama hesabını seçin. Merhaba depolama hesabı hello olmalıdır aynı abonelikte ve bölgede önbelleğiniz.
+2. Tıklatın **depolama kapsayıcısı seçin** ve istenen depolama hesabını seçin. Depolama hesabı aynı abonelikte ve bölgede olarak önbelleğinizin olması gerekir.
 
    > [!IMPORTANT]
    > Klasik ve Resource Manager depolama hesapları tarafından desteklenir, ancak tarafından desteklenmeyen sayfa bloblarını çalışır verme [Blob storage hesapları](../storage/blobs/storage-blob-storage-tiers.md#blob-storage-accounts) şu anda.
@@ -82,21 +82,21 @@ Dışarı aktarma Azure Redis önbelleği tooRedis uyumlu RDB dosyasında depola
    >
 
     ![Depolama hesabı][cache-export-data-choose-account]
-3. Merhaba istenen blob kapsayıcısı ve tıklatın seçin **seçin**. toouse yeni bir kapsayıcı tıklatın **kapsayıcı ekleme** tooadd ilk ve ardından onu hello listeden.
+3. İstenen blob kapsayıcısı seçin ve tıklatın **seçin**. Yeni bir kapsayıcı kullanmak için tıklatın **kapsayıcı ekleme** önce ekleyin ve ardından listeden seçin.
 
     ![Depolama kapsayıcısı seçin][cache-export-data-container]
-4. Bir **Blob adı ön ekini** tıklatıp **verme** toostart hello dışa aktarma işlemi. Bu dışarı aktarma işlemi tarafından oluşturulan dosyaların kullanılan tooprefix hello adlarını Hello blob adı önekidir.
+4. Tür a **Blob adı ön ekini** tıklatıp **verme** dışarı aktarma işlemini başlatmak için. Blob adı ön eki Bu dışarı aktarma işlemi tarafından oluşturulan dosyaların adlarını öneki için kullanılır.
 
     ![Dışarı Aktarma][cache-export-data]
 
-    Hello Azure portalı aşağıdaki hello bildirimleri tarafından veya hello hello olayları görüntüleyerek hello dışa aktarma işlemi hello ilerlemesini izleyebilirsiniz [denetim günlüğü](../azure-resource-manager/resource-group-audit.md).
+    Azure portalından bildirimleri izleyerek veya olayları görüntüleyerek verme işleminin ilerleme durumunu izleyebilirsiniz [denetim günlüğü](../azure-resource-manager/resource-group-audit.md).
 
     ![Tam Veri dışarı aktarma][cache-export-data-export-complete]
 
-    Önbellekleri hello dışa aktarma işlemi sırasında kullanılabilir kalır.
+    Önbellekleri dışa aktarma işlemi sırasında kullanılabilir kalır.
 
 ## <a name="importexport-faq"></a>İçeri/dışarı aktarma ile ilgili SSS
-Bu bölümde hello içeri/dışarı aktarma özelliği hakkında sık sorulan sorular bulunmaktadır.
+Bu bölüm içeri/dışarı aktarma özelliği hakkında sık sorulan sorular içerir.
 
 * [Hangi fiyatlandırma katmanlarını içeri/dışarı aktarma kullanabilir miyim?](#what-pricing-tiers-can-use-importexport)
 * [Herhangi bir Redis sunucudan verileri alabilir miyim?](#can-i-import-data-from-any-redis-server)
@@ -107,16 +107,16 @@ Bu bölümde hello içeri/dışarı aktarma özelliği hakkında sık sorulan so
 * [İçeri/dışarı aktarma Redis kalıcılığı farklı mı?](#how-is-importexport-different-from-redis-persistence)
 * [İçeri/dışarı aktarma PowerShell'i, CLI veya diğer yönetim istemcileri kullanarak otomatik hale getirebilirsiniz?](#can-i-automate-importexport-using-powershell-cli-or-other-management-clients)
 * [My içeri/dışarı aktarma işlemi sırasında zaman aşımı hatası aldım. Ne anlama geliyor?](#i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean)
-* [My veri tooAzure Blob Storage dışarı aktarılırken bir hata ile aldım. Ne oldu?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened)
+* [Verilerimi Azure Blob depolama alanına dışarı aktarılırken bir hata ile aldım. Ne oldu?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened)
 
 ### <a name="what-pricing-tiers-can-use-importexport"></a>Hangi fiyatlandırma katmanlarını içeri/dışarı aktarma kullanabilir miyim?
-İçeri/dışarı aktarma premium fiyatlandırma katmanına yalnızca hello içinde kullanılabilir.
+İçeri/dışarı aktarma premium fiyatlandırma katmanı yalnızca içinde kullanılabilir.
 
 ### <a name="can-i-import-data-from-any-redis-server"></a>Herhangi bir Redis sunucudan verileri alabilir miyim?
-Evet, ayrıca Azure Redis önbelleği örneklerden verilen tooimporting verileri RDB dosyaları herhangi bir bulut veya Linux, Windows veya Amazon Web Hizmetleri gibi bulut sağlayıcıları gibi ortam çalıştıran herhangi bir Redis sunucudan alabilirsiniz. toodo bu karşıya yükleme hello RDB dosyanızı istenen hello Redis sunucusundan bir sayfa veya blok blobu bir Azure depolama hesabı ve ardından içeri aktarma, premium Azure Redis önbelleği örneğine. Örneğin, üretim önbellekten tooexport hello veri istediğiniz ve test veya geçiş için hazırlama ortamının bir parçası kullanılan bir önbellek içe.
+Evet, Azure Redis önbelleği örnekleri üzerinden aktarılan verilerin içe aktarılması yanı sıra Windows, herhangi bir bulut ya da Linux gibi ortam çalıştıran herhangi bir Redis sunucusundan RDB dosyalarını içeri aktarmak veya Amazon Web Hizmetleri gibi sağlayıcıları bulut. Bunu yapmak için bir Azure depolama hesabındaki sayfa veya blok blob içine istenen Redis sunucusundan RDB dosyayı karşıya yüklemeyi ve premium Azure Redis önbelleği örneğine içeri aktarın. Örneğin, üretim önbellekten veri verin ve test etme veya geçiş için hazırlama ortamının bir parçası kullanılan bir önbelleğe almak isteyebilirsiniz.
 
 > [!IMPORTANT]
-> toosuccessfully verileri kullanarak bir sayfa blobu, hello sayfa blob boyutu 512 baytlık sınırında hizalanmalıdır aktardığınızda Azure Redis önbelleği dışında Redis sunucularından dışarı aktarın. Bayt doldurma gerekli örnek kodu tooperform için bkz: [örnek sayfa blog yüklemesi](https://github.com/JimRoberts-MS/SamplePageBlobUpload).
+> Başarıyla bir sayfa blob'u kullanırken, Azure Redis önbelleği dışında Redis sunucularından dışarı veri almak için sayfa blob boyutu 512 baytlık sınırında hizalanmalıdır. Tüm gerekli bayt doldurma gerçekleştirmek örnek kod için bkz: [örnek sayfa blog yüklemesi](https://github.com/JimRoberts-MS/SamplePageBlobUpload).
 > 
 > 
 
@@ -125,42 +125,42 @@ Evet, ayrıca Azure Redis önbelleği örneklerden verilen tooimporting verileri
 Azure Redis önbelleği RDB alma sürüm 7 RDB yukarı destekler.
 
 ### <a name="is-my-cache-available-during-an-importexport-operation"></a>My önbellek içeri/dışarı aktarma işlemi sırasında var mı?
-* **Dışarı aktarma** - önbellekleri kullanılabilir olmaya devam eder ve önbelleğiniz toouse dışa aktarma işlemi sırasında devam edebilirsiniz.
-* **Alma** - içe aktarma işlemi başladığında, kullanılamaz hale ve hello içeri aktarma işlemi tamamlandıktan sonra kullanılabilir hale önbellekleri.
+* **Dışarı aktarma** - önbellekleri kullanılabilir olmaya devam eder ve bir dışa aktarma işlemi sırasında önbelleğiniz kullanmaya devam edebilirsiniz.
+* **Alma** - içe aktarma işlemi başladığında, kullanılamaz hale ve içeri aktarma işlemi tamamlandıktan sonra kullanılabilir hale önbellekleri.
 
 ### <a name="can-i-use-importexport-with-redis-cluster"></a>İçeri/dışarı aktarma ile Redis kümesi kullanabilir miyim?
-Evet, ve, alma/kümelenmemiş bir önbellek ve kümelenmiş bir önbellek arasında verme. Redis kümesi itibaren [destekler 0 veritabanı yalnızca](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering), herhangi bir veri 0 dışında veritabanlarında içe değil. Verileri kümelenmiş önbelleğe alındığı sırada hello anahtarları hello küme hello parça arasında dağıtılır.
+Evet, ve, alma/kümelenmemiş bir önbellek ve kümelenmiş bir önbellek arasında verme. Redis kümesi itibaren [destekler 0 veritabanı yalnızca](cache-how-to-premium-clustering.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering), herhangi bir veri 0 dışında veritabanlarında içe değil. Kümelenmiş önbellek verilerini içe aktarıldığında, anahtarları küme parça arasında dağıtılır.
 
 ### <a name="how-does-importexport-work-with-a-custom-databases-setting"></a>İçeri/dışarı aktarma ayarı için özel bir veritabanlarını nasıl çalışır?
-Bazı fiyatlandırma katmanları farklı sahip [veritabanları sınırları](cache-configure.md#databases), böylece bazı noktalar hello için özel bir değer yapılandırdıysanız alırken `databases` önbellek oluşturma sırasında ayarlama.
+Bazı fiyatlandırma katmanları farklı sahip [veritabanları sınırları](cache-configure.md#databases), böylece bazı noktalar için özel bir değer yapılandırdıysanız alırken `databases` önbellek oluşturma sırasında ayarlama.
 
-* Fiyatlandırma katmanı ile bir alt tooa alırken `databases` içinden dışa aktardığınız hello katmanı sınırından:
-  * Merhaba varsayılan sayısı kullanıyorsanız `databases`, tüm fiyatlandırma katmanlarına 16 olduğu, veri kaybı olmamasına.
-  * Özel bir dizi kullanıyorsanız `databases` hello sınırları içinde düştüğünde hello için içeri aktardığınız toowhich katmanının, veri kaybı olmamasına.
-  * Verilen verilerinizi hello yeni katmanının hello sınırlarını aşıyor bir veritabanında veri içeriyorsa, bu daha yüksek veritabanlarındaki hello veriler içe aktarılmaz.
+* Bir fiyatlandırma katmanı ile bir alt içeri aktarırken `databases` içinden dışa aktardığınız katmanı sınırından:
+  * Varsayılan sayısını kullanıyorsanız `databases`, tüm fiyatlandırma katmanlarına 16 olduğu, veri kaybı olmamasına.
+  * Özel bir dizi kullanıyorsanız `databases` sınırları içinde bu düştüğünde, içeri aktardığınız, katmanı için hiçbir veriler kaybolur.
+  * Verilen verilerinizi yeni katmanı sınırlarını aşıyor bir veritabanında veri içeriyorsa, bu daha yüksek veritabanlarındaki verileri içe aktarılmaz.
 
 ### <a name="how-is-importexport-different-from-redis-persistence"></a>İçeri/dışarı aktarma Redis kalıcılığı farklı mı?
-Azure Redis önbelleği kalıcılığı Redis tooAzure depolama depolanan toopersist verileri sağlar. Azure Redis önbelleği Kalıcılık yapılandırıldığında, bir anlık görüntüsünü hello Redis Önbelleği'nde yapılandırılabilir bir yedekleme sıklığına bağlı bir Redis ikili biçimi toodisk devam ettirir. Merhaba birincil ve çoğaltma önbelleği devre dışı bırakan geri dönülemez bir olay meydana gelirse, hello önbellek verilerini hello en son anlık görüntü kullanılarak otomatik olarak geri yüklenir. Daha fazla bilgi için bkz: [nasıl Premium Azure Redis önbelleği için tooconfigure veri kalıcılığını](cache-how-to-premium-persistence.md).
+Azure Redis önbelleği Kalıcılık Azure depolama birimine Redis depolanan verilere kalıcı olanak tanır. Kalıcılık yapılandırıldığında, Azure Redis önbelleği Redis önbelleği Redis ikili biçimde yapılandırılabilir bir yedekleme sıklığına bağlı disk için anlık görüntü devam ettirir. Hem birincil hem de çoğaltma önbelleği devre dışı bırakan geri dönülemez bir olay meydana gelirse, önbellek verilerini otomatik olarak en son anlık görüntü kullanılarak geri yüklendi. Daha fazla bilgi için bkz: [Premium Azure Redis önbelleği için veri kalıcılığını yapılandırma](cache-how-to-premium-persistence.md).
 
-Alma / verme verir toobring verisine veya Azure Redis Önbelleği'den dışarı aktarma. Yedekleme yapılandırması yok ve Redis kalıcılığı kullanarak geri yükleyin.
+Alma / verme verisine Getir veya Azure Redis Önbelleği'nden verme olanak tanır. Yedekleme yapılandırması yok ve Redis kalıcılığı kullanarak geri yükleyin.
 
 ### <a name="can-i-automate-importexport-using-powershell-cli-or-other-management-clients"></a>İçeri/dışarı aktarma PowerShell'i, CLI veya diğer yönetim istemcileri kullanarak otomatik hale getirebilirsiniz?
-Evet, yönergeler için PowerShell bkz [tooimport Redis önbelleği](cache-howto-manage-redis-cache-powershell.md#to-import-a-redis-cache) ve [tooexport Redis önbelleği](cache-howto-manage-redis-cache-powershell.md#to-export-a-redis-cache).
+Evet, yönergeler için PowerShell bkz [Redis önbelleği almak için](cache-howto-manage-redis-cache-powershell.md#to-import-a-redis-cache) ve [Redis önbelleği dışarı aktarmak için](cache-howto-manage-redis-cache-powershell.md#to-export-a-redis-cache).
 
 ### <a name="i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean"></a>My içeri/dışarı aktarma işlemi sırasında zaman aşımı hatası aldım. Ne anlama geliyor?
-Merhaba üzerinde kalırsa **veri içeri aktarma** veya **dışarı veri** aşağıdaki örneğine bir hata iletisi benzer toohello ile bir hata alıyorsunuz dikey penceresinde hello işlemini başlatmadan önce 15 dakikadan daha uzun süre:
+Üzerinde kalırsa **veri içeri aktarma** veya **dışarı veri** dikey 15'ten daha uzun dakika işlem başlatmadan önce aşağıdaki örneğe benzer bir hata iletisi ile bir hata alıyorsunuz:
 
-    hello request tooimport data into cache 'contoso55' failed with status 'error' and error 'One of hello SAS URIs provided could not be used for hello following reason: hello SAS token end time (se) must be at least 1 hour from now and hello start time (st), if given, must be at least 15 minutes in hello past.
+    The request to import data into cache 'contoso55' failed with status 'error' and error 'One of the SAS URIs provided could not be used for the following reason: The SAS token end time (se) must be at least 1 hour from now and the start time (st), if given, must be at least 15 minutes in the past.
 
-tooresolve bunu başlatmak hello içeri aktarma veya dışarı aktarma işlemi 15 dakika geçtikten önce.
+Bunu çözmek için içe aktarmayı başlatmak veya dışarı aktarma işlemi 15 dakika önce geçti.
 
-### <a name="i-got-an-error-when-exporting-my-data-tooazure-blob-storage-what-happened"></a>My veri tooAzure Blob Storage dışarı aktarılırken bir hata ile aldım. Ne oldu?
+### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>Verilerimi Azure Blob depolama alanına dışarı aktarılırken bir hata ile aldım. Ne oldu?
 Sayfa blobları depolanan dosyalarla yalnızca RDB verme çalışır. Diğer blob türleri şu anda, blob storage hesapları sık erişimli ve seyrek katmanları dahil olmak üzere desteklenmez. Daha fazla bilgi için bkz: [Blob storage hesapları](../storage/blobs/storage-blob-storage-tiers.md#blob-storage-accounts).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Toouse daha premium özellikleri nasıl önbelleğe alma hakkında bilgi edinin.
+Daha fazla premium önbellek özelliklerinin nasıl kullanılacağını öğrenin.
 
-* [Giriş toohello Azure Redis önbelleği Premium katmanına](cache-premium-tier-intro.md)    
+* [Azure Redis önbelleği Premium katmanına giriş](cache-premium-tier-intro.md)    
 
 <!-- IMAGES -->
 [cache-settings-import-export-menu]: ./media/cache-how-to-import-export-data/cache-settings-import-export-menu.png

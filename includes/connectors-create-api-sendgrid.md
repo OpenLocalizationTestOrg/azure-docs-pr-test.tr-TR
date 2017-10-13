@@ -1,14 +1,14 @@
 ### <a name="prerequisites"></a>Ön koşullar
 * A [SendGrid](https://www.SendGrid.com/) hesabı 
 
-Bir mantıksal uygulama SendGrid hesabınızı kullanabilmeniz için önce hello mantığı uygulama tooconnect tooyour SendGrid hesabını yetkilendirmeniz gerekir. Neyse ki, kolayca hello Azure portalı üzerinde mantıksal uygulama içinde bunu yapabilirsiniz. 
+Bir mantıksal uygulama SendGrid hesabınızı kullanabilmeniz için önce SendGrid hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz. 
 
-Mantıksal uygulama tooconnect tooyour SendGrid hesabı hello adımları tooauthorize şunlardır:
+SendGrid hesabınıza bağlanmak için mantıksal uygulamanızı yetkilendirmek için adımlar şunlardır:
 
-1. Merhaba mantığı Uygulama Tasarımcısı'nda bir bağlantı tooSendGrid toocreate seçin **Göster Microsoft yönetilen API'ler** Merhaba, açılan liste ardından girin *SendGrid* hello arama kutusuna. Merhaba tetikleyici veya toouse beğendiğiniz eylem seçin:  
+1. Mantıksal Uygulama Tasarımcısı'nda SendGrid, bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *SendGrid* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
    ![Adım 1'in SendGrid](./media/connectors-create-api-sendgrid/sendgrid-1.png)
-2. Tüm bağlantılar tooSendGrid önce oluşturmadıysanız, SendGrid kimlik bilgileriniz istendiğinde tooprovide elde edersiniz. Bu kimlik bilgileri, Logic app tooconnect kullanılan tooauthorize olması ve SendGrid hesabınızın veri erişim:  
+2. SendGrid önce bağlantılarına oluşturmadıysanız, SendGrid kimlik bilgilerinizi girmeniz istendiğinde şunu. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve SendGrid hesabınızın veri erişim:  
    ![SendGrid adım 2](./media/connectors-create-api-sendgrid/sendgrid-2.png)
-3. Merhaba bağlantı oluşturulur ve mantıksal uygulamanızı ücretsiz tooproceed hello diğer sahip adımlarını artık olduğunuz dikkat edin:  
+3. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  
    ![SendGrid adım 3](./media/connectors-create-api-sendgrid/sendgrid-3.png)   
 

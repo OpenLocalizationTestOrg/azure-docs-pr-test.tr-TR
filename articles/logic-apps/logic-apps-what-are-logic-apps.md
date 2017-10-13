@@ -1,5 +1,5 @@
 ---
-title: "aaaConnect uygulamaları ve iş akışları ile - Azure Logic Apps veri tümleştirme | Microsoft Docs"
+title: "İş akışları ile uygulamaları bağlama ve verileri tümleştirme - Azure Logic Apps | Microsoft Docs"
 description: "Azure Logic Apps ile uygulamaları bağlayıp verileri tümleştirerek iş akışları oluşturun ve işlemleri otomatik hale getirin."
 author: kevinlam1
 manager: anneta
@@ -14,64 +14,64 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/23/2017
 ms.author: klam
-ms.openlocfilehash: 53d4e165bb2205ddd56c1950719389725267ddea
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 59d35852d6c703f3c96089a8bf426b57660441a6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-logic-apps"></a>Logic Apps nedir?
-Logic Apps şekilde toosimplify sağlayın ve ölçeklenebilir tümleştirme ve iş akışları hello bulutta uygular. Görsel Tasarımcı toomodel sağlar ve işleminizi iş akışı olarak bilinen adımları bir dizi olarak otomatikleştirmek.  Vardır [birçok Bağlayıcılar](../connectors/apis-list.md) hizmetler ve protokoller hello Bulut ve şirket içi tooquickly arasında tümleştirme.  Bir mantıksal uygulama tetikleyicisi'yle ('bir hesap tooDynamics CRM eklendiğinde' like) başlar ve sonra Eylemler, dönüştürme ve koşul mantığı birçok birleşimleri tetikleme başlayabilirsiniz.
+Logic Apps ölçeklenebilir tümleştirmeleri ve iş akışlarını basitleştirmenin ve buluta uygulamanın bir yolunu sağlar. İşleminizi iş akışı olarak bilinen bir dizi adım olarak modelleyen ve otomatikleştiren bir görsel tasarımcı sağlar.  Bulutta ve şirket içinde hizmet ve protokolleri hızlıca tümleştirmeye yönelik [çok sayıda bağlayıcı](../connectors/apis-list.md) vardır.  Mantıksal uygulama bir tetikleyici ile başlar ve başlatma sonrasında çok sayıda eylem, dönüştürme ve koşul mantığı birleşimi başlayabilir.
 
-Logic Apps kullanmanın yararları hello hello şunları içerir:  
+Logic Apps kullanmanın avantajları şunlardır:  
 
-* Kolay toounderstand tasarım araçlarını kullanarak karmaşık işlemlere tasarlayarak zaman kaydetme
-* Desenleri ve iş akışları sorunsuz bir şekilde uygulanması, aksi takdirde kodda zor tooimplement olacaktır
+* Anlaşılması kolay tasarım araçları kullanan karmaşık işlemler tasarlayarak zaman kazandırma
+* Aksi takdirde koda uygulanması zor olan desenleri ve iş akışlarını sorunsuz bir şekilde uygulama
 * Şablonlardan hızlı bir şekilde çalışmaya başlama
 * Mantıksal uygulamanızı kendi özel API'leriniz, kodunuz ve eylemlerinizle özelleştirme
-* Bağlanma ve şirket farklı sistemleri senkronize ve bulut hello
+* Ayrık sistemleri şirket içinde ve bulutta bağlama ve eşitleme
 * BizTalk server, API Management, Azure İşlevleri ve Azure Service Bus’ı birinci sınıf tümleştirme desteği ile derleme
 
-Logic Apps olan tam olarak yönetilen iPaaS (hizmet olarak Platform tümleştirme) geliştiriciler değil barındırma, ölçeklenebilirlik, kullanılabilirlik ve yönetim oluşturma konusunda toohave tooworry izin verme.  Logic Apps toomeet talebi otomatik olarak ölçeklendirir.
+Logic Apps, geliştiricilerin barındırma, ölçeklenebilirlik, kullanılabilirlik ve yönetim oluşturma endişesi taşımamasına imkan tanıyan, tam yönetilen bir iPaaS (Hizmet olarak Tümleştirme Platformu) hizmetidir.  Logic Apps talebi karşılamak üzere otomatik olarak ölçeklenir.
 
 ![Akış uygulama tasarımcısı](media/logic-apps-what-are-logic-apps/LogicAppCapture2.png)
 
 Daha önce bahsedildiği gibi Logic Apps ile iş süreçlerini otomatik hale getirebilirsiniz. Aşağıda birkaç örnek verilmiştir:  
 
-* Karşıya yüklenen dosyaların tooan FTP sunucusu Azure depolama alanına taşıma
+* Bir FTP sunucusuna yüklenmiş dosyaları Azure Storage’a taşıma
 * Şirket işi ve bulut sistemlerinde siparişleri işleme ve yönlendirme
-* Belirli bir konuda hakkında tüm tweetler izlemek, hello düşünceleri çözümlemek ve uyarıları ve izleme gerek öğeleri için Görevler oluşturun.
+* Belirli bir konu hakkındaki tüm tweet izleme, düşünceleri çözümleme ve takip gerektiren öğeler için uyarılar ve görevler oluşturma.
 
-Bunlar gibi senaryoların tümü hello görsel tasarımcı ve tek satırlık bir kod yazmayı olmadan yapılandırılabilir. [Mantıksal uygulamanızı derlemeye][create] hemen başlayın.  Mantıksal uygulama yazıldıktan sonra birden fazla ortam ve bölgeye [hızlı bir şekilde dağıtılabilir ve yeniden yapılandırılabilir](../logic-apps/logic-apps-create-deploy-template.md).
+Bunlar gibi senaryoların tümü görsel tasarımcıdan ve tek bir satır kod yazmadan yapılandırılabilir. [Mantıksal uygulamanızı derlemeye][create] hemen başlayın.  Mantıksal uygulama yazıldıktan sonra birden fazla ortam ve bölgeye [hızlı bir şekilde dağıtılabilir ve yeniden yapılandırılabilir](../logic-apps/logic-apps-create-deploy-template.md).
 
 ## <a name="why-logic-apps"></a>Logic Apps neden kullanılmalıdır?
-Logic Apps hızı ve ölçeklenebilirlik hello Kurumsal tümleştirme alanına getirir.  Merhaba hello Tasarımcısı çeşitli kullanılabilir tetikleyiciler ve Eylemler ve güçlü Yönetim Araçları'nın kullanım kolaylığı olun zamankinden daha basit Apı'lerinizi merkezileştirme.  İşletmeler digitalization doğru ilerlerken, Logic Apps tooconnect eski ve modern sistemleri birlikte sağlar.
+Logic Apps kuruluş tümleştirme alanına hız ve ölçeklenebilirlik kazandırır.  Tasarımcının kullanım kolaylığı, kullanılabilir tetikleyici ve eylemlerin çeşitliliği ve güçlü yönetim araçları API’lerinizi merkezi hale getirmeyi hiç olmadığı kadar kolaylaştırır.  İşletmeler dijitalleştirmeye doğru ilerlerken Logic Apps eski ve modern sistemleri birbirine bağlamanıza olanak sağlar.
 
-Ayrıca, ile bizim [kuruluş tümleştirme hesabı] [ biztalk] toomature tümleştirme senaryolarına hello gücünü ölçeklendirebilirsiniz bir [XML ileti] [ xml], [ticari ortak Yönetimi][tpm]ve daha fazlası.
+Ayrıca, [Enterprise Integration Hesabı][biztalk] ile [XML mesajlaşması][xml], [ticari ortak yönetimi][tpm] ve daha fazlasının gücü sayesinde olgun tümleştirme senaryolarında ölçeklendirme yapabilirsiniz.
 
-* **Kolay toouse Tasarım araçları** -Logic Apps tasarlanmış uçtan uca hello tarayıcıda veya Visual Studio Araçları ile olabilir. Tetikleyiciden - GitHub sorunu oluşturulan bir basit zamanlama toowhen başlayın. Daha sonra Eylemler hello zengin bağlayıcı galerisini kullanarak herhangi bir sayıda yönetirler.
-* **API'ları kolayca bağlanabilir** -kolay toodescribe olan oluşturma görevlerinin bile olan kod zor tooimplement. Logic Apps farklı sistemleri kolay tooconnect kolaylaştırır. Bulut çözüm pazarlama tooconnect istediğiniz tooyour şirket içi faturalama sistemi? API'ler ve sistemleri ile bir kurumsal hizmet veri yolu üzerinden ileti toocentralize istiyorsunuz? Logic apps hello hızlı ve en güvenilir yolu toodeliver çözümleri toothese sorunlardır.
-* **Şablonlardan hızlıca başlayın** -başlamanıza toohelp sunulmuştur bir [Şablon Galerisi] [ templates] olanak tanıyacak şekilde toorapidly bazı yaygın çözümleri oluşturun. Gelen B2B çözümlerini toosimple SaaS bağlantısına, Gelişmiş ve hatta birkaç olan 'eğlencelik için' - hello galeri hello en hızlı yolu tooget Logic Apps hello güç ile başlatıldı.
-* **Desteklenmiş genişletilebilirlik** -ihtiyacınız hello bağlayıcı göremiyorum? Logic Apps API'leri ve kod tasarlanmış toowork olur; kolayca, kendi API uygulaması toouse özel bir bağlayıcı olarak oluşturabilir veya çağırmak bir [Azure işlevi](https://functions.azure.com) tooexecute parçacıkları talep kodu. 
-* **Gerçek tümleştirme gücü** - Basitten başlayın ve gerektikçe büyütün. Logic Apps, BizTalk, gereksinim duydukları Microsoft'un sektör başında tümleştirme çözüm tooenable tümleştirme uzmanları toobuild hello çözümleri hello gücünü kolayca yararlanabilirsiniz. Merhaba hakkında daha fazla bilgi [Kurumsal tümleştirme paketi](../logic-apps/logic-apps-enterprise-integration-overview.md).
+* **Kullanımı kolay tasarım araçları** - Logic Apps tarayıcıda veya Visual Studio araçları ile uçtan uca tasarlanabilir. Tetikleyici ile başlayın: basit bir zamanlamadan bir GitHub sorunu oluşturulmasına kadar. Ardından zengin bağlayıcı galerisini kullanarak dilediğiniz sayıda eylemi düzenleyin.
+* **API’leri kolayca bağlayın** - Açıklanması kolay olan oluşturma görevlerinin bile koda uygulanması zordur. Logic Apps farklı sistemleri birbirine bağlamayı kolaylaştırır. Bulut pazarlama çözümünüzü şirket içi faturalama sisteminize bağlamak mı istiyorsunuz? API’ler ile sistemler arasında mesajlaşmayı bir Enterprise Service Bus ile merkezi hale getirmek mi istiyorsunuz? Logic Apps bu sorunlara çözüm getirmenin en hızlı ve en güvenilir yoludur.
+* **Şablonlardan hızlıca başlayın** - Başlamanıza yardımcı olmak üzere bazı yaygın çözümleri hızlıca oluşturmanıza imkan tanıyan bir [şablon galerisi][templates] sunulmuştur. Galeri, Gelişmiş B2B çözümlerinden basit SaaS bağlantısına ve hatta 'eğlencelik' olan birkaç özelliğe kadar her şey için, Logic Apps’in gücünü kullanmaya başlamanın en hızlı yoludur.
+* **Desteklenmiş genişletilebilirlik** - İhtiyaç duyduğunuz bağlayıcıyı görmüyor musunuz? Logic Apps kendi API’leriniz ve kodunuzla çalışacak şekilde tasarlanmıştır; kendi API uygulamanızı özel bir bağlayıcı kullanacak şekilde kolayca oluşturabilir veya bir [Azure İşlevi](https://functions.azure.com)’ne çağırarak kod parçacıklarını talep üzerine yürütebilirsiniz. 
+* **Gerçek tümleştirme gücü** - Basitten başlayın ve gerektikçe büyütün. Logic Apps, profesyonellerin ihtiyaç duydukları çözümleri oluşturmasını sağlayan sektör lideri Microsoft çözümü BizTalk’tan kolayca yararlanır. [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md) hakkında daha fazla bilgi edinin.
 
 ## <a name="logic-app-concepts"></a>Mantıksal Uygulama Kavramları
-Merhaba hello Logic Apps deneyimini oluşturan hello temel parçalar bazıları verilmiştir. 
+Logic Apps deneyimini oluşturan bazı temel parçalar aşağıda verilmiştir. 
 
-* **İş akışı** -Logic Apps İş süreçlerinizi grafiksel toomodel bir dizi adım veya bir iş akışı sağlar.
-* **Bağlayıcılar yönetilen** -logic apps toodata ve hizmetlerine erişmek. Yönetilen bağlayıcıların özellikle tooaid oluşturulur, verilerinizle çalışırken tooand bağlanırken. Bağlayıcılar anda kullanılabilen Hello listesini [yönetilen bağlayıcıların][managedapis].
-* **Tetikleyiciler** - Bazı Yönetilen Bağlayıcılar tetikleyici olarak da hareket edebilir. Bir tetikleyici bir e-posta veya Azure Storage hesabınızdaki bir değişiklik hello varış gibi belirli bir olaya göre bir iş akışının yeni bir örneğini başlatır.
-* **Eylemler** -hello tetikleyici bir iş akışında bir eylem çağrıldıktan sonra her adımı. Her eylem genellikle yönetilen Bağlayıcısı veya özel API uygulamaları tooan işlemi eşler.
-* **Enterprise Integration Pack** - Daha gelişmiş tümleştirme senaryoları için Logic Apps, BizTalk özelliklerini içerir. BizTalk, Microsoft'un sektör lideri tümleştirme platformudur. Merhaba Enterprise Integration Pack bağlayıcılar izin tooeasily doğrulama, dönüştürme ve tooyour mantıksal uygulama iş akışlarında daha fazla bilgi içerir.
+* **İş Akışı** - MLogic Apps ş süreçlerinizi bir dizi adım veya bir iş akışı olarak modellemenizi sağlayan grafiksel bir yöntem sunar.
+* **Yönetilen Bağlayıcılar** - Mantıksal uygulamalarınızın veri ve hizmetlere erişmesi gerekir. Yönetilen bağlayıcılar, verilerinize bağlanırken ve verilerinizle çalışırken size yardımcı olmak üzere özel olarak oluşturulur. Şu anda kullanılabilen bağlayıcıların listesi için bkz. [yönetilen bağlayıcılar][managedapis].
+* **Tetikleyiciler** - Bazı Yönetilen Bağlayıcılar tetikleyici olarak da hareket edebilir. Tetikleyici bir e-postanın gelmesi veya Azure Storage hesabınızdaki bir değişiklik gibi belirli bir olaya göre bir iş akışının yeni bir örneğini başlatır.
+* **Eylemler** - Bir iş akışında tetikleyiciden sonraki her adım eylem olarak adlandırılır. Her eylem genellikle yönetilen bağlayıcı veya özel API uygulamalarınızdaki bir işlemle eşlenir.
+* **Enterprise Integration Pack** - Daha gelişmiş tümleştirme senaryoları için Logic Apps, BizTalk özelliklerini içerir. BizTalk, Microsoft'un sektör lideri tümleştirme platformudur. Enterprise Integration Pack bağlayıcıları Logic App iş akışlarınıza doğrulama, dönüşüm ve daha fazlasını kolayca dahil etmenize imkan tanır.
 
 ## <a name="getting-started"></a>Başlarken
-* Logic Apps ile başlatılan tooget izleyin hello [mantıksal uygulama oluşturma] [ create] Öğreticisi.  
+* Logic Apps’i kullanmaya başlamak için [Mantıksal Uygulama oluşturma][create] öğreticisini izleyin.  
 * [Sık rastlanan örnekleri ve senaryoları inceleyin](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Logic Apps ile iş süreçlerini otomatik hale getirebilirsiniz](http://channel9.msdn.com/Events/Build/2016/T694) 
-* [Bilgi nasıl tooIntegrate sistemlerinizi Logic Apps ile](http://channel9.msdn.com/Events/Build/2016/P462)
+* [Sistemlerinizi Logic Apps ile nasıl tümleştireceğinizi öğrenin](http://channel9.msdn.com/Events/Build/2016/P462)
 
 [biztalk]: logic-apps-enterprise-integration-accounts.md
-[appservice]: ../app-service/app-service-value-prop-what-is.md
+[appservice]: ../app-service/app-service-web-overview.md
 [create]: logic-apps-create-a-logic-app.md
 [managedapis]: ../connectors/apis-list.md
 [tpm]: logic-apps-enterprise-integration-accounts.md

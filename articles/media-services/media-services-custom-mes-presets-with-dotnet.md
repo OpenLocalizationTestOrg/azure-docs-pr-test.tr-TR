@@ -1,6 +1,6 @@
 ---
-title: "aaaCustomizing Medya Kodlayıcısı standart hazır ayarları | Microsoft Docs"
-description: "Bu konu, Medya Kodlayıcısı standart görev hazır özelleştirerek kodlama tooperform nasıl Gelişmiş gösterir. Merhaba konu nasıl bir kodlama toouse Media Services .NET SDK'sı toocreate görevi ve iş gösterir. Aynı zamanda, nasıl özel toosupply toohello kodlama işinin hazır ayarları gösterir."
+title: "Medya Kodlayıcısı standart hazır özelleştirme | Microsoft Docs"
+description: "Bu konu, Medya Kodlayıcısı standart görev hazır özelleştirerek gelişmiş kodlama gerçekleştirmek gösterilmiştir. Konu, Media Services .NET SDK'sı bir kodlama görevi ve proje oluşturmak için nasıl kullanılacağını gösterir. Ayrıca, kodlama işi özel hazır ayarları sağlamak nasıl gösterir."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: fa8c3bef63b0c1ecc88a6b8874ecbff3a8028a57
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b4d25f07349043da8cb745930fde3371c98f9960
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Özelleştirme Medya Kodlayıcısı standart hazır ayarları
 
 ## <a name="overview"></a>Genel Bakış
 
-Bu konu, nasıl Medya Kodlayıcısı standart (özel bir kullanarak MES ile) kodlama Gelişmiş tooperform önceden gösterir. Merhaba konu .NET toocreate bir kodlama görev ve bu görevi yürüten bir işi kullanır.  
+Bu konu, bir özel hazır kullanarak Medya Kodlayıcısı standart (MES ile) gelişmiş kodlama gerçekleştirmek nasıl gösterir. Konu .NET kodlama görev ve bu görevi yürüten bir iş oluşturmak için kullanır.  
 
-Bu konudaki nasıl toocustomize alarak hazır hello görürsünüz [H264 Çoklu bit hızı 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) Katmanlar hazır ve azalan hello sayısı. Merhaba [Medya Kodlayıcısı standart özelleştirme hazır ayarları](media-services-advanced-encoding-with-mes.md) konu gelişmiş kodlama görevleri kullanılan tooperform olabilir özel hazır gösterir.
+Bu konuda bir hazır gerçekleştirerek özelleştirmek nasıl göreceksiniz [H264 Çoklu bit hızı 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) önceden ve katman sayısını azaltır. [Medya Kodlayıcısı standart özelleştirme hazır ayarları](media-services-advanced-encoding-with-mes.md) konu gelişmiş kodlama görevleri gerçekleştirmek için kullanılan özel hazır gösterir.
 
 ## <a id="customizing_presets"></a>MES hazır özelleştirme
 
 ### <a name="original-preset"></a>Özgün hazır
 
-JSON tanımlanan hello Kaydet hello [H264 Çoklu bit hızı 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) .json uzantılı bazı dosyasındaki konu. Örneğin, **CustomPreset_JSON.json**.
+Tanımlanan JSON Kaydet [H264 Çoklu bit hızı 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) .json uzantılı bazı dosyasındaki konu. Örneğin, **CustomPreset_JSON.json**.
 
 ### <a name="customized-preset"></a>Özelleştirilmiş hazır
 
-Açık hello **CustomPreset_JSON.json** dosya ve ilk üç katmanlardan kaldırma **H264Layers** dosyanızı şuna benzer şekilde.
+Açık **CustomPreset_JSON.json** dosya ve ilk üç katmanlardan kaldırma **H264Layers** dosyanız aşağıdaki gibi görünür.
 
     
     {  
@@ -111,24 +111,24 @@ Açık hello **CustomPreset_JSON.json** dosya ve ilk üç katmanlardan kaldırma
 
 ## <a id="encoding_with_dotnet"></a>Media Services .NET SDK'sı ile kodlama
 
-Aşağıdaki kod örneğine hello görevleri aşağıdaki Media Services .NET SDK'sı tooperform hello kullanır:
+Aşağıdaki kod örneği, aşağıdaki görevleri gerçekleştirmek için Media Services .NET SDK'sını kullanır:
 
 - Bir kodlama işi oluşturun.
-- Bir başvuru toohello Medya Kodlayıcısı standart Kodlayıcısı alın.
-- Merhaba önceki bölümde oluşturduğunuz özel JSON önceden hello yükleyin. 
+- Medya Kodlayıcısı standart Kodlayıcı başvuru alın.
+- Önceki bölümde oluşturduğunuz özel JSON hazır yükleyin. 
   
-        // Load hello JSON from hello local file.
+        // Load the JSON from the local file.
         string configuration = File.ReadAllText(fileName);  
 
-- Bir kodlama görev toohello işi ekleyin. 
-- Merhaba giriş belirtin kodlanmış varlık toobe.
-- Kodlanmış hello varlık içerecek bir çıkış varlığı oluşturun.
-- Bir olay işleyicisi toocheck hello ilerleyişini ekleyin.
-- Merhaba işi gönderin.
+- Bir kodlama görev projeye ekleyin. 
+- Kodlanacak giriş varlık belirtin.
+- Kodlanmış varlık içerecek bir çıkış varlığı oluşturun.
+- İş ilerleme durumunu denetlemek için olay işleyici ekleyin.
+- İşi göndermek.
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
 
-Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dosyası bağlantı bilgileriyle doldurmak [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md). 
+Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) bölümünde açıklandığı gibi bağlantı bilgileriyle doldurun. 
 
 #### <a name="example"></a>Örnek   
 
@@ -143,7 +143,7 @@ Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dos
     {
         class Program
         {
-        // Read values from hello App.config file.
+        // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
         ConfigurationManager.AppSettings["AADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
@@ -168,7 +168,7 @@ Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dos
             // Get an uploaded asset.
             var asset = _context.Assets.FirstOrDefault();
 
-            // Encode and generate hello output using custom presets.
+            // Encode and generate the output using custom presets.
             EncodeToAdaptiveBitrateMP4Set(asset);
 
             Console.ReadLine();
@@ -178,11 +178,11 @@ Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dos
         {
             // Declare a new job.
             IJob job = _context.Jobs.Create("Media Encoder Standard Job");
-            // Get a media processor reference, and pass tooit hello name of hello 
-            // processor toouse for hello specific task.
+            // Get a media processor reference, and pass to it the name of the 
+            // processor to use for the specific task.
             IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
 
-            // Load hello XML (or JSON) from hello local file.
+            // Load the XML (or JSON) from the local file.
             string configuration = File.ReadAllText("CustomPreset_JSON.json");
 
             // Create a task
@@ -191,11 +191,11 @@ Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dos
             configuration,
             TaskOptions.None);
 
-            // Specify hello input asset toobe encoded.
+            // Specify the input asset to be encoded.
             task.InputAssets.Add(asset);
-            // Add an output asset toocontain hello results of hello job. 
+            // Add an output asset to contain the results of the job. 
             // This output is specified as AssetCreationOptions.None, which 
-            // means hello output asset is not encrypted. 
+            // means the output asset is not encrypted. 
             task.OutputAssets.AddNew("Output asset",
             AssetCreationOptions.None);
 

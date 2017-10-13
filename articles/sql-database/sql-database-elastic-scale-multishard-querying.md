@@ -1,6 +1,6 @@
 ---
-title: "aaaQuery parçalı Azure SQL veritabanları | Microsoft Docs"
-description: "Sorguları hello esnek veritabanı istemci kitaplığı kullanılarak parça çalıştırın."
+title: "Sorgu parçalı Azure SQL veritabanları | Microsoft Docs"
+description: "Esnek veritabanı istemci kitaplığı kullanılarak parça sorgular çalıştırın."
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -15,25 +15,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2016
 ms.author: torsteng
-ms.openlocfilehash: a1f0763935a6807b74aa9dec477714e8d117417d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 67bcb3c7fe33341103f28bc70e8cc2acbb924cae
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="multi-shard-querying"></a>Çok parça sorgulama
 ## <a name="overview"></a>Genel Bakış
-Merhaba ile [esnek veritabanı araçlarını](sql-database-elastic-scale-introduction.md), parçalı veritabanı çözümleri oluşturabilirsiniz. **Çok parça sorgulama** koleksiyonu/bir sorgu çalıştırılarak gerektiren raporlama verilerini birden fazla parça uzatır gibi görevler için kullanılır. (Bu çok Karşıtlık[veri bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md), tek bir parça tüm çalışma gerçekleştirir.) 
+İle [esnek veritabanı araçlarını](sql-database-elastic-scale-introduction.md), parçalı veritabanı çözümleri oluşturabilirsiniz. **Çok parça sorgulama** koleksiyonu/bir sorgu çalıştırılarak gerektiren raporlama verilerini birden fazla parça uzatır gibi görevler için kullanılır. (Bu Karşıtlık [veri bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md), tek bir parça tüm çalışma gerçekleştirir.) 
 
-1. Alma bir [ **RangeShardMap** ](https://msdn.microsoft.com/library/azure/dn807318.aspx) veya [ **ListShardMap** ](https://msdn.microsoft.com/library/azure/dn807370.aspx) hello kullanarak [ **TryGetRangeShardMap** ](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx), hello [ **TryGetListShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx), veya hello [ **GetShardMap** ](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx) yöntemi. Bkz: [ **bir ShardMapManager oluşturma** ](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager) ve [ **RangeShardMap veya ListShardMap almak**](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap).
+1. Alma bir [ **RangeShardMap** ](https://msdn.microsoft.com/library/azure/dn807318.aspx) veya [ **ListShardMap** ](https://msdn.microsoft.com/library/azure/dn807370.aspx) kullanarak [ **TryGetRangeShardMap** ](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetrangeshardmap.aspx), [ **TryGetListShardMap**](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.trygetlistshardmap.aspx), veya [ **GetShardMap** ](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getshardmap.aspx) yöntemi. Bkz: [ **bir ShardMapManager oluşturma** ](sql-database-elastic-scale-shard-map-management.md#constructing-a-shardmapmanager) ve [ **RangeShardMap veya ListShardMap almak**](sql-database-elastic-scale-shard-map-management.md#get-a-rangeshardmap-or-listshardmap).
 2. Oluşturma bir  **[MultiShardConnection](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardconnection.aspx)**  nesnesi.
 3. Oluşturma bir  **[MultiShardCommand](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.aspx)**. 
-4. Set hello  **[CommandText özelliği](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.commandtext.aspx#P:Microsoft.Azure.SqlDatabase.ElasticScale.Query.MultiShardCommand.CommandText)**  tooa T-SQL komutu.
-5. Tarafından arama hello Hello bağlamını  **[ExecuteReader yöntemi](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.executereader.aspx)**.
-6. Hello kullanarak hello sonuçlarını görüntülemek  **[MultiShardDataReader sınıfı](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader.aspx)**. 
+4. Ayarlama  **[CommandText özelliği](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.commandtext.aspx#P:Microsoft.Azure.SqlDatabase.ElasticScale.Query.MultiShardCommand.CommandText)**  T-SQL komutu.
+5. Çağırarak komutu yürütün  **[ExecuteReader yöntemi](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardcommand.executereader.aspx)**.
+6. Kullanarak sonuçları görüntülemek  **[MultiShardDataReader sınıfı](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multisharddatareader.aspx)**. 
 
 ## <a name="example"></a>Örnek
-Merhaba aşağıdaki kod gösterir kullanarak sorgulama yapmayı çok parça hello kullanımını bir verilen **ShardMap** adlı *myShardMap*. 
+Aşağıdaki kodu kullanarak sorgulama yapmayı çok parça kullanımını göstermektedir bir verilen **ShardMap** adlı *myShardMap*. 
 
     using (MultiShardConnection conn = new MultiShardConnection( 
                                         myShardMap.GetShards(), 
@@ -60,19 +60,19 @@ Merhaba aşağıdaki kod gösterir kullanarak sorgulama yapmayı çok parça hel
     } 
 
 
-En önemli fark, çok parça bağlantılarının hello yapıdır. Burada **SqlConnection** tek bir veritabanı üzerinde hello çalışır **MultiShardConnection** geçen bir ***parça koleksiyonunu*** giriş olarak. Parça parça eşlemesinden Hello koleksiyonunu doldurun. Merhaba sorgu kullanarak parça hello koleksiyonunu sonra yürütülür **UNION ALL** semantiği tooassemble tek bir genel sonuç. Merhaba satır kaynaklandığı hello parça hello adını hello kullanarak çıktıyı toohello isteğe bağlı olarak eklenebilir **ExecutionOptions** özelliği komutu. 
+En önemli fark, çok parça bağlantılarının yapıdır. Burada **SqlConnection** tek bir veritabanı üzerinde çalışır **MultiShardConnection** geçen bir ***parça koleksiyonunu*** giriş olarak. Parça parça eşlemesinden koleksiyonunu doldurun. Sorgu kullanarak parça koleksiyonunu yürütülür **UNION ALL** semantiği tek bir genel sonuç birleştirin. İsteğe bağlı olarak, satırın kaynaklandığı parça adını kullanarak çıktı eklenebilir **ExecutionOptions** özelliği komutu. 
 
-Merhaba çağrısı çok Not**myShardMap.GetShards()**. Bu yöntem tüm parça hello parça eşlemesinden alır ve bir kolay bir yolu toorun tüm ilgili veritabanları arasında bir sorgu sağlar. Hello koleksiyonunu parça çok parça sorgu Gelişmiş için başka bir LINQ gerçekleştirerek sorgulama çok hello çağrısından döndürülen hello koleksiyon üzerinde**myShardMap.GetShards()**. Merhaba kısmi sonuçlar İlkesi ile birlikte, çok parça sorgulama içinde geçerli yetenek hello onlarca parça toohundreds yedeklemek için tasarlanmış toowork olmuştur.
+Çağrı Not **myShardMap.GetShards()**. Bu yöntem tüm parça parça eşlemesinden alır ve tüm ilgili veritabanları arasında bir sorgu çalıştırmak için kolay bir yol sağlar. Parça koleksiyonunu çok parça sorgu Gelişmiş için daha fazla koleksiyon üzerinde bir LINQ sorgusu gerçekleştirerek sağlayıcıdan döndürülen çağrısı **myShardMap.GetShards()**. Kısmi sonuçlar İlkesi ile birlikte, çok parça sorgulama içinde geçerli yetenek parça yüzlerce kadar onlarca için iyi çalışmak üzere tasarlanmıştır.
 
-Çok parça sorgulama ile bir sınırlama şu anda Merhaba, parça ve sorgulanır shardlets için doğrulama yetersizliğidir. Veri bağımlı yönlendirme verilen parça sorgulama hello zaman hello parça eşleme parçası olduğunu doğrularken çok parça sorguları bu denetimi gerçekleştirme. Bu toomulti parça sorguları hello parça eşlemesinden kaldırılmış olan veritabanlarında çalıştırma neden olabilir.
+Çok parça sorgulama ile bir sınırlama şu anda doğrulama parça ve sorgulanır shardlets yetersizliğidir. Veri bağımlı yönlendirme sorgulama sırasında verilen parça parça eşleme parçası olduğunu doğrularken çok parça sorguları bu denetimi gerçekleştirme. Bu parça eşlemesinden kaldırılan veritabanları üzerinde çalışan çok parça sorguları neden olabilir.
 
 ## <a name="multi-shard-queries-and-split-merge-operations"></a>Çok parça sorgular ve bölünmüş birleştirme işlemleri
-Çok parça sorguları shardlets hello sorgulanan veritabanı üzerinde devam eden bölünmüş birleştirme işlemleri katılan olup olmadığını denetlemez. (Bkz [ölçeklendirme hello esnek veritabanı bölünmüş-birleştirme aracını kullanarak](sql-database-elastic-scale-overview-split-and-merge.md).) Burada satırları hello birden çok veritabanları için aynı shardlet Göster hello tooinconsistencies bu yol açabilir aynı çok parça sorgu. Bu sınırlamalara dikkat edin ve devam eden bölünmüş birleştirme işlemleri ve değişiklikleri toohello parça eşleme çok parça sorguları gerçekleştirirken boşaltma göz önünde bulundurun.
+Çok parça sorguları shardlets sorgulanan veritabanı üzerinde devam eden bölünmüş birleştirme işlemleri katılan olup olmadığını denetlemez. (Bkz [esnek veritabanı bölünmüş birleştirme aracını kullanarak ölçeklendirme](sql-database-elastic-scale-overview-split-and-merge.md).) Burada aynı çok parça sorguda birden çok veritabanları için aynı shardlet satırları göster bu tutarsızlıklar için yol açabilir. Bu sınırlamalara dikkat edin ve boşaltma devam eden bölünmüş birleştirme işlemleri ve parça eşleme değişiklikler çok parça sorguları gerçekleştirirken göz önünde bulundurun.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
 ## <a name="see-also"></a>Ayrıca bkz.
 **[System.Data.SqlClient](http://msdn.microsoft.com/library/System.Data.SqlClient.aspx)**  sınıflar ve yöntemler.
 
-Parça Hello kullanarak yönetmek [esnek veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md). Adlı bir ad alanı içeren [Microsoft.Azure.SqlDatabase.ElasticScale.Query](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.aspx) tek bir sorgu ve sonuç kullanarak birden çok parça hello özelliği tooquery sağlar. Bu, bir parça koleksiyon sorgulanırken bir Özet sağlar. Ayrıca alternatif yürütme ilkelerini, özellikle kısmi sonuçlar, toodeal hatalarıyla çok sayıda parça sorgulanırken sağlar.  
+Parça kullanarak yönetmek [esnek veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md). Adlı bir ad alanı içeren [Microsoft.Azure.SqlDatabase.ElasticScale.Query](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.aspx) tek bir sorgu ve sonuç kullanarak birden çok parça sorgu olanağı sağlar. Bu, bir parça koleksiyon sorgulanırken bir Özet sağlar. Ayrıca, alternatif yürütme ilkelerini, birçok parça sorgularken hata ile mücadele etmek için özellikle kısmi sonuçlar sağlar.  
 

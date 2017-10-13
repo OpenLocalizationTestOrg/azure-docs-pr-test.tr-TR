@@ -1,66 +1,84 @@
 ---
-Başlık: aaa "Azure Analysis Services öğretici Ders 1: yeni bir tablo modeli projesi oluşturun | Microsoft Docs"Açıklama: nasıl toocreate yeni bir Azure Analysis Services açıklar öğretici projesi. Hizmetleri: analysis services documentationcenter: '' Yazar: minewiskan Yöneticisi: erikre Düzenleyicisi: '' etiketler: ''
-
-MS.assetid: ms.service: analysis services ms.devlang: NA ms.topic: get-makalesi ms.tgt_pltfrm: NA ms.workload: na ms.date: 06/01/2017 ms.author: owend
+title: "Azure Analysis Services öğreticisi 1. ders: Yeni tablosal model projesi oluşturma | Microsoft Docs"
+description: "Yeni bir Azure Analysis Services öğretici projesinin nasıl oluşturulacağını açıklar."
+services: analysis-services
+documentationcenter: 
+author: Minewiskan
+manager: erikre
+editor: 
+tags: 
+ms.assetid: 
+ms.service: analysis-services
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 06/01/2017
+ms.author: owend
+ms.openlocfilehash: d523e3e103b4c351d01af6f1eb3c396f9a63016a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-1-create-a-tabular-model-project"></a>1. Ders: Tablosal model projesi oluşturma
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-Bu ders, SQL Server veri Araçları (SSDT) toocreate yeni bir tablo modeli projesi hello 1400 uyumluluk düzeyinde kullanın. Yeni projeniz oluşturulduktan sonra, veri eklemeye ve modelinizi yazmaya başlayabilirsiniz. Bu ders de SSDT ortamında yazma kısa giriş toohello tablo modeli sunar.  
+Bu derste, SQL Server Veri Araçları’nı (SSDT) kullanarak 1400 uyumluluk düzeyinde yeni bir tablosal model projesi oluşturursunuz. Yeni projeniz oluşturulduktan sonra, veri eklemeye ve modelinizi yazmaya başlayabilirsiniz. Bu ders, SSDT’de tablosal model yazma ortamı hakkında temel bilgiler de sağlamaktadır.  
   
-Bu ders zaman toocomplete tahmini: **10 dakika**  
+Bu dersin tahmini tamamlanma süresi: **10 dakika**  
   
 ## <a name="prerequisites"></a>Ön koşullar  
-Bu konu, öğretici geliştirme sekmeli modelde hello ilk Ders ilgilidir. toocomplete bu ders, yerinde toohave gereken birkaç önkoşul vardır. toolearn daha, fazla [Azure Analysis Services - Adventure Works Öğreticisi](../tutorials/aas-adventure-works-tutorial.md).  
+Bu konu, tablosal model yazma öğreticisindeki ilk derstir. Bu dersi tamamlamak için karşılamanız gereken çeşitli ön koşullar vardır. Daha fazla bilgi edinmek için bkz. [Azure Analysis Services - Adventure Works Öğreticisi](../tutorials/aas-adventure-works-tutorial.md).  
   
 ## <a name="create-a-new-tabular-model-project"></a>Yeni tablosal model projesi oluşturma  
   
-#### <a name="toocreate-a-new-tabular-model-project"></a>toocreate yeni bir tablo modeli projesi  
+#### <a name="to-create-a-new-tabular-model-project"></a>Yeni bir tablosal model projesi oluşturmak için  
   
-1.  Merhaba üzerinde ssdt'de **dosya** menüsünde tıklatın **yeni** > **proje**.  
+1.  SSDT’deki **Dosya** menüsünde **Yeni** > **Proje**’ye tıklayın.  
   
-2.  Merhaba, **yeni proje** iletişim kutusunda, genişletin **yüklü** > **iş zekası** > **Analysis Services**ve ardından **Analysis Services tablolu proje**.  
+2.  **Yeni Proje** iletişim kutusunda, **Yüklü** > **İş Zekası** > **Analysis Services** seçeneğini genişletin ve **Analysis Services Tablosal Proje**’ye tıklayın.  
   
-3.  İçinde **adı**, türü **AW Internet satış**ve ardından hello proje dosyaları için konum belirtin.  
+3.  **Ad** alanına **AW İnternet Satışları** yazın ve proje dosyaları için bir konum belirtin.  
   
-    Varsayılan olarak, **çözüm adı** olan hello aynı hello proje adı olarak; ancak, farklı çözüm adı yazabilirsiniz.  
+    Varsayılan olarak **Çözüm Adı** proje adıyla aynıdır, ancak farklı bir çözüm adı yazabilirsiniz.  
   
 4.  **Tamam** düğmesine tıklayın.  
   
-5.  Merhaba, **Tabular modeli Tasarımcısı** iletişim kutusunda **tümleşik çalışma**.  
+5.  **Tablosal model tasarımcısı** iletişim kutusunda **Tümleşik çalışma alanı**’nı seçin.  
   
-    Merhaba çalışma hello modeli geliştirme sırasında başlangıç projesi olarak aynı ad ile tablo modelli bir veritabanı barındırır. Tümleşik çalışma hello gerek tooinstall modeli geliştirme için ayrı bir Analysis Services sunucu örneği ortadan SSDT yerleşik bir örnek kullanan anlamına gelir.
+    Model yazıldığı sırada, çalışma alanı projeyle aynı ada sahip bir tablosal model veritabanı barındırır. Çalışma alanının tümleşik olması sayesinde SSDT yerleşik bir örneği kullandığından, yalnızca model yazmak için ayrı bir Analysis Services sunucu örneği yükleme gereksinimi ortadan kalkar.
       
 6.  **Uyumluluk düzeyi**’nde **SQL Server 2017 / Azure Analysis Services (1400)** seçeneğini belirleyin.   
  
     ![aas-lesson1-tmd](../tutorials/media/aas-lesson1-tmd.png)
       
-    SQL Server 2017 / Azure Analysis Services (1400) hello uyumluluk düzeyi liste kutusunda görmüyorsanız, SQL Server veri araçları hello en son sürümünü kullandığınızdan değil. tooget hello en son sürümü, bkz: [yükleme SQL Server veri Araçları](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
+    Uyumluluk düzeyi liste kutusunda SQL Server 2017 / Azure Analysis Services (1400) seçeneğini görmüyorsanız SQL Server Veri Araçları’nın son sürümünü kullanmıyorsunuz demektir. Son sürümü edinmek için bkz. [SQL Server Veri Araçları’nı yükleme](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
       
   
-## <a name="understanding-hello-ssdt-tabular-model-authoring-environment"></a>Merhaba SSDT tablo modeli geliştirme ortamı anlama  
-Yeni bir tablo modeli projesi oluşturduğunuza göre geliştirme ortamı ssdt'de şu anda tooexplore hello tablolu model atalım.  
+## <a name="understanding-the-ssdt-tabular-model-authoring-environment"></a>SSDT tablosal model yazma ortamını anlama  
+Artık yeni bir tablosal model projesi oluşturduğunuza göre, SSDT’deki tablosal model yazma ortamını keşfetmeye biraz zaman ayırabiliriz.  
   
-Projeniz oluşturulduktan sonra SSDT’de açılır. Merhaba içinde sağ kenar çubuğunda **tablolu Model Gezgini**, modelinizi hello nesnelerin bir ağaç görünümünü bakın. Veri aldığınız henüz yapmadıysanız bu yana hello klasörleri boş. Nesneyi sağ klasör tooperform eylemleri, benzer toohello menü çubuğu. Bu öğreticide adım olarak, modeli projenizde hello tablolu Model Gezgini toonavigate farklı nesneleri kullanın.
+Projeniz oluşturulduktan sonra SSDT’de açılır. Sağ taraftaki **Tablosal Model Gezgini**’nde, modelinizdeki nesnelerin ağaç görünümünü görürsünüz. Henüz içeri veri aktarmadığınızdan klasörler boştur. Bir nesne klasörüne sağ tıklayarak menü çubuğuna benzer şekilde çeşitli eylemler gerçekleştirebilirsiniz. Bu öğreticide ilerledikçe, model projenizdeki farklı nesnelere gitmek için Tablosal Model Gezgini’ni kullanırsınız.
 
 ![aas-lesson1-tme](../tutorials/media/aas-lesson1-tme.png)
 
-Merhaba tıklatın **Çözüm Gezgini** sekmesi. Burada **Model.bim** dosyanızı görürsünüz. İçinde hello designer penceresi toohello sol (Merhaba boş penceresinde hello Model.bim sekmesi) görmüyorsanız, **Çözüm Gezgini**altında **AW Internet satış proje**, hello çift  **Model.bim** dosya. Merhaba Model.bim dosyası modeli projeniz için hello meta verileri içerir. 
+**Çözüm Gezgini** sekmesine tıklayın. Burada **Model.bim** dosyanızı görürsünüz. Solda tasarımcı penceresini (Model.bim sekmesini içeren boş pencere) görmüyorsanız, **Çözüm Gezgini**’ndeki **AW İnternet Satışları Projesi** bölümünde **Model.bim** dosyasına çift tıklayın. Model.bim dosyası, model projenizin meta verilerini içerir. 
 
 ![aas-lesson1-se](../tutorials/media/aas-lesson1-se.png)
   
-**Model.bim** öğesine tıklayın. Merhaba, **özellikleri** penceresinde hello model özellikleri, hello olduğu en önemli bkz **DirectQuery modu** özelliği. Bu özellik hello modeli bellek içi modunda (Kapalı) veya DirectQuery modunu (açık) dağıtılırsa belirtir. Bu öğretici için modelinizi Bellek İçi modunda yazar ve dağıtırsınız.
+**Model.bim** öğesine tıklayın. **Özellikler** penceresinde model özelliklerini görürsünüz ve bunların en önemlisi **DirectQuery Modu** özelliğidir. Bu özellik, modelin Bellek İçi modda (Kapalı) mı yoksa DirectQuery modunda (Açık) mı dağıtıldığını belirtir. Bu öğretici için modelinizi Bellek İçi modunda yazar ve dağıtırsınız.
 
 ![aas-lesson1-properties](../tutorials/media/aas-lesson1-properties.png)
   
-Bir modeli projesi oluşturduğunuzda belirli model özelliklerini toohello hello belirtilen veri modelleme ayarları otomatik olarak göre ayarlanır **Araçları** menü > **seçenekleri** iletişim kutusu. Veri yedekleme, çalışma alanı bekletme ve çalışma alanı sunucusu özellikleri nasıl ve nerede hello çalışma alanı veritabanı (veritabanı yazma, model) yedeklendiğinden, bellek içi korunur ve yerleşik belirtin. Gerekirse bu ayarları daha sonra değiştirebilirsiniz, ancak şimdilik bu özellikleri olduğu gibi bırakın.  
+Model projesi oluşturduğunuz sırada, bazı model özellikleri, **Araçlar** menüsü > **Seçenekler** iletişim kutusundan belirtilebilen Veri Modelleme ayarlarına göre otomatik olarak ayarlanır. Veri Yedekleme, Çalışma Alanı Tutma ve Çalışma Alanı Sunucusu özellikleri, çalışma alanı veritabanının (model yazma veritabanınız) nasıl ve nerede yedekleneceğini, bellek içinde korunacağını ve derleneceğini belirtir. Gerekirse bu ayarları daha sonra değiştirebilirsiniz, ancak şimdilik bu özellikleri olduğu gibi bırakın.  
 
-**Çözüm Gezgini**’nde **AW İnternet Satışları**’na (proje) sağ tıklayıp **Özellikler**’e tıklayın. Merhaba **AW Internet satış özellik sayfaları** iletişim kutusu görüntülenir. Bu özelliklerden bazılarını, daha sonra modelinizi dağıtırken ayarlarsınız.  
+**Çözüm Gezgini**’nde **AW İnternet Satışları**’na (proje) sağ tıklayıp **Özellikler**’e tıklayın. **AW İnternet Satışları Özellik Sayfaları** iletişim kutusu açılır. Bu özelliklerden bazılarını, daha sonra modelinizi dağıtırken ayarlarsınız.  
   
-SSDT yüklendiğinde birkaç yeni menü öğeleri toohello Visual Studio ortamı eklendi. Merhaba tıklatın **modeli** menüsü. Buradan, veri almak, çalışma veri yenileme, Excel modelinizde göz atın, perspektifler ve rolleri, select hello model görünümü, oluşturabilir ve hesaplama seçeneklerini ayarlayın. Merhaba tıklatın **tablo** menüsü. Buradan ilişkiler oluşturup bunları yönetebilir, tarih tablosu ayarlarını belirtebilir, bölümler oluşturabilir ve tablo özelliklerini düzenleyebilirsiniz. Merhaba tıklatırsanız **sütun** menüsünde ekleyin ve bir tablodaki sütun silmek, sütunları dondurma ve sıralama düzeni belirtin. SSDT ayrıca bazı düğmeleri toohello çubuğu ekler. Merhaba otomatik toplam özelliğini toocreate standart toplama ölçü seçili sütun için kullanışlıdır. Hızlı erişim toofrequently özellikler ve komutlar kullanılan diğer araç çubuğu düğmeleri sağlar.  
+SSDT’yi yüklediğinizde Visual Studio ortamına birkaç yeni menü öğesi eklendi. **Model** menüsüne tıklayın. Buradan içeri veri aktarabilir, çalışma alanı verilerini yenileyebilir, Excel’de modelinize göz atabilir, perspektifler ve roller oluşturabilir, model görünümünü seçebilir ve hesaplama seçeneklerini ayarlayabilirsiniz. **Tablo** menüsüne tıklayın. Buradan ilişkiler oluşturup bunları yönetebilir, tarih tablosu ayarlarını belirtebilir, bölümler oluşturabilir ve tablo özelliklerini düzenleyebilirsiniz. **Sütun** menüsüne tıklarsanız bir tabloya sütun ekleyebilir ve tablodaki sütunları silebilir, sütunları dondurabilir ve sıralama düzenini belirtebilirsiniz. SSDT tarafından çubuğa da birkaç düğme eklenir. Bu düğmelerin en kullanışlısı, seçilen bir sütuna yönelik standart bir toplama ölçüsü oluşturmak için kullanılabilen Otomatik Toplam özelliğidir. Diğer araç çubuğu düğmeleri, sık kullanılan özelliklere ve komutlara hızlı erişim sağlar.  
   
-Bazı hello iletişim kutuları ve çeşitli özellikleri belirli tooauthoring tablolu modeller için konumları keşfedin. Bazı öğeler henüz etkin değil olsa da, geliştirme ortamı hello tablo modeli için iyi bir fikir alabilirsiniz.  
+Tablosal modeller yazmaya özgü bu çeşitli özelliklerin iletişim kutularını ve konumlarını keşfedin. Bazı öğeler henüz etkin olmasa da tablosal model yazma ortamı hakkında fikir edinebilirsiniz.  
   
 
 ## <a name="whats-next"></a>Sırada ne var?

@@ -1,6 +1,6 @@
 ---
-title: "Hadoop ve Azure hdınsight'ta Hive kullanmaya aaaGet | Microsoft Docs"
-description: "Nasıl toocreate Hdınsight kümeleri ve Hive sorgusu verilerle öğrenin."
+title: "Azure HDInsight'ta Hadoop ve Hive ile çalışmaya başlama | Microsoft Docs"
+description: "HDInsight kümesi oluşturmayı ve Hive ile veri sorgulamayı öğrenin."
 keywords: "hadoop kullanmaya başlama,hadoop linux,hadoop hızlı başlangıç,hive kullanmaya başlama,hive hızlı başlangıç"
 services: hdinsight
 documentationcenter: 
@@ -17,73 +17,73 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: jgao
-ms.openlocfilehash: 3d96d78121200ebda3626dd2c3885e3ddacd546d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: fd9e6dcea6524f55c1bd06da35f02be5670bf95f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Hadoop öğreticisi: HDInsight’ta Hadoop kullanmaya başlama
 
-Bilgi nasıl toocreate [Hadoop](http://hadoop.apache.org/) ve Hdınsight'ta nasıl toorun Hive işleri kümeleri. [Apache Hive](https://hive.apache.org/) hello Hadoop ekosistemindeki hello en popüler bileşendir. Şu anda HDInsight [yedi farklı küme türüyle](hdinsight-hadoop-introduction.md#overview) ile birlikte gelir. Her küme türü farklı bir bileşen kümesini destekler. Tüm küme türleri Hive'ı destekler. Hdınsight'ta desteklenen bileşenlerin listesi için bkz: [Hdınsight tarafından sağlanan hello Hadoop küme sürümlerindeki yenilikler nelerdir?](hdinsight-component-versioning.md)  
+HDInsight’ta [Hadoop](http://hadoop.apache.org/) kümeleri oluşturmayı ve HDInsight’ta Hive işleri çalıştırmayı öğrenin. [Apache Hive](https://hive.apache.org/) Hadoop ekosistemindeki en popüler bileşendir. Şu anda HDInsight [yedi farklı küme türüyle](hdinsight-hadoop-introduction.md#overview) ile birlikte gelir. Her küme türü farklı bir bileşen kümesini destekler. Tüm küme türleri Hive'ı destekler. HDInsight’ta desteklenen bileşenlerin listesi için bkz. [HDInsight tarafından sağlanan Hadoop küme sürümlerindeki yenilikler nelerdir?](hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticiye başlamadan önce
 
-* **Azure aboneliği**: toocreate ücretsiz bir aylık deneme hesabı, Gözat çok[azure.microsoft.com/free](https://azure.microsoft.com/free).
+* **Azure aboneliği** gereklidir. Bir aylık ücretsiz deneme hesabı oluşturmak için [azure.microsoft.com/free](https://azure.microsoft.com/free) adresine gidin.
 
 ## <a name="create-cluster"></a>Küme oluşturma
 
-Hadoop işlerinin çoğu toplu işlemdir. Bir küme oluşturmak, bazı işleri çalıştırır ve hello küme silin. Bu bölümde, [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-template-deploy.md) kullanarak HDInsight'ta Hadoop kümesi oluşturacaksınız. Bu öğreticiyi kullanmak için Resource Manager şablonuyla deneyim sahibi olmak gerekli değildir. Diğer küme oluşturma yöntemleri ve Bu öğreticide kullanılan hello özellikler hakkında bilgi edinmek bkz [Hdınsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md). Merhaba seçiciyi hello sayfa toochoose hello üstte, küme oluşturma seçenekleri kullanın.
+Hadoop işlerinin çoğu toplu işlemdir. Bir küme oluşturur, bazı işleri çalıştırır ve kümeyi silersiniz. Bu bölümde, [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-template-deploy.md) kullanarak HDInsight'ta Hadoop kümesi oluşturacaksınız. Bu öğreticiyi kullanmak için Resource Manager şablonuyla deneyim sahibi olmak gerekli değildir. Diğer küme oluşturma yöntemleri ve bu öğreticide kullanılan özellikler hakkında bilgi edinmek için bkz. [HDInsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md). Küme oluşturma seçeneklerinizi belirlemek için sayfanın üst kısmındaki seçiciyi kullanın.
 
-Bu öğreticide kullanılan hello Resource Manager şablonu bulunduğu [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/). 
+Bu öğreticide kullanılan Resource Manager şablonuna [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/)'dan ulaşabilirsiniz. 
 
-1. Görüntü toosign tooAzure olarak ve açık hello Resource Manager şablonu hello Azure Portalı'nda aşağıdaki hello'ı tıklatın. 
+1. Aşağıdaki resme tıklayarak Azure'da oturum açın ve Azure portalında Resource Manager şablonunu açın. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy tooAzure"></a>
-2. Girin veya değerleri aşağıdaki hello seçin:
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-ssh-password%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
+2. Aşağıdaki değerleri yazın veya seçin:
    
-    ![Hdınsight Linux ile çalışmaya başlama Resource Manager şablonu portalında](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "HDInsigut kullanarak dağıtmak Hadoop kümesi hello Azure portalı ve bir kaynak grubu yöneticisi şablonu").
+    ![HDInsight - Linux - Başlarken - portalda Resource Manager şablonu kullanmaya başlama](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "Azure portalını ve kaynak grup yöneticisi şablonunu kullanarak HDInsight'ta Hadoop kümesi dağıtma").
    
     * **Abonelik**: Azure aboneliğinizi seçin.
-    * **Kaynak grubu**: Kaynak grubu oluşturun veya mevcut bir kaynak grubunu seçin.  Kaynak grubu, Azure bileşenleri için bir kapsayıcıdır.  Bu durumda, hello kaynak grubu hello Hdınsight kümesi ve hello bağımlı Azure depolama hesabı içeriyor. 
-    * **Konum**: toocreate kümenizi bir Azure konumu seçin.  Daha iyi performans için bir konum daha yakından tooyou seçin. 
+    * **Kaynak grubu**: Kaynak grubu oluşturun veya mevcut bir kaynak grubunu seçin.  Kaynak grubu, Azure bileşenleri için bir kapsayıcıdır.  Bu durumda, kaynak grubu HDInsight kümesini ve bağımlı Azure Depolama hesabını içermektedir. 
+    * **Konum**: Kümenizi oluşturmak istediğiniz bir Azure konumu seçin.  Daha iyi performans için kendinize yakın bir konum seçin. 
     * **Küme Türü**: Bu öğretici için **hadoop**'u seçin.
-    * **Küme adı**: Merhaba Hadoop kümesi için bir ad girin.
-    * **Küme oturum açma adı ve parola**: hello varsayılan oturum açma adı **yönetici**.
-    * **SSH kullanıcı adı ve parola**: hello varsayılan kullanıcı adı **sshuser**.  Bunu yeniden adlandırabilirsiniz. 
+    * **Küme Adı**: Hadoop kümesi için bir ad girin.
+    * **Küme oturum açma adı ve parolası**: Varsayılan oturum açma adı **admin** şeklindedir.
+    * **SSH kullanıcı adı ve parolası**: Varsayılan kullanıcı adı **sshuser** şeklindedir.  Bunu yeniden adlandırabilirsiniz. 
      
-    Bazı özellikler sabit kodlanmış hello şablonunda olmuştur.  Bu değerleri hello şablondan yapılandırabilirsiniz.
+    Şablondaki bazı özellikler sabit kodlanmış olabilir.  Bu değerleri şablondan yapılandırabilirsiniz.
 
-    * **Konum**: Merhaba hello küme konumunu ve hello bağımlı depolama hesabı paylaşımı hello hello kaynak grubu olarak aynı konumu.
+    * **Konum**: Kümenin ve bağımlı depolama hesabının konumu kaynak grubunun konumuyla aynıdır.
     * **Küme sürümü**: 3.5
     * **İşletim Sistemi Türü**: Linux
     * **Çalışan düğümü sayısı**: 2
 
-     Her kümenin bir [Azure Depolama hesabı](hdinsight-hadoop-use-blob-storage.md) veya [Azure Data Lake hesabı](hdinsight-hadoop-use-data-lake-store.md) bağımlılığı vardır. Merhaba varsayılan depolama hesabı olarak adlandırılır. Hdınsight kümesi ve kümenin varsayılan depolama hesabının bulunması gerekir. ortak hello aynı Azure bölgesi. Kümeleri silmek hello depolama hesabını silmez. 
+     Her kümenin bir [Azure Depolama hesabı](hdinsight-hadoop-use-blob-storage.md) veya [Azure Data Lake hesabı](hdinsight-hadoop-use-data-lake-store.md) bağımlılığı vardır. Bu genellikle varsayılan depolama hesabı olarak ifade edilir. HDInsight kümesi ve kümenin varsayılan depolama hesabının aynı Azure bölgesinde bulunması gerekir. Kümeleri silmek depolama hesabını silmez. 
      
      Bu özellikler hakkında daha fazla açıklama için bkz. [HDInsight'ta Hadoop kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md).
 
-3. Seçin **toohello hüküm ve koşullar yukarıda belirtildiği kabul** ve **PIN toodashboard**ve ardından **satın alma**. Başlıklı yeni bir kutucuk göreceksiniz **dağıtma şablon dağıtımı** hello portal panosunda. Bir küme hakkında toocreate yaklaşık 20 dakika sürer. Hello Küme oluşturulduktan sonra hello döşeme hello resim yazısı belirttiğiniz değiştirilen toohello kaynak grubu adı ' dir. Ve hello portal, otomatik olarak hello kaynak grubu yeni bir dikey pencerede açar. Merhaba küme ve listelenen hello varsayılan depolama görebilirsiniz.
+3. **Yukarıdaki hüküm ve koşulları kabul ediyorum**’u ve **Panoya sabitle**’yi seçip **Satın al**’a tıklayın. Portal panosunda **Şablon Dağıtımı’nı dağıtma** başlıklı yeni bir kutucuk görürsünüz. Bir küme oluşturmak yaklaşık 20 dakika sürer. Küme oluşturulduktan sonra, kutucuğun açıklamalı alt yazısı belirttiğiniz kaynak grubu adıyla değişir. Portal otomatik olarak kaynak grubunu yeni bir dikey pencerede açar. Hem kümenin hem de varsayılan depolamanın listelendiğini görebilirsiniz.
    
     ![HDInsight - Linux - başlarken - kaynak grubu](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png "Azure HDInsight küme kaynağı grubu").
 
-4. Yeni bir dikey penceresinde Hello küme adı tooopen hello kümesine tıklayın.
+4. Kümeyi yeni bir dikey pencerede açmak için küme adına tıklayın.
 
    ![HDInsight - Linux - başlarken - küme ayarları](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png "HDInsight küme özellikleri")
 
 
 ## <a name="run-hive-queries"></a>Hive sorguları çalıştırma
-[Apache Hive](hdinsight-use-hive.md) Hdınsight'ta kullanılan hello en popüler bileşendir. Hdınsight'ta Hive işleri toorun birçok yolu vardır. Bu öğreticide, hello hello portal Ambari Hive görünümünü kullanın. Hive işlerini göndermenin diğer yöntemleri için bkz. [HDInsight’ta Hive kullanma](hdinsight-use-hive.md).
+[Apache Hive](hdinsight-use-hive.md) HDInsight’ta kullanılan en popüler bileşendir. HDInsight’ta Hive işleri çalıştırmanın birçok yolu vardır. Bu öğreticide, portalda Ambari Hive görünümünü kullanırsınız. Hive işlerini göndermenin diğer yöntemleri için bkz. [HDInsight’ta Hive kullanma](hdinsight-use-hive.md).
 
-1. Merhaba önceki ekran görüntüsünde tıklatın **küme Panosu**ve ardından **Hdınsight küme Panosu**.  Ayrıca çok gözatabilirsiniz **https://&lt;ClusterName >. azurehdinsight.net**, burada &lt;ClusterName > merhaba önceki bölümde tooopen içinde Ambari oluşturduğunuz hello kümedir.
-2. Merhaba Hadoop kullanıcı adını ve hello önceki bölümde belirttiğiniz parolayı girin. Merhaba varsayılan kullanıcı adı **yönetici**.
-3. Açık **Hive görünümü** hello ekran aşağıdaki gösterildiği gibi:
+1. Bir önceki ekran görüntüsünden **Küme Panosu**’na ve ardından **HDInsight Küme Panosu**’na tıklayın.  Ayrıca, **https://&lt;ClusterName>.azurehdinsight.net** adresine de gidebilirsiniz. Burada &lt;ClusterName>, önceki bölümde Ambari’yi açmak için oluşturduğunuz kümedir.
+2. Önceki bölümde belirttiğiniz Hadoop kullanıcı adını ve parolayı girin. Varsayılan kullanıcı adı **admin** şeklindedir.
+3. Aşağıdaki ekran görüntüsünde gösterildiği gibi **Hive Görünümü**’nü açın:
    
     ![Ambari görünümlerini seçme](./media/hdinsight-hadoop-linux-tutorial-get-started/selecthiveview.png "HDInsight Hive Viewer menüsü").
-4. Merhaba, **sorgu Düzenleyicisi'ni** hello sayfasının Yapıştır hello HiveQL ifadelerini hello çalışma sayfasına aşağıdaki bölümü:
+4. Sayfadaki **Sorgu Düzenleyicisi** bölümünde, aşağıdaki HiveQL ifadelerini çalışma sayfasına yapıştırın:
    
         SHOW TABLES;
    
@@ -91,65 +91,65 @@ Bu öğreticide kullanılan hello Resource Manager şablonu bulunduğu [GitHub](
    > Hive noktalı virgül gerektirmektedir.       
    > 
    > 
-5. **Yürüt**’e tıklayın. A **sorgu işleminin sonuçları** bölümü sorgu Düzenleyicisi'ni hello altında görünür ve hello işi hakkındaki bilgileri görüntüler. 
+5. **Yürüt**’e tıklayın. Sorgu Düzenleyicisi’nin altında **Sorgu İşleminin Sonuçları** bölümü görüntülenmeli ve iş hakkındaki bilgileri görüntülemelidir. 
    
-    Merhaba sorgu tamamladığında hello **sorgu işleminin sonuçları** bölümü hello işlemi hello sonuçlarını görüntüler. **hivesampletable** adlı bir tablo görürsünüz. Bu örnek Hive tablosu tüm hello Hdınsight kümeleri ile birlikte gelir.
+    Sorgu tamamladığında, **Sorgu İşleminin Sonuçları** bölümünde işlemin sonuçlarını görüntülenir. **hivesampletable** adlı bir tablo görürsünüz. Bu örnek Hive tablosu tüm HDInsight kümeleri ile birlikte gelir.
    
     ![HDInsight Hive görünümleri](./media/hdinsight-hadoop-linux-tutorial-get-started/hiveview.png "HDInsight Hive Görünümü Sorgu Düzenleyicisi").
-6. Adım 4 ve 5. adım toorun hello sorgu aşağıdaki Yinele:
+6. Aşağıdaki sorguyu çalıştırmak için 4. ve 5. adımı yineleyin:
    
         SELECT * FROM hivesampletable;
    
    > [!TIP]
-   > Not hello **Sonuçları Kaydet** açılır listede hello üst sol Merhaba **sorgu işleminin sonuçları** bölümünde; bu tooeither indirme hello sonuçlarını kullanın veya bunları tooHDInsight depolama bir CSV dosyası olarak kaydedin.
+   > **Sorgu İşleminin Sonuçları** bölümünün sol üst kısmındaki **Sonuçları Kaydet** açılır kutusuna dikkat edin; bunu sonuçları indirmek ya da CSV dosyası olarak HDInsight depolamaya kaydetmek için kullanabilirsiniz.
    > 
    > 
-7. Tıklatın **geçmişi** tooget hello işlerin bir listesini.
+7. İşlerin bir listesini almak için **Geçmiş**’e tıklayın.
 
-Hive işini tamamladıktan sonra [hello sonuçları tooAzure SQL database veya SQL Server veritabanı dışarı](hdinsight-use-sqoop-mac-linux.md), ayrıca [Excel kullanarak hello sonuçlarını görselleştirme](hdinsight-connect-excel-power-query.md). Hdınsight'ta Hive kullanma hakkında daha fazla bilgi için bkz: [Hive ve HiveQL Hdınsight tooanalyze bir örnek Apache log4j dosyasını Hadoop ile](hdinsight-use-hive.md).
+Hive işini tamamladıktan sonra, [sonuçları Azure SQL Database’e veya SQL Server veritabanına aktarabilirsiniz](hdinsight-use-sqoop-mac-linux.md), ayrıca [Excel kullanarak sonuçları görselleştirebilirsiniz](hdinsight-connect-excel-power-query.md). HDInsight’ta Hive kullanma hakkında daha fazla bilgi için bkz. [Örnek Apache log4j dosyasını çözümlemek amacıyla HDInsight’ta Hadoop ile Hive ve HiveQL kullanma](hdinsight-use-hive.md).
 
-## <a name="clean-up-hello-tutorial"></a>Merhaba öğreticiyi silme
-Merhaba öğreticiyi tamamladıktan sonra toodelete hello küme isteyebilirsiniz. HDInsight ile, verileriniz Azure Storage’da depolanır, böylece kullanılmadığında bir kümeyi güvenle silebilirsiniz. Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. Merhaba ücretleri hello küme için hello ücretleri depolama birkaç katı olduğundan, bunlar kullanımda olmadığında ekonomik toodelete kümeleri mantıklıdır. 
+## <a name="clean-up-the-tutorial"></a>Öğreticiyi silme
+Öğreticiyi tamamladıktan sonra kümeyi silmek isteyebilirsiniz. HDInsight ile, verileriniz Azure Storage’da depolanır, böylece kullanılmadığında bir kümeyi güvenle silebilirsiniz. Ayrıca, kullanılmıyorken dahi HDInsight kümesi için sizden ücret kesilir. Küme ücretleri depolama ücretlerinin birkaç katı olduğundan, kullanılmadığında kümelerin silinmesi mantıklı olandır. 
 
 > [!NOTE]
-> Kullanarak [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md), isteğe bağlı Hdınsight kümeleri oluşturma ve bir TimeToLive yapılandırma ayarı çok hello küme silme otomatik olarak. 
+> [Azure Data Factory ](hdinsight-hadoop-create-linux-clusters-adf.md)’yi kullanarak, istek üzerine HDInsight kümeleri oluşturabilir ve kümeleri otomatik olarak silmek için TimeToLive ayarını yapılandırabilirsiniz. 
 > 
 > 
 
-**toodelete hello küme ve/veya hello varsayılan depolama hesabı**
+**Küme ve/veya varsayılan depolama hesabını silmek için**
 
-1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
-2. Merhaba portal panosunda hello küme oluştururken kullandığınız hello kaynak grubu adı ile Merhaba kutucuğa tıklayın.
-3. Tıklatın **silmek** hello hello küme ve varsayılan depolama hesabı hello; içeren kaynak dikey toodelete hello kaynak grubu, veya hello hello küme adına tıklayın **kaynakları** kutucuğuna ve ardından **Silmek** hello küme dikey. Merhaba kaynak grubunun silinmesi Not hello depolama hesabını siler. Tookeep hello depolama hesabı toodelete hello yalnızca küme belirleyin.
+1. [Azure portalında](https://portal.azure.com) oturum açın.
+2. Portal panosunda, bir küme oluştururken kullandığınız kaynak grubu adını içeren kutucuğa tıklayın.
+3. Kümeyi ve varsayılan depolama hesabını içeren kaynak grubunu silmek için kaynak dikey penceresinde **Sil**'e tıklayın veya **Kaynaklar** kutucuğunda küme adına ve ardından küme dikey penceresinde **Sil**'e tıklayın. Kaynak grubu silindiğinde depolama hesabının da silindiğini unutmayın. Depolama hesabını tutmak istiyorsanız, yalnızca küme silmeyi seçin.
 
 ## <a name="troubleshoot"></a>Sorun giderme
 
 HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gereksinimleri](hdinsight-administer-use-portal-linux.md#create-clusters).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, toocreate Linux tabanlı Hdınsight kümesi nasıl Resource Manager şablonu kullanarak ve nasıl öğrendiniz tooperform temel Hive sorguları.
+Bu öğreticide, Resource Manager şablonu kullanarak Linux tabanlı bir HDInsight kümesi oluşturmayı ve temel Hive sorguları gerçekleştirmeyi öğrendiniz.
 
-Hdınsight ile verileri çözümleme hakkında daha fazla toolearn makaleler hello bakın:
+HDInsight ile veri çözümleme hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
-* Visual Studio'dan nasıl tooperform Hive sorguları dahil, Hdınsight ile Hive kullanma hakkında daha fazla toolearn bkz [Hdınsight ile Hive kullanma][hdinsight-use-hive].
-* toolearn Pig hakkında bir dilde kullanılan tootransform veri bkz [Hdınsight ile Pig kullanma][hdinsight-use-pig].
-* toolearn MapReduce, hadoop'ta verileri işleyen bir şekilde toowrite programlar hakkında bkz [Hdınsight ile MapReduce kullanma][hdinsight-use-mapreduce].
-* Hdınsight, Visual Studio tooanalyze verileri hello Hdınsight araçları kullanma hakkında toolearn bkz [Hdınsight için Visual Studio Hadoop araçlarını kullanmaya başlamanıza](hdinsight-hadoop-visual-studio-tools-get-started.md).
+* Visual Studio'da Hive sorguları gerçekleştirme dahil, HDInsight ile Hive kullanma hakkında daha fazla bilgi için bkz. [HDInsight ile Hive kullanma][hdinsight-use-hive].
+* Verileri dönüştürmek için kullanılan bir dil olan Pig hakkında bilgi için bkz. [HDInsight ile Pig kullanma][hdinsight-use-pig].
+* Hadoop’ta verileri işleyen programları yazmanın bir yöntemi olan MapReduce hakkında bilgi edinmek için bkz. [HDInsight ile MapReduce kullanma][hdinsight-use-mapreduce].
+* HDInsight’taki verileri çözümlemek amacıyla Visual Studio için HDInsight Araçları kullanma hakkında bilgi edinmek için bkz. [HDInsight için Visual Studio Hadoop araçlarını kullanmaya başlama](hdinsight-hadoop-visual-studio-tools-get-started.md).
 
-Kendi verilerinizle çalışmaya hazır toostart olduğunuz ve Hdınsight verilerini depolayan nasıl ya da Hdınsight, tooget verilerini görmek nasıl hello aşağıdaki tooknow hakkında daha fazla bilgi gerekiyor:
+Kendi verilerinizle çalışmaya başlamaya hazırsanız ve HDInsight’ın verileri nasıl depoladı veya verileri HDInsight’a alma hakkında daha fazla bilgi edinmek istiyorsanız, aşağıdakilere bakın:
 
 * HDInsight’ın Azure Depolama’yı nasıl kullandığı hakkında daha fazla bilgi için bkz. [HDInsight ile Azure Depolama kullanma](hdinsight-hadoop-use-blob-storage.md).
-* Hakkında bilgi için tooupload veri tooHDInsight bkz [karşıya veri tooHDInsight][hdinsight-upload-data].
+* HDInsight’a veril yükleme hakkında daha fazla bilgi için bkz. [Verileri HDInsight’a yükleme][hdinsight-upload-data].
 
-Toolearn oluşturma veya bir Hdınsight kümesi yönetme hakkında daha fazla bilgi isterseniz, hello aşağıdakilere bakın:
+HDInsight kümesi oluşturma ve yönetme hakkında daha fazla bilgi edinmek istiyorsanız, aşağıdakilere bakın:
 
-* Linux tabanlı Hdınsight kümenizi yönetme hakkında toolearn bkz [Ambari kullanarak Hdınsight kümelerini yönetme](hdinsight-hadoop-manage-ambari.md).
-* toolearn daha seçebileceğiniz bir Hdınsight kümesi oluştururken hello seçenekleri hakkında bkz [özel seçenekleri kullanarak Linux'ta Hdınsight oluşturma](hdinsight-hadoop-provision-linux-clusters.md).
-* Linux ve Hadoop hakkında bilginiz ancak tooknow hadoop'a ilişkin teknik özellikleri hello Hdınsight üzerinde istiyorsanız bkz [Linux'ta Hdınsight ile çalışma](hdinsight-hadoop-linux-information.md). Bu makale aşağıdaki gibi bilgiler sağlar:
+* Linux tabanlı HDInsight kümenizi yönetme hakkında bilgi edinmek için bkz. [Ambari kullanarak HDInsight kümelerini yönetme](hdinsight-hadoop-manage-ambari.md).
+* HDInsight kümesi oluştururken tercih edebileceğiniz seçenekler hakkında daha fazla bilgi için bkz. [Özel seçenekleri kullanarak Linux’ta HDInsight oluşturma](hdinsight-hadoop-provision-linux-clusters.md).
+* Linux ve Hadoop hakkında bilgi sahibiyseniz, ancak HDInsight’ta Hadoop’a ilişkin teknik özellikleri öğrenmek istiyorsanız, bkz: [Linux’ta HDInsight ile çalışma](hdinsight-hadoop-linux-information.md). Bu makale aşağıdaki gibi bilgiler sağlar:
   
-  * Ambari ve WebHCat gibi hello kümesi üzerinde barındırılan hizmetlerin URL'leri
-  * Hadoop dosyalarının ve örneklerin hello yerel dosya sisteminde Hello konumu
-  * Merhaba varsayılan veri deposu olarak, Azure Storage (WASB) HDFS yerine Hello kullan
+  * Ambari ve WebHCat gibi küme üzerinde barındırılan hizmetlerin URL'leri
+  * Yerel dosya sisteminde Hadoop dosyalarının ve örneklerin konumu
+  * Varsayılan veri depolama olarak HDFS yerine Azure Storage (WASB) kullanımı
 
 [1]: ../HDInsight/hdinsight-hadoop-visual-studio-tools-get-started.md
 

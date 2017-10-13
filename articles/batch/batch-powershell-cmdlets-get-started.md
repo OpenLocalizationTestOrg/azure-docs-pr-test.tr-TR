@@ -1,6 +1,6 @@
 ---
-title: "aaaGet için Azure Batch PowerShell ile başlatılan | Microsoft Docs"
-description: "Hızlı Giriş toohello Azure PowerShell cmdlet'lerini toomanage Batch kaynaklarını kullanabilirsiniz."
+title: "Azure Batch için PowerShell kullanmaya başlama | Microsoft Docs"
+description: "Batch kaynaklarını yönetmek için kullanabileceğiniz Azure PowerShell cmdlet'lerine hızlı bir giriş."
 services: batch
 documentationcenter: 
 author: tamram
@@ -15,48 +15,48 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e4d12e9c1e52a5b2db2dd44346edda93b7ef92b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: e33be6ed658e00250ea1e80cd7da4d348fb18296
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>Batch kaynaklarını PowerShell cmdlet'leriyle yönetme
 
-Hello Azure Batch PowerShell cmdlet'leri gerçekleştirebilir ve çoğu hello komut dosyası, yürütmek hello Batch API'leri ile aynı görevleri hello Azure portalı ve Azure komut satırı arabirimi (CLI) hello. Batch hesaplarınızın toomanage kullanın ve havuzlar, işler ve görevler gibi Batch kaynaklarınızla iş bir hızlı giriş toohello cmdlet'leri budur.
+Azure Batch PowerShell cmdlet’leri ile Batch API'leri, Azure portalı ve Azure Komut Satırı Arabirimi (CLI) ile gerçekleştirdiğiniz Batch aynı görevlerin çoğunu gerçekleştirebilir ve betik oluşturabilirsiniz. Bu bilgiler, Batch hesabınızı yönetmek, havuzlar, işler ve görevler gibi Batch kaynaklarınızla da çalışmak için kullanabildiğiniz cmdlet’lere hızlı bir giriş yapmanızı sağlar.
 
-Batch cmdlet'leri ve ayrıntılı cmdlet sözdizimi tam listesi için bkz: Merhaba [Azure Batch cmdlet başvurusu](/powershell/module/azurerm.batch/#batch).
+Tam Batch cmdlet’leri listesi ve ayrıntılı cmdlet sözdizimi için bkz. [Azure Batch cmdlet başvurusu](/powershell/module/azurerm.batch/#batch).
 
-Bu makale, Azure PowerShell 3.0.0 sürümündeki cmdlet’leri temel almaktadır. Azure PowerShell güncelleştirmenizi öneririz sık tootake avantajlarından hizmet güncelleştirmeleri ve geliştirmeleri.
+Bu makale, Azure PowerShell 3.0.0 sürümündeki cmdlet’leri temel almaktadır. Hizmet güncelleştirmeleri ve geliştirmeleri avantajlarından yararlanmak için Azure PowerShell’inizi sık sık güncelleştirin.
 
-## <a name="prerequisites"></a>Ön koşullar
-Aşağıdaki işlemleri toouse Azure PowerShell toomanage hello Batch kaynaklarınız gerçekleştirin.
+## <a name="prerequisites"></a>Önkoşullar
+Batch kaynaklarınızı yönetmek üzere Azure PowerShell’i kullanmak için aşağıdaki işlemleri gerçekleştirin.
 
 * [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview)
-* Merhaba çalıştırmak **Login-AzureRmAccount** cmdlet tooconnect tooyour abonelik (Merhaba hello Azure Resource Manager modülündeki Azure Batch cmdlet'leri sevk):
+* Aboneliğinize bağlanmak için **Login-AzureRmAccount** cmdlet’ini çalıştırın (Azure Batch cmdlet’leri, Azure Resource Manager modülüyle birlikte verilir):
   
     `Login-AzureRmAccount`
-* **Merhaba Batch sağlayıcı ad alanıyla kaydetme**. Bu işlem yalnızca gerçekleştirilen toobe gereken **abonelik başına bir kez**.
+* **Batch sağlayıcı ad alanı ile kaydolun**. Bu işlemin **her abonelik için yalnızca bir kez** gerçekleştirilmesi gerekir.
   
     `Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Batch`
 
 ## <a name="manage-batch-accounts-and-keys"></a>Batch hesaplarını ve anahtarlarını yönetme
 ### <a name="create-a-batch-account"></a>Batch hesabı oluşturma
-**New-AzureRmBatchAccount**, belirtilen kaynak grubunda bir Batch hesabı oluşturur. Bir kaynak grubu zaten yoksa, hello çalıştırarak oluşturmak [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet'i. Hello Azure birini belirtin hello bölgelerde **konumu** "Orta ABD" gibi bir parametre. Örneğin:
+**New-AzureRmBatchAccount**, belirtilen kaynak grubunda bir Batch hesabı oluşturur. Zaten bir kaynak grubunuz yoksa [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) cmdlet'ini çalıştırarak bir kaynak grubu oluşturun. **Location** parametresinde, "Orta ABD" gibi Azure bölgelerinden birini belirtin. Örneğin:
 
     New-AzureRmResourceGroup –Name MyBatchResourceGroup –location "Central US"
 
-Ardından, hello kaynak grubunda hello hesap için bir adı belirterek, bir toplu işlem hesabı oluşturun <*account_name*> ve hello konumunu, hem de kaynak grubunuzun adını. Merhaba Batch hesabı oluşturma bazı zaman toocomplete alabilir. Örneğin:
+Ardından, <*account_name*> içinde bir hesap adı ve kaynak grubunuzun konumunu ve adını belirterek kaynak grubunda bir Batch hesabı oluşturun. Batch hesabının oluşturulması biraz zaman alabilir. Örneğin:
 
     New-AzureRmBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
 
 > [!NOTE]
-> Merhaba toplu işlem hesabı adı benzersiz toohello hello kaynak grubunun Azure bölgesinde olmalıdır 3 ile 24 karakter arasında içerir ve yalnızca küçük harf ve sayı kullanın.
+> Batch hesabı adı, kaynak grubunun Azure bölgesinde benzersiz olmalıdır; 3 - 24 arası karakter olmalı, yalnızca küçük harf ve rakam içermelidir.
 > 
 > 
 
 ### <a name="get-account-access-keys"></a>Hesap erişim anahtarı alma
-**Get-AzureRmBatchAccountKeys** bir Azure Batch hesabıyla ilişkili hello erişim anahtarlarını gösterir. Örneğin, oluşturduğunuz hello hesabının tooget hello birincil ve ikincil anahtarları aşağıdaki hello çalıştırın.
+**Get-AzureRmBatchAccountKeys** Azure Batch hesabıyla ilişkili erişim anahtarlarını gösterir. Örneğin, oluşturduğunuz birincil ve ikincil anahtarları almak için aşağıdakini çalıştırın.
 
     $Account = Get-AzureRmBatchAccountKeys –AccountName <account_name>
 
@@ -65,12 +65,12 @@ Ardından, hello kaynak grubunda hello hesap için bir adı belirterek, bir topl
     $Account.SecondaryAccountKey
 
 ### <a name="generate-a-new-access-key"></a>Yeni erişim anahtarı oluşturma
-**New-AzureRmBatchAccountKey**, Azure Batch hesabı için yeni bir birincil ya da ikincil hesap anahtarı oluşturur. Örneğin, Batch hesabınıza yeni bir birincil anahtar toogenerate yazın:
+**New-AzureRmBatchAccountKey**, Azure Batch hesabı için yeni bir birincil ya da ikincil hesap anahtarı oluşturur. Örneğin, Batch hesabınıza yeni bir birincil anahtar oluşturmak için şunu yazın:
 
     New-AzureRmBatchAccountKey -AccountName <account_name> -KeyType Primary
 
 > [!NOTE]
-> Yeni bir ikincil anahtar toogenerate belirtin "Secondary" Merhaba **KeyType** parametresi. Tooregenerate hello birincil ve ikincil anahtarları ayrı olarak sahip.
+> Yeni bir ikincil anahtar oluştururken **KeyType** parametresi için "Secondary" seçeneğini belirtin. Birincil ve ikincil anahtarları ayrı olarak yeniden oluşturmalısınız.
 > 
 > 
 
@@ -79,69 +79,69 @@ Ardından, hello kaynak grubunda hello hesap için bir adı belirterek, bir topl
 
     Remove-AzureRmBatchAccount -AccountName <account_name>
 
-İstendiğinde, tooremove hello hesap istediğinizi onaylayın. Hesabınızın kaldırılması bazı zaman toocomplete alabilir.
+İstendiğinde, hesabı kaldırmak istediğinizi onaylayın. Hesap kaldırma işleminin tamamlanması biraz zaman alabilir.
 
 ## <a name="create-a-batchaccountcontext-object"></a>BatchAccountContext nesnesi oluşturma
-tooauthenticate kullanarak hello Batch PowerShell cmdlet'leri oluşturmak ve Batch havuzları, işleri, görevleri, yönetmek ve diğer kaynakları hesap adınızı ve anahtarları bir BatchAccountContext nesnesi toostore ilk oluştururken:
+Batch havuzları, işleri, görevleri ve başka kaynaklarını oluşturduğunuzda ve yönettiğinizde, Batch PowerShell cmdlet’lerini kullanarak kimlik doğrulamak için önce, hesap adınızı ve anahtarlarınızı depolayacak bir BatchAccountContext nesnesi oluşturun:
 
     $context = Get-AzureRmBatchAccountKeys -AccountName <account_name>
 
-Merhaba BatchAccountContext nesnesi cmdlet'lere bu kullanım hello geçirdiğiniz **BatchContext** parametresi.
+BatchAccountContext nesnesini **BatchContext** parametresini kullanan cmdlet’lere geçirirsiniz.
 
 > [!NOTE]
-> Varsayılan olarak, hello hesabın birincil anahtarı kimlik doğrulaması için kullanılır, ancak açıkça hello anahtar toouse BatchAccountContext nesnenizin değiştirerek seçebileceğiniz **Keyınuse** özelliği: `$context.KeyInUse = "Secondary"`.
+> Varsayılan olarak, hesabın birincil anahtarı kimlik doğrulaması amacıyla kullanılsa da, BatchAccountContext nesnenizin **KeyInUse** özelliğini değiştirerek kullanılacak anahtarı açıkça seçebilirsiniz: `$context.KeyInUse = "Secondary"`.
 > 
 > 
 
 ## <a name="create-and-modify-batch-resources"></a>Batch kaynaklarını oluşturma ve değiştirme
-Cmdlet'leri kullanın **New-AzureBatchPool**, **New-AzureBatchJob**, ve **New-AzureBatchTask** toocreate kaynakları Batch hesabı altında. Cmdlet'leri vardır **Get -** ve **Set -** cmdlet'leri tooupdate hello var olan kaynakların özelliklerini ve **Remove -** cmdlet'leri tooremove kaynakları Batch hesabı altında.
+Batch hesabı altında kaynak oluşturmak için **New-AzureBatchPool**, **New-AzureBatchJob** ve **New-AzureBatchTask** gibi cmdlet’leri kullanın. Batch hesabı altında var olan kaynakların özelliklerini güncelleştirmek için **Get-** ve **Set-** cmdlet’leri, kaldırmak için de **Remove-** cmdlet’leri vardır.
 
-Bu cmdlet'lerin çoğu toplama toopassing BatchContext nesne kullanırken, toocreate gerekir veya hello aşağıdaki örnekte gösterildiği gibi ayrıntılı kaynak ayarlarını içeren nesneleri geçirin. Bkz: hello ayrıntılı ek örnekler için her cmdlet için Yardım.
+Bu cmdlet’lerinin birçoğunu kullanırken bir BatchContext nesnesi geçirmeye ek olarak aşağıdaki örnekte gösterildiği gibi ayrıntılı kaynak ayarlarını içeren nesneleri oluşturmanız ya da geçirmeniz gerekir. Diğer örnekler için her bir cmdlet’e ilişkin ayrıntılı yardıma bakın.
 
 ### <a name="create-a-batch-pool"></a>Batch havuzu oluşturma
-Merhaba hello işletim sisteminde işlem için düğümleri oluştururken veya güncelleştirirken bir Batch havuzu hello bulut hizmet yapılandırması veya hello sanal makine yapılandırması seçmeniz (bkz [Batch özelliklerine genel bakış](batch-api-basics.md#pool)). Merhaba bulut hizmeti yapılandırması belirtirseniz, işlem düğümleriniz hello biriyle görüntüsü [Azure konuk işletim sistemi sürümleri](../cloud-services/cloud-services-guestos-update-matrix.md#releases). Merhaba sanal makine yapılandırması belirtirseniz, ya da hello birini desteklenen Linux veya Windows VM görüntüleri listelenen hello belirtebilirsiniz [Azure Virtual Machines Marketi][vm_marketplace], ya da özel bir sağlayın hazırladığınız resim.
+Bir Batch havuzu oluştururken ya da güncelleştirirken, işlem düğümlerindeki işletim sistemine yönelik bir bulut hizmeti yapılandırmasını veya sanal makine yapılandırmasını seçin (bkz. [Batch özelliğine genel bakış](batch-api-basics.md#pool)). Bulut hizmeti yapılandırmasını belirtirseniz işlem düğümleriniz [Azure konuk işletim sistemi sürümlerinden](../cloud-services/cloud-services-guestos-update-matrix.md#releases) biriyle görüntülenir. Sanal makinenin yapılandırmasını belirtirseniz [Azure Sanal Makineler Market görüntüleri][vm_marketplace] içindeki desteklenen Linux ya da Windows sanal makine görüntülerinden birini seçebilir veya hazırladığınız özel bir görüntüyü kullanabilirsiniz.
 
-Çalıştırdığınızda **New-AzureBatchPool**, hello işletim sistemi ayarlarını bir PSCloudServiceConfiguration veya PSVirtualMachineConfiguration nesnesine geçirin. Örneğin, hello aşağıdaki cmdlet'i yeni bir Batch havuzu boyutu küçük işlem düğümlerine hello bulut hizmeti yapılandırması, hello en son işletim sisteminin aile 3 sürümüyle (Windows Server 2012) ile görüntüsü oluşturur. Burada, hello **CloudServiceConfiguration** parametresi belirtir hello *$configuration* hello PSCloudServiceConfiguration nesne değişkeni. Merhaba **BatchContext** parametresi, önceden tanımlanmış bir değişken belirtir *$context* hello BatchAccountContext nesnesi olarak.
+**New-AzureBatchPool** komutunu çalıştırdığınızda işletim sistemi ayarlarını bir PSCloudServiceConfiguration veya PSVirtualMachineConfiguration nesnesi içinde geçirin. Örneğin, aşağıdaki cmdlet, bulut hizmeti yapılandırmasında aile 3’ün en son işletim sistemi sürümü (Windows Server 2012) ile görüntü haline getirilen Küçük boyutlu işlem düğümleri ile yeni bir Batch havuzu oluşturur. Burada **CloudServiceConfiguration** parametresi *$configuration* değişkenini PSCloudServiceConfiguration nesnesi olarak belirtir. **BatchContext** parametresi önceden tanımlanmış *$context* değişkenini BatchAccountContext nesnesi olarak belirtir.
 
     $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSCloudServiceConfiguration" -ArgumentList @(4,"*")
 
     New-AzureBatchPool -Id "AutoScalePool" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -AutoScaleFormula '$TargetDedicated=4;' -BatchContext $context
 
-Merhaba hedef hello yeni havuzdaki işlem düğümleri sayısı ölçeklendirmeyle belirlenir. Bu durumda, hello yalnızca formülüdür **$TargetDedicated = 4**, hello hello havuzdaki işlem düğümleri sayısını gösteren: 4 en fazla.
+Yeni havuzdaki hedef işlem düğümü sayısı bir otomatik ölçeklendirme formülü ile belirlenir. Bu durumda, havuzdaki işlem düğümü sayısının en çok 4 olduğunu belirten basit bir **$TargetDedicated=4** formülüdür.
 
 ## <a name="query-for-pools-jobs-tasks-and-other-details"></a>Havuzlar, işler, görevler ve diğer ayrıntılar için sorgulama
-Cmdlet'leri kullanın **Get-AzureBatchPool**, **Get-AzureBatchJob**, ve **Get-AzureBatchTask** bir Batch hesabı altında oluşturulan varlıkların tooquery.
+Batch hesabı altında oluşturulan varlıkların sorgulanması için **Get-AzureBatchPool**, **Get-AzureBatchJob** ve **Get-AzureBatchTask** gibi cmdlet’leri kullanın.
 
 ### <a name="query-for-data"></a>Verileri sorgulama
-Bir örnek olarak kullanabilirsiniz **Get-AzureBatchPools** toofind havuzlarınızı. Varsayılan olarak, hesabınız altındaki tüm havuzlarla ilgili bu sorgular zaten hello BatchAccountContext nesnesinde depolanır *$context*:
+Bir örnek olarak, havuzlarınızı bulmak için **Get-AzureBatchPools** kullanın. Varsayılan olarak, hesabınız altındaki tüm havuzlarla ilgili bu sorgular zaten *$context* değişkenindeki BatchAccountContext nesnesinde depolanır:
 
     Get-AzureBatchPool -BatchContext $context
 
 ### <a name="use-an-odata-filter"></a>OData filtresini kullanma
-Hello kullanarak bir OData filtresi sağlayabilirsiniz **filtre** parametresi toofind yalnızca ilgilendiğiniz nesneleri hello. Örneğin, kimlikleri “myPool” ile başlayan tüm havuzları bulabilirsiniz.
+Yalnızca ilgilendiğiniz nesneleri bulmak için **Filtre** parametresini kullanan bir OData filtresi sağlayabilirsiniz. Örneğin, kimlikleri “myPool” ile başlayan tüm havuzları bulabilirsiniz.
 
     $filter = "startswith(id,'myPool')"
 
     Get-AzureBatchPool -Filter $filter -BatchContext $context
 
-Bu yöntem, yerel bir işlem hattında "Where-Object" kullanmak kadar esnek değildir. Ancak, böylece tüm filtreleme Internet bant genişliği korunarak hello sunucu tarafında gerçekleşir hello sorgu toohello Batch hizmeti doğrudan gönderilir.
+Bu yöntem, yerel bir işlem hattında "Where-Object" kullanmak kadar esnek değildir. Ancak, sorgu Batch hizmetine doğrudan gönderilir; böylece, İnternet bant genişliği korunarak filtre işleminin tümü sunucu tarafında gerçekleşir.
 
-### <a name="use-hello-id-parameter"></a>Merhaba kimlik parametresini kullanma
-Toouse hello alternatif tooan OData filtredir **kimliği** parametresi. "myPool" kimliğine sahip belirli bir havuzu tooquery:
+### <a name="use-the-id-parameter"></a>Kimlik parametresini kullanma
+OData filtresinin bir alternatifi de **Kimlik** parametresi kullanmaktır. "myPool" Kimliğine sahip belirli bir havuzu sorgulamak için:
 
     Get-AzureBatchPool -Id "myPool" -BatchContext $context
 
-Merhaba **kimliği** parametresi, yalnızca tam kimlik aramasını, joker karakter veya OData stili filtreleri destekler.
+**Kimlik** parametresi yalnızca tam kimlik aramasını destekler, joker karakter veya OData stili filtreleri desteklemez.
 
-### <a name="use-hello-maxcount-parameter"></a>Merhaba MaxCount parametresini kullanma
-Varsayılan olarak, her cmdlet en çok 1000 nesne döndürür. Bu sınıra ulaştıysanız, daha az nesne filtre toobring daraltın veya hello kullanarak en açık olarak ayarlanıp **MaxCount** parametresi. Örneğin:
+### <a name="use-the-maxcount-parameter"></a>MaxCount parametresini kullanma
+Varsayılan olarak, her cmdlet en çok 1000 nesne döndürür. Bu sınıra ulaştıysanız, daha az nesne döndürmek için filtreyi daraltın veya **MaxCount** parametresini kullanarak kesin bir üst sınır ayarlayın. Örneğin:
 
     Get-AzureBatchTask -MaxCount 2500 -BatchContext $context
 
-tooremove hello üst sınır ayarlayın **MaxCount** too0 veya daha az.
+Üst sınırı kaldırmak için **MaxCount**’u 0 veya daha az bir değere ayarlayın.
 
-### <a name="use-hello-powershell-pipeline"></a>Merhaba PowerShell işlem hattını kullanma
-Batch cmdlet'leri hello PowerShell ardışık düzen toosend verileri cmdlet'ler arasında yararlanabilirsiniz. Bu, aynı olarak belirten bir parametre ancak birden çok varlık ile daha kolay çalışma yapar efekt hello sahiptir.
+### <a name="use-the-powershell-pipeline"></a>PowerShell işlem hattını kullanma
+Batch cmdlet'leri, verileri cmdlet'ler arasında göndermek için PowerShell işlem hattından yararlanabilirsiniz. İşlem hattı, parametre belirtmekle aynı etkiye sahip olsa da birden çok varlıkla çalışmayı kolaylaştırır.
 
 Örneğin, hesabınızın altındaki tüm görevleri bulup görüntüleyin:
 
@@ -152,7 +152,7 @@ Havuzdaki her işlem düğümünü yeniden başlatın:
     Get-AzureBatchComputeNode -PoolId "myPool" -BatchContext $context | Restart-AzureBatchComputeNode -BatchContext $context
 
 ## <a name="application-package-management"></a>Uygulama paketi yönetimi
-Uygulama paketleri toodeploy uygulamaları toohello işlem düğümlerine basitleştirilmiş bir yolunu sağlar. Hello Batch PowerShell cmdlet'leri ile karşıya yükleme ve uygulama paketleri Batch hesabınızı yönetmek ve paketi sürümleri toocompute düğümlerini dağıtmak.
+Uygulama paketleri havuzlarınızdaki işlem düğümlerine uygulama dağıtmanın basit bir yolunu sağlar. Batch PowerShell cmdlet'leriyle, Batch hesabınızdaki uygulama paketlerini yükleyebilir, yönetebilir ve paket sürümlerini işlem düğümlerine dağıtabilirsiniz.
 
 Bir uygulama **oluşturun**:
 
@@ -162,7 +162,7 @@ Bir uygulama paketi **ekleyin**:
 
     New-AzureRmBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0" -Format zip -FilePath package001.zip
 
-Set hello **varsayılan sürüm** hello uygulama için:
+Uygulamanın **varsayılan sürümünü** ayarlayın:
 
     Set-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -DefaultVersion "1.0"
 
@@ -181,14 +181,14 @@ Uygulamayı **silme**
     Remove-AzureRmBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
 
 > [!NOTE]
-> Merhaba uygulaması silmeden önce tüm uygulamanın uygulama paketi sürümleri silmeniz gerekir. Şu anda uygulama paketleri olan bir uygulama toodelete çalışırsanız 'Çakışma' hata alırsınız.
+> Uygulamayı silmeden önce, uygulamanın tüm uygulama paketi sürümlerini silmeniz gerekir. Şu anda uygulama paketleri olan bir uygulamayı silmeye çalışırsanız bir 'Çakışma' hatası alırsınız.
 > 
 > 
 
 ### <a name="deploy-an-application-package"></a>Uygulama paketi dağıtma
-Bir havuz oluşturduğunuzda dağıtım için bir veya daha fazla uygulama paketi belirtebilirsiniz. Havuz oluşturma sırasında bir paket belirtmeniz hello düğümü birleştirmeler havuzu olarak dağıtılan tooeach düğümü olur. Paketler ayrıca bir düğüm yeniden başlatıldığında veya yeniden görüntüsü oluşturulduğunda dağıtılır.
+Bir havuz oluşturduğunuzda dağıtım için bir veya daha fazla uygulama paketi belirtebilirsiniz. Havuz oluşturma saatinde bir paket belirttiğinizde düğüm havuza katıldıkça her bir düğüme dağıtılır. Paketler ayrıca bir düğüm yeniden başlatıldığında veya yeniden görüntüsü oluşturulduğunda dağıtılır.
 
-Merhaba belirtin `-ApplicationPackageReference` hello havuzuna Katıl gibi bir uygulama paketi toohello havuzun düğümleri havuzu toodeploy oluştururken seçeneği. İlk olarak, oluşturma bir **PSApplicationPackageReference** nesne ve istediğiniz toodeploy toohello havuzunun işlem düğümlerini hello uygulama kimliği ve Paket sürümü ile yapılandırın:
+Bir uygulama paketini havuza katıldıklarında havuzun düğümlerine dağıtmak üzere havuz oluştururken `-ApplicationPackageReference` seçeneğini belirtin. İlk olarak, **PSApplicationPackageReference** nesnesi oluşturun ve bunu havuzun işlem düğümlerine dağıtmak istediğiniz uygulama kimliği ve paket sürümüyle yapılandırın:
 
     $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
 
@@ -196,19 +196,19 @@ Merhaba belirtin `-ApplicationPackageReference` hello havuzuna Katıl gibi bir u
 
     $appPackageReference.Version = "1.0"
 
-Şimdi hello havuzu oluşturun ve bağımsız değişkeni toohello hello gibi hello paket başvuru nesnesi belirtmeniz `ApplicationPackageReferences` seçeneği:
+Şimdi havuzu oluşturun ve paket başvuru nesnesini, `ApplicationPackageReferences` seçeneğinin bağımsız değişkeni olarak belirtin:
 
     New-AzureBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 
-Uygulama paketleri hakkında daha fazla bilgi bulabilirsiniz [Batch uygulama paketleriyle uygulama toocompute düğümlerini dağıtmak](batch-application-packages.md).
+[Batch uygulama paketleriyle işlem düğümlerine uygulama dağıtımı](batch-application-packages.md) konusunda, uygulama paketlerine ilişkin daha fazla bilgi bulabilirsiniz.
 
 > [!IMPORTANT]
-> Yapmanız gerekenler [bir Azure depolama hesabı bağlantı](#linked-storage-account-autostorage) tooyour Batch uygulama paketleri toouse hesap.
+> Uygulama paketlerini kullanmak için Batch hesabınıza [bir Azure Depolama hesabı bağlamanız](#linked-storage-account-autostorage) gerekir.
 > 
 > 
 
 ### <a name="update-a-pools-application-packages"></a>Bir havuzun uygulama paketlerini güncelleştirme
-tooan var olan bir havuzu, atanan tooupdate hello uygulamaları (uygulama kimliği ve Paket sürümü) istenen hello özelliklerle ilk PSApplicationPackageReference nesnesi oluşturun:
+Mevcut bir havuza atanan uygulamaları güncelleştirmek için önce istediğiniz özelliklere (uygulama kimliği ve paket sürümü) sahip bir PSApplicationPackageReference nesnesi oluşturun:
 
     $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
 
@@ -216,7 +216,7 @@ tooan var olan bir havuzu, atanan tooupdate hello uygulamaları (uygulama kimli�
 
     $appPackageReference.Version = "2.0"
 
-Ardından, yığın hello havuzu almak, herhangi bir varolan paket temizleyin bizim yeni paketi Başvurusu Ekle ve hello Batch hizmeti hello yeni havuz ayarlarla güncelleştirmek:
+Ardından, Batch’den havuzu alın, mevcut paketleri temizleyin, yeni paket başvurumuzu ekleyin ve Batch hizmetini yeni havuz ayarlarıyla güncelleştirin:
 
     $pool = Get-AzureBatchPool -BatchContext $context -Id "PoolWithAppPackage"
 
@@ -226,17 +226,17 @@ Ardından, yığın hello havuzu almak, herhangi bir varolan paket temizleyin bi
 
     Set-AzureBatchPool -BatchContext $context -Pool $pool
 
-Şimdi hello Batch hizmeti hello havuzunun özelliklerinde güncelleştirdik. tooactually hello yeni uygulama paketi toocompute havuzdaki düğümlerin hello dağıtabilir, ancak yeniden başlatın veya gerekir düğümleri yeniden görüntü oluşturma. Bu komutla havuzdaki her düğümü yeniden başlatabilirsiniz:
+Batch hizmetinde havuzun özelliklerini güncelleştirmiş oldunuz. Bununla birlikte, yeni uygulama paketini havuzdaki işlem düğümlerine gerçekten dağıtmak için bu düğümleri yeniden başlatmanız ya da görüntülerini yeniden oluşturmanız gerekir. Bu komutla havuzdaki her düğümü yeniden başlatabilirsiniz:
 
     Get-AzureBatchComputeNode -PoolId "PoolWithAppPackage" -BatchContext $context | Restart-AzureBatchComputeNode -BatchContext $context
 
 > [!TIP]
-> Birden çok uygulama paketleri toohello işlem düğümleri havuzunda dağıtabilirsiniz. Çok isterseniz*ekleme* şu anda dağıtılan hello paketleri değiştirerek yerine bir uygulama paketi atlayın hello `$pool.ApplicationPackageReferences.Clear()` yukarıdaki satır.
+> Havuzdaki işlem düğümlerine birden fazla uygulama paketini dağıtabilirsiniz. Hâlihazırda dağıtılmış paketleri değiştirmek yerine uygulama paketi *eklemek* isterseniz yukarıdaki `$pool.ApplicationPackageReferences.Clear()` satırını atlayın.
 > 
 > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Ayrıntılı cmdlet sözdizimi ve örnekleri için bkz. [Azure Batch cmdlet başvurusu](/powershell/module/azurerm.batch/#batch).
-* Uygulamalar ve Batch uygulama paketleri hakkında daha fazla bilgi için bkz: [Batch uygulama paketleriyle uygulama toocompute düğümlerini dağıtmak](batch-application-packages.md).
+* Batch’deki uygulamalar ve uygulama paketleri hakkında daha fazla bilgi için bkz. [Batch uygulama paketleriyle işlem düğümlerine uygulama dağıtımı](batch-application-packages.md).
 
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/

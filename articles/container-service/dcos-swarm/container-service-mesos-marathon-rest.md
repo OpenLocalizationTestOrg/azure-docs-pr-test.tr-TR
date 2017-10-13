@@ -1,6 +1,6 @@
 ---
-title: "aaaManage Azure DC/OS kümesi Marathon REST API'si ile | Microsoft Docs"
-description: "Kapsayıcıları tooan Azure kapsayıcı hizmeti DC/OS kümesi hello Marathon REST API kullanarak dağıtın."
+title: "Azure DC/OS kümesi Marathon REST API ile yönetme | Microsoft Docs"
+description: "Marathon REST API kullanarak Azure kapsayıcı hizmeti DC/OS kümesine kapsayıcıları dağıtın."
 services: container-service
 documentationcenter: 
 author: dlepow
@@ -17,35 +17,35 @@ ms.workload: na
 ms.date: 04/04/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: d926b9b90f5d4eda85a015d9ea0d96fea2c4b566
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 65f8e0170fa7b89162e811a1d5dd58775fd20d7b
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="dcos-container-management-through-hello-marathon-rest-api"></a>DC/OS hello Marathon REST API'si aracılığıyla kapsayıcı Yönetimi
-DC/OS dağıtma ve hello temel donanımı özetlerken, kümelenmiş iş yükleri ölçekleme için bir ortam sağlar. DC/OS’nin en üstünde, hesaplama iş yüklerini zamanlamayı ve yürütmeyi yöneten bir çerçeve vardır. Çerçeveler çok sayıda yaygın iş yükü için kullanılabilir, ancak bu belgenin oluşturma ve kapsayıcı dağıtımlarını hello Marathon REST API kullanarak ölçeklendirme başlamanızı sağlar. 
+# <a name="dcos-container-management-through-the-marathon-rest-api"></a>DC/OS Marathon REST API'si aracılığıyla kapsayıcı Yönetimi
+DC/OS, temel donanımı özetlerken, kümelenmiş iş yüklerini dağıtmak ve ölçeklendirmek için ortam sağlar. DC/OS’nin en üstünde, hesaplama iş yüklerini zamanlamayı ve yürütmeyi yöneten bir çerçeve vardır. Çerçeveler çok sayıda yaygın iş yükü için kullanılabilir, ancak bu belgenin oluşturma ve Marathon REST API'sini kullanarak kapsayıcı dağıtımlarını ölçeklendirme başlamanızı sağlar. 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu örneklerin üzerinden geçmeden önce, Azure Kapsayıcı Hizmeti’nde yapılandırılan bir DC/OS kümeniz olması gerekir. Ayrıca toohave uzak bağlantı toothis küme gerekir. Bu öğeler hakkında daha fazla bilgi için aşağıdaki makaleler hello bakın:
+Bu örneklerin üzerinden geçmeden önce, Azure Kapsayıcı Hizmeti’nde yapılandırılan bir DC/OS kümeniz olması gerekir. Bu kümeye uzaktan bağlantınız olması da gerekir. Bu öğeler hakkında daha fazla bilgi için, aşağıdaki makalelere bakın:
 
 * [Azure Container Service kümesini dağıtma](container-service-deployment.md)
-* [Tooan Azure kapsayıcı hizmeti kümesine bağlanma](../container-service-connect.md)
+* [Azure Container Service kümesine bağlanma](../container-service-connect.md)
 
-## <a name="access-hello-dcos-apis"></a>Erişim hello DC/OS API'leri
-Bağlı toohello Azure kapsayıcı hizmeti kümesi sonra hello DC/OS ve ilgili REST API'lerine http://localhost: Local-port aracılığıyla erişebilirsiniz. Bu belgedeki Hello örneklerde, bağlantı noktası 80 üzerinde tünel varsayılmaktadır. Örneğin, URI'ler hello Marathon uç noktaları erişilebildiğini itibaren `http://localhost/marathon/v2/`. 
+## <a name="access-the-dcos-apis"></a>DC/OS API'lere erişim
+Azure Kapsayıcı Hizmeti kümesine bağlandıktan sonra, DC/OS’ye ve ilgili REST API’lerine http://localhost:local-port aracılığıyla erişebilirsiniz. Bu belgedeki örneklerde, bağlantı noktası 80 üzerinde tünel oluşturulmaktadır. Örneğin, Marathon uç noktaları URI'ler erişilebildiğini itibaren `http://localhost/marathon/v2/`. 
 
-Çeşitli API'ler hello hakkında daha fazla bilgi için hello hello Mesosphere belgelerine bakın [Marathon API'si](https://mesosphere.github.io/marathon/docs/rest-api.html) ve [Chronos API'si](https://mesos.github.io/chronos/docs/api.html)ve hello için Apache belgelerine [Mesos Scheduler API'si ](http://mesos.apache.org/documentation/latest/scheduler-http-api/).
+Çeşitli API'ler hakkında daha fazla bilgi için, [Marathon API’si](https://mesosphere.github.io/marathon/docs/rest-api.html) ve [Chronos API’si](https://mesos.github.io/chronos/docs/api.html) için Mesosphere belgelerine ve [Mesos Scheduler API’si](http://mesos.apache.org/documentation/latest/scheduler-http-api/) için Apache belgelerine bakın.
 
 ## <a name="gather-information-from-dcos-and-marathon"></a>DC/OS’den ve Marathon’dan bilgi toplama
-Toohello DC/OS kümesine kapsayıcıları dağıtmadan önce hello adları ve hello DC/OS aracıların durumu gibi hello DC/OS kümesi hakkında bazı bilgileri toplayın. Bu nedenle, sorgu hello toodo `master/slaves` hello DC/OS REST API uç noktası. Her şey yolunda giderse hello sorgu her biri için DC/OS aracıları ve çeşitli özellikler listesini döndürür.
+DC/OS kümesine kapsayıcıları dağıtmadan önce adları ve DC/OS aracıların durumu gibi DC/OS kümesi hakkında bazı bilgileri toplayın. Bunu yapmak için, DC/OS REST API’sinin `master/slaves` uç noktasını sorgulayın.  Her şey yolunda giderse, sorgu DC/OS aracıları ve her biri için çeşitli özellikler listesini döndürür.
 
 ```bash
 curl http://localhost/mesos/master/slaves
 ```
 
-Şimdi hello Marathon kullanın `/apps` geçerli uygulama dağıtımlarını toohello DC/OS kümesi için uç nokta toocheck. Bu yeni bir küme ise, uygulamalar için boş bir dizi görürsünüz.
+Şimdi, DC/OS kümesine geçerli uygulama dağıtımlarını denetlemek için Marathon `/apps` uç noktasını kullanın. Bu yeni bir küme ise, uygulamalar için boş bir dizi görürsünüz.
 
 ```bash
 curl localhost/marathon/v2/apps
@@ -54,7 +54,7 @@ curl localhost/marathon/v2/apps
 ```
 
 ## <a name="deploy-a-docker-formatted-container"></a>Docker biçimli kapsayıcı dağıtma
-Docker biçimli kapsayıcıları hello Marathon REST API aracılığıyla hello hedeflenen dağıtımı açıklayan bir JSON dosyası kullanarak dağıtın. Merhaba aşağıdaki örnek Nginx bir kapsayıcı tooa özel aracı hello kümedeki dağıtır. 
+Docker biçimli kapsayıcıları Marathon REST API'si aracılığıyla hedeflenen dağıtımı açıklayan bir JSON dosyası kullanarak dağıtın. Aşağıdaki örnek bir Nginx kapsayıcısı kümedeki özel bir aracıya dağıtır. 
 
 ```json
 {
@@ -75,42 +75,42 @@ Docker biçimli kapsayıcıları hello Marathon REST API aracılığıyla hello 
 }
 ```
 
-toodeploy Docker biçimli bir kapsayıcıyı hello JSON dosyası erişilebilecek bir konuma depolayın. Komutu aşağıdaki hello çalıştırmak İleri toodeploy hello kapsayıcı. Merhaba hello JSON dosyasının adını belirtin (`marathon.json` Bu örnekte).
+Docker biçimli bir kapsayıcıyı dağıtmak için JSON dosyasının erişilebilir bir yerde saklayın. Ardından, kapsayıcıyı dağıtmak için aşağıdaki komutu çalıştırın. JSON dosyasının adını belirtin (`marathon.json` Bu örnekte).
 
 ```bash
 curl -X POST http://localhost/marathon/v2/apps -d @marathon.json -H "Content-type: application/json"
 ```
 
-Merhaba çıkış benzer toohello aşağıda verilmiştir:
+Çıkış aşağıdakine benzer:
 
 ```json
 {"version":"2015-11-20T18:59:00.494Z","deploymentId":"b12f8a73-f56a-4eb1-9375-4ac026d6cdec"}
 ```
 
-Şimdi, uygulamalar için marathon'u, bu yeni uygulama hello çıkışında görünür.
+Şimdi, uygulamalar için Marathon’u sorguladığınızda, bu yeni uygulama çıktıda görünür.
 
 ```bash
 curl localhost/marathon/v2/apps
 ```
 
-## <a name="reach-hello-container"></a>Merhaba kapsayıcı ulaşmak
+## <a name="reach-the-container"></a>Kapsayıcı ulaşmak
 
-Nginx bir kapsayıcıda hello özel aracıları hello kümedeki birini çalıştıran bu hello doğrulayabilirsiniz. toofind hello ana bilgisayarı ve bağlantı noktası hello kapsayıcı çalıştığı çalışan görevlerin hello için Marathon sorgu: 
+Özel aracıları kümedeki birinde Nginx bir kapsayıcıda çalışıp çalışmadığını doğrulayabilirsiniz. Kapsayıcı çalıştığı bağlantı noktası ve ana bilgisayar bulmak için çalışan görevler için Marathon sorgu: 
 
 ```bash
 curl localhost/marathon/v2/tasks
 ```
 
-Merhaba değerini bulur `host` hello çıktısında (bir IP adresi benzer çok`10.32.0.x`) ve hello değerini `ports`.
+Değerini bulur `host` çıktıda (benzer şekilde bir IP adresi `10.32.0.x`) ve değeri `ports`.
 
 
-Artık bir SSH terminal bağlantısı (tünel bağlantısı değil) toohello yönetim FQDN hello kümesinin olun. Bağlantı kurulduktan sonra istek aşağıdaki, hello doğru değerini değiştirerek hello olun `host` ve `ports`:
+Şimdi küme yönetimi FQDN için bir SSH terminal bağlantısı (tünel bağlantısı değil) oluşturun. Bağlantı kurulduktan sonra doğru değerini değiştirerek aşağıdaki, istekte `host` ve `ports`:
 
 ```bash
 curl http://host:ports
 ```
 
-Merhaba Nginx server çıktısı benzer toohello aşağıda verilmiştir:
+Nginx server çıktısı aşağıdakine benzer:
 
 ![Kapsayıcısından Nginx](./media/container-service-mesos-marathon-rest/nginx.png)
 
@@ -118,16 +118,16 @@ Merhaba Nginx server çıktısı benzer toohello aşağıda verilmiştir:
 
 
 ## <a name="scale-your-containers"></a>Kapsayıcılarınızı ölçeklendirme
-Uygulama dağıtımlarını hello Marathon API'si tooscale çıkışı veya ölçek kullanabilirsiniz. Merhaba önceki örnekte, uygulamanın bir örneği dağıtıldı. Şimdi bu uygulamanın toothree örneklerini çıkışı ölçeklendirin. toodo bu nedenle, JSON metnini aşağıdaki hello kullanarak bir JSON dosyası oluşturun ve erişilebilir bir yerde saklayın.
+Ölçeği genişletme veya ölçeklendirmek için Marathon API'si kullanabilirsiniz uygulama dağıtımlarda. Önceki örnekte, uygulamanın bir örneğini dağıttınız. Şimdi bunun ölçeğini uygulamanın üç örneğine genişletelim. Bunu yapmak için, aşağıdaki JSON metnini kullanarak bir JSON dosyası oluşturun ve erişilebilir bir konumda depolayın.
 
 ```json
 { "instances": 3 }
 ```
 
-Tünel bağlantısından hello uygulama çıkış komut tooscale aşağıdaki hello çalıştırın.
+Tünel bağlantısından uygulamanın ölçeğini genişletmek için aşağıdaki komutu çalıştırın.
 
 > [!NOTE]
-> Hello URI, http://localhost/marathon/v2/apps/ hello uygulama tooscale hello Kimliğine göre ve ardından ' dir. Burada sağlanan hello Nginx örneğini kullanıyorsanız, hello URI http://localhost/marathon/v2/apps/nginx olacaktır.
+> URI, http://localhost/marathon/v2/apps/ şeklinde olur ve ardından ölçeklendirilecek uygulamanın kimliği gelir. Burada sağlanan Nginx örneğini kullanıyorsanız, URI http://localhost/marathon/v2/apps/nginx şeklinde olacaktır.
 > 
 > 
 
@@ -135,7 +135,7 @@ Tünel bağlantısından hello uygulama çıkış komut tooscale aşağıdaki he
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
 ```
 
-Son olarak, uygulamalar için hello Marathon uç noktaya sorgu. Artık üç adet Nginx kapsayıcısı olduğunu görürsünüz.
+Son olarak, uygulamalar için Marathon uç noktasını sorgulayın. Artık üç adet Nginx kapsayıcısı olduğunu görürsünüz.
 
 ```bash
 curl localhost/marathon/v2/apps
@@ -144,13 +144,13 @@ curl localhost/marathon/v2/apps
 ## <a name="equivalent-powershell-commands"></a>Eşdeğer PowerShell komutları
 Bir Windows sisteminde PowerShell komutlarını kullanarak aynı eylemleri gerçekleştirebilirsiniz.
 
-Aracı adları ve aracı durumu gibi hello DC/OS kümesi hakkında bilgi toogather hello aşağıdaki komutu çalıştırın:
+Aracı adları ve aracı durumu gibi DC/OS kümesi hakkında bilgi toplamak için aşağıdaki komutu çalıştırın:
 
 ```powershell
 Invoke-WebRequest -Uri http://localhost/mesos/master/slaves
 ```
 
-Docker biçimli kapsayıcıları Marathon aracılığıyla hello hedeflenen dağıtımı açıklayan bir JSON dosyası kullanarak dağıtın. Merhaba aşağıdaki örnek hello kapsayıcısının hello DC/OS Aracısı tooport 80 bağlantı noktası 80 bağlama hello Nginx kapsayıcısı dağıtır.
+Docker biçimli kapsayıcıları Marathon aracılığıyla, hedeflenen dağıtımı açıklayan bir JSON dosyası kullanarak dağıtın. Aşağıdaki örnek, Nginx kapsayıcısı DC/OS aracısı bağlama bağlantı noktası 80'i kapsayıcının 80 numaralı bağlantı noktasına dağıtır.
 
 ```json
 {
@@ -171,22 +171,22 @@ Docker biçimli kapsayıcıları Marathon aracılığıyla hello hedeflenen dağ
 }
 ```
 
-toodeploy Docker biçimli bir kapsayıcıyı hello JSON dosyası erişilebilecek bir konuma depolayın. Komutu aşağıdaki hello çalıştırmak İleri toodeploy hello kapsayıcı. Merhaba yolu toohello JSON dosyasını belirtin (`marathon.json` Bu örnekte).
+Docker biçimli bir kapsayıcıyı dağıtmak için JSON dosyasının erişilebilir bir yerde saklayın. Ardından, kapsayıcıyı dağıtmak için aşağıdaki komutu çalıştırın. JSON dosyasının yolunu belirtin (`marathon.json` Bu örnekte).
 
 ```powershell
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
 ```
 
-Uygulama dağıtımlarını hello Marathon API'si tooscale çıkışı veya ölçek de kullanabilirsiniz. Merhaba önceki örnekte, uygulamanın bir örneği dağıtıldı. Şimdi bu uygulamanın toothree örneklerini çıkışı ölçeklendirin. toodo bu nedenle, JSON metnini aşağıdaki hello kullanarak bir JSON dosyası oluşturun ve erişilebilir bir yerde saklayın.
+Marathon API’sini uygulama dağıtımlarının ölçeğini genişletmek ve ölçeğini daraltmak için de kullanabilirsiniz. Önceki örnekte, uygulamanın bir örneğini dağıttınız. Şimdi bunun ölçeğini uygulamanın üç örneğine genişletelim. Bunu yapmak için, aşağıdaki JSON metnini kullanarak bir JSON dosyası oluşturun ve erişilebilir bir konumda depolayın.
 
 ```json
 { "instances": 3 }
 ```
 
-Merhaba uygulama çıkış komut tooscale aşağıdaki hello çalıştırın:
+Uygulamanın ölçeğini genişletmek için aşağıdaki komutu çalıştırın:
 
 > [!NOTE]
-> Hello URI, http://localhost/marathon/v2/apps/ hello uygulama tooscale hello Kimliğine göre ve ardından ' dir. Burada sağlanan hello Nginx örneğini kullanıyorsanız, hello URI http://localhost/marathon/v2/apps/nginx olacaktır.
+> URI, http://localhost/marathon/v2/apps/ şeklinde olur ve ardından ölçeklendirilecek uygulamanın kimliği gelir. Burada sağlanan Nginx örneğini kullanıyorsanız, URI http://localhost/marathon/v2/apps/nginx şeklinde olacaktır.
 > 
 > 
 
@@ -195,6 +195,6 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Merhaba Mesos HTTP uç noktaları hakkında daha fazla bilgi](http://mesos.apache.org/documentation/latest/endpoints/)
-* [Merhaba Marathon REST API'si hakkında daha fazla bilgi](https://mesosphere.github.io/marathon/docs/rest-api.html)
+* [Mesos HTTP uç noktaları hakkında daha fazla bilgi](http://mesos.apache.org/documentation/latest/endpoints/)
+* [Marathon REST API'si hakkında daha fazla bilgi](https://mesosphere.github.io/marathon/docs/rest-api.html)
 

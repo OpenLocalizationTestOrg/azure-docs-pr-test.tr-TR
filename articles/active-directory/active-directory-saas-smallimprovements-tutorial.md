@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme küçük geliştirmelerle | Microsoft Docs"
-description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ve küçük geliştirmeler arasında."
+description: "Çoklu oturum açma Azure Active Directory ve küçük geliştirmeler arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,111 +13,111 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 33213fe4b61f5005cf78bee2c05b2b1e5e71ae8b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 49a8cd3acfc6df15ef6a51171c8421162bc94efc
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Öğretici: Azure Active Directory Tümleştirme küçük geliştirmelerle
 
-Bu öğreticide, bilgi nasıl toointegrate Azure Active Directory (Azure AD) ile küçük geliştirmeleri.
+Bu öğreticide, küçük geliştirmeler Azure Active Directory (Azure AD) ile tümleştirme öğrenin.
 
-Küçük geliştirmeler Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
+Küçük geliştirmeler Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Erişim tooSmall geliştirmeleri sahip Azure AD'de kontrol edebilirsiniz
-- Kullanıcıların tooautomatically get açan tooSmall geliştirmeleri (çoklu oturum açma) Azure AD hesaplarına sahip etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir
+- Küçük geliştirmeleri erişimi, Azure AD'de kontrol edebilirsiniz
+- Azure AD hesaplarına otomatik olarak küçük geliştirmeleri (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-tooconfigure küçük geliştirmeleri ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
+Azure AD tümleştirme küçük geliştirmelerle yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
 - Bir küçük geliştirmeleri çoklu oturum açma abonelik etkin
 
 > [!NOTE]
-> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
+Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, burada bir aylık deneme alabilirsiniz [deneme teklifi](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
-1. Merhaba Galerisi'nden küçük geliştirmeler ekleme
+1. Galeriden küçük geliştirmeler ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-small-improvements-from-hello-gallery"></a>Merhaba Galerisi'nden küçük geliştirmeler ekleme
-Azure AD'ye tooconfigure hello tümleştirme küçük geliştirme tooadd küçük geliştirmeleri hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
+## <a name="adding-small-improvements-from-the-gallery"></a>Galeriden küçük geliştirmeler ekleme
+Azure AD Küçük geliştirmeleri tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden küçük geliştirmeleri eklemeniz gerekir.
 
-**tooadd hello Galerisi'nden küçük geliştirmeleri hello aşağıdaki adımları gerçekleştirin:**
+**Galeriden küçük geliştirmeleri eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
     ![Uygulamalar][3]
 
-4. Merhaba arama kutusuna yazın **küçük geliştirmeleri**.
+4. Arama kutusuna **küçük geliştirmeleri**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_search.png)
 
-5. Merhaba Sonuçlar panelinde seçin **küçük geliştirmeleri**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
+5. Sonuçlar panelinde seçin **küçük geliştirmeleri**ve ardından **Ekle** uygulama eklemek için düğmesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 Bu bölümde, yapılandırmak ve küçük "Britta Simon" adlı bir test kullanıcı doğrultusunda geliştirmeler Azure AD çoklu oturum açmayı sınayın.
 
-Tek toowork'ın oturum açma hangi hello karşılık gelen küçük geliştirmeleri tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının ve küçük geliştirmeleri hello ilgili kullanıcı arasında bir bağlantı ilişkisi kurulan toobe gerekir.
+Tekli çalışmaya oturum için Azure AD ne karşılık gelen küçük geliştirmeleri bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ve ilgili kullanıcı küçük geliştirmeleri arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Küçük yenilikleri hello hello değerini atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.
+Küçük yenilikleri değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
 
-tooconfigure ve küçük geliştirmeleri ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
+Yapılandırmak ve Azure AD çoklu oturum açma küçük geliştirmelerle sınamak için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
-3. **[Küçük geliştirmeleri test kullanıcısı oluşturma](#creating-a-small-improvements-test-user)**  -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir küçük geliştirmeleri, karşılık gelen.
-4. **[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Küçük geliştirmeleri test kullanıcısı oluşturma](#creating-a-small-improvements-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı küçük geliştirmeleri sağlamak için.
+4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma küçük geliştirmeleri uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma küçük geliştirmeleri uygulamanızda yapılandırın.
 
-**tooconfigure Azure AD çoklu oturum açma küçük geliştirmelerle hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma küçük geliştirmelerle yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba hello üzerinde Azure portal'ın **küçük geliştirmeleri** uygulama tümleştirme sayfası, tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **küçük geliştirmeleri** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_samlbase.png)
 
-3. Merhaba üzerinde **küçük geliştirmeler etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **küçük geliştirmeler etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_url.png)
 
-    a. Merhaba, **oturum açma URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<subdomain>.small-improvements.com`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.small-improvements.com`
 
-    b. Merhaba, **tanımlayıcısı** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<subdomain>.small-improvements.com`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.small-improvements.com`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu güncelleştirme değerler ile Merhaba gerçek oturum açma URL'si ve tanımlayıcısı. Kişi [küçük geliştirmeleri istemci destek ekibi](mailto:support@small-improvements.com) tooget bu değerleri. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [küçük geliştirmeleri istemci destek ekibi](mailto:support@small-improvements.com) bu değerleri almak için. 
  
-4. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve hello sertifika dosyayı bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_certificate.png) 
 
@@ -125,80 +125,80 @@ Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_400.png)
 
-6. Merhaba üzerinde **küçük geliştirmeleri yapılandırma** 'yi tıklatın **yapılandırma küçük geliştirmeleri** tooopen **yapılandırma oturum açma** penceresi. Kopya hello **SAML çoklu oturum açma hizmet URL'si** hello gelen **hızlı başvuru bölümü.**
+6. Üzerinde **küçük geliştirmeleri yapılandırma** 'yi tıklatın **yapılandırma küçük geliştirmeleri** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_configure.png) 
 
-7. Başka bir tarayıcı penceresinde tooyour küçük geliştirmeleri şirket sitesinde yönetici olarak oturum açın.
+7. Başka bir tarayıcı penceresinde küçük geliştirmeleri şirket sitenize yönetici olarak oturum açma.
 
-8. Merhaba ana Pano sayfasından tıklatın **Yönetim** hello soldaki düğmesi.
+8. Ana Panodaki sayfasından tıklatın **Yönetim** sol düğmesi.
    
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_06.png) 
 
-9. Merhaba tıklatın **SAML SSO** gelen düğmesini **tümleştirmeler** bölümü.
+9. Tıklatın **SAML SSO** gelen düğmesini **tümleştirmeler** bölümü.
    
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_07.png) 
 
-10. Merhaba SSO Kurulum sayfasında hello aşağıdaki adımları gerçekleştirin:
+10. SSO Kurulumu sayfasında, aşağıdaki adımları gerçekleştirin:
    
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_08.png)  
 
-    a. Merhaba, **HTTP uç noktası** metin kutusuna, Yapıştır hello değerini **SAML çoklu oturum açma hizmet URL'si**, Azure portalından kopyalanan.
+    a. İçinde **HTTP uç noktası** metin değerini yapıştırın **SAML çoklu oturum açma hizmet URL'si**, Azure portalından kopyalanan.
 
-    b. İndirilen sertifikanızı kopyalama Merhaba içeriğine Not Defteri'nde açın ve hello yapıştırma **x509 sertifika** metin kutusu. 
+    b. İndirilen sertifikanızı Not Defteri'nde açın, içeriği Kopyala ve ardından yapıştırın **x509 sertifika** metin kutusu. 
 
-    c. Toohave SSO ve oturum açma form kimlik doğrulaması seçeneği kullanıcılar için kullanılabilir istiyorsanız hello denetleyin **oturum açma/parola ile çok erişmesini** seçeneği.  
+    c. SSO ve oturum açma form kimlik doğrulaması seçeneği kullanıcılar için kullanılabilir olmasını istiyorsanız, ardından denetleyin **oturum açma/parola ile çok erişmesini** seçeneği.  
 
-    d. Merhaba uygun değeri tooName hello SSO oturum açma düğmesi hello girin **SAML komut istemi** metin kutusu.  
+    d. SSO oturum açma düğmesini adlandırmak için uygun değeri girin **SAML komut istemi** metin kutusu.  
 
     e. **Kaydet** düğmesine tıklayın.
 
 > [!TIP]
-> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_02.png) 
 
-3. tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle** hello üstteki hello iletişim.
+3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_03.png) 
 
-4. Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-smallimprovements-tutorial/create_aaduser_04.png) 
 
-    a. Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
 
-    b. Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
 
-    c. Seçin **Göster parola** ve hello hello değerini yazma **parola**.
+    c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**'a tıklayın.
  
 ### <a name="creating-a-small-improvements-test-user"></a>Küçük geliştirmeleri test kullanıcısı oluşturma
 
-tooenable Azure AD kullanıcıların toolog tooSmall geliştirmeleri, bunlar küçük artışlarını sağlanması gerekir. Küçük geliştirmeleri Hello durumda sağlama bir el ile bir görevdir.
+Küçük geliştirmeleri oturum açmak Azure AD kullanıcıları etkinleştirmek için bunlar küçük artışlarını sağlanmalıdır. Küçük geliştirmeleri söz konusu olduğunda, sağlama bir el ile bir görevdir.
 
-**bir kullanıcı hesabı tooprovision hello aşağıdaki adımları gerçekleştirin:**
+**Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Yönetici olarak oturum açma tooyour küçük geliştirmeleri şirket sitesi.
+1. Küçük geliştirmeleri şirket sitenize yönetici olarak oturum.
 
-2. Merhaba giriş sayfasından toohello menü sol hello üzerinde gidin, tıklatın **Yönetim**.
+2. Giriş sayfasından sol,'ı tıklatın menüsüne gidin **Yönetim**.
 
-3. Merhaba tıklatın **kullanıcı dizini** kullanıcı yönetimi bölümünden düğmesi. 
+3. Tıklatın **kullanıcı dizini** kullanıcı yönetimi bölümünden düğmesi. 
    
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_10.png) 
 
@@ -206,37 +206,37 @@ tooenable Azure AD kullanıcıların toolog tooSmall geliştirmeleri, bunlar kü
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_11.png) 
 
-5. Merhaba üzerinde **Kullanıcı Ekle** iletişim kutusunda, hello aşağıdaki adımları gerçekleştirin: 
+5. Üzerinde **Kullanıcı Ekle** iletişim kutusunda, aşağıdaki adımları gerçekleştirin: 
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_12.png)
     
-    a. Merhaba girin **ad** gibi kullanıcının **Britta**.
+    a. Girin **ad** gibi kullanıcının **Britta**.
 
-    b. Merhaba girin **Soyadı** gibi kullanıcının **Simon**.
+    b. Girin **Soyadı** gibi kullanıcının **Simon**.
 
-    c. Merhaba girin **e-posta** gibi kullanıcının  **brittasimon@contoso.com** . 
+    c. Girin **e-posta** gibi kullanıcının  **brittasimon@contoso.com** . 
 
-    d. Tooenter hello kişisel ileti hello seçebilirsiniz **bildirim e-posta Gönder** kutusu. Toosend hello bildirim istemiyorsanız bu onay kutusunun işaretini kaldırın.
+    d. Ayrıca kişisel iletisinde girmeyi seçebilirsiniz **bildirim e-posta Gönder** kutusu. Bildirim göndermek istemiyorsanız bu onay kutusunun işaretini kaldırın.
 
     e. Tıklatın **kullanıcılar oluşturma**.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
 
-Bu bölümde, tooSmall geliştirmeleri erişim vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
+Bu bölümde, Britta küçük geliştirmeleri erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
 ![Kullanıcı atama][200] 
 
-**tooassign Britta Simon tooSmall geliştirmeleri, başlangıç aşağıdaki adımları gerçekleştirin:**
+**Küçük geliştirmeleri Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Merhaba uygulamalar listesinde **küçük geliştirmeleri**.
+2. Uygulamalar listesinde **küçük geliştirmeleri**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_app.png) 
 
-3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
     ![Kullanıcı atama][202] 
 
@@ -244,7 +244,7 @@ Bu bölümde, tooSmall geliştirmeleri erişim vererek Britta Simon toouse Azure
 
     ![Kullanıcı atama][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -252,13 +252,13 @@ Bu bölümde, tooSmall geliştirmeleri erişim vererek Britta Simon toouse Azure
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümde Hello amacı olan tootest hello erişim paneli, Azure AD SSO yapılandırmayı kullanarak.  
+Bu bölümün amacı erişim paneli kullanılarak Azure AD SSO yapılandırmanızı test etmektir.  
 
-Küçük geliştirmeleri hello erişim paneli döşeme hello tıkladığınızda, otomatik olarak imzalanmış üzerinde küçük geliştirmeleri uygulama tooyour almanız gerekir.
+Erişim paneli küçük geliştirmeleri parçasında tıklattığınızda, otomatik olarak küçük geliştirmeleri uygulamanıza açan.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 

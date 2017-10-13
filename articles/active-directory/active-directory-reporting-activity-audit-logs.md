@@ -1,6 +1,6 @@
 ---
-title: "aaaAudit etkinlik raporları hello Azure Active Directory portalında | Microsoft Docs"
-description: "Giriş toohello denetim hello Azure Active Directory portalında etkinlik raporları"
+title: "Azure Active Directory portalındaki denetim etkinliği raporları | Microsoft Docs"
+description: "Azure Active Directory portalındaki denetim etkinliği raporlarına giriş"
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,66 +15,66 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1567673f5030fc707b017c069f2ba7587962e5cb
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f2d0332d815c82d7d47625e020de2e9c5099deeb
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="audit-activity-reports-in-hello-azure-active-directory-portal"></a>Etkinlik raporları hello Azure Active Directory portalında denetleme 
+# <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki denetim etkinliği raporları 
 
-Azure Active Directory (Azure AD) raporlama ile ortamınızı nasıl çalıştığını toodetermine gereksinim hello bilgileri elde edebilirsiniz.
+Azure Active Directory’deki (Azure AD) raporlama özelliğiyle ortamınızın nasıl çalıştığını belirlemek için gereken bilgileri alabilirsiniz.
 
-Azure AD raporlama mimarisi hello bileşenleri aşağıdaki Merhaba oluşur:
+Azure AD'nin raporlama mimarisi aşağıdaki bileşenlerden oluşur:
 
 - **Etkinlik** 
-    - **Oturum açma etkinliklerini** – yönetilen uygulamalar ve kullanıcı oturum açma etkinliklerini hello kullanımı hakkında bilgi
+    - **Oturum açma etkinlikleri**: Yönetilen uygulamaların kullanımı ve kullanıcıların oturum açma etkinlikleri hakkında bilgiler
     - **Denetim günlükleri**: Kullanıcılar ve grup yönetimi, yönetilen uygulamalarınız ve dizin etkinlikleriniz hakkında sistem etkinliği bilgileri.
 - **Güvenlik** 
-    - **Riskli oturum açma işlemleri** -bir riskli oturum açma bir hello meşru bir kullanıcı hesabının sahibi olmayan kişi tarafından gerçekleştirilmiş olabilecek bir oturum açma girişimi için göstergesidir. Daha fazla bilgi için bkz. Riskli oturum açma işlemleri.
+    - **Riskli oturum açma işlemleri** - Riskli oturum açma işlemi bir kullanıcı hesabının meşru sahibi olmayan bir kişi tarafından gerçekleştirilmiş olabilecek oturum açma girişiminin göstergesidir. Daha fazla bilgi için bkz. Riskli oturum açma işlemleri.
     - **Riskli oldukları belirlenen kullanıcılar** - Riskli kullanıcı, güvenliği tehlikeye girmiş olabilecek bir kullanıcı hesabının göstergesidir. Daha fazla bilgi için bkz. Riskli oldukları belirlenen kullanıcılar.
 
-Bu konuda hello denetim etkinlikleri genel bir bakış sağlar.
+Bu konu başlığı denetim etkinliklerine genel bakış sunmaktadır.
  
-## <a name="who-can-access-hello-data"></a>Merhaba veri erişebilecek mi?
-* Merhaba Güvenlik Yöneticisi veya güvenlik okuyucu roldeki kullanıcılar
+## <a name="who-can-access-the-data"></a>Verilere kimler erişebilir?
+* Güvenlik Yöneticisi veya Güvenlik Okuyucusu rolündeki kullanıcılar
 * Genel Yöneticiler
 * Bireysel kullanıcılar (yönetici olmayanlar) kendi etkinliklerini görebilir
 
 
 ## <a name="audit-logs"></a>Denetim günlükleri
 
-Azure Active Directory'de Hello denetim günlüklerini kayıtları sistem etkinliklerin uyumluluk sağlar.  
-İlk giriş noktası verileri denetleme tooall olan **denetim günlüklerini** hello içinde **etkinlik** bölümünü **Azure Active Directory**.
+Azure Active Directory'deki denetim günlükleri uyumluluk amacıyla sistem etkinliklerinin kayıtlarını sağlar.  
+Tüm denetim verilerine ilk giriş noktanız, **Azure Active Directory**’nin **Etkinlik** bölümünde bulunan **Denetim günlükleri** kısmıdır.
 
 ![Denetim günlükleri](./media/active-directory-reporting-activity-audit-logs/61.png "Denetim günlükleri")
 
 Denetim günlüklerinin aşağıdakileri gösteren bir varsayılan liste görünümü vardır:
 
-- Başlangıç tarihi ve saati hello oluşum
-- Başlatıcı hello / aktör (*kimin*) etkinliğin 
-- Merhaba etkinliği (*ne*) 
-- Merhaba hedef
+- Olayın tarihi ve saati
+- Bir etkinliğin başlatıcısı/aktörü (*kim*) 
+- Etkinlik (*ne*) 
+- Hedef
 
 ![Denetim günlükleri](./media/active-directory-reporting-activity-audit-logs/18.png "Denetim günlükleri")
 
-Tıklatarak hello liste görünümü özelleştirebilirsiniz **sütunları** hello araç.
+Araç çubuğunda **Sütunlar**’a tıklayarak liste görünümünü özelleştirebilirsiniz.
 
 ![Denetim günlükleri](./media/active-directory-reporting-activity-audit-logs/19.png "Denetim günlükleri")
 
-Bu toodisplay ek alanlar etkinleştirir veya zaten görüntülenen alanları kaldırın.
+Bu sayede ek alanları görüntüleyebilir ya da zaten görüntülenen alanları kaldırabilirsiniz.
 
 ![Denetim günlükleri](./media/active-directory-reporting-activity-audit-logs/21.png "Denetim günlükleri")
 
 
-Merhaba liste görünümünde bir öğeyi tıklatarak bunu hakkında tüm kullanılabilir ayrıntıları alın.
+Liste görünümündeki bir öğeye tıklayarak bu öğe hakkında mevcut olan tüm ayrıntıları öğrenebilirsiniz.
 
 ![Denetim günlükleri](./media/active-directory-reporting-activity-audit-logs/22.png "Denetim günlükleri")
 
 
 ## <a name="filtering-audit-logs"></a>Denetim günlüklerini filtreleme
 
-Merhaba aşağı toonarrow veri tooa düzeyinde çalışır, alanları izleyen hello kullanarak hello denetim verileri filtreleyebilirsiniz bildirdi:
+Raporlanan verileri istediğiniz düzeye gelecek şekilde daraltmak için, aşağıdaki alanları kullanarak denetim verilerini filtreleyebilirsiniz:
 
 - Tarih aralığı
 - Başlatan (Aktör)
@@ -85,7 +85,7 @@ Merhaba aşağı toonarrow veri tooa düzeyinde çalışır, alanları izleyen h
 ![Denetim günlükleri](./media/active-directory-reporting-activity-audit-logs/23.png "Denetim günlükleri")
 
 
-Merhaba **tarih aralığı** filtre etkinleştirir tooyou toodefine hello için bir zaman çerçevesi veri döndürdü.  
+**Tarih aralığı** filtresi, döndürülen veriler için bir zaman çerçevesi tanımlamanıza olanak sağlar.  
 Olası değerler şunlardır:
 
 - 1 ay
@@ -95,9 +95,9 @@ Olası değerler şunlardır:
 
 Özel bir zaman çerçevesi seçerken başlangıç ve bitiş zamanını yapılandırabilirsiniz.
 
-Merhaba **tarafından başlatılan** filtre, toodefine bir aktör'ın adı veya evrensel asıl adı (UPN) sağlar.
+**Başlatan** filtresi, bir aktörün adını ya da evrensel asıl adını (UPN) tanımlamanıza imkan tanır.
 
-Merhaba **kategori** filtre filtre aşağıdaki Merhaba, tooselect sağlar:
+**Kategori** filtresi, aşağıdaki filtrelerden birini seçmenize imkan tanır:
 
 - Tümü
 - Çekirdek kategori
@@ -110,7 +110,7 @@ Merhaba **kategori** filtre filtre aşağıdaki Merhaba, tooselect sağlar:
 - Kimlik Koruması
 - B2C
 
-Merhaba **etkinlik kaynak türü** filtre hello aşağıdakilerden birini filtreler tooselect sağlar:
+**Etkinlik kaynağı türü** filtresi, aşağıdaki filtrelerden birini seçmenize imkan tanır:
 
 - Tümü 
 - Grup
@@ -121,29 +121,29 @@ Merhaba **etkinlik kaynak türü** filtre hello aşağıdakilerden birini filtre
 - Cihaz
 - Diğer
 
-Seçtiğinizde, **grup** olarak **etkinlik kaynak türü**, tooalso sağlayan bir ek filtre kategorisi alma sağlayan bir **kaynak**:
+**Etkinlik kaynağı türü** olarak **Grup**’u seçtiğinizde, bir **Kaynak** sağlamanıza da imkan tanıyan ek bir filtre kategorisine sahip olursunuz:
 
 - Azure AD
 - O365
 
 
-Merhaba **etkinlik** filtre hello kategori ve etkinlik kaynak türü seçimi yaptığınız dayanır. Belirli bir etkinliğe toosee istediğiniz ya da Tümünü Seç seçebilirsiniz. 
+**Etkinlik** filtresi, yaptığınız kategori ve Etkinlik kaynağı türü seçimine bağlıdır. Görmek istediğiniz belirli bir etkinliği ya da tüm etkinlikleri seçebilirsiniz. 
 
-Merhaba grafik API'si https://graph.windows.net/$ tenantdomain/etkinlikleri/auditActivityTypes kullanarak tüm denetim etkinlikleri hello listesini elde edebilirsiniz? api sürümü beta = nerede $tenantdomain = etki alanı adı veya toohello makalesine başvurun [denetleme raporu olayları](active-directory-reporting-audit-events.md).
+Grafik API'si ($tenantdomain = etki alanı adınız olacak şekilde https://graph.windows.net/$tenantdomain/activities/auditActivityTypes?api-version=beta) kullanarak tüm Denetim Etkinliklerinin listesini alabilir veya [denetim raporu olayları](active-directory-reporting-audit-events.md) makalesine bakabilirsiniz.
 
 
 ## <a name="audit-logs-shortcuts"></a>Denetim günlükleri kısayolları
 
-Ayrıca çok**Azure Active Directory**, hello Azure portal, iki ek giriş noktaları ile tooaudit verileri sağlar:
+Azure portalı, **Azure Active Directory**’ye ek olarak verileri denetlemeniz için fazladan iki giriş noktası sağlar:
 
 - Kullanıcılar ve gruplar
 - Kurumsal uygulamalar
 
 ### <a name="users-and-groups-audit-logs"></a>Kullanıcı ve gruplara yönelik denetim günlükleri
 
-Kullanıcı ve grup tabanlı denetim raporları ile yanıtlar tooquestions gibi alabilirsiniz:
+Kullanıcı ve grup tabanlı denetim raporları ile aşağıdakiler gibi soruların yanıtlarını alabilirsiniz:
 
-- Hangi güncelleştirme türlerini uygulanan hello kullanıcılar silinmiş?
+- Kullanıcılara hangi tür güncelleştirmeler uygulanmış?
 
 - Kaç adet kullanıcı değiştirildi?
 
@@ -151,38 +151,38 @@ Kullanıcı ve grup tabanlı denetim raporları ile yanıtlar tooquestions gibi 
 
 - Bir yönetici bir dizinde neler yaptı?
 
-- Eklenen hello grupları nelerdir?
+- Eklenmiş olan gruplar hangileridir?
 
 - Üyelik değişiklikleri olan gruplar var mı?
 
-- Grubun sahiplerini Hello değişti mi?
+- Grubun sahipleri değişti mi?
 
-- Hangi lisansları tooa grup veya kullanıcı atanmış?
+- Bir grup veya kullanıcıya hangi lisanslar atanmış?
 
-Yalnızca ilgili toousers ve gruplar verileri denetleme tooreview istiyorsanız, filtre uygulanmış bir görünüm altında bulabilirsiniz **denetim günlüklerini** hello içinde **etkinlik** hello bölümünü **kullanıcılar ve gruplar**. Bu giriş noktasında, **Etkinlik Kaynağı Türü** olarak **Kullanıcılar ve gruplar** önceden seçilidir.
+Yalnızca kullanıcı ve gruplarla ilgili denetim verilerini gözden geçirmek istiyorsanız, **Kullanıcılar ve Gruplar**’ın **Etkinlik** bölümündeki **Denetim günlükleri** altında filtrelenmiş bir görünüm bulabilirsiniz. Bu giriş noktasında, **Etkinlik Kaynağı Türü** olarak **Kullanıcılar ve gruplar** önceden seçilidir.
 
 ![Denetim günlükleri](./media/active-directory-reporting-activity-audit-logs/93.png "Denetim günlükleri")
 
 ### <a name="enterprise-applications-audit-logs"></a>Kurumsal uygulamaların denetim günlükleri
 
-Uygulama tabanlı denetim raporları, yanıtları tooquestions gibi alabilirsiniz:
+Uygulama tabanlı denetim raporları ile aşağıdakiler gibi soruların yanıtlarını alabilirsiniz:
 
-* Eklenen veya güncelleştirilen hello uygulamalar nelerdir?
-* Kaldırılan hello uygulamalar nelerdir?
+* Eklenmiş veya güncelleştirilmiş olan uygulamalar hangileridir?
+* Kaldırılmış olan uygulamalar hangileridir?
 * Belirli bir uygulamaya ait bir hizmet ilkesi değiştirildi mi?
-* Uygulamaları Hello adlarını değişti mi?
-* Kimin onayı tooan uygulamasını vermiş?
+* Uygulamaların adları değiştirildi mi?
+* Belirli bir uygulama için kim onay verdi?
 
-Yalnızca ilgili tooyour uygulamalar verileri denetleme tooreview istiyorsanız, filtre uygulanmış bir görünüm altında bulabilirsiniz **denetim günlüklerini** hello içinde **etkinlik** hello bölümünü **kurumsal uygulamalar**  dikey. Bu giriş noktasında, **Etkinlik Kaynağı Türü** olarak **Kurumsal uygulamalar** önceden seçilidir.
+Yalnızca uygulamalarınızla ilgili denetim verilerini gözden geçirmek istiyorsanız, **Kurumsal uygulamalar** dikey penceresinin **Etkinlik** bölümündeki **Denetim günlükleri** altında filtrelenmiş bir görünüm bulabilirsiniz. Bu giriş noktasında, **Etkinlik Kaynağı Türü** olarak **Kurumsal uygulamalar** önceden seçilidir.
 
 ![Denetim günlükleri](./media/active-directory-reporting-activity-audit-logs/134.png "Denetim günlükleri")
 
-Bu görünümü daha fazla toojust aşağı filtreleyebilirsiniz **grupları** veya yalnızca **kullanıcılar**.
+Bu görünümü yalnızca **grupları** veya yalnızca **kullanıcıları** içerecek şekilde filtreleyebilirsiniz.
 
 ![Denetim günlükleri](./media/active-directory-reporting-activity-audit-logs/25.png "Denetim günlükleri")
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Merhaba raporlama genel bakış için bkz: [Azure Active Directory raporlama](active-directory-reporting-azure-portal.md).
+Raporlamaya genel bir bakış için bkz. [Azure Active Directory raporlama](active-directory-reporting-azure-portal.md).
 

@@ -1,9 +1,9 @@
 ---
-title: "Klasik Azure CLI aaaCreate bir Internet'e yönelik Yük Dengeleyici - | Microsoft Docs"
-description: "Nasıl toocreate Klasik dağıtım modeli kullanarak bir Internet'e yönelik Yük Dengeleyici hello Azure CLI öğrenin"
+title: "İnternet’e yönelik yük dengeleyicisi oluşturma - Azure CLI klasik | Microsoft Docs"
+description: "Azure CLI kullanarak klasik dağıtımda İnternet’e yönelik yük dengeleyici oluşturmayı öğrenin"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: e433a824-4a8a-44d2-8765-a74f52d4e584
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-ms.openlocfilehash: e6070cbc574f74bca0cccb960ff192847d6511bc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 0813cb0ccf976b7e47420b33ec65714fd8e60ac1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-hello-azure-cli"></a>Internet'e yönelik yük dengeleyicisi (Klasik) hello Azure CLI oluşturmaya başlamak
+# <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-cli"></a>Azure CLI’de İnternet’e yönelik yük dengeleyici (klasik) oluşturmaya başlama
 
 > [!div class="op_single_selector"]
 > * [Klasik Azure Portalı](../load-balancer/load-balancer-get-started-internet-classic-portal.md)
@@ -31,16 +31,16 @@ ms.lasthandoff: 10/06/2017
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 > [!IMPORTANT]
-> Azure kaynaklarıyla çalışmadan önce Azure'da şu anda iki dağıtım modeli olduğunu önemli toounderstand olduğu: Azure Resource Manager ve klasik. Azure kaynaklarıyla çalışmadan önce [dağıtım modellerini ve araçlarlarını](../azure-classic-rm.md) iyice anladığınızdan emin olun. Bu makalenin hello üstünde hello sekmeleri tıklayarak farklı araçlarla ilgili hello belgeleri görüntüleyebilirsiniz. Bu makalede, hello Klasik dağıtım modeli yer almaktadır. Ayrıca [nasıl toocreate Internet'e yönelik Yük Dengeleyici Azure Resource Manager kullanarak bilgi](load-balancer-get-started-internet-arm-ps.md).
+> Azure kaynaklarıyla çalışmadan önce Azure’da şu anda iki dağıtım modeli olduğunu anlamak önemlidir: Azure Resource Manager ve klasik. Azure kaynaklarıyla çalışmadan önce [dağıtım modellerini ve araçlarlarını](../azure-classic-rm.md) iyice anladığınızdan emin olun. Bu makalenin en üstündeki sekmelere tıklayarak farklı araçlarla ilgili belgeleri görüntüleyebilirsiniz. Bu makale, klasik dağıtım modelini kapsamaktadır. [Azure Resource Manager kullanarak İnternet’e yönelik yük dengeleyici oluşturma](load-balancer-get-started-internet-arm-ps.md) sayfasını da inceleyebilirsiniz.
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## <a name="step-by-step-creating-an-internet-facing-load-balancer-using-cli"></a>CLI kullanarak İnternet’e yönelik yük dengeleyici oluşturma adımları
+## <a name="create-an-internet-facing-load-balancer-using-cli"></a>CLI kullanarak İnternet'e yönelik yük dengeleyici oluşturma
 
-Bu kılavuz, nasıl bir Internet yük dengeleyici toocreate yukarıdaki hello senaryosu üzerine temel gösterir.
+Bu kılavuz, yukarıdaki senaryoya göre İnternet’e yönelik yük dengeleyicinin nasıl oluşturulacağını göstermektedir.
 
-1. Azure CLI hiç kullanmadıysanız bkz [hello Azure CLI yükleyip](../cli-install-nodejs.md) ve sonra Azure hesabınızı ve aboneliğinizi toohello noktaya hello talimatlarını izleyin.
-2. Merhaba çalıştırmak **azure config modu** aşağıda gösterildiği gibi komut tooswitch tooclassic modu.
+1. Hiç Azure CLI kullanmadıysanız bkz. [Azure CLI’yi Yükleme ve Yapılandırma](../cli-install-nodejs.md); sonra da, Azure hesabınızı ve aboneliğinizi seçtiğiniz noktaya kadar yönergeleri uygulayın.
+2. Klasik moda geçmek için **azure config mode** komutunu aşağıda gösterildiği gibi çalıştırın.
 
     ```azurecli
     azure config mode asm
@@ -52,34 +52,34 @@ Bu kılavuz, nasıl bir Internet yük dengeleyici toocreate yukarıdaki hello se
 
 ## <a name="create-endpoint-and-load-balancer-set"></a>Uç nokta ve yük dengeleyici kümesi oluşturma
 
-Merhaba sanal makineler "web1" Merhaba senaryo varsayar ve "web2" oluşturulmadı.
-Bu kılavuzda hem genel hem de yerel bağlantı noktası olarak 80 numaralı bağlantı noktası kullanılarak bir yük dengeleyici kümesi oluşturulmaktadır. Sonda bağlantı noktası aynı zamanda bağlantı noktası 80 üzerinde yapılandırılmış olan ve "lbset" adlandırılmış hello yük dengeleyicisi ayarlayın.
+Bu senaryoda "web1" ve "web2" adlı sanal makinelerin oluşturulduğu varsayılmaktadır.
+Bu kılavuzda hem genel hem de yerel bağlantı noktası olarak 80 numaralı bağlantı noktası kullanılarak bir yük dengeleyici kümesi oluşturulmaktadır. 80 numaralı bağlantı noktasında da bir araştırma bağlantı noktası yapılandırılmakta ve yük dengeleyici kümesi "lbset" olarak adlandırılmaktadır.
 
 ### <a name="step-1"></a>1. Adım
 
-Merhaba ilk uç noktası oluşturma ve yük dengeleyici kullanılarak ayarlanan `azure network vm endpoint create` "web1" bir sanal makine için.
+`azure network vm endpoint create` kullanarak "web1" adlı sanal makine için ilk uç noktayı ve yük dengeleyici kümesini oluşturun.
 
 ```azurecli
 azure vm endpoint create web1 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
 ```
 
-## <a name="step-2"></a>2. Adım
+### <a name="step-2"></a>2. Adım
 
-İkinci bir sanal makine "web2" toohello yük dengeleyici kümesini ekleyin.
+Yük dengeleyici kümesine "web2" adlı ikinci bir sanal makine ekleyin.
 
 ```azurecli
 azure vm endpoint create web2 80 --local-port 80 --protocol tcp --probe-port 80 --load-balanced-set-name lbset
 ```
 
-## <a name="step-3"></a>3. Adım
+### <a name="step-3"></a>3. Adım
 
-Merhaba yük dengeleyici Yapılandırması kullanılarak doğrulayın `azure vm show` .
+`azure vm show` komutunu kullanarak yük dengeleyici yapılandırmasını doğrulayın.
 
 ```azurecli
 azure vm show web1
 ```
 
-Merhaba çıkış olacaktır:
+Çıktı şu şekilde olacaktır:
 
     data:    DNSName "contoso.cloudapp.net"
     data:    Location "East US"
@@ -125,7 +125,7 @@ Merhaba çıkış olacaktır:
 
 ## <a name="create-a-remote-desktop-endpoint-for-a-virtual-machine"></a>Bir sanal makine için uzak masaüstü uç noktası oluşturma
 
-Uzak Masaüstü uç nokta tooforward ağ trafiğini kullanarak belirli bir sanal makine için bir genel bağlantı noktası tooa yerel bağlantı noktasından oluşturabileceğiniz `azure vm endpoint create`.
+`azure vm endpoint create` kullanarak belirli bir sanal makine için genel bağlantı noktasına gelen trafiği yerel bağlantı noktasına yönlendirme amacıyla uzak masaüstü uç noktası oluşturabilirsiniz.
 
 ```azurecli
 azure vm endpoint create web1 54580 -k 3389
@@ -133,16 +133,16 @@ azure vm endpoint create web1 54580 -k 3389
 
 ## <a name="remove-virtual-machine-from-load-balancer"></a>Sanal makineyi yük dengeleyiciden kaldırma
 
-Yük Dengeleyici kümesi hello sanal makineden toodelete hello ilişkili uç nokta toohello sahip. Merhaba endpoint kaldırıldıktan sonra hello sanal makine artık ayarlamak toohello yük dengeleyici ait değil.
+Yük dengeleyici kümesiyle ilişkilendirilmiş uç noktayı sanal makineden silmeniz gerekir. Uç nokta kaldırıldığında ilgili sanal makine artık yük dengeleyici kümesine ait olmayacaktır.
 
-Yukarıdaki Hello örneği kullanarak, yük dengeleyiciden "Merhaba komutunu kullanarak lbset'e" Merhaba endpoint "web1" sanal makine için oluşturulmuş kaldırabilirsiniz `azure vm endpoint delete`.
+Yukarıdaki örneği kullanarak "web1" sanal makinesi için oluşturulan uç noktayı "lbset" yük dengeleyiciden `azure vm endpoint delete` komutuyla kaldırabilirsiniz.
 
 ```azurecli
 azure vm endpoint delete web1 tcp-80-80
 ```
 
 > [!NOTE]
-> Merhaba komutunu kullanarak daha fazla seçenekleri toomanage uç noktaları keşfedin`azure vm endpoint --help`
+> `azure vm endpoint --help` komutunu kullanarak diğer uç nokta yönetim seçeneklerini keşfedebilirsiniz
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

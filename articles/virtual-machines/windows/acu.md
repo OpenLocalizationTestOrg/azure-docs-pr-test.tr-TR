@@ -1,6 +1,6 @@
 ---
-title: "hello Azure işlem birim aaaOverview | Microsoft Docs"
-description: "İşlem birimleri için Windows hello Azure hello kavramı genel bakış. Merhaba ACU Azure SKU'ları arasında CPU performans karşılaştırma bir yolunu sunar."
+title: "Azure genel bakış işlem birim | Microsoft Docs"
+description: "İşlem birimleri için Windows Azure kavramı genel bakış. ACU Azure SKU'ları arasında CPU performans karşılaştırma bir yolunu sunar."
 services: virtual-machines-windows
 documentationcenter: 
 author: jonbeck7
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/28/2017
 ms.author: jonbeck
-ms.openlocfilehash: d2fc635c68851382b3d1df3d5836b306f9044273
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2214c7e8661a81e19b765b8519a48542de1159fb
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-compute-unit-acu"></a>Azure işlem birimi (ACU)
 
 [!INCLUDE [virtual-machines-common-acu](../../../includes/virtual-machines-common-acu.md)]
 
 
-Bağlantılar toomore hello farklı boyutlarda bilgilerini şunlardır:
+Farklı boyutlarda hakkında daha fazla bilgi için bağlantılar şunlardır:
 - [Genel amaçlı](sizes-general.md)
 - [Bellek için iyileştirilmiş](../virtual-machines-windows-sizes-memory.md)
 - [İşlem için iyileştirilmiş](sizes-compute.md)

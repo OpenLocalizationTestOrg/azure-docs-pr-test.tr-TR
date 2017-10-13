@@ -1,5 +1,5 @@
 ---
-title: "aaaCreate bir Azure sanal makine ölçek kümesi | Microsoft Docs"
+title: "Bir Azure sanal makine ölçek kümesi oluşturma | Microsoft Docs"
 description: "Oluşturun ve Azure CLI, PowerShell, şablon veya Visual Studio ile ayarlanmış bir Linux veya Windows Azure sanal makine ölçek dağıtın."
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -15,25 +15,25 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: adegeo
-ms.openlocfilehash: 73de25c1dd2424e64655b3accfea848926e72f69
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 32af01aa545c541688128a7ae6bbb82a0e046f2d
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="create-and-deploy-a-virtual-machine-scale-set"></a>Oluşturma ve bir sanal makine ölçek kümesini dağıtma
-Sanal makine ölçek kümeleri sizin için toodeploy kolaylaştırır ve aynı sanal makineleri bir küme olarak yönetin. Ölçek kümeleri ölçekte uygulamalar için yüksek oranda ölçeklenebilir ve özelleştirilebilir bilgi işlem katmanını sağlar ve Windows platform görüntüleri, Linux platform görüntüleri, özel resimler ve uzantıları destekler. Ölçek kümeleri hakkında daha fazla bilgi için bkz: [sanal makine ölçek kümeleri](virtual-machine-scale-sets-overview.md).
+Sanal makine ölçek kümeleri dağıtmak ve bir küme olarak aynı sanal makineleri yönetmek için kolay hale getirir. Ölçek kümeleri ölçekte uygulamalar için yüksek oranda ölçeklenebilir ve özelleştirilebilir bilgi işlem katmanını sağlar ve Windows platform görüntüleri, Linux platform görüntüleri, özel resimler ve uzantıları destekler. Ölçek kümeleri hakkında daha fazla bilgi için bkz: [sanal makine ölçek kümeleri](virtual-machine-scale-sets-overview.md).
 
-Bu öğretici, bir sanal makine ölçek toocreate nasıl ayarlanacağını gösterir. **olmadan** hello Azure portal kullanarak. Nasıl toouse hello Azure portal hakkında daha fazla bilgi için bkz: [nasıl toocreate hello Azure portal ile bir sanal makine ölçek kümesi](virtual-machine-scale-sets-portal-create.md).
+Bu öğreticide, bir sanal makine ölçek kümesi oluşturmak nasıl gösterilir **olmadan** Azure portalını kullanarak. Azure Portalı'nı kullanma hakkında daha fazla bilgi için bkz: [kümesinin nasıl bir sanal makine ölçek oluşturulacağı Azure portalıyla](virtual-machine-scale-sets-portal-create.md).
 
 >[!NOTE]
 >Azure Resource Manager kaynakları hakkında daha fazla bilgi için bkz: [Azure Resource Manager ve klasik dağıtım](../azure-resource-manager/resource-manager-deployment-model.md).
 
-## <a name="sign-in-tooazure"></a>İçinde tooAzure oturum
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-Azure CLI 2.0 veya Azure PowerShell toocreate ölçek kullanıyorsanız, ayarlanırsa, ilk tooyour Abonelikteki toosign gerekir.
+Bir ölçek kümesi oluşturmak için Azure CLI 2.0 veya Azure PowerShell kullanıyorsanız, önce aboneliğinize imzalamanız gerekir.
 
-Ayarlama, tooinstall ve oturum açma tooAzure Azure CLI veya PowerShell ile nasıl görürüm hakkında daha fazla bilgi için [Azure CLI 2.0 ile çalışmaya başlama](/cli/azure/get-started-with-azure-cli.md) veya [Azure PowerShell cmdlet'leri kullanmaya başlama](/powershell/azure/overview).
+Yüklemek, ayarlayın ve Azure CLI veya PowerShell ile Azure oturumu hakkında daha fazla bilgi için bkz: [Azure CLI 2.0 ile çalışmaya başlama](/cli/azure/get-started-with-azure-cli.md) veya [Azure PowerShell cmdlet'leri kullanmaya başlama](/powershell/azure/overview).
 
 ```azurecli
 az login
@@ -45,7 +45,7 @@ Login-AzureRmAccount
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
-Önce hello sanal makine ölçek kümesi bir kaynak grubu ile ilişkili toocreate gerekir.
+İlk sanal makine ölçek kümesi ile ilişkili bir kaynak grubu oluşturmanız gerekir.
 
 ```azurecli
 az group create --location westus2 --name MyResourceGroup1
@@ -57,46 +57,46 @@ New-AzureRmResourceGroup -Location westus2 -Name MyResourceGroup1
 
 ## <a name="create-from-azure-cli"></a>Azure CLI üzerinden oluşturma
 
-Azure CLI ile en az çaba ile ayarlanmış bir sanal makine ölçek oluşturabilirsiniz. Varsayılan değerleri atlarsanız, bunlar sizin için sağlanır. Örneğin, herhangi bir sanal ağ bilgi belirtmezseniz, bir sanal ağ sizin için oluşturulur. Bölümleri aşağıdaki hello atlarsanız, bunlar sizin için oluşturulur: 
+Azure CLI ile en az çaba ile ayarlanmış bir sanal makine ölçek oluşturabilirsiniz. Varsayılan değerleri atlarsanız, bunlar sizin için sağlanır. Örneğin, herhangi bir sanal ağ bilgi belirtmezseniz, bir sanal ağ sizin için oluşturulur. Aşağıdaki bölümleri atlarsanız, bunlar sizin için oluşturulur: 
 - Bir yük dengeleyici
 - Bir sanal ağ
 - Bir ortak IP adresi
 
-Merhaba sanal makine ölçek kümesi üzerinde toouse istediğiniz sanal makine görüntüsü seçme Merhaba, birkaç seçeneğiniz vardır:
+Sanal makine ölçek kümesi üzerinde kullanmak istediğiniz sanal makine görüntüsü seçerken, birkaç seçeneğiniz vardır:
 
 - URN  
-bir kaynak tanıtıcısı Hello:  
+Bir kaynak tanımlayıcısı:  
 **Win2012R2Datacenter**
 
 - URN diğer adı  
-kolay adı bir URN Hello:  
+Bir URN kolay adı:  
 **MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest**
 
 - Özel kaynak kimliği  
-Merhaba yolu tooan Azure kaynağı:  
+Bir Azure kaynağı yolu:  
 **/Subscriptions/Subscription-guid/resourceGroups/MyResourceGroup/providers/Microsoft.COMPUTE/images/MyImage**
 
 - Web kaynağı  
-Merhaba yolu tooan HTTP URI:  
+Bir HTTP URI yolu:  
 **http://contoso.BLOB.Core.Windows.NET/vhds/osdiskimage.vhd**
 
 >[!TIP]
 >Kullanılabilir görüntülerle listesini almak `az vm image list`.
 
-toocreate bir sanal makine ölçek kümesi, hello aşağıdakileri belirtin:
+Bir sanal makine ölçek kümesi oluşturmak için aşağıdakileri belirtmeniz gerekir:
 
 - Kaynak grubu 
 - Ad
 - İşletim sistemi görüntüsü
 - Kimlik doğrulama bilgileri 
  
-Aşağıdaki örnek hello (Bu adım birkaç dakika sürebilir) temel sanal makine ölçek kümesi oluşturur.
+Aşağıdaki örnek, (Bu adım birkaç dakika sürebilir) temel sanal makine ölçek kümesi oluşturur.
 
 ```azurecli
 az vmss create --resource-group MyResourceGroup1 --name MyScaleSet --image UbuntuLTS --authentication-type password --admin-username azureuser --admin-password P@ssw0rd!
 ```
 
-Merhaba komut bittikten sonra oluşturulan ayarlayın, sanal makine ölçek şimdi sahip olur. Tooit bağlanabilmesi tooget hello hello sanal makinenin IP adresini gerekebilir. Komutu aşağıdaki hello ile çok sayıda hello sanal makine (Merhaba IP adresi dahil) hakkında farklı bilgi elde edebilirsiniz. 
+Komut bittikten sonra oluşturulan ayarlayın, sanal makine ölçek şimdi sahip olur. Sanal makinenin IP adresi için bağlanabilmesi yapmanız gerekebilir. Aşağıdaki komutla bir çok sayıda sanal makine (IP adresi dahil) hakkında farklı bilgi elde edebilirsiniz. 
 
 ```azurecli
 az vmss list-instance-connection-info --resource-group MyResourceGroup1 --name MyScaleSet
@@ -104,13 +104,13 @@ az vmss list-instance-connection-info --resource-group MyResourceGroup1 --name M
 
 ## <a name="create-from-powershell"></a>Powershell'den oluşturma
 
-Azure CLI'den daha karmaşık toouse powershell'dir. Azure CLI ağla ilgili kaynaklar (örneğin, yük Dengeleyiciler, IP adresleri ve sanal ağları) için varsayılan sağlarken, PowerShell desteklemez. PowerShell ile bir görüntü başvuran bir biraz daha çok karmaşıktır. Cmdlet aşağıdaki hello ile görüntüleri alabilirsiniz:
+PowerShell Azure CLI kullanmak çok daha karmaşıktır. Azure CLI ağla ilgili kaynaklar (örneğin, yük Dengeleyiciler, IP adresleri ve sanal ağları) için varsayılan sağlarken, PowerShell desteklemez. PowerShell ile bir görüntü başvuran bir biraz daha çok karmaşıktır. Aşağıdaki cmdlet ile görüntüleri alabilirsiniz:
 
 1. Get-AzureRMVMImagePublisher
 2. Get-AzureRMVMImageOffer
 3. Get-AzureRmVMImageSku
 
-Merhaba cmdlet'leri iş sırayla yöneltilen. Merhaba nasıl tooget tüm görüntüleri bir örnek şudur **Batı ABD 2** hello ada sahip bir yayımcı bölgesiyle **microsoft** da.
+Cmdlet'leri iş sırayla yöneltilen. İşte bir örnek için tüm görüntüleri alma **Batı ABD 2** bölge adına sahip bir yayımcı ile **microsoft** da.
 
 ```powershell
 Get-AzureRMVMImagePublisher -Location WestUS2 | Where-Object PublisherName -Like *microsoft* | Get-AzureRMVMImageOffer | Get-AzureRmVMImageSku | Select-Object PublisherName, Offer, Skus
@@ -129,13 +129,13 @@ MicrosoftBizTalkServer     BizTalk-Server           2016-Enterprise
 ...
 ```
 
-bir sanal makine ölçek kümesi oluşturmak için hello iş akışı aşağıdaki gibidir:
+Bir sanal makine ölçek kümesi oluşturmak için iş akışı aşağıdaki gibidir:
 
-1. Merhaba ölçek kümesi hakkında bilgi içeren bir yapılandırma nesnesi oluşturun.
-2. Başvuru hello temel işletim sistemi görüntüsü.
-3. Merhaba işletim sistemi ayarlarını yapılandırın: kimlik doğrulaması, VM adı ön ekini ve kullanıcı/geçirin.
+1. Ölçek kümesi hakkında bilgi içeren bir yapılandırma nesnesi oluşturun.
+2. Temel işletim sistemi görüntüsü başvuru.
+3. İşletim sistemi ayarlarını yapılandırın: kimlik doğrulaması, VM adı ön ekini ve kullanıcı/geçirin.
 4. Ağ yapılandırın.
-5. Merhaba ölçek kümesi oluşturun.
+5. Ölçek kümesi oluşturun.
 
 Bu örnek, Windows Server 2016 sahip bir bilgisayar için temel bir iki örnekli ölçek oluşturur.
 
@@ -147,13 +147,13 @@ $location = "WestUS2"
 # Create a config object
 $vmssConfig = New-AzureRmVmssConfig -Location $location -SkuCapacity 2 -SkuName Standard_A0  -UpgradePolicyMode Automatic
 
-# Reference a virtual machine image from hello gallery
+# Reference a virtual machine image from the gallery
 Set-AzureRmVmssStorageProfile $vmssConfig -ImageReferencePublisher MicrosoftWindowsServer -ImageReferenceOffer WindowsServer -ImageReferenceSku 2016-Datacenter -ImageReferenceVersion latest
 
-# Set up information for authenticating with hello virtual machine
+# Set up information for authenticating with the virtual machine
 Set-AzureRmVmssOsProfile $vmssConfig -AdminUsername azureuser -AdminPassword P@ssw0rd! -ComputerNamePrefix myvmssvm
 
-# Create hello virtual network resources
+# Create the virtual network resources
 
 ## Basics
 $subnet = New-AzureRmVirtualNetworkSubnetConfig -Name "my-subnet" -AddressPrefix 10.0.0.0/24
@@ -172,38 +172,38 @@ New-AzureRmLoadBalancer -ResourceGroupName $rg -Name "LB1" -Location $location -
 ## IP address config
 $ipConfig = New-AzureRmVmssIpConfig -Name "my-ipaddress" -LoadBalancerBackendAddressPoolsId $backendPool.Id -SubnetId $vnet.Subnets[0].Id -LoadBalancerInboundNatPoolsId $inboundNATPool1.Id
 
-# Attach hello virtual network toohello IP object
+# Attach the virtual network to the IP object
 Add-AzureRmVmssNetworkInterfaceConfiguration -VirtualMachineScaleSet $vmssConfig -Name "network-config" -Primary $true -IPConfiguration $ipConfig
 
-# Create hello scale set with hello config object (this step might take a few minutes)
+# Create the scale set with the config object (this step might take a few minutes)
 New-AzureRmVmss -ResourceGroupName $rg -Name "MyScaleSet1" -VirtualMachineScaleSet $vmssConfig
 ```
 
 ### <a name="using-a-custom-virtual-machine-image"></a>Bir özel sanal makine görüntüsü kullanma
-Bir sanal makine görüntüsü hello Galerisi'nden başvuran yerine kendi özel görüntünüzü kümeden bir ölçek oluşturuyorsanız hello _kümesi AzureRmVmssStorageProfile_ komutu şuna benzeyebilir:
+Galeriden bir sanal makine görüntüsü başvuran yerine kendi özel görüntünüzü kümeden bir ölçek oluşturuyorsanız _kümesi AzureRmVmssStorageProfile_ komutu şuna benzeyebilir:
 ```PowerShell
 Set-AzureRmVmssStorageProfile -OsDiskCreateOption FromImage -ManagedDisk PremiumLRS -OsDiskCaching "None" -OsDiskOsType Linux -ImageReferenceId (Get-AzureRmImage -ImageName $VMImage -ResourceGroupName $rg).id
 ```
 
 ## <a name="create-from-a-template"></a>Şablondan oluşturma
 
-Bir Azure Resource Manager şablonu kullanarak bir sanal makine ölçek dağıtabilirsiniz. Kendi şablonunuzu oluşturun ya da bir hello kullan [şablonu deposu](https://azure.microsoft.com/resources/templates/?term=vmss). Bu şablonlar dağıtılabilir doğrudan tooyour Azure aboneliği.
+Bir Azure Resource Manager şablonu kullanarak bir sanal makine ölçek dağıtabilirsiniz. Kendi şablonunuzu oluşturun ya da birinden kullanmak [şablonu deposu](https://azure.microsoft.com/resources/templates/?term=vmss). Bu şablonları Azure aboneliğinize doğrudan dağıtılabilir.
 
 >[!NOTE]
->toocreate kendi şablonunuzu bir JSON metin dosyası oluşturun. Hakkında genel bilgi için toocreate ve şablonu özelleştirme bkz [Azure Resource Manager şablonları](../azure-resource-manager/resource-group-authoring-templates.md).
+>Kendi şablonunuzu oluşturmak için JSON metin dosyası oluşturun. Oluşturma ve bir şablonu özelleştirme hakkında genel bilgi için bkz: [Azure Resource Manager şablonları](../azure-resource-manager/resource-group-authoring-templates.md).
 
-Örnek şablon kullanılabilir [github'da](https://github.com/gatneil/mvss/tree/minimum-viable-scale-set). Nasıl bkz: toocreate ve örnek, kullanma hakkında daha fazla bilgi için [en uygun ölçek kümesini](.\virtual-machine-scale-sets-mvss-start.md).
+Örnek şablon kullanılabilir [github'da](https://github.com/gatneil/mvss/tree/minimum-viable-scale-set). Oluşturun ve bu örneği kullanmak hakkında daha fazla bilgi için bkz: [en uygun ölçek kümesini](.\virtual-machine-scale-sets-mvss-start.md).
 
 ## <a name="create-from-visual-studio"></a>Visual Studio'dan oluşturma
 
-Visual Studio ile bir Azure kaynak grubu projesi oluşturun ve şablon tooit bir sanal makine ölçek kümesi ekleyin. Tooimport isteyip istemediğinizi seçebilirsiniz, GitHub veya hello Azure Web uygulama Galerisi. Bir dağıtım PowerShell komut dosyası ayrıca sizin için oluşturulur. Daha fazla bilgi için bkz: [nasıl toocreate Visual Studio ile bir sanal makine ölçek kümesi](virtual-machine-scale-sets-vs-create.md).
+Visual Studio ile bir Azure kaynak grubu projesi oluşturun ve şablon için bir sanal makine ölçek kümesi ekleyin. GitHub veya Azure Web uygulama Galerisi almak isteyip istemediğinizi seçebilirsiniz. Bir dağıtım PowerShell komut dosyası ayrıca sizin için oluşturulur. Daha fazla bilgi için bkz: [kümesinin Visual Studio ile nasıl bir sanal makine ölçek oluşturulacağı](virtual-machine-scale-sets-vs-create.md).
 
-## <a name="create-from-hello-azure-portal"></a>Azure portal Hello oluşturma
+## <a name="create-from-the-azure-portal"></a>Azure portalından oluşturmak
 
-Hello Azure portal tooquickly ölçek kümesi oluştur kullanışlı bir yol sağlar. Daha fazla bilgi için bkz: [nasıl toocreate hello Azure portal ile bir sanal makine ölçek kümesi](virtual-machine-scale-sets-portal-create.md).
+Azure portal, hızlı bir şekilde bir ölçek kümesi oluşturmak için kolay bir yol sağlar. Daha fazla bilgi için bkz: [kümesinin nasıl bir sanal makine ölçek oluşturulacağı Azure portalıyla](virtual-machine-scale-sets-portal-create.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Daha fazla bilgi edinmek [veri diskleri](virtual-machine-scale-sets-attached-disks.md).
 
-Nasıl çok öğrenin[uygulamalarınızı yönetmek](virtual-machine-scale-sets-deploy-app.md).
+Bilgi edinmek için nasıl [uygulamalarınızı yönetmek](virtual-machine-scale-sets-deploy-app.md).

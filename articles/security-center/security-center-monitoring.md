@@ -1,6 +1,6 @@
 ---
-title: "Azure Güvenlik Merkezi'nde aaaSecurity izleme | Microsoft Docs"
-description: "Bu makalede Azure Güvenlik Merkezi'nde yetenekleri izleme ile çalışmaya tooget yardımcı olur."
+title: "Azure Güvenlik Merkezi'nde güvenliği izleme | Microsoft Docs"
+description: "Bu makale, Azure Güvenlik Merkezi'nde izleme özelliklerini kullanmaya başlamanıza yardımcı olur."
 services: security-center
 documentationcenter: na
 author: YuriDio
@@ -12,119 +12,128 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 09/07/2017
 ms.author: yurid
-ms.openlocfilehash: 43c2a8864d5fe27ba44b0d7bc979db970305ec17
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: d610a4ae97657013f6bb784790f073c3d986959f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik durumunu izleme
-Bu makalede, Azure Güvenlik Merkezi toomonitor uyumluluk ilkeleriyle izleme kapasiteleri hello kullanmanıza yardımcı olur.
+Bu makale, ilkelerle uyumluluğu izlemek için Azure Güvenlik Merkezi'ndeki izleme özelliklerini kullanmanıza yardımcı olur.
 
 ## <a name="what-is-security-health-monitoring"></a>Güvenlik durumunu izleme nedir?
-Genellikle izlemeyi ve biz toohello duruma tepki verme için bir olay toooccur bekliyor olarak izlemeyi düşünün. Güvenlik İzleme toohaving kuruluş standartlarıyla veya en iyi yöntemler karşılamayan kaynakları tooidentify sistemlerinizi denetimleri öngörülü bir stratejiye başvuruyor.
+Genellikle izlemeyi, izleme ve bir olayın gerçekleşmesini bekleyip duruma tepki verme olarak ele alırız. Güvenliği izleme, kuruluş standartlarıyla veya en iyi uygulamalarla uyumlu olmayan sistemleri tanımlamak için kaynaklarınızı denetleyen öngörülü bir stratejiye sahip olma anlamına gelir.
 
 ## <a name="monitoring-security-health"></a>Güvenlik durumunu izleme
-Etkinleştirdikten sonra [güvenlik ilkeleri](security-center-policies.md) bir aboneliğin kaynakları için Güvenlik Merkezi, kaynakları tooidentify olası güvenlik açıklarını hello güvenliğini analiz eder. Ağ yapılandırmanız ile ilgili bilgiler hemen kullanımınıza sunulur. Bir saat sürebilir veya daha fazla bilgi güvenliği gibi sanal makine yapılandırma hakkında bilgi için güncelleştirme durumu ve işletim sistemi yapılandırması, toobecome kullanılabilir. Hello hello güvenlik durumunu, kaynaklarınızı ve sorunları görüntüleyebilirsiniz **önleme** bölümü. Bu sorunların bir listesi üzerinde hello görüntüleyebilirsiniz **önerileri** döşeme.
+Bir aboneliğin kaynakları için [güvenlik ilkelerini](security-center-policies.md) etkinleştirmenizin ardından, Güvenlik Merkezi olası güvenlik açıklarını tanımlamak amacıyla kaynaklarınızın güvenliğini analiz eder. Ağ yapılandırmanız ile ilgili bilgiler hemen kullanımınıza sunulur. Aracının yüklü olduğu VM'ler ve bilgisayarların sayısına bağlı olarak, güvenlik güncelleştirmesi durumu ve işletim sistemi yapılandırması gibi bilgisayar yapılandırma ayarları ve VM’ler hakkında bilgi toplamak bir saat veya daha fazla sürebilir. **Önleme** bölümünde kaynaklarınızın güvenlik durumunu ve sorunları görüntüleyebilirsiniz. Ayrıca, bu sorunların bir listesini **Öneriler** kutucuğunda görüntüleyebilirsiniz.
 
-Hakkında daha fazla bilgi için okuma tooapply önerileri [Azure Güvenlik Merkezi'nde güvenlik önerilerini uygulama](security-center-recommendations.md).
+Önerileri uygulama hakkında daha fazla bilgi için [Azure Güvenlik Merkezi'nde güvenlik önerilerini uygulama](security-center-recommendations.md)'yı okuyun.
 
-Merhaba altında **önleme** bölümünde hello kaynaklarınızın güvenlik durumunu izleyebilirsiniz. Aşağıdaki örneğine hello gördüğünüz her kaynağın döşemesinin (işlem, ağ, depolama ve veri ve uygulama) olan hello belirlendi sorunları toplam sayısı.
+**Önleme** bölümünde kaynaklarınızın güvenlik durumunu izleyebilirsiniz. Aşağıdaki örnekte, her bir kaynağın kutucuğunda (İşlem, Ağ, Depolama ve veriler ile Uygulama) tanımlanan toplam sorun sayısının olduğunu görebilirsiniz.
 
 ![Kaynaklar güvenlik durumu kutucuğu](./media/security-center-monitoring/security-center-monitoring-fig1-newUI-2017.png)
 
 
 ### <a name="monitor-compute"></a>İzleyici işlemi
-Tıkladığınızda **işlem** , hello döşeme **işlem** açar dikey üç sekme gösterir:
+**Bilgisayar** kutucuğuna tıkladığınızda, üç sekme görünür:
 
-- **Genel Bakış**: izleme ve sanal makine önerileri.
-- **Sanal Makineler**: tüm sanal makineleri ve geçerli güvenlik durumunu listeler.
+- **Genel Bakış**: izleme ve öneriler.
+- **VM’ler ve Bilgisayarlar**: Tüm sanal makineleri ve geçerli güvenlik durumlarını listeler.
 - **Cloud Services**: Güvenlik Merkezi tarafından izlenen tüm web ve çalışan rollerinin listesi.
 
-![Sanal makine tarafından eksik sistem güncelleştirmesi](./media/security-center-monitoring/security-center-monitoring-fig1-new002-2017.png)
+![Sanal makine tarafından eksik sistem güncelleştirmesi](./media/security-center-monitoring/security-center-monitoring-fig1-sep2017.png)
 
-Her bir sekmede, birden çok bölüm olabilir ve her bir bölümünde, bir tek tek seçenek toosee seçebilirsiniz hello hakkında daha fazla ayrıntı adımları tooaddress bu belirli sorun önerilir. 
+Her sekmede birden fazla bölüm olabilir ve her bölümde, sorunu çözmek üzere önerilen adımlarla ilgili daha fazla ayrıntı görmek için ayrı ayrı seçenekler belirleyebilirsiniz. 
 
 #### <a name="monitoring-recommendations"></a>İzleme önerileri
-Bu bölümde hello veri toplama ve bunların geçerli durumları için başlatılan sanal makinelerin toplam sayısını gösterir. Tüm sanal makinelerin veri toplama başlatıldıktan sonra bunların hazır tooreceive Güvenlik Merkezi güvenlik ilkelerini olacaktır. Bu giriş'e tıkladığınızda, hello **VM Aracısı eksik veya yanıt vermiyor** dikey pencere açılır. 
+Bu bölüm, otomatik hazırlaması başlatılmış sanal makinelerin ve bilgisayarların toplam sayısıyla bunların geçerli durumlarını gösterir. Bu girişe tıkladığınızda, **VM Aracısı eksik veya yanıt vermiyor** penceresi açılır. 
 
 ![Sanal makine tarafından eksik sistem güncelleştirmesi](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
 
-#### <a name="virtual-machine-recommendations"></a>Sanal makine önerileri
-Bu bölümde, Azure Güvenlik Merkezi’nin izlediği [her bir sanal makine için bir öneri](security-center-virtual-machine-recommendations.md) kümesi bulunur. Merhaba ilk sütun hello öneri listeler. Merhaba ikinci sütun bu önerisi tarafından etkilenen sanal makineleri hello toplam sayısını gösterir. Merhaba üçüncü sütun hello ekran aşağıdaki gösterildiği gibi hello sorunu hello önemini gösterir.
+#### <a name="recommendations"></a>Öneriler
+Bu bölümde, Azure Güvenlik Merkezi’nin izlediği [her bir sanal makine ve bilgisayar için bir öneri](security-center-virtual-machine-recommendations.md) kümesi bulunur. İlk sütunda öneriler listelenmiştir. İkinci sütunda, bu önerinin etkilediği sanal makinelerin ve bilgisayarların toplam sayısı gösterilmiştir. Üçüncü sütunda, aşağıdaki ekran görüntüsünde gösterildiği gibi sorunun önem derecesi belirtilmiştir.
 
-![Sanal makine önerileri](./media/security-center-monitoring/security-center-monitoring-fig1-new004-2017.png)
+![Sanal makine önerileri](./media/security-center-monitoring/security-center-monitoring-fig2-sep2017.png)
 
 > [!NOTE]
-> Yalnızca en az bir ortak uç nokta olan makineleri hello gösterilen **ağ durumu** dikey penceresinde hello **ağ topolojisi** listesi.
+> **Ağ topolojisi listesinin** **Ağ Durumu** penceresinde yalnızca en az bir genel uç nokta içeren sanal makineler gösterilir.
 >
->
 
-Her öneride, tıkladıktan sonra gerçekleştirebileceğiniz bir eylemler kümesi bulunur. Örneğin, tıklatırsanız **eksik sistem güncelleştirmeleri**, hello **eksik sistem güncelleştirmeleri** dikey pencere açılır. Yamaları eksik olan ve hello aşağıda gösterildiği gibi hello eksik güncelleştirmenin önem hello hello sanal makineleri listeler ekran görüntüsü.
+Her öneride, tıkladıktan sonra gerçekleştirebileceğiniz bir eylemler kümesi bulunur. Örneğin, **Eksik sistem güncelleştirmeleri**’ne tıklarsanız, eksik düzeltme eklerine sahip sanal makineler ve bilgisayarlar ile eksik güncelleştirmelerin önem derecesi, aşağıdaki ekran görüntüsündeki gibi bir liste halinde görüntülenir:
 
-![Sanal makineler için eksik sistem güncelleştirmeleri](./media/security-center-monitoring/security-center-monitoring-fig5-ga.png)
+![Sanal makineler için eksik sistem güncelleştirmeleri](./media/security-center-monitoring/security-center-monitoring-fig9-sep2017.png)
 
-Merhaba **eksik sistem güncelleştirmeleri** dikey penceresinde hello aşağıdaki bilgilerle bir tablo gösterir:
+**Eksik sistem güncelleştirmeleri**, kritik güncelleştirmelerin biri Windows ve diğeri de Linux için olmak üzere iki grafik biçiminde özetini sunar. İkinci bölümde, aşağıdaki bilgileri içeren bir tablo vardır:
 
-* **SANAL makine**: hello hello sanal makinenin adı, güncelleştirmeleri eksik.
-* **Sistem güncelleştirmeleri**: Merhaba eksik sistem güncelleştirmeleri sayısı.
-* **En son tarama zamanı**: Güvenlik Merkezi'nin son hello sanal makine güncelleştirmeleri için tarama hello zaman.
-* **Durum**: Merhaba hello öneri geçerli durumu:
-  * **Açık**: hello öneri ele alınmayan henüz.
-  * **Devam eden**: hello öneri yüklenmekte olduğu uygulanan toothose kaynakları ve herhangi bir işlem yapmanız gerekmez.
-  * **Çözümlenen**: hello öneri zaten tamamlandı. (Merhaba sorunu Çözümlendi, hello girişi soluk).
-* **Önem DERECESİ**: belirli bir önerinin hello önemini açıklar:
+* **AD**: Eksik güncelleştirmenin adıdır.
+* **VM’LER VE BİLGİSAYARLARIN SAYISI**: Bu güncelleştirmenin eksik olduğu VM'ler ve bilgisayarların toplam sayısı.
+* **DURUM**: Önerinin geçerli durumu:
+  * **Açık**: Öneri henüz ele alınmadı.
+  * **Devam Ediyor**: Öneri şu anda bu kaynaklara uygulanıyor; sizin bir eylem yapmanıza gerek yok.
+  * **Çözüldü**: Öneri daha önce tamamlandı. (Sorun çözüldüğünde girdi soluklaşır).
+* **ÖNEM DERECESİ**: Belirli bir önerinin önem derecesini açıklar:
   * **Yüksek**: Anlamlı bir kaynakta (uygulama, sanal makine veya ağ güvenlik grubu) güvenlik açığı var ve ilgilenilmesi gerekiyor.
-  * **Orta**: kritik olmayan veya ek adımlar gerekli toocomplete bir işlem olan veya bir güvenlik açığının ortadan kaldırılması.
-  * **Düşük**: Bir güvenlik açığının ele alınması gerekiyor ancak hemen ilgilenilmesi gerekmiyor. (Varsayılan olarak, düşük öneriler sunulmaz ancak tooview istiyorsanız düşük öneriler filtresini kullanabilirsiniz bunları.)
+  * **Orta**: Bir işlemi tamamlamak veya bir güvenlik açığını ortadan kaldırmak için kritik olmayan adımlar veya ek adımlar gerekiyor.
+  * **Düşük**: Bir güvenlik açığının ele alınması gerekiyor ancak hemen ilgilenilmesi gerekmiyor. (Varsayılan olarak, düşük öneriler sunulmaz ancak bunları görüntülemek istiyorsanız düşük öneriler filtresini kullanabilirsiniz.)
 
-tooview hello öneri ayrıntılarını hello hello sanal makinenin adını tıklatın. Bu sanal makine için yeni bir dikey pencere Merhaba güncelleştirme listesiyle hello ekran aşağıdaki gösterildiği gibi açılır.
+Öneri ayrıntılarını görüntülemek için listeden eksik güncelleştirmenin adına tıklayın. 
 
-![Belirli bir sanal makine için eksik sistem güncelleştirmeleri](./media/security-center-monitoring/security-center-monitoring-fig6-ga.png)
+![Belirli bir sanal makine için eksik sistem güncelleştirmeleri](./media/security-center-monitoring/security-center-monitoring-fig4-sep2017.png)
 
 > [!NOTE]
-> Merhaba buradaki güvenlik önerileri aynı hello de olarak hello olan **önerileri** dikey. Merhaba bkz [Azure Güvenlik Merkezi'nde güvenlik önerilerini uygulama](security-center-recommendations.md) hakkında daha fazla bilgi için makalenin tooresolve öneriler. Bu aynı zamanda hello kullanılabilen tüm kaynaklar için sanal makineler için yalnızca geçerli **kaynak durumu** döşeme.
+> Buradaki güvenlik önerileri, **Öneriler** seçeneğindekilerle aynıdır. Önerileri çözümleme hakkında daha fazla bilgi için [Azure Güvenlik Merkezi'nde güvenlik önerilerini uygulama](security-center-recommendations.md)'yı okuyun. Bu yalnızca sanal makineler ve bilgisayarlar için değil, **Kaynak Durumu** kutucuğunda kullanılabilen tüm kaynaklar için geçerlidir.
 >
->
 
-#### <a name="virtual-machines-section"></a>Sanal makineler bölümü
-Merhaba sanal makineler bölümü tüm sanal makineler ve öneriler genel bir bakış sağlar. Her sütun hello ekran aşağıdaki gösterildiği gibi bir dizi öneriyi temsil eder:
+#### <a name="vms--computers-section"></a>VM’ler ve bilgisayarlar bölümü
+Sanal makineler ve bilgisayarlar bölümü, tüm sanal makineler ve bilgisayarlarla ilgili önerilere bir genel bakış sağlar. Her sütun, aşağıdaki ekran görüntüsünde gösterildiği gibi bir dizi öneriyi temsil eder:
 
-![Tüm sanal makinelere ve önerilere genel bakış](./media/security-center-monitoring/security-center-monitoring-fig1-new005-2017.png)
+![Tüm sanal makinelere ve önerilere genel bakış](./media/security-center-monitoring/security-center-monitoring-fig5-sep2017.png)
 
-Her öneri yardımcı altında görüntülenen hello simgesini dikkat etmeniz gereken ve önerinin türünü hello hello sanal makineler, tooquickly tanımlayın.
+Bu listede açıklandığı gibi bu listede gösterilen dört tür simge vardır:
 
-Merhaba önceki örnekte, bir sanal makine uç nokta koruma ile ilgili kritik bir önerisi yok. tooget hello sanal makine hakkında daha fazla bilgi tıklayın. Açılan yeni bir dikey pencere hello ekran aşağıdaki gösterildiği gibi bu sanal makine temsil eder.
+![simge1](./media/security-center-monitoring/security-center-monitoring-icon1.png) Azure olmayan bilgisayar.
 
-![Sanal makine güvenlik ayrıntıları](./media/security-center-monitoring/security-center-monitoring-fig8-ga.png)
+![simge2](./media/security-center-monitoring/security-center-monitoring-icon2.png) Azure Resource Manager sanal makinesi.
 
-Bu dikey hello sanal makine için hello güvenlik sorunları vardır. Bu dikey penceresinde Hello altındaki hello önerilen eylem ve hello sorunların önem derecesini görebilirsiniz.
+![simge3](./media/security-center-monitoring/security-center-monitoring-icon3.png) Azure Klasik sanal makinesi.
+
+![simge4](./media/security-center-monitoring/security-center-monitoring-icon4.png) VM'ler yalnızca görüntülenen abonelik parçası olan çalışma alanından tanımlanır. Buna diğer aboneliklere ait ancak bu çalışma alanına bildirimde bulunan sanal makineler, SCOM doğrudan aracısıyla yüklenen ve kaynak kimliği olmayan VM’ler dahildir.
+
+Her önerinin altında görüntülenen simge, ilgilenilmesi gereken sanal makineler ve bilgisayarların hızla tanımlamanıza yardımcı olur. Bu ekranda hangi seçenekleri göreceğinizi seçmek için **Filtre** seçeneğini de kullanabilirsiniz.
+
+![Filtre](./media/security-center-monitoring/security-center-monitoring-fig6-sep2017.png)
+
+Önceki örnekte, bir sanal makinenin uç nokta koruması ile ilgili kritik bir önerisi vardır. Sanal makine hakkında daha fazla bilgi edinmek için sanal makineye tıklayın:
+
+![Sanal makine güvenlik ayrıntıları](./media/security-center-monitoring/security-center-monitoring-fig7-sep2017.png)
+
+Burada sanal makine veya bilgisayar için güvenlik ayrıntılarını görürsünüz. En altta, sorunlar için önerilen eylemleri ve sorunların önem derecesini görebilirsiniz.
 
 #### <a name="cloud-services-section"></a>Bulut hizmetleri bölümü
-Bulut Hizmetleri için bir öneri oluşturulduğunda Hello işletim sistemi sürümü hello ekran aşağıdaki gösterildiği gibi tarihi geçmiş:
+Bulut hizmetleri için işletim sistemi sürümü güncel olmadığında aşağıdaki ekran görüntüsünde gösterildiği gibi bir öneri oluşturulur:
 
 ![Bulut hizmetlerinin sistem durumu](./media/security-center-monitoring/security-center-monitoring-fig1-new006-2017.png)
 
-(Hangi hello hello önceki örnek için geçerli değildir) öneri sahip olduğu bir senaryoda hello öneri tooupdate hello işletim sistemi sürümü toofollow hello adımları gerekir. Bir güncelleştirme kullanıma hazır olduğunda bir uyarı olacaktır (kırmızı veya turuncu - bağlıdır hello sorunu hello önem derecesi). Bu uyarı hello WebRole1 (Windows Server, web uygulaması otomatik olarak dağıtılan tooIIS ile çalışır) veya (Windows Server, web uygulaması otomatik olarak dağıtılan tooIIS ile çalışır) WorkerRole1 satırlardaki tıkladığınızda, bu konu hakkında daha fazla ayrıntı içeren yeni bir dikey pencere açılır hello ekran aşağıdaki gösterildiği gibi öneri:
+Öneri gördüğünüz bir senaryoda (önceki örnek için geçerli bir durum değildir), işletim sistemi sürümünü güncelleştirmek için önerideki adımları izlemeniz gerekir. Bir güncelleştirme mevcut olduğunda uyarı alırsınız (sorunun önem derecesine bağlı olarak kırmızı veya turuncu). WebRole1 (web uygulamanızı IIS’e otomatik olarak dağıtarak Windows Server çalıştırır) veya WorkerRole1 (web uygulamanızı IIS’e otomatik olarak dağıtarak Windows Server çalıştırır) satırlarında bu uyarıya tıkladığınızda aşağıdaki ekran görüntüsünde gösterildiği gibi bu öneriye ilişkin daha fazla ayrıntı görürsünüz:
 
 ![Bulut hizmeti ayrıntıları](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
-Bu öneri hakkında daha fazla düzenleyici bir açıklama toosee tıklatın **güncelleştirme işletim sistemi sürümü** hello altında **açıklama** sütun. Merhaba **güncelleştirme işletim sistemi sürümü (Önizleme)** ile daha fazla ayrıntı dikey pencere açılır.
+Bu öneriyle ilgili daha kesin bir açıklama görmek için **AÇIKLAMA** sütunu altındaki **İşletim sistemi sürümünü güncelleştir**’e tıklayın. 
 
 ![Bulut hizmeti önerileri](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 
 ### <a name="monitor-virtual-networks"></a>Sanal ağları izleme
-Tıkladığınızda **ağ** , hello döşeme **ağ** hello ekran aşağıdaki gösterildiği gibi daha fazla ayrıntı içeren dikey pencere açılır:
+**Ağ** kutucuğuna tıkladığınızda, **Ağ** dikey penceresi aşağıdaki ekran görüntüsünde gösterildiği gibi daha fazla ayrıntıyla açılır:
 
 ![Ağ dikey penceresi](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
 
 #### <a name="networking-recommendations"></a>Ağ önerileri
-Sanal makinenin kaynak durumu bilgilerine hello gibi bu dikey pencere hello alta özetlenen hello en üstündeki hello dikey ve izlenen ağların bir listesini sorunların listesini sağlar.
+Burada, sanal makinelerin kaynak durumu bilgilerine benzer şekilde en üstte sorunların bir özet listesini ve en altında izlenen ağların bir listesini sağlar.
 
-ağ durumu döküm bölümü hello olası güvenlik sorunlarını listeler ve sunar [önerileri](security-center-network-recommendations.md). Olası sorunlar şunları içerebilir:
+Ağ durumu döküm bölümü, olası güvenlik sorunlarını listeler ve [öneriler](security-center-network-recommendations.md) sunar. Olası sorunlar şunları içerebilir:
 
 * Yeni Nesil Güvenlik Duvarı (NGFW) yüklü değil
 * Alt ağlardaki ağ güvenlik grupları etkin değil
@@ -132,27 +141,25 @@ ağ durumu döküm bölümü hello olası güvenlik sorunlarını listeler ve su
 * Genel dış uç nokta aracılığıyla harici erişimi kısıtlama
 * İnternet’e yönelik sorunsuz çalışan uç noktalar
 
-Bir öneri tıkladığınızda, yeni bir dikey pencere hello öneri hakkında daha fazla ayrıntı hello aşağıdaki örnekte gösterildiği gibi açılır.
+Bir öneriye tıkladığınızda, aşağıdaki örnekte gösterildiği gibi öneri hakkında daha fazla ayrıntı görürsünüz.
 
-![Merhaba ağ dikey penceresinde bir öneri ayrıntılarını](./media/security-center-monitoring/security-center-monitoring-fig9-ga.png)
+![Ağ bölümünde önerinin ayrıntıları](./media/security-center-monitoring/security-center-monitoring-fig9-ga.png)
 
-Bu örnekte, hello **eksik ağ güvenlik gruplarını yapılandırma alt ağlar için** dikey penceresinde alt ağların bir listesine sahip ve eksik olan sanal makinelerin ağ güvenlik grubu koruması. Merhaba alt toowhich tooapply hello ağ güvenlik grubu istediğiniz tıklarsanız, başka bir dikey pencere açılır.
-
-Merhaba, **ağ güvenlik grubunu seçme** dikey penceresinde hello en uygun ağ güvenlik grubu hello alt ağ için seçebilir veya yeni bir ağ güvenlik grubu oluşturabilirsiniz.
+Bu örnekte, **Alt Ağlar için Eksik Ağ Güvenlik Gruplarını Yapılandırma** bölümünde alt ağların ve ağ güvenlik grubu koruması eksik olan sanal makinelerin bir listesi bulunur. Ağ güvenlik grubunu uygulamak istediğiniz alt ağa tıklarsanız **Ağ güvenlik grubunu seçme** bölümünü görürsünüz. Burada alt ağ için en uygun ağ güvenlik grubunu seçebilir veya yeni bir ağ güvenlik grubu oluşturabilirsiniz.
 
 #### <a name="internet-facing-endpoints-section"></a>İnternet'e yönelik uç noktalar bölümü
-Merhaba, **Internet'e yönelik uç noktalar** bölümünde, uç nokta ve geçerli durumunu Internet'e yönelik ile şu anda yapılandırılmış hello sanal makineleri görebilirsiniz.
+**İnternet'e yönelik uç noktalar** bölümünde, hâlihazırda İnternet'e yönelik uç noktayla yapılandırılmış sanal makineleri ve bunların geçerli durumlarını görebilirsiniz.
 
 ![İnternet'e yönelik uç nokta ve durumu ile yapılandırılan sanal makineler](./media/security-center-monitoring/security-center-monitoring-fig10-ga.png)
 
-Bu tablo hello sanal makine hello Internet'e yönelik IP adresini temsil eden hello uç nokta adına sahip ve hello ağ güvenlik grubu geçerli önem derecesi durumu hello ve NGFW'nun hello. Merhaba tablo önem derecesine göre sıralanır:
+Bu tabloda sanal makineyi temsil eden uç noktanın adı, İnternet'e yönelik IP adresi, ağ güvenlik grubunun ve NGFW'nun geçerli önem derecesi durumu bulunur. Tablo, önem derecesine göre sıralanır:
 
 * Kırmızı (en üstte): Yüksek önceliklidir ve hemen ilgilenilmesi gerekir
 * Turuncu: Orta önceliklidir ve olabildiğince yakın zamanda ilgilenilmesi gerekir
 * Yeşil (sonuncu): Sorunsuz çalışma durumu
 
 #### <a name="networking-topology-section"></a>Ağ topolojisi bölümü
-Merhaba **ağ topolojisi** bölümde hello ekran aşağıdaki gösterildiği gibi hello kaynakların hiyerarşik bir görünümü bulunur:
+**Ağ topolojisi** bölümünde, aşağıdaki ekran görüntüsünde gösterildiği gibi kaynakların hiyerarşik bir görünümü bulunur:
 
 ![Ağ topolojisi bölümünde kaynakların hiyerarşik görünümü](./media/security-center-monitoring/security-center-monitoring-fig121-new4.png)
 
@@ -162,55 +169,55 @@ Bu tablo, önem derecesine göre sıralanır (sanal makineler ve alt ağlar):
 * Turuncu: Orta önceliklidir ve olabildiğince yakın zamanda ilgilenilmesi gerekir
 * Yeşil (sonuncu): Sorunsuz çalışma durumu
 
-Bu topoloji görünümünde hello ilk düzeyine sahip [sanal ağlar](../virtual-network/virtual-networks-overview.md), [sanal ağ geçitlerini](/vpn-gateway/vpn-gateway-site-to-site-create.md), ve [sanal ağları (Klasik)](/virtual-network/virtual-networks-create-vnet-classic-pportal.md). Merhaba ikinci düzeyde alt ağlar, ve hello üçüncü düzey toothose alt ait hello sanal makinelere sahip. Merhaba sağ sütun hello aşağıdaki örnekte gösterildiği gibi hello ağ güvenlik grubu bu kaynaklar için geçerli durumunu hello sahiptir:
+Bu topoloji görünümünde, ilk düzeyde [sanal ağlar](../virtual-network/virtual-networks-overview.md), [sanal ağ geçitleri](/vpn-gateway/vpn-gateway-site-to-site-create.md) ve [sanal ağlar (klasik)](/virtual-network/virtual-networks-create-vnet-classic-pportal.md) bulunur. İkinci düzeyde alt ağlar ve üçüncü düzeyde de bu alt ağlara ait sanal makineler bulunur. Aşağıdaki örnekte gösterildiği gibi sağ sütunda bu kaynaklara yönelik ağ güvenlik grubunun geçerli durumu bulunur:
 
-![Ağ topolojisi bölümü içinde hello ağ güvenlik grubu durumu](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
+![Ağ topolojisi bölümünde ağ güvenlik grubunun durumu](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
 
-Merhaba bu dikey pencerenin alt kısmı hello için öneriler benzeyen bu sanal makine, içerir toowhat önceden tanımlanmıştır. Daha fazla bir öneri toolearn'ı tıklatın veya hello gerekli güvenlik denetimini veya yapılandırma uygulayın.
+Bu dikey pencerenin en altında, daha önce açıklanana benzer şekilde bu sanal makine için öneriler bulunur. Daha fazla bilgi edinmek ya da gerekli güvenlik denetimini veya yapılandırmasını uygulamak için bir öneriye tıklayabilirsiniz.
 
 ### <a name="monitor-storage--data"></a>Depolama ve verileri izleme
 
-Tıkladığınızda **depolama & veri** hello içinde **önleme** hello bölümünde **veri kaynakları** SQL ve depolama için öneriler dikey pencere açılır. Ayrıca sahip [önerileri](security-center-sql-service-recommendations.md) hello veritabanının hello genel sistem durumu için. Depolama şifrelemesi hakkında daha fazla bilgi için [Azure Güvenlik Merkezi'ndeki Azure depolama hesabı için şifrelemeyi etkinleştirme](security-center-enable-encryption-for-storage-account.md) bölümünü okuyun.
+**Önleme** bölümünde **Depolama ve veriler**’e tıkladığınızda, **Veri Kaynakları** bölümünü SQL ve Depolama’ya yönelik önerilerle birlikte açılır. Ayrıca, veritabanının genel sağlık durumu için [öneriler](security-center-sql-service-recommendations.md) içerir. Depolama şifrelemesi hakkında daha fazla bilgi için [Azure Güvenlik Merkezi'ndeki Azure depolama hesabı için şifrelemeyi etkinleştirme](security-center-enable-encryption-for-storage-account.md) bölümünü okuyun.
 
 ![Veri Kaynakları](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
 
-Altında **SQL önerileri**, herhangi bir önerisi'ı tıklatın ve get daha ilgili bir sorun hakkında daha fazla eylem tooresolve ayrıntıları. Merhaba aşağıdaki örnekte gösterilir hello hello genişlemesi **SQL veritabanlarında veritabanı denetim ve tehdit algılama** öneri.
+**SQL Önerileri** altında herhangi bir öneriye tıklayabilir ve sorunu çözmek için yapılacak diğer eylemlerle ilgili daha fazla ayrıntı görebilirsiniz. Aşağıdaki örnekte, **SQL veritabanlarında Veritabanı Denetimi ve Tehdit algılama** önerisinin genişletilmiş hali gösterilmiştir.
 
 ![SQL önerisi hakkındaki ayrıntılar](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
 
-Merhaba **SQL veritabanlarında denetimi etkinleştirme ve tehdit algılama** dikey penceresinde aşağıdaki bilgilerle hello vardır:
+**SQL veritabanlarında Denetimi ve Tehdit algılamayı etkinleştirme** bölümünde aşağıdaki bilgiler bulunur:
 
 * SQL veritabanlarının bir listesi
-* Merhaba sunucu üzerinde bulundukları
-* Bu ayar olup hello sunucudan devralınmış olduğuna veya bu veritabanında benzersiz olup olmadığını hakkında bilgi
-* Merhaba geçerli durumu
-* Merhaba önem derecesi hello sorunu
+* Bulundukları sunucu
+* Bu ayarın sunucudan devralınmış olduğuna veya bu veritabanında benzersiz olduğuna dair bilgiler
+* Geçerli durum
+* Sorunun önem derecesi
 
-Bu öneri hello veritabanı tooaddress tıklattığınızda hello **denetim ve tehdit algılama** hello ekran aşağıdaki gösterildiği gibi dikey pencere açılır.
+Bu öneriyle ilgilenmek için veritabanına tıkladığınızda, **Denetim ve Tehdit algılama** bölümü aşağıdaki ekran görüntüsünde gösterildiği gibi açılır.
 
-![Denetim ve Tehdit algılama dikey penceresi](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
+![Denetim ve Tehdit algılama](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
 
-tooenable denetim, select **ON** hello altında **denetim** seçeneği.
+Denetimi etkinleştirmek için **Denetim** seçeneğinin altında **AÇIK**'ı seçin.
 
 ### <a name="monitor-applications"></a>Uygulamaları izleme
 
-Azure İş yükünüzün bulunan uygulamaları varsa [(Azure Resource Manager aracılığıyla oluşturulan) sanal makinelerin](../azure-resource-manager/resource-manager-deployment-model.md) sağlanmış web bağlantı noktaları ile (TCP bağlantı noktaları 80 ve 443), Güvenlik Merkezi bu tooidentify olası güvenlik sorunlarını izleyebilirsiniz ve düzeltme adımları öneririz. Merhaba tıkladığınızda **uygulamaları** , hello döşeme **uygulamaları** dikey pencere açılır hello önerileri bir dizi **uygulama önerileri** bölümü. Ayrıca hello ekran aşağıdaki gösterildiği gibi hello ana bilgisayar/sanal IP başına uygulama dökümünü gösterir.
+Azure iş yükünüzün, sunulan web bağlantı noktaları (TCP bağlantı noktaları 80 ve 443) ile [sanal makinelerde](../azure-resource-manager/resource-manager-deployment-model.md) (Azure Resource Manager ile oluşturulmuştur) bulunan uygulamaları varsa Güvenlik Merkezi, olası güvenlik sorunlarını tanımlamak ve düzeltme adımları önermek için bunları izleyebilir. **Uygulamalar** kutucuğuna tıkladığınızda, **Uygulama önerileri** bölümünde bir dizi öneriyle birlikte **Uygulamalar** bölümü açılır. Ayrıca konak ve IP/etki alanı başına uygulama dökümüyle WAF çözümünün yüklenmiş olup olmadığını gösterir:
 
-![Uygulamaların güvenlik durumu](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
+![Uygulamaların güvenlik durumu](./media/security-center-monitoring/security-center-monitoring-fig8-sep2017.png)
 
-Yalnızca, ile diğer öneriler hello gibi bir öneri toosee hello sorun hakkında daha fazla ayrıntı tıklatabilirsiniz ve nasıl tooremediate. Aşağıdaki şekilde hello gösterilen hello örnek güvenli olmayan bir web uygulaması olarak tanımlanan bir uygulamadır. Güvenli kabul edilmeyen hello uygulama seçtiğinizde, aşağıdaki seçenek kullanılabilir hello ile başka bir dikey pencere açılır:
+Diğer önerilerde yaptığınız gibi, sorun ve sorunun nasıl düzeltileceği hakkında daha fazla ayrıntı görmek için öneriye tıklayabilirsiniz. Aşağıdaki şekilde gösterilen örnekte, güvenli olmayan bir web uygulaması olarak tanımlanan bir uygulama bulunur. Güvenli kabul edilmeyen uygulamayı seçtiğinizde, aşağıdaki seçenek kullanılabilir:
 
-![Güvenli olmayan bir uygulama hakkındaki ayrıntılar](./media/security-center-monitoring/security-center-monitoring-fig17-ga.png)
+![Ayrıntılar](./media/security-center-monitoring/security-center-monitoring-fig17-ga.png)
 
-Bu dikey pencerede bu uygulamaya ilişkin tüm önerilerin bir listesi bulunur. Merhaba tıkladığınızda **bir web uygulaması güvenlik duvarı ekleme** öneri, hello **bir Web uygulaması güvenlik duvarı ekleme** dikey pencere açılır, tooinstall için seçeneklerle bir web uygulaması Güvenlik Duvarı (WAF) ortağından Aşağıdaki ekran görüntüsü hello gösterilir.
+Burada bu uygulamaya ilişkin tüm önerilerin bir listesi bulunur. **Web uygulaması güvenlik duvarı ekleyin** önerisine tıkladığınızda aşağıdaki ekran görüntüsünde gösterildiği gibi bir web uygulaması güvenlik duvarını (WAF) yüklemenize yönelik seçenekleri içeren **Web Uygulaması Güvenlik Duvarı Ekleme** bölümü açılır.
 
 ![Web Uygulaması Güvenlik Duvarı Ekleme iletişim kutusu](./media/security-center-monitoring/security-center-monitoring-fig18-ga.png)
 
 ## <a name="see-also"></a>Ayrıca bkz.
-Bu makalede, nasıl öğrenilen izleme kapasiteleri Azure Güvenlik Merkezi'nde toouse. Azure Güvenlik Merkezi hakkında daha fazla toolearn hello aşağıdaki bakın:
+Bu makalede, Azure Güvenlik Merkezi'nde izleme işlevlerini nasıl kullanacağınız hakkında bilgi edindiniz. Azure Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 
-* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md): öğrenin nasıl tooconfigure Azure Güvenlik Merkezi'nde güvenlik ayarları.
-* [Azure Güvenlik Merkezi'nde Uyarıları yönetme ve yanıt toosecurity](security-center-managing-and-responding-alerts.md): öğrenin nasıl toomanage ve yanıt toosecurity uyarıları.
-* [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md): nasıl toomonitor hello iş ortağı çözümlerinizin sistem durumunu öğrenin.
-* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md): hello hizmeti kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
+* [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md): Azure Güvenlik Merkezi'nde güvenlik ayarlarını yapılandırma hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve yanıtlama](security-center-managing-and-responding-alerts.md): Güvenlik uyarılarını yönetme ve yanıtlama hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md): İş ortağı çözümlerinizin sistem durumunu nasıl izleyeceğiniz hakkında bilgi edinin.
+* [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md): Hizmet kullanımı ile ilgili sık sorulan soruları bulabilirsiniz.
 * [Azure Güvenlik Blogu](http://blogs.msdn.com/b/azuresecurity/): Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulabilirsiniz.

@@ -1,8 +1,8 @@
 > [!TIP]
 > 
-> **Microsoft Azure Storage Gezgini Hello deneyin**
+> **Microsoft Azure Depolama Gezgini’ni deneyin**
 > 
-> [Microsoft Azure Storage Gezgini](../articles/vs-azure-tools-storage-manage-with-storage-explorer.md) Windows, macOS ve Linux Azure Storage verilerle görsel olarak toowork sağlayan Microsoft boş bir tek başına uygulamadır.
+> [Microsoft Azure Depolama Gezgini](../articles/vs-azure-tools-storage-manage-with-storage-explorer.md), Microsoft’un Windows, macOS ve Linux üzerinde Azure Depolama verileriyle görsel olarak çalışmanızı sağlayan ücretsiz ve tek başına uygulamasıdır.
 > 
 > 
 

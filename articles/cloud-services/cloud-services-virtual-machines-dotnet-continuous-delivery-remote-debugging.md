@@ -1,6 +1,6 @@
 ---
-title: "Uzaktan hata ayıklama ile sürekli teslim aaaEnable | Microsoft Docs"
-description: "Bilgi nasıl tooenable uzaktan kesintisiz teslim toodeploy tooAzure kullanılırken hata ayıklama"
+title: "Sürekli teslimat ile uzaktan hata ayıklamayı etkinleştirme | Microsoft Docs"
+description: "Azure'a dağıtmak için kesintisiz teslim kullanırken, uzaktan hata ayıklamayı etkinleştirme öğrenin"
 services: cloud-services
 documentationcenter: .net
 author: kraigb
@@ -14,44 +14,44 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: kraigb
-ms.openlocfilehash: d9d9d1cfe5304c9526586a9164f172746a448e4e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7a8a853a93e3e9915f687a20c871444e6a0de50d
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="enable-remote-debugging-when-using-continuous-delivery-toopublish-tooazure"></a>Kesintisiz teslim toopublish tooAzure kullanırken uzaktan hata ayıklamayı etkinleştirme
-Kullandığınızda uzaktan Azure'da, bulut Hizmetleri ya da sanal makineleri için hata ayıklamayı etkinleştirebilirsiniz [kesintisiz teslim](cloud-services-dotnet-continuous-delivery.md) aşağıdaki adımları izleyerek toopublish tooAzure.
+# <a name="enable-remote-debugging-when-using-continuous-delivery-to-publish-to-azure"></a>Azure'da yayımlamak için sürekli teslim kullanılırken uzaktan hata ayıklamayı etkinleştirme
+Kullandığınızda uzaktan Azure'da, bulut Hizmetleri ya da sanal makineleri için hata ayıklamayı etkinleştirebilirsiniz [kesintisiz teslim](cloud-services-dotnet-continuous-delivery.md) Azure için aşağıdaki adımları izleyerek yayımlamak için.
 
 ## <a name="enabling-remote-debugging-for-cloud-services"></a>Bulut Hizmetleri için uzaktan hata ayıklama etkinleştirme
-1. Merhaba ilk ortamı için Azure kısmında özetlendiği gibi Hello yapı aracısında ayarlamak [komut satırı derleme Azure](http://msdn.microsoft.com/library/hh535755.aspx).
-2. Merhaba Hello uzaktan hata ayıklama çalışma zamanı (msvsmon.exe) hello paketi için gerekli olmadığından yükleme **uzak araçlar Visual Studio için**.
+1. Yapı aracısında kısmında özetlendiği gibi ilk ortamını Azure için ayarlayamıyor [komut satırı derleme Azure](http://msdn.microsoft.com/library/hh535755.aspx).
+2. Uzaktan hata ayıklama çalışma zamanı (msvsmon.exe) paket için gerekli olmadığından yükleme **uzak araçlar Visual Studio için**.
 
     * [Visual Studio 2017 için Uzak araçları](https://go.microsoft.com/fwlink/?LinkId=746570)
     * [Visual Studio 2015 için Uzak araçları](https://go.microsoft.com/fwlink/?LinkId=615470)
     * [Visual Studio 2013 güncelleştirme 5 için Uzak araçları](https://www.microsoft.com/download/details.aspx?id=48156)
     
-    Alternatif olarak, Visual Studio yüklü olan bir sistemden hello uzaktan hata ayıklama ikili dosyalarının kopyalayabilirsiniz.
+    Alternatif olarak, Visual Studio yüklü olan bir sistemden uzaktan hata ayıklama ikili dosyalarının kopyalayabilirsiniz.
 
-3. Kısmında özetlendiği gibi bir sertifika oluşturmak [Azure Cloud Services sertifikalarına genel bakış](cloud-services-certs-create.md). Merhaba .pfx ve RDP sertifikası parmak izi tutmak ve hello sertifika toohello hedef bulut hizmeti yükleyin.
-4. Etkin uzaktan hata ayıklama ile Merhaba MSBuild komut satırında toobuild ve paket seçenekleri aşağıdaki hello kullanın. (Merhaba açı ayraçlı öğeleri için gerçek yolları tooyour sistem ve proje dosyalarını değiştirin.)
+3. Kısmında özetlendiği gibi bir sertifika oluşturmak [Azure Cloud Services sertifikalarına genel bakış](cloud-services-certs-create.md). RDP sertifikası parmak izi ve .pfx tutmak ve hedef bulut hizmetine sertifika yükleyin.
+4. Derleme ve etkin uzaktan hata ayıklama ile paket için MSBuild komut satırında aşağıdaki seçenekleri kullanın. (Sistem ve proje dosyalarınıza açı ayraçlı öğeleri için gerçek yolları değiştirin.)
    
-        msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of hello certificate added toohello cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path tooyour VS solution file>"
+        msbuild /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="<remote tools path>";RemoteDebuggerConnectorCertificateThumbprint="<thumbprint of the certificate added to the cloud service>";RemoteDebuggerConnectorVersion="2.7" "<path to your VS solution file>"
    
-    `VSX64RemoteDebuggerPath`Merhaba yol toohello klasörünü msvsmon.exe hello uzak araçlar Visual Studio için içeren.
-    `RemoteDebuggerConnectorVersion`Bulut hizmetinizde Hello Azure SDK sürümüdür. Ayrıca Visual Studio ile yüklenen hello sürümüyle eşleşmesi gerekir.
-5. Toohello hedef bulut hizmeti hello önceki adımda oluşturulan hello paket ve .cscfg dosyasını kullanarak yayımlayın.
-6. Yüklü .NET için Azure SDK ile Visual Studio olan hello sertifika (.pfx dosyası) toohello makineyi içeri aktarırsınız. Tooimport toohello emin olun `CurrentUser\My` Visual Studio'da bağlanmasını toohello hata ayıklayıcı Aksi takdirde başarısız olur sertifika deposu.
+    `VSX64RemoteDebuggerPath`klasörün yolunu msvsmon.exe uzak araçlar Visual Studio için içeren.
+    `RemoteDebuggerConnectorVersion`Bulut hizmetinizde Azure SDK sürümüdür. Ayrıca Visual Studio ile yüklenen sürümüyle eşleşmesi gerekir.
+5. Hedef bulut hizmetine, önceki adımda oluşturulan paket ve .cscfg dosyasını kullanarak yayımlayın.
+6. Sertifikayı (.pfx dosyası) yüklü .NET için Azure SDK ile Visual Studio bulunduğu makineyi içeri aktarın. Alınacak emin olun `CurrentUser\My` sertifika deposu, aksi takdirde Visual Studio hata ayıklayıcısı ekleme başarısız olur.
 
 ## <a name="enabling-remote-debugging-for-virtual-machines"></a>Sanal makineler için uzaktan hata ayıklama etkinleştirme
 1. Bir Azure sanal makine oluşturun. Bkz: [Windows Server çalıştıran bir sanal makine oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) veya [Visual Studio'da Azure sanal makineler oluşturun ve yönetin](../virtual-machines/windows/classic/manage-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-2. Merhaba üzerinde [Azure Klasik portal sayfası](http://go.microsoft.com/fwlink/p/?LinkID=269851), hello sanal makinenin Pano toosee hello sanal makinenin görüntülemek **RDP sertifikası parmak İZİ**. Bu değer için hello kullanılır `ServerThumbprint` hello uzantısı yapılandırma değeri.
-3. Belirtilen bir istemci sertifikası oluşturma [Azure Cloud Services sertifikalarına genel bakış](cloud-services-certs-create.md) (Merhaba .pfx ve RDP sertifikası parmak izi tutun).
-4. Azure PowerShell'i yükleyin (sürüm 0.7.4 veya sonrası) kısmında özetlendiği gibi [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview).
-5. Betik tooenable hello RemoteDebug uzantısı aşağıdaki hello çalıştırın. Merhaba yolları ve kişisel veriler kendi abonelik adı, hizmet adı ve parmak izi gibi değiştirin.
+2. Üzerinde [Azure Klasik portal sayfası](http://go.microsoft.com/fwlink/p/?LinkID=269851), sanal makinenin görmek için sanal makinenin Panoyu görebilmek **RDP sertifikası parmak İZİ**. Bu değer için kullanılan `ServerThumbprint` uzantısı yapılandırma değeri.
+3. Belirtilen bir istemci sertifikası oluşturma [Azure Cloud Services sertifikalarına genel bakış](cloud-services-certs-create.md) (.pfx ve RDP sertifikası parmak izi tutun).
+4. Azure PowerShell'i yükleyin (sürüm 0.7.4 veya sonrası) kısmında özetlendiği gibi [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview).
+5. RemoteDebug uzantısını etkinleştirmek için aşağıdaki betiği çalıştırın. Kişisel veri ve yolları kendi abonelik adı, hizmet adı ve parmak izi gibi değiştirin.
    
    > [!NOTE]
-   > Bu komut dosyasını Visual Studio 2015 için yapılandırılır. Visual Studio 2013 veya Visual Studio 2017 kullanıyorsanız hello değiştirin `$referenceName` ve `$extensionName` atamaları aşağıdaki çok`RemoteDebugVS2013` veya `RemoteDebugVS2017`.
+   > Bu komut dosyasını Visual Studio 2015 için yapılandırılır. Visual Studio 2013 veya Visual Studio 2017 kullanıyorsanız değiştirin `$referenceName` ve `$extensionName` aşağıda atamalar `RemoteDebugVS2013` veya `RemoteDebugVS2017`.
 
     ```powershell   
     Add-AzureAccount
@@ -93,5 +93,5 @@ Kullandığınızda uzaktan Azure'da, bulut Hizmetleri ya da sanal makineleri i�
     $vm | Update-AzureVM
     ```
 
-6. Yüklü .NET için Azure SDK ile Visual Studio olan hello sertifika (.pfx) toohello makineyi içeri aktarırsınız.
+6. Sertifika (.pfx) yüklü .NET için Azure SDK ile Visual Studio bulunduğu makineyi içeri aktarın.
 

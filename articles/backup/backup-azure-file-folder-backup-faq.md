@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure Yedekleme aracısı ile ilgili SSS | Microsoft Docs"
-description: "Hakkında toocommon soruları yanıtlar: Azure Yedekleme aracısı çalışır, yedekleme ve bekletme sınırları'nasıl hello."
+title: "Azure Backup aracısıyla ilgili SSS | Microsoft Docs"
+description: "Azure Backup aracısının çalışması, yedekleme ve bekletme sınırları hakkındaki yaygın soruların yanıtları."
 services: backup
 documentationcenter: 
 author: trinadhk
@@ -15,34 +15,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: bdefb4efb39301f38cdf692bdc93c841a2bbb441
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 227cdc87f3e2c8ed393145f4bbde7f74606bdf3b
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="questions-about-hello-azure-backup-agent"></a>Hello Azure Yedekleme aracısı hakkında sorular
-Bu makalede yanıtlar toocommon sorular toohelp hızlı bir şekilde hello Azure Yedekleme aracısı bileşenlerini anlama sahiptir. Bazı hello yanıtlar kapsamlı bilgiler bağlantılar toohello makaleler vardır. Hello Azure Backup hizmeti hakkında sorular hello nakledebilirsiniz [tartışma Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+# <a name="questions-about-the-azure-backup-agent"></a>Azure Backup aracısıyla ilgili sorular
+Bu makalede Azure Backup aracısı bileşenlerini kısa süre içinde anlamanıza yardımcı olacak yaygın soruların yanıtları bulunur. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
 
 ## <a name="configure-backup"></a>Yedeklemeyi yapılandırma
-### <a name="where-can-i-download-hello-latest-azure-backup-agent-br"></a>Merhaba en son Azure Backup aracısını nereden indirebilirim? <br/>
-Windows Server, System Center DPM veya Windows İstemcisi yedeklemeye yönelik en son aracı hello indirebilirsiniz [burada](http://aka.ms/azurebackup_agent). Bir sanal makineyi tooback istiyorsanız hello VM (otomatik olarak hello uygun uzantıyı yükler) aracı kullanın. Merhaba VM Aracısı, Azure galerisinde hello oluşturulan sanal makineler üzerinde zaten mevcuttur.
+### <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>En son Azure Backup aracısını nereden indirebilirim? <br/>
+Windows Server, System Center DPM veya Windows istemcisini yedeklemeye yönelik en son aracıyı [buradan](http://aka.ms/azurebackup_agent) indirebilirsiniz. Bir sanal makineyi yedeklemek istiyorsanız VM Aracısı'nı (otomatik olarak uygun uzantıyı yükler) kullanın. VM Aracısı, Azure galerisinden oluşturulan sanal makineler üzerinde zaten mevcuttur.
 
-### <a name="when-configuring-hello-azure-backup-agent-i-am-prompted-tooenter-hello-vault-credentials-do-vault-credentials-expire"></a>Hello Azure Backup aracısını yapılandırırken, istendiğinde tooenter hello kasa kimlik bilgileri istiyorum. Kasa kimlik bilgilerinin süresi dolar mı?
-Evet, hello kasa kimlik bilgileri 48 saat sonra süresi dolacak. Hello dosyanın süresi dolarsa, toohello içinde Azure portal ve indirme hello kasa kimlik bilgileri Kasası'nı günlük dosyaları.
+### <a name="when-configuring-the-azure-backup-agent-i-am-prompted-to-enter-the-vault-credentials-do-vault-credentials-expire"></a>Azure Backup aracısını yapılandırırken kasa kimlik bilgilerini girmem isteniyor. Kasa kimlik bilgilerinin süresi dolar mı?
+Evet, kasa kimlik bilgilerinin süresi 48 saat sonra dolar. Dosyanın süresi dolarsa Azure portalında oturum açın ve kasa kimlik bilgileri dosyalarını kasanızdan indirin.
 
 ### <a name="what-types-of-drives-can-i-back-up-files-and-folders-from-br"></a>Ne tür sürücülerden dosya ve klasör yedekleyebilirim? <br/>
-Aşağıdaki sürücüler/birimler hello yedekleyemezsiniz:
+Aşağıdaki sürücüleri/birimleri yedekleyemezsiniz:
 
 * Çıkarılabilir Medya: Tüm yedekleme öğesi kaynaklarının sabit olarak bildirilmesi gerekir.
-* Salt okunur birimler: hello birim hello Birim Gölge Kopyası Hizmeti (VSS) toofunction için yazılabilir olmalıdır.
-* Çevrimdışı birimler: hello birim için VSS toofunction çevrimiçi olması gerekir.
-* Ağ paylaşımı: hello birimin çevrimiçi yedekleme kullanılarak yedeklenen yerel toohello sunucu toobe olması gerekir.
-* BitLocker korumalı birimler: hello yedeklemenin gerçekleşebilmesi hello birimin kilidi olmalıdır.
-* Dosya sistemi tanımlaması: NTFS desteklenen hello tek dosya sistemidir.
+* Salt Okunur Birimler: Birimin çalışması için birim gölge kopyası hizmetine (VSS) yönelik olarak yazılabilir olması gerekir.
+* Çevrimdışı Birimler: Birimin çalışması için VSS'ye yönelik olarak çevrimiçi olması gerekir.
+* Ağ paylaşımı: Birimin çevrimiçi yedekleme kullanılarak yedeklenebilmesi için sunucuya yönelik olarak yerel olması gerekir.
+* Bitlocker korumalı birimler: Yedeklemenin gerçekleşebilmesi için birimin kilidinin açık olması gerekir.
+* Dosya Sistemi Tanımı: NTFS, desteklenen tek dosya sistemidir.
 
 ### <a name="what-file-and-folder-types-can-i-back-up-from-my-serverbr"></a>Sunucumdan hangi dosya ve klasör hangi türlerini yedekleyebilirim?<br/>
-şu türlerini hello desteklenir:
+Aşağıdaki türler desteklenir:
 
 * Şifreli
 * Sıkıştırılmış
@@ -54,52 +54,52 @@ Aşağıdaki sürücüler/birimler hello yedekleyemezsiniz:
 * Sıkıştırılmış Akış: Desteklenmez, atlanır
 * Seyrek Akış: Desteklenmez, atlanır
 
-### <a name="can-i-install-hello-azure-backup-agent-on-an-azure-vm-already-backed-by-hello-azure-backup-service-using-hello-vm-extension-br"></a>Zaten hello VM uzantısı kullanılarak hello Azure Backup hizmeti tarafından yedeklenmiş Azure VM'de hello Azure Yedekleme aracısı yükleyebilir miyim? <br/>
-Kesinlikle. Azure Backup hello VM uzantısını kullanan Azure VM'ler için VM düzeyinde yedekleme sağlar. Merhaba Konuk Windows işletim sistemi üzerindeki tooprotect dosyaları ve klasörleri hello Konuk Windows işletim sistemi hello Azure Backup aracısını yükleyin.
+### <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-already-backed-by-the-azure-backup-service-using-the-vm-extension-br"></a>Azure Backup aracısını, önceden VM uzantısı kullanılarak Azure Backup hizmeti tarafından yedeklenmiş olan bir Azure VM üzerine yükleyebilir miyim? <br/>
+Kesinlikle. Azure Backup, VM uzantısını kullanan Azure VM'ler için VM düzeyinde yedekleme sağlar. Konuk Windows işletim sistemi üzerindeki dosya ve klasörleri korumak için Azure Backup aracısını konuk Windows işletim sistemine yükleyin.
 
-### <a name="can-i-install-hello-azure-backup-agent-on-an-azure-vm-tooback-up-files-and-folders-present-on-temporary-storage-provided-by-hello-azure-vm-br"></a>Dosya ve klasörleri geçici depolama hello Azure VM tarafından sağlanan mevcut bir Azure VM tooback üzerinde hello Azure Yedekleme aracısı yükleyebilir miyim? <br/>
-Evet. Merhaba Konuk Windows işletim sistemi Hello Azure Yedekleme aracısı yükleyin ve dosya ve klasörleri tootemporary depolamasını yedeklemek. Geçici depolama verileri silindikten sonra yedeklemeler başarısız olur. Ayrıca, Hello geçici depolama verilerinin silinmiş olması durumunda toonon geçici depolama yalnızca geri yükleyebilirsiniz.
+### <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-to-back-up-files-and-folders-present-on-temporary-storage-provided-by-the-azure-vm-br"></a>Azure Backup aracısını bir Azure VM'ye yükleyerek mevcut dosya ve klasörleri Azure VM tarafından sağlanan geçici depolama alanına yedekleyebilir miyim? <br/>
+Evet. Azure Backup aracısını Konuk Windows işletim sistemine yükleyin ve dosya ve klasörleri geçici depolama alanına yedekleyin. Geçici depolama verileri silindikten sonra yedeklemeler başarısız olur. Ayrıca, geçici depolama verilerinin silinmiş olması durumunda, yalnızca geçici olmayan depolama alanına geri yükleme gerçekleştirebilirsiniz.
 
-### <a name="whats-hello-minimum-size-requirement-for-hello-cache-folder-br"></a>Merhaba hello Önbellek klasörü için minimum boyut gereksinimini nedir? <br/>
-Merhaba hello Önbellek klasörü boyutunu hello yedeklediğiniz veri miktarını belirler. Önbellek klasörü % 5'veri depolama için gerekli hello alanı olmalıdır.
+### <a name="whats-the-minimum-size-requirement-for-the-cache-folder-br"></a>Önbellek klasörü için minimum boyut gereksinimini nedir? <br/>
+Önbellek klasörünün boyutu, yedeklediğiniz veri miktarını belirler. Önbellek klasörü, veri depolama için gerekli olan alanın % 5'ini oluşturmalıdır.
 
-### <a name="how-do-i-register-my-server-tooanother-datacenterbr"></a>My server tooanother datacenter nasıl kaydettirebilirim?<br/>
-Yedekleme verilerini, kayıtlı olduğu hello kasa toowhich toohello veri merkezi gönderilir. Merhaba en kolay yolu toochange hello datacenter toouninstall hello aracısıdır ve hello aracısını yeniden yükleyin ve toodesired datacenter ait yeni bir kasa tooa kaydedin.
+### <a name="how-do-i-register-my-server-to-another-datacenterbr"></a>Sunucumu başka bir veri merkezine nasıl kaydederim?<br/>
+Yedekleme verileri, kasanın kayıtlı olduğu veri merkezine gönderilir. Veri merkezini değiştirmenin en kolay yolu, aracıyı kaldırmak ve aracıyı yeniden yükleyip istenilen veri merkezine ait yeni bir kasa kaydetmektir.
 
-### <a name="does-hello-azure-backup-agent-work-on-a-server-that-uses-windows-server-2012-deduplication-br"></a>Hello Azure Yedekleme aracısı, Windows Server 2012 yinelenenleri kaldırma özelliğini kullanan bir sunucuda çalışmak mu? <br/>
-Evet. Merhaba yedekleme işlemini hazırlarken yinelenenleri kaldırılmış hello veri toonormal veri hello Aracısı hizmeti dönüştürür. Ardından hello veri yedekleme için en iyi duruma getirir, hello verileri şifreler ve şifrelenmiş hello veri toohello çevrimiçi yedekleme hizmetine gönderir.
+### <a name="does-the-azure-backup-agent-work-on-a-server-that-uses-windows-server-2012-deduplication-br"></a>Azure Backup aracısı, Windows Server 2012 yinelenenleri kaldırma özelliğini kullanan bir sunucu üzerinde çalışır mı? <br/>
+Evet. Aracı hizmeti, yedekleme işlemini hazırlarken yinelenenleri kaldırma işlemi uygulanmış verileri normal verilere dönüştürür. Ardından verileri yedekleme için en iyi duruma getirir, verileri şifreler ve daha sonra, şifreli verileri çevrimiçi yedekleme hizmetine gönderir.
 
 ## <a name="backup"></a>Backup
-### <a name="how-do-i-change-hello-cache-location-specified-for-hello-azure-backup-agentbr"></a>Hello Azure Backup aracısı için belirtilen hello önbellek konumunu nasıl değişiyor?<br/>
-Liste toochange hello önbellek konumu aşağıdaki hello kullanın.
+### <a name="how-do-i-change-the-cache-location-specified-for-the-azure-backup-agentbr"></a>Azure Backup aracısı için belirtilen önbellek konumunu nasıl değiştiririm?<br/>
+Önbellek konumunu değiştirmek için aşağıdaki listeyi kullanın.
 
-1. Yükseltilmiş bir komut istemi komutunda aşağıdaki hello yürüterek Hello Backup altyapısını durdurun:
+1. Yükseltilmiş komut isteminde aşağıdaki komutu çalıştırarak Backup altyapısını durdurun:
 
     ```PS C:\> Net stop obengine``` 
   
-2. Merhaba dosyaları taşımayın. Bunun yerine, hello önbellek alanı klasörünü tooa farklı bir sürücü yeterli alana sahip kopyalayın. Merhaba yedeklemeleri hello yeni önbellek alanı ile çalıştığı onaylandıktan sonra Hello özgün önbellek alanı kaldırılabilir.
-3. Merhaba yolu toohello yeni önbellek alanı klasörünün ile kayıt defteri girdileri aşağıdaki hello güncelleştirin.<br/>
+2. Dosyaları taşımayın. Bunun yerine, önbellek alanı klasörünü yeterli alana sahip farklı bir sürücüye kopyalayın. Yedeklemelerin yeni önbellek alanı ile çalıştığı onaylandıktan sonra özgün önbellek alanı kaldırılabilir.
+3. Aşağıdaki kayıt defteri girdilerini yeni önbellek alanı klasörünün yolu ile güncelleştirin.<br/>
 
     | Kayıt defteri yolu | Kayıt Defteri Anahtarı | Değer |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Yeni önbellek klasörü konumu* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Yeni önbellek klasörü konumu* |
 
-4. Yükseltilmiş bir komut istemi komutunda aşağıdaki hello yürüterek Hello Backup altyapısını yeniden başlatın:
+4. Yükseltilmiş komut isteminde aşağıdaki komutu çalıştırarak Backup altyapısını yeniden başlatın:
 
     ```PS C:\> Net start obengine```
 
-Merhaba yedekleme oluşturma hello yeni önbellek konumunda başarıyla tamamlandıktan sonra hello özgün önbellek klasörünü kaldırabilirsiniz.
+Yedekleme oluşturma yeni önbellek konumunda başarıyla tamamlandıktan sonra, özgün önbellek klasörünü kaldırabilirsiniz.
 
 
-### <a name="where-can-i-put-hello-cache-folder-for-hello-azure-backup-agent-toowork-as-expectedbr"></a>Burada hello Önbellek klasörü için beklendiği gibi hello Azure Yedekleme aracısı toowork koyabilirsiniz?<br/>
-Merhaba hello Önbellek klasörü için aşağıdaki konumlar önerilmez:
+### <a name="where-can-i-put-the-cache-folder-for-the-azure-backup-agent-to-work-as-expectedbr"></a>Azure Backup Aracısı'nın beklendiği şekilde çalışması için önbellek klasörünü nereye koyabilirim?<br/>
+Önbellek klasörü için aşağıdaki konumlar önerilmez:
 
-* Ağ paylaşımı veya çıkarılabilir medya: hello Önbellek klasörü, çevrimiçi yedekleme kullanılarak yedeklenmesi gereken yerel toohello sunucusu olmalıdır. Ağ konumlarını veya USB sürücüleri gibi çıkarılabilir medyalar desteklenmez.
-* Çevrimdışı birimler: Önbellek klasörü hello Azure Backup Aracısı kullanılarak gerçekleştirilecek beklenen yedekleme için çevrimiçi olması gerekir.
+* Ağ paylaşımı veya Çıkarılabilir Medya: Önbellek klasörü, çevrimiçi yedekleme kullanılarak yedeklenmesi gereken sunucu için yerel olmalıdır. Ağ konumlarını veya USB sürücüleri gibi çıkarılabilir medyalar desteklenmez.
+* Çevrimdışı Birimler: Önbellek klasörü, Azure Backup Aracısı kullanılarak gerçekleştirilecek beklenen yedekleme için çevrimiçi olmalıdır.
 
-### <a name="are-there-any-attributes-of-hello-cache-folder-that-are-not-supportedbr"></a>Desteklenmeyen herhangi bir özniteliği hello Önbellek klasörü var mı?<br/>
-Merhaba aşağıdaki öznitelikler veya bunların bileşimleri hello Önbellek klasörü için desteklenmez:
+### <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supportedbr"></a>Önbellek klasörünün desteklenmeyen herhangi bir özniteliği var mıdır?<br/>
+Aşağıdaki öznitelikler veya bunların bileşimleri, önbellek klasörü için desteklenmez:
 
 * Şifreli
 * Yinelenenleri kaldırma işlemi uygulanmış
@@ -107,21 +107,21 @@ Merhaba aşağıdaki öznitelikler veya bunların bileşimleri hello Önbellek k
 * Seyrek
 * Yeniden Ayrıştırma Noktası
 
-Merhaba Önbellek klasörü ve hello meta verileri VHD hello Azure Backup aracısı için gerekli öznitelikler hello gerekmez.
+Önbellek klasörü ve meta veri VHD’si, Azure Backup aracısı için gerekli özniteliklere sahip değildir.
 
-### <a name="is-there-a-way-tooadjust-hello-amount-of-bandwidth-used-by-hello-backup-servicebr"></a>Bir şekilde tooadjust hello hello Backup hizmeti tarafından kullanılan bant genişliği miktarı var mı?<br/>
-  Evet, hello kullan **özelliklerini değiştirme** hello Backup Aracısı tooadjust bant seçeneği. Bu bant genişliği kullandığınızda, bant genişliği ve hello kez hello miktarını ayarlayabilirsiniz. Adım adım yönergeler için bkz. **[Ağ kapasitesi azaltmayı etkinleştirme](backup-configure-vault.md#enable-network-throttling)**.
+### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-by-the-backup-servicebr"></a>Backup hizmeti tarafından kullanılan bant genişliği miktarını ayarlamanın bir yolu var mıdır?<br/>
+  Evet, bant genişliğini ayarlamak için Backup Aracısı'ndaki **Özellikleri Değiştir** seçeneğini kullanın. Bant genişliği miktarını ve bu bant genişliğini kullanma zamanlarınızı ayarlayabilirsiniz. Adım adım yönergeler için bkz. **[Ağ kapasitesi azaltmayı etkinleştirme](backup-configure-vault.md#enable-network-throttling)**.
 
 ## <a name="manage-backups"></a>Yedekleri yönetme
-### <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-tooazurebr"></a>Veri tooAzure yedekleyen bir Windows server adlandırırsanız ne olur?<br/>
+### <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>Azure'a veri yedekleyen bir Windows sunucusunu yeniden adlandırırsam ne olur?<br/>
 Bir sunucuyu yeniden adlandırdığınızda, geçerli olarak yapılandırılmış olan tüm yedeklemeler durdurulur.
-Merhaba sunucunun yeni adını Hello hello yedekleme kasasıyla birlikte kaydedin. Merhaba kasayla hello yeni adı kaydettiğinizde hello ilk yedekleme işlemi olduğundan bir *tam* yedekleme. Merhaba eski sunucu adı toohello kasaya yedeklenen toorecover veri gerekirse hello kullanın [ **başka bir sunucuya** ](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) hello seçeneğinde **verileri kurtarabilirsiniz** Sihirbazı.
+Sunucunun yeni adını Backup kasasına kaydedin. Yeni adı kasaya kaydettiğinizde, ilk yedekleme işlemi *tam* yedekleme olur. Eski sunucu adıyla kasaya yedeklenen verileri kurtarmanız gerekiyorsa **Veri Kurtarma** sihirbazındaki [**Başka bir sunucu**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) seçeneğini kullanın.
 
-### <a name="what-is-hello-maximum-file-path-length-that-can-be-specified-in-backup-policy-using-azure-backup-agent-br"></a>Azure Backup aracısını kullanan yedekleme ilkesinde belirtilen hello en fazla dosya yolu uzunluğu nedir? <br/>
-Azure Backup aracısı NTFS kullanır. Merhaba [yolu uzunluğu belirtimi hello Windows API tarafından sınırlı](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Tooprotect istediğiniz hello hello Windows API tarafından izin daha uzun bir dosya yolu uzunluğu dosyalarınız varsa, hello üst klasörü veya hello disk sürücüsü yedekleme.  
+### <a name="what-is-the-maximum-file-path-length-that-can-be-specified-in-backup-policy-using-azure-backup-agent-br"></a>Yedekleme ilkesinde Azure Backup aracısını kullanarak belirtilebilecek dosya yolu uzunluğu için üst sınır nedir? <br/>
+Azure Backup aracısı NTFS kullanır. [Dosya yolu uzunluğu belirtimi, Windows API ile sınırlıdır](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Korumak istediğiniz dosyalar Windows API tarafından izin verilenden daha uzun dosya yollarına sahipse, üst klasörü veya disk sürücüsünü yedekleyin.  
 
 ### <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent-br"></a>Azure Backup aracısını kullanan Azure Yedekleme ilkesinin dosya yolunda hangi karakterlere izin verilir? <br>
  Azure Backup aracısı NTFS kullanır. [NTFS destekli karakterleri](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) dosya belirtiminin bir parçası olarak etkinleştirir. 
  
-### <a name="i-receive-hello-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-configured-a-backup-policy-br"></a>Bir yedekleme İlkesi yapılandırılmış olsa bile "Azure yedeklemeleri bu sunucu için yapılandırılmamış" Uyarısı, hello alma <br/>
-Bu uyarı Hello yerel sunucuda depolanan hello yedekleme zamanlaması ayarları aynı hello yedekleme kasasında depolanan ayarları hello hello olmadığında oluşur. Merhaba sunucu veya hello ayarları kurtarılan tooa bilinen iyi bir durumda bırakıldı, hello yedekleme zamanlamaları eşitlemesini kaybedebilir. Bu uyarıyı alırsanız [hello yedekleme ilkesini yeniden yapılandırın](backup-azure-manage-windows-server.md) ve ardından **çalıştırmak Şimdi Yedekle** tooresynchronize hello yerel sunucuyu Azure ile.
+### <a name="i-receive-the-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-configured-a-backup-policy-br"></a>Bir yedekleme ilkesi zamanlamış olmama karşın "Azure Yedeklemeleri bu sunucu için yapılandırılmamış" uyarısını alıyorum <br/>
+Bu uyarı, yerel sunucuda depolanan yedekleme zamanlaması ayarları, yedekleme kasasında depolanan ayarlarla aynı olmadığında oluşur. Sunucu ya da ayarlar bilinen bir iyi duruma getirilerek kurtarıldığında, yedekleme zamanlamaları eşitlemesini kaybedebilir. Bu uyarıyı alırsanız [yedekleme ilkesini yeniden yapılandırın](backup-azure-manage-windows-server.md) ve ardından yerel sunucuyu Azure ile yeniden eşitlemek için **Run Back Up Now (Yedeklemeyi Şimdi Çalıştır)** işlemini uygulayın.

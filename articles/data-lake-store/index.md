@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure Data Lake deposu belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
-description: "Nasıl tooset, yönetmek ve bir hiper ölçek, Hadoop uyumlu veri lake deposu herhangi boyutu, türü ve alım hızına veriler üzerinde analiz için erişim öğrenin."
+title: "Azure Data Lake Store Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Her boyutta, türde ve alma hızındaki veriler üzerinde analiz gerçekleştirmek üzere hiper ölçekli, Hadoop ile uyumlu bir veri gölü deposu ayarlama, yönetme ve depoya erişme hakkında bilgi edinin."
 services: data-lake-store
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 8a4730472b7811f022991bffc6dde7bb1be6458e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 3c0327ebb4cb8d6ee66d019326ade4f4bcb258ae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-lake-store-documentation"></a>Data Lake Store Belgeleri
 
-Toouse Data Lake Store toocreate bir hiper ölçek, herhangi bir boyutu, türü ve alım veri analizi için Hadoop uyumlu depo nasıl hızlandırmak öğrenin. Öğreticiler, API başvuru ve diğer belgelerin nasıl tooset, yönetmek ve işletimsel ve keşifsel analiz için data lake depo erişim gösterir.
+Data Lake Store’u kullanarak her boyutta, türde ve alma hızındaki veriler üzerinde analiz gerçekleştirmek üzere hiper ölçekli, Hadoop ile uyumlu bir depo oluşturma hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, işlem ve keşif analizi için bir veri gölü deposu ayarlama, yönetme ve depoya erişme ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -70,7 +70,7 @@ Toouse Data Lake Store toocreate bir hiper ölçek, herhangi bir boyutu, türü 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Data Lake hello Azure portal kullanarak Store ile çalışmaya başlama</h3>
+                        <h3>Azure portalı kullanarak Azure Data Lake Store ile çalışmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ Toouse Data Lake Store toocreate bir hiper ölçek, herhangi bir boyutu, türü 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Data Lake hello Azure CLI kullanarak Store ile çalışmaya başlama</h3>
+                        <h3>Azure CLI kullanarak Azure Data Lake Store ile çalışmaya başlama</h3>
                     </div>
                 </div>
             </div>

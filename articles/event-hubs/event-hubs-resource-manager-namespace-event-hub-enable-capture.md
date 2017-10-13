@@ -1,5 +1,5 @@
 ---
-title: "bir Azure Event Hubs ad alanı ve etkinleştir yakalama bir şablon kullanarak aaaCreate | Microsoft Docs"
+title: "Azure Event Hubs ad alanı oluşturma ve şablon kullanarak Yakalamayı etkinleştirme | Microsoft Docs"
 description: "Bir olay hub'ı ile bir Azure Event Hubs ad alanı oluşturma ve Azure Resource Manager şablonu kullanarak Yakalamayı etkinleştirme"
 services: event-hubs
 documentationcenter: .net
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/28/2017
 ms.author: sethm
-ms.openlocfilehash: a43b4e8d690ae825047e8a9d609bfda89cf2a06f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 089a60ebccabac99771cd06ca8fbf0ea1fb2f1a2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-event-hubs-namespace-with-an-event-hub-and-enable-capture-using-an-azure-resource-manager-template"></a>Bir olay hub'ı ile bir Event Hubs ad alanı oluşturma ve Azure Resource Manager şablonu kullanarak Yakalamayı etkinleştirme
 
-Bu makalede nasıl toouse bir Azure Resource Manager şablonu, bir olay hub'ları ad alanı, bir olay hub'ı örneği etkinleştirir hello da oluşturur ve gösterilmektedir [yakalama özelliği](event-hubs-capture-overview.md) hello olay hub'ındaki. Merhaba makalede nasıl toodefine hangi kaynağın dağıtılan ve nasıl olan toodefine hello dağıtım zaman yürütülür parametrelerinizi. Kendi dağıtımlar için bu şablonu kullanabilir veya toomeet özelleştirebilirsiniz gereksinimlerinizi.
+Bu makalede, bir olay hub’ı örneği ile Event Hubs ad alanı oluşturan ve olay hub’ında [Yakalama özelliğini](event-hubs-capture-overview.md) etkinleştiren Azure Resource Manager şablonunun nasıl kullanılacağı gösterilmektedir. Makalede, hangi kaynakların dağıtıldığının ve dağıtım yürütülürken belirtilen parametrelerin nasıl tanımlanacağı açıklanmaktadır. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz.
 
-Bu makale ayrıca nasıl olayları Azure Storage Bloblarında veya bir Azure Data Lake Store yakalanır toospecify üzerinde hello gösterir, seçtiğiniz hedef.
+Bu makalede ayrıca seçtiğiniz hedefe göre olayları Azure Storage Bloblarında veya bir Azure Data Lake Store’da yakalamayı belirteceğiniz gösterilmektedir.
 
 Şablon oluşturma hakkında daha fazla bilgi için bkz. [Azure Resource Manager şablonları yazma][Authoring Azure Resource Manager templates].
 
 Azure Kaynakları adlandırma kurallarına ilişkin uygulama ve yapılar için bkz. [Azure Kaynakları Adlandırma Kuralları][Azure Resources naming conventions].
 
-Merhaba tam şablonları için GitHub bağlantılar aşağıdaki hello tıklatın:
+Tam şablonlar için aşağıdaki GitHub bağlantılarına tıklayın:
 
-- [Olay hub'ı ve etkinleştir yakalama tooStorage şablonu][Event Hub and enable Capture tooStorage template] 
-- [Olay hub'ı ve etkinleştir yakalama tooAzure Data Lake Store şablonu][Event Hub and enable Capture tooAzure Data Lake Store template]
+- [Olay hub'ı ve Depolama alanına Yakalamayı etkinleştirme şablonu][Event Hub and enable Capture to Storage template] 
+- [Olay hub'ı ve Azure Data Lake Store’a Yakalamayı etkinleştirme şablonu][Event Hub and enable Capture to Azure Data Lake Store template]
 
 > [!NOTE]
-> Merhaba son şablonları için toocheck ziyaret hello [Azure hızlı başlangıç şablonlarını] [ Azure Quickstart Templates] Galerisi ve Event Hubs arayın.
+> En yeni şablonları denetlemek için [Azure Hızlı Başlangıç Şablonları][Azure Quickstart Templates] galerisini ziyaret edin ve Event Hubs araması yapın.
 > 
 > 
 
@@ -44,51 +44,51 @@ Merhaba tam şablonları için GitHub bağlantılar aşağıdaki hello tıklatı
 
 Bu şablonu kullanarak bir olay hub’ı ile Event Hubs ad alanı dağıtır ve aynı zamanda [Event Hubs Yakalama](event-hubs-capture-overview.md) özelliğini etkinleştirirsiniz.
 
-[Olay hub'ları](event-hubs-what-is-event-hubs.md) büyük ölçekte kullanılan hizmet tooprovide olayı ve telemetri giriş tooAzure düşük gecikme süreli ve yüksek güvenilirlik işlemeyi bir olaydır. Tooautomatically teslim olay hub'ları tooAzure Blob Depolama birimindeki verileri veya Azure Data Lake Store, belirtilen zaman veya seçtiğiniz boyutu aralığı içinde akış hello olay hub'ları yakalama etkinleştirir.
+[Event Hubs](event-hubs-what-is-event-hubs.md), düşük gecikme süresi ve yüksek güvenilirlikle Azure’a büyük ölçekte olay ve telemetri girişi sağlayan bir olay işleme hizmetidir. Event Hubs Yakalama özelliği, tercih ettiğiniz bir süre veya boyut aralığı içinde Event Hubs’dan Azure Blob depolama alanına veya Azure Data Lake Store’a akış verilerini otomatik olarak iletmenizi sağlar.
 
-Azure depolama alanına düğmesi tooenable olay hub'ları yakalama aşağıdaki hello tıklatın:
+Event Hubs Yakalama özelliğini Azure Depolamada etkinleştirmek için aşağıdaki düğmeye tıklayın:
 
-[![TooAzure dağıtma](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
+[![Azure’a dağıtma](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture%2Fazuredeploy.json)
 
-Azure Data Lake Store düğmesi tooenable olay hub'ları yakalama aşağıdaki hello tıklatın:
+Event Hubs Yakalama özelliğini Azure Data Lake Store’da etkinleştirmek için aşağıdaki düğmeye tıklayın:
 
-[![TooAzure dağıtma](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture-for-adls%2Fazuredeploy.json)
+[![Azure’a dağıtma](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-eventhubs-create-namespace-and-enable-capture-for-adls%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametreler
 
-Azure Resource Manager ile tanımladığınız parametreler için değerler hello şablon dağıtıldığında toospecify istediğiniz. Merhaba şablonu adlı bir bölüm içerir `Parameters` tüm hello parametre değerlerini içerir. Dağıttığınız hello projesini temel alan veya dağıttığınız hello ortamı dayanarak farklılık bu değerleri için bir parametre tanımlamanız gerekir. Her zaman kalın değerleri aynı hello için parametreleri tanımlamayın. Her parametre değeri dağıtılan hello şablonu toodefine hello kaynaklarında kullanılır.
+Azure Resource Manager sayesinde, şablon dağıtıldığında belirtmek istediğiniz değerlerin parametrelerini siz tanımlarsınız. Şablon, tüm parametre değerlerini içeren `Parameters` adlı bir bölüm içerir. Dağıtmakta olduğunuz projeye veya dağıtım yaptığınız ortama göre değişen değerler için bir parametre tanımlamanız gerekir. Her zaman aynı kalan değerler için parametre tanımlamayın. Her parametre değeri, dağıtılan kaynakları tanımlamak için şablonda kullanılır.
 
-Merhaba şablonu şu parametreler hello tanımlar.
+Şablon aşağıdaki parametreleri tanımlar.
 
 ### <a name="eventhubnamespacename"></a>eventHubNamespaceName
 
-Merhaba Hello adını [olay hub'ları ad alanı](event-hubs-create.md) toocreate.
+Oluşturulacak [Event Hubs ad alanının](event-hubs-create.md) adı.
 
 ```json
 "eventHubNamespaceName":{  
      "type":"string",
      "metadata":{  
-         "description":"Name of hello EventHub namespace"
+         "description":"Name of the EventHub namespace"
       }
 }
 ```
 
 ### <a name="eventhubname"></a>eventHubName
 
-Merhaba event hub'ı hello oluşturulan Hello adını [olay hub'ları ad alanı](event-hubs-create.md).
+[Event Hubs ad alanında](event-hubs-create.md) oluşturulan olay hub’ının adı.
 
 ```json
 "eventHubName":{  
     "type":"string",
     "metadata":{  
-        "description":"Name of hello event hub"
+        "description":"Name of the event hub"
     }
 }
 ```
 
 ### <a name="messageretentionindays"></a>messageRetentionInDays
 
-gün tooretain hello iletilerinin hello event hub'ındaki Hello sayısı. 
+İletilerin olay hub'ında tutulacağı gün sayısı. 
 
 ```json
 "messageRetentionInDays":{
@@ -97,14 +97,14 @@ gün tooretain hello iletilerinin hello event hub'ındaki Hello sayısı.
     "minValue":"1",
     "maxValue":"7",
     "metadata":{
-       "description":"How long tooretain hello data in event hub"
+       "description":"How long to retain the data in event hub"
      }
  }
 ```
 
 ### <a name="partitioncount"></a>partitionCount
 
-Merhaba event hub'ındaki bölümleri toocreate Hello sayısı.
+Olay hub'ında oluşturulacak bölüm sayısı.
 
 ```json
 "partitionCount":{
@@ -120,7 +120,7 @@ Merhaba event hub'ındaki bölümleri toocreate Hello sayısı.
 
 ### <a name="captureenabled"></a>captureEnabled
 
-Yakalama hello olay hub'ına etkinleştirin.
+Olay hub’ında Yakalama özelliğini etkinleştirir.
 
 ```json
 "captureEnabled":{
@@ -130,13 +130,13 @@ Yakalama hello olay hub'ına etkinleştirin.
     "false",
     "true"],
     "metadata":{
-        "description":"Enable or disable hello Capture for your event hub"
+        "description":"Enable or disable the Capture for your event hub"
     }
  }
 ```
 ### <a name="captureencodingformat"></a>captureEncodingFormat
 
-Merhaba kodlama biçimi tooserialize hello olay verileri belirtin.
+Olay verilerini seri hale getirmek için belirttiğiniz kodlama biçimi.
 
 ```json
 "captureEncodingFormat":{
@@ -145,14 +145,14 @@ Merhaba kodlama biçimi tooserialize hello olay verileri belirtin.
     "allowedValues":[
     "Avro"],
     "metadata":{
-        "description":"hello encoding format in which Capture serializes hello EventData"
+        "description":"The encoding format in which Capture serializes the EventData"
     }
 }
 ```
 
 ### <a name="capturetime"></a>captureTime
 
-Merhaba zaman aralığı içinde olay hub'ları yakalama hello veri yakalamayı başlatır.
+Event Hubs Yakalama özelliğinin veri yakalamaya başladığı zaman aralığı.
 
 ```json
 "captureTime":{
@@ -161,13 +161,13 @@ Merhaba zaman aralığı içinde olay hub'ları yakalama hello veri yakalamayı 
     "minValue":60,
     "maxValue":900,
     "metadata":{
-         "description":"hello time window in seconds for hello capture"
+         "description":"the time window in seconds for the capture"
     }
 }
 ```
 
 ### <a name="capturesize"></a>captureSize
-Başlangıç boyutu aralığı aktarılma hello veri yakalamayı yakalama başlatır.
+Yakalama özelliğinin veri yakalamaya başladığı boyut aralığı.
 
 ```json
 "captureSize":{
@@ -176,14 +176,14 @@ Başlangıç boyutu aralığı aktarılma hello veri yakalamayı yakalama başla
     "minValue":10485760,
     "maxValue":524288000,
     "metadata":{
-        "description":"hello size window in bytes for capture"
+        "description":"The size window in bytes for capture"
     }
 }
 ```
 
 ###<a name="capturenameformat"></a>captureNameFormat
 
-Olay hub'ları yakalama toowrite hello Avro dosyalarının kullandığı hello adı biçimi. Yakalama adı biçimi `{Namespace}`, `{EventHub}`, `{PartitionId}`, `{Year}`, `{Month}`, `{Day}`, `{Hour}`, `{Minute}` ve `{Second}` alanlarını içermelidir. Bu, herhangi bir sırada olabilir, sınırlayıcılar tercihe bağlıdır.
+Event Hubs Yakalama özelliği tarafından Avro dosyalarını yazmak için kullanılan ad biçimi. Yakalama adı biçimi `{Namespace}`, `{EventHub}`, `{PartitionId}`, `{Year}`, `{Month}`, `{Day}`, `{Hour}`, `{Minute}` ve `{Second}` alanlarını içermelidir. Bu, herhangi bir sırada olabilir, sınırlayıcılar tercihe bağlıdır.
  
 ```json
 "captureNameFormat": {
@@ -193,56 +193,56 @@ Olay hub'ları yakalama toowrite hello Avro dosyalarının kullandığı hello a
         "description": "A Capture Name Format must contain {Namespace}, {EventHub}, {PartitionId}, {Year}, {Month}, {Day}, {Hour}, {Minute} and {Second} fields. These can be arranged in any order with or without delimeters. E.g.  Prod_{EventHub}/{Namespace}\\{PartitionId}_{Year}_{Month}/{Day}/{Hour}/{Minute}/{Second}"
       }
     }
-  }
+  
 ```
 
 ### <a name="apiversion"></a>apiVersion
 
-Merhaba şablon Hello API sürümü.
+Şablonun API sürümü.
 
 ```json
  "apiVersion":{  
     "type":"string",
-    "defaultValue":"2015-08-01",
+    "defaultValue":"2017-04-01",
     "metadata":{  
-        "description":"ApiVersion used by hello template"
+        "description":"ApiVersion used by the template"
     }
  }
 ```
 
-Hedef olarak Azure Storage'ı seçerseniz şu parametreler hello kullanın.
+Hedef olarak Azure Depolama’yı seçerseniz aşağıdaki parametreleri kullanın.
 
 ### <a name="destinationstorageaccountresourceid"></a>destinationStorageAccountResourceId
 
-Yakalama tooyour yakalama bir Azure depolama hesabı kaynak kimliği tooenable istenen depolama hesabı gerektirir.
+Yakalama özelliğinin istediğiniz Depolama hesabında yakalamayı etkinleştirmesi için bir Azure Depolama hesabı kaynak kimliği gereklidir.
 
 ```json
  "destinationStorageAccountResourceId":{
     "type":"string",
     "metadata":{
-        "description":"Your existing Storage account resource ID where you want hello blobs be captured"
+        "description":"Your existing Storage account resource ID where you want the blobs be captured"
     }
  }
 ```
 
 ### <a name="blobcontainername"></a>blobContainerName
 
-hangi toocapture BLOB kapsayıcısında olay verilerinizi hello.
+Olay verilerinin yakalanacağı blob kapsayıcısı.
 
 ```json
  "blobContainerName":{
     "type":"string",
     "metadata":{
-        "description":"Your existing storage container in which you want hello blobs captured"
+        "description":"Your existing storage container in which you want the blobs captured"
     }
 }
 ```
 
-Azure Data Lake Store, hedef olarak seçerseniz, şu parametreler hello kullanın. TooCapture hello olay istediğiniz, Data Lake Store yolunuza bağlı izinlerini ayarlamanız gerekir. bkz: tooset izinleri [bu makalede](event-hubs-capture-enable-through-portal.md#capture-data-to-an-azure-data-lake-store-account).
+Hedef olarak Azure Data Lake Store’u seçerseniz aşağıdaki parametreleri kullanın. Olayı yakalamak istediğiniz Data Lake Store yolunuzda izinleri ayarlamanız gerekir. İzinleri ayarlamak için [bu makaleye](event-hubs-capture-enable-through-portal.md#capture-data-to-an-azure-data-lake-store-account) bakın.
 
 ###<a name="subscriptionid"></a>subscriptionId
 
-Merhaba olay hub'ları ad alanı ve Azure Data Lake Store için abonelik kimliği. Her iki bu kaynakları hello altında olmalıdır aynı abonelik kimliği
+Azure Data Lake Store ve Event Hubs ad alanı için abonelik kimliği. Bu iki kaynağın aynı abonelik kimliği altında olması gerekir
 
 ```json
 "subscriptionId": {
@@ -255,7 +255,7 @@ Merhaba olay hub'ları ad alanı ve Azure Data Lake Store için abonelik kimliğ
 
 ###<a name="datalakeaccountname"></a>dataLakeAccountName
 
-Hello Azure Data Lake Store adı hello için olayları yakalandı.
+Yakalanan olaylar için Azure Data Lake Store adı.
 
 ```json
 "dataLakeAccountName": {
@@ -268,7 +268,7 @@ Hello Azure Data Lake Store adı hello için olayları yakalandı.
 
 ###<a name="datalakefolderpath"></a>dataLakeFolderPath
 
-Merhaba hedef klasör yolu hello için olayları yakalandı.
+Yakalanan olaylar için hedef klasör yolu. Bu, Capture olaylarının gönderileceği Data Lake Store klasörünüzdür. Bu klasörün izinlerini ayarlamak için lütfen [Event Hubs verilerini almak için Azure Data Lake Store kullanma](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-archive-eventhub-capture) makalesini inceleyin
 
 ```json
 "dataLakeFolderPath": {
@@ -279,9 +279,9 @@ Merhaba hedef klasör yolu hello için olayları yakalandı.
 }
 ```
 
-## <a name="resources-toodeploy-for-azure-storage-as-destination-toocaptured-events"></a>Azure depolama için kaynakları toodeploy de hedef toocaptured olayları
+## <a name="resources-to-deploy-for-azure-storage-as-destination-to-captured-events"></a>Yakalanan olaylar için hedef olarak Azure Depolama kullanıldığında dağıtılacak kaynaklar
 
-Türü bir ad oluşturur **EventHubs**bir olay hub'ı ve etkinleştirir tooAzure Blob Storage yakalayın.
+Bir olay hub’ı ile **EventHubs** türünde bir ad alanı oluşturur ve aynı zamanda Azure Blob Depolama’ya Yakalama özelliğini etkinleştirir.
 
 ```json
 "resources":[  
@@ -294,48 +294,60 @@ Türü bir ad oluşturur **EventHubs**bir olay hub'ı ve etkinleştirir tooAzure
             "name":"Standard",
             "tier":"Standard"
          },
-         "resources":[  
-            {  
-               "apiVersion":"[variables('ehVersion')]",
-               "name":"[parameters('eventHubName')]",
-               "type":"EventHubs",
-               "dependsOn":[  
-                  "[concat('Microsoft.EventHub/namespaces/', parameters('eventHubNamespaceName'))]"
-               ],
-               "properties":{  
-                  "path":"[parameters('eventHubName')]",
-                  "MessageRetentionInDays":"[parameters('messageRetentionInDays')]",
-                  "PartitionCount":"[parameters('partitionCount')]",
-                  "CaptureDescription":{
-                        "enabled":"[parameters('captureEnabled')]",
-                        "encoding":"[parameters('captureEncodingFormat')]",
-                        "intervalInSeconds":"[parameters('captureTime')]",
-                        "sizeLimitInBytes":"[parameters('captureSize')]",
-                        "destination":{
-                            "name":"EventHubCapture.AzureBlockBlob",
-                            "properties":{
-                                "StorageAccountResourceId":"[parameters('destinationStorageAccountResourceId')]",
-                                "BlobContainer":"[parameters('blobContainerName')]"
-                            }
-                        } 
-                  }
-
-               }
-
+         "resources": [
+    {
+      "apiVersion": "2017-04-01",
+      "name": "[parameters('eventHubNamespaceName')]",
+      "type": "Microsoft.EventHub/Namespaces",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard"
+      },
+      "properties": {
+        "isAutoInflateEnabled": "true",
+        "maximumThroughputUnits": "7"
+      },
+      "resources": [
+        {
+          "apiVersion": "2017-04-01",
+          "name": "[parameters('eventHubName')]",
+          "type": "EventHubs",
+          "dependsOn": [
+            "[concat('Microsoft.EventHub/namespaces/', parameters('eventHubNamespaceName'))]"
+          ],
+          "properties": {
+            "messageRetentionInDays": "[parameters('messageRetentionInDays')]",
+            "partitionCount": "[parameters('partitionCount')]",
+            "captureDescription": {
+              "enabled": "true",
+              "encoding": "[parameters('captureEncodingFormat')]",
+              "intervalInSeconds": "[parameters('captureTime')]",
+              "sizeLimitInBytes": "[parameters('captureSize')]",
+              "destination": {
+                "name": "EventHubArchive.AzureBlockBlob",
+                "properties": {
+                  "storageAccountResourceId": "[parameters('destinationStorageAccountResourceId')]",
+                  "blobContainer": "[parameters('blobContainerName')]",
+                  "archiveNameFormat": "[parameters('captureNameFormat')]"
+                }
+              }
             }
-         ]
-      }
-   ]
+          }
+
+        }
+      ]
+    }
+  ]
 ```
 
-## <a name="resources-toodeploy-for-azure-data-lake-store-as-destination"></a>Hedef olarak Azure Data Lake Store için kaynakları toodeploy
+## <a name="resources-to-deploy-for-azure-data-lake-store-as-destination"></a>Hedef olarak Azure Data Lake Store kullanıldığında dağıtılacak kaynaklar
 
-Tür bir ad oluşturur **EventHubs**bir olay hub'ı ve yakalama tooAzure Data Lake Store etkinleştirir.
+Bir olay hub’ı ile **EventHubs** türünde bir ad alanı oluşturur ve aynı zamanda Azure Data Lake Store’a Yakalama özelliğini etkinleştirir.
 
 ```json
  "resources": [
         {
-            "apiVersion": "2015-08-01",
+            "apiVersion": "2017-04-01",
             "name": "[parameters('namespaceName')]",
             "type": "Microsoft.EventHub/Namespaces",
             "location": "[variables('location')]",
@@ -345,7 +357,7 @@ Tür bir ad oluşturur **EventHubs**bir olay hub'ı ve yakalama tooAzure Data La
             },
             "resources": [
                 {
-                    "apiVersion": "2015-08-01",
+                    "apiVersion": "2017-04-01",
                     "name": "[parameters('eventHubName')]",
                     "type": "EventHubs",
                     "dependsOn": [
@@ -353,18 +365,18 @@ Tür bir ad oluşturur **EventHubs**bir olay hub'ı ve yakalama tooAzure Data La
                     ],
                     "properties": {
                         "path": "[parameters('eventHubName')]",
-                        "ArchiveDescription": {
+                        "captureDescription": {
                             "enabled": "true",
                             "encoding": "[parameters('archiveEncodingFormat')]",
-                            "intervalInSeconds": "[parameters('archiveTime')]",
-                            "sizeLimitInBytes": "[parameters('archiveSize')]",
+                            "intervalInSeconds": "[parameters('captureTime')]",
+                            "sizeLimitInBytes": "[parameters('captureSize')]",
                             "destination": {
                                 "name": "EventHubArchive.AzureDataLake",
                                 "properties": {
                                     "DataLakeSubscriptionId": "[parameters('subscriptionId')]",
                                     "DataLakeAccountName": "[parameters('dataLakeAccountName')]",
                                     "DataLakeFolderPath": "[parameters('dataLakeFolderPath')]",
-                                    "ArchiveNameFormat": "[parameters('archiveNameFormat')]"
+                                    "ArchiveNameFormat": "[parameters('captureNameFormat')]"
                                 }
                             }
                         }
@@ -375,19 +387,19 @@ Tür bir ad oluşturur **EventHubs**bir olay hub'ı ve yakalama tooAzure Data La
     ]
 ```
 
-## <a name="commands-toorun-deployment"></a>Komutları toorun dağıtımı
+## <a name="commands-to-run-deployment"></a>Dağıtımı çalıştırma komutları
 
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ## <a name="powershell"></a>PowerShell
 
-Azure depolama alanına, şablon tooenable olay hub'ları yakalama dağıtın:
+Azure Depolamada Event Hubs Yakalama özelliğini etkinleştirmek için şablonunuzu dağıtın:
  
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture/azuredeploy.json
 ```
 
-Azure Data Lake Store, şablon tooenable olay hub'ları yakalama dağıtın:
+Azure Data Lake Store’da Event Hubs Yakalama özelliğini etkinleştirmek için şablonunuzu dağıtın:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-capture-for-adls/azuredeploy.json
@@ -413,9 +425,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ayrıca olay hub'ları yakalama hello yapılandırabilirsiniz [Azure portal](https://portal.azure.com). Daha fazla bilgi için bkz: [etkinleştirmek olay hub'ları yakalama kullanarak hello Azure portal](event-hubs-capture-enable-through-portal.md).
+Event Hubs Yakalama özelliğini [Azure portalı](https://portal.azure.com) üzerinden de yapılandırabilirsiniz. Daha fazla bilgi için bkz. [Azure portalını kullanarak Event Hubs Yakalama özelliğini etkinleştirme](event-hubs-capture-enable-through-portal.md).
 
-Bağlantılar aşağıdaki hello ziyaret ederek Event Hubs hakkında daha fazla bilgi edinebilirsiniz:
+Aşağıdaki bağlantıları inceleyerek Event Hubs hakkında daha fazla bilgi edinebilirsiniz:
 
 * [Event Hubs’a genel bakış](event-hubs-what-is-event-hubs.md)
 * [Olay Hub’ı oluşturma](event-hubs-create.md)
@@ -424,5 +436,5 @@ Bağlantılar aşağıdaki hello ziyaret ederek Event Hubs hakkında daha fazla 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
 [Azure Resources naming conventions]: https://azure.microsoft.com/documentation/articles/guidance-naming-conventions/
-[Event hub and enable Capture tooStorage template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture
-[Event hub and enable Capture tooAzure Data Lake Store template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture-for-adls
+[Event hub and enable Capture to Storage template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture
+[Event hub and enable Capture to Azure Data Lake Store template]: https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-capture-for-adls

@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure CDN'ye genel bakış | Microsoft Docs"
-description: "Azure içerik teslim ağı (CDN) olan hangi hello öğrenin ve nasıl toouse, blobları ve statik içerik önbelleğe alma tarafından toodeliver yüksek bant genişliği içeriği."
+title: "Azure CDN’ye Genel Bakış | Microsoft Belgeleri"
+description: "Azure İçerik Teslim Ağı'nın (CDN) ne olduğunu, blobları ve statik içeriği önbelleğe alarak yüksek bant genişliği içeriği teslimi gerçekleştirmek üzere nasıl kullanılacağını öğrenin."
 services: cdn
 documentationcenter: 
 author: smcevoy
@@ -14,38 +14,38 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/08/2017
 ms.author: v-semcev
-ms.openlocfilehash: e0230a6e107969b845985f2f4d357bf93cd40d42
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 909c4dc3feaeaedf56ecacc78f4b7e0e15d98875
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="overview-of-hello-azure-content-delivery-network-cdn"></a>Hello Azure içerik teslim ağı (CDN) genel bakış
+# <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Azure İçerik Teslim Ağı'na (CDN) genel bakış
 > [!NOTE]
-> Bu belge, Azure içerik teslim ağı (CDN) olan hangi Merhaba, nasıl çalıştığı ve her Azure CDN ürününün hello özelliklerini açıklar.  Bu bilgiler tooskip istediğiniz ve düz tooa öğretici gitmek toocreate bir CDN uç noktası bkz [Azure CDN'yi kullanma](cdn-create-new-endpoint.md).  Toosee mevcut CDN düğümü konumları listesini istiyorsanız, bkz: [Azure CDN POP konumları](cdn-pop-locations.md).
+> Bu belgede, Azure İçerik Teslim Ağı'nın (CDN) ne olduğu, nasıl çalıştığı ve her bir Azure CDN ürününün özellikleri açıklanmaktadır.  Bu bilgileri atlayıp doğrudan CDN uç noktası oluşturmaya yönelik öğreticiye gitmek istiyorsanız bkz. [Azure CDN'yi kullanma](cdn-create-new-endpoint.md).  Geçerli CDN düğümü konumlarının listesini görmek istiyorsanız bkz. [Azure CDN POP Konumları](cdn-pop-locations.md).
 > 
 > 
 
-Hello Azure içerik teslim ağı (CDN) içerik toousers teslim stratejik olarak yerleştirilmiş konumlardaki tooprovide en yüksek verimlilik statik web içeriği önbelleğe alır.  Merhaba CDN geliştiriciler Merhaba dünya genelindeki fiziksel düğümlerde hello içeriği önbelleğe alarak yüksek bant genişliği içeriği teslimi için genel bir çözüm sunar. 
+Azure İçerik Teslim Ağı (CDN), kullanıcılara içerik teslim etmek için en yüksek verimliliği sağlamak üzere stratejik olarak yerleştirilmiş konumlardaki statik web içeriğini önbelleğe alır.  CDN, dünya genelindeki fiziksel düğümlerde bulunan içeriği önbelleğe alarak, yüksek bant genişliği içeriğinin teslimi konusunda geliştiricilere genel bir çözüm sunar. 
 
-Merhaba hello CDN toocache web sitesi varlıklarını kullanmanın avantajları şunlardır:
+Web sitesi varlıklarını önbelleğe almak için CDN kullanmanın avantajları şunlardır:
 
-* Özellikle birden çok gidiş dönüş nerede uygulamaları kullanarak tooload içeriği gerektiğinde son kullanıcılar için daha iyi performans ve kullanıcı deneyimi.
-* Büyük ölçeklendirme toobetter hello bir ürün başlangıcında olay başlatma gibi anlık yüksek düzeyde yükü işleyin.
-* Kullanıcı isteklerinin dağıtımı ve uç sunuculardan içerik hizmet veren toohello kaynak daha az trafik gönderilir.
+* Özellikle içeriğin yüklenmesi için birden çok gidiş dönüş gerektiren uygulamaların kullanımı sırasında, son kullanıcılar için daha iyi performans ve kullanıcı deneyimi.
+* Bir ürün sunumu etkinliğinin başlangıcında olduğu gibi, anlık yüksek düzeyde yükü daha iyi işleyebilmek için büyük ölçeklendirme.
+* Kullanıcı isteklerinin dağıtımı ve uç sunuculardan içerik sunulması yoluyla kaynağa daha az trafik gönderilir.
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 ![CDN'ye Genel Bakış](./media/cdn-overview/cdn-overview.png)
 
-1. Bir kullanıcı (Alice), `<endpointname>.azureedge.net` gibi özel bir etki alanı adına sahip olan bir URL'yi kullanarak bir dosya (varlık olarak da adlandırılır) isteğinde bulunur.  DNS hello isteği toohello en iyi gerçekleştirme bulunma noktası (POP) konumuna yönlendirir.  Genellikle bu hello coğrafi olarak en yakın toohello kullanıcı POP adıdır.
-2. Merhaba POP Hello uç sunucuların önbelleğinde hello dosya yoksa, hello uç sunucusunu hello dosya hello kaynaktan ister.  Merhaba kaynak bir Azure Web uygulaması, Azure bulut hizmeti, Azure depolama hesabı veya herhangi bir genel olarak erişilebilir web sunucusu olabilir.
-3. Merhaba kaynak hello dosyanın için-yaşam süresi (TTL) açıklayan isteğe bağlı HTTP üst bilgileri de dahil olmak üzere hello dosya toohello uç sunucu, döndürür.
-4. Merhaba uç sunucusunu hello dosyayı önbelleğe alır ve hello dosya toohello özgün istek (Alice) döndürür.  Merhaba TTL süresi dolana kadar hello dosya hello uç sunucuda önbelleğe alınmış olarak kalır.  Merhaba kaynak bir TTL belirtmemişse hello varsayılan TTL yedi gündür.
-5. Ek kullanıcılar aynı aynı URL'yi kullanarak dosya ve ayrıca Mayıs isteği hello yönlendirilmiş toothat olması olabilir aynı POP.
-6. Merhaba dosya Merhaba TTL Süresi dolmamışsa hello uç sunucusunu hello dosya hello önbellekten döndürür.  Bu, daha hızlı ve daha duyarlı bir kullanıcı deneyimi sağlar.
+1. Bir kullanıcı (Alice), `<endpointname>.azureedge.net` gibi özel bir etki alanı adına sahip olan bir URL'yi kullanarak bir dosya (varlık olarak da adlandırılır) isteğinde bulunur.  DNS, isteği en iyi performans gösteren Bulunma Noktası (POP) konumuna yönlendirir.  Bu, genellikle kullanıcıya coğrafi olarak en yakın konumdaki POP'dir.
+2. POP'deki uç sunucuların önbelleğinde dosya mevcut değilse uç sunucu, dosyayı kaynaktan ister.  Kaynak bir Azure Web Uygulaması, Azure Bulut Hizmeti, Azure Storage hesabı veya genel olarak erişilebilen herhangi bir web sunucusu olabilir.
+3. Kaynak, dosyanın Yaşam Süresi'ni (TTL) açıklayan isteğe bağlı HTTP üst bilgileri de dahil olmak üzere, dosyayı uç sunucuya döndürür.
+4. Uç sunucu, dosyayı önbelleğe alır ve dosyayı özgün istek sahibine (Alice) döndürür.  Dosya, TTL süresi dolana kadar uç sunucuda önbelleğe alınmış olarak kalır.  Kaynak, bir TTL belirtmemişse varsayılan TTL yedi gündür.
+5. Bu durumda ek kullanıcılar aynı URL'yi kullanarak aynı dosyayı isteyebilir ve ayrıca, aynı POP'ye yönlendirilebilir.
+6. Dosya için TTL'nin süresi dolmamışsa uç sunucu dosyayı önbellekten döndürür.  Bu, daha hızlı ve daha duyarlı bir kullanıcı deneyimi sağlar.
 
 ## <a name="azure-cdn-features"></a>Azure CDN'nin Özellikleri
-Üç Azure CDN ürünü mevcuttur: **Akamai'den Azure CDN Standart**, **Verizon'dan Azure CDN Standart** ve **Verizon'dan Azure CDN Premium**.  Merhaba aşağıdaki tabloda her ürünle birlikte sunulan hello özellikleri listeler.
+Üç Azure CDN ürünü mevcuttur: **Akamai'den Azure CDN Standart**, **Verizon'dan Azure CDN Standart** ve **Verizon'dan Azure CDN Premium**.  Aşağıdaki tabloda her ürünle birlikte sunulan özellikler listelenmiştir.
 
 |  | Standart Akamai | Standart Verizon | Premium Verizon |
 | --- | --- | --- | --- |
@@ -74,7 +74,7 @@ Merhaba hello CDN toocache web sitesi varlıklarını kullanmanın avantajları 
 | [Gerçek zamanlı istatistikler](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [Gerçek zamanlı uyarılar](cdn-real-time-alerts.md) | | |**&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __Kullanım Kolaylığı__ |
-| [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md) ve [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) gibi Azure hizmetleriyle kolay tümleştirme |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [Storage](cdn-create-a-storage-account-with-cdn.md), [Cloud Services](cdn-cloud-service-with-cdn.md), [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md) ve [Media Services](../media-services/media-services-portal-manage-streaming-endpoints.md) gibi Azure hizmetleriyle kolay tümleştirme |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [REST API](https://msdn.microsoft.com/library/mt634456.aspx), [.NET](cdn-app-dev-net.md), [Node.js](cdn-app-dev-node.md), veya [PowerShell](cdn-manage-powershell.md) aracılığıyla yönetim. |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [Özelleştirilebilir, kural tabanlı içerik teslim altyapısı](cdn-rules-engine.md) | | |**&#x2713;** |
 | Önbellek/üstbilgi ayarları ([kurallar altyapısı](cdn-rules-engine.md) kullanılarak) | | |**&#x2713;** |
@@ -85,18 +85,18 @@ Merhaba hello CDN toocache web sitesi varlıklarını kullanmanın avantajları 
 
 
 > [!TIP]
-> Azure CDN toosee istediğiniz bir özellik var mı?  [Bize geri bildirim sağlayın](https://feedback.azure.com/forums/169397-cdn)! 
+> Azure CDN'de görmek istediğiniz bir özellik mi var?  [Bize geri bildirim sağlayın](https://feedback.azure.com/forums/169397-cdn)! 
 > 
 > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-CDN ile çalışmaya tooget bkz [Azure CDN'yi kullanma](cdn-create-new-endpoint.md).
+CDN ile çalışmaya başlamak için bkz. [Azure CDN'yi kullanma](cdn-create-new-endpoint.md).
 
-Artık, var olan bir CDN müşterisiyseniz, CDN uç noktalarınızı hello aracılığıyla yönetebilirsiniz [Microsoft Azure portal](https://portal.azure.com) veya [PowerShell](cdn-manage-powershell.md).
+Zaten bir CDN müşterisiyseniz artık CDN uç noktalarınızı [Microsoft Azure Portal](https://portal.azure.com) üzerinden veya [PowerShell](cdn-manage-powershell.md) ile yönetebilirsiniz.
 
-toosee CDN eylemde Merhaba, hello denetleyin [Build 2016 oturumu videomuza, video](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/).
+CDN'yi uygulamalı olarak görmek için [Build 2016 oturumu videomuza](https://azure.microsoft.com/documentation/videos/build-2016-leveraging-the-new-azure-cdn-apis-to-build-wicked-fast-applications/) bakın.
 
-Bilgi nasıl tooautomate Azure CDN ile [.NET](cdn-app-dev-net.md) veya [Node.js](cdn-app-dev-node.md).
+Azure CDN’yi [.NET](cdn-app-dev-net.md) veya [Node.js](cdn-app-dev-node.md) ile nasıl otomatik hale getireceğinizi öğrenin.
 
 Fiyatlandırma bilgileri için bkz. [CDN Fiyatlandırması](https://azure.microsoft.com/pricing/details/cdn/).
 

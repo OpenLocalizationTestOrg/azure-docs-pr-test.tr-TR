@@ -1,6 +1,6 @@
 ---
-title: "aaaStorSimple Teknik Özellikleri | Microsoft Docs"
-description: "Merhaba teknik özellikleri ve hello StorSimple donanım bileşenleri için yasal standartları uyumluluk bilgileri açıklar."
+title: "StorSimple Teknik Özellikleri | Microsoft Docs"
+description: "StorSimple donanım bileşenleri için yasal standartları uyumluluk bilgileri ve teknik özellikleri açıklar."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.openlocfilehash: bb73661105dee7f6020a91f8c4f5abd6583023ca
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ac1f6fbd40770374f68d0d280fc1cc040e41b1ef
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="technical-specifications-and-compliance-for-hello-storsimple-device"></a>Teknik Özellikleri ve hello StorSimple cihaz için Uyumluluk
+# <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Teknik Özellikleri ve StorSimple aygıt için uyumluluğu
 ## <a name="overview"></a>Genel Bakış
-Microsoft Azure StorSimple Cihazınızı Hello donanım bileşenleri toohello teknik özellikleri ve bu makalede açıklanan yasal standartlarına uyması. Merhaba güç ve soğutma modülleri (PCMs), disk sürücüleri, depolama kapasitesi ve Kasaları Hello teknik özellikleri açıklanmaktadır. Merhaba uyumluluk bilgileri uluslararası standartları, güvenliği ve emisyonlarını ve kablo gibi şeyleri ele alınmaktadır.
+Bu makalede açıklanan yasal standartları ve teknik belirtimler için Microsoft Azure StorSimple Cihazınızı donanım bileşenlerinin uyması. Teknik Özellikleri, güç ve soğutma modülleri (PCMs), disk sürücülerinde, depolama kapasitesi ve Kasaları açıklanmaktadır. Uyumluluk bilgileri uluslararası standartları, güvenliği ve emisyonlarını ve kablo gibi şeyler kapsar.
 
 ## <a name="power-and-cooling-module-specifications"></a>Güç ve soğutma modülü belirtimleri
-Merhaba StorSimple cihazı iki 100-240V çift fan, SBB uyumlu güç soğutma modülleri (PCMs) sahiptir. Bu, bir yedek güç yapılandırmasını sağlar. Bir PCM başarısız olursa, hello aygıt toooperate normalde hello modülünün kadar diğer PCM değiştirilir hello üzerinde devam eder.  
+StorSimple cihazı iki 100-240V çift fan, SBB uyumlu güç soğutma modülleri (PCMs) sahiptir. Bu, bir yedek güç yapılandırmasını sağlar. Bir PCM başarısız olursa cihaz başarısız modülü değiştirilene kadar diğer PCM üzerinde normal şekilde çalışmaya devam eder.  
 
-Merhaba EBOD muhafazası 580 W PCM ve birincil muhafaza 764 W PCM kullanır. Merhaba aşağıdaki liste hello teknik özellikleri PCMs hello ile ilişkili tabloları.
+EBOD muhafazası 580 W PCM ve birincil muhafaza 764 W PCM kullanır. Aşağıdaki tablolarda PCMs ile ilişkili teknik özellikleri listelenmektedir.
 
 | Belirtimi | 580 W PCM (EBOD) | 764 W PCM (birincil) |
 | --- | --- | --- |
@@ -45,7 +45,7 @@ Merhaba EBOD muhafazası 580 W PCM ve birincil muhafaza 764 W PCM kullanır. Mer
 | Soğutma kasası |Soğutma fanları değişken fan hızı denetimiyle Eksenel |Soğutma fanları değişken fan hızı denetimiyle Eksenel |
 
 ## <a name="power-consumption-statistics"></a>Güç tüketimi istatistikleri
-Aşağıdaki tablonun hello (gerçek değerler yayımlanan hello gösterebilir) hello tipik güç tüketimi verilerinin hello için StorSimple cihazı çeşitli modellerinin listeler. 
+Aşağıdaki tabloda StorSimple cihazı çeşitli modelleri için (gerçek değerler yayımlanan gösterebilir) tipik güç tüketimi verilerinin listeler. 
 
 | Koşullar | 240 V AC | 240 V AC | 240 V AC | 110 V AC | 110 V AC | 110 V AC |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -57,10 +57,10 @@ Aşağıdaki tablonun hello (gerçek değerler yayımlanan hello gösterebilir) 
 |  Erişim, sürücüler fanları hızlı bir PSU boşta bir gücü |2.14 A |0.49 kW |1671.95 BTU/saat |4.81 A |0.53 kW |1808.44 BTU/saat |
 
 ## <a name="disk-drive-specifications"></a>Disk sürücüsü belirtimleri
-StorSimple Cihazınızı too12 3.5 inç form faktörü seri bağlı SCSI (SAS) disk sürücülerini destekler. Merhaba gerçek sürücüleri katı hal sürücüleri (SSD) veya sabit disk sürücülerinin (HDD'ler) hello ürün yapılandırmasına bağlı karışımı olabilir. Merhaba 12 disk sürücüsü yuvası tarafından 3 4 yapılandırma hello muhafaza önünde bulunur. Merhaba EBOD muhafazası 12 başka bir disk sürücüleri için ek depolama alanı sağlar. Bunlar her zaman HDD olur.  
+StorSimple Cihazınızı en fazla 12 3.5 inç form faktörü seri bağlı SCSI (SAS) disk sürücüleri destekler. Gerçek sürücü katı hal sürücüleri (SSD) veya sabit disk sürücülerinin (HDD'ler) ürün yapılandırmasına bağlı karışımı olabilir. 12 disk sürücüsü yuvası tarafından 3 4 yapılandırma muhafaza önünde bulunur. EBOD muhafazası 12 başka bir disk sürücüleri için ek depolama alanı sağlar. Bunlar her zaman HDD olur.  
 
 ## <a name="storage-specifications"></a>Depolama belirtimleri
-Merhaba StorSimple aygıtların bir karışımını sabit disk sürücüleri ve katı hal sürücüleri için her iki hello 8100 ve 8600 vardır. Toplam kullanılabilir kapasiteyi hello 8100 ve 8600 Hello: yaklaşık 15 TB ve 38 TB sırasıyla. Aşağıdaki tablonun hello hello ayrıntılarını SSD ve HDD bulut kapasitesi hello StorSimple çözüm kapasite hello bağlamında belgeler.
+StorSimple cihazları sabit disk ve katı hal sürücüleri bir karışımını 8100 hem 8600 var. 8100 ve 8600 toplam kullanılabilir kapasiteyi, kabaca 15 TB ve 38 TB sırasıyla. Aşağıdaki tabloda SSD ve HDD StorSimple çözüm kapasite bağlamında bulut kapasitesi ayrıntıları belgeler.
 
 | Cihaz modeli / kapasite | 8100 | 8600 |
 | --- | --- | --- |
@@ -74,33 +74,33 @@ Merhaba StorSimple aygıtların bir karışımını sabit disk sürücüleri ve 
 | Toplam kullanılabilir kapasite * |~ 15 TB |~ 38 TB |
 | En fazla çözüm Kapasite (bulut dahil) |200 TB |500 TB |
 
-<sup>* </sup>- *Merhaba toplam kullanılabilir kapasite verileri, meta verileri ve arabellekleri için kullanılabilir hello kapasitesi içerir.*
+<sup>* </sup>- *Toplam kullanılabilir kapasite verileri, meta verileri ve arabellekleri için kapasite içerir.*
 
 ## <a name="enclosure-dimensions-and-weight-specifications"></a>Muhafaza boyut ve Ağırlık belirtimleri
-Aşağıdaki tablolar listesini hello boyut ve Ağırlık için çeşitli muhafaza belirtimler hello.  
+Aşağıdaki tablolarda, boyutlar ve Ağırlık çeşitli muhafaza özelliklerini listeleyin.  
 
 ### <a name="enclosure-dimensions"></a>Kasa boyutları
-Merhaba aşağıdaki tabloda hello muhafazada milimetre ve inç hello boyutlarını listeler.
+Aşağıdaki tabloda milimetre ve inç muhafazada boyutlarını listeler.
 
 | Kasası | Milimetre | İnç |
 | --- | --- | --- |
 | Yükseklik |87.9 |3.46 |
 | Genişliği bağlama Flanş boyunca |483 |19.02 |
 | Genişliği muhafaza gövdesi boyunca |443 |17.44 |
-| Ön bağlama Flanş tooextremity muhafaza gövdesinin gelen derinliği |577 |22.72 |
-| Operations derinliği panel toofurthest extremity kasası |630.5 |24.82 |
-| Flanş toofurthest extremity kasası, takma gelen derinliği |603 |23.74 |
+| Muhafaza gövdesinin extremity ön bağlama Flanş gelen derinliği |577 |22.72 |
+| Kasa, en extremity işlemleri panelinden derinliği |630.5 |24.82 |
+| Kasa, en extremity bağlama Flanş gelen derinliği |603 |23.74 |
 
 ### <a name="enclosure-weight"></a>Muhafaza ağırlığı
-Merhaba yapılandırmasına bağlı olarak, tam olarak yüklenen bir birincil muhafaza 21 too33 kg tartmanız ve iki kişi toohandle gerektirir. 
+Yapılandırmasına bağlı olarak tam olarak yüklenen bir birincil muhafaza 21 33 kg tartmanız ve bu iki kişiyi gerektirir. 
 
 | Kasası | Ağırlık |
 | --- | --- |
-| Maksimum ağırlık (Merhaba yapılandırmasına bağlıdır) |30 kg – 33 kg |
+| Maksimum ağırlık (yapılandırmasına bağlıdır) |30 kg – 33 kg |
 | Boş (sürücüler donatılmıştır) |21 – 23 kg |
 
 ## <a name="enclosure-environment-specifications"></a>Muhafaza ortam belirtimleri
-Bu bölümde hello belirtimleri ilgili toohello muhafaza ortamı listelenir. Merhaba sıcaklık, nem, yüksekliği, darbe, Titreşim, yönlendirme, güvenlik ve elektromanyetik uyumluluk (EMC) Bu kategorideki dahil edilir.  
+Bu bölümde muhafaza ortama ilgili özellikleri listeler. Sıcaklık, nem, yüksekliği, darbe, Titreşim, yönlendirme, güvenlik ve elektromanyetik uyumluluk (EMC) Bu kategorideki dahil edilir.  
 
 ### <a name="temperature-and-humidity"></a>Sıcaklık ve nem oranı
 | Kasası | Ortam sıcaklık aralığı | Ortam Bağıl nem oranı | En fazla bulaşabilir ampul |
@@ -111,49 +111,49 @@ Bu bölümde hello belirtimleri ilgili toohello muhafaza ortamı listelenir. Mer
 ### <a name="airflow-altitude-shock-vibration-orientation-safety-and-emc"></a>Hava akışı, yüksekliği, darbe, Titreşim, yönlendirme, güvenlik ve EMC
 | Kasası | İşlem özellikleri |
 | --- | --- |
-| Hava akışı |Sistem hava akışı ön toorear ' dir. Sistem bir low-pressure, arka Egzoz yüklemesiyle işletilen gerekir. Raf kapıları ve engellerini tarafından oluşturulan geri baskısı 5 Paskal (0,5 mm su ölçer) aşamaz. |
-| İşletimsel yüksekliği |-30 metre sıcaklığı maksimum too3045 metre (-100 ayak too10, 000 ayak) XML'deki derecelendirilmiş 7000 fit 5 ° C tarafından. |
-| Yükseklik çalışmaz |-305 metre too12, 192 metre (-1,000 ayak too40, 000 ayak) |
+| Hava akışı |Sistem hava akışı arkadan öne ' dir. Sistem bir low-pressure, arka Egzoz yüklemesiyle işletilen gerekir. Raf kapıları ve engellerini tarafından oluşturulan geri baskısı 5 Paskal (0,5 mm su ölçer) aşamaz. |
+| İşletimsel yüksekliği |-30 metre 3045 metre (-100 ayak 10.000 ayak için), en fazla sıcaklığı 7000 fit 5 ° C tarafından XML'deki derecelendirilir. |
+| Yükseklik çalışmaz |-305 metre 12.192 metre (en fazla 40.000 ayak için-1,000 ayak) |
 | Darbe, işletimsel |5g 10 ms ½ Sinüs |
 | Darbe çalışmaz |30g 10 ms ½ Sinüs |
 | Titreşim, işletimsel |0.21g RMS rastgele 5-500 Hz |
 | Titreşim, çalışmaz |1.04g RMS 2-200 Hz rastgele |
 | Titreşim, yeniden konumlandırma |3g 2-200 Hz sinüsünü |
 | Yönlendirme ve bağlama |19" rafa monte (2 EIA birimler) |
-| Raf rayları |toofit minimum 700 mm (31.50 inç) derinliği rafları IEC 297 ile uyumlu |
+| Raf rayları |Minimum 700 mm (31.50 inç) Derinlik uyacak şekilde IEC 297 ile uyumlu rafları |
 | Güvenlik ve onaylar |CE ve UL tr 61000-3, IEC 61000-3, UL 61000-3 |
 | EMC |EN55022 (CISPR - A), FCC A |
 
 ## <a name="international-standards-compliance"></a>Uluslararası standartları uyumluluğu
-Microsoft Azure StorSimple Cihazınızı uluslararası standartları aşağıdaki hello ile uyumludur:  
+Microsoft Azure StorSimple Cihazınızı aşağıdaki Uluslararası standartları ile uyumludur:  
 
 * CE - TR 60950-1  
-* CB rapor tooIEC 60950-1  
-* UL ve cUL tooUL 60950-1  
+* IEC 60950-1 CB raporu  
+* UL ve UL 60950-1 cUL  
 
 ## <a name="safety-compliance"></a>Güvenlik uyumluluk
-Microsoft Azure StorSimple Cihazınızı güvenliği derecelendirmelerini aşağıdaki hello uyuyor:  
+Microsoft Azure StorSimple Cihazınızı aşağıdaki güvenlik derecelendirmeleri uyuyor:  
 
 * Sistem ürün türü onayı: UL, cUL, CE  
 * Güvenlik uyumluluk: UL 60950, IEC 60950, tr 60950  
 
 ## <a name="emc-compliance"></a>EMC uyumluluk
-Microsoft Azure StorSimple Cihazınızı EMC derecelendirmelerini aşağıdaki hello karşılar.  
+Microsoft Azure StorSimple Cihazınızı aşağıdaki EMC derecelendirmeleri karşılar.  
 
 ### <a name="emissions"></a>Emisyonlarını
-Merhaba EMC uyumlu gerçekleştirilen ve dayanıklılık emisyonlarını düzeylerini aygıttır.  
+Aygıt EMC uyumlu emisyonlarını gerçekleştirilen ve dayanıklılık düzeyleri için kullanılır.  
 
 * Gerçekleştirilen emisyonlarını sınırlamak düzeyleri: CFR 47 bölümü 15B sınıf A EN55022 sınıf A CISPR sınıf A  
 * Dayanıklılık emisyonlarını sınırlamak düzeyleri: CFR 47 bölümü 15B sınıf A EN55022 sınıf A CISPR sınıf A   
 
 ### <a name="harmonics-and-flicker"></a>Uyumları ve Titreşimi
-Merhaba aygıt EN61000-3-2/3 ile uyumludur.  
+Cihaz EN61000-3-2/3 ile uyumludur.  
 
 ### <a name="immunity-limit-levels"></a>Karşı dayanıklılık sınırı düzeyleri
-Merhaba aygıt EN55024 ile uyumludur.  
+Cihaz EN55024 ile uyumludur.  
 
 ## <a name="ac-power-cord-compliance"></a>AC güç kablosu uyumluluk
-Merhaba Tak ve hello güç kablosu derleme hangi hello aygıt kullanılan hello ülkesi uygun hello standartlarına uyması gerekir ve bu ülkede kabul edilebilir güvenlik onayları olması gerekir. Merhaba aşağıdaki hello ABD ve Avrupa için liste standartlara tablolarını.  
+Tak ve tam güç kablosu derleme cihaz kullanılıyor ülke için uygun standartlarına uyması gerekir ve bu ülkede kabul edilebilir güvenlik onayları olması gerekir. ABD ve Avrupa için standartlara aşağıdaki tablolarda listelenmektedir.  
 
 ### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>AC güç kablosu - ABD (listelenen NRTL olmalıdır)
 | Bileşen | Belirtimi |
@@ -169,8 +169,8 @@ Merhaba Tak ve hello güç kablosu derleme hangi hello aygıt kullanılan hello 
 | Yuva |IEC 320 C-13, 250 V, 10 A |
 
 ## <a name="supported-network-cables"></a>Desteklenen ağ kabloları
-Merhaba 10 GbE ağ arabirimleri için veri 2 ve veri 3 toohello başvuran [desteklenen ağ kablolarını ve modüller listesi](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
+Veri 2 ve veri 3, 10 GbE ağ arabirimleri için başvurmak için [desteklenen ağ kablolarını ve modüller listesi](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık, veri merkezinizde hazır toodeploy StorSimple cihaz bulunur. Daha fazla bilgi için bkz: [şirket içi Cihazınızı dağıtma](storsimple-deployment-walkthrough-u2.md).  
+Şimdi, veri merkezinizdeki StorSimple Cihazınızı dağıtma hazırsınız. Daha fazla bilgi için bkz: [şirket içi Cihazınızı dağıtma](storsimple-deployment-walkthrough-u2.md).  
 

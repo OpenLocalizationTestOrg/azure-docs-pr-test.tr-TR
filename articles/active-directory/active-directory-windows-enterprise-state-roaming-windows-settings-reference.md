@@ -1,6 +1,6 @@
 ---
-title: "aaaWindows 10 Dolaşım ayarları başvurusu | Microsoft Docs"
-description: "Çıkan veya Windows 10'da yedeklenen tüm hello ayarlarının tam listesi."
+title: "Windows 10 Dolaşım ayarları başvurusu | Microsoft Docs"
+description: "Çıkan veya Windows 10'da yedeklenen tüm ayarların tam bir listesi."
 services: active-directory
 keywords: "Kurumsal durumda dolaşımı, windows bulut"
 documentationcenter: 
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-ms.openlocfilehash: 381e2220b698bb0e477c207984ff96c03ed132ca
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5082ed8d2f41e72fa979b978e2ac0b0840fdcdac
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Windows 10 dolaşım ayarları başvurusu
-Merhaba, çıkan veya Windows 10'da yedeklenen tüm hello ayarlarının tam listesi verilmiştir. 
+Çıkan veya Windows 10'da yedeklenen tüm ayarların tam bir listesi verilmiştir. 
 
 ## <a name="devices-and-endpoints"></a>Aygıtları ve uç noktaları
-Tablosu özetini hello aygıtları ve tarafından hello eşitleme, yedekleme, desteklenen hesap türleri için aşağıdaki hello bakın ve Windows 10 framework geri yükleyin.
+Sync tarafından yedekleme, desteklenen hesap türleri ve cihazlar bir özeti için aşağıdaki tabloya bakın ve Windows 10 framework geri yükleyin.
 
 | Hesap türü ve işlem | Masaüstü | Cep telefonu |
 | --- | --- | --- |
@@ -35,10 +35,10 @@ Tablosu özetini hello aygıtları ve tarafından hello eşitleme, yedekleme, de
 | Microsoft hesabı: yedekleme/geri yükleme |Hayır |Evet |
 
 ## <a name="what-is-backup"></a>Yedekleme nedir?
-Windows ayarlarını genellikle varsayılan olarak eşitlemesini, ancak bazı ayarlar yalnızca, bir aygıtta yüklü uygulamalar hello listesi gibi desteklenir. Kurumsal durumda Dolaşım kullanıcıların mobil cihazları yalnızca ve şu anda kullanılabilir yedekleme içindir. Yedekleme bir Microsoft hesabı kullanır ve OneDrive hello ayarları ve uygulama verileri depolar. Eşitleme hello aygıtta hello ayarları uygulamasını kullanarak bir kullanıcıyı devre dışı bırakır, normal olarak eşitlenen uygulama verileri yalnızca yedekleme haline gelir. Yedekleme verileri yalnızca hello geri yükleme işlemi sırasında ilk çalıştırma deneyimini, yeni bir aygıtın hello aracılığıyla erişilebilir. Yedeklemeleri hello aygıt ayarları devre dışı bırakılabilir ve yönetilebilir ve hello kullanıcının OneDrive hesabına silindi.
+Windows ayarlarını genellikle varsayılan olarak eşitlemesini, ancak bazı ayarlar yalnızca, bir aygıtta yüklü uygulamalar listesi gibi desteklenir. Kurumsal durumda Dolaşım kullanıcıların mobil cihazları yalnızca ve şu anda kullanılabilir yedekleme içindir. Yedekleme, bir Microsoft hesabı kullanır ve uygulama verilerini ve ayarlarını OneDrive depolar. Eşitleme ayarları uygulamasını kullanarak aygıtta bir kullanıcıyı devre dışı bırakır, normal olarak eşitlenen uygulama verileri yalnızca yedekleme haline gelir. Yedekleme verileri yalnızca yeni bir cihaz ilk çalıştırma deneyimi sırasında geri yükleme işlemi erişilebilir. Yedeklemeler aygıt ayarları devre dışı ve yönetilebilir ve kullanıcının OneDrive hesabına silindi.
 
 ## <a name="windows-settings-overview"></a>Windows ayarlarına genel bakış
-Merhaba aşağıdaki ayar grubu Windows 10 cihazlarda son kullanıcılar tooenable/devre dışı bırak ayarları eşitleme için kullanılabilir.
+Aşağıdaki ayarları grupları, Windows 10 cihazlarında ayarları eşitleme etkinleştir/devre dışı bırakılacak son kullanıcılar için kullanılabilir.
 
 * Tema: Masaüstü arka planı, kullanıcı döşemesi, görev çubuğu konumunu, vb. 
 * Internet Explorer ayarlarını: geçmişiniz, URL'ler, Sık Kullanılanlar vb. belirtilmiş. 
@@ -54,10 +54,10 @@ Edge tarayıcı ayar grubu (Sık Kullanılanlar, okuma listesi) eşitleniyor etk
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-sync-content.png)
 
 ## <a name="windows-settings-details"></a>Windows ayarları ayrıntıları
-Aşağıdaki tablonun hello hello ayarları grubu sütunundaki diğer girdiler başvuruyor tooSettings giderek devre dışı bırakılabilir toosettings > hesapları > ayarlarınızı eşitleyin > diğer Windows ayarları. 
+Aşağıdaki tabloda, ayarları Grup sütunu diğer girdiler ayarlarına giderek devre dışı bırakılabilir ayarları başvurduğu > hesapları > ayarlarınızı eşitleyin > diğer Windows ayarları. 
 
-Toosettings ve yalnızca hello uygulamanın kendi içinde veya mobil cihaz Yönetimi (MDM) veya Grup İlkesi ayarlarını kullanarak hello tüm cihaz için eşitleme devre dışı bırakarak eşitlenmesini devre dışı bırakılabilir uygulamaları hello ayarları grubu sütununun iç girişlere bakın.
-Dolaşan yok ayarlar veya eşitleme tooa grubuna ait değil.
+Ayarları ve yalnızca uygulama içinde veya mobil cihaz Yönetimi (MDM) veya Grup İlkesi ayarlarını kullanarak tüm cihaz için eşitleme devre dışı bırakarak eşitlenmesini devre dışı bırakılabilir uygulamaları ayarları grubu sütununun iç girişlere bakın.
+Dolaşan yok ayarlar veya eşitleme bir gruba ait değil.
 
 | Ayarlar | Masaüstü | Cep telefonu | Grup |
 | --- | --- | --- | --- |
@@ -85,16 +85,16 @@ Dolaşan yok ayarlar veya eşitleme tooa grubuna ait değil.
 | **Masaüstü kişiselleştirme**: slayt gösterisi duvar kağıdı |Eşitleme |X |Tema |
 | **Masaüstü kişiselleştirme**: görev çubuğu ayarları (konum, otomatik olarak Gizle, vb.) |Eşitleme |X |Tema |
 | **Masaüstü kişiselleştirme**: Başlangıç ekranı düzeni |X |yedekleme | |
-| **Aygıtları**: paylaşılan yazıcılara bağlı çok|X |X |diğer |
+| **Aygıtları**: paylaşılan yazıcılara için bağlı |X |X |diğer |
 | **Edge tarayıcısı**: liste okuma |Eşitleme |Eşitleme |İç |
 | **Edge tarayıcısı**: Sık Kullanılanlar |Eşitleme |Eşitleme |İç |
 | **Edge tarayıcısı**: üst siteleri <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
 | **Edge tarayıcısı**: URL'leri yazılan <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
 | **Edge tarayıcısı**: Sık Kullanılanlar çubuğu ayarları <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
-| **Edge tarayıcısı**: hello giriş düğmesini göster <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
+| **Edge tarayıcısı**: Giriş düğmesini göster <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
 | **Edge tarayıcısı**: açılır pencereleri engelle <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
-| **Edge tarayıcısı**: her indirme ile hangi toodo sor <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
-| **Edge tarayıcısı**: toosave parolaları teklif <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
+| **Edge tarayıcısı**: ile her yükleme yapmanız gerekenler sor <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
+| **Edge tarayıcısı**: parolaları kaydetmek teklif <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
 | **Edge tarayıcısı**: gönderme istekleri izleme <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
 | **Edge tarayıcısı**: form girişlerini kaydetmek <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
 | **Edge tarayıcısı**: yazarken arama ve site önerilerini göster <sup> [[1]](#footnote-1)</sup> |Eşitleme |Eşitleme |İç |
@@ -127,7 +127,7 @@ Dolaşan yok ayarlar veya eşitleme tooa grubuna ait değil.
 | **Dil**: QWERTY CHS - C/E anahtar anahtarı, kaydırma |Eşitleme |X |Dil |
 | **Dil**: QWERTY CHS - C/E anahtar anahtarı, Ctrl |Eşitleme |X |Dil |
 | **Dil**: CHS WUBI - tek karakter giriş modu |Eşitleme |X |Dil |
-| **Dil**: CHS WUBI - Göster hello adayı olan kodlama hello kalan |Eşitleme |X |Dil |
+| **Dil**: CHS WUBI - Göster adayı olan kodlama kalan |Eşitleme |X |Dil |
 | **Dil**: CHS WUBI - bip 4 kodlama geçersiz olduğunda |Eşitleme |X |Dil |
 | **Dil**: CHT Bopomofo - CJK Ext-A içerir |Eşitleme |X |Dil |
 | **Dil**: Japonca IME - Tahmine dayalı yazarak ve özel sözcükler |Eşitleme |Eşitleme |Dil |
@@ -139,11 +139,11 @@ Dolaşan yok ayarlar veya eşitleme tooa grubuna ait değil.
 | **Kilit ekranı**: tüm kilit ekranı ayarları |X |X | |
 | **Büyüteç'i**: Aç veya kapat (ana Değiştir) |X |X |Erişim kolaylığı |
 | **Büyüteç'i**: ters çevirmeyi renk Aç veya kapat (varsayılan olarak kapalıdır) |Eşitleme |X |Erişim kolaylığı |
-| **Büyüteç'i**: izleme - izleyin hello klavye odağını |Eşitleme |X |Erişim kolaylığı |
-| **Büyüteç'i**: izleme - hello fare imlecini izlemek |Eşitleme |X |Erişim kolaylığı |
+| **Büyüteç'i**: izleme - klavye odağını izle |Eşitleme |X |Erişim kolaylığı |
+| **Büyüteç'i**: izleme - fare imlecini izleyin |Eşitleme |X |Erişim kolaylığı |
 | **Büyüteç'i**: kullanıcılar oturum açtığında Başlat (varsayılan olarak kapalıdır) |Eşitleme |X |Erişim kolaylığı |
-| **Fare**: fare imlecini hello boyutunu değiştirme |Eşitleme |X |diğer |
-| **Fare**: fare imlecini hello rengini değiştirme |Eşitleme |X |diğer |
+| **Fare**: fare imlecini boyutunu değiştirme |Eşitleme |X |diğer |
+| **Fare**: fare imlecini rengini değiştirme |Eşitleme |X |diğer |
 | **Fare**: tüm diğer ayarlar |X |X | |
 | **Ekran okuyucusu**: Hızlı Başlat |Eşitleme |X |Erişim kolaylığı |
 | **Ekran okuyucusu**: kullanıcılar, aralık konuşarak okuyucu değiştirebilir |Eşitleme |X |Erişim kolaylığı |
@@ -153,8 +153,8 @@ Dolaşan yok ayarlar veya eşitleme tooa grubuna ait değil.
 | **Ekran okuyucusu**: ekran okuyucusu aşağıdaki Ekle imleci sahip (üzerinde varsayılan olarak) |Eşitleme |X |Erişim kolaylığı |
 | **Ekran okuyucusu**: ekran okuyucusu imleç visual vurgulama etkinleştir (üzerinde varsayılan olarak) |Eşitleme |X |Erişim kolaylığı |
 | **Ekran okuyucusu**: ses yardımlar Yürüt (üzerinde varsayılan olarak) |Eşitleme |X |Erişim kolaylığı |
-| **Ekran okuyucusu**:, parmak kaldırdığınızda hello dokunmatik klavye tuşlarını etkinleştir (varsayılan olarak kapalıdır) |Eşitleme |X |Erişim kolaylığı |
-| **Erişim Kolaylığı**: hello sönen bir imleç hello kalınlığı ayarlama |Eşitleme |X |Erişim kolaylığı |
+| **Ekran okuyucusu**:, parmak kaldırdığınızda dokunma tuşlarını etkinleştir (varsayılan olarak kapalıdır) |Eşitleme |X |Erişim kolaylığı |
+| **Erişim Kolaylığı**: sönen bir imleç kalınlığı ayarlama |Eşitleme |X |Erişim kolaylığı |
 | **Erişim Kolaylığı**: arka plan görüntüleri kaldırın (varsayılan olarak kapalıdır) |Eşitleme |X |Erişim kolaylığı |
 | **Güç ve uyku**: tüm ayarlar |X |X | |
 | **Ekran kişiselleştirme Başlat**: Aksan rengi (yalnızca telefon) |X |Eşitleme |Tema |
@@ -163,8 +163,8 @@ Dolaşan yok ayarlar veya eşitleme tooa grubuna ait değil.
 | **Yazmaya**: yanlış yazılmış sözcükleri Vurgula |Eşitleme |yedekleme |Dil |
 | **Yazmaya**: yazarken metin önerilerini göster |Eşitleme |yedekleme |Dil |
 | **Yazmaya**: metin öneride seçtikten sonra bir alanı Ekle |Eşitleme |yedekleme |Dil |
-| **Yazmaya**: t çift hello Ara çubuğuna dokunma sonra bir nokta ekleyin |Eşitleme |yedekleme |Dil |
-| **Yazmaya**: hello her tümcenin ilk harfini büyük harf |Eşitleme |yedekleme |Dil |
+| **Yazmaya**: t çift ara çubuğuna dokunma sonra bir nokta ekleyin |Eşitleme |yedekleme |Dil |
+| **Yazmaya**: her tümcenin ilk harfini büyük harf |Eşitleme |yedekleme |Dil |
 | **Yazmaya**: t çift SHIFT tuşuna dokunun tümüyle büyük harfe kullanın |Eşitleme |yedekleme |Dil |
 | **Yazmaya**: yazarken anahtar ses çalma |Eşitleme |yedekleme |Dil |
 | **Yazmaya**: Kişiselleştirme verileri için touch klavye |Eşitleme |yedekleme |Dil |

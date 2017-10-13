@@ -1,6 +1,6 @@
 ---
-title: "aaaGet Kindle uygulamaları için Azure Notification Hubs ile çalışmaya | Microsoft Docs"
-description: "Bu öğreticide, nasıl toouse Azure Notification Hubs toosend anında bildirimleri tooa Kindle uygulaması öğrenin."
+title: "Kindle uygulamaları için Azure Notification Hubs'ı kullanmaya başlama | Microsoft Belgeleri"
+description: "Bu öğreticide, bir Kindle uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını öğrenirsiniz."
 services: notification-hubs
 documentationcenter: 
 author: ysxu
@@ -14,56 +14,56 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: 7c28d64372cd2d90bab9cd9bf818d333f3478f7b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7206f152ed7270abc62536a9ee164f7227833bcc
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Kindle uygulamaları için Notification Hubs'ı kullanmaya başlama
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu öğretici nasıl toouse Azure Notification Hubs toosend anında bildirimleri tooa Kindle uygulaması gösterir.
+Bu öğretici, bir Kindle uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını size gösterir.
 Amazon Device Messaging'i (ADM) kullanarak anında iletme bildirimleri alan boş bir Kindle uygulaması oluşturacaksınız.
 
-## <a name="prerequisites"></a>Ön koşullar
-Bu öğretici hello aşağıdakileri gerektirir:
+## <a name="prerequisites"></a>Önkoşullar
+Bu öğretici için aşağıdakiler gereklidir:
 
-* Hello Hello Android (varsayıyoruz Eclipse kullanacağınızı) SDK'sı Al <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android site</a>.
-* Merhaba adımları <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">ayarı yukarı geliştirme ortamınıza</a> tooset Kindle için geliştirme ortamınızı ayarlama.
+* <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android sitesi</a>'nden Android SDK'sını alın (Eclipse kullanacağınızı varsayıyoruz).
+* Kindle için geliştirme ortamınızı ayarlamak üzere <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">Geliştirme Ortamınızı Ayarlama</a>'daki adımları izleyin.
 
-## <a name="add-a-new-app-toohello-developer-portal"></a>Yeni bir uygulama toohello Geliştirici Portalı ekleme
-1. İlk olarak, bir uygulama hello oluşturmak [Amazon Geliştirici Portalı].
+## <a name="add-a-new-app-to-the-developer-portal"></a>Geliştirici portalına yeni bir uygulama ekleme
+1. Öncelikle, [Amazon geliştirici portalı]'nda bir uygulama oluşturun.
    
     ![][0]
-2. Kopya hello **uygulama anahtarı**.
+2. **Application Key**'i (Uygulama Anahtarı) kopyalayın.
    
     ![][1]
-3. Merhaba portalında uygulamanızı hello adına tıklayın ve hello ardından **Device Messaging** sekmesi.
+3. Portalda, uygulamanızın adına ve ardından **Device Messaging** sekmesine tıklayın.
    
     ![][2]
 4. **Create a New Security Profile** (Yeni Bir Güvenlik Profili Oluştur) seçeneğine tıklayın ve ardından yeni bir güvenlik profili oluşturun (örneğin, **TestAdm güvenlik profili**). Daha sonra **Kaydet**'e tıklayın.
    
     ![][3]
-5. Tıklatın **güvenlik profilleri** oluşturduğunuz tooview hello güvenlik profili. Kopya hello **istemci kimliği** ve **gizli** daha sonra kullanmak için değerler.
+5. Az önce oluşturduğunuz güvenlik profilini görüntülemek için **Security Profiles** (Güvenlik Profilleri) seçeneğine tıklayın. Daha sonra kullanmak için **Client ID** (İstemci Kimliği) ve **Client Secret** (Gizli Anahtar) değerlerini kopyalayın.
    
     ![][4]
 
 ## <a name="create-an-api-key"></a>API Anahtarı oluşturma
 1. Yönetici ayrıcalıklarına sahip bir komut istemi açın.
-2. Toohello Android SDK klasörüne gidin.
-3. Merhaba aşağıdaki komutu girin:
+2. Android SDK klasörüne gidin.
+3. Aşağıdaki komutu girin:
    
         keytool -list -v -alias androiddebugkey -keystore ./debug.keystore
    
     ![][5]
-4. Hello için **keystore** parola, türü **android**.
-5. Kopya hello **MD5** parmak izi.
-6. Merhaba üzerinde hello Geliştirici Portalı'nda geri **ileti** sekmesini tıklatın, **Android/Kindle** ve uygulamanız için hello hello paket adını girin (örneğin, **com.sample.notificationhubtest**) ve hello **MD5** değer ve ardından **API anahtarı oluştur**.
+4. **keystore** parolası için **android** yazın.
+5. **MD5** parmak izini kopyalayın.
+6. Geliştirici portalına geri dönün. **Messaging** sekmesinde **Android/Kindle**'a tıklayın, uygulamanız için olan paket adını (örneğin, **com.sample.notificationhubtest**) ve **MD5** değerini girin, ardından **Generate API Key** (API Anahtarı Oluştur) seçeneğine tıklayın.
 
-## <a name="add-credentials-toohello-hub"></a>Kimlik bilgileri toohello hub ekleme
-Merhaba portalında hello istemci gizli anahtarı ve istemci kimliği toohello ekleme **yapılandırma** bildirim hub'ınızın sekmesi.
+## <a name="add-credentials-to-the-hub"></a>Hub'a kimlik bilgileri ekleme
+Portalda, bildirim hub'ınızın **Configure** (Yapılandır) sekmesine gizli anahtarı ve istemci kimliğini ekleyin.
 
 ## <a name="set-up-your-application"></a>Uygulamanızı ayarlama
 > [!NOTE]
@@ -71,20 +71,20 @@ Merhaba portalında hello istemci gizli anahtarı ve istemci kimliği toohello e
 > 
 > 
 
-Merhaba ADM kitaplıkları tooyour Eclipse projenizin ekleyin:
+ADM kitaplıklarını Eclipse projenize ekleyin:
 
-1. tooobtain hello ADM kitaplığını [hello SDK Yükle]. Merhaba SDK zip dosyasını ayıklayın.
-2. Eclipse'te, projenize sağ tıklayın ve ardından **Properties** (Özellikler) seçeneğine tıklayın. Seçin **Java oluşturma yolu** sol hello ve ardından hello ** kitaplıkları ** sekmesini hello üstünde. Tıklatın **dış Jar Ekle**ve select hello dosya `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` hello Amazon SDK'sını ayıkladığınız hello dizininden.
-3. Merhaba NotificationHubs Android SDK (bağlantı) indirin.
-4. Merhaba paketin sıkıştırmasını açın ve sonra hello dosyayı sürükleyin `notification-hubs-sdk.jar` hello içine `libs` Eclipse klasöründe.
+1. ADM kitaplığını almak için [SDK’yı indirin]. SDK zip dosyasını ayıklayın.
+2. Eclipse'te, projenize sağ tıklayın ve ardından **Properties** (Özellikler) seçeneğine tıklayın. Seçin **Java oluşturma yolu** solda ve ardından ** kitaplıkları ** üst sekmesini. **Add External Jar** (Dış Jar Ekle) seçeneğine tıklayın ve Amazon SDK'sını ayıkladığınız dizinden `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` dosyasını seçin.
+3. NotificationHubs Android SDK'sını indirin (bağlantı).
+4. Paketin sıkıştırmasını açın ve ardından `notification-hubs-sdk.jar` dosyasını Eclipse'te `libs` klasörünün içine sürükleyin.
 
-Uygulama bildirimi toosupport ADM düzenleyin:
+ADM'yi desteklemesi için uygulama bildiriminizi düzenleyin:
 
-1. Merhaba Amazon ad hello kök bildirim öğesine ekleyin:
+1. Amazon ad alanını kök bildirim öğesine ekleyin:
 
         xmlns:amazon="http://schemas.amazon.com/apk/res/android"
 
-1. Merhaba hello bildirim öğesinin altına ilk öğe olarak izinleri ekleyin. Yedek **[YOUR PACKAGE NAME]** uygulamanızı toocreate kullanılan hello Paketle.
+1. Bildirim öğesinin altına ilk öğe olarak izinleri ekleyin. **[YOUR PACKAGE NAME]** öğesini uygulamanızı oluşturmak için kullandığınız paket adı ile değiştirin.
    
         <permission
          android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE"
@@ -94,13 +94,13 @@ Uygulama bildirimi toosupport ADM düzenleyin:
    
         <uses-permission android:name="[YOUR PACKAGE NAME].permission.RECEIVE_ADM_MESSAGE" />
    
-        <!-- This permission allows your app access tooreceive push notifications
+        <!-- This permission allows your app access to receive push notifications
         from ADM. -->
         <uses-permission android:name="com.amazon.device.messaging.permission.RECEIVE" />
    
-        <!-- ADM uses WAKE_LOCK tookeep hello processor from sleeping when a message is received. -->
+        <!-- ADM uses WAKE_LOCK to keep the processor from sleeping when a message is received. -->
         <uses-permission android:name="android.permission.WAKE_LOCK" />
-2. Hello hello uygulama öğesinin ilk alt öğesi aşağıdaki hello ekleyin. Toosubstitute unutmayın **[YOUR SERVICE NAME]** hello sonraki bölümde (dahil olmak üzere hello paketi) oluşturmak ve değiştirmek ADM ileti işleyicinizi hello adıyla **[YOUR PACKAGE NAME]** hello ile Uygulamanızı oluşturduğunuz paket adı.
+2. Uygulama öğesinin ilk alt öğesi olarak aşağıdaki öğeyi ekleyin. **[YOUR SERVICE NAME]**'i sonraki bölümde oluşturduğunuz ADM ileti işleyicisi adı ile değiştirmeyi unutmayın (paket dahil) ve **[YOUR PACKAGE NAME]**'i uygulamanızı oluşturduğunuz paket adı ile değiştirin.
    
         <amazon:enable-feature
               android:name="com.amazon.device.messaging"
@@ -115,21 +115,21 @@ Uygulama bildirimi toosupport ADM düzenleyin:
             <!-- This permission ensures that only ADM can send your app registration broadcasts. -->
             android:permission="com.amazon.device.messaging.permission.SEND" >
    
-            <!-- toointeract with ADM, your app must listen for hello following intents. -->
+            <!-- To interact with ADM, your app must listen for the following intents. -->
             <intent-filter>
           <action android:name="com.amazon.device.messaging.intent.REGISTRATION" />
           <action android:name="com.amazon.device.messaging.intent.RECEIVE" />
    
-          <!-- Replace hello name in hello category tag with your app's package name. -->
+          <!-- Replace the name in the category tag with your app's package name. -->
           <category android:name="[YOUR PACKAGE NAME]" />
             </intent-filter>
         </receiver>
 
 ## <a name="create-your-adm-message-handler"></a>ADM ileti işleyicinizi oluşturma
-1. Öğesinden devralınan yeni bir sınıf oluşturun `com.amazon.device.messaging.ADMMessageHandlerBase` ve adlandırın `MyADMMessageHandler`hello aşağıdaki şekilde gösterildiği gibi:
+1. Aşağıdaki şekilde gösterildiği gibi, `com.amazon.device.messaging.ADMMessageHandlerBase` öğesinden devralınan yeni bir sınıf oluşturun ve bunu `MyADMMessageHandler` olarak adlandırın:
    
     ![][6]
-2. Merhaba aşağıdakileri ekleyin `import` deyimleri:
+2. Aşağıdaki `import` deyimlerini ekleyin:
    
         import android.app.NotificationManager;
         import android.app.PendingIntent;
@@ -138,7 +138,7 @@ Uygulama bildirimi toosupport ADM düzenleyin:
         import android.support.v4.app.NotificationCompat;
         import com.amazon.device.messaging.ADMMessageReceiver;
         import com.microsoft.windowsazure.messaging.NotificationHub
-3. Oluşturduğunuz hello sınıfında koddan hello ekleyin. Toosubstitute hello hub adını ve bağlantı dizesini (Dinleme) unutmayın:
+3. Oluşturduğunuz sınıfa aşağıdaki kodu ekleyin. Hub adını ve bağlantı dizesini (dinleme) değiştirmeyi unutmayın:
    
         public static final int NOTIFICATION_ID = 1;
         private NotificationManager mNotificationManager;
@@ -184,28 +184,28 @@ Uygulama bildirimi toosupport ADM düzenleyin:
              mBuilder.setContentIntent(contentIntent);
              mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
         }
-4. Aşağıdaki kodu toohello hello eklemek `OnMessage()` yöntemi:
+4. `OnMessage()` yöntemine aşağıdaki kodu ekleyin:
    
         String nhMessage = intent.getExtras().getString("msg");
         sendNotification(nhMessage);
-5. Aşağıdaki kodu toohello hello eklemek `OnRegistered` yöntemi:
+5. `OnRegistered` yöntemine aşağıdaki kodu ekleyin:
    
             try {
         getNotificationHub(getApplicationContext()).register(registrationId);
             } catch (Exception e) {
         Log.e("[your package name]", "Fail onRegister: " + e.getMessage(), e);
             }
-6. Aşağıdaki kodu toohello hello eklemek `OnUnregistered` yöntemi:
+6. `OnUnregistered` yöntemine aşağıdaki kodu ekleyin:
    
          try {
              getNotificationHub(getApplicationContext()).unregister();
          } catch (Exception e) {
              Log.e("[your package name]", "Fail onUnregister: " + e.getMessage(), e);
          }
-7. Merhaba, `MainActivity` yöntemi, içeri aktarma deyimini aşağıdaki hello ekleyin:
+7. `MainActivity` yönteminde aşağıdaki içeri aktarma deyimini ekleyin:
    
         import com.amazon.device.messaging.ADM;
-8. Merhaba hello sonunda koddan hello eklemek `OnCreate` yöntemi:
+8. `OnCreate` yönteminin sonuna aşağıdaki kodu ekleyin:
    
         final ADM adm = new ADM(this);
         if (adm.getRegistrationId() == null)
@@ -225,24 +225,24 @@ Uygulama bildirimi toosupport ADM düzenleyin:
                }.execute(null, null, null);
         }
 
-## <a name="add-your-api-key-tooyour-app"></a>API anahtar tooyour uygulamanızı ekleme
-1. Eclipse'te, adlı yeni bir dosya oluşturun **api_key.txt** hello projenizin dizin varlıkları içinde.
-2. Merhaba Amazon Geliştirici Portalı'nda oluşturulan hello dosya ve kopyalama hello API anahtarı açın.
+## <a name="add-your-api-key-to-your-app"></a>Uygulamanıza API anahtarınızı ekleme
+1. Eclipse'te, projenizin dizin varlıkları içinde **api_key.txt** adlı yeni bir dosya oluşturun.
+2. Dosyayı açın ve Amazon geliştirici portalında oluşturduğunuz API anahtarını kopyalayın.
 
-## <a name="run-hello-app"></a>Merhaba uygulamayı çalıştırma
-1. Merhaba öykünücüsünde başlatın.
-2. Merhaba üstten Hello öykünücüsünde içeri doğru çekin ve tıklayın **ayarları**ve ardından **Hesabımı** ve geçerli bir Amazon hesabıyla kaydolun.
-3. Eclipse'te, hello uygulamayı çalıştırın.
+## <a name="run-the-app"></a>Uygulamayı çalıştırma
+1. Öykünücüyü başlatın.
+2. Öykünücüde, üstten çekin ve **Settings** (Ayarlar) seçeneğine tıklayın. Ardından **My account** (Hesabım) seçeneğine tıklayın ve geçerli bir Amazon hesabıyla kaydolun.
+3. Eclipse'te uygulamayı çalıştırın.
 
 > [!NOTE]
-> Bir sorun oluşursa, başlangıç saati hello öykünücü (veya aygıt) denetleyin. Merhaba zaman değerinin doğru olması gerekir. Merhaba Kindle öykünücüsü toochange başlangıç saati, çalıştırabilirsiniz hello komutu, Android SDK platformunuzun Araçlar dizininden aşağıdaki:
+> Bir sorun oluşursa öykünücü (veya cihaz) zamanını kontrol edin. Zaman değerinin doğru olması gerekir. Kindle öykünücüsü zamanını değiştirmek için, Android SDK platformunuzun araçlar dizininden aşağıdaki komutu çalıştırabilirsiniz:
 > 
 > 
 
         adb shell  date -s "yyyymmdd.hhmmss"
 
 ## <a name="send-a-message"></a>İleti gönderme
-.NET kullanarak ileti toosend:
+.NET kullanarak ileti göndermek için:
 
         static void Main(string[] args)
         {
@@ -254,8 +254,8 @@ Uygulama bildirimi toosupport ADM düzenleyin:
 ![][7]
 
 <!-- URLs. -->
-[Amazon Geliştirici Portalı]: https://developer.amazon.com/home.html
-[hello SDK Yükle]: https://developer.amazon.com/public/resources/development-tools/sdk
+[Amazon geliştirici portalı]: https://developer.amazon.com/home.html
+[SDK’yı indirin]: https://developer.amazon.com/public/resources/development-tools/sdk
 
 [0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
 [1]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal2.png

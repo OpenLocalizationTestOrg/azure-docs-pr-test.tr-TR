@@ -1,6 +1,6 @@
 ---
-title: "OAuth2.0 üzerinde-adına-Of taslak belirtim kullanarak aaaAzure AD hizmeti tooservice auth | Microsoft Docs"
-description: "Bu makalede nasıl toouse HTTP iletileri tooimplement tooservice kullanarak hizmet kimlik doğrulaması izin ver hello OAuth2.0 üzerinde-temsili akış açıklanmaktadır."
+title: "OAuth2.0 üzerinde-adına-Of taslak belirtim kullanarak azure AD hizmet auth | Microsoft Docs"
+description: "Bu makalede HTTP iletisi üzerinde-temsili akış OAuth2.0 kullanarak hizmet kimlik doğrulaması uygulamak için nasıl kullanılacağını açıklar."
 services: active-directory
 documentationcenter: .net
 author: navyasric
@@ -15,77 +15,77 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 55b7fcfe6c0223bddedd8d8fa2defcb5769b43c2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0bb74816f216f0965c3ec780c4895cf7e488c3cf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# Merhaba üzerinde-temsili akış temsilci atanan kullanıcı kimliğini kullanarak hizmet tooservice çağırır
-Merhaba OAuth 2.0 On-Behalf-Of akışı, sırayla toocall gereken bir uygulama hizmeti/web API'si, burada çağırır hello kullanım örneği başka bir hizmet/web API işlevi görür. Merhaba toopropagate hello kullanıcı kimliği ve hello istek zincirinin aracılığıyla izinlere temsilci olur. Merhaba orta katman toomake kimlik doğrulaması istekleri toohello aşağı akış hizmeti için Azure Active Directory (Azure AD), bir erişim belirteci toosecure hello kullanıcı adına gerekir.
+# On-temsili akış kullanıcı kimliğini kullanarak hizmeti çağrıları için hizmet temsilcisi
+Burada bir hizmet/sırayla başka çağırmak için gereken web API, uygulamanın çağırır kullanım örneği akış hizmet OAuth 2.0 On-Behalf-Of hizmeti/web API. Temsilci atanan kullanıcı kimliğini ve izinleri istek zincirinin aracılığıyla yaymak için kullanılan uygulamadır. Orta katman hizmet kimliği doğrulanmış istekler için aşağı akış hizmeti yapmak, Azure Active Directory'den (Azure AD), bir erişim belirteci güvenli kullanıcı adına gerekir.
 
 ## Üzerinde-adına-Akış Diyagramı
-Bu hello kullanıcının kimlik doğrulaması hello kullanarak bir uygulama üzerinde varsayın [OAuth 2.0 yetkilendirme kodu izin akışı](active-directory-protocols-oauth-code.md). Bu noktada, Merhaba uygulaması hello kullanıcının talepleri ve onay tooaccess hello orta katman web API (API A) ile bir erişim belirteci (belirteci A) sahiptir. Şimdi, API A toomake kimliği doğrulanmış isteği toohello Aşağı Akış web API'si (API B) gerekir.
+Kullanıcı bir uygulama kullanarak doğrulandı varsayın [OAuth 2.0 yetkilendirme kodu izin akışı](active-directory-protocols-oauth-code.md). Bu noktada, uygulama kullanıcının talepleri ve orta katman web API (API A) erişmek için izniniz bir erişim belirteci (belirteci A) sahip. Şimdi, API bir aşağı akış web API'si (API B) kimliği doğrulanmış bir istekte bulunun gerekiyor.
 
-izleyin hello adımlar hello üzerinde-temsili akış oluşturur ve hello diyagramı aşağıdaki hello yardımıyla açıklanmıştır.
+Adımları On-temsili akış oluşturur ve aşağıdaki diyagramda yardımıyla açıklanmıştır.
 
 ![OAuth2.0 üzerinde-temsili akış](media/active-directory-protocols-oauth-on-behalf-of/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 
-1. İstek tooAPI hello belirteci A. ile Merhaba istemci uygulaması yapar
-2. API A toohello Azure AD belirteci verme endpoint kimliğini doğrular ve bir belirteç tooaccess API B'nin istekleri
-3. Hello Azure AD belirteci verme endpoint belirteci bir API A'ın kimlik bilgilerini doğrular ve sorunları API B (belirteç B) için erişim belirteci hello.
-4. Merhaba belirteci B hello yetkilendirme üstbilgisinde hello isteği tooAPI B. ayarlanır
-5. Kaynak güvenli hello verilerden API B'nin tarafından döndürülür
+1. İstemci uygulaması API A'ya A. belirteciyle istekte
+2. API bir Azure AD belirteci verme uç noktasına kimliğini doğrular ve API B'nin erişmek için bir belirteç istekleri
+3. Azure AD belirteci verme endpoint belirteci bir API A'ın kimlik bilgilerini doğrular ve API B (belirteci B) için erişim belirteci verir.
+4. API b isteğinin yetkilendirme üst B belirteci ayarlayın
+5. Veriler güvenli kaynaktan API B'nin tarafından döndürülür
 
-## Merhaba uygulaması ve hizmeti Azure AD'de kaydetme
-Merhaba istemci uygulaması hem hello orta katman hizmet Azure AD'de kaydedin.
-### Merhaba orta katman hizmet kaydı
-1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
-2. Hesabınızda ve hello altında Hello üst çubuğunda tıklatın **Directory** listesinde, burada istediğiniz tooregister uygulamanızı hello Active Directory Kiracı seçin.
-3. Tıklayın **daha Hizmetleri** sol taraftaki gezinti hello ve seçin **Azure Active Directory**.
+## Azure AD'de uygulama ve hizmet kaydetme
+İstemci uygulaması ve orta katman hizmet Azure AD'de kaydedin.
+### Orta katman hizmet kaydı
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Üst çubuğunda hesabınızda altında tıklatıp **Directory** listesinde, Active Directory Kiracı uygulamanızı kaydetmek için istediğiniz yeri seçin.
+3. Tıklayın **daha Hizmetleri** sol taraftaki gezinti içinde ve **Azure Active Directory**.
 4. Tıklayın **uygulama kayıtlar** ve **yeni uygulama kaydı**.
-5. Merhaba uygulama için kolay bir ad girin ve hello uygulama türünü seçin. Oturum açma kümesi hello URL veya yeniden yönlendirme URL'si toohello temel URL Hello uygulama türüne göre. Tıklayın **oluşturma** toocreate Merhaba uygulaması.
-6. Halen hello Azure portal'ın sırasında uygulamanızı seçin ve tıklayın **ayarları**. Merhaba Ayarlar menüsünden seçin **anahtarları** ve bir anahtar add - 1 yıl veya 2 yıl anahtar bir süre seçin. Bu sayfayı kaydedin, hello anahtar değeri görüntülenir, kopyalama ve güvenli bir yerde hello değeri kaydetmek,-uygulamanızda - bu anahtar sonraki tooconfigure hello uygulama ayarları gerekir, bu anahtarı değeri tarafından görüntülenen yeniden ya da alınabilir olmayacaktır. diğer anlamına gelir, bu nedenle kayıt Lütfen onu hello Azure Portalı ' görünür olur olmaz.
+5. Uygulama için kolay bir ad girin ve uygulama türünü seçin. Oturum açma URL'si veya yeniden yönlendirme URL'si temel URL için uygulama türü kümesine bağlı. Tıklayın **oluşturma** uygulaması oluşturmak için.
+6. Halen Azure portalında sırasında uygulamanızı seçin ve tıklayın **ayarları**. Ayarları menüsünden **anahtarları** ve bir anahtar add - 1 yıl veya 2 yıl anahtar bir süre seçin. Bu sayfayı kaydedin, anahtar değeri görüntülenir, kopyalama ve güvenli bir yerde değeri kaydetmek,-daha sonra uygulamanızda - uygulama ayarlarını yapılandırmak için bu anahtar gerekir, bu anahtarı değeri diğer herhangi bir yolla yeniden görüntülenen ya da alınabilir olmayacaktır. , böylece Lütfen Azure Portalı'ndan görülebilir hemen kaydedin.
 
-### Merhaba istemci uygulaması kaydetme
-1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
-2. Hesabınızda ve hello altında Hello üst çubuğunda tıklatın **Directory** listesinde, burada istediğiniz tooregister uygulamanızı hello Active Directory Kiracı seçin.
-3. Tıklayın **daha Hizmetleri** sol taraftaki gezinti hello ve seçin **Azure Active Directory**.
+### İstemci uygulaması kaydetme
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Üst çubuğunda hesabınızda altında tıklatıp **Directory** listesinde, Active Directory Kiracı uygulamanızı kaydetmek için istediğiniz yeri seçin.
+3. Tıklayın **daha Hizmetleri** sol taraftaki gezinti içinde ve **Azure Active Directory**.
 4. Tıklayın **uygulama kayıtlar** ve **yeni uygulama kaydı**.
-5. Merhaba uygulama için kolay bir ad girin ve hello uygulama türünü seçin. Oturum açma kümesi hello URL veya yeniden yönlendirme URL'si toohello temel URL Hello uygulama türüne göre. Tıklayın **oluşturma** toocreate Merhaba uygulaması.
-6. -Hello ayarları menüsünde uygulamanız için izinlerini yapılandırabilir, hello seçin **gerekli izinleri** bölümünde, tıklayın **Ekle**, ardından **bir API seçin**ve türü hello Merhaba metin kutusuna hello orta katman hizmet adı. Ardından, tıklatın **Select izinleri** seçip ' erişim *hizmet adı*'.
+5. Uygulama için kolay bir ad girin ve uygulama türünü seçin. Oturum açma URL'si veya yeniden yönlendirme URL'si temel URL için uygulama türü kümesine bağlı. Tıklayın **oluşturma** uygulaması oluşturmak için.
+6. -Ayarlar menüsünden uygulamanızın izinlerini yapılandırabilir, seçin **gerekli izinleri** bölümünde, tıklayın **Ekle**, ardından **bir API seçin**ve adını yazın Orta katman hizmet metin kutusuna. Ardından, tıklatın **Select izinleri** seçip ' erişim *hizmet adı*'.
 
 ### Bilinen istemci uygulamaları yapılandır
-Bu senaryoda, hello orta katman hizmet tooaccess hello aşağı akış API onayı hiçbir kullanıcı etkileşimi tooobtain hello kullanıcının sahiptir. Bu nedenle, aşağı akış API sunulabilir seçeneği toogrant erişim toohello hello ön kimlik doğrulaması sırasında hello izin adım bir parçası olarak.
-tooachieve Bu, Azure AD'de hello istemci ve orta katman tarafından tek bir iletişim kutusuna hello gerekmemektedir birleştirir hello orta katman hizmet hello kaydı tooexplicitly bağlama hello istemci uygulamasının kaydı izleyin hello adımları.
-1. Toohello orta katman hizmet kayıt gidin ve tıklayın **bildirim** tooopen hello bildirim Düzenleyici.
-2. Merhaba bildiriminde hello bulun `knownClientApplications` dizi özelliği ve öğe hello hello istemci uygulamanın istemci Kimliğini ekleyin.
-3. Merhaba bildirimi hello Kaydet düğmesine tıklayarak kaydedin.
+Bu senaryoda, orta katman hizmet aşağı akış API erişmek için kullanıcı onayı almak için kullanıcı etkileşimi olmadan sahiptir. Bu nedenle, adım onay bir parçası olarak kimlik doğrulaması sırasında aşağı akış API'sine erişim seçeneği önceden sunulmalıdır.
+Bunu başarmak için istemci uygulamasının kayıt izni hem istemci hem de orta katman tarafından tek bir iletişim kutusuna gerekli birleştirir orta katman hizmet kaydının ile Azure AD'de açıkça bağlamak için aşağıdaki adımları izleyin.
+1. Orta katman hizmet kayıt gidin ve tıklayın **bildirim** bildirim Düzenleyicisi'ni açın.
+2. Bildiriminde bulun `knownClientApplications` dizi özelliği ve öğe istemci uygulamanın istemci Kimliğini ekleyin.
+3. Kaydetme tıklayarak bildirim Kaydet düğmesi.
 
-## Hizmet tooservice erişim belirteci isteği
-toorequest bir erişim belirteci bir HTTP POST toohello Kiracı özgü Azure AD uç noktası şu parametreler hello olun.
+## Hizmet erişim belirteci isteği hizmetine
+Bir erişim belirteci istemek için bir HTTP POST için Kiracı özgü olun aşağıdaki parametrelerle Azure AD uç noktası.
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/token
 ```
-Merhaba istemci uygulaması toobe güvenli bir paylaşılan gizlilik veya bir sertifika olup olmadığını seçer bağlı olarak iki durumlar vardır.
+İstemci uygulaması olup bir paylaşılan gizlilik ya da bir sertifika tarafından güvenli hale seçti bağlı olarak iki durumlar vardır.
 
 ### İlk durumda: bir paylaşılan gizlilik ile erişim belirteci isteği
-Paylaşılan gizlilik kullanırken, hizmetten hizmete erişim belirteci isteği şu parametreler hello içerir:
+Paylaşılan gizlilik kullanırken, hizmetten hizmete erişim belirteci isteği aşağıdaki parametreleri içerir:
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| grant_type |Gerekli | Merhaba belirteç isteği Hello türü. JWT'nin kullanmak için bir istek hello değeri olmalıdır **urn: ietf:params:oauth:grant-türü: jwt-taşıyıcı**. |
-| onaylama işlemi |Gerekli | Merhaba istekte kullanılan hello belirteci Hello değeri. |
-| client_id |Gerekli | Merhaba uygulama kimliği toohello arama hizmeti Azure AD ile kayıt sırasında atanır. hello Azure Yönetim Portalı toofind hello uygulama kimliği tıklatın **Active Directory**hello dizin'i tıklatın ve hello uygulama adına tıklayın. |
-| client_secret |Gerekli | Azure AD'de hizmet çağırma hello için Hello anahtar kaydedildi. Bu değer kayıt hello aynı anda not. |
-| Kaynak |Gerekli | Merhaba hizmet (güvenli kaynak) alma hello uygulama kimliği URI'si. toofind hello uygulama kimliği URI'si hello Azure Yönetim Portalı, tıklatın **Active Directory**hello dizin'i tıklatın, hello uygulama adı'ı tıklatın, tıklatın **tüm ayarları** ve ardından **özellikleri** . |
-| requested_token_use |Gerekli | Merhaba isteğin nasıl işleneceğini belirtir. Hello üzerinde-temsili akış, hello değeri olmalıdır **on_behalf_of**. |
-| Kapsam |Gerekli | Boşlukla ayrılmış hello belirteç isteği kapsamları listesi. Openıd Connect için kapsam hello **openıd** belirtilmesi gerekir.|
+| grant_type |Gerekli | Belirteç isteği türü. JWT'nin kullanarak bir istek için değer olmalıdır **urn: ietf:params:oauth:grant-türü: jwt-taşıyıcı**. |
+| onaylama işlemi |Gerekli | İstekte kullanılan belirteç değeri. |
+| client_id |Gerekli | Azure AD ile kayıt sırasında arama hizmete atanan uygulama kimliği. Uygulama Kimliği Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizin'i tıklatın ve ardından uygulama adına tıklayın. |
+| client_secret |Gerekli | Anahtar arama hizmeti için Azure AD'de kayıtlı. Bu değer kayıt aynı anda not. |
+| Kaynak |Gerekli | Uygulama Kimliği URI'sini alma hizmetinin (güvenli kaynak). Uygulama Kimliği URI'sini Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizini tıklatın, uygulama adı'ı tıklatın, tıklatın **tüm ayarları** ve ardından **özellikleri**. |
+| requested_token_use |Gerekli | İsteğin nasıl işleneceğini belirtir. On adına, akış değeri olmalıdır **on_behalf_of**. |
+| Kapsam |Gerekli | Boşlukla ayrılmış belirteç isteği kapsamları listesi. Openıd Connect, kapsam için **openıd** belirtilmesi gerekir.|
 
 #### Örnek
-Merhaba aşağıdaki HTTP POST hello https://graph.windows.net web API'si için bir erişim belirteci ister. Merhaba `client_id` hello erişim belirteci istekleri hello hizmeti tanımlar.
+Bir erişim belirteci https://graph.windows.net web API'si için aşağıdaki HTTP POST istekleri. `client_id` Erişim belirteci istekleri hizmeti tanımlar.
 
 ```
 // line breaks for legibility only
@@ -104,23 +104,23 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ```
 
 ### İkinci durumda: bir sertifika ile erişim belirteci isteği
-Hizmetten hizmete erişim belirteci isteği bir sertifika ile şu parametreler hello içerir:
+Hizmetten hizmete erişim belirteci isteği bir sertifika ile aşağıdaki parametreleri içerir:
 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
-| grant_type |Gerekli | Merhaba belirteç isteği Hello türü. JWT'nin kullanmak için bir istek hello değeri olmalıdır **urn: ietf:params:oauth:grant-türü: jwt-taşıyıcı**. |
-| onaylama işlemi |Gerekli | Merhaba istekte kullanılan hello belirteci Hello değeri. |
-| client_id |Gerekli | Merhaba uygulama kimliği toohello arama hizmeti Azure AD ile kayıt sırasında atanır. hello Azure Yönetim Portalı toofind hello uygulama kimliği tıklatın **Active Directory**hello dizin'i tıklatın ve hello uygulama adına tıklayın. |
-| client_assertion_type |Gerekli |Merhaba değeri olmalıdır`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |Gerekli | Uygulamanız için kimlik bilgileri olarak toocreate gerekir ve hello işaretiyle sertifika onayı ifade (bir JSON Web belirteci) kayıtlı.  Hakkında bilgi edinin [sertifika kimlik bilgileri](active-directory-certificate-credentials.md) toolearn nasıl tooregister hello onaylama, sertifika ve hello biçimi.|
-| Kaynak |Gerekli | Merhaba hizmet (güvenli kaynak) alma hello uygulama kimliği URI'si. toofind hello uygulama kimliği URI'si hello Azure Yönetim Portalı, tıklatın **Active Directory**hello dizin'i tıklatın, hello uygulama adı'ı tıklatın, tıklatın **tüm ayarları** ve ardından **özellikleri** . |
-| requested_token_use |Gerekli | Merhaba isteğin nasıl işleneceğini belirtir. Hello üzerinde-temsili akış, hello değeri olmalıdır **on_behalf_of**. |
-| Kapsam |Gerekli | Boşlukla ayrılmış hello belirteç isteği kapsamları listesi. Openıd Connect için kapsam hello **openıd** belirtilmesi gerekir.|
+| grant_type |Gerekli | Belirteç isteği türü. JWT'nin kullanarak bir istek için değer olmalıdır **urn: ietf:params:oauth:grant-türü: jwt-taşıyıcı**. |
+| onaylama işlemi |Gerekli | İstekte kullanılan belirteç değeri. |
+| client_id |Gerekli | Azure AD ile kayıt sırasında arama hizmete atanan uygulama kimliği. Uygulama Kimliği Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizin'i tıklatın ve ardından uygulama adına tıklayın. |
+| client_assertion_type |Gerekli |Değer olmalıdır`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion |Gerekli | Oluşturma ve sertifika ile imzalamak için gereken bir onaylama işlemi (bir JSON Web belirteci) uygulamanız için kimlik bilgileri olarak kayıtlı.  Hakkında bilgi edinin [sertifika kimlik bilgileri](active-directory-certificate-credentials.md) sertifikanızı ve onaylama biçimi kaydetme hakkında bilgi edinmek için.|
+| Kaynak |Gerekli | Uygulama Kimliği URI'sini alma hizmetinin (güvenli kaynak). Uygulama Kimliği URI'sini Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizini tıklatın, uygulama adı'ı tıklatın, tıklatın **tüm ayarları** ve ardından **özellikleri**. |
+| requested_token_use |Gerekli | İsteğin nasıl işleneceğini belirtir. On adına, akış değeri olmalıdır **on_behalf_of**. |
+| Kapsam |Gerekli | Boşlukla ayrılmış belirteç isteği kapsamları listesi. Openıd Connect, kapsam için **openıd** belirtilmesi gerekir.|
 
-Neredeyse olarak hello parametreleridir bildirimi hello hello isteği hello durumunda olduğu gibi aynı tarafından paylaşılan gizliliği hello client_secret parametresi tarafından iki parametre değiştirilir dışında: client_assertion_type ve client_assertion.
+Client_secret parametresi tarafından iki parametre değiştirilir dışında parametreler neredeyse aynı paylaşılan gizliliği isteğiyle durumunda olduğu gibi olduğuna dikkat edin: client_assertion_type ve client_assertion.
 
 #### Örnek
-HTTP POST aşağıdaki hello hello https://graph.windows.net web API ile bir sertifika için bir erişim belirteci ister. Merhaba `client_id` hello erişim belirteci istekleri hello hizmeti tanımlar.
+Bir sertifika ile https://graph.windows.net web API'si için bir erişim belirteci aşağıdaki HTTP POST isteği gönderir. `client_id` Erişim belirteci istekleri hizmeti tanımlar.
 
 ```
 // line breaks for legibility only
@@ -139,22 +139,22 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=openid
 ```
 
-## Hizmet tooservice erişim belirteci yanıtı
-Başarılı yanıt şu parametreler hello JSON OAuth 2.0 yanıtıyla ' dir.
+## Hizmet erişim belirteci yanıtı hizmetine
+Başarılı yanıt aşağıdaki parametrelerle bir JSON OAuth 2.0 yanıt olan.
 
 | Parametre | Açıklama |
 | --- | --- |
-| token_type |Merhaba belirteç türü değeri gösterir. yalnızca Azure AD destekler türü hello **taşıyıcı**. Merhaba taşıyıcı belirteçlerini hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: taşıyıcı belirteci kullanımı (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
-| Kapsam |Merhaba belirtecinde verilen erişim kapsamını Hello. |
-| expires_in |zaman hello erişim belirteci Hello uzunluğu (saniye olarak) geçerli değil. |
-| expires_on |Merhaba erişim belirtecinin süresi dolduğunda hello süre. Başlangıç tarihi 1970'ten hello saniyeyi temsil edilir-01-01T0:0:0Z UTC hello süre kadar. Önbelleğe alınan belirteçleri kullanılan toodetermine hello ömrü değerdir. |
-| Kaynak |Merhaba hizmet (güvenli kaynak) alma hello uygulama kimliği URI'si. |
-| access_token |Merhaba istenen erişim belirteci. Hizmet çağırma hello Bu belirteci tooauthenticate toohello alıcı hizmetini kullanabilirsiniz. |
-| id_token |Merhaba istenen kimliği belirteci. Hizmet çağırma hello bu tooverify hello kullanıcının kimliğini kullanın ve hello kullanıcı bir oturumla başlayın. |
-| refresh_token |Merhaba yenileme belirteci hello için erişim belirteci istedi. Hizmet çağırma hello Hello geçerli erişim belirtecinin süresi dolduktan sonra bu belirteci toorequest başka bir erişim belirteci kullanabilirsiniz. |
+| token_type |Belirteç türü değeri gösterir. Azure AD destekler yalnızca türü **taşıyıcı**. Taşıyıcı belirteçlerini hakkında daha fazla bilgi için bkz: [OAuth 2.0 yetkilendirme Framework: taşıyıcı belirteci kullanımı (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
+| Kapsam |Belirtecinde verilen erişim kapsamı. |
+| expires_in |Süre (saniye cinsinden) erişim belirteci geçerlidir. |
+| expires_on |Erişim belirtecinin süresi dolduğunda süre. Tarih 1970'ten saniyeyi temsil edilir-01-01T0:0:0Z UTC sona erme zamanı kadar. Bu değer, önbelleğe alınan belirteç ömrü belirlemek için kullanılır. |
+| Kaynak |Uygulama Kimliği URI'sini alma hizmetinin (güvenli kaynak). |
+| access_token |İstenen erişim belirteci. Arama hizmeti alıcı hizmete kimlik doğrulaması için bu belirteci kullanabilirsiniz. |
+| id_token |İstenen kimliği belirteci. Arama Hizmeti kullanıcının kimliğini doğrulamak ve kullanıcı oturumu başlatmak için bunu kullanabilirsiniz. |
+| refresh_token |İstenen erişim belirteci için yenileme belirteci. Arama hizmeti geçerli erişim belirtecinin süresi dolduktan sonra başka bir erişim belirteci istemek için bu belirteci kullanabilirsiniz. |
 
 ### Başarılı yanıt örnek
-Merhaba aşağıdaki örnek hello https://graph.windows.net web API'si için bir erişim belirteci başarı yanıt tooa talebi gösterir.
+Aşağıdaki örnek, bir başarı isteğine yanıt olarak https://graph.windows.net web API'si için bir erişim belirteci için gösterir.
 
 ```
 {
@@ -172,12 +172,12 @@ Merhaba aşağıdaki örnek hello https://graph.windows.net web API'si için bir
 ```
 
 ### Hata yanıtı örneği
-Bir koşullu erişim ilkesi ayarlayabilirsiniz çok faktörlü kimlik doğrulaması gibi Hello aşağı akış API varsa, Azure AD belirteç uç noktası tarafından tooacquire bir erişim belirteci hello aşağı akış API çalışırken bir hata yanıtı döndürülür. Böylece Merhaba istemci uygulaması hello kullanıcı etkileşimi toosatisfy hello koşullu erişim ilkesi sağlayabilir hello orta katman hizmet bu hata toohello istemci uygulaması yüzey.
+Aşağı Akış API koşullu erişim ilkesi ayarlayabilirsiniz çok faktörlü kimlik doğrulaması gibi varsa aşağı akış API için bir erişim belirteci almaya çalışırken bir hata yanıtı Azure AD belirteç uç noktası tarafından döndürülür. Böylece istemci uygulama, koşullu erişim ilkesi karşılamak için kullanıcı etkileşimi sağlayabilir orta katman hizmet bu hata istemci uygulamasına yüzey.
 
 ```
 {
     "error":"interaction_required",
-    "error_description":"AADSTS50079: Due tooa configuration change made by your administrator, or because you moved tooa new location, you must enroll in multi-factor authentication tooaccess 'bf8d80f9-9098-4972-b203-500f535113b1'.\r\nTrace ID: b72a68c3-0926-4b8e-bc35-3150069c2800\r\nCorrelation ID: 73d656cf-54b1-4eb2-b429-26d8165a52d7\r\nTimestamp: 2017-05-01 22:43:20Z",
+    "error_description":"AADSTS50079: Due to a configuration change made by your administrator, or because you moved to a new location, you must enroll in multi-factor authentication to access 'bf8d80f9-9098-4972-b203-500f535113b1'.\r\nTrace ID: b72a68c3-0926-4b8e-bc35-3150069c2800\r\nCorrelation ID: 73d656cf-54b1-4eb2-b429-26d8165a52d7\r\nTimestamp: 2017-05-01 22:43:20Z",
     "error_codes":[50079],
     "timestamp":"2017-05-01 22:43:20Z",
     "trace_id":"b72a68c3-0926-4b8e-bc35-3150069c2800",
@@ -186,8 +186,8 @@ Bir koşullu erişim ilkesi ayarlayabilirsiniz çok faktörlü kimlik doğrulama
 }
 ```
 
-## Kaynak güvenli hello erişim belirteci tooaccess hello kullanın
-Merhaba belirteçte ayarı hello tarafından web API'si, artık Hello orta katman hizmet aşağı hello kimlik doğrulaması belirteci yukarıda alınan toomake istekleri toohello kullanarak `Authorization` üstbilgi.
+## Güvenli kaynağa erişmek için erişim belirteci kullanın
+Artık orta katman hizmet belirteci ayarlayarak Aşağı Akış web API'si, kimliği doğrulanmış istekler yapmasını yukarıda edinilen belirteci kullanarak `Authorization` üstbilgi.
 
 ### Örnek
 ```
@@ -197,6 +197,6 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdW
 ```
 
 ## Sonraki adımlar
-Merhaba OAuth 2.0 protokolü ve istemci kimlik bilgilerini kullanarak başka bir şekilde tooperform hizmet tooservice kimlik doğrulama hakkında daha fazla bilgi edinin.
-* [Hizmet tooservice auth OAuth 2.0 istemci kimlik bilgileri sağlama Azure AD'de kullanma](active-directory-protocols-oauth-service-to-service.md)
+OAuth 2.0 protokolünü ve istemci kimlik bilgilerini kullanarak hizmet kimlik doğrulama gerçekleştirmek için başka bir yöntem hakkında daha fazla bilgi edinin.
+* [OAuth 2.0 istemci kimlik bilgileri sağlama Azure AD'de kullanarak hizmet kimlik doğrulama hizmeti](active-directory-protocols-oauth-service-to-service.md)
 * [Azure AD'de OAuth 2.0](active-directory-protocols-oauth-code.md)

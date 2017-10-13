@@ -1,6 +1,6 @@
 ---
-title: "Azure Mobile Engagement Android SDK aaaAdvanced yapılandırma"
-description: "Gelişmiş yapılandırma seçenekleri Hello Azure Mobile Engagement Android SDK'sı Android derleme bildirimi de dahil olmak üzere hello açıklar"
+title: "Gelişmiş yapılandırma için Azure Mobile Engagement Android SDK"
+description: "Android bildirim Azure Mobile Engagement Android SDK ile de dahil olmak üzere gelişmiş yapılandırma seçenekleri açıklanmaktadır"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 757abf362021fd018f444cae6305524623e77062
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0301f71c76872714aa1bf727a6c21dd7a63db036
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="advanced-configuration-for-azure-mobile-engagement-android-sdk"></a>Gelişmiş yapılandırma için Azure Mobile Engagement Android SDK
 > [!div class="op_single_selector"]
@@ -29,24 +29,24 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Bu yordam açıklar nasıl tooconfigure Azure Mobile Engagement Android uygulamaları için çeşitli yapılandırma seçenekleri.
+Bu yordam, Azure Mobile Engagement Android uygulamaları için çeşitli yapılandırma seçeneklerini yapılandırmak açıklar.
 
 ## <a name="prerequisites"></a>Ön koşullar
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-android-prereqs.md)]
 
 ## <a name="permission-requirements"></a>İzin gereksinimleri
-Bazı seçenekler tümü burada başvuru ve satır içi hello belirli özelliği için listelenen belirli izinler gerektirir. Bu izinleri toohello projenizin AndroidManifest.xml hemen önce veya sonra hello eklemek `<application>` etiketi.
+Bazı seçenekler tümü burada başvuru ve satır içi belirli özelliği için listelenen belirli izinler gerektirir. Bu izinleri projenizin AndroidManifest.xml için hemen önce veya sonra eklemek `<application>` etiketi.
 
-Merhaba izni kodu nereye hello uygun izni izleyen hello tablosundan doldurmanız hello aşağıdaki gibi toolook gerekir.
+Burada aşağıdaki tablodan uygun izni doldurmanız aşağıdaki gibi aramak izni kod gerekir.
 
     <uses-permission android:name="android.permission.[specific permission]"/>
 
 
 | İzin | Kullanıldığında |
 | --- | --- |
-| INTERNET |Gereklidir. Temel raporlama için |
-| ACCESS_NETWORK_STATE |Gereklidir. Temel raporlama için |
-| RECEIVE_BOOT_COMPLETED |Gereklidir. tooshow hello bildirimleri merkezi aygıt yeniden başlatma işleminden sonra |
+| INTERNET |Gerekli. Temel raporlama için |
+| ACCESS_NETWORK_STATE |Gerekli. Temel raporlama için |
+| RECEIVE_BOOT_COMPLETED |Gerekli. Cihaz yeniden başlatıldıktan sonra bildirimleri center göstermek için |
 | WAKE_LOCK |Önerilir. WiFi kullanırken veya ekran kapalı olduğunda verilerin toplanmasını sağlar |
 | TİTRET |İsteğe bağlı. Bildirim alındığında titreşimi sağlar |
 | DOWNLOAD_WITHOUT_NOTIFICATION |İsteğe bağlı. Android büyük resmi bildirim sağlar |
@@ -56,49 +56,49 @@ Merhaba izni kodu nereye hello uygun izni izleyen hello tablosundan doldurmanız
 
 Android M ile başlayan [bazı izinler çalışma zamanında yönetilen](mobile-engagement-android-location-reporting.md#android-m-permissions).
 
-Zaten kullanıyorsanız, ``ACCESS_FINE_LOCATION``, sonra da tooalso gerekmeyen kullanmak ``ACCESS_COARSE_LOCATION``.
+Zaten kullanıyorsanız, ``ACCESS_FINE_LOCATION``, ayrıca kullanmanız gerekmez sonra ``ACCESS_COARSE_LOCATION``.
 
 ## <a name="android-manifest-configuration-options"></a>Android bildirim yapılandırma seçenekleri
 ### <a name="crash-report"></a>Kilitlenme raporu
-toodisable kilitlenme rapor, bu kod hello arasında ekleme `<application>` ve `</application>` etiketler:
+Kilitlenme raporları devre dışı bırakmak için bu kodu arasında ekleyin `<application>` ve `</application>` etiketler:
 
     <meta-data android:name="engagement:reportCrash" android:value="false"/>
 
 ### <a name="burst-threshold"></a>Eşik veri bloğu
-Varsayılan olarak, hello katılım hizmet raporları gerçek zamanlı olarak günlüğe kaydeder. Uygulama rapor günlüklerinizi sık farklılık, daha iyi toobuffer hello günlükleri ve tooreport varsa, bunları ("modu veri bloğu" olarak adlandırılır) tümünü bir defada bir normal zaman temel üzerinde. toodo, bu nedenle, bu kod hello arasında ekleyin `<application>` ve `</application>` etiketler:
+Varsayılan olarak, katılım hizmet raporları gerçek zamanlı olarak günlüğe kaydeder. Uygulama rapor günlüklerinizi sık farklılık, günlükleri arabellek ve üzerlerinde tümünü bir defada bir normal zaman temel ("modu veri bloğu" olarak adlandırılır) bildirmek için daha iyi olur. Bunu yapmak için bu kod arasında eklemek `<application>` ve `</application>` etiketler:
 
     <meta-data android:name="engagement:burstThreshold" android:value="{interval between too bursts (in milliseconds)}"/>
 
-Veri bloğu modu biraz hello pil ömrünün artırır ancak Engagement İzleyicisi Merhaba üzerinde bir etkisi vardır: tüm oturumları ve işleri süresi yuvarlak toohello veri bloğu eşiği (Bu nedenle, oturumlar ve işleri hello veri bloğu eşik görünmeyebilir daha kısa) olan. Veri bloğu eşiği 30000 (30s) uzun olmalıdır.
+Veri bloğu modu biraz pil ömrünün artırır ancak Engagement İzleyicisi üzerinde bir etkisi vardır: tüm oturumları ve işleri süre (dolayısıyla, oturumlar ve işleri veri bloğu eşik görünmeyebilir daha kısa) veri bloğu eşik yuvarlanır. Veri bloğu eşiği 30000 (30s) uzun olmalıdır.
 
 ### <a name="session-timeout"></a>Oturum zaman aşımı
- Bir etkinlik tarafından tuşuna basarak hello sonlandırabilirsiniz **giriş** veya **geri** telefonla ayarı hello boşta veya başka bir uygulamaya atlayarak anahtar. Varsayılan olarak, son etkinlik hello sonunda on saniye oturum sona erer. Bu görüntüyü oluşturan hello kullanıcı Çekmeleri bağlandığınızda durum denetler bildirim, vb. her zaman hello kullanıcı çıkar ve toohello uygulama hızla döner oturum bölme önler. Bu parametre toomodify isteyebilirsiniz. toodo, bu nedenle, bu kod hello arasında ekleyin `<application>` ve `</application>` etiketler:
+ Tuşuna basarak bir etkinlik sonlandırabilirsiniz **giriş** veya **geri** ayarlayarak telefon boşta veya başka bir uygulamaya atlayarak anahtar. Varsayılan olarak, son etkinlik sonunda on saniye oturumu sona erer. Bu, görüntüyü oluşturan kullanıcının Çekmeleri bağlandığınızda durum denetler bildirim, vb. kullanıcı çıkar ve hızlı bir şekilde, uygulamaya döndürür her zaman bir oturum bölme önler. Bu parametre değiştirmek isteyebilirsiniz. Bunu yapmak için bu kod arasında eklemek `<application>` ve `</application>` etiketler:
 
     <meta-data android:name="engagement:sessionTimeout" android:value="{session timeout (in milliseconds)}"/>
 
 ## <a name="disable-log-reporting"></a>Günlük bildirimini devre dışı bırak
 ### <a name="using-a-method-call"></a>Yöntem çağrısı kullanma
-Katılım toostop günlükleri göndermek istiyorsanız, çağırabilirsiniz:
+Engagement'ın günlükleri göndermek durdurmak istiyorsanız, çağırabilirsiniz:
 
     EngagementAgent.getInstance(context).setEnabled(false);
 
 Bu çağrı kalıcıdır: paylaşılan tercihleri dosyasını kullanır.
 
-Bu işlev çağırdığınızda katılım etkinse hello hizmet toostop bir dakika sürebilir. Ancak tüm hello hello hizmeti Merhaba uygulaması sonraki başlatışınızda başlatın olmaz.
+Bu işlev çağırdığınızda katılım etkinse durdurmak hizmet için bir dakika sürebilir. Hizmeti her başlatıldığında başlatın olmaz ancak uygulamayı başlatın.
 
-Aynı işlevi ile Merhaba çağırarak yeniden raporlama günlüğü etkinleştirebilirsiniz `true`.
+Yeniden ile aynı işlevini çağırarak raporlama günlüğü etkinleştirebilirsiniz `true`.
 
 ### <a name="integration-in-your-own-preferenceactivity"></a>Kendi tümleştirme`PreferenceActivity`
 Bu işlevi çağırmak yerine, ayrıca bu ayarı doğrudan var olan tümleştirebilirsiniz `PreferenceActivity`.
 
-Hello tercihlerinizi dosya (Merhaba istenen mod ile) katılım toouse yapılandırabilirsiniz `AndroidManifest.xml` ile dosya `application meta-data`:
+Tercihler dosyanız (istenen moduyla) kullanmak için katılım yapılandırabileceğiniz `AndroidManifest.xml` ile dosya `application meta-data`:
 
-* Merhaba `engagement:agent:settings:name` kullanılan toodefine hello hello paylaşılan tercihleri dosyasının adını bir anahtardır.
-* Merhaba `engagement:agent:settings:mode` kullanılan toodefine hello modu hello paylaşılan tercihleri dosyasının bir anahtardır. Kullanım hello aynı modunda olarak, `PreferenceActivity`. bir sayı olarak Hello modu geçirildi: kodunuzda sabit bayrakları birlikte kullanıyorsanız, hello toplam değerini denetleyin.
+* `engagement:agent:settings:name` Anahtar paylaşılan tercihleri dosya adını tanımlamak için kullanılır.
+* `engagement:agent:settings:mode` Anahtar paylaşılan tercihleri dosya modunu tanımlamak için kullanılır. Aynı modunda olarak kullanmak, `PreferenceActivity`. Mod bir sayı olarak geçirilmelidir: kodunuzda sabit bayrakları birlikte kullanıyorsanız, toplam değerini denetleyin.
 
-Her zaman katılım kullanan hello `engagement:key` bu ayarı yönetmek için hello Tercihler dosyasındaki boolean anahtarı.
+Her zaman katılım kullanan `engagement:key` boolean anahtarı bu ayarı yönetmek için Tercihler dosya içinde.
 
-Merhaba örneği `AndroidManifest.xml` hello varsayılan değerleri gösterir:
+Aşağıdaki örnekte `AndroidManifest.xml` varsayılan değerleri gösterir:
 
     <application>
         [...]
@@ -109,7 +109,7 @@ Merhaba örneği `AndroidManifest.xml` hello varsayılan değerleri gösterir:
           android:name="engagement:agent:settings:mode"
           android:value="0" />
 
-Ekleyebileceğiniz sonra bir `CheckBoxPreference` hello bir aşağıdaki gibi tercih düzeninde:
+Ekleyebileceğiniz sonra bir `CheckBoxPreference` , tercih yerleşiminde aşağıdakine benzer:
 
     <CheckBoxPreference
       android:key="engagement:enabled"

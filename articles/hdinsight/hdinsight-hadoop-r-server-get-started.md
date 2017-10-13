@@ -1,6 +1,6 @@
 ---
-title: "hdınsight'ta - Azure R Server aaaGet Başlarken | Microsoft Docs"
-description: "Merhaba kümesinde bir R betiği göndermek ve nasıl toocreate bir Apache Spark R Server içeren Hdınsight kümesinde öğrenin."
+title: "HDInsight'ta R Server ile çalışmaya başlama - Azure | Microsoft Docs"
+description: "HDInsight kümesi üzerinde R Server içeren bir Apache Spark oluşturma ve küme üzerinde bir R betiği gönderme hakkında bilgi edinin."
 services: HDInsight
 documentationcenter: 
 author: bradsev
@@ -15,255 +15,255 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/14/2017
 ms.author: bradsev
-ms.openlocfilehash: f7e418bbac48eee080a4b4cfbb33e246324ea5c9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 89fa80b3e3409b7cd2f600776fffdeb3a5271b5d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-using-r-server-on-hdinsight"></a>HDInsight üzerinde R Server kullanmaya başlayın
 
-Hdınsight Hdınsight kümenize tümleşik bir R Server seçeneği toobe içerir. Bu seçenek R betiklerini toouse Spark ve MapReduce dağıtılmış toorun hesaplamalar sağlar. Bu belgede nasıl toocreate Hdınsight kümesi ve için Spark kullanarak gösteren Çalıştır bir R betiği bir R Server'a R hesaplamaları dağıtılmış öğrenin.
+HDInsight, HDInsight kümenizle tümleştirilecek bir R Server seçeneği içerir. Bu seçenek, R betiklerinin dağıtılmış hesaplamaları çalıştırmak için Spark ve MapReduce kullanmasına olanak tanır. Bu belgede, HDInsight kümesi üzerinde bir R Server oluşturma ve ardından dağıtılmış R hesaplamaları için Spark kullanmayı gönderen bir R betiği çalıştırma hakkında bilgi alacaksınız.
 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* **Bir Azure aboneliği**: Bu öğreticiye başlamadan önce bir Azure aboneliğinizin olması gerekir. Git toohello makale [alma Microsoft Azure ücretsiz deneme sürümü](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) daha fazla bilgi için.
-* **Bir güvenli Kabuk (SSH) istemcisi**: bir SSH istemcisi kullanılır tooremotely toohello Hdınsight kümesine bağlanın ve doğrudan hello kümede komutları çalıştırın. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma.](hdinsight-hadoop-linux-use-ssh-unix.md)
-* **SSH anahtarları (isteğe bağlı)**: hello SSH kullanılan hesap tooconnect toohello küme bir parola veya ortak anahtar kullanılarak güvenli hale getirebilirsiniz. Bir parola kullanarak kolaydır ve bir genel/özel anahtar çifti toocreate gerek kalmadan, tooget başlatılan sağlar. Ancak, bir anahtar kullanılması daha güvenlidir.
+* **Bir Azure aboneliği**: Bu öğreticiye başlamadan önce bir Azure aboneliğinizin olması gerekir. Daha fazla bilgi için [Microsoft Azure ücretsiz denemesi edinin](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/) makalesine gidin.
+* **Güvenli Kabuk (SSH) istemcisi**: HDInsight kümesine uzaktan bağlanmak ve komutları doğrudan küme üzerinde çalıştırmak için bir SSH istemcisi kullanılır. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma.](hdinsight-hadoop-linux-use-ssh-unix.md)
+* **SSH anahtarları (isteğe bağlı)**: Bir parola veya ortak anahtar kullanarak, kümeye bağlanmak için kullanılan SSH hesabını güvenli hale getirebilirsiniz. Bir parola kullanılması daha kolaydır ve ortak/özel anahtar çifti oluşturmak zorunda kalmadan çalışmaya başlamanızı sağlar. Ancak, bir anahtar kullanılması daha güvenlidir.
 
 > [!NOTE]
-> Bu belgedeki Hello adımlar bir parola kullandığınızı varsayar.
+> Bu belgedeki adımlarda parola kullandığınız kabul edilmiştir.
 
 
 ## <a name="automated-cluster-creation"></a>Otomatik küme oluşturma
 
-Azure Resource Manager şablonları, hello SDK ve aynı zamanda PowerShell kullanarak, Hdınsight R sunucularını hello oluşturulmasını otomatik hale getirebilirsiniz.
+HDInsight R Server oluşturma işlemini Azure Resource Manager şablonları, SDK ve aynı zamanda PowerShell kullanarak otomatik hale getirebilirsiniz.
 
-* bir Azure kaynak yönetimi şablonu kullanarak bir R Server toocreate bkz [R server Hdınsight kümesi dağıtma](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
-* R Server hello .NET SDK kullanarak bir toocreate bakın [hello .NET SDK kullanarak Hdınsight'ta Linux tabanlı kümelerde oluşturma.](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
-* R Server toodeploy powershell kullanarak hello makaleye bakın üzerinde [PowerShell ile hdınsight'ta R Server oluşturma](hdinsight-hadoop-create-linux-clusters-azure-powershell.md).
+* Azure Kaynak Yönetimi şablonu ile R Server oluşturmak için bkz. [R Server HDInsight kümesi dağıtma](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).
+* .NET SDK kullanarak R Server oluşturmak için bkz. [HDInsight’ta .NET SDK kullanarak Linux tabanlı kümeler oluşturma.](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
+* PowerShell kullanarak R Server dağıtmak için [HDInsight'ta PowerShell ile R Server oluşturma](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) makalesine bakın.
 
 
 <a name="create-hdi-custer-with-aure-portal"></a>
-## <a name="create-hello-cluster-using-hello-azure-portal"></a>Hello Azure portal kullanarak hello kümesi oluşturma
+## <a name="create-the-cluster-using-the-azure-portal"></a>Azure portalını kullanarak küme oluşturma
 
-1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 
 2. **YENİ** -> **Zeka + Analiz**, -> **HDInsight** seçeneklerini belirtin.
 
     ![Yeni küme oluşturma görüntüsü](./media/hdinsight-hadoop-r-server-get-started/newcluster.png)
 
-3. Merhaba, **hızlı Oluştur** deneyimi, hello hello küme adı **küme adı** alan. Birden çok Azure aboneliğiniz varsa, hello kullan **abonelik** toouse istediğiniz girişi tooselect hello biri.
+3. **Hızlı oluşturma** deneyiminde **Küme Adı** alanına küme için bir ad girin. Birden fazla Azure aboneliğiniz varsa, kullanmak istediğiniz aboneliği seçmek için **Abonelik** girişini kullanın.
 
     ![Küme adı ve abonelik seçimleri](./media/hdinsight-hadoop-r-server-get-started/clustername.png)
 
-4. Seçin **küme türü** tooopen hello **küme yapılandırması** dikey. Merhaba üzerinde **küme yapılandırması** dikey penceresinde, aşağıdaki seçenekleri şu select hello:
+4. **Küme yapılandırması** dikey penceresini açmak için **Küme türü**’nü seçin. **Küme Yapılandırması** dikey penceresinde aşağıdaki seçenekleri belirleyin:
 
     * **Küme Türü**: R Server
-    * **Sürüm**: R Server tooinstall hello kümede select hello sürümü. şu anda kullanılabilir Hello sürüm ***R Server 9.1 (HDI 3.6)***. Sürüm Notları hello kullanılabilir R Server sürümleri için kullanılabilir [burada](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes).
-    * **R Server için R Studio community edition**: Bu tarayıcı tabanlı IDE hello edge düğüm üzerinde varsayılan olarak yüklenir. Toonot tercih ederseniz yüklemediyseniz, ardından hello onay kutusunun işaretini kaldırın. Toohave seçerseniz yüklü, bir kez oluşturulduğunda Rstudio'dan sunucu oturum açma kümeniz için bir portal uygulaması dikey penceresinde bulunur hello erişmek için hello URL.
-    * Bırakın hello diğer seçenekleri hello varsayılan değerlerinde ve hello kullan **seçin** düğme toosave hello küme türü.
+    * **Sürüm**: Kümeye yüklenecek R Server sürümünü seçin. Şu anda kullanılabilir sürüm: ***R Server 9.1 (HDI 3.6)***. Kullanılabilir R Server sürümlerinin sürüm notları [burada](https://msdn.microsoft.com/microsoft-r/notes/r-server-notes) bulunabilir.
+    * **R Server için R Studio topluluk sürümü**: tarayıcı tabanlı bu IDE, kenar düğümüne varsayılan olarak yüklenir. Yüklememeyi tercih ederseniz, onay kutusunun işaretini kaldırın. Yüklemeyi seçerseniz, RStudio Server oturum açma sayfasına erişim URL'si, oluşturulan kümenizin portal uygulaması dikey penceresinde bulunur.
+    * Diğer seçenekleri varsayılan değerlerinde bırakın ve küme türünü kaydetmek için **Seç** düğmesini kullanın.
 
         ![Küme türü dikey penceresi ekran görüntüsü](./media/hdinsight-hadoop-r-server-get-started/clustertypeconfig.png)
 
 5. Bir **Küme oturum açma kullanıcı adı** ve **Küme oturum açma parolası** girin.
 
-    Bir **SSH Kullanıcı Adı** belirtin. SSH kullanılan tooremotely Bağlan toohello küme kullanarak bir **güvenli Kabuk (SSH)** istemci. Merhaba SSH kullanıcı ya da, bu iletişim kutusunda veya (içinde Merhaba yapılandırma sekmesi hello küme için) hello Küme oluşturulduktan sonra da belirtebilirsiniz. R sunucusudur yapılandırılmış tooexpect bir **SSH kullanıcı adı** "remoteuser" olarak.  **Farklı bir kullanıcı adı kullanırsanız, hello Küme oluşturulduktan sonra ek bir adım gerçekleştirmeniz gerekir.**
+    Bir **SSH Kullanıcı Adı** belirtin. SSH, bir **Güvenli Kabuk (SSH)** istemcisi kullanarak kümeye uzaktan bağlanmak için kullanılır. SSH kullanıcısını bu iletişim kutusunda veya küme oluşturulduktan sonra (kümenin Yapılandırma sekmesinde) belirtebilirsiniz. R Server, “remoteuser” şeklinde bir **SSH kullanıcı adı** bekleyecek şekilde yapılandırılmıştır.  **Farklı bir kullanıcı adı kullanırsanız, küme oluşturulduktan sonra ek bir adım gerçekleştirmeniz gerekir.**
 
-    İçin işaretli bırakın hello kutusunda **küme oturum açma aynı parolayı kullanın** toouse **parola** hello kimlik doğrulaması türü olarak bir ortak anahtar kullanımını tercih sürece.  Örneğin, RTVS, Rstudio'dan veya başka bir masaüstü IDE olarak uzak istemciye aracılığıyla hello kümede ortak/özel anahtar çifti tooaccess R Server gerekir. Merhaba Rstudio'dan Server community edition yüklerseniz, toochoose bir SSH parolası gerekir.     
+    Bir ortak anahtarın kullanılmasını tercih etmiyorsanız, kimlik doğrulama türü olarak **PAROLA** kullanmak için **Kümede oturum açarken kullanılan parolayı kullan** kutusunun işaretini kaldırmayın.  Küme üzerindeki R Server'a RTVS, RStudio veya başka bir masaüstü IDE gibi bir uzak istemci üzerinden erişmek için ortak/özel anahtar çifti gerekir. RStudio Server topluluk sürümünü yüklerseniz bir SSH parolası seçmeniz gerekir.     
 
-    toocreate ve kullanım bir genel/özel anahtar çifti işaretini **küme oturum açma aynı parolayı kullanın** ve ardından **ortak anahtar** ve aşağıdaki gibi ilerleyin. Bu yönergelerde, ssh-keygen veya eşdeğeri ile birlikte Cygwin'in yüklü olduğu varsayılır.
+    Bir ortak/özel anahtar çifti oluşturmak için **Kümede oturum açarken kullanılan parolayı kullan** kutusunun işaretini kaldırın ve **ORTAK ANAHTAR**'ı seçip aşağıdaki işlemlerle devam edin. Bu yönergelerde, ssh-keygen veya eşdeğeri ile birlikte Cygwin'in yüklü olduğu varsayılır.
 
-    * Dizüstü bilgisayarınızda hello komut isteminden bir genel/özel anahtar çifti oluşturur:
+    * Dizüstü bilgisayarınızda komut isteminden bir genel/özel anahtar çifti oluşturun:
 
         ssh-keygen -t rsa -b 2048
 
-    * Merhaba komut istemi tooname bir anahtar dosyası izleyin ve sonra ek güvenlik için bir parola girin. Ekranınızın hello görüntü aşağıdaki gibi görünmelidir:
+    * Anahtar dosyasını adlandırmak için istemleri izleyin ve daha fazla güvenlik için bir şifre girin. Ekranınız aşağıdaki görüntü gibi görünmelidir:
 
         ![Windows'da SSH cmd satırı](./media/hdinsight-hadoop-r-server-get-started/sshcmdline.png)
 
-    * Bu komut, özel bir anahtar dosyası ve hello ad < özel anahtarı dosyaadı > .pub, örneğin furiosa ve furiosa.pub altında ortak bir anahtar dosyası oluşturur.
+    * Bu komut <private-key-filename>.pub adıyla bir özel anahtar dosyası ve ortak anahtar dosyası oluşturur, örneğin furiosa ve furiosa.pub.
 
         ![SSH dir](./media/hdinsight-hadoop-r-server-get-started/dir.png)
 
-    * Merhaba ortak anahtar dosyası (&#42;. belirtin HDI atama ve kimlik bilgilerinin küme kaynak grubu ve bölge ve select onaylamadan pub) **sonraki**.
+    * HDI küme kimlik bilgilerini atarken ortak anahtar dosyasını (&#42;.pub) belirtin ve son olarak kaynak grubunuz ile bölgenizi onaylayıp **İleri**'yi seçin.
 
         ![Kimlik Bilgileri dikey penceresi](./media/hdinsight-hadoop-r-server-get-started/publickeyfile.png)  
 
-   * Dizüstü bilgisayarınızda hello özel keyfile üzerindeki izinleri değiştirin:
+   * Dizüstü bilgisayarınızda özel anahtar dosyasına ilişkin izinleri değiştirin:
 
         chmod 600 <private-key-filename>
 
-   * Merhaba özel anahtar dosyası SSH ile uzaktan oturum açma için kullanın:
+   * Özel anahtar dosyasını uzaktan oturum açma için SSH ile birlikte kullanın:
 
         ssh –i <private-key-filename> remoteuser@<hostname public ip>
 
-      Ya da bölümü hello tanımı, Hadoop Spark olarak bağlamı için R Server hello istemcide işlem. Merhaba bkz **kullanarak Microsoft R Server Hadoop istemcisi olarak** içinde alt bölüm [bir işlem bağlamı için Spark oluşturma](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark).
+      Ya da istemci üzerindeki R Server için Hadoop Spark işlem bağlamınız. [Spark için İşlem Bağlamı Oluşturma](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) bölümündeki **Microsoft R Server'ı Hadoop İstemcisi Olarak Kullanma** alt bölümüne bakın.
 
-6. Merhaba hızlı Oluştur toohello geçişleri **depolama** hello birincil konumunu hello için kullanılan ayarları toobe HDFS dosya sistemi hello küme tarafından kullanılan dikey tooselect hello depolama hesabı. Yeni veya mevcut bir Azure Depolama hesabını ya da mevcut bir Data Lake Storage hesabını seçin.
+6. Hızlı oluşturma işlemi, küme tarafından kullanılan HDFS dosya sisteminin birincil konumu olarak kullanılacak depolama hesabı ayarlarını seçmek için sizi **Depolama** dikey penceresine geçirir. Yeni veya mevcut bir Azure Depolama hesabını ya da mevcut bir Data Lake Storage hesabını seçin.
 
-    - Bir Azure depolama hesabı seçin, mevcut bir depolama hesabını seçerek seçilirse **bir depolama hesabı seçin** ve hello ilgili hesabı seçme. Hello kullanarak yeni bir hesap oluşturma **Yeni Oluştur** hello bağlantıyı **bir depolama hesabı seçin** bölümü.
+    - Bir Azure Depolama hesabı seçerseniz, **Depolama hesabı seçin** öğesini ve ardından ilgili hesabı seçerek mevcut bir depolama hesabını seçebilirsiniz. **Depolama hesabı seçin** bölümündeki **Yeni Oluştur** bağlantısını kullanarak yeni bir hesap oluşturabilirsiniz.
 
       > [!NOTE]
-      > Seçerseniz **yeni** hello yeni depolama hesabı için bir ad girmeniz gerekir. Merhaba adı kabul edilirse yeşil bir onay işareti görünür.
+      > **Yeni**’yi seçerseniz, yeni depolama hesabınız için bir ad girmeniz gerekir. Ad kabul edilirse yeşil bir onay işareti görünür.
 
-      Merhaba **varsayılan kapsayıcı** Varsayılanları toohello hello kümenin adını. Bu varsayılan hello değeri bırakın.
+      **Varsayılan Kapsayıcı**, varsayılan olarak kümenin adıdır. Varsayılan değeri bırakın.
 
-      Yeni bir depolama hesabı seçeneği seçildiyse, bir komut istemi tooselect **konumu** olan tooselect hangi bölge toocreate hello depolama hesabı.  
+      Yeni depolama hesabı seçeneği belirlendiyse, depolama hesabının oluşturulacağı bölgeyi seçmek için **Konum** belirlemeniz istenir.  
 
          ![Veri kaynağı dikey penceresi](./media/hdinsight-getting-started-with-r/datastore.png)  
 
       > [!IMPORTANT]
-      > Merhaba varsayılan veri kaynağı için başlangıç konumu seçerek hello Hdınsight kümesi hello konumunu ayarlar. Merhaba küme ve varsayılan veri kaynağı hello olmalıdır aynı bölgede.
+      > Varsayılan veri kaynağı için konum seçildiğinde, HDInsight kümesinin konumu da ayarlanır. Küme ve varsayılan veri kaynağı aynı bölgede olmalıdır.
 
-    - Toouse mevcut bir Data Lake Store istiyorsanız, seçip hello ADLS depolama hesabı toouse ve hello küme eklemek *Ekle* kimlik tooyour küme tooallow erişim toohello deposu. Bu işlem hakkında daha fazla bilgi için [Azure portalı kullanarak Data Lake Store ile HDInsight kümesi oluşturma](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal) bölümünü inceleyin.
+    - Mevcut bir Data Lake Store hesabını kullanmak isterseniz, kullanılacak ADLS depolama hesabını belirleyin ve depo erişimine izin vermek üzere küme *ADD* kimliğini kümenize ekleyin. Bu işlem hakkında daha fazla bilgi için [Azure portalı kullanarak Data Lake Store ile HDInsight kümesi oluşturma](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal) bölümünü inceleyin.
 
-    Kullanım hello **seçin** düğmesini toosave hello veri kaynağı yapılandırması.
+    Veri kaynağı yapılandırmasını kaydetmek için **Seç** düğmesini kullanın.
 
 
-7. Merhaba **Özet** dikey penceresinde tüm ayarlarınızı sonra toovalidate görüntüler. Burada değiştirebilirsiniz, **küme boyutu** toomodify hello Kümenizdeki sunucuların sayısını ve ayrıca herhangi belirtmek **betik eylemleri** toorun istiyor. Daha büyük bir küme gerekir bilmiyorsanız, çalışan düğüm sayısı hello hello varsayılan olarak bırakın `4`. Merhaba hello küme maliyetini hello Dikey içinde gösterilen tahmin.
+7. Bu durumda tüm ayarlarınızı doğrulamak için **Özet** dikey penceresi görüntülenir. Bu pencerede, kümenizdeki sunucu sayısını değiştirmek ve aynı zamanda çalıştırmak istediğiniz **Betik eylemlerini** belirtmek için **Küme boyutunuzu** değiştirebilirsiniz. Daha büyük bir kümeye ihtiyaç duymadıkça, çalışan düğümleri sayısını varsayılan `4` değerinde bırakın. Kümenin tahmini maliyeti, dikey pencerede gösterilir.
 
     ![küme özeti](./media/hdinsight-hadoop-r-server-get-started/clustersummary.png)
 
    > [!NOTE]
-   > Gerekirse, kümenizi hello Portal aracılığıyla daha sonra yeniden boyutlandırabilirsiniz (**küme** -> **ayarları** -> **ölçekte küme**) tooincrease veya Merhaba çalışan düğümü sayısını azaltın.  Bu yeniden boyutlandırma hello küme kullanılmadığında aşağı idling için ya da kapasite toomeet hello büyük görevleri ihtiyaçlarını eklemek için yararlı olabilir.
+   > Gerekirse, çalışan düğümlerinin sayısını artırmak veya azaltmak üzere Portal üzerinden (**Küme** -> **Ayarlar** -> **Küme Ölçeklendirme**) kümenizi yeniden boyutlandırabilirsiniz.  Yeniden boyutlandırma yapılması, kullanımda olmadığında kümeyi boşa almak veya daha büyük görev gereksinimlerini karşılamak üzere kapasite artırmak için faydalı olabilir.
    >
    >
 
-   Küme, hello veri düğümlerini ve hello kenar düğümüne boyutlandırma zaman aklınızda bazı etkenler tookeep şunları içerir:  
+   Kümenizi, veri düğümlerini ve kenar düğümünü boyutlandırırken göz önünde bulundurulması gereken bazı faktörler aşağıda verilmiştir:  
 
-   * Merhaba veriler büyük olduğunda Spark üzerinde dağıtılmış R Server çözümlemeler hello performansını orantılı toohello çalışan düğümlerinin sayısıdır.  
+   * Spark üzerinde dağıtılmış R Server analizlerinin performansı, veriler büyük olduğunda çalışan düğümlerinin sayısıyla doğru orantılıdır.  
 
-   * R Server çözümlemeler Hello performansını çözümlenmekte veri hello boyutunda doğrusal ' dir. Örneğin:  
+   * R Server analizlerinin performansı, analiz edilmekte olan verilerin boyutu ile doğrusal yönde ilerler. Örneğin:  
 
-     * Küçük toomodest verileri için performans yerel işlem bağlamda hello kenar düğümü üzerindeki analiz olduğunda en iyisidir.  Bağlamları hello yerel ve Spark altında işlem hello senaryoları hakkında daha fazla bilgi için en iyi şekilde çalışır, Hdınsight'ta R Server için işlem bağlamı seçenekleri konusuna bakın.<br>
-     * Toohello kenar düğümünde oturum açın ve R betiği çalıştırın, ardından hello ScaleR rx-işlevleri dışındaki tüm yürütülen varsa <strong>yerel olarak</strong> hello edge düğüm üzerinde. Bu nedenle bellek hello ve hello kenar düğümüne çekirdek sayısı buna göre boyutlandırılmalıdır. Merhaba R Server HDI üzerinde uzak işlem bağlamı olarak dizüstü bilgisayarınızdan kullanıyorsanız aynı durum geçerlidir.
+     * Küçük ila orta büyüklükteki veriler için performans, kenar düğümündeki yerel bir işlem bağlamında analiz edildiğinde en üst seviyededir.  Yerel ve Spark işlem bağlamlarının en iyi şekilde çalıştığı senaryolar hakkında daha fazla bilgi için bkz. HDInsight üzerinde R Server için işlem bağlamı seçenekleri.<br>
+     * Kenar düğümünde oturum açıp R betiğinizi çalıştırırsanız kenar düğümde ScaleR rx-işlevleri hariç tüm işlevler <strong>yerel olarak</strong> yürütülür. Kenar düğüm üzerindeki bellek ve çekirdek sayısı ayarlanırken bu durum dikkate alınmalıdır. Aynı durum, HDI üzerinde R Server’ı dizüstü bilgisayarınızdan uzak bir işlem bağlamı olarak çalıştırdığınızda geçerli olur.
 
      ![Düğüm fiyatlandırma katmanları dikey penceresi](./media/hdinsight-hadoop-r-server-get-started/pricingtier.png)
 
-     Kullanım hello **seçin** yapılandırma fiyatlandırma düğmesi toosave hello düğümü.
+     Düğüm fiyatlandırma yapılandırmasını kaydetmek için **Seç** düğmesini kullanın.
 
-   **Şablon ve parametreleri indirme** bağlantısı da yer almaktadır. Bir küme hello seçili yapılandırma ile kullanılan tooautomate hello oluşturma olabilir Bu bağlantı toodisplay betikleri tıklayın. Oluşturulduktan sonra bu komut dosyalarını da hello kümeniz için Azure portal giriş mevcuttur.
+   **Şablon ve parametreleri indirme** bağlantısı da yer almaktadır. Bu bağlantıya tıkladığınızda, seçili yapılandırma ile küme oluşturma işlemini otomatik hale getirmek için kullanılabilecek betikler gösterilir. Bu betikler, kümeniz oluşturulduktan sonra Azure portalı girişinde de bulunabilir.
 
    > [!NOTE]
-   > Oluşturulan, genellikle yaklaşık 20 dakika hello küme toobe için biraz zaman alabilir. Merhaba döşeme Sabitle hello üzerinde kullanın ya da hello **bildirimleri** hello girişinde sol hello sayfa toocheck hello oluşturma işlemi.
+   > Kümenin oluşturulması genellikle yaklaşık 20 dakika sürer. Oluşturma işlemini denetlemek için Başlangıç Panosu’ndaki kutucuğu veya sayfanın solundaki **Bildirimler** girişini kullanın.
    >
    >
 
 <a name="connect-to-rstudio-server"></a>
-## <a name="connect-toorstudio-server"></a>TooRStudio sunucusuna bağlan
+## <a name="connect-to-rstudio-server"></a>RStudio Server’a bağlanma
 
-Daha sonra tooinclude Rstudio'dan Server community edition yüklemenizde seçtiyseniz hello Rstudio'dan oturum açma iki farklı yöntem aracılığıyla erişebilirsiniz.
+Yüklemenize RStudio Server topluluk sürümünü eklemeyi seçtiyseniz, RStudio oturum açma sayfasına iki farklı yöntemle erişebilirsiniz.
 
-1. URL aşağıdaki toohello gidin (burada **CLUSTERNAME** oluşturduğunuz hello küme hello adıdır):
+1. Aşağıdaki URL'ye gidin (burada **CLUSTERNAME**, oluşturduğunuz kümenin adıdır):
 
     https://**CLUSTERNAME**.azurehdinsight.net/rstudio/
 
-2. Kümeniz için hello girişi hello Azure portal, select hello açmak **R Server panolar** hızlı bağlantıyı ve hello seçme **R Studio Pano**:
+2. Azure portalında kümenizin girişini açıp, **R Server Panoları** hızlı bağlantısını seçip, **R Studio Panosu**'nu seçin:
 
-     ![Erişim hello R studio Panosu](./media/hdinsight-getting-started-with-r/rstudiodashboard1.png)
+     ![R studio panosuna erişim](./media/hdinsight-getting-started-with-r/rstudiodashboard1.png)
 
-     ![Erişim hello R studio Panosu](./media/hdinsight-getting-started-with-r/rstudiodashboard2.png)
+     ![R studio panosuna erişim](./media/hdinsight-getting-started-with-r/rstudiodashboard2.png)
 
    > [!IMPORTANT]
-   > Kullanılan hello yönteminden bağımsız olarak hello ilk kez oturum açtığınızda, tooauthenticate iki kez gerekir.  Merhaba ilk kimlik doğrulaması sırasında hello sağlamak *yönetici UserID küme* ve *parola*. Merhaba ikinci isteminde hello sağlamak *SSH UserID* ve *parola*. Sonraki günlüğü bileşenler yalnızca hello gerektiren *SSH parolası* ve *UserID*.
+   > Kullanılan yöntem ne olursa olsun, ilk kez oturum açtığınızda iki kez kimlik doğrulaması yapmanız gerekir.  İlk kimlik doğrulamasında kümenin *Yönetici kullanıcı kimliğini* ve *parolasını* belirtin. İkinci istemde *SSH kullanıcı kimliği* ve *parolasını* sağlayın. Sonraki oturumlarda yalnızca *SSH parolası* ve *kullanıcı kimliği* gerekli olacaktır.
 
 <a name="connect-to-edge-node"></a>
-## <a name="connect-toohello-r-server-edge-node"></a>Toohello R Server edge düğümüne bağlanma
+## <a name="connect-to-the-r-server-edge-node"></a>R Server kenar düğümüne bağlanma
 
-TooR Server edge düğümüne hello Hdınsight kümesinin hello komutuyla SSH kullanarak bağlanın:
+Şu komutla HDInsight kümesinin R Server kenar düğümüne SSH kullanarak bağlanabilirsiniz:
 
    `ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net`
 
 > [!NOTE]
-> Merhaba bulabilirsiniz `USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net` hello sonra kümenizi seçerek Azure portal adresi **tüm ayarları** -> **uygulamaları** -> **RServer**. Merhaba hello kenar düğümüne SSH uç nokta bilgileri görüntüler.
+> Kümenizi ve ardından **Tüm Ayarlar** -> **Uygulamalar** -> **RServer**'ı seçerek `USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net` adresini Azure portalında bulabilirsiniz. Bu seçim, kenar düğümünün SSH Uç Noktası bilgilerini gösterir.
 >
-> ![Merhaba SSH uç noktası hello kenar düğümüne görüntüsü](./media/hdinsight-hadoop-r-server-get-started/sshendpoint.png)
+> ![Kenar düğümünün SSH Uç Noktası görüntüsü](./media/hdinsight-hadoop-r-server-get-started/sshendpoint.png)
 >
 >
 
-SSH kullanıcı hesabınızın parolası toosecure kullandıysanız, istendiğinde tooenter olan bu. Bir ortak anahtar kullandıysanız, toouse hello olabilir `-i` parametresi toospecify hello eşleşen özel anahtarı. Örneğin:
+SSH kullanıcı hesabınızın güvenliğini sağlamak için parola kullandıysanız parolayı girmeniz istenir. Bir ortak anahtar kullandıysanız eşleşen özel anahtarı belirtmek için `-i` parametresini kullanmanız gerekebilir. Örneğin:
 
     ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-Daha fazla bilgi için bkz: [tooHDInsight (Hadoop) SSH kullanarak bağlanmak](hdinsight-hadoop-linux-use-ssh-unix.md).
+Daha fazla bilgi için bkz. [SSH kullanarak HDInsight'a (Hadoop) bağlanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-Bağlantı kurulduktan sonra bir komut istemi benzer toohello şu ulaşır:
+Bağlantı kurulduktan sonra aşağıdakine benzer bir isteme ulaşırsınız:
 
     sername@ed00-myrser:~$
 
 <a name="enable-concurrent-users"></a>
 ## <a name="enable-multiple-concurrent-users"></a>Birden çok eş zamanlı kullanıcı etkinleştirme
 
-Daha fazla kullanıcıları için hangi hello Rstudio'dan topluluk sürümünü çalıştıran hello kenar düğümüne ekleyerek, birden çok eşzamanlı kullanıcı etkinleştirebilirsiniz.
+RStudio topluluk sürümünün çalıştığı kenar düğümüne daha fazla kullanıcı ekleyerek aynı anda birden fazla eşzamanlı kullanıcıyı etkinleştirebilirsiniz.
 
 Bir HDInsight kümesi oluşturduğunuzda bir HTTP kullanıcısı ve bir SSH kullanıcısı olmak üzere iki kullanıcı sağlamanız gerekir:
 
 ![Eşzamanlı kullanıcı 1](./media/hdinsight-hadoop-r-server-get-started/concurrent-users-1.png)
 
-- **Oturum açma kullanıcı küme**: kullanılan tooprotect hello Hdınsight olan hello Hdınsight ağ geçidi üzerinden kimlik doğrulaması için bir HTTP kullanıcı oluşturduğunuz kümeleri. Bu HTTP kullanılan tooaccess hello Ambari UI, YARN kullanıcı Arabiriminde yanı sıra, diğer kullanıcı Arabirimi bileşenlerini kullanıcıdır.
-- **Güvenli Kabuk (SSH) kullanıcıadı**: Güvenli Kabuk aracılığıyla bir SSH kullanıcı tooaccess hello kümesi. Bu kullanıcı hello Linux sistemi tüm hello baş düğümler, çalışan düğümlerine ve kenar düğümler için de bir kullanıcıdır. Bu nedenle, güvenli Kabuk tooaccess hello düğümün herhangi birinden uzak bir kümede kullanabilirsiniz.
+- **Küme oturum açma kullanıcı adı**: Oluşturduğunuz HDInsight kümelerini korumak için kullanılan HDInsight ağ geçidinden kimlik doğrulaması yapmak için kullanılan HTTP kullanıcısı. Bu HTTP kullanıcısı Ambari UI, YARN UI ve diğer UI bileşenlerine erişmek için kullanılır.
+- **Secure Shell (SSH) kullanıcı adı**: Kümeye Secure Shell üzerinden erişmek için kullanılan SSH kullanıcısı. Bu kullanıcı Linux sisteminde tüm baş düğümler, çalışan düğümleri ve kenar düğümler için kullanılan kullanıcıdır. Bu sayede uzak kümedeki düğümlere erişmek için Secure Shell kullanabilirsiniz.
 
-Merhaba Microsoft R Server Hdınsight türü kümede kullanılan hello R Studio Server Community sürümü yalnızca Linux kullanıcı adı ve parola oturum açma mekanizması olarak kabul eder. Belirteç iletmeyi desteklemez. Yeni bir küme oluşturduktan ve toouse R Studio tooaccess istiyorsanız bunu, toolog içinde iki kez gerekir.
+HDInsight türü küme üzerindeki Microsoft R Server'da kullanılan R Studio Server topluluk sürümü, oturum açma sistemi olarak yalnızca Linux kullanıcı adı ve parolasını kabul eder. Belirteç iletmeyi desteklemez. Bu nedenle yeni bir küme oluşturduysanız ve buna erişmek için R Studio kullanmak istiyorsanız iki kez oturum açmanız gerekir.
 
-- İlk hello Hdınsight ağ geçidi üzerinden hello HTTP kullanıcı kimlik bilgilerini kullanarak oturum açın: 
+- İlk olarak HTTP kullanıcısı kimlik bilgilerini kullanarak HDInsight Ağ Geçidi üzerinden oturum açın: 
 
     ![Eşzamanlı kullanıcı 2a](./media/hdinsight-hadoop-r-server-get-started/concurrent-users-2a.png)
 
-- Ardından hello SSH kullanıcı kimlik bilgilerini toolog içinde tooRStudio kullanın:
+- Ardından SSH kullanıcısı kimlik bilgilerini kullanarak RStudio oturumu açın:
   
     ![Eşzamanlı kullanıcı 2b](./media/hdinsight-hadoop-r-server-get-started/concurrent-users-2b.png)
 
-Şu anda bir HDInsight kümesi sağlanırken yalnızca bir SSH kullanıcı hesabı oluşturulabilir. Birden çok kullanıcı tooaccess Microsoft hdınsight'ta R Server tooenable kümeleri şekilde hello Linux sistem toocreate ek kullanıcılar ihtiyacımız var.
+Şu anda bir HDInsight kümesi sağlanırken yalnızca bir SSH kullanıcı hesabı oluşturulabilir. Bu nedenle birden fazla kullanıcının HDInsight kümeleri üzerindeki Microsoft R Server'a erişmesini sağlamak için Linux sisteminde ek kullanıcılar oluşturmamız gerekiyor.
 
-Rstudio'dan Server Topluluğu hello kümenin kenar düğümüne üzerinde çalıştığı için burada birkaç adım vardır:
+Kümenin kenar düğümünde RStudio Server Topluluk sürümü çalıştığı için burada birden fazla adım mevcuttur:
 
-1. Oluşturulan hello SSH kullanıcı toolog toohello kenar düğümünü kullanın
+1. Kenar düğümde oturum açmak için oluşturulan SSH kullanıcısını kullanma
 2. Kenar düğümüne daha fazla Linux kullanıcısı ekleme
-3. Oluşturulan hello kullanıcıyla Rstudio'dan topluluk sürümünü kullanın
+3. RStudio Topluluk sürümünü oluşturulan kullanıcıyla kullanma
 
-### <a name="step-1-use-hello-created-ssh-user-toolog-in-toohello-edge-node"></a>1. adım: hello oluşturulan SSH kullanıcı toolog toohello kenar düğümünü kullanın.
+### <a name="step-1-use-the-created-ssh-user-to-log-in-to-the-edge-node"></a>1. Adım: Kenar düğümde oturum açmak için oluşturulan SSH kullanıcısını kullanma
 
-Herhangi bir SSH Aracı (örneğin, Putty) indirin ve hello varolan SSH kullanıcı toolog içinde kullanın. Sağlanan hello yönergeleri izleyin [tooHDInsight (Hadoop) SSH kullanarak bağlanmak](hdinsight-hadoop-linux-use-ssh-unix.md) tooaccess hello kenar düğümüne. Itanium tabanlı sistemler için Hello edge düğüm adresi R Server için Hdınsight kümesinde: *clustername ed ssh.azurehdinsight.net*
+Herhangi bir SSH aracını (Putty gibi) indirin ve var olan SSH kullanıcısıyla oturum açın. Ardından [SSH kullanarak HDInsight'a (Hadoop) bağlanma](hdinsight-hadoop-linux-use-ssh-unix.md) bölümündeki yönergeleri izleyerek kenar düğümüne erişin. HDInsight kümesi üzerindeki Microsoft R Server için kenar düğümü adresi: *clustername-ed-ssh.azurehdinsight.net*
 
 
 ### <a name="step-2-add-more-linux-users-in-edge-node"></a>2. Adım: Kenar düğümüne daha fazla Linux kullanıcısı ekleme
 
-bir kullanıcı toohello kenar düğümüne tooadd hello komutları yürütün:
+Kenar düğümüne bir kullanıcı eklemek için şu komutları çalıştırın:
 
     sudo useradd yournewusername -m
     sudo passwd yourusername
 
-Döndürülen öğe aşağıdaki hello görmeniz gerekir: 
+Aşağıdaki öğelerin döndürülmesi gerekir: 
 
 ![Eşzamanlı kullanıcı 3](./media/hdinsight-hadoop-r-server-get-started/concurrent-users-3.png)
 
-İstendiğinde "geçerli Kerberos Parola:", yalnızca basın **Enter** tooignore onu. Merhaba `-m` seçeneğini `useradd` komutu gösterir hello sistem Rstudio'dan topluluğu sürümü için gerekli olan hello kullanıcı için giriş klasörü oluşturur.
+"Geçerli Kerberos parolası:" sorulduğunda **Enter** tuşuna basarak atlayın. `useradd` komutundaki `-m` seçeneği, sistemin RStudio Topluluk sürümü için gerekli olan kullanıcı ana klasörünü oluşturacağını belirtir.
 
 
-### <a name="step-3-use-rstudio-community-version-with-hello-user-created"></a>3. adım: Oluşturulan hello kullanıcıyla kullanım Rstudio'dan topluluğu sürümü
+### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>3. Adım: RStudio Topluluk sürümünü oluşturulan kullanıcıyla kullanma
 
-Merhaba kullanıcı tarafından oluşturulmuş toolog içinde tooRStudio kullanın:
+RStudio oturumu açmak için oluşturulan kullanıcıyı kullanın:
 
 ![Eşzamanlı kullanıcı 4](./media/hdinsight-hadoop-r-server-get-started/concurrent-users-4.png)
 
-Bildirim Rstudio'dan hello yeni kullanıcı kullandığınızı gösterir (burada, örneğin, *sshuser6*) hello kümedeki toolog: 
+RStudio, kümede oturum açmak için yeni kullanıcıyı (örneğin burada *sshuser6*) kullanmakta olduğunuzu belirtir: 
 
 ![Eşzamanlı kullanıcı 5](./media/hdinsight-hadoop-r-server-get-started/concurrent-users-5.png)
 
-Merhaba özgün kimlik bilgilerini kullanarak da oturum açabilir (varsayılan olarak, olmasından *sshuser*) aynı anda başka bir tarayıcı penceresi öğesinden.
+Dilerseniz eşzamanlı olarak başka bir tarayıcı penceresinden özgün kimlik bilgilerini (varsayılan olarak *sshuser* şeklindedir) kullanarak da oturum açabilirsiniz.
 
-scaleR işlevlerini kullanarak bir iş gönderebilirsiniz. Bir işi hello kullanılan komutlar toorun örneği şöyledir:
+scaleR işlevlerini kullanarak bir iş gönderebilirsiniz. Bir işi çalıştırmak için kullanılan örnek komutlar burada verilmiştir:
 
-    # Set hello HDFS (WASB) location of example data.
+    # Set the HDFS (WASB) location of example data.
     bigDataDirRoot <- "/example/data"
 
     # Create a local folder for storaging data temporarily.
     source <- "/tmp/AirOnTimeCSV2012"
     dir.create(source)
 
-    # Download data toohello tmp folder.
+    # Download data to the tmp folder.
     remoteDir <- "http://packages.revolutionanalytics.com/datasets/AirOnTimeCSV2012"
     download.file(file.path(remoteDir, "airOT201201.csv"), file.path(source, "airOT201201.csv"))
     download.file(file.path(remoteDir, "airOT201202.csv"), file.path(source, "airOT201202.csv"))
@@ -278,19 +278,19 @@ scaleR işlevlerini kullanarak bir iş gönderebilirsiniz. Bir işi hello kullan
     download.file(file.path(remoteDir, "airOT201211.csv"), file.path(source, "airOT201211.csv"))
     download.file(file.path(remoteDir, "airOT201212.csv"), file.path(source, "airOT201212.csv"))
 
-    # Set directory in bigDataDirRoot tooload hello data.
+    # Set directory in bigDataDirRoot to load the data.
     inputDir <- file.path(bigDataDirRoot,"AirOnTimeCSV2012")
 
-    # Create hello directory.
+    # Create the directory.
     rxHadoopMakeDir(inputDir)
 
-    # Copy hello data from source tooinput.
+    # Copy the data from source to input.
     rxHadoopCopyFromLocal(source, bigDataDirRoot)
 
-    # Define hello HDFS (WASB) file system.
+    # Define the HDFS (WASB) file system.
     hdfsFS <- RxHdfsFileSystem()
 
-    # Create info list for hello airline data.
+    # Create info list for the airline data.
     airlineColInfo <- list(
     DAY_OF_WEEK = list(type = "factor"),
     ORIGIN = list(type = "factor"),
@@ -298,22 +298,22 @@ scaleR işlevlerini kullanarak bir iş gönderebilirsiniz. Bir işi hello kullan
     DEP_TIME = list(type = "integer"),
     ARR_DEL15 = list(type = "logical"))
 
-    # Get all hello column names.
+    # Get all the column names.
     varNames <- names(airlineColInfo)
 
-    # Define hello text data source in HDFS.
+    # Define the text data source in HDFS.
     airOnTimeData <- RxTextData(inputDir, colInfo = airlineColInfo, varsToKeep = varNames, fileSystem = hdfsFS)
 
-    # Define hello text data source in local system.
+    # Define the text data source in local system.
     airOnTimeDataLocal <- RxTextData(source, colInfo = airlineColInfo, varsToKeep = varNames)
 
-    # Specify hello formula toouse.
+    # Specify the formula to use.
     formula = "ARR_DEL15 ~ ORIGIN + DAY_OF_WEEK + DEP_TIME + DEST"
 
-    # Define hello Spark compute context.
+    # Define the Spark compute context.
     mySparkCluster <- RxSpark()
 
-    # Set hello compute context.
+    # Set the compute context.
     rxSetComputeContext(mySparkCluster)
 
     # Run a logistic regression.
@@ -325,53 +325,58 @@ scaleR işlevlerini kullanarak bir iş gönderebilirsiniz. Bir işi hello kullan
     summary(modelSpark)
 
 
-Gönderilen Merhaba işleri YARN kullanıcı arabiriminde farklı kullanıcı adları altında olduğuna dikkat edin:
+Gönderilen işlerin farklı YARN UI kullanıcı adları altında olduğuna dikkat edin:
 
 ![Eşzamanlı kullanıcı 6](./media/hdinsight-hadoop-r-server-get-started/concurrent-users-6.png)
 
-Ayrıca bu hello yeni kullanıcılar Linux sistemde kök ayrıcalıkları olmayan, ancak bunlar sahip hello aynı eklenen not tooall hello hello uzak HDFS ve WASB depolama dosyalarında erişin.
+Ayrıca yeni eklenen kullanıcıların Linux sisteminde kök ayrıcalıklarına sahip olmadığına ancak uzak HDFS ve WASB depolama alanındaki tüm dosyalara aynı düzeyde erişime sahip olduğuna dikkat edin.
 
 
 <a name="use-r-console"></a>
-## <a name="use-hello-r-console"></a>Merhaba R Konsolu'nu kullanma
+## <a name="use-the-r-console"></a>R konsolunu kullanma
 
-1. Merhaba SSH oturumundan komut toostart hello R konsolundan aşağıdaki hello kullan:  
+1. R konsolunu başlatmak için SSH oturumunda aşağıdaki komutu kullanın:  
 
         R
 
-2. Çıktı benzer toohello aşağıdaki görmeniz gerekir:
+2. Aşağıdakine benzer bir çıktı görmeniz gerekir:
     
-    R sürüm 3.2.2 (2015-08-14)--"Yangın güvenliği" Telif Hakkı (C) 2015 hello R Foundation istatistiksel bilgi işlem platformu: pc x86_64 için linux gnu (64 bit)
+        R version 3.2.2 (2015-08-14) -- "Fire Safety"
+        Copyright (C) 2015 The R Foundation for Statistical Computing
+        Platform: x86_64-pc-linux-gnu (64-bit)
 
-    R ücretsiz bir yazılımdır ve HİÇBİR GARANTİ verilmemektedir.
-    Hoş Geldiniz tooredistribute olduğunuz belirli koşullar altında.
-    Dağıtım ayrıntıları için "license()" veya "licence()" yazın.
+        R is free software and comes with ABSOLUTELY NO WARRANTY.
+        You are welcome to redistribute it under certain conditions.
+        Type 'license()' or 'licence()' for distribution details.
 
     Doğal dil desteği yalnızca İngilizce için mevcuttur
 
-    R birçok katılımcının rol aldığı ortak bir projedir.
-    'Contributors()' toocite R veya R yayınlarda nasıl paketler daha fazla bilgi ve 'citation()' yazın.
+        R is a collaborative project with many contributors.
+        Type 'contributors()' for more information and
+        'citation()' on how to cite R or R packages in publications.
 
-    Bazı gösterileri, çevrimiçi Yardım ' help()' veya 'help.start()' için bir HTML tarayıcı arabirimi toohelp 'demo()' türü.
-    'Q()' tooquit r yazın
+        Type 'demo()' for some demos, 'help()' for on-line help, or
+        'help.start()' for an HTML browser interface to help.
+        Type 'q()' to quit R.
 
-    Microsoft R Server sürüm 8.0: R Microsoft paketlerinin gelişmiş dağıtımı Telif Hakkı (C) 2016 Microsoft Corporation
+        Microsoft R Server version 8.0: an enhanced distribution of R
+        Microsoft packages Copyright (C) 2016 Microsoft Corporation
 
     Sürüm notları için "readme()" yazın.
     >
 
-3. Merhaba gelen `>` komut istemi, R kodu girin. R server içerir tooeasily izin paketleri Hadoop ile etkileşim kurmanızı ve dağıtılmış hesaplamalar çalıştırın. Örneğin, komut tooview hello kök hello varsayılan dosya sistemi hello Hdınsight kümesi için aşağıdaki hello kullan:
+3. `>` isteminde R kodunu girebilirsiniz. R server, Hadoop ile kolayca etkileşim kurup dağıtılmış hesaplamaları çalıştırmanıza olanak tanıyan paketler içerir. Örneğin, HDInsight kümesinin varsayılan dosya sisteminin kökünü görüntülemek için aşağıdaki komutu kullanın:
 
-    rxHadoopListFiles("/")
+        rxHadoopListFiles("/")
 
-4. Merhaba WASB stili adresleme de kullanabilirsiniz.
+4. WASB stil adreslemesini de kullanabilirsiniz.
 
-    rxHadoopListFiles("wasb:///")
+        rxHadoopListFiles("wasb:///")
 
 
 ## <a name="using-r-server-on-hdi-from-a-remote-instance-of-microsoft-r-server-or-microsoft-r-client"></a>Microsoft R Server veya Microsoft R Client uzak örneğinden HDI üzerinde R Server kullanma
 
-Erişim toohello HDI Hadoop Spark işlem bağlamı Microsoft R Server ya da Microsoft R Masaüstü veya dizüstü bilgisayar üzerinde çalışan istemci uzak bir örnekten olası tooset olur. Bkz: **kullanarak Microsoft R Server Hadoop istemcisi olarak** alt bölümde hello [bir işlem bağlamı için Spark oluşturma](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started.md). toodo toospecify hello hello RxSpark işlem bağlamı dizüstü bilgisayarınızda tanımlarken, aşağıdaki seçenekleri şu nedenle ihtiyacınız: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches ve sshProfileScript. Örneğin:
+Masaüstü veya dizüstü bilgisayarda çalışan uzak Microsoft R Server veya Microsoft R Client örneğinden HDI Hadoop Spark işlem bağlamına erişim sağlamak mümkündür. [Spark için İşlem Bağlamı Oluşturma](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started.md) bölümündeki **Microsoft R Server'ı Hadoop İstemcisi Olarak Kullanma** alt bölümüne bakın. Bunu yapmak için dizüstü bilgisayarınızda RxSpark işlem bağlamını tanımlarken şu seçenekleri belirtmeniz gerekir: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches ve sshProfileScript. Örneğin:
 
 
     myNameNode <- "default"
@@ -399,18 +404,18 @@ Erişim toohello HDI Hadoop Spark işlem bağlamı Microsoft R Server ya da Micr
 
 ## <a name="use-a-compute-context"></a>İşlem bağlamı kullanma
 
-Hesaplama yerel olarak hello edge düğüm üzerinde gerçekleştirilen ya da hello Hdınsight kümesi hello düğümler dağıtılmış bir işlem bağlamında toocontrol sağlar.
+Bir işlem bağlamı, hesaplamanın kenar düğümünde yerel olarak yapılmasını veya HDInsight kümesindeki düğümlere dağıtılmasını denetlemenize olanak tanır.
 
-1. Rstudio'dan sunucu veya hello R konsolunda (bir SSH oturumu), kod tooload örnek verileri hello varsayılan depolama alanına Hdınsight için aşağıdaki hello kullan:
+1. RStudio Server veya R konsolundan (bir SSH oturumunda), varsayılan HDInsight depolama alanına örnek verileri yüklemek için aşağıdaki kodu kullanın:
 
-        # Set hello HDFS (WASB) location of example data
+        # Set the HDFS (WASB) location of example data
         bigDataDirRoot <- "/example/data"
 
         # create a local folder for storaging data temporarily
         source <- "/tmp/AirOnTimeCSV2012"
         dir.create(source)
 
-        # Download data toohello tmp folder
+        # Download data to the tmp folder
         remoteDir <- "http://packages.revolutionanalytics.com/datasets/AirOnTimeCSV2012"
         download.file(file.path(remoteDir, "airOT201201.csv"), file.path(source, "airOT201201.csv"))
         download.file(file.path(remoteDir, "airOT201202.csv"), file.path(source, "airOT201202.csv"))
@@ -425,21 +430,21 @@ Hesaplama yerel olarak hello edge düğüm üzerinde gerçekleştirilen ya da he
         download.file(file.path(remoteDir, "airOT201211.csv"), file.path(source, "airOT201211.csv"))
         download.file(file.path(remoteDir, "airOT201212.csv"), file.path(source, "airOT201212.csv"))
 
-        # Set directory in bigDataDirRoot tooload hello data into
+        # Set directory in bigDataDirRoot to load the data into
         inputDir <- file.path(bigDataDirRoot,"AirOnTimeCSV2012")
 
-        # Make hello directory
+        # Make the directory
         rxHadoopMakeDir(inputDir)
 
-        # Copy hello data from source tooinput
+        # Copy the data from source to input
         rxHadoopCopyFromLocal(source, bigDataDirRoot)
 
-2. Ardından, şimdi bazı veri bilgileri oluşturun ve biz hello verilerle çalışmak için iki veri kaynaklarını tanımlayın.
+2. Bundan sonra, verilerle çalışabilmek için bazı veri bilgileri oluşturup iki veri kaynağı tanımlayabiliriz.
 
-        # Define hello HDFS (WASB) file system
+        # Define the HDFS (WASB) file system
         hdfsFS <- RxHdfsFileSystem()
 
-        # Create info list for hello airline data
+        # Create info list for the airline data
         airlineColInfo <- list(
              DAY_OF_WEEK = list(type = "factor"),
              ORIGIN = list(type = "factor"),
@@ -447,19 +452,19 @@ Hesaplama yerel olarak hello edge düğüm üzerinde gerçekleştirilen ya da he
              DEP_TIME = list(type = "integer"),
              ARR_DEL15 = list(type = "logical"))
 
-        # get all hello column names
+        # get all the column names
         varNames <- names(airlineColInfo)
 
-        # Define hello text data source in hdfs
+        # Define the text data source in hdfs
         airOnTimeData <- RxTextData(inputDir, colInfo = airlineColInfo, varsToKeep = varNames, fileSystem = hdfsFS)
 
-        # Define hello text data source in local system
+        # Define the text data source in local system
         airOnTimeDataLocal <- RxTextData(source, colInfo = airlineColInfo, varsToKeep = varNames)
 
-        # formula toouse
+        # formula to use
         formula = "ARR_DEL15 ~ ORIGIN + DAY_OF_WEEK + DEP_TIME + DEST"
 
-3. Şimdi Lojistik regresyon hello yerel işlem bağlamı kullanarak hello verileri çalıştırın.
+3. Yerel işlem bağlamını kullanarak, veriler üzerinde lojistik regresyon gerçekleştirelim.
 
         # Set a local compute context
         rxSetComputeContext("local")
@@ -472,7 +477,7 @@ Hesaplama yerel olarak hello edge düğüm üzerinde gerçekleştirilen ya da he
         # Display a summary
         summary(modelLocal)
 
-    Satırları benzer toohello aşağıdaki ile biten bir çıktı görmeniz gerekir:
+    Aşağıdakilere benzer satırlarla sona eren bir çıktı görmeniz gerekir:
 
         Data: airOnTimeDataLocal (RxTextData Data Source)
         File name: /tmp/AirOnTimeCSV2012
@@ -500,12 +505,12 @@ Hesaplama yerel olarak hello edge düğüm üzerinde gerçekleştirilen ya da he
          Condition number of final variance-covariance matrix: 11904202
          Number of iterations: 7
 
-4. Ardından, Şimdi Çalıştır hello hello Spark bağlamını kullanarak aynı Lojistik regresyon. Merhaba Spark bağlam hello Hdınsight kümesindeki tüm hello alt düğümler üzerinden işleme hello dağıtır.
+4. Şimdi de Spark bağlamını kullanarak aynı lojistik regresyonu gerçekleştirelim. Spark bağlamı, işlemi HDInsight kümesindeki tüm çalışan düğümlerine dağıtır.
 
-        # Define hello Spark compute context
+        # Define the Spark compute context
         mySparkCluster <- RxSpark()
 
-        # Set hello compute context
+        # Set the compute context
         rxSetComputeContext(mySparkCluster)
 
         # Run a logistic regression
@@ -518,16 +523,16 @@ Hesaplama yerel olarak hello edge düğüm üzerinde gerçekleştirilen ya da he
 
 
    > [!NOTE]
-   > Küme düğümleri arasında MapReduce toodistribute hesaplama de kullanabilirsiniz. İşlem bağlamı hakkında daha fazla bilgi için bkz. [HDInsight üzerinde R Server için işlem bağlamı seçenekleri](hdinsight-hadoop-r-server-compute-contexts.md).
+   > Ayrıca, MapReduce kullanarak hesaplamayı küme düğümleri arasında dağıtabilirsiniz. İşlem bağlamı hakkında daha fazla bilgi için bkz. [HDInsight üzerinde R Server için işlem bağlamı seçenekleri](hdinsight-hadoop-r-server-compute-contexts.md).
 
 
-## <a name="distribute-r-code-toomultiple-nodes"></a>R kodu toomultiple düğümleri Dağıt
+## <a name="distribute-r-code-to-multiple-nodes"></a>R kodunu birden fazla düğüme dağıtma
 
-R Server ile kolayca var olan R kodu alın ve çalıştırın hello kümedeki birden çok düğüm arasında kullanarak `rxExec`. Bu işlev bir parametre tarama veya benzetme işlemi sırasında yararlıdır. Merhaba aşağıdaki kodu nasıl örneğidir toouse `rxExec`:
+R Server ile mevcut R kodunu kolayca alabilir ve `rxExec` kullanarak kümedeki birden fazla düğümde çalıştırabilirsiniz. Bu işlev bir parametre tarama veya benzetme işlemi sırasında yararlıdır. `rxExec` kullanımını gösteren bir kod örneği aşağıda verilmiştir:
 
     rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
 
-Merhaba Spark veya MapReduce bağlamı hala kullanıyorsanız, bu komut hello nodename değeri hello çalışan düğümleri için bu hello kodu döndürür. `(Sys.info()["nodename"])` çalıştırıldığı. Örneğin, dört düğümlü bir küme üzerinde tooreceive benzer toohello şu çıktıları bekler:
+Hala Spark veya MapReduce bağlamını kullanıyorsanız bu komut, üzerinde `(Sys.info()["nodename"])` kodunun çalıştığı çalışan düğümleri için nodename değerini döndürür. Örneğin, dört düğümlü bir kümede aşağıdakine benzer bir çıktı beklenir:
 
     $rxElem1
         nodename
@@ -548,9 +553,9 @@ Merhaba Spark veya MapReduce bağlamı hala kullanıyorsanız, bu komut hello no
 
 ## <a name="accessing-data-in-hive-and-parquet"></a>Hive ve Parquet Verilerine Erişim
 
-R Server 9.1 içinde kullanılabilecek bir özellik hello Spark işlem bağlamında ScaleR işlevleri tarafından kullanım için doğrudan erişim toodata Hive ve Parquet sağlar. Bu özellikler, Spark SQL tooload verileri kullanarak Spark DataFrame ScaleR göre Analiz için doğrudan çalışan RxHiveData ve RxParquetData adlı yeni ScaleR veri kaynağı işlevler aracılığıyla kullanılabilir.  
+R Server 9.1 sürümünde sunulan bir özellik, Spark işlem bağlamındaki ScaleR işlevleri tarafından kullanım için Hive ve Parquet içindeki verilere doğrudan erişime olanak tanır. Bu özellikler, ScaleR tarafından analiz edilmek üzere bir Spart DataFrame’e doğrudan veri yüklemek için Spark SQL kullanarak çalışan RxHiveData ve RxParquetData adlı yeni ScaleR veri kaynağı işlevleriyle kullanılabilir.  
 
-koddan hello bazı örnek kod kullanımda hello yeni işlevleri sağlar:
+Yeni işlevlerin kullanımına ilişkin bazı örnek kodlar aşağıdaki kod ile verilmiştir:
 
     #Create a Spark compute context:
     myHadoopCluster <- rxSparkConnect(reset = TRUE)
@@ -575,7 +580,7 @@ koddan hello bazı örnek kod kullanımda hello yeni işlevleri sağlar:
 
     rxNaiveBayes(type ~ age + cost, data = pqData)
 
-    #Check on Spark data objects, cleanup, and close hello Spark session:
+    #Check on Spark data objects, cleanup, and close the Spark session:
     lsObj <- rxSparkListData() # two data objs are cached
     lsObj
     rxSparkRemoveData(lsObj)
@@ -583,29 +588,29 @@ koddan hello bazı örnek kod kullanımda hello yeni işlevleri sağlar:
     rxSparkDisconnect(myHadoopCluster)
 
 
-Bu yeni işlevler kullanımı ile ilgili ek bilgi için hello hello aracılığıyla R Server'ın çevrimiçi yardımına bakın `?RxHivedata` ve `?RxParquetData` komutları.  
+Bu yeni işlevlerin kullanımına ilişkin ek bilgi için, `?RxHivedata` ve `?RxParquetData` komutlarını kullanarak R Server içindeki çevrimiçi yardıma bakın.  
 
 
-## <a name="install-additional-r-packages-on-hello-edge-node"></a>Ek R paketleri hello kenar düğümüne yükleyin
+## <a name="install-additional-r-packages-on-the-edge-node"></a>Kenar düğümüne ek R paketleri yükleme
 
-Merhaba kenar düğümüne tooinstall ek R paketlerini istiyorsanız kullanabileceğiniz `install.packages()` doğrudan bağlı toohello kenar zaman SSH düğümünden içinden R konsol hello. Ancak, tooinstall R paketleri hello kümenin hello alt düğümlerinde gerekiyorsa, bir komut dosyası eylemi kullanmanız gerekir.
+Kenar düğümüne ek R paketleri yüklemek isterseniz, SSH ile kenar düğümüne bağlı olduğunda doğrudan R konsolu içinden `install.packages()` kullanabilirsiniz. Ancak, kümenin çalışan düğümlerine R paketleri yüklemeniz gerekiyorsa bir Betik Eylemi kullanmanız gerekir.
 
-Betik eylemleri kullanılan toomake yapılandırma değişiklikleri toohello Hdınsight küme veya tooinstall ek yazılım, ek R paketleri gibi olan Bash betikleridir. Betik eylemi kullanarak ek paketleri tooinstall hello aşağıdaki adımları kullanın:
+Betik Eylemleri, HDInsight kümesinde yapılandırma değişiklikleri yapmak veya ek R paketleri gibi ek yazılımlar yüklemek için kullanılan Bash betikleridir. Betik Eylemi kullanarak ek paketler yüklemek için aşağıdaki adımları kullanın:
 
 > [!IMPORTANT]
-> Merhaba Küme oluşturulduktan sonra betik eylemleri tooinstall ek R paketlerini kullanma yalnızca kullanılabilir. Merhaba betik R Server tamamen yüklenmiş ve yapılandırılmış dayanır olarak küme oluşturma sırasında bu yordamı kullanmayın.
+> Ek R paketleri yüklemek için Betik Eylemleri yalnızca küme oluşturulduktan sonra kullanılabilir. Betik R Server'ın tamamen yüklü ve yapılandırılmış olmasına bağlı olduğundan, bu yordamı küme oluşturma sırasında kullanmayın.
 >
 >
 
-1. Merhaba gelen [Azure portal](https://portal.azure.com), Hdınsight kümesinde R sunucunuzu seçin.
+1. [Azure portalı](https://portal.azure.com)’ndan, HDInsight kümesindeki R Server’ınızı seçin.
 
-2. Merhaba gelen **ayarları** dikey penceresinde, select **betik eylemleri** ve ardından **gönderme yeni** toosubmit yeni betik eylemi.
+2. **Ayarlar** dikey penceresinde **Betik Eylemleri** ve ardından **Yeni Gönder**'i seçerek yeni Betik Eylemini gönderin.
 
    ![Betik eylemleri dikey penceresinin görüntüsü](./media/hdinsight-hadoop-r-server-get-started/scriptaction.png)
 
-3. Merhaba gelen **betik eylemi Gönder** dikey penceresinde, aşağıdaki bilgilerle hello sağlayın:
+3. **Betik eylemini gönder** dikey penceresinde aşağıdaki bilgileri sağlayın:
 
-   * **Ad**: kolay bir tooidentify bu komut dosyası adı
+   * **Ad**: Betiği tanımlayan kolay ad
 
    * **Bash betiği URI’si**: `http://mrsactionscripts.blob.core.windows.net/rpackages-v01/InstallRPackages.sh`
 
@@ -617,31 +622,31 @@ Betik eylemleri kullanılan toomake yapılandırma değişiklikleri toohello Hd�
 
    * **Zookeeper**: Bu öğenin **işareti kaldırılmış** olmalıdır
 
-   * **Parametreleri**: hello R paketleri yüklü toobe. Örneğin, `bitops stringr arules`
+   * **Parametreler**: Yüklenecek R paketleri. Örneğin, `bitops stringr arules`
 
    * **Bu betiği kalıcı yap...** : Bu öğe **İşaretlenmiş** olmalıdır  
 
    > [!NOTE]
-   > 1. Varsayılan olarak, tüm R paketleri hello Microsoft MRAN depo hello yüklü R Server sürümüyle tutarlı bir anlık yüklenir. Paketler daha yeni sürümleri tooinstall istiyorsanız, bazı riskini uyumsuzluk yoktur. Ancak bu tür bir yükleme belirterek mümkündür `useCRAN` hello ilk hello paketinin liste öğesi, örneğin `useCRAN bitops, stringr, arules`.  
-   > 2. Bazı R paketleri için ek Linux sistem kitaplıkları gerekir. Kolaylık olması için biz hello ilk 100 en popüler R paketi tarafından gerekli hello bağımlılıkları önceden yüklediniz. Ancak, bunlar dışında kitaplıkları hello R paketleri yüklemeniz gerekiyorsa ardından burada kullanılan hello temel komut dosyasını karşıdan yükleyin ve adımları tooinstall hello sistem kitaplıkları eklemeniz gerekir. Karşıya yükleme değiştiren hello betik tooa genel Azure depolama kapsayıcıda blob ve değiştiren hello betik tooinstall hello paketlerini kullanma sonra yapmanız gerekir.
+   > 1. Varsayılan olarak, tüm R paketleri Microsoft MRAN deposunun yüklü olan R Server sürümüyle tutarlı bir anlık görüntüsünden yüklenir. Paketlerin daha yeni sürümlerini yüklemek istiyorsanız uyumsuzluk riskiyle karşı karşıya kalabilirsiniz. Ancak bu tür yüklemeleri paket listesinin ilk öğesi olarak `useCRAN` belirleyerek mümkün kılabilirsiniz, örneğin `useCRAN bitops, stringr, arules`.  
+   > 2. Bazı R paketleri için ek Linux sistem kitaplıkları gerekir. Kolaylık olması için en popüler 100 R paketi için gerekli olan bağımlılıklar önceden yüklenmiştir. Ancak, yüklediğiniz R paketleri bunların dışında kitaplıklar gerektirirse, burada kullanılan temel betiği indirmeniz ve adımları ekleyerek sistem kitaplıklarını yüklemeniz gerekir. Ardından, değiştirilmiş betiği Azure depolama hizmetindeki ortak bir blob kapsayıcıya yüklemeniz ve değiştirilmiş betiği kullanarak paketleri yüklemeniz gerekir.
    >    Betik Eylemleri geliştirme hakkında bilgi için bkz. [Betik Eylemi geliştirme](hdinsight-hadoop-script-actions-linux.md).  
    >
    >
 
    ![Betik eylemi ekleme](./media/hdinsight-getting-started-with-r/submitscriptaction.png)
 
-4. Seçin **oluşturma** toorun hello komut dosyası. Merhaba betik tamamlandıktan sonra tüm çalışan düğümleri üzerinde hello R paketleri kullanılabilir.
+4. Betiği çalıştırmak için **Oluştur**’u seçin. Betik tamamlandıktan sonra R paketleri tüm çalışan düğümlerinde kullanılabilir.
 
 
 ## <a name="using-microsoft-r-server-operationalization"></a>Microsoft R Server ile Kullanıma Hazır Hale Getirme
 
-Veri modellemesi tamamlandığında hello modeli toomake tahminleri faaliyete geçirebilirsiniz. Microsoft R Server operationalization tooconfigure hello aşağıdaki adımları gerçekleştirin:
+Veri modellemesi tamamlandığında, tahminlerde bulunmak üzere modelinizi kullanıma hazır hale getirebilirsiniz. Microsoft R Server ile kullanıma hazır hale getirme özelliğini yapılandırmak için aşağıdaki adımları uygulayın:
 
-İlk olarak, ssh hello kenar düğümüne içine. Örneğin, 
+İlk olarak, ssh’yi Kenar düğümüne gönderin. Örneğin, 
 
     ssh -L USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-SSH kullandıktan sonra hello ilgili sürümü ve sudo hello dotnet dll dizini değiştirin: 
+Ssh kullandıktan sonra dizini değiştirip ilgili sürüme geçin dotnet dll dosyasına sudo uygulayın: 
 
 - Microsoft R Server 9.1 için:
 
@@ -651,11 +656,11 @@ SSH kullandıktan sonra hello ilgili sürümü ve sudo hello dotnet dll dizini d
 
     cd /usr/lib64/microsoft-deployr/9.0.1   sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-Bir çalıştırma yapılandırmasıyla tooconfigure Microsoft R Server operationalization hello aşağıdaki:
+Microsoft R Server ile kullanıma hazır hale getirme özelliğini One-box yapılandırması ile yapılandırmak için aşağıdaki işlemleri yapın:
 
 1. "R Server'ı Kullanıma Hazır Hale Getirmek için Yapılandır" seçeneğini belirleyin
 2. “A. One-box (web + işlem düğümleri)” öğesini seçin
-3. Hello için bir parola girmenizi **yönetici** kullanıcı
+3. **Yönetici** kullanıcı için bir parola girin
 
 ![one box işlemi](./media/hdinsight-hadoop-r-server-get-started/admin-util-one-box-.png)
 
@@ -665,7 +670,7 @@ Bir çalıştırma yapılandırmasıyla tooconfigure Microsoft R Server operatio
 2. “A. Test yapılandırması” öğesini seçin
 3. Kullanıcı adı olarak "admin" değerini ve önceki yapılandırma adımında belirtilen parolayı girin
 4. Genel Sistem Durumunu Onayla = başarılı
-5. Çıkış hello yönetim yardımcı programı
+5. Yönetim Yardımcı Programından çıkın
 6. SSH’den çıkın
 
 ![İşlem için tanılama](./media/hdinsight-hadoop-r-server-get-started/admin-util-diagnostics.png)
@@ -674,7 +679,7 @@ Bir çalıştırma yapılandırmasıyla tooconfigure Microsoft R Server operatio
 >[!NOTE]
 >**Spark’ta web hizmeti tüketilirken uzun gecikmeler**
 >
->Tooconsume bir web hizmeti çalışıyor Spark işlem bağlamda mrsdeploy işlevlerle oluşturduğunuzda gecikmelere karşılaşırsanız, bazı eksik klasörler tooadd gerekebilir. Merhaba Spark uygulama ait tooa kullanıcı olarak adlandırılır ve '*rserve2*' ne zaman onu çağrılır mrsdeploy işlevleri kullanarak bir web hizmetinden. Bu soruna geçici bir çözüm toowork:
+>Bir Spark işlem bağlamında mrsdeploy ile oluşturulmuş bir web hizmetini tüketmeye çalışırken uzun gecikmeler yaşıyorsanız bazı eksik klasörleri eklemeniz gerekebilir. Spark uygulaması mrsdeoploy işlevleri kullanılarak bir web hizmetinden çağrıldığında '*rserve2*' adlı bir kullanıcıya ait oluyor. Bu soruna geçici bir çözüm olarak:
 
     # Create these required folders for user 'rserve2' in local and hdfs:
 
@@ -690,11 +695,11 @@ Bir çalıştırma yapılandırmasıyla tooconfigure Microsoft R Server operatio
     rxSparkConnect(reset = TRUE)
 
 
-Bu aşamada Operationalization hello yapılandırması tamamlanır. Kullanabileceğiniz artık hello 'mrsdeploy' paketini kenar düğümünü, RClient tooconnect toohello Operationalization üzerinde ve özellikleri gibi kullanmaya başlamak [uzaktan yürütme](https://msdn.microsoft.com/microsoft-r/operationalize/remote-execution) ve [web Hizmetleri](https://msdn.microsoft.com/microsoft-r/mrsdeploy/mrsdeploy-websrv-vignette). Olup, küme üzerinde bir sanal ağ veya kurulduğuna bağlı olarak, yukarı bağlantı noktası aracılığıyla SSH oturum iletme tünel tooset gerekebilir. Merhaba aşağıdaki bölümlerde açıklanmıştır nasıl tooset bu tünel ayarlama.
+Bu aşamada kullanıma hazır hale getirme yapılandırması tamamlanmıştır. Bundan sonra kenar düğümünde Kullanıma Hazır Hale Getirmeye bağlanmak üzere RClient üzerindeki "mrsdeploy" paketini kullanabilir ve [uzaktan yürütme](https://msdn.microsoft.com/microsoft-r/operationalize/remote-execution) ile [web hizmetleri](https://msdn.microsoft.com/microsoft-r/mrsdeploy/mrsdeploy-websrv-vignette) gibi özellikleri kullanmaya başlayabilirsiniz. Kümenizin bir sanal ağda ayarlanıp ayarlanmamasına bağlı olarak, SSH oturumu aracılığıyla bağlantı noktası iletme tüneli ayarlamanız gerekebilir. Aşağıdaki bölümlerde bu tüneli nasıl kuracağınız açıklanmaktadır.
 
 ### <a name="rserver-cluster-on-virtual-network"></a>Sanal ağda RServer Kümesi
 
-Bağlantı noktası 12800 toohello kenar düğümüne üzerinden trafiğe izin emin olun. Bu şekilde hello kenar düğümü tooconnect toohello Operationalization özelliğini kullanabilirsiniz.
+12800 numaralı bağlantı noktası üzerinden kenar düğümüne trafik akışına izin verdiğinizden emin olun. Bu şekilde, Kullanıma Hazır Hale Getirme özelliğine bağlanmak için kenar düğümünü kullanabilirsiniz.
 
 
     library(mrsdeploy)
@@ -706,7 +711,7 @@ Bağlantı noktası 12800 toohello kenar düğümüne üzerinden trafiğe izin e
     )
 
 
-Merhaba, `remoteLogin()` olamaz toohello kenar düğümüne bağlanmak ancak SSH toohello kenar düğümünü kullanabilirsiniz, ardından bağlantı noktası 12800 hello kural tooallow trafiğine düzgün ya da olmasın ayarlanmış olup olmadığını tooverify gerekir. Tooface hello sorunu devam ederseniz, bu bağlantı noktası iletme SSH tünel yukarı ayarlayarak çalışabilir. Merhaba bölümü aşağıdaki yönergeler için bkz.
+`remoteLogin()` kenar düğümüne bağlanamadığı halde kenar düğümüne SSH uygulayabiliyorsanız, 12800 numaralı bağlantı noktası üzerinde trafiğe izin veren kuralın doğru şekilde ayarlanıp ayarlanmadığını doğrulamanız gerekir. Sorunla karşılaşmaya devam ederseniz, SSH üzerinden bağlantı noktası iletme tüneli oluşturarak bir geçici çözüm uygulayabilirsiniz. Yönergeler için aşağıdaki bölüme bakın.
 
 ### <a name="rserver-cluster-not-set-up-on-virtual-network"></a>Sanal ağda RServer Kümesi ayarlanmamış
 
@@ -718,7 +723,7 @@ Putty üzerinde de bu ayarı yapabilirsiniz.
 
 ![putty ssh bağlantısı](./media/hdinsight-hadoop-r-server-get-started/putty.png)
 
-SSH oturumunuzun etkinleştirildikten sonra makinenizin bağlantı noktası 12800 hello trafiğinden toohello kenar düğümün bağlantı noktası 12800 SSH oturumu üzerinden iletilir. `remoteLogin()` yönteminizde `127.0.0.1:12800` kullandığınızdan emin olun. Bu bağlantı noktası iletme aracılığıyla toohello kenar düğümün operationalization kaydeder.
+SSH oturumunuz etkin hale geldikten sonra, makinenizin 12800 numaralı bağlantı noktasından giden trafik, SSH aracılığıyla kenar düğümünün 12800 numaralı bağlantı noktasına iletilir. `remoteLogin()` yönteminizde `127.0.0.1:12800` kullandığınızdan emin olun. Bunun yapılması, bağlantı noktası iletme yoluyla kenar düğümünün kullanıma hazır hale getirme özelliğinde oturum açar.
 
 
     library(mrsdeploy)
@@ -730,16 +735,16 @@ SSH oturumunuzun etkinleştirildikten sonra makinenizin bağlantı noktası 1280
     )
 
 
-## <a name="how-tooscale-microsoft-r-server-operationalization-compute-nodes-on-hdinsight-worker-nodes"></a>Nasıl tooscale Microsoft R Server Operationalization işlem düğümleri Hdınsight çalışan düğümleri üzerinde
+## <a name="how-to-scale-microsoft-r-server-operationalization-compute-nodes-on-hdinsight-worker-nodes"></a>HDInsight çalışan düğümlerinde Microsoft R Server Kullanıma Hazır Hale Getirme işlem düğümleri nasıl ölçeklendirilir?
 
-### <a name="decommission-hello-worker-nodes"></a>Merhaba çalışan düğümü yetkisini alma
+### <a name="decommission-the-worker-nodes"></a>Çalışan düğümlerinin yetkisini alma
 
-Microsoft R Server şu anda Yarn üzerinden yönetilmemektedir. Merhaba çalışan düğümleri yetkisi alınmış emin değilseniz, hello Yarn Kaynak Yöneticisi'ni hello sunucu tarafından gerçekleştirilecek hello kaynakları farkında olmayacağı için beklendiği gibi çalışmaz. Sipariş tooavoid bu durum hello işlem düğümleri ölçeklendirme önce hello çalışan düğümleri yetkisini öneririz.
+Microsoft R Server şu anda Yarn üzerinden yönetilmemektedir. Çalışan düğümlerinin yetkisi alınmazsa, Yarn Kaynak Yöneticisi sunucu tarafından alınan kaynakları fark edemeyeceği için beklendiği gibi çalışmaz. Bu durumu önlemek için, işlem düğümlerini ölçeklendirmeden önce çalışan düğümlerinin yetkisinin alınması önerilir.
 
-Adımları toodecommissioning alt düğümleri:
+Çalışan düğümlerinin yetkisini alma adımları:
 
-* TooHDI kümenin Ambari konsolunda oturum açın ve "ana" sekmesini tıklatın
-* Çalışan düğümü (kullanımdan toobe) seçin, "Eylemler" > "Seçilen konaklar" > "Ana" > "Kapatma üzerinde Bakım modu üzerinde"'i tıklatın. Örneğin, görüntü aşağıdaki hello biz wn3 ve wn4 toodecommission seçtiniz.  
+* HDI kümesinin Ambari konsolunda oturum açıp "ana bilgisayarlar" sekmesine tıklayın
+* Çalışan düğümlerini (yetkisi alınacak olanlar) seçin, "Eylemler" > "Seçili Ana Bilgisayarlar" > "Ana Bilgisayarlar" > "Bakım Modunu Aç" öğesine tıklayın. Örneğin, aşağıdaki görüntüde yetkisini almak üzere wn3 ve wn4 seçilmiştir.  
 
    ![çalışan düğümlerinin yetkisini alma](./media/hdinsight-hadoop-r-server-get-started/get-started-operationalization.png)  
 
@@ -748,24 +753,24 @@ Adımları toodecommissioning alt düğümleri:
 * **Eylemler** > **Seçili Ana Bilgisayarlar** > **DataNodes** > öğesini seçip **Durdur** öğesine tıklayın
 * **Eylemler** > **Seçili Ana Bilgisayarlar** > **NodeManagers** > öğesini seçip **Durdur** öğesine tıklayın
 * **Eylemler** > **Seçili Ana Bilgisayarlar** > **Ana Bilgisayarlar** > öğesini seçip **Tüm Bileşenleri Durdur** öğesine tıklayın
-* Merhaba çalışan düğümleri seçimini kaldırın ve hello baş düğümler seçin
+* Çalışan düğümlerinin seçimini kaldırın ve baş düğümleri seçin
 * **Eylemler** > **Seçili Ana Bilgisayarlar** > **Ana Bilgisayarlar** > **Tüm Bileşenleri Yeniden Başlat** öğesini seçin
 
 ### <a name="configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Yetkisi alınan her çalışan düğümü üzerinde İşlem düğümlerini yapılandırın
 
 1. Yetkisi alınan her çalışan düğümüne SSH uygulayın.
 2. `dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll` kullanarak yönetici yardımcı programını çalıştırın.
-3. "1" tooselect seçeneği "R Server Operationalization için yapılandırma" girin.
-4. "C"c"tooselect seçeneği girin İşlem düğümü" öğesini seçin. Bu, hello çalışan düğümünde hello işlem düğümü yapılandırır.
-5. Çıkış hello yönetim yardımcı programı.
+3. "R Server'ı Kullanıma Hazır Hale Getirmek için Yapılandır" seçeneğini belirlemek için "1" yazın.
+4. "c" girerek "C. İşlem düğümü" öğesini seçin. Bu işlem çalışan düğümündeki işlem düğümünü yapılandırır.
+5. Yönetim Yardımcı Programından çıkın.
 
 ### <a name="add-compute-nodes-details-on-web-node"></a>Web Düğümüne işlem düğümleri ekleme
 
-Tüm yetkisi alınmış çalışan düğümleri yapılandırdıktan sonra toorun işlem düğümü, hello kenar düğümüne geri dönün ve hello Microsoft R Server web düğümün yapılandırmasında yetkisi alınmış çalışan düğümleri IP adreslerini ekleyin:
+Yetkisi alınan tüm çalışan düğümleri işlem düğümü üzerinde çalışacak şekilde yapılandırıldıktan sonra, kenar düğümüne geri dönün ve yetkisi alınmış çalışan düğümlerinin IP adreslerini Microsoft R Server web düğümünün yapılandırmasına ekleyin:
 
-* Merhaba kenar düğümüne içine SSH.
+* Kenar düğümüne SSH uygulayın.
 * `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json` öğesini çalıştırın.
-* Merhaba "URI'ler" bölümüne bakın ve alt düğümün IP ve bağlantı noktası ayrıntıları ekleyin.
+* "URI’ler" bölümüne bakın ve çalışan düğümünün IP ve bağlantı noktası bilgilerini ekleyin.
 
     ![çalışan düğümlerinin yetkisini alma komut satırı](./media/hdinsight-hadoop-r-server-get-started/get-started-op-cmd.png)
 
@@ -777,8 +782,8 @@ HDInsight kümeleri oluştururken sorun yaşarsanız bkz. [erişim denetimi gere
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Şimdi nasıl toocreate kullanarak hello R Server ve hello temellerini içeren yeni bir Hdınsight kümesi hello bir SSH oturumu R konsolundan anlamanız gerekir. Merhaba aşağıdaki konularda yönetme ve hdınsight'ta R Server ile çalışma diğer yolları açıklanır:
+R Server içeren yeni bir HDInsight kümesi oluşturmayı ve SSH oturumuyla R konsolunu kullanmanın temel adımlarını kavramış olmanız gerekiyor. Aşağıdaki konularda HDInsight üzerinde R Server yönetimi ve çalışması için diğer yöntemler açıklanmaktadır:
 
-* [(Küme oluşturma sırasında yüklü değilse) Rstudio'dan sunucu tooHDInsight Ekle](hdinsight-hadoop-r-server-install-r-studio.md)
+* [HDInsight’a RStudio Server Ekleme (küme oluşturma sırasında yüklenmediyse)](hdinsight-hadoop-r-server-install-r-studio.md)
 * [HDInsight üzerinde R Server için işlem bağlamı seçenekleri](hdinsight-hadoop-r-server-compute-contexts.md)
 * [HDInsight üzerinde R Server için Azure Depolama seçenekleri](hdinsight-hadoop-r-server-storage.md)

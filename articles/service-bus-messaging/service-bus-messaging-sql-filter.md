@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure hizmet veri yolu SQLFilter söz dizimi başvurusu | Microsoft Docs"
+title: "Azure hizmet veri yolu SQLFilter söz dizimi başvurusu | Microsoft Docs"
 description: "SQLFilter dilbilgisi hakkında ayrıntılar."
 services: service-bus-messaging
 documentationcenter: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2017
 ms.author: sethm
-ms.openlocfilehash: ea49d42e343a6b324eb34c7831ff6be2855346e9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3aaec8f9b6a3bbcf814f771405c3b589de6f7ae0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter sözdizimi
 
-A *SqlFilter* hello örneği [SqlFilter sınıfı](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)ve karşı hesaplanan bir SQL dil temelli bir filtre ifadesi temsil eden bir [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Bir SqlFilter hello SQL 92 standart kümesini destekler.  
+A *SqlFilter* örneği [SqlFilter sınıfı](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)ve karşı hesaplanan bir SQL dil temelli bir filtre ifadesi temsil eden bir [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). Bir SqlFilter SQL 92 standart kümesini destekler.  
   
  Bu konu SqlFilter dilbilgisi ayrıntılarını listeler.  
   
@@ -59,11 +59,11 @@ A *SqlFilter* hello örneği [SqlFilter sınıfı](/dotnet/api/microsoft.service
   
 ## <a name="arguments"></a>Bağımsız Değişkenler  
   
--   `<scope>`Merhaba hello kapsamını belirten isteğe bağlı bir dize `<property_name>`. Geçerli değerler `sys` veya `user`. Merhaba `sys` değeri gösterir sistemi kapsamı nerede `<property_name>` hello ortak özelliği adıdır [BrokeredMessage sınıfı](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`Kullanıcı kapsam gösterir nerede `<property_name>` hello anahtarıdır [BrokeredMessage sınıfı](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) sözlük. `user`Kapsam ise hello varsayılan kapsam `<scope>` belirtilmedi.  
+-   `<scope>`kapsamını belirten isteğe bağlı bir dize `<property_name>`. Geçerli değerler `sys` veya `user`. `sys` Değeri gösterir sistemi kapsamı nerede `<property_name>` bir ortak özellik adı [BrokeredMessage sınıfı](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`Kullanıcı kapsam gösterir nerede `<property_name>` , bir anahtar [BrokeredMessage sınıfı](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) sözlük. `user`Kapsam ise varsayılan kapsamı `<scope>` belirtilmedi.  
   
 ## <a name="remarks"></a>Açıklamalar
 
-Bir girişim tooaccess mevcut olmayan kullanıcı özelliği bir hata olduğundan girişimi tooaccess mevcut olmayan sistem bir hata değildir. Bunun yerine, mevcut olmayan kullanıcı özelliği bilinmeyen bir değere dahili olarak değerlendirilir. Bilinmeyen bir değere özel işleci değerlendirme sırasında kabul edilir.  
+Mevcut olmayan kullanıcı özelliği erişme denemesi bir hata olduğundan mevcut olmayan sistem özelliği erişme denemesi bir hata var. Bunun yerine, mevcut olmayan kullanıcı özelliği bilinmeyen bir değere dahili olarak değerlendirilir. Bilinmeyen bir değere özel işleci değerlendirme sırasında kabul edilir.  
   
 ## <a name="propertyname"></a>property_name  
   
@@ -79,7 +79,7 @@ Bir girişim tooaccess mevcut olmayan kullanıcı özelliği bir hata olduğunda
   
 ### <a name="arguments"></a>Bağımsız Değişkenler  
 
- `<regular_identifier>`Merhaba tarafından temsil edilen bir dize normal ifade takip ediyor:  
+ `<regular_identifier>`bir dize aşağıdaki normal ifade tarafından temsil edilen:  
   
 ```  
 [[:IsLetter:]][_[:IsLetter:][:IsDigit:]]*  
@@ -93,7 +93,7 @@ Bu dilbilgisi bir harf ile başlayıp bir veya daha fazla alt çizgi/harf/basama
   
 A `<regular_identifier>` ayrılmış bir anahtar sözcük olamaz.  
   
-`<delimited_identifier>`sol/sağ köşeli ayraç ([]) içine herhangi bir dize değil. Sağ köşeli ayraç iki sağ köşeli temsil edilir. Merhaba örnekleri aşağıda verilmiştir `<delimited_identifier>`:  
+`<delimited_identifier>`sol/sağ köşeli ayraç ([]) içine herhangi bir dize değil. Sağ köşeli ayraç iki sağ köşeli temsil edilir. Örnekleri aşağıda verilmiştir `<delimited_identifier>`:  
   
 ```  
 [Property With Space]  
@@ -101,7 +101,7 @@ A `<regular_identifier>` ayrılmış bir anahtar sözcük olamaz.
   
 ```  
   
-`<quoted_identifier>`ile çift tırnak işaretleri arasına herhangi bir dize değil. Çift tırnak işareti tanımlayıcıda iki çift tırnak işareti temsil edilir. Bir dize sabiti ile kolayca çakışabilir çünkü toouse tanımlayıcıları tırnak içine alınmış önerilmez. Sınırlandırılmış bir kimlik mümkünse kullanın. Merhaba örneği aşağıdadır `<quoted_identifier>`:  
+`<quoted_identifier>`ile çift tırnak işaretleri arasına herhangi bir dize değil. Çift tırnak işareti tanımlayıcıda iki çift tırnak işareti temsil edilir. Bir dize sabiti ile kolayca çakışabilir çünkü tırnak işaretli tanımlayıcılar kullanmak için önerilmez. Sınırlandırılmış bir kimlik mümkünse kullanın. Aşağıdaki örneğidir `<quoted_identifier>`:  
   
 ```  
 "Contoso & Northwind"  
@@ -116,7 +116,7 @@ A `<regular_identifier>` ayrılmış bir anahtar sözcük olamaz.
   
 ### <a name="remarks"></a>Açıklamalar
   
-`<pattern>`bir dize olarak değerlendirilen bir ifade olmalıdır. İşleç gibi hello kalıp olarak kullanılır.      Merhaba aşağıdaki joker karakterleri içerebilir:  
+`<pattern>`bir dize olarak değerlendirilen bir ifade olmalıdır. LIKE işleci için bir desen olarak kullanılır.      Aşağıdaki joker karakterleri içerebilir:  
   
 -   `%`: Herhangi bir dize sıfır veya daha fazla karakter.  
   
@@ -131,7 +131,7 @@ A `<regular_identifier>` ayrılmış bir anahtar sözcük olamaz.
   
 ### <a name="remarks"></a>Açıklamalar  
 
-`<escape_char>`dize uzunluğu 1 olarak değerlendirilen bir ifade olmalıdır. Merhaba işleci gibi bir kaçış karakteri olarak kullanılır.  
+`<escape_char>`dize uzunluğu 1 olarak değerlendirilen bir ifade olmalıdır. LIKE işleci için bir kaçış karakteri olarak kullanılır.  
   
  Örneğin, `property LIKE 'ABC\%' ESCAPE '\'` eşleşen `ABC%` ile başlayan bir dize yerine `ABC`.  
   
@@ -144,7 +144,7 @@ A `<regular_identifier>` ayrılmış bir anahtar sözcük olamaz.
   
 ### <a name="arguments"></a>Bağımsız Değişkenler  
   
--   `<integer_constant>`yalnızca tırnak işaretleri içine değil ve ondalık basamak içeren değil sayı dizesidir. Merhaba depolanan değerlerin olarak `System.Int64` dahili olarak ve izleme hello aynı aralık.  
+-   `<integer_constant>`yalnızca tırnak işaretleri içine değil ve ondalık basamak içeren değil sayı dizesidir. Değerleri olarak depolanan `System.Int64` dahili olarak, aynı aralık izleyin.  
   
      Bu, uzun sabitleri örnekleri şunlardır:  
   
@@ -153,18 +153,18 @@ A `<regular_identifier>` ayrılmış bir anahtar sözcük olamaz.
     2  
     ```  
   
--   `<decimal_constant>`yalnızca tırnak işaretleri içine değil ve ondalık içeren sayı dizesidir. Merhaba depolanan değerlerin olarak `System.Double` dahili olarak ve aynı aralığı/duyarlık hello izleyin.  
+-   `<decimal_constant>`yalnızca tırnak işaretleri içine değil ve ondalık içeren sayı dizesidir. Değerleri olarak depolanan `System.Double` dahili olarak, aynı aralık/duyarlık izleyin.  
   
-     Sonraki bir sürümde bir farklı veri türü toosupport tam sayı semantiği bu sayı depolanabilir, hello olgu hello altta yatan doğrulamamalısınız veri türü olduğundan `System.Double` için `<decimal_constant>`.  
+     Sonraki bir sürümde tam sayı semantiğini desteklemek için farklı bir veri türü bu sayı depolanabilir, arka plandaki olgu üzerinde doğrulamamalısınız veri türü olduğundan `System.Double` için `<decimal_constant>`.  
   
-     Merhaba, ondalık sabitleri örnekleri şunlardır:  
+     Ondalık sabitleri örnekleri verilmiştir:  
   
     ```  
     1894.1204  
     2.0  
     ```  
   
--   `<approximate_number_constant>`bir sayı yazılmış bilimsel gösterim şeklindedir. Merhaba depolanan değerlerin olarak `System.Double` dahili olarak ve aynı aralığı/duyarlık hello izleyin. Merhaba, yaklaşık sayı sabitleri örnekleri şunlardır:  
+-   `<approximate_number_constant>`bir sayı yazılmış bilimsel gösterim şeklindedir. Değerleri olarak depolanan `System.Double` dahili olarak, aynı aralık/duyarlık izleyin. Yaklaşık sayı sabitleri örnekleri verilmiştir:  
   
     ```  
     101.5E5  
@@ -180,7 +180,7 @@ A `<regular_identifier>` ayrılmış bir anahtar sözcük olamaz.
   
 ### <a name="remarks"></a>Açıklamalar  
 
-Boole sabitleri hello anahtar tarafından temsil edilen **TRUE** veya **FALSE**. Merhaba depolanan değerlerin olarak `System.Boolean`.  
+Boole sabitleri anahtar sözcükleri tarafından temsil edilen **TRUE** veya **FALSE**. Değerleri olarak depolanan `System.Boolean`.  
   
 ## <a name="stringconstant"></a>string_constant  
   
@@ -202,13 +202,13 @@ Dize sabitleri tek tırnak işaretleri içine ve geçerli Unicode karakterler i�
   
 ### <a name="remarks"></a>Açıklamalar
   
-Merhaba `newid()` işlev döndürür bir **System.Guid** hello tarafından oluşturulan `System.Guid.NewGuid()` yöntemi.  
+`newid()` İşlev döndürür bir **System.Guid** tarafından oluşturulan `System.Guid.NewGuid()` yöntemi.  
   
-Merhaba `property(name)` işlevi tarafından başvurulan hello özelliğinin hello değeri döndürür `name`. Merhaba `name` değeri bir string değeri döndürür geçerli bir ifade olabilir.  
+`property(name)` İşlevi tarafından başvurulan özelliğinin değerini döndürür `name`. `name` Değeri bir string değeri döndürür geçerli bir ifade olabilir.  
   
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
   
-Merhaba aşağıdakileri göz önünde bulundurun [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) semantiği:  
+Aşağıdakileri göz önünde bulundurun [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) semantiği:  
   
 -   Özellik adları büyük/küçük harfe duyarsızdır.  
   
@@ -216,33 +216,33 @@ Merhaba aşağıdakileri göz önünde bulundurun [SqlFilter](/dotnet/api/micros
   
 -   Sistem özellikleri olan ortak özellikler, gösterilen [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) örnekleri.  
   
-    Merhaba aşağıdakileri göz önünde bulundurun `IS [NOT] NULL` semantiği:  
+    Aşağıdakileri göz önünde bulundurun `IS [NOT] NULL` semantiği:  
   
-    -   `property IS NULL`olarak değerlendirilir `true` ya da hello özelliği mevcut değil veya özelliğin değeri hello ise `null`.  
+    -   `property IS NULL`olarak değerlendirilir `true` özelliği yok veya özelliğin değeri, `null`.  
   
 ### <a name="property-evaluation-semantics"></a>Özellik değerlendirme semantiği  
   
--   Mevcut olmayan sistem özelliği oluşturur girişimi tooevaluate bir [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) özel durum.  
+-   Mevcut olmayan sistem özelliği değerlendirmek için girişiminde oluşturur bir [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) özel durum.  
   
 -   Var olmayan bir özellik olarak dahili olarak değerlendirilir **bilinmeyen**.  
   
  Aritmetik işleçler bilinmeyen hesaplanmasında:  
   
--   Ya da sola ve/veya işlenenler sağ tarafındaki Merhaba, ikili işleçler için olarak değerlendirilir **bilinmeyen**, hello sonuç sonra **bilinmeyen**.  
+-   İkili işleçler varsa sol ve sağ tarafındaki işlenenleri olarak değerlendirildiği için **bilinmeyen**, sonuç sonra **bilinmeyen**.  
   
--   Birli işleçleri işleneni olarak değerlendirildiği taktirde **bilinmeyen**, hello sonuç sonra **bilinmeyen**.  
+-   Birli işleçleri işleneni olarak değerlendirildiği taktirde **bilinmeyen**, sonuç sonra **bilinmeyen**.  
   
  İkili Karşılaştırma işleçleri bilinmeyen hesaplanmasında:  
   
--   Ya da sola ve/veya işlenenler sağ tarafındaki hello varsa olarak değerlendirilir **bilinmeyen**, hello sonuç sonra **bilinmeyen**.  
+-   Varsa sol ve sağ tarafındaki işlenenleri olarak değerlendirildiği **bilinmeyen**, sonuç sonra **bilinmeyen**.  
   
  Bilinmeyen hesaplanmasında `[NOT] LIKE`:  
   
--   Tüm işleneni olarak değerlendirildiği taktirde **bilinmeyen**, hello sonuç sonra **bilinmeyen**.  
+-   Tüm işleneni olarak değerlendirildiği taktirde **bilinmeyen**, sonuç sonra **bilinmeyen**.  
   
  Bilinmeyen hesaplanmasında `[NOT] IN`:  
   
--   Sol işleneni hello olarak değerlendirildiği taktirde **bilinmeyen**, hello sonuç sonra **bilinmeyen**.  
+-   Sol işleneni olarak değerlendirildiği taktirde **bilinmeyen**, sonuç sonra **bilinmeyen**.  
   
  Bilinmeyen hesaplanmasında **ve** işleci:  
   
@@ -274,9 +274,9 @@ Merhaba aşağıdakileri göz önünde bulundurun [SqlFilter](/dotnet/api/micros
   
 ### <a name="operator-binding-semantics"></a>İşleç bağlama semantiği
   
--   Karşılaştırma işleçleri gibi `>`, `>=`, `<`, `<=`, `!=`, ve `=` izleyin hello aynı veri bağlama hello C# işleci topluca promosyonlar ve örtük dönüşümler yazın.  
+-   Karşılaştırma işleçleri gibi `>`, `>=`, `<`, `<=`, `!=`, ve `=` veri türü promosyonlar ve örtük dönüşümler bağlama C# işleci aynı topluca izleyin.  
   
--   Aritmetik işleçler gibi `+`, `-`, `*`, `/`, ve `%` izleyin hello aynı veri bağlama hello C# işleci topluca promosyonlar ve örtük dönüşümler yazın.
+-   Aritmetik işleçler gibi `+`, `-`, `*`, `/`, ve `%` veri türü promosyonlar ve örtük dönüşümler bağlama C# işleci aynı topluca izleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

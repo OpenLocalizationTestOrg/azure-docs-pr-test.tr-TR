@@ -1,6 +1,6 @@
 ---
-title: "aaaGet Azure hello Azure portal kullanarak DNS ile başlatılan | Microsoft Docs"
-description: "Bilgi nasıl toocreate bir DNS bölgesi ve Azure DNS kaydında. Bu adım adım kılavuzu toocreate ve ilk DNS bölgesi ve kayıt hello Azure portalını kullanarak yönetin."
+title: "Azure Portal ile Azure DNS’i kullanmaya başlama | Microsoft Docs"
+description: "Azure DNS'te DNS bölgesi ve kaydı oluşturma hakkında bilgi edinin. Bu kılavuzda, Azure portalı kullanarak ilk DNS bölgenizi ve kaydınızı oluşturup yönetmeniz için adım adım talimatlar sunulmaktadır."
 services: dns
 documentationcenter: na
 author: jtuliani
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-ms.openlocfilehash: 5cea01d840d794001cccac64defed8b329d948db
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 93b24e3d9fbb3fbb3ea995271fd63d1e82eb9c9e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="get-started-with-azure-dns-using-hello-azure-portal"></a>Azure hello Azure portal kullanarak DNS ile çalışmaya başlama
+# <a name="get-started-with-azure-dns-using-the-azure-portal"></a>Azure portal ile Azure DNS’i kullanmaya başlama
 
 > [!div class="op_single_selector"]
 > * [Azure portal](dns-getstarted-portal.md)
@@ -29,77 +29,77 @@ ms.lasthandoff: 10/06/2017
 > * [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
 > * [Azure CLI 2.0](dns-getstarted-cli.md)
 
-Bu makalede, ilk DNS bölgesi ve hello Azure portal kullanarak kayıt hello adımları toocreate anlatılmaktadır. Ayrıca, Azure PowerShell kullanarak aşağıdaki adımları gerçekleştirin veya platformlar arası Azure CLI hello.
+Bu makalede, Azure portalı kullanarak ilk DNS bölgesi ve kaydınızı oluşturma adımları gösterilmektedir. Ayrıca, Azure PowerShell veya platformlar arası Azure CLI kullanarak aşağıdaki adımları gerçekleştirebilirsiniz.
 
-Bir DNS bölgesi belirli bir etki alanı için kullanılan toohost hello DNS kayıtlarını ' dir. Azure DNS, etki alanınızda barındırma toostart toocreate bir DNS bölgesi için o etki alanı adı gerekiyor. Ardından bu DNS bölgesinde etki alanınız için tüm DNS kayıtları oluşturulur. Son olarak, toopublish, DNS bölge toohello Internet tooconfigure hello ad sunucuları hello etki alanı için gerekir. Bu adımların her biri aşağıdaki adımları hello açıklanmıştır.
+DNS bölgesi belirli bir etki alanıyla ilgili DNS kayıtlarını barındırmak için kullanılır. Etki alanınızı Azure DNS'de barındırmaya başlamak için bir DNS bölgesi oluşturmanız gerekir. Ardından bu DNS bölgesinde etki alanınız için tüm DNS kayıtları oluşturulur. Son olarak, DNS bölgenizi Internet'te yayımlamak için etki alanının ad sunucularını yapılandırmanız gerekir. Bu adımların her biri, aşağıdaki adımlarda açıklanmıştır.
 
 ## <a name="create-a-dns-zone"></a>DNS bölgesi oluşturma
 
-1. Toohello Azure portalında oturum açın
-2. Hello Hub menüsünde ve tıklayın **yeni > Ağ iletişimi >** ve ardından **DNS bölgesi** tooopen hello oluşturmak DNS bölge dikey.
+1. Azure portalında oturum açın
+2. Hub menüsünde **Yeni > Ağ >** ve ardından **DNS bölgesi**’ne tıklayarak DNS bölgesi oluştur dikey penceresini açın.
 
     ![DNS bölgesi](./media/dns-getstarted-portal/openzone650.png)
 
-4. Merhaba üzerinde **oluşturma DNS bölgesi** dikey penceresinde hello aşağıdaki değerleri girin ve ardından **oluşturma**:
+4. **DNS bölgesi oluştur** dikey penceresinde aşağıdaki değerleri girin ve **Oluştur**’a tıklayın:
 
 
    | **Ayar** | **Değer** | **Ayrıntılar** |
    |---|---|---|
-   |**Ad**|contoso.com|Merhaba DNS bölgesinin Hello adı|
-   |**Abonelik**|[Aboneliğiniz]|Bir abonelik toocreate hello DNS bölgesini seçin.|
-   |**Kaynak grubu**|**Yeni oluştur:** contosoDNSRG|Bir kaynak grubu oluşturun. Merhaba kaynak grubu adı, seçtiğiniz hello abonelik içinde benzersiz olmalıdır. Merhaba okuyun, kaynak grupları hakkında daha fazla toolearn [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) genel bakış makalesi.|
+   |**Ad**|contoso.com|DNS bölgesinin adı|
+   |**Abonelik**|[Aboneliğiniz]|DNS bölgesini oluşturmak için bir abonelik seçin.|
+   |**Kaynak grubu**|**Yeni oluştur:** contosoDNSRG|Bir kaynak grubu oluşturun. Kaynak grubu adı, seçili abonelik içinde benzersiz olmalıdır. Kaynak grupları hakkında daha fazla bilgi için, [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups)’a genel bakış makalesini okuyun.|
    |**Konum**|Batı ABD||
 
 > [!NOTE]
-> Merhaba kaynak grubu hello kaynak grubu toohello konumunu gösterir ve hello DNS bölgesi üzerinde hiçbir etkisi olmaz. Merhaba DNS bölgesi konumunu her zaman "Genel" ve gösterilmiyor.
+> Kaynak grubu, kaynak grubunun konumunu ifade eder ve DNS bölgesini etkilemez. DNS bölgesinin konumu her zaman "genel" şeklindedir ve gösterilmez.
 
 ## <a name="create-a-dns-record"></a>DNS kaydı oluşturma
 
-Merhaba aşağıdaki örnek, yeni '' kayıt oluşturma hello sürecinde yardımcı olur. Diğer kayıt türleri ve toomodify mevcut kayıtları için bkz: [yönetmek DNS kayıtlarını ve kayıt kümelerini kullanarak hello Azure portal](dns-operations-recordsets-portal.md). 
+Aşağıdaki örnek yeni bir 'A' kaydı oluşturma işlemini göstermektedir. Diğer kayıt türleri ve var olan kayıtların değiştirilmesi hakkında bilgi için bkz. [Azure portalı kullanarak DNS kayıtlarını ve kayıt kümelerini yönetme](dns-operations-recordsets-portal.md). 
 
-1. Merhaba ile DNS bölgesi, hello Azure portalında oluşturulan **Sık Kullanılanlar** bölmesinde tıklatın **tüm kaynakları**. Merhaba tıklatın **contoso.com** DNS bölgesi hello tüm kaynak dikey. Merhaba aboneliği zaten içinde birçok kaynak varsa, girebilirsiniz **contoso.com** hello içinde **ada göre Filtrele...** tooeasily erişim hello DNS bölgesi kutusu.
+1. Oluşturulan DNS Bölgesi ile, Azure Portal **Sık Kullanılanlar** bölmesinde, **Tüm kaynaklar**’a tıklayın. Tüm kaynaklar dikey penceresinde **contoso.com** DNS bölgesine tıklayın. Seçili abonelikte zaten çeşitli kaynaklar varsa, DNS Bölgesine kolaylıkla erişmek için **Ada göre filtrele...** kutusuna **contoso.com** girebilirsiniz.
 
-1. Merhaba hello üstündeki **DNS bölgesi** dikey penceresinde, select **+ kayıt kümesine** tooopen hello **kayıt kümesi ekleme** dikey.
+1. **DNS bölgesi** dikey penceresinin üzerindeki **+ Kayıt kümesi**’ni seçerek **Kayıt kümesi ekle** dikey penceresini açın.
 
-1. Merhaba üzerinde **kayıt kümesi ekleme** dikey penceresinde hello değerleri aşağıdaki girin ve tıklayın **Tamam**. Bu örnekte, bir A kaydı oluşturuyorsunuz.
+1. **Kaynak kümesi ekle** dikey penceresinde aşağıdaki değerleri girin ve **Tamam**’a tıklayın. Bu örnekte, bir A kaydı oluşturuyorsunuz.
 
    |**Ayar** | **Değer** | **Ayrıntılar** |
    |---|---|---|
-   |**Ad**|www|Merhaba kaydın adı|
-   |**Tür**|A| Tür DNS kaydı toocreate A, kabul edilebilir değerlerdir AAAA, CNAME, MX, NS, SRV, TXT ve PTR.  Kayıt türleri hakkında daha fazla bilgi için, [DNS bölgelerine ve kayıtlarına genel bakış](dns-zones-records.md) bağlantısını ziyaret edin|
-   |**TTL**|1|Time-to-live hello DNS isteği.|
+   |**Ad**|www|Kaydın adı|
+   |**Tür**|A| Oluşturulacak DNS kaydının türü; kabul edilebilir değerler A, AAAA, CNAME, MX, NS, SRV, TXT ve PTR’dir.  Kayıt türleri hakkında daha fazla bilgi için, [DNS bölgelerine ve kayıtlarına genel bakış](dns-zones-records.md) bağlantısını ziyaret edin|
+   |**TTL**|1|DNS isteğinin yaşam süresi.|
    |**TTL birimi**|Saat|TTL değeri için zaman ölçümü.|
-   |**IP adresi**|IP Adresi Değeri| Bu değer hello DNS kaydı çözümleyen hello IP adresidir.|
+   |**IP adresi**|IP Adresi Değeri| Bu değer, DNS kaydının çözümlendiği IP adresidir.|
 
 ## <a name="view-records"></a>Kayıtları görüntüleme
 
-Merhaba alt kısmında hello DNS bölgesine dikey penceresinde, hello DNS bölgesi için hello kayıtlarını görebilirsiniz. Her bölgede oluşturulan, hello varsayılan DNS ve SOA kayıtları, artı, oluşturduğunuz tüm yeni kayıtlar görmeniz gerekir.
+DNS bölgesi dikey penceresinin alt bölümünde DNS bölgesine ait kayıtları görebilirsiniz. Her bölgede oluşturulan varsayılan DNS ve SOA kayıtlarının yanı sıra, oluşturduğunuz tüm kayıtları görürsünüz.
 
 ![bölge](./media/dns-getstarted-portal/viewzone500.png)
 
 
 ## <a name="update-name-servers"></a>Ad sunucularını güncelleştirme
 
-Sonra DNS bölgesi ve kayıtları doğru şekilde ayarlanan, tooconfigure gerek memnun, etki alanı adı toouse hello Azure DNS ad sunucuları. Bu DNS kayıtlarınızı hello Internet toofind üzerindeki diğer kullanıcılarla sağlar.
+DNS bölgenizin ve kayıtlarınızın doğru şekilde ayarlandığına karar verdikten sonra, Azure DNS ad sunucularını kullanmak için etki alanınızın adını yapılandırmanız gerekir. Bunun yapılması, İnternet üzerindeki diğer kullanıcıların DNS kayıtlarınızı bulmasını sağlar.
 
-bölgenizin ad sunucuları Hello hello Azure portalında sunulur:
+Bölgenizin ad sunucuları Azure portalda belirtilir:
 
 ![bölge](./media/dns-getstarted-portal/viewzonens500.png)
 
-Bu ad sunucuları hello etki alanı adı kayıt (Merhaba etki alanı adı satın aldığınız yerden) ile yapılandırılmalıdır. Kayıt hello seçeneği tooset hello ad sunucuları hello etki alanı için yukarı sunar. Daha fazla bilgi için bkz: [, etki alanı tooAzure DNS temsilci](dns-domain-delegation.md).
+Bu ad sunucuları, etki alanı adı kayıt şirketi (etki alanı adını satın aldığınız şirket) ile birlikte yapılandırılmalıdır. Kayıt şirketiniz, etki alanı için ad sunucularını ayarlama seçeneğini sunar. Daha fazla bilgi için bkz. [Etki alanınızı Azure DNS’e devretme](dns-domain-delegation.md).
 
 ## <a name="delete-all-resources"></a>Tüm kaynakları silme
 
-Bu makalede, aşağıdaki adımları tam hello oluşturulan tüm kaynakları toodelete:
+Bu makalede oluşturulan tüm kaynakları silmek için, aşağıdaki adımları tamamlayın:
 
-1. Hello Azure portal'ın **Sık Kullanılanlar** bölmesinde tıklatın **tüm kaynakları**. Merhaba tıklatın **MyResourceGroup** kaynak tüm kaynaklar dikey penceresinde hello grubu. Merhaba aboneliği zaten içinde birçok kaynak varsa, girebilirsiniz **MyResourceGroup** hello içinde **ada göre Filtrele...** kutusunu tooeasily erişim hello kaynak grubu.
-1. Merhaba, **MyResourceGroup** dikey penceresinde hello tıklatın **silmek** düğmesi.
-1. Merhaba portal tootype hello toodelete istediğiniz hello kaynak grubu tooconfirm adını gerektirir. Tıklatın **silmek**, türü *MyResourceGroup* hello kaynak grubu adı için ardından **silmek**. Bu nedenle her zaman emin tooconfirm silmeden önce bir kaynak grubu Merhaba içeriğine olması, bir kaynak grubunu silme hello kaynak grubundaki tüm kaynakları siler. Merhaba portal hello kaynak grubu içinde bulunan tüm kaynakları siler ve sonra hello kaynak grubu kendisini siler. Bu işlem birkaç dakika sürer.
+1. Azure Portal **Sık Kullanılanlar** bölmesinde, **Tüm kaynaklar**’a tıklayın. Tüm kaynaklar dikey penceresinde **MyResourceGroup** kaynak grubuna tıklayın. Seçili abonelikte zaten çeşitli kaynaklar varsa, kaynak grubuna kolaylıkla erişmek için **Ada göre filtrele...** kutusuna **MyResourceGroup** girebilirsiniz.
+1. **MyResourceGroup** dikey penceresinde **Sil** düğmesine tıklayın.
+1. Portal, silmek istediğinizi onaylamak için kaynak grubunun adını yazmanızı gerektirir. **Sil**’e tıklayın, kaynak grubu adı olarak *MyResourceGroup* yazın ve ardından **Sil**’e tıklayın. Bir kaynak grubunun silinmesiyle, kaynak grubu içerisindeki tüm kaynaklar silinir, bu nedenle, silmeden önce kaynak grubunun içeriğini onaylamayı hiçbir zaman unutmayın. Portal, kaynak grubu içinde yer alan tüm kaynakları siler ve sonra kaynak grubunu siler. Bu işlem birkaç dakika sürer.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure DNS hakkında daha fazla toolearn bkz [Azure DNS'ye genel bakış](dns-overview.md).
+Azure DNS hakkında daha fazla bilgi için bkz. [Azure DNS'e genel bakış](dns-overview.md).
 
-Azure DNS'de DNS kayıtlarını yönetme hakkında daha fazla toolearn bkz [yönetmek DNS kayıtlarını ve kayıt kümelerini kullanarak hello Azure portal](dns-operations-recordsets-portal.md).
+Azure DNS’te DNS kayıtlarını yönetme hakkında daha fazla bilgi için bkz. [Azure portalı kullanarak DNS kayıtlarını ve kayıt kümelerini yönetme](dns-operations-recordsets-portal.md).
 

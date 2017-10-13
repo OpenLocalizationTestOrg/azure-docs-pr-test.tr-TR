@@ -1,6 +1,6 @@
 ---
-title: "Media Services REST API kullanarak aaaConfiguring varlık teslim ilkeleri | Microsoft Docs"
-description: "Bu konuda gösterilmektedir nasıl Media Services REST API kullanarak tooconfigure farklı varlık teslim ilkeleri."
+title: "Media Services REST API kullanarak varlık teslim ilkeleri yapılandırma | Microsoft Docs"
+description: "Bu konu, Media Services REST API kullanarak farklı varlık teslim ilkelerinin nasıl yapılandırılacağını gösterir."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.openlocfilehash: 8203230d570935e17382c598820dbfe42f83f8d8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7ffbde11b943961dd3a3b5edebd0cfd52429e845
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="configuring-asset-delivery-policies"></a>Varlık teslim ilkeleri yapılandırma
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../includes/media-services-selector-asset-delivery-policy.md)]
 
-Dinamik olarak şifrelenmiş toodeliver varlıklar planlıyorsanız, hello birini hello medya Hizmetleri içerik teslim iş akışı varlıklar için teslim ilkelerini yapılandırma adımları. Merhaba varlık teslim ilkesini Media Services nasıl teslim, varlık toobe için istediğinizi söyler: toodynamically istediğiniz olup olmadığına bakılmaksızın hangi akış protokolüne Varlığınızı dinamik olarak (örneğin, MPEG DASH, HLS, kesintisiz akış veya tümü için), paketlenmiş Varlığınızı şifrelemek ve nasıl (Zarf veya ortak şifreleme).
+Dinamik olarak şifrelenmiş varlıklar iletmeyi planlıyorsanız, Media Services içerik teslim iş akışı'ndaki adımları birini varlıklar için teslim ilkeleri yapılandırıyor. Media Services, varlık teslim edilmesini istediğiniz varlık teslim ilkesini bildirir: hangi Akış Protokolü varlığınız dinamik olarak paketlenir (örneğin, MPEG DASH, HLS, kesintisiz akış veya tümü için), dinamik olarak Varlığınızı şifrelemek isteyip istemediğinizi ve nasıl içine (Zarf veya ortak şifreleme).
 
-Bu konuda neden ve nasıl anlatılmaktadır toocreate ve varlık teslim ilkeleri yapılandırın.
+Bu konuda ele alınmıştır neden ve nasıl oluşturulacağı ve varlık teslim ilkeleri yapılandırın.
 
 >[!NOTE]
->AMS hesabınızı oluşturulduğunda bir **varsayılan** akış uç noktası ekleniyor tooyour hesabı hello **durduruldu** durumu. İçerik ve Al avantajı dinamik paketleme ve dinamik şifreleme akış toostart hello istediğiniz toostream içeriğe sahip toobe hello akış uç **çalıştıran** durumu. 
+>AMS hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir. 
 >
->Ayrıca, toobe mümkün toouse dinamik paketleme ve dinamik şifreleme Varlığınızı içermelidir Uyarlamalı bit hızlı MP4s veya uyarlamalı bit hızlı kesintisiz akış dosyaları kümesidir.
+>Ayrıca, dinamik paketleme ve dinamik şifreleme kullanabilmek için varlığınız Uyarlamalı bit hızlı MP4s ya da Uyarlamalı bit hızlı kesintisiz akış dosyaları içermelidir.
 
-Farklı ilkeleri toohello uygulayabilir aynı varlık. Örneğin, PlayReady şifreleme tooSmooth akış ve AES zarfı şifreleme tooMPEG uygulayabilir DASH ve HLS. Bir teslim ilkesinde tanımlanmayan tüm protokollerin (örneğin, yalnızca hello protokol olarak HLS belirten tek bir ilke ekliyorsunuz) akışla aktarılması engellenir. Merhaba özel durum toothis hiç tanımlanmış hiçbir varlık teslim ilkesini varsa ' dir. Ardından, tüm protokoller hello Temizle izin verilir.
+Aynı varlık için farklı ilkeler uygulayabilirsiniz. Örneğin, MPEG DASH ve HLS için AES zarfı kesintisiz akış ve şifreleme için PlayReady şifreleme uygulayabilirsiniz. Herhangi bir teslim ilkesinde tanımlanmayan tüm protokollerin (örneğin, protokol olarak yalnızca HLS‘yi belirten tek bir ilke ekliyorsunuz) akışla aktarılması engellenir. Bunun tek istisnası, hiçbir varlık teslim ilkesinin tanımlanmadığı durumdur. Bu halde tüm protokollere açık bir şekilde izin verilir.
 
-Toodeliver depolama şifrelenmiş varlık isterseniz hello varlığın teslim ilkesini yapılandırmanız gerekir. Varlığınızı akışı önce sunucu kaldırır hello depolama şifrelemesi ve akışlar hello kullanarak içeriğinizi akış hello teslim ilkesini belirtilen. Örneğin, toodeliver Varlığınızı Gelişmiş Şifreleme Standardı (AES) Zarf şifreleme anahtarıyla şifrelenir, çok hello ilke türünü ayarlayın**DynamicEnvelopeEncryption**. tooremove depolama şifreleme ve hello Temizle, akış hello varlığı ayarlamak hello ilke türü çok**NoDynamicEncryption**. Bu ilke türleri tooconfigure nasıl izleyin Göster örnekleri.
+Bir depolama şifrelenmiş varlık teslim etmek istiyorsanız, varlığın teslim ilkesini yapılandırmanız gerekir. Varlığınızı akışı önce akış sunucusu depolama şifreleme kaldırır ve belirtilen teslim ilkesini kullanarak içeriğinizi akışlarını. Örneğin, Gelişmiş Şifreleme Standardı (AES) Zarf şifreleme anahtarıyla şifrelenir, varlık teslim etmek için ilke türünü ayarlamak **DynamicEnvelopeEncryption**. Depolama şifrelemesi kaldırmak ve varlık temiz akışını ilke türünü ayarlayın **NoDynamicEncryption**. Bu ilke türünü yapılandırmanız nasıl gösteren örnekler izleyin.
 
-Hello varlık teslim ilkesini nasıl yapılandırdığınıza bağlı mümkün toodynamically paketi, dinamik olarak şifrelemek ve akış akış protokolleri aşağıdaki hello: kesintisiz akış, HLS, MPEG DASH akışları.
+Varlık teslim ilkesini nasıl yapılandırdığınıza bağlı olarak, dinamik olarak paketini, dinamik olarak şifrelemek ve aşağıdaki akış protokolleri akışını gerçekleştirebilir: kesintisiz akış, HLS, MPEG DASH akışları.
 
-Liste gösterir hello aşağıdaki hello toostream kesintisiz, HLS, DASH kullandığınız biçimlendirir.
+Aşağıdaki liste, akışa kesintisiz, HLS, DASH kullandığınız biçimleri gösterir.
 
 Kesintisiz akış:
 
@@ -53,30 +53,30 @@ MPEG DASH
 {uç nokta adı media services hesabı name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf) akış
 
 
-Yönergeler için nasıl toopublish bir varlık ve yapı bir akış URL'si bkz [akış URL'si oluşturma](media-services-deliver-streaming-content.md).
+Varlık yayımlama ve akış URL'si oluşturma yönergeleri için bkz. [Akış URL'si oluşturma](media-services-deliver-streaming-content.md).
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
-* Bu varlık için bir (akış) OnDemand Bulucu bulunmakla birlikte bir varlıkla ilişkilendirilen AssetDeliveryPolicy silemezsiniz. Merhaba tooremove hello hello varlık ilkesinden hello İlkesi silmeden önce önerilir.
-* Hiçbir varlık teslim ilkesini ayarlandığında akış Bulucusu bir depolama şifrelenmiş varlık oluşturulamıyor.  Merhaba varlık şifrelenmiş depolama değilse, hello sistem, bir varlık teslim ilkesini olmadan temizleyin hello Bulucu ve akış hello varlık oluşturmak olanak tanır.
-* Tek bir varlık ile ilişkili birden çok varlık teslim ilkeleri olabilir ancak yalnızca tek yönlü toohandle verilen AssetDeliveryProtocol belirtebilirsiniz.  Bir istemci bir kesintisiz akış bir istekte bulunduğunda hello sistem hangisinin bilmediğinden, bir hatayla sonuçlanır hello AssetDeliveryProtocol.SmoothStreaming protokolü belirtmek toolink iki teslim İlkesi çalışırsanız anlamına tooapply istediğiniz.
-* Bir varlığı ile var olan bir akış Bulucu varsa, yeni bir ilke toohello varlık bağlantı olamaz, mevcut bir hello varlık ilkesinden bağlantısını veya hello varlık ile ilişkili bir teslim ilkesini güncelleştirin.  İlk tooremove hello akış Bulucusu sahip hello ilkeleri ayarlamak ve akış Bulucu hello yeniden oluşturun.  İçerik hello Menşe veya bir aşağı akış CDN tarafından önbelleğe bu yana, istemciler için sorunlara neden olmaz Bulucu ancak Akış hello yeniden oluşturduğunuzda aynı locatorId emin olmalısınız hello kullanabilirsiniz.
+* Bu varlık için bir (akış) OnDemand Bulucu bulunmakla birlikte bir varlıkla ilişkilendirilen AssetDeliveryPolicy silemezsiniz. İlke silmeden önce varlığından ilkesini kaldırmak için önerilir.
+* Hiçbir varlık teslim ilkesini ayarlandığında akış Bulucusu bir depolama şifrelenmiş varlık oluşturulamıyor.  Varlık şifrelenmiş depolama yoksa, sistem, bir Bulucu oluşturmanız ve varlık bir varlık teslim ilkesini olmadan temiz akışını olanak tanır.
+* Tek bir varlık ile ilişkili birden çok varlık teslim ilkeleri olabilir, ancak yalnızca belirli bir AssetDeliveryProtocol işlemek için bir yol belirtebilirsiniz.  Sistem hangisinin, bir istemci bir kesintisiz akış bir istekte bulunduğunda uygulanacak bilmediğinden, bir hatayla sonuçlanır AssetDeliveryProtocol.SmoothStreaming protokolü belirtmek iki teslim ilkeleri bağlamaya çalışır anlamına gelir.
+* Bir varlığı ile var olan bir akış Bulucu varsa, yeni bir ilke varlık için bağlantı olamaz, mevcut bir varlık ilkesinden bağlantısını veya varlık ile ilişkili bir teslim ilkesini güncelleştirin.  İlk bu akış Bulucusu kaldırmak, ilkeleri ayarlamak ve akış Bulucusu yeniden oluşturmanız gerekmez.  Akış Bulucusu yeniden oluşturur ancak içerik kaynağı veya bir aşağı akış CDN tarafından önbelleğe beri sorunları istemciler için neden olmaz emin olmalısınız aynı locatorId kullanabilirsiniz.
 
 >[!NOTE]
 
 >Varlıklar Media Services erişirken, HTTP istekleri özel üstbilgi alanlarını ve değerlerini ayarlamanız gerekir. Daha fazla bilgi için bkz: [Media Services REST API geliştirme için Kurulum](media-services-rest-how-to-use.md).
 
-## <a name="connect-toomedia-services"></a>TooMedia Hizmetleri'ne Bağlama
+## <a name="connect-to-media-services"></a>Media Services’e bağlanmak
 
-Nasıl tooconnect toohello AMS API, bkz. bilgi [Azure AD kimlik doğrulaması ile erişim hello Azure Media Services API](media-services-use-aad-auth-to-access-ams-api.md). 
+AMS API'sine bağlanma hakkında daha fazla bilgi için bkz: [Azure AD kimlik doğrulaması ile Azure Media Services API erişim](media-services-use-aad-auth-to-access-ams-api.md). 
 
 >[!NOTE]
->Başarıyla toohttps://media.windows.net bağladıktan sonra başka bir Media Services URI belirleme 301 bir yeniden yönlendirme alırsınız. Sonraki çağrılar toohello yapmanız gereken yeni bir URI.
+>Başarıyla https://media.windows.net için bağladıktan sonra başka bir Media Services URI belirleme 301 bir yeniden yönlendirme alırsınız. Yeni bir URI yapılan sonraki çağrılar yapmanız gerekir.
 
 ## <a name="clear-asset-delivery-policy"></a>Clear varlık teslim ilkesini
 ### <a id="create_asset_delivery_policy"></a>Varlık teslim ilkesini oluşturma
-Hello aşağıdaki HTTP isteği toonot dinamik şifreleme uygulanır ve aşağıdaki hello hiçbirinde toodeliver hello akış protokolleri belirten bir varlık teslim ilkesi oluşturur: MPEG DASH, HLS ve kesintisiz akış protokollerini. 
+Aşağıdaki HTTP isteğini belirtir dinamik şifreleme uygulamamayı ve aşağıdaki protokollerden birini akışta teslim etmek için bir varlık teslim ilkesini oluşturur: MPEG DASH, HLS ve kesintisiz akış protokollerini. 
 
-Merhaba, değerleri bilgi bir AssetDeliveryPolicy oluştururken belirtebilirsiniz için bkz: [AssetDeliveryPolicy tanımlarken kullanılan türleri](#types) bölümü.   
+Bir AssetDeliveryPolicy oluştururken belirtebilirsiniz değerleri hakkında bilgi için bkz: [AssetDeliveryPolicy tanımlarken kullanılan türleri](#types) bölümü.   
 
 İsteği:
 
@@ -123,7 +123,7 @@ Yanıtı:
     "LastModified":"2015-02-08T06:21:27.6908329Z"}
 
 ### <a id="link_asset_with_asset_delivery_policy"></a>Varlık teslim ilkesini bağlantı varlığı
-HTTP isteği bağlantılar hello aşağıdaki hello varlık toohello varlık teslim ilkesini için belirtilmiş.
+Aşağıdaki HTTP isteği belirtilen varlık için varlık teslim ilkesini bağlar.
 
 İsteği:
 
@@ -146,13 +146,13 @@ Yanıtı:
 
 
 ## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>DynamicEnvelopeEncryption varlık teslim ilkesini
-### <a name="create-content-key-of-hello-envelopeencryption-type-and-link-it-toohello-asset"></a>Merhaba EnvelopeEncryption tür içerik anahtarı oluşturun ve toohello varlık Bağla
-DynamicEnvelopeEncryption teslim İlkesi belirtirken, varlık tooa içerik anahtarı hello EnvelopeEncryption türü toomake emin toolink gerekir. Daha fazla bilgi için bkz: [bir içerik anahtarı oluşturma](media-services-rest-create-contentkey.md)).
+### <a name="create-content-key-of-the-envelopeencryption-type-and-link-it-to-the-asset"></a>EnvelopeEncryption tür içerik anahtarı oluşturup varlık için Bağla
+DynamicEnvelopeEncryption teslim İlkesi belirtirken, varlık EnvelopeEncryption türü için bir içerik anahtarı bağlamak emin olmanız gerekir. Daha fazla bilgi için bkz: [bir içerik anahtarı oluşturma](media-services-rest-create-contentkey.md)).
 
 ### <a id="get_delivery_url"></a>Teslim URL'sini alma
-Get hello teslim hello URL'sini hello içerik anahtarı hello önceki adımda oluşturduğunuz teslim yöntemi belirtilmiş. URL toorequest döndürülen hello bir istemcinin kullandığı bir AES anahtarı ya da bir sipariş tooplayback hello PlayReady lisans korumalı içeriği.
+Önceki adımda oluşturduğunuz içerik anahtarı belirtilen teslim yöntemini teslim URL'sini alma. Bir PlayReady korumalı içeriği kayıttan yürütme sırada lisans ya da bir istemci bir AES anahtarı istemek için döndürülen URL kullanır.
 
-Merhaba URL tooget Hello türü hello hello HTTP isteğinin gövdesinde belirtin. Bir Media Services PlayReady lisans edinme URL'si isteği içeriğinizi PlayReady ile koruyorsanız 1 hello keyDeliveryType kullanılarak: {"keyDeliveryType": 1}. İçeriğinizi hello Zarf şifrelemeli koruyorsanız, bir anahtar alım keyDeliveryType için 2 belirterek istek URL'si: {"keyDeliveryType": 2}.
+HTTP istek gövdesinde almak için URL'yi türünü belirtin. Bir Media Services PlayReady lisans edinme URL'si isteği içeriğinizi PlayReady ile koruyorsanız 1 için keyDeliveryType kullanılarak: {"keyDeliveryType": 1}. İçeriğinizi Zarf şifrelemeli koruyorsanız, bir anahtar alım keyDeliveryType için 2 belirterek istek URL'si: {"keyDeliveryType": 2}.
 
 İsteği:
 
@@ -188,9 +188,9 @@ Yanıtı:
 
 
 ### <a name="create-asset-delivery-policy"></a>Varlık teslim ilkesini oluşturma
-Merhaba aşağıdaki HTTP isteği oluşturur hello **AssetDeliveryPolicy** diğer bir deyişle yapılandırılmış tooapply dinamik Zarf şifreleme (**DynamicEnvelopeEncryption**) toohello **HLS**Protokolü (Bu örnekte, diğer protokolleri akışla aktarılması engellenir). 
+Aşağıdaki HTTP isteği oluşturur **AssetDeliveryPolicy** dinamik Zarf şifreleme uygulamak için yapılandırılmış (**DynamicEnvelopeEncryption**) için **HLS** Protokolü (Bu örnekte, diğer protokolleri akışla aktarılması engellenir). 
 
-Merhaba, değerleri bilgi bir AssetDeliveryPolicy oluştururken belirtebilirsiniz için bkz: [AssetDeliveryPolicy tanımlarken kullanılan türleri](#types) bölümü.   
+Bir AssetDeliveryPolicy oluştururken belirtebilirsiniz değerleri hakkında bilgi için bkz: [AssetDeliveryPolicy tanımlarken kullanılan türleri](#types) bölümü.   
 
 İsteği:
 
@@ -232,16 +232,16 @@ Yanıtı:
 Bkz: [varlık teslim ilkesini bağlantı varlığı](#link_asset_with_asset_delivery_policy)
 
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>DynamicCommonEncryption varlık teslim ilkesini
-### <a name="create-content-key-of-hello-commonencryption-type-and-link-it-toohello-asset"></a>Merhaba CommonEncryption tür içerik anahtarı oluşturun ve toohello varlık Bağla
-DynamicCommonEncryption teslim İlkesi belirtirken, varlık tooa içerik anahtarı hello CommonEncryption türü toomake emin toolink gerekir. Daha fazla bilgi için bkz: [bir içerik anahtarı oluşturma](media-services-rest-create-contentkey.md)).
+### <a name="create-content-key-of-the-commonencryption-type-and-link-it-to-the-asset"></a>CommonEncryption tür içerik anahtarı oluşturup varlık için Bağla
+DynamicCommonEncryption teslim İlkesi belirtirken, varlık CommonEncryption türü için bir içerik anahtarı bağlamak emin olmanız gerekir. Daha fazla bilgi için bkz: [bir içerik anahtarı oluşturma](media-services-rest-create-contentkey.md)).
 
 ### <a name="get-delivery-url"></a>Teslim URL'sini alma
-Merhaba PlayReady teslim yöntemini hello içerik anahtarının hello önceki adımda oluşturduğunuz Hello teslim URL'sini alma. Bir istemci bir sipariş tooplayback hello PlayReady lisans korumalı URL toorequest içerik döndürülen hello kullanır. Daha fazla bilgi için bkz: [alma teslim URL](#get_delivery_url).
+Önceki adımda oluşturduğunuz içerik anahtarı PlayReady teslim yöntemini teslim URL'sini alma. Bir istemci döndürülen URL PlayReady lisans korumalı içeriği kayıttan yürütme sırada istemek için kullanır. Daha fazla bilgi için bkz: [alma teslim URL](#get_delivery_url).
 
 ### <a name="create-asset-delivery-policy"></a>Varlık teslim ilkesini oluşturma
-Merhaba aşağıdaki HTTP isteği oluşturur hello **AssetDeliveryPolicy** diğer bir deyişle yapılandırılmış tooapply dinamik ortak şifreleme (**DynamicCommonEncryption**) toohello **kesintisiz akış**  Protokolü (Bu örnekte, diğer protokolleri akışla aktarılması engellenir). 
+Aşağıdaki HTTP isteği oluşturur **AssetDeliveryPolicy** dinamik ortak şifreleme uygulamak için yapılandırılmış (**DynamicCommonEncryption**) için **kesintisiz akış** Protokolü (Bu örnekte, diğer protokolleri akışla aktarılması engellenir). 
 
-Merhaba, değerleri bilgi bir AssetDeliveryPolicy oluştururken belirtebilirsiniz için bkz: [AssetDeliveryPolicy tanımlarken kullanılan türleri](#types) bölümü.   
+Bir AssetDeliveryPolicy oluştururken belirtebilirsiniz değerleri hakkında bilgi için bkz: [AssetDeliveryPolicy tanımlarken kullanılan türleri](#types) bölümü.   
 
 İsteği:
 
@@ -260,14 +260,14 @@ Merhaba, değerleri bilgi bir AssetDeliveryPolicy oluştururken belirtebilirsini
     {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
 
 
-Widevine DRM kullanarak içeriğinizi tooprotect istiyorsanız hello AssetDeliveryConfiguration değerleri toouse (7 hello değeri olan) WidevineLicenseAcquisitionUrl güncelleştirin ve bir lisans teslimat hizmetinin hello URL'sini belirtin. Widevine lisansları teslim AMS ortaklarını toohelp aşağıdaki hello kullanabilirsiniz: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
+Widevine DRM kullanarak içeriğinizi korumak istiyorsanız, (7 değeri olan) WidevineLicenseAcquisitionUrl kullanılacak AssetDeliveryConfiguration değerlerini güncelleştirin ve bir lisans teslimat hizmeti URL'sini belirtin. Widevine lisansları teslim yardımcı olmak için şu AMS ortaklarını kullanabilirsiniz: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
 
 Örneğin: 
 
     {"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":2,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":7,\"Value\":\"https:\\/\\/example.net\/WidevineLicenseAcquisition\/"}]"}
 
 > [!NOTE]
-> Widevine ile şifrelerken tire kullanarak mümkün toodeliver yalnızca olacaktır. Emin toospecify tire (2) içinde hello varlık teslim Protokolü olun.
+> Widevine ile şifrelerken yalnızca tire kullanarak teslim etmek mümkün olacaktır. Varlık teslim Protokolü tire (2) belirttiğinizden emin olun.
 > 
 > 
 
@@ -278,7 +278,7 @@ Bkz: [varlık teslim ilkesini bağlantı varlığı](#link_asset_with_asset_deli
 
 ### <a name="assetdeliveryprotocol"></a>AssetDeliveryProtocol
 
-Merhaba aşağıdaki enum hello varlık teslim protokolü için ayarlayabileceğiniz değerler açıklar.
+Aşağıdaki liste, varlık teslim protokolü için ayarlayabileceğiniz değerler açıklar.
 
     [Flags]
     public enum AssetDeliveryProtocol
@@ -313,7 +313,7 @@ Merhaba aşağıdaki enum hello varlık teslim protokolü için ayarlayabileceğ
 
 ### <a name="assetdeliverypolicytype"></a>AssetDeliveryPolicyType
 
-Merhaba aşağıdaki enum hello varlık teslim İlkesi türü için ayarlayabileceğiniz değerler açıklar.  
+Aşağıdaki liste varlık teslim İlkesi türü için ayarlayabileceğiniz değerler açıklar.  
 
     public enum AssetDeliveryPolicyType
     {
@@ -323,12 +323,12 @@ Merhaba aşağıdaki enum hello varlık teslim İlkesi türü için ayarlayabile
         None,
 
         /// <summary>
-        /// hello Asset should not be delivered via this AssetDeliveryProtocol. 
+        /// The Asset should not be delivered via this AssetDeliveryProtocol. 
         /// </summary>
         Blocked, 
 
         /// <summary>
-        /// Do not apply dynamic encryption toohello asset.
+        /// Do not apply dynamic encryption to the asset.
         /// </summary>
         /// 
         NoDynamicEncryption,  
@@ -346,7 +346,7 @@ Merhaba aşağıdaki enum hello varlık teslim İlkesi türü için ayarlayabile
 
 ### <a name="contentkeydeliverytype"></a>ContentKeyDeliveryType
 
-Merhaba aşağıdaki enum değerleri hello içerik anahtar toohello istemci tooconfigure hello teslim yöntemini kullanabilirsiniz açıklanmaktadır.
+Aşağıdaki liste, içerik anahtarının istemciye teslim yöntemini yapılandırmak için kullanabileceğiniz değerleri açıklanmaktadır.
     
     public enum ContentKeyDeliveryType
     {
@@ -379,7 +379,7 @@ Merhaba aşağıdaki enum değerleri hello içerik anahtar toohello istemci tooc
 
 ### <a name="assetdeliverypolicyconfigurationkey"></a>AssetDeliveryPolicyConfigurationKey
 
-Enum aşağıdaki hello tooconfigure kullanılan anahtarları tooget belirli yapılandırma için bir varlık teslim ilkesini ayarlayabilirsiniz değerleri açıklanmaktadır.
+Aşağıdaki liste, belirli bir yapılandırma için bir varlık teslim ilkesini almak için kullanılan anahtarları yapılandırmak için ayarlayabilirsiniz değerleri açıklanmaktadır.
 
     public enum AssetDeliveryPolicyConfigurationKey
     {
@@ -399,22 +399,22 @@ Enum aşağıdaki hello tooconfigure kullanılan anahtarları tooget belirli yap
         EnvelopeBaseKeyAcquisitionUrl,
 
         /// <summary>
-        /// hello initialization vector toouse for envelope encryption in Base64 format.
+        /// The initialization vector to use for envelope encryption in Base64 format.
         /// </summary>
         EnvelopeEncryptionIVAsBase64,
 
         /// <summary>
-        /// hello PlayReady License Acquisition Url toouse for common encryption.
+        /// The PlayReady License Acquisition Url to use for common encryption.
         /// </summary>
         PlayReadyLicenseAcquisitionUrl,
 
         /// <summary>
-        /// hello PlayReady Custom Attributes tooadd toohello PlayReady Content Header
+        /// The PlayReady Custom Attributes to add to the PlayReady Content Header
         /// </summary>
         PlayReadyCustomAttributes,
 
         /// <summary>
-        /// hello initialization vector toouse for envelope encryption.
+        /// The initialization vector to use for envelope encryption.
         /// </summary>
         EnvelopeEncryptionIV,
 

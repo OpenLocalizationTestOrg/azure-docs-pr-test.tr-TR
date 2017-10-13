@@ -1,65 +1,83 @@
 ---
-Başlık: aaa "Azure Analysis Services öğretici Ders 12: Excel'de çözümleme | Microsoft Docs"Açıklama: nasıl toouse Excel'de çözümleme özelliği hello içinde Azure Analysis Services açıklar öğretici projesi. Hizmetleri: analysis services documentationcenter: '' Yazar: minewiskan Yöneticisi: erikre Düzenleyicisi: '' etiketler: ''
-
-MS.assetid: ms.service: analysis services ms.devlang: NA ms.topic: get-makalesi ms.tgt_pltfrm: NA ms.workload: na ms.date: 26/05/2017 ms.author: owend
+title: "Azure Analysis Services öğreticisi - 12. ders: Excel’de çözümleme | Microsoft Docs"
+description: "Azure Analysis Services öğretici projesinde, Excel’de çözümleme özelliğinin nasıl kullanılacağını açıklar."
+services: analysis-services
+documentationcenter: 
+author: Minewiskan
+manager: erikre
+editor: 
+tags: 
+ms.assetid: 
+ms.service: analysis-services
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 09/20/2017
+ms.author: owend
+ms.openlocfilehash: e257862a88d39b96360703117f544c43e82b0e3d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-12-analyze-in-excel"></a>12. Ders: Excel’de çözümleme
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-Bu ders içinde kullanmak Çözümle hello Excel özelliği tooopen Microsoft Excel, otomatik olarak bir bağlantı toohello modeli çalışma alanı oluşturun ve bir PivotTable toohello çalışma otomatik olarak ekleyin. Excel özelliği Hello Çözümle tooprovide yöneliktir hızlı ve kolay bir yol tootest hello sürecinin modelinizin modelinizi önceki toodeploying tasarlayın. Bu derste herhangi bir veri çözümlemesi yapmayacaksınız. Bu ders Hello amacı toofamiliarize, hello modeli yazar, hello araçlarıyla model tasarımınızı tootest kullanabilirsiniz.   
+Bu derste, Excel’de çözümleme özelliğini kullanarak Microsoft Excel’i açar, model çalışma alanı ile otomatik bir bağlantı oluşturur ve çalışma sayfasına otomatik olarak bir PivotTable eklersiniz. Excel’de çözümleme özelliği, modelinizi dağıtmadan önce model tasarımınızın etkililiğini test etmenin hızlı ve kolay bir yolunu sağlamak üzere tasarlanmıştır. Bu derste herhangi bir veri çözümlemesi yapmayacaksınız. Dersin amacı, model yazarı olarak model tasarımınızı test etmek için kullanabileceğiniz araçları tanımanızı sağlamaktır.   
   
-Merhaba üzerinde bu ders Excel yüklü toocomplete SSDT ile aynı bilgisayara.
+Bu dersi tamamlamak için Excel’in SSDT ile aynı bilgisayarda yüklü olması gerekir.
   
-Bu ders zaman toocomplete tahmini: **beş dakika**  
+Bu dersi tamamlamak için tahmini süre: **Beş dakika**  
   
 ## <a name="prerequisites"></a>Ön koşullar  
-Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir parçasıdır. Bu ders Hello görevleri gerçekleştirmeden önce hello önceki Ders tamamlandı: [Ders 11: roller oluşturma](../tutorials/aas-lesson-11-create-roles.md).  
+Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [11. Ders: Rol oluşturma](../tutorials/aas-lesson-11-create-roles.md).  
   
-## <a name="browse-using-hello-default-and-internet-sales-perspectives"></a>Merhaba varsayılan ve Internet satış Perspektifler kullanarak Gözat  
-Bu ilk görevleri modeliniz tüm model nesneleri içeren iki hello varsayılan perspektif kullanarak ve ayrıca hello Internet satış perspektifini kullanarak göz, daha önce. Merhaba Internet satış perspektif hello müşteri tablo nesnesi dışlar.  
+## <a name="browse-using-the-default-and-internet-sales-perspectives"></a>Varsayılan ve İnternet Satışları perspektiflerini kullanarak göz atma  
+Bu ilk görevlerde, tüm model nesnelerinizi içeren varsayılan perspektifi ve daha önceki İnternet Satışları perspektifini kullanarak modelinize göz atacaksınız. İnternet Satışları perspektifi, Müşteri tablo nesnesini içermez.  
   
-#### <a name="toobrowse-by-using-hello-default-perspective"></a>Merhaba varsayılan perspektif kullanarak toobrowse  
+#### <a name="to-browse-by-using-the-default-perspective"></a>Varsayılan perspektifi kullanarak göz atmak için  
   
-1.  Merhaba tıklatın **modeli** menü > **Excel'de çözümleme özelliği**.  
+1.  **Model** menüsü > **Excel'de çözümleme** öğesine tıklayın.  
   
-2.  Merhaba, **Excel'de çözümleme özelliği** iletişim kutusu, tıklatın **Tamam**.  
+2.  **Excel'de çözümleme** iletişim kutusunda **Tamam**’a tıklayın.  
   
-    Excel yeni bir çalışma kitabı ile açılır. Merhaba geçerli kullanıcı hesabı kullanarak bir veri kaynağı bağlantısı oluşturulduğunu ve hello varsayılan perspektif kullanılan toodefine görüntülenebilir alanları. Bir PivotTable toohello çalışma otomatik olarak eklenir.  
+    Excel yeni bir çalışma kitabı ile açılır. Geçerli kullanıcı hesabı kullanılarak bir veri kaynağı bağlantısı oluşturulur ve görüntülenebilir alanları tanımlamak için Varsayılan perspektif kullanılır. Çalışma sayfasına bir PivotTable otomatik olarak eklenir.  
   
-3.  Excel'de, hello **PivotTable alan Listesi'ni**, bildirim hello **DimDate'i** ve **Factınternetsales** ölçü grupları görünür. Merhaba **DimCustomer**, **DimDate'i**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory**, ve **Factınternetsales** tabloların kendi ilgili sütunları da görünür.  
+3.  Excel'deki **PivotTable Alan Listesi** içinde, **DimDate** ve **FactInternetSales** ölçü gruplarının göründüğüne dikkat edin. **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory** ve **FactInternetSales** tabloları da ilgili sütunlarıyla birlikte görünür.  
   
-4.  Excel hello çalışma kitabını kaydetmeden kapatın.  
+4.  Çalışma kitabını kaydetmeden Excel’i kapatın.  
   
-#### <a name="toobrowse-by-using-hello-internet-sales-perspective"></a>Merhaba Internet satış perspektifini kullanarak toobrowse  
+#### <a name="to-browse-by-using-the-internet-sales-perspective"></a>İnternet Satışları perspektifini kullanarak göz atmak için  
   
-1.  Merhaba tıklatın **modeli** menüsüne ve ardından **Excel'de çözümleme özelliği**.  
+1.  **Model** menüsüne ve ardından **Excel'de çözümleme** öğesine tıklayın.  
   
-2.  Merhaba, **Excel'de çözümleme özelliği** iletişim kutusu, bırakın **geçerli Windows kullanıcısı** sonra hello seçili **perspektif** aşağı açılan liste kutusunu seçin **Internet satış** ve ardından **Tamam**. 
+2.  **Excel’de çözümleme** iletişim kutusunda **Geçerli Windows Kullanıcısı**’nı işaretli bırakın, ardından **Perspektif** açılır liste kutusunda **İnternet Satışları**’nı seçip **Tamam**’a tıklayın. 
     
     ![aas-lesson12-perspective](../tutorials/media/aas-lesson12-perspective.png)
     
-3.  Excel'de içinde **PivotTable alanları**, hello DimCustomer tablo hello alan listesinden hariç dikkat edin.  
+3.  Excel'deki **PivotTable Alanları** listesinde DimCustomer tablosunun alan listesi dışında bırakıldığına dikkat edin.  
     
     ![aas-lesson12-fields](../tutorials/media/aas-lesson12-fields.png)
     
-4.  Excel hello çalışma kitabını kaydetmeden kapatın.  
+4.  Çalışma kitabını kaydetmeden Excel’i kapatın.  
   
 ## <a name="browse-by-using-roles"></a>Rolleri kullanarak göz atma  
-Roller herhangi bir tablo modelinin önemli bir parçasıdır. En az bir rol olmadan toowhich kullanıcıların üye olarak ekleneceği, kullanıcılar erişim ve modelinizi kullanarak verileri analiz. Excel özelliği Hello Çözümle bir yol sizin için tanımladığınız tootest hello rolleri sağlar.  
+Roller herhangi bir tablo modelinin önemli bir parçasıdır. Kullanıcıların üye olarak eklendiği en az bir rol olmadan kullanıcılar, modelinizi kullanarak verilere erişemez ve verileri çözümleyemez. Excel’de çözümleme özelliği, tanımladığınız rolleri test etmenizin bir yolunu sağlar.  
   
-#### <a name="toobrowse-by-using-hello-sales-manager-user-role"></a>Merhaba satış yöneticisi kullanıcı rolü kullanarak toobrowse  
+#### <a name="to-browse-by-using-the-sales-manager-user-role"></a>Satış Yöneticisi kullanıcı rolünü kullanarak göz atmak için  
   
-1.  Merhaba SSDT içinde tıklatın **modeli** menüsüne ve ardından **Excel'de çözümleme özelliği**.  
+1.  SSDT’de **Model** menüsüne ve ardından **Excel'de çözümleme** öğesine tıklayın.  
   
-2.  İçinde **belirt hello kullanıcı adını veya rolü toouse tooconnect toohello modeli**seçin **rol**seçip hello aşağı açılan liste kutusunda **Satış Yöneticisi**ve 'ıtıklatın **Tamam**.  
+2.  **Modele bağlanmak için kullanılacak kullanıcı adını veya rolü belirtin** alanında **Rol**’ü seçin ve ardından açılır liste kutusunda **Satış Yöneticisi**’ni seçip **Tamam**’a tıklayın.  
   
-    Excel yeni bir çalışma kitabı ile açılır. Bir PivotTable otomatik olarak oluşturulur. Merhaba Özet Tablo alan listesi yeni modelinizde kullanılabilir tüm hello veri alanları içerir.  
+    Excel yeni bir çalışma kitabı ile açılır. Bir PivotTable otomatik olarak oluşturulur. Pivot Tablo Alanı Listesi, yeni modelinizde bulunan tüm veri alanlarını içerir.  
       
-3.  Excel hello çalışma kitabını kaydetmeden kapatın.  
+3.  Çalışma kitabını kaydetmeden Excel’i kapatın.  
   
 ## <a name="whats-next"></a>Sırada ne var?
-Git toohello sonraki Ders: [Ders 13: dağıtmak](../tutorials/aas-lesson-13-deploy.md).
+Sonraki derse gidin: [13. Ders: Dağıtma](../tutorials/aas-lesson-13-deploy.md).
 
   
   

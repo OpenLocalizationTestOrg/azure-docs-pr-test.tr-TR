@@ -1,6 +1,6 @@
 ---
-title: "aaaStart ve durdurma küme düğümleri tootest Azure mikro | Microsoft Docs"
-description: "Nasıl toouse arıza ekleme tootest Service Fabric uygulaması başlatma ve küme düğümleri durdurma öğrenin."
+title: "Başlatma ve durdurma Azure mikro test etmek için küme düğümlerinin | Microsoft Docs"
+description: "Service Fabric uygulaması başlatma ve küme düğümleri durdurma test etmek için hata ekleme kullanmayı öğrenin."
 services: service-fabric
 documentationcenter: .net
 author: LMWF
@@ -14,57 +14,57 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/12/2017
 ms.author: lemai
-ms.openlocfilehash: 7d3f5147328e6233a67533fbfb2a525aa5fc060e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 850fbc0c74811ec942292da64064dec867cd1b9e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="replacing-hello-start-node-and-stop-node-apis-with-hello-node-transition-api"></a>Hello düğümü Başlat ve Durdur düğüm API'leri hello düğümü geçiş API ile değiştirme
+# <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Başlatma ve durdurma düğümlerini API'leri düğümü geçiş API ile değiştirme
 
-## <a name="what-do-hello-stop-node-and-start-node-apis-do"></a>Durdur düğümü hello ve başlangıç düğümü API'leri yapın?
+## <a name="what-do-the-stop-node-and-start-node-apis-do"></a>Düğüm durdurmak ve başlatmak düğümü API'leri ne yapacaksınız?
 
-Merhaba Durdur düğümü API (yönetilen: [StopNodeAsync()][stopnode], PowerShell: [Stop-ServiceFabricNode][stopnodeps]) bir Service Fabric düğümü durdurur.  Service Fabric düğümü işlemi, VM veya makine değil – hello VM veya makine hala çalıştırırsınız.  Merhaba belge Hello kalanı için Service Fabric düğümü "düğümü" anlamına gelir.  Bir düğümü durdurma, koyar içine bir *durduruldu* burada hello kümesinin bir üyesi değil ve Hizmetleri, bu nedenle benzetimi barındıramaz durumu bir *aşağı* düğümü.  Bu, hataları hello sistem tootest uygulamanızı injecting için kullanışlıdır.  Merhaba başlangıç düğümü API (yönetilen: [StartNodeAsync()][startnode], PowerShell: [başlangıç ServiceFabricNode][startnodeps]]) çevirmelerinin hello düğümü API, Durdur  hangi hello düğüm geri tooa normal durumu getirir.
+Durdur düğümü API (yönetilen: [StopNodeAsync()][stopnode], PowerShell: [Stop-ServiceFabricNode][stopnodeps]) bir Service Fabric düğümü durdurur.  Service Fabric düğümü işlem veya değil, VM makine – VM veya makine hala çalıştırırsınız.  Belgenin geri kalanında için Service Fabric düğümü "düğümü" anlamına gelir.  Bir düğümü durdurma, koyar içine bir *durduruldu* burada kümesinin bir üyesi değil ve Hizmetleri, bu nedenle benzetimi barındıramaz durumu bir *aşağı* düğümü.  Bu, uygulamanızı test etmek için sisteme hataları injecting için kullanışlıdır.  Başlangıç düğümü API (yönetilen: [StartNodeAsync()][startnode], PowerShell: [başlangıç ServiceFabricNode][startnodeps]]) durdurun düğümü API tersine çevirir  hangi düğümün normal bir duruma getirir.
 
 ## <a name="why-are-we-replacing-these"></a>Neden Biz bu değiştirdiğiniz?
 
-Daha önce açıklandığı gibi bir *durduruldu* Service Fabric düğümdür bilerek hello Durdur düğümü API kullanarak hedeflenen bir düğüm.  A *aşağı* (örneğin hello VM veya makine kapalıdır) herhangi bir nedenle çalışmıyor bir düğüm düğümdür.  Merhaba Durdur düğümü API arasında bilgi toodifferentiate hello sistem kullanıma sunmuyor *durduruldu* düğümleri ve *aşağı* düğümleri.
+Daha önce açıklandığı gibi bir *durduruldu* Service Fabric düğümdür bilerek Durdur düğümü API kullanarak hedeflenen bir düğüm.  A *aşağı* (örneğin VM veya makine kapalıdır) herhangi bir nedenle çalışmıyor bir düğüm düğümdür.  Durdur düğümü API'si ile birbirinden ayırmak için bilgi sistem kullanıma sunmuyor *durduruldu* düğümleri ve *aşağı* düğümleri.
 
-Ayrıca, bu API'ları tarafından döndürülen bazı hatalar olması olabilir olarak tanımlayıcı değildir.  Örneğin, çağırma hello Durdur düğümü API üzerinde zaten bir *durduruldu* düğümü hello hata döndürecektir *InvalidAddress*.  Bu deneyim geliştirilmiş.
+Ayrıca, bu API'ları tarafından döndürülen bazı hatalar olması olabilir olarak tanımlayıcı değildir.  Durdur düğümü API harekete Örneğin, zaten bir *durduruldu* düğümü hata döndürecektir *InvalidAddress*.  Bu deneyim geliştirilmiş.
 
-Ayrıca, bir düğüm için durduruldu hello süresi başlangıç düğümü API çağrılan hello kadar "sonsuz" olur.  Biz bu sorunlara neden olabilir ve hataya yatkın olabilir buldunuz.  Örneğin, burada bir kullanıcı bir düğümde hello Durdur düğümü API çağrılır ve hakkında mı unuttunuz sorunları gördük.  Daha sonra hello düğüm varsa belirsiz *aşağı* veya *durduruldu*.
+Ayrıca, başlangıç düğümü API çağrılan kadar bir düğüm için durduruldu süresi "sonsuz" olur.  Biz bu sorunlara neden olabilir ve hataya yatkın olabilir buldunuz.  Örneğin, burada bir kullanıcı bir düğüm üzerinde Durdur düğümü API çağrılır ve bilgiyi unuttunuz sorunları gördük.  Daha sonra düğüm varsa belirsiz *aşağı* veya *durduruldu*.
 
 
-## <a name="introducing-hello-node-transition-apis"></a>Merhaba düğümü geçiş API'leri Tanıtımı
+## <a name="introducing-the-node-transition-apis"></a>Düğüm geçiş API'leri Tanıtımı
 
-Biz, yeni bir API kümesi yukarıda bu sorunları ele aldık.  Merhaba yeni düğümü geçiş API (yönetilen: [StartNodeTransitionAsync()][snt]) kullanılan tootransition Service Fabric düğümü tooa olabilir *durduruldu* durum veya tootransition, gelen bir *durduruldu* durumu tooa durumunu normal.  Lütfen bu hello "Başlat" Merhaba API hello adını toostarting bir düğüm başvurmuyor unutmayın.  Toobeginning hello sistem tootransition hello düğümü tooeither yürütecek zaman uyumsuz bir işlem başvurduğu *durduruldu* veya durumu başlatıldı.
+Biz, yeni bir API kümesi yukarıda bu sorunları ele aldık.  Yeni düğüm geçiş API (yönetilen: [StartNodeTransitionAsync()][snt]) bir Service Fabric düğüme geçiş için kullanılabilir bir *durduruldu* durumu veya ondan geçiş için bir *durduruldu* çalışır durumda normal durum.  Lütfen bir düğümü başlatma için API adına "Başlat" başvurmuyor unutmayın.  Sistem ya da düğüme geçiş yürütecek zaman uyumsuz bir işlem başlangıcı için başvurduğu *durduruldu* veya durumu başlatıldı.
 
 **Kullanım**
 
-Merhaba düğümü geçiş API çağrıldığında bir özel durum oluşturmadığını, ardından hello sistem hello zaman uyumsuz işlemi kabul etti ve yürütülmez.  Başarılı bir çağrı hello işlemi henüz tamamlandı göstermez.  Merhaba işlemi, düğüm geçiş ilerleme API çağrısı hello hello geçerli durumu hakkında bilgi tooget (yönetilen: [GetNodeTransitionProgressAsync()][gntp]) düğüm çağrılırken kullanılan hello GUID ile Bu işlem için geçiş API.  Merhaba düğümü geçiş ilerleme API NodeTransitionProgress nesneyi döndürür.  Bu nesnenin durumu özelliği hello hello işlemi geçerli durumunu belirtir.  Merhaba durumu "çalışıyorsa," Merhaba işlemi yürütüyor.  Tamamlandığında, hatasız hello işlemi tamamlandı.  Bu hatayla, hello işlem yürütülürken bir sorun oluştu.  özellik hangi hello sorun gösterecektir hello sonuç özelliğin özel durum.  Https://docs.microsoft.com/dotnet/api/System.fabric.testcommandprogressstate hello State özelliği ve kod örnekleri için aşağıdaki hello "Örnek kullanım" bölümüne hakkında daha fazla bilgi için bkz.
+Düğüm geçiş API çağrıldığında bir özel durum oluşturmadığını, ardından sistemi zaman uyumsuz işlemi kabul etti ve yürütülmez.  Başarılı bir çağrı işlemi henüz tamamlandı göstermez.  İşlemi geçerli durumu hakkında bilgi almak için düğüm geçiş ilerleme API çağrısı (yönetilen: [GetNodeTransitionProgressAsync()][gntp]) düğüm geçiş API çağrılırken kullanılan GUID ile Bu işlem için.  Düğüm geçiş ilerleme API NodeTransitionProgress nesneyi döndürür.  Bu nesnenin durumu özelliği işlemi geçerli durumunu belirtir.  Durumu "çalışıyorsa," işlemi yürütüyor.  Tamamlandığında, hatasız işlemi tamamlandı.  Hatalı, işlem yürütülürken bir sorun oluştu.  Sonuç özelliğin özel durum özelliği ne sorun olduğunu belirtir.  Https://docs.microsoft.com/dotnet/api/System.fabric.testcommandprogressstate State özelliği ve kod örnekleri için aşağıdaki "Örnek kullanım" bölümüne hakkında daha fazla bilgi için bkz.
 
 
-**Durdurulmuş bir düğümü ve bir aşağı düğümü arasında ayrım yapma** bir düğümü ise *durduruldu* kullanarak hello düğümü geçiş API, bir düğümü sorgusu hello çıktısını (yönetilen: [GetNodeListAsync()] [ nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) bu düğüm olduğunu gösterecek bir *IsStopped* özellik değerinin true.  Bu hello hello değerinden farklı Not *NodeStatus* yazacaktır özelliği *aşağı*.  Merhaba, *NodeStatus* özellik değerine sahip *aşağı*, ancak *IsStopped* hello düğümü hello düğümü geçiş API kullanarak durdurulmadı sonra yanlış olduğundan ve  *Aşağı* başka bir nedenle son.  Merhaba, *IsStopped* özelliktir true ve hello *NodeStatus* özelliği *aşağı*, hello düğümü geçiş API kullanarak durduruldu sonra.
+**Durdurulmuş bir düğümü ve bir aşağı düğümü arasında ayrım yapma** bir düğümü ise *durduruldu* bir düğümü sorgusu çıktısını düğümü geçiş API kullanarak (yönetilen: [GetNodeListAsync()] [ nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) bu düğüm olduğunu gösterecek bir *IsStopped* özellik değerinin true.  Bu değerinden farklı Not *NodeStatus* yazacaktır özelliği *aşağı*.  Varsa *NodeStatus* özellik değerine sahip *aşağı*, ancak *IsStopped* düğümünü düğüm geçiş API kullanarak durdurulmadı sonra yanlış olduğundan ve *aşağı*  başka bir nedenle son.  Varsa *IsStopped* özelliği true, ise ve *NodeStatus* özelliği *aşağı*, düğüm geçiş API kullanarak durduruldu sonra.
 
-Başlangıç bir *durduruldu* hello düğümü geçiş API kullanarak düğümüne döndürür, toofunction normal hello küme üyesi olarak yeniden.  Merhaba hello düğümü sorgusu API çıktısını gösterir *IsStopped* false olarak ve *NodeStatus* aşağı (örneğin yukarı) olmayan bir şey olarak.
+Başlangıç bir *durduruldu* düğümü geçiş API kullanarak düğümünü yeniden normal bir küme üyesi olarak çalışabilmesi için döndürecektir.  Düğümü sorgusu API çıktısını gösterir *IsStopped* false olarak ve *NodeStatus* aşağı (örneğin yukarı) olmayan bir şey olarak.
 
 
-**Sınırlı bir süre** hello düğümü geçiş API toostop bir düğüm kullanırken hello birini parametreleri, gerekli *stopNodeDurationInSeconds*, temsil hello süreyi saniye tookeep hello düğümünde  *durdurulmuş*.  Bu değer izin verilen 600 en az ve en fazla 14400 sahip aralık hello olmalıdır.  Bu süre dolduktan sonra hello düğüm kendi içine durumunu otomatik olarak yeniden başlatılır.  Kullanım örneği için tooSample 1 aşağıya bakın.
-
-> [!WARNING]
-> Düğüm geçiş API'leri karıştırma önlemek ve düğüm durdurmak ve başlatmak düğümü API'leri hello.  Merhaba çok başlangıç düğümü geçiş API yalnızca kullanılması önerilir.  > Bir düğüm olup zaten yapıldıysa hello Durdur düğümü API kullanarak durduruldu, onu hello başlangıç düğümü API ilk hello kullanmadan önce kullanılarak başlatılmaması gerekir > düğümü geçiş API'leri.
+**Sınırlı bir süre** düğümü geçiş API'si bir düğüm, gereken parametrelerden biri durdurmak için kullanılırken *stopNodeDurationInSeconds*, düğüm tutmak için saniye cinsinden süreyi temsil eden *durduruldu*.  Bu değer 600 en az ve en fazla 14400 olan izin verilen aralığında olmalıdır.  Bu süre dolduktan sonra düğüm kendi içine durumunu otomatik olarak yeniden başlatılır.  Kullanım örneği örnek 1 bakın.
 
 > [!WARNING]
-> Birden çok düğüm geçiş API çağrıları üzerinde yapılamaz aynı düğümde paralel hello.  Merhaba düğümü geçiş API böyle bir durumda olacak > NodeTransitionInProgress ErrorCode özellik değeri olan bir FabricException atar.  Belirli bir düğümde bir düğüm geçiş sonra > edilmiş hello işlemi başlamadan önce bir terminal durumu (tamamlandı, Faulted veya ForceCancelled) ulaşana kadar başlatıldı, beklemeniz gerekir bir > Yeni hello üzerinde aynı geçiş düğümü.  Paralel düğümü geçiş çağrıları farklı düğümlerde izin verilir.
+> Düğümü geçiş API'leri ve düğüm durdurmak ve başlatmak düğümü API'leri karıştırma kaçının.  Yalnızca düğüm geçiş API'sini kullanmanız önerilir.  > Bir düğüm olup zaten yapıldıysa Durdur düğümü API kullanarak durduruldu, onu başlangıç düğümü ilk önce kullanarak API kullanılarak başlatılmaması gerekir > düğümü geçiş API'leri.
+
+> [!WARNING]
+> Birden çok düğüm geçiş API çağrıları, aynı düğümde paralel yapılamaz.  Böyle bir durumda düğüm geçiş API olacak > NodeTransitionInProgress ErrorCode özellik değeri olan bir FabricException atar.  Belirli bir düğümde bir düğüm geçiş sonra > edilmiş işlemi başlamadan önce bir terminal durumu (tamamlandı, Faulted veya ForceCancelled) ulaşana kadar başlatıldı, beklemeniz gerekir bir > aynı düğümde yeni geçişi.  Paralel düğümü geçiş çağrıları farklı düğümlerde izin verilir.
 
 
 #### <a name="sample-usage"></a>Örnek Kullanım
 
 
-**Örnek 1** -örnek kullandığı aşağıdaki hello hello düğümü geçiş API toostop bir düğüm.
+**Örnek 1** -aşağıdaki örnek, bir düğüm durdurmak için düğüm geçiş API'sini kullanır.
 
 ```csharp
-        // Helper function tooget information about a node
+        // Helper function to get information about a node
         static Node GetNodeInfo(FabricClient fc, string node)
         {
             NodeList n = null;
@@ -105,7 +105,7 @@ Başlangıç bir *durduruldu* hello düğümü geçiş API kullanarak düğümü
 
                     if (progress.State == TestCommandProgressState.Faulted)
                     {
-                        // Inspect hello progress object's Result.Exception.HResult tooget hello error code.
+                        // Inspect the progress object's Result.Exception.HResult to get the error code.
                         Console.WriteLine("'{0}' failed with: {1}, HResult: {2}", operationId, progress.Result.Exception, progress.Result.Exception.HResult);
 
                         // ...additional logic as required
@@ -125,7 +125,7 @@ Başlangıç bir *durduruldu* hello düğümü geçiş API kullanarak düğümü
 
         static async Task StopNodeAsync(FabricClient fc, string nodeName, int durationInSeconds)
         {
-            // Uses hello GetNodeListAsync() API tooget information about hello target node
+            // Uses the GetNodeListAsync() API to get information about the target node
             Node n = GetNodeInfo(fc, nodeName);
 
             // Create a Guid
@@ -140,7 +140,7 @@ Başlangıç bir *durduruldu* hello düğümü geçiş API kullanarak düğümü
             {
                 try
                 {
-                    // Invoke StartNodeTransitionAsync with hello NodeStopDescription from above, which will stop hello target node.  Retry transient errors.
+                    // Invoke StartNodeTransitionAsync with the NodeStopDescription from above, which will stop the target node.  Retry transient errors.
                     await fc.TestManager.StartNodeTransitionAsync(description, TimeSpan.FromMinutes(1), CancellationToken.None).ConfigureAwait(false);
                     wasSuccessful = true;
                 }
@@ -163,12 +163,12 @@ Başlangıç bir *durduruldu* hello düğümü geçiş API kullanarak düğümü
         }
 ```
 
-**Örnek 2** - hello örnek başlatır izleyen bir *durduruldu* düğümü.  Bazı yardımcı yöntemler hello ilk örnekten kullanır.
+**Örnek 2** -aşağıdaki örnek başlatır bir *durduruldu* düğümü.  İlk örnekten bazı yardımcı yöntemler kullanır.
 
 ```csharp
         static async Task StartNodeAsync(FabricClient fc, string nodeName)
         {
-            // Uses hello GetNodeListAsync() API tooget information about hello target node
+            // Uses the GetNodeListAsync() API to get information about the target node
             Node n = GetNodeInfo(fc, nodeName);
 
             Guid guid = Guid.NewGuid();
@@ -183,7 +183,7 @@ Başlangıç bir *durduruldu* hello düğümü geçiş API kullanarak düğümü
             {
                 try
                 {
-                    // Invoke StartNodeTransitionAsync with hello NodeStartDescription from above, which will start hello target stopped node.  Retry transient errors.
+                    // Invoke StartNodeTransitionAsync with the NodeStartDescription from above, which will start the target stopped node.  Retry transient errors.
                     await fc.TestManager.StartNodeTransitionAsync(description, TimeSpan.FromMinutes(1), CancellationToken.None).ConfigureAwait(false);
                     wasSuccessful = true;
                 }
@@ -206,7 +206,7 @@ Başlangıç bir *durduruldu* hello düğümü geçiş API kullanarak düğümü
         }
 ```
 
-**Örnek 3** - hello aşağıdaki örnek, yanlış kullanımı gösterir.  Bu kullanım yanlış olduğundan hello *stopDurationInSeconds* sağladığı izin verilen aralığın başlangıç daha büyük.  StartNodeTransitionAsync() önemli bir hata ile başarısız olur bu yana hello işlemi kabul ve hello ilerleme API çağrılmamalı.  Bu örnek hello ilk örnekten bazı yardımcı yöntemler kullanır.
+**Örnek 3** -aşağıdaki örnek yanlış kullanımını gösterir.  Bu kullanım yanlış olduğundan *stopDurationInSeconds* sağladığı izin verilen aralığından daha büyük.  StartNodeTransitionAsync() önemli bir hata ile başarısız olur olduğundan, işlem kabul ve ilerleme API çağrılmamalı.  Bu örnek ilk örnekten bazı yardımcı yöntemler kullanır.
 
 ```csharp
         static async Task StopNodeWithOutOfRangeDurationAsync(FabricClient fc, string nodeName)
@@ -215,7 +215,7 @@ Başlangıç bir *durduruldu* hello düğümü geçiş API kullanarak düğümü
 
             Guid guid = Guid.NewGuid();
 
-            // Use an out of range value for stopDurationInSeconds toodemonstrate error
+            // Use an out of range value for stopDurationInSeconds to demonstrate error
             NodeStopDescription description = new NodeStopDescription(guid, n.NodeName, n.NodeInstanceId, 99999);
 
             try
@@ -237,7 +237,7 @@ Başlangıç bir *durduruldu* hello düğümü geçiş API kullanarak düğümü
         }
 ```
 
-**Örnek 4** - hello aşağıdaki örnek, başlangıç düğümü, geçiş ilerleme hello düğümü geçiş API tarafından başlatılan hello işlemi kabul edilir, ancak daha sonra yürütülürken başarısız olduğunda API sunucudan döndürülen hello hata bilgilerini gösterir.  Merhaba düğümü geçiş API toostart var olmayan bir düğüm çalıştığı hello durumda başarısız olur.  Bu örnek hello ilk örnekten bazı yardımcı yöntemler kullanır.
+**Örnek 4** -aşağıdaki örnek düğüm geçiş API tarafından başlatılan işlemi kabul edilir, ancak daha sonra yürütülürken başarısız olduğunda düğüm geçiş ilerleme API'SİNDEN döndürülen hata bilgilerini gösterir.  Düğüm geçiş API var olmayan bir düğümü başlatma girişiminde bulunduğu için durumunda başarısız olur.  Bu örnek ilk örnekten bazı yardımcı yöntemler kullanır.
 
 ```csharp
         static async Task StartNodeWithNonexistentNodeAsync(FabricClient fc)
@@ -254,7 +254,7 @@ Başlangıç bir *durduruldu* hello düğümü geçiş API kullanarak düğümü
             {
                 try
                 {
-                    // Invoke StartNodeTransitionAsync with hello NodeStartDescription from above, which will start hello target stopped node.  Retry transient errors.
+                    // Invoke StartNodeTransitionAsync with the NodeStartDescription from above, which will start the target stopped node.  Retry transient errors.
                     await fc.TestManager.StartNodeTransitionAsync(description, TimeSpan.FromMinutes(1), CancellationToken.None).ConfigureAwait(false);
                     wasSuccessful = true;
                 }
@@ -272,8 +272,8 @@ Başlangıç bir *durduruldu* hello düğümü geçiş API kullanarak düğümü
             }
             while (!wasSuccessful);
 
-            // Now call StartNodeTransitionProgressAsync() until hello desired state is reached.  In this case, it will end up in hello Faulted state since hello node does not exist.
-            // When StartNodeTransitionProgressAsync()'s returned progress object has a State if Faulted, inspect hello progress object's Result.Exception.HResult tooget hello error code.
+            // Now call StartNodeTransitionProgressAsync() until the desired state is reached.  In this case, it will end up in the Faulted state since the node does not exist.
+            // When StartNodeTransitionProgressAsync()'s returned progress object has a State if Faulted, inspect the progress object's Result.Exception.HResult to get the error code.
             // In this case, it will be NodeNotFound.
             await WaitForStateAsync(fc, guid, TestCommandProgressState.Faulted).ConfigureAwait(false);
         }

@@ -1,6 +1,6 @@
 ---
-title: "aaaTutorial - kullanım hello Python için Azure Batch SDK'sı | Microsoft Docs"
-description: "Azure Batch temel kavramlarını Hello öğrenin ve Python kullanarak basit bir çözüm oluşturun."
+title: "Öğretici - Python için Azure Batch SDK’sını kullanma | Microsoft Belgeleri"
+description: "Temel Azure Batch kavramlarını öğrenin ve Python kullanarak basit bir çözüm derleyin."
 services: batch
 documentationcenter: python
 author: tamram
@@ -15,13 +15,13 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c4d5152aeef31848c50a7f2aae5e7a7e0e1e9535
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: bd5a977c10d3955639beb893cd7a37581b14f7c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="get-started-with-hello-batch-sdk-for-python"></a>Python için Hello Batch SDK'sı ile çalışmaya başlama
+# <a name="get-started-with-the-batch-sdk-for-python"></a>Python için Batch SDK'sını kullanmaya başlama
 
 > [!div class="op_single_selector"]
 > * [.NET](batch-dotnet-get-started.md)
@@ -30,12 +30,12 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Merhaba temel bilgileri öğrenmek [Azure Batch] [ azure_batch] ve hello [Batch Python] [ py_azure_sdk] istemci Python'da yazılmış küçük bir Batch uygulamasından aşağıdakiler ele gibi. İki hello buluttaki Linux sanal makinelerde paralel iş yükünü betikleri kullanım hello Batch hizmeti tooprocess nasıl örnek ve ile nasıl etkileşim kurduklarını ele [Azure Storage](../storage/common/storage-introduction.md) dosya hazırlığı ve alımı için. Ortak Batch uygulama iş akışı öğrenin ve hello başlıca Batch bileşenleri işler, görevler, havuzlar gibi temel bir anlayış edinmek ve işlem düğümleri.
+Python’da yazılmış küçük bir Batch uygulamasından söz ettiğimizden, [Azure Batch][azure_batch] ve [Batch Python][py_azure_sdk] istemcisi hakkında temel bilgileri alın. İki örnek betiğin buluttaki Linux sanal makinelerde paralel bir iş yükünü işlemek için Batch hizmetini nasıl kullandıklarına; dosya hazırlığı ve alımı için [Azure Depolama](../storage/common/storage-introduction.md) ile nasıl etkileşime girdiklerine bakacağız. Ortak Batch uygulama iş akışını öğrenmenin yanı sıra işler, görevler, havuzlar ve işlem düğümü gibi başlıca Batch bileşenleri hakkında da temel bir anlayış kazanacaksınız.
 
 ![Batch çözümü iş akışı (temel)][11]<br/>
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu makalede, Python ve Linux alışkanlığına sahip olduğunuz varsayılmaktadır. Aşağıda Azure ve hello toplu işlem ve depolama hizmetleri için belirtilen mümkün toosatisfy hello hesap oluşturma gerekliliklerini olduğunuzu varsayar.
+Bu makalede, Python ve Linux alışkanlığına sahip olduğunuz varsayılmaktadır. Azure’ün yanı sıra Batch ve Storage hizmetleri için aşağıda belirtilen hesap oluşturma gerekliliklerini karşılayabildiğiniz de varsayılmaktadır.
 
 ### <a name="accounts"></a>Hesaplar
 * **Azure hesabı**: Henüz bir Azure aboneliğiniz yoksa, [ücretsiz Azure hesabı oluşturun][azure_free_account].
@@ -43,16 +43,16 @@ Bu makalede, Python ve Linux alışkanlığına sahip olduğunuz varsayılmaktad
 * **Storage hesabı**: Bkz. [Azure Storage hesapları hakkında](../storage/common/storage-create-storage-account.md) sayfası, [Storage hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) bölümü.
 
 ### <a name="code-sample"></a>Kod örneği
-Merhaba Python Eğitmen [kod örneği] [ github_article_samples] birçok Batch kod örnekleri bulunan hello hello biri [azure-batch-samples] [ github_samples] havuzda GitHub. Tüm hello örnekleri tıklayarak indirebileceğiniz **Kopyala veya indir > ZIP'i indir** hello depo giriş sayfasındaki veya hello tıklatarak [azure-batch-samples-master.zip] [ github_samples_zip]doğrudan indirme bağlantısına. Merhaba hello ZIP dosyasının içeriğini ayıkladıktan sonra Bu öğretici için hello iki betikleri hello bulunan `article_samples` dizini:
+Python eğitmen [kod örneği][github_article_samples] GitHub’daki [azure-batch-samples][github_samples] deposunda bulunan çok sayıda Batch kod örneğinden biridir. Örneklerin tümünü, depo giriş sayfasındaki **Kopyala veya indir > ZIP’i İndir**’e veya [azure-batch-samples-master.zip][github_samples_zip] doğrudan indirme bağlantısına tıklayarak indirebilirsiniz. ZIP dosyasının içeriğini ayıkladıktan sonra Bu eğitmene yönelik iki betik `article_samples` dizininde yer alır:
 
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_client.py`<br/>
 `/azure-batch-samples/Python/Batch/article_samples/python_tutorial_task.py`
 
 ### <a name="python-environment"></a>Python ortamı
-toorun hello *python_tutorial_client.py* örnek betik, yerel iş istasyonunda ihtiyacınız bir **Python yorumlayıcı** sürümüyle uyumlu **2.7** veya **3.3 +**. Merhaba betik Linux ve Windows'da test edilmiştir.
+*python_tutorial_client.py* örnek betiğini yerel iş istasyonunuzda çalıştırmak için, bir **2.7** veya **3.3+** sürümüyle uyumlu **Python yorumlayıcı** gerekir. Betik Linux ve Windows'da test edilmiştir.
 
 ### <a name="cryptography-dependencies"></a>şifreleme bağımlılıkları
-Merhaba hello bağımlılıkları yüklemelisiniz [şifreleme] [ crypto] hello tarafından gerekli Kitaplığı `azure-batch` ve `azure-storage` Python paketlerini. Platformunuz için uygun işlemleri aşağıdaki hello birini gerçekleştirin veya toohello başvurun [şifreleme yükleme] [ crypto_install] daha fazla bilgi için ayrıntıları:
+[Şifreleme][crypto] kitaplığı için `azure-batch` ve `azure-storage` Python paketlerinin gerektirdiği bağımlılıkları yüklemeniz gerekir. Aşağıdaki işlemlerden platformunuz için uygun olan birini gerçekleştirin veya daha fazla bilgi için [şifreleme yüklemesi][crypto_install] ayrıntılarına bakın:
 
 * Ubuntu
 
@@ -68,61 +68,61 @@ Merhaba hello bağımlılıkları yüklemelisiniz [şifreleme] [ crypto] hello t
     `pip install cryptography`
 
 > [!NOTE]
-> Python 3.3 + Linux'ta için yüklüyorsanız, hello python3 eşdeğerleri hello Python bağımlılıkları için kullanın. Örneğin, Ubuntu üzerinde: `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython3-dev python3-dev`
+> Linux üzerinde 3.3+ Python yüklüyorsanız Python bağımlılıkları için python3 eşdeğerlerini kullanın. Örneğin, Ubuntu üzerinde: `apt-get update && apt-get install -y build-essential libssl-dev libffi-dev libpython3-dev python3-dev`
 >
 >
 
 ### <a name="azure-packages"></a>Azure paketleri
-Ardından, hello yüklemek **Azure Batch** ve **Azure Storage** Python paketlerini. Kullanarak her iki paketi yükleyebilirsiniz **PIP** ve hello *requirements.txt* burada bulundu:
+Ardından, **Azure Batch** ve **Azure Storage** Python paketlerini yükleyin. Her iki paketi de burada bulunan **pip** ve *requirements.txt* dosyalarını kullanarak yükleyebilirsiniz:
 
 `/azure-batch-samples/Python/Batch/requirements.txt`
 
-Sorunu aşağıdaki **PIP** komut tooinstall hello Batch ve Storage paketlerini:
+Batch ve Storage paketlerini yüklemek için aşağıdaki **pip** komutunu yayımlayın:
 
 `pip install -r requirements.txt`
 
-Veya hello yükleyebilirsiniz [azure-batch] [ pypi_batch] ve [azure depolama] [ pypi_storage] Python paketlerini el ile:
+Ayrıca, [azure-batch][pypi_batch] ve [azure-storage][pypi_storage] Python paketlerini el ile de yükleyebilirsiniz:
 
 `pip install azure-batch`<br/>
 `pip install azure-storage`
 
 > [!TIP]
-> Ayrıcalıksız bir hesap kullanıyorsanız, komutlarınıza tooprefix gerekebilir `sudo`. Örneğin, `sudo pip install -r requirements.txt`. Python paketlerini yükleme hakkında daha fazla bilgi için python.org sayfasındaki [Paketleri Yükleme][pypi_install] bölümüne bakın.
+> Ayrıcalığı olmayan bir hesap kullanıyorsanız, komutlarınıza `sudo` önekini eklemeniz gerekebilir. Örneğin, `sudo pip install -r requirements.txt`. Python paketlerini yükleme hakkında daha fazla bilgi için python.org sayfasındaki [Paketleri Yükleme][pypi_install] bölümüne bakın.
 >
 >
 
 ## <a name="batch-python-tutorial-code-sample"></a>Batch Python eğitmen kodu örneği
-Merhaba Batch Python Eğitmen kodu örneği, iki Python betiği ve birkaç veri dosyasından oluşur.
+Batch Python eğitmen kodu örneği, iki Python betiği ve birkaç veri dosyasından oluşur.
 
-* **python_tutorial_client.PY**: (sanal makineler) işlem düğümlerinde paralel iş yükünü hello toplu işlem ve depolama hizmetleri tooexecute ile etkileşim kurar. Merhaba *python_tutorial_client.py* komut dosyası yerel iş istasyonunda çalışır.
-* **python_tutorial_task.PY**: çalıştığı hello betik işlem düğümlerini Azure tooperform hello gerçek çalışma. Merhaba örneğinde, *python_tutorial_task.py* hello metni (girdi dosyası hello) Azure Storage'dan indirilen dosyada ayrıştırıyor. Bir metin dosyası oluşturur sonra (Merhaba çıktı dosyası) hello giriş dosyasında görünen hello ilk üç sözcük listesini içerir. Merhaba çıktı dosyasını oluşturduktan sonra *python_tutorial_task.py* karşıya dosya tooAzure depolama hello. İndirme toohello istemci komut dosyası iş istasyonunuza çalıştıran için kullanılabilir yapar. Merhaba *python_tutorial_task.py* işlem hello Batch hizmeti düğümünde birden fazla paralel betik çalışır.
-* **./Data/taskdata\*.txt**: hello üzerinde çalıştırmak hello görevleri işlem düğümleri için bu üç metin dosyaları hello girin.
+* **python_tutorial_client.py**: İşlem düğümlerinde paralel iş yükünü yürütmek için Batch ve Storage hizmetleriyle etkileşime girer (sanal makineler). *python_tutorial_client.py* betikleri yerel iş istasyonunda çalışır.
+* **python_tutorial_task.py**: Asıl işi gerçekleştirmek için Azure’deki işlem düğümlerinde çalışan betik. Örnekte, *python_tutorial_task.py* metni (girdi dosyası), Azure Storage’dan indirilen dosyada ayrıştırıyor. Ardından, girdi dosyasında ilk üç sözcüğün göründüğü listenin bulunduğu bir metin dosyası (çıktı dosyası) oluşturur. *python_tutorial_task.py*, çıktı dosyasını oluşturduktan sonra dosyayı Azure Storage’a yükler. İş istasyonunuzda çalışan istemci betiğini indirilmek üzere kullanıma açık tutar. *python_tutorial_task.py* betiği, Batch hizmetinde paralel olarak birden çok işlem düğümünde çalışır.
+* **./data/taskdata\*.txt**: Bu üç metin dosyası işlem düğümlerinde çalışan görevler için girdi dosyaları sağlar.
 
-Aşağıdaki diyagramda hello hello istemci ve görev betikleri tarafından gerçekleştirilen birincil işlemleri hello gösterilmektedir. Bu temel iş akışı, Batch’le oluşturulan çok sayıda işlem çözümünün tipik halidir. Bu her özelliğe hello Batch hizmeti uygun olmadığı belirtilirken, neredeyse her Batch senaryosu iş akışının bölümlerini içerir.
+Aşağıdaki diyagram, istemci ve görev betikleri tarafından gerçekleştirilen birincil işlemleri gösterir. Bu temel iş akışı, Batch’le oluşturulan çok sayıda işlem çözümünün tipik halidir. Batch hizmetinde erişilebilir olan özelliklerin hepsini göstermese de, neredeyse tüm Batch senaryoları bu iş akışının bölümlerini içerir.
 
 ![Batch örnek iş akışı][8]<br/>
 
 [**1. Adım.**](#step-1-create-storage-containers) Azure Blob Storage’da **kapsayıcılar** oluşturun.<br/>
-[**2. Adım.**](#step-2-upload-task-script-and-data-files) Görev betiğini ve girdi dosyalarını toocontainers karşıya yükleyin.<br/>
+[**2. Adım.**](#step-2-upload-task-script-and-data-files) Kapsayıcılara görev betiğini ve girdi dosyalarını yükleyin.<br/>
 [**3. Adım.**](#step-3-create-batch-pool) Batch **havuzu** oluşturun.<br/>
-  &nbsp;&nbsp;&nbsp;&nbsp;**3a.** Merhaba havuzu **StartTask** yüklemeleri hello görev betiğini (python_tutorial_task.py) toonodes hello havuzuna Katıl gibi.<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;**3a.** **StartTask** havuzu görev betiğini (python_tutorial_task.py), göreve katıldıkları için düğümlere indirir.<br/>
 [**4. Adım.**](#step-4-create-batch-job) Batch **işi** oluşturun.<br/>
-[**5. Adım**](#step-5-add-tasks-to-job) Ekleme **görevleri** toohello işi.<br/>
-  &nbsp;&nbsp;&nbsp;&nbsp;**5a.** Merhaba, düğümlerde zamanlanmış tooexecute görevlerdir.<br/>
+[**5. Adım**](#step-5-add-tasks-to-job) İşe **görevler** ekleyin.<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;**5a.** Görevler, düğümlerde yürütmek üzere zamanlanır.<br/>
     &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Her görev kendi girdi verilerini Azure Storage’dan indirip yürütmeye başlar.<br/>
 [**6. Adım**](#step-6-monitor-tasks) Görevleri izleyin.<br/>
-  &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Görevlerin tamamlanmasıyla, kendi çıktı veri tooAzure depolama karşıya yükleyin.<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;**6a.** Görevlerin tamamlanmasıyla, kendi çıktı verilerini Azure Storage’a yükler.<br/>
 [**7. Adım**](#step-7-download-task-output) Storage’dan görev çıktısını indirin.
 
 Yukarıda belirtildiği gibi, her Batch çözümü tam olarak bu adımları gerçekleştirmese ve çok daha fazlasını içerebilse de; bu örnek, Batch çözümünde bulunan ortak işlemleri göstermektedir.
 
 ## <a name="prepare-client-script"></a>İstemci komut dosyasını hazırlama
-Merhaba örneği çalıştırmadan önce Batch ve Storage hesabı kimlik bilgilerinizi çok eklemek*python_tutorial_client.py*. Henüz yapmadıysanız, kimlik bilgilerinizle izleyerek, sık kullanılan Düzenleyicisi ve güncelleştirme hello hello dosyasını açın.
+Örneği çalıştırmadan önce, Batch ve Storage hesabı kimlik bilgilerinizi *python_tutorial_client.py* öğesine ekleyin. Bu işi henüz yapmadıysanız, en sık kullandığınız düzenleyicide dosyayı açıp aşağıdaki satırları kendi kimlik bilgilerinizle güncelleştirin.
 
 ```python
-# Update hello Batch and Storage account credential strings below with hello values
-# unique tooyour accounts. These are used when constructing connection strings
-# for hello Batch and Storage client objects.
+# Update the Batch and Storage account credential strings below with the values
+# unique to your accounts. These are used when constructing connection strings
+# for the Batch and Storage client objects.
 
 # Batch account credentials
 BATCH_ACCOUNT_NAME = ""
@@ -134,14 +134,14 @@ STORAGE_ACCOUNT_NAME = ""
 STORAGE_ACCOUNT_KEY = ""
 ```
 
-Batch ve Storage hesabı kimlik bilgilerinizi her hizmetin hesap dikey hello hello bulabilirsiniz [Azure portal][azure_portal]:
+Batch ve Depolama hesabı kimlik bilgilerinizi [Azure portalındaki][azure_portal] hizmetlere ilişkin hesap dikey pencerelerinde bulabilirsiniz:
 
-![Merhaba portalda batch kimlik bilgileri][9]
-![hello portalda Storage kimlik bilgileri][10]<br/>
+![Portalda Batch kimlik bilgileri][9]
+![Portalda Depolama kimlik bilgileri][10]<br/>
 
-Aşağıdaki bölümlerde hello biz tarafından kullanılan hello adımları analiz hello tooprocess hello Batch hizmeti iş yükünü komut dosyaları. Düzenli olarak çalışırken toohello betiklere yolunuzu hello makalenin hello rest aracılığıyla iş toorefer öneririz.
+Aşağıdaki bölümlerde, Batch hizmetindeki iş yükünü işlemek için betikler tarafından kullanılan adımları analiz ediyoruz. Makalenin kalanında işinizi yaparken düzenleyicinizdeki betiklere düzenli olarak başvurmanızı öneriyoruz.
 
-Aşağıdaki satırda toohello gidin **python_tutorial_client.py** toostart adım 1:
+1. Adımla başlamak için aşağıdaki **python_tutorial_client.py** satırına gidin:
 
 ```python
 if __name__ == '__main__':
@@ -151,24 +151,24 @@ if __name__ == '__main__':
 ![Azure Depolama'da kapsayıcı oluşturma][1]
 <br/>
 
-Azure Storage ilet etkileşimde bulunmak için Batch’te yerleşik destek bulunur. Storage hesabınızdaki kapsayıcılar, Batch hesabınızda çalışan hello görevler için gerekli hello dosyaları sağlar. Merhaba kapsayıcılara hello görevlerin oluşturduğu bir yerde toostore hello çıktı verilerini de sağlar. ilk şey hello hello *python_tutorial_client.py* komut dosyasının yaptığını üç kapsayıcı oluşturmaktır [Azure Blob Storage](../storage/common/storage-introduction.md#blob-storage):
+Azure Storage ilet etkileşimde bulunmak için Batch’te yerleşik destek bulunur. Storage hesabınızdaki kapsayıcılar, Batch hesabınızda çalışan görevler için gerekli dosyaları sağlar. Kapsayıcılar ayrıca görevlerin oluşturduğu çıktı verilerini depolamak için bir yer sağlar. *python_tutorial_client.py* betiğinin yapacağı ilk şey [Azure Blob Storage](../storage/common/storage-introduction.md#blob-storage)’da üç kapsayıcı oluşturmaktır:
 
-* **Uygulama**: Bu kapsayıcı hello görevleriniz tarafından çalıştırılan hello Python betiğini depolayacaktır *python_tutorial_task.py*.
-* **Giriş**: görevler hello hello veri dosyaları tooprocess yükleyecek *giriş* kapsayıcı.
-* **Çıktı**: görevler girdi dosyası işlemeyi tamamladıklarında hello sonuçları toohello karşıya yükleyecek *çıkış* kapsayıcı.
+* **uygulama**: Bu kapsayıcı, *python_tutorial_task.py* görevlerinin çalıştırdığı Python betiğini depolayacaktır.
+* **girdi**: Görevler, işlemek için veri dosyalarını *girdi* kapsayıcısından yükleyecektir.
+* **çıktı**: Görevler girdi dosyası işlemeyi tamamladıklarında, sonuçları*çıktı* kapsayıcısına yüklerler.
 
-Sipariş toointeract bir depolama hesabı ve kapsayıcı, oluşturma hello kullanırız [azure depolama] [ pypi_storage] toocreate paketini bir [BlockBlobService] [ py_blockblobservice] nesne--hello "blob istemcisi" Ardından üç kapsayıcı hello blob istemcisini kullanarak hello depolama hesabında oluşturuyoruz.
+Bir Depolama hesabıyla etkileşime geçmek ve kapsayıcı oluşturmak amacıyla, "blob istemcisi" adlı [BlockBlobService][py_blockblobservice] nesnesini oluşturmak için [azure-storage][pypi_storage] paketini kullanıyoruz. Daha sonra, blob istemcisini kullanarak Storage hesabında üç kapsayıcı oluşturuyoruz.
 
 ```python
 import azure.storage.blob as azureblob
 
-# Create hello blob client, for use in obtaining references to
-# blob storage containers and uploading files toocontainers.
+# Create the blob client, for use in obtaining references to
+# blob storage containers and uploading files to containers.
 blob_client = azureblob.BlockBlobService(
     account_name=STORAGE_ACCOUNT_NAME,
     account_key=STORAGE_ACCOUNT_KEY)
 
-# Use hello blob client toocreate hello containers in Azure Storage if they
+# Use the blob client to create the containers in Azure Storage if they
 # don't yet exist.
 APP_CONTAINER_NAME = 'application'
 INPUT_CONTAINER_NAME = 'input'
@@ -178,54 +178,54 @@ blob_client.create_container(INPUT_CONTAINER_NAME, fail_on_exist=False)
 blob_client.create_container(OUTPUT_CONTAINER_NAME, fail_on_exist=False)
 ```
 
-Merhaba kapsayıcılara oluşturduktan sonra Merhaba uygulaması artık hello görevler tarafından kullanılacak hello dosyaları karşıya yükleyebilir.
+Kapsayıcılar oluşturulduktan sonra uygulama artık görevler tarafından kullanılacak dosyaları karşıya yükleyebilir.
 
 > [!TIP]
-> [Nasıl toouse python'dan Azure Blob storage](../storage/blobs/storage-python-how-to-use-blob-storage.md) Azure Storage kapsayıcıları ve blob'larla çalışma hakkında kapsamlı bilgi sağlar. Batch ile çalışmaya başladığınızda okuma listenizin hello yukarıya yakın olması gerekir.
+> [Python’dan Azure Blob depolama kullanma](../storage/blobs/storage-python-how-to-use-blob-storage.md), Azure Storage kapsayıcıları ve blob'larla çalışma hakkında kapsamlı bilgi sağlar. Batch’le çalışmaya başladığınızda okuma listenizin en üstüne yakın olması gerekir.
 >
 >
 
 ## <a name="step-2-upload-task-script-and-data-files"></a>2. Adım: Görev betiğini ve veri dosyalarını karşıya yükleme
-![Karşıya yükleme görev uygulamasını ve girdi (veri) toocontainers dosyaları][2]
+![Görev uygulamasını ve girdi (veriler) dosyalarını kapsayıcılara yükleme][2]
 <br/>
 
-Merhaba dosyayı karşıya yükleme işlemi, *python_tutorial_client.py* ilk tanımlar **uygulama** ve **giriş** hello yerel makinede oldukları gibi dosya yolları. Sonra hello önceki adımda oluşturduğunuz bu dosyaları toohello kapsayıcıları yükler.
+Dosyayı karşıya yükleme işleminde, *python_tutorial_client.py* önce **uygulama** ve **girdi** dosya yolları koleksiyonunu yerel makinede oldukları gibi tanımlar. Sonra da, bir önceki adımda oluşturduğunuz kapsayıcılara bu dosyaları yükler.
 
 ```python
-# Paths toohello task script. This script will be executed by hello tasks that
-# run on hello compute nodes.
+# Paths to the task script. This script will be executed by the tasks that
+# run on the compute nodes.
 application_file_paths = [os.path.realpath('python_tutorial_task.py')]
 
-# hello collection of data files that are toobe processed by hello tasks.
+# The collection of data files that are to be processed by the tasks.
 input_file_paths = [os.path.realpath('./data/taskdata1.txt'),
                     os.path.realpath('./data/taskdata2.txt'),
                     os.path.realpath('./data/taskdata3.txt')]
 
-# Upload hello application script tooAzure Storage. This is hello script that
-# will process hello data files, and is executed by each of hello tasks on the
+# Upload the application script to Azure Storage. This is the script that
+# will process the data files, and is executed by each of the tasks on the
 # compute nodes.
 application_files = [
     upload_file_to_container(blob_client, APP_CONTAINER_NAME, file_path)
     for file_path in application_file_paths]
 
-# Upload hello data files. This is hello data that will be processed by each of
-# hello tasks executed on hello compute nodes in hello pool.
+# Upload the data files. This is the data that will be processed by each of
+# the tasks executed on the compute nodes in the pool.
 input_files = [
     upload_file_to_container(blob_client, INPUT_CONTAINER_NAME, file_path)
     for file_path in input_file_paths]
 ```
 
-Liste anlamayı kullanarak, hello `upload_file_to_container` çağrıldığında her dosya hello koleksiyonlarda ve iki [ResourceFile] [ py_resource_file] koleksiyonu doldurulur. Merhaba `upload_file_to_container` işlevi aşağıda görünür:
+Liste anlamayı kullanarak, `upload_file_to_container` işlevi koleksiyondaki her dosya için çağrılır ve iki [ResourceFile][py_resource_file] koleksiyonu doldurulur. `upload_file_to_container` İşlevi aşağıda görünür:
 
 ```python
 def upload_file_to_container(block_blob_client, container_name, path):
     """
-    Uploads a local file tooan Azure Blob storage container.
+    Uploads a local file to an Azure Blob storage container.
 
     :param block_blob_client: A blob service client.
     :type block_blob_client: `azure.storage.blob.BlockBlobService`
-    :param str container_name: hello name of hello Azure Blob storage container.
-    :param str file_path: hello local path toohello file.
+    :param str container_name: The name of the Azure Blob storage container.
+    :param str file_path: The local path to the file.
     :rtype: `azure.batch.models.ResourceFile`
     :return: A ResourceFile initialized with a SAS URL appropriate for Batch
     tasks.
@@ -237,7 +237,7 @@ def upload_file_to_container(block_blob_client, container_name, path):
 
     blob_name = os.path.basename(path)
 
-    print('Uploading file {} toocontainer [{}]...'.format(path,
+    print('Uploading file {} to container [{}]...'.format(path,
                                                           container_name))
 
     block_blob_client.create_blob_from_path(container_name,
@@ -259,23 +259,23 @@ def upload_file_to_container(block_blob_client, container_name, path):
 ```
 
 ### <a name="resourcefiles"></a>ResourceFiles
-A [ResourceFile] [ py_resource_file] hello URL tooa indirilen tooa Azure depolama alanı dosyasında toplu görevlerle işlem düğümü, görev çalıştırılmadan önce sağlar. Merhaba [ResourceFile][py_resource_file].** blob_source** özelliği, Azure Storage'da yer aldığından hello hello dosyanın tam URL'sini belirtir. Merhaba URL ayrıca güvenli erişim toohello dosya sağlayan bir paylaşılan erişim imzası (SAS) içerebilir. Batch’teki çoğu görev türünde *ResourceFiles* özelliği vardır; bu özellikte şunlar bulunur:
+[ResourceFile][py_resource_file], görev çalıştırılmadan önce işlem düğümüne yüklenecek, Azure Depolama’da yer alan bir dosyaya bağlantısı olan URL’ye sahip Batch’teki görevleri sağlar. [ResourceFile][py_resource_file].**blob_source** özelliği, Azure Depolama’da olduğu gibi dosyanın tam URL'sini belirtir. URL’de, dosyaya güvenli erişim sağlayan bir paylaşılan erişim imzası da (SAS) bulunabilir. Batch’teki çoğu görev türünde *ResourceFiles* özelliği vardır; bu özellikte şunlar bulunur:
 
 * [CloudTask][py_task]
 * [StartTask][py_starttask]
 * [JobPreparationTask][py_jobpreptask]
 * [JobReleaseTask][py_jobreltask]
 
-Bu örnek hello JobPreparationTask veya JobReleaseTask görev türlerini kullanmaz, ancak daha fazla bilgiyi ilgili [iş hazırlama ve tamamlama görevlerini çalıştırma Azure Batch işlem düğümlerinde](batch-job-prep-release.md).
+Bu örnek JobPreparationTask veya JobReleaseTask görev türlerini kullanmaz; ancak, bununla ilgili daha fazla bilgiyi [Azure Batch işlem düğümlerinde iş hazırlama ve tamamlama görevlerini çalıştırma](batch-job-prep-release.md) makalesinden edinebilirsiniz.
 
 ### <a name="shared-access-signature-sas"></a>Paylaşılan erişim imzası (SAS)
-Paylaşılan erişim imzaları güvenli erişim toocontainers ve Azure Storage blobları sağlayan dizelerdir. Merhaba *python_tutorial_client.py* betiği hem blob kullanır ve kapsayıcı paylaşılan erişim imzası ve nasıl tooobtain bu paylaşılan erişim imzası dizeleri depolama hizmeti hello gösterir.
+Paylaşılan erişim imzalar, Azure Storage'da kapsayıcılara ve blob’lara güvenli erişim sağlayan dizelerdir. *python_tutorial_client.py* betiği hem blob, hem de kapsayıcı paylaşılan erişim imzalarını kullanır ve Storage hizmetinden bu paylaşılan erişim imzalarının nasıl alındığını gösterir.
 
-* **Blob paylaşılan erişim imzaları**: depolama biriminden hello görev betiğini ve girdi veri dosyalarını indirdiğinde blob paylaşılan erişim imzaları hello havuza ait StartTask kullanır (bkz [3. adım](#step-3-create-batch-pool) aşağıda). Merhaba `upload_file_to_container` işlevi *python_tutorial_client.py* her blob'un paylaşılan erişim imzasını alan hello kodunu içerir. Bunu çağırarak yapar [BlockBlobService.make_blob_url] [ py_make_blob_url] hello depolama modülü.
-* **Kapsayıcı paylaşılan erişim imzası**: her görev hello işlem düğümü işini bitirdiğinde, kendi çıktı dosyasını toohello yükler *çıkış* Azure storage'da kapsayıcı. toodo bunu *python_tutorial_task.py* toohello kapsayıcısına yazma erişimi sağlayan kapsayıcı paylaşılan erişim imzasını kullanır. Merhaba `get_container_sas_token` işlevi *python_tutorial_client.py* daha sonra bir komut satırı bağımsız değişkeni toohello görevleri olarak geçirilir hello kapsayıcının paylaşılan erişim imzasını alır. #5. adım [Ekle görevleri tooa iş](#step-5-add-tasks-to-job), hello hello kapsayıcı SAS kullanımını açıklar.
+* **Blob paylaşılan erişim imzaları**: Havuza ait StartTask, Storage’dan görev betiğini ve girdi veri dosyalarını indirdiğinde blob paylaşılan erişim imzalarını kullanır (bkz. [3. Adım](#step-3-create-batch-pool); aşağıda). *python_tutorial_client.py* betiğindeki `upload_file_to_container` işlevinde her blob'un paylaşılan erişim imzasını alan kod bulunur. Bu işlemi, Depolama modülünde [BlockBlobService.make_blob_url][py_make_blob_url] çağırarak gerçekleştirir.
+* **Kapsayıcı paylaşılan erişim imzası**: Hesaplama düğümünde her görev işini bitirdiğinde, kendi çıktı dosyasını Azure Storage’daki *çıktı* kapsayıcısına yükler. Bunu yapmak için, *python_tutorial_task.py*, kapsayıcıya yazma erişimi sağlayan kapsayıcı paylaşılan erişim imzasını kullanır. *python_tutorial_client.py* öğesindeki `get_container_sas_token` işlevi, daha sonra görevlere komut satırı bağımsız değişkeni olarak geçecek kapsayıcının paylaşılan erişim imzasını alır. 5. Adım, [İşe görev ekleme](#step-5-add-tasks-to-job), kapsayıcı SAS kullanımını tartışıyor.
 
 > [!TIP]
-> Hello iki parçalı seriyi kullanıma paylaşılan erişim imzalarındaki [1. Bölüm: Merhaba SAS modelini anlama](../storage/common/storage-dotnet-shared-access-signature-part-1.md) ve [Kısım 2: oluşturma ve bir SAS hello Blob hizmeti ile kullanma](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md), toolearn güvenli erişim sağlama hakkında daha fazla bilgi Depolama hesabınızdaki toodata.
+> Storage hesabınızdaki verilere güvenli erişim sağlama hakkında daha fazla bilgi için paylaşılan erişim imzalarındaki iki parçalı seriyi kullanıma alın, [1. Parça: SAS modelini anlama](../storage/common/storage-dotnet-shared-access-signature-part-1.md) ve [2. Parça: Blob hizmetiyle SAS oluşturma ve kullanma](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md).
 >
 >
 
@@ -285,11 +285,11 @@ Paylaşılan erişim imzaları güvenli erişim toocontainers ve Azure Storage b
 
 Batch **havuzu**, Batch’in işe ait görevleri yürüttüğü işlem düğümlerinin (sanal makineler) koleksiyonudur.
 
-Merhaba görev betiğini ve veri dosyalarını toohello depolama hesabı, gönderildikten sonra *python_tutorial_client.py* hello Batch Python modülünü kullanarak hello Batch hizmetiyle etkileşimi başlatır. toodo bunu bir [BatchServiceClient] [ py_batchserviceclient] oluşturulur:
+Görev betiğini ve veri dosyalarını Storage hesabına yükledikten sonra, *python_tutorial_client.py*, Batch Python modülünü kullanarak Batch hizmetiyle etkileşimi başlatır. Bunu yapmak için bir [BatchServiceClient][py_batchserviceclient] oluşturulur:
 
 ```python
-# Create a Batch service client. We'll now be interacting with hello Batch
-# service in addition tooStorage.
+# Create a Batch service client. We'll now be interacting with the Batch
+# service in addition to Storage.
 credentials = batchauth.SharedKeyCredentials(BATCH_ACCOUNT_NAME,
                                              BATCH_ACCOUNT_KEY)
 
@@ -298,18 +298,18 @@ batch_client = batch.BatchServiceClient(
     base_url=BATCH_ACCOUNT_URL)
 ```
 
-Ardından, işlem düğümleri havuzu hello çağrısıyla Batch hesabında çok oluşturulan`create_pool`.
+Ardından, `create_pool` çağrısıyla Batch hesabında işlem düğümü havuzu oluşturacak.
 
 ```python
 def create_pool(batch_service_client, pool_id,
                 resource_files, publisher, offer, sku):
     """
-    Creates a pool of compute nodes with hello specified OS settings.
+    Creates a pool of compute nodes with the specified OS settings.
 
     :param batch_service_client: A Batch service client.
     :type batch_service_client: `azure.batch.BatchServiceClient`
-    :param str pool_id: An ID for hello new pool.
-    :param list resource_files: A collection of resource files for hello pool's
+    :param str pool_id: An ID for the new pool.
+    :param list resource_files: A collection of resource files for the pool's
     start task.
     :param str publisher: Marketplace image publisher
     :param str offer: Marketplace image offer
@@ -322,24 +322,24 @@ def create_pool(batch_service_client, pool_id,
     # nodes, see:
     # https://azure.microsoft.com/documentation/articles/batch-linux-nodes/
 
-    # Specify hello commands for hello pool's start task. hello start task is run
-    # on each node as it joins hello pool, and when it's rebooted or re-imaged.
-    # We use hello start task tooprep hello node for running our task script.
+    # Specify the commands for the pool's start task. The start task is run
+    # on each node as it joins the pool, and when it's rebooted or re-imaged.
+    # We use the start task to prep the node for running our task script.
     task_commands = [
-        # Copy hello python_tutorial_task.py script toohello "shared" directory
-        # that all tasks that run on hello node have access to.
+        # Copy the python_tutorial_task.py script to the "shared" directory
+        # that all tasks that run on the node have access to.
         'cp -r $AZ_BATCH_TASK_WORKING_DIR/* $AZ_BATCH_NODE_SHARED_DIR',
-        # Install pip and hello dependencies for cryptography
+        # Install pip and the dependencies for cryptography
         'apt-get update',
         'apt-get -y install python-pip',
         'apt-get -y install build-essential libssl-dev libffi-dev python-dev',
-        # Install hello azure-storage module so that hello task script can access
+        # Install the azure-storage module so that the task script can access
         # Azure Blob storage
         'pip install azure-storage']
 
-    # Get hello node agent SKU and image reference for hello virtual machine
+    # Get the node agent SKU and image reference for the virtual machine
     # configuration.
-    # For more information about hello virtual machine configuration, see:
+    # For more information about the virtual machine configuration, see:
     # https://azure.microsoft.com/documentation/articles/batch-linux-nodes/
     sku_to_use, image_ref_to_use = \
         common.helpers.select_latest_verified_vm_image_with_node_agent_sku(
@@ -367,41 +367,41 @@ def create_pool(batch_service_client, pool_id,
         raise
 ```
 
-Bir havuz oluşturduğunuzda, tanımladığınız bir [PoolAddParameter] [ py_pooladdparam] hello havuz için bazı özellikler belirtir:
+Havuz oluşturduğunuzda, havuz için bazı özellikler belirten bir [PoolAddParameter][py_pooladdparam] tanımlarsınız:
 
-* **Kimliği** hello havuzunun (*kimliği* - gerekli)<p/>Batch’deki çoğu varlık gibi, yeni havuzunuzda da, Batch hesabınızın içinde benzersiz bir kimlik olmalıdır. Kodunuzu toothis havuz Kimliğini kullanarak ifade eder ve hello Azure hello havuzunda şekilde tanımlarsınız [portal][azure_portal].
-* **İşlem düğümleri sayısı** (*target_dedicated* - gerekli)<p/>Bu özellik hello havuzda kaç VM dağıtılması gerekir belirtir. Tüm Batch hesaplarının bir varsayılan olması önemli toonote olan **kota** sınırları sayısı hello **çekirdek** (ve dolayısıyla işlem düğümleriyle) bir Batch hesabında. Merhaba varsayılan kotalar ve yönergeleri hakkında çok bulabileceğiniz[kota artırma](batch-quota-limit.md#increase-a-quota) (örneğin, çekirdek Batch hesabınızdaki en yüksek sayısı hello) içinde [hello Azure Batch hizmeti için kotalar ve sınırlar](batch-quota-limit.md). Kendinizi "Neden havuzum X düğümden fazlasına ulaşamıyor?" sorusunu sorarken bulursanız Bu çekirdek kotası hello neden olabilir.
-* Düğümler için **işletim sistemi** (*virtual_machine_configuration***veya***cloud_service_configuration* - gerekli)<p/>*python_tutorial_client.py* öğesinde [VirtualMachineConfiguration][py_vm_config] kullanarak Linux için havuz oluşturuyoruz. Merhaba `select_latest_verified_vm_image_with_node_agent_sku` işlevi `common.helpers` çalışmak basitleştirir [Azure Virtual Machines Marketi] [ vm_marketplace] görüntüler. Market görüntülerini kullanma hakkında daha fazla bilgi için bkz. [Azure Batch havuzlarında Linux işlem düğümlerini hazırlama](batch-linux-nodes.md).
+* Havuza ait **Kimlik** (*kimlik* - gerekli)<p/>Batch’deki çoğu varlık gibi, yeni havuzunuzda da, Batch hesabınızın içinde benzersiz bir kimlik olmalıdır. Kodunuz, kendi kimliğini kullanarak bu havuza başvurur ve Azure [portalında][azure_portal] havuz bu kimlikle tanımlanır.
+* **İşlem düğümleri sayısı** (*target_dedicated* - gerekli)<p/>Bu özellik, havuzda kaç VM dağıtılması gerektiğini belirtir. Tüm Batch hesaplarının, bir Batch hesabında bir dizi **çekirdekle** (bu nedenle de işlem düğümleriyle) sınırlanan varsayılan bir **kotasının** olduğunu unutmamak önemlidir. [Kota artırma](batch-quota-limit.md#increase-a-quota) (Batch hesabınızdaki en yüksek çekirdek sayısı gibi) hakkında varsayılan kotalar ve yönergeleri [Azure Batch hizmeti için kotalar ve sınırlar](batch-quota-limit.md)’da bulabilirsiniz. Kendinizi "Neden havuzum X düğümden fazlasına ulaşamıyor?" sorusunu sorarken bulursanız nedeni çekirdek kotası olabilir.
+* Düğümler için **işletim sistemi** (*virtual_machine_configuration* **veya** *cloud_service_configuration* - gerekli)<p/>*python_tutorial_client.py* öğesinde [VirtualMachineConfiguration][py_vm_config] kullanarak Linux için havuz oluşturuyoruz. `common.helpers` içindeki `select_latest_verified_vm_image_with_node_agent_sku` işlevi [Azure Sanal Makineler Marketi][vm_marketplace] görüntüleriyle çalışmayı kolaylaştırır. Market görüntülerini kullanma hakkında daha fazla bilgi için bkz. [Azure Batch havuzlarında Linux işlem düğümlerini hazırlama](batch-linux-nodes.md).
 * **İşlem düğümlerinin boyutu** (*vm_size* - gerekli)<p/>[VirtualMachineConfiguration][py_vm_config] için Linux düğümleri belirlediğimizden, bir VM boyutunu (bu örnekte `STANDARD_A1`) [Azure’de sanal makine boyutları](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)’nda belirttik. Bir kez daha, daha fazla bilgi için bkz. [Azure Batch havuzlarında Linux işlem düğümlerini hazırlama](batch-linux-nodes.md).
-* **Görev Başlat** (*start_task* - gerekli değil)<p/>Yukarıdaki fiziksel düğüm özellikleri Hello yanı sıra siz de belirtebilir bir [StartTask] [ py_starttask] hello havuzu (gerekli değildir). Bu düğüme hello havuzuna katılır ve her bir düğümü yeniden Hello StartTask her düğümde yürütür. Merhaba StartTask özellikle Merhaba, görevlerinizin çalıştığı hello uygulamaları yükleme gibi görevlerini yürütülmesi için işlem düğümlerinin hazırlanmasında yararlıdır.<p/>Bu örnek uygulamasında hello StartTask, Storage'dan indirilen hello dosyaları kopyalar (hangi belirtilen hello StartTask'ın kullanarak **resource_files** özelliği) hello StartTask gelen *çalışma dizini* toohello *paylaşılan* hello düğüm üzerinde çalışan tüm görevlerin dizin. Esas olarak, bu kopyalar `python_tutorial_task.py` toohello paylaşılan her düğüme hello düğümü hello havuza katılmış olduğundan hello düğümü üzerinde çalışacak herhangi bir görevi erişebilmesi.
+* **Görev Başlat** (*start_task* - gerekli değil)<p/>Yukarıdaki fiziksel düğüm özellikleriyle birlikte, havuz için ayrıca bir [StartTask][py_starttask] belirtebilirsiniz (gerekli değildir). StartTask, her düğümü havuza katıldığında ve her yeniden başlatıldığında yürütecektir. StartTask, özellikle görevlerinizin çalıştırdığı uygulamaları yükleme gibi işlerin yürütülmesi için, işlem düğümlerinin hazırlanmasında yararlıdır.<p/>Bu örnek uygulamasında StartTask, Storage’dan indirilen dosyaları (StartTask’ın **resource_files** özelliği kullanılarak belirtilir), StartTask *çalışma dizininden*, erişilebilir düğümdeki tüm görevlerin çalıştığı *paylaşılan* dizine kopyalar. Aslında, `python_tutorial_task.py` uygulamasını, düğüm havuza katılmış olduğundan her düğüme kopyalar; bu nedenle düğümde çalışan görevler buna erişebilir.
 
-Merhaba çağrısı toohello karşılaşabilirsiniz `wrap_commands_in_shell` yardımcı işlevi. Bu işlev ayrı komutların koleksiyonunu alır ve görevin komut satırı özelliğine uygun tek bir komut satırı oluşturur.
+`wrap_commands_in_shell` yardımcı işlevi çağrısını fark edebilirsiniz. Bu işlev ayrı komutların koleksiyonunu alır ve görevin komut satırı özelliğine uygun tek bir komut satırı oluşturur.
 
-Ayrıca içinde yukarıdaki hello kod parçacığında dikkat çeken bir şey hello hello iki ortam değişkenleri kullanımıdır **command_line** hello StartTask özelliğinin: `AZ_BATCH_TASK_WORKING_DIR` ve `AZ_BATCH_NODE_SHARED_DIR`. Batch havuzundaki her işlem düğümü belirli tooBatch olan birkaç ortam değişkenlerini otomatik olarak yapılandırılır. Bir görev tarafından yürütülen herhangi bir işlem toothese ortam değişkenlerine erişim vardır.
+Yukarıdaki kod parçacığında dikkat çeken bir şey de, StartTask’ın **command_line** özelliğinde iki ortam değişkenin kullanılmasıdır: `AZ_BATCH_TASK_WORKING_DIR` ve `AZ_BATCH_NODE_SHARED_DIR`. Batch havuzundaki her işlem düğümü, Batch’e özel bazı ortam değişkenleriyle yapılandırılmıştır. Görev tarafından yürütülen işlemlerin bu ortam değişkenlerine erişimi vardır.
 
 > [!TIP]
-> bir Batch havuzu yanı sıra görev çalışma dizinleri hakkında bilgilerin işlem düğümlerinde kullanılabilir hello ortam değişkenleri hakkında daha fazla toofind bkz **görevler için ortam ayarları** ve **dosyalar ve dizinler ** hello içinde [Azure Batch özelliklerine genel bakış](batch-api-basics.md).
+> Görev çalışma dizinleri hakkında bilgilerin yanı sıra, Batch havuzundaki işlem düğümlerinde bulunan ortam değişkenleri hakkında da daha fazla bilgi bulmak için bkz. [Azure Batch özelliklerine genel bakış](batch-api-basics.md)’ın **Görevler için ortam ayarları** ve **Dosyalar ve dizinler**.
 >
 >
 
 ## <a name="step-4-create-batch-job"></a>4. Adım: Batch işi oluşturma
 ![Batch işi oluşturma][4]<br/>
 
-Batch **işi**, görevler koleksiyonudur ve işlem düğümlerinin bir havuzuyla ilişkilidir. Merhaba görevleri bir işlemle ilişkili hello havuzun işlem düğümleri üzerinde yürütün.
+Batch **işi**, görevler koleksiyonudur ve işlem düğümlerinin bir havuzuyla ilişkilidir. İşteki görevler ilişkili havuzunun işlem düğümlerini yürütür.
 
-İş önceliği, ilişkisi tooother işlerini hello toplu işlem hesabı ve bir işi yalnızca ilgili iş yüklerinde görevlerin düzenlenmesi ve için aynı zamanda hello en fazla çalışma hello işin (ve uzantılarının, görevleri) gibi bazı kısıtlamalar izlenmesi için kullanabilirsiniz. Bu örnekte, ancak hello iş #3. adımda oluşturulan hello havuzu ile ilişkilidir. Yapılandırılmış başka ek özellik yoktur.
+İşi yalnızca ilgili iş yüklerinde görevlerin düzenlenmesi ve izlenmesi için değil, aynı zamanda işin (ve buna bağlı olarak görevlerin) en uzun çalışma süresinin yanı sıra Batch hesabındaki diğer işlerle bağlantılı olarak iş önceliği gibi bazı kısıtlamalar getirmek için de kullanabilirsiniz. Ancak bu örnekte, iş yalnızca 3. adımda oluşturulan havuzla ilişkilendirilmektedir. Yapılandırılmış başka ek özellik yoktur.
 
-Tüm Batch işleri belirli bir havuzla ilişkilidir. Bu ilişkilendirme hello işin görevlerinin hangi düğümleri gösterir. Hello kullanarak hello havuzu belirtin [Poolınformation] [ py_poolinfo] hello aşağıdaki kod parçacığında gösterildiği gibi özelliği.
+Tüm Batch işleri belirli bir havuzla ilişkilidir. Bu ilişkilendirme, iş görevlerinin hangi düğümleri yürüttüğünü belirtir. Havuzu, aşağıdaki kod parçacığında gösterildiği gibi [PoolInformation][py_poolinfo] özelliğini kullanarak belirtirsiniz.
 
 ```python
 def create_job(batch_service_client, job_id, pool_id):
     """
-    Creates a job with hello specified ID, associated with hello specified pool.
+    Creates a job with the specified ID, associated with the specified pool.
 
     :param batch_service_client: A Batch service client.
     :type batch_service_client: `azure.batch.BatchServiceClient`
-    :param str job_id: hello ID for hello job.
-    :param str pool_id: hello ID for hello pool.
+    :param str job_id: The ID for the job.
+    :param str pool_id: The ID for the pool.
     """
     print('Creating job [{}]...'.format(job_id))
 
@@ -416,34 +416,34 @@ def create_job(batch_service_client, job_id, pool_id):
         raise
 ```
 
-Bir işi oluşturuldu, görevler tooperform hello iş eklenir.
+İş oluşturulduğuna göre, artık çalışmak için görevler eklenir.
 
-## <a name="step-5-add-tasks-toojob"></a>5. adım: görevleri toojob ekleme
-![Görevleri toojob Ekle][5]<br/>
-*(1) görevler toohello iş eklenir, düğümlerde zamanlanmış toorun (2) hello görevlerdir ve (3) hello görevleri hello veri dosyaları tooprocess indirme*
+## <a name="step-5-add-tasks-to-job"></a>5. Adım: İşe görev ekleme
+![İşe görev ekleme][5]<br/>
+*(1) Görevler işe eklenir, (2) görevler düğümlerde çalışmak üzere zamanlanır ve (3) görevler işlemek üzere veri dosyalarını indirir*
 
-Toplu **görevleri** hello üzerinde yürütülen hello tek tek iş birimleri işlem düğümlerini şunlardır. Bir görev, bir komut satırı ve hello komut dosyaları veya bu komut satırında belirttiğiniz yürütülebilir dosyaları çalıştırır.
+Batch **görevleri**, işlem düğümlerinde yürütülen tek tek iş birimleridir. Görevde bir komut satırı vardır; bu komut satırında belirttiğiniz betikleri veya yürütülebilir dosyaları çalıştırır.
 
-tooactually gerçekleştirmek iş, görevleri tooa iş eklenmesi gerekir. Her [CloudTask] [ py_task] komut satırı özelliğiyle birlikte yapılandırılan ve [ResourceFiles] [ py_resource_file] (Merhaba havuza ait startTask gibi) bu hello komut satırı otomatik olarak yürütülmeden önce görevin toohello düğümü indirir. Merhaba örnekte, her görev yalnızca bir dosya işler. Bu nedenle, kendi ResourceFiles koleksiyonunda tek bir öğe bulunmaktadır.
+Aslına bakılırsa, çalışmayı gerçekleştirmek için görevlerin işe eklenmesi gerekir. Her [CloudTask][py_task], bir komut satırı özelliği ve komut satırı otomatik olarak yürütülmeden önce görevin düğüme yüklediği [ResourceFiles][py_resource_file] (havuzdaki StartTask gibi) kullanılarak yapılandırılır. Örnekte, her görev yalnızca bir dosya işliyor. Bu nedenle, kendi ResourceFiles koleksiyonunda tek bir öğe bulunmaktadır.
 
 ```python
 def add_tasks(batch_service_client, job_id, input_files,
               output_container_name, output_container_sas_token):
     """
-    Adds a task for each input file in hello collection toohello specified job.
+    Adds a task for each input file in the collection to the specified job.
 
     :param batch_service_client: A Batch service client.
     :type batch_service_client: `azure.batch.BatchServiceClient`
-    :param str job_id: hello ID of hello job toowhich tooadd hello tasks.
+    :param str job_id: The ID of the job to which to add the tasks.
     :param list input_files: A collection of input files. One task will be
      created for each input file.
-    :param output_container_name: hello ID of an Azure Blob storage container to
-    which hello tasks will upload their results.
+    :param output_container_name: The ID of an Azure Blob storage container to
+    which the tasks will upload their results.
     :param output_container_sas_token: A SAS token granting write access to
-    hello specified Azure Blob storage container.
+    the specified Azure Blob storage container.
     """
 
-    print('Adding {} tasks toojob [{}]...'.format(len(input_files), job_id))
+    print('Adding {} tasks to job [{}]...'.format(len(input_files), job_id))
 
     tasks = list()
 
@@ -469,46 +469,46 @@ def add_tasks(batch_service_client, job_id, input_files,
 ```
 
 > [!IMPORTANT]
-> Ortam değişkenlerine eriştiklerinde gibi `$AZ_BATCH_NODE_SHARED_DIR` veya hello düğümün bulunmayan bir uygulama yürüttüklerinde `PATH`, görev komut satırları hello çağırma gerekir açıkça gibi kabuğunda `/bin/sh -c MyTaskApplication $MY_ENV_VAR`. Bu gereksinim, görevlerinizin hello düğümün bir uygulama yürütüyorsa gereksizdir `PATH` ve herhangi bir ortam değişkeni başvurusu değil.
+> `$AZ_BATCH_NODE_SHARED_DIR` gibi ortam değişkenlerine eriştiklerinde veya düğüme ait `PATH` öğesinde bulunmayan bir uygulama yürüttüklerinde görev komut satırları `/bin/sh -c MyTaskApplication $MY_ENV_VAR` ile olduğu gibi kabuğu açıkça çağırmalıdır. Görevleriniz düğümün `PATH` seçeneğinde bir uygulama yürütüyorsa ve herhangi bir ortam değişkenine başvurmuyorsa bu gereksinim gerekli değildir.
 >
 >
 
-Merhaba içinde `for` Yukarıdaki kod parçacığında hello döngüde hello komut satırı hello görev için çok geçirilen beş komut satırı bağımsız değişkenlerini ile oluşturulur görebilirsiniz*python_tutorial_task.py*:
+Yukarıdaki kod parçacığında, `for` döngüsü içinde görevle ilgili komut satırının, beş komut satırı bağımsız değişkeniyle *python_tutorial_task.py* dosyasına geçirilecek şekilde oluşturulduğunu görürsünüz:
 
-1. **FilePath**: hello düğümde yer aldığından bu hello yerel yol toohello dosyasıdır. ResourceFile nesnesi'ne zaman hello `upload_file_to_container` oluşturulduğu yukarıdaki adım 2'de hello dosya adı bu özellik için kullanılır (Merhaba `file_path` hello ResourceFile oluşturucuda parametresinde). Bu, hello dosya bulunabilir hello aynı gösterir hello düğümü olarak dizininde *python_tutorial_task.py*.
-2. **NumWords**: hello üst *N* sözcükler toohello çıktı dosyasına yazılması gerekir.
-3. **storageaccount**: hello hello hello kapsayıcı toowhich hello görev çıktısını sahibi depolama hesabı adını karşıya yüklenebilir.
-4. **storagecontainer**: hello depolama kapsayıcısı toowhich hello hello adını çıktı dosyaları karşıya yüklenebilir.
-5. **sastoken**: yazma erişimi toohello sağlayan hello paylaşılan erişim imzası (SAS) **çıkış** Azure storage'da kapsayıcı. Merhaba *python_tutorial_task.py* komut dosyası bu paylaşılan erişim imzasını kullanır, kendi BlockBlobService başvurusunu oluşturduğunda. Bu, yazma erişimi toohello kapsayıcı hello depolama hesabı için erişim anahtarı gerekmeden sağlar.
+1. **filepath**: Düğümde yer aldığından dosyanın yerel yolu budur. `upload_file_to_container` ResourceFile nesnesi yukarıda 2. adımda oluşturulduğunda dosya adı bu özellik için kullanılır (ResourceFile oluşturucuda `file_path` parametresi). Dosyanın düğümde *python_tutorial_task.py* ile aynı dizinde bulunabileceğini belirtir.
+2. **numwords**: ilk *N* sayıda sözcüğün çıktı dosyasına yazılması gerekir.
+3. **storageaccount**: Görev çıktısının yüklenmiş olması gereken kapsayıcıya sahip Storage hesabının adı.
+4. **storagecontainer**: Çıktı dosyalarının yüklenmiş olması gereken Storage kapsayıcısının adı.
+5. **sastoken**: Azure Storage’da **çıktı** kapsayıcısına yazma erişimi sağlayan paylaşılan erişim imzası (SAS). *python_tutorial_task.py* betiği, kendi BlockBlobService başvurusunu oluşturduğunda bu paylaşılan erişim imzasını kullanır. Depolama hesabı için erişim anahtarı gerekmeden kapsayıcıya yazma erişimi sağlar.
 
 ```python
 # NOTE: Taken from python_tutorial_task.py
 
-# Create hello blob client using hello container's SAS token.
-# This allows us toocreate a client that provides write
-# access only toohello container.
+# Create the blob client using the container's SAS token.
+# This allows us to create a client that provides write
+# access only to the container.
 blob_client = azureblob.BlockBlobService(account_name=args.storageaccount,
                                          sas_token=args.sastoken)
 ```
 
 ## <a name="step-6-monitor-tasks"></a>6. Adım: Görevleri izleme
 ![Görevleri izleme][6]<br/>
-*komut dosyası (1) izleyiciler hello görevleri tamamlama durumu için hello ve (2) hello görevler de sonuç verilerini tooAzure depolama yükler*
+*Betik (1) tamamlama durumu için görevleri izler, (2) görevler de sonuç verilerini Azure Depolama’ya yükler*
 
-Görevleri tooa iş eklendiğinde bunlar otomatik olarak kuyruğa ve hello işle ilişkili hello havuzundaki işlem düğümlerinde yürütülmesi için zamanlanan. Belirttiğiniz hello ayarlarına bağlı olarak, Batch tüm kuyruğa alınan, zamanlama, yeniden deneniyor ve diğer görev yönetimi görevlerini işler.
+Görevler bir projeye eklendiğinde, otomatik olarak kuyruğa alınır ve işle ilişkili havuzun içindeki işlem düğümlerinde zamanlanırlar. Belirttiğiniz ayarlar temelinde, Batch tüm kuyruğa alınan, zamanlanan, yeniden denenen ve sizle ilgili diğer görev yönetimi görevlerini işler.
 
-Toomonitoring görev yürütme birçok yaklaşım vardır. Merhaba `wait_for_tasks_to_complete` işlevi *python_tutorial_client.py* hello bu durumda, belirli bir durumu için görevleri izlemenin basit bir örnek sağlar [tamamlandı] [ py_taskstate] durumu.
+Görevin yürütülüşünün izlenmesi için birçok yaklaşım vardır. *python_tutorial_client.py* ’deki `wait_for_tasks_to_complete` işlevi bazı durumlarda görevleri izlemenin basit bir örneğini sağlar; burada [tamamlandı][py_taskstate] durumu.
 
 ```python
 def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
     """
-    Returns when all tasks in hello specified job reach hello Completed state.
+    Returns when all tasks in the specified job reach the Completed state.
 
     :param batch_service_client: A Batch service client.
     :type batch_service_client: `azure.batch.BatchServiceClient`
-    :param str job_id: hello id of hello job whose tasks should be toomonitored.
-    :param timedelta timeout: hello duration toowait for task completion. If all
-    tasks in hello specified job do not reach Completed state within this time
+    :param str job_id: The id of the job whose tasks should be to monitored.
+    :param timedelta timeout: The duration to wait for task completion. If all
+    tasks in the specified job do not reach Completed state within this time
     period, an exception will be raised.
     """
     timeout_expiration = datetime.datetime.now() + timeout
@@ -537,19 +537,19 @@ def wait_for_tasks_to_complete(batch_service_client, job_id, timeout):
 ## <a name="step-7-download-task-output"></a>7. Adım: Görev çıktısı indirme
 ![Storage'dan görev çıktısını indirme][7]<br/>
 
-Merhaba iş tamamlandığında, hello görevleri hello çıktısını Azure Storage'dan indirilebilir. Bu çağrı çok yapılır`download_blobs_from_container` içinde *python_tutorial_client.py*:
+Artık iş tamamlandı, görevlere ait çıktı Azure Storage’dan indirilebilir. *python_tutorial_client.py* içinde `download_blobs_from_container` çağrısıyla yapılır:
 
 ```python
 def download_blobs_from_container(block_blob_client,
                                   container_name, directory_path):
     """
-    Downloads all blobs from hello specified Azure Blob storage container.
+    Downloads all blobs from the specified Azure Blob storage container.
 
     :param block_blob_client: A blob service client.
     :type block_blob_client: `azure.storage.blob.BlockBlobService`
-    :param container_name: hello Azure Blob storage container from which to
+    :param container_name: The Azure Blob storage container from which to
      download files.
-    :param directory_path: hello local directory toowhich toodownload hello files.
+    :param directory_path: The local directory to which to download the files.
     """
     print('Downloading all files from container [{}]...'.format(
         container_name))
@@ -563,7 +563,7 @@ def download_blobs_from_container(block_blob_client,
                                            blob.name,
                                            destination_file_path)
 
-        print('  Downloaded blob [{}] from container [{}] too{}'.format(
+        print('  Downloaded blob [{}] from container [{}] to {}'.format(
             blob.name,
             container_name,
             destination_file_path))
@@ -572,12 +572,12 @@ def download_blobs_from_container(block_blob_client,
 ```
 
 > [!NOTE]
-> Çağrı çok hello`download_blobs_from_container` içinde *python_tutorial_client.py* hello dosyaları indirilen tooyour giriş dizini olması gerektiğini belirtir. Ücretsiz toomodify düşünüyorsanız bu konumu çıktı.
+> *python_tutorial_client.py* ’deki `download_blobs_from_container` çağrısı, dosyaların giriş dizininize indirilmesi gerektiğini belirtir. Bu çıktı konumunu değiştirmekten çekinmeyin.
 >
 >
 
 ## <a name="step-8-delete-containers"></a>8. Adım: Sil kapsayıcıları
-Azure Storage'da yer alan veriler için ücretlendirildiğinizden, Batch işleriniz için artık BLOB'lar gerekli bir fikir tooremove her zaman olduğu. İçinde *python_tutorial_client.py*, bu çok sahip üç çağrı yapılır[BlockBlobService.delete_container][py_delete_container]:
+Azure Storage’da yer alan veriler için ücretlendirildiğinizden, Batch işleriniz için artık gerekmeyen blobları kaldırmak iyi bir fikirdir. *python_tutorial_client.py* ’de üç [BlockBlobService.delete_container][py_delete_container] çağrısıyla yapılır:
 
 ```python
 # Clean up storage resources
@@ -587,13 +587,13 @@ blob_client.delete_container(input_container_name)
 blob_client.delete_container(output_container_name)
 ```
 
-## <a name="step-9-delete-hello-job-and-hello-pool"></a>9. adım: hello işi ve hello havuzu silme
-Merhaba tarafından oluşturulan istendiğinde toodelete hello iş ve hello havuzu olduğunuz Hello son adımda *python_tutorial_client.py* komut dosyası. İşlerin ve görevlerin kendileri için sizden ücret istenmese de, işlem düğümleri için *ücret* istenecektir. Bu nedenle, düğümleri yalnızca gerektiğinde ayırmanız önerilir. Kullanılmayan havuzların silinmesi bakım işleminizin bir parçası olabilir.
+## <a name="step-9-delete-the-job-and-the-pool"></a>9. Adım: İşi ve havuzu silme
+Son adımda, *python_tutorial_client.py* betiği tarafından oluşturulan işi ve havuzu silmeniz istenir. İşlerin ve görevlerin kendileri için sizden ücret istenmese de, işlem düğümleri için *ücret* istenecektir. Bu nedenle, düğümleri yalnızca gerektiğinde ayırmanız önerilir. Kullanılmayan havuzların silinmesi bakım işleminizin bir parçası olabilir.
 
-Merhaba BatchServiceClient's [JobOperations] [ py_job] ve [PoolOperations] [ py_pool] her ikisi de olan ilgili silme yöntemleri vardır silme işlemini onaylamak olursa çağrılır:
+BatchServiceClient'ın [JobOperations][py_job] ve [PoolOperations][py_pool] öğelerinin her ikisine de, silmeyi onaylamanız durumunda karşılık gelecek silme yöntemleri vardır:
 
 ```python
-# Clean up Batch resources (if hello user so chooses).
+# Clean up Batch resources (if the user so chooses).
 if query_yes_no('Delete job?') == 'yes':
     batch_client.job.delete(_JOB_ID)
 
@@ -602,36 +602,36 @@ if query_yes_no('Delete pool?') == 'yes':
 ```
 
 > [!IMPORTANT]
-> İşlem kaynaklarının ücretli olduğunu unutmayın; kullanılmayan havuzların silinmesi masrafları azaltacaktır. Ayrıca, bir havuzun silinmesinin Bu havuz içindeki tüm işlem düğümlerini siler ve hello havuz silindikten sonra hello düğümlerinde tüm veriler kurtarılamaz olacağını unutmayın.
+> İşlem kaynaklarının ücretli olduğunu unutmayın; kullanılmayan havuzların silinmesi masrafları azaltacaktır. Bunun yanı sıra, bir havuzun silinmesinin, bu havuz içindeki tüm işlem düğümlerini de sileceğini unutmayın; bu nedenle, düğümlerdeki veriler de havuz silindikten sonra kurtarılamayacaktır.
 >
 >
 
-## <a name="run-hello-sample-script"></a>Merhaba örnek betiği çalıştırma
-Merhaba çalıştırdığınızda *python_tutorial_client.py* hello öğretici betikten [kod örneği][github_article_samples], hello konsol çıktısı benzer toohello aşağıdaki verilir. Konumunda bir duraklama yoktur `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` hello havuzun işlem düğümleri oluşturulur, başlatıldığından ve hello havuzun görev başlatma hello komutlarda çalıştırılır. Kullanım hello [Azure portal] [ azure_portal] toomonitor havuzu, işlem düğümleri, işi ve görevleri yürütme sırasında ve sonrasında. Kullanım hello [Azure portal] [ azure_portal] veya hello [Microsoft Azure Storage Gezgini] [ storage_explorer] tooview hello depolama kaynaklarını (kapsayıcılar ve bloblar) Merhaba uygulama tarafından oluşturulur.
+## <a name="run-the-sample-script"></a>Örnek betiği çalıştırma
+Eğitmen [kod örneği][github_article_samples] içindeki *python_tutorial_client.py* betiğini çalıştırdığınızda, konsol çıktısı aşağıdakine benzer. Havuzun işlem düğümleri oluşturulurken, başlatılırken ve havuzun görev başlatma komutları yürütülürken `Monitoring all tasks for 'Completed' state, timeout in 0:20:00...` konumunda duraklama olur. Havuzunuzu, işlem düğümlerinizi, işinizi ve görevlerinizi yürütme sırasında ve sonrasında izlemek için [Azure portalını][azure_portal] kullanın. Uygulamanın oluşturduğu Depolama kaynaklarını (kapsayıcılar ve bloblar) görüntülemek için [Azure portalı][azure_portal] veya [Microsoft Azure Storage Gezgini][storage_explorer] birini kullanın.
 
 > [!TIP]
-> Merhaba çalıştırmak *python_tutorial_client.py* hello içinde komut gelen `azure-batch-samples/Python/Batch/article_samples` dizin. Merhaba göreli bir yol kullanır `common.helpers` görebilirsiniz için modülü içe aktarma `ImportError: No module named 'common'` bu dizin içinde hello betikten çalıştırmazsanız.
+> `azure-batch-samples/Python/Batch/article_samples` dizininden *python_tutorial_client.py* betiğini çalıştırın. Bu dosya `common.helpers` modül içeri aktarımı için göreli bir yol kullanır; bu nedenle betiği bu dizinden çalıştırmazsanız `ImportError: No module named 'common'` seçeneğini görebilirsiniz.
 >
 >
 
-Tipik yürütme süresi **yaklaşık 5-7 dakika** çalıştırdığınızda hello örnek varsayılan yapılandırmasında.
+Varsayılan yapılandırmasında örnek çalıştırıldığında tipik yürütme süresi **yaklaşık 5-7 dakika arasıdır**.
 
 ```
 Sample start: 2016-05-20 22:47:10
 
-Uploading file /home/user/py_tutorial/python_tutorial_task.py toocontainer [application]...
-Uploading file /home/user/py_tutorial/data/taskdata1.txt toocontainer [input]...
-Uploading file /home/user/py_tutorial/data/taskdata2.txt toocontainer [input]...
-Uploading file /home/user/py_tutorial/data/taskdata3.txt toocontainer [input]...
+Uploading file /home/user/py_tutorial/python_tutorial_task.py to container [application]...
+Uploading file /home/user/py_tutorial/data/taskdata1.txt to container [input]...
+Uploading file /home/user/py_tutorial/data/taskdata2.txt to container [input]...
+Uploading file /home/user/py_tutorial/data/taskdata3.txt to container [input]...
 Creating pool [PythonTutorialPool]...
 Creating job [PythonTutorialJob]...
-Adding 3 tasks toojob [PythonTutorialJob]...
+Adding 3 tasks to job [PythonTutorialJob]...
 Monitoring all tasks for 'Completed' state, timeout in 0:20:00..........................................................................
-  Success! All tasks reached hello 'Completed' state within hello specified timeout period.
+  Success! All tasks reached the 'Completed' state within the specified timeout period.
 Downloading all files from container [output]...
-  Downloaded blob [taskdata1_OUTPUT.txt] from container [output] too/home/user/taskdata1_OUTPUT.txt
-  Downloaded blob [taskdata2_OUTPUT.txt] from container [output] too/home/user/taskdata2_OUTPUT.txt
-  Downloaded blob [taskdata3_OUTPUT.txt] from container [output] too/home/user/taskdata3_OUTPUT.txt
+  Downloaded blob [taskdata1_OUTPUT.txt] from container [output] to /home/user/taskdata1_OUTPUT.txt
+  Downloaded blob [taskdata2_OUTPUT.txt] from container [output] to /home/user/taskdata2_OUTPUT.txt
+  Downloaded blob [taskdata3_OUTPUT.txt] from container [output] to /home/user/taskdata3_OUTPUT.txt
   Download complete!
 Deleting containers...
 
@@ -641,17 +641,17 @@ Elapsed time: 0:06:02
 Delete job? [Y/n]
 Delete pool? [Y/n]
 
-Press ENTER tooexit...
+Press ENTER to exit...
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Ücretsiz toomake değişiklikleri çok eşitleyerek*python_tutorial_client.py* ve *python_tutorial_task.py* tooexperiment farklı olan işlem senaryoları. Örneğin, bir yürütme gecikmesi çok eklemeyi deneyin*python_tutorial_task.py* uzun süre çalışan toosimulate görevler ve bunları hello Portalı'nda izleyebilirsiniz. Deneyin daha fazla görev eklemeye veya işlem düğümleri hello sayısını ayarlama. İçin mantığı toocheck eklemek ve varolan bir havuzu toospeed yürütme saati hello kullanılmasına izin verin.
+Farklı işlem senaryolarıyla deneyim kazanmak için *python_tutorial_client.py* ve *python_tutorial_task.py* öğelerinde değişiklik yaparken kendinizi rahat hissedin. Örneğin, uzun soluklu görevlerin benzetimini gerçekleştirmek ve bunları portalda izlemek için *python_tutorial_task.py* öğesine bir yürütme gecikmesi eklemeye çalışın. Daha fazla görev eklemeye veya işlem düğüm sayısını ayarlamaya çalışın. Yürütme süresini hızlandırmak için var olan havuzun kullanımını denetlemek ve izin vermek için mantık ekleyin.
 
-Merhaba temel iş akışı Batch çözümünün ile tanıdık, zaman toodig hello Batch hizmetinin ek özelliklerinin toohello içinde olduğu.
+Batch çözümünün temel iş akışı hakkında artık bilginiz olduğuna göre, Batch hizmetinin ek özelliklerinin derinliklerine dalma zamanı gelmiştir.
 
-* Gözden geçirme hello [genel bakış Azure Batch özelliklerine](batch-api-basics.md) yeni toohello hizmeti olup olmadığınızı öneririz makalesi.
-* Başlat'hello altında diğer Batch geliştirmesi makalelerine **geliştirme ayrıntılı** hello içinde [Batch öğrenme yolu][batch_learning_path].
-* Merhaba toplu ile Merhaba "ilk N sözcük" iş yükünü işlemenin farklı bir uygulama kullanıma [TopNWords] [ github_topnwords] örnek.
+* Hizmetle yeni tanışıyorsanız önerdiğimiz [Azure Batch özelliklerine genel bakış](batch-api-basics.md) makalesini gözden geçirin.
+* [Batch öğrenme yolu][batch_learning_path]’ndaki **Ayrıntılı geliştirme** altında diğer Batch geliştirmesi makalelerine başlayın.
+* [TopNWords][github_topnwords] örneğinde Batch’le "ilk N sözcük" iş yükünü işlemenin farklı uygulamalarını kullanıma alın.
 
 [azure_batch]: https://azure.microsoft.com/services/batch/
 [azure_free_account]: https://azure.microsoft.com/free/
@@ -705,10 +705,10 @@ Merhaba temel iş akışı Batch çözümünün ile tanıdık, zaman toodig hell
 [vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
 
 [1]: ./media/batch-python-tutorial/batch_workflow_01_sm.png "Azure Depolama’da kapsayıcı oluşturma"
-[2]: ./media/batch-python-tutorial/batch_workflow_02_sm.png "Karşıya yükleme görev uygulamasını ve girdi (veri) toocontainers dosyaları"
+[2]: ./media/batch-python-tutorial/batch_workflow_02_sm.png "Görev uygulamasını ve girdi (veriler) dosyalarını kapsayıcılara yükleme"
 [3]: ./media/batch-python-tutorial/batch_workflow_03_sm.png "Batch havuzu oluşturma"
 [4]: ./media/batch-python-tutorial/batch_workflow_04_sm.png "Batch işi oluşturma"
-[5]: ./media/batch-python-tutorial/batch_workflow_05_sm.png "Görevleri toojob Ekle"
+[5]: ./media/batch-python-tutorial/batch_workflow_05_sm.png "İşe görev ekleme"
 [6]: ./media/batch-python-tutorial/batch_workflow_06_sm.png "Görevleri izleme"
 [7]: ./media/batch-python-tutorial/batch_workflow_07_sm.png "Depolama’dan görev çıkışını indirme"
 [8]: ./media/batch-python-tutorial/batch_workflow_sm.png "Batch çözümü iş akışı (tam diyagram)"

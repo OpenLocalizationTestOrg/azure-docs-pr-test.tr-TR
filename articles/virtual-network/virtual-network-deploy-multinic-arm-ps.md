@@ -1,6 +1,6 @@
 ---
-title: "birden çok NIC - Azure PowerShell ile bir VM aaaCreate | Microsoft Docs"
-description: "Bilgi nasıl toocreate PowerShell kullanarak birden çok NIC ile VM."
+title: "Birden çok NIC - Azure PowerShell ile bir VM oluşturma | Microsoft Docs"
+description: "PowerShell kullanarak birden çok NIC ile VM oluşturmayı öğrenin."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 507a413510da3ee69aefed324977ee40e442268b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f3a11afd8fbd6a5e6b94cf1ebee7ea20665421bd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-vm-with-multiple-nics-using-powershell"></a>PowerShell kullanarak birden çok NIC ile VM oluşturma
 
@@ -34,19 +34,19 @@ ms.lasthandoff: 10/06/2017
 [!INCLUDE [virtual-network-deploy-multinic-intro-include.md](../../includes/virtual-network-deploy-multinic-intro-include.md)]
 
 > [!NOTE]
-> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../resource-manager-deployment-model.md).  Bu makalede, kullanarak yer almaktadır hello yerine çoğu yeni dağıtımlar için Microsoft önerir hello Resource Manager dağıtım modeli [Klasik dağıtım modeli](virtual-network-deploy-multinic-classic-ps.md).
+> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../resource-manager-deployment-model.md).  Bu makale, Microsoft’un çoğu yeni dağıtım için [klasik dağıtım modeli](virtual-network-deploy-multinic-classic-ps.md) yerine önerdiği Resource Manager dağıtım modelini açıklamaktadır.
 >
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-Merhaba aşağıdaki adımları kullanın adlı bir kaynak grubu *IaaSStory* hello WEB sunucuları ve bir kaynak grubu için adlı *IaaSStory arka uç* hello DB sunucuları için.
+Adlı bir kaynak grubu aşağıdaki adımları kullanın *IaaSStory* WEB sunucuları ve bir kaynak grubu için adlı *IaaSStory arka uç* DB sunucuları için.
 
 ## <a name="prerequisites"></a>Ön koşullar
-DB sunucuları hello oluşturabilmeniz için önce toocreate hello gerekir *IaaSStory* hello gereken tüm kaynakların bu senaryo için kaynak grubuyla. Bu kaynaklar toocreate tamamlamak hello adımları izleyin:
+DB sunucuları oluşturabilmeniz için önce oluşturmanız gerekir *IaaSStory* bu senaryo için gereken tüm kaynakların kaynak grubuyla. Bu kaynakları oluşturmak için aşağıdaki adımları tamamlayın:
 
-1. Çok gidin[hello şablon sayfasına](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
-2. Merhaba şablon sayfasındaki sağ toohello **üst kaynak grubu**, tıklatın **tooAzure dağıtmak**.
-3. Gerekirse, hello parametre değerlerini değiştirmek sonra hello Azure Önizleme portalı toodeploy hello kaynak grubunda hello adımları izleyin.
+1. Gidin [şablon sayfasına](https://github.com/Azure/azure-quickstart-templates/tree/master/IaaS-Story/11-MultiNIC).
+2. Şablon sayfasındaki sağ tarafındaki **üst kaynak grubu**, tıklatın **Azure'a Dağıt**.
+3. Gerekirse, parametre değerlerini değiştirin, sonra kaynak grubu dağıtmak için Azure Önizleme Portalı'ndaki adımları izleyin.
 
 > [!IMPORTANT]
 > Depolama hesabı adları benzersiz olduğundan emin olun. Azure üzerinde yinelenen depolama hesabı adları sahip olamaz.
@@ -54,17 +54,17 @@ DB sunucuları hello oluşturabilmeniz için önce toocreate hello gerekir *IaaS
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
-## <a name="create-hello-back-end-vms"></a>Arka uç VM'ler Hello oluşturma
-Merhaba arka uç VM'ler kaynakları aşağıdaki hello hello oluşturulmasına bağlıdır:
+## <a name="create-the-back-end-vms"></a>Arka uç VM'ler oluşturma
+Arka uç VM'ler aşağıdaki kaynaklara oluşturulmasını bağlıdır:
 
-* **Veri diskleri için depolama hesabı**. Daha iyi performans için premium depolama hesabı gerektirir katı hal sürücüsü (SSD) teknolojisi hello veritabanı sunucularında hello veri diski kullanır. Emin hello toosupport premium depolama dağıttığınız Azure konumu olun.
+* **Veri diskleri için depolama hesabı**. Daha iyi performans için veritabanı sunucularında veri diskler bir premium depolama hesabı gerektirir katı hal sürücüsü (SSD) teknolojisi kullanır. Premium depolama desteklemek için dağıtmanız Azure konumu emin olun.
 * **NIC**. Her VM veritabanı erişimi için iki NIC gerekir ve yönetimi için bir tane.
-* **Kullanılabilirlik kümesi**. Tüm veritabanı sunucuları tooa tek kullanılabilirlik kümesi eklenir, tooensure hello VM'ler en az biri hazır ve çalışır bakımı sırasında.  
+* **Kullanılabilirlik kümesi**. Tüm veritabanı sunucuları, en az bir sanal makineleri çalışır durumda emin olmak için ayarlayın ve bakım sırasında çalıştıran tek bir kullanılabilirlik eklenir.  
 
 ### <a name="step-1---start-your-script"></a>1. adım - kodunuzu Başlat
-Kullanılan hello tam PowerShell komut dosyası indirebilirsiniz [burada](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/virtual-network-deploy-multinic-arm-ps.ps1). Ortamınızdaki toochange hello betik toowork Hello adımları izleyin.
+Kullanılan tam PowerShell komut dosyası indirebilirsiniz [burada](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/arm/virtual-network-deploy-multinic-arm-ps.ps1). Ortamınızda çalışması için komut dosyasını değiştirmek için aşağıdaki adımları izleyin.
 
-1. Değiştirme hello değişkenlerin değerleri yukarıda dağıtılmış varolan kaynak grubunuz göre hello aşağıdaki [Önkoşullar](#Prerequisites).
+1. Yukarıdaki dağıtılmış varolan kaynak grubunuz temelinde değişkenleri aşağıdaki değerlerini değiştirmek [Önkoşullar](#Prerequisites).
 
     ```powershell
     $existingRGName        = "IaaSStory"
@@ -75,7 +75,7 @@ Kullanılan hello tam PowerShell komut dosyası indirebilirsiniz [burada](https:
     $stdStorageAccountName = "wtestvnetstoragestd"
     ```
 
-2. Merhaba değerlerini değiştirin arka uç dağıtımınız için toouse istediğiniz hello değişkenleri aşağıdaki hello değerlerine göre.
+2. Arka uç dağıtımınız için kullanmak istediğiniz değerleri temel alarak aşağıdaki değişkenlerinin değerlerini değiştirin.
 
     ```powershell
     $backendRGName         = "IaaSStory-Backend"
@@ -94,7 +94,7 @@ Kullanılan hello tam PowerShell komut dosyası indirebilirsiniz [burada](https:
     $ipAddressPrefix       = "192.168.2."
     $numberOfVMs           = 2
     ```
-3. Dağıtımınız için gerekli hello mevcut kaynakları alır.
+3. Dağıtımınız için gereken mevcut kaynakları alır.
 
     ```powershell
     $vnet                  = Get-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $existingRGName
@@ -104,14 +104,14 @@ Kullanılan hello tam PowerShell komut dosyası indirebilirsiniz [burada](https:
     ```
 
 ### <a name="step-2---create-necessary-resources-for-your-vms"></a>2. adım - Vm'leriniz için gerekli kaynakları oluşturma
-Tüm VM'ler için kullanılabilirlik kümesi ve toocreate yeni bir kaynak grubu olan hello veri diskleri için bir depolama hesabı gerekir. Seçecek her VM için hello yerel yönetici hesabı kimlik bilgileri gerekir. Bu kaynaklar toocreate yürütme hello adımları izleyin.
+Yeni bir kaynak grubu, veri diskleri ve kullanılabilirlik tüm VM'ler için kümesi için bir depolama hesabı oluşturmak gerekir. Seçecek her VM için yerel yönetici hesabı kimlik bilgileri gerekir. Bu kaynakları oluşturmak için aşağıdaki adımları yürütün.
 
 1. Yeni bir kaynak grubu oluşturun.
 
     ```powershell
     New-AzureRmResourceGroup -Name $backendRGName -Location $location
     ```
-2. Yukarıda oluşturduğunuz hello kaynak grubunda yeni bir premium depolama hesabı oluşturun.
+2. Yukarıda oluşturduğunuz kaynak grubunda yeni bir premium depolama hesabı oluşturun.
 
     ```powershell
     $prmStorageAccount = New-AzureRmStorageAccount -Name $prmStorageAccountName `
@@ -122,22 +122,22 @@ Tüm VM'ler için kullanılabilirlik kümesi ve toocreate yeni bir kaynak grubu 
     ```powershell
     $avSet = New-AzureRmAvailabilitySet -Name $avSetName -ResourceGroupName $backendRGName -Location $location
     ```
-4. Merhaba yerel yönetici hesabı kimlik bilgileri toobe her VM için kullanılan alın.
+4. Yerel yönetici her VM için kullanılacak hesap kimlik bilgilerini alın.
 
     ```powershell
-    $cred = Get-Credential -Message "Type hello name and password for hello local administrator account."
+    $cred = Get-Credential -Message "Type the name and password for the local administrator account."
     ```
 
-### <a name="step-3---create-hello-nics-and-back-end-vms"></a>3. adım - hello NIC ve arka uç VM'ler oluşturma
-Ve oluşturma gibi birçok VM gerekli NIC ve sanal makineleri hello döngü içinde hello gibi bir döngü toocreate toouse gerekir. toocreate hello NIC ve sanal makineleri, aşağıdaki adımları hello yürütün.
+### <a name="step-3---create-the-nics-and-back-end-vms"></a>Adım 3 - NIC ve arka uç VM'ler oluşturma
+Ve gerekli NIC ve sanal makineleri döngüye içinde gibi birçok VM oluşturmak için bir döngü kullanmanız gerekir. NIC ve sanal makineleri oluşturmak için aşağıdaki adımları yürütün.
 
-1. Başlangıç bir `for` döngü toorepeat hello komutların toocreate VM iki NIC gerektiği gibi birçok kez hello hello değerine bağlı olarak `$numberOfVMs` değişkeni.
+1. Başlangıç bir `for` değerine göre bir VM ve gerektiği pek çok, iki NIC oluşturmak için komutları yinelemek için döngü `$numberOfVMs` değişkeni.
    
     ```powershell
     for ($suffixNumber = 1; $suffixNumber -le $numberOfVMs; $suffixNumber++){
     ```
 
-2. NIC veritabanı erişimi için kullanılan hello oluşturun.
+2. Veritabanı erişimi için kullanılan NIC oluşturun.
 
     ```powershell
     $nic1Name = $nicNamePrefix + $suffixNumber + "-DA"
@@ -146,7 +146,7 @@ Ve oluşturma gibi birçok VM gerekli NIC ve sanal makineleri hello döngü içi
     -Location $location -SubnetId $backendSubnet.Id -PrivateIpAddress $ipAddress1
     ```
 
-3. NIC uzaktan erişim için kullanılan hello oluşturun. Nasıl bir ilişkili NSG tooit bu NIC'ye sahiptir dikkat edin.
+3. Uzaktan erişim için kullanılan NIC oluşturun. Bu NIC için ilişkilendirilmiş bir NSG nasıl sahip dikkat edin.
 
     ```powershell
     $nic2Name = $nicNamePrefix + $suffixNumber + "-RA"
@@ -163,7 +163,7 @@ Ve oluşturma gibi birçok VM gerekli NIC ve sanal makineleri hello döngü içi
     $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avSet.Id
     ```
 
-5. VM başına iki veri diski oluşturun. Merhaba veri diskleri daha önce oluşturduğunuz hello premium storage hesabında olduğuna dikkat edin.
+5. VM başına iki veri diski oluşturun. Veri diskleri daha önce oluşturduğunuz premium depolama hesabını olduğuna dikkat edin.
 
     ```powershell
     $dataDisk1Name = $vmName + "-" + $osDiskPrefix + "-1"
@@ -177,21 +177,21 @@ Ve oluşturma gibi birçok VM gerekli NIC ve sanal makineleri hello döngü içi
     -VhdUri $data2VhdUri -CreateOption empty -Lun 1
     ```
 
-6. Merhaba işletim sistemi ve VM hello için kullanılan görüntü toobe yapılandırın.
+6. İşletim sistemi yapılandırması ve VM için kullanılacak resim.
 
     ```powershell
     $vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $vmName -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
     $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName $publisher -Offer $offer -Skus $sku -Version $version
     ```
 
-7. Toohello oluşturulan hello iki NIC ekleme `vmConfig` nesnesi.
+7. Yukarıda oluşturulan iki NIC ekleme `vmConfig` nesnesi.
 
     ```powershell
     $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic1.Id -Primary
     $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic2.Id
     ```
 
-8. Merhaba işletim sistemi diski oluşturun ve hello VM oluşturun. Bildirim hello `}` hello bitiş `for` döngü.
+8. İşletim sistemi diski oluşturun ve VM oluşturun. Bildirim `}` bitiş `for` döngü.
 
     ```powershell
     $osDiskName = $vmName + "-" + $osDiskSuffix
@@ -201,10 +201,10 @@ Ve oluşturma gibi birçok VM gerekli NIC ve sanal makineleri hello döngü içi
     }
     ```
 
-### <a name="step-4---run-hello-script"></a>Adım 4 - çalışma hello komut dosyası
-İndirilen ve değiştirilen hello betik gereksinimlerinize bağlı olarak toocreate hello arka uç veritabanı birden çok NIC içeren VM'ler kendisinin komut dosyası çalışma temel.
+### <a name="step-4---run-the-script"></a>Adım 4 - komut dosyasını çalıştır
+İndirilen ve gereksinimlerinize göre komut değiştirilen göre çalışma kendisinin komut dosyası arka uç veritabanı VM'ler ile birden çok NIC oluşturmak için.
 
-1. Komut dosyanızı kaydedin ve hello çalıştırın **PowerShell** komut istemi veya **PowerShell ISE**. Aşağıdaki gibi hello ilk çıktı görürsünüz:
+1. Komut dosyanızı kaydedin ve çalıştırın **PowerShell** komut istemi veya **PowerShell ISE**. İlk çıkış gibi görürsünüz:
 
         ResourceGroupName : IaaSStory-Backend
         Location          : westus
@@ -217,7 +217,7 @@ Ve oluşturma gibi birçok VM gerekli NIC ve sanal makineleri hello döngü içi
 
         ResourceId        : /subscriptions/[Subscription ID]/resourceGroups/IaaSStory-Backend
 
-2. Birkaç dakika sonra hello kimlik bilgileri istemi ve tıklatın doldurmak **Tamam**. Merhaba çıktı aşağıdaki tek bir VM'ye temsil eder. Bildirim hello tüm işlem 8 dakika toocomplete sürdü.
+2. Birkaç dakika sonra kimlik bilgileri istemi ve tıklatın doldurmak **Tamam**. Çıktı tek bir VM'ye temsil eder. Bildirim tüm işlemini tamamlamak için 8 dakika sürdü.
 
         ResourceGroupName            :
         Id                           :

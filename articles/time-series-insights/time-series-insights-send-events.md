@@ -1,6 +1,6 @@
 ---
-title: "aaaSend olayları tooAzure zaman serisi Öngörüler ortamı | Microsoft Docs"
-description: "Bu öğretici hello adımları toopush olayları tooyour zaman serisi Öngörüler ortamı kapsar"
+title: "Azure Zaman Serisi Görüşleri ortamına olayları gönderme | Microsoft Docs"
+description: "Bu öğretici, olayları Zaman Serisi Görüşleri ortamınıza gönderme adımlarını içerir."
 keywords: 
 services: tsi
 documentationcenter: 
@@ -15,45 +15,45 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/21/2017
 ms.author: venkatja
-ms.openlocfilehash: dbccc23f61351a0033cd48c1a02fb3841b45d560
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: b4ef96a045393f28b3cd750068fe82a5a8411afa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="send-events-tooa-time-series-insights-environment-using-event-hub"></a>Olay hub'ı kullanarak olayları tooa zaman serisi Öngörüler ortamı Gönder
+# <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Olay hub’ı kullanarak olayları Zaman Serisi Görüşleri ortamına gönderme
 
-Bu öğretici açıklar nasıl toocreate olay hub'ı yapılandırmak ve bir örnek uygulama toopush olayları çalıştırın. JSON biçiminde olaylar içeren bir olay hub’ınız mevcutsa bu öğreticiyi atlayabilir ve [zaman serisi görüşlerinde](https://insights.timeseries.azure.com) ortamınızı görüntüleyebilirsiniz.
+Bu öğreticide, olay hub’ının nasıl oluşturulduğu ve yapılandırıldığı, ayrıca olayları göndermek için örnek bir uygulamanın nasıl çalıştırıldığı açıklanır. JSON biçiminde olaylar içeren bir olay hub’ınız mevcutsa bu öğreticiyi atlayabilir ve [zaman serisi görüşlerinde](https://insights.timeseries.azure.com) ortamınızı görüntüleyebilirsiniz.
 
 ## <a name="configure-an-event-hub"></a>Olay hub’ını yapılandırma
-1. toocreate bir event hub olay hub'ı hello yönergeleri izleyerek [belgelerine](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+1. Olay hub’ı oluşturmak için, Olay Hub’ı [belgelerindeki](https://docs.microsoft.com/azure/event-hubs/event-hubs-create) yönergeleri izleyin.
 
 2. Özel olarak yalnızca Zaman Serisi Görüşleri olay kaynağınız tarafından kullanılan bir tüketici grubu oluşturduğunuzdan emin olun.
 
   > [!IMPORTANT]
-  > Bu tüketici grubunun başka hiçbir hizmet (örneğin, Stream Analytics işi veya başka bir Zaman Serisi Görüşleri ortamı) tarafından kullanılmadığından emin olun. Bir tüketici grubundaki diğer hizmetler tarafından kullanılıyorsa, işlem olumsuz bu ortam için etkilenen okuyun ve diğer hizmetleri hello. "$Default" Merhaba tüketici grubu olarak kullanıyorsanız, diğer okuyucular tarafından toopotential yeniden yol açabilir.
+  > Bu tüketici grubunun başka hiçbir hizmet (örneğin, Stream Analytics işi veya başka bir Zaman Serisi Görüşleri ortamı) tarafından kullanılmadığından emin olun. Tüketici grubu başka hizmetler tarafından kullanılıyorsa, bu ortam ve diğer hizmetler için okuma işlemi olumsuz etkilenir. Tüketici grubu olarak “$Default” kullanıyorsanız, bu diğer okuyucular tarafından olası yeniden kullanıma yol açabilir.
 
   ![Olay hub’ı tüketici grubunu seçme](media/send-events/consumer-group.png)
 
-3. "MySendPolicy" Merhaba olay hub'ına, oluşturma diğer bir deyişle hello csharp örnek kullanılan toosend olaylar.
+3. Olay hub’ında, csharp örneğinde olay göndermek için kullanılan “MySendPolicy” ilkesini oluşturun.
 
   ![Paylaşılan erişim ilkeleri’ni seçin ve Ekle düğmesine tıklayın](media/send-events/shared-access-policy.png)  
 
   ![Yeni paylaşılan erişim ilkesi ekleme](media/send-events/shared-access-policy-2.png)  
 
 ## <a name="create-time-series-insights-event-source"></a>Zaman Serisi Görüşleri olay kaynağı oluşturma
-1. Bir olay kaynağı oluşturmadıysanız, izleyin [bu yönergeleri](time-series-insights-add-event-source.md) toocreate bir olay kaynağı.
+1. Bir olay kaynağı oluşturmadıysanız, olay kaynağını oluşturmak için [bu yönergeleri](time-series-insights-add-event-source.md) izleyin.
 
-2. "DeviceTimestamp" Merhaba zaman damgası özelliği adı olarak belirtmeniz – bu özellik, gerçek zaman damgası hello csharp örneği'nde hello olarak kullanılır. Merhaba zaman damgası özelliği adı büyük küçük harfe duyarlı ve değerleri hello biçimi izlemelidir __yyyy-MM-ddTHH. FFFFFFFK__ JSON tooevent hub olarak gönderildiğinde. Merhaba özelliği hello olayda mevcut değilse daha sonra hello olay hub'ı sıraya alınan zaman kullanılır.
+2. Zaman damgası özellik adı olarak “deviceTimestamp” değerini belirtin; bu özellik, csharp örneğinde gerçek zaman damgası olarak kullanılmıştır. Zaman damgası özellik adı büyük/küçük harfe duyarlıdır ve olay hub’ına JSON olarak gönderildiğinde değerleri __yyyy-AA-ggTSS:dd:ss.FFFFFFFK__ biçiminde olmalıdır. Özellik olayda mevcut değilse olay hub'ı sıraya alınan zamanı kullanılır.
 
   ![Olay kaynağı oluşturma](media/send-events/event-source-1.png)
 
-## <a name="sample-code-toopush-events"></a>Örnek kod toopush olaylar
-1. Toohello olay hub'ı İlkesi "MySendPolicy" gidin ve hello İlkesi anahtarla hello bağlantı dizesini kopyalayın.
+## <a name="sample-code-to-push-events"></a>Olayları göndermek için kullanılacak örnek kod
+1. “MySendPolicy” olay hub’ı ilkesine gidin ve ilke anahtarıyla bağlantı dizesini kopyalayın.
 
   ![MySendPolicy bağlantı dizesini kopyalama](media/send-events/sample-code-connection-string.png)
 
-2. Koddan hello her hello üç aygıtların toosend 600 olayların çalıştırın. `eventHubConnectionString` öğesini bağlantı dizenizle güncelleştirin.
+2. Üç cihazdan her biri için 600 olay gönderecek olan aşağıdaki kodu çalıştırın. `eventHubConnectionString` öğesini bağlantı dizenizle güncelleştirin.
 
 ```csharp
 using System;
@@ -113,7 +113,7 @@ namespace Microsoft.Rdx.DataGenerator
                 sw.Flush();
                 ms.Position = 0;
 
-                // Send JSON tooevent hub.
+                // Send JSON to event hub.
                 EventData eventData = new EventData(ms);
                 eventHubClient.Send(eventData);
             }
@@ -144,7 +144,7 @@ Basit bir JSON nesnesi.
 ### <a name="sample-2"></a>Örnek 2
 
 #### <a name="input"></a>Girdi
-İki JSON nesnesi içeren JSON dizisi. Her bir JSON nesnesi dönüştürülmüş tooan olay olacaktır.
+İki JSON nesnesi içeren JSON dizisi. Her JSON nesnesi bir olaya dönüştürülür.
 ```json
 [
     {
@@ -185,7 +185,7 @@ Basit bir JSON nesnesi.
 
 ```
 #### <a name="output---2-events"></a>Çıkış - 2 Olay
-Merhaba özelliği "Konum" Merhaba olay tooeach kopyalanır unutmayın.
+"location" özelliğinin her olaya kopyalandığına dikkat edin.
 
 |location|events.id|events.timestamp|
 |--------|---------------|----------------------|
@@ -196,7 +196,7 @@ Merhaba özelliği "Konum" Merhaba olay tooeach kopyalanır unutmayın.
 
 #### <a name="input"></a>Girdi
 
-İki JSON nesnesi içeren iç içe bir JSON dizisi ile JSON nesnesi. Bu giriş hello genel özellikleri hello karmaşık JSON nesnesi tarafından temsil edilebilir olduğunu gösterir.
+İki JSON nesnesi içeren iç içe bir JSON dizisi ile JSON nesnesi. Girilen bu değer, genel özelliklerin karmaşık JSON nesnesiyle ifade edilebileceğini gösterir.
 
 ```json
 {

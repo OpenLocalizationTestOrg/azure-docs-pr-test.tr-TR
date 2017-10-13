@@ -1,6 +1,6 @@
 ---
-title: "aaaConfigure özel IP adresleri VM'ler - Azure PowerShell | Microsoft Docs"
-description: "PowerShell kullanarak sanal makineleri için nasıl tooconfigure özel IP adresleri öğrenin."
+title: "Özel IP adresleri - Azure PowerShell VM'ler için yapılandırma | Microsoft Docs"
+description: "PowerShell kullanarak sanal makineleri için özel IP adresleri yapılandırmayı öğrenin."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4a3eb67de583e08208fcab40de1c2a8a9b65618c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2810190897c44c944912ef3325b1f40479aa3078
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-powershell"></a>PowerShell kullanarak bir sanal makine için özel IP adreslerini yapılandırın
 
@@ -28,39 +28,39 @@ ms.lasthandoff: 10/06/2017
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-Azure'un iki dağıtım modeli vardır: Azure Resource Manager ve klasik. Microsoft, kaynakları hello Resource Manager dağıtım modeli üzerinden oluşturma önerir. Merhaba iki modelleri arasındaki farklar hakkında daha fazla bilgi toolearn hello okuma hello [anlamak Azure dağıtım modelleri](../azure-resource-manager/resource-manager-deployment-model.md) makalesi. Bu makalede, hello Resource Manager dağıtım modeli yer almaktadır. Ayrıca [hello Klasik dağıtım modelinde statik özel IP adresi yönetmek](virtual-networks-static-private-ip-classic-ps.md).
+Azure'un iki dağıtım modeli vardır: Azure Resource Manager ve klasik. Microsoft, kaynakların Resource Manager dağıtım modeliyle oluşturulmasını önerir. İki model arasındaki farkları öğrenmek için [Azure dağıtım modellerini anlama](../azure-resource-manager/resource-manager-deployment-model.md) makalesini okuyun. Bu makalede Resource Manager dağıtım modeli anlatılmaktadır. Ayrıca [Klasik dağıtım modelinde statik özel IP adresi yönetmek](virtual-networks-static-private-ip-classic-ps.md).
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-Merhaba örnek PowerShell önceden oluşturulmuş basit bir ortam aşağıdaki komutları beklediğiniz senaryosunda hello yukarıdaki temel. Bu belgede gösterildiği toorun hello komutları istiyorsanız, ilk derleme açıklanan hello test ortamı [vnet oluşturma](virtual-networks-create-vnet-arm-ps.md).
+Aşağıdaki komutları önceden oluşturulmuş basit bir ortam beklediğiniz PowerShell örnek yukarıdaki senaryo tabanlı. Bu belgede gösterildiği komutları çalıştırmak istiyorsanız, önce açıklanan test ortamı oluşturmak [vnet oluşturma](virtual-networks-create-vnet-arm-ps.md).
 
 ## <a name="create-a-vm-with-a-static-private-ip-address"></a>Statik özel IP adresiyle VM oluşturma
-toocreate adlı bir VM'den *DNS01* hello içinde *ön uç* adlı bir sanal ağ alt ağı *TestVNet* özel bir statik IP *192.168.1.101*, Merhaba adımları izleyin:
+Adlı bir VM oluşturmak için *DNS01* içinde *ön uç* adlı bir sanal ağ alt ağı *TestVNet* özel bir statik IP *192.168.1.101*, aşağıdaki adımları izleyin:
 
-1. Merhaba depolama hesabı, konumu, kaynak grubu ve kullanılan kimlik bilgileri toobe değişkenleri ayarlayın. Merhaba VM tooenter bir kullanıcı adı ve parola gerekir. Merhaba depolama hesabı ve kaynak grubu zaten mevcut olmalıdır.
+1. Depolama hesabı, konumu, kaynak grubu ve kimlik bilgileri kullanılacak değişkenleri ayarlayın. VM için bir kullanıcı adı ve parola girmeniz gerekir. Depolama hesabı ve kaynak grubu zaten mevcut olmalıdır.
 
     ```powershell
     $stName  = "vnetstorage"
     $locName = "Central US"
     $rgName  = "TestRG"
-    $cred    = Get-Credential -Message "Type hello name and password of hello local administrator account."
+    $cred    = Get-Credential -Message "Type the name and password of the local administrator account."
     ```
 
-2. Alma hello sanal ağ ve alt toocreate istediğiniz VM ile Merhaba.
+2. VM'yi oluşturmak istediğiniz alt ağ ve sanal ağ alın.
 
     ```powershell
     $vnet   = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
     $subnet = $vnet.Subnets[0].Id
     ```
 
-3. Gerekirse, bir ortak IP adresi tooaccess hello VM Internet hello oluşturun.
+3. Gerekirse, VM Internet'ten erişmek için genel bir IP adresi oluşturun.
 
     ```powershell
     $pip = New-AzureRmPublicIpAddress -Name TestPIP -ResourceGroupName $rgName `
     -Location $locName -AllocationMethod Dynamic
     ```
 
-4. Tooassign toohello VM istediğiniz hello statik özel IP adresini kullanarak bir NIC oluşturun. Emin hello IP olduğu eklemekte olduğunuz hello alt ağı aralığından hello VM olun. Bu hello ana hello özel IP toobe statik ayarladığınız Bu makale için bir adımdır.
+4. VM atamak istediğiniz özel statik IP adresi kullanarak bir NIC oluşturun. IP alt ağı aralığından VM'ye ekleniyor olduğundan emin olun. Statik olarak özel IP ayarladığınız Bu makale için ana adım budur.
 
     ```powershell
     $nic = New-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName $rgName `
@@ -68,7 +68,7 @@ toocreate adlı bir VM'den *DNS01* hello içinde *ön uç* adlı bir sanal ağ a
     -PrivateIpAddress 192.168.1.101
     ```
 
-5. Merhaba NIC kullanarak VM yukarıda oluşturduğunuz hello oluşturun.
+5. Yukarıda oluşturduğunuz NIC kullanarak VM oluşturma.
 
     ```powershell
     $vm = New-AzureRmVMConfig -VMName DNS01 -VMSize "Standard_A1"
@@ -95,7 +95,7 @@ toocreate adlı bir VM'den *DNS01* hello içinde *ön uç* adlı bir sanal ağ a
         StatusCode          : OK 
 
 ## <a name="retrieve-static-private-ip-address-information-for-a-network-interface"></a>Bir ağ arabirimi için özel statik IP adresi bilgilerini alma
-tooview hello statik özel IP adres bilgilerinin hello için VM oluşturulan yukarıdaki hello komut dosyasıyla hello aşağıdaki PowerShell komutunu çalıştırın ve başlangıç değerleri uyun *PrivateIpAddress* ve  *Privateıpallocationmethod*:
+Komut dosyası yukarıdaki VM oluşturulan için statik özel IP adresi bilgilerini görüntülemek için aşağıdaki PowerShell komutunu çalıştırın ve değerlerini uyun *PrivateIpAddress* ve *Privateıpallocationmethod*:
 
 ```powershell
 Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
@@ -142,7 +142,7 @@ Beklenen çıktı:
     Primary              : True
 
 ## <a name="remove-a-static-private-ip-address-from-a-network-interface"></a>Özel bir statik IP adresi bir ağ arabiriminden Kaldır
-tooremove hello statik özel IP adresi toohello VM üzerinde aşağıdaki PowerShell komutlarını çalıştırma hello hello betikteki eklendi:
+Özel statik IP adresi kaldırmak için yukarıdaki komut VM'ye aşağıdaki PowerShell komutlarını çalıştırın ekledi:
 
 ```powershell
 $nic=Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
@@ -190,8 +190,8 @@ Beklenen çıktı:
     NetworkSecurityGroup : null
     Primary              : True
 
-## <a name="add-a-static-private-ip-address-tooa-network-interface"></a>Statik özel IP adresi tooa ağ arabirimi ekleyin
-tooadd bir statik özel IP adresi toohello hello betik yukarıdaki kullanılarak oluşturulan VM hello aşağıdaki komutları çalıştırın:
+## <a name="add-a-static-private-ip-address-to-a-network-interface"></a>Bir ağ arabirimi için özel bir statik IP adresi Ekle
+Yukarıdaki komut dosyası kullanılarak oluşturulan VM için özel bir statik IP adresi eklemek için aşağıdaki komutları çalıştırın:
 
 ```powershell
 $nic=Get-AzureRmNetworkInterface -Name TestNIC -ResourceGroupName TestRG
@@ -199,9 +199,9 @@ $nic.IpConfigurations[0].PrivateIpAllocationMethod = "Static"
 $nic.IpConfigurations[0].PrivateIpAddress = "192.168.1.101"
 Set-AzureRmNetworkInterface -NetworkInterface $nic
 ```
-## <a name="change-hello-allocation-method-for-a-private-ip-address-assigned-tooa-network-interface"></a>Tooa ağ arabirimine atanmış bir özel IP adresi için Hello ayırma yöntemini değiştirin
+## <a name="change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface"></a>Bir ağ arabirimine atanmış özel bir IP adresi ayırma yöntemini değiştirme
 
-Özel bir IP adresi tooa NIC hello statik veya dinamik ayırma yöntemiyle atanır. Dinamik IP adreslerini hello öncekinden VM başlatma durduruldu (serbest bırakıldığında) durumu sonra değiştirebilirsiniz. Merhaba VM hello gerektiren bir hizmeti barındırma varsa bu olası sorunlara neden olabilir durduruldu (serbest bırakıldığında) durumundan yeniden başlatıldıktan sonra bile aynı IP adresi. Statik IP adresleri Hello VM silinene kadar bekletilir. toochange hello ayırma yöntemi hello ayırma yöntemi dinamik toostatic değişiklikler komut dosyası izleyen hello çalıştırmak bir IP adresi. Merhaba ayırma yöntemi hello geçerli özel IP adresi statik ise değiştirmek *statik* çok*dinamik* hello betiği çalıştırmadan önce.
+Özel bir IP adresi statik veya dinamik ayırma yöntemiyle bir NIC'ye atanır. Dinamik IP adresleri, daha önce durduruldu (serbest bırakıldığında) durumdaydı bir VM başlattıktan sonra değiştirebilirsiniz. VM durduruldu (serbest bırakıldığında) durumundan yeniden başlatıldıktan sonra bile aynı IP adresi gerektiren bir hizmeti barındırma varsa bu olası sorunlara neden olabilir. Statik IP adresleri, VM silinene kadar bekletilir. Bir IP adresi ayırma yöntemini değiştirmek için ayırma yöntemi dinamik statik olarak değiştirir aşağıdaki betiği çalıştırın. Geçerli özel IP adresi için ayırma yöntemi statik ise, değiştirme *statik* için *dinamik* komut dosyasını çalıştırmadan önce.
 
 ```powershell
 $RG = "TestRG"
@@ -212,10 +212,10 @@ $nic.IpConfigurations[0].PrivateIpAllocationMethod = 'Static'
 Set-AzureRmNetworkInterface -NetworkInterface $nic 
 $IP = $nic.IpConfigurations[0].PrivateIpAddress
 
-Write-Host "hello allocation method is now set to"$nic.IpConfigurations[0].PrivateIpAllocationMethod"for hello IP address" $IP"." -NoNewline
+Write-Host "The allocation method is now set to"$nic.IpConfigurations[0].PrivateIpAllocationMethod"for the IP address" $IP"." -NoNewline
 ```
 
-Merhaba NIC hello adını bilmiyorsanız, komutu aşağıdaki hello girerek NIC'ler listesini bir kaynak grubu içinde görüntüleyebilirsiniz:
+NIC adını bilmiyorsanız, aşağıdaki komutu girerek NIC'ler listesini bir kaynak grubu içinde görüntüleyebilirsiniz:
 
 ```powershell
 Get-AzureRmNetworkInterface -ResourceGroupName $RG | Where-Object {$_.ProvisioningState -eq 'Succeeded'} 
@@ -224,5 +224,5 @@ Get-AzureRmNetworkInterface -ResourceGroupName $RG | Where-Object {$_.Provisioni
 ## <a name="next-steps"></a>Sonraki adımlar
 * Hakkında bilgi edinin [ayrılmış genel IP](virtual-networks-reserved-public-ip.md) adresleri.
 * Hakkında bilgi edinin [örnek düzeyinde ortak IP (ILPIP)](virtual-networks-instance-level-public-ip.md) adresleri.
-* Merhaba başvurun [ayrılmış IP REST API'leri](https://msdn.microsoft.com/library/azure/dn722420.aspx).
+* Başvurun [ayrılmış IP REST API'leri](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 

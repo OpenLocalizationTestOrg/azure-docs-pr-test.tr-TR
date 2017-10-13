@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile isteğe bağlı Proofpoint | Microsoft Docs"
-description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ve isteğe bağlı Proofpoint arasında."
+description: "Çoklu oturum açma Azure Active Directory ile Proofpoint arasında isteğe bağlı yapılandırma konusunda bilgi edinin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,113 +13,113 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 0f9472ddc01f2c18ffc9e8d2b59a17b3b595515e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b4c8d8c187fc865a905016f04a41843894249f5e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proofpoint-on-demand"></a>Öğretici: Azure Active Directory Tümleştirme ile Proofpoint isteğe bağlı
 
-Bu öğreticide, bilgi nasıl toointegrate Proofpoint Azure Active Directory (Azure AD) ile isteğe bağlı.
+Bu öğreticide, Azure Active Directory (Azure AD) ile Proofpoint isteğe bağlı tümleştirme öğrenin.
 
-İsteğe bağlı Proofpoint Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
+İsteğe bağlı Proofpoint Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- İsteğe bağlı erişim tooProofpoint olan Azure AD'de kontrol edebilirsiniz
-- Kullanıcıların tooautomatically get açan tooProofpoint (çoklu oturum açma) isteğe bağlı Azure AD hesaplarına sahip etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir
+- İsteğe bağlı Proofpoint erişimi, Azure AD'de kontrol edebilirsiniz
+- Otomatik olarak Proofpoint isteğe bağlı (çoklu oturum açma) için Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-tooconfigure Azure AD tümleştirme isteğe bağlı Proofpoint ile aşağıdaki öğelerindeki hello gerekir:
+İsteğe bağlı Proofpoint ile Azure AD tümleştirme yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
 - İsteğe bağlı çoklu oturum açma etkin abonelik üzerinde Proofpoint
 
 > [!NOTE]
-> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
+Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
-1. Proofpoint isteğe bağlı hello Galerisi'nden ekleme
+1. Galeriden isteğe bağlı Proofpoint ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-proofpoint-on-demand-from-hello-gallery"></a>Proofpoint isteğe bağlı hello Galerisi'nden ekleme
-Azure AD'ye tooconfigure hello tümleştirme Proofpoint isteğe bağlı olarak tooadd Proofpoint isteğe bağlı hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
+## <a name="adding-proofpoint-on-demand-from-the-gallery"></a>Galeriden isteğe bağlı Proofpoint ekleme
+Azure AD ile isteğe bağlı Proofpoint tümleştirmesini yapılandırmak için Proofpoint isteğe bağlı Galeriden yönetilen SaaS uygulamaları listenize eklemeniz gerekir.
 
-**tooadd Proofpoint hello galerisinden istendiğinde hello aşağıdaki adımları gerçekleştirin:**
+**Proofpoint Galeriden isteğe bağlı olarak eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
     ![Uygulamalar][3]
 
-4. Merhaba arama kutusuna yazın **Proofpoint isteğe bağlı**.
+4. Arama kutusuna **Proofpoint isteğe bağlı**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_search.png)
 
-5. Merhaba Sonuçlar panelinde seçin **isteğe bağlı Proofpoint**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
+5. Sonuçlar panelinde seçin **isteğe bağlı Proofpoint**ve ardından **Ekle** uygulama eklemek için düğmesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon." olarak adlandırılan bir test kullanıcı tabanlı isteğe bağlı Proofpoint ile test etme
 
-Tek toowork'ın oturum açma hangi hello karşılık gelen Proofpoint isteğe bağlı olarak tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının ve isteğe bağlı Proofpoint hello ilgili kullanıcı arasında bir bağlantı ilişkisi kurulan toobe gerekir.
+Tekli çalışmaya oturum için Azure AD ne karşılık gelen Proofpoint isteğe bağlı olarak bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ve isteğe bağlı Proofpoint ilgili kullanıcı arasındaki bağlantıyı ilişki kurulması gerekir.
 
-Bu bağlantı ilişkisi hello hello değerini atayarak kurulur **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** Proofpoint isteğe bağlı olarak.
+Bu bağlantı değeri atayarak ilişkisi **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** Proofpoint isteğe bağlı olarak.
 
-tooconfigure ve test Azure AD çoklu oturum açma isteğe bağlı Proofpoint ile yapı taşları aşağıdaki toocomplete hello gerekir:
+Yapılandırmak ve Azure AD çoklu oturum açma ile isteğe bağlı Proofpoint sınamak için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
-3. **[Bir Proofpoint üzerinde isteğe bağlı test kullanıcısı oluşturma](#creating-a-proofpoint-on-demand-test-user)**  -toohave Britta Simon Proofpoint kullanıcı bağlantılı toohello Azure AD gösterimidir isteğe bağlı olarak, karşılık gelen.
-4. **[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Bir Proofpoint üzerinde isteğe bağlı test kullanıcısı oluşturma](#creating-a-proofpoint-on-demand-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı isteğe bağlı Proofpoint sağlamak için.
+4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma, Proofpoint isteğe bağlı uygulama üzerinde yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma, Proofpoint isteğe bağlı uygulama üzerinde yapılandırın.
 
-**tooconfigure Azure AD çoklu oturum açma ile isteğe bağlı olarak, Proofpoint hello aşağıdaki adımları gerçekleştirin:**
+**İsteğe bağlı Proofpoint ile Azure AD çoklu oturum açma yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello hello üzerinde Azure portal'ın **Proofpoint isteğe bağlı** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **Proofpoint isteğe bağlı** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
   
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_samlbase.png)
 
-3. Merhaba üzerinde **Proofpoint isteğe bağlı etki alanı ve URL'ler hakkında** bölümünde, hello aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **Proofpoint isteğe bağlı etki alanı ve URL'ler hakkında** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_url.png)
 
-    a.In hello **oturum açma URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<hostname>.pphosted.com/ppssamlsp_hostname`
+    a.In **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<hostname>.pphosted.com/ppssamlsp_hostname`
 
-    b. Merhaba, **tanımlayıcısı** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<hostname>.pphosted.com/ppssamlsp`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<hostname>.pphosted.com/ppssamlsp`
 
-    c.  Merhaba, **yanıt URL'si** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://<hostname>.pphosted.com:portnumber/v1/samlauth/samlconsumer`
+    c.  İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<hostname>.pphosted.com:portnumber/v1/samlauth/samlconsumer`
      
     > [!NOTE] 
-    > Bu değerler hello gerçek değildir. Bu güncelleştirme tanımlayıcı, yanıt URL'si ve oturum açma URL'si ile Merhaba gerçek değerler. Kişi [isteğe bağlı müşteri destek ekibi üzerinde Proofpoint](https://www.proofpoint.com/us/support-services) tooget bu değerleri. 
+    > Bu değerler gerçek değildir. Bu değerleri gerçek tanımlayıcısı, yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Kişi [Proofpoint isteğe bağlı müşteri destek ekibi üzerinde](https://www.proofpoint.com/us/support-services) bu değerleri almak için. 
 
-4. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve hello sertifika dosyayı bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_certificate.png) 
 
@@ -127,67 +127,67 @@ Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_general_400.png)
     
-6. Merhaba üzerinde **isteğe bağlı yapılandırma Proofpoint** 'yi tıklatın **isteğe bağlı yapılandırma Proofpoint** tooopen **yapılandırma oturum açma** penceresi. Kopya hello **SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** hello gelen **hızlı başvuru bölümü.**
+6. Üzerinde **isteğe bağlı yapılandırma Proofpoint** 'yi tıklatın **isteğe bağlı yapılandırma Proofpoint** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_configure.png) 
 
-7. tooconfigure çoklu oturum açma üzerinde **isteğe bağlı Proofpoint** yan, indirilen toosend hello ihtiyacınız **Certificate(Base64)**,**SAML varlık kimliği**, ve **SAML Çoklu oturum açma hizmet URL'si** çok[Proofpoint isteğe bağlı müşteri destek ekibi üzerinde](https://www.proofpoint.com/us/support-services).
+7. Çoklu oturum açma yapılandırmak için **isteğe bağlı Proofpoint** yan, indirilen göndermek için ihtiyacınız **Certificate(Base64)**,**SAML varlık kimliği**, ve **SAML çoklu oturum açma hizmet URL'si** için [Proofpoint isteğe bağlı müşteri destek ekibi üzerinde](https://www.proofpoint.com/us/support-services).
 
 > [!TIP]
-> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_01.png) 
 
-2. Bu değerler hello gerçek değildir. Bu değerleri hello gerçek ile güncelleştirme
+2. Bu değerler gerçek değildir. Bu değerleri gerçek ile güncelleştirme
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_02.png) 
 
-3. tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle** hello üstteki hello iletişim.
+3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_03.png) 
 
-4. Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-proofpoint-ondemand-tutorial/create_aaduser_04.png) 
 
-    a. Merhaba, **adı** metin kutusuna, türü **Britta Simon**.
+    a. İçinde **adı** metin kutusuna, türü **Britta Simon**.
 
-    b. Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** Britta Simon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** Britta Simon biri.
 
-    c. Seçin **Göster parola** ve hello hello değerini yazma **parola**.
+    c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**'a tıklayın.
  
 ### <a name="creating-a-proofpoint-on-demand-test-user"></a>Bir Proofpoint üzerinde isteğe bağlı test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon Proofpoint isteğe bağlı olarak adlandırılan bir kullanıcı oluşturun. Çalışmak [Proofpoint isteğe bağlı müşteri destek ekibi üzerinde](https://www.proofpoint.com/us/support-services) hello Proofpoint isteğe bağlı bir platformda tooadd kullanıcılar.
+Bu bölümde, Britta Simon Proofpoint isteğe bağlı olarak adlandırılan bir kullanıcı oluşturun. Çalışmak [Proofpoint isteğe bağlı müşteri destek ekibi üzerinde](https://www.proofpoint.com/us/support-services) isteğe bağlı bir platformda Proofpoint kullanıcılar eklemek için.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
 
-Bu bölümde, isteğe bağlı erişim tooProofpoint vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
+Bu bölümde, isteğe bağlı Proofpoint için erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
 ![Kullanıcı atama][200] 
 
-**tooassign Britta Simon tooProofpoint isteğe bağlı olarak, hello aşağıdaki adımları gerçekleştirin:**
+**İsteğe bağlı Proofpoint Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Merhaba uygulamalar listesinde **Proofpoint isteğe bağlı**.
+2. Uygulamalar listesinde **Proofpoint isteğe bağlı**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_app.png) 
 
-3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
     ![Kullanıcı atama][202] 
 
@@ -195,7 +195,7 @@ Bu bölümde, isteğe bağlı erişim tooProofpoint vererek Britta Simon toouse 
 
     ![Kullanıcı atama][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -203,14 +203,14 @@ Bu bölümde, isteğe bağlı erişim tooProofpoint vererek Britta Simon toouse 
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Merhaba tıkladığınızda **Proofpoint isteğe bağlı** döşeme erişim paneli hello üzerinde isteğe bağlı uygulama üzerinde tooyour Proofpoint üzerinde otomatik olarak imzalanmalıdır.
-Merhaba erişim paneli hakkında daha fazla bilgi için bkz: [giriş toohello erişim paneli](active-directory-saas-access-panel-introduction.md).  
+Tıkladığınızda **Proofpoint isteğe bağlı** döşeme erişim panelinde oturumunuz otomatik olarak isteğe bağlı uygulama üzerinde Proofpoint için.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md).  
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 

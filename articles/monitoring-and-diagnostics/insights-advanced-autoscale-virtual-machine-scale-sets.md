@@ -1,5 +1,5 @@
 ---
-title: "Azure sanal makineleri kullanarak otomatik ölçeklendirme aaaAdvanced | Microsoft Docs"
+title: "Azure sanal makineleri kullanarak otomatik ölçeklendirme Gelişmiş | Microsoft Docs"
 description: "Birden çok kural ve e-posta göndermek ve ölçek eylemleri ile Web kancası URL'leri çağrı profillerinin Resource Manager ve VM ölçek kümesi kullanır."
 author: anirudhcavale
 manager: orenr
@@ -14,32 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2016
 ms.author: ancav
-ms.openlocfilehash: ecb01e3094f715837b75ef07a7dbecdf0f2e78f1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 80955535c8d863cd3d8d1b77e2ab8bc016b6d9f3
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>VM ölçek kümesi için Resource Manager şablonları kullanarak gelişmiş otomatik ölçeklendirme yapılandırma
 Ölçek ve sanal makine ölçek kümeleri yinelenen bir zamanlamaya göre veya belirli bir tarihe göre performans ölçüm eşiklere dayanarak genişleme kullanabilirsiniz. Ölçeklendirme eylemi için e-posta ve Web kancası bildirimleri de yapılandırabilirsiniz. Bu kılavuz, bir VM ölçek kümesi üzerinde bir Resource Manager şablonu kullanarak bu nesneleri yapılandırma örneği gösterilir.
 
 > [!NOTE]
-> Bu kılavuz, VM ölçek kümesi için hello adımlar açıklanmaktadır, ancak hello aynı bilgiler tooautoscaling geçerlidir [bulut Hizmetleri](https://azure.microsoft.com/services/cloud-services/), ve [uygulama hizmeti - Web Apps](https://azure.microsoft.com/services/app-service/web/).
-> Bir basit performans ölçümü CPU gibi basit bir ölçek giriş/çıkış VM ölçek kümesi ayarda dayalı için toohello başvuran [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) ve [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) belgeleri
+> Bu izlenecek adımları VM ölçek kümesi için açıklamaktadır, ancak aynı bilgiler için otomatik ölçeklendirmeyi geçerlidir [bulut Hizmetleri](https://azure.microsoft.com/services/cloud-services/), ve [uygulama hizmeti - Web Apps](https://azure.microsoft.com/services/app-service/web/).
+> Bir basit performans ölçümü CPU gibi basit bir ölçek giriş/çıkış VM ölçek kümesi ayarda dayanarak, bakın [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) ve [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) belgeleri
 >
 >
 
 ## <a name="walkthrough"></a>Kılavuz
-Bu kılavuzda, kullandığımız [Azure kaynak Gezgini](https://resources.azure.com/) tooconfigure ve güncelleştirme hello otomatik ölçeklendirme ayarının ölçek kümesi için. Azure kaynak Gezgini kolay bir yolu toomanage olan Resource Manager şablonları aracılığıyla Azure kaynakları. Yeni tooAzure kaynak Gezgini aracı varsa, okuma [bu giriş](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/).
+Bu kılavuzda, kullandığımız [Azure kaynak Gezgini](https://resources.azure.com/) yapılandırmak ve ölçek kümesi için otomatik ölçeklendirme ayarı güncelleştirmek için. Azure kaynak Gezgini, Resource Manager şablonları aracılığıyla Azure kaynaklarınızı yönetmek için kolay bir yoludur. Azure kaynak Gezgini aracı yeniyseniz, okuma [bu giriş](https://azure.microsoft.com/blog/azure-resource-explorer-a-new-tool-to-discover-the-azure-api/).
 
-1. Bir temel otomatik ölçeklendirme ayarı ile yeni bir ölçek dağıtın. Bu makalede hello sahip bir Windows Azure hızlı başlama Galerisi gelen hello kullanan ölçek kümesi temel otomatik ölçeklendirme şablonla. Linux ölçek ayarlar çalışma hello aynı şekilde.
-2. Merhaba ölçek kümesi oluşturulduktan sonra Azure kaynak Gezgini toohello ölçek kümesi kaynaktan gidin. Merhaba aşağıdaki Microsoft.ınsights düğümü altında bakın.
+1. Bir temel otomatik ölçeklendirme ayarı ile yeni bir ölçek dağıtın. Bu makalede Windows sahip Azure hızlı başlama Galerisi adresinden kullanan ölçek temel otomatik ölçeklendirme şablonla ayarlayın. Linux ölçek kümeleri aynı şekilde çalışır.
+2. Ölçek kümesi oluşturulduktan sonra Azure kaynak Gezgini'nden ölçek kümesi kaynağa gidin. Aşağıdaki Microsoft.ınsights düğümü altında bakın.
 
     ![Azure Gezgini](./media/insights-advanced-autoscale-vmss/azure_explorer_navigate.png)
 
-    Hello şablon yürütme hello ada sahip varsayılan bir otomatik ölçeklendirme ayarı oluşturdu **'autoscalewad'**. Merhaba sağ tarafta, bu otomatik ölçeklendirme ayarı tam tanımını hello görüntüleyebilirsiniz. Bu durumda, hello varsayılan otomatik ölçeklendirme ayarında bir CPU tabanlı % genişleme ve ölçek bileşenini kuralı ile birlikte gelir.  
+    Şablon yürütme varsayılan otomatik ölçeklendirme ayarı adı ile oluşturdu **'autoscalewad'**. Sağ tarafta, bu otomatik ölçeklendirme ayarı tam tanımını görüntüleyebilirsiniz. Bu durumda, varsayılan otomatik ölçeklendirme ayarında bir CPU tabanlı % genişleme ve ölçek bileşenini kuralı ile birlikte gelir.  
 
-3. Artık daha fazla profilleri ve hello zamanlama veya özel gereksinimler dayalı kurallar ekleyebilirsiniz. Üç profil ile bir otomatik ölçeklendirme ayarı oluşturuyoruz. toounderstand profilleri ve otomatik ölçeklendirme, kuralları gözden [otomatik ölçeklendirme en iyi yöntemler](insights-autoscale-best-practices.md).  
+3. Artık daha fazla profilleri ve zamanlama veya özel gereksinimler dayalı kurallar da ekleyebilirsiniz. Üç profil ile bir otomatik ölçeklendirme ayarı oluşturuyoruz. Profilleri ve otomatik ölçeklendirme kurallarında anlamak için gözden [otomatik ölçeklendirme en iyi yöntemler](insights-autoscale-best-practices.md).  
 
     | Profilleri & kuralları | Açıklama |
     |--- | --- |
@@ -53,20 +53,20 @@ Bu kılavuzda, kullandığımız [Azure kaynak Gezgini](https://resources.azure.
 
 4. Bu kılavuz için kullandığımız kuramsal bir ölçeklendirme senaryo aşağıda verilmiştir.
 
-    * **Temel yük** -tooscale veya my ölçek set.* üzerinde barındırılan Uygulamam hello yüküne göre istiyorum
-    * **Sıra boyutu ileti** -ı Merhaba gelen iletileri toomy uygulaması için bir hizmet veri yolu kuyruğu kullanın. Merhaba sıranın ileti sayısı ve CPU % kullanın ve ileti sayısı veya CPU isabet threshold.* hello bir varsayılan profili tootrigger bir ölçek eylemi yapılandırın
-    * **Haftanın günü ve saat** -'Hafta içi gün sabah saat' adlı bir haftalık yinelenen 'zaman hello günün' temel profil istiyor. Geçmiş verilerini temel alarak VM sayısı toohandle my uygulamanın yükleme sırasında bu sağlar.* örnekleri belirli daha iyi toohave olduğunu bilmeniz
-    * **Özel tarih** -'Ürün başlatma Day' profili eklendi. Böylece Uygulamam hazır toohandle hello yük pazarlama duyuruları nedeniyle ve biz hello uygulamasında yeni bir ürün zaman put t belirli tarihler için İleriyi
-    * *Son iki Hello profilleri diğer performans ölçüm tabanlı içinde kurallar bunları da sahip olabilirsiniz. Bu durumda değil toohave bir karar ve bunun yerine toorely üzerinde hello varsayılan performans ölçüm kuralları dayalı. Kuralları hello yinelenen ve tarih temelli profilleri için isteğe bağlıdır.*
+    * **Temel yük** - veya ölçeklendirmek my ölçek set.* üzerinde barındırılan Uygulamam üzerindeki yükü göre istiyorum
+    * **Sıra boyutu ileti** -ı bir hizmet veri yolu kuyruğu gelen iletiler için Uygulamam için kullanın. Sıranın ileti sayısı ve CPU % kullanın ve ileti sayısı ya da CPU değerse threshold.* bir ölçek eylemi tetiklemek için bir varsayılan profili yapılandırma
+    * **Haftanın günü ve saat** -'Hafta içi gün sabah saat' adlı bir haftalık yinelenen 'zaman günün' temel profil istiyor. Geçmiş verilerini temel alarak bu sağlar.* sırasında my uygulamanın yükü işlemek üzere VM örnekleri belirli sayıda daha iyidir bildirin
+    * **Özel tarih** -'Ürün başlatma Day' profili eklendi. Uygulamam pazarlama duyuruları nedeniyle ve size yeni bir ürün uygulamasında geçirdiğinizde yükü işlemek üzere hazır olması için t belirli tarihler için İleriyi
+    * *Son iki profilleri diğer performans ölçüm tabanlı içinde kurallar bunları da sahip olabilirsiniz. Bu durumda, bir tane değil karar ve bunun yerine varsayılan performans ölçüm yararlanmayı kuralları dayalı. Kurallar yinelenen ve tarih temelli profilleri için isteğe bağlıdır.*
 
-    Otomatik ölçeklendirme altyapısının önceliği hello profilleri ve kuralları hello ayrıca yakalanan [otomatik ölçeklendirmeyi en iyi yöntemler](insights-autoscale-best-practices.md) makalesi.
+    Otomatik ölçeklendirme altyapısının önceliği profilleri ve kuralları yakalanan de [otomatik ölçeklendirmeyi en iyi yöntemler](insights-autoscale-best-practices.md) makalesi.
     Otomatik ölçeklendirme için ortak ölçümleri listesi için bkz [otomatik ölçeklendirme için ortak ölçümleri](insights-autoscale-common-metrics.md)
 
-5. Merhaba üzerinde olduğundan emin olun **okuma/yazma** kaynak Gezgininde modu
+5. Olduğunuzdan emin olun, üzerinde **okuma/yazma** kaynak Gezgininde modu
 
     ![Autoscalewad, varsayılan otomatik ölçeklendirme ayarı](./media/insights-advanced-autoscale-vmss/autoscalewad.png)
 
-6. Düzenle'yi tıklatın. **Değiştir** hello 'profilleri' öğesinde yapılandırma aşağıdaki hello otomatik ölçeklendirme ayarı:
+6. Düzenle'yi tıklatın. **Değiştir** aşağıdaki yapılandırma ile otomatik ölçeklendirme ayarında 'profilleri' öğesi:
 
     ![Profilleri](./media/insights-advanced-autoscale-vmss/profiles.png)
 
@@ -200,14 +200,14 @@ Bu kılavuzda, kullandığımız [Azure kaynak Gezgini](https://resources.azure.
             }
           }
     ```
-    Desteklenen alanlar ve bunların değerleri için bkz: [otomatik ölçeklendirme REST API belgeleri](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Şimdi, otomatik ölçeklendirme ayarında daha önce açıklanan hello üç profil içerir.
+    Desteklenen alanlar ve bunların değerleri için bkz: [otomatik ölçeklendirme REST API belgeleri](https://msdn.microsoft.com/en-us/library/azure/dn931928.aspx). Şimdi, otomatik ölçeklendirme ayarı daha önce açıklanan üç profil içerir.
 
-7. Son olarak, otomatik ölçeklendirme hello Ara **bildirim** bölümü. Otomatik ölçeklendirme bildirimleri toodo üç şey bir genişletme zaman izin verin veya eylemi başarıyla tetiklendi.
-   - Hello Yöneticisi ve ortak yöneticileri aboneliğinizin bildir
+7. Son olarak, otomatik ölçeklendirme Ara **bildirim** bölümü. Otomatik ölçeklendirme bildirimleri bir genişletme zaman üç şey yapmanıza olanak sağlar veya eylemi başarıyla tetiklendi.
+   - Yönetici ve ortak yöneticileri aboneliğinizin bildir
    - Kullanıcı e-posta
-   - Bir Web kancası çağrı tetikler. Harekete, bu Web kancası hello otomatik ölçeklendirmeyi koşul hakkındaki meta verileri gönderir ve kaynak hello ölçek kümesi. otomatik ölçeklendirme Web kancası hello yükünü hakkında daha fazla toolearn bkz [yapılandırma Web kancası & otomatik ölçeklendirme için e-posta bildirimleri](insights-autoscale-to-webhook-email.md).
+   - Bir Web kancası çağrı tetikler. Harekete olduğunda, bu Web kancası otomatik ölçeklendirmeyi koşul hakkındaki meta verileri gönderir ve kaynak ölçek kümesi. Otomatik ölçeklendirme Web kancası yükü hakkında daha fazla bilgi için bkz: [yapılandırma Web kancası & otomatik ölçeklendirme için e-posta bildirimleri](insights-autoscale-to-webhook-email.md).
 
-   Toohello otomatik ölçeklendirme ayarı değiştirerek aşağıdaki hello eklemek, **bildirim** öğesi değeri null
+   Otomatik ölçeklendirme ayarı değiştirmek için aşağıdakileri ekleyin, **bildirim** öğesi değeri null
 
    ```
    "notifications": [
@@ -235,12 +235,12 @@ Bu kılavuzda, kullandığımız [Azure kaynak Gezgini](https://resources.azure.
 
    ```
 
-   İsabet **Put** kaynak Gezgini tooupdate hello otomatik ölçeklendirme ayarında düğmesi.
+   İsabet **Put** otomatik ölçeklendirme ayarı güncelleştirmek için kaynak Gezgininde düğmesi.
 
-Bir otomatik ölçeklendirme VM ölçek kümesi tooinclude üzerinde birden fazla ölçek profilleri ayarı güncelleştirdiniz ve bildirimleri ölçeklendirin.
+Otomatik ölçeklendirme ayarında birden fazla ölçek profillerini içeren ve bildirimleri ölçeklendirmek için ayarlanmış bir VM ölçekte güncelleştirdiniz.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Otomatik ölçeklendirme hakkında daha fazla bu bağlantılar toolearn kullanın.
+Otomatik ölçeklendirme hakkında daha fazla bilgi için bu bağlantıları kullanın.
 
 [Otomatik ölçeklendirme sanal makine ölçek kümeleri ile ilgili sorunları giderme](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
 

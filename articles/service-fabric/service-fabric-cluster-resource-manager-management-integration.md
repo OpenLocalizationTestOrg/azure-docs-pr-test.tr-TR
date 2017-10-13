@@ -1,6 +1,6 @@
 ---
-title: "aaaService doku Küme Kaynak Yöneticisi - Yönetim tümleştirme | Microsoft Docs"
-description: "Merhaba tümleştirme noktaları hello Küme Kaynak Yöneticisi ve hizmet doku Yönetimi arasında genel bakış."
+title: "Service Fabric Küme Kaynak Yöneticisi - Yönetim tümleştirme | Microsoft Docs"
+description: "Küme Kaynak Yöneticisi ve hizmet doku Yönetimi arasında tümleştirme noktaları genel bakış."
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 9a24c9de121fbe2e8e5e8e4d117e64686918936a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9601e758e1033b4e2f86c2c230d4f49479fe6f45
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Service Fabric kümesi yönetimi ile Küme Kaynak Yöneticisi tümleştirme
-Service Fabric yükseltme Hello Service Fabric kümesi Kaynak Yöneticisi sürücü değil, ancak söz konusu. Merhaba hello Küme Kaynak Yöneticisi yardımcı yönetimi ile izleme hello tarafından ilk şekilde hello küme ve onun içindeki hello Hizmetleri durumunu istenen. Bunu hello küme hello istenen yapılandırma yerleştirin zaman hello küme Resource Manager sistem durumu raporlarını gönderir. Örneğin, varsa yeterli kapasitesi hello küme Resource Manager sistem durumu uyarıları ve hataları hello sorunu belirten gönderir. Başka bir parçasını tümleştirme yükseltme nasıl çalışır ile toodo sahiptir. Merhaba küme Resource Manager davranışını biraz yükseltmeler sırasında değiştirir.  
+Service Fabric kümesi Kaynak Yöneticisi Service Fabric yükseltmelerinin sürücü değil, ancak söz konusu. Küme Resource Manager ile yönetimi yardımcı olan ilk istenen durumu kümeyi ve hizmetlerin içindeki izleme tarafından yoludur. Küme Kaynak Yöneticisi'ni, küme istenen yapılandırma yerleştirin sistem durumu raporlarını gönderir. Örneğin, yeterli kapasitesi varsa küme Resource Manager sistem durumu uyarıları ve hataları sorunu belirten gönderir. Başka bir parçasını tümleştirme yükseltme nasıl çalışır ile ilgilidir. Küme Kaynak Yöneticisi'ni davranışını biraz yükseltmeler sırasında değiştirir.  
 
 ## <a name="health-integration"></a>Sistem durumu tümleştirme
-Merhaba küme Resource Manager hizmetlerinizi yerleştirmek için tanımladığınız hello kuralları sürekli olarak izler. Ayrıca, bir bütün olarak hello düğümlerinde ve hello kümedeki ve hello kümedeki her ölçümü için kapasite kalan hello izler. Bu kurallar gerçekleştiremiyor veya yeterli kapasitesi varsa, sistem durumu uyarıları ve hataları gösterilen. Örneğin, bir düğüm kapasitesi ve hello ise küme kaynak yöneticisi hizmetleri taşıyarak toofix hello durum çalışacaktır. Merhaba durum düzeltemezsiniz, hangi düğümün hangi ölçümleri ve kapasite üzerinden olduğunu belirten bir sistem durumu uyarısı yayar.
+Küme Kaynak Yöneticisi'ni hizmetlerinizi yerleştirmek için tanımladığınız kuralları sürekli olarak izler. Bu ayrıca kalan kapasite her ölçümü için düğümlerde ve küme ve kümedeki bir bütün olarak izler. Bu kurallar gerçekleştiremiyor veya yeterli kapasitesi varsa, sistem durumu uyarıları ve hataları gösterilen. Örneğin, bir düğüm üzerinde kapasite ise ve Hizmetleri taşıyarak durumu düzeltmek Küme Kaynak Yöneticisi'ni çalışacaktır. Durum düzeltemezsiniz, hangi düğümün hangi ölçümleri ve kapasite üzerinden olduğunu belirten bir sistem durumu uyarısı yayar.
 
-Başka bir hello Resource Manager'ın sistem durumu uyarıları kısıtlamalarından ihlalleri örnektir. Örneğin, bir yerleştirme kısıtlaması tanımladıysanız (gibi `“NodeColor == Blue”`) ve hello Resource Manager kısıtlamayı ihlal algılarsa, sistem durumu uyarısı yayar. Bu, özel kısıtlamalar ve hello varsayılan kısıtlamalar (gibi hello hata etki alanı ve yükseltme etki alanı kısıtlamaları) için geçerlidir.
+Başka bir Resource Manager'ın sistem durumu uyarıları kısıtlamalarından ihlalleri örnektir. Örneğin, bir yerleştirme kısıtlaması tanımladıysanız (gibi `“NodeColor == Blue”`) ve Kaynak Yöneticisi'ni kısıtlamayı ihlal algılarsa, sistem durumu uyarısı yayar. Bu, özel kısıtlamalar ve varsayılan kısıtlamalar (gibi hata etki alanı ve yükseltme etki alanı kısıtlamaları) için geçerlidir.
 
-Böyle bir durum raporu bir örneği burada verilmiştir. Bu durumda, hello sistem durumu raporu hello sistem hizmetin bölümleri için biridir. Bu bölüm kopyalarını geçici olarak çok az yükseltme etki alanlarına paketlenmiş hello Hello sistem durumu ileti gösterir.
+Böyle bir durum raporu bir örneği burada verilmiştir. Bu durumda, sistem durumu raporu sistem hizmetin bölümleri için biridir. Bu bölüm kopyalarını geçici olarak çok az yükseltme etki alanlarına paketlenmiş sistem iletisi gösterir.
 
 ```posh
 PS C:\Users\User > Get-WindowsFabricPartitionHealth -PartitionId '00000000-0000-0000-0000-000000000001'
@@ -63,8 +63,8 @@ HealthEvents          :
                         SentAt                : 8/10/2015 7:53:31 PM
                         ReceivedAt            : 8/10/2015 7:53:33 PM
                         TTL                   : 00:01:05
-                        Description           : hello Load Balancer has detected a Constraint Violation for this Replica: fabric:/System/FailoverManagerService Secondary Partition 00000000-0000-0000-0000-000000000001 is
-                        violating hello Constraint: UpgradeDomain Details: UpgradeDomain ID -- 4, Replica on NodeName -- Node.8 Currently Upgrading -- false Distribution Policy -- Packing
+                        Description           : The Load Balancer has detected a Constraint Violation for this Replica: fabric:/System/FailoverManagerService Secondary Partition 00000000-0000-0000-0000-000000000001 is
+                        violating the Constraint: UpgradeDomain Details: UpgradeDomain ID -- 4, Replica on NodeName -- Node.8 Currently Upgrading -- false Distribution Policy -- Packing
                         RemoveWhenExpired     : True
                         IsExpired             : False
                         Transitions           : Ok->Warning = 8/10/2015 7:13:02 PM, LastError = 1/1/0001 12:00:00 AM
@@ -72,46 +72,46 @@ HealthEvents          :
 
 İşte ne bu sistem durumu ileti bize olduğunu bildiriyor:
 
-1. Tüm hello çoğaltmaları kendilerini sağlıklı: her AggregatedHealthState vardır: Tamam
-2. Merhaba yükseltme etki alanı dağıtım kısıtlaması şu anda ihlal. Bu, belirli bir yükseltme etki alanı bu bölümü gerekenden daha fazla çoğaltmalardan olduğu anlamına gelir.
-3. Hangi düğümün hello çoğaltma neden hello ihlali içerir. Bu durumda hello adı "Node.8" Merhaba düğümle olur
+1. Tüm çoğaltmaların kendilerini sağlıklı: her AggregatedHealthState vardır: Tamam
+2. Yükseltme etki alanı dağıtım kısıtlaması şu anda ihlal. Bu, belirli bir yükseltme etki alanı bu bölümü gerekenden daha fazla çoğaltmalardan olduğu anlamına gelir.
+3. Hangi düğümün ihlali neden çoğaltma içerir. Bu durumda "Node.8" adını içeren düğüme olur
 4. Bu bölüm için ("şu anda yükseltme--false") olup olmadığını yükseltme şu anda gerçekleştiriliyor
-5. Bu hizmet için dağıtım ilkesi Hello: "Dağıtım ilkesi--paketleme". Bu hello tarafından yönetilir `RequireDomainDistribution` [yerleştirme İlkesi](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). "Sevk" gösterir, bu durumda DomainDistribution olduğunu _değil_ yerleştirme İlkesi bu hizmet için belirtilmedi biliyoruz şekilde, gerekli. 
-6. Ne zaman hello rapor oldu - 8/10/2015 19:13:02: 00
+5. Bu hizmet için dağıtım İlkesi: "Dağıtım ilkesi--paketleme". Bu tabidir `RequireDomainDistribution` [yerleştirme İlkesi](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). "Sevk" gösterir, bu durumda DomainDistribution olduğunu _değil_ yerleştirme İlkesi bu hizmet için belirtilmedi biliyoruz şekilde, gerekli. 
+6. Ne zaman rapor oldu - 8/10/2015 19:13:02: 00
 
-Bilgiler bir şeyler yanlış geçti ve ayrıca bildiğiniz üretim toolet yangın toodetect kullanılan bu powers uyarıları ister ve hatalı yükseltmeler durdur. Bu durumda, biz hello Resource Manager toopack hello çoğaltmaları hello yükseltme etki alanı içine neden olan çıkışı şekil, biz toosee istersiniz. Merhaba Hello düğümler diğer yükseltme etki alanları aşağı, örneğin olduğundan genellikle sevk geçicidir.
+Bir şeyler yanlış geçti ve algılamak ve hatalı yükseltmeler durdurmak için de kullanılır size bildirmek üretimde yangın bu powers uyarıları gibi bilgiler. Bu durumda, biz biz neden Resource Manager yükseltme etki alanına çoğaltmaları paketi gerekiyordu çıkışı şekil olmadığını görmek istersiniz. Diğer yükseltme etki alanları içindeki düğümlerin aşağı, örneğin olduğundan genellikle sevk geçicidir.
 
-Diyelim ki hello küme Resource Manager tooplace bazı hizmetler çalışıyor, ancak iş çözümleri yok. Hizmetleri yerleştirilemez genellikle hello aşağıdaki nedenlerden birinden dolayı olur:
+Diyelim ki bazı hizmetler yerleştirmek küme kaynak yönetici çalışıyor, ancak iş çözümleri yok. Hizmetleri yerleştirilemez genellikle aşağıdaki nedenlerden birinden dolayı olur:
 
-1. Bazı geçici koşul imkansız tooplace yaptı bu hizmet örneği veya çoğaltma doğru
-2. Merhaba hizmetin yerleştirme unsatisfiable gereksinimleridir.
+1. Bazı geçici koşul bu hizmet örneği veya çoğaltma doğru yerleştirmek imkansız yaptı
+2. Hizmetin yerleştirme unsatisfiable gereksinimleridir.
 
-Bu durumlarda, hello küme Resource Manager sistem durumu raporlarını hello hizmeti neden yerleştirilemez belirlemenize yardımcı. Bu işlem hello kısıtlaması eleme sırası diyoruz. Bunu sırasında hello sistem ne ortadan hello hizmeti ve kayıtları etkileyen yapılandırılmış hello kısıtlamaları anlatılmaktadır. Hizmetleri konumdaki mümkün toobe değil, bu şekilde, hangi düğümlerin ortadan görebilirsiniz ve neden.
+Bu durumlarda, sistem durumu raporlarının Küme Kaynak Yöneticisi'nden service neden yerleştirilemez belirlemenize yardımcı. Bu işlem kısıtlaması eleme dizisi diyoruz. Bunu sırasında sistem ne ortadan kayıtları ve hizmet etkileyen yapılandırılmış kısıtlamaları anlatılmaktadır. Hizmetleri yerleştirilmesi için değil, bu şekilde, hangi düğümlerin ortadan görebilirsiniz ve neden.
 
 ## <a name="constraint-types"></a>Kısıtlama türleri
-Her bir hello farklı kısıtlamalar bu sistem durumu raporları hakkında şimdi konuşun. Çoğaltmaları yerleştirildiğinde, sistem durumu iletileri ilgili toothese kısıtlamaları görürsünüz.
+Bu sistem durumu raporları farklı kısıtlamalar her hakkında şimdi konuşun. Çoğaltmaları yerleştirildiğinde bu kısıtlamaların ilgili durum iletilerini görürsünüz.
 
-* **ReplicaExclusionStatic** ve **ReplicaExclusionDynamic**: Bu kısıtlamaların gösteren bir çözüm toobe yerleştirilen hello üzerinde aynı aynı bölüm iki hizmet nesnelerden hello nedeniyle reddedildi düğümü. Daha sonra bu düğümü aşırı o bölümün etkileyebilecek bu için izin verilmiyor. ReplicaExclusionStatic ve ReplicaExclusionDynamic neredeyse aynı kural ve hello farklar gerçekten önemi yoktur hello markalarıdır. Yeterli düğüm değil ya da hello ReplicaExclusionStatic veya ReplicaExclusionDynamic kısıtlaması, hello Küme Kaynak Yöneticisi'ni içeren bir kısıtlama eleme sırası düşündüğü görüyorsanız. Bu çözümleri toouse izin verilmiyor bu geçersiz yerleşimi kalan gerektirir. Hello hello dizisindeki diğer kısıtlamaları genellikle neden düğümleri hello ilk yerinde ortadan bize.
-* **PlacementConstraint**: Bu iletiyi görürseniz, bu hello hizmetin kısıtlamalarından eşleşmedi çünkü biz bazı düğümler ortadan anlamına gelir. Biz bu iletiyi bir parçası olarak yapılandırılmış hello kısıtlamalarından izleme. Tanımlanan bir yerleştirme kısıtlaması varsa, bu normaldir. Ancak, yerleştirme kısıtlaması ortadan çok fazla düğüm toobe yanlış neden olup olmadığını nasıl fark etmesi budur.
-* **NodeCapacity**: Bu kısıtlamayı küme Resource Manager uygulanamadı yerleştireceğinize hello çoğaltmaları bu hello anlamına gelir, bunları kapasite aşımı taşmasına neden olabileceğinden hello belirtilen düğümleri.
-* **Benzeşim**: hello benzeşim kısıtlaması ihlali neden olacağından bu yana biz hello çoğaltma etkilenen hello düğümlerinde yerleştirmenizi uygulanamadı bu kısıtlamayı belirtir. Benzeşimi hakkında daha fazla bilgi yer [bu makalede](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-* **FaultDomain** ve **UpgradeDomain**: hello yerleştirme hello kopyada düğümleri neden bir belirli hatası veya yükseltme etki alanında sevk belirtilmişse bu kısıtlamayı düğümleri ortadan kaldırır. Merhaba konudaki sunulur bu kısıtlamayı ele çeşitli örnekler [hata ve yükseltme etki alanı kısıtlamaları ve bunun sonucunda oluşan davranışı](service-fabric-cluster-resource-manager-cluster-description.md)
-* **PreferredLocation**: varsayılan olarak bir iyileştirme çalışır olduğundan düğüm hello çözümden kaldırmak bu kısıtlamayı normalde görmemesi. Merhaba tercih edilen konum kısıtlaması yükseltmeler sırasında mevcuttur. Yükseltme sırasında kullanılan toomove Hizmetleri arka toowhere hello yükseltme başlatıldığında oldukları değil.
+* **ReplicaExclusionStatic** ve **ReplicaExclusionDynamic**: Bu kısıtlamaların gösteren bir çözüm aynı bölüm iki hizmet nesneleri aynı düğümde yerleştirilmesi zorunda olduğu için reddedildi. Daha sonra bu düğümü aşırı o bölümün etkileyebilecek bu için izin verilmiyor. ReplicaExclusionStatic ve ReplicaExclusionDynamic neredeyse aynı kural ve farkları gerçekten önemi yoktur. ReplicaExclusionStatic veya ReplicaExclusionDynamic kısıtlaması içeren bir kısıtlama eleme sırası görüyorsanız, Küme Kaynak Yöneticisi'ni yeterli düğüm olmayan düşünmektedir. Bu izin verilmiyor bu geçersiz yerleşimi kullanmak için kalan çözümleri gerektirir. Dizisindeki diğer kısıtlamaları genellikle bize neden düğümleri ilk başta ortadan söyler.
+* **PlacementConstraint**: Bu iletiyi görürseniz, bu hizmetin kısıtlamalarından eşleşmedi çünkü biz bazı düğümler ortadan anlamına gelir. Biz bu iletiyi bir parçası olarak yapılandırılmış kısıtlamalarından izleme. Tanımlanan bir yerleştirme kısıtlaması varsa, bu normaldir. Ancak, yerleştirme kısıtlaması ortadan için çok fazla düğüm yanlış neden olup olmadığını nasıl fark etmesi budur.
+* **NodeCapacity**: Bu kısıtlama, bunları kapasite aşımı taşmasına neden olabileceğinden Küme Kaynak Yöneticisi'ni çoğaltmaları belirtilen düğümlerinde yerleştirmenizi uygulanamadı anlamına gelir.
+* **Benzeşim**: benzeşim kısıtlamayı ihlal neden olacağından bu yana biz çoğaltma etkilenen düğümlerinde yerleştirmenizi uygulanamadı bu kısıtlamayı belirtir. Benzeşimi hakkında daha fazla bilgi yer [bu makalede](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+* **FaultDomain** ve **UpgradeDomain**: Belirtilen düğümlerinde yineleme yerleştirme bir belirli hatası veya yükseltme etki alanında sevk neden olacaksa bu kısıtlamayı düğümleri ortadan kaldırır. Bu sınırlama ele çeşitli örnekler üzerinde konusunda sunulan [hata ve yükseltme etki alanı kısıtlamaları ve bunun sonucunda oluşan davranışı](service-fabric-cluster-resource-manager-cluster-description.md)
+* **PreferredLocation**: varsayılan olarak bir iyileştirme çalışır olduğundan düğüm çözümden kaldırmak bu kısıtlamayı normalde görmemesi. Tercih edilen konum kısıtlaması, yükseltmeler sırasında da mevcuttur. Yükseltme sırasında yükseltme başlatıldığında geri burada oldukları için Hizmetleri taşımak için kullanılır.
 
 ## <a name="blocklisting-nodes"></a>Blocklisting düğümler
-Başka bir sistem durumu ileti hello küme Resource Manager raporlar düğümleri blocklisted olduğunda değildir. Blocklisting sizin için otomatik olarak uygulanan geçici bir kısıtlama olarak düşünebilirsiniz. Yinelenen hatalarının bu hizmet türünün örneklerini başlatılırken karşılaşırsanız, düğümleri blocklisted alın. Düğüm başına-service-type olarak blocklisted ' dir. Bir düğüm için bir hizmet türünün blocklisted olabilir, ancak başka bir değil. 
+Başka bir sistem durumu Küme Kaynak Yöneticisi raporları iletisidir düğümleri blocklisted olduğunda. Blocklisting sizin için otomatik olarak uygulanan geçici bir kısıtlama olarak düşünebilirsiniz. Yinelenen hatalarının bu hizmet türünün örneklerini başlatılırken karşılaşırsanız, düğümleri blocklisted alın. Düğüm başına-service-type olarak blocklisted ' dir. Bir düğüm için bir hizmet türünün blocklisted olabilir, ancak başka bir değil. 
 
-Genellikle geliştirme sırasında ilkenin etkisini gösterip blocklisting görürsünüz: bazı hata başlangıçta hizmeti konak toocrash neden olur. Service Fabric toocreate hello hizmet konağı birkaç kez çalışır ve hello hatası gerçekleşen tutar. Birkaç denemeden sonra blocklisted hello düğümünü alır ve hello küme Resource Manager toocreate hello başka bir yerde hizmet çalışacaktır. Birden çok düğümde bu hata gerçekleştiği tutar, tüm geçerli düğüm hello küme sonlandırmayı hello engellenen mümkündür. Blocklisting ayrıca çok fazla sayıda düğüm yeterli başarıyla hello hizmet toomeet istenen hello ölçek başlatabilirsiniz kaldırabilirsiniz. Ek hatalar genellikle göreceğiniz ya da hello hizmet hello istenen çoğaltma veya örnek sayısı yanı sıra hangi hello hatası gösteren durum iletilerinin olduğunu küme Resource Manager hello belirten uyarıların toohello baştaki Merhaba ilk yerinde blocklisting.
+Genellikle geliştirme sırasında ilkenin etkisini gösterip blocklisting görürsünüz: başlangıçta çökmesine hizmet ana bilgisayarı bazı hata neden olur. Service Fabric hizmeti ana bilgisayarı birkaç kez oluşturmayı dener ve hata gerçekleşen tutar. Birkaç denemeden sonra blocklisted düğümünü alır ve başka bir hizmet oluşturmak Küme Kaynak Yöneticisi'ni çalışacaktır. Birden çok düğümde bu hata gerçekleştiği tutar, tüm küme sonlandırmayı geçerli düğüm engellenen mümkündür. Blocklisting ayrıca çok fazla sayıda düğüm yeterli başarıyla istenen ölçeği karşılamak üzere hizmetini başlatabilirsiniz kaldırabilirsiniz. Genellikle, ek hatalar veya uyarılar küme kaynak hizmet istenen çoğaltma veya örnek sayısı yanı sıra neyin başarısız olduğunu gösteren durum iletileri olduğunu belirten, blocklisting ilk başta baştaki Yöneticisi'nden de görürsünüz.
 
-Blocklisting kalıcı bir durum değil. Birkaç dakika sonra hello düğümü hello engelleme kaldırılır ve Service Fabric hello Hizmetleri bu düğümde yeniden etkinleştirebilirsiniz. Hizmetleri toofail devam ederseniz, hello blocklisted hizmet türü için yeniden düğümdür. 
+Blocklisting kalıcı bir durum değil. Birkaç dakika sonra engelleme düğüm kaldırılır ve Service Fabric Hizmetleri bu düğümde yeniden etkinleştirebilirsiniz. Hizmetleri başarısız olmaya devam ederse, bu hizmet türünün blocklisted yeniden düğümdür. 
 
 ### <a name="constraint-priorities"></a>Kısıtlama öncelikler
 
 > [!WARNING]
-> Kısıtlama önceliklerini değiştirmek önerilmez ve kümenizi önemli olumsuz etkileri olabilir. Aşağıdaki bilgileri Hello hello varsayılan kısıtlama önceliklerini ve davranışlarını başvurusunu sağlanır. 
+> Kısıtlama önceliklerini değiştirmek önerilmez ve kümenizi önemli olumsuz etkileri olabilir. Varsayılan kısıtlama önceliklerini ve davranışlarını başvurusunu altındaki bilgi sağlanır. 
 >
 
-Tüm bu kısıtlamaların, "Merhaba – ı hata etki alanı kısıtlamaları my sisteminde hello en önemli şey olduğunu düşünün. düşünüyorum Sipariş tooensure hello hata etki alanı kısıtlaması ihlal edildi değil, ben tooviolate diğer kısıtlamaları istekli. "
+Tüm bu kısıtlamaların, "Merhaba – ı hata etki alanı kısıtlamaları my sisteminde en önemli şey olduğunu düşünün. düşünüyorum Hata etki alanı kısıtlaması ihlal edildi olmadığından emin olmak için diğer kısıtlamaları ihlal istiyorum."
 
 Kısıtlamaları farklı öncelik düzeyleri ile yapılandırılabilir. Bunlar:
 
@@ -120,15 +120,15 @@ Kısıtlamaları farklı öncelik düzeyleri ile yapılandırılabilir. Bunlar:
    - "en iyi duruma getirme" (2)
    - (-1 "kapalı"). 
    
-Merhaba kısıtlamaların büyük bir bölümü sabit kısıtlamaları varsayılan olarak yapılandırılır.
+Kısıtlamaların büyük bir bölümü sabit kısıtlamaları varsayılan olarak yapılandırılır.
 
-Kısıtlamaları Hello önceliğini değiştirmek seyrek olur. Burada kısıtlaması öncelikleri gerekli toochange, genellikle başka bir hata veya hello ortamı etkileyen davranış geçici toowork kez olmuştur. Genellikle hello esneklik hello kısıtlaması öncelik altyapısının çok iyi çalışmıştır ancak genellikle gerekli değildir. Başlangıç zamanının çoğunu her şeyi varsayılan öncelikleri bulunur. 
+Kısıtlamaları önceliğini değiştirmek seyrek olur. Burada kısıtlaması öncelikleri, genellikle bazı diğer hata veya ortam etkileyen davranış çalışacak şekilde değiştirmek için gerekli kez olmuştur. Genellikle kısıtlaması öncelik altyapı esnekliğini çok iyi çalışmıştır ancak genellikle gerekli değildir. Çoğu zaman, her şeyi varsayılan öncelikleri bulunur. 
 
-Merhaba öncelik düzeyleri yok anlamına gelir, belirli bir kısıtlama _olacak_ ihlal, ya da her zaman karşılanması. Kısıtlama öncelikleri kısıtlamaları zorunlu tutulmaz sipariş tanımlayın. İmkansız toosatisfy olduğunda öncelikleri hello bileşim tüm kısıtlamalarını tanımlayın. Genellikle olmadıkça hello ortamında geçmeden başka bir şey tüm hello kısıtlamalarını karşılanabilir. Çakışan kısıtlamaları tooconstraint ihlalleri götürür senaryoları bazı örnekleri şunlardır ya da çok sayıda eş zamanlı hataları.
+Öncelik düzeyleri belirli bir kısıtlama anlamına yok _olacak_ ihlal, ya da her zaman karşılanması. Kısıtlama öncelikleri kısıtlamaları zorunlu tutulmaz sipariş tanımlayın. Tüm kısıtlamaları karşılamak mümkün olduğunda öncelikleri dengelemeden tanımlayın. Genellikle olmadıkça ortamda geçmeden başka bir şey tüm kısıtlamalar karşılanabilir. Çakışan kısıtlamaları için bir kısıtlama ihlali götürür senaryoları bazı örnekleri şunlardır ya da çok sayıda eş zamanlı hataları.
 
-Gelişmiş durumlarda hello kısıtlaması önceliklerini değiştirebilirsiniz. Örneğin, tooensure istediğinizi varsayalım gerekli toosolve düğüm kapasitesi gönderdiğinde, benzeşimi'nin her zaman ihlal. tooachieve bunu hello benzeşim kısıtlaması çok "yumuşak" (1) hello önceliğini ayarlamak ve "sabit" çok ayarlanan hello kapasite kısıtlamasına (0) bırakın.
+Gelişmiş durumlarda kısıtlaması önceliklerini değiştirebilirsiniz. Örneğin, benzeşimini her zaman düğüm kapasitesi sorunları çözmek için gerekli olduğunda ihlal edilebilir emin olmak istediğinizi varsayalım. Bunun için "yumuşak" (1) için benzeşim kısıtlaması önceliğini ayarlama ve "sabit" için ayarlanan kapasite kısıtlamasına (0) bırakın.
 
-Merhaba farklı kısıtlamaları Hello varsayılan öncelik değerleri yapılandırma aşağıdaki hello belirtilir:
+Farklı kısıtlamaları varsayılan öncelik değerleri aşağıdaki yapılandırma dosyasında belirtilir:
 
 ClusterManifest.xml
 
@@ -180,32 +180,32 @@ tek başına dağıtımlarında ClusterConfig.json ya da Azure için Template.js
 ```
 
 ## <a name="fault-domain-and-upgrade-domain-constraints"></a>Hata etki alanı ve yükseltme etki alanı kısıtlamaları
-Merhaba Küme Kaynak Yöneticisi hata ve yükseltme etki alanları arasında dağılmış tookeep Hizmetleri istemektedir. Bu hello küme kaynak yöneticisinin altyapısı içinde bir kısıtlama olarak modeller. Bunların nasıl kullanıldığı hakkında daha fazla bilgi ve belirli davranışlarını için hello makalesine kontrol [küme yapılandırması](service-fabric-cluster-resource-manager-cluster-description.md#fault-and-upgrade-domain-constraints-and-resulting-behavior).
+Küme Kaynak Yöneticisi'ni hata ve yükseltme etki alanları arasında dağılmış Hizmetleri tutmak istiyor. Bu küme Resource Manager'ın altyapısı içinde bir kısıtlama olarak modeller. Bunların nasıl kullanıldığı hakkında daha fazla bilgi ve belirli davranışlarını için makalesine kontrol [küme yapılandırması](service-fabric-cluster-resource-manager-cluster-description.md#fault-and-upgrade-domain-constraints-and-resulting-behavior).
 
-Merhaba küme Resource Manager toopack, yükseltmeler, hataları veya başka bir kısıtlama ihlali sipariş toodeal içindeki bir yükseltme etki alanına birkaç çoğaltmaları yüklemeniz gerekebilir. Yalnızca birkaç hataları veya diğer karmaşası doğru yerleştirme önleme hello sistemde hatası veya yükseltme etki alanlarına normalde sevk olur. Bu durumlarda bile sırasında sevk tooprevent istiyorsanız hello kullanabilir `RequireDomainDistribution` [yerleştirme İlkesi](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). Bu hizmet kullanılabilirliği ve güvenilirliği bir yan etkisi olarak etkiler, bu nedenle dikkatlice düşünün dikkat edin.
+Küme Kaynak Yöneticisi'ni bir yükseltme etki alanına paketini yükseltmeler, hataları veya başka bir kısıtlama ihlali ile mücadele etmek için birkaç çoğaltmaları gerekebilir. Yalnızca birkaç hataları veya diğer karmaşası doğru yerleştirme önleme sistemde hatası veya yükseltme etki alanlarına normalde sevk olur. Bu durumlarda sırasında bile paketleme önlemek isterseniz, kullanabileceği `RequireDomainDistribution` [yerleştirme İlkesi](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing). Bu hizmet kullanılabilirliği ve güvenilirliği bir yan etkisi olarak etkiler, bu nedenle dikkatlice düşünün dikkat edin.
 
-Merhaba ortamı doğru şekilde yapılandırıldıysa, tüm kısıtlamalarını tam olarak, bile yükseltmeler sırasında kullanılır. Merhaba anahtar kısıtlamaları için küme Resource Manager izliyor bu hello şeydir. Bir ihlali algıladığında hemen rapor ve toocorrect hello sorunu çalışır.
+Ortam doğru şekilde yapılandırıldıysa, tüm kısıtlamalarını tam olarak, bile yükseltmeler sırasında kullanılır. Küme Kaynak Yöneticisi için kısıtlamaları izliyor, anahtar şeydir. Bir ihlali algıladığında hemen rapor ve sorunu gidermek çalışır.
 
-## <a name="hello-preferred-location-constraint"></a>tercih edilen hello konum kısıtlaması
-iki farklı kullanımlar olduğu gibi hello PreferredLocation kısıtlaması biraz farklıdır. Bir kısıtlamanın uygulama yükseltmeler sırasında kullanılır. Merhaba Küme Kaynak Yöneticisi, bu kısıtlamayı yükseltmeler sırasında otomatik olarak yönetir. Kullanılan tooensure olan olduğunda yükseltmeleri çoğaltmaları ilk konumları tootheir dönüş tamamlandı. Merhaba diğer hello PreferredLocation kısıtlaması Merhaba kullanımıdır [ `PreferredPrimaryDomain` yerleştirme İlkesi](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md). Bunların her ikisi de en iyi duruma getirme ve bu nedenle çok ayarlanan hello yalnızca kısıtlamasına hello PreferredLocation kısıtlaması olduğundan varsayılan olarak "iyileştirme".
+## <a name="the-preferred-location-constraint"></a>Tercih edilen konum kısıtlaması
+İki farklı kullanımlar taşıdığından PreferredLocation kısıtlaması biraz farklıdır. Bir kısıtlamanın uygulama yükseltmeler sırasında kullanılır. Küme Kaynak Yöneticisi, bu kısıtlamayı yükseltmeler sırasında otomatik olarak yönetir. Yükseltme tamamlandığında çoğaltmaları ilk konumlarına geri dönüş emin olmak için kullanılır. Diğer PreferredLocation kısıtlaması için kullanımıdır [ `PreferredPrimaryDomain` yerleştirme İlkesi](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md). Bunların her ikisi de en iyi duruma getirme ve bu nedenle PreferredLocation kısıtlaması "En iyi duruma getirme için" varsayılan olarak ayarlanmış yalnızca kısıtlaması.
 
 ## <a name="upgrades"></a>Yükseltme
-Merhaba Küme Kaynak Yöneticisi ayrıca uygulama ve hangi sırasında iki iş bulunmuyor Küme yükseltme sırasında yardımcı olur:
+Küme Kaynak Yöneticisi'ni de uygulama ve hangi sırasında iki iş bulunmuyor Küme yükseltme sırasında yardımcı olur:
 
-* Merhaba kuralları hello kümesinin tehlikeye emin olun
-* toohelp hello yükseltme Git sorunsuz deneyin
+* Kural kümesinin tehlikeye emin olun
+* sorunsuz yükseltme yardımcı olmak için deneyin
 
-### <a name="keep-enforcing-hello-rules"></a>Merhaba kuralları zorunlu tutun
-Merhaba ana şeyi toobe farkında hello kuralları – kısıtlamalarından ve kapasiteleri gibi hello katı kısıtlamaları - yükseltmeler sırasında zorunlu tutulmaz ' dir. Kısıtlamalarından iş yüklerinizi yalnızca burada bunlar, hatta yükseltmeler sırasında izin verilen çalıştırdığınızdan emin olun. Hizmetler yüksek oranda kısıtlı kullanılırken yükseltmeler uzun sürebilir. Merhaba hizmet ya da hello düğüm üzerinde çalıştırıldığı olduğunda bu gidebilecekleri için birkaç seçenek olabilir bir güncelleştirme için duruma.
+### <a name="keep-enforcing-the-rules"></a>Kuralları zorunlu tutun
+Dikkat edilmesi gereken ana – katı kısıtlamaları kısıtlamalarından ve kapasiteleri gibi - kuralları yükseltmeler sırasında zorunlu tutulmaz şeydir. Kısıtlamalarından iş yüklerinizi yalnızca burada bunlar, hatta yükseltmeler sırasında izin verilen çalıştırdığınızdan emin olun. Hizmetler yüksek oranda kısıtlı kullanılırken yükseltmeler uzun sürebilir. Hizmet veya üzerinde çalıştığı düğüm için bir güncelleştirme yapıldığında, gidebilecekleri için birkaç seçenek olabilir.
 
 ### <a name="smart-replacements"></a>Akıllı değişiklik
-Yükseltme başladığında hello Resource Manager hello geçerli hello küme düzenlenmesi, bir anlık görüntüsünü alır. Her yükseltme etki alanı tamamlandığında, yükseltme etki alanı tootheir özgün düzeninde tooreturn hello hizmetler çalışır. Bu şekilde var. en çok bir hizmet için iki geçişleri hello yükseltme sırasında Etkilenen hello düğümünün çıkışı bir taşıma yoktur ve bir geri içeri taşı. Merhaba yükseltme, aynı zamanda hello yükseltme sağlar önceki hello küme veya hizmet toohow döndürme hello küme hello düzenini etkilemez. 
+Yükseltme başladığında, kaynak yöneticisi kümenin geçerli düzenleme, bir anlık görüntüsünü alır. Her yükseltme etki alanı tamamladıkça kendi özgün düzenleme, yükseltme etki alanında olan hizmetleri döndürmeye çalışır. Bu şekilde var. en çok bir hizmet için iki geçişleri yükseltme sırasında Etkilenen düğümünün çıkışı bir taşıma yoktur ve bir geri içeri taşı. Yükseltmeden önce nasıl olduğu için Küme veya hizmetin döndürme, aynı zamanda yükseltme kümenin düzeni etkilemez sağlar. 
 
 ### <a name="reduced-churn"></a>Azaltılmış karmaşası
-Yükseltme sırasında gerçekleşen başka bir küme kaynağı Yöneticisi Dengeleme devre dışı bırakır, hello şeydir. Dengeleme önleme Hizmetleri hello yükseltme için Boşaltılan düğümleri taşınmasını gibi gereksiz tepki toohello yükseltme kendisini engeller. Küme yükseltme Hello yükseltme söz konusu ise, hello tüm küme hello yükseltme sırasında dengelenir değil. Kısıtlama denetimleri etkin kalır, yalnızca taşıma hello öngörülü ölçümlerini Dengeleme üzerinde temel devre dışı bırakıldı.
+Yükseltme sırasında gerçekleşen başka bir şey Dengeleme kapalı Küme Kaynak Yöneticisi'ni açar olmasıdır. Dengeleme önleme Hizmetleri yükseltme için Boşaltılan düğümleri taşınmasını gibi yükseltme kendisi için gereksiz tepki engeller. Küme Yükseltme yükseltme söz konusu ise, tüm küme yükseltme sırasında dengelenir değil. Kısıtlama denetimleri etkin kalır, yalnızca taşıma öngörülü Dengeleme ölçümlerini üzerinde temel devre dışı bırakıldı.
 
 ### <a name="buffered-capacity--upgrade"></a>Arabelleğe alınan kapasite & yükseltme
-Genellikle Hello küme kısıtlanmış veya kapatma toofull olsa bile hello yükseltme toocomplete istersiniz. Merhaba küme Hello kapasitesini yönetme yükseltmeler sırasında normalden daha da önemlidir. Merhaba yükseltme yapar aracılığıyla hello kümesi gibi hello bağlı olarak kapasite yüzde 20'si ile 5 arasındaki yükseltme etki alanlarının sayısı geçirilmesi gerekir. Bu iş toogo yere sahiptir. Bu olduğu yere hello kavramı [kapasiteleri arabelleğe](service-fabric-cluster-resource-manager-cluster-description.md#buffered-capacity) yararlıdır. Arabelleğe alınan kapasite normal işlem sırasında dikkate. Merhaba Küme Kaynak Yöneticisi'ni (Merhaba arabellek tüketen) tootheir toplam kapasite düğümlerini gerekiyorsa, yükseltme sırasında yerine getirebilir.
+Genellikle küme kısıtlı olsa bile veya tam yakın tamamlamak için yükseltme istersiniz. Küme kapasitesini yönetme yükseltmeler sırasında normalden daha da önemlidir. Yükseltme küme boyunca yapar gibi yükseltme etki alanlarının sayısına bağlı olarak, 5 ve kapasite yüzde 20 arasında geçirilmesi gerekir. Başka bir yere gitmek bu iş vardır. Bu yerdir kavramı [kapasiteleri arabelleğe](service-fabric-cluster-resource-manager-cluster-description.md#buffered-capacity) yararlıdır. Arabelleğe alınan kapasite normal işlem sırasında dikkate. Küme Kaynak Yöneticisi'ni (arabellek tüketen) kapasitelerine toplam en fazla düğüm gerekirse, yükseltmeler sırasında doldurabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Merhaba baştan başlatın ve [giriş toohello Service Fabric kümesi Kaynak Yöneticisi Al](service-fabric-cluster-resource-manager-introduction.md)
+* En baştan başlatın ve [bir giriş için Service Fabric kümesi Resource Manager Al](service-fabric-cluster-resource-manager-introduction.md)

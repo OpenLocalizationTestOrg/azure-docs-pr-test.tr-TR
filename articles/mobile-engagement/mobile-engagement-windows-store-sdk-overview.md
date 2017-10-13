@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure Mobile Engagement Windows Evrensel SDK tümleştirmesi | Microsoft Docs"
+title: "Azure Mobile Engagement Windows Evrensel SDK tümleştirmesi | Microsoft Docs"
 description: "Azure Mobile Engagement SDK'sı tümleştirmesi Evrensel Windows"
 services: mobile-engagement
 documentationcenter: mobile
@@ -14,14 +14,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-ms.openlocfilehash: 2f88e58adb349a2a4eb43b0f182f99b3e8b8cfd4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d616ad58156a19e89b3e106639a38df67cbd0abb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-universal-sdk-integration-for-azure-mobile-engagement"></a>Azure Mobile Engagement için Windows Evrensel SDK tümleştirmesi
-Bu belgede tüm hello tümleştirme ve yapılandırma seçenekleri hello Azure Mobile Engagement Windows Evrensel SDK açıklanmaktadır.
+Bu belgede, tümleştirme ve yapılandırma için tüm seçenekleri kullanılabilir Azure Mobile Engagement Windows Evrensel SDK açıklanmaktadır.
 
 ## <a name="prerequisites"></a>Ön koşullar
 Bu öğreticiye başlamadan önce ilk tamamlamalısınız bizim [15 dakikalık Öğreticisi](mobile-engagement-windows-store-dotnet-get-started.md).
@@ -34,40 +34,40 @@ Bu özellikler ekleyebilirsiniz:
 2. [Gelişmiş yapılandırma seçenekleri](mobile-engagement-windows-store-advanced-configuration.md)
 
 ### <a name="notifications"></a>Bildirimler
-[Nasıl Windows Evrensel uygulamanızda toointegrate ulaşma (bildirimleri)](mobile-engagement-windows-store-integrate-engagement-reach.md)
+[Windows Evrensel uygulamanız ulaşma (bildirimler) tümleştirme](mobile-engagement-windows-store-integrate-engagement-reach.md)
 
 ### <a name="tag-plan-implementation"></a>Etiket planı uygulama:
-[Mobile Engagement Windows Evrensel uygulamanız API etiketleme toouse hello nasıl Gelişmiş](mobile-engagement-windows-store-use-engagement-api.md)
+[Gelişmiş Mobile Engagement Windows Evrensel uygulamanız API etiketleme kullanma](mobile-engagement-windows-store-use-engagement-api.md)
 
 ## <a name="release-notes"></a>Sürüm notları
 ### <a name="341-11032016"></a>3.4.1 (11/03/2016)
 
 * İstikrara yönelik iyileştirmeler.
 
-Önceki sürümler için bkz: Merhaba [tamamlamak sürüm notları](mobile-engagement-windows-store-release-notes.md)
+Önceki sürümler için bkz: [tamamlamak sürüm notları](mobile-engagement-windows-store-release-notes.md)
 
 ## <a name="upgrade-procedures"></a>Yükseltme yordamları
-Uygulamanıza katılım daha eski bir sürümü zaten bütünleştirdiyseniz noktaları hello SDK yükseltirken aşağıdaki tooconsider hello sahip.
+Uygulamanıza katılım daha eski bir sürümü zaten bütünleştirdiyseniz, SDK'yı yükseltirken aşağıdaki noktaları dikkate almanız gerekir.
 
-Merhaba SDK çeşitli sürümleri eksik, çeşitli yordamlar toofollow olabilir. Bkz: hello tam [yükseltme yordamları](mobile-engagement-windows-store-upgrade-procedure.md). 0.10.1 geçirirseniz örneğin hello izleyin toofirst sahip too0.11.0 "0.9.0'dan gelen too0.10.1" yordamı sonra hello "0.10.1 gelen too0.11.0" yordamı.
+SDK çeşitli sürümleri eksik, birkaç yordamları izleyin olabilir. Tam bkz [yükseltme yordamları](mobile-engagement-windows-store-upgrade-procedure.md). Örneğin, 0.10.1 önce "Kimden 0.9.0'dan 0.10.1 için" yordamını takip etmek için sahip 0.11.0 sonra "Kimden 0.10.1 0.11.0 için" yordamı geçiş ise.
 
-### <a name="from-330-too340"></a>3.3.0 gelen too3.4.0
+### <a name="from-330-to-340"></a>3.3.0 3.4.0 için
 #### <a name="test-logs"></a>Test günlükleri
-Konsol günlükleri Hello SDK tarafından üretilen artık etkin/devre dışı bırakılmış/filtrelenmiş olabilir. toocustomize, güncelleştirme hello özelliği `EngagementAgent.Instance.TestLogEnabled` tooone hello kullanılabilir hello değerlerin `EngagementTestLogLevel` numaralandırma, örneğin:
+SDK'sı tarafından üretilen konsol günlükleri artık etkin/devre dışı bırakılmış/filtrelenmiş olabilir. Özelleştirmek için özelliğini güncelleştirme `EngagementAgent.Instance.TestLogEnabled` kullanılabilir değerlerden birine `EngagementTestLogLevel` numaralandırma, örneğin:
 
             EngagementAgent.Instance.TestLogLevel = EngagementTestLogLevel.Verbose;
             EngagementAgent.Instance.Init();
 
 #### <a name="resources"></a>Kaynaklar
-Merhaba ulaşma katmana geliştirilmiştir. Merhaba SDK NuGet paketini kaynakları parçasıdır.
+Reach katmana geliştirilmiştir. SDK'sı NuGet paketi kaynakları parçasıdır.
 
-Merhaba SDK'ın yeni sürümü toohello yükseltirken tookeep istediğinizi varolan hello dosyalarınızdan kaynaklarınızın klasör veya kaplama seçebilirsiniz:
+SDK'ın yeni sürümüne yükseltirken, varolan dosyalarınızı kaynaklarınızı katmana klasöründen veya tutmak isteyip istemediğinizi seçebilirsiniz:
 
-* Merhaba önceki katmana sizin yerinize çalıştığından veya hello tümleştirme `WebView` öğeleri el ile daha sonra karar, çıkma tookeep dosyaları, hala çalışmayacak.
-* tooupdate toohello yeni katmana, tüm Değiştir hello `overlay` kaynaklarınızla hello SDK paketinden yeni bir hello klasöründen (UWP uygulamaları: hello yükseltmeden sonra % USERPROFILE % hello yeni katmana klasör alabilirsiniz\\.nuget\packages\ MicrosoftAzure.MobileEngagement\3.4.0\content\win81\Resources).
+* Önceki katmana sizin yerinize çalıştığından veya tümleştirme `WebView` öğeleri el ile daha sonra karar, çıkma tutmak dosyaları, bunu hala çalışır.
+* Yeni katmana güncelleştirmek için tüm Değiştir `overlay` kaynaklarınızı klasöründen SDK paketinden yeni bir (UWP uygulamaları: yükseltmeden sonra yeni katmana klasör % USERPROFILE % alabilirsiniz\\.nuget\packages\ MicrosoftAzure.MobileEngagement\3.4.0\content\win81\Resources).
 
 > [!WARNING]
-> Merhaba yeni katmana kullanarak hello önceki sürümünde yapılan tüm özelleştirmeler üzerine yazar.
+> Yeni katmana kullanarak önceki bir sürümünde yapılan tüm özelleştirmeler üzerine yazar.
 > 
 > 
 

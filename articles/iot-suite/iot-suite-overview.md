@@ -1,6 +1,6 @@
 ---
-title: "aaaMicrosoft Azure IOT Paketi'ne Genel Bakış | Microsoft Docs"
-description: "Azure IOT paketi önceden yapılandırılmış çözümler toocollect şey, Internet nasıl sunar genel bakış çözümleme, verileri depolamak, görselleştirmeler sağlamak ve diğer sistemlerle tümleştirmek."
+title: "Microsoft Azure IoT Paketi’ne genel bakış | Microsoft Docs"
+description: "Azure IoT Paketi, verileri toplamak, çözümlemek ve depolamak, görselleştirmeler sağlamak ve diğer sistemlerle tümleştirmek için önceden yapılandırılmış nesnelerin internetini nasıl sağladığına genel bakış."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -16,15 +16,15 @@ ms.workload: na
 ms.date: 07/24/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 385025c5ec0d37c74689a928bc09e85b33439634
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: bfa8dbbd0b1d943a9eb7a042df0bac25189d9ac9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-azure-iot-suite"></a>Azure IoT Paketi’ne Genel Bakış
 
-Hello Azure Internet interneti (IOT) Hizmetleri çok çeşitli özellikler sunar. Bu kurumsal sınıf hizmetler şunları yapmanızı sağlar:
+Azure nesnelerin interneti (IoT) hizmetleri çok çeşitli özellikler sunar. Bu kurumsal sınıf hizmetler şunları yapmanızı sağlar:
 
 * Cihazlardan veri toplama
 * Hareket halinde veri akışı çözümleme
@@ -33,37 +33,37 @@ Hello Azure Internet interneti (IOT) Hizmetleri çok çeşitli özellikler sunar
 * Arka ofis sistemleriyle tümleştirme
 * Cihazlarınızı yönetme
 
-toodeliver bu özellikler, Azure IOT paketi paketleri birlikte birden çok Azure hizmetini özel uzantılarla *önceden yapılandırılmış çözümleri*. Bu önceden yapılandırılmış çözümler, IOT çözümlerinizi toodeliver ele tooreduce hello zaman yardımcı genel IOT çözümü düzenlerinin temel uygulamalarıdır. Hello kullanarak [IOT yazılım geliştirme setleri][lnk-sdks], özelleştirebilir ve bu çözümler toomeet kendi gereksinimlerinizi genişletir. Ayrıca bu çözümleri, yeni IoT çözümleri geliştirirken örnekler ya da şablonlar olarak da kullanabilirsiniz.
+Bu özellikleri sunmak için, Azure IoT Paketi birçok Azure hizmetini özel uzantılarla birlikte *önceden yapılandırılmış çözümler* olarak paketledi. Bu önceden yapılandırılmış çözümler, IoT çözümlerinizi sunmak için geçirmeniz gereken süreyi azaltmak üzere genel IoT çözümü düzenlerinin temel uygulamalarıdır. [IoT yazılım geliştirme setlerini][lnk-sdks] kullanarak, kendi gereksinimlerinizi karşılamak için bu çözümleri özelleştirebilir ve genişletebilirsiniz. Ayrıca bu çözümleri, yeni IoT çözümleri geliştirirken örnekler ya da şablonlar olarak da kullanabilirsiniz.
 
-Merhaba aşağıdaki video giriş tooAzure IOT paketi sağlar:
+Aşağıdaki video Azure IoT paketine giriş sağlar:
 
 > [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON309/player]
 > 
 > 
 
 ## <a name="azure-iot-services-in-azure-iot-suite"></a>Azure IoT Paketindeki Azure IoT Hizmetleri
-Merhaba önceden yapılandırılmış çözümler genellikle aşağıdaki hizmetleri hello kullanın:
+Önceden yapılandırılmış çözümler genellikle aşağıdaki hizmetleri kullanır:
 
-* Çekirdek tooAzure IOT paketi olan hello [Azure IOT Hub] [ lnk-iot-hub] hizmet. Bu hizmet hello cihaz-bulut sağlar ve bulut-cihaz Mesajlaşma işlevlerini ve ağ geçidi toohello hello gibi davranır Bulut ve diğer önemli IOT paketi hizmetlerini hello. Merhaba hizmet cihazınızdan ölçekte tooreceive iletilerden sağlar ve komutları tooyour aygıtları gönderin. Merhaba hizmeti de sağlar, çok[cihazlarınızı yönetmek][lnk-device-management]. Örneğin, yapılandırma, yeniden başlatma veya bir veya daha fazla aygıtları bağlı toohello hub bir Fabrika gerçekleştirin.
-* [Azure Stream Analytics][lnk-asa] hareket halinde veri çözümleme sağlar. Bu hizmet tooprocess gelen telemetri IOT paketi kullanır, toplama gerçekleştirmek ve olayları algılamak. Merhaba önceden yapılandırılmış çözümleri ayrıca aygıtlardan meta veri ya da komut yanıtları gibi verileri içeren stream analytics tooprocess bilgilendirici iletileri kullanır. Hello çözümler cihazlarınızdan gelen akış analizi tooprocess hello iletileri kullanın ve bu iletileri tooother Hizmetleri sunmak.
-* [Azure depolama] [ lnk-azure-storage] ve [Azure Cosmos DB] [ lnk-document-db] hello veri depolama özellikleri sağlar. Merhaba önceden yapılandırılmış çözümler blob depolama toostore telemetri ve toomake kullanır, çözümleme için kullanılabilir. Merhaba çözümleri hello çözümlerinin hello cihaz Yönetimi işlevlerini etkinleştirmek ve Cosmos DB toostore cihaz meta verilerini kullanın.
-* [Azure Web Apps] [ lnk-web-apps] ve [Microsoft Power BI] [ lnk-power-bi] hello veri görselleştirme özellikleri sağlar. Power BI Hello esnekliğini sağlar tooquickly IOT paketi verilerini kullanan kendi etkileşimli panolar oluşturun.
+* Azure IoT paketinin çekirdeği [Azure IoT Hub][lnk-iot-hub] hizmetidir. Bu hizmet cihaz-bulut arası ve bulut-cihaz arası ileti gönderme özellikleri sağlar ve buluta ve diğer temel IoT Paketi hizmetlerine ağ geçidi görevi görür. Hizmet cihazınızdan ölçekte mesajlar almanızı ve cihazlarınıza komutlar göndermenizi sağlar. Hizmet ayrıca [cihazlarınızı yönetmenizi][lnk-device-management] de sağlar. Örneğin hub'a bağlı bir veya daha fazla cihazı yapılandırabilir, yeniden başlatabilir veya fabrika ayarlarına döndürebilirsiniz.
+* [Azure Stream Analytics][lnk-asa] hareket halinde veri çözümleme sağlar. IoT Paketi, gelen telemetri işlemek, toplama gerçekleştirmek ve olayları algılamak için bu hizmeti kullanır. Önceden yapılandırılmış çözümler, meta veriler ya da cihazlardan alınan komut yanıtları gibi verileri içeren bilgi iletilerini işlemek için de akış analizini kullanır. Çözümler cihazlarınızdan gelen iletileri işlemek ve bu iletileri diğer cihazlara göndermek için Stream Analytics kullanır.
+* [Azure Depolama][lnk-azure-storage] ve [Azure Cosmos DB][lnk-document-db] veri depolama özellikleri sağlar. Önceden yapılandırılmış çözümler, telemetri depolamak ve çözümleme için kullanılabilir hale getirmek üzere blob depolamayı kullanır. Çözümler cihaz meta verilerini depolamak ve çözümlerin cihaz yönetimi özelliklerini etkinleştirmek için Cosmos DB kullanır.
+* [Azure Web Apps][lnk-web-apps] ve [Microsoft Power BI][lnk-power-bi] veri görselleştirme özellikleri sağlar. Power BI esnekliği, IoT Paketi verilerini kullanan kendi etkileşimli panolarınızı hızlı bir şekilde oluşturmanızı sağlar.
 
-Tipik bir IOT çözüm mimarisini hello genel bakış için bkz: [Microsoft Azure ve nesnelerin interneti (IOT) hello][iot-suite-what-is-azure-iot].
+Tipik bir IoT çözüm mimarisine genel bakış için bkz. [Microsoft Azure ve Nesnelerin İnterneti (IoT)][iot-suite-what-is-azure-iot].
 
 ## <a name="preconfigured-solutions"></a>Önceden yapılandırılmış çözümler
 
-IOT paketi önceden yapılandırılmış çözümler içerir, etkinleştirme, tooquickly ile çalışmaya başlama ve tooexplore gibi yaygın IOT senaryolarını hello:
+IoT paketi, yaygın IoT senaryolarını hızlı şekilde kullanmaya başlamanızı ve keşfetmenizi sağlayan aşağıdaki gibi önceden yapılandırılmış çözümler sunar:
 
 * Uzaktan izleme
 * Tahmine dayalı bakım
 * Bağlı fabrika
 
-Bu çözümleri tooyour Azure aboneliği dağıtın ve ardından tam, uçtan uca bir IOT senaryosu çalıştırabilirsiniz.
+Bu çözümleri Azure aboneliğinize dağıtabilir ve ardından tam, uçtan uca bir IoT senaryosu çalıştırabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-IOT paketi yapabileceklerine ve temel bileşenlerine nelerdir genel bakış sahip olduğunuza göre IOT paketi önceden yapılandırılmış hello çözümleri hakkında daha fazla bilgi edinebilirsiniz. Daha fazla bilgi için bkz: [ne hello Azure IOT önceden yapılandırılmış çözümleri?][lnk-what-are-preconfig]
+IoT Paketi'nin yapabileceklerini ve ana bileşenlerini genel hatlarıyla gördüğünüze göre IoT Paketi'ndeki önceden yapılandırılmış çözümler hakkında daha fazla bilgi alabilirsiniz. Daha fazla bilgi için bkz. [Önceden yapılandırılmış Azure IoT çözümleri nelerdir?][lnk-what-are-preconfig]
 
 [lnk-sdks]: https://azure.microsoft.com/documentation/articles/iot-hub-sdks-summary/
 [lnk-iot-hub]: https://azure.microsoft.com/documentation/services/iot-hub/

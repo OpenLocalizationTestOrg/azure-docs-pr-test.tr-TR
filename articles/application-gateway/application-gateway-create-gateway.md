@@ -1,9 +1,9 @@
 ---
-title: "aaaCreate, başlatma veya bir uygulama ağ geçidini silme | Microsoft Docs"
-description: "Bu sayfa toocreate, yapılandırmak, başlatın ve bir Azure uygulama ağ geçidini silme yönergelerini sağlar"
+title: "Bir uygulama ağ geçidi oluşturma, başlatma veya silme | Microsoft Belgeleri"
+description: "Bu sayfa bir Azure uygulama ağ geçidi oluşturma, yapılandırma, başlatma ve silme yönergelerini sağlar"
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: 577054ca-8368-4fbf-8d53-a813f29dc3bc
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
-ms.author: gwallace
-ms.openlocfilehash: 3efef5b49880c9efdafad8b88d4bce5b749b82af
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.author: davidmu
+ms.openlocfilehash: 7fb54e96d20d34f453b7b016094b84504348335b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-start-or-delete-an-application-gateway-with-powershell"></a>PowerShell ile bir uygulama ağ geçidi oluşturma, başlatma veya silme 
 
@@ -30,47 +30,47 @@ ms.lasthandoff: 10/06/2017
 > * [Azure Resource Manager şablonu](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
 
-Azure Application Gateway, bir katman 7 yük dengeleyicidir. Merhaba Bulut veya şirket içinde olmalarından bağımsız yük devretme, HTTP isteklerini, farklı sunucular arasında performans amaçlı yönlendirme sağlar. Application Gateway; HTTP yük dengeleme, tanımlama bilgisi tabanlı oturum benzeşimi, Güvenli Yuva Katmanı (SSL) boşaltma, özel sistem durumu araştırmaları, çoklu site desteği gibi birçok Application Delivery Controller (ADC) özelliği sunar. toofind desteklenen özelliklerin tam bir listesi ziyaret [uygulama ağ geçidi'ne genel bakış](application-gateway-introduction.md)
+Azure Application Gateway, bir katman 7 yük dengeleyicidir. Bulutta veya şirket içinde olmalarından bağımsız olarak, farklı sunucular arasında yük devretme ile HTTP istekleri için performans amaçlı yönlendirme sağlar. Application Gateway; HTTP yük dengeleme, tanımlama bilgisi tabanlı oturum benzeşimi, Güvenli Yuva Katmanı (SSL) boşaltma, özel sistem durumu araştırmaları, çoklu site desteği gibi birçok Application Delivery Controller (ADC) özelliği sunar. Desteklenen özelliklerin tam listesi için bkz. [Application Gateway’e Genel Bakış](application-gateway-introduction.md)
 
-Bu makalede hello adımları toocreate anlatılmaktadır, yapılandırmak, başlatmak ve bir uygulama ağ geçidini silin.
+Bu makale, uygulama ağ geçidi oluşturma, yapılandırma, başlatma ve silme adımlarında size eşlik eder.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-1. Merhaba Web Platformu Yükleyicisi'ni kullanarak Hello hello Azure PowerShell cmdlet'lerinin en yeni sürümünü yükleyin. Karşıdan yükle ve hello hello en son sürümünü yüklemek **Windows PowerShell** hello bölümünü [indirmeler sayfası](https://azure.microsoft.com/downloads/).
-2. Varolan bir sanal ağınız varsa, mevcut bir boş alt seçin veya hello uygulama ağ geçidi tarafından kullanılmak üzere yalnızca varolan sanal ağınızda yeni bir alt ağ oluşturun. Merhaba uygulama ağ geçidi tooa farklı sanal ağı dağıtamazsınız daha hello kaynak vnet eşlemesi kullanılmadığı sürece hello uygulama ağ geçidi arkasında toodeploy düşündüğünüz. toolearn daha ziyaret [Vnet eşlemesi](../virtual-network/virtual-network-peering-overview.md)
-3. Geçerli bir alt ağla çalışan bir sanal ağa sahip olduğunuzu doğrulayın. Hiçbir sanal makine veya Bulut dağıtımları hello alt kullandığınızdan emin olun. Merhaba uygulama ağ geçidi tek başına bir sanal ağ alt ağında olmalıdır.
-4. toouse hello uygulama ağ geçidi yapılandırma hello sunucular mevcut olmalıdır veya hello sanal ağ veya genel IP/VIP'ye ile oluşturulan uç noktaları atadınız.
+1. Web Platformu Yükleyicisi’ni kullanarak Azure PowerShell cmdlet’lerin en son sürümünü yükleyin. **İndirmeler sayfası**’ndaki [Windows PowerShell](https://azure.microsoft.com/downloads/) bölümünden en son sürümü indirip yükleyebilirsiniz.
+2. Mevcut bir sanal ağınız varsa var olan boş bir alt ağı seçin ya da var olan sanal ağınızda yalnızca uygulama ağ geçidinin kullanımına yönelik yeni bir alt ağ oluşturun. Sanal ağ eşleme kullanılmıyorsa uygulama ağ geçidini, uygulama ağ geçidinin arkasına dağıtmak istediğiniz kaynaklardan farklı bir sanal ağa dağıtamazsınız. Daha fazla bilgi için bkz. [Sanal Ağ Eşleme](../virtual-network/virtual-network-peering-overview.md)
+3. Geçerli bir alt ağla çalışan bir sanal ağa sahip olduğunuzu doğrulayın. Hiçbir sanal makinenin veya bulut dağıtımlarının alt ağı kullanmadığından emin olun. Uygulama ağ geçidi tek başına bir sanal ağ alt ağında olmalıdır.
+4. Uygulama ağ geçidi kullanırken yapılandırdığınız sunucular mevcut olmalıdır veya uç noktaları sanal ağda veya atanan genel bir IP/VIP’de oluşturulmuş olmalıdır.
 
-## <a name="what-is-required-toocreate-an-application-gateway"></a>Gerekli toocreate bir uygulama ağ geçidi nedir?
+## <a name="what-is-required-to-create-an-application-gateway"></a>Bir uygulama ağ geçidi oluşturmak için ne gereklidir?
 
-Merhaba kullandığınızda `New-AzureApplicationGateway` komutu toocreate hello uygulama ağ geçidi, herhangi bir yapılandırma bu noktada ayarlanır ve yeni oluşturulan hello kaynak yapılandırılmış XML veya bir yapılandırma nesnesi kullanarak.
+Uygulama ağ geçidini oluşturmak için `New-AzureApplicationGateway` komutunu kullanırsanız, bu noktada yapılandırma ayarlanmaz ve yeni oluşturulmuş kaynak, XML veya bir yapılandırma nesnesi kullanılarak yapılandırılır.
 
-Merhaba değerler şunlardır:
+Değerler şunlardır:
 
-* **Arka uç sunucusu havuzu:** hello hello arka uç sunucularının IP adresleri listesi. listede hello IP adresleri ya da toohello sanal ağ alt veya ait genel IP/VIP'ye olmalıdır.
-* **Arka uç sunucu havuzu ayarları**: Her havuzun bağlantı noktası, protokol ve tanımlama bilgisi temelli benzeşim gibi ayarları vardır. Bu ayarlar bağlı tooa olan havuzu ve hello havuz içindeki uygulanan tooall sunucularıdır.
-* **Ön uç bağlantı noktası:** Bu bağlantı noktası hello hello uygulama ağ geçidinde açılan genel bağlantı noktasıdır. Bu bağlantı noktasında trafik trafik ve tooone hello arka uç sunucularının alır yeniden yönlendirildi.
-* **Dinleyici:** hello dinleyicisi sahip bir ön uç bağlantı noktası, bir protokol (Http veya Https, bu değerleri büyük küçük harfe duyarlı) ve hello SSL sertifika adı (SSL yük boşaltımı yapılandırılıyorsa).
-* **Kural:** hello kural hello dinleyicisi ve hello arka uç sunucusu havuzunu bağlar ve belli bir Dinleyicide trafik yönlendirilmiş toowhen hangi arka uç sunucu havuzu hello trafiğinin olmalıdır belirler.
+* **Arka uç sunucusu havuzu:** Arka uç sunucularının IP adreslerinin listesi. Listede bulunan IP adresleri sanal ağ alt ağına veya genel IP/VIP’ye ait olmalıdır.
+* **Arka uç sunucu havuzu ayarları**: Her havuzun bağlantı noktası, protokol ve tanımlama bilgisi temelli benzeşim gibi ayarları vardır. Bu ayarlar bir havuza bağlıdır ve havuzdaki tüm sunuculara uygulanır.
+* **Ön uç bağlantı noktası:** Bu bağlantı noktası uygulama ağ geçidinde açılan genel bağlantı noktasıdır. Bu bağlantı noktasında trafik olursa arka uç sunuculardan birine yönlendirilir.
+* **Dinleyici:** Dinleyicide bir ön uç bağlantı noktası, bir protokol (Http veya Https, bu değerler büyük/küçük harfe duyarlıdır) ve SSL sertifika adı (SSL yük boşaltımı yapılandırılıyorsa) vardır.
+* **Kural:** Kural, dinleyiciyi ve arka uç sunucusu havuzunu bağlar ve belli bir dinleyicide trafik olduğunda trafiğin hangi arka uç sunucu havuzuna yönlendirileceğini belirler.
 
 ## <a name="create-an-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
-bir uygulama ağ geçidi toocreate:
+Bir uygulama ağ geçidi oluşturmak için:
 
 1. Uygulama ağ geçidi kaynağı oluşturun.
 2. Bir XML yapılandırma dosyası veya yapılandırma nesnesi oluşturun.
-3. Hello yapılandırma toohello yeni oluşturulmuş uygulama ağ geçidi kaynağına uygulayın.
+3. Yapılandırmayı, yeni oluşturulmuş uygulama ağ geçidi kaynağına uygulayın.
 
 > [!NOTE]
-> Uygulama ağ geçidiniz için özel bir araştırma tooconfigure gerekirse bkz [PowerShell kullanarak özel araştırmalara sahip bir uygulama ağ geçidi oluşturma](application-gateway-create-probe-classic-ps.md). Daha fazla bilgi için [özel araştırmalar ve sistem durumu izleme](application-gateway-probe-overview.md) konusunu inceleyin.
+> Uygulama ağ geçidiniz için özel bir araştırma yapılandırmanız gerekiyorsa, bkz. [PowerShell kullanarak özel araştırmalara sahip bir uygulama ağ geçidi oluşturma](application-gateway-create-probe-classic-ps.md). Daha fazla bilgi için [özel araştırmalar ve sistem durumu izleme](application-gateway-probe-overview.md) konusunu inceleyin.
 
 ![Senaryo örneği][scenario]
 
 ### <a name="create-an-application-gateway-resource"></a>Bir uygulama ağ geçidi kaynağı oluşturma
 
-toocreate hello ağ geçidi, kullanım hello `New-AzureApplicationGateway` hello değerleri kendi değerlerinizle değiştirerek cmdlet'i. Merhaba ağ geçidi için fatura bu noktada başlatılmaz. Merhaba ağ geçidi başarıyla başlatıldığında faturalama bir sonraki adımda başlar.
+Ağ geçidini oluşturmak için, `New-AzureApplicationGateway` cmdlet’ini kullanın ve değerleri kendi değerlerinizle değiştirin. Ağ geçidinin faturalanması bu aşamada başlamaz. Daha sonra ağ geçidi başarıyla başlatıldığında faturalama da başlar. 
 
-Merhaba aşağıdaki örnek bir uygulama ağ geçidi "testvnet1" ve "subnet-1" adlı bir alt ağ olarak adlandırılan bir sanal ağ kullanarak oluşturur:
+Aşağıdaki örnek, "testvnet1" adlı sanal ağı ve "subnet-1" aklı alt ağı kullanarak bir uygulama ağ geçidi oluşturur:
 
 ```powershell
 New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
@@ -78,7 +78,7 @@ New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subn
 
 *Description*, *InstanceCount* ve *GatewaySize* tercihe bağlı parametrelerdir.
 
-ağ geçidi hello toovalidate oluşturuldu, hello kullanabilirsiniz `Get-AzureApplicationGateway` cmdlet'i.
+Ağ geçidinin oluşturulduğunu doğrulamak için `Get-AzureApplicationGateway` cmdlet’ini kullanabilirsiniz.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -97,21 +97,21 @@ DnsName       :
 ```
 
 > [!NOTE]
-> Merhaba için varsayılan değer *Instancecount* 10 maksimum değerini 2'dir. Merhaba için varsayılan değer *GatewaySize* Orta'dır. Small, Medium ve Large seçenekleri bulunur.
+> *InstanceCount* için varsayılan değer 2 ile 10 arasıdır. *GatewaySize* için varsayılan değer Medium’dur. Small, Medium ve Large seçenekleri bulunur.
 
-*VirtualIPs* ve *DnsName* hello ağ geçidi henüz başlatılmamış olduğundan boş olarak gösterilir. Merhaba ağ geçidi çalışır durumda hello olduğunda bunlar oluşturulur.
+Ağ geçidi daha başlatılmadığından dolayı *VirtualIPs* ve *DnsName* boş görünür. Bunlar ağ geçidi çalışma durumuna geçtiğinde oluşturulur.
 
-## <a name="configure-hello-application-gateway"></a>Merhaba uygulama ağ geçidi yapılandırma
+## <a name="configure-the-application-gateway"></a>Uygulama ağ geçidini yapılandırma
 
-XML veya bir yapılandırma nesnesi kullanarak hello uygulama ağ geçidini yapılandırabilirsiniz.
+XML veya bir yapılandırma nesnesi kullanarak uygulama ağ geçidini yapılandırabilirsiniz.
 
-### <a name="configure-hello-application-gateway-by-using-xml"></a>XML kullanarak Hello uygulama ağ geçidi yapılandırma
+### <a name="configure-the-application-gateway-by-using-xml"></a>XML kullanarak uygulama ağ geçidi yapılandırma
 
-Aşağıdaki örneğine hello, tüm uygulama ağ geçidi ayarları bir XML dosyası tooconfigure kullanın ve toohello uygulama ağ geçidi kaynağına uygulayın.  
+Aşağıdaki örnekte, tüm uygulama ağ geçidi ayarlarını yapılandırmak için bir XML dosyası kullanır ve bu ayarları uygulama ağ geçidi kaynağına uygularsınız.  
 
 #### <a name="step-1"></a>1. Adım
 
-Metin tooNotepad aşağıdaki hello kopyalayın.
+Aşağıdaki metni Notepad’a kopyalayın.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -158,12 +158,12 @@ Metin tooNotepad aşağıdaki hello kopyalayın.
 </ApplicationGatewayConfiguration>
 ```
 
-Merhaba yapılandırma öğeleri için hello parantez Hello değerlerini düzenleyin. Merhaba dosyası .xml. uzantısıyla kaydedin.
+Parantez içindeki değerleri yapılandırma öğeleri için düzenleyin. Dosyası .xml. uzantısıyla kaydedin.
 
 > [!IMPORTANT]
-> Http veya Https Hello protokol öğesi büyük/küçük harf duyarlıdır.
+> Http veya Https protokol öğesi büyük/küçük harf duyarlıdır.
 
-Aşağıdaki örneğine hello nasıl toouse bir yapılandırma dosyası hello uygulama ağ geçidi yukarı tooset gösterir. Merhaba örnek yük ortak bağlantı noktası 80 üzerinde HTTP trafiği dengeler ve ağ trafiğini iki IP adresi arasında tooback uç bağlantı noktası 80 gönderir.
+Aşağıdaki örnekte uygulama ağ geçidi ayarlamak için yapılandırma dosyası kullanma işlemi gösterilmektedir. Örnek, genel bağlantı noktası 80 üzerinde HTTP trafiğinin yük dengelemesini yapar ve iki IP adresi arasındaki arka uç bağlantı noktası 80’e ağ trafiği gönderir.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -212,24 +212,24 @@ Aşağıdaki örneğine hello nasıl toouse bir yapılandırma dosyası hello uy
 
 #### <a name="step-2"></a>2. Adım
 
-Ardından, hello uygulama ağ geçidi ayarlayın. Kullanım hello `Set-AzureApplicationGatewayConfig` cmdlet'ini bir XML yapılandırma dosyası.
+Sonra, uygulama ağ geçidini kurun. `Set-AzureApplicationGatewayConfig` cmdlet’ini, yapılandırma XML dosyasıyla kullanın.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile "D:\config.xml"
 ```
 
-### <a name="configure-hello-application-gateway-by-using-a-configuration-object"></a>Bir yapılandırma nesnesi kullanarak Hello uygulama ağ geçidi yapılandırma
+### <a name="configure-the-application-gateway-by-using-a-configuration-object"></a>Bir yapılandırma nesnesi kullanarak uygulama ağ geçidi yapılandırma
 
-Aşağıdaki örnek hello nasıl tooconfigure hello uygulama ağ geçidi yapılandırma nesnesi kullanarak gösterir. Tüm yapılandırma öğeleri ayrı ayrı yapılandırılır ve daha sonra eklenen tooan uygulama ağ geçidi yapılandırma nesnesi. Merhaba Yapılandırma nesnesini oluşturduktan sonra hello kullan `Set-AzureApplicationGateway` komutu toocommit hello yapılandırma toohello daha önce oluşturduğunuz uygulama ağ geçidi kaynağı.
+Aşağıdaki örnek yapılandırma nesnesi kullanarak nasıl uygulama ağ geçidi yapılandırılacağını gösterir. Tüm yapılandırma öğeleri ayrı ayrı yapılandırılıp bir uygulama ağ geçidi yapılandırma nesnesine eklenmelidir. Yapılandırma nesnesini oluşturduktan sonra, yapılandırmayı daha önce oluşturulmuş bir uygulama ağ geçidi kaynağına uygulamak için `Set-AzureApplicationGateway` komutunu kullanın.
 
 > [!NOTE]
-> Bir değer tooeach yapılandırma nesnesi atamadan önce depolama için PowerShell ne tür bir nesneyi kullanan toodeclare gerekir. Merhaba ilk satırı toocreate hello ayrı ayrı öğeler tanımlar ne `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)` kullanılır.
+> Her yapılandırma nesnesine değer atamadan önce, PowerShell’in depolama için ne tür bir nesneyi kullanacağını belirtmeniz gerekir. Bağımsız öğeleri oluşturan birinci satır, kullanılan `Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model(object name)` öğelerini tanımlar.
 
 #### <a name="step-1"></a>1. Adım
 
 Tüm bireysel yapılandırma öğelerini oluşturun.
 
-Merhaba ön uç IP hello aşağıdaki örnekte gösterildiği gibi oluşturun.
+Ön uç IP’sini aşağıdaki örnekte gösterildiği gibi oluşturun.
 
 ```powershell
 $fip = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendIPConfiguration
@@ -238,7 +238,7 @@ $fip.Type = "Private"
 $fip.StaticIPAddress = "10.0.0.5"
 ```
 
-Merhaba ön uç bağlantı noktası hello aşağıdaki örnekte gösterildiği gibi oluşturun.
+Ön uç IP bağlantı noktasını aşağıdaki örnekte gösterildiği gibi oluşturun.
 
 ```powershell
 $fep = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort
@@ -246,9 +246,9 @@ $fep.Name = "fep1"
 $fep.Port = 80
 ```
 
-Merhaba arka uç sunucu havuzu oluşturun.
+Arka uç sunucu havuzunu oluşturun.
 
-Merhaba sonraki örnekte gösterildiği gibi toohello arka uç sunucu havuzuna eklenmiş hello IP adreslerini tanımlayın.
+Arka uç sunucu havuzuna eklenecek IP adreslerini sonraki örnekte gösterildiği gibi tanımlayın.
 
 ```powershell
 $servers = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendServerCollection
@@ -256,7 +256,7 @@ $servers.Add("10.0.0.1")
 $servers.Add("10.0.0.2")
 ```
 
-Merhaba $server tooadd hello değerleri toohello arka uç havuzu nesne ($pool) kullanın.
+Arka uç havuzu nesnesine değer eklemek için $sunucu nesnesini kullanın ($havuzu).
 
 ```powershell
 $pool = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool
@@ -264,7 +264,7 @@ $pool.BackendServers = $servers
 $pool.Name = "pool1"
 ```
 
-Merhaba arka uç sunucu havuzu ayarlarını oluşturun.
+Arka uç sunucu havuzu ayarlarını oluşturun.
 
 ```powershell
 $setting = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings
@@ -274,7 +274,7 @@ $setting.Port = 80
 $setting.Protocol = "http"
 ```
 
-Merhaba dinleyici oluşturun.
+Dinleyiciyi oluşturun.
 
 ```powershell
 $listener = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener
@@ -285,7 +285,7 @@ $listener.Protocol = "http"
 $listener.SslCert = ""
 ```
 
-Merhaba kuralı oluşturun.
+Kuralı oluşturun.
 
 ```powershell
 $rule = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule
@@ -298,9 +298,9 @@ $rule.BackendAddressPool = "pool1"
 
 #### <a name="step-2"></a>2. Adım
 
-Tüm Bireysel yapılandırma öğelerini tooan uygulama ağ geçidi yapılandırma nesnesi ($appgwconfig) atayın.
+Tüm bireysel yapılandırma öğelerini bir uygulama ağ geçidi yapılandırma nesnesine atayın ($appgwconfig).
 
-Merhaba ön uç IP toohello yapılandırmasını ekleyin.
+Yapılandırmaya ön uç IP’sini ekleyin.
 
 ```powershell
 $appgwconfig = New-Object Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.ApplicationGatewayConfiguration
@@ -308,34 +308,34 @@ $appgwconfig.FrontendIPConfigurations = New-Object "System.Collections.Generic.L
 $appgwconfig.FrontendIPConfigurations.Add($fip)
 ```
 
-Merhaba ön uç bağlantı noktası toohello yapılandırma ekleyin.
+Yapılandırmaya ön uç bağlantı noktasını ekleyin.
 
 ```powershell
 $appgwconfig.FrontendPorts = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.FrontendPort]"
 $appgwconfig.FrontendPorts.Add($fep)
 ```
-Merhaba arka uç sunucu havuzu toohello yapılandırması ekleyin.
+Yapılandırmaya arka uç sunucu havuzunu ekleyin.
 
 ```powershell
 $appgwconfig.BackendAddressPools = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendAddressPool]"
 $appgwconfig.BackendAddressPools.Add($pool)
 ```
 
-Merhaba arka uç havuzu ayarı toohello yapılandırması ekleyin.
+Yapılandırmaya arka uç havuzu ayarlarını ekleyin.
 
 ```powershell
 $appgwconfig.BackendHttpSettingsList = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.BackendHttpSettings]"
 $appgwconfig.BackendHttpSettingsList.Add($setting)
 ```
 
-Merhaba dinleyici toohello yapılandırması ekleyin.
+Yapılandırmaya dinleyiciyi ekleyin.
 
 ```powershell
 $appgwconfig.HttpListeners = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpListener]"
 $appgwconfig.HttpListeners.Add($listener)
 ```
 
-Merhaba kural toohello yapılandırma ekleyin.
+Yapılandırmaya kuralı ekleyin.
 
 ```powershell
 $appgwconfig.HttpLoadBalancingRules = New-Object "System.Collections.Generic.List[Microsoft.WindowsAzure.Commands.ServiceManagement.Network.ApplicationGateway.Model.HttpLoadBalancingRule]"
@@ -343,28 +343,28 @@ $appgwconfig.HttpLoadBalancingRules.Add($rule)
 ```
 
 ### <a name="step-3"></a>3. Adım
-Merhaba yapılandırma nesnesi toohello uygulama ağ geçidi kaynağı kullanarak yürütme `Set-AzureApplicationGatewayConfig`.
+`Set-AzureApplicationGatewayConfig` kullanarak, yapılandırma nesnesini uygulama ağ geçidi kaynağına uygulayın.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name AppGwTest -Config $appgwconfig
 ```
 
-## <a name="start-hello-gateway"></a>Merhaba ağ geçidi Başlat
+## <a name="start-the-gateway"></a>Ağ geçidini başlatma
 
-Hello ağ geçidi yapılandırıldıktan sonra hello kullanarak `Start-AzureApplicationGateway` cmdlet toostart hello ağ geçidi. Bir uygulama ağ geçidi için fatura Hello ağ geçidi başarıyla başlatıldıktan sonra başlar.
+Ağ geçidi yapılandırıldıktan sonra, ağ geçidini başlatmak için `Start-AzureApplicationGateway` cmdlet’ini kullanın. Uygulama ağ geçidinin faturalanması ağ geçidi başarıyla başlatıldıktan sonra başlar.
 
 > [!NOTE]
-> Merhaba `Start-AzureApplicationGateway` cmdlet too15-20 dakika toofinish alabilir.
+> `Start-AzureApplicationGateway` cmdlet’inin tamamlanması 15-20 dakika sürebilir.
 
 ```powershell
 Start-AzureApplicationGateway AppGwTest
 ```
 
-## <a name="verify-hello-gateway-status"></a>Merhaba ağ geçidi durumunu doğrulama
+## <a name="verify-the-gateway-status"></a>Ağ geçidi durumunu doğrulama
 
-Kullanım hello `Get-AzureApplicationGateway` cmdlet toocheck hello hello ağ geçidi durumunu. Varsa `Start-AzureApplicationGateway` hello önceki adımda başarılı *durumu* çalıştırması gerekir, ve *VIP* ve *DnsName* geçerli girdilere sahip olmalıdır.
+Ağ geçidinin durumunu denetlemek için `Get-AzureApplicationGateway` cmdlet’ini kullanın. Bir önceki adımda `Start-AzureApplicationGateway` başarılı olduysa, *State* Running durumunda olmalı, *Vip* ve *DnsName* ise geçerli girdilere sahip olmalıdır.
 
-Hello aşağıdaki örnekte gösterilir çalışır durumda, bir uygulama ağ geçidi ve hazır tootake trafiği hedefleyen için `http://<generated-dns-name>.cloudapp.net`.
+Aşağıdaki örnek, çalışır durumda ve `http://<generated-dns-name>.cloudapp.net` için atanmış trafiği almaya hazır bir uygulama ağ geçidini gösterir.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -384,15 +384,15 @@ Vip           : 138.91.170.26
 DnsName       : appgw-1b8402e8-3e0d-428d-b661-289c16c82101.cloudapp.net
 ```
 
-## <a name="delete-hello-application-gateway"></a>Merhaba uygulama ağ geçidini Sil
+## <a name="delete-the-application-gateway"></a>Uygulama ağ geçidini silme
 
-toodelete hello uygulama ağ geçidi:
+Uygulama ağ geçidini silmek için:
 
-1. Kullanım hello `Stop-AzureApplicationGateway` cmdlet toostop hello ağ geçidi.
-2. Kullanım hello `Remove-AzureApplicationGateway` cmdlet tooremove hello ağ geçidi.
-3. Bu hello ağ geçidi hello kullanarak kaldırıldı doğrulayın `Get-AzureApplicationGateway` cmdlet'i.
+1. Ağ geçidini durdurmak için `Stop-AzureApplicationGateway` cmdlet’ini kullanın.
+2. Ağ geçidini kaldırmak için `Remove-AzureApplicationGateway` cmdlet’ini kullanın.
+3. Ağ geçidinin kaldırıldığını doğrulamak için `Get-AzureApplicationGateway` cmdlet’ini kullanın.
 
-Merhaba aşağıdaki örnekte gösterilir hello `Stop-AzureApplicationGateway` cmdlet hello ilk satırdaki ardından tarafından hello çıktı.
+Aşağıdaki örnek, ilk satırda, devamında çıktının bulunduğu `Stop-AzureApplicationGateway` cmdlet’ini gösterir.
 
 ```powershell
 Stop-AzureApplicationGateway AppGwTest
@@ -406,7 +406,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   ce6c6c95-77b4-2118-9d65-e29defadffb8
 ```
 
-Merhaba uygulama ağ geçidi durdurulmuş durumda olduğunda, hello kullan `Remove-AzureApplicationGateway` cmdlet tooremove hello hizmet.
+Uygulama ağ geçidi durdurulmuş konumda olduğunda, hizmeti kaldırmak için `Remove-AzureApplicationGateway` cmdlet’ini kullanın.
 
 ```powershell
 Remove-AzureApplicationGateway AppGwTest
@@ -420,7 +420,7 @@ Name       HTTP Status Code     Operation ID                             Error
 Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 ```
 
-Hizmet hello tooverify kaldırıldı, hello kullanabilirsiniz `Get-AzureApplicationGateway` cmdlet'i. Bu adım gerekli değildir.
+Hizmetin kaldırıldığını doğrulamak için `Get-AzureApplicationGateway` cmdlet’ini kullanabilirsiniz. Bu adım gerekli değildir.
 
 ```powershell
 Get-AzureApplicationGateway AppGwTest
@@ -429,15 +429,15 @@ Get-AzureApplicationGateway AppGwTest
 ```
 VERBOSE: 10:52:46 PM - Begin Operation: Get-AzureApplicationGateway
 
-Get-AzureApplicationGateway : ResourceNotFound: hello gateway does not exist.
+Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 .....
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-SSL boşaltma tooconfigure istiyorsanız, bkz: [SSL yük boşaltımı için bir uygulama ağ geçidi](application-gateway-ssl.md).
+SSL yük boşaltmayı yapılandırmak istiyorsanız, bkz. [SSL yük boşaltımı için uygulama ağ geçidi yapılandırma](application-gateway-ssl.md).
 
-Bir iç yük dengeleyici ile bir uygulama ağ geçidi toouse tooconfigure istiyorsanız, bkz: [bir iç yük dengeleyici (ILB) ile bir uygulama ağ geçidi oluşturma](application-gateway-ilb.md).
+İç yük dengeleyiciyle kullanacağınız uygulama ağ geçidi yapılandırmak istiyorsanız, bkz. [İç yük dengeleyici (ILB) ile uygulama ağ geçidi oluşturma](application-gateway-ilb.md).
 
 Yük dengeleme seçenekleri hakkında daha fazla genel bilgi edinmek istiyorsanız, bkz.
 

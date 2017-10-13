@@ -1,6 +1,6 @@
 ---
-title: "aaaAssign grupları tooAzure AD uygulamaları | Microsoft Docs"
-description: "Tooimplement Grup nasıl Azure uygulamalar için atama."
+title: "Azure AD uygulamalarınız için grupları atama | Microsoft Docs"
+description: "Grup ataması Azure uygulamaları için gerçekleştirme."
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -16,26 +16,26 @@ ms.date: 05/07/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 robots: noindex
-ms.openlocfilehash: 086619df09c13bf259afc3128d45ed804b99e519
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e0b0b87a454db96747f024e81882fe83d62fdbe2
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="assign-azure-active-directory-groups-tooan-application"></a>Azure Active Directory grupları tooan uygulama atama
-Kullanıcıları ve grupları tooan uygulama atamadan önce kullanıcı ataması gerektirir. toolearn nasıl toorequire kullanıcı ataması hello bkz [gerektiren kullanıcı ataması](active-directory-applications-guiding-developers-requiring-user-assignment.md) makalesi.
+# <a name="assign-azure-active-directory-groups-to-an-application"></a>Bir uygulamayı Azure Active Directory grupları atama
+Uygulamaya kullanıcılar ve gruplar atamadan önce kullanıcı ataması gerektirir. Kullanıcı Ataması gerektirecek şekilde öğrenmek için bkz: [gerektiren kullanıcı ataması](active-directory-applications-guiding-developers-requiring-user-assignment.md) makalesi.
 
-Bu makale, zaten grupları hello active Directory'de, bu uygulama için kullanmakta olduğunuz oluşturduğunuzu varsayar.
+Bu makale, zaten grupları, bu uygulama için kullandığınız active Directory'deki oluşturduğunuzu varsayar.
 
-## <a name="assigning-groups-tooan-application"></a>Grupları tooan uygulama atama
-1. İçinde toohello Azure portalında bir yönetici hesabıyla oturum açın.
-2. Tıklatın hello üzerinde **tüm öğeleri** hello ana menü öğesi.
-3. Merhaba uygulaması için kullanmakta olduğunuz hello dizini seçin.
-4. Tıklatın hello üzerinde **uygulamaları** sekmesi.
-5. Bu dizin ile ilişkili uygulamaları hello listesinden Hello uygulamayı seçin.
-6. Merhaba tıklatın **kullanıcılar ve GRUPLAR** sekmesi.
-7. Filtre hello hello kullanarak, active Directory'deki grupları listesi **grupları** açılır liste.
-8. Merhaba grubunu seçin.
+## <a name="assigning-groups-to-an-application"></a>Uygulama grupları atama
+1. Azure portalı bir yönetici hesabı ile oturum açın.
+2. Tıklayın **tüm öğeleri** ana menü öğesi.
+3. Uygulama için kullanmakta olduğunuz dizini seçin.
+4. Tıklayın **uygulamaları** sekmesi.
+5. Uygulama bu dizinle ilişkili uygulamalar listesini seçin.
+6. Tıklatın **kullanıcılar ve GRUPLAR** sekmesi.
+7. Kullanarak active Directory'de Grup listesini filtrelemek **grupları** açılır liste.
+8. Grubu seçin.
 9. Tıklatın **ATAMAK**.
 10. Tıklatın **Evet** istendiğinde.
 

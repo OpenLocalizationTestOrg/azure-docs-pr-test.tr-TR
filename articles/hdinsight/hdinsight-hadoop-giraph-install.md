@@ -1,6 +1,6 @@
 ---
-title: "Giraph hadoop'ta aaaInstall ve kullanım Hdınsight'ta - Azure kümeleri | Microsoft Docs"
-description: "Toocustomize Hdınsight küme nasıl ile Giraph ve nasıl öğrenin toouse Giraph."
+title: "Yükleme ve hdınsight'ta - Azure Hadoop kümeleri üzerinde Giraph kullanma | Microsoft Docs"
+description: "Giraph Hdınsight kümesiyle özelleştirmeyi ve Giraph kullanmayı öğrenin."
 services: hdinsight
 documentationcenter: 
 author: nitinme
@@ -16,21 +16,21 @@ ms.topic: article
 ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: bd473faca9d3c87c29d7566a18fc94211c50f059
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f0eb5c1f457380600463a370043f03e6d655a02c
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>Yükleme ve Windows tabanlı Hdınsight kümelerinde Giraph kullanma
 
-Betik eylemi kullanarak Giraph ile toocustomize Windows Hdınsight kümesi nasıl ve ne öğrenin toouse Giraph tooprocess büyük ölçekli grafikleri. Linux tabanlı bir kümeyle Giraph kullanma hakkında daha fazla bilgi için bkz: [yükleme Giraph Hdınsight Hadoop kümeleri (Linux) üzerinde](hdinsight-hadoop-giraph-install-linux.md).
+Windows tabanlı Hdınsight kümesi ile betik eylemi kullanarak Giraph özelleştirmeyi ve Giraph büyük ölçekli grafikleri işlemek için nasıl kullanılacağını öğrenin. Linux tabanlı bir kümeyle Giraph kullanma hakkında daha fazla bilgi için bkz: [yükleme Giraph Hdınsight Hadoop kümeleri (Linux) üzerinde](hdinsight-hadoop-giraph-install-linux.md).
 
 > [!IMPORTANT]
-> Merhaba Windows tabanlı Hdınsight kümeleri ile bu belgeyi yalnızca çalışma adımları. Hdınsight yalnızca Windows'da Hdınsight 3.4 ' düşük sürümleri için kullanılabilir. Linux hello yalnızca Hdınsight sürüm 3.4 veya büyük kullanılan işletim sistemini ' dir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Hakkında bilgi için bir Linux tabanlı Hdınsight kümesinde tooinstall Giraph bkz [yükleme Giraph Hdınsight Hadoop kümeleri (Linux) üzerinde](hdinsight-hadoop-giraph-install-linux.md).
+> Bu belgede yer alan adımlar, yalnızca Windows tabanlı Hdınsight kümeleri ile çalışır. Hdınsight yalnızca Windows'da Hdınsight 3.4 ' düşük sürümleri için kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Linux tabanlı Hdınsight kümesinde Giraph yükleme hakkında daha fazla bilgi için bkz: [yükleme Giraph Hdınsight Hadoop kümeleri (Linux) üzerinde](hdinsight-hadoop-giraph-install-linux.md).
 
 
-Kullanarak Azure Hdınsight (Hadoop, Storm, HBase, Spark) kümede herhangi bir türde üzerinde Giraph yükleyebilirsiniz *betik eylemi*. Hdınsight kümesinde bir örnek komut dosyası tooinstall Giraph salt okunur Azure depolama blobunu gelen kullanılabilir [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1). Merhaba örnek betik yalnızca Hdınsight küme sürümü ile 3.1 çalışır. Hdınsight küme sürümleri hakkında daha fazla bilgi için bkz: [Hdınsight küme sürümleri](hdinsight-component-versioning.md).
+Kullanarak Azure Hdınsight (Hadoop, Storm, HBase, Spark) kümede herhangi bir türde üzerinde Giraph yükleyebilirsiniz *betik eylemi*. Giraph bir Hdınsight kümesine yüklemek için örnek komut dosyası salt okunur Azure depolama blobunu gelen kullanılabilir [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1). Örnek komut dosyası yalnızca Hdınsight küme sürümü ile 3.1 çalışır. Hdınsight küme sürümleri hakkında daha fazla bilgi için bkz: [Hdınsight küme sürümleri](hdinsight-component-versioning.md).
 
 **İlgili makaleler**
 
@@ -40,36 +40,36 @@ Kullanarak Azure Hdınsight (Hadoop, Storm, HBase, Spark) kümede herhangi bir t
 * [Hdınsight için betik eylemi betikleri geliştirme](hdinsight-hadoop-script-actions.md).
 
 ## <a name="what-is-giraph"></a>Giraph nedir?
-<a href="http://giraph.apache.org/" target="_blank">Apache Giraph</a> tooperform grafik Hadoop kullanarak işleme sağlar ve Azure Hdınsight ile kullanılabilir. Grafikleri hello Internet gibi büyük bir ağdaki yönlendiricileri arasındaki hello bağlantıları gibi nesneler arasındaki ilişkileri modellemek veya sosyal ağlarda (bazen başvurulan tooas sosyal grafiği) arasındaki ilişkileri kişiler. Grafik işleme hello bir grafik nesneleri arasındaki ilişkiler hakkında tooreason gibi sağlar:
+<a href="http://giraph.apache.org/" target="_blank">Apache Giraph</a> Hadoop kullanarak işleme grafik işlemleri yapmanıza olanak tanır ve Azure Hdınsight ile kullanılabilir. Grafikler Internet gibi büyük bir ağdaki yönlendiricileri veya (bazen bir sosyal grafik adlandırılır) sosyal ağlar üzerindeki kişiler arasındaki ilişkileri arasındaki bağlantıları gibi nesneler arasındaki ilişkileri model. Grafik işleme nedeni bir grafik nesneleri arasındaki ilişkiler hakkında gibi sağlar:
 
 * Geçerli ilişkilere dayanan olası arkadaş tanımlama.
-* Merhaba kısa rotayı bir ağda iki bilgisayar arasında tanımlayıcı.
-* Web sayfalarının Hello sayfa derecesini hesaplama.
+* Bir ağda iki bilgisayar arasındaki en kısa yolu tanımlama.
+* Web sayfalarındaki sayfa derecesini hesaplama.
 
 ## <a name="install-giraph-using-portal"></a>Portal kullanarak Giraph yükleyin
-1. Hello kullanarak bir küme oluşturmaya başlamak **özel Oluştur** konusunda açıklandığı gibi seçeneği [Hdınsight'ta oluşturmak Hadoop kümeleri](hdinsight-provision-clusters.md).
-2. Hello üzerinde **betik eylemleri** sayfa hello Sihirbazı'nın tıklatın **betik eylemi eklemek** tooprovide aşağıda gösterildiği gibi hello betik eylemi hakkında ayrıntıları:
+1. Kullanarak bir küme oluşturmaya başlamak **özel Oluştur** konusunda açıklandığı gibi seçeneği [Hdınsight'ta oluşturmak Hadoop kümeleri](hdinsight-provision-clusters.md).
+2. Üzerinde **betik eylemleri** Sayfa Sihirbazı'nın tıklatın **betik eylemi eklemek** aşağıda gösterildiği gibi betik eylemi hakkındaki ayrıntıları sağlamak için:
 
-    ![Betik eylemi toocustomize bir küme kullanın](./media/hdinsight-hadoop-giraph-install/hdi-script-action-giraph.png "kullanım betik eylemi toocustomize küme")
+    ![Bir küme özelleştirmek için betik eylemi kullanın](./media/hdinsight-hadoop-giraph-install/hdi-script-action-giraph.png "bir küme özelleştirmek için kullanım betik eylemi")
 
     <table border='1'>
         <tr><th>Özellik</th><th>Değer</th></tr>
         <tr><td>Ad</td>
-            <td>Merhaba betik eylemi için bir ad belirtin. Örneğin, <b>yükleme Giraph</b>.</td></tr>
+            <td>Betik eylemi için bir ad belirtin. Örneğin, <b>yükleme Giraph</b>.</td></tr>
         <tr><td>Betik URI'si</td>
-            <td>Çağrılan toocustomize hello küme hello Tekdüzen Kaynak Tanımlayıcısı (URI) toohello komut dosyasını belirtin. Örneğin, <i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
+            <td>Küme özelleştirmek için çağrılan betik Tekdüzen Kaynak Tanımlayıcısı (URI) belirtin. Örneğin, <i>https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1</i></td></tr>
         <tr><td>Düğüm Türü</td>
-            <td>Merhaba özelleştirme betik çalıştığı hello düğüm belirtin. Seçebileceğiniz <b>tüm düğümleri</b>, <b>Head yalnızca düğümlerin</b>, veya <b>yalnızca çalışan düğümleri</b>.
+            <td>Özelleştirme kodun çalıştığı düğüm belirtin. Seçebileceğiniz <b>tüm düğümleri</b>, <b>Head yalnızca düğümlerin</b>, veya <b>yalnızca çalışan düğümleri</b>.
         <tr><td>Parametreler</td>
-            <td>Merhaba komut dosyası için gereken Hello parametreleri belirtin. Bunu boş bırakabilirsiniz şekilde hello betik tooinstall Giraph herhangi bir parametre gerektirmez.</td></tr>
+            <td>Komut dosyası tarafından gerekli parametreleri belirtin. Bunu boş bırakabilirsiniz şekilde Giraph yüklemek için komut dosyası herhangi bir parametre gerektirmez.</td></tr>
     </table>
 
-    Birden fazla betik eylemi tooinstall hello kümede birden çok bileşen ekleyebilirsiniz. Merhaba komut dosyaları ekledikten sonra hello küme oluşturma hello onay işareti toostart tıklayın.
+    Küme üzerinde birden çok bileşeni yüklemek için birden fazla betik eylemi ekleyebilirsiniz. Komut dosyaları ekledikten sonra küme oluşturmaya başlamak için onay işaretine tıklayın.
 
 ## <a name="use-giraph"></a>Giraph kullanma
-Merhaba SimpleShortestPathsComputation örnek toodemonstrate hello basic kullanırız <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> hello en kısa yolu bir grafik nesneler arasındaki bulmak için uygulama. Merhaba SimpleShortestPathsComputation örneği ve görünüm hello sonuçları kullanarak bir iş çalıştırmak adımları tooupload hello örnek veriler ve hello örnek jar, aşağıdaki hello kullanın.
+Temel göstermek için SimpleShortestPathsComputation örnek kullanırız <a href = "http://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> bir grafik nesneler arasındaki en kısa yolu bulmak için uygulama. Örnek verileri ve örnek jar karşıya yükleyin, SimpleShortestPathsComputation örnek kullanarak bir iş çalıştırmak için aşağıdaki adımları kullanın ve sonra sonuçları görüntüleyin.
 
-1. Örnek veri dosyası tooAzure Blob storage'ı yükleyin. Yerel iş istasyonunda, adlı yeni bir dosya oluşturun **tiny_graph.txt**. Satırlardan hello içermelidir:
+1. Azure Blob depolama alanına örnek veri dosyasını karşıya yükleyin. Yerel iş istasyonunda, adlı yeni bir dosya oluşturun **tiny_graph.txt**. Aşağıdaki satırları içermelidir:
 
         [0,0,[[1,1],[3,3]]]
         [1,0,[[0,1],[2,2],[3,1]]]
@@ -77,19 +77,19 @@ Merhaba SimpleShortestPathsComputation örnek toodemonstrate hello basic kullan�
         [3,0,[[0,3],[1,1],[4,4]]]
         [4,0,[[3,4],[2,4]]]
 
-    Merhaba tiny_graph.txt dosya toohello birincil depolama Hdınsight kümenizin karşıya yükleyin. Yönergeler için tooupload verileri, görmek [hdınsight'ta Hadoop işleri için verileri karşıya yükleme](hdinsight-upload-data.md).
+    Hdınsight kümeniz için birincil depolama tiny_graph.txt dosyası yükleyin. Veri yükleme hakkında daha fazla yönerge için bkz: [hdınsight'ta Hadoop işleri için verileri karşıya yükleme](hdinsight-upload-data.md).
 
-    Bu veri hello biçimi kullanarak bir yönlendirilmiş grafik nesneler arasındaki ilişkiyi tanımlayan [kaynak\_kimliği, kaynak\_değeri [[hedef\_kimliği], [Kenar\_değer],...]]. Her satır arasındaki bir ilişkiyi temsil eder bir **kaynak\_kimliği** nesne ve bir veya daha fazla **taşınmaya\_kimliği** nesneleri. Merhaba **kenar\_değeri** (veya ağırlık), hello gücü veya hello bağlantı uzaklığı olarak düşünülebilir **source_id** ve **taşınmaya\_kimliği**.
+    Bu veri biçimi kullanarak bir yönlendirilmiş grafik nesneler arasındaki ilişkiyi tanımlayan [kaynak\_kimliği, kaynak\_değeri [[hedef\_kimliği], [Kenar\_değer],...]]. Her satır arasındaki bir ilişkiyi temsil eder bir **kaynak\_kimliği** nesne ve bir veya daha fazla **taşınmaya\_kimliği** nesneleri. **Kenar\_değeri** (veya ağırlık), gücü veya arasındaki bağlantıyı uzaklığını olarak düşünülebilir **source_id** ve **taşınmaya\_kimliği**.
 
-    Çıkış çizilmiş ve nesneleri arasındaki hello uzaklığı olarak hello değeri (veya ağırlık) kullanarak, verileri yukarıda hello şuna benzeyebilir:
+    Çıkış çizilmiş ve nesneleri arasındaki uzaklığı olarak değeri (veya ağırlık) kullanarak, yukarıdaki verileri şuna benzeyebilir:
 
     ![Daireler arasında değişen uzaklığı satır olarak çizilen tiny_graph.txt](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
-2. Merhaba SimpleShortestPathsComputation örneği çalıştırın. Giriş olarak hello tiny_graph.txt dosyasını kullanarak aşağıdaki Azure PowerShell cmdlet'leri toorun hello örneğine hello kullanın.
+2. SimpleShortestPathsComputation örneği çalıştırın. Örnek giriş olarak tiny_graph.txt dosyasını kullanarak çalıştırmak için aşağıdaki Azure PowerShell cmdlet'lerini kullanın.
 
     > [!IMPORTANT]
-    > Azure Service Manager kullanılarak HDInsight kaynaklarının yönetilmesi için Azure PowerShell desteği **kullanım dışı bırakılmış** ve 1 Ocak 2017 tarihinde kaldırılmıştır. Azure Resource Manager ile çalışan hello adımları bu belgenin kullanımı hello yeni Hdınsight cmdlet'lerini.
+    > Azure Service Manager kullanılarak HDInsight kaynaklarının yönetilmesi için Azure PowerShell desteği **kullanım dışı bırakılmış** ve 1 Ocak 2017 tarihinde kaldırılmıştır. Bu belgede yer alan adımlar, Azure Resource Manager ile çalışan yeni HDInsight cmdlet'lerini kullanır.
     >
-    > Lütfen başlangıç adımları izleyin [yüklemek ve Azure PowerShell yapılandırma](/powershell/azureps-cmdlets-docs) tooinstall hello en son Azure PowerShell sürümü. Komut dosyalarınız varsa bu gereksinimi toobe Azure Resource Manager ile çalışma toouse hello yeni cmdlet'leri değişiklik için bkz: [geçiş tooAzure Resource Manager tabanlı geliştirme araçları Hdınsight kümeleri için](hdinsight-hadoop-development-using-azure-resource-manager.md) daha fazla bilgi için.
+    > Azure PowerShell’in en son sürümünü yüklemek için lütfen [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs)’daki adımları uygulayın. Azure Resource Manager’la çalışan yeni cmdlet’lerle kullanmak için değiştirilmesi gereken komut dosyalarınız varsa, daha fazla bilgi için bkz. [HDInsight kümeleri için Azure Resource Manager tabanlı geliştirme araçlarına geçme](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
     ```powershell
     $clusterName = "clustername"
@@ -103,49 +103,49 @@ Merhaba SimpleShortestPathsComputation örnek toodemonstrate hello basic kullan�
                     "-vof", "org.apache.giraph.io.formats.IdWithValueTextOutputFormat",
                     "-op",  "wasb:///example/output/shortestpaths",
                     "-w", "2"
-    # Create hello definition
+    # Create the definition
     $jobDefinition = New-AzureHDInsightMapReduceJobDefinition
         -JarFile $jarFile
         -ClassName "org.apache.giraph.GiraphRunner"
         -Arguments $jobArguments
 
-    # Run hello job, write output toohello Azure PowerShell window
+    # Run the job, write output to the Azure PowerShell window
     $job = Start-AzureHDInsightJob -Cluster $clusterName -JobDefinition $jobDefinition
-    Write-Host "Wait for hello job toocomplete ..." -ForegroundColor Green
+    Write-Host "Wait for the job to complete ..." -ForegroundColor Green
     Wait-AzureHDInsightJob -Job $job
     Write-Host "STDERR"
     Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $job.JobId -StandardError
-    Write-Host "Display hello standard output ..." -ForegroundColor Green
+    Write-Host "Display the standard output ..." -ForegroundColor Green
     Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $job.JobId -StandardOutput
     ```
 
-    Yukarıdaki örnek Hello yerine **clustername** Giraph yüklü olan Hdınsight kümenize hello adı.
-3. Merhaba sonuçları görüntüleyin. Merhaba işi tamamlandıktan sonra hello sonuçları hello iki çıktı dosyalarında depolanır **wasb: / / / örnek/çıkış/shotestpaths** klasör. Merhaba dosyaları çağrılır **bölümü m 00001** ve **bölümü m 00002**. Aşağıdaki adımları toodownload ve görünüm hello çıktı hello gerçekleştirin:
+    Yukarıdaki örnekte **clustername** Giraph yüklü olan Hdınsight kümenizin adıyla.
+3. Sonuçlara bakın. İş tamamlandıktan sonra sonuçları iki çıktı dosyalarında depolanır **wasb: / / / örnek/çıkış/shotestpaths** klasör. Dosya adında **bölümü m 00001** ve **bölümü m 00002**. Karşıdan yükle ve çıktı görüntülemek için aşağıdaki adımları gerçekleştirin:
 
     ```powershell
     $subscriptionName = "<SubscriptionName>"       # Azure subscription name
     $storageAccountName = "<StorageAccountName>"   # Azure Storage account name
     $containerName = "<ContainerName>"             # Blob storage container name
 
-    # Select hello current subscription
+    # Select the current subscription
     Select-AzureSubscription $subscriptionName
 
-    # Create hello Storage account context object
+    # Create the Storage account context object
     $storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
     $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
 
-    # Download hello job output toohello workstation
+    # Download the job output to the workstation
     Get-AzureStorageBlobContent -Container $containerName -Blob example/output/shortestpaths/part-m-00001 -Context $storageContext -Force
     Get-AzureStorageBlobContent -Container $containerName -Blob example/output/shortestpaths/part-m-00002 -Context $storageContext -Force
     ```
 
-    Bu hello oluşturacak **çıkış/örnek/shortestpaths** dizin yapısını hello geçerli dizinde iş istasyonu ve indirme hello iki çıktı dosyaları toothat konumu.
+    Bu oluşturacak **çıkış/örnek/shortestpaths** geçerli dizinde iş istasyonu ve bu konuma çıktı dosyaları indirme iki dizin yapısı.
 
-    Kullanım hello **kat** cmdlet toodisplay hello hello dosyaların içeriğini:
+    Kullanım **kat** cmdlet dosyaların içeriğini görüntülemek için:
 
         Cat example/output/shortestpaths/part*
 
-    Hello çıktı toohello aşağıdaki benzer görünmelidir:
+    Çıktı aşağıdakine benzer görünmelidir:
 
         0    1.0
         4    5.0
@@ -153,17 +153,17 @@ Merhaba SimpleShortestPathsComputation örnek toodemonstrate hello basic kullan�
         1    0.0
         3    1.0
 
-    Merhaba SimpleShortestPathComputation örnek nesne kimliği 1 ile sabit kodlanmış toostart olan ve hello en kısa yolu tooother nesneleri bulun. Hello çıktı olarak okumanız gereken şekilde `destination_id distance`, uzaklığı hello değeri (veya ağırlık) seyahat hello kenarlarının nesne kimliği 1 ve hello hedef kimliği arasında olduğu
+    Örnek başlamak kodlanmış sabit SimpleShortestPathComputation kimliği 1 nesne ve diğer nesnelere en kısa yolu bulunamadı. Çıktı olarak okumanız gereken şekilde `destination_id distance`, burada uzaklığı nesne kimliği 1 ve hedef kimliği arasında seyahat kenarları değeri (veya ağırlık).
 
-    Bu görselleştirme, hello kısa yolları kimliği 1 ile tüm diğer nesnelerin arasında seyahat hello sonuçları doğrulayabilirsiniz. Kimliği 1 ve kimliği 4 arasındaki en kısa yolu hello Not 5'tir. Merhaba toplam aralıklarını budur <span style="color:orange">kimliği 1 ve 3</span>ve ardından <span style="color:red">kimliği 3 ve 4</span>.
+    Bu görselleştirme, kısa yolları kimliği 1 ile tüm diğer nesnelerin arasında seyahat sonuçları doğrulayabilirsiniz. Kimliği 1 ve kimliği 4 arasındaki en kısa yolu 5 olduğuna dikkat edin. Arasındaki toplam uzaklığı budur <span style="color:orange">kimliği 1 ve 3</span>ve ardından <span style="color:red">kimliği 3 ve 4</span>.
 
     ![Nesnelerin arasında çizilmiş kısa yolları daireler olarak çizme](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png)
 
 ## <a name="install-giraph-using-aure-powershell"></a>Giraph işlemleri PowerShell kullanarak yükleme
-Bkz: [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  Merhaba örnek gösterilmektedir nasıl tooinstall Azure PowerShell kullanarak Spark. Toocustomize hello betik toouse gerek [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
+Bkz: [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  Örnek, Azure PowerShell kullanarak Spark yükleneceği gösterilmiştir. Kullanılacak komut dosyasını özelleştirmeniz gerekiyorsa [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
 
 ## <a name="install-giraph-using-net-sdk"></a>.NET SDK kullanarak Giraph yükleyin
-Bkz: [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). Merhaba örnek gösterilmektedir nasıl tooinstall Spark hello .NET SDK kullanarak. Toocustomize hello betik toouse gerek [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
+Bkz: [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). Örnek, .NET SDK kullanarak Spark yükleneceği gösterilmiştir. Kullanılacak komut dosyasını özelleştirmeniz gerekiyorsa [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Giraph Hdınsight Hadoop kümeleri (Linux) yükleyin](hdinsight-hadoop-giraph-install-linux.md)

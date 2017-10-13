@@ -1,5 +1,5 @@
 ---
-title: "Azure AD B2B işbirliği aaaUnderstand kullanıcı belirteçleri | Microsoft Docs"
+title: "Azure AD B2B işbirliği kullanıcı belirteçleri anlama | Microsoft Docs"
 description: "Azure Active Directory B2B işbirliği için kullanıcı belirteci başvurusu"
 services: active-directory
 documentationcenter: 
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/25/2017
 ms.author: sasubram
-ms.openlocfilehash: 968af1c8d1ab6f4b3f50a82f6c998da3955ac364
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 57b170539513953bd6a01ab4dd362a65cf905496
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Azure AD B2B işbirliği kullanıcı belirteçleri anlama
 
-B2B işbirliği kullanıcı için hangi hello belirteci benzer tooknow istiyorsanız, aşağıda verilmiştir hello taşıyıcı belirteç ayrıntıları ve bir Azure Active Directory (Azure AD) Konuk ve bir Microsoft hesabı Konuk hello kaynak Kiracı (için tenantıd için belirteç içeriği 04dcc6ab-388a-4559-b527-fbec656300ea). toosee hello JSON Web Token (JWT) içeriği kullanmak [https://jwt.io/](https://jwt.io/) veya [http://calebb.net](http://calebb.net/).
+Belirteç nasıl B2B işbirliği kullanıcıdan göründüğünü bilmek istiyorsanız, aşağıda verilmiştir belirteci içerik için bir Azure Active Directory (Azure AD) Konuk ve kaynak Kiracı (için tenantıd bir Microsoft hesabı Konuk ve taşıyıcı belirteç ayrıntıları 04dcc6ab-388a-4559-b527-fbec656300ea). JSON Web Token (JWT) içeriği görmek için [https://jwt.io/](https://jwt.io/) veya [http://calebb.net](http://calebb.net/).
 
 ## <a name="azure-ad-guest-token"></a>Azure AD Konuk belirteci
 ```
@@ -42,7 +42,7 @@ Azure AD B2B işbirliği ile ilgili diğer makalelerimize göz atın:
 
 * [Azure AD B2B işbirliği nedir?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [B2B işbirliği kullanıcı özellikleri](active-directory-b2b-user-properties.md)
-* [B2B işbirliği kullanıcı tooa rolü ekleme](active-directory-b2b-add-guest-to-role.md)
+* [Bir role B2B işbirliği kullanıcı ekleme](active-directory-b2b-add-guest-to-role.md)
 * [B2B işbirliği davetleri temsilci seçme](active-directory-b2b-delegate-invitations.md)
 * [Dinamik gruplar ve B2B işbirliği](active-directory-b2b-dynamic-groups.md)
 * [B2B işbirliği kodu ve PowerShell örnekleri](active-directory-b2b-code-samples.md)

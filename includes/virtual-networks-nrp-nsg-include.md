@@ -1,28 +1,28 @@
 ## <a name="network-security-group"></a>Ağ güvenlik grubu
-Bir NSG kaynağı hello iş yükleri için güvenlik sınırı oluşturmanıza olanak tanıyan, uygulama tarafından izin ver ve Reddet kurallarının. Bu tür bir kurallar olabilir uygulanan tooa VM, bir NIC veya bir alt ağ.
+Bir NSG kaynağı iş yükleri için güvenlik sınırı oluşturmanıza olanak tanıyan, uygulama tarafından izin ver ve Reddet kurallarının. Bu kurallar, bir VM, bir NIC veya bir alt ağ için uygulanabilir.
 
 | Özellik | Açıklama | Örnek değerler |
 | --- | --- | --- |
-| **alt ağlar** |Alt ağ kimlikleri hello NSG listesi uygulanır. |/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/Subnets/FrontEnd |
-| **securityRules** |NSG hello güvenlik kuralları listesi |Bkz: [güvenlik kuralı](#Security-rule) aşağıda |
+| **alt ağlar** |NSG uygulanan alt ağ kimlikleri listesi. |/Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/Subnets/FrontEnd |
+| **securityRules** |NSG güvenlik kuralları listesi |Bkz: [güvenlik kuralı](#Security-rule) aşağıda |
 | **defaultSecurityRules** |Varsayılan güvenlik kuralları her NSG'de mevcut listesi |Bkz: [varsayılan güvenlik kuralları](#Default-security-rules) aşağıda |
 
 * **Güvenlik kuralı** -bir NSG tanımlanan birden çok güvenlik kuralları sahip olabilir. Her bir kural izin verebilir veya trafiği farklı türlerde reddet.
 
 ### <a name="security-rule"></a>Güvenlik kuralı
-Güvenlik kuralı aşağıdaki hello özelliklerini içeren bir NSG bir alt kaynaktır.
+Güvenlik kuralı özelliklerini içeren bir NSG bir alt kaynaktır.
 
 | Özellik | Açıklama | Örnek değerler |
 | --- | --- | --- |
-| **Açıklama** |Merhaba kuralı için açıklama |Alt ağda X tüm VM'ler için gelen trafiğe izin ver |
-| **Protokolü** |Protokol toomatch hello kuralı için |TCP, UDP veya * |
-| **sourcePortRange** |Kaynak bağlantı noktası aralığı toomatch hello kuralı için |80, 100-200, * |
-| **destinationPortRange** |Hedef bağlantı noktası aralığı toomatch hello kuralı için |80, 100-200, * |
-| **sourceAddressPrefix** |Kaynak adres ön eki toomatch hello kuralı için |10.10.10.1, 10.10.10.0/24, VirtualNetwork |
-| **destinationAddressPrefix** |Hedef adres ön eki toomatch hello kuralı için |10.10.10.1, 10.10.10.0/24, VirtualNetwork |
-| **yönü** |Merhaba kuralı için trafiği toomatch yönü |gelen veya giden |
-| **öncelik** |Merhaba kuralı için öncelik. Kurallar öncelik sırasına göre denetlenir, bir kural uygulandığı zaman başka hiçbir kural eşleştirme için test edilmez. |10, 100, 65000 |
-| **erişim** |Merhaba kuralın eşleşmesi durumunda erişim tooapply türü |izin ver veya reddet |
+| **Açıklama** |Kural için açıklama |Alt ağda X tüm VM'ler için gelen trafiğe izin ver |
+| **Protokolü** |Kural ile eşleştirilecek protokol |TCP, UDP veya * |
+| **sourcePortRange** |Kural ile eşleştirilecek kaynak bağlantı noktası |80, 100-200, * |
+| **destinationPortRange** |Kural ile eşleştirilecek hedef bağlantı noktası aralığı |80, 100-200, * |
+| **sourceAddressPrefix** |Kural ile eşleştirilecek kaynak adres ön eki |10.10.10.1, 10.10.10.0/24, VirtualNetwork |
+| **destinationAddressPrefix** |Kural ile eşleştirilecek hedef adres ön eki |10.10.10.1, 10.10.10.0/24, VirtualNetwork |
+| **yönü** |Kural için eşleştirilecek trafik yönü |gelen veya giden |
+| **öncelik** |Kural için öncelik. Kurallar öncelik sırasına göre denetlenir, bir kural uygulandığı zaman başka hiçbir kural eşleştirme için test edilmez. |10, 100, 65000 |
+| **erişim** |Kuralın eşleşmesi durumunda uygulanacak erişim türü |izin ver veya reddet |
 
 JSON biçiminde NSG örneği:
 
@@ -69,9 +69,9 @@ JSON biçiminde NSG örneği:
 
 ### <a name="default-security-rules"></a>Varsayılan güvenlik kuralları
 
-Varsayılan güvenlik kuralları olan hello aynı özellikleri güvenlik kurallarında kullanılabilir. Bunlar tooprovide temel bağlantıyı uygulanan Nsg'ler toothem sahip kaynaklar arasında mevcut. Hangi bildiğinizden emin olun [güvenlik kuralları varsayılan](../articles/virtual-network/virtual-networks-nsg.md#default-rules) yok.
+Varsayılan güvenlik kuralları güvenlik kurallarında kullanılabilir aynı özelliklere sahip. Nsg'ler uygulanmış olan kaynaklar arasındaki temel bağlantı sağlamak için mevcut. Hangi bildiğinizden emin olun [güvenlik kuralları varsayılan](../articles/virtual-network/virtual-networks-nsg.md#default-rules) yok.
 
 ### <a name="additional-resources"></a>Ek kaynaklar
 * Hakkında daha fazla bilgi almak [Nsg'ler](../articles/virtual-network/virtual-networks-nsg.md).
-* Okuma hello [REST API başvuru belgeleri](https://msdn.microsoft.com/library/azure/mt163615.aspx) Nsg'ler için.
-* Okuma hello [REST API başvuru belgeleri](https://msdn.microsoft.com/library/azure/mt163580.aspx) güvenlik kuralları için.
+* Okuma [REST API başvuru belgeleri](https://msdn.microsoft.com/library/azure/mt163615.aspx) Nsg'ler için.
+* Okuma [REST API başvuru belgeleri](https://msdn.microsoft.com/library/azure/mt163580.aspx) güvenlik kuralları için.

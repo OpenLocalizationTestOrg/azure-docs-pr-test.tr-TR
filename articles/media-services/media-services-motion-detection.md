@@ -1,6 +1,6 @@
 ---
-title: Azure medya Analizi ile aaaDetect hareketlerin | Microsoft Docs
-description: "Merhaba, tooefficiently aksi uzun ve olaysız video içinde ilgi bölümleri tanımlamak Azure medya hareket algılayıcısı medya işlemci (MP) etkinleştirir."
+title: "Azure medya Analizi ile hareketlerin algılamak | Microsoft Docs"
+description: "Azure Media hareket algılayıcısı medya işlemcisi (MP), aksi takdirde uzun ve olaysız video içinde ilgi bölümleri verimli bir şekilde tanımlamak sağlar."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,38 +14,38 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: cb431375c92222053ed2239dd4e45767524dab68
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 115ad9dfd88062f23d5d17eed8897ce5d2ca8484
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Azure medya Analizi ile hareketlerin Algıla
 ## <a name="overview"></a>Genel Bakış
-Merhaba **Azure medya hareket algılayıcısı** , tooefficiently aksi uzun ve olaysız video içinde ilgi bölümleri tanımlamak medya işlemci (MP) etkinleştirir. Hareket algılama hareket oluştuğu statik kamera görüntülerinin tooidentify bölümlerini hello video üzerinde kullanılabilir. Zaman damgaları ve bölge hello olayın gerçekleştiği sınırlayıcı hello meta verileri içeren bir JSON dosyası oluşturur.
+**Azure medya hareket algılayıcısı** medya işlemcisi (MP), aksi takdirde uzun ve olaysız video içinde ilgi bölümleri verimli bir şekilde tanımlamak sağlar. Hareket algılama statik kamera görüntülerinin video hareket oluştuğu bölümlerini belirlemek için kullanılabilir. Zaman damgaları ve olayın gerçekleştiği sınırlayıcı bölge ile meta verileri içeren bir JSON dosyası oluşturur.
 
-Doğru güvenlik video akışları hedeflenen, bu mümkün toocategorize hareket ilgili olayları ve hatalı pozitif sonuç gölgeleri ve aydınlatma değişiklikleri gibi teknolojisidir. Bu işlem, sonsuz ilgisiz olaylarıyla aşırı uzun gözetleme videolar gelen ilgi mümkün tooextract dakika devam ederken adresinize olmadan kamera akışları toogenerate güvenlik uyarıları sağlar.
+Doğru güvenlik video akışları hedeflenen, bu teknolojiyi ilgili olayları ve hatalı pozitif sonuç gölgeleri ve aydınlatma değişiklikleri gibi hareket kategorilere yapabiliyor. Bu, güvenlik uyarıları sonsuz ilgisiz olaylarıyla aşırı uzun gözetleme videoların ilgi dakika ayıklayın kullanabilmeye devam ederken adresinize olmadan kamera Akışları'oluşturmanıza olanak sağlar.
 
-Merhaba **Azure medya hareket algılayıcısı** MP şu anda önizlemede.
+**Azure medya hareket algılayıcısı** MP şu anda önizlemede.
 
-Bu konu hakkında ayrıntılar verir **Azure medya hareket algılayıcısı** ve gösterir nasıl toouse .NET için Media Services SDK'sı ile
+Bu konu hakkında ayrıntılar verir **Azure medya hareket algılayıcısı** ve .NET için Media Services SDK'sı ile kullanmak nasıl gösterir
 
 ## <a name="motion-detector-input-files"></a>Hareket algılayıcısı giriş dosyaları
-Video dosyaları. Şu anda biçimleri aşağıdaki hello desteklenir: MP4, MOV ve WMV.
+Video dosyaları. Şu anda aşağıdaki biçimlerden desteklenir: MP4, MOV ve WMV.
 
 ## <a name="task-configuration-preset"></a>Görev yapılandırması (hazır)
 Bir görev oluştururken **Azure medya hareket algılayıcısı**, bir yapılandırma hazır belirtmeniz gerekir. 
 
 ### <a name="parameters"></a>Parametreler
-Şu parametreler hello kullanabilirsiniz:
+Şu parametreleri kullanabilirsiniz:
 
 | Ad | Seçenekler | Açıklama | Varsayılan |
 | --- | --- | --- | --- |
-| sensitivityLevel |Dize: 'düşük', 'Orta', 'yüksek' |Hangi hareketlerin adresindeki bildirilir Hello hassasiyet düzeyini ayarlar. Bu hatalı pozitif sonuç tooadjust miktarını ayarlayın. |'Orta' |
-| frameSamplingValue |Pozitif tamsayı |Merhaba sıklığı algoritması çalıştığı ayarlar. Her çerçeve eşittir 1, 2 her 2 çerçeve ve benzeri anlamına gelir. |1 |
-| detectLightChange |Boolean: 'true', 'false' |Hafif değişiklikleri hello sonuçlarında bildirilen olup olmadığını belirler |'False' |
-| mergeTimeThreshold |Xs zamanı: Ss: dd:<br/>Örnek: 00:00:03 |Burada 2 olayları birleştirilmiş ve olması 1 bildirilen hareket olaylar arasındaki Hello zaman penceresi belirtir. |00:00:00 |
-| detectionZones |Algılama bölgeleri dizisi:<br/>-3 veya daha fazla noktalar dizisi algılama bölgedir<br/>-Noktasıdır x ve y 0 too1 gelen koordinat. |Çokgen algılama bölgeleri toobe kullanılan Hello listesi açıklar.<br/>Sonuçları hello ilk olma 'ID' ile bir kimliği olarak hello bölge ile bildirilir: 0 |Merhaba tüm çerçeve kapsayan tek bir bölge. |
+| sensitivityLevel |Dize: 'düşük', 'Orta', 'yüksek' |Hangi hareketlerin duyarlılık düzeyinde bildirilen ayarlar. Hatalı pozitif sonuç miktarını ayarlamak için bunu ayarlayın. |'Orta' |
+| frameSamplingValue |Pozitif tamsayı |Algoritmayı sıklığında çalışan ayarlar. Her çerçeve eşittir 1, 2 her 2 çerçeve ve benzeri anlamına gelir. |1 |
+| detectLightChange |Boolean: 'true', 'false' |Hafif değişiklikleri sonuçlarında bildirilen olup olmadığını belirler |'False' |
+| mergeTimeThreshold |Xs zamanı: Ss: dd:<br/>Örnek: 00:00:03 |Burada 2 olayları birleştirilmiş ve olması 1 bildirilen hareket olaylar arasındaki zaman penceresi belirtir. |00:00:00 |
+| detectionZones |Algılama bölgeleri dizisi:<br/>-3 veya daha fazla noktalar dizisi algılama bölgedir<br/>-Noktasıdır x ve y koordinat 0'dan 1. |Kullanılacak Çokgen algılama bölgelerinin listesi açıklar.<br/>Sonuçları ilk olan 'ID' ile bir kimliği olarak bölge ile bildirilir: 0 |Tüm çerçeve kapsayan tek bir bölge. |
 
 ### <a name="json-example"></a>JSON örneği
     {
@@ -78,37 +78,37 @@ Bir görev oluştururken **Azure medya hareket algılayıcısı**, bir yapıland
 
 
 ## <a name="motion-detector-output-files"></a>Hareket algılayıcısı çıktı dosyaları
-Hareket algılama işi hello hareket uyarılar ve bunların kategorilerde hello video tanımlayan hello çıkış varlık bir JSON dosyası döndürür. Merhaba dosyası başlangıç saatini ve süresini hello video algılanan hareket hakkında bilgi içerir.
+Hareket algılama işi hareket uyarılar ve video içinde kendi kategorilerine tanımlayan çıkış varlığına bir JSON dosyası döndürür. Dosyanın saatini ve süresini videoda algılanan hareket hakkında bilgi içerir.
 
-bir sabit arka planda video (örn. bir izleme video) hareket nesneleri olduğunuzda hello hareket algılayıcısı API göstergeleri sağlar. Merhaba hareket algılayıcısı aydınlatma ve gölge değişiklikleri gibi eğitilen tooreduce yanlış alarmlar ' dir. Geçerli sınırlamalar hello algoritmalarının gece görme videoları, yarı saydam nesneleri ve küçük nesneleri içerir.
+Bir sabit arka planda video (örn. bir izleme video) hareket nesneleri olduğunuzda hareket algılayıcısı API göstergeleri sağlar. Hareket algılayıcısı aydınlatma ve gölge değişiklikleri gibi yanlış alarmlar azaltmak için eğitildi. Geçerli sınırlamalar algoritmalarının gece görme videoları, yarı saydam nesneleri ve küçük nesneleri içerir.
 
-### <a id="output_elements"></a>Merhaba çıkış JSON dosyasının öğeleri
+### <a id="output_elements"></a>Çıkış JSON dosyasının öğeleri
 > [!NOTE]
-> Merhaba en son sürümdeki hello çıkış JSON biçimi değişti ve bazı müşteriler için önemli bir değişiklik gösterebilir.
+> En son sürümdeki çıkış JSON biçimi değişti ve bazı müşteriler için önemli bir değişiklik gösterebilir.
 > 
 > 
 
-Merhaba aşağıdaki tabloda hello çıkış JSON dosyasının öğelerini açıklar.
+Aşağıdaki tabloda çıkış JSON dosyasının öğelerini açıklar.
 
 | Öğesi | Açıklama |
 | --- | --- |
-| Sürüm |Bu toohello hello Video API sürümü ifade eder. Merhaba geçerli sürüm 2'dir. |
-| Zaman Çizelgesi |"Hello videonun saniyede"çizgilerine. |
-| Uzaklık |"çizgilerine" veritabanındaki tarih damgası Hello zaman uzaklığı. Video API'leri 1.0 sürümünde, bu her zaman 0 olacaktır. Gelecekte destekliyoruz senaryoları, bu değeri değiştirebilirsiniz. |
-| Kare hızı |Saniyedeki kare sayısı hello video. |
-| Genişlik, Yükseklik |Toohello genişliğini ve yüksekliğini piksel cinsinden görüntü hello başvuruyor. |
-| Başlatma |Merhaba "çizgilerine" timestamp başlatın. |
-| Süre |Merhaba olayda "çizgilerine" Merhaba uzunluğu. |
-| aralığı |Her giriş hello olayda "çizgilerine" Merhaba aralığı. |
-| Olaylar |Her olay parça bu süre içinde algılanan hello hareket içerir. |
-| Tür |Merhaba geçerli sürümde, bu her zaman genel hareket ' 2' dir. Bu etiket Video API'leri hello esneklik toocategorize hareket gelecekteki sürümlerde de sağlar. |
-| RegionID |Yukarıda açıklandığı şekilde, bu her zaman bu sürümde 0 olacaktır. Bu etiket Video API hello esneklik toofind hareket gelecekteki sürümlerinde çeşitli bölgelerdeki sağlar. |
-| Bölgeler |Toohello alanında hareket hakkında burada verdiğiniz videonuzu başvuruyor. <br/><br/>-"id" Merhaba Bölge alanı temsil eder – Bu sürümde yalnızca bir olduğundan, kimliği 0. <br/>-"tür" Merhaba bölge önem verdiğiniz hareket hello şeklini temsil eder. Şu anda, "dikdörtgen" ve "Çokgen" desteklenir.<br/> "Dikdörtgen" belirtilmişse hello bölge boyutu X, vardır. Y, genişlik ve yükseklik. Merhaba X ve Y koordinatları hello üst sol XY koordinatları 0.0 too1.0 normalleştirilmiş ölçeğini hello bölgede temsil eder. Merhaba genişlik ve yükseklik 0.0 too1.0 normalleştirilmiş ölçeğini hello bölgede hello boyutunu temsil eder. Merhaba geçerli sürümde, X, Y, genişlik ve yükseklik her zaman giderilen 0, 0 ve 1, 1. <br/>"Çokgen" belirtilmişse, hello bölge boyutları noktalar vardır. <br/> |
-| Parçaları |Merhaba meta verilerini yukarı parçaları olarak adlandırılan farklı kesimler halinde öbekli. Her parça başlangıç, süre, aralığı sayısı ve olay içerir. Hiçbir olay ile bir parça yok hareket bu başlangıç saatini ve süresini sırasında algılandı anlamına gelir. |
-| Köşeli ayraçlar] |Her köşeli ayraç hello olay bir aralığa temsil eder. Boş köşeli ayraçlar hiçbir hareket anlamına bu aralık için algılandı. |
-| Konumları |Bu yeni girişi olayları altında hello hareket oluştuğu hello konumunu listeler. Merhaba algılama bölgeleri daha fazla belirli budur. |
+| Sürüm |Video API sürümüne başvuruyor. Geçerli sürüm 2'dir. |
+| Zaman Çizelgesi |Videonun saniyede "çizgilerine". |
+| Uzaklık |Veritabanındaki tarih damgası "çizgilerine" zaman uzaklığı. Video API'leri 1.0 sürümünde, bu her zaman 0 olacaktır. Gelecekte destekliyoruz senaryoları, bu değeri değiştirebilirsiniz. |
+| Kare hızı |Videonun Saniyedeki çerçeve sayısı. |
+| Genişlik, Yükseklik |Genişlik ve yükseklik piksel cinsinden videonun ifade eder. |
+| Başlatma |Başlangıç zaman damgasına "çizgilerine". |
+| Süre |Olay, "çizgilerine" uzunluğu. |
+| aralığı |Her giriş olayda "çizgilerine" aralığı. |
+| Olaylar |Her olay parça bu süre içinde algılanan hareket içerir. |
+| Tür |Geçerli sürümde, bu her zaman genel hareket ' 2' dir. Bu etiket verir Video kategorilere ayırmak için API esnekliği gelecekteki sürümleri hareket. |
+| RegionID |Yukarıda açıklandığı şekilde, bu her zaman bu sürümde 0 olacaktır. Bu etiket Video API gelecekteki sürümlerinde çeşitli bölgelerdeki hareket bulmak için esneklik sunar. |
+| Bölgeler |Hareket hakkında burada verdiğiniz videonuzu alanına başvuruyor. <br/><br/>-"id" temsil Bölge alanı – bu sürümde yalnızca bir olduğundan, kimliği 0. <br/>-"tür" önem verdiğiniz hareket bölge şekli temsil eder. Şu anda, "dikdörtgen" ve "Çokgen" desteklenir.<br/> "Dikdörtgen" belirtilmişse, bölge boyutu X, vardır. Y, genişlik ve yükseklik. X ve Y koordinatları 0.0 ile 1.0 normalleştirilmiş ölçeğini bölgede üst sol XY koordinatları temsil eder. Genişlik ve yükseklik 0.0 ile 1.0 normalleştirilmiş ölçeğini bölgede boyutunu temsil eder. Geçerli sürümde X, Y, genişlik ve yükseklik her zaman giderilen 0, 0 ve 1, 1. <br/>"Çokgen" belirtilmişse, bölge boyutları noktalar vardır. <br/> |
+| Parçaları |Meta verileri ayarlama parçaları olarak adlandırılan farklı kesimler halinde öbekli. Her parça başlangıç, süre, aralığı sayısı ve olay içerir. Hiçbir olay ile bir parça yok hareket bu başlangıç saatini ve süresini sırasında algılandı anlamına gelir. |
+| Köşeli ayraçlar] |Her köşeli ayraç olay bir aralığa temsil eder. Boş köşeli ayraçlar hiçbir hareket anlamına bu aralık için algılandı. |
+| Konumları |Bu yeni girişi olayları altında hareket gerçekleştiği konum listeler. Bu algılama bölgeleri daha fazla özeldir. |
 
-bir JSON çıktı örneği Hello aşağıda verilmiştir
+JSON çıkış örnek verilmiştir
 
     {
       "version": 2,
@@ -154,16 +154,16 @@ bir JSON çıktı örneği Hello aşağıda verilmiştir
 
     …
 ## <a name="limitations"></a>Sınırlamalar
-* desteklenen hello giriş video biçimleri MP4, MOV ve WMV içerir.
-* Hareket algılama sabit arka plan videolar için optimize edilmiştir. Merhaba algoritması aydınlatma değişiklikleri ve gölgeleri gibi yanlış alarmlar azaltma odaklanır.
-* Bazı hareket tootechnical zorluklar algılanamayabilir; Örneğin gece görme videoları, yarı saydam nesneler ve küçük nesneleri.
+* Desteklenen giriş video biçimleri MP4, MOV ve WMV içerir.
+* Hareket algılama sabit arka plan videolar için optimize edilmiştir. Algoritma aydınlatma değişiklikleri ve gölgeleri gibi yanlış alarmlar azaltma odaklanır.
+* Bazı hareket nedeniyle teknik zorluklar algılanamayabilir; Örneğin gece görme videoları, yarı saydam nesneler ve küçük nesneleri.
 
 ## <a name="net-sample-code"></a>.NET örnek kod
 
-Merhaba aşağıdaki program gösterir nasıl yapılır:
+Aşağıdaki program gösterir nasıl yapılır:
 
-1. Bir varlık oluşturun ve hello varlığa bir medya dosyasını yükleyin.
-2. Json hazır aşağıdaki hello içeren bir yapılandırma dosyasına dayalı bir video hareket algılama görev ile bir iş oluşturun. 
+1. Bir varlık oluşturun ve varlığa bir medya dosyasını yükleyin.
+2. Aşağıdaki json hazır içeren bir yapılandırma dosyasına dayalı bir video hareket algılama görev ile bir iş oluşturun. 
    
         {
           "Version": "1.0",
@@ -192,11 +192,11 @@ Merhaba aşağıdaki program gösterir nasıl yapılır:
             ]
           }
         }
-3. Merhaba çıkış JSON dosyalarını indirin. 
+3. Çıkış JSON dosyalarını indirin. 
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
 
-Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dosyası bağlantı bilgileriyle doldurmak [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md). 
+Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) bölümünde açıklandığı gibi bağlantı bilgileriyle doldurun. 
 
 #### <a name="example"></a>Örnek
 
@@ -213,7 +213,7 @@ Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dos
     {
         class Program
         {
-            // Read values from hello App.config file.
+            // Read values from the App.config file.
             private static readonly string _AADTenantDomain =
                 ConfigurationManager.AppSettings["AADTenantDomain"];
             private static readonly string _RESTAPIEndpoint =
@@ -229,17 +229,17 @@ Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dos
 
                 _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-                // Run hello VideoMotionDetection job.
+                // Run the VideoMotionDetection job.
                 var asset = RunVideoMotionDetectionJob(@"C:\supportFiles\VideoMotionDetection\BigBuckBunny.mp4",
                                             @"C:\supportFiles\VideoMotionDetection\config.json");
 
-                // Download hello job output asset.
+                // Download the job output asset.
                 DownloadAsset(asset, @"C:\supportFiles\VideoMotionDetection\Output");
             }
 
             static IAsset RunVideoMotionDetectionJob(string inputMediaFilePath, string configurationFile)
             {
-                // Create an asset and upload hello input media file toostorage.
+                // Create an asset and upload the input media file to storage.
                 IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
                     "My Video Motion Detection Input Asset",
                     AssetCreationOptions.None);
@@ -247,38 +247,38 @@ Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dos
                 // Declare a new job.
                 IJob job = _context.Jobs.Create("My Video Motion Detection Job");
 
-                // Get a reference tooAzure Media Motion Detector.
+                // Get a reference to Azure Media Motion Detector.
                 string MediaProcessorName = "Azure Media Motion Detector";
 
                 var processor = GetLatestMediaProcessorByName(MediaProcessorName);
 
-                // Read configuration from hello specified file.
+                // Read configuration from the specified file.
                 string configuration = File.ReadAllText(configurationFile);
 
-                // Create a task with hello encoding details, using a string preset.
+                // Create a task with the encoding details, using a string preset.
                 ITask task = job.Tasks.AddNew("My Video Motion Detection Task",
                     processor,
                     configuration,
                     TaskOptions.None);
 
-                // Specify hello input asset.
+                // Specify the input asset.
                 task.InputAssets.Add(asset);
 
-                // Add an output asset toocontain hello results of hello job.
+                // Add an output asset to contain the results of the job.
                 task.OutputAssets.AddNew("My Video Motion Detectoion Output Asset", AssetCreationOptions.None);
 
-                // Use hello following event handler toocheck job progress.  
+                // Use the following event handler to check job progress.  
                 job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
 
-                // Launch hello job.
+                // Launch the job.
                 job.Submit();
 
-                // Check job execution and wait for job toofinish.
+                // Check job execution and wait for job to finish.
                 Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 
                 progressJobTask.Wait();
 
-                // If job state is Error, hello event handling
+                // If job state is Error, the event handling
                 // method for job progress should log errors.  Here we check
                 // for error state and exit if needed.
                 if (job.State == JobState.Error)

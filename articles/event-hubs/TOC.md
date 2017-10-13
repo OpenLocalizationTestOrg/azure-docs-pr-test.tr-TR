@@ -16,8 +16,8 @@
 ### [Java](event-hubs-java-get-started-receive-eph.md)
 ### [Apache Storm](event-hubs-storm-getstarted-receive.md)
 ## Olayları yakalama
-### [Hello Azure portal tooenable olay hub'ları yakalama kullanın](event-hubs-capture-enable-through-portal.md)
-### [Bir Resource Manager şablonu tooenable olay hub'ları yakalama kullanın](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
+### [Event Hubs Capture için Azure portalını kullanma](event-hubs-capture-enable-through-portal.md)
+### [Event Hubs Capture’ı etkinleştirmek için bir Resource Manager şablonu kullanma](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 ## [Programlama kılavuzu](event-hubs-programming-guide.md)
 
 # Nasıl yapılır?
@@ -37,7 +37,7 @@
 ### Capture
 #### [Event Hubs Capture](event-hubs-capture-overview.md)
 #### [Python kullanarak Event Hubs verilerini yakalama](event-hubs-capture-python.md)
-### [PowerShell tooprovision varlıkları kullanma](event-hubs-manage-with-ps.md) 
+### [Varlıkları sağlamak için PowerShell kullanma](event-hubs-manage-with-ps.md) 
 ### [Event Hubs’ı kullanarak Azure Tanılama verilerinin akışını yapma](event-hubs-streaming-azure-diags-data.md)
 ### [Resource Manager şablonu kullanarak bir Olay Hub’ı oluşturup dağıtma](event-hubs-resource-manager-namespace-event-hub.md)
 

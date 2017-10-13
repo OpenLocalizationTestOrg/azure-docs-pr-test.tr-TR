@@ -1,12 +1,12 @@
 ## <a name="create-client"></a>İstemci bağlantısı oluşturma
-Bir `WindowsAzure.MobileServiceClient` nesnesi oluşturarak istemci bağlantısı oluşturun.  Değiştir `appUrl` URL tooyour mobil uygulama ile.
+Bir `WindowsAzure.MobileServiceClient` nesnesi oluşturarak istemci bağlantısı oluşturun.  `appUrl` ifadesini Mobile Uygulamanızın URL’si ile değiştirin.
 
 ```
 var client = WindowsAzure.MobileServiceClient(appUrl);
 ```
 
 ## <a name="table-reference"></a>Tablolarla çalışma
-tooaccess veya güncelleştirme veriler, bir başvuru toohello arka uç tablosu oluşturun. Değiştir `tableName` tablonuz hello adı
+Verilere erişmek veya verileri güncelleştirmek için arka uç tablosuna başvuru oluşturun. `tableName` ifadesini tablonuzun adıyla değiştirin
 
 ```
 var table = client.getTable(tableName);
@@ -23,23 +23,23 @@ Bir tablo başvurusu oluşturduktan sonra tablonuzla başka işlemler yapabilirs
 * [Veri silme](#deleting)
 
 ### <a name="querying"></a>Nasıl yapılır: Tablo başvurusu sorgulama
-Bir tablo başvurusu olduktan sonra onu tooquery hello sunucusundaki veriler için kullanabilirsiniz.  Sorgular "LINQ benzeri" bir dilde yapılır.
-tooreturn hello tablodan aşağıdaki kullanım hello tüm veri kod:
+Bir tablo başvurusu oluşturduktan sonra sunucudaki verileri sorgulamak için kullanabilirsiniz.  Sorgular "LINQ benzeri" bir dilde yapılır.
+Tablodan tüm verileri döndürmek için aşağıdaki kodu kullanın:
 
 ```
 /**
- * Process hello results that are received by a call tootable.read()
+ * Process the results that are received by a call to table.read()
  *
- * @param {Object} results hello results as a pseudo-array
- * @param {int} results.length hello length of hello results array
- * @param {Object} results[] hello individual results
+ * @param {Object} results the results as a pseudo-array
+ * @param {int} results.length the length of the results array
+ * @param {Object} results[] the individual results
  */
 function success(results) {
    var numItemsRead = results.length;
 
    for (var i = 0 ; i < results.length ; i++) {
        var row = results[i];
-       // Each row is an object - hello properties are hello columns
+       // Each row is an object - the properties are the columns
    }
 }
 
@@ -52,12 +52,12 @@ table
     .then(success, failure);
 ```
 
-Merhaba başarı işlev hello sonuçlarıyla çağrılır.  Kullanmayın `for (var i in results)` hello başarı içinde işlev hello sonuçlara dahil bilgi üzerinden yineleme şekilde, diğer sorgu işlevleri (gibi `.includeTotalCount()`) kullanılır.
+Sonuçlarla birlikte başarı işlevi çağrılır.  Başarı işlevinde `for (var i in results)` öğesini kullanmayın, aksi takdirde diğer sorgu işlevleri (`.includeTotalCount()` gibi) kullanıldığında sonuçlara eklenen bilgilerin üzerine yinelenir.
 
-Merhaba hello sorgu söz dizimi hakkında daha fazla bilgi için bkz. [sorgu nesne belgelerini].
+Sorgu söz dizimi hakkında daha fazla bilgi için [Query nesnesi belgelerine] bakın.
 
-#### <a name="table-filter"></a>Merhaba sunucusundaki verileri filtreleme
-Kullanabileceğiniz bir `where` hello tablo başvurusu yan tümcesi:
+#### <a name="table-filter"></a>Sunucu üzerindeki verileri filtreleme
+Tablo başvurusunda bir `where` yan tümcesi kullanabilirsiniz:
 
 ```
 table
@@ -66,7 +66,7 @@ table
     .then(success, failure);
 ```
 
-Merhaba nesne filtreler işlevi de kullanabilirsiniz.  Bu durumda, hello `this` değişkeni filtre uygulanan toothe geçerli nesneye atanmış.  koddan hello işlevsel olarak eşdeğer toohello önceki örnek verilmiştir:
+Ayrıca, nesneyi filtreleyen bir işlev de kullanabilirsiniz.  Bu durumda, `this` değişkeni filtre uygulanan geçerli nesneye atanır.  Aşağıdaki kod önceki örnek ile işlevsel olarak eşdeğerdir:
 
 ```
 function filterByUserId(currentUserId) {
@@ -80,12 +80,12 @@ table
 ```
 
 #### <a name="table-paging"></a>Verileri sayfalama
-Merhaba kullanan `take()` ve `skip()` yöntemleri.  Örneğin, 100-satırı kayıtlar toosplit hello tablo istiyorsanız:
+`take()` ve `skip()` yöntemlerini kullanın.  Örneğin, tabloyu 100 satırlı kayıtlara bölmek istiyorsanız:
 
 ```
 var totalCount = 0, pages = 0;
 
-// Step 1 - get hello total number of records
+// Step 1 - get the total number of records
 table.includeTotalCount().take(0).read(function (results) {
     totalCount = results.totalCount;
     pages = Math.floor(totalCount/100) + 1;
@@ -103,12 +103,12 @@ function loadPage(pageNum) {
 }
 ```
 
-Merhaba `.includeTotalCount()` kullanılan tooadd totalCount alan toohello sonuçları nesne bir yöntemdir.  TotalCount alanı hello toplam hiçbir disk belleği kullanılırsa döndürülür kayıt sayısı ile doldurulur.
+Sonuç nesnesine bir totalCount alanı eklemek için `.includeTotalCount()` yöntemi kullanılır.  Sayfalama kullanılmazsa döndürülecek toplam kayıt sayısı TotalCount alanına doldurulur.
 
-Daha sonra hello sayfa değişkeni ve bazı kullanıcı Arabirimi düğmeleri tooprovide sayfa listesi kullanabilirsiniz; kullanmak `loadPage()` hello yeni kayıtlar için her bir sayfa yüklenemiyor.  Daha önce yüklenmiş önbelleğe alma toospeed erişim toorecords uygulayın.
+Bir sayfa listesi sağlamak için pages değişkenini ve bazı kullanıcı arabirimi düğmelerini kullanabilirsiniz; her sayfanın yeni kayıtlarını yüklemek için `loadPage()` seçeneğini kullanın.  Daha önce yüklenmiş kayıtlara hızlı erişim için önbelleğe almayı uygulayın.
 
 #### <a name="sorting-data"></a>Nasıl yapılır: Sıralanmış veriler döndürme
-Kullanım hello `.orderBy()` veya `.orderByDescending()` sorgu yöntemleri:
+`.orderBy()` veya `.orderByDescending()` sorgu yöntemlerini kullanın:
 
 ```
 table
@@ -117,10 +117,10 @@ table
     .then(success, failure);
 ```
 
-Merhaba hello sorgu nesnesi hakkında daha fazla bilgi için bkz. [sorgu nesne belgelerini].
+Query nesnesi hakkında daha fazla bilgi için [Query nesnesi belgelerine] bakın.
 
 ### <a name="inserting"></a>Nasıl yapılır: Veri ekleme
-JavaScript nesne hello uygun tarih çağrısı ile oluşturup `table.insert()` zaman uyumsuz olarak:
+Uygun tarihle bir JavaScript nesnesi oluşturun ve `table.insert()` öğesini zaman uyumsuz olarak çağırın:
 
 ```javascript
 var newItem = {
@@ -135,12 +135,12 @@ table
     }, failure);
 ```
 
-Başarılı ekleme üzerinde eşitleme işlemleri için gerekli olan ek alanlar hello ile eklenen hello öğesi döndürülür.  Sonraki güncelleştirmeler için önbelleğinizi bu bilgilerle güncelleştirin.
+Ekleme başarılı olduğunda, eklenen öğe eşitleme işlemleri için gereken diğer alanlarla birlikte döndürülür.  Sonraki güncelleştirmeler için önbelleğinizi bu bilgilerle güncelleştirin.
 
-Hello Azure Mobile Apps Node.js sunucusu SDK Geliştirme amaçlı dinamik şema destekler.  Dinamik şema bir INSERT veya update işleminde belirterek tooadd sütunlarını toohello tabloyu sağlar.  Uygulama tooproduction taşımadan önce dinamik şema devre dışı bırakma öneririz.
+Azure Mobile Apps Node.js Sunucu SDK’sı, geliştirme için dinamik şemayı destekler.  Dinamik Şema, bir insert veya update işleminde sütun belirterek tabloya sütun eklemenize olanak tanır.  Uygulamanızı üretime taşımadan önce dinamik şemanın kapatılması önerilir.
 
 ### <a name="modifying"></a>Nasıl yapılır: Verileri değiştirme
-Benzer toohello `.insert()` yöntemi, bir güncelleştirme nesnesi oluşturun ve gerekir'ı çağırın `.update()`.  Merhaba güncelleştirme nesnesi hello kayıt toobe güncelleştirilmiş hello Kimliğini içermelidir - hello kayıt okunurken veya çağrılırken hello kimliği elde `.insert()`.
+`.insert()` yöntemine benzer şekilde, bir Update nesnesi oluşturup `.update()` öğesini çağırmanız gerekir.  Update nesnesi, güncelleştirilecek kaydın kimliğini içermelidir; bu kimlik, kayıt okunurken veya `.insert()` çağrılırken elde edilir.
 
 ```javascript
 var updateItem = {
@@ -156,7 +156,7 @@ table
 ```
 
 ### <a name="deleting"></a>Nasıl yapılır: Veri silme
-toodelete bir kayıt çağrısı hello `.del()` yöntemi.  Nesne başvurusu geçişi hello kimliği:
+Bir kaydı silmek için `.del()` yöntemini çağırın.  Kimliği bir nesne başvurusuna geçirin:
 
 ```
 table

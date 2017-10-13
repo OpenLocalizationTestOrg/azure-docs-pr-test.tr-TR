@@ -1,5 +1,5 @@
 ---
-title: "etiketleri için aaaAzure kaynak ilkeleri | Microsoft Docs"
+title: "Etiketler için Azure kaynak ilkeleri | Microsoft Docs"
 description: "Etiketler kaynaklardaki yönetmek için kaynak ilkeleri örnekleri sağlar"
 services: azure-resource-manager
 documentationcenter: na
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: tomfitz
-ms.openlocfilehash: 5a5b3d5ed52b47544b397694b9da0070f61b1faf
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 469bd8d637337e5900ea84c6bfaf88064695fb7e
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="apply-resource-policies-for-tags"></a>Kaynak etiketleri için geçerlidir
 
-Bu konu, kaynakları tooensure tutarlı etiketleri kullanımını uygulayabilirsiniz ortak ilke kuralları sağlar.
+Bu konu, etiketleri kaynaklarına tutarlı kullanımını sağlamak için uygulayabilirsiniz ortak ilke kuralları sağlar.
 
-Bir etiketi İlkesi tooa kaynak grubuna veya aboneliğe mevcut kaynaklarla uygulama firmalarda geriye dönük hello İlkesi toothose kaynaklar için geçerli değildir. Bu kaynaklar üzerindeki tooenforce hello ilkeleri kaynakları var olan bir güncelleştirme toohello tetikler. Bu makalede, bir güncelleştirme tetiklemek için bir PowerShell örnek içerir.
+Bir kaynak grubuna veya aboneliğe mevcut kaynaklarla bir etiket ilkesi uygulamak firmalarda geriye dönük İlkesi kaynaklarla için geçerli değildir. Bu kaynaklar ilkelerini zorlamak için var olan kaynaklar için bir güncelleştirme tetikler. Bu makalede, bir güncelleştirme tetiklemek için bir PowerShell örnek içerir.
 
 ## <a name="ensure-all-resources-in-a-resource-group-have-a-tagvalue"></a>Bir kaynak grubundaki tüm kaynakların bir etiketi/değer sahip olduğundan emin olun
 
-Ortak gerekli bir kaynak grubundaki tüm kaynakların bir özel etiket ve değerine sahip değildir. Bu gereksinim gerekli tootrack maliyetleri departmanı tarafından görülür. hello aşağıdaki koşullar karşılanmalıdır:
+Ortak gerekli bir kaynak grubundaki tüm kaynakların bir özel etiket ve değerine sahip değildir. Bu gereksinime genellikle maliyetleri izlemek için bölümünüzün gereklidir. Aşağıdaki koşullar karşılanmalıdır:
 
-* Merhaba, etiket ve değer eklenmiş toonew ve hello etiketi olmayan kaynakları güncelleştirilmiş gereklidir.
-* Etiket Hello gerekli ve tüm mevcut kaynaklardan değeri kaldırılamaz.
+* Gerekli etiket ve değer etiketi olmayan yeni ve güncelleştirilmiş kaynaklara eklenir.
+* Tüm mevcut kaynaklardan değeri ve gerekli etiketi kaldırılamaz.
 
-Bu gereksinim, iki yerleşik ilkeleri tooa kaynak grubu uygulayarak gerçekleştirmek.
+Bu gereksinim, bir kaynak grubuna iki yerleşik ilkeleri uygulayarak gerçekleştirmek.
 
 | Kimlik | Açıklama |
 | ---- | ---- |
-| 2a0e14a6-b0a6-4fab-991a-187a4f81c498 | Merhaba kullanıcı tarafından belirtilmediğinde gerekli bir etiket ve varsayılan değerini geçerlidir. |
+| 2a0e14a6-b0a6-4fab-991a-187a4f81c498 | Kullanıcı tarafından belirtilmediğinde gerekli bir etiket ve varsayılan değerini geçerlidir. |
 | 1e30110a-5ceb-460c-a204-c1c3969c6d62 | Gerekli bir etiket ve değerini zorlar. |
 
 ### <a name="powershell"></a>PowerShell
 
-PowerShell Betiği aşağıdaki hello hello iki yerleşik ilke tanımları tooa kaynak grubu atar. Merhaba betiği çalıştırmadan önce tüm gerekli etiketleri toohello kaynak grubu atayın. Her etiket hello kaynak grubu üzerinde hello grubundaki hello kaynaklar için gereklidir. tooassign tooall kaynak grupları, aboneliğinizdeki hello sağlamaz `-Name` hello kaynak grupları alınırken parametresi.
+Aşağıdaki PowerShell betiğini iki yerleşik ilke tanımları bir kaynak grubuna atar. Komut dosyasını çalıştırmadan önce tüm gerekli etiketleri kaynak grubuna atayın. Kaynak grubunda bulunan her bir etiketin grubundaki kaynaklar için gereklidir. Aboneliğinizdeki tüm kaynak grupları atamak için sağlıyor mu `-Name` kaynak gruplarını alırken parametresi.
 
 ```powershell
 $appendpolicy = Get-AzureRmPolicyDefinition | Where-Object {$_.Name -eq '2a0e14a6-b0a6-4fab-991a-187a4f81c498'}
@@ -62,7 +62,7 @@ foreach($rg in $rgs)
 }
 ```
 
-Merhaba ilkeleri atadıktan sonra eklediğiniz kaynakları tooenforce hello etiketi ilkeleri var olan bir güncelleştirme tooall tetikleyebilir. Merhaba aşağıdaki betiği hello kaynaklardaki varolan herhangi bir etiket korur:
+İlkeleri atadıktan sonra eklediğiniz etiketi ilkelerini zorlamak için var olan tüm kaynaklar için bir güncelleştirme tetikleyebilir. Aşağıdaki komut dosyası kaynaklardaki varolan herhangi bir etiket korur:
 
 ```powershell
 $group = Get-AzureRmResourceGroup -Name "ExampleGroup" 
@@ -81,7 +81,7 @@ foreach($r in $resources)
 ```
 
 ## <a name="require-tags-for-a-resource-type"></a>Bir kaynak türü için etiketler gerektirir
-Aşağıdaki örnek hello toonest mantıksal işleçler toorequire bir uygulamanın nasıl etiketi yalnızca bir belirtilen kaynak türü için (Bu durumda, depolama hesapları için) gösterir.
+Aşağıdaki örnek, bir uygulama etiketi yalnızca bir belirtilen kaynak türü (Bu durumda, depolama hesapları için) istemek için mantıksal işleçler iç içe gösterilmektedir.
 
 ```json
 {
@@ -106,7 +106,7 @@ Aşağıdaki örnek hello toonest mantıksal işleçler toorequire bir uygulaman
 ```
 
 ## <a name="require-tag"></a>Etiket gerektirir
-Merhaba aşağıdaki İlkesi (herhangi bir değer uygulanabilir) "costCenter" anahtarı içeren bir etiket yok isteklerini reddeder:
+Aşağıdaki ilke (herhangi bir değer uygulanabilir) "costCenter" anahtarı içeren bir etiket yok istekleri engeller:
 
 ```json
 {
@@ -123,7 +123,7 @@ Merhaba aşağıdaki İlkesi (herhangi bir değer uygulanabilir) "costCenter" an
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* (Örnekler önceki hello gösterildiği gibi) bir ilke kuralı tanımlama sonra toocreate hello ilke tanımı gerekir ve tooa kapsamı atayın. Merhaba kapsam abonelik, kaynak grubu veya kaynak olabilir. Merhaba portal aracılığıyla tooassign ilkeleri Bkz [kullanım Azure portal tooassign ve kaynak ilkelerini yönetme](resource-manager-policy-portal.md). REST API'si, PowerShell veya Azure CLI aracılığıyla tooassign ilkeleri Bkz [atayın ve komut dosyası aracılığıyla ilkelerini yönetme](resource-manager-policy-create-assign.md).
-* Bir giriş tooresource ilkeleri için bkz: [kaynak ilkesine genel bakış](resource-manager-policy.md).
-* Kuruluşların Resource Manager tooeffectively nasıl kullanabileceğiniz hakkında rehberlik için abonelikleri yönetmek için bkz: [Azure enterprise iskele - Düzenleyici abonelik idare](resource-manager-subscription-governance.md).
+* (Yukarıdaki örneklerde gösterildiği gibi) bir ilke kuralı tanımladıktan sonra ilke tanımı oluşturun ve bir kapsama atamanız gerekir. Kapsamı bir abonelik, kaynak grubu veya kaynak olabilir. Portal üzerinden ilkeler atamak için bkz: [atamak ve kaynak ilkelerini yönetmek için kullanım Azure portal](resource-manager-policy-portal.md). REST API'si, PowerShell veya Azure CLI aracılığıyla ilkeleri atamak için bkz: [atayın ve komut dosyası aracılığıyla ilkelerini yönetme](resource-manager-policy-create-assign.md).
+* Kaynak ilkelerini giriş için bkz: [kaynak ilkesine genel bakış](resource-manager-policy.md).
+* Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](resource-manager-subscription-governance.md).
 

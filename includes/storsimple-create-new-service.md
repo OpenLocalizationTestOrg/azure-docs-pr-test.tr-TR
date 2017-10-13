@@ -1,27 +1,27 @@
 <!--author=alkohli last changed:01/14/2016-->
 
 
-#### <a name="toocreate-a-new-service"></a>toocreate yeni bir hizmet
-1. Microsoft hesabı kimlik bilgilerinizi kullanarak, toohello üzerinde bu URL'de Klasik Azure portalı oturum: [https://manage.windowsazure.com/](https://manage.windowsazure.com/).
-2. Hello Klasik Azure portalı, tıklatın **yeni** > **Veri Hizmetleri** > **StorSimple Yöneticisi** > **hızlı Oluşturma**.
-3. Görüntülenen hello formunda, aşağıdaki hello:
+#### <a name="to-create-a-new-service"></a>Yeni hizmet oluşturmak için
+1. Microsoft hesabı kimlik bilgilerini kullanarak Klasik Azure portalında şu URL ile oturum açın: [https://manage.windowsazure.com/](https://manage.windowsazure.com/).
+2. Klasik Azure portalında **Yeni** > **Veri Hizmetleri** > **StorSimple Yöneticisi** > **Hızlı Oluştur**’a tıklayın.
+3. Görüntülenen formda şunları yapın:
    
-   1. Hizmetinize benzersiz bir **Ad** verin. Bu değer, kolay bir addır tooidentify hello hizmeti kullanılır. Merhaba adı harf, rakam ve kısa çizgi olabilir 2 ile 50 karakter uzunluğunda olabilir. Merhaba adı başlamalı ve bir harf veya sayı ile bitmelidir.
-   2. Hizmetiniz için bir **Konum** sağlayın. Genel olarak, Cihazınızı toodeploy istediğiniz konum en yakın toohello coğrafi bölge seçin. Ayrıca toofactor hello aşağıdaki isteyebilirsiniz: 
+   1. Hizmetinize benzersiz bir **Ad** verin. Hizmetinizi tanımlayabilmek için kullanılan kolay bir addır. Ad harf, rakam ve tirelerden oluşan 2-50 karakter arası uzunlukta olabilir. Ad bir harf veya sayıyla başlamalı ve bitmelidir.
+   2. Hizmetiniz için bir **Konum** sağlayın. Genel olarak, cihazınızı dağıtmak istediğiniz coğrafi bölgeye yakın bir konum seçmek istersiniz. Aşağıdakilerin de etkili olmasını isteyebilirsiniz: 
       
-      * Var olan iş yükleri toodeploy de StorSimple cihazınızla düşündüğünüz Azure varsa, o veri merkezini kullanmanız gerekir.
-      * StorSimple Yöneticisi hizmeti ve Azure Storage ayrı iki konumda olabilir. Böyle bir durumda, gerekli toocreate hello StorSimple Yöneticisi ve Azure depolama hesabı ayrı olarak demektir. toocreate bir Azure depolama hesabı toohello Azure depolama hizmetinde hello Klasik Azure portalına gidin ve'hello adımlarını izleyin [bir Azure depolama hesabı oluşturma](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account). Bu hesabı oluşturduktan sonra hello adımları izleyerek toohello StorSimple Yöneticisi hizmet Ekle [hello hizmet için yeni bir depolama hesabı yapılandırma](../articles/storsimple/storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service).
-   3. Seçin bir **abonelik** hello aşağı açılan listeden. Merhaba abonelik hesabı faturalama bağlantılı tooyour ' dir. Bu alan bir aboneliğiniz olmadığı sürece yoktur.
-   4. Seçin **yeni depolama hesabı oluşturma** tooautomatically hello hizmeti ile bir depolama hesabı oluşturun. Bu depolama hesabının "storsimplebwv8c6dcnf" gibi özel bir adı olacaktır. Verilerinizin farklı bir konumda olması gerekiyorsa bu kutunun işaretini kaldırın. 
-   5. Tıklatın **StorSimple Yöneticisi Oluştur** toocreate hello hizmet.
+      * Azure’da, StorSimple cihazınızla dağıtmak istediğiniz var olan iş yükleriniz varsa o veri merkezini kullanmanız gerekir.
+      * StorSimple Yöneticisi hizmeti ve Azure Storage ayrı iki konumda olabilir. Böyle bir durumda, StorSimple Yöneticisi ve Azure Storage hesabını ayrı ayrı oluşturmanız gerekir. Azure Storage hesabı oluşturmak için Klasik Azure portalındaki Azure Storage hizmetine gidin ve [Azure Storage hesabı oluşturma](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)’daki adımları uygulayın. Bu hesabı oluşturduktan sonra [Hizmet için yeni bir depolama hesabı yapılandırma](../articles/storsimple/storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service)’daki adımları uygulayarak bunu StorSimple Yöneticisi hizmetine ekleyin.
+   3. Açılan listeden bir **Abonelik** seçin. Abonelik fatura hesabınıza bağlıdır. Bu alan bir aboneliğiniz olmadığı sürece yoktur.
+   4. Otomatik olarak hizmeti olan bir depolama hesabı oluşturmak için **Yeni depolama hesabı oluştur**’u seçin. Bu depolama hesabının "storsimplebwv8c6dcnf" gibi özel bir adı olacaktır. Verilerinizin farklı bir konumda olması gerekiyorsa bu kutunun işaretini kaldırın. 
+   5. Hizmeti oluşturmak için **StorSimple Yöneticisi Oluştur**’a tıklayın.
    
    ![StorSimple Yöneticisi oluşturma](./media/storsimple-create-new-service/HCS_CreateAService-include.png)
    
-   Yönlendirilmiş toohello olacaktır **hizmet** giriş sayfası. Hello hizmeti oluşturulması birkaç dakika sürer. Sonra Hello hizmeti başarıyla oluşturuldu, uygun şekilde size bildirilir ve hello hizmetinin hello durumu çok değiştirir**etkin**.
+   **Hizmet** giriş sayfasına yönlendirileceksiniz. Hizmeti oluşturulması birkaç dakika alabilir. Hizmet sorunsuz oluşturulduktan sonra, uygun şekilde size bildirilir ve hizmetin durumu **Etkin** olarak değişir.
    
    ![Hizmet oluşturma](./media/storsimple-create-new-service/HCS_StorSimpleManagerServicePage-include.png)
 
 ![Video var](./media/storsimple-create-new-service/Video_icon.png) **Video var**
 
-toowatch gösteren bir video nasıl toocreate yeni bir StorSimple Yöneticisi hizmeti tıklatın [burada](https://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/).
+Yeni bir StorSimple Yöneticisi hizmetinin nasıl oluşturulduğunu gösteren bir video izlemek için [buraya](https://azure.microsoft.com/documentation/videos/create-a-storsimple-manager-service/) tıklayın.
 

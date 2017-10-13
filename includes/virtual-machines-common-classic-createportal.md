@@ -1,27 +1,27 @@
 
 
-A *özel* sanal makine yalnızca kullanarak oluşturduğunuz bir sanal makine anlamına gelir bir **öne çıkan uygulama** hello gelen **Market** çünkü bunu hello iş çoğunu sizin için yapar. Henüz, aşağıdaki öğelerindeki hello dahil yapılandırma seçeneklerinin hala yapabilirsiniz:
+*Özel* bir sanal makine, **Mağaza**’daki **öne çıkan uygulamaları** kullanarak oluşturabileceğiniz bir sanal makinedir ve işin çoğunu sizin yerinize yapar. Ancak siz de aşağıdakiler dahil olmak üzere belirli yapılandırma seçeneklerini kullanabilirsiniz:
 
-* Merhaba sanal makine tooa sanal ağa bağlanma.
-* Gibi Hello Azure sanal makine aracısı ve Azure sanal makine uzantıları, kötü amaçlı yazılımdan koruma için yükleme.
-* Merhaba sanal makine tooexisting bulut Hizmetleri ekleniyor.
-* Merhaba sanal makine tooan var olan depolama hesabı ekleme.
-* Merhaba sanal makine tooan kullanılabilirlik eklemeden ayarlayın.
+* Sanal makineyi bir sanal ağa bağlama.
+* Kötü amaçlı yazılımdan korunma gibi nedenlerle Azure Sanal Makinesi Aracısı ve Azure Sanal Makine Uzantılarını yükleme.
+* Var olan bulut hizmetlerine sanal makine ekleme.
+* Sanal makineyi var olan Depolama hesabına ekleme.
+* Sanal makineyi bir kullanılabilirlik kümesine ekleme.
 
 <!--
 > [!IMPORTANT]
-> If you want your virtual machine toouse a virtual network so you can connect tooit directly by host name or set up cross-premises connections, make sure that you specify hello virtual network when you create hello virtual machine. A virtual machine can be configured toojoin a virtual network only when you create hello virtual machine. For details on virtual networks, see [Azure Virtual Network overview](../articles/virtual-network/virtual-networks-overview.md).
+> If you want your virtual machine to use a virtual network so you can connect to it directly by host name or set up cross-premises connections, make sure that you specify the virtual network when you create the virtual machine. A virtual machine can be configured to join a virtual network only when you create the virtual machine. For details on virtual networks, see [Azure Virtual Network overview](../articles/virtual-network/virtual-networks-overview.md).
 >
 >
  -->
 
 > [!IMPORTANT]
-> Bir sanal ağ, sanal makine toouse istiyorsanız, hello sanal makine oluşturduğunuzda hello sanal ağ belirttiğinizden emin olun.
+> Sanal makinenizin bir sanal ağı kullanmasını istiyorsanız, sanal makineyi oluştururken sanal ağı da belirtmeniz gerekir.
 
-> * İki avantajlarını sanal ağını kullanarak doğrudan toohello sanal makine ve şirket içi bağlantılar kurma tooset bağlanırsınız.
+> * Sanal ağ kullanmanın iki avantajı, sanal makineye doğrudan bağlanmak ve şirket içi bağlantıları kurmaktır.
 
-> * Yalnızca hello sanal makine oluşturduğunuzda, bir sanal makine yapılandırılmış toojoin bir sanal ağ olabilir. Sanal ağlar hakkında daha fazla bilgi için bkz. [Azure Sanal Ağına Genel Bakış](../articles/virtual-network/virtual-networks-overview.md).
+> * Bir sanal makine, yalnızca sanal makineyi oluşturduğunuzda sanal ağa katılmak için yapılandırılabilir. Sanal ağlar hakkında daha fazla bilgi için bkz. [Azure Sanal Ağına Genel Bakış](../articles/virtual-network/virtual-networks-overview.md).
 >
 >
 
-## <a name="toocreate-hello-virtual-machine"></a>toocreate hello sanal makine
+## <a name="to-create-the-virtual-machine"></a>Sanal makineyi oluşturmak için

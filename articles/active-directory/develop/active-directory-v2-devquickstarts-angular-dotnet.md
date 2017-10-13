@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure AD v2.0 .NET AngularJS tek sayfa uygulaması Başlarken | Microsoft Docs"
-description: "Nasıl toobuild hem kişisel Microsoft ile kullanıcılar oturum açtığında bir Açısal JS tek sayfa uygulaması hesapları ve iş veya Okul hesapları."
+title: "Başlarken azure AD v2.0 .NET AngularJS tek sayfa uygulaması | Microsoft Docs"
+description: "Hem kişisel Microsoft hesabı olan kullanıcılar oturum açtığında bir Açısal JS tek sayfa uygulaması oluşturma ve iş veya Okul hesapları."
 services: active-directory
 documentationcenter: 
 author: jmprieur
@@ -15,54 +15,54 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bd3fc8dce91eb0bedcbfed47a9b3ef52c5568c6a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c68180c0ecabf5c0732f0db77ef1f3cc93be965b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="add-sign-in-tooan-angularjs-single-page-app---net"></a>Oturum açma tooan AngularJS tek sayfalı uygulama - .NET Ekle
-Bu makalede gücü Microsoft hesapları tooan AngularJS uygulaması hello Azure Active Directory v2.0 uç kullanarak oturum ekleyeceğiz.  Merhaba v2.0 uç tooperform uygulamanızda tek bir tümleştirme sağlar ve hem kişisel hem de iş/Okul hesapları olan kullanıcıların kimlik doğrulaması.
+# <a name="add-sign-in-to-an-angularjs-single-page-app---net"></a>Oturum açma bir AngularJS tek sayfalı uygulama için - .NET ekleyin
+Bu makalede bir AngularJS uygulamasına Azure Active Directory v2.0 uç kullanarak oturum açın. desteklenen Microsoft hesapları ekleyeceğiz.  V2.0 uç noktası, uygulamanızda tek tümleştirme gerçekleştirmek ve hem kişisel hem de iş/Okul hesapları olan kullanıcıların kimlik doğrulaması sağlar.
 
-Bu örnek arka uç REST hello .NET 4.5 MVC framework kullanılarak yazılmış ve Azure AD'den OAuth taşıyıcı belirteçlerini kullanarak güvenliği API görevleri depolayan basit bir Yapılacaklar listesi tek sayfa uygulamasıdır.  Merhaba AngularJS uygulama bizim açık kaynak JavaScript kimlik doğrulama kitaplığı kullanır [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) toohandle tüm oturum açma işlemine hello ve arama hello REST API için belirteçleri almak.  Merhaba aynı düzeni hello gibi uygulanan tooauthenticate tooother REST API'leri olabilir [Microsoft Graph](https://graph.microsoft.com).
+Bu örnek görevleri arka uç REST API'si, .NET 4.5 MVC framework kullanılarak yazılmış ve Azure AD'den OAuth taşıyıcı belirteçlerini kullanarak güvenliği depolayan basit bir Yapılacaklar listesi tek sayfa uygulamasıdır.  AngularJS uygulama bizim açık kaynak JavaScript kimlik doğrulama kitaplığı kullanır [adal.js](https://github.com/AzureAD/azure-activedirectory-library-for-js) tüm oturum açma işlemine işlemek ve REST API çağırma belirteçleri almak için.  Aynı desende diğer REST API'leri gibi kimlik doğrulaması için uygulanabilir [Microsoft Graph](https://graph.microsoft.com).
 
 > [!NOTE]
-> Tüm Azure Active Directory senaryolarını ve özelliklerini hello v2.0 uç noktası tarafından desteklenir.  Merhaba v2.0 uç noktası, kullanmanız gereken varsa toodetermine okuyun hakkında [v2.0 sınırlamaları](active-directory-v2-limitations.md).
+> Tüm Azure Active Directory senaryolarını ve özelliklerini v2.0 uç noktası tarafından desteklenir.  V2.0 uç kullanmanızın gerekli olup olmadığını belirlemek için okuyun [v2.0 sınırlamaları](active-directory-v2-limitations.md).
 > 
 > 
 
 ## <a name="download"></a>İndir
-başlatıldı, tooget toodownload gereken & Visual Studio yüklemeniz.  Sonra kopyalayabilir veya [karşıdan](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-DotNet/archive/skeleton.zip) iskelet uygulama:
+Başlamak için indir ve Visual Studio yüklemeniz gerekir.  Sonra kopyalayabilir veya [karşıdan](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-DotNet/archive/skeleton.zip) iskelet uygulama:
 
 ```
 git clone --branch skeleton https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-DotNet.git
 ```
 
-Merhaba iskelet uygulama basit bir AngularJS uygulama için tüm hello Demirbaş kod içerir, ancak tüm hello kimlikle ilgili parçaları eksik.  Toofollow boyunca istemiyorsanız, bunun yerine, kopyalayabilir veya [karşıdan](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-DotNet/archive/complete.zip) tamamlandı hello örnek.
+İskelet uygulama basit bir AngularJS uygulama için tüm Demirbaş kod içerir, ancak kimlikle ilgili şey eksik.  Takip istemiyorsanız, bunun yerine, kopyalayabilir veya [karşıdan](https://github.com/AzureADQuickStarts/AppModelv2-SinglePageApp-AngularJS-DotNet/archive/complete.zip) tamamlanan örnek.
 
 ```
 git clone https://github.com/AzureADSamples/SinglePageApp-AngularJS-DotNet.git
 ```
 
 ## <a name="register-an-app"></a>Bir uygulamayı kaydetme
-İlk olarak, bir uygulama hello oluşturmak [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), veya adımları izleyin: [ayrıntılı adımları](active-directory-v2-app-registration.md).  Emin olun:
+İlk olarak, bir uygulama oluşturun [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), veya adımları izleyin: [ayrıntılı adımları](active-directory-v2-app-registration.md).  Emin olun:
 
-* Merhaba eklemek **Web** uygulamanız için platform.
-* Merhaba doğru girin **yeniden yönlendirme URI'si**. Bu örnek için Hello varsayılan değer `https://localhost:44326/`.
-* Merhaba bırakın **izin örtük akış** Etkin onay kutusu. 
+* Ekleme **Web** uygulamanız için platform.
+* Doğru girin **yeniden yönlendirme URI'si**. Bu örnek için varsayılan değer `https://localhost:44326/`.
+* Bırakın **izin örtük akış** Etkin onay kutusu. 
 
-Merhaba basılı kopya **uygulama kimliği** , atanan tooyour uygulama, kısa süre içinde gerekir. 
+Aşağı kopyalama **uygulama kimliği** uygulamanıza atanan, kısa süre içinde gerekir. 
 
 ## <a name="install-adaljs"></a>Adal.js yükleyin
-toostart, indirdiğiniz tooproject gidin ve adal.js yükleyin.  Varsa [bower](http://bower.io/) yüklüyse, bu komutu yalnızca çalıştırabilirsiniz.  Hiçbir bağımlılık sürümü uyuşmazlığı için yalnızca hello daha yüksek bir sürümü seçin.
+Başlatmak için indirilen proje gidin ve adal.js yükleyin.  Varsa [bower](http://bower.io/) yüklüyse, bu komutu yalnızca çalıştırabilirsiniz.  Hiçbir bağımlılık sürümü uyuşmazlığı için yalnızca daha yüksek sürümünü seçin.
 
 ```
 bower install adal-angular#experimental
 ```
 
-Alternatif olarak, el ile yükleyebileceğiniz [adal.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/experimental/dist/adal.min.js) ve [angular.js adal](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/experimental/dist/adal-angular.min.js).  Her iki dosyaları toohello ekleme `app/lib/adal-angular-experimental/dist` hello dizininde `TodoSPA` projesi.
+Alternatif olarak, el ile yükleyebileceğiniz [adal.js](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/experimental/dist/adal.min.js) ve [angular.js adal](https://raw.githubusercontent.com/AzureAD/azure-activedirectory-library-for-js/experimental/dist/adal-angular.min.js).  Her iki dosyalarına ekleme `app/lib/adal-angular-experimental/dist` dizininde `TodoSPA` projesi.
 
-Şimdi hello projesini Visual Studio'da açın ve hello ana sayfanın gövdesi hello sonunda adal.js yükleyin:
+Şimdi projesini Visual Studio'da açın ve ana sayfa gövdesi sonunda adal.js yükleyin:
 
 ```html
 <!--index.html-->
@@ -75,8 +75,8 @@ Alternatif olarak, el ile yükleyebileceğiniz [adal.js](https://raw.githubuserc
 ...
 ```
 
-## <a name="set-up-hello-rest-api"></a>REST API Hello ayarlayın
-Ayarlamaları olsa da, şimdi hello arka uç REST API çalışma alın.  Merhaba proje Hello kökte açmak `web.config` ve hello yerine `audience` değeri.  Merhaba REST API hello Açısal uygulamasından AJAX isteği aldığında bu değer toovalidate belirteçlerini kullanır.
+## <a name="set-up-the-rest-api"></a>REST API ayarlayın
+Şimdi ayarlamaları olsa da, arka uç REST API çalışma alın.  Proje kök dizininde açın `web.config` ve değiştirme `audience` değeri.  REST API AJAX isteği Açısal uygulamadan aldığı belirteçleri doğrulamak için bu değeri kullanır.
 
 ```xml
 <!--web.config-->
@@ -90,10 +90,10 @@ Ayarlamaları olsa da, şimdi hello arka uç REST API çalışma alın.  Merhaba
 ...
 ```
 
-Tüm olan hello REST API nasıl çalıştığını ele toospend yapmamız hello zaman.  Ücretsiz toopoke hello kodda eşitleyerek ancak toolearn web API'leri Azure AD ile güvenli hale getirme hakkında daha fazla bilgi istiyorsanız, kullanıma [bu makalede](active-directory-v2-devquickstarts-dotnet-api.md). 
+REST API nasıl çalıştığını ele harcamanız oluşturacağız her zaman olmasıdır.  Kodda karıştırın geçici bir çözüm, ancak Azure AD ile API'leri web güvenliğini sağlama hakkında daha fazla bilgi edinmek istiyorsanız kullanıma çekinmeyin [bu makalede](active-directory-v2-devquickstarts-dotnet-api.md). 
 
 ## <a name="sign-users-in"></a>Kullanıcıların oturumunu açma
-Bazı kimlik kodu toowrite zaman.  Zaten sorunsuz şekilde Açısal yönlendirme yöntemleriyle oynadığı bir AngularJS sağlayıcısı bu adal.js içeren fark etmiş olabilirsiniz.  Merhaba adal modülü toohello uygulama ekleyerek başlayın:
+Bazı kimlik kod yazma süresi.  Zaten sorunsuz şekilde Açısal yönlendirme yöntemleriyle oynadığı bir AngularJS sağlayıcısı bu adal.js içeren fark etmiş olabilirsiniz.  Uygulama adal modülü ekleyerek başlayın:
 
 ```js
 // app/scripts/app.js
@@ -105,7 +105,7 @@ angular.module('todoApp', ['ngRoute','AdalAngular'])
 ...
 ```
 
-Merhaba şimdi başlatabilir `adalProvider` uygulama kimliği:
+Şimdi başlatabilir `adalProvider` uygulama kimliği:
 
 ```js
 // app/scripts/app.js
@@ -114,22 +114,22 @@ Merhaba şimdi başlatabilir `adalProvider` uygulama kimliği:
 
 adalProvider.init({
 
-        // Use this value for hello public instance of Azure AD
+        // Use this value for the public instance of Azure AD
         instance: 'https://login.microsoftonline.com/', 
 
-        // hello 'common' endpoint is used for multi-tenant applications like this one
+        // The 'common' endpoint is used for multi-tenant applications like this one
         tenant: 'common',
 
-        // Your application id from hello registration portal
+        // Your application id from the registration portal
         clientId: '<Your-application-id>',
 
-        // If you're using IE, uncommment this line - hello default HTML5 sessionStorage does not work for localhost.
+        // If you're using IE, uncommment this line - the default HTML5 sessionStorage does not work for localhost.
         //cacheLocation: 'localStorage',
 
     }, $httpProvider);
 ```
 
-Harika adal.js tüm hello bilgileri artık bunu toosecure, uygulama ve oturum kullanıcılarınızın gerekir.  Tüm sürdüğünü hello uygulamasında belirli bir rota için tooforce oturum açma bir kod satırı şöyledir:
+Harika, artık adal.js uygulamanızı güvenli ve kullanıcılar oturum açmak için gerekli tüm bilgilere sahiptir.  Uygulamasında belirli bir rota için oturum açma zorlamak için gereken tek şey bir kod satırı:
 
 ```js
 // app/scripts/app.js
@@ -139,29 +139,29 @@ Harika adal.js tüm hello bilgileri artık bunu toosecure, uygulama ve oturum ku
 }).when("/TodoList", {
     controller: "todoListCtrl",
     templateUrl: "/static/views/TodoList.html",
-    requireADLogin: true, // Ensures that hello user must be logged in tooaccess hello route
+    requireADLogin: true, // Ensures that the user must be logged in to access the route
 })
 
 ...
 ```
 
-Şimdi bir kullanıcı tıkladığında hello `TodoList` bağlantı adal.js otomatik olarak yeniden yönlendirme tooAzure için oturum açma gerekirse AD.  Oturum açma ve oturum kapatma isteklerini denetleyicilerinizi adal.js çağırarak açıkça gönderebilirsiniz:
+Şimdi bir kullanıcı tıkladığında `TodoList` bağlantı adal.js otomatik olarak yeniden yönlendirme oturum açma için Azure ad gerekiyorsa.  Oturum açma ve oturum kapatma isteklerini denetleyicilerinizi adal.js çağırarak açıkça gönderebilirsiniz:
 
 ```js
 // app/scripts/homeCtrl.js
 
 angular.module('todoApp')
-// Load adal.js hello same way for use in controllers and views   
+// Load adal.js the same way for use in controllers and views   
 .controller('homeCtrl', ['$scope', 'adalAuthenticationService','$location', function ($scope, adalService, $location) {
     $scope.login = function () {
 
-        // Redirect hello user toosign in
+        // Redirect the user to sign in
         adalService.login();
 
     };
     $scope.logout = function () {
 
-        // Redirect hello user toolog out    
+        // Redirect the user to log out    
         adalService.logOut();
 
     };
@@ -169,7 +169,7 @@ angular.module('todoApp')
 ```
 
 ## <a name="display-user-info"></a>Kullanıcı bilgilerini görüntüle
-Merhaba kullanıcı oturumu açık, büyük olasılıkla, uygulamanızda tooaccess hello oturum açmış kullanıcının kimlik doğrulama verileri gerekir.  Adal.js hello sizin için bu bilgileri sunan `userInfo` nesnesi.  tooaccess görünümünde, bu nesnenin ilk adal.js toohello kök hello karşılık gelen denetleyicisi kapsamını ekleyin:
+Kullanıcının oturum açtığı, uygulamanızda oturum açmış kullanıcının kimlik doğrulaması veri erişim gerekecek.  Adal.js gösterir bu bilgileri `userInfo` nesnesi.  Bu nesne bir görünümde erişmek için ilk adal.js karşılık gelen denetleyicisi kök kapsamını ekleyin:
 
 ```js
 // app/scripts/userDataCtrl.js
@@ -179,14 +179,14 @@ angular.module('todoApp')
 .controller('userDataCtrl', ['$scope', 'adalAuthenticationService', function ($scope, adalService) {}]);
 ```
 
-Merhaba doğrudan ele alabileceği sonra `userInfo` görünümünüzü nesnesinde: 
+Doğrudan ele alabileceği sonra `userInfo` görünümünüzü nesnesinde: 
 
 ```html
 <!--app/views/UserData.html-->
 
 ...
 
-    <!--Get hello user's profile information from hello ADAL userInfo object-->
+    <!--Get the user's profile information from the ADAL userInfo object-->
     <tr ng-repeat="(key, value) in userInfo.profile">
         <td>{{key}}</td>
         <td>{{value}}</td>
@@ -194,14 +194,14 @@ Merhaba doğrudan ele alabileceği sonra `userInfo` görünümünüzü nesnesind
 ...
 ```
 
-Merhaba de kullanabilirsiniz `userInfo` veya hello kullanıcı oturum açmışsa, toodetermine nesnesi.
+Aynı zamanda `userInfo` kullanıcı veya oturum varsa belirlemek için nesne.
 
 ```html
 <!--index.html-->
 
 ...
 
-    <!--Use hello ADAL userInfo object tooshow hello right login/logout button-->
+    <!--Use the ADAL userInfo object to show the right login/logout button-->
     <ul class="nav navbar-nav navbar-right">
         <li><a class="btn btn-link" ng-show="userInfo.isAuthenticated" ng-click="logout()">Logout</a></li>
         <li><a class="btn btn-link" ng-hide="userInfo.isAuthenticated" ng-click="login()">Login</a></li>
@@ -209,12 +209,12 @@ Merhaba de kullanabilirsiniz `userInfo` veya hello kullanıcı oturum açmışsa
 ...
 ```
 
-## <a name="call-hello-rest-api"></a>Merhaba REST API çağrısı
-Son olarak, bazı belirteçleri çağrısı REST API toocreate Merhaba, okuma, güncelleştirme ve görevleri silme zamanı tooget olur.  İyi ne tahmin?  Toodo yok *bir şey*.  Adal.js otomatik olarak ele alma, önbellekleme ve yenileme belirteçleri gerçekleştirir.  Bu ayrıca toooutgoing AJAX toohello REST API gönderdiğiniz istekleri konusu belirteçleri ekleme dikkatli olun.  
+## <a name="call-the-rest-api"></a>REST API çağrısı
+Son olarak, bazı belirteçleri almak ve oluşturma, okuma, güncelleştirme için REST API çağrısı ve görevleri silme zamanı geldi.  İyi ne tahmin?  Yapmanıza gerek yoktur *bir şey*.  Adal.js otomatik olarak ele alma, önbellekleme ve yenileme belirteçleri gerçekleştirir.  Bu ayrıca REST API'sine gönderdiğiniz giden AJAX istekleri için bu simgeleri ekleme dikkatli olun.  
 
-Bu tam olarak nasıl çalışır? Tüm teşekkürler toohello Sihirli biri olan [AngularJS dinleyiciler](https://docs.angularjs.org/api/ng/service/$http), giden ve gelen http iletileri adal.js tootransform sağlar.  Ayrıca, tüm istekleri toohello göndermek adal.js varsayar aynı etki alanında hello penceresi yönelik belirteçleri kullanması gereken şekilde hello aynı uygulama kimliği AngularJS uygulama hello gibi.  Merhaba kullandık bu yüzden aynı uygulama kimliği hem hello Açısal uygulama ve hello NodeJS REST API.  Doğal olarak, bu davranışı geçersiz kılabilir ve adal.js tooget belirteçleri diğer REST API'leri için gerekirse - söyleyin. ancak bu basit senaryoyu hello için varsayılanları yapar.
+Bu tam olarak nasıl çalışır? Sihirli sayesinde tümü olduğu [AngularJS dinleyiciler](https://docs.angularjs.org/api/ng/service/$http), giden ve gelen http iletileri dönüştürmek adal.js izin verir.  Ayrıca, adal.js penceresi AngularJS uygulama aynı uygulama Kimliğine yönelik belirteçleri kullanması gereken gibi tüm istekler aynı etki alanına göndermek varsayar.  Aynı uygulama kimliği hem Açısal uygulama ve NodeJS REST API kullandık nedeni budur.  Elbette, bu davranışı geçersiz kılabilir ve diğer REST API'leri için gerekirse - belirteçleri almak için adal.js söyleyin ancak basit bu senaryo için varsayılanları yapar.
 
-Ne kadar kolay taşıyıcı belirteçlerini Azure AD'den toosend istekleriyle olduğunu gösteren bir parçacığı aşağıda verilmiştir:
+Azure AD'den taşıyıcı belirteçlerini istekleri göndermek için ne kadar kolay olduğunu gösteren bir parçacığı aşağıda verilmiştir:
 
 ```js
 // app/scripts/todoListSvc.js
@@ -224,14 +224,14 @@ return $http.get('/api/tasks');
 ...
 ```
 
-Tebrikler!  Azure AD tümleşik tek sayfa uygulaması tamamlanmıştır.  Şimdi, bir paketi alın.  Kullanıcıların kimliğini doğrulamak, güvenli bir şekilde arka uç Openıd Connect kullanarak REST API çağrısı ve hello kullanıcı hakkındaki temel bilgileri alın.  Merhaba kutudan çıktığında, kişisel bir Microsoft Account veya Azure AD'den bir iş/Okul hesabı olan herhangi bir kullanıcı destekler.  Merhaba uygulamayı çalıştırın ve bir tarayıcıda çok gidin`https://localhost:44326/`.  Kişisel bir Microsoft hesabı veya iş/Okul hesabı kullanarak oturum açın.  Görevleri toohello kullanıcının yapılacaklar listesi ekleyin ve oturumu kapatın.  Try ile imzalama hello diğer hesap türü. Bir Azure AD Kiracı toocreate iş/Okul kullanıcıları gerekiyorsa [öğrenin nasıl tooget bir burada](active-directory-howto-tenant.md) (boş).
+Tebrikler!  Azure AD tümleşik tek sayfa uygulaması tamamlanmıştır.  Şimdi, bir paketi alın.  Kullanıcıların kimliğini doğrulamak, güvenli bir şekilde arka uç Openıd Connect kullanarak REST API çağrısı ve kullanıcı hakkındaki temel bilgileri alın.  Kutudan çıktığında, kişisel bir Microsoft Account veya Azure AD'den bir iş/Okul hesabı olan herhangi bir kullanıcı destekler.  Uygulamayı çalıştırın ve bir tarayıcıda gidin `https://localhost:44326/`.  Kişisel bir Microsoft hesabı veya iş/Okul hesabı kullanarak oturum açın.  Görevler kullanıcının yapılacaklar listesine ekleyin ve oturumu kapatın.  Hesap diğer bir tür oturum açmayı deneyin. İş/Okul kullanıcıları oluşturmak için Azure AD kiracısı gerekiyorsa [edinebileceğinizi öğrenin burada](active-directory-howto-tenant.md) (boş).
 
-Merhaba v2.0 uç, head geri tooour hakkında öğrenme toocontinue [v2.0 Geliştirici Kılavuzu](active-directory-appmodel-v2-overview.md).  Ek kaynaklar için gözden geçirin:
+V2.0 uç noktası hakkında bilgi almaya devam etmek için head dön bizim [v2.0 Geliştirici Kılavuzu](active-directory-appmodel-v2-overview.md).  Ek kaynaklar için gözden geçirin:
 
 * [Azure-Samples github'da >>](https://github.com/Azure-Samples)
 * [Yığın taşması üzerinde Azure AD >>](http://stackoverflow.com/questions/tagged/azure-active-directory)
 * Azure AD belgelerinde bulunan [Azure.com >>](https://azure.microsoft.com/documentation/services/active-directory/)
 
 ## <a name="get-security-updates-for-our-products"></a>Ürünlerimiz için güvenlik güncelleştirmelerini alma
-Güvenlik olayları ziyaret ederek ortaya çıktığında, tooget bildirimleri öneririz [bu sayfayı](https://technet.microsoft.com/security/dd252948) ve tooSecurity önerisi uyarılarına abone olma.
+[Bu sayfayı](https://technet.microsoft.com/security/dd252948) ziyaret ederek ve Güvenlik Önerisi Uyarılarına abone olarak güvenlik olaylarının ne zaman ortaya çıkacağı hakkında bildirimleri almanızı öneririz.
 

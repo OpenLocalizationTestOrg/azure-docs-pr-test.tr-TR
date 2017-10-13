@@ -1,6 +1,6 @@
 ---
-title: "ASP.NET oturum durumu sağlayıcısı aaaCache | Microsoft Docs"
-description: "Bilgi toostore ASP.NET oturum durumunu nasıl Azure Redis önbelleği kullanma"
+title: "Önbellek ASP.NET oturum durumu sağlayıcısı | Microsoft Docs"
+description: "Azure Redis önbelleği kullanılarak ASP.NET oturum durumu depolamayı öğrenin"
 services: redis-cache
 documentationcenter: na
 author: steved0x
@@ -14,39 +14,39 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 05/01/2017
 ms.author: sdanie
-ms.openlocfilehash: 9ea84cf67b9314b15dce696f596d399921194510
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0f3683939ac9646565a0669e19b4c82811d621fc
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="aspnet-session-state-provider-for-azure-redis-cache"></a>Azure Redis Önbelleği için ASP.NET Oturum Durumu Sağlayıcısı
-Azure Redis önbelleği, oturum durumu bellek içi yerine bir önbellek toostore kullanın veya bir SQL Server veritabanı oturum durumu sağlayıcısı sağlar. toouse önbelleğe alma oturum durumu sağlayıcısı Merhaba, önbelleğinizi önce yapılandırın ve hello Redis önbelleği oturum durumu NuGet paketi kullanarak önbelleği için ASP.NET uygulamanızı yapılandırın.
+Azure Redis önbelleği bellek içi yerine bir önbellek veya SQL Server veritabanında, oturum durumunu depolamak için kullanabileceğiniz bir oturum durumu sağlayıcısı sağlar. Önbelleğe alma oturum durumu sağlayıcısı kullanmak için önbelleğinizi önce yapılandırın ve ardından Redis önbelleği oturum durumu NuGet paketi kullanarak önbelleği için ASP.NET uygulamanızı yapılandırma.
 
-Bu durumu çeşit depolamak için bir kullanıcı oturumu gerçek bulut uygulama tooavoid pratik çoğunlukla değildir, ancak bazı yaklaşımlar diğerlerinden daha fazla performans ve ölçeklenebilirliği etkileyen. Toostore durumu varsa, hello en iyi çözüm durumu küçük tookeep hello miktarı ve tanımlama bilgilerini saklayın. Uygun değilse, hello sonraki en iyi dağıtılmış, bellek içi önbellek için bir sağlayıcı ile toouse ASP.NET oturum durumu çözümüdür. Merhaba kötü performans ve ölçeklenebilirlik açısından toouse veritabanı yedeklenmiş oturum durumu sağlayıcısı çözümüdür. Bu konu, Azure Redis önbelleği için ASP.NET oturum durumu sağlayıcısı hello kullanma hakkında yönergeler sağlar. Diğer oturum durumu seçenekleri hakkında daha fazla bilgi için bkz: [ASP.NET oturum durumu seçenekleri](#aspnet-session-state-options).
+Bunu önlemek için bir kullanıcı oturum durumu çeşit depolamak için bir gerçek bulut uygulamasında pratik çoğunlukla değildir, ancak bazı yaklaşımlar diğerlerinden daha fazla performans ve ölçeklenebilirliği etkileyen. Durumunu depolamak varsa, durum miktarını küçük tutun ve tanımlama bilgilerini depolamak için en iyi çözüm olur. Uygun değilse, sonraki en iyi çözüm ASP.NET oturum durumu sahip bir sağlayıcı için dağıtılmış, bellek içi önbellek kullanmaktır. Kötü bir performans ve ölçeklenebilirlik açısından bir veritabanını kullanmak için oturum durumu sağlayıcısı yedeklenen çözümüdür. Bu konuda, Azure Redis önbelleği için ASP.NET oturum durumu sağlayıcısı kullanma hakkında yönergeler sunmaktadır. Diğer oturum durumu seçenekleri hakkında daha fazla bilgi için bkz: [ASP.NET oturum durumu seçenekleri](#aspnet-session-state-options).
 
-## <a name="store-aspnet-session-state-in-hello-cache"></a>Merhaba önbellekte ASP.NET oturum durumunu saklama
-tooconfigure hello Redis önbelleği oturum durumu NuGet paketini kullanarak Visual Studio'da bir istemci uygulaması tıklatın **NuGet Paket Yöneticisi**, **Paket Yöneticisi Konsolu** hello gelen **Araçları** menüsü.
+## <a name="store-aspnet-session-state-in-the-cache"></a>Önbellekte ASP.NET oturumu durumu depolama
+Redis önbelleği oturum durumu NuGet paketini kullanarak Visual Studio'da bir istemci uygulamasını yapılandırmak için tıklatın **NuGet Paket Yöneticisi**, **Paket Yöneticisi Konsolu** gelen **Araçları** menüsü.
 
-Çalışma hello hello komuttan aşağıdaki `Package Manager Console` penceresi.
+`Package Manager Console` penceresinden aşağıdaki komutu çalıştırın.
     
 ```
 Install-Package Microsoft.Web.RedisSessionStateProvider
 ```
 
 > [!IMPORTANT]
-> Merhaba hello premium Katmanı'ndan Kümelemesi özelliğini kullanıyorsanız, kullanmalısınız [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 ya da daha yüksek veya farklı bir özel durum oluşturulur. Too2.0.1 taşıma veya önemli bir değişiklik daha yüksektir; Daha fazla bilgi için bkz: [v2.0.0 sonu değişiklik ayrıntıları](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details). Bu makalede güncelleştirme Hello anda hello geçerli bu paket 2.2.3 sürümüdür.
+> Premium katmanından Kümelemesi özelliğini kullanıyorsanız, kullanmalısınız [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 ya da daha yüksek veya farklı bir özel durum oluşturulur. 2.0.1 veya üzeri taşıma önemli bir değişiklik olduğunu; Daha fazla bilgi için bkz: [v2.0.0 sonu değişiklik ayrıntıları](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details). Bu makalede güncelleştirme zaman bu paketinin geçerli sürümü 2.2.3 ' dir.
 > 
 > 
 
-Merhaba Redis oturum durumu sağlayıcısı NuGet paketi hello StackExchange.Redis.StrongName paketi bir bağımlılığa sahiptir. Merhaba StackExchange.Redis.StrongName paket projenizde mevcut değilse, yüklenir.
+Redis oturum durumu sağlayıcısı NuGet paketi StackExchange.Redis.StrongName paketi bir bağımlılığa sahiptir. StackExchange.Redis.StrongName paket projenizde mevcut değilse, yüklenir.
 
 >[!NOTE]
->Toplama toohello tanımlayıcı adlı StackExchange.Redis.StrongName paketinde ayrıca hello StackExchange.Redis olmayan-tanımlayıcı adlı sürümü yoktur. Projenizi hello olmayan-tanımlayıcı adlı StackExchange.Redis sürümü kaldırmanız gerekir kullanıyorsanız, aksi takdirde, projenizde adlandırma çakışmaları alın. Bu paketleri hakkında daha fazla bilgi için bkz: [yapılandırma .NET önbellek istemcilerinin](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
+>Tanımlayıcı adlı StackExchange.Redis.StrongName paket ek olarak, ayrıca olmayan-tanımlayıcı adlı StackExchange.Redis sürümü vardır. Projenizi kaldırmalısınız olmayan-tanımlayıcı adlı StackExchange.Redis sürümünü kullanıyorsanız, aksi takdirde, projenizde adlandırma çakışmaları alın. Bu paketleri hakkında daha fazla bilgi için bkz: [yapılandırma .NET önbellek istemcilerinin](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 >
 >
 
-Hello paketi indirir ve hello ekler NuGet gerekli derleme başvuruyor ve bölümü web.config dosyanıza aşağıdaki hello ekler. Bu bölümde, ASP.NET uygulama toouse hello Redis önbelleği oturum durumu sağlayıcısı için hello gerekli yapılandırmayı içerir.
+NuGet paketi indirir ve gerekli derleme başvurularını ekler ve aşağıdaki bölümü web.config dosyasına ekler. Bu bölüm, Redis önbelleği oturum durumu sağlayıcısı kullanmak, ASP.NET uygulamanız için gerekli yapılandırmayı içerir.
 
 ```xml
 <sessionState mode="Custom" customProvider="MySessionStateStore">
@@ -70,25 +70,25 @@ Hello paketi indirir ve hello ekler NuGet gerekli derleme başvuruyor ve bölüm
 </sessionState>
 ```
 
-Merhaba geçersiz kılınan bölüm hello özniteliklerinin ve örnek ayarlarını her özniteliği için bir örnek sağlar.
+Açıklamalı bölüm öznitelikleri ve örnek ayarlarını her özniteliği için bir örnek sağlar.
 
-Merhaba Microsoft Azure Portalı'nda önbellek dikey pencerenizin hello değerlerle Hello öznitelikleri yapılandırmak ve yapılandırmak istediğiniz gibi diğer değerleri hello. Önbellek özelliklerine erişme ile ilgili yönergeler için bkz: [Redis önbelleği ayarlarını yapılandırma](cache-configure.md#configure-redis-cache-settings).
+Microsoft Azure Portal'da önbellek dikey pencerenizin değerlerle öznitelikleri yapılandırma ve diğer değerleri istediğiniz gibi yapılandırın. Önbellek özelliklerine erişme ile ilgili yönergeler için bkz: [Redis önbelleği ayarlarını yapılandırma](cache-configure.md#configure-redis-cache-settings).
 
 * **ana bilgisayar** – önbellek uç noktasını belirtin.
-* **bağlantı noktası** – SSL olmayan bağlantı noktası veya hello ssl ayarlarına bağlı olarak, SSL bağlantı noktası kullanın.
-* **accessKey** – önbelleğiniz için ya da hello birincil veya ikincil anahtarı kullanın.
-* **SSL** – toosecure önbellek/istemci iletişimleri ile ssl istiyorsanız True, aksi takdirde false. Emin toospecify hello doğru bağlantı noktası olabilir.
-  * Merhaba SSL olmayan bağlantı noktasının yeni önbellekler için varsayılan olarak devre dışıdır. Bu ayar toouse hello SSL bağlantı noktası için true belirtin. Merhaba hello SSL olmayan bağlantı noktası etkinleştirme hakkında daha fazla bilgi için bkz: [erişim bağlantı noktaları](cache-configure.md#access-ports) hello bölümünde [bir önbellek yapılandırma](cache-configure.md) konu.
-* **throwOnError** – varsa bir hata ya da false hello işlemi toofail sessizce istiyorsanız oluşturulan bir özel durum toobe istiyorsanız true. Merhaba statik Microsoft.Web.Redis.RedisSessionStateProvider.LastException özelliğini kontrol ederek için bir hata kontrol edebilirsiniz. Merhaba varsayılan değer true şeklindedir.
-* **retryTimeoutInMilliseconds** – başarısız olan işlemleri milisaniye cinsinden belirtilen bu aralığında denenecek. Merhaba ilk yeniden deneme 20 milisaniye sonra gerçekleşir ve saniyede hello retryTimeoutInMilliseconds aralığı sona erene kadar yeniden denemeler meydana gelir. Bu aralık hemen sonra hello işlemi bir son kez yeniden denenir. Merhaba işlem yine başarısız olursa, hello özel geri hello throwOnError ayarı bağlı olarak toohello çağıran durum oluşur. yeniden deneme yok anlamına gelir 0 Hello varsayılan değerdir.
-* **Databaseıd** – hangi veritabanı toouse önbelleği için çıktı verilerini belirtir. Belirtilmezse, 0 hello varsayılan değeri kullanılır.
-* **applicationName** – anahtarları redis depolanır `{<Application Name>_<Session ID>}_Data`. Bu adlandırma şeması birden çok uygulama etkinleştirir tooshare hello aynı Redis örneği. Bu parametre isteğe bağlıdır ve onu belirtmezseniz, varsayılan değer kullanılır.
-* **connectionTimeoutInMilliseconds** – Bu ayar, hello StackExchange.Redis istemci ayarı toooverride hello connectTimeout sağlar. Belirtilmezse, 5000 hello varsayılan connectTimeout ayarı kullanılır. Daha fazla bilgi için bkz: [StackExchange.Redis yapılandırma modeli](http://go.microsoft.com/fwlink/?LinkId=398705).
-* **operationTimeoutInMilliseconds** – Bu ayar, hello StackExchange.Redis istemci ayarı toooverride hello syncTimeout sağlar. Belirtilmezse, 1000 hello varsayılan syncTimeout ayar kullanılır. Daha fazla bilgi için bkz: [StackExchange.Redis yapılandırma modeli](http://go.microsoft.com/fwlink/?LinkId=398705).
+* **bağlantı noktası** – SSL olmayan bağlantı noktası veya ssl ayarlarına bağlı olarak, SSL bağlantı noktası kullanın.
+* **accessKey** – önbelleğiniz için birincil veya ikincil anahtarı kullanın.
+* **SSL** – önbelleği/istemci iletişimleri ssl ile güvenli hale getirmek istiyorsanız True, aksi takdirde false. Doğru bağlantı noktasına belirttiğinizden emin olun.
+  * SSL olmayan bağlantı noktasın yeni önbellekler için varsayılan olarak devre dışı bırakılmıştır. SSL bağlantı noktası kullanmak üzere bu ayarı TRUE belirtin. SSL olmayan bağlantı noktası etkinleştirme hakkında daha fazla bilgi için bkz: [erişim bağlantı noktaları](cache-configure.md#access-ports) bölümüne [bir önbellek yapılandırma](cache-configure.md) konu.
+* **throwOnError** – varsa bir hata ya da false işlemi sessizce başarısız isterseniz durum için bir özel durum istiyorsanız true. Statik Microsoft.Web.Redis.RedisSessionStateProvider.LastException özelliğini kontrol ederek için bir hata kontrol edebilirsiniz. Varsayılan değer true şeklindedir.
+* **retryTimeoutInMilliseconds** – başarısız olan işlemleri milisaniye cinsinden belirtilen bu aralığında denenecek. İlk yeniden deneme 20 milisaniye sonra gerçekleşir ve saniyede retryTimeoutInMilliseconds aralığı sona erene kadar yeniden denemeler meydana gelir. Bu aralık hemen sonra işlemi bir son kez yeniden denenir. İşlem yine başarısız olursa, özel durum geri çağırana throwOnError ayarı bağlı olarak atılır. Varsayılan değer yeniden deneme yok yani 0 ' dır.
+* **Databaseıd** – hangi veritabanı önbellek çıktı verileri için kullanılacağını belirtir. Belirtilmezse, varsayılan değer 0 kullanılır.
+* **applicationName** – anahtarları redis depolanır `{<Application Name>_<Session ID>}_Data`. Bu adlandırma şeması aynı Redis örneğini paylaşmak birden çok uygulama sağlar. Bu parametre isteğe bağlıdır ve onu belirtmezseniz, varsayılan değer kullanılır.
+* **connectionTimeoutInMilliseconds** – Bu ayar, StackExchange.Redis istemcisi connectTimeout ayarında geçersiz kılmanıza olanak sağlar. Belirtilmezse, varsayılan connectTimeout ayarını 5000 kullanılır. Daha fazla bilgi için bkz: [StackExchange.Redis yapılandırma modeli](http://go.microsoft.com/fwlink/?LinkId=398705).
+* **operationTimeoutInMilliseconds** – Bu ayar, StackExchange.Redis istemcisi syncTimeout ayarında geçersiz kılmanıza olanak sağlar. Belirtilmezse, varsayılan syncTimeout ayarı 1000 kullanılır. Daha fazla bilgi için bkz: [StackExchange.Redis yapılandırma modeli](http://go.microsoft.com/fwlink/?LinkId=398705).
 
-Bu özellikler hakkında daha fazla bilgi için bkz: hello özgün blog yayını duyurusuna en [Redis için ASP.NET oturum durumu sağlayıcısı Duyurusu](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
+Bu özellikler hakkında daha fazla bilgi için özgün blog yayını duyurusuna bakın [Redis için ASP.NET oturum durumu sağlayıcısı Duyurusu](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx).
 
-Merhaba standart InProc oturum durumu sağlayıcısı bölümünde web.config çıkışı toocomment unutmayın.
+Standart InProc oturum durumu sağlayıcısı bölümünde web.config çıkışı açıklama unutmayın.
 
 ```xml
 <!-- <sessionState mode="InProc"
@@ -103,20 +103,20 @@ Merhaba standart InProc oturum durumu sağlayıcısı bölümünde web.config ç
 </sessionState> -->
 ```
 
-Bu adımları gerçekleştirdikten sonra yapılandırılmış toouse hello Redis önbelleği oturum durumu sağlayıcısı uygulamasıdır. Uygulamanızda oturum durumu kullandığınızda, bir Azure Redis önbelleği örneği depolanır.
+Bu adımları gerçekleştirdikten sonra uygulamanızı Redis önbelleği oturum durumu sağlayıcısı kullanacak şekilde yapılandırılır. Uygulamanızda oturum durumu kullandığınızda, bir Azure Redis önbelleği örneği depolanır.
 
 > [!IMPORTANT]
-> Merhaba önbellekte depolanan veriler, seri hale getirilebilir, hello depolanabilir hello veri aksine bellek içi ASP.NET oturum durumu sağlayıcısı varsayılan. Merhaba Redis oturum durumu Sağlayıcısı kullanıldığında, oturum durumu içinde depolanan hello veri türleri seri hale getirilebilir olduğundan emin olun.
+> Önbellekte depolanan veriler Serileştirilebilir olmalıdır, bellek içi ASP.NET oturum durumunu sağlayıcısı varsayılan olarak depolanan veriler farklı. Oturum durumu sağlayıcısı Redis için kullanıldığında, oturum durumu içinde depolanan veri türleri seri hale getirilebilir olduğundan emin olun.
 > 
 > 
 
 ## <a name="aspnet-session-state-options"></a>ASP.NET oturum durumu seçenekleri
-* Bellek oturum durumu sağlayıcısı - bu sağlayıcı hello oturum durumu bellekte depolar. Bu sağlayıcı kullanmanın hello avantajı, basit ve hızlı ' dir. Ancak değil dağıtılmış beri bellek sağlayıcısında kullanıyorsanız, Web uygulamalarınızı ölçeklendirme olamaz.
-* SQL Server oturum durumu sağlayıcısı - bu sağlayıcı hello oturum durumu Sql Server içinde depolar. Toostore hello oturum durumu kalıcı depolama alanına istiyorsanız bu sağlayıcıyı kullanın. Web uygulamanızı ölçeklendirebilirsiniz ancak oturum açmak için Sql Server kullanan Web uygulamanıza bir performans etkisi olur.
-* Dağıtılmış bellek oturum durumu sağlayıcısı gibi Redis, önbelleği oturum durumu sağlayıcısı - iki açıdan da hello bu sağlayıcı sağlar. Web uygulamanızı basit, hızlı ve ölçeklenebilir bir oturum durumu sağlayıcısı olabilir. Bu sağlayıcı depoları hello bir önbellekte uygulamanız oturum durumu tootake dikkate sahip olduğu tüm tooa geçici ağ hataları gibi belirli bir önbellek dağıtılmış konuşurken ilişkili özelliklere hello. Önbellek kullanımı en iyi uygulamalar için bkz: [Kılavuzu önbelleğe alma](../best-practices-caching.md) Microsoft Patterns & yöntemler [Azure bulut uygulama tasarımı ve Uygulama Kılavuzu](https://github.com/mspnp/azure-guidance).
+* Bellek oturum durumu sağlayıcısı - bu sağlayıcı oturum durumu bellekte depolar. Bu sağlayıcı kullanmanın faydası, basit ve hızlı ' dir. Ancak değil dağıtılmış beri bellek sağlayıcısında kullanıyorsanız, Web uygulamalarınızı ölçeklendirme olamaz.
+* SQL Server oturum durumu sağlayıcısı - bu sağlayıcısı, Sql Server'da oturum durumu depolar. Oturum durumu kalıcı depolama alanına saklamak isterseniz bu sağlayıcıyı kullanın. Web uygulamanızı ölçeklendirebilirsiniz ancak oturum açmak için Sql Server kullanan Web uygulamanıza bir performans etkisi olur.
+* Dağıtılmış bellek oturum durumu sağlayıcısı Redis, önbelleği oturum durumu sağlayıcısı - bu sağlayıcının gibi en iyi iki açıdan da avantaj sağlar. Web uygulamanızı basit, hızlı ve ölçeklenebilir bir oturum durumu sağlayıcısı olabilir. Bu sağlayıcı oturum durumu verilerini bir önbellekte depolar olduğundan, uygulamanızı bir dağıtılmış, önbellek, geçici ağ hataları gibi konuşurken ilişkili tüm özelliklerini dikkate almanız gerekir. Önbellek kullanımı en iyi uygulamalar için bkz: [Kılavuzu önbelleğe alma](../best-practices-caching.md) Microsoft Patterns & yöntemler [Azure bulut uygulama tasarımı ve Uygulama Kılavuzu](https://github.com/mspnp/azure-guidance).
 
 Oturum durumu ve diğer en iyi uygulamalar hakkında daha fazla bilgi için bkz: [Web geliştirme en iyi yöntemler (yapı gerçek bulut uygulamaları Azure ile)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Merhaba denetleyin [Azure Redis önbelleği için ASP.NET çıktı önbelleği sağlayıcısı](cache-aspnet-output-cache-provider.md).
+Kullanıma [Azure Redis önbelleği için ASP.NET çıktı önbelleği sağlayıcısı](cache-aspnet-output-cache-provider.md).
 

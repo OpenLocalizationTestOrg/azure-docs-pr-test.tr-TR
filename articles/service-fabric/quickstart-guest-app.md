@@ -1,6 +1,6 @@
 ---
-title: "aaaQuickly var olan bir uygulama tooan Azure Service Fabric kümesi dağıtma"
-description: "Azure Service Fabric kümesi toohost var olan bir Node.js uygulamasını Visual Studio ile kullanın."
+title: "Mevcut uygulamayı Azure Service Fabric kümesine hızla dağıtma"
+description: "Mevcut Node.js uygulamasını Visual Studio ile barındırmak için Azure Service Fabric kümesi kullanın."
 services: service-fabric
 documentationcenter: nodejs
 author: thraka
@@ -14,47 +14,47 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/13/2017
 ms.author: adegeo
-ms.openlocfilehash: 20a3eb4a9206ba465acf96d0976ba241b07158bc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 3601b73872bbea4b4e5324382eb97b7384ca6e13
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Node.js uygulamasını Azure Service Fabric'te barındırma
 
-Bu hızlı başlangıç Azure üzerinde çalışan bir var olan uygulama (Bu örnekte Node.js) tooa Service Fabric kümesi dağıtmanıza yardımcı olur.
+Bu hızlı başlangıç, mevcut uygulamayı (bu örnekte Node.js) Azure üzerinde çalışan bir Service Fabric kümesine dağıtmanıza yardımcı olur.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Başlamadan önce [geliştirme ortamınızı ayarladığınızdan](service-fabric-get-started.md) emin olun. Merhaba Service Fabric SDK ve Visual Studio 2017 veya 2015 yüklenmesini içerir.
+Başlamadan önce [geliştirme ortamınızı ayarladığınızdan](service-fabric-get-started.md) emin olun. Bu, Service Fabric SDK'sını ve Visual Studio 2017 veya 2015'i yüklemeyi de içerir.
 
-Dağıtım için toohave var olan bir Node.js uygulamasını da gerekir. Bu hızlı başlangıçta, [buradan][download-sample] indirilebilen basit bir Node.js web sitesi kullanılmıştır. Bu dosya tooyour ayıklamak `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\` hello sonraki adımda hello projesi oluşturduktan sonra klasör.
+Ayrıca dağıtım için bir Node.js uygulamanız da olmalıdır. Bu hızlı başlangıçta, [buradan][download-sample] indirilebilen basit bir Node.js web sitesi kullanılmıştır. Sonraki adımda projeyi oluşturduktan sonra, bu dosyayı `<path-to-project>\ApplicationPackageRoot\<package-name>\Code\` klasörünüze ayıklayın.
 
 Azure aboneliğiniz yoksa [ücretsiz bir hesap][create-account] oluşturun.
 
-## <a name="create-hello-service"></a>Merhaba hizmet oluşturma
+## <a name="create-the-service"></a>Hizmeti oluşturma
 
 Visual Studio'yu **yönetici** olarak başlatın.
 
 `CTRL`+`SHIFT`+`N` ile bir proje oluşturun
 
-Merhaba, **yeni proje** iletişim kutusunda, seçin **bulut > Service Fabric uygulaması**.
+**Yeni Proje** iletişim kutusunda **Bulut > Service Fabric Uygulaması**'nı seçin.
 
-Ad Merhaba uygulaması **MyGuestApp** ve basın **Tamam**.
+Uygulamaya **MyGuestApp** adını verin ve **Tamam**'a basın.
 
 >[!IMPORTANT]
->Node.js hello 260 karakter sınırını windows olan yollar için kolayca bozulabilir. Kısa bir yol hello projesi için kendisini gibi kullandığınız **c:\code\svc1**.
+>Node.js, Windows'un yollara getirdiği 260 karakter sınırını kolayca aşabilir. Projenin kendisi için kısa bir yol (örneğin, **c:\code\svc1**) kullanın.
    
 ![Visual Studio'da yeni proje iletişim kutusu][new-project]
 
-Service Fabric hizmeti herhangi bir türde hello sonraki iletişim kutusundan oluşturabilirsiniz. Bu hızlı başlangıç için **Konuk Yürütülebilir Dosyası**'nı seçin.
+Sonraki iletişim kutusunda her türde Service Fabric hizmeti oluşturabilirsiniz. Bu hızlı başlangıç için **Konuk Yürütülebilir Dosyası**'nı seçin.
 
-Ad hello hizmeti **MyGuestService** ve hello sağ toohello üzerinde hello seçeneklerini ayarlama aşağıdaki değerler:
+Hizmeti **MyGuestService** olarak adlandırın ve sağdaki seçenekleri aşağıdaki değerlere ayarlayın:
 
 | Ayar                   | Değer |
 | ------------------------- | ------ |
-| Kod Paketi Klasörü       | _&lt;Node.js uygulamanızı Hello klasörüyle&gt;_ |
-| Kod Paketi Davranışı     | Klasör içeriği tooproject kopyalama |
+| Kod Paketi Klasörü       | _&lt;Node.js uygulamanızla gelen klasör&gt;_ |
+| Kod Paketi Davranışı     | Klasör içeriğini projeye kopyala |
 | Program                   | node.exe |
 | Bağımsız Değişkenler                 | server.js |
 | Çalışma Klasörü            | CodePackage |
@@ -63,9 +63,9 @@ Ad hello hizmeti **MyGuestService** ve hello sağ toohello üzerinde hello seçe
 
 ![Visual Studio'da yeni hizmet iletişim kutusu][new-service]
 
-Visual Studio hello uygulama projesi ve hello aktör hizmeti projesi oluşturur ve bunları Çözüm Gezgini'nde görüntüler.
+Visual Studio uygulama projesini ve aktör hizmeti projesini oluşturup bu projeleri Çözüm Gezgini'nde görüntüler.
 
-Merhaba uygulama projesi (**MyGuestApp**) herhangi bir kod doğrudan içermiyor. Bunun yerine, bir dizi hizmet projesine başvuru sağlar. Ayrıca, bunlardan farklı olarak üç tür içerik daha barındırır:
+Uygulama projesi (**MyGuestApp**) doğrudan kod içermez. Bunun yerine, bir dizi hizmet projesine başvuru sağlar. Ayrıca, bunlardan farklı olarak üç tür içerik daha barındırır:
 
 * **Yayımlama profilleri**  
 Farklı ortamlar için araç tercihleri.
@@ -74,20 +74,20 @@ Farklı ortamlar için araç tercihleri.
 Uygulamanızı dağıtmak/yükseltmek için PowerShell betiği.
 
 * **Uygulama tanımı**  
-Merhaba uygulama bildirimi içerir *ApplicationPackageRoot*. İlişkili uygulama parametreleri dosyalarını olan altında *ApplicationParameters*, hello uygulamayı tanımlayan ve tooconfigure izin özellikle belirli bir ortam için.
+*ApplicationPackageRoot* altındaki uygulama bildirimini içerir. İlişkili uygulama parametre dosyaları, uygulamayı tanımlayan ve belirli bir ortam için özel olarak yapılandırmanıza imkan tanıyan *ApplicationParameters* altında bulunur.
     
-Merhaba hizmet projesi Merhaba içeriğine genel bakış için bkz: [Reliable Services ile çalışmaya başlama](service-fabric-reliable-services-quick-start.md).
+Hizmet projesinin içeriklerine genel bakış için bkz. [Reliable Services ile çalışmaya başlama](service-fabric-reliable-services-quick-start.md).
 
 ## <a name="set-up-networking"></a>Ağı ayarlama
 
-Node.js uygulaması dağıtma kullandığı bağlantı noktası hello örnek **80** ve tootell kullanıma sunulan bağlantı noktası olduğunu ihtiyacımız Service Fabric ihtiyacımız.
+Dağıttığımız örnek Node.js uygulamasında **80** bağlantı noktası kullanılır ve Service Fabric'e bu bağlantı noktasının ortaya çıkarılmasını bildirmemiz gerekir.
 
-Açık hello **ServiceManifest.xml** hello proje dosyasında. Hello bildirimi Hello kısımda olduğu bir `<Resources> \ <Endpoints>` önceden tanımlanmış bir girişi. Bu giriş tooadd değiştirme `Port`, `Protocol`, ve `Type`. 
+Projedeki **ServiceManifest.xml** dosyasını açın. Bildirimin en altında, girdisi zaten tanımlanmış bir `<Resources> \ <Endpoints>` vardır. Bu girdiyi değiştirerek `Port`, `Protocol` ve `Type` ekleyin. 
 
 ```xml
   <Resources>
     <Endpoints>
-      <!-- This endpoint is used by hello communication listener tooobtain hello port on which too
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
       <Endpoint Name="MyGuestAppServiceTypeEndpoint" Port="80" Protocol="http" Type="Input" />
@@ -95,45 +95,45 @@ Açık hello **ServiceManifest.xml** hello proje dosyasında. Hello bildirimi He
   </Resources>
 ```
 
-## <a name="deploy-tooazure"></a>TooAzure dağıtma
+## <a name="deploy-to-azure"></a>Azure’a Dağıt
 
-Basarsanız **F5** ve başlangıç projesi çalıştırın, dağıtılan toohello yerel küme olabilir. Ancak, şimdi tooAzure yerine dağıtın.
+**F5**'e basar ve projeyi çalıştırırsanız, yerel kümeye dağıtılır. Ama biz bunun yerine Azure'a dağıtalım.
 
-Merhaba projeye sağ tıklayın ve seçin **Yayımla...**  iletişim toopublish tooAzure açar.
+Projeye sağ tıklayın ve Azure yayımlama iletişim kutusunu açan **Yayımla...** komutunu seçin.
 
-![Yayımlama yapı hizmeti için tooazure iletişim kutusu][publish]
+![Service Fabric hizmeti için Azure'a yayımlama iletişim kutusu][publish]
 
-Select hello **PublishProfiles\Cloud.xml** hedef profil.
+**PublishProfiles\Cloud.xml** hedef profilini seçin.
 
-Daha önce yapmadıysanız, bir Azure hesabı toodeploy seçin. Henüz hesabınız yoksa, [bir hesap için kaydolun][create-account].
+Daha önce yapmadıysanız, dağıtımın yapılacağı Azure hesabını seçin. Henüz hesabınız yoksa, [bir hesap için kaydolun][create-account].
 
-Altında **bağlantı uç noktasının**, hello Service Fabric kümesi toodeploy seçin. Bir yoksa seçin  **&lt;yeni küme oluştur... &gt;**  web tarayıcısı penceresi toohello Azure portal açar. Daha fazla bilgi için bkz: [hello Portalı'nda bir küme oluşturma](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
+**Bağlantı Uç Noktası**'nın altında, dağıtımın yapılacağı Service Fabric kümesini seçin. Kümeniz yoksa, web tarayıcısı penceresinde Azure portalını açan **&lt;Yeni Küme Oluştur...&gt;** öğesini seçin. Daha fazla bilgi için bkz. [Portalda küme oluşturma](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal). 
 
-Merhaba Service Fabric kümesi oluşturduğunuzda, emin tooset hello olun **özel uç noktaları** çok ayarı**80**.
+Service Fabric kümesini oluştururken, **Özel uç noktalar** ayarını **80** olarak belirleyin.
 
 ![Uç noktayla Service Fabric düğüm türü yapılandırması][custom-endpoint]
 
-Yeni bir Service Fabric kümesi oluşturuluyor bazı zaman toocomplete alır. Edildikten sonra oluşturulan, Git geri toohello yayımlama iletişim kutusu ve seçin  **&lt;yenileme&gt;**. Merhaba yeni küme hello açılan kutusunda listelenir; bunu seçin.
+Yeni Service Fabric kümesi oluşturma işleminin tamamlanması biraz zaman alır. Oluşturulduktan sonra, yayımlama iletişim kutusunu geri dönün ve **&lt;Yenile&gt;**'yi seçin. Yeni küme, açılan kutuna listelenir; yeni kümeyi seçin.
 
-Tuşuna **Yayımla** ve hello dağıtım toofinish için bekleyin.
+**Yayımla**'ya basın ve dağıtımın bitmesini bekleyin.
 
-Bu birkaç dakika sürebilir. İşlem tamamlandıktan sonra hello uygulama toobe tam olarak kullanılabilir için birkaç dakika sürebilir.
+Bu birkaç dakika sürebilir. Tamamlandıktan sonra, uygulamanın tümüyle kullanılabilir duruma gelmesi için birkaç dakika daha gerekebilir.
 
-## <a name="test-hello-website"></a>Test hello Web sitesi
+## <a name="test-the-website"></a>Web sitesini test etme
 
 Hizmetiniz yayımlandıktan sonra, hizmeti web tarayıcısında test edin. 
 
-İlk olarak, hello Azure portalını açın ve Service Fabric hizmetinizi bulun.
+İlk olarak, Azure portalını açın ve Service Fabric hizmetinizi bulun.
 
-Hello hizmeti adresi Hello genel bakış dikey penceresini denetleyin. Hello kullan hello etki alanı adından _istemci bağlantı uç noktasının_ özelliği. Örneğin, `http://mysvcfab1.westus2.cloudapp.azure.com`.
+Hizmet adresinin genel bakış dikey penceresini denetleyin. _İstemci bağlantısı uç noktası_ özelliğindeki etki alanı adını kullanın. Örneğin, `http://mysvcfab1.westus2.cloudapp.azure.com`.
 
-![Service fabric genel bakış dikey penceresinde hello Azure portalı][overview]
+![Azure portalında Service Fabric genel bakış dikey penceresi][overview]
 
-Merhaba göreceğiniz toothis adresine gidin `HELLO WORLD` yanıt.
+Bu adrese gidin; `HELLO WORLD` yanıtını göreceksiniz.
 
-## <a name="delete-hello-cluster"></a>Merhaba küme silme
+## <a name="delete-the-cluster"></a>Küme silme
 
-Siz bu hızlı başlangıç için oluşturduğunuz hello kaynakların tümünü bu kaynakları için ücretlendirilirsiniz toodelete unutmayın.
+Bu hızlı başlangıç için oluşturduğunuz kaynakların tümünü silmeyi unutmayın, çünkü bu kaynaklar için ücretlendirilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Konuk yürütülebilir dosyaları](service-fabric-deploy-existing-app.md) hakkındaki diğer yazıları okuyun.

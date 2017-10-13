@@ -1,5 +1,5 @@
 ---
-title: "aaaSign açma etkinliği raporu hata kodları hello Azure Active Directory portalında | Microsoft Docs"
+title: "Azure Active Directory portalında bulunan oturum açma etkinlik raporundaki hata kodları | Microsoft Docs"
 description: "Oturum açma etkinlik raporu hata kodları başvurusu."
 services: active-directory
 documentationcenter: 
@@ -15,25 +15,25 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a0ca5b706bfeb0c7ce669712468a083a394712b4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2a1b7b87df2cd8fa2e98f217480b46f5f6334297
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/29/2017
 ---
-# <a name="sign-in-activity-report-error-codes-in-hello-azure-active-directory-portal"></a>Hello Azure Active Directory portalında oturum açma etkinliği raporu hata kodları
+# <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Azure Active Directory portalında bulunan oturum açma etkinlik raporundaki hata kodları
 
-Merhaba kullanıcı oturum açma işlemleri raporu tarafından sağlanan hello bilgilerle yanıtlar tooquestions gibi bulun:
+Kullanıcı oturum açma işlemlerinin raporuyla sağlanan bilgiler sayesinde aşağıdakiler gibi soruların yanıtlarını bulabilirsiniz:
 
 - Kimler Azure Active Directory kullanarak oturum açtı?
 - Hangi uygulamalarda oturum açıldı?
 - Hangi oturum açma girişimleri başarısız oldu ve neden?
 
-Bu konuda listeleri hello hata kodları ve ilgili açıklamalar hello. 
+Bu konu başlığı altında, hata kodları ve ilgili açıklamaları listelenir. 
 
 ## <a name="how-can-i-display-failed-sign-ins"></a>Başarısız oturum açma girişimlerini nasıl görüntüleyebilirim? 
 
-Verilerin ilk giriş noktası tooall oturum açma etkinliklerinizi  **[oturum açma işlemleri](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)**  hello içinde **etkinlik** bölümünü **Azure Active**.
+Tüm oturum açma etkinliği verilerine ilk giriş noktanız, **Azure Active**’in **Etkinlik** bölümündeki **[Oturum açma işlemleri](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)** kısmıdır.
 
 
 ![Oturum açma etkinliği](./media/active-directory-reporting-activity-sign-ins-errors/61.png "oturum açma etkinliği")
@@ -44,60 +44,60 @@ Oturum açma raporunuzda tüm başarısız oturum açma işlemlerini görüntül
 
 ![Oturum açma etkinliği](./media/active-directory-reporting-activity-sign-ins-errors/06.png "oturum açma etkinliği")
 
-Görüntülenen hello listeden bir öğe tıklatıldığında, açılır hello **etkinliği ayrıntıları: oturum açma işlemleri** dikey. Bu görünüm, Azure Active Directory oturum hello dahil olmak üzere bileşenler hakkında izleyen tüm hello ayrıntıları sağlar **oturum açma hata kodu** ve **başarısızlık nedeniyle**.
+Görüntülenen listedeki bir öğeye tıklarsanız **Etkinlik Ayrıntıları: Oturum açma işlemleri** dikey penceresi açılır. Bu görünüm size Azure Active Directory’nin oturum açma işlemleriyle ilgili olarak izlediği tüm ayrıntıları gösterir; bunlara **oturum açma hata kodu** ve **hatanın nedeni** de dahildir.
 
 ![Oturum açma etkinliği](./media/active-directory-reporting-activity-sign-ins-errors/05.png "oturum açma etkinliği")
 
 
-Bir alternatif toousing hello Azure portal tooaccess hello gerçekleştirilen oturum açma verileri hello de kullanabilirsiniz [raporlama API'si](active-directory-reporting-api-getting-started-azure-portal.md).
+Oturum açma verilerine erişmek için Azure portalını kullanmaya alternatif olarak [raporlama API'sini](active-directory-reporting-api-getting-started-azure-portal.md) de kullanabilirsiniz.
 
 
-Merhaba aşağıdaki bölümde, tüm olası hataları ve hello tam olarak genel bakış ile sağlar ilgili açıklamalar. 
+Aşağıdaki bölümde, tüm olası hataları ve ilgili açıklamalarını kapsayan bir genel bakış sağlanır. 
 
 ## <a name="error-codes"></a>Hata kodları
 
 | Hata| Açıklama |
 | --- | --- |
-| 50001| X adlı hello hizmet sorumlusu Y adlı hello Kiracı içinde bulunamadı. Merhaba uygulaması hello Kiracı hello Yöneticisi tarafından yüklü değilse bu durum oluşabilir. Veya kaynak asıl hello dizininde bulunamadı veya geçersiz|
-| 50008| SAML onayı eksik veya yanlış yapılandırılmış hello belirteci.|
-| 50011| Merhaba yanıt adresi eksik, yanlış yapılandırılmış veya hello uygulama için yapılandırılan yanıt adresleri eşleşmiyor.|
-| 50053| Kullanıcı toosign içinde çok fazla kez ile yanlış kullanıcı kimliği veya parola denediğinden hesap kilitlendi.|
+| 50001| X adlı hizmet sorumlusu Y adlı kiracıda bulunamadı. Uygulama, kiracının yöneticisi tarafından yüklenmediyse bu durum ortaya çıkabilir. Ayrıca, kaynak sorumlusu dizinde bulunamamış veya geçersiz de olabilir|
+| 50008| SAML onay deyimi eksik veya belirteçte yanlış yapılandırılmış.|
+| 50011| Yanıt adresi eksik, yanlış yapılandırılmış veya uygulama için yapılandırılan yanıt adresleriyle eşleşmiyor.|
+| 50053| Kullanıcı, yanlış kullanıcı kimliği veya parola ile çok fazla kez oturum açmaya çalıştığı için hesap kilitlendi.|
 | 50054| Kimlik doğrulaması için eski parola kullanıldı.|
 | 50055| Geçersiz parola, süresi dolmuş parola girildi.|
 | 50057| Kullanıcı hesabı devre dışı bırakıldı.|
-| 50058| Kullanıcının kimliği hakkında hiçbir bilgi arasında kimlik bilgileri veya kullanıcı Kiracı içinde bulunamadı veya sessiz bir oturum açma isteği gönderildi ancak hiçbir kullanıcının oturum açtığı veya hizmeti oluşturamıyor tooauthenticate hello kullanıcı tarafından sağlanan bulunamadı.|
+| 50058| Sağlanan kimlik bilgilerinde kullanıcının kimliğiyle ilgili hiçbir bilgi bulunamadı veya Kullanıcı, kiracıda bulunamadı veya Sessiz bir oturum açma isteği gönderildi ancak hiçbir kullanıcı oturum açmadı veya Hizmet, kullanıcının kimliğini doğrulayamadı.|
 | 50074| Güçlü Kimlik Doğrulaması (ikinci faktör) gereklidir|
-| 50079| Kullanıcı tooenroll ikinci faktörlü kimlik doğrulaması için gerekiyor.|
+| 50079| Kullanıcının ikinci faktör kimlik doğrulamasına kaydolması gerekir|
 | 50126| Geçersiz kullanıcı adı veya parola ya da Geçersiz şirket içi kullanıcı adı veya parola.|
-| 50131| Çeşitli koşullu erişim hatalarında kullanılır. Örneğin hatalı Windows cihaz durumu isteği kararları toosuspicious etkinlik, erişim ilkesini ve güvenlik ilkesi engellendi.|
-| 50133| Tooexpiration veya son parola değişikliği geçersiz.|
+| 50131| Çeşitli koşullu erişim hatalarında kullanılır. Örneğin: Hatalı Windows cihazı durumu, şüpheli etkinlik nedeniyle istek engellendi, erişim ilkesi ve güvenlik ilkesi kararları.|
+| 50133| Süresi dolduğu veya yakın zamanda parola değiştirildiği için oturum geçersiz.|
 | 50144| Kullanıcının Active Directory parolasının süresi doldu.|
-| 65001| Uygulama X izni tooaccess uygulama Y yok veya hello iznini iptal. Veya hello kullanıcı veya yönetici toouse hello uygulama kimliği x gönderme bu kullanıcı ve kaynak için bir etkileşimli yetkilendirme isteği ile seçtiği değil. Veya hello kullanıcı veya yönetici olmayan rıza toouse hello uygulamayla kimliği x gönderme bir yetkilendirme isteği tooyour Kiracı yönetici tooact hello uygulama adına: kaynak için Y: Z.|
-| 65005| Kaynak erişim listesi hello kaynak tarafından uygulamaları bulunabilirlik içermiyor veya Merhaba istemci uygulaması, gerekli kaynağa erişim listesi ya da hatalı döndürülen Grafik Hizmeti belirtilmedi erişim tooresource istedi Merhaba uygulaması gerekiyor istek veya kaynak bulunamadı.|
-| 70001| X adlı hello uygulaması Y adlı hello Kiracı içinde bulunamadı. Merhaba uygulaması tarafından yüklenmemiş varsa bu hello Kiracı veya razı tooby Yöneticisi hello Kiracı herhangi bir kullanıcı durum hello. Kimlik doğrulama isteği toohello yanlış Kiracı gönderilen.|
+| 65001| X uygulamasının Y uygulamasına erişim izni yok veya erişim izni iptal edildi. Veya Kullanıcı ya da yönetici X kimliğiyle uygulamanın kullanılmasını onaylamadı. Bu kullanıcı veya kaynak için etkileşimli yetkilendirme isteği gönderin. Veya Kullanıcı ya da yönetici X kimliğiyle uygulamanın kullanılmasını onaylamadı. Kaynak: Z için Uygulama: Y adına işlem yapmak üzere kiracı yöneticinize bir yetkilendirme isteği gönderin.|
+| 65005| Uygulamaya gereken kaynak erişim listesi, kaynak tarafından bulunabilen uygulamaları içermiyor veya İstemci uygulaması kendi gerekli kaynak erişim listesinde belirtilmemiş bir kaynağa erişim isteğinde bulundu veya Graph hizmeti hatalı istek döndürdü veya kaynak bulunamadı.|
+| 70001| X adlı uygulama Y adlı kiracıda bulunamadı. Uygulama, kiracının yöneticisi tarafından yüklenmediyse veya kiracıdaki herhangi bir kullanıcı tarafından onaylanmadıysa bu durum ortaya çıkabilir. Kimlik doğrulaması isteğinizi yanlış kiracıya göndermiş olabilirsiniz.|
 | 80001| Kullanılabilir Kimlik Doğrulama Aracısı yok.|
 | 80002| Kimlik Doğrulama Aracısı'nın parola doğrulama isteği zaman aşımına uğradı.|
 | 80003| Kimlik Doğrulama Aracısı tarafından geçersiz yanıt alındı.|
 | 80004| Oturum açma isteğinde yanlış Kullanıcı Asıl Adı (UPN) kullanıldı.|
 | 80005| Kimlik Doğrulama Aracısı: Hata oluştu.|
-| 80007| Kimlik Doğrulama Aracısı yüklenemiyor tooconnect tooActive dizini.|
-| 80010| Kimlik Doğrulama Aracısı yüklenemiyor toodecrypt parolası.|
+| 80007| Kimlik Doğrulama Aracısı Active Directory'ye bağlanamadı.|
+| 80010| Kimlik Doğrulama Aracısı parolanın şifresini çözemedi.|
 | 81001| Kullanıcının Kerberos anahtarı fazla büyük.|
-| 81002| %S toovalidate kullanıcının Kerberos bileti.|
-| 81003| %S toovalidate kullanıcının Kerberos bileti.|
+| 81002| Kullanıcının Kerberos anahtarı doğrulanamadı.|
+| 81003| Kullanıcının Kerberos anahtarı doğrulanamadı.|
 | 81004| Kerberos kimlik doğrulaması girişimi başarısız oldu.|
-| 81008| %S toovalidate kullanıcının Kerberos bileti.|
-| 81009| %S toovalidate kullanıcının Kerberos bileti.|
-| 81010| Merhaba kullanıcının Kerberos anahtarının süresi doldu veya geçersiz olduğu için sorunsuz SSO başarısız oldu.|
-| 81011| Merhaba kullanıcının Kerberos bileti içindeki bilgileri temel oluşturulamıyor toofind kullanıcı nesnesi.|
-| 81012| toosign tooAzure AD içinde çalışan hello kullanıcının hello cihazda imzalı hello kullanıcı farklıdır.|
-| 81013| Merhaba kullanıcının Kerberos bileti içindeki bilgileri temel oluşturulamıyor toofind kullanıcı nesnesi.|
-| 90014| Beklenen bir alan hello kimlik bilgisi mevcut olmadığında çeşitli durumlarda kullanılır.|
-| 90093| Grafik hello isteği Yasak hata kodunu döndürdü.|
+| 81008| Kullanıcının Kerberos anahtarı doğrulanamadı.|
+| 81009| Kullanıcının Kerberos anahtarı doğrulanamadı.|
+| 81010| Kullanıcının Kerberos anahtarının süresi dolduğu veya anahtar geçersiz olduğu için sorunsuz SSO başarısız oldu.|
+| 81011| Kullanıcının Kerberos anahtarındaki bilgiler temel alınarak kullanıcı nesnesi bulunamadı.|
+| 81012| Azure AD'de oturum açmaya çalışan kullanıcı, cihazda oturum açmış olan kullanıcıdan farklıdır.|
+| 81013| Kullanıcının Kerberos anahtarındaki bilgiler temel alınarak kullanıcı nesnesi bulunamadı.|
+| 90014| Kimlik bilgilerinde beklenen bir alanın bulunamadığı çeşitli durumlarda kullanılır.|
+| 90093| Graph istek için yasak hata kodu döndürdü.|
 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla ayrıntı için bkz: Merhaba [oturum açma etkinlik raporları'hello Azure Active Directory portalında](active-directory-reporting-activity-sign-ins.md).
+Daha ayrıntılı bilgi için bkz. [Azure Active Directory portalındaki oturum açma etkinlik raporları](active-directory-reporting-activity-sign-ins.md).
 

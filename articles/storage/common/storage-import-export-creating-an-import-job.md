@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate içe aktarma işi için Azure içeri/dışarı aktarma | Microsoft Docs"
-description: "Bilgi nasıl toocreate hello Microsoft Azure içeri/dışarı aktarma hizmeti için bir alma."
+title: "Azure içeri/dışarı aktarma için bir içeri aktarma işi oluşturma | Microsoft Docs"
+description: "Microsoft Azure içeri/dışarı aktarma hizmeti için bir alma oluşturmayı öğrenin."
 author: muralikk
 manager: syadav
 editor: syadav
@@ -14,96 +14,96 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: da974c33a3688bb5e2412c8bfcbeca704096c2fc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d373d2a0e601f2796719fc5efb8761f276ab24d9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="creating-an-import-job-for-hello-azure-importexport-service"></a>Hello Azure içeri/dışarı aktarma hizmeti için bir içeri aktarma işi oluşturma
+# <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti için bir alma işi oluşturma
 
-İçe aktarma işi hello REST API kullanarak hello Microsoft Azure içeri/dışarı aktarma hizmeti oluşturma hello aşağıdaki adımları içerir:
+REST API kullanarak Microsoft Azure içeri/dışarı aktarma hizmeti için bir alma işi oluşturma, aşağıdaki adımları içerir:
 
--   Hello Azure içeri/dışarı aktarma aracı olan sürücüleri hazırlanıyor.
+-   Azure içeri/dışarı aktarma aracı olan sürücüleri hazırlanıyor.
 
--   Başlangıç konumu toowhich tooship hello sürücü alma.
+-   Sürücü dağıtmayı konum alma.
 
--   Merhaba alma işi oluşturuluyor.
+-   İçe aktarma işi oluşturuluyor.
 
--   Merhaba sevkiyat tooMicrosoft desteklenen taşıyıcı hizmeti sürücüleri.
+-   Desteklenen taşıyıcı hizmeti üzerinden Microsoft'a sürücüleri aktarma.
 
--   Merhaba içe aktarma işi ile Sevkiyat ayrıntıları hello güncelleştiriliyor.
+-   İçe aktarma işi ile sevkiyat ayrıntılarını güncelleştiriliyor.
 
- Bkz: [hello Microsoft Azure içeri/dışarı aktarma hizmeti tooTransfer veri tooBlob depolama kullanarak](storage-import-export-service.md) genel bir bakış hello içeri/dışarı aktarma hizmeti ve gösteren bir öğretici için nasıl toouse hello [Azure portal](https://portal.azure.com/) toocreate alma yönetmek ve işleri dışarı aktarma.
+ Bkz: [Blob depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmeti kullanılarak](storage-import-export-service.md) genel bir bakış içeri/dışarı aktarma hizmeti ve nasıl kullanılacağını gösteren bir öğretici için [Azure portal](https://portal.azure.com/) oluşturmak ve içeri aktarma yönetmek ve işleri vermek için.
 
-## <a name="preparing-drives-with-hello-azure-importexport-tool"></a>Hello Azure içeri/dışarı aktarma aracı olan sürücüleri hazırlama
+## <a name="preparing-drives-with-the-azure-importexport-tool"></a>Azure içeri/dışarı aktarma aracı olan sürücüleri hazırlama
 
-Merhaba adımları tooprepare sürücüler içeri aktarma işi için olan hello aynı olup olmadığını oluşturduğunuz jobvia hello portal hello veya REST API aracılığıyla hello.
+Sürücüleri içeri aktarma işi için hazırlamak üzere adımları portalı jobvia oluşturmak veya REST API aracılığıyla aynıdır.
 
-Sürücü hazırlama kısa bir genel bakış aşağıdadır. Toohello başvuran [Azure alma ExportTool başvurusu](storage-import-export-tool-how-to-v1.md) tam yönergeler için. Hello Azure içeri/dışarı aktarma aracı indirebilirsiniz [burada](http://go.microsoft.com/fwlink/?LinkID=301900).
+Sürücü hazırlama kısa bir genel bakış aşağıdadır. Başvurmak [Azure alma ExportTool başvurusu](storage-import-export-tool-how-to-v1.md) tam yönergeler için. Azure içeri/dışarı aktarma aracı indirebilirsiniz [burada](http://go.microsoft.com/fwlink/?LinkID=301900).
 
 Sürücünüz hazırlanıyor içerir:
 
--   Merhaba veri toobe alınan tanımlayıcı.
+-   İçeri aktarılacak veri tanımlama.
 
--   Windows Azure depolama alanında Hello hedef BLOB'ları tanımlama.
+-   Windows Azure depolama alanındaki hedef BLOB'ları tanımlama.
 
--   Hello Azure içeri/dışarı aktarma aracı toocopy veri tooone ya da daha fazla sabit disk sürücüler kullanıyor.
+-   Bir veya daha fazla sabit sürücüler, verileri kopyalamak üzere Azure içeri/dışarı aktarma aracını kullanarak.
 
- hazırlandığını gibi hello Azure içeri/dışarı aktarma aracı ayrıca her hello sürücüleri için bir bildirim dosyası oluşturur. Bildirim dosyası içerir:
+ Hazırlandığını gibi Azure içeri/dışarı aktarma aracı ayrıca her sürücü için bir bildirim dosyası oluşturur. Bildirim dosyası içerir:
 
--   Karşıya yükleme ve bu dosyaları tooblobs hello eşlemelerini yönelik tüm hello dosyaları numaralandırması.
+-   Karşıya yükleme ve bu dosyaların eşlemeleri BLOB'lar için yönelik tüm dosyaların listesi.
 
--   Her bir dosyanın parçalarını hello sağlama.
+-   Her bir dosyanın parçalarını sağlama.
 
--   Her bir blob ile Merhaba meta verileri ve özellikleri tooassociate hakkında bilgi sağlar.
+-   Her bir blob ile ilişkilendirmek için özellikler ve meta verileri hakkında bilgiler.
 
--   Karşıya yüklenen bir blob hello varsa bir hello eylem tootake listeleme aynı hello kapsayıcısındaki bir blob olarak adlandırın. Olası seçenekler: a) hello blob ile Merhaba dosyanın üzerine, (b) hello mevcut blob ve hello dosyayı karşıya yüklemeyi atlayın tutmak, c) toohello sonek başka dosyalarla çakışmadığından emin Ekle.
+-   Karşıya yüklenen bir blob aynı adı taşıyan bir blob kapsayıcısında varsa yapılacak eylem listesi. Olası seçenekler: a) blob ile bu dosyanın üzerine, b) mevcut blob ve dosyayı karşıya yüklemeyi atlayın tutmak, c) bir sonek adına başka dosyalarla çakışmayacak şekilde ekleme.
 
 ## <a name="obtaining-your-shipping-location"></a>Sevkiyat Konumunuz alma
 
-İçe aktarma işi oluşturmadan önce tooobtain sevkiyat konum adı ve adres tarafından arama hello ihtiyacınız [listesi konumları](/rest/api/storageimportexport/listlocations) işlemi. `List Locations`konumlar ve posta adresleri listesi döndürür. Liste döndürülen hello bir konum seçin ve sabit sürücüler toothat adresinizi sevk. Merhaba de kullanabilirsiniz `Get Location` belirli bir konuma adresini doğrudan aktarma işlemi tooobtain hello.
+Sevkiyat konumu ad ve adres çağırarak elde etmeniz alma işi oluşturmadan önce [listesi konumları](/rest/api/storageimportexport/listlocations) işlemi. `List Locations`konumlar ve posta adresleri listesi döndürür. Döndürülen listeden bir konum seçin ve bu adresi, sabit sürücüler sevk. Aynı zamanda `Get Location` işlemi belirli bir konuma için teslimat adresi doğrudan elde edilir.
 
- Tooobtain hello sevkiyat konumu Hello adımları izleyin:
+ Sevkiyat konum elde etmek için aşağıdaki adımları izleyin:
 
--   Merhaba hello konumun depolama hesabınızın adını belirleyin. Bu değer hello altında bulunabilir **konumu** hello depolama hesabının alanını **Pano** hello Azure portal veya hello Hizmet Yönetimi API işlemi kullanarak için sorgulanan içinde [depolama Al Hesap özellikleri](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
+-   Konumun depolama hesabınızın adını belirleyin. Bu değer altında bulunabilir **konumu** depolama hesabının alanını **Pano** Azure portal ya da hizmet yönetimi API işlemi kullanarak için sorgulanan [depolama hesabı özellikleri Al](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).
 
--   Kullanılabilir tooprocess hello konuma göre arama hello bu depolama hesabı almak `Get Location` işlemi.
+-   Bu depolama hesabını çağırarak işlemek için konum almak `Get Location` işlemi.
 
--   Merhaba, `AlternateLocations` özelliği hello konumunun hello konumu kendisini içeren sonra kesebilirsiniz toouse olduğu bu konumu. Aksi takdirde hello çağrı `Get Location` hello alternatif konumlar biriyle yeniden işlemi. Merhaba özgün konumuna bakım için geçici olarak kapalı.
+-   Varsa `AlternateLocations` özelliği konumun Konum içerir ve ardından bu konumu kullanmak uygundur. Aksi halde çağrı `Get Location` alternatif konumlar biriyle yeniden işlemi. Özgün konuma bakım için geçici olarak kapalı.
 
-## <a name="creating-hello-import-job"></a>Merhaba alma işi oluşturma
-toocreate hello alma işi, çağrı hello [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) işlemi. Aşağıdaki bilgilerle tooprovide hello gerekir:
+## <a name="creating-the-import-job"></a>İçe aktarma işi oluşturma
+İçe aktarma işi oluşturmak için arama [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) işlemi. Aşağıdaki bilgileri sağlamanız gerekir:
 
--   Merhaba işi için bir ad.
+-   İş için bir ad.
 
--   Merhaba depolama hesabı adı.
+-   Depolama hesabı adı.
 
--   Merhaba sevkiyat Hello önceki adımda elde edilen konum adı.
+-   Önceki adımda elde edilen sevkiyat konum adı.
 
 -   İş türü (içe aktarma).
 
--   Merhaba dönüş adresi Hello alma işi tamamlandıktan sonra hello sürücüleri burada gönderilmelidir.
+-   Dönüş adresi alma işi tamamlandıktan sonra sürücüleri burada gönderilmelidir.
 
--   Merhaba işteki sürücülerin listesini Hello. Her bir sürücü için hello sürücü hazırlık adımı sırasında edinilen bilgisinden hello şunları içermelidir:
+-   İş sürücülerin listesi. Her bir sürücü için sürücü hazırlık adımında edinilen aşağıdaki bilgileri içermelidir:
 
-    -   Merhaba sürücü kimliği
+    -   Sürücü Kimliği
 
-    -   Merhaba BitLocker anahtarı
+    -   BitLocker anahtar
 
-    -   Merhaba bildirim dosyası göreli yolda hello sabit sürücü
+    -   Sabit sürücüde bildirim dosyası göreli yolu
 
-    -   bildirim dosyası MD5 karma değeri Hello Base16 kodlanmış
+    -   Bildirim dosyası MD5 karma Base16 kodlanmış
 
 ## <a name="shipping-your-drives"></a>Sürücülerinizin aktarma
-Merhaba önceki adımda elde ettiğiniz sürücüleri toohello adresinizi hazırlamalısınız ve hello içeri/dışarı aktarma hizmeti ile Merhaba paket sayısı izleme hello sağlamanız gerekir.
+Önceki adımda elde ettiğiniz adrese sürücülerinizin hazırlamalısınız ve paket izleme numarasıyla içeri/dışarı aktarma hizmeti sağlamalısınız.
 
 > [!NOTE]
 >  Sürücülerinizin paketiniz için bir izleme numarası sağlayacak bir desteklenen taşıyıcı hizmeti aracılığıyla hazırlamalısınız.
 
-## <a name="updating-hello-import-job-with-your-shipping-information"></a>Merhaba içe aktarma işi ile sevkiyat bilgilerinizi güncelleştirme
-İzleme numaranızın aldıktan sonra hello çağrısı [güncelleştirme işi özellikleri](/api/storageimportexport/jobs#Jobs_Update) taşıyıcı adı, hello izleme numarası hello işi için ve hello taşıyıcı hesap numarası dönüş sevkiyat aktarma işlemi tooupdate hello. İsteğe bağlı olarak, sürücüler ve tarihi de sevkiyat hello hello sayısını belirtebilirsiniz.
+## <a name="updating-the-import-job-with-your-shipping-information"></a>İçe aktarma işi ile sevkiyat bilgilerinizi güncelleştirme
+İzleme numaranızın aldıktan sonra arama [güncelleştirme işi özellikleri](/api/storageimportexport/jobs#Jobs_Update) Sevkiyat taşıyıcı adı, iş için izleme numarası ve dönüş Sevkiyat taşıyıcı hesap numarası güncelleştirmek için güncelleştirme işlemi. İsteğe bağlı olarak, sürücüler ve sevkiyat tarihi de sayısını belirtebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Merhaba içeri/dışarı aktarma hizmeti REST API'si kullanma](storage-import-export-using-the-rest-api.md)
+* [İçeri/dışarı aktarma hizmeti REST API'si kullanma](storage-import-export-using-the-rest-api.md)

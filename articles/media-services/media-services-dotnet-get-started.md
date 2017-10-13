@@ -1,6 +1,6 @@
 ---
-title: "aaaGet başlatılan .NET kullanarak isteğe bağlı içerik göndermeye | Microsoft Docs"
-description: "Bu öğreticide hello .NET kullanarak Azure Media Services ile bir üzerinde isteğe bağlı içerik teslim uygulaması gerçekleştirilmesinin adımları açıklanmaktadır."
+title: ".NET kullanarak isteğe bağlı içerik göndermeye başlama | Microsoft Belgeleri"
+description: "Bu öğreticide, .NET’i kullanarak Azure Media Services ile isteğe bağlı bir içerik teslim uygulaması gerçekleştirilmesinin adımları açıklanmaktadır."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,90 +14,90 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 07/31/2017
 ms.author: juliako
-ms.openlocfilehash: 4ca9394bd581e1d9062e5a008a410b2c058e017e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: f0be787ba1ccee067fb1d7e6a6554be32f886089
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>.NET SDK kullanarak isteğe bağlı içerik göndermeye başlama
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-Bu öğreticide, hello Azure Media Services .NET SDK kullanarak Azure Media Services (AMS) uygulaması ile temel bir isteğe bağlı video (VoD) içerik teslim hizmeti uygulamanın hello adımları açıklanmaktadır.
+Bu öğretici, Azure Media Services .NET SDK'sı kullanarak Azure Media Services (AMS) uygulaması ile temel bir İsteğe Bağlı Video (VoD) içerik teslim hizmeti uygulamanın adımlarını açıklar.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Merhaba, gerekli toocomplete hello öğretici şunlardır:
+Öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 
 * Bir Azure hesabı. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/).
-* Bir Media Services hesabı. bir Media Services hesabı toocreate bkz [nasıl tooCreate Media Services hesabı](media-services-portal-create-account.md).
+* Bir Media Services hesabı. Bir Media Services hesabı oluşturmak için bkz. [Media Services hesabı oluşturma](media-services-portal-create-account.md).
 * .NET framework 4.0 veya sonraki sürümü.
 * Visual Studio.
 
-Bu öğretici hello aşağıdaki görevleri içerir:
+Bu öğretici aşağıdaki görevleri içerir:
 
-1. Akış uç noktası (hello Azure portal kullanarak) başlatın.
+1. Akış uç noktalarını başlatın (Azure portalını kullanarak).
 2. Visual Studio projesi oluşturun ve yapılandırın.
-3. Toohello Media Services hesabına bağlanın.
+3. Media Services hesabına bağlanın.
 2. Bir video dosyası yükleyin.
-3. Merhaba kaynak dosya bit hızı Uyarlamalı MP4 dosyaları kümesine kodlayın.
-4. Merhaba varlık ve get akış ve aşamalı indirme URL'leri yayımlayın.  
+3. Kaynak dosyayı uyarlamalı bit hızlı bir MP4 dosyaları grubuna kodlayın.
+4. Varlığı yayımlayın, akış ve aşamalı indirme URL’lerini alın.  
 5. İçeriğinizi oynatın.
 
 ## <a name="overview"></a>Genel Bakış
-Bu öğreticide hello .NET için Azure Media Services (AMS) SDK kullanarak isteğe bağlı video (VoD) içerik teslim uygulaması gerçekleştirilmesinin adımları açıklanmaktadır.
+Bu öğreticide, .NET için Azure Media Services (AMS) SDK’sını kullanarak bir İsteğe Bağlı Video (VoD) içerik teslim uygulaması gerçekleştirilmesinin adımları açıklanmaktadır.
 
-Başlangıç Öğreticisi hello temel Media Services iş akışı, hello en genel programlama nesnelerini ve Media Services geliştirmek için gereken görevleri tanıtır. Başlangıç Öğreticisi Hello tamamlandığında mümkün toostream olması veya aşamalı olarak örnek bir medya dosyasını karşıya kodlanmış ve yüklenen indirebilirsiniz.
+Öğretici, temel Media Services iş akışını ve Media Services geliştirmek için gereken en genel programlama nesnelerini ve görevleri tanıtır. Öğreticiyi tamamladığınızda, yükleyip kodlayarak ardından indirdiğiniz örnek bir medya dosyasını akışla aktarabilecek veya aşamalı olarak indirebileceksiniz.
 
 ### <a name="ams-model"></a>AMS modeli
 
-Merhaba aşağıdaki görüntüde bazılarını hello en yaygın olarak kullanılan nesneler hello Media Services OData modelde VoD uygulamaları geliştirirken gösterir.
+Aşağıdaki resimde Media Services OData modeliyle VoD uygulamaları geliştirirken en sık kullanılan nesnelerin bazıları gösterilmektedir.
 
-Merhaba görüntü tooview boyutu tam'ı tıklatın.  
+Resmi tam boyutlu görüntülemek için tıklayın.  
 
 <a href="./media/media-services-dotnet-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-dotnet-get-started/media-services-overview-object-model-small.png"></a> 
 
-Merhaba tüm model görüntüleyebilirsiniz [burada](https://media.windows.net/API/$metadata?api-version=2.15).  
+Modelin tamamını [buradan](https://media.windows.net/API/$metadata?api-version=2.15) görüntüleyebilirsiniz.  
 
-## <a name="start-streaming-endpoints-using-hello-azure-portal"></a>Akış uç noktaları Hello Azure portal kullanarak Başlat
+## <a name="start-streaming-endpoints-using-the-azure-portal"></a>Azure portal ile akış uç noktalarını başlatma
 
-Merhaba en sık karşılaşılan senaryolardan biri, video bit hızı Uyarlamalı akış iletmektir Azure Media Services ile çalışırken. Media Services, bit hızı Uyarlamalı MP4 kodlanmış içeriğinizi Media Services (MPEG DASH, HLS, kesintisiz akış) tam zamanında tarafından önceden paketlenmiş toostore kalmadan desteklenen akış biçimlerinde toodeliver sağlayan dinamik paketleme sağlar Bu akış biçimlerine her da sürümleri.
+Azure Media Services ile çalışırken en sık karşılaşılan senaryolardan biri bit hızı uyarlamalı akış iletmektir. Media Services, bu akış biçimlerinin her birinin önceden paketlenmiş sürümlerini depolamanıza gerek kalmadan, uyarlamalı bit hızı MP4 ile kodlanmış içeriğinizi Media Services tarafından desteklenen akış biçimlerinde (MPEG DASH, HLS, Kesintisiz Akış) tam vaktinde göndermenize olanak tanıyan dinamik paketleme özelliğine sahiptir.
 
 >[!NOTE]
->AMS hesabınızı oluşturulduğunda bir **varsayılan** akış uç noktası ekleniyor tooyour hesabı hello **durduruldu** durumu. İçerik ve Al avantajı dinamik paketleme ve dinamik şifreleme akış toostart hello istediğiniz toostream içeriğe sahip toobe hello akış uç **çalıştıran** durumu.
+>AMS hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir.
 
-toostart akış uç Merhaba, aşağıdaki hello:
+Akış uç noktasını başlatmak için aşağıdakileri yapın:
 
-1. Merhaba oturum açma [Azure portal](https://portal.azure.com/).
-2. Hello Ayarları penceresinde, akış uç noktaları'ı tıklatın.
-3. Merhaba varsayılan akış uç noktası'ı tıklatın.
+1. [Azure portal](https://portal.azure.com/)’da oturum açın.
+2. Ayarlar penceresinde, Akış uç noktaları'na tıklayın.
+3. Varsayılan akış uç noktasına tıklayın.
 
-    Merhaba varsayılan akış uç noktası AYRINTILAR penceresi görüntülenir.
+    VARSAYILAN AKIŞ UÇ NOKTASI AYRINTILARI penceresi görüntülenir.
 
-4. Merhaba başlangıç simgesine tıklayın.
-5. Merhaba Kaydet düğmesine toosave değişikliklerinizi'ı tıklatın.
+4. Başlat simgesine tıklayın.
+5. Yaptığınız değişiklikleri kaydetmek için Kaydet düğmesine tıklayın.
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
 
-1. Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dosyası bağlantı bilgileriyle doldurmak [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md). 
-2. Yeni bir klasör oluşturun (klasör herhangi bir yerde olabilir yerel diskinize) ve tooencode ve akış istediğiniz veya aşamalı indirmek bir .mp4 dosyasını kopyalayın. Bu örnekte "C:\VideoFiles" yolu hello kullanılır.
+1. Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) bölümünde açıklandığı gibi bağlantı bilgileriyle doldurun. 
+2. Yeni bir klasör oluşturun (yerel sürücünüzün herhangi bir yerinde) ve kodlayıp akışla aktarmak veya aşamalı indirmek istediğiniz bir .mp4 dosyasını buraya kopyalayın. Bu örnekte "C:\VideoFiles" yolu kullanılmaktadır.
 
-## <a name="connect-toohello-media-services-account"></a>Toohello Media Services hesabına bağlanma
+## <a name="connect-to-the-media-services-account"></a>Media Services hesabına bağlanma
 
-Media Services .NET ile kullanırken hello kullanmalısınız **CloudMediaContext** çoğu Media Services programlama görevlerinin sınıfı: tooMedia Services hesabına bağlanma; oluşturma, güncelleştirme, erişme ve hello aşağıdaki silme nesneleri: varlıklar, varlık dosyaları, işler, erişim ilkeleri, bulucular vb..
+.NET ile Media Services’i kullanırken, Media Services programlama görevlerinin çoğu için **CloudMediaContext** sınıfını kullanmalısınız: Media Services hesabına bağlanma; şu nesneleri oluşturma, güncelleştirme, silme ve bunlara erişme: varlıklar, varlık dosyaları, işler, erişim ilkeleri, bulucular vb.
 
-Koddan hello ile Merhaba varsayılan Program sınıfının üzerine. Merhaba kod tooread hello bağlantı hello App.config dosyasından değerleri nasıl ve ne göstermektedir toocreate hello **CloudMediaContext** sipariş tooconnect tooMedia nesnesinde Hizmetleri. Daha fazla bilgi için bkz: [toohello Media Services API bağlanma](media-services-use-aad-auth-to-access-ams-api.md).
+Varsayılan Program sınıfının üzerine aşağıdaki kodu yazın. Kod, bağlantı değerlerinin App.config dosyasından nasıl okunacağını ve Media Services’e bağlanmak amacıyla **CloudMediaContext** nesnesinin nasıl oluşturulacağını gösterir. Daha fazla bilgi için bkz. [Media Services API'sine bağlanma](media-services-use-aad-auth-to-access-ams-api.md).
 
-Sahip olduğunuz emin tooupdate hello dosya adı ve yolu toowhere medya dosyanızın olun.
+Dosya adını ve yolunu medya dosyanıza göre güncelleştirmeyi unutmayın.
 
-Merhaba **ana** işlevi açıklanacak olan yöntemleri çağırır bu bölümün sonraki kısımlarında.
+**Ana** işlev, bu bölümün sonraki kısımlarında açıklanacak olan yöntemleri çağırır.
 
 > [!NOTE]
-> Tanımları tüm hello işlevler için eklenene kadar derleme hataları alma.
+> Tüm işlevler için tanım ekleyene kadar derleme hatası alırsınız.
 
     class Program
     {
-        // Read values from hello App.config file.
+        // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
         ConfigurationManager.AppSettings["AADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
@@ -114,8 +114,8 @@ Merhaba **ana** işlevi açıklanacak olan yöntemleri çağırır bu bölümün
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-            // Add calls toomethods defined in this section.
-            // Make sure tooupdate hello file name and path toowhere you have your media file.
+            // Add calls to methods defined in this section.
+            // Make sure to update the file name and path to where you have your media file.
             IAsset inputAsset =
             UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.None);
 
@@ -126,7 +126,7 @@ Merhaba **ana** işlevi açıklanacak olan yöntemleri çağırır bu bölümün
         }
         catch (Exception exception)
         {
-            // Parse hello XML error message in hello Media Services response and create a new
+            // Parse the XML error message in the Media Services response and create a new
             // exception with its content.
             exception = MediaServicesExceptionParser.Parse(exception);
 
@@ -141,23 +141,23 @@ Merhaba **ana** işlevi açıklanacak olan yöntemleri çağırır bu bölümün
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>Yeni varlık oluşturma ve video dosyası yükleme
 
-Media Services’de, dijital dosyalar bir varlığa yüklenir (veya alınır). Merhaba **varlık** varlık içerebilir video, ses, görüntüler, küçük resim koleksiyonları, metin parçaları ve kapalı açıklamalı alt yazı dosyaları (ve hello meta verileri bu dosyalar hakkında.)  Hello dosyalar yüklendiğinde, içeriğiniz sonraki işleme ve akışla için hello bulutta güvenli bir şekilde depolanır. Merhaba varlık Hello dosyalarında çağrılır **varlık dosyaları**.
+Media Services’de, dijital dosyalar bir varlığa yüklenir (veya alınır). **Varlık** varlığı video, ses, görüntüler, küçük resim koleksiyonları, metin parçaları ve kapalı açıklamalı alt yazı dosyaları (ve bu dosyalar hakkındaki meta veriler) içerebilir.  Dosyalar yüklendiğinde, içeriğiniz sonraki işleme ve akışla aktarma faaliyetleri için güvenli bir şekilde bulutta depolanmış olur. Varlık içindeki dosyalara **Varlık Dosyaları** adı verilir.
 
-Merhaba **UploadFile** çağrıları tanımlanan yöntemi **CreateFromFile** (.NET SDK uzantılarında tanımlanmıştır). **CreateFromFile** hangi hello belirtilen kaynak dosyasının yüklendiği yeni bir varlık oluşturur.
+Aşağıda tanımlanan **UploadFile** yöntemi, **CreateFromFile** yöntemini (.NET SDK Uzantılarında tanımlanmıştır) çağırır. **CreateFromFile**, belirtilen kaynak dosyasının yüklendiği yeni bir varlık oluşturur.
 
-Merhaba **CreateFromFile** yöntemi alır **AssetCreationOptions** olanak sağlayan, hello aşağıdaki varlık oluşturma seçeneklerden birini belirtin:
+**CreateFromFile** yöntemi, aşağıdaki varlık oluşturma seçeneklerden birini belirtmenize olanak sağlayan **AssetCreationOptions**’ı alır:
 
-* **Hiçbiri**: Şifreleme kullanılmaz. Merhaba varsayılan değer budur. Bu seçeneği kullandığınızda, içeriğinizin aktarım sırasında ve depolama alanında beklerken korunmadığını unutmayın.
-  Aşamalı indirme kullanarak toodeliver bir MP4 planlıyorsanız, bu seçeneği kullanın.
-* **StorageEncrypted** -bu seçenek tooencrypt Temizle içeriğinizi tooAzure depolanır depolama şifrelenen yükler Gelişmiş Şifreleme Standardı (AES)-256 bit şifreleme kullanarak yerel olarak kullanın. Depolama şifrelemesi ile korunan varlıklar otomatik olarak şifrelenmemiş ve bir şifrelenmiş dosya sistemi önceki tooencoding ve yeni bir çıkış varlığı olarak geri isteğe bağlı olarak yeniden şifrelenmiş önceki toouploading yerleştirilir. Depolama şifrelemesinin birincil kullanım durumu hello yüksek kaliteli giriş medya dosyalarınızı REST güçlü şifrelemeyle diskte toosecure istediğiniz durumdur.
+* **Hiçbiri**: Şifreleme kullanılmaz. Varsayılan değer budur. Bu seçeneği kullandığınızda, içeriğinizin aktarım sırasında ve depolama alanında beklerken korunmadığını unutmayın.
+  Aşamalı indirme kullanarak bir MP4 iletmeyi planlıyorsanız bu seçeneği kullanın.
+* **StorageEncrypted**: Temiz içeriğinizi yerel olarak Gelişmiş Şifreleme Standardı (AES) 256 bit şifreleme kullanarak şifrelemek için bu seçeneği kullanın. Şifrelenen içerik ardından Azure Storage’a yüklenerek bekleme durumunda depolanır. Depolama Şifrelemesi ile korunan varlıklar, kodlamadan önce otomatik olarak şifrelenerek şifrelenmiş bir dosya sistemine yerleştirilir ve yeni bir çıktı varlığı şeklinde geri yüklenmeden önce isteğe bağlı olarak yeniden şifrelenir. Depolama Şifrelemesinin birincil kullanım nedeni, yüksek kaliteli girdi medya dosyalarınızın güvenliğini güçlü şifrelemeyle diskte bekleyen konumda sağlamak istediğiniz durumdur.
 * **CommonEncryptionProtected**: Zaten Ortak Şifreleme veya PlayReady DRM ile şifrelenip korunan bir içerik (örneğin, PlayReady DRM ile korunan Kesintisiz Akış) yüklüyorsanız bu seçeneği kullanın.
-* **EnvelopeEncryptionProtected**: AES ile şifrelenmiş HLS yüklüyorsanız bu seçeneği kullanın. Hello dosyaları gerekir alınan kodlanmış ve Transform Manager tarafından şifrelenmiş olduğunu unutmayın.
+* **EnvelopeEncryptionProtected**: AES ile şifrelenmiş HLS yüklüyorsanız bu seçeneği kullanın. Dosyaların Transform Manager tarafından kodlanmış ve şifrelenmiş olması gerektiğini unutmayın.
 
-Merhaba **CreateFromFile** yöntemi de bir geri çağırma sırası tooreport hello karşıya yükleme sürüyor hello dosyasının belirtmenizi sağlar.
+**CreateFromFile** yöntemi, dosyanın yükleme durumunu bildirmek üzere bir geri çağırma belirtmenize de olanak sağlar.
 
-Aşağıdaki örneğine hello belirttiğimiz **hiçbiri** hello varlık seçenekleri için.
+Aşağıdaki örnekte, varlık seçeneği olarak **Hiçbiri** belirliyoruz.
 
-Yöntem toohello Program sınıfına aşağıdaki hello ekleyin.
+Program sınıfına aşağıdaki yöntemi ekleyin.
 
     static public IAsset UploadFile(string fileName, AssetCreationOptions options)
     {
@@ -175,23 +175,23 @@ Yöntem toohello Program sınıfına aşağıdaki hello ekleyin.
     }
 
 
-## <a name="encode-hello-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>Merhaba kaynak dosya bit hızı Uyarlamalı MP4 dosyaları kümesine kodlayın
-Varlıklar Media Services'e alındıktan sonra medya olabilir kodlanmış biçimini, filigran vb. tooclients teslim edilmeden önce. Bu etkinlikler zamanlanmış ve birden fazla arka plan rol örnekleri tooensure yüksek performans ve kullanılabilirlik karşı çalıştırın. Bu etkinliklere işler adı verilir ve her bir iş hello varlık dosyası üzerinde asıl işi hello atomik görevlerin oluşur.
+## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>Kaynak dosyayı uyarlamalı bit hızlı bir MP4 dosyaları grubuna kodlama
+Varlıklar Media Services’e alındıktan sonra medyaya, istemcilere teslim edilmeden önce kodlama, biçimini değiştirme, filigran ekleme ve benzeri işlemler uygulanabilir. Bu etkinlikler, yüksek performans ve kullanılabilirlik sağlamak için birden fazla arka plan rol örneğinde zamanlanır ve çalıştırılır. Bu etkinliklere İşler adı verilir ve her bir İş, Varlık dosyası üzerinde asıl işi yapan atomik Görevlerden oluşur.
 
-Azure Media Services ile çalışırken, daha önce belirtildiği gibi hello en sık karşılaşılan senaryolardan biri, bit hızı Uyarlamalı tooyour istemcileri akış iletmektir. Media Services dinamik olarak paketini bit hızı Uyarlamalı MP4 dosyaları kümesini biçimleri aşağıdaki hello birine: HTTP canlı akışı (HLS), kesintisiz akış ve MPEG DASH.
+Daha önce belirtildiği gibi, Azure Media Services ile çalışırken en sık karşılaşılan senaryolardan biri, istemcilerinize bit hızı uyarlamalı akış iletmektir. Media Services, bit hızı uyarlamalı bir MP4 dosyaları kümesini dinamik olarak şu biçimlerden birine paketleyebilir: HTTP Canlı Akışı (HLS), Kesintisiz Akış ve MPEG DASH.
 
-tootake avantajı dinamik paketleme, tooencode veya kodlamasını Ara (kaynak) dosyanızı Uyarlamalı bit hızlı MP4 veya uyarlamalı bit hızlı kesintisiz akış dosyaları kümesine ihtiyacınız.  
+Dinamik paketlemeden yararlanmak için, ara (kaynak) dosyanızı bit hızı uyarlamalı bir MP4 veya Kesintisiz Akış dosyaları kümesine kodlamanız veya dosyanın kodlamasını dönüştürmeniz gerekir.  
 
-koddan hello nasıl toosubmit bir kodlama işi gösterir. Merhaba iş tootranscode hello Ara dosyayı Uyarlamalı bit hızlı MP4s kullanarak kümesi belirten bir görev içerir **Medya Kodlayıcısı standart**. tamamlanana kadar hello kod hello iş ve bekler gönderir.
+Aşağıdaki kod, bir kodlama işinin nasıl gönderileceğini gösterir. İş, ara dosyayı **Medya Kodlayıcı Standart**’ını kullanarak bir grup bit hızı uyarlamalı MP4’e kodlamasını dönüştüren bir görev içerir. Kod işi gönderir ve tamamlanana kadar bekler.
 
-Merhaba işi tamamlandığında, mümkün toostream varlığınız olması veya kodlama dönüştürmenin sonucu olarak oluşturulan MP4 dosyalarını aşamalı indirmek.
+İş tamamlandığında varlığınızı akışla aktarabilir veya kodlama dönüştürmenin sonucu olarak oluşturulan MP4 dosyalarını aşamalı indirebilirsiniz.
 
-Yöntem toohello Program sınıfına aşağıdaki hello ekleyin.
+Program sınıfına aşağıdaki yöntemi ekleyin.
 
     static public IAsset EncodeToAdaptiveBitrateMP4s(IAsset asset, AssetCreationOptions options)
     {
 
-        // Prepare a job with a single task tootranscode hello specified asset
+        // Prepare a job with a single task to transcode the specified asset
         // into a multi-bitrate asset.
 
         IJob job = _context.Jobs.CreateWithSingleTask(
@@ -204,7 +204,7 @@ Yöntem toohello Program sınıfına aşağıdaki hello ekleyin.
         Console.WriteLine("Submitting transcoding job...");
 
 
-        // Submit hello job and wait until it is completed.
+        // Submit the job and wait until it is completed.
         job.Submit();
 
         job = job.StartExecutionProgressTask(
@@ -222,40 +222,40 @@ Yöntem toohello Program sınıfına aşağıdaki hello ekleyin.
         return outputAsset;
     }
 
-## <a name="publish-hello-asset-and-get-urls-for-streaming-and-progressive-download"></a>Merhaba varlığı yayımlayın, akış ve aşamalı indirme URL'lerini alın
+## <a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>Varlığı yayımlayıp akış ve aşamalı indirme URL’lerini alma
 
-toostream veya indirme bir varlık, ilk çok "bir Bulucu oluşturarak yayımlamadan". Bulucular hello varlıkta bulunan erişim toofiles sağlar. Media Services iki tür Bulucuyu destekler: OnDemandOrigin bulucuları, kullanılan toostream medya (örneğin, MPEG DASH, HLS veya kesintisiz akış) ve erişim imzası (SAS) bulucular kullanılan toodownload medya dosyaları (SAS bulucular bakın hakkındadahafazlabilgi[bu](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog).
+Bir varlığı akışla aktarmak veya indirmek için söz konusu varlığı önce bir bulucu oluşturarak “yayımlamak” gerekir. Bulucular varlıkta bulunan dosyalara erişim imkanı sağlar. Media Services, iki tür bulucuyu destekler: Medyayı akışla aktarmak (örneğin MPEG DASH, HLS veya Kesintisiz Akış) için kullanılan OnDemandOrigin bulucuları ve medya dosyalarını indirmek için kullanılan Erişim İmzası (SAS) bulucuları (SAS bulucuları hakkında daha fazla bilgi için [bu](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/) blog sayfasına bakın).
 
 ### <a name="some-details-about-url-formats"></a>URL biçimleri hakkında bazı ayrıntılar
 
-Merhaba bulucuları oluşturduktan sonra kullanılan toostream olması veya dosyalarınızı karşıdan hello URL'leri oluşturabilirsiniz. Bu öğreticide Hello örnek uygun tarayıcılarda yapıştırabilirsiniz URL'leri çıkarır. Bu bölümde yalnızca farklı biçimlerin neye benzediğini gösteren kısa örnekler verilir.
+Bulucuları oluşturduktan sonra, dosyalarınızı akışla aktarmak veya indirmek için kullanılacak URL'leri oluşturabilirsiniz. Bu öğreticideki örnek, uygun tarayıcılara yapıştırabileceğiniz URL'ler oluşturacaktır. Bu bölümde yalnızca farklı biçimlerin neye benzediğini gösteren kısa örnekler verilir.
 
-#### <a name="a-streaming-url-for-mpeg-dash-has-hello-following-format"></a>MPEG DASH bir akış URL'si biçimi aşağıdaki hello sahiptir:
+#### <a name="a-streaming-url-for-mpeg-dash-has-the-following-format"></a>MPEG DASH’e ilişkin bir akış URL'si aşağıdaki biçime sahiptir:
 
 {akış uç noktası adı-media services hesabı adı}.streaming.mediaservices.windows.net/{konum kimliği}/{dosya adı}.ism/Manifest**(format=mpd-time-csf)**
 
-#### <a name="a-streaming-url-for-hls-has-hello-following-format"></a>HLS akış URL'sini biçimini izleyen hello sahiptir:
+#### <a name="a-streaming-url-for-hls-has-the-following-format"></a>HLS’ye ilişkin bir akış URL'si aşağıdaki biçime sahiptir:
 
 {akış uç noktası adı-media services hesabı adı}.streaming.mediaservices.windows.net/{konum kimliği}/{dosya adı}.ism/Manifest**(format=m3u8-aapl)**
 
-#### <a name="a-streaming-url-for-smooth-streaming-has-hello-following-format"></a>Bir akış URL'si kesintisiz akış biçimini izleyen hello sahiptir:
+#### <a name="a-streaming-url-for-smooth-streaming-has-the-following-format"></a>Kesintisiz Akışa ilişkin bir akış URL'si aşağıdaki biçime sahiptir:
 
 {akış uç noktası adı-media services hesabı adı}.streaming.mediaservices.windows.net/{konum kimliği}/{dosya adı}.ism/Manifest
 
 
-#### <a name="a-sas-url-used-toodownload-files-has-hello-following-format"></a>Bir SAS kullanılan URL toodownload dosyaları biçimini izleyen hello sahiptir:
+#### <a name="a-sas-url-used-to-download-files-has-the-following-format"></a>Dosya indirmek için kullanılan bir SAS URL'si aşağıdaki biçime sahiptir:
 
 {blob kapsayıcısı adı}/{varlık adı}/{dosya adı}/{SAS imzası}
 
-Media Services .NET SDK uzantıları, yayımlanmış varlık dönüş URL'leri Merhaba biçimlendirilmiş kullanışlı yardımcı yöntemler sağlar.
+Media Services .NET SDK uzantıları, yayımlanan varlık için biçimlendirilmiş URL'ler döndüren kullanışlı yardımcı yöntemler sağlar.
 
-Merhaba aşağıdaki kodu kullanan .NET SDK uzantıları toocreate bulucular ve tooget akış ve aşamalı indirme URL'lerini. Merhaba kod ayrıca nasıl toodownload dosyaları tooa yerel klasörü gösterir.
+Aşağıdaki kod, .NET SDK Uzantıları kullanarak bulucu oluşturur, akış ve aşamalı indirme URL'leri alır. Kod ayrıca yerel bir klasöre nasıl dosya indirileceğini gösterir.
 
-Yöntem toohello Program sınıfına aşağıdaki hello ekleyin.
+Program sınıfına aşağıdaki yöntemi ekleyin.
 
     static public void PublishAssetGetURLs(IAsset asset)
     {
-        // Publish hello output asset by creating an Origin locator for adaptive streaming,
+        // Publish the output asset by creating an Origin locator for adaptive streaming,
         // and a SAS locator for progressive download.
 
         _context.Locators.Create(
@@ -276,30 +276,30 @@ Yöntem toohello Program sınıfına aşağıdaki hello ekleyin.
                 .ToList()
                 .Where(af => af.Name.EndsWith(".mp4", StringComparison.OrdinalIgnoreCase));
 
-        // Get hello Smooth Streaming, HLS and MPEG-DASH URLs for adaptive streaming,
-        // and hello Progressive Download URL.
+        // Get the Smooth Streaming, HLS and MPEG-DASH URLs for adaptive streaming,
+        // and the Progressive Download URL.
         Uri smoothStreamingUri = asset.GetSmoothStreamingUri();
         Uri hlsUri = asset.GetHlsUri();
         Uri mpegDashUri = asset.GetMpegDashUri();
 
-        // Get hello URls for progressive download for each MP4 file that was generated as a result
+        // Get the URls for progressive download for each MP4 file that was generated as a result
         // of encoding.
         List<Uri> mp4ProgressiveDownloadUris = mp4AssetFiles.Select(af => af.GetSasUri()).ToList();
 
 
-        // Display  hello streaming URLs.
-        Console.WriteLine("Use hello following URLs for adaptive streaming: ");
+        // Display  the streaming URLs.
+        Console.WriteLine("Use the following URLs for adaptive streaming: ");
         Console.WriteLine(smoothStreamingUri);
         Console.WriteLine(hlsUri);
         Console.WriteLine(mpegDashUri);
         Console.WriteLine();
 
-        // Display hello URLs for progressive download.
-        Console.WriteLine("Use hello following URLs for progressive download.");
+        // Display the URLs for progressive download.
+        Console.WriteLine("Use the following URLs for progressive download.");
         mp4ProgressiveDownloadUris.ForEach(uri => Console.WriteLine(uri + "\n"));
         Console.WriteLine();
 
-        // Download hello output asset tooa local folder.
+        // Download the output asset to a local folder.
         string outputFolder = "job-output";
         if (!Directory.Exists(outputFolder))
         {
@@ -307,7 +307,7 @@ Yöntem toohello Program sınıfına aşağıdaki hello ekleyin.
         }
 
         Console.WriteLine();
-        Console.WriteLine("Downloading output asset files tooa local folder...");
+        Console.WriteLine("Downloading output asset files to a local folder...");
         asset.DownloadToFolder(
             outputFolder,
             (af, p) =>
@@ -320,7 +320,7 @@ Yöntem toohello Program sınıfına aşağıdaki hello ekleyin.
 
 ## <a name="test-by-playing-your-content"></a>İçeriğiniz oynatarak test etme
 
-Merhaba önceki bölümde tanımlanan hello programı çalıştırdığınızda benzer toohello aşağıdaki hello konsol penceresinde görüntülenir URL'leri hello.
+Önceki bölümde tanımlanan programı çalıştırdığınızda konsol penceresinde aşağıdakine benzer URL'ler görüntülenir.
 
 Uyarlamalı akış URL'leri:
 
@@ -355,18 +355,18 @@ Aşamalı indirme URL'leri (ses ve video).
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
 
-toostream videonuz URL'nizi hello URL'si metin kutusuna hello yapıştırın [Azure Media Services Oynatıcısı](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+Videonuzun akışını yapmak için URL'nizi [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html)'daki URL metin kutusuna yapıştırın.
 
-tootest aşamalı indirmek için bir URL (örneğin, Internet Explorer, Chrome veya Safari) bir tarayıcıya yapıştırın.
+Aşamalı indirmeyi test etmek için bir tarayıcıya (örneğin Internet Explorer, Chrome veya Safari) bir URL yapıştırın.
 
-Daha fazla bilgi için aşağıdaki konularda hello bakın:
+Daha fazla bilgi edinmek için aşağıdaki kaynaklara bakın:
 
 - [İçeriğinizi mevcut oynatıcılarda oynatma](media-services-playback-content-with-existing-players.md)
 - [Video oynatıcı uygulamaları geliştirme](media-services-develop-video-players.md)
 - [DASH.js ile bir MPEG-DASH Uyarlamalı Akış Videosunu bir HTML5 Uygulamasına ekleme](media-services-embed-mpeg-dash-in-html5.md)
 
 ## <a name="download-sample"></a>Örnek indirme
-Merhaba aşağıdaki kod örneği, bu öğreticide oluşturduğunuz hello kodunu içerir: [örnek](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
+Aşağıdaki kod örneği, bu öğreticide oluşturduğunuz kodu içerir: [örnek](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

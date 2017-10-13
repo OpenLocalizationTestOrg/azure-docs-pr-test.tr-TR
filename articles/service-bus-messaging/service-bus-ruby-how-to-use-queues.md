@@ -1,6 +1,6 @@
 ---
-title: "aaaHow toouse Azure Service Bus kuyrukları ile Söyleniş | Microsoft Docs"
-description: "Azure'da nasıl toouse Service Bus kuyrukları öğrenin. Ruby içinde yazılan kod örnekleri."
+title: "Ruby ile Azure Service Bus kuyruklarını kullanma | Microsoft Docs"
+description: "Azure'da Service Bus kuyruklarını kullanmayı öğrenin. Ruby içinde yazılan kod örnekleri."
 services: service-bus-messaging
 documentationcenter: ruby
 author: sethmanheim
@@ -14,17 +14,17 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.openlocfilehash: 7270154583f98e3372e82efbb967ea7a5acd1686
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 357a7277dd42b6973cf35a9f642b8eec36a745e3
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="how-toouse-service-bus-queues-with-ruby"></a>Ruby ile nasıl toouse Service Bus kuyrukları
+# <a name="how-to-use-service-bus-queues-with-ruby"></a>Ruby ile Service Bus kuyruklarını kullanma
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Bu kılavuzda açıklanmaktadır nasıl toouse Service Bus kuyruklarını. Merhaba örnekler içinde Ruby yazılır ve hello Azure gem kullanır. Merhaba kapsanan senaryolar dahil **ileti gönderme ve alma sıra oluşturma**, ve **sıraları silme**. Service Bus kuyruklarını hakkında daha fazla bilgi için bkz: Merhaba [sonraki adımlar](#next-steps) bölümü.
+Bu kılavuz, Service Bus kuyruklarını kullanmayı açıklar. Örnekler Ruby yazılır ve Azure gem kullanır. Kapsamdaki senaryolar dahil **ileti gönderme ve alma sıra oluşturma**, ve **sıraları silme**. Service Bus kuyruklarını hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next-steps) bölümü.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
@@ -32,8 +32,8 @@ Bu kılavuzda açıklanmaktadır nasıl toouse Service Bus kuyruklarını. Merha
    
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
-## <a name="how-toocreate-a-queue"></a>Nasıl bir kuyruk toocreate
-Merhaba **Azure::ServiceBusService** nesne kuyruklarla toowork sağlar. toocreate bir sıra kullanmak hello `create_queue()` yöntemi. Merhaba aşağıdaki örnekte bir kuyruk oluşturur veya tüm hataları yazdırır.
+## <a name="how-to-create-a-queue"></a>Bir sıra oluşturma
+**Azure::ServiceBusService** nesne kuyruklarla çalışmanıza olanak sağlar. Bir kuyruk oluşturmak için kullanmak `create_queue()` yöntemi. Aşağıdaki örnekte bir kuyruk oluşturur veya hataları yazdırır.
 
 ```ruby
 azure_service_bus_service = Azure::ServiceBus::ServiceBusService.new(sb_host, { signer: signer})
@@ -44,7 +44,7 @@ rescue
 end
 ```
 
-Ayrıca iletebilirsiniz bir **Azure::ServiceBus::Queue** nesne ek seçeneklerle toooverride hello varsayılan sıra ayarları, ileti zaman toolive veya en büyük sıra boyutu gibi sağlar. Aşağıdaki örnek hello nasıl tooset en büyük sıra boyutu too5 GB hello ve toolive too1 minute zaman gösterir:
+Ayrıca iletebilirsiniz bir **Azure::ServiceBus::Queue** nesne ek seçenekleri, Canlı veya en büyük sıra boyutu ileti süresi gibi varsayılan sırası ayarlarını geçersiz kılmanıza olanak sağlar. Aşağıdaki örnekte, en büyük sıra boyutu 5 GB ve saat 1 dakika Canlı ayarlamak gösterilmektedir:
 
 ```ruby
 queue = Azure::ServiceBus::Queue.new("test-queue")
@@ -54,10 +54,10 @@ queue.default_message_time_to_live = "PT1M"
 queue = azure_service_bus_service.create_queue(queue)
 ```
 
-## <a name="how-toosend-messages-tooa-queue"></a>Nasıl toosend iletileri tooa sırası
-ileti tooa Service Bus kuyruğuna toosend, uygulamanızın çağırır hello `send_queue_message()` hello yöntemi **Azure::ServiceBusService** nesnesi. İletileri çok gönderilen (ve öğesinden alınan) hizmet kuyruklar veri yolu **Azure::ServiceBus::BrokeredMessage** nesneleri ve bir standart özellikler kümesi sahip (gibi `label` ve `time_to_live`), kullanılan toohold bir sözlüğü Özel uygulamaya özgü özellikler ve rastgele uygulama verileri gövdesi. Bir uygulama selamlama iletisine bir dize değeri geçirerek hello hello ileti gövdesini ayarlayabilir ve gerekli tüm standart özellikleri varsayılan değerlerle doldurulur.
+## <a name="how-to-send-messages-to-a-queue"></a>Kuyruğa ileti göndermek nasıl
+Uygulama çağrılarınızı bir Service Bus kuyruğuna bir ileti göndermek için `send_queue_message()` yöntemi **Azure::ServiceBusService** nesnesi. İletileri gönderilen (ve öğesinden alınan) hizmet kuyruklar veri yolu **Azure::ServiceBus::BrokeredMessage** nesneleri ve bir standart özellikler kümesi sahip (gibi `label` ve `time_to_live`), bir uygulamaya özgü özel özellikleri tutmak için kullanılan bir sözlük ve rastgele uygulama verileri gövdesi içerir. Uygulamanın iletiyi olarak bir dize değeri geçirerek ileti gövdesini ayarlayabilir ve gerekli tüm standart özellikleri varsayılan değerlerle doldurulur.
 
-Merhaba aşağıdaki örnekte nasıl toosend adlı bir sınama iletisi toohello sırası gösteren `test-queue` kullanarak `send_queue_message()`:
+Aşağıdaki örnek adlı sırasına sınama iletisi göndermek nasıl gösterir `test-queue` kullanarak `send_queue_message()`:
 
 ```ruby
 message = Azure::ServiceBus::BrokeredMessage.new("test queue message")
@@ -65,16 +65,16 @@ message.correlation_id = "test-correlation-id"
 azure_service_bus_service.send_queue_message("test-queue", message)
 ```
 
-Service Bus kuyruklarını destek maksimum ileti boyutu 256 KB hello [standart katmanı](service-bus-premium-messaging.md) hello 1 MB [Premium katmanı](service-bus-premium-messaging.md). Merhaba standart ve özel uygulama özelliklerini içeren hello üstbilgi en büyük boyutu 64 KB olabilir. Merhaba bir kuyrukta tutulan ileti sayısına bir sınır yoktur ancak kuyruk tarafından tutulan hello iletilerin toplam boyutu hello bir sınır yoktur. Bu kuyruk boyutu, üst sınır 5 GB olacak şekilde oluşturulma zamanında belirlenir.
+Service Bus kuyrukları, [Standart katmanda](service-bus-premium-messaging.md) maksimum 256 KB ve [Premium katmanda](service-bus-premium-messaging.md) maksimum 1 MB ileti boyutunu destekler. Standart ve özel uygulama özelliklerini içeren üst bilginin maksimum dosya boyutu 64 KB olabilir. Kuyrukta tutulan ileti sayısına ilişkin bir sınır yoktur ancak kuyruk tarafından tutulan iletilerin toplam boyutu için uç sınır vardır. Bu kuyruk boyutu, üst sınır 5 GB olacak şekilde oluşturulma zamanında belirlenir.
 
-## <a name="how-tooreceive-messages-from-a-queue"></a>Nasıl tooreceive kuyruktan iletileri
-İletileri hello kullanarak bir kuyruktan alınan `receive_queue_message()` hello yöntemi **Azure::ServiceBusService** nesnesi. Varsayılan olarak, iletileri okumak ve hello sıradan silinir olmadan kilitli. Ayarı hello tarafından okurken ancak iletileri hello sıradan silebilirsiniz `:peek_lock` çok seçenek**false**.
+## <a name="how-to-receive-messages-from-a-queue"></a>Kuyruktan ileti alma
+İletileri kullanarak bir Sıraya alınan `receive_queue_message()` yöntemi **Azure::ServiceBusService** nesnesi. Varsayılan olarak, iletileri okumak ve sıradan silinir olmadan kilitli. Ayarlayarak okunduğu gibi ancak, ileti kuyruktan silebilirsiniz `:peek_lock` için seçenek **false**.
 
-Merhaba varsayılan davranışı okumak ve ayrıca, iletilere olası toosupport uygulamaları kılar bir iki aşamalı işlemi silme hello yapar. Service Bus bir istek aldığında hello sonraki ileti toobe tüketilen, diğer tüketicilerin alırken tooprevent kilitler ve toohello uygulama döndürür bulur. Merhaba uygulaması hello iletiyi işlemeyi tamamladıktan sonra (veya sonra işlemek için depoladıktan sonra), hello hello ikinci aşamasını tamamlar çağırarak alma işleminin `delete_queue_message()` yöntemi ve parametre olarak silinmiş hello ileti toobe sağlama. Merhaba `delete_queue_message()` yöntemi hello iletiyi kullanılıyor olarak işaretler ve hello sıradan kaldırın.
+Varsayılan davranış, okuma ve ayrıca, iletilere uygulamaları desteklemek mümkün kılar bir iki aşamalı işlemi silme yapar. Service Bus bir istek aldığında bir sonraki kullanılacak iletiyi bulur, diğer tüketicilerin bu iletiyi almasını engellemek için kilitler ve ardından uygulamaya döndürür. Uygulama iletiyi işlemeyi tamamladıktan sonra (veya sonra işlemek için depoladıktan sonra), çağırarak alma işleminin ikinci aşamasını tamamlar `delete_queue_message()` yöntemi ve parametre olarak silinecek ileti sağlama. `delete_queue_message()` Yöntemi iletiyi kullanılıyor olarak işaretler ve kuyruktan kaldırır.
 
-Merhaba, `:peek_lock` parametresi çok ayarlanırsa**yanlış**, okuma ve hello iletisi siliniyor hello basit model olur ve senaryoları bir uygulama içinde tolerans hello olayı içinde ileti işlenirken değil en iyi şekilde çalışır bir hata oluştu. toounderstand Bu, hangi hello tüketici sorunları hello alma isteği bir senaryo düşünün ve işlemeden önce çöküyor. Hizmet veri yolu selamlama iletisine hello uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında, kullanılan olarak işaretlenmiş olduğundan, onu olan hello iletiyi atlamış olur önceki toohello kilitlenme tüketilen.
+Varsa `:peek_lock` parametrenin ayarlanmış **yanlış**, okuma ve iletisi siliniyor basit model olur ve senaryoları bir uygulama içinde tolerans bir arıza olması durumunda bir ileti işlenirken değil en iyi şekilde çalışır. Bu durumu daha iyi anlamak için müşterinin bir alma isteği bildirdiğini ve bu isteğin işlenmeden çöktüğünü varsayın. Hizmet veri yolu ileti uygulama yeniden başlatılıp iletileri tekrar kullanmaya başladığında, kullanılan olarak işaretlenmiş olduğundan, çökmenin öncesinde kullanılan iletiyi atlamış olur.
 
-Merhaba aşağıdaki örnekte nasıl tooreceive ve işlem iletileri kullanarak gösteren `receive_queue_message()`. Merhaba örneği ilk alır ve bir iletiyi kullanarak siler `:peek_lock` çok ayarlamak**false**, ardından başka bir ileti alır ve ardından iletiyi kullanarak siler hello `delete_queue_message()`:
+Aşağıdaki örnek, kullanarak iletileri almak ve işlemek gösterilmiştir `receive_queue_message()`. Örnek ilk alır ve bir iletiyi kullanarak siler `:peek_lock` kümesine **false**, başka bir ileti alır ve kullanarak iletiyi siler `delete_queue_message()`:
 
 ```ruby
 message = azure_service_bus_service.receive_queue_message("test-queue",
@@ -83,18 +83,18 @@ message = azure_service_bus_service.receive_queue_message("test-queue")
 azure_service_bus_service.delete_queue_message(message)
 ```
 
-## <a name="how-toohandle-application-crashes-and-unreadable-messages"></a>Nasıl toohandle uygulaması kilitlenir ve Okunmayan iletileri
-Hizmet veri yolu, gerçekleşen hataları uygulama ya da ileti işlenirken zorlukları rahat işlevselliği toohelp sağlar. Alıcı uygulamanın kaydedemediği tooprocess Merhaba ileti herhangi bir nedenden dolayı ardından hello çağırabilirsiniz `unlock_queue_message()` hello yöntemi **Azure::ServiceBusService** nesnesi. Bu çağrı nedenler Service Bus toounlock hello hello sıra içinde ileti gönderme ve yeniden alınan kullanılabilir toobe olun ya da göre hello aynı uygulama veya başka bir kullanıcı uygulama tarafından kullanma.
+## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Uygulama çökmelerini ve okunmayan iletileri giderme
+Service Bus, uygulamanızda gerçekleşen hataları veya ileti işlenirken oluşan zorlukları rahat bir şekilde ortadan kaldırmanıza yardımcı olmak için işlevsellik sağlar. Alıcı uygulamanın iletiyi herhangi bir nedenden dolayı işleyemedi sonra işleyememesi `unlock_queue_message()` yöntemi **Azure::ServiceBusService** nesnesi. Bu çağrı, Service Bus hizmetinin Kuyruktaki iletinin kilidini açmasına ve iletiyi aynı veya başka bir kullanıcı uygulama tarafından tekrar alınabilir hale getirmesine neden olur.
 
-Ayrıca hello kuyrukta kilitlenen iletiye ilişkin bir zaman aşımı vardır ve tooprocess selamlama iletisine önce hello uygulama başarısız olursa (örneğin, hello uygulama çökerse) Service Bus hello iletinin kilidini açar hello kilit zaman aşımı dolmadan otomatik olarak yeniden alınan kullanılabilir toobe yapar.
+Ayrıca kuyrukta kilitlenen iletiye ilişkin bir zaman aşımı vardır ve uygulama önce iletiyi işleyemezse (örneğin, uygulama çökerse) Service Bus otomatik olarak iletinin kilidini açar ve tekrar alınabilmesini sağlar kilit zaman aşımı dolmadan.
 
-Merhaba ileti işlenirken sonra ancak hello önce uygulama hello olay Hello çöküyor `delete_queue_message()` yöntemi çağrıldıktan sonra hello ileti yeniden teslim toohello uygulama başlatıldığında içindir. Bu işlem genellikle adlı *en az bir kez işleme*; diğer bir deyişle, her ileti en az bir kez işlenir ancak belirli durumlarda hello aynı ileti yeniden teslim. Merhaba senaryo yinelenen işlemeyi kabul etmiyorsa, uygulama geliştiricilerinin ek mantık tootheir uygulama toohandle yinelenen ileti teslimi eklemeniz gerekir. Bu genellikle hello kullanılarak elde edilen `message_id` teslimat denemelerinde hello iletinin özelliği.
+Uygulama iletiyi ancak önce çökmesi durumunda, `delete_queue_message()` yöntemi çağrıldıktan sonra yeniden başlatıldığında ileti uygulamaya tekrar teslim. Bu işlem genellikle adlı *en az bir kez işleme*; diğer bir deyişle, her ileti en az bir kez işlenir ancak belirli durumlarda aynı ileti yeniden teslim. Senaryo yinelenen işlemeyi kabul etmiyorsa yinelenen ileti teslimine izin vermek için uygulama geliştiricilerin uygulamaya ilave bir mantık eklemesi gerekir. Bu genellikle kullanılarak elde edilen `message_id` iletinin teslimat denemelerinde özelliği.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık Service Bus kuyruklarını hello temellerini öğrendiğinize göre daha fazla bu bağlantılar toolearn izleyin.
+Artık Service Bus kuyruklarına ilişkin temel bilgileri öğrendiğinize göre, daha fazla bilgi edinmek için aşağıdaki bağlantıları izleyin.
 
 * Genel Bakış [kuyruklar, konu başlıkları ve abonelikler](service-bus-queues-topics-subscriptions.md).
-* Merhaba ziyaret [Ruby için Azure SDK](https://github.com/Azure/azure-sdk-for-ruby) github'daki.
+* Ziyaret [Ruby için Azure SDK](https://github.com/Azure/azure-sdk-for-ruby) github'daki.
 
-Bu makalede açıklanan hello Azure Service Bus kuyrukları ve Azure hello ele alınan sıraları arasında bir karşılaştırma için [nasıl toouse ruby'den kuyruk depolama](../storage/queues/storage-ruby-how-to-use-queue-storage.md) makale için bkz: [Azure kuyrukları ve Azure hizmet veri yolu kuyrukları - karşılaştırma ve Contrasted](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+Bu makalede ele alınan Azure Service Bus kuyrukları ve Azure ele sıraları arasında bir karşılaştırma için [ruby'den kuyruk depolama kullanma](../storage/queues/storage-ruby-how-to-use-queue-storage.md) makale için bkz: [Azure kuyrukları ve Karşılaştırılan ve Contrasted Azure hizmet veri yolu kuyrukları -](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 

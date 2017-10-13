@@ -1,6 +1,6 @@
 ---
-title: "iOS mobil uygulamaları ile aaaEnable çevrimdışı eşitleme | Microsoft Docs"
-description: "Bilgi nasıl toouse Azure App Service mobile apps toocache ve eşitleme çevrimdışı verileri iOS uygulamaları."
+title: "İOS mobil uygulamaları ile çevrimdışı eşitlemeyi etkinleştirme | Microsoft Docs"
+description: "Önbellek ve eşitleme çevrimdışı veri için Azure App Service mobile apps'de iOS uygulamalarında kullanmayı öğrenin."
 documentationcenter: ios
 author: ggailey777
 manager: syntaxc4
@@ -14,57 +14,57 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 570ea7cf6694ab7317c977331038929b64508ad3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 44c0d26b2d7d28322d436d4bda319d728c31a635
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Çevrimdışı iOS mobil uygulamaları ile eşitlemeyi etkinleştir
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu öğretici, iOS için Azure App Service'in hello Mobile Apps özelliğini çevrimdışı eşitleme kapsar. Çevrimdışı eşitleme son kullanıcılar ile mobil uygulama tooview ile etkileşim, ekleyin veya bile ağ bağlantısı olduğunda veri değiştirin. Değişiklikler yerel bir veritabanında depolanır. Merhaba cihaz yeniden çevrimiçi olduktan sonra hello değişiklikler hello uzak arka ucu ile eşitlenir.
+Bu öğretici, Azure App Service Mobile Apps özelliğini iOS için çevrimdışı eşitleme kapsar. Çevrimdışı eşitleme son kullanıcılara görüntülemek, eklemek veya bile ağ bağlantısı olduğunda verileri değiştirmek için mobil uygulama ile etkileşim kurabilirsiniz. Değişiklikler yerel bir veritabanında depolanır. Cihaz yeniden çevrimiçi olduktan sonra değişiklikler uzak arka uç ile eşitlenir.
 
-Mobile Apps ile ilk deneyiminizi varsa hello öğretici ilk tamamlanmalıdır [iOS uygulaması oluştur]. Merhaba indirilen hızlı başlangıç sunucu projesi kullanmazsanız hello veri erişimi uzantı paketleri tooyour projesi eklemeniz gerekir. Server uzantısı paketleri hakkında daha fazla bilgi için bkz: [hello .NET arka uç sunucusu SDK ile Azure Mobile Apps için iş](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Mobile Apps ile ilk deneyiminizi varsa öğreticinin ilk tamamlanmalıdır [iOS uygulaması oluştur]. İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, veri erişimi uzantısı paketlerini projenize eklemeniz gerekir. Server uzantısı paketleri hakkında daha fazla bilgi için bkz: [.NET arka uç sunucusu SDK ile Azure Mobile Apps için iş](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-toolearn hello çevrimdışı eşitleme özelliği hakkında daha fazla bilgi görmek [mobil uygulamalarda çevrimdışı veri eşitlemeye].
+Çevrimdışı eşitleme özelliği hakkında daha fazla bilgi için bkz: [mobil uygulamalarda çevrimdışı veri eşitlemeye].
 
-## <a name="review-sync"></a>Merhaba istemci eşitleme kodu gözden geçirme
-Merhaba indirdiğiniz hello istemci projesi [iOS uygulaması oluştur] öğretici zaten bir yerel çekirdek veri tabanlı veritabanı çevrimdışı eşitlemeyi destekleyen kodunu içerir. Bu bölümde hello Eğitmen kodu zaten dahil özetlenmektedir. Merhaba özelliği kavramsal bir genel bakış için bkz: [mobil uygulamalarda çevrimdışı veri eşitlemeye].
+## <a name="review-sync"></a>İstemci eşitleme kodu gözden geçirme
+İçin indirdiğiniz istemci projesi [iOS uygulaması oluştur] öğretici zaten bir yerel çekirdek veri tabanlı veritabanı çevrimdışı eşitlemeyi destekleyen kodunu içerir. Bu bölümde, eğitmen kodu zaten dahil özetlenmektedir. Özellik kavramsal bir genel bakış için bkz: [mobil uygulamalarda çevrimdışı veri eşitlemeye].
 
-Merhaba ağ erişilemez durumda olduğunda bile Mobile Apps hello çevrimdışı veri eşitleme özelliğini kullanarak, son kullanıcılar ile yerel bir veritabanı etkileşimli olarak çalışabilir. toouse bu özellikler, uygulamanızda hello eşitleme bağlamı başlatma `MSClient` ve yerel bir depo başvuru. Tablonuz hello aracılığıyla başvuru sonra **MSSyncTable** arabirimi.
+Ağ erişilemez durumda olduğunda bile Mobile Apps çevrimdışı veri eşitleme özelliğini kullanarak, son kullanıcılar ile yerel bir veritabanı etkileşimli olarak çalışabilir. Bu özellikler, uygulamanızda kullanmak için eşitleme bağlamı başlatma `MSClient` ve yerel bir depo başvuru. Tablonuz aracılığıyla başvuru sonra **MSSyncTable** arabirimi.
 
-İçinde **QSTodoService.m** (Objective-C) veya **ToDoTableViewController.swift** hello üye türü hello (Swift), bildirim **syncTable** olan  **MSSyncTable**. Çevrimdışı eşitleme kullanan bu eşitleme tablo arabirimi yerine **MSTable**. Bir eşitleme tablo kullanıldığında, tüm işlemleri yalnızca uzak arka uç açık itme hello eşitlendiğini toohello yerel deposu gidin ve işlemleri çekme.
+İçinde **QSTodoService.m** (Objective-C) veya **ToDoTableViewController.swift** (Swift), dikkat üye türü **syncTable** olan **MSSyncTable** . Çevrimdışı eşitleme kullanan bu eşitleme tablo arabirimi yerine **MSTable**. Bir eşitleme tablo kullanıldığında, tüm işlemleri yerel mağazaya gidin ve yalnızca açık anında iletme ve çekme işlemleri ile uzaktan arka uç ile eşitlenir.
 
- tooget bir başvuru tooa eşitleme tablosu kullanmak hello **syncTableWithName** yöntemi `MSClient`. tooremove çevrimdışı eşitleme işlevselliği, kullanım **tableWithName** yerine.
+ Bir eşitleme tablo için bir başvuru almak için **syncTableWithName** yöntemi `MSClient`. Çevrimdışı eşitleme işlevselliği kaldırmak için kullanın **tableWithName** yerine.
 
-Tablo işlemleri gerçekleştirilmeden önce hello yerel depolama başlatılmalıdır. Merhaba ilgili kod aşağıdadır:
+Tablo işlemleri gerçekleştirilmeden önce yerel deposu başlatılması gerekir. İlgili kod aşağıdaki gibidir:
 
-* **Objective-C**. Merhaba, **QSTodoService.init** yöntemi:
+* **Objective-C**. İçinde **QSTodoService.init** yöntemi:
 
    ```objc
    MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
    self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
    ```    
-* **SWIFT**. Merhaba, **ToDoTableViewController.viewDidLoad** yöntemi:
+* **SWIFT**. İçinde **ToDoTableViewController.viewDidLoad** yöntemi:
 
    ```swift
-   let client = MSClient(applicationURLString: "http:// ...") // URI of hello Mobile App
+   let client = MSClient(applicationURLString: "http:// ...") // URI of the Mobile App
    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext!
    self.store = MSCoreDataStore(managedObjectContext: managedObjectContext)
    client.syncContext = MSSyncContext(delegate: nil, dataSource: self.store, callback: nil)
    ```
-   Bu yöntem hello kullanarak yerel bir depo oluşturur `MSCoreDataStore` Mobile Apps SDK'sı hello arabirim sağlar. Merhaba uygulayarak farklı bir yerel deposu alternatif olarak, sağlayabilir `MSSyncContextDataSource` protokolü. Ayrıca, ilk parametresinin hello **MSSyncContext** kullanılan toospecify çakışma işleyicisidir. Biz başarılı olduğundan `nil`, biz üzerinde herhangi bir çakışmanın başarısız hello varsayılan çakışma işleyici alın.
+   Bu yöntemi kullanarak yerel bir depo oluşturur `MSCoreDataStore` Mobile Apps SDK'sı sağlayan arabirim. Alternatif olarak, size uygulayarak farklı bir yerel deposu sağlayabilir `MSSyncContextDataSource` protokolü. Ayrıca, ilk parametresinin **MSSyncContext** bir çakışma işleyici belirtmek için kullanılır. Biz başarılı olduğundan `nil`, biz üzerinde herhangi bir çakışmanın başarısız varsayılan çakışma işleyici alın.
 
-Şimdi, şimdi hello gerçek eşitleme işlemi gerçekleştirmek ve verileri hello uzak arka uçtan alın:
+Şimdi, şimdi gerçek eşitleme işlemi yapmak ve verileri uzak arka uçtan alın:
 
-* **Objective-C**. `syncData`Yeni değişiklikler ilk iter ve çağırır **pullData** hello uzak arka uçtan tooget veri. Buna karşılık, hello **pullData** yöntemi bir sorguyla eşleşen yeni verileri alır:
+* **Objective-C**. `syncData`Yeni değişiklikler ilk iter ve çağırır **pullData** uzak arka uçtan veri almak için. Buna karşılık, **pullData** yöntemi bir sorguyla eşleşen yeni verileri alır:
 
    ```objc
    -(void)syncData:(QSCompletionBlock)completion
    {
-       // Push all changes in hello sync context, and then pull new data.
+       // Push all changes in the sync context, and then pull new data.
        [self.client.syncContext pushWithCompletion:^(NSError *error) {
            [self logErrorIfNotNil:error];
            [self pullData:completion];
@@ -75,13 +75,13 @@ Tablo işlemleri gerçekleştirilmeden önce hello yerel depolama başlatılmal�
    {
        MSQuery *query = [self.syncTable query];
 
-       // Pulls data from hello remote server into hello local table.
-       // We're pulling all items and filtering in hello view.
+       // Pulls data from the remote server into the local table.
+       // We're pulling all items and filtering in the view.
        // Query ID is used for incremental sync.
        [self.syncTable pullWithQuery:query queryId:@"allTodoItems" completion:^(NSError *error) {
            [self logErrorIfNotNil:error];
 
-           // Lets hello caller know that we have finished.
+           // Lets the caller know that we have finished.
            if (completion != nil) {
                dispatch_async(dispatch_get_main_queue(), completion);
            }
@@ -100,18 +100,18 @@ Tablo işlemleri gerçekleştirilmeden önce hello yerel depolama başlatılmal�
 
           if error != nil {
               // A real application would handle various errors like network conditions,
-              // server conflicts, etc via hello MSSyncContextDelegate
+              // server conflicts, etc via the MSSyncContextDelegate
               print("Error: \(error!.description)")
 
-              // We will discard our changes and keep hello server's copy for simplicity
+              // We will discard our changes and keep the server's copy for simplicity
               if let opErrors = error!.userInfo[MSErrorPushResultKey] as? Array<MSTableOperationError> {
                   for opError in opErrors {
-                      print("Attempted operation tooitem \(opError.itemId)")
+                      print("Attempted operation to item \(opError.itemId)")
                       if (opError.operation == .Insert || opError.operation == .Delete) {
                           print("Insert/Delete, failed discarding changes")
                           opError.cancelOperationAndDiscardItemWithCompletion(nil)
                       } else {
-                          print("Update failed, reverting tooserver's copy")
+                          print("Update failed, reverting to server's copy")
                           opError.cancelOperationAndUpdateItem(opError.serverItem!, completion: nil)
                       }
                   }
@@ -122,35 +122,35 @@ Tablo işlemleri gerçekleştirilmeden önce hello yerel depolama başlatılmal�
    }
    ```
 
-Merhaba Objective-C sürümünde, içinde `syncData`, ilk diyoruz **pushWithCompletion** üzerinde hello eşitleme bağlamı. Bu yöntem bir üyesi olan `MSSyncContext` (ve hello eşitleme tablonun kendisini değil) tüm tablolar arasında değişiklikleri iter olduğundan. Yerel olarak (CUD işlemleri üzerinden) şekilde değiştirilmiş kayıtları toohello sunucu gönderilir. Yardımcı hello **pullData** çağrıldığında hangi çağrıları **MSSyncTable.pullWithQuery** tooretrieve uzak veri ve hello yerel veritabanında depolar.
+Objective-C sürümünde içinde `syncData`, ilk diyoruz **pushWithCompletion** üzerinde eşitleme bağlamı. Bu yöntem bir üyesi olan `MSSyncContext` (ve eşitleme tablonun kendisini değil) tüm tablolar arasında değişiklikleri iter olduğundan. Yerel olarak (CUD işlemleri üzerinden) şekilde değiştirilmiş kayıt sunucusuna gönderilir. Ardından yardımcı **pullData** çağrıldığında hangi çağrıları **MSSyncTable.pullWithQuery** uzak verileri almak ve yerel veritabanında depolamak için.
 
-Merhaba SWIFT sürümünde hello gönderme işlemi kesinlikle gerekli olmadığından yoktur çağrı yok çok**pushWithCompletion**. Gönderme işlemi yapıyor Merhaba tablonun hello eşitleme bağlamındaki bekleyen tüm değişiklikleri varsa, çekme her zaman bir itme ilk verir. Ancak, birden fazla eşitleme tablo varsa, en iyi tooexplicitly çağrı anında tooensure her şeyi ilişkili tablolar arasında tutarlı olduğundan emin olur.
+SWIFT sürümde olmadığından zorlama işlemi kesinlikle gerekli yoktur hiçbir çağrısına **pushWithCompletion**. Gönderme işlemi yapıyor tablosu için eşitleme bağlamındaki bekleyen tüm değişiklikleri varsa, çekme her zaman bir itme ilk verir. Ancak, birden fazla eşitleme tablo varsa, her şeyi ilişkili tablolar arasında tutarlı olduğundan emin olmak için anında iletme açıkça çağırmak en iyisidir.
 
-Merhaba Objective-C hem SWIFT sürümleri hello kullanabilirsiniz **pullWithQuery** yöntemi toospecify sorgu toofilter hello tooretrieve istediğiniz kaydeder. Bu örnekte, hello sorgu hello uzak tüm kayıtları alır `TodoItem` tablo.
+Objective-C hem SWIFT sürümleri de, kullanabileceğiniz **pullWithQuery** yöntemi almak istediğiniz kayıtlarını filtrelemek için bir sorgu belirtin. Bu örnekte sorgu, uzak tüm kayıtları alır `TodoItem` tablo.
 
-ikinci parametresi, hello **pullWithQuery** için kullanılan bir sorgu kimliği *Artımlı eşitleme*. Artımlı eşitleme hello kaydın kullanarak hello son eşitlemeden sonra değiştirilen kayıtları alır `UpdatedAt` zaman damgası (adlı `updatedAt` hello yerel depolama alanındaki) hello sorgu kimliği her mantıksal sorgu için benzersiz tanımlayıcı bir dize olmalıdır Uygulamanızı. tooopt Artımlı eşitleme dışına geçirmek `nil` sorgu kimliği hello gibi Her çekme işlemi tüm kayıtları aldığı için bu yaklaşım olası verimsiz olabilir.
+Öğesinin ikinci parametresi, **pullWithQuery** için kullanılan bir sorgu kimliği *Artımlı eşitleme*. Artımlı eşitleme alır kaydın kullanarak en son eşitlemeden sonra değiştirilen kayıtları `UpdatedAt` zaman damgası (adlı `updatedAt` Yerel Depodaki.) Sorgu kimliği, uygulamanızda mantıksal her sorgu için benzersiz tanımlayıcı bir dize olmalıdır. Artımlı eşitleme dışında kabul etmek için geçirmek `nil` sorgu kimliği olarak Her çekme işlemi tüm kayıtları aldığı için bu yaklaşım olası verimsiz olabilir.
 
-Merhaba Objective-C uygulama değiştirmek veya bir kullanıcı hello yenileme hareketi gerçekleştirdiğinde veri eklediğinizde ve başlatma eşitlenir.
+Objective-C uygulama değiştirmek veya bir kullanıcı yenileme hareketi gerçekleştirdiğinde veri eklediğinizde ve başlatma eşitlenir.
 
-Merhaba SWIFT uygulama hello kullanıcı hello yenileme hareketi gerçekleştirdiğinde ve başlatma eşitlenir.
+SWIFT uygulama kullanıcı yenileme hareketi gerçekleştirdiğinde ve başlatma eşitlenir.
 
-Merhaba veri olduğunda uygulama eşitlemeler (Objective-C) değiştirdiğinden ya da hello uygulama (Objective-C ve Swift) başlattığında hello uygulama hello kullanıcının çevrimiçi olduğunu varsayar. Sonraki bölümde, böylece kullanıcılar çevrimdışı olsalar bile düzenleyebilirsiniz hello uygulamayı güncelleştirir.
+Veri olduğunda uygulama eşitlemeler (Objective-C) değiştirdiğinden veya uygulama (Objective-C ve Swift) başlattığında, uygulama kullanıcının çevrimiçi olduğunu varsayar. Sonraki bölümde, böylece kullanıcılar çevrimdışı olsalar bile düzenleyebilirsiniz uygulamayı güncelleştirir.
 
-## <a name="review-core-data"></a>Gözden geçirme hello çekirdek veri modeli
-Merhaba çekirdek veri çevrimdışı deposu kullandığınızda, veri modelinizi belirli tabloları ve alanları tanımlamanız gerekir. Merhaba örnek uygulaması zaten hello doğru biçime sahip bir veri modeli içerir. Bu bölümde, nasıl kullanıldıkları Biz bu tablolar tooshow yol.
+## <a name="review-core-data"></a>Çekirdek veri modeli gözden geçirin
+Çekirdek veri çevrimdışı deposu kullandığınızda, veri modelinizi belirli tabloları ve alanları tanımlamanız gerekir. Örnek uygulaması zaten doğru biçime sahip bir veri modeli içerir. Bu bölümde, nasıl kullanıldıkları göstermek için bu tablolar yol.
 
-Açık **QSDataModel.xcdatamodeld**. Dört tablolar tanımlanan--tarafından kullanılan üç SDK hello ve hello Yapılacaklar için kullanılan bir öğelerini kendilerini:
-  * MS_TableOperations: Parçaları toobe hello eşitlenmesi gereken öğeleri hello.
+Açık **QSDataModel.xcdatamodeld**. Dört tablonun tanımlanmış--SDK tarafından kullanılan üç ve yapılacaklar için kullanılan bir kendilerini öğeleri:
+  * MS_TableOperations: sunucusuyla eşitlenmesi gereken öğeleri izler.
   * MS_TableOperationErrors: Çevrimdışı eşitleme sırasında gerçekleşen hataları izler.
-  * MS_TableConfig: Hello son eşitleme işlemi tüm çekme işlemleri için güncelleştirilmiş son kez parçaları hello.
-  * Todoıtem: hello Yapılacaklar öğelerini depolar. Sistem sütunları hello **createdAt**, **updatedAt**, ve **sürüm** isteğe bağlı sistem özelliklerdir.
+  * MS_TableConfig: Parçaları tüm çekme işlemleri için son eşitleme işlemi için zaman son güncelleştirildi.
+  * Todoıtem: Yapılacaklar öğelerini depolar. Sistem sütunları **createdAt**, **updatedAt**, ve **sürüm** isteğe bağlı sistem özelliklerdir.
 
 > [!NOTE]
-> Merhaba Mobile Apps SDK'sı ile başlayan sütun adları ayırır "**``**". Bu ön ek sistem sütunlar dışındaki herhangi bir şeyle kullanmayın. Aksi takdirde hello uzak arka uç kullandığınızda, sütun adlarının değiştirilir.
+> Mobile Apps SDK'sı ile başlayan sütun adları ayırır "**``**". Bu ön ek sistem sütunlar dışındaki herhangi bir şeyle kullanmayın. Aksi takdirde, uzak arka uç kullandığınızda, sütun adlarının değiştirilir.
 >
 >
 
-Merhaba çevrimdışı eşitleme özelliğini kullandığınızda, hello üç Sistem tabloları ve hello veri tablosu tanımlayın.
+Çevrimdışı eşitleme özelliğini kullandığınızda, üç Sistem tabloları ve veri tablosu tanımlayın.
 
 ### <a name="system-tables"></a>Sistem tabloları
 
@@ -199,24 +199,24 @@ Merhaba çevrimdışı eşitleme özelliğini kullandığınızda, hello üç Si
 | id | Dize, gerekli olarak işaretlenmiş |Uzak Depolama birincil anahtar |
 | Tamamlayın | Boole değeri | Yapılacak iş öğesi alanı |
 | Metin |Dize |Yapılacak iş öğesi alanı |
-| CreatedAt | Tarih | (isteğe bağlı) Çok eşlemeleri**createdAt** sistem özelliği |
-| updatedAt | Tarih | (isteğe bağlı) Çok eşlemeleri**updatedAt** sistem özelliği |
-| Sürüm | Dize | (isteğe bağlı) Kullanılan toodetect çakışmaları, maps tooversion |
+| CreatedAt | Tarih | (isteğe bağlı) Eşlendiği **createdAt** sistem özelliği |
+| updatedAt | Tarih | (isteğe bağlı) Eşlendiği **updatedAt** sistem özelliği |
+| Sürüm | Dize | (isteğe bağlı) Çakışmaları, maps sürüme algılamak için kullanılan |
 
-## <a name="setup-sync"></a>Hello uygulama Hello eşitleme davranışını değiştirme
-Bu bölümde, uygulama başlatma ya da zaman eklemek ve öğeleri güncelleştirme üzerinde eşitlemez şekilde hello uygulama değiştirin. Yalnızca hello Yenile hareketi düğmesini gerçekleştirildiğinde eşitlenir.
+## <a name="setup-sync"></a>Uygulama eşitleme davranışını değiştirme
+Bu bölümde, uygulama başlatma ya da zaman eklemek ve öğeleri güncelleştirme üzerinde eşitlemez şekilde uygulama değiştirin. Yalnızca Yenile hareketi düğmesini gerçekleştirildiğinde eşitlenir.
 
 **Objective-C**:
 
-1. İçinde **QSTodoListViewController.m**, hello değiştirme **viewDidLoad** yöntemi tooremove hello çağrısı çok`[self refresh]` hello yöntemi hello sonunda. Şimdi, uygulama başlatılırken hello sunucusuyla hello veri eşitlenmedi. Bunun yerine, hello yerel deposunun Merhaba içeriğine ile eşitlenip.
-2. İçinde **QSTodoService.m**, hello tanımını değiştirmek `addItem` böylece hello öğesi eklendikten sonra eşitleme değil. Merhaba kaldırmak `self syncData` engelleme ve hello şununla değiştirin:
+1. İçinde **QSTodoListViewController.m**, değiştirme **viewDidLoad** yöntemi çağrısı kaldırmak için `[self refresh]` yöntemi sonunda. Şimdi, uygulama başlatılırken sunucusuyla veri eşitlenmedi. Bunun yerine, Yerel Depodaki içeriğini eşitlenip.
+2. İçinde **QSTodoService.m**, tanımını değiştirmek `addItem` böylece öğeyi eklendikten sonra eşitleme değil. Kaldırma `self syncData` engelleme ve şununla değiştirin:
 
    ```objc
    if (completion != nil) {
        dispatch_async(dispatch_get_main_queue(), completion);
    }
    ```
-3. Merhaba tanımını değiştirmek `completeItem` daha önce belirtildiği gibi. Başlangıç engellemeyi kaldırmak `self syncData` ve hello şununla değiştirin:
+3. Tanımını değiştirmek `completeItem` daha önce belirtildiği gibi. Bloğunu kaldırmak `self syncData` ve şununla değiştirin:
    ```objc
    if (completion != nil) {
        dispatch_async(dispatch_get_main_queue(), completion);
@@ -225,17 +225,17 @@ Bu bölümde, uygulama başlatma ya da zaman eklemek ve öğeleri güncelleştir
 
 **SWIFT**:
 
-İçinde `viewDidLoad`, **ToDoTableViewController.swift**, burada, app başlangıç eşitleniyor toostop gösterilen hello iki satırları açıklama. Bu yazma hello anda birisi ekler veya öğeyi tamamlandıktan hello Swift Todo uygulaması hello hizmet güncelleştirmez. Merhaba hizmeti yalnızca, uygulama başlatılırken güncelleştirir.
+İçinde `viewDidLoad`, **ToDoTableViewController.swift**, uygulama başlangıç eşitlemeyi durdurma için burada gösterilen iki satırları açıklama. Bu yazma zaman birisi ekler veya öğeyi tamamlandıktan Swift Todo uygulaması hizmet güncelleştirmez. Uygulama başlangıç hizmette yalnızca güncelleştirir.
 
    ```swift
   self.refreshControl?.beginRefreshing()
   self.onRefresh(self.refreshControl)
 ```
 
-## <a name="test-app"></a>Test hello uygulama
-Bu bölümde, tooan geçersiz URL toosimulate çevrimdışı bir senaryo bağlayın. Veri öğeleri eklediğinizde, tutulan hello Yerel Çekirdek veri depolamak, ancak bunlar hello mobil uygulama arka ucu ile eşitlenmedi.
+## <a name="test-app"></a>Uygulamayı test etme
+Bu bölümde, çevrimdışı bir senaryo benzetimini yapmak için geçersiz bir URL bağlayın. Veri öğeleri eklediğinizde, bunlar içinde tutulan yerel çekirdek verileri depolamak, ancak bunlar mobil uygulama arka ucu ile eşitlenmedi.
 
-1. Merhaba mobil uygulama URL'sini değiştirmek **QSTodoService.m** tooan geçersiz URL ve yeniden çalışma hello uygulama:
+1. Mobil uygulama URL'sini değiştirmek **QSTodoService.m** bir geçersiz URL ve uygulamayı yeniden çalıştırın:
 
    **Objective-C**. QSTodoService.m içinde:
    ```objc
@@ -245,33 +245,33 @@ Bu bölümde, tooan geçersiz URL toosimulate çevrimdışı bir senaryo bağlay
    ```swift
    let client = MSClient(applicationURLString: "https://sitename.azurewebsites.net.fail")
    ```
-2. Bazı Yapılacaklar öğelerini ekleyin. Merhaba simulator (veya zorla kapatma hello uygulama) çıkmanız ve yeniden başlatın. Yaptığınız değişiklikleri kalıcı olduğunu doğrulayın.
+2. Bazı Yapılacaklar öğelerini ekleyin. Simulator çıkın (veya zorla uygulamayı kapatmak) ve yeniden başlatın. Yaptığınız değişiklikleri kalıcı olduğunu doğrulayın.
 
-3. Görüntüleme hello uzak Merhaba içeriğine **Todoıtem** tablosu:
-   * Node.js arka ucu için toohello Git [Azure portal](https://portal.azure.com/) ve, mobil uygulama arka ucu içinde tıklatın **kolay tabloları** > **Todoıtem**.  
+3. Uzak içeriğini görüntülemek **Todoıtem** tablosu:
+   * Node.js arka ucu için Git [Azure portal](https://portal.azure.com/) ve, mobil uygulama arka ucu içinde tıklatın **kolay tablolar** > **Todoıtem**.  
    * Bir .NET geri için sonlandırmak için SQL Server Management Studio gibi bir SQL aracı veya Fiddler veya Postman gibi bir REST istemcisi kullanın.  
 
-4. Merhaba yeni öğelerin bulunduğunu doğrulayın *değil* edilmiş hello sunucusuyla eşitlenir.
+4. Yeni öğelerin bulunduğunu doğrulayın *değil* edilmiş sunucuyla eşitlenir.
 
-5. Değişiklik hello URL toohello düzeltmek birinde **QSTodoService.m**ve yeniden çalıştır hello uygulama.
+5. Doğru bir şekilde geri URL'sini değiştirmek **QSTodoService.m**ve uygulamayı yeniden çalıştırın.
 
-6. Merhaba yenileme hareketi öğeleri hello listede aşağı çekerek gerçekleştirin.  
+6. Öğeleri listede aşağı çekerek yenileme hareketi gerçekleştirin.  
 Devam eden değer değiştirici görüntülenir.
 
-7. Görünüm hello **Todoıtem** yeniden verileri. Merhaba yeni ve değiştirilen Yapılacaklar öğelerini şimdi görüntülenmesi gerekir.
+7. Görünüm **Todoıtem** yeniden verileri. Yeni ve değiştirilen Yapılacaklar öğelerini şimdi görüntülenmesi gerekir.
 
 ## <a name="summary"></a>Özet
-toosupport hello çevrimdışı eşitleme özelliği kullandık hello `MSSyncTable` arabirim ve başlatıldı `MSClient.syncContext` yerel deposu. Bu durumda, hello yerel deposu çekirdek veri tabanlı bir veritabanı oluştu.
+Çevrimdışı eşitleme özelliğini desteklemek için kullandık `MSSyncTable` arabirim ve başlatıldı `MSClient.syncContext` yerel deposu. Bu durumda, Yerel Depodaki çekirdek veri tabanlı bir veritabanı oluştu.
 
-Bir çekirdek veri yerel deposu kullandığınızda, hello birkaç tablolarla tanımlamalısınız [düzeltmek Sistem Özellikleri](#review-core-data).
+Bir çekirdek veri yerel deposu kullandığınızda, birkaç tablolarla tanımlamalısınız [düzeltmek Sistem Özellikleri](#review-core-data).
 
-Hello normal oluşturmak okuma, güncelleştirme ve hello uygulama hala bağlı, ancak tüm hello işlemleri hello yerel depo ortaya gibi mobil uygulamaları iş için (CRUD) işlemleridir silme.
+Normal oluşturma, okuma, güncelleştirme ve uygulama hala bağlı, ancak yerel depo tüm işlemleri ortaya gibi mobil uygulamaları iş için (CRUD) işlemleridir silin.
 
-Merhaba yerel deposu hello sunucuyla eşitlendiğinde hello kullandık **MSSyncTable.pullWithQuery** yöntemi.
+Yerel depodan sunucuyla eşitlendiğinde kullandık **MSSyncTable.pullWithQuery** yöntemi.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 * [mobil uygulamalarda çevrimdışı veri eşitlemeye]
-* [Bulut kapsar: Azure Mobile Services'ın çevrimdışı eşitleme] \(hello video Mobile Services hakkında olmakla birlikte, benzer şekilde Mobile Apps çevrimdışı eşitleme çalışır.\)
+* [Bulut kapsar: Azure Mobile Services'ın çevrimdışı eşitleme] \(video Mobile Services hakkında olmakla birlikte, benzer şekilde Mobile Apps çevrimdışı eşitleme çalışır.\)
 
 <!-- URLs. -->
 

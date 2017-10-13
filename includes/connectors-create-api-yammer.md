@@ -1,16 +1,16 @@
 ### <a name="prerequisites"></a>Ön koşullar
 * A [Yammer](https://www.yammer.com/) hesabı 
 
-Bir mantıksal uygulama Yammer hesabınızda kullanmadan önce hello mantığı uygulama tooconnect tooyour Yammer hesabını yetkilendirmeniz gerekir. Neyse ki, kolayca hello Azure portalı üzerinde mantıksal uygulama içinde bunu yapabilirsiniz. 
+Bir mantıksal uygulama Yammer hesabınızda kullanmadan önce Yammer hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz. 
 
-Mantıksal uygulama tooconnect tooyour Yammer hesap hello adımları tooauthorize şunlardır:
+Mantıksal uygulamanızı Yammer hesabınıza bağlanmak için yetki vermek için adımlar şunlardır:
 
-1. Merhaba mantığı Uygulama Tasarımcısı'nda bir bağlantı tooYammer toocreate seçin **Göster Microsoft yönetilen API'ler** Merhaba, açılan liste ardından girin *Yammer* hello arama kutusuna. Merhaba tetikleyici veya toouse beğendiğiniz eylem seçin:  
+1. Mantıksal Uygulama Tasarımcısı'nda Yammer, bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *Yammer* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
    ![](./media/connectors-create-api-yammer/yammer-1.png)
-2. Tüm bağlantılar tooYammer önce oluşturmadıysanız, Yammer kimlik bilgileriniz istendiğinde tooprovide elde edersiniz. Bu kimlik bilgileri, Logic app tooconnect kullanılan tooauthorize olması ve Yammer hesabınızın veri erişim:  
+2. Önce Yammer bağlantılarına oluşturmadıysanız, Yammer kimlik bilgilerinizi girmeniz istendiğinde şunu. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve Yammer hesabınızın veri erişim:  
    ![](./media/connectors-create-api-yammer/yammer-2.png)
-3. Yammer Kullanıcı adı ve parola tooauthorize mantıksal uygulamanızı sağlar:  
+3. Yammer Kullanıcı adı ve mantıksal uygulamanızı yetkilendirmek için parola sağlayın:  
    ![](./media/connectors-create-api-yammer/yammer-3.png)   
-4. Merhaba bağlantı oluşturulur ve mantıksal uygulamanızı ücretsiz tooproceed hello diğer sahip adımlarını artık olduğunuz dikkat edin:  
+4. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  
    ![](./media/connectors-create-api-yammer/yammer-4.png)   
 

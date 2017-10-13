@@ -1,6 +1,6 @@
 ---
-title: "Azure API Management'te grupları kullanarak aaaManage Geliştirici hesapları | Microsoft Docs"
-description: "Nasıl toomanage Geliştirici kullanarak hesapları öğrenin Azure API Management'te grupları"
+title: "Azure API Management'te grupları kullanılarak Geliştirici hesaplarını yönetme | Microsoft Docs"
+description: "Geliştirici hesaplarının Azure API Management'te grupları kullanarak yönetmeyi öğrenin"
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,85 +14,85 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: c46e010e41d9705ae161dcd60d734a76d19c9e93
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b4d71cdfbab535b02542fbb26c7555265e5f9c37
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toocreate-and-use-groups-toomanage-developer-accounts-in-azure-api-management"></a>Azure API Management'te nasıl toocreate ve kullanım grupları toomanage Geliştirici hesapları
-API Management'te, ürünlerin toodevelopers kullanılan toomanage hello görünürlüğünü gruplarıdır. İlk yapılan görünür toogroups ürünleri olan ve sonra bu gruplara geliştiriciler görüntülemek ve hello gruplarıyla ilişkili toohello ürünleri abone. 
+# <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>Oluşturma ve Azure API Management'ta Geliştirici hesaplarını yönetmek için grupları kullanma
+API Management’te, ürünlerin geliştiricilere görünürlüğünü yönetmek için gruplar kullanılır. Ürünler ilk gruplar tarafından görünür yapılır ve sonra bu gruplara geliştiriciler görüntülemek ve gruplarıyla ilişkili ürünlere abone. 
 
-API Management aşağıdaki sabit sistem gruplarına hello sahiptir.
+API Management aşağıdaki sabit sistem gruplarına sahiptir.
 
-* **Yöneticiler**: Azure aboneliği yöneticileri bu grubun üyesidir. Yöneticiler API Management hizmet örneklerini yönetir API'leri, işlemleri ve geliştiriciler tarafından kullanılan ürünleri hello oluşturma.
-* **Geliştiriciler**: Kimliği doğrulanmış geliştirici portalı kullanıcıları bu gruba girer. Geliştiriciler, Apı'lerinizi kullanan uygulamalar oluşturmak hello müşterilerdir. Geliştiriciler erişim toohello Geliştirici Portalı verilir ve hello bir API'nin işlemlerini çağıran uygulamalar oluşturun.
-* **Konuklar** -kimliği doğrulanmamış Geliştirici portalı kullanıcıları, bu gruba bir API Management örneği sonbaharda hello Geliştirici portalını ziyaret eden olası müşteriler gibi. Bunlar hello özelliği tooview API'leri gibi bazı salt okunur erişim hakkı verilebilir, ancak çağıramama.
+* **Yöneticiler**: Azure aboneliği yöneticileri bu grubun üyesidir. Yöneticiler, geliştiriciler tarafından kullanılan API’leri, işlemleri ve ürünleri oluşturarak API Management hizmet örneklerini yönetir.
+* **Geliştiriciler**: Kimliği doğrulanmış geliştirici portalı kullanıcıları bu gruba girer. Geliştiriciler, API'lerinizi kullanarak uygulama oluşturan müşterilerdir. Geliştiriciler, geliştirici portalına erişim iznine sahiptir ve bir API’nin işlemlerini çağıran uygulamalar oluşturur.
+* **Konuklar**: Kimliği doğrulanmamış geliştirici portalı kullanıcıları (bir API Management örneğinin geliştirici portalını ziyaret eden olası müşteriler gibi) bu gruba girer. Bunlara API’leri görüntüleyebilme ancak çağıramama gibi bazı salt okunur erişimler verilebilir.
 
-Toplama toothese sistem gruplarında yöneticiler özel gruplar oluşturabilir veya [ilişkili Azure Active Directory kiracılarındaki dış grupları yararlanan][leverage external groups in associated Azure Active Directory tenants]. Özel ve dış gruplar tooAPI ürünleri erişmek ve geliştiricilere görünürlük vererek sistem grupları yanında kullanılabilir. Örneğin, özel bir grup oluşturmak için belirli bir ile ilişkili Geliştiriciler iş ortağı kuruluş ve erişim izni yalnızca ilgili API'leri içeren bir üründen toohello API'leri. Bir kullanıcı birden fazla grubun üyesi olabilir.
+Bu sistem gruplarına ek olarak, yöneticiler özel gruplar oluşturabilir veya [ilişkili Azure Active Directory kiracılarındaki dış grupları yararlanan][leverage external groups in associated Azure Active Directory tenants]. Özel ve dış gruplar, geliştiricilere görünürlük ve API ürünlerine erişim sağlayan sistem gruplarıyla birlikte kullanılabilir. Örneğin, belirli bir iş ortağı kuruluşla ilişkili geliştiriciler için özel bir grup oluşturabilir ve bunlara yalnızca ilgili API'leri içeren bir üründen API'lere erişim izni verebilirsiniz. Bir kullanıcı birden fazla grubun üyesi olabilir.
 
 Bu kılavuz, nasıl bir API Management örneğinin yöneticileri yeni gruplar eklemek ve ürünleri ve geliştiricilerin ilişkilendirmek gösterir.
 
 > [!NOTE]
-> Ayrıca toocreating ve hello yayımcı portalında gruplarını yönetme, oluşturabilir ve gruplarınızı hello API Management REST API kullanarak yönetmek [grup](https://msdn.microsoft.com/library/azure/dn776329.aspx) varlık.
+> Grup oluşturma ve yayımcı portalında yönetme ek olarak, oluşturmak ve gruplarınızı API Management REST API kullanarak yönetmek [grup](https://msdn.microsoft.com/library/azure/dn776329.aspx) varlık.
 > 
 > 
 
 ## <a name="create-group"></a>Bir grup oluşturun
-toocreate yeni bir grubu tıklatın **yayımcı portalına** API Management hizmetiniz için hello Azure Portalı'nda. Bu toohello API Management yayımcı portalına götürür.
+Yeni bir grup oluşturmak için tıklatın **yayımcı portalına** API Management hizmetiniz için Azure Portalı'nda. Bu sizi API Management yayımcı portalına götürür.
 
 ![Yayımcı portalı][api-management-management-console]
 
-> Henüz bir API Management hizmeti örneği oluşturmadıysanız, bkz: [bir API Management hizmet örneği oluşturma] [ Create an API Management service instance] hello içinde [Azure API Management ile çalışmaya başlama] [ Get started with Azure API Management] Öğreticisi.
+> Henüz bir API Management hizmeti örneği oluşturmadıysanız, [Azure API Management'i kullanmaya başlama][Get started with Azure API Management] öğreticisinde [API Management hizmet örneği oluşturma][Create an API Management service instance]'ya bakın.
 > 
 > 
 
-Tıklatın **grupları** hello gelen **API Management** sol hello ve ardından menüsünde **Grup Ekle**.
+Tıklatın **grupları** gelen **API Management** sol menüsünde ve ardından **Grup Ekle**.
 
 ![Yeni Grup Ekle][api-management-add-group]
 
-Merhaba grubu ve isteğe bağlı bir açıklama için benzersiz bir ad girin ve tıklayın **kaydetmek**.
+Grup ve isteğe bağlı bir açıklama için benzersiz bir ad girin ve tıklayın **kaydetmek**.
 
 ![Yeni Grup Ekle][api-management-add-group-window]
 
-Merhaba yeni Grup hello grupları sekmesini tooedit hello görüntülenen **adı** veya **açıklama** hello grubunun hello hello listedeki hello grup adını tıklatın. toodelete hello grubu tıklatın **silmek**.
+Yeni Grup grupları sekmesinde görüntülenir. Düzenlenecek **adı** veya **açıklama** grubunu, listedeki grup adını tıklatın. Grubunu silmek için tıklatın **silmek**.
 
 ![Eklenen grubu][api-management-new-group]
 
-Merhaba grup oluşturulur, ürünleri ve geliştiriciler ile ilişkili olabilir.
+Grubu oluşturulan, ürünleri ve geliştiriciler ile ilişkili olabilir.
 
 ## <a name="associate-group-product"></a>Bir grup ürünü ile ilişkilendirme
-tooassociate bir ürüne sahip bir grubu tıklatın **ürünleri** hello gelen **API Management** hello menüsünde sol ve ardından hello istenen ürün hello adına tıklayın.
+Bir grup olan bir ürün ilişkilendirmek için tıklatın **ürünleri** gelen **API Management** sol menüsünde ve istenen ürün adına tıklayın.
 
 ![Görünürlüğü Ayarla][api-management-add-group-to-product]
 
-Select hello **görünürlük** tooadd sekmesinde ve grupları ve hello ürünün tooview hello geçerli grupları kaldırın. tooadd veya kaldırma grupları denetleyin veya grupları ve tıklatın hello istenen için hello onay kutusunun işaretini kaldırın **kaydetmek**.
+Seçin **görünürlük** sekme ekleme ve grupları kaldırmak için ve ürün için geçerli gruplarını görüntülemek için. Grupları ekleyebilir veya kaldırabilirsiniz için denetleyin veya istenen grupları için onay kutusunun işaretini kaldırın ve tıklatın **kaydetmek**.
 
 ![Görünürlüğü Ayarla][api-management-add-group-to-product-visibility]
 
 > [!NOTE]
-> bkz: tooadd Azure Active Directory grupları [nasıl tooauthorize Geliştirici kullanarak hesapları Azure API Management'te Azure Active Directory](api-management-howto-aad.md).
+> Azure Active Directory grupları eklemek için bkz: [Azure API Management'te Azure Active Directory'yi kullanarak Geliştirici hesaplarını yetkilendirmede nasıl](api-management-howto-aad.md).
 > 
-> Merhaba tooconfigure gruplarından **görünürlük** bir ürün sekmesini tıklatın, **grupları yönet**.
+> Gruplardan yapılandırmak için **görünürlük** bir ürün sekmesini tıklatın, **grupları yönet**.
 > 
 > 
 
-Bir ürün grubu ile ilişkili olduğunda, o gruptaki geliştiriciler görüntüleyebilir ve toohello ürün abone.
+Bir ürün grubu ile ilişkili olduğunda, o gruptaki geliştiriciler görüntüleyebilir ve ürüne abone.
 
 ## <a name="associate-group-developer"></a>Grupları geliştiricilerle ilişkilendirme
-Geliştiriciler ile tooassociate gruplar **kullanıcılar** hello gelen **API Management** sol hello ve hello geliştiriciler yanındaki kutuyu hello menüsünden istediğiniz tooassociate sahip bir grup.
+Grupları geliştiricilerle ilişkilendirme için tıklatın **kullanıcılar** gelen **API Management** sol menüsünde ve bir grubu ile ilişkilendirmek istediğiniz geliştiriciler yanındaki kutuyu işaretleyin.
 
-![Geliştirici toogroup Ekle][api-management-add-group-to-developer]
+![Geliştirici grubuna Ekle][api-management-add-group-to-developer]
 
-Geliştiriciler denetlenir Hello istenen sonra hello istenen hello grubunda tıklayın **tooGroup ekleme** açılır. Geliştiriciler kaldırılabilir gruplarından hello kullanarak **grubundan** açılır. 
+İstenen geliştiriciler işaretlendiğinde, istenen grubunda tıklatın **gruba ekleyin** açılır. Geliştiriciler kaldırılabilir gruplarından kullanarak **grubundan** açılır. 
 
 ![Geliştiriciler][api-management-add-group-to-developer-saved]
 
-Merhaba ilişkilendirme hello Geliştirici ve hello grubu arasında eklendikten sonra hello görüntüleyebilirsiniz **kullanıcılar** sekmesi.
+Geliştirici ve grubu ilişki eklendikten sonra içinde görüntüleyebilirsiniz **kullanıcılar** sekmesi.
 
 ## <a name="next-steps"> </a>Sonraki adımlar
-* Bir geliştirici tooa grubuna eklendikten sonra görüntüleyin ve bu grupla ilişkili toohello ürünleri abone olun. Daha fazla bilgi için bkz: [oluşturma ve Azure API Management'te bir ürün yayımlama][How create and publish a product in Azure API Management],
-* Ayrıca toocreating ve hello yayımcı portalında gruplarını yönetme, oluşturabilir ve gruplarınızı hello API Management REST API kullanarak yönetmek [grup](https://msdn.microsoft.com/library/azure/dn776329.aspx) varlık.
+* Bir geliştirici bir gruba eklendikten sonra görüntüleyin ve bu grupla ilişkili ürünlere abone. Daha fazla bilgi için bkz: [oluşturma ve Azure API Management'te bir ürün yayımlama][How create and publish a product in Azure API Management],
+* Grup oluşturma ve yayımcı portalında yönetme ek olarak, oluşturmak ve gruplarınızı API Management REST API kullanarak yönetmek [grup](https://msdn.microsoft.com/library/azure/dn776329.aspx) varlık.
 
 [api-management-management-console]: ./media/api-management-howto-create-groups/api-management-management-console.png
 [api-management-add-group]: ./media/api-management-howto-create-groups/api-management-add-group.png

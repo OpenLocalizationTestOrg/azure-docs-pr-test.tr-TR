@@ -1,6 +1,6 @@
 ---
 title: "Azure AD Connect: Hızlı ayarlar ile çalışmaya başlama | Microsoft Belgeleri"
-description: "Nasıl toodownload, yükleyin ve Azure AD Connect'i hello Kurulum Sihirbazı'nı çalıştırın öğrenin."
+description: "Azure AD Connect'i indirme, yükleme ve kurulum sihirbazını çalıştırma hakkında bilgi edinin."
 services: active-directory
 documentationcenter: 
 author: andkjell
@@ -14,54 +14,54 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 79f796fa7738b85e9236e856bddb529379f60390
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 8a08f6e441a856a06bf7870747ca20af45a0364e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-ad-connect-using-express-settings"></a>Hızlı ayarları kullanarak Azure AD Connect ile çalışmaya başlama
-Kimlik doğrulaması için [parola eşitleme](active-directory-aadconnectsync-implement-password-synchronization.md) özelliğine ve tek ormanlı bir topolojiye sahipseniz Azure AD Connect **Hızlı Ayarları** kullanılır. **Hızlı Ayarlar** hello varsayılan seçenektir ve en yaygın olarak dağıtılan hello senaryo için kullanılır. Yalnızca birkaç tıklama koyma tooextend, şirket içi dizin toohello bulut şunlardır.
+Kimlik doğrulaması için [parola eşitleme](active-directory-aadconnectsync-implement-password-synchronization.md) özelliğine ve tek ormanlı bir topolojiye sahipseniz Azure AD Connect **Hızlı Ayarları** kullanılır. **Hızlı Ayarlar** varsayılan seçenek olup yaygın olarak dağıtılan senaryo için kullanılır. Şirket içi dizininizi buluta genişletmek için yalnızca birkaç tıklama yapmanız yeterli.
 
-Azure AD Connect'i yüklemeye başlamadan önce emin olun çok[Azure AD Connect indirin](http://go.microsoft.com/fwlink/?LinkId=615771) ve tam hello önkoşul adımlarını [Azure AD Connect: donanım ve Önkoşullar](active-directory-aadconnect-prerequisites.md).
+Azure AD Connect'i yüklemeye başlamadan önce [Azure AD Connect'i indirdiğinizden](http://go.microsoft.com/fwlink/?LinkId=615771) ve [Azure AD Connect: Donanım ve önkoşullar](active-directory-aadconnect-prerequisites.md) bölümündeki önkoşul adımlarını tamamladığınızdan emin olun.
 
 Hızlı ayarlar, topolojinizle eşleşmiyorsa diğer senaryolar için [ilgili belgelere](#related-documentation) göz atın.
 
 ## <a name="express-installation-of-azure-ad-connect"></a>Azure AD Connect'i hızlı yükleme
-Bu adımların nasıl gerçekleştirildiğini hello görebilirsiniz [videolar](#videos) bölümü.
+Bu adımların nasıl gerçekleştirildiğini [videolar](#videos) bölümünden görebilirsiniz.
 
-1. Üzerinde Azure AD Connect tooinstall istediğiniz yerel yönetici toohello sunucusu olarak oturum açın. Merhaba sunucuda yapmalısınız toobe hello eşitleme sunucusu istiyor.
-2. Tooand çift gidin **AzureADConnect.msi**.
-3. Merhaba Hoş Geldiniz ekranında hello kutusunu kabul ettiğinizi belirten toohello Lisans Koşulları'nı seçin ve **devam**.  
-4. Merhaba hızlı ayarlar ekranında tıklatın **hızlı ayarları kullan**.  
-   ![Hoş Geldiniz tooAzure AD Connect](./media/active-directory-aadconnect-get-started-express/express.png)
-5. Merhaba Bağlan tooAzure AD ekranda hello kullanıcı adı ve parola genel yöneticinin Azure AD için girin. **İleri**’ye tıklayın.  
-   ![TooAzure AD connect](./media/active-directory-aadconnect-get-started-express/connectaad.png) bir hatayla karşılaştıysanız ve bağlantı sorunlarınız varsa, daha sonra bkz [bağlantı sorunlarını giderme](active-directory-aadconnect-troubleshoot-connectivity.md).
-6. Hello Bağlan tooAD DS ekranında kuruluş yöneticisi hesabı için hello kullanıcı adı ve parola girin. Merhaba etki alanı bölümünü NetBIOS veya FQDN biçiminde, diğer bir deyişle, ör. fabrıkam\yönetici veya fabrikam.com\administrator girebilirsiniz. **İleri**’ye tıklayın.  
-   ![TooAD DS Bağlan](./media/active-directory-aadconnect-get-started-express/connectad.png)
-7. Merhaba [ **Azure AD oturum açma yapılandırması** ](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) sayfası yalnızca gösterir, tamamlanmadı, [etki alanlarınızı doğrulama](../active-directory-add-domain.md) hello içinde [Önkoşullar](active-directory-aadconnect-prerequisites.md).
+1. Azure AD Connect'i yüklemek istediğiniz sunucuda yerel yönetici olarak oturum açın. Bu işlemi eşitleme sunucusu olmasını istediğiniz sunucuda yapmanız gerekir.
+2. **AzureADConnect.msi** öğesine gidin ve çift tıklayın.
+3. Hoş Geldiniz ekranında, lisans koşullarını kabul ettiğinizi belirten kutuyu seçin ve **Devam**'a tıklayın.  
+4. Hızlı ayarlar ekranında **Hızlı ayarları kullan**'a tıklayın.  
+   ![Azure AD Connect'e Hoş Geldiniz](./media/active-directory-aadconnect-get-started-express/express.png)
+5. Azure AD'ye Bağlanma ekranında Azure AD'niz için genel yönetici kullanıcı adını ve parolasını girin. **İleri**’ye tıklayın.  
+   ![Azure AD'ye Bağlanma](./media/active-directory-aadconnect-get-started-express/connectaad.png) Bir hatayla karşılaştıysanız ve bağlantı sorunlarınız varsa bkz. [Bağlantı sorunlarını giderme](active-directory-aadconnect-troubleshoot-connectivity.md).
+6. AD DS'ye Bağlanma ekranında kuruluş yöneticisi hesabına ilişkin kullanıcı adını ve parolayı girin. Etki alanı bölümünü NetBIOS veya FQDN biçiminde (örneğin, FABRIKAM\yönetici veya fabrikam.com\yönetici) girebilirsiniz. **İleri**’ye tıklayın.  
+   ![AD DS'ye Bağlanma](./media/active-directory-aadconnect-get-started-express/connectad.png)
+7. [**Azure AD oturum açma yapılandırması**](active-directory-aadconnect-user-signin.md#azure-ad-sign-in-configuration) sayfası, yalnızca [önkoşullar](active-directory-aadconnect-prerequisites.md) bölümündeki [etki alanlarınızı doğrulama](../active-directory-add-domain.md) adımını tamamlamamış olmanız halinde görüntülenir.
    ![Doğrulanmamış etki alanları](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png)  
-   Bu sayfayı görüyorsanız **Eklenmedi** ve **Doğrulanmadı** olarak işaretlenen tüm etki alanlarını gözden geçirin. Kullandığınız etki alanlarının Azure AD'de doğrulanmış olduğundan emin olun. Etki alanlarınızı doğruladıktan hello Yenile simgesine tıklayın.
-8. Merhaba hazır tooconfigure ekranında tıklatın **yükleme**.
-   * İsteğe bağlı olarak hello hazır tooconfigure sayfasında hello işaretini kaldırabilirsiniz **Yapılandırma tamamlandıktan hemen sonra hello eşitleme işlemini başlatmak** onay kutusu. Toodo ek yapılandırma gibi istiyorsanız bu onay kutusunun işaretini kaldırmanız gerekir [filtreleme](active-directory-aadconnectsync-configure-filtering.md). Bu seçeneğin işaretini kaldırırsanız hello sihirbaz eşitlemeyi yapılandırır ancak hello Zamanlayıcı devre dışı bırakır. El ile etkinleştirmediğiniz sürece çalışmaz [hello yükleme sihirbazını yeniden](active-directory-aadconnectsync-installation-wizard.md).
-   * Exchange şirket içi Active Directory içinde olması durumunda bir seçenek tooenable de [ **Exchange karma dağıtımı**](https://technet.microsoft.com/library/jj200581.aspx). Toohave Exchange posta kutuları her iki hello bulutta planlar ve hello aynı şirket, bu seçeneği etkinleştirin zaman.
-     ![Azure AD Connect tooconfigure hazır](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
-9. Merhaba yüklemesi tamamlandığında, tıklatın **çıkış**.
-10. Merhaba yükleme tamamlandıktan sonra oturumunu kapatmak ve Eşitleme Hizmeti Yöneticisi'ni veya Synchronization Rule Editor'ı kullanmadan önce yeniden oturum açın.
+   Bu sayfayı görüyorsanız **Eklenmedi** ve **Doğrulanmadı** olarak işaretlenen tüm etki alanlarını gözden geçirin. Kullandığınız etki alanlarının Azure AD'de doğrulanmış olduğundan emin olun. Etki alanlarınızı doğruladıktan sonra Yenile simgesine tıklayın.
+8. Yapılandırma için hazır ekranında **Yükle**'ye tıklayın.
+   * İsteğe bağlı olarak, Yapılandırma için hazır sayfasında **Start the synchronization process as soon as configuration completes (Yapılandırma tamamlanınca eşitlemeyi başlat)** onay kutusunun işaretini kaldırabilirsiniz. Başka yapılandırmalar (örneğin, [filtreleme](active-directory-aadconnectsync-configure-filtering.md)) gerçekleştirmek istiyorsanız bu onay kutusunun işaretini kaldırmanız gerekir. Bu seçeneğin işaretini kaldırırsanız sihirbaz eşitlemeyi yapılandırır ancak zamanlayıcıyı devre dışı bırakır. [Yükleme sihirbazını yeniden çalıştırarak](active-directory-aadconnectsync-installation-wizard.md) elle etkinleştirmediğiniz sürece çalışmaz.
+   * Şirket içi Active Directory'nizde Exchange varsa [**Exchange Karma dağıtımını**](https://technet.microsoft.com/library/jj200581.aspx) da etkinleştirebilirsiniz. Aynı anda hem bulutta ve hem de şirket içinde Exchange posta kutunuzun olmasını istiyorsanız bu seçeneği etkinleştirin.
+     ![Azure AD Connect yapılandırma için hazır](./media/active-directory-aadconnect-get-started-express/readytoconfigure.png)
+9. Yükleme tamamlandığında **Çıkış**'a tıklayın.
+10. Yükleme tamamlandıktan sonra Synchronization Service Manager'ı veya Synchronization Rule Editor'ı kullanmadan önce oturumunuzu kapatıp tekrar açın.
 
 ## <a name="videos"></a>Videolar
-Merhaba hızlı yükleme kullanarak, bir video izlemek için bkz:
+Hızlı yüklemeyi kullanmaya ilişkin video için bkz.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-Active-Directory-Connect-Express-Settings/player]
 > 
 > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure AD Connect'i sahip olduğunuza göre şunları yapabilirsiniz [hello yüklemeyi doğrulayın ve lisansları atama](active-directory-aadconnect-whats-next.md).
+Azure AD Connect'i yüklediniz, artık [yüklemeyi doğrulayabilir ve lisans atayabilirsiniz](active-directory-aadconnect-whats-next.md).
 
-Merhaba yüklemeyle etkinleştirilen özellikler hakkında daha fazla bilgi edinin: [otomatik yükseltme](active-directory-aadconnect-feature-automatic-upgrade.md), [yanlışlıkla silmeleri engelleme](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md), ve [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health-sync.md).
+Yüklemeyle etkinleştirilen özellikler hakkında daha fazla bilgi edinin: [Otomatik yükseltme](active-directory-aadconnect-feature-automatic-upgrade.md), [Yanlışlıkla silmeleri engelleme](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) ve [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health-sync.md).
 
-Bu genel konular hakkında daha fazla bilgi edinin: [Zamanlayıcı ve nasıl tootrigger eşitleme](active-directory-aadconnectsync-feature-scheduler.md).
+Şu genel konu başlıkları hakkında daha fazla bilgi edinin: [Zamanlayıcı ve eşitleme tetikleme](active-directory-aadconnectsync-feature-scheduler.md).
 
 [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md) hakkında daha fazla bilgi edinin.
 

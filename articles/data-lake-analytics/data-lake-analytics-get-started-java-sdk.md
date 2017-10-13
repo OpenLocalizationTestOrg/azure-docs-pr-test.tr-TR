@@ -1,6 +1,6 @@
 ---
-title: "aaaUse Data Lake Analytics Java SDK'yı toodevelop uygulamalar | Microsoft Docs"
-description: "Azure Data Lake Analytics Java SDK'yı toodevelop uygulamaları kullanın"
+title: "Uygulama geliştirmek için Data Lake Analytics Java SDK'yı kullanma | Microsoft Docs"
+description: "Uygulama geliştirmek için Azure Data Lake Analytics Java SDK'yı kullanma"
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -14,37 +14,37 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.openlocfilehash: 0d975812fe659ed34ee9befd37ee7c0bf50d3414
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 795d9ec0b0cac5d74673404f1d0d851393336df0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-java-sdk"></a>Java SDK'yı kullanarak Azure Data Lake Analytics ile çalışmaya başlama
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Gibi klasörleri oluşturmak, karşıya yükleme ve veri dosyalarını indirme, hesabınızı silme ve işlerle çalışma temel işlemleri gerçekleştirmek ve nasıl toouse hello Azure Data Lake Analytics Java SDK'yı toocreate bir Azure Data Lake hesabı öğrenin. Data Lake hakkında daha fazla bilgi için bkz: [Azure Data Lake Analytics](data-lake-analytics-overview.md).
+Bir Azure Data Lake hesabı oluşturmak ve gibi klasör oluşturma karşıya yükleme ve veri dosyalarını indirme, hesabınızı silme ve işlerle çalışma temel işlemleri gerçekleştirmek için Azure Data Lake Analytics Java SDK'yı kullanmayı öğrenin. Data Lake hakkında daha fazla bilgi için bkz: [Azure Data Lake Analytics](data-lake-analytics-overview.md).
 
-Bu öğreticide, ortak yönetim görevlerinin yanı sıra test verileri oluşturma ve bir iş gönderme örnekleri içeren bir Java konsol uygulaması geliştireceksiniz.  aynı öğreticiyi diğer kullanarak desteklenen hello aracılığıyla toogo araçları, bu bölümde hello üstündeki hello sekmeleri tıklatın.
+Bu öğreticide, ortak yönetim görevlerinin yanı sıra test verileri oluşturma ve bir iş gönderme örnekleri içeren bir Java konsol uygulaması geliştireceksiniz.  Öğreticiyi desteklenen diğer araçları kullanarak tamamlamak için bu bölümün üst kısmındaki sekmelere tıklayın.
 
 ## <a name="prerequisites"></a>Ön koşullar
 * Java Geliştirme Seti (JDK) 8 (Java sürüm 1.8'i kullanır).
-* IntelliJ veya başka bir uygun Java geliştirme ortamı. Bu isteğe bağlı olsa da önerilir. Merhaba yönergelerde Intellij kullanılmıştır.
+* IntelliJ veya başka bir uygun Java geliştirme ortamı. Bu isteğe bağlı olsa da önerilir. Aşağıdaki yönergelerde IntelliJ kullanılmıştır.
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
-* Bir Azure Active Directory (AAD) uygulaması oluşturun ve **İstemci Kimliği**, **Kiracı Kimliği** ve **Anahtar** bilgilerini alın. Nasıl AAD uygulamaları ve yönergeleri hakkında daha fazla bilgi için bir istemci kimliği tooget bkz [oluşturma Active Directory uygulaması ve hizmet sorumlusu portal kullanarak](../azure-resource-manager/resource-group-create-service-principal-portal.md). hello uygulama oluşturulur ve oluşturulan anahtarı edindikten sonra hello yanıt URI ve anahtarınızı da hello portalından kullanılabilir.
+* Bir Azure Active Directory (AAD) uygulaması oluşturun ve **İstemci Kimliği**, **Kiracı Kimliği** ve **Anahtar** bilgilerini alın. AAD uygulamaları hakkında daha fazla bilgi ve istemci kimliği almaya ilişkin yönergeler için bkz. [Portal kullanarak Active Directory uygulaması ve hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md). Uygulama ve anahtar oluşturulduktan sonra Yanıt URI’si ve Anahtar da portaldan alınabilir.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Azure Active Directory'yi kullanarak nasıl kimlik doğrulaması gerçekleştiririm?
-Aşağıdaki kod parçacığında Hello sağlar kodunu **etkileşimli olmayan** kimlik doğrulaması, burada hello uygulama kendi kimlik bilgilerini sağlar.
+Aşağıdaki kod parçacığı, uygulamanın kendi kimlik bilgilerini sağladığı **etkileşimli olmayan** kimlik doğrulaması için kod sağlar.
 
-Bu öğretici toowork için uygulama izin toocreate kaynaklarınızı Azure toogive gerekir. Bu **tavsiye** yalnızca bu uygulama katkıda bulunan izinleri tooa yeni, kullanılmamış ve boş kaynak grubunun Azure aboneliğinizde Bu öğreticinin hello amaçları için size olduğunu.
+Bu öğreticinin çalışması için, uygulamaya Azure'da kaynak oluşturmak üzere izin vermeniz gerekir. Bu öğreticinin amaçları doğrultusunda, bu uygulamaya Azure aboneliğinizdeki yeni, kullanılmamış ve boş bir kaynak grubu üzerinde Katılımcı izinleri vermeniz **önemle önerilir**.
 
 ## <a name="create-a-java-application"></a>Java uygulaması oluşturma
-1. Intellij hizmetini açın ve hello kullanarak yeni bir Java projesi oluşturun **komut satırı uygulaması** şablonu.
-2. Ekranınızın sol taraftaki hello hello projeye sağ tıklatın ve **Framework desteği Ekle**. **Maven**'ı seçip **OK (Tamam)** seçeneğine tıklayın.
-3. Yeni oluşturulan açık hello **"pom.xml"** dosya ve metin parçacığını hello arasında aşağıdaki hello ekleyin  **\</VERSION >** etiketini ve hello  **\< /project >** etiketi:
+1. IntelliJ hizmetini açın ve **Komut Satırı Uygulaması** şablonunu kullanarak yeni bir Java projesi oluşturun.
+2. Ekranınızın sol tarafında projeye sağ tıklayın ve **Add Framework Support (Framework Desteği Ekle)** seçeneğine tıklayın. **Maven**'ı seçip **OK (Tamam)** seçeneğine tıklayın.
+3. Yeni oluşturulan **"pom.xml"** dosyasını açın ve **\</version>** etiketi ile **\</project>** etiketi arasına şu metin parçacığını ekleyin:
 
     >[!NOTE]
-    >Hello Azure Data Lake Analytics SDK olanağı Maven içinde kullanılabilir olana kadar bu geçici bir adımdır. Merhaba SDK olanağı Maven içinde kullanılabilir olduğunda bu makale güncelleştirilecektir. Tüm gelecekteki güncelleştirmeleri toothis SDK, maven üzerinden olacaktır.
+    >Azure Data Lake Analytics SDK olanağı Maven içinde kullanılabilir olana kadar bu geçici bir adımdır. SDK, Maven içinde kullanılabilir olduğunda bu makale güncelleştirilecektir. İleride bu SDK'ya yönelik olarak gerçekleştirilecek tüm güncelleştirmeler Maven üzerinden sunulacaktır.
     >
 
         <repositories>
@@ -95,13 +95,13 @@ Bu öğretici toowork için uygulama izin toocreate kaynaklarınızı Azure toog
                 <version>1.0.0-SNAPSHOT</version>
             </dependency>
         </dependencies>
-4. Çok Git**dosya**, ardından **ayarları**, ardından **yapı**, **yürütme**, **dağıtım**. Seçin **derleme araçlarını**, **Maven**, **alma**. Ardından denetleyin **Import Maven projeleri otomatik olarak**.
-5. Açık **Main.java** ve Değiştir hello hello ile var olan kod bloğunu aşağıdaki kodu. Ayrıca, aşağıdaki gibi hello kod parçacığında çağrılan parametrelerin hello değerlerini sağlamasını **localFolderPath**, **_adlaAccountName**, **_adlsAccountName**, **_ resourceGroupName** ve yer tutucularını değiştirin **istemci kimliği**, **CLIENT-SECRET**, **KİRACI kimliği**, ve  **ABONELİK kimliği**.
+4. Git **dosya**, ardından **ayarları**, ardından **yapı**, **yürütme**, **dağıtım**. Seçin **derleme araçlarını**, **Maven**, **alma**. Ardından denetleyin **Import Maven projeleri otomatik olarak**.
+5. Açık **Main.java** ve var olan kod bloğunu aşağıdaki kodla değiştirin. Ayrıca, gibi kod parçacığında çağrılan parametrelerin değerlerini belirtin **localFolderPath**, **_adlaAccountName**, **_adlsAccountName**, **_ resourceGroupName** ve yer tutucularını değiştirin **istemci kimliği**, **CLIENT-SECRET**, **KİRACI kimliği**, ve  **ABONELİK kimliği**.
 
-    Bu kod gider hello süreci hello Mağazası'nda, dosyaları oluşturmak, Data Lake Store ve Data Lake Analytics hesapları oluşturma bir işi, iş durumunu alma, iş çıktısı indirme ve son olarak hello hesabı silme.
+    Bu kod, Data Lake Store ve Data Lake Analytics hesapları oluşturma, depoda dosya oluşturma, bir iş, iş durumunu alma, iş çıktısı indirme ve son olarak hesabı silme süreci devam ettiği.
 
    > [!NOTE]
-   > Şu anda hello Azure Data Lake hizmeti ile ilgili bilinen bir sorun yoktur.  Merhaba örnek uygulaması kesintiye veya hatayla karşılaştığında, hello betik oluşturan toomanually delete hello Data Lake Store & Data Lake Analytics hesapları gerekebilir.  Portal hello ile bilmiyorsanız hello [Azure Data Lake Azure Portal kullanarak Analytics yönetmek](data-lake-analytics-manage-use-portal.md) Kılavuzu başlamanıza alırsınız.
+   > Şu anda Azure Data Lake Hizmeti ile ilgili bilinen bir sorun yoktur.  Örnek uygulama kesintiye uğrar veya bir hatayla karşılaşırsa betiğin oluşturduğu Data Lake Store ve Data Lake Analytics hesaplarını elle silmeniz gerekebilir.  Portal hakkında bilgi sahibi değilseniz [Azure Portal kullanarak Azure Data Lake Analytics’i yönetme](data-lake-analytics-manage-use-portal.md) kılavuzu çalışmaya başlamanıza yardımcı olur.
    >
    >
 
@@ -149,9 +149,9 @@ Bu öğretici toowork için uygulama izin toocreate kaynaklarınızı Azure toog
                 _subId =  "<SUBSCRIPTION-ID>";
                 _clientId = "<CLIENT-ID>";
 
-                _clientSecret = "<CLIENT-SECRET>"; // TODO: For production scenarios, we recommend that you replace this line with a more secure way of acquiring hello application client secret, rather than hard-coding it in hello source code.
+                _clientSecret = "<CLIENT-SECRET>"; // TODO: For production scenarios, we recommend that you replace this line with a more secure way of acquiring the application client secret, rather than hard-coding it in the source code.
 
-                String localFolderPath = "C:\\local_path\\"; // TODO: Change this tooany unused, new, empty folder on your local machine.
+                String localFolderPath = "C:\\local_path\\"; // TODO: Change this to any unused, new, empty folder on your local machine.
 
                 // Authenticate
                 ApplicationTokenCredentials creds = new ApplicationTokenCredentials(_clientId, _tenantId, _clientSecret, null);
@@ -176,14 +176,14 @@ Bu öğretici toowork için uygulama izin toocreate kaynaklarınızı Azure toog
                 WaitForNewline("Accounts displayed.", "Creating files.");
 
                 // Create a file in Data Lake Store: input1.csv
-                // TODO: these change order in hello next patch
+                // TODO: these change order in the next patch
                 byte[] bytesContents = "123,abc".getBytes();
                 _adlsFileSystemClient.getFileSystemOperations().create(_adlsAccountName, "/input1.csv", bytesContents, true);
 
                 WaitForNewline("File created.", "Submitting a job.");
 
-                // Submit a job tooData Lake Analytics
-                UUID jobId = SubmitJobByScript("@input =  EXTRACT Data string FROM \"/input1.csv\" USING Extractors.Csv(); OUTPUT @input too@\"/output1.csv\" USING Outputters.Csv();", "testJob");
+                // Submit a job to Data Lake Analytics
+                UUID jobId = SubmitJobByScript("@input =  EXTRACT Data string FROM \"/input1.csv\" USING Extractors.Csv(); OUTPUT @input TO @\"/output1.csv\" USING Outputters.Csv();", "testJob");
                 WaitForNewline("Job submitted.", "Getting job status.");
 
                 // Wait for job completion and output job status
@@ -219,13 +219,13 @@ Bu öğretici toowork için uygulama izin toocreate kaynaklarınızı Azure toog
                 _adlaClient.setSubscriptionId(_subId);
             }
 
-            // Helper function tooshow status and wait for user input
+            // Helper function to show status and wait for user input
             public static void WaitForNewline(String reason, String nextAction)
             {
                 if (nextAction == null)
                     nextAction = "";
 
-                System.out.println(reason + "\r\nPress ENTER toocontinue...");
+                System.out.println(reason + "\r\nPress ENTER to continue...");
                 try{System.in.read();}
                 catch(Exception e){}
 
@@ -262,12 +262,12 @@ Bu öğretici toowork için uygulama izin toocreate kaynaklarınızı Azure toog
                 adlaParameters.setName(_adlaAccountName);
                 adlaParameters.setProperties(adlaProperties);
 
-                    /* If this line generates an error message like "hello deep update for property 'DataLakeStoreAccounts' is not supported", please delete hello ADLS and ADLA accounts via hello portal and re-run your script. */
+                    /* If this line generates an error message like "The deep update for property 'DataLakeStoreAccounts' is not supported", please delete the ADLS and ADLA accounts via the portal and re-run your script. */
 
                 _adlaClient.getAccountOperations().create(_resourceGroupName, _adlaAccountName, adlaParameters);
             }
 
-            //todo: this changes in hello next version of hello API
+            //todo: this changes in the next version of the API
             public static void CreateFile(String path, String contents, boolean force) throws IOException, CloudException {
                 byte[] bytesContents = contents.getBytes();
 
@@ -307,7 +307,7 @@ Bu öğretici toowork için uygulama izin toocreate kaynaklarınızı Azure toog
             }
 
             // Submit a U-SQL job by providing script contents.
-            // Returns hello job ID
+            // Returns the job ID
             public static UUID SubmitJobByScript(String script, String jobName) throws IOException, CloudException {
                 UUID jobId = java.util.UUID.randomUUID();
                 USqlJobProperties properties = new USqlJobProperties();
@@ -340,12 +340,12 @@ Bu öğretici toowork için uygulama izin toocreate kaynaklarınızı Azure toog
             }
         }
 
-1. Merhaba istemleri toorun ve tam hello uygulama izleyin.
+1. Uygulamayı çalıştırmak ve tamamlamak için istemleri izleyin.
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* toosee hello aynı öğreticiyi diğer araçları kullanarak, hello sekmesini seçiciler hello sayfasının hello üstte'ı tıklatın.
-* toosee daha karmaşık bir sorgu görmek [Web sitesi günlüklerini çözümleme Azure Data Lake Analytics'i kullanarak](data-lake-analytics-analyze-weblogs.md).
-* U-SQL uygulamalarını geliştirmeye başlatılan tooget bkz [Visual Studio için Data Lake Araçları'nı kullanarak geliştirme U-SQL betikleri](data-lake-analytics-data-lake-tools-get-started.md).
-* U-SQL, toolearn bkz [Azure Data Lake Analytics U-SQL dili ile çalışmaya başlama](data-lake-analytics-u-sql-get-started.md), ve [U-SQL dili başvurusu](http://go.microsoft.com/fwlink/?LinkId=691348).
+* Aynı öğreticiyi diğer araçları kullanarak görmek için sayfanın üst kısmındaki sekme seçicilerine tıklayın.
+* Daha karmaşık bir sorgu görmek için [Azure Data Lake Analytics'i kullanarak Web sitesi günlüklerini çözümleme](data-lake-analytics-analyze-weblogs.md) makalesine bakın.
+* U-SQL uygulamalarını geliştirmeye başlamak için bkz. [Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme](data-lake-analytics-data-lake-tools-get-started.md).
+* U-SQL öğrenmek için bkz. [Azure Data Lake Analytics U-SQL dili ile çalışmaya başlama](data-lake-analytics-u-sql-get-started.md) ve [U-SQL dili başvurusu](http://go.microsoft.com/fwlink/?LinkId=691348).
 * Yönetim görevleri için bkz. [Azure Portal'ı kullanarak Azure Data Lake Analytics'i yönetme](data-lake-analytics-manage-use-portal.md).
-* bir Data Lake Analytics özetini tooget bkz [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
+* Data Lake Analytics'e yönelik bir genel bakış için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).

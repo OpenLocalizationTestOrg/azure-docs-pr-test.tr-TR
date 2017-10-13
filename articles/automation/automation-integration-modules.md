@@ -1,9 +1,9 @@
 ---
-title: "bir Azure Automation tümleştirme modülü aaaCreate | Microsoft Docs"
-description: "Öğretici, Azure Automation tümleştirme modülleri hello oluşturma, test ve örnek kullanımı aracılığıyla yol göstermektedir."
+title: "Azure Automation Tümleştirme Modülü Oluşturma | Microsoft Belgeleri"
+description: "Bu eğiticide, Azure Automation’da tümleştirme modüllerinin oluşturulması, test edilmesi ve kullanım örnekleri gösterilir."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 ms.assetid: 27798efb-08b9-45d9-9b41-5ad91a3df41e
@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/13/2017
 ms.author: magoedte
-ms.openlocfilehash: d4064d8b106496f4dab442024131886c4affccab
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 061a9856ef4a9bc4f569b812a061fad98b044f04
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-automation-integration-modules"></a>Azure Automation Tümleştirme Modülleri
-PowerShell hello temel Azure Automation'un ardındaki teknolojidir. Azure Automation PowerShell üzerine kurulu olmadığından, PowerShell modülleri Azure Automation'un genişletilmesinde anahtar toohello ' dir. Bu makalede, biz PowerShell modülleri Azure Otomasyonu'nun kullanımını hello özellikleri yönlendirecek, tooas "Tümleştirme modülleri" denir ve bunlar tümleştirme modülü olarak çalışmalarını kendi PowerShell modülleri toomake oluşturmak için en iyi yöntemler Azure Otomasyonu. 
+PowerShell, Azure Automation’un ardındaki temel teknolojidir. Azure Automation PowerShell üzerine kurulu olduğundan, PowerShell modülleri Azure Automation’un genişletilmesinde önemlidir. Bu makalede, Azure Automation’un "Tümleştirme modülleri" adı verilen PowerShell modüllerini nasıl kullandığı ve kendi PowerShell modüllerinizi oluştururken Azure Automation’da Tümleştirme Modülü olarak çalışmalarını sağlayacak en iyi yöntemler anlatılır. 
 
 ## <a name="what-is-a-powershell-module"></a>PowerShell Modülü nedir?
-PowerShell modülü PowerShell cmdlet'leri gibi oluşan bir gruptur **Get-Date** veya **Copy-Item**kullanılabilecek hello PowerShell konsolunu, komut dosyaları, iş akışları, runbook'ları ve gibi PowerShell DSC kaynakları WindowsFeature veya PowerShell DSC kaynaklarından kullanılabilen dosya. PowerShell hello işlevlerin gösterilir cmdlet'ler ve DSC kaynakları ve her cmdlet/DSC kaynağı bir PowerShell modülü tarafından desteklenir, PowerShell ile birlikte birçoğu. Örneğin, hello **Get-Date** cmdlet hello Microsoft.PowerShell.Utility PowerShell modülünün bir parçasıdır ve **Copy-Item** cmdlet hello Microsoft.PowerShell.Management PowerShell modülünün bir parçasıdır ve Merhaba paket DSC kaynağı da PSDesiredStateConfiguration PowerShell modülünün hello bir parçasıdır. Bu modüllerin her ikisi de PowerShell ile birlikte verilir. Ancak çok sayıda PowerShell modülü PowerShell bir parçası olarak bulunmaz ve bunun yerine PowerShell Galerisi gibi yerlerde hello geniş PowerShell topluluğu tarafından veya System Center 2012 Configuration Manager gibi birinci veya üçüncü taraf ürünleri ile dağıtılır.  karmaşık görevleri kapsüllenmiş işlevler aracılığıyla daha basit hale hello modülleri yararlı olur.  Daha fazla bilgiyi [MSDN'de PowerShell modülleri](https://msdn.microsoft.com/library/dd878324%28v=vs.85%29.aspx) konusunda bulabilirsiniz. 
+PowerShell modülü, PowerShell konsolundan kullanılabilen **Get-Date** veya **Copy-Item** gibi çeşitli PowerShell cmdlet’leri; PowerShell DSC kaynaklarından kullanılabilen WindowsFeature or File gibi PowerShell DSC kaynakları; betikler, iş akışları ve runbook’lardan oluşan bir gruptur. PowerShell işlevlerinin tümü, cmdlet'ler ve DSC kaynakları aracılığıyla sunulur ve her cmdlet/DSC kaynağı bir PowerShell modülü tarafından desteklenir. Bu modüllerin çoğu PowerShell ile birlikte gelir. Örneğin, **Get-Date** cmdlet’i Microsoft.PowerShell.Utility PowerShell modülünün bir parçası, **Copy-Item** cmdlet’i Microsoft.PowerShell.Management PowerShell modülünün bir parçası ve Paket DSC kaynağı da PSDesiredStateConfiguration PowerShell modülünün bir parçasıdır. Bu modüllerin her ikisi de PowerShell ile birlikte verilir. Ancak çok sayıda PowerShell modülü PowerShell ile birlikte gelmez; System Center 2012 Configuration Manager gibi birinci ve üçüncü taraf ürünleriyle birlikte veya geniş PowerShell topluluğu tarafından PowerShell Galerisi gibi yerlerde dağıtılır.  Modüller, kapsüllenmiş işlevler aracılığıyla karmaşık görevleri daha basit hale getirdiklerinden kullanışlıdır.  Daha fazla bilgiyi [MSDN'de PowerShell modülleri](https://msdn.microsoft.com/library/dd878324%28v=vs.85%29.aspx) konusunda bulabilirsiniz. 
 
 ## <a name="what-is-an-azure-automation-integration-module"></a>Azure Automation Tümleştirme Modülü nedir?
-Tümleştirme Modülü, PowerShell modülünden çok farklı değildir. Kendi isteğe bağlı olarak bir ek dosya - runbook'hello modülün cmdlet'leriyle ile kullanılan bir Azure Otomasyonu bağlantı türü toobe belirten bir meta veri dosyası içeren bir PowerShell modülüdür. İsteğe bağlı dosya olsun veya olmasın bu PowerShell modülleri Azure Otomasyonu toomake kendi cmdlet'leri için kullanılabilir runbook'ları ve kullanılabilir, DSC kaynakları içinde DSC yapılandırmalarında kullanılacak kullanmak içine alınabilir. Merhaba perde arkasında Azure Automation bu modülleri depolar ve runbook işi ve DSC derleme işi yürütme süresinde, bunları burada runbook'ların yürütüldüğü, DSC yapılandırmalarının derlenir hello Azure Automation korumalı alanlarına yükler.  Böylece tooapply DSC yapılandırmaları çalışan makineler bunları çekebilir modüllerdeki DSC kaynakları hello Automation DSC çekme sunucusuna da otomatik olarak yerleştirilir.  
+Tümleştirme Modülü, PowerShell modülünden çok farklı değildir. Bu, isteğe bağlı olarak ek bir dosyanın bulunduğu bir PowerShell modülüdür. Bu dosya, runbook'larda modülün cmdlet'leriyle kullanılacak Azure Otomasyonu bağlantı türünü belirten bir meta veri dosyasıdır. İsteğe bağlı dosya olsun veya olmasın bu PowerShell modülleri, içerdikleri cmdlet’ler runbook’larda, DSC kaynakları da DSC yapılandırmalarında kullanılacak şekilde Azure Automation’a aktarılabilirler. Arka planda, Azure Otomasyonu bu modülleri depolar, runbook işi ve DSC derleme işi yürütme süresinde de bunları Azure Otomasyonu korumalı alanlarına yükler; bu korumalı alanlarda runbook’ların yürütüldüğü, DSC yapılandırmalarının derlenir.  Modüllerdeki DSC kaynakları otomatik olarak Automation DSC çekme sunucusuna da yerleştirilir; böylece, DSC yapılandırmalarını uygulamaya çalışan makineler bunları çekebilir.  
 
-Azure PowerShell modülleri sayısı hello kutusunda Azure Otomasyonu, toouse dışında Azure yönetim hemen başlayabilmeniz ancak ne olursa olsun sistemi, hizmet veya toointegrate ile istediğiniz aracı için PowerShell modülleri içeri aktarabilirsiniz gönderdiğimiz. 
+Azure yönetimine hemen başlayabilmeniz için Azure Otomasyonu ile birlikte birkaç Azure PowerShell modülü sunuyoruz; ancak tümleştirmek istediğiniz sistem, hizmet veya araca göre diğer PowerShell modüllerini de içeri aktarabilirsiniz. 
 
 > [!NOTE]
-> Belirli modüller "Genel modülleri" Merhaba Otomasyon hizmeti olarak gönderilir. Bu genel modüller, otomatik olarak onları tooyour Otomasyon hesabını iter automation hesabı oluşturma ve bunları bazen güncelleştiriyoruz kullanılabilir tooyou ' dir. Bunları istemiyorsanız toobe otomatik güncelleştirilmiş-her zaman alabilir, hello aynı modülü kendiniz ve hello hizmetinde gönderdiğimiz bu modülü hello genel Modül sürümü, önceliğe sahip olur. 
+> Bazı modüller Otomasyon hizmetinde “genel modüller” olarak gönderilir. Bu genel modüller bir otomasyon hesabı oluşturduğunuzda kullanılmaya hazırdır ve bazen güncelleştirilmesi sizi otomatik olarak otomasyon hesabınıza gönderir. Bunların otomatik olarak güncelleştirilmesini istemiyorsanız aynı modülü her zaman kendiniz içeri aktarabilirsiniz; bunun yapılması, hizmette gönderilen modülün genel modül sürümünden önceliklidir. 
 
-Tümleştirme modülü paketini içeri aktarma hello aynı adı hello modülü ve bir .zip uzantısı hello sahip sıkıştırılmış bir dosya biçimidir. Merhaba Windows PowerShell modülünü ve hello modülde varsa bildirim dosyası (.psd1) dahil olmak üzere tüm destek dosyalarını içerir.
+Tümleştirme Modülü paketini içeri aktardığınız biçim modülle aynı adda, .zip uzantılı sıkıştırılmış bir dosyadır. Windows PowerShell modülünü ve modülde varsa bir bildirim dosyası da (.psd1) dahil olmak üzere destek dosyalarını içerir.
 
-Merhaba modülü bir Azure Otomasyonu bağlantı türü içermesi gerekiyorsa hello ada sahip bir dosya da içermelidir `<ModuleName>-Automation.json` hello bağlantı türü özelliklerini belirtir. Bu sıkıştırılmış .zip dosyanızın hello modülü klasör içinde yerleştirilen bir json dosyasıdır ve hello alanları içeren bir "bağlantı" gerekli tooconnect toohello sistemi veya hizmet hello modülü temsil eder. Bu sayede Azure Automation’da bağlantı türü oluşturulur. Merhaba alan adları ayarlayabilirsiniz bu dosyayı kullanan türleri, hello alanların şifreli veya hello modülünün hello bağlantı türü için isteğe bağlı olması gerekir. Merhaba, hello json dosyası biçiminde bir şablon verilmiştir:
+Modülde bir Azure Otomasyonu bağlantı türü varsa, bağlantı türü özelliklerini belirten `<ModuleName>-Automation.json` adlı bir dosya da olmalıdır. Sıkıştırılmış .zip dosyanızın modül klasöründe yer alan bu json dosyasında, sisteme veya modülü temsil eden hizmete bağlanmak için gereken "bağlantı" alanları bulunur. Bu sayede Azure Automation’da bağlantı türü oluşturulur. Bu dosyayı kullanarak, modülün bağlantı türü için alan adlarını, türlerini ve alanların şifreli veya isteğe bağlı olup olmayacağını ayarlayabilirsiniz. Burada, json dosyası biçiminde bir şablon verilmiştir:
 
 ```
 { 
@@ -64,12 +64,12 @@ Merhaba modülü bir Azure Otomasyonu bağlantı türü içermesi gerekiyorsa he
 }
 ```
 
-Service Management Automation dağıttıysanız ve Otomasyon runbook'larınız için tümleştirme modülü paketleri oluşturulan, bilgili tooyou görünmelidir. 
+Daha önce Service Management Automation dağıttıysanız ve otomasyon runbook’larınız için Tümleştirme Modülü paketleri oluşturduysanız bu işlem size tanıdık gelecektir. 
 
 ## <a name="authoring-best-practices"></a>Yazma En İyi Uygulamaları
-Tümleştirme modülleri temelde PowerShell modülleri olsa bile yoktur hala pek çok öneririz göz önünde bulundurun toomake bir PowerShell modülü yazarken, Azure Automation'da en kullanışlı. Bunlardan bazıları Azure Automation'a özeldir ve bunlardan bazıları modüllerinizi PowerShell iş akışında iyi iş yararlı yalnızca toomake olduğundan Otomasyon desteklemediğini kullandığınızdan bağımsız olarak. 
+Tümleştirme Modülleri temelde birer PowerShell modülü olsa da PowerShell modülü yazarken, Azure Otomasyonu'nda en kullanışlı hale getirmek için bazı noktalara dikkat etmenizi öneririz. Automation kullanıp kullanmamanızdan bağımsız olarak, bunlardan bazıları Azure Automation’a özeldir, bazıları da yalnızca PowerShell İş Akışı’nda modüllerin iyi çalışmasını sağlar. 
 
-1. Merhaba modüldeki her cmdlet için Yardım URI ve bir Özet, açıklama, içerir. PowerShell'de hello ile kullanma hakkında bazı bilgiler cmdlet'leri tooallow hello kullanıcı tooreceive Yardım tanımlayabilirsiniz **Get-Help** cmdlet'i. Örneğin, bir .psm1 dosyasında yazılan PowerShell modülü için bir yardım URI’sını ve özeti nasıl tanımlayacağınız aşağıda anlatılmıştır.<br>  
+1. Modüldeki her cmdlet için bir özet, açıklama ve yardım URI’sı vardır. PowerShell'de, kullanıcının **Get-Help** cmdlet'ini kullanarak cmdlet'ler hakkında yardım almasını sağlayacak bazı bilgiler tanımlayabilirsiniz. Örneğin, bir .psm1 dosyasında yazılan PowerShell modülü için bir yardım URI’sını ve özeti nasıl tanımlayacağınız aşağıda anlatılmıştır.<br>  
    
     ```
     <#
@@ -105,13 +105,13 @@ Tümleştirme modülleri temelde PowerShell modülleri olsa bile yoktur hala pek
     $response.TwilioResponse.IncomingPhoneNumbers.IncomingPhoneNumber
     }
     ```
-   <br> Bu bilgileri sağlayarak yalnızca gösterilmez hello'ı kullanarak bu Yardım **Get-Help** cmdlet, PowerShell konsolunda Merhaba, ayrıca Azure automation'da bu Yardım işlevinin açığa çıkarır.  Örneğin, runbook yazma sırasında etkinlik eklenirken. "Ayrıntılı Yardımı görüntüleyin" seçeneğinin tıklanması Itanium tabanlı sistemler için açık hello Yardım URI'hello başka bir sekmesinde tooaccess Azure Otomasyonu kullandığınız web tarayıcısında.<br>![Tümleştirme Modülü Yardımı](media/automation-integration-modules/automation-integration-module-activitydesc.png)
-2. Merhaba modül uzak bir sistemle bağlantılı çalıştırıyorsa,
+   <br> Bu bilgiler verildiğinde PowerShell konsolunda **Get-Help** cmdlet’i kullanılarak ilgili yardım görülebileceği gibi, Azure Otomasyonu'nda bu yardım işlevinin olduğu da gösterilir.  Örneğin, runbook yazma sırasında etkinlik eklenirken. "Ayrıntılı yardımı görüntüleyin" seçeneğinin tıklanması, yardım URI’sini Azure Automation’a erişmek için kullandığınız başka bir web tarayıcısı sekmesinde açar.<br>![Tümleştirme Modülü Yardımı](media/automation-integration-modules/automation-integration-module-activitydesc.png)
+2. Modül uzak bir sistemle bağlantılı olarak çalışıyorsa,
 
-    a. Merhaba bağlantı türü de denir hello gerekli bilgileri tooconnect toothat uzak sistem, tanımlayan bir tümleştirme modülü meta veri dosyası içermelidir.  
-    b. Merhaba modüldeki her cmdlet, parametre olarak mümkün tootake bir bağlantı nesnesi (ilgili bağlantı türünün bir örneği) olmalıdır.  
+    a. Bu uzak sisteme bağlanmak için gereken bilgileri tanımlayan Tümleştirme Modülü meta veri dosyasını içermesi gerekir. Bu bilgilere bağlantı türü de denir.  
+    b. Modüldeki her cmdlet, parametre olarak bir bağlantı nesnesi (ilgili bağlantı türünün bir örneği) alabilmelidir.  
 
-    Merhaba modülündeki cmdlet'leri hello hello bağlantı türü alanlarının sahip bir nesne bir parametre toohello cmdlet'ini olarak geçirme izni verirseniz Azure automation'da daha kolay toouse haline gelir. Bu şekilde, kullanıcılar bir cmdlet'i her çağırdığında hello bağlantı varlık toohello cmdlet'in ilgili parametreleriyle toomap parametreleri yok. Yukarıdaki Hello runbook örneğinde bağlı olarak, bu CorpTwilio tooaccess Twilio adlı bir Twilio bağlantı varlığı kullanır ve hello hesaptaki tüm hello telefon numaraları döndürür.  Merhaba bağlantı toohello parametrelerini hello cmdlet'inin hello alanlarının nasıl eşlendiğini fark ettiniz mi?<br>
+    Modüldeki cmdlet'ler, bağlantı türü alanlarının bulunduğu nesneyi cmdlet’e parametre olarak geçirme izni verirseniz Azure Automation’da daha kolay kullanılır. Bu şekilde, kullanıcılar bir cmdlet’i her çağırdığında bağlantı varlığı parametrelerinin cmdlet'in ilgili parametreleriyle eşlenmesi gerekmez. Yukarıdaki runbook örneğinde, Twilio’ya erişmek ve tüm telefon numaralarını hesaba getirmek için CorpTwilio adlı bir Twilio bağlantı varlığı kullanılmıştır.  Bağlantı alanlarının cmdlet parametreleriyle nasıl eşlendiğini fark ettiniz mi?<br>
    
     ```
     workflow Get-CorpTwilioPhones
@@ -124,7 +124,7 @@ Tümleştirme modülleri temelde PowerShell modülleri olsa bile yoktur hala pek
     }
     ```
   
-    Bir ve daha kolay tooapproach bu hello bağlantı nesnesi toohello cmdlet doğrudan geçiyor-
+    Buna daha iyi ve daha kolay bir yaklaşım, bağlantı nesnesini doğrudan cmdlet’e geçirmektir. 
    
     ```
     workflow Get-CorpTwilioPhones
@@ -135,7 +135,7 @@ Tümleştirme modülleri temelde PowerShell modülleri olsa bile yoktur hala pek
     }
     ```
    
-    Cmdlet'lerinizin, cmdlet'leri tooaccept bir bağlantı nesnesini parametrelerin bağlantı alanları yerine bir parametre olarak doğrudan vererek etkinleştirebilirsiniz. Genellikle Azure Automation kullanmayan kullanıcılar cmdlet'lerinizi hashtable tooact hello bağlantı nesnesi olarak oluşturma olmadan çağırabilirsiniz böylece her biri için ayarlanmış bir parametre isteyeceksiniz. Parametre kümesi **SpecifyConnectionFields** kullanılan toopass hello bağlantı alanı özelliklerini tek tek aşağıdadır. **UseConnectionObject** geçirdiğiniz sağlar hello düz ile bağlantı. Gördüğünüz gibi hello içinde Send-TwilioSMS cmdlet'i hello [Twilio PowerShell modülündeki](https://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) iki şekilde sağlar: 
+    Cmdlet’lerinizin, bağlantı nesnesini parametrelerin bağlantı alanları yerine doğrudan bir parametre olarak kabul etmelerine izin vererek benzer bir yaklaşım elde edebilirsiniz. Çoğunlukla, her birinin bir parametre kümesi olmasını istersiniz. Böylece, Azure Automation kullanmayan kullanıcılar cmdlet’lerinizi bağlantı nesnesi gibi davranacak bir hashtable yapılandırmadan çağırabilir. Bağlantı alanı özelliklerini tek tek geçirmek için aşağıdaki **SpecifyConnectionFields** parametre kümesi kullanılmıştır. **UseConnectionObject** bağlantıyı doğrudan geçirmenizi sağlar. Gördüğünüz gibi, [Twilio PowerShell modülündeki](https://gallery.technet.microsoft.com/scriptcenter/Twilio-PowerShell-Module-8a8bfef8) Send-TwilioSMS cmdlet’i iki şekilde de geçirmenizi sağlar: 
    
     ```
     function Send-TwilioSMS {
@@ -161,8 +161,8 @@ Tümleştirme modülleri temelde PowerShell modülleri olsa bile yoktur hala pek
     }
     ```
    <br>
-3. Hello modüldeki tüm cmdlet'ler için çıktı türünü tanımlayın. Tasarım zamanında IntelliSense'in cmlet'i çıkış türünü tanımlamaya hello belirlemek toohelp yazma sırasında hello cmdlet özelliklerini çıktı. Otomasyon runbook grafik, tasarım zamanı bilgisinin anahtar tooan kolay kullanıcı deneyimi, modülüyle olduğu yazma sırasında özellikle yararlı olur.<br><br> ![Grafik Runbook’u Çıktı Türü](media/automation-integration-modules/runbook-graphical-module-output-type.png)<br> Bu, benzer bir cmdlet öğesinin toohello "İleri tür" işlevine animasyonun çıktı PowerShell ISE'de toorun gerek kalmadan.<br><br> ![POSH IntelliSense](media/automation-integration-modules/automation-posh-ise-intellisense.png)<br>
-4. Merhaba modüldeki cmdlet'ler parametreler için karmaşık nesne türlerini almamalıdır. PowerShell İş Akışı, karmaşık türleri seri durumdan çıkarılmış biçimde depolaması nedeniyle PowerShell’den farklıdır. İlkel türler temel olarak kalır, ancak halde temelde özellik paketi seri durumdan dönüştürülmüş tootheir sürümleri karmaşık türleridir. Örneğin, hello kullandıysanız **Get-Process** cmdlet'i bir runbook (veya bir PowerShell iş akışı bu), bu [Deserialized.System.Diagnostic.Process] türünde bir nesne döndürür, değil, beklenen [hello System.Diagnostic.Process] türü. Bu tür tüm aynı özellikleri çıkarılmamış türle ancak hello yöntemlerin hiçbiri hello gibi hello sahiptir. Ve burada hello cmdlet Bu parametre için [System.Diagnostic.Process] değerini bekler, bir parametre tooa cmdlet'ini olarak, bu değer toopass denerseniz aşağıdaki hata hello alırsınız: *'işlem' parametresinde bağımsız değişken dönüşümü işlenemiyor . Hata: "hello"Deserialized.System.Diagnostics.Process"tootype"System.Diagnostics.Process"türündeki"System.Diagnostics.Process (CcmExec)"değeri dönüştürülemiyor.*   Merhaba arasındaki bir tür uyuşmazlığı beklenen [System.Diagnostic.Process] türünü ve verilen [Deserialized.System.Diagnostic.Process] türü hello olduğundan budur. Merhaba bu soruna geçici bir çözüm modülünüzün tooensure hello cmdlet'ler parametreler için karmaşık türler almayan yoludur. Merhaba yanlış şekilde toodo İşte bunu.
+3. Modüldeki tüm cmdlet’ler için çıktı türünü tanımlayın. Cmdlet için bir çıktı türünün tanımlanması tasarım zamanında IntelliSense’in, cmdlet’in yazma sırasında kullanılan çıktı özelliklerini belirlemenize yardımcı olmasını sağlar. Bu işlem, Modülünüzde kolay bir kullanıcı deneyimi sağlamak için tasarım zamanı bilgisinin önemli olduğu Automation runbook grafik yazma işlemleri sırasında özellikle yardımcı olur.<br><br> ![Grafik Runbook’u Çıktı Türü](media/automation-integration-modules/runbook-graphical-module-output-type.png)<br> PowerShell ISE’de cmdlet çıktısının cmdlet’in çalıştırılmasını gerektirmeyen "ileri tür" işlevine benzer.<br><br> ![POSH IntelliSense](media/automation-integration-modules/automation-posh-ise-intellisense.png)<br>
+4. Modüldeki cmdlet'ler parametreler için karmaşık nesne türlerini almamalıdır. PowerShell İş Akışı, karmaşık türleri seri durumdan çıkarılmış biçimde depolaması nedeniyle PowerShell’den farklıdır. Temel türler temel olarak kalır; ancak, karmaşık türler seri durumdan çıkarılmış hale dönüştürülür. Bu halde temelde özellik paketi olurlar. Örneğin, bir runbook’ta (veya bununla ilgili PowerShell İş Akışı) **Get-Process** cmdlet’i kullanırsanız, beklenen [System.Diagnostic.Process] türünü değil, [Deserialized.System.Diagnostic.Process] türü nesnesini döndürür. Bu tür, seri durumdan çıkarılmamış türle aynı özelliklere sahip olsa da, yöntemlerin hiçbiri yoktur. Bu değeri cmdlet’e parametre olarak geçirmeye çalışırsanız da, cmdlet bu parametre için [System.Diagnostic.Process] değerini bekler ve şu hatayı alırsınız: *'işlem' parametresinde bağımsız değişken dönüşümü işlenemiyor. Hata: "Deserialized.System.Diagnostics.Process" türündeki "System.Diagnostics.Process (CcmExec)" değeri "System.Diagnostics.Process" türüne dönüştürülemez.*   Bunun nedeni, beklenen [System.Diagnostic.Process] türüyle verilen [Deserialized.System.Diagnostic.Process] türü arasında tür uyuşmazlığı olmasıdır. Bu sorunla karşılaşmamak için modülünüze ait cmdlet’lerin parametre olarak karmaşık tür kullanmaması gerekir. Burada bunu yapmanın yanlış yolu gösterilmektedir.
    
     ```
     function Get-ProcessDescription {
@@ -173,7 +173,7 @@ Tümleştirme modülleri temelde PowerShell modülleri olsa bile yoktur hala pek
     }
     ``` 
     <br>
-    Burada da hello şekilde hello cmdlet tarafından dahili olarak kullanılabilmesi için bir temel alarak toograb karmaşık nesne hello ve bunu kullanın. Merhaba PowerShell bağlamında cmdlet'leri yürütme olduğundan değil PowerShell iş akışı hello cmdlet $process hello doğru [System.Diagnostic.Process] türünü haline gelir.  
+    Buradaysa doğru yolu; karmaşık nesneyi alıp kullanmak için cmdlet tarafından dahili olarak kullanılabilen temel nesne alınmaktadır. Cmdlet’ler PowerShell İş Akışı değil de PowerShell bağlamında yürütüldüğünden, cmdlet’in içinde $process doğru [System.Diagnostic.Process] türüne dönüşür.  
    
     ```
     function Get-ProcessDescription {
@@ -186,8 +186,8 @@ Tümleştirme modülleri temelde PowerShell modülleri olsa bile yoktur hala pek
     }
     ```
    <br>
-   Runbook'lardaki bağlantı varlıkları karmaşık bir tür olan hashtable'da olan ve henüz bu hashtable'da cmdlet'lere toobe mümkün toobe göründüğü kendi – bağlantı parametresi mükemmel, herhangi bir cast özel durumu ile. Teknik olarak, bazı PowerShell türleri mümkün toocast kendi serileştirilmiş form seri durumdan tootheir formundan doğru olduğundan ve bu nedenle hello çıkarılmamış türle kabul eden parametrelerde cmdlet'lere geçirilebilir. Hashtable bunlardan biridir. Bir modül yazarının tanımlı türlerinin toobe, bunların düzgün şekilde de seri durumdan şekilde uygulanması mümkündür, ancak bazı dengelemeler tooconsider vardır. türü gereksinimlerini toohave varsayılan bir oluşturucu Merhaba, tüm alt özellikleri ortak ve bir pstypeconverter'ı olması. Ancak, zaten tanımlı türler için o hello modül yazarına desteklemez kendi, Hayır çok "bunları Düzelt", bu nedenle öneri tooavoid parametrelerin tüm karmaşık türler hello yoktur. Runbook yazma İpucu: bazı cmdlet'lerinizi nedenden dolayı tootake karmaşık bir tür parametresi veya başkasının gerektiren bir karmaşık tür parametresi, PowerShell iş akışı runbook'hello geçici çözüm ve PowerShell iş akışları yerel modül kullanıyorsanız Powershell'dir hello karmaşık türü oluşturan toowrap hello cmdlet'ini ve hello hello karmaşık türü tüketen hello cmdlet'i aynı Inlinescript etkinliği. PowerShell iş akışı, hello karmaşık tür oluşturan hello cmdlet doğru türü msgıd yerine Inlinescript içeriğinin PowerShell yürütür. bu yana değil hello karmaşık tür serisi.
-5. Tüm cmdlet'ler hello modülünde durum bilgisiz hale getirin. PowerShell iş akışı farklı bir oturumda hello iş akışında çağrılan her cmdlet'i çalışır. Bu, oluşturulan veya diğer Cmdlet'lerde aynı modülü PowerShell iş akışı runbook'larında çalışmaz hello değiştiren oturum durumuna bağlı cmdlet'lerin anlamına gelir.  Örneği ne toodo değil.
+   Runbook’lardaki bağlantı varlıkları hashtable’lardır. Bu hashtable’lar karmaşık tür olmalarına rağmen Bağlantı parametreleri nedeniyle yayın özel durumu olmadan cmdlet’lere sorunsuz geçebilirler. Teknik olarak, bazı PowerShell türleri, seri durumdaki biçimlerinden seri durumdan çıkarılmış biçimlerine düzgün bir şekilde yayınlanabilirler; bu nedenle de seri durumdan çıkarılmış türü kabul eden parametrelerde cmdlet'lere geçirilebilirler. Hashtable bunlardan biridir. Bir modül yazarının tanımlı türlerinin de seri durumdan çıkarılabilecek şekilde uygulanması mümkündür, ancak bu durumda bazı kısıtlamalar geçerli olur. Türün bir varsayılan oluşturucusu olmalı, özelliklerinin tümü genel olmalı ve bir PSTypeConverter’ı olması gerekir. Ancak, modül yazarına ait olmayan zaten tanımlı türler için, bunları “düzeltmenin” bir yolu yoktur; bu nedenle, parametrelerin tüm karmaşık türlerinden kaçınılması önerilir. Runbook yazma ipucu: Bazı cmdlet'lerinizin karmaşık tür parametre alması gerekirse ya da başka birinin karmaşık tür parametre gerektiren bir modülünü kullanıyorsanız, PowerShell İş Akışı runbook'larında ve yerel PowerShell'deki PowerShell İş Akışları’nda kullanabileceğiniz geçici çözüm karmaşık türü oluşturan cmdlet’i ve karmaşık türü tüketen cmdlet’i aynı InlineScript etkinliğinde sarmalamaktır. InlineScript, içeriklerini PowerShell İş Akışı değil de PowerShell olarak yürüttüğünden, karmaşık tür oluşturan cmdlet, seri durumdan çıkarılan karmaşık türü değil, doğru türü üretir.
+5. Modüldeki tüm cmdlet’leri durum bilgisiz hale getirin. PowerShell İş Akışı, iş akışında çağrılan her cmdlet’i farklı bir oturumda çalıştırır. Bu nedenle aynı modüldeki başka cmdlet’ler tarafından oluşturulan veya değiştirilen oturum durumuna bağlı cmdlet'lerin PowerShell İş Akışı runbook'larında çalışmaz.  İşte yapılmaması gereken bir örnek.
    
     ```
     $globalNum = 0
@@ -205,10 +205,10 @@ Tümleştirme modülleri temelde PowerShell modülleri olsa bile yoktur hala pek
     }
     ```
    <br>
-6. Merhaba modülü tam olarak bir xcopy'ye pakette yer alan. Runbook'ları tooexecute gerektiğinde Azure Automation modülleri dağıtılmış toohello Automation korumalı olduğundan, bunlar çalıştıran hello konak bağımsız olarak toowork ihtiyaç duyar. Bu, hello modülü paketi yukarı mümkün tooZip olması ise tooany taşımak, anlamı başka bir ana bilgisayarı ile aynı veya daha yeni PowerShell sürümü hello ve varsa, Bu konakta PowerShell ortamına içe aktarıldığında da normal çalışmasını. Bu toohappen için sırayla hello modülü değil hello modülü klasörünü (Azure Automation'a içeri aktarırken daraltılmış yukarı hello klasörü) dışındaki tüm dosyalara bağlı veya herhangi bir konaktaki benzersiz kayıt defteri ayarları üzerinde hello tarafından belirlenen gibi bir ürün yükleyin. Bu en iyi uygulama uyulmazsa hello modül Azure Automation'da kullanılamaz.  
+6. Modülün tamamı Xcopy’ye uygun bir pakette yer almalıdır. Runbook’ların yürütülmesi gerektiğinde Azure Automation modülleri Automation korumalı alanlarına dağıtıldığından, çalıştırıldıkları konaktan bağımsız çalışmaları gerekir. Bu durumda modül paketini sıkıştırabilir, aynı veya daha yeni bir PowerShell sürümünü kullanan başka konaklara taşıyabilir, bu konakta PowerShell ortamına içe aktarıldığında da normal çalışmasını sağlayabilirsiniz. Bunun gerçekleşmesi için, modülün modül klasörü dışında herhangi bir dosyaya (Azure Automation’a içeri aktarırken sıkıştırılan klasör) ya da konaktaki benzersiz kayıt defteri ayarlarına (ürün yüklemelerinde ayarlananlar gibi) bağlı olmaması gerekir. Bu en iyi yönteme uyulmazsa modül Azure Otomasyonu'nda kullanılamaz.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* PowerShell iş akışı runbook'ları ile başlatılan tooget bakın [ilk PowerShell iş akışı runbook Uygulamam](automation-first-runbook-textual.md)
-* PowerShell modülleri oluşturma hakkında daha fazla toolearn bakın [bir Windows PowerShell modülü yazma](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx)
+* PowerShell iş akışı runbook'larını kullanmaya başlamak için bkz. [İlk PowerShell iş akışı runbook uygulamam](automation-first-runbook-textual.md)
+* PowerShell Modülleri oluşturma hakkında daha fazla bilgi için bkz. [Windows PowerShell Modülü Yazma](https://msdn.microsoft.com/library/dd878310%28v=vs.85%29.aspx)
 

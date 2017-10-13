@@ -1,6 +1,6 @@
 ---
-title: "bir Azure Otomasyonu runbook'u Azure Resource Manager şablonunda aaaDeploy | Microsoft Docs"
-description: "Bir runbook'tan nasıl toodeploy bir Azure Resource Manager şablonu Azure depolama alanına depolanır"
+title: "Bir Azure Otomasyonu runbook'u içinde bir Azure Resource Manager şablonu dağıtma | Microsoft Docs"
+description: "Bir runbook'tan Azure Storage'da depolanan bir Azure Resource Manager şablonu dağıtma"
 services: automation
 documentationcenter: dev-center-name
 author: eslesar
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 07/09/2017
 ms.author: eslesar
-ms.openlocfilehash: f489a8e8635a48f5a6a2f1a88e1c803f56f01832
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e511eee2f9eac3969b15ad3d45558dc7034f330a
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Bir Azure Otomasyonu PowerShell runbook'taki bir Azure Resource Manager şablonu dağıtma
 
@@ -25,22 +25,22 @@ Yazma bir [Azure Automation PowerShell runbook](automation-first-runbook-textual
 
 Bunu yaparak, Azure kaynaklarını dağıtımını otomatik hale getirebilirsiniz. Resource Manager şablonlarınızı Azure depolama gibi Merkezi, güvenli bir konumda saklayabilirsiniz.
 
-Bu konuda, depolanan bir Resource Manager şablonu kullanan bir PowerShell runbook oluşturuyoruz [Azure Storage](../storage/common/storage-introduction.md) toodeploy yeni bir Azure depolama hesabı.
+Bu konuda, depolanan bir Resource Manager şablonu kullanan bir PowerShell runbook oluşturuyoruz [Azure Storage](../storage/common/storage-introduction.md) yeni bir Azure depolama hesabı dağıtmak için.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-toocomplete Bu öğretici, aşağıdaki hello gerekir:
+Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Azure aboneliği. Henüz bir aboneliğiniz yoksa [MSDN abone avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ya da <a href="/pricing/free-account/" target="_blank">[ücretsiz hesap için kaydolabilirsiniz](https://azure.microsoft.com/free/).
-* [Otomasyon hesabı](automation-sec-configure-azure-runas-account.md) toohold runbook hello ve tooAzure kaynakları kimlik doğrulaması.  Bu hesap, izin toostart sahip ve hello sanal makineyi durdurun.
-* [Azure depolama hesabı](../storage/common/storage-create-storage-account.md) hangi toostore hello Resource Manager şablonunda
-* Azure Powershell yerel makine üzerinde yüklü. Bkz [yükleyin ve Azure Powershell yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) hakkında bilgi için Azure PowerShell tooget.
+* Runbook’u tutacak ve Azure kaynaklarında kimlik doğrulamasını yapacak bir [Automation hesabı](automation-sec-configure-azure-runas-account.md).  Bu hesabın sanal makineyi başlatma ve durdurma izni olmalıdır.
+* [Azure depolama hesabı](../storage/common/storage-create-storage-account.md) Resource Manager şablonu depolanacağı
+* Azure Powershell yerel makine üzerinde yüklü. Bkz: [yükleyin ve Azure Powershell yapılandırma](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) Azure PowerShell alma hakkında bilgi için.
 
-## <a name="create-hello-resource-manager-template"></a>Merhaba Resource Manager şablonu oluşturma
+## <a name="create-the-resource-manager-template"></a>Resource Manager şablonu oluşturma
 
 Bu örnekte, yeni bir Azure depolama hesabı dağıtan bir Resource Manager şablonunu kullanın.
 
-Bir metin düzenleyicisinde metin aşağıdaki hello kopyalayın:
+Bir metin Düzenleyicisi'nde, aşağıdaki metni kopyalayın:
 
 ```json
 {
@@ -87,39 +87,39 @@ Bir metin düzenleyicisinde metin aşağıdaki hello kopyalayın:
 }
 ```
 
-Merhaba dosyası yerel olarak kaydedin `TemplateTest.json`.
+Dosyayı yerel olarak kaydedin `TemplateTest.json`.
 
-## <a name="save-hello-resource-manager-template-in-azure-storage"></a>Azure depolama alanında Hello Resource Manager şablonunu Kaydet
+## <a name="save-the-resource-manager-template-in-azure-storage"></a>Azure depolama alanında Resource Manager şablonunu Kaydet
 
-PowerShell toocreate bir Azure depolama dosya paylaşımı kullanın ve hello karşıya artık `TemplateTest.json` dosya.
-Nasıl toocreate bir dosya paylaşımı ve hello Azure portalında bir dosyayı karşıya yükleme hakkında yönergeler için bkz: [Windows Azure File storage ile çalışmaya başlama](../storage/files/storage-dotnet-how-to-use-files.md).
+Bir Azure depolama dosya paylaşımı oluşturmak ve karşıya yüklemek için PowerShell kullanırız artık `TemplateTest.json` dosya.
+Bir dosyasının nasıl oluşturulacağı hakkında yönergeler paylaşma ve Azure portalında bir dosyayı karşıya yüklemek için bkz: [Windows Azure File storage ile çalışmaya başlama](../storage/files/storage-dotnet-how-to-use-files.md).
 
-Yerel makinenizde PowerShell'i başlatın ve aşağıdaki komutları toocreate bir dosya paylaşımı hello çalıştırın ve hello Resource Manager şablonu toothat dosya paylaşımı yükleyin.
+Yerel makinenizde PowerShell'i başlatın ve bir dosya paylaşımı oluşturmak ve bu dosya paylaşımı Resource Manager şablonunu karşıya yüklemek için aşağıdaki komutları çalıştırın.
 
 ```powershell
-# Login tooAzure
+# Login to Azure
 Login-AzureRmAccount
 
-# Get hello access key for your storage account
+# Get the access key for your storage account
 $key = Get-AzureRmStorageAccountKey -ResourceGroupName 'MyAzureAccount' -Name 'MyStorageAccount'
 
-# Create an Azure Storage context using hello first access key
+# Create an Azure Storage context using the first access key
 $context = New-AzureStorageContext -StorageAccountName 'MyStorageAccount' -StorageAccountKey $key[0].value
 
 # Create a file share named 'resource-templates' in your Azure Storage account
 $fileShare = New-AzureStorageShare -Name 'resource-templates' -Context $context
 
-# Add hello TemplateTest.json file toohello new file share
-# "TemplatePath" is hello path where you saved hello TemplateTest.json file
+# Add the TemplateTest.json file to the new file share
+# "TemplatePath" is the path where you saved the TemplateTest.json file
 $templateFile = 'C:\TemplatePath'
 Set-AzureStorageFileContent -ShareName $fileShare.Name -Context $context -Source $templateFile
 ```
 
-## <a name="create-hello-powershell-runbook-script"></a>Merhaba PowerShell runbook komut dosyası oluşturma
+## <a name="create-the-powershell-runbook-script"></a>PowerShell runbook komut dosyası oluşturma
 
-Merhaba alır bir PowerShell Betiği oluşturuyoruz artık `TemplateTest.json` dosyası Azure depolama biriminden ve hello şablonu toocreate yeni bir Azure depolama hesabı dağıtır.
+Biz alır bir PowerShell betiği oluşturmak artık `TemplateTest.json` dosyası Azure depolama biriminden ve yeni bir Azure depolama hesabı oluşturmak için şablon dağıtır.
 
-Bir metin düzenleyicisinde metin aşağıdaki hello yapıştırın:
+Bir metin Düzenleyicisi'nde aşağıdaki metni yapıştırın:
 
 ```powershell
 param (
@@ -142,7 +142,7 @@ param (
 
 
 
-# Authenticate tooAzure if running from Azure Automation
+# Authenticate to Azure if running from Azure Automation
 $ServicePrincipalConnection = Get-AutomationConnection -Name "AzureRunAsConnection"
 Add-AzureRmAccount `
     -ServicePrincipal `
@@ -150,7 +150,7 @@ Add-AzureRmAccount `
     -ApplicationId $ServicePrincipalConnection.ApplicationId `
     -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint | Write-Verbose
 
-#Set hello parameter values for hello Resource Manager template
+#Set the parameter values for the Resource Manager template
 $Parameters = @{
     "storageAccountType"="Standard_LRS"
     }
@@ -162,23 +162,23 @@ Get-AzureStorageFileContent -ShareName 'resource-templates' -Context $Context -p
 
 $TemplateFile = Join-Path -Path 'C:\Temp' -ChildPath $StorageFileName
 
-# Deploy hello storage account
+# Deploy the storage account
 New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile $TemplateFile -TemplateParameterObject $Parameters 
 ``` 
 
-Merhaba dosyası yerel olarak kaydedin `DeployTemplate.ps1`.
+Dosyayı yerel olarak kaydedin `DeployTemplate.ps1`.
 
-## <a name="import-and-publish-hello-runbook-into-your-azure-automation-account"></a>İçeri aktarma ve Azure Automation hesabınızda hello runbook yayımlama
+## <a name="import-and-publish-the-runbook-into-your-azure-automation-account"></a>Alma ve runbook'un Azure Otomasyon hesabınızda yayımlama
 
-Şimdi biz PowerShell tooimport hello runbook'un Azure Otomasyon hesabınızda kullanın ve sonra hello runbook yayımlayın.
-Hakkında bilgi için tooimport ve bir runbook yayımlama hello Azure portal, bkz: [oluşturma veya bir Azure Otomasyonu runbook'u içeri aktarma](automation-creating-importing-runbook.md).
+Şimdi biz runbook'un Azure Otomasyon hesabınızda içeri aktarmak için PowerShell kullanın ve ardından runbook yayımlayın.
+İçeri aktarma ve Azure portalında bir runbook yayımlama hakkında daha fazla bilgi için bkz: [oluşturma veya bir Azure Otomasyonu runbook'u içeri aktarma](automation-creating-importing-runbook.md).
 
-tooimport `DeployTemplate.ps1` Otomasyon hesabınızda bir PowerShell runbook olarak hello aşağıdaki PowerShell komutlarını çalıştırın:
+İçeri aktarmak için `DeployTemplate.ps1` Otomasyon hesabınızda bir PowerShell runbook olarak, aşağıdaki PowerShell komutlarını çalıştırın:
 
 ```powershell
-# MyPath is hello path where you saved DeployTemplate.ps1
-# MyResourceGroup is hello name of hello Azure ResourceGroup that contains your Azure Automation account
-# MyAutomationAccount is hello name of your Automation account
+# MyPath is the path where you saved DeployTemplate.ps1
+# MyResourceGroup is the name of the Azure ResourceGroup that contains your Azure Automation account
+# MyAutomationAccount is the name of your Automation account
 $importParams = @{
     Path = 'C:\MyPath\DeployTemplate.ps1'
     ResourceGroupName = 'MyResourceGroup'
@@ -187,7 +187,7 @@ $importParams = @{
 }
 Import-AzureRmAutomationRunbook @
 
-# Publish hello runbook
+# Publish the runbook
 $publishParams = @{
     ResourceGroupName = 'MyResourceGroup'
     AutomationAccountName = 'MyAutomationAccount'
@@ -196,16 +196,16 @@ $publishParams = @{
 Publish-AzureRmAutomationRunbook @publishParams
 ```
 
-## <a name="start-hello-runbook"></a>Merhaba runbook başlatın
+## <a name="start-the-runbook"></a>Runbook'u Başlat
 
-Biz hello runbook tarafından arama hello Başlat artık [başlangıç AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook?view=azurermps-4.1.0) cmdlet'i.
+Biz arayarak runbook'u Başlat artık [başlangıç AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook?view=azurermps-4.1.0) cmdlet'i.
 
-Toostart hello Azure portal, bir runbook'ta nasıl görürüm hakkında bilgi için [Azure Otomasyonu runbook başlatma](automation-starting-a-runbook.md).
+Azure portalında bir runbook'u başlatma hakkında daha fazla bilgi için bkz: [Azure Otomasyonu runbook başlatma](automation-starting-a-runbook.md).
 
-Komutları hello PowerShell konsolunda aşağıdaki hello çalıştırın:
+PowerShell konsolunda aşağıdaki komutları çalıştırın:
 
 ```powershell
-# Set up hello parameters for hello runbook
+# Set up the parameters for the runbook
 $runbookParams = @{
     ResourceGroupName = 'MyResourceGroup'
     StorageAccountName = 'MyStorageAccount'
@@ -213,7 +213,7 @@ $runbookParams = @{
     StorageFileName = 'TemplateTest.json' 
 }
 
-# Set up parameters for hello Start-AzureRmAutomationRunbook cmdlet
+# Set up parameters for the Start-AzureRmAutomationRunbook cmdlet
 $startParams = @{
     ResourceGroupName = 'MyResourceGroup'
     AutomationAccountName = 'MyAutomationAccount'
@@ -221,26 +221,26 @@ $startParams = @{
     Parameters = $runbookParams
 }
 
-# Start hello runbook
+# Start the runbook
 $job = Start-AzureRmAutomationRunbook @startParams
 ```
 
-Merhaba runbook çalıştırıldığında ve çalıştırarak durumunu denetleyebilirsiniz `$job.Status`.
+Runbook çalıştığında, ve çalıştırarak durumunu denetleyebilirsiniz `$job.Status`.
 
-Merhaba runbook hello Resource Manager şablonunu alır ve toodeploy yeni bir Azure depolama hesabı kullanır.
-Merhaba yeni depolama hesabı hello aşağıdaki komutu çalıştırarak oluşturulduğunu görebilirsiniz:
+Runbook Resource Manager şablonunu alır ve yeni bir Azure depolama hesabı dağıtmak için kullanır.
+Yeni depolama hesabı aşağıdaki komutu çalıştırarak oluşturulduğunu görebilirsiniz:
 ```powershell
 Get-AzureRmStorageAccount
 ```
 
 ## <a name="summary"></a>Özet
 
-İşte bu kadar! Artık tüm Azure kaynaklarınızı Azure Otomasyonu ve Azure Storage ve Resource Manager şablonları toodeploy kullanabilirsiniz.
+İşte bu kadar! Şimdi, Azure kaynaklarınızı dağıtmak için Azure Otomasyonu ve Azure Storage ve Resource Manager şablonları kullanabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Resource Manager şablonları hakkında daha fazla toolearn bakın [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md)
-* Azure Storage'ı kullanmaya tooget bkz [giriş tooAzure depolama](../storage/common/storage-introduction.md).
-* toofind yararlı diğer Azure Otomasyon çalışma kitabı bkz [Azure Otomasyonu Runbook ve modül galerileri](automation-runbook-gallery.md).
-* toofind diğer yararlı Resource Manager şablonları görmek [Azure hızlı başlangıç şablonları](https://azure.microsoft.com/resources/templates/)
+* Resource Manager şablonları hakkında daha fazla bilgi için bkz: [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md)
+* Azure Storage ile çalışmaya başlamak için bkz: [Azure Storage'a giriş](../storage/common/storage-introduction.md).
+* Diğer kullanışlı Azure Otomasyon çalışma kitabı bulmak için bkz: [Azure Otomasyonu Runbook ve modül galerileri](automation-runbook-gallery.md).
+* Diğer kullanışlı Resource Manager şablonları bulmak için bkz: [Azure hızlı başlangıç şablonları](https://azure.microsoft.com/resources/templates/)
 

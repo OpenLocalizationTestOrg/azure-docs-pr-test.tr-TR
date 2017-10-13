@@ -1,6 +1,6 @@
 ---
-title: "aaaHow toomanage rol etkinleştirme ayarlarını | Microsoft Docs"
-description: "Nasıl toochange hello ayrıcalıklı kimlikleri için varsayılan ayarları hello Azure Active Directory Privileged Identity Management uzantısı ile bilgi edinin."
+title: "Rol etkinleştirme ayarlarını yönetme | Microsoft Docs"
+description: "Azure Active Directory Privileged Identity Management uzantısı ile ayrıcalıklı kimlikleri için varsayılan ayarları değiştirmeyi öğrenin."
 services: active-directory
 documentationcenter: 
 author: billmath
@@ -15,31 +15,31 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 453bb6f8f8e0fd2598cb073ef86c1dd55458dc72
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 23605e89cd1846d2e06e48cb5d3e0191cb9e9b4a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toomanage-role-activation-settings-in-azure-ad-privileged-identity-management"></a>Nasıl toomanage rol etkinleştirme Azure AD Privileged Identity Management ayarlarında
-Ayrıcalıklı Rol Yöneticisi Azure AD Privileged Identity Management (PIM) uygun rol ataması etkinleştirme bir kullanıcı için hello deneyimi değiştirme gibi kuruluşlarındaki özelleştirebilirsiniz.
+# <a name="how-to-manage-role-activation-settings-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management'ın rol etkinleştirme ayarlarını yönetme
+Ayrıcalıklı Rol Yöneticisi Azure AD Privileged Identity Management (PIM) uygun rol ataması etkinleştirme bir kullanıcı deneyimini değiştirme gibi kuruluşlarındaki özelleştirebilirsiniz.
 
-## <a name="manage-hello-role-activation-settings"></a>Merhaba rol etkinleştirme ayarlarını yönet
-1. Toohello Git [Azure portal](https://portal.azure.com) ve select hello **Azure AD Privileged Identity Management** hello panosundan uygulama.
+## <a name="manage-the-role-activation-settings"></a>Rol etkinleştirme ayarlarını yönet
+1. Git [Azure portal](https://portal.azure.com) seçip **Azure AD Privileged Identity Management** panodan uygulama.
 2. Seçin **yönetmek ayrıcalıklı rolleri** > **ayarları** > **ayrıcalıklı rolleri**.
-3. Merhaba rol ayarlarını seçin toomanage istiyor.
+3. Rolü ayarlarını seçin, yönetmek istediğiniz.
 
-Hello Ayarları sayfasında her rol için çeşitli yapılandırabileceğiniz ayarlar vardır. Bu ayarlar yalnızca uygun yönetici, değil kalıcı yönetici sahip kullanıcıların etkiler.
+Her rol için Ayarları sayfasında, ayarları yapılandırabileceğiniz bir dizi vardır. Bu ayarlar yalnızca uygun yönetici, değil kalıcı yönetici sahip kullanıcıların etkiler.
 
-**Etkinleştirme**: hello sürede sona ermeden önce bir rol etkin kalmasını saatleri. Bu, 1 ila 72 saat arasında olabilir.
+**Etkinleştirme**: süresi dolmadan önce bir rol etkin kalmasını saat cinsinden süre. Bu, 1 ila 72 saat arasında olabilir.
 
-**Bildirimleri**: hello sistem rol etkinleştirdikten onaylama e-postaları tooadmins gönderir olsun veya olmasın seçebilirsiniz. Bu, yetkisiz veya aykırı etkinleştirmeleri algılamak için yararlı olabilir.
+**Bildirimleri**: rol etkinleştirdikten admins onaylayan Sistem e-posta gönderir olup olmadığını seçebilirsiniz. Bu, yetkisiz veya aykırı etkinleştirmeleri algılamak için yararlı olabilir.
 
-**Olay/istek anahtarı**: rolleri etkinleştirdiğinizde toorequire uygun admins tooinclude bir bilet numarası olsun veya olmasın seçebilirsiniz. Rol erişim denetimleri gerçekleştirdiğinizde bu yararlı olabilir.
+**Olay/istek anahtarı**: rolleri etkinleştirdiğinizde bilet numarası eklemek için uygun yöneticilerinin kullanmamayı seçebilirsiniz. Rol erişim denetimleri gerçekleştirdiğinizde bu yararlı olabilir.
 
-**Çok faktörlü kimlik doğrulaması**: seçebileceğiniz desteklemediğini toorequire kullanıcılar tooverify kimliklerini rollerine etkinleştirilebilmesi MFA ile. Bunlar yalnızca bu kez her bir rolü etkinleştirmemek her zaman oturum tooverify gerekir. İki ipuçları tookeep göz önünde MFA etkinleştirin, vardır:
+**Çok faktörlü kimlik doğrulaması**: kullanıcılar kendi rolleri etkinleştirilebilmesi MFA ile kullanıcıların kimliğini doğrulamak gerekli verilip verilmeyeceğini seçebilirsiniz. Yalnızca bu kez her bir rolü etkinleştirmemek her zaman oturum doğrulamak sahiptirler. MFA etkinleştirdiğinizde göz önünde bulundurmanız iki ipuçları şunlardır:
 
-* E-postaları için Microsoft hesabına sahip kullanıcıların (genellikle @outlook.com, ancak her zaman) için Azure MFA kaydedilemiyor. Microsoft hesaplarıyla tooassign rolleri toousers istiyorsanız, kalıcı yönetici yapın veya bu rol için MFA devre dışı bırakmak gerekir.
+* E-postaları için Microsoft hesabına sahip kullanıcıların (genellikle @outlook.com, ancak her zaman) için Azure MFA kaydedilemiyor. Microsoft hesabı olan kullanıcılar için rol atamak istiyorsanız, bunları kalıcı yönetici yapın veya bu rol için MFA devre dışı bırakmak gerekir.
 * MFA için üst düzey ayrıcalıklı rolleri Azure AD için devre dışı bırakamazsınız ve Office365. Bu, bu rolleri dikkatle korunması için bir güvenlik özelliğidir:  
   
   * Uygulama Yöneticisi
@@ -61,11 +61,11 @@ Hello Ayarları sayfasında her rol için çeşitli yapılandırabileceğiniz ay
   * Skype Kurumsal yöneticisi  
   * Kullanıcı Hesap Yöneticisi  
 
-MFA ile PIM kullanma hakkında daha fazla bilgi için bkz: [nasıl tooRequire MFA](active-directory-privileged-identity-management-how-to-require-mfa.md).
+MFA ile PIM kullanma hakkında daha fazla bilgi için bkz: [gerektiren MFA nasıl](active-directory-privileged-identity-management-how-to-require-mfa.md).
 
-<!--PLACEHOLDER: Need an explanation of what hello temporary Global Administrator setting is for.-->
+<!--PLACEHOLDER: Need an explanation of what the temporary Global Administrator setting is for.-->
 
-<!--Every topic should have next steps and links toohello next logical set of content tookeep hello customer engaged-->
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Sonraki adımlar
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
 

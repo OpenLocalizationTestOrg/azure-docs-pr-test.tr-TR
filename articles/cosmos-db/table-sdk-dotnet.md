@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure CosmosDB tablo API .NET SDK'sını & kaynakları | Microsoft Docs"
-description: "Tüm hello hakkında yayın tarih, sona erme tarihlerini ve her bir sürümü arasında yapılan değişiklikler dahil olmak üzere Azure CosmosDB tablo API öğrenin."
+title: "Azure CosmosDB tablo API .NET SDK'sını & kaynakları | Microsoft Docs"
+description: "Tüm Azure CosmosDB tablo yayın tarih, sona erme tarihlerini ve her bir sürümü arasında yapılan değişiklikler dahil olmak üzere API hakkında bilgi edinin."
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 5217f53274874489d3f10ed1ccae3330fdf91678
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7d641d4089f8bce86633b7c476f10617bc642e2b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tablo .NET API: İndirme ve sürüm notları
 
@@ -27,8 +27,8 @@ ms.lasthandoff: 10/06/2017
 |---|---|
 |**SDK yükleme**|[NuGet](https://aka.ms/acdbtablenuget)|
 |**API belgeleri**|[.NET API başvuru belgeleri](https://aka.ms/acdbtableapiref)|
-|**Hızlı Başlangıç**|[Azure Cosmos DB: .NET ile bir uygulama oluşturmak ve tablo API hello](https://aka.ms/acdbtnetqs)|
-|**Öğretici**|[Azure CosmosDB: hello grafik API'si ile bir kapsayıcı oluşturma](tutorial-develop-graph-dotnet.md)|
+|**Hızlı Başlangıç**|[Azure Cosmos DB: .NET ve tablo API ile uygulama oluşturma](https://aka.ms/acdbtnetqs)|
+|**Öğretici**|[Azure CosmosDB: grafik API'si ile bir kapsayıcı oluşturma](tutorial-develop-graph-dotnet.md)|
 |**Geçerli desteklenen çerçevelerden**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
 ## <a name="release-notes"></a>Sürüm notları
@@ -36,12 +36,12 @@ ms.lasthandoff: 10/06/2017
 * İlk önizleme sürümü.
 
 ## <a name="release--retirement-dates"></a>Yayın & sona erme tarihleri
-Microsoft sağlayacaktır bildirim en az **12 ay** sipariş toosmooth hello geçiş tooa sürümü daha yeni/desteklenen bir SDK'yı devre dışı bırakmadan önce.
+Microsoft sağlayacaktır bildirim en az **12 ay** yeni/desteklenen bir sürüme geçiş kesintisiz için bir SDK devre dışı bırakmadan önce.
 
-Yeni özellikler ve işlevsellik ve en iyi duruma getirme toohello geçerli ekleneceği yalnızca SDK, bu nedenle önerilir, her zaman yükseltme toohello en son SDK sürümünün olabildiğince erken. 
+Yeni özellikler ve işlevsellik ve en iyi duruma getirme geçerli SDK'sı yalnızca eklenir, bu nedenle, her zaman en son SDK sürüme erken mümkün olduğunca yükseltmeniz önerilir. 
 
-Tüm istek tooAzure Cosmos devre dışı bırakılan bir SDK'sını kullanarak DB hello hizmeti tarafından reddedilir.
+Hizmet tarafından devre dışı bırakılan bir SDK kullanarak Azure Cosmos DB'de herhangi bir istek reddedilir.
 
 
 ## <a name="see-also"></a>Ayrıca bkz.
-toolearn hello Azure Cosmos DB tablo API'si hakkında daha fazla bilgi görmek [giriş tooAzure Cosmos DB: Tablo API](table-introduction.md). 
+Azure Cosmos DB tablo API'si hakkında daha fazla bilgi için bkz: [Azure Cosmos DB giriş: Tablo API](table-introduction.md). 

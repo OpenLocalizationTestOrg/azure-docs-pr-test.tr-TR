@@ -1,6 +1,6 @@
 ---
-title: "aaaAutomated yedekleme v2 için SQL Server 2016 Azure sanal makineleri | Microsoft Docs"
-description: "SQL Server 2016 Azure'da çalışan VM'ler için Hello otomatik yedekleme özelliğini açıklar. Bu makalede hello Kaynak Yöneticisi'ni kullanarak belirli tooVMs ' dir."
+title: "SQL Server 2016 Azure sanal makineler için yedekleme v2 otomatik | Microsoft Docs"
+description: "SQL Server 2016 Azure'da çalışan sanal makineler için otomatik yedekleme özelliğini açıklar. Bu makalede, Resource Manager kullanarak VM'ler için özeldir."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/05/2017
 ms.author: jroth
-ms.openlocfilehash: a322792fb22c76bfa74fafb711b8b1927a6e2b3a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e7e14b0243f82c672392d5ab4bb6aca01156465b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="automated-backup-v2-for-sql-server-2016-azure-virtual-machines-resource-manager"></a>SQL Server 2016 Azure sanal makineleri için (Resource Manager) yedekleme v2 otomatik
 
@@ -27,12 +27,12 @@ ms.lasthandoff: 10/06/2017
 > * [SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
 > * [SQL Server 2016](virtual-machines-windows-sql-automated-backup-v2.md)
 
-Otomatik yedekleme v2 otomatik olarak yapılandırır [yönetilen yedekleme tooMicrosoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) Azure VM'de SQL Server 2016 Standard, Enterprise veya Geliştirici sürümlerini çalıştıran tüm mevcut ve yeni veritabanları için. Bu, dayanıklı Azure blob depolama alanını tooconfigure normal veritabanı yedeklemeleri sağlar. Otomatik yedekleme v2 bağlıdır hello üzerinde [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md).
+Otomatik yedekleme v2 otomatik olarak yapılandırır [yönetilen Microsoft Azure yedekleme](https://msdn.microsoft.com/library/dn449496.aspx) Azure VM'de SQL Server 2016 Standard, Enterprise veya Geliştirici sürümlerini çalıştıran tüm mevcut ve yeni veritabanları için. Bu, dayanıklı Azure blob depolama alanını normal veritabanı yedeklemeleri yapılandırmanıza olanak sağlar. Otomatik yedekleme v2 bağımlı [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
 ## <a name="prerequisites"></a>Ön koşullar
-toouse otomatik yedekleme v2 hello aşağıdaki önkoşulları gözden geçirin:
+Otomatik yedekleme v2 kullanmak için aşağıdaki önkoşulları gözden geçirin:
 
 **İşletim sistemi**:
 
@@ -46,123 +46,123 @@ toouse otomatik yedekleme v2 hello aşağıdaki önkoşulları gözden geçirin:
 - SQL Server 2016 Developer
 
 > [!IMPORTANT]
-> Otomatik yedekleme v2 SQL Server 2016 ile çalışır. SQL Server 2014 kullanıyorsanız, veritabanlarınızı otomatik yedekleme v1 tooback kullanabilirsiniz. Daha fazla bilgi için bkz: [otomatik yedekleme SQL Server 2014 Azure Virtual Machines için](virtual-machines-windows-sql-automated-backup.md).
+> Otomatik yedekleme v2 SQL Server 2016 ile çalışır. SQL Server 2014 kullanıyorsanız, veritabanlarını yedeklemek için otomatik yedekleme v1 kullanabilirsiniz. Daha fazla bilgi için bkz: [otomatik yedekleme SQL Server 2014 Azure Virtual Machines için](virtual-machines-windows-sql-automated-backup.md).
 
 **Veritabanı yapılandırması**:
 
-- Hedef veritabanlarına hello tam kurtarma modeli kullanmanız gerekir. Daha fazla bilgi hello tam kurtarma modeli için hello etkisi hakkında yedeklemeleri üzerinde [yedekleme altında tam kurtarma modeli hello](https://technet.microsoft.com/library/ms190217.aspx).
-- Sistem veritabanlarının toouse tam kurtarma modeli yok. Ancak, günlük yedekleri toobe Model veya MSDB alınan ihtiyacınız varsa, tam kurtarma modeli kullanmanız gerekir.
-- Hedef veritabanlarına hello varsayılan SQL Server örneğinde olması gerekir. SQL Server Iaas uzantısı Hello adlandırılmış örnekleri desteklemez.
+- Hedef veritabanlarına tam kurtarma modeli kullanmanız gerekir. Daha fazla tam kurtarma modeli etkisi hakkında yedekleme hakkında bilgi için [yedekleme altında tam kurtarma modeli](https://technet.microsoft.com/library/ms190217.aspx).
+- Sistem veritabanlarının tam kurtarma modelini kullanmak zorunda değil. Ancak, Model veya MSDB için alınacak günlük yedekleri gerektiriyorsa, tam kurtarma modeli kullanmanız gerekir.
+- Hedef veritabanlarına varsayılan SQL Server örneğinde olması gerekir. SQL Server Iaas uzantısı adlandırılmış örnekleri desteklemez.
 
 **Azure dağıtım modeli**:
 
 - Resource Manager
 
 > [!NOTE]
-> Otomatik yedekleme dayanır hello üzerinde **SQL Server Iaas Aracısı uzantısı**. Geçerli SQL sanal makineye Galerisi görüntülerini varsayılan olarak bu uzantı ekleyin. Daha fazla bilgi için bkz: [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md).
+> Otomatik yedekleme kullanır **SQL Server Iaas Aracısı uzantısı**. Geçerli SQL sanal makineye Galerisi görüntülerini varsayılan olarak bu uzantı ekleyin. Daha fazla bilgi için bkz: [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md).
 
 ## <a name="settings"></a>Ayarlar
-Merhaba aşağıdaki tabloda otomatik yedekleme v2 için yapılandırılabilir hello seçenekleri açıklanmaktadır. Merhaba gerçek yapılandırma adımlarını hello Azure portalında veya Azure Windows PowerShell komutlarını kullanmadığınıza bağlı olarak farklılık gösterir.
+Aşağıdaki tabloda otomatik yedekleme v2 için yapılandırılabilir seçenekler açıklanmaktadır. Gerçek yapılandırma adımları Azure portalında veya Azure Windows PowerShell komutlarını kullanmadığınıza bağlı olarak farklılık gösterir.
 
 ### <a name="basic-settings"></a>Temel ayarlar
 
 | Ayar | Aralık (varsayılan) | Açıklama |
 | --- | --- | --- |
 | **Otomatik Yedekleme** | Etkinleştir/devre dışı bırak (devre dışı) | Etkinleştirir veya SQL Server 2016 Standard veya Enterprise çalıştıran bir Azure VM için otomatik yedekleme devre dışı bırakır. |
-| **Saklama süresi** | 1-30 gün (30 gün) | gün tooretain yedeklemeler Hello sayısı. |
-| **Depolama hesabı** | Azure depolama hesabı | Blob depolama alanına otomatik yedekleme dosyalarını depolamak için bir Azure depolama hesabı toouse. Bir kapsayıcı sırasında bu konumu toostore tüm yedekleme dosyaları oluşturulur. Merhaba yedekleme dosyası adlandırma hello tarih, saat ve veritabanı GUID'si içerir. |
-| **Şifreleme** |Etkinleştir/devre dışı bırak (devre dışı) | Etkinleştirir veya şifreleme devre dışı bırakır. Şifreleme etkinleştirildiğinde, hello kullanılan sertifikaları toorestore hello yedekleme bulunur hello belirtilen depolama hesabı hello aynı **automaticbackup** bir kapsayıcı kullanılarak hello aynı adlandırma kuralı. Merhaba parola değişirse, bu parola ile yeni bir sertifika oluşturulur, ancak toorestore önceki yedeklemeleri hello eski sertifika kalır. |
-| **Parola** |Parola metin | Şifreleme anahtarları için bir parola. Yalnızca budur şifreleme etkin olup olmadığını gerekli. Sipariş toorestore şifreli bir yedekleme hello doğru parolayı ve hello yedeğin alındığı hello zamanında kullanılan ilgili sertifika olmalıdır. |
+| **Saklama süresi** | 1-30 gün (30 gün) | Yedeklemeleri tutulacağı gün sayısı. |
+| **Depolama hesabı** | Azure depolama hesabı | Blob depolama alanına otomatik yedekleme dosyalarını depolamak için kullanılacak bir Azure depolama hesabı. Bir kapsayıcı tüm yedekleme dosyalarını depolamak için bu konumda oluşturulur. Yedekleme dosyası adlandırma kuralı, tarih, saat ve veritabanı GUID'si içerir. |
+| **Şifreleme** |Etkinleştir/devre dışı bırak (devre dışı) | Etkinleştirir veya şifreleme devre dışı bırakır. Şifreleme etkinleştirildiğinde, yedeklemeyi geri yüklemek için kullanılan sertifikaları aynı belirtilen depolama hesabında bulunan **automaticbackup** aynı adlandırma kuralını kullanarak kapsayıcı. Parola değişirse, bu parola ile yeni bir sertifika oluşturulur, ancak önceki yedekleri geri yüklemek için eski sertifika kalır. |
+| **Parola** |Parola metin | Şifreleme anahtarları için bir parola. Yalnızca budur şifreleme etkin olup olmadığını gerekli. Şifrelenmiş bir yedeklemeyi geri yüklemek için doğru parolayı ve yedeğin alındığı anda kullanılan ilgili sertifika olması gerekir. |
 
 ### <a name="advanced-settings"></a>Gelişmiş ayarlar
 
 | Ayar | Aralık (varsayılan) | Açıklama |
 | --- | --- | --- |
-| **Sistem Veritabanı Yedeklemeleri** | Etkinleştir/devre dışı bırak (devre dışı) | Etkinleştirildiğinde, bu özellik ayrıca hello sistem veritabanlarını yedekleyin: Master, MSDB ve Model. Merhaba MSDB ve modeli veritabanları için günlük yedekleri toobe gerçekleştirilecek istiyorsanız, bunların tam kurtarma modunda olduğunu doğrulayın. Günlük yedeklemeler için ana hiçbir zaman alınır. Ve yedekleme TempDB için alınır. |
-| **Yedekleme zamanlaması** | El ile otomatik / (otomatik) | Varsayılan olarak, hello Günlük büyüme üzerinde temel hello yedekleme zamanlaması otomatik olarak belirlenir. El ile yedekleme zamanlaması hello kullanıcı toospecify hello zaman penceresi için yedeklemeler sağlar. Bu durumda, yedeklemeler yalnızca şimdiye kadar sürer hello yerinde sıklığı belirtilen ve belirli bir günde zaman penceresi sırasında hello belirtilen. |
-| **Tam yedekleme sıklığı** | Günlük/Haftalık | Tam yedeklemelerinin sıklığını. Her iki durumda da, tam yedeklemeler hello sonraki zamanlanmış zaman penceresi sırasında başlar. Haftalık seçili olduğunda, yedeklemelerin tüm veritabanları başarıyla yedeklediyseniz kadar birden fazla gün kapsayabilir. |
+| **Sistem Veritabanı Yedeklemeleri** | Etkinleştir/devre dışı bırak (devre dışı) | Etkinleştirildiğinde, bu özellik ayrıca sistem veritabanlarını yedekleyin: Master, MSDB ve Model. MSDB ve modeli veritabanları için alınacak günlük yedekleri istiyorsanız, bunlar tam kurtarma modunda olduğundan emin olun. Günlük yedeklemeler için ana hiçbir zaman alınır. Ve yedekleme TempDB için alınır. |
+| **Yedekleme zamanlaması** | El ile otomatik / (otomatik) | Varsayılan olarak, günlük büyüme tabanlı Yedekleme zamanlaması otomatik olarak belirlenir. El ile yedekleme zamanlaması yedeklemeler için zaman penceresini belirtmesini sağlar. Bu durumda, yedeklemeler her zaman sadece belirtilen sıklığı ve belirli bir günde, belirtilen zaman penceresi sırasında gerçekleşir. |
+| **Tam yedekleme sıklığı** | Günlük/Haftalık | Tam yedeklemelerinin sıklığını. Her iki durumda da, sonraki zamanlanmış zaman penceresi sırasında tam yedeklemeler başlar. Haftalık seçili olduğunda, yedeklemelerin tüm veritabanları başarıyla yedeklediyseniz kadar birden fazla gün kapsayabilir. |
 | **Tam yedekleme başlangıç saati** | 00:00 – 23:00 (01:00) | Başlangıç sırasında tam yedeklemeler gerçekleştirilebildiği belirli bir gün zamanı. |
-| **Tam yedekleme zaman penceresi** | 1 – 23 saat (1 saat) | Hangi sırasında tam yedeklemeler gerçekleştirilebildiği belirli bir gün hello zaman penceresinin süresi. |
+| **Tam yedekleme zaman penceresi** | 1 – 23 saat (1 saat) | Belirli bir günde sırasında tam yedeklemeler gerçekleştirilebildiği zaman penceresinin süresi. |
 | **Günlük yedekleme sıklığı** | 5 – 60 dakika (60 dakika) | Günlük yedekleme sıklığı. |
 
 ## <a name="understanding-full-backup-frequency"></a>Tam yedekleme sıklığını anlama
-Bu önemli toounderstand hello günlük ve haftalık tam yedeklemeler arasındaki farktır. Bu çaba içinde iki örnek senaryolar üzerinden size yol gösterir.
+Günlük ve haftalık tam yedeklemeler arasındaki farkı anlamak önemlidir. Bu çaba içinde iki örnek senaryolar üzerinden size yol gösterir.
 
 ### <a name="scenario-1-weekly-backups"></a>Senaryo 1: Haftalık yedekleri
 Çok büyük veritabanları sayısını içeren bir SQL Server VM var.
 
-Pazartesi günü, ayarlar aşağıdaki hello ile otomatik yedekleme v2 etkinleştirin:
+Pazartesi günü, aşağıdaki ayarlarla otomatik yedekleme v2 etkinleştirin:
 
 - Yedekleme zamanlaması: **el ile**
 - Tam yedekleme sıklığını: **haftalık**
 - Tam yedekleme başlangıç saati: **01:00**
 - Tam yedekleme zaman penceresi: **1 saat**
 
-Bu, o hello sonraki kullanılabilir Yedekleme penceresi 1 saat 1 sabah Salı olduğu anlamına gelir. O anda aynı anda veritabanlarınızı bir yedekleme otomatik yedekleme başlar. Bu senaryoda, veritabanlarınızı tam yedeklemeler için ilk birkaç veritabanları hello tamamlayacak yeterli büyüklükte. Ancak, bir saat sonra tüm hello veritabanları yedeklendi.
+Bu, sonraki kullanılabilir Yedekleme penceresi 1 saat 1 sabah Salı olduğu anlamına gelir. O anda aynı anda veritabanlarınızı bir yedekleme otomatik yedekleme başlar. Bu senaryoda, veritabanlarınızı tam yedeklemeler için ilk birkaç veritabanlarını tamamlayacak yeterli büyüklükte. Ancak, bir saat sonra tüm veritabanları yedeklendi.
 
-Bu durumda, sonraki gün, 1 saat 1 sabah Çarşamba veritabanları hello kalan hello yedekleme otomatik yedekleme başlar. Bu süre içinde tüm veritabanları yedeklenmiş, yeniden hello sonraki gün aynı hello deneyecek zaman. Tüm veritabanları başarıyla yedeklendi kadar devam eder.
+Bu durumda, sonraki gün, 1 saat 1 sabah Çarşamba kalan veritabanlarını yedekleme otomatik yedekleme başlar. Bu süre içinde tüm veritabanları yedeklenmiş, sonraki gün aynı zamanda yeniden deneyecek. Tüm veritabanları başarıyla yedeklendi kadar devam eder.
 
 Salı yeniden ulaştıktan sonra bir kez daha tüm veritabanlarını yedekleme otomatik yedekleme başlar.
 
-Bu senaryo, otomatik yedekleme yalnızca hello belirtilen zaman penceresi içinde çalışır ve her veritabanı haftada bir kez yukarı yedeklenen gösterir. Bu, ayrıca yedeklemeler toospan hello birden çok gün servis talebi için burada olası toocomplete değil tüm yedeklemeler tek bir günde, olası olduğunu gösterir.
+Bu senaryo, otomatik yedekleme yalnızca belirtilen zaman penceresi içinde çalışır ve her veritabanı haftada bir kez yukarı yedeklenen gösterir. Bu, aynı zamanda birden fazla gün burada tüm yedeklemeler tek bir gün içinde tamamlanmasını olanaklı değil durumda kapsanacak yedeklemeler için olası olduğunu gösterir.
 
 ### <a name="scenario-2-daily-backups"></a>Senaryo 2: Günlük yedeklemeler
 Çok büyük veritabanları sayısını içeren bir SQL Server VM var.
 
-Pazartesi günü, ayarlar aşağıdaki hello ile otomatik yedekleme v2 etkinleştirin:
+Pazartesi günü, aşağıdaki ayarlarla otomatik yedekleme v2 etkinleştirin:
 
 - Yedekleme zamanlaması: el ile
 - Tam yedekleme sıklığını: günlük
 - Tam yedekleme başlangıç saati: 22:00
 - Tam yedekleme zaman penceresi: 6 saat
 
-Bu, o hello sonraki kullanılabilir Yedekleme penceresi 10 PM 6 saat boyunca Pazartesi altındadır anlamına gelir. O anda aynı anda veritabanlarınızı bir yedekleme otomatik yedekleme başlar.
+Başka bir deyişle, sonraki kullanılabilir Yedekleme penceresi 10 PM 6 saat boyunca Pazartesi altındadır. O anda aynı anda veritabanlarınızı bir yedekleme otomatik yedekleme başlar.
 
 Ardından, 6 saat boyunca 10 Salı günü, tüm veritabanlarının tam yedeklemeler yeniden başlatılacak.
 
 > [!IMPORTANT]
-> Günlük yedeklemeler zamanlarken, tüm veritabanları, bu süre içinde yedeklenebilir geniş zaman penceresi tooensure zamanla tavsiye edilir. Bu, özellikle çok miktarda veri tooback sahip olduğu yukarı hello durumda önemlidir.
+> Günlük yedeklemeler zamanlarken, bu süre içinde tüm veritabanları yedeklenebilir emin olmak için geniş zaman penceresi zamanlama önerilir. Büyük miktarda veri yedeklemek için sahip olduğu durumda bu durum özellikle önemlidir.
 
-## <a name="configuration-in-hello-portal"></a>Merhaba Portal Yapılandırması
+## <a name="configuration-in-the-portal"></a>Portal Yapılandırması
 
-Hello Azure portal tooconfigure otomatik yedekleme v2 sağlama sırasında veya var olan SQL Server 2016 VM'ler için kullanabilirsiniz.
+Otomatik yedekleme v2 sağlama sırasında veya var olan SQL Server 2016 VM'ler için yapılandırmak için Azure portalını kullanabilirsiniz.
 
 ### <a name="new-vms"></a>Yeni sanal makineleri
 
-Merhaba Resource Manager dağıtım modelinde yeni bir SQL Server 2016 sanal makine oluşturduğunuzda hello Azure portal tooconfigure otomatik yedekleme v2 kullanın. 
+Resource Manager dağıtım modelinde yeni bir SQL Server 2016 sanal makine oluşturduğunuzda, otomatik yedekleme v2 yapılandırmak için Azure Portalı'nı kullanın. 
 
-Merhaba, **SQL Server ayarları** dikey penceresinde, select **otomatik yedekleme**. Merhaba aşağıdaki Azure portal ekran görüntüsü gösterir hello **SQL otomatik yedekleme** dikey.
+İçinde **SQL Server ayarları** dikey penceresinde, select **otomatik yedekleme**. Aşağıdaki Azure portal ekran görüntüsü gösterildiği **SQL otomatik yedekleme** dikey.
 
 ![Azure portalında SQL otomatik yedekleme yapılandırması](./media/virtual-machines-windows-sql-automated-backup-v2/automated-backup-blade.png)
 
 > [!NOTE]
 > Otomatik yedekleme v2 varsayılan olarak devre dışıdır.
 
-Bağlam için hello tam üzerinde konusuna [azure'da bir SQL Server sanal makine sağlama](virtual-machines-windows-portal-sql-server-provision.md).
+Bağlam için tam üzerinde konusuna [azure'da bir SQL Server sanal makine sağlama](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### <a name="existing-vms"></a>Var olan sanal makineleri
 
-Var olan SQL Server sanal makineler için SQL Server sanal makine seçin. Merhaba seçip **SQL Server yapılandırma** hello bölümünü **ayarları** dikey.
+Var olan SQL Server sanal makineler için SQL Server sanal makine seçin. Ardından **SQL Server yapılandırma** bölümünü **ayarları** dikey.
 
 ![Var olan VM'ler için SQL otomatik yedekleme](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration.png)
 
-Merhaba, **SQL Server yapılandırma** dikey penceresinde hello tıklatın **Düzenle** hello düğmesini otomatik yedekleme bölümü.
+İçinde **SQL Server yapılandırma** dikey penceresinde tıklatın **Düzenle** otomatik yedekleme bölümdeki düğmesi.
 
 ![SQL otomatik yedekleme var olan VM'ler için yapılandırma](./media/virtual-machines-windows-sql-automated-backup-v2/sql-server-configuration-edit.png)
 
-Tamamlandığında, hello tıklatın **Tamam** hello hello alt düğmesinde **SQL Server yapılandırma** dikey toosave değişikliklerinizi.
+Tamamlandığında, tıklatın **Tamam** alt düğmesinde **SQL Server yapılandırma** yaptığınız değişiklikleri kaydetmek için dikey.
 
-Otomatik yedekleme hello için ilk kez etkinleştiriyorsanız Azure hello SQL Server Iaas Aracısı hello arka planda yapılandırır. Bu süre boyunca hello Azure portal otomatik yedekleme yapılandırıldığını gösterilmeyebilir. Merhaba Aracısı toobe yüklü, birkaç dakika bekleyin yapılandırılmış. Bu hello sonra Azure portalı hello yeni ayarları yansıtır.
+Otomatik yedekleme ilk kez etkinleştirirseniz, Azure SQL Server Iaas Aracısı arka planda yapılandırır. Bu süre boyunca, Azure portalında otomatik yedekleme yapılandırıldığını gösterilmeyebilir. Aracının yüklü, yapılandırılmış birkaç dakika bekleyin. Bundan sonra Azure portal'ı yeni ayarları yansıtır.
 
 ## <a name="configuration-with-powershell"></a>PowerShell ile yapılandırma
 
-PowerShell tooconfigure otomatik yedekleme v2 kullanabilirsiniz. Başlamadan önce şunları yapmalısınız:
+Otomatik yedekleme v2 yapılandırmak için PowerShell kullanın. Başlamadan önce şunları yapmalısınız:
 
-- [Karşıdan yükleme ve en son Azure PowerShell hello](http://aka.ms/webpi-azps).
-- Windows PowerShell'i açın ve hesabınızla ilişkilendirebilirsiniz. Merhaba hello adımları izleyerek bunu yapabilirsiniz [aboneliğinizi yapılandırma](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-create#configure-your-subscription) konu sağlama hello bölümü.
+- [En son Azure PowerShell'i yükleyip](http://aka.ms/webpi-azps).
+- Windows PowerShell'i açın ve hesabınızla ilişkilendirebilirsiniz. Bu adımları izleyerek yapabilirsiniz [aboneliğinizi yapılandırma](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-ps-sql-create#configure-your-subscription) bölümüne sağlama.
 
-### <a name="install-hello-sql-iaas-extension"></a>Merhaba SQL Iaas uzantısı yükleyin
-SQL Server sanal makineden hello Azure portal sağlanan, hello SQL Server Iaas uzantısı zaten yüklü olmalıdır. Bu VM için çağırarak yüklü olup olmadığını belirlemek **Get-AzureRmVM** komutu ve hello inceleyerek **uzantıları** özelliği.
+### <a name="install-the-sql-iaas-extension"></a>SQL Iaas uzantısını yükleyin
+Bir SQL Server sanal makine Azure portalından sağlanan, SQL Server Iaas uzantısı zaten yüklü olmalıdır. Bu VM için çağırarak yüklü olup olmadığını belirlemek **Get-AzureRmVM** komutu ve inceleyerek **uzantıları** özelliği.
 
 ```powershell
 $vmname = "vmname"
@@ -171,9 +171,9 @@ $resourcegroupname = "resourcegroupname"
 (Get-AzureRmVM -Name $vmname -ResourceGroupName $resourcegroupname).Extensions 
 ```
 
-SQL Server Iaas Aracısı uzantısı Hello yüklediyseniz, "Sqlıaasagent" veya "SQLIaaSExtension" olarak listelenen görmeniz gerekir. **ProvisioningState** için hello uzantısı "Başarılı" göstermesi gerekir. 
+SQL Server Iaas Aracısı uzantısı yüklediyseniz, "Sqlıaasagent" veya "SQLIaaSExtension" olarak listelenen görmeniz gerekir. **ProvisioningState** için uzantı "Başarılı" göstermesi gerekir. 
 
-Yüklü değil ya da sağlanan toobe başarısız olursa, komutu aşağıdaki hello ile yükleyebilirsiniz. Toplama toohello VM adını ve kaynak grubunda de hello bölge belirtmeniz gerekir (**$region**), VM bulunur.
+Bu yüklü değil veya sağlanacak başarısız olursa, aşağıdaki komutla yükleyebilirsiniz. VM adı ve kaynak grubuna ek olarak, ayrıca bölgeyi belirtmeniz gerekir (**$region**), VM bulunur.
 
 ```powershell
 $region = “EASTUS2”
@@ -183,13 +183,13 @@ Set-AzureRmVMSqlServerExtension -VMName $vmname `
 ```
 
 ### <a id="verifysettings"></a>Geçerli ayarlarını doğrulayın
-Sağlama işlemi sırasında otomatik yedekleme etkinleştirilirse, geçerli yapılandırmanızı PowerShell toocheck kullanabilirsiniz. Merhaba çalıştırmak **Get-AzureRmVMSqlServerExtension** komut ve hello inceleyin **AutoBackupSettings** özelliği:
+Sağlama işlemi sırasında otomatik yedekleme etkinleştirilirse, geçerli yapılandırmanızı denetlemek için PowerShell'i kullanabilirsiniz. Çalıştırma **Get-AzureRmVMSqlServerExtension** komut ve inceleyin **AutoBackupSettings** özelliği:
 
 ```powershell
 (Get-AzureRmVMSqlServerExtension -VMName $vmname -ResourceGroupName $resourcegroupname).AutoBackupSettings
 ```
 
-Çıktı benzer toohello aşağıdaki almanız gerekir:
+Çıktı aşağıdakine benzer almanız gerekir:
 
 ```
 Enable                      : True
@@ -206,15 +206,15 @@ FullBackupWindowHours       : 2
 LogBackupFrequency          : 60
 ```
 
-Çıktı gösteriyorsa **etkinleştirmek** çok ayarlanır**yanlış**, tooenable otomatik yedekleme sahip. Merhaba iyi haber etkinleştirme ve otomatik yedekleme hello yapılandırma olan şekilde. Bu bilgi Hello sonraki bölüme bakın.
+Çıktı gösteriyorsa **etkinleştirmek** ayarlanır **yanlış**, otomatik yedeklemeyi etkinleştirmek sahip. İyi haber etkinleştirin ve aynı şekilde otomatik yedeklemeyi yapılandırın ' dir. Bu bilgi için sonraki bölüme bakın.
 
 > [!NOTE] 
-> Hemen bir değişiklik yaptıktan sonra hello ayarlarını denetleyin, hello eski yapılandırma değerlerini geri alırsınız mümkündür. Birkaç dakika bekleyin ve hello ayarlarını kontrol edin yeniden değişikliklerinizi uygulandığından emin toomake.
+> Hemen bir değişiklik yaptıktan sonra ayarlarını denetleyin, eski yapılandırma değerlerini geri alırsınız mümkündür. Birkaç dakika bekleyin ve yeniden değişikliklerinizi uygulandığından emin olmak için ayarları kontrol edin.
 
 ### <a name="configure-automated-backup-v2"></a>Otomatik yedekleme v2 yapılandırın
-Toomodify yanı sıra PowerShell tooenable otomatik yedekleme yapılandırması ve davranış herhangi bir zamanda kullanabilirsiniz. 
+Otomatik yedekleme de, yapılandırma ve davranış herhangi bir zamanda değiştirmek sağlamak için PowerShell kullanın. 
 
-İlk olarak, seçin veya yedekleme dosyalarını hello için bir depolama hesabı oluşturun. Merhaba aşağıdaki komut dosyasını bir depolama hesabı seçer veya henüz yoksa oluşturur.
+İlk olarak, seçin veya yedekleme dosyaları için bir depolama hesabı oluşturun. Aşağıdaki komut dosyasını bir depolama hesabı seçer veya henüz yoksa oluşturur.
 
 ```powershell
 $storage_accountname = “yourstorageaccount”
@@ -230,7 +230,7 @@ If (-Not $storage)
 > [!NOTE]
 > Otomatik yedekleme premium depolama alanına depolanmasını yedeklemeleri desteklemez, ancak Premium depolama kullanan VM diskleri yedeklemelerden alabilir.
 
-Merhaba kullanmak **yeni AzureRmVMSqlServerAutoBackupConfig** komut tooenable ve hello Azure depolama hesabında hello otomatik yedekleme v2 ayarları toostore yedeklemelerini yapılandırın. Bu örnekte, 10 gün boyunca tutulur toobe hello yedeklemeleri ayarlanır. Sistem Veritabanı Yedeklemeleri etkinleştirilir. Tam yedeklemeler için haftalık iki saat 20:00 başlayarak bir zaman penceresi ile zamanlanır. Günlük yedeklemeler için 30 dakikada zamanlanır. Merhaba ikinci komut, **kümesi AzureRmVMSqlServerExtension**, güncelleştirmelerinin hello Azure VM bu ayarlarla belirtilen.
+Ardından **yeni AzureRmVMSqlServerAutoBackupConfig** Azure depolama hesabında yedeklemelerini depolamak için otomatik yedekleme v2 ayarlarını etkinleştirme ve yapılandırma için komutu. Bu örnekte, yedeklemeler için 10 gün tutacak şekilde ayarlanır. Sistem Veritabanı Yedeklemeleri etkinleştirilir. Tam yedeklemeler için haftalık iki saat 20:00 başlayarak bir zaman penceresi ile zamanlanır. Günlük yedeklemeler için 30 dakikada zamanlanır. İkinci komut **kümesi AzureRmVMSqlServerExtension**, bu ayarlarla belirtilen Azure VM güncelleştirir.
 
 ```powershell
 $autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
@@ -244,9 +244,9 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname 
 ```
 
-Birkaç dakika tooinstall alın ve hello SQL Server Iaas Aracısı Yapılandırma. 
+Yüklemek ve SQL Server Iaas aracısı yapılandırmak için birkaç dakika sürebilir. 
 
-tooenable şifreleme hello önceki betik toopass hello değiştirme **EnableEncryption** parametresi hello için bir parola (güvenli dize) ile birlikte **CertificatePassword** parametresi. Merhaba aşağıdaki betiği hello önceki örnekte hello otomatik yedekleme ayarlarını etkinleştirir ve şifreleme ekler.
+Şifrelemeyi etkinleştirmek için geçirmek için önceki komut dosyasını değiştirin **EnableEncryption** parametresi için bir parola (güvenli dize) ile birlikte **CertificatePassword** parametresi. Aşağıdaki komut dosyası, önceki örnekte otomatik yedekleme ayarlarını etkinleştirir ve şifreleme ekler.
 
 ```powershell
 $password = "P@ssw0rd"
@@ -264,10 +264,10 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 
-ayarlarınızı uygulanır, tooconfirm [hello otomatik yedekleme yapılandırması doğrulayın](#verifysettings).
+Ayarlarınızı uygulandığını doğrulamak için [otomatik yedekleme yapılandırması doğrulayın](#verifysettings).
 
 ### <a name="disable-automated-backup"></a>Otomatik yedekleme devre dışı bırak
-Otomatik yedekleme, hello aynı komut dosyası çalıştırma hello toodisable **-etkinleştirmek** parametresi toohello **yeni AzureRmVMSqlServerAutoBackupConfig** komutu. Merhaba hello yokluğu **-etkinleştirmek** parametresi sinyalleri hello komutu toodisable hello özelliği. Yüklemesine gibi birkaç dakika toodisable otomatik yedekleme alabilir.
+Otomatik yedekleme devre dışı bırakmak için olmadan aynı komut dosyasını Çalıştır **-etkinleştirmek** parametresi **yeni AzureRmVMSqlServerAutoBackupConfig** komutu. Yokluğu **-etkinleştirmek** parametresi sinyalleri özelliğini devre dışı bırakmak için komutu. Yüklemesine gibi otomatik yedekleme devre dışı bırakmak için birkaç dakika sürebilir.
 
 ```powershell
 $autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -ResourceGroupName $storage_resourcegroupname
@@ -277,7 +277,7 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 ```
 
 ### <a name="example-script"></a>Örnek komut dosyası
-Merhaba aşağıdaki komut dosyası değişkenleri kümesinin tooenable özelleştirebilir ve VM için otomatik yedeklemeyi yapılandırın sağlar. Sizin durumunuzda, gereksinimlerinize göre toocustomize hello komut dosyası gerekebilir. Örneğin, sistem veritabanlarının toodisable hello yedekleme istediyseniz toomake değişikliklerinin veya şifrelemeyi etkinleştirmeniz.
+Aşağıdaki betik etkinleştirmek ve VM için otomatik yedekleme yapılandırmak için özelleştirebileceğiniz değişkenleri kümesinin sağlar. Sizin durumunuzda, gereksinimlerinize göre betiğini özelleştirme gerekebilir. Örneğin, sistem veritabanlarını yedekleme devre dışı bırakır veya şifrelemeyi etkinleştirmek istiyorsanız değişiklik etmesi gerekir.
 
 ```powershell
 $vmname = "yourvmname"
@@ -292,13 +292,13 @@ $fullbackupstarthour = "20"
 $fullbackupwindow = "2"
 $logbackupfrequency = "30"
 
-# ResourceGroupName is hello resource group which is hosting hello VM where you are deploying hello SQL IaaS Extension 
+# ResourceGroupName is the resource group which is hosting the VM where you are deploying the SQL IaaS Extension 
 
 Set-AzureRmVMSqlServerExtension -VMName $vmname `
     -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
     -Version "1.2" -Location $region
 
-# Creates/use a storage account toostore hello backups
+# Creates/use a storage account to store the backups
 
 $storage = Get-AzureRmStorageAccount -ResourceGroupName $resourcegroupname `
     -Name $storage_accountname -ErrorAction SilentlyContinue
@@ -315,16 +315,16 @@ $autobackupconfig = New-AzureRmVMSqlServerAutoBackupConfig -Enable `
     -FullBackupStartHour $fullbackupstarthour -FullBackupWindowInHours $fullbackupwindow `
     -LogBackupFrequencyInMinutes $logbackupfrequency
 
-# Apply hello Automated Backup settings toohello VM
+# Apply the Automated Backup settings to the VM
 
 Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
     -VMName $vmname -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Otomatik yedekleme v2 yönetilen yedekleme Azure Vm'lerinde yapılandırır. Çok önemlidir[yönetilen yedekleme hello belgelerini gözden geçirin](https://msdn.microsoft.com/library/dn449496.aspx) toounderstand hello davranışı ve etkileri.
+Otomatik yedekleme v2 yönetilen yedekleme Azure Vm'lerinde yapılandırır. İçin önemlidir [yönetilen yedekleme belgelerini gözden](https://msdn.microsoft.com/library/dn449496.aspx) davranışı ve etkilerini anlamak için.
 
-Ek yedekleme bulmak ve izleyen konu hello Azure Vm'lerde SQL Server için kılavuzunda geri yükleyebilirsiniz: [yedekleme ve geri yükleme Azure Virtual Machines'de SQL Server için](virtual-machines-windows-sql-backup-recovery.md).
+Ek yedekleme bulmak ve Azure vm'lerinde SQL Server Kılavuzu şu konuda geri yükleyebilirsiniz: [yedekleme ve geri yükleme Azure Virtual Machines'de SQL Server için](virtual-machines-windows-sql-backup-recovery.md).
 
 Diğer kullanılabilir Otomasyon görevler hakkında daha fazla bilgi için bkz: [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md).
 

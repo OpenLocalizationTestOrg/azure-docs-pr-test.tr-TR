@@ -1,76 +1,94 @@
 ---
-Başlık: aaa "Azure Analysis Services öğretici Ders 11: roller oluşturma | Microsoft Docs"Açıklama: Azure Analysis Services öğretici proje toocreate rollerinde nasıl hello açıklar. Hizmetleri: analysis services documentationcenter: '' Yazar: minewiskan Yöneticisi: erikre Düzenleyicisi: '' etiketler: ''
-
-MS.assetid: ms.service: analysis services ms.devlang: NA ms.topic: get-makalesi ms.tgt_pltfrm: NA ms.workload: na ms.date: 26/05/2017 ms.author: owend
+title: "Azure Analysis Services öğreticisi 11. ders: Rol oluşturma | Microsoft Docs"
+description: "Azure Analysis Services öğretici projesinde rollerin nasıl oluşturulacağını açıklar."
+services: analysis-services
+documentationcenter: 
+author: Minewiskan
+manager: erikre
+editor: 
+tags: 
+ms.assetid: 
+ms.service: analysis-services
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 09/20/2017
+ms.author: owend
+ms.openlocfilehash: 0dfcb9d9fc8cd32f95c5097ec653864364b27bcc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-11-create-roles"></a>11. Ders: Rol oluşturma
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-Bu derste rol oluşturacaksınız. Rolleri model veritabanı nesnesi ve veri güvenliği erişim tooonly sınırlayarak Rol üyeleri olan kullanıcılarla sağlar. Her rol tek bir izinle tanımlanır: Hiçbiri, Okuma, Okuma ve İşlem, İşlem veya Yönetici. Roller, Rol Yöneticisi kullanılarak model yazma sırasında tanımlanabilir. Bir model dağıtıldıktan sonra SQL Server Management Studio’yu (SSMS) kullanarak rolleri yönetebilirsiniz. toolearn daha, fazla [rolleri](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular).
+Bu derste rol oluşturacaksınız. Roller, erişimi yalnızca rol üyesi olan kullanıcılarla sınırlayarak model veritabanı nesnesi ve veri güvenliği sağlar. Her rol tek bir izinle tanımlanır: Hiçbiri, Okuma, Okuma ve İşlem, İşlem veya Yönetici. Roller, Rol Yöneticisi kullanılarak model yazma sırasında tanımlanabilir. Bir model dağıtıldıktan sonra SQL Server Management Studio’yu (SSMS) kullanarak rolleri yönetebilirsiniz. Daha fazla bilgi için bkz. [Roller](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular).
   
 > [!NOTE]  
-> Roller oluşturma gerekli toocomplete bu öğreticidir. Varsayılan olarak, hello hesabı ile oturum açmış olduğunuz hello model üzerinde yönetici ayrıcalıklarına sahip. Ancak, raporlama istemcisi kullanarak, kuruluş toobrowse diğer kullanıcılar için en az bir rol ile Okuma izinleri oluşturun ve bu kullanıcıların üye olarak eklemeniz gerekir.  
+> Bu öğreticinin tamamlanması için rol oluşturmak gerekli değildir. Varsayılan olarak, o anda oturum açmış olduğunuz hesap, model üzerinde Yönetici ayrıcalıklarına sahiptir. Ancak kuruluşunuzdaki diğer kullanıcıların bir raporlama istemcisi kullanarak göz atması için, Okuma izinlerine sahip en az bir rol oluşturmanız ve bu kullanıcıları üye olarak eklemeniz gerekir.  
   
 Üç rol oluşturursunuz:  
   
--   **Satış Yöneticisi** – bu rol, istediğiniz toohave okuma izni tooall model nesneleri ve veri, kuruluşunuzdaki kullanıcılar içerebilir.  
+-   **Satış Yöneticisi** – Bu rol, kuruluşunuzda tüm model nesneleri ve veriler için Okuma iznine sahip olmasını istediğiniz kullanıcıları içerebilir.  
   
--   **Satış analist ABD** – bu rol yalnızca toobe mümkün toobrowse verileri istediğiniz, kuruluşunuzdaki kullanıcılar içerebilir ilgili hello Amerika Birleşik Devletleri toosales. Bu rol için bir DAX formülü toodefine kullanmak bir *satır filtresi*, üyeleri yalnızca hello Amerika Birleşik Devletleri toobrowse verilerini kısıtlar.  
+-   **Satış Analisti ABD** – Bu rol, kuruluşunuzda yalnızca Birleşik Devletler'deki satışlar ile ilgili verilere göz atabilmesini istediğiniz kullanıcıları içerebilir. Bu rol için, üyelerin yalnızca Birleşik Devletler’e ait verilere göz atmasına izin veren bir *Satır Filtresi* tanımlamak üzere bir DAX formülü kullanırsınız.  
   
--   **Yönetici** – bu rol, sınırsız erişim ve izinleri tooperform yönetim görevlerini hello model veritabanını verir toohave yönetici izni istediğiniz kullanıcıları içerebilir.  
+-   **Yönetici** – Bu rol, model veritabanında yönetici görevleri gerçekleştirmek için sınırsız erişim ve izinler veren Yönetici iznine sahip olmasını istediğiniz kullanıcıları içerebilir.  
   
-Kuruluşunuzdaki Windows kullanıcı ve grup hesaplarını benzersiz olduğundan, belirli kuruluş toomembers hesapları ekleyebilirsiniz. Ancak, Bu öğretici için aynı zamanda hello üyeleri boş bırakabilirsiniz. Daha sonra Ders 12'de her rol hello etkisini test edin: Excel'de Çözümle.  
+Kuruluşunuzdaki Windows kullanıcı ve grup hesapları benzersiz olduğu için, kuruluşunuzdan üyelere hesaplar ekleyebilirsiniz. Ancak bu öğretici için, üyeleri boş da bırakabilirsiniz. Her bir rolün etkisini daha sonra 12. Ders: Excel’de çözümleme dersinde test edeceksiniz.  
   
-Bu ders zaman toocomplete tahmini: **15 dakika**  
+Bu dersin tahmini tamamlanma süresi: **15 dakika**  
   
 ## <a name="prerequisites"></a>Ön koşullar  
-Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir parçasıdır. Bu ders Hello görevleri gerçekleştirmeden önce hello önceki Ders tamamlandı: [Ders 10: bölümleri oluşturma](../tutorials/aas-lesson-10-create-partitions.md).  
+Bu konu, sırayla tamamlanması gereken bir tablo modelleme öğreticisinin bir parçasıdır. Bu dersteki görevleri gerçekleştirmeden önce, bir önceki dersi tamamlamış olmanız gerekir: [10. Ders: Bölümleme oluşturma](../tutorials/aas-lesson-10-create-partitions.md).  
   
 ## <a name="create-roles"></a>Rol oluşturma  
   
-#### <a name="toocreate-a-sales-manager-user-role"></a>toocreate satış yöneticisi kullanıcı rolü  
+#### <a name="to-create-a-sales-manager-user-role"></a>Satış yöneticisi kullanıcı rolü oluşturmak için  
   
 1.  Tablo Model Gezgini'nde **Roller** > **Roller**’e sağ tıklayın.  
   
 2.  Rol Yöneticisi'nde **Yeni**’ye tıklayın.  
   
-3.  Merhaba yeni rolüne tıklayın ve ardından hello **adı** sütun hello rol çok yeniden adlandırma**Satış Yöneticisi**.  
+3.  Yeni role tıklayın ve ardından **Ad** sütununda rolü **Satış Yöneticisi** olarak adlandırın.  
   
-4.  Merhaba, **izinleri** sütunu hello açılır listeye tıklayın ve ardından hello seçin **okuma** izni. 
+4.  **İzinler** sütununda açılan listeye tıklayın ve ardından **Okuma** iznini seçin. 
 
     ![aas-lesson11-new-role](../tutorials/media/aas-lesson11-new-role.png) 
   
-5.  İsteğe bağlı: Tıklatın hello **üyeleri** sekmesini ve ardından **Ekle**. Merhaba, **kullanıcıları veya Grupları Seç** iletişim kutusunda, hello Windows kullanıcıları veya grupları girin kuruluşunuzdan hello rolündeki tooinclude istiyor.  
+5.  İsteğe bağlı: **Üyeler** sekmesine ve ardından **Ekle**’ye tıklayın. **Kullanıcı veya Grup Seçin** iletişim kutusunda, kuruluşunuzda role dahil etmek istediğiniz Windows kullanıcılarını veya gruplarını girin.  
   
-#### <a name="toocreate-a-sales-analyst-us-user-role"></a>toocreate satış analisti ABD kullanıcı rolü  
+#### <a name="to-create-a-sales-analyst-us-user-role"></a>Satış Analisti ABD kullanıcı rolü oluşturmak için  
   
 1.  Rol Yöneticisi'nde **Yeni**’ye tıklayın.    
   
-2.  Merhaba rol çok yeniden adlandırma**satış analist ABD**.  
+2.  Rolü **Satış Analisti ABD** olarak adlandırın.  
   
 3.  Bu role **Okuma** izni verin.  
   
-4.  Merhaba satır filtreler sekmesine tıklayın ve ardından hello **DimGeography** hello DAX filtre sütununda formülü aşağıdaki türü hello yalnızca, tablo:  
+4.  Satır Filtreleri sekmesine tıklayın ve yalnızca **DimGeography** tablosunun DAX Filtresi sütununa aşağıdaki formülü yazın:  
   
     ```Administrator
     =DimGeography[CountryRegionCode] = "US" 
     ```
     
-    Bir satır Filtresi Formülü tooa Boole (TRUE/FALSE) değeri çözmeniz gerekir. Bu formülü ile yalnızca "ABD" Merhaba ülke/bölge kodu değeri ile satırları görünür toohello kullanıcı olduğunu belirtiyorsanız.  
+    Satır Filtresi formülü bir Boole (TRUE/FALSE) değerine çözümlenmelidir. Bu formülde, yalnızca Ülke Bölge Kodu “US” olan satırların kullanıcıya görünür olacağını belirlersiniz.  
     ![aas-lesson11-role-filter](../tutorials/media/aas-lesson11-role-filter.png) 
   
-6.  İsteğe bağlı: Tıklatın hello **üyeleri** sekmesini ve ardından **Ekle**. Merhaba, **kullanıcıları veya Grupları Seç** iletişim kutusunda, hello Windows kullanıcıları veya grupları girin kuruluşunuzdan hello rolündeki tooinclude istiyor.  
+6.  İsteğe bağlı: **Üyeler** sekmesine ve ardından **Ekle**’ye tıklayın. **Kullanıcı veya Grup Seçin** iletişim kutusunda, kuruluşunuzda role dahil etmek istediğiniz Windows kullanıcılarını veya gruplarını girin.  
   
-#### <a name="toocreate-an-administrator-user-role"></a>toocreate bir yönetici kullanıcı rolü  
+#### <a name="to-create-an-administrator-user-role"></a>Yönetici kullanıcı rolü oluşturmak için  
   
 1.  **Yeni**’ye tıklayın.  
   
-2.  Merhaba rol çok yeniden adlandırma**yönetici**.  
+2.  Rolü **Yönetici** olarak yeniden adlandırın.  
   
 3.  Bu role **Yönetici** izni verin.  
   
-4.  İsteğe bağlı: Tıklatın hello **üyeleri** sekmesini ve ardından **Ekle**. Merhaba, **kullanıcıları veya Grupları Seç** iletişim kutusunda, hello Windows kullanıcıları veya grupları girin kuruluşunuzdan hello rolündeki tooinclude istiyor. 
+4.  İsteğe bağlı: **Üyeler** sekmesine ve ardından **Ekle**’ye tıklayın. **Kullanıcı veya Grup Seçin** iletişim kutusunda, kuruluşunuzda role dahil etmek istediğiniz Windows kullanıcılarını veya gruplarını girin. 
   
   
 ## <a name="whats-next"></a>Sırada ne var?

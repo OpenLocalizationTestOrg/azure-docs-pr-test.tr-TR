@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Azure Storage için Java aaaClient tarafı şifreleme | Microsoft Docs"
-description: "Merhaba Java için Azure Storage istemci kitaplığı, Azure Storage uygulamalarınız için en yüksek güvenlik için istemci tarafı şifreleme ve Azure anahtar kasası ile tümleştirmeyi destekler."
+title: "Microsoft Azure depolama için istemci tarafı şifreleme Java ile | Microsoft Docs"
+description: "Java için Azure Storage istemci kitaplığı, Azure Storage uygulamalarınız için en yüksek güvenlik için istemci tarafı şifreleme ve Azure anahtar kasası ile tümleştirmeyi destekler."
 services: storage
 documentationcenter: java
 author: lakasa
@@ -14,171 +14,171 @@ ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.openlocfilehash: cb40c737b9065005f0f31f654e7e43fd27b923f5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9f9ed8043d3671beacb9fabeb9e96604a8f065ab
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Microsoft Azure depolama için Java ile istemci tarafı şifreleme ve Azure anahtar kasası
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Merhaba [Java için Azure Storage istemci Kitaplığı](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) tooAzure depolama karşıya yükleme ve toohello istemci indirilirken verilerin şifresini çözmek önce istemci uygulamalar içinde verilerin şifrelenmesi destekler. Merhaba kitaplığı ile tümleştirme de destekler [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) depolama hesabı anahtarı yönetimi için.
+[Java için Azure Storage istemci Kitaplığı](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) Azure depolama alanına yüklemek ve istemciye indirirken verilerin şifresini çözmek önce istemci uygulamalar içinde verilerin şifrelenmesi destekler. Kitaplık ayrıca ile tümleştirmeyi destekler [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/) depolama hesabı anahtarı yönetimi için.
 
-## <a name="encryption-and-decryption-via-hello-envelope-technique"></a>Şifreleme ve şifre çözme hello Zarf teknik aracılığıyla
-şifreleme ve şifre çözme Hello işlemleri hello Zarf teknik izleyin.  
+## <a name="encryption-and-decryption-via-the-envelope-technique"></a>Şifreleme ve şifre çözme Zarf teknik aracılığıyla
+Şifreleme ve şifre çözme işlemleri Zarf teknik izleyin.  
 
-### <a name="encryption-via-hello-envelope-technique"></a>Merhaba Zarf teknik aracılığıyla şifreleme
-Şifreleme hello Zarf teknik aracılığıyla hello aşağıdaki şekilde çalışır:  
+### <a name="encryption-via-the-envelope-technique"></a>Zarf teknik aracılığıyla şifreleme
+Zarf teknik aracılığıyla şifreleme aşağıdaki şekilde çalışır:  
 
-1. Hello Azure storage istemci kitaplığı simetrik anahtar bir kerelik kullan bir içerik şifreleme anahtarı (CEK) oluşturur.  
+1. Azure storage istemci kitaplığı simetrik anahtar bir kerelik kullan bir içerik şifreleme anahtarı (CEK) oluşturur.  
 2. Kullanıcı verileri bu CEK kullanılarak şifrelenir.   
-3. Merhaba CEK sonra (Merhaba anahtar şifreleme anahtarı (KEK) kullanılarak şifrelenir) paketlenir. Merhaba KEK anahtar bir tanımlayıcıyla tanımlanır ve asimetrik anahtar çifti ya da bir simetrik anahtar olması ve yerel olarak yönetilebilir veya Azure anahtar kasası depolanan.  
-   Merhaba depolama istemci kitaplığı kendisini hiçbir zaman erişim tooKEK sahiptir. Merhaba kitaplığı anahtar kasası tarafından sağlanan hello anahtar kaydırma algoritması çağırır. Kullanıcıların toouse anahtar kaydırma/isterseniz açmak için özel sağlayıcılar seçebilirsiniz.  
-4. Merhaba şifrelenmiş verileri ise toohello Azure depolama hizmeti karşıya yüklendi. Bazı ek şifreleme meta verilerle birlikte Hello Sarmalanan anahtarın meta veriler (hakkında bir blob) olarak depolanır veya (iletileri kuyruğa ve tablo varlıkları) ile şifrelenmiş hello veri Ara değerli.
+3. CEK (anahtar şifreleme anahtarı (KEK) kullanılarak şifrelenir) paketlenir. KEK anahtar bir tanımlayıcıyla tanımlanır ve asimetrik anahtar çifti ya da bir simetrik anahtar olması ve yerel olarak yönetilebilir veya Azure anahtar kasası depolanan.  
+   Depolama istemcisi kitaplığı kendisini KEK hiçbir zaman erişebilir. Anahtar kasası tarafından sağlanan anahtar kaydırma algoritma kitaplığı çağırır. Kullanıcıların özel sağlayıcıları anahtar kaydırma/açmak için isterseniz kullanmayı da seçebilirsiniz.  
+4. Şifrelenmiş veriler daha sonra Azure Storage hizmetine yüklenir. Bazı ek şifreleme meta verilerle birlikte Sarmalanan anahtarın meta veriler (hakkında bir blob) olarak depolanır veya şifrelenmiş verilerle (iletileri kuyruğa ve tablo varlıkları) değiştirilmiş.
 
-### <a name="decryption-via-hello-envelope-technique"></a>Merhaba Zarf teknik aracılığıyla şifre çözme
-Şifre çözme hello Zarf teknik aracılığıyla hello aşağıdaki şekilde çalışır:  
+### <a name="decryption-via-the-envelope-technique"></a>Zarf teknik aracılığıyla şifre çözme
+Şifre çözme Zarf teknik aracılığıyla aşağıdaki şekilde çalışır:  
 
-1. Merhaba istemci kitaplığı hello kullanıcının yerel olarak veya Azure anahtar kasası hello anahtar şifreleme anahtarı (KEK) yönetiyor varsayar. Merhaba kullanıcı şifreleme için kullanılan tooknow hello özel anahtarı gerektirmez. Bunun yerine, farklı anahtar tanımlayıcıları tookeys çözümlenen bir anahtar çözümleyici ayarlayabilir ve kullanılır.  
-2. Hello istemci kitaplığı hello şifrelenmiş veriler hello hizmette depolanan tüm şifreleme malzeme birlikte yükler.  
-3. sarmalanmamış (şifresi çözülmüş) kullanarak hello sonra anahtar şifreleme anahtarı (KEK) hello Sarmalanan içerik şifreleme anahtarı (CEK) olabilir. Burada yeniden hello istemci kitaplığı erişimi tooKEK sahip değil. Yalnızca özel hello veya anahtar kasası sağlayıcının açma algoritmasını çağırır.  
-4. şifreleme anahtarı (CEK) ise içerik Hello toodecrypt şifrelenmiş hello kullanıcı verilerini kullanılır.
+1. Kullanıcının yerel olarak veya Azure anahtar kasası anahtar şifreleme anahtarı (KEK) yönetiyor istemci kitaplığı varsayar. Kullanıcı, şifreleme için kullanılan özel anahtarını bilmesi gerekmez. Bunun yerine, farklı anahtar tanımlayıcıları anahtarları çözümlenen bir anahtar çözümleyici ayarlayabilir ve kullanılır.  
+2. İstemci Kitaplığı hizmette depolanan tüm şifreleme malzeme birlikte şifrelenmiş verileri yükler.  
+3. Sarmalanmamış (şifresi) anahtarı şifreleme kullanarak anahtarı (KEK) Sarmalanan içerik şifreleme anahtarı (CEK) olduğundan. Burada yeniden istemci kitaplığı KEK erişimi yok. Yalnızca özel veya anahtar kasası sağlayıcının açma algoritmasını çağırır.  
+4. İçerik şifreleme anahtarı (CEK), ardından şifrelenmiş kullanıcı verileri şifrelemek için kullanılır.
 
 ## <a name="encryption-mechanism"></a>Şifreleme mekanizması
-Merhaba depolama istemci kitaplığı kullanıp [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) sipariş tooencrypt kullanıcı verileri. Özellikle, [Şifre blok zincirleme (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) AES moduyla. Her bir hizmet works biraz farklı şekilde Burada bunların her birini aşağıdakiler ele alınacaktır.
+Depolama istemcisi kitaplığı kullanır [AES](http://en.wikipedia.org/wiki/Advanced_Encryption_Standard) kullanıcı verilerini şifrelemek için. Özellikle, [Şifre blok zincirleme (CBC)](http://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Cipher-block_chaining_.28CBC.29) AES moduyla. Her bir hizmet works biraz farklı şekilde Burada bunların her birini aşağıdakiler ele alınacaktır.
 
 ### <a name="blobs"></a>Bloblar
-Merhaba istemci kitaplığı şu anda yalnızca tüm blobları şifreleme desteklemektedir. Kullanıcıların hello kullandığınızda Şifreleme özellikle, desteklenen **karşıya*** yöntemleri ya da hello **openOutputStream** yöntemi. Yüklemeleri, hem tam hem aralık yüklemeleri desteklenen için.  
+İstemci Kitaplığı şu anda yalnızca tüm blobları şifreleme desteklemektedir. Kullanıcıların kullandığınızda Şifreleme özellikle, desteklenen **karşıya*** yöntemleri veya **openOutputStream** yöntemi. Yüklemeleri, hem tam hem aralık yüklemeleri desteklenen için.  
 
-Şifreleme sırasında hello istemci kitaplığı rastgele başlatma vektörü (IV), 32 bayt rasgele bir içerik şifreleme anahtarı (CEK) ile birlikte 16 bayt oluşturmak ve bu bilgileri kullanarak hello blob verisi Zarf şifreleme gerçekleştirin. Merhaba CEK Sarmalanan ve bazı ek şifreleme meta verileri sonra şifrelenmiş bir blobu hello hello hizmetinin yanı sıra meta verileri blob olarak depolanır.
+Şifreleme sırasında istemci kitaplığının rastgele başlatma vektörü (IV), 32 bayt rasgele bir içerik şifreleme anahtarı (CEK) ile birlikte 16 bayt oluşturmak ve bu bilgileri kullanarak blob verisi Zarf şifreleme gerçekleştirin. Sarmalanan CEK ve bazı ek şifreleme meta veriler şifrelenmiş bir blobu hizmetinin yanı sıra meta verileri blob olarak depolanır.
 
 > [!WARNING]
-> Düzenleme veya kendi hello blob meta verilerini karşıya yükleme, bu meta veriler korunur tooensure gerekir. Bu meta veriler olmadan yeni meta veriler karşıya yükleme, Sarmalanan CEK Merhaba, IV ve diğer meta veriler kaybolur ve hello blob içeriğinin hiçbir zaman tekrar alınabilir.
+> Düzenleme veya kendi meta veriler blob'a karşıya yükleme, bu meta veriler korunduğundan emin olmak gerekir. Bu meta veriler olmadan yeni meta veriler karşıya yükleme, Sarmalanan CEK, IV ve diğer meta veriler kaybolur ve blob içeriğinin hiçbir zaman tekrar alınabilir.
 > 
 > 
 
-Şifrelenmiş bir blobu indirme içerir hello tüm blob hello kullanarak Merhaba içeriğine alma  **karşıdan*/openInputStream** kullanışlı yöntemler. Sarmalanan CEK sarılmamış ve hello IV ile birlikte kullanılan hello (blob meta verileri bu durumda tooreturn şifresi hello veri toohello kullanıcıları depolanır).
+Şifrelenmiş bir blobu indirme içerir kullanarak tüm blob içerik alma  **karşıdan*/openInputStream** kullanışlı yöntemler. Sarmalanan CEK sarılmamış ve kullanıcılara şifresi çözülmüş veriler döndürmek için (Bu durumda blob meta verileri depolanır) IV ile birlikte kullanılır.
 
-Rastgele bir aralığı indirme (**downloadRange*** yöntemleri) sipariş tooget bulunan kullanıcılar tarafından kullanılan toosuccessfully olabilecek ek veri az miktarda şifresi sağlanan hello hello aralık ayarlamak şifrelenmiş bir blobu hello içerir İstenen aralık.  
+Rastgele bir aralığı indirme (**downloadRange*** yöntemleri) çok küçük miktarda başarıyla İstenen aralık şifresini çözmek için kullanılan ek veri alabilmek için kullanıcılar tarafından sağlanan aralığı ayarlama şifrelenmiş bir blobu içerir.  
 
 Tüm türleri blob (blok blobları, sayfa blobları ve ilave bloblarını) şifrelenmiş/bu şeması kullanarak şifresi.
 
 ### <a name="queues"></a>Kuyruklar
-İletileri kuyruğa herhangi biçimi olamayacağından hello istemci kitaplığı hello başlatma vektörü (IV) ve hello şifrelenmiş içerik şifreleme anahtarı (CEK) hello metinde içeren özel bir biçim tanımlar.  
+İletileri kuyruğa herhangi biçimi olabileceği için istemci kitaplığının başlatma vektörü (IV) ve şifrelenmiş içerik şifreleme anahtarı (CEK) ileti metnini içeren özel bir biçim tanımlar.  
 
-Şifreleme sırasında hello istemci kitaplığı 16 bayt rastgele CEK 32 bayt yanı sıra rasgele bir IV oluşturur ve bu bilgileri kullanarak hello sıraya ileti metninin Zarf şifreleme gerçekleştirir. Merhaba CEK Sarmalanan ve bazı ek şifreleme meta verileri sonra toohello şifrelenmiş kuyruk iletisi eklenir. (Aşağıda gösterilen) bu değiştirilmiş ileti hello hizmetinde depolanır.
+Şifreleme sırasında istemci kitaplığı 16 bayt rastgele CEK 32 bayt yanı sıra rasgele bir IV oluşturur ve bu bilgileri kullanarak sıraya ileti metninin Zarf şifreleme gerçekleştirir. Sarmalanan CEK ve bazı ek şifreleme meta veriler şifrelenmiş kuyruk iletisini eklenir. (Aşağıda gösterilen) bu değiştirilmiş ileti hizmette depolanır.
 
 ```
 <MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
 ```
 
-Şifre çözme sırasında hello Sarmalanan anahtarı hello sıra iletiden ayıklanan ve sarılmamış. Merhaba IV ayrıca hello sıra iletiden ayıklanan ve sarılmamış hello anahtar toodecrypt hello kuyruk iletisi verilerle birlikte kullanılır. Bir kuyruk iletisi hello 64 KB sınırını doğru sayım sırasında hello etkisi yönetilebilir nedenle hello şifreleme meta verilerin (altında 500 bayt), küçük olduğunu unutmayın.
+Şifre çözme sırasında Sarmalanan anahtar sırası iletiden ayıklanır ve sarılmamış. IV ayrıca kuyruk iletiden ayıklanan ve kuyruk iletisi verilerin şifresini çözmek için sarmalanmamış anahtarı ile birlikte kullanılan. Bir kuyruk iletisi 64 KB sınırını doğru sayım sırasında etkisi yönetilebilir olması şifreleme meta verileri (altında 500 bayt), küçük olduğunu unutmayın.
 
 ### <a name="tables"></a>Tablolar
-İstemci Kitaplığı destekler şifreleme Ekle varlık özelliklerinin hello ve değiştirme işlemlerini.
+İstemci Kitaplığı varlık özellikleri şifrelenmesi için INSERT destekler ve değiştirme işlemlerini.
 
 > [!NOTE]
-> Birleştirme şu anda desteklenmiyor. Bir alt özellikler kümesini daha önce farklı bir anahtar kullanılarak şifrelenmiş olabilecek olduğundan, sadece hello yeni özellikleri birleştirme ve hello meta verilerini güncelleştirme veri kaybına neden olur. Ya da birleştirme ek hizmet yapma tooread hello önceden var olan varlık hello hizmetinden çağıran veya yeni bir anahtar özellik başına kullanarak, her ikisi de performansı artırmak için uygun olmayan gerektirir.
+> Birleştirme şu anda desteklenmiyor. Bir alt özellikler kümesini daha önce farklı bir anahtar kullanılarak şifrelenmiş olabilecek olduğundan, sadece yeni özellikleri birleştirme ve meta verilerini güncelleştirme veri kaybına neden olur. Ya da birleştirme önceden var olan varlık hizmetinden okumak için fazladan hizmeti çağrıları yapma gerektirir veya yeni bir anahtar özellik başına kullanarak, her ikisi de performansı artırmak için uygun değildir.
 > 
 > 
 
 Tablo verileri şifreleme gibi çalışır:  
 
-1. Kullanıcılar şifrelenmiş hello özellikleri toobe belirtin.  
-2. Merhaba istemci kitaplığı rastgele başlatma vektörü (IV) yanı sıra rasgele içerik bir şifreleme anahtarı (CEK) 32 bayt her varlık için 16 bayt oluşturur ve yeni bir IV başına türetme tarafından şifrelenmiş hello ayrı ayrı özellikler toobe Zarf şifreleme gerçekleştirir. özellik. şifrelenmiş hello özelliği ikili veri olarak depolanır.  
-3. Merhaba CEK Sarmalanan ve bazı ek şifreleme meta verileri sonra iki ek ayrılmış özellikleri olarak depolanır. Merhaba ilk ayrılmış özelliği (_ClientEncryptionMetadata1) hello bilgilerini IV, sürüm ve Sarmalanan anahtarı tutan bir dize özelliğidir. Merhaba ikinci ayrılmış özelliği (_ClientEncryptionMetadata2) hello özellikleri hakkında bilgi şifrelenmiş hello tutan bir ikili özelliğidir. Merhaba bu ikinci özelliğinde (_ClientEncryptionMetadata2) kendisi şifrelenmiş bilgilerdir.  
-4. Şifreleme için gereken toothese ek ayrılmış özellikleri, kullanıcılar artık 252 yerine yalnızca 250 özel özelliklere sahip olabilir. Merhaba varlık Hello toplam boyutu 1 MB'tan az olması gerekir.  
+1. Kullanıcıları şifrelenmesi için özellikleri belirtin.  
+2. İstemci Kitaplığı rastgele başlatma vektörü (IV) yanı sıra rasgele içerik bir şifreleme anahtarı (CEK) 32 bayt her varlık için 16 bayt oluşturur ve yeni bir IV özellik başına türetme tarafından şifrelenmesi için ayrı ayrı özellikler Zarf şifreleme gerçekleştirir. Şifrelenmiş özelliği ikili veri olarak depolanır.  
+3. Sarmalanan CEK ve bazı ek şifreleme meta verileri iki ek ayrılmış özellikleri olarak depolanır. İlk ayrılmış özelliği (_ClientEncryptionMetadata1) IV, sürüm ve Sarmalanan anahtar hakkında bilgi içeren bir dize özelliğidir. İkinci ayrılmış özelliği (_ClientEncryptionMetadata2) şifrelenmiş özellikler hakkında bilgi içeren bir ikili özelliğidir. Bu ikinci özelliğinde (_ClientEncryptionMetadata2) kendisi şifrelenmiş bilgilerdir.  
+4. Şifreleme için gereken bu ek ayrılmış özellikleri nedeniyle, kullanıcılar artık 252 yerine yalnızca 250 özel özelliklere sahip olabilir. Varlık toplam boyutu 1 MB'tan az olması gerekir.  
    
-   Yalnızca dize özellikleri şifrelenmiş olduğunu unutmayın. Diğer türdeki özellikleri şifrelenmiş toobe varsa, bunların dönüştürülmüş toostrings olması gerekir. şifrelenmiş hello dizeleri hello hizmette ikili özellikleri olarak depolanır ve şifre çözme sonra geri toostrings dönüştürülür.
+   Yalnızca dize özellikleri şifrelenmiş olduğunu unutmayın. Diğer özelliklerin türleri, şifreli olarak varsa, bunlar dizelere dönüştürülmesi gerekir. Şifrelenmiş dizelerin hizmette ikili özellikleri olarak depolanır ve şifre çözme sonra dizelere geri dönüştürülür.
    
-   Tablolar için ayrıca toohello şifreleme ilkesi, kullanıcıların şifrelenmiş hello özellikleri toobe belirtmeniz gerekir. Bu, ya da bir [şifrele] özniteliği (için TableEntity türetilen POCO varlıklar) veya bir şifreleme çözümleyici isteği seçenekleri belirterek yapılabilir. Bir şifreleme çözümleyici bölüm anahtarı, satır anahtarını ve özellik adını alır ve bu özellik şifrelenmesi gerekip gerekmediğini belirten bir Boole değeri döndüren bir temsilci ' dir. Bir özellik toohello kablo yazılırken şifrelenmesi gerekip gerekmediğini şifreleme sırasında bu bilgileri toodecide hello istemci kitaplığını kullanın. Merhaba temsilci özellikler nasıl şifrelenir geçici mantığı hello olasılığı için de sağlar. (Örneğin, X ise ardından özelliği A şifrelemek; Aksi takdirde özellikleri A ve b şifreleme) Bu BT Not gerekli tooprovide okurken veya varlıklar sorgulama bu bilgilerdir.
+   Şifreleme İlkesi yanı sıra, tablolar için kullanıcıların şifrelenecek özelliklerini belirtmeniz gerekir. Bu, ya da bir [şifrele] özniteliği (için TableEntity türetilen POCO varlıklar) veya bir şifreleme çözümleyici isteği seçenekleri belirterek yapılabilir. Bir şifreleme çözümleyici bölüm anahtarı, satır anahtarını ve özellik adını alır ve bu özellik şifrelenmesi gerekip gerekmediğini belirten bir Boole değeri döndüren bir temsilci ' dir. Şifreleme sırasında istemci kitaplığı, bir özellik için kablo yazılırken şifrelenmesi gerekip gerekmediğine karar vermek için bu bilgileri kullanır. Temsilci özellikler nasıl şifrelenir geçici mantığı olasılığı için de sağlar. (Örneğin, X ise ardından özelliği A şifrelemek; Aksi takdirde özellikleri A ve b şifreleme) Bu bilgileri okurken veya varlıkları sorgulamak için gerekli olmadığını göz önünde bulundurun.
 
 ### <a name="batch-operations"></a>Toplu işlemleri
-Merhaba istemci kitaplığı yalnızca bir seçenekleri nesnesi (ve bu nedenle bir ilke/KEK) izin verdiği için toplu işlemlerde hello aynı KEK bu toplu işlemdeki tüm hello satırları boyunca toplu işlem kullanılır. Ancak, hello istemci kitaplığı dahili olarak yeni rastgele IV ve satır başına rastgele CEK hello toplu işlemde oluşturur. Kullanıcılar ayrıca tooencrypt her işlem için farklı özellikleri hello toplu işlemde Bu davranış hello şifreleme Çözümleyicisi tanımlayarak seçebilirsiniz.
+İstemci Kitaplığı yalnızca bir seçenekleri nesnesi (ve bu nedenle bir ilke/KEK) izin verdiği için toplu işlemde aynı KEK bu toplu işlem içindeki tüm satırların üzerinden toplu işlem kullanılır. Ancak, istemci kitaplığının dahili olarak yeni rastgele IV ve satır başına rastgele CEK toplu işlemde oluşturur. Kullanıcılar, şifreleme Çözümleyicisi Bu davranış tanımlayarak toplu işlemdeki her işlem için farklı özellikleri şifrelemek de seçebilirsiniz.
 
 ### <a name="queries"></a>Sorgular
-tooperform sorgu işlemleri yapabilir tooresolve olan anahtar çözümleyici belirtmelisiniz tüm anahtarları hello sonuç kümesinde hello. Merhaba sorgu sonucunda bulunan bir varlık çözümlenmiş tooa sağlayıcı olamazsa hello istemci kitaplığı bir hata durum oluşturur. Sunucu tarafı tahminleri gerçekleştirir herhangi bir sorgu için varsayılan seçili toohello sütunlara göre hello özel şifreleme meta veri özellikleri (_ClientEncryptionMetadata1 ve _ClientEncryptionMetadata2) hello istemci kitaplığı ekleyin.
+Sorgu işlemleri gerçekleştirmek için sonuç kümesindeki tüm anahtarları çözümleyebildiğini anahtar bir çözümleyici belirtmeniz gerekir. Sorgu sonucunda bulunan bir varlık için bir sağlayıcı çözümlenemezse, istemci kitaplığının bir hata durum oluşturur. Sunucu tarafı tahminleri gerçekleştirir herhangi bir sorgu için istemci kitaplığının özel şifreleme meta veri özellikleri (_ClientEncryptionMetadata1 ve _ClientEncryptionMetadata2) varsayılan olarak seçilen sütunlara ekleyeceksiniz.
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
 Azure Anahtar Kasası, bulut uygulamaları ve hizmetleri tarafından kullanılan şifreleme anahtarlarının ve gizli anahtarların korunmasına yardımcı olur. Azure anahtar kasası kullanarak, kullanıcılar anahtarları ve gizli anahtarları (örneğin, kimlik doğrulaması anahtarları, depolama hesabı anahtarları, veri şifreleme anahtarları,. şifreleyebilirsiniz PFX dosyaları ve parolalar), donanım güvenlik modülleri (HSM'ler) tarafından korunan anahtarları kullanarak. Daha fazla bilgi için bkz: [Azure anahtar kasası nedir?](../../key-vault/key-vault-whatis.md).
 
-Merhaba depolama istemci kitaplığı hello anahtar kasası çekirdek Kitaplığı'nda sipariş tooprovide ortak bir çerçeve Azure anahtarları yönetmek için kullanır. Kullanıcılar ayrıca hello anahtar kasası uzantıları kitaplığı kullanarak hello ek bir avantaja alır. Merhaba uzantıları kitaplığı basit ve sorunsuz simetrik/RSA yerel ve bulut anahtar sağlayıcıları ve aynı zamanda toplama ve önbelleğe alma ile yararlı işlevsellik sağlar.
+Depolama istemcisi kitaplığı anahtar kasası çekirdek kitaplığı anahtarlarını yönetmek için Azure arasında ortak bir çerçeve sağlamak için kullanır. Kullanıcılar ayrıca anahtar kasası uzantıları kitaplığı kullanılarak ek bir avantaja alır. Uzantıları kitaplığı basit ve sorunsuz simetrik/RSA yerel ve bulut anahtar sağlayıcıları ve aynı zamanda toplama ve önbelleğe alma ile yararlı işlevsellik sağlar.
 
 ### <a name="interface-and-dependencies"></a>Arabirim ve bağımlılıkları
 Üç anahtar kasası paketi vardır:  
 
-* Azure keyvault çekirdek hello IKey ve IKeyResolver içerir. Hiçbir bağımlılıkları olan küçük bir pakettir. Merhaba Java için depolama istemci kitaplığı bağımlılık olarak tanımlar.
-* Azure keyvault hello anahtar kasası REST istemcisi içerir.  
-* Azure keyvault uzantıları şifreleme algoritmalarının ve bir RSAKey ve bir SymmetricKey uygulamaları içeren uzantısı kodunu içerir. Merhaba çekirdek ve KeyVault ad alanında bulunan bağlıdır ve bir toplama Çözümleyicisi (kullanıcılar birden çok anahtar sağlayıcısı toouse istediğiniz zaman) ve önbelleğe alma anahtar çözümleyici işlevselliği toodefine sağlar. Kullanıcılar kendi anahtarları veya toouse hello anahtar kasası uzantıları tooconsume hello toouse Azure anahtar kasası toostore yerel istiyor ve şifreleme sağlayıcıları bulut hello depolama istemci kitaplığı doğrudan bu pakete, olmasa da, bunlar bu paketi gerekir.  
+* Azure keyvault çekirdek IKey ve IKeyResolver içerir. Hiçbir bağımlılıkları olan küçük bir pakettir. Java için depolama istemci kitaplığı bağımlılık olarak tanımlar.
+* keyvault Azure anahtar kasası REST istemcisi içerir.  
+* Azure keyvault uzantıları şifreleme algoritmalarının ve bir RSAKey ve bir SymmetricKey uygulamaları içeren uzantısı kodunu içerir. Çekirdek ve KeyVault ad alanında bulunan bağlıdır ve bir toplama Çözümleyicisi (kullanıcılar birden çok anahtar sağlayıcısı kullanmak istediğinizde) ve önbelleğe alma anahtar çözümleyici tanımlamak için işlevsellik sağlar. Kullanıcılar kendi anahtarları depolamak için veya yerel kullanabilir ve şifreleme sağlayıcıları bulut anahtar kasası uzantıları kullanmak için Azure anahtar kasası kullanmak istiyorsanız, depolama istemci kitaplığı doğrudan bu pakete, olmasa da, bunlar bu paketi gerekir.  
   
-  Anahtar kasası yüksek değerli ana anahtarları için tasarlanmıştır ve azaltma sınırları anahtar kasası başına bunu göz önünde tasarlanmıştır. İstemci tarafı şifreleme anahtar kasası ile gerçekleştirirken hello tercih edilen toouse simetrik ana anahtar kasasına gizli olarak depolanır ve yerel önbelleğe alınan anahtarlar modelidir. Kullanıcıların gerçekleştirmelisiniz hello aşağıdaki:  
+  Anahtar kasası yüksek değerli ana anahtarları için tasarlanmıştır ve azaltma sınırları anahtar kasası başına bunu göz önünde tasarlanmıştır. İstemci tarafı şifreleme anahtar kasası ile gerçekleştirirken, tercih edilen modeli simetrik ana anahtar kasasına gizli olarak depolanır ve önbelleğe alınan anahtarları yerel olarak kullanmaktır. Kullanıcılar aşağıdakileri yapmanız gerekir:  
 
-1. Çevrimdışı bir gizli anahtar oluşturma ve tooKey kasası yükleyin.  
-2. Bir parametre tooresolve hello gizli şifreleme için geçerli sürümü hello ve bu bilgileri yerel olarak önbelleğe gibi hello parolanın temel tanımlayıcı kullanın. CachingKeyResolver önbelleğe almak için kullanın. Kullanıcılar kendi önbelleğe alma mantığını değil beklenen tooimplement şunlardır.  
-3. Merhaba önbellek Çözümleyicisi hello şifreleme ilkesi oluşturulurken bir giriş olarak kullanın.
-   Merhaba şifreleme kod örnekleri anahtar kasası kullanımıyla ilgili daha fazla bilgi bulunabilir. <fix URL>  
+1. Çevrimdışı bir gizli anahtar oluşturma ve anahtar Kasası'na yükleyin.  
+2. Parolanın temel tanımlayıcısı geçerli sürümü, şifreleme için gizli anahtar çözmek ve bu bilgileri yerel olarak önbelleğe parametre olarak kullanın. CachingKeyResolver önbelleğe almak için kullanın. kullanıcılara uygulamak için kendi mantığı önbelleğe alma beklenmez.  
+3. Önbellek Çözümleyicisi şifreleme ilkesi oluşturulurken bir giriş olarak kullanın.
+   Şifreleme kod örnekleri anahtar kasası kullanımıyla ilgili daha fazla bilgi bulunabilir. <fix URL>  
 
 ## <a name="best-practices"></a>En iyi uygulamalar
-Şifreleme desteği yalnızca Java hello depolama istemci Kitaplığı'nda kullanılabilir.
+Şifreleme desteği yalnızca Java için depolama istemci Kitaplığı'nda kullanılabilir.
 
 > [!IMPORTANT]
 > İstemci tarafı şifreleme kullanırken bu önemli noktalara dikkat edin:
 > 
-> * Ne zaman okunurken veya yazılırken tooan blob, tüm blob karşıya yükleme komutları kullanın ve aralığı/bütün blob yükleme komutları şifrelenir. Yerleştirme blok, Put engelleme listesi, yazma sayfaları, Temizle sayfaları veya blok ekleme gibi işlemleri protokolü kullanarak tooan şifrelenmiş bir blobu yazma kaçının; Aksi takdirde hello şifreli blob bozuk ve okunamaz olun.
-> * Tablolar için benzer bir kısıtlama var. Merhaba şifreleme meta verilerini güncelleştirme olmadan dikkatli toonot şifrelenmiş güncelleştirme özellikleri olabilir.  
-> * Meta veri hello şifreli blob üzerindeki ayarlarsanız, hello şifrelemeyle ilgili meta verileri meta verileri ayarlama eklenebilir olmadığından şifre çözme için gerekli üzerine yazabilir. Bu da anlık görüntüler için geçerlidir; meta veri anlık görüntüsünü şifrelenmiş bir blobu oluşturulurken belirtmekten kaçının. Meta veriler ayarlanmalıdır emin toocall hello olması **downloadAttributes** yöntemi ilk tooget geçerli şifreleme meta verilerin hello ve meta veri ayarlanırken eşzamanlı yazma kaçının.  
-> * Merhaba etkinleştirmek **requireEncryption** hello varsayılan istek seçenekleri yalnızca şifrelenmiş verileri ile çalışması gereken kullanıcılar için bayrak. Aşağıda daha fazla bilgi için bkz.  
+> * Okuma veya yazma şifrelenmiş bir blobu, tüm blob karşıya yükleme komutlarını ve aralığı/bütün blob yükleme komutlarını kullanın. Yerleştirme blok, Put engelleme listesi, yazma sayfaları, Temizle sayfaları veya blok ekleme gibi işlemleri protokolü kullanılarak şifrelenmiş bir blobu yazma kaçının; Aksi takdirde şifrelenmiş bir blobu bozuk ve okunamaz olun.
+> * Tablolar için benzer bir kısıtlama var. Şifrelenmiş özellikler şifreleme meta verisini güncelleştirmeden yükseltmemeye dikkatli olun.  
+> * Meta veriler üzerinde şifrelenmiş bir blobu ayarlarsanız, meta verileri ayarlama eklenebilir olmadığından şifre çözme için gerekli şifrelemeyle ilgili meta veriler üzerine yazabilir. Bu da anlık görüntüler için geçerlidir; meta veri anlık görüntüsünü şifrelenmiş bir blobu oluşturulurken belirtmekten kaçının. Meta veriler ayarlanmalıdır, çağırdığınızdan emin olun **downloadAttributes** önce geçerli şifreleme meta verilerini almak ve meta veri ayarlanırken eşzamanlı yazma önlemek için yöntem.  
+> * Etkinleştirme **requireEncryption** yalnızca şifrelenmiş verileri ile çalışması gereken kullanıcılar için varsayılan istek seçenekler bayrağı. Aşağıda daha fazla bilgi için bkz.  
 > 
 > 
 
 ## <a name="client-api--interface"></a>İstemci API / arabirim
-Bir EncryptionPolicy nesnesi oluşturulurken, kullanıcılara (IKey uygulama) yalnızca bir anahtar sağlayabilir Çözümleyicisi (IKeyResolver uygulama) ya da her ikisini de. IKey anahtar tanımlayıcısını kullanarak tanımlanır ve kaydırma/açmak için hello mantık sağlayan hello temel anahtar türüdür. IKeyResolver hello şifre çözme işlemi sırasında kullanılan tooresolve bir anahtar değil. Anahtar tanımlayıcısını verilen IKey döndüren bir ResolveKey yöntemi tanımlar. Bu, kullanıcıların hello özelliği toochoose birden fazla konumda yönetilen birden çok anahtar arasındaki sağlar.
+Bir EncryptionPolicy nesnesi oluşturulurken, kullanıcılara (IKey uygulama) yalnızca bir anahtar sağlayabilir Çözümleyicisi (IKeyResolver uygulama) ya da her ikisini de. IKey anahtar tanımlayıcısını kullanarak tanımlanır ve kaydırma/açmak için mantığı sağlayan temel anahtar türü değil. IKeyResolver bir anahtar şifre çözme işlemi sırasında çözmek için kullanılır. Anahtar tanımlayıcısını verilen IKey döndüren bir ResolveKey yöntemi tanımlar. Bu kullanıcılar birden fazla konumda yönetilen birden çok anahtar arasında seçim yapma olanağı sağlar.
 
-* Şifreleme için bir anahtarın hello olmaması bir hataya neden olur ve başlangıç anahtarı her zaman kullanılır.  
+* Şifreleme için bir anahtarın olmaması bir hataya neden olur ve anahtarı her zaman kullanılır.  
 * Şifre çözme için:  
   
-  * Merhaba anahtar çözümleyici tooget hello anahtarı belirtilmişse çağrılır. Merhaba çözümleyici belirtildi ancak hello anahtarı tanımlayıcısı için bir eşleme yok, bir hata oluşturulur.  
-  * Tanıtıcısını gerekli hello anahtarı tanımlayıcısı eşleşirse çözümleyici belirtilmedi, ancak belirtilen bir anahtar hello anahtar kullanılır. Merhaba tanımlayıcı eşleşmiyorsa, bir hata oluşturulur.  
+  * Anahtar çözümleyici anahtarını almak için belirtilmişse çağrılır. Çözümleyici belirtildi, ancak anahtar tanımlayıcısı için bir eşleme yok, bir hata oluşturulur.  
+  * Gerekli anahtar tanımlayıcısı tanıtıcısını eşleşmesi durumunda çözümleyici belirtilmedi, ancak belirtilen bir anahtar, anahtar kullanılır. Tanımlayıcı eşleşmiyorsa, bir hata oluşturulur.  
     
-    Merhaba [şifreleme örnekleri](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>daha ayrıntılı bir uçtan uca senaryoyu BLOB, kuyruklar ve tablolar, bunların ile anahtar kasası tümleştirme göstermektedir.
+    [Şifreleme örnekleri](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>daha ayrıntılı bir uçtan uca senaryoyu BLOB, kuyruklar ve tablolar, bunların ile anahtar kasası tümleştirme göstermektedir.
 
 ### <a name="requireencryption-mode"></a>RequireEncryption modu
-Kullanıcıların isteğe bağlı olarak bir çalışma modu, burada tüm ve indirmelere şifrelenmelidir sağlayabilirsiniz. Bu modda, deneme tooupload veri hello hizmette şifrelenmez bir şifreleme ilkesi veya indirme verileri olmadan hello istemcide başarısız olur. Merhaba **requireEncryption** bayrağı hello isteği seçenekleri nesnesinin bu davranışı denetler. Uygulamanızı Azure depolama alanında depolanan tüm nesnelere şifreler sonra hello ayarlayabilirsiniz **requireEncryption** hello varsayılan istek seçenekleri hello hizmeti istemci nesnesi özelliği.   
+Kullanıcıların isteğe bağlı olarak bir çalışma modu, burada tüm ve indirmelere şifrelenmelidir sağlayabilirsiniz. Bu modda, istemcide bir şifreleme ilkesi olmadan verileri karşıya yükleme veya hizmette şifrelenmez veri indirme girişimleri başarısız olur. **RequireEncryption** bayrağı isteği seçenekleri nesnesinin bu davranışı denetler. Uygulamanızı Azure depolama alanında depolanan tüm nesnelere şifreler sonra ayarlayabileceğiniz **requireEncryption** özelliği varsayılan istek seçeneklerine hizmeti istemci nesnesi.   
 
-Örneğin, **CloudBlobClient.getDefaultRequestOptions().setRequireEncryption(true)** toorequire şifreleme tüm blob işlemleri için bu istemci nesnesi gerçekleştirilir.
+Örneğin, **CloudBlobClient.getDefaultRequestOptions().setRequireEncryption(true)** tüm bu istemci nesnesi üzerinden gerçekleştirilen işlemler blob için şifreleme istemek için.
 
 ### <a name="blob-service-encryption"></a>BLOB hizmeti şifreleme
-Oluşturma bir **BlobEncryptionPolicy** nesne ve hello isteği seçeneklerinde ayarlayın (API başına veya kullanarak bir istemci düzeyinde **DefaultRequestOptions**). Şey hello istemci kitaplığı tarafından dahili olarak ele alınacaktır.
+Oluşturma bir **BlobEncryptionPolicy** nesne ve istek seçeneklerinde ayarlayın (API başına veya kullanarak bir istemci düzeyinde **DefaultRequestOptions**). Şey istemci kitaplığı tarafından dahili olarak ele alınacaktır.
 
 ```java
-// Create hello IKey used for encryption.
+// Create the IKey used for encryption.
 RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
-// Create hello encryption policy toobe used for upload and download.
+// Create the encryption policy to be used for upload and download.
 BlobEncryptionPolicy policy = new BlobEncryptionPolicy(key, null);
 
-// Set hello encryption policy on hello request options.
+// Set the encryption policy on the request options.
 BlobRequestOptions options = new BlobRequestOptions();
 options.setEncryptionPolicy(policy);
 
-// Upload hello encrypted contents toohello blob.
+// Upload the encrypted contents to the blob.
 blob.upload(stream, size, null, options, null);
 
-// Download and decrypt hello encrypted contents from hello blob.
+// Download and decrypt the encrypted contents from the blob.
 ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 blob.download(outputStream, null, options, null);
 ```
 
 ### <a name="queue-service-encryption"></a>Kuyruk hizmeti şifreleme
-Oluşturma bir **QueueEncryptionPolicy** nesne ve hello isteği seçeneklerinde ayarlayın (API başına veya kullanarak bir istemci düzeyinde **DefaultRequestOptions**). Şey hello istemci kitaplığı tarafından dahili olarak ele alınacaktır.
+Oluşturma bir **QueueEncryptionPolicy** nesne ve istek seçeneklerinde ayarlayın (API başına veya kullanarak bir istemci düzeyinde **DefaultRequestOptions**). Şey istemci kitaplığı tarafından dahili olarak ele alınacaktır.
 
 ```java
-// Create hello IKey used for encryption.
+// Create the IKey used for encryption.
 RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
-// Create hello encryption policy toobe used for upload and download.
+// Create the encryption policy to be used for upload and download.
 QueueEncryptionPolicy policy = new QueueEncryptionPolicy(key, null);
 
 // Add message
@@ -192,15 +192,15 @@ CloudQueueMessage retrMessage = queue.retrieveMessage(30, options, null);
 ```
 
 ### <a name="table-service-encryption"></a>Tablo hizmeti şifreleme
-Ayrıca toocreating bir şifreleme ilkesi ve istek seçeneklerini ayarlama, ya da belirtmeniz gerekir bir **EncryptionResolver** içinde **TableRequestOptions**, veya hello kümesi hello [şifrele] özniteliği varlığın'Set ' yordamı.
+Bir şifreleme ilkesi oluşturma ve istek seçeneklerini ayarlama ek olarak, ya da belirtmeniz gerekir bir **EncryptionResolver** içinde **TableRequestOptions**, veya varlığın alıcı ve ayarlayıcıya [şifrele] özniteliğini ayarlayın.
 
-### <a name="using-hello-resolver"></a>Merhaba Çözücü kullanma
+### <a name="using-the-resolver"></a>Çözücü kullanma
 
 ```java
-// Create hello IKey used for encryption.
+// Create the IKey used for encryption.
 RsaKey key = new RsaKey("private:key1" /* key identifier */);
 
-// Create hello encryption policy toobe used for upload and download.
+// Create the encryption policy to be used for upload and download.
 TableEncryptionPolicy policy = new TableEncryptionPolicy(key, null);
 
 TableRequestOptions options = new TableRequestOptions()
@@ -219,7 +219,7 @@ options.setEncryptionResolver(new EncryptionResolver() {
 currentTable.execute(TableOperation.insert(ent), options, null);
 
 // Retrieve Entity
-// No need toospecify an encryption resolver for retrieve
+// No need to specify an encryption resolver for retrieve
 TableRequestOptions retrieveOptions = new TableRequestOptions()
 retrieveOptions.setEncryptionPolicy(policy);
 
@@ -228,7 +228,7 @@ TableResult result = currentTable.execute(operation, retrieveOptions, null);
 ```
 
 ### <a name="using-attributes"></a>Öznitelikleri kullanma
-Merhaba varlık TableEntity uyguluyorsa, yukarıda belirtildiği gibi özellikler alıcı hello ve ayarlayıcı donatılmış hello belirtme yerine hello [şifrele] özniteliğiyle **EncryptionResolver**.
+Varlık TableEntity uyguluyorsa, yukarıda belirtildiği gibi sonra Özellikler alıcı ve ayarlayıcıya belirtme yerine [şifrele] özniteliğiyle tasarlanabilir **EncryptionResolver**.
 
 ```java
 private string encryptedProperty1;
@@ -245,12 +245,12 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
 ```
 
 ## <a name="encryption-and-performance"></a>Şifreleme ve performans
-Depolama veri sonuçlarınızda ek performans yükü şifreleme unutmayın. başlangıç anahtarı ve IV oluşturulması gerektiğini hello içeriğin kendisini şifrelenmelidir ve ek meta veri biçimlendirilmiş karşıya ve içerik. Bu ek yükü hello Şifrelenmekte veri miktarını bağlı olarak değişir. Müşterilerin kendi uygulamalarında geliştirme sırasında performansı için her zaman sınamanızı öneririz.
+Depolama veri sonuçlarınızda ek performans yükü şifreleme unutmayın. IV ve içerik anahtarı oluşturulmuş olması gerekir, içeriği şifrelenmelidir ve ek meta veri biçimlendirilmiş ve karşıya gerekir. Bu ek yükü Şifrelenmekte veri miktarı bağlı olarak değişir. Müşterilerin kendi uygulamalarında geliştirme sırasında performansı için her zaman sınamanızı öneririz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Merhaba karşıdan [Java Maven paket için Azure Storage istemci kitaplığı](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
-* Merhaba karşıdan [Java kaynak kodu github'dan için Azure Storage istemci kitaplığı](https://github.com/Azure/azure-storage-java)   
-* Java Maven paketler için Azure anahtar kasası Maven kitaplığı Hello yükleyin:
+* Karşıdan [Java Maven paket için Azure Storage istemci kitaplığı](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)  
+* Karşıdan [Java kaynak kodu github'dan için Azure Storage istemci kitaplığı](https://github.com/Azure/azure-storage-java)   
+* Java Maven paketler için Azure anahtar kasası Maven Kitaplığı yükleyin:
   * [Çekirdek](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) paketi
   * [İstemci](http://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) paketi
-* Merhaba ziyaret [Azure anahtar kasası belgeleri](../../key-vault/key-vault-whatis.md)
+* Ziyaret [Azure anahtar kasası belgeleri](../../key-vault/key-vault-whatis.md)

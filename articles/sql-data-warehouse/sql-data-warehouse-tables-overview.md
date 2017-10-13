@@ -1,5 +1,5 @@
 ---
-title: "SQL veri ambarı tablolarda aaaOverview | Microsoft Docs"
+title: "SQL veri ambarı tablolarda genel bakış | Microsoft Docs"
 description: "Azure SQL veri ambarı tabloları ile çalışmaya başlama."
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 06/29/2016
 ms.author: shigu;jrj
-ms.openlocfilehash: 4edabcb4b0754bf6c99c2b6b3f0c077749051d9e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c16fef2f302dbc56f257eaf2f0d2b68b6a3c1852
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="overview-of-tables-in-sql-data-warehouse"></a>SQL veri ambarı tablolarda genel bakış
 > [!div class="op_single_selector"]
@@ -33,37 +33,37 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-SQL Data Warehouse'da tablo oluşturma ile çalışmaya başlama basit bir işlemdir.  Merhaba temel [CREATE TABLE] [ CREATE TABLE] sözdizimi aşağıdaki hello yaygın sözdizimi büyük olasılıkla zaten aşina diğer veritabanlarıyla çalışma.  toocreate bir tablo, yalnızca ihtiyacınız tooname, tablo, sütun adı ve her sütun için veri türlerini tanımlayın.  Diğer veritabanlarında tabloları olduğunuz oluşturursanız, bilgili tooyou görünmelidir.
+SQL Data Warehouse'da tablo oluşturma ile çalışmaya başlama basit bir işlemdir.  Temel [CREATE TABLE] [ CREATE TABLE] sözdizimi aşağıdaki büyük olasılıkla genel sözdizimi zaten aşina diğer veritabanlarıyla çalışma.  Bir tablo oluşturmak için tablonuzun adının, sütunlar olarak adlandırın ve her sütun için veri türlerini tanımlamak yeterlidir.  Olduğunuz oluşturursanız tabloları diğer veritabanlarında, bu size tanıdık gelecektir.
 
 ```sql  
 CREATE TABLE Customers (FirstName VARCHAR(25), LastName VARCHAR(25))
  ``` 
 
-Yukarıdaki örnek Hello müşteriler iki sütunlarla FirstName ve LastName adlı bir tablo oluşturur.  Her sütun hello veri too25 karakterleri sınırlar VARCHAR(25) veri türü ile tanımlanır.  Bu temel tabloya yanı sıra diğer özniteliklerini olan çoğunlukla hello diğer veritabanları aynı.  Veri türleri her sütun için tanımlanır ve verilerinizi hello bütünlüğünü sağlamak.  Dizinleri g/ç azaltarak tooimprove performans eklenebilir.  Toomodify veri gerektiğinde bölümleme tooimprove performans eklenebilir.
+Yukarıdaki örnek, müşterilere iki sütunlarla FirstName ve LastName adlı bir tablo oluşturur.  Her sütun 25 karakter verileri sınırlar VARCHAR(25) veri türüne sahip tanımlanır.  Bu temel tabloya yanı sıra diğer özniteliklerini çoğunlukla diğer veritabanları ile aynıdır.  Veri türleri her sütun için tanımlanır ve verilerinizin bütünlüğünü sağlamak.  Dizinleri g/ç azaltarak performansı artırmak için eklenebilir.  Bölümleme veri değiştirmeniz gerektiğinde performansı artırmak için eklenebilir.
 
 [Yeniden adlandırma] [ RENAME] bir SQL Data Warehouse tablo şöyle görünür:
 
 ```sql  
-RENAME OBJECT Customer tooCustomerOrig; 
+RENAME OBJECT Customer TO CustomerOrig; 
  ```
 
 ## <a name="distributed-tables"></a>Dağıtılmış tablolar
-SQL veri ambarı hello gibi dağıtılmış sistemleri tarafından sunulan yeni bir temel öznitelik **dağıtım sütun**.  Merhaba dağıtım çok ne, gibi göründüğü sütundur.  Belirler hello sütun olduğunu nasıl toodistribute, veya bölme, verilerinizi hello perde arkasında.  Merhaba dağıtım sütun belirtmeden bir tablo oluşturduğunuzda hello tablo otomatik kullanılarak dağıtılır **hepsini**.  Hepsini bir kez tabloları bazı senaryolarda yeterli olabilirler, ancak dağıtım sütunları tanımlama büyük ölçüde veri taşıma böylece performansı en iyi duruma getirme sorguları sırasında azaltabilir.  Durumlarda bir tablodaki verileri kısa süreli olduğu toocreate hello hello tabloyla seçme **çoğaltmak** dağıtım türü veri tooeach işlem düğümü kopyalar ve veri taşıma sorgu yürütme zaman kaydeder. Bkz: [tablo dağıtma] [ Distribute] toolearn nasıl hakkında daha fazla tooselect dağıtım sütun.
+SQL veri ambarı gibi dağıtılmış sistemleri tarafından sunulan yeni bir temel öznitelik **dağıtım sütun**.  Dağıtım çok ne, gibi göründüğü bir sütundur.  Bunu nasıl dağıtmak veya bölmek, verilerinizi arka planda belirleyen sütundur.  Dağıtım sütun belirtmeden bir tablo oluşturduğunuzda, tablonun otomatik olarak kullanılarak dağıtılır **hepsini**.  Hepsini bir kez tabloları bazı senaryolarda yeterli olabilirler, ancak dağıtım sütunları tanımlama büyük ölçüde veri taşıma böylece performansı en iyi duruma getirme sorguları sırasında azaltabilir.  Durumlarda tabloyla oluşturmak çok küçük miktarda veri bir tabloda olduğu seçme **çoğaltmak** dağıtım türü her işlem düğümü için veri kopyalar ve veri taşıma sorgu yürütme zaman kaydeder. Bkz: [tablo dağıtma] [ Distribute] dağıtım sütun seçme hakkında daha fazla bilgi için.
 
 ## <a name="indexing-and-partitioning-tables"></a>Dizin oluşturma ve tabloları bölümlendirme
-SQL veri ambarı kullanarak daha gelişmiş haline gelir ve toooptimize performans istediğiniz gibi toolearn tablo tasarımı hakkında daha fazla isteyeceksiniz.  toolearn daha hello makalelere bakın üzerinde [tablo veri türleri][Data Types], [tablo dağıtma][Distribute], [bir tablodizinoluşturma] [ Index] ve [bir tablo bölümleme][Partition].
+SQL veri ambarı kullanarak daha gelişmiş haline gelir ve performansı en iyi duruma getirmek istediğiniz gibi tablo tasarımı hakkında daha fazla bilgi istersiniz.  Daha fazla bilgi edinmek için üzerinde makalelerine bakın [tablo veri türleri][Data Types], [tablo dağıtma][Distribute], [bir tablodizin] [ Index] ve [bir tablo bölümleme][Partition].
 
 ## <a name="table-statistics"></a>Tablo istatistikleri
-SQL veri ambarı dışında bir son derece önemli toogetting hello en iyi performans istatistikleri şunlardır.  SQL veri ambarı değil henüz otomatik oluşturma ve güncelleştirme istatistikleri sizin için Azure SQL veritabanında tooexpect gelebilir gibi beri bizim makale üzerinde okuma [istatistikleri] [ Statistics] hello biri olabilir en önemli makaleleri tooensure okuyun, sorgularından hello en iyi performansı elde.
+İstatistikleri bir son derece dışında SQL veri ambarı en iyi performans almak için önemlidir.  SQL veri ambarı değil henüz otomatik oluşturma ve güncelleştirme istatistikleri sizin için Azure SQL veritabanı'nda beklenir ortaya çıkabilir gibi beri bizim makale üzerinde okuma [istatistikleri] [ Statistics] en biri olabilir önemli makaleleri sorgularınızdan en iyi performansı elde emin olmak için okuyun.
 
 ## <a name="temporary-tables"></a>Geçici tablolar
-Geçici tablolar yalnızca oturum açma işleminiz hello süresince var ve diğer kullanıcılar tarafından görülemeyen tablolardır.  Geçici tablolara en iyi yolu tooprevent başkalarının geçici sonuçları görmesini olması ve ayrıca temizleme hello gereksinimini azaltır.  Geçici tablolara ayrıca yerel depolama alanını olduğundan, bunlar bazı işlemler için daha hızlı performans sunabilir.  Merhaba bkz [geçici tablo] [ Temporary] makaleleri geçici tabloları hakkında daha fazla ayrıntı için.
+Geçici tablolar yalnızca oturum boyunca var ve diğer kullanıcılar tarafından görülemeyen tablolardır.  Geçici tablolara başkalarının geçici sonuçları görmemesi ve ayrıca temizleme gereksinimini azaltmak için en iyi yolu olabilir.  Geçici tablolara ayrıca yerel depolama alanını olduğundan, bunlar bazı işlemler için daha hızlı performans sunabilir.  Bkz: [geçici tablo] [ Temporary] makaleleri geçici tabloları hakkında daha fazla ayrıntı için.
 
 ## <a name="external-tables"></a>Dış tablolar
-Dış tablolar, Polybase tablolar olarak da bilinen SQL Data Warehouse, ancak noktası toodata dış SQL veri ambarından sorgulanan tabloların değildir.  Örneğin, bir dış tablo hangi noktaları toofiles Azure Blob Storage oluşturabilirsiniz.  Toocreate ve sorgu bir dış tablo nasıl görürüm hakkında daha fazla ayrıntı için [Polybase ile veri yükleme][Load data with Polybase].  
+Dış tablolar, Polybase tablolar olarak da bilinen SQL veri ambarından dış verileri SQL Data Warehouse, ancak noktası sorgulanabilir tabloların değildir.  Örneğin, bir dış tablo Azure Blob Depolama birimindeki dosyalara hangi noktası oluşturabilirsiniz.  Oluşturma ve bir dış tablo sorgulama hakkında daha fazla ayrıntı için bkz: [Polybase ile veri yükleme][Load data with Polybase].  
 
 ## <a name="unsupported-table-features"></a>Desteklenmeyen tablo özellikleri
-SQL Data Warehouse aynı tablo özellikleri diğer veritabanı tarafından sunulan hello çoğunu içerirken, henüz desteklenmeyen bazı özellikler vardır.  Aşağıda bazı hello henüz desteklenmeyen tablo özellikler listelenmiştir.
+SQL veri ambarı diğer veritabanı tarafından sunulan aynı tablo özelliklerinin çoğunu içerirken, henüz desteklenmeyen bazı özellikler vardır.  Tablo özelliklerden bazıları henüz desteklenmemektedir listesi aşağıdadır.
 
 | Desteklenmeyen özellikler |
 | --- |
@@ -78,13 +78,13 @@ SQL Data Warehouse aynı tablo özellikleri diğer veritabanı tarafından sunul
 | [Eş anlamlıları][Synonyms] |
 
 ## <a name="table-size-queries"></a>Tablo boyutu sorguları
-Bir basit yol tooidentify alanı hello 60 dağıtımları, her bir tablo tarafından tüketilen satırları ise toouse [DBCC PDW_SHOWSPACEUSED][DBCC PDW_SHOWSPACEUSED].
+Alan ve her 60 dağıtımları tabloda tarafından tüketilen satırları belirlemek için basit bir yolu kullanmaktır [DBCC PDW_SHOWSPACEUSED][DBCC PDW_SHOWSPACEUSED].
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-Ancak, DBCC komutlarını kullanarak oldukça sınırlama.  Dinamik Yönetim görünümlerini (Dmv'leri) etmenizi sağlar toosee çok daha ayrıntılı yanı sıra hello sorgu sonuçları üzerinde çok daha fazla denetim sağlar.  Bu görünüm başvurulan tooby olacaktır pek çok örnekte bu ve diğer makaleler oluşturarak başlayın.
+Ancak, DBCC komutlarını kullanarak oldukça sınırlama.  Dinamik Yönetim görünümlerini (Dmv'leri) yanı sıra daha fazla ayrıntı görmek, çok sorgu sonuçları üzerinde daha fazla denetime olanak sağlar.  Bu görünüm için birçok örneklerde bu ve diğer makaleler ifade edilecek oluşturarak başlayın.
 
 ```sql
 CREATE VIEW dbo.vTableSizes
@@ -199,7 +199,7 @@ FROM size
 ```
 
 ### <a name="table-space-summary"></a>Özet Tablo alanı
-Bu sorgu, tablo tarafından hello satır ve alan döndürür.  En büyük tabloları ve hepsini, çoğaltılmış veya dağıtılmış karma olup olmadıkları hangi tablolardır harika sorgu toosee olur.  Dağıtılmış karma tablolar için hello dağıtım sütun da gösterir.  Çoğu durumda, en büyük tabloları karma bir kümelenmiş columnstore dizini ile dağıtılmış olmalıdır.
+Bu sorgu, tablo tarafından alanı ve satır döndürür.  En büyük tabloları tablolardır ve hepsini, çoğaltılmış veya dağıtılmış karma olup olmadıkları görmek için harika bir sorgudur.  Dağıtılmış karma tablolar için dağıtım sütun da gösterir.  Çoğu durumda, en büyük tabloları karma bir kümelenmiş columnstore dizini ile dağıtılmış olmalıdır.
 
 ```sql
 SELECT 
@@ -273,7 +273,7 @@ ORDER BY    distribution_id
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-toolearn daha hello makalelere bakın üzerinde [tablo veri türleri][Data Types], [tablo dağıtma][Distribute], [bir tablodizinoluşturma] [ Index], [Bir tablo bölümleme][Partition], [tablo istatistikleri koruma] [ Statistics] ve [ Geçici tablolara][Temporary].  En iyi uygulamalar hakkında daha fazla bilgi için bkz: [SQL veri ambarı en iyi uygulamalar][SQL Data Warehouse Best Practices].
+Daha fazla bilgi edinmek için üzerinde makalelerine bakın [tablo veri türleri][Data Types], [tablo dağıtma][Distribute], [bir tablodizin] [ Index], [Bir tablo bölümleme][Partition], [tablo istatistikleri koruma] [ Statistics] ve [Geçici tablolar][Temporary].  En iyi uygulamalar hakkında daha fazla bilgi için bkz: [SQL veri ambarı en iyi uygulamalar][SQL Data Warehouse Best Practices].
 
 <!--Image references-->
 

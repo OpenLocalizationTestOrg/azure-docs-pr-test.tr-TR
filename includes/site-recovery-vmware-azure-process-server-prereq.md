@@ -1,9 +1,9 @@
 Bu makalede aşağıdaki durumlar varsayılır
 
-1. A **tooSite VPN Site** veya bir **hızlı rota** şirket içi ağınız ve hello Azure sanal ağ arasında bağlantı zaten kuruldu.
-2. Kullanıcı hesabınızın izinleri toocreate yeni bir sanal makine hello hello sanal makineler üzerinde içine başarısız Azure aboneliğini sahiptir.
-3. Aboneliğiniz en az 4 çekirdek kullanılabilir toospin yeni bir işlem sunucusu sanal makine kurma sahip.
-4. Merhaba sahip **yapılandırma sunucusunun parolası** kullanılabilir.
+1. Şirket içi ağınız ile Azure Sanal Ağ arasında **Siteden Siteye VPN** veya **Express Route** bağlantısı zaten oluşturulmuştur.
+2. Kullanıcı hesabınız sanal makinelerin yük devrettiği Azure Aboneliğinde yeni bir sanal makine oluşturma izinlerine sahiptir.
+3. Aboneliğinizde, yeni bir İşlem Sunucusu sanal makinesi çalıştırabilecek en az 4 Çekirdek vardır.
+4. **Configuration Server Parolanız** mevcuttur.
 
 > [!TIP]
-> Mümkün tooconnect bağlantı 443 hello yapılandırma (şirket içi çalıştıran) sunucusu noktasından hello hello sanal makineler üzerinde içine başarısız Azure sanal ağ olduğundan emin olun.
+> Sanal makinelerin yük devrettiği Azure Sanal Ağından Configuration Server (şirket içinde çalışan) 443 bağlantı noktasını bağlayabildiğinizden emin olun.

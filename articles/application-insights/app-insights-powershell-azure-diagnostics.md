@@ -1,6 +1,6 @@
 ---
-title: aaaUsing PowerShell toosetup Azure Application Insights'ta | Microsoft Docs
-description: "Yapılandırma Azure tanılama toopipe tooApplication Öngörüler otomatikleştirin."
+title: "Azure’da Application Insights’ı kurmak için PowerShell’i kullanma | Microsoft Belgeleri"
+description: "Application Insights’a kanal oluşturmak için Azure Tanılama’yı yapılandırmayı otomatikleştirme"
 services: application-insights
 documentationcenter: .net
 author: sbtron
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2015
 ms.author: bwren
-ms.openlocfilehash: c48a5d8eb23df162522860935af876063aaa6976
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3b6da89cc33cda713b483a2af3cbb493a03d6bec
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="using-powershell-tooset-up-application-insights-for-an-azure-web-app"></a>Bir Azure web uygulaması için Application Insights yukarı PowerShell tooset kullanma
-[Microsoft Azure](https://azure.com) olabilir [toosend Azure tanılama yapılandırılmış](app-insights-azure-diagnostics.md) çok[Azure Application Insights](app-insights-overview.md). Hello tanılama tooAzure Cloud Services ve Azure Vm'leriyle ilişkilidir. Bunlar içinde hello uygulamayı hello Application Insights SDK'sı kullanarak gönderdiğiniz hello telemetriyi tamamlar. Bir parçası olarak Azure'da yeni kaynaklar oluşturma hello sürecinin otomatikleştirilmesi tanılamayı PowerShell kullanarak yapılandırabilirsiniz.
+# <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>Bir Azure web uygulaması için Application Insights’ı kurmak üzere PowerShell’i kullanma
+[Microsoft Azure](https://azure.com), [Azure Application Insights](app-insights-overview.md)'a [Azure Tanılama verileri gönderecek şekilde yapılandırılabilir.](app-insights-azure-diagnostics.md) Tanılama verileri Azure Cloud Services ve Azure VM’leriyle ilişkilidir. Uygulama içinde Application Insights SDK’sı kullanarak gönderdiğiniz telemetriyi tamamlar. Azure’da yeni kaynaklar oluşturma işlemini otomatikleştirmenin bir parçası olarak tanılamayı PowerShell kullanarak yapılandırabilirsiniz.
 
 ## <a name="azure-template"></a>Azure şablonu
-Merhaba web uygulaması azure'deyse ve Azure Resource Manager şablonu kullanarak kaynaklarınızı oluşturursanız, bu toohello kaynak düğümüne ekleyerek Application Insights yapılandırabilirsiniz:
+web uygulaması Azure’deyse ve Azure Resource Manager şablonu kullanarak kaynaklarınızı oluşturuyorsanız, bunu kaynak düğümüne ekleyerek Application Insights’ı yapılandırabilirsiniz:
 
     {
       resources: [
@@ -42,11 +42,11 @@ Merhaba web uygulaması azure'deyse ve Azure Resource Manager şablonu kullanara
        ]
      } 
 
-* `nameOfAIAppResource`-hello Application Insights kaynağı için bir ad
-* `myWebAppName`-hello web uygulamasının hello kimliği
+* `nameOfAIAppResource` - Application Insights kaynağı adı
+* `myWebAppName` - web uygulaması kimliği
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>Bulut Hizmeti dağıtımının bir parçası olarak tanılama uzantısını etkinleştirme
-Merhaba `New-AzureDeployment` cmdlet'i bir parametresine sahip `ExtensionConfiguration`, bir dizi tanılama yapılandırması alır. Bunlar hello kullanılarak oluşturulabilir `New-AzureServiceDiagnosticsExtensionConfig` cmdlet'i. Örneğin:
+`New-AzureDeployment` cmdlet’i, bir dizi tanılama yapılandırması içeren `ExtensionConfiguration` parametresine sahiptir. Bunlar, `New-AzureServiceDiagnosticsExtensionConfig` cmdlet’i kullanılarak oluşturulabilir. Örneğin:
 
 ```ps
 
@@ -123,9 +123,9 @@ Mevcut bir hizmet üzerinde `Set-AzureServiceDiagnosticsExtension` kullanma
     Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
-Merhaba tanılama uzantısını kullanarak etkinleştirilirse `Set-AzureServiceDiagnosticsExtension` veya `New-AzureServiceDiagnosticsExtensionConfig` hello rol parametresi sonra hello uzantısını kullanarak kaldırabilirsiniz `Remove-AzureServiceDiagnosticsExtension` hello rol parametresi olmadan. Merhaba uzantı etkinleştirilirken Hello rol parametresi kullanıldıysa, sonra da hello uzantı kaldırılırken kullanılmalıdır.
+Tanılama uzantısını Rol parametresi olmadan `Set-AzureServiceDiagnosticsExtension` veya `New-AzureServiceDiagnosticsExtensionConfig` ile etkinleştirdiyseniz, uzantıyı Rol parametresi olmadan `Remove-AzureServiceDiagnosticsExtension` kullanarak kaldırabilirsiniz. Uzantı etkinleştirilirken Rol parametresi kullanıldıysa, uzantı kaldırılırken de kullanılması gerekir.
 
-tek tek her rolden tooremove hello tanılama uzantısını:
+Tanılama uzantısını her bir rolden kaldırmak için:
 
 ```ps
 
@@ -135,6 +135,6 @@ tek tek her rolden tooremove hello tanılama uzantısını:
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Application Insights’la Azure Cloud Services uygulamalarını izleme](app-insights-cloudservices.md)
-* [Azure tanılama tooApplication Öngörüler Gönder](app-insights-azure-diagnostics.md)
+* [Azure Tanılama verilerini Application Insights’a gönderme](app-insights-azure-diagnostics.md)
 * [Yapılandırma uyarılarını otomatik hale getirme](app-insights-powershell-alerts.md)
 

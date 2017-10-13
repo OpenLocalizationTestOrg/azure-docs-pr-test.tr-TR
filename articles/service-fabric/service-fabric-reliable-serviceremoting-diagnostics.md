@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure ServiceFabric tanılama ve izleme | Microsoft Docs"
-description: "Bu makalede, performans sayaçları tarafından gösterilen gibi hello Service Fabric güvenilir ServiceRemoting çalışma zamanında hello performans izleme özelliklerini açıklar."
+title: "Azure ServiceFabric tanılama ve izleme | Microsoft Docs"
+description: "Bu makale performans sayaçları tarafından gösterilen gibi Service Fabric güvenilir ServiceRemoting çalışma zamanında performans izleme özelliklerini açıklar."
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
@@ -14,89 +14,89 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: suchiagicha
-ms.openlocfilehash: 64db9a890bd59a1326e587d14b89c007b71a9059
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f54e157654fb15d2f7ff48ddc666c6c8803c75a2
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Tanılama ve güvenilir hizmeti uzaktan iletişim için performans izleme
-Merhaba güvenilir ServiceRemoting çalışma zamanı yayar [performans sayaçları](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Bunlar hello ServiceRemoting nasıl çalıştığını içine bilgiler ve sorun giderme ve performans izleme ile yardımcı.
+Güvenilir ServiceRemoting çalışma zamanı yayar [performans sayaçları](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Bunlar ServiceRemoting nasıl çalıştığını içine bilgiler ve sorun giderme ve performans izleme ile yardımcı.
 
 
 ## <a name="performance-counters"></a>Performans sayaçları
-Merhaba güvenilir ServiceRemoting çalışma zamanı performans sayacı kategorileri aşağıdaki hello tanımlar:
+Güvenilir ServiceRemoting çalışma zamanı aşağıdaki performans sayacı kategorisi tanımlar:
 
 | Kategori | Açıklama |
 | --- | --- |
-| Yapı Hizmeti |Belirli tooAzure Service Fabric hizmeti Remoting sayaçları, örneğin, geçen ortalama süre tooprocess istek |
-| Service Fabric hizmeti yöntemi |Sayaçları belirli toomethods ne sıklıkta bir hizmet yöntemi çağrılır doku uzaktan iletişim hizmeti tarafından Örneğin, uygulanmadı. |
+| Yapı Hizmeti |Azure Service Fabric hizmeti uzaktan iletişim için özel sayaçlar Örneğin, ortalama isteğinin işlenmesi için geçen süre |
+| Service Fabric hizmeti yöntemi |Yöntemlere özel sayaçlar ne sıklıkta bir hizmet yöntemi çağrılır doku uzaktan iletişim hizmeti tarafından Örneğin, uygulanmadı. |
 
-Her kategori önceki hello bir veya daha fazla sayaca sahiptir.
+Önceki kategorilerden her biri bir veya daha fazla sayaca sahiptir.
 
-Merhaba [Windows Performans İzleyicisi'ni](https://technet.microsoft.com/library/cc749249.aspx) varsayılan hello Windows işletim sisteminde kullanılabilir uygulama kullanılan toocollect ve görünüm performans sayacı verilerini olabilir. [Azure tanılama](../cloud-services/cloud-services-dotnet-diagnostics.md) performans sayaç verileri toplayan ve tooAzure tabloları karşıya yükleme için başka bir seçenektir.
+[Windows Performans İzleyicisi'ni](https://technet.microsoft.com/library/cc749249.aspx) varsayılan olarak Windows işletim sisteminde kullanılabilir uygulama, toplama ve performans sayacı verilerini görüntülemek için kullanılabilir. [Azure tanılama](../cloud-services/cloud-services-dotnet-diagnostics.md) performans sayaç verileri toplayan ve Azure tablolara karşıya yükleme için başka bir seçenektir.
 
 ### <a name="performance-counter-instance-names"></a>Performans sayacı örneği adları
-Çok sayıda ServiceRemoting Hizmetleri veya bölümleri olan bir küme, çok sayıda performans sayacı örnekleri vardır. Bu hello performans sayacı örneği ilişkili hello performans sayacı örneği adları hello belirli bir bölüm ve hizmet yöntemi (varsa) belirlemenize yardımcı olabilir.
+Çok sayıda ServiceRemoting Hizmetleri veya bölümleri olan bir küme, çok sayıda performans sayacı örnekleri vardır. Performans sayacı örneği adları belirli bir bölüm ve hizmet yöntemi (varsa) performans sayacı örneği ile ilişkili olduğunu belirlemenize yardımcı olabilir.
 
 #### <a name="service-fabric-service-category"></a>Service Fabric hizmeti kategorisi
-Merhaba kategorisi için `Service Fabric Service`, hello sayaç örneği adlardır, biçim şu hello:
+Kategori için `Service Fabric Service`, sayaç örneği adları aşağıdaki biçimdedir:
 
 `ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
-*ServiceFabricPartitionID* hello dize performans sayacı örneği hello Service Fabric bölüm kimliği ile ilişkili hello gösterimidir. Merhaba bölüm kimliği bir GUID olan ve dize gösterimi hello oluşturulan [ `Guid.ToString` ](https://msdn.microsoft.com/library/97af8hh4.aspx) biçim belirticisi "D" yöntemiyle.
+*ServiceFabricPartitionID* performans sayacı örneği ile ilişkili Service Fabric bölüm kimliği dize gösterimidir. Bölüm kimliği bir GUID olduğundan ve dize gösterimi aracılığıyla oluşturulan [ `Guid.ToString` ](https://msdn.microsoft.com/library/97af8hh4.aspx) biçim belirticisi "D" yöntemiyle.
 
-*ServiceReplicaOrInstanceId* hello dize performans sayacı örneği hello Service Fabric çoğaltma/örnek kimliği ile ilişkili hello gösterimidir.
+*ServiceReplicaOrInstanceId* performans sayacı örneği ile ilişkili Service Fabric çoğaltma/örnek kimliği dize gösterimidir.
 
-*ServiceRuntimeInternalID* hello dize iç kullanımı için hello Fabric hizmeti çalışma zamanı tarafından oluşturulan bir 64-bit tamsayı gösterimidir. Bu eklenmiştir hello performans sayacı örneği benzersizliğini tooensure adlandırın ve diğer performans sayacı örneği adları çakışıyor kaçının. Kullanıcıların toointerpret hello performans sayacı örneği adı bu kısmı denemelisiniz değil.
+*ServiceRuntimeInternalID* iç kullanımı için Fabric hizmeti çalışma zamanı tarafından oluşturulan bir 64-bit tamsayı dize gösterimidir. Bu benzersizliğini sağlamak ve diğer performans sayacı örneği adları ile çakışmayı önlemek için performans sayacı örneği adını dahil edilir. Kullanıcılar, bu performans sayacı örneği adı kısmını yorumlamaya deneyin.
 
-Merhaba toohello ait bir sayacın sayaç örneği adı örneği aşağıdadır `Service Fabric Service` kategorisi:
+Aşağıdaki bir sayaç örneği adı ait bir sayacın örneğidir `Service Fabric Service` kategorisi:
 
 `2740af29-78aa-44bc-a20b-7e60fb783264_635650083799324046_5008379932`
 
-Örnek, önceki hello içinde `2740af29-78aa-44bc-a20b-7e60fb783264` hello dize hello Service Fabric bölüm kimliği, gösterimidir `635650083799324046` çoğaltma/InstanceId dize gösterimidir ve `5008379932` hello çalışma zamanı iç için oluşturan hello 64-bit kimliği kullanın.
+Önceki örnekte `2740af29-78aa-44bc-a20b-7e60fb783264` Service Fabric bölüm kimliği dize gösterimidir `635650083799324046` çoğaltma/InstanceId dize gösterimidir ve `5008379932` çalışma zamanı iç için oluşturan 64-bit kimliği kullanın.
 
 #### <a name="service-fabric-service-method-category"></a>Service Fabric hizmeti yöntemi kategorisi
-Merhaba kategorisi için `Service Fabric Service Method`, hello sayaç örneği adlardır, biçim şu hello:
+Kategori için `Service Fabric Service Method`, sayaç örneği adları aşağıdaki biçimdedir:
 
 `MethodName_ServiceRuntimeMethodId_ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
-*MethodName* performans sayacı örneği hello hello hizmet yönteminin hello adı ile ilişkili değil. hello yöntemi adı Hello biçiminde hello performans sayacı örneği adları en fazla uzunluğu hello kısıtlamalar Windows hello adıyla hello okunabilirliğini dengeleyen hello Fabric hizmeti çalışma zamanı bazı mantığında göre belirlenir.
+*MethodName* performans sayacı örneği ile ilişkili hizmet yöntemi adı. Yöntem adı biçimi, bazı performans sayacı örneği adları en fazla uzunluğu kısıtlamalar Windows adıyla okunabilirliğini dengeleyen Fabric hizmeti çalışma zamanı mantığında göre belirlenir.
 
-*ServiceRuntimeMethodId* hello dize iç kullanımı için hello Fabric hizmeti çalışma zamanı tarafından oluşturulan bir 32 bit tamsayı gösterimidir. Bu eklenmiştir hello performans sayacı örneği benzersizliğini tooensure adlandırın ve diğer performans sayacı örneği adları çakışıyor kaçının. Kullanıcıların toointerpret hello performans sayacı örneği adı bu kısmı denemelisiniz değil.
+*ServiceRuntimeMethodId* iç kullanımı için Fabric hizmeti çalışma zamanı tarafından oluşturulan bir 32 bit tamsayı dize gösterimidir. Bu benzersizliğini sağlamak ve diğer performans sayacı örneği adları ile çakışmayı önlemek için performans sayacı örneği adını dahil edilir. Kullanıcılar, bu performans sayacı örneği adı kısmını yorumlamaya deneyin.
 
-*ServiceFabricPartitionID* hello dize performans sayacı örneği hello Service Fabric bölüm kimliği ile ilişkili hello gösterimidir. Merhaba bölüm kimliği bir GUID olan ve dize gösterimi hello oluşturulan [ `Guid.ToString` ](https://msdn.microsoft.com/library/97af8hh4.aspx) biçim belirticisi "D" yöntemiyle.
+*ServiceFabricPartitionID* performans sayacı örneği ile ilişkili Service Fabric bölüm kimliği dize gösterimidir. Bölüm kimliği bir GUID olduğundan ve dize gösterimi aracılığıyla oluşturulan [ `Guid.ToString` ](https://msdn.microsoft.com/library/97af8hh4.aspx) biçim belirticisi "D" yöntemiyle.
 
-*ServiceReplicaOrInstanceId* hello dize performans sayacı örneği hello Service Fabric çoğaltma/örnek kimliği ile ilişkili hello gösterimidir.
+*ServiceReplicaOrInstanceId* performans sayacı örneği ile ilişkili Service Fabric çoğaltma/örnek kimliği dize gösterimidir.
 
-*ServiceRuntimeInternalID* hello dize iç kullanımı için hello Fabric hizmeti çalışma zamanı tarafından oluşturulan bir 64-bit tamsayı gösterimidir. Bu eklenmiştir hello performans sayacı örneği benzersizliğini tooensure adlandırın ve diğer performans sayacı örneği adları çakışıyor kaçının. Kullanıcıların toointerpret hello performans sayacı örneği adı bu kısmı denemelisiniz değil.
+*ServiceRuntimeInternalID* iç kullanımı için Fabric hizmeti çalışma zamanı tarafından oluşturulan bir 64-bit tamsayı dize gösterimidir. Bu benzersizliğini sağlamak ve diğer performans sayacı örneği adları ile çakışmayı önlemek için performans sayacı örneği adını dahil edilir. Kullanıcılar, bu performans sayacı örneği adı kısmını yorumlamaya deneyin.
 
-Merhaba toohello ait bir sayacın sayaç örneği adı örneği aşağıdadır `Service Fabric Service Method` kategorisi:
+Aşağıdaki bir sayaç örneği adı ait bir sayacın örneğidir `Service Fabric Service Method` kategorisi:
 
 `ivoicemailboxservice.leavemessageasync_2_89383d32-e57e-4a9b-a6ad-57c6792aa521_635650083804480486_5008380`
 
-Örnek, önceki hello içinde `ivoicemailboxservice.leavemessageasync` hello yöntem adı `2` hello çalışma zamanı iç için oluşturulan 32-bit Kimliğini kullanın, hello olan `89383d32-e57e-4a9b-a6ad-57c6792aa521` hello dize hello Service Fabric bölüm kimliği, gösterimidir`635650083804480486` hello dizesi Merhaba Service Fabric çoğaltma/örnek kimliği gösterimini ve `5008380` hello çalışma zamanı iç için oluşturulan hello 64-bit Kimliğini kullanın.
+Önceki örnekte `ivoicemailboxservice.leavemessageasync` yöntem adı `2` zamanının iç kullanım için oluşturulan 32-bit kimliği `89383d32-e57e-4a9b-a6ad-57c6792aa521` Service Fabric bölüm kimliği dize gösterimidir`635650083804480486` Service Fabric çoğaltma/örnek kimliği dize gösterimi ise ve `5008380` çalışma zamanı iç için oluşturulan 64-bit Kimliğini kullanın.
 
 ## <a name="list-of-performance-counters"></a>Performans sayaçlarının listesi
 ### <a name="service-method-performance-counters"></a>Hizmet yöntemi performans sayaçları
 
-Merhaba güvenilir hizmet çalışma zamanı performans sayaçları ilgili toohello hizmet yöntemleri yürütülmesinin hello yayımlar.
+Güvenilir hizmet çalışma zamanı hizmet yöntemleri yürütülmesi ile ilgili aşağıdaki performans sayaçları yayımlar.
 
 | Kategori adı | Sayaç adı | Açıklama |
 | --- | --- | --- |
-| Service Fabric hizmeti yöntemi |Çağrıları/sn |Merhaba hizmet yöntemi, saniye başına çağrılma sayısı |
-| Service Fabric hizmeti yöntemi |Çağrı başına ortalama milisaniye |Milisaniye cinsinden tooexecute hello hizmet yöntemi harcanan süre |
-| Service Fabric hizmeti yöntemi |Oluşturulan özel durum/sn |Hizmet yöntemi hello sayısını saniye başına özel durum oluşturdu |
+| Service Fabric hizmeti yöntemi |Çağrıları/sn |Hizmet yöntemi, saniye başına çağrılma sayısı |
+| Service Fabric hizmeti yöntemi |Çağrı başına ortalama milisaniye |Milisaniye cinsinden hizmet yöntemin yürütülmesi için geçen süre |
+| Service Fabric hizmeti yöntemi |Oluşturulan özel durum/sn |Kaç kez hizmet yöntemi saniye başına özel durum oluşturdu |
 
 ### <a name="service-request-processing-performance-counters"></a>Hizmet isteği işleme performans sayaçları
-Bir istemci bir hizmet proxy nesnesi yöntemiyle çalıştırdığında, hello ağ toohello uzaktan iletişim hizmeti üzerinden gönderilen bir istek iletisi sonuçlanır. Merhaba hizmeti hello İstek iletisini işler ve bir yanıtı geri toohello istemci gönderir. Merhaba güvenilir ServiceRemoting çalışma zamanı performans sayaçları ilgili tooservice isteği işleme aşağıdaki hello yayımlar.
+Bir istemci bir hizmet proxy nesnesi yöntemiyle çalıştırdığında, ağ üzerinden uzaktan iletişim hizmeti için gönderilen bir istek iletisi sonuçlanır. Hizmet İsteği iletisini işler ve istemcisine geri yanıt gönderir. Güvenilir ServiceRemoting çalışma zamanı hizmet isteği işlemiyle ilgili aşağıdaki performans sayaçları yayımlar.
 
 | Kategori adı | Sayaç adı | Açıklama |
 | --- | --- | --- |
-| Yapı Hizmeti |Beklemedeki istek sayısı |Merhaba hizmetinde işlenmekte olan istek sayısı |
-| Yapı Hizmeti |İstek başına ortalama milisaniye |(Milisaniye cinsinden) bir istek hello hizmet tooprocess tarafından harcanan süre |
-| Yapı Hizmeti |İsteğin seri durumdan çıkarılması için geçen ortalama süre (milisaniye) |Hello hizmeti tarafından alındığında süresi (milisaniye cinsinden) çekildiği toodeserialize hizmet istek iletisi |
-| Yapı Hizmeti |Yanıtın serileştirilmesi için geçen ortalama süre (milisaniye) |Süre (milisaniye cinsinden) çekildiği tooserialize hello hizmet yanıt iletisi hello yanıt toohello istemci gönderilmeden önce hello hizmetine |
+| Yapı Hizmeti |Beklemedeki istek sayısı |Hizmetinde işlenmekte olan istek sayısı |
+| Yapı Hizmeti |İstek başına ortalama milisaniye |Bir isteği işlemek için (milisaniye cinsinden) hizmeti tarafından harcanan süre |
+| Yapı Hizmeti |İsteğin seri durumdan çıkarılması için geçen ortalama süre (milisaniye) |(Milisaniye cinsinden) hizmeti alındığında hizmet isteği iletisi serisini kaldırmak için harcanan süre |
+| Yapı Hizmeti |Yanıtın serileştirilmesi için geçen ortalama süre (milisaniye) |(Milisaniye cinsinden) hizmetine hizmet yanıt iletisi yanıtı istemciye gönderilmeden önce serileştirmek için harcanan süre |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Örnek kod](https://github.com/Azure/servicefabric-samples)

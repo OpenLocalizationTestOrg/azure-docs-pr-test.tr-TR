@@ -1,5 +1,5 @@
 ---
-title: "aaaException işleme ve hata günlüğü senaryo - Azure Logic Apps | Microsoft Docs"
+title: "Özel durum işleme & hata günlüğü senaryo - Azure Logic Apps | Microsoft Docs"
 description: "Gelişmiş özel durum işleme ve Azure mantıksal uygulamaları için hata günlüğünü hakkında gerçek kullanım örneğini açıklar"
 keywords: 
 services: logic-apps
@@ -16,51 +16,51 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.openlocfilehash: e893a7b652254dca7b8a82398e8afd571f6ccd25
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 044de27c75da93c95609110d2b73336c42f746fe
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Senaryo: Özel durum işleme ve logic apps için hata günlüğü
 
-Bu senaryo, bir mantıksal uygulama toobetter destek özel durum işleme nasıl genişletebileceğini açıklar. Gerçekçi kullanım örneği tooanswer hello soru kullandığımız: "Azure Logic Apps özel durumu ve hata işleme destekliyor mu?"
+Bu senaryo, özel durum işleme daha iyi desteklemek için bir mantıksal uygulama nasıl genişletebileceğini açıklar. Gerçekçi kullanım örneği soruyu yanıtlamak için kullandığımız: "Azure Logic Apps özel durumu ve hata işleme destekliyor mu?"
 
 > [!NOTE]
-> Merhaba geçerli Azure Logic Apps şeması eylem yanıtlar için bir standart şablon sağlar. Bu şablon, hem iç doğrulama hem de bir API uygulaması döndürülen hata yanıtları içerir.
+> Geçerli Azure Logic Apps şeması eylem yanıtlar için bir standart şablon sağlar. Bu şablon, hem iç doğrulama hem de bir API uygulaması döndürülen hata yanıtları içerir.
 
 ## <a name="scenario-and-use-case-overview"></a>Senaryo ve kullanım örneği genel bakış
 
-Bu senaryo için hello kullanım örneği olarak hello Öykü şöyledir: 
+Bu senaryo için kullanım örneği olarak öykü şöyledir: 
 
-İyi bilinen bir sağlık kuruluş bize toodevelop hasta portal Microsoft Dynamics CRM Online kullanarak oluşturacak Azure çözümünü gerçekleştiriliyor. Bunlar toosend randevu kayıtlarını hello Dynamics CRM Online hasta portal Salesforce arasındaki gerekli. Toouse hello sorulan [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) tüm hasta kayıtları için standart.
+İyi bilinen bir sağlık kuruluş bize hasta portal Microsoft Dynamics CRM Online kullanarak oluşturacak Azure çözümünü geliştirmek için gerçekleştiriliyor. Dynamics CRM Online hasta portal Salesforce arasındaki randevu kayıtlarını göndermek gerekli. Biz kullanılacak sorulan [HL7 FHIR](http://www.hl7.org/implement/standards/fhir/) tüm hasta kayıtları için standart.
 
-Merhaba proje iki ana gereksinimlerini vardı:  
+Proje iki ana gereksinimlerini vardı:  
 
-* Dynamics CRM Online portalı hello yöntemi toolog kayıtları gönderilen
-* Bir şekilde tooview hello iş akışı içinde oluşan hatalar
+* Dynamics CRM Online portalından gönderilen kayıtlarını günlüğe kaydetmek için bir yöntem
+* İş akışı içinde oluşan hataları görüntülemek için bir yol
 
 > [!TIP]
-> Bu proje hakkında üst düzey video için bkz: [tümleştirme kullanıcı grubu](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "tümleştirme kullanıcı grubu").
+> Bu proje hakkında üst düzey video için bkz: [tümleştirme kullanıcı grubu](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Integration User Group").
 
-## <a name="how-we-solved-hello-problem"></a>Nasıl biz hello sorun çözüldü
+## <a name="how-we-solved-the-problem"></a>Biz nasıl sorun çözüldü
 
-Seçtik [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/ "Azure Cosmos DB") (Cosmos DB başvuruyor belgeleri olarak toorecords) hello günlük ve hata kayıtları için depo olarak. Azure Logic Apps tüm yanıtlar için standart bir şablon olduğundan, biz toocreate özel şeması sahip olmaz. API uygulaması çok oluşturma**Ekle** ve **sorgu** hata ve günlük kayıtları için. Biz de her hello API uygulaması içindeki bir şema tanımlayabilirsiniz.  
+Seçtik [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/ "Azure Cosmos DB") (Cosmos DB başvurduğu belgeleri olarak kayıtları) günlük ve hata kayıtları için depo olarak. Azure Logic Apps tüm yanıtlar için standart bir şablon olduğundan, biz özel şeması oluşturmak sahip. Bir API uygulamasına oluşturuyoruz **Ekle** ve **sorgu** hata ve günlük kayıtları için. Biz de her API uygulaması içindeki bir şema tanımlayabilirsiniz.  
 
-Başka bir gereksinim toopurge kayıtları belirli bir tarihten sonra oluştu. Cosmos DB adlı bir özelliği vardır [zaman tooLive](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "zaman tooLive") (TTL) izin bize tooset bir **zaman tooLive** her bir kayıt veya koleksiyon için değer. Bu özellik hello gerek toomanually Cosmos DB'de kayıt silme ortadan.
+Belirli bir tarihten sonra kayıtları temizlemek için başka bir gereksinim oluştu. Cosmos DB adlı bir özelliği vardır [yaşam süresi](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "yaşam süresi") (TTL) izin bize ayarlamak bir **yaşam süresi** her bir kayıt veya koleksiyon için değer. Bu özellik Cosmos DB kayıtları el ile silmek için gereken ortadan.
 
 > [!IMPORTANT]
-> toocomplete Bu öğretici, toocreate Cosmos DB veritabanı ve iki koleksiyonları (günlüğe kaydetme ve hatalar) gerekir.
+> Bu öğreticiyi tamamlamak için bir Cosmos DB veritabanı ve iki koleksiyonları (günlüğe kaydetme ve hatalar) oluşturmanız gerekir.
 
-## <a name="create-hello-logic-app"></a>Merhaba mantıksal uygulama oluşturma
+## <a name="create-the-logic-app"></a>Mantıksal uygulama oluşturma
 
-Merhaba ilk toocreate hello mantıksal uygulama ve açık hello uygulama mantığını Uygulama Tasarımcısı'nda adımdır. Bu örnekte, üst-alt logic apps kullanıyoruz. Biz hello üst oluşturmuş ve toocreate bir alt mantıksal uygulama giderek varsayalım.
+Mantıksal uygulama oluşturma ve uygulama mantığını Uygulama Tasarımcısı'nda açmak için ilk adımdır bakın. Bu örnekte, üst-alt logic apps kullanıyoruz. Biz üst oluşturmuş ve bir alt mantıksal uygulama oluşturma sunduğu varsayalım.
 
-Dynamics CRM Online dışında gelen toolog hello kayıt olmaz çünkü hello üstünde başlayalım. Biz kullanmanız gerekir bir **isteği** hello üst mantıksal uygulama bu alt tetikler çünkü tetikler.
+Dynamics CRM Online dışında gelen kayıt oturum kalacaklarını olduğundan, en üstte başlayalım. Biz kullanmalısınız bir **isteği** üst mantıksal uygulama bu alt tetikler çünkü tetikler.
 
 ### <a name="logic-app-trigger"></a>Mantıksal uygulama tetikleyici
 
-Kullanıyoruz bir **isteği** tetiklemek hello aşağıdaki örnekte gösterildiği gibi:
+Kullanıyoruz bir **isteği** tetiklemek aşağıdaki örnekte gösterildiği gibi:
 
 ```` json
 "triggers": {
@@ -100,14 +100,14 @@ Kullanıyoruz bir **isteği** tetiklemek hello aşağıdaki örnekte gösterildi
 
 ## <a name="steps"></a>Adımlar
 
-Biz hello hasta kaydının hello kaynak (istek) hello Dynamics CRM Online portalından oturum açmanız gerekir.
+Biz Hasta kayıt kaynağı (istek) Dynamics CRM Online portalı üzerinden oturum açmanız gerekir.
 
 1. Size yeni bir randevu kayıt Dynamics CRM Online'dan almanız gerekir.
 
-   Merhaba tetikleyici CRM'den gelen sağlar bize ile Merhaba **CRM PatentId**, **kayıt türü**, **yeni veya güncelleştirilmiş kayıt** (yeni veya Boolean değeri güncelleştirin), ve  **SalesforceId**. Merhaba **SalesforceId** için bir güncelleştirme yalnızca kullanıldığından null olabilir.
-   Biz hello CRM kullanarak hello CRM kaydı alma **PatientID** ve hello **kayıt türü**.
+   CRM'den gelen tetikleyici bizimle sağlar **CRM PatentId**, **kayıt türü**, **yeni veya güncelleştirilmiş kayıt** (yeni veya Boolean değeri güncelleştirin), ve  **SalesforceId**. **SalesforceId** için bir güncelleştirme yalnızca kullanıldığından null olabilir.
+   Biz CRM kullanarak CRM kaydı alma **PatientID** ve **kayıt türü**.
 
-2. Tooadd bizim DocumentDB API uygulaması daha ihtiyacımız **InsertLogEntry** mantığı Uygulama Tasarımcısı'nda aşağıda gösterildiği gibi işlemi.
+2. Ardından, bizim DocumentDB API uygulaması eklemek ihtiyacımız **InsertLogEntry** mantığı Uygulama Tasarımcısı'nda aşağıda gösterildiği gibi işlemi.
 
    **Günlük Girişi Ekle**
 
@@ -124,15 +124,15 @@ Biz hello hasta kaydının hello kaynak (istek) hello Dynamics CRM Online portal
 ## <a name="logic-app-source-code"></a>Mantıksal uygulama kaynak kodu
 
 > [!NOTE]
-> Örnek hello yalnızca örneklerdir. Bu öğretici, uygulama artık üretim dayalı olduğundan değerini hello bir **kaynak düğüm** ilgili tooscheduling bir randevu. özellikler görüntülemeyebilir > 
+> Aşağıdaki örnekler yalnızca örneklerdir. Bu öğreticide uygulama artık üretim, değerini bağlı olduğu bir **kaynak düğüm** bir randevu. zamanlama için ilgili özellikleri görüntülemeyebilir > 
 
 ### <a name="logging"></a>Günlüğe kaydetme
 
-mantıksal uygulama kodu aşağıdaki hello örnek gösterir nasıl toohandle günlüğe kaydetme.
+Aşağıdaki mantığı uygulama kod örneği günlüğü nasıl ele alınacağını gösterir.
 
 #### <a name="log-entry"></a>Günlük girişi
 
-Burada, bir günlük girişi ekleme hello mantığı uygulama kaynak kodu verilmiştir.
+Aşağıda, bir günlük girdisi eklemek için mantığı uygulama kaynak kodu verilmiştir.
 
 ``` json
 "InsertLogEntry": {
@@ -160,7 +160,7 @@ Burada, bir günlük girişi ekleme hello mantığı uygulama kaynak kodu verilm
 
 #### <a name="log-request"></a>Günlük isteği
 
-Merhaba günlük istek iletisi toohello API uygulaması gönderilen aşağıdadır.
+Burada, API uygulamasına gönderilen günlük istek iletisi verilmiştir.
 
 ``` json
     {
@@ -180,7 +180,7 @@ Merhaba günlük istek iletisi toohello API uygulaması gönderilen aşağıdad�
 
 #### <a name="log-response"></a>Yanıtı Günlüğe Kaydet
 
-Merhaba günlük yanıt iletisi hello API uygulaması'ndan aşağıda verilmiştir.
+API uygulaması'ndan günlük yanıt iletisi aşağıdadır.
 
 ``` json
 {
@@ -214,15 +214,15 @@ Merhaba günlük yanıt iletisi hello API uygulaması'ndan aşağıda verilmişt
 
 ```
 
-Şimdi adımları işleme hello hatasında bakalım.
+Şimdi adımları işleme hatası bakalım.
 
 ### <a name="error-handling"></a>Hata işleme
 
-Hello aşağıdaki mantığı uygulama kod örneği, hata işleme nasıl uygulayabileceğiniz gösterir.
+Hata işleme nasıl uygulayacağınıza dair aşağıdaki mantığı uygulama kod örneği gösterir.
 
 #### <a name="create-error-record"></a>Hata kaydı oluşturma
 
-Burada, bir hata kaydı oluşturmak için hello mantığı uygulama kaynak kodu verilmiştir.
+Aşağıda, bir hata kaydı oluşturmak için mantığı uygulama kaynak kodu verilmiştir.
 
 ``` json
 "actions": {
@@ -269,7 +269,7 @@ Burada, bir hata kaydı oluşturmak için hello mantığı uygulama kaynak kodu 
         "isError": true,
         "crmId": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0",
         "patientId": "6b115f6d-a7ee-e511-80f5-3863bb2eb2d0",
-        "message": "Salesforce failed toocomplete task: Message: duplicate value found: Account_ID_MED__c duplicates value on record with id: 001U000001c83gK",
+        "message": "Salesforce failed to complete task: Message: duplicate value found: Account_ID_MED__c duplicates value on record with id: 001U000001c83gK",
         "providerId": "",
         "severity": 4,
         "salesforceId": "",
@@ -307,7 +307,7 @@ Burada, bir hata kaydı oluşturmak için hello mantığı uygulama kaynak kodu 
         "action": "New_Patient",
         "salesforceId": "",
         "update": false,
-        "body": "CRM failed toocomplete task: Message: duplicate value found: CRM_HUB_ID__c duplicates value on record with id: 001U000001c83gK",
+        "body": "CRM failed to complete task: Message: duplicate value found: CRM_HUB_ID__c duplicates value on record with id: 001U000001c83gK",
         "source": "{/"Account_Class_vod__c/":/"PRAC/",/"Account_Status_MED__c/":/"I/",/"CRM_HUB_ID__c/":/"6b115f6d-a7ee-e511-80f5-3863bb2eb2d0/",/"Credentials_vod__c/":/"DO - Degree level is DO/",/"DTC_ID_MED__c/":/"/",/"Fax/":/"/",/"FirstName/":/"A/",/"Gender_vod__c/":/"/",/"IMS_ID__c/":/"/",/"LastName/":/"BAILEY/",/"MterID_mp__c/":/"/",/"Medicis_ID_MED__c/":/"851588/",/"Middle_vod__c/":/"/",/"NPI_vod__c/":/"/",/"PDRP_MED__c/":false,/"PersonDoNotCall/":false,/"PersonEmail/":/"/",/"PersonHasOptedOutOfEmail/":false,/"PersonHasOptedOutOfFax/":false,/"PersonMobilePhone/":/"/",/"Phone/":/"/",/"Practicing_Specialty__c/":/"FM - FAMILY MEDICINE/",/"Primary_City__c/":/"/",/"Primary_State__c/":/"/",/"Primary_Street_Line2__c/":/"/",/"Primary_Street__c/":/"/",/"Primary_Zip__c/":/"/",/"RecordTypeId/":/"012U0000000JaPWIA0/",/"Request_Date__c/":/"2016-06-10T22:31:55.9647467Z/",/"XXXXXXX/":/"/",/"Specialty_1_vod__c/":/"/",/"Suffix_vod__c/":/"/",/"Website/":/"/"}",
         "code": 400,
         "errors": null,
@@ -340,7 +340,7 @@ Burada, bir hata kaydı oluşturmak için hello mantığı uygulama kaynak kodu 
     },
     "body": {
         "status": 400,
-        "message": "Salesforce failed toocomplete task: Message: duplicate value found: Account_ID_MED__c duplicates value on record with id: 001U000001c83gK",
+        "message": "Salesforce failed to complete task: Message: duplicate value found: Account_ID_MED__c duplicates value on record with id: 001U000001c83gK",
         "source": "Salesforce.Common",
         "errors": []
     }
@@ -348,11 +348,11 @@ Burada, bir hata kaydı oluşturmak için hello mantığı uygulama kaynak kodu 
 
 ```
 
-### <a name="return-hello-response-back-tooparent-logic-app"></a>Dönüş hello yanıt geri tooparent mantıksal uygulama
+### <a name="return-the-response-back-to-parent-logic-app"></a>Üst mantıksal uygulama yanıta geri dönün
 
-Merhaba yanıt aldıktan sonra hello yanıt geçirebilirsiniz geri toohello üst mantıksal uygulama.
+Yanıt aldıktan sonra yanıt üst mantıksal uygulama geçirebilirsiniz.
 
-#### <a name="return-success-response-tooparent-logic-app"></a>Başarılı yanıt tooparent mantıksal uygulama Döndür
+#### <a name="return-success-response-to-parent-logic-app"></a>Başarılı yanıt üst mantığı uygulamaya döndürür
 
 ``` json
 "SuccessResponse": {
@@ -374,7 +374,7 @@ Merhaba yanıt aldıktan sonra hello yanıt geçirebilirsiniz geri toohello üst
 }
 ```
 
-#### <a name="return-error-response-tooparent-logic-app"></a>Döndürülen hata yanıtı tooparent mantıksal uygulama
+#### <a name="return-error-response-to-parent-logic-app"></a>Üst mantıksal uygulama hata yanıtı döndürür
 
 ``` json
 "ErrorResponse": {
@@ -404,12 +404,12 @@ Merhaba yanıt aldıktan sonra hello yanıt geçirebilirsiniz geri toohello üst
 
 ### <a name="error-management-portal"></a>Hata Yönetim Portalı
 
-tooview hello hataları Cosmos DB'den bir MVC web uygulaması toodisplay hello hata kaydı oluşturabilirsiniz. Merhaba **listesi**, **ayrıntıları**, **Düzenle**, ve **silmek** işlemleri hello geçerli sürümde dahil edilir.
+Hataları görüntülemek için Cosmos DB'den hata kayıtları görüntülemek için bir MVC web uygulaması oluşturabilirsiniz. **Listesi**, **ayrıntıları**, **Düzenle**, ve **silmek** işlemleri geçerli sürümde dahil edilir.
 
 > [!NOTE]
-> İşlem düzenleme: Cosmos DB hello tüm belgeyi yerini alır. Merhaba hello gösterilecek kayıt **listesi** ve **ayrıntı** örnekleri yalnızca görünümlerdir. Bunlar gerçek hasta randevu kayıtlarını olup olmadığı.
+> İşlem düzenleme: Cosmos DB tüm belgeyi yerini alır. Gösterilen kayıtları **listesi** ve **ayrıntı** örnekleri yalnızca görünümlerdir. Bunlar gerçek hasta randevu kayıtlarını olup olmadığı.
 
-Örnekler bizim MVC uygulamasının hello ile daha önce oluşturduğunuz ayrıntıları yaklaşımı açıklanmaktadır.
+Daha önce açıklanan yaklaşımda oluşturulan bizim MVC uygulama ayrıntıları örnekleri aşağıda verilmiştir.
 
 #### <a name="error-management-list"></a>Hata yönetim listesi
 ![Hata listesi](media/logic-apps-scenario-error-and-exception-handling/errorlist.png)
@@ -419,7 +419,7 @@ tooview hello hataları Cosmos DB'den bir MVC web uygulaması toodisplay hello h
 
 ### <a name="log-management-portal"></a>Günlük Yönetim Portalı
 
-tooview hello günlükleri, ayrıca bir MVC web uygulaması oluşturduk. Örnekler bizim MVC uygulamasının hello ile daha önce oluşturduğunuz ayrıntıları yaklaşımı açıklanmaktadır.
+Günlükleri görüntülemek için de bir MVC web uygulaması oluşturduk. Daha önce açıklanan yaklaşımda oluşturulan bizim MVC uygulama ayrıntıları örnekleri aşağıda verilmiştir.
 
 #### <a name="sample-log-detail-view"></a>Örnek günlük ayrıntılı Görünüm
 ![Günlük ayrıntılı Görünüm](media/logic-apps-scenario-error-and-exception-handling/samplelogdetail.png)
@@ -434,14 +434,14 @@ Burada açıklandığı gibi açık kaynaklı Azure Logic Apps özel durum yöne
 * **LogController** bir DocumentDB koleksiyonu içinde bir günlük kaydı (belge) ekler.
 
 > [!TIP]
-> Her iki denetleyicilerinin kullandığı `async Task<dynamic>` biz oluşturabilmesi için işlemleri tooresolve çalışma zamanında işlemleri, DocumentDB şema hello işlemi hello gövdesinde hello. 
+> Her iki denetleyicilerinin kullandığı `async Task<dynamic>` işlemleri, DocumentDB şema işlemi gövdesinde oluşturabilmesi için çalışma zamanında çözümlemek işlem yapılmasına olanak sağlar. 
 > 
 
-Her DocumentDB belgede benzersiz bir kimliği olmalıdır Kullanıyoruz `PatientId` ve dönüştürülen tooa UNIX zaman damgası değeri (double) olan bir zaman damgası ekleme. Merhaba değeri tooremove hello kesir değerini olacak biçimde kesin.
+Her DocumentDB belgede benzersiz bir kimliği olmalıdır Kullanıyoruz `PatientId` ve bir UNIX zaman damgası değerine (double) dönüştürülen bir zaman damgası ekleme. Kesir değerini kaldırmak için değer olacak şekilde kısaltın.
 
-Bizim hata denetleyicisinin API hello kaynak kodu görüntüleyebilirsiniz [github'dan](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
+Bizim hata denetleyicisinin API kaynak kodu görüntüleyebilirsiniz [github'dan](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
 
-Sözdizimi aşağıdaki hello kullanarak hello API mantığı uygulamasından diyoruz:
+API mantığı uygulamadan aşağıdaki sözdizimini kullanarak diyoruz:
 
 ``` json
  "actions": {
@@ -474,17 +474,17 @@ Sözdizimi aşağıdaki hello kullanarak hello API mantığı uygulamasından di
  }
 ```
 
-Merhaba hello kod örnek denetler önceki hello ifadesinde *Create_NewPatientRecord* durumunu **başarısız**.
+Önceki kod örneğinde ifadesi kontrol *Create_NewPatientRecord* durumunu **başarısız**.
 
 ## <a name="summary"></a>Özet
 
 * Günlüğe kaydetme ve hata işleme bir mantıksal uygulama kolayca uygulayabilirsiniz.
-* DocumentDB günlük ve hata kayıtları (belgeler) hello deposu olarak kullanabilirsiniz.
-* MVC toocreate portal toodisplay günlük ve hata kaydı kullanabilirsiniz.
+* DocumentDB günlük ve hata kayıtları (belgeler) deposu olarak kullanabilirsiniz.
+* MVC, günlük ve hata kayıtları görüntülemek için portalı oluşturmak için kullanabilirsiniz.
 
 ### <a name="source-code"></a>Kaynak kod
 
-Merhaba hello Logic Apps özel durum yönetimi API uygulaması için kaynak kodunu kullanılabilir bu [GitHub deposunu](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "mantığı uygulama özel durum yönetimi API").
+Logic Apps özel durum yönetimi API uygulaması için kaynak kodunu bu kullanılabilir [GitHub deposunu](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "mantığı uygulama özel durum yönetimi API").
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

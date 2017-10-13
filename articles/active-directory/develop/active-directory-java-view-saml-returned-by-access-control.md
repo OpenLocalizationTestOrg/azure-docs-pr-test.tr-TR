@@ -1,6 +1,6 @@
 ---
-title: "aaaView SAML döndürülen hello erişim denetimi hizmeti (Java) tarafından"
-description: "Nasıl tooview SAML Java uygulamalarını hello erişim denetimi hizmeti tarafından döndürülen Azure üzerinde barındırılan öğrenin."
+title: "Görünüm erişim denetimi hizmeti (Java) tarafından döndürülen SAML"
+description: "Azure üzerinde barındırılan Java uygulamalarını erişim denetim Hizmeti'nde tarafından döndürülen SAML görüntülemeyi öğrenin."
 services: active-directory
 documentationcenter: java
 author: rmcmurray
@@ -15,40 +15,40 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
-ms.openlocfilehash: b6733bc98b505cfa89a4ce456f368ee15da11427
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1552e624a4703138ab82f7133ceaec3dbd04e1db
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-tooview-saml-returned-by-hello-azure-access-control-service"></a>Nasıl tooview SAML hello Azure erişim denetimi hizmeti tarafından döndürülen
-Bu kılavuz size nasıl güvenlik onaylama işlemi biçimlendirme dili (SAML) temel tooview hello tooyour hello Azure erişim denetimi Hizmeti'nden (ACS) tarafından döndürülen gösterir. Merhaba Kılavuzu derlemeler üzerinde hello [nasıl tooAuthenticate Azure erişim denetimi hizmeti kullanılarak Eclipse Web kullanıcılarla](active-directory-java-authenticate-users-access-control-eclipse.md) hello SAML bilgilerini görüntüler kod sağlayarak konu. Tamamlanan Merhaba uygulaması benzer toohello aşağıdaki arar.
+# <a name="how-to-view-saml-returned-by-the-azure-access-control-service"></a>Azure erişim denetimi hizmeti tarafından döndürülen SAML görüntüleme
+Bu kılavuz temel güvenlik onaylama işlemi biçimlendirme dili (uygulamanızı Azure erişim denetimi Hizmeti'nden (ACS) tarafından döndürülen SAML) görüntülemek nasıl yapacağınızı gösterir. Kılavuzu derlemeler [kimlik doğrulaması Web kullanıcıları Azure erişim denetimi hizmeti kullanılarak Eclipse ile nasıl](active-directory-java-authenticate-users-access-control-eclipse.md) SAML bilgilerini görüntüler kod sağlayarak konu. Tamamlanan uygulama aşağıdakine benzer görünecektir.
 
 ![Örnek SAML çıktı][saml_output]
 
-Merhaba ACS hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next_steps) bölümü.
+ACS hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next_steps) bölümü.
 
 > [!NOTE]
-> Hello Azure Erişim Hizmetleri Denetim filtresi topluluk teknoloji önizlemesidir. Yayın öncesi yazılım olarak bunu resmi olarak Microsoft tarafından desteklenmiyor.
+> Azure Erişim Hizmetleri Denetim filtresi topluluk teknoloji önizlemesidir. Yayın öncesi yazılım olarak bunu resmi olarak Microsoft tarafından desteklenmiyor.
 > 
 > 
 
 ## <a name="prerequisites"></a>Ön koşullar
-toocomplete hello görevler bu kılavuzda, tam örnek: Merhaba [nasıl tooAuthenticate Azure erişim denetimi hizmeti kullanılarak Eclipse Web kullanıcılarla](active-directory-java-authenticate-users-access-control-eclipse.md) ve hello Bu öğretici için başlangıç noktası olarak kullanın.
+Bu Kılavuzu'ndaki görevleri tamamlamak için örnek: tamamlamak [kimlik doğrulaması Web kullanıcıları Azure erişim denetimi hizmeti kullanılarak Eclipse ile nasıl](active-directory-java-authenticate-users-access-control-eclipse.md) ve Bu öğretici için başlangıç noktası olarak kullanın.
 
-## <a name="add-hello-jspwriter-library-tooyour-build-path-and-deployment-assembly"></a>Yol ve dağıtım Hello JspWriter kitaplığı tooyour yapı derleme ekleyin
-Merhaba içeren hello Kitaplığı eklemek **javax.servlet.jsp.JspWriter** sınıfı tooyour derleme yolu ve dağıtım derleme. Tomcat kullanıyorsanız, hello kitaplığıdır **jsp api.jar**, hello Apache bulunan **lib** klasör.
+## <a name="add-the-jspwriter-library-to-your-build-path-and-deployment-assembly"></a>Derleme yolu ve dağıtım derlemesi için JspWriter kitaplığı Ekle
+İçeren kitaplığı eklemek **javax.servlet.jsp.JspWriter** derleme yolu ve dağıtım derleme sınıfı. Tomcat kullanıyorsanız, kitaplığıdır **jsp api.jar**, Apache bulunan **lib** klasör.
 
-1. Eclipse'nın Proje Gezgini'nde sağ **MyACSHelloWorld**,'ı tıklatın **yapı yolu**,'ı tıklatın **oluşturma yolunu Yapılandır**, hello tıklatın **kitaplıkları** sekmesini ve ardından **dış Jar'lar Ekle**.
-2. Merhaba, **JAR seçimi** iletişim kutusunda, toohello gidin gerekli JAR seçin ve ardından **açık**.
-3. Merhaba ile **MyACSHelloWorld özelliklerini** iletişim hala açık tıklatın **dağıtım derleme**.
-4. Merhaba, **Web dağıtımı derleme** iletişim kutusunda, tıklatın **Ekle**.
-5. Merhaba, **yeni derleme yönergesi** iletişim kutusunda, tıklatın **Java derleme yolu girişleri** ve ardından **sonraki**.
-6. Merhaba uygun kitaplığı seçin ve tıklatın **son**.
-7. Tıklatın **Tamam** tooclose hello **MyACSHelloWorld özelliklerini** iletişim.
+1. Eclipse'nın Proje Gezgini'nde sağ **MyACSHelloWorld**, tıklatın **yapı yolu**,'ı tıklatın **oluşturma yolunu Yapılandır**,'ı tıklatın **kitaplıkları**sekmesini ve ardından **dış Jar'lar Ekle**.
+2. İçinde **JAR seçimi** iletişim kutusunda, gerekli JAR gidin, onu seçin ve ardından **açık**.
+3. İle **MyACSHelloWorld özelliklerini** iletişim hala açık tıklatın **dağıtım derleme**.
+4. İçinde **Web dağıtımı derleme** iletişim kutusunda, tıklatın **Ekle**.
+5. İçinde **yeni derleme yönergesi** iletişim kutusunda, tıklatın **Java derleme yolu girişleri** ve ardından **sonraki**.
+6. Uygun kitaplığı seçin ve tıklatın **son**.
+7. Tıklatın **Tamam** kapatmak için **MyACSHelloWorld özelliklerini** iletişim.
 
-## <a name="modify-hello-jsp-file-toodisplay-saml"></a>Merhaba JSP dosyası toodisplay SAML değiştirme
-Değiştirme **index.jsp** toouse hello koddan.
+## <a name="modify-the-jsp-file-to-display-saml"></a>SAML görüntülenecek JSP dosyası değiştirme
+Değiştirme **index.jsp** aşağıdaki kodu kullanmak için.
 
     <%@ page language="java" contentType="text/html; charset=UTF-8"
         pageEncoding="UTF-8"%>
@@ -100,14 +100,14 @@ Değiştirme **index.jsp** toouse hello koddan.
                           if (nChild > 0)
                           {                    
 
-                                 // If it is a text node, just print hello text.
+                                 // If it is a text node, just print the text.
                                  if (list.item(0).getNodeName() == "#text")
                                  {
                                      out.println("Text value: <b>" + list.item(0).getTextContent() + "</b><br>");
                                  }
                                  else
                                  {
-                                     // Print out hello child node names.
+                                     // Print out the child node names.
                                      out.print("Contains " + nChild + " child node(s): ");   
                                         for (i=0; i < nChild; i++)
                                      {
@@ -116,19 +116,19 @@ Değiştirme **index.jsp** toouse hello koddan.
                                         out.print("<b>" + temp.getNodeName() + "</b>");
                                         if (i < nChild - 1)
                                         {
-                                            // Separate hello names.
+                                            // Separate the names.
                                             out.print(", ");
                                         }
                                         else
                                         {
-                                            // Finish hello sentence.
+                                            // Finish the sentence.
                                             out.print(".");
                                         }
 
                                      }
                                      out.println("<br>");
 
-                                     // Process hello child nodes.
+                                     // Process the child nodes.
                                      for (i=0; i < nChild; i++)
                                      {
                                         Node temp = list.item(i);
@@ -162,7 +162,7 @@ Değiştirme **index.jsp** toouse hello koddan.
             doc = docBuilder.parse(in);
             doc.getDocumentElement().normalize();
 
-            // Iterate hello child nodes of hello doc.
+            // Iterate the child nodes of the doc.
             NodeList list = doc.getChildNodes();
 
             for (int i=0; i < list.getLength(); i++)
@@ -180,18 +180,18 @@ Değiştirme **index.jsp** toouse hello koddan.
     </body>
     </html>
 
-## <a name="run-hello-application"></a>Merhaba uygulamayı çalıştırın
-1. Uygulamanızı hello bilgisayar öykünücüsünde çalıştırın veya adresinde belgelenen hello adımları kullanarak tooAzure dağıtmak [nasıl tooAuthenticate Azure erişim denetimi hizmeti kullanılarak Eclipse Web kullanıcılarla](active-directory-java-authenticate-users-access-control-eclipse.md).
-2. Bir tarayıcıyı başlatın ve web uygulamasını açın. Tooyour uygulama açtıktan sonra hello güvenlik onaylama işlemi hello kimlik sağlayıcısı tarafından sağlanan SAML bilgilerini görürsünüz.
+## <a name="run-the-application"></a>Uygulamayı çalıştırma
+1. Uygulamanızı bilgisayar öykünücüsünde çalıştırın veya adresinde belgelenen adımları kullanarak Azure dağıtmak [kimlik doğrulaması Web kullanıcıları Azure erişim denetimi hizmeti kullanılarak Eclipse ile nasıl](active-directory-java-authenticate-users-access-control-eclipse.md).
+2. Bir tarayıcıyı başlatın ve web uygulamasını açın. Uygulamanıza oturum açtıktan sonra kimlik sağlayıcısı tarafından sağlanan güvenlik onaylama işlemi SAML bilgilerini görürsünüz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-toofurther ACS'ın işlevselliği ve daha karmaşık senaryolar ile tooexperiment keşfetmek için bkz: [erişim denetimi hizmeti 2.0][Access Control Service 2.0].
+Biraz daha ACS'ın işlevselliği inceleyin ve daha karmaşık senaryolarıyla denemeler yapmak için bkz: [erişim denetimi hizmeti 2.0][Access Control Service 2.0].
 
 [Prerequisites]: #pre
-[Modify hello JSP file toodisplay SAML]: #modify_jsp
-[Add hello JspWriter library tooyour build path and deployment assembly]: #add_library
-[Run hello application]: #run_application
+[Modify the JSP file to display SAML]: #modify_jsp
+[Add the JspWriter library to your build path and deployment assembly]: #add_library
+[Run the application]: #run_application
 [Next steps]: #next_steps
 [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
-[How tooAuthenticate Web Users with Azure Access Control Service Using Eclipse]: active-directory-java-authenticate-users-access-control-eclipse
+[How to Authenticate Web Users with Azure Access Control Service Using Eclipse]: active-directory-java-authenticate-users-access-control-eclipse
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png

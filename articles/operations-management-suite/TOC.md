@@ -24,7 +24,7 @@
 
 ## Güvenlik
 ### [Kaynakları izleme](oms-security-monitoring-resources.md)
-### [Yanıt toosecurity uyarıları](oms-security-responding-alerts.md)
+### [Güvenlik uyarılarını yanıtlama](oms-security-responding-alerts.md)
 ### [Temel değerlendirme](oms-security-baseline.md)
 ### [Kötü amaçlı yazılım değerlendirmesi](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [Sistem güncelleştirme değerlendirmesi](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)

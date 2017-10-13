@@ -1,6 +1,6 @@
 ---
-title: ".NET kullanarak Azure Media Services içerik aaaPublish | Microsoft Docs"
-description: "Bilgi nasıl toocreate kullanılan toobuild bir akış URL'si olan bir Bulucu. Kod örnekleri C# dilinde yazılmıştır ve .NET için Media Services SDK'sı hello kullanın."
+title: ".NET kullanarak Azure Media Services içerik yayımlama | Microsoft Docs"
+description: "Bir akış URL'si oluşturmak için kullanılan bir Bulucu oluşturmayı öğrenin. Kod örnekleri, C# dilinde yazılmıştır ve .NET için Media Services SDK'sını kullanın."
 author: juliako
 manager: cfowler
 editor: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: c941cd93c252a96e66546cce2793bb426afac059
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2bcb012eef84faa7c1e13ed22e88e45e4300ed54
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="publish-azure-media-services-content-using-net"></a>.NET kullanarak Azure Media Services içerik yayımlama
 > [!div class="op_single_selector"]
@@ -29,30 +29,30 @@ ms.lasthandoff: 10/06/2017
 > 
 
 ## <a name="overview"></a>Genel Bakış
-Bir OnDemand akış Bulucusu oluşturma ve akış URL'si oluşturma MP4 kümesine bir bit hızı Uyarlamalı akışını sağlayabilirsiniz. Merhaba [bir varlık kodlama](media-services-encode-asset.md) konu, bir bit hızı Uyarlamalı MP4 içine tooencode nasıl ayarlanacağını gösterir. 
+Bir OnDemand akış Bulucusu oluşturma ve akış URL'si oluşturma MP4 kümesine bir bit hızı Uyarlamalı akışını sağlayabilirsiniz. [Bir varlık kodlama](media-services-encode-asset.md) konu nasıl kodlanacağını Uyarlamalı bit hızlı MP4 kümesi gösterir. 
 
 > [!NOTE]
 > İçeriğinizi şifrelenmişse, varlık teslim ilkesini yapılandırın (açıklandığı gibi [bu](media-services-dotnet-configure-asset-delivery-policy.md) konu) bir Bulucu oluşturmadan önce. 
 > 
 > 
 
-Bir OnDemand Bulucu toobuild URL'leri aşamalı olarak indirilebilir bu noktası tooMP4 dosyaları akış de kullanabilirsiniz.  
+Bir OnDemand Bulucu akış, aşamalı olarak indirilebilir MP4 dosyaları işaret URL'ler oluşturmak için de kullanabilirsiniz.  
 
-Bu konuda gösterilmektedir nasıl toocreate bir OnDemand Bulucu toopublish varlık ve yapı düzgün, MPEG DASH ve akış URL'lerini HLS akış. Ayrıca Dinamik toobuild aşamalı indirme URL'leri gösterir. 
+Bu konuda bir OnDemand Bulucu, varlığı yayımlayın ve kesintisiz, MPEG DASH ve HLS akış URL'lerini oluşturmak için akış oluşturulacağını gösterir. Aşamalı indirme URL'leri oluşturmak için etkin gösterir. 
 
 ## <a name="create-an-ondemand-streaming-locator"></a>Bir OnDemand akış Bulucusu oluşturma
-toocreate OnDemand Bulucu akış hello ve URL'leri alma, şeyler aşağıdaki toodo hello gerekir:
+OnDemand akış Bulucusu oluşturmak ve URL'leri almak için şunları yapmanız gerekir:
 
-1. Merhaba içerik şifrelenmişse, bir erişim ilkesi tanımlayın.
+1. İçerik şifrelenmişse, bir erişim ilkesi tanımlayın.
 2. Bir OnDemand Bulucu akış oluşturun.
-3. Toostream planlıyorsanız, hello varlık bildirim dosyasında (.ism) akış hello alın. 
+3. Akış yapmayı planlıyorsanız, varlık içindeki akış bildirim dosyası (.ism) alın. 
    
-   Tooprogressively indirme planlıyorsanız, hello varlık MP4 dosyaları hello adlarını alır.  
-4. URL'leri toohello bildirim dosyası veya MP4 dosyaları oluşturun. 
+   Aşamalı indirmeyi planlıyorsanız, varlık MP4 dosyaları adlarını alır.  
+4. URL'ler bildirim dosyası veya MP4 dosyaları oluşturun. 
 
 
 >[!NOTE]
->Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Kullanım hello aynı her zaman kullanıyorsanız ilke kimliği hello aynı gün / erişim izinleri. Örneğin, uzun bir süre (karşıya yükleme olmayan ilkeleri) yerinde hedeflenen tooremain olan bulucular için ilkeleri. Daha fazla bilgi için [bu](media-services-dotnet-manage-entities.md#limit-access-policies) konu başlığına bakın.
+>Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Aynı gün / erişim izinleri her zaman aynı ilke kimliği kullanın. Örneğin, ilkeleri kalmasına yerinde uzun bir süre (karşıya yükleme olmayan ilkeleri) yöneliktir bulucular için. Daha fazla bilgi için [bu](media-services-dotnet-manage-entities.md#limit-access-policies) konu başlığına bakın.
 
 ### <a name="use-media-services-net-sdk"></a>Media Services .NET SDK'yı kullanın
 Akış URL'leri derleme 
@@ -66,46 +66,46 @@ Akış URL'leri derleme
             TimeSpan.FromDays(30),
             AccessPermissions.Read);
 
-        // Create a locator toohello streaming content on an origin. 
+        // Create a locator to the streaming content on an origin. 
         ILocator originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, asset,
             policy,
             DateTime.UtcNow.AddMinutes(-5));
 
-        // Display some useful values based on hello locator.
+        // Display some useful values based on the locator.
         Console.WriteLine("Streaming asset base path on origin: ");
         Console.WriteLine(originLocator.Path);
         Console.WriteLine();
 
-        // Get a reference toohello streaming manifest file from hello  
-        // collection of files in hello asset. 
+        // Get a reference to the streaming manifest file from the  
+        // collection of files in the asset. 
         var manifestFile = asset.AssetFiles.Where(f => f.Name.ToLower().
                                     EndsWith(".ism")).
                                     FirstOrDefault();
 
-        // Create a full URL toohello manifest file. Use this for playback
+        // Create a full URL to the manifest file. Use this for playback
         // in streaming media clients. 
         string urlForClientStreaming = originLocator.Path + manifestFile.Name + "/manifest";
-        Console.WriteLine("URL toomanifest for client streaming using Smooth Streaming protocol: ");
+        Console.WriteLine("URL to manifest for client streaming using Smooth Streaming protocol: ");
         Console.WriteLine(urlForClientStreaming);
-        Console.WriteLine("URL toomanifest for client streaming using HLS protocol: ");
+        Console.WriteLine("URL to manifest for client streaming using HLS protocol: ");
         Console.WriteLine(urlForClientStreaming + "(format=m3u8-aapl)");
-        Console.WriteLine("URL toomanifest for client streaming using MPEG DASH protocol: ");
+        Console.WriteLine("URL to manifest for client streaming using MPEG DASH protocol: ");
         Console.WriteLine(urlForClientStreaming + "(format=mpd-time-csf)"); 
         Console.WriteLine();
     }
 
-Merhaba çıkarır:
+Çıktı:
 
-    URL toomanifest for client streaming using Smooth Streaming protocol:
+    URL to manifest for client streaming using Smooth Streaming protocol:
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest
-    URL toomanifest for client streaming using HLS protocol:
+    URL to manifest for client streaming using HLS protocol:
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=m3u8-aapl)
-    URL toomanifest for client streaming using MPEG DASH protocol:
+    URL to manifest for client streaming using MPEG DASH protocol:
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny.ism/manifest(format=mpd-time-csf)
 
 
 > [!NOTE]
-> Ayrıca, bir SSL bağlantısı üzerinden içeriğinizin akışını sağlayabilirsiniz. toodo bu yaklaşımını, HTTPS ile akış URL'leri başlatma emin olun. Şu anda AMS SSL ile özel etki alanlarını desteklemiyor.
+> Ayrıca, bir SSL bağlantısı üzerinden içeriğinizin akışını sağlayabilirsiniz. Bu yaklaşım yapmak için HTTPS ile akış URL'leri başlatma emin olun. Şu anda AMS SSL ile özel etki alanlarını desteklemiyor.
 > 
 > 
 
@@ -118,12 +118,12 @@ Aşamalı indirme URL'leri derleme
             TimeSpan.FromDays(30),
             AccessPermissions.Read);
 
-        // Create an OnDemandOrigin locator toohello asset. 
+        // Create an OnDemandOrigin locator to the asset. 
         ILocator originLocator = _context.Locators.CreateLocator(LocatorType.OnDemandOrigin, asset,
             policy,
             DateTime.UtcNow.AddMinutes(-5));
 
-        // Display some useful values based on hello locator.
+        // Display some useful values based on the locator.
         Console.WriteLine("Streaming asset base path on origin: ");
         Console.WriteLine(originLocator.Path);
         Console.WriteLine();
@@ -134,12 +134,12 @@ Aşamalı indirme URL'leri derleme
             .ToList()
             .Where(af => af.Name.EndsWith(".mp4", StringComparison.OrdinalIgnoreCase));
 
-        // Create a full URL toohello MP4 files. Use this tooprogressively download files.
+        // Create a full URL to the MP4 files. Use this to progressively download files.
         foreach (var pd in mp4AssetFiles)
             Console.WriteLine(originLocator.Path + pd.Name);
     }
 
-Merhaba çıkarır:
+Çıktı:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_400kbps_AAC_und_ch2_96kbps.mp4
@@ -149,7 +149,7 @@ Merhaba çıkarır:
     . . . 
 
 ### <a name="use-media-services-net-sdk-extensions"></a>Media Services .NET SDK uzantıları kullanma
-Merhaba aşağıdaki kod bir Bulucu oluşturmanız ve Uyarlamalı akış için hello kesintisiz akış, HLS ve MPEG-DASH URL'ler oluşturmak .NET SDK uzantıları yöntemleri çağırır.
+Aşağıdaki kod bir Bulucu oluşturmanız ve Uyarlamalı akış için kesintisiz akış, HLS ve MPEG-DASH URL'ler oluşturmak .NET SDK uzantıları yöntemleri çağırır.
 
     // Create a loctor.
     _context.Locators.Create(
@@ -158,7 +158,7 @@ Merhaba aşağıdaki kod bir Bulucu oluşturmanız ve Uyarlamalı akış için h
         AccessPermissions.Read,
         TimeSpan.FromDays(30));
 
-    // Get hello streaming URLs.
+    // Get the streaming URLs.
     Uri smoothStreamingUri = inputAsset.GetSmoothStreamingUri();
     Uri hlsUri = inputAsset.GetHlsUri();
     Uri mpegDashUri = inputAsset.GetMpegDashUri();

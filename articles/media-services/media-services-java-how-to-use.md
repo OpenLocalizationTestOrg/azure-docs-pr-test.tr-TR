@@ -1,6 +1,6 @@
 ---
-title: "aaaGet başlatılan Java kullanarak isteğe bağlı içerik göndermeye | Microsoft Docs"
-description: "Bu öğreticide, Java kullanarak Azure Media Services (AMS) uygulaması ile temel bir isteğe bağlı video (VoD) içerik teslim hizmeti uygulamanın hello adımları açıklanmaktadır."
+title: "Java kullanarak isteğe bağlı içerik göndermeye başlama | Microsoft Belgeleri"
+description: "Bu öğretici, Java kullanarak Azure Media Services (AMS) uygulaması ile temel bir İsteğe Bağlı Video (VoD) içerik teslim hizmeti uygulamanın adımlarını açıklar."
 services: media-services
 documentationcenter: java
 author: juliako
@@ -14,38 +14,38 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 01/10/2017
 ms.author: juliako
-ms.openlocfilehash: b13eb88e35fb0d7a1ec1a213293080bad8aa1806
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 2294f3de094389f8aa500c75472e753339b18358
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-java"></a>Java kullanarak isteğe bağlı içerik göndermeye başlama
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
-Bu öğreticide, Java kullanarak Azure Media Services (AMS) uygulaması ile temel bir isteğe bağlı video (VoD) içerik teslim hizmeti uygulamanın hello adımları açıklanmaktadır.
+Bu öğretici, Java kullanarak Azure Media Services (AMS) uygulaması ile temel bir İsteğe Bağlı Video (VoD) içerik teslim hizmeti uygulamanın adımlarını açıklar.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Merhaba, gerekli toocomplete hello öğretici şunlardır:
+Öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 
 * Bir Azure hesabı. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/). 
-* Bir Media Services hesabı. bir Media Services hesabı toocreate bkz [nasıl tooCreate Media Services hesabı](media-services-portal-create-account.md).
-* Merhaba hello yükleyebilirsiniz Java için Azure kitaplıkları [Azure Java Geliştirici Merkezi][Azure Java Developer Center].
+* Bir Media Services hesabı. Bir Media Services hesabı oluşturmak için bkz. [Media Services hesabı oluşturma](media-services-portal-create-account.md).
+* [Azure Java Geliştirici Merkezi][Azure Java Developer Center]’nden yüklenebilecek olan Java için Azure Kitaplıkları.
 
 ## <a name="how-to-use-media-services-with-java"></a>Nasıl yapılır: Java ile Media Services’i kullanma
 
 >[!NOTE]
->AMS hesabınızı oluşturulduğunda bir **varsayılan** akış uç noktası ekleniyor tooyour hesabı hello **durduruldu** durumu. İçerik ve Al avantajı dinamik paketleme ve dinamik şifreleme akış toostart hello istediğiniz toostream içeriğe sahip toobe hello akış uç **çalıştıran** durumu. 
+>AMS hesabınız oluşturulduğunda hesabınıza **Durdurulmuş** durumda bir **varsayılan** akış uç noktası eklenir. İçerik akışını başlatmak ve dinamik paketleme ile dinamik şifrelemeden yararlanmak için içerik akışı yapmak istediğiniz akış uç noktasının **Çalışıyor** durumda olması gerekir. 
 
 >[!NOTE]
->Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Merhaba kullanması gereken her zaman kullanıyorsanız, aynı ilke kimliği hello aynı gün / erişim izinlerini, örneğin, uzun bir süre (karşıya yükleme olmayan ilkeleri) yerinde hedeflenen tooremain olan bulucular ilkeleri. Daha fazla bilgi için [bu](media-services-dotnet-manage-entities.md#limit-access-policies) konu başlığına bakın.
+>Farklı AMS ilkeleri için sınır 1.000.000 ilkedir (örneğin, Bulucu ilkesi veya ContentKeyAuthorizationPolicy için). Uzun süre boyunca kullanılmak için oluşturulan bulucu ilkeleri gibi aynı günleri / erişim izinlerini sürekli olarak kullanıyorsanız, aynı ilke kimliğini kullanmalısınız (karşıya yükleme olmayan ilkeler için). Daha fazla bilgi için [bu](media-services-dotnet-manage-entities.md#limit-access-policies) konu başlığına bakın.
 
-Merhaba aşağıdaki kod nasıl toocreate bir varlığı bir medya dosyası toohello varlığı karşıya yükle, bir iş bir görev tootransform hello varlıkla çalıştırın ve bir Bulucu toostream videonuzu oluşturun gösterir.
+Aşağıdaki kod bir varlık oluşturma, varlığa bir medya dosyası yükleme, varlığı dönüştürecek bir göreve sahip olan bir işi çalıştırma ve videonuzu akışla aktarmak için bir bulucu oluşturma işlemlerinin nasıl gerçekleştirileceğini gösterir.
 
-Bu kodu kullanmadan önce tooset Media Services hesabı gerekir. Bir hesap ayarlama hakkında daha fazla bilgi için bkz: [nasıl tooCreate Media Services hesabı](media-services-portal-create-account.md).
+Bu kodu kullanmadan önce bir Media Services hesabı ayarlamanız gerekir. Hesap ayarlama hakkında daha fazla bilgi için bkz. [Media Services Hesabı Oluşturma](media-services-portal-create-account.md).
 
-Merhaba 'ClientID' ve 'clientSecret' değişkenleri kendi değerlerinizi yerleştirin. Hello kod ayrıca yerel olarak saklanan bir dosyaya da dayanır. Kendi dosya toouse tooprovide gerekir.
+'clientId' ve 'clientSecret' değişkenlerini kendi değerlerinizle değiştirin. Kod ayrıca, yerel olarak saklanan bir dosyaya da dayanır. Kullanılmak üzere kendi dosyanızı sağlamanız gerekir.
 
     import java.io.*;
     import java.security.NoSuchAlgorithmException;
@@ -93,22 +93,22 @@ Merhaba 'ClientID' ve 'clientSecret' değişkenleri kendi değerlerinizi yerleş
         {
 
             try {
-                // Set up hello MediaContract object toocall into hello Media Services account
+                // Set up the MediaContract object to call into the Media Services account
                 Configuration configuration = MediaConfiguration.configureWithOAuthAuthentication(
                 mediaServiceUri, oAuthUri, clientId, clientSecret, scope);
                 mediaService = MediaService.create(configuration);
 
 
-                // Upload a local file tooan Asset
+                // Upload a local file to an Asset
                 AssetInfo uploadAsset = uploadFileAndCreateAsset("BigBuckBunny.mp4");
                 System.out.println("Uploaded Asset Id: " + uploadAsset.getId());
 
 
-                // Transform hello Asset
+                // Transform the Asset
                 AssetInfo encodedAsset = encode(uploadAsset);
                 System.out.println("Encoded Asset Id: " + encodedAsset.getId());
 
-                // Create hello Streaming Origin Locator
+                // Create the Streaming Origin Locator
                 String url = getStreamingOriginLocator(encodedAsset);
 
                 System.out.println("Origin Locator URL: " + url);
@@ -140,24 +140,24 @@ Merhaba 'ClientID' ve 'clientSecret' değişkenleri kendi değerlerinizi yerleş
             uploadAccessPolicy = mediaService
                 .create(AccessPolicy.create("uploadAccessPolicy", 15.0, EnumSet.of(AccessPolicyPermission.WRITE)));
 
-            // Create a Locator using hello AccessPolicy and Asset
+            // Create a Locator using the AccessPolicy and Asset
             uploadLocator = mediaService
                 .create(Locator.create(uploadAccessPolicy.getId(), resultAsset.getId(), LocatorType.SAS));
 
-            // Create hello Blob Writer using hello Locator
+            // Create the Blob Writer using the Locator
             uploader = mediaService.createBlobWriter(uploadLocator);
 
             File file = new File("BigBuckBunny.mp4"); 
 
-            // hello local file that will be uploaded tooyour Media Services account
+            // The local file that will be uploaded to your Media Services account
             InputStream input = new FileInputStream(file);
 
             System.out.println("Uploading " + fileName);
 
-            // Upload hello local file toohello asset
+            // Upload the local file to the asset
             uploader.createBlockBlob(fileName, input);
 
-            // Inform Media Services about hello uploaded files
+            // Inform Media Services about the uploaded files
             mediaService.action(AssetFile.createFileInfos(resultAsset.getId()));
             System.out.println("Uploaded Asset File " + fileName);
 
@@ -167,15 +167,15 @@ Merhaba 'ClientID' ve 'clientSecret' değişkenleri kendi değerlerinizi yerleş
             return resultAsset;
         }
 
-        // Create a Job that contains a Task tootransform hello Asset
+        // Create a Job that contains a Task to transform the Asset
         private static AssetInfo encode(AssetInfo assetToEncode)
             throws ServiceException, InterruptedException {
 
-            // Retrieve hello list of Media Processors that match hello name
+            // Retrieve the list of Media Processors that match the name
             ListResult<MediaProcessorInfo> mediaProcessors = mediaService
                             .list(MediaProcessor.list().set("$filter", String.format("Name eq '%s'", preferedEncoder)));
 
-            // Use hello latest version of hello Media Processor
+            // Use the latest version of the Media Processor
             MediaProcessorInfo mediaProcessor = null;
             for (MediaProcessorInfo info : mediaProcessors) {
                 if (null == mediaProcessor || info.getVersion().compareTo(mediaProcessor.getVersion()) > 0) {
@@ -185,7 +185,7 @@ Merhaba 'ClientID' ve 'clientSecret' değişkenleri kendi değerlerinizi yerleş
 
             System.out.println("Using Media Processor: " + mediaProcessor.getName() + " " + mediaProcessor.getVersion());
 
-            // Create a task with hello specified Media Processor
+            // Create a task with the specified Media Processor
             String outputAssetName = String.format("%s as %s", assetToEncode.getName(), encodingPreset);
             String taskXml = "<taskBody><inputAsset>JobInputAsset(0)</inputAsset>"
                     + "<outputAsset assetCreationOptions=\"0\"" // AssetCreationOptions.None
@@ -194,27 +194,27 @@ Merhaba 'ClientID' ve 'clientSecret' değişkenleri kendi değerlerinizi yerleş
             Task.CreateBatchOperation task = Task.create(mediaProcessor.getId(), taskXml)
                     .setConfiguration(encodingPreset).setName("Encoding");
 
-            // Create hello Job; this automatically schedules and runs it.
+            // Create the Job; this automatically schedules and runs it.
             Job.Creator jobCreator = Job.create()
-                    .setName(String.format("Encoding %s too%s", assetToEncode.getName(), encodingPreset))
+                    .setName(String.format("Encoding %s to %s", assetToEncode.getName(), encodingPreset))
                     .addInputMediaAsset(assetToEncode.getId()).setPriority(2).addTaskCreator(task);
             JobInfo job = mediaService.create(jobCreator);
 
             String jobId = job.getId();
             System.out.println("Created Job with Id: " + jobId);
 
-            // Check toosee if hello Job has completed
+            // Check to see if the Job has completed
             checkJobStatus(jobId);
-            // Done with hello Job
+            // Done with the Job
 
-            // Retrieve hello output Asset
+            // Retrieve the output Asset
             ListResult<AssetInfo> outputAssets = mediaService.list(Asset.list(job.getOutputAssetsLink()));
             return outputAssets.get(0);
         }
 
 
         public static String getStreamingOriginLocator(AssetInfo asset) throws ServiceException {
-            // Get hello .ISM AssetFile
+            // Get the .ISM AssetFile
             ListResult<AssetFileInfo> assetFiles = mediaService.list(AssetFile.list(asset.getAssetFilesLink()));
             AssetFileInfo streamingAssetFile = null;
             for (AssetFileInfo file : assetFiles) {
@@ -232,7 +232,7 @@ Merhaba 'ClientID' ve 'clientSecret' değişkenleri kendi değerlerinizi yerleş
             originAccessPolicy = mediaService.create(
                     AccessPolicy.create("Streaming policy", durationInMinutes, EnumSet.of(AccessPolicyPermission.READ)));
 
-            // Create a Locator using hello AccessPolicy and Asset
+            // Create a Locator using the AccessPolicy and Asset
             originLocator = mediaService
                     .create(Locator.create(originAccessPolicy.getId(), asset.getId(), LocatorType.OnDemandOrigin));
 
@@ -247,7 +247,7 @@ Merhaba 'ClientID' ve 'clientSecret' değişkenleri kendi değerlerinizi yerleş
                 // Sleep for 5 seconds
                 Thread.sleep(5000);
 
-                // Query hello updated Job state
+                // Query the updated Job state
                 jobState = mediaService.get(Job.get(jobId)).getState();
                 System.out.println("Job state: " + jobState);
 

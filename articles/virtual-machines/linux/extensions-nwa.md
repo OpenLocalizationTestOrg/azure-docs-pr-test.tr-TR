@@ -1,6 +1,6 @@
 ---
-title: "Linux için Ağ İzleyicisi Aracısı sanal makine uzantısı aaaAzure | Microsoft Docs"
-description: "Bir sanal makine uzantısını kullanarak Linux sanal makine üzerinde Ağ İzleyicisi Aracısı Hello dağıtın."
+title: "Linux için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı | Microsoft Docs"
+description: "Ağ İzleyicisi Aracısı'nı bir sanal makine uzantısını kullanarak Linux sanal makine dağıtın."
 services: virtual-machines-linux
 documentationcenter: 
 author: dennisg
@@ -15,25 +15,25 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 84bed132cbda83d0917be490f9a50914578952a1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: eaadd531b9e05a54446e61f98584ae9d75470a5f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Linux için Ağ İzleyicisi Aracısı sanal makine uzantısı
 
 ## <a name="overview"></a>Genel Bakış
 
-[Azure Ağ İzleyicisi](https://review.docs.microsoft.com/en-us/azure/network-watcher/) Azure ağları için izleme sağlayan bir ağ performans izleme, tanılama ve analiz hizmetidir. Ağ İzleyicisi Aracısı sanal makine uzantısı Hello Azure sanal makinelerde hello Ağ İzleyicisi özelliklerinden bazıları için gerekli değildir. Bu, isteğe bağlı ve diğer gelişmiş işlevler üzerindeki ağ trafiğini yakalama içerir.
+[Azure Ağ İzleyicisi](https://review.docs.microsoft.com/en-us/azure/network-watcher/) Azure ağları için izleme sağlayan bir ağ performans izleme, tanılama ve analiz hizmetidir. Ağ İzleyicisi Aracısı sanal makine uzantısı, Azure sanal makinelerde Ağ İzleyicisi özelliklerinden bazıları için bir gereksinimdir. Bu, isteğe bağlı ve diğer gelişmiş işlevler üzerindeki ağ trafiğini yakalama içerir.
 
-Bu belge ayrıntıları hello platformları ve dağıtım seçenekleri Linux için Ağ İzleyicisi Aracısı sanal makine uzantısı hello için desteklenmiyor.
+Bu belge desteklenen platformlar ve Linux için Ağ İzleyicisi Aracısı sanal makine uzantısı için dağıtım seçeneklerini ayrıntıları.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 ### <a name="operating-system"></a>İşletim sistemi
 
-Ağ İzleyicisi Aracısı uzantısı Hello bu Linux dağıtımları karşı çalıştırabilirsiniz:
+Ağ İzleyicisi Aracısı uzantısı bu Linux dağıtımları karşı çalıştırabilirsiniz:
 
 | Dağıtım | Sürüm |
 |---|---|
@@ -49,11 +49,11 @@ CoreOS şu anda desteklenmediğini unutmayın.
 
 ### <a name="internet-connectivity"></a>İnternet bağlantısı
 
-Merhaba Ağ İzleyicisi Aracısı işlevleri bazıları hello hedef sanal makinenin bağlı toohello Internet olması gerekir. Merhaba özelliği tooestablish giden bağlantılar hello Ağ İzleyicisi Aracısı özelliklerden bazıları düzgün çalışmamasına veya kullanılamaz hale. Daha fazla ayrıntı için lütfen bkz hello [Ağ İzleyicisi belgeleri](https://review.docs.microsoft.com/en-us/azure/network-watcher/).
+Bazı Ağ İzleyicisi Aracısı işlevlerini hedef sanal makine Internet'e bağlı olması gerekir. Giden bağlantıları kurmak için özelliği olmadan Ağ İzleyicisi Aracısı özelliklerden bazıları arıza veya kullanılamıyor. Daha fazla ayrıntı için lütfen bkz. [Ağ İzleyicisi belgeleri](https://review.docs.microsoft.com/en-us/azure/network-watcher/).
 
 ## <a name="extension-schema"></a>Uzantı Şeması
 
-Merhaba aşağıdaki JSON hello Ağ İzleyicisi Aracısı uzantısı için hello şema gösterir. Merhaba uzantısı ne gerektirir ya da şu anda herhangi bir kullanıcı tarafından sağlanan ayarını destekler ve kendi varsayılan yapılandırmasına dayanır.
+Aşağıdaki JSON şeması Ağ İzleyicisi Aracısı uzantısı gösterir. Uzantı ne gerektirir ya da şu anda herhangi bir kullanıcı tarafından sağlanan ayarını destekler ve kendi varsayılan yapılandırmasına dayanır.
 
 ```json
 {
@@ -84,11 +84,11 @@ Merhaba aşağıdaki JSON hello Ağ İzleyicisi Aracısı uzantısı için hello
 
 ## <a name="template-deployment"></a>Şablon dağıtımı
 
-Azure VM uzantıları, Azure Resource Manager şablonları ile dağıtılabilir. Merhaba JSON şeması Hello önceki bölümde ayrıntılı bir Azure Resource Manager şablon dağıtımı sırasında bir Azure Resource Manager şablonu toorun hello Ağ İzleyicisi Aracısı uzantısı kullanılabilir.
+Azure VM uzantıları, Azure Resource Manager şablonları ile dağıtılabilir. Önceki bölümde ayrıntılı JSON şeması bir Azure Resource Manager şablonunda bir Azure Resource Manager şablon dağıtımı sırasında Ağ İzleyicisi Aracısı uzantısı çalıştırmak için kullanılabilir.
 
 ## <a name="azure-cli-deployment"></a>Azure CLI dağıtım
 
-Hello Azure CLI kullanılan toodeploy hello Ağ İzleyicisi Aracısı VM uzantısı tooan varolan sanal makine olabilir.
+Azure CLI Ağ İzleyicisi Aracısı VM uzantısı olan bir sanal makineyi dağıtmak için kullanılabilir.
 
 ```azurecli
 azure vm extension set myResourceGroup1 myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
@@ -98,13 +98,13 @@ azure vm extension set myResourceGroup1 myVM1 NetworkWatcherAgentLinux Microsoft
 
 ### <a name="troubleshooting"></a>Sorun giderme
 
-Veri uzantısı dağıtımları hello durumuyla ilgili hello Azure portal ve hello Azure CLI kullanarak alınabilir. toosee hello dağıtım durumu uzantılarının komutunu kullanarak aşağıdaki hello çalıştırmak, belirli bir VM için Azure CLI hello.
+Veri uzantısı dağıtımları durumuyla ilgili Azure portalından ve Azure CLI kullanarak alınabilir. İçin belirli bir VM uzantıları dağıtım durumunu görmek için Azure CLI kullanarak şu komutu çalıştırın.
 
 ```azurecli
 azure vm extension get myResourceGroup1 myVM1
 ```
 
-Uzantı yürütme hello bulunan oturum toofiles directory aşağıdaki çıktı:
+Uzantı yürütme çıktısı aşağıdaki dizinde bulunan dosyalara kaydedilir:
 
 `
 /var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
@@ -112,4 +112,4 @@ Uzantı yürütme hello bulunan oturum toofiles directory aşağıdaki çıktı:
 
 ### <a name="support"></a>Destek
 
-Bu makalede herhangi bir noktada daha fazla yardıma gereksinim duyarsanız, toohello Ağ İzleyicisi belgelere bakın veya hello Azure başvurun hello uzmanlarıyla [MSDN Azure ve yığın taşması forumları](https://azure.microsoft.com/en-us/support/forums/). Alternatif olarak, Azure destek olay dosya. Toohello Git [Azure Destek sitesi](https://azure.microsoft.com/en-us/support/options/) ve Get destek seçin. Hello Azure destek kullanma hakkında daha fazla bilgi için okuma [Microsoft Azure desteği ile ilgili SSS](https://azure.microsoft.com/en-us/support/faq/).
+Bu makalede herhangi bir noktada daha fazla yardıma gereksinim duyarsanız, Ağ İzleyicisi belgelere bakın veya üzerinde Azure uzmanlar başvurun [MSDN Azure ve yığın taşması forumları](https://azure.microsoft.com/en-us/support/forums/). Alternatif olarak, Azure destek olay dosya. Git [Azure Destek sitesi](https://azure.microsoft.com/en-us/support/options/) ve Get destek seçin. Azure desteği hakkında daha fazla bilgi için okuma [Microsoft Azure desteği ile ilgili SSS](https://azure.microsoft.com/en-us/support/faq/).

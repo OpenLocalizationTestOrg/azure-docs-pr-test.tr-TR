@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB için aaaServer tarafı JavaScript programlama | Microsoft Docs"
-description: "Nasıl toouse Azure Cosmos DB toowrite JavaScript yordamları, veritabanı tetikleyiciler ve kullanıcı tanımlı işlevler (UDF'ler) depolanan bilgi edinin. Veritabanı programing ipuçları ve daha fazla bilgi edinin."
+title: "Sunucu tarafı JavaScript programlama Azure Cosmos DB için | Microsoft Docs"
+description: "Saklı yordamlar, veritabanı tetikleyiciler ve kullanıcı tanımlı işlevler (UDF'ler) JavaScript'te yazmak için Azure Cosmos DB kullanmayı öğrenin. Veritabanı programing ipuçları ve daha fazla bilgi edinin."
 keywords: "Veritabanı tetikleyici, saklı yordam, saklı yordamı, veritabanı programı, sproc, documentdb, azure, Microsoft azure"
 services: cosmos-db
 documentationcenter: 
@@ -15,47 +15,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: andrl
-ms.openlocfilehash: 5a011d1c4b0b5908d5de73607a1bc328ed1711d0
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8cddc7a8c9aa677b9c93bee3a7e05c226cc1f655
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB sunucu tarafı programlama: saklı yordamlar, veritabanı tetikleyiciler ve UDF'lerin
-Azure Cosmos veritabanı dil nasıl tümleşik öğrenin, JavaScript işlem tabanlı olarak yürütülmesini sağlar yazma geliştiriciler **saklı yordamlar**, **Tetikleyicileri** ve **kullanıcı tanımlı işlevler (UDF'ler)** yerel olarak bir [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. Bu, gönderilen ve doğrudan hello veritabanı depolama bölümleri üzerinde yürütülen toowrite veritabanı program uygulama mantığı sağlar. 
+Azure Cosmos veritabanı dil nasıl tümleşik öğrenin, JavaScript işlem tabanlı olarak yürütülmesini sağlar yazma geliştiriciler **saklı yordamlar**, **Tetikleyicileri** ve **kullanıcı tanımlı işlevler (UDF'ler)** yerel olarak bir [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) JavaScript. Bu, gönderilen ve veritabanı depolama bölümlere doğrudan üzerinde yürütülen veritabanı program uygulama mantığı yazmak sağlar. 
 
-Alma burada Barış Liu kısa giriş tooCosmos DB'ın sunucu tarafı veritabanı programlama modeli sağlar aşağıdaki izledikleri hello tarafından video, başlatılan öneririz. 
+Burada Barış Liu Cosmos DB'ın sunucu tarafı veritabanı programlama modeli kısa bir giriş sağlar aşağıdaki videoyu izleyerek çalışmaya başlamanızı öneririz. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Demo-A-Quick-Intro-to-Azure-DocumentDBs-Server-Side-Javascript/player]
 > 
 > 
 
-Ardından, toothis makale, aşağıdaki soruları hello yanıtlar toohello burada öğreneceksiniz döndürün:  
+Ardından, bu makalede, aşağıdaki soruların yanıtlarını burada öğreneceksiniz döndürün:  
 
 * Ne ı yazma bir saklı yordam, tetikleyici veya JavaScript kullanarak UDF?
 * Cosmos DB ACID nasıl garanti?
 * İşlemler Cosmos DB'de nasıl çalışır?
 * Önceden tetikler ve sonrası tetikler nedir ve nasıl t bir yazma?
 * Nasıl kaydetmek ve HTTP kullanarak bir RESTful şekilde bir saklı yordam, tetikleyici veya UDF yürütme?
-* Ne Cosmos DB SDK'ları kullanılabilir toocreate olan ve yürütme yordamlar, tetikleyiciler ve UDF'lerin depolanan?
+* Depolanmış yordamlar, tetikleyiciler ve UDF'lerin ne Cosmos DB SDK'ları oluşturmak ve çalıştırmak kullanılabilir olan?
 
-## <a name="introduction-toostored-procedure-and-udf-programming"></a>Giriş tooStored yordamı ve UDF programlama
-Bu yaklaşım *"JavaScript T-SQL modern gün olarak"* tür sistem uyuşmazlıkları ve nesne ilişkisel eşleme teknolojileri hello karmaşıklığını uygulama geliştiricilerden boşaltır. Ayrıca, birkaç kullanılan toobuild zengin uygulamalar olabilir iç avantajları vardır:  
+## <a name="introduction-to-stored-procedure-and-udf-programming"></a>Saklı yordam ve UDF programlamaya giriş
+Bu yaklaşım *"JavaScript T-SQL modern gün olarak"* tür sistem uyuşmazlıkları ve nesne ilişkisel eşleme teknolojileri karmaşıklığını uygulama geliştiricilerden boşaltır. Ayrıca, bir dizi zengin uygulamaları oluşturmak için kullanılan iç avantajları vardır:  
 
-* **Yordam mantığı:** üst düzey bir programlama dili olarak JavaScript zengin ve tanıdık arabirimi tooexpress iş mantığı sağlar. Karmaşık işlemleri daha yakından toohello veri dizisini gerçekleştirebilirsiniz.
+* **Yordam mantığı:** JavaScript üst düzey bir programlama dili olarak iş mantığı ifade etmek için zengin ve tanıdık bir arabirim sağlar. Karmaşık sıraları yakın veri işlemleri gerçekleştirebilir.
 * **Atomik işlemleri:** tek bir saklı yordam veya tetikleyici içinde gerçekleştirilen işlemler veritabanı Cosmos DB garanti atomik. Bu, tek bir toplu ilgili işlemlerinde bunların tümünün başarılı ya da bunların hiçbiri başarılı birleştirmek bir uygulama sağlar. 
-* **Performans:** JSON doğası gereği eşlenen toohello Javascript dil tür sistemi ve ayrıca hello temel Cosmos DB depolama biriminin verir iyileştirmeler JSON, yavaş materialization gibi birtakım olduğunu hello olgu hello arabellekte belgeleri Havuz ve kod yürütmek kullanılabilir İsteğe bağlı toohello yapma. Sevkiyat iş mantığı toohello veritabanı ile ilgili daha fazla performans avantajı vardır:
+* **Performans:** iyileştirmeler arabellek havuzunda JSON belgelerinin yavaş materialization gibi bir dizi JSON Javascript dil türü sisteme doğası gereği eşlenen ve ayrıca temel depolama Cosmos DB'de birimidir olgu sağlar ve bunları, yürütülen kod kullanılabilir İsteğe bağlı hale getirme. Veritabanı dağıtımı iş mantığı ile ilgili daha fazla performans avantajı vardır:
   
-  * Toplu işleme – Geliştiriciler grubu ekleme gibi işlemleri ve toplu olarak gönderin. Merhaba ağ trafiği gecikmesi maliyet ve hello deposu genel gider toocreate ayrı işlemleri önemli ölçüde azalır. 
-  * Ön derleme – Cosmos DB saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler (UDF'ler) tooavoid her çağırma için JavaScript derleme maliyeti işlemini gerçekleştirir. Merhaba hello yordam mantığı için hello bayt kod oluşturma yükünü tooa en az değer amortized.
-  * Sıralama – birçok işlemleri gerek yan içeren büyük olasılıkla bir veya daha fazla ikincil depolama işlemleri yapılması etki ("tetikleyicisi"). Daha fazla kullanıcı budur kararlılık yanı sıra zaman toohello server'ı taşındı. 
-* **Kapsülleme:** saklı yordamlar, tek bir yerde kullanılan toogroup iş mantığı olabilir. Bu iki avantajları vardır:
-  * Veri mimarları tooevolve uygulamalarını hello veri öğesinden bağımsız olarak etkinleştirir hello ham verileri en üstünde bir soyutlama katmanı ekler. Merhaba veri toodeal verilerle doğrudan varsa, hello uygulamasına baked toobe gerekebilir toohello kırılır varsayımlar şema küçüktür, bu özellikle yararlı olur.  
-  * Bu soyutlama kuruluşların hello komut dosyalarından hello erişimi hızlandırma tarafından verilerine güvenli kalmasına izin verir.  
+  * Toplu işleme – Geliştiriciler grubu ekleme gibi işlemleri ve toplu olarak gönderin. Maliyet ağ trafiği gecikme süresi ve ayrı hareketleri oluşturmak için depolama yükünü önemli ölçüde azalır. 
+  * Ön derleme – Cosmos DB saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler (UDF'ler JavaScript derleme maliyet her çağırma için önlemek için) işlemini gerçekleştirir. Yordam mantığı bayt kod oluşturmanın ek yükü için en az bir değer amortized.
+  * Sıralama – birçok işlemleri gerek yan içeren büyük olasılıkla bir veya daha fazla ikincil depolama işlemleri yapılması etki ("tetikleyicisi"). Kararlılık yanı sıra, bu sunucuya taşındıklarında daha fazla kullanıcı olur. 
+* **Kapsülleme:** saklı yordamlar, tek bir yerde iş mantığı gruplandırmak için kullanılabilir. Bu iki avantajları vardır:
+  * Uygulamalarını bağımsız olarak verilerden gelişmesi veri mimarları etkinleştirir ham verileri en üstünde bir soyutlama katmanı ekler. Veri şeması az verilerle doğrudan dağıtılacak varsa uygulamasına baked gerekebilir kırılır varsayımlar nedeniyle, bu özellikle yararlı olur.  
+  * Bu soyutlama kuruluşların betikleri erişimden hızlandırma tarafından verilerine güvenli kalmasına izin verir.  
 
-Merhaba oluşturma ve yürütme veritabanı tetikleyici, saklı yordam ve özel sorgu işleçleri desteklenir hello [REST API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), ve [istemci SDK'ları](documentdb-sdk-dotnet.md) .NET, Node.js ve JavaScript gibi birçok platformda.
+Oluşturma ve yürütme veritabanı tetikleyici, saklı yordam ve özel sorgu işleçleri aracılığıyla desteklenir [REST API](/rest/api/documentdb/), [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases), ve [istemci SDK'ları](documentdb-sdk-dotnet.md).NET, Node.js ve JavaScript gibi birçok platformda.
 
-Bu öğretici hello kullanır [Node.js SDK'sı ile Q öneriler](http://azure.github.io/azure-documentdb-node-q/) tooillustrate sözdizimi ve saklı yordamlar, tetikleyiciler ve UDF'lerin kullanımı.   
+Bu öğretici kullanır [Node.js SDK'sı ile Q öneriler](http://azure.github.io/azure-documentdb-node-q/) sözdizimi ve saklı yordamlar, tetikleyiciler ve UDF'lerin kullanımını göstermek için.   
 
 ## <a name="stored-procedures"></a>Saklı yordamlar
 ### <a name="example-write-a-simple-stored-procedure"></a>Örnek: basit bir saklı yordam yazma
@@ -72,9 +72,9 @@ Bu öğretici hello kullanır [Node.js SDK'sı ile Q öneriler](http://azure.git
     }
 
 
-Saklı yordamlar koleksiyonu başına kaydedilir ve herhangi bir belge ve ek koleksiyonda mevcut üzerinde çalışabilir. Merhaba aşağıdaki kod parçacığında nasıl tooregister hello helloWorld saklı yordamı koleksiyonu ile gösterilir. 
+Saklı yordamlar koleksiyonu başına kaydedilir ve herhangi bir belge ve ek koleksiyonda mevcut üzerinde çalışabilir. Aşağıdaki kod parçacığını bir koleksiyonla helloWorld saklı yordamın nasıl gösterir. 
 
-    // register hello stored procedure
+    // register the stored procedure
     var createdStoredProcedure;
     client.createStoredProcedureAsync('dbs/testdb/colls/testColl', helloWorldStoredProc)
         .then(function (response) {
@@ -85,9 +85,9 @@ Saklı yordamlar koleksiyonu başına kaydedilir ve herhangi bir belge ve ek kol
         });
 
 
-Hello saklı yordamı kaydedildiğinde, biz hello koleksiyonu karşı yürütün ve hello sonuçları hello istemcide geri okuyun. 
+Saklı yordam kaydedildiğinde, biz karşı koleksiyonu yürütün ve sonuçları istemcide geri okuyun. 
 
-    // execute hello stored procedure
+    // execute the stored procedure
     client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld')
         .then(function (response) {
             console.log(response.result); // "Hello, World"
@@ -96,12 +96,12 @@ Hello saklı yordamı kaydedildiğinde, biz hello koleksiyonu karşı yürütün
         });
 
 
-Merhaba bağlam nesnesi toohello istek ve yanıt nesnelere erişmek yanı sıra Cosmos DB depolama alanında gerçekleştirilebilir tooall işlemleri erişim sağlar. Bu durumda, hello yanıt nesnesi tooset hello geri toohello istemci gönderilen hello yanıtın gövdesini kullandık. Daha fazla ayrıntı için toohello başvurun [Azure Cosmos DB JavaScript server SDK Belgeleri](http://azure.github.io/azure-documentdb-js-server/).  
+Context nesnesi Cosmos DB depolama üzerinde gerçekleştirilen tüm işlemlerin erişimin yanı sıra, istek ve yanıt nesnelere erişim sağlar. Bu durumda, biz istemciye gönderilen yanıtın gövdesini ayarlamak için yanıt nesnesi kullanılır. Daha fazla ayrıntı için başvurmak [Azure Cosmos DB JavaScript server SDK Belgeleri](http://azure.github.io/azure-documentdb-js-server/).  
 
-Bize göre bu örnekte genişletin ve daha fazla veritabanı ilgili işlevsellik eklemek toohello saklı yordamı. Saklı yordamlar oluşturabilir, güncelleştirme, okuma, sorgu ve belgeler ve ekleri hello koleksiyonu içinde silebilirsiniz.    
+Bize göre bu örnekte genişletin ve daha fazla saklı yordama ilgili işlevselliği veritabanı ekleyin. Saklı yordamlar oluşturmak, güncelleştirmek, okuyabilir, sorgu ve belgeler ve koleksiyon içindeki ekleri silin.    
 
-### <a name="example-write-a-stored-procedure-toocreate-a-document"></a>Örnek: bir saklı yordam toocreate bir belge yazma
-Merhaba sonraki parçacığı nasıl toouse hello bağlam nesnesi toointeract Cosmos DB kaynaklarla gösterir.
+### <a name="example-write-a-stored-procedure-to-create-a-document"></a>Örnek: bir belge oluşturmak için bir saklı yordam yazma
+Sonraki kod parçacığını context nesnesi Cosmos DB kaynakları ile etkileşim kurmak için nasıl kullanılacağını gösterir.
 
     var createDocumentStoredProc = {
         id: "createMyDocument",
@@ -120,19 +120,19 @@ Merhaba sonraki parçacığı nasıl toouse hello bağlam nesnesi toointeract Co
     }
 
 
-Bu saklı yordam giriş documentToCreate, hello geçerli Koleksiyonda oluşturulmuş bir belge toobe hello gövdesini alır. Tüm işlemleri zaman uyumsuzdur ve JavaScript işlevi geri aramalar üzerinde bağlıdır. Merhaba geri çağırma işlevi hello hata nesnesi için iki parametre hello işlemi başarısız olur ve nesne hello için oluşturulan olasılığına sahiptir. Merhaba geri çağırma içinde kullanıcılar hello özel durumu işlemek ya da bir hata durum. Bir geri çağırma değil sağlanır ve bir hata durumunda, hello Azure Cosmos DB çalışma zamanı bir hata oluşturur.   
+Bu saklı yordam giriş documentToCreate, geçerli koleksiyonunda oluşturulmasına belgeye gövdesini alır. Tüm işlemleri zaman uyumsuzdur ve JavaScript işlevi geri aramalar üzerinde bağlıdır. Geri çağırma işlevi iki parametre, işlem başarısız durumda hata nesnesi için diğeri için oluşturulan nesnesi vardır. Geri çağırma içinde kullanıcıların özel durumu işlemek ya da bir hata durum. Bir geri çağırma değil sağlanır ve bir hata durumunda, Azure Cosmos DB çalışma zamanı bir hata oluşturur.   
 
-Merhaba işlemi başarısız olursa hello yukarıdaki örnekte, bir hata hello geri çağırma oluşturur. Aksi takdirde, belge hello yanıt toohello istemci hello gövdesi olarak oluşturulan hello hello kimliğini ayarlar. İşte bu saklı yordam giriş parametreleriyle nasıl yürütülür.
+İşlem başarısız olursa yukarıdaki örnekte, bir hata geri çağırma oluşturur. Aksi durumda, istemci yanıt gövdesi olarak oluşturulan belge kimliğini ayarlar. İşte bu saklı yordam giriş parametreleriyle nasıl yürütülür.
 
-    // register hello stored procedure
+    // register the stored procedure
     client.createStoredProcedureAsync('dbs/testdb/colls/testColl', createDocumentStoredProc)
         .then(function (response) {
             var createdStoredProcedure = response.resource;
 
-            // run stored procedure toocreate a document
+            // run stored procedure to create a document
             var docToCreate = {
                 id: "DocFromSproc",
-                book: "hello Hitchhiker’s Guide toohello Galaxy",
+                book: "The Hitchhiker’s Guide to the Galaxy",
                 author: "Douglas Adams"
             };
 
@@ -148,16 +148,16 @@ Merhaba işlemi başarısız olursa hello yukarıdaki örnekte, bir hata hello g
     });
 
 
-Bu saklı yordamı Not değiştirilmiş tootake belge gövdeleri bir dizi girişi olarak kullanılabilir ve tüm aynı depolanan hello oluşturma yordamı yürütme birden çok ağ yerine toocreate her biri ayrı ayrı ister. Bu, kullanılan tooimplement Cosmos DB (Bu öğreticinin ilerleyen bölümlerinde açıklanmıştır) için bir verimli toplu alıcısı olabilir.   
+Bu saklı yordam belge gövdeleri bir dizi girişi olarak almak ve bunları tüm aynı saklı yordam yürütme bunların her birini ayrı ayrı oluşturmak için birden çok ağ isteklerini yerine oluşturmak için değiştirilebilir unutmayın. Cosmos DB (Bu öğreticinin ilerleyen bölümlerinde açıklanmıştır) için verimli toplu içeri Aktarıcı uygulamak için kullanılabilir.   
 
-nasıl toouse saklı yordamları açıklanan Merhaba örneği gösterilmektedir. Daha sonra hello öğreticide biz tetikleyiciler ve kullanıcı tanımlı işlevler (UDF'ler) ele alınacaktır.
+Açıklanan örnek saklı yordamları kullanma gösterilmektedir. Daha sonra öğreticide biz tetikleyiciler ve kullanıcı tanımlı işlevler (UDF'ler) ele alınacaktır.
 
 ## <a name="database-program-transactions"></a>Veritabanı program işlemleri
 Tipik bir veritabanında işlem tek bir mantıksal birim iş olarak gerçekleştirilen işlemler dizisi olarak tanımlanabilir. Her işlem sağlar **ACID garanti**. ACID dört özellikleri - kararlılık, tutarlılık, yalıtım ve dayanıklılık anlamına gelir iyi bilinen bir kısaltma ' dir.  
 
-Kısaca, bir işlem içinde yapılan tüm hello iş tek bir birim olarak davranılır kararlılık garanti burada ya da tamamını kaydedilmiş veya yok. Tutarlılık hello veri işlemleri arasında her zaman iyi bir iç durumda olduğundan emin olur. Yalıtım iki işlem birbiriyle – genellikle etkilemesine, çoğu ticari sistemleri kullanılabilir birden çok yalıtım düzeyi hello uygulama gereksinimlerine göre sağlayın güvence altına alır. Dayanıklılık hello veritabanında kaydedilen herhangi bir değişiklik her zaman mevcut olmasını sağlar.   
+Kısaca, bir işlem içinde tüm çalışmanın tek bir birim olarak davranılır kararlılık garanti burada ya da tamamını kaydedilmiş veya yok. Tutarlılık verilerin işlemleri arasında her zaman iyi bir iç durumda olduğundan emin olur. Yalıtım iki işlem birbiriyle – genellikle etkilemesine, çoğu ticari sistemleri kullanılabilir birden çok yalıtım düzeyi uygulama gereksinimlerine göre sağlayın güvence altına alır. Dayanıklılık veritabanında kaydedilen herhangi bir değişiklik her zaman mevcut olmasını sağlar.   
 
-Cosmos DB'de JavaScript hello barındırılan hello veritabanı olarak aynı bellek alanı. Bu nedenle, saklı yordamları ve Tetikleyicileri içinde yapılan istekleri hello aynı yürütme veritabanı oturumun kapsamı. Bu, tek bir saklı yordam/tetikleyici parçası olan tüm işlemleri için Cosmos DB tooguarantee ACID sağlar. Merhaba aşağıdakileri göz önünde bulundurun saklı yordamı tanımı:
+Cosmos DB'de JavaScript veritabanıyla aynı bellek alanı barındırılır. Bu nedenle, yapılan istekleri içinde saklı yordamları ve Tetikleyicileri veritabanı oturumu aynı kapsamda yürütün. Bu, tek bir saklı yordam/tetikleyici parçası olan tüm işlemler için ACID güvence altına almak Cosmos DB sağlar. Aşağıdaki saklı yordamı tanımı göz önünde bulundurun:
 
     // JavaScript source code
     var exchangeItemsSproc = {
@@ -175,24 +175,24 @@ Cosmos DB'de JavaScript hello barındırılan hello veritabanı olarak aynı bel
                 function (err, documents, responseOptions) {
                     if (err) throw new Error("Error" + err.message);
 
-                    if (documents.length != 1) throw "Unable toofind both names";
+                    if (documents.length != 1) throw "Unable to find both names";
                     player1Document = documents[0];
 
                     var filterQuery2 = 'SELECT * FROM Players p where p.id = "' + playerId2 + '"';
                     var accept2 = collection.queryDocuments(collection.getSelfLink(), filterQuery2, {},
                         function (err2, documents2, responseOptions2) {
                             if (err2) throw new Error("Error" + err2.message);
-                            if (documents2.length != 1) throw "Unable toofind both names";
+                            if (documents2.length != 1) throw "Unable to find both names";
                             player2Document = documents2[0];
                             swapItems(player1Document, player2Document);
                             return;
                         });
-                    if (!accept2) throw "Unable tooread player details, abort ";
+                    if (!accept2) throw "Unable to read player details, abort ";
                 });
 
-            if (!accept) throw "Unable tooread player details, abort ";
+            if (!accept) throw "Unable to read player details, abort ";
 
-            // swap hello two players’ items
+            // swap the two players’ items
             function swapItems(player1, player2) {
                 var player1ItemSave = player1.item;
                 player1.item = player2.item;
@@ -200,91 +200,91 @@ Cosmos DB'de JavaScript hello barındırılan hello veritabanı olarak aynı bel
 
                 var accept = collection.replaceDocument(player1._self, player1,
                     function (err, docReplaced) {
-                        if (err) throw "Unable tooupdate player 1, abort ";
+                        if (err) throw "Unable to update player 1, abort ";
 
                         var accept2 = collection.replaceDocument(player2._self, player2,
                             function (err2, docReplaced2) {
-                                if (err) throw "Unable tooupdate player 2, abort"
+                                if (err) throw "Unable to update player 2, abort"
                             });
 
-                        if (!accept2) throw "Unable tooupdate player 2, abort";
+                        if (!accept2) throw "Unable to update player 2, abort";
                     });
 
-                if (!accept) throw "Unable tooupdate player 1, abort";
+                if (!accept) throw "Unable to update player 1, abort";
             }
         }
     }
 
-    // register hello stored procedure in Node.js client
+    // register the stored procedure in Node.js client
     client.createStoredProcedureAsync(collection._self, exchangeItemsSproc)
         .then(function (response) {
             var createdStoredProcedure = response.resource;
         }
     );
 
-Bu saklı yordam işlemlerini tek bir işlemde iki oyuncu arasında oyun uygulaması tootrade öğe içinde kullanır. Merhaba yordamı denemeleri tooread iki belge karşılık gelen her toohello player kimlikleri bağımsız değişken olarak geçirilen depolanır. Her iki player belge bulunamazsa, hello saklı yordamı öğelerin takas tarafından hello belgeleri güncelleştirir. Merhaba yol boyunca herhangi bir hatayla karşılaşılmazsa örtük olarak hello işlemi iptal bir JavaScript özel durumu oluşturur.
+Bu saklı yordam hareketleri ticari öğelere tek bir işlemde iki oyuncu arasında bir oyun uygulaması içinde kullanır. Saklı yordam bir bağımsız değişken olarak geçirilen her player kimlikleri karşılık gelen iki belge okumaya çalışır. Her iki player belge bulunamazsa, saklı yordamı öğelerin takas tarafından belgeleri güncelleştirir. Yol boyunca herhangi bir hatayla karşılaşılmazsa örtük olarak hareket durdurur bir JavaScript özel durumu oluşturur.
 
-Merhaba koleksiyonu hello saklı yordamı kaydedilmişse karşı tek bölümlü bir koleksiyon olduğu sonra hello kapsamlı tooall hello belgeleri hello koleksiyonundaki bir işlemdir. Merhaba koleksiyon bölümlendiğinde ise, saklı yordamlar hello işlem kapsamında tek bölüm anahtarı yürütülür. Her saklı yordam yürütme ardından karşılık gelen toohello kapsam hello işlem altında çalıştırmalısınız bir bölüm anahtarı değerini içermelidir. Daha fazla ayrıntı için bkz: [Azure DB Cosmos bölümleme](partition-data.md).
+Saklı yordam koleksiyonu kaydedilmişse karşı tek bölümlü bir koleksiyon olduğu sonra işlem koleksiyonundaki tüm belgelerin kapsamlıdır. Ardından koleksiyon bölümlendiğinde ise, saklı yordamlar tek bölüm anahtarı işlem kapsamı içinde yürütülür. Her saklı yordam yürütme sonra işlemin altında çalıştırmalısınız kapsamına karşılık gelen bir bölüm anahtarı değerini içermelidir. Daha fazla ayrıntı için bkz: [Azure DB Cosmos bölümleme](partition-data.md).
 
 ### <a name="commit-and-rollback"></a>Kaydetme ve geri alma
-İşlemleri iç ve yerel olarak Cosmos veritabanı JavaScript programlama modeline tümleşiktir. JavaScript işlevinin içinde tüm işlemleri otomatik olarak tek bir işlem altında sarılır. Merhaba JavaScript herhangi bir özel durum olmadan tamamlarsa hello operations toohello veritabanı kaydedilmiş. İlişkisel veritabanları hello "BEGIN TRANSACTION" ve "COMMIT TRANSACTION" deyimleri Cosmos DB'de örtük etkindir.  
+İşlemleri iç ve yerel olarak Cosmos veritabanı JavaScript programlama modeline tümleşiktir. JavaScript işlevinin içinde tüm işlemleri otomatik olarak tek bir işlem altında sarılır. JavaScript bir özel durumla tamamlarsa, veritabanı işlemleri kabul edilir. İlişkisel veritabanları "BEGIN TRANSACTION" ve "COMMIT TRANSACTION" deyimlerinde Cosmos DB'de örtük etkindir.  
 
-Merhaba betikten yayılır herhangi bir özel durum ise, Cosmos veritabanı JavaScript çalışma zamanı hello tüm işlem döndürülmesine neden olur. Hello daha önce gösterildiği gibi bir özel durum atma, etkili bir şekilde eşdeğer tooa Cosmos DB "geri alma işlemi" örnektir.
+Komut dosyasını yayılır herhangi bir özel durum ise, Cosmos veritabanı JavaScript çalışma zamanı tüm işlem döndürülmesine neden olur. Önceki örnekte gösterildiği gibi bir özel durum atma etkili bir şekilde bir "geri alma işlemi" Cosmos DB'de eşdeğerdir.
 
 ### <a name="data-consistency"></a>Veri tutarlılığı
-Saklı yordamları ve Tetikleyicileri hello Azure Cosmos DB kapsayıcısının hello birincil Çoğaltmada her zaman yürütülür. Bu, okuma içindeki yordamları teklif güçlü tutarlılık depolanan sağlar. Kullanıcı tanımlı işlevler kullanarak sorguları hello birincil veya ikincil bir çoğaltma üzerinde çalıştırılabilir, ancak biz toomeet olun hello hello uygun çoğaltma seçerek tutarlılık düzeyi istendi.
+Saklı yordamları ve Tetikleyicileri her zaman birincil Çoğaltmada Azure Cosmos DB kapsayıcısının yürütülür. Bu, okuma içindeki yordamları teklif güçlü tutarlılık depolanan sağlar. Kullanıcı tanımlı işlevler kullanarak sorguları birincil veya ikincil bir çoğaltma üzerinde çalıştırılabilir, ancak uygun çoğaltma seçerek istenen tutarlılık düzeyi karşılamak üzere biz emin olun.
 
 ## <a name="bounded-execution"></a>Sınırlanmış yürütme
-Tüm Cosmos DB işlemleri hello server'ın içinde belirtilen tamamlamalısınız isteği zaman aşımı süresi. Bu sınırlama tooJavaScript işlevleri (saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler) de geçerlidir. Bir işlem bu zaman sınırı ile tamamlanmazsa hello işlem geri alındı. JavaScript işlevleri hello süre sınırı içinde son veya bir temel devamlılık modeli toobatch/sürdürmeden yürütme uygulamak gerekir.  
+Belirtilen sunucu içinde tüm Cosmos DB işlemleri tamamlamalısınız isteği zaman aşımı süresi. Bu sınırlama JavaScript işlevleri (saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler) için de geçerlidir. Bir işlem bu zaman sınırı ile tamamlanmazsa, işlem geri alındı. JavaScript işlevleri süre sınırı içinde son veya toplu/sürdürmeden yürütme için temel devamlılık modeli uygulamak gerekir.  
 
-Sipariş toosimplify geliştirme saklı yordamları ve Tetikleyicileri toohandle saat sınırlarının, hello koleksiyon nesnesi (oluşturma, okuma, değiştirme ve silme belgeler ve eklerin) altında tüm işlevleri temsil eden bir Boole değeri döndürür. olup olmadığını, işlemi tamamlanır. Bu değeri false ise, onu tooexpire hakkında hello zaman sınırı yoktur ve bu hello yordamı yürütme sarmalamanız gerekir göstergesidir.  Operations sıraya alınan önceki toohello ilk kabul edilmeyen deposu işlemi garanti edilir toocomplete hello saklı yordamı zamanında tamamlandıktan ve başka istek sıra değil.  
+Saklı yordamları ve Tetikleyicileri süre sınırlarını, tüm işlevler (için oluşturma, okuma, değiştirin ve belgeler ve ekleri silme) koleksiyon nesnesi altında işlemek için geliştirmeyi kolaylaştırmak için return bir Boole değeri bu temsil olup olmadığını bu işlemi tamamlanır. Bu değeri false ise, bu zaman sınırı dolmak üzere olduğunu ve yordam yürütme sarmalamanız gerekir göstergesidir.  İlk kabul edilmeyen deposu işlemi sıraya alınan öncesinde Operations saklı yordamı zamanında tamamlandıktan ve başka istek sıraya değil tamamlamak için garanti edilir.  
 
-JavaScript işlevleri de kaynak tüketimine ilişkin ilişkisindeki. Cosmos DB işleme sağlanan hello bir veritabanı hesabı boyutuna göre koleksiyon başına ayırır. Üretilen iş CPU, bellek ve g/ç tüketim istek birimleri veya RUs adlı normalleştirilmiş bir birim cinsinden ifade edilir. JavaScript işlevleri potansiyel olarak çok sayıda RUs kısa bir süre içinde yukarı kullanabilirsiniz ve oranı hello koleksiyonunun sınırına ulaşıldığında sınırlı alabilirsiniz. Kaynak yoğunluklu saklı yordamlar, ilkel veritabanı işlemleri karantinaya alınan tooensure kullanılabilirliğini de olabilir.  
+JavaScript işlevleri de kaynak tüketimine ilişkin ilişkisindeki. Cosmos DB veritabanı hesabı sağlanan boyutuna göre koleksiyon başına ayırır. Üretilen iş CPU, bellek ve g/ç tüketim istek birimleri veya RUs adlı normalleştirilmiş bir birim cinsinden ifade edilir. JavaScript işlevleri potansiyel olarak çok sayıda RUs kısa bir süre içinde yukarı kullanabilirsiniz ve oranı koleksiyonunun sınırına ulaşıldığında sınırlı alabilirsiniz. Basit veritabanı işlemleri kullanılabilirliğini sağlamak için kaynak yoğunluklu saklı yordamları da karantinaya.  
 
 ### <a name="example-bulk-importing-data-into-a-database-program"></a>Örnek: toplu bir veritabanı programa veri alma
-Aşağıda, bir koleksiyona toobulk alma belgeleri yazılmış bir saklı yordam örneğidir. Not hello Boolean denetleyerek yordam ilişkisindeki tanıtıcıları yürütme hello depolanan nasıl dönüş değeri createDocument ve ardından kullanır hello saklı yordamı tootrack ve sürdürme ilerleme her çalıştırılışı toplu eklenen belge sayısını hello.
+Aşağıda, belgeler bir koleksiyona toplu içeri için yazılmış bir saklı yordam örneğidir. Saklı yordam Boolean denetleyerek sınırlanmış yürütme nasıl işlediğini Not createDocument dönüş değeri ve izlemek ve toplu işlemler arasında ilerleme sürdürmek için saklı yordam her çalıştırılışı eklenen belge sayısını kullanır.
 
     function bulkImport(docs) {
         var collection = getContext().getCollection();
         var collectionLink = collection.getSelfLink();
 
-        // hello count of imported docs, also used as current doc index.
+        // The count of imported docs, also used as current doc index.
         var count = 0;
 
         // Validate input.
-        if (!docs) throw new Error("hello array is undefined or null.");
+        if (!docs) throw new Error("The array is undefined or null.");
 
         var docsLength = docs.length;
         if (docsLength == 0) {
             getContext().getResponse().setBody(0);
         }
 
-        // Call hello create API toocreate a document.
+        // Call the create API to create a document.
         tryCreate(docs[count], callback);
 
         // Note that there are 2 exit conditions:
-        // 1) hello createDocument request was not accepted. 
-        //    In this case hello callback will not be called, we just call setBody and we are done.
-        // 2) hello callback was called docs.length times.
-        //    In this case all documents were created and we don’t need toocall tryCreate anymore. Just call setBody and we are done.
+        // 1) The createDocument request was not accepted. 
+        //    In this case the callback will not be called, we just call setBody and we are done.
+        // 2) The callback was called docs.length times.
+        //    In this case all documents were created and we don’t need to call tryCreate anymore. Just call setBody and we are done.
         function tryCreate(doc, callback) {
             var isAccepted = collection.createDocument(collectionLink, doc, callback);
 
-            // If hello request was accepted, callback will be called.
-            // Otherwise report current count back toohello client, 
-            // which will call hello script again with remaining set of docs.
+            // If the request was accepted, callback will be called.
+            // Otherwise report current count back to the client, 
+            // which will call the script again with remaining set of docs.
             if (!isAccepted) getContext().getResponse().setBody(count);
         }
 
-        // This is called when collection.createDocument is done in order tooprocess hello result.
+        // This is called when collection.createDocument is done in order to process the result.
         function callback(err, doc, options) {
             if (err) throw err;
 
-            // One more document has been inserted, increment hello count.
+            // One more document has been inserted, increment the count.
             count++;
 
             if (count >= docsLength) {
-                // If we created all documents, we are done. Just set hello response.
+                // If we created all documents, we are done. Just set the response.
                 getContext().getResponse().setBody(count);
             } else {
                 // Create next document.
@@ -295,7 +295,7 @@ Aşağıda, bir koleksiyona toobulk alma belgeleri yazılmış bir saklı yordam
 
 ## <a id="trigger"></a>Veritabanı Tetikleyicileri
 ### <a name="database-pre-triggers"></a>Veritabanı öncesi Tetikleyicileri
-Cosmos DB yürütülen ya da bir belge üzerinde bir işlemi tarafından tetiklenen Tetikleyiciler sağlar. Örneğin, ön tetikleyici belirtebilmeniz için bir belge oluşturma – hello belge oluşturulmadan önce bu ön tetikleyici çalışacak olduğunda. Merhaba, ön Tetikleyiciler kullanılan toovalidate hello oluşturulmakta olan bir belgenin özelliklerini nasıl olabilir örneği aşağıdadır:
+Cosmos DB yürütülen ya da bir belge üzerinde bir işlemi tarafından tetiklenen Tetikleyiciler sağlar. Örneğin, ön tetikleyici belirtebilmeniz için bir belge oluşturma – bu ön tetikleyici belgeyi oluşturulmadan önce çalışacak olduğunda. Ön Tetikleyicileri oluşturulmakta olan bir belgenin özelliklerini doğrulamak için nasıl kullanılabileceği bir örnek verilmiştir:
 
     var validateDocumentContentsTrigger = {
         id: "validateDocumentContents",
@@ -303,7 +303,7 @@ Cosmos DB yürütülen ya da bir belge üzerinde bir işlemi tarafından tetikle
             var context = getContext();
             var request = context.getRequest();
 
-            // document toobe created in hello current operation
+            // document to be created in the current operation
             var documentToCreate = request.getBody();
 
             // validate properties
@@ -312,7 +312,7 @@ Cosmos DB yürütülen ya da bir belge üzerinde bir işlemi tarafından tetikle
                 documentToCreate["my timestamp"] = ts.getTime();
             }
 
-            // update hello document that will be created
+            // update the document that will be created
             request.setBody(documentToCreate);
         },
         triggerType: TriggerType.Pre,
@@ -320,7 +320,7 @@ Cosmos DB yürütülen ya da bir belge üzerinde bir işlemi tarafından tetikle
     }
 
 
-Ve Node.js istemci tarafı kaydı kodu hello tetikleyici için karşılık gelen hello:
+Ve karşılık gelen Node.js istemci tarafı kaydı kodu tetikleyici için:
 
     // register pre-trigger
     client.createTriggerAsync(collection.self, validateDocumentContentsTrigger)
@@ -347,9 +347,9 @@ Ve Node.js istemci tarafı kaydı kodu hello tetikleyici için karşılık gelen
     });
 
 
-Giriş parametreleri öncesi tetikleyici bulunamaz. Merhaba istek nesnesi kullanılan toomanipulate hello istek iletisi hello işlemle ilişkili olabilir. Burada, hello öncesi tetikleyici belgeyi hello oluşturma ile çalıştırın ve JSON biçiminde oluşturulan hello belge toobe hello istek ileti gövdesi içerir.   
+Giriş parametreleri öncesi tetikleyici bulunamaz. İstek nesnesi, işlemle ilişkili İstek iletisini işlemek için kullanılabilir. Burada, ön tetikleyici belgeyi oluşturma ile çalıştırın ve JSON biçiminde oluşturulacak belge isteği ileti gövdesi içerir.   
 
-Tetikleyiciler kayıtlı olduğunda, kullanıcılar ile çalıştırabilirsiniz hello operations belirtebilirsiniz. Bu tetikleyici hello aşağıdaki izin anlamına gelir TriggerOperation.Create ile oluşturuldu.
+Tetikleyiciler kayıtlı olduğunda, kullanıcılar ile çalıştırabilirsiniz operations belirtebilirsiniz. Bu tetikleyici aşağıdaki izin anlamına gelir TriggerOperation.Create ile oluşturuldu.
 
     var options = { preTriggerInclude: "validateDocumentContents" };
 
@@ -364,9 +364,9 @@ Tetikleyiciler kayıtlı olduğunda, kullanıcılar ile çalıştırabilirsiniz 
     // Fails, can’t use a create trigger in a replace operation
 
 ### <a name="database-post-triggers"></a>Veritabanı sonrası Tetikleyicileri
-Ön tetikleyiciler gibi sonrası Tetikleyicileri bir belge üzerinde bir işlemi ile ilişkili ve giriş parametreleri gerçekleştirin yok. Çalışırlar **sonra** hello işleminin tamamlandığını ve toohello istemci gönderilen erişim toohello yanıt iletisi vardır.   
+Ön tetikleyiciler gibi sonrası Tetikleyicileri bir belge üzerinde bir işlemi ile ilişkili ve giriş parametreleri gerçekleştirin yok. Çalışırlar **sonra** işlemi tamamlandıktan ve istemciye gönderilen yanıt iletisi erişebilir.   
 
-Aşağıdaki örneğine hello sonrası Tetikleyicileri eylemde gösterir:
+Aşağıdaki örnek, eylemde sonrası Tetikleyicileri gösterir:
 
     var updateMetadataTrigger = {
         id: "updateMetadata",
@@ -382,11 +382,11 @@ Aşağıdaki örneğine hello sonrası Tetikleyicileri eylemde gösterir:
             var filterQuery = 'SELECT * FROM root r WHERE r.id = "_metadata"';
             var accept = collection.queryDocuments(collection.getSelfLink(), filterQuery,
                 updateMetadataCallback);
-            if(!accept) throw "Unable tooupdate metadata, abort";
+            if(!accept) throw "Unable to update metadata, abort";
 
             function updateMetadataCallback(err, documents, responseOptions) {
                 if(err) throw new Error("Error" + err.message);
-                         if(documents.length != 1) throw 'Unable toofind metadata document';
+                         if(documents.length != 1) throw 'Unable to find metadata document';
 
                          var metadataDocument = documents[0];
 
@@ -395,9 +395,9 @@ Aşağıdaki örneğine hello sonrası Tetikleyicileri eylemde gösterir:
                          metadataDocument.createdNames += " " + createdDocument.id;
                          var accept = collection.replaceDocument(metadataDocument._self,
                                metadataDocument, function(err, docReplaced) {
-                                      if(err) throw "Unable tooupdate metadata, abort";
+                                      if(err) throw "Unable to update metadata, abort";
                                });
-                         if(!accept) throw "Unable tooupdate metadata, abort";
+                         if(!accept) throw "Unable to update metadata, abort";
                          return;                    
             }                                                                                            
         },
@@ -406,14 +406,14 @@ Aşağıdaki örneğine hello sonrası Tetikleyicileri eylemde gösterir:
     }
 
 
-Merhaba tetikleyici hello örnek aşağıdaki gösterildiği gibi kaydedilebilir.
+Tetikleyici, aşağıdaki örnekte gösterildiği gibi kaydedilebilir.
 
     // register post-trigger
     client.createTriggerAsync('dbs/testdb/colls/testColl', updateMetadataTrigger)
         .then(function(createdTrigger) { 
             var docToCreate = { 
                 name: "artist_profile_1023",
-                artist: "hello Band",
+                artist: "The Band",
                 albums: ["Hellujah", "Rotators", "Spinning Top"]
             };
 
@@ -432,14 +432,14 @@ Merhaba tetikleyici hello örnek aşağıdaki gösterildiği gibi kaydedilebilir
     });
 
 
-Bu tetikleyici hello meta veri belgesi için sorgular ve yeni oluşturulan hello belge hakkında ayrıntılarla güncelleştirir.  
+Bu tetikleyici için meta veri belgesi sorgular ve yeni oluşturulan belge hakkında ayrıntılarla güncelleştirir.  
 
-Toonote hello olan önemli bir şey **işlem** Cosmos DB Tetikleyicileri yürütülmesi. Bu sonrası tetikleyici hello bir parçası olarak çalışır hello oluşturma hello orijinal belgenin olarak aynı işlem. Bu nedenle, biz hello sonrası tetikleyiciyle (biz oluşturulamıyor tooupdate hello meta veri belgesi varsa say) bir özel durum, hello tüm işlem başarısız olur ve geri alındı. Bir belge oluşturulur ve bir özel durum döndürdü.  
+Dikkat edilecek önemli bir şey **işlem** Cosmos DB Tetikleyicileri yürütülmesi. Aynı işlem özgün belgeye oluşturulmasını olarak bir parçası olarak bu sonrası tetikleyici çalışır. Bu nedenle, biz sonrası tetikleyici (meta veri belgesi güncelleştirmek bağlanamıyoruz varsa say) bir özel durum, tüm işlem başarısız olur ve geri alındı. Bir belge oluşturulur ve bir özel durum döndürdü.  
 
 ## <a id="udf"></a>Kullanıcı tanımlı işlevler
-Kullanıcı tanımlı işlevler (UDF'ler) kullanılan tooextend hello DocumentDB API SQL Sorgu Dili Dilbilgisi olan ve özel iş mantığını uygular. Öğesinden yalnızca çağrılabilir sorguları içinde. Bunlar erişim toohello bağlam nesnesi yoktur ve yalnızca işlem JavaScript kullanılan toobe yöneliktir. Bu nedenle, UDF'ler hello Cosmos DB hizmet ikincil çoğaltmalar üzerinde çalıştırılabilir.  
+Kullanıcı tanımlı işlevler (UDF'ler), özel iş mantığı uygulamanız ve DocumentDB API SQL Sorgu Dili Dilbilgisi genişletmek için kullanılır. Öğesinden yalnızca çağrılabilir sorguları içinde. Bunlar erişim kapsamı nesnesine sahip değil ve yalnızca işlem JavaScript kullanılması amaçlanmıştır. Bu nedenle, UDF'ler Cosmos DB hizmet ikincil çoğaltmalar üzerinde çalıştırılabilir.  
 
-Hello aşağıdaki örnek çeşitli gelir köşeli için hızlarını dayalı bir UDF toocalculate gelir vergi oluşturur ve ardından sorgu toofind içinde birden fazla $20.000 vergiler Ücretli tüm kişilerin kullanır.
+Aşağıdaki örnek gelir çeşitli gelir köşeli için hızlarını göre vergi hesaplamak için bir UDF oluşturur ve ardından birden fazla $20.000 vergiler Ücretli tüm kişilerin bulmak için bir sorgu içinde kullanır.
 
     var taxUdf = {
         id: "tax",
@@ -458,7 +458,7 @@ Hello aşağıdaki örnek çeşitli gelir köşeli için hızlarını dayalı bi
     }
 
 
-Merhaba UDF sonradan hello örnek aşağıdaki gibi sorgularında kullanılabilir:
+UDF daha sonra aşağıdaki örnekteki gibi sorgularında kullanılabilir:
 
     // register UDF
     client.createUserDefinedFunctionAsync('dbs/testdb/colls/testColl', taxUdf)
@@ -479,12 +479,12 @@ Merhaba UDF sonradan hello örnek aşağıdaki gibi sorgularında kullanılabili
     });
 
 ## <a name="javascript-language-integrated-query-api"></a>JavaScript dil ile tümleşik sorgu API
-Ayrıca Documentdb'nin SQL dil bilgisinin kullanarak tooissuing sorguları hello sunucu tarafı SDK'sı SQL bilgisi olmadan fluent JavaScript arabirimi kullanarak en iyi duruma getirilmiş tooperform sorguları sağlar. API tooprogrammatically yapı sorguları chainable işlevdeki geçirme koşul işlevleri sağlar hello JavaScript sorgu bir söz dizimi hakkında bilgi sahibi tooECMAScript5's dizi öğelerin ve lodash gibi popüler JavaScript kitaplıkları ile çağırır. Sorgular tarafından hello JavaScript çalışma zamanı toobe verimli bir şekilde Azure Cosmos veritabanı dizinlerini kullanılarak yürütülen ayrıştırılır.
+Documentdb'nin SQL dil bilgisinin kullanarak sorgu göndermeye ek olarak, sunucu tarafı SDK'sı SQL bilgisi olmadan fluent JavaScript arabirimi kullanarak en iyi duruma getirilmiş sorguları gerçekleştirmenizi sağlar. API chainable işlevdeki koşul işlevleri geçirerek sorguları programlı olarak oluşturmanıza olanak sağlayan JavaScript sorgu ECMAScript5'ın dizi öğelerin ve lodash gibi popüler JavaScript kitaplıklarını tanıdık bir sözdizimi ile çağırır. Sorguları verimli bir şekilde Azure Cosmos veritabanı dizinlerini kullanarak çalıştırılacak JavaScript çalışma zamanı tarafından ayrıştırılır.
 
 > [!NOTE]
-> `__`(çift alt çizgi) olan bir diğer ad çok`getContext().getCollection()`.
+> `__`(çift alt çizgi) olan bir diğer ad `getContext().getCollection()`.
 > <br/>
-> Diğer bir deyişle, kullanabileceğiniz `__` veya `getContext().getCollection()` tooaccess hello JavaScript sorgu API.
+> Diğer bir deyişle, kullanabileceğiniz `__` veya `getContext().getCollection()` JavaScript sorgu API erişmek için.
 > 
 > 
 
@@ -503,7 +503,7 @@ Desteklenen işlevler aşağıdakileri içerir:
 <b>Filtre (predicateFunction [, Seçenekleri] [, geri çağırma])</b>
 <ul>
 <li>
-True/false sipariş toofilter giriş/çıkış giriş belgeleri hello sonuç kümesi olarak döndüren bir koşul işlevini kullanarak giriş hello filtreler. Bu benzer tooa davranır SQL WHERE yan tümcesi.
+Giriş belgeleri giriş/çıkış sonuç kümesine filtrelemek için true/false döndüren bir koşul işlevini kullanarak giriş filtreler. WHERE yan tümcesi SQL benzer şekilde davranır.
 </li>
 </ul>
 </li>
@@ -511,7 +511,7 @@ True/false sipariş toofilter giriş/çıkış giriş belgeleri hello sonuç kü
 <b>Harita (transformationFunction [, Seçenekleri] [, geri çağırma])</b>
 <ul>
 <li>
-Her bir giriş öğesini tooa JavaScript nesne veya değer eşleştiren bir dönüşüm işlevi verilen bir yansıtma geçerlidir. Benzer tooa SELECT yan tümcesinde SQL davranır.
+Her bir giriş öğesini bir JavaScript nesne veya değer eşleştiren bir dönüşüm işlevi verilen bir yansıtma geçerlidir. Bir seçim yan tümcesinde SQL benzer şekilde davranır.
 </li>
 </ul>
 </li>
@@ -519,7 +519,7 @@ Her bir giriş öğesini tooa JavaScript nesne veya değer eşleştiren bir dön
 <b>pluck ([propertyName] [, Seçenekleri] [, geri çağırma])</b>
 <ul>
 <li>
-Her giriş öğesinden hello tek bir özellik değerini ayıklayan bir harita için bir kısayol budur.
+Her giriş öğesinden tek bir özellik değeri ayıklayan bir harita için bir kısayol budur.
 </li>
 </ul>
 </li>
@@ -527,7 +527,7 @@ Her giriş öğesinden hello tek bir özellik değerini ayıklayan bir harita i�
 <b>düzleştirmek ([isShallow] [, Seçenekleri] [, geri çağırma])</b>
 <ul>
 <li>
-Birleştirir ve diziler tooa tek dizisindeki her giriş öğesinden düzleştirir. LINQ benzer tooSelectMany davranır.
+Birleştirir ve tek bir dizi giriş her öğeden dizilerinin düzleştirir. LINQ SelectMany benzer şekilde davranır.
 </li>
 </ul>
 </li>
@@ -535,7 +535,7 @@ Birleştirir ve diziler tooa tek dizisindeki her giriş öğesinden düzleştiri
 <b>sortBy ([koşulu] [, Seçenekleri] [, geri çağırma])</b>
 <ul>
 <li>
-Yeni belgeler birtakım koşulu verilen hello kullanarak artan hello giriş belgesi akış hello belgelerde sıralayarak üretir. Benzer tooa ORDER BY yan tümcesinde SQL davranır.
+Yeni belgeler birtakım verilen koşulu kullanarak artan giriş belgesi akış belgelerde sıralayarak üretir. Bir ORDER BY yan tümcesi SQL benzer şekilde davranır.
 </li>
 </ul>
 </li>
@@ -543,34 +543,34 @@ Yeni belgeler birtakım koşulu verilen hello kullanarak artan hello giriş belg
 <b>sortByDescending ([koşulu] [, Seçenekleri] [, geri çağırma])</b>
 <ul>
 <li>
-Yeni belgeler birtakım koşulu verilen hello kullanarak azalan hello giriş belgesi akış hello belgelerde sıralayarak üretir. Benzer tooa x DESC ORDER BY yan tümcesi SQL davranır.
+Yeni belgeler birtakım verilen koşulu kullanarak azalan giriş belgesi akış belgelerde sıralayarak üretir. Bir x DESC ORDER BY yan tümcesi SQL benzer şekilde davranır.
 </li>
 </ul>
 </li>
 </ul>
 
 
-Koşul ve/veya Seçici işlevlerinin içine dahil edilirse, hello aşağıdaki JavaScript yapılarından otomatik olarak en iyi duruma getirilmiş toorun doğrudan Azure Cosmos DB dizinlerini alın:
+Koşul ve/veya Seçici işlevlerinin içine dahil edilirse, aşağıdaki JavaScript yapılarından otomatik olarak doğrudan Azure Cosmos DB dizinlerini çalıştırmak için en iyi duruma getirilmiş:
 
 * Basit işleçleri: = + - * / % | ^ &amp; == != === !=== &lt; &gt; &lt;= &gt;= || &amp;&amp; &lt;&lt; &gt;&gt; &gt;&gt;&gt;! ~
-* Merhaba nesne değişmez değer de dahil olmak üzere değişmez değerler: {}
+* Değişmez değer nesnesi de dahil olmak üzere değişmez değerler: {}
 * dönüş var
 
-şu JavaScript oluşturur hello en iyi duruma getirilmezse Azure Cosmos DB dizinler için:
+Şu JavaScript yapıları Azure Cosmos DB dizinler için en iyi duruma getirilmiş değil:
 
 * Denetim akışı (örn. Eğer, sırada)
 * İşlev çağrıları
 
 Daha fazla bilgi için lütfen bkz bizim [sunucu tarafı JSDocs](http://azure.github.io/azure-documentdb-js-server/).
 
-### <a name="example-write-a-stored-procedure-using-hello-javascript-query-api"></a>Örnek: Merhaba JavaScript sorgu API kullanarak bir saklı yordam yazma
-Aşağıdaki kod örneği hello hello JavaScript sorgu API hello bir saklı yordam bağlamında nasıl kullanılabileceği bir örnektir. Merhaba saklı yordamı bir giriş parametresi tarafından verilen bir belge ekler ve hello kullanarak bir meta veri belgesi güncelleştirmeleri `__.filter()` minSize, maxSize ve hello giriş belgenin boyut özelliği dayalı totalSize yöntemi.
+### <a name="example-write-a-stored-procedure-using-the-javascript-query-api"></a>Örnek: JavaScript sorgu API kullanarak bir saklı yordam yazma
+Aşağıdaki kod örneği bağlamında bir saklı yordam, JavaScript sorgu API'sı nasıl kullanılabileceği bir örnektir. Saklı yordam bir giriş parametresi tarafından verilen bir belge ekler ve bir meta veri güncelleştirmeleri kullanarak belge `__.filter()` minSize, maxSize ve giriş belgenin boyut özelliği dayalı totalSize yöntemi.
 
     /**
      * Insert actual doc and update metadata doc: minSize, maxSize, totalSize based on doc.size.
      */
     function insertDocumentAndUpdateMetadata(doc) {
-      // HTTP error codes sent tooour callback funciton by DocDB server.
+      // HTTP error codes sent to our callback funciton by DocDB server.
       var ErrorCode = {
         RETRY_WITH: 449,
       }
@@ -578,22 +578,22 @@ Aşağıdaki kod örneği hello hello JavaScript sorgu API hello bir saklı yord
       var isAccepted = __.createDocument(__.getSelfLink(), doc, {}, function(err, doc, options) {
         if (err) throw err;
 
-        // Check hello doc (ignore docs with invalid/zero size and metaDoc itself) and call updateMetadata.
+        // Check the doc (ignore docs with invalid/zero size and metaDoc itself) and call updateMetadata.
         if (!doc.isMetadata && doc.size > 0) {
-          // Get hello meta document. We keep it in hello same collection. it's hello only doc that has .isMetadata = true.
+          // Get the meta document. We keep it in the same collection. it's the only doc that has .isMetadata = true.
           var result = __.filter(function(x) {
             return x.isMetadata === true
           }, function(err, feed, options) {
             if (err) throw err;
 
             // We assume that metadata doc was pre-created and must exist when this script is called.
-            if (!feed || !feed.length) throw new Error("Failed toofind hello metadata document.");
+            if (!feed || !feed.length) throw new Error("Failed to find the metadata document.");
 
-            // hello metadata document.
+            // The metadata document.
             var metaDoc = feed[0];
 
             // Update metaDoc.minSize:
-            // for 1st document use doc.Size, for all hello rest see if it's less than last min.
+            // for 1st document use doc.Size, for all the rest see if it's less than last min.
             if (metaDoc.minSize == 0) metaDoc.minSize = doc.size;
             else metaDoc.minSize = Math.min(metaDoc.minSize, doc.size);
 
@@ -603,12 +603,12 @@ Aşağıdaki kod örneği hello hello JavaScript sorgu API hello bir saklı yord
             // Update metaDoc.totalSize.
             metaDoc.totalSize += doc.size;
 
-            // Update/replace hello metadata document in hello store.
+            // Update/replace the metadata document in the store.
             var isAccepted = __.replaceDocument(metaDoc._self, metaDoc, function(err) {
               if (err) throw err;
-              // Note: in case concurrent updates causes conflict with ErrorCode.RETRY_WITH, we can't read hello meta again 
-              //       and update again because due tooSnapshot isolation we will read same exact version (we are in same transaction).
-              //       We have tootake care of that on hello client side.
+              // Note: in case concurrent updates causes conflict with ErrorCode.RETRY_WITH, we can't read the meta again 
+              //       and update again because due to Snapshot isolation we will read same exact version (we are in same transaction).
+              //       We have to take care of that on the client side.
             });
             if (!isAccepted) throw new Error("replaceDocument(metaDoc) returned false.");
           });
@@ -618,8 +618,8 @@ Aşağıdaki kod örneği hello hello JavaScript sorgu API hello bir saklı yord
       if (!isAccepted) throw new Error("createDocument(actual doc) returned false.");
     }
 
-## <a name="sql-toojavascript-cheat-sheet"></a>SQL tooJavascript kopya sayfası
-Merhaba aşağıdaki tabloda çeşitli SQL sorguları ve hello karşılık gelen JavaScript sorguları gösterir.
+## <a name="sql-to-javascript-cheat-sheet"></a>SQL Javascript kopya sayfası
+Aşağıdaki tabloda, çeşitli SQL sorguları ve karşılık gelen JavaScript sorguları gösterir.
 
 Özellik anahtarları içeren SQL sorguları, belge olarak (örneğin `doc.id`) büyük küçük harfe duyarlıdır.
 
@@ -632,26 +632,26 @@ Merhaba aşağıdaki tabloda çeşitli SQL sorguları ve hello karşılık gelen
 |SELECT docs.id, docs.message msg olarak<br>Belgelerinden<br>WHERE docs.id="X998_Y998"|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;doc.id iade === "X998_Y998";<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.map(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{Döndür<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kimliği: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Msg: doc.message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>.Value();|5|
 |DEĞER etiketi<br>Belgelerinden<br>Etiket IN belgeleri katılın. Etiketleri<br>ORDER BY docs._ts|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Belge döndür. Etiketleri & & Array.isArray (belge. Etiketleri);<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.sortBy(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;doc._ts döndürür;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.pluck("Tags")<br>&nbsp;&nbsp;&nbsp;&nbsp;.flatten()<br>&nbsp;&nbsp;&nbsp;&nbsp;.Value()|6|
 
-Merhaba aşağıdaki açıklamaları yukarıdaki hello tablosundaki her sorgu açıklanmaktadır.
+Aşağıdaki açıklamaları Yukarıdaki tablodaki her sorgu açıklanmaktadır.
 1. Sonuç tüm belgelerde (devamlılık belirteci ile anlatır) olur.
-2. Projeleri kimliği, ileti (diğer toomsg) ve tüm belgeleri eylemin hello.
-3. Merhaba koşulu belgeler için sorgular: kimlik = "X998_Y998".
-4. Etiketler özelliği ve etiketleri olan belgeler için sorgular 123 hello değerini içeren bir dizi olur.
-5. Sorguları bir koşul ile belgeler için kimliği = "X998_Y998" ve sonra projeleri hello kimliği ve ileti (diğer toomsg).
-6. Etiketler, bir dizi özelliği olan belgeler için filtreleri ve hello elde edilen belgeler hello _ts zaman damgası sistem özelliği tarafından sıralar ve ardından projeleri + hello etiketler dizisi düzleştirir.
+2. Kimliği, ileti (diğer msg için) ve tüm belgeleri eylemden projeleri.
+3. Koşul belgeler için sorgular: kimlik = "X998_Y998".
+4. Etiketler özelliği ve etiketleri olan belgeler için sorgular 123 değerini içeren bir dizi olur.
+5. Sorguları bir koşul ile belgeler için kimliği = "X998_Y998" ve ileti (diğer msg için) ve kimliği projeleri.
+6. Etiketler, bir dizi özelliği olan belgeler için filtreleri ve elde edilen belgeler _ts zaman damgası sistem özelliği, ardından projeler tarafından sıralar + etiketler dizisi düzleştirir.
 
 
 ## <a name="runtime-support"></a>Çalışma zamanı desteği
-[DocumentDB JavaScript sunucu tarafı API](http://azure.github.io/azure-documentdb-js-server/) hello için destek sağlar hello çoğunu genel JavaScript dil özellikleri tarafından standartlaştırılmış olarak [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+[DocumentDB JavaScript sunucu tarafı API](http://azure.github.io/azure-documentdb-js-server/) tarafından standartlaştırılmış olarak temel JavaScript dil özelliklerinin çoğu için destek sağlayan [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### <a name="security"></a>Güvenlik
-JavaScript saklı yordamları ve Tetikleyicileri korumalı, böylece tek bir betik hello etkilerini toohello diğer hello snapshot işlem yalıtım hello veritabanı düzeyinde üzerinden geçmeden sızıntısı değil. Merhaba çalışma zamanı ortamları havuza alınmış ancak her çalışma sonrasında Merhaba içeriğine temizlendi. Toobe bu nedenle garanti birbirinden herhangi istenmeyen yan etkileri güvenli.
+JavaScript saklı yordamları ve Tetikleyicileri korumalı, böylece tek bir betik etkilerini diğer veritabanı düzeyinde snapshot işlem yalıtım üzerinden geçmeden sızıntısı değil. Çalışma zamanı ortamları havuza alınmış ancak sonra her çalışma bağlamında temizlendi. Bu nedenle bunlar birbirinden herhangi istenmeyen yan etkileri güvenli olması garanti.
 
 ### <a name="pre-compilation"></a>Ön derleme
-Saklı yordamlar, tetikleyiciler ve UDF'lerin örtük olarak önceden derlenmiş toohello bayt kodu sipariş tooavoid derleme maliyet her komut dosyası çağırma hello zaman biçimindedir. Bu saklı yordam çağrılarını hızlı ve az alan kaplaması sahip sağlar.
+Saklı yordamlar, tetikleyiciler ve UDF'lerin her komut dosyası çağırma aynı anda derleme maliyet önlemek için bayt kodu biçimine örtük olarak önceden derlenmiş. Bu saklı yordam çağrılarını hızlı ve az alan kaplaması sahip sağlar.
 
 ## <a name="client-sdk-support"></a>İstemci SDK'sı desteği
-İçin ek toohello DocumentDB API içinde [Node.js](documentdb-sdk-node.md) istemci, Azure Cosmos DB [.NET](documentdb-sdk-dotnet.md), [.NET Core](documentdb-sdk-dotnet-core.md), [Java](documentdb-sdk-java.md), [ JavaScript](http://azure.github.io/azure-documentdb-js/), ve [Python SDK'ları](documentdb-sdk-python.md) hello DocumentDB API için. Saklı yordamlar, tetikleyiciler ve UDF'lerin oluşturulabilir ve bu SDK de birini kullanarak çalıştırılabilir. örnekte gösterildiği nasıl aşağıdaki hello toocreate ve hello .NET İstemcisi'ni kullanarak bir saklı yordamı yürütme. JSON olarak saklı yordamı ve geri okuma hello .NET türleri hello nasıl geçirildiğini unutmayın.
+DocumentDB API'si yanı sıra [Node.js](documentdb-sdk-node.md) istemci, Azure Cosmos DB [.NET](documentdb-sdk-dotnet.md), [.NET Core](documentdb-sdk-dotnet-core.md), [Java](documentdb-sdk-java.md), [ JavaScript](http://azure.github.io/azure-documentdb-js/), ve [Python SDK'ları](documentdb-sdk-python.md) API DocumentDB için. Saklı yordamlar, tetikleyiciler ve UDF'lerin oluşturulabilir ve bu SDK de birini kullanarak çalıştırılabilir. Aşağıdaki örnekte, oluşturma ve .NET İstemcisi'ni kullanarak bir saklı yordam yürütme gösterilmektedir. .NET türleri nasıl JSON olarak saklı yordam içinde geçirilen ve geri okuma unutmayın.
 
     var markAntiquesSproc = new StoredProcedure
     {
@@ -684,7 +684,7 @@ Saklı yordamlar, tetikleyiciler ve UDF'lerin örtük olarak önceden derlenmiş
     Document createdDocument = await client.ExecuteStoredProcedureAsync<Document>(UriFactory.CreateStoredProcedureUri("db", "coll", "sproc"), document, 1920);
 
 
-Bu örnek göstermektedir nasıl toouse hello [DocumentDB .NET API](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) toocreate öncesi tetikleyici ve etkin hello tetikleyiciyle bir belge oluşturun. 
+Bu örnek nasıl kullanılacağını göstermektedir [DocumentDB .NET API](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) için ön tetikleyici ve etkinleştirilmiş tetikleyici ile bir belge oluşturun. 
 
     Trigger preTrigger = new Trigger()
     {
@@ -705,7 +705,7 @@ Bu örnek göstermektedir nasıl toouse hello [DocumentDB .NET API](/dotnet/api/
         });
 
 
-Aşağıdaki örneğine hello nasıl işlev (UDF) toocreate bir kullanıcı tanımlı gösterir ve bunu kullanın ve bir [DocumentDB API SQL sorgusu](documentdb-sql-query.md).
+Ve aşağıdaki örnekte, kullanıcı tanımlı işlev (UDF) oluşturmak ve bunu kullanmak gösterilmiştir bir [DocumentDB API SQL sorgusu](documentdb-sql-query.md).
 
     UserDefinedFunction function = new UserDefinedFunction()
     {
@@ -723,7 +723,7 @@ Aşağıdaki örneğine hello nasıl işlev (UDF) toocreate bir kullanıcı tan�
     }
 
 ## <a name="rest-api"></a>REST API
-Tüm Azure Cosmos DB işlemleri RESTful bir şekilde gerçekleştirilebilir. Saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler altından bir HTTP POST kullanılarak kaydedilebilir. Merhaba nasıl bir örnek verilmiştir tooregister bir saklı yordam:
+Tüm Azure Cosmos DB işlemleri RESTful bir şekilde gerçekleştirilebilir. Saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler altından bir HTTP POST kullanılarak kaydedilebilir. Saklı yordam kaydetmek nasıl bir örnek verilmiştir:
 
     POST https://<url>/sprocs/ HTTP/1.1
     authorization: <<auth>>
@@ -746,7 +746,7 @@ Tüm Azure Cosmos DB işlemleri RESTful bir şekilde gerçekleştirilebilir. Sak
     }
 
 
-Merhaba saklı yordam kayıtlı bir POST isteği hello URI karşı yürüterek dbs/testdb/colls/testColl/hello gövdesini içeren ile sprocs saklı yordam toocreate hello. Tetikleyiciler ve UDF'lerin benzer şekilde bir POST/tetikleyiciler ve /udfs karşı sırasıyla vererek kaydedilebilir.
+Saklı yordam oluşturmak için saklı yordam içeren gövde ile bir POST isteği URI dbs/testdb/colls/testColl/sprocs karşı yürüterek kayıtlı değil. Tetikleyiciler ve UDF'lerin benzer şekilde bir POST/tetikleyiciler ve /udfs karşı sırasıyla vererek kaydedilebilir.
 Bu yordam can depolanan sonra kaynak bağlantısını karşı bir POST isteği göndererek yürütülebilir:
 
     POST https://<url>/sprocs/<sproc> HTTP/1.1
@@ -754,16 +754,16 @@ Bu yordam can depolanan sonra kaynak bağlantısını karşı bir POST isteği g
     x-ms-date: Thu, 07 Aug 2014 03:43:20 GMT
 
 
-    [ { "name": "TestDocument", "book": "Autumn of hello Patriarch"}, "Price", 200 ]
+    [ { "name": "TestDocument", "book": "Autumn of the Patriarch"}, "Price", 200 ]
 
 
-Burada, hello giriş toohello depolanan yordamı hello istek gövdesinde geçirilir. Merhaba giriş girdi parametresi bir JSON dizisi olarak geçirilir unutmayın. Merhaba yordamı alır hello ilk giriş yanıt gövdesi bir belge olarak depolanır. Merhaba yanıt aldığımız aşağıdaki gibidir:
+Burada, saklı yordam giriş istek gövdesinde geçirilir. Giriş girdi parametresi bir JSON dizisi olarak geçirilir unutmayın. Saklı yordam ilk girdi yanıt gövdesi bir belge olarak alır. Aldığımız yanıt aşağıdaki gibidir:
 
     HTTP/1.1 200 OK
 
     { 
       name: 'TestDocument',
-      book: ‘Autumn of hello Patriarch’,
+      book: ‘Autumn of the Patriarch’,
       id: ‘V7tQANV3rAkDAAAAAAAAAA==‘,
       ts: 1407830727,
       self: ‘dbs/V7tQAA==/colls/V7tQANV3rAk=/docs/V7tQANV3rAkDAAAAAAAAAA==/’,
@@ -773,7 +773,7 @@ Burada, hello giriş toohello depolanan yordamı hello istek gövdesinde geçiri
     }
 
 
-Saklı yordamlar aksine Tetikleyicileri doğrudan yürütülemez. Bunun yerine, bir belge üzerinde bir işlemi bir parçası olarak yürütülür. HTTP üst bilgilerini kullanarak bir istekle biz hello Tetikleyicileri toorun belirtebilirsiniz. Merhaba, istek toocreate bir belge aşağıdadır.
+Saklı yordamlar aksine Tetikleyicileri doğrudan yürütülemez. Bunun yerine, bir belge üzerinde bir işlemi bir parçası olarak yürütülür. Biz HTTP üst bilgilerini kullanarak bir istekle çalıştırmak için Tetikleyiciler belirtebilirsiniz. Bir belge oluşturma isteği verilmiştir.
 
     POST https://<url>/docs/ HTTP/1.1
     authorization: <<auth>>
@@ -784,23 +784,23 @@ Saklı yordamlar aksine Tetikleyicileri doğrudan yürütülemez. Bunun yerine, 
 
     {
        "name": "newDocument",
-       “title”: “hello Wizard of Oz”,
+       “title”: “The Wizard of Oz”,
        “author”: “Frank Baum”,
        “pages”: 92
     }
 
 
-Burada hello istekle çalıştırmak hello öncesi tetikleyici toobe hello x-ms-documentdb-pre-trigger-include üstbilgisinde belirtilir. Buna bağlı olarak, hiçbir sonrası tetikleyici hello x-ms-documentdb-post-trigger-include üstbilgisinde verilir. Unutmayın her ikisi de öncesi ve sonrası tetikleyicileri, belirli bir istek için belirtilebilir.
+Burada istekle çalıştırılması için ön tetikleyici x-ms-documentdb-pre-trigger-include üstbilgisinde belirtilir. Buna bağlı olarak, hiçbir sonrası tetikleyici x-ms-documentdb-post-trigger-include üst bilgi verilir. Unutmayın her ikisi de öncesi ve sonrası tetikleyicileri, belirli bir istek için belirtilebilir.
 
 ## <a name="sample-code"></a>Örnek kod
 Daha fazla sunucu tarafı kodu örnekleri bulabilirsiniz (de dahil olmak üzere [toplu silme](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js), ve [güncelleştirme](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) üzerinde bizim [GitHub deposunu](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
 
-Tooshare harika, saklı yordam istiyorsunuz? Lütfen bize bir çekme isteği gönderin! 
+Harika, saklı yordam paylaşmak ister misiniz? Lütfen bize bir çekme isteği gönderin! 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bir veya daha fazla saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler oluşturulan olduktan sonra bunları yükleyin ve hello Veri Gezgini'ni kullanarak Azure portalında görüntüleyin.
+Bir veya daha fazla saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler oluşturulan olduktan sonra bunları yükleyin ve Veri Gezgini'ni kullanarak Azure portalında görüntüleyin.
 
-Merhaba aşağıdakileri de bulabilirsiniz başvuruları ve kaynakları Azure Cosmos dB sunucu tarafı programlama hakkında daha fazla bilgi, yol toolearn yararlıdır:
+Aynı zamanda aşağıdaki başvuru ve kaynaklar Azure Cosmos dB sunucu tarafı programlama hakkında daha fazla bilgi için yolundaki yararlı olabilir:
 
 * [Azure Cosmos DB SDK'ları](documentdb-sdk-dotnet.md)
 * [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
@@ -808,5 +808,5 @@ Merhaba aşağıdakileri de bulabilirsiniz başvuruları ve kaynakları Azure Co
 * [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
 * [Güvenli ve taşınabilir veritabanı genişletilebilirliği](http://dl.acm.org/citation.cfm?id=276339) 
 * [Hizmet odaklı veritabanı mimarisi](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
-* [Microsoft SQL server Hello .NET çalışma zamanı barındırma](http://dl.acm.org/citation.cfm?id=1007669)
+* [Microsoft SQL Server'da .NET çalışma zamanı barındırma](http://dl.acm.org/citation.cfm?id=1007669)
 

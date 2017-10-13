@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme github | Microsoft Docs"
-description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ve GitHub arasında."
+description: "Çoklu oturum açma Azure Active Directory ve GitHub arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,71 +14,71 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: 688779de4e6627e49c0e3e8a7576f2f8c7a81ab1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9dc12bc2e313bcb2000724d035156c5054d14e1c
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Öğretici: Azure Active Directory Tümleştirme github
 
-Bu öğreticide, bilgi nasıl toointegrate GitHub Azure Active Directory'ye (Azure AD).
+Bu öğreticide, Azure Active Directory (Azure AD) ile GitHub tümleştirmek öğrenin.
 
-GitHub Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
+GitHub Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Erişim tooGitHub sahip Azure AD'de kontrol edebilirsiniz
-- Kullanıcıların tooautomatically get açan tooGitHub (çoklu oturum açma) Azure AD hesaplarına sahip etkinleştirebilirsiniz
-- Bir merkezi konumda - hello Azure Yönetim Portalı hesaplarınızı yönetebilirsiniz
+- GitHub erişimi, Azure AD'de kontrol edebilirsiniz
+- Otomatik olarak için GitHub (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
+- Hesaplarınızı bir merkezi konumda - Azure Yönetim Portalı'nı yönetme
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-tooconfigure GitHub ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
+Azure AD tümleştirme GitHub ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
 - Bir GitHub çoklu oturum açma etkin abonelik
 
 
 > [!NOTE]
-> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
 
 
-Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
+Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Bu gerekli olmadığı sürece, üretim ortamınızın kullanmamanız gerekir.
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
-1. GitHub hello Galerisi'nden ekleme
+1. Galeriden GitHub ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
 
-## <a name="adding-github-from-hello-gallery"></a>GitHub hello Galerisi'nden ekleme
-Azure AD'ye tooconfigure hello tümleştirme GitHub, tooadd GitHub hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
+## <a name="adding-github-from-the-gallery"></a>Galeriden GitHub ekleme
+Azure AD GitHub tümleştirilmesi yapılandırmak için GitHub Galeriden yönetilen SaaS uygulamaları listenize eklemeniz gerekir.
 
-**tooadd hello galeri Github'dan hello aşağıdaki adımları gerçekleştirin:**
+**Galeriden GitHub eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba,  **[Azure Yönetim Portalı](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure Yönetim Portalı](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Tıklatın **Ekle** hello iletişim hello üstte düğmesi.
+3. Tıklatın **Ekle** iletişim kutusunun üst kısmında düğmesi.
 
     ![Uygulamalar][3]
 
-4. Merhaba arama kutusuna yazın **Github.com'u**.
+4. Arama kutusuna **Github.com'u**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-github-tutorial/tutorial_github_search02.png)
 
-5. Merhaba Sonuçlar panelinde seçin **GitHub**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
+5. Sonuçlar panelinde seçin **GitHub**ve ardından **Ekle** uygulama eklemek için düğmesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-github-tutorial/tutorial_github_search_result02.png)
 
@@ -86,68 +86,68 @@ Azure AD'ye tooconfigure hello tümleştirme GitHub, tooadd GitHub hello galeri 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı GitHub ile test etme.
 
-Tek toowork'ın oturum açma hangi hello karşılık gelen github tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının ve github hello ilgili kullanıcı arasında bir bağlantı ilişkisi kurulan toobe gerekir.
+Tekli çalışmaya oturum için Azure AD ne karşılık gelen github bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ve ilgili kullanıcı github'da arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Bu bağlantı ilişkisi hello hello değerini atayarak kurulur **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** github'da.
+Bu bağlantı değeri atayarak ilişkisi **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** github'da.
 
-tooconfigure ve GitHub ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma GitHub ile test etmek için aşağıdaki yapı taşları tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
-3. **[GitHub test kullanıcısı oluşturma](#creating-a-GitHub-test-user)**  -toohave Britta Simon her bağlantılı toohello Azure AD gösterimidir github'da, karşılık gelen.
-4. **[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[GitHub test kullanıcısı oluşturma](#creating-a-GitHub-test-user)**  - Britta Simon, karşılık gelen her, Azure AD gösterimine bağlı GitHub sağlamak için.
+4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma hello Azure Yönetim Portalı'nda etkinleştirin ve çoklu oturum açma GitHub uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure Yönetim Portalı'nda etkinleştirin ve çoklu oturum açma GitHub uygulamanızda yapılandırın.
 
-**tooconfigure Azure AD çoklu oturum açma github, hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma GitHub ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba üzerinde hello Azure Yönetim Portalı'nda **GitHub** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure Yönetim Portalı'nda üzerinde **GitHub** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda, olarak **modu** seçin **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda, olarak **modu** seçin **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-github-tutorial/tutorial_github_01.png)
 
-3. Merhaba üzerinde **GitHub etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **GitHub etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-github-tutorial/tutorial_github_saml011.png)
 
-    a. Merhaba, **oturum açma URL'si** metin kutusuna, türü hello değeri olarak:`https://github.com/orgs/<entity-id>/sso`
+    a. İçinde **oturum açma URL'si** metin değeri olarak yazın:`https://github.com/orgs/<entity-id>/sso`
 
-    b. Merhaba, **tanımlayıcısı** metin kutusuna, bir desen aşağıdaki hello kullanarak URL'sini yazın:`https://github.com/orgs/<entity-id>`
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://github.com/orgs/<entity-id>`
 
     > [!NOTE] 
-    > Lütfen bu hello gerçek değerler olmadığına dikkat edin. Bu oturum açma hello gerçek URL ve tanımlayıcıdır değerlerle tooupdate var. Burada, toouse hello benzersiz değerini hello tanımlayıcı dizesinde öneririz. Bu değerleri tooGitHub yönetici bölüm tooretrieve gidin. 
+    > Lütfen bu gerçek değerlerin olmadığına dikkat edin. Bu değerleri tanımlayıcısı ve gerçek oturum açma URL'si ile güncelleştirmeniz gerekir. Burada dizesinin benzersiz değeri tanımlayıcıda kullanmanızı öneririz. Bu değerleri almak için GitHub yönetici bölümüne gidin. 
 
-4. Merhaba üzerinde **kullanıcı öznitelikleri** bölümünde, select **kullanıcı tanımlayıcısı** user.mail olarak.
+4. Üzerinde **kullanıcı öznitelikleri** bölümünde, select **kullanıcı tanımlayıcısı** user.mail olarak.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-github-tutorial/tutorial_github_attribute_new01.png)
     
-5. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **yeni sertifika oluştur**.
+5. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **yeni sertifika oluştur**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-github-tutorial/tutorial_github_03.png)
 
-6. Merhaba üzerinde **yeni sertifika oluştur** iletişim kutusunda, hello Takvim simgesine tıklayın ve bir **sona erme tarihi**. Ardından **kaydetmek** düğmesi.
+6. Üzerinde **yeni sertifika oluştur** iletişim kutusunda, Takvim simgesine tıklayın ve bir **sona erme tarihi**. Ardından **kaydetmek** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-github-tutorial/tutorial_general_300.png)
 
-7. Merhaba üzerinde **SAML imzalama sertifikası** bölümünde, select **yeni sertifika etkin hale getirin** tıklatıp **kaydetmek** düğmesi.
+7. Üzerinde **SAML imzalama sertifikası** bölümünde, select **yeni sertifika etkin hale getirin** tıklatıp **kaydetmek** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-github-tutorial/tutorial_github_04.png)
 
-8. Merhaba açılır pencere üzerinde **geçiş sertifikası** penceresinde tıklatın **Tamam**.
+8. Açılır pencere üzerinde **geçiş sertifikası** penceresinde tıklatın **Tamam**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-github-tutorial/tutorial_general_400.png)
 
-9. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve hello sertifika dosyayı bilgisayarınıza kaydedin.
+9. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-github-tutorial/tutorial_github_05.png) 
 
-10. Merhaba üzerinde **GitHub yapılandırma** 'yi tıklatın **yapılandırma GitHub** tooopen **yapılandırma oturum açma** penceresi.
+10. Üzerinde **GitHub yapılandırma** 'yi tıklatın **yapılandırma GitHub** açmak için **yapılandırma oturum açma** penceresi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-github-tutorial/tutorial_github_06.png) 
 
@@ -155,70 +155,70 @@ Bu bölümde, Azure AD çoklu oturum açma hello Azure Yönetim Portalı'nda etk
 
 11. Farklı web tarayıcısı penceresinde GitHub kuruluş sitenize yönetici olarak oturum açın.
 
-12. Çok gidin**ayarları** tıklatıp **güvenlik**
+12. Gidin **ayarları** tıklatıp **güvenlik**
 
     ![Ayarlar](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_03.png)
 
-13. Merhaba denetleyin **etkinleştirmek SAML kimlik doğrulaması** hello çoklu oturum açma yapılandırma alanları ortaya kutusu. Ardından, Azure AD yapılandırmasına hello tek oturum açma değeri tooupdate hello tek oturum açma URL'si kullanın.
+13. Denetleme **etkinleştirmek SAML kimlik doğrulaması** kutusu, çoklu oturum açma yapılandırma alanları ortaya. Ardından, çoklu oturum açma URL'si Azure AD yapılandırmasını güncelleştirmek için tek oturum açma URL değeri kullanın.
 
     ![Ayarlar](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_13.png)
 
-14. Alanları aşağıdaki hello yapılandırın:
+14. Aşağıdaki alanları yapılandırın:
 
-    a. **URL üzerinde oturum**: girin **SAML çoklu oturum açma hizmet URL'si** hello gelen **yapılandırma GitHub** Azure AD bölüm
+    a. **URL üzerinde oturum**: girin **SAML çoklu oturum açma hizmet URL'si** gelen **yapılandırma GitHub** Azure AD bölüm
 
-    b. **Veren**: girin **SAML varlık kimliği** hello gelen **yapılandırma GitHub** Azure AD bölüm
+    b. **Veren**: girin **SAML varlık kimliği** gelen **yapılandırma GitHub** Azure AD bölüm
 
-    c. **Ortak sertifika**: açık hello "Sertifika başlayın" ve "Son SERTİFİKAYI" gibi bir not defteri ve kopyalama hello içerik Azure AD'den sertifika indirilir
+    c. **Ortak sertifika**: indirilen sertifika Azure AD'den bir Not Defteri'nde açın ve "Sertifika başlayın" ve "Son SERTİFİKAYI" dahil olmak üzere içerik kopyalama
 
     ![Ayarlar](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_051.png)
 
-15. Tıklayın **Test SAML Yapılandırması** tooconfirm, hiçbir doğrulama hataları veya SSO sırasında hatalar.
+15. Tıklayın **Test SAML Yapılandırması** onaylamak için hiçbir doğrulama hataları veya SSO sırasında hatalar.
 
     ![Ayarlar](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_06.png)
 
 16. Tıklatın **Kaydet**
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümde Hello amacı toocreate Britta Simon adlı hello Azure Yönetim Portalı'nda bir sınama kullanıcısı ' dir.
+Bu bölümün amacı, Britta Simon adlı Azure Yönetim Portalı'nda bir test kullanıcı oluşturmaktır.
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba, **Azure Yönetim Portalı**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure Yönetim Portalı**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-github-tutorial/create_aaduser_01.png) 
 
-2. Çok Git**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar** toodisplay hello kullanıcılar listesi.
+2. Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar** kullanıcıların listesini görüntülemek için.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-github-tutorial/create_aaduser_02.png) 
 
-3. Merhaba hello iletişim üstündeki **Ekle** tooopen hello **kullanıcı** iletişim.
+3. İletişim kutusunun üstündeki **Ekle** açmak için **kullanıcı** iletişim.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-github-tutorial/create_aaduser_03.png) 
 
-4. Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-github-tutorial/create_aaduser_04.png) 
 
-    a. Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
 
-    b. Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
 
-    c. Seçin **Göster parola** ve hello hello değerini yazma **parola**.
+    c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**'a tıklayın. 
 
 
 ### <a name="creating-a-github-test-user"></a>GitHub test kullanıcısı oluşturma
 
-GitHub içine sipariş tooenable Azure AD kullanıcıların toolog bunların GitHub sağlanmalıdır.  
-GitHub Hello durumda sağlama bir el ile bir görevdir.
+Azure AD kullanıcıların GitHub oturum etkinleştirmek için bunların GitHub sağlanmalıdır.  
+GitHub söz konusu olduğunda, sağlama bir el ile bir görevdir.
 
-**bir kullanıcı hesapları tooprovision gerçekleştirmek hello adımları izleyin:**
+**Kullanıcı hesaplarını sağlamak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde tooyour GitHub şirket site yönetici olarak oturum açın.
+1. GitHub şirket sitenize yönetici olarak oturum açın.
 
 2. Tıklatın **kişiler**.
 
@@ -228,9 +228,9 @@ GitHub Hello durumda sağlama bir el ile bir görevdir.
 
     ![Kullanıcıları davet](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_09.png "kullanıcıları davet et")
 
-4. Merhaba üzerinde **davet üye** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **davet üye** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
 
-    a. Merhaba, **e-posta** metin kutusuna, Britta Simon hesabının hello e-posta adresini yazın.
+    a. İçinde **e-posta** metin kutusuna, Britta Simon hesabı e-posta adresini yazın.
 
     ![Kişileri davet edin](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_10.png "kişileri davet edin")
     
@@ -239,26 +239,26 @@ GitHub Hello durumda sağlama bir el ile bir görevdir.
     ![Kişileri davet edin](./media/active-directory-saas-github-tutorial/tutorial_github_config_github_11.png "kişileri davet edin")
 
     > [!NOTE]
-    > Hello Azure Active Directory hesap sahibi bir e-posta almak ve bunu etkinleştirilmeden önce bağlantı tooconfirm hesaplarında izleyin.
+    > Azure Active Directory hesap sahibi bir e-posta alır ve onu etkinleştirilmeden önce kendi hesabı onaylamak için bağlantıyı izleyin.
 
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
 
-Bu bölümde, kendi erişim tooGitHub vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
+Bu bölümde, Britta GitHub için kendi erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
 ![Kullanıcı atama][200] 
 
-**tooassign Britta Simon tooGitHub hello aşağıdaki adımları gerçekleştirin:**
+**GitHub için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello uygulamaları görünümü, Hello Azure Yönetim Portalı'nda açın ve ardından toohello dizin görünümüne gidin ve çok gidin**kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure Yönetim Portalı'nda uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Merhaba uygulamalar listesinde **Github.com'u**.
+2. Uygulamalar listesinde **Github.com'u**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-github-tutorial/tutorial_github_search_result021.png) 
 
-3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
     ![Kullanıcı atama][202] 
 
@@ -266,7 +266,7 @@ Bu bölümde, kendi erişim tooGitHub vererek Britta Simon toouse Azure çoklu o
 
     ![Kullanıcı atama][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -276,14 +276,14 @@ Bu bölümde, kendi erişim tooGitHub vererek Britta Simon toouse Azure çoklu o
 
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Merhaba GitHub hello erişim paneli parçasında tıkladığınızda, oturum açma GitHub uygulama tooyour almanız gerekir. Bir kuruluş hesabı ancak gerek toolog sonra kişisel hesabınızla oturum.
+Erişim paneli GitHub parçasında tıklattığınızda, GitHub uygulamanıza açan. Hesap ancak sonra gerekirse, kişisel hesabıyla oturum kuruluş olarak günlüğü.
 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 

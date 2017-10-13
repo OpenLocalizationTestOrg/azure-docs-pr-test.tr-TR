@@ -4,7 +4,7 @@
 ## [Veri güvenliği](security-center-data-security.md)
 ## Senaryolar
 ### [Olay yanıtı](security-center-incident-response.md)
-### [Öneriler tooenhance güvenliğini kullan](security-center-using-recommendations.md)
+### [Güvenliği artırmak için önerileri kullanın](security-center-using-recommendations.md)
 ## [Platform geçişi](security-center-platform-migration.md)
 ### [Platform geçişi ile ilgili SSS](security-center-platform-migration-faq.md)
 
@@ -18,11 +18,19 @@
 
 # Nasıl yapılır?
 
-## Önleme
-### [Güvenlik ilkeleri ayarlama](security-center-policies.md)
-### [Tam zamanında erişim](security-center-just-in-time.md)
-### [Güvenlik önerileri uygulama](security-center-recommendations.md)
+## Güvenlik ilkesi
+### [Genel Bakış](security-center-policies-overview.md)
+### [Veri toplama](security-center-enable-data-collection.md)
+### [Güvenlik ilkesi](security-center-policies.md)
+### [E-posta bildirimleri](security-center-provide-security-contact-details.md)
+### [Fiyatlandırma katmanı](security-center-pricing.md)
 
+## [Hazırlama](security-center-onboarding.md)
+## [Olaylar](security-center-events-dashboard.md)
+## [Search](security-center-search.md)
+
+## Önleme
+### [Güvenlik önerileri uygulama](security-center-recommendations.md)
 ### [Uygulama önerileri](security-center-application-recommendations.md)
 #### [Web uygulaması güvenlik duvarı ekleme](security-center-add-web-application-firewall.md)
 #### [Uygulama korumasını sonlandırma](security-center-add-web-application-firewall.md#finalize-application-protection)
@@ -41,19 +49,16 @@
 ### [Sanal makine önerileri](security-center-virtual-machine-recommendations.md)
 #### [Disk şifrelemesi uygulayın](security-center-apply-disk-encryption.md)
 #### [Sistem güncelleştirmelerini uygulayın](security-center-apply-system-updates.md)
-#### [Veri toplamayı etkinleştirme](security-center-enable-data-collection.md)
 #### [Depolama hesabı için şifrelemeyi etkinleştirme](security-center-enable-encryption-for-storage-account.md)
 #### [VM Aracısını etkinleştirin](security-center-enable-vm-agent.md)
 #### [Endpoint Protection’ı yükleyin](security-center-install-endpoint-protection.md)
-#### [Güvenlik ilgili kişi bilgilerini belirtin](security-center-provide-security-contact-details.md)
 #### [Sistem güncelleştirmelerinden sonra yeniden başlatın](security-center-apply-system-updates.md#reboot-after-system-updates)
 #### [İşletim sistemi güvenlik açıklarını düzeltin](security-center-remediate-os-vulnerabilities.md)
-#### [Endpoint Protection sistem durumu uyarılarını çözümleme](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [İşletim sistemi sürümünü güncelleştirme](security-center-update-os-version.md)
 #### [Güvenlik açığı değerlendirmesi yüklü değil](security-center-vulnerability-assessment-recommendations.md)
-
 ### [Güvenlik durumunu izleme](security-center-monitoring.md)
 ### [İş ortağı çözümlerini izleme](security-center-partner-solutions.md)
+### [Kimlik ve Erişim](security-center-identity-access.md)
 
 ## Algılama ve Yanıtlama
 ### [Tanılama özellikleri](security-center-detection-capabilities.md)
@@ -62,7 +67,17 @@
 ### [Uyarı doğrulaması](security-center-alert-validation.md)
 ### [Güvenlik olaylarını yönetme](security-center-incident.md)
 ### [Azure günlük tümleştirmesi](security-center-integrating-alerts-with-log-integration.md)
+### [Tehdit bilgileri haritası](security-center-threat-intel.md)
 ### [Tehdit zekası raporu](security-center-threat-report.md)
+### [Özel uyarılar](security-center-custom-alert.md)
+### [Araştırma](security-center-investigation.md)
+
+## Bulut savunma
+### [Tam zamanında erişim](security-center-just-in-time.md)
+### [Uyarlamalı uygulama denetimleri](security-center-adaptive-application.md)
+
+## Otomasyon ve Düzenleme
+### [Playbook’lar](security-center-playbooks.md)
 
 ## Sorun giderme
 ### [Sorun giderme kılavuzu](security-center-troubleshooting-guide.md)
@@ -76,7 +91,6 @@
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [Azure Güvenlik, Gizlilik ve Uyumluluk blogu](http://blogs.msdn.com/b/azuresecurity/)
-## [Fiyatlandırma](security-center-pricing.md)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [Hizmete genel bakış](https://azure.microsoft.com/services/security-center/)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=security-center)

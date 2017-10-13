@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure Mobile Engagement kullanıcı arabirimi - ulaşmak içerik"
-description: "Nasıl Azure Mobile Engagement toomanage hello benzersiz içerik türlerinin hello farklı anında iletme bildirimi kampanyaları öğrenin"
+title: "Azure Mobile Engagement kullanıcı arabirimi - ulaşma içeriği"
+description: "Anında iletme bildirimi kampanyaları Azure Mobile Engagement, farklı türdeki benzersiz içerik yönetmeyi öğrenin"
 services: mobile-engagement
 documentationcenter: 
 author: piyushjo
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: de389eb4368d986ef00135036c26e26a2464663e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3741a43b74af5846e95e42d8a7b533621e780f2d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toomanage-hello-unique-content-of-hello-different-types-of-push-notification-campaigns"></a>Nasıl toomanage hello hello farklı türde anında iletme bildirimi kampanyaları benzersiz içerik
-Merhaba içerik bölümü yeni reach kampanya toomodify hello içerik Duyurular, anketler, veri iter ve Kutucuklar (yalnızca Windows Phone) kullanabilirsiniz. Merhaba içerik anında iletme kampanyalarını kampanya belirli toohello türü ayarıdır. 
+# <a name="how-to-manage-the-unique-content-of-the-different-types-of-push-notification-campaigns"></a>Anında iletme bildirimi kampanyaları farklı türde benzersiz içeriği yönetme
+İçerik Duyurular, anketler, veri iter ve Kutucuklar (yalnızca Windows Phone) değiştirmek için yeni bir reach kampanya içerik bölümünü kullanın. İçerik anında iletme kampanyalarını kampanya türüne belirli ayarıdır. 
 
 ### <a name="content-types"></a>İçerik türleri:
 * Duyurular
@@ -32,26 +32,26 @@ Merhaba içerik bölümü yeni reach kampanya toomodify hello içerik Duyurular,
 ## <a name="content-of-announcements"></a>Duyurular içeriği
  ![Reach Content1][30] 
 
-### <a name="choose-hello-type-of-your-announcement"></a>Merhaba duyurunuzun türünü seçin:
-* Yalnızca bildirim: Basit standart bir bildirim değil. Kullanıcı üzerinde tıklatır, ek görünüm yok görünür, ancak yalnızca hello eylem ilişkili tooit ortaya çıkar anlamına gelir.
-* Metin duyuru: hello kullanıcı toohave metin görünümü göz prosese bir bildirimidir.
-* Web duyuru: hello kullanıcı toohave bir web görünümü göz prosese bir bildirimidir.
+### <a name="choose-the-type-of-your-announcement"></a>Duyurunuzun türünü seçin:
+* Yalnızca bildirim: Basit standart bir bildirim değil. Bu kullanıcı üzerinde tıklatır, ek görünüm yok görünür, ancak yalnızca kendisine ilişkili eylemin oluşacağını anlamına gelir.
+* Metin duyuru: metin görünümü bakın kullanıcıya prosese bir bildirimidir.
+* Web duyuru: kullanıcının bir web görünümü göz prosese bir bildirimidir.
 
 ### <a name="see-also"></a>Ayrıca bkz.
 * [Ulaşmaya - nasıl yapılır - duyuruları][Link 3] 
 
 ### <a name="about-web-view-announcements"></a>Web görünümü duyuruları hakkında:
-Merhaba desende "{DeviceID}" Merhaba HTML kodunda veya JavaScript kodunda Burada sağladığınız oluşumları hello cihazın tanımlayıcısı ile Merhaba duyuru görüntüleme hello tarafından otomatik olarak değiştirilecek. Bir dış bir kolay bir yolu tooretrieve Azure Mobile Engagement cihaz tanımlayıcılarının budur web işlem arka ofisinizde barındırılan hizmeti.
-Toocreate istiyorsanız, bir tam ekran web görünümü (sağladığımız hello varsayılan eylem ve çıkış düğmeleri olmadan) işlevleri, web görünümü duyurularının JavaScript kodundan aşağıdaki hello kullanabilirsiniz: 
+Deseninin "{DeviceID}" Burada sağladığınız HTML kodunda veya JavaScript kodunda, duyuruyu görüntüleyen cihazın tanımlayıcısı ile otomatik olarak değiştirilir. Bu işlem arka ofisinizde barındırılan bir dış web hizmetindeki Azure Mobile Engagement cihaz tanımlayıcılarının alınması için kolay bir yoludur.
+Bir tam ekran web görünümü oluşturmak isterseniz (sağladığımız varsayılan Eylem ve Çıkış düğmeleri olmadan), web görünümü duyurularının JavaScript kodundan aşağıdaki işlevleri kullanabilirsiniz: 
 
-* Merhaba duyuru eylemini gerçekleştir: ReachContent.actionContent()
-* Merhaba duyurudan Çık: ReachContent.exitContent()
+* Duyuru eylemini gerçekleştir: ReachContent.actionContent()
+* duyurudan Çık: ReachContent.exitContent()
 
 ### <a name="choose-your-action"></a>Eylem seçin:
 ### <a name="about-action-urls"></a>Eylem URL'ler hakkında:
 Hedeflenen cihazın işletim sistemi tarafından yorumlanabilen herhangi bir URL, eylem URL'si olarak kullanılabilir.
-Herhangi bir ayrılmış uygulamanız olabilir URL (örneğin tooa belirli ekran atlama toomake kullanıcılar) desteği eylem URL'si olarak da kullanılabilir.
-Merhaba {DeviceID} deseninin her oluşumu hello cihazın tanımlayıcısı ile Merhaba eylemi gerçekleştirmeden hello tarafından otomatik olarak değiştirilir. Bu işlem arka ofisinizde barındırılan bir dış web hizmeti aracılığıyla kullanılan tooeasily alma Azure Mobile Engagement cihaz tanımlayıcılarını olabilir.
+Uygulamanızın destekleyebileceği herhangi bir ayrılmış URL de (örn. kullanıcıların belirli bir ekrana atlaması için) eylem URL'si olarak kullanılabilir.
+{DeviceID} deseninin her oluşumu, eylemi gerçekleştiren cihazın tanımlayıcısı ile otomatik olarak değiştirilir. Bu işlem arka ofisinizde barındırılan bir dış web hizmeti aracılığıyla Azure Mobile Engagement cihaz tanımlayıcılarını kolayca almak için kullanılabilir.
 
 * **Android + iOS Eylemler**
   * Web sayfası aç
@@ -67,14 +67,14 @@ Merhaba {DeviceID} deseninin her oluşumu hello cihazın tanımlayıcısı ile M
   * Tel:\[telefon numarası\] 
   * Örnek: tel:2125551212
 * **Android yalnızca Eylemler**
-  * Merhaba Play Store'dan bir uygulama indirin
+  * Play Store'dan bir uygulama indirin
   * Market://details?id=\[uygulama paketi\] 
   * Örnek: market://details?id=com.microsoft.office.word
   * Coğrafi olarak yerelleştirilmiş arama başlat
   * GEO:0, 0? q =\[arama sorgusu\] 
   * Örnek: geo:0, 0? q starbucks, paris =
 * **iOS yalnızca Eylemler**
-  * Merhaba App Store'dan bir uygulama indirin
+  * App Store'dan bir uygulama indirin
   * http://iTunes.apple.com/ [Ülke] /app/ [uygulama adı] /id [uygulama kimliği]? mt = 8 
   * Örnek: http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
   * Windows işlemleri
@@ -90,7 +90,7 @@ Merhaba {DeviceID} deseninin her oluşumu hello cihazın tanımlayıcısı ile M
   * Telefon numarası çevir (Skype Store App gereklidir)
   * Tel:\[telefon numarası\] 
   * Örnek: tel:2125551212
-  * Merhaba Play Store'dan bir uygulama indirin
+  * Play Store'dan bir uygulama indirin
   * MS-windows-deposu: PDP? PFN =\[uygulama paket kimliği\] 
   * Örnek: ms-windows-deposu: PDP? PFN 4d91298a-07cb-40fb-aecc-4cb5615d53c1 =
   * Bingmaps araması başlat
@@ -104,10 +104,10 @@ Merhaba {DeviceID} deseninin her oluşumu hello cihazın tanımlayıcısı ile M
   * Example:myfolderdata.txt
 
 ### <a name="build-a-tracking-url"></a>Bir izleme URL'si oluşturun:
-* Bkz: hello "Ayarlar" bölümünü hello <UI Documentation> için bir izleme URL'si oluşturmak üzerinde yönerge kullanıcılar toodownload diğer uygulamalarınızı birini izin verir.
+* "Ayarlar" bölümüne bakın <UI Documentation> için bir izleme URL'si oluşturmak üzerinde yönerge kullanıcıların diğer uygulamalarınızdan birini indirmeye izin verir.
 
-### <a name="define-hello-texts-of-your-announcement"></a>Merhaba duyurunuzun metinlerini tanımlayın
-Merhaba başlık, içerik ve düğmesi duyurunuzun metinlerini doldurun. Bir izleyici kullanıcıları toothis kampanya nasıl yanıt verdiğini, hello ulaşma geri bildirimi doğrultusunda gelecekteki bir kampanyanın hedefleyebilirsiniz. Dinleyici olup bu kampanyayı yalnızca, yanıtlanan, eylem yapılan veya Çıkılan gönderilen, hello geribildirim bağlı olabilir.
+### <a name="define-the-texts-of-your-announcement"></a>Duyurunuzun metinlerini tanımlayın
+Başlık, içerik ve düğmesi duyurunuzun metinlerini doldurun. Kullanıcılar bu kampanyaya nasıl yanıt, erişim görüş dayanarak gelecekteki bir kampanyanın bir izleyici hedefleyebilirsiniz. Dinleyici olup bu kampanyayı yalnızca, yanıtlanan, eylem yapılan veya Çıkılan gönderilen geribildirim bağlı olabilir.
 
 ### <a name="see-also"></a>Ayrıca bkz.
 * [UI belgeleri - Reach - yeni itme ölçüt][Link 28]
@@ -115,8 +115,8 @@ Merhaba başlık, içerik ve düğmesi duyurunuzun metinlerini doldurun. Bir izl
 ## <a name="content-of-polls"></a>Anketler içeriği
 ![Reach Content2][31] 
 
-Merhaba başlık, açıklama ve düğmesi duyurunuzun metinlerini doldurun. Ardından, sorular ve seçenekleri hello yanıtlar tooyour sorular için ekleyin.
-Bir izleyici kullanıcıları toothis kampanya nasıl yanıt verdiğini, hello ulaşma geri bildirimi doğrultusunda gelecekteki bir kampanyanın hedefleyebilirsiniz. Dinleyici olup bu kampanyayı yalnızca, yanıtlanan, eylem yapılan veya Çıkılan gönderilen bağlı olabilir. Dinleyici ayrıca hello soru ve yanıt seçim ölçütü olarak kullanılan burada yoklama yanıt geri bildirim temel alabilir.
+Başlık, açıklama ve düğmesi duyurunuzun metinlerini doldurun. Ardından, sorular ve sorularınızın yanıtlarını seçenekleri ekleyin.
+Kullanıcılar bu kampanyaya nasıl yanıt, erişim görüş dayanarak gelecekteki bir kampanyanın bir izleyici hedefleyebilirsiniz. Dinleyici olup bu kampanyayı yalnızca, yanıtlanan, eylem yapılan veya Çıkılan gönderilen bağlı olabilir. Dinleyici da yoklama yanıt geri bildirim, soru ve yanıt seçim ölçütü olarak kullanıldığı temel alabilir.
 
 ### <a name="see-also"></a>Ayrıca bkz.
 * [UI belgeleri - Reach - yeni itme ölçüt][Link 28]
@@ -124,15 +124,15 @@ Bir izleyici kullanıcıları toothis kampanya nasıl yanıt verdiğini, hello u
 ## <a name="content-of-data-pushes"></a>Veri gönderimleri içeriği
 ![Reach Content3][32] 
 
-### <a name="choose-hello-type-of-your-data"></a>Verilerinizi Hello türünü seçin:
+### <a name="choose-the-type-of-your-data"></a>Verilerinizin türünü seçin:
 * Metin
 * İkili veriler
 * Base64 veri
 
-### <a name="define-hello-content-of-your-data"></a>Merhaba, verilerinizin içeriğini tanımlayın
-* Toopush metin veri seçtiyseniz, kopyalamak ve hello metin hello "içerik" kutusuna yapıştırın.
-* Toopush seçtiyseniz, ikili veya base64 veri dosyanızın hello "dosyanızı karşıya yükle" düğmesini tooupload kullanın.
-* Bir izleyici kullanıcıları toothis kampanya nasıl yanıt verdiğini, hello ulaşma geri bildirimi doğrultusunda gelecekteki bir kampanyanın hedefleyebilirsiniz. Dinleyici olup bu kampanyayı yalnızca, yanıtlanan, eylem yapılan veya Çıkılan gönderilen bağlı olabilir.
+### <a name="define-the-content-of-your-data"></a>Verilerinizin içeriğini tanımlayın
+* Metin veri göndermeyi seçtiyseniz, kopyalamak ve metin "içerik" kutusuna yapıştırın.
+* İkili veya base64 veri göndermeyi seçtiyseniz, dosyanızı karşıya yüklemek için "dosyanızı karşıya yükle" düğmesini kullanın.
+* Kullanıcılar bu kampanyaya nasıl yanıt, erişim görüş dayanarak gelecekteki bir kampanyanın bir izleyici hedefleyebilirsiniz. Dinleyici olup bu kampanyayı yalnızca, yanıtlanan, eylem yapılan veya Çıkılan gönderilen bağlı olabilir.
 
 ### <a name="see-also"></a>Ayrıca bkz.
 * [UI belgeleri - Reach - yeni itme ölçüt][Link 28]
@@ -140,9 +140,9 @@ Bir izleyici kullanıcıları toothis kampanya nasıl yanıt verdiğini, hello u
 ## <a name="content-of-tiles-windows-phone-only"></a>İçerik döşeme (yalnızca Windows Phone)
 ![Reach Content4][33]
 
-### <a name="define-hello-content-of-your-tile"></a>Merhaba kutucuğunuzun içeriğini tanımlayın
-Windows Phone cihazlarda, uygulamanızın hello kutucuğunda görüntülenen hello metin toobe Hello döşeme yükü olduğu.
-Döşeme push hello Microsoft anında iletme bildirimi Hizmeti'ni (MPNS), Windows Phone için bir yerel gönderim sürümüdür. Merhaba döşeme itme türü, yanıt yok hello yalnızca anında iletme türü ve bu nedenle gelecekteki Kampanyalar hello İzleyici döşeme itme kampanya hello sonuçlarını oluşturulamıyor. 
+### <a name="define-the-content-of-your-tile"></a>Kutucuğunuzun içeriğini tanımlayın
+Döşeme yükü uygulamanızı Windows Phone cihazlarda döşemesinin görüntülenecek metindir.
+Döşeme push yerel gönderim Windows Phone için Microsoft anında iletme bildirimi Hizmeti'ni (MPNS) sürümüdür. Döşeme anında iletme türü yanıt yok yalnızca gönderme türü ve gelecekteki Kampanyalar İzleyici döşeme itme kampanya sonuçlarına böylece oluşturulamıyor. 
 
 ### <a name="see-also"></a>Ayrıca bkz.
 * [API belgelerine - ulaşma API - yerel gönderim][Link 4]

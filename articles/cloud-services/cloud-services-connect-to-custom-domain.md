@@ -1,6 +1,6 @@
 ---
-title: "bir bulut hizmeti tooa aaaConnect özel etki alanı denetleyicisi | Microsoft Docs"
-description: "Bilgi nasıl tooconnect web/çalışan rolleri tooa özel AD etki alanı PowerShell ve AD etki alanı uzantısı kullanma"
+title: "Bir bulut hizmeti bir özel etki alanı denetleyicisine bağlanma | Microsoft Docs"
+description: "Web/çalışan rolleri bir özel AD PowerShell ve AD etki alanı uzantısını kullanarak etki alanına bağlayın öğrenin"
 services: cloud-services
 documentationcenter: 
 author: Thraka
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: 9540190ccf17c03e55159c6c68429eee29e0a558
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 17f6918371678ac849198bff4e3b3eea8678c660
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="connecting-azure-cloud-services-roles-tooa-custom-ad-domain-controller-hosted-in-azure"></a>Azure bulut Hizmetleri rolleri tooa özel AD etki alanı denetleyicisi Azure'da barındırılan bağlanma
-Sanal ağ (VNet) İlk Azure içinde ayarlarsınız. Bir Active Directory etki alanı denetleyicisi (bir Azure sanal makinede barındırılan) toohello VNet sonra ekleyeceğiz. Ardından, biz mevcut bulut hizmeti rolleri toohello VNet önceden oluşturulmuş ekleyin, sonra toohello etki alanı denetleyicisine bağlanma.
+# <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Azure bulut Hizmetleri rolleri bir özel AD etki alanı denetleyicisi Azure'da barındırılan bağlanma
+Sanal ağ (VNet) İlk Azure içinde ayarlarsınız. Ardından bir Active Directory etki alanı (bir Azure sanal makinede barındırılan) denetleyicisi Vnet'e ekleyeceğiz. Ardından, biz mevcut bulut hizmeti rollerinizi önceden oluşturulmuş Vnet'e ekleyin, sonra etki alanı denetleyicisine bağlanma.
 
-Başlamadan önce birkaç şey tookeep unutmayın:
+Başlamadan önce birkaç şey göz önünde bulundurun:
 
-1. Bu öğreticide PowerShell kullanır, böylece Azure PowerShell yüklenmiş olması ve toogo hazır olduğundan emin olun. Azure PowerShell ayar tooget Yardımı'na bakın [nasıl tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azure/overview).
-2. AD etki alanı denetleyicisi ve Web/çalışan rolü örneklerinizi hello VNet toobe gerekir.
+1. Bu öğreticide PowerShell kullanır, böylece Azure PowerShell yüklenmiş ve Git hazır olduğundan emin olun. Azure PowerShell ayarlama konusunda yardım almak için bkz: [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview).
+2. AD etki alanı denetleyicisi ve Web/çalışan rolü örneklerinizi ağda olması gerekir.
 
-Bu adım adım kılavuz izleyin ve herhangi bir sorunla çalıştırırsanız, bize hello hello makalenin sonunda bir yorum yazın. Birisi tooyou geri alırsınız (Evet, biz yorumları okuma).
+Bu adım adım kılavuz izleyin ve herhangi bir sorunla çalıştırırsanız, bize makalenin sonunda bir yorum yazın. Birisi geri için karşılaşırsınız (Evet, biz yorumları okuma).
 
-Merhaba bulut hizmeti tarafından başvurulan hello ağ olmalıdır bir **Klasik sanal ağ**.
+Bulut hizmeti tarafından başvurulan ağ olmalıdır bir **Klasik sanal ağ**.
 
 ## <a name="create-a-virtual-network"></a>Bir sanal ağ oluşturma
-Azure'da hello Azure portal veya PowerShell kullanarak bir sanal ağ oluşturabilirsiniz. Bu öğretici için PowerShell kullanacağız. kullanarak bir sanal ağ toocreate hello Azure portal, bkz: [sanal ağ oluştur](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
+Azure portal veya PowerShell kullanarak Azure'da bir sanal ağ oluşturabilirsiniz. Bu öğretici için PowerShell kullanacağız. Azure Portalı'nı kullanarak bir sanal ağ oluşturmak için bkz: [sanal ağ oluştur](../virtual-network/virtual-networks-create-vnet-arm-pportal.md).
 
 ```powershell
 #Create Virtual Network
@@ -63,9 +63,9 @@ Set-AzureVNetConfig -ConfigurationPath $vnetConfigPath
 ```
 
 ## <a name="create-a-virtual-machine"></a>Bir Sanal Makine Oluşturun
-Merhaba sanal ağ kurmayı tamamladıktan sonra toocreate bir AD etki alanı denetleyicisi gerekir. Bu öğretici için size bir AD etki alanı denetleyicisi üzerinde bir Azure sanal makine ayarlarını yapacak.
+Sanal ağı kurma tamamladıktan sonra bir AD etki alanı denetleyicisi oluşturmanız gerekir. Bu öğretici için size bir AD etki alanı denetleyicisi üzerinde bir Azure sanal makine ayarlarını yapacak.
 
-toodo Bu, PowerShell komutlarını aşağıdaki hello kullanarak aracılığıyla bir sanal makine oluşturun:
+Bunu yapmak için aşağıdaki komutları kullanarak PowerShell aracılığıyla bir sanal makine oluşturun:
 
 ```powershell
 # Initialize variables
@@ -79,25 +79,25 @@ $username = '<your-username>'
 $password = '<your-password>'
 $affgrp = '<your- affgrp>'
 
-# Create a VM and add it toohello Virtual Network
+# Create a VM and add it to the Virtual Network
 
 New-AzureQuickVM -Windows -ServiceName $vmsvc1 -Name $vm1 -ImageName $imgname -AdminUsername $username -Password $password -AffinityGroup $affgrp -SubnetNames $subnetname -VNetName $vnetname
 ```
 
-## <a name="promote-your-virtual-machine-tooa-domain-controller"></a>Sanal makine tooa etki alanı denetleyicisine Yükselt
-tooconfigure hello sanal makine bir AD etki alanı denetleyicisi toohello VM toolog ve gerekir yapılandırın.
+## <a name="promote-your-virtual-machine-to-a-domain-controller"></a>Sanal makinenize bir etki alanı denetleyicisine Yükselt
+Sanal makineyi bir AD etki alanı denetleyicisi olarak yapılandırmak için VM için oturum açın ve yapılandırmanız gerekir.
 
-toolog toohello VM içinde kullanım hello komutları aşağıdaki PowerShell aracılığıyla hello RDP dosyasını alabilirsiniz:
+VM oturum açmak için RDP dosyasını PowerShell aracılığıyla almak, aşağıdaki komutları kullanın:
 
 ```powershell
 # Get RDP file
 Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-path>
 ```
 
-Toohello VM oturumunuz sonra sanal makineniz aşağıdaki hello adım adım kılavuzu bir AD etki alanı denetleyicisi olarak ayarlamak [nasıl müşteriniz AD etki alanı denetleyicisi yukarı tooset](http://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
+VM oturum açtıktan sonra sanal makineniz adım adım kılavuzu izleyerek bir AD etki alanı denetleyicisi ayarlamak [müşterinizi AD etki alanı denetleyicisi ayarlamak nasıl](http://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
 
-## <a name="add-your-cloud-service-toohello-virtual-network"></a>Bulut hizmeti toohello sanal ağ ekleme
-Ardından, bulut hizmeti dağıtım toohello tooadd gerekir yeni VNet. toodo Bu, Visual Studio kullanarak hello ilgili bölümlerine tooyour cscfg ekleyerek, bulut hizmeti cscfg değiştirebilir veya hello düzenleyiciyi.
+## <a name="add-your-cloud-service-to-the-virtual-network"></a>Bulut hizmetiniz için sanal ağ ekleme
+Ardından, yeni Vnet'in bulut hizmeti dağıtımınızı eklemeniz gerekir. Bunu yapmak için Visual Studio ya da bir düzenleyiciyi kullanarak, cscfg ilgili bölümlerine ekleyerek, bulut hizmeti cscfg değiştirin.
 
 ```xml
 <ServiceConfiguration serviceName="[hosted-service-name]" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="[os-family]" osVersion="*">
@@ -128,10 +128,10 @@ Ardından, bulut hizmeti dağıtım toohello tooadd gerekir yeni VNet. toodo Bu,
 </ServiceConfiguration>
 ```
 
-Sonraki bulut Hizmetleri projeyi oluşturun ve tooAzure dağıtın. Bulut Hizmetleri paket tooAzure dağıtma ile tooget Yardımı'na bakın [nasıl tooCreate ve bir bulut hizmeti dağıtma](cloud-services-how-to-create-deploy.md#how-to-deploy-a-cloud-service)
+Sonraki bulut Hizmetleri projeyi oluşturun ve Azure'a dağıtın. Bulut Hizmetleri paketinizi Azure'a dağıtma konusunda yardım almak için bkz: [nasıl oluşturulacağı ve bir bulut hizmeti dağıtma](cloud-services-how-to-create-deploy.md#how-to-deploy-a-cloud-service)
 
-## <a name="connect-your-webworker-roles-toohello-domain"></a>Web/çalışan rolleri toohello etki alanınızın Bağlan
-Bulut hizmeti projenizi Azure üzerinde dağıtıldığında, başlangıç AD etki alanı uzantısını kullanarak rol örnekleri toohello özel AD etki alanınızın bağlayın. tooadd hello AD etki alanı uzantısı tooyour mevcut bulut Hizmetleri dağıtımı ve hello özel etki alanına katılma, PowerShell komutlarını aşağıdaki hello yürütün:
+## <a name="connect-your-webworker-roles-to-the-domain"></a>Web/çalışan rolleri etki alanına bağlayın
+Bulut hizmeti projenizi Azure üzerinde dağıtıldığında, rolü örneklerinizi AD etki alanı uzantısını kullanarak özel AD etki alanına bağlayın. AD etki alanı uzantısı, var olan bulut Hizmetleri dağıtımına eklemek ve özel etki alanına katılmak için PowerShell içinde aşağıdaki komutları çalıştırın:
 
 ```powershell
 # Initialize domain variables
@@ -142,14 +142,14 @@ $dmpswd = '<your-domain-password>'
 $dmspwd = ConvertTo-SecureString $dmpswd -AsPlainText -Force
 $dmcred = New-Object System.Management.Automation.PSCredential ($dmuser, $dmspwd)
 
-# Add AD Domain Extension toohello cloud service roles
+# Add AD Domain Extension to the cloud service roles
 
 Set-AzureServiceADDomainExtension -Service <your-cloud-service-hosted-service-name> -Role <your-role-name> -Slot <staging-or-production> -DomainName $domain -Credential $dmcred -JoinOption 35
 ```
 
 Ve bu kadar.
 
-Bulut hizmetlerinizi birleştirilmiş tooyour özel etki alanı denetleyicisi olmalıdır. Kullanılabilir farklı seçenekler hakkında daha fazla hello toolearn isterseniz tooconfigure AD etki alanı uzantısını kullanım hello PowerShell nasıl yardımcı olur. Örnekler izleyin birkaç:
+Bulut Hizmetleri, özel etki alanı denetleyicisine katılması. AD etki alanı uzantısını yapılandırmak nasıl kullanılabilir farklı seçenekler hakkında daha fazla bilgi edinmek istiyorsanız, PowerShell Yardımı kullanın. Örnekler izleyin birkaç:
 
 ```powershell
 help Set-AzureServiceADDomainExtension

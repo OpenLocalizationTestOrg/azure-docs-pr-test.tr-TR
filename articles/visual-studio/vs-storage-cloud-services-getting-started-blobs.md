@@ -1,6 +1,6 @@
 ---
-title: "aaaGet, bağlı hizmetler (bulut Hizmetleri) blob depolama ve Visual Studio ile çalışmaya | Microsoft Docs"
-description: "Visual Studio kullanarak tooa depolama hesabı bağlanma Hizmetleri bağlandıktan sonra bir bulut hizmeti projesini Visual Studio'da Azure Blob storage kullanarak tooget nasıl başlatılacağını"
+title: "BLOB ile çalışmaya başlama depolama ve Visual Studio bağlı Hizmetleri (bulut Hizmetleri) | Microsoft Docs"
+description: "Visual Studio kullanarak bir depolama hesabına bağlanma Hizmetleri bağlandıktan sonra bir bulut hizmeti projesini Visual Studio'da Azure Blob storage kullanarak nereden başlayacaksınız"
 services: storage
 documentationcenter: 
 author: kraigb
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: kraigb
-ms.openlocfilehash: 158197a9d49bc4f26841d689405529192c52f529
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cf14880c70f90b01c5dffbfe434150581c2ec33b
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Azure Blob Storage ve Visual Studio ile çalışmaya başlama bağlı Hizmetleri (bulut hizmeti projeleri)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Oluşturulan veya hello Visual Studio kullanarak bir Azure Storage hesabı başvurulan sonra tooget Azure Blob Storage ile çalışmaya nasıl bu makalede **bağlı Hizmetleri Ekle** iletişim kutusunda bir Visual Studio bulut Hizmetleri projesi. Nasıl göstereceğiz tooaccess blob kapsayıcıları ve nasıl tooperform ortak görevleri karşıya yükleme, listeleme ve BLOB'ları indirme gibi oluşturabilirsiniz. Merhaba örnekleri C'de yazılmış\# ve hello [.NET için Microsoft Azure Storage istemci Kitaplığı](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Bu makalede oluşturulan ya da Visual Studio kullanarak bir Azure Storage hesabı başvurulan sonra Azure Blob Storage'ı kullanmaya başlamak nasıl **bağlı Hizmetleri Ekle** iletişim kutusunda bir Visual Studio bulut Hizmetleri projesi. Erişme ve blob kapsayıcıları oluşturma ve karşıya yükleme, listeleme ve BLOB'ları indirme gibi genel görevleri gerçekleştirmek nasıl göstereceğiz. Örnekler C yazılır\# ve [.NET için Microsoft Azure Storage istemci Kitaplığı](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-Azure Blob Storage, büyük miktarda gelen herhangi bir yere Merhaba Dünya HTTP veya HTTPS aracılığıyla erişilebilir yapılandırılmamış veriyi depolamak için bir hizmettir. Tek bir blob herhangi bir boyutta olabilir. BLOB'ları görüntüleri, ses ve video dosyaları, ham verileri ve belge dosyaları gibi olabilir.
+Azure Blob Storage, büyük miktarlarda herhangi bir yere HTTP veya HTTPS aracılığıyla erişilebilir yapılandırılmamış verileri depolamak için bir hizmettir. Tek bir blob herhangi bir boyutta olabilir. BLOB'ları görüntüleri, ses ve video dosyaları, ham verileri ve belge dosyaları gibi olabilir.
 
-Dosyaları klasörlerde yalnızca dinamik olarak kapsayıcılarında depolama BLOB'ları dinamik. Bir depolama oluşturduktan sonra hello depolama alanında bir veya daha fazla kapsayıcı oluşturun. Örneğin, "Koleksiyon defteri" adlı bir depolama "görüntüleri" toostore resimleri adlı hello storage'da kapsayıcı oluşturma ve ses dosyaları başka bir "ses" toostore çağrılır. Merhaba kapsayıcılara oluşturduktan sonra tek tek blob dosyaları toothem karşıya yükleyebilirsiniz.
+Dosyaları klasörlerde yalnızca dinamik olarak kapsayıcılarında depolama BLOB'ları dinamik. Bir depolama oluşturduktan sonra depolama alanında bir veya daha fazla kapsayıcı oluşturun. Örneğin, "Koleksiyon defteri" adlı bir depolama resimleri depolamak için "görüntüleri" adlı depolama kapsayıcıları oluşturabilirsiniz ve başka bir "ses dosyalarını depolamak için ses" olarak adlandırılan. Kapsayıcılar oluşturduktan sonra bunları tek tek blob dosyaları karşıya yükleyebilir.
 
 * Program aracılığıyla BLOB'lar düzenleme ile ilgili daha fazla bilgi için bkz: [.NET kullanarak Azure Blob storage'ı kullanmaya başlama](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 * Azure Storage hakkında genel bilgi için bkz: [Storage belgeleri](https://azure.microsoft.com/documentation/services/storage/).
@@ -36,46 +36,46 @@ Dosyaları klasörlerde yalnızca dinamik olarak kapsayıcılarında depolama BL
 * ASP.NET uygulamalarını programlama hakkında daha fazla bilgi için bkz: [ASP.NET](http://www.asp.net).
 
 ## <a name="access-blob-containers-in-code"></a>Kod erişim blob kapsayıcıları
-tooprogrammatically erişim blobları bulut hizmeti projelerinde zaten mevcut değillerse öğeleri aşağıdaki tooadd hello gerekir.
+Zaten mevcut değilse bulut hizmeti projelerinde BLOB'lar programlı olarak erişmek için aşağıdaki öğeleri eklemeniz gerekir.
 
-1. Aşağıdaki kod ad alanı bildirimleri toohello dosyasının üst kısmında tooprogrammatically erişim Azure Storage istediğiniz tüm C# hello ekleyin.
+1. Aşağıdaki kod ad alanı bildirimleri, Azure Storage programlı olarak erişmek istediğiniz tüm C# dosyasının üstüne ekleyin.
    
         using Microsoft.Framework.Configuration;
         using Microsoft.WindowsAzure.Storage;
         using Microsoft.WindowsAzure.Storage.Blob;
         using System.Threading.Tasks;
         using LogLevel = Microsoft.Framework.Logging.LogLevel;
-2. Alma bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne. Kod tooget aşağıdaki kullanım hello depolama bağlantı dizesi ve depolama hesabı bilgilerini hello Azure hizmet yapılandırmasından hello.
+2. Alma bir **CloudStorageAccount** depolama hesabı bilgilerini temsil eden nesne. Almak için aşağıdaki kodu kullanın depolama bağlantı dizesini ve Azure hizmet yapılandırma depolama hesabı bilgileri.
    
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("<storage account name>_AzureStorageConnectionString"));
-3. Alma bir **CloudBlobClient** tooreference depolama hesabınızdaki var olan bir kapsayıcı nesne.
+3. Alma bir **CloudBlobClient** depolama hesabınızdaki var olan bir kapsayıcı başvurmak için.
    
         // Create a blob client.
         CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
-4. Alma bir **CloudBlobContainer** tooreference belirli blob kapsayıcı nesne.
+4. Alma bir **CloudBlobContainer** belirli blob kapsayıcısı başvurmak için.
    
-        // Get a reference tooa container named "mycontainer."
+        // Get a reference to a container named "mycontainer."
         CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
 > [!NOTE]
-> Tüm bölümler aşağıdaki hello gösterilen hello kod önünde hello önceki yordamda gösterilen hello kodunun kullanın.
+> Aşağıdaki bölümlerde gösterilen kodu önüne önceki yordamda gösterilen tüm kodları kullanın.
 > 
 > 
 
 ## <a name="create-a-container-in-code"></a>Kod içinde bir kapsayıcı oluşturma
 > [!NOTE]
-> ASP.NET tooAzure depolama giden çağrıları gerçekleştirdiğinizde bazı API'leri zaman uyumsuzdur. Bkz: [uyumsuz ve bekleme ile zaman uyumsuz programlama](http://msdn.microsoft.com/library/hh191443.aspx) daha fazla bilgi için. Aşağıdaki örneğine hello Hello kodda zaman uyumsuz programlama yöntemleri kullandığınızı varsayar.
+> Azure Storage giden çağrıları ASP.NET gerçekleştirmek bazı API'leri zaman uyumsuzdur. Bkz: [uyumsuz ve bekleme ile zaman uyumsuz programlama](http://msdn.microsoft.com/library/hh191443.aspx) daha fazla bilgi için. Aşağıdaki örnek kodda, zaman uyumsuz programlama yöntemleri kullandığınızı varsayar.
 > 
 > 
 
-Depolama hesabınızdaki bir kapsayıcı toocreate, tüm yapmanız gereken toodo ekleyin bir çağrı çok**CreateIfNotExistsAsync** koddan hello olduğu gibi:
+Depolama hesabınızdaki bir kapsayıcı oluşturmak için yapmanız gereken tek şey bir çağrı ekleyin **CreateIfNotExistsAsync** aşağıdaki kodu olduğu gibi:
 
     // If "mycontainer" doesn't exist, create it.
     await container.CreateIfNotExistsAsync();
 
 
-toomake hello dosyaları hello kapsayıcı kullanılabilir tooeveryone içinde hello kapsayıcı toobe ortak koddan hello kullanarak ayarlayabilirsiniz.
+Kapsayıcı içindeki dosyaların herkese kullanılabilmesi için genel olarak aşağıdaki kodu kullanarak kapsayıcıyı ayarlayabilirsiniz.
 
     await container.SetPermissionsAsync(new BlobContainerPermissions
     {
@@ -83,26 +83,26 @@ toomake hello dosyaları hello kapsayıcı kullanılabilir tooeveryone içinde h
     });
 
 
-Merhaba Internet üzerinden herkes ortak bir kapsayıcıdaki blobları görebilir ancak değiştirdiğinizde ya da yalnızca hello uygun erişim anahtarı varsa, bunları silin.
+Internet üzerinden herkes ortak bir kapsayıcıdaki blobları görebilir ancak değiştirdiğinizde ya da yalnızca uygun erişim anahtarı varsa, bunları silin.
 
 ## <a name="upload-a-blob-into-a-container"></a>Bir kapsayıcıya bir blob yükleme
-Azure Storage blok blobları ve sayfa bloblarını destekler. Merhaba çoğu durumda, blok blob türü toouse önerilen hello ' dir.
+Azure Storage blok blobları ve sayfa bloblarını destekler. Çoğu durumda kullanılması önerilen blob türü blok blobudur.
 
-tooupload dosya tooa blok blob bir kapsayıcı başvurusu alın ve blok blob başvurusu tooget kullanın. Bir blob başvurusu edindiğinizde arama hello tarafından herhangi bir veri tooit akışıdır yükleyebilirsiniz **UploadFromStream** yöntemi. Bu işlem daha önce bulunamadı veya mevcut değilse bu raporun üzerine hello blob oluşturur. örnekte gösterildiği nasıl aşağıdaki hello tooupload blob bir kapsayıcı halinde ve o hello kapsayıcısı zaten oluşturulduğu varsayılmaktadır.
+Bir dosyayı bir blok blobuna yüklemek için bir kapsayıcı başvurusu alın ve blok blob başvurusu almak için kullanın. Bir blob başvurusu edindiğinizde **UploadFromStream** yöntemini çağırarak istediğiniz veri akışını yükleyebilirsiniz. Bu işlemle, eğer önceden oluşturulmadıysa bir blob oluşturulacaktır, aksi takdirde üzerine yazılacaktır. Aşağıdaki örnek kapsayıcının önceden oluşturulduğunu varsayarak bir blobun bir kapsayıcıya nasıl yükleneceğini gösterir.
 
-    // Retrieve a reference tooa blob named "myblob".
+    // Retrieve a reference to a blob named "myblob".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob");
 
-    // Create or overwrite hello "myblob" blob with contents from a local file.
+    // Create or overwrite the "myblob" blob with contents from a local file.
     using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
     {
         blockBlob.UploadFromStream(fileStream);
     }
 
-## <a name="list-hello-blobs-in-a-container"></a>Liste hello BLOB'ları bir kapsayıcıda
-toolist hello BLOB'ları bir kapsayıcıda, ilk olarak bir kapsayıcı başvurusu alın. Merhaba kapsayıcının sonra kullanabileceğiniz **ListBlobs** yöntemi tooretrieve hello blobları ve/veya dizinleri içindeki. tooaccess hello zengin özellik ve yöntem **Ilistblobıtem**, tooa atamalısınız **CloudBlockBlob**, **CloudPageBlob**, veya  **CloudBlobDirectory** nesnesi. Merhaba türü bilinmiyor, hangi toocast türü onay toodetermine kullanabilirsiniz için. Merhaba aşağıdaki kodu nasıl tooretrieve ve çıktı hello her öğe URI'sini hello gösterir **fotoğraf** kapsayıcı:
+## <a name="list-the-blobs-in-a-container"></a>Blob’ları bir kapsayıcıda listeleme
+Blob’ları bir kapsayıcıda listelemek için ilk olarak bir kapsayıcı başvurusu edinin. Ardından içindeki blobları ve/veya dizinleri almak için kapsayıcının **ListBlobs** yöntemini kullanabilirsiniz. Zengin özellik ve yöntem erişmek için **Ilistblobıtem**, kendisine atamalısınız bir **CloudBlockBlob**, **CloudPageBlob**, veya **CloudBlobDirectory** nesnesi. Tür bilinmiyorsa, hangisine yayınlayacağınızı belirlemek için bir tür denetimi kullanabilirsiniz. Aşağıdaki kod, **resimler** kapsayıcısındaki her nesnenin URI’sinin nasıl alınacağını ve çıkacağını gösterir:
 
-    // Loop over items within hello container and output hello length and URI.
+    // Loop over items within the container and output the length and URI.
     foreach (IListBlobItem item in container.ListBlobs(null, false))
     {
         if (item.GetType() == typeof(CloudBlockBlob))
@@ -127,7 +127,7 @@ toolist hello BLOB'ları bir kapsayıcıda, ilk olarak bir kapsayıcı başvurus
         }
     }
 
-Hello önceki kod örneğinde gösterildiği şekilde hello blob hizmeti kapsayıcıları, de dizinleri hello kavramı vardır. Bu, böylelikle daha klasör benzeri bir yapı bloblarınızın düzenleyebilirsiniz. Örneğin, adlandırılmış bir kapsayıcıda blok blobları kümesine aşağıdaki hello göz önünde bulundurun **fotoğraf**:
+Önceki kod örneğinde gösterildiği gibi blob hizmetinde kapsayıcıları, de dizinleri kavramı vardır. Bu, böylelikle daha klasör benzeri bir yapı bloblarınızın düzenleyebilirsiniz. Örneğin bir kapsayıcıda yer alan ve **resimler** olarak adlandırılan aşağıdaki blok blobları kümesine göz atın:
 
     photo1.jpg
     2010/architecture/description.txt
@@ -138,22 +138,22 @@ Hello önceki kod örneğinde gösterildiği şekilde hello blob hizmeti kapsay�
     2011/architecture/description.txt
     2011/photo7.jpg
 
-Çağırdığınızda **ListBlobs** (olduğu gibi hello önceki örnek) hello kapsayıcısı üzerinde döndürülen hello koleksiyonu içerir **CloudBlobDirectory** ve **CloudBlockBlob** nesneleri Merhaba dizinleri ve blobları hello en üst düzeyinde bulunan temsil eden. Merhaba sonuçta çıktı şöyledir:
+Çağırdığınızda **ListBlobs** (olduğu gibi önceki örnek) kapsayıcısı üzerinde döndürülen koleksiyonu içerir **CloudBlobDirectory** ve **CloudBlockBlob** dizinleri ve blobları en üst düzeyinde bulunan temsil eden nesne. Sonuçta çıktı şöyledir:
 
     Directory: https://<accountname>.blob.core.windows.net/photos/2010/
     Directory: https://<accountname>.blob.core.windows.net/photos/2011/
     Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
 
-İsteğe bağlı olarak, hello ayarlayabilirsiniz **Listblobs** hello parametresini **ListBlobs** yönteme **doğru**. Bu olarak döndürülen her blob sonuçlanır bir **CloudBlockBlob**ne olursa olsun, dizin. İşte hello çağrısı çok**ListBlobs**:
+İsteğe bağlı olarak **ListBlobs** yönteminin **UseFlatBlobListing** parametresini **true** olarak ayarlayabilirsiniz. Bu olarak döndürülen her blob sonuçlanır bir **CloudBlockBlob**ne olursa olsun, dizin. İşte çağrısı **ListBlobs**:
 
-    // Loop over items within hello container and output hello length and URI.
+    // Loop over items within the container and output the length and URI.
     foreach (IListBlobItem item in container.ListBlobs(null, true))
     {
        ...
     }
 
-ve hello sonuçları şunlardır:
+ve sonuçları şunlardır:
 
     Block blob of length 4: https://<accountname>.blob.core.windows.net/photos/2010/architecture/description.txt
     Block blob of length 314618: https://<accountname>.blob.core.windows.net/photos/2010/architecture/photo3.jpg
@@ -167,20 +167,20 @@ ve hello sonuçları şunlardır:
 Daha fazla bilgi için bkz: [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx).
 
 ## <a name="download-blobs"></a>Blob’ları indirme
-toodownload BLOB'lar, ilk olarak bir blob başvurusu alın ve ardından hello çağırın **DownloadToStream** yöntemi. Merhaba aşağıdaki örnek kullanır hello **DownloadToStream** yöntemi tootransfer hello blob içeriği tooa stream nesnesi tooa yerel dosya daha sonra devam edebilir.
+Blob’ları indirmek için ilk olarak bir blob başvurusu alın ve ardından **DownloadToStream** yöntemini çağırın. Aşağıdaki örnek, blob içeriklerini bir akış nesnesine aktarmak ve ardından yerel bir dosyaya kalıcı olarak almak için **DownloadToStream** yöntemini kullanır:
 
-    // Get a reference tooa blob named "photo1.jpg".
+    // Get a reference to a blob named "photo1.jpg".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("photo1.jpg");
 
-    // Save blob contents tooa file.
+    // Save blob contents to a file.
     using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
     {
         blockBlob.DownloadToStream(fileStream);
     }
 
-Merhaba de kullanabilirsiniz **DownloadToStream** yöntemi toodownload hello içeriği blob olarak bir metin dizesi.
+Bunun yanında bir blobun içeriklerini metin dizesi olarak indirmek için **DownloadToStream** yöntemini kullanabilirsiniz.
 
-    // Get a reference tooa blob named "myblob.txt"
+    // Get a reference to a blob named "myblob.txt"
     CloudBlockBlob blockBlob2 = container.GetBlockBlobReference("myblob.txt");
 
     string text;
@@ -191,36 +191,36 @@ Merhaba de kullanabilirsiniz **DownloadToStream** yöntemi toodownload hello iç
     }
 
 ## <a name="delete-blobs"></a>Blob’ları silme
-toodelete bir blob önce bir blob başvurusu alın ve ardından arama **silmek** yöntemi.
+Bir blobu silmek için önce bir blob başvurusu alın ve ardından çağıran **silmek** yöntemi.
 
-    // Get a reference tooa blob named "myblob.txt".
+    // Get a reference to a blob named "myblob.txt".
     CloudBlockBlob blockBlob = container.GetBlockBlobReference("myblob.txt");
 
-    // Delete hello blob.
+    // Delete the blob.
     blockBlob.Delete();
 
 
 ## <a name="list-blobs-in-pages-asynchronously"></a>Blob’ları sayfalarda zaman uyumsuz olarak listeleme
-Çok sayıda BLOB listeliyorsanız veya toocontrol hello bir listeleme işlemi ile dönen sonuç sayısını isterseniz sonuç sayfalarında blobları listeleyebilirsiniz. Böylece yürütme tooreturn büyük bir sonuç kümesi beklenirken engellenmeyen Bu örnek nasıl tooreturn sayfalarında zaman uyumsuz olarak sonuçları gösterir.
+Çok sayıda blob listeliyorsanız veya bir listeleme işlemi ile dönen sonuç sayısını denetlemek isterseniz sonuç sayfalarında blobları listeleyebilirsiniz. Bu örnek, geniş bir sonuç kümesinin dönmesini beklerken çalıştırmanın engellenmemesi için sayfalardaki sonuçların zaman uyumsuz olarak nasıl döneceğini gösterir.
 
-Bu örnek düz bir blob listesi gösterir, ancak ayarı hello tarafından da hiyerarşik bir listeleme gerçekleştirebilirsiniz **Listblobs** hello parametresinin **ListBlobsSegmentedAsync** yöntemi çok **yanlış**.
+Bu örnek düz bir blob listesi gösterir, ancak **ListBlobsSegmentedAsync** metodunun **useFlatBlobListing** parametresini **false** olarak ayarlayarak hiyerarşik bir listeleme gerçekleştirebilirsiniz.
 
-Merhaba örnek yöntemi zaman uyumsuz bir yöntem çağırdığı için onu hello ile dönmelidir **zaman uyumsuz** anahtar sözcüğü ve döndürmelidir bir **görev** nesnesi. Merhaba await hello için belirtilen anahtar sözcüğü **ListBlobsSegmentedAsync** yöntemi hello listeleme görevi tamamlanana kadar hello örnek yönteminin yürütülmesi askıya alır.
+Örnek metot, zaman uyumsuz bir metot çağırdığı için **async** anahtar sözcüğüyle başlamalı ve bir **Görev** nesnesi döndürmelidir. Belirtilen **ListBlobsSegmentedAsync** yöntemi için belirlenen bekleme anahtar kelimesi, listeleme görevi tamamlanana kadar örnek yöntemin çalıştırılmasını askıya alır.
 
     async public static Task ListBlobsSegmentedInFlatListing(CloudBlobContainer container)
     {
-        // List blobs toohello console window, with paging.
+        // List blobs to the console window, with paging.
         Console.WriteLine("List blobs in pages:");
 
         int i = 0;
         BlobContinuationToken continuationToken = null;
         BlobResultSegment resultSegment = null;
 
-        // Call ListBlobsSegmentedAsync and enumerate hello result segment returned, while hello continuation token is non-null.
-        // When hello continuation token is null, hello last page has been returned and execution can exit hello loop.
+        // Call ListBlobsSegmentedAsync and enumerate the result segment returned, while the continuation token is non-null.
+        // When the continuation token is null, the last page has been returned and execution can exit the loop.
         do
         {
-            // This overload allows control of hello page size. You can return all remaining results by passing null for hello maxResults parameter,
+            // This overload allows control of the page size. You can return all remaining results by passing null for the maxResults parameter,
             // or by calling a different overload.
             resultSegment = await container.ListBlobsSegmentedAsync("", true, BlobListingDetails.All, 10, continuationToken, null, null);
             if (resultSegment.Results.Count<IListBlobItem>() > 0) { Console.WriteLine("Page {0}:", ++i); }
@@ -230,7 +230,7 @@ Merhaba örnek yöntemi zaman uyumsuz bir yöntem çağırdığı için onu hell
             }
             Console.WriteLine();
 
-            //Get hello continuation token.
+            //Get the continuation token.
             continuationToken = resultSegment.ContinuationToken;
         }
         while (continuationToken != null);

@@ -1,6 +1,6 @@
 ---
-title: "aaaMount bir Azure dosya paylaşımı ve erişim hello paylaşmak Windows | Microsoft Docs"
-description: "Bir Azure dosya paylaşımı ve Windows hello paylaşımına erişim bağlayın."
+title: "Azure Dosya paylaşımını bağlama ve Windows’da paylaşıma erişme | Microsoft Docs"
+description: "Azure Dosya paylaşımını bağlayın ve Windows’da paylaşıma erişin."
 services: storage
 documentationcenter: na
 author: RenaShahMSFT
@@ -12,70 +12,73 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: eb6d58ad391adb6c06703ad694150534ccf44ada
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 111b925de9ca2155e2d3631979272170ed614816
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="mount-an-azure-file-share-and-access-hello-share-in-windows"></a>Bir Azure dosya paylaşımı ve Windows hello paylaşımına erişim bağlama
-[Azure File storage](../storage-dotnet-how-to-use-files.md) Microsoft'un kolay toouse bulut dosya sistemidir. Azure Dosya paylaşımları, Windows ve Windows Server’a bağlanabilir. Bu makalede üç farklı şekilde toomount bir Azure dosya paylaşımı Windows gösterilmektedir: hello dosya Gezgini kullanıcı Arabirimi, PowerShell aracılığıyla ve hello komut istemi aracılığıyla ile. 
+# <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Azure Dosya paylaşımını bağlama ve Windows’da paylaşıma erişme
+[Azure Dosyaları](storage-files-introduction.md), Windows'un kolay kullanılan bulut dosya sistemidir. Azure Dosya paylaşımları, Windows ve Windows Server’a bağlanabilir. Bu makale Windows’da Azure Dosya paylaşımının üç farklı yolla bağlanmasını gösterir: Dosya Gezgini kullanıcı arabirimi ile, Powershell ve Komut İstemi aracılığıyla. 
 
-Bir Azure dosya paylaşımı dışında hello içinde şirket içi gibi veya farklı bir Azure bölgesindeki barındırıldığı Azure bölgesi sipariş toomount içinde SMB 3.0 hello OS desteklemesi gerekir. 
+Bir Azure Dosya paylaşımını, barındırıldığı Azure bölgesinin dışında bağlamak için (örneğin, şirket içinde veya farklı bir Azure bölgesinde) işletim sisteminin SMB 3.0'ı desteklemesi gerekir. 
 
-Azure Dosya paylaşımı, işletim sistemi sürümüne bağlı olarak şirket içindeki Windows makinesine veya Azure sanal makinesine bağlanabilir. Aşağıdaki tablo hello gösterir 
+Azure VM üzerinde veya şirket içinde çalışan bir Windows yüklemesinde Azure dosya paylaşımlarını bağlayabilirsiniz. Hangi işletim sistemi sürümlerinin hangi ortamlarda dosya paylaşımlarını bağlamayı desteklediği aşağıdaki tabloda gösterilmiştir:
 
-| Windows Sürümü        | SMB Sürümü |Azure VM'ye Bağlanabilir|Şirket İçine Bağlanabilir|
-|------------------------|-------------|---------------------|---------------------|
-| Windows 7              | SMB 2.1     | Evet                 | Hayır                  |
-| Windows Server 2008 R2 | SMB 2.1     | Evet                 | Hayır                  |
-| Windows 8              | SMB 3.0     | Evet                 | Evet                 |
-| Windows Server 2012    | SMB 3.0     | Evet                 | Evet                 |
-| Windows Server 2012 R2 | SMB 3.0     | Evet                 | Evet                 |
-| Windows 10             | SMB 3.0     | Evet                 | Evet                 |
+| Windows Sürümü        | SMB Sürümü | Azure VM'de Bağlanabilir | Şirket İçinde Bağlanabilir |
+|------------------------|-------------|-----------------------|----------------------|
+| Windows 10<sup>1</sup>  | SMB 3.0 | Evet | Evet |
+| Windows Server 2016    | SMB 3.0     | Evet                   | Evet                  |
+| Windows 8.1            | SMB 3.0     | Evet                   | Evet                  |
+| Windows Server 2012 R2 | SMB 3.0     | Evet                   | Evet                  |
+| Windows Server 2012    | SMB 3.0     | Evet                   | Evet                  |
+| Windows 7              | SMB 2.1     | Evet                   | Hayır                   |
+| Windows Server 2008 R2 | SMB 2.1     | Evet                   | Hayır                   |
+
+<sup>1</sup>Windows 10 1507, 1511, 1607, 1703 ve 1709 sürümleri.
 
 > [!Note]  
-> Her zaman alma öneririz Windows sürümünüz için en son KB hello.
+> Her zaman Windows sürümünüz için en yeni KB’yi almanızı öneririz.
 
 ## <a name="aprerequisites-for-mounting-azure-file-share-with-windows"></a></a>Windows ile Azure Dosya Paylaşımını bağlama önkoşulları 
-* **Depolama hesabı adı**: toomount bir Azure dosya paylaşımı, hello depolama hesabının adını hello.
+* **Depolama Hesabı Adı**: Azure Dosya paylaşımını bağlayabilmeniz için depolama hesabınızın adı gerekir.
 
-* **Depolama hesabı anahtarı**: toomount bir Azure dosya paylaşımı, birincil (veya ikincil) depolama anahtarı hello. SAS anahtarları şu an bağlama için desteklenmemektedir.
+* **Depolama Hesabı Anahtarı**: Azure Dosya paylaşımını bağlayabilmeniz için birincil (veya ikincil) depolama anahtarı gerekir. SAS anahtarları şu an bağlama için desteklenmemektedir.
 
-* **Bağlantı noktası 445’in açık olduğundan emin olun**: Azure Dosya depolama SMB protokolünü kullanır. Güvenlik duvarınızın istemci makineden 445 numaralı TCP bağlantı noktaları engellemediğinden SMB 445 - TCP bağlantı noktası üzerinden iletişim kurar toosee kontrol edin.
+* **Bağlantı noktası 445'in açık olduğundan emin olun**: Azure Dosyaları SMB protokolünü kullanır. SMB, TCP bağlantı noktası 445 üstünden iletişim kurar. İstemci makinenizde güvenlik duvarının TCP bağlantı noktaları 445’i engellemediğinden emin olun.
 
-## <a name="mount-hello-azure-file-share-with-file-explorer"></a>Dosya Gezgini ile Hello Azure dosya paylaşımını bağlama
+## <a name="mount-the-azure-file-share-with-file-explorer"></a>Azure Dosya paylaşımını Dosya Gezgini ile bağlama
 > [!Note]  
-> Yönergeleri izleyerek hello Not üzerinde Windows 10 gösterilir ve eski sürümleri üzerinde biraz farklı olabilir. 
+> Aşağıdaki yönergelerin Windows 10’da gösterildiğini ve eski sürümlerde biraz değişiklik gösterebileceğini aklınızda bulundurun. 
 
-1. **Dosya Gezgini'ni açın**: Bu hello Başlat menüsü açmasının tarafından ya da Win + E kısayol tuşuna basarak yapılabilir.
+1. **Dosya Gezgini’ni açın**: Başlat Menüsünden veya Win+E kısayoluna basarak açılabilir.
 
-2. **Merhaba penceresinin hello sol taraftaki toohello "Bu bilgisayar" öğesini gidin. Bu hello menüleri hello Şeritte kullanılabilir değiştirir. "Ağ sürücüsüne" Merhaba bilgisayar menüsünün altında tıklatın**.
+2. **Pencerenin sol tarafındaki “Bu Bilgisayar” öğesine gidin. Bu, şeritteki kullanılabilir menüleri değiştirir. Bilgisayar menüsünün altındaki “Ağ Sürücüsüne Bağlan”ı** seçin.
     
-    ![Merhaba "Harita ağ sürücüsü" açılan menüden bir ekran görüntüsü](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
+    ![“Ağ Sürücüsüne Bağlan” açılan menüsünün ekran görüntüsü](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-3. **Merhaba "Bağlan" Merhaba Azure portal bölmesinde Kopyala hello UNC yolundan**: toofind bu bilgileri nasıl bulunabilir ayrıntılı bir açıklama [burada](storage-how-to-use-files-portal.md#connect-to-file-share).
+3. **Azure portalının “Bağlan” bölmesindeki UNC adını kopyalayın**: Bu bilgiyi nasıl bulacağınıza ilişkin ayrıntılı açıklamayı [burada](storage-how-to-use-files-portal.md#connect-to-file-share) bulabilirsiniz.
 
-    ![Merhaba UNC yolundan hello Azure dosya depolama Bağlan bölmesi](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
+    ![Azure Dosyaları Bağlan bölmesinden UNC adı](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 
-4. **Merhaba sürücü harfi seçin ve hello UNC yolunu girin.** 
+4. **Sürücü harfini seçin ve UNC adını girin.** 
     
-    !["Ağ sürücüsüne" Merhaba iletişim kutusunun ekran görüntüsü](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
+    ![“Ağ Sürücüsüne Bağlan” iletişim kutusunun ekran görüntüsü](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 
-5. **Kullanım hello depolama hesabı adı ile $a `Azure\` hello kullanıcı adı ve bir depolama hesabı anahtarı hello parola olarak olarak.**
+5. **Kullanıcı adı olarak, başına `Azure\` ekleyip Depolama Hesabı Adını ve parola olarak Depolama Hesabı Anahtarını kullanın.**
     
-    ![Merhaba ağ kimlik bilgisi iletişim kutusunun ekran görüntüsü](./media/storage-how-to-use-files-windows/3_MountOnWindows10.png)
+    ![Ağ kimlik bilgileri iletişim kutusunun ekran görüntüsü](./media/storage-how-to-use-files-windows/3_MountOnWindows10.png)
 
 6. **Azure Dosya paylaşımını istediğiniz gibi kullanın**.
     
     ![Azure Dosya paylaşımı artık bağlanmıştır](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
-7. **Hazır toodismount olan (veya kesin olduğunda) hello Azure dosya paylaşımı, hello girişinde hello "ağ konumlarını" dosya Gezgini'nde altında hello paylaşımı için sağ tıklayarak ve "Bağlantıyı Kes"'yi seçerek bunu yapabilirsiniz**.
+7. **Azure Dosya paylaşımını çıkarmaya (veya bağlantısını kesmeye) hazır olduğunuzda, Dosya Gezgini’ndeki “Ağ konumları”nın altında bulunan girdiye sağ tıklayıp “Bağlantıyı Kes”i seçerek bunu yapabilirsiniz**.
 
-## <a name="mount-hello-azure-file-share-with-powershell"></a>PowerShell ile Hello Azure dosya paylaşımını bağlama
-1. **Kullanım hello şu komutu toomount hello Azure dosya paylaşımı**: tooreplace unutmayın `<storage-account-name>`, `<share-name>`, `<storage-account-key>`, `<desired-drive-letter>` hello uygun bilgilerle.
+## <a name="mount-the-azure-file-share-with-powershell"></a>Azure Dosya paylaşımı PowerShell ile bağlama
+1. **Azure Dosya paylaşımını bağlamak için aşağıdaki komutları kullanın**: `<storage-account-name>`, `<share-name>`, `<storage-account-key>`, `<desired-drive-letter>` öğelerini uygun bilgilerle değiştirmeyi unutmayın.
 
     ```PowerShell
     $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
@@ -83,59 +86,59 @@ Azure Dosya paylaşımı, işletim sistemi sürümüne bağlı olarak şirket i�
     New-PSDrive -Name <desired-drive-letter> -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\<share-name>" -Credential $credential
     ```
 
-2. **Kullanım hello Azure dosya paylaşımı istediğiniz gibi**.
+2. **Azure Dosya paylaşımını istediğiniz gibi kullanın**.
 
-3. **İşiniz bittiğinde, komutu aşağıdaki hello kullanarak hello Azure dosya paylaşımı kaldırma**.
+3. **İşiniz bittiğinde, aşağıdaki komutu kullanarak Azure Dosya paylaşımını çıkarabilirsiniz**.
 
     ```PowerShell
     Remove-PSDrive -Name <desired-drive-letter>
     ```
 
 > [!Note]  
-> Merhaba kullanabilir `-Persist` parametresini `New-PSDrive` toomake hello Azure dosya paylaşımı görünür toohello hello takılı sırasında işletim sistemi geri kalanı.
+> `New-PSDrive` üzerinde `-Persist` parametresini kullanarak, Azure Dosya paylaşımını bağlıyken işletim sisteminin geri kalanında görünür duruma getirebilirsiniz.
 
-## <a name="mount-hello-azure-file-share-with-command-prompt"></a>Komut İstemi ile Hello Azure dosya paylaşımını bağlama
-1. **Kullanım hello şu komutu toomount hello Azure dosya paylaşımı**: tooreplace unutmayın `<storage-account-name>`, `<share-name>`, `<storage-account-key>`, `<desired-drive-letter>` hello uygun bilgilerle.
+## <a name="mount-the-azure-file-share-with-command-prompt"></a>Azure Dosya paylaşımı Komut İstemi ile bağlama
+1. **Azure Dosya paylaşımını bağlamak için aşağıdaki komutları kullanın**: `<storage-account-name>`, `<share-name>`, `<storage-account-key>`, `<desired-drive-letter>` öğelerini uygun bilgilerle değiştirmeyi unutmayın.
 
     ```
     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
     ```
 
-2. **Kullanım hello Azure dosya paylaşımı istediğiniz gibi**.
+2. **Azure Dosya paylaşımını istediğiniz gibi kullanın**.
 
-3. **İşiniz bittiğinde, komutu aşağıdaki hello kullanarak hello Azure dosya paylaşımı kaldırma**.
+3. **İşiniz bittiğinde, aşağıdaki komutu kullanarak Azure Dosya paylaşımını çıkarabilirsiniz**.
 
     ```
     net use <desired-drive-letter>: /delete
     ```
 
 > [!Note]  
-> Kalıcı hello kimlik bilgileri Windows tarafından yeniden başlatmada hello Azure dosya paylaşımı tooautomatically yeniden yapılandırabilirsiniz. komutu aşağıdaki hello hello kimlik kalıcı:
+> Windows’daki kimlik bilgilerini kalıcı hale getirerek Azure Dosya paylaşımını yeniden başlatıldığında otomatik olarak yeniden bağlanacak şekilde yapılandırabilirsiniz. Aşağıdaki komut, kimlik bilgilerini kalıcı hale getirir:
 >   ```
 >   cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>
 >   ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure File Storage hakkında daha fazla bilgi edinmek için şu bağlantılara göz atın.
+Azure Dosyaları hakkında daha fazla bilgi edinmek için şu bağlantılara göz atın.
 
 * [SSS](../storage-files-faq.md)
 * [Windows’da sorun giderme](storage-troubleshoot-windows-file-connection-problems.md)      
 
 ### <a name="conceptual-articles-and-videos"></a>Kavramsal makaleler ve videolar
-* [Azure Dosya depolama: Windows ve Linux için uyumlu bulut SMB dosya sistemi](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [Nasıl toouse Linux Azure File storage](../storage-how-to-use-files-linux.md)
+* [Azure Dosyaları: Windows ve Linux için uyumlu bulut SMB dosya sistemi](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [Azure Dosyaları'nı Linux ile kullanma](../storage-how-to-use-files-linux.md)
 
-### <a name="tooling-support-for-azure-file-storage"></a>Azure Dosya depolama için araç desteği
-* [Nasıl toouse Microsoft Azure Storage ile AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-* [Azure Storage ile Hello Azure CLI kullanma](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Azure Dosya depolama sorunlarını giderme - Windows](storage-troubleshoot-windows-file-connection-problems.md)
-* [Azure Dosya depolama sorunlarını giderme - Linux](storage-troubleshoot-linux-file-connection-problems.md)
+### <a name="tooling-support-for-azure-files"></a>Azure Dosyaları için araç desteği
+* [Microsoft Azure Depolama ile AzCopy kullanma](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+* [Azure Depolama ile Azure CLI kullanma](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
+* [Azure Dosyaları sorunlarını giderme - Windows](storage-troubleshoot-windows-file-connection-problems.md)
+* [Azure Dosyaları sorunlarını giderme - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 
 ### <a name="blog-posts"></a>Blog yazıları
-* [Azure Dosya Depolama genel kullanıma sunulmuştur](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Azure Dosya depolama incelemesi](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Azure Dosyaları genel kullanıma sunulmuştur](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Azure Dosyaları İncelemesi](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Microsoft Azure Dosya Hizmeti’ne Giriş](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Geçirme verilerini tooAzure dosyası](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
+* [Azure Dosya Hizmeti’ne verileri geçirme ](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
 
 ### <a name="reference"></a>Başvuru
 * [.NET başvurusu için Depolama İstemci Kitaplığı](https://msdn.microsoft.com/library/azure/dn261237.aspx)

@@ -1,5 +1,5 @@
 ---
-title: "Azure Cosmos DB DocumentDB API aaaSQL sorgularında | Microsoft Docs"
+title: "SQL sorguları Azure Cosmos DB DocumentDB API'si | Microsoft Docs"
 description: "Azure Cosmos DB SQL söz dizimi, veritabanı kavramlarını ve SQL sorguları hakkında bilgi edinin. SQL Azure Cosmos veritabanı bir JSON sorgu dili olarak kullanabilir."
 keywords: "SQL söz dizimi, sql sorgusu, sql sorguları, json sorgu dili, veritabanı kavramlarını ve sql sorguları, toplama işlevleri"
 services: cosmos-db
@@ -15,32 +15,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: arramac
-ms.openlocfilehash: f4db95b87f5796c4e4299aaf016435cb6301bbfe
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9b2b5668ef0552485a86f63a120b57c4623bfe35
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="sql-queries-for-azure-cosmos-db-documentdb-api"></a>SQL sorguları Azure Cosmos DB DocumentDB API'si
-Microsoft Azure Cosmos DB bir JSON sorgu dili SQL (yapılandırılmış sorgu dili) kullanarak belgelerin sorgulanmasını destekler. Cosmos DB gerçekten şemasız. Kendi taahhüt toohello JSON veri modeli, doğrudan hello veritabanı altyapısı içinde otomatik JSON belgelerinin dizinini gerektirmeden açık şema veya ikincil dizinlerin oluşturulmasını sağlar. 
+Microsoft Azure Cosmos DB bir JSON sorgu dili SQL (yapılandırılmış sorgu dili) kullanarak belgelerin sorgulanmasını destekler. Cosmos DB gerçekten şemasız. Doğrudan veritabanı altyapısının içinde JSON veri modeli için kendi taahhüt, otomatik JSON belgelerinin dizinini gerektirmeden açık şema veya ikincil dizinlerin oluşturulmasını sağlar. 
 
-Cosmos DB Hello sorgu dili tasarlarken size iki hedefleri düşünerek vardı:
+Cosmos DB için sorgu dili tasarlarken size iki hedefleri düşünerek vardı:
 
-* Yeni bir JSON sorgu dili inventing yerine, biz toosupport SQL istedik. SQL hello en tanıdık ve popüler sorgu dilleri biridir. Cosmos veritabanı SQL, JSON belgelerini zengin sorgular için resmi bir programlama modeli sağlar.
-* Bir JSON belgesi veritabanı JavaScript doğrudan hello Veritabanı Altyapısı'nda yürütülebilir, biz toouse JavaScript'in programlama modeli hello temel olarak bizim sorgu dili için istedik. Merhaba DocumentDB API SQL JavaScript'in tür sistemi, ifade değerlendirmesi ve işlev çağrısını kökü belirtilmiş. Bu içinde dönüş JSON belgeleri, kendi kendine birleşimler, uzamsal sorguları ve kullanıcı tanımlı işlevler (UDF'ler) diğer özellikler arasında JavaScript tamamen yazılmış çalıştırılışı arasında ilişkisel projeksiyonları, hiyerarşik gezinti için doğal bir programlama modeli sağlar. 
+* Yeni bir JSON sorgu dili inventing yerine biz SQL desteği istedik. SQL en tanıdık ve popüler sorgu dilleri biridir. Cosmos veritabanı SQL, JSON belgelerini zengin sorgular için resmi bir programlama modeli sağlar.
+* Bir JSON belgesi veritabanı doğrudan veritabanı altyapısının içinde JavaScript yürütme özellikli, biz JavaScript'in programlama modeli bizim sorgu dili için temel olarak kullanmak istedik. DocumentDB API SQL JavaScript'in tür sistemi, ifade değerlendirmesi ve işlev çağrısını kökü belirtilmiş. Bu içinde dönüş JSON belgeleri, kendi kendine birleşimler, uzamsal sorguları ve kullanıcı tanımlı işlevler (UDF'ler) diğer özellikler arasında JavaScript tamamen yazılmış çalıştırılışı arasında ilişkisel projeksiyonları, hiyerarşik gezinti için doğal bir programlama modeli sağlar. 
 
-Bu özellikler anahtar tooreducing hello uyuşmazlık Merhaba uygulaması ile Merhaba veritabanı arasında ve geliştirici üretkenliği için önemli olduğundan inanıyoruz.
+Bu özellikler uygulama ve veritabanı arasında uyuşmazlık azaltmak için anahtar ve geliştirici üretkenliği için kritik önem taşıyan inanıyoruz.
 
-Burada Aravind Ramachandran Cosmos veritabanı sorgulama özelliklerini gösterir, video, aşağıdaki hello izlemeye ve ziyaret tarafından Başlarken öneririz bizim [Query Playground](http://www.documentdb.com/sql/demo), burada Cosmos DB deneyin ve SQL sorguları çalıştırma Veri kümemizde.
+Burada Aravind Ramachandran gösterir Cosmos DB özellikleri sorgulama, aşağıdaki videoyu izlemeyi ve ziyaret tarafından Başlarken öneririz bizim [Query Playground](http://www.documentdb.com/sql/demo), burada Cosmos DB deneyin ve SQL sorguları çalıştırma bizim veri kümesi.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/DataExposedQueryingDocumentDB/player]
 > 
 > 
 
-Ardından, burada size bazı basit JSON belgeleri ve SQL komutları anlatan bir SQL sorgusu öğretici başlayın toothis makale döndür.
+Ardından, bu makalede, burada size bazı basit JSON belgeleri ve SQL komutları anlatan bir SQL sorgusu öğretici başlayın döndür.
 
 ## <a id="GettingStarted"></a>Cosmos DB SQL komutları ile çalışmaya başlama
-toosee Cosmos DB SQL adresindeki iş, şimdi birkaç basit JSON belgeleri ile başlar ve bazı basit sorgular size yol. Bu iki JSON belgeleri iki ailesi hakkında göz önünde bulundurun. Cosmos DB ile biz toocreate herhangi bir şemaları ya da ikincil dizinlerin açıkça gerekmez. Biz tooinsert hello JSON belgeleri tooa Cosmos DB koleksiyonu yeterlidir ve daha sonra sorgulayabilirsiniz. Basit bir JSON burada sahibiz belge hello Andersen ailesi, hello üst, alt öğelerini (ve bunların Evcil Hayvanlar), adresinizi ve kayıt bilgileri. Merhaba belge dizeler, sayılar, Boole değerlerini, dizileri ve iç içe özellikler vardır. 
+Cosmos veritabanı SQL iş görmek için şimdi birkaç basit JSON belgeleri ile başlar ve bazı basit sorgular size yol. Bu iki JSON belgeleri iki ailesi hakkında göz önünde bulundurun. Cosmos DB ile biz herhangi bir şemaları ya da ikincil dizinlerin açıkça oluşturmak gerekmez. Biz JSON belgeleri Cosmos DB koleksiyonuna eklemek ve daha sonra sorgu yeterlidir. Basit bir JSON burada sahibiz belge Andersen ailesi, üst, alt öğelerini (ve bunların Evcil Hayvanlar), adresinizi ve kayıt bilgileri. Belge dizeler, sayılar, Boole değerlerini, dizileri ve iç içe özellikler vardır. 
 
 **Belge**  
 
@@ -99,7 +99,7 @@ Bir fark – sahip ikinci bir belge işte `givenName` ve `familyName` yerine kul
 }
 ```
 
-Şimdi birkaç sorgu deneyelim bu veri toounderstand karşı hello bazıları DocumentDB API SQL yönlerini anahtar. Örneğin, hello aşağıdaki hello Kimliği alanı eşleştiği döndürür hello belgeleri sorgu `AndersenFamily`. Olduğundan bir `SELECT *`, hello hello sorgu çıkışıdır hello tam JSON belgesi:
+Şimdi DocumentDB API SQL anahtar yönlerini bazıları anlamak için bu verileri birkaç sorguları deneyelim. Örneğin, aşağıdaki sorguyu ID alanı eşleştiği belgeleri döndürür `AndersenFamily`. Olduğundan bir `SELECT *`, tam JSON belgesi sorgunun çıktısı şöyledir:
 
 **Sorgu**
 
@@ -128,7 +128,7 @@ Bir fark – sahip ikinci bir belge işte `givenName` ve `familyName` yerine kul
     }]
 
 
-Şimdi tooreformat hello farklı bir şekli JSON çıkışında burada ihtiyacımız hello durumu göz önünde bulundurun. Bu sorgu Hello Adres Şehir hello durumu olarak aynı ad hello olduğunda iki seçili alanları ile adı ve şehir projeleri yeni bir JSON nesnesi. Bu durumda, "NY, NY" eşleşir.
+Şimdi Burada farklı bir şekli JSON çıkışında yeniden biçimlendirmek için ihtiyacımız durumu göz önünde bulundurun. Adres Şehir durumu olarak aynı ada sahip olduğunda bu sorgu adı ve şehir olmak üzere iki seçilen alan ile yeni bir JSON nesnesi projeleri. Bu durumda, "NY, NY" eşleşir.
 
 **Sorgu**    
 
@@ -146,7 +146,7 @@ Bir fark – sahip ikinci bir belge işte `givenName` ve `familyName` yerine kul
     }]
 
 
-Merhaba sonraki sorgunun döndürdüğü tüm hello verilen adları alt kimliğine eşleşen hello ailesinde `WakefieldFamily` hello Şehir ikamet ettiğiniz sıralanan.
+Sonraki sorgu kimliğine eşleşen ailesinde alt tüm verilen adlarını döndürür `WakefieldFamily` ikamet ettiğiniz şehre göre sıralanmış.
 
 **Sorgu**
 
@@ -164,30 +164,30 @@ Merhaba sonraki sorgunun döndürdüğü tüm hello verilen adları alt kimliği
     ]
 
 
-Merhaba Cosmos DB birkaç önemli yönleri sorgu dili kadarki gördük hello örnekler üzerinden toodraw dikkat tooa isteriz:  
+Dikkat çekmek için birkaç önemli yönleri kadarki gördük örnekler üzerinden Cosmos DB sorgu dili isteriz:  
 
-* DocumentDB API SQL JSON değerler üzerinde çalışır olduğundan, satır ve sütunların yerine varlıklar şeklinde ağaç ile ilgilidir. Bu nedenle, hello dili, herhangi bir rastgele derinliğe hello ağacını toonodes gibi bakın sağlar `Node1.Node2.Node3…..Nodem`, benzer toorelational SQL başvuran toohello iki bölümü başvurusu `<table>.<column>`.   
-* Merhaba sorgu dili works şema daha az veri ile yapılandırılmış. Bu nedenle, hello türü sistem gereksinimlerini toobe bağlı dinamik olarak. Merhaba aynı ifade farklı belgelere farklı türlerde üretebilir. bir sorgunun sonucu Hello geçerli bir JSON değer olmakla birlikte, sabit bir şema toobe garanti edilmez.  
-* Cosmos DB yalnızca Katı JSON belgelerini destekler. Bu, yalnızca JSON türleriyle sınırlı toodeal hello tür sistemi ve ifadeler olduğu anlamına gelir. Toohello başvuran [JSON belirtimi](http://www.json.org/) daha fazla ayrıntı için.  
-* Cosmos DB koleksiyon JSON belgeleri, şemasız bir kapsayıcısıdır. Merhaba ilişkileri veri varlıklarında içinde ve bir koleksiyondaki belgeler arasında örtük olarak kapsama ve birincil anahtar ve yabancı anahtar ilişkileri tarafından yakalanır. Bu makalenin sonraki bölümlerinde ele alınan hello içi belge birleştirmeler etkinliğinin düzenleyicileri gösteren değer önemli bir yönü budur.
+* DocumentDB API SQL JSON değerler üzerinde çalışır olduğundan, satır ve sütunların yerine varlıklar şeklinde ağaç ile ilgilidir. Bu nedenle, dil, herhangi bir rastgele derinliğe ağacını düğümlerinin gibi bakın sağlar `Node1.Node2.Node3…..Nodem`benzer şekilde iki bölümü referansı başvuran ilişkisel SQL `<table>.<column>`.   
+* Yapılandırılmış sorgu dili şema daha az verilerle çalışır. Bu nedenle, tür sistemi dinamik olarak bağlı gerekir. Aynı ifadeye farklı belgelere farklı türlerde üretebilir. Bir sorgunun sonucu, geçerli bir JSON değer, ancak bir sabit şemasına olması garanti edilmez.  
+* Cosmos DB yalnızca Katı JSON belgelerini destekler. Bu tür sistemi ve ifadeler yalnızca JSON türleri ile mücadele etmek için sınırlı olduğu anlamına gelir. Başvurmak [JSON belirtimi](http://www.json.org/) daha fazla ayrıntı için.  
+* Cosmos DB koleksiyon JSON belgeleri, şemasız bir kapsayıcısıdır. İlişkileri veri varlıklarında içinde ve bir koleksiyondaki belgeler arasında örtük olarak kapsama ve birincil anahtar ve yabancı anahtar ilişkileri tarafından yakalanır. Bu makalenin sonraki bölümlerinde ele alınan içi belge birleştirmeler etkinliğinin düzenleyicileri gösteren değer önemli bir yönü budur.
 
 ## <a id="Indexing"></a>Cosmos DB dizin oluşturma
-Biz DocumentDB API SQL söz dizimi hello ulaşmadan Cosmos DB tasarımında dizin hello incelenmesi yararlı olan. 
+Biz DocumentDB API SQL söz dizimi ulaşmadan Cosmos DB dizin tasarımında incelenmesi yararlı olan. 
 
-Veritabanı dizinlerini Hello amacı, iyi performans ve düşük gecikme süresi sağlarken kendi çeşitli formlar ve şekiller (örneğin, CPU ve giriş/çıkış) en düşük kaynak kullanımına sahip tooserve sorguları budur. Genellikle, bir veritabanını sorgulamak için doğru dizin hello hello seçimine kadar planlama ve deneme gerektirir. Bu yaklaşım, burada hello veri tooa kesin şema uygun değil ve hızlı bir şekilde dönüşmesi şema daha az veritabanları için bir zorluk oluşturur. 
+Veritabanı dizinlerini amacı, çeşitli formlar ve şekiller sorgularda (örneğin, CPU ve giriş/çıkış) en düşük kaynak kullanımına sahip görev iyi performans ve düşük gecikme süresi sunarken yapmaktır. Genellikle, bir veritabanını sorgulamak için doğru dizin seçimi kadar planlama ve deneme gerektirir. Bu yaklaşım, burada veri katı bir şemaya uygun değil ve hızlı bir şekilde dönüşmesi şema daha az veritabanları için bir zorluk oluşturur. 
 
-Bu nedenle, biz hello Cosmos DB dizin alt sistemi tasarlarken, biz hedeflerini izleyerek hello ayarlayın:
+Bu nedenle, biz Cosmos DB dizin alt sistemi tasarlarken aşağıdaki hedefleri ayarlar:
 
-* Dizin belgeleri şema gerek kalmadan: alt dizin hello herhangi bir şema bilgi gerektirmez veya şeması hakkında tüm varsayımlarda hello belgelerin. 
-* Verimli, zengin hiyerarşik ve ilişkisel sorguları için destek: hello dizinini destekleyen hello Cosmos DB sorgu dili verimli bir şekilde, hiyerarşik ve ilişkisel tahminleri desteği dahil olmak üzere.
-* Yazma sürekli bir birim in face of tutarlı sorgular için destek: yüksek yazma işleme iş yükleri için tutarlı sorgularla hello dizin artımlı olarak, verimli ve çevrimiçi yazma sürekli bir birimin hello karşılaştıkları güncelleştirilir. önemli tooserve hello sorguları hangi hello yapılandırılan kullanıcı hello belge hizmetindeki hello tutarlılık düzeyinde Hello tutarlı dizin güncelleştirmesidir.
-* Çoklu kiracı için destek: hello ayırmaya dayalı modeli için kaynak İdaresi kiracılar arasında verildiğinde, dizin güncelleştirmeleri hello bütçe çoğaltma ayrılan sistem kaynaklarını (İşlemci, bellek ve saniye başına girdi/çıktı işlemleri) içinde gerçekleştirilir. 
-* Depolama verimliliği: maliyet verimliliği için hello disk üzerinde depolama ek yükü hello dizinin sınırlanmış ve tahmin edilebilir. Cosmos DB maliyet tabanlı Geliştirici toomake bileşim dizin yükü ilişkisi toohello sorgu performansı arasında hello sağladığından, bu önemlidir.  
+* Dizin belgeleri şema gerek kalmadan: dizin oluşturma alt sistemi herhangi bir şema bilgi gerektirmez veya şeması hakkında tüm varsayımlarda belgelerin. 
+* Verimli, zengin hiyerarşik ve ilişkisel sorguları için destek: hiyerarşik ve ilişkisel tahminleri desteği dahil olmak üzere verimli bir şekilde dizin Cosmos DB sorgu dili destekler.
+* Yazma sürekli bir birim in face of tutarlı sorgular için destek: tutarlı sorgularla yüksek yazma üretilen iş yükleri için dizin artımlı olarak, verimli ve çevrimiçi sürekli bir yazma hacmi karşısında güncelleştirilir. Kullanıcı belge hizmeti yapılandırılan tutarlılık düzeyinde sorguları sunmak tutarlı dizin güncelleştirmesi önemlidir.
+* Çoklu kiracı için destek: ayırmaya dayalı modeli için kaynak İdaresi kiracılar arasında verildiğinde, dizin güncelleştirmeleri bütçe çoğaltma ayrılan sistem kaynaklarını (İşlemci, bellek ve saniye başına girdi/çıktı işlemleri) içinde gerçekleştirilir. 
+* Depolama verimliliği: maliyet verimliliği için disk üzerinde depolama ek yükü dizin sınırlanmış ve tahmin edilebilir. Cosmos DB maliyet tabanlı bileşim dizin yükü sorgu performansı ile ilgili olarak arasında yapmak Geliştirici sağladığından, bu önemlidir.  
 
-Toohello başvuran [Azure Cosmos DB örnekleri](https://github.com/Azure/azure-documentdb-net) nasıl tooconfigure hello bir koleksiyon için dizin oluşturma ilkesini gösteren örnekler için MSDN'de. Şimdi şimdi hello Azure Cosmos DB SQL söz dizimi hello ayrıntılarını alın.
+Başvurmak [Azure Cosmos DB örnekleri](https://github.com/Azure/azure-documentdb-net) bir koleksiyon için dizin oluşturma ilkesini yapılandırmak nasıl gösteren örnekler için MSDN'de. Şimdi şimdi Azure Cosmos DB SQL söz dizimi ayrıntıları alın.
 
 ## <a id="Basics"></a>Bir Azure Cosmos DB SQL sorgusu temelleri
-Her sorgu, bir SELECT yan tümcesi ve isteğe bağlı FROM oluşur ve WHERE yan tümcelerini ANSI SQL standartları başına. Genellikle, her sorgu için hello kaynak hello FROM yan tümcesinde numaralandırılır. Daha sonra hello filtre hello WHERE yan tümcesi hello kaynak tooretrieve üzerinde uygulanır, JSON belgelerini bir kısmı. Son olarak, hello SELECT yan tümcesinde kullanılan tooproject hello istenen hello JSON değerleri listesi seçin.
+Her sorgu, bir SELECT yan tümcesi ve isteğe bağlı FROM oluşur ve WHERE yan tümcelerini ANSI SQL standartları başına. Genellikle, her sorgu için kaynak FROM yan tümcesinde numaralandırılır. Ardından WHERE yan tümcesinde filtre bir alt kümesini JSON belgelerini almak için kaynak üzerinde uygulanır. Son olarak, SELECT yan tümcesi, select listesindeki istenen JSON değerlerin proje için kullanılır.
 
     SELECT <select_list> 
     [FROM <from_specification>] 
@@ -196,16 +196,16 @@ Her sorgu, bir SELECT yan tümcesi ve isteğe bağlı FROM oluşur ve WHERE yan 
 
 
 ## <a id="FromClause"></a>FROM yan tümcesi
-Merhaba `FROM <from_specification>` hello kaynak filtre ya da daha sonra hello sorguda öngörülen sürece yan tümcesi isteğe bağlıdır. Bu yan tümce Hello amacı hangi hello sorgu çalışmalıdır toospecify hello veri kaynağıdır. Yaygın olarak hello tüm koleksiyon hello kaynağıdır, ancak bir hello koleksiyonunun bir alt bunun yerine belirtebilirsiniz. 
+`FROM <from_specification>` Kaynak filtre veya sorguyu daha sonra öngörülen sürece yan tümcesi isteğe bağlıdır. Bu yan tümce amacı bağlı sorgu çalışmalıdır veri kaynağı belirtmektir. Yaygın olarak tüm koleksiyon kaynağıdır ancak bir koleksiyon kümesini yerine belirtebilirsiniz. 
 
-Bir sorgu ister `SELECT * FROM Families` hello tüm aileleri koleksiyon hangi tooenumerate hello kaynak olduğunu gösterir. Özel bir tanımlayıcısı kök hello koleksiyon adı kullanmak yerine kullanılan toorepresent hello koleksiyonu olabilir. Merhaba aşağıdaki listede sorgu zorlanan hello kurallarını içerir:
+Bir sorgu ister `SELECT * FROM Families` tüm aileleri koleksiyon üzerinden numaralandırmak kaynak olduğunu gösterir. Özel bir tanımlayıcısı kök, koleksiyon adını kullanmak yerine koleksiyonu temsil etmek için kullanılabilir. Aşağıdaki listede sorgu zorlanan kurallarını içerir:
 
-* Merhaba koleksiyonu olabilir, diğer gibi `SELECT f.id FROM Families AS f` ya da yalnızca `SELECT f.id FROM Families f`. Burada `f` hello eşdeğerdir `Families`. `AS`optional anahtar sözcüğü tooalias hello tanımlayıcısı değil.
-* Bir kez diğer hello özgün kaynak bağlanamaz. Örneğin, `SELECT Families.id FROM Families f` hello tanımlayıcı "Aileleri" artık çözümlenemiyor beri sözdizimsel olarak geçersiz.
-* Başvurulan toobe gereken tüm özellikleri tam olarak nitelenmiş olmalıdır. Merhaba kesin şema bağlılığı durumunda, bu zorlanan tooavoid bildirilmesidir belirsiz hiçbir bağlama. Bu nedenle, `SELECT id FROM Families f` hello özelliği bu yana sözdizimsel olarak geçersiz `id` bağlı değil.
+* Koleksiyon gibi diğer adı, olabilir `SELECT f.id FROM Families AS f` ya da yalnızca `SELECT f.id FROM Families f`. Burada `f` eşdeğerdir `Families`. `AS`diğer isteğe bağlı bir anahtar sözcüğü tanımlayıcısıdır.
+* Bir kez diğer adı, özgün kaynak bağlanamaz. Örneğin, `SELECT Families.id FROM Families f` "Aileleri" tanımlayıcısı artık çözümlenemiyor beri sözdizimsel olarak geçersiz.
+* Başvurulması gerekiyorsa tüm özellikleri tam olarak nitelenmiş olmalıdır. Kesin Şema bağlılığı olmaması durumunda, bu öğeler belirsiz herhangi bağlamalar önlemek için uygulanır. Bu nedenle, `SELECT id FROM Families f` özelliği bu yana sözdizimsel olarak geçersiz `id` bağlı değil.
 
 ### <a name="subdocuments"></a>Alt belgeleri
-Merhaba kaynağı azaltılmış tooa daha küçük alt de olabilir. Örneği için yalnızca bir alt ağacı her belgedeki tooenumerating hello subroot sonra hello kaynak hello aşağıdaki örnekte gösterildiği gibi hale gelebilir:
+Kaynak, aynı zamanda daha küçük bir alt azaltılabilir. Örneğin, yalnızca bir alt ağacı her belgedeki numaralandırma için subroot sonra kaynak aşağıdaki örnekte gösterildiği gibi hale gelebilir:
 
 **Sorgu**
 
@@ -243,7 +243,7 @@ Merhaba kaynağı azaltılmış tooa daha küçük alt de olabilir. Örneği iç
       ]
     ]
 
-Yukarıdaki örnek Hello hello kaynağı olarak bir dizi kullanılan olsa da, bir nesne de aşağıdaki örneğine hello gösterilen olduğu hello kaynağı olarak kullanılabilir: hello kaynağında bulunan (tanımsız değil) tüm geçerli JSON değer hello sonucunu eklenmek üzere olarak kabul edilir Merhaba sorgu. Bazı aileleri yoksa bir `address.state` değeri hello sorgu sonucu hariç tutulur.
+Yukarıdaki örnek kaynağı olarak bir dizi kullanılan olsa da, bir nesne de aşağıdaki örnekte gösterilen olan kaynağı olarak kullanılabilir: kaynak bulunabilir (tanımsız değil) herhangi geçerli JSON değer sorgunun sonucu eklenmek üzere olarak kabul edilir. Bazı aileleri yoksa bir `address.state` değeri sorgu sonucu hariç tutulur.
 
 **Sorgu**
 
@@ -259,9 +259,9 @@ Yukarıdaki örnek Hello hello kaynağı olarak bir dizi kullanılan olsa da, bi
 
 
 ## <a id="WhereClause"></a>WHERE yan tümcesi
-WHERE yan tümcesi hello (**`WHERE <filter_condition>`**) isteğe bağlıdır. Merhaba hello kaynağı tarafından sağlanan hello JSON belgelerini hello sonuç bir parçası olarak dahil edilen sipariş toobe getirmelidir koşulları belirtir. Herhangi bir JSON belge değerlendirilmelidir hello belirtilen koşullar çok "true" Merhaba sonucu olarak kabul toobe. Merhaba yan tümcesi hello dizin katmanı sipariş toodetermine hello mutlak en küçük alt kümesini hello sonuç parçası olabilir kaynak belgeleri'tarafından kullanıldığı. 
+WHERE yan tümcesi (**`WHERE <filter_condition>`**) isteğe bağlıdır. Sonucunu bir parçası olarak dahil edilmesi için JSON belgelerini kaynak tarafından sağlanan koşulları karşılamalıdır belirtir. Herhangi bir JSON belge için sonucu olarak kabul edilmesi için "true" belirtilen koşulları değerlendirmeniz gerekir. WHERE yan tümcesi tarafından dizini katman mutlak en küçük alt sonuç parçası olabilir kaynak belgeleri kümesini belirlemek için kullanılır. 
 
-Merhaba aşağıdaki sorguyu istekleri, değeri olan bir ad özelliği içeren belgeleri `AndersenFamily`. Name özelliği olmayan herhangi bir belge veya burada hello değeri eşleşmiyor `AndersenFamily` dışlandı. 
+Aşağıdaki sorgu, değeri olan bir ad özelliği içeren belgeleri istekleri `AndersenFamily`. Name özelliği olmayan herhangi bir belge veya burada değeri eşleşmiyor `AndersenFamily` dışlandı. 
 
 **Sorgu**
 
@@ -280,9 +280,9 @@ Merhaba aşağıdaki sorguyu istekleri, değeri olan bir ad özelliği içeren b
     }]
 
 
-Merhaba önceki örnekte basit eşitlik sorgu gösterdi. DocumentDB API SQL skaler ifadelerin çeşitli de destekler. İkili ve birli ifadeleri en yaygın olarak kullanılan hello var. Özellik başvuruları hello kaynak JSON nesnesinden de geçerli ifadeler oluyor. 
+Önceki örnekte basit eşitlik sorgu gösterdi. DocumentDB API SQL skaler ifadelerin çeşitli de destekler. En yaygın kullanılan ikili ve birli ifadelerini. Kaynak JSON nesnesi özelliği başvurularından da geçerli ifadelerini. 
 
-ikili işleçler aşağıdaki hello şu anda desteklenen ve örnek hello gösterildiği gibi sorgularında kullanılabilir:  
+Aşağıdaki ikili işleçler şu anda desteklenen ve aşağıdaki örneklerde gösterildiği gibi sorgularında kullanılabilir:  
 
 <table>
 <tr>
@@ -323,7 +323,7 @@ ikili işleçler aşağıdaki hello şu anda desteklenen ve örnek hello göster
     WHERE c.grade >= 5     -- matching grades == 5
 
 
-birli işleçleri hello +,-, ~ değil de desteklenir ve sorgular içinde hello aşağıdaki örnekte gösterildiği gibi kullanılabilir:
+Birli işleçleri +,-, ~ değil de desteklenir ve aşağıdaki örnekte gösterildiği gibi sorgular içinde kullanılabilir:
 
     SELECT *
     FROM Families.children[0] c
@@ -335,10 +335,10 @@ birli işleçleri hello +,-, ~ değil de desteklenir ve sorgular içinde hello a
 
 
 
-Ayrıca toobinary ve birli işleçleri özelliği başvuruları de izin verilir. Örneğin, `SELECT * FROM Families f WHERE f.isRegistered` döndürür hello hello özelliği içeren JSON belgesi `isRegistered` hello özellik değerine eşit toohello JSON olduğu `true` değeri. Diğer tüm değerler (false, null, tanımlanmamış, `<number>`, `<string>`, `<object>`, `<array>`, vs.) toohello kaynak belge hello sonucundan dışlanan yol açar. 
+İkili ve birli işleçler ek olarak, özellik başvuruları de izin verilir. Örneğin, `SELECT * FROM Families f WHERE f.isRegistered` içeren özellik JSON belgesini döndürür `isRegistered` özelliğin değeri olduğu için JSON eşit `true` değeri. Diğer tüm değerler (false, null, tanımlanmamış, `<number>`, `<string>`, `<object>`, `<array>`, vs.) sonucundan dışlanan kaynak belge için yol açar. 
 
 ### <a name="equality-and-comparison-operators"></a>Eşitlik ve Karşılaştırma işleçleri
-Merhaba aşağıdaki tabloda eşitlik karşılaştırmaları hello sonucunu DocumentDB API SQL'de herhangi iki JSON türleri arasında gösterilmektedir.
+Aşağıdaki tabloda, her iki JSON türleri arasında DocumentDB API SQL'de eşitlik karşılaştırmaları sonucunu gösterir.
 
 <table style = "width:300px">
    <tbody>
@@ -510,33 +510,33 @@ Tanımlanmamış </td>
    </tbody>
 </table>
 
-Gibi diğer Karşılaştırma işleçleri için >, > =,! =, < ve <, hello = aşağıdaki kurallar geçerlidir:   
+Gibi diğer Karşılaştırma işleçleri için >, > =,! =, < ve < =, aşağıdaki kurallar geçerlidir:   
 
 * Karşılaştırma türü üzerinden içinde tanımlanmamış sonuçlanır.
 * İki nesne veya iki arasında karşılaştırma tanımlanmamış sonuçlarında dizi.   
 
-Merhaba skaler ifade hello filtresi Hello sonucu olup olmadığını tanımlanmamış mantıksal olarak çok "true" eşitlemek değil bu yana tanımlanmamışsa, hello karşılık gelen belge hello sonucunda dahil edilir değil.
+Skaler ifade filtresi sonucu olup olmadığını tanımlanmamış "true" mantıksal olarak eşitlemek değil bu yana tanımlanmamışsa, ilgili belge sonucunda dahil edilir değil.
 
 ### <a name="between-keyword"></a>ARASINDA anahtar sözcüğü
-ANSI SQL hello BETWEEN anahtar sözcüğü tooexpress sorguları aralıkları gibi değerlerin de kullanabilirsiniz. ARASINDA dizeyi veya sayı karşı kullanılabilir.
+BETWEEN anahtar sözcüğü, ANSI SQL gibi değerler aralıklarına sorguları express için de kullanabilirsiniz. ARASINDA dizeyi veya sayı karşı kullanılabilir.
 
-Örneğin, bu sorgu hangi hello ilk alt düzey 1-5 arasında (her ikisi de dahil) olan tüm ailesi belgeleri döndürür. 
+Örneğin, bu sorgu, ilk alt düzey 1-5 arasında (her ikisi de dahil) olan tüm ailesi belgeleri döndürür. 
 
     SELECT *
     FROM Families.children[0] c
     WHERE c.grade BETWEEN 1 AND 5
 
-Farklı ANSI-SQL'de de hello BETWEEN yan tümcesi gibi hello FROM yan tümcesinde aşağıdaki örneğine hello kullanabilirsiniz.
+Farklı ANSI-SQL'de de BETWEEN yan tümcesi aşağıdaki örnekteki gibi FROM yan tümcesinde kullanabilirsiniz.
 
     SELECT (c.grade BETWEEN 0 AND 10)
     FROM Families.children[0] c
 
-Daha hızlı sorgu yürütme süreleri için toocreate tüm sayısal özellikleri/hello BETWEEN yan tümcesinde filtrelenen yolları karşı bir aralık dizin türünü kullanan bir dizin oluşturma ilkesi unutmayın. 
+Tüm sayısal özellikleri/BETWEEN yan tümcesinde filtrelenen yolları karşı bir aralık dizin türünü kullanan bir dizin oluşturma ilkesi oluşturmak daha hızlı sorgu yürütme süreleri için unutmayın. 
 
-BETWEEN DocumentDB API ve ANSI SQL kullanarak arasında hello ana karma türlerinin özellikleri aralığı sorguları express – Örneğin, "bir sayı (5) düzeyde" olabilir bazı belgelerde ve diğerleri ("grade4") dizelerde farktır. Bu gibi durumlarda gibi JavaScript'te, iki farklı sonuçlarında "tanımsız" ve hello belge arasında bir karşılaştırma atlanacak.
+DocumentDB API ve ANSI SQL BETWEEN kullanımı arasındaki temel fark karma türlerinin özellikleri aralığı sorguları express – Örneğin, "bir sayı (5) düzeyde" olabilir bazı belgelerde ve diğerleri ("grade4") dizelerde ' dir. Bu gibi durumlarda gibi JavaScript'te, iki farklı sonuçlarında "tanımsız" ve belge arasında bir karşılaştırma atlanacak.
 
 ### <a name="logical-and-or-and-not-operators"></a>Mantıksal (AND, OR ve NOT) işleçleri
-Mantıksal işleçler Boole değerleri üzerinde çalışır. Bu işleçleri için mantıksal gerçekte tabloları Hello tabloları aşağıdaki hello gösterilir.
+Mantıksal işleçler Boole değerleri üzerinde çalışır. Bu işleçlere için mantıksal gerçekte tabloları aşağıdaki tablolarda gösterilmiştir.
 
 | OR | True | False | Tanımlanmamış |
 | --- | --- | --- | --- |
@@ -557,40 +557,40 @@ Mantıksal işleçler Boole değerleri üzerinde çalışır. Bu işleçleri iç
 | Tanımlanmamış |Tanımlanmamış |
 
 ### <a name="in-keyword"></a>Anahtar SÖZCÜĞÜ
-Belirtilen bir değeri bir listedeki herhangi bir değer ile eşleşip eşleşmediğini hello IN anahtar sözcüğü kullanılan toocheck olabilir. Örneğin, bu sorgu, hello kimliği "WakefieldFamily" veya "AndersenFamily" biri olduğu tüm ailesi belgeleri döndürür. 
+IN anahtar sözcüğü, belirtilen bir değeri bir listedeki herhangi bir değer eşleşip eşleşmediğini kontrol etmek için kullanılabilir. Örneğin, bu sorgu kimliği "WakefieldFamily" veya "AndersenFamily" biri olduğu tüm ailesi belgeleri döndürür. 
 
     SELECT *
     FROM Families 
     WHERE Families.id IN ('AndersenFamily', 'WakefieldFamily')
 
-Bu örnek hello durumu belirtilen hello hiçbirini olduğu tüm belgeleri döndüren değerleri.
+Bu örnek, durum belirtilen değerlerden herhangi birini olduğu tüm belgeleri döndürür.
 
     SELECT *
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
 ### <a name="ternary--and-coalesce--operators"></a>Üçlü (?) ve birleşim (?) işleçleri
-Merhaba Üçlü ve birleşim işleçleri kullanılan toobuild koşullu ifadeler, C# ve JavaScript gibi programlama dillerinde benzer toopopular olabilir. 
+Üçlü ve birleşim işleçleri, koşullu ifadeleri, C# ve JavaScript gibi popüler programlama dilleri benzer oluşturmak için kullanılabilir. 
 
-Merhaba oluşturma yeni JSON özellikleri uçarak hello Üçlü (?) işleci çok kullanışlı olabilir. Örneğin, artık, sorguları tooclassify hello sınıfı düzeyleri başlangıç/Orta/aşağıda gösterildiği gibi gelişmiş gibi İnsan okunabilir bir form içine yazabilirsiniz.
+Üçlü (?) işleci kolay bir şekilde yeni JSON özellikleri oluşturulurken çok kullanışlı olabilir. Örneğin, artık, başlangıç/Orta/aşağıda gösterildiği gibi gelişmiş gibi İnsan okunabilir bir form içine sınıfı düzeyleri sınıflandırmak için sorgu yazabilirsiniz.
 
      SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel 
      FROM Families.children[0] c
 
-Itanium tabanlı sistemler için hello çağrıları toohello operatör gibi aşağıdaki hello sorgusunda iç içe.
+Like işleci sorgu çağrıları da yerleştirebilirsiniz.
 
     SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high")  AS gradeLevel 
     FROM Families.children[0] c
 
-Olarak diğer sorgu işleçleri ile Merhaba hello koşullu ifade başvurulan özelliklerinde herhangi bir belgesinde eksikse veya karşılaştırılan hello türleri farklıysa, sonra bu belgeleri hello sorgu sonuçlarında hariç tutulur.
+Olarak diğer sorgu işleçleri ile koşullu ifade başvurulan özelliklerinde herhangi bir belgesinde eksikse veya karşılaştırılan türleri farklıysa, sonra bu belgeleri sorgu sonuçlarında hariç tutulur.
 
-Merhaba birleşim (?) işleci olabilir tooefficiently onay hello bir özellik varlığını (paketini kullanılan tanımlanır) belgede. Yarı yapılandırılmış karşı sorgularken bu yararlıdır veya karma türlerinin veri. Örneğin, mevcut değilse bu sorguyu hello "Soyadı" varsa veya hello "Soyadı" döndürür.
+Birleşim (?) işleci verimli bir şekilde bir özellik (paketini olup olmadığını denetlemek için kullanılabilir tanımlanır) belgede. Yarı yapılandırılmış karşı sorgularken bu yararlıdır veya karma türlerinin veri. Örneğin, mevcut değilse bu sorgu "Soyadı" varsa ya da "Soyadı" döndürür.
 
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
 ### <a id="EscapingReservedKeywords"></a>Tırnak işaretli özelliği erişimcisi
-Özellikler hello tırnak işaretli özelliği işlecini kullanarak da erişebilirsiniz `[]`. Örneğin, `SELECT c.grade` ve `SELECT c["grade"]` eşdeğerdir. Bu sözdiziminin tooescape alanları, özel karakterler içeriyor veya bir SQL anahtar sözcüğü ya da ayrılmış sözcük olarak aynı ad tooshare hello olur bir özellik gerektiğinde kullanışlıdır.
+Özellikler tırnak işaretli özelliği işlecini kullanarak da erişebilirsiniz `[]`. Örneğin, `SELECT c.grade` ve `SELECT c["grade"]` eşdeğerdir. Bu sözdizimi, boşluk, özel karakterler içeriyor veya bir SQL anahtar sözcüğü ya da ayrılmış sözcük adıyla aynı paylaşmak için olur bir özellik atlamanız gerekir yararlıdır.
 
     SELECT f["lastName"]
     FROM Families f
@@ -598,9 +598,9 @@ Merhaba birleşim (?) işleci olabilir tooefficiently onay hello bir özellik va
 
 
 ## <a id="SelectClause"></a>SELECT yan tümcesi
-Merhaba SELECT yan tümcesi (**`SELECT <select_list>`**) zorunludur ve hangi değerlerin hello sorgudan tıpkı ANSI SQL'de alınır belirtir. Merhaba kaynak belgeleri üstünde filtre uygulanmış hello alt geçirilir hello projeksiyon aşaması hello JSON değerleri alınır ve yeni bir JSON nesnesi, bunun geçirilen her giriş için oluşturulan burada belirtilen. 
+SELECT yan tümcesi (**`SELECT <select_list>`**) zorunludur ve değerleri sorgudan tıpkı ANSI SQL'de alınır belirtir. Kaynak belgeleri üstünde filtre uygulanmış alt burada belirtilen JSON değerleri alınır ve yeni bir JSON nesnesi oluşturulur, projeksiyon aşamasında, sürüklediğinizde geçirilen her giriş için üzerine geçirilir. 
 
-Aşağıdaki örnek hello tipik seçme sorgusu gösterir. 
+Aşağıdaki örnek, tipik bir seçme sorgusu gösterir. 
 
 **Sorgu**
 
@@ -620,7 +620,7 @@ Aşağıdaki örnek hello tipik seçme sorgusu gösterir.
 
 
 ### <a name="nested-properties"></a>İç içe Özellikler
-Aşağıdaki örneğine hello biz iki iç içe özellikler yansıtma `f.address.state` ve `f.address.city`.
+Aşağıdaki örnekte, biz iki iç içe özellikler yansıtma `f.address.state` ve `f.address.city`.
 
 **Sorgu**
 
@@ -636,7 +636,7 @@ Aşağıdaki örneğine hello biz iki iç içe özellikler yansıtma `f.address.
     }]
 
 
-Projeksiyon hello aşağıdaki örnekte gösterildiği gibi JSON ifadeler de destekler:
+Projeksiyon ayrıca aşağıdaki örnekte gösterildiği gibi JSON ifadeleri destekler:
 
 **Sorgu**
 
@@ -655,7 +655,7 @@ Projeksiyon hello aşağıdaki örnekte gösterildiği gibi JSON ifadeler de des
     }]
 
 
-Merhaba role daha bakalım `$1` burada. Merhaba `SELECT` yan tümcesi toocreate bir JSON nesnesi gerekiyor ve hiçbir anahtar sağlanan beri örtük bağımsız değişken adları başlayarak kullanırız `$1`. Örneğin, etiketli iki örtük bağımsız değişkenlerini bu sorgunun döndürdüğü `$1` ve `$2`.
+Rolü, bakalım `$1` burada. `SELECT` Yan tümcesi bir JSON nesnesi oluşturmak için gereksinim duyduğu ve hiçbir anahtar sağlanan beri örtük bağımsız değişken adları başlayarak kullanırız `$1`. Örneğin, etiketli iki örtük bağımsız değişkenlerini bu sorgunun döndürdüğü `$1` ve `$2`.
 
 **Sorgu**
 
@@ -678,9 +678,9 @@ Merhaba role daha bakalım `$1` burada. Merhaba `SELECT` yan tümcesi toocreate 
 
 
 ### <a name="aliasing"></a>Diğer ad
-Şimdi şimdi hello Yukarıdaki örnek açık yumuşatma ile değerlerin genişletme. Diğer ad için kullanılan anahtar sözcük hello olduğu gibi. Planlanması hello ikinci değer çalışırken gösterildiği gibi isteğe bağlı `NameInfo`. 
+Şimdi şimdi yukarıda değerlerin örneği açık yumuşatma ile genişletmek. Diğer ad için kullanılan anahtar sözcük olduğu gibi. İkinci değer olarak yansıtma sırasında gösterildiği gibi isteğe bağlı `NameInfo`. 
 
-Bir sorgu hello sahip iki özellik gerekmesi durumunda aynı adı yumuşatma birini veya her ikisini böylece bunlar öngörülen hello disambiguated özellikleri hello kullanılan toorename olmalı sonucu.
+Aynı ada sahip iki özellik bir sorgu sahip olmaması durumunda, böylece bunlar tahmini sonucunda disambiguated birini veya her ikisini özelliklerini yeniden adlandırmak için diğer ad kullanılması gerekir.
 
 **Sorgu**
 
@@ -704,7 +704,7 @@ Bir sorgu hello sahip iki özellik gerekmesi durumunda aynı adı yumuşatma bir
 
 
 ### <a name="scalar-expressions"></a>Skaler ifade
-Ayrıca tooproperty başvuruyor, skaler ifadeler sabitler, aritmetik ifadeler, mantıksal ifadeler, vb. gibi hello SELECT yan tümcesi de destekler. Örneğin, basit bir "Hello World" sorgu aşağıdadır.
+Özellik başvuruları yanı sıra, SELECT yan tümcesi skaler ifadeler sabitler, aritmetik ifadeler, mantıksal ifadeler, vb. gibi de destekler. Örneğin, basit bir "Hello World" sorgu aşağıdadır.
 
 **Sorgu**
 
@@ -730,7 +730,7 @@ Burada, skaler bir ifade kullanır daha karmaşık bir örnek verilmiştir.
     }]
 
 
-Aşağıdaki örneğine hello hello hello skaler ifade Boolean sonucudur.
+Aşağıdaki örnekte, bir Boole değeri bir skaler ifade sonucudur.
 
 **Sorgu**
 
@@ -750,7 +750,7 @@ Aşağıdaki örneğine hello hello hello skaler ifade Boolean sonucudur.
 
 
 ### <a name="object-and-array-creation"></a>Nesne ve dizi oluşturma
-Başka bir anahtar DocumentDB API SQL dizi/nesne oluşturma özelliğidir. Merhaba önceki örnekte yeni bir JSON nesnesi oluşturduğumuz dikkat edin. Benzer şekilde, bir de diziler hello örnekleri aşağıdaki gösterildiği gibi oluşturabilirsiniz:
+Başka bir anahtar DocumentDB API SQL dizi/nesne oluşturma özelliğidir. Önceki örnekte yeni bir JSON nesnesi oluşturduğumuz unutmayın. Benzer şekilde, biri de diziler aşağıdaki örneklerde gösterildiği gibi oluşturabilirsiniz:
 
 **Sorgu**
 
@@ -775,7 +775,7 @@ Başka bir anahtar DocumentDB API SQL dizi/nesne oluşturma özelliğidir. Merha
     ]
 
 ### <a id="ValueKeyword"></a>VALUE anahtar sözcüğü
-Merhaba **değeri** anahtar sözcüğü bir şekilde tooreturn JSON değer sağlar. Örneğin, döndürür hello skaler gösterilen hello sorgu `"Hello World"` yerine `{$1: "Hello World"}`.
+**Değeri** anahtar sözcüğü JSON değerini döndürmek için bir yol sağlar. Örneğin, aşağıda gösterilen sorgu skaler döndürür `"Hello World"` yerine `{$1: "Hello World"}`.
 
 **Sorgu**
 
@@ -788,7 +788,7 @@ Merhaba **değeri** anahtar sözcüğü bir şekilde tooreturn JSON değer sağl
     ]
 
 
-Merhaba aşağıdaki sorgunun döndürdüğü hello JSON değeri hello olmadan `"address"` hello sonuçlarında etiketi.
+Aşağıdaki sorgu olmadan JSON değerini döndürür `"address"` sonuçları etiketi.
 
 **Sorgu**
 
@@ -810,7 +810,7 @@ Merhaba aşağıdaki sorgunun döndürdüğü hello JSON değeri hello olmadan `
       }
     ]
 
-Merhaba aşağıdaki örnekte bu tooshow nasıl genişlettiğini tooreturn JSON ilkel değerlerini (yaprak düzeyi hello JSON ağaç hello). 
+Aşağıdaki örnekte bu dönüş JSON ilkel değerlerini (yaprak düzeyi JSON ağacının) göstermek için genişletir. 
 
 **Sorgu**
 
@@ -826,7 +826,7 @@ Merhaba aşağıdaki örnekte bu tooshow nasıl genişlettiğini tooreturn JSON 
 
 
 ### <a name="-operator"></a>* İşleci
-Merhaba özel işleci (*) desteklenen tooproject hello olarak belgedir-değil. Kullanıldığında, hello yalnızca alan öngörülen olmalıdır. While gibi bir sorgu `SELECT * FROM Families f` geçerli olduğu `SELECT VALUE * FROM Families f ` ve `SELECT *, f.id FROM Families f ` geçerli değildir.
+Özel işleci (*) belgesi olarak projeye desteklenir-değil. Kullanıldığında, yalnızca tahmini alan olmalıdır. While gibi bir sorgu `SELECT * FROM Families f` geçerli olduğu `SELECT VALUE * FROM Families f ` ve `SELECT *, f.id FROM Families f ` geçerli değildir.
 
 **Sorgu**
 
@@ -855,7 +855,7 @@ Merhaba özel işleci (*) desteklenen tooproject hello olarak belgedir-değil. K
     }]
 
 ### <a id="TopKeyword"></a>TOP işleci
-Merhaba üst anahtar sözcüğü olabilir toolimit hello değerleri sorgudan sayısı kullanılır. ÜST hello ORDER BY yan tümcesi ile birlikte kullanıldığında, hello sonuç kümesi sınırlı toohello ilk N sıralı değerler sayısıdır; Aksi takdirde, tanımlanmamış bir sırada hello ilk N sonuç sayısını döndürür. En iyi uygulama, bir SELECT deyimi içinde ORDER BY yan tümcesi her zaman hello üst yan tümcesiyle birlikte kullanın. Bu toopredictably belirtmek hangi satırların üst tarafından etkilenen hello tek yoludur. 
+Üst anahtar sözcüğü değerleri sorgudan sayısını sınırlamak için kullanılabilir. ÜST ORDER BY yan tümcesi ile birlikte kullanıldığında, sonuç kümesi ilk N sıralı değer sayısına sınırlıdır; Aksi takdirde, tanımlanmamış bir sırada sonuçları ilk N sayısını döndürür. En iyi uygulama, bir SELECT deyimi içinde ORDER BY yan tümcesi her zaman üst yan tümcesiyle birlikte kullanın. Hangi satır üst tarafından etkilenen beklendiği belirtmek için tek yolu budur. 
 
 **Sorgu**
 
@@ -885,7 +885,7 @@ Merhaba üst anahtar sözcüğü olabilir toolimit hello değerleri sorgudan say
 ÜST bir değişken değeri parametreli sorgular kullanmayı veya sabit bir değer (yukarıda gösterildiği gibi) ile kullanılabilir. Daha fazla ayrıntı için lütfen aşağıdaki parametreli sorgular bakın.
 
 ### <a id="Aggregates"></a>Toplama işlevleri
-Toplamalar hello gerçekleştirebilirsiniz `SELECT` yan tümcesi. Toplama işlevleri, bir değerleri kümesi üzerinde bir hesaplama gerçekleştirmek ve tek bir değer döndürür. Örneğin, hello aşağıdaki sorguyu hello koleksiyonundaki ailesi belge hello sayısını döndürür.
+Toplamalar de gerçekleştirebilirsiniz `SELECT` yan tümcesi. Toplama işlevleri, bir değerleri kümesi üzerinde bir hesaplama gerçekleştirmek ve tek bir değer döndürür. Örneğin, aşağıdaki sorguyu koleksiyonundaki ailesi belge sayısını döndürür.
 
 **Sorgu**
 
@@ -898,7 +898,7 @@ Toplamalar hello gerçekleştirebilirsiniz `SELECT` yan tümcesi. Toplama işlev
         "$1": 2
     }]
 
-Ayrıca hello skaler hello değerini toplama hello kullanarak dönebilirsiniz `VALUE` anahtar sözcüğü. Örneğin, hello aşağıdaki sorguyu Merhaba sayımını değerleri tek bir sayı döndürür:
+Kullanarak toplama skaler değer döndürebilir `VALUE` anahtar sözcüğü. Örneğin, aşağıdaki sorgu, tek bir sayı değerlerin sayısını döndürür:
 
 **Sorgu**
 
@@ -909,7 +909,7 @@ Ayrıca hello skaler hello değerini toplama hello kullanarak dönebilirsiniz `V
 
     [ 2 ]
 
-Filtrelerle birlikte toplamalar de gerçekleştirebilirsiniz. Örneğin, hello aşağıdaki sorguyu Merhaba sayımını hello adresi belgelerle hello Washington eyaleti yasalarına içinde döndürür.
+Filtrelerle birlikte toplamalar de gerçekleştirebilirsiniz. Örneğin, aşağıdaki sorgu Washington eyaleti adresiyle belge sayısını döndürür.
 
 **Sorgu**
 
@@ -921,28 +921,28 @@ Filtrelerle birlikte toplamalar de gerçekleştirebilirsiniz. Örneğin, hello a
 
     [ 1 ]
 
-Merhaba aşağıdaki tabloda hello listesini desteklenen toplama işlevleri DocumentDB API gösterir. `SUM`ve `AVG` ise sayısal değer üzerinde gerçekleştirilen `COUNT`, `MIN`, ve `MAX` numaraları, dizeleri, Boole değerlerini ve null değerlere gerçekleştirilebilir. 
+Aşağıdaki tabloda, DocumentDB API desteklenen toplama işlevleri listesini gösterir. `SUM`ve `AVG` ise sayısal değer üzerinde gerçekleştirilen `COUNT`, `MIN`, ve `MAX` numaraları, dizeleri, Boole değerlerini ve null değerlere gerçekleştirilebilir. 
 
 | Kullanım | Açıklama |
 |-------|-------------|
-| SAYISI | Merhaba ifadesinde öğe sayısını döndürür hello. |
-| TOPLA   | Merhaba ifadedeki tüm hello değerlerinin toplamını döndürür hello. |
-| MIN   | Döndürür hello ifadedeki en küçük değer hello. |
-| EN BÜYÜK   | Hello ifadedeki en büyük değeri döndürür hello. |
-| ORTALAMA   | Merhaba ifadesinde hello değerlerin ortalamasını döndürür hello. |
+| SAYISI | İfade öğe sayısını döndürür. |
+| TOPLA   | İfadedeki tüm değerlerin toplamını döndürür. |
+| MIN   | İfade en küçük değeri döndürür. |
+| EN BÜYÜK   | İfade en büyük değeri döndürür. |
+| ORTALAMA   | İfade değerlerin ortalamasını döndürür. |
 
-Toplamalar, bir dizi yineleme hello sonuçlarını de gerçekleştirilebilir. Daha fazla bilgi için bkz: [dizi yineleme sorgularda](#Iteration).
+Toplamalar, bir dizi yineleme sonuçları de gerçekleştirilebilir. Daha fazla bilgi için bkz: [dizi yineleme sorgularda](#Iteration).
 
 > [!NOTE]
-> Azure portal'ın sorgu Gezgini kullanarak hello zaman toplama sorguları sorgu sayfası kısmen toplanmış sonuçlar hello döndürebilir unutmayın. Hello SDK'ları, tek bir toplu değer tüm sayfalardaki üretir. 
+> Azure portal'ın sorgu Gezgini kullanırken, toplama sorguları sorgu sayfası kısmen toplanmış sonuçlar döndürebilir unutmayın. SDK'ları tüm sayfalardaki tek bir toplu değer oluşturur. 
 > 
-> Kod kullanarak tooperform toplama sorguları ihtiyacınız .NET SDK'sı 1.12.0, .NET Core SDK 1.1.0 veya Java SDK'sı 1.9.5 da sipariş veya üstü.    
+> Kod kullanarak toplama sorguları gerçekleştirmek için .NET SDK'sı 1.12.0, .NET Core SDK 1.1.0 veya Java SDK'sı 1.9.5 gerekir veya üstü.    
 >
 
 ## <a id="OrderByClause"></a>ORDER BY yan tümcesi
-Gibi ANSI-SQL'de, isteğe bağlı bir Order By yan tümcesi sorgularken ekleyebilirsiniz. Merhaba yan tümcesi sonuçlar alınması gereken isteğe bağlı ASC/DESC bağımsız değişkeni toospecify hello sipariş içerebilir.
+Gibi ANSI-SQL'de, isteğe bağlı bir Order By yan tümcesi sorgularken ekleyebilirsiniz. Yan tümcesi sonuçlar alınması gereken sırayı belirtmek için isteğe bağlı ASC/DESC bağımsız değişken ekleyebilirsiniz.
 
-Örneğin, işte sorguda aileleri sırasına hello yerleşik Şehir kişinin adını alır.
+Örneğin, yerleşik Şehir kişinin adını sırasına aileleri alır bir sorgu aşağıdadır.
 
 **Sorgu**
 
@@ -963,7 +963,7 @@ Gibi ANSI-SQL'de, isteğe bağlı bir Order By yan tümcesi sorgularken ekleyebi
       }
     ]
 
-Burada da sorguda aileleri sayı temsil eden bir hello gibi dönem zamanı, yani, geçen süre 1 Ocak 1970'ten itibaren saniye cinsinden, depolanan oluşturma tarih sırasına göre alır.
+Ve aileleri dönem temsil eden bir sayı olarak depolanan oluşturma tarih sırasına göre alır bir sorgu süre, yani, 1 Ocak 1970'ten içinde bu yana geçen süre saniye burada'nın.
 
 **Sorgu**
 
@@ -987,7 +987,7 @@ Burada da sorguda aileleri sayı temsil eden bir hello gibi dönem zamanı, yani
 ## <a id="Advanced"></a>Gelişmiş veritabanı kavramlarını ve SQL sorguları
 
 ### <a id="Iteration"></a>Yineleme
-Yeni bir yapı hello eklenen **IN** DocumentDB API SQL tooprovide desteği, JSON diziler yineleme anahtar sözcük. Merhaba FROM kaynak yineleme için destek sağlar. Aşağıdaki örneğine hello ile başlayalım:
+Yeni bir yapı aracılığıyla eklendi **IN** JSON diziler yineleme için destek sağlamak için DocumentDB API SQL anahtar sözcük. FROM kaynak yineleme için destek sağlar. Aşağıdaki örnek ile başlayalım:
 
 **Sorgu**
 
@@ -1021,7 +1021,7 @@ Yeni bir yapı hello eklenen **IN** DocumentDB API SQL tooprovide desteği, JSON
       ]
     ]
 
-Şimdi hello koleksiyonundaki alt öğe üzerinden yineleme gerçekleştiren başka bir sorgu bakalım. Merhaba çıkış dizisi Hello fark unutmayın. Bu örnek böler `children` ve tek bir dizi hello sonuçları düzleştirir.  
+Şimdi koleksiyondaki çocukların üzerinden yineleme gerçekleştiren başka bir sorgu bakalım. Çıkış dizisi fark unutmayın. Bu örnek böler `children` ve tek bir dizi sonuçları düzleştirir.  
 
 **Sorgu**
 
@@ -1051,7 +1051,7 @@ Yeni bir yapı hello eklenen **IN** DocumentDB API SQL tooprovide desteği, JSON
       }
     ]
 
-Bu, daha fazla hello aşağıdaki örnekte gösterildiği gibi hello dizinin her bir giriş üzerinde kullanılan toofilter olabilir:
+Bu daha fazla dizi her bir giriş aşağıdaki örnekte gösterildiği gibi filtrelemek için kullanılabilir:
 
 **Sorgu**
 
@@ -1065,7 +1065,7 @@ Bu, daha fazla hello aşağıdaki örnekte gösterildiği gibi hello dizinin her
       "givenName": "Lisa"
     }]
 
-Dizi yineleme hello sonucunun üzerinde toplama de gerçekleştirebilirsiniz. Örneğin, hello aşağıdaki sorguyu hello tüm aileleri arasında alt sayar.
+Toplama dizi yineleme sonuç de gerçekleştirebilirsiniz. Örneğin, aşağıdaki sorgu tüm aileleri arasında alt sayısını sayar.
 
 **Sorgu**
 
@@ -1081,11 +1081,11 @@ Dizi yineleme hello sonucunun üzerinde toplama de gerçekleştirebilirsiniz. Ö
     ]
 
 ### <a id="Joins"></a>Birleşimler
-İlişkisel bir veritabanında tablolar arasında hello gerek toojoin önemlidir. Merhaba normalleştirilmiş mantıksal corollary toodesigning şemaları kullanıcının. Bulmadýðýný toothis, DocumentDB API şemasız belgelerin hello Normalleştirilmemiş veri modeli ile ilgilidir. Bu hello mantıksal eşdeğerdir "Self Katıl" a.
+İlişkisel bir veritabanında tablolar katılmak için gereken önemlidir. Normalleştirilmiş şemaları tasarlama için mantıksal corollary olur. Bu aykırı DocumentDB API şemasız belgeleri Normalleştirilmemiş veri modeli ile ilgilidir. Bu mantıksal eşdeğerdir "Self Katıl" a.
 
-Merhaba dili destekleyen hello sözdizimi < from_source1 > JOIN < from_source2 > birleştirme ediyor... < From_sourceN > katılın. Genel olarak, bu bir dizi döndürür **N**- diziler (ile tanımlama grubu **N** değerleri). Her tanımlama grubu tüm koleksiyon diğer adları kendi ilgili ayarlar yineleme tarafından üretilen değerler içeriyor. Diğer bir deyişle, tam bir çapraz ürün hello birleştirme katılan hello kümelerinin budur.
+Dilin desteklediği sözdizimi < from_source1 > JOIN < from_source2 > birleştirme ediyor... < From_sourceN > katılın. Genel olarak, bu bir dizi döndürür **N**- diziler (ile tanımlama grubu **N** değerleri). Her tanımlama grubu tüm koleksiyon diğer adları kendi ilgili ayarlar yineleme tarafından üretilen değerler içeriyor. Diğer bir deyişle, bu bir tam çapraz birleştirme katılan kümeleri ürünüdür.
 
-Merhaba aşağıdaki örneklerde hello JOIN yan tümcesi nasıl çalıştığı gösterilmektedir. Hello çapraz ürün kaynak ve boş her belge boş olduğundan aşağıdaki örneğine hello hello sonuç boş kalır.
+Aşağıdaki örnekler, JOIN yan tümcesi nasıl çalıştığını gösterir. Aşağıdaki örnekte, her bir belgenin kaynağından vektörel çarpımını itibaren sonucu boştur ve boş boştur.
 
 **Sorgu**
 
@@ -1099,7 +1099,7 @@ Merhaba aşağıdaki örneklerde hello JOIN yan tümcesi nasıl çalıştığı 
     }]
 
 
-Aşağıdaki örneğine hello hello birleştirme hello belge kökü hello arasında ise `children` subroot. Bu, iki JSON nesnesi arasındaki arası bir üründür. alt öğeleri olan bir dizi hello olgu biz hello alt öğeleri dizisi için tek bir kök çalışıyorsanız hello birleşim etkin değil. Bu nedenle Hello hello diziye sahip her bir belgenin vektörel çarpımını üretir tam olarak yalnızca bir belge beri hello sonucu yalnızca iki sonucu içerir.
+Aşağıdaki örnekte, birleştirme belge arasında köküdür ve `children` subroot. Bu, iki JSON nesnesi arasındaki arası bir üründür. Biz alt öğeleri dizisi için tek bir kök çalışıyorsanız bu yana alt öğeleri olan bir dizi olgu birleştirme etkili değildir. Bu nedenle tam olarak yalnızca bir belge diziye sahip her bir belgenin vektörel çarpımını üretir beri sonucu yalnızca iki sonucu içerir.
 
 **Sorgu**
 
@@ -1119,7 +1119,7 @@ Aşağıdaki örneğine hello hello birleştirme hello belge kökü hello arası
     ]
 
 
-Aşağıdaki örnek hello daha geleneksel bir birleştirme gösterir:
+Aşağıdaki örnek, daha geleneksel bir birleştirme gösterir:
 
 **Sorgu**
 
@@ -1143,15 +1143,15 @@ Aşağıdaki örnek hello daha geleneksel bir birleştirme gösterir:
 
 
 
-Merhaba ilk şey toonote bu hello olan `from_source` Merhaba, **katılma** yan tümcesi olan yineleyici. Bu nedenle, hello akışı bu durumda şu şekildedir:  
+Dikkat edilecek ilk şey olan `from_source` , **katılma** yan tümcesi olan yineleyici. Bu nedenle, akış bu durumda aşağıdaki gibidir:  
 
-* Her alt öğesi genişletin **c** hello dizisindeki.
-* Çapraz ürün hello belge hello kökü ile geçerli **f** her alt öğesi olan **c** hello ilk adımda düzleştirilmiş.
-* Son olarak, hello kök nesnesi proje **f** name özelliği bırakır. 
+* Her alt öğesi genişletin **c** dizideki.
+* Çapraz ürün belgenin kökü ile geçerli **f** her alt öğesi olan **c** ilk adımda düzleştirilmiş.
+* Son olarak, kök nesnesi proje **f** name özelliği bırakır. 
 
-Merhaba ilk belge (`AndersenFamily`) yalnızca tek bir nesnede karşılık gelen toothis belgesini hello sonuç kümesini içerecek şekilde yalnızca bir alt öğe içeriyor. Merhaba ikinci belge (`WakefieldFamily`) iki alt öğeleri içerir. Bu nedenle, hello çapraz ürün ayrı bir nesne için böylece her alt karşılık gelen toothis belge için iki nesne sonuçta her bir alt üretir. Her iki bu belgedeki alanlar hello kök hello aynı bir çapraz ürün beklendiği gibi.
+İlk belgeyi (`AndersenFamily`) yalnızca bu belgeye karşılık gelen tek bir nesne sonuç kümesini içerecek şekilde yalnızca bir alt öğe içeriyor. İkinci belge (`WakefieldFamily`) iki alt öğeleri içerir. Bu nedenle, çapraz ürün, böylece bu belgeye karşılık gelen her bir alt için iki nesne sonuçta her bir alt için ayrı bir nesne oluşturur. Bir çapraz ürün beklendiği gibi hem bu belgeleri kök alanları aynıdır.
 
-Hello hello birleştirme gerçek yardımcı programı olan başka bir şekil hello cross-ürünün tooform diziler zor tooproject. Biz hello aşağıdaki örnekte gördüğünüz gibi Ayrıca, bir tanımlama grubu hello birleşimi olanak tanıyan hello filtre kullanıcı tarafından hello diziler genel memnun bir koşul seçti.
+Gerçek katılma form başlıkları, aksi takdirde projeye zor olan bir şekil içinde çapraz ürünün programıdır. Ayrıca, aşağıdaki örnekte, biz gördüğünüz gibi sağlar tarafından başlıklar genel memnun bir koşul kullanıcının seçtiği bir tanımlama grubu birleşimi filtre uygulayabilirsiniz.
 
 **Sorgu**
 
@@ -1186,7 +1186,7 @@ Hello hello birleştirme gerçek yardımcı programı olan başka bir şekil hel
 
 
 
-Bu örnek, örnek önceki hello doğal bir uzantıdır ve çift birleştirme gerçekleştirir. Bu nedenle, hello çapraz ürün sözde koddan hello görüntülenebilir:
+Bu örnek önceki örnekte doğal bir uzantıdır ve çift birleştirme gerçekleştirir. Bu nedenle, çapraz ürün aşağıdaki sözde kodu olarak görüntülenebilir:
 
     for-each(Family f in Families)
     {    
@@ -1202,9 +1202,9 @@ Bu örnek, örnek önceki hello doğal bir uzantıdır ve çift birleştirme ger
         }
     }
 
-`AndersenFamily`bir evcil hayvan sahip bir alt sahiptir. Bu nedenle, hello çapraz ürün bir satır verir (1\*1\*1) bu aile gelen. WakefieldFamily ancak iki alt öğe, ancak yalnızca bir alt "Jesse" Evcil Hayvanlar içeriyor. Jesse iki Evcil Hayvanlar yine de vardır. Bu nedenle hello çapraz ürün 1 verir\*1\*2 = 2 Bu ailesinden satırlar.
+`AndersenFamily`bir evcil hayvan sahip bir alt sahiptir. Bu nedenle, bir satır çapraz ürün verir (1\*1\*1) bu aile gelen. WakefieldFamily ancak iki alt öğe, ancak yalnızca bir alt "Jesse" Evcil Hayvanlar içeriyor. Jesse iki Evcil Hayvanlar yine de vardır. Bu nedenle çapraz ürün 1 verir\*1\*2 = 2 Bu ailesinden satırlar.
 
-Merhaba sonraki örnekte olduğundan bir ek filtre `pet`. Merhaba Evcil adı "Gölge" olduğu tüm hello diziler dışlar. Biz mümkün toobuild diziler dizileri, herhangi bir hello tuple hello öğelerinin filtre gelen olan ve herhangi bir bileşimini hello öğeleri proje dikkat edin. 
+Sonraki örnekte olduğundan bir ek filtre `pet`. Burada Evcil adı "Gölge" değil tüm başlıklar dışlar. Biz diziler dizileri, herhangi bir tanımlama grubu öğelerinin filtre gelen derleme ve öğeleri herhangi bir bileşimini proje olduğuna dikkat edin. 
 
 **Sorgu**
 
@@ -1230,17 +1230,17 @@ Merhaba sonraki örnekte olduğundan bir ek filtre `pet`. Merhaba Evcil adı "G�
 
 
 ## <a id="JavaScriptIntegration"></a>JavaScript tümleştirme
-Azure Cosmos DB JavaScript tabanlı uygulama mantığını saklı yordamları ve Tetikleyicileri bakımından hello koleksiyonlar üzerinde doğrudan yürütmek için bir programlama modeli sağlar. Bu, her ikisi için sağlar:
+Azure Cosmos DB JavaScript tabanlı uygulama mantığını saklı yordamları ve Tetikleyicileri bakımından koleksiyonlar üzerinde doğrudan yürütmek için bir programlama modeli sağlar. Bu, her ikisi için sağlar:
 
-* Özelliği toodo yüksek performanslı işlem CRUD işlemleri ve belgeleri hello doğrudan hello veritabanı altyapısının içinde JavaScript çalışma zamanı için derin tümleştirme, bir koleksiyondaki sorguları. 
-* Denetim akışı, değişken kapsamı, atama ve özel durum işleme temelleri veritabanı işlemleri ile tümleştirilmesi doğal bir model. JavaScript tümleştirme için Azure Cosmos DB desteği hakkında daha fazla ayrıntı için lütfen toohello JavaScript sunucu tarafı programlama belgelerine bakın.
+* Yüksek performanslı işlem CRUD işlemleri ve belgeleri doğrudan veritabanı altyapısının içinde JavaScript çalışma zamanı derin tümleştirmesi sayesinde bir koleksiyondaki sorguları yeteneği. 
+* Denetim akışı, değişken kapsamı, atama ve özel durum işleme temelleri veritabanı işlemleri ile tümleştirilmesi doğal bir model. JavaScript tümleştirme için Azure Cosmos DB desteği hakkında daha fazla ayrıntı için lütfen JavaScript sunucu tarafı programlama belgelerine başvurun.
 
 ### <a id="UserDefinedFunctions"></a>Kullanıcı tanımlı işlevler (UDF'ler)
-Bu makalede önceden tanımlanmış hello türleri ile birlikte DocumentDB API SQL kullanıcı tanımlı işlevler (UDF) için destek sağlar. Özellikle, skaler UDF'ler burada hello geliştiriciler sıfır veya daha çok değişkenlerinde geçirmek ve geri tek bağımsız değişken sonuç desteklenir. Bu değişkenin her biri geçerli JSON değerleri olmak için denetlenir.  
+Bu makalede önceden tanımlanmış türleri ile birlikte, DocumentDB API SQL kullanıcı tanımlı işlevler (UDF) için destek sağlar. Özellikle, skaler UDF'ler burada geliştiriciler sıfır veya daha çok değişkenlerinde geçirmek ve geri tek bağımsız değişken sonuç desteklenir. Bu değişkenin her biri geçerli JSON değerleri olmak için denetlenir.  
 
-Merhaba DocumentDB API SQL söz dizimi, bu kullanıcı tanımlı işlevler kullanılarak toosupport özel uygulama mantığını genişletilir. UDF'ler DocumentDB API'si ile kayıtlı olması ve sonra bir SQL sorgusu bir parçası olarak başvurulan. Aslında, UDF'ler exquisitely olan hello sorgular tarafından çağrılan toobe tasarlanmıştır. Corollary toothis seçenek olarak, UDF'ler erişim toohello bağlam nesnesi, diğer JavaScript hello yoktur türleri (saklı yordamları ve Tetikleyicileri) sahip. Salt okunur olarak sorguları yürütmek olduğundan, birincil veya ikincil çoğaltmaları çalıştırabilirsiniz. Bu nedenle, UDF'ler diğer JavaScript türlerinin aksine ikincil çoğaltmalar üzerinde tasarlanmış toorun altındadır.
+DocumentDB API SQL söz dizimi, bu kullanıcı tanımlı işlevler kullanılarak özel uygulama mantığını destekleyecek şekilde genişletilir. UDF'ler DocumentDB API'si ile kayıtlı olması ve sonra bir SQL sorgusu bir parçası olarak başvurulan. Aslında, UDF'ler exquisitely sorgular tarafından çağrılan için tasarlanmıştır. Bu seçenek için bir corollary UDF'ler diğer JavaScript türleri (saklı yordamları ve Tetikleyicileri) olan bağlam nesnesi erişiminiz yok. Salt okunur olarak sorguları yürütmek olduğundan, birincil veya ikincil çoğaltmaları çalıştırabilirsiniz. Bu nedenle, UDF'ler, diğer JavaScript türlerinin aksine ikincil çoğaltmalar üzerinde çalışmak üzere tasarlanmıştır.
 
-Aşağıda, özellikle bir belge koleksiyonu altında hello Cosmos DB veritabanı sırasında bir UDF nasıl kaydedilebilir bir örnektir.
+Aşağıda, özellikle bir belge koleksiyonu altında Cosmos DB veritabanı sırasında bir UDF nasıl kaydedilebilir bir örnektir.
 
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction
        {
@@ -1254,12 +1254,12 @@ Aşağıda, özellikle bir belge koleksiyonu altında hello Cosmos DB veritaban�
            UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
            regexMatchUdf).Result;  
 
-Merhaba önceki örnekte oluşturur adı olan bir UDF `REGEX_MATCH`. İki JSON dizesi değerlerini kabul `input` ve `pattern` ve JavaScript'in string.match() işlevi kullanarak hello ilk eşleşmeleri hello düzeni belirtilen ikinci hello gerekmediğini denetler.
+Önceki örnekte adı olan bir UDF oluşturur `REGEX_MATCH`. İki JSON dizesi değerlerini kabul `input` ve `pattern` ve ilk eşleşme deseni ikinci belirtilmişse denetimleri kullanarak JavaScript'in string.match() işlevi.
 
-Bir yansıtma sorgu Biz bu UDF artık kullanabilirsiniz. UDF'ler hello büyük küçük harfe duyarlı önekiyle "udf." nitelenmiş olmalıdır gelen sorgulara çağrıldığında. 
+Bir yansıtma sorgu Biz bu UDF artık kullanabilirsiniz. UDF'ler büyük küçük harfe duyarlı önekiyle "udf." nitelenmiş olmalıdır gelen sorgulara çağrıldığında. 
 
 > [!NOTE]
-> Önceki too3/17/2015, Cosmos DB hello "udf." olmadan UDF çağrı desteklenir. önek seçin REGEX_MATCH() ister. Bu arama deseni kullanım dışı bırakıldı.  
+> 3/17/2015 öncesinde Cosmos DB "udf." olmadan UDF çağrı desteklenir. önek seçin REGEX_MATCH() ister. Bu arama deseni kullanım dışı bırakıldı.  
 > 
 > 
 
@@ -1279,7 +1279,7 @@ Bir yansıtma sorgu Biz bu UDF artık kullanabilirsiniz. UDF'ler hello büyük k
       }
     ]
 
-Merhaba UDF de bir filtre içinde de hello "udf ile." tam hello aşağıdaki örnekte, gösterildiği gibi kullanılabilir öneki:
+UDF de bir filtre içinde de "udf ile." tam aşağıdaki örnekte gösterildiği gibi kullanılabilir öneki:
 
 **Sorgu**
 
@@ -1297,7 +1297,7 @@ Merhaba UDF de bir filtre içinde de hello "udf ile." tam hello aşağıdaki ör
 
 Esas olarak, UDF'ler geçerli skaler ifadelerini ve tahminleri ve filtreleri kullanılabilir. 
 
-tooexpand UDF'ler hello gücüyle başka bir örneğe koşullu mantığı ile bakalım:
+UDF'ler gücüyle genişletmek için başka bir örneğe koşullu mantığı ile bakalım:
 
        UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
        {
@@ -1320,7 +1320,7 @@ tooexpand UDF'ler hello gücüyle başka bir örneğe koşullu mantığı ile ba
                 seaLevelUdf);
 
 
-Alıştırmaları UDF hello bir örnek aşağıda verilmiştir.
+UDF uygular örneği aşağıdadır.
 
 **Sorgu**
 
@@ -1341,21 +1341,21 @@ Alıştırmaları UDF hello bir örnek aşağıda verilmiştir.
     ]
 
 
-Önceki örnekler gösterimi hello gibi UDF'ler JavaScript dil hello gücünü hello DocumentDB API SQL tooprovide ile bir zengin programlanabilir arabirimi toodo karmaşık yordam, koşullu mantık hello Yardım yerleşik JavaScript çalışma zamanı ile tümleştirme yetenekleri.
+Önceki örneklerde sergiler gibi UDF'ler JavaScript dil gücünü yerleşik JavaScript çalışma zamanı yeteneklerini yardımıyla karmaşık bir yordam, koşullu mantık yapmak için zengin bir programlanabilir arabirimi sağlamak için DocumentDB API SQL ile tümleştirin.
 
-DocumentDB API SQL hello bağımsız değişkenleri toohello UDF'ler hello kaynağındaki her belge için hello geçerli aşamasında işleme hello UDF (WHERE yan tümcesi veya SELECT yan tümcesi) sağlar. Merhaba sonucu olarak dahil edilmiş genel yürütme ardışık düzeni sorunsuz bir şekilde hello. Başvurulan tooby hello UDF parametreleri hello parametre olarak kabul hello JSON değeri, kullanılabilir değil hello Özellikleri tanımlanmamış ve bu nedenle hello UDF çağırma tamamen atlanır. Benzer şekilde hello UDF Hello sonucu tanımsız ise hello sonucunda bulunmaz. 
+DocumentDB API SQL bağımsız değişkenler için UDF'ler kaynağındaki her belge için UDF işleme geçerli aşamada (WHERE yan tümcesi veya SELECT yan tümcesi) sağlar. Sonuç genel yürütme ardışık düzeninde sorunsuz olarak eklenmiştir. Özellikler başvurulan tarafından UDF parametreleri JSON değeri kullanılabilir değil, parametre olarak kabul tanımlanmamış ve bu nedenle UDF çağırma tamamen atlandı. Benzer şekilde UDF sonucu tanımsız ise, sonuçta bulunmaz. 
 
-Özet olarak, UDF'ler harika Araçlar toodo karmaşık iş mantığı hello sorgu kapsamında ' dir.
+Özet olarak, UDF'ler karmaşık iş mantığı sorgu bir parçası olarak yapmak için harika araçlardır.
 
 ### <a name="operator-evaluation"></a>İşleç değerlendirme
-Cosmos DB, bir JSON veritabanı olma hello virtue tarafından JavaScript işleçleri ve değerlendirme semantiği ile parallels çizer. Cosmos DB toopreserve JavaScript semantiği JSON desteği bakımından çalışır, ancak bazı durumlarda hello işlemi değerlendirme farklıdır.
+Cosmos DB, bir JSON veritabanı olan virtue tarafından JavaScript işleçleri ve değerlendirme semantiği ile parallels çizer. JSON desteği bakımından JavaScript sematiğini korumak Cosmos DB çalışır, ancak bazı durumlarda işlemi değerlendirme farklıdır.
 
-Merhaba değerleri veritabanından kadar DocumentDB API SQL'de aksine geleneksel SQL değerlerin hello türleri bilinmez genellikle. Sipariş tooefficiently sorguları yürütün, hello işleçleri çoğunu sıkı tür gereksinimleri vardır. 
+Değerleri veritabanından kadar DocumentDB API SQL'de aksine geleneksel SQL değerlerin türleri bilinmez genellikle. Verimli bir şekilde sorguları yürütmek için işleçleri çoğunu sıkı tür gereksinimleri vardır. 
 
-DocumentDB API SQL JavaScript aksine örtük dönüşümler gerçekleştirmez. Örneğin, bir sorgu ister `SELECT * FROM Person p WHERE p.Age = 21` eşleşen değeri olan 21 yaş özelliği içeren belgeleri. "021", "21.0", "0021", "00021" dize "21", veya diğer büyük olasılıkla sonsuz Çeşitlemeler, yaş özelliği eşleşen herhangi bir belge ister, vb. eşlenemiyor. Buna karşılık toohello hello dize değerlerini örtük olarak Integer toonumbers nerede JavaScript budur (örneğin, operatöre dayanan: ==). Bu seçenek, DocumentDB API SQL'de eşleşen verimli dizin için önemlidir. 
+DocumentDB API SQL JavaScript aksine örtük dönüşümler gerçekleştirmez. Örneğin, bir sorgu ister `SELECT * FROM Person p WHERE p.Age = 21` eşleşen değeri olan 21 yaş özelliği içeren belgeleri. "021", "21.0", "0021", "00021" dize "21", veya diğer büyük olasılıkla sonsuz Çeşitlemeler, yaş özelliği eşleşen herhangi bir belge ister, vb. eşlenemiyor. Bunun aksine dize değerleri nerede sayılara örtük olarak Integer JavaScript sağlamaktır (örneğin, operatöre dayanan: ==). Bu seçenek, DocumentDB API SQL'de eşleşen verimli dizin için önemlidir. 
 
 ## <a name="parameterized-sql-queries"></a>Parametreli SQL sorguları
-Cosmos DB hello @ gösterimi tanıdık ile ifade parametrelerle sorguları destekler. Parametreli SQL sağlam işleme ve kullanıcı girişi, SQL ekleme üzerinden veri yanlışlıkla açığa çıkmaya önleme, kaçış sağlar. 
+Cosmos DB bilinen gösterimi @ ile ifade parametrelerle sorguları destekler. Parametreli SQL sağlam işleme ve kullanıcı girişi, SQL ekleme üzerinden veri yanlışlıkla açığa çıkmaya önleme, kaçış sağlar. 
 
 Örneğin, Soyadı ve adres durumu kullandığı parametreler bir sorgu yazın ve son adı ve kullanıcı girişini temel alarak adresi durumunun çeşitli değerlerin yürütün.
 
@@ -1363,7 +1363,7 @@ Cosmos DB hello @ gösterimi tanıdık ile ifade parametrelerle sorguları deste
     FROM Families f
     WHERE f.lastName = @lastName AND f.address.state = @addressState
 
-Bu istek ardından aşağıda gösterildiği gibi tooCosmos DB parametreli bir JSON sorgu olarak gönderilebilir.
+Bu istek sonra Cosmos DB gibi parametreli bir JSON sorgu olarak aşağıda gösterilen gönderilebilir.
 
     {      
         "query": "SELECT * FROM Families f WHERE f.lastName = @lastName AND f.address.state = @addressState",     
@@ -1373,7 +1373,7 @@ Bu istek ardından aşağıda gösterildiği gibi tooCosmos DB parametreli bir J
         ] 
     }
 
-Merhaba bağımsız değişkeni tooTOP gibi parametreli sorgular kullanmayı aşağıda gösterilen ayarlanabilir.
+İLK bağımsız değişkeni gibi parametreli sorgular kullanmayı aşağıda gösterilen ayarlanabilir.
 
     {      
         "query": "SELECT TOP @n * FROM Families",     
@@ -1395,39 +1395,39 @@ Cosmos DB yerleşik işlevleri gibi kullanıcı tanımlı işlevler (UDF'ler) so
 | Dizi işlevleri         | ARRAY_CONCAT, ARRAY_CONTAINS, ARRAY_LENGTH ve ARRAY_SLICE                                                                                         |
 | Uzamsal işlevleri       | St_dıstance, ST_WITHIN, ST_INTERSECTS, ST_ISVALID ve ST_ISVALIDDETAILED                                                                           | 
 
-Şu anda yerleşik işlevi olduğu şimdi kullanılabilir bir kullanıcı tanımlı işlev (UDF) kullanıyorsanız, toobe daha hızlı toorun ve daha fazlasını geçiyor gibi hello karşılık gelen yerleşik işlevi kullanmalıdır verimli bir şekilde. 
+Şu anda yerleşik işlevi olduğu şimdi kullanılabilir bir kullanıcı tanımlı işlev (UDF) kullanıyorsanız, bunu çalıştırmak daha hızlı olacak şekilde karşılık gelen yerleşik işlevi kullanmalıdır ve daha verimli bir şekilde. 
 
 ### <a name="mathematical-functions"></a>Matematik işlevleri
-Merhaba matematik işlevleri her bağımsız değişken olarak sağlanır ve sayısal bir değeri döndürme giriş değerlerine göre bir hesaplama gerçekleştirir. Burada, desteklenen yerleşik matematik işlevleri tablosu verilmiştir.
+Matematik işlevleri her bağımsız değişken olarak sağlanır ve sayısal bir değeri döndürme giriş değerlerine göre bir hesaplama gerçekleştirir. Burada, desteklenen yerleşik matematik işlevleri tablosu verilmiştir.
 
 
 | Kullanım | Açıklama |
 |----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [[ABS (num_expr)](#bk_abs) | Sayısal ifade döndürür hello mutlak (pozitif) değerini hello belirtildi. |
-| [Üst SINIRA (num_expr)](#bk_ceiling) | En küçük tamsayı değeri büyük hello veya belirtilen sayısal ifade hello eşit verir. |
-| [FLOOR (num_expr)](#bk_floor) | Daha az Hello en büyük tamsayıyı döndürür veya bu değere eşit toohello sayısal ifade belirtildi. |
-| [EXP (num_expr)](#bk_exp) | Merhaba, döndürür hello üs sayısal ifade belirtildi. |
-| [Günlük (num_expr [, temel])](#bk_log) | Sayısal ifade hello hello doğal logaritmasını döndürür belirtilen veya hello kullanarak hello logaritmanın tabanı belirtilen |
-| [Log10 (num_expr)](#bk_log10) | Merhaba, döndürür hello 10 tabanında Logaritmik değer sayısal ifade belirtildi. |
-| [ROUND (num_expr)](#bk_round) | Yuvarlak toohello en yakın tamsayı değeri sayısal bir değer döndürür. |
-| [TRUNC (num_expr)](#bk_trunc) | Kesilmiş toohello en yakın tamsayı değeri sayısal bir değer döndürür. |
-| [SQRT (num_expr)](#bk_sqrt) | Merhaba hello kare kökünü döndürür sayısal ifade belirtildi. |
-| [KARE (num_expr)](#bk_square) | Merhaba kare döndürür hello sayısal ifade belirtildi. |
-| [GÜÇ (num_expr, num_expr)](#bk_power) | Sayısal ifade toohello değeri belirtilen döndürür hello hello gücünü belirtilmiş. |
-| [OTURUM (num_expr)](#bk_sign) | Döndürür hello oturum değerini (-1, 0, 1) hello sayısal ifade belirtildi. |
-| [ACOS (num_expr)](#bk_acos) | Kosinüsü belirtilen sayısal ifade hello radyan cinsinden döndürür hello açı; arccosine olarak da bilinir. |
-| [ASIN (num_expr)](#bk_asin) | Döndürür hello açının sinüsü hello olduğundan, sayısal ifade radyan cinsinden. Bu arksinüsünü olarak da adlandırılır. |
-| [ATAN (num_expr)](#bk_atan) | Döndürür hello açının tanjantı hello olduğundan, sayısal ifade radyan cinsinden. Bu arktanjantını olarak da adlandırılır. |
-| [ATN2 (num_expr)](#bk_atn2) | Döndürür hello hello pozitif x ekseni ve hello ray hello kaynak toohello noktasından (y, x) arasında radyan cinsinden açı burada x ve y hello hello iki belirtilen float ifadeleri değerleri. |
-| [COS (num_expr)](#bk_cos) | Döndürür hello trigonometrik kosinüsünü hello radyan cinsinden açı, hello ifade belirtildi. |
-| [COT (num_expr)](#bk_cot) | Döndürür hello trigonometrik kotanjantını hello radyan cinsinden açı, hello sayısal ifade belirtildi. |
-| [DERECE (num_expr)](#bk_degrees) | Karşılık gelen açıyı radyan cinsinden açı için derece cinsinden döndürür hello. |
-| [PI)](#bk_pi) | PI sayısının sabit bir değer döndürür hello. |
+| [[ABS (num_expr)](#bk_abs) | Belirtilen sayısal ifade (pozitif) mutlak değerini döndürür. |
+| [Üst SINIRA (num_expr)](#bk_ceiling) | Büyüktür veya eşittir, belirtilen sayısal ifadenin en küçük tamsayı değeri döndürür. |
+| [FLOOR (num_expr)](#bk_floor) | Belirtilen sayısal ifade küçük veya eşit en büyük tamsayıyı döndürür. |
+| [EXP (num_expr)](#bk_exp) | Belirtilen sayısal ifade üs döndürür. |
+| [Günlük (num_expr [, temel])](#bk_log) | Belirtilen sayısal ifade ya da belirtilen taban kullanarak logaritmasını doğal logaritmasını döndürür |
+| [Log10 (num_expr)](#bk_log10) | Belirtilen sayısal ifade 10 tabanında Logaritmik değerini döndürür. |
+| [ROUND (num_expr)](#bk_round) | En yakın tamsayı değerine yuvarlanan sayısal bir değer döndürür. |
+| [TRUNC (num_expr)](#bk_trunc) | En yakın tamsayı değerine kesilmiş sayısal bir değer döndürür. |
+| [SQRT (num_expr)](#bk_sqrt) | Belirtilen sayısal ifade kare kökünü döndürür. |
+| [KARE (num_expr)](#bk_square) | Belirtilen sayısal ifade kare döndürür. |
+| [GÜÇ (num_expr, num_expr)](#bk_power) | Belirtilen sayısal ifade gücünü belirtilen değeri döndürür. |
+| [OTURUM (num_expr)](#bk_sign) | İşareti (-1, 0, 1) belirtilen sayısal ifadenin değerini döndürür. |
+| [ACOS (num_expr)](#bk_acos) | Açının kosinüsü belirtilen sayısal ifadesidir radyan cinsinden döndürür; arccosine olarak da bilinir. |
+| [ASIN (num_expr)](#bk_asin) | Açının sinüsü belirtilen sayısal ifadesidir radyan cinsinden döndürür. Bu arksinüsünü olarak da adlandırılır. |
+| [ATAN (num_expr)](#bk_atan) | Açının tanjantı belirtilen sayısal ifadesidir radyan cinsinden döndürür. Bu arktanjantını olarak da adlandırılır. |
+| [ATN2 (num_expr)](#bk_atn2) | Burada açıyı pozitif x ekseni ve noktasına (y, x), kaynaktan ray arasında radyan cinsinden döndürür x ve y iki belirtilen float ifadeleri değerlerdir. |
+| [COS (num_expr)](#bk_cos) | Radyan cinsinden belirtilen ifade trigonometrik belirtilen açının kosinüsünü döndürür. |
+| [COT (num_expr)](#bk_cot) | Belirtilen açının trigonometrik kotanjantını radyan cinsinden belirtilen sayısal ifade döndürür. |
+| [DERECE (num_expr)](#bk_degrees) | Radyan cinsinden Açı derece cinsinden karşılık gelen açıyı döndürür. |
+| [PI)](#bk_pi) | PI sayısının sabit değeri döndürür. |
 | [Radyan CİNSİNDEN (num_expr)](#bk_radians) | Derece sayısal bir ifadenin girildiğinde radyan cinsinden döndürür. |
-| [SIN (num_expr)](#bk_sin) | Döndürür hello trigonometrik sinüsünü hello radyan cinsinden açı, hello ifade belirtildi. |
-| [TAN (num_expr)](#bk_tan) | Merhaba içinde hello giriş ifadesi döndürür hello tanjantını ifade belirtildi. |
+| [SIN (num_expr)](#bk_sin) | Radyan cinsinden belirtilen ifade trigonometrik belirtilen açının sinüsünü döndürür. |
+| [TAN (num_expr)](#bk_tan) | Belirtilen ifade giriş ifadesi tanjantını döndürür. |
 
-Örneğin, şimdi sorguları hello aşağıdaki gibi çalıştırabilirsiniz:
+Örneğin, şimdi aşağıdaki gibi sorguları çalıştırabilirsiniz:
 
 **Sorgu**
 
@@ -1437,10 +1437,10 @@ Merhaba matematik işlevleri her bağımsız değişken olarak sağlanır ve say
 
     [4]
 
-Cosmos veritabanı işlevleri karşılaştırıldığında tooANSI SQL arasındaki temel fark Hello bunlar iyi şema küçüktür ve karma şema verilerle tasarlanmış toowork olmasıdır. Örneğin, burada hello boyut özelliği eksik veya sahip bir belgeniz varsa "bilinmiyor" gibi bir sayısal olmayan değer sonra hello belge üzerinde bir hata döndürüyor yerine atlanır.
+ANSI SQL karşılaştırıldığında Cosmos veritabanı işlevleri arasındaki temel fark, bunlar da şema küçüktür ve karma şema verilerle çalışmak üzere tasarlanmıştır ' dir. Örneğin, burada Size özelliği eksik veya sahip bir belgeniz varsa "Bilinmeyen" gibi bir sayısal olmayan değer sonra belge üzerinde bir hata döndürüyor yerine atlanır.
 
 ### <a name="type-checking-functions"></a>Denetimi işlevleri yazın
-Merhaba tür denetimi işlevleri içinde SQL sorguları ifade toocheck hello türü izin verin. Denetimi işlevleri olabilir türü değişken veya bilinmeyen olduğunda toodetermine hello türü belgelerde özelliklerinin hello anında kullanılır. Burada, desteklenen yerleşik tür işlevleri denetlemesini tablosu verilmiştir.
+Tür denetleme işlevleri SQL sorguları içinde bir ifade türünü kontrol olanak sağlar. Tür denetleme işlevleri, değişken veya bilinmeyen olduğunda kolay bir şekilde belgelerde özellikleri türünü belirlemek için kullanılabilir. Burada, desteklenen yerleşik tür işlevleri denetlemesini tablosu verilmiştir.
 
 <table>
 <tr>
@@ -1449,40 +1449,40 @@ Merhaba tür denetimi işlevleri içinde SQL sorguları ifade toocheck hello tü
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_array">IS_ARRAY (ifade)</a></td>
-  <td>Merhaba değerin Hello türü bir dizi olup olmadığını gösteren bir Boole değeri döndürür.</td>
+  <td>Değerin türü bir dizi olup olmadığını gösteren bir Boole değeri döndürür.</td>
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_bool">IS_BOOL (ifade)</a></td>
-  <td>Hello türde bir hello değer bir Boole değeri olup olmadığını gösteren bir Boole değeri döndürür.</td>
+  <td>Türde bir değer bir Boole değeri olup olmadığını gösteren bir Boole değeri döndürür.</td>
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_null">IS_NULL (ifade)</a></td>
-  <td>Merhaba değerin Hello türü null olup olmadığını gösteren bir Boole değeri döndürür.</td>
+  <td>Değerin türü null olup olmadığını gösteren bir Boole değeri döndürür.</td>
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_number">IS_NUMBER (ifade)</a></td>
-  <td>Hello türde bir hello değer bir sayı olup olmadığını gösteren bir Boole değeri döndürür.</td>
+  <td>Türde bir değer bir sayı olup olmadığını gösteren bir Boole değeri döndürür.</td>
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_object">IS_OBJECT (ifade)</a></td>
-  <td>Merhaba değerin Hello türü bir JSON nesnesi olup olmadığını gösteren bir Boole değeri döndürür.</td>
+  <td>Değerin türü bir JSON nesnesi olup olmadığını gösteren bir Boole değeri döndürür.</td>
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_string">IS_STRING (ifade)</a></td>
-  <td>Merhaba değerin Hello türü bir dize olup olmadığını gösteren bir Boole değeri döndürür.</td>
+  <td>Değerin türü bir dize olup olmadığını gösteren bir Boole değeri döndürür.</td>
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_defined">IS_DEFINED (ifade)</a></td>
-  <td>Başlangıç özellik değeri atanmış olan gösteren bir Boole değeri döndürür.</td>
+  <td>Özellik değeri atanmış olan gösteren bir Boole değeri döndürür.</td>
 </tr>
 <tr>
   <td><a href="https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_primitive">IS_PRIMITIVE (ifade)</a></td>
-  <td>Merhaba değerin Hello türü bir dize, sayı, Boole veya null olup olmadığını gösteren bir Boole değeri döndürür.</td>
+  <td>Değerin türü bir dize, sayı, Boole veya null olup olmadığını gösteren bir Boole değeri döndürür.</td>
 </tr>
 
 </table>
 
-Bu işlevler kullanılarak, şimdi sorguları hello aşağıdaki gibi çalıştırabilirsiniz:
+Bu işlevler kullanılarak, şimdi aşağıdaki gibi sorguları çalıştırabilirsiniz:
 
 **Sorgu**
 
@@ -1493,28 +1493,28 @@ Bu işlevler kullanılarak, şimdi sorguları hello aşağıdaki gibi çalışt�
     [true]
 
 ### <a name="string-functions"></a>Dize işlevleri
-Merhaba aşağıdaki skaler işlevler dize giriş değeri üzerinde bir işlemi gerçekleştirmek ve bir dize, sayısal ya da Boole değeri döndürür. Yerleşik dize işlevleri tablosu aşağıdadır:
+Aşağıdaki skaler işlevler dize giriş değeri üzerinde bir işlemi gerçekleştirmek ve bir dize, sayısal ya da Boole değeri döndürür. Yerleşik dize işlevleri tablosu aşağıdadır:
 
 | Kullanım | Açıklama |
 | --- | --- |
-| [UZUNLUĞU (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) |Dize ifadesi döndürür hello hello karakter sayısı belirtilen |
-| [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) |İki veya daha fazla dize değerlerini birleştirme hello sonucu olan bir dize döndürür. |
+| [UZUNLUĞU (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) |Belirtilen dize ifadesinin karakterlerin sayısını döndürür |
+| [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) |İki veya daha fazla dize değerlerini birleştirme sonucu olan bir dize döndürür. |
 | [SUBSTRING (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) |Bir dize ifadesi bölümünü döndürür. |
-| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Merhaba ilk dize ifadesi ile Merhaba ikinci bitip olup olmadığını gösteren bir Boole değeri döndürür |
-| [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) |Merhaba ilk dize ifadesi ile Merhaba ikinci bitip olup olmadığını gösteren bir Boole değeri döndürür |
-| [İÇERİR (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) |Merhaba ilk dize ifadesi hello ikinci içerip içermediğini gösteren bir Boole değeri döndürür. |
-| [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) |Merhaba dize bulunmazsa hello ikinci dize ifadesi hello ilk belirtilen dize ifadesi veya -1 içinde hello ilk oluşum konumunu başlangıç hello döndürür. |
-| [Sol (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left) |Döndürür hello sol bölümü bir dizenin belirtilen hello ile karakter sayısı. |
-| [SAĞ (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right) |Karakter sayısını döndürür hello dizesi sağ parçası hello ile belirtilen. |
+| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) |Döndürür Boolean belirten bir ilk ifade dize olup olmadığını ve ikinci sona erer |
+| [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) |Döndürür Boolean belirten bir ilk ifade dize olup olmadığını ve ikinci sona erer |
+| [İÇERİR (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) |Döndüren bir Boolean belirten ikinci ilk ifade dize olup olmadığını içerir. |
+| [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) |İkinci ilk örneğinin başlangıç konumunu döndürür dizesi ifade ilk belirtilen dize ifadesi veya -1 içinde dizesi bulunamadı. |
+| [Sol (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left) |Sol bölümü belirtilen sayıda karakteri içeren bir dize döndürür. |
+| [SAĞ (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right) |Belirtilen sayıda karakteri içeren bir dize sağ bölümünü döndürür. |
 | [LTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim) |Öndeki boşlukları kaldırır sonra bir dize ifadesi döndürür. |
 | [RTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim) |Tüm sondaki boşlukları kesilmesi sonrasında bir dize ifadesi döndürür. |
-| [Alt (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) |Büyük harf karakter veri toolowercase dönüştürmeden sonra bir dize ifadesi döndürür. |
-| [ÜST (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) |Küçük harf karakter veri toouppercase dönüştürmeden sonra bir dize ifadesi döndürür. |
+| [Alt (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) |Büyük harf karakter verileri küçük harfe dönüştürmek sonra bir dize ifadesi döndürür. |
+| [ÜST (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) |Küçük harf karakter verileri büyük harfe dönüştürme sonra bir dize ifadesi döndürür. |
 | [REPLACE (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) |Belirtilen dize değeri tüm oluşumlarını başka bir dize değeri ile değiştirir. |
 | [REPLICATE (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/documentdb-sql-query-reference#bk_replicate) |Bir dize değeri, belirtilen sayıda yineler. |
-| [Ters (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |Merhaba ters sırada bir dize değerini döndürür. |
+| [Ters (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) |Ters sırada bir dize değerini döndürür. |
 
-Bu işlevleri kullanarak, artık hello aşağıdaki gibi sorguları çalıştırabilirsiniz. Örneğin, size hello aile adı büyük şu şekilde döndürebilirsiniz:
+Bu işlevleri kullanarak, şimdi aşağıdaki gibi sorguları çalıştırabilirsiniz. Örneğin, aile adı büyük şu şekilde döndürebilirsiniz:
 
 **Sorgu**
 
@@ -1547,7 +1547,7 @@ Veya bu örnekteki gibi dizeyi birleştirmek:
     }]
 
 
-Dize işlevleri, hello yan tümcesi toofilter sonuçları, aşağıdaki örneğine hello oluşturulacağı yeri de kullanılabilir:
+Dize işlevleri, WHERE yan tümcesinde aşağıdaki örnekte gibi sonuçları filtrelemek için de kullanılabilir:
 
 **Sorgu**
 
@@ -1563,16 +1563,16 @@ Dize işlevleri, hello yan tümcesi toofilter sonuçları, aşağıdaki örneği
     }]
 
 ### <a name="array-functions"></a>Dizi işlevleri
-skaler işlevler aşağıdaki hello bir dizi giriş değeri ve return sayısal, Boole veya dizi değer üzerinde bir işlemi gerçekleştirin. Yerleşik dizi işlevleri tablosu aşağıdadır:
+Aşağıdaki skaler işlevler bir dizi giriş değeri ve return sayısal, Boole veya dizi değer üzerinde bir işlemi gerçekleştirir. Yerleşik dizi işlevleri tablosu aşağıdadır:
 
 | Kullanım | Açıklama |
 | --- | --- |
-| [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |Dizi ifadesi belirtilen döndürür hello hello öğelerinin sayısı. |
-| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |İki veya daha fazla dizi değerlerini birleştirme hello sonucu olan bir dizi döndürür. |
-| [ARRAY_CONTAINS (arr_expr, ifade [, bool_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |Belirtilen değer hello dizi hello içerip içermediğini gösteren Boole değeri döndürür. Merhaba eşleşme tam veya kısmi olup olmadığını belirtebilirsiniz. |
+| [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |Belirtilen dizi ifadesi öğe sayısını döndürür. |
+| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |İki veya daha fazla dizi değerlerini birleştirme sonucu olan bir dizi döndürür. |
+| [ARRAY_CONTAINS (arr_expr, ifade [, bool_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |Dizi belirtilen değeri içerip içermediğini gösteren bir Boole değeri döndürür. Tam veya kısmi eşleşme olup olmadığını belirtebilirsiniz. |
 | [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice) |Bir dizi ifadesi bölümünü döndürür. |
 
-Dizi işlevleri JSON içinde kullanılan toomanipulate diziler olabilir. Örneğin, "Deneme Wakefield" olduğu bir hello üst tüm belgeleri döndüren bir sorgu aşağıdadır. 
+Dizi işlevleri, JSON içinde diziler işlemek için kullanılabilir. Örneğin, bir üst "Deneme Wakefield" olduğu tüm belgeleri döndüren bir sorgu aşağıdadır. 
 
 **Sorgu**
 
@@ -1586,7 +1586,7 @@ Dizi işlevleri JSON içinde kullanılan toomanipulate diziler olabilir. Örneğ
       "id": "WakefieldFamily"
     }]
 
-Merhaba dizi eşleşen öğeleri için kısmi bir parça belirtebilirsiniz. Merhaba aşağıdaki sorgu bulur hello ile tüm üst `givenName` , `Robin`.
+Dizi öğeleri eşleşen bir kısmi parça belirtebilirsiniz. Aşağıdaki sorgu ile tüm üst bulur `givenName` , `Robin`.
 
 **Sorgu**
 
@@ -1601,7 +1601,7 @@ Merhaba dizi eşleşen öğeleri için kısmi bir parça belirtebilirsiniz. Merh
     }]
 
 
-Burada, ARRAY_LENGTH tooget hello ailesi başına alt sayısını kullanan başka bir örnek verilmiştir.
+Burada, aile başına alt sayısını almak için ARRAY_LENGTH kullanan başka bir örnek verilmiştir.
 
 **Sorgu**
 
@@ -1620,7 +1620,7 @@ Burada, ARRAY_LENGTH tooget hello ailesi başına alt sayısını kullanan başk
     }]
 
 ### <a name="spatial-functions"></a>Uzamsal işlevleri
-Cosmos DB Jeo-uzamsal sorgulamak için yerleşik işlevler açık Jeo-uzamsal Konsorsiyumu (OGC) aşağıdaki hello destekler. 
+Cosmos DB Jeo-uzamsal sorgulamak için aşağıdaki açık Jeo-uzamsal Konsorsiyumu (OGC) yerleşik işlevleri destekler. 
 
 <table>
 <tr>
@@ -1629,27 +1629,27 @@ Cosmos DB Jeo-uzamsal sorgulamak için yerleşik işlevler açık Jeo-uzamsal Ko
 </tr>
 <tr>
   <td>St_dıstance (point_expr, point_expr)</td>
-  <td>Merhaba iki GeoJSON noktası, çokgen veya LineString ifadeleri arasında Hello uzaklığını döndürür.</td>
+  <td>İki GeoJSON noktası, çokgen veya LineString ifadeleri uzaklığı döndürür.</td>
 </tr>
 <tr>
   <td>ST_WITHIN (point_expr, polygon_expr)</td>
-  <td>Merhaba ilk GeoJSON nesne (noktası, çokgen veya LineString) hello ikinci GeoJSON nesne içinde (noktası, çokgen veya LineString) olup olmadığını gösteren bir Boole ifadesi döndürür.</td>
+  <td>İlk GeoJSON nesne (noktası, çokgen veya LineString) ikinci GeoJSON nesne içinde (noktası, çokgen veya LineString) olup olmadığını gösteren bir Boole ifadesi döndürür.</td>
 </tr>
 <tr>
   <td>ST_INTERSECTS (spatial_expr, spatial_expr)</td>
-  <td>Merhaba iki belirtilen GeoJSON nesne (noktası, çokgen veya LineString) kesiştiği olup olmadığını gösteren bir Boole ifadesi döndürür.</td>
+  <td>İki belirtilen GeoJSON nesne (noktası, çokgen veya LineString) kesiştiği olup olmadığını gösteren bir Boole ifadesi döndürür.</td>
 </tr>
 <tr>
   <td>ST_ISVALID</td>
-  <td>Merhaba GeoJSON noktası, çokgen veya LineString ifadesi geçerli belirtilen olup olmadığını gösteren bir Boole değeri döndürür.</td>
+  <td>Belirtilen GeoJSON noktası, çokgen veya LineString ifade geçerli olup olmadığını gösteren bir Boole değeri döndürür.</td>
 </tr>
 <tr>
   <td>ST_ISVALIDDETAILED</td>
-  <td>Merhaba GeoJSON noktası, çokgen veya LineString ifade belirtilmişse bir Boole değeri içeren bir JSON değeri geçerli değil ve geçersiz, ayrıca bir dize değeri olarak neden hello döndürür.</td>
+  <td>Belirtilen GeoJSON noktası, çokgen veya LineString ifade geçerli olup olmadığını ve geçersiz bir Boole değeri içeren bir JSON değeri değeri döndürür, ayrıca bir dize değeri olarak nedeni.</td>
 </tr>
 </table>
 
-Uzamsal işlevleri kullanılan tooperform yakınlık sorguları uzamsal veri olabilir. Örneğin, tüm ailesi hello st_dıstance yerleşik işlevi belirtilen konum içinde 30 km hello birini kullanarak belgeleri döndüren bir sorgu aşağıdadır. 
+Uzamsal işlevleri uzamsal veriler yakınlaştırmalı sorguları gerçekleştirmek için kullanılabilir. Örneğin, içinde 30 km st_dıstance yerleşik işlevini kullanarak belirtilen konumun olan tüm ailesi belgeleri döndüren bir sorgu aşağıdadır. 
 
 **Sorgu**
 
@@ -1663,17 +1663,17 @@ Uzamsal işlevleri kullanılan tooperform yakınlık sorguları uzamsal veri ola
       "id": "WakefieldFamily"
     }]
 
-Cosmos DB Jeo-uzamsal desteği hakkında daha fazla ayrıntı için lütfen bkz. [Azure Cosmos veritabanı Jeo-uzamsal verilerle çalışma](geospatial.md). Cosmos DB için uzamsal işlevleri ve hello SQL söz dizimi, sarmalar. Şimdi nasıl çalışır ve hello sözdizimi ile nasıl etkileşim kurduğu sorgulama LINQ kadarki gördük bir bakalım.
+Cosmos DB Jeo-uzamsal desteği hakkında daha fazla ayrıntı için lütfen bkz. [Azure Cosmos veritabanı Jeo-uzamsal verilerle çalışma](geospatial.md). Cosmos DB için uzamsal işlevleri ve SQL söz dizimi, sarmalar. Şimdi nasıl çalışır ve sözdizimi ile nasıl etkileşim kurduğu sorgulama LINQ kadarki gördük bir bakalım.
 
-## <a id="Linq"></a>LINQ tooDocumentDB API SQL
-LINQ, hesaplama nesnelerin akışları sorgular olarak ifade eder ve .NET çalışan bir programlama modelidir. JSON ve .NET nesneleri arasında dönüştürme kolaylaştırarak LINQ ile bir istemci-tarafı kitaplığı toointerface cosmos DB sağlar ve bir alt kümesini LINQ eşlemesinden tooCosmos DB sorguları. 
+## <a id="Linq"></a>LINQ-DocumentDB API SQL
+LINQ, hesaplama nesnelerin akışları sorgular olarak ifade eder ve .NET çalışan bir programlama modelidir. Cosmos DB LINQ ile arabirim oluşturmak için bir istemci-tarafı kitaplığı, JSON ve .NET nesneleri ve bir alt kümesinden LINQ sorgularını eşleme Cosmos DB sorgulara arasında dönüştürme kolaylaştırarak sağlar. 
 
-Merhaba resimde Cosmos DB kullanarak LINQ sorgularını destekleme hello mimari gösterilmektedir.  Merhaba Cosmos DB İstemcisi'ni kullanarak geliştiriciler oluşturabilir bir **Iqueryable** Cosmos DB sorgu sağlayıcısı sorguları hello doğrudan o hello LINQ sorgusu Cosmos DB sorguda çevirir, nesne. Merhaba sorgu daha sonra JSON biçiminde toohello Cosmos DB sunucusu tooretrieve sonuç kümesi geçirilir. Merhaba, sonuçları hello istemci tarafında .NET nesnelerin bir akışa seri durumdan çıkarılmış döndürdü.
+Aşağıdaki resimde Cosmos DB kullanarak LINQ sorgularını destekleme mimarisi gösterilmektedir.  Cosmos DB İstemcisi'ni kullanarak geliştiriciler oluşturabilir bir **Iqueryable** doğrudan sonra Cosmos DB sorguda LINQ sorgusu çevirir Cosmos DB sorgu sağlayıcısı sorgular nesnesi. Sorgu daha sonra bir JSON biçiminde sonuç kümesi almak için Cosmos DB sunucuya geçirilir. Döndürülen sonuçların, istemci tarafında .NET nesnelerin bir akışa serisi.
 
 ![DocumentDB API - kullanarak LINQ sorgularını SQL söz dizimi, JSON sorgu dili, veritabanı kavramlarını ve SQL sorguları destekleyen mimarisi][1]
 
 ### <a name="net-and-json-mapping"></a>.NET ve JSON eşleme
-.NET nesneleri ve JSON belgeleri arasında Hello eşleme doğal - her bir veri üyesi alanına eşlenen hello alan adı olduğu tooa JSON nesnesi eşlenen toohello "anahtarı" Merhaba nesnesinin bir parçası ve Başlangıç "değeri" parçasıdır eşlenen yinelemeli olarak toohello değeri hello nesnesinin bir parçası. Aşağıdaki örnek hello göz önünde bulundurun: oluşturulan hello ailesi nesnesidir eşlenen toohello JSON belgesi aşağıda gösterildiği gibi. Ve tersi yönde hello JSON belgesi eşlenen geri tooa .NET nesnedir.
+.NET nesneleri ve JSON belgeleri arasında eşleme doğal - her bir veri üyesi alan burada alan adı nesne "anahtarı" parçası eşlendi ve "value" bölümü nesne değer bölümünü eşlenen yinelemeli bir JSON nesnesi ile eşleştirilir. Aşağıdaki örneği göz önünde bulundurun: oluşturulan aile nesnesi, JSON belgesi eşlendiği, aşağıda gösterildiği gibi. Ve tersi, JSON belgesini bir .NET nesnesine eşlendi.
 
 **C# sınıfı**
 
@@ -1754,19 +1754,19 @@ Merhaba resimde Cosmos DB kullanarak LINQ sorgularını destekleme hello mimari 
 
 
 
-### <a name="linq-toosql-translation"></a>LINQ tooSQL çevirisi
-Merhaba Cosmos DB sorgu sağlayıcısı en iyi çaba eşleme Cosmos DB SQL sorgusu bir LINQ Sorgu gerçekleştirir. Açıklama aşağıdaki hello hello okuyucu LINQ temel bilgisi içeriyor varsayalım.
+### <a name="linq-to-sql-translation"></a>LINQ-SQL çevirisi
+Cosmos DB sorgu Sağlayıcısı'nı bir en iyi çaba eşleme Cosmos DB SQL sorgusu bir LINQ Sorgu gerçekleştirir. Aşağıdaki açıklamasında okuyucu temel benzerlik LINQ sahip varsayalım.
 
-İlk olarak, hello tür sistemi için tüm JSON ilkel türler – sayısal türler, boolean, dize ve null destekliyoruz. Yalnızca bu JSON türleri desteklenir. skaler ifadelerin aşağıdaki hello desteklenir.
+İlk olarak, tür sistemi için tüm JSON ilkel türler – sayısal türler, boolean, dize ve null destekliyoruz. Yalnızca bu JSON türleri desteklenir. Aşağıdaki skaler ifadelerin desteklenir.
 
-* Sabit değerler – bunlar hello sorgu değerlendirilir hello zamanında hello temel veri türlerinin sabit değerleri içerir.
-* Özellik/dizi dizini ifadeleri – bu ifadeler toohello özelliğinin bir nesneyi veya bir dizi öğesine bakın.
+* Sabit değerler – bunlar sorgu değerlendirilir zaman temel veri türlerinin sabit değerleri içerir.
+* Özellik/dizi dizini ifadeleri – bu ifadeler bir nesneyi veya bir dizi öğesine özelliğine bakın.
   
      ailesi. Kimliği;    Family.Children[0].familyName;    Family.Children[0].grade;    Family.Children[n].grade; n bir int değişkenidir
-* Aritmetik ifadeler - bunlar ortak aritmetik ifadeler sayısal ve Boole değerleri içerir. Merhaba tam listesi için toohello SQL belirtimine bakın.
+* Aritmetik ifadeler - bunlar ortak aritmetik ifadeler sayısal ve Boole değerleri içerir. Tam listesi için SQL belirtimine bakın.
   
      2 * family.children[0].grade;    x + y;
-* Dize karşılaştırma ifadesi - bunlar bir dize değeri toosome sabit dize değeri karşılaştırma içerir.  
+* Dize karşılaştırma ifadesi - bunlar bazı sabit dize değeri bir dize değeri karşılaştırma içerir.  
   
      mother.familyName == "Smith";    child.givenName s; == bir dize değişkeni s'dir
 * Nesne/oluşturma ifadesi - dönüş Bu deyimler bileşik değer türü veya anonim tür bir nesneyi veya bir dizi tür nesneler dizisi. Bu değerleri iç içe.
@@ -1775,27 +1775,27 @@ Merhaba Cosmos DB sorgu sağlayıcısı en iyi çaba eşleme Cosmos DB SQL sorgu
      Yeni int [] {3, child.grade, 5};
 
 ### <a id="SupportedLinqOperators"></a>Desteklenen LINQ işleçlerin listesi
-Merhaba LINQ sağlayıcısında hello DocumentDB .NET SDK'sı ile dahil desteklenen LINQ işleçlerin bir listesi aşağıda verilmiştir.
+DocumentDB .NET SDK'sıyla dahil LINQ Sağlayıcısı'nda desteklenen LINQ işleçlerin bir listesi aşağıda verilmiştir.
 
-* **Seçin**: tahminleri Çevir toohello SQL nesne oluşturması dahil olmak üzere seçin
-* **Burada**: filtreleri SQL WHERE toohello çevirin ve Destek arasında çeviri & &, || ve! toohello SQL işleçleri
-* **SelectMany**: diziler toohello SQL JOIN yan tümcesinde geriye doğru izleme sağlar. Dizi öğeleri üzerinde kullanılan toochain/nest ifadeleri toofilter olabilir
-* **OrderBy ve OrderByDescending**: tooORDER BY artan/azalan çevirir
+* **Seçin**: tahminleri Çevir SQL nesne oluşturması dahil olmak üzere SEÇMEK için
+* **Burada**: filtreleri SQL WHERE için çevirin ve Destek arasında çeviri & &, || ve! SQL işleçleri
+* **SelectMany**: SQL JOIN yan tümcesine dizi geriye doğru izleme sağlar. Dizi öğeleri filtrelemek için ifadeleri zinciri/iç içe geçirme için kullanılabilir
+* **OrderBy ve OrderByDescending**: ORDER BY artan/azalan şekilde çevirir
 * **Count**, **toplam**, **Min**, **Max**, ve **ortalama** toplama ve zaman uyumsuz eşdeğerlerine işleçleri **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**, ve **AverageAsync**.
-* **CompareTo**: toorange karşılaştırmaları çevirir. .NET ile karşılaştırılabilir değilseniz bu yana dizeleri için yaygın olarak kullanılan
-* **Ele**: toohello SQL üst bir sorgunun sonuçlarına sınırlamak için çevirir.
-* **Matematik işlevleri**: çevrilmesi destekler. NET'in Abs, Acos, Asin Cos tavan Atan Exp, Floor, günlük, Log10, Pow, hepsini, oturum, Sin, Sqrt, Tan, Truncate toohello eşdeğer SQL yerleşik işlevleri.
-* **Dize işlevleri**: çevrilmesi destekler. NET'in Concat, içerir, EndsWith, IndexOf, Count, ToLower, TrimStart, Değiştir, tersine, TrimEnd, StartsWith, SubString, ToUpper toohello eşdeğer SQL yerleşik işlevler.
-* **Dizi işlevleri**: çevrilmesi destekler. NET'in Concat, içerir ve sayısı toohello eşdeğer SQL yerleşik işlevler.
-* **Jeo-uzamsal uzantı işlevleri**: saplama yöntemlerden içinde IsValid, uzaklığı çeviri destekler ve IsValidDetailed toohello eşdeğer SQL yerleşik işlevleri.
-* **Kullanıcı tanımlı işlev uzantı işlevi**: hello destekler çevrilmesi saplama yöntemi UserDefinedFunctionProvider.Invoke toohello karşılık gelen kullanıcı tanımlı işlev.
-* **Çeşitli**: koşullu işleçler ve hello çevrilmesi birleşim destekler. CONTAINS tooString çevirebilir içerir, ARRAY_CONTAINS veya hello SQL IN bağlamı bağlı olarak.
+* **CompareTo**: aralık karşılaştırmaları çevirir. .NET ile karşılaştırılabilir değilseniz bu yana dizeleri için yaygın olarak kullanılan
+* **Ele**: bir sorgunun sonuçlarına sınırlama SQL üstüne çevirir
+* **Matematik işlevleri**: çevrilmesi destekler. NET'in Abs, Acos, Asin Cos tavan Atan, Exp, Floor, günlük, Log10, Pow, hepsini, oturum, Sin, Sqrt, Bronz, eşdeğer SQL yerleşik işlevler Truncate.
+* **Dize işlevleri**: çevrilmesi destekler. NET'in Concat, içerir, EndsWith, IndexOf, sayısı, ToLower, TrimStart, Değiştir, geriye doğru TrimEnd, StartsWith, SubString, eşdeğer SQL yerleşik işlevlere ToUpper.
+* **Dizi işlevleri**: çevrilmesi destekler. NET'in Concat içerir ve eşdeğer SQL yerleşik işlevlere sayısı.
+* **Jeo-uzamsal uzantı işlevleri**: saplama yöntemleri IsValid ve IsValidDetailed içinde uzaklığı çevrilecek eşdeğer SQL yerleşik işlevleri destekler.
+* **Kullanıcı tanımlı işlev uzantı işlevi**: UserDefinedFunctionProvider.Invoke saplama yönteminden çeviri karşılık gelen kullanıcı tanımlı işlev için destekler.
+* **Çeşitli**: koşullu işleçler ve birleşim çevrilmesi destekler. Dize İÇERİYOR, ARRAY_CONTAINS veya bağlam bağlı olarak SQL IN içerir çevirebilir.
 
 ### <a name="sql-query-operators"></a>SQL sorgu işleçleri
-Aşağıda, bazı hello standart LINQ Sorgu işleçleri tooCosmos DB sorguları nasıl dönüştürüleceğini gösteren bazı örnekler verilmiştir.
+Aşağıda, bazı standart LINQ Sorgu işleçleri Cosmos DB sorguları aşağıya doğru nasıl dönüştürüleceğini gösteren bazı örnekler verilmiştir.
 
 #### <a name="select-operator"></a>İşleç Seç
-Merhaba sözdizimi `input.Select(x => f(x))`, burada `f` skaler bir ifade değil.
+Sözdizimi `input.Select(x => f(x))`, burada `f` skaler bir ifade değil.
 
 **LINQ lambda ifadesi**
 
@@ -1838,7 +1838,7 @@ Merhaba sözdizimi `input.Select(x => f(x))`, burada `f` skaler bir ifade değil
 
 
 #### <a name="selectmany-operator"></a>SelectMany işleci
-Merhaba sözdizimi `input.SelectMany(x => f(x))`, burada `f` koleksiyon türü döndüren bir skaler ifade.
+Sözdizimi `input.SelectMany(x => f(x))`, burada `f` koleksiyon türü döndüren bir skaler ifade.
 
 **LINQ lambda ifadesi**
 
@@ -1852,7 +1852,7 @@ Merhaba sözdizimi `input.SelectMany(x => f(x))`, burada `f` koleksiyon türü d
 
 
 #### <a name="where-operator"></a>Burada işleci
-Merhaba sözdizimi `input.Where(x => f(x))`, burada `f` bir Boole değeri döndürür skaler bir ifade değil.
+Sözdizimi `input.Where(x => f(x))`, burada `f` bir Boole değeri döndürür skaler bir ifade değil.
 
 **LINQ lambda ifadesi**
 
@@ -1881,10 +1881,10 @@ Merhaba sözdizimi `input.Where(x => f(x))`, burada `f` bir Boole değeri dönd�
 
 
 ### <a name="composite-sql-queries"></a>Bileşik SQL sorguları
-Hello işleçleri yukarıda oluşturulan tooform daha güçlü sorgular olabilir. Cosmos DB iç içe geçmiş koleksiyonları desteklediğinden hello birleşim birleştirilmiş iç içe geçmiş ya da.
+Daha güçlü sorgular oluşturmak için yukarıdaki işleçleri oluşturulabilir. Cosmos DB iç içe geçmiş koleksiyonları desteklediğinden, birleşim birleştirilmiş iç içe geçmiş ya da.
 
 #### <a name="concatenation"></a>Birleştirme
-Merhaba sözdizimi `input(.|.SelectMany())(.Select()|.Where())*`. Birleştirilmiş bir sorgu ile isteğe bağlı başlatabilirsiniz `SelectMany` sorgu birden fazla ardından `Select` veya `Where` işleçler.
+Sözdizimi `input(.|.SelectMany())(.Select()|.Where())*`. Birleştirilmiş bir sorgu ile isteğe bağlı başlatabilirsiniz `SelectMany` sorgu birden fazla ardından `Select` veya `Where` işleçler.
 
 **LINQ lambda ifadesi**
 
@@ -1939,9 +1939,9 @@ Merhaba sözdizimi `input(.|.SelectMany())(.Select()|.Where())*`. Birleştirilmi
 
 
 #### <a name="nesting"></a>İç içe geçme
-Merhaba sözdizimi `input.SelectMany(x=>x.Q())` Q olduğu bir `Select`, `SelectMany`, veya `Where` işleci.
+Sözdizimi `input.SelectMany(x=>x.Q())` Q olduğu bir `Select`, `SelectMany`, veya `Where` işleci.
 
-İç içe bir sorgu hello iç sorgu uygulanan tooeach hello dış toplama öğesidir. Bir önemli özelliği hello iç sorgu toohello alanları gibi hello dış koleksiyonundaki hello öğelerinin başvuruda bulunabilir kendi kendine birleştirir.
+İç içe bir sorgu iç sorgu dış toplama her öğesine uygulanır. İç sorgu gibi dış koleksiyondaki öğelerin alanlara başvurabilir önemli özelliklerinden biri otomatik olarak birleştirir.
 
 **LINQ lambda ifadesi**
 
@@ -1983,16 +1983,16 @@ Merhaba sözdizimi `input.SelectMany(x=>x.Q())` Q olduğu bir `Select`, `SelectM
 
 
 ## <a id="ExecutingSqlQueries"></a>SQL sorguları yürütme
-Cosmos DB herhangi bir dil tarafından HTTP/HTTPS istekleri çağrılabilir bir REST API'si aracılığıyla kaynaklarını kullanıma sunar. Ayrıca, Cosmos DB .NET, Node.js, JavaScript ve Python gibi çeşitli popüler dilde programlama kitaplıkları sunar. Merhaba REST API ve hello tüm çeşitli kitaplıkları SQL sorgulama destekler. Merhaba .NET SDK ayrıca tooSQL sorgulama LINQ destekler.
+Cosmos DB herhangi bir dil tarafından HTTP/HTTPS istekleri çağrılabilir bir REST API'si aracılığıyla kaynaklarını kullanıma sunar. Ayrıca, Cosmos DB .NET, Node.js, JavaScript ve Python gibi çeşitli popüler dilde programlama kitaplıkları sunar. Tüm REST API ve çeşitli kitaplıkları SQL sorgulama destekler. .NET SDK'sı SQL yanı sıra sorgulama LINQ destekler.
 
-örneklerde nasıl aşağıdaki hello toocreate bir sorgu ve Cosmos DB veritabanı hesabı karşı gönderin.
+Aşağıdaki örnekler, bir sorgu oluşturun ve Cosmos DB veritabanı hesabı karşı göndermek üzere gösterilmektedir.
 
 ### <a id="RestAPI"></a>REST API'Sİ
-Cosmos DB HTTP üzerinden açık bir RESTful programlama modeli sunar. Bir Azure aboneliği kullanarak veritabanı hesaplarını sağlanabilir. Merhaba Cosmos DB kaynak modeli kaynaklar her biri mantıksal ve kararlı bir URI kullanılarak adreslenebilir bir veritabanı hesabı altında bir dizi oluşur. Başvurulan tooas bu belgede bir akış kaynakları kümesidir. Veritabanı hesabı her birden çok koleksiyonu kapsayan bir veritabanları kümesi oluşur belgeleri, UDF'ler ve diğer kaynak türlerini her hangi içinde dönüş içerebilir.
+Cosmos DB HTTP üzerinden açık bir RESTful programlama modeli sunar. Bir Azure aboneliği kullanarak veritabanı hesaplarını sağlanabilir. Cosmos DB kaynak modeli kaynaklar her biri mantıksal ve kararlı bir URI kullanılarak adreslenebilir bir veritabanı hesabı altında bir dizi oluşur. Bir kaynak kümesi için bu belgede bir akış olarak adlandırılır. Veritabanı hesabı her birden çok koleksiyonu kapsayan bir veritabanları kümesi oluşur belgeleri, UDF'ler ve diğer kaynak türlerini her hangi içinde dönüş içerebilir.
 
-Hello temel etkileşim bu kaynaklarla hello HTTP fiilleri GET, PUT, POST ve silme ile standart kullanıcıların yorumu modelidir. Merhaba POST fiil yeni bir kaynak oluşturulmasını, bir saklı yordamı yürütmek veya Cosmos DB sorgu verme için kullanılır. Sorguları her zaman salt okunur hiçbir yan etkileri olan işlemleridir.
+Temel etkileşim bu kaynaklarla HTTP fiilleri GET, PUT, POST ve silme ile standart kullanıcıların yorumu modelidir. POST fiil yeni bir kaynak oluşturulmasını, bir saklı yordamı yürütmek veya Cosmos DB sorgu verme için kullanılır. Sorguları her zaman salt okunur hiçbir yan etkileri olan işlemleridir.
 
-Merhaba Aşağıdaki örnekler biz kadarki geçirdikten hello iki örnek belgeleri içeren bir koleksiyon karşı yapılan bir DocumentDB API sorgu için bir POST gösterir. Merhaba sorgu hello JSON name özelliğine göre basit bir filtre yok. Not hello hello `x-ms-documentdb-isquery` ve Content-Type: `application/query+json` işlemi hello üstbilgileri toodenote olan bir sorgu.
+Aşağıdaki örnekler, biz kadarki geçirdikten iki örnek belgeleri içeren bir koleksiyon karşı yapılan bir DocumentDB API sorgu için bir POST gösterir. Sorgu basit bir filtre JSON name özelliğine göre sahiptir. Kullanımına dikkat edin `x-ms-documentdb-isquery` ve Content-Type: `application/query+json` işlemi bir sorgu olduğunu belirtmek için üstbilgiler.
 
 **İstek**
 
@@ -2060,7 +2060,7 @@ Merhaba Aşağıdaki örnekler biz kadarki geçirdikten hello iki örnek belgele
     }
 
 
-Merhaba ikinci örneği birden çok sonuç hello birleştirme sonucu döndürür daha karmaşık bir sorgu gösterir.
+İkinci örnek birleştirme sonucu birden çok sonuç döndüren daha karmaşık bir sorgu gösterir.
 
 **İstek**
 
@@ -2114,16 +2114,16 @@ Merhaba ikinci örneği birden çok sonuç hello birleştirme sonucu döndürür
     }
 
 
-Bir sorgunun sonuçları sonuçlar tek sayfalık içinde sığamıyorsa sonra hello REST API aracılığıyla hello devamlılık belirteci döndürür `x-ms-continuation-token` yanıtı üstbilgisi. İstemcileri sonraki sonuçlarında hello üstbilgi dahil olmak üzere sonuçları sayfalara bölme. Sayfa başına sonuç Hello sayısı hello da denetlenebilir `x-ms-max-item-count` numara üstbilgi. Belirtilen sorgu Hello gibi bir toplama işlevi varsa `COUNT`, hello sorgu sayfası kısmen toplu değer sonuç hello sayfasını döndürebilir sonra. Merhaba istemcileri, bu sonuçları tooproduce hello son sonuçları, örneğin üzerinden ikinci düzey toplama gerçekleştirmek, hello tek tek sayfaları tooreturn hello toplam sayısı döndürülen hello sayıları üzerinden toplayın.
+Bir sorgunun sonuçları sonuçlar tek sayfalık içinde sığamıyorsa sonra REST API aracılığıyla devamlılık belirteci döndürür `x-ms-continuation-token` yanıtı üstbilgisi. İstemcileri sonraki sonuçlarında üstbilgi dahil olmak üzere sonuçları sayfalara bölme. Sayfa başına sonuç sayısı da aracılığıyla denetlenebilir `x-ms-max-item-count` numara üstbilgi. Belirtilen sorgu gibi bir toplama işlevi varsa `COUNT`, sorgu sayfası sonuçlar sayfası kısmen toplu değer döndürebilir sonra. İstemciler, son, örneğin sonuçlar, toplam sayı bu sayıyı dönmek için tek tek sayfaları döndürülen sayıları üzerinden toplamak için bu sonuçlar ikinci düzey toplama gerçekleştirmeniz gerekir.
 
-sorguları, kullanım hello için toomanage hello veri tutarlılığı İlkesi `x-ms-consistency-level` tüm REST API istekleri gibi üstbilgi. Oturum tutarlılığı için gerekli tooalso echo hello son olmasından `x-ms-session-token` hello sorgu isteği, tanımlama bilgisi üstbilgisi. Merhaba sorgulanan koleksiyonunun dizin oluşturma ilkesini de sorgu sonuçları hello tutarlılığını etkileyebilir. Merhaba varsayılan dizin oluşturma ilkesi ayarları, koleksiyonlar için hello her zaman geçerli hello belge içeriklerini ve sorgu sonuçları için veri seçilen hello tutarlılık eşleşen dizinidir. Dizin oluşturma ilkesi hello gevşek tooLazy ise, sorgular eski sonuçlar döndürebilir. Daha fazla bilgi için bkz: [Azure Cosmos DB tutarlılık düzeylerini][consistency-levels].
+Sorguları için veri tutarlılığı ilkelerini yönetmek için `x-ms-consistency-level` tüm REST API istekleri gibi üstbilgi. Oturum tutarlılığı için de en son echo gerekli `x-ms-session-token` sorgu istekte tanımlama bilgisi üstbilgisi. Sorgulanan koleksiyonunun dizin oluşturma ilkesini de sorgu sonuçları tutarlılığını etkileyebilir. İle dizin oluşturma ilkesi ayarları varsayılan olarak koleksiyonlar için dizini her zaman ile belge içeriklerini geçerli ve sorgu sonuçları için veri seçilen tutarlılık eşleşmesi. Lazy için dizin oluşturma ilkesini rahat, sorgular eski sonuçlar döndürebilir. Daha fazla bilgi için bkz: [Azure Cosmos DB tutarlılık düzeylerini][consistency-levels].
 
-Yapılandırılmış hello dizin oluşturma ilkesini hello koleksiyonunda hello belirtilen sorgu destekleyemiyorsa, 400 "hatalı istek" Merhaba Azure Cosmos DB sunucusu döndürür. Bu karma (eşitlik) aramaları için ve dizine almasını açıkça yolları için yapılandırılmış yolları aralığı sorguları için döndürülür. Merhaba `x-ms-documentdb-query-enable-scan` bir dizini olmadığında belirtilen tooallow hello sorgu tooperform bir tarama üstbilgisi olabilir.
+Koleksiyon için yapılandırılan dizin oluşturma ilkesini belirtilen sorgu destekleyemiyorsa, Azure Cosmos DB sunucusu 400 "hatalı istek" döndürür. Bu karma (eşitlik) aramaları için ve dizine almasını açıkça yolları için yapılandırılmış yolları aralığı sorguları için döndürülür. `x-ms-documentdb-query-enable-scan` Başlığı, bir dizini olmadığında bir tarama gerçekleştirmek sorgu izin vermek için belirtilebilir.
 
-Ayrıntılı ölçümler ayarlayarak sorgu yürütme elde edebilirsiniz `x-ms-documentdb-populatequerymetrics` üstbilgisi çok`True`. Daha fazla bilgi için bkz: [SQL sorgu ölçümleri Azure Cosmos DB DocumentDB API'si](documentdb-sql-query-metrics.md).
+Ayrıntılı ölçümler ayarlayarak sorgu yürütme elde edebilirsiniz `x-ms-documentdb-populatequerymetrics` başlığına `True`. Daha fazla bilgi için bkz: [SQL sorgu ölçümleri Azure Cosmos DB DocumentDB API'si](documentdb-sql-query-metrics.md).
 
 ### <a id="DotNetSdk"></a>C# (.NET) SDK
-LINQ ve SQL Hello .NET SDK'yı destekleyen sorgulama. Merhaba aşağıdaki örnekte nasıl tooperform hello basit filtre sorgusu bu belgenin önceki bölümlerinde sunulan gösterilmektedir.
+LINQ ve SQL .NET SDK'yı destekleyen sorgulama. Aşağıdaki örnek, bu belgenin önceki bölümlerinde sunulan basit filtre sorgusu gerçekleştirmeye gösterilmiştir.
 
     foreach (var family in client.CreateDocumentQuery(collectionLink, 
         "SELECT * FROM Families f WHERE f.id = \"AndersenFamily\""))
@@ -2183,7 +2183,7 @@ Bu örnek her belge içinde eşitlik için iki özellik karşılaştırır ve an
     }
 
 
-Merhaba sonraki örnek LINQ SelectMany ifade birleştirmeler gösterir.
+Sonraki örnek LINQ SelectMany ifade birleştirmeler gösterir.
 
     foreach (var pet in client.CreateDocumentQuery(collectionLink,
           @"SELECT p
@@ -2207,16 +2207,16 @@ Merhaba sonraki örnek LINQ SelectMany ifade birleştirmeler gösterir.
 
 
 
-Merhaba .NET istemci otomatik olarak yukarıda gösterildiği gibi hello foreach blokları sorgu sonuçlarında tüm hello sayfalarında dolaşır. Merhaba REST API bölümünde sunulan seçenekleri kullanılabilir ayrıca hello sorgu hello hello kullanarak .NET SDK'SININ `FeedOptions` ve `FeedResponse` hello CreateDocumentQuery yöntemi sınıflarda. Sayfa sayısı Hello hello kullanılarak denetlenebilir `MaxItemCount` ayarı. 
+.NET istemci otomatik olarak yukarıda gösterildiği gibi foreach blokları sorgu sonuçlarında tüm sayfaları aracılığıyla yineler. REST API bölümünde sunulan sorgu seçeneklerini de .NET SDK kullanarak kullanılabilir `FeedOptions` ve `FeedResponse` CreateDocumentQuery yöntemi sınıflarda. Sayfa sayısı kullanılarak denetlenebilir `MaxItemCount` ayarı. 
 
-Disk belleği oluşturarak açıkça kontrol edebilirsiniz `IDocumentQueryable` hello kullanarak `IQueryable` okuyarak ardından nesne` ResponseContinuationToken` değerleri ve bunları geçirme geri olarak `RequestContinuationToken` içinde `FeedOptions`. `EnableScanInQuery`Merhaba sorgu yapılandırılmış hello dizin oluşturma ilkesi tarafından desteklendiğinde kümesi tooenable taramaları olabilir. Bölümlenmiş koleksiyonlar için kullandığınız `PartitionKey` toorun hello sorgusu tek bir bölüm (Cosmos DB otomatik olarak bu hello sorgu metinden ayıklayabilirsiniz rağmen), ve `EnableCrossPartitionQuery` toobe gerekebilir toorun sorgularını kullanarak birden çok bölüm karşı çalıştırabilirsiniz. 
+Disk belleği oluşturarak açıkça kontrol edebilirsiniz `IDocumentQueryable` kullanarak `IQueryable` okuyarak ardından nesne` ResponseContinuationToken` değerleri ve bunları geçirme geri olarak `RequestContinuationToken` içinde `FeedOptions`. `EnableScanInQuery`Sorgu yapılandırılmış bir dizin oluşturma ilkesi tarafından desteklendiğinde taramaları etkinleştirmek için ayarlanabilir. Bölümlenmiş koleksiyonlar için kullandığınız `PartitionKey` karşı tek bir sorguyu çalıştırmak için bölüm (Cosmos DB otomatik olarak bu sorgu metni ayıklayabilirsiniz rağmen), ve `EnableCrossPartitionQuery` karşı birden çok bölüm çalıştırılması gereken sorguları çalıştırmak için. 
 
-Çok başvuran[Azure Cosmos DB .NET örnekleri](https://github.com/Azure/azure-documentdb-net) sorguları içeren daha fazla örnekleri için. 
+Başvurmak [Azure Cosmos DB .NET örnekleri](https://github.com/Azure/azure-documentdb-net) sorguları içeren daha fazla örnekleri için. 
 
 ### <a id="JavaScriptServerSideApi"></a>JavaScript sunucu tarafı API
-Cosmos DB doğrudan saklı yordamları ve Tetikleyicileri kullanarak hello koleksiyonlar üzerinde temel JavaScript uygulama mantığının yürütmek için bir programlama modeli sağlar. bir koleksiyon düzeyinde kayıtlı hello JavaScript mantığı, ardından koleksiyonu verilen hello hello işlemlerini hello belgelerde veritabanı işlemlerini verebilir. Bu işlemler çevresel ACID işlemlerini sarılır.
+Cosmos DB JavaScript tabanlı uygulama mantığını saklı yordamları ve Tetikleyicileri kullanarak doğrudan koleksiyonlar üzerinde yürütmek için bir programlama modeli sağlar. Bir koleksiyon düzeyinde kayıtlı JavaScript mantığı sonra verilen koleksiyon belgelerde işlemlerini veritabanı işlemlerini verebilir. Bu işlemler çevresel ACID işlemlerini sarılır.
 
-Merhaba aşağıdaki örnek alanından toouse hello queryDocuments hello JavaScript sunucu API'sini toomake içinde nasıl sorgular gösterir iç saklı yordamları ve Tetikleyicileri.
+Aşağıdaki örnek queryDocuments JavaScript Sunucusu API sorgularından yapmak için nasıl kullanılacağını gösterir iç saklı yordamları ve Tetikleyicileri.
 
     function businessLogic(name, author) {
         var context = getContext();
@@ -2237,10 +2237,10 @@ Merhaba aşağıdaki örnek alanından toouse hello queryDocuments hello JavaScr
                         if (err) throw new Error(err.message);
     context.getResponse().setBody(matchingDocuments.length);
 
-                        // Replace hello author name for all documents that satisfied hello query.
+                        // Replace the author name for all documents that satisfied the query.
                         for (var i = 0; i < matchingDocuments.length; i++) {
                             matchingDocuments[i].author = "George R. R. Martin";
-                            // we don't need tooexecute a callback because they are in parallel
+                            // we don't need to execute a callback because they are in parallel
                             collectionManager.replaceDocument(matchingDocuments[i]._self,
                                 matchingDocuments[i]);
                         }
@@ -2249,7 +2249,7 @@ Merhaba aşağıdaki örnek alanından toouse hello queryDocuments hello JavaScr
     }
 
 ## <a id="References"></a>Başvuruları
-1. [Giriş tooAzure Cosmos DB][introduction]
+1. [Azure Cosmos DB giriş][introduction]
 2. [Azure Cosmos veritabanı SQL belirtimi](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3. [Azure Cosmos DB .NET örnekleri](https://github.com/Azure/azure-documentdb-net)
 4. [Azure Cosmos DB tutarlılık düzeyleri][consistency-levels]
@@ -2261,7 +2261,7 @@ Merhaba aşağıdaki örnek alanından toouse hello queryDocuments hello JavaScr
 10. Sorgu 1994 paralel ilişkisel veritabanı sistemleri, IEEE bilgisayar topluluğu basın, işleme
 11. Lu, Ooi, Bronz, sorgu 1994 paralel ilişkisel veritabanı sistemleri, IEEE bilgisayar topluluğu basın, işleme.
 12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Barış Tomkins: Pig Latin: veri işleme, SIGMOD 2008 için Not şekilde yabancı dil.
-13. G. Graefe. sorgu iyileştirme için Hello basamaklar çerçevesi. IEEE veri Müh Bull., 18(3): 1995.
+13. G. Graefe. Sorgu iyileştirme için basamaklar çerçevesi. IEEE veri Müh Bull., 18(3): 1995.
 
 [1]: ./media/documentdb-sql-query/sql-query1.png
 [introduction]: introduction.md

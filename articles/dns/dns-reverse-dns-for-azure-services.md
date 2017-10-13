@@ -1,6 +1,6 @@
 ---
-title: "Azure Hizmetleri için DNS aaaReverse | Microsoft Docs"
-description: "Nasıl tooconfigure ters DNS araması Azure içinde barındırılan hizmetler için bilgi edinin"
+title: "DNS geriye doğru için Azure services | Microsoft Docs"
+description: "Geriye doğru DNS araması Azure içinde barındırılan hizmetler için yapılandırma hakkında bilgi edinin"
 services: dns
 documentationcenter: na
 author: jtuliani
@@ -12,54 +12,54 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: jonatul
-ms.openlocfilehash: c6fe1d80232f124be86dd7fc57abc20699be7eba
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 63701e1ce0c1c6dcf2ce02ebce272b8280395e7f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Azure üzerinde barındırılan hizmetleri için ters DNS yapılandırma
 
-Bu makalede nasıl tooconfigure ters DNS araması Azure içinde barındırılan hizmetler için açıklanmaktadır.
+Bu makalede, Azure üzerinde barındırılan hizmetleri için ters DNS araması yapılandırma açıklanmaktadır.
 
-Azure Hizmetleri Azure tarafından atanan ve Microsoft tarafından ait IP adresleri kullanın. Geriye doğru DNS kayıtlarının (PTR kayıtları) hello karşılık gelen Microsoft ait geriye doğru DNS araması bölgelerinde oluşturulması gerekir. Bu makalede açıklanır nasıl toodo bu.
+Azure Hizmetleri Azure tarafından atanan ve Microsoft tarafından ait IP adresleri kullanın. Geriye doğru DNS kayıtlarının (PTR kayıtları) karşılık gelen Microsoft ait geriye doğru DNS arama bölgeleri oluşturulması gerekir. Bu makalede bunun nasıl yapılacağı açıklanmaktadır.
 
-Bu senaryo hello yeteneği çok karıştırılmamalıdır[hello geriye doğru DNS arama bölgeleri Azure DNS'de, atanan IP aralıkları için ana bilgisayar](dns-reverse-dns-hosting.md). Bu durumda, hello geriye doğru arama bölgesi tarafından temsil edilen hello IP aralıkları tooyour kuruluş, genellikle ISS'niz tarafından atanmış olması gerekir.
+Bu senaryo yeteneği ile karıştırılmamalıdır [Azure DNS'de, atanan IP aralıkları için geriye doğru DNS arama bölgeleri barındıran](dns-reverse-dns-hosting.md). Bu durumda, geriye doğru arama bölgesi tarafından temsil edilen IP aralıkları, kuruluşunuz için genellikle ISS'niz tarafından atanmış olması gerekir.
 
 Bu makalede okumadan önce bu bilgi sahibi olmanız [geriye doğru DNS ve Azure desteği'na genel bakış](dns-reverse-dns-overview.md).
 
 Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md).
-* Merhaba Resource Manager dağıtım modelinde, işlem kaynakları (örneğin, sanal makineler, sanal makine ölçek kümeleri veya Service Fabric kümeleri) Publicıpaddress kaynak sunulur. Geriye doğru DNS araması hello Publicıpaddress hello 'ReverseFqdn' özelliği kullanılarak yapılandırılır.
-* Merhaba Klasik dağıtım modelinde, bulut hizmetlerini kullanarak işlem kaynaklarını sunulur. Geriye doğru DNS araması hello bulut hizmeti hello 'ReverseDnsFqdn' özelliği kullanılarak yapılandırılır.
+* Resource Manager dağıtım modelinde, işlem kaynakları (örneğin, sanal makineler, sanal makine ölçek kümeleri veya Service Fabric kümeleri) Publicıpaddress kaynak sunulur. Geriye doğru DNS araması Publicıpaddress 'ReverseFqdn' özelliği kullanılarak yapılandırılır.
+* Klasik dağıtım modeli, bulut hizmetlerini kullanarak işlem kaynaklarını sunulur. Geriye doğru DNS araması bulut hizmetinin 'ReverseDnsFqdn' özelliği kullanılarak yapılandırılır.
 
-Geriye doğru DNS hello Azure uygulama hizmeti şu anda desteklenmiyor.
+Geriye doğru DNS Azure App Service için şu anda desteklenmiyor.
 
 ## <a name="validation-of-reverse-dns-records"></a>Geriye doğru DNS kayıtlarını doğrulama
 
-Bir üçüncü taraf mümkün toocreate geriye doğru DNS kayıtlarını Azure hizmeti eşleme tooyour DNS etki alanları için olmamalıdır. tooprevent Bu, Azure yalnızca aynı hello veya DNS adı veya IP adresini Publicıpaddress veya Bulut hello için çözümler hizmet hello aynı hello geriye doğru DNS kaydında belirtilen etki alanı adı olduğu geriye doğru DNS kaydı hello oluşturulmasını sağlayan Azure aboneliği.
+Bir üçüncü taraf kendi Azure hizmeti eşleme, DNS etki alanı için geriye doğru DNS kayıtları oluşturmak mümkün olmaması gerekir. Bunu önlemek için Azure yalnızca geriye doğru DNS kaydında belirtilen etki alanı adı ile aynı olduğu geriye doğru DNS kaydı oluşturulmasına izin verir veya DNS adı veya IP adresini bir Publicıpaddress veya Bulut hizmeti aynı Azure abonelik giderir.
 
-Bu doğrulama Hello geriye doğru DNS kaydı kümesi değiştirildiğinde veya yalnızca gerçekleştirilir. Düzenli aralıklarla yeniden doğrulama yapılmaz.
+Bu doğrulama yalnızca geriye doğru DNS kaydı ayarlayın veya değiştirilirken gerçekleştirilir. Düzenli aralıklarla yeniden doğrulama yapılmaz.
 
-Örneğin: Merhaba Publicıpaddress kaynak hello DNS adı contosoapp1.northus.cloudapp.azure.com ve IP adresi 23.96.52.53 sahip olduğunu varsayın. Merhaba ReverseFqdn Publicıpaddress olarak belirtilen hello:
-* Merhaba Publicıpaddress Hello DNS adı, contosoapp1.northus.cloudapp.azure.com
-* Merhaba DNS hello içinde farklı bir Publicıpaddress için aynı adı contosoapp2.westus.cloudapp.azure.com gibi abonelik
-* Bu ad olduğu sürece bir gösterim DNS, app1.contoso.com gibi ad *ilk* bir CNAME toocontosoapp1.northus.cloudapp.azure.com veya tooa olarak farklı Publicıpaddress hello yapılandırılmış aynı abonelik.
-* Bu ad olduğu sürece bir gösterim DNS, app1.contoso.com gibi ad *ilk* hello 23.96.52.53 veya farklı bir Publicıpaddress toohello IP adresini bir A kaydı toohello IP adresi yapılandırılmış aynı abonelik.
+Örneğin: Publicıpaddress kaynak IP adresi 23.96.52.53 ve DNS adı contosoapp1.northus.cloudapp.azure.com sahip olduğunu varsayın. Publicıpaddress ReverseFqdn olarak belirtilebilir:
+* Publicıpaddress için DNS adını contosoapp1.northus.cloudapp.azure.com
+* Aynı abonelikte contosoapp2.westus.cloudapp.azure.com gibi farklı bir Publicıpaddress için DNS adı
+* Bu ad olduğu sürece bir gösterim DNS, app1.contoso.com gibi ad *ilk* contosoapp1.northus.cloudapp.azure.com veya farklı bir Publicıpaddress aynı abonelik için bir CNAME olarak yapılandırılmış.
+* Bu ad olduğu sürece bir gösterim DNS, app1.contoso.com gibi ad *ilk* 23.96.52.53 IP adresine ya da aynı Abonelikteki farklı bir Publicıpaddress IP adresi için bir A kaydı olarak yapılandırılmış.
 
-Merhaba aynı kısıtlamaları tooreverse DNS bulut Hizmetleri için geçerlidir.
+Aynı kısıtlamalar DNS bulut Hizmetleri için ters geçerlidir.
 
 
 ## <a name="reverse-dns-for-publicipaddress-resources"></a>Geriye doğru DNS Publicıpaddress kaynaklar için
 
-Bu bölümde nasıl tooconfigure ters DNS hello Resource Manager dağıtım modelinde, Azure PowerShell, Azure CLI 1.0 veya Azure CLI 2.0 kullanarak Publicıpaddress kaynaklar için ayrıntılı yönergeler sağlar. Geriye doğru DNS Publicıpaddress kaynakları için yapılandırma hello Azure portal şu anda desteklenmiyor.
+Bu bölümde Azure PowerShell, Azure CLI 1.0 veya Azure CLI 2.0 kullanarak Resource Manager dağıtım modelinde Publicıpaddress kaynaklar için geriye doğru DNS yapılandırma hakkında ayrıntılı yönergeler sağlar. Geriye doğru DNS Publicıpaddress kaynakları için yapılandırma, Azure portalı üzerinden şu anda desteklenmiyor.
 
 Azure şu anda destekler DNS yalnızca IPv4 Publicıpaddress kaynaklar için ters çevrilir. IPv6 için desteklenmiyor.
 
-### <a name="add-reverse-dns-tooan-existing-publicipaddresses"></a>Geriye doğru DNS tooan Publicıpaddresses varolan Ekle
+### <a name="add-reverse-dns-to-an-existing-publicipaddresses"></a>Varolan bir Publicıpaddresses için geriye doğru DNS ekleyin
 
 #### <a name="powershell"></a>PowerShell
 
-Publicıpaddress varolan tooadd geriye doğru DNS tooan:
+Geriye doğru DNS için var olan bir Publicıpaddress eklemek için:
 
 ```powershell
 $pip = Get-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
@@ -67,7 +67,7 @@ $pip.DnsSettings.ReverseFqdn = "contosoapp1.westus.cloudapp.azure.com."
 Set-AzureRmPublicIpAddress -PublicIpAddress $pip
 ```
 
-tooadd ters DNS tooan zaten bir DNS adı yok Publicıpaddress var, bir DNS adı belirtmeniz gerekir:
+Geriye doğru DNS zaten bir DNS adı yok var olan bir Publicıpaddress eklemek için de bir DNS adı belirtmeniz gerekir:
 
 ```powershell
 $pip = Get-AzureRmPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"
@@ -79,13 +79,13 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $pip
 
 #### <a name="azure-cli-10"></a>Azure CLI 1.0
 
-Publicıpaddress varolan tooadd geriye doğru DNS tooan:
+Geriye doğru DNS için var olan bir Publicıpaddress eklemek için:
 
 ```azurecli
 azure network public-ip set -n PublicIp -g MyResourceGroup -f contosoapp1.westus.cloudapp.azure.com.
 ```
 
-tooadd ters DNS tooan zaten bir DNS adı yok Publicıpaddress var, bir DNS adı belirtmeniz gerekir:
+Geriye doğru DNS zaten bir DNS adı yok var olan bir Publicıpaddress eklemek için de bir DNS adı belirtmeniz gerekir:
 
 ```azurecli
 azure network public-ip set -n PublicIp -g MyResourceGroup -d contosoapp1 -f contosoapp1.westus.cloudapp.azure.com.
@@ -93,13 +93,13 @@ azure network public-ip set -n PublicIp -g MyResourceGroup -d contosoapp1 -f con
 
 #### <a name="azure-cli-20"></a>Azure CLI 2.0
 
-Publicıpaddress varolan tooadd geriye doğru DNS tooan:
+Geriye doğru DNS için var olan bir Publicıpaddress eklemek için:
 
 ```azurecli
 az network public-ip update --resource-group MyResourceGroup --name PublicIp --reverse-fqdn contosoapp1.westus.cloudapp.azure.com.
 ```
 
-tooadd ters DNS tooan zaten bir DNS adı yok Publicıpaddress var, bir DNS adı belirtmeniz gerekir:
+Geriye doğru DNS zaten bir DNS adı yok var olan bir Publicıpaddress eklemek için de bir DNS adı belirtmeniz gerekir:
 
 ```azurecli
 az network public-ip update --resource-group MyResourceGroup --name PublicIp --reverse-fqdn contosoapp1.westus.cloudapp.azure.com --dns-name contosoapp1
@@ -107,7 +107,7 @@ az network public-ip update --resource-group MyResourceGroup --name PublicIp --r
 
 ### <a name="create-a-public-ip-address-with-reverse-dns"></a>Geriye doğru DNS ile bir ortak IP adresi oluştur
 
-toocreate zaten belirtilen hello ters DNS özelliği ile yeni bir Publicıpaddress:
+Ters DNS özelliği zaten belirtilen yeni Publicıpaddress oluşturmak için:
 
 #### <a name="powershell"></a>PowerShell
 
@@ -129,7 +129,7 @@ az network public-ip create --name PublicIp --resource-group MyResourceGroup --l
 
 ### <a name="view-reverse-dns-for-an-existing-publicipaddress"></a>Varolan bir Publicıpaddress için ters DNS görünümü
 
-tooview hello değer var olan bir Publicıpaddress için yapılandırılmış:
+Varolan bir Publicıpaddress için yapılandırılmış bir değeri görüntülemek için:
 
 #### <a name="powershell"></a>PowerShell
 
@@ -151,7 +151,7 @@ az network public-ip show --name PublicIp --resource-group MyResourceGroup
 
 ### <a name="remove-reverse-dns-from-existing-public-ip-addresses"></a>Mevcut ortak IP adreslerinden geriye doğru DNS Kaldır
 
-Varolan bir Publicıpaddress geriye doğru DNS özelliğinden tooremove:
+Varolan bir Publicıpaddress ters DNS özelliği kaldırmak için:
 
 #### <a name="powershell"></a>PowerShell
 
@@ -176,11 +176,11 @@ az network public-ip update --resource-group MyResourceGroup --name PublicIp --r
 
 ## <a name="configure-reverse-dns-for-cloud-services"></a>Bulut Hizmetleri için ters DNS yapılandırma
 
-Bu bölümde nasıl tooconfigure ters DNS için bulut hizmetlerini Azure PowerShell kullanarak hello Klasik dağıtım modelinde, ayrıntılı yönergeler sağlar. Bulut Hizmetleri için ters DNS yapılandırma hello Azure portal, Azure CLI 1.0 veya Azure CLI 2.0 desteklenmiyor.
+Bu bölümde Azure PowerShell kullanarak Klasik dağıtım modelinde bulut Hizmetleri için ters DNS yapılandırma hakkında ayrıntılı yönergeler sağlar. Bulut Hizmetleri için ters DNS yapılandırma Azure portalı Azure CLI 1.0 veya Azure CLI 2.0 desteklenmiyor.
 
-### <a name="add-reverse-dns-tooexisting-cloud-services"></a>Geriye doğru DNS tooexisting bulut Hizmetleri Ekle
+### <a name="add-reverse-dns-to-existing-cloud-services"></a>Mevcut bulut Hizmetleri için ters DNS ekleme
 
-Bulut hizmeti varolan geriye doğru DNS kaydı tooan tooadd:
+Geriye doğru DNS kaydı var olan bir bulut hizmetine eklemek için:
 
 ```powershell
 Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse DNS" –ReverseDnsFqdn "contosoapp1.cloudapp.net."
@@ -188,7 +188,7 @@ Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse 
 
 ### <a name="create-a-cloud-service-with-reverse-dns"></a>Geriye doğru DNS ile bir bulut hizmeti oluştur
 
-toocreate zaten belirtilen hello ters DNS özelliği ile yeni bir bulut hizmeti:
+Ters DNS özelliği zaten belirtilen yeni bir bulut hizmeti oluşturmak için:
 
 ```powershell
 New-AzureService –ServiceName "contosoapp1" –Location "West US" –Description "App1 with Reverse DNS" –ReverseDnsFqdn "contosoapp1.cloudapp.net."
@@ -196,7 +196,7 @@ New-AzureService –ServiceName "contosoapp1" –Location "West US" –Descripti
 
 ### <a name="view-reverse-dns-for-existing-cloud-services"></a>Mevcut bulut Hizmetleri için ters DNS görünümü
 
-tooview hello ters DNS özelliği var olan bir bulut hizmeti için:
+Var olan bir bulut hizmeti için ters DNS özelliği görüntülemek için:
 
 ```powershell
 Get-AzureService "contosoapp1"
@@ -204,7 +204,7 @@ Get-AzureService "contosoapp1"
 
 ### <a name="remove-reverse-dns-from-existing-cloud-services"></a>Mevcut bulut hizmetlerinden geriye doğru DNS Kaldır
 
-var olan bir bulut hizmetinden geriye doğru DNS özelliği tooremove:
+Var olan bir bulut hizmetinden geriye doğru DNS özelliğini kaldırmak için:
 
 ```powershell
 Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse DNS" –ReverseDnsFqdn ""
@@ -216,25 +216,25 @@ Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse 
 
 Bunlar boş!  Geriye doğru DNS kayıtlarını veya sorguları için ek bir maliyet yoktur.
 
-### <a name="will-my-reverse-dns-records-resolve-from-hello-internet"></a>My geriye doğru DNS kayıtları çözümleme Internet hello?
+### <a name="will-my-reverse-dns-records-resolve-from-the-internet"></a>Geriye doğru DNS kayıtlarımı internet'ten çözer?
 
-Evet. Azure hizmetiniz için hello ters DNS özelliği ayarladıktan sonra tüm hello DNS temsilcilerine Azure yönetir ve tüm Internet kullanıcılar için DNS kaydı ters tooensure çözümler DNS bölgeleri gerekli.
+Evet. Azure hizmetiniz için ters DNS özelliği ayarladıktan sonra Azure tüm geriye doğru DNS kaydı tüm Internet kullanıcıları için çözümlendiğinden emin olmak için gereken DNS bölgeleri ve DNS temsilcilerine yönetir.
 
 ### <a name="are-default-reverse-dns-records-created-for-my-azure-services"></a>Varsayılan geriye doğru DNS kayıtları için Azure Hizmetlerim oluşturulur?
 
-Hayır. Geriye doğru DNS, bir katılımı özelliğidir. Geriye doğru DNS kayıtlarını değil tooconfigure seçerseniz oluşturulan varsayılan bunları.
+Hayır. Geriye doğru DNS, bir katılımı özelliğidir. Bunları yapılandırmamaya seçerseniz varsayılan geriye doğru DNS kaydı oluşturulur.
 
-### <a name="what-is-hello-format-for-hello-fully-qualified-domain-name-fqdn"></a>Merhaba biçimi hello tam etki alanı adı (FQDN) nedir?
+### <a name="what-is-the-format-for-the-fully-qualified-domain-name-fqdn"></a>Tam etki alanı adı (FQDN) biçiminde nedir?
 
 FQDN'ler ileriye doğru sırada belirtilir ve bir nokta (örneğin, "app1.contoso.com.") ile bitmelidir.
 
-### <a name="what-happens-if-hello-validation-check-for-hello-reverse-dns-ive-specified-fails"></a>Hello için hello doğrulama denetimi belirtmiş olduğunuz DNS geriye doğru başarısız olur ne olur?
+### <a name="what-happens-if-the-validation-check-for-the-reverse-dns-ive-specified-fails"></a>Başarısız geriye doğru DNS için doğrulama denetimi ı belirttiğiniz ne olur?
 
-Merhaba geriye doğru DNS doğrulama denetimi başarısız olduğunda, hello işlemi tooconfigure hello geriye doğru DNS kaydı başarısız olur. Merhaba geriye doğru DNS değeri gerektiği gibi düzeltin ve yeniden deneyin.
+Geriye doğru DNS doğrulama denetimi başarısız olduğunda, geriye doğru DNS kaydını yapılandırmak için işlem başarısız olur. Geriye doğru DNS değeri gerektiği gibi düzeltin ve yeniden deneyin.
 
 ### <a name="can-i-configure-reverse-dns-for-azure-app-service"></a>Azure App Service için ters DNS yapılandırabilir miyim?
 
-Hayır. Geriye doğru DNS hello Azure App Service için desteklenmiyor.
+Hayır. Geriye doğru DNS Azure App Service için desteklenmiyor.
 
 ### <a name="can-i-configure-multiple-reverse-dns-records-for-my-azure-service"></a>Birden çok geriye doğru DNS kaydı için Azure Hizmetim yapılandırabilir miyim?
 
@@ -244,13 +244,13 @@ Hayır. Azure, her Azure bulut hizmeti veya Publicıpaddress için tek bir geriy
 
 Hayır. Azure şu anda destekler DNS yalnızca IPv4 Publicıpaddress kaynaklar ve bulut Hizmetleri için ters çevrilir.
 
-### <a name="can-i-send-emails-tooexternal-domains-from-my-azure-compute-services"></a>Azure işlem Hizmetlerim e-postaları tooexternal etki alanları gönderebilirim?
+### <a name="can-i-send-emails-to-external-domains-from-my-azure-compute-services"></a>Azure işlem Hizmetlerim e-postaları dış etki alanlarına gönderebilirim?
 
-Hayır. [Azure işlem Hizmetleri gönderen e-postaları tooexternal etki alanlarını desteklemiyor](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/)
+Hayır. [Azure işlem Hizmetleri dış etki alanlarına gönderen e-postaları desteklemez](https://blogs.msdn.microsoft.com/mast/2016/04/04/sending-e-mail-from-azure-compute-resource-to-external-domains/)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Geriye doğru DNS hakkında daha fazla bilgi için bkz: [wikipedia'da ters DNS araması](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
-Nasıl çok öğrenin[konak hello geriye doğru arama bölgesi ISS atanan IP aralığınızı Azure DNS'de için](dns-reverse-dns-for-azure-services.md).
+Bilgi edinmek için nasıl [ISS atanan IP aralığınızı Azure DNS geriye doğru arama bölgesini barındırmak](dns-reverse-dns-for-azure-services.md).
 

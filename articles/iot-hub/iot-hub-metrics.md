@@ -1,6 +1,6 @@
 ---
-title: "aaaUse ölçümleri toomonitor Azure IOT Hub | Microsoft Docs"
-description: "IOT hub'larınız genel durumunu nasıl toouse Azure IOT Hub ölçümleri tooassess ve İzleyicisi Merhaba."
+title: "Azure IOT hub'ı izlemek için ölçümleri kullanın | Microsoft Docs"
+description: "Azure IOT Hub ölçümleri değerlendirmek ve IOT hub'larınız genel durumunu izlemek için nasıl kullanılacağını."
 services: iot-hub
 documentationcenter: 
 author: nberdy
@@ -15,89 +15,89 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7d045013fb0229f488e72c93a6f668048b9d5c25
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e850370faf2d271b4adad1af48c1ead7b316fa67
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="understand-iot-hub-metrics"></a>IOT hub'ı ölçümleri anlama
-IOT hub'ı ölçümleri Azure aboneliğinizde hello Azure IOT kaynakları hello durumuyla ilgili daha iyi veri verin. IOT hub'ı ölçümleri etkinleştir, tooassess hello IOT Hub hizmeti ve hello cihazların genel durumunu hello tooit bağlı. IOT hub ve Yardım kök neden sorunlarınızı toocontact Azure desteğine gerek kalmadan neler olup bittiğini görmenize yardımcı olmak için kullanıcı dönük istatistikleri önemlidir.
+IOT hub'ı ölçümleri Azure aboneliğinizde Azure IOT kaynakları durumuyla ilgili daha iyi veri verin. IOT hub'ı ölçümleri IOT Hub hizmeti ve ona bağlı aygıtlar genel durumunu değerlendirmek etkinleştirin. IOT hub ve Yardım kök neden sorunlarınızı Azure desteğine başvurun gerek kalmadan neler olup bittiğini görmenize yardımcı olmak için kullanıcı dönük istatistikleri önemlidir.
 
-Ölçümleri varsayılan olarak etkinleştirilir. IOT Hub'hello Azure portal ölçümleri görüntüleyebilirsiniz.
+Ölçümleri varsayılan olarak etkinleştirilir. IOT hub'ı ölçümleri Azure portalından görüntüleyebilirsiniz.
 
-## <a name="how-tooview-iot-hub-metrics"></a>Nasıl tooview IOT hub'ı ölçümleri
-1. IOT hub'ı oluşturun. Hakkında yönergeler bulabilirsiniz toocreate bir IOT hub'hello [Get Started] [ lnk-get-started] Kılavuzu.
-2. IOT hub'ınızı Hello dikey penceresini açın. Buradan, tıklatın **ölçümleri**.
+## <a name="how-to-view-iot-hub-metrics"></a>IOT hub'ı ölçümleri görüntüleme
+1. IOT hub'ı oluşturun. Bir IOT hub oluşturma hakkında yönergeler bulabilirsiniz [Get Started] [ lnk-get-started] Kılavuzu.
+2. IOT hub'ınızı dikey penceresini açın. Buradan, tıklatın **ölçümleri**.
    
     ![][1]
-3. Merhaba ölçümleri dikey penceresinden için IOT hub'ınızı hello ölçümleri görüntüleyin ve ölçümlerinizi özel görünümler oluşturun. Toosend ölçümleri veri tooan olay hub'ları uç noktası veya bir Azure depolama hesabı tıklayarak seçebileceğiniz **tanılama ayarları**.
+3. Ölçümleri dikey penceresinden için IOT hub'ınızı ölçümleri görüntüleyin ve ölçümlerinizi özel görünümler oluşturun. Ölçümleri verilerinizi bir olay hub'ları uç nokta veya bir Azure Storage hesabı tıklayarak göndermeyi seçebilirsiniz **tanılama ayarları**.
    
     ![][2]
 
-## <a name="iot-hub-metrics-and-how-toouse-them"></a>IOT hub'ı ölçümleri ve nasıl toouse bunları
-IOT hub'ı çeşitli ölçümleri sağlar, hello durumunu hub ve hello genel bir bakış toplam sayısı toogive bağlı cihazları. Birden çok ölçümleri toopaint hello IOT hub'ının hello durumunun daha kapsamlı bir resim bilgilerinden birleştirebilirsiniz. Aşağıdaki tablonun hello her IOT hub'ı izler hello ölçümleri açıklar ve her ölçümü toohello genel ilişkili nasıl durumunu hello IOT hub'ı.
+## <a name="iot-hub-metrics-and-how-to-use-them"></a>IOT hub'ı ölçümleri ve bunların nasıl kullanılacağını
+IOT Hub, hub ve bağlı cihazların toplam sayısını durumunu genel bir bakış vermek için çeşitli ölçümleri sağlar. IOT hub'ı durumunun daha kapsamlı bir resim boyamak için birden çok ölçümleri bilgilerinden birleştirebilirsiniz. Aşağıdaki tabloda, her IOT hub'ı izleyen ölçümleri ve her ölçümü IOT hub'ın genel durumunu nasıl ilişkili olduğu açıklanmaktadır.
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|
 |---|---|---|---|---|
-|d2c.telemetry.ingress.allProtocol|Telemetri ileti gönderme denemeleri|Sayı|Toplam|Gönderilen tooyour IOT hub cihaz bulut telemetri iletilerini denenen toobe sayısı|
-|d2c.telemetry.ingress.Success|Gönderilen telemetri iletilerini|Sayı|Toplam|Başarıyla gönderilen tooyour IOT hub cihaz bulut telemetri iletilerini sayısı|
-|c2d.Commands.egress.Complete.Success|Tamamlanan komutları|Sayı|Toplam|Merhaba aygıt tarafından başarıyla tamamlandı bulut cihaz komutlarının sayısı|
-|c2d.Commands.egress.Abandon.Success|Terk komutları|Sayı|Toplam|Merhaba aygıt tarafından terk bulut cihaz komutlarının sayısı|
-|c2d.Commands.egress.Reject.Success|Reddedilen komutları|Sayı|Toplam|Merhaba aygıt tarafından reddedilen bulut cihaz komutlarının sayısı|
-|devices.totalDevices|Toplam aygıt|Sayı|Toplam|Tooyour IOT hub'ı kayıtlı aygıtların sayısı|
-|devices.connectedDevices.allProtocol|Bağlı aygıtlar|Sayı|Toplam|Tooyour IOT hub'ı bağlı aygıt sayısı|
-|d2c.telemetry.egress.Success|Telemetri iletilerini teslim|Sayı|Toplam|İletileri başarıyla tooendpoints (toplam) yazılmış sayısı|
-|d2c.telemetry.egress.dropped|Bırakılan iletiler|Sayı|Toplam|Tüm yollar eşleşmedi ve hello geri dönüş rota devre dışı bırakıldı kesilen iletisi sayısı|
-|d2c.telemetry.egress.orphaned|Yalnız bırakılmış ileti|Sayı|Toplam|Merhaba hello geri dönüş yolu da dahil olmak üzere tüm yollar eşleşmeyen ileti sayısı|
-|d2c.telemetry.egress.invalid|Geçersiz iletileri|Sayı|Toplam|Merhaba ileti sayısı nedeniyle teslim edilmedi tooincompatibility hello uç noktası ile|
-|d2c.telemetry.egress.fallback|Geri dönüş koşulla eşleşen iletileri|Sayı|Toplam|Toohello geri dönüş endpoint yazılan ileti sayısı|
-|d2c.endpoints.egress.eventHubs|Hub uç noktaları tooEvent iletiler teslim|Sayı|Toplam|İletileri başarıyla yazılı tooEvent Hub uç noktaları olan sayısı|
-|d2c.endpoints.latency.eventHubs|Olay hub'ı uç noktaları için ileti gecikme süresi|milisaniye|Ortalama|Merhaba ortalama gecikme süresi ileti giriş toohello IOT hub ve ileti giriş arasındaki milisaniye cinsinden bir olay hub'ı uç içine|
-|d2c.endpoints.egress.serviceBusQueues|İleti veri yolu kuyruğu uç noktaları tooService teslim|Sayı|Toplam|İletileri başarıyla yazılı tooService veri yolu kuyruğu uç noktaları olan sayısı|
-|d2c.endpoints.latency.serviceBusQueues|Hizmet veri yolu kuyruğu uç noktalar için ileti gecikme süresi|milisaniye|Ortalama|Merhaba ortalama gecikme süresi ileti giriş toohello IOT hub ve ileti giriş arasındaki milisaniye olarak bir hizmet veri yolu kuyruğu uç noktası içine|
-|d2c.endpoints.egress.serviceBusTopics|İleti veri yolu konusu uç noktaları tooService teslim|Sayı|Toplam|İletileri başarıyla yazılı tooService veri yolu konusu uç noktaları olan sayısı|
-|d2c.endpoints.latency.serviceBusTopics|Hizmet veri yolu konusu uç noktalar için ileti gecikme süresi|milisaniye|Ortalama|Merhaba ortalama gecikme süresi ileti giriş toohello IOT hub ve ileti giriş arasındaki milisaniye olarak bir hizmet veri yolu konusu uç noktası içine|
-|d2c.endpoints.egress.builtIn.events|Toohello yerleşik uç noktası (iletileri/olayları) teslim edilen ileti|Sayı|Toplam|İletileri başarıyla yazılı toohello yerleşik uç noktası (iletileri/olayları) olan sayısı|
-|d2c.endpoints.latency.builtIn.events|İleti gecikme hello yerleşik uç noktası (iletileri/olayları) için|milisaniye|Ortalama|Merhaba ortalama gecikme süresi arasında ileti giriş toohello IOT hub ve ileti giriş hello yerleşik uç noktası (iletileri/olayları), milisaniye cinsinden içine |
-|d2c.Twin.Read.Success|Başarılı twin aygıtlardan okur|Sayı|Toplam|tüm başarılı aygıt tarafından başlatılan twin Hello sayısını okur.|
-|d2c.Twin.Read.failure|Aygıtlardan Twin okuma başarısız oldu|Sayı|Toplam|Merhaba sayımını tüm aygıt tarafından başlatılan twin okuma başarısız oldu.|
-|d2c.Twin.Read.size|Aygıtlardan twin yanıt boyutu okur|Bayt|Ortalama|Merhaba ortalama, min ve max tüm başarılı değeri aygıt tarafından başlatılan okuma çifti.|
-|d2c.Twin.Update.Success|Aygıtlardan başarılı twin güncelleştirmeleri|Sayı|Toplam|Merhaba tüm başarılı twin aygıt tarafından başlatılan güncelleştirme sayısı.|
-|d2c.Twin.Update.failure|Aygıtlardan Twin güncelleştirmeler başarısız oldu|Sayı|Toplam|Merhaba sayımını tüm aygıt tarafından başlatılan twin güncelleştirmeler başarısız oldu.|
-|d2c.Twin.Update.size|Aygıtlardan twin güncelleştirmeleri boyutu|Bayt|Ortalama|Merhaba ortalama, min ve max boyutu tüm başarılı aygıt tarafından başlatılan güncelleştirmeleri çifti.|
-|c2d.methods.Success|Başarılı doğrudan yöntem çağrıları|Sayı|Toplam|tüm başarılı doğrudan yöntem çağrılarını Hello sayısı.|
-|c2d.methods.failure|Doğrudan yöntem çağrılarını başarısız oldu|Sayı|Toplam|Tüm Hello sayısı doğrudan yöntem çağrıları başarısız oldu.|
-|c2d.methods.requestSize|Doğrudan yöntem çağrılarını isteği boyutu|Bayt|Ortalama|Merhaba ortalama, min ve max tüm başarılı doğrudan yöntemi istekleri.|
-|c2d.methods.responseSize|Doğrudan yöntem çağrılarını yanıt boyutu|Bayt|Ortalama|Merhaba ortalama, min ve max tüm başarılı doğrudan yöntem yanıtların.|
-|c2d.Twin.Read.Success|Arka ucunuzdan başarılı twin okur|Sayı|Toplam|tüm başarılı arka uç başlatılan twin Hello sayısını okur.|
-|c2d.Twin.Read.failure|Arka ucunuzdan başarısız twin okur|Sayı|Toplam|Merhaba sayımını tüm arka uç başlatılan twin okuma başarısız oldu.|
-|c2d.Twin.Read.size|Arka uç twin okuma yanıt boyutu|Bayt|Ortalama|Merhaba ortalama, min ve max tüm başarılı, arka uç başlatılan okuma çifti.|
-|c2d.Twin.Update.Success|Arka uç başarılı twin güncelleştirmeleri|Sayı|Toplam|Merhaba tüm başarılı twin arka uç başlatılan güncelleştirme sayısı.|
-|c2d.Twin.Update.failure|Arka uç başarısız twin güncelleştirmeleri|Sayı|Toplam|Merhaba sayımını tüm arka uç başlatılan twin güncelleştirmeler başarısız oldu.|
-|c2d.Twin.Update.size|Arka uç twin güncelleştirmelerini boyutu|Bayt|Ortalama|Merhaba ortalama, min ve max boyutu tüm başarılı arka uç başlatılan güncelleştirmeleri çifti.|
-|twinQueries.success|Başarılı twin sorguları|Sayı|Toplam|tüm başarılı twin sorguları Hello sayısı.|
-|twinQueries.failure|Başarısız twin sorguları|Sayı|Toplam|Tüm başarısız twin sorguları Hello sayısı.|
-|twinQueries.resultSize|Twin sorguları sonuç boyutu|Bayt|Ortalama|Hello ortalama, min ve max hello sonuç boyutunun tüm başarılı twin sorgular.|
-|jobs.createTwinUpdateJob.success|Twin güncelleştirme işlerinin başarılı oluşturma|Sayı|Toplam|tüm başarılı twin güncelleştirme işlerinin oluşturulması Hello sayısı.|
-|jobs.createTwinUpdateJob.failure|Twin güncelleştirme işlerinin başarısız oluşturma|Sayı|Toplam|tüm oluşturma işlemi başarısız twin güncelleştirme işleri Hello sayısı.|
-|jobs.createDirectMethodJob.success|Yöntem çağırma işlerinin başarılı oluşturma|Sayı|Toplam|tüm başarılı doğrudan yöntemi çağırma işlerinin oluşturulması Hello sayısı.|
-|jobs.createDirectMethodJob.failure|Yöntem çağırma işlerinin başarısız oluşturma|Sayı|Toplam|tüm oluşturma işlemi başarısız doğrudan yöntem çağrısını işler Hello sayısı.|
-|jobs.listJobs.success|Başarılı çağrı toolist işleri|Sayı|Toplam|tüm başarılı çağrı toolist işleri Hello sayısı.|
-|jobs.listJobs.failure|Başarısız çağrılar toolist işleri|Sayı|Toplam|Tüm başarısız çağrılar toolist işleri Hello sayısı.|
-|jobs.cancelJob.success|Başarılı iş iptalleri|Sayı|Toplam|Merhaba sayımını tüm başarılı bir işi toocancel çağırır.|
-|jobs.cancelJob.failure|Başarısız iş iptalleri|Sayı|Toplam|Tüm başarısız çağrılar toocancel bir işi Hello sayısı.|
-|jobs.queryJobs.success|İş başarılı sorguları|Sayı|Toplam|tüm başarılı çağrı tooquery işleri Hello sayısı.|
-|jobs.queryJobs.failure|Başarısız işi sorgular|Sayı|Toplam|Tüm başarısız çağrılar tooquery işleri Hello sayısı.|
-|Jobs.Completed|Tamamlanan İşler|Sayı|Toplam|Tüm tamamlanan işler Hello sayısı.|
-|Jobs.Failed|Başarısız olan işler|Sayı|Toplam|Tüm başarısız işler Hello sayısı.|
+|d2c.telemetry.ingress.allProtocol|Telemetri ileti gönderme denemeleri|Sayı|Toplam|IOT hub'ınıza gönderilecek cihaz bulut telemetri iletilerini sayısı çalıştı|
+|d2c.telemetry.ingress.Success|Gönderilen telemetri iletilerini|Sayı|Toplam|Başarıyla IOT hub'ına gönderilen cihaz bulut telemetri iletisi sayısı|
+|c2d.Commands.egress.Complete.Success|Tamamlanan komutları|Sayı|Toplam|Aygıt tarafından başarıyla tamamlandı bulut cihaz komutlarının sayısı|
+|c2d.Commands.egress.Abandon.Success|Terk komutları|Sayı|Toplam|Aygıt tarafından terk bulut cihaz komutlarının sayısı|
+|c2d.Commands.egress.Reject.Success|Reddedilen komutları|Sayı|Toplam|Aygıt tarafından reddedilen bulut cihaz komutlarının sayısı|
+|devices.totalDevices|Toplam aygıt|Sayı|Toplam|IOT hub'ınıza kayıtlı cihaz sayısı|
+|devices.connectedDevices.allProtocol|Bağlı aygıtlar|Sayı|Toplam|IOT hub'ına bağlı aygıt sayısı|
+|d2c.telemetry.egress.Success|Telemetri iletilerini teslim|Sayı|Toplam|İletiler (toplam) uç noktalara başarıyla yazılmış sayısı|
+|d2c.telemetry.egress.dropped|Bırakılan iletiler|Sayı|Toplam|Tüm yollar eşleşmedi ve geri dönüş rota devre dışı bırakıldı kesilen iletisi sayısı|
+|d2c.telemetry.egress.orphaned|Yalnız bırakılmış ileti|Sayı|Toplam|Geri dönüş yolu da dahil olmak üzere tüm yollar eşleşmeyen ileti sayısı|
+|d2c.telemetry.egress.invalid|Geçersiz iletileri|Sayı|Toplam|Uç noktası ile uyumsuzluğu nedeniyle teslim edilmedi ileti sayısı|
+|d2c.telemetry.egress.fallback|Geri dönüş koşulla eşleşen iletileri|Sayı|Toplam|Geri dönüş uç noktasına yazılan ileti sayısı|
+|d2c.endpoints.egress.eventHubs|Olay hub'ı uç noktaları için teslim edilen ileti|Sayı|Toplam|İletiler için olay hub'ı uç noktaları başarıyla yazılmış sayısı|
+|d2c.endpoints.latency.eventHubs|Olay hub'ı uç noktaları için ileti gecikme süresi|milisaniye|Ortalama|Milisaniye cinsinden bir olay hub'ı uç içine ileti giriş IOT hub'ına ve ileti giriş arasındaki ortalama gecikme süresi|
+|d2c.endpoints.egress.serviceBusQueues|Hizmet veri yolu kuyruğu uç noktaları için teslim edilen ileti|Sayı|Toplam|İletileri başarıyla hizmet veri yolu kuyruğu Uç noktalara yazılmış sayısı|
+|d2c.endpoints.latency.serviceBusQueues|Hizmet veri yolu kuyruğu uç noktalar için ileti gecikme süresi|milisaniye|Ortalama|Milisaniye cinsinden bir hizmet veri yolu kuyruğu uç noktası içine ileti giriş IOT hub'ına ve ileti giriş arasındaki ortalama gecikme süresi|
+|d2c.endpoints.egress.serviceBusTopics|Hizmet veri yolu konusu uç noktaları için teslim edilen ileti|Sayı|Toplam|İletileri başarıyla hizmet veri yolu konusu Uç noktalara yazılmış sayısı|
+|d2c.endpoints.latency.serviceBusTopics|Hizmet veri yolu konusu uç noktalar için ileti gecikme süresi|milisaniye|Ortalama|Milisaniye cinsinden bir hizmet veri yolu konusu uç noktası içine ileti giriş IOT hub'ına ve ileti giriş arasındaki ortalama gecikme süresi|
+|d2c.endpoints.egress.builtIn.events|Yerleşik uç noktası (iletileri/olayları) teslim edilen ileti|Sayı|Toplam|İletileri (iletileri/olayları) yerleşik uç noktası başarıyla yazılmış sayısı|
+|d2c.endpoints.latency.builtIn.events|Yerleşik uç noktası (iletileri/olayları) için ileti gecikme süresi|milisaniye|Ortalama|Milisaniye cinsinden yerleşik uç noktası (iletileri/olayları) içine ileti giriş IOT hub'ına ve ileti giriş arasındaki ortalama gecikme süresi |
+|d2c.Twin.Read.Success|Başarılı twin aygıtlardan okur|Sayı|Toplam|Tüm başarılı aygıt tarafından başlatılan twin sayısını okur.|
+|d2c.Twin.Read.failure|Aygıtlardan Twin okuma başarısız oldu|Sayı|Toplam|Tüm sayısı aygıt tarafından başlatılan twin okuma başarısız oldu.|
+|d2c.Twin.Read.size|Aygıtlardan twin yanıt boyutu okur|Bayt|Ortalama|Cihaz tarafından başlatılan ortalama, min ve max tüm başarılı değeri okuma çifti.|
+|d2c.Twin.Update.Success|Aygıtlardan başarılı twin güncelleştirmeleri|Sayı|Toplam|Tüm başarılı twin aygıt tarafından başlatılan güncelleştirme sayısı.|
+|d2c.Twin.Update.failure|Aygıtlardan Twin güncelleştirmeler başarısız oldu|Sayı|Toplam|Tüm sayısı aygıt tarafından başlatılan twin güncelleştirmeler başarısız oldu.|
+|d2c.Twin.Update.size|Aygıtlardan twin güncelleştirmeleri boyutu|Bayt|Ortalama|Cihaz tarafından başlatılan ortalama, min ve max boyutu tüm başarılı güncelleştirmeleri çifti.|
+|c2d.methods.Success|Başarılı doğrudan yöntem çağrıları|Sayı|Toplam|Tüm başarılı doğrudan yöntemi çağrı sayısı.|
+|c2d.methods.failure|Doğrudan yöntem çağrılarını başarısız oldu|Sayı|Toplam|Tüm sayısı doğrudan yöntem çağrıları başarısız oldu.|
+|c2d.methods.requestSize|Doğrudan yöntem çağrılarını isteği boyutu|Bayt|Ortalama|Ortalama, min ve max tüm başarılı doğrudan yöntemi istekleri.|
+|c2d.methods.responseSize|Doğrudan yöntem çağrılarını yanıt boyutu|Bayt|Ortalama|Ortalama, min ve max tüm başarılı doğrudan yöntemi yanıtların.|
+|c2d.Twin.Read.Success|Arka ucunuzdan başarılı twin okur|Sayı|Toplam|Tüm başarılı arka uç başlatılan twin sayısını okur.|
+|c2d.Twin.Read.failure|Arka ucunuzdan başarısız twin okur|Sayı|Toplam|Tüm sayısı arka uç başlatılan twin okuma başarısız oldu.|
+|c2d.Twin.Read.size|Arka uç twin okuma yanıt boyutu|Bayt|Ortalama|Arka uç başlatılan ortalama, min ve max tüm başarılı değeri okuma çifti.|
+|c2d.Twin.Update.Success|Arka uç başarılı twin güncelleştirmeleri|Sayı|Toplam|Tüm başarılı twin arka uç başlatılan güncelleştirme sayısı.|
+|c2d.Twin.Update.failure|Arka uç başarısız twin güncelleştirmeleri|Sayı|Toplam|Tüm sayısı arka uç başlatılan twin güncelleştirmeler başarısız oldu.|
+|c2d.Twin.Update.size|Arka uç twin güncelleştirmelerini boyutu|Bayt|Ortalama|Arka uç başlatılan ortalama, min ve max boyutu tüm başarılı güncelleştirmeleri çifti.|
+|twinQueries.success|Başarılı twin sorguları|Sayı|Toplam|Tüm başarılı twin sorguları sayısı.|
+|twinQueries.failure|Başarısız twin sorguları|Sayı|Toplam|Tüm başarısız twin sorguları sayısı.|
+|twinQueries.resultSize|Twin sorguları sonuç boyutu|Bayt|Ortalama|Ortalama, min ve max tüm başarılı twin sorgular sonuç boyutunun.|
+|jobs.createTwinUpdateJob.success|Twin güncelleştirme işlerinin başarılı oluşturma|Sayı|Toplam|Tüm başarılı twin güncelleştirme işlerinin oluşturulması sayısı.|
+|jobs.createTwinUpdateJob.failure|Twin güncelleştirme işlerinin başarısız oluşturma|Sayı|Toplam|Tüm oluşturma işlemi başarısız twin güncelleştirme işlerinin sayısı.|
+|jobs.createDirectMethodJob.success|Yöntem çağırma işlerinin başarılı oluşturma|Sayı|Toplam|Tüm başarılı bir şekilde oluşturulduktan doğrudan yöntemi çağırma işlerin sayısı.|
+|jobs.createDirectMethodJob.failure|Yöntem çağırma işlerinin başarısız oluşturma|Sayı|Toplam|Tüm oluşturma işlemi başarısız doğrudan yöntemi çağırma işlerin sayısı.|
+|jobs.listJobs.success|Liste işleri başarılı çağrıları|Sayı|Toplam|Liste işleri için tüm başarılı çağrı sayısı.|
+|jobs.listJobs.failure|Liste işleri çağrı başarısız oldu|Sayı|Toplam|Tüm başarısız çağrılar listesi işlerinin sayısı.|
+|jobs.cancelJob.success|Başarılı iş iptalleri|Sayı|Toplam|Bir işi iptal etmek için tüm başarılı çağrı sayısı.|
+|jobs.cancelJob.failure|Başarısız iş iptalleri|Sayı|Toplam|Bir işi iptal etmek için tüm başarısız çağrı sayısı.|
+|jobs.queryJobs.success|İş başarılı sorguları|Sayı|Toplam|Sorgu işlerinin tüm başarılı çağrı sayısı.|
+|jobs.queryJobs.failure|Başarısız işi sorgular|Sayı|Toplam|Tüm başarısız çağrılar sorgu işlerinin sayısı.|
+|Jobs.Completed|Tamamlanan İşler|Sayı|Toplam|Tüm tamamlanmış işlerin sayısı.|
+|Jobs.Failed|Başarısız olan işler|Sayı|Toplam|Tüm başarısız işler sayısı.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
-IOT hub'ı ölçümleri genel bir bakış gördüğünüze göre Azure IOT hub'ı yönetme hakkında daha fazla Bu bağlantı toolearn izleyin:
+IOT hub'ı ölçümleri genel bir bakış gördüğünüze göre Azure IOT hub'ı yönetme hakkında daha fazla bilgi edinmek için bu bağlantıyı izleyin:
 
 * [İzleme işlemleri][lnk-monitor]
 
-toofurther IOT hub'ı hello özelliklerini keşfedin, bakın:
+Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
 
 * [IOT Hub Geliştirici Kılavuzu][lnk-devguide]
 * [Bir aygıt ile Azure IOT kenar benzetimini yapma][lnk-iotedge]

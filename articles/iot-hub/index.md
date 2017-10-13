@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure IOT Hub belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
-description: "Nasıl toouse IOT hub'ı tooconnect izlemek ve nesnelerin interneti varlıklar milyarlarca kontrol öğrenin. Öğreticiler, API başvuruları, videolar ve diğer belgeler."
+title: "Azure IoT Hub Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "IoT Hub’ı kullanarak milyarlarca Nesnelerin İnterneti varlığına bağlanma, bunları izleme ve denetleme hakkında bilgi edinin. Öğreticiler, API başvuruları, videolar ve diğer belgeler."
 services: iot-hub
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: b4d9e66dad55417cff6b9252379cf7265fb542fb
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 270d1aec5855ee3bb9cc121526d311ab78d989c9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="iot-hub-documentation"></a>IoT Hub Belgeleri 
 
-Nasıl toouse IOT hub'ı tooconnect izlemek ve nesnelerin interneti varlıklar milyarlarca kontrol öğrenin. Öğreticiler, API başvuruları, videolar ve diğer belgeler, IoT cihazlarıyla bir çözümün arka ucu arasında güvenilir ve çift yönlü iletişim dağıtmanıza yardımcı olur. 
+IoT Hub’ı kullanarak milyarlarca Nesnelerin İnterneti varlığına bağlanma, bunları izleme ve denetleme hakkında bilgi edinin. Öğreticiler, API başvuruları, videolar ve diğer belgeler, IoT cihazlarıyla bir çözümün arka ucu arasında güvenilir ve çift yönlü iletişim dağıtmanıza yardımcı olur. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -106,7 +106,7 @@ Nasıl toouse IOT hub'ı tooconnect izlemek ve nesnelerin interneti varlıklar m
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Okuma hello Geliştirici Kılavuzu</h3>
+                        <h3>Geliştirici kılavuzunu okuyun</h3>
                     </div>
                 </div>
             </div>

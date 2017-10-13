@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL veritabanı kullanarak dinamik yönetim görünümlerini aaaMonitoring | Microsoft Docs"
-description: "Bilgi nasıl toodetect dinamik yönetim görünümlerini toomonitor Microsoft Azure SQL veritabanı kullanarak genel performans sorunlarını tanılamak ve."
+title: "Azure SQL veritabanını dinamik yönetim görünümlerini kullanarak izleme | Microsoft Docs"
+description: "Algılamak ve Microsoft Azure SQL veritabanı izlemek için dinamik yönetim görünümlerini kullanarak genel performans sorunlarını tanılamak öğrenin."
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 43d5fe2dd9a38d031e9334f6ad49fce5866e3bec
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d9b007d29e06e672db71b4a8415673f258c3fd89
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Dinamik yönetim görünümlerini kullanarak Azure SQL Database’i izleme
-Microsoft Azure SQL veritabanı sağlar, engellenen veya uzun süre çalışan sorgular, kaynak darboğazları, zayıf sorgu planları ve benzeri tarafından kaynaklanabilir toodiagnose performans sorunlarını dinamik yönetim kümesini görüntüler. Bu konu hakkında bilgi sağlar dinamik yönetim görünümlerini kullanarak toodetect ortak performans sorunları.
+Microsoft Azure SQL veritabanı bir alt kümesini engellenen veya uzun süre çalışan sorgular, kaynak darboğazları, zayıf sorgu planları ve benzeri tarafından kaynaklanabilir performans sorunları tanılamak için dinamik yönetim görünümlerini sağlar. Bu konu, dinamik yönetim görünümlerini kullanarak genel performans sorunlarını algılamak hakkında bilgi sağlar.
 
 SQL veritabanı, kısmen dinamik yönetim görünümlerini üç kategoride destekler:
 
@@ -34,27 +34,27 @@ SQL veritabanı, kısmen dinamik yönetim görünümlerini üç kategoride deste
 Dinamik Yönetim görünümlerini hakkında ayrıntılı bilgi için bkz: [dinamik yönetim görünümlerini ve işlevleri (Transact-SQL)](https://msdn.microsoft.com/library/ms188754.aspx) SQL Server Books Online.
 
 ## <a name="permissions"></a>İzinler
-SQL veritabanı'nda dinamik yönetim görünümünü sorgulanmasını gerektirir **görünüm veritabanı durumu** izinleri. Merhaba **görünüm veritabanı durumu** izin hello geçerli veritabanının içindeki tüm nesneler hakkında bilgi döndürür.
-toogrant hello **görünüm veritabanı durumu** izin tooa belirli veritabanı kullanıcısı, sorgu aşağıdaki hello çalıştırın:
+SQL veritabanı'nda dinamik yönetim görünümünü sorgulanmasını gerektirir **görünüm veritabanı durumu** izinleri. **Görünüm veritabanı durumu** izin geçerli veritabanının içindeki tüm nesneler hakkında bilgi döndürür.
+Vermek için **görünüm veritabanı durumu** belirli veritabanı kullanıcı izni aşağıdaki sorguyu çalıştırın:
 
-```GRANT VIEW DATABASE STATE toodatabase_user; ```
+```GRANT VIEW DATABASE STATE TO database_user; ```
 
 Bir şirket içi SQL Server örneğinde dinamik yönetim görünümlerini sunucu durumu bilgilerini döndürür. SQL veritabanı'nda, bunlar yalnızca geçerli, mantıksal veritabanı ile ilgili bilgiler döndürür.
 
 ## <a name="calculating-database-size"></a>Veritabanı boyutu hesaplama
-Merhaba aşağıdaki sorguyu veritabanınızın (megabayt cinsinden) hello boyutunu döndürür:
+Aşağıdaki sorguda (megabayt cinsinden) veritabanının boyutunu döndürür:
 
 ```
--- Calculates hello size of hello database.
+-- Calculates the size of the database.
 SELECT SUM(reserved_page_count)*8.0/1024
 FROM sys.dm_db_partition_stats;
 GO
 ```
 
-Merhaba aşağıdaki sorguyu hello boyutu (megabayt cinsinden) tek tek nesnelerin veritabanınızda döndürür:
+Aşağıdaki sorguda (megabayt cinsinden) ayrı ayrı nesneleri boyutunu veritabanınızda döndürür:
 
 ```
--- Calculates hello size of individual database objects.
+-- Calculates the size of individual database objects.
 SELECT sys.objects.name, SUM(reserved_page_count) * 8.0 / 1024
 FROM sys.dm_db_partition_stats, sys.objects
 WHERE sys.dm_db_partition_stats.object_id = sys.objects.object_id
@@ -63,8 +63,8 @@ GO
 ```
 
 ## <a name="monitoring-connections"></a>İzleme bağlantıları
-Merhaba kullanabilirsiniz [sys.dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) tooretrieve hello kurulan bağlantılar tooa belirli Azure SQL veritabanı sunucusu ve her bağlantının hello ayrıntıları hakkındaki bilgileri görüntüleyin. Ayrıca, hello [sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) görünümü, tüm etkin kullanıcı bağlantıları ve iç görevler hakkında bilgi alırken yararlıdır.
-Merhaba aşağıdaki sorgu hello geçerli bağlantı üzerine bilgi alır:
+Kullanabileceğiniz [sys.dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) belirli bir Azure SQL veritabanı sunucusunu ve her bağlantı ayrıntıları kurulan bağlantılar hakkında bilgi almak için görünümü. Ayrıca, [sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) görünümü, tüm etkin kullanıcı bağlantıları ve iç görevler hakkında bilgi alırken yararlıdır.
+Aşağıdaki sorgu, geçerli bağlantı üzerine bilgi alır:
 
 ```
 SELECT
@@ -80,15 +80,15 @@ WHERE c.session_id = @@SPID;
 ```
 
 > [!NOTE]
-> Merhaba yürütülürken **sys.dm_exec_requests** ve **sys.dm_exec_sessions görünümleri**, varsa **görünüm veritabanı durumu** izin hello veritabanı üzerinde tüm yürütme görürsünüz. Merhaba veritabanı oturumlarını; Aksi takdirde, geçerli oturum yalnızca hello bakın.
+> Yürütülürken **sys.dm_exec_requests** ve **sys.dm_exec_sessions görünümleri**, varsa **görünüm veritabanı durumu** izin veritabanında, tüm yürütme görürsünüz. Veritabanı oturumlarını; Aksi takdirde, yalnızca geçerli oturumu bakın.
 > 
 > 
 
 ## <a name="monitoring-query-performance"></a>Sorgu performansını izleme
-Yavaş ya da uzun çalışan sorgu önemli sistem kaynaklarını tüketebilir. Bu bölüm, nasıl toouse dinamik yönetim toodetect birkaç ortak sorgu performans sorunlarına görünümleri gösterir. Sorun giderme, eski ancak hala yararlı bir başvuru: Merhaba [SQL Server 2008'de performans sorunlarını giderme](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) Microsoft TechNet makalesi.
+Yavaş ya da uzun çalışan sorgu önemli sistem kaynaklarını tüketebilir. Bu bölüm, dinamik yönetim görünümlerini birkaç ortak sorgu performans sorunlarını algılamak için nasıl kullanılacağını gösterir. Sorun giderme, eski ancak hala yararlı bir başvuru [SQL Server 2008'de performans sorunlarını giderme](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) Microsoft TechNet makalesi.
 
 ### <a name="finding-top-n-queries"></a>İlk N sorguları bulma
-Merhaba aşağıdaki örnek hello üst beş sorgular tarafından ortalama CPU süresi derece hakkında bilgi verir. Mantıksal olarak eşdeğer sorguları kendi toplu kaynak tüketimi gruplanması Bu örnek sorgu karma tootheir göre hello sorguları toplar.
+Aşağıdaki örnek, ortalama CPU süresi tarafından derece üst beş sorguları hakkında bilgi döndürür. Mantıksal olarak eşdeğer sorguları kendi toplu kaynak tüketimi gruplanması Bu örnek sorgu karma değerlerine göre sorgular toplar.
 
 ```
 SELECT TOP 5 query_stats.query_hash AS "Query Hash",
@@ -108,10 +108,10 @@ ORDER BY 2 DESC;
 ```
 
 ### <a name="monitoring-blocked-queries"></a>Engellenen sorguları izleme
-Yavaş veya uzun süre çalışan sorgular tooexcessive kaynak tüketimini katkıda ve engellenen sorguları hello sonucu olabilir. Merhaba engelleme nedeni hello sorgu planlarını kullanışlı dizinler eksikliği hello ve benzeri zayıf uygulama tasarımı, bozuk olabilir. Azure SQL veritabanınızda hello sys.dm_tran_locks tooget hakkındaki bilgileri görüntüleyin hello geçerli kilitleme etkinliğini kullanabilirsiniz. Örnek kod, bkz: [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) SQL Server Books Online.
+Yavaş veya uzun süre çalışan sorgular, aşırı kaynak tüketimi katkıda ve engellenen sorgu sonucu olabilir. Engelleme nedeni, zayıf uygulama tasarımı, hatalı sorgu planları, kullanışlı dizinler ve benzeri olmaması olabilir. Azure SQL veritabanınızda geçerli kilitleme etkinliği hakkında bilgi almak için sys.dm_tran_locks görünümü kullanabilirsiniz. Örnek kod, bkz: [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) SQL Server Books Online.
 
 ### <a name="monitoring-query-plans"></a>Sorgu planları izleme
-Verimsiz sorgu planı da CPU tüketimi artırabilir. Merhaba aşağıdaki örnek kullanır hello [sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) hangi sorgusu hello en toplam CPU kullanan toodetermine görüntüleyin.
+Verimsiz sorgu planı da CPU tüketimi artırabilir. Aşağıdaki örnek kullanır [sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) hangi sorgusu en toplam CPU kullanan belirlemek için Görünüm.
 
 ```
 SELECT
@@ -134,5 +134,5 @@ ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
 ## <a name="see-also"></a>Ayrıca bkz.
-[Giriş tooSQL veritabanı](sql-database-technical-overview.md)
+[SQL veritabanı giriş](sql-database-technical-overview.md)
 

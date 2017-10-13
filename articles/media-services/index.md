@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure Media Services belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
-description: "Nasıl toosecurely akış isteğe bağlı veya Canlı yayın kaliteli görüntü Media Services, bir Genişletilebilir bulut platformu ile bilgi edinin. Öğreticiler, API başvuruları ve daha fazlası."
+title: "Azure Media Services Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Genişletilebilir bir bulut platformu olan Media Services ile güvenli bir biçimde yayın kalitesindeki videoların isteğe bağlı veya canlı akışını yapma hakkında bilgi edinin. Öğreticiler, API başvuruları ve daha fazlası."
 services: media-services
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: c36b7dbf14434e7aadc38f2c74ca7d3830a1bd3f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 809595570f1c82ff6ff99bc15bf813560510e7f2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="media-services-documentation"></a>Media Services Belgeleri
 
-Bilgi nasıl toostream yayın kaliteli görüntü Media Services, bir Genişletilebilir bulut platformu ile. Öğreticiler, API başvuru ve diğer belgeleri nasıl toosecurely teslim isteğe bağlı Göster ve kullanıcıların toomillions ölçeklendirme video ve ses akışları Canlı.
+Genişletilebilir bir bulut platformu olan Media Services ile yayın kalitesindeki videoların akışını yapma hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, güvenli bir biçimde milyonlarca kullanıcıya ölçeklendirilebilen, isteğe bağlı ve canlı video veya ses akışları sağlama ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -70,7 +70,7 @@ Bilgi nasıl toostream yayın kaliteli görüntü Media Services, bir Genişleti
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Hello Azure Portal kullanarak Azure Media Services ile çalışmaya başlama</h3>
+                        <h3>Azure Portal ile Azure Media Services’ı kullanmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@ Bilgi nasıl toostream yayın kaliteli görüntü Media Services, bir Genişleti
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Hello Azure Portal kullanarak bir Azure Media Services hesabı oluşturma</h3>
+                        <h3>Azure Portal ile Azure Media Services hesabı oluşturma</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ Bilgi nasıl toostream yayın kaliteli görüntü Media Services, bir Genişleti
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Hello Azure Portal kullanarak başlatılan teslim edilmesini sağlayan içeriğini alma</h3>
+                        <h3>Azure Portal’ı kullanarak içerik göndermeye başlama</h3>
                     </div>
                 </div>
             </div>

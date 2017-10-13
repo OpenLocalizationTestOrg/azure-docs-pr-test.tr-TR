@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery için çoğaltma ayarlarını aaaSet | Microsoft Docs"
-description: "Nasıl toodeploy Site Recovery tooorchestrate çoğaltma, yük devretme ve kurtarma Hyper-V vm'lerinde VMM Bulutu tooAzure açıklar."
+title: "Azure Site Recovery için çoğaltma ayarları oluşturma | Microsoft Docs"
+description: "Site Recovery'nin, VMM bulutlarındaki Hyper-V sanal makinelerinden Azure'a yönelik çoğaltma, yük devretme ve kurtarma işlemlerini gerçekleştirmek üzere nasıl dağıtılacağını açıklar."
 services: site-recovery
 documentationcenter: 
 author: sujayt
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2017
 ms.author: sutalasi
-ms.openlocfilehash: 618e92e42411732a2a1bb75c5e5ea8a433cd7d58
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 73a1f19177f23441f5f7165cf2bc92ba85e62aa5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="manage-replication-policy-for-vmware-tooazure"></a>VMware tooAzure için çoğaltma ilkesini yönetme
+# <a name="manage-replication-policy-for-vmware-to-azure"></a>VMware’den Azure’a çoğaltma ilkesini yönetme
 
 
 ## <a name="create-a-replication-policy"></a>Çoğaltma ilkesi oluşturma
@@ -31,58 +31,58 @@ ms.lasthandoff: 10/06/2017
 
     ![Çoğaltma ilkesi oluşturma](./media/site-recovery-setup-replication-settings-vmware/createpolicy.png)
 
-4. Hello ilkesi adı girin.
+4. İlke adını girin.
 
-5. İçinde **RPO eşik**, hello RPO sınırını belirtin. Sürekli çoğaltma bu limiti aşarsa uyarılar oluşturulur.
-6. İçinde **kurtarma noktası bekletme**, (saat olarak) belirtin hello hello bekletme penceresinin süresi her kurtarma noktası. Korumalı makineler olabilir bir bekletme aralığı içinde tooany noktası kurtarıldı.
+5. **RPO eşiği** bölümünde RPO limitini belirtin. Sürekli çoğaltma bu limiti aşarsa uyarılar oluşturulur.
+6. **Kurtarma noktası bekletme** kısmında, her kurtarma noktası için bekletme süresini saat cinsinden belirtin. Korumalı makineler, bekletme penceresi içindeki herhangi bir noktaya kurtarılabilir.
 
     > [!NOTE]
-    > Bekletme too24 saatleri makineler çoğaltılmış toopremium depolama için desteklenir. Bekletme too72 saatleri makineler çoğaltılmış toostandard depolama için desteklenir.
+    > Premium depolama alanına çoğaltılan makineler için 24 saate kadar bekletme desteklenir. Standart depolama alanına çoğaltılan makineler için 72 saate kadar bekletme desteklenir.
 
     > [!NOTE]
     > Yeniden çalışmaya yönelik bir çoğaltma ilkesi otomatik olarak oluşturulur.
 
 7. **Uygulamayla tutarlı anlık görüntü sıklığı** kısmında, uygulamayla tutarlı anlık görüntüleri içeren kurtarma noktalarının hangi sıklıkta oluşturulacağını (dakika cinsinden) belirtin.
 
-8. **Tamam** düğmesine tıklayın. Hello İlkesi 30 too60 saniye içinde oluşturulmalıdır.
+8. **Tamam** düğmesine tıklayın. İlke, 30 ila 60 saniye içinde oluşturulur.
 
 ![Çoğaltma ilkesi üretme](./media/site-recovery-setup-replication-settings-vmware/Creating-Policy.png)
 
 ## <a name="associate-a-configuration-server-with-a-replication-policy"></a>Yapılandırma sunucusunu çoğaltma ilkesi ile ilişkilendirme
-1. Merhaba çoğaltma ilkesi toowhich seçin tooassociate hello yapılandırma sunucusu istiyor.
+1. Yapılandırma sunucusunu ilişkilendirmek istediğiniz çoğaltma ilkesini seçin.
 2. **İlişkilendir**’e tıklayın.
 ![Yapılandırma sunucusunu ilişkilendirme](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-1.PNG)
 
-3. Merhaba yapılandırma sunucusu hello sunucuların listesinden seçin.
-4. **Tamam** düğmesine tıklayın. Merhaba yapılandırma sunucusu bir tootwo dakika cinsinden ilişkilendirilmesi.
+3. Sunucu listesinden yapılandırma sunucusunu seçin.
+4. **Tamam** düğmesine tıklayın. Yapılandırma sunucusu, bir ila iki dakika içinde ilişkilendirilir.
 
 ![Yapılandırma sunucusu ilişkilendirme](./media/site-recovery-setup-replication-settings-vmware/Associate-CS-2.png)
 
 ## <a name="edit-a-replication-policy"></a>Çoğaltma ilkesini düzenleme
-1. Tooedit çoğaltma ayarları istediğiniz hello çoğaltma ilkesi seçin.
+1. Çoğaltma ayarlarını düzenlemek istediğiniz çoğaltma ilkesini seçin.
 ![Çoğaltma ilkesini düzenleme](./media/site-recovery-setup-replication-settings-vmware/Select-Policy.png)
 
 2. **Ayarları Düzenle**’ye tıklayın.
 ![Çoğaltma ilkesi ayarlarını düzenleme](./media/site-recovery-setup-replication-settings-vmware/Edit-Policy.png)
 
-3. Gereksinimleri temelinde hello ayarlarını değiştirin.
-4. **Kaydet** düğmesine tıklayın. Hello İlkesi iki toofive dakika içinde kaydedilmelidir, kaç tane sanal makineleri bağlı olarak bu çoğaltma ilkesini kullanarak.
+3. Gereksinimlerinize göre ayarları değiştirin.
+4. **Kaydet**’e tıklayın. İlke, bu çoğaltma ilkesini kullanan VM sayısına bağlı olarak iki ila beş dakika içinde kaydedilir.
 
 ![Çoğaltma ilkesini kaydetme](./media/site-recovery-setup-replication-settings-vmware/Save-Policy.png)
 
 ## <a name="dissociate-a-configuration-server-from-a-replication-policy"></a>Yapılandırma sunucusunun çoğaltma ilkesi ile ilişkisini kaldırma
-1. Merhaba çoğaltma ilkesi toowhich seçin tooassociate hello yapılandırma sunucusu istiyor.
+1. Yapılandırma sunucusunu ilişkilendirmek istediğiniz çoğaltma ilkesini seçin.
 2. **İlişkilendirmeyi Kaldır**’a tıklayın.
-3. Merhaba yapılandırma sunucusu hello sunucuların listesinden seçin.
-4. **Tamam** düğmesine tıklayın. Merhaba yapılandırma sunucusu bir tootwo dakika içinde ilkenin ilişkisi.
+3. Sunucu listesinden yapılandırma sunucusunu seçin.
+4. **Tamam** düğmesine tıklayın. Yapılandırma sunucusunun ilişkisi, bir ila iki dakika içinde kaldırılır.
 
     > [!NOTE]
-    > Hello İlkesi'ni kullanarak en az bir çoğaltılmış öğe ise bir yapılandırma sunucusu ilişkilendirmesini olamaz. Merhaba yapılandırma sunucusu ilişkilendirmesini önce hello İlkesi'ni kullanarak çoğaltılan öğe olmadığından emin olun.
+    > İlkeyi kullanan en az bir çoğaltılmış öğe varsa yapılandırma sunucusunun ilişkisini kaldıramazsınız. Yapılandırma sunucusunun ilişkisini kaldırmadan önce ilkeyi kullanan çoğaltılmış bir öğe bulunmadığından emin olun.
 
 ## <a name="delete-a-replication-policy"></a>Çoğaltma ilkesini silme
 
-1. Merhaba çoğaltma ilkesi seçin toodelete istiyor.
-2. **Sil**'e tıklayın. Hello İlkesi 30 too60 saniye içinde silinmesi gerekir.
+1. Silmek istediğiniz çoğaltma ilkesini seçin.
+2. **Sil**'e tıklayın. İlke, 30 ila 60 saniye içinde silinir.
 
     > [!NOTE]
-    > En az bir yapılandırma sunucusu ilişkili tooit varsa, bir çoğaltma ilkesi silemezsiniz. Hello İlkesi kullanılarak çoğaltılan öğe yok ve hello İlkesi silmeden önce tüm hello delete yapılandırma sunucularına ilişkili emin olun.
+    > Kendisiyle ilişkili en az bir yapılandırma sunucusu varsa çoğaltma ilkesini silemezsiniz. İlkeyi silmeden önce, ilkeyi kullanan çoğaltılmış öğe bulunmadığından emin olun ve tüm ilişkili yapılandırma sunucularını silin.

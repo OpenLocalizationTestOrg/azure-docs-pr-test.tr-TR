@@ -1,5 +1,5 @@
 ---
-title: Windows Azure Diagnostics Service Fabric olay toplama aaaAzure | Microsoft Docs
+title: "Windows Azure Service Fabric olay toplama Azure tanılama | Microsoft Docs"
 description: "Toplama ve izleme ve tanılama Azure Service Fabric kümeleri için WAD kullanarak olay toplama hakkında bilgi edinin."
 services: service-fabric
 documentationcenter: .net
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/17/2017
 ms.author: dekapur
-ms.openlocfilehash: 4827ce66620e61c5b4a8682db55952333113188a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5773361fdec4cb8ee54fa2856f6aa969d5dac4e9
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Olay toplama ve Windows Azure Tanılama'yı kullanarak koleksiyonu
 > [!div class="op_single_selector"]
@@ -27,14 +27,14 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Azure Service Fabric kümesi çalıştırdığınız bir fikir toocollect hello günlüklerini merkezi bir konumda tüm hello düğümlerinden olur. Merhaba günlüklerini merkezi bir konumda sahip çözümlemek ve sorunları kümenizdeki veya bu kümede çalışan hello uygulamaları ve Hizmetleri sorunları gidermenize yardımcı olur.
+Azure Service Fabric kümesi çalıştırırken, merkezi bir konumda tüm düğümlerdeki günlükleri toplamak için iyi bir fikirdir. Merkezi bir konumda günlükler sahip çözümlemek ve sorunları kümenizdeki veya bu kümede çalışan hizmetler ve uygulamalar sorunları gidermenize yardımcı olur.
 
-Bir yolu tooupload ve toplama günlükleri günlükleri tooAzure depolama yükler ve ayrıca hello seçeneği toosend günlükleri tooAzure Application Insights veya olay hub'ları içeren toouse hello Windows Azure tanılama (WAD) uzantısı olur. Ayrıca bir dış işlem tooread hello olayları depolama biriminden kullanın ve analiz platformu üründe gibi yerleştirin [OMS günlük analizi](../log-analytics/log-analytics-service-fabric.md) veya başka bir çözüm günlük ayrıştırma.
+Karşıya yükleme ve günlükleri toplamak için bir yol günlükleri Azure Storage'a yükler ve ayrıca Azure Application Insights veya olay hub'ları için günlükleri gönderme seçeneği içeren Windows Azure tanılama (WAD) uzantısı kullanmaktır. Olayları depolama alanından okuyun ve bunları bir analiz platformu üründe gibi yerleştirmek için bir dış işlem kullanabilirsiniz [OMS günlük analizi](../log-analytics/log-analytics-service-fabric.md) veya başka bir çözüm günlük ayrıştırma.
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu araçları kullanılan tooperform olan bazı bu belgedeki hello işlemlerinin:
+Bu araçlar, bu belgede bazı işlemleri gerçekleştirmek için kullanılır:
 
-* [Azure tanılama](../cloud-services/cloud-services-dotnet-diagnostics.md) (tooAzure bulut Hizmetleri ancak sahip iyi bilgi ve örnekler ilgili)
+* [Azure tanılama](../cloud-services/cloud-services-dotnet-diagnostics.md) (Azure bulut Hizmetleri ile ilgili ancak iyi bilgi ve örnekler var)
 * [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 * [Azure PowerShell](/powershell/azure/overview)
 * [Azure Resource Manager istemci](https://github.com/projectkudu/ARMClient)
@@ -43,35 +43,35 @@ Bu araçları kullanılan tooperform olan bazı bu belgedeki hello işlemlerinin
 ## <a name="log-and-event-sources"></a>Günlük ve olay kaynakları
 
 ### <a name="service-fabric-platform-events"></a>Service Fabric platform olayları
-' Da anlatıldığı gibi [bu makalede](service-fabric-diagnostics-event-generation-infra.md), Service Fabric ayarlayan, birkaç Giden kutusu günlük kanalları, hangi Merhaba aşağıdaki kanallar kolayca WAD toosend izleme ve tanılama veri tooa depolama tablosu ile yapılandırılmış olan veya başka bir yerde:
-  * Çalışma olaylarını: hizmet platform uygular doku hello üst düzey işlem. Örnek uygulamalar ve hizmetler, düğüm durumu değişiklikleri ve yükseltme bilgileri oluşturulmasını verilebilir. Bu olay için Windows izleme (ETW) günlükleri olarak gösterilen
+' Da anlatıldığı gibi [bu makalede](service-fabric-diagnostics-event-generation-infra.md), Service Fabric ayarlayan, hangisinin aşağıdaki kanallar kolayca yapılandırılır izleme göndermek için WAD ve tanılama verilerini depolama tabloya birkaç Giden kutusu günlük kanallar ile veya başka bir yerde:
+  * Çalışma olaylarını: Service Fabric platformundan gerçekleştirir üst düzey işlem. Örnek uygulamalar ve hizmetler, düğüm durumu değişiklikleri ve yükseltme bilgileri oluşturulmasını verilebilir. Bu olay için Windows izleme (ETW) günlükleri olarak gösterilen
   * [Reliable Actors programlama modelini olayları](service-fabric-reliable-actors-diagnostics.md)
   * [Programlama modeli olaylarının güvenilir hizmetler](service-fabric-reliable-services-diagnostics.md)
 
 ### <a name="application-events"></a>Uygulama olayları
- Uygulamaların ve hizmetlerin koddan yayılan ve hello EventSource yardımcı sınıfı kullanılarak yazılan olaylar hello Visual Studio şablonları sağlanmıştır. Toowrite EventSource uygulamanızdan nasıl günlüğe yazacağını daha fazla bilgi için bkz: [İzleyici ve yerel makine geliştirme Kurulum Hizmetleri'nde tanılamak](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
+ Uygulamaların ve hizmetlerin koddan yayılan ve Visual Studio şablonları sağlanan EventSource yardımcı sınıfı kullanılarak yazılan olaylar. EventSource günlüklerine uygulamanızdan yazma hakkında daha fazla bilgi için bkz: [İzleyici ve yerel makine geliştirme Kurulum Hizmetleri'nde tanılamak](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md).
 
-## <a name="deploy-hello-diagnostics-extension"></a>Merhaba tanılama uzantısını dağıtma
-günlükleri toplamayı hello ilk toodeploy hello tanılama uzantısını her hello VM'ler hello Service Fabric kümesindeki bir adımdır. Merhaba tanılama uzantısını her VM günlükleri toplar ve bunları belirttiğiniz toohello depolama hesabı yükler. Merhaba adımlar hello Azure portalında veya Azure Resource Manager kullanıp biraz göre farklılık gösterir. Merhaba adımlar da hello dağıtım küme oluşturmanın bir parçası değil veya zaten bir küme için göre değişir. Her senaryo için hello adımları bakalım.
+## <a name="deploy-the-diagnostics-extension"></a>Tanılama uzantısını dağıtma
+Günlükleri toplamayı ilk adımı, Service Fabric kümesindeki VM'lerin her birinde tanılama uzantısını dağıtmaktır. Tanılama uzantısını her VM günlükleri toplar ve bunları belirttiğiniz depolama hesabı yükler. Adımlar Azure portalında veya Azure Resource Manager kullanıp biraz göre farklılık gösterir. Adımlar ayrıca dağıtım küme oluşturmanın bir parçası değil veya zaten bir küme için göre değişir. Her senaryo için adımları bakalım.
 
-### <a name="deploy-hello-diagnostics-extension-as-part-of-cluster-creation-through-azure-portal"></a>Azure portal ile küme oluşturma bir parçası olarak Hello tanılama uzantısını dağıtma
-Küme oluşturma bir parçası olarak hello kümedeki toodeploy hello tanılama uzantısını toohello VM'ler, hello aşağıda gösterildiği hello tanılama ayarları bölmesini kullanın görüntü - tanılama çok ayarlandığından emin olun**üzerinde** (Merhaba varsayılan ayar) . Merhaba kümeyi oluşturduktan sonra hello portalını kullanarak bu ayarları değiştiremezsiniz.
+### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-through-azure-portal"></a>Azure portal ile küme oluşturma bir parçası olarak tanılama uzantısını dağıtma
+Tanılama uzantısını kümedeki sanal makineleri küme oluşturmanın bir parçası dağıtmak için tanılama Ayarları panelini kullanın. aşağıdaki görüntüde - gösterilen tanılama ayarlandığından emin olun **üzerinde** (varsayılan ayar). Kümeyi oluşturduktan sonra portal kullanarak bu ayarları değiştiremezsiniz.
 
-![Küme oluşturma hello portalındaki Azure tanılama ayarları](media/service-fabric-diagnostics-event-aggregation-wad/azure-enable-diagnostics.png)
+![Küme oluşturma için Portalı'nda Azure tanılama ayarları](media/service-fabric-diagnostics-event-aggregation-wad/azure-enable-diagnostics.png)
 
-Merhaba portalını kullanarak bir küme oluştururken, hello şablonunu indirebilir öneririz **Tamam'ı tıklatmadan önce** toocreate hello küme. Ayrıntılar için çok başvurun[bir Azure Resource Manager şablonu kullanarak bir Service Fabric kümesi ayarlayın](service-fabric-cluster-creation-via-arm.md). Merhaba portalını kullanarak bazı değişiklik yapılamıyor çünkü hello şablonu toomake değişiklikleri daha sonra gerekir.
+Portalı kullanarak bir küme oluştururken, şablonu indirme öneririz **Tamam'ı tıklatmadan önce** küme oluşturmak için. Ayrıntılar için başvurmak [bir Azure Resource Manager şablonu kullanarak bir Service Fabric kümesi ayarlayın](service-fabric-cluster-creation-via-arm.md). Portalı kullanarak bazı değişiklik yapılamıyor çünkü daha sonra değişiklikler yapmak için şablonu gerekir.
 
-### <a name="deploy-hello-diagnostics-extension-as-part-of-cluster-creation-by-using-azure-resource-manager"></a>Azure Kaynak Yöneticisi'ni kullanarak küme oluşturmanın bir parçası olarak Hello tanılama uzantısını dağıtma
-Merhaba küme oluşturmadan önce toocreate Kaynak Yöneticisi'ni kullanarak bir küme, tooadd hello tanılama yapılandırması JSON toohello tam küme Resource Manager şablonu gerekir. Eklenen tanılama yapılandırması bir örnek beş VM küme Resource Manager şablonu sağladığımız tooit Resource Manager şablonu örneklerimizi bir parçası olarak. Bu konumda hello Azure Örnekleri Galerisi bkz: [beş düğümlü kümeyi tanılama Resource Manager şablonu örneği ile](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad).
+### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-by-using-azure-resource-manager"></a>Azure Kaynak Yöneticisi'ni kullanarak küme oluşturmanın bir parçası olarak tanılama uzantısını dağıtma
+Kaynak Yöneticisi'ni kullanarak bir küme oluşturmak için küme oluşturmadan önce tam küme Resource Manager şablonu JSON tanılama yapılandırması eklemeniz gerekir. Resource Manager şablonu örneklerimizi parçası olarak eklenecek tanılama yapılandırması içeren bir örnek beş VM küme Resource Manager şablonu sunuyoruz. Azure Örnekler Galerisi bu konumda bkz: [beş düğümlü kümeyi tanılama Resource Manager şablonu örneği ile](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype-wad).
 
-toosee hello tanılama ayarını hello Resource Manager şablonu, açık hello azuredeploy.json dosyasını ve arama **IaaSDiagnostics**. Bu şablon, select hello'ı kullanarak bir küme toocreate **tooAzure dağıtmak** düğmesini hello önceki bağlantıda kullanılabilir.
+Resource Manager şablonu tanılama ayarında görmek için azuredeploy.json dosyasını açın ve arama **IaaSDiagnostics**. Bu şablonu kullanarak bir küme oluşturmak için seçin **Azure'a Dağıt** düğmesini önceki bağlantıda kullanılabilir.
 
-Alternatif olarak, hello Resource Manager örnek indirebilir, değişiklikleri tooit olun ve hello kullanarak hello değiştirilmiş şablonu ile bir küme oluşturma `New-AzureRmResourceGroupDeployment` bir Azure PowerShell penceresinde komutu. Kod toohello komutta geçirdiğiniz hello parametreleri için aşağıdaki hello bakın. Merhaba makale toodeploy bir kaynak grup PowerShell kullanarak nasıl hakkında ayrıntılı bilgi için bkz [hello Azure Resource Manager şablonu ile bir kaynak grubu dağıtma](../azure-resource-manager/resource-group-template-deploy.md).
+Alternatif olarak, Resource Manager örnek indirebilir, değişiklik ve kullanarak bir küme ile değiştirilen şablon oluşturma `New-AzureRmResourceGroupDeployment` bir Azure PowerShell penceresinde komutu. Aşağıdaki kod, komuta geçirdiğiniz parametreler için bkz. PowerShell kullanarak bir kaynak grubu dağıtma hakkında ayrıntılı bilgi için bkz: [Azure Resource Manager şablonu ile bir kaynak grubu dağıtma](../azure-resource-manager/resource-group-template-deploy.md).
 
-### <a name="deploy-hello-diagnostics-extension-tooan-existing-cluster"></a>Merhaba tanılama uzantısını tooan var olan küme dağıtma
-Dağıtılan tanılama yok varolan bir kümeye varsa veya toomodify var olan yapılandırmasını istiyorsanız, ekleyebilir veya güncelleştirebilir. Kullanılan toocreate hello var olan kümesinin hello Resource Manager şablonu değiştirin veya daha önce açıklandığı gibi hello portalından hello şablonu indirin. Merhaba aşağıdaki görevleri gerçekleştirerek Hello template.json dosyasını değiştirin.
+### <a name="deploy-the-diagnostics-extension-to-an-existing-cluster"></a>Varolan bir kümeye tanılama uzantısını dağıtma
+Dağıtılan tanılama yok varolan bir kümeye varsa veya var olan yapılandırmasını değiştirmek istiyorsanız, ekleyebilir veya güncelleştirebilir. Var olan küme oluşturmak veya daha önce açıklandığı gibi portaldan şablonu karşıdan yüklemek için kullanılan Resource Manager şablonu değiştirin. Aşağıdaki görevleri gerçekleştirerek template.json dosyasını değiştirin.
 
-Yeni bir depolama kaynak toohello şablonu toohello kaynakları bölümü ekleme.
+Yeni bir depolama kaynağı kaynaklar bölümüne ekleyerek şablonuna ekleyin.
 
 ```json
 {
@@ -89,7 +89,7 @@ Yeni bir depolama kaynak toohello şablonu toohello kaynakları bölümü ekleme
 },
 ```
 
- Ardından, toohello parametreleri yalnızca hello depolama hesabı tanımlarını sonra arasında bölüm eklemek `supportLogStorageAccountName` ve `vmNodeType0Name`. Merhaba yer tutucu metni değiştirmek *depolama hesabı adı buraya* hello depolama hesabı hello adı.
+ Ardından, parametreleri bölüme yalnızca depolama hesabı tanımlarını sonra arasında eklemek `supportLogStorageAccountName` ve `vmNodeType0Name`. Yer tutucu metni değiştirmek *depolama hesabı adı buraya* depolama hesabı adı.
 
 ```json
     "applicationDiagnosticsStorageAccountType": {
@@ -100,18 +100,18 @@ Yeni bir depolama kaynak toohello şablonu toohello kaynakları bölümü ekleme
       ],
       "defaultValue": "Standard_LRS",
       "metadata": {
-        "description": "Replication option for hello application diagnostics storage account"
+        "description": "Replication option for the application diagnostics storage account"
       }
     },
     "applicationDiagnosticsStorageAccountName": {
       "type": "string",
       "defaultValue": "storage account name goes here",
       "metadata": {
-        "description": "Name for hello storage account that contains application diagnostics data from hello cluster"
+        "description": "Name for the storage account that contains application diagnostics data from the cluster"
       }
     },
 ```
-Ardından, hello güncelleştirin `VirtualMachineProfile` hello uzantıları dizi koddan hello ekleyerek hello template.json dosyasının bölümü. Emin tooadd hello başındaki veya burada eklenen bağlı olarak hello son virgül olabilir.
+Ardından, güncelleştirme `VirtualMachineProfile` uzantıları dizi içinde aşağıdaki kodu ekleyerek template.json dosyasının bölümü. Başında veya burada eklenen bağlı olarak bitiş virgül eklediğinizden emin olun.
 
 ```json
 {
@@ -168,13 +168,13 @@ Ardından, hello güncelleştirin `VirtualMachineProfile` hello uzantıları diz
 }
 ```
 
-Açıklandığı gibi hello template.json dosyasını değiştirdikten sonra hello Resource Manager şablonunu yeniden yayımlayın. Merhaba şablonu dışarı aktarılmışsa çalışan hello deploy.ps1 dosyasını hello şablonu yeniden yayımlar. Dağıttıktan sonra emin **ProvisioningState** olan **başarılı**.
+Template.json dosyasını açıklandığı şekilde değiştirdikten sonra Resource Manager şablonunu yeniden yayımlayın. Şablonu dışarı aktarılmışsa deploy.ps1 dosyasını çalıştıran şablonu yeniden yayımlar. Dağıttıktan sonra emin **ProvisioningState** olan **başarılı**.
 
 ## <a name="collect-health-and-load-events"></a>Sistem durumu toplama ve olayları yükleme
 
-Service Fabric Hello 5.4 sürümünden başlayarak, sistem durumu ve yük ölçüm olayları koleksiyonu için kullanılabilir. Bu olaylar hello durumu kullanarak hello sistemi veya kodunuzu tarafından oluşturulan olayları yansıtmak veya Raporlama API'leri gibi yük [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) veya [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Bu, toplama ve zaman içinde sistem durumu görüntüleme ve sistem durumu veya yük olaylara dayanarak uyarı verme sağlar. Visual Studio'nun Tanılama Olay Görüntüleyicisi'nde bu olayları eklemek tooview "Microsoft-ServiceFabric:4:0x4000000000000008" toohello ETW sağlayıcılar listesi.
+Service Fabric 5.4 sürümünden itibaren sistem durumu ve yük ölçüm olayları koleksiyonu için kullanılabilir. Bu olaylar Sistem kullanarak sistem veya kodunuzu tarafından oluşturulan olayları yansıtmak veya Raporlama API'leri gibi yük [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) veya [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Bu, toplama ve zaman içinde sistem durumu görüntüleme ve sistem durumu veya yük olaylara dayanarak uyarı verme sağlar. Visual Studio'nun Tanılama Olay Görüntüleyicisi'nde bu olayları görüntülemek için Ekle "Microsoft-ServiceFabric:4:0x4000000000000008" ETW sağlayıcılar listesi.
 
-toocollect hello olaylar, değişiklik hello Resource Manager şablonu tooinclude
+Olaylarını toplamak için dahil etmek için Resource Manager şablonu değiştirin.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -191,11 +191,11 @@ toocollect hello olaylar, değişiklik hello Resource Manager şablonu tooinclud
 
 ## <a name="collect-reverse-proxy-events"></a>Ters proxy olaylarını Topla
 
-Service Fabric Hello 5.7 sürümünden başlayarak [ters proxy](service-fabric-reverseproxy.md) olayları koleksiyonu için kullanılabilir.
-Ters proxy iki kanallarına bir içeren hata olayları yayar yansıtma olayları istek işleme hataları ve başka bir hello ters proxy işlenen tüm hello istekler hakkında ayrıntılı olayları içeren hello. 
+Service Fabric 5.7 sürümünden başlayarak [ters proxy](service-fabric-reverseproxy.md) olayları koleksiyonu için kullanılabilir.
+Ters proxy olayları bir istek hataları ve tüm istekler hakkında ayrıntılı olayları içeren başka bir işleme yansıtarak içeren hata olayları ters proxy işlenen iki kanalı halinde yayar. 
 
-1. Hatası olaylarını Topla: Visual Studio'nun Tanılama Olay Görüntüleyicisi'nde bu olayları eklemek tooview "Microsoft-ServiceFabric:4:0x4000000000000010" toohello ETW sağlayıcılar listesi.
-Azure kümeleri toocollect hello olaylarından hello Resource Manager şablonu tooinclude değiştirme
+1. Hatası olaylarını Topla: görüntülemek için bu olayları Visual Studio'nun Tanılama Olay Görüntüleyicisi'nde Ekle "Microsoft-ServiceFabric:4:0x4000000000000010" ETW sağlayıcılar listesi.
+Azure kümelerdeki olaylarını toplamak için dahil etmek için Resource Manager şablonu değiştirin
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -210,8 +210,8 @@ Azure kümeleri toocollect hello olaylarından hello Resource Manager şablonu t
     }
 ```
 
-2. Toplama tüm olayları işlemeyi istek: Visual Studio'da 's Tanılama Olay Görüntüleyicisi'ni güncelleştirme hello Microsoft ServiceFabric girişi hello ETW sağlayıcı listesi çok "Microsoft-ServiceFabric:4:0x4000000000000020".
-Azure Service Fabric kümeleri için hello resource manager şablonu tooinclude değiştirme
+2. Toplama tüm olayları işlemeyi istek: içinde Visual Studio'nun Tanılama Olay Görüntüleyicisi'ni ETW sağlayıcı listesine güncelleştirme Microsoft ServiceFabric girişinde "Microsoft-ServiceFabric:4:0x4000000000000020".
+Azure Service Fabric kümeleri için dahil etmek için resource manager şablonu değiştirme
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -225,18 +225,18 @@ Azure Service Fabric kümeleri için hello resource manager şablonu tooinclude 
       }
     }
 ```
-> Bu tüm trafiğini hello ters proxy üzerinden toplar ve depolama kapasitesini hızlıca tüketebileceği toojudiciously etkinleştir toplama olayları bu kanal önerilir.
+> Bu ters proxy aracılığıyla tüm trafiği toplar ve depolama kapasitesini hızlıca tüketebileceği gibi bu kanal toplama olaylarından dikkatli etkinleştirilmesi önerilir.
 
-Azure Service Fabric kümeleri için tüm hello düğümlerinden hello olayları toplanır ve hello SystemEventTable bir araya getirilir.
-Ayrıntılı Hello ters proxy olaylarını sorun giderme için hello başvuran [ters proxy tanılama Kılavuzu](service-fabric-reverse-proxy-diagnostics.md).
+Azure Service Fabric kümeleri için tüm düğümler olaylardan toplanır ve SystemEventTable bir araya getirilir.
+Ayrıntılı ters proxy olaylarını sorun giderme için başvuruda [ters proxy tanılama Kılavuzu](service-fabric-reverse-proxy-diagnostics.md).
 
 ## <a name="collect-from-new-eventsource-channels"></a>Yeni EventSource kanaldan Topla
 
-tooupdate tanılama toocollect toodeploy hakkında olduğunuz yeni bir uygulama temsil eden yeni EventSource kanallar günlüklerinden tanılama hello Kurulum var olan bir küme için için aynı adımları daha önce açıklandığı gibi hello gerçekleştirir.
+Yeni bir uygulama, olduğunuz hakkında dağıtmak için gerçekleştirmenizi aynı temsil eden yeni EventSource kanaldan günlükleri toplamak için tanılama güncelleştirmek için varolan bir tanılama kurulumu için daha önce açıklanan adımları küme.
 
-Merhaba güncelleştirme `EtwEventSourceProviderConfiguration` hello kullanarak hello yapılandırma uygulamadan önce hello yeni EventSource kanallar güncelleştirmek için hello template.json dosyasını tooadd girişlerinde bölümünde `New-AzureRmResourceGroupDeployment` PowerShell komutu. Merhaba olay kaynağı Hello adını hello ServiceEventSource.cs Visual Studio tarafından oluşturulan dosya kodunuzda bir parçası olarak tanımlanır.
+Güncelleştirme `EtwEventSourceProviderConfiguration` yapılandırma uygulamadan önce yeni EventSource kanalları kullanarak güncelleştirmek için girdileri eklemek için template.json dosyasını bölümünde `New-AzureRmResourceGroupDeployment` PowerShell komutu. Olay kaynağı adı, kodunuz Visual Studio tarafından oluşturulan ServiceEventSource.cs dosyasındaki bir parçası olarak tanımlanır.
 
-Olay kaynağı Eventsource My olarak adlandırılmışsa, örneğin, kod tooplace hello olayları Eventsource My MyDestinationTableName adlı bir tabloya aşağıdaki hello ekleyin.
+Örneğin, olay kaynağı Eventsource My adlandırılmışsa Eventsource My olayların MyDestinationTableName adlı bir tabloya yerleştirmek için aşağıdaki kodu ekleyin.
 
 ```json
         {
@@ -248,13 +248,13 @@ Olay kaynağı Eventsource My olarak adlandırılmışsa, örneğin, kod tooplac
         }
 ```
 
-toocollect performans sayaçlarını veya olay günlükleri, değişiklik hello Resource Manager şablonu sağlanan hello örnekleri kullanarak [bir Azure Resource Manager şablonukullanılarakizlemeveTanılamaileWindowssanalmakineoluşturma](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Ardından, hello Resource Manager şablonunu yeniden yayımlayın.
+Performans sayaçlarını veya olayları toplamak için Resource Manager şablonu sağlanan örnekler kullanarak değiştirme [bir Azure Resource Manager şablonu kullanarak bir Windows sanal makine izleme ve tanılama oluşturmak](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Ardından, Resource Manager şablonunu yeniden yayımlayın.
 
 ## <a name="collect-performance-counters"></a>Performans sayaçlarını Topla
 
-Kümenizde toocollect performans ölçümleri kümenizin hello Resource Manager şablonunda hello performans sayaçları tooyour "WadCfg > DiagnosticMonitorConfiguration" ekleyin. Bkz: [Service Fabric performans sayaçları](service-fabric-diagnostics-event-generation-perf.md) performans sayaçları için toplama öneririz.
+Kümenizden performans ölçümlerini derleme için "WadCfg > DiagnosticMonitorConfiguration" kümeniz için Resource Manager şablonunda performans sayaçları ekleyin. Bkz: [Service Fabric performans sayaçları](service-fabric-diagnostics-event-generation-perf.md) performans sayaçları için toplama öneririz.
 
-Örneğin, burada örneklenen 15 dakikada bir performans sayacı ayarlarız (Bu değiştirilebilir ve aşağıdaki biçimi hello "PT\<zaman >\<birim >", PT3M üç dakikalık aralıklarla Örneğin, örnek) ve toohello aktarıldı uygun depolama tablo her bir dakika.
+Örneğin, burada örneklenen 15 dakikada bir performans sayacı ayarlarız (Bu değiştirilebilir ve biçimi izler "PT\<zaman >\<birim >", örneğin, PT3M üç dakikalık aralıklarla örnek) ve aktarılan için uygun depolama tablo her bir dakika.
 
   ```json
   "PerformanceCounters": {
@@ -272,20 +272,20 @@ Kümenizde toocollect performans ölçümleri kümenizin hello Resource Manager 
   }
   ```
   
-Application Insights havuz hello aşağıdaki bölümde açıklandığı gibi kullanıyorsanız ve bu ölçümleri tooshow Application Insights'ta istediğiniz, emin tooadd hello havuz adı yukarıda gösterildiği gibi hello "havuzlarını" bölümünde olun. Bunlar hello yönelik kitle olmayan şekilde Ayrıca, performans sayaçları için ayrı bir tablo toosend oluşturmayı düşünün gelen veri hello etkinleştirdiğiniz diğer günlük kanalları.
+Aşağıdaki bölümde açıklandığı gibi bir Application Insights havuz kullanıyorsanız ve bu ölçümleri Application Insights'ta gösterilmesini istiyorsanız sonra yukarıda gösterildiği gibi "havuzlarını" bölümünde havuz adı eklediğinizden emin olun. Ayrıca, bunlar etkinleştirdiğiniz diğer günlük kanaldan gelen veriler kullanıma yönelik kitle olmayan şekilde, performans sayaçları için göndermek için ayrı bir tablo oluşturmayı düşünün.
 
 
-## <a name="send-logs-tooapplication-insights"></a>Gönderme tooApplication Öngörüler günlüğe kaydeder
+## <a name="send-logs-to-application-insights"></a>Günlükleri Application Insights'a gönderme
 
-İzleme ve tanılama veri tooApplication Öngörüler (AI) gönderme hello WAD yapılandırmasının bir parçası yapılabilir. Olay çözümleme ve görselleştirme için AI toouse karar verirseniz, okuma [olay çözümleme ve görselleştirme Application Insights ile](service-fabric-diagnostics-event-analysis-appinsights.md) tooset AI havuz, "WadCfg" nın bir parçası olarak ayarlama.
+Uygulama Öngörüler (AI) izleme ve Tanılama verileri gönderme WAD yapılandırmasının bir parçası yapılabilir. Olay çözümleme ve görselleştirme için AI kullanmaya karar verirseniz, okuma [olay çözümleme ve görselleştirme Application Insights ile](service-fabric-diagnostics-event-analysis-appinsights.md) , "WadCfg" bir parçası olarak bir AI havuzunu kurmak için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure tanılama doğru şekilde yapılandırdıktan sonra hello ETW ve EventSource günlükler, depolama tablolardaki verileri görürsünüz. Toouse OMS seçerseniz, Kibana ya da doğrudan hello Resource Manager şablonunda yapılandırılmamış başka bir veri analizi ve görselleştirme platform olun, seçim tooread hello platformunu oluşturan emin tooset bu depolama tablolardan hello verilerdeki. Bunu yapmak için OMS görece önemsiz ve içinde açıklanan [OMS olay ve Günlük çözümlemesi](service-fabric-diagnostics-event-analysis-oms.md). Application Insights biraz bu bağlamda bir özel durum, hello tanılama uzantı yapılandırmasını bir parçası olarak yapılandırıldıktan sonra bu nedenle toohello başvuran [uygun makale](service-fabric-diagnostics-event-analysis-appinsights.md) toouse AI seçerseniz.
+Azure tanılama doğru şekilde yapılandırdıktan sonra ETW ve EventSource günlüklerinden, depolama tablolardaki verileri görürsünüz. OMS, Kibana veya doğrudan Resource Manager şablonunda yapılandırılmamış başka bir veri analizi ve görselleştirme platform kullanmayı seçerseniz, bu depolama tablolardaki verileri okumak için seçtiğiniz platform ayarlamak emin olun. Bunu yapmak için OMS görece önemsiz ve içinde açıklanan [OMS olay ve Günlük çözümlemesi](service-fabric-diagnostics-event-analysis-oms.md). Application Insights biraz bu bağlamda bir özel durum, bu nedenle başvurmak tanılama uzantı yapılandırmasını bir parçası olarak yapılandırıldıktan sonra [uygun makale](service-fabric-diagnostics-event-analysis-appinsights.md) AI kullanmayı tercih ederseniz.
 
 >[!NOTE]
->Şu anda toohello tablo gönderilen yolu toofilter veya Temizle hello olayı yok. Bir işlem tooremove olaylarını hello tablosundan uygularsanız yok hello tablo toogrow devam eder. Şu anda hello çalışan bir veri temizleme hizmet örneği yoktur [izleme örnek](https://github.com/Azure-Samples/service-fabric-watchdog-service), ve olmadığı sürece, 30 veya 90 günlük süre toostore kaydettiği iyi nedeni için kendiniz bir tane de yazma önerilir.
+>Şu anda filtre veya tabloya gönderilen olaylar bölümlendirmek mümkün değildir. Olayları tablodan kaldırmak için bir işlem uygulayın yok, tablo büyümeye devam edecek. Şu anda çalışan bir veri temizleme hizmeti örneği yok [izleme örnek](https://github.com/Azure-Samples/service-fabric-watchdog-service), ve 30 veya 90 günlük süre kaydettiği depolamak için iyi bir neden olmadıkça kendiniz için bir tane de yazma önerilir.
 
-* [Tanılama uzantısını toocollect performans sayaçlarını veya kullanarak günlükleri nasıl hello öğrenin](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Tanılama uzantısını kullanarak performans sayaçlarını veya günlükleri toplamak öğrenin](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Olay çözümleme ve görselleştirme Application Insights ile](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Olay çözümleme ve OMS Görselleştirme](service-fabric-diagnostics-event-analysis-oms.md)

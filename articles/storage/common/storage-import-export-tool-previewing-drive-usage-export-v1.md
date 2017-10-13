@@ -1,6 +1,6 @@
 ---
-title: "bir Azure içeri/dışarı aktarma dışarı aktarma işinin - v1 için sürücü kullanımı aaaPreviewing | Microsoft Docs"
-description: "Nasıl toopreview hello BLOB'ları listesi hello Azure içeri/dışarı aktarma hizmetinde dışa aktarma işi için seçtiğiniz öğrenin."
+title: "Bir Azure içeri/dışarı aktarma dışarı aktarma işinin - v1 için sürücü kullanımı Önizleme | Microsoft Docs"
+description: "Azure içeri/dışarı aktarma hizmetinde dışa aktarma işi için seçtiğiniz BLOB'ları listesi Önizleme öğrenin."
 author: muralikk
 manager: syadav
 editor: tysonn
@@ -14,39 +14,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: 7378c159f6d11702cda9ae7654e84d85f9b671b3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6ec74ae0b0931f3fed99a43f4f7e58f9d425b138
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>Dışarı aktarma işi için sürücü kullanımının önizlemesini yapma
-Bir dışarı aktarma işinin oluşturmadan önce bir dizi BLOB toobe dışarı toochoose gerekir. Seçtiğiniz toorepresent hello BLOB'lar blob önekleri veya Hello Microsoft Azure içeri/dışarı aktarma hizmeti toouse blob yolların listesini sağlar.  
+Bir dışarı aktarma işinin oluşturmadan önce BLOB'ları dışarı kümesini seçmeniz gerekir. Microsoft Azure içeri/dışarı aktarma hizmeti, blob yolların listesini kullanın veya seçtiğiniz BLOB'ları temsil etmek için önekleri blob olanak sağlar.  
   
-Ardından, kaç tane sürücülere toodetermine ihtiyaç toosend gerekir. Merhaba içeri/dışarı aktarma aracı sağlar hello `PreviewExport` seçtiğiniz hello BLOB'lar için komut toopreview sürücü kullanımı, hello hello sürücüleri boyutuna göre toouse adımıdır.
+Ardından, göndermesi gerekir. kaç tane sürücüleri belirlemeniz gerekir. İçeri/dışarı aktarma aracı sağlar `PreviewExport` bulacağınızı kullanmak için seçtiğiniz BLOB tabanlı için sürücüleri boyutuna sürücü kullanımı önizlemesini görmek için komutu.
 
 ## <a name="command-line-parameters"></a>Komut satırı parametreleri
 
-Merhaba kullanırken şu parametreler hello kullanabilirsiniz `PreviewExport` hello içeri/dışarı aktarma aracı komutu.
+Kullanırken aşağıdaki parametreleri kullanabilirsiniz `PreviewExport` içeri/dışarı aktarma aracı komutu.
 
 |Komut satırı parametresi|Açıklama|  
 |--------------------------|-----------------|  
-|**/ LOGDIR:**< LogDirectory\>|İsteğe bağlı. Merhaba günlük dosyası dizini. Ayrıntılı günlük dosyalarını toothis dizin yazılır. Günlük dizini belirtilirse, hello geçerli dizin hello günlük dizini kullanılır.|  
-|**/sn:**< StorageAccountName\>|Gereklidir. Merhaba depolama hesabının adını Hello hello için iş verin.|  
-|**/SK:**< StorageAccountKey\>|Bir kapsayıcı SAS varsa ve yalnızca belirtilmemişse gereklidir. Merhaba hesap anahtarı hello depolama hesabı hello için iş verin.|  
-|**/csas:**< ContainerSas\>|Bir depolama hesabı anahtarı varsa ve yalnızca belirtilmemişse gerekli. Liste hello BLOB'lar toobe için Hello kapsayıcı SAS hello dışarı aktarma işinin dışarı.|  
-|**/ ExportBlobListFile:**< ExportBlobListFile\>|Gereklidir. Yol toohello XML içeren blob yollar listesi dosya veya yol önekleri dışarı hello BLOB'lar toobe için blob. Hello kullanılan hello dosya biçimi `BlobListBlobPath` hello öğesinde [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) hello içeri/dışarı aktarma hizmeti REST API'si işlemi.|  
-|**/ DriveSize:**< DriveSize\>|Gereklidir. Merhaba bir dışa aktarma işi için sürücüleri toouse boyutunu *ör*, 500 GB, 1,5 TB.|  
+|**/ LOGDIR:**< LogDirectory\>|İsteğe bağlı. Günlük dosyası dizini. Bu dizin için ayrıntılı günlük dosyalarına yazılır. Günlük dizini belirtilmezse, geçerli dizin günlük dizini olarak kullanılır.|  
+|**/sn:**< StorageAccountName\>|Gerekli. Dışa aktarma işi için depolama hesabı adı.|  
+|**/SK:**< StorageAccountKey\>|Bir kapsayıcı SAS varsa ve yalnızca belirtilmemişse gereklidir. Dışa aktarma işi için depolama hesabı için hesap anahtarı.|  
+|**/csas:**< ContainerSas\>|Bir depolama hesabı anahtarı varsa ve yalnızca belirtilmemişse gerekli. BLOB'ları dışarı aktarma işinin dışarı aktarılmasına izin listesi için kapsayıcı SAS.|  
+|**/ ExportBlobListFile:**< ExportBlobListFile\>|Gerekli. XML yolu içeren blob yollar listesi dosya veya yol önekleri verilecek BLOB'ları için blob. Kullanılan dosya biçimi `BlobListBlobPath` öğesinde [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) içeri/dışarı aktarma hizmeti REST API'si işlemi.|  
+|**/ DriveSize:**< DriveSize\>|Gerekli. Bir dışarı aktarma işi için kullanılacak sürücüleri boyutunu *ör*, 500 GB, 1,5 TB.|  
 
 ## <a name="command-line-example"></a>Komut satırı örneği
 
-Merhaba aşağıdaki örnekte gösterilmiştir hello `PreviewExport` komutu:  
+Aşağıdaki örnekte gösterilmiştir `PreviewExport` komutu:  
   
 ```  
 WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB    
 ```  
   
-Merhaba ve dışa aktarma blob listesi dosyasının blob adları içeren önekleri, aşağıda gösterildiği gibi blob:  
+Dışarı aktarma blob listeyi dosyası blob adları içeren ve önekleri, aşağıda gösterildiği gibi blob olabilir:  
   
 ```xml 
 <?xml version="1.0" encoding="utf-8"?>  
@@ -57,9 +57,9 @@ Merhaba ve dışa aktarma blob listesi dosyasının blob adları içeren önekle
 </BlobList>  
 ```
 
-Hello Azure içeri/dışarı aktarma aracı dışarı aktarılan tüm BLOB'ları toobe listeler ve nasıl hello sürücülerin bunlara boyutu gerekli tüm ek yükü dikkate alarak, ardından sürücü hello sayısı tahminleri belirtilen toopack toohold hello BLOB'ları ve sürücü kullanımını gerekli hesaplar bilgi.  
+Azure içeri/dışarı aktarma aracı verilecek tüm BLOB'ları listeler ve gerekli tüm ek yükü dikkate alarak belirtilen boyutu, sürücü halinde paketlemek nasıl hesaplar, sonra BLOB'ları ve sürücü kullanım bilgilerini tutmak için gerekli sürücüleri sayısını tahmin eder.  
   
-Atlanmış bilgilendirme günlükleriyle hello çıktısı örneği şöyledir:  
+Atlanmış bilgilendirme günlükleriyle çıktısı örneği şöyledir:  
   
 ```  
 Number of unique blob paths/prefixes:   3  

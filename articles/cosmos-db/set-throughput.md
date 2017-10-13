@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB aaaProvision verimliliğini | Microsoft Docs"
-description: "Nasıl tooset, Azure Cosmos DB containsers, koleksiyonları, grafikler ve tablolar için işleme sağlanan öğrenin."
+title: "Azure Cosmos DB sağlama verimliliğini | Microsoft Docs"
+description: "Azure Cosmos DB containsers, koleksiyonları, grafikler ve tablolar için sağlanan işleme ayarlanacağını öğrenin."
 services: cosmos-db
 author: mimig1
 manager: jhubbard
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: mimig
-ms.openlocfilehash: c143f4aace466b7109168a50e2eb80ddeca6400e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d541bb19ba7e5ecb44c9fe91b1e232d4d9c2170e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Azure Cosmos DB kapsayıcıları için kümesi işleme
 
-Hello Azure portal, Azure Cosmos DB kapsayıcıları için işleme ayarlayabilir veya istemci SDK'ları kullanarak hello. 
+Azure portalında veya istemci SDK'ları kullanarak, Azure Cosmos DB kapsayıcıları için işleme ayarlayabilirsiniz. 
 
-Aşağıdaki tablonun hello hello işleme için kapsayıcıları kullanılabilir listeler:
+Aşağıdaki tabloda, üretilen iş için kapsayıcıları kullanılabilir listelenmektedir:
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>
@@ -46,43 +46,43 @@ Aşağıdaki tablonun hello hello işleme için kapsayıcıları kullanılabilir
     </tbody>
 </table>
 
-## <a name="tooset-hello-throughput-by-using-hello-azure-portal"></a>hello Azure portal kullanarak tooset hello işleme
+## <a name="to-set-the-throughput-by-using-the-azure-portal"></a>Azure portalını kullanarak üretilen işi ayarlamak için
 
-1. Merhaba yeni bir pencerede açmak [Azure portal](https://portal.azure.com).
-2. Merhaba sol çubuğunda **Azure Cosmos DB**, veya **daha Hizmetleri** hello kısımda, ardından çok kaydırın**veritabanları**ve ardından **Azure Cosmos DB**.
+1. Yeni bir pencerede açmak [Azure portal](https://portal.azure.com).
+2. Sol çubuğunda **Azure Cosmos DB**, veya **daha Hizmetleri** kısımda, daha sonra kaydırın **veritabanları**ve ardından **Azure Cosmos DB**.
 3. Cosmos DB hesabınızı seçin.
-4. Merhaba yeni penceresinde **Veri Gezgini (Önizleme)** hello Gezinti menüsünde.
-5. Merhaba yeni pencerede, veritabanı ve kapsayıcısını genişletin ve ardından **ölçek & ayarları**.
-6. Merhaba yeni penceresinde hello hello yeni işleme değeri yazın **işleme** kutusuna ve ardından **kaydetmek**.
+4. Yeni pencerede **Veri Gezgini (Önizleme)** Gezinti menüsünde.
+5. Yeni pencerede, veritabanı ve kapsayıcısını genişletin ve ardından **ölçek & ayarları**.
+6. Yeni pencerede yeni işleme değeri yazın **işleme** kutusuna ve ardından **kaydetmek**.
 
 <a id="set-throughput-sdk"></a>
 
-## <a name="tooset-hello-throughput-by-using-hello-documentdb-api-for-net"></a>.NET için hello DocumentDB API kullanarak tooset hello işleme
+## <a name="to-set-the-throughput-by-using-the-documentdb-api-for-net"></a>.NET için DocumentDB API'sini kullanarak üretilen işi ayarlamak için
 
 ```C#
-//Fetch hello resource toobe updated
+//Fetch the resource to be updated
 Offer offer = client.CreateOfferQuery()
     .Where(r => r.ResourceLink == collection.SelfLink)    
     .AsEnumerable()
     .SingleOrDefault();
 
-// Set hello throughput toohello new value, for example 12,000 request units per second
+// Set the throughput to the new value, for example 12,000 request units per second
 offer = new OfferV2(offer, 12000);
 
-//Now persist these changes toohello database by replacing hello original resource
+//Now persist these changes to the database by replacing the original resource
 await client.ReplaceOfferAsync(offer);
 ```
 
 ## <a name="throughput-faq"></a>Üretilen iş ile ilgili SSS
 
-**My verimlilik tooless 400 RU/s daha ayarlayabilir miyim?**
+**My verimlilik değerinden 400 RU/s ayarlayabilir miyim?**
 
-400 RU/s hello en düşük işleme Cosmos DB tek bölüm koleksiyonları (2500 RU/s hello bölümlenmiş koleksiyonlar için en düşük olduğu) üzerinde kullanılabilir değil. İstek birimleri 100 RU/s aralıklarla ayarlanmış, ancak işleme too100 RU/s veya herhangi bir değer 400 RU/s değerinden küçük olacak şekilde ayarlanamaz. İçin uygun maliyetli yöntemi toodevelop arıyorsanız ve Cosmos DB test, hello ücretsiz kullanabilirsiniz [Azure Cosmos DB öykünücüsü](local-emulator.md), hangi hiçbir ücret yerel olarak dağıtabilirsiniz. 
+Cosmos DB tek bölüm koleksiyonları (2500 RU/s bölümlenmiş koleksiyonlar için en düşük gereksinimdir) üzerinde kullanılabilir en düşük işleme 400 RU/s olur. İstek birimleri 100 RU/s aralıklarla ayarlanmış, ancak işleme 100 RU/s veya herhangi bir değer 400 RU/s küçük olacak şekilde ayarlanamaz. Geliştirmek ve Cosmos DB sınamak için uygun maliyetli bir yöntem arıyorsanız, ücretsiz kullanabileceğiniz [Azure Cosmos DB öykünücüsü](local-emulator.md), hangi hiçbir ücret yerel olarak dağıtabilirsiniz. 
 
-**Merhaba MongoDB API kullanarak througput nasıl ayarlarım?**
+**MongoDB API kullanarak througput nasıl ayarlarım?**
 
-Hiçbir MongoDB API uzantısı tooset verimlilik yoktur. Merhaba toouse hello DocumentDB API gösterildiği gibi önerilir [tooset hello işleme için .NET hello DocumentDB API kullanarak](#set-throughput-sdk).
+Üretilen iş ayarlamak için MongoDB API uzantısı yok. DocumentDB API kullanan gösterildiği gibi önerilir [.NET için DocumentDB API'sini kullanarak üretilen işi ayarlamak için](#set-throughput-sdk).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-sağlama ve devam eden planet ölçekli Cosmos DB ile hakkında daha fazla toolearn bkz [bölümleme ve Cosmos DB ile ölçeklendirme](partition-data.md).
+Sağlama ve devam eden planet ölçekli Cosmos DB ile hakkında daha fazla bilgi için bkz: [bölümleme ve Cosmos DB ile ölçeklendirme](partition-data.md).

@@ -1,16 +1,16 @@
 > [!NOTE]
-> * eski bir SKU tooa geçirilirken Hello VPN ağ geçidi genel IP adresini değiştirir yeni SKU.
-> * Klasik VPN ağ geçitleri toohello geçiremezsiniz yeni SKU'ları. Merhaba (eski) SKU'ları eski Classic VPN ağ geçitleri can yalnızca kullanın.
+> * Eski bir SKU'dan yeni bir SKU'ya geçiş yapılırken VPN ağ geçidi Genel IP adresi değişir.
+> * Klasik VPN ağ geçitlerini yeni SKU’lara geçiremezsiniz. Klasik VPN ağ geçitleri yalnızca eski SKU'ları kullanabilir.
 > 
 
-Azure VPN boyutlandırılamaz ağ geçitleri arasında eski SKU'ları hello ve hello yeni SKU ailesi. Merhaba hello SKU'ları eski sürümünü kullanarak VPN ağ geçitleri hello Resource Manager dağıtım modelinde varsa, toohello geçirebilirsiniz yeni SKU'ları. toomigrate, sanal ağınız için hello mevcut VPN ağ geçidini silin ve yeni bir tane oluşturun.
+Azure VPN ağ geçitlerinizi eski SKU'lar ve yeni SKU aileleri arasında yeniden boyutlandıramazsınız. Resource Manager dağıtım modelinde SKU'ların daha eski bir sürümünü kullanan VPN ağ geçitleriniz varsa yeni SKU'lara geçiş yapabilirsiniz. Geçiş yapmak için sanal ağınıza ilişkin mevcut VPN ağ geçidini silip yeni bir ağ geçidi oluşturursunuz.
 
 Geçiş iş akışı:
 
-1. Tüm bağlantılar toohello sanal ağ geçidi kaldırın.
-2. Merhaba eski VPN ağ geçidini silin.
-3. Merhaba yeni VPN ağ geçidi oluşturun.
-4. Merhaba yeni VPN ağ geçidi IP adresi (siteden siteye bağlantılar için) ile şirket içi VPN cihazlarınızı güncelleştirin.
-5. Merhaba ağ geçidi IP adresi toothis ağ geçidi bağlanacak VNet-VNet yerel ağ geçitlerinin değerini güncelleştirin.
-6. Bu VPN ağ geçidi üzerinden toohello sanal ağa bağlanma P2S istemciler için yeni istemci VPN yapılandırma paketlerini yükleyin.
-7. Merhaba bağlantıları toohello sanal ağ geçidi yeniden oluşturun.
+1. Sanal ağ geçidine ilişkin tüm bağlantıları kesin.
+2. Eski VPN ağ geçidini silin.
+3. Yeni VPN ağ geçidini oluşturun.
+4. Şirket içi VPN cihazlarınızdaki VPN ağ geçidi IP adresini (Siteden Siteye bağlantılar için) yenisi ile güncelleştirin.
+5. Bu ağ geçidine bağlanacak tüm VNet-VNet yerel ağ geçitleri için ağ geçidi IP adresi değerini güncelleştirin.
+6. Bu VPN ağ geçidi yoluyla sanal ağa bağlanan P2S istemcileri için yeni istemci VPN yapılandırma paketlerini indirin.
+7. Sanal ağ geçidine ilişkin tüm bağlantıları yeniden oluşturun.

@@ -1,5 +1,5 @@
 ---
-title: "ExpressRoute bağlantı hatları için aaaNAT gereksinimleri | Microsoft Docs"
+title: "ExpressRoute devreleri için NAT gereksinimleri | Microsoft Azure"
 description: "Bu sayfada, ExpressRoute bağlantı hatları için NAT’yi yapılandırma ve yönetmeye yönelik ayrıntılı gereksinimler sağlanmıştır."
 documentationcenter: na
 services: expressroute
@@ -14,64 +14,64 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: cherylmc
-ms.openlocfilehash: 09a0e841235de3f6b85e32172d7f99f20b5baf54
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: d3de566ff2825ef0c41d88d4a86157dc23d9f46b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-nat-requirements"></a>ExpressRoute NAT gereksinimleri
-ExpressRoute kullanarak, tooconnect tooMicrosoft bulut hizmetlerine yukarı tooset gerekir ve NAT yönetin. Bazı bağlantı sağlayıcıları NAT ayarlama ve yönetimini yönetilen bir hizmet olarak sunar. Bu tür bir hizmet teklifi sunuyorsanız, bağlantı sağlayıcısı toosee ile denetleyin. Aksi durumda, aşağıda açıklanan toohello gereksinimlerine uymalıdır. 
+ExpressRoute kullanarak Microsoft bulut hizmetlerine bağlanmak için, NAT’leri ayarlamanız ve yönetmeniz gerekir. Bazı bağlantı sağlayıcıları NAT ayarlama ve yönetimini yönetilen bir hizmet olarak sunar. Bu tür bir hizmet sunulup sunulmadığını öğrenmek için bağlantı sağlayıcınıza başvurun. Aksi durumda, aşağıda açıklanan gereksinimlere uymalısınız. 
 
-Gözden geçirme hello [ExpressRoute bağlantı hatları ve Yönlendirme etki alanları](expressroute-circuit-peerings.md) çeşitli Yönlendirme etki alanlarına tooget hello genel bakış sayfasında. toomeet hello ortak IP adresi gereksinimleri Azure genel ve Microsoft eşlemesi için NAT'ı kurma ağınız ve Microsoft arasında ayarlamanızı öneririz. Bu bölümde yukarı tooset gereksinim hello NAT altyapısının ayrıntılı bir açıklama sağlar.
+Çeşitli yönlendirme etki alanlarına genel bir bakış için [ExpressRoute bağlantı hatları ve yönlendirme etki alanları](expressroute-circuit-peerings.md) sayfasını gözden geçirin. Azure ortak ve Microsoft eşlemesi için ortak IP adresi gereksinimlerini karşılamak için, NAT’nizi ağınız ve Microsoft arasında ayarlamanızı öneririz. Bu bölümde ayarlamanız gereken NAT altyapısının ayrıntılı bir açıklaması sağlanmıştır.
 
 ## <a name="nat-requirements-for-azure-public-peering"></a>Azure ortak eşleme için NAT gereksinimleri
-Hello Azure ortak eşleme yolu ortak IP adresleri Azure'da barındırılan, tooconnect tooall hizmetleri sağlar. Hello listelenen hizmetleri bunlar [ExpessRoute hakkında SSS](expressroute-faqs.md) ve Microsoft Azure üzerinde ISV'ler tarafından barındırılan tüm hizmetleri. 
+Azure ortak eşleme yolu, Azure’da barındırılan tüm hizmetlere ortak IP adresleri üzerinden bağlanmanıza olanak sağlar. Bunlar [ExpessRoute hakkında SSS](expressroute-faqs.md)’de listelenen tüm hizmetleri ve ISV’ler tarafından Microsoft Azure üzerinde barındırılan hizmetleri içerir. 
 
 > [!IMPORTANT]
-> Bağlantı tooMicrosoft Azure hizmetleri genel eşliği her zaman başlatıldığında ağınızdan hello Microsoft ağına doğru. Bu nedenle, oturumlar, ExpressRoute Microsoft Azure Hizmetleri tooyour ağdan başlatılamaz. Bulamazsa, gönderilen paketlerin toothese IP'leri tanıtılan kullanacağı ExpressRoute yerine Internet hello.
+> Ortak eşleme üzerinden Microsoft Azure hizmetlerine bağlama, her zaman sizin ağınızdan Microsoft ağına doğru başlatılır. Bu nedenle, oturumlar ExpressRoute üzerinden ağınıza Microsoft Azure hizmetlerinden gönderilemez. Bu işlem denenirse, tanıtılan bu IP'lere gönderilen paketler ExpressRoute yerine İnternet kullanır.
 > 
 
-Ortak eşleme hedefleyen trafiğe tooMicrosoft Azure ile Snat toovalid hello Microsoft ağına girmeden önce ortak IPv4 adresleri olmalıdır. Aşağıdaki şekilde Hello toomeet hello gereksinim yukarıda yukarı hello NAT nasıl ayarlanabileceğini gösteren yüksek düzey bir resim sunar.
+Ortak eşlemede Microsoft Azure’u hedefleyen trafiğe, trafik Microsoft ağına girmeden önce geçerli bir ortak IPv4 adresi ile SNAT uygulanmalıdır. Aşağıdaki şekilde NAT’nin yukarıdaki gereksinimi karşılamak için nasıl ayarlanabileceğini gösteren yüksek düzey bir resim sağlanmıştır.
 
 ![](./media/expressroute-nat/expressroute-nat-azure-public.png) 
 
 ### <a name="nat-ip-pool-and-route-advertisements"></a>NAT IP havuzu ve rota tanıtma
-Trafiğin hello geçerli ortak IPv4 adresiyle Azure ortak eşleme yoluna girdiğinden emin olmalısınız. Microsoft, mümkün toovalidate hello hello bölgesel bir yönlendirme Internet kaydı (RIR) veya bir Internet yönlendirme kaydıyla (IRR) IPv4 NAT adres havuzu sahipliğini olması gerekir. Bir onay numarası eşlenen gibi hello üzerinde tabanlı gerçekleştirilir ve NAT hello için kullanılan IP adresleri hello Toohello başvuran [ExpressRoute yönlendirme gereksinimleri](expressroute-routing.md) kayıt defterlerini yönlendirme hakkında bilgi için sayfa.
+Trafiğin geçerli bir ortak IPv4 adresiyle Azure ortak eşleme yoluna girdiğinden emin olmalısınız. Microsoft’un IPv4 NAT adres havuzu sahipliğini bölgesel bir yönlendirme İnternet kaydı (RIR) veya bir İnternet yönlendirme kaydıyla (IRR) karşılaştırarak doğrulayabilmesi gerekir. Eşlenen AS numarası ve NAT için kullanılan IP adreslerine göre bir denetim gerçekleştirilir. Kayıt defterlerini yönlendirme hakkında bilgi için [ExpressRoute yönlendirme gereksinimleri](expressroute-routing.md) sayfasına bakın.
 
-Bu eşleme aracılığıyla tanıtılan NAT IP öneki hello hello uzunluk sınırlaması yoktur. Merhaba NAT havuzunu izlemeniz ve, NAT oturumlarına gerek duyulmadığından emin olmanız gerekir.
+Bu eşleme aracılığıyla tanıtılan NAT IP öneki için bir uzunluk sınırlaması yoktur. NAT havuzunu izlemeniz ve NAT oturumlarına gerek duyulmadığından emin olmanız gerekir.
 
 > [!IMPORTANT]
-> Merhaba NAT IP havuzu tooMicrosoft tanıtılan toohello Internet olmamalıdır tanıtılan. Bu bağlantı tooother Microsoft Hizmetleri çalışmamasına neden olur.
+> Microsoft'a tanıtılan NAT IP havuzu İnternet'e tanıtılmamalıdır. Bu, diğer Microsoft hizmetlerine bağlantıyı keser.
 > 
 > 
 
 ## <a name="nat-requirements-for-microsoft-peering"></a>Microsoft eşlemesi için NAT gereksinimleri
-Merhaba Microsoft eşleme yolu hello Azure ortak eşleme yolu desteklenmeyen tooMicrosoft bulut Hizmetleri bağlanmanıza olanak sağlar. Exchange Online, SharePoint Online, Skype Kurumsal ve Dynamics 365 gibi Office 365 Hizmetleri Hello hizmetleri içerir. Microsoft hello Microsoft eşlemesi üzerinde çift yönlü bağlantı toosupport bekliyor. Giden trafiğe tooMicrosoft bulut Hizmetleri ile Snat toovalid hello Microsoft ağına girmeden önce ortak IPv4 adresleri olmalıdır. Microsoft bulut hizmetlerinden hedefleyen trafiğe tooyour ağ ile Snat olması gerekir, Internet kenar tooprevent [asimetrik yönlendirme](expressroute-asymmetric-routing.md). Aşağıdaki Hello şekilde hello NAT Microsoft eşlemesi için Kurulum nasıl olmalıdır üst düzey bir resim sağlanmıştır.
+Microsoft eşleme yolu, Azure ortak eşleme yolu üzerinden desteklenmeyen Microsoft bulut hizmetlerine bağlanmanızı sağlar. Bunlara Exchange Online, SharePoint Online, Skype Kurumsal ve Dynamics 365 gibi Office 365 hizmetleri dahildir. Microsoft, Microsoft eşlemesi üzerinde çift yönlü bağlantıyı desteklemeyi bekliyor. Microsoft bulut hizmetlerini hedefleyen trafiğe, trafik Microsoft ağına girmeden önce geçerli bir ortak IPv4 adresi ile SNAT uygulanmalıdır. [Asimetrik yönlendirmeyi](expressroute-asymmetric-routing.md) önlemek için, Microsoft bulut hizmetlerinden ağınızı hedefleyen trafiğe İnternet ucunuzda SNAT uygulanmalıdır. Aşağıdaki şekilde NAT’nin Microsoft eşlemesi için nasıl ayarlanacağı gösteren yüksek düzey bir resim sağlanmıştır.
 
 ![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
-### <a name="traffic-originating-from-your-network-destined-toomicrosoft"></a>Ağ hedefleyen tooMicrosoft trafiği
-* Trafiğin geçerli bir ortak IPv4 adresi ile Merhaba Microsoft eşleme yoluna girdiğinden emin olmalısınız. Microsoft, mümkün toovalidate hello sahibi hello IPv4 NAT adres havuzu hello bölgesel yönlendirme internet kaydı (RIR) veya bir internet yönlendirme kaydıyla (IRR) olması gerekir. Bir onay numarası eşlenen gibi hello üzerinde tabanlı gerçekleştirilir ve NAT hello için kullanılan IP adresleri hello Toohello başvuran [ExpressRoute yönlendirme gereksinimleri](expressroute-routing.md) kayıt defterlerini yönlendirme hakkında bilgi için sayfa.
-* Azure ortak eşleme Kurulumu hello için kullanılan IP adresleri ve diğer ExpressRoute bağlantı hatları hello BGP oturumu üzerinden tanıtılan tooMicrosoft olmaması gerekir. Bu eşleme aracılığıyla tanıtılan NAT IP öneki hello hello uzunluk sınırlaması yoktur.
+### <a name="traffic-originating-from-your-network-destined-to-microsoft"></a>Ağınızdan kaynaklanan ve Microsoft’u hedefleyen trafik
+* Trafiğin geçerli bir ortak IPv4 adresiyle Microsoft eşleme yoluna girdiğinden emin olmalısınız. Microsoft’un IPv4 NAT adres havuzu sahibini bölgesel yönlendirme İnternet kaydı (RIR) veya bir İnternet yönlendirme kaydıyla (IRR) karşılaştırarak doğrulayabilmesi gerekir. Eşlenen AS numarası ve NAT için kullanılan IP adreslerine göre bir denetim gerçekleştirilir. Kayıt defterlerini yönlendirme hakkında bilgi için [ExpressRoute yönlendirme gereksinimleri](expressroute-routing.md) sayfasına bakın.
+* Azure ortak eşleme kurulumu ve diğer ExpressRoute bağlantı hatları için kullanılan IP adresleri BGP oturumu aracılığıyla Microsoft’a tanıtılmamalıdır. Bu eşleme aracılığıyla tanıtılan NAT IP öneki için bir uzunluk sınırlaması yoktur.
   
   > [!IMPORTANT]
-  > Merhaba NAT IP havuzu tooMicrosoft tanıtılan toohello Internet olmamalıdır tanıtılan. Bu bağlantı tooother Microsoft Hizmetleri çalışmamasına neden olur.
+  > Microsoft'a tanıtılan NAT IP havuzu İnternet'e tanıtılmamalıdır. Bu, diğer Microsoft hizmetlerine bağlantıyı keser.
   > 
   > 
 
-### <a name="traffic-originating-from-microsoft-destined-tooyour-network"></a>Microsoft hedefleyen tooyour ağdan kaynaklanan trafik
-* Belirli senaryolar ağınız içinde barındırılan Microsoft tooinitiate bağlantı tooservice uç noktaları gerektirir. Tipik bir hello senaryosu örneği, Office 365'ten ağınızda barındırılan bağlantı tooADFS sunucularını olacaktır. Böyle durumlarda, uygun önekleri ağınızdan hello Microsoft eşlemesine sızdırmanız gerekir. 
-* İçinde ağ tooprevent hello hizmet uç noktaları için Internet kenar SNAT Microsoft trafiğinin gerekir [asimetrik yönlendirme](expressroute-asymmetric-routing.md). ExpressRoute üzerinden alınan bir yol ile eşleşen hedef IP’si olan istekler **ve yanıtlar** her zaman ExpressRoute üzerinden gönderilir. Asimetrik yönlendirme var. hello ile Merhaba Internet üzerinden hello isteği alınırsa yanıt ExpressRoute üzerinden gönderildi. Merhaba Internet kenar SNATing hello gelen Microsoft trafiğinin yanıt trafiği arka toohello hello sorunu çözme Internet kenar zorlar.
+### <a name="traffic-originating-from-microsoft-destined-to-your-network"></a>Microsoft’tan kaynaklanan ve ağınızı hedefleyen trafik
+* Belirli senaryolar Microsoft’un ağınız içinde barındırılan hizmet uç noktalarına bağlantı başlatmasını gerektirir. Tipik bir senaryo örneği, Office 365’ten ağınızda barındırılan ADFS sunucularına bağlanmaktır. Bu gibi durumlarda, ağınızdan uygun önekleri Microsoft eşlemesine sızdırmanız gerekir. 
+* [Asimetrik yönlendirmeyi](expressroute-asymmetric-routing.md) önlemek için ağınızdaki hizmet uç noktalarında, Microsoft trafiğine İnternet ucunuzda SNAT uygulamanız gerekir. ExpressRoute üzerinden alınan bir yol ile eşleşen hedef IP’si olan istekler **ve yanıtlar** her zaman ExpressRoute üzerinden gönderilir. İstek İnternet üzerinden alınıp yanıt ExpressRoute üzerinden gönderiliyorsa asimetrik yönlendirme mevcuttur. Gelen Microsoft trafiğine İnternet ucunda SNAT uygulanması, yanıt trafiğini İnternet ucuna geri dönmeye zorlayarak sorunu çözer.
 
 ![ExpressRoute ile asimetrik yönlendirme](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Toohello gereksinimleri başvuran [yönlendirme](expressroute-routing.md) ve [QoS](expressroute-qos.md).
+* [Yönlendirme](expressroute-routing.md) ve [QoS](expressroute-qos.md) için gereksinimlere bakın.
 * İş akışı bilgileri için bkz. [ExpressRoute bağlantı hattı sağlama iş akışları ve devre durumları](expressroute-workflows.md).
 * ExpressRoute bağlantınızı yapılandırın.
   
   * [ExpressRoute bağlantı hattı oluşturma](expressroute-howto-circuit-classic.md)
   * [Yönlendirmeyi yapılandırma](expressroute-howto-routing-classic.md)
-  * [VNet tooan expressroute bağlantı hattı bağlantı](expressroute-howto-linkvnet-classic.md)
+  * [ExpressRoute bağlantı hattına bir Sanal Ağ bağlama](expressroute-howto-linkvnet-classic.md)
 

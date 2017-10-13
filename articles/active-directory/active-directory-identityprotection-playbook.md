@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure Active Directory kimlik koruması Kılavuzu | Microsoft Docs"
-description: "Nasıl Azure AD Identity Protection toolimit hello yeteneğini bir saldırganın tooexploit güvenliği aşılmış kimlik veya cihaz ve bir kimlik veya şüpheli veya bilinen toobe öncekinden bir aygıtı tehlikeye toosecure sağlar öğrenin."
+title: "Azure Active Directory kimlik koruması Kılavuzu | Microsoft Docs"
+description: "Azure AD kimlik koruması nasıl yeteneğini bir saldırgan güvenliği aşılmış kimlik veya aygıt yararlanmaya ve güvenli bir kimlik veya önceden şüpheli veya tehlikeye bilinen bir cihaz için sınırlamak sağladığını öğrenin."
 services: active-directory
 keywords: "Azure active directory kimlik koruması, cloud app discovery'yi, uygulamalar, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi yönetme"
 documentationcenter: 
@@ -15,120 +15,120 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 6252bc133fc0c0f84800ee245a04bbf62d4cd25b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2ecd07faed785fa6aa179ac1cca35a70d965e1dc
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory kimlik koruması Kılavuzu
 Bu playbook size yardımcı olur:
 
-* Merhaba kimlik koruması ortamında verileri benzetirme risk olaylarına ve güvenlik açıkları ile doldurma
-* Risk bağlı olarak koşullu erişim ilkeleri Ayarla ve bu ilkeler hello etkisini test etme
+* Kimlik koruması ortamında verileri benzetirme risk olaylarına ve güvenlik açıkları ile doldurma
+* Risk bağlı olarak koşullu erişim ilkeleri Ayarla ve bu ilkeler etkisini test etme
 
 ## <a name="simulating-risk-events"></a>Risk olaylarını benzetimini yapma
-Bu bölümde risk olayı türleri aşağıdaki hello benzetimi için adımlara sağlar:
+Bu bölümde aşağıdaki risk olayı türleri benzetimi için adımlara sağlar:
 
 * Oturum açma işlemleri anonim IP adreslerinden (kolay)
 * Oturum açma işlemleri tanınmayan konumlardan (Orta)
-* Mümkün olmayan seyahat tooatypical konumları (zor)
+* (Zor) alışılmadık konumlara imkansız seyahat
 
 Diğer risk olaylarını güvenli bir şekilde benzetimi yapılamaz.
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Anonim IP adreslerinden oturum açma işlemleri
-Bu riski olay türü açan başarıyla anonim Ara sunucu IP adresi olarak tanımlanan bir IP adresinden kullanıcıları tanımlar. Bu proxy'leri olan kendi aygıtın IP adresi toohide istediğiniz kişiler tarafından kullanılan ve kötü amaçlı için kullanılabilir.
+Bu riski olay türü açan başarıyla anonim Ara sunucu IP adresi olarak tanımlanan bir IP adresinden kullanıcıları tanımlar. Bu proxy'leri kendi aygıtın IP adresi gizlemek istediğiniz ve kötü amaçlı için kullanılabilir kişiler tarafından kullanılır.
 
-**bir oturum açma toosimulate anonim bir IP adresinden gerçekleştirme adımları izleyerek hello**:
+**Bir oturum açma anonim bir IP adresinden benzetimini yapmak için aşağıdaki adımları gerçekleştirin**:
 
-1. Merhaba karşıdan [Tor tarayıcı](https://www.torproject.org/projects/torbrowser.html.en).
-2. Merhaba Tor tarayıcı kullanarak gidin çok[https://myapps.microsoft.com](https://myapps.microsoft.com).   
-3. Merhaba hello tooappear istediğiniz hello hesabının kimlik bilgilerini girin **anonim IP adreslerinden gerçekleştirilen oturum açma işlemleri** rapor.
+1. Karşıdan [Tor tarayıcı](https://www.torproject.org/projects/torbrowser.html.en).
+2. Tor tarayıcı kullanarak gidin [https://myapps.microsoft.com](https://myapps.microsoft.com).   
+3. Görünmesini istediğiniz hesap kimlik bilgilerini girin **anonim IP adreslerinden gerçekleştirilen oturum açma işlemleri** rapor.
 
-Merhaba oturum açma hello kimlik koruması Panoda 5 dakika içinde görünecektir. 
+Oturum açma kimlik koruması Panoda 5 dakika içinde görünecektir. 
 
 ### <a name="sign-ins-from-unfamiliar-locations"></a>Alışılmadık konumlardan oturum açma işlemleri
-Merhaba tanınmayan konumlardan oturum açma konumları göz önünde bulundurur bir oturum açma gerçek zamanlı değerlendirme mekanizması riskidir (IP, enlem / boylam ve ASN) toodetermine yeni / tanınmayan konumları. Merhaba sistem depolar önceki IP'leri, enlem / boylam ve bir kullanıcının Asn'ler bu toobe tanıdık konumları olarak değerlendirir. Merhaba oturum açma konumu hello varolan tanıdık konumlardan herhangi birinde eşleşmiyorsa bir oturum açma konumu tanınmayan olarak kabul edilir.
+Oturum açma konumları göz önünde bulundurur bir oturum açma gerçek zamanlı değerlendirme mekanizması tanınmayan konumlardan riskidir (IP, enlem / boylam ve ASN) yeni / tanınmayan konumlarını belirlemek için. Sistem önceki IP'leri, enlem depolar / boylam ve bir kullanıcının Asn'ler ve tanıdık konumlarının olması için bu göz önünde bulundurur. Oturum açma konumu herhangi bir varolan tanıdık konumda eşleşmiyorsa bir oturum açma konumu tanınmayan olarak kabul edilir.
 
 Azure Active Directory kimlik koruması:  
 
 * 14 gün boyunca, tüm yeni konumlar tanınmayan konumları olarak işaretlemez bir ilk öğrenme süre sahiptir.
-* oturum açma işlemleri hakkında bilgi sahibi aygıtları ve coğrafi olarak Kapat tooan varolan tanıdık konumunun konumları yok sayar.
+* oturum açma işlemleri hakkında bilgi sahibi aygıtları ve coğrafi olarak yakın varolan bir bilinen konum olan konumları yok sayar.
 
-toosimulate tanınmayan konumlardan toosign bir konum ve hello hesap öğesinden önce oturum açtığı değil cihaz sizde. 
+Tanınmayan konumlardan benzetimini yapmak için bir konum ve hesap öğesinden önce oturum açtığı olmayan bir aygıttan oturum açmak zorunda. 
 
-**bir oturum açma tanınmayan bir konumdan toosimulate gerçekleştirme adımları izleyerek hello**:
+**Bir oturum açma tanınmayan bir konumdan benzetimini yapmak için aşağıdaki adımları gerçekleştirin**:
 
 1. Oturum açma en az bir 14 gün geçmiş olan bir hesap seçin. 
 2. Ya da yapın:
    
-   a. Bir VPN kullanırken, çok gidin[https://myapps.microsoft.com](https://myapps.microsoft.com) ve hello toosimulate hello risk olayı için istediğiniz hello hesabının kimlik bilgilerini girin.
+   a. Bir VPN kullanırken gidin [https://myapps.microsoft.com](https://myapps.microsoft.com) ve risk olayı için benzetimini yapmak istediğiniz hesabın kimlik bilgilerini girin.
    
-   b. Bir ilişkilendirme (önerilmez) hello hesabın kimlik bilgilerini kullanarak farklı bir konuma toosign içinde isteyin.
+   b. Bir ilişkilendirme (önerilmez) hesabın kimlik bilgilerini kullanarak oturum farklı bir konumda isteyin.
 
-Merhaba oturum açma hello kimlik koruması Panoda 5 dakika içinde görünecektir.
+Oturum açma kimlik koruması Panoda 5 dakika içinde görünecektir.
 
-### <a name="impossible-travel-tooatypical-location"></a>Mümkün olmayan seyahat tooatypical konumu
-Merhaba algoritması machine learning tooweed yanlış pozitifler tanıdık aygıtlardan mümkün olmayan seyahat veya oturum açmalardan hello dizininde diğer kullanıcılar tarafından kullanılan VPN'ler gibi çıkışı kullandığından hello mümkün olmayan seyahat koşul benzetimi zor olabilir. Ayrıca, risk olaylarını oluşturma işlemi başlamadan önce hello algoritması hello kullanıcı için bir oturum açma geçmişine 3 too14 gün gerektirir.
+### <a name="impossible-travel-to-atypical-location"></a>Alışılmadık konumu imkansız seyahat
+Makine yanlış pozitifler tanıdık aygıtlardan mümkün olmayan seyahat veya oturum açmalardan dizindeki diğer kullanıcılar tarafından kullanılan VPN'ler gibi çıkışı ortadan kaldırmak öğrenme algoritmasını kullandığı için mümkün olmayan seyahat koşul benzetimi zor olabilir. Ayrıca, risk olaylarını oluşturma işlemi başlamadan önce kullanıcı için bir oturum açma geçmişine 3-14 gün algoritma gerektirir.
 
-**toosimulate bir mümkün olmayan seyahat tooatypical konum gerçekleştirme adımları izleyerek hello**:
+**Bir mümkün olmayan seyahat alışılmadık konuma benzetimini yapmak için aşağıdaki adımları gerçekleştirin**:
 
-1. Standart, tarayıcı kullanarak gidin çok[https://myapps.microsoft.com](https://myapps.microsoft.com).  
-2. Merhaba bir mümkün olmayan seyahat risk olayı toogenerate istediğiniz hello hesabının kimlik bilgilerini girin.
+1. Standart, tarayıcı kullanarak gidin [https://myapps.microsoft.com](https://myapps.microsoft.com).  
+2. İçin bir mümkün olmayan seyahat risk olay oluşturmak için kullanmak istediğiniz hesabın kimlik bilgilerini girin.
 3. Kullanıcı Aracısı değiştirin. Geliştirici Araçları'ndan kullanıcı aracısı Internet Explorer'da değiştirmek veya kullanıcı aracınız Firefox veya kullanıcı aracısı değiştirici Eklentisi'ni kullanarak Chrome değiştirin.
 4. IP adresini değiştirin. VPN, Tor eklentisi kullanılarak veya farklı bir veri merkezinde Azure içinde yeni bir makine dönmesini IP adresiniz değiştirebilirsiniz.
-5. Oturum çok açma[https://myapps.microsoft.com](https://myapps.microsoft.com) hello olarak önce ve sonra hello önceki oturum açma birkaç dakika içinde aynı kimlik bilgilerini kullanarak.
+5. Oturum açma için [https://myapps.microsoft.com](https://myapps.microsoft.com) olarak önce ve sonra önceki oturum açma birkaç dakika içinde aynı kimlik bilgilerini kullanarak.
 
-Merhaba oturum açma hello Identity Protection panosunda 2-4 saat içinde görünecektir.<br>
-Söz konusu modelleri hello karmaşık machine learning nedeniyle, bu toplanma değil şansı yoktur.<br> Birden çok Azure AD hesapları için bu adımları tooreplicate isteyebilirsiniz.
+Oturum açma kimlik koruması panosunda 2-4 saat içinde görünecektir.<br>
+Modelleri ilgili karmaşık machine learning nedeniyle, bu toplanma değil bir fırsat yok.<br> Birden çok Azure AD hesapları için bu adımları çoğaltmak istediğiniz.
 
 ## <a name="simulating-vulnerabilities"></a>Güvenlik açıkları benzetimini yapma
-Güvenlik açıkları tarafından hatalı aktör yararlanan bir Azure AD ortamda zayıf giderilmiştir. Şu anda açık 3 türlerinin diğer özelliklerden Azure ad içinde Azure AD Identity Protection çıkmış. Bu özellikler ayarlandıktan sonra bu güvenlik açıklarından otomatik olarak hello Identity Protection panosunda görüntülenir.
+Güvenlik açıkları tarafından hatalı aktör yararlanan bir Azure AD ortamda zayıf giderilmiştir. Şu anda açık 3 türlerinin diğer özelliklerden Azure ad içinde Azure AD Identity Protection çıkmış. Bu özellikler ayarlandıktan sonra bu güvenlik açıklarından otomatik olarak kimlik koruması panosunda görüntülenir.
 
 * Azure AD [çok faktörlü kimlik doğrulaması?](../multi-factor-authentication/multi-factor-authentication.md)
 * Azure AD [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md).
 * Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 
 ## <a name="user-compromise-risk"></a>Kullanıcı güvenlik aşılması riski
-**tootest kullanıcı güvenliğinin aşılmasına risk, aşağıdaki adımları hello gerçekleştirmek**:
+**Kullanıcı güvenlik aşılması risk sınamak için aşağıdaki adımları gerçekleştirin**:
 
-1. Oturum çok açma[https://portal.azure.com](https://portal.azure.com) kiracınız için genel yönetici kimlik bilgilerine sahip.
-2. Çok gidin**kimlik koruması**. 
-3. Merhaba ana üzerinde **Azure AD Identity Protection** dikey penceresinde tıklatın **ayarları**. 
-4. Merhaba üzerinde **Portalı Ayarları** dikey altında **güvenlik kuralları**, tıklatın **kullanıcı güvenliğinin aşılmasına riski**. 
-5. Merhaba üzerinde **Risk oturum** dikey penceresinde kapatma **etkinleştir kural** kapalı ve ardından **kaydetmek** ayarları.
-6. Belirtilen kullanıcı hesabı için bir tanınmayan benzetimini konumlar veya anonim IP risk olayı. Bu çok yükseltmesine hello kullanıcı risk düzeyi bu kullanıcı için**orta**.
+1. Oturum açma için [https://portal.azure.com](https://portal.azure.com) kiracınız için genel yönetici kimlik bilgilerine sahip.
+2. Gidin **kimlik koruması**. 
+3. Ana **Azure AD Identity Protection** dikey penceresinde tıklatın **ayarları**. 
+4. Üzerinde **Portalı Ayarları** dikey altında **güvenlik kuralları**, tıklatın **kullanıcı güvenliğinin aşılmasına riski**. 
+5. Üzerinde **Risk oturum** dikey penceresinde Aç **etkinleştir kural** kapalı ve ardından **kaydetmek** ayarlar.
+6. Belirtilen kullanıcı hesabı için bir tanınmayan benzetimini konumlar veya anonim IP risk olayı. Bu, kullanıcı için kullanıcı risk düzeyini Yükselt **orta**.
 7. Birkaç dakika bekleyin ve kullanıcı için bu kullanıcı düzeyini doğrulayın **orta**.
-8. Toohello Git **Portalı Ayarları** dikey.
-9. Merhaba üzerinde **kullanıcı güvenliğinin aşılmasına Risk** dikey altında **etkinleştir kural**seçin **üzerinde** . 
-10. Seçenekler aşağıdaki hello birini seçin:
+8. Git **Portalı Ayarları** dikey.
+9. Üzerinde **kullanıcı güvenliğinin aşılmasına Risk** dikey altında **etkinleştir kural**seçin **üzerinde** . 
+10. Aşağıdaki seçeneklerden birini seçin:
     
-    a. tooblock, select **orta** altında **blok oturum**.
+    a. Bloğuna, select **orta** altında **blok oturum**.
     
-    b. tooenforce güvenli parola değişikliği, select **orta** altında **çok faktörlü kimlik doğrulaması gerektiren**.
+    b. Güvenli parola değişikliğini uygulamak için seçin **orta** altında **çok faktörlü kimlik doğrulaması gerektiren**.
 11. **Kaydet** düğmesine tıklayın.
-12. Bir kullanıcı bir yükseltilmiş risk düzeyi ile kullanarak oturum açma tarafından risk bağlı olarak koşullu erişim artık test edebilirsiniz. Merhaba kullanıcı risk Orta ise, ilkenizin hello yapılandırmasına bağlı olarak, oturum açma işleminiz olabilir ya da engellenen ya da toochange zorlanır parolanızı. 
+12. Bir kullanıcı bir yükseltilmiş risk düzeyi ile kullanarak oturum açma tarafından risk bağlı olarak koşullu erişim artık test edebilirsiniz. Kullanıcı risk Orta ise ya da engellenecek ilkeniz yapılandırmasına bağlı olarak, oturum açma işleminiz olduğundan veya parolanızı değiştirmek için zorlanır. 
     <br><br>
     ![Playbook](./media/active-directory-identityprotection-playbook/201.png "Playbook")
     <br>
 
 ## <a name="sign-in-risk"></a>Oturum açma riski
-**tootest bir oturum açma riski hello aşağıdaki adımları gerçekleştirin:**
+**Bir oturum risk test etmek için aşağıdaki adımları gerçekleştirin:**
 
-1. Oturum çok açma[https://portal.azure.com ](https://portal.azure.com) kiracınız için genel yönetici kimlik bilgilerine sahip.
-2. Çok gidin**kimlik koruması**.
-3. Merhaba ana üzerinde **Azure AD Identity Protection** dikey penceresinde tıklatın **ayarları**. 
-4. Merhaba üzerinde **Portalı Ayarları** dikey altında **güvenlik kuralları**, tıklatın **risk oturum**.
-5. Merhaba üzerinde ** Risk oturum ** dikey penceresinde, select **üzerinde** altında **etkinleştir kural**. 
-6. Seçenekler aşağıdaki hello birini seçin:
+1. Oturum açma için [https://portal.azure.com ](https://portal.azure.com) kiracınız için genel yönetici kimlik bilgilerine sahip.
+2. Gidin **kimlik koruması**.
+3. Ana **Azure AD Identity Protection** dikey penceresinde tıklatın **ayarları**. 
+4. Üzerinde **Portalı Ayarları** dikey altında **güvenlik kuralları**, tıklatın **risk oturum**.
+5. Üzerinde ** Risk oturum ** dikey penceresinde, select **üzerinde** altında **etkinleştir kural**. 
+6. Aşağıdaki seçeneklerden birini seçin:
    
-   a. tooblock, select **orta** altında **blok oturum açın**
+   a. Engellemek için seçin **orta** altında **blok oturum açın**
    
-   b. tooenforce güvenli parola değişikliği, select **orta** altında **çok faktörlü kimlik doğrulaması gerektiren**.
-7. Blok altında select Orta tooblock, oturum açın.
-8. tooenforce çok faktörlü kimlik doğrulaması, select **orta** altında **çok faktörlü kimlik doğrulaması gerektiren**.
+   b. Güvenli parola değişikliğini uygulamak için seçin **orta** altında **çok faktörlü kimlik doğrulaması gerektiren**.
+7. Engellemek için blok oturum açma altında Orta seçin.
+8. Çok faktörlü kimlik doğrulamasını zorunlu kılmak için seçin **orta** altında **çok faktörlü kimlik doğrulaması gerektiren**.
 9. **Kaydet**'e tıklayın.
-10. Merhaba tanınmayan konumlardan taklit ederek risk bağlı olarak koşullu erişim artık sınayabilirsiniz veya her ikisi de olduklarından anonim IP risk olayları **orta** risk olayları.
+10. Tanınmayan konumlardan taklit ederek risk bağlı olarak koşullu erişim artık sınayabilirsiniz veya her ikisi de olduklarından anonim IP risk olayları **orta** risk olayları.
 
 
 ![Playbook](./media/active-directory-identityprotection-playbook/200.png "Playbook")

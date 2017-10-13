@@ -1,6 +1,6 @@
 ---
-title: "Windows için Azure sanal makine uzantısı aaaOMS | Microsoft Docs"
-description: "Merhaba OMS Aracısı'nı kullanarak bir sanal makine uzantısı Windows sanal makine dağıtın."
+title: "Windows için OMS Azure sanal makine uzantısı | Microsoft Docs"
+description: "OMS Aracısı'nı kullanarak bir sanal makine uzantısı Windows sanal makine dağıtın."
 services: virtual-machines-windows
 documentationcenter: 
 author: neilpeterson
@@ -15,27 +15,27 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: nepeters
-ms.openlocfilehash: 3000f66c0acdec1d1fad2125b8c6b72a92b1ec92
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d933f488fdda0c1d37892be65f2712cf0eb5694e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="oms-virtual-machine-extension-for-windows"></a>Windows için OMS sanal makine uzantısı
 
-Operations Management Suite (OMS) bulut izleme, uyarma ve uyarı düzeltme özellikleri sağlar ve şirket içi varlıklar. Merhaba OMS Aracısı sanal makine uzantısı Windows için yayımlanan ve Microsoft tarafından desteklenmiyor. Merhaba uzantısı Azure sanal makinelerde hello OMS Aracısı'nı yükler ve sanal makineleri olan bir OMS çalışma kaydeder. Bu belge ayrıntıları hello platformları, yapılandırmaları ve dağıtım seçenekleri için Windows hello OMS sanal makine uzantısı için desteklenmiyor.
+Operations Management Suite (OMS) bulut izleme, uyarma ve uyarı düzeltme özellikleri sağlar ve şirket içi varlıklar. Windows için OMS Aracısı sanal makine uzantısı yayımlanan ve Microsoft tarafından desteklenmiyor. Uzantı Azure sanal makinelerde OMS Aracısı'nı yükler ve sanal makineleri olan bir OMS çalışma kaydeder. Bu belge, desteklenen platformlar, yapılandırmaları ve Windows için OMS sanal makine uzantısı için dağıtım seçeneklerini ayrıntıları.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 ### <a name="operating-system"></a>İşletim sistemi
-Windows, Windows Server 2008 R2 karşı çalıştırılabilir için hello OMS Aracısı uzantısı 2012, 2012 R2 ve 2016 serbest bırakır.
+Windows, Windows Server 2008 R2 karşı çalıştırılabilir için OMS aracısının uzantısı 2012, 2012 R2 ve 2016 serbest bırakır.
 
 ### <a name="internet-connectivity"></a>İnternet bağlantısı
-OMS Aracısı uzantısı için Windows Hello gerektirir hello hedef sanal makinenin bağlı toohello Internet. 
+Windows için OMS aracısının uzantısı hedef sanal makine internet'e bağlı olduğunu gerektirir. 
 
 ## <a name="extension-schema"></a>Uzantı Şeması
 
-Merhaba aşağıdaki JSON hello OMS Aracısı uzantısı için hello şema gösterir. Merhaba uzantısı hello hedef OMS çalışma alanından hello çalışma alanı kimliği ve çalışma alanı anahtarı gerekiyor, bunlar hello OMS portalında bulunabilir. Merhaba çalışma alanı anahtarı hassas verileri olarak değerlendirilmesi için bir korumalı ayarı yapılandırmasında depolanması gerekir. Azure VM uzantısının korumalı ayarı veri şifrelenir ve yalnızca hello hedef sanal makineye şifresi. Unutmayın **Workspaceıd** ve **workspaceKey** büyük küçük harfe duyarlıdır.
+Aşağıdaki JSON şeması OMS Aracısı uzantısı gösterir. Uzantı çalışma alanı kimliği ve hedef OMS çalışma alanından bir çalışma alanı anahtarı gerektirir, bu OMS Portalı'nda bulunabilir. Çalışma alanı anahtarı hassas verileri olarak değerlendirilmesi için bir korumalı ayarı yapılandırmasında depolanması gerekir. Azure VM uzantısının korumalı ayarı veri şifrelenir ve yalnızca hedef sanal makineye şifresi. Unutmayın **Workspaceıd** ve **workspaceKey** büyük küçük harfe duyarlıdır.
 
 ```json
 {
@@ -73,11 +73,11 @@ Merhaba aşağıdaki JSON hello OMS Aracısı uzantısı için hello şema göst
 
 ## <a name="template-deployment"></a>Şablon dağıtımı
 
-Azure VM uzantıları, Azure Resource Manager şablonları ile dağıtılabilir. Merhaba JSON şeması Hello önceki bölümde ayrıntılı bir Azure Resource Manager şablon dağıtımı sırasında bir Azure Resource Manager şablonu toorun hello OMS Aracısı uzantısı kullanılabilir. Merhaba OMS Aracısı VM uzantısı içeren bir örnek şablonu hello üzerinde bulunabilir [Azure hızlı başlangıç Galerisi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+Azure VM uzantıları, Azure Resource Manager şablonları ile dağıtılabilir. Önceki bölümde ayrıntılı JSON şeması bir Azure Resource Manager şablonu OMS Aracısı uzantısı bir Azure Resource Manager şablon dağıtımı sırasında çalıştırmak için kullanılabilir. OMS Aracısı VM uzantısı içeren bir örnek şablonu bulunabilir [Azure hızlı başlangıç Galerisi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
 
-Hello JSON bir sanal makine uzantısı hello sanal makine kaynağı içinde iç içe geçmiş veya hello kök veya Resource Manager JSON şablonu en üst düzeyinde yerleştirilir. Merhaba JSON Hello yerleşimini hello değeri hello kaynak adı ve türü etkiler. Daha fazla bilgi için bkz: [Ayarla alt kaynakları için ad ve tür](../../azure-resource-manager/resource-manager-template-child-resource.md). 
+Bir sanal makine uzantısı için JSON içinde sanal makine kaynağı iç içe geçmiş veya kök veya Resource Manager JSON şablonu en üst düzeyinde yerleştirilir. JSON yerleşimini kaynak adı ve türü değeri etkiler. Daha fazla bilgi için bkz: [Ayarla alt kaynakları için ad ve tür](../../azure-resource-manager/resource-manager-template-child-resource.md). 
 
-Merhaba aşağıdaki örneği hello OMS uzantısı hello sanal makine kaynağı içinde iç içe geçmiş varsayar. Merhaba uzantısı kaynak iç içe geçirme sırasında hello JSON hello yerleştirilir `"resources": []` hello sanal makinenin nesnesi.
+Aşağıdaki örnek, OMS uzantısı içinde sanal makine kaynağı iç içe geçmiş varsayar. Uzantı kaynak iç içe geçirme sırasında JSON yerleştirilir `"resources": []` sanal makinenin nesnesi.
 
 
 ```json
@@ -104,7 +104,7 @@ Merhaba aşağıdaki örneği hello OMS uzantısı hello sanal makine kaynağı 
 }
 ```
 
-Merhaba uzantısı JSON hello hello şablon kökünde yerleştirirken başvuru toohello üst sanal makinesini hello kaynak adı içerir ve hello türü hello iç içe geçmiş yapılandırma yansıtır. 
+JSON uzantısı şablon kökünde yerleştirirken, kaynak adı üst sanal makine için referans içeriyor ve iç içe geçmiş yapılandırma türü yansıtır. 
 
 ```json
 {
@@ -132,7 +132,7 @@ Merhaba uzantısı JSON hello hello şablon kökünde yerleştirirken başvuru t
 
 ## <a name="powershell-deployment"></a>PowerShell dağıtım
 
-Merhaba `Set-AzureRmVMExtension` komutu kullanılan toodeploy hello OMS Aracısı sanal makine uzantısı tooan varolan sanal makine olabilir. Hello komutu çalıştırmadan önce bir PowerShell karma tablosu toobe hello ortak ve özel yapılandırmaları gerekir. 
+`Set-AzureRmVMExtension` Komutu, OMS Aracısı sanal makine uzantısı olan bir sanal makineyi dağıtmak için kullanılabilir. Komutu çalıştırmadan önce genel ve özel yapılandırmaları bir PowerShell karma tablosunda depolanması gerekir. 
 
 ```powershell
 $PublicSettings = @{"workspaceId" = "myWorkspaceId"}
@@ -153,13 +153,13 @@ Set-AzureRmVMExtension -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
 
 ### <a name="troubleshoot"></a>Sorun giderme
 
-Veri uzantısı dağıtımları hello durumuyla ilgili hello Azure portal ve hello Azure PowerShell modülü kullanılarak alınabilir. Aşağıdaki komutu kullanarak çalışma hello belirli bir VM için uzantıların toosee hello dağıtım durumu hello Azure PowerShell modülü.
+Veri uzantısı dağıtımları durumuyla ilgili Azure portalından ve Azure PowerShell modülü kullanılarak alınabilir. İçin belirli bir VM uzantıları dağıtım durumunu görmek için Azure PowerShell modülünü kullanarak şu komutu çalıştırın.
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
-Uzantı yürütme hello bulunan oturum toofiles directory aşağıdaki çıktı:
+Uzantı yürütme çıktısı aşağıdaki dizinde bulunan dosyalara kaydedilir:
 
 ```cmd
 C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\
@@ -167,4 +167,4 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonit
 
 ### <a name="support"></a>Destek
 
-Bu makalede herhangi bir noktada daha fazla yardıma gereksinim duyarsanız, başvurabilirsiniz hello Azure uzmanlarıyla hello [MSDN Azure ve yığın taşması forumları](https://azure.microsoft.com/en-us/support/forums/). Alternatif olarak, Azure destek olay dosya. Toohello Git [Azure Destek sitesi](https://azure.microsoft.com/en-us/support/options/) ve Get destek seçin. Hello Azure destek kullanma hakkında daha fazla bilgi için okuma [Microsoft Azure desteği ile ilgili SSS](https://azure.microsoft.com/en-us/support/faq/).
+Bu makalede herhangi bir noktada daha fazla yardıma gereksinim duyarsanız, üzerinde Azure uzmanlar başvurabilirsiniz [MSDN Azure ve yığın taşması forumları](https://azure.microsoft.com/en-us/support/forums/). Alternatif olarak, Azure destek olay dosya. Git [Azure Destek sitesi](https://azure.microsoft.com/en-us/support/options/) ve Get destek seçin. Azure desteği hakkında daha fazla bilgi için okuma [Microsoft Azure desteği ile ilgili SSS](https://azure.microsoft.com/en-us/support/faq/).

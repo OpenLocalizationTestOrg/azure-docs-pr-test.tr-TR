@@ -1,6 +1,6 @@
 ---
-title: aaaUse MongoDB API'leri toobuild Azure Cosmos DB uygulama | Microsoft Docs
-description: "MongoDB için hello Azure Cosmos DB API'lerini kullanarak çevrimiçi bir veritabanı oluşturan Öğreticisi."
+title: "Bir Azure Cosmos DB uygulamanızı oluşturmak için MongoDB API'leri kullanan | Microsoft Docs"
+description: "MongoDB için Azure Cosmos DB API'lerini kullanarak çevrimiçi bir veritabanı oluşturan Öğreticisi."
 keywords: "mongodb örnekleri"
 services: cosmos-db
 author: AndrewHoh
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: anhoh
-ms.openlocfilehash: 09be4362fe3aac02e0163325f958210be9598383
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 433d2e585c884a10e7e923a0b27c179a95410d01
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="build-an-azure-cosmos-db-api-for-mongodb-app-using-nodejs"></a>Bir Azure Cosmos DB yapı: Node.js kullanarak MongoDB uygulaması için API
 > [!div class="op_single_selector"]
@@ -32,16 +32,16 @@ ms.lasthandoff: 10/06/2017
 >  
 >
 
-Bu örnekte, nasıl gösterir toobuild bir Azure Cosmos DB: Node.js kullanarak MongoDB konsol uygulaması için API.
+Bu örnek bir Azure Cosmos DB nasıl oluşturulacağını gösterir: Node.js kullanarak MongoDB konsol uygulaması için API.
 
-toouse Bu örnekte, şunları yapmalısınız:
+Bu örneği kullanmak için yapmanız gerekir:
 
 * [Oluşturma](create-mongodb-dotnet.md#create-account) bir Azure Cosmos DB: API MongoDB hesabı.
 * MongoDB almak [bağlantı dizesi](connect-mongodb-account.md) bilgi.
 
-## <a name="create-hello-app"></a>Merhaba uygulaması oluşturma
+## <a name="create-the-app"></a>Uygulama oluşturma
 
-1. Oluşturma bir *app.js* dosya ve kopyalama & hello aşağıdaki kodu yapıştırın.
+1. Oluşturma bir *app.js* dosya ve kopyalayın ve aşağıdaki kodu yapıştırın.
 
     ```nodejs
     var MongoClient = require('mongodb').MongoClient;
@@ -66,7 +66,7 @@ toouse Bu örnekte, şunları yapmalısınız:
             "address": { "country": "USA", "state": "WA", "city": "Seattle" }
         }, function(err, result) {
         assert.equal(err, null);
-        console.log("Inserted a document into hello families collection.");
+        console.log("Inserted a document into the families collection.");
         callback();
     });
     };
@@ -122,7 +122,7 @@ toouse Bu örnekte, şunları yapmalısınız:
     });
     ```
 
-2. Merhaba değişkenleri aşağıdaki hello değiştirme *app.js* hesap ayarlarınızı başına dosyası (öğrenin nasıl toofind, [bağlantı dizesi](connect-mongodb-account.md)):
+2. Aşağıdaki değişkenler değiştirme *app.js* hesap ayarlarınızı başına dosyası (nasıl bulacağınızı öğrenin, [bağlantı dizesi](connect-mongodb-account.md)):
    
     ```nodejs
     var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10255/?ssl=true';
@@ -131,4 +131,4 @@ toouse Bu örnekte, şunları yapmalısınız:
 3. Sık kullandığınız Terminali açın, çalıştırmak **npm kaydetme mongodb--yükleme**, uygulamanızı çalıştırın **düğümü app.js**
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Nasıl çok öğrenin[MongoChef kullanmak](mongodb-mongochef.md) Azure Cosmos DB ile: API MongoDB hesabı.
+* Bilgi nasıl [MongoChef kullanmak](mongodb-mongochef.md) Azure Cosmos DB ile: API MongoDB hesabı.

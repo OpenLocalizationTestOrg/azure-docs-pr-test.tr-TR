@@ -1,5 +1,5 @@
 ---
-title: "SQL veri ambarı (T-SQL) verileri şifreleme aaaTransparent | Microsoft Docs"
+title: "Saydam veri şifreleme SQL Data warehouse'da (T-SQL) | Microsoft Docs"
 description: "Saydam veri şifreleme (TDE) SQL veri ambarı (T-SQL)"
 services: sql-data-warehouse
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 3894431c76f14b217f3a6b9a42dbf2f4d216bad6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 74c9032aababdce91ed617cd7a4c628915b42504
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>Saydam veri şifreleme (TDE) ile çalışmaya başlama
 > [!div class="op_single_selector"]
@@ -31,38 +31,38 @@ ms.lasthandoff: 10/06/2017
 > 
 
 ## <a name="required-permssions"></a>Gerekli izinleri
-tooenable saydam veri şifreleme (TDE), bir yönetici veya hello dbmanager rolünün bir üyesi olmanız gerekir.
+Saydam veri şifreleme (TDE) etkinleştirmek için bir yönetici veya dbmanager rolünün bir üyesi olması gerekir.
 
 ## <a name="enabling-encryption"></a>Şifrelemeyi etkinleştirme
-Bir SQL Data Warehouse için bu adımları tooenable TDE izleyin:
+Bir SQL Data Warehouse için TDE etkinleştirmek için şu adımları izleyin:
 
-1. Toohello bağlanmak *ana* hello sunucusundaki bir yönetici veya hello üyesi olan bir oturum açma kullanarak hello veritabanı barındırma veritabanı **dbmanager** hello ana veritabanı rolü
-2. Deyimi tooencrypt hello veritabanı aşağıdaki hello yürütün.
+1. Bağlanmak *ana* bir yönetici veya bir üyesi olan bir oturum açma kullanarak veritabanını barındıran sunucuda veritabanı **dbmanager** ana veritabanı rolü
+2. Veritabanı şifrelemek için şu deyimi yürütün.
 
 ```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
 ## <a name="disabling-encryption"></a>Şifreleme devre dışı bırakma
-Bir SQL Data Warehouse için bu adımları toodisable TDE izleyin:
+Bir SQL Data Warehouse için TDE devre dışı bırakmak için aşağıdaki adımları izleyin:
 
-1. Toohello bağlanmak *ana* bir yönetici veya hello üyesi olan bir oturum açma kullanılarak veritabanı **dbmanager** hello ana veritabanı rolü
-2. Deyimi tooencrypt hello veritabanı aşağıdaki hello yürütün.
+1. Bağlanmak *ana* bir yönetici veya bir üyesi olan bir oturum açma kullanılarak veritabanı **dbmanager** ana veritabanı rolü
+2. Veritabanı şifrelemek için şu deyimi yürütün.
 
 ```sql
 ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
 > [!NOTE]
-> Duraklatılmış SQL Data Warehouse toohello TDE ayarları değişiklik yapmadan önce sürdürüldü gerekir.
+> Duraklatılmış SQL Data Warehouse TDE ayarlarına değişiklik yapmadan önce sürdürüldü gerekir.
 > 
 > 
 
 ## <a name="verifying-encryption"></a>Şifreleme doğrulama
-bir SQL Data Warehouse için tooverify şifreleme durumu hello adımları izleyin:
+Bir SQL Data Warehouse için şifreleme durumunu doğrulamak için aşağıdaki adımları izleyin:
 
-1. Toohello bağlanmak *ana* ya da bir yönetici veya hello üyesi olan bir oturum açma kullanarak örnek veritabanı **dbmanager** hello ana veritabanı rolü
-2. Deyimi tooencrypt hello veritabanı aşağıdaki hello yürütün.
+1. Bağlanmak *ana* ya da bir yönetici veya bir üyesi olan bir oturum açma kullanarak örnek veritabanı **dbmanager** ana veritabanı rolü
+2. Veritabanı şifrelemek için şu deyimi yürütün.
 
 ```sql
 SELECT

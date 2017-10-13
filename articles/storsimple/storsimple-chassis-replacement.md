@@ -1,6 +1,6 @@
 ---
-title: "StorSimple 8000 serisi aygıtta aaaReplace kasa | Microsoft Docs"
-description: "StorSimple birincil muhafaza veya EBOD muhafazası için kasa tooremove ve Değiştir nasıl hello açıklar."
+title: "StorSimple 8000 serisi aygıtta kasa Değiştir | Microsoft Docs"
+description: "StorSimple birincil muhafaza veya EBOD muhafazası için kasa kaldırdığınızda ve açıklar."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,48 +14,48 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.openlocfilehash: f8576d63520a6f7d3267180d2a68d4fc38fd48fa
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5295c5dd039b1d4746ebaaf90372932e4c3e7c26
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="replace-hello-chassis-on-your-storsimple-device"></a>StorSimple Cihazınızda Hello kasa değiştirin
+# <a name="replace-the-chassis-on-your-storsimple-device"></a>Kasa, StorSimple Cihazınızda değiştirin
 ## <a name="overview"></a>Genel Bakış
-Bu öğretici açıklar nasıl tooremove ve StorSimple 8000 serisi aygıtta bir kasa değiştirin. Merhaba 8600 çift muhafaza aygıt (iki kasa) iken hello StorSimple 8100 model bir tek kasası (bir kasa), aygıttır. 8600 model için büyük olasılıkla hello aygıtı başarısız iki kasa vardır: Merhaba hello birincil kasası için Kasa ya da hello EBOD muhafazası hello Kasa.
+Bu öğretici, kaldırmak ve StorSimple 8000 serisi aygıtta bir kasa Değiştir açıklanmaktadır. 8600 çift muhafaza aygıt (iki kasa) iken StorSimple 8100 model bir tek kasası (bir kasa), aygıttır. 8600 model için büyük olasılıkla aygıtı başarısız iki kasa vardır: birincil muhafaza veya EBOD muhafazası kasa için Kasa.
 
-Her iki durumda da, Microsoft tarafından sevk hello değiştirme kasa boştur. Hiçbir güç ve soğutma modülleri (PCMs) denetleyicisi modülleri, katı hal disk sürücüleri (SSD), sabit disk sürücülerinin (HDD'ler) ya da EBOD modülleri dahil edilir.
+Her iki durumda da, Microsoft tarafından sevk değiştirme kasa boştur. Hiçbir güç ve soğutma modülleri (PCMs) denetleyicisi modülleri, katı hal disk sürücüleri (SSD), sabit disk sürücülerinin (HDD'ler) ya da EBOD modülleri dahil edilir.
 
 > [!IMPORTANT]
-> Merhaba kasa, değiştirme ve kaldırma gözden önce hello güvenlik bilgileri [StorSimple donanım bileşeni değiştirme](storsimple-hardware-component-replacement.md).
+> Kasa değiştirme ve kaldırma gözden önce güvenlik bilgileri [StorSimple donanım bileşeni değiştirme](storsimple-hardware-component-replacement.md).
 > 
 > 
 
-## <a name="remove-hello-chassis"></a>Merhaba kasa Kaldır
-StorSimple Cihazınızda adımları tooremove hello kasa aşağıdaki hello gerçekleştirin.
+## <a name="remove-the-chassis"></a>Kasa Kaldır
+Kasa, StorSimple Cihazınızda kaldırmak için aşağıdaki adımları gerçekleştirin.
 
-#### <a name="tooremove-a-chassis"></a>tooremove bir kasa
-1. Merhaba StorSimple cihaz kapatılır ve tüm hello güç kaynaklardan bağlantısı kesilmiş emin olun.
-2. Tüm hello ağ ve SAS kabloları varsa kaldırın.
-3. Merhaba birimi hello raf kaldırın.
-4. Her hello sürücüleri kaldırın ve hello yuvaları, bunlar kaldırılır unutmayın. Daha fazla bilgi için bkz: [kaldırmak hello disk sürücüsü](storsimple-disk-drive-replacement.md#remove-the-disk-drive).
-5. Hello (Bu başarısız hello kasa ise) EBOD muhafazası, hello EBOD denetleyicisi modülleri kaldırın. Daha fazla bilgi için bkz: [EBOD denetleyicisi kaldırmak](storsimple-ebod-controller-replacement.md#remove-an-ebod-controller). 
+#### <a name="to-remove-a-chassis"></a>Bir kasa kaldırmak için
+1. StorSimple cihazı kapatmak ve güç kaynaklardan gelen bağlantısı kesilmiş emin olun.
+2. Tüm ağ ve SAS kabloları varsa kaldırın.
+3. Birim raf kaldırın.
+4. Her sürücü kaldırın ve, bunlar kaldırılır yuvaları unutmayın. Daha fazla bilgi için bkz: [disk sürücüsünü Kaldır](storsimple-disk-drive-replacement.md#remove-the-disk-drive).
+5. (Bu başarısız kasa ise) EBOD muhafazası üzerinde EBOD denetleyicisi modülleri kaldırın. Daha fazla bilgi için bkz: [EBOD denetleyicisi kaldırmak](storsimple-ebod-controller-replacement.md#remove-an-ebod-controller). 
    
-    Hello (Bu başarısız hello kasa ise) birincil muhafaza hello denetleyicilerini kaldırın ve hello yuvaları, bunlar kaldırılır unutmayın. Daha fazla bilgi için bkz: [bir denetleyici kaldırmak](storsimple-controller-replacement.md#remove-a-controller).
+    (Bu başarısız kasa ise) birincil kasada denetleyicilerini kaldırın ve bunlar kaldırılan yuvaları not edin. Daha fazla bilgi için bkz: [bir denetleyici kaldırmak](storsimple-controller-replacement.md#remove-a-controller).
 
-## <a name="install-hello-chassis"></a>Merhaba kasa yükleyin
-StorSimple Cihazınızda adımları tooinstall hello kasa aşağıdaki hello gerçekleştirin.
+## <a name="install-the-chassis"></a>Kasa yükleyin
+StorSimple Cihazınızda kasaya yüklemek için aşağıdaki adımları gerçekleştirin.
 
-#### <a name="tooinstall-a-chassis"></a>tooinstall bir kasa
-1. Merhaba kasa hello dolapta bağlayın. Daha fazla bilgi için bkz: [rafa monte StorSimple 8100 aygıt](storsimple-8100-hardware-installation.md#rack-mount-your-storsimple-8100-device) veya [rafa monte StorSimple 8600 aygıt](storsimple-8600-hardware-installation.md#rack-mount-your-storsimple-8600-device).
-2. Merhaba kasa hello rafa monte sonra hello denetleyicisi modülleri aynı daha önce de yüklendikleri konumlandırır hello yükleyin.
-3. Yükleme Merhaba, daha önce de yüklendikleri aynı yerleştirir ve yuvası hello sürücüleri.
+#### <a name="to-install-a-chassis"></a>Bir kasaya yüklemek için
+1. Raf kasaya bağlayın. Daha fazla bilgi için bkz: [rafa monte StorSimple 8100 aygıt](storsimple-8100-hardware-installation.md#rack-mount-your-storsimple-8100-device) veya [rafa monte StorSimple 8600 aygıt](storsimple-8600-hardware-installation.md#rack-mount-your-storsimple-8600-device).
+2. Kasa rafa monte sonra bunlar daha önce yüklü aynı konumlarda denetleyicisi modüllerini yükleyin.
+3. Aynı konum ve bunlar daha önce yüklü yuvaları sürücüleri yükleyin.
    
    > [!NOTE]
-   > Merhaba SSD hello yuvalarında yüklemeniz ve ardından hello HDD yükleyin öneririz.
+   > SSD yuvalarında ilk yükleyin ve HDD yükleyin öneririz.
    > 
    > 
-4. Merhaba ile cihaz hello rafa monte ve hello bileşenlerinin yüklü olması, aygıt toohello uygun güç kaynaklarınız bağlanmak ve hello aygıtı açın. Ayrıntılar için bkz [StorSimple 8100 cihazınız kablo](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) veya [StorSimple 8600 model Cihazınızı kablo](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
+4. Raf ve yüklenen bileşenlerle aygıtla Cihazınızı bağlamak için uygun güç kaynakları ve aygıtı açın. Ayrıntılar için bkz [StorSimple 8100 cihazınız kablo](storsimple-8100-hardware-installation.md#cable-your-storsimple-8100-device) veya [StorSimple 8600 model Cihazınızı kablo](storsimple-8600-hardware-installation.md#cable-your-storsimple-8600-device).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla bilgi edinmek [StorSimple donanım bileşeni değiştirme](storsimple-hardware-component-replacement.md).

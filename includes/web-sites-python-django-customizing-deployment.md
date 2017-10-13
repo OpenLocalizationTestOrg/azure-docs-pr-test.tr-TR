@@ -1,34 +1,34 @@
 Azure, uygulamanızın **bu koşulların her ikisi de doğruysa** Python kullandığını saptayacaktır:
 
-* Requirements.txt dosyası hello kök klasöründe
-* hello kök klasöründe tüm .py dosyaları veya python belirten runtime.txt
+* requirements.txt dosyası kök klasöründe
+* .py dosyaları VEYA python belirten runtime.txt dosyası kök klasöründe
 
-Hello durum böyle olduğunda, hello gibi ek Python işlemlerinin yanı sıra dosyaların standart eşitlemesini gerçekleştiren bir Python belirli bir dağıtım betik kullanacaksınız:
+Durum böyle olduğunda, aşağıdaki ek Python işlemlerinin yanı sıra dosyaların standart eşitlemesini gerçekleştiren Python’a özel bir dağıtım betiğini de kullanacaktır:
 
 * Sanal ortamın otomatik yönetimi
 * PIP kullanarak requirements.txt dosyasında listelenen paketlerin yüklenmesi
-* Seçili Python versiyonunu hello üzerinde temel hello uygun web.config oluşturma.
+* Seçili Python sürümü temelinde uygun web.config oluşturun.
 * Django uygulamaları için statik dosyaları toplama
 
-Toocustomize hello betik gerek kalmadan hello varsayılan dağıtım adımları belirli yönlerini kontrol edebilir.
+Betiği özelleştirmek zorunda kalmadan, varsayılan dağıtım adımlarının bazı yönlerini denetleyebilirsiniz.
 
-Tüm Python'a özel dağıtım adımlarını tooskip istiyorsanız bu boş dosyayı oluşturabilirsiniz:
+Python’a özel dağıtım adımlarını atlamak istiyorsanız bu boş dosyayı oluşturabilirsiniz:
 
     \.skipPythonDeployment
 
-Django uygulamanız için statik dosya tooskip koleksiyonunu istiyorsanız:
+Django uygulamanız için statik dosya toplamayı atlamak istiyorsanız:
 
     \.skipDjango 
 
-Dağıtım üzerinde daha fazla denetim için aşağıdaki dosyaları hello oluşturarak hello varsayılan dağıtım betiğini geçersiz kılabilirsiniz:
+Dağıtım üzerinde daha fazla denetim için aşağıdaki dosyaları oluşturarak varsayılan dağıtım betiğini geçersiz kılabilirsiniz:
 
     \.deployment
     \deploy.cmd
 
-Merhaba kullanabilirsiniz [Azure komut satırı arabirimi] [ Azure command-line interface] toocreate hello dosyaları.  Bu komutu proje klasörünüzden kullanın:
+Kullanabileceğiniz [Azure komut satırı arabirimi] [ Azure command-line interface] dosyaları oluşturmak için.  Bu komutu proje klasörünüzden kullanın:
 
     azure site deploymentscript --python
 
-Bu dosyalar olmadığında, Azure geçici bir dağıtım betiği oluşturur ve bunu çalıştırır.  Bir oluşturduğunuz yukarıdaki hello komutu ile aynı toohello olur.
+Bu dosyalar olmadığında, Azure geçici bir dağıtım betiği oluşturur ve bunu çalıştırır.  Yukarıdaki komutla oluşturduğunuzun aynısıdır.
 
 [Azure command-line interface]: http://azure.microsoft.com/downloads/

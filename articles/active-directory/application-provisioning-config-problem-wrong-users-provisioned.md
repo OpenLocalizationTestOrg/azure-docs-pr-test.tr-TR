@@ -1,6 +1,6 @@
 ---
-title: "kullanıcıları aaaWrong kümesini sağlanan tooan Azure AD galeri uygulama olan | Microsoft Docs"
-description: "Neden farklı bir kullanıcı kümesini olan çıkışı toofind tooan uygulama beklediğiniz olandan nasıl sağlanan öğrenin"
+title: "Kullanıcı yanlış kümesi, bir Azure AD galeri uygulamaya sağlanan | Microsoft Docs"
+description: "Neden farklı bir kullanıcı kümesini sağlanan bir uygulamaya beklediğiniz olandan öğrenmek öğrenin"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,100 +13,100 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: adb90b12a53fb3160ce2b73b2559df92b283438e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 85b533584c8ec15a23be32e20db7de583fced6a0
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="wrong-set-of-users-are-being-provisioned-tooan-azure-ad-gallery-application"></a>Kullanıcıları yanlış kümesini sağlanan tooan Azure AD galeri uygulaması oluşturuluyor
+# <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Kullanıcı yanlış kümesi, bir Azure AD galeri uygulamaya sağlanan
 
-Hangi kullanıcıların sağlanan toohello uygulama olan öncelikle hangi kullanıcıların ve grupların silinmiş tarafından yönetilir **atanan** toohello uygulama.
+Hangi kullanıcıların uygulama için sağlanan öncelikle hangi kullanıcıların ve grupların silinmiş tarafından yönetilir **atanan** uygulama.
 
-Merhaba kaynaklarını toolearn aşağıdaki kullanma hangi kullanıcıların ve grupların tooan uygulama Azure Active Directory içinde atanan toocheck.
+Hangi kullanıcıların ve grupların Azure Active Directory içinde bir uygulama atanmış denetlemek öğrenmek için aşağıdaki kaynakları kullanın.
 
 ## <a name="assign-a-user-directly-as-an-administrator"></a>Yönetici doğrudan kullanıcı atama
 
-tooassign bir veya daha fazla kullanıcı tooan uygulama, doğrudan başlangıç adımları izleyin:
+Bir veya daha fazla kullanıcının uygulamaya doğrudan atamak için aşağıdaki adımları izleyin:
 
-1.  Açık hello [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
 
-2.  Açık hello **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** hello ana sol taraftaki gezinti menüsünde hello sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
 
-3.  Yazın **"Azure Active Directory**" Merhaba filtre arama kutusunda ve select hello **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
-4.  Tıklatın **kurumsal uygulamalar** hello Azure Active Directory sol taraftaki gezinti menüsünde.
+4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  Tıklatın **tüm uygulamaları** tooview tüm uygulamalarınızın listesi.
+5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-  * Burada göstermek istediğiniz Merhaba uygulaması görmüyorsanız hello kullan **filtre** denetim hello hello üstündeki **tüm uygulamalar listesini** ve kümesi hello **Göster** çok seçenek **Tüm uygulamalar.**
+  * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm uygulamaları.**
 
-6.  Tooassign kullanıcı toofrom hello listesini hello uygulamasını seçin.
+6.  Listeden bir kullanıcıya atamak istediğiniz uygulamayı seçin.
 
-7.  Merhaba uygulamanın yüklediği sonra tıklayın **kullanıcılar ve gruplar** hello uygulamanın sol taraftaki gezinti menüsünde.
+7.  Uygulamanın yüklediği sonra tıklayın **kullanıcılar ve gruplar** uygulamanın sol taraftaki gezinti menüsünde.
 
-8.  Hello tıklatın **Ekle** hello üstünde düğmesi **kullanıcılar ve gruplar** listesi tooopen hello **eklemek atama** dikey.
+8.  Tıklatın **Ekle** üstünde düğmesini **kullanıcılar ve gruplar** açmak için liste **eklemek atama** dikey.
 
-9.  Merhaba tıklatın **kullanıcılar ve gruplar** hello seçicisini **eklemek atama** dikey.
+9.  tıklatın **kullanıcılar ve gruplar** seçicisini **eklemek atama** dikey.
 
-10. Merhaba türü **tam adı** veya **e-posta adresi** hello atama ilgilenen hello kullanıcının **ad veya e-posta adresine göre arama** arama kutusu.
+10. Yazın **tam adı** veya **e-posta adresi** içine atama ilgilenen kullanıcının **ad veya e-posta adresine göre arama** arama kutusu.
 
-11. Merhaba getirin **kullanıcı** hello listesi tooreveal içinde bir **onay kutusunu**. Kullanıcı toohello Hello onay kutusu sonraki toohello kullanıcının profili fotoğraf veya logosu tooadd tıklatın **seçili** listesi.
+11. Üzerine gelerek **kullanıcı** ortaya çıkarmak için listedeki bir **onay kutusunu**. Kullanıcının profil fotoğrafınız veya logosu, kullanıcı eklemek için yanındaki onay kutusuna tıklayın **seçili** listesi.
 
-12. **İsteğe bağlı:** çok isterseniz**birden fazla kullanıcı ekleme**, başka bir tür **tam adı** veya **e-posta adresi** hello içine **ada göre ara veya e-posta adresi** arama kutusu ve bu kullanıcı toohello hello onay kutusunu tooadd tıklatın **seçili** listesi.
+12. **İsteğe bağlı:** başlamayı tercih ederseniz **birden fazla kullanıcı ekleme**, başka bir tür **tam adı** veya **e-posta adresi** içine **ad veya e-posta adresine göre arama** arama kutusu ve bu kullanıcıyı eklemek için onay kutusunu işaretleyin **seçili** listesi.
 
-13. Kullanıcıların seçerek bittiğinde hello tıklatın **seçin** düğmesini tooadd bunları kullanıcılar ve gruplar toobe toohello listesi atanan toohello uygulama.
+13. Kullanıcıların seçerek bittiğinde tıklatın **seçin** düğmesi uygulamaya atanan kullanıcılar ve gruplar listesi eklemek için.
 
-14. **İsteğe bağlı:** hello tıklatın **rolü Seç** hello seçicide **eklemek atama** dikey tooselect rol seçtiğiniz tooassign toohello kullanıcılar.
+14. **İsteğe bağlı:** tıklatın **rolü Seç** seçicide **eklemek atama** seçtiğiniz kullanıcılara atamak için bir rol seçin dikey.
 
-15. Merhaba tıklatın **atamak** düğmesini tooassign hello uygulama toohello seçilen kullanıcılar.
+15. Tıklatın **atamak** uygulamayı Seçilen kullanıcılara atamak için düğmesi.
 
-Sağlama yapılandırılmış ve bir uygulama zaten çalışıyor ise, yeni kullanıcılar sağlanan tooan uygulaması yaklaşık 10 dakika içinde olmalıdır. Merhaba denetleyin **denetim günlüklerini** Ayrıntılar için.
+Sağlama yapılandırılmış ve bir uygulama zaten çalışıyor ise, yeni kullanıcılar yaklaşık 10 dakika içinde bir uygulama için hazırlanması gerekir. Denetleme **denetim günlüklerini** Ayrıntılar için.
 
-## <a name="assign-a-group-directly-tooan-application-as-an-administrator"></a>Bir gruba atamak doğrudan tooan uygulama yönetici olarak
+## <a name="assign-a-group-directly-to-an-application-as-an-administrator"></a>Yönetici olarak bir uygulamaya doğrudan bir gruba atamak
 
-bir veya daha fazla tooassign doğrudan tooan uygulama hello adımları aşağıdaki grupları:
+Bir veya daha fazla grupları doğrudan bir uygulamaya atamak için aşağıdaki adımları izleyin:
 
-1.  Açık hello [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
+1.  Açık [ **Azure Portal** ](https://portal.azure.com/) olarak oturum açın ve bir **genel yönetici.**
 
-2.  Açık hello **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** hello ana sol taraftaki gezinti menüsünde hello sonundaki.
+2.  Açık **Azure Active Directory uzantısını** tıklayarak **daha fazla hizmet** ana sol taraftaki gezinti menüsünde sonundaki.
 
-3.  Yazın **"Azure Active Directory**" Merhaba filtre arama kutusunda ve select hello **Azure Active Directory** öğesi.
+3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
-4.  Tıklatın **kurumsal uygulamalar** hello Azure Active Directory sol taraftaki gezinti menüsünde.
+4.  tıklatın **kurumsal uygulamalar** Azure Active Directory sol taraftaki gezinti menüsünde.
 
-5.  Tıklatın **tüm uygulamaları** tooview tüm uygulamalarınızın listesi.
+5.  tıklatın **tüm uygulamaları** tüm uygulamaların bir listesini görüntülemek için.
 
-  * Burada göstermek istediğiniz Merhaba uygulaması görmüyorsanız hello kullan **filtre** denetim hello hello üstündeki **tüm uygulamalar listesini** ve kümesi hello **Göster** çok seçenek **Tüm uygulamalar.**
+  * Burada gösterisini istediğiniz uygulama görmüyorsanız kullanın **filtre** üst kısmındaki denetim **tüm uygulamalar listesini** ve **Göster** için seçenek **tüm uygulamaları.**
 
-6.  Tooassign kullanıcı toofrom hello listesini hello uygulamasını seçin.
+6.  Listeden bir kullanıcıya atamak istediğiniz uygulamayı seçin.
 
-7.  Merhaba uygulamanın yüklediği sonra tıklayın **kullanıcılar ve gruplar** hello uygulamanın sol taraftaki gezinti menüsünde.
+7.  Uygulamanın yüklediği sonra tıklayın **kullanıcılar ve gruplar** uygulamanın sol taraftaki gezinti menüsünde.
 
-8.  Hello tıklatın **Ekle** hello üstünde düğmesi **kullanıcılar ve gruplar** listesi tooopen hello **eklemek atama** dikey.
+8.  Tıklatın **Ekle** üstünde düğmesini **kullanıcılar ve gruplar** açmak için liste **eklemek atama** dikey.
 
-9.  Merhaba tıklatın **kullanıcılar ve gruplar** hello seçicisini **eklemek atama** dikey.
+9.  tıklatın **kullanıcılar ve gruplar** seçicisini **eklemek atama** dikey.
 
-10. Merhaba türü **tam grup adı** hello atama ilgilenen hello grubunun **ad veya e-posta adresine göre arama** arama kutusu.
+10. Yazın **tam grup adı** içine atama ilgilenen grubunun **ad veya e-posta adresine göre arama** arama kutusu.
 
-11. Merhaba getirin **grup** hello listesi tooreveal içinde bir **onay kutusunu**. Kullanıcı toohello Hello onay kutusu sonraki toohello grubun profili fotoğraf veya logosu tooadd tıklatın **seçili** listesi.
+11. Üzerine gelerek **grup** ortaya çıkarmak için listedeki bir **onay kutusunu**. Grubun profil fotoğrafınız veya logosu, kullanıcı eklemek için yanındaki onay kutusuna tıklayın **seçili** listesi.
 
-12. **İsteğe bağlı:** çok isterseniz**birden fazla grubu Ekle**, başka bir tür **tam grup adı** hello içine **ad veya e-posta adresine göre arama** arama kutusu tıklatıp hello onay kutusunu tooadd bu Grup toohello **seçili** listesi.
+12. **İsteğe bağlı:** başlamayı tercih ederseniz **birden fazla grubu Ekle**, başka bir tür **tam grup adı** içine **ad veya e-posta adresine göre arama** arama kutusu ve bu gruba eklemek için onay kutusunu işaretleyin **seçili** listesi.
 
-13. Grupları seçmek bittiğinde hello tıklatın **seçin** düğmesini tooadd bunları kullanıcılar ve gruplar toobe toohello listesi atanan toohello uygulama.
+13. Grupları seçmek bittiğinde tıklatın **seçin** düğmesi uygulamaya atanan kullanıcılar ve gruplar listesi eklemek için.
 
-14. **İsteğe bağlı:** hello tıklatın **rolü Seç** hello seçicide **eklemek atama** dikey tooselect rol tooassign toohello gruplar seçtiniz.
+14. **İsteğe bağlı:** tıklatın **rolü Seç** seçicide **eklemek atama** seçtiğiniz gruplarına atamak için bir rol seçin dikey.
 
-15. Merhaba tıklatın **atamak** düğmesini tooassign hello uygulama toohello seçilen grupları.
+15. Tıklatın **atamak** seçilen grupları uygulamaya atamak için düğmesi.
 
-Sağlama yapılandırılmış ve bir uygulama zaten çalışıyor ise, yeni kullanıcılar hello gruptaki sağlanan tooan uygulaması yaklaşık 10 dakika içinde olmalıdır. Merhaba denetleyin **denetim günlüklerini** Ayrıntılar için.
+Sağlama yapılandırılmış ve bir uygulama zaten çalışıyor ise, yeni kullanıcılar grubunda yer alan yaklaşık 10 dakika içinde bir uygulama için hazırlanması gerekir. Denetleme **denetim günlüklerini** Ayrıntılar için.
 
 >[!IMPORTANT]
->Sağlama, grup adı hello ve ayrıntılarında toplama toohello üyeleri, bazı uygulamalar için destekleniyorsa gruplayın. Etkinleştirmek veya bu işlevi etkinleştirmek veya hello devre dışı bırakarak devre dışı **eşleme** hello gösterilen grubu nesnelerinin **sağlama** sekmesi. 
+>Grup adı ve üyeleri yanı sıra Grup ayrıntılarını bazı uygulamalar için destekleniyorsa sağlama. Etkinleştirmek veya bu işlevi etkinleştirmek veya devre dışı bırakarak devre dışı **eşleme** gösterilen grubu nesnelerinin **sağlama** sekmesi. 
 >
 >
 
-Grupları sağlama etkinleştirilirse tooreview hello öznitelik eşlemelerini tooensure uygun bir alan "Eşleşen kimliği" Merhaba kullanılan emin olun. Bu hello görünen adı olabilir ve e-posta diğer adı veya hello eşleşen özellik boşsa, hello grubu ve üyelerini sağlanması değil gibi bir grup için Azure AD içinde doldurulamaz.
+Grupları sağlama etkinse, uygun bir alan "Eşleşen kimliği" kullanıldığından emin olmak için öznitelik eşlemelerini gözden geçirmeyi unutmayın. Bu görünen ad olabilir ve e-posta diğer adı veya eşleşen özellik boşsa, Grup ve üyelerini sağlanması değil gibi bir grup için Azure AD içinde doldurulamaz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Kullanıcı hazırlama ve sağlamayı kaldırma işlemlerini tooSaaS Azure Active Directory ile uygulamaları otomatikleştirme](active-directory-saas-app-provisioning.md)
+[Kullanıcı sağlama ve Azure Active Directory ile SaaS uygulamalarına sağlamayı otomatikleştirme](active-directory-saas-app-provisioning.md)

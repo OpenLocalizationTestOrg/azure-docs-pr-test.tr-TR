@@ -1,5 +1,5 @@
 ---
-title: "Yönetim olaylarını tooActivity günlük uyarıları üzerinde Azure uyarıları aaaMigrate | Microsoft Docs"
+title: "Etkinlik günlüğü Uyarıları Yönetimi olayları Azure uyarılar geçirme | Microsoft Docs"
 description: "Uyarılar yönetim olaylarına 1 Ekim kaldırılır. Geçirme kullanılamamasıdır uyarıları ile hazırlayın."
 author: johnkemnetz
 manager: orenr
@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: johnkem
-ms.openlocfilehash: e00bc4f0bad4e8f97443310770c333d250e343ec
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 08a457029d3721f5c38dbcd2d2aab7d09a241d8f
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="migrate-azure-alerts-on-management-events-tooactivity-log-alerts"></a>Azure Uyarıları Yönetimi olayları tooActivity günlük uyarılar hakkında geçirme
+# <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Etkinlik günlüğü Uyarıları Yönetimi olayları Azure uyarılar geçirme
 
 
 > [!WARNING]
-> Yönetim olaylarını uyarılar veya ondan sonra Ekim 1 kapatılır. Bu uyarılar varsa ve bu durumda geçiş toounderstand aşağıda hello yönergeleri kullanın.
+> Yönetim olaylarını uyarılar veya ondan sonra Ekim 1 kapatılır. Bu uyarılar ve öyleyse geçirmek anlamak için aşağıdaki yönergeleri kullanın.
 >
 > 
 
 ## <a name="what-is-changing"></a>Ne değiştirme
 
-Azure İzleyicisi'ni (önceki adıyla Azure Öngörüler) yeteneği toocreate dışına Yönetimi olayları tetiklenir ve bildirimleri, tooa Web kancası URL'si veya e-posta adresleri oluşturulan bir uyarı sunmuştur. Oluşturmuş olabileceğiniz bunlardan birini uyarıları şu yollardan biriyle:
-* Hello bazı kaynak türleri için Azure portalı, bölümünde İzleme -> Uyarılar -> Ekle "Uyarı" olarak ayarlandığı çok uyarı, "Olayları"
-* Çalışan hello Ekle-AzureRmLogAlertRule PowerShell cmdlet tarafından
-* Doğrudan kullanarak [uyarı REST API Merhaba](http://docs.microsoft.com/rest/api/monitor/alertrules) "ManagementEventRuleCondition" ve dataSource.odata.type ile odata.type = "RuleManagementEventDataSource" =
+Azure İzleyicisi'ni (önceki adıyla Azure Öngörüler) Yönetimi olayları dışına tetiklenir ve bir Web kancası URL'si veya e-posta adreslerine bildirim oluşturulan bir uyarı oluşturmak için bir özellik sunmuştur. Oluşturmuş olabileceğiniz bunlardan birini uyarıları şu yollardan biriyle:
+* Belirli kaynak türlerine yönelik Azure portalında bölümünde İzleme -> Uyarılar -> Ekle "Uyarı" olarak ayarlandığı "Olayları" Uyarısı,
+* Add-AzureRmLogAlertRule PowerShell cmdlet'ini çalıştırarak
+* Doğrudan kullanarak [uyarı REST API](http://docs.microsoft.com/rest/api/monitor/alertrules) ile odata.type = "ManagementEventRuleCondition" ve dataSource.odata.type "RuleManagementEventDataSource" =
  
-Merhaba aşağıdaki PowerShell betiğini tüm uyarıların bir listesi, abonelik, aynı zamanda her uyarıdaki hello koşullara sahip Yönetimi olayları döndürür.
+Aşağıdaki PowerShell betiğini her uyarıdaki ayarlanan koşulları yanı sıra, aboneliğiniz olan Yönetim olayları tüm uyarıların bir listesi döndürür.
 
 ```powershell
 Login-AzureRmAccount
@@ -54,11 +54,11 @@ foreach ($alert in $alerts) {
 } 
 ```
 
-Hiçbir uyarı yönetim olaylarına varsa, hello PowerShell cmdlet'i yukarıdaki uyarı iletilerini bunun gibi bir dizi çıktı:
+Yönetim olaylarına herhangi bir uyarı varsa PowerShell cmdlet'i yukarıdaki uyarı iletilerini bunun gibi bir dizi çıktı:
 
-`WARNING: hello output of this cmdlet will be flattened, i.e. elimination of hello properties field, in a future release tooimprove hello user experience.`
+`WARNING: The output of this cmdlet will be flattened, i.e. elimination of the properties field, in a future release to improve the user experience.`
 
-Bu uyarı iletilerini göz ardı edilebilir. Yönetim olaylarına uyarıları varsa, bu PowerShell cmdlet'ini hello çıktısı şuna benzeyecektir:
+Bu uyarı iletilerini göz ardı edilebilir. Yönetim olaylarına uyarıları varsa, bu PowerShell cmdlet'ini çıktısı şuna benzeyecektir:
 
 ```
 Alert Name: webhookEvent1
@@ -95,22 +95,22 @@ ResourceUri          : /subscriptions/<subscription-id>/resourceGroups/<resource
 ---------------------------------
 ```
 
-Her uyarı kesikli çizgi ile ayrılır ve hello kaynak Kimliğini hello uyarı ve izlenen hello belirli kural ayrıntıları içerir.
+Her uyarı kesikli çizgi ile ayrılır ve ayrıntıları uyarı ve izlenmekte olan belirli kuralın kaynak Kimliğini içerir.
 
-Bu işlev çok geçti[Azure etkinlik günlüğü uyarıları izleme](monitoring-activity-log-alerts.md). Bu yeni uyarılar tooset etkinlik günlüğü olaylarını bir koşula etkinleştirin ve yeni bir olay hello koşul eşleştiğinde bir bildirim alırsınız. Bunlar ayrıca Yönetim olaylarına uyarılardan çeşitli iyileştirmeler sağlar:
-* Grubunuzun bildirim alıcıların ("eylem") kullanarak çok sayıda uyarı yeniden [Eylem grupları](monitoring-action-groups.md), bir uyarı alması gereken değiştirme hello karmaşıklığını azaltır.
+Bu işlev için geçişi [Azure etkinlik günlüğü uyarıları izleme](monitoring-activity-log-alerts.md). Bu yeni uyarılar, etkinlik günlüğü olaylarını bir koşul ayarlamaya ve yeni bir olay koşul eşleştiğinde bir bildirim almak etkinleştirin. Bunlar ayrıca Yönetim olaylarına uyarılardan çeşitli iyileştirmeler sağlar:
+* Grubunuzun bildirim alıcıların ("eylem") kullanarak çok sayıda uyarı yeniden [Eylem grupları](monitoring-action-groups.md), bir uyarı alması gereken değiştirme karmaşıklığını azaltır.
 * Doğrudan eylem gruplarıyla SMS kullanarak telefonunuza bir bildirim alırsınız.
 * Yapabilecekleriniz [Resource Manager şablonları ile etkinlik günlüğü uyarıları oluşturma](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
-* Daha fazla esneklik ve karmaşıklık toomeet ile kendi özel gereksinimlerinize göre koşullar oluşturabilirsiniz.
+* Daha fazla esneklik ve belirli ihtiyaçlarınızı karşılaması için karmaşıklık koşullar oluşturabilirsiniz.
 * Bildirimleri daha hızlı bir şekilde teslim edilir.
  
-## <a name="how-toomigrate"></a>Nasıl toomigrate
+## <a name="how-to-migrate"></a>Geçirme
  
-Yeni Etkinlik günlüğü uyarısı toocreate, şunlardan birini yapabilirsiniz:
-* İzleyin [nasıl toocreate uyarıda bir hello Azure portalı üzerinde kılavuzumuzu](monitoring-activity-log-alerts.md)
-* Nasıl çok öğrenin[Resource Manager şablonu kullanarak bir uyarı oluşturabilir.](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+Yeni Etkinlik günlüğü uyarısı oluşturmak için şunlardan birini yapabilirsiniz:
+* İzleyin [kılavuzumuzu Azure portalında bir uyarı oluşturma hakkında](monitoring-activity-log-alerts.md)
+* Bilgi edinmek için nasıl [Resource Manager şablonu kullanarak bir uyarı oluşturabilir.](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
  
-Daha önce oluşturduğunuz yönetim olaylarını uyarılar otomatik olarak geçirilen tooActivity günlük uyarıları olmaz. Şu anda yapılandırdıysanız ve el ile etkinlik günlüğü uyarıları olarak yeniden oluşturmanız yönetim olaylarına PowerShell komut dosyası toolist hello uyarıları önceki toouse hello gerekir. Bu uyarılar yönetim olayları artık Azure aboneliğinizde görünür olacak Ekim 1 önce yapılmalıdır. Azure uyarıları, Azure İzleyici ölçüm uyarıları, Application Insights uyarıları ve günlük analizi uyarılar dahil olmak üzere diğer türleri, bu değişiklikten etkilenmez. Herhangi bir sorunuz varsa, aşağıdaki hello yorumları gönderin.
+Daha önce oluşturduğunuz yönetim olaylarını uyarılar, etkinlik günlüğü uyarıları otomatik olarak geçirilmez. Şu anda yapılandırdıysanız ve el ile etkinlik günlüğü uyarıları olarak yeniden oluşturmanız Yönetimi olayları uyarılar listelemek için yukarıdaki PowerShell komut dosyasını kullanmanız gerekir. Bu uyarılar yönetim olayları artık Azure aboneliğinizde görünür olacak Ekim 1 önce yapılmalıdır. Azure uyarıları, Azure İzleyici ölçüm uyarıları, Application Insights uyarıları ve günlük analizi uyarılar dahil olmak üzere diğer türleri, bu değişiklikten etkilenmez. Herhangi bir sorunuz varsa, aşağıdaki yorumları gönderin.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -118,6 +118,6 @@ Daha önce oluşturduğunuz yönetim olaylarını uyarılar otomatik olarak geç
 * Daha fazla bilgi edinmek [etkinlik günlüğü](monitoring-overview-activity-logs.md)
 * Yapılandırma [Azure Portalı aracılığıyla etkinlik günlüğü uyarıları](monitoring-activity-log-alerts.md)
 * Yapılandırma [etkinlik günlüğü uyarıları aracılığıyla kaynak yöneticisi](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
-* Gözden geçirme hello [etkinlik günlüğü uyarı Web kancası şeması](monitoring-activity-log-alerts-webhook.md)
+* Gözden geçirme [etkinlik günlüğü uyarı Web kancası şeması](monitoring-activity-log-alerts-webhook.md)
 * Daha fazla bilgi edinmek [hizmet bildirimleri](monitoring-service-notifications.md)
 * Daha fazla bilgi edinmek [Eylem grupları](monitoring-action-groups.md)

@@ -1,6 +1,6 @@
 ---
-title: "Noktadan siteye ve sertifika kimlik doğrulaması kullanan bir bilgisayar tooa sanal bir ağa bağlanma: Azure Portal Klasik | Microsoft Docs"
-description: "Güvenli tooyour bağlanmak Klasik Azure sanal hello Azure portal kullanarak bir noktadan siteye VPN ağ geçidi bağlantısı oluşturarak ağ."
+title: "Noktadan Siteye bağlantısı ve istemci kimlik doğrulaması kullanarak bir bilgisayarı sanal ağa bağlama: Klasik Azure portalı | Microsoft Docs"
+description: "Azure portalı ile Noktadan Siteye bir VPN Gateway bağlantısı oluşturarak klasik Azure Sanal Ağınıza güvenli bir şekilde bağlanın."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: cherylmc
-ms.openlocfilehash: 9b53ba43ee4dfb61defeec458905fb1f1b18c3a5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 7805e7c91c49fe1ef2d92b64c62bbfd15ab492b5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="configure-a-point-to-site-connection-tooa-vnet-using-certificate-authentication-classic-azure-portal"></a>Bir noktadan siteye bağlantı tooa VNet yapılandırma sertifika kimlik doğrulaması (Klasik) kullanarak: Azure portal
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Sertifika kimlik doğrulaması kullanarak Noktadan Siteye VNet bağlantısını yapılandırma (klasik): Azure portalı
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
-Bu makalede nasıl toocreate hello Klasik dağıtım modeli kullanarak bir noktadan siteye bağlantı sahip bir VNet hello Azure portal gösterilmektedir. Bu yapılandırma, sertifikaları tooauthenticate hello istemci bağlanma kullanır. Liste aşağıdaki hello farklı bir seçeneği seçerek farklı dağıtım aracını veya dağıtım modelini kullanarak bu yapılandırma ayrıca oluşturabilirsiniz:
+Bu makalede, Azure portalı kullanılarak klasik dağıtım modelinde Noktadan Siteye bağlantı ile sanal ağ oluşturma işlemi gösterilmektedir. Bu yapılandırma, bağlanan istemcinin kimliğini doğrulamak için sertifikaları kullanır. Ayrıca aşağıdaki listeden farklı bir seçenek belirtip farklı bir dağıtım aracı veya dağıtım modeli kullanarak da bu yapılandırmayı oluşturabilirsiniz:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
@@ -33,40 +33,40 @@ Bu makalede nasıl toocreate hello Klasik dağıtım modeli kullanarak bir nokta
 > * [Azure portal (klasik)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
 
-Bir noktadan siteye (P2S) VPN ağ geçidi tek bir istemci bilgisayardan güvenli bağlantı tooyour sanal ağ oluşturmanıza olanak sağlar. Noktadan siteye VPN bağlantıları tooconnect tooyour VNet uzak bir konumdan, örneğin, evden veya bir Konferanstan telecommuting zaman istediğinizde faydalıdır. Tooconnect tooa VNet gereken yalnızca birkaç istemciniz P2S VPN de yararlı çözüm toouse bir siteden siteye VPN yerine durumdur. 
+Noktadan Siteye (P2S) VPN ağ geçidi, ayrı bir istemci bilgisayardan sanal ağınıza güvenli bir bağlantı oluşturmanıza olanak sağlar. Noktadan Siteye VPN bağlantıları, ev veya bir konferans gibi uzak bir noktadan Vnet'inize bağlanmak istediğinizde faydalıdır. P2S VPN ayrıca, bir sanal ağa bağlanması gereken yalnızca birkaç istemciniz olduğunda Siteden Siteye VPN yerine kullanabileceğiniz yararlı bir çözümüdür. 
 
-P2S kullanır, Güvenli Yuva Tünel Protokolü (bir SSL tabanlı VPN protokolü, SSTP), hello. P2S VPN bağlantısı, hello istemci bilgisayardan başlatılmasıyla oluşturulur.
+P2S, SSL tabanlı bir VPN protokolü olan Güvenli Yuva Tünel Protokolünü (SSTP) kullanır. P2S VPN bağlantısı, istemci bilgisayardan başlatılmasıyla oluşturulur.
 
 
 ![Noktadan Siteye diyagramı](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 
 
-Noktadan siteye sertifika kimlik doğrulaması bağlantıları hello aşağıdakileri gerektirir:
+Noktadan Siteye sertifika kimlik doğrulaması bağlantıları aşağıdakileri gerektirir:
 
 * Bir Dinamik VPN ağ geçidi.
-* Merhaba karşıya yüklenen tooAzure bir kök sertifikası için ortak anahtarı (.cer dosyası). Bu dosya, güvenilen bir sertifika olarak kabul edilir ve kimlik doğrulaması için kullanılır.
-* Bir istemci sertifikası hello kök sertifikasından oluşturulur ve bağlanacak her istemci bilgisayarda yüklü. Bu sertifika, istemci kimlik doğrulaması için kullanılır.
-* Bir VPN istemcisi yapılandırma paketi oluşturulmalı ve bağlanan her istemci bilgisayara yüklenmelidir. Merhaba istemci yapılandırma paketi zaten hello gerekli bilgileri tooconnect toohello VNet ile Merhaba işletim sisteminde hello yerel VPN istemcisi yapılandırır.
+* Azure’a yüklenmiş bir kök sertifikanın ortak anahtarı (.cer dosyası). Bu dosya, güvenilen bir sertifika olarak kabul edilir ve kimlik doğrulaması için kullanılır.
+* Kök sertifikadan oluşturulmuş ve bağlanacak her bir istemci bilgisayara yüklenmiş istemci sertifikası. Bu sertifika, istemci kimlik doğrulaması için kullanılır.
+* Bir VPN istemcisi yapılandırma paketi oluşturulmalı ve bağlanan her istemci bilgisayara yüklenmelidir. İstemci yapılandırma paketi, işletim sistemi üzerinde zaten bulunan yerel VPN istemcisini sanal ağa bağlanmak için gereken bilgilerle yapılandırır.
 
-Noktadan Siteye bağlantılar için bir VPN cihazına veya şirket içi genel kullanıma yönelik bir IP adresine gerek yoktur. Merhaba VPN bağlantı SSTP (Güvenli Yuva Tünel Protokolü) oluşturulur. Merhaba sunucu tarafında SSTP sürümleri 1.0, 1.1 ve 1.2 destekliyoruz. Merhaba istemci hangi sürümü toouse karar verir. Windows 8.1 ve sonraki sürümlerinde, SSTP'de varsayılan olarak 1.2 kullanılır. 
+Noktadan Siteye bağlantılar için bir VPN cihazına veya şirket içi genel kullanıma yönelik bir IP adresine gerek yoktur. VPN bağlantısı SSTP (Güvenli Yuva Tünel Protokolü) üzerinden oluşturulur. Sunucu tarafında 1.0, 1.1 ve 1.2 SSTP sürümlerini destekliyoruz. Kullanılacak sürüm, istemci tarafından belirlenir. Windows 8.1 ve sonraki sürümlerinde, SSTP'de varsayılan olarak 1.2 kullanılır. 
 
-Merhaba noktadan siteye bağlantılar hakkında daha fazla bilgi için bkz: [noktası siteye SSS](#faq) hello bu makalenin sonunda.
+Noktadan Siteye bağlantılar hakkında daha fazla bilgi edinmek için bu makalenin sonunda yer alan [Noktadan Siteye hakkında SSS](#faq) bölümünü inceleyin.
 
 ### <a name="example-settings"></a>Örnek ayarlar
 
-Aşağıdaki değerleri toocreate bir test ortamı hello kullanın veya toothese değerleri bkz toobetter anlamak bu makaledeki hello örnekler:
+Aşağıdaki değerleri kullanarak bir test ortamı oluşturabilir veya bu makaledeki örnekleri daha iyi anlamak için bu değerlere bakabilirsiniz:
 
 * **Ad: VNet1**
 * **Adres alanı: 192.168.0.0/16**<br>Bu örnekte yalnızca bir adres alanı kullanılmaktadır. Sanal ağınıza ait birden fazla adres alanı olabilir.
 * **Alt ağ adı: FrontEnd**
 * **Alt ağ adres aralığı: 192.168.1.0/24**
-* **Abonelik:** kullandığınızdan emin olun, birden fazla aboneliğiniz varsa doğru olanı hello.
+* **Abonelik:** Birden fazla aboneliğiniz varsa doğru aboneliği kullandığınızdan emin olun.
 * **Kaynak Grubu: TestRG**
 * **Konum: Doğu ABD**
 * **Bağlantı türü: Noktadan siteye**
-* **İstemci Adres Alanı: 172.16.201.0/24**. Bu noktadan siteye bağlantıyı kullanarak sanal bir IP adresi almak toohello bağlanmak VPN istemcileri belirtilen havuzu hello.
-* **GatewaySubnet: 192.168.200.0/24**. Merhaba ağ geçidi alt ağı, 'GatewaySubnet' hello adı kullanmanız gerekir.
-* **Boyut:** Select hello ağ geçidi SKU'su toouse istiyor.
+* **İstemci Adres Alanı: 172.16.201.0/24**. Sanal ağa bu Noktadan Siteye bağlantıyı kullanarak bağlanan VPN istemcileri belirtilen havuzdan bir IP adresi alır.
+* **GatewaySubnet: 192.168.200.0/24**. Ağ geçidi alt ağı 'GatewaySubnet' adını kullanmalıdır.
+* **Boyut:** Kullanmak istediğiniz ağ geçidi SKU’sunu seçin.
 * **Yönlendirme Türü: Dinamik**
 
 ## <a name="vnetvpn"></a>1. Sanal ağ ve VPN ağ geçidi oluşturma
@@ -75,68 +75,68 @@ Başlamadan önce, bir Azure aboneliğiniz olduğunu doğrulayın. Henüz Azure 
 
 ### <a name="createvnet"></a>1. Kısım - Sanal ağ oluşturma
 
-Sanal ağınız yoksa bir sanal ağ oluşturun. Ekran görüntüleri örnek olarak verilmiştir. Emin tooreplace hello değerleri kendi değerlerinizle olabilir. toocreate kullanarak bir VNet Azure portalı, aşağıdaki adımları kullanın hello hello:
+Sanal ağınız yoksa bir sanal ağ oluşturun. Ekran görüntüleri örnek olarak verilmiştir. Değerlerin kendinizinkilerle değiştirildiğinden emin olun. Azure portalını kullanarak sanal ağ oluşturmak için şu adımları uygulayın:
 
-1. Tarayıcıdan toohello gidin [Azure portal](http://portal.azure.com) ve gerekiyorsa Azure hesabınızla oturum açın.
-2. **Yeni**’ye tıklayın. Merhaba, **arama hello Market** alanında, 'Sanal ağ' yazın. Bulun **sanal ağ** döndürülen hello listelemek ve tooopen hello'ı tıklatın **sanal ağ** sayfası.
+1. Tarayıcıdan [Azure portalına](http://portal.azure.com) gidin ve gerekiyorsa Azure hesabınızda oturum açın.
+2. **Yeni**’ye tıklayın. **Markette ara** alanına 'Sanal Ağ' yazın. Döndürülen listeden **Sanal Ağ**’ı bulun ve tıklayarak **Sanal Ağ** sayfasını açın.
 
   ![Sanal ağ ara sayfası](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvnetportal700.png)
-3. Merhaba alt kısmındaki hello de hello sanal ağ sayfasından **dağıtım modeli seçin** listesinde, seçin **Klasik**ve ardından **oluşturma**.
+3. Sanal Ağ sayfasının en altına doğru, **Bir dağıtım modeli seçin** listesinden **Klasik**’i seçip **Oluştur**’a tıklayın.
 
   ![Dağıtım modeli seçme](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/selectmodel.png)
-4. Merhaba üzerinde **sanal ağ oluştur** sayfasında, hello VNet ayarlarını yapılandırın. Bu sayfada, ilk adres alanınızı ve tek alt ağ adres aralığınızı eklersiniz. Merhaba VNet oluşturma işlemini tamamladıktan sonra geri dönün ve ek alt ağları ve adres alanlarını ekleyin.
+4. **Sanal ağ oluştur** sayfasında sanal ağ ayarlarını yapılandırın. Bu sayfada, ilk adres alanınızı ve tek alt ağ adres aralığınızı eklersiniz. Sanal ağ oluşturma işlemini tamamladıktan sonra geri dönüp ek alt ağları ve adres alanlarını ekleyin.
 
   ![Sanal ağ oluştur sayfası](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/vnet125.png)
-5. Bu hello doğrulayın **abonelik** hello doğru olduğundan. Merhaba açılan kullanarak abonelikleri değiştirebilirsiniz.
-6. **Kaynak grubu**’na tıklayın, ya varolan bir kaynak grubunu seçin ya da yeni kaynak grubunuz için bir ad yazarak yeni bir tane oluşturun. Yeni bir kaynak grubu oluşturuyorsanız, tooyour göre adı hello kaynak grubu yapılandırma değerlerini planlanan. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../azure-resource-manager/resource-group-overview.md#resource-groups)’ı ziyaret edin.
-7. Ardından, hello'ı seçin **konumu** ayarlarını. Merhaba kaynakları toothis VNet dağıtmadan bulunacağı Hello konumunu belirler.
-8. Seçin **PIN toodashboard** toobe mümkün toofind ağınızı hello Panoda kolayca isterseniz ve ardından **oluşturma**.
+5. **Abonelik** alanında doğru bir giriş olduğunu doğrulayın. Açılan listeyi kullanarak abonelikleri değiştirebilirsiniz.
+6. **Kaynak grubu**’na tıklayın, ya varolan bir kaynak grubunu seçin ya da yeni kaynak grubunuz için bir ad yazarak yeni bir tane oluşturun. Yeni bir kaynak grubu oluşturuyorsanız, planlanan yapılandırma değerlerinize göre kaynak grubunu adlandırın. Kaynak grupları hakkında daha fazla bilgi için [Azure Resource Manager’a Genel Bakış](../azure-resource-manager/resource-group-overview.md#resource-groups)’ı ziyaret edin.
+7. Ardından, sanal ağınız için **Konum** ayarlarını seçin. Konum bu sanal ağa dağıttığınız kaynakların nerede olacağını belirler.
+8. VNet’inizi panoda kolay bulmak istiyorsanız **Panoya sabitle**’yi seçin ve ardından **Oluştur**’a tıklayın.
 
-  ![PIN toodashboard](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/pintodashboard150.png)
-9. Create tıklandıktan sonra bir kutucuk Panonuzda hello Vnet'inizin ilerleme durumunu yansıtır görüntülenir. VNet Hello döşeme değişiklikleri hello olarak oluşturuldu.
+  ![Panoya sabitle](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/pintodashboard150.png)
+9. Oluştur’a tıkladıktan sonra, panonuzda sanal ağınızın ilerleme durumunu yansıtacak bir kutucuk görünür. Sanal ağ oluşturulurken kutucuk değişir.
 
   ![Sanal ağ kutucuğu oluşturma](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png)
-10. Sanal ağınız oluşturulduktan sonra gördüğünüz **oluşturulan** altında listelenen **durum** hello Klasik Azure Portalı'ndaki hello ağlar sayfasında.
-11. DNS sunucusu ekleme (isteğe bağlı). Sanal ağınızı oluşturduktan sonra ad çözümlemesi için bir DNS sunucusu IP adresini hello ekleyebilirsiniz. Merhaba, belirttiğiniz DNS sunucusu IP adresi için ağınızı hello kaynaklarında hello adlarını çözümleyebildiğini bir DNS sunucusunun hello adresi olması gerekir.<br>tooadd bir DNS sunucusu sanal ağınız için hello Ayarları'nı açın, DNS sunucuları'nı tıklatın ve hello toouse istediğiniz hello DNS sunucusunun IP adresini ekleyin.
+10. Sanal ağınız oluşturulduğunda, klasik Azure portalının ağlar sayfasındaki **Durum** seçeneğinin altında **Oluşturuldu** ifadesinin yer aldığını görürsünüz.
+11. DNS sunucusu ekleme (isteğe bağlı). Sanal ağınızı oluşturduktan sonra ad çözümlemesi için bir DNS sunucusunun IP adresini ekleyebilirsiniz. Belirttiğiniz DNS sunucusu IP adresi, sanal ağınızdaki kaynakların adlarını çözümleyebilen bir DNS sunucusunun adresi olmalıdır.<br>Bir DNS sunucusu eklemek için sanal ağınızın ayarlarını açın, DNS sunucularına tıklayın ve kullanmak istediğiniz DNS sunucusunun IP adresini ekleyin.
 
 ### <a name="gateway"></a>2. Kısım: Ağ geçidi alt ağı ve dinamik yönlendirme ağ geçidi oluşturma
 
-Bu adımda bir ağ geçidi alt ağı ve dinamik yönlendirme ağ geçidi oluşturacaksınız. Hello hello Klasik dağıtım modeli için Azure portalı, hello ağ geçidi alt ağı ve hello ağ geçidi oluşturma hello aynı yapılabilir yapılandırma sayfaları.
+Bu adımda bir ağ geçidi alt ağı ve dinamik yönlendirme ağ geçidi oluşturacaksınız. Klasik dağıtım modeli için Azure portalında aynı ağ geçidi alt ağı ve ağ geçidi, aynı yapılandırma sayfalarından oluşturulabilir.
 
-1. Merhaba Portalı'nda toocreate bir ağ geçidi istediğiniz toohello sanal ağı gidin.
-2. Merhaba, sanal ağda hello sayfasında **genel bakış** hello VPN bağlantıları bölümündeki sayfasını tıklatın **ağ geçidi**.
+1. Portalda, ağ geçidi oluşturmak istediğiniz sanal ağa gidin.
+2. Sanal ağınızın sayfasındaki **Genel Bakış** sayfasının VPN bağlantıları bölümünde **Ağ Geçidi**’ne tıklayın.
 
-  ![Toocreate bir ağ geçidi'ı tıklatın](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/beforegw125.png)
-3. Merhaba üzerinde **yeni VPN bağlantısı** sayfasında, **noktadan siteye**.
+  ![Ağ geçidi oluşturmak için tıklayın](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/beforegw125.png)
+3. **Yeni VPN Bağlantısı** sayfasında **Noktadan siteye** öğesini seçin.
 
   ![Noktadan Siteye bağlantı türü](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
-4. İçin **istemci adres alanı**, başlangıç IP adresi aralığı ekleyin. Bu, hello VPN istemcileri bir IP adresi bağlanırken alır hello aralıktır. Çakışmayan bir özel IP adres aralığı bağlanacak olan hello şirket içi konumla veya hello tooconnect için istediğiniz VNet ile kullanın. Merhaba otomatik doldurulmuş aralığı silmek, ardından toouse istediğiniz hello özel IP adresi aralığını ekleyin.
+4. **İstemci Adres Alanı** için IP adresi aralığını ekleyin. Bu aralık, VPN istemcilerinin bağlanırken bir IP adresi aldığı aralıktır. Bağlantıyı kuracağınız şirket içi konum veya bağlanmak istediğiniz sanal ağ ile çakışmayan özel bir IP adresi aralığı kullanın. Otomatik olarak doldurulan aralığı silebilir, ardından kullanmak istediğiniz özel IP adresi aralığını ekleyebilirsiniz.
 
   ![İstemci adres alanı](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png)
-5. Select hello **ağ geçidini hemen Oluştur** onay kutusu.
+5. **Ağ geçidini hemen oluştur** onay kutusunu seçin.
 
   ![Ağ geçidini hemen oluşturma](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/creategwimm.png)
-6. Tıklatın **isteğe bağlı ağ geçidi Yapılandırması** tooopen hello **ağ geçidi Yapılandırması** sayfası.
+6. **İsteğe bağlı ağ geçidi yapılandırması**’na tıklayarak **Ağ geçidi yapılandırması** sayfasını açın.
 
   ![İsteğe bağlı ağ geçidi yapılandırması'na tıklayın](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/optsubnet125.png)
-7. Tıklatın **alt ağı yapılandırabilirsiniz gerekli ayarları** tooadd hello **ağ geçidi alt ağı**. Olası toocreate ağ geçidi alt ağı /29 küçük olmakla birlikte, en az/28 veya /27 seçerek daha fazla adreslerini içeren daha büyük bir alt ağı oluşturmanızı öneririz. Bu, gelecekteki hello isteyebileceğiniz yeterli adresleri tooaccommodate olası ek yapılandırmalar için izin verir. Ağ geçidi alt ağları ile çalışırken, bir ağ güvenlik grubu (NSG) toohello ağ geçidi alt ilişkilendirme kaçının. Bir ağ güvenlik grubu toothis alt ilişkilendirme beklendiği gibi çalışmıyor, VPN ağ geçidi toostop neden olabilir.
+7. **Alt Ağ Yapılandırma zorunlu ayarları**’na tıklayarak **ağ geçidi alt ağı** ekleyin. /29 kadar küçük bir ağ geçidi alt ağı oluşturmak mümkün olsa da en az /28 veya /27’yi seçerek daha fazla adres içeren büyük bir alt ağ oluşturmanızı öneririz. Bu, gelecekte isteyebileceğiniz ek yapılandırmaları da içerecek yeteri kadar adres sağlayacaktır. Ağ geçidi alt ağlarıyla çalışırken, ağ güvenlik grubunu (NSG) ağ geçidi alt ağıyla ilişkilendirmekten kaçının. Ağ güvenlik grubunun bu alt ağ ile ilişkilendirilmesi, VPN Gateway’inizin beklendiği gibi çalışmayı durdurmasına neden olabilir.
 
   ![GatewaySubnet ekleme](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsubnet125.png)
-8. Select hello ağ geçidi **boyutu**. Merhaba, sanal ağ geçidinizin hello ağ geçidi SKU'su boyutudur. Merhaba Portalı'nda hello varsayılan SKU olan **temel**. Ağ geçidi SKU’ları hakkında bilgi için bkz. [VPN Gateway Ayarları Hakkında](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+8. Ağ geçidi **Boyutu** seçin. Boyut, sanal ağ geçidinizin ağ geçidi SKU’sudur. Portalda Varsayılan SKU, **Temel**’dir. Ağ geçidi SKU’ları hakkında bilgi için bkz. [VPN Gateway Ayarları Hakkında](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
   ![Ağ geçidi boyutu](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsize125.png)
-9. Select hello **yönlendirme türü** ağ geçidiniz için. P2S yapılandırmaları bir **Dinamik** yönlendirme türü gerektirir. Bu sayfayı yapılandırmayı bitirdiğinizde **Tamam**’a tıklayın.
+9. Ağ geçidiniz için **Yönlendirme Türü** seçin. P2S yapılandırmaları bir **Dinamik** yönlendirme türü gerektirir. Bu sayfayı yapılandırmayı bitirdiğinizde **Tamam**’a tıklayın.
 
   ![Yönlendirme türünü yapılandırma](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
-10. Merhaba üzerinde **yeni VPN bağlantısı** sayfasında, **Tamam** hello altındaki hello sayfa toobegin, sanal ağ geçidi oluşturma. Bir VPN ağ geçidi, seçtiğiniz hello ağ geçidi SKU'su bağlı olarak too45 dakika toocomplete yukarı alabilir.
+10. **Yeni VPN Bağlantısı** sayfasında, sanal ağ geçidinizi oluşturmaya başlamak için sayfanın en altından **Tamam**’a tıklayın. Bir VPN ağ geçidi işleminin tamamlanması, seçtiğiniz ağ geçidi sku'suna bağlı olarak 45 dakikaya kadar sürebilir.
 
 ## <a name="generatecerts"></a>2. Sertifika oluşturma
 
-Sertifikalar için noktadan siteye VPN Azure tooauthenticate VPN istemcileri tarafından kullanılır. Ortak anahtar bilgileri hello kök sertifika tooAzure hello karşıya yükleyin. Merhaba ortak anahtar ardından 'güvenilir' olarak kabul edilir. İstemci sertifikaları gerekir hello güvenilen kök sertifika oluşturulur ve ardından her bir istemci bilgisayarı hello Sertifikalar-Geçerli kullanıcı/kişisel sertifika deposunda yüklü. bağlantı toohello VNet başlattığında hello kullanılan tooauthenticate hello istemci sertifikasıdır. 
+Noktadan Siteye VPN’lerde VPN istemcilerinin kimlik doğrulamasını yapmak için Azure tarafından sertifikalar kullanılır. Kök sertifikanın ortak anahtar bilgilerini Azure'a yükleyin. Bundan sonra ortak anahtar, 'güvenilir' olarak kabul edilir. Güvenilir kök sertifikadan istemci sertifikaları oluşturulmalı ve sonra Sertifikalar-Geçerli Kullanıcı/Kişisel sertifika deposundaki her bir istemci bilgisayara yüklenmelidir. Sertifika, sanal ağ ile bağlantı başlattığında istemcinin kimliğini doğrulamak için kullanılır. 
 
-Otomatik olarak imzalanan sertifikalar kullanıyorsanız bu sertifikaların belirli parametreler kullanılarak oluşturulması gerekir. Merhaba yönergeleri kullanarak otomatik olarak imzalanan bir sertifika oluşturabilir [PowerShell ve Windows 10](vpn-gateway-certificates-point-to-site.md), veya [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md). Otomatik olarak imzalanan sertifikayı otomatik olarak imzalanan kök sertifikalar ile çalışma ve istemci sertifikaları oluşturma hello olduğunda bu yönergeleri hello adımları izleyin önemlidir. Aksi takdirde, oluşturduğunuz hello sertifikaları P2S bağlantılarının ile uyumlu değil ve bağlantı hatası alırsınız.
+Otomatik olarak imzalanan sertifikalar kullanıyorsanız bu sertifikaların belirli parametreler kullanılarak oluşturulması gerekir. [PowerShell ve Windows 10](vpn-gateway-certificates-point-to-site.md)'a yönelik yönergeler veya [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) yardımıyla, otomatik olarak imzalanan sertifika oluşturabilirsiniz. Otomatik olarak imzalanan kök sertifikalarla çalışırken ve otomatik olarak imzalanan kök sertifikadan istemci sertifikası oluştururken bu yönergelerdeki adımları uygulamanız önemlidir. Aksi halde, oluşturduğunuz sertifikalar P2S bağlantılarıyla uyumlu olmaz ve bağlantı hatası alırsınız.
 
-### <a name="cer"></a>1. Kısım: hello ortak anahtarı (.cer) için hello kök sertifikası alma
+### <a name="cer"></a>1. Kısım: Kök sertifikaya ilişkin ortak anahtarı (.cer) alma
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-rootcert-include.md)]
 
@@ -144,50 +144,50 @@ Otomatik olarak imzalanan sertifikalar kullanıyorsanız bu sertifikaların beli
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
-## <a name="upload"></a>3. Merhaba kök sertifika .cer dosyasını karşıya yükleyin
+## <a name="upload"></a>3. Kök sertifika .cer dosyasını karşıya yükleme
 
-Merhaba ağ geçidi oluşturulduktan sonra (Merhaba ortak anahtar bilgileri içeren) hello .cer dosyası için bir güvenilen kök sertifika tooAzure karşıya yükleyebilirsiniz. Merhaba kök sertifika tooAzure için özel anahtar hello karşıya yüklemeyin. Azure a.cer dosya yüklendikten sonra hello güvenilen kök sertifika oluşturulan bir istemci sertifikası yüklemiş tooauthenticate istemcileri kullanabilirsiniz. Gerektiğinde ek güvenilen kök sertifika dosyaları - 20 - daha sonra tooa toplam karşıya yükleyebilirsiniz.  
+Ağ geçidi oluşturulduktan sonra, güvenilen kök sertifikanın .cer dosyasını (ortak anahtar bilgilerini içerir) Azure’a yükleyebilirsiniz. Kök sertifikanın özel anahtarını Azure'a yüklemezsiniz. Bir .cer dosyası karşıya yüklendikten sonra Azure, güvenilir kök sertifikadan oluşturulmuş bir istemci sertifikasının yüklü olduğu istemcilerin kimliklerini doğrulamak için bu dosyayı kullanabilir. Daha sonra gerekirse, toplam 20 adede kadar güvenilir kök sertifika dosyasını karşıya yükleyebilirsiniz.  
 
-1. Hello üzerinde **VPN bağlantıları** bölüm hello Vnet'inizi için başlangıç sayfasında, tıklatın **istemcileri** grafik tooopen hello **noktası konumdan konuma VPN bağlantısı** sayfa.
+1. Sanal ağınıza ait sayfanın **VPN bağlantıları** bölümünde **istemciler** grafiğine tıklayarak **Noktadan siteye VPN bağlantısı** sayfasını açın.
 
   ![İstemciler](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clients125.png)
-2. Merhaba üzerinde **noktadan siteye bağlantı** sayfasında, **yönetmek sertifikaları** tooopen hello **sertifikaları** sayfası.<br>
+2. **Noktadan siteye bağlantı** sayfasında **Sertifikaları yönet**’e tıklayarak **Sertifikalar** sayfasını açın.<br>
 
   ![Sertifikalar sayfası](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/ptsmanage.png)<br><br>
-3. Merhaba üzerinde **sertifikaları** sayfasında, **karşıya** tooopen hello **karşıya yükleme sertifika** sayfası.<br>
+3. **Sertifikalar** sayfasında **Karşıya Yükle**’ye tıklayarak **Sertifikayı karşıya yükle** sayfasını açın.<br>
 
     ![Sertifikaları karşıya yükle sayfası](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/uploadcerts.png)<br>
-4. Başlangıç klasörü grafik toobrowse hello .cer dosyası için'ı tıklatın. Merhaba dosyasını seçin ve ardından **Tamam**. Yenileme hello sayfa toosee karşıya hello sertifika hello **sertifikaları** sayfası.
+4. .cer dosyasına göz atmak için klasör grafiğine tıklayın. Dosyayı seçin ve ardından **Tamam**’a tıklayın. **Sertifikalar** sayfasına yüklenen sertifikayı görmek için sayfayı yenileyin.
 
   ![Sertifikayı karşıya yükleme](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/upload.png)<br>
 
-## <a name="vpnclientconfig"></a>4. Merhaba istemcisini yapılandırma
+## <a name="vpnclientconfig"></a>4. İstemciyi yapılandırma
 
-tooconnect tooa noktadan siteye VPN kullanarak VNet, her istemci paketi tooconfigure hello yerel Windows VPN istemcisi yüklemeniz gerekir. Merhaba yapılandırma paketi hello yerel Windows VPN istemcisi hello ayarları gerekli tooconnect toohello sanal ağ ile yapılandırır.
+Noktadan Siteye VPN kullanarak bir sanal ağa bağlanmak için her istemcinin yerel Windows VPN istemcisini yapılandırmaya yönelik bir paket yüklemesi gerekir. Yapılandırma paketi, sanal ağa bağlanmak için gereken ayarlarla yerel Windows VPN istemcisini yapılandırır.
 
-Hello sürüm hello istemci için hello mimarisi eşleştiği sürece, aynı VPN istemcisi yapılandırma paketini her istemci bilgisayarında hello kullanabilirsiniz. Merhaba, desteklenen istemci işletim sistemlerinin Hello listesi için bkz [noktadan siteye bağlantılar hakkında SSS](#faq) hello bu makalenin sonunda.
+Sürümünün istemci mimarisiyle eşleşmesi şartıyla, her istemci bilgisayarda aynı VPN istemcisi yapılandırma paketini kullanabilirsiniz. Desteklenen istemci işletim sistemlerinin listesi için bu makalenin sonundaki [Noktadan Siteye bağlantılar hakkında SSS](#faq) bölümüne bakın.
 
-### <a name="generateconfigpackage"></a>1. Kısım: Oluşturmak ve hello VPN istemcisi yapılandırma paketini yükleyin
+### <a name="generateconfigpackage"></a>1. Bölüm - VPN istemcisi yapılandırma paketini oluşturma ve yükleme
 
-1. Hello Azure portalında, hello içinde **genel bakış** sayfasında ağınız için **VPN bağlantıları**, hello istemci grafik tooopen hello tıklatın **noktası siteye VPN bağlantı** sayfası.
-2. Hello hello üstündeki **noktası siteye VPN bağlantısı** toohello istemci işletim sistemi üzerinde yüklenecek karşılık gelen hello indirme paketi tıklayın:
+1. Azure portalında, sanal ağınızın **Genel Bakış** sayfasındaki **VPN bağlantıları** menüsünde istemci grafiğine tıklayarak **Noktadan siteye VPN bağlantısı** sayfasını açın.
+2. **Noktadan siteye VPN bağlantısı** sayfasının üst kısmında, yükleneceği istemci işletim sistemine karşılık gelen indirme paketini seçin:
 
   * 64 bit istemciler için **VPN İstemcisi (64 bit)** seçeneğini belirleyin.
   * 32 bit istemciler için **VPN İstemcisi (32 bit)** seçeneğini belirleyin.
 
   ![VPN istemcisi yapılandırma paketini indirme](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/dlclient.png)<br>
-3. Paketlenmiş hello oluşturur sonra indirin ve istemci bilgisayarınıza yükleyin. Bir SmartScreen açılır penceresi görürseniz **Daha fazla bilgi**’ye ve ardından **Yine de çalıştır**’a tıklayın. Diğer istemci bilgisayarlarda hello paket tooinstall da kaydedebilirsiniz.
+3. Paket oluşturulduktan sonra istemci bilgisayarınıza indirip yükleyin. Bir SmartScreen açılır penceresi görürseniz **Daha fazla bilgi**’ye ve ardından **Yine de çalıştır**’a tıklayın. Paketi ayrıca diğer istemci bilgisayarlara yüklemek üzere kaydedebilirsiniz.
 
-### <a name="installclientcert"></a>2. Kısım: Yükleme hello istemci sertifikası
+### <a name="installclientcert"></a>2. Kısım: İstemci sertifikasını yükleme
 
-Toocreate bir P2S bağlantısı istiyorsanız hello dışında bir istemci bilgisayardan bir toogenerate hello istemci sertifikalarını kullandığınız, tooinstall bir istemci sertifikası gerekir. Bir istemci sertifikası yüklerken hello istemci sertifikası dışarı aktarılırken oluşturduğunuz hello parola gerekir. Genellikle, bu hello sertifikayı çift ve bu yükleme yalnızca bir konudur. Daha fazla bilgi için bkz. [Dışarı aktarılan istemci sertifikasını yükleme](vpn-gateway-certificates-point-to-site.md#install).
+İstemci sertifikalarını oluşturmak için kullandığınız bilgisayardan farklı bir istemci bilgisayarda bir P2S bağlantı oluşturmak istiyorsanız, bir istemci sertifikası yüklemeniz gerekir. Bir istemci sertifikası yüklenirken, istemci sertifikası dışarı aktarılırken oluşturulan parola gerekir. Bu işlem genellikle sertifikaya çift tıklayıp sertifikayı yükleme adımlarından oluşur. Daha fazla bilgi için bkz. [Dışarı aktarılan istemci sertifikasını yükleme](vpn-gateway-certificates-point-to-site.md#install).
 
-## <a name="connect"></a>5. TooAzure Bağlan
+## <a name="connect"></a>5. Azure'a Bağlanma
 
-### <a name="connect-tooyour-vnet"></a>Tooyour VNet Bağlan
+### <a name="connect-to-your-vnet"></a>Sanal ağınıza bağlanma
 
-1. Merhaba istemci bilgisayarda, tooconnect tooyour Vnet'in tooVPN bağlantıları gidin ve oluşturduğunuz hello VPN bağlantısını bulun. Aynı sanal ağ olarak ad hello adlandırılır. **Bağlan**'a tıklayın. Bir açılır ileti toousing hello sertifika başvuran görünebilir. Bu durumda, tıklatın **devam** toouse yükseltilmiş ayrıcalıklar.
-2. Merhaba üzerinde **bağlantı** durum sayfasında, tıklatın **Bağlan** toostart hello bağlantı. Görürseniz bir **Sertifika Seç** ekranında, hello istemci sertifikası gösteren toouse tooconnect istediğiniz hello biri olduğunu doğrulayın. Değilse, hello aşağı açılan okunu tooselect hello doğru sertifikayı kullanın ve ardından **Tamam**.
+1. İstemci bilgisayarda sanal ağınıza bağlanmak için VPN bağlantılarında gezinin ve oluşturduğunuz VPN bağlantısını bulun. Bu VPN bağlantısı sanal ağınızla aynı ada sahiptir. **Bağlan**'a tıklayın. Sertifika kullanımına ilişkin bir açılır ileti görüntülenebilir. Böyle bir durumla karşılaşırsanız yükseltilmiş ayrıcalıkları kullanmak için **Devam**'a tıklayın.
+2. **Bağlantı** durum sayfasında **Bağlan**'a tıklayarak bağlantıyı başlatın. Bir **Sertifika Seç** ekranı çıkarsa, gösterilen istemci sertifikasının bağlanmak için kullanmak istediğiniz sertifika olduğunu doğrulayın. Başka bir sertifika gösteriliyorsa, açılan liste okunu kullanarak doğru sertifikayı seçin ve **Tamam**’a tıklayın.
 
   ![VPN istemci bağlantısı](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientconnect.png)
 3. Bağlantınız kurulur.
@@ -198,10 +198,10 @@ Toocreate bir P2S bağlantısı istiyorsanız hello dışında bir istemci bilgi
 
 [!INCLUDE [verify-client-certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 
-### <a name="verifyvpnconnect"></a>Merhaba VPN bağlantısını doğrulama
+### <a name="verifyvpnconnect"></a>VPN bağlantısını doğrulama
 
-1. VPN bağlantınızın etkin olduğunu tooverify yükseltilmiş bir komut istemi açın ve çalıştırın *ipconfig/all*.
-2. Merhaba sonuçları görüntüleyin. Başlangıç IP adresi aldığınız ağınızı oluştururken belirttiğiniz hello noktadan siteye bağlantı adres aralığı içinde hello adreslerinden biri olduğuna dikkat edin. Merhaba sonuçları benzer toothis örnek olmalıdır:
+1. VPN bağlantınızın etkin olduğunu doğrulamak için, yükseltilmiş bir komut istemi açın ve *ipconfig/all* komutunu çalıştırın.
+2. Sonuçlara bakın. Aldığınız IP adresinin, sanal ağınızı oluştururken belirlediğiniz Noktadan Siteye bağlantı adres aralığı içerisinden bir adres olduğuna dikkat edin. Sonuçlar şu örneğe benzer olmalıdır:
 
   ```
     PPP adapter VNet1:
@@ -216,50 +216,50 @@ Toocreate bir P2S bağlantısı istiyorsanız hello dışında bir istemci bilgi
         NetBIOS over Tcpip..............: Enabled
   ```
 
-## <a name="connectVM"></a>Tooa sanal makineye bağlanma
+## <a name="connectVM"></a>Sanal makineye bağlanma
 
-[!INCLUDE [Connect tooa VM](../../includes/vpn-gateway-connect-vm-p2s-classic-include.md)]
+[!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-p2s-classic-include.md)]
 
 ## <a name="add"></a>Güvenilen kök sertifika ekleme veya kaldırma
 
-Azure’da güvenilen kök sertifikayı ekleyebilir veya kaldırabilirsiniz. Bir kök sertifikası kaldırdığınızda, o kökünden oluşturulan bir sertifika sahip istemciler mümkün tooauthenticate olmayacaktır ve böylece mümkün tooconnect olmaz. İstemci tooauthenticate ve bağlanmak istiyorsanız, yeni bir istemci sertifikası güvenilen (karşıya yüklenen) tooAzure olan bir kök sertifika oluşturulan tooinstall gerekir.
+Azure’da güvenilen kök sertifikayı ekleyebilir veya kaldırabilirsiniz. Bir kök sertifikayı kaldırdığınızda, o kökten oluşturulmuş bir sertifikaya sahip istemciler kimlik doğrulaması yapamaz ve bu nedenle bağlantı kuramaz. Bir istemcinin kimlik doğrulaması yapmasını ve bağlanmasını istiyorsanız, Azure’da güvenilen (karşıya yüklenmiş) bir kök sertifikadan oluşturulmuş yeni bir istemci sertifikası yüklemeniz gerekir.
 
-### <a name="addtrustedroot"></a>tooadd güvenilen bir kök sertifikası
+### <a name="addtrustedroot"></a>Güvenilen kök sertifika ekleme
 
-Too20 güvenilen kök sertifika .cer dosyaları tooAzure ekleyebilirsiniz. Yönergeler için bkz: [bölüm 3 - karşıya yükleme hello kök sertifika .cer dosyasını](#upload).
+Azure'a en fazla 20 güvenilen kök sertifika .cer dosyası ekleyebilirsiniz. Yönergeler için bkz. [3. Bölüm - Kök sertifika .cer dosyasını karşıya yükleme](#upload).
 
-### <a name="removetrustedroot"></a>tooremove güvenilen bir kök sertifikası
+### <a name="removetrustedroot"></a>Güvenilen kök sertifikayı kaldırmak için
 
-1. Hello üzerinde **VPN bağlantıları** bölüm hello Vnet'inizi için başlangıç sayfasında, tıklatın **istemcileri** grafik tooopen hello **noktası konumdan konuma VPN bağlantısı** sayfa.
+1. Sanal ağınıza ait sayfanın **VPN bağlantıları** bölümünde **istemciler** grafiğine tıklayarak **Noktadan siteye VPN bağlantısı** sayfasını açın.
 
   ![İstemciler](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clients125.png)
-2. Merhaba üzerinde **noktadan siteye bağlantı** sayfasında, **yönetmek sertifikaları** tooopen hello **sertifikaları** sayfası.<br>
+2. **Noktadan siteye bağlantı** sayfasında **Sertifikaları yönet**’e tıklayarak **Sertifikalar** sayfasını açın.<br>
 
   ![Sertifikalar sayfası](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/ptsmanage.png)<br><br>
-3. Merhaba üzerinde **sertifikaları** tooremove istediğiniz ardından tıklatın hello üç nokta sonraki toohello sertifika sayfasında, **silmek**.
+3. **Sertifikalar** sayfasında, kaldırmak istediğiniz sertifikanın yanındaki üç noktaya ve ardından **Sil**’e tıklayın.
 
   ![Kök sertifikayı sil](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deleteroot.png)<br>
 
 ## <a name="revokeclient"></a>İstemci sertifikasını iptal etme
 
-İstemci sertifikalarını iptal edebilirsiniz. Merhaba sertifika iptal listesi tooselectively sağlayan tek bir istemci sertifikalarını temel alarak noktadan siteye bağlantı reddedin. Bu, güvenilen kök sertifikayı kaldırma işleminden farklıdır. Azure'dan bir güvenilen kök sertifika .cer kaldırırsanız, tüm istemci sertifikaları için oluşturulan ve imzalanmış hello iptal edilen kök sertifikası tarafından hello erişimi iptal eder. Bir istemci sertifikası iptal etmek hello kök sertifika yerine hello kök sertifika toocontinue toobe hello noktadan siteye bağlantı için kimlik doğrulaması için kullanılan gelen oluşturulan diğer sertifikaları hello sağlar.
+İstemci sertifikalarını iptal edebilirsiniz. Sertifika iptal listesi sayesinde, ayrı istemci sertifikalarına göre Noktadan Siteye bağlantıyı seçmeli olarak reddedebilirsiniz. Bu, güvenilen kök sertifikayı kaldırma işleminden farklıdır. Azure’dan güvenilen kök sertifika .cer dosyasını kaldırırsanız iptal edilen kök sertifika tarafından oluşturulan/imzalanan tüm istemci sertifikaları reddedilir. Kök sertifika yerine istemci sertifikasını iptal etmek, kök sertifikadan oluşturulan diğer sertifikaların Noktadan Siteye bağlantı için kimlik doğrulaması amacıyla kullanılmaya devam edilmesine olanak sağlar.
 
-Merhaba yaygın toouse hello kök sertifika toomanage erişim düzeyleri, ekip veya kuruluş bireysel kullanıcılar üzerinde ayrıntılı erişim denetimi için İptal edilen istemci sertifikalarını kullanırken bir uygulamadır.
+Genellikle ekip ve kuruluş düzeylerinde erişimi yönetmek için kök sertifika kullanılırken ayrı kullanıcılar üzerinde ayrıntılı erişim denetimi için iptal edilen istemci sertifikaları kullanılır.
 
-### <a name="revokeclientcert"></a>toorevoke bir istemci sertifikası
+### <a name="revokeclientcert"></a>İstemci sertifikasını iptal etmek için
 
-Merhaba parmak izi toohello iptal listesine ekleyerek bir istemci sertifikası iptal edebilirsiniz.
+Parmak izini iptal listesine ekleyerek bir istemci sertifikasını iptal edebilirsiniz.
 
-1. Merhaba istemci sertifikası parmak izi alma. Daha fazla bilgi için bkz: [nasıl yapılır: bir sertifikanın parmak izini alma hello](https://msdn.microsoft.com/library/ms734695.aspx).
-2. Merhaba bilgileri tooa metin düzenleyicisi kopyalayın ve sürekli bir dize olmasını tüm boşlukları Kaldır.
-3. Toohello gidin **'Klasik sanal ağ adı' > noktadan siteye VPN bağlantısı > sertifikaları** sayfasında ve ardından **iptal listesi** tooopen hello iptal listesi sayfası. 
-4. Merhaba üzerinde **iptal listesi** sayfasında, **+ Ekle sertifika** tooopen hello **Ekle sertifika toorevocation listesi** sayfası.
-5. Merhaba üzerinde **Ekle sertifika toorevocation listesi** sayfasında, bir sürekli metin satırının boşluk olarak hello sertifika parmak izi yapıştırın. Tıklatın **Tamam** hello sayfanın hello sonundaki.
-6. Güncelleştirme tamamlandıktan sonra hello sertifika artık kullanılan tooconnect olabilir. Bu sertifikayı kullanarak tooconnect deneyin istemcileri bu hello sertifika artık geçerli olduğunu bildiren bir ileti alırsınız.
+1. İstemci sertifikasının parmak izini alın. Daha fazla bilgi için bkz. [Nasıl yapılır: Bir Sertifikanın Parmak İzini Alma](https://msdn.microsoft.com/library/ms734695.aspx).
+2. Bilgileri bir metin düzenleyicisine kopyalayın ve sürekli bir dize haline getirmek için tüm boşlukları kaldırın.
+3. **'klasik sanal ağ adı' > Noktadan siteye VPN bağlantısı > Sertifikalar** sayfasına gidin ve ardından İptal listesi sayfasını açmak için **İptal listesi**’ne tıklayın. 
+4. **İptal listesi** sayfasında, **İptal listesine sertifika ekle** sayfasını açmak için **+Sertifika ekle**’ye tıklayın.
+5. **İptal listesine sertifika ekle** sayfasında, sertifika parmak izini boşluk içermeyen sürekli bir metin satırı olarak yapıştırın. Sayfanın altından **Tamam**’a tıklayın.
+6. Güncelleştirme tamamlandıktan sonra sertifika artık bağlanmak için kullanılamaz. Bu sertifikayı kullanarak bağlanmaya çalışan istemciler sertifikanın artık geçerli olmadığını belirten bir ileti alır.
 
 ## <a name="faq"></a>Noktadan Siteye hakkında SSS
 
-[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
+[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-include.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bağlantınız tamamlandıktan sonra sanal makineleri tooyour sanal ağları ekleyebilirsiniz. Daha fazla bilgi için bkz. [Sanal Makineler](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Ağ ve sanal makineler hakkında daha fazla toounderstand bkz [Azure ve Linux VM ağına genel bakış](../virtual-machines/linux/azure-vm-network-overview.md).
+Bağlantınız tamamlandıktan sonra sanal ağlarınıza sanal makineler ekleyebilirsiniz. Daha fazla bilgi için bkz. [Sanal Makineler](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Ağ ve sanal makineler hakkında daha fazla bilgi edinmek için, bkz. [Azure ve Linux VM ağına genel bakış](../virtual-machines/linux/azure-vm-network-overview.md).

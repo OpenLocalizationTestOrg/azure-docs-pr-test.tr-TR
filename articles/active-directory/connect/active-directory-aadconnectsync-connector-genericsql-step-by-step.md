@@ -1,6 +1,6 @@
 ---
-title: "aaaGeneric SQL bağlayıcı adım adım | Microsoft Docs"
-description: "Bu makalede, taramasını basit bir ik sistemi genel SQL bağlayıcı hello adım adım kullanma."
+title: "Genel SQL bağlayıcı adım adım | Microsoft Docs"
+description: "Bu makalede bir basit ik sistemi genel SQL Bağlayıcısı'nı kullanarak adım adım taramasını değil."
 services: active-directory
 documentationcenter: 
 author: AndKjell
@@ -14,89 +14,89 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: b1b5f89ab588de6f92f173a7bc00f97180067669
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3fdc1b405b95180d031aa4ad45b406f7fc149d8f
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="generic-sql-connector-step-by-step"></a>Adım adım Genel SQL Bağlayıcısı
 Bu konu hakkında adım adım bir kılavuzdur. Bir Basit örnek HR veritabanı oluşturur ve bazı kullanıcı ve grup üyeliklerini içeri aktarmak için kullanın.
 
-## <a name="prepare-hello-sample-database"></a>Merhaba örnek veritabanını hazırlama
-SQL Server çalıştıran bir sunucuda bulunan hello SQL betiği çalıştırma [ek A](#appendix-a). Bu komut dosyası GSQLDEMO hello adla örnek bir veritabanı oluşturur. Merhaba hello için nesne modeli bu resimdeki veritabanı görülüyor oluşturuldu:  
+## <a name="prepare-the-sample-database"></a>Örnek veritabanını hazırlama
+İçinde SQL komut dosyasını çalıştırın, SQL Server çalıştıran bir sunucuda bulunan [ek A](#appendix-a). Bu komut dosyası GSQLDEMO adı ile örnek bir veritabanı oluşturur. Oluşturulan veritabanı için nesne modeli Bu resim gibi görünür:  
 ![Nesne modeli](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/objectmodel.png)
 
-Ayrıca toouse tooconnect toohello veritabanı istediğiniz bir kullanıcı oluşturun. Bu kılavuzda, hello kullanıcı FABRIKAM\SQLUser çağrılır ve hello etki alanında bulunan.
+Ayrıca veritabanına bağlanmak için kullanmak istediğiniz bir kullanıcı oluşturun. Bu kılavuzda, kullanıcı FABRIKAM\SQLUser çağrılır ve etki alanında bulunan.
 
-## <a name="create-hello-odbc-connection-file"></a>Merhaba ODBC bağlantı dosyası oluşturma
-Merhaba Genel SQL bağlayıcı ODBC tooconnect toohello uzak sunucu kullanıyor. İlk toocreate hello ODBC bağlantı bilgilerini dosyasıyla gerekir.
+## <a name="create-the-odbc-connection-file"></a>ODBC bağlantı dosyası oluşturma
+Genel SQL bağlayıcı uzak sunucuya bağlanmak için ODBC kullanma. İlk olarak kimliğinizi ODBC bağlantı bilgilerini bir dosya oluşturmak gerekiyor.
 
-1. Merhaba ODBC Yönetimi yardımcı programı, sunucunuzda başlatın:  
+1. ODBC Yönetimi yardımcı programı, sunucunuzda başlatın:  
    ![ODBC](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc.png)
-2. Select hello sekmesini **dosya DSN**. Tıklatın **Ekle...** .  
+2. Sekmeyi seçin **dosya DSN**. Tıklatın **Ekle...** .  
    ![ODBC1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc1.png)
-3. Merhaba out-of-box sürücü works ince, bu nedenle seçin ve **sonraki >**.  
+3. Out-of-box sürücü works ince, bu nedenle seçin ve **sonraki >**.  
    ![ODBC2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc2.png)
-4. Merhaba dosyası gibi bir ad verin **GenericSQL**.  
+4. Dosyaya gibi bir ad verin **GenericSQL**.  
    ![ODBC3](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc3.png)
 5. **Son**'a tıklayın.  
    ![ODBC4](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc4.png)
-6. Zamanı tooconfigure hello bağlantı. Merhaba veri kaynağı iyi bir açıklama girin ve SQL Server çalıştıran hello sunucu hello adını sağlayın.  
+6. Bağlantıyı yapılandırmak için süre. Veri kaynağı iyi bir açıklama girin ve SQL Server çalıştıran sunucunun adını belirtin.  
    ![ODBC5](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc5.png)
-7. Select nasıl tooauthenticate SQL ile. Bu durumda, Windows kimlik doğrulaması kullanın.  
+7. SQL ile kimlik doğrulaması yapmayı seçin. Bu durumda, Windows kimlik doğrulaması kullanın.  
    ![ODBC6](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc6.png)
-8. Merhaba hello örnek veritabanı adını sağlayın **GSQLDEMO**.  
+8. Örnek veritabanı adını sağlayın **GSQLDEMO**.  
    ![ODBC7](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc7.png)
 9. Bu ekranda her şeyi varsayılan devam eder. **Son**'a tıklayın.  
    ![ODBC8](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc8.png)
-10. her şeyi çalıştığını beklendiği gibi tooverify tıklatın **Test veri kaynağı**.  
+10. Her şeyi çalıştığını beklendiği gibi doğrulamak için tıklatın **Test veri kaynağı**.  
     ![ODBC9](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc9.png)
-11. Merhaba test başarılı olduğundan emin olun.  
+11. Test başarılı olduğundan emin olun.  
     ![ODBC10](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc10.png)
-12. Merhaba ODBC yapılandırma dosyası artık dosya DSN görünür olması gerekir.  
+12. ODBC yapılandırma dosyası artık dosya DSN görünür olması gerekir.  
     ![ODBC11](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/odbc11.png)
 
-Şimdi gerekir ve hello bağlayıcı oluşturmaya başlamadan hello dosya sahibiz.
+Dosyanın gerekir ve bağlayıcı oluşturmaya başlamak şimdi sahibiz.
 
-## <a name="create-hello-generic-sql-connector"></a>Merhaba Genel SQL bağlayıcısı oluşturun
-1. Hello Eşitleme Hizmeti Yöneticisi kullanıcı Arabirimi, seçin **Bağlayıcılar** ve **oluşturma**. Seçin **Genel SQL (Microsoft)** ve açıklayıcı bir ad verin.  
+## <a name="create-the-generic-sql-connector"></a>Genel SQL bağlayıcısı oluşturun
+1. Eşitleme Hizmeti Yöneticisi Arabiriminde seçin **Bağlayıcılar** ve **oluşturma**. Seçin **Genel SQL (Microsoft)** ve açıklayıcı bir ad verin.  
    ![Connector1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector1.png)
-2. Merhaba önceki bölümde oluşturduğunuz hello DSN dosyası bulunamıyor ve toohello server yükleyin. Merhaba kimlik bilgileri tooconnect toohello veritabanı sağlar.  
+2. Önceki bölümde oluşturduğunuz DSN dosyasını bulun ve sunucuya yükleyin. Veritabanına bağlanmak için kimlik bilgilerini sağlayın.  
    ![Connector2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector2.png)
 3. Bu kılavuzda, biz bize kolaylaşır ve iki nesne türlerini olduğunu söylemek **kullanıcı** ve **grup**.
    ![Connector3](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector3.png)
-4. toofind hello öznitelikleri hello tablosuna kendisini bakarak özniteliklerle bağlayıcı toodetect hello istiyoruz. Bu yana **kullanıcılar** ayrılmış bir sözcük içinde köşeli ayraçlar [] tooprovide ihtiyacımız SQL'de.  
+4. Öznitelikleri bulmak amacıyla tablosuna kendisini bakarak özniteliklerle algılamak için bağlayıcı istiyoruz. Bu yana **kullanıcılar** ayrılmış bir sözcük içinde köşeli ayraçlar [] bunu sağlamak ihtiyacımız SQL'de.  
    ![Connector4](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector4.png)
-5. Zaman toodefine hello bağlantı özniteliği ve hello DN özniteliği. İçin **kullanıcılar**, hello birleşimi hello iki öznitelikleri kullanıcı adı ve EmployeeID kullanırız. İçin **grup**, GroupName kullanıyoruz (değil gerçekçi gerçekçi, ancak bu kılavuz çalışır).
+5. Bağlayıcı öznitelik ve DN özniteliği tanımlamak için süre. İçin **kullanıcılar**, iki öznitelik kullanıcı adı ve EmployeeID birleşimi kullanırız. İçin **grup**, GroupName kullanıyoruz (değil gerçekçi gerçekçi, ancak bu kılavuz çalışır).
    ![Connector5](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector5.png)
-6. Tüm öznitelik türlerini, bir SQL veritabanında algılanabilir. Merhaba başvuru öznitelik türü özellikle yapılamıyor. Merhaba grup nesne türü için toochange hello OwnerId ve Memberıd tooreference gerekir.  
+6. Tüm öznitelik türlerini, bir SQL veritabanında algılanabilir. Başvuru özniteliği türü özellikle yapılamıyor. Grup nesnesi türü için biz OwnerId ve Memberıd başvurmak için değiştirmeniz gerekir.  
    ![Connector6](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector6.png)
-7. başvuru özniteliği hello önceki adımda hello nesne türü bir başvuru bu değerleri gerektiği hello öznitelikleri seçtik. Örneğimizde, kullanıcı nesnesi türü hello.  
+7. Başvuru özniteliği önceki adımda nesne türü gerektiği seçtik bu değerleri başvuru öznitelikleridir. Örneğimizde, kullanıcı nesnesi yazın.  
    ![Connector7](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector7.png)
-8. Merhaba genel parametreleri sayfasında seçin **Filigran** hello delta stratejisi olarak. Ayrıca hello tarih/saat biçiminde yazın **yyyy-aa-gg ss: dd:**.
+8. Genel Parametreler sayfasında seçin **Filigran** delta stratejisi olarak. Ayrıca tarih/saat biçiminde yazın **yyyy-aa-gg ss: dd:**.
    ![Connector8](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector8.png)
-9. Merhaba üzerinde **yapılandırma bölümleri ve hiyerarşileri** sayfasında, her iki nesne türlerini seçin.
+9. Üzerinde **yapılandırma bölümleri ve hiyerarşileri** sayfasında, her iki nesne türlerini seçin.
    ![Connector9](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/connector9.png)
-10. Merhaba üzerinde **nesne türlerini Seç** ve **öznitelikleri Seç**, nesne türleri ve tüm öznitelikleri seçin. Merhaba üzerinde **yapılandırma bağlayıcılarını** sayfasında, **son**.
+10. Üzerinde **nesne türlerini Seç** ve **öznitelikleri Seç**, nesne türleri ve tüm öznitelikleri seçin. Üzerinde **yapılandırma bağlayıcılarını** sayfasında, **son**.
 
 ## <a name="create-run-profiles"></a>Çalıştırma profillerini oluşturma
-1. Hello Eşitleme Hizmeti Yöneticisi kullanıcı Arabirimi, seçin **Bağlayıcılar**, ve **çalıştırma profillerini Yapılandır**. Tıklatın **yeni bir profil**. Biz başlayın **tam içeri aktarma**.  
+1. Eşitleme Hizmeti Yöneticisi Arabiriminde seçin **Bağlayıcılar**, ve **çalıştırma profillerini Yapılandır**. Tıklatın **yeni bir profil**. Biz başlayın **tam içeri aktarma**.  
    ![Runprofile1](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile1.png)
-2. Merhaba türünü seçin **tam içeri aktarma (yalnızca aşama)**.  
+2. Seçin **tam içeri aktarma (yalnızca aşama)**.  
    ![Runprofile2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile2.png)
-3. Merhaba bölümü seçin **nesne = kullanıcı**.  
+3. Bölümü seçin **nesne = kullanıcı**.  
    ![Runprofile3](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile3.png)
-4. Seçin **tablo** ve türü **[kullanıcılar]**. Toohello birden çok değerli nesne türü bölümüne kaydırın ve resim aşağıdaki hello olduğu gibi hello veri girin. Seçin **son** toosave hello adım.  
+4. Seçin **tablo** ve türü **[kullanıcılar]**. Birden çok değerli nesne türü bölümüne gidin ve aşağıdaki resimde olduğu gibi veri girin. Seçin **son** adım kaydetmek için.  
    ![Runprofile4a](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile4a.png)  
    ![Runprofile4b](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile4b.png)  
-5. Seçin **yeni adım**. Bu süre, select **nesne grubu =**. Merhaba son sayfasında, resim aşağıdaki hello olduğu gibi hello yapılandırmasını kullanın. **Son**'a tıklayın.  
+5. Seçin **yeni adım**. Bu süre, select **nesne grubu =**. Son sayfasında, aşağıdaki resimde olduğu gibi yapılandırmasını kullanın. **Son**'a tıklayın.  
    ![Runprofile5a](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile5a.png)  
    ![Runprofile5b](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/runprofile5b.png)  
-6. İsteğe bağlı: istiyorsanız, ek çalıştırma profillerini yapılandırabilirsiniz. Bu kılavuzda, yalnızca tam içeri aktarma hello kullanılır.
-7. Tıklatın **Tamam** değiştirme toofinish farklı çalıştır profili.
+6. İsteğe bağlı: istiyorsanız, ek çalıştırma profillerini yapılandırabilirsiniz. Bu kılavuzda, yalnızca tam içeri aktarma kullanılır.
+7. Tıklatın **Tamam** çalıştırma profillerini değiştirme işlemini tamamlamak için.
 
-## <a name="add-some-test-data-and-test-hello-import"></a>Bazı test verilerini ve test hello alma ekleme
+## <a name="add-some-test-data-and-test-the-import"></a>Bazı test verilerini ve içeri aktarma test ekleyin
 Örnek veritabanınızdaki bazı test verilerini doldurun. Hazır olduğunuzda seçin **çalıştırmak** ve **tam alma**.
 
 İşte, iki telefon numarası olan bir kullanıcı ve Grup bazı üyeleri ile.  
@@ -104,13 +104,13 @@ Merhaba Genel SQL bağlayıcı ODBC tooconnect toohello uzak sunucu kullanıyor.
 ![CS2](./media/active-directory-aadconnectsync-connector-genericsql-step-by-step/cs2.png)  
 
 ## <a name="appendix-a"></a>Ek A
-**SQL komut dosyası toocreate hello örnek veritabanı**
+**Örnek veritabanı oluşturmak için SQL komut dosyası**
 
 ```SQL
----Creating hello Database---------
+---Creating the Database---------
 Create Database GSQLDEMO
 Go
--------Using hello Database-----------
+-------Using the Database-----------
 Use [GSQLDEMO]
 Go
 -------------------------------------

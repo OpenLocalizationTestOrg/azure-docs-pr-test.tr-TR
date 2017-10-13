@@ -1,6 +1,6 @@
 ---
-title: "aaaAgent OMS sistem durumu çözümüne | Microsoft Docs"
-description: "Bu makalede anlamak nasıl toouse Bu çözüm toomonitor hello durumunu hedeflenen toohelp olan doğrudan raporlama tooOMS veya System Center Operations Manager aracıları."
+title: "OMS’de Aracı Durumu çözümü | Microsoft Docs"
+description: "Bu makale, doğrudan OMS veya System Center Operations Manager’a bildirimde bulunan aracılarınızın durumunu izlemek için bu çözümü nasıl kullanabileceğinizi anlamanıza yardımcı olmak için hazırlanmıştır."
 services: operations-management-suite
 documentationcenter: 
 author: MGoedtel
@@ -14,65 +14,65 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: magoedte
-ms.openlocfilehash: 071b14b4ab7af6680ae458eaa331246755c5bb56
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: b810e37e393ddab55500f636b72450789285a4f0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 #  <a name="agent-health-solution-in-oms"></a>OMS’de Aracı Durumu çözümü
-Merhaba aracı sistem durumu OMS çözümde, tüm doğrudan raporlama toohello OMS çalışma veya System Center Operations Manager yönetim grubu bağlı tooOMS, yanıt vermeyen ve gönderen işletimsel verileri hello aracıları için anlamanıza yardımcı olur.  İzlemek burada bunlar coğrafi olarak dağıtılmış ve diğer sorgular toomaintain tanıma hello dağıtım Azure, diğer bulut ortamları veya şirket içi dağıtılan aracıların gerçekleştirmek kaç aracıları dağıtılan de izleyebilirsiniz.    
+OMS’deki Aracı Durumu çözümü, doğrudan bir OMS çalışma alanına veya OMS’ye bağlı bir System Center Operations Manager yönetim grubuna bildirimde bulunan, yanıt vermeyen ve işletimsel veriler gönderen tüm aracıları anlamanıza yardımcı olur.  Ayrıca, kaç aracının dağıtıldığını, bunların coğrafi olarak nerelere dağıtıldığını da izleyebilir ve Azure’da, diğer bulut ortamlarında ya da şirket içinde dağıtılmış aracıların dağılımından her zaman haberdar olmaya yönelik diğer sorguları gerçekleştirebilirsiniz.    
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu çözüm dağıtmadan önce şu anda desteklenen onaylayın [Windows aracıları](../log-analytics/log-analytics-windows-agents.md) toohello OMS çalışma raporlama ya da tooan raporlama [Operations Manager yönetim grubu](../log-analytics/log-analytics-om-agents.md) ile tümleşik, OMS çalışma alanı.    
+Bu çözümü dağıtmadan önce, OMS çalışma alanına veya OMS çalışma alanınızla tümleşik bir [Operations Manager yönetim grubuna](../log-analytics/log-analytics-om-agents.md) bildirimde bulunan ve geçerli olarak desteklenen [Windows aracılarınız](../log-analytics/log-analytics-windows-agents.md) olduğunu doğrulayın.    
 
 ## <a name="solution-components"></a>Çözüm bileşenleri
-Bu çözüm tooyour çalışma ve doğrudan bağlı aracısı veya Operations Manager bağlı yönetim grubuna eklenen kaynaklar aşağıdaki hello oluşur.
+Bu çözüm, çalışma alanınıza eklenen aşağıdaki kaynaklardan ve doğrudan bağlanılan aracılardan veya Operations Manager bağlantılı yönetim grubundan oluşur.
 
 ### <a name="management-packs"></a>Yönetim paketleri
-System Center Operations Manager yönetim grubunuzu bağlı tooan OMS çalışma ise, yönetim paketleri aşağıdaki hello Operations Manager'da yüklenir.  Bu çözüm eklendikten sonra bu yönetim paketleri doğrudan bağlı Windows bilgisayarlarına da yüklenir. Hiçbir şey tooconfigure veya bu yönetim paketleri ile yönetin.
+System Center Operations Manager yönetim grubunuz OMS çalışma alanına bağlıysa, Operation Manager’a aşağıdaki yönetim paketleri yüklenir.  Bu çözüm eklendikten sonra bu yönetim paketleri doğrudan bağlı Windows bilgisayarlarına da yüklenir. Bu yönetim paketlerinde yapılandırılacak veya yönetilecek hiçbir şey yoktur.
 
 * Microsoft System Center Advisor HealthAssessment Direct Channel Intelligence Pack  (Microsoft.IntelligencePacks.HealthAssessmentDirect)
 * Microsoft System Center Advisor HealthAssessment Server Channel Intelligence Pack (Microsoft.IntelligencePacks.HealthAssessmentViaServer).  
 
-Çözüm yönetim paketleri güncelleştirilme biçimini daha fazla bilgi için bkz: [Operations Manager bağlanmak tooLog Analytics](../log-analytics/log-analytics-om-agents.md).
+Çözüm yönetim paketlerini güncelleştirme hakkında daha fazla bilgi için bkz. [Operations Manager'ı Log Analytics’e Bağlama](../log-analytics/log-analytics-om-agents.md).
 
 ## <a name="configuration"></a>Yapılandırma
-Merhaba işlemi kullanarak OMS çalışma açıklanan hello aracı sistem durumu çözüm tooyour eklemek [çözümleri Ekle](../log-analytics/log-analytics-add-solutions.md). Başka bir yapılandırma işlemi gerekmez.
+[Çözüm ekleme](../log-analytics/log-analytics-add-solutions.md) bölümünde açıklanan işlemi kullanarak Aracı Durumu çözümünü OMS çalışma alanınıza ekleyin. Başka bir yapılandırma işlemi gerekmez.
 
 
 ## <a name="data-collection"></a>Veri toplama
 ### <a name="supported-agents"></a>Desteklenen aracılar
-Aşağıdaki tablonun hello bu çözümü tarafından desteklenen hello bağlı kaynakları açıklar.
+Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açıklanmaktadır.
 
 | Bağlı Kaynak | Destekleniyor | Açıklama |
 | --- | --- | --- |
 | Windows aracıları | Evet | Sinyal olayları doğrudan Windows aracılarından toplanır.|
-| System Center Operations Manager yönetim grubu | Evet | Sinyal olayları 60 saniyede toohello yönetim grubuna raporlama aracılardan toplanır ve tooLog Analytics iletilir. Operations Manager aracıları tooLog arasında doğrudan bağlantı Analytics gerekli değildir. Sinyal Olayı veri hello yönetim grubu toohello günlük analizi depodan iletilir.|
+| System Center Operations Manager yönetim grubu | Evet | Sinyal olayları, 60 saniyede bir yönetim grubuna bildirimde bulunan aracılardan toplanır ve sonra Log Analytics’e iletilir. Operations Manager aracılarının doğrudan Log Analytics’e bağlanması gerekmez. Sinyal olay verileri yönetim grubundan Log Analytics deposuna iletilir.|
 
-## <a name="using-hello-solution"></a>Merhaba çözümünü kullanarak
-Merhaba çözüm tooyour OMS çalışma eklediğinizde, hello **aracı sistem durumu** döşeme tooyour OMS Pano eklenir. Bu kutucuğu hello toplam aracıların hello sayısını ve yanıt vermeyen aracıları son 24 saat hello gösterir.<br><br> ![Panodaki Aracı Durumu Çözüm kutucuğu](./media/oms-solution-agenthealth/agenthealth-solution-tile-homepage.png)
+## <a name="using-the-solution"></a>Çözümü kullanma
+Çözümü OMS çalışma alanınıza eklediğinizde OMS panonuza **Aracı Durumu** kutucuğu eklenir. Bu kutucuk, son 24 saat içindeki toplam aracı sayısını ve yanıt vermeyen aracı sayısını gösterir.<br><br> ![Panodaki Aracı Durumu Çözüm kutucuğu](./media/oms-solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
-Tıklatın hello üzerinde **aracı sistem durumu** döşeme tooopen hello **aracı sistem durumu** Pano.  Merhaba Pano aşağıdaki tablonun hello hello sütunları içerir. Her sütun, belirtilen zaman aralığı hello sütunun ölçütlerine uyan sayısına göre hello üst on olaylarını listeler. Merhaba tüm liste seçerek sağlar günlük arama çalıştırabilirsiniz **tümünü görmek** hello sağ alt her sütunun veya hello sütun başlığını tıklatarak.
+**Aracı Durumu** kutucuğuna tıklayarak **Aracı Durumu** panosunu açın.  Pano aşağıdaki tabloda gösterilen sütunları içerir. Her sütunda, ilgili sütunun belirtilen zaman aralığına ilişkin ölçütlerle eşleşen ilk on olay sayılarına göre listelenir. Her sütunun sağ alt tarafındaki **Tümünü görüntüle**’yi seçerek ya da sütun başlığına tıklayarak listenin tamamını sağlayan bir günlük araması çalıştırabilirsiniz.
 
 | Sütun | Açıklama |
 |--------|-------------|
 | Zaman içinde aracı sayısı | Hem Linux hem de Windows aracıları için yedi günlük bir dönem boyunca aracı sayınızın eğilimi.|
-| Yanıt vermeyen aracı sayısı | Son 24 saatte bir sinyal hello gönderilen henüz aracıları listesi.|
+| Yanıt vermeyen aracı sayısı | Son 24 saat içinde bir sinyal göndermemiş tüm aracıların listesi.|
 | İşletim Sistemi Türüne Göre Dağılım | Ortamınızda kaçar tane Windows ve Linux aracısı olduğuna ilişkin bir bölüm.|
-| Aracı Sürümüne Göre Dağılım | Ortamınıza ve her biri sayısını yüklü hello farklı Aracı sürümleri bölümü.|
-| Aracı Kategorisine Göre Dağılım | Bir bölüm sinyal olaylarını gönderme aracıların hello farklı kategoride: doğrudan aracıları, OpsMgr aracıları veya hello OpsMgr Management Server.|
-| Yönetim Grubuna Göre Dağılım | Merhaba farklı SCOM Yönetim grupları, ortamınızdaki bölümü.|
-| Aracıların coğrafi konumu | Merhaba farklı ülkelerden aracıları ve her ülkedeki yüklü aracıları hello sayısı toplam sayısını sahip olduğu bir bölümü.|
-| Yüklü Ağ Geçidi Sayısı | Merhaba hello OMS yüklü ağ geçidi ve bu sunucular listesini sahip sunucuları sayısı.|
+| Aracı Sürümüne Göre Dağılım | Ortamınızda yüklü olan farklı aracı sürümlerine ve her birinin sayısına ilişkin bir bölüm.|
+| Aracı Kategorisine Göre Dağılım | Sinyal olayları gönderen farklı kategorilerdeki araçlara ilişkin bir bölüm: Doğrudan aracılar, OpsMgr aracıları veya OpsMgr Management Server.|
+| Yönetim Grubuna Göre Dağılım | Ortamınızdaki farklı SCOM Yönetim gruplarına ilişkin bir bölüm.|
+| Aracıların coğrafi konumu | Aracılarınızın bulunduğu farklı ülkelere ve her ülkede yüklü olan toplam aracı sayısına ilişkin bir bölüm.|
+| Yüklü Ağ Geçidi Sayısı | OMS Ağ Geçidi’nin yüklü olduğu sunucu sayısı ve bu sunucuların listesi.|
 
 ![Aracı Durumu Çözüm panosu örneği](./media/oms-solution-agenthealth/agenthealth-solution-dashboard.png)  
 
 ## <a name="log-analytics-records"></a>Log Analytics kayıtları
-Merhaba çözüm hello OMS deposunda bir tür kaydı oluşturur.  
+Çözüm, OMS deposunda bir tür kayıt oluşturur.  
 
 ### <a name="heartbeat-records"></a>Sinyal kayıtları
-**Sinyal** türünde bir kayıt oluşturulur.  Bu kayıtları, aşağıdaki tablonun hello hello özelliklere sahiptir.  
+**Sinyal** türünde bir kayıt oluşturulur.  Bu kayıtlar aşağıdaki tabloda gösterilen özelliklere sahiptir.  
 
 | Özellik | Açıklama |
 | --- | --- |
@@ -85,25 +85,25 @@ Merhaba çözüm hello OMS deposunda bir tür kaydı oluşturur.
 | Sürüm | OMS Aracısı veya Operations Manager Aracısı sürümü.|
 | SCAgentChannel | Değer *Doğrudan* ve/veya *SCManagementServer*’dır.|
 | IsGatewayInstalled | OMS Ağ Geçidi yüklüyse değer *true*, aksi takdirde *false* olur.|
-| ComputerIP | Merhaba bilgisayarın IP adresi.|
+| ComputerIP | Bilgisayarın IP adresi.|
 | RemoteIPCountry | Bilgisayarın dağıtıldığı coğrafi konum.|
 | ManagementGroupName | Operations Manager yönetim grubunun adı.|
 | SourceComputerId | Bilgisayarın benzersiz kimliği.|
 | RemoteIPLongitude | Bilgisayarın coğrafi konumunun boylamı.|
 | RemoteIPLatitude | Bilgisayarın coğrafi konumunun enlemi.|
 
-Raporlama tooan Operations Manager yönetim sunucusu, iki sinyal gönderir ve SCAgentChannel özelliğin değerini her ikisi de dahil her bir aracının **doğrudan** ve **SCManagementServer** ne bağlı olarak Günlük analizi veri kaynakları ve çözümleri, OMS aboneliğinizde etkinleştirmiş olmanız gerekir. Geri çağırma, çözümleri verileri doğrudan Operations Manager'dan gönderilen Yönetim sunucusu toohello OMS web hizmeti veya hello nedeniyle hello aracısında toplanan verilerin hacmi doğrudan hello Aracısı tooOMS web hizmetinden gönderildiği demektir. Merhaba değerine sahip sinyal olaylar **SCManagementServer**, hello ComputerIP değeri hello IP adresidir hello yönetim sunucusu hello veri gerçekte tarafından yüklendikten sonra.  Sinyallerin SCAgentChannel ayarlandığı çok**doğrudan**, hello Aracısı hello ortak IP adresi olacak.  
+Bir Operations Manager yönetim sunucusuna bildirimde bulunan her bir aracı iki sinyal gönderir ve OMS aboneliğinizde hangi Log Analytics veri kaynaklarını ve çözümlerini etkinleştirdiğinize bağlı olarak SCAgentChannel özelliğinin değeri hem **Doğrudan** hem de **SCManagementServer**’ı içerir. Geri çağırırsanız, çözümlerden toplanan veriler doğrudan bir Operations Manager yönetim sunucusundan OMS web hizmetine gönderilir ya da aracıda toplanan verilerin hacmi nedeniyle doğrudan aracıdan OMS web hizmetine gönderilir. **SCManagementServer** değerine sahip sinyal olayları için ComputerIP değeri, verileri aslında karşıya yükleyen yönetim sunucusunun IP adresidir.  SCAgentChannel’ın **Doğrudan** olarak ayarlandığı sinyaller için bu adres, aracının genel IP adresidir.  
 
 ## <a name="sample-log-searches"></a>Örnek günlük aramaları
-Merhaba aşağıdaki tabloda bu çözüm tarafından toplanan kayıtları için örnek günlük aramaları sağlar.
+Aşağıdaki tabloda, bu çözüm tarafından toplanan kayıtlara ilişkin örnek günlük aramaları sunulmaktadır.
 
 | Sorgu | Açıklama |
 | --- | --- |
 | Type=Heartbeat &#124; distinct Computer |Toplam aracı sayısı |
-| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-24HOURS |Merhaba son 24 saat içinde yanıt vermeyen aracıların sayısı |
-| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-15MINUTES |Merhaba son 15 dakika içinde yanıt vermeyen aracıların sayısı |
-| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer IN {Type=Heartbeat TimeGenerated>NOW-24HOURS &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Bilgisayarların çevrimiçi (Merhaba son 24 saat) |
-| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer NOT IN {Type=Heartbeat TimeGenerated>NOW-30MINUTES &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Toplam aracıları çevrimdışı son 30 dakika (için hello son 24 saat) |
+| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-24HOURS |Son 24 saat içinde yanıt vermeyen aracı sayısı |
+| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-15MINUTES |Son 15 dakika içinde yanıt vermeyen aracı sayısı |
+| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer IN {Type=Heartbeat TimeGenerated>NOW-24HOURS &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Çevrimiçi olan bilgisayarlar (son 24 saat) |
+| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer NOT IN {Type=Heartbeat TimeGenerated>NOW-30MINUTES &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Son 30 dakika içinde Toplam Çevrimdışı Aracı Sayısı (son 24 saat için) |
 | Type=Heartbeat &#124; measure countdistinct(Computer) by OSType |İşletim sistemi türüne göre zaman içinde aracı sayısı eğilimini görün|
 | Type=Heartbeat&#124;measure countdistinct(Computer) by OSType |İşletim Sistemi Türüne Göre Dağılım |
 | Type=Heartbeat&#124;measure countdistinct(Computer) by Version |Aracı Sürümüne Göre Dağılım |
@@ -114,15 +114,15 @@ Merhaba aşağıdaki tabloda bu çözüm tarafından toplanan kayıtları için 
 
 
 >[!NOTE]
-> Çalışma alanınızı yükseltilmiş toohello yüklediyse [yeni günlük analizi sorgu dili](../log-analytics/log-analytics-log-search-upgrade.md), sorguları yukarıda hello toohello aşağıdaki değişeceğinden sonra.
+> Çalışma alanınız [yeni Log Analytics sorgu diline](../log-analytics/log-analytics-log-search-upgrade.md) yükseltilmişse, yukarıdaki sorguların aşağıdaki gibi değiştirilmesi gerekir.
 >
 >| Sorgu | Açıklama |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |Toplam aracı sayısı |
-| Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Merhaba son 24 saat içinde yanıt vermeyen aracıların sayısı |
-| Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(15m) |Merhaba son 15 dakika içinde yanıt vermeyen aracıların sayısı |
-| Heartbeat &#124; where TimeGenerated > ago(24h) and Computer in ((Heartbeat &#124; where TimeGenerated > ago(24h) &#124; distinct Computer)) &#124; summarize LastCall = max(TimeGenerated) by Computer |Bilgisayarların çevrimiçi (Merhaba son 24 saat) |
-| Heartbeat &#124; where TimeGenerated > ago(24h) and Computer !in ((Heartbeat &#124; where TimeGenerated > ago(30m) &#124; distinct Computer)) &#124; summarize LastCall = max(TimeGenerated) by Computer |Toplam aracıları çevrimdışı son 30 dakika (için hello son 24 saat) |
+| Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Son 24 saat içinde yanıt vermeyen aracı sayısı |
+| Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(15m) |Son 15 dakika içinde yanıt vermeyen aracı sayısı |
+| Heartbeat &#124; where TimeGenerated > ago(24h) and Computer in ((Heartbeat &#124; where TimeGenerated > ago(24h) &#124; distinct Computer)) &#124; summarize LastCall = max(TimeGenerated) by Computer |Çevrimiçi olan bilgisayarlar (son 24 saat) |
+| Heartbeat &#124; where TimeGenerated > ago(24h) and Computer !in ((Heartbeat &#124; where TimeGenerated > ago(30m) &#124; distinct Computer)) &#124; summarize LastCall = max(TimeGenerated) by Computer |Son 30 dakika içinde Toplam Çevrimdışı Aracı Sayısı (son 24 saat için) |
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by OSType |İşletim sistemi türüne göre zaman içinde aracı sayısı eğilimini görün|
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by OSType |İşletim Sistemi Türüne Göre Dağılım |
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by Version |Aracı Sürümüne Göre Dağılım |

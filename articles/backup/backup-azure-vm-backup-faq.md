@@ -1,6 +1,6 @@
 ---
-title: aaaAzure VM Backup ile ilgili SSS | Microsoft Docs
-description: "Hakkında toocommon soruları yanıtlar: Azure VM yedekleme çalışır, sınırlamalar ve ne olacağını nasıl değişiklikleri toopolicy ortaya çıktığında"
+title: Azure VM Yedeklemesi ile ilgili SSS | Microsoft Docs
+description: "Azure VM yedeklemesinin çalışması, sınırlamalar ve ilkede değişiklikler yapıldığında ne olacağı hakkındaki yaygın soruların yanıtları"
 services: backup
 documentationcenter: 
 author: trinadhk
@@ -15,48 +15,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: a1ad2cb3a379577a8c4258c8207ce75809e11a4a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1372a9e05cb47f6c68240bffccd46b0fbebb5464
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="questions-about-hello-azure-vm-backup-service"></a>Hello Azure VM Backup hizmeti hakkında sorular
-Bu makalede yanıtlar toocommon sorular toohelp hızlı bir şekilde hello Azure VM Backup bileşenlerini anlama sahiptir. Bazı hello yanıtlar kapsamlı bilgiler bağlantılar toohello makaleler vardır. Hello Azure Backup hizmeti hakkında sorular hello nakledebilirsiniz [tartışma Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+# <a name="questions-about-the-azure-vm-backup-service"></a>Azure VM Yedeklemesi hizmetiyle ilgili sorular
+Bu makalede Azure VM Yedeklemesi bileşenlerini kısa süre içinde anlamanıza yardımcı olacak yaygın soruların yanıtları bulunur. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
 
 ## <a name="configure-backup"></a>Yedeklemeyi yapılandırma
 ### <a name="do-recovery-services-vaults-support-classic-vms-or-resource-manager-based-vms-br"></a>Kurtarma Hizmetleri kasaları, klasik VM’leri mi Resource Manager tabanlı VM’leri mi destekler? <br/>
-Kurtarma Hizmetleri kasaları iki modeli de destekler.  (Merhaba Klasik Portalı'nda oluşturulan) klasik bir VM veya kurtarma Hizmetleri kasası Kaynak Yöneticisi'ni (hello Azure portalında oluşturulan) VM tooa yedekleyebilirsiniz.
+Kurtarma Hizmetleri kasaları iki modeli de destekler.  Klasik portalda oluşturulan bir klasik VM’yi ya da Azure portalında oluşturulan bir Resource Manager VM’sini bir Kurtarma Hizmetleri kasasına yedekleyebilirsiniz.
 
 ### <a name="what-configurations-are-not-supported-by-azure-vm-backup-"></a>Azure VM yedeklemesinde hangi yapılandırmalar desteklenmez?
 Lütfen [Desteklenen işletim sistemleri](backup-azure-arm-vms-prepare.md#supported-operating-system-for-backup) ve [VM yedeklemesinin sınırları](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm) konularını inceleyin.
 
 ### <a name="why-cant-i-see-my-vm-in-configure-backup-wizard"></a>Yedeklemeyi yapılandırma sihirbazında sanal makinemi neden göremiyorum?
 Yedeklemeyi yapılandırma sihirbazında, Azure Backup yalnızca şu sanal makineleri listeler:
-* Zaten korumalı - tooVM dikey gidip hello dikey ayarları menüsünden yedekleme durumu denetimi hello VM yedekleme durumunu doğrulayabilirsiniz. Çok konusunda daha fazla bilgi edinin[bir VM yedekleme durumunu denetleme](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-management-blade)
-* VM olarak toosame bölgeye ait
+* Zaten korumalı olmayan - Sanal Makine dikey penceresine gidip pencerenin Ayarlar menüsünde Yedekleme durumunu denetleyerek sanal makinenin yedekleme durumunu doğrulayabilirsiniz. [Sanal makinenin yedekleme durumunu denetleme](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-management-blade) hakkında daha fazla bilgi edinin.
+* Sanal makine ile aynı bölgeye ait olan
 
 ## <a name="backup"></a>Backup
 ### <a name="will-on-demand-backup-job-follow-same-retention-schedule-as-scheduled-backups"></a>İsteğe bağlı yedekleme işi zamanlanmış yedeklemelerle aynı bekletme zamanlamasına mı uyar?
-Hayır. Toospecify hello saklama aralığı için bir talep üzerine yedekleme işi gerekir. Varsayılan olarak, portaldan tetiklendiğinde 30 gün bekletilir. 
+Hayır. İsteğe bağlı yedekleme işinde bekletme aralığını belirtmeniz gerekir. Varsayılan olarak, portaldan tetiklendiğinde 30 gün bekletilir. 
 
-### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-toowork"></a>Kısa süre önce bazı sanal makinelerde Azure Disk Şifrelemesi'ni etkinleştirdim. Yedeklerim toowork devam eder?
-Azure Backup hizmeti tooaccess anahtar kasası toogive izinlerinizin olması gerekir. [PowerShell](backup-azure-vms-automation.md) belgelerinin *Yedeklemeyi Etkinleştirme* bölümünde belirtilen adımları kullanarak, PowerShell'de bu izinleri sağlayabilirsiniz.
+### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Kısa süre önce bazı sanal makinelerde Azure Disk Şifrelemesi'ni etkinleştirdim. Yedeklemelerim çalışmaya devam edecek mi?
+Azure Backup hizmetinin Key Vault'a erişmesi için izin vermeniz gerekir. [PowerShell](backup-azure-vms-automation.md) belgelerinin *Yedeklemeyi Etkinleştirme* bölümünde belirtilen adımları kullanarak, PowerShell'de bu izinleri sağlayabilirsiniz.
 
-### <a name="i-migrated-disks-of-a-vm-toomanaged-disks-will-my-backups-continue-toowork"></a>I diskleri VM toomanaged disklerin geçirildi. Yedeklerim toowork devam eder?
-Evet, yedekleme sorunsuz bir şekilde çalışır ve hiçbir gerek toore-yedeklemeyi yapılandırın. 
+### <a name="i-migrated-disks-of-a-vm-to-managed-disks-will-my-backups-continue-to-work"></a>Bir sanal makinenin disklerini yönetilen disklere geçirdim. Yedeklemelerim çalışmaya devam edecek mi?
+Evet, yedeklemeler sorunsuz çalışır; yedeklemeyi yeniden yapılandırmak gerekmez. 
 
 ## <a name="restore"></a>Geri Yükleme
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>Diskleri geri yüklemekle tam sanal makine geri yüklemesi yapmak arasında nasıl seçim yapabilirim?
-Azure tam sanal makine geri yüklemesini, geri yüklenmiş sanal makine için hızlı oluşturma seçeneği sağlayan bir yol olarak düşünün. VM geri yükleme seçeneği diskleri hello adlarını değiştirmek, kapsayıcıları, VM oluşturmanın bir parçası oluşturulan kaynakları benzersizliğini adları diskler, genel IP adresleri, ağ arabirimi tarafından kullanılır. Ayrıca hello VM tooavailability kümesi eklemez. 
+Azure tam sanal makine geri yüklemesini, geri yüklenmiş sanal makine için hızlı oluşturma seçeneği sağlayan bir yol olarak düşünün. Sanal makineyi geri yükleme seçeneği, sanal makinenin bir parçası olarak oluşturulan kaynakların benzersiz olmasını sağlamak için disklerin adını, diskler tarafından kullanılan kapsayıcıları, genel IP adreslerini ve ağ arabirimi adlarını değiştirir. Ayrıca sanal makineyi kullanılabilirlik kümesine eklemez. 
 
 Aşağıdakileri yapmak için diskleri geri yükleme seçeneğini kullanın:
-* Başlangıç zamanı yapılandırması yedekleme yapılandırmasından hello boyutunu değiştirme gibi noktasından oluşturulan VM özelleştirme
-* Yedekleme hello aynı anda mevcut olmayan yapılandırmalarını ekleme 
-* Oluşturulan kaynakları için Denetim hello adlandırma kuralı
-* VM tooavailability kümesi Ekle
+* Yedekleme yapılandırmasından boyutu değiştirme gibi belirli bir noktadaki yapılandırmayla oluşturulan sanal makineleri özelleştirme
+* Yedekleme sırasında var olan yapılandırmalar ekleme 
+* Oluşturulan kaynakların adlandırma kuralını denetleme
+* Kullanılabilirlik kümesine sanal makine ekleme
 * Yalnızca PowerShell/bildirim temelli bir şablon tanımı kullanılarak gerçekleştirilebilen bir yapılandırmanız olması durumunda
 
 ## <a name="manage-vm-backups"></a>VM yedeklemelerini yönetme
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>Sanal makinelerde yedekleme ilkesini değiştirdiğimde ne olur?
-Sanal makine üzerinde yeni bir ilke uygulandığında, zamanlama ve saklama hello yeni ilkenin izlenir. Bekletme genişletilirse, var olan kurtarma noktalarının tookeep işaretlenecek bunları yeni ilke göredir. Bekletme azaltıldığında için ayıklama hello sonraki temizleme işi işaretlenir ve silinir. 
+Sanal makinelere yeni bir ilke uygulandığında, yeni ilkenin zamanlama ve bekletme ayarları geçerli olur. Bekletme süresi uzatıldıysa, yeni ilkeye göre tutulması için mevcut kurtarma noktaları işaretlenir. Bekletme süresi kısaltıldıysa, bunlar sonraki temizleme işleminde kesilmek üzere işaretlenir ve sonra silinir. 

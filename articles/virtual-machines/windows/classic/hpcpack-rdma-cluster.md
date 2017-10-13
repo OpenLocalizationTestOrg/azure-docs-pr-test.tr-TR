@@ -1,6 +1,6 @@
 ---
-title: "bir Windows RDMA küme toorun MPI uygulamaları aaaSet | Microsoft Docs"
-description: "Nasıl toocreate boyutu H16r, H16mr, A8 veya A9 Vm'lerde toouse Microsoft HPC Pack kümeyle hello Azure RDMA ağ toorun MPI uygulamaları hakkında bilgi edinin."
+title: "MPI uygulamaları çalıştırmak için Windows RDMA küme ayarlama | Microsoft Docs"
+description: "Boyutuyla H16r, H16mr, A8 veya A9 Vm'lerde MPI uygulamaları çalıştırmak için Azure RDMA ağ kullanmak üzere bir Windows HPC Pack küme oluşturmayı öğrenin."
 services: virtual-machines-windows
 documentationcenter: 
 author: dlepow
@@ -15,176 +15,176 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
-ms.openlocfilehash: 23bc8740dbd05a7c7ab3f998489a41d0df4520a2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 19be1d693fe13af0f6c1ab0cb6f7bc829b9fad5a
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-toorun-mpi-applications"></a>HPC Pack toorun MPI uygulamaları ile Windows RDMA kümesi ayarlama
-Azure ile Windows RDMA kümedeki ayarlamak [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) ve [yüksek performanslı işlem VM boyutları](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) toorun paralel ileti geçirme arabirimi (MPI) uygulamalarını. RDMA özelliğine sahip, Windows Server tabanlı bir HPC Pack kümedeki düğümlerin ayarladığınızda, MPI uygulamaları düşük gecikme, doğrudan uzak bellek erişimi (RDMA) teknolojisine dayalı azure'da yüksek verimlilik ağ üzerinden verimli bir şekilde iletişim kurar.
+# <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>MPI uygulamaları çalıştırmak için Windows RDMA küme HPC paketi ile ayarlama
+Azure ile Windows RDMA kümedeki ayarlamak [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) ve [yüksek performanslı işlem VM boyutları](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) paralel ileti geçirme arabirimi (MPI) uygulamalarını çalıştırmak için. RDMA özelliğine sahip, Windows Server tabanlı bir HPC Pack kümedeki düğümlerin ayarladığınızda, MPI uygulamaları düşük gecikme, doğrudan uzak bellek erişimi (RDMA) teknolojisine dayalı azure'da yüksek verimlilik ağ üzerinden verimli bir şekilde iletişim kurar.
 
-Linux sanal makineleri bu erişim hello Azure RDMA ağ üzerinde toorun MPI iş yükleri istiyorsanız, bkz: [Linux RDMA küme toorun MPI uygulamalar ayarlamak](../../linux/classic/rdma-cluster.md).
+Linux VM'ler üzerinde Azure RDMA ağ erişim Bkz MPI iş yüklerini çalıştırmak istiyorsanız [MPI uygulamaları çalıştırmak için Linux RDMA küme ayarlama](../../linux/classic/rdma-cluster.md).
 
 ## <a name="hpc-pack-cluster-deployment-options"></a>HPC Pack küme dağıtım seçenekleri
-Microsoft HPC Pack bir hiçbir ek maliyet toocreate şirket içi HPC kümelerinde sağlanan veya Azure toorun Windows veya Linux HPC uygulamalarında aracıdır. HPC Pack Merhaba ileti geçirme arabirimi for Windows (MS-MPI) hello Microsoft uygulaması için bir çalışma zamanı ortamı içerir. Desteklenen bir Windows Server işletim sistemi çalıştıran RDMA özellikli örnekleriyle birlikte kullanıldığında, HPC paketi bu erişim hello Azure RDMA ağ verimli seçeneği toorun Windows MPI uygulamaları sağlar. 
+Microsoft HPC Pack bir oluşturmak için hiçbir ek ücret ödemeden şirket içi HPC kümelerinde sağlanan veya Windows veya Linux HPC uygulamaları çalıştırmak için Azure aracıdır. HPC Pack ileti geçirme arabirimi for Windows (MS-MPI) Microsoft uygulaması için bir çalışma zamanı ortamı içerir. Desteklenen bir Windows Server işletim sistemi çalıştıran RDMA özellikli örnekleriyle birlikte kullanıldığında, HPC Pack Azure RDMA ağ erişim Windows MPI uygulamaları çalıştırmak için etkili bir seçenek sağlar. 
 
-Bu makalede iki senaryo sunar ve Microsoft HPC paketi ile Windows RDMA kümesi toodetailed Kılavuzu tooset bağlar. 
+Bu makalede, Microsoft HPC paketi ile Windows RDMA küme ayarlamak için ayrıntılı yönergeler için iki senaryo ve bağlantıları tanıtılır. 
 
 * Senaryo 1. İşlem yoğunluklu çalışan rolü örnekleri (PaaS) dağıtma
 * Senaryo 2. İşlem yoğunluklu VM'ler (Iaas) hesaplama düğümlerini dağıtmak
 
-Genel Önkoşullar toouse işlem yoğunluklu örnekler için Windows ile bkz: [yüksek performanslı işlem VM boyutları](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Genel önkoşullarını işlem yoğunluklu örnekler Windows ile birlikte kullanmak, bkz: [yüksek performanslı işlem VM boyutları](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="scenario-1-deploy-compute-intensive-worker-role-instances-paas"></a>Senaryo 1: işlem yoğunluklu çalışan rolü örnekleri (PaaS) dağıtma
-Mevcut bir HPC Pack kümeden ek işlem kaynaklarında bir bulut hizmeti (PaaS) çalışan Azure çalışan rolü örnekleri (Azure düğümleri) ekleyin. HPC paketi, "veri bloğu tooAzure" olarak da adlandırılan bu özellik, bir dizi boyutları hello çalışan rolü örnekleri için destekler. Azure düğümleri ekleme hello olduğunda hello RDMA özellikli boyutlarından birini belirtin.
+Mevcut bir HPC Pack kümeden ek işlem kaynaklarında bir bulut hizmeti (PaaS) çalışan Azure çalışan rolü örnekleri (Azure düğümleri) ekleyin. "HPC paketinden Azure'a veri bloğu" olarak da adlandırılan bu özellik, bir dizi boyutları çalışan rolü örnekleri için destekler. Azure düğümleri eklerken, RDMA özellikli boyutlarından birini belirtin.
 
-Mevcut bir kümeden değerlendirmeler ve adımlar tooburst tooRDMA özellikli Azure örnekleri aşağıda verilmiştir (genellikle şirket içi) küme. Bir Azure VM dağıtılan benzer yordamları tooadd çalışan rolü örnekleri tooan HPC paketi üstbilgi düğümü kullanın.
+Şunlardır konuları ve adımları RDMA özellikli için veri bloğu mevcut bir kümeden Azure örnekleri (genellikle şirket içi) küme. Bir Azure VM dağıtılan bir HPC paketi üstbilgi düğümü çalışan rolü örnekleri eklemek için benzer yordamları kullanın.
 
 > [!NOTE]
-> HPC paketi ile bir öğretici tooburst tooAzure için bkz: [HPC paketi ile karma küme ayarlama](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Özellikle tooRDMA özellikli Azure düğümlerini uygulayabileceğiniz adımların hello Hello konuları unutmayın.
+> HPC Pack ile azure'a veri bloğu bir öğretici için bkz: [HPC paketi ile karma küme ayarlama](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Özellikle RDMA özellikli için uygulama aşağıdaki adımlarda konuları not Azure düğümleri.
 > 
 > 
 
-![TooAzure veri bloğu][burst]
+![Azure'a veri bloğu][burst]
 
 ### <a name="steps"></a>Adımlar
 1. **HPC Pack 2012 R2 baş düğüm yapılandırmak ve dağıtmak**
    
-    Hello Hello son HPC Pack yükleme paketini indirme [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922). Bir Azure veri bloğu dağıtım için gereksinimleri ve yönergeleri tooprepare için bkz: [tooAzure çalışan örnekleri Microsoft HPC paketi ile veri bloğu](https://technet.microsoft.com/library/gg481749.aspx).
-2. **Bir yönetim sertifikası hello Azure aboneliği yapılandırma**
+    En son HPC Pack yükleme paketini indirin [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922). Gereksinimler ve bir Azure veri bloğu dağıtımına hazırlanmak için yönergeler için bkz: [Microsoft HPC paketi ile Azure çalışan örneklerine veri bloğu](https://technet.microsoft.com/library/gg481749.aspx).
+2. **Azure aboneliğinde bir yönetim sertifikası yapılandırma**
    
-    Merhaba baş düğüm ve Azure arasında bir sertifika toosecure hello bağlantı yapılandırın. Seçenekler ve yordamlar için bkz: [senaryoları tooConfigure hello HPC paketi için Azure yönetim sertifikası](http://technet.microsoft.com/library/gg481759.aspx). Test dağıtımları için HPC Pack bir varsayılan Microsoft HPC Azure Yönetimi tooyour Azure aboneliği hızlı bir şekilde yükleyebilirsiniz sertifikası yükler.
+    Baş düğüm ile Azure arasındaki bağlantının güvenli hale getirmek için bir sertifika yapılandırın. Seçenekler ve yordamlar için bkz: [HPC Pack için Azure yönetim sertifikasını yapılandırma senaryoları](http://technet.microsoft.com/library/gg481759.aspx). Test dağıtımları için HPC Pack bir varsayılan Microsoft HPC Azure yönetim Azure aboneliğinize hızlı bir şekilde yükleyebilirsiniz sertifikası yükler.
 3. **Yeni bir bulut hizmeti ve bir depolama hesabı oluştur**
    
-    Hello Azure portal toocreate hello RDMA özellikli örnekleri kullanılabildiği bir bölgede hello dağıtımı için bir bulut hizmeti ve bir depolama hesabı kullanın.
+    RDMA özellikli örnekleri kullanılabildiği bir bölgede bir bulut hizmeti ve dağıtım için bir depolama hesabı oluşturmak için Azure Portalı'nı kullanın.
 4. **Bir Azure düğüm şablonu oluşturma**
    
-    HPC Küme Yöneticisi'nde Hello oluşturma düğüm Şablonu Sihirbazı'nı kullanın. Adımlar için bkz: [Azure düğüm şablonu oluşturma](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) "Adımları tooDeploy Microsoft HPC paketi ile Azure düğümleri" içinde.
+    Kullanım düğümü Şablon Sihirbazı'nı HPC Küme Yöneticisi'nde oluşturun. Adımlar için bkz: [Azure düğüm şablonu oluşturma](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) "Adımları için dağıtmak Azure düğümleri ile Microsoft HPC Pack".
    
-    İlk sınamalar için el ile kullanılabilirlik İlkesi hello şablonunda yapılandırma öneririz.
-5. **Toohello küme düğümleri Ekle**
+    İlk sınamalar için el ile kullanılabilirlik İlkesi şablonunda yapılandırma öneririz.
+5. **Küme Düğümleri Ekle**
    
-    HPC Küme Yöneticisi'nde Hello düğümü Ekleme Sihirbazı kullanın. Daha fazla bilgi için bkz: [Azure düğümleri Ekle toohello Windows HPC Kümesi](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Add).
+    Kullanım düğümü HPC Küme Yöneticisi'nde Ekleme Sihirbazı. Daha fazla bilgi için bkz: [Windows HPC kümesine Azure düğümleri Ekle](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Add).
    
-    Merhaba düğümleri Hello boyutunu belirtirken, hello RDMA özellikli örneği boyutlarından birini seçin.
+    Düğümlerin boyutunu belirtirken, RDMA özellikli örneği boyutlarından birini seçin.
    
    > [!NOTE]
-   > Merhaba işlem yoğunluklu örnekler olan her veri bloğu tooAzure dağıtımında, HPC Pack en az iki RDMA özellikli örneği (örneğin, A8) proxy düğümleri olarak otomatik olarak dağıtır., ayrıca toohello Azure çalışan rolü örnekleri, belirtin. Merhaba proxy düğümleri toohello abonelik ayrılır ve ücretleri hello Azure çalışan rolü örnekleri yanı sıra çekirdeğe kullanın.
+   > İşlem yoğunluklu örnekler ile Azure dağıtımı için her veri bloğu içinde HPC paketi otomatik olarak en az iki RDMA özellikli örneği (örneğin, A8) proxy düğüm olarak belirttiğiniz Azure çalışan rolü örneklerine ek olarak dağıtır. Proxy düğümleri abonelik için ayrılmış ve Azure çalışan rolü örnekleri birlikte ücretlendirme çekirdek kullanın.
    > 
    > 
-6. **(Sağlayamaz) hello düğümleri başlatın ve çevrimiçi toorun işleri Getir**
+6. **(Sağlayamaz) başlangıç düğümleri ve işlerini çalıştırmak için bunları çevrimiçi duruma getirin**
    
-    Merhaba düğümleri seçin ve hello kullan **Başlat** eylem HPC Küme Yöneticisi'nde. Sağlama tamamlandıktan sonra hello düğümleri seçip hello kullanabileceğiniz **çevrimiçine** eylem HPC Küme Yöneticisi'nde. Merhaba düğümler hazır toorun işleri ' dir.
-7. **İşlerini toohello küme gönderme**
+    Düğümleri seçin ve **Başlat** eylem HPC Küme Yöneticisi'nde. Sağlama tamamlandıktan sonra düğümleri seçin ve kullanmak **çevrimiçine** eylem HPC Küme Yöneticisi'nde. İşlerini çalıştırmak düğümleri hazırsınız.
+7. **Kümeye iş göndermek**
    
-   HPC Pack iş gönderme araçları toorun küme işlerini kullanın. Bkz: [Microsoft HPC paketi: iş yönetimi](http://technet.microsoft.com/library/jj899585.aspx).
-8. **(Deprovision) hello düğümler durdurun**
+   Küme işlerini çalıştırmak için HPC Pack iş gönderme araçlarını kullanın. Bkz: [Microsoft HPC paketi: iş yönetimi](http://technet.microsoft.com/library/jj899585.aspx).
+8. **(Deprovision) durdurun düğümleri**
    
-   Çalışan işleri bittiğinde hello düğümleri çevrimdışı duruma getirin ve hello kullan **durdurmak** eylem HPC Küme Yöneticisi'nde.
+   Çalışan işleri bittiğinde düğümleri çevrimdışı duruma getirin ve kullanma **durdurmak** eylem HPC Küme Yöneticisi'nde.
 
 ## <a name="scenario-2-deploy-compute-nodes-in-compute-intensive-vms-iaas"></a>Senaryo 2: Dağıtmak işlem düğümleri işlem yoğunluklu VM'ler (Iaas) olarak
-Bu senaryoda, hello HPC paketi üstbilgi düğümü ve küme işlem düğümlerinde sanal makineleri bir Azure sanal ağında dağıtın. HPC Pack sağlayan birkaç [dağıtım seçenekleri Azure VM'de](../../linux/hpcpack-cluster-options.md)otomatik dağıtım betikleri ve Azure hızlı başlangıç şablonlarını dahil olmak üzere. Örnek olarak, konuları hello ve adımları toouse hello kılavuzuna [HPC Pack Iaas dağıtım betiği](hpcpack-cluster-powershell-script.md) Azure HPC Pack 2012 R2 kümesinde hello dağıtımını otomatik hale getirmek için.
+Bu senaryoda, küme işlem düğümlerinde sanal makineleri bir Azure sanal ağında ve HPC paketi üstbilgi düğümü dağıtın. HPC Pack sağlayan birkaç [dağıtım seçenekleri Azure VM'de](../../linux/hpcpack-cluster-options.md)otomatik dağıtım betikleri ve Azure hızlı başlangıç şablonlarını dahil olmak üzere. Örnek olarak, aşağıdaki konuları ve adımları kullanmak için size kılavuzluk [HPC Pack Iaas dağıtım betiği](hpcpack-cluster-powershell-script.md) Azure HPC Pack 2012 R2 kümesinde dağıtımını otomatik hale getirmek için.
 
 ![Azure sanal makineleri kümedeki][iaas]
 
 ### <a name="steps"></a>Adımlar
-1. **Bir küme baş düğümüne oluşturmak ve bir istemci bilgisayarda hello HPC Pack Iaas dağıtım betiği çalıştırarak düğümü VM'ler işlem**
+1. **Bir küme baş düğümüne oluşturmak ve bir istemci bilgisayarda HPC Pack Iaas dağıtım betiği çalıştırarak düğümü VM'ler işlem**
    
-    Hello Hello HPC Pack Iaas dağıtım betiği paketini indirin [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922).
+    HPC Pack Iaas dağıtım betiği paketinden karşıdan [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=49922).
    
-    tooprepare hello istemci bilgisayar, hello betiği yapılandırma ve çalıştırma hello betik oluşturmak, bkz: [hello HPC Pack Iaas dağıtım betiği ile bir HPC kümesi oluşturma](hpcpack-cluster-powershell-script.md). 
+    İstemci bilgisayarı hazırlamak için yapılandırma betiği ve komut dosyası çalıştırma görür oluşturma [HPC Kümesi ile HPC Pack Iaas dağıtım komut dosyası oluşturma](hpcpack-cluster-powershell-script.md). 
    
-    RDMA özellikli toodeploy işlem düğümleri, ek hususlar aşağıdaki Not hello:
+    RDMA özellikli hesaplama düğümlerini dağıtmak için aşağıdaki ek konuları göz önünde bulundurun:
    
-   * **Sanal ağ**: hangi hello RDMA özellikli örnek boyutu içinde bir bölgede istediğiniz toouse kullanılabilir yeni bir sanal ağ belirtin.
-   * **Windows Server işletim sisteminin**: toosupport RDMA bağlantısı hello işlem düğümü VM'ler için bir Windows Server 2012 R2 veya Windows Server 2012 işletim sistemi belirtin.
+   * **Sanal ağ**: kullanmak istediğiniz RDMA özellikli örnek boyutu olduğu kullanılabilir bir bölgede yeni bir sanal ağ belirtin.
+   * **Windows Server işletim sisteminin**: RDMA bağlantıyı desteklemek için işlem düğümü VM'ler için bir Windows Server 2012 R2 veya Windows Server 2012 işletim sistemi belirtin.
    * **Bulut Hizmetleri**: baş düğümünüz bir bulut hizmeti ve işlem düğümleriniz farklı bir bulut hizmeti dağıtma öneririz.
-   * **Baş düğüm boyutu**: Bu senaryo için boyutu en az göz önünde bulundurun A4 (çok büyük) hello baş düğüm için.
-   * **HpcVmDrivers uzantısı**: hello dağıtım betiği yükler hello Azure VM aracısı ve hello HpcVmDrivers uzantısı otomatik olarak bir Windows Server işletim sistemi ile boyutu A8 veya A9 işlem düğümleri dağıttığınızda. Toohello RDMA ağ bağlanabilmeleri HpcVmDrivers hello işlem düğümünde VM'ler sürücüleri yükler. RDMA özellikli H-serisi Vm'lerinde hello HpcVmDrivers uzantısı el ile yüklemeniz gerekir. Bkz: [yüksek performanslı işlem VM boyutları](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-   * **Küme ağ yapılandırması**: hello dağıtım komut dosyası otomatik olarak ayarlayan hello HPC paketi küme topolojisi 5 (Merhaba kurumsal ağ üzerindeki tüm düğümler). Bu topoloji VM'ler tüm HPC paketi küme dağıtımları için gereklidir. Merhaba küme ağ topolojisi daha sonra değişmez.
-2. **Merhaba işlem düğümleri çevrimiçi toorun işleri Getir**
+   * **Baş düğüm boyutu**: Bu senaryo için boyutu en az göz önünde bulundurun A4 (çok büyük) baş düğüm için.
+   * **HpcVmDrivers uzantısı**: bir Windows Server işletim sistemi ile boyutu A8 veya A9 işlem düğümleri dağıttığınızda dağıtım komut dosyası Azure VM Aracısı'nı ve HpcVmDrivers uzantısı otomatik olarak yükler.. RDMA ağa bağlanabilmeleri HpcVmDrivers işlem düğümünde VM'ler sürücüleri yükler. RDMA özellikli H-serisi Vm'lerinde HpcVmDrivers uzantısı el ile yüklemeniz gerekir. Bkz: [yüksek performanslı işlem VM boyutları](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+   * **Küme ağ yapılandırması**: dağıtım betiğini HPC paketi küme topolojisi 5 (Kurumsal ağ üzerindeki tüm düğümler) otomatik olarak ayarlar. Bu topoloji VM'ler tüm HPC paketi küme dağıtımları için gereklidir. Küme ağ topolojisi daha sonra değişmez.
+2. **İşlerini çalıştırmak için işlem düğümleri çevrimiçi duruma getirin**
    
-    Merhaba düğümleri seçin ve hello kullan **çevrimiçine** eylem HPC Küme Yöneticisi'nde. Merhaba düğümler hazır toorun işleri ' dir.
-3. **İşlerini toohello küme gönderme**
+    Düğümleri seçin ve **çevrimiçine** eylem HPC Küme Yöneticisi'nde. İşlerini çalıştırmak düğümleri hazırsınız.
+3. **Kümeye iş göndermek**
    
-    Toohello baş düğüm toosubmit işleri bağlanın veya bir şirket içi bilgisayar toodo bunu ayarlayın. Bilgi için bkz: [işleri gönderme tooan HPC küme Azure'da](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-4. **Take hello düğümleri çevrimdışı ve Dur (bunları serbest bırakma)**
+    İşlerini göndermek için baş düğümüne bağlanmak veya bunu yapmak için bir şirket içi bilgisayarın ayarlarını yapın. Bilgi için bkz: [bir HPC iş gönderme küme Azure'da](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+4. **Düğümleri çevrimdışı duruma getirin ve durdurun (deallocate) bunları**
    
-    Çalışan işleri bittiğinde HPC Küme Yöneticisi'nde hello düğümleri çevrimdışı alın. Daha sonra Azure Yönetim Araçları tooshut kullanın aşağı bunları.
+    Çalışan işleri bittiğinde düğümleri çevrimdışı HPC Küme Yöneticisi'nde alın. Ardından, onları kapatmanız için Azure yönetim araçlarını kullanın.
 
-## <a name="run-mpi-applications-on-hello-cluster"></a>Merhaba kümede MPI uygulamaları çalıştırma
+## <a name="run-mpi-applications-on-the-cluster"></a>Kümede MPI uygulamaları çalıştırma
 ### <a name="example-run-mpipingpong-on-an-hpc-pack-cluster"></a>Örnek: mpipingpong bir HPC Pack kümede çalıştırın.
-tooverify Çalıştır hello RDMA özellikli örneklerinin bir HPC Pack dağıtımı HPC Pack Merhaba **mpipingpong** hello kümede komutu. **mpipingpong** eşleştirilmiş düğümler arasında veri paketleri art arda toocalculate gecikme süresi ve verimlilik ölçümleri gönderir ve hello uygulama RDMA özellikli ağ istatistikleri. Bu örnek, bir MPI işini çalıştırmak için tipik bir düzen gösterir (Bu durumda, **mpipingpong**) hello kümesi kullanarak **mpiexec** komutu.
+RDMA özellikli örneklerinin bir HPC Pack dağıtımı doğrulamak için HPC Pack çalıştırın **mpipingpong** kümede komutu. **mpipingpong** art arda gecikme süresi ve verimlilik ölçümleri hesaplamak için eşleştirilmiş düğümler ve uygulama RDMA özellikli ağ istatistiklerini arasında veri paketleri gönderir. Bu örnek, bir MPI işini çalıştırmak için tipik bir düzen gösterir (Bu durumda, **mpipingpong**) kümesi kullanarak **mpiexec** komutu.
 
-Bu örnekte "tooAzure veri bloğu" bir yapılandırmada Azure düğümleri eklenen varsayılır ([Senaryo 1](#scenario-1.-deploy-compute-intensive-worker-role-instances-\(PaaS\) in this article). HPC Pack Azure Vm'leri bir kümede dağıtılmışsa, toomodify hello komut sözdizimi toospecify farklı bir düğüme Grup gerekir ve ek ortam değişkenleri toodirect ağ trafiği toohello RDMA ağ ayarlayın.
+Bu örnekte "Azure veri bloğu" yapılandırmasında Azure düğümleri eklenen varsayılır ([Senaryo 1](#scenario-1.-deploy-compute-intensive-worker-role-instances-\(PaaS\) in this article). HPC Pack Azure Vm'leri bir kümede dağıtılmışsa, farklı bir düğüme grubunu belirtin ve RDMA ağ için ağ trafiğini yönlendirmek için ek ortam değişkenlerini ayarlama komut söz dizimi değiştirmek gerekir.
 
-Merhaba kümede toorun mpipingpong:
+Mpipingpong küme üzerinde çalıştırmak için:
 
-1. Merhaba baş düğüm veya düzgün yapılandırılmış istemci bilgisayarda, bir komut istemi açın.
-2. bir Azure veri bloğu dağıtım türü hello komutu toosubmit küçük paket boyutu ve fazla yineleme iş toorun mpipingpong aşağıdaki dört düğümlerinin düğüm çifti arasındaki tooestimate gecikme süresi:
+1. Baş düğüm ya da düzgün yapılandırılmış istemci bilgisayarda bir komut istemi açın.
+2. Dört düğüm Azure veri bloğu dağıtımını düğümler çiftleri arasındaki gecikme süresini tahmin etmek için bir küçük paket boyutu ve fazla yineleme mpipingpong çalıştırmak için bir işi göndermek için aşağıdaki komutu yazın:
    
     ```Command
     job submit /nodegroup:azurenodes /numnodes:4 mpiexec -c 1 -affinity mpipingpong -p 1:100000 -op -s nul
     ```
    
-    Merhaba komutu gönderildiğinde hello işin hello kimliği döndürür.
+    Komut gönderildiğinde iş Kimliğini döndürür.
    
-    Azure Vm'lerinde dağıtılan hello HPC paketi küme dağıttıysanız içeren bir düğüm grubu işlem düğümü VM'ler tek bulut hizmet'te belirtin ve hello değiştirme **mpiexec** gibi komut:
+    Azure Vm'lerinde dağıtılan HPC paketi küme dağıttıysanız içeren bir düğüm grubu işlem düğümü VM'ler tek bulut hizmet'te belirtin ve değiştirme **mpiexec** gibi komut:
    
     ```Command
     job submit /nodegroup:vmcomputenodes /numnodes:4 mpiexec -c 1 -affinity -env MSMPI_DISABLE_SOCK 1 -env MSMPI_PRECONNECT all -env MPICH_NETMASK 172.16.0.0/255.255.0.0 mpipingpong -p 1:100000 -op -s nul
     ```
-3. Merhaba işi tamamlandığında tooview hello (Bu durumda, görev 1 hello işin hello çıktısını), aşağıdaki türü hello çıktı.
+3. İş tamamlandığında, çıkış (Bu durumda, görev 1 iş çıkışı), görüntülemek için aşağıdaki komutu yazın
    
     ```Command
     task view <JobID>.1
     ```
    
-    Burada &lt; *JobId* &gt; gönderilen hello iş hello kimliğidir.
+    Burada &lt; *JobId* &gt; gönderilen işi kimliğidir.
    
-    Merhaba çıkış gecikme süresi sonuçları benzer toohello aşağıdakileri içerir.
+    Çıktı aşağıdakine benzer gecikme süresi sonuçları içerir.
    
     ![Ping pong gecikme süresi][pingpong1]
-4. tooestimate verimlilik Azure çiftleri arasındaki veri bloğu düğümleri, türü hello şu komutu toosubmit iş toorun **mpipingpong** büyük paket boyutu ve birkaç yinelemeleri ile:
+4. Azure veri bloğu düğümleri çiftleri arasındaki verimliliği tahmin etmek için işi göndermek için aşağıdaki komutu yazın **mpipingpong** büyük paket boyutu ve birkaç yinelemeleri ile:
    
     ```Command
     job submit /nodegroup:azurenodes /numnodes:4 mpiexec -c 1 -affinity mpipingpong -p 4000000:1000 -op -s nul
     ```
    
-    Merhaba komutu gönderildiğinde hello işin hello kimliği döndürür.
+    Komut gönderildiğinde iş Kimliğini döndürür.
    
-    Azure Vm'lerinde dağıtılan bir HPC Pack kümede 2. adımda not ettiğiniz gibi hello komutu değiştirin.
-5. Merhaba işi tamamlandığında tooview hello (Bu durumda, görev 1 hello işin hello çıktısını), aşağıdaki türü hello çıktı:
+    Azure Vm'lerinde dağıtılan bir HPC Pack kümede 2. adımda not ettiğiniz şekilde komut değiştirin.
+5. İş tamamlandığında, çıkış (Bu durumda, görev 1 iş çıkışı), görüntülemek için aşağıdaki komutu yazın:
    
     ```Command
     task view <JobID>.1
     ```
    
-   Merhaba çıkış üretilen iş sonuçları benzer toohello aşağıdakileri içerir.
+   Çıktı aşağıdakine benzer üretilen iş sonuçları içerir.
    
    ![Ping pong işleme][pingpong2]
 
 ### <a name="mpi-application-considerations"></a>MPI uygulama konuları
-HPC Pack Azure MPI uygulamaları çalıştırmak için dikkat edilecek noktalar aşağıda verilmiştir. Bazı yalnızca toodeployments Azure düğümleri (çalışan rolü örnekleri "veri bloğu tooAzure" yapılandırmasında eklenen) uygulanır.
+HPC Pack Azure MPI uygulamaları çalıştırmak için dikkat edilecek noktalar aşağıda verilmiştir. Bazı yalnızca Azure düğümleri (çalışan rolü örnekleri "Azure veri bloğu" yapılandırmasında eklenen) dağıtımları için geçerlidir.
 
-* Bir bulut hizmetinde çalışan rolü örnekleri düzenli aralıklarla bildirilmeksizin Azure tarafından (örneğin, Sistem Bakımı veya örneği başarısız durumda) sağlama. Bir MPI iş çalışırken örneği sağlama, hello örneği verilerini kaybeder ve, hello MPI iş toofail neden dağıtılmayan başlandığı ilk toohello durumu döndürür. Hello için tek bir MPI işi kullanan ve hello daha fazla düğüm artık hello işi çalıştırır, bir iş çalışırken hello örnekleri birini sağlama, büyük olasılıkla hello. Ayrıca tek bir düğüm hello dağıtımda dosya sunucusu olarak belirtirseniz bu düşünün.
-* toorun MPI işlerini Azure toouse hello RDMA özellikli örnekleri yok. HPC paketi tarafından desteklenen herhangi bir örnek boyutu kullanabilirsiniz. Ancak, RDMA özellikli örnekleri hello hassas toohello gecikme süresi ve hello düğümlerini bağlayan hello ağ bant genişliği hello görece büyük ölçekli MPI işlerini çalıştırmak için önerilir. Diğer boyutları toorun gecikme süresi ve bant genişliği duyarlı MPI işlerini kullanırsanız, tek bir görev yalnızca birkaç düğüm üzerinde çalışır, küçük bir iş çalışmadığı öneririz.
-* Dağıtılan uygulamalar tooAzure hello uygulama ile ilişkili lisans konu toohello örnekleridir. Lisans için ticari uygulamaları veya diğer kısıtlamaları hello bulutta çalıştırmak için hello üreticisine danışın. Satıcıların tümü kullandıkça öde lisansı sunmaz.
-* Azure örnekleri, daha fazla tooaccess şirket içi düğümleri, paylaşımları ve lisans sunucuları kurmaktır. Örneğin, tooenable hello Azure düğümleri tooaccess bir şirket içi lisans sunucusuna bir siteden siteye Azure sanal ağı yapılandırabilirsiniz.
-* Azure örnekleri üzerinde toorun MPI uygulamaları kaydetmek her MPI uygulama Özellikli Windows Güvenlik Duvarı hello örneklerinde hello çalıştırarak **hpcfwutil** komutu. Bu MPI iletişimleri tootake yer hello güvenlik duvarı tarafından dinamik olarak atanan bir bağlantı noktası sağlar.
+* Bir bulut hizmetinde çalışan rolü örnekleri düzenli aralıklarla bildirilmeksizin Azure tarafından (örneğin, Sistem Bakımı veya örneği başarısız durumda) sağlama. Bir MPI iş çalışırken örneği sağlama, örnek verileri kaybeder ve, MPI işinin başarısız olmasına neden olabilir, dağıtılmayan başlandığı ilk durumuna döndürür. Tek bir MPI iş için ve uzun kullanmak daha fazla düğüm işi, büyük olasılıkla bir iş çalışırken, örneklerden birini sağlama çalışır. Dosya sunucusu olarak tek bir düğüm dağıtımdaki belirtirseniz ayrıca şunları göz önünde bulundurun.
+* Azure'da MPI işlerini çalıştırmak için RDMA özellikli örnekleri kullanmak gerekmez. HPC paketi tarafından desteklenen herhangi bir örnek boyutu kullanabilirsiniz. Ancak, RDMA özellikli örnekleri gecikme süresi ve düğümlerini bağlayan ağ bant genişliği için duyarlıdır görece büyük ölçekli MPI işlerini çalıştırmak için önerilir. Gecikme süresi ve bant genişliği duyarlı MPI işlerini çalıştırmak için diğer boyutlara kullanıyorsanız, tek bir görev yalnızca birkaç düğüm üzerinde çalışır, küçük bir iş çalışmadığı öneririz.
+* Azure örneklerine dağıtılan uygulamalar uygulama ile ilişkili Lisans Koşulları'nı tabidir. Herhangi bir ticari uygulama bulutta çalıştırmak için lisans ya da başka kısıtlamalar için satıcıyla denetleyin. Satıcıların tümü kullandıkça öde lisansı sunmaz.
+* Azure örnekleri erişim şirket içi düğümleri, paylaşımları ve lisans sunucuları için daha fazla kurulum gerekir. Örneğin, bir şirket içi lisans sunucusuna erişmek Azure düğümleri etkinleştirmek için bir siteden siteye Azure sanal ağı yapılandırabilirsiniz.
+* Azure örnekleri üzerinde MPI uygulamaları çalıştırmak için her MPI uygulama Özellikli Windows Güvenlik Duvarı örneklerinde çalıştırarak kayıt **hpcfwutil** komutu. Bu güvenlik duvarı tarafından dinamik olarak atanan bir bağlantı noktası üzerinde gerçekleşmesi MPI iletişim sağlar.
   
   > [!NOTE]
-  > Veri bloğu tooAzure dağıtımları için aynı zamanda bir güvenlik duvarı özel durum komutu toorun otomatik olarak tooyour küme eklenen tüm yeni Azure düğümlerine yapılandırabilirsiniz. Merhaba çalıştırdıktan sonra **hpcfwutil** komut ve, uygulama works hello tooa başlangıç komut Azure düğümleri için ekleme doğrulayın. Daha fazla bilgi için bkz: [Azure düğümleri için bir başlangıç komut dosyası kullanma](https://technet.microsoft.com/library/jj899632.aspx).
+  > Azure dağıtımları için veri bloğu için bir güvenlik duvarı özel durum komutu kümenize eklenen tüm düğümlerde yeni Azure otomatik olarak çalışacak şekilde de yapılandırabilirsiniz. Çalıştırdıktan sonra **hpcfwutil** komut ve, uygulama works eklediğiniz komutu başlangıç betiği, Azure düğümleri olarak doğrulayın. Daha fazla bilgi için bkz: [Azure düğümleri için bir başlangıç komut dosyası kullanma](https://technet.microsoft.com/library/jj899632.aspx).
   > 
   > 
-* HPC Pack Merhaba CCP_MPI_NETMASK küme ortam değişkeni toospecify kabul edilebilir adres aralığını MPI iletişimi için kullanır. HPC Pack 2012 R2'de başlayarak, hello CCP_MPI_NETMASK küme ortam değişkeni, yalnızca etki alanına katılmış küme bilgi işlem düğümleri arasındaki MPI iletişimi etkiler (ya da şirket içi veya Azure VM'de). Merhaba değişken bir veri bloğu tooAzure yapılandırmasında eklenen düğümler tarafından göz ardı edilir.
-* MPI işlerini farklı bulut Hizmetleri (örneğin, farklı bir düğüme şablonları ya da birden çok bulut Hizmetleri'nde dağıtılan Azure VM işlem düğümleri veri bloğu tooAzure dağıtımlar) dağıtılan Azure örnekleri üzerinde çalıştırılamaz. Farklı bir düğüme şablonlarla çalışmaya birden çok Azure düğümlü dağıtımlar varsa, hello MPI işi yalnızca bir Azure düğümleri kümesi üzerinde çalıştırmanız gerekir.
-* Ne zaman Azure düğümleri tooyour küme ekleyin ve bunları hemen çevrimiçi hello HPC İş Zamanlayıcısı hizmeti Getir toostart işleri hello düğümlerde çalışır. Yalnızca İş yükünüzün bir kısmını Azure üzerinde çalıştırabilir, güncelleştirmek veya iş şablonları toodefine türleri Azure üzerinde çalıştırabilirsiniz hangi işi oluşturma emin olun. Örneğin, yalnızca Azure düğümlerinde çalıştırmak bir proje şablonu ile gönderilen işler hello düğüm grupları özelliği toohello iş şablonuna ekleyin ve AzureNodes hello seçin tooensure değeri gerekiyor. toocreate özel grupları, Azure düğümleri için hello Ekle HpcGroup HPC PowerShell cmdlet'ini kullanın.
+* HPC Pack MPI iletişimi için kabul edilebilir adres aralığını belirtmek için CCP_MPI_NETMASK küme ortam değişkenini kullanır. HPC Pack 2012 R2'de başlayarak, CCP_MPI_NETMASK küme ortam değişkeni, yalnızca etki alanına katılmış küme bilgi işlem düğümleri arasındaki MPI iletişimi etkiler (ya da şirket içi veya Azure VM'de). Değişken veri bloğu içinde Azure yapılandırmaya eklenmiş düğümleri tarafından göz ardı edilir.
+* MPI işlerini farklı bulut Hizmetleri (örneğin, farklı bir düğüme şablonları ya da birden çok bulut Hizmetleri'nde dağıtılan Azure VM işlem düğümlerini Azure dağıtımlar için veri bloğu) dağıtılan Azure örnekleri üzerinde çalıştırılamaz. Farklı bir düğüme şablonlarla çalışmaya birden çok Azure düğümlü dağıtımlar varsa, MPI işi yalnızca bir Azure düğümleri kümesi üzerinde çalıştırmanız gerekir.
+* Kümeniz için Azure düğümleri eklemek ve bunları çevrimiçi duruma getirmeden HPC iş Zamanlayıcı hizmeti hemen düğümlerde işleri başlatmak çalışır. Yalnızca İş yükünüzün bir kısmını Azure üzerinde çalıştırabilir, güncelleştirmek veya hangi iş türleri Azure üzerinde çalıştırabilirsiniz tanımlamak için proje şablonları oluşturma emin olun. Örneğin, bir proje şablonu ile gönderilen işler yalnızca Azure düğümleri üzerinde çalıştığından emin olmak için düğüm grupları özelliği proje şablonuna ekleyin ve gerekli değer olarak AzureNodes seçin. Azure düğümleri için özel gruplar oluşturmak için Ekle HpcGroup HPC PowerShell cmdlet'ini kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bir alternatif toousing HPC Pack, hello Azure Batch hizmeti toorun ile yönetilen Azure işlem düğümleri havuzlarının MPI uygulamaları geliştirin. Bkz: [kullanımı çok örnekli görevler toorun ileti geçirme arabirimi (MPI) Azure Batch uygulamalarda](../../../batch/batch-mpi.md).
-* Toorun Linux MPI istiyorsanız, bkz: hello Azure RDMA ağ erişim uygulamaları [Linux RDMA küme toorun MPI uygulamalar ayarlamak](../../linux/classic/rdma-cluster.md).
+* HPC Pack kullanarak alternatif olarak, yönetilen Azure işlem düğümleri havuzlarının MPI uygulamaları çalıştırmak için Azure Batch hizmetiyle geliştirin. Bkz: [Azure Batch'de ileti geçirme arabirimi (MPI) uygulamalarını çalıştırmak için çok örnekli görevleri kullanma](../../../batch/batch-mpi.md).
+* Linux MPI Azure RDMA ağ erişmek için bkz: uygulamaları çalıştırmak istiyorsanız [MPI uygulamaları çalıştırmak için Linux RDMA küme ayarlama](../../linux/classic/rdma-cluster.md).
 
 <!--Image references-->
 [burst]:media/hpcpack-rdma-cluster/burst.png

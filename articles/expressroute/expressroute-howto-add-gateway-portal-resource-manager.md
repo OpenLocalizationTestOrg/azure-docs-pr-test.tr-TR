@@ -1,6 +1,6 @@
 ---
-title: "ExpressRoute için bir sanal ağ geçidi tooa VNet ekleyin: Portal: Azure | Microsoft Docs"
-description: "Bu makalede Resource Manager Vnet'i ExpressRoute için önceden oluşturulmuş bir sanal ağ geçidi tooan eklerken size yol gösterilir."
+title: "ExpressRoute için bir sanal ağa bir sanal ağ geçidi eklemek: Portal: Azure | Microsoft Docs"
+description: "Bu makalede önceden oluşturulmuş bir Resource Manager Vnet'i ExpressRoute için bir sanal ağ geçidine eklerken size yol gösterilir."
 documentationcenter: na
 services: expressroute
 author: cherylmc
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 9e922af1f3676eeebc569b57c3ae3a22d4e0b395
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2bd0cf8be87937044ad515a2c6f253b1711bb2bf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="configure-a-virtual-network-gateway-for-expressroute-using-hello-azure-portal"></a>Bir sanal ağ geçidi hello Azure portalını kullanarak ExpressRoute için yapılandırma
+# <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Bir sanal ağ geçidi Azure portalını kullanarak ExpressRoute için yapılandırma
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure portalı](expressroute-howto-add-gateway-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
@@ -30,12 +30,12 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Bu makalede önceden var olan bir VNet için hello adımları tooadd bir sanal ağ geçidi anlatılmaktadır. Bu makalede hello adımları tooadd anlatılmaktadır, yeniden boyutlandırma ve önceden var olan bir VNet için bir sanal ağ (VNet) ağ geçidi kaldırın. Merhaba bu yapılandırma için özellikle bir expressroute bağlantı yapılandırmasında kullanılacak hello Resource Manager dağıtım modeli kullanılarak oluşturulan sanal ağlar için adımlardır. Sanal ağ geçitleri ve ExpressRoute ağ geçidi yapılandırma ayarları hakkında daha fazla bilgi için bkz: [ExpressRoute için sanal ağ geçitleri hakkında](expressroute-about-virtual-network-gateways.md). 
+Bu makalede, önceden var olan bir VNet için bir sanal ağ geçidi eklemek için adım adım anlatılmaktadır. Bu makalede, eklemek, yeniden boyutlandırma ve önceden var olan bir VNet için bir sanal ağ (VNet) ağ geçidini kaldırmak için adım adım anlatılmaktadır. Bu yapılandırma için özellikle bir expressroute bağlantı yapılandırmasında kullanılacak Resource Manager dağıtım modeli kullanılarak oluşturulan sanal ağlar için adımlardır. Sanal ağ geçitleri ve ExpressRoute ağ geçidi yapılandırma ayarları hakkında daha fazla bilgi için bkz: [ExpressRoute için sanal ağ geçitleri hakkında](expressroute-about-virtual-network-gateways.md). 
 
 
 ## <a name="before-beginning"></a>Başlamadan önce
 
-Bu görev kullanılacak bir VNet Hello adımları yapılandırma başvuru listesi aşağıdaki hello başlangıç değerleri temel. Biz bizim örnek adımlarda bu listeyi kullanın. Merhaba değerleri kendi değerlerinizle değiştirerek bir başvuru olarak hello listesi toouse kopyalayabilirsiniz.
+Bu görev için adımlar aşağıdaki yapılandırma başvuru listesinde değerlere dayalı bir sanal ağ kullanın. Biz bizim örnek adımlarda bu listeyi kullanın. Değerleri kendinizinkilerle değiştirerek bir başvuru olarak kullanılacak listesini kopyalayabilirsiniz.
 
 **Yapılandırma başvuru listesi**
 
@@ -54,36 +54,36 @@ Bu görev kullanılacak bir VNet Hello adımları yapılandırma başvuru listes
 
 Görüntüleyebileceğiniz bir [Video](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) yapılandırmanıza başlamadan önce bu adımları.
 
-## <a name="create-hello-gateway-subnet"></a>Merhaba ağ geçidi alt ağı oluşturun
+## <a name="create-the-gateway-subnet"></a>Ağ geçidi alt ağını oluşturma
 
-1. Merhaba, [portal](http://portal.azure.com), toohello Resource Manager sanal ağ toocreate bir sanal ağ geçidi istediğiniz gidin.
-2. Merhaba, **ayarları** bölümü, VNet dikey tıklayın **alt ağlar** tooexpand hello alt ağlar dikey penceresini.
-3. Merhaba üzerinde **alt ağlar** dikey penceresinde tıklatın **+ ağ geçidi alt ağı** tooopen hello **alt ağ Ekle** dikey. 
+1. [Portal](http://portal.azure.com)’da, sanal ağ geçidini oluşturmak istediğiniz Resource Manager sanal ağına gidin.
+2. VNet dikey pencerenizin **Ayarlar** bölümünde, Alt Ağlar dikey penceresini genişletmek için **Alt Ağlar**'a tıklayın.
+3. **Alt ağlar** dikey penceresinde, **+Alt ağ**’a tıklayarak **Alt ağ ekle** dikey penceresini açın. 
    
-    ![Merhaba ağ geçidi alt ağı eklemek](./media/expressroute-howto-add-gateway-portal-resource-manager/addgwsubnet.png "hello ağ geçidi alt ağı Ekle")
+    ![Ağ geçidi alt ağını ekleme](./media/expressroute-howto-add-gateway-portal-resource-manager/addgwsubnet.png "Ağ geçidi alt ağını ekleme")
 
 
-4. Merhaba **adı** alt ağınızı hello oturum otomatik olarak doldurulur 'GatewaySubnet' değeri. Bu değer varsayılan olarak, hello ağ geçidi alt ağı sırada Azure toorecognize hello alt ağ için gereklidir. Merhaba otomatik doldurulmuş ayarlamak **adres aralığı** yapılandırma gereksinimlerinizi toomatch değerleri. / 27 veya daha büyük bir ağ geçidi alt ağı oluşturmanızı öneririz (/ 26, / 25 vb..). Ardından **Tamam** toosave hello değerleri ve hello ağ geçidi alt ağı oluşturun.
+4. Alt ağınız için **Ad** alanı otomatik olarak ‘GatewaySubnet’ değeriyle doldurulur. Alt ağın Azure tarafından ağ geçidi alt ağı olarak tanınması için bu değer gereklidir. Otomatik olarak doldurulmuş **Adres aralığı** değerlerini, yapılandırma gereksinimlerinize uyacak şekilde ayarlayın. / 27 veya daha büyük bir ağ geçidi alt ağı oluşturmanızı öneririz (/ 26, / 25 vb..). Ardından **Tamam** değerleri kaydetmek ve ağ geçidi alt ağı oluşturmak için.
 
-    ![Merhaba alt ekleme](./media/expressroute-howto-add-gateway-portal-resource-manager/addsubnetgw.png "hello alt ağ ekleme")
+    ![Alt ağı ekleme](./media/expressroute-howto-add-gateway-portal-resource-manager/addsubnetgw.png "Alt ağı ekleme")
 
-## <a name="create-hello-virtual-network-gateway"></a>Merhaba sanal ağ geçidi oluşturma
+## <a name="create-the-virtual-network-gateway"></a>Sanal ağ geçidini oluşturma
 
-1. Merhaba sol tarafında hello portal'ı tıklatın ** + ** ve Ara 'Sanal ağ geçidi' yazın. Bulun **sanal ağ geçidi** hello arama dönün ve hello girdiyi tıklatın. Merhaba üzerinde **sanal ağ geçidi** dikey penceresinde tıklatın **oluşturma** hello dikey penceresinde hello sonundaki. Merhaba açılır **sanal ağ geçidi Oluştur** dikey.
-2. Merhaba üzerinde **sanal ağ geçidi Oluştur** dikey penceresinde, sanal ağ geçidinizin hello değerlerini doldurun.
+1. Portalda, sol taraftaki **+** simgesine tıklayın ve arama alanına ‘Sanal Ağ Geçidi’ yazın. Arama sonuçlarında **Sanal ağ geçidi** seçeneğini bulun ve girişe tıklayın. **Sanal ağ geçidi** dikey penceresinin alt kısmındaki **Oluştur**’a tıklayın. Bu işlem **Sanal ağ geçidi oluştur** dikey penceresini açar.
+2. **Sanal ağ geçidi oluştur** dikey penceresinde, sanal ağ geçidinize ait değerleri girin.
 
     ![Sanal ağ geçidi oluştur dikey penceresinin alanları](./media/expressroute-howto-add-gateway-portal-resource-manager/gw.png "Sanal ağ geçidi oluştur dikey penceresinin alanları")
-3. **Ad**: Ağ geçidinizi adlandırın. Bu olduğu değil hello bir ağ geçidi alt ağını adlandırmayla aynı. Oluşturmakta olduğunuz hello ağ geçidi nesnesinin hello adı kullanıcının.
+3. **Ad**: Ağ geçidinizi adlandırın. Bir ağ geçidi alt ağını adlandırmayla aynı değildir. Bu ad, oluşturduğunuz ağ geçidi nesnesinin adıdır.
 4. **Ağ geçidi türü**: seçin **ExpressRoute**.
-5. **SKU**: Select hello ağ geçidinden SKU hello açılır.
-6. **Konum**: hello ayarlamak **konumu** alan sanal ağınızı bulunduğu toopoint toohello konumu. Başlangıç konumu, sanal ağınızda bulunduğu toohello bölge işaret etmiyor hello sanal ağ hello 'Seç bir sanal ağ' açılır listede görünmüyor.
-7. Merhaba sanal ağ toowhich seçin bu ağ geçidi tooadd istiyor. Tıklatın **sanal ağ** tooopen hello **sanal ağ seçin** dikey. Merhaba VNet seçin. Sanal ağınızı görmüyorsanız, emin hello olun **konumu** toohello bölgesi, sanal ağınızda bulunduğu alan işaret eden.
-9. Genel bir IP adresi seçin. Tıklatın **genel IP adresi** tooopen hello **genel IP adresi seçin** dikey. Tıklatın **+ Yeni Oluştur** tooopen hello **oluşturma ortak IP adresi dikey**. Genel IP adresiniz için bir ad girin. Bu dikey bir ortak IP adresi dinamik olarak atanmış bir ortak IP adresi nesne toowhich oluşturur. Tıklatın **Tamam** toosave değişiklikleri toothis dikey.
-10. **Abonelik**: Abonelik seçili doğru bu hello doğrulayın.
-11. **Kaynak grubu**: Bu ayar hello Seçtiğiniz sanal ağ tarafından belirlenir.
-12. Merhaba ayarlama **konumu** hello önceki ayarları belirttikten sonra.
-13. Hello ayarlarını doğrulayın. Ağ geçidi tooappear hello Panoda istiyorsanız, seçebileceğiniz **PIN toodashboard** hello dikey penceresinde hello sonundaki.
-14. Tıklatın **oluşturma** toobegin hello ağ geçidi oluşturma. Hello ayarları doğrulanır ve hello ağ geçidi dağıtır. Sanal ağ geçidi oluşturma too45 dakika toocomplete alabilir.
+5. **SKU**: Açılır listeden ağ geçidi SKU’sunu seçin.
+6. **Konum**: **Konum** alanını, sanal ağınızın bulunduğu konumu işaret edecek şekilde ayarlayın. Konum, sanal ağınızın bulunduğu bölgeye işaret etmiyorsa, 'Sanal ağ seçin' açılır menüsünde sanal ağ görüntülenmez.
+7. Bu ağ geçidini eklemek istediğiniz sanal ağı seçin. **Sanal ağ**'a tıklayarak **Sanal ağ seçin** dikey penceresini açın. VNet'i seçin. Sanal ağınızı görmüyorsanız **Konum** alanının, sanal ağınızın bulunduğu bölgeyi işaret ettiğinden emin olun.
+9. Genel bir IP adresi seçin. **Genel IP adresi**'ne tıklayarak **Genel IP adresi seçin** dikey penceresini açın. **+Yeni Oluştur**'a tıklayarak **Genel IP adresi oluştur** dikey penceresini açın. Genel IP adresiniz için bir ad girin. Bu dikey pencere bir genel IP adresi nesnesi oluşturur ve daha sonra bu nesneye dinamik olarak bir genel IP adresi atanır. Bu dikey penceredeki değişiklikleri kaydetmek için **Tamam**’a tıklayın.
+10. **Abonelik**: Doğru aboneliğin seçildiğini doğrulayın.
+11. **Kaynak grubu**: Bu ayar, seçtiğiniz Sanal Ağ tarafından belirlenir.
+12. Önceki ayarları belirttikten sonra **Konum**'u ayarlamayın.
+13. Ayarları doğrulayın. Ağ geçidinizin panoda görünmesini istiyorsanız dikey pencerenin altında yer alan **Panoya sabitle** seçeneğini belirleyebilirsiniz.
+14. Ağ geçidi oluşturmaya başlamak için **Oluştur**’a tıklayın. Ayarlar doğrulanır ve ağ geçidi dağıtılır. Sanal ağ geçidi oluşturma tamamlamak 45 dakika kadar sürebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Merhaba VNet ağ geçidini oluşturduktan sonra VNet tooan expressroute bağlantı hattı bağlayabilirsiniz. Bkz: [sanal ağ tooan expressroute bağlantı hattı bağlantı](expressroute-howto-linkvnet-portal-resource-manager.md).
+VNet ağ geçidini oluşturduktan sonra bir expressroute bağlantı hattı ağınıza bağlayabilirsiniz. Bkz: [bir expressroute bağlantı hattı için bir sanal ağ bağlantı](expressroute-howto-linkvnet-portal-resource-manager.md).

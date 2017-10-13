@@ -1,6 +1,6 @@
 ---
-title: "aaaPrivileged Kimlik Yönetimi abonelikleri - Azure | Microsoft Docs"
-description: "Merhaba abonelik ve lisans yönetimi ve Azure AD Privileged Identity Management kiracınızda kullanma gereksinimleri açıklanır"
+title: "Kimlik Yönetimi abonelikleri - Azure ayrıcalıklı | Microsoft Docs"
+description: "Abonelik ve lisans yönetimi ve Azure AD Privileged Identity Management kiracınızda kullanma gereksinimleri açıklanır"
 services: active-directory
 documentationcenter: 
 author: barclayn
@@ -15,32 +15,32 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: 2639d13c250a582fdcf0b277c9bab37fdfcabcb6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 62d8f80fa1bec3a1b75e316f0b0ee7be8cbefbff
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Azure Active Directory Privileged Identity Management abonelik gereksinimleri
 
-Azure AD Privileged Identity Management kullanılabilir Azure AD Premium P2 hello sürümünün bir parçası olarak. Merhaba hakkında daha fazla bilgi için bkz: diğer özellikleri P2 ve nasıl tooPremium P1, karşılaştırır [Azure Active Directory sürümleri](../active-directory-editions.md).
+Azure AD Privileged Identity Management kullanılabilir Azure ad Premium P2 sürümünün bir parçası olarak. P2 ve nasıl Premium P1 karşılaştırır diğer özellikleri hakkında daha fazla bilgi için bkz: [Azure Active Directory sürümleri](../active-directory-editions.md).
 
 >[!NOTE]
-Azure Active Directory (Azure AD) Privileged Identity Management önizlemede olduğunda, bir kiracı tootry hello service için herhangi bir lisans denetim vardı.  Azure AD Privileged Identity Management genel kullanılabilirlik ulaştı, bir deneme aboneliği veya Ücretli abonelik aralık 2016 sonrasında ayrıcalıklı Kimlik Yönetimi'ni kullanarak hello Kiracı toocontinue için mevcut olması gerekir.
+Azure Active Directory (Azure AD) Privileged Identity Management önizlemede olduğunda, hizmeti denemek bir kiracı için herhangi bir lisans denetim vardı.  Azure AD Privileged Identity Management genel kullanılabilirlik ulaştı, bir deneme aboneliği veya Ücretli abonelik aralık 2016 sonrasında Privileged Identity Management kullanmaya devam etmek Kiracı için mevcut olması gerekir.
   
 
 ## <a name="confirm-your-trial-or-paid-subscription"></a>Deneme aboneliği veya Ücretli aboneliğinizi onaylayın
 
-Abonelik satın veya kuruluşunuzun bir deneme sürümü olup emin değilseniz, olup olmadığını kiracınızda bir abonelik Azure Active Directory modülü için Windows PowerShell V1 dahil hello komutlarını kullanarak kontrol edebilirsiniz. 
+Abonelik satın veya kuruluşunuzun bir deneme sürümü olup emin değilseniz, olup olmadığını kiracınızda bir abonelik Azure Active Directory modülü için Windows PowerShell V1 dahil komutlarını kullanarak kontrol edebilirsiniz. 
 1. Bir PowerShell penceresi açın.
-2. Girin `Connect-MsolService` tooauthenticate kiracınızda bir kullanıcı olarak.
+2. Girin `Connect-MsolService` kiracınızda bir kullanıcı olarak kimlik doğrulaması için.
 3. Girin `Get-MsolSubscription | ft SkuPartNumber,IsTrial,Status`.
 
-Bu komut kiracınızda hello Aboneliklerin listesini alır. Varsa bir Azure AD Premium P2 tooobtain deneme gerekir hiçbir satır döndürdü, bir Azure AD Premium P2 abonelik ya da EMS E5 abonelik toouse Azure AD Privileged Identity Management satın alın.  tooget bir deneme ve Azure AD Privileged Identity Management kullanarak başlangıç okuma [Azure AD Privileged Identity Management ile çalışmaya başlama](../active-directory-privileged-identity-management-getting-started.md).
+Bu komut kiracınızda Aboneliklerin listesini alır. Döndürülen satır varsa, Azure AD Premium P2 deneme, satın alma bir Azure AD Premium P2 aboneliği veya Azure AD Privileged Identity Management kullanmak için EMS E5 abonelik edinmeniz gerekir.  Bir deneme ve Azure AD Privileged Identity Management kullanarak başlangıç almak için okuma [Azure AD Privileged Identity Management ile çalışmaya başlama](../active-directory-privileged-identity-management-getting-started.md).
 
-Bu komut bir satır döndürürse hangi SkuPartNumber "AAD_PREMIUM_P2" veya "EMSPREMIUM" ve IsTrial "True" ise, bu Azure AD Premium P2 deneme hello Kiracı içinde mevcut olduğunu gösterir.  Ardından Hello abonelik durumunu etkin değil ve bir Azure AD Premium P2 ya da EMS E5 abonelik satın alma sahip değil, bir Azure AD Premium P2 aboneliği veya Azure AD Privileged Identity Management kullanarak EMS E5 abonelik toocontinue satın almalısınız.
+Bu komut bir satır döndürürse hangi SkuPartNumber "AAD_PREMIUM_P2" veya "EMSPREMIUM" ve IsTrial "True" ise, bu Azure AD Premium P2 deneme kiracısı'nda mevcut olduğunu gösterir.  Ardından abonelik durumunu etkin değil ve satın alma bir Azure AD Premium P2 ya da EMS E5 aboneliğiniz yoksa, bir Azure AD Premium P2 aboneliği veya Azure AD Privileged Identity Management kullanmaya devam etmek için EMS E5 abonelik satın almalısınız.
 
-Azure AD Premium P2 aracılığıyla kullanılabilen bir [Microsoft Enterprise sözleşmesi](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx), hello [açık toplu lisans programı](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)ve hello [bulut çözüm sağlayıcıları program](https://partner.microsoft.com/en-US/cloud-solution-provider). Azure ve Office 365 aboneleri de Azure AD Premium P2 çevrimiçi satın alabilirsiniz.  Azure AD Premium fiyatlandırma ve çevrimiçi tooorder nasıl bulunabilir hakkında daha fazla bilgi [Azure Active Directory fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
+Azure AD Premium P2 aracılığıyla kullanılabilen bir [Microsoft Enterprise sözleşmesi](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx), [açık toplu lisans programı](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)ve [bulut çözüm sağlayıcıları program](https://partner.microsoft.com/en-US/cloud-solution-provider). Azure ve Office 365 aboneleri de Azure AD Premium P2 çevrimiçi satın alabilirsiniz.  Azure AD Premium fiyatlandırma ve çevrimiçi sipariş konusunda daha fazla bilgi bulunabilir [Azure Active Directory fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
 
 ## <a name="azure-ad-privileged-identity-management-is-not-available-in-tenant"></a>Azure AD Privileged Identity Management kiracısında kullanılamıyor
 
@@ -51,9 +51,9 @@ Azure AD Privileged Identity Management artık kullanılabilir kiracınızda var
 
 Bir Azure AD Premium P2 abonelik ya da EMS E5 abonelik süresi dolduğunda veya bir Azure AD Privileged Identity Management önizlemede kullanarak kuruluş Azure AD Premium P2 ya da EMS E5 aboneliği edinmek değil:
 
-- Kalıcı rol atamalarını tooAzure AD roller etkilenmeyecek.
-- Merhaba hello Azure portal, Azure AD Privileged Identity Management uzantısında yanı sıra hello grafik API'si cmdlet'leri ve Azure AD Privileged Identity Management PowerShell arabirimleri artık tooactivate ayrıcalıklı rolleri kullanıcılar için kullanılabilir, yönetme ayrıcalıklı erişim ya da ayrıcalıklı rolleri erişim incelenmesi gerçekleştirin.
-- Kullanıcılar artık mümkün tooactivate ayrıcalıklı rolleri olarak Azure AD rollerin uygun rol atamaları kaldırılır.
+- Azure AD rol kalıcı rol atamalarını etkilenmeyecek.
+- Bu Azure AD Privileged Identity Management uzantısı'nda Azure portal yanı sıra grafik API'si cmdlet'leri ve Azure AD Privileged Identity Management PowerShell arabirimleri kullanıcıların ayrıcalıklı rolleri etkinleştirmesine, ayrıcalıklı yönetmek için kullanılabilir erişim veya ayrıcalıklı rolleri erişim incelenmesi gerçekleştirin.
+- Bu kullanıcılar ayrıcalıklı rollerini etkinleştirebilir olarak Azure AD rollerin uygun rol atamalarını kaldırılacak.
 - Tüm Azure AD rolleri devam eden erişim incelenmesi sona erer ve Azure AD Privileged Identity Management yapılandırma ayarları kaldırılır.
 - Azure AD Privileged Identity Management, artık rol atama değişiklikleri e-posta gönderir.
 

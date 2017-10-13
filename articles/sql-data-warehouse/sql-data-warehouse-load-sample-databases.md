@@ -1,5 +1,5 @@
 ---
-title: "aaaLoad örnek verileri SQL veri ambarında | Microsoft Docs"
+title: "SQL Data Warehouse'a örnek veri yükleme | Microsoft Docs"
 description: "SQL Data Warehouse'a örnek veri yükleme"
 services: sql-data-warehouse
 documentationcenter: NA
@@ -15,19 +15,19 @@ ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
-ms.openlocfilehash: 3459c42f3aae51c27fd35db7874faf99e1e577e5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1e0df958a2f18fe1e988168918e5cfd293f84e64
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="load-sample-data-into-sql-data-warehouse"></a>SQL Data Warehouse'a örnek veri yükleme
-Bu basit adımları tooload ve sorgu hello Adventure Works örnek veritabanını izleyin. Bu komut, ilk sqlcmd toorun tabloları ve görünümleri oluşturacak olan SQL kullanın. Tablo oluşturulduktan sonra hello betikleri bcp tooload verileri kullanın.  Sqlcmd ve yüklü bcp zaten sahip değilseniz, bu bağlantıları çok izleyin[bcp yüklemek] [ install bcp] ve çok[sqlcmd yüklemek][install sqlcmd].
+Yük ve Adventure Works örnek veritabanını sorgulamak için basit adımları izleyin. Bu komut dosyalarını sqlcmd tabloları ve görünümleri oluşturacak olan SQL çalıştırmak için ilk olarak kullanın. Tabloları oluşturduktan sonra komut dosyaları veri yüklemek için bcp kullanır.  Sqlcmd ve yüklü bcp zaten sahip değilseniz, bu bağlantıları izleyin [bcp yüklemek] [ install bcp] ve [sqlcmd yüklemek][install sqlcmd].
 
 ## <a name="load-sample-data"></a>Örnek verileri yükleme
-1. Merhaba karşıdan [SQL Data Warehouse için Adventure Works örnek komut dosyaları] [ Adventure Works Sample Scripts for SQL Data Warehouse] zip dosyası.
-2. Yerel makinenizde indirilen ZIP tooa dizininden Hello dosyaları ayıklayın.
-3. Ayıklanan hello dosya aw_create.bat düzenleyin ve değişkenleri hello dosya hello üstünde bulunan aşağıdaki hello ayarlayın.  Hiçbir boşluk arasındaki hello "=" hello parametre emin tooleave olabilir.  Düzenlemeleriniz nasıl görünebileceği örnekleri aşağıda verilmiştir.
+1. Karşıdan [SQL Data Warehouse için Adventure Works örnek komut dosyaları] [ Adventure Works Sample Scripts for SQL Data Warehouse] zip dosyası.
+2. Dosyaları indirilen ZIP yerel makinenizde bir dizine ayıklayın.
+3. Ayıklanan dosya aw_create.bat düzenleyin ve dosyanın üst kısmında bulunan aşağıdaki değişkenleri ayarlayın.  Hiçbir boşluk arasında ayırdığınızdan emin olun "=" ve parametresi.  Düzenlemeleriniz nasıl görünebileceği örnekleri aşağıda verilmiştir.
    
     ```
     server=mylogicalserver.database.windows.net
@@ -35,25 +35,25 @@ Bu basit adımları tooload ve sorgu hello Adventure Works örnek veritabanını
     password=Mydwpassw0rd
     database=mydwdatabase
     ```
-4. Bir Windows komut isteminden çalıştırma hello aw_create.bat düzenlenemez.  Düzenlenen aw_create.bat sürümünüz kaydettiğiniz hello dizininde olduğundan emin olun.
+4. Bir Windows komut isteminden düzenlenen aw_create.bat çalıştırın.  Düzenlenen aw_create.bat sürümünüz kaydettiğiniz dizininde olduğundan emin olun.
    Bu komut dosyası olacak...
    
    * Adventure Works tablolar veya veritabanınızda zaten görünümleri bırakın
-   * Merhaba Adventure Works tablolar ve görünümler oluşturma
+   * Adventure Works tablolar ve görünümler oluşturma
    * BCP kullanarak her Adventure Works tablosu yükleme
-   * Her Adventure Works tablo Hello satır sayılarını doğrula
+   * Her Adventure Works tablo satır sayılarını doğrula
    * Her sütun için her Adventure Works tablo istatistikleri Topla
 
 ## <a name="query-sample-data"></a>Örnek verileri Sorgulama
-SQL Data Warehouse'a bazı örnek veriler yüklenen sonra birkaç sorgu hızlı bir şekilde çalıştırabilirsiniz.  toorun bir sorgu hello açıklandığı gibi yeni oluşturulan tooyour Adventure Works Visual Studio ve SSDT, kullanarak Azure SQL DW veritabanında bağlanmak [sorgu Visual Studio ile] [ query with Visual Studio] belge.
+SQL Data Warehouse'a bazı örnek veriler yüklenen sonra birkaç sorgu hızlı bir şekilde çalıştırabilirsiniz.  Bir sorguyu çalıştırmak için yeni oluşturulan Adventure Works veritabanınızda Visual Studio ve SSDT, kullanarak Azure SQL DW açıklandığı gibi bağlanmak [sorgu Visual Studio ile] [ query with Visual Studio] belge.
 
-Basit bir örneği hello çalışan tüm hello bilgilerini deyimi tooget seçin:
+Çalışanların tüm bilgileri almak için basit select deyimi örneği:
 
 ```sql
 SELECT * FROM DimEmployee;
 ```
 
-GROUP BY toolook gibi yapıları hello toplam tutarı için tüm sales her gün kullanarak daha karmaşık bir sorgu örneği:
+Her gün tüm satış toplam miktarı bakmak için GROUP BY gibi yapıları kullanarak daha karmaşık bir sorgu örneği:
 
 ```sql
 SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
@@ -62,7 +62,7 @@ GROUP BY OrderDateKey
 ORDER BY OrderDateKey;
 ```
 
-WHERE yan tümcesi toofilter belirli bir tarihten önce siparişleri çıkışı ile bir SELECT örneği:
+Belirli bir tarihten önce siparişleri filtrelemek için bir WHERE yan tümcesi ile bir SELECT örneği:
 
 ```
 SELECT OrderDateKey, SUM(SalesAmount) AS TotalSales
@@ -75,7 +75,7 @@ ORDER BY OrderDateKey;
 SQL veri ambarı SQL Server destekleyen neredeyse tüm T-SQL yapılarını destekler.  Farkları belgelenmiştir bizim [kodunu taşıma] [ migrate code] belgeleri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bazı sorgular örnek verilerle bir fırsat tootry karşılaşmışsınız, nasıl çok denetleyin[geliştirmek][develop], [yük][load], veya [ geçiş] [ migrate] tooSQL veri ambarı.
+Nasıl yapılır, bazı sorgular örnek verilerle denemek için ettikten, kullanıma [geliştirmek][develop], [yük][load], veya [ geçiş] [ migrate] SQL veri ambarı.
 
 <!--Image references-->
 

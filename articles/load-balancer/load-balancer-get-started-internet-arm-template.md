@@ -1,9 +1,9 @@
 ---
-title: "aaaCreate bir Internet'e yönelik Yük Dengeleyici - Azure şablonu | Microsoft Docs"
-description: "Nasıl toocreate Internet'e yönelik Yük Dengeleyici kaynak bir şablon kullanarak Yöneticisi'nde öğrenin"
+title: "İnternet’e yönelik yük dengeleyicisi oluşturma - Azure şablonu | Microsoft Docs"
+description: "Şablon kullanarak Resource Manager’da İnternet’e yönelik yük dengeleyici oluşturmayı öğrenin"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: b24f4729-4559-4458-8527-71009d242647
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 2bce8cb87303838f3bc732d51228ab46d8015552
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: f88e3cf6672d975793b4836434ec31d9f7d37016
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="creating-an-internet-facing-load-balancer-using-a-template"></a>Şablon kullanarak İnternet’e yönelik yük dengeleyici oluşturma
 
@@ -28,24 +28,26 @@ ms.lasthandoff: 10/06/2017
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Şablon](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-Bu makalede, hello Resource Manager dağıtım modeli yer almaktadır. Ayrıca [nasıl toocreate Internet'e yönelik Yük Dengeleyici Klasik dağıtım modeli kullanarak bilgi edinin](load-balancer-get-started-internet-classic-portal.md)
+Bu makalede Resource Manager dağıtım modeli anlatılmaktadır. [Klasik dağıtım modeli kullanarak İnternet’e yönelik yük dengeleyici oluşturma](load-balancer-get-started-internet-classic-portal.md) sayfasını da inceleyebilirsiniz.
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
-## <a name="deploy-hello-template-by-using-click-toodeploy"></a>Kullanarak Hello şablonu dağıtma toodeploy tıklatın
+## <a name="deploy-the-template-by-using-click-to-deploy"></a>Tıklayarak dağıtma kullanarak şablonu dağıtma
 
-Merhaba örnek şablonunda kullanılabilir hello genel depo yukarıda açıklanan hello varsayılan kullanılan değerler toogenerate hello senaryosu içeren bir parametre dosyası kullanır. toodeploy tıklatın toodeploy, bu şablonu kullanarak izleyin [bu bağlantıyı](http://go.microsoft.com/fwlink/?LinkId=544801), tıklatın **tooAzure dağıtmak**hello varsayılan parametre değerlerini gerekiyorsa değiştirin ve hello hello Portalı'ndaki yönergeleri izleyin.
+Genel depoda yer alan örnek şablonda, yukarıdaki senaryoyu oluşturmak için kullanılan varsayılan değerleri içeren parametre dosyası kullanılmaktadır. Tıklayarak dağıtma kullanarak bu şablonu dağıtmak için [bu bağlantıya](http://go.microsoft.com/fwlink/?LinkId=544801) gidin, **Azure’a dağıt**’a tıklayın, gerekirse varsayılan parametreleri değiştirin ve portaldaki talimatları uygulayın.
 
-## <a name="deploy-hello-template-by-using-powershell"></a>PowerShell kullanarak Hello şablonu dağıtma
+## <a name="deploy-the-template-by-using-powershell"></a>PowerShell kullanarak şablonu dağıtma
 
-PowerShell kullanarak yüklediğiniz toodeploy hello şablonunu hello adımları izleyin.
+PowerShell kullanarak yüklediğiniz şablonu dağıtmak için aşağıdaki adımları izleyin.
 
-1. Azure PowerShell'i hiç kullanmadıysanız bkz [nasıl tooInstall ve yapılandırma Azure PowerShell](/powershell/azure/overview) ve tüm hello yolu toohello toosign Azure'da sonlandırmak ve aboneliğinizi seçin hello yönergeleri izleyin.
-2. Merhaba çalıştırmak **New-AzureRmResourceGroupDeployment** kullanarak bir kaynak grubu cmdlet toocreate hello şablonu.
+1. Daha önce Azure PowerShell kullanmadıysanız, [Azure PowerShell’i Yükleme ve Yapılandırma](/powershell/azure/overview) sayfasına gidin ve Azure’da oturum açıp aboneliğinizi seçmek için talimatları sonuna kadar uygulayın.
+2. Şablonu kullanarak kaynak grubu oluşturmak için **New-AzureRmResourceGroupDeployment** cmdlet’ini çalıştırın.
 
     ```powershell
     New-AzureRmResourceGroupDeployment -Name TestRG -Location uswest `
@@ -53,23 +55,23 @@ PowerShell kullanarak yüklediğiniz toodeploy hello şablonunu hello adımları
         -TemplateParameterFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.parameters.json'
     ```
 
-## <a name="deploy-hello-template-by-using-hello-azure-cli"></a>Hello Azure CLI kullanarak Hello şablonu dağıtma
+## <a name="deploy-the-template-by-using-the-azure-cli"></a>Azure CLI kullanarak şablonu dağıtma
 
-hello Azure CLI kullanarak toodeploy hello şablon hello adımları izleyin.
+Azure CLI’yi kullanarak şablonu dağıtmak için aşağıdaki adımları uygulayın.
 
-1. Azure CLI hiç kullanmadıysanız bkz [hello Azure CLI yükleyip](../cli-install-nodejs.md) ve sonra Azure hesabınızı ve aboneliğinizi toohello noktaya hello talimatlarını izleyin.
-2. Merhaba çalıştırmak **azure config modu** aşağıda gösterildiği gibi komut tooswitch tooResource Yöneticisi modu.
+1. Hiç Azure CLI kullanmadıysanız bkz. [Azure CLI’yi Yükleme ve Yapılandırma](../cli-install-nodejs.md); sonra da, Azure hesabınızı ve aboneliğinizi seçtiğiniz noktaya kadar yönergeleri uygulayın.
+2. Resource Manager moduna geçmek için **azure config mode** komutunu aşağıda gösterildiği gibi çalıştırın.
 
     ```azurecli
     azure config mode arm
     ```
 
-    Yukarıdaki hello komut için beklenen hello çıktı şöyledir:
+    Yukarıdaki komut için beklenen çıktı şu şekildedir:
 
         info:    New mode is arm
 
-3. Tarayıcınızdan çok gidin[hızlı başlatma şablonunu hello](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules)hello hello json dosyasının içeriğini kopyalayın ve bilgisayarınızı yeni bir dosyaya yapıştırın. Bu senaryo için adlı tooa dosya altındaki hello değerler kopyaladığınız **c:\lb\azuredeploy.parameters.json**.
-4. Merhaba çalıştırmak **azure Grup dağıtımı oluşturmak** hello şablonu ve parametre kullanarak cmdlet toodeploy hello Yeni Yük Dengeleyici, yukarıda indirdiğiniz ve değiştirdiğiniz dosyaları. Merhaba çıktıdan sonra gösterilen hello listede kullanılan hello parametreler açıklanmaktadır.
+3. Tarayıcınızdan [Hızlı Başlangıç Şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-lbrules)’na gidin, json dosyasının içeriğini kopyalayın ve bilgisayarınızda yeni bir dosyaya yapıştırın. Bu senaryo için değerleri **c:\lb\azuredeploy.parameters.json** adlı bir dosyaya kopyalayacaksınız.
+4. Yukarıda indirdiğiniz ve değiştirdiğiniz şablonu ve parametre dosyalarını kullanarak yeni yük dengeleyiciyi dağıtmak için, **azure group deployment create** cmdlet’ini çalıştırın. Çıktıdan sonra gösterilen listede, kullanılan parametreler açıklanmaktadır.
 
     ```azurecli
     azure group create --name TestRG --location westus --template-file 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' --parameters-file 'c:\lb\azuredeploy.parameters.json'

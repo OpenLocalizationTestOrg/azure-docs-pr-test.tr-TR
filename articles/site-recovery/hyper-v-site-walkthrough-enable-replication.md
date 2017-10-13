@@ -1,6 +1,6 @@
 ---
-title: "Hyper-V Vm'lerini (System Center VMM olmadan) tooAzure Azure Site Recovery ile çoğaltmak için aaaEnable çoğaltma | Microsoft Docs"
-description: "Hyper-V sanal makineleri hello Azure Site Recovery hizmetini kullanarak için tooenable çoğaltma tooAzure gereken hello adımları özetler"
+title: "Azure Site Recovery ile azure'a (System Center VMM olmadan) Hyper-V Vm'lerini çoğaltma için çoğaltma etkinleştirme | Microsoft Docs"
+description: "Azure VM'ler için çoğaltma Hyper-V Azure Site Recovery hizmetini kullanarak etkinleştirmek için gereken adımları özetler"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,69 +14,69 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.openlocfilehash: 1589cb7aa1fe954e075cb7bf1f4a4ec199ed3ec7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: aabe99dbd375b80e4a87ca7a067927008672b4ed
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="step-10-enable-replication-for-hyper-v-vms-replicating-tooazure"></a>10. adım: Hyper-V sanal makinelerini tooAzure çoğaltmak için çoğaltmayı etkinleştirme
+# <a name="step-10-enable-replication-for-hyper-v-vms-replicating-to-azure"></a>10. adım: Hyper-V Vm'lerini Azure'a çoğaltma için çoğaltmayı etkinleştirme
 
 
-Bu makalede nasıl tooenable çoğaltma için Hyper-V sanal makineleri (System Center VMM tarafından yönetilmediğinden) şirket içi hello kullanarak tooAzure [Azure Site Recovery](site-recovery-overview.md) hello Azure portal hizmeti.
+Bu makalede Azure, şirket içi Hyper-V sanal (System Center VMM tarafından yönetilmediğinden) makineler için çoğaltma etkinleştirme kullanarak [Azure Site Recovery](site-recovery-overview.md) Azure portalında hizmet.
 
-POST açıklamaları ve soruları hello altındaki bu makalenin veya hello [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+POST açıklamaları ve soruları alt bu makalenin veya üzerinde [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 
 
 ## <a name="before-you-start"></a>Başlamadan önce
 
-Başlamadan önce Azure kullanıcı hesabınızın gerekli hello sahip olduğundan emin olun [izinleri](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) yeni bir sanal makine tooAzure tooenable çoğaltması.
+Başlamadan önce Azure kullanıcı hesabınızın gerekli olduğundan emin olun [izinleri](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) yeni bir sanal makineye Azure çoğaltmayı etkinleştirmek için.
 
 ## <a name="exclude-disks-from-replication"></a>Diskleri çoğaltmanın dışında tutma
 
-Varsayılan olarak, bir makine üzerindeki tüm diskleri çoğaltılır. Diskleri çoğaltmanın dışında bırakabilirsiniz. Örneğin, geçici verileri ya da her zaman bir makine yeniledi veri tooreplicate disklerle istemeyebilirsiniz veya (örneğin pagefile.sys ya da SQL Server tempdb) uygulamasını yeniden başlatır. [Daha fazla bilgi](site-recovery-exclude-disk.md)
+Varsayılan olarak, bir makine üzerindeki tüm diskleri çoğaltılır. Diskleri çoğaltmanın dışında bırakabilirsiniz. Örneğin, geçici veriler veya her zaman bir makine yeniledi veri disklerini çoğaltmak istemeyebilirsiniz veya (örneğin pagefile.sys ya da SQL Server tempdb) uygulamasını yeniden başlatır. [Daha fazla bilgi](site-recovery-exclude-disk.md)
 
 
 ## <a name="replicate-vms"></a>Vm'lerini çoğaltma
 
 VM'ler için çoğaltma gibi etkinleştirin:          
 
-1. Tıklatın **uygulama çoğaltma** > **kaynak**. Çoğaltma hello için ilk kez ayarladıktan sonra tıklayabilirsiniz **+ Çoğalt** ilave makineler için tooenable çoğaltma.
+1. Tıklatın **uygulama çoğaltma** > **kaynak**. Çoğaltma ilk kez ayarladıktan sonra tıklayabilirsiniz **+ Çoğalt** ilave makineler için çoğaltmayı etkinleştirmek için.
 
     ![Çoğaltmayı etkinleştirme](./media/hyper-v-site-walkthrough-enable-replication/enable-replication.png)
-2. İçinde **kaynak**seçin hello Hyper-V sitesi. Daha sonra, **Tamam**'a tıklayın.
-3. İçinde **hedef**hello kasa abonelik seçin ve hello yük devretme sonrasında Azure (Klasik veya resource management) toouse istediğiniz yük devretme modeli.
-4. Toouse istediğiniz hello depolama hesabını seçin. Toouse istediğiniz bir hesabınız yoksa, şunları yapabilirsiniz [oluşturmak](#set-up-an-azure-storage-account). Daha sonra, **Tamam**'a tıklayın.
-5. Yük devretme oluşturulduğunda select hello Azure ağ ve alt ağ toowhich Azure VM'ler bağlanır.
+2. İçinde **kaynak**, Hyper-V sitesi seçin. Daha sonra, **Tamam**'a tıklayın.
+3. İçinde **hedef**, kasa aboneliği seçin ve yük devretme modelini yük devretme sonrasında Azure (Klasik veya resource management) kullanmak istediğiniz.
+4. Kullanmak istediğiniz depolama hesabını seçin. Kullanmak istediğiniz bir hesabınız yoksa, şunları yapabilirsiniz [oluşturmak](#set-up-an-azure-storage-account). Daha sonra, **Tamam**'a tıklayın.
+5. Azure ağı ve yük devretme oluşturulduğunda Azure Vm'lerinin bağlanacağı alt ağı seçin.
 
-    - etkinleştirmeniz tooapply hello ağ ayarlarını tooall makineleri çoğaltma için seçin **seçili makineler için Şimdi Yapılandır**.
-    - Seçin **daha sonra yapılandırma** tooselect hello makine başına Azure ağı.
-    - Toouse istediğiniz ağ yoksa, şunları yapabilirsiniz [oluşturmak](#set-up-an-azure-network). Bir alt ağ (varsa) seçin. Daha sonra, **Tamam**'a tıklayın.
+    - Etkinleştirmeniz tüm makineleri çoğaltma için ağ ayarlarını uygulamak için seçin **seçili makineler için Şimdi Yapılandır**.
+    - Makineler için Azure ağını ayrı ayrı seçmek için **Daha sonra yapılandır**'ı seçin.
+    - Kullanmak istediğiniz ağ yoksa, şunları yapabilirsiniz [oluşturmak](#set-up-an-azure-network). Bir alt ağ (varsa) seçin. Daha sonra, **Tamam**'a tıklayın.
 
    ![Çoğaltmayı etkinleştirme](./media/hyper-v-site-walkthrough-enable-replication/enable-replication11.png)
 
-6. İçinde **sanal makineleri** > **sanal makine Seç**, tıklatın ve tooreplicate istediğiniz her bir makine seçin. Yalnızca çoğaltmanın etkinleştirildiği makineleri seçebilirsiniz. Daha sonra, **Tamam**'a tıklayın.
+6. **Sanal Makineler** > **Sanal makine seçin** seçeneklerine tıklayın ve çoğaltmak istediğiniz makineleri seçin. Yalnızca çoğaltmanın etkinleştirildiği makineleri seçebilirsiniz. Daha sonra, **Tamam**'a tıklayın.
 
     ![Çoğaltmayı etkinleştirme](./media/hyper-v-site-walkthrough-enable-replication/enable-replication5-for-exclude-disk.png)
 
-7. İçinde **özellikleri** > **özelliklerini yapılandırma**, seçili hello VM'ler için hello işletim sistemini seçin ve işletim sistemi diski hello.
-8. Bu hello Azure VM adı (hedef) uyumlu ile doğrulayın [Azure sanal makine gereksinimlerini](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements).
-9. Varsayılan olarak tüm hello diskleri hello VM, çoğaltma için seçilir. Clear diskleri tooexclude bunları.
-10. Tıklatın **Tamam** toosave değişiklikler. Daha sonra ek özellikleri ayarlayabilirsiniz.
+7. **Özellikler** > **Özellikleri yapılandır** seçeneklerinde, seçili VM'ler için işletme sistemini ve OS diskini seçin.
+8. Azure VM adının (hedef ad) [Azure sanal makine gereksinimlerine](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) uygun olduğundan emin olun.
+9. Varsayılan olarak VM'nin tüm diskleri çoğaltma için seçilir. İçermeyecek şekilde Temizle diskler.
+10. Değişiklikleri kaydetmek için **Tamam**'a tıklayın. Daha sonra ek özellikleri ayarlayabilirsiniz.
 
     ![Çoğaltmayı etkinleştirme](./media/hyper-v-site-walkthrough-enable-replication/enable-replication6-with-exclude-disk.png)
 
-11. İçinde **çoğaltma ayarları** > **çoğaltma ayarlarını yapılandırın**, istediğiniz tooapply hello VM'ler korumalı hello çoğaltma ilkesi seçin. Daha sonra, **Tamam**'a tıklayın. Merhaba Çoğaltma İlkesi'nde değiştirebilirsiniz **çoğaltma ilkeleri** > ilke adı > **ayarlarını Düzenle**. Uyguladığınız değişiklikler, zaten çoğaltılmış olan makinelere ve yeni makinelere uygulanır.
+11. **Çoğaltma ayarları** > **Çoğaltma ayarlarını yapılandır** seçeneklerinde, korumalı VM'lere uygulamak istediğiniz çoğaltma ilkesini seçin. Daha sonra, **Tamam**'a tıklayın. Çoğaltma ilkesini değiştirebilirsiniz **çoğaltma ilkeleri** > ilke adı > **ayarlarını Düzenle**. Uyguladığınız değişiklikler, zaten çoğaltılmış olan makinelere ve yeni makinelere uygulanır.
 
 
    ![Çoğaltmayı etkinleştirme](./media/hyper-v-site-walkthrough-enable-replication/enable-replication7.png)
 
-Merhaba ilerlemesini izleyebilirsiniz **korumayı etkinleştir** iş **işleri** > **Site Recovery işleri**. Merhaba sonra **korumayı Sonlandır** iş çalıştırmaları hello makine yük devretme için hazır.
+**İşler** > **Site Recovery işleri** üzerinden **Korumayı Etkinleştir** işinin ilerleyişini izleyebilirsiniz. **Korumayı Sonlandır** işi çalıştırıldıktan sonra makine yük devretme için hazırdır.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 
-Çok Git[11. adım: yük devretme testi çalıştırma](hyper-v-site-walkthrough-test-failover.md)
+Git [11. adım: yük devretme testi çalıştırma](hyper-v-site-walkthrough-test-failover.md)

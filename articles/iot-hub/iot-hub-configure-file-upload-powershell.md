@@ -1,6 +1,6 @@
 ---
-title: "aaaUse hello Azure PowerShell tooconfigure karşıya dosya yükleme | Microsoft Docs"
-description: "Nasıl toouse hello Azure PowerShell cmdlet'leri tooconfigure bağlı aygıtlardan IOT hub tooenable dosyanızı karşıya yükleme. Merhaba hedef Azure depolama hesabı yapılandırma hakkında bilgi içerir."
+title: "Karşıya dosya yükleme yapılandırmak için Azure PowerShell kullanın | Microsoft Docs"
+description: "Azure PowerShell cmdlet'lerini dosya etkinleştirmek için IOT hub'ınızı yapılandırma için nasıl kullanılacağını bağlı aygıtlardan yükler. Hedef Azure depolama hesabı yapılandırma hakkında bilgi içerir."
 services: iot-hub
 documentationcenter: 
 author: dominicbetts
@@ -14,42 +14,42 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 9dcdc41693c09cece411921b30c91d7b3db47395
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a72bda794b2da3e044c46249559610d06b1f1843
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>IOT Hub'ın PowerShell kullanarak dosya yüklemeleri yapılandırın
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
-toouse hello [dosya karşıya yükleme işlevselliği IOT hub'da][lnk-upload], IOT hub'ınıza ilk Azure storage hesabı ilişkilendirmelisiniz. Mevcut bir depolama hesabını kullanma veya yeni bir tane oluşturun.
+Kullanılacak [dosya karşıya yükleme işlevselliği IOT hub'da][lnk-upload], IOT hub'ınıza ilk Azure storage hesabı ilişkilendirmelisiniz. Mevcut bir depolama hesabını kullanma veya yeni bir tane oluşturun.
 
-toocomplete Bu öğretici, aşağıdaki hello gerekir:
+Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * Etkin bir Azure hesabı. Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.
 * [Azure PowerShell cmdlet'leri][lnk-powershell-install].
-* Azure IOT hub'ı. IOT hub'ı yoksa, hello kullanabilirsiniz [yeni AzureRmIoTHub cmdlet] [ lnk-powershell-iothub] toocreate bir ya da kullanım hello portal çok[IOT hub oluşturma] [ lnk-portal-hub].
-* Bir Azure depolama hesabı. Bir Azure depolama hesabınız yoksa, hello kullanabilirsiniz [Azure Storage PowerShell cmdlet'lerini] [ lnk-powershell-storage] toocreate bir ya da kullanım hello portal çok[depolama hesabı oluşturma] [ lnk-portal-storage].
+* Azure IOT hub'ı. IOT hub'ı yoksa, kullanabileceğiniz [yeni AzureRmIoTHub cmdlet] [ lnk-powershell-iothub] oluşturun veya portalını kullanarak [IOT hub oluşturma][lnk-portal-hub].
+* Bir Azure depolama hesabı. Bir Azure depolama hesabınız yoksa, kullanabileceğiniz [Azure Storage PowerShell cmdlet'lerini] [ lnk-powershell-storage] oluşturun veya portalını kullanarak [depolama hesabı oluşturma] [lnk-portal-storage].
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Oturum açma ve Azure hesabınızı ayarlama
 
-Tooyour Azure hesabı oturum ve aboneliğinizi seçin.
+Azure hesabınızda oturum açın ve aboneliğinizi seçin.
 
-1. Merhaba Hello PowerShell isteminde çalıştırın **Login-AzureRmAccount** cmdlet:
+1. PowerShell komut isteminde çalıştırmak **Login-AzureRmAccount** cmdlet:
 
     ```powershell
     Login-AzureRmAccount
     ```
 
-1. Birden çok Azure aboneliğiniz varsa tooAzure imzalama tooall erişim verir kimlik bilgilerinizle ilişkili Azure abonelik hello. Toouse toolist hello Azure abonelikleri kullanılabilir sizin için komutu aşağıdaki hello kullan:
+1. Birden çok Azure aboneliğiniz varsa, Azure'da oturum açma kimlik bilgileriyle ilişkili tüm Azure abonelikleri için size erişim verir. Azure aboneliklerini kullanabilmeniz için kullanılabilir listelemek için aşağıdaki komutu kullanın:
 
     ```powershell
     Get-AzureRMSubscription
     ```
 
-    IOT hub'ınızı toomanage toouse toorun hello komutları istediğiniz komut tooselect abonelik aşağıdaki hello kullanın. Merhaba hello önceki komutunun çıktısından hello abonelik adı veya kimliği kullanabilirsiniz:
+    IOT hub'ınızı yönetmek için komutları çalıştırmak için kullanmak istediğiniz aboneliği seçmek için aşağıdaki komutu kullanın. Önceki komut çıktısı abonelik adı veya kimliği kullanabilirsiniz:
 
     ```powershell
     Select-AzureRMSubscription `
@@ -58,9 +58,9 @@ Tooyour Azure hesabı oturum ve aboneliğinizi seçin.
 
 ## <a name="retrieve-your-storage-account-details"></a>Depolama hesabı ayrıntıları alma
 
-Merhaba aşağıdaki adımlarda hello kullanarak depolama hesabınıza oluşturulan varsayılmaktadır **Resource Manager** dağıtım modeli ve değil hello **Klasik** dağıtım modeli.
+Aşağıdaki adımlarda, depolama hesabı kullanılarak oluşturulan varsayılmaktadır **Resource Manager** dağıtım modeli ve **Klasik** dağıtım modeli.
 
-cihazlarınızın tooconfigure dosya yüklemeleri, hello bağlantı dizesi için bir Azure depolama hesabı gerekiyor. Merhaba depolama hesabı hello olmalıdır IOT hub'ınızı aynı abonelik. Merhaba depolama hesabındaki bir blob kapsayıcısını hello adı da gerekir. Komut tooretrieve aşağıdaki hello depolama hesabı anahtarları kullanın:
+Aygıtlarınızı dosya yüklemelerini yapılandırmak için bağlantı dizesi için bir Azure depolama hesabı gerekiyor. Depolama hesabı, IOT hub'ınızı ile aynı abonelikte olması gerekir. Depolama hesabındaki blob kapsayıcısının adı da gerekir. Depolama hesabı anahtarlarını almak için aşağıdaki komutu kullanın:
 
 ```powershell
 Get-AzureRmStorageAccountKey `
@@ -68,11 +68,11 @@ Get-AzureRmStorageAccountKey `
   -ResourceGroupName {your storage account resource group}
 ```
 
-Merhaba Not **key1** depolama hesabı anahtar değeri. Aşağıdaki adımları hello gerekir.
+Not **key1** depolama hesabı anahtar değeri. Bunu aşağıdaki adımlarda gerekir.
 
 Var olan bir blob kapsayıcı, dosya yüklemeleri için kullanabilir veya yeni bir tane oluşturun:
 
-* toolist hello mevcut blob kapsayıcıları depolama hesabınızdaki hello aşağıdaki komutları kullanın:
+* Depolama hesabınızdaki mevcut blob kapsayıcıları listelemek için aşağıdaki komutları kullanın:
 
     ```powershell
     $ctx = New-AzureStorageContext `
@@ -81,7 +81,7 @@ Var olan bir blob kapsayıcı, dosya yüklemeleri için kullanabilir veya yeni b
     Get-AzureStorageContainer -Context $ctx
     ```
 
-* Depolama hesabınız, aşağıdaki komutları kullanın hello blob kapsayıcısında toocreate:
+* Depolama hesabınızda blob kapsayıcısı oluşturmak için aşağıdaki komutları kullanın:
 
     ```powershell
     $ctx = New-AzureStorageContext `
@@ -95,21 +95,21 @@ Var olan bir blob kapsayıcı, dosya yüklemeleri için kullanabilir veya yeni b
 
 ## <a name="configure-your-iot-hub"></a>IOT hub'ınızı yapılandırma
 
-Artık IOT hub tooenable yapılandırabilirsiniz [dosya karşıya yükleme işlevselliği] [ lnk-upload] depolama hesabı bilgilerinizi kullanarak.
+Şimdi etkinleştirmek için IOT hub'ınızı yapılandırma [dosya karşıya yükleme işlevselliği] [ lnk-upload] depolama hesabı bilgilerinizi kullanarak.
 
-Merhaba yapılandırma değerlerini aşağıdaki hello gerektirir:
+Aşağıdaki değerleri yapılandırmasını gerektirir:
 
-**Depolama kapsayıcısı**: geçerli, Azure aboneliği tooassociate IOT hub'ınızı ile Azure depolama hesabında blob kapsayıcısı. Önceki bölümde hello hello gerekli depolama hesabı bilgileri alınamadı. Dosyaları karşıya yüklediğinizde IOT Hub cihazları toouse için yazma izinleri toothis blob kapsayıcısı ile SAS URI'ler otomatik olarak oluşturur.
+**Depolama kapsayıcısı**: IOT hub ile ilişkilendirmek için geçerli Azure aboneliğinizde bir Azure depolama hesabındaki blob kapsayıcısı. Önceki bölümde gerekli depolama hesabı bilgilerini aldı. IOT hub'ı SAS URI'ler dosyaları karşıya yükleme sırasında kullanmak cihazlar için bu blob kapsayıcısına yazma izinlerine sahip otomatik olarak oluşturur.
 
 **Karşıya yüklenen dosyalar için bildirimlerin**: etkinleştirmek veya dosya karşıya yükleme bildirimlerini devre dışı.
 
-**SAS TTL**: hello zaman yaşam SAS URI'ler toohello cihaz IOT Hub tarafından döndürülen Merhaba, bu bir ayardır. Tooone saat, varsayılan olarak ayarlayın.
+**SAS TTL**: saat yaşam IOT Hub tarafından cihaza döndürülen SAS URI, bu ayar değildir. Bir saat için varsayılan olarak ayarlayın.
 
-**Dosya bildirim ayarları varsayılan TTL**: hello zaman süresi doldu önce dosya karşıya yükleme bildirimi yaşam. Tooone günü varsayılan olarak ayarlayın.
+**Dosya bildirim ayarları varsayılan TTL**: süresi doldu önce bildirim zaman yaşam dosyasının karşıya. Bir gün için varsayılan olarak ayarlayın.
 
-**Dosya bildirim maksimum teslimat sayısı**: hello sayısı zaman hello IOT hub'ı denemeleri toodeliver dosya karşıya yükleme bildirimi. Too10 varsayılan olarak ayarlayın.
+**Dosya bildirim maksimum teslimat sayısı**: IOT hub'ı bir dosya teslim etmek için kaç deneme sayısı bildirim karşıya yükleyin. Varsayılan olarak 10 olarak ayarlandı.
 
-PowerShell cmdlet tooconfigure hello dosya karşıya yükleme ayarları, IOT hub'ına aşağıdaki hello kullan:
+Dosya yapılandırmak için aşağıdaki PowerShell cmdlet'ini IOT hub'ınızı ayarlarını karşıya yükle:
 
 ```powershell
 Set-AzureRmIotHub `
@@ -125,19 +125,19 @@ Set-AzureRmIotHub `
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-IOT hub'ı hello dosya karşıya yükleme özellikleri hakkında daha fazla bilgi için bkz: [karşıya bir aygıtı dosyalarından][lnk-upload].
+IOT hub'ı dosya karşıya yükleme özellikleri hakkında daha fazla bilgi için bkz: [karşıya bir aygıtı dosyalarından][lnk-upload].
 
-Azure IOT hub'ı yönetme hakkında daha fazla bu bağlantılar toolearn izleyin:
+Azure IOT hub'ı yönetme hakkında daha fazla bilgi için bu bağlantıları izleyin:
 
 * [Toplu IOT cihazları yönetme][lnk-bulk]
 * [IOT hub'ı ölçümleri][lnk-metrics]
 * [İzleme işlemleri][lnk-monitor]
 
-toofurther IOT hub'ı hello özelliklerini keşfedin, bakın:
+Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
 
 * [IOT Hub Geliştirici Kılavuzu][lnk-devguide]
 * [Bir cihaz IOT Edge benzetimini yapma][lnk-iotedge]
-* [IOT çözümünüzden plan hello güvenli][lnk-securing]
+* [IOT çözümünüzden zemin oluşturan güvenli][lnk-securing]
 
 [lnk-upload]: iot-hub-devguide-file-upload.md
 

@@ -1,4 +1,4 @@
-PolicyBased ve RouteBased VPN ağ geçitleri için Tablo listeleri hello gereksinimleri aşağıdaki hello. Bu tablo tooboth hello Resource Manager ve klasik dağıtım modellerine uygulanır. Merhaba Klasik modeli için PolicyBased VPN ağ geçitleri olan hello aynı statik ağ geçitleri olarak ve rota tabanlı ağ geçitleri olan hello aynı dinamik ağ geçitleri olarak.
+Aşağıdaki tabloda PolicyBased ve RouteBased VPN ağ geçitleri için gereksinimleri listelenmiştir. Bu tablo hem Resource Manager, hem de klasik dağıtım modellerine uygulanır. Klasik modeli PolicyBased VPN ağ geçitleri statik ağ geçitleri ile aynıdır ve rota tabanlı ağ geçitleri dinamik ağ geçitleri ile aynıdır.
 
 |  | **PolicyBased temel VPN ağ geçidi** | **RouteBased temel VPN ağ geçidi** | **RouteBased standart VPN ağ geçidi** | **RouteBased yüksek performanslı VPN Gateway** |
 | --- | --- | --- | --- | --- |

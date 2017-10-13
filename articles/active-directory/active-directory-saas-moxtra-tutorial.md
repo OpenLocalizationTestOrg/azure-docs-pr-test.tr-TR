@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile Moxtra | Microsoft Docs"
-description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile Moxtra arasında."
+description: "Çoklu oturum açma Azure Active Directory ile Moxtra arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,110 +13,110 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 82e2fcc390ba508e86a3992ec1c81d0a0ffed96b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: db2f041a44b6771b0a4f734e58d899298ef0847b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>Öğretici: Azure Active Directory Tümleştirme Moxtra ile
 
-Bu öğreticide, bilgi nasıl toointegrate Moxtra Azure Active Directory'ye (Azure AD).
+Bu öğreticide, Azure Active Directory (Azure AD) ile Moxtra tümleştirmek öğrenin.
 
-Moxtra Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
+Moxtra Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Erişim tooMoxtra sahip Azure AD'de kontrol edebilirsiniz
-- Kullanıcıların tooautomatically get açan tooMoxtra (çoklu oturum açma) Azure AD hesaplarına sahip etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir
+- Moxtra erişimi, Azure AD'de kontrol edebilirsiniz
+- Otomatik olarak için Moxtra (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-tooconfigure Moxtra ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
+Azure AD tümleştirme Moxtra ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
 - Bir Moxtra çoklu oturum açma abonelik etkin
 
 > [!NOTE]
-> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
+Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
-1. Merhaba Galerisi'nden Moxtra ekleme
+1. Galeriden Moxtra ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-moxtra-from-hello-gallery"></a>Merhaba Galerisi'nden Moxtra ekleme
-Azure AD'ye tooconfigure hello tümleştirme Moxtra, tooadd Moxtra hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
+## <a name="adding-moxtra-from-the-gallery"></a>Galeriden Moxtra ekleme
+Azure AD Moxtra tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Moxtra eklemeniz gerekir.
 
-**tooadd Moxtra hello galerisinden hello aşağıdaki adımları gerçekleştirin:**
+**Galeriden Moxtra eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
     ![Uygulamalar][3]
 
-4. Merhaba arama kutusuna yazın **Moxtra**.
+4. Arama kutusuna **Moxtra**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_search.png)
 
-5. Merhaba Sonuçlar panelinde seçin **Moxtra**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
+5. Sonuçlar panelinde seçin **Moxtra**ve ardından **Ekle** uygulama eklemek için düğmesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Moxtra sınayın.
 
-Tek toowork'ın oturum açma hangi hello karşılık gelen Moxtra içinde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcı ve ilgili kullanıcı Moxtra hello arasında bir bağlantı ilişkisi kurulan toobe gerekir.
+Tekli çalışmaya oturum için Azure AD Moxtra karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Moxtra ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Merhaba hello değeri Moxtra içinde atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.
+Moxtra içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
 
-tooconfigure ve Moxtra ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Moxtra ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
-3. **[Moxtra test kullanıcısı oluşturma](#creating-a-moxtra-test-user)**  -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir Moxtra içinde karşılık gelen.
-4. **[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Moxtra test kullanıcısı oluşturma](#creating-a-moxtra-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Moxtra sağlamak için.
+4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma Moxtra uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Moxtra uygulamanızda yapılandırın.
 
-**tooconfigure Azure AD çoklu oturum açma ile Moxtra, hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma ile Moxtra yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello hello üzerinde Azure portal'ın **Moxtra** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **Moxtra** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_samlbase.png)
 
-3. Merhaba üzerinde **Moxtra etki alanı ve URL'leri** bölümünde, adım aşağıdaki hello gerçekleştirin:
+3. Üzerinde **Moxtra etki alanı ve URL'leri** bölümünde, aşağıdaki adımı gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_url.png)
 
-    Merhaba, **oturum açma URL'si** metin kutusuna, URL'yi yazın:`https://www.moxtra.com/service/#login`
+    İçinde **oturum açma URL'si** metin kutusuna, URL'yi yazın:`https://www.moxtra.com/service/#login`
 
-4. Moxtra uygulama hello SAML onaylar belirli bir biçimde bekler. Bu uygulama için talep aşağıdaki hello yapılandırın. Hello başlangıç değerleri bu özniteliklerin yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirmesi sayfasında bölüm. Ekran aşağıdaki hello Bu yapılandırmanın bir örneği gösterir. 
+4. Moxtra uygulaması SAML onaylar belirli bir biçimde bekliyor. Bu uygulama için aşağıdaki talep yapılandırın. Bu öznitelik değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirmesi sayfasında bölüm. Aşağıdaki ekran görüntüsünde, bu yapılandırma için bir örneği gösterir. 
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_attributes.png)
     
-5. Merhaba, **kullanıcı öznitelikleri** hello bölüm **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği hello görüntüde gösterildiği gibi yapılandırmak ve hello aşağıdaki adımları gerçekleştirin:
+5. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
     | Öznitelik adı | Öznitelik değeri |
     | ------------------- | -------------------- |    
@@ -125,21 +125,21 @@ Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin
     | idpid    | < SAML varlık kimliği > 
 
     > [!Note]
-    > Merhaba değerini **idpid** özniteliği gerçek değil. Merhaba gerçek değerinden alabilirsiniz **hızlı başvuru** altında bölümünde **Moxtra yapılandırma**.
+    > Değeri **idpid** özniteliği gerçek değil. Gerçek değerini alabilir **hızlı başvuru** altında bölümünde **Moxtra yapılandırma**.
     
-    a. Tıklatın **Ekle özniteliği** tooopen hello **özniteliği eklemek** iletişim.
+    a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-moxtra-tutorial/tutorial_attribute_04.png)
 
-    b. Merhaba, **adı** metin kutusuna, ilgili satır için gösterilen türü hello öznitelik adı.
+    b. İçinde **adı** metin kutusuna, ilgili satır için gösterilen öznitelik adı yazın.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-moxtra-tutorial/tutorial_attribute_05.png)
 
-    c. Merhaba gelen **değeri** listesinde, ilgili satır için gösterilen türü hello öznitelik değeri.
+    c. Gelen **değeri** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
 
     d. **Tamam**’a tıklayın.
     
-5. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve hello sertifika dosyayı bilgisayarınıza kaydedin.
+5. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_certificate.png) 
 
@@ -147,118 +147,118 @@ Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-moxtra-tutorial/tutorial_general_400.png)
 
-7. Merhaba üzerinde **Moxtra yapılandırma** 'yi tıklatın **yapılandırma Moxtra** tooopen **yapılandırma oturum açma** penceresi. Kopya hello **SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** hello gelen **hızlı başvuru bölümü.**
+7. Üzerinde **Moxtra yapılandırma** 'yi tıklatın **yapılandırma Moxtra** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_configure.png) 
 
-8. Başka bir tarayıcı penceresinde tooyour Moxtra şirket sitesinde yönetici olarak oturum açın.
+8. Başka bir tarayıcı penceresinde Moxtra şirket sitenize yönetici olarak oturum açma.
 
-9. Merhaba soldaki Hello araç çubuğunda **Yönetici Konsolu > SAML çoklu oturum açma**ve ardından **yeni**.
+9. Sol taraftaki araç çubuğunda tıklatın **Yönetici Konsolu > SAML çoklu oturum açma**ve ardından **yeni**.
    
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_06.png) 
 
-10. Merhaba üzerinde **SAML** sayfasında, hello aşağıdaki adımları gerçekleştirin:
+10. Üzerinde **SAML** sayfasında, aşağıdaki adımları gerçekleştirin:
    
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_08.png)   
  
-    a. Merhaba, **adı** metin kutusuna, yapılandırmanız için bir ad yazın (örneğin: *SAML*). 
+    a. İçinde **adı** metin kutusuna, yapılandırmanız için bir ad yazın (örneğin: *SAML*). 
   
-    b. Merhaba, **IDP varlık kimliği** metin kutusuna, Yapıştır hello değerini **SAML varlık kimliği** Azure portalından kopyalanan. 
+    b. İçinde **IDP varlık kimliği** metin değerini yapıştırın **SAML varlık kimliği** Azure portalından kopyalanan. 
  
-    c. İçinde **oturum açma URL'si** metin kutusuna, Yapıştır hello değerini **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyalanan. 
+    c. İçinde **oturum açma URL'si** metin değerini yapıştırın **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyalanan. 
  
-    d. Merhaba, **AuthnContextClassRef** metin kutusuna, türü **urn: OASIS: adları: tc: SAML:2.0:ac:classes:Password**. 
+    d. İçinde **AuthnContextClassRef** metin kutusuna, türü **urn: OASIS: adları: tc: SAML:2.0:ac:classes:Password**. 
  
-    e. Merhaba, **NameID biçimi** metin kutusuna, türü **urn: OASIS: adları: tc: SAML:1.1:nameid-biçimi: emailAddress**. 
+    e. İçinde **NameID biçimi** metin kutusuna, türü **urn: OASIS: adları: tc: SAML:1.1:nameid-biçimi: emailAddress**. 
  
-    f. Not Defteri'nde, Azure Portalı'ndan indirilen açık sertifika hello içeriği Kopyala ve hello yapıştırma **sertifika** metin kutusu.    
+    f. Not Defteri'nde, Azure Portalı'ndan indirilen açık sertifika içeriği Kopyala ve ardından yapıştırın **sertifika** metin kutusu.    
  
-    g. SAML e-posta etki alanınızın Hello SAML e-posta etki alanı metin kutusuna yazın.    
+    g. SAML e-posta etki alanı metin kutusuna, SAML e-posta etki alanı yazın.    
   
     >[!NOTE]
-    >toosee hello adımları tooverify hello etki alanı, hello tıklayın "**ı**" altında.
+    >Etki alanı doğrulama adımlarını görmek için tıklatın "**ı**" altında.
 
     h. Tıklatın **güncelleştirme**.
 
 > [!TIP]
-> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-moxtra-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-moxtra-tutorial/create_aaduser_02.png) 
 
-3. tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle** hello üstteki hello iletişim.
+3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-moxtra-tutorial/create_aaduser_03.png) 
 
-4. Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-moxtra-tutorial/create_aaduser_04.png) 
 
-    a. Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
 
-    b. Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
 
-    c. Seçin **Göster parola** ve hello hello değerini yazma **parola**.
+    c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**'a tıklayın.
  
 ### <a name="creating-a-moxtra-test-user"></a>Moxtra test kullanıcısı oluşturma
 
-Bu bölümde Hello amacı toocreate Britta Simon içinde Moxtra adlı bir kullanıcı ' dir.
+Bu bölümün amacı Britta Simon içinde Moxtra adlı bir kullanıcı oluşturmaktır.
 
-**toocreate Moxtra içinde Britta Simon adlı bir kullanıcı hello aşağıdaki adımları gerçekleştirin:**
+**İçinde Moxtra Britta Simon adlı bir kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Üzerinde tooyour Moxtra şirket site yönetici olarak oturum açın.
+1. Moxtra şirket sitenize yönetici olarak oturum açma.
 
-2. Merhaba soldaki Hello araç çubuğunda **Yönetici Konsolu > Kullanıcı Yönetimi**ve ardından **Kullanıcı Ekle**.
+2. Sol taraftaki araç çubuğunda tıklatın **Yönetici Konsolu > Kullanıcı Yönetimi**ve ardından **Kullanıcı Ekle**.
    
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_10.png) 
 
-3. Merhaba üzerinde **Kullanıcı Ekle** iletişim kutusunda, hello aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **Kullanıcı Ekle** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
   
-    a. Merhaba, **ad** metin kutusuna, türü **Britta**.
+    a. İçinde **ad** metin kutusuna, türü **Britta**.
   
-    b. Merhaba, **Soyadı** metin kutusuna, türü **Simon**.
+    b. İçinde **Soyadı** metin kutusuna, türü **Simon**.
   
-    c. Merhaba, **e-posta** metin kutusuna, Britta'nın e-posta adresi ile aynı Azure Portal'da türü.
+    c. İçinde **e-posta** metin kutusuna, Britta'nın e-posta adresi ile aynı Azure Portal'da türü.
   
-    d. Merhaba, **bölme** metin kutusuna, türü **geliştirme**.
+    d. İçinde **bölme** metin kutusuna, türü **geliştirme**.
   
-    e. Merhaba, **departmanı** metin kutusuna, türü **BT**.
+    e. İçinde **departmanı** metin kutusuna, türü **BT**.
   
     f. Seçin **yönetici**.
   
     g. **Ekle**'ye tıklayın.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
 
-Bu bölümde, erişim tooMoxtra vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
+Bu bölümde, Britta Moxtra için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
 ![Kullanıcı atama][200] 
 
-**tooassign Britta Simon tooMoxtra hello aşağıdaki adımları gerçekleştirin:**
+**Moxtra için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Merhaba uygulamalar listesinde **Moxtra**.
+2. Uygulamalar listesinde **Moxtra**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_app.png) 
 
-3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
     ![Kullanıcı atama][202] 
 
@@ -266,7 +266,7 @@ Bu bölümde, erişim tooMoxtra vererek Britta Simon toouse Azure çoklu oturum 
 
     ![Kullanıcı atama][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -274,14 +274,14 @@ Bu bölümde, erişim tooMoxtra vererek Britta Simon toouse Azure çoklu oturum 
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Merhaba Moxtra hello erişim paneli parçasında tıkladığınızda, otomatik olarak oturum açma tooyour Moxtra uygulama almanız gerekir.
-Merhaba erişim paneli hakkında daha fazla bilgi için bkz: [giriş toohello erişim paneli](active-directory-saas-access-panel-introduction.md).
+Erişim paneli Moxtra parçasında tıklattığınızda, otomatik olarak Moxtra uygulamanıza açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 

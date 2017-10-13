@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure Service Bus Mesajlaşma hizmetine genel bakış | Microsoft Docs"
+title: "Azure Service Bus mesajlaşmasına genel bakış | Microsoft Belgeleri"
 description: "Service Bus mesajlaşması ve Azure Geçiş’in açıklaması"
 services: service-bus-messaging
 documentationcenter: .net
@@ -12,44 +12,48 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 05/25/2017
+ms.date: 08/30/2017
 ms.author: sethm
-ms.openlocfilehash: ede2904e11544d8f9428a2d657dcc77dacd95ac4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 462fa0a6e86237b8c9d9ba97aa377f8d112a8b8e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="service-bus-messaging-flexible-data-delivery-in-hello-cloud"></a>Service Bus Mesajlaşma hizmeti: hello bulutta esnek veri teslimatı
-Microsoft Azure Service Bus, güvenilir bir bilgi teslimatı hizmetidir. Bu hizmet amacını Hello toomake daha kolay iletişimidir. İki veya daha fazla taraf tooexchange bilgi almak istediğinizde, bir iletişim yönetici ihtiyaç duyar. Service Bus ise aracılı ya da üçüncü taraf iletişim mekanizmasıdır. Bu benzer tooa posta hello Fiziksel dünyadaki hizmetidir. Posta hizmetleri çok kolay toosend farklı türdeki mektupların ve teslimat garantileriyle çeşitli paketlerle herhangi bir yere hello world kolaylaştırır.
+# <a name="service-bus-messaging-flexible-data-delivery-in-the-cloud"></a>Service Bus mesajlaşma hizmeti: bulutta esnek veri teslimatı
 
-Benzer toohello posta harfler, Service Bus teslim hello gönderen ve hello alıcı esnek bilgi teslimat hizmetidir. ileti hizmeti hello sağlar hello iki tarafların hiçbir zaman çevrimiçi aynı saat veya hello kullanılabilir olmasalar aynı tam Merhaba her iki olsa bile, hello bilgi teslim saati. Aracısız iletişim benzer tooplacing bir telefon araması (veya bir telefon araması toobe - aracılı mesajlaşmaya benzeyen daha çok çağrı bekletme ve arayan kimliği önce kullanılma) olsa da bu şekilde, ileti benzer toosending bir harf ortamıdır.
+Microsoft Azure Service Bus, güvenilir bir bilgi teslimatı hizmetidir. Bu hizmetin amacı, iletişimi daha kolay hale getirmektir. İki veya daha fazla taraf bilgi değişimi gerçekleştirmek istediğinde bir iletişim kolaylaştırıcısına ihtiyaç duyarlar. Service Bus ise aracılı ya da üçüncü taraf iletişim mekanizmasıdır. Fiziksel dünyadaki posta hizmetine benzer şekilde işler. Posta hizmetleri, farklı türdeki mektupların ve paketlerin dünyanın her yanına çeşitli teslimat garantileriyle gönderilmesini oldukça kolaylaştırır.
 
-Merhaba ileti gönderen ayrıca gibi işlemler, Yineleme algılaması, zamana bağlı süre sonu ve toplu işleme teslimat özelliklerini çeşitli isteyebilirsiniz. Bu düzenler de posta hizmetindekilerle benzerlik gösterir: tekrar teslimat, gerekli imza, adres değişikliği veya geri çağırma.
+Posta hizmetlerinin mektup teslimatlarına benzer şekilde, Service Bus hem alıcı hem de göndericilerden gelen esnek bilgi teslimatıdır. Mesajlaşma hizmeti, iki taraf aynı anda çevrimiçi veya tam olarak aynı anda kullanılabilir olmasalar da bilgilerin teslim edilmesini sağlar. Bu şekilde, mesajlaşma bir mektup göndermeye benzer; aracısız iletişim ise bir telefon araması gerçekleştirmeye (veya daha çok aracılı mesajlaşmaya benzeyen, çağrı bekletme ve arayan kimliğinden önceki telefon aramalarına) benzetilebilir.
+
+Ayrıca, ileti alıcısı işlemler, yineleme algılaması, zamana bağlı süre sonu ve toplu işlem gerçekleştirme de dahil olmak üzere çeşitli teslimat özelliklerini ihtiyaç duyar. Bu düzenler de posta hizmetindekilerle benzerlik gösterir: tekrar teslimat, gerekli imza, adres değişikliği veya geri çağırma.
 
 Service Bus, iki farklı mesajlaşma desenini destekler: *Azure Geçişi* ve *Service Bus Mesajlaşması*.
 
 ## <a name="azure-relay"></a>Azure Geçişi
-Merhaba [WCF geçiş](../service-bus-relay/relay-what-is-it.md) Azure geçiş bileşenidir birçok farklı aktarım protokolünü destekleyen merkezileştirilmiş (ancak yüksek yük dengeli) bir hizmet ve Web Hizmetleri standartları. Bunlar; SOAP, WS-* ve hatta REST'i bile içerir. Merhaba [geçiş hizmeti](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md) birçok farklı geçiş bağlanabilirliği seçeneği sağlar ve mümkün olduğunda doğrudan eşler arası bağlantılar anlaşmasına yardım edebilir. Hizmet veri yolu hello Windows Communication Foundation (WCF), her ikisi de hesaba tooperformance ve kullanılabilirlik, kullanan .NET geliştiricileri için optimize edilmiştir ve SOAP ve REST arabirimleri aracılığıyla geçiş hizmetine tam erişim tooits sağlar. Bu, tüm SOAP ve REST programlama ortamı toointegrate Service Bus ile mümkün kılar.
 
-Merhaba geçiş hizmeti, geleneksel tek yönlü mesajlaşmayı, istek/yanıt mesajlaşmasını ve eş eş Mesajlaşma destekler. Ayrıca olay dağıtımını destekler Internet kapsamda tooenable yayımlama-abone olma senaryoları ve Artırılmış uçtan uca verimliliğe yönelik çift yönlü yuva iletişimi. Merhaba geçişli Mesajlaşma düzeninde bir şirket içi hizmet toohello geçiş Hizmeti giden bir bağlantı noktası üzerinden bağlanır ve tooa belirli randevu adresine bağlanan iletişim için çift yönlü yuva oluşturur. Merhaba istemci hello randevu adresini hedef toohello geçiş hizmetine iletiler göndererek hello şirket içi hizmetiyle sonra iletişim kurabilir. Merhaba geçiş hizmeti sonra "iletileri toohello şirket içi hizmeti aracılığıyla hello çift yönlü Yuva zaten yerinde geçiş". Merhaba istemci gerekmez doğrudan bağlantı toohello şirket içi hizmet veya nerede bulunduğunu hello ve hello şirket içi hizmet gelen bağlantı noktalarının gerek yoktur gerekli BT tooknow değil hello Güvenlik Duvarı'nda Aç.
+Azure Geçişi'nin [WCF Geçişi](../service-bus-relay/relay-what-is-it.md) bileşeni, birçok farklı aktarım protokolünü ve web hizmeti standardını destekleyen merkezileştirilmiş (ancak yüksek düzeyde yük dengeleme olanağı sunan) bir hizmettir. Bunlar; SOAP, WS-* ve hatta REST'i bile içerir. [Geçiş hizmeti](../service-bus-relay/service-bus-dotnet-how-to-use-relay.md), birçok farklı geçiş bağlanabilirliği seçeneği sağlar ve mümkün olduğunda doğrudan eşdüzey bağlantılar anlaşmasına yardım edebilir. Service Bus, hem performans hem de kullanılabilirlik bağlamında Windows Communication Foundation (WCF) kullanan .NET geliştiricileri için iyileştirilmiştir. Ayrıca, SOAP ve REST arabirimleri aracılığıyla geçiş hizmetine tam erişim sunar. Bu özellik sayesinde, tüm SOAP ve REST programlama ortamlarının Service Bus ile tümleşmesine olanak sağlanır.
 
-WCF "geçiş" bağlamalarının bir paketini kullanarak şirket içi hizmet hello geçiş hizmeti arasında hello bağlantı başlatır. Merhaba arka planda hello geçiş bağlamaları hello bulutta Service Bus ile tümleşen tootransport bağlama öğeleri tasarlanmış toocreate WCF kanalı bileşenlerini eşleşir.
+Geçiş hizmeti, geleneksel tek yönlü mesajlaşmayı, istek/yanıt mesajlaşmasını ve eşdüzey mesajlaşmayı destekler. Ayrıca, artırılmış uçtan uca verimliliğe yönelik çift yönlü yuva iletişimi ile yayımla ve abone ol senaryolarına olanak sağlamak için İnternet kapsamında olay dağıtımını destekler. Geçişli mesajlaşma düzeninde bir şirket içi hizmet, giden bağlantı noktası aracılığıyla geçiş hizmetine bağlanır ve belirli bir randevu adresine bağlanan iletişim için çift yönlü yuva oluşturur. Ardından istemci, randevu adresini hedef alan geçiş hizmetine iletiler göndererek şirket içi hizmet ile iletişim kurabilir. Böylece geçiş hizmeti, zaten kullanımda olan çift yönlü yuva aracılığıyla iletileri şirket içi hizmete "geçirir". İstemcinin şirket içi hizmete doğrudan bağlantısının olmasına veya hizmetin nerede bulunduğunu bilmesine gerek yoktur. Ayrıca şirket içi hizmet için güvenlik duvarında gelen bağlantı noktalarının açık olması gerekmez.
 
-WCF geçiş birçok avantaj sunar, ancak hello server gerektirir ve istemci tooboth aynı sırada toosend zaman ileti alıp hello çevrimiçi olmalıdır. Bu tarayıcılar gibi mobil uygulamalar, yalnızca bazen bağlanan ve benzeri istemciler veya hangi hello istekler genellikle uzun ömürlü değil, HTTP Stili iletişim için en uygun değildir. Aracılı mesajlaşma, ayrılmış iletişimi destekler ve kendine özgü avantajları vardır. Örneğin, istemciler ve sunucular gerektiğinde bağlanır ve zaman uyumsuz olarak işlemlerini gerçekleştirir.
+WCF "geçiş" bağlamalarının bir paketini kullanarak geçiş hizmeti ile şirket içi hizmetiniz arasındaki bağlantıyı başlatırsınız. Arka planda ise geçiş bağlamaları, bulutta Service Bus ile tümleşen WCF kanalı bileşenleri oluşturmak üzere tasarlanan aktarım bağlama öğeleriyle eşleşir.
+
+WCF Geçişi birçok avantaj sunar, ancak iletileri almak ve göndermek için istemci ile sunucunun aynı anda çevrimiçi olmasını gerektirir. Bu durum HTTP stili iletişim için en uygun seçim değildir. HTTP stili iletişimde tarayıcılar, mobil uygulamalar vb. gibi sürekli bağlantı kurmayan istemciler için istekler genellikle uzun ömürlü değildir. Aracılı mesajlaşma, ayrılmış iletişimi destekler ve kendine özgü avantajları vardır. Örneğin, istemciler ve sunucular gerektiğinde bağlanır ve zaman uyumsuz olarak işlemlerini gerçekleştirir.
 
 ## <a name="brokered-messaging"></a>Aracılı mesajlaşma
-Buna karşılık toohello düzeni, Service Bus Mesajlaşma, geçiş veya [aracılı Mesajlaşma](service-bus-queues-topics-subscriptions.md) olarak zaman uyumsuz veya "geçici olarak düşünülebilir." Üreticiler (göndericiler) ve tüketicilerin (Alıcılar) sahip çevrimiçi toobe Merhaba aynı anda. Merhaba Mesajlaşma altyapısı depoladıktan iletileri bir "aracıda" (kuyruk gibi) hello kullanıcı taraf hazır tooreceive kadar bunları. Bu, ya da gönüllü bağlantısı kesilmiş hello dağıtılmış uygulama toobe hello bileşenlerinin sağlar; Örneğin Bakım veya hello tüm sistem etkilemeden tooa bileşen kilitlenme nedeniyle. Ayrıca, hello alıcı uygulamanın yalnızca gerekli toorun hello hello iş günü sonunda olup bir stok yönetim sisteminin gibi hello günün belirli zamanlarında yalnızca çevrimiçi toocome olabilir.
 
-Merhaba çekirdek hello Service Bus aracılı Mesajlaşma altyapısının kuyruklar, konu başlıkları ve abonelikleri bileşenleridir.  Hello birincil fark konuları toomultiple alıcılar gönderme dahil olmak üzere Gelişmiş içerik tabanlı Yönlendirme ve teslimat mantığı için kullanılabilen Yayınla/Abone ol işlevlerini desteklemesidir. Bu bileşenler zamana bağlı ayırma, yayımla/abone ol ve yük dengelemesi gibi yeni, zaman uyumsuz mesajlaşma senaryolarına olanak sağlar. Bu mesajlaşma varlıkları hakkında daha fazla bilgi edinmek için bkz. [Service Bus kuyrukları, konu başlıkları ve abonelikleri](service-bus-queues-topics-subscriptions.md).
+Geçiş şemasının aksine [kuyruklar, konular ve aboneliklerle](service-bus-queues-topics-subscriptions.md) Service Bus mesajlaşması, zaman uyumsuz veya "zamansal olarak bağımsız" şeklinde düşünülebilir. Üreticiler (göndericiler) ve tüketicilerin (alıcılar) aynı anda çevrimiçi olması gerekmez. Mesajlaşma altyapısı, kullanıcı tarafı almaya hazır olana kadar iletileri bir "aracıda" (örneğin bir kuyruk) güvenli şekilde depolar. Bu özellik, dağıtılan uygulamanın bileşenlerinin isteğe bağlı olarak (örneğin, bakım için) veya bir bileşen çökmesinden dolayı sistemin tamamını etkilemeden bağlantısının kesilmesine olanak sağlar. Ayrıca, alıcı uygulamanın yalnızca günün belirli zamanlarında çevrimiçi olması gerekebilir. Örneğin, bir stok yönetim sisteminin sadece iş günü sonunda çalıştırılması gerekir.
 
-Merhaba WCF geçiş altyapısıyla hello aracılı Mesajlaşma gibi yetenek WCF ve .NET Framework programcıları için ve ayrıca REST aracılığıyla sağlanır.
+Service Bus aracılı mesajlaşma altyapısının temel bileşenleri kuyruklar, konu başlıkları ve aboneliklerdir. Bu bileşenler arasındaki temel fark ise konu başlıklarının, birden çok alıcıya gönderim yapma dahil olmak üzere gelişmiş içerik tabanlı yönlendirme ve teslimat mantığı için kullanılabilen yayımla/abone ol işlevlerini desteklemesidir. Bu bileşenler zamana bağlı ayırma, yayımla/abone ol ve yük dengelemesi gibi yeni, zaman uyumsuz mesajlaşma senaryolarına olanak sağlar. Bu mesajlaşma varlıkları hakkında daha fazla bilgi edinmek için bkz. [Service Bus kuyrukları, konu başlıkları ve abonelikleri](service-bus-queues-topics-subscriptions.md).
+
+WCF Geçişi altyapısı sayesinde, aracılı mesajlaşma işlevi WCF ve .NET Framework programcıları için (REST aracılığıyla da) sunulur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Service Bus Mesajlaşma, hakkında daha fazla toolearn aşağıdaki konularda hello bakın.
+
+Service Bus mesajlaşma hizmeti hakkında daha fazla bilgi edinmek için aşağıdaki konu başlıklarına bakın.
 
 * [Service Bus ile ilgili temel bilgiler](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus kuyrukları, konu başlıkları ve abonelikleri](service-bus-queues-topics-subscriptions.md)
-* [Nasıl toouse Service Bus kuyrukları](service-bus-dotnet-get-started-with-queues.md)
-* [Nasıl toouse Service Bus konuları ve abonelikleri](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+* [Service Bus kuyrukları ile çalışmaya başlama](service-bus-dotnet-get-started-with-queues.md)
+* [Service Bus konu başlıklarını ve aboneliklerini kullanma](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 

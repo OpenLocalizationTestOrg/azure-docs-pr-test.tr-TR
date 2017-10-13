@@ -1,6 +1,6 @@
 ---
-title: "aaaConfigure özel IP adresleri VM'ler - Azure CLI 2.0 için | Microsoft Docs"
-description: "Nasıl tooconfigure özel IP adresleri kullanarak sanal makineleri için Azure komut satırı arabirimi (CLI) 2.0 hello öğrenin."
+title: "Özel IP adresleri VM'ler - Azure CLI 2.0 için yapılandırma | Microsoft Docs"
+description: "Azure komut satırı arabirimi (CLI) 2.0 kullanarak sanal makineleri için özel IP adresleri yapılandırmayı öğrenin."
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,45 +16,45 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0e278e6ac63c0cda061cf70ab0edfaff5491c03b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 071156367c1f819a00d31f1d0335e301391fda81
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-hello-azure-cli-20"></a>Hello Azure CLI 2.0 kullanarak bir sanal makine için özel IP adreslerini yapılandırın
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli-20"></a>Azure CLI 2.0 kullanarak bir sanal makine için özel IP adreslerini yapılandırın
 
 [!INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
 
 
-## <a name="cli-versions-toocomplete-hello-task"></a>CLI sürümleri toocomplete hello görevi 
+## <a name="cli-versions-to-complete-the-task"></a>Görevi tamamlamak için kullanılacak CLI sürümleri 
 
-CLI sürümleri aşağıdaki hello birini kullanarak hello görevi tamamlamak: 
+Görevi aşağıdaki CLI sürümlerinden birini kullanarak tamamlayabilirsiniz: 
 
-- [Azure CLI 1.0](virtual-networks-static-private-ip-cli-nodejs.md) – bizim CLI hello Klasik ve kaynak yönetimi dağıtım modelleri için 
-- [Azure CLI 2.0](#specify-a-static-private-ip-address-when-creating-a-vm) -bizim gelecek nesil CLI hello kaynak yönetimi dağıtım modeli (Bu makalede)
+- [Azure CLI 1.0](virtual-networks-static-private-ip-cli-nodejs.md): Klasik ve kaynak yönetimi dağıtım modellerine yönelik CLI’mız 
+- [Azure CLI 2.0](#specify-a-static-private-ip-address-when-creating-a-vm) -bizim gelecek nesil CLI kaynak yönetimi dağıtım modeli (Bu makalede)
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-Bu makalede, hello Resource Manager dağıtım modeli yer almaktadır. Ayrıca [hello Klasik dağıtım modelinde statik özel IP adresi yönetmek](virtual-networks-static-private-ip-classic-cli.md).
+Bu makalede Resource Manager dağıtım modeli anlatılmaktadır. Ayrıca [Klasik dağıtım modelinde statik özel IP adresi yönetmek](virtual-networks-static-private-ip-classic-cli.md).
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
 > [!NOTE]
-> Merhaba aşağıdaki örnek Azure CLI 2.0 komutları önceden oluşturulmuş basit bir ortam bekler. Bu belgede gösterildiği toorun hello komutları istiyorsanız, ilk derleme açıklanan hello test ortamı [vnet oluşturma](virtual-networks-create-vnet-arm-cli.md).
+> Aşağıdaki örnek Azure CLI 2.0 komutları önceden oluşturulmuş basit bir ortam bekler. Bu belgede gösterildiği komutları çalıştırmak istiyorsanız, önce açıklanan test ortamı oluşturmak [vnet oluşturma](virtual-networks-create-vnet-arm-cli.md).
 
 ## <a name="specify-a-static-private-ip-address-when-creating-a-vm"></a>Bir VM oluşturulurken özel bir statik IP adresi belirtin
 
-toocreate adlı bir VM'den *DNS01* hello içinde *ön uç* adlı bir sanal ağ alt ağı *TestVNet* özel bir statik IP *192.168.1.101*, Merhaba adımları izleyin:
+Adlı bir VM oluşturmak için *DNS01* içinde *ön uç* adlı bir sanal ağ alt ağı *TestVNet* özel bir statik IP *192.168.1.101*, aşağıdaki adımları izleyin:
 
-1. Henüz henüz, yüklemek ve hello son yapılandırırsanız [Azure CLI 2.0](/cli/azure/install-az-cli2) ve tooan Azure hesabını kullanarak oturum [az oturum açma](/cli/azure/#login). 
+1. Henüz henüz yükleyin ve en son yapılandırırsanız [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/#login). 
 
-2. Merhaba VM için bir genel IP ile Merhaba oluşturma [az ağ genel IP oluşturun](/cli/azure/network/public-ip#create) komutu. Merhaba çıktıdan sonra gösterilen hello listede kullanılan hello parametreler açıklanmaktadır.
+2. VM için bir genel IP oluşturun [az ağ genel IP oluşturun](/cli/azure/network/public-ip#create) komutu. Çıktıdan sonra gösterilen listede, kullanılan parametreler açıklanmaktadır.
 
     > [!NOTE]
-    > İstediğiniz ya da ortamınıza bağlı olarak bu, bağımsız değişkenler için farklı değerler toouse ve sonraki adımları gerekir.
+    > İstediğiniz ya da ortamınıza bağlı olarak bu, bağımsız değişkenler için farklı değerler ve sonraki adımları kullanmak için gerekir.
    
     ```azurecli
     az network public-ip create \
@@ -78,11 +78,11 @@ toocreate adlı bir VM'den *DNS01* hello içinde *ön uç* adlı bir sanal ağ a
     }
     ```
 
-   * `--resource-group`: Hangi toocreate hello ortak IP hello kaynak grubunun adı.
-   * `--name`: Hello genel IP adı.
-   * `--location`: Hangi toocreate hello genel IP azure bölgesinde.
+   * `--resource-group`: Genel IP oluşturulacağı kaynak grubunun adı.
+   * `--name`: Genel IP adı.
+   * `--location`: Genel IP oluşturulacağı azure bölgesi.
 
-3. Merhaba çalıştırmak [az ağ NIC oluşturmak](/cli/azure/network/nic#create) komutu toocreate NIC statik özel IP ile. Merhaba çıktıdan sonra gösterilen hello listede kullanılan hello parametreler açıklanmaktadır. 
+3. Çalıştırma [az ağ NIC oluşturmak](/cli/azure/network/nic#create) statik özel IP ile NIC grubu oluşturmak için komutu. Çıktıdan sonra gösterilen listede, kullanılan parametreler açıklanmaktadır. 
    
     ```azurecli
     az network nic create \
@@ -130,11 +130,11 @@ toocreate adlı bir VM'den *DNS01* hello içinde *ön uç* adlı bir sanal ağ a
     
     Parametreler:
 
-    * `--private-ip-address`: Merhaba NIC özel statik IP adresi
-    * `--vnet-name`: Hangi toocreate NIC hello hello Vnet'in adı
-    * `--subnet`: Hangi toocreate hello NIC hello alt ağ adı
+    * `--private-ip-address`: NIC özel statik IP adresi
+    * `--vnet-name`: İçinde NIC oluşturulacağı Vnet'in adı
+    * `--subnet`: İçinde NIC oluşturulacağı alt ağın adı
 
-4. Merhaba çalıştırmak [azure vm oluşturma](/cli/azure/vm/nic#create) hello genel IP NIC ile VM oluşturulan yukarıdaki komut toocreate hello. Merhaba çıktıdan sonra gösterilen hello listede kullanılan hello parametreler açıklanmaktadır.
+4. Çalıştırma [azure vm oluşturma](/cli/azure/vm/nic#create) ortak IP yukarıda oluşturduğunuz NIC ile VM oluşturmak için komutu. Çıktıdan sonra gösterilen listede, kullanılan parametreler açıklanmaktadır.
    
     ```azurecli
     az vm create \
@@ -162,14 +162,14 @@ toocreate adlı bir VM'den *DNS01* hello içinde *ön uç* adlı bir sanal ağ a
     }
     ```
    
-   Merhaba temel dışında parametreleri [az vm oluşturma](/cli/azure/vm#create) parametreleri.
+   Parametreleri temel dışında [az vm oluşturma](/cli/azure/vm#create) parametreleri.
 
-   * `--nics`: Hello NIC toowhich hello VM adını eklenir.
+   * `--nics`: VM bağlı olduğu NIC adı.
    
 
 ## <a name="retrieve-static-private-ip-address-information-for-a-vm"></a>Bir VM için özel statik IP adresi bilgilerini alma
 
-oluşturduğunuz tooview hello statik özel IP adresi Azure CLI komutu aşağıdaki hello çalıştırın ve hello değerlerini uyun *özel IP ayırma yöntemi* ve *özel IP adresi*:
+Oluşturduğunuz statik özel IP adresini görüntülemek için Azure CLI ve aşağıdaki komutu çalıştırın değerlerini gözlemlemek *özel IP ayırma yöntemi* ve *özel IP adresi*:
 
 ```azurecli
 az vm show -g TestRG -n DNS01 --show-details --query 'privateIps'
@@ -181,7 +181,7 @@ Beklenen çıktı:
 "192.168.1.101"
 ```
 
-toodisplay hello NIC belirli IP bilgilerini bu VM, sorgu hello NIC özellikle hello:
+NIC bu VM için belirli IP bilgilerini görüntülemek için NIC özellikle sorgu:
 
 ```azurecli
 az network nic show \
@@ -191,7 +191,7 @@ az network nic show \
 rivateIpAllocationMethod,PublicAddress:publicIpAddress}'
 ```
 
-Merhaba çıktısı aşağıdakine benzer şöyledir:
+Çıktı aşağıdakine benzer:
 
 ```json
 {
@@ -206,11 +206,11 @@ Merhaba çıktısı aşağıdakine benzer şöyledir:
 
 Resource manager dağıtımları için Azure CLI içinde nıc'den özel bir statik IP adresi kaldıramazsınız. Yapmanız gerekir:
 - Dinamik IP kullanan yeni bir NIC oluşturun
-- NIC yeni oluşturulan VM hello hello üzerinde Hello NIC ayarlayın 
+- NIC VM üzerinde yeni oluşturulan NIC ayarlayın 
 
-VM kullanılan yukarıdaki hello komutları hello toochange Merhaba NIC hello adımları izleyin.
+Yukarıdaki komutlarda kullanılan VM NIC değiştirmek için aşağıdaki adımları izleyin.
 
-1. Merhaba çalıştırmak **azure ağı NIC grubu oluşturmak** toocreate dinamik IP ayırma ile yeni bir IP adresi kullanarak yeni bir NIC komutu. IP adresi belirtildiğinden, hello ayırma yöntemi olduğuna dikkat edin **dinamik**.
+1. Çalıştırma **azure ağı NIC grubu oluşturmak** dinamik IP ayırma ile yeni bir IP adresi kullanarak yeni bir NIC grubu oluşturmak için komutu. IP adresi belirtildiğinden ayırma yöntemi olduğuna dikkat edin **dinamik**.
 
     ```azurecli
     az network nic create     \
@@ -255,7 +255,7 @@ VM kullanılan yukarıdaki hello komutları hello toochange Merhaba NIC hello ad
     }
     ```
 
-2. Merhaba çalıştırmak **azure vm kümesi** komutu toochange hello NIC VM hello tarafından kullanılır.
+2. Çalıştırma **azure vm kümesi** VM tarafından kullanılan NIC değiştirmek için komutu.
    
     ```azurecli
     azure vm set -g TestRG -n DNS01 -N TestNIC2
@@ -274,10 +274,10 @@ VM kullanılan yukarıdaki hello komutları hello toochange Merhaba NIC hello ad
     ```
 
     > [!NOTE]
-    > Merhaba VM büyüklükte toohave ise hello çalıştıran birden çok NIC **azure ağı NIC silme** toodelete hello eski NIC komutu
+    > VM birden çok NIC için yeterince büyük olduğundan çalıştırırsanız **azure ağı NIC silme** eski NIC silmek için
    
 ## <a name="next-steps"></a>Sonraki adımlar
 * Hakkında bilgi edinin [ayrılmış genel IP](virtual-networks-reserved-public-ip.md) adresleri.
 * Hakkında bilgi edinin [örnek düzeyinde ortak IP (ILPIP)](virtual-networks-instance-level-public-ip.md) adresleri.
-* Merhaba başvurun [ayrılmış IP REST API'leri](https://msdn.microsoft.com/library/azure/dn722420.aspx).
+* Başvurun [ayrılmış IP REST API'leri](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 

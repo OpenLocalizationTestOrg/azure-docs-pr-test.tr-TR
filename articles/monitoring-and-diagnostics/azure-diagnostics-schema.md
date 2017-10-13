@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure tanılama uzantı yapılandırmasını şema sürümleri ve geçmiş | Microsoft Docs"
-description: "Azure sanal makineler, VM ölçek kümesi, Service Fabric ve Cloud Services ilgili toocollecting performans sayaçları."
+title: "Azure tanılama uzantı yapılandırmasını şema sürümleri ve geçmiş | Microsoft Docs"
+description: "Azure sanal makineler, VM ölçek kümesi, Service Fabric ve Cloud Services performans sayacı toplama ilgili."
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: robb
-ms.openlocfilehash: 854ad118f660810aa38703670284794d658142c7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 119e8a237f24cdc80a1ab8e376f2b308c9eada05
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-diagnostics-extention-configuration-schema-versions-and-history"></a>Azure tanılama uzantı yapılandırmasını şema sürümleri ve geçmişi
-Bu sayfa dizinlerinin Azure tanılama uzantı şema sürümleri hello Microsoft Azure SDK'sı bir parçası olarak gönderilir.  
+Bu sayfa dizinlerinin Azure tanılama uzantı şema sürümlerinde Microsoft Azure SDK'sı bir parçası olarak gönderilir.  
 
 > [!NOTE]
-> Hello Azure tanılama uzantısını hello bileşen toocollect performans sayaçları ve diğer istatistiklerine kullanılır:
+> Azure tanılama uzantısını performans sayaçları ve diğer istatistikleri toplamak için kullanılan bileşendir:
 > - Azure Sanal Makineler 
 > - Sanal Makine Ölçek Kümeleri
 > - Service Fabric 
@@ -33,7 +33,7 @@ Bu sayfa dizinlerinin Azure tanılama uzantı şema sürümleri hello Microsoft 
 > 
 > Bu sayfa, yalnızca bu hizmetlerden biri kullanıyorsanız geçerlidir.
 
-Hello Azure tanılama uzantısını Azure monitör, Application Insights ve günlük analizi gibi diğer Microsoft tanılama ürünlerle kullanılır. Daha fazla bilgi için bkz: [Microsoft izleme araçlarına genel bakış](monitoring-overview.md).
+Azure tanılama uzantısını Azure monitör, Application Insights ve günlük analizi gibi diğer Microsoft tanılama ürünlerle kullanılır. Daha fazla bilgi için bkz: [Microsoft izleme araçlarına genel bakış](monitoring-overview.md).
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Grafik sevkiyat azure SDK ve tanılama sürümleri  
 
@@ -53,9 +53,9 @@ Hello Azure tanılama uzantısını Azure monitör, Application Insights ve gün
 
 
 
- Azure tanılama sürüm 1.0 ilk hello Azure SDK'sı yüklendiğinde hello Azure Tanılama ile birlikte gelen sürümünü aldı yani bir eklenti modeli--geliyordu.  
+ İlk Azure SDK'sını yüklendiğinde Azure tanılama sürümü var anlamına eklenti modelinde--sevk azure tanılama sürüm 1.0 ile birlikte gelir.  
 
- SDK 2.5 (tanılama sürüm 1.2) ile Azure tanılama başlatılıyor tooan uzantısı model geçti. Merhaba araçları tooutilize yeni özellikler yalnızca yeni Azure SDK'ları içinde kullanılabilir, ancak Azure Tanılama'yı kullanarak herhangi bir hizmeti hello son sevkiyat sürüm doğrudan Azure'dan çekme. Örneğin, hala SDK 2.5 kullanan herkes hello yeni özellikleri kullanıyorsanız hello önceki tabloda bakılmaksızın gösterilen hello en son sürümünü yüklemeye.  
+ Azure tanılama SDK 2.5 (tanılama sürüm 1.2) ile başlayan bir uzantı modeline geçti. Yeni özellikleri kullanmak için Araçlar yalnızca yeni Azure SDK'ları içinde kullanılabilir, ancak Azure Tanılama'yı kullanarak herhangi bir hizmeti son sevkiyat sürüm doğrudan Azure'dan çekme. Örneğin, hala SDK 2.5 kullanan herkes yeni özellikleri kullanıyorsanız önceki tabloda bakılmaksızın gösterilen en son sürümünü yüklemeye.  
 
 ## <a name="schemas-index"></a>Şemalar dizini  
 Azure tanılama farklı sürümlerini farklı yapılandırma şemaları kullanabilir. 
@@ -74,7 +74,7 @@ Docker desteği eklendi.
 
 
 ### <a name="diagnostics-extension-181"></a>Tanılama uzantısını 1.8.1 
-Bir depolama hesabı anahtarı yerine bir SAS belirteci hello özel yapılandırma dosyasında belirtebilirsiniz. Bir SAS belirteci sağlanırsa, hello depolama hesabı anahtarı göz ardı edilir.
+Bir SAS belirteci bir depolama hesabı anahtarı yerine özel yapılandırma dosyasında belirtebilirsiniz. Bir SAS belirteci sağlanırsa, depolama hesabı anahtarı göz ardı edilir.
 
 
 ```json
@@ -105,7 +105,7 @@ Bir depolama hesabı anahtarı yerine bir SAS belirteci hello özel yapılandır
 
 
 ### <a name="diagnostics-extension-18"></a>Tanılama uzantısını 1,8 
-Eklenen depolama türü tooPublicConfig. StorageType olabilir *tablo*, *Blob*, *TableAndBlob*. *Tablo* hello varsayılandır.
+PublicConfig için eklenen depolama türü. StorageType olabilir *tablo*, *Blob*, *TableAndBlob*. *Tablo* varsayılandır.
 
 
 ```json
@@ -127,42 +127,42 @@ Eklenen depolama türü tooPublicConfig. StorageType olabilir *tablo*, *Blob*, *
 
 
 ### <a name="diagnostics-extension-17"></a>Tanılama uzantısını 1.7 
-Eklenen hello özelliği tooroute tooEventHub.
+EventHub için rota özelliği eklenmiştir.
 
 ### <a name="diagnostics-extension-15"></a>Tanılama uzantısını 1.5
-Merhaba öğesi ve hello özelliği toosend tanılama verilerini çok iç havuzlar eklenen[Application Insights](../application-insights/app-insights-cloudservices.md) daha kolay toodiagnose sorunları, uygulamanın yanı sıra arasında hello sistem ve altyapı düzeyinde yapma.
+İç havuzlar öğesi ve Tanılama verileri gönderme olanağı eklenen [Application Insights](../application-insights/app-insights-cloudservices.md) sistem ve altyapı düzeyinde yanı sıra, uygulamanızın üzerinde sorunları tanılamak kolaylaştırır.
 
 ### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Azure SDK 2.6 ve tanılama uzantısı 1.3 
-Visual Studio bulut hizmeti projeleri için hello aşağıdaki değişiklikler yapıldı. (Bu değişikliklerin Azure SDK'ın toolater sürümleri de geçerlidir.)
+Visual Studio bulut hizmeti projeleri için aşağıdaki değişiklikler yapıldı. (Bu değişikliklerin Azure SDK'ın sonraki sürümleri için de geçerlidir.)
 
-* Merhaba yerel öykünücüsü artık tanılama destekler. Bu tanılama verilerini toplamak ve geliştirme ve Visual Studio'da test ederken, uygulamanızın doğru izlemeleri hello oluşturuyor olun anlamına gelir. Merhaba bağlantı dizesi `UseDevelopmentStorage=true` hello Azure storage öykünücüsü kullanarak bulut hizmeti projenizi Visual Studio'da çalıştırıyorsanız tanılama veri toplamayı etkinleştirir. Tüm tanılama verilerini hello (geliştirme depolama) depolama hesabında toplanır.
-* Merhaba tanılama depolama hesabı bağlantı dizesi (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) bir kez daha hello hizmet yapılandırma (.cscfg) dosyasında depolanır. Azure SDK 2.5 hello diagnostics.wadcfgx dosyasında hello tanılama depolama hesabı belirtilmedi.
+* Yerel öykünücüsü artık tanılama destekler. Bu tanılama verilerini toplamak ve geliştirme ve Visual Studio'da test ederken, uygulamanızın doğru izlemeleri oluşturuyor olun anlamına gelir. Bağlantı dizesi `UseDevelopmentStorage=true` Azure storage öykünücüsü kullanarak bulut hizmeti projenizi Visual Studio'da çalıştırıyorsanız tanılama veri toplamayı etkinleştirir. Tüm tanılama verilerini (geliştirme depolama) depolama hesabında toplanır.
+* Tanılama depolama hesabı bağlantı dizesi (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) bir kez daha hizmet yapılandırma (.cscfg) dosyasında depolanır. Azure SDK 2.5 diagnostics.wadcfgx dosyasında tanılama depolama hesabı belirtilmedi.
 
-Azure SDK 2.4 ve önceki hello bağlantı dizesini nasıl çalıştığı ve nasıl Azure SDK 2.6 ve daha sonra çalıştığı arasında önemli bazı farklar vardır.
+Azure SDK 2.4 ve önceki bağlantı dizesini nasıl çalıştığı ve nasıl Azure SDK 2.6 ve daha sonra çalıştığı arasında önemli bazı farklar vardır.
 
-* Azure SDK 2.4 ve önceki sürümlerinde, hello bağlantı dizesi çalışma zamanı tanılama günlükleri aktarmak için hello tanılama eklentisi tooget hello depolama hesabı bilgilerini tarafından kullanıldı.
-* Azure SDK 2.6 ve daha sonra hello tanılama bağlantı dizesi Visual Studio tooconfigure hello tanılama uzantısını yayımlama sırasında hello uygun depolama hesabı bilgileri ile tarafından kullanılır. Merhaba bağlantı dizesi, Visual Studio yayımlama için kullanacağı farklı hizmet yapılandırması için farklı depolama hesapları tanımlamanıza olanak sağlar. Ancak, Hello tanılama eklentisi artık (sonra Azure SDK 2.5) kullanılabilir olmadığından, hello .cscfg dosyası tek başına hello tanılama uzantısını etkinleştiremezsiniz. Tooenable hello uzantısı ayrı olarak Visual Studio veya PowerShell gibi araçlar aracılığıyla var.
-* PowerShell ile Merhaba tanılama uzantısını yapılandırma toosimplify hello işlemi, hello paket çıktı Visual Studio'dan hello genel yapılandırması XML hello tanılama uzantısını her rol için de içerir. Visual Studio hello tanılama bağlantı dizesi toopopulate hello depolama hesabı bilgilerini hello ortak yapılandırmada mevcut kullanır. Merhaba ortak yapılandırma dosyaları hello Uzantıları klasöründe oluşturulur ve hello düzeni PaaSDiagnostics izleyin. <RoleName>. PubConfig.xml. Tüm temel PowerShell dağıtımları her yapılandırma tooa rolü bu deseni toomap kullanabilirsiniz.
-* hello görüntülenebilir hello hello .cscfg dosyasında bağlantı dizesini de Azure portal tooaccess hello tanılama verilerini hello tarafından kullanılan **izleme** sekmesini hello bağlantı dizesidir, gerekli tooconfigure hello hizmet tooshow ayrıntılı izleme verilerini hello Portalı'nda.
+* Azure SDK 2.4 ve önceki sürümlerinde, bağlantı dizesi tanılama günlükleri aktarmak için depolama hesabı bilgilerini almak için bir çalışma zamanı tanılama eklenti tarafından kullanıldı.
+* Azure SDK 2.6 ve daha sonra tanılama bağlantı dizesi yayımlama sırasında uygun depolama hesap bilgileriyle tanılama uzantısını yapılandırmak için Visual Studio tarafından kullanılır. Bağlantı dizesi, Visual Studio yayımlama için kullanacağı farklı hizmet yapılandırması için farklı depolama hesapları tanımlamanıza olanak sağlar. Ancak, tanılama eklentisi artık (sonra Azure SDK 2.5) kullanılabilir olmadığından, .cscfg dosyası tek başına tanılama uzantısını etkinleştiremezsiniz. Uzantısı ayrı olarak Visual Studio veya PowerShell gibi araçlar aracılığıyla etkinleştirmeniz gerekir.
+* Tanılama uzantısını PowerShell ile yapılandırma işlemini basitleştirmek için Visual Studio Paketi çıktısını de tanılama uzantısını her rol için ortak yapılandırma XML içeriyor. Visual Studio tanılama bağlantı dizesi ortak yapılandırmada depolama hesabı bilgilerini doldurmak için kullanır. Genel yapılandırma dosyaları Uzantıları klasöründe oluşturulur ve desen PaaSDiagnostics izleyin. <RoleName>. PubConfig.xml. Tüm PowerShell tabanlı dağıtımlar, her yapılandırma bir Role eşleştirmek için bu deseni kullanabilirsiniz.
+* .Cscfg dosyasında bağlantı dizesini de Azure portal tarafından içinde görüntülenebilir tanılama verilerini erişmek için kullanılan **izleme** sekmesi. Bağlantı dizesi, ayrıntılı izleme verileri portalda göstermek için bu hizmeti yapılandırmak için gereklidir.
 
-#### <a name="migrating-projects-tooazure-sdk-26-and-later"></a>Geçirme projeleri tooAzure SDK 2.6 ve sonrası
-Ardından Azure SDK 2.5 tooAzure SDK 2.6 den geçirme veya daha sonra hello .wadcfgx dosyasında belirtilen tanılama depolama hesabı olsaydı var. kalır. farklı depolama yapılandırmaları için farklı depolama kullanmanın hello esneklik tootake avantajlarından hesapları, hello bağlantı dizesi tooyour projesi eklemek toomanually sahip olacaksınız. Azure SDK 2.4 veya önceki tooAzure SDK 2.6 proje geçiş, bağlantı dizeleri korunur tanılama hello. Ancak, nasıl bağlantı dizeleri Azure SDK 2.6 belirtildiği şekilde hello önceki bölümde davranılır hello değişiklikler lütfen unutmayın.
+#### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Azure SDK 2.6 ve daha sonra geçirme projeleri
+Ardından .wadcfgx dosyasında belirtilen tanılama depolama hesabı varsa Azure SDK 2.5-Azure SDK 2.6 veya sonraki sürümleri geçirilirken var. kalır. Farklı depolama hesapları farklı depolama yapılandırmaları için kullanma esnekliğini yararlanmak için bağlantı dizesi projenize el ile eklemeniz gerekir. Azure SDK 2.4 veya daha önceki Azure SDK 2.6 proje geçiş, tanılama bağlantı dizeleri korunur. Ancak, nasıl bağlantı dizeleri Azure SDK 2.6 belirtildiği şekilde önceki bölümde davranılır değişiklikler lütfen unutmayın.
 
-#### <a name="how-visual-studio-determines-hello-diagnostics-storage-account"></a>Visual Studio hello tanılama depolama hesabı nasıl belirler
-* Bir tanılama bağlantı dizesi hello .cscfg dosyasında belirtilmediği takdirde, Visual Studio tooconfigure hello tanılama uzantısını yayımlarken ve hello ortak yapılandırma xml dosyalarını paketlemesi sırasında oluştururken kullanır.
-* Bir tanılama bağlantı dizesi hello .cscfg dosyasında belirtilirse, ardından Visual Studio geri yayımlama ve hello ortak oluşturma hello .wadcfgx dosya tooconfigure hello tanılama uzantısını belirtilen toousing hello depolama hesabı döner paketleme yapılandırma xml dosyaları.
-* Merhaba tanılama bağlantı dizesi hello .cscfg dosyasında hello depolama hesabı hello .wadcfgx dosyasında daha önceliklidir. Bir tanılama bağlantı dizesi ise hello .cscfg dosyasında belirtilen sonra Visual Studio kullanan ve .wadcfgx hello depolama hesabında yok sayar.
+#### <a name="how-visual-studio-determines-the-diagnostics-storage-account"></a>Visual Studio tanılama depolama hesabı nasıl belirler
+* Bir tanılama bağlantı dizesi .cscfg dosyasında belirtilmediği takdirde, Visual Studio yayımlarken ve genel yapılandırma xml dosyalarını paketlemesi sırasında oluştururken tanılama uzantısını yapılandırmak için kullanır.
+* Bir tanılama bağlantı dizesi .cscfg dosyasında belirtilirse, ardından Visual Studio .wadcfgx dosyasında belirtilen depolama hesabı yayımlama ve genel yapılandırma xml dosyalarını oluşturmak tanılama uzantısını yapılandırmak üzere kullanmaya geri döner paketleme olduğunda.
+* .Cscfg dosyası tanılama bağlantı dizesinde .wadcfgx dosya depolama hesabında daha önceliklidir. Bir tanılama bağlantı dizesi .cscfg dosyasında belirtilmediği takdirde, Visual Studio kullanan ve .wadcfgx depolama hesabında yok sayar.
 
-#### <a name="what-does-hello-update-development-storage-connection-strings-checkbox-do"></a>Ne "geliştirme storage bağlantı dizelerini güncelleştir..." Merhaba onay kutusu musunuz?
-onay kutusunu hello **güncelleştirme geliştirme storage bağlantı dizelerini tanılama ve önbelleğe alma için Microsoft Azure depolama hesabı kimlik bilgilerinizle tooMicrosoft Azure yayımlarken** herhangi bir yöntemdir tooupdate sağlar Yayımlama sırasında belirtilen hello Azure depolama hesabı ile geliştirme depolama hesabı bağlantı dizeleri.
+#### <a name="what-does-the-update-development-storage-connection-strings-checkbox-do"></a>"Güncelleştirme geliştirme storage bağlantı dizelerini..." yaptığı onay kutusu musunuz?
+Onay kutusunu **güncelleştirme geliştirme storage bağlantı dizelerini tanılama ve önbelleğe alma için Microsoft Azure depolama hesabı kimlik bilgileriyle Microsoft Azure yayımlama sırasında** tüm geliştirme güncelleştirmek için kullanışlı bir yöntem sunar Yayımlama sırasında belirtilen Azure depolama hesabı ile depolama hesabı bağlantı dizeleri.
 
-Örneğin, bu onay kutusunu seçin ve hello tanılama bağlantı dizesini belirtir varsayalım `UseDevelopmentStorage=true`. Merhaba proje tooAzure yayımladığınızda, Visual Studio hello tanılama bağlantı dizesi hello Yayımlama Sihirbazı'nda belirtilen hello depolama hesabıyla otomatik olarak güncelleştirir. Gerçek depolama hesabı hello tanılama bağlantı dizesi olarak belirtilmişse, ancak, ardından o hesabı yerine kullanılır.
+Örneğin, bu onay kutusunu seçin ve tanılama bağlantı dizesini belirtir varsayalım `UseDevelopmentStorage=true`. Projeyi Azure'da yayımlarken, Visual Studio Yayımlama Sihirbazı'nda belirtilen depolama hesabıyla tanılama bağlantı dizesi otomatik olarak güncelleştirir. Gerçek depolama hesabı tanılama bağlantı dizesi olarak belirtilmişse, ancak, ardından o hesabı yerine kullanılır.
 
 ### <a name="diagnostics-functionality-differences-between-azure-sdk-24-and-earlier-and-azure-sdk-25-and-later"></a>Tanılama işlevleri farklılıkları Azure SDK 2.4 ve önceki ve Azure SDK 2,5 ve üzeri
-Projenizi Azure SDK 2.4 tooAzure SDK 2.5 veya sonraki ' yükseltiyorsanız, Tanılama işlevleri farklılıkları aşağıdaki göz hello bulundurmanız gerekir.
+Projenizi Azure SDK 2.4 Azure SDK 2.5 veya sonraki bir sürümüne yükseltiyorsanız, aşağıdaki tanılama işlevleri farklılıkları göz önünde bulundurmanız gerekir.
 
-* **Yapılandırma API'leri dışıdır** – tanılama program yapılandırması Azure SDK 2.4 veya önceki sürümlerde kullanılabilir, ancak Azure SDK 2.5 ve daha sonra kullanım dışı bırakılmıştır. Tanılama yapılandırmanızı kodda şu anda tanımlanmış olması durumunda, bu ayarları hello geçirilen proje sırada tanılama tookeep çalışmak için en baştan tooreconfigure gerekir. Merhaba tanılama yapılandırması için Azure SDK 2.4 diagnostics.wadcfg ve diagnostics.wadcfgx ve sonraki sürümler için Azure SDK 2.5 dosyasıdır.
-* **Bulut hizmeti uygulamaları için tanılama hello rol düzeyinde hello örnek düzeyinde değil yalnızca yapılandırılabilir.**
-* **Uygulamanızı dağıtma her zaman hello tanılama yapılandırması güncelleştirilir** – tanılama yapılandırmanızı Server Explorer'dan değiştirirseniz ve uygulamanızı yeniden dağıtın bu eşlik sorunlara neden olabilir.
-* **Azure SDK 2.5 ve daha sonra kilitlenme bilgi dökümleri değil kodda hello tanılama yapılandırma dosyasındaki yapılandırılan** – kodda yapılandırılmış kilitlenme bilgi dökümleri varsa, kodu toohello yapılandırma dosyasından toomanually aktarımı hello yapılandırma gerekir. Merhaba kilitlenme dökümleri çünkü hello geçiş tooAzure SDK 2.6 sırasında aktarılmaz.
+* **Yapılandırma API'leri dışıdır** – tanılama program yapılandırması Azure SDK 2.4 veya önceki sürümlerde kullanılabilir, ancak Azure SDK 2.5 ve daha sonra kullanım dışı bırakılmıştır. Tanılama yapılandırmanızı kodda şu anda tanımlanmış olması durumunda, bu ayarları çalışmaya devam Diagnostics sırayla geçirilen proje en baştan yeniden yapılandırmanız gerekir. Tanılama yapılandırması için Azure SDK 2.4 diagnostics.wadcfg ve diagnostics.wadcfgx ve sonraki sürümler için Azure SDK 2.5 dosyasıdır.
+* **Bulut hizmeti uygulamaları için tanılama yalnızca rol düzeyinde örnek düzeyinde yapılandırılabilir.**
+* **Uygulamanızı dağıtma her zaman, tanılama yapılandırması güncelleştirilir** – tanılama yapılandırmanızı Server Explorer'dan değiştirirseniz ve uygulamanızı yeniden dağıtın bu eşlik sorunlara neden olabilir.
+* **Azure SDK 2.5 ve daha sonra kilitlenme bilgi dökümleri tanılama yapılandırma dosyasındaki kodu değil, yapılandırılan** – kodda yapılandırılmış kilitlenme bilgi dökümleri varsa, el ile yapılandırma koddan yapılandırma dosyasına aktarmak çünkü gerekir kilitlenme bilgi dökümleri geçiş sırasında Azure SDK 2.6 aktarılmaz.
 

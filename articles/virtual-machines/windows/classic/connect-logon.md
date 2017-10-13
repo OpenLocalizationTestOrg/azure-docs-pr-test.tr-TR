@@ -1,6 +1,6 @@
 ---
-title: "aaaLog tooa üzerinde Klasik Azure VM | Microsoft Docs"
-description: "Merhaba Klasik dağıtım modeli kullanılarak oluşturulmuş tooa Windows sanal makinesinde Hello Azure portal toolog kullanın."
+title: Klasik Azure VM oturumunu | Microsoft Docs
+description: "Klasik dağıtım modeli kullanılarak oluşturulmuş bir Windows sanal makine oturum açmak için Azure portalını kullanın."
 services: virtual-machines-windows
 documentationcenter: 
 author: cynthn
@@ -15,53 +15,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: 2e32b7036c2538e73b46580e0f5f8f4979e8a685
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 43d54de7e875de9212c23c49ad0539bf2272a312
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="log-on-tooa-windows-virtual-machine-using-hello-azure-portal"></a>Hello Azure portal kullanarak Windows sanal makine üzerinde tooa oturum
-Hello Azure portal, kullandığınız hello **Bağlan** düğmesini toostart bir Uzak Masaüstü oturumu ve tooa Windows VM üzerinde oturum.
+# <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>Azure Portal kullanarak bir Windows sanal makinesinde oturum açma
+Azure portalında kullandığınız **Bağlan** bir Uzak Masaüstü oturumu ve bir Windows VM oturumunu Başlat düğmesi.
 
-Tooconnect tooa Linux VM istiyor musunuz? Bkz: [nasıl toolog Linux çalıştıran tooa sanal makine üzerinde](../../linux/mac-create-ssh-keys.md).
+Bir Linux VM bağlanmak istiyor? Bkz: [Linux çalıştıran bir sanal makine için oturum açma](../../linux/mac-create-ssh-keys.md).
 
 <!--
 Deleting, but not 100% sure
-Learn how too[perform these steps using new Azure portal](../connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Learn how to [perform these steps using new Azure portal](../connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 -->
 
 > [!IMPORTANT]
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, hello Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, en yeni dağıtımların hello Resource Manager modelini kullanmasını önerir. Model nasıl tooa VM kullanma toolog hello Resource Manager hakkında bilgi için bkz: [burada](../connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. Resource Manager modelini kullanarak bir VM'de oturum açma hakkında daha fazla bilgi için bkz: [burada](../connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-## <a name="connect-toohello-virtual-machine"></a>Toohello sanal makineye bağlanma
-1. Toohello Azure portalında oturum açın.
-2. Tooaccess istediğiniz Hello sanal makineye tıklayın. Merhaba adı hello listelenen **tüm kaynakları** bölmesi.
+## <a name="connect-to-the-virtual-machine"></a>Sanal makineye bağlanma
+1. Azure Portal’da oturum açın.
+2. Erişmek istediğiniz sanal makineye tıklayın. Ad içinde listelenen **tüm kaynakları** bölmesi.
 
     ![Sanal makine konumları](./media/connect-logon/azureportaldashboard.png)
 
-3. Tıklatın **Bağlan** hello komut çubuğunda hello sanal makine Pano üzerinde.
+3. Tıklatın **Bağlan** sanal makine Pano üzerinde komut çubuğunda.
 
-    ![Bağlan hello sanal makine için simgesi](./media/connect-logon/virtualmachine_dashboard_connect.png)
+    ![Sanal makine için simge Bağlan](./media/connect-logon/virtualmachine_dashboard_connect.png)
 
 <!-- Don't know if this still applies
      I think we can zap this.
 > [!TIP]
-> If hello **Connect** button isn't available, see hello troubleshooting tips at hello end of this article.
+> If the **Connect** button isn't available, see the troubleshooting tips at the end of this article.
 >
 >
 -->
 
-## <a name="log-on-toohello-virtual-machine"></a>Toohello sanal makinede oturum açın
+## <a name="log-on-to-the-virtual-machine"></a>Sanal makinede oturum açma
 [!INCLUDE [virtual-machines-log-on-win-server](../../../../includes/virtual-machines-log-on-win-server.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Merhaba, **Bağlan** düğmesi etkin değil veya hello Uzak Masaüstü Bağlantısı ile ilgili başka sorununuz, hello yapılandırma sıfırlamayı deneyin. tıklatın **sıfırlama uzaktan erişim** hello sanal makine panosundan.
+* Varsa **Bağlan** düğmesi etkin değil veya Uzak Masaüstü Bağlantısı ile ilgili başka sorununuz, yapılandırmayı sıfırlamayı deneyin. tıklatın **sıfırlama uzaktan erişim** sanal makine panosundan.
 
     ![Sıfırlama uzaktan erişim](./media/connect-logon/virtualmachine_dashboard_reset_remote_access.png)
 
-* Parolanızı sorunlar için onu sıfırlamayı deneyin. Tıklatın **parola sıfırlama** hello altında sanal makine Pano kenarı sol **destek + sorun giderme**.
+* Parolanızı sorunlar için onu sıfırlamayı deneyin. Tıklatın **parola sıfırlama** sol kenarına sanal makine panoyu altında **destek + sorun giderme**.
 
     ![Parola sıfırlama](./media/connect-logon/virtualmachine_dashboard_reset_password.png)
 
-Bu ipuçları çalışmıyor veya ne bkz ihtiyacınız olmayan [sorun giderme Uzak Masaüstü bağlantıları tooa Windows tabanlı Azure sanal makine](../troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Bu makale ortak sorunları tanılama ve çözme boyunca size yol gösterecektir.
+Bu ipuçları çalışmıyor veya ne bkz ihtiyacınız olmayan [sorun giderme Uzak Masaüstü bağlantıları için Windows tabanlı Azure sanal makine](../troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Bu makale ortak sorunları tanılama ve çözme boyunca size yol gösterecektir.

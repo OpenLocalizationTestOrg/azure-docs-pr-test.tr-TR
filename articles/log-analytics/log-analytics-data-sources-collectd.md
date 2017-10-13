@@ -1,5 +1,5 @@
 ---
-title: "OMS günlük analizi CollectD aaaCollect verilerden | Microsoft Docs"
+title: "OMS günlük analizi CollectD veri toplamak | Microsoft Docs"
 description: "CollectD düzenli aralıklarla veri uygulamaları ve sistem düzeyi bilgileri toplayan bir açık kaynak Linux arka plan programı kullanılır.  Bu makalede, günlük analizi CollectD gelen veri toplama hakkında bilgi sağlar."
 services: log-analytics
 documentationcenter: 
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: magoedte
-ms.openlocfilehash: 7ad82c9c67a664aabd44f08bef2253d84cd2dfba
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a63b15ca5126b45451f0694c9ee75d7b67b1ceaf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Veri günlük analizi Linux aracıları CollectD Topla
-[CollectD](https://collectd.org/) uygulamaları ve sistem düzeyi bilgileri düzenli aralıklarla performans ölçümleri toplayan bir açık kaynak Linux arka plan programı kullanılır. Örnek uygulamalar hello Java sanal makine (JVM), MySQL Server ve Nginx içerir. Bu makalede günlük analizi CollectD gelen performans verileri toplama hakkında bilgi sağlar.
+[CollectD](https://collectd.org/) uygulamaları ve sistem düzeyi bilgileri düzenli aralıklarla performans ölçümleri toplayan bir açık kaynak Linux arka plan programı kullanılır. Örnek uygulamalar, Java sanal makine (JVM), MySQL Server ve Nginx içerir. Bu makalede günlük analizi CollectD gelen performans verileri toplama hakkında bilgi sağlar.
 
 Kullanılabilen eklentileri tam listesi bulunabilir [tablo, eklenti](https://collectd.org/wiki/index.php/Table_of_Plugins).
 
 ![CollectD genel bakış](media/log-analytics-data-sources-collectd/overview.png)
 
-Merhaba aşağıdaki CollectD yapılandırma hello OMS Aracısı Linux tooroute CollectD veri toohello OMS aracısı için Linux için dahil edilmiştir.
+Aşağıdaki CollectD yapılandırma OMS Aracısı Linux için OMS aracısının rota CollectD verilere Linux için dahil edilir.
 
     LoadPlugin write_http
 
@@ -39,7 +39,7 @@ Merhaba aşağıdaki CollectD yapılandırma hello OMS Aracısı Linux tooroute 
          </Node>
     </Plugin>
 
-Ayrıca, yapılandırma bunun yerine aşağıdaki hello 5.5 kullanmadan önce bir collectD sürümleri kullanıyorsanız.
+Ayrıca, bunun yerine aşağıdaki yapılandırma 5.5 kullanmadan önce bir collectD sürümleri kullanıyorsanız.
 
     LoadPlugin write_http
 
@@ -50,12 +50,12 @@ Ayrıca, yapılandırma bunun yerine aşağıdaki hello 5.5 kullanmadan önce bi
        </URL>
     </Plugin>
 
-Merhaba CollectD yapılandırmasını kullanan hello varsayılan`write_http` eklentisi toosend performans ölçüm verilerini bağlantı noktası 26000 tooOMS Linux Aracısı üzerinden. 
+Varsayılan CollectD yapılandırmasını kullanan`write_http` performans ölçüm verilerini 26000 bağlantı noktası üzerinden Linux için OMS Aracısı'na göndermek için eklenti. 
 
 > [!NOTE]
-> Gerekirse, bu bağlantı noktası özel tanımlı yapılandırılmış tooa bağlantı noktası olabilir.
+> Gerekirse, bu bağlantı noktası özel tanımlı bir bağlantı noktası için yapılandırılabilir.
 
-Hello Linux için OMS aracısı ayrıca CollectD ölçümünün 26000 numaralı bağlantı noktasında dinler ve bunları tooOMS şema ölçümleri dönüştürür. Merhaba Linux yapılandırması için OMS aracısının hello aşağıdadır `collectd.conf`.
+Linux için OMS aracısının de CollectD ölçümünün 26000 numaralı bağlantı noktasında dinler ve bunları OMS şema ölçümlere dönüştürür. Linux yapılandırması için OMS aracısının aşağıdadır `collectd.conf`.
 
     <source>
       type http
@@ -74,15 +74,15 @@ Hello Linux için OMS aracısı ayrıca CollectD ölçümünün 26000 numaralı 
 
 
 ## <a name="configuration"></a>Yapılandırma
-Merhaba, temel adımlar tooconfigure günlük analizi CollectD veri koleksiyonunu verilmiştir.
+Günlük analizi CollectD veri koleksiyonunu yapılandırmak için temel adımlar verilmiştir.
 
-1. CollectD toosend veri toohello OMS Aracısı hello write_http eklentisi kullanarak Linux için yapılandırın.  
-2. Linux toolisten hello CollectD veri için OMS aracısının Merhaba hello uygun bağlantı noktasını yapılandırın.
+1. OMS Aracısı write_http eklentisi kullanarak Linux veri göndermesini CollectD yapılandırın.  
+2. CollectD veri uygun bağlantı noktasında dinlemek Linux için OMS Aracısı yapılandırın.
 3. CollectD ve Linux için OMS aracısı yeniden başlatın.
 
-### <a name="configure-collectd-tooforward-data"></a>CollectD tooforward verileri yapılandırma 
+### <a name="configure-collectd-to-forward-data"></a>Veri iletmek için CollectD yapılandırın 
 
-1. tooroute CollectD veri toohello Linux için OMS aracısının `oms.conf` gereksinimlerini toobe eklenen tooCollectD'ın yapılandırma dizini. Bu dosyanın Hello hedef üzerinde makinenizin hello Linux distro bağlıdır.
+1. Linux için OMS aracısının rota CollectD verilere `oms.conf` CollectD'ın yapılandırma dizinine eklenmesi gerekir. Bu dosya hedef makinenizi Linux distro üzerinde bağlıdır.
 
     CollectD yapılandırma dizininize /etc/collectd.d/ içinde yer alıyorsa:
 
@@ -93,20 +93,20 @@ Merhaba, temel adımlar tooconfigure günlük analizi CollectD veri koleksiyonun
         sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd/collectd.conf.d/oms.conf
 
     >[!NOTE]
-    >5.5 önce CollectD sürümleri için toomodify hello etiketleri gerekir `oms.conf` yukarıda gösterildiği gibi.
+    >5.5 önce CollectD sürümleri için etiketleri değiştirmek zorunda kalacaksınız `oms.conf` yukarıda gösterildiği gibi.
     >
 
-2. Collectd.conf istenen toohello Workspace'in omsagent yapılandırma dizini kopyalayın.
+2. Collectd.conf istenen Workspace'in omsagent yapılandırma dizinine kopyalayın.
 
         sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/collectd.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/
         sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/collectd.conf
 
-3. Linux için CollectD ve OMS Aracısı komutları aşağıdaki hello ile yeniden başlatın.
+3. Linux için CollectD ve OMS aracısı aşağıdaki komutlarla yeniden başlatın.
 
     sudo hizmet collectd yeniden sudo /opt/microsoft/omsagent/bin/service_control yeniden başlatma
 
-## <a name="collectd-metrics-toolog-analytics-schema-conversion"></a>CollectD ölçümleri tooLog Analytics şema dönüştürme
-toomaintain bilinen bir model zaten Linux ve hello yeni ölçümler OMS aracısı tarafından toplanan altyapı ölçümler arasında şema eşleme aşağıdaki hello kullanılan CollectD tarafından toplanan:
+## <a name="collectd-metrics-to-log-analytics-schema-conversion"></a>Günlük analizi şema dönüştürme CollectD ölçümleri
+Bilinen bir model zaten Linux için OMS aracısı tarafından toplanan altyapı Ölçümler ve yeni ölçümler arasında aşağıdaki şema eşleme CollectD tarafından toplanan korumak için kullanılır:
 
 | CollectD ölçüm alan | Günlük analizi alan |
 |:--|:--|
@@ -120,6 +120,6 @@ toomaintain bilinen bir model zaten Linux ve hello yeni ölçümler OMS aracıs�
 | değerler] | CounterValue |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [oturum aramaları](log-analytics-log-searches.md) tooanalyze hello veri toplanan veri kaynakları ve çözümler. 
-* Kullanım [özel alanlar](log-analytics-custom-fields.md) syslog kayıtları tek tek alanlara tooparse verileri.
+* Hakkında bilgi edinin [oturum aramaları](log-analytics-log-searches.md) veri kaynakları ve çözümleri toplanan verileri çözümlemek için. 
+* Kullanım [özel alanlar](log-analytics-custom-fields.md) tek tek alanlarına syslog kayıtları verilerden ayrıştırılamadı.
 

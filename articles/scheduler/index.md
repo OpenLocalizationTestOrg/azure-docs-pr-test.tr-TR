@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure Zamanlayıcı belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
-description: "Bilgi nasıl toouse Zamanlayıcı tooschedule ve yinelenen uygulama eylemleri ve yordamı bakım gibi işleri çağırma. Öğreticiler, API başvuruları ve daha fazlası."
+title: "Azure Scheduler Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Scheduler hizmetini kullanarak yinelenen uygulama eylemleri ve düzenli bakım gibi işler zamanlama ve bunları çağırma hakkında bilgi edinin. Öğreticiler, API başvuruları ve daha fazlası."
 services: scheduler
 author: carolz
 manager: carolz
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: c9e67fc813939c31bb3cd38215293c98babe3838
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 4883e5689a639259ec1c0bcd31e1016f85af5d66
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scheduler-documentation"></a>Scheduler Belgeleri
 
-Bilgi nasıl toouse Zamanlayıcı tooschedule ve hello bulutta yinelenen işleri otomatik olarak çağırır. Öğreticiler, API başvuru ve diğer belgelerin nasıl tooschedule ve İzleyici işleri gibi yinelenen uygulama eylemleri ve yordamı bakım gösterir.
+Scheduler hizmetini kullanarak bulutta yinelenen işler zamanlama ve bunları otomatik olarak çağırma hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, yinelenen uygulama eylemleri ve düzenli bakım gibi yinelenen işler zamanlama ve bunları izleme ile ilgili bilgiler içerir.
 
 <ul class="panelContent cardsFTitle">
     <li>

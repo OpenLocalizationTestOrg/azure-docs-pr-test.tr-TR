@@ -17,17 +17,17 @@
 ### [Kurumsal gönderme mimari kılavuzu](notification-hubs-enterprise-push-notification-architecture.md)
 
 ## Geliştirme
-### [GCM kullanarak anında iletme bildirimleri tooAndroid Gönder](notification-hubs-android-push-notification-google-gcm-get-started.md)
+### [GCM kullanarak Android’e anında iletme bildirimleri gönderme](notification-hubs-android-push-notification-google-gcm-get-started.md)
 ### [Bing Uzamsal Veriler ile coğrafi sınırlamalı bildirimler gönderme](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
-### Anında iletme toospecific kullanıcılar
+### Belirli kullanıcılara bildirme
 #### [Android](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md)
 #### [iOS](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)
 #### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
 
-#### [ASP.NET kullanarak hello geçerli kullanıcı kaydı](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
+#### [ASP.NET kullanılarak geçerli kullanıcıyı kaydetme](notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md)
 ### [Platformlar arası bildirim gönderme](notification-hubs-aspnet-cross-platform-notification.md)
 ### Sunucu SDK’ları ile çalışma
-#### [.NET](https://msdn.microsoft.com/library/mt414893.aspx)
+#### [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet)
 #### [Node.js](notification-hubs-nodejs-push-notification-tutorial.md)
 #### [Java](notification-hubs-java-push-notification-tutorial.md)
 #### [PHP](notification-hubs-php-push-notification-tutorial.md)
@@ -53,7 +53,7 @@
 #### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 
 ## Otomatikleştirme
-### [PowerShell kullanarak Notification Hubs’ı Dağıtma ve Yönetme](notification-hubs-deploy-and-manage-powershell.md)
+### [Azure PowerShell’i kullanarak Bildirim Hub’larını Dağıtma ve Yönetme](notification-hubs-deploy-and-manage-powershell.md)
 ### [Planlanmış bildirimler gönderme](notification-hubs-send-push-notifications-scheduled.md)
 
 ## Sorun giderme
@@ -61,7 +61,7 @@
 
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=notification-hubs)
-## [PowerShell](/powershell/module/azurerm.notificationhubs)
+## [Azure PowerShell](/powershell/module/azurerm.notificationhubs)
 ## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
 ## [REST](/rest/api/notificationhubs)
 

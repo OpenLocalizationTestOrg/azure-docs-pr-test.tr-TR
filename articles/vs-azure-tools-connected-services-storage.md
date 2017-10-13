@@ -1,6 +1,6 @@
 ---
-title: "Visual Studio'da bağlı hizmetler kullanarak Azure Storage aaaAdd | Microsoft Docs"
-description: "Merhaba Visual Studio bağlı Hizmetleri Ekle iletişim kutusunu kullanarak Azure Storage tooyour uygulama Ekle"
+title: "Visual Studio'da bağlı hizmetler kullanarak Azure Storage ekleme | Microsoft Docs"
+description: "Visual Studio bağlı Hizmetleri Ekle iletişim kutusunu kullanarak uygulamanıza Azure depolama ekleme"
 services: visual-studio-online
 documentationcenter: na
 author: kraigb
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2017
 ms.author: kraigb
-ms.openlocfilehash: 56b42063d86510b330e405108e28d50e6ba4da05
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 35638083cd75e1b751d00a9c8163a3bc7480f0cd
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="adding-azure-storage-by-using-visual-studio-connected-services"></a>Visual Studio bağlantılı hizmetler kullanarak Azure depolama ekleme
-Visual Studio ile tooAzure depolama hello kullanarak aşağıdaki hello hiçbirini bağlayabilirsiniz **bağlı Hizmetleri Ekle** iletişim:
+Visual Studio ile aşağıdakilerden herhangi birini Azure depolama birimine kullanarak bağlayabilirsiniz **bağlı Hizmetleri Ekle** iletişim:
 
 - C# bulut hizmeti
 - .NET arka uç mobil hizmeti
@@ -29,41 +29,41 @@ Visual Studio ile tooAzure depolama hello kullanarak aşağıdaki hello hiçbiri
 - ASP.NET Core hizmeti
 - Azure Web işi hizmeti 
 
-Merhaba bağlı hizmeti işlevselliği tüm gerekli hello başvuruları ve bağlantı kod tooyour projesi ekler ve yapılandırma dosyalarına uygun şekilde değiştirir. 
+Bağlantılı hizmeti işlevselliği tüm gerekli referanslar ve bağlantı kodu projenize ekler ve yapılandırma dosyalarına uygun şekilde değiştirir. 
 
-Tamamlandıktan sonra hello **bağlı Hizmetleri Ekle** iletişim hello adımları gerekli toostart blob storage'ı, kuyruklar ve tablolar çalışma ayrıntılı belgeler otomatik olarak görüntüler.
+Tamamlandıktan sonra **bağlı Hizmetleri Ekle** sıraları, blob storage ile çalışmaya başlamak için gerekli olan adımları ayrıntılı belgeler görüntüler ve tabloları otomatik olarak iletişim.
 
-## <a name="connect-tooazure-storage-using-hello-connected-services-dialog"></a>TooAzure hello bağlantılı hizmetler kullanarak depolama Bağlan iletişim kutusu
+## <a name="connect-to-azure-storage-using-the-connected-services-dialog"></a>Azure depolama bağlantılı Hizmetler iletişim kutusunu kullanarak bağlan
 1. Projenizi Visual Studio'da açın
 
-1. İçinde **Çözüm Gezgini**, sağ hello **bağlantılı Hizmetler** düğümü ve hello bağlam menüsünden ve select **bağlı hizmet Ekle**.
+1. İçinde **Çözüm Gezgini**, sağ tıklatın **bağlantılı Hizmetler** düğümünü ve bağlam menüsünden ve select **bağlı hizmet Ekle**.
    
     ![Azure eklemek bağlı hizmet](./media/vs-azure-tools-connected-services-storage/IC796702.png)
 
-1. Merhaba, **bağlantılı Hizmetler** sayfasında, **Azure Storage ile bulut depolama**.
+1. İçinde **bağlantılı Hizmetler** sayfasında, **Azure Storage ile bulut depolama**.
    
     ![Azure depolama ekleme](./media/vs-azure-tools-connected-services-storage/add-azure-storage.png)
 
-1. Merhaba, **Azure Storage** iletişim kutusu, varolan bir depolama hesabı seçin ve Seç **Ekle**.
+1. İçinde **Azure Storage** iletişim kutusu, varolan bir depolama hesabı seçin ve Seç **Ekle**.
    
-    Bir depolama hesabı toocreate gerekiyorsa, toohello sonraki adıma gidin. Aksi halde toostep 6 geçin.
+    Bir depolama hesabı oluşturmanız gerekiyorsa, sonraki adıma gidin. Aksi takdirde, 6. adıma atlayın.
     
-    ![Var olan depolama hesabı tooproject Ekle](./media/vs-azure-tools-connected-services-storage/select-azure-storage-account.png)
+    ![Varolan bir depolama hesabı projeye ekleyin](./media/vs-azure-tools-connected-services-storage/select-azure-storage-account.png)
 
-1. toocreate bir depolama hesabı: 
+1. Bir depolama hesabı oluşturmak için: 
    
-   1. Seçin **yeni depolama hesabı oluşturma** hello iletişim hello sonundaki.
+   1. Seçin **yeni depolama hesabı oluşturma** iletişim kutusunun altındaki.
 
-   1. Merhaba doldurun **depolama hesabı oluştur** iletişim ve select **oluşturma**.
+   1. Doldurmak **depolama hesabı oluştur** iletişim ve select **oluşturma**.
       
        ![Yeni Azure depolama hesabı](./media/vs-azure-tools-connected-services-storage/create-storage-account.png)
       
-   1. Ne zaman hello **Azure Storage** iletişim kutusu gösterilir, hello yeni depolama hesabı hello listesinde görünür. Merhaba listede Hello yeni depolama hesabı seçin ve Seç **Ekle**.
+   1. Zaman **Azure Storage** iletişim kutusu görüntülendiğinde, yeni depolama hesabı listede görüntülenir. Listede yeni depolama hesabı seçin ve Seç **Ekle**.
 
-1. Merhaba depolama bağlı hizmeti hello altında görünür **hizmeti başvuruları** projenizin düğümü.
+1. Bağlantılı hizmeti görünür altında depolama **hizmeti başvuruları** projenizin düğümü.
    
 ## <a name="how-your-project-is-modified"></a>Projenizi nasıl değiştirilir
-Merhaba iletişim bitirdikten sonra Visual Studio başvuruları ekler ve belirli yapılandırma dosyalarını değiştirir. Merhaba belirli değişiklikleri hello proje türüne bağlıdır: 
+İletişim kutusu bitirdikten sonra Visual Studio başvuruları ekler ve belirli yapılandırma dosyalarını değiştirir. Özel değişiklikleri proje türüne bağlıdır: 
 
 - ASP.NET proje - [ne – ASP.NET projeleri](http://go.microsoft.com/fwlink/p/?LinkId=513126)
 - ASP.NET Core proje - [ne – ASP.NET 5 projeleri](http://go.microsoft.com/fwlink/p/?LinkId=513124) 

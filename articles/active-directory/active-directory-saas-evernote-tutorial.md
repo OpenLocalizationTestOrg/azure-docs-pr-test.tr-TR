@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile Evernote | Microsoft Docs"
-description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile Evernote arasında."
+description: "Çoklu oturum açma Azure Active Directory ile Evernote arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,226 +14,226 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 4d7017e571ed12a0b155aa188c6b0ecb3c9898a2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: be94152a84bbbeacb623d7dd8b540e3981931a8e
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evernote"></a>Öğretici: Azure Active Directory Tümleştirme Evernote ile
 
-Bu öğreticide, bilgi nasıl toointegrate Evernote Azure Active Directory'ye (Azure AD).
+Bu öğreticide, Azure Active Directory (Azure AD) ile Evernote tümleştirmek öğrenin.
 
-Evernote Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
+Evernote Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Erişim tooEvernote sahip Azure AD'de kontrol edebilirsiniz.
-- Kullanıcıların tooautomatically get açan tooEvernote (çoklu oturum açma) Azure AD hesaplarına ile etkinleştirebilirsiniz.
-- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir.
+- Evernote erişimi, Azure AD'de kontrol edebilirsiniz.
+- Otomatik olarak için Evernote (çoklu oturum açma) ile Azure AD hesaplarına açan kullanıcılarınıza etkinleştirebilirsiniz.
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-tooconfigure Evernote ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
+Azure AD tümleştirme Evernote ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
 - Bir Evernote çoklu oturum açma abonelik etkin
 
 > [!NOTE]
-> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
+Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
-1. Merhaba Galerisi'nden Evernote ekleme
+1. Galeriden Evernote ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-evernote-from-hello-gallery"></a>Merhaba Galerisi'nden Evernote ekleme
-Azure AD'ye tooconfigure hello tümleştirme Evernote, tooadd Evernote hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
+## <a name="adding-evernote-from-the-gallery"></a>Galeriden Evernote ekleme
+Azure AD Evernote tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden Evernote eklemeniz gerekir.
 
-**tooadd Evernote hello galerisinden hello aşağıdaki adımları gerçekleştirin:**
+**Galeriden Evernote eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
-    ![Hello Azure Active Directory düğmesi][1]
+    ![Azure Active Directory düğmesi][1]
 
-2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
-    ![Merhaba kurumsal uygulamalar dikey penceresi][2]
+    ![Kurumsal uygulamalar dikey penceresi][2]
     
-3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
-    ![Merhaba yeni uygulama düğmesi][3]
+    ![Yeni Uygulama düğmesi][3]
 
-4. Merhaba arama kutusuna yazın **Evernote**seçin **Evernote** sonuç panelinden ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
+4. Arama kutusuna **Evernote**seçin **Evernote** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
 
-    ![Merhaba sonuçları listesinde Evernote](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_addfromgallery.png)
+    ![Sonuçlar listesinde Evernote](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı Evernote sınayın.
 
-Tek toowork'ın oturum açma hangi hello karşılık gelen Evernote içinde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcı ve ilgili kullanıcı Evernote hello arasında bir bağlantı ilişkisi kurulan toobe gerekir.
+Tekli çalışmaya oturum için Azure AD Evernote karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Evernote ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Merhaba hello değeri Evernote içinde atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.
+Evernote içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
 
-tooconfigure ve Evernote ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma Evernote ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
-3. **[Bir Evernote test kullanıcısı oluşturma](#create-an-evernote-test-user)**  -toohave Britta Simon kullanıcı bağlantılı toohello Azure AD gösterimidir Evernote içinde karşılık gelen.
-4. **[Hello Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
-5. **[Test çoklu oturum açma](#test-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Bir Evernote test kullanıcısı oluşturma](#create-an-evernote-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Evernote sağlamak için.
+4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma Evernote uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Evernote uygulamanızda yapılandırın.
 
-**tooconfigure Azure AD çoklu oturum açma ile Evernote, hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma ile Evernote yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello hello üzerinde Azure portal'ın **Evernote** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **Evernote** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_samlbase.png)
 
-3. Merhaba üzerinde **Evernote etki alanı ve URL'leri** bölümünde, hello tooconfigure hello IDP uygulamada başlatılan modu istiyorsanız aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **Evernote etki alanı ve URL'leri** bölümünde, uygulama tarafından başlatılan IDP modunda yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin:
 
     ![Evernote etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_url.png)
 
-    Merhaba, **tanımlayıcısı** metin kutusuna, türü hello URL'si:`https://www.evernote.com/saml2`
+    İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın:`https://www.evernote.com/saml2`
 
-4. Denetleme **Göster Gelişmiş URL ayarları** ve adım tooconfigure hello uygulamada istiyorsanız aşağıdaki hello gerçekleştirmek **SP** modunda başlatılan:
+4. Denetleme **Göster Gelişmiş URL ayarları** ve uygulamada yapılandırmak istiyorsanız aşağıdaki adımı gerçekleştirin **SP** modunda başlatılan:
 
     ![Evernote etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_url1.png)
 
-    Merhaba, **URL üzerinde oturum** metin kutusuna, türü hello URL'si:`https://www.evernote.com/Login.action`   
+    İçinde **URL üzerinde oturum** metin kutusuna, URL'yi yazın:`https://www.evernote.com/Login.action`   
 
-5. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve hello sertifika dosyayı bilgisayarınıza kaydedin.
+5. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
-    ![Merhaba sertifika indirme bağlantısı](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_certificate.png) 
+    ![Sertifika indirme bağlantısı](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_certificate.png) 
 
 6. Tıklatın **kaydetmek** düğmesi.
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-evernote-tutorial/tutorial_general_400.png)
 
-7. Merhaba üzerinde **Evernote yapılandırma** 'yi tıklatın **yapılandırma Evernote** tooopen **yapılandırma oturum açma** penceresi. Kopya hello **SAML çoklu oturum açma hizmet URL'si** hello gelen **hızlı başvuru bölümü.**
+7. Üzerinde **Evernote yapılandırma** 'yi tıklatın **yapılandırma Evernote** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Evernote yapılandırma](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_configure.png) 
 
 8. Farklı web tarayıcısı penceresinde Evernote şirket sitenize yönetici olarak oturum açın.
 
-9. Çok Git**'Yönetici Konsolu'**
+9. Git **'Yönetici Konsolu'**
 
     ![Yönetim Konsolu](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_adminconsole.png)
 
-10. Merhaba gelen **'Yönetici Konsolu'**, çok Git**'Security'** seçip **' çoklu oturum açma '**
+10. Gelen **'Yönetici Konsolu'**gidin **'Security'** seçip **' çoklu oturum açma '**
 
     ![SSO ayarı](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_sso.png)
 
-11. Hello aşağıdaki değerleri yapılandırın:
+11. Aşağıdaki değerleri yapılandırın:
 
     ![Sertifika ayarları](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_certx.png)
     
-    a.  **SSO etkinleştir:** SSO varsayılan olarak etkindir (tıklatın **devre dışı çoklu oturum açma** tooremove hello SSO gereksinim)
+    a.  **SSO etkinleştir:** SSO varsayılan olarak etkindir (tıklatın **devre dışı çoklu oturum açma** SSO gereksinimini kaldırmak için)
 
-    b. Yapıştır **SAML çoklu oturum açma hizmet URL'si** hello hello Azure portal ' kopyaladığınız değeri **SAML HTTP istek URL'si** metin kutusu.
+    b. Yapıştır **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyaladığınız değeri **SAML HTTP istek URL'si** metin kutusu.
 
-    c. "Sertifika başlayın" ve "Son SERTİFİKAYI" gibi bir not defteri ve kopyalama hello içerik Azure AD'den hello indirilen sertifika açın ve hello yapıştırma **X.509 sertifikası** metin kutusu. 
+    c. İndirilen sertifika Azure AD'den bir Not Defteri'nde açın ve "Sertifika başlayın" ve "Son SERTİFİKAYI" dahil olmak üzere içerik kopyalayıp yapıştırın **X.509 sertifikası** metin kutusu. 
 
     d.Click **Değişiklikleri Kaydet**
 
 > [!TIP]
-> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
-Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
    ![Bir Azure AD test kullanıcısı oluşturma][100]
 
-**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba hello sol bölmede Azure portal hello tıklatın **Azure Active Directory** düğmesi.
+1. Sol bölmede, Azure portal'ı tıklatın **Azure Active Directory** düğmesi.
 
-    ![Hello Azure Active Directory düğmesi](./media/active-directory-saas-evernote-tutorial/create_aaduser_01.png)
+    ![Azure Active Directory düğmesi](./media/active-directory-saas-evernote-tutorial/create_aaduser_01.png)
 
-2. Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar**ve ardından **tüm kullanıcılar**.
 
-    !["Kullanıcılar ve Gruplar" Merhaba "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-evernote-tutorial/create_aaduser_02.png)
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-evernote-tutorial/create_aaduser_02.png)
 
-3. tooopen hello **kullanıcı** iletişim kutusu, tıklatın **Ekle** hello hello üstündeki **tüm kullanıcılar** iletişim kutusu.
+3. Açmak için **kullanıcı** iletişim kutusu, tıklatın **Ekle** en üstündeki **tüm kullanıcılar** iletişim kutusu.
 
-    ![Merhaba Ekle düğmesi](./media/active-directory-saas-evernote-tutorial/create_aaduser_03.png)
+    ![Ekle düğmesi](./media/active-directory-saas-evernote-tutorial/create_aaduser_03.png)
 
-4. Merhaba, **kullanıcı** iletişim kutusunda, hello aşağıdaki adımları gerçekleştirin:
+4. İçinde **kullanıcı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
 
-    ![Merhaba kullanıcı iletişim kutusu](./media/active-directory-saas-evernote-tutorial/create_aaduser_04.png)
+    ![Kullanıcı iletişim kutusu](./media/active-directory-saas-evernote-tutorial/create_aaduser_04.png)
 
-    a. Merhaba, **adı** kutusuna **BrittaSimon**.
+    a. İçinde **adı** kutusuna **BrittaSimon**.
 
-    b. Merhaba, **kullanıcı adı** kutusuna, kullanıcının Britta Simon hello e-posta adresini yazın.
+    b. İçinde **kullanıcı adı** kullanıcı Britta Simon e-posta adresini yazın.
 
-    c. Select hello **Göster parola** onay kutusunu işaretleyin ve ardından hello görüntülenen hello değerini aşağı yazma **parola** kutusu.
+    c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
     d. **Oluştur**'a tıklayın.
  
 ### <a name="create-an-evernote-test-user"></a>Bir Evernote test kullanıcısı oluşturma
 
-Evernote içine sipariş tooenable Azure AD kullanıcıların toolog bunların Evernote sağlanmalıdır.  
-Evernote Hello durumda sağlama bir el ile bir görevdir.
+Azure AD kullanıcıların Evernote oturum etkinleştirmek için bunların Evernote sağlanmalıdır.  
+Evernote söz konusu olduğunda, sağlama bir el ile bir görevdir.
 
-**bir kullanıcı hesapları tooprovision gerçekleştirmek hello adımları izleyin:**
+**Kullanıcı hesaplarını sağlamak için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde tooyour Evernote şirket site yönetici olarak oturum açın.
+1. Evernote şirket sitenize yönetici olarak oturum açın.
 
-2. Merhaba tıklatın **'Yönetici Konsolu'**.
+2. Tıklatın **'Yönetici Konsolu'**.
 
     ![Yönetim Konsolu](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_adminconsole.png)
 
-3. Merhaba gelen **'Yönetici Konsolu'**, çok Git**'kullanıcıları eklemek'**.
+3. Gelen **'Yönetici Konsolu'**gidin **'kullanıcıları eklemek'**.
 
     ![Ekleme testUser](./media/active-directory-saas-evernote-tutorial/create_aaduser_0001.png)
 
-4. **Ekip üyeleri ekleme** hello içinde **e-posta** metin kutusu, kullanıcı hesabı hello e-posta adresini yazın ve'ı tıklatın **davet edin.**
+4. **Ekip üyeleri ekleme** içinde **e-posta** metin kutusu, kullanıcı hesabının e-posta adresini yazın ve'ı tıklatın **davet edin.**
 
     ![Ekleme testUser](./media/active-directory-saas-evernote-tutorial/create_aaduser_0002.png)
     
-5. Davet gönderildikten sonra hello Azure Active Directory hesap sahibinin e-posta tooaccept hello davetiye alır.
+5. Davet gönderildikten sonra Azure Active Directory hesap sahibi daveti kabul etmek için e-posta alacaksınız.
 
-### <a name="assign-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atayın
+### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, erişim tooEvernote vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
+Bu bölümde, Britta Evernote için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
-![Merhaba kullanıcı rolü atayın][200] 
+![Kullanıcı rolü atayın][200] 
 
-**tooassign Britta Simon tooEvernote hello aşağıdaki adımları gerçekleştirin:**
+**Evernote için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Merhaba uygulamalar listesinde **Evernote**.
+2. Uygulamalar listesinde **Evernote**.
 
-    ![Merhaba Evernote bağlantı hello uygulamalar listesinde](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_app.png)  
+    ![Uygulamalar listesinde Evernote bağlantı](./media/active-directory-saas-evernote-tutorial/tutorial_evernote_app.png)  
 
-3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
-    ![Merhaba "Kullanıcılar ve Gruplar" bağlantı][202]
+    !["Kullanıcılar ve Gruplar" bağlantı][202]
 
 4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
 
-    ![Merhaba eklemek atama bölmesi][203]
+    ![Ekleme atama bölmesi][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -241,13 +241,13 @@ Bu bölümde, erişim tooEvernote vererek Britta Simon toouse Azure çoklu oturu
     
 ### <a name="test-single-sign-on"></a>Çoklu oturum açmayı test edin
 
-Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Merhaba Evernote hello erişim paneli parçasında tıkladığınızda, oturum açma Evernote uygulama tooyour almanız gerekir. Bir kuruluş hesabı ancak gerek toolog sonra kişisel hesabınızla oturum. 
+Erişim paneli Evernote parçasında tıklattığınızda, Evernote uygulamanıza açan. Hesap ancak sonra gerekirse, kişisel hesabıyla oturum kuruluş olarak günlüğü. 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 

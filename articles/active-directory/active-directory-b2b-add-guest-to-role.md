@@ -1,6 +1,6 @@
 ---
-title: "aaaAdd bir Azure Active Directory B2B işbirliği kullanıcı tooa rolü | Microsoft Docs"
-description: "Azure Active Directory'de bir Konuk kullanıcı tooa rolü ekleme"
+title: "Bir Azure Active Directory B2B işbirliği kullanıcı role ekleme | Microsoft Docs"
+description: "Azure Active Directory'de bir rolü Konuk kullanıcı ekleme"
 services: active-directory
 documentationcenter: 
 author: sasubram
@@ -16,15 +16,15 @@ ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ccc58a0c8ecc73f8e79a8d827efdc0ff93846a96
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e816349ea971c997f655b4d51672dba666bc3e89
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="grant-permissions-toousers-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Azure Active Directory kiracınızda iş ortağı kuruluşlardan izinleri toousers verin
+# <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Azure Active Directory kiracınızda iş ortağı kuruluşlardan kullanıcıların izinleri verin
 
-Azure Active Directory (Azure AD) B2B işbirliği kullanıcıların Konuk kullanıcılar toohello dizini olarak eklenir ve varsayılan olarak kısıtlı hello dizinde Konuk izinleri. İşinizi bazı Konuk kullanıcılar toofill daha yüksek ayrıcalıklı rolleri, kuruluşunuzda gerekebilir. daha yüksek ayrıcalıklı rolleri tanımlama toosupport Konuk kullanıcılar istediğiniz, kuruluşunuzun gereksinimlerini temel alarak eklenen tooany rolleri olabilir.
+Azure Active Directory (Azure AD) B2B işbirliği kullanıcılar dizinine Konuk kullanıcılar olarak eklenir ve varsayılan olarak kısıtlı dizinde Konuk izinleri. İş, kuruluşunuzda daha yüksek ayrıcalıklı rolleri doldurmak için bazı Konuk kullanıcılar gerekebilir. Daha yüksek ayrıcalıklı rolleri tanımlama desteklemek için konuk kullanıcılar istediğiniz, kuruluşunuzun ihtiyaçlarına göre herhangi bir rol için eklenebilir.
 
 ## <a name="default-role"></a>Varsayılan rol
 

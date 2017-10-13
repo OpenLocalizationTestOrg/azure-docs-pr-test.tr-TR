@@ -1,6 +1,6 @@
 ---
-title: "bir VM üzerinde aaaCompute yoğunluklu Java uygulaması | Microsoft Docs"
-description: "Toocreate bir işlem yoğunluklu Java uygulaması çalıştıran bir Azure sanal makinesi başka bir Java uygulaması tarafından nasıl izlenebilir öğrenin."
+title: "Bir VM üzerinde işlem yoğunluklu Java uygulaması | Microsoft Docs"
+description: "Başka bir Java uygulaması tarafından izlenen bir işlem yoğunluklu Java uygulaması çalıştıran bir Azure sanal makinesi oluşturmayı öğrenin."
 services: virtual-machines-windows
 documentationcenter: java
 author: rmcmurray
@@ -15,104 +15,104 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: 02a198802a8d78bd444cd5a9197a78cb94f48e3b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8c51c0bb37e25ad61fe58a85dd641dabe0a1958c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-toorun-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Nasıl toorun işlem yoğunluklu görev Java sanal bir makinede
+# <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Java’da bir sanal makine üzerinde yoğun işlem gücü kullanımlı görev çalıştırma
 > [!IMPORTANT] 
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, hello Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, en yeni dağıtımların hello Resource Manager modelini kullanmasını önerir.
+> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
 
-Azure ile bir sanal makine toohandle işlem yoğunluklu görevleri kullanabilirsiniz. Örneğin, bir sanal makine görevleri ve sonuçları tooclient makine ya da mobil uygulamalara teslim etmek. Bu makaleyi okuduktan sonra toocreate bir işlem yoğunluklu Java uygulaması çalıştıran bir sanal makineyi başka bir Java uygulaması tarafından nasıl izlenebilir, anlaşılması gerekir.
+Azure ile işlem yoğunluklu görevler işlemek için bir sanal makine kullanabilirsiniz. Örneğin, bir sanal makine görevleri ve sonuçları istemci makineleri veya mobil uygulamalara teslim etmek. Bu makaleyi okuduktan sonra başka bir Java uygulaması tarafından izlenen bir işlem yoğunluklu Java uygulaması çalıştıran bir sanal makine oluşturmak nasıl anlaşılması gerekir.
 
-Bu öğretici nasıl toocreate Java konsol uygulamaları kitaplıkları tooyour Java uygulaması içe aktarabilir ve Java arşiv (JAR) oluşturabilir bildiğiniz varsayar. Microsoft Azure olanağıyla varsayılır.
+Bu öğretici Java konsol uygulamaları oluşturma biliyorsanız, kitaplıkları Java uygulamanız içe aktarabilir ve Java arşiv (JAR) oluşturabilir varsayar. Microsoft Azure olanağıyla varsayılır.
 
 Şunları öğreneceksiniz:
 
-* Nasıl bir sanal makine bir Java Geliştirme Seti (JDK) ile toocreate zaten yüklü.
-* Nasıl tooremotely tooyour sanal makinede oturum.
-* Nasıl toocreate bir hizmet veri yolu ad alanı.
-* Nasıl toocreate bir işlem yoğunluklu görevi gerçekleştiren bir Java uygulaması.
-* Nasıl toocreate izler bir Java uygulaması hello işlem yoğunluklu görev ilerlemesini hello.
-* Nasıl toorun Java uygulamalarını hello.
-* Nasıl toostop Java uygulamalarını hello.
+* Bir Java Geliştirme Seti (zaten yüklü JDK ile) bir sanal makine oluşturma
+* Sanal makinenize uzaktan oturum açmak nasıl.
+* Hizmet veri yolu ad alanı oluşturma
+* Bir işlem yoğunluklu görevi gerçekleştiren bir Java uygulaması oluşturma
+* İşlem yoğunluklu görevin ilerlemesini izleyen bir Java uygulaması oluşturma
+* Java uygulamalarını çalıştırmak nasıl.
+* Java uygulamalarını durdurmak nasıl.
 
-Bu öğretici hello gezici satış temsilcisi hello işlem yoğunluklu görev için kullanır. Merhaba, hello Java uygulama çalışan hello işlem yoğunluklu görev örneği verilmiştir.
+Bu öğretici gezici satış temsilcisi işlem yoğunluklu görev için kullanır. İşlem yoğunluklu görev çalışan Java uygulamasının bir örnek verilmiştir.
 
 ![Gezici satış temsilcisi Çözücü][solver_output]
 
-Merhaba, hello Java uygulama izleme hello işlem yoğunluklu görevi örneği verilmiştir.
+İşlem yoğunluklu görev izleme Java uygulamasının bir örnek verilmiştir.
 
 ![Gezici satış temsilcisi istemci][client_output]
 
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
-## <a name="toocreate-a-virtual-machine"></a>toocreate bir sanal makine
-1. İçinde toohello oturum [Klasik Azure portalı](https://manage.windowsazure.com).
+## <a name="to-create-a-virtual-machine"></a>Sanal makine oluşturmak için
+1. [Klasik Azure portalında](https://manage.windowsazure.com) oturum açın.
 2. Tıklatın **yeni**, tıklatın **işlem**, tıklatın **sanal makine**ve ardından **Galeri'den**.
-3. Merhaba, **sanal makine görüntüsü seçin** iletişim kutusunda **JDK 7 Windows Server 2012**.
-   Unutmayın **JDK 6 Windows Server 2012** henüz hazır toorun JDK 7 bulunmayan eski uygulamaları olduğunda kullanılabilir.
+3. İçinde **sanal makine görüntüsü seçin** iletişim kutusunda **JDK 7 Windows Server 2012**.
+   Unutmayın **JDK 6 Windows Server 2012** henüz JDK 7'de çalıştırmak hazır olmayan eski uygulamaları olduğunda kullanılabilir.
 4. **İleri**’ye tıklayın.
-5. Merhaba, **sanal makine yapılandırması** iletişim kutusunda:
-   1. Merhaba sanal makine için bir ad belirtin.
-   2. Merhaba sanal makine için başlangıç boyutu toouse belirtin.
-   3. Hello Merhaba yönetici adı **kullanıcı adı** alan. Sonraki girer bu adı ve hello parolayı unutmayın, uzaktan toohello sanal makinede oturum zaman kullanır.
-   4. Hello bir parola girmenizi **yeni parola** alan ve yeniden hello girin **Onayla** alan. Hello Yöneticisi hesabının parolasını belirtir.
+5. İçinde **sanal makine yapılandırması** iletişim kutusunda:
+   1. Sanal makine için bir ad belirtin.
+   2. Sanal makine için kullanılacak boyutunu belirtin.
+   3. Bir yönetici adı **kullanıcı adı** alan. Bu ad ve sonraki girer parola unutmayın, sanal makineye uzaktan oturum açtığınızda kullanır.
+   4. Bir parolayı girin **yeni parola** alan ve yeniden girin içinde **Onayla** alan. Bu yönetici hesabının parolasını belirtir.
    5. **İleri**’ye tıklayın.
-6. Merhaba, sonraki **sanal makine yapılandırması** iletişim kutusunda:
-   1. İçin **bulut hizmeti**, hello varsayılan kullanmak **yeni bir bulut hizmeti oluşturma**.
-   2. Merhaba değeri **bulut hizmeti DNS adı** cloudapp.net arasında benzersiz olması gerekir. Bu Azure benzersiz olduğunu gösterir şekilde gerekirse, bu değeri değiştirin.
+6. Sonraki **sanal makine yapılandırması** iletişim kutusunda:
+   1. İçin **bulut hizmeti**, varsayılan kullanmak **yeni bir bulut hizmeti oluşturma**.
+   2. Değeri **bulut hizmeti DNS adı** cloudapp.net arasında benzersiz olması gerekir. Bu Azure benzersiz olduğunu gösterir şekilde gerekirse, bu değeri değiştirin.
    3. Bir bölgeyi, benzeşim grubunu veya sanal ağ belirtin. Bu öğreticinin amaçları doğrultusunda, bir bölge gibi belirtin **Batı ABD**.
    4. İçin **depolama hesabı**seçin **otomatik olarak oluşturulan depolama hesabı kullan**.
    5. İçin **kullanılabilirlik kümesi**seçin **(hiçbiri)**.
    6. **İleri**’ye tıklayın.
-7. Merhaba son içinde **sanal makine yapılandırması** iletişim kutusunda:
-   1. Merhaba varsayılan uç noktası girişleri kabul eder.
+7. Son olarak **sanal makine yapılandırması** iletişim kutusunda:
+   1. Varsayılan uç noktası girişleri kabul eder.
    2. **Tamamla**’ya tıklayın.
 
-## <a name="tooremotely-log-in-tooyour-virtual-machine"></a>tooyour sanal makine tooremotely günlüğünde
-1. Toohello üzerinde oturum [Klasik Azure portalı](https://manage.windowsazure.com).
+## <a name="to-remotely-log-in-to-your-virtual-machine"></a>Sanal makinenize uzaktan oturum açmak için
+1. Oturum [Klasik Azure portalı](https://manage.windowsazure.com).
 2. Tıklatın **sanal makineleri**.
-3. Merhaba, toolog istediğiniz içinde hello sanal makine adını tıklatın.
+3. Oturum açmak istediğiniz sanal makinenin adına tıklayın.
 4. **Bağlan**'a tıklayın.
-5. Yanıt toohello gerekli tooconnect toohello sanal makine olarak ister. Hello Yöneticisi adı ve parola istendiğinde, hello sanal makineyi oluşturduğunuzda belirttiğiniz hello değerlerini kullanın.
+5. Sanal makineye bağlanmak için gereken şekilde yanıtlamasına. Yönetici adı ve parola istendiğinde, sanal makineyi oluşturduğunuzda belirttiğiniz değerleri kullanın.
 
-Bu hello Azure hizmet veri yolu işlevselliğini gerektirir JRE'ın bir parçası olarak yüklenen hello Baltimore CyberTrust kök sertifika toobe Not **cacerts** depolar. Bu sertifika otomatik olarak hello Java Çalışma zamanı ortamı (JRE) bu Öğreticisi tarafından kullanılan dahil edilir. Bu sertifika, JRE sahip değilseniz **cacerts** depolamak için bkz: [sertifika toohello Java CA sertifika deposuna ekleme] [ add_ca_cert] onu ekleme hakkında bilgi için (yanı Merhaba sertifikalarını cacerts deponuzda görüntüleme hakkında bilgi).
+Azure hizmet veri yolu işlevselliğini JRE'ın bir parçası olarak yüklenecek Baltimore CyberTrust kök sertifikasını gerektirir Not **cacerts** depolar. Bu sertifika otomatik olarak bu Öğreticisi tarafından kullanılan Java Çalışma zamanı ortamı (JRE) de dahil edilir. Bu sertifika, JRE sahip değilseniz **cacerts** depolamak için bkz: [Java CA sertifika deposu için bir sertifika ekleme] [ add_ca_cert] onu ekleme hakkında bilgi için (yanı sertifikaları cacerts deponuzda görüntüleme hakkında bilgi).
 
-## <a name="how-toocreate-a-service-bus-namespace"></a>Nasıl toocreate bir service bus ad alanı
-Azure'da Service Bus kullanarak toobegin kuyruklar, öncelikle bir hizmet ad alanı oluşturmanız gerekir. Hizmet ad alanı, uygulamanızın Service Bus kaynaklarını adreslemek için kapsam bir kapsayıcı sağlar.
+## <a name="how-to-create-a-service-bus-namespace"></a>Hizmet veri yolu ad alanı oluşturma
+Azure'da Service Bus kuyruklarını kullanmaya başlamak için öncelikle bir hizmet ad alanı oluşturmanız gerekir. Hizmet ad alanı, uygulamanızın Service Bus kaynaklarını adreslemek için kapsam bir kapsayıcı sağlar.
 
-toocreate hizmet ad alanı:
+Hizmet ad alanı oluşturmak için:
 
-1. Toohello üzerinde oturum [Klasik Azure portalı](https://manage.windowsazure.com).
-2. Merhaba sol gezinti bölmesinde hello Klasik Azure portalı, tıklatın **Service Bus, erişim denetimi ve önbelleğe alma**.
-3. Hello sol üst hello Klasik Azure portalı, hello bölmesinde **Service Bus** düğümü ve ardından hello **yeni** düğmesi.  
+1. Oturum [Klasik Azure portalı](https://manage.windowsazure.com).
+2. Klasik Azure portalında sol gezinti bölmesinde tıklayın **Service Bus, erişim denetimi ve önbelleğe alma**.
+3. Klasik Azure portalında sol üst bölmesinde tıklatın **Service Bus** düğümünü ve ardından **yeni** düğmesi.  
    ![Hizmet veri yolu düğümü ekran görüntüsü][svc_bus_node]
-4. Merhaba, **yeni bir hizmet Namespace oluşturma** iletişim kutusuna bir **Namespace**, ve ardından toomake benzersiz olduğundan emin **Kullanılabilirliği Denetle** düğmesi.  
+4. İçinde **yeni bir hizmet Namespace oluşturma** iletişim kutusuna bir **Namespace**ve ardından benzersiz olduğundan emin olmak için **Kullanılabilirliği Denetle** düğmesi.  
    ![Yeni Namespace ekran oluşturma][create_namespace]
-5. Emin olduktan sonra hello ad alanı adı kullanılabilir olduğu, ülke veya bölge, ad alanınızın barındırılması ve hello ardından seçin **oluşturma Namespace** düğmesi.  
+5. Ad alanı adı kullanılabilirliğinden emin olduktan sonra ülke veya bölge, ad alanınızın barındırılması ve ardından seçin **oluşturma Namespace** düğmesi.  
    
-   oluşturduğunuz hello ad hello Klasik Azure portalı daha sonra görünür ve şu anda tooactivate alır. Merhaba durum olana kadar bekleyin **etkin** hello sonraki adıma geçmeden önce.
+   Oluşturduğunuz ad alanı sonra Klasik Azure portalında görünür ve bir dakika sürer. Durum olana kadar bekleyin **etkin** sonraki adımla devam etmeden önce.
 
-## <a name="obtain-hello-default-management-credentials-for-hello-namespace"></a>Merhaba varsayılan yönetim kimlik hello ad alanı için elde
-Sipariş tooperform yönetim işlemlerinin'hello yeni ad, bir kuyruk oluşturma gibi ad alanı için tooobtain hello yönetim kimlik bilgileri gerekir.
+## <a name="obtain-the-default-management-credentials-for-the-namespace"></a>Varsayılan yönetim kimlik bilgilerini ad alanı için alma
+Yeni ad alanında bir kuyruk oluşturma gibi yönetim işlemlerini gerçekleştirmek için ad alanı için yönetim kimlik bilgilerini edinmeniz gerekir.
 
-1. Merhaba Sol Gezinti Bölmesi'nde hello tıklatın **Service Bus** hello kullanılabilir ad alanlarının listesini görüntülemek için düğümü.
+1. Sol gezinti bölmesinde **Service Bus** kullanılabilir ad alanlarının listesini görüntülemek için düğümü.
    ![Kullanılabilir ad alanlarının ekran görüntüsü][avail_namespaces]
-2. Gösterilen hello listeden yeni oluşturduğunuz hello ad alanını seçin.
+2. Görüntülenen listede az önce oluşturduğunuz ad alanını seçin.
    ![Namespace listesi ekran görüntüsü][namespace_list]
-3. sağ taraftaki Hello **özellikleri** bölmesi, yeni ad alanı için hello özellikleri listeler.
+3. Sağ taraftaki **özellikleri** bölmesi, yeni ad alanı özellikleri listeler.
    ![Özellikler bölmesinde ekran görüntüsü][properties_pane]
-4. Merhaba **varsayılan anahtar** gizlenir. Merhaba tıklatın **Görünüm** düğmesini toodisplay hello güvenlik kimlik bilgileri.
+4. **Varsayılan anahtar** gizlenir. Tıklatın **Görünüm** güvenlik kimlik bilgilerini görüntülemek için düğmeyi.
    ![Varsayılan anahtar ekran görüntüsü][default_key]
-5. Merhaba Not **varsayılan veren** ve hello **varsayılan anahtar** bu bilgileri tooperform işlemleri altına ad alanıyla kullanacağınız.
+5. Not **varsayılan veren** ve **varsayılan anahtar** gibi ad alanıyla işlemleri gerçekleştirmek için bu bilgileri kullanın.
 
-## <a name="how-toocreate-a-java-application-that-performs-a-compute-intensive-task"></a>Nasıl toocreate bir işlem yoğunluklu görevi gerçekleştiren bir Java uygulaması
-1. (Olmayan oluşturduğunuz toobe hello sanal makine) geliştirme makinenizdeki, indirme hello [Java için Azure SDK](https://azure.microsoft.com/develop/java/).
-2. Merhaba bu bölümün sonunda Hello örnek kod kullanarak bir Java konsol uygulaması oluşturun. Bu öğreticide, kullanacağız **TSPSolver.java** hello Java dosya adı olarak. Merhaba değiştirme **,\_hizmet\_veri yolu\_ad alanı**, **,\_hizmet\_veri yolu\_sahibi**ve **,\_hizmet\_veri yolu\_anahtar** yer tutucuları toouse, hizmet veri yolu **ad alanı**, **varsayılan veren** ve  **Varsayılan anahtar** değerler, sırasıyla.
-3. Kodlama sonra verme hello uygulama tooa runnable Java arşiv (JAR) ve paket hello hello kitaplıklara JAR oluşturulan gereklidir. Bu öğreticide, kullanacağız **TSPSolver.jar** oluşturulan hello JAR adı.
+## <a name="how-to-create-a-java-application-that-performs-a-compute-intensive-task"></a>Bir işlem yoğunluklu görevi gerçekleştiren bir Java uygulaması oluşturma
+1. (Bu, oluşturduğunuz sanal makine olması gerekmez) geliştirme makinenizdeki karşıdan [Java için Azure SDK](https://azure.microsoft.com/develop/java/).
+2. Bu bölümün sonunda örnek kod kullanarak bir Java konsol uygulaması oluşturun. Bu öğreticide, kullanacağız **TSPSolver.java** Java dosya adı olarak. Değiştirme **,\_hizmet\_veri yolu\_ad alanı**, **,\_hizmet\_veri yolu\_sahibi**ve **,\_hizmet\_veri yolu\_anahtar** yer tutucuları, service bus kullanmak için **ad alanı**, **varsayılan veren** ve  **Varsayılan anahtar** değerler, sırasıyla.
+3. Kodlama sonra runnable Java arşiv (JAR) uygulamaya dışa aktarmak ve gerekli kitaplıkları oluşturulan JAR paket. Bu öğreticide, kullanacağız **TSPSolver.jar** oluşturulan JAR adı olarak.
 
 <p/>
 
@@ -131,7 +131,7 @@ Sipariş tooperform yönetim işlemlerinin'hello yeni ad, bir kuyruk oluşturma 
 
     public class TSPSolver {
 
-        //  Value specifying how often tooprovide an update toohello console.
+        //  Value specifying how often to provide an update to the console.
         private static long loopCheck = 100000000;  
 
         private static long nTimes = 0, nLoops=0;
@@ -235,12 +235,12 @@ Sipariş tooperform yönetim işlemlerinin'hello yeni ad, bir kuyruk oluşturma 
 
                 service = ServiceBusService.create(config);
 
-                int numCities = 10;  // Use as hello default, if no value is specified at command line.
+                int numCities = 10;  // Use as the default, if no value is specified at command line.
                 if (args.length != 0)
                 {
                     if (args[0].toLowerCase().compareTo("createqueue")==0)
                     {
-                        // No processing toooccur other than creating hello queue.
+                        // No processing to occur other than creating the queue.
                         QueueInfo queueInfo = new QueueInfo("TSPQueue");
 
                         service.createQueue(queueInfo);
@@ -252,7 +252,7 @@ Sipariş tooperform yönetim işlemlerinin'hello yeni ad, bir kuyruk oluşturma 
 
                     if (args[0].toLowerCase().compareTo("deletequeue")==0)
                     {
-                        // No processing toooccur other than deleting hello queue.
+                        // No processing to occur other than deleting the queue.
                         service.deleteQueue("TSPQueue");
 
                         System.out.println("Queue named TSPQueue was deleted.");
@@ -261,7 +261,7 @@ Sipariş tooperform yönetim işlemlerinin'hello yeni ad, bir kuyruk oluşturma 
                     }
 
                     // Neither creating or deleting a queue.
-                    // Assume hello value passed in is hello number of cities toosolve.
+                    // Assume the value passed in is the number of cities to solve.
                     numCities = Integer.valueOf(args[0]);  
                 }
 
@@ -299,9 +299,9 @@ Sipariş tooperform yönetim işlemlerinin'hello yeni ad, bir kuyruk oluşturma 
 
 
 
-## <a name="how-toocreate-a-java-application-that-monitors-hello-progress-of-hello-compute-intensive-task"></a>Nasıl toocreate izler bir Java uygulaması hello hello işlem yoğunluklu görev ilerleme durumu
-1. Geliştirme makinenizde hello bu bölümün sonunda hello örnek kod kullanarak bir Java konsol uygulaması oluşturun. Bu öğreticide, kullanacağız **TSPClient.java** hello Java dosya adı olarak. Daha önce gösterildiği gibi hello değiştirme **,\_hizmet\_veri yolu\_ad alanı**, **,\_hizmet\_veri yolu\_sahibi**, ve **,\_hizmet\_veri yolu\_anahtar** yer tutucuları toouse, hizmet veri yolu **ad alanı**, **varsayılan veren**ve **varsayılan anahtar** değerler, sırasıyla.
-2. Merhaba uygulama tooa verme runnable JAR ve paket hello gerekli hello kitaplıklara JAR oluşturulur. Bu öğreticide, kullanacağız **TSPClient.jar** oluşturulan hello JAR adı.
+## <a name="how-to-create-a-java-application-that-monitors-the-progress-of-the-compute-intensive-task"></a>İşlem yoğunluklu görevin ilerlemesini izleyen bir Java uygulaması oluşturma
+1. Geliştirme makinenizde, bu bölümün sonunda örnek kodu kullanarak bir Java konsol uygulaması oluşturun. Bu öğreticide, kullanacağız **TSPClient.java** Java dosya adı olarak. Daha önce gösterildiği gibi değişiklik **,\_hizmet\_veri yolu\_ad alanı**, **,\_hizmet\_veri yolu\_sahibi**, ve **,\_hizmet\_veri yolu\_anahtar** yer tutucuları, service bus kullanmak için **ad alanı**, **varsayılan veren**ve **varsayılan anahtar** değerler, sırasıyla.
+2. Runnable JAR uygulamaya dışa aktarmak ve gerekli kitaplıkları oluşturulan JAR paket. Bu öğreticide, kullanacağız **TSPClient.jar** oluşturulan JAR adı olarak.
 
 <p/>
 
@@ -340,7 +340,7 @@ Sipariş tooperform yönetim işlemlerinin'hello yeni ad, bir kuyruk oluşturma 
 
                     BrokeredMessage message;
 
-                    int waitMinutes = 3;  // Use as hello default, if no value is specified at command line.
+                    int waitMinutes = 3;  // Use as the default, if no value is specified at command line.
                     if (args.length != 0)
                     {
                         waitMinutes = Integer.valueOf(args[0]);  
@@ -366,7 +366,7 @@ Sipariş tooperform yönetim işlemlerinin'hello yeni ad, bir kuyruk oluşturma 
                         if (null != message && null != message.getMessageId())
                         {
 
-                            // Display hello queue message.
+                            // Display the queue message.
                             byte[] b = new byte[200];
 
                             System.out.print("From queue: ");
@@ -383,7 +383,7 @@ Sipariş tooperform yönetim işlemlerinin'hello yeni ad, bir kuyruk oluşturma 
                             System.out.println();
                             if (s.compareTo("Complete") == 0)
                             {
-                                // No more processing toooccur.
+                                // No more processing to occur.
                                 date = new Date();
                                 System.out.println("Finished at " + dateFormat.format(date) + ".");
                                 break;
@@ -391,7 +391,7 @@ Sipariş tooperform yönetim işlemlerinin'hello yeni ad, bir kuyruk oluşturma 
                         }
                         else
                         {
-                            // hello queue is empty.
+                            // The queue is empty.
                             System.out.println("Queue is empty. Sleeping for another " + waitString);
                             Thread.sleep(60000 * waitMinutes);
                         }
@@ -415,14 +415,14 @@ Sipariş tooperform yönetim işlemlerinin'hello yeni ad, bir kuyruk oluşturma 
 
     }
 
-## <a name="how-toorun-hello-java-applications"></a>Nasıl toorun hello Java uygulamaları
-Merhaba işlem yoğunluklu uygulamayı çalıştırın, ilk toocreate hello sırayı sonra toosolve seyahat Saleseman hello geçerli en iyi yolu toohello hizmet veri yolu kuyruğu ekleyeceksiniz sorunun, hello. Merhaba sırasında işlem yoğunluklu çalışmıyor (veya daha sonra), çalışma hello istemci toodisplay sonuçları hello service bus kuyruğundan uygulamasıdır.
+## <a name="how-to-run-the-java-applications"></a>Java uygulamalarını çalıştırma
+Önce geçerli en iyi yolu service bus kuyruğuna ekleyeceksiniz seyahat Saleseman sorunu çözmek için kuyruk, ardından oluşturmak için işlem yoğunluklu uygulamayı çalıştırın. İşlem yoğunluklu uygulama çalışmıyor (veya daha sonra), olsa da service bus kuyruğundan sonuçları görüntülemek için istemciyi çalıştırın.
 
-### <a name="toorun-hello-compute-intensive-application"></a>toorun Merhaba işlem yoğunluklu uygulaması
-1. Tooyour sanal makinede oturum açın.
+### <a name="to-run-the-compute-intensive-application"></a>İşlem yoğunluklu uygulamayı çalıştırmak için
+1. Sanal makinenize oturum açın.
 2. Uygulamanızın çalıştırdığı bir klasör oluşturun. Örneğin, **c:\TSP**.
-3. Kopya **TSPSolver.jar** çok**c:\TSP**,
-4. Adlı bir dosya oluşturun **c:\TSP\cities.txt** içeriği aşağıdaki hello ile.
+3. Kopya **TSPSolver.jar** için **c:\TSP**,
+4. Adlı bir dosya oluşturun **c:\TSP\cities.txt** aşağıdaki içeriğe sahip.
    
         City_1, 1002.81, -1841.35
         City_2, -953.55, -229.6
@@ -474,44 +474,44 @@ Merhaba işlem yoğunluklu uygulamayı çalıştırın, ilk toocreate hello sır
         City_48, 363.68, 768.21
         City_49, -120.3, -463.13
         City_50, 588.51, 679.33
-5. Bir komut isteminde dizinleri tooc:\TSP değiştirin.
-6. Merhaba JRE'ın bin klasörü hello PATH ortam değişkeni olduğundan emin olun.
-7. Merhaba TSP Çözücü permütasyon çalıştırmadan önce toocreate hello hizmet veri yolu kuyruğu gerekir. Çalışma hello aşağıdaki toocreate hello hizmet veri yolu kuyruğu komutu.
+5. Bir komut isteminde dizinleri c:\TSP için değiştirin.
+6. PATH ortam değişkeni JRE'ın bin klasörü olduğundan emin olun.
+7. Hizmet veri yolu kuyruğu TSP Çözücü permütasyon çalıştırmadan önce oluşturmanız gerekir. Hizmet veri yolu kuyruğu oluşturmak için aşağıdaki komutu çalıştırın.
    
         java -jar TSPSolver.jar createqueue
-8. Merhaba sırası oluşturulduğunda, hello TSP Çözücü permütasyon çalıştırabilirsiniz. Örneğin, komut toorun hello Çözücü 8 şehir için aşağıdaki hello çalıştırın.
+8. Sıra oluşturulur, TSP Çözücü permütasyon çalıştırabilirsiniz. Örneğin, 8 Şehir Çözücü çalıştırmak için aşağıdaki komutu çalıştırın.
    
         java -jar TSPSolver.jar 8
    
-   Bir sayı belirtmezseniz, bu için 10 Şehir çalışır. Merhaba Çözücü geçerli kısa yollar buldukça, bunları toohello sıra ekleyeceksiniz.
+   Bir sayı belirtmezseniz, bu için 10 Şehir çalışır. Çözücü geçerli kısa yollar buldukça, bunları sıraya ekleyeceksiniz.
 
 > [!NOTE]
-> Merhaba büyük Merhaba, belirttiğiniz, hello uzun hello Çözücü çalışacak sayı. Örneğin, 14 Şehir birkaç dakika sürebilir ve çalıştırmak için 15 Şehir birkaç saat sürebilir çalışıyor. Too16 veya daha fazla şehir artırma çalışma zamanı (sonunda hafta, ay ve yıl) gün içinde neden olabilir. Merhaba Şehir artar hello sayıda hello Çözücü tarafından değerlendirilen permütasyon sayısını toohello hızla artması son budur.
+> Uzun belirttiğiniz sayıda Çözücü çalışacaktır. Örneğin, 14 Şehir birkaç dakika sürebilir ve çalıştırmak için 15 Şehir birkaç saat sürebilir çalışıyor. 16 veya daha fazla şehir artırma çalışma zamanı (sonunda hafta, ay ve yıl) gün içinde neden olabilir. Bu Çözücü tarafından Şehir artar sayı olarak değerlendirilen permütasyon sayısını hızla artması kaynaklanır.
 > 
 > 
 
-### <a name="how-toorun-hello-monitoring-client-application"></a>Nasıl toorun hello izleme istemci uygulaması
-1. Merhaba istemci uygulaması çalıştırdığı tooyour makinede oturum açın. Bu ihtiyaç duymadığı toobe hello hello çalıştıran aynı makine **TSPSolver** olabilir ancak uygulama.
+### <a name="how-to-run-the-monitoring-client-application"></a>İzleme istemci uygulaması çalıştırma
+1. İstemci uygulaması çalıştırdığı makinenize oturum açın. Bu çalışan aynı makinede olması gerekmez **TSPSolver** olabilir ancak uygulama.
 2. Uygulamanızın çalıştırdığı bir klasör oluşturun. Örneğin, **c:\TSP**.
-3. Kopya **TSPClient.jar** çok**c:\TSP**,
-4. Merhaba JRE'ın bin klasörü hello PATH ortam değişkeni olduğundan emin olun.
-5. Bir komut isteminde dizinleri tooc:\TSP değiştirin.
-6. Merhaba aşağıdaki komutu çalıştırın.
+3. Kopya **TSPClient.jar** için **c:\TSP**,
+4. PATH ortam değişkeni JRE'ın bin klasörü olduğundan emin olun.
+5. Bir komut isteminde dizinleri c:\TSP için değiştirin.
+6. Aşağıdaki komutu çalıştırın.
    
         java -jar TSPClient.jar
    
-    İsteğe bağlı olarak, bir komut satırı bağımsız değişkeni geçirerek hello sıra denetimi Between dakika toosleep hello sayısını belirtin. Merhaba hello sıra denetleme varsayılan uyku süresi 3 dakika hiçbir komut satırı bağımsız değişkeni çok aktarılırsa, kullanılır**TSPClient**. Örneğin, hello uyku aralığı için toouse farklı bir değer istiyorsanız, bir dakika hello aşağıdaki komutu çalıştırın.
+    İsteğe bağlı olarak, bir komut satırı bağımsız değişkeni geçirerek sıra denetimi Between uyku moduna dakika sayısını belirtin. Sıranın denetleme varsayılan uyku süresi 3 dakika için komut satırı bağımsız değişken aktarılırsa, kullanılır **TSPClient**. Örneğin, bir dakika uyku aralığı için farklı bir değer kullanmak istiyorsanız, aşağıdaki komutu çalıştırın.
    
         java -jar TSPClient.jar 1
    
-    "Tam" bir kuyruk iletisi görür kadar hello istemci çalıştırın. Merhaba istemci çalıştırmadan hello Çözücü birden çok tekrarı çalıştırırsanız toorun hello istemci birden çok kez toocompletely boş hello sıra gerekebileceğini unutmayın. Alternatif olarak, hello sıra silin ve yeniden oluşturun. Merhaba aşağıdaki komutu çalıştırarak toodelete hello sıra **TSPSolver** (değil **TSPClient**) komutu.
+    "Tam" bir kuyruk iletisi görür kadar istemci çalıştırın. İstemci çalıştırmadan Çözücü birden çok tekrarı çalıştırırsanız, istemci tamamen sıranın boşaltmak için birden çok kez çalıştırmak gerekebileceğini unutmayın. Alternatif olarak, sıra silin ve yeniden oluşturun. Sıra silmek için aşağıdaki komutu çalıştırın **TSPSolver** (değil **TSPClient**) komutu.
    
         java -jar TSPSolver.jar deletequeue
    
-    tüm yollar inceleniyor sonlanana kadar hello Çözücü çalıştırın.
+    Tüm yollar inceleniyor sonlanana kadar Çözücü çalıştırın.
 
-## <a name="how-toostop-hello-java-applications"></a>Nasıl toostop hello Java uygulamaları
-Merhaba Çözücü ve istemci uygulamaları için basabilirsiniz **Ctrl + C** tooend önceki toonormal tamamlama istiyorsanız tooexit.
+## <a name="how-to-stop-the-java-applications"></a>Java uygulamalarını durdurma
+Çözücü hem istemci uygulamaları için basabilirsiniz **Ctrl + C** normal tamamlanmadan önce sona erdirmek istediğiniz istiyorsanız.
 
 [solver_output]:media/java-run-compute-intensive-task/WA_JavaTSPSolver.png
 [client_output]:media/java-run-compute-intensive-task/WA_JavaTSPClient.png

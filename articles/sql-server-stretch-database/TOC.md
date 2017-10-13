@@ -4,13 +4,13 @@
 
 # Başlarken
 ## [Veritabanlarını ve tabloları belirleme](/sql/sql-server/stretch-database/stretch-database-databases-and-tables-stretch-database-advisor)
-## [Başlangıç Sihirbazı'nı çalıştırın](/sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard)
+## [Sihirbazı çalıştırma](/sql/sql-server/stretch-database/get-started-by-running-the-enable-database-for-stretch-wizard)
 
 # Nasıl yapılır?
 ## Etkinleştirme
 ### [Veritabanı etkinleştirme](/sql/sql-server/stretch-database/enable-stretch-database-for-a-database)
 ### [Tablo etkinleştirme](/sql/sql-server/stretch-database/enable-stretch-database-for-a-table)
-### [Satırları toomigrate seçin](/sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database)
+### [Geçirilecek satırları seçme](/sql/sql-server/stretch-database/select-rows-to-migrate-by-using-a-filter-function-stretch-database)
 ## Yönet
 ### [Veri geçişini izleme](/sql/sql-server/stretch-database/monitor-and-troubleshoot-data-migration-stretch-database)
 ### [Geçişi duraklatma ve sürdürme](/sql/sql-server/stretch-database/pause-and-resume-data-migration-stretch-database)

@@ -1,68 +1,68 @@
 <!--author=SharS last changed: 12/01/15-->
 
-### <a name="step-1-authorize-a-device-toochange-hello-service-data-encryption-key-in-hello-azure-classic-portal"></a>1. adım: bir aygıt toochange hello hizmeti veri şifreleme anahtarını hello Klasik Azure portalı, yetkilendirme
-Genellikle, hello Aygıt Yöneticisi bu hello Hizmet Yöneticisi bir cihaz toochange hizmeti veri şifreleme anahtarları yetkilendirmek ister. Merhaba Hizmet Yöneticisi ardından hello aygıt toochange hello anahtarı yetkilendirecek.
+### <a name="step-1-authorize-a-device-to-change-the-service-data-encryption-key-in-the-azure-classic-portal"></a>1. adım: Azure Klasik Portalı'nda hizmet verileri şifreleme anahtarı değiştirmek için bir aygıt yetkilendirme
+Genellikle, cihaz yönetici Hizmet Yöneticisi hizmeti veri şifreleme anahtarları değiştirmek için bir aygıt yetkilendirmek ister. Hizmet Yöneticisi, ardından anahtarı değiştirmek için aygıtı yetkilendirecek.
 
-Bu adım hello Klasik Azure portalı gerçekleştirilir. Merhaba Hizmet Yöneticisi bir cihaz yetkili uygun toobe hello cihazlar görüntülenen listesinden seçebilirsiniz. yetkili toostart hello hizmet verileri şifreleme anahtarı değiştirin ardından işlem hello aygıttır.
+Bu adım, Azure Klasik Portalı'nda gerçekleştirilir. Hizmet Yöneticisi bir cihaz yetki verilmesi uygun olan aygıtları görüntülenen listesinden seçebilirsiniz. Cihaz sonra hizmet verileri şifreleme anahtar değiştirme işlemini başlatmak için yetkili.
 
-#### <a name="which-devices-can-be-authorized-toochange-service-data-encryption-keys"></a>Hangi cihazların olabilir toochange hizmeti veri şifreleme anahtarları yetkili?
-Bir aygıt hello yetkili tooinitiate hizmeti veri şifreleme anahtarı değişiklikleri kullanılabilmesi için öncelikle aşağıdaki ölçütleri karşılamalıdır:
+#### <a name="which-devices-can-be-authorized-to-change-service-data-encryption-keys"></a>Hangi cihazların hizmeti veri şifreleme anahtarları değiştirme yetkisi?
+Hizmet verileri şifreleme anahtarı değişiklikleri başlatmak için yetkili önce bir aygıt aşağıdaki ölçütleri karşılamalıdır:
 
-* Merhaba cihaz çevrimiçi toobe hizmeti veri şifreleme anahtarı değişiklik yetkilendirme için uygun olmalıdır.
-* Aynı aygıt yeniden 30 dakika sonra hello anahtar değiştirirseniz değil başlatıldı hello yetki verebilir.
-* Merhaba anahtar değişikliği hello daha önceden yetkili aygıt tarafından başlatılmamış olması koşuluyla farklı bir cihaz yetki verebilir. Merhaba yeni cihaz yetkilendirildikten sonra hello eski aygıt hello değişiklik başlatamaz.
-* Merhaba hizmet verileri şifreleme anahtarı Hello geçişi işlemi devam ederken bir aygıtı yetkilendirilemiyor.
-* Başkalarının olmamasına karşın bazı hello hizmetine kayıtlı hello cihazların Merhaba şifrelemeyi gezinirken bir aygıtı yetki verebilir. Böyle durumlarda, hello uygun hello hello hizmet verileri şifreleme anahtarı değişikliği tamamladınız olanları aygıtlardır.
+* Aygıt hizmeti veri şifreleme anahtarı değişiklik yetkilendirme için uygun olması için çevrimiçi olması gerekir.
+* Anahtar değişikliği başlatılmaz, 30 dakika sonra yeniden aynı aygıt yetki verebilir.
+* Anahtar değişikliği daha önceden yetkili aygıt tarafından başlatılmamış olması koşuluyla farklı bir cihaz yetki verebilir. Yeni cihaz yetkilendirildikten sonra eski aygıt değişikliği başlatamaz.
+* Hizmet verileri şifreleme anahtarı geçiş işlemi sürerken bir aygıtı yetkilendirilemiyor.
+* Başkalarının olmamasına karşın bazı hizmetine kayıtlı cihazlar üzerinde şifrelemeyi gezinirken bir aygıtı yetki verebilir. Böyle durumlarda, hizmet verileri şifreleme anahtarı tamamladınız olanları değiştirmek uygun aygıtlardır.
 
 > [!NOTE]
-> Hello Klasik Azure portalı, StorSimple sanal cihaz hello olabilir aygıtlar listesinde gösterilmez toostart hello anahtar değişikliği yetkili.
+> Klasik Azure portalında StorSimple sanal cihazlar anahtar değişikliği başlatmak için yetkili aygıtlar listesinde gösterilmez.
 > 
 > 
 
-Adımları tooselect aşağıdaki hello gerçekleştirmek ve bir cihaz tooinitiate hello hizmet verileri şifreleme anahtarı değişikliği yetkisi verin.
+Seçin ve hizmet verileri şifreleme anahtarı değişikliğini başlatmak için bir aygıt yetkilendirmek için aşağıdaki adımları gerçekleştirin.
 
-#### <a name="tooauthorize-a-device-toochange-hello-key"></a>tooauthorize aygıt toochange hello anahtarı
-1. Merhaba hizmet panosu sayfasında, tıklatın **değişiklik hizmeti veri şifreleme anahtarı**.
+#### <a name="to-authorize-a-device-to-change-the-key"></a>Anahtarı değiştirmek için bir aygıt yetkilendirmek için
+1. Hizmet panosu sayfasında, tıklatın **değişiklik hizmeti veri şifreleme anahtarı**.
    
     ![Değişiklik hizmeti şifreleme anahtarı](./media/storsimple-change-data-encryption-key/HCS_ChangeServiceDataEncryptionKey-include.png)
-2. Merhaba, **değişiklik hizmeti veri şifreleme anahtarı** iletişim kutusunda, seçin ve bir cihaz tooinitiate hello hizmet verileri şifreleme anahtarı değişikliğe izin vermek. Merhaba aşağı açılan liste yetkilendirilebilir tüm hello uygun aygıtı yok.
-3. Merhaba onay simgesine tıklayın ![onay simgesi](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png).
+2. İçinde **değişiklik hizmeti veri şifreleme anahtarı** iletişim kutusunda, seçin ve hizmet verileri şifreleme anahtarı değişikliğini başlatmak için bir aygıt yetkilendirmek. Aşağı açılan liste yetkilendirilebilir uygun aygıtı yok.
+3. Onay simgesine tıklayarak ![onay simgesi](./media/storsimple-change-data-encryption-key/HCS_CheckIcon-include.png).
 
-### <a name="step-2-use-windows-powershell-for-storsimple-tooinitiate-hello-service-data-encryption-key-change"></a>2. adım: StorSimple tooinitiate hello hizmet verileri şifreleme anahtarı değişikliği için Windows PowerShell'i kullanın
-StorSimple cihaz StorSimple hello arabirimde yetkili için bu adımı Windows PowerShell hello gerçekleştirilir.
+### <a name="step-2-use-windows-powershell-for-storsimple-to-initiate-the-service-data-encryption-key-change"></a>2. adım: Hizmet verileri şifreleme anahtarı değişikliğini başlatmak StorSimple için Windows PowerShell'i kullanın
+Bu adım, StorSimple arabirimi yetkili StorSimple cihazında için Windows PowerShell'de gerçekleştirilir.
 
 > [!NOTE]
-> Merhaba anahtar geçişi tamamlanana kadar hiçbir işlem Merhaba, StorSimple Yöneticisi hizmetiniz, Klasik Azure portalı gerçekleştirilebilir.
+> Anahtar geçişi tamamlanana kadar hiçbir işlem, StorSimple Yöneticisi hizmetiniz Azure Klasik portalında gerçekleştirilebilir.
 > 
 > 
 
-Merhaba cihaz seri Konsolu tooconnect toohello Windows PowerShell arabirimini kullanıyorsanız, hello aşağıdaki adımları gerçekleştirin.
+Windows PowerShell arabirimine bağlamak için cihaz seri konsoluna kullanıyorsanız, aşağıdaki adımları gerçekleştirin.
 
-#### <a name="tooinitiate-hello-service-data-encryption-key-change"></a>tooinitiate hello hizmet verileri şifreleme anahtarı değiştirme
-1. Seçenek 1 toolog tam erişimle seçin.
-2. Merhaba komut satırına aşağıdakini yazın:
+#### <a name="to-initiate-the-service-data-encryption-key-change"></a>Hizmet verileri şifreleme anahtarı değişikliğini başlatmak için
+1. Tam erişimle oturum açmak için 1 seçeneğini belirleyin.
+2. Komut istemine yazın:
    
      `Invoke-HcsmServiceDataEncryptionKeyChange`
-3. Merhaba cmdlet'i başarıyla tamamlandıktan sonra yeni bir hizmet verileri şifreleme anahtarı alır. Kopyalayın ve bu anahtarı kullanmak için bu işlem 3. adımında kaydedin. Bu anahtar olacaktır hello StorSimple Yöneticisi hizmetine kayıtlı cihazlar kalan tüm hello tooupdate kullanılır.
+3. Cmdlet başarıyla tamamlandıktan sonra yeni bir hizmet verileri şifreleme anahtarı alır. Kopyalayın ve bu anahtarı kullanmak için bu işlem 3. adımında kaydedin. Bu anahtar StorSimple Yöneticisi hizmetine kayıtlı kalan tüm aygıtlar güncelleştirmek için kullanılır.
    
    > [!NOTE]
    > Bu işlem, StorSimple cihaz yetkilendirme dört saat içinde başlatılmalıdır.
    > 
    > 
    
-   Bu yeni anahtar hello hizmetine kayıtlı toohello gönderilen toobe tooall hello cihazları hizmetten daha sonra gönderilir. Bir uyarı sonra hello hizmet panosunda görüntülenir. Hello hizmet hello kayıtlı cihazlarda tüm hello işlemleri devre dışı bırakır ve hello Aygıt Yöneticisi ardından diğer cihazları tooupdate hello hizmeti veri şifreleme anahtarını hello gerekir. Ancak, hello g/ç (ana bilgisayar veri toohello bulut gönderme) kesilmiş olabilir değil.
+   Bu yeni anahtarı, ardından hizmetle kaydedilen tüm aygıtlara edilmesini hizmetine gönderilir. Bir uyarı sonra hizmet panosunda görüntülenir. Hizmet kayıtlı cihazlarda tüm işlemleri devre dışı bırakır ve cihaz Yöneticisi daha sonra diğer cihazlarda hizmet verileri şifreleme anahtarı güncelleştirmeniz gerekir. Ancak, g/ç (ana bilgisayardan verileri buluta gönderme) kesilmiş olabilir değil.
    
-   Tek bir cihazı kayıtlı tooyour hizmet varsa hello geçiş işlemi tamamlanmıştır ve hello sonraki adımı atlayabilirsiniz. Birden çok aygıtları kayıtlı tooyour hizmetiniz varsa, toostep 3 devam edin.
+   Hizmete kayıtlı tek bir aygıtta varsa, geçiş işlemi tamamlanmıştır ve sonraki adıma atlayabilirsiniz. Birden çok aygıt hizmete kayıtlı varsa, 3. adıma geçin.
 
-### <a name="step-3-update-hello-service-data-encryption-key-on-other-storsimple-devices"></a>3. adım: hello hizmet verileri şifreleme anahtarı başka StorSimple cihazlar üzerinde güncelleştir
-Birden çok aygıtları kayıtlı tooyour StorSimple Yöneticisi hizmetiniz varsa bu adımları hello Windows PowerShell arabiriminde StorSimple Cihazınızı gerçekleştirilmesi gerekir. 2. adımda elde ettiğiniz hello anahtarı: StorSimple tooinitiate hello hizmet verileri şifreleme anahtarı değişikliği için Windows PowerShell'i kullanın kullanılan tooupdate tüm hello kalan StorSimple cihaz StorSimple Yöneticisi hizmeti hello ile kayıtlı olması gerekir.
+### <a name="step-3-update-the-service-data-encryption-key-on-other-storsimple-devices"></a>3. adım: hizmet verileri şifreleme anahtarı başka StorSimple cihazlar üzerinde güncelleştir
+StorSimple Yöneticisi hizmetinize kayıtlı birden çok aygıt varsa, bu adımları StorSimple Cihazınızı Windows PowerShell arabiriminde gerçekleştirilmesi gerekir. 2. adımda elde edilen anahtar: hizmet verileri şifreleme anahtarı değişikliğini başlatmak StorSimple için Windows PowerShell'i kullanın, StorSimple Yöneticisi hizmetine kayıtlı tüm kalan StorSimple Cihazınızı güncelleştirmek için kullanılmalıdır.
 
-Adımları tooupdate hello hizmet verileri şifreleme aygıtınızda aşağıdaki hello gerçekleştirin.
+Hizmet verileri şifreleme aygıtınızda güncelleştirmek için aşağıdaki adımları gerçekleştirin.
 
-#### <a name="tooupdate-hello-service-data-encryption-key"></a>tooupdate hello hizmet verileri şifreleme anahtarı
-1. Windows PowerShell için StorSimple tooconnect toohello konsolunu kullanın. Seçenek 1 toolog tam erişimle seçin.
-2. Merhaba komut satırına aşağıdakini yazın:
+#### <a name="to-update-the-service-data-encryption-key"></a>Hizmet verileri şifreleme anahtarı güncelleştirmek için
+1. StorSimple için Windows PowerShell konsoluna bağlanmak için kullanın. Tam erişimle oturum açmak için 1 seçeneğini belirleyin.
+2. Komut istemine yazın:
    
     `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
-3. Makalesinde aldığınız hello hizmet verileri şifreleme anahtarı sağlayan [2. adım: StorSimple tooinitiate hello hizmet verileri şifreleme anahtarı değişikliği için Windows PowerShell'i kullanın](#to-initiate-the-service-data-encryption-key-change).
+3. Makalesinde aldığınız hizmet verileri şifreleme anahtarı sağlayan [2. adım: hizmet verileri şifreleme anahtarı değişikliğini başlatmak StorSimple için Windows PowerShell'i kullanın](#to-initiate-the-service-data-encryption-key-change).
 

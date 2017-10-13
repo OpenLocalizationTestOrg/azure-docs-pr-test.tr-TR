@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile Concur | Microsoft Docs"
-description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile Concur arasında."
+description: "Çoklu oturum açma Azure Active Directory ile Concur arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,110 +13,110 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 13ba364af26a5ce0f1d2b51aaa0f84a4c353b107
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cd35b6e2dc3171e9cffdb820bbc5b0d45ff58e07
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-configuring-concur-for-user-provisioning"></a>Öğretici: Yapılandırma Concur kullanıcı sağlamak için
 
-Bu öğreticinin Hello hedefi Concur ve Azure AD tooautomatically sağlama ve devre dışı bırakma sağlama kullanıcı hesaplarından Azure AD tooConcur tooperform gereken adımları hello tooshow ' dir.
+Bu öğreticinin amacı Concur ve Azure AD otomatik olarak sağlamak ve kullanıcı hesaplarına Azure AD'den Concur sağlanmasını gerçekleştirmek için gereken adımları Göster sağlamaktır.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticide gösterilen hello senaryo aşağıdaki öğelerindeki hello zaten sahip olduğunuzu varsayar:
+Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
 *   Bir Azure Active directory kiracısı.
 *   Bir Concur çoklu oturum açma abonelik etkin.
 *   Concur takım yönetici izinlerine sahip bir kullanıcı hesabının.
 
-## <a name="assigning-users-tooconcur"></a>Kullanıcıların tooConcur atama
+## <a name="assigning-users-to-concur"></a>Kullanıcılar için Concur atama
 
-Azure Active Directory hangi kullanıcıların erişim tooselected uygulamaları alması "atamaları" toodetermine adlı bir kavramı kullanır. Otomatik olarak bir kullanıcı hesabı sağlama hello bağlamında, yalnızca hello kullanıcıların ve grupların "Azure AD tooan uygulamada atanmış" eşitlenir.
+Azure Active Directory "atamaları" adlı bir kavram hangi kullanıcıların seçili uygulamalara erişim alması belirlemek için kullanır. Otomatik olarak bir kullanıcı hesabı sağlama bağlamında, yalnızca kullanıcıların ve grupların "Azure AD uygulamada atanmış" eşitlenir.
 
-Yapılandırma ve hizmet sağlama hello etkinleştirmeden önce hangi kullanıcılara ve/veya tooyour Concur uygulamasına erişmesi Azure AD temsil hello kullanıcılar gruplarında toodecide gerekir. Karar sonra buraya hello yönergeleri izleyerek bu kullanıcıların tooyour Concur uygulama atayabilirsiniz:
+Yapılandırma ve sağlama hizmeti etkinleştirmeden önce hangi kullanıcılara ve/veya Azure AD grupları Concur uygulamanıza erişimi olması gereken kullanıcılar temsil eden karar vermeniz gerekir. Karar sonra buradaki yönergeleri izleyerek, bu kullanıcılar Concur uygulamanıza atayabilirsiniz:
 
-[Bir kullanıcı veya grup tooan kuruluş uygulama atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Bir kullanıcı veya grup için bir kuruluş uygulama atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-tooconcur"></a>Kullanıcıların tooConcur atamak için önemli ipuçları
+### <a name="important-tips-for-assigning-users-to-concur"></a>Kullanıcılar için Concur atamak için önemli ipuçları
 
-*   Önerilir tek bir Azure AD kullanıcısının yapılandırma sağlama tooConcur tootest hello atanabilir. Ek kullanıcı ve/veya grupları daha sonra atanabilir.
+*   Önerilir tek bir Azure AD kullanıcısının sağlama yapılandırmayı test etmek için Concur atanabilir. Ek kullanıcı ve/veya grupları daha sonra atanabilir.
 
-*   Bir kullanıcı tooConcur atarken, geçerli bir kullanıcı rolünün seçmeniz gerekir. Merhaba "Varsayılan erişim" rolü sağlama için çalışmaz.
+*   Bir kullanıcı için Concur atarken, geçerli bir kullanıcı rolünün seçmeniz gerekir. "Varsayılan erişim" rolü sağlama için çalışmaz.
 
 ## <a name="enable-user-provisioning"></a>Kullanıcı sağlamayı etkinleştirin
 
-Bu bölümde, Azure AD tooConcur kullanıcının kullanıcı hesabı API sağlama konusunda size rehberlik eder ve hizmet toocreate sağlama hello yapılandırma, güncelleştirme ve Azure AD'de kullanıcı ve grup atama göre Concur atanan kullanıcı hesaplarında devre dışı bırakın.
+Bu bölümde Azure AD Concur'ın kullanıcı hesabına API sağlama konusunda size rehberlik eder ve oluşturmak için sağlama hizmeti yapılandırma güncelleştirin ve Azure AD'de kullanıcı ve grup atama göre Concur atanan kullanıcı hesaplarında devre dışı bırakın.
 
 > [!Tip] 
-> Sağlanan hello yönergeleri izleyerek Concur için SAML tabanlı çoklu oturum açma tooenabled seçebilirsiniz [Azure portal](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir.
+> Da tercih edebilirsiniz etkin SAML tabanlı çoklu oturum açma için Concur, yönergeleri izleyerek sağlanan [Azure portal](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir.
 
-### <a name="tooconfigure-user-account-provisioning"></a>tooconfigure kullanıcı hesabı sağlama:
+### <a name="to-configure-user-account-provisioning"></a>Kullanıcı hesabı sağlama yapılandırmak için:
 
-Bu bölümde Hello amacı olan toooutline nasıl tooenable Active Directory kullanıcısı sağlama tooConcur hesapları.
+Bu bölümün amacı, Active Directory kullanıcı hesaplarının Concur sağlama etkinleştirme anahat sağlamaktır.
 
-tooenable uygulamalarında gider hizmet Merhaba, toobe uygun Kurulum ve kullanım Web Hizmeti Yönetim profili var olan. Merhaba, T & E yönetim işlevleri için kullandığınız WS yönetim rolü tooyour mevcut yönetici profili eklemeyin.
+Var. harcama hizmet uygulamalarda etkinleştirmek için uygun Kurulum ve kullanım Web Hizmeti Yönetim profilinin olması gerekir. WS yönetici rolünü, T & E yönetim işlevleri için kullandığınız varolan yönetici profilinizin eklemeyin.
 
-Danışmanlar concur veya hello İstemci Yöneticisi ayrı bir Web hizmeti yönetici profili oluşturmanız gerekir ve hello İstemci Yöneticisi bu profili hello Web Services Yöneticisi işlevleri (örneğin, etkinleştirme uygulamalar) kullanmanız gerekir. Bu profiller hello istemci yöneticinin günlük T & E yönetici profilinden ayrı tutulmalıdır (Merhaba T & E yönetim profili olmamalıdır atanan hello WSAdmin rolü).
+Danışmanlar concur veya istemci Yöneticisi ayrı bir Web hizmeti yönetici profili oluşturmanız gerekir ve istemci Yöneticisi bu profil için Web Services Yöneticisi işlevleri (örneğin, etkinleştirme uygulamalar) kullanmanız gerekir. Bu profiller (T & E yönetim profili atanan WSAdmin rolü olmamalıdır) istemci yöneticinin günlük T & E yönetici profilinden ayrı tutulmalıdır.
 
-Merhaba uygulama etkinleştirmek için kullanılan hello profil toobe oluşturduğunuzda, hello kullanıcı profili alanlarına hello istemci yöneticinin adı girin. Sahipliği toohello profil atar. Bir veya daha fazla profil oluşturulduktan sonra hello istemci bu profili tooclick hello oturum açmanız gerekir "*etkinleştirmek*" bir iş ortağı uygulamanın içinden hello Web Hizmetleri menü düğmesi.
+Uygulama etkinleştirmek için kullanılacak profili oluşturduğunuzda, istemci yöneticinin adı kullanıcı profili alanlarına girin. Bu profile sahipliği atar. Bir veya daha fazla profil oluşturulur sonra istemci tıklatın için bu profili ile oturum açmanız gerekir "*etkinleştirmek*" düğmesi için bir iş ortağı uygulama Web Hizmetleri menü içinde.
 
-Aşağıdaki nedenlerden hello için bu eylem normal T & E Yönetim için kullandıkları hello profiliyle yapılmalıdır değil.
+Aşağıdaki nedenlerle Bu eylem normal T & E Yönetim için kullandıkları profille yapılmalıdır değil.
 
-* Merhaba istemci sahip tıklattığında bir hello toobe "*Evet*" uygulama etkinleştirildikten sonra görüntülenen hello iletişim penceresinde. Bunu siz veya hello iş ortağı Evet düğmesini tıklattıktan olamaz şekilde hello istemci hello iş ortağı uygulama tooaccess için kendi veri istekli bildirir.
+* İstemci tıklar biri olması gerekir "*Evet*" uygulama etkinleştirildikten sonra görüntülenen iletişim penceresinde. Bu, istemci, veya iş ortağı bu Evet düğmesini tıklatın edilemez şekilde kendi verilere erişmek iş ortağı uygulamasını için istekli olup bildirir.
 
-* Merhaba T & E yönetim profili kullanarak bir uygulama etkinleştirilmiş bir istemci Yöneticisi (hello profiline devre kaynaklanan) hello şirketten ayrılırsa, bu profili kullanan etkinleştirilmiş uygulamalardan çalışmaz hello uygulama ile başka bir etkin WS yönetim etkinleştirilene kadar profili. Toocreate ayrı WS yönetim profilleri beklenen nedeni budur.
+* Bir uygulama etkinleştirilmiş bir istemci yönetici T & E yönetici profili (devre profilinde kaynaklanan) şirket olan, uygulama ile başka bir etkin WS yönetim profili etkinleştirilene kadar profili çalışmaz etkinleştirilmiş uygulamalardan bırakır. Ayrı WS yönetim profilleri oluşturmak için beklenen nedeni budur.
 
-* Yönetici hello şirketten ayrılması durumunda WS yönetim profili değiştirilen toohello değiştirme yönetici etkin hello etkilemeden bu profili gerek yoktur çünkü uygulama devre isterseniz olabilir toohello ilişkili hello adı.
+* Bir yönetici şirketten ayrılması durumunda WS yönetim profiline ilişkili adı etkilemeden bu profili gerek yoktur çünkü etkin uygulama devre isterseniz değiştirme yönetici değiştirilebilir.
 
-**tooconfigure kullanıcı hazırlama, hello aşağıdaki adımları gerçekleştirin:**
+**Kullanıcı sağlamayı yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Tooyour üzerinde oturum **Concur** Kiracı.
+1. Oturum, **Concur** Kiracı.
 
-2. Merhaba gelen **Yönetim** menüsünde, select **Web Hizmetleri**.
+2. Gelen **Yönetim** menüsünde, select **Web Hizmetleri**.
    
     ![Concur kiracısı](./media/active-directory-saas-concur-provisioning-tutorial/IC721729.png "Concur kiracısı")
 
-3. Hello tarafı, sol hello üzerinde **Web Hizmetleri** bölmesinde, **iş ortağı uygulamasını etkinleştir**.
+3. Sol taraftaki gelen **Web Hizmetleri** bölmesinde, **iş ortağı uygulamasını etkinleştir**.
    
     ![İş ortağı uygulamasını etkinleştir](./media/active-directory-saas-concur-provisioning-tutorial/ic721730.png "iş ortağı uygulamasını etkinleştir")
 
-4. Merhaba gelen **etkinleştirmek uygulama** listesinde **Azure Active Directory**ve ardından **etkinleştirmek**.
+4. Gelen **etkinleştirmek uygulama** listesinde **Azure Active Directory**ve ardından **etkinleştirmek**.
    
     ![Microsoft Azure Active Directory](./media/active-directory-saas-concur-provisioning-tutorial/ic721731.png "Microsoft Azure Active Directory")
 
-5. Tıklatın **Evet** tooclose hello **eylemi onaylayın** iletişim.
+5. Tıklatın **Evet** kapatmak için **eylemi onaylayın** iletişim.
    
     ![Eylemi onaylamak](./media/active-directory-saas-concur-provisioning-tutorial/ic721732.png "eylemi onaylayın")
 
-6. Merhaba, [Azure portal](https://portal.azure.com), toohello Gözat **Azure Active Directory > Kurumsal uygulamaları > tüm uygulamaları** bölümü.
+6. İçinde [Azure portal](https://portal.azure.com), Gözat **Azure Active Directory > Kurumsal uygulamaları > tüm uygulamaları** bölümü.
 
-7. Çoklu oturum açma için zaten Concur yapılandırdıysanız, hello arama alanı kullanarak Concur Örneğiniz için arama yapın. Aksi takdirde seçin **Ekle** arayın ve **Concur** hello uygulama galerisinde. Concur hello Arama sonuçlarından seçin ve uygulamaların tooyour listesine ekleyin.
+7. Çoklu oturum açma için Concur zaten yapılandırdıysanız arama alanı kullanarak Concur Örneğiniz için arama yapın. Aksi takdirde seçin **Ekle** arayın ve **Concur** uygulama galerisinde. Arama sonuçlarından Concur seçin ve uygulamaları listenize ekleyin.
 
-8. Concur örneğiniz seçin ve ardından hello **sağlama** sekmesi.
+8. Concur örneğiniz seçin ve ardından **sağlama** sekmesi.
 
-9. Set hello **sağlama modu** çok**otomatik**. 
+9. Ayarlama **sağlama modunda** için **otomatik**. 
  
     ![Sağlama](./media/active-directory-saas-concur-provisioning-tutorial/provisioning.png)
 
-10. Merhaba altında **yönetici kimlik bilgileri** bölümünde, hello girin **kullanıcı adı** ve hello **parola** Concur yöneticinizin.
+10. Altında **yönetici kimlik bilgileri** bölümünde, girin **kullanıcı adı** ve **parola** Concur yöneticinizin.
 
-11. Hello Azure portal'ı tıklatın **Bağlantıyı Sına** tooensure Azure AD tooyour Concur uygulama bağlanabilir. Merhaba bağlantı başarısız olursa Concur hesabınızın Team yönetici izinleri olduğundan emin olun.
+11. Azure portalında tıklatın **Bağlantıyı Sına** Azure emin olmak için AD Concur uygulamanıza bağlanabilir. Bağlantı başarısız olursa Concur hesabınızın Team yönetici izinleri olduğundan emin olun.
 
-12. Bir kişi veya hello sağlama hata bildirimi alması gereken Grup Hello e-posta adresini girin **bildirim e-posta** alan ve hello onay kutusunu işaretleyin.
+12. Bir kişi veya sağlama hata bildirimleri alması gereken Grup e-posta adresini girin **bildirim e-posta** alan ve onay kutusunu işaretleyin.
 
 13. Tıklatın **kaydedin.**
 
-14. Hello eşlemeleri bölümü altında seçin **eşitleme Azure Active Directory Kullanıcıları tooConcur.**
+14. Eşlemeleri bölümü altında seçin **eşitleme Azure Active Directory Kullanıcıları Concur.**
 
-15. Merhaba, **öznitelik eşlemelerini** bölümünde, Azure AD tooConcur eşitlenir hello kullanıcı öznitelikleri gözden geçirin. Merhaba olarak seçilen öznitelikler **eşleşen** Itanium tabanlı sistemler için kullanılan toomatch hello kullanıcı hesapları Concur içinde güncelleştirme işlemleri için özelliklerdir. Merhaba Kaydet düğmesine toocommit herhangi bir değişiklik seçin.
+15. İçinde **öznitelik eşlemelerini** bölümünde, Concur için Azure AD'den eşitlenen kullanıcı öznitelikleri gözden geçirin. Seçilen öznitelikler **eşleşen** özellikleri Concur kullanıcı hesaplarında güncelleştirme işlemleri için eşleştirmek için kullanılır. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
 
-16. tooenable hello Concur, değişiklik hello için Azure AD sağlama hizmeti **sağlama durumu** çok**üzerinde** hello içinde **ayarları** bölümü
+16. Azure AD hizmeti Concur için sağlama etkinleştirmek için değiştirmek **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü
 
 17. Tıklatın **kaydedin.**
 
-Şimdi sınama hesabı oluşturabilirsiniz. TooConcur hello hesap tooverify eşitlenmiş too20 dakika bekleyin.
+Şimdi sınama hesabı oluşturabilirsiniz. Hesap için Concur eşitlendiğinden emin doğrulamak için en çok 20 dakika bekleyin.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure Traffic Manager belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
-description: "Nasıl toomanage gelen trafiği için en iyi uygulama performansını öğrenin. Belge toodistribute nasıl trafiği tooAzure veya dış hizmet uç noktaları gösterir."
+title: "Azure Traffic Manager Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "En iyi uygulama performansı için gelen trafiği nasıl yönetebileceğinizi öğrenin. Belgelerde trafiğin Azure’a veya dış hizmet uç noktalarına nasıl dağıtılacağı açıklanmıştır."
 services: traffic-manager
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: bb547f220186c8db9020bcd61a7e4c4d47838107
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 10e7e7c95dc0dd614c7c01581cb746f1e854a9e1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="traffic-manager-documentation"></a>Traffic Manager Belgeleri
 
-Nasıl toouse trafik Yöneticisi tooroute gelen trafiği için en iyi uygulama performansı ve güvenilirliği hakkında bilgi edinin. Öğreticiler, API başvuru ve diğer belgeleri nasıl toomanage trafiği tooAzure veya dış hizmet uç noktaları gösterir.
+En uygun uygulama performansı ve güvenilirliği için Traffic Manager’ı kullanarak gelen trafiği nasıl yönlendirebileceğinizi öğrenin. Öğreticiler, API başvuruları ve diğer belgelerde, Azure’a ya da dış hizmet uç noktalarına yönelik trafiği nasıl yönetebileceğiniz açıklanmıştır.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -88,7 +88,7 @@ Nasıl toouse trafik Yöneticisi tooroute gelen trafiği için en iyi uygulama p
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Trafik Yöneticisi uç noktaları Hello Azure portal kullanarak yönetmeye başlama</h3>
+                        <h3>Azure portalı kullanarak Traffic Manager uç noktalarını yönetmeye başlama</h3>
                     </div>
                 </div>
             </div>

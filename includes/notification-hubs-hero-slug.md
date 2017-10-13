@@ -1,7 +1,7 @@
 
-Merhaba, bu konunun hızlı bir şekilde olabildiğince Notification Hubs ile çalışmaya başlamak toohelp hedefidir. Bu konuda çok basit bir yayın senaryosu örneği için Notification Hubs sipariş tooconcentrate hello temel kavramlarla ilgili olarak sunulmaktadır.
+Bu makalenin hedefi Azure Notification Hubs'ı olabildiğince hızlı kullanmaya başlamanıza yardımcı olmaktır. Bu makale Notification Hubs'ın temel kavramlarına odaklanan çok basit bir yayın senaryosu sunmaktadır.
 
-Notification Hubs ile bilginiz varsa, başka bir hello sol gezinti konusundan tooselect istediğiniz veya hello ilgili bağlantılara bakın [sonraki adımlar](#next-steps).
+Notification Hubs'a zaten aşinaysanız, sol gezinti bölmesinden başka bir konu seçmek veya "Sonraki adımlar" bölmesindeki ilgili makaleleri görmek isteyebilirsiniz.
 
-Geri bildiriminizi ciddiye alacağız. Bu konu veya bu içeriğin geliştirilmesi için öneriler Tamamlanıyor bir güçlükle karşılaşırsanız hello sayfanın hello sonundaki görüşlerinize değer veriyoruz.
+Geri bildiriminizi ciddiye alıyoruz. Bu konu başlığını tamamlamakta güçlükle karşılaşır veya bu içeriğin geliştirilmesi için öneri sunmak isterseniz makalenin sonunda geri bildirimlerinizi paylaşabilirsiniz.
 

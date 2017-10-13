@@ -1,6 +1,6 @@
 ---
-title: "Günlük analizi anahtar kasası çözümde aaaAzure | Microsoft Docs"
-description: "Azure anahtar kasası günlükleri günlük analizi tooreview içinde hello Azure anahtar kasası çözüm kullanabilirsiniz."
+title: "Günlük analizi Azure anahtar kasası çözümde | Microsoft Docs"
+description: "Azure anahtar kasası günlükleri gözden geçirmek için günlük analizi Azure anahtar kasası çözüm kullanabilirsiniz."
 services: log-analytics
 documentationcenter: 
 author: richrundmsft
@@ -14,48 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
-ms.openlocfilehash: 1c6eae26ded7ad55b0159a3be09cdc9901596298
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 651586e0846ffb22a23e64b73c2cc614980d9b92
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Günlük analizi Azure anahtar kasası Analytics çözümde
 
 ![Anahtar kasası simgesi](./media/log-analytics-azure-keyvault/key-vault-analytics-symbol.png)
 
-Azure anahtar kasası AuditEvent günlüklerini günlük analizi tooreview içinde hello Azure anahtar kasası çözüm kullanabilirsiniz.
+Azure Key Vault AuditEvent günlüklerini incelemek için Log Analytics içindeki Azure Key Vault çözümünü kullanabilirsiniz.
 
-toouse hello çözüm tooenable günlüğü Azure anahtar kasası tanılama ve doğrudan hello tanılama tooa günlük analizi çalışma alanı gerekir. Gerekli toowrite hello günlükleri tooAzure Blob Depolama olmadığı.
+Çözümü kullanmak için Azure anahtar kasası tanılama günlük kaydını etkinleştirmek ve tanılama günlük analizi çalışma alanı'na doğrudan gerekir. Günlükleri Azure Blob depolama alanına yazmak gerekli değildir.
 
 > [!NOTE]
-> Ocak 2017 ' Analytics değiştirilen anahtar kasası tooLog günlükleri gönderme şekilde hello desteklenir. Merhaba anahtar kasası çözümü kullanıyorsanız gösterir *(kullanım dışı)* hello başlığında çok başvurun[hello eski anahtar kasası çözüm'den geçiş](#migrating-from-the-old-key-vault-solution) adımları toofollow gerekir.
+> Ocak 2017 ' günlükleri için günlük analizi anahtar Kasası'nı gönderme desteklenen şekilde değiştirildi. Anahtar kasası çözümü kullanıyorsanız gösterir *(kullanım dışı)* başlığında başvurmak [eski anahtar kasası çözüm'den geçiş](#migrating-from-the-old-key-vault-solution) adımları izlemeniz gerekir.
 >
 >
 
-## <a name="install-and-configure-hello-solution"></a>Yükleme ve yapılandırma hello çözümü
-Aşağıdaki yönergeler tooinstall hello kullanın ve hello Azure anahtar kasası çözüm yapılandırın:
+## <a name="install-and-configure-the-solution"></a>Yükleyin ve yapılandırın
+Yükleme ve Azure anahtar kasası çözümü yapılandırmak için aşağıdaki yönergeleri kullanın:
 
-1. Hello Azure anahtar kasası çözümden etkinleştirmek [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview) veya açıklanan hello işlemi kullanarak [hello Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md).
-2. Merhaba anahtar kasası kaynakları toomonitor için günlüğü, her iki hello kullanarak tanılamayı etkinleştirin [portal](#enable-key-vault-diagnostics-in-the-portal) veya [PowerShell](#enable-key-vault-diagnostics-using-powershell)
+1. Azure anahtar kasası çözümden etkinleştirmek [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview) veya açıklanan işlemi kullanarak [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md).
+2. Kullanarak izlemek, anahtar kasası kaynaklar için tanılama günlüğünü etkinleştirme [portal](#enable-key-vault-diagnostics-in-the-portal) veya [PowerShell](#enable-key-vault-diagnostics-using-powershell)
 
-### <a name="enable-key-vault-diagnostics-in-hello-portal"></a>Anahtar kasası tanılama hello portalında etkinleştir
+### <a name="enable-key-vault-diagnostics-in-the-portal"></a>Anahtar kasası tanılama portalda etkinleştir
 
-1. Toohello anahtar kasası kaynak toomonitor Hello Azure portalına gidin
-2. Seçin *tanılama günlükleri* sayfası aşağıdaki tooopen hello
+1. Azure portalında izlemek için anahtar kasası kaynak gidin
+2. Seçin *tanılama günlükleri* aşağıdaki sayfasını açmak için
 
    ![Azure anahtar kasası döşeme görüntüsü](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics01.png)
-3. Tıklatın *tanılamayı açın* sayfası aşağıdaki tooopen hello
+3. Tıklatın *tanılamayı açın* aşağıdaki sayfasını açmak için
 
    ![Azure anahtar kasası döşeme görüntüsü](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics02.png)
-4. Tanılama üzerinde tooturn tıklatın *üzerinde* altında *durumu*
-5. Merhaba onay kutusunu tıklatın *tooLog Analytics Gönder*
+4. Tanılama'yı açmak için tıklatın *üzerinde* altında *durumu*
+5. Onay kutusunu tıklatın *için günlük analizi Gönder*
 6. Varolan bir günlük analizi çalışma alanını seçin veya bir çalışma alanı oluşturma
-7. tooenable *AuditEvent* günlükleri, günlük altında hello onay kutusunu tıklatın
-8. Tıklatın *kaydetmek* tooenable hello günlüğe tanılama tooLog analizi
+7. Etkinleştirmek için *AuditEvent* günlükleri, günlük altında onay kutusunu tıklatın
+8. Tıklatın *kaydetmek* günlük analizi için tanılama günlük kaydını etkinleştirmek için
 
 ### <a name="enable-key-vault-diagnostics-using-powershell"></a>Anahtar kasası tanılamayı PowerShell kullanarak etkinleştirme
-PowerShell Betiği aşağıdaki hello nasıl bir örnek sağlar toouse `Set-AzureRmDiagnosticSetting` tooenable anahtar kasası için günlüğü Tanılama:
+Aşağıdaki PowerShell betiğini nasıl kullanılacağını gösteren bir örnek sağlar `Set-AzureRmDiagnosticSetting` anahtar kasası için tanılama günlük kaydını etkinleştirmek için:
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
@@ -67,88 +67,88 @@ Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspace
 
 
 ## <a name="review-azure-key-vault-data-collection-details"></a>Azure anahtar kasası veri toplama ayrıntılarını gözden geçirin
-Azure anahtar kasası çözüm tanılama günlükleri doğrudan hello anahtar Kasası ' toplar.
-Gerekli toowrite hello günlükleri tooAzure Blob Depolama değil ve aracı için veri toplama gereklidir.
+Azure anahtar kasası çözüm tanılama günlükleri doğrudan anahtar Kasası'nı toplar.
+Günlükleri Azure Blob depolama alanına yazmak gerekli değildir ve aracı için veri toplama gereklidir.
 
-Merhaba aşağıdaki tabloda veri toplama yöntemleri ve Azure anahtar kasası için verileri nasıl toplanır ilgili diğer ayrıntıları gösterir.
+Aşağıdaki tabloda, veri toplama yöntemleri ve Azure anahtar kasası için verileri nasıl toplanır ilgili diğer ayrıntıları gösterir.
 
 | Platform | Doğrudan Aracısı | Systems Center Operations Manager Aracısı | Azure | Operations Manager gerekli? | Operations Manager Aracısı verilerinin yönetim grubu gönderilen | Toplama sıklığı |
 | --- | --- | --- | --- | --- | --- | --- |
 | Azure |  |  |&#8226; |  |  | geldiğinde |
 
 ## <a name="use-azure-key-vault"></a>Azure Key Vault kullanma
-Çalıştırdıktan sonra [hello çözümü](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), hello tıklayarak hello anahtar kasası verileri görüntüleme **Azure anahtar kasası** döşeme hello **genel bakış** günlük analizi sayfası.
+Çalıştırdıktan sonra [çözümü yüklemek](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), tıklayarak anahtar kasası verisinin **Azure anahtar kasası** gelen döşeme **genel bakış** günlük analizi sayfası.
 
 ![Azure anahtar kasası döşeme görüntüsü](./media/log-analytics-azure-keyvault/log-analytics-keyvault-tile.png)
 
-Merhaba tıklattıktan sonra **genel bakış** kutucuğu toodetails kategorileri aşağıdaki hello için günlükleri ve ardından ayrıntıya özetlerini görüntüleyebilirsiniz:
+Tıklattıktan sonra **genel bakış** döşeme, günlüklerinizi özetlerini görüntüleyin ve aşağıdaki kategorilerde ayrıntıları için detaya:
 
 * Tüm anahtar kasası işlemleri zaman içinde hacmi
 * İşlem birimleri zaman içinde başarısız oldu
 * İşlem tarafından işletimsel ortalama gecikme süresi
-* Birden fazla 1000 ms ele işlemlerinin hello sayısı ve birden fazla 1000 ms ele işlemleri listesini işlemleri için hizmet kalitesi
+* Birden fazla 1000 ms ele işlemlerinin sayısı ve birden fazla 1000 ms ele işlemleri listesini işlemleri için hizmet kalitesi
 
 ![Azure anahtar kasası Pano görüntüsü](./media/log-analytics-azure-keyvault/log-analytics-keyvault01.png)
 
 ![Azure anahtar kasası Pano görüntüsü](./media/log-analytics-azure-keyvault/log-analytics-keyvault02.png)
 
-### <a name="tooview-details-for-any-operation"></a>herhangi bir işlem için tooview ayrıntıları
-1. Merhaba üzerinde **genel bakış** hello sayfasında, **Azure anahtar kasası** döşeme.
-2. Merhaba üzerinde **Azure anahtar kasası** panoyu hello Kanatlar birinde hello özet bilgileri gözden geçirin ve ardından bir tooview hakkında ayrıntılı bilgi, hello günlük arama sayfasında.
+### <a name="to-view-details-for-any-operation"></a>Herhangi bir işlem ayrıntılarını görüntülemek için
+1. Üzerinde **genel bakış** sayfasında, **Azure anahtar kasası** döşeme.
+2. Üzerinde **Azure anahtar kasası** Pano, dikey pencereleri birinde özet bilgilerini inceleyin ve bir günlük arama sayfasında ilgili ayrıntılı bilgileri görüntülemek için tıklatın.
 
-    Merhaba günlük arama sayfaları hiçbirinde, sonuçları zaman, ayrıntılı sonuçları ve günlük arama geçmişi görüntüleyebilirsiniz. Modelleri toonarrow hello sonuçlarına göre de filtre uygulayabilirsiniz.
+    Herhangi bir günlük arama sayfası üzerinde sonuçları zaman, ayrıntılı sonuçları ve günlük arama geçmişi görüntüleyebilirsiniz. Sonuçları daraltmak için modelleri göre de filtre uygulayabilirsiniz.
 
 ## <a name="log-analytics-records"></a>Log Analytics kayıtları
-Hello Azure anahtar kasası çözüm çözümler türünü içeren kayıtları **KeyVaults** gelen toplanan [AuditEvent günlükleri](../key-vault/key-vault-logging.md) Azure tanılama.  Bu kayıtlar için özellikleri aşağıdaki tablonun hello şunlardır:  
+Azure anahtar kasası çözüm türünü içeren kayıtları çözümler **KeyVaults** gelen toplanan [AuditEvent günlükleri](../key-vault/key-vault-logging.md) Azure tanılama.  Aşağıdaki tabloda bu kayıtları için özellikleri şunlardır:  
 
 | Özellik | Açıklama |
 |:--- |:--- |
 | Tür |*AzureDiagnostics* |
 | SourceSystem |*Azure* |
-| CallerIpAddress |Merhaba isteği yapan hello istemcinin IP adresi |
+| CallerIpAddress |İsteği yapan istemcinin IP adresi |
 | Kategori | *AuditEvent* |
-| CorrelationId |İstemci hello isteğe bağlı bir GUID toocorrelate istemci-tarafı günlüklerini Hizmet tarafı (anahtar kasası) günlükleriyle geçirebilirsiniz. |
-| DurationMs |Milisaniye cinsinden tooservice hello REST API isteği, geçen süre. Merhaba istemci tarafında ölçmek hello süre bu süreyle eşleşmeyebilir şekilde bu kez ağ gecikmesini içermez. |
-| httpStatusCode_d |HTTP durum kodu Hello istek tarafından döndürülen (örneğin, *200*) |
-| id_s |Merhaba isteğin benzersiz kimliği |
-| identity_claim_appid_g | Merhaba uygulama kimliği için GUID |
-| OperationName |Açıklandığı gibi hello işlemi, adı [Azure anahtar kasası günlüğü](../key-vault/key-vault-logging.md) |
-| OperationVersion |Merhaba istemci tarafından istenen REST API sürümü (örneğin *2015-06-01*) |
-| requestUri_s |Merhaba istek URI'sini |
-| Kaynak |Merhaba anahtar kasasının adı |
-| ResourceGroup |Merhaba anahtar kasasının kaynak grubu |
-| ResourceId |Azure Resource Manager Kaynak Kimliği. Anahtar kasası günlükleri için bu hello anahtar kasası kaynak kimliğidir. |
+| CorrelationId |İstemci tarafı günlüklerini hizmet tarafı (Anahtar Kasası) günlükleriyle ilişkilendirmek için istemcinin geçirebileceği isteğe bağlı bir GUID. |
+| DurationMs |Milisaniye cinsinden REST API'si isteğini sunmak için geçen süre. İstemci tarafında ölçmek süre bu süreyle eşleşmeyebilir şekilde bu kez ağ gecikmesini içermez. |
+| httpStatusCode_d |İstek tarafından döndürülen HTTP durum kodu (örneğin, *200*) |
+| id_s |İsteğin benzersiz kimliği |
+| identity_claim_appid_g | Uygulama kimliği için GUID |
+| OperationName |Açıklandığı gibi işlemin adı [Azure anahtar kasası günlüğü](../key-vault/key-vault-logging.md) |
+| OperationVersion |İstemci tarafından istenen REST API sürümü (örneğin *2015-06-01*) |
+| requestUri_s |İsteğin URI'si |
+| Kaynak |Anahtar kasasının adı |
+| ResourceGroup |Anahtar kasasının kaynak grubu |
+| ResourceId |Azure Resource Manager Kaynak Kimliği. Anahtar kasası günlükleri için bu anahtar kasası kaynak kimliğidir. |
 | ResourceProvider |*MICROSOFT. KEYVAULT* |
 | ResourceType | *KASALARI* |
 | ResultSignature |HTTP durumu (örneğin, *Tamam*) |
 | ResultType |REST API isteğinin sonucunu (örneğin, *başarı*) |
-| SubscriptionId |Merhaba anahtar kasası içeren hello aboneliğin Azure abonelik kimliği |
+| SubscriptionId |Anahtar kasası içeren abonelik Azure abonelik kimliği |
 
-## <a name="migrating-from-hello-old-key-vault-solution"></a>Merhaba eski anahtar kasası çözüm'den geçiş
-Ocak 2017 ' Analytics değiştirilen anahtar kasası tooLog günlükleri gönderme şekilde hello desteklenir. Bu değişiklikler hello aşağıdaki avantajları sağlar:
-+ TooLog Analytics hello olmadan gereken doğrudan toouse bir depolama hesabı günlüklerine yazılır
-+ Günlük analizi kullanılabilir olmasını durduracak toothem günlükleri olduğunda hello zamandan daha az gecikme oluşturulan
+## <a name="migrating-from-the-old-key-vault-solution"></a>Eski anahtar kasası çözüm'den geçiş
+Ocak 2017 ' günlükleri için günlük analizi anahtar Kasası'nı gönderme desteklenen şekilde değiştirildi. Bu değişiklikler, aşağıdaki avantajları sağlar:
++ Günlükleri doğrudan günlük analizi depolama hesabı kullanmak zorunda kalmadan yazılır
++ Günlükleri bunları günlük analizi kullanılabilir olması için ne zaman oluşturulur zamandan daha az gecikme süresi
 + Daha az yapılandırma adımları
 + Azure tanılama tüm türleri için ortak bir biçimi
 
-toouse hello çözüm güncelleştirildi:
+Güncellenen çözümü kullanmak için:
 
-1. [Anahtar Kasası'nı doğrudan tooLog Analytics gönderilen tanılama toobe yapılandırın](#enable-key-vault-diagnostics-in-the-portal)  
-2. Açıklanan hello işlemi kullanarak Hello Azure anahtar kasası çözümünü etkinleştirme [hello Çözümleri Galerisi çözümlerinden günlük analizi Ekle](log-analytics-add-solutions.md)
-3. Tüm kayıtlı sorgu, panolar veya uyarıları toouse hello yeni veri türü güncelleştirme
-  + Değişikliği türüdür: KeyVaults tooAzureDiagnostics. Merhaba ResourceType toofilter tooKey kasası günlükleri kullanabilirsiniz.
+1. [Anahtar Kasası'nı doğrudan günlük analizi için gönderilecek tanılama Yapılandır](#enable-key-vault-diagnostics-in-the-portal)  
+2. Azure anahtar kasası çözüm açıklanan işlemi kullanarak etkinleştirin [Çözümleri Galerisi çözümlerinden günlük analizi Ekle](log-analytics-add-solutions.md)
+3. Tüm kayıtlı sorgu, panolar veya yeni veri türünü kullanmak için uyarıları güncelleştirme
+  + Değişikliği türüdür: AzureDiagnostics KeyVaults. Kaynak türü, anahtar kasası günlükleri için filtre uygulamak için kullanabilirsiniz.
   - Yerine: `Type=KeyVaults`, kullanın`Type=AzureDiagnostics ResourceType=VAULTS`
   + Alanlar: (alan adları büyük küçük harfe duyarlı)
-  - Sonekine sahip herhangi bir alan için \_s, \_d veya \_g hello adı hello ilk karakter toolower harf durumunu değiştir
-  - Sonekine sahip herhangi bir alan için \_adında, hello veri o iç içe geçmiş hello alan adlarını temel alarak tek tek alanlara bölünür. Örneğin, hello hello çağıran UPN bir alana depolanır`identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
-   - Alan değiştirilen CallerIpAddress tooCallerIPAddress
+  - Sonekine sahip herhangi bir alan için \_s, \_d veya \_g adı küçük harflere ilk karakter değiştirme
+  - Sonekine sahip herhangi bir alan için \_adında, verileri o iç içe geçmiş alan adlarını temel alarak tek tek alanlara bölünür. Örneğin, çağıran UPN bir alanda depolanır`identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
+   - Alan CallerIpAddress CallerIPAddress için değiştirildi
    - Alan RemoteIPCountry artık mevcut değil
-4. Merhaba kaldırmak *anahtar kasası Analytics (kullanım dışı)* çözümü. PowerShell kullanıyorsanız, kullanın`Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that hello workspace is in> -WorkspaceName <name of hello log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
+4. Kaldırma *anahtar kasası Analytics (kullanım dışı)* çözümü. PowerShell kullanıyorsanız, kullanın`Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
 
-Merhaba değişiklik hello yeni çözümde görünür değil önce veri toplanmadı. Bu verileri kullanarak hello için eski türü ve alan adları tooquery devam edebilirsiniz.
+Değişiklik yeni çözümde görünür değil önce veri toplanmadı. Eski türü ve alan adları kullanarak bu verileri sorgulamak devam edebilirsiniz.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [günlük analizi aramaları oturum](log-analytics-log-searches.md) tooview ayrıntılı Azure anahtar kasası veri.
+* Kullanım [günlük analizi aramaları oturum](log-analytics-log-searches.md) ayrıntılı Azure anahtar kasası verileri görüntülemek için.

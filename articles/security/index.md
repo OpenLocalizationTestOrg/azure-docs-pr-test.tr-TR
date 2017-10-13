@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure güvenlik belgeleri - öğreticileri | Microsoft Docs"
-description: "Azure Hizmetleri toomeet toocustomize güvenlik seçeneklerini dağıtımlarınızı hizmetlerin ve veri hello bulutta gereksinimlerini nasıl hello öğrenin."
+title: "Azure Güvenlik Belgeleri - Öğreticileri | Microsoft Docs"
+description: "Buluttaki hizmet ve veri dağıtımlarınıza ilişkin gereksinimleri karşılamak için Azure hizmetlerindeki güvenlik özelliklerini nasıl özelleştirebileceğinizi öğrenin."
 services: security
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: ef845a50b32dfec102d1f74d4af98e316dd7e1c8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 930546e0b5847ee088dc08a48e8a0f9d610c5839
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-documentation"></a>Güvenlik Belgeleri
 
-Toouse Azure güvenlik tooprotect Hizmetleri ve hello verileri nasıl bulut öğrenin. Öğreticiler ve diğer belgelerin güvenlik seçeneklerini Azure Hizmetleri toomeet hello gereksinimleri, dağıtımlarını özelleştirme yardımcı olur.
+Azure Güvenlik’i kullanarak buluttaki hizmetleri ve verileri nasıl koruyacağınızı öğrenin. Belgeler ve diğer belgeler, dağıtımlarınıza ilişkin gereksinimleri karşılamak için Azure hizmetlerindeki güvenlik özelliklerini özelleştirmenize yardımcı olur.
 
 <ul class="panelContent cardsFTitle">
     <li>

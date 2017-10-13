@@ -1,6 +1,6 @@
 ---
-title: "aaaAn giriş tooApache hdınsight'ta - Azure Kafka | Microsoft Docs"
-description: "Hdınsight üzerinde Apache Kafka hakkında bilgi edinin: toofind örnekler ve alma bilgilerini başlatıldığı nedir ve ne yaptığını."
+title: "HDInsight üzerinde Apache Kafka'ya giriş | Microsoft Docs"
+description: "HDInsight üzerinde Apache Kafka hakkında bilgi edinin: Nedir, ne işe yarar, örneklere ve başlangıç bilgilerine nereden ulaşılabilir?"
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,58 +13,67 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/15/2017
+ms.date: 09/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 1bc198d4cf93a4682030d4fa5f71030f49ad64be
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 39234ca792983178cfd4304e001271ea30e28ae6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>HDInsight üzerinde Apache Kafka’ya giriş (önizleme)
 
-[Apache Kafka](https://kafka.apache.org) kullanılan toobuild gerçek zamanlı olabilir bir açık kaynak dağıtılmış akış platform veri ardışık düzen ve uygulamaları akış. Kafka, burada yayımlayın ve toonamed veri akışları abone işlevselliği benzer tooa ileti sırası, ileti Aracısı de sağlar. Hdınsight üzerinde Kafka hello Microsoft Azure bulutta yönetilen, ölçeklendirilebilir ve yüksek oranda kullanılabilir bir hizmet sağlar.
+[Apache Kafka](https://kafka.apache.org), gerçek zamanlı akış verisi işlem hatları ve uygulamaları oluşturmak için kullanılabilen, açık kaynak dağıtılmış akış platformudur. Kafka ayrıca, adlandırılmış veri akışları yayımlayıp abone olabileceğiniz bir ileti kuyruğuna benzer aracı işlevselliği sağlar. HDInsight üzerinde Kafka, Microsoft Azure bulutunda yönetilen, yüksek oranda ölçeklenebilir ve yüksek oranda kullanılabilir bir hizmet sağlar.
 
 ## <a name="why-use-kafka-on-hdinsight"></a>HDInsight üzerinde Kafka neden kullanılmalıdır?
 
-Kafka hello aşağıdaki özellikleri sağlar:
+Kafka aşağıdaki özellikleri sağlar:
 
-* Mesajlaşma düzeni yayımlama-abonelik: Kafka kayıtları tooa Kafka konu yayımlamak için bir üretici API sağlar. Merhaba tüketici API tooa konu abone olduğunda kullanılır.
+* Yayımla-abone ol mesajlaşma modeli: Kafka, bir Kafka konu başlığında kayıt yayımlamaya yönelik bir Producer API (Üretici API’si) sağlar. Bir konu başlığına abone olurken Consumer API (Tüketici API’si) kullanılır.
 
-* Akış işleme: Kafka genellikle gerçek zamanlı akış işleme için Apache Storm veya Spark ile birlikte kullanılır. Kafka 0.10.0.0 (Hdınsight sürüm 3.5) çözümleri gerektirmeden Storm veya Spark akış toobuild sağlayan bir akış API sunmuştur.
+* Akış işleme: Kafka genellikle gerçek zamanlı akış işleme için Apache Storm veya Spark ile birlikte kullanılır. Kafka 0.10.0.0 (HDInsight sürüm 3.5), Storm ya da Spark gerektirmeden akış çözümleri oluşturmanızı sağlayan bir akış API’sini kullanıma sunmuştur.
 
-* Yatay Ölçek: Kafka hello Hdınsight kümesinde hello düğümleri arasında akışları bölümler. Tüketici işlemleri ayrı ayrı bölümleri tooprovide yük kayıtları kullanırken dengelemesi ile ilişkilendirilebilir.
+* Yatay ölçek: Kafka bölümleri, HDInsight kümesindeki düğümler arasında akış yapar. Kayıtlar kullanılırken yük dengeleme sağlamak üzere tüketici işlemleri, tek bölümlerle ilişkilendirilebilir.
 
-* Sıralı teslim: her bölüm içinde kayıtları hello akış bunlar alınan hello sırayla depolanır. Bölüm başına bir tüketici işlemi ile ilişkilendirerek, kayıtların sırayla işlenmesini garanti edebilirsiniz.
+* Sıralı teslim: Her bölüm için kayıtlar alındıkları sırayla akışa depolanır. Bölüm başına bir tüketici işlemi ile ilişkilendirerek, kayıtların sırayla işlenmesini garanti edebilirsiniz.
 
-* Hataya dayanıklı: Bölümleri arasında düğümleri tooprovide hata toleransı çoğaltılabilir.
+* Hataya dayanıklı: Bölümler, hataya dayanıklılığı sağlamak üzere düğümler arasında çoğaltılabilir.
 
-* Azure yönetilen diskler ile tümleştirme: yönetilen diskleri sağlayan daha yüksek ölçek ve verimlilik hello Hdınsight kümesi hello sanal makineler tarafından kullanılan hello diskler.
+* Azure Yönetilen Diskler ile tümleştirme: Yönetilen diskler, HDInsight kümesinde sanal makineler tarafından kullanılan diskler için daha yüksek ölçek ve aktarım hızı sağlar.
 
-    Yönetilen diskleri hdınsight'ta Kafka için varsayılan olarak etkindir ve düğüm başına kullanılan diskler hello sayısı Hdınsight oluşturma sırasında yapılandırılabilir. Yönetilen diskler hakkında daha fazla bilgi için bkz. [Azure Yönetilen Diskler](../virtual-machines/windows/managed-disks-overview.md).
+    Yönetilen diskler HDInsight üzerinde Kafka için varsayılan olarak etkindir. Düğüm başına kullanılan disk sayısı HDInsight oluşturma işlemi sırasında yapılandırılabilir. Yönetilen diskler hakkında daha fazla bilgi için bkz. [Azure Yönetilen Diskler](../virtual-machines/windows/managed-disks-overview.md).
 
     Yönetilen disklerin HDInsight üzerinde Kafka ile yapılandırılması hakkında bilgi edinmek için bkz. [HDInsight üzerinde Kafka'nın ölçeklenebilirliğini artırma](hdinsight-apache-kafka-scalability.md).
 
 ## <a name="use-cases"></a>Uygulama alanları
 
-* **İleti**: hello desteklediğinden yayımlama-abone ileti deseni, Kafka genellikle bir ileti aracı olarak kullanılır.
+* **Mesajlaşma**: Yayımla-abone ol ileti modelini desteklediğinden, Kafka genellikle bir ileti aracısı olarak kullanılır.
 
-* **İzleme etkinliği**: bu yana Kafka kayıtları sıralı günlüğe kaydedilmesini sağlar, kullanılan tootrack olması ve etkinlikleri yeniden oluşturun. Örneğin, bir web sitesindeki veya uygulamadaki kullanıcı işlemleri.
+* **Etkinlik izleme**: Kafka, kayıtların sıralı olarak günlüğe kaydedilmesini sağladığından, etkinlikleri izlemek ve yeniden oluşturmak için kullanılabilir. Örneğin, bir web sitesindeki veya uygulamadaki kullanıcı işlemleri.
 
-* **Toplama**: akış işleme kullanan, farklı akışları toocombine bilgileri toplamak ve işletimsel veri hello bilgileri merkezileştirme.
+* **Toplama**: Akış işlemeyi kullanarak, bilgileri işlem verileriyle birleştirmek ve merkezi hale getirmek üzere farklı akışlardan gelen bilgileri toplayabilirsiniz.
 
 * **Dönüştürme**: Akış işlemeyi kullanarak, birden fazla girdi konu başlığındaki verileri bir veya daha fazla çıktı konu başlığında birleştirerek verileri zenginleştirebilirsiniz.
 
+## <a name="architecture"></a>Mimari
+
+![Kafka kümesi yapılandırması](./media/hdinsight-apache-kafka-introduction/kafka-cluster.png)
+
+Bu şemada olayların hata dayanıklılığı ile paralel olarak okunması için tüketici gruplarını, bölümlemeyi ve çoğaltmayı kullanan tipik Kafka yapılandırması gösterilmektedir. Kafka kümesinin durumunu yöneten Apache ZooKeeper eş zamanlı, esnek ve düşük gecikmeli işlemler için derlenmiştir. Kafka, kayıtları *başlıklar* halinde depolar. Kayıtlar, *Üreticiler* tarafından oluşturulur ve *tüketiciler* tarafından kullanılır. Üreticiler, kayıtları Kafka *aracılarından* alır. HDInsight kümenizdeki her çalışan düğümü bir Kafka aracısıdır. Her tüketici için bir bölüm oluşturulduğundan akış verileri paralel olarak işlenebilir. Çoğaltma, bölmeleri düğümlere yaymak ve düğüm (aracı) kesintilerine karşı koruma sağlamak için kullanılır. *(L)* harfi bulunan bölüm, verilen bölümün lideridir. Üretici trafiği ZooKeeper tarafından yönetilen durum kullanılarak her düğümün liderine yönlendirilir.
+
+> [!IMPORTANT]
+> Kafka, Azure veri merkezindeki temel donanımın (raf) farkında değildir. Bölümlerin temel donanım üzerinde doğru şekilde dengelendiğinden emin olmak için bkz. [yüksek kullanılabilirliği yapılandırma (Kafka)](hdinsight-apache-kafka-high-availability.md).
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Kullanım hello aşağıdaki bağlantılar toolearn nasıl toouse Hdınsight üzerinde Apache Kafka:
+HDInsight’ta Apache Kafka kullanma hakkında bilgi almak için aşağıdaki bağlantıları kullanın:
 
 * [HDInsight'ta Kafka kullanmaya başlama](hdinsight-apache-kafka-get-started.md)
 
-* [Hdınsight üzerinde MirrorMaker toocreate Kafka bir kopyasını kullan](hdinsight-apache-kafka-mirroring.md)
+* [MirrorMaker kullanarak HDInsight üzerinde Kafka kopyası oluşturma](hdinsight-apache-kafka-mirroring.md)
 
 * [Apache Storm’u HDInsight üzerinde Kafka ile kullanma](hdinsight-apache-storm-with-kafka.md)
 
 * [Apache Spark’ı HDInsight üzerinde Kafka ile kullanma](hdinsight-apache-spark-with-kafka.md)
 
-* [Bir Azure sanal ağı tooKafka Bağlan](hdinsight-apache-kafka-connect-vpn-gateway.md)
+* [Azure Sanal Ağ üzerinden Kafka’ya bağlanma](hdinsight-apache-kafka-connect-vpn-gateway.md)

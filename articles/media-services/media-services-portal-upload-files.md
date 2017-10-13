@@ -1,6 +1,6 @@
 ---
-title: "aaa\"karşıya yükleme dosyaları hello Azure portal kullanarak bir Media Services hesabına | Microsoft Docs\""
-description: "Bu öğretici, hello karşıya yükleme dosyalarının hello Azure portal kullanarak bir Media Services hesabına adımları"
+title: "Azure portalını kullanarak Media Services hesabına dosya yükleme | Microsoft Belgeleri"
+description: "Bu öğretici, Azure portalını kullanarak bir Azure Media Services hesabına dosya yükleme adımlarında size kılavuzluk eder"
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,58 +14,54 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 4ce1e133c72854532735ba7c72a43c92a75bc240
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 7ddfe44918b358a1749640d1c93dba490855cc5a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="upload-files-into-a-media-services-account-using-hello-azure-portal"></a>Dosyaları hello Azure portal kullanarak bir Media Services hesabına veri yükleme
+# <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Azure portalını kullanarak Media Services hesabına dosya yükleme
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-upload-files.md)
 > * [.NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)
 > 
 > [!NOTE]
-> toocomplete Bu öğretici bir Azure hesabınızın olması gerekir. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/). 
+> Bu öğreticiyi tamamlamak için bir Azure hesabınızın olması gerekir. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 
+Azure Media Services’de dijital dosyalar bir varlığa yüklenir. Varlık; video, ses, görüntüler, küçük resim koleksiyonları, metin parçaları ve kapalı açıklamalı alt yazı dosyaları (ve bu dosyalar için meta veriler) içerebilir. Dosyalar yüklendiğinde, içeriğiniz sonraki işleme ve akışla aktarma faaliyetleri için güvenli bir şekilde bulutta depolanmış olur.
 
-Media Services’de dijital dosyalar bir varlığa yüklenir. Merhaba varlık, video, ses, görüntüler, küçük resim koleksiyonları, metin parçaları ve kapalı açıklamalı alt yazı dosyaları (ve bu dosyalar hakkında hello meta veriler.) içerebilir. Hello dosyalar yüklendiğinde, içeriğiniz sonraki işleme ve akışla için hello bulutta güvenli bir şekilde depolanır.
-
-
-## <a name="upload-files"></a>Dosyaları karşıya yükleme
-
->[!NOTE]
->Media Services işlemek için desteklenen bir toohello en büyük dosya boyutu sınırı yoktur. Lütfen bakın [bu](media-services-quotas-and-limitations.md) hello dosya boyutu sınırlaması hakkında ayrıntılı bilgi için konu.
+> [!NOTE]
+> Media Services dosyalarını işlemek için bir maksimum dosya boyutu vardır. Dosya boyutu sınırları hakkında daha fazla ayrıntı için bkz. [Media Services kotaları ve kısıtlamaları](media-services-quotas-and-limitations.md).
 >
 
-1. Merhaba, [Azure portal](https://portal.azure.com/), Azure Media Services hesabınızı seçin.
-2. Merhaba üzerinde **ayarları** dikey penceresinde tıklatın **varlıklar**.
+## <a name="upload-files"></a>Dosyaları karşıya yükleme
+1. [Azure portalında](https://portal.azure.com/) Azure Media Services hesabınızı seçin.
+2. **Ayarlar** > **Varlıklar**’ı seçin. Ardından **Karşıya Yükle** düğmesini seçin.
    
     ![Dosyaları karşıya yükleme](./media/media-services-portal-vod-get-started/media-services-upload.png)
-3. Merhaba tıklatın **karşıya** düğmesi.
    
-    Merhaba **bir varlığı karşıya yükle** penceresi görüntülenir.
+    **Varlığı karşıya yükle** penceresi görüntülenir.
    
    > [!NOTE]
-   > Dosya boyutu sınırlaması yoktur.
-   > 
-   > 
-4. Bilgisayarınızda istenen toohello video göz atın, onu seçin ve Tamam'ı tıklatın.  
+   > Media Services, karşıya yüklenecek videoların dosya boyutunu kısıtlamaz.
+ 
+3. Bilgisayarınızda, karşıya yüklemek istediğiniz videoya gidin. Videoyu seçin ve ardından **Tamam**’ı seçin.  
    
-    Merhaba karşıya yükleme başlar ve hello dosya adı altında hello ilerleme durumunu görebilirsiniz.  
+    Karşıya yükleme başlar. Dosya adı altında ilerleme durumunu görebilirsiniz.  
 
-Merhaba karşıya yükleme işlemi tamamlandıktan sonra hello yeni varlık hello listelenen görürsünüz **varlıklar** penceresi. 
-
-## <a name="next-steps"></a>Sonraki adımlar
-Karşıya yüklenen varlıklarınızı artık kodlayabilirsiniz. Daha fazla bilgi için bkz. [Varlıkları kodlama](media-services-portal-encode.md).
-
-Azure işlevleri tootrigger yapılandırılmış hello kapsayıcısında ulaşan bir dosyayı temel bir kodlama işi de kullanabilirsiniz. Daha fazla bilgi için [bu örneğe](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ) bakın.
+Karşıya yükleme tamamlandığında, yeni varlık **Varlıklar** bölmesinde listelenir. 
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Geri bildirimde bulunma
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
+
+## <a name="next-steps"></a>Sonraki adımlar
+* [Karşıya yüklenen varlıklarınızı kodlamayı](media-services-portal-encode.md) öğrenin.
+
+* Yapılandırılmış kapsayıcıya gelen dosyaya göre bir kodlama işi tetiklemek için Azure İşlevleri’ni de kullanabilirsiniz. Daha fazla bilgi için [Media Services: Azure Media Services’ı Azure İşlevleri ve Logic Apps ile tümleştirme](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/) örneğine bakın.
+
 

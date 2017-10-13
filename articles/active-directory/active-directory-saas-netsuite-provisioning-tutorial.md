@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile Netsuite | Microsoft Docs"
-description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile Netsuite arasında."
+description: "Çoklu oturum açma Azure Active Directory ile Netsuite arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,82 +13,82 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 5bb2989c1296b9f2abc9e8c84855731adc484aab
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 277c393536615fc8bfe8af0bc6d487115f04776c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Öğretici: Netsuite otomatik kullanıcı sağlamayı için yapılandırma
 
-Bu öğreticinin Hello hedefi Netsuite ve Azure AD tooautomatically sağlama ve devre dışı bırakma sağlama kullanıcı hesaplarından Azure AD tooNetsuite tooperform gereken adımları hello tooshow ' dir.
+Bu öğreticinin amacı Netsuite ve Azure AD otomatik olarak sağlamak ve kullanıcı hesaplarına Azure AD'den Netsuite sağlanmasını gerçekleştirmek için gereken adımları Göster sağlamaktır.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticide gösterilen hello senaryo aşağıdaki öğelerindeki hello zaten sahip olduğunuzu varsayar:
+Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
 *   Bir Azure Active directory kiracısı.
 *   Bir Netsuite çoklu oturum açma etkin abonelik.
 *   Bir kullanıcı hesabında Netsuite takım yönetici izinlerine sahip.
 
-## <a name="assigning-users-toonetsuite"></a>Kullanıcıların tooNetsuite atama
+## <a name="assigning-users-to-netsuite"></a>Kullanıcılar için Netsuite atama
 
-Azure Active Directory hangi kullanıcıların erişim tooselected uygulamaları alması "atamaları" toodetermine adlı bir kavramı kullanır. Otomatik olarak bir kullanıcı hesabı sağlama hello bağlamında, yalnızca hello kullanıcıların ve grupların "Azure AD tooan uygulamada atanmış" eşitlenir.
+Azure Active Directory "atamaları" adlı bir kavram hangi kullanıcıların seçili uygulamalara erişim alması belirlemek için kullanır. Otomatik olarak bir kullanıcı hesabı sağlama bağlamında, yalnızca kullanıcıların ve grupların "Azure AD uygulamada atanmış" eşitlenir.
 
-Yapılandırma ve hizmet sağlama hello etkinleştirmeden önce hangi kullanıcılara ve/veya tooyour Netsuite uygulamasına erişmesi Azure AD temsil hello kullanıcılar gruplarında toodecide gerekir. Karar sonra buraya hello yönergeleri izleyerek bu kullanıcıların tooyour Netsuite uygulama atayabilirsiniz:
+Yapılandırma ve sağlama hizmeti etkinleştirmeden önce hangi kullanıcılara ve/veya Azure AD grupları Netsuite uygulamanıza erişimi olması gereken kullanıcılar temsil eden karar vermeniz gerekir. Karar sonra buradaki yönergeleri izleyerek, bu kullanıcılar Netsuite uygulamanıza atayabilirsiniz:
 
-[Bir kullanıcı veya grup tooan kuruluş uygulama atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Bir kullanıcı veya grup için bir kuruluş uygulama atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-toonetsuite"></a>Kullanıcıların tooNetsuite atamak için önemli ipuçları
+### <a name="important-tips-for-assigning-users-to-netsuite"></a>Kullanıcılar için Netsuite atamak için önemli ipuçları
 
-*   Önerilir tek bir Azure AD kullanıcısının yapılandırma sağlama tooNetsuite tootest hello atanır. Ek kullanıcı ve/veya grupları daha sonra atanabilir.
+*   Önerilir tek bir Azure AD kullanıcısının sağlama yapılandırmayı test etmek için Netsuite atanır. Ek kullanıcı ve/veya grupları daha sonra atanabilir.
 
-*   Bir kullanıcı tooNetsuite atarken, geçerli bir kullanıcı rolünün seçmeniz gerekir. Merhaba "Varsayılan erişim" rolü sağlama için çalışmaz.
+*   Bir kullanıcı için Netsuite atarken, geçerli bir kullanıcı rolünün seçmeniz gerekir. "Varsayılan erişim" rolü sağlama için çalışmaz.
 
 ## <a name="enable-user-provisioning"></a>Kullanıcı sağlamayı etkinleştirin
 
-Bu bölümde, Azure AD tooNetsuite kullanıcının kullanıcı hesabı API sağlama konusunda size rehberlik eder ve hizmet toocreate sağlama hello yapılandırma, güncelleştirme ve Azure AD'de kullanıcı ve grup atama göre Netsuite atanan kullanıcı hesaplarında devre dışı bırakın.
+Bu bölümde Azure AD Netsuite'nın kullanıcı hesabına API sağlama konusunda size rehberlik eder ve oluşturmak için sağlama hizmeti yapılandırma güncelleştirin ve Azure AD'de kullanıcı ve grup atama göre Netsuite atanan kullanıcı hesaplarında devre dışı bırakın.
 
 > [!TIP] 
-> Sağlanan hello yönergeleri izleyerek Netsuite için SAML tabanlı çoklu oturum açma tooenabled seçebilirsiniz [Azure portal](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir.
+> Da tercih edebilirsiniz etkin SAML tabanlı çoklu oturum açma için Netsuite, yönergeleri izleyerek sağlanan [Azure portal](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir.
 
-### <a name="tooconfigure-user-account-provisioning"></a>tooconfigure kullanıcı hesabı sağlama:
+### <a name="to-configure-user-account-provisioning"></a>Kullanıcı hesabı sağlama yapılandırmak için:
 
-Bu bölümde Hello amacı olan toooutline tooNetsuite tooenable Active Directory kullanıcısı kullanıcı sağlamayı nasıl hesapları.
+Bu bölümün amacı, Active Directory kullanıcı hesaplarının Netsuite kullanıcı sağlamayı etkinleştirme anahat sağlamaktır.
 
-1. Merhaba, [Azure portal](https://portal.azure.com), toohello Gözat **Azure Active Directory > Kurumsal uygulamaları > tüm uygulamaları** bölümü.
+1. İçinde [Azure portal](https://portal.azure.com), Gözat **Azure Active Directory > Kurumsal uygulamaları > tüm uygulamaları** bölümü.
 
-2. Çoklu oturum açma için zaten Netsuite yapılandırdıysanız, hello arama alanı kullanarak Netsuite Örneğiniz için arama yapın. Aksi takdirde seçin **Ekle** arayın ve **Netsuite** hello uygulama galerisinde. Merhaba Arama sonuçlarından Netsuite seçin ve uygulamaların tooyour listesine ekleyin.
+2. Çoklu oturum açma için Netsuite zaten yapılandırdıysanız arama alanı kullanarak Netsuite Örneğiniz için arama yapın. Aksi takdirde seçin **Ekle** arayın ve **Netsuite** uygulama galerisinde. Arama sonuçlarından Netsuite seçin ve uygulamaları listenize ekleyin.
 
-3. Netsuite örneğiniz seçin ve ardından hello **sağlama** sekmesi.
+3. Netsuite örneğiniz seçin ve ardından **sağlama** sekmesi.
 
-4. Set hello **sağlama modu** çok**otomatik**. 
+4. Ayarlama **sağlama modunda** için **otomatik**. 
 
     ![Sağlama](./media/active-directory-saas-netsuite-provisioning-tutorial/provisioning.png)
 
-5. Merhaba altında **yönetici kimlik bilgileri** bölümünde, yapılandırma ayarlarını aşağıdaki hello sağlayın:
+5. Altında **yönetici kimlik bilgileri** bölümünde, aşağıdaki yapılandırma ayarları sağlar:
    
-    a. Merhaba, **yönetici kullanıcı adı** metin kutusuna, bir Netsuite hesap hello sahip adı türü **Sistem Yöneticisi** atanan Netsuite.com profilinde.
+    a. İçinde **yönetici kullanıcı adı** metin kutusuna, bir Netsuite hesap adı türü **Sistem Yöneticisi** atanan Netsuite.com profilinde.
    
-    b. Merhaba, **yönetici parolası** metin kutusuna, bu hesap için hello parolayı girin.
+    b. İçinde **yönetici parolası** metin kutusuna, bu hesabın parolasını yazın.
       
-6. Hello Azure portal'ı tıklatın **Bağlantıyı Sına** tooensure Azure AD tooyour Netsuite uygulama bağlanabilir.
+6. Azure portalında tıklatın **Bağlantıyı Sına** Azure emin olmak için AD Netsuite uygulamanıza bağlanabilir.
 
-7. Merhaba, **bildirim e-posta** alan, bir kişi veya grubun sağlama hata bildirimleri almak ve hello onay hello e-posta adresini girin.
+7. İçinde **bildirim e-posta** alan, bir kişi veya grubun sağlama hata bildirimleri almak ve gerekir onay e-posta adresini girin.
 
 8. Tıklatın **kaydedin.**
 
-9. Hello eşlemeleri bölümü altında seçin **eşitleme Azure Active Directory Kullanıcıları tooNetsuite.**
+9. Eşlemeleri bölümü altında seçin **eşitleme Azure Active Directory Kullanıcıları Netsuite.**
 
-10. Merhaba, **öznitelik eşlemelerini** bölümünde, Azure AD tooNetsuite eşitlenir hello kullanıcı öznitelikleri gözden geçirin. Seçilen öznitelikler hello Not **eşleşen** özelliklerdir Itanium tabanlı sistemler için kullanılan toomatch hello kullanıcı hesapları Netsuite içinde güncelleştirme işlemleri için. Merhaba Kaydet düğmesine toocommit herhangi bir değişiklik seçin.
+10. İçinde **öznitelik eşlemelerini** bölümünde, Netsuite için Azure AD'den eşitlenen kullanıcı öznitelikleri gözden geçirin. Seçilen öznitelikler olarak Not **eşleşen** özellikleri Netsuite kullanıcı hesaplarında güncelleştirme işlemleri için eşleştirmek için kullanılır. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
 
-11. tooenable hello Netsuite, değişiklik hello için Azure AD sağlama hizmeti **sağlama durumu** çok**üzerinde** hello ayarları bölümünün içinde
+11. Azure AD hizmeti Netsuite için sağlama etkinleştirmek için değiştirmek **sağlama durumu** için **üzerinde** ayarları bölümünde
 
 12. Tıklatın **kaydedin.**
 
-Herhangi bir kullanıcı ve/veya hello kullanıcılar tooNetsuite ve Gruplar bölümü atanan gruplarını hello ilk eşitleme başlatır. Merhaba ilk eşitleme yaklaşık 20 dakikada hello çalıştığı sürece oluşan sonraki eşitlemeler daha uzun tooperform öncelikli olduğuna dikkat edin. Merhaba kullanabilirsiniz **eşitleme ayrıntıları** bölümünde toomonitor ilerleme ve hizmet Netsuite uygulamanızdan sağlama hello tarafından gerçekleştirilen tüm eylemler anlatılmaktadır bağlantılar tooprovisioning etkinlik raporları izleyin.
+Herhangi bir kullanıcı ve/veya grupları kullanıcıları ve grupları bölümünde Netsuite atanan ilk eşitleme başlatır. İlk eşitlemeyi gerçekleştirmek için yaklaşık 20 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer unutmayın. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve Netsuite uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler açıklanmaktadır etkinlik raporları sağlamak için bağlantıları izleyin.
 
-Şimdi sınama hesabı oluşturabilirsiniz. TooNetsuite hello hesap tooverify eşitlenmiş too20 dakika bekleyin.
+Şimdi sınama hesabı oluşturabilirsiniz. Hesap için Netsuite eşitlendiğinden emin doğrulamak için en çok 20 dakika bekleyin.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

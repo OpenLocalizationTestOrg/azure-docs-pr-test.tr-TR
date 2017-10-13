@@ -1,6 +1,6 @@
 ---
-title: "aaaHow tooadd çok kiracılı uygulama toohello Azure AD uygulama Galerisi'ni | Microsoft Docs"
-description: "Özel geliştirilen çok kiracılı uygulamanızda hello Azure AD uygulama galerisinde nasıl listeleyebilirsiniz açıklar"
+title: "Azure AD uygulama galerisinde için çok kiracılı uygulama ekleme | Microsoft Docs"
+description: "Özel geliştirilen çok kiracılı uygulamanızı Azure AD uygulama galerisinde nasıl listeleyebilirsiniz açıklar"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,28 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 2dc6e0d783835d2639a7e6dda172110ee860a977
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 208f0d40bd7a8e8f35f16e1fcb09c305d833dbb2
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="how-tooadd-a-multi-tenant-application-toohello-azure-ad-application-gallery"></a>Nasıl tooadd çok kiracılı uygulama toohello Azure AD uygulama Galerisi
+# <a name="how-to-add-a-multi-tenant-application-to-the-azure-ad-application-gallery"></a>Azure AD uygulama galerisinde çok kiracılı uygulamaya ekleme
 
-## <a name="what-is-hello-azure-ad-application-gallery"></a>Hello Azure AD uygulama galerisinde nedir?
+## <a name="what-is-the-azure-ad-application-gallery"></a>Azure AD uygulama galerisinde nedir?
 
-Hello Azure AD uygulama galerisinde mükemmel şekilde tooget tüm hello milyonlarca önünde uygulamanızı Azure Active Directory müşteriler toobroaden hello etkisi olan ve uygulamanızın hello Market ulaşılırsa. Aşağıdaki adımları Hello açıklayan hello Azure AD uygulama galerisinde uygulamanızı nasıl listeleyebilirsiniz.
+Azure AD uygulama galerisinde uygulamanızı Azure Active Directory müşterilerin etkisi genişletmek ve uygulamanızın Market'te ulaşmak için tüm milyonlarca önünde almak için harika bir yoludur. Uygulamanızı Azure AD uygulama galerisinde nasıl listesinde aşağıdaki adımları açıklanmaktadır.
 
 ## <a name="if-your-application-supports-saml-or-openidconnect"></a>SAML veya Openıdconnect uygulamanız destekliyorsa
-Hello Azure AD uygulama galerisinde toolist istediğiniz bir çok kiracılı uygulamanız varsa, ilk uygulamanızı tek oturum açma teknolojileri aşağıdaki hello birini destekleyen emin olmalısınız:
+Azure AD uygulama galerisinde listelemek istediğiniz bir çok kiracılı uygulamanız varsa, ilk uygulamanızı aşağıdaki tek oturum açma teknolojileri birini destekleyen emin olmalısınız:
 
-1. **Openıd Connect** - Openıd Connect kimlik doğrulamasını kullanan Azure AD ile tümleştirme doğrudan ve yapılandırması için Azure AD onay API hello. Uygulamanızı SAML desteklemez ve yalnızca bir tümleştirme başlıyorsanız, ardından hello öneri modu budur.
-2. **SAML** – hello özelliği tooconfigure üçüncü taraf kimlik sağlayıcıları hello SAML protokolü kullanarak uygulamanızı zaten sahiptir.
+1. **Openıd Connect** -Openıd Connect kimlik doğrulaması ve Azure AD API yapılandırmasını onayı için kullanarak Azure AD ile doğrudan tümleştirme. Uygulamanızı SAML desteklemez ve yalnızca bir tümleştirme başlıyorsanız, ardından öneri modu budur.
+2. **SAML** – üçüncü taraf kimlik sağlayıcıları SAML protokolü kullanarak yapılandırma yeteneğini uygulamanız zaten sahip.
 
-Uygulamanız bu tek oturum açma modlarından birini destekler ve toolist istiyorsanız çok kiracılı uygulamanızda hello Azure AD uygulama galerisinde, hello belgedeki hello adımları izleyebilirsiniz. hızlı şekilde kullanmaya tooget Gönder bir e-posta çok**waadpartners@microsoft.com**.
+Bu tek oturum açma modlarından birini uygulamanız destekliyorsa ve çok kiracılı uygulamanızı Azure AD uygulama galerisinde listelemek istediğiniz, belgede yer alan adımlar izleyebilirsiniz. Hızlıca başlamak için bir e-posta Gönder  **waadpartners@microsoft.com** .
 
 ## <a name="if-your-application-does-not-support-saml-or-openidconnect"></a>Uygulamanızı SAML veya Openıdconnect desteklemiyorsa
-Uygulamanız bu modlarından birini bile desteklemiyorsa, biz yine bizim parola çoklu oturum açma teknolojisini kullanarak bizim Galerisine tümleştirebilirsiniz. Tooexplore istiyorsanız bu seçeneği, bir e-posta çok gönderebilirsiniz**waadpartners@microsoft.com**.
+Uygulamanız bu modlarından birini bile desteklemiyorsa, biz yine bizim parola çoklu oturum açma teknolojisini kullanarak bizim Galerisine tümleştirebilirsiniz. Bu seçenek keşfetmek isterseniz, e-posta gönderebilirsiniz  **waadpartners@microsoft.com** .
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Nasıl toolist hello Azure Active Directory Uygulama galerisinde uygulamanızı](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing)
+[Uygulamanız Azure Active Directory Uygulama galerisinde listelemek nasıl](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing)

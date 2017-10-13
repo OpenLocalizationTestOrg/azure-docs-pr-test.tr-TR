@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure Service Bus tanılama günlüklerini | Microsoft Docs"
-description: "Bilgi nasıl tooset azure'da hizmet veri yolu için tanılama günlüklerini ayarlama."
+title: "Azure Service Bus tanılama günlüklerini | Microsoft Docs"
+description: "Azure'da hizmet veri yolu için tanılama günlüklerini ayarlamak öğrenin."
 keywords: 
 documentationcenter: .net
 services: service-bus-messaging
@@ -15,27 +15,27 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/27/2017
 ms.author: babanisa;sethm
-ms.openlocfilehash: e48d6eaba6e865ae39f5b07ed6cd53d74c92e2ff
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 72e18444c83b84c5191a0aab3dc6983517167dd1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="service-bus-diagnostic-logs"></a>Hizmet veri yolu tanılama günlükleri
 
 Azure hizmet veri yolu için iki tür günlükleri görüntüleyebilirsiniz:
-* **[Etkinlik günlükleri](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Bu günlükler bir iş üzerinde gerçekleştirilen işlemler hakkında bilgi içerir. Merhaba günlükleri her zaman etkindir.
-* **[Tanılama günlüklerini](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. İçinde bir işi olur daha zengin hakkında bilgi için tanılama günlüklerini yapılandırabilirsiniz. Tanılama güncelleştirmeleri ve hello iş çalışırken oluşan etkinlikler dahil olmak üzere hello iş silinene kadar hello iş oluşturulur hello zamandan kapak etkinlikleri günlüğe kaydeder.
+* **[Etkinlik günlükleri](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Bu günlükler bir iş üzerinde gerçekleştirilen işlemler hakkında bilgi içerir. Günlükleri her zaman etkindir.
+* **[Tanılama günlüklerini](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. İçinde bir işi olur daha zengin hakkında bilgi için tanılama günlüklerini yapılandırabilirsiniz. Tanılama güncelleştirmeleri ve iş çalışırken oluşan etkinlikler dahil olmak üzere iş silinene kadar işin oluşturulduğu zamandan itibaren kapak etkinlikleri günlüğe kaydeder.
 
 ## <a name="turn-on-diagnostic-logs"></a>Tanılama günlüklerini Aç
 
-Tanılama günlükleri, varsayılan olarak devre dışıdır. tooenable tanılama günlükleri, hello aşağıdaki adımları gerçekleştirin:
+Tanılama günlükleri, varsayılan olarak devre dışıdır. Tanılama günlüklerini etkinleştirmek için aşağıdaki adımları gerçekleştirin:
 
-1.  Merhaba, [Azure portal](https://portal.azure.com)altında **izleme + Yönetim**, tıklatın **tanılama günlükleri**.
+1.  İçinde [Azure portal](https://portal.azure.com)altında **izleme + Yönetim**, tıklatın **tanılama günlükleri**.
 
-    ![Dikey gezinti toodiagnostic günlükleri](./media/service-bus-diagnostic-logs/image1.png)
+    ![Tanılama günlüklerini dikey gezinme](./media/service-bus-diagnostic-logs/image1.png)
 
-2. Toomonitor istediğiniz hello kaynak'ı tıklatın.  
+2. İzlemek istediğiniz kaynak'ı tıklatın.  
 
 3.  Tıklatın **tanılamayı açın**.
 
@@ -45,23 +45,23 @@ Tanılama günlükleri, varsayılan olarak devre dışıdır. tooenable tanılam
 
     ![Tanılama günlüklerini durumunu değiştirme](./media/service-bus-diagnostic-logs/image3.png)
 
-5.  İstediğiniz kümesi hello arşiv hedef; Örneğin, bir depolama hesabı, bir olay hub'ı veya Azure günlük analizi.
+5.  İstediğiniz arşiv hedef ayarlanmış; Örneğin, bir depolama hesabı, bir olay hub'ı veya Azure günlük analizi.
 
-6.  Merhaba yeni tanılama ayarları kaydedin.
+6.  Yeni tanılama ayarları kaydedin.
 
-Yeni ayarları yaklaşık 10 dakika içinde etkinleşir. Bundan sonra günlükler hello üzerinde yapılandırılmış hello arşivleme hedef görünür **tanılama günlükleri** dikey.
+Yeni ayarları yaklaşık 10 dakika içinde etkinleşir. Bundan sonra günlükler yapılandırılmış arşivleme hedef görünür **tanılama günlükleri** dikey.
 
-Merhaba tanılama yapılandırma hakkında daha fazla bilgi için bkz: [Azure tanılama günlükleri'ne genel bakış](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Tanılama yapılandırma hakkında daha fazla bilgi için bkz: [Azure tanılama günlükleri'ne genel bakış](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 
 ## <a name="diagnostic-logs-schema"></a>Tanılama günlüklerini şeması
 
-Tüm günlükler JavaScript nesne gösterimi (JSON) biçiminde depolanır. Her giriş bölümden hello açıklanan hello biçimini kullanan alanlarına sahiptir.
+Tüm günlükler JavaScript nesne gösterimi (JSON) biçiminde depolanır. Her giriş aşağıdaki bölümde açıklanan biçimini kullanan alanlarına sahiptir.
 
 ## <a name="operational-logs-schema"></a>İşlem günlükleri şeması
 
-Hello günlüklerini **OperationalLogs** kategori yakalama ne Service Bus işlemleri sırasında olur. Özellikle, bu günlükler hello işlem türü, kuyruk oluşturma, kullanılan, kaynakları dahil yakalamak ve hello işlemin durumunu hello.
+Her oturum açtığında **OperationalLogs** kategori yakalama ne Service Bus işlemleri sırasında olur. Özellikle, bu günlükler sıra oluşturma, kullanılan kaynakları ve işlem durumu da dahil olmak üzere işlem türü yakalayın.
 
-İşlem günlüğü JSON dizeler, aşağıdaki tablonun hello listelenen öğeleri şunları içerir:
+İşlem günlüğü JSON dizeler aşağıdaki tabloda listelenen öğeleri şunları içerir:
 
 Ad | Açıklama
 ------- | -------
@@ -93,7 +93,7 @@ Bir işlem günlüğü JSON dize örneği şöyledir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Service Bus hakkında daha fazla bağlantılar toolearn aşağıdaki hello ziyaret edin:
+Service Bus hakkında daha fazla bilgi için aşağıdaki bağlantıları ziyaret edin:
 
-* [Giriş tooService veri yolu](service-bus-messaging-overview.md)
+* [Hizmet veri yolu giriş](service-bus-messaging-overview.md)
 * [Service Bus ile çalışmaya başlama](service-bus-dotnet-get-started-with-queues.md)

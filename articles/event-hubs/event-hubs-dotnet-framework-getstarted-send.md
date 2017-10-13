@@ -1,6 +1,6 @@
 ---
-title: ".NET Framework hello aaaSend olayları tooAzure olay hub'ları kullanarak | Microsoft Docs"
-description: "Merhaba .NET Framework kullanarak tooEvent hub olayların gönderilmesi kullanmaya başlama"
+title: ".NET Framework kullanarak olayları Azure Event Hubs’a gönderme | Microsoft Belgeleri"
+description: ".NET Framework kullanarak Event Hubs'a olay göndermeye başlama"
 services: event-hubs
 documentationcenter: 
 author: sethmanheim
@@ -12,57 +12,57 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/12/2017
+ms.date: 10/10/2017
 ms.author: sethm
-ms.openlocfilehash: 05514546a6094096e4a3c800db058190076de80a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 16da4e1732445b2480daf18130ea74935c6e6c49
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="send-events-tooazure-event-hubs-using-hello-net-framework"></a>Olayları tooAzure olay hub'ın hello .NET Framework kullanarak Gönder
+# <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>.NET Framework kullanarak olayları Azure Event Hubs’a gönderme
 
 ## <a name="introduction"></a>Giriş
 
-Event Hubs bağlı cihaz ve uygulamalardan büyük miktarlarda olay verileri (telemetri) işleyen bir hizmettir. Verileri Event Hubs'a topladıktan sonra bir depolama kümesi kullanarak hello veri depolamak veya gerçek zamanlı analiz sağlayıcısı kullanarak dönüştürme. Bu büyük ölçekli olay toplama ve işleme özelliği hello nesnelerin interneti (IOT) dahil modern uygulama mimarilerinin temel bir bileşenidir.
+Event Hubs bağlı cihaz ve uygulamalardan büyük miktarlarda olay verileri (telemetri) işleyen bir hizmettir. Verileri Event Hubs’a topladıktan sonra bir depolama kümesi kullanarak depolayabilir veya gerçek zamanlı bir analiz sağlayıcısı kullanarak dönüştürebilirsiniz. Bu büyük ölçekli olay toplama ve işleme özelliği, Nesnelerin İnterneti (IoT) gibi modern uygulama mimarilerinin temel bir bileşenidir.
 
-Bu öğreticide gösterilmiştir nasıl toouse hello [Azure portal](https://portal.azure.com) toocreate bir event hub. C# kullanarak yazılmış bir konsol uygulaması kullanarak toosend olayları tooan olay hub'ı hello .NET Framework nasıl gösterir. Merhaba, .NET Framework kullanarak tooreceive olaylara bakın hello [hello .NET Framework kullanarak olayları alma](event-hubs-dotnet-framework-getstarted-receive-eph.md) makale ya da uygun alıcı dili hello sol İçindekiler hello tıklatın.
+Bu öğretici, [Azure portalının](https://portal.azure.com) bir olay hub'ı oluşturmak için nasıl kullanılacağını gösterir. Ayrıca .NET Framework kullanılarak C# dilinde yazılmış bir konsol uygulaması ile bir olay hub’ına olay gönderme işlemini gösterir. .NET Framework kullanarak olayları almak için [.NET Framework kullanarak olay alma](event-hubs-dotnet-framework-getstarted-receive-eph.md) makalesine bakın veya soldaki içindekiler bölümünden uygun alma diline tıklayın.
 
-toocomplete Bu öğretici önkoşulları aşağıdaki hello gerekir:
+Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız gerekir:
 
-* [Microsoft Visual Studio 2015 veya üzeri](http://visualstudio.com). Bu öğreticide Hello ekran görüntüleri, Visual Studio 2017 kullanın.
+* [Microsoft Visual Studio 2015 veya üzeri](http://visualstudio.com). Bu öğreticideki ekran görüntülerinde Visual Studio 2017 kullanılır.
 * Etkin bir Azure hesabı. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir hesap oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/free/).
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs ad alanı ve bir olay hub’ı oluşturma
 
-Merhaba ilk adımdır toouse hello [Azure portal](https://portal.azure.com) toocreate ad alanı bir olay hub'ları yazın ve hello uygulamanız gereken toocommunicate hello olay hub'ı ile yönetim kimlik bilgilerini alın. toocreate bir ad alanı ve olay hub'ı izleyin hello yordamda [bu makalede](event-hubs-create.md), sonra Bu öğreticide adımları izleyerek hello ile devam edin.
+İlk adımda [Azure portalını](https://portal.azure.com) kullanarak Event Hubs türünde bir ad alanı oluşturun, ardından uygulamanızın olay hub’ı ile iletişim kurması için gereken yönetim kimlik bilgilerini edinin. Bir ad alanı ve olay hub'ı oluşturmak için [bu makalede](event-hubs-create.md) verilen yordamı uygulayın, ardından bu öğreticide yer alan aşağıdaki adımlarla devam edin.
 
 ## <a name="create-a-sender-console-application"></a>Gönderen konsol uygulaması oluşturma
 
-Bu bölümde, tooyour olay hub'ı olaylar gönderir bir Windows konsol uygulamasını yazacaksınız.
+Bu bölümde, olay hub'ınıza olayları gönderen Windows konsol uygulamasını yazacaksınız.
 
-1. Visual Studio'da hello kullanarak yeni bir Visual C# masaüstü uygulaması projesi oluşturma **konsol uygulaması** proje şablonu. Ad hello proje **gönderen**.
+1. Visual Studio'da, **Konsol Uygulaması** proje şablonunu kullanarak yeni bir Visual C# Masaüstü Uygulaması projesi oluşturun. Projeyi **Gönderen** için bir ad verin.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp1.png)
-2. Çözüm Gezgini'nde hello sağ **gönderen** proje ve ardından **çözüm için NuGet paketlerini Yönet**. 
-3. Merhaba tıklatın **Gözat** sekmesini ve ardından arama `Microsoft Azure Service Bus`. Tıklatın **yükleme**ve hello kullanım koşullarını kabul edin. 
+2. Çözüm Gezgini'nde **Gönderen** projesine sağ tıklayın ve ardından **Çözüm için NuGet Paketlerini Yönet**'e tıklayın. 
+3. **Gözat** sekmesine tıklayıp `WindowsAzure.ServiceBus` için arama yapın. **Yükle**'ye tıklayın ve kullanım koşullarını kabul edin. 
    
     ![](./media/event-hubs-dotnet-framework-getstarted-send/create-sender-csharp2.png)
    
-    Visual Studio indirir, yükler ve başvuru toohello ekler [Azure Service Bus kitaplığı NuGet paketi](https://www.nuget.org/packages/WindowsAzure.ServiceBus).
-4. Merhaba aşağıdakileri ekleyin `using` deyimleri hello hello üstündeki **Program.cs** dosyası:
+    Visual Studio, [Azure Service Bus kitaplığı NuGet paketini](https://www.nuget.org/packages/WindowsAzure.ServiceBus) indirir, yükler ve ona bir başvuru ekler.
+4. Aşağıdaki `using` deyimlerini **Program.cs** dosyasının üst kısmına ekleyin:
    
   ```csharp
   using System.Threading;
   using Microsoft.ServiceBus.Messaging;
   ```
-5. Aşağıdaki alanları toohello hello eklemek **Program** hello yer tutucu değerlerini hello event hub'ı hello önceki bölümde oluşturduğunuz ve daha önce kaydettiğiniz hello ad alanı düzeyinde bağlantı dizesi hello adıyla değiştirerek sınıfı.
+5. Aşağıdaki alanları **Program** sınıfına ekleyin; bu işlemi yaparken yer tutucu değerlerini önceki bölümde oluşturduğunuz olay hub’ı adıyla ve daha önce kaydettiğiniz ad alanı düzeyinde bağlantı dizesiyle değiştirin.
    
   ```csharp
   static string eventHubName = "{Event Hub name}";
   static string connectionString = "{send connection string}";
   ```
-6. Yöntem toohello aşağıdaki hello eklemek **Program** sınıfı:
+6. **Program** sınıfına aşağıdaki yöntemi ekleyin:
    
   ```csharp
   static void SendingRandomMessages()
@@ -88,23 +88,23 @@ Bu bölümde, tooyour olay hub'ı olaylar gönderir bir Windows konsol uygulamas
   }
   ```
    
-  Bu yöntem, olayları tooyour olay hub'ı 200 ms gecikmeyle sürekli olarak gönderir.
-7. Son olarak, aşağıdaki satırları toohello hello eklemek **ana** yöntemi:
+  Bu yöntem, olayları 200 ms'lik bir gecikmeyle sürekli olarak olay hub'ınıza gönderir.
+7. Son olarak, **Main** yöntemine aşağıdaki satırları ekleyin:
    
   ```csharp
-  Console.WriteLine("Press Ctrl-C toostop hello sender process");
-  Console.WriteLine("Press Enter toostart now");
+  Console.WriteLine("Press Ctrl-C to stop the sender process");
+  Console.WriteLine("Press Enter to start now");
   Console.ReadLine();
   SendingRandomMessages();
   ```
-8. Merhaba programını çalıştırın ve herhangi bir hata olduğundan emin olun.
+8. Programı çalıştırın ve herhangi bir hata olmadığından emin olun.
   
-Tebrikler! İletileri tooan olay hub'ı şimdi gönderdiniz.
+Tebrikler! Bir olay hub'ına ileti gönderdiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bir olay hub'ı oluşturur ve veri gönderir çalışan bir uygulama oluşturduğunuza göre aşağıdaki senaryoları toohello üzerinde hareket edebilirsiniz:
+Olay hub'ını oluşturan ve veri gönderen bir çalışan uygulama oluşturduğunuza göre aşağıdaki senaryolara geçebilirsiniz:
 
-* [Merhaba olay işleyicisi konağı kullanarak olayları alma](event-hubs-dotnet-framework-getstarted-receive-eph.md)
+* [Olay İşlemcisi Konağı kullanarak olay alma](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 * [Olay İşlemcisi Konağı başvurusu](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 * [Event Hubs’a genel bakış](event-hubs-what-is-event-hubs.md)
 

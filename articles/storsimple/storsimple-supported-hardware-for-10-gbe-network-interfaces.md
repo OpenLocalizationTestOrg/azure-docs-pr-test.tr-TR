@@ -1,6 +1,6 @@
 ---
-title: "StorSimple 10 GbE arabirimleri için aaaHardware | Microsoft Docs"
-description: "Desteklenen hello küçük form Faktörlü Takılabilir (SFP) vericilerinin, kablolar ve anahtarlar hello 10 GbE ağ arabirimleri için StorSimple Cihazınızda açıklar."
+title: "StorSimple 10 GbE için donanım arabirimleri | Microsoft Docs"
+description: "Desteklenen küçük form Faktörlü Takılabilir (SFP) vericilerinin, kablolar ve anahtarlar 10 GbE ağ arabirimleri için StorSimple Cihazınızda açıklar."
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
-ms.openlocfilehash: 3e6769380040ab08d9a57ef7221bf62c6c855137
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: db03b3cd668bf8e35913872ac4225de6d4d3edd1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="supported-hardware-for-hello-10-gbe-network-interfaces-on-your-storsimple-device"></a>StorSimple Cihazınızda hello 10 GbE ağ arabirimleri için desteklenen donanım
+# <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>StorSimple Cihazınızda 10 GbE ağ arabirimleri için desteklenen donanım
 ## <a name="overview"></a>Genel Bakış
 Bu makalede, Microsoft Azure StorSimple cihazınızla çalışır tamamlayıcı donanım hakkında bilgi sağlar.
 
 ## <a name="list-of-devices-tested-by-microsoft"></a>Microsoft tarafından test aygıtların listesi
-Microsoft, küçük form Faktörlü Takılabilir (SFP) vericilerinin, kablolar ve anahtarlar tooensure en iyi şekilde aygıtlarla çalıştıklarının aşağıdaki hello test. (yeni donanım sınanırken tabloları aşağıdaki hello güncelleştirilir.)
+Microsoft aşağıdaki küçük form Faktörlü Takılabilir (SFP) vericilerinin, kablolar ve anahtarlar en iyi şekilde aygıtlarla çalıştıklarının emin olmak için test. (Yeni donanım sınanırken aşağıdaki tablolarda güncelleştirilir.)
 
 ### <a name="sfp-transceivers"></a>SFP + ileticileri
 | Yapma | modeli |
@@ -47,8 +47,8 @@ Microsoft, küçük form Faktörlü Takılabilir (SFP) vericilerinin, kablolar v
 | 2. |Cisco |N3K-C3048-ZM-F |
 | 3. |Cisco |N5K C5596UP FA |
 
-## <a name="list-of-devices-tested-in-hello-field"></a>Aygıtların listesi hello alanında test
-Bu bölümde hello alanında StorSimple müşteriler tarafından başarıyla dağıtıldığı aygıtlar hello listesini içerir. Bunlar, Microsoft tarafından test edilmemiştir ancak büyük olasılıkla toowork StorSimple Cihazınızı ile olur.
+## <a name="list-of-devices-tested-in-the-field"></a>Aygıtların listesi alanında test
+Bu bölüm alanında StorSimple müşteriler tarafından dağıtılan başarıyla aygıtların listesini içerir. Bunlar, Microsoft tarafından test edilmemiştir ancak StorSimple cihazınızla çalışması olasıdır.
 
 | Parametre | Değer |
 | --- | --- |
@@ -64,10 +64,10 @@ Bu bölümde hello alanında StorSimple müşteriler tarafından başarıyla da�
 | StorSimple yazılım sürümü |6.3.9600.17491 |
 
 ## <a name="list-of-devices-tested-by-oem-provider-mellanox"></a>OEM sağlayıcısı (Mellanox) tarafından test aygıtların listesi
-Mellanox küçük form Faktörlü Takılabilir (SFP) vericilerinin, kablolar ve anahtarlar tooensure bunlar en iyi şekilde hello 10 GbE ağ arabirimleri, StorSimple Cihazınızda gibi Mellanox ağ arabirimleri ile çalışmasını aşağıdaki hello test.
+Mellanox aşağıdaki küçük form Faktörlü Takılabilir (SFP) vericilerinin, kablolar ve anahtarlar en iyi şekilde 10 GbE ağ arabirimleri, StorSimple Cihazınızda gibi Mellanox ağ arabirimleri ile çalıştıklarının emin olmak için test.
 
 ### <a name="cables-and-modules-supported-by-mellanox"></a>Kablo ve Mellanox tarafından desteklenen modülleri
-Merhaba aşağıdaki tabloda hello kablo ve Mellanox tarafından desteklenen modüllerini listeler. Bunlar, Microsoft tarafından test edilmemiştir ancak büyük olasılıkla toowork StorSimple Cihazınızı ile olur.
+Aşağıdaki tabloda, kablo ve Mellanox tarafından desteklenen modüllerini listeler. Bunlar, Microsoft tarafından test edilmemiştir ancak StorSimple cihazınızla çalışması olasıdır.
 
 | S. Hayır. | Hız | modeli | Açıklama | Yapma |
 | --- | --- | --- | --- | --- |
@@ -78,7 +78,7 @@ Merhaba aşağıdaki tabloda hello kablo ve Mellanox tarafından desteklenen mod
 | 5. |10 GbE |Cisco SFP-H10GBCU1M |Cisco SFP + kablosu |Cisco |
 | 6. |10 GbE |Cisco SFP-H10GBCU3M |Cisco SFP + kablosu |Cisco |
 | 7. |10 GbE |Cisco SFP-H10GBCU5M |Cisco SFP + kablosu |Cisco |
-| 8. |10 GbE |J9281B HP X242 10 G |SFP + tooSFP + 1m doğrudan ekleme Bakır kablo |HP |
+| 8. |10 GbE |J9281B HP X242 10 G |SFP + SFP + 1m doğrudan Bakır kablo ekleme |HP |
 | 9. |10 GbE |455883 B21 HP BLc |10Gb SR SFP + iptal et |HP |
 | 10. |10 GbE |455886 B21 HP BLc |10Gb LR SFP + iptal et |HP |
 | 11. |10 GbE |487649 B21 HP BLc |SFP + 0,5 m 10GbE Bakır kablosu |HP |
@@ -97,18 +97,18 @@ Merhaba aşağıdaki tabloda hello kablo ve Mellanox tarafından desteklenen mod
 | 24. |10 GbE |JD095B HP |X240 10 G SFP + SFP + 0.65 m DAC kablosu |HP |
 | 25. |10 GbE |JD096B HP |X240 10 G SFP + SFP + 1.2 m DAC kablosu |HP |
 | 26. |10 GbE |JD097B HP |X240 10 G SFP + SFP + 3 m DAD kablosu |HP |
-| 27. |10 GbE |MAM1Q00A QSA Mellanox |QSFP tooSFP + bağdaştırıcısı |Mellanox teknolojileri |
-| 28. |10 GbE |MC2309124-006 Mt |Pasif Bakır kablo 1 x SFP + tooQSFP 10Gb/s 24awg 7m |Mellanox teknolojileri |
-| 29. |10 GbE |MC2309124 007 Mt |Pasif Bakır kablo 1 x SFP + tooQSFP 10Gb/s 24awg 7m |Mellanox teknolojileri |
-| 30. |10 GbE |MC2309130 003 Mt |Pasif Bakır kablo 1 x SFP + tooQSFP 10Gb/s 30awg 3m |Mellanox teknolojileri |
-| 31. |10 GbE |MC2309130 00A Mt |Pasif Bakır kablo 1 x SFP + tooQSFP 10Gb/s 30awg 0,5 m |Mellanox teknolojileri |
+| 27. |10 GbE |MAM1Q00A QSA Mellanox |SFP + bağdaştırıcısına QSFP |Mellanox teknolojileri |
+| 28. |10 GbE |MC2309124-006 Mt |Pasif Bakır kablo 1 x SFP+ QSFP 10 Gb/s 24awg için 7 m |Mellanox teknolojileri |
+| 29. |10 GbE |MC2309124 007 Mt |Pasif Bakır kablo 1 x SFP+ QSFP 10 Gb/s 24awg için 7 m |Mellanox teknolojileri |
+| 30. |10 GbE |MC2309130 003 Mt |Pasif Bakır kablo 1 x SFP+ QSFP 10 Gb/s 30awg için 3 m |Mellanox teknolojileri |
+| 31. |10 GbE |MC2309130 00A Mt |Pasif Bakır kablo 1 x SFP+ QSFP 10 Gb/s 30awg için 0,5 m |Mellanox teknolojileri |
 | 32. |10 GbE |MC3309124 005 Mt |Pasif Bakır kablo 1 x SFP+ 10 Gb/s 24awg 5 m |Mellanox teknolojileri |
 | 33. |10 GbE |MC3309124 007 Mt |Pasif Bakır kablo 1 x SFP+ 10 Gb/s 24awg 7 m |Mellanox teknolojileri |
 | 34. |10 GbE |MC3309130 003 Mt |Pasif Bakır kablo 1 x SFP+ 10 Gb/s 30awg 3 m |Mellanox teknolojileri |
 | 35. |10 GbE |MC3309130 00A Mt |Pasif Bakır kablo 1 x SFP+ 10 Gb/s 30awg 0,5 m |Mellanox teknolojileri |
 
 ### <a name="switches-supported-by-mellanox"></a>Mellanox tarafından desteklenen anahtarları
-Aşağıdaki tablonun hello Mellanox tarafından desteklenen hello anahtarları listeler. Bunlar, Microsoft tarafından test edilmemiştir ancak büyük olasılıkla toowork StorSimple Cihazınızı ile olur.
+Aşağıdaki tabloda Mellanox tarafından desteklenen anahtarları listeler. Bunlar, Microsoft tarafından test edilmemiştir ancak StorSimple cihazınızla çalışması olasıdır.
 
 | S. Hayır. | Hız | modeli | Açıklama | Yapma |
 | --- | --- | --- | --- | --- |

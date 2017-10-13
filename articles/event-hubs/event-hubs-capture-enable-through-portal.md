@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure olay hub'ları yakalama portal üzerinden etkinleştirme | Microsoft Docs"
-description: "Hello Azure portal kullanarak hello olay hub'ları yakalama özelliğini etkinleştirin."
+title: "Portal üzerinden Azure Event Hubs Yakalama özelliğini etkinleştirme | Microsoft Docs"
+description: "Azure portalını kullanarak Event Hubs Yakalama özelliğini etkinleştirin."
 services: event-hubs
 documentationcenter: 
 author: sethmanheim
@@ -14,60 +14,48 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/28/2017
 ms.author: sethm
-ms.openlocfilehash: 27c7528552c497a4d98873a22bd56a991c66247c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 4a4ab1ee022b6b33d35217df916d01f32e04d3a4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="enable-event-hubs-capture-using-hello-azure-portal"></a>Olay hub'ları hello Azure portal kullanarak yakalama etkinleştir
+# <a name="enable-event-hubs-capture-using-the-azure-portal"></a>Azure portalını kullanarak Event Hubs Yakalama özelliğini etkinleştirme
 
-Yakalama hello kullanarak hello olay hub'ı oluşturma zamanında yapılandırabilirsiniz [Azure portal](https://portal.azure.com). Her iki yakalama hello veri tooan Azure yapabilecekleriniz [Blob storage](https://azure.microsoft.com/services/storage/blobs/) kapsayıcı ya da tooan [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) hesabı.
+Azure [Event Hubs Yakalama][capture-overview] özelliği, Event Hubs’dan akış verilerini seçtiğiniz [Azure Blob depolama](https://azure.microsoft.com/services/storage/blobs/) alanına veya [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) hesabına otomatik olarak iletmenizi sağlar.
 
-## <a name="capture-data-tooan-azure-storage-account"></a>Yakalama veri tooan Azure depolama hesabı  
+[Azure portalını](https://portal.azure.com) kullanarak olay hub'ı oluşturma sırasında Yakalama özelliğini yapılandırabilirsiniz. Verileri bir Azure [Blob depolama](https://azure.microsoft.com/services/storage/blobs/) kapsayıcısına veya bir [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) hesabına alabilirsiniz.
 
-Bir olay hub'ı oluşturduğunuzda hello tıklatarak yakalama etkinleştirebilirsiniz **üzerinde** hello düğmesini **Event Hub'ı oluşturma** portal dikey. Ardından bir depolama hesabı ve kapsayıcı tıklayarak belirttiğiniz **Azure Storage** hello içinde **yakalama sağlayıcısı** kutusu. Olay hub'ları yakalama hizmeti için kimlik doğrulaması ile depolama kullandığından, toospecify bir depolama bağlantı dizesi gerekmez. Merhaba kaynak seçici hello kaynak URI'si depolama hesabınız için otomatik olarak seçer. Azure Resource Manager kullanıyorsanız bu URI'yi dize olarak açıkça belirtmeniz gerekir.
+Daha fazla bilgi için bkz. [Event Hubs Capture'a genel bakış][capture-overview].
 
-Merhaba varsayılan zaman penceresi 5 dakikadır. Hello en düşük değer 1, en fazla 15 hello olur. Merhaba **boyutu** penceresine sahip bir dizi 10-500 MB.
+## <a name="capture-data-to-an-azure-storage-account"></a>Azure Depolama hesabına veri alma  
+
+Bir olay hub’ı oluşturduğunuzda **Olay Hub'ı oluştur** portal ekranında **Aç** düğmesine tıklayarak Yakalama özelliğini etkinleştirebilirsiniz. Ardından **Yakalama Sağlayıcısı** kutusunda **Azure Storage**’a tıklayarak bir Depolama Hesabı ve kapsayıcı belirtirsiniz. Event Hubs Yakalama özelliği, depolama ile hizmetten hizmete kimlik doğrulama kullandığından depolama bağlantı dizesi belirtmenize gerek yoktur. Kaynak seçici, depolama hesabınız için kaynak URI'sini otomatik olarak seçer. Azure Resource Manager kullanıyorsanız bu URI'yi dize olarak açıkça belirtmeniz gerekir.
+
+Zaman penceresi varsayılan olarak 5 dakikadır. En düşük değer 1, en yüksek değer ise 15'tir. **Boyut** penceresi 10-500 MB aralığındadır.
 
 ![][1]
 
-## <a name="capture-data-tooan-azure-data-lake-store-account"></a>Veri tooan Azure Data Lake Store hesabı yakalama
+## <a name="capture-data-to-an-azure-data-lake-store-account"></a>Azure Data Lake Store hesabına veri alma
 
-toocapture veri tooAzure Data Lake Store, bir Data Lake Store hesabı ve bir olay hub'ı oluşturun:
+Azure Data Lake Store'a veri almak için bir Data Lake Store hesabı ve bir olay hub'ı oluşturun:
 
 ### <a name="create-an-azure-data-lake-store-account-and-folders"></a>Azure Data Lake Store hesabı ve klasörleri oluşturma
 
-1. Merhaba yönergeleri izleyerek bir Data Lake Store hesabı oluşturma [Azure Data Lake hello Azure portal kullanarak Store ile çalışmaya başlama](../data-lake-store/data-lake-store-get-started-portal.md). 
-2. Merhaba hello yönergeleri izleyerek bu hesap altında bir klasör oluşturun [Azure Data Lake Store hesabında klasör oluşturma](../data-lake-store/data-lake-store-get-started-portal.md#createfolder) bölümü.
-3. Merhaba Data Lake Store hesabı dikey penceresinde tıklayın **Veri Gezgini**.
-4. **Erişim**’e tıklayın.
-5. **Ekle**'ye tıklayın.
-6. Merhaba, **arama adına veya e-posta** kutusuna **Microsoft.EventHubs** ve bu seçeneği belirleyin. 
-7. Merhaba **izinleri** sekmesi görüntülenir. Merhaba izinleri hello aşağıdaki şekilde gösterildiği gibi ayarlayın:
-
-    ![][6]
-
-8. **Tamam** düğmesine tıklayın.
-9. Şimdi, toohello hedef klasör gözatma ve hello klasör adını tıklatarak hello kök klasöründe bir klasör oluşturun.
-10. **Erişim**’e tıklayın.
-11. **Ekle**'ye tıklayın.
-12. Merhaba, **arama adına veya e-posta** kutusuna **Microsoft.EventHubs** ve bu seçeneği belirleyin.
-13. Merhaba **izinleri** yeniden sekmesi görüntülenir. Merhaba izinleri hello aşağıdaki şekilde gösterildiği gibi ayarlayın:
-
-    ![][5]
+1. [Azure Portal'ı kullanarak Azure Data Lake Store ile çalışmaya başlama](../data-lake-store/data-lake-store-get-started-portal.md) bölümündeki yönergeleri uygulayarak bir Data Lake Store hesabı oluşturun.
+2. Event Hubs verilerini almak ve Data Lake Store hesabınıza veri yazabilmesi için Event Hubs'a izin atamak istediğiniz Data Lake Stora hesabı içinde bir klasör oluşturmak için [Event Hubs'a izin atama](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs) bölümündeki yönergeleri uygulayın.  
 
 ### <a name="create-an-event-hub"></a>Olay hub’ı oluşturma
 
-1. Bu hello olay hub'ın hello olmalıdır Not hello Azure Data Lake Store, yeni oluşturduğunuz aynı Azure abonelik. Merhaba tıklatarak oluşturma hello olay hub'ı **üzerinde** altında düğmesini **yakalama** hello içinde **Event Hub'ı oluşturma** portal dikey. 
-2. Merhaba, **Event Hub'ı oluşturma** portal dikey penceresinde, seçin **Azure Data Lake Store** hello gelen **yakalama sağlayıcısı** kutusu.
-3. İçinde **seçin Data Lake Store**, hello önceden ve hello oluşturduğunuz Data Lake Store hesabı belirtin **Data Lake yolu** alanında, oluşturduğunuz hello yolu toohello veri klasörü girin.
+1. Olay hub'ının oluşturduğunuz Azure Data Lake Store ile aynı Azure aboneliğinde olması gerektiğini unutmayın. **Event Hub'ı oluştur** portal sayfasının **Yakalama** bölümünde **Açık** düğmesine tıklayarak olay hub'ını oluşturun. 
+2. **Event Hub'ı oluştur** portal sayfasında, **Yakalama Sağlayıcısı** kutusundan **Azure Data Lake Store**’u seçin.
+3. **Data Lake Store’u seçin** kısmında, daha önce oluşturduğunuz Data Lake Store hesabını belirtin ve **Data Lake Yolu** alanına, oluşturduğunuz veri klasörünün yolunu girin.
 
     ![][3]
 
 ## <a name="add-or-configure-capture-on-an-existing-event-hub"></a>Mevcut bir olay hub'ında Yakalama özelliğini yapılandırma
 
-Event Hubs ad alanlarında mevcut olan olay hub'ları üzerinde Yakalama özelliğini yapılandırabilirsiniz. tooenable bir var olan olay hub'ı veya toochange yakalama ayarlarınızı yakalama, hello ad alanı tooload hello tıklatın **Essentials** dikey penceresinde, kendisi için tooenable istediğiniz veya hello yakalama ayarını hello olay hub'ı tıklatın. Son olarak, hello tıklatın **özellikleri** hello bölümünü dikey penceresini açın ve ardından hello rakamları aşağıdaki gösterildiği gibi hello yakalama ayarları düzenleyin:
+Event Hubs ad alanlarında mevcut olan olay hub'ları üzerinde Yakalama özelliğini yapılandırabilirsiniz. Yakalama özelliğini mevcut bir olay hub'ında etkinleştirmek veya Yakalama ayarlarınızı değiştirmek için ad alanına tıklayarak **Temel Bileşenler** ekranını yükleyin, ardından Yakalama ayarını etkinleştirmek veya değiştirmek istediğiniz olay hub'ına tıklayın. Son olarak, açık sayfanın **Özellikler** bölümüne tıklayın ve Yakalama ayarlarını aşağıdaki şekilde gösterildiği gibi düzenleyin:
 
 ### <a name="azure-blob-storage"></a>Azure Blob Depolama
 
@@ -81,9 +69,11 @@ Event Hubs ad alanlarında mevcut olan olay hub'ları üzerinde Yakalama özelli
 [2]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture2.png
 [3]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture3.png
 [4]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture4.png
-[5]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture5.png
-[6]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture6.png
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Dilerseniz Azure Resource Manager şablonlarını kullanarak da Event Hubs Yakalama özelliğini yapılandırabilirsiniz. Daha fazla bilgi için bkz. [Azure Resource Manager şablonu kullanarak Yakalama özelliğini etkinleştirme](event-hubs-resource-manager-namespace-event-hub-enable-capture.md).
+- Olay hub’larını yakalama hakkında daha fazla bilgi için bkz. [Event Hubs Yakalama özelliğine genel bakış][capture-overview].
+- Dilerseniz Azure Resource Manager şablonlarını kullanarak da Event Hubs Yakalama özelliğini yapılandırabilirsiniz. Daha fazla bilgi için bkz. [Azure Resource Manager şablonu kullanarak Yakalama özelliğini etkinleştirme](event-hubs-resource-manager-namespace-event-hub-enable-capture.md).
+- [Azure portalı kullanarak Azure Data Lake Store ile çalışmaya başlama](../data-lake-store/data-lake-store-get-started-portal.md)
+
+[capture-overview]: event-hubs-capture-overview.md

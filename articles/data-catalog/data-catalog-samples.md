@@ -1,6 +1,6 @@
 ---
-title: "aaaData katalog geliştirici örnekleri | Microsoft Docs"
-description: "Bu makalede Merhaba veri Kataloğu REST API'si hello kullanılabilir geliştirici örnekleri genel bir bakış sağlar."
+title: "Veri Kataloğu geliştirici örnekleri | Microsoft Docs"
+description: "Bu makalede veri Kataloğu REST API'si için kullanılabilir geliştirici örnekleri genel bir bakış sağlar."
 services: data-catalog
 documentationcenter: 
 author: spelluru
@@ -15,28 +15,28 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/05/2017
 ms.author: spelluru
-ms.openlocfilehash: 11d87d15ee500c1b08e9d507db25626e40c1b98d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6ba88885805f1a206f01015f7eec5236da517403
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="data-catalog-developer-samples"></a>Veri Kataloğu geliştirici örnekleri
-Merhaba veri Kataloğu REST API'sini kullanarak veri Kataloğu uygulamaları geliştirmeye başlayın. Merhaba veri Kataloğu REST API'si programlı erişim tooData katalog kaynakları tooregister sağlayan bir REST tabanlı API'dır, açıklama ve veri varlıklarını program aracılığıyla arama.
+Veri Kataloğu REST API'sini kullanarak veri Kataloğu uygulamaları geliştirmeye başlayın. Veri Kataloğu REST API'si, kaydetme, açıklama ve veri varlıklarını program aracılığıyla arama için veri Kataloğu kaynaklarına programlı erişim sağlayan bir REST tabanlı bir API'dir.
 
-Github'da sahibiz hello örnekleri şunlardır:
+Github'da sahibiz örnekleri şunlardır:
 
 * [Azure Veri Kataloğu ile çalışmaya başlama](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-get-started/)
   
-  Bir örnek, nasıl Azure AD tooRegister ile tooauthenticate aramak ve hello veri Kataloğu REST API'sini kullanarak bir veri varlığını silmesine gösterir.
+  Bir örnek, kaydetme, arama ve veri Kataloğu REST API'sini kullanarak bir veri varlığına silmek için Azure AD ile kimlik doğrulaması yapmayı gösterir.
 * [Toplu kaydetmeniz ve açıklama ekleme](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-excel-register-data-assets/)
   
-  Nasıl toobulk kaydetme veri Kataloğu REST API'sini ve açık XML kullanarak bir Excel çalışma kitabı veri varlıklarından gösteren bir örnek.
+  Toplu olarak nasıl oluşturulduğunu gösteren bir örnek veri Kataloğu REST API'sini ve açık XML kullanarak bir Excel çalışma kitabı veri varlıklarından kaydedin.
 * [İçeri/dışarı aktarma aracı](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-import-export/)
   
-  Nasıl toouse hello veri Kataloğu REST API'si toofetch varlıklarından Azure veri Kataloğu hello ve bunları bir dosyaya seri gösteren bir örnek. Ayrıca nasıl tootake varlık kümesiyle JSON olarak serileştirilen ve bunları hello kataloğuna gönderme gösterir. Bu, bir alt kümesini hello katalog bir arama sorgusu kullanarak dışa aktarma destekler.
+  Veri Kataloğu REST API'si varlıklar Azure veri Kataloğu'ndan getirebilir ve bir dosyaya serileştirmek için nasıl kullanılacağını gösteren bir örnek. Ayrıca, JSON olarak serileştirilen varlık kümesiyle almak ve bunları kataloğuna gönderme nasıl gösterir. Bu, bir arama sorgusu kullanarak katalog kümesini dışarı aktarma destekler.
 
 * [Toplu içe aktarma terimler](https://azure.microsoft.com/resources/samples/data-catalog-bulk-import-glossary/)
 
-    Bu örnek nasıl tooimport sözlüğü CSV dosyaları tooADC sözlüğünden koşulları gösterir.
+    Bu örnek terimler ADC sözlüğü için CSV dosyalarından içeri aktarma gösterir.
 

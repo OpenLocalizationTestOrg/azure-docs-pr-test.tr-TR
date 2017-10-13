@@ -1,6 +1,6 @@
 ---
-title: "aaaWhat iş yükleri için Azure Site Recovery ile korumak?"
-description: "Merhaba çoğaltma, yük devretme ve şirket içi sanal makinelerin ve fiziksel sunucuları tooAzure veya tooa içi ikincil site kurtarma iletişime geçerek Azure Site Recovery iş yüklerini ve uygulamaları korur"
+title: "Azure Site Recovery ile hangi iş yüklerini koruyabilirsiniz?"
+description: "Azure Site Recovery, şirket içi sanal makinelerin ve fiziksel sunucuların Azure'a veya ikincil bir şirket içi siteye yönelik çoğaltma, yük devretme ve kurtarma işlemlerini koordine ederek iş yüklerinizi ve uygulamalarınızı korur."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,45 +14,45 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
-ms.openlocfilehash: cab2e1ce3c2b7b2c5f899d957219f5c12eb5965c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: d7cb95d0e099d5e0357ce8871f02c894acfdc9b7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery ile hangi iş yüklerini koruyabilirsiniz?
-Bu makalede, iş yüklerini ve uygulamaları hello Azure Site Recovery hizmeti ile çoğaltabilirsiniz açıklanmaktadır.
+Bu makalede, Azure Site Recovery hizmetiyle çoğaltabileceğiniz iş yükleri ve uygulamalar açıklanmıştır.
 
-Tüm yorumlarınızı ve sorularınızı bu makalenin veya hello hello altındaki sonrası [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Tüm yorumlarınızı ve sorularınızı bu makalenin alt kısmında veya [Azure Kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)'nda paylaşabilirsiniz.
 
 ## <a name="overview"></a>Genel Bakış
-Kuruluşlar, iş devamlılığı ve olağanüstü durum kurtarma (BCDR) stratejinize tookeep iş yüklerinin ve verilerin planlanmış ve Planlanmamış kapalı kalma süresi sırasında güvenli ve kullanılabilir gerekir ve tooregular çalışma koşullarına mümkün olan en kısa sürede kurtarın.
+Kuruluşlar; uygulamaları, iş yüklerini ve verileri planlanmış ve planlanmamış kesinti süreleri içinde güvenli ve kullanılabilir durumda tutan ve mümkün olan en kısa zamanda normal çalışma koşullarına dönmelerini sağlayan bir iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejisine ihtiyaç duyar.
 
-Site Recovery, tooyour BCDR stratejinize katkı sağlayan bir Azure hizmetidir. Site Kurtarma'yı kullanarak, uygulamaya duyarlı çoğaltma toohello Bulut veya tooa ikincil site dağıtabilirsiniz. Olup uygulamalarınızın Windows tabanlı veya Linux tabanlı, fiziksel sunucularda, Vmware'de ya da Hyper-V, çalışan, Site Recovery tooorchestrate çoğaltma, olağanüstü durum kurtarma testi gerçekleştirmek ve kullanabilirsiniz yük devretme ve yeniden çalıştırın.
+Site Recovery, BCDR stratejinize katkıda bulunan bir Azure hizmetidir. Site Recovery’yi kullanarak, buluta veya ikincil bir siteye uygulamayla tutarlı çoğaltma dağıtabilir. Uygulamalarınızın Windows tabanlı veya Linux tabanlı olmasına ya da fiziksel sunucularda, VMware'de ya da Hyper-V’de çalışıyor olmasına bakılmaksızın, çoğaltmayı düzenleme, olağanüstü durum kurtarma testi yapma, yük devretme ve yeniden çalışma gibi işlemler için Site Recovery'yi kullanabilirsiniz.
 
-Site Recovery; SharePoint, Exchange, Dynamics, SQL Server ve Active Directory dahil olmak üzere Microsoft uygulamalarıyla tümleşik bir şekilde çalışır. Microsoft; Oracle, SAP, IBM ve Red Hat gibi önde gelen satıcılarla da yakın bir şekilde çalışır. Çoğaltma çözümlerini her uygulama için ayrı olarak özelleştirebilirsiniz.
+Site Recovery; SharePoint, Exchange, Dynamics, SQL Server ve Active Directory dahil olmak üzere Microsoft uygulamalarıyla tümleşik bir şekilde çalışır. Microsoft; Oracle, SAP ve Red Hat gibi önde gelen satıcılarla da yakın bir şekilde çalışır. Çoğaltma çözümlerini her uygulama için ayrı olarak özelleştirebilirsiniz.
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>Uygulama çoğaltma için neden Site Recovery'yi kullanmam gerekir?
-Site Recovery, tooapplication düzeyinde koruma ve kurtarma gibi katkıda bulunur:
+Site Recovery, uygulama düzeyinde koruma ve kurtarmaya şu yollarla katkıda bulunur:
 
 * Desteklenen makinede çalışan iş yükleri için uygulaması belirsiz çoğaltma.
-* RPO değerleriyle Itanium tabanlı sistemler için 30 saniye toomeet hello gereksinimleri en kritik iş uygulamalarının yakın zaman uyumlu çoğaltma.
+* En önemli iş uygulamalarının ihtiyaçlarını karşılamak üzere 30 saniye kadar kısa RPO değerleriyle neredeyse tamamen zaman uyumlu çoğaltma.
 * Tek veya çok katmanlı uygulamalar için uygulamayla tutarlı anlık görüntüler.
 * SQL Server AlwaysOn tümleştirmesinin yanı sıra, AD çoğaltması, SQL AlwaysOn, Exchange Veritabanı Kullanılabilirlik Grupları (DAG'ler) ve Oracle Data Guard'ın içinde bulunduğu diğer uygulama düzeyi çoğaltma teknolojileriyle ortaklık.
-* Tek bir tıklatmayla tüm uygulama yığınını toorecover sağlayan ve tooinclude dış komut dosyaları ve el ile gerçekleştirilen eylemleri hello plana dahil esnek kurtarma planları.
-* Site Recovery ve Azure toosimplify ağ yönetimi Gelişmiş hello özelliği tooreserve IP adresleri de dahil olmak üzere, uygulama ağ gereksinimlerini Yük Dengeleme ve tümleştirme Azure Traffic Manager ile düşük RTO ağ geçişleri için yapılandırın.
+* Uygulama yığınınızın tümünü tek tıklamayla kurtarmanıza ve harici betiklerin yanı sıra kendi eylemlerinizi de dahil etmenize olanak sağlayan esnek kurtarma planları.
+* Site Recovery'de ve Azure'da bulunan, IP adreslerini ayırabilme, yük dengelemeyi yapılandırabilme ve düşük RTO ağ geçişleri için Azure Traffic Manager ile tümleştirme özelliklerini içeren, uygulama ağ gereksinimlerini basitleştirmeye yönelik gelişmiş ağ yönetimi.
 * İndirilebilen ve kurtarma planlarıyla tümleştirilebilen üretime hazır ve uygulamaya özgü betikler sağlayan zengin bir otomasyon kitaplığı.
 
 ## <a name="workload-summary"></a>İş yükü özeti
-Site Recovery, desteklenen bir makinede çalışan herhangi bir uygulamayı çoğaltabilir. Ayrıca uygulamaya özgü ek sınama çıkışı ürün ekipleri toocarry ile işbirliği yaptık.
+Site Recovery, desteklenen bir makinede çalışan herhangi bir uygulamayı çoğaltabilir. Ayrıca, uygulamaya özgü ek testler yapmak için ürün ekipleriyle de ortaklıklar kurduk.
 
-| **İş yükü** | **Hyper-V sanal makineleri tooa ikincil siteye çoğaltma** | **Hyper-V sanal makineleri tooAzure Çoğalt** | **VMware Vm'lerini tooa ikincil siteye çoğaltma** | **VMware Vm'leri tooAzure Çoğalt** |
+| **İş yükü** | **Hyper-V VM'lerini ikincil bir siteye çoğaltma** | **Hyper-V VM'lerini Azure'a çoğaltma** | **VMware VM'lerini ikincil bir siteye çoğaltma** | **VMware VM'lerini Azure'a çoğaltma** |
 | --- | --- | --- | --- | --- |
 | Active Directory, DNS |E |E |E |E |
 | Web uygulamaları (IIS, SQL) |E |E |E |E |
 | System Center Operations Manager |E |E |E |E |
 | SharePoint |E |E |E |E |
-| SAP<br/><br/>Küme olmayan için SAP sitesini tooAzure Çoğalt |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |
+| SAP<br/><br/>Küme olmayan seçenekler için SAP sitesini Azure'a çoğaltma |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |
 | Exchange (DAG olmayan) |E |E |E |E |
 | Uzak Masaüstü/VDI |E |E |E |Yok |
 | Linux (işletim sistemi ve uygulamalar) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |E (Microsoft tarafından test edildi) |
@@ -63,49 +63,49 @@ Site Recovery, desteklenen bir makinede çalışan herhangi bir uygulamayı ço�
 | Citrix XenApp ve XenDesktop |Yok |E |Yok |E |
 
 ## <a name="replicate-active-directory-and-dns"></a>Active Directory'yi ve DNS'yi çoğaltma
-Bir Active Directory ve DNS altyapısı temel toomost Kurumsal uygulamaları şunlardır. Olağanüstü durum kurtarma sırasında tooprotect gerekir ve iş yüklerinizi ve uygulamalarınızı kurtarmadan önce bu altyapı bileşenlerini kurtarın.
+Çoğu kurumsal uygulama için Active Directory ve DNS gereklidir. Olağanüstü durum kurtarma sırasında, iş yüklerinizi ve uygulamalarınızı kurtarmadan önce bu altyapı bileşenlerini korumanız ve kurtarmanız gerekir.
 
-Site Recovery toocreate tam otomatik olağanüstü durum kurtarma planı, Active Directory ve DNS için kullanabilirsiniz. Örneğin, SharePoint ve SAP birincil tooa ikincil siteden üzerinden toofail istiyorsanız, Active Directory ilk başarısız bir kurtarma planı ayarlayabilirsiniz ve ardından başka bir uygulamaya özgü kurtarma planı toofail hello etkin kullanan diğer uygulamalar Dizin.
+Site Recovery'yi kullanarak Active Directory ve DNS için tamamen otomatik bir olağanüstü durum kurtarma planı oluşturabilirsiniz. Örneğin, birincil bir siteden ikincil bir siteye SharePoint ve SAP yük devretmesi gerçekleştirmek istiyorsanız ilk önce Active Directory'ye yük devretmesini gerçekleştiren bir kurtarma planı, daha sonra da Active Directory'ye bağlı olan diğer uygulamaların yük devretmesini gerçekleştirmek için uygulamaya özgü bir ek kurtarma planı ayarlayabilirsiniz.
 
 Active Directory'yi ve DNS'yi koruma hakkında [daha fazla bilgi edinin](site-recovery-active-directory.md).
 
 ## <a name="protect-sql-server"></a>SQL Server'ı koruma
-SQL Server, şirket içi bir veri merkezinde birçok iş uygulamasına yönelik veri hizmetleri için bir veri hizmetleri altyapısı sağlar.  Site Recovery, SQL Server kullanan tooprotect çok katmanlı Kurumsal uygulamaları SQL Server HA/DR teknolojileriyle birlikte kullanılabilir. Site Recovery şunları sağlar:
+SQL Server, şirket içi bir veri merkezinde birçok iş uygulamasına yönelik veri hizmetleri için bir veri hizmetleri altyapısı sağlar.  Site Recovery, SQL Server kullanan çok katmanlı kurumsal uygulamaları korumak için SQL Server HA/DR teknolojileriyle birlikte kullanılabilir. Site Recovery şunları sağlar:
 
-* SQL Server için basit ve ekonomik bir olağanüstü durum kurtarma çözümü. Birden çok sürümleri ve SQL Server tek başına sunucular ve kümeler, tooAzure veya tooa ikincil site sürümleri çoğaltılır.  
-* SQL AlwaysOn Kullanılabilirlik grupları, toomanage yük devretme ve yeniden çalışma Azure Site Recovery kurtarma planlarında ile tümleştirme.
-* Uçtan uca kurtarma Merhaba hello SQL Server veritabanları dahil olmak üzere bir uygulamadaki tüm katmanlar planları.
+* SQL Server için basit ve ekonomik bir olağanüstü durum kurtarma çözümü. SQL Server tek başına sunucularının ve kümelerinin birden çok sürümünü Azure'a veya ikincil bir siteye çoğaltma olanağı.  
+* Azure Site Recovery kurtarma planları ile yük devretme ve yeniden çalışma gibi işlemleri yönetmek için SQL AlwaysOn Kullanılabilirlik Grupları ile tümleştirme olanağı.
+* SQL Server veritabanları dahil olmak üzere bir uygulamadaki tüm katmanlara yönelik uçtan uca kurtarma planları.
 * SQL Server'ın, azami yükleri Site Recovery ile Azure içindeki daha büyük IaaS sanal makinesi boyutlarına "yığılarak" ölçeklendirilmesi.
-* Kolay SQL Server olağanüstü durum kurtarma testi Yük devretme sınaması işlemlerini tooanalyze veri çalıştırın ve üretim ortamınızı etkilemeden uyumluluk denetimlerini çalıştırın.
+* Kolay SQL Server olağanüstü durum kurtarma testi Üretim ortamınızı etkilemeden uyumluluk denetimlerini çalıştırmak ve verileri analiz etmek için test amaçlı yük devretme işlemini çalıştırabilirsiniz.
 
 SQL Server'ı koruma hakkında [daha fazla bilgi edinin](site-recovery-sql.md).
 
 ## <a name="protect-sharepoint"></a>SharePoint'i koruma
 Azure Site Recovery, SharePoint dağıtımlarının korunmasına şu şekilde yardımcı olur:
 
-* Merhaba gereksinimi ve olağanüstü durum kurtarma için yedek grubu için ilgili altyapı maliyetini ortadan kaldırır. Site Recovery tooreplicate bir grubun tümünü (Web, uygulama ve veritabanı katmanları) tooAzure veya tooa ikincil sitesi kullanın.
-* Uygulama dağıtımını ve yönetimini basitleştirir. Dağıtılan güncelleştirmelerin toohello birincil site otomatik olarak çoğaltılır ve böylece yük devretme ve kurtarma grubundan bir ikincil sitedeki sonra kullanılabilir. Merhaba yönetim karmaşıklığı ve beklemeyi grubun güncel tutulmasına ilişkin maliyetleri de düşürür.
+* Olağanüstü durum kurtarma için yedek bir gruba olan ihtiyacı ve bununla ilgili altyapı maliyetini ortadan kaldırır. Bir grubun tümünü (Web, uygulama ve veritabanı katmanları) Azure'a veya ikincil bir siteye çoğaltmak için Site Recovery'yi kullanın.
+* Uygulama dağıtımını ve yönetimini basitleştirir. Birincil siteye dağıtılan güncelleştirmeler otomatik olarak çoğaltılır ve bir grubun ikincil bir siteye yönelik yük devretme ve kurtarma işlemlerinin ardından hemen kullanılabilir. Ayrıca, yedek bir grubun güncel tutulmasına ilişkin maliyetleri ve yönetim karmaşıklığını azaltır.
 * Test ve hata ayıklama işlemleri için üretim benzeri isteğe bağlı bir kopya çoğaltma ortamı oluşturarak SharePoint uygulaması için geliştirme sürecini basitleştirir.
-* Site Recovery toomigrate SharePoint dağıtımlarını tooAzure kullanarak geçiş toohello bulut basitleştirir.
+* SharePoint dağıtımlarını Azure'a geçirmek için Site Recovery'yi kullanarak buluta geçişi basitleştirir.
 
 SharePoint'i koruma hakkında [daha fazla bilgi edinin](site-recovery-sharepoint.md).
 
 ## <a name="protect-dynamics-ax"></a>Dynamics AX'i koruma
 Azure Site Recovery, Dynamics AX ERP çözümünüzün korunmasına şu şekillerde yardımcı olur:
 
-* Tüm Dynamics AX ortamınızı (Web ve AOS katmanları, veritabanı katmanları, SharePoint) çoğaltılmasını tooAzure, veya tooa ikincil site.
-* Dynamics AX dağıtımlarının toohello buluta (Azure'a) geçişini basitleştirir.
+* Tüm Dynamics AX ortamınızı (Web ve AOS katmanları, veritabanı katmanları, SharePoint) Azure'a veya ikincil bir siteye çoğaltma işleminizi düzenler.
+* Dynamics AX dağıtımlarının buluta (Azure'a) geçişini basitleştirir.
 * Test ve hata ayıklama işlemleri için üretim benzeri isteğe bağlı bir kopya oluşturarak Dynamics AX uygulamasının geliştirme ve test sürecini basitleştirir.
 
 Dynamic AX'i koruma hakkında [daha fazla bilgi edinin](site-recovery-dynamicsax.md) 
 
 ## <a name="protect-rds"></a>RDS'yi koruma
-Uzak Masaüstü Hizmetleri (RDS) sanal masaüstü altyapısı (VDI), oturum tabanlı masaüstlerini ve uygulamaları, kullanıcıların toowork herhangi bir yere etkinleştirir. Azure Site Recovery ile şunları yapabilirsiniz:
+Uzak Masaüstü Hizmetleri (RDS), sanal masaüstü altyapısını (VDI), oturum tabanlı masaüstlerini ve uygulamaları etkinleştirerek kullanıcıların herhangi bir yerden çalışabilmesine olanak sağlar. Azure Site Recovery ile şunları yapabilirsiniz:
 
-* Yönetilen veya yönetilmeyen havuza alınmış sanal masaüstlerini tooa ikincil site ve uzak uygulamaları ve oturumları tooa ikincil site veya Azure çoğaltılır.
+* Yönetilen veya yönetilmeyen, havuza alınmış sanal masaüstlerini ikincil bir siteye; uzak uygulamaları ve oturumları ise ikincil bir siteye ya da Azure'a çoğaltın
 * Şunları çoğaltabilirsiniz:
 
-| **RDS** | **Hyper-V sanal makineleri tooa ikincil siteye çoğaltma** | **Hyper-V sanal makineleri tooAzure Çoğalt** | **VMware Vm'lerini tooa ikincil siteye çoğaltma** | **VMware Vm'leri tooAzure Çoğalt** | **Fiziksel sunucuları tooa ikincil siteye çoğaltma** | **Fiziksel sunucuları tooAzure Çoğalt** |
+| **RDS** | **Hyper-V VM'lerini ikincil bir siteye çoğaltma** | **Hyper-V VM'lerini Azure'a çoğaltma** | **VMware VM'lerini ikincil bir siteye çoğaltma** | **VMware VM'lerini Azure'a çoğaltma** | **Fiziksel sunucuları ikincil bir siteye çoğaltma** | **Fiziksel sunucuları Azure'a çoğaltma** |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Havuza Alınmış Sanal Masaüstü (yönetilmeyen)** |Evet |Hayır |Yes |Hayır |Yes |Hayır |
 | **Havuza Alınmış Sanal Masaüstü (yönetilen ve UPD'siz)** |Evet |Hayır |Yes |Hayır |Yes |Hayır |
@@ -116,45 +116,45 @@ RDS'yi koruma hakkında [daha fazla bilgi edinin](https://gallery.technet.micros
 ## <a name="protect-exchange"></a>Exchange'i koruma
 Site Recovery, Exchange'in korunmasına şu şekilde yardımcı olur:
 
-* Tek veya tek başına sunucular gibi küçük Exchange dağıtımları için Site Recovery çoğaltabilir ve tooAzure veya tooa ikincil sitesi başarısız.
+* Site Recovery, tek veya tek başına sunucular gibi küçük Exchange dağıtımları için Azure'a veya ikincil bir siteye çoğaltma ve yük devretme yapabilir.
 * Site Recovery, daha büyük dağıtımlar için Exchange DAG'leri ile tümleşir.
-* Exchange Dag'leri çözüm bir kuruluştaki Exchange olağanüstü durum kurtarma için önerilen hello ' dir.  Site Recovery kurtarma planları Dag'leri, siteler arasında tooorchestrate DAG yük devretme içerebilir.
+* Exchange DAG'leri, kuruluşlarda Exchange olağanüstü durum kurtarma işlemleri için önerilen çözümdür.  Site Recovery kurtarma planlarında siteler arası DAG yük devretmelerini düzenlemek üzere DAG'ler bulunabilir.
 
 Exchange'i koruma hakkında [daha fazla bilgi edinin](https://gallery.technet.microsoft.com/Exchange-DR-Solution-using-11a7dcb6).
 
 ## <a name="protect-sap"></a>SAP'yi koruma
-Site Recovery tooprotect SAP dağıtımınızı şu şekilde kullanın:
+Site Recovery'yi kullanarak SAP dağıtımınızı şu şekilde koruyun:
 
-* Şirket içi bileşenleri tooAzure yineleyerek çalışan SAP NetWeaver ve NetWeaver üretim dışı uygulamalarının korumasını etkinleştirin.
-* Bileşenleri tooanother Azure veri merkezi yineleyerek Azure, çalışan SAP NetWeaver ve NetWeaver üretim dışı uygulamalarının korumasını etkinleştirin.
-* Buluta geçiş, Site Recovery toomigrate kullanarak SAP dağıtım tooAzure basitleştirin.
+* Bileşenleri Azure'a çoğaltarak, şirket içinde çalışan SAP NetWeaver ve NetWeaver dışı üretim uygulamalarının korumasını etkinleştirin.
+* Bileşenleri başka bir Azure veri merkezine çoğaltarak,Azure çalıştıran SAP NetWeaver ve NetWeaver dışı üretim uygulamalarının korumasını etkinleştirin.
+* SAP dağıtımınızı Azure'a geçirmek için Site Recovery'yi kullanarak buluta geçişi basitleştirin.
 * SAP uygulamaları test etmek için talep üzerine üretim kopyası oluşturarak SAP proje yükseltmelerini, testlerini ve prototip oluşturma işlemlerini basitleştirin.
 
 SAP'yi koruma hakkında [daha fazla bilgi edinin](site-recovery-sap.md).
 
 ## <a name="protect-iis"></a>IIS Koruma
-Site Recovery tooprotect IIS dağıtımınız aşağıdaki şekilde kullanın:
+Site Recovery'yi kullanarak IIS dağıtımınızı şu şekilde koruyun:
 
-Azure Site Recovery ortamı tooa soğuk uzak siteniz veya Microsoft Azure gibi genel bulut kritik bileşenlerinde hello yineleyerek olağanüstü durum kurtarma sağlar. Çoğaltılmış toohello kurtarma sitesi Hello sanal makineyle hello web sunucusu ve hello veritabanı olan beri gereksinim toobackup yapılandırma dosyalarını veya yoktur sertifikaları ayrı olarak. uygulama eşlemeleri hello ve değiştirilen gönderme yük devretme ortam değişkenleri bağlamaları bağımlı hello olağanüstü durum kurtarma planları tümleşik komut dosyaları aracılığıyla güncelleştirilebilir. Sanal makineler hello kurtarma sitesinde yalnızca bir yük devretme hello olay getirdiği. Yalnızca bu, Azure Site Recovery ayrıca hello son tooend yük devretme yetenekleri aşağıdaki hello sağlayarak düzenlemek yardımcı olur:
+Azure Site Recovery, ortamınızdaki kritik bileşenleri soğuk bir uzak konuma veya Microsoft Azure gibi bir genel buluta çoğaltarak olağanüstü durum kurtarma sağlar. Web sunucusu ve veritabanı ile sanal makine, kurtarma konumuna çoğaltıldığı için yapılandırma dosyalarının veya sertifikaların ayrıca yedeklenmesi gerekmez. Yük devretme sonrasında değişen ortam değişkenlerine bağımlı uygulama eşlemeleri ve bağlamaları, olağanüstü durum kurtarma planlarına tümleştirilmiş betikler aracılığıyla güncelleştirilebilir. Sanal Makineler yalnızca yük devretme durumunda kurtarma konumuna getirilir. Azure Site Recovery ayrıca aşağıdaki özellikleri sağlayarak uçtan uca yük devretmeyi düzenlemenize yardımcı olur:
 
--   Sıralama hello kapatma ve sanal makinelerin başlangıç çeşitli katmanları hello.
--   Bunlar başlatılmış sonra uygulama bağımlılıklarını ve bağlamaları betikleri tooallow güncelleştirmesini hello sanal makineleri ekleniyor. Merhaba komut dosyaları da kullanılan tooupdate hello DNS sunucusu toopoint toohello kurtarma sitesi olabilir.
--   IP adreslerini toovirtual makineler öncesi yük devretme hello birincil ve kurtarma ağları eşleyerek ayırabilir ve bu nedenle güncelleştirilmiş toobe post yük devretme gerekmez betiklerini kullanın.
--   Böylece hello kapsam için bir olağanüstü durum hello olay karışıklığı ortadan kaldırılır hello web sunucularında, birden çok web uygulamaları için tek tıklamayla yük devretme özelliği.
--   DR ayrıntısına için yalıtılmış bir ortamda özelliği tootest hello kurtarma planları.
+-   Çeşitli katmanlardaki sanal makinelerin kapatma ve başlatma sıralaması.
+-   Uygulama bağımlılıkları ve başlatıldıktan sonra sanal makineler üzerindeki bağlamaların güncelleştirilmesine olanak tanıyan betikler ekleme. Betikler ayrıca DNS sunucusunu kurtarma konumunu işaret edecek şekilde güncelleştirmek için kullanılabilir.
+-   Birincil ve kurtarma ağlarını eşleyerek yük devretme öncesinde sanal makinelere IP adresleri ayırın ve böylece yük devretme sonrasında güncelleştirilmesi gerekmeyen betikler kullanın.
+-   Web sunucularında birden fazla web uygulaması için tek tıklamayla yük devretme yapabilme olanağı, böylece olağanüstü bir durumda karışıklık kapsamını ortadan kaldırma.
+-   DR ayrıntıları için yalıtılmış bir ortamda kurtarma planlarını test edebilme olanağı.
 
 IIS web grubunu koruma hakkında [daha fazla bilgi edinin](https://aka.ms/asr-iis).
 
 ## <a name="protect-citrix-xenapp-and-xendesktop"></a>Citrix XenApp ve XenDesktop’u koruma
-Site Recovery tooprotect, Citrix XenApp ve XenDesktop dağıtımlarınızın aşağıdaki şekilde kullanın:
+Citrix XenApp ve XenDesktop dağıtımlarınızı korumak için aşağıdaki gibi Site Recovery kullanın:
 
-* (AD DNS sunucusu, SQL veritabanı sunucusu, Citrix teslim denetleyicisi mağaza sunucusu XenApp ana (VDA), Citrix XenApp lisans) dahil olmak üzere hello farklı dağıtım çoğaltma tarafından Citrix XenApp ve XenDesktop dağıtımı etkinleştir koruma katmanları tooAzure.
-* Buluta geçiş, Citrix XenApp ve XenDesktop dağıtım tooAzure Site Recovery toomigrate kullanarak basitleştirin.
+* Citrix XenApp ve XenDesktop dağıtımının korumasını etkinleştirmek için, (AD DNS sunucusu, SQL veritabanı sunucusu, Citrix Delivery Controller, StoreFront sunucusu, XenApp Master (VDA), Citrix XenApp License Server) gibi farklı dağıtım katmanlarını Azure’a çoğaltın.
+* Citrix XenApp ve XenDesktop dağıtımınızı Azure’a geçirmek için Site Recovery’yi kullanarak buluta geçişi basitleştirin.
 * Test ve hata ayıklama uygulamaları için isteğe bağlı üretim benzeri bir kopya oluşturarak Citrix XenApp/XenDesktop testlerini basitleştirin.
 * Bu çözüm yalnızca Windows Server işletim sistemi sanal masaüstleri için geçerli olup, istemci sanal masaüstlerinin lisanslaması Azure’da henüz desteklenmediğinden istemci sanal masaüstleri için geçerli değildir.
 Azure’da istemci/sunucu masaüstlerini lisanslama hakkında [daha fazla bilgi edinin](https://azure.microsoft.com/pricing/licensing-faq/).
 
-Citrix XenApp ve XenDesktop dağıtımlarını koruma hakkında [daha fazla bilgi edinin](site-recovery-citrix-xenapp-and-xendesktop.md). Alternatif olarak, hello başvurabilir [teknik incelemesi Citrix gelen](https://aka.ms/citrix-xenapp-xendesktop-with-asr) ayrıntılı, hello aynı.
+Citrix XenApp ve XenDesktop dağıtımlarını koruma hakkında [daha fazla bilgi edinin](site-recovery-citrix-xenapp-and-xendesktop.md). Alternatif olarak, aynı konuyla ilgili ayrıntılı bilgilerin sunulduğu [Citrix teknik incelemesine](https://aka.ms/citrix-xenapp-xendesktop-with-asr) başvurabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Önkoşulları denetleme](site-recovery-prereq.md)

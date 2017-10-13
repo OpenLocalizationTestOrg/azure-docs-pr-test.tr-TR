@@ -3,8 +3,8 @@
 | --- | --- | --- | --- |
 | API çağrıları |500 K |1.5 M / birim |15 M / birim |
 | Etkin Cihazlar |500 |Sınırsız |Sınırsız |
-| Ölçek |Yok |Too6 birimler |Sınırsız birim |
-| Anında İletme Bildirimleri  |Bildirim hub'ları ücretsiz, too1 M iter dahil katmanı |Bildirim hub'ları temel dahil, too10 M iter katmanı |Bildirim hub'ları standart, too10 M iter dahil katmanı |
+| Ölçek |Yok |6 birimleri |Sınırsız birim |
+| Anında İletme Bildirimleri  |Bildirim hub'ları ücretsiz dahil katmanı, 1 M varan iter |Bildirim hub'ları temel dahil katman, en fazla 10 M iter |Bildirim hub'ları standart dahil katman, en fazla 10 M iter |
 | Gerçek zamanlı ileti /<br/>Web Yuvaları |Sınırlı |350 / mobil hizmeti |Sınırsız |
 | Çevrimdışı eşitlemeler |Sınırlı |Dahil |Dahil |
 | Zamanlanan işler |Sınırlı |Dahil |Dahil |

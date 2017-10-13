@@ -1,9 +1,9 @@
 ---
-title: aaaIntroduction tooAzure depolama | Microsoft Docs
-description: "Giriş tooAzure depolama, Microsoft'un veri depolama hello bulutta."
+title: "Azure Depolamaya Giriş | Microsoft Docs"
+description: "Microsoft’un bulutta veri depolama alanı Azure Storage’a giriş."
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
@@ -13,89 +13,82 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
-ms.author: robinsh
-ms.openlocfilehash: f61324f98d0a8eb24023e4344acdb4ca58bb27f8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.author: tamram
+ms.openlocfilehash: e7b32aa2de5d6501e8d7894a936e9ab8b2f4f42f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-<!-- this is hello same version that is in hello MVC branch -->
-# <a name="introduction-toomicrosoft-azure-storage"></a>Giriş tooMicrosoft Azure depolama
+# <a name="introduction-to-microsoft-azure-storage"></a>Microsoft Azure Storage’a Giriş
 
 Microsoft Azure Depolama, yüksek oranda kullanılabilir, güvenli, dayanıklı, ölçeklenebilir ve yedekli depolama sağlayan, Microsoft tarafından yönetilen bir bulut hizmetidir. Microsoft bakımı üstlenir ve kritik sorunları sizin yerinize çözer. 
 
-Azure Depolama üç veri hizmetinden oluşur: Blob depolama, Dosya depolama ve Kuyruk depolama. BLOB Depolama hello hızlı performans olası için yalnızca SSD kullanarak premium depolama ile standart ve premium depolama destekler. Seyrek erişimli depolama seyrek erişilen verileri daha düşük maliyetli bir için büyük miktarlarda toostorage izin vererek, başka bir özelliktir.
+Azure Depolama üç veri hizmetinden oluşur: Blob depolama, Dosya depolama ve Kuyruk depolama. Blob depolama, standart ve premium depolama seçeneklerini destekler. Premium depolamada olabilecek en yüksek performans için yalnızca SSD kullanılır. Seyrek erişimli depolama, seyrek erişilen büyük miktarlarda verileri düşük maliyetli depolama olanağı sunan başka bir özelliktir.
 
-Bu makalede, hello aşağıdaki hakkında bilgi edinin:
-* Hello Azure depolama hizmetleri
-* Merhaba türlerde depolama hesapları
+Bu makalede, aşağıdakiler hakkında bilgi edinirsiniz:
+* Azure Depolama hizmetleri
+* Depolama hesabı türleri
 * Bloblara, kuyruklara ve dosyalara erişme
 * şifreleme
 * çoğaltma 
 * Depolama içine veya dışına veri aktarma
-* çok sayıda depolama istemcisi kitaplıklarını kullanılabilir hello. 
+* kullanabileceğiniz çok sayıda depolama istemcisi. 
 
+Azure Depolama ile hemen çalışmaya başlamak için aşağıdaki hızlı başlangıç belgelerini inceleyin:
+* [PowerShell kullanarak depolama hesabı oluşturma](storage-quickstart-create-storage-account-powershell.md)
+* [CLI kullanarak depolama hesabı oluşturma](storage-quickstart-create-storage-account-cli.md)
 
-<!-- RE-ENABLE THESE AFTER MVC GOES LIVE 
-tooget up and running with Azure Storage quickly, check out one of hello following Quickstarts:
-* [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
--->
+## <a name="introducing-the-azure-storage-services"></a>Azure Depolama hizmetlerine giriş
 
-
-## <a name="introducing-hello-azure-storage-services"></a>Hello Azure Storage hizmetlerine giriş
-
-hello hizmetlerinden herhangi birini Azure Storage--Blob storage, dosya depolama ve kuyruk Depolama--tarafından sağladığınız toouse ilk bir depolama hesabı oluşturun ve verileri bu depolama hesabı alanındaki belirli bir hizmet/gruptan sonra aktarabilirsiniz. 
+Azure Depolama tarafından sağlanan hizmetlerden (Blob depolama, Dosya depolama ve Kuyruk depolama) birini kullanmak için önce bir depolama hesabı oluşturmanız gerekir. Ardından o depolama hesabındaki belirli bir hizmete/hizmetten veri aktarabilirsiniz. 
 
 ## <a name="blob-storage"></a>Blob depolama
 
-Bloblar, temelde bilgisayarda (veya tablet, mobil cihaz ve benzeri) depoladığınız dosyalara benzer dosyalardır. Bu dosyalar resimler, Microsoft Excel dosyaları, HTML dosyaları, sanal sabit diskler (VHD) olabileceği gibi, günlükler, veritabanı yedeklemeleri gibi büyük veriler de dahil olmak üzere neredeyse her şey olabilir. BLOB'ları benzer toofolders olan kapsayıcılara depolanır. 
+Bloblar, temelde bilgisayarda (veya tablet, mobil cihaz ve benzeri) depoladığınız dosyalara benzer dosyalardır. Bu dosyalar resimler, Microsoft Excel dosyaları, HTML dosyaları, sanal sabit diskler (VHD) olabileceği gibi, günlükler, veritabanı yedeklemeleri gibi büyük veriler de dahil olmak üzere neredeyse her şey olabilir. Bloblar klasörlere benzer kapsayıcılarda depolanır. 
 
-Blob storage'da dosyaları depolamak sonra her yerden erişebilmeleri REST arabirimini veya hello Azure SDK'sı depolama istemci kitaplıklarından birini URL'leri kullanarak hello world hello. Depolama istemcisi kitaplıkları, Node.js, Java, PHP, Ruby, Python ve .NET dahil olmak üzere birden çok dil için kullanılabilir. 
+Blob depolamada depoladığınız dosyalara URL'leri, REST arabirimi ya da Azure SDK'sı depolama istemci kitaplıklarından birini kullanarak tüm dünyadan erişebilirsiniz. Depolama istemcisi kitaplıkları, Node.js, Java, PHP, Ruby, Python ve .NET dahil olmak üzere birden çok dil için kullanılabilir. 
 
-Blok bloblar, ekleme blobları ve sayfa blobları (VHD dosyaları için kullanılır) olmak üzere üç tür blob vardır.
+Blok bloblar, sayfa blobları (VHD dosyaları için kullanılır) ve ekleme blobları olmak üzere üç tür blob vardır.
 
-* Blok blobları dosyalarıdır kullanılan toohold sıradan tooabout yukarı 4.7 TB. 
-* Sayfa bloblarını kullanılan toohold rasgele erişim too8 TB boyutunda yukarı dosyalarıdır. Bu sanal makineleri yedekleme hello VHD dosyaları için kullanılır.
-* Ekleme BLOB'ları gibi hello blok blobları blok yapılan ancak için iyileştirilmiş ekleme işlemleri. Bunlar, birden çok VM'lerin aynı blob bilgi toohello günlüğü gibi şeyler için kullanılır.
+* Blok blobları, yaklaşık 4,7 TB’a kadar boyutta sıradan dosyaları saklamak için kullanılır. 
+* Sayfa blobları, 8 TB’a kadar boyutta rastgele erişimli dosyaları saklamak için kullanılır. Bunlar, sanal makineleri içeren VHD dosyaları için kullanılır.
+* Ekleme blobları blok bloblarına benzer bloklardan oluşur ancak ekleme işlemleri için en iyi duruma getirilmiştir. Bunlar, aynı bloba birden çok VM'den günlük bilgileri kaydı gibi şeyler için kullanılır.
 
-Karşıya yükleme veya veri tooBlob depolama belirtmeyi gerçekçi hello kablo üzerinden indirme ağ kısıtlamaları burada olun çok büyük veri kümeleri için bir dizi sabit sürücüler tooMicrosoft tooimport sevk veya verileri doğrudan hello veri merkezinden dışa aktarın. Bkz: [hello Microsoft Azure içeri/dışarı aktarma hizmeti tooTransfer veri tooBlob depolama kullanmak](../storage-import-export-service.md).
+Ağ kısıtlamalarının kablo üzerinden Blob depolamaya veri yükleme veya indirme yapmayı kullanışsız hale getirdiği çok büyük veri kümelerinde verileri doğrudan veri merkezinden içeri veya dışarı aktarmak için Microsoft’a sabit sürücüler gönderebilirsiniz. Bkz: [Blob Storage’a Veri Aktarmak için Microsoft Azure İçeri/Dışarı Aktarma Hizmeti Kullanma](../storage-import-export-service.md).
 
-## <a name="file-storage"></a>Dosya depolama
+## <a name="azure-files"></a>Azure Dosyaları
+[Azure Dosyaları](../files/storage-files-introduction.md), standart Sunucu İleti Bloğu (SMB) protokolü kullanılarak erişilebilen yüksek oranda kullanılabilir ağ dosya paylaşımları oluşturmanıza olanak tanır. Bu durum, birden fazla VM’nin hem okuma hem de yazma erişimi ile aynı dosyaları paylaşabildiği anlamına gelir. Dosyaları REST arabirimi veya depolama istemci kitaplıkları kullanarak da okuyabilirsiniz. 
 
-Hello Azure dosya hizmeti hello standart sunucu ileti bloğu (SMB) protokolünü kullanarak erişilebilir yüksek oranda kullanılabilir ağ dosya paylaşımları yukarı tooset sağlar. Birden çok VM paylaşabileceğiniz anlamına gelir aynı hello okuma ve yazma erişimi dosyaları. Ayrıca, hello dosyaları hello REST arabirimini veya hello depolama istemcisi kitaplıklarını kullanarak okuyabilirsiniz. 
-
-Azure File storage Kurumsal dosya paylaşımında dosyalarından ayıran bir şeydir yerden hello dosyalara erişebilirsiniz toohello dosyasını işaret eder ve bir paylaşılan erişim imzası (SAS) belirteci içeren bir URL kullanarak Merhaba Dünya içinde. SAS belirteçleri üretebilir; belirli bir süre boyunca belirli erişim tooa özel varlık sağlarlar. 
+Dosyalara dünyanın herhangi bir yerinden dosyayı işaret eden ve paylaşılan erişim imzası (SAS) belirteci içeren bir URL kullanarak erişebilme olanağı, Azure Dosyaları'nı kurumsal bir dosya paylaşımındaki dosyalardan ayıran özelliklerden biridir. SAS belirteçleri oluşturabilirsiniz; bunlar, belirli bir süre için özel bir varlığa belirli bir erişim izni verir. 
 
 Dosya paylaşımları için birçok yaygın senaryoda kullanılabilir: 
 
-* Birçok şirket içi uygulama, dosya paylaşımlarını kullanır. Bu özellik daha kolay toomigrate kılar veri tooAzure paylaşmak uygulamalar. Bağlama hello aynı sürücü hello harfi dosya paylaşımı toohello uygulamanız tarafından kullanılan şirket içi, uygulamanızın hello dosya paylaşımına erişen hello bölümü ile küçük, varsa, değişiklikler çalışması gerekir.
+* Birçok şirket içi uygulama, dosya paylaşımlarını kullanır. Bu özellik, veri paylaşan uygulamaları Azure’a geçirmeyi kolaylaştırır. Dosya paylaşımını şirket içi uygulamanın kullandığı sürücü harfine bağlarsanız, uygulamanızın dosya paylaşımına erişen kısmı, varsa minimum değişikliklerle çalışır.
 
-* Yapılandırma dosyaları bir dosya paylaşımında depolanabilir ve birden çok VM tarafından bu dosyalara erişilebilir. Araçlar ve yardımcı programlar bir grup içindeki birden çok geliştiriciler tarafından kullanılan herkes bunları bulabilirsiniz sağlayarak bir dosya paylaşımında depolanabilir ve bunlar kullandığınız aynı sürüm hello.
+* Yapılandırma dosyaları bir dosya paylaşımında depolanabilir ve birden çok VM tarafından bu dosyalara erişilebilir. Bir gruptaki birden fazla geliştirici tarafından kullanılan araç ve yardımcı programlar, herkesin bulabilmesi ve aynı sürümü kullandıklarından emin olunması için bir dosya paylaşımında depolanabilir.
 
-* Tanılama günlükleri, Ölçümler ve kilitlenme bilgi dökümleri yalnızca üç tooa dosya paylaşımı yazılmış ve işlenen ya da daha sonra analiz veriler gösterilebilir.
+* Tanılama günlükleri, ölçümler ve kilitlenme bilgi dökümleri, bir dosya paylaşımına yazılıp daha sonra işlenebilen veya çözümlenebilen verilerin yalnızca üç örneğidir.
 
-Bu süre, Active Directory tabanlı kimlik doğrulaması ve erişim denetim listeleri (ACL'ler) desteklenmez, ancak bazı zaman hello gelecekteki olacaktır. erişim toohello dosya paylaşımı için kullanılan tooprovide kimlik doğrulaması Hello depolama hesabı kimlik bilgileridir. Bu bağlı hello paylaşımı herkesle tam okuma/yazma erişimi toohello paylaşımı olacağı anlamına gelir.
+Şu anda Active Directory tabanlı kimlik doğrulaması ve erişim denetimi listeleri (ACL) desteklenmemektedir, ancak gelecekte desteklenecektir. Depolama hesabı kimlik bilgileri, dosya paylaşımına erişim için kimlik doğrulaması sağlamak üzere kullanılır. Bu durum, paylaşımın bağlı olduğu herkesin paylaşıma okuma/yazma erişimi elde edeceği anlamına gelir.
 
 ## <a name="queue-storage"></a>Kuyruk depolama
 
-Hello Azure Queue hizmeti kullanılan toostore ve alma iletileri ' dir. İletileri kuyruğa too64 KB boyutunda yukarı olabilir ve bir sıraya milyonlarca ileti içerebilir. Kuyruklar genellikle kullanılan toostore zaman uyumsuz olarak işlenen iletiler toobe listeleridir. 
+Azure Kuyruk hizmeti, iletileri depolamak ve almak için kullanılır. Kuyruk iletilerinin boyutu 64 KB'ye kadar olabilir ve bir kuyruk, milyonlarca ileti içerebilir. Kuyruklar, genellikle zaman uyumsuz olarak işlenecek ileti listelerini depolamak için kullanılır. 
 
-Örneğin, müşteriler toobe mümkün tooupload resimlerinizi istediğiniz ve toocreate küçük resimleri için her resim istediğiniz söyleyin. Müşterinizin sizin için toocreate hello küçük resimleri hello resimleri karşıya yüklenirken bekleyin olabilir. Alternatif bir kuyruk toouse olacaktır. Merhaba müşteri kendi karşıya yükleme tamamlandığında, bir ileti toohello sırası yazma. Ardından Azure hello sıradan hello ileti almak ve hello küçük resimler oluşturma işlevi vardır. Her hello parçalarının bu işlem, kullanımınız için ayarlama sonra daha fazla denetim vermiş ayrı ayrı ölçeklendirilebilir.
+Örneğin, müşterilerinizin resimleri karşıya yükleyebilmesini ve her resmin küçük resimlerini oluşturabilmesini istediğinizi düşünelim. Müşterinizin resimleri karşıya yüklerken küçük resimleri oluşturmanızı beklemesini sağlayabilirsiniz. Alternatif olarak bir kuyruk kullanabilirsiniz. Müşteri, karşıya yüklemeyi tamamladığında, kuyruğa bir ileti yazın. Ardından Azure İşlevinin iletiyi kuyruktan alıp ve küçük resimleri oluşturmasını sağlayın. Bu işlemin tüm bölümleri ayrıca ölçeklendirilebileceğinden kullanımınız için ayarlarken daha fazla kontrol sunar.
 
-<!-- this bookmark is used by other articles; you'll need tooupdate them before this goes into production ROBIN-->
 ## <a name="table-storage"></a>Table Storage
-<!-- add a link toohello old table storage toothis paragraph once it's moved -->
-Standart Azure Tablo Depolama artık Cosmos DB’nin bir parçasıdır. Ayrıca Azure Tablo depolama için aktarım hızı iyileştirilmiş tablolar, global dağıtım ve otomatik ikincil dizinler sunan Premium Tablolar seçeneği vardır. Lütfen daha fazla toolearn ve hello yeni premium deneyimi deneme kullanıma [Azure Cosmos DB: Tablo API](https://aka.ms/premiumtables).
+
+Standart Azure Tablo Depolama artık Cosmos DB’nin bir parçasıdır. Belgeleri görmek için bkz. [Azure Tablo Depolamaya Genel Bakış](../../cosmos-db/table-storage-overview.md). Ayrıca Azure Tablo depolama için aktarım hızı iyileştirilmiş tablolar, global dağıtım ve otomatik ikincil dizinler sunan Premium Tablolar seçeneği vardır. Daha fazla bilgi edinmek ve yeni premium deneyimi denemek için lütfen [Azure Cosmos DB: Tablo API’si](https://aka.ms/premiumtables) konusunu inceleyin.
 
 ## <a name="disk-storage"></a>Disk depolama
 
-Hello Azure depolama ekibi ayrıca tüm yönetilen hello içerir ve yönetilmeyen disk özellikleri sanal makineler tarafından kullanılan diskler, sahip olur. Bu özellikler hakkında daha fazla bilgi için lütfen hello bakın [işlem hizmeti belgeleri](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
+Azure Depolama ayrıca sanal makineler tarafından kullanılan, yönetilen ve yönetilmeyen disk özelliklerine sahiptir. Bu özellikler hakkında daha fazla bilgi için bkz. [İşlem Hizmetleri belgeleri](https://docs.microsoft.com/azure/#pivot=services&panel=Compute).
 
 ## <a name="types-of-storage-accounts"></a>Depolama hesabı türleri 
 
-Bu tabloda, çeşitli türlerde depolama hesapları ve hangi nesnelerin her biri kullanılabilir hello gösterilmektedir.
+Bu tabloda, çeşitli depolama hesapları ve hangi nesnelerin bunlarda kullanılabildiği gösterilmektedir.
 
 |**Depolama hesabı türü**|**Genel amaçlı Standart**|**Genel amaçlı Premium**|**Blob depolama, sık erişimli ve seyrek erişimli erişim katmanları**|
 |-----|-----|-----|-----|
@@ -108,105 +101,105 @@ Genel amaçlı depolama hesaplarının iki türü vardır.
 
 #### <a name="standard-storage"></a>Standart depolama 
 
-en yaygın olarak kullanılan hello depolama hesapları tüm veri türleri için kullanılabilir standart depolama hesaplarıdır. Standart depolama hesapları, manyetik ortam toostore verileri kullanın.
+En yaygın olarak kullanılan depolama hesapları tüm veri türleri için kullanılabilen standart depolama hesaplarıdır. Standart depolama hesapları, manyetik ortam verilerini depolamak için kullanılır.
 
 #### <a name="premium-storage"></a>Premium depolama
 
-Premium depolama hesapları öncelikle VHD dosyaları için kullanılan sayfa blobları için yüksek performanslı depolama sağlar. Premium depolama hesapları SSD toostore verileri kullanın. Microsoft, tüm VM'leriniz için Premium depolama kullanmanızı önerir.
+Premium depolama hesapları öncelikle VHD dosyaları için kullanılan sayfa blobları için yüksek performanslı depolama sağlar. Premium depolama hesapları verileri depolamak için SSD kullanır. Microsoft, tüm VM'leriniz için Premium depolama kullanmanızı önerir.
 
 ### <a name="blob-storage-accounts"></a>Blob Depolama Hesapları
 
-Merhaba Blob Depolama hesabının özel depolama hesabı kullanılan toostore blok blobları ve ilave bloblarının ' dir. Sayfa bloblarını bu hesaplarda depolayacağınızdan, VHD dosyalarını da depolayamazsınız. Bu hesaplar, tooset bir erişim katmanı tooHot veya Cool sağlar; Merhaba katmanı herhangi bir zamanda değiştirilebilir. 
+Blob Depolama hesabı, blok blobları ve ek bloblar depolamak için kullanılan bir özel depolama hesabıdır. Sayfa bloblarını bu hesaplarda depolayacağınızdan, VHD dosyalarını da depolayamazsınız. Bu hesaplar, erişim katmanını sık veya seyrek erişimli olarak ayarlamanıza olanak verir; katman herhangi bir zamanda değiştirilebilir. 
 
-Merhaba etkin erişim katmanını sık erişilen dosyalar için kullanılır--depolama için daha yüksek bir maliyet ödeme ancak hello BLOB'lar erişme hello maliyet çok düşüktür. Merhaba seyrek erişimli erişim katmanında depolanan BLOB'lar için hello BLOB'lar erişmek için daha yüksek bir maliyet ödeme, ancak depolama maliyetini hello çok düşüktür.
+Sık erişim katmanı sık erişilen dosyalar için kullanılır.-Depolama için daha yüksek bir maliyet ödersiniz, ancak bloblara erişme maliyeti çok daha düşüktür. Seyrek erişimli erişim katmanında depolanan bloblara erişmek için daha yüksek bir maliyet ödersiniz, ancak depolama maliyeti çok daha düşüktür.
 
 ## <a name="accessing-your-blobs-files-and-queues"></a>Bloblara, kuyruklara ve dosyalara erişme
 
-Her depolama hesabı herhangi bir işlem için kullanılabilen iki kimlik doğrulama anahtarına sahiptir. Merhaba toplamak için iki anahtarları bazen tooenhance güvenlik vardır. Merhaba hesap adı, yanı sıra kendi mülkü hello depolama hesabında sınırsız erişimi tooall veri sağladığından Bu anahtarları korunması önemlidir. 
+Her depolama hesabı herhangi bir işlem için kullanılabilen iki kimlik doğrulama anahtarına sahiptir. İki anahtar olduğundan güvenliği artırmak için anahtarları değiştirebilirsiniz. Hesap adı ile birlikte depolama hesabındaki tüm verilere sınırsız erişim olanağı verdiğinden bu anahtarların korunması önemlidir. 
 
-Bu bölümde, iki yolu toosecure hello depolama hesabı ve verileri arar. Depolama hesabınız ve verilerinizin güvenliğini sağlama hakkında ayrıntılı bilgi için bkz: Merhaba [Azure Storage Güvenlik Kılavuzu'nu](storage-security-guide.md).
+Bu bölümde, depolama hesabını ve verilerini güvenceye almak için iki yöntem incelenir. Depolama hesabınız ve verilerinizin güvenliğini sağlama hakkında ayrıntılı bilgi için bkz. [Azure Depolama güvenlik kılavuzu](storage-security-guide.md).
 
-### <a name="securing-access-toostorage-accounts-using-azure-ad"></a>Azure AD kullanarak toostorage hesaplarını erişimi güvenli hale getirme
+### <a name="securing-access-to-storage-accounts-using-azure-ad"></a>Azure AD kullanarak depolama hesaplarında erişim güvenliğini sağlama
 
-Tek yönlü toosecure erişim tooyour depolama veri erişim toohello depolama hesabı anahtarlarını denetlenmesidir. Resource Manager'da rol tabanlı erişim denetimi (RBAC) rolleri toousers, grupları veya uygulamaların atayabilirsiniz. Bu rolleri bağlıdır tooa belirli izin verilen veya izin verilmeyen eylem kümesidir. RBAC kullanarak toogrant erişim tooa depolama hesabı yalnızca hello yönetim işlemlerini hello erişim katmanını değiştirme gibi bu depolama hesabı için işler. RBAC toogrant erişim toodata nesneleri belirli bir kapsayıcı veya dosya paylaşımı gibi kullanamazsınız. Ancak, kullanılan tooread hello veri nesneleri sonra olabilen RBAC toogrant erişim toohello depolama hesabı anahtarları, kullanabilirsiniz. 
+Depolama verilerinize erişim güvenliğini sağlamak için seçeneklerden biri depolama hesabı anahtarlarına erişimi denetlemektir. Kaynak Yöneticisi Rol Tabanlı Erişim Denetimi (RBAC) ile kullanıcılar, gruplar veya uygulamalar için roller atayabilirsiniz. Bu roller, belirli bir izin verilen veya izin verilmeyen eylemler kümesine bağlıdır. RBAC kullanarak bir depolama hesabına erişim izni vermek, yalnızca bu depolama hesabı için erişim katmanını değiştirme işlemi gibi yönetim işlemlerini işler. RBAC’yi belirli bir kapsayıcı veya dosya paylaşımı gibi veri nesnelerine erişim vermek için kullanamazsınız. Ancak RBAC ile depolama hesabı anahtarlarına erişim verebilirsiniz, bu anahtarlar veri nesnelerini okumak için kullanılabilir. 
 
 ### <a name="securing-access-using-shared-access-signatures"></a>Paylaşılan erişim imzalarını kullanarak erişim güvenliğini sağlama 
 
-Erişim ilkeleri toosecure veri nesnelerinizi depolanan ve paylaşılan erişim imzaları kullanabilirsiniz. Paylaşılan erişim imzası (SAS) olabilir bir güvenlik belirteci içeren bir dize toodelegate erişim toospecific depolama nesneleri ve izinler ve erişim hello tarih aralığı gibi toospecify kısıtlamaları izin veren bir varlık için URI toohello bağlı olur. Bu özellik kapsamlı olanaklar sağlar. Ayrıntılı bilgi için çok başvurun[kullanarak paylaşılan erişim imzaları (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+Veri nesnelerini güvenli hale getirmek için paylaşılan erişim imzalarını ve depolanan erişim ilkelerini kullanabilirsiniz. Paylaşılan erişim imzası (SAS), belirli depolama nesnelerine erişim yetkisi vermenizi, erişim için izinleri ve erişim tarih/zaman aralığı kısıtlamaları belirlemenizi sağlayan bir varlığın URI’sına eklenebilen bir güvenlik belirteci içeren bir dizedir. Bu özellik kapsamlı olanaklar sağlar. Ayrıntılı bilgi için bkz. [Paylaşılan Erişim İmzaları (SAS) kullanma](storage-dotnet-shared-access-signature-part-1.md).
 
-### <a name="public-access-tooblobs"></a>Genel erişim tooblobs
+### <a name="public-access-to-blobs"></a>Bloblara genel erişim
 
-Merhaba Blob hizmeti tooprovide genel erişim tooa kapsayıcı ve bloblarını veya belirli bir blobu sağlar. Bir kapsayıcı veya bir blobun genel erişime açıldığını belirttiğinizde herkes anonim olarak okuyabilir, herhangi bir kimlik doğrulama gerekli değildir. Görüntü, video veya Blob depolama biriminden belgeleri kullanarak bir Web sitesi varsa, ne zaman toodo istediğiniz örneği budur. Daha fazla bilgi için bkz: [anonim okuma erişimini toocontainers ve BLOB'ları yönetme](../blobs/storage-manage-access-to-resources.md) 
+Blob Hizmeti, bir kapsayıcıya ve bloblarına veya belirli bir bloba genel erişim sağlamanıza izin verir. Bir kapsayıcı veya bir blobun genel erişime açıldığını belirttiğinizde herkes anonim olarak okuyabilir, herhangi bir kimlik doğrulama gerekli değildir. Görüntü, video veya Blob depolama biriminden belgeler kullanan bir web siteniz varsa bunu yapmak isteyebilirsiniz. Daha fazla bilgi için bkz. [Kapsayıcılar ve bloblar için anonim okuma erişimini yönetme](../blobs/storage-manage-access-to-resources.md). 
 
 ## <a name="encryption"></a>Şifreleme
 
-Merhaba depolama hizmetleri için birkaç şifreleme temel tür yok. 
+Depolama hizmetleri için birkaç temel şifreleme seçeneği vardır. 
 
 ### <a name="encryption-at-rest"></a>Bekleme sırasında şifreleme 
 
-Blob hizmeti bir Azure depolama hesabı için hello ya da depolama hizmeti şifreleme (SSE) ya da hello dosyaları hizmetini (Önizleme) etkinleştirin. Etkinleştirilirse, toohello belirli hizmet yazılan tüm veriler şifrelenir yazılmış önce. Merhaba verileri okurken şifresi döndürmeden önce. 
+Depolama Hizmeti Şifrelemesini bir Azure depolama hesabının Dosyalar hizmetinde (önizleme) veya Blob hizmetinde (SSE) etkinleştirebilirsiniz. Etkinleştirilirse, ilgili hizmete yazılan tüm veriler yazılmadan önce şifrelenir. Okunmadan önce verilerin şifresi çözülür. 
 
 ### <a name="client-side-encryption"></a>İstemci Tarafında Şifreleme
 
-Merhaba depolama istemcisi kitaplıklarını sahip çağırabilirsiniz yöntemleri tooprogrammatically hello kablo hello istemci tooAzure göndermeden önce verileri şifreleyin. Şifreli olarak depolandığından, bekleme sırasında da şifrelenmiş olacaktır. Merhaba veri okunurken alındıktan sonra hello bilgilerini şifresini. 
+Depolama istemcisi kitaplıklarında, verileri istemciden Azure'a göndermeden önce programlı olarak şifrelemek için çağırabileceğiniz yöntemler vardır. Şifreli olarak depolandığından, bekleme sırasında da şifrelenmiş olacaktır. Veriler geri okunurken bilgileri aldıktan sonra şifresini çözersiniz. 
 
-### <a name="encryption-in-transit-with-azure-file-shares"></a>Azure Dosya Paylaşımları ile aktarım sırasında şifreleme
+### <a name="encryption-in-transit-with-azure-file-shares"></a>Azure Dosya paylaşımları ile aktarım sırasında şifreleme
 
-Paylaşılan erişim imzaları ile ilgili daha fazla bilgi edinmek için bkz. [Paylaşılan Erişim İmzaları (SAS) kullanma](../storage-dotnet-shared-access-signature-part-1.md). Bkz: [anonim okuma erişimini toocontainers ve BLOB'ları yönetmek](../blobs/storage-manage-access-to-resources.md) ve [hello Azure Storage Hizmetleri için kimlik doğrulaması](https://msdn.microsoft.com/library/azure/dd179428.aspx) güvenli erişim tooyour depolama hesabı hakkında daha fazla bilgi için.
+Paylaşılan erişim imzaları ile ilgili daha fazla bilgi edinmek için bkz. [Paylaşılan Erişim İmzaları (SAS) kullanma](../storage-dotnet-shared-access-signature-part-1.md). Depolama hesabınıza güvenli erişim ile ilgili daha fazla bilgi için bkz. [Kapsayıcılar ve bloblara anonim okuma erişimini yönetme](../blobs/storage-manage-access-to-resources.md) ve [Azure Storage Hizmetleri için Kimlik Doğrulama](https://msdn.microsoft.com/library/azure/dd179428.aspx) 
 
-Depolama hesabı ve şifreleme güvenliğini sağlama hakkında daha fazla ayrıntı için bkz: hello [Azure Storage Güvenlik Kılavuzu'nu](storage-security-guide.md).
+Depolama hesabınızın ve verilerinizin güvenliğini sağlama hakkında daha fazla bilgi için bkz. [Azure Depolama güvenlik kılavuzu](storage-security-guide.md).
 
 ## <a name="replication"></a>Çoğaltma
 
-Verilerinizi dayanıklı sipariş tooensure Azure depolama hello özelliği tookeep sahip (ve yönetme) verilerinizin birden çok kopyasını. Buna çoğaltma veya yedekleme denir. Depolama hesabınızı ayarladığınızda, çoğaltma türünü seçersiniz. Merhaba depolama hesabı ayarladıktan sonra çoğu durumda, bu ayar değiştirilebilir. 
+Azure Depolama, verilerinizin güvende olmasını sağlamak için verilerinizin birden çok kopyasını tutma (ve yönetme) özelliğine sahiptir. Buna çoğaltma veya yedekleme denir. Depolama hesabınızı ayarladığınızda, çoğaltma türünü seçersiniz. Çoğu durumda, depolama hesabı ayarlandıktan sonra bu ayar değiştirilebilir. 
 
-Tüm depolama hesaplarında **yerel olarak yedekli depolama (LRS)** vardır. Verilerinizin üç kopyasını hello veri merkezinde Azure Storage tarafından yönetilen Bunun anlamı hello depolama hesap zaman ayarlanan belirtilmiş. Değişiklikleri kabul edilen tooone olduğunda kopyalayın, hello diğer iki kopya başarı döndürmeden önce güncelleştirilir. Bu, hello üç çoğaltmaların her zaman eşitlenmiş anlamına gelir. Ayrıca, hello üç kopyaları ayrı hata etki alanlarında bulunan ve etki alanlarını, yükseltme, verilerinizi bulunduran bir depolama düğüm başarısız veya çekildiği çevrimdışı toobe güncelleştirildiğinde olsa bile verilerinizi kullanılabilir olduğu anlamına gelir. 
+Tüm depolama hesaplarında **yerel olarak yedekli depolama (LRS)** vardır. Bu, verilerinizin üç kopyasının, depolama hesabı ayarlandığı zaman belirtilen veri merkezinde Azure depolama veri merkezi tarafından yönetildiği anlamına gelir. Bir kopyada değişiklik yapıldığında, başarılı sonuç döndürülmeden önce diğer iki kopya güncelleştirilir. Bu, üç kopyanın her zaman eşitlenmiş durumda olduğu anlamına gelir. Ayrıca, üç kopya ayrı hata etki alanları ve yükseltme etki alanlarında bulunur, böylece verilerinizin bulunduğu bir depolama düğümü arızalanır veya güncelleştirme amacıyla devreden çıkarılırsa bile verileriniz kullanılabilir. 
 
 **Yerel olarak yedekli depolama (LRS)**
 
-Yukarıda da açıklandığı şekilde, LRS ile tek bir veri merkezinde verilerinizin üç kopyasına sahip olursunuz. Bu veri depolama düğümü başarısız veya güncelleştirilmiş çevrimdışı toobe alınır ancak kullanılamaz hale bir veri merkezinin tamamı durumunun hello değil kullanılamaz hale hello sorun işler.
+Yukarıda da açıklandığı şekilde, LRS ile tek bir veri merkezinde verilerinizin üç kopyasına sahip olursunuz. Bu da verilerinizin, bir depolama düğümü arızalanır veya güncelleştirme amacıyla devreden çıkarılırsa bile kullanılabileceği, ancak veri merkezinin tamamı devre dışı olduğunda kullanılamayacağı anlamına gelir.
 
 **Bölgesel olarak yedekli depolama (ZRS)**
 
-Bölge olarak yedekli depolama (ZRS) hello üç yerel kopyasını verilerinizi ve aynı zamanda başka bir dizi verilerinizin üç kopyasını tutar. Merhaba üç kopyaları ikinci kümesini zaman uyumsuz olarak bir veya iki bölgeleri içindeki veri merkezleri arasında çoğaltılır. ZRS’nin yalnızca genel amaçlı depolama hesaplarındaki blok bloblar için kullanılabilir olduğunu unutmayın. Depolama hesabınızı oluşturup zrs'yi sonra Ayrıca, bu diğer toouse tooany dönüştüremezsiniz çoğaltma veya tersi yazın.
+Bölgesel olarak yedekli depolama (ZRS) verilerinizin üç yerel kopyasını ve ek bir üç kopyasını tutar. İkinci küme üç kopya, bir veya iki bölgedeki veri merkezleri arasında zaman uyumsuz olarak çoğaltılır. ZRS’nin yalnızca genel amaçlı depolama hesaplarındaki blok bloblar için kullanılabilir olduğunu unutmayın. Ayrıca, Depolama hesabınızı oluşturup ZRS’yi seçtiğinizde farklı bir tür çoğaltma seçeneği kullanmak üzere dönüştüremezsiniz; tersi durumda da aynısı söz konusudur.
 
 ZRS hesapları LRS’ye göre daha fazla dayanıklılık sağlar, ancak ZRS hesaplarının ölçüm ve günlüğe kaydetme özelliği yoktur. 
 
 **Coğrafi olarak yedekli depolama (GRS)**
 
-Coğrafi olarak yedekli depolama (GRS) hello üç yerel kopyasını verilerinizi bir birincil bölge içinde artı başka bir dizi bir ikincil bölgede yüzlerce mil hello birincil bölge yöntemi bir kenara bırakarak verilerinizin üç kopyasını tutar. Merhaba birincil bölge sırasında bir hata Hello olayda Azure Storage toohello ikincil bölge başarısız olur. 
+Coğrafi olarak yedekli depolama (GRS), verilerinizin bir birincil bölgede üç yerel kopyasını, ayrıca birincil bölgeden yüzlerce mil uzaktaki ikincil bir bölgede üç kopyasını tutar. Birincil bölgede bir arıza olması durumunda Azure Storage ikincil bölgeye yük devredecektir. 
 
 **Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)** 
 
-Merhaba ikincil konumda okuma erişimi toohello Veri Al okuma erişimli coğrafi olarak yedekli depolama tam olarak GRS gibi olmasıdır. Merhaba birincil veri merkezi geçici olarak kullanılamaz duruma gelirse, hello ikincil konumdan tooread hello veri devam edebilirsiniz. Bu çok yararlı olabilir. Örneğin, salt okunur moduna değiştirir ve toohello ikincil kopya gösteren bir web uygulaması güncelleştirmeleri kullanılabilir olmasa da bazı erişimine sahip olabilir. 
+Okuma erişimli coğrafi olarak yedekli depolama, ikincil konumdaki verilere yalnızca okuma erişimi sağlaması dışında aynı GRS gibidir. Birincil veri merkezi geçici olarak kullanılamaz duruma gelirse, verileri ikincil konumdan okumaya devam edebilirsiniz. Bu çok yararlı olabilir. Örneğin, bir web uygulamanız salt okunur moda geçip ikincil kopyaya başvurabilir. Böylece güncelleştirmeler kullanılabilir olmasa da belirli bir düzey erişim sağlanır. 
 
 > [!IMPORTANT]
-> Depolama hesabınız oluşturulduktan sonra hello hesabınızı oluştururken zrs seçmediyseniz verilerinizin çoğaltılma değiştirebilirsiniz. Ancak, LRS tooGRS veya RA-GRS'ye geçiş yaparsanız tek seferlik veri aktarımı ücreti ödemeniz gerekebileceğini unutmayın.
+> Hesabınızı oluştururken ZRS seçmediyseniz, depolama hesabınız oluşturulduktan sonra verilerinizin çoğaltılma yöntemini değiştirebilirsiniz. Buna karşın LRS’den GRS’ye veya RA-GRS’ye geçiş yaparsanız tek seferlik veri aktarımı ücreti ödemeniz gerekebileceğini unutmayın.
 >
 
 Çoğaltma hakkında daha fazla bilgi için bkz. [Azure Depolama çoğaltma](storage-redundancy.md).
 
-Olağanüstü durum kurtarma için bilgi [bir Azure Storage kesinti oluşursa hangi toodo](storage-disaster-recovery-guidance.md).
+Olağanüstü durum kurtarma için bkz. [Azure Depolama kesinti oluşursa yapmanız gerekenler](storage-disaster-recovery-guidance.md).
 
-Bir örnek için nasıl tooleverage RA-GRS depolama tooensure yüksek kullanılabilirlik, bkz: [tasarlama yüksek oranda kullanılabilir RA-GRS kullanarak uygulamaları](storage-designing-ha-apps-with-ragrs.md).
+Yüksek kullanılabilirlik sağlamak için RA-GRS depolamadan yararlanma hakkında bir örnek için bkz. [RA-GRS’yi kullanarak yüksek kullanılabilirliğe sahip uygulamalar tasarlama](storage-designing-ha-apps-with-ragrs.md).
 
-## <a name="transferring-data-tooand-from-azure-storage"></a>Azure depolama biriminden veri tooand aktarma
+## <a name="transferring-data-to-and-from-azure-storage"></a>Azure Depolama’da veri alışverişi
 
-Depolama hesabınızda veya depolama hesaplarınız arasında hello AzCopy komut satırı yardımcı programını toocopy blob ve dosya verilerini kullanabilirsiniz. Yardım makaleleri hello aşağıdakilerden birini bakın:
+Depolama hesabınızda veya depolama hesaplarınız arasında blob ve dosya verilerinizi kopyalamak için AzCopy komut satırı yardımcı programını kullanabilirsiniz. Yardım için şu makalelerden birine bakın:
 
 * [Windows için AzCopy ile veri aktarma](storage-use-azcopy.md)
 * [Linux için AzCopy ile veri aktarma](storage-use-azcopy-linux.md)
 
-AzCopy üstünde hello yerleşik [Azure veri hareketi Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/), şu anda önizlemede kullanılabilen.
+AzCopy şu anda önizlemede yer alan [Azure Veri Taşıma Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/) üzerine kurulmuştur.
 
-Hello Azure içeri/dışarı aktarma hizmeti kullanılan tooimport veya dışarı aktarma büyük miktarda depolama hesabınızdaki blob veri tooor olabilir. Merhaba veri öğesine/öğesinden hello sabit sürücüleri burada aktaracak birden çok sabit sürücüler tooan Azure veri merkezine posta hazırlamak ve hello sabit sürücüler tooyou geri gönderebilirsiniz. Merhaba içeri/dışarı aktarma hizmeti hakkında daha fazla bilgi için bkz: [hello Microsoft Azure içeri/dışarı aktarma hizmeti tooTransfer veri tooBlob depolama kullanmak](../storage-import-export-service.md).
+Azure İçeri/Dışarı Aktarma hizmeti, büyük miktarlarda blob verilerini depolama hesabınızda içeri veya dışarı aktarmak için kullanılabilir. Bir Azure veri merkezine birden çok sabit sürücü hazırlayıp gönderirsiniz, burada da veri aktarımı tamamlanır ve sabit sürücüler size geri gönderilir. İçeri/Dışarı Aktarma hizmeti hakkında daha fazla bilgi için bkz. [Blob Storage Veri Aktarma için Microsoft Azure İçeri/Dışarı Aktarma Hizmeti Kullanma](../storage-import-export-service.md).
 
 ## <a name="pricing"></a>Fiyatlandırma
 
-Azure Storage için fiyatlandırma hakkında ayrıntılı bilgi için bkz: Merhaba [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Azure Depolama için fiyatlandırma hakkında ayrıntılı bilgi için bkz. [Fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="storage-apis-libraries-and-tools"></a>Depolama API'leri, kitaplıklar ve araçlar
-Azure Storage kaynakları HTTP/HTTPS isteği yapabilen her dil ile erişilebilir. Ayrıca, Azure Storage birkaç popüler dilde programlama kitaplıkları sunar. Bu kitaplıklar zaman uyumlu ve zaman uyumsuz çağrılar, işlemleri gruplama, özel durum yönetimi, otomatik yeniden denemeler, işlemsel davranışlar vb. ayrıntıları ele alarak Azure Storage ile çalışmanın çoğu yönünü basitleştirir. Kitaplıklar dilleri aşağıdaki hello için şu anda kullanılabilir ve ardışık düzen başkalarıyla platformları hello:
+Azure Storage kaynakları HTTP/HTTPS isteği yapabilen her dil ile erişilebilir. Ayrıca, Azure Storage birkaç popüler dilde programlama kitaplıkları sunar. Bu kitaplıklar zaman uyumlu ve zaman uyumsuz çağrılar, işlemleri gruplama, özel durum yönetimi, otomatik yeniden denemeler, işlemsel davranışlar vb. ayrıntıları ele alarak Azure Storage ile çalışmanın çoğu yönünü basitleştirir. Kitaplıklar şu anda aşağıdaki diller için mevcuttur ve yeni kitaplıklar geliştirme aşamasındadır:
 
 ### <a name="azure-storage-data-services"></a>Azure Depolama veri hizmetleri
 * [Depolama Hizmetleri REST API'si](/rest/api/storageservices/)
@@ -226,15 +219,13 @@ Azure Storage kaynakları HTTP/HTTPS isteği yapabilen her dil ile erişilebilir
 * [Dosya depolama hakkında daha fazla bilgi](../storage-files-introduction.md)
 * [Kuyruk depolama hakkında daha fazla bilgi](../queues/storage-queues-introduction.md)
 
-<!-- RE-ENABLE THESE AFTER MVC GOES LIVE 
-tooget up and running with Azure Storage quickly, check out one of hello following Quickstarts:
-* [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
--->
+Azure Depolama ile hemen çalışmaya başlamak için aşağıdaki hızlı başlangıç belgelerini inceleyin:
+* [PowerShell kullanarak depolama hesabı oluşturma](storage-quickstart-create-storage-account-powershell.md)
+* [CLI kullanarak depolama hesabı oluşturma](storage-quickstart-create-storage-account-cli.md)
 
-<!-- FIGURE OUT WHAT tooDO WITH ALL THESE LINKS.
+<!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 
-Azure Storage resources can be accessed by any language that can make HTTP/HTTPS requests. Additionally, Azure Storage offers programming libraries for several popular languages. These libraries simplify many aspects of working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, automatic retries, operational behavior and so forth. Libraries are currently available for hello following languages and platforms, with others in hello pipeline:
+Azure Storage resources can be accessed by any language that can make HTTP/HTTPS requests. Additionally, Azure Storage offers programming libraries for several popular languages. These libraries simplify many aspects of working with Azure Storage by handling details such as synchronous and asynchronous invocation, batching of operations, exception management, automatic retries, operational behavior and so forth. Libraries are currently available for the following languages and platforms, with others in the pipeline:
 
 ### Azure Storage data services
 * [Storage Services REST API](https://docs.microsoft.com/rest/api/storageservices/)
@@ -258,7 +249,7 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 * [Storage Data Movement Client Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/)
 
 ### Tools and utilities
-* [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you toowork visually with Azure Storage data on Windows, macOS, and Linux.
+* [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [Azure Storage Client Tools](../storage-explorers.md)
 * [Azure SDKs and Tools](https://azure.microsoft.com/tools/)
 * [Azure Storage Emulator](http://www.microsoft.com/download/details.aspx?id=43709)
@@ -266,15 +257,12 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 * [AzCopy Command-Line Utility](http://aka.ms/downloadazcopy)
 
 ## Next steps
-toolearn more about Azure Storage, explore these resources:
+To learn more about Azure Storage, explore these resources:
 
 ### Documentation
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
 * [Create a storage account](../storage-create-storage-account.md)
 
-<!-- after our quick starts are available, replace this link with a link tooone of those. 
-Had tooremove this article, it refers toohello VS quickstarts, and they've stopped publishing them. Robin --> 
-<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
 -->
 
 ### <a name="for-administrators"></a>Yöneticiler için
@@ -283,34 +271,33 @@ Had tooremove this article, it refers toohello VS quickstarts, and they've stopp
 
 ### <a name="for-net-developers"></a>.NET geliştiricileri için
 * [.NET kullanarak Azure Blob Depolama ile çalışmaya başlama](../blobs/storage-dotnet-how-to-use-blobs.md)
+* [.NET ile Azure Dosyaları için geliştirme](../files/storage-dotnet-how-to-use-files.md)
 * [.NET kullanarak Azure Tablo Depolama ile çalışmaya başlama](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [.NET kullanarak Azure Kuyruk Depolama ile çalışmaya başlama](../storage-dotnet-how-to-use-queues.md)
-* [Windows'da Azure Dosya Depolama ile çalışmaya başlama](../storage-dotnet-how-to-use-files.md)
 
 ### <a name="for-javaandroid-developers"></a>Java/Android geliştiricileri için
-* [Nasıl toouse Java'dan Blob storage](../blobs/storage-java-how-to-use-blob-storage.md)
-* [Nasıl toouse Java'dan Table storage](../../cosmos-db/table-storage-how-to-use-java.md)
-* [Nasıl toouse Java'dan kuyruk depolama](../storage-java-how-to-use-queue-storage.md)
-* [Nasıl toouse Java'dan File storage](../storage-java-how-to-use-file-storage.md)
+* [Java'da Blob Depolama'yı kullanma](../blobs/storage-java-how-to-use-blob-storage.md)
+* [Java ile Azure Dosyaları için geliştirme](../files/storage-java-how-to-use-file-storage.md)
+* [Java'da Tablo Depolama'yı kullanma](../../cosmos-db/table-storage-how-to-use-java.md)
+* [Java'da Kuyruk Depolama'yı kullanma](../storage-java-how-to-use-queue-storage.md)
 
 ### <a name="for-nodejs-developers"></a>Node.js geliştiricileri için
-* [Nasıl toouse node.js'den Blob storage](../blobs/storage-nodejs-how-to-use-blob-storage.md)
-* [Nasıl toouse node.js'den Table storage](../../cosmos-db/table-storage-how-to-use-nodejs.md)
-* [Nasıl toouse node.js'den kuyruk depolama](../storage-nodejs-how-to-use-queues.md)
+* [Node.js'de Blob Depolama'yı kullanma](../blobs/storage-nodejs-how-to-use-blob-storage.md)
+* [Node.js'de Tablo Depolama'yı kullanma](../../cosmos-db/table-storage-how-to-use-nodejs.md)
+* [Node.js'de Kuyruk Depolama'yı kullanma](../storage-nodejs-how-to-use-queues.md)
 
 ### <a name="for-php-developers"></a>PHP geliştiricileri için
-* [Nasıl toouse php'den Blob storage](../blobs/storage-php-how-to-use-blobs.md)
-* [Nasıl toouse php'den Table storage](../../cosmos-db/table-storage-how-to-use-php.md)
-* [Nasıl toouse php'den kuyruk depolama](../storage-php-how-to-use-queues.md)
+* [PHP'de Blob Depolama'yı kullanma](../blobs/storage-php-how-to-use-blobs.md)
+* [PHP'de Tablo Depolama'yı kullanma](../../cosmos-db/table-storage-how-to-use-php.md)
+* [PHP'de Kuyruk Depolama'yı kullanma](../storage-php-how-to-use-queues.md)
 
 ### <a name="for-ruby-developers"></a>Ruby geliştiricileri için
-* [Nasıl toouse ruby'den Blob storage](../blobs/storage-ruby-how-to-use-blob-storage.md)
-* [Nasıl toouse ruby'den Table storage](../../cosmos-db/table-storage-how-to-use-ruby.md)
-* [Nasıl toouse ruby'den kuyruk depolama](../storage-ruby-how-to-use-queue-storage.md)
+* [Ruby'de Blob Depolama'yı kullanma](../blobs/storage-ruby-how-to-use-blob-storage.md)
+* [Ruby'de Tablo Depolama'yı kullanma](../../cosmos-db/table-storage-how-to-use-ruby.md)
+* [Ruby'de Kuyruk Depolama'yı kullanma](../storage-ruby-how-to-use-queue-storage.md)
 
 ### <a name="for-python-developers"></a>Python geliştiricileri için
-* [Nasıl toouse python'dan Blob storage](../blobs/storage-python-how-to-use-blob-storage.md)
-* [Nasıl toouse python'dan Table storage](../../cosmos-db/table-storage-how-to-use-python.md)
-* [Nasıl toouse python'dan kuyruk depolama](../storage-python-how-to-use-queue-storage.md)   
-* [Nasıl toouse python'dan File storage](../storage-python-how-to-use-file-storage.md) 
--->
+* [Python'da Blob Depolama'yı kullanma](../blobs/storage-python-how-to-use-blob-storage.md)
+* [Python ile Azure Dosyaları için geliştirme](../files/storage-python-how-to-use-file-storage.md)
+* [Python'da Tablo Depolama'yı kullanma](../../cosmos-db/table-storage-how-to-use-python.md)
+* [Python'da Kuyruk Depolama'yı kullanma](../storage-python-how-to-use-queue-storage.md)

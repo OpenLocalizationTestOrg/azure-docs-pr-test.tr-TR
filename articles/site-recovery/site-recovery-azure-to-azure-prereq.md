@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery kullanarak çoğaltma tooAzure aaaPrerequisites | Microsoft Docs"
-description: "Bu makalede hello Azure Site Recovery hizmetini kullanarak sanal makineleri ve fiziksel makineler tooAzure çoğaltma için önkoşullar özetlenmektedir."
+title: "Azure Site Recovery kullanarak çoğaltma Azure için Önkoşullar | Microsoft Docs"
+description: "Bu makalede Azure Site Recovery hizmetini kullanarak Azure'a sanal makineleri ve fiziksel makineleri çoğaltma için önkoşullar özetlenmektedir."
 services: site-recovery
 documentationcenter: 
 author: rajani-janaki-ram
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/01/2017
 ms.author: rajanaki
-ms.openlocfilehash: c66cea8b097a872bae57e7b42e659e58c4b0b1f5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: fb5b8c9ac96ac44d0112919664a177f33ef392da
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-#  <a name="prerequisites-for-replicating-azure-virtual-machines-tooanother-region-by-using-azure-site-recovery"></a>Azure Site Recovery kullanarak Azure sanal makineleri tooanother bölge çoğaltma için Önkoşullar
+#  <a name="prerequisites-for-replicating-azure-virtual-machines-to-another-region-by-using-azure-site-recovery"></a>Azure Site Recovery kullanarak başka bir bölgeye Azure sanal makineleri çoğaltmak için Önkoşullar
 
 > [!div class="op_single_selector"]
-> * [Azure tooAzure çoğaltma](site-recovery-azure-to-azure-prereq.md)
-> * [Şirket içi tooAzure çoğaltma](site-recovery-prereq.md)
+> * [Azure'dan azure'a](site-recovery-azure-to-azure-prereq.md)
+> * [Şirket içinden azure'a](site-recovery-prereq.md)
 
-Hello Azure Site Recovery hizmeti düzenleyerek tooyour iş devamlılığı ve olağanüstü durum kurtarma (BCDR) stratejinize katkıda bulunur:
-* Azure sanal makineleri tooanother Azure bölgesi çoğaltma.
-* Şirket içi fiziksel sunucuların ve sanal makinelerin tooAzure veya tooa ikincil veri merkezine çoğaltma. 
+Azure Site Recovery hizmeti, düzenleyerek iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejinize katkıda bulunur:
+* Azure sanal makineleri başka bir Azure bölgesine çoğaltma.
+* Şirket içi fiziksel sunucuların ve sanal makineleri Azure'a veya ikincil veri merkezine çoğaltma. 
 
-Kesinti birincil konumunuzda meydana tooa ikincil konum tookeep uygulamalar ve iş yüklerini kullanılabilir başarısız olabilir. Toonormal işlemleri geri döndüğünde geri tooyour birincil konumu başarısız olabilir. Site kurtarma hakkında daha fazla bilgi için bkz: [Site Recovery nedir?](site-recovery-overview.md).
+Kesinti birincil konumunuzda meydana, üzerinden uygulamaları ve iş yüklerini kullanılabilir durumda tutmak için ikincil bir konuma başarısız olabilir. Normal çalışma dönüldüğünde birincil konumunuz başarısız olabilir. Site kurtarma hakkında daha fazla bilgi için bkz: [Site Recovery nedir?](site-recovery-overview.md).
 
-Bu makalede hello önkoşullar gerekli toobegin şirket içi tooAzure Site Recovery Çoğaltmada özetlenmektedir.
+Bu makalede, Azure Site Recovery çoğaltma şirket içi başlamak için gerekli önkoşullar özetlenmektedir.
 
-Merhaba makalenin hello altındaki tüm yorumlar gönderin ya da hello hakkında teknik sorular sormak [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Makalenin sonundaki yorumları gönderin ya da teknik sorular [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="azure-requirements"></a>Azure gereksinimleri
@@ -42,14 +42,14 @@ Merhaba makalenin hello altındaki tüm yorumlar gönderin ya da hello hakkında
 **Gereksinim** | **Ayrıntılar**
 --- | ---
 **Azure hesabı** | A [Microsoft Azure](http://azure.microsoft.com/) hesabı.<br/><br/> [Ücretsiz deneme sürümüyle](https://azure.microsoft.com/pricing/free-trial/) başlayabilirsiniz.
-**Site Recovery hizmeti** | Site Recovery fiyatlandırması hakkında daha fazla bilgi için bkz: [Site Recovery fiyatlandırma](https://azure.microsoft.com/pricing/details/site-recovery/). Merhaba hedefinde toouse olağanüstü durum kurtarma konumu olarak istediğiniz Azure bölgesini kurtarma Hizmetleri kasası oluşturmanızı öneririz. Örneğin, kaynağınız VM'ler Doğu ABD çalıştıran ve BİZE tooreplicate tooCentral istiyorsanız Orta ABD hello kasası oluşturma öneririz.|
-**Azure kapasite** | Merhaba hedef olağanüstü durum kurtarma konumu olarak toouse istediğiniz Azure bölgesini toohave sanal makineler, depolama hesapları ve ağ bileşenleri için yeterli kapasiteye sahip bir abonelik gerekiyor. Daha fazla kapasite destek tooadd başvurabilirsiniz.
-**Depolama Kılavuzu** | Merhaba uyduğundan emin [depolama Kılavuzu](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) performans sorunları tooavoid kaynağınız Azure sanal makineleri için. Merhaba varsayılan ayarları izlerseniz, Site Recovery gerekli hello depolama hesapları hello kaynak yapılandırmasını temel alarak oluşturur. Özelleştirme ve kendi ayarlarınızı seçerseniz, hello uyduğundan emin [sanal makine disklerini için ölçeklenebilirlik hedefleri](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks).
-**Ağ Kılavuzu** | Belirli URL veya IP aralıkları için Azure sanal makineden toowhitelist hello giden bağlantı gerekir. Daha fazla ayrıntı için toohello başvurun [Azure sanal makineleri çoğaltmak için kılavuz ağ](site-recovery-azure-to-azure-networking-guidance.md) makalesi.
-**Azure VM** | Tüm hello son kök sertifikaları hello Windows veya Linux VM üzerinde mevcut olduğundan emin olun. Merhaba son kök sertifikaları mevcut değilse hello VM toosecurity kısıtlamaları nedeniyle kayıtlı tooSite kurtarma olamaz.
+**Site Recovery hizmeti** | Site Recovery fiyatlandırması hakkında daha fazla bilgi için bkz: [Site Recovery fiyatlandırma](https://azure.microsoft.com/pricing/details/site-recovery/). Bir olağanüstü durum kurtarma konumu olarak kullanmak istediğiniz Azure bölgesini hedef bir kurtarma Hizmetleri kasası oluşturmanızı öneririz. Örneğin, kaynak VM'ler Doğu ABD çalıştıran ve orta ABD çoğaltmak istediğiniz, merkezi ABD'de kasası oluşturma öneririz.|
+**Azure kapasite** | Olağanüstü durum kurtarma konumu olarak kullanmak istediğiniz Azure bölgesini hedefi için bir abonelik sanal makineler, depolama hesapları ve ağ bileşenleri için yeterli kapasiteye sahip olması gerekir. Daha fazla Kapasite eklemek için Destek'e başvurabilirsiniz.
+**Depolama Kılavuzu** | Uygun olduğundan emin olmak [depolama Kılavuzu](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) kaynağınız Azure için tüm performans sorunlarını önlemek için sanal makineler. Varsayılan ayarları izlerseniz, Site Recovery kaynak yapılandırmasını temel alarak gerekli depolama hesapları oluşturur. Özelleştirme ve kendi ayarlarınızı seçerseniz, uygun olduğundan emin olmak [sanal makine disklerini için ölçeklenebilirlik hedefleri](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks).
+**Ağ Kılavuzu** | Belirli URL veya IP aralıkları için beyaz liste ile Azure sanal makineden giden bağlantı gerekir. Daha fazla ayrıntı için başvurmak [Azure sanal makineleri çoğaltmak için kılavuz ağ](site-recovery-azure-to-azure-networking-guidance.md) makalesi.
+**Azure VM** | Tüm son kök sertifikaları Windows veya Linux VM üzerinde mevcut olduğundan emin olun. VM son kök sertifikaları mevcut değilse, Site kurtarma işlemi güvenlik kısıtlamaları nedeniyle kaydedilemedi.
 
 >[!NOTE]
->Merhaba belirli yapılandırmalar için desteği hakkında daha fazla ayrıntı için okuma [destek matrisi](site-recovery-support-matrix-azure-to-azure.md).
+>Belirli yapılandırmalar için desteği hakkında daha fazla ayrıntı için okuma [destek matrisi](site-recovery-support-matrix-azure-to-azure.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Daha fazla bilgi edinmek [Azure sanal makineleri çoğaltmak için kılavuz ağ](site-recovery-azure-to-azure-networking-guidance.md).

@@ -1,6 +1,6 @@
 ---
-title: "Azure MFA Bulut veya sunucu arasında aaaChoose | Microsoft Docs"
-description: "I toosecure ve Kullanıcılarım nerede çalışıyor bulunan neyi isteyerek, sizin için uygun olan hello çok faktörlü kimlik doğrulaması güvenlik çözümünüzü seçin.  Sonra bulut, MFA Sunucusu ya da AD FS arasından seçim yapın."
+title: "Azure MFA bulutu vea sunucusu arasında seçim yapma | Microsoft Docs"
+description: "Neyi güvenli hale getirmeye çalışıyorum ve kullanıcılarım nerede yer alıyor sorularını kendinize sorarak multi-factor authentication güvenlik çözümünüzü seçin.  Sonra bulut, MFA Sunucusu ya da AD FS arasından seçim yapın."
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
@@ -12,38 +12,38 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/23/2017
+ms.date: 08/25/2017
 ms.author: kgremban
-ms.openlocfilehash: bd9639e5f744f586d9143c6e90b105ed645eecb6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: cc5a0a8ff789b878cd5afb62176ae8bcf3f80902
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="choose-hello-azure-multi-factor-authentication-solution-for-you"></a>Sizin için Hello Azure multi-Factor Authentication çözümünü seçin
-Çeşitli özellikleri Azure çok faktörlü kimlik doğrulama (MFA) olduğundan, size birkaç soru toofigure hangi sürümüdür hello uygun bir toouse yanıtlamanız gerekir.  Bu sorular şunlardır:
+# <a name="choose-the-azure-multi-factor-authentication-solution-for-you"></a>Size uygun Azure Multi-Factor Authentication çözümünü seçin
+Azure Multi-Factor Authentication’ın (MFA) birçok modeli olduğundan, hangi sürümü kullanmanın uygun olacağını belirlemek için birkaç soruyu yanıtlamamız gerekir.  Bu sorular şunlardır:
 
-* [Ne toosecure çalışıyorum](#what-am-i-trying-to-secure)
-* [Merhaba kullanıcıların bulunduğu](#where-are-the-users-located)
+* [Neyi güvenli hale getirmeye çalışıyorum?](#what-am-i-trying-to-secure)
+* [Kullanıcılar nerede bulunuyor?](#where-are-the-users-located)
 * [Hangi özelliklere ihtiyacım var?](#what-featured-do-i-need)
 
-Merhaba aşağıdaki bölümlerde her Bu yanıtlar belirleme kılavuzluk.
+Aşağıdaki bölümler bu yanıtların her birini belirlemede rehberlik sağlar.
 
-## <a name="what-am-i-trying-toosecure"></a>Ne toosecure çalışıyorum?
-toodetermine hello doğru iki aşamalı doğrulama çözümü, ilk biz, çalışırken toosecure ikinci bir kimlik doğrulama yöntemi ile nelerdir, hello sorusuna yanıt vermeniz gerekir.  Bu, Azure’da olan bir uygulama mi?  Veya uzaktan erişim sistemi mi?  Ne numaralı çalışıyoruz belirleme tarafından toosecure, biz yanıt burada çok faktörlü kimlik doğrulaması etkin toobe gereken hello sorunu çözmez.  
+## <a name="what-am-i-trying-to-secure"></a>Neyi güvenli hale getirmeye çalışıyorum?
+Doğru iki aşamalı doğrulama çözümünü belirlemek için, önce ikinci bir kimlik doğrulama yöntemiyle neyi güvenli hale getirmeye çalıştığımız sorusunu yanıtlamalıyız.  Bu, Azure’da olan bir uygulama mi?  Veya uzaktan erişim sistemi mi?  Neyi güvenli hale getirmeye çalıştığımızı belirleyerek Multi-Factor Authentication’ın nerede etkinleştirilmesi gerektiği sorusunu yanıtlayabiliriz.  
 
-| Çalışırken toosecure nelerdir | Merhaba bulutta MFA | MFA Sunucusu |
+| Neyi güvenli hale getirmeye çalışıyorsunuz? | Bulutta MFA | MFA Sunucusu |
 | --- |:---:|:---:|
 | Birinci taraf Microsoft uygulamaları |● |● |
-| Merhaba uygulama galerisinde SaaS uygulamaları |● |  |
+| Uygulama galerisinde SaaS uygulamaları |● |  |
 | Azure AD Uygulaması Proxy üzerinden yayımlanan web uygulamaları |● |  |
 | Azure AD Uygulaması Proxy üzerinden yayımlanmayan IIS uygulamaları | |● |
 | VPN, RDG gibi uzaktan erişim | ● | ● |
 
-## <a name="where-are-hello-users-located"></a>Merhaba kullanıcıların bulunduğu
-Ardından, kullanıcılarımızın bulunduğu adresindeki arayan toodetermine hello doğru çözüm toouse hello bulutta olup olmadığını veya yardımcı olur. kullanarak şirket içi MFA sunucusu hello.
+## <a name="where-are-the-users-located"></a>Kullanıcılar nerede bulunuyor?
+Kullanıcılarımızın nerede bulunduğuna bakmak, ister bulutta ister MFA Sunucusu kullanan şirket içinde olan doğru çözümün belirlenmesine yardımcı olur.
 
-| Kullanıcı Konumu | Merhaba bulutta MFA | MFA Sunucusu |
+| Kullanıcı Konumu | Bulutta MFA | MFA Sunucusu |
 | --- |:---:|:---:|
 | Azure Active Directory |● | |
 | AD FS ile federasyon kullanana Azure AD ve şirket içi AD |● |● |
@@ -52,9 +52,9 @@ Ardından, kullanıcılarımızın bulunduğu adresindeki arayan toodetermine he
 | Şirket içi Active Directory | |● |
 
 ## <a name="what-features-do-i-need"></a>Hangi özelliklere ihtiyacım var?
-Merhaba aşağıdaki tabloda hello multi-Factor Authentication sunucusu ile Merhaba bulutta multi-Factor Authentication ile kullanılabilen hello özellikleri karşılaştırılmaktadır.
+Aşağıdaki tabloda, bulutta Multi-Factor Authentication ile kullanılabilen özellikler ve Multi-Factor Authentication Sunucusu ile kullanılabilen özellikler karşılaştırılmıştır.
 
-| Özellik | Merhaba bulutta MFA | MFA Sunucusu |
+| Özellik | Bulutta MFA | MFA Sunucusu |
 | --- |:---:|:---:|
 | İkinci öğe olarak mobil uygulama bildirimi | ● | ● |
 | İkinci öğe olarak mobil uygulama doğrulama kodu | ● | ● |
@@ -77,11 +77,8 @@ Merhaba aşağıdaki tabloda hello multi-Factor Authentication sunucusu ile Merh
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Göre toouse bulut olmadığını çok faktörlü kimlik doğrulaması veya içi MFA sunucusu Merhaba, biz Başlarken ayarlama ve Azure multi-Factor Authentication kullanarak belirledik. **Senaryonuz temsil hello simgesini seçin**
+Bulutta ve şirket içindeki MFA Sunucusunda Azure Multi-Factor Authentication kullanmanın farklarını gördüğümüze göre artık Azure Multi-Factor Authentication’ı ayarlama ve kullanma zamanı gelmiş demektir. **Senaryonuzu temsil eden simgeyi seçin**
 
 <center>
 
-
-
-
-[![Bulut](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md)  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Sunucu](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </center>
+[![Bulutta MFA](./media/multi-factor-authentication-get-started/cloud2.png)](multi-factor-authentication-get-started-cloud.md) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [ ![MFA  Sunucusu](./media/multi-factor-authentication-get-started/server2.png)](multi-factor-authentication-get-started-server.md) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </center>

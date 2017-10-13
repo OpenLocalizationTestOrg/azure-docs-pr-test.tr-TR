@@ -1,6 +1,6 @@
 ---
-title: "aaa \"(REST API - Azure Search) dizin oluşturma | Microsoft Docs\""
-description: "Hello Azure Search HTTP REST API'sini kullanarak kod içinde bir dizin oluşturun."
+title: "Dizin oluşturma (REST API - Azure Search) | Microsoft Docs"
+description: "Azure Search HTTP REST API'sini kullanarak kod içinde bir dizin oluşturun."
 services: search
 documentationcenter: 
 author: ashmaka
@@ -15,13 +15,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-ms.openlocfilehash: 117ab64a9874a443351a8a02a9b959b8f7beb7c1
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 9a64d1436471e406b7d9b700257d3dd96b5edcde
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-an-azure-search-index-using-hello-rest-api"></a>Merhaba REST API kullanarak Azure Search dizini oluşturma
+# <a name="create-an-azure-search-index-using-the-rest-api"></a>REST API'yi kullanarak Azure Search dizini oluşturma
 > [!div class="op_single_selector"]
 >
 > * [Genel Bakış](search-what-is-an-index.md)
@@ -31,33 +31,33 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Bu makale bir Azure Search oluşturma hello işleminde size kılavuzluk edecektir [dizin](https://docs.microsoft.com/rest/api/searchservice/Create-Index) hello Azure Search REST API'sini kullanarak.
+Bu makale, Azure Search REST API'sini kullanarak Azure Search [dizini](https://docs.microsoft.com/rest/api/searchservice/Create-Index) oluşturma işlemi konusunda size yol gösterecektir.
 
 Bu kılavuzu izlemeden ve dizin oluşturmadan önce, [Azure Search hizmeti oluşturmuş](search-create-service-portal.md) olmanız gerekir.
 
-Merhaba REST API kullanarak Azure Search dizini, bir tek HTTP POST isteği tooyour Azure Search hizmet URL uç verecek toocreate. Dizin tanımınızı doğru biçimlendirilmiş JSON içeriği olarak hello istek gövdesinde yer alır.
+REST API'yi kullanan bir Azure Search dizini oluşturmak için, Azure Search hizmetinizin URL uç noktasına tek bir HTTP POST isteği göndereceksiniz. Dizin tanımınız, doğru biçimlendirilmiş JSON içeriği olarak istek gövdesinde yer alır.
 
 ## <a name="identify-your-azure-search-services-admin-api-key"></a>Azure Search hizmet yöneticinizin api anahtarını tanımlama
-Azure Search Hizmeti sağlamış olduğunuza göre hizmetinizin URL uç hello REST API kullanarak HTTP istekleri gönderebilirsiniz. *Tüm* API istekleri hello API hello sağladığınız arama hizmeti için oluşturulan anahtar içermelidir. Geçerli bir anahtar sahip istek başına temelinde, hello isteği gönderiliyor hello uygulama ve bunu işleyen hello hizmeti arasında güven oluşturur.
+Şimdi bir Azure Search hizmeti sağlamış olduğunuza göre, .REST API'yi kullanarak hizmetinizin URL uç noktasına HTTP istekleri gönderebilirsiniz. *Tüm* API isteklerinin sağladığınız Search hizmeti için oluşturulan API anahtarını içermesi gerekir. İstek başına geçerli bir anahtara sahip olmak, isteği gönderen uygulama ve bunu işleyen hizmet arasında güven oluşturur.
 
-1. toofind hizmetinizin api hello kapatmalıdır anahtarlarından [Azure portalı](https://portal.azure.com/)
-2. Tooyour Azure Search hizmet dikey penceresine gidin
-3. Merhaba üzerinde "Anahtarlar" simgesine tıklayın
+1. Hizmetinizin api anahtarlarını bulmak için [Azure portalında](https://portal.azure.com/) oturum açmanız gerekir.
+2. Azure Search hizmetinizin dikey penceresine gidin
+3. "Anahtarlar" simgesine tıklayın
 
 Hizmetiniz, *yönetici anahtarlarına* ve *sorgu anahtarlarına* sahiptir.
 
-* Birincil ve ikincil *yönetici anahtarları* tooall operations hello özelliği toomanage hello hizmeti dahil olmak üzere, tam haklar, oluşturun ve dizinler, dizin oluşturucular ve veri kaynaklarını silin. Tooregenerate hello birincil anahtar ve tam tersini karar verirseniz toouse hello ikincil anahtar devam edebilmesi için bu iki anahtar vardır.
-* *Sorgu anahtarları* salt okunur erişim tooindexes ve belgeleri verin ve arama istekleri gönderen genellikle dağıtılmış tooclient uygulamalardır.
+* Birincil ve ikincil *yönetici anahtarlarınız*; hizmeti yönetme, dizinler, dizin oluşturucular ve veri kaynakları ekleme ve silme de dahil olmak üzere her türlü işlem için tüm hakları verir. Birincil anahtarı yeniden oluşturmaya karar verirseniz ikincil anahtarı kullanmaya devam edebilmeniz ve tam tersini yapabilmeniz için iki anahtar vardır.
+* *Sorgu anahtarları*, dizinler ve belgeler için salt okunur erişim verir ve genellikle, arama istekleri gönderen istemci uygulamalarına dağıtılır.
 
-Merhaba amacıyla dizin oluşturma ya da kullanabilirsiniz, birincil veya ikincil yönetici anahtarınızı.
+Dizin oluşturma amacıyla, birincil ya da ikincil yönetici anahtarınızı kullanabilirsiniz.
 
 ## <a name="define-your-azure-search-index-using-well-formed-json"></a>Doğru biçimlendirilmiş JSON kullanarak Azure Search dizininizi tanımlama
-Tek bir HTTP POST isteği tooyour hizmeti dizininizi oluşturur. Merhaba HTTP POST isteğinizin gövdesi, Azure Search dizininizi tanımlayan tek bir JSON nesnesi içerir.
+Hizmetinize yönelik tek bir HTTP POST isteği dizininizi oluşturur. HTTP POST isteğinizin gövdesi, Azure Search dizininizi tanımlayan tek bir JSON nesnesi içerir.
 
-1. Bu JSON nesnesinin ilk özelliği Hello hello dizininizin adıdır.
-2. Bu JSON nesnesinin ikinci özelliği Hello olan adlı bir JSON dizisi `fields` , dizininizdeki her bir alan için ayrı bir JSON nesnesi içerir. Bu JSON nesnelerin her biri birden çok ad/değer çiftleri içeren her "ad" dahil olmak üzere hello alan özniteliklerini "tür" vb..
+1. Bu JSON nesnesinin ilk özelliği dizininizin adıdır.
+2. Bu JSON nesnesinin ikinci özelliği, dizininizdeki her bir alan için ayrı bir JSON nesnesi içeren `fields` adlı bir JSON dizisidir. Bu JSON nesnelerinin her biri, her bir alan özniteliği için "ad", "tür" vb. de dahil olmak üzere birden çok ad/değer çifti içerir.
 
-Bu, arama kullanıcı deneyiminizi ve iş gereksinimlerinizi göz önünde her bir alan hello atanması gerektiğinden, dizininizi tasarlarken tutmanız önemlidir [uygun öznitelikler](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Toowhich alanlar geçerli hangi arama özelliklerinin (filtreleme, modelleme tam metin araması sıralama vb. olduğunu) bu öznitelikler denetler. Belirtmediğiniz her öznitelik için özellikle devre dışı sürece hello varsayılan tooenable hello ilgili arama özelliği olacaktır.
+Her bir alan için [uygun öznitelikler](https://docs.microsoft.com/rest/api/searchservice/Create-Index) atanması gerektiğinden, dizininizi tasarlarken arama kullanıcı deneyiminizi ve iş gereksinimlerinizi göz önünde bulundurmanız önemlidir. Bu öznitelikler, hangi alanlar için hangi arama özelliklerinin (filtreleme, modelleme, tam metin araması sıralama vb.) geçerli olduğunu denetler. Belirtmediğiniz her öznitelik için ilgili arama özelliği, özellikle devre dışı bırakmadığınız sürece varsayılan olarak etkinleştirilir.
 
 Bizim örneğimizde, dizinimizi "oteller" olarak adlandırdık ve alanlarımızı aşağıdaki şekilde tanımladık:
 
@@ -81,30 +81,30 @@ Bizim örneğimizde, dizinimizi "oteller" olarak adlandırdık ve alanlarımız�
 }
 ```
 
-Biz hello dizin öznitelikleri nasıl biz bir uygulamada kullanılacak düşünerek her bir alan için dikkatle seçtiniz. Örneğin, `hotelId` Oteller büyük olasılıkla bilmediği Biz bu alan için tam metin aramasını ayarlayarak devre dışı bırakmak için arama yapan kişilerin benzersiz bir anahtardır `searchable` çok`false`, hello dizinde alanı kaydeder.
+Her bir alan için dizin özniteliklerini, bunların bir uygulamada nasıl kullanılacağını düşünerek dikkatle seçtik. Örneğin; `hotelId`, oteller için arama yapan kişilerin büyük olasılıkla bilmediği benzersiz bir anahtardır. Bu nedenle, `searchable` değerini `false` olarak ayarlayarak bu alan için tam metin aramasını devre dışı bırakırız. Bu, dizinde yer kazandırır.
 
-Lütfen türündeki dizininizde yalnızca bir alanın Not `Edm.String` hello hello 'key' alan olarak işaretlenmesi gerekir.
+Lütfen `Edm.String` türündeki dizininizde yalnızca bir alanın "anahtar" alanı olarak belirlenmesi gerektiğini unutmayın 
 
-Yukarıdaki dizin tanımı Hello hello için bir dil Çözümleyicisi kullanır `description_fr` hedeflenen toostore Fransızca metin olduğundan alan. Bkz: [hello dil desteği konu](https://docs.microsoft.com/rest/api/searchservice/Language-support) hello karşılık gelen yanı sıra [blog gönderisi](https://azure.microsoft.com/blog/language-support-in-azure-search/) dil Çözümleyicileri hakkında daha fazla bilgi.
+Yukarıdaki dizin tanımı Fransızca metin depolamaya yönelik tasarlandığından, `description_fr` alanı için bir dil çözümleyicisi kullanır. Dil çözümleyicileri hakkında daha fazla bilgi için ilgili [blog yazısının](https://azure.microsoft.com/blog/language-support-in-azure-search/) yanı sıra [Dil desteği konu başlığına](https://docs.microsoft.com/rest/api/searchservice/Language-support) bakın.
 
-## <a name="issue-hello-http-request"></a>Sorunu hello HTTP isteği
-1. Dizin tanımınızı hello istek gövdesi olarak kullanarak, bir HTTP POST isteği tooyour Azure Search Hizmeti uç noktası URL'si gönderin. Hello URL'de hizmet adınızı hello ana bilgisayar adı olarak emin toouse olması ve hello uygun put `api-version` bir sorgu dizesi parametresi olarak (Merhaba geçerli API sürümü `2016-09-01` bu belgenin yayımlandığı hello zaman).
-2. Merhaba istek üst bilgilerinde hello belirtin `Content-Type` olarak `application/json`. Tooprovide hello adımda tanımlanan hizmetinizin yönetici anahtarını gerekir `api-key` üstbilgi.
+## <a name="issue-the-http-request"></a>HTTP isteği gönderme
+1. Dizin tanımınızı istek gövdesi olarak kullanarak Azure Search hizmeti uç nokta URL'nize HTTP POST isteği gönderin. URL'de hizmet adınızı ana bilgisayar adı olarak kullandığınızdan emin olun ve sorgu dizesi parametresi olarak uygun `api-version` öğesini kullanın (Bu belge yayımlandığı sırada, `2016-09-01` geçerli API sürümüdür).
+2. İstek üst bilgilerinde, `Content-Type` öğesini `application/json` olarak belirtin. Ayrıca `api-key` üst bilgisinde, 1. Adımda tanımladığınız hizmet yöneticisi anahtarınızı sağlamanız gerekir.
 
-Kendi hizmet adınızı ve API anahtar tooissue hello isteği aşağıda tooprovide olacaktır:
+Aşağıdaki isteği göndermek için kendi hizmet adınızı ve API anahtarınızı sağlamanız gerekir:
 
     POST https://[service name].search.windows.net/indexes?api-version=2016-09-01
     Content-Type: application/json
     api-key: [api-key]
 
 
-Başarılı bir istek için 201 durum kodunu (Oluşturuldu) görmeniz gerekir. Merhaba REST API aracılığıyla dizin oluşturma hakkında daha fazla bilgi için lütfen başlangıç adresini ziyaret edin [API başvurusunu Buraya](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Hata durumunda döndürülebilen diğer HTTP durum kodları hakkında daha fazla bilgi için bkz. [HTTP durum kodları (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
+Başarılı bir istek için 201 durum kodunu (Oluşturuldu) görmeniz gerekir. REST API aracılığıyla dizin oluşturma hakkında daha fazla bilgi için lütfen [buradaki API başvurusuna](https://docs.microsoft.com/rest/api/searchservice/Create-Index) bakın. Hata durumunda döndürülebilen diğer HTTP durum kodları hakkında daha fazla bilgi için bkz. [HTTP durum kodları (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
-Bir dizin ve istediğiniz toodelete ile bu bittiğinde, yalnızca HTTP DELETE isteği gönderin. Örneğin, bu nasıl biz hello "hotels" dizinini silmek.
+Dizin ile işiniz bittiğinde ve bunu silmek istediğinizde HTTP DELETE isteği gönderin. Örneğin, "oteller" dizinini aşağıdaki şekilde sileriz:
 
     DELETE https://[service name].search.windows.net/indexes/hotels?api-version=2016-09-01
     api-key: [api-key]
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Search dizini oluşturduktan sonra çok hazır olacak[içeriğinizi hello dizine yüklemek](search-what-is-data-import.md) şekilde, verilerinizi aramaya başlayabilirsiniz.
+Azure Search dizini oluşturduktan sonra, [içeriğinizi dizine yüklemek](search-what-is-data-import.md) için hazır olursunuz. Böylece, verilerinizi aramaya başlayabilirsiniz.

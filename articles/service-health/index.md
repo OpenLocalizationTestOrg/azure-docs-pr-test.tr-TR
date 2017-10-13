@@ -1,9 +1,9 @@
 ---
-title: "Kaynak durumu - öğreticileri aaaAzure | Microsoft Docs"
-description: 
+title: "Azure Kaynak Durumu - Öğreticiler | Microsoft Docs"
+description: "Azure Hizmet Durumu, Azure hizmetlerindeki sorunların sizi etkilediği durumlar için kişiselleştirilmiş rehberlik ve destek sağlamanın yanı sıra yaklaşan planlı bakımlara hazırlanmanıza yardımcı olur. Azure Hizmet Durumu, hedefli ve esnek bildirimleri kullanarak sizi ve ekibinizi uyarır."
 services: Resource health
-author: bernardm
-manager: bernardm
+author: czeumault
+manager: carolz
 layout: LandingPage
 ms.assetid: 
 ms.service: service-health
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 07/07/2017
-ms.author: bernardm
-ms.openlocfilehash: 53a4c26c579a4201965add2117b5437c91fc8793
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.author: carolz
+ms.openlocfilehash: 17f7d334380032eec4be7d0ce3071a62b04fdc62
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-service-health-documentation"></a>Azure Hizmet Durumu Belgeleri
 

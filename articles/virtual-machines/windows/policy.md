@@ -1,6 +1,6 @@
 ---
-title: "Windows sanal makineleri Azure üzerinde ilkeleriyle aaaEnforce güvenlik | Microsoft Docs"
-description: "Nasıl tooapply İlkesi tooan Azure Resource Manager Windows sanal makine"
+title: "Windows sanal makineleri Azure üzerinde ilkeleri ile güvenlik zorlama | Microsoft Docs"
+description: "Bir Azure Kaynak Yöneticisi'ni Windows sanal makine için bir ilke uygulama"
 services: virtual-machines-windows
 documentationcenter: 
 author: singhkays
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: b31c8a03ecf8eed6a929f97fe4146ea14364404f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 246f5958478fd6d9afc9ba990413ab08429bd25d
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="apply-policies-toowindows-vms-with-azure-resource-manager"></a>İlkeleri tooWindows VM'ler Azure Resource Manager ile uygulama
-İlkeleri kullanarak, bir kuruluşun çeşitli kuralları ve kuralları hello kuruluş genelinde zorunlu kılabilir. İstenen hello davranış zorlama hello kuruluş toohello başarısını katkıda bulunan sırasında risk azaltılmasına yardımcı olur. Bu makalede, Azure Resource Manager ilkeleri toodefine istenen hello davranışı, kuruluşunuzun sanal makineler için nasıl kullanabileceğiniz açıklanır.
+# <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Azure Resource Manager ile Windows sanal makineleri için geçerlidir
+İlkeleri kullanarak, bir kuruluşun çeşitli kuralları ve kuruluş genelinde kuralları zorunlu kılabilir. İstenen davranışı zorlama kuruluşun başarısı için katkıda bulunan sırasında risk azaltılmasına yardımcı olur. Bu makalede, kuruluşunuzun sanal makineler için istenen davranışı tanımlamak için Azure Resource Manager ilkelerini nasıl kullanabileceğinizi açıklar.
 
-Bir giriş toopolicies için bkz: [kullanım ilkesi toomanage kaynakları ve erişimi denetleme](../../azure-resource-manager/resource-manager-policy.md).
+İlkeleri giriş için bkz: [kaynakları yönetmek ve erişimi denetlemek için ilke kullanma](../../azure-resource-manager/resource-manager-policy.md).
 
 ## <a name="permitted-virtual-machines"></a>İzin verilen sanal makineler
-sanal makineler, kuruluşunuz için bir uygulama ile uyumlu olduğunu tooensure izin işletim sistemleri hello kısıtlayabilirsiniz. Aşağıdaki ilke örneğine hello oluşturulan Windows Server 2012 R2 Datacenter sanal makineleri toobe izin ver:
+Sanal makineler, kuruluşunuz için bir uygulama ile uyumlu olduğundan emin olmak için izin verilen işletim sistemleri sınırlandırabilirsiniz. Aşağıdaki ilke örnekte, yalnızca Windows Server 2012 R2 Datacenter oluşturulması için sanal makineleri izin ver:
 
 ```json
 {
@@ -79,7 +79,7 @@ sanal makineler, kuruluşunuz için bir uygulama ile uyumlu olduğunu tooensure 
 }
 ```
 
-Herhangi bir Windows Server Datacenter görüntü İlkesi tooallow önceki bir joker karakter toomodify hello kullan:
+Herhangi bir Windows Server Datacenter görüntü izin vermek için önceki ilkeyi değiştirmek için joker kullanın:
 
 ```json
 {
@@ -88,7 +88,7 @@ Herhangi bir Windows Server Datacenter görüntü İlkesi tooallow önceki bir j
 }
 ```
 
-Herhangi bir Windows Server 2012 R2 Datacenter veya daha yüksek görüntü İlkesi tooallow önceki herhangi toomodify hello kullan:
+Herhangi bir Windows Server 2012 R2 Datacenter veya daha yüksek görüntü izin vermek için önceki ilkeyi değiştirmek için herhangi kullanın:
 
 ```json
 {
@@ -109,7 +109,7 @@ Herhangi bir Windows Server 2012 R2 Datacenter veya daha yüksek görüntü İlk
 
 ## <a name="managed-disks"></a>Yönetilen diskler
 
-toorequire hello kullanımı yönetilen diskler, ilke aşağıdaki kullanım hello:
+Yönetilen disklerin gerektirmek için aşağıdaki ilke kullanın:
 
 ```json
 {
@@ -157,9 +157,9 @@ toorequire hello kullanımı yönetilen diskler, ilke aşağıdaki kullanım hel
 
 ## <a name="images-for-virtual-machines"></a>Sanal makineler için görüntüleri
 
-Güvenlik nedenleriyle, yalnızca onaylanan özel resimler ortamınızda dağıtılan gerektirebilir. Onaylanan hello görüntüleri içeren hello kaynak grubu ya da hello belirli onayladığı yansımaları belirtebilirsiniz.
+Güvenlik nedenleriyle, yalnızca onaylanan özel resimler ortamınızda dağıtılan gerektirebilir. Özel resimler onaylanmış veya onaylanan görüntüleri içeren kaynak grubu ya da belirtebilirsiniz.
 
-Aşağıdaki örnek hello onaylanan kaynak grubu görüntülerden gerektirir:
+Aşağıdaki örnek, onaylanan kaynak grubu görüntülerden gerektirir:
 
 ```json
 {
@@ -186,7 +186,7 @@ Aşağıdaki örnek hello onaylanan kaynak grubu görüntülerden gerektirir:
 } 
 ```
 
-Merhaba aşağıdaki örnek onaylanmış hello resim kimlikleri belirtir:
+Aşağıdaki örnek, onaylanan resim kimlikleri belirtir:
 
 ```json
 {
@@ -197,7 +197,7 @@ Merhaba aşağıdaki örnek onaylanmış hello resim kimlikleri belirtir:
 
 ## <a name="virtual-machine-extensions"></a>Sanal makine uzantıları
 
-Belirli türde bir uzantıları kullanımını tooforbid isteyebilirsiniz. Örneğin, bir uzantı belirli özel bir sanal makine görüntüleri ile uyumlu olmayabilir. örnekte gösterildiği nasıl aşağıdaki hello tooblock belirli bir uzantıya. Yayımcı ve türüne toodetermine hangi uzantısı tooblock kullanır.
+Belirli türde bir uzantıları kullanımını yasaklamaz isteyebilirsiniz. Örneğin, bir uzantı belirli özel bir sanal makine görüntüleri ile uyumlu olmayabilir. Aşağıdaki örnek, belirli bir uzantıya engelleme gösterilmektedir. Yayımcı ve türüne engellemek için hangi uzantısı belirlemek için kullanır.
 
 ```json
 {
@@ -227,7 +227,7 @@ Belirli türde bir uzantıları kullanımını tooforbid isteyebilirsiniz. Örne
 
 ## <a name="azure-hybrid-use-benefit"></a>Azure karma kullanımı avantajı
 
-Bir şirket içi lisansı olduğunda, sanal makinelere hello lisans ücret kaydedebilirsiniz. Merhaba lisansına sahip olmadığınız durumlarda hello seçeneği yasaklamaz. ilke aşağıdaki hello kullanım Azure karma kullanımı Avantajı (AHUB) engelliyor:
+Bir şirket içi lisansı olduğunda, sanal makinelere lisans ücret kaydedebilirsiniz. Lisansına sahip olmadığınız durumlarda seçeneği yasaklamaz. Aşağıdaki ilke kullanım Azure karma kullanımı Avantajı (AHUB) engelliyor:
 
 ```json
 {
@@ -250,6 +250,6 @@ Bir şirket içi lisansı olduğunda, sanal makinelere hello lisans ücret kayde
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* (Örnekler önceki hello gösterildiği gibi) bir ilke kuralı tanımlama sonra toocreate hello ilke tanımı gerekir ve tooa kapsamı atayın. Merhaba kapsam abonelik, kaynak grubu veya kaynak olabilir. Merhaba portal aracılığıyla tooassign ilkeleri Bkz [kullanım Azure portal tooassign ve kaynak ilkelerini yönetme](../../azure-resource-manager/resource-manager-policy-portal.md). REST API'si, PowerShell veya Azure CLI aracılığıyla tooassign ilkeleri Bkz [atayın ve komut dosyası aracılığıyla ilkelerini yönetme](../../azure-resource-manager/resource-manager-policy-create-assign.md).
-* Bir giriş tooresource ilkeleri için bkz: [kaynak ilkesine genel bakış](../../azure-resource-manager/resource-manager-policy.md).
-* Kuruluşların Resource Manager tooeffectively nasıl kullanabileceğiniz hakkında rehberlik için abonelikleri yönetmek için bkz: [Azure enterprise iskele - Düzenleyici abonelik idare](../../azure-resource-manager/resource-manager-subscription-governance.md).
+* (Yukarıdaki örneklerde gösterildiği gibi) bir ilke kuralı tanımladıktan sonra ilke tanımı oluşturun ve bir kapsama atamanız gerekir. Kapsamı bir abonelik, kaynak grubu veya kaynak olabilir. Portal üzerinden ilkeler atamak için bkz: [atamak ve kaynak ilkelerini yönetmek için kullanım Azure portal](../../azure-resource-manager/resource-manager-policy-portal.md). REST API'si, PowerShell veya Azure CLI aracılığıyla ilkeleri atamak için bkz: [atayın ve komut dosyası aracılığıyla ilkelerini yönetme](../../azure-resource-manager/resource-manager-policy-create-assign.md).
+* Kaynak ilkelerini giriş için bkz: [kaynak ilkesine genel bakış](../../azure-resource-manager/resource-manager-policy.md).
+* Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](../../azure-resource-manager/resource-manager-subscription-governance.md).

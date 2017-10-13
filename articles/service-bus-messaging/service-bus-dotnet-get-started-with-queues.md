@@ -1,5 +1,5 @@
 ---
-title: "aaaGet ile Azure Service Bus kuyruklarını kullanmaya | Microsoft Docs"
+title: "Azure Service Bus kuyrukları ile çalışmaya başlama | Microsoft Docs"
 description: "Service Bus mesajlaşması kuyruklarını kullanan bir C# konsol uygulaması yazın."
 services: service-bus-messaging
 documentationcenter: .net
@@ -14,59 +14,59 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 06/26/2017
 ms.author: sethm
-ms.openlocfilehash: eaa362ab0eabd2427977398c1deab5dc00105ae9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 99a377db6341d90d263b98e14227db61dd9beabd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-service-bus-queues"></a>Service Bus kuyrukları ile çalışmaya başlama
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 ## <a name="what-will-be-accomplished"></a>Ne elde edilecek
-Bu öğretici hello aşağıdaki adımları kapsar:
+Bu öğreticide aşağıdaki adımlar yer almaktadır:
 
-1. Hello Azure portal kullanarak bir hizmet veri yolu ad alanı oluşturun.
-2. Hello Azure portal kullanarak bir Service Bus kuyruğu oluşturun.
-3. Bir konsol uygulaması toosend bir ileti yazın.
-4. Bir konsol uygulaması tooreceive hello hello önceki adımda gönderilen iletileri yazma.
+1. Azure portalı ile Service Bus ad alanı oluşturma.
+2. Azure portalını kullanarak Service Bus kuyruğu oluşturma.
+3. İleti göndermek için bir konsol uygulaması yazma.
+4. Önceki adımda gönderilen iletileri almak için bir konsol uygulaması yazma.
 
 ## <a name="prerequisites"></a>Ön koşullar
-1. [Visual Studio 2015 veya üzeri](http://www.visualstudio.com). Bu öğreticide Hello örnekler Visual Studio 2017 kullanın.
+1. [Visual Studio 2015 veya üzeri](http://www.visualstudio.com). Bu öğreticideki örneklerde Visual Studio 2017 kullanılmaktadır.
 2. Azure aboneliği.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1-create-a-namespace-using-hello-azure-portal"></a>1. Hello Azure portal kullanarak ad alanı oluşturma
-Service Bus Mesajlaşma hizmeti ad alanı zaten oluşturduysanız, toohello atlama [hello Azure portal kullanarak bir kuyruk oluşturun](#2-create-a-queue-using-the-azure-portal) bölümü.
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Azure portalı kullanılarak ad alanı oluşturma
+Daha önce bir Service Bus Mesajlaşması ad alanı oluşturduysanız [Azure portalını kullanarak kuyruk oluşturma](#2-create-a-queue-using-the-azure-portal) bölümüne atlayın.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2-create-a-queue-using-hello-azure-portal"></a>2. Hello Azure portal kullanarak bir sıra oluşturun
-Service Bus kuyruğuna zaten oluşturduysanız, toohello atlama [gönderme iletileri toohello sırası](#3-send-messages-to-the-queue) bölümü.
+## <a name="2-create-a-queue-using-the-azure-portal"></a>2. Azure portalını kullanarak kuyruk oluşturma
+Daha önce bir Service Bus kuyruğu oluşturduysanız [Kuyruğa ileti gönderme](#3-send-messages-to-the-queue) bölümüne atlayın.
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-## <a name="3-send-messages-toohello-queue"></a>3. İletileri toohello sırası Gönder
-toosend iletileri toohello sırası, Visual Studio kullanarak C# konsol uygulaması yazma.
+## <a name="3-send-messages-to-the-queue"></a>3. Kuyruğa ileti gönderme
+Kuyruğa ileti göndermek için, Visual Studio'yu kullanarak bir C# konsol uygulaması yazacağız.
 
 ### <a name="create-a-console-application"></a>Konsol uygulaması oluşturma
 
 Visual Studio'yu başlatın ve yeni bir **Konsol uygulaması (.NET Framework)** projesi oluşturun.
 
-### <a name="add-hello-service-bus-nuget-package"></a>Merhaba Service Bus NuGet paketi ekleme
-1. Yeni oluşturulan hello projesine sağ tıklatın ve **NuGet paketlerini Yönet**.
-2. Merhaba tıklatın **Gözat** sekmesinde, arama **Microsoft Azure Service Bus**seçip hello **WindowsAzure.ServiceBus** öğesi. Tıklatın **yükleme** toocomplete hello yükleme, ardından bu iletişim kutusunu kapatın.
+### <a name="add-the-service-bus-nuget-package"></a>Service Bus NuGet paketi ekleme
+1. Yeni oluşturulan projeye sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin.
+2. **Gözat** sekmesine tıklayın, **Microsoft Azure Service Bus** araması yapın ve **WindowsAzure.ServiceBus** öğesini seçin. Yüklemeyi tamamlamak için **Yükle**'ye tıklayın, ardından bu iletişim kutusunu kapatın.
    
     ![NuGet paketi seçme][nuget-pkg]
 
-### <a name="write-some-code-toosend-a-message-toohello-queue"></a>Bir ileti toohello sırası bazı kod toosend yazma
-1. Merhaba aşağıdakileri ekleyin `using` hello Program.cs dosyasının deyimi toohello üst.
+### <a name="write-some-code-to-send-a-message-to-the-queue"></a>Kuyruğa ileti göndermek için kod yazma
+1. Aşağıdaki `using` deyimini Program.cs dosyasının üst kısmına ekleyin.
    
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
-2. Aşağıdaki kodu toohello hello eklemek `Main` yöntemi. Set hello `connectionString` değişken toohello bağlantı dizesi hello ad alanı oluştururken, edinilen ve ayarlama `queueName` hello sıra oluşturulurken kullanılan toohello sıra adı.
+2. Aşağıdaki kodu `Main` yöntemine ekleyin. `connectionString` değişkenini, ad alanını oluştururken edindiğiniz bağlantı dizesi olarak; `queueName` değişkenini ise kuyruğu oluştururken kullandığınız kuyruk adı olarak belirleyin.
    
     ```csharp
     var connectionString = "<your connection string>";
@@ -79,7 +79,7 @@ Visual Studio'yu başlatın ve yeni bir **Konsol uygulaması (.NET Framework)** 
 
     client.Send(message);
 
-    Console.WriteLine("Message successfully sent! Press ENTER tooexit program");
+    Console.WriteLine("Message successfully sent! Press ENTER to exit program");
     Console.ReadLine();
     ```
    
@@ -109,25 +109,25 @@ Visual Studio'yu başlatın ve yeni bir **Konsol uygulaması (.NET Framework)** 
 
                 client.Send(message);
 
-                Console.WriteLine("Message successfully sent! Press ENTER tooexit program");
+                Console.WriteLine("Message successfully sent! Press ENTER to exit program");
                 Console.ReadLine();
             }
         }
     }
     ```
-3. Merhaba programını çalıştırın ve hello Azure portal denetleyin: sıranız hello ad alanındaki hello adına tıklayın **genel bakış** dikey. Merhaba sıra **Essentials** dikey penceresi görüntülenir. Bu hello fark **etkin ileti sayısı** değeri artık 1 olmalıdır. Merhaba, iletilere olmadan hello gönderen uygulama çalıştıran her zaman bu değer 1 ile artar. Ayrıca bir ileti toohello sırası hello geçerli boyutu hello sırasının her zaman hello uygulama artırır Not ekler.
+3. Programı çalıştırın ve Azure portalını denetleyin: Ad alanına ilişkin **Genel Bakış** dikey penceresinde kuyruğunuzun adına tıklayın. Kuyruğa ilişkin **Temel Parçalar** dikey penceresi görüntülenir. **Etkin Mesaj Sayısı** değerinin 1 olduğuna dikkat edin. Gönderen uygulamayı iletileri almadan her çalıştırdığınızda bu değer 1 artar. Ayrıca uygulama kuyruğa her ileti eklediğinde kuyruğun geçerli boyutunun artış gösterdiğine dikkat edin.
    
       ![İleti boyutu][queue-message]
 
-## <a name="4-receive-messages-from-hello-queue"></a>4. Merhaba kuyruktan ileti alma
+## <a name="4-receive-messages-from-the-queue"></a>4. Kuyruktan ileti alma
 
-1. tooreceive karışılama iletileri yalnızca gönderdiğiniz, yeni bir konsol uygulaması oluşturun ve bir başvuru toohello Service Bus NuGet paketi, benzer toohello önceki gönderen uygulama ekleyin.
-2. Merhaba aşağıdakileri ekleyin `using` hello Program.cs dosyasının deyimi toohello üst.
+1. Gönderdiğiniz iletileri almak için yeni bir konsol uygulaması oluşturun ve önceki gönderen uygulamaya benzer şekilde, Service Bus NuGet paketine başvuru ekleyin.
+2. Aşağıdaki `using` deyimini Program.cs dosyasının üst kısmına ekleyin.
    
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
-3. Aşağıdaki kodu toohello hello eklemek `Main` yöntemi. Set hello `connectionString` hello ad alanı oluştururken, edinilen ve ayarlama değişken toohello bağlantı dizesi `queueName` hello sıra oluşturulurken kullanılan toohello sıra adı.
+3. Aşağıdaki kodu `Main` yöntemine ekleyin. `connectionString` değişkenini, ad alanı oluşturulurken edinilen bağlantı dizesi olarak; `queueName` değişkenini ise kuyruğu oluştururken kullandığınız kuyruk adı olarak belirleyin.
    
     ```csharp
     var connectionString = "<your connection string>";
@@ -141,7 +141,7 @@ Visual Studio'yu başlatın ve yeni bir **Konsol uygulaması (.NET Framework)** 
       Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
     });
    
-    Console.WriteLine("Press ENTER tooexit program");
+    Console.WriteLine("Press ENTER to exit program");
     Console.ReadLine();
     ```
    
@@ -168,13 +168,13 @@ Visual Studio'yu başlatın ve yeni bir **Konsol uygulaması (.NET Framework)** 
             Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
           });
 
-          Console.WriteLine("Press ENTER tooexit program");   
+          Console.WriteLine("Press ENTER to exit program");   
           Console.ReadLine();
         }
       }
     }
     ```
-4. Merhaba programını çalıştırın ve hello portal yeniden denetleyin. Bu hello fark **etkin ileti sayısı** ve **geçerli** değerler şimdi 0.
+4. Programı çalıştırın ve portalı tekrar denetleyin. Bu işlemden sonra **Etkin Mesaj Sayısı** ve **Geçerli** değerlerinin 0 olduğuna dikkat edin.
    
     ![Kuyruk uzunluğu][queue-message-receive]
 
@@ -182,7 +182,7 @@ Tebrikler! Bir kuyruk oluşturdunuz, ileti gönderdiniz ve ileti aldınız.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Kullanıma bizim [örnekleri GitHub deposuyla](https://github.com/Azure/azure-service-bus/tree/master/samples) , göstermek daha gelişmiş özellikler Service Bus Mesajlaşma hello bazıları.
+Service Bus mesajlaşmasının daha gelişmiş özelliklerini gösteren [örneklerin bulunduğu GitHub depomuza](https://github.com/Azure/azure-service-bus/tree/master/samples) göz atın.
 
 <!--Image references-->
 

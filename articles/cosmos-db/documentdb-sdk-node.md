@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure Cosmos DB Node.js API SDK & kaynakları | Microsoft Docs"
-description: "Node.js API ve SDK sürüm tarih, sona erme tarihlerini ve her hello Azure Cosmos DB Node.js SDK'sı sürüm arasında yapılan değişiklikler dahil olmak üzere tüm hello hakkında bilgi edinin."
+title: "Azure Cosmos DB Node.js API, SDK & kaynakları | Microsoft Docs"
+description: "Node.js API ve yayın tarih, sona erme tarihlerini ve her Azure Cosmos DB Node.js SDK'sı sürüm arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin."
 services: cosmos-db
 documentationcenter: nodejs
 author: rnagpal
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d450b9a9ea7b0f4717ddae8940121fc458ea3744
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 4376a5c07b5f00311ce0fe3c0056efdf79c273f9
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>Azure DB Cosmos Node.js SDK: sürüm notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -43,11 +43,11 @@ ms.lasthandoff: 10/06/2017
 
 <tr><td>**SDK yükleme yönergeleri**</td><td>[Yükleme yönergeleri](http://azure.github.io/azure-documentdb-node/)</td></tr>
 
-<tr><td>**TooSDK katkıda bulunan**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
+<tr><td>**SDK katkıda bulunan**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
 
 <tr><td>**Örnekler**</td><td>[Node.js kod örnekleri](documentdb-nodejs-samples.md)</td></tr>
 
-<tr><td>**Başlangıç eğitmeni**</td><td>[Merhaba Node.js SDK'sı ile çalışmaya başlama](documentdb-nodejs-get-started.md)</td></tr>
+<tr><td>**Başlangıç eğitmeni**</td><td>[Node.js SDK'sı ile çalışmaya başlama](documentdb-nodejs-get-started.md)</td></tr>
 
 <tr><td>**Web uygulaması Öğreticisi**</td><td>[Azure Cosmos DB kullanarak bir Node.js web uygulaması oluşturma](documentdb-nodejs-application.md)</td></tr>
 
@@ -66,8 +66,8 @@ ms.lasthandoff: 10/06/2017
 
 ### <a name="1.12.1"/>1.12.1</a>
 * Bir hata, burada ilgili belgelerini özel Unicode karakterler (LS, PS) b executeStoredProcedure içinde sabit.
-* Merhaba bölüm anahtarı Unicode karakterler içeren belgeleri işlemedeki hatanın düzeltildiğini.
-* Sabit koleksiyonlar ile Merhaba ad ortamı oluşturma desteği. Github sorunu #114.
+* Bölüm anahtarı Unicode karakterler içeren belgeleri işlemedeki hatanın düzeltildiğini.
+* Sabit koleksiyonlar ile ad ortamı oluşturma desteği. Github sorunu #114.
 * İzni yetkilendirme belirtecini sabit desteği. Github sorunu #178.
 
 ### <a name="1.12.0"/>1.12.0</a>
@@ -76,19 +76,19 @@ ms.lasthandoff: 10/06/2017
 * Unicode desteği hatanın düzeltildiğini. GitHub sorunu #171.
 
 ### <a name="1.11.0"/>1.11.0</a>
-* Toplama sorguları (sayısı, MIN, MAX, toplam ve ortalama) desteği eklendi hello.
-* Çapraz bölüm sorgular için paralellik derecesi denetleme eklenen hello seçeneği.
-* SSL doğrulama Azure Cosmos DB öykünücüsüne karşı çalıştırırken devre dışı bırakmak için eklenen hello seçeneği.
-* En düşük işleme 10,100 RU/s too2500 RU/s bölümlenmiş koleksiyonlar üzerinde düşürdü.
-* Tek bölümlü bir koleksiyon için sabit hello devamlılık belirteci hata. Github sorunu #107.
-* 0 tek param işlemedeki sabit hello executeStoredProcedure hata. Github sorunu #155.
+* Toplama sorguları (sayısı, MIN, MAX, toplam ve ortalama) desteği eklendi.
+* Çapraz bölüm sorgular için paralellik derecesi denetleme seçenek eklenmiştir.
+* SSL doğrulama Azure Cosmos DB öykünücüsüne karşı çalıştırırken devre dışı bırakmak için seçenek eklenmiştir.
+* En düşük işleme 2500 RU/s 10,100 RU/s bölümlenmiş koleksiyonlar üzerinde düşürdü.
+* Tek bölümlü bir koleksiyon için devamlılık belirteci hata sabit. Github sorunu #107.
+* 0 tek param işlemedeki executeStoredProcedure hata sabit. Github sorunu #155.
 
 ### <a name="1.10.2"/>1.10.2</a>
-* Sabit Kullanıcı Aracısı üstbilgisi tooinclude hello SDK sürümü.
+* SDK sürümü dahil etmek için sabit user-agent üstbilgisi.
 * Küçük kod temizleme.
 
 ### <a name="1.10.1"/>1.10.1</a>
-* SSL doğrulama hello SDK tootarget hello emulator(hostname=localhost) kullanırken devre dışı bırakılıyor.
+* SSL doğrulama SDK emulator(hostname=localhost) hedeflemek için kullanırken devre dışı bırakılıyor.
 * Saklı yordam yürütme sırasında betik günlüğünü etkinleştirme için destek eklendi.
 
 ### <a name="1.10.0"/>1.10.0</a>
@@ -96,27 +96,27 @@ ms.lasthandoff: 10/06/2017
 * ÜST/ORDER BY sorguları bölümlenmiş koleksiyonlar için desteği eklendi.
 
 ### <a name="1.9.0"/>1.9.0</a>
-* Daraltılmış istekleri için eklenen yeniden deneme ilkesi desteği. (Daraltılmış isteklerini bir istek oranı çok büyük özel durumu, hata kodu 429 alır.) Hata kodu 429 karşılaşıldığında, varsayılan olarak, Azure Cosmos DB dokuz kez her istek için uygularken hello retryAfter hello yanıt üstbilgisi sürede yeniden dener. Merhaba yeniden denemeler arasında sunucu tarafından döndürülen tooignore hello retryAfter zaman istiyorsanız sabit yeniden deneme zaman aralığını şimdi hello RetryOptions özelliğinin bir parçası olarak hello ConnectionPolicy nesne üzerinde ayarlanabilir. Azure Cosmos DB şimdi en fazla (bağımsız olarak yeniden deneme sayısı) kısıtlanan ve 429 hata koduyla hello yanıt döndüren her istek için 30 saniye bekler. Bu süre ayrıca hello ConnectionPolicy nesnesindeki RetryOptions özelliği geçersiz kılınabilir.
-* Cosmos DB şimdi x-ms-kısıtlama-yeniden deneme-sayısı ve x-ms-throttle-retry-wait-time-ms döndürür her isteği toodenote hello kısıtlama Hello yanıt üstbilgileri hello yeniden denemeler arasında beklenen hello isteği sayısını ve hello toplu süre yeniden deneyin.
-* Merhaba RetryOptions sınıfı eklendi, hello RetryOptions özelliği gösterme kullanılan toooverride olabilir hello ConnectionPolicy sınıfı üzerinde bazı hello varsayılan seçenekleri yeniden deneyin.
+* Daraltılmış istekleri için eklenen yeniden deneme ilkesi desteği. (Daraltılmış isteklerini bir istek oranı çok büyük özel durumu, hata kodu 429 alır.) Hata kodu 429 karşılaşıldığında, varsayılan olarak, Azure Cosmos DB dokuz kez her istek için yanıt üst bilgisi retryAfter zamanında uygularken yeniden dener. Yeniden denemeler arasında sunucu tarafından döndürülen retryAfter zaman yoksay istiyorsanız sabit yeniden deneme zaman aralığını şimdi RetryOptions özelliğinin bir parçası olarak ConnectionPolicy nesne üzerinde ayarlanabilir. Azure Cosmos DB şimdi en fazla (bağımsız olarak yeniden deneme sayısı) kısıtlanan ve 429 hata koduyla yanıt döndüren her istek için 30 saniye bekler. Bu süre de ConnectionPolicy nesnesindeki RetryOptions özelliği geçersiz kılınabilir.
+* Yanıt üstbilgilerini kısıtlama belirtmek için her istekte yeniden deneme sayısı ve isteği yeniden denemeler arasında beklenen toplam süre gibi cosmos DB x-ms-kısıtlama-yeniden deneme-sayısı ve x-ms-throttle-retry-wait-time-ms şimdi döndürür.
+* Bazı varsayılan yeniden deneme seçeneklerini geçersiz kılmak için kullanılan ConnectionPolicy sınıfı RetryOptions özellikte gösterme RetryOptions sınıfı eklendi.
 
 ### <a name="1.8.0"/>1.8.0</a>
-* Eklenen hello bölgeli veritabanı hesaplarını desteği.
+* Bölgeli veritabanı hesaplarını desteği eklendi.
 
 ### <a name="1.7.0"/>1.7.0</a>
-* Eklenen hello zamanı tooLive(TTL) özelliğini belgeler için destek.
+* Belgeler için zaman için Live(TTL) özelliği için destek eklendi.
 
 ### <a name="1.6.0"/>1.6.0</a>
 * Uygulanan [bölümlenmiş koleksiyonlar](partition-data.md) ve [kullanıcı tanımlı performans düzeyleri](performance-levels.md).
 
 ### <a name="1.5.6"/>1.5.6</a>
-* Burada, bağlantılar tooa hatalı concat sonuçlarının son döndürdü değil sabit RangePartitionResolver.resolveForRead hata.
+* Burada, hatalı concat sonuçları nedeniyle bağlantıları döndürdü olmayan sabit RangePartitionResolver.resolveForRead hata.
 
 ### <a name="1.5.5"/>1.5.5</a>
 * HashParitionResolver resolveForRead() sabit: ne zaman sağlanan hiçbir bölüm anahtarı atma tüm kayıtlı bağlantıların listesini döndürme yerine bir özel durum.
 
 ### <a name="1.5.4"/>1.5.4</a>
-* Sorunu giderir [#100](https://github.com/Azure/azure-documentdb-node/issues/100) -ayrılmış HTTPS aracısı: hello genel Aracısı Azure Cosmos DB amacıyla değiştirme kaçının. Ayrılmış bir aracı tüm hello lib'ın istekleri için kullanın.
+* Sorunu giderir [#100](https://github.com/Azure/azure-documentdb-node/issues/100) -ayrılmış HTTPS aracısı: Azure Cosmos DB amacıyla genel Aracısı değiştirme kaçının. Ayrılmış bir aracı tüm lib'ın istekleri için kullanın.
 
 ### <a name="1.5.3"/>1.5.3</a>
 * Sorunu giderir [#81](https://github.com/Azure/azure-documentdb-node/issues/81) - düzgün işleyecek medya kimlikleri tire.
@@ -125,7 +125,7 @@ ms.lasthandoff: 10/06/2017
 * Sorunu giderir [#95](https://github.com/Azure/azure-documentdb-node/issues/95) -EventEmitter dinleyicisi sızıntısı uyarı.
 
 ### <a name="1.5.1"/>1.5.1</a>
-* Sorunu giderir [#92](https://github.com/Azure/azure-documentdb-node/issues/90) -klasör karma toohash büyük küçük harfe duyarlı sistemler için yeniden adlandırın.
+* Sorunu giderir [#92](https://github.com/Azure/azure-documentdb-node/issues/90) -klasör karma büyük küçük harfe duyarlı sistemler için karma yeniden adlandırın.
 
 ### <a name="1.5.0"/>1.5.0</a>
 * Karma & aralığı bölüm çözümleyiciler ekleyerek parçalama destek uygular.
@@ -134,11 +134,11 @@ ms.lasthandoff: 10/06/2017
 * Upsert uygulayın. DocumentClient yeni upsertXXX yöntemleri.
 
 ### <a name="1.3.0"/>1.3.0</a>
-* Diğer SDK ile hizalama toobring sürüm numaraları atlandı.
+* Sürüm numaraları diğer SDK ile hizalama getirilecek atlandı.
 
 ### <a name="1.2.2"/>1.2.2</a>
-* Bölünmüş Q sarmalayıcı toonew depo taahhüt eder.
-* Npm kayıt defteri toopackage dosyasını güncelleştirin.
+* Bölünmüş Q yeni bir havuz için sarmalayıcı taahhüt eder.
+* Paket dosyası npm kayıt defteri için güncelleştirin.
 
 ### <a name="1.2.1"/>1.2.1</a>
 * Implements tabanlı yönlendirme kimliği.
@@ -147,19 +147,19 @@ ms.lasthandoff: 10/06/2017
 ### <a name="1.2.0"/>1.2.0</a>
 * Jeo-uzamsal dizin desteği eklendi.
 * ID özelliği tüm kaynaklar için doğrular. Kaynaklar için kimlikleri içeremez?, /, # &#47; &#47; karakter veya boşluk ile bitmelidir.
-* Yeni Üstbilgi "dizini dönüştürme ilerleme" tooResourceResponse ekler.
+* Yeni Üstbilgi "dizini dönüştürme ilerleme durumu" için ResourceResponse ekler.
 
 ### <a name="1.1.0"/>1.1.0</a>
 * V2 dizin oluşturma ilkesini uygular.
 
 ### <a name="1.0.3"/>1.0.3</a>
-* Sorun [#40](https://github.com/Azure/azure-documentdb-node/issues/40) - uygulanan eslint grunt hello çekirdek yapılandırmalarını ve SDK veriyoruz.
+* Sorun [#40](https://github.com/Azure/azure-documentdb-node/issues/40) - uygulanan eslint grunt çekirdek yapılandırmalarını ve SDK veriyoruz.
 
 ### <a name="1.0.2"/>1.0.2</a>
 * Sorun [#45](https://github.com/Azure/azure-documentdb-node/issues/45) -öneriler sarmalayıcı hata üstbilgiyle içermez.
 
 ### <a name="1.0.1"/>1.0.1</a>
-* Çakışmaları özelliği tooquery readConflicts, readConflictAsync ve queryConflicts ekleyerek uygulanmadı.
+* Sorgu readConflicts, readConflictAsync ve queryConflicts ekleyerek çakışmaları için uygulanan yeteneği.
 * Güncelleştirilmiş API belgeleri.
 * Sorun [#41](https://github.com/Azure/azure-documentdb-node/issues/41) -client.createDocumentAsync hata.
 
@@ -167,11 +167,11 @@ ms.lasthandoff: 10/06/2017
 * GA SDK.
 
 ## <a name="release--retirement-dates"></a>Yayın & sona erme tarihlerini
-Microsoft'un sağladığı bildirim en az **12 ay** sipariş toosmooth hello geçiş tooa sürümü daha yeni/desteklenen bir SDK'yı devre dışı bırakmadan önce.
+Microsoft'un sağladığı bildirim en az **12 ay** yeni/desteklenen bir sürüme geçiş kesintisiz için bir SDK devre dışı bırakmadan önce.
 
-Yeni özellikler ve işlevsellik ve en iyi duruma getirme toohello geçerli ekleneceği yalnızca SDK, bu nedenle önerilir, her zaman yükseltme toohello en son SDK sürümünün olabildiğince erken.
+Yeni özellikler ve işlevsellik ve en iyi duruma getirme geçerli SDK'sı yalnızca eklenir, bu nedenle, her zaman en son SDK sürüme erken mümkün olduğunca yükseltmeniz önerilir.
 
-TooCosmos devre dışı bırakılan bir SDK'sını kullanarak DB olan herhangi bir istek hello hizmeti tarafından reddedilir.
+Kullanımdan Kaldırılan SDK Cosmos DB kullanarak herhangi bir istek hizmeti tarafından reddedilir.
 
 <br/>
 
@@ -210,5 +210,5 @@ TooCosmos devre dışı bırakılan bir SDK'sını kullanarak DB olan herhangi b
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Ayrıca bkz.
-toolearn Cosmos DB hakkında daha fazla bilgi görmek [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) hizmet sayfası.
+Cosmos DB hakkında daha fazla bilgi için bkz: [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) hizmet sayfası.
 

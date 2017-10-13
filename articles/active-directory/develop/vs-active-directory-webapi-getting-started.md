@@ -1,6 +1,6 @@
 ---
-title: "Visual Studio Webapı projelerinde Azure AD ile başlatıldı aaaGet | Microsoft Docs"
-description: "Visual Studio kullanarak Azure AD oluşturma tooor bağlandıktan sonra Webapı projelerinde Azure Active Directory'yi kullanarak tooget nasıl başlatılacağını bağlı Hizmetleri"
+title: "Visual Studio Webapı projelerinde Azure AD ile çalışmaya başlama | Microsoft Docs"
+description: "Azure Active Directory Webapı projelerinde bağlanma veya Visual Studio kullanarak Azure AD oluşturduktan sonra kullanmaya başlamak nasıl bağlı Hizmetleri"
 services: active-directory
 documentationcenter: 
 author: kraigb
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/19/2017
 ms.author: kraigb
 ms.custom: aaddev
-ms.openlocfilehash: 21413a71a2fd61f31268bf6d5e4d86b8be5bd16a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a756316054dd3bb63f3b0a9f59621bb1345bc693
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-started-with-azure-active-directory-and-visual-studio-connected-services-webapi-projects"></a>Azure Active Directory ve Visual Studio bağlı hizmetler (Webapı projeleri) ile Başlarken
 > [!div class="op_single_selector"]
@@ -28,8 +28,8 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-## <a name="requiring-authentication-tooaccess-controllers"></a>Gerektiren kimlik doğrulaması tooaccess denetleyicileri
-Projenizdeki tüm denetleyicileri ile Merhaba donatılan **Authorize** özniteliği. Bu öznitelik hello kullanıcı toobe hello API'leri erişme bu denetleyicileri tarafından tanımlanan önce kimlik doğrulaması gerektirir. anonim olarak, erişilen tooallow hello denetleyicisi toobe bu öznitelik hello denetleyicisinden kaldırın. Daha ayrıntılı bir düzeyde tooset hello izinleri istiyorsanız toohello denetleyici sınıfı uygulamak yerine yetkilendirme gerektiren hello özniteliği tooeach yöntemi uygulayın.
+## <a name="requiring-authentication-to-access-controllers"></a>Erişim denetleyicileri kimlik doğrulaması gerektiren
+Projenizdeki tüm denetleyicileri ile donatılan **Authorize** özniteliği. Bu öznitelik kullanıcıya bu denetleyicileri tarafından tanımlanan API'leri erişmeden önce kimlik doğrulaması gerektirir. Denetleyici anonim erişime izin vermek için bu öznitelik denetleyicisinden kaldırın. Daha ayrıntılı bir düzeyde izinleri ayarlamak istiyorsanız, denetleyici sınıfı için uygulama yerine yetkilendirme gerektiren her yöntemi için özniteliğini uygulayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure Active Directory hakkında daha fazla bilgi edinin](https://azure.microsoft.com/services/active-directory/)

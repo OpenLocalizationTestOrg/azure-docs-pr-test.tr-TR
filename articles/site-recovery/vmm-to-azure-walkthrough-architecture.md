@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery ile Hyper-V çoğaltma (System Center VMM ile) tooAzure için aaaReview hello mimarisi | Microsoft Docs"
-description: "Bu makalede bileşenleri genel bir bakış sağlar ve çoğaltırken kullanılan mimarisi Hyper-V sanal makineleri hello Azure Site Recovery hizmeti ile VMM Bulutları tooAzure içinde şirket."
+title: "Azure Site Recovery ile Hyper-V'den Azure'a çoğaltma işleminin (System Center VMM ile) yapısını inceleme | Microsoft Docs"
+description: "Bu makalede, Azure Site Recovery hizmeti ile şirket içi VMM bulutlarındaki Hyper-V VM'lerini Azure'a çoğaltma işleminde kullanılan bileşenlere ve mimariye ilişkin genel bir bakış sunulmaktadır."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,80 +14,80 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/24/2017
 ms.author: raynew
-ms.openlocfilehash: ee1f2775b0c929894933b639464176d7a0441519
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: df4e227d02901153d3cfcfd4dfd4f11de180763a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="step-1-review-hello-architecture"></a>1. adım: Gözden geçirme hello mimarisi
+# <a name="step-1-review-the-architecture"></a>1. Adım: Mimariyi gözden geçirme
 
 
-Bu makalede hello bileşenleri ve süreçleri çoğaltma System Center Virtual Machine Manager (VMM) bulutlarında, tooAzure hello kullanarak Hyper-V sanal makineleri şirket içi kullanılan [Azure Site Recovery](site-recovery-overview.md) hizmet.
+Bu makalede, System Center Virtual Machine Manager (VMM) bulutlarındaki şirket içi Hyper-V sanal makinelerini [Azure Site Recovery](site-recovery-overview.md) hizmeti aracılığıyla Azure'a çoğaltma işleminde kullanılan bileşenler ve işlemler açıklanmaktadır.
 
-Bu makalenin veya hello hello altındaki tüm yorumlar sonrası [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Tüm yorumlarınızı bu makalenin alt kısmında veya [Azure Kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)'nda paylaşabilirsiniz.
 
 
 
 ## <a name="architectural-components"></a>Mimari bileşenler
 
-Bir dizi bileşen dahil olan Hyper-V sanal makineleri VMM Bulutları tooAzure çoğaltırken.
+VMM bulutlarındaki Hyper-V VM'leri Azure'a çoğaltırken kullanılan çeşitli bileşenler vardır.
 
 **Bileşen** | **Gereksinim** | **Ayrıntılar**
 --- | --- | ---
-**Azure** | Azure’da bir Microsoft Azure hesabına, bir Azure depolama hesabına ve bir Azure ağına ihtiyacınız vardır. | Çoğaltılan veriler hello depolama hesabında depolanır ve şirket içi sitenizdeki yük devretme durumunda Azure Vm'leri çoğaltılan hello verilerle oluşturulur.<br/><br/> Hello Azure VM'ler, oluşturuldukları zaman toohello Azure sanal ağı bağlayın.
-**VMM sunucusu** | Merhaba VMM sunucusu Hyper-V ana bilgisayarları içeren bir veya daha fazla bulut içeriyor. | Merhaba VMM sunucusunda Site Recovery ile Merhaba Site kurtarma sağlayıcısı tooorchestrate çoğaltmayı yükleme ve kurtarma Hizmetleri kasası hello hello sunucu kaydedin.
-**Hyper-V konağı** | VMM tarafından yönetilen bir veya daha fazla Hyper-V konağı/kümesi. |  Her ana bilgisayar veya küme üyesinde hello kurtarma Hizmetleri aracısını yükleyin.
-**Hyper-V VM’leri** | Hyper-V konağı sunucusunda çalışan bir veya daha fazla VM. | Hiçbir şey Vm'lere yüklü tooexplicitly gerekir.
-**Ağ** |Merhaba VMM sunucusunda mantıksal ve VM ağları ayarlayın. Bir VM ağı hello bulutla ilişkilendirilen mantıksal ağ bağlantılı tooa olmalıdır. | Böylece yük devretme sonrasında oluşturulduğunda Azure sanal makineleri bir ağda VM eşlenen tooAzure sanal ağlar, ağlardır.
+**Azure** | Azure’da bir Microsoft Azure hesabına, bir Azure depolama hesabına ve bir Azure ağına ihtiyacınız vardır. | Çoğaltılan veriler depolama hesabında depolanır ve şirket içi sitenizden yük devretme gerçekleştiğinde çoğaltılan verilerle Azure VM’leri oluşturulur.<br/><br/> Azure VM’leri oluşturulduğunda Azure sanal ağına bağlanır.
+**VMM sunucusu** | VMM sunucusu, Hyper-V konakları içeren bir veya daha fazla bulut içerir. | VMM sunucusunda Site Recovery ile çoğaltmayı düzenlemek için Site Recovery Sağlayıcısı'nı yükleyin ve sunucuyu Kurtarma Hizmetleri kasasına kaydedin.
+**Hyper-V konağı** | VMM tarafından yönetilen bir veya daha fazla Hyper-V konağı/kümesi. |  Her konak veya küme üyesinde Kurtarma Hizmetleri aracısını yükleyin.
+**Hyper-V VM’leri** | Hyper-V konağı sunucusunda çalışan bir veya daha fazla VM. | VM'lere açıkça bir şey yüklenmesi gerekmez.
+**Ağ** |VMM sunucusunda ayarlanmış mantıksal ağlar ve VM ağları. VM ağının da bulutla ilişkilendirilen bir mantıksal ağ ile bağlantılı olması gerekir. | VM ağları, yük devretme sonrasında oluşturulan Azure sanal makinelerinin bir ağda olması için Azure sanal ağlarına eşlenir.
 
-Merhaba dağıtımının önkoşulları ve hello de bu bileşenlerin her birini gereksinimleri hakkında bilgi edinin [destek matrisi](site-recovery-support-matrix-to-azure.md).
+[Destek matrisinde](site-recovery-support-matrix-to-azure.md), bu bileşenlerden her birine ilişkin dağıtım önkoşulları ve gereksinimler hakkında bilgi edinin.
 
 
-**Şekil 1: VMM Bulutları tooAzure Hyper-V ana bilgisayarda çoğaltma sanal makineleri**
+**Şekil 1: VMM bulutlarındaki Hyper-V konaklarında bulunan VM’leri-Azure’a çoğaltma**
 
 ![Bileşenler](./media/vmm-to-azure-walkthrough-architecture/arch-onprem-onprem-azure-vmm.png)
 
 
 ## <a name="replication-process"></a>Çoğaltma işlemi
 
-**Şekil 2: Hyper-V çoğaltma tooAzure için çoğaltma ve kurtarma işlemi**
+**Şekil 2: Hyper-V'den Azure'a çoğaltma için çoğaltma ve kurtarma işlemi**
 
 ![iş akışı](./media/vmm-to-azure-walkthrough-architecture/arch-hyperv-azure-workflow.png)
 
 ### <a name="enable-protection"></a>Korumayı etkinleştir
 
-1. Hyper-V sanal makine için koruma etkinleştirildikten sonra Azure portalına veya şirket içi, hello hello **korumayı etkinleştir** başlatır.
-2. Merhaba iş o hello makine hello çağırmadan önce önkoşulları ile uyumlu denetler [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), yapılandırdığınız hello ayarlarla çoğaltma tooset.
-3. Merhaba işini hello çağırarak ilk çoğaltmayı başlatır [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) yöntemi, tam bir VM çoğaltmasını tooinitialize ve gönderme hello sanal makinenin sanal diskleri tooAzure.
-4. Merhaba hello işinde izleyebilirsiniz **işleri** sekmesi.      ![İşler listesi](media/vmm-to-azure-walkthrough-architecture/image1.png) ![Korumayı etkinleştir ayrıntıları](media/vmm-to-azure-walkthrough-architecture/image2.png)
+1. Azure portalında veya şirket içinde bir Hyper-V VM’si için koruma etkinleştirdikten sonra, **Korumayı etkinleştir** başlatılır.
+2. İş, makinenin önkoşullarla uyumlu olup olmadığını denetler, ardından, çoğaltmayı daha önce yapılandırdığınız ayarları uygulamak üzere [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) çağırır.
+3. İş, tam bir VM çoğaltması başlatmak için [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) yöntemini çağırarak ilk çoğaltmayı başlatır ve VM’lerin sanal disklerini Azure’a gönderir.
+4. **İşler** sekmesinde işi izleyebilirsiniz.      ![İşler listesi](media/vmm-to-azure-walkthrough-architecture/image1.png) ![Korumayı etkinleştir ayrıntıları](media/vmm-to-azure-walkthrough-architecture/image2.png)
 
-### <a name="replicate-hello-initial-data"></a>Merhaba ilk veri çoğaltma
+### <a name="replicate-the-initial-data"></a>İlk verileri çoğaltma
 
 1. İlk çoğaltma tetiklendiğinde bir [Hyper-V VM anlık görüntüsü](https://technet.microsoft.com/library/dd560637.aspx) alınır.
-2. Tüm kopyalanan tooAzure oluncaya kadar sanal sabit diskler çoğaltılır ' dir. Merhaba VM boyutuna bağlı olarak uzun sürebilir ve ağ bant genişliği. toooptimize, ağ kullanımınızı bkz [nasıl toomanage tooAzure koruma ağ bant genişliği kullanımını içi](https://support.microsoft.com/kb/3056159).
-3. İlk çoğaltma işlemi devam ederken disk değişimi meydana gelirse hello Hyper-V çoğaltma çoğaltma İzleyicisi bu değişiklikleri Hyper-V çoğaltma günlükleri (.hrl) izler. Bu dosyalar hello bulunur hello diskleri aynı klasöre. Her diskin toosecondary depolama gönderilecek bir ilişkili .hrl dosyası vardır.
-4. ilk çoğaltma işlemi devam ederken hello anlık görüntü ve günlük dosyalarının disk kaynaklarını tüketebilir.
-5. Merhaba ilk çoğaltma tamamlandığında hello VM anlık görüntüsü silinir. Değişim diski değişiklikleri hello günlüğünde eşitlenmesi ve birleştirilmiş toohello üst disk var.
+2. Sanal diskler, hepsi Azure'a kopyalanana kadar birer birer çoğaltılır. VM boyutuna ve ağ bant genişliğine bağlı olarak biraz uzun sürebilir. Ağ kullanımınızı iyileştirmek için, bkz: [Şirket içinden Azure'a koruma ağ bant genişliği kullanımını yönetme](https://support.microsoft.com/kb/3056159).
+3. İlk çoğaltma devam ederken disk değişiklikleri meydana gelirse, Hyper-V Çoğaltma'nın Çoğaltma İzleyicisi bu değişiklikleri Hyper-V Çoğaltma Günlükleri (.hrl) olarak izler. Bu dosyalar disklerle aynı klasörde bulunur. Her diskin ikincil depolamaya gönderilecek bir ilişkili .hrl dosyası vardır.
+4. İlk çoğaltma sırasında anlık görüntü ve günlük dosyaları disk kaynaklarını kullanır.
+5. İlk çoğaltma tamamlandığında, VM anlık görüntüsü silinir. Günlükteki değişim disk değişiklikleri eşitlenir ve üst diske birleştirilir.
 
 
 ### <a name="finalize-protection"></a>Korumayı sonlandırma
 
-1. Merhaba ilk çoğaltma, hello bittikten sonra **hello sanal makinede korumayı Sonlandır** işi, ağ ve diğer çoğaltma sonrası ayarlarını hello sanal makine korunuyor böylece yapılandırır.
+1. İlk çoğaltma sona erdikten sonra, **Sanal makinede korumayı sonlandır** işi, sanal makinenin korunabilmesi adına ağı ve diğer çoğaltma sonrası ayarlarını yapılandırır.
     ![Korumayı sonlandır işi](media/vmm-to-azure-walkthrough-architecture/image3.png)
-2. TooAzure çoğaltıyorsanız, böylece yük devretme için hazır tootweak hello ayarları hello sanal makine için gerekebilir. Bu noktada, her şeyin beklendiği gibi çalıştığını test yük devretme toocheck çalıştırabilirsiniz.
+2. Azure'da çoğaltma yapıyorsanız sanal makinede ince ayar yapmanız gerekebilir. Böylece sanal makine yük devretme için hazır hale gelir. Bu noktada, her şeyin istendiği şekilde çalıştığını denetlemek için yük devretme testi çalıştırabilirsiniz.
 
-### <a name="replicate-hello-delta"></a>Merhaba delta Çoğalt
+### <a name="replicate-the-delta"></a>Değişimi çoğaltma
 
-1. Merhaba ilk çoğaltma sonrasında delta eşitleme, çoğaltma ayarlarına uygun şekilde başlar.
-2. Merhaba Hyper-V çoğaltma çoğaltma İzleyicisi Merhaba değişiklikleri tooa sanal sabit disk .hrl dosyası izler. Çoğaltma için yapılandırılmış her diskin ilişkili bir .hrl dosyası vardır. İlk çoğaltma tamamlandıktan sonra bu günlük toohello müşterinin depolama hesabı gönderilir. Bir günlük transit tooAzure olduğunda, hello değişiklikler hello birincil diski başka bir günlük dosyasında, hello izlenir aynı dizin.
-3. Başlangıç ve değişim çoğaltma sırasında VM hello hello VM görünüm izleyebilirsiniz. [Daha fazla bilgi edinin](site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machines).  
+1. İlk çoğaltma sonrasında, çoğaltma ayarlarına uygun olarak değişim eşitlemesi başlar.
+2. Bir Çoğaltma İzleyicisi olan Hyper-V Çoğaltma, bir sanal sabit diskteki değişiklikleri .hrl dosyası olarak izler. Çoğaltma için yapılandırılmış her diskin ilişkili bir .hrl dosyası vardır. İlk çoğaltma tamamlandıktan sonra bu günlük müşterinin depolama hesabına gönderilir. Bir günlük Azure’a iletilmekteyken, birincil diskteki değişiklikler aynı dizindeki başka bir günlük dosyasında izlenir.
+3. İlk çoğaltma ve değişim çoğaltması esnasında, VM görünümünde VM’yi izleyebilirsiniz. [Daha fazla bilgi edinin](site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machines).  
 
 ### <a name="synchronize-replication"></a>Çoğaltmayı senkronize etme
 
-1. Değişim çoğaltması başarısız olursa ve bant genişliği ile zaman açısından tam çoğaltma maliyetli olacaksa, bir VM yeniden eşitleme için işaretlenir. Merhaba .hrl dosyası hello disk boyutunun % 50 ulaştıysanız, örneğin, ardından hello VM yeniden eşitleme için işaretlenir.
-2.  Yeniden eşitleme hello hello kaynak ve hedef sanal makine sağlama bilgi işlem ve yalnızca hello değişim verileri gönderme gönderilen veri miktarını azaltır. Yeniden eşitleme, kaynak ve hedef dosyaların sabit öbeklere bölündüğü bir sabit blok kümeleme algoritması kullanır. Her bir öbeğin sağlama oluşturulur ve hello kaynak gerek toobe uygulanan toohello hedeften engeller toodetermine karşılaştırılan.
-3. Yeniden eşitleme sona erdikten sonra, normal değişim çoğaltması devam edecektir. Varsayılan olarak yeniden eşitleme ofis saatleri dışında otomatik olarak zamanlanan toorun olmakla birlikte, bir sanal makineyi el ile eşitleyebilirsiniz. Örneğin, bir ağ kesintisi veya başka bir kesinti oluşursa, yeniden eşitlemeyi devam ettirebilirsiniz. toodo hello portal Bu, select hello VM > **eşitlemek**.
+1. Değişim çoğaltması başarısız olursa ve bant genişliği ile zaman açısından tam çoğaltma maliyetli olacaksa, bir VM yeniden eşitleme için işaretlenir. Örneğin, .hrl dosyası disk boyutunun %50'sine ulaşırsa VM, yeniden eşitleme için işaretlenir.
+2.  Yeniden eşitleme, kaynak ve hedef sanal makinelerin sağlama toplamlarını hesaplayarak ve yalnızca değişim verilerini göndererek, gönderilen veri miktarını en aza indirir. Yeniden eşitleme, kaynak ve hedef dosyaların sabit öbeklere bölündüğü bir sabit blok kümeleme algoritması kullanır. Her öbek için sağlama toplamları oluşturulur ve ardından, kaynaktan hangi blokların hedefe uygulanması gerektiğini belirlemek üzere karşılaştırılır.
+3. Yeniden eşitleme sona erdikten sonra, normal değişim çoğaltması devam edecektir. Varsayılan olarak, yeniden eşitleme ofis saatleri dışında otomatik olarak çalışacak şekilde planlanmıştır ancak sanal makineyi elle yeniden eşitleyebilirsiniz. Örneğin, bir ağ kesintisi veya başka bir kesinti oluşursa, yeniden eşitlemeyi devam ettirebilirsiniz. Bunu yapmak için, portalda VM’yi > **Yeniden eşitle**’yi seçin.
 
     ![El ile yeniden eşitleme](media/vmm-to-azure-walkthrough-architecture/image4.png)
 
@@ -98,22 +98,22 @@ Bir çoğaltma hatası meydana gelirse, yerleşik yeniden deneme işlevi vardır
 
 **Kategori** | **Ayrıntılar**
 --- | ---
-**Kurtarılamaz hatalar** | Yeniden deneme yapılmaya çalışılmaz. VM durumu **Kritik** olacaktır ve yönetici müdahalesi gerekir. Bu hataların örnekler: VHD zinciri; bozuk Geçersiz durum hello çoğaltma VM için; Ağ kimlik doğrulama hataları: Yetkilendirme hataları; VM hataları (tek başına Hyper-V sunucuları için) bulunamadı
-**Kurtarılabilir hatalar** | Yeniden deneme bir üstel geri hello yeniden deneme aralığı 1, 2, 4, 8 ilk denemede hello hello başından ve 10 dakika artan dışı kullanarak, her bir çoğaltma aralığı oluşur. Hata devam ederse, 30 dakikada bir yeniden deneyin. Örnekler şunlardır: ağ hataları; düşük disk hataları; yetersiz bellek durumları |
+**Kurtarılamaz hatalar** | Yeniden deneme yapılmaya çalışılmaz. VM durumu **Kritik** olacaktır ve yönetici müdahalesi gerekir. Bu hataların örnekleri şunlardır: kırılmış VHD zinciri; Çoğaltma VM için geçersiz durum; Ağ kimlik doğrulama hataları: yetkilendirme hataları; VM bulunamadı hataları (tek başına Hyper-V sunucuları için)
+**Kurtarılabilir hatalar** | Yeniden deneme aralığını ilk denemenin başlangıcına göre 1, 2, 4, 8 ve 10 dakika artıran bir üstel geri çekme kullanılarak her çoğaltma aralığında yeniden denemeler gerçekleşir. Hata devam ederse, 30 dakikada bir yeniden deneyin. Örnekler şunlardır: ağ hataları; düşük disk hataları; yetersiz bellek durumları |
 
 
 
 ## <a name="failover-and-failback-process"></a>Yük devretme ve yeniden çalışma işlemi
 
-1. Planlanmış çalıştırabilirsiniz veya planlanmamış [yük devretme](site-recovery-failover.md) şirket içi Hyper-V sanal makineleri tooAzure gelen. Planlanmış bir yük devretme çalıştırın, sonra kaynak VM'ler tooensure kapatın, veri kaybı.
-2. Üzerinde tek bir makine başarısız veya oluşturma [kurtarma planlarına](site-recovery-create-recovery-plans.md) birden fazla makine tooorchestrate yük devretme.
-4. Merhaba yük devretme çalıştırdıktan sonra çoğaltma sanal makineleri Azure üzerinde oluşturulan mümkün toosee hello olmalıdır. Gerekli olursa, ortak bir IP adresi toohello VM atayabilirsiniz.
-5. Ardından Azure VM hello çoğaltmasından hello iş yükü erişme hello yük devretme toostart yürüttükten.
-6. Birincil yerinde siteniz yeniden kullanılabilir olduğunda siteyi [yeniden çalıştırabilirsiniz](site-recovery-failback-from-azure-to-hyper-v.md). Planlanmış bir yük devretme Azure toohello birincil siteden kapalı tetiklersiniz. Yapabilecekleriniz planlanmış bir yük devretme için aynı VM veya tooan alternatif konumu ve eşitleme select toofailback toohello veri kaybı Azure ve şirket içi, tooensure arasında değişir. Şirket içi sanal makineleri oluştururken hello yük devretme uygulayın.
+1. Şirket içi Hyper-V VM’lerinden Azure’a planlanmış veya planlanmamış bir [yük devretme](site-recovery-failover.md) gerçekleştirebilirsiniz. Planlı bir yük devretme çalıştırırsanız, veri kaybı olmaması için kaynak VM’ler kapatılır.
+2. Tek bir makine üzerinden yük devredebilir veya [kurtarma planları](site-recovery-create-recovery-plans.md) oluşturarak birden çok makinenin devredilmesini düzenleyebilirsiniz.
+4. Yük devretmeyi çalıştırdıktan sonra, oluşturulan kopya VM’leri Azure’da görebiliyor olmanız gerekir. Gerekli olursa VM’ye genel bir IP adresi atayabilirsiniz.
+5. Daha sonra, kopya Azure VM’sindeki iş yüküne erişmeye başlamak için yük devretmeyi yürütürsünüz.
+6. Birincil yerinde siteniz yeniden kullanılabilir olduğunda siteyi [yeniden çalıştırabilirsiniz](site-recovery-failback-from-azure-to-hyper-v.md). Azure’dan birincil siteye planlanmış yük devretme işlemi başlatırsınız. Planlanmış bir yük devretme gerçekleştirmek için aynı VM’de ya da alternatif bir konumda yeniden çalışmayı seçebilir ve Azure ile şirket içi arasında değişiklikleri eşitleyerek veri kaybı olmamasını sağlayabilirsiniz. VM’ler şirket içinde oluşturulduğunda yük devretmeyi yürütürsünüz.
 
 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Çok Git[2. adım: hello dağıtımının önkoşulları gözden geçirin](vmm-to-azure-walkthrough-prerequisites.md)
+[2. Adım: Dağıtım önkoşullarını inceleme](vmm-to-azure-walkthrough-prerequisites.md)

@@ -1,6 +1,6 @@
 ---
-title: "aaaAutomated SQL Server Vm'lerinin (Resource Manager) için düzeltme eki uygulama | Microsoft Docs"
-description: "Merhaba otomatik düzeltme eki uygulama özelliği için SQL Server Kaynak Yöneticisi'ni kullanarak Azure'da çalışan sanal makineler açıklanmıştır."
+title: "Otomatik düzeltme eki uygulama SQL Server Vm'lerinin (Resource Manager) | Microsoft Docs"
+description: "Otomatik düzeltme eki uygulama özelliği için SQL Server Kaynak Yöneticisi'ni kullanarak Azure'da çalışan sanal makineler açıklanmıştır."
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/05/2017
 ms.author: jroth
-ms.openlocfilehash: 8bb8d0fb265e69d7bbf1fa047f5ceef02e7c56fe
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7d501ab45a85010a8dbfd6135d77f18f1743354e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines’de (Resource Manager) SQL Server için Otomatik Düzeltme Eki Uygulama
 > [!div class="op_single_selector"]
@@ -28,14 +28,14 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Otomatik düzeltme eki bir Azure SQL Server çalıştıran sanal makine için bir bakım penceresi oluşturur. Otomatik Güncelleştirmeler, yalnızca bu bakım penceresi sırasında yüklenebilir. SQL Server için bu rescriction sistem güncelleştirmelerini ve ilişkili tüm yeniden başlatmalar hello veritabanı için en iyi olası zaman hello gerçekleşmesini sağlar. Otomatik düzeltme eki bağlıdır hello üzerinde [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md).
+Otomatik düzeltme eki bir Azure SQL Server çalıştıran sanal makine için bir bakım penceresi oluşturur. Otomatik Güncelleştirmeler, yalnızca bu bakım penceresi sırasında yüklenebilir. SQL Server için bu rescriction sistem güncelleştirmelerini ve ilişkili tüm yeniden başlatmalar veritabanı için olası en iyi zaman gerçekleşmesini sağlar. Otomatik düzeltme eki bağımlı [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Bu makalenin tooview hello Klasik sürümü bkz [otomatik düzeltme eki uygulama için Azure sanal makineleri Klasik SQL Server'da](../classic/sql-automated-patching.md).
+Bu makalede klasik sürümünü görüntülemek için bkz: [otomatik düzeltme eki uygulama için Azure sanal makineleri Klasik SQL Server'da](../classic/sql-automated-patching.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
-toouse Önkoşullar aşağıdaki hello otomatik düzeltme eki uygulama, göz önünde bulundurun:
+Otomatik düzeltme eki uygulama kullanmak için aşağıdaki önkoşulları göz önünde bulundurun:
 
 **İşletim sistemi**:
 
@@ -51,48 +51,48 @@ toouse Önkoşullar aşağıdaki hello otomatik düzeltme eki uygulama, göz ön
 
 **Azure PowerShell**:
 
-* [Merhaba en son Azure PowerShell komutlarını yüklemek](/powershell/azure/overview) tooconfigure düşünüyorsanız, otomatik düzeltme eki uygulama PowerShell ile.
+* [En son Azure PowerShell komutlarını yüklemek](/powershell/azure/overview) otomatik düzeltme eki uygulama PowerShell ile yapılandırmayı planlıyorsanız.
 
 > [!NOTE]
-> Otomatik düzeltme eki hello üzerinde SQL Server Iaas Aracısı uzantısı kullanır. Geçerli SQL sanal makineye Galerisi görüntülerini varsayılan olarak bu uzantı ekleyin. Daha fazla bilgi için bkz: [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md).
+> Otomatik düzeltme eki SQL Server Iaas Aracısı uzantısını kullanır. Geçerli SQL sanal makineye Galerisi görüntülerini varsayılan olarak bu uzantı ekleyin. Daha fazla bilgi için bkz: [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md).
 > 
 > 
 
 ## <a name="settings"></a>Ayarlar
-Merhaba aşağıdaki tabloda otomatik düzeltme eki uygulama için yapılandırılabilir hello seçenekleri açıklanmaktadır. Merhaba gerçek yapılandırma adımlarını hello Azure portalında veya Azure Windows PowerShell komutlarını kullanmadığınıza bağlı olarak farklılık gösterir.
+Aşağıdaki tabloda, otomatik düzeltme eki uygulama için yapılandırılabilir seçenekler açıklanmaktadır. Gerçek yapılandırma adımları Azure portalında veya Azure Windows PowerShell komutlarını kullanmadığınıza bağlı olarak farklılık gösterir.
 
 | Ayar | Olası değerler | Açıklama |
 | --- | --- | --- |
 | **Otomatik Düzeltme Eki Uygulama** |Etkinleştir/devre dışı bırak (devre dışı) |Etkinleştirir veya bir Azure sanal makine için otomatik düzeltme eki uygulamayı devre dışı bırakır. |
-| **Bakım zamanlaması** |Her gün, Pazartesi, Salı, Çarşamba, Perşembe, Cuma, Cumartesi Pazar |Sanal makineniz için Windows, SQL Server ve Microsoft güncelleştirmeler indiriliyor ve yükleniyor için hello zamanlama. |
-| **Bakım başlangıç saati** |0-24 |Merhaba yerel başlatma zamanı tooupdate hello sanal makine. |
-| **Bakım penceresinin süresi** |30-180 |Merhaba süreyi dakika cinsinden izin verilen toocomplete hello indirme ve güncelleştirmeleri yükleme. |
-| **Düzeltme eki kategorisi** |Önemli |güncelleştirmeleri toodownload ve yükleme Hello kategorisi. |
+| **Bakım zamanlaması** |Her gün, Pazartesi, Salı, Çarşamba, Perşembe, Cuma, Cumartesi Pazar |Sanal makineniz için Windows, SQL Server ve Microsoft güncelleştirmeler indiriliyor ve yükleniyor zamanlamasını. |
+| **Bakım başlangıç saati** |0-24 |Sanal makineyi güncelleştirmek için yerel başlangıç saati. |
+| **Bakım penceresinin süresi** |30-180 |İndirme ve güncelleştirmeleri yüklemesini tamamlamak için izin verilen dakika sayısı. |
+| **Düzeltme eki kategorisi** |Önemli |Güncelleştirmeleri indirmek ve yüklemek için kategorisi. |
 
-## <a name="configuration-in-hello-portal"></a>Merhaba Portal Yapılandırması
-Hello Azure portal tooconfigure kullanabileceğiniz otomatik düzeltme eki uygulama sağlama sırasında veya var olan VM'ler için.
+## <a name="configuration-in-the-portal"></a>Portal Yapılandırması
+Otomatik düzeltme eki uygulama sağlama sırasında veya var olan VM'ler için yapılandırmak için Azure portalını kullanabilirsiniz.
 
 ### <a name="new-vms"></a>Yeni sanal makineleri
-Kullanım hello Azure portal tooconfigure otomatik hello Resource Manager dağıtım modelinde yeni bir SQL Server sanal makine oluşturduğunuzda, düzeltme eki uygulama.
+Resource Manager dağıtım modelinde yeni bir SQL Server sanal makine oluşturduğunuzda, otomatik düzeltme eki uygulama yapılandırmak için Azure Portalı'nı kullanın.
 
-Merhaba, **SQL Server ayarları** dikey penceresinde, select **otomatik düzeltme eki uygulama**. Merhaba aşağıdaki Azure portal ekran görüntüsü gösterir hello **SQL otomatik düzeltme eki uygulama** dikey.
+İçinde **SQL Server ayarları** dikey penceresinde, select **otomatik düzeltme eki uygulama**. Aşağıdaki Azure portal ekran görüntüsü gösterildiği **SQL otomatik düzeltme eki uygulama** dikey.
 
 ![SQL otomatik düzeltme eki Azure portalında](./media/virtual-machines-windows-sql-automated-patching/azure-sql-arm-patching.png)
 
-Bağlam için hello tam üzerinde konusuna [azure'da bir SQL Server sanal makine sağlama](virtual-machines-windows-portal-sql-server-provision.md).
+Bağlam için tam üzerinde konusuna [azure'da bir SQL Server sanal makine sağlama](virtual-machines-windows-portal-sql-server-provision.md).
 
 ### <a name="existing-vms"></a>Var olan sanal makineleri
-Var olan SQL Server sanal makineler için SQL Server sanal makine seçin. Merhaba seçip **SQL Server yapılandırma** hello bölümünü **ayarları** dikey.
+Var olan SQL Server sanal makineler için SQL Server sanal makine seçin. Ardından **SQL Server yapılandırma** bölümünü **ayarları** dikey.
 
 ![SQL otomatik düzeltme eki uygulama var olan VM'ler için](./media/virtual-machines-windows-sql-automated-patching/azure-sql-rm-patching-existing-vms.png)
 
-Merhaba, **SQL Server yapılandırma** dikey penceresinde hello tıklatın **Düzenle** hello düğmesini otomatik düzeltme eki uygulama bölümü.
+İçinde **SQL Server yapılandırma** dikey penceresinde tıklatın **Düzenle** bölüm düzeltme eki uygulama otomatik düğmesini.
 
 ![SQL otomatik düzeltme eki uygulama var olan VM'ler için yapılandırma](./media/virtual-machines-windows-sql-automated-patching/azure-sql-rm-patching-configuration.png)
 
-Tamamlandığında, hello tıklatın **Tamam** hello hello alt düğmesinde **SQL Server yapılandırma** dikey toosave değişikliklerinizi.
+Tamamlandığında, tıklatın **Tamam** alt düğmesinde **SQL Server yapılandırma** yaptığınız değişiklikleri kaydetmek için dikey.
 
-Otomatik düzeltme eki uygulama hello için ilk kez etkinleştiriyorsanız, Azure SQL Server Iaas Aracısı hello hello arka planda yapılandırır. Bu süre boyunca, otomatik düzeltme eki uygulama yapılandırıldığını hello Azure portal gösterilmeyebilir. Merhaba Aracısı toobe yüklü, birkaç dakika bekleyin yapılandırılmış. Bu hello sonra Azure portalı hello yeni ayarlarını yansıtır.
+Otomatik düzeltme eki uygulama ilk kez etkinleştiriyorsanız Azure SQL Server Iaas Aracısı arka planda yapılandırır. Bu süre boyunca, Azure portalında otomatik düzeltme eki uygulama yapılandırıldığını gösterilmeyebilir. Aracının yüklü, yapılandırılmış birkaç dakika bekleyin. Bundan sonra Azure portalını yeni ayarlarını yansıtır.
 
 > [!NOTE]
 > Bir şablon kullanarak otomatik düzeltme eki uygulama da yapılandırabilirsiniz. Daha fazla bilgi için bkz: [otomatik düzeltme eki uygulama için Azure Hızlı Başlangıç şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autopatching-update).
@@ -100,9 +100,9 @@ Otomatik düzeltme eki uygulama hello için ilk kez etkinleştiriyorsanız, Azur
 > 
 
 ## <a name="configuration-with-powershell"></a>PowerShell ile yapılandırma
-SQL VM'nizi sağladıktan sonra PowerShell tooconfigure kullanın otomatik düzeltme eki uygulama.
+SQL VM'nizi sağladıktan sonra otomatik düzeltme eki uygulama yapılandırmak için PowerShell kullanın.
 
-Aşağıdaki örneğine hello kullanılan tooconfigure powershell'dir otomatik düzeltme eki uygulama mevcut bir SQL Server VM üzerinde. Merhaba **AzureRM.Compute\New AzureVMSqlServerAutoPatchingConfig** komut, otomatik güncelleştirmeler için yeni bir bakım penceresi yapılandırır.
+Aşağıdaki örnekte, PowerShell otomatik düzeltme eki uygulama üzerinde mevcut bir SQL Server VM'yi yapılandırmak için kullanılır. **AzureRM.Compute\New AzureVMSqlServerAutoPatchingConfig** komut, otomatik güncelleştirmeler için yeni bir bakım penceresi yapılandırır.
 
     $vmname = "vmname"
     $resourcegroupname = "resourcegroupname"
@@ -110,18 +110,18 @@ Aşağıdaki örneğine hello kullanılan tooconfigure powershell'dir otomatik d
 
     Set-AzureRmVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
 
-Bu örneği temel alarak, hello aşağıdaki tabloda hello pratik hello hedef Azure VM etkisi açıklanmaktadır:
+Aşağıdaki tabloda, bu örneği temel alarak, hedef Azure VM pratik etkisi açıklanmaktadır:
 
 | Parametre | Etki |
 | --- | --- |
 | **DayOfWeek** |Her Perşembe düzeltme ekleri yüklenmemiş. |
 | **MaintenanceWindowStartingHour** |Begin 11: 00'da güncelleştirir. |
-| **MaintenanceWindowsDuration** |Düzeltme ekleri 120 dakika içinde yüklü olması gerekir. Merhaba başlangıç zamanı temel alınarak, 1:00 pm tarafından tamamlamalıdır. |
-| **PatchCategory** |Bu parametre yalnızca olası ayarı hello **önemli**. |
+| **MaintenanceWindowsDuration** |Düzeltme ekleri 120 dakika içinde yüklü olması gerekir. Başlangıç zamanı temel alınarak, 1:00 pm tarafından tamamlamalıdır. |
+| **PatchCategory** |Bu parametre yalnızca olası ayarı **önemli**. |
 
-Birkaç dakika tooinstall alın ve hello SQL Server Iaas Aracısı Yapılandırma.
+Yüklemek ve SQL Server Iaas aracısı yapılandırmak için birkaç dakika sürebilir.
 
-toodisable otomatik düzeltme eki uygulama, hello aynı komut dosyası çalıştırma hello **-etkinleştirmek** parametresi toohello **AzureRM.Compute\New AzureVMSqlServerAutoPatchingConfig**. Merhaba hello yokluğu **-etkinleştirmek** parametresi sinyalleri hello komutu toodisable hello özelliği.
+Otomatik düzeltme eki uygulamayı devre dışı bırakmak için olmadan aynı komut dosyasını Çalıştır **-etkinleştirmek** parametresi **AzureRM.Compute\New AzureVMSqlServerAutoPatchingConfig**. Yokluğu **-etkinleştirmek** parametresi sinyalleri özelliğini devre dışı bırakmak için komutu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Diğer kullanılabilir Otomasyon görevler hakkında daha fazla bilgi için bkz: [SQL Server Iaas Aracısı uzantısı](virtual-machines-windows-sql-server-agent-extension.md).

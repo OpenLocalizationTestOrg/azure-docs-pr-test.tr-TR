@@ -1,23 +1,23 @@
-### <a name="determine-hello-dns-name-of-hello-virtual-machine"></a>Merhaba DNS hello sanal makinenin adını belirleme
-başka bir bilgisayardan tooconnect toohello SQL Server veritabanı altyapısı, hello etki alanı adı sistemi (DNS) bilmeniz gerekir hello sanal makine adı. (Merhaba adı hello Internet kullanır tooidentify hello sanal makine bulunuyor. Başlangıç IP adresi kullanabilirsiniz, ancak Azure artıklık veya bakım için kaynaklar taşındığında hello IP adresi değişebilir. Bu olabilir çünkü Hello DNS adı kararlı olacaktır tooa yeni IP adresini yeniden yönlendirildi.)  
+### <a name="determine-the-dns-name-of-the-virtual-machine"></a>Sanal makinenin DNS adını belirleme
+Başka bir bilgisayardan SQL Server Veritabanı Altyapısı’na bağlanmak için, sanal makinenin Etki Alanı Adı Sistemi (DNS) adını biliyor olmalısınız. (İnternet, sanal makineyi tanımlamak için bu adı kullanır. IP adresini kullanabilirsiniz, ancak Azure yedeklilik veya bakım nedeniyle kaynakları taşıdığında IP adresi değişebilir. DNS adı yeni IP adresine yeniden yönlendirilebileceği için değişmez.)  
 
-1. Hello Azure Portal (veya hello önceki adımdaki), seçin **sanal makineleri (Klasik)**.
+1. Azure Portal’da (veya önceki adımda), **Sanal makineler (klasik)** öğesini seçin.
 2. SQL VM’nizi seçin.
-3. Merhaba üzerinde **sanal makine** dikey penceresinde, kopyalama hello **DNS adı** hello sanal makine için.
+3. **Sanal makine** dikey penceresinde, sanal makineye ilişkin **DNS adı** değerini kopyalayın.
    
     ![DNS adı](./media/virtual-machines-sql-server-connection-steps/sql-vm-dns-name.png)
 
-### <a name="connect-toohello-database-engine-from-another-computer"></a>Başka bir bilgisayardan toohello veritabanına bağlan
-1. Bir bilgisayarda toohello bağlı Internet, SQL Server Management Studio'yu açın.
-2. Merhaba, **tooServer bağlanmak** veya **tooDatabase altyapısı bağlanmak** iletişim kutusunda hello **sunucu adı** kutusuna, hello sanal makine (hello belirlenen hello DNS adını girin önceki görev) ve bir ortak uç nokta bağlantı noktası numarası hello biçiminde *DNSName, BağlantıNoktasıNumarası* gibi **mysqlvm.cloudapp.net,57500**.
+### <a name="connect-to-the-database-engine-from-another-computer"></a>Başka bir bilgisayardan Veritabanı Altyapısına bağlanma
+1. İnternet'e bağlı bir bilgisayarda SQL Server Management Studio’yu açın.
+2. **Sunucuya Bağlan** veya **Veritabanı Altyapısına Bağlan** iletişim kutusundaki **Sunucu adı** kutusuna, sanal makinenin DNS adını (önceki görevde belirlenen ad) ve *DNSAdı,bağlantınoktası* biçiminde bir genel uç nokta bağlantı noktası numarası (**mysqlvm.cloudapp.net,57500** gibi) girin.
    
     ![SSMS kullanarak bağlanma](./media/virtual-machines-sql-server-connection-steps/33Connect-SSMS.png)
    
-    Merhaba ortak uç nokta bağlantı noktası numarasını hatırlamıyorsanız daha önce oluşturduğunuz, hello Bul **uç noktaları** hello alanı **sanal makine** dikey.
+    Daha önce oluşturduğunuz genel uç nokta bağlantı noktası numarasını anımsamıyorsanız, bu numarayı **Sanal makine** dikey penceresinin **Uç noktalar** alanında bulabilirsiniz.
    
     ![Genel Bağlantı Noktası](./media/virtual-machines-sql-server-connection-steps/sql-vm-port-number.png)
-3. Merhaba, **kimlik doğrulaması** kutusunda **SQL Server kimlik doğrulaması**.
-4. Merhaba, **oturum açma** kutusu, bir önceki görevde oluşturduğunuz bir oturum açma türü hello adı.
-5. Merhaba, **parola** kutusu, bir önceki görevde oluşturduğunuz hello oturum açma hello parolayı girin.
+3. **Kimlik Doğrulaması** kutusunda **SQL Server Kimlik Doğrulaması**’nı seçin.
+4. **Oturum Açma** kutusuna, önceki görevlerden birinde oluşturduğunuz oturum açma kimliğinin adını yazın.
+5. **Parola** kutusuna, önceki görevlerden birinde oluşturduğunuz oturum açma kimliğinin parolasını yazın.
 6. **Bağlan**'a tıklayın.
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory B2C: Geçiş tooa B2C Kiracı | Microsoft Docs"
-description: "Active Directory B2C Merhaba içeriğine içine tooswitch nasıl Kiracı"
+title: "Azure Active Directory B2C: B2C kiracısına geçiş | Microsoft Belgeleri"
+description: "Active Directory B2C kiracınızın bağlamına geçiş yapma"
 services: active-directory-b2c
 documentationcenter: 
 author: parakhj
@@ -14,33 +14,33 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/13/2017
 ms.author: parakhj
-ms.openlocfilehash: 572f9ab283ecac68d284bb04fdfc98575bcf9393
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 40d8d57d974a949fbdc0a06eeceb2d06bfbaa09f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="switching-tooyour-azure-ad-b2c-tenant"></a>Tooyour Azure AD B2C Kiracı değiştirme
+# <a name="switching-to-your-azure-ad-b2c-tenant"></a>Azure AD B2C kiracınıza geçiş yapma
 
-Sipariş tooconfigure Azure AD B2C'da, Azure AD B2C kiracınızın hello bağlamda toobe gerekir.
+Azure AD B2C’yi yapılandırmak için Azure AD B2C kiracınızın bağlamında olmanız gerekir.
 
 ## <a name="log-into-azure-ad-b2c-tenant"></a>Azure AD B2C kiracınızda oturum açın.
 
-Azure AD B2C toonavigate tooyour Kiracı, Azure portal hello hello Azure AD B2C kiracısının genel yönetici olarak oturum açmanız gerekir.
+Azure AD B2C kiracınıza gitmek için Azure portalında Azure AD B2C kiracısının genel yöneticisi olarak oturum açmanız gerekir.
 
-1. Merhaba içine oturum [Azure portal](http://portal.azure.com).
-1. Kiracılar, e-posta adresi veya resim hello sağ üst köşedeki tıklayarak geçin.
-1. Merhaba, `Directory` , toomanage istediğiniz select hello Azure AD B2C Kiracı görünür listesi.
+1. [Azure portal](http://portal.azure.com) oturum açın.
+1. E-posta adresinize veya sağ üst köşedeki resme tıklayarak kiracılar arasında geçiş yapabilirsiniz.
+1. Görünecek `Directory` listesinden, yönetmek istediğiniz Azure AD B2C kiracısını seçin.
 
-Hello Azure Portal yenilenecektir.  Şimdi hello Azure Portal, Azure AD B2C kiracısı hello bağlamında oturum açtınız.
+Azure Portal yenilenir.  Azure Portal'da Azure AD B2C kiracınızın bağlamında oturum açmış olursunuz.
 
-## <a name="navigate-toohello-b2c-features-blade"></a>Toohello B2C özellikleri dikey penceresine gidin
+## <a name="navigate-to-the-b2c-features-blade"></a>B2C özellikleri dikey penceresine gitme
 
-1. Tıklatın **Gözat** hello sol taraftaki gezinti çubuğunda.
-1. Tıklatın **> daha fazla hizmet** arayın ve sonra `Azure AD B2C` hello sol gezinti bölmesindeki.  (toopin tooyour sol Sabitle hello yıldız toohello sol Azure AD B2C'yi tıklatın)
-1. Tıklatın **Azure AD B2C** tooaccess hello B2C özellikleri dikey penceresi.
+1. Gezinti bölmesinin sol tarafındaki **Gözat** seçeneğine tıklayın.
+1. **> Daha fazla hizmet**’e tıklayın ve sol gezinti bölmesinde `Azure AD B2C` seçeneğini bulun.  (Sol taraftaki başlangıç panonuza sabitlemek için Azure AD B2C’nin solundaki yıldıza tıklayın)
+1. B2C özellikleri dikey penceresine erişmek için **Azure AD B2C** seçeneğine tıklayın.
    
-    ![Gözat tooB2C özellikleri dikey penceresi ekran görüntüsü](./media/active-directory-b2c-get-started/b2c-browse.png)
+    ![B2C özelliklerine göz atma dikey penceresi ekran görüntüsü](./media/active-directory-b2c-get-started/b2c-browse.png)
 
 > [!IMPORTANT]
-> Toobe hello B2C Kiracı toobe mümkün tooaccess hello B2C özellikleri dikey genel Yöneticisi gerekir. Başka bir kiracının Genel Yöneticisi veya başka bir kiracıdan gelen bir kullanıcı, dikey pencereye erişemez.  Merhaba sağ üst köşesinde hello Azure portalı içinde hello Kiracı değiştirici kullanarak tooyour B2C Kiracı geçiş yapabilirsiniz.
+> B2C özellikleri dikey penceresine erişebilmek için B2C kiracısının Genel Yöneticisi olmanız gerekir. Başka bir kiracının Genel Yöneticisi veya başka bir kiracıdan gelen bir kullanıcı, dikey pencereye erişemez.  Azure portalının sağ üst köşesindeki kiracı değiştiriciyi kullanarak B2C kiracınıza geçiş yapabilirsiniz.

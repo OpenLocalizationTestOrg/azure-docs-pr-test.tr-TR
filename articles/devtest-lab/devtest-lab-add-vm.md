@@ -1,6 +1,6 @@
 ---
-title: Azure DevTest Labs VM tooa laboratuvarda aaaAdd | Microsoft Docs
-description: "Bilgi nasıl tooadd Azure DevTest Labs bir sanal makine tooa laboratuvarda"
+title: Azure DevTest Labs laboratuvarda VM ekleme | Microsoft Docs
+description: "Azure DevTest Labs laboratuvarda için bir sanal makineye eklemeyi öğrenin"
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -14,104 +14,104 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: tarcher
-ms.openlocfilehash: 82838e4349550db56de311264c188140b9556b24
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 449bffb040dafc8edd0b8b0afd80dbea35cd28ac
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="add-a-vm-tooa-lab-in-azure-devtest-labs"></a>Azure DevTest Labs'de VM tooa Laboratuvar ekleme
-Zaten varsa [ilk VM oluşturulan](devtest-lab-create-first-vm.md), büyük olasılıkla bunu bir önceden yüklenmiş yaptığınız [Market görüntüsü](devtest-lab-configure-marketplace-images.md). Şimdi, tooadd sonraki VM'ler tooyour Laboratuvar isterseniz, ayrıca seçebileceğiniz bir *temel* ya da başka bir deyişle bir [özel görüntü](devtest-lab-create-template.md) veya [formülü](devtest-lab-manage-formulas.md). Bu öğreticide Azure portal tooadd VM tooa Laboratuvar hello DevTest Labs'de kullanılarak üzerinden açıklanmaktadır.
+# <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs laboratuvarda VM ekleme
+Zaten varsa [ilk VM oluşturulan](devtest-lab-create-first-vm.md), büyük olasılıkla bunu bir önceden yüklenmiş yaptığınız [Market görüntüsü](devtest-lab-configure-marketplace-images.md). Şimdi, laboratuvarınız için sonraki VM'ler eklemek isterseniz, ayrıca seçebileceğiniz bir *temel* ya da başka bir deyişle bir [özel görüntü](devtest-lab-create-template.md) veya [formülü](devtest-lab-manage-formulas.md). Bu öğreticide, bir VM DevTest Labs laboratuvarda eklemek için Azure portalını kullanarak aracılığıyla açıklanmaktadır.
 
-Bu makalede ayrıca nasıl toomanage hello yapıları laboratuvarınızda bir VM için gösterilmektedir.
+Bu makalede ayrıca laboratuvarınızda bir VM için yapıları yönetme gösterilmektedir.
 
-## <a name="steps-tooadd-a-vm-tooa-lab-in-azure-devtest-labs"></a>Adımları tooadd Azure DevTest Labs VM tooa laboratuvarda
-1. İçinde toohello oturum [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Seçin **daha Hizmetleri**ve ardından **DevTest Labs** hello listeden.
-1. Labs Hello listeden toocreate hello VM istediğiniz hello Laboratuvar seçin.  
-1. Merhaba Laboratuvar'ın üzerinde **genel bakış** dikey penceresinde, select **+ Ekle**.  
+## <a name="steps-to-add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs laboratuvarda VM eklemek için adımları
+1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
+1. Seçin **daha Hizmetleri**ve ardından **DevTest Labs** listeden.
+1. VM oluşturmak istediğiniz Laboratuvar labs listesinden seçin.  
+1. Laboratuvar 's üzerinde **genel bakış** dikey penceresinde, select **+ Ekle**.  
 
     ![VM düğme ekleme](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
 
-1. Merhaba üzerinde **bir temel seçin** dikey penceresinde hello VM için temel bir seçin.
-1. Merhaba üzerinde **sanal makine** dikey penceresinde hello hello yeni bir sanal makine için bir ad girin **sanal makine adı** metin kutusu.
+1. Üzerinde **bir temel seçin** dikey penceresinde, VM için temel bir seçin.
+1. Üzerinde **sanal makine** dikey penceresinde, yeni sanal makine için bir ad girin **sanal makine adı** metin kutusu.
 
     ![Laboratuvar VM dikey penceresi](./media/devtest-lab-add-vm/devtestlab-lab-vm-blade.png)
 
-1. Girin bir **kullanıcı adı** hello sanal makinede yönetici ayrıcalıkları verilmiş.  
-1. Toouse istiyorsanız bir parola depolanır, [gizli deposu](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store)seçin **kaydedilmiş gizliliği kullanın**ve tooyour gizliliği (parola) karşılık gelen bir anahtar değeri belirtin. Aksi halde, bir parola etiketli hello metin alanına **bir değer yazın**.
-1. Merhaba **sanal makine disk türü** hello laboratuarda hello sanal makineler için hangi depolama disk türüne izin belirler.
-1. Seçin **sanal makine boyutu** ve hello birini seçin hello işlemci çekirdeği, RAM boyutu ve sabit sürücü boyutu hello VM toocreate hello belirtin öğeleri önceden tanımlanmış.
-1. Seçin **yapıları** - - yapılarının hello listesinden seçin ve tooadd toohello temel görüntü istediğiniz hello yapıları yapılandırın.
-    **Not:** yeni tooDevTest Labs olduğunuz ya da yapılar yapılandırma toohello başvurmak [var artifact tooa VM eklemek](#add-an-existing-artifact-to-a-vm) bölümünde ve ardından bitirdikten sonra buraya dönün.
-1. Seçin **Gelişmiş ayarları** tooconfigure hello VM'in ağ seçenekleri ve sona erme tarihi seçenekleri. 
+1. Girin bir **kullanıcı adı** sanal makinede yönetici ayrıcalıkları verilmiş.  
+1. Depolanmış bir parola kullanmak istiyorsanız, [gizli deposu](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store)seçin **kaydedilmiş gizliliği kullanın**ve parolanızı (parola) karşılık gelen bir anahtar değeri belirtin. Aksi halde, bir parola etiketli metin alanına girin **bir değer yazın**.
+1. **Sanal makine disk türü** hangi depolama disk türü laboratuvara sanal makineler için izin verilen belirler.
+1. Seçin **sanal makine boyutu** ve işlemci çekirdeği, RAM boyutu ve sabit sürücü boyutu oluşturmak için VM belirtin önceden tanımlanmış öğelerden birini seçin.
+1. Seçin **yapıları** - yapıları - listesinden seçin ve temel görüntü eklemek istediğiniz yapıları yapılandırın.
+    **Not:** DevTest Labs yeni veya yapıları yapılandırma başvurmak [bir VM'ye var artifact ekleyin](#add-an-existing-artifact-to-a-vm) bölümünde ve ardından bitirdikten sonra buraya dönün.
+1. Seçin **Gelişmiş ayarları** VM ağ seçeneklerini ve sona erme seçeneklerini yapılandırmak için. 
 
-   tooset bir sona erme seçenek üzerinde VM hello tarih otomatik olarak silinir hello Takvim simgesi toospecify seçin.  Varsayılan olarak, hello VM asla sona erecek. 
-1. Tooview istediğiniz veya kopyalarsanız hello Azure Resource Manager şablonu toohello başvuran [Kaydet Azure Resource Manager şablonu](#save-azure-resource-manager-template) bölümünde ve bittiğinde buraya dönün.
-1. Seçin **oluşturma** tooadd hello belirtilen VM toohello Laboratuvar.
-1. Merhaba Laboratuvar dikey görüntüler hello VM'in oluşturma - hello durumunu ilk olarak **oluşturma**, ardından olarak **çalıştıran** VM başlatıldığında hello sonra.
+   Bir süre sonu seçeneğini ayarlamak için üzerinde otomatik olarak VM silinir bir tarih belirtmek için takvim simgesini seçin.  Varsayılan olarak, VM asla sona erecek. 
+1. Görüntülemek veya Azure Resource Manager şablonu kopyalamak istediğiniz oluştuysa, [Kaydet Azure Resource Manager şablonu](#save-azure-resource-manager-template) bölümünde ve bittiğinde buraya dönün.
+1. Seçin **oluşturma** Laboratuvar için belirtilen VM eklemek için.
+1. Laboratuvar dikey durumunu VM oluşturma: ilk olarak görüntüler **oluşturma**, ardından olarak **çalıştıran** VM başlatıldıktan sonra.
 
 > [!NOTE]
-> [Claimable VM eklemek](devtest-lab-add-claimable-vm.md) nasıl toomake hello VM claimable hello laboratuarda herhangi bir kullanıcı tarafından kullanılmak üzere kullanılabilir olduğunu gösterir.
+> [Claimable VM eklemek](devtest-lab-add-claimable-vm.md) , böylece laboratuvara herhangi bir kullanıcı tarafından kullanılabilir VM claimable nasıl yapılacağını gösterir.
 >
 >
 
-## <a name="add-an-existing-artifact-tooa-vm"></a>Varolan bir yapı tooa VM ekleme
-Bir VM oluştururken, varolan yapıları ekleyebilirsiniz. Her Laboratuvar hello ortak DevTest Labs Yapıt deposu yapılardan yanı sıra, oluşturduğunuz ve eklenen tooyour kendi Yapıt deposu yapıları içerir.
+## <a name="add-an-existing-artifact-to-a-vm"></a>Bir VM'ye var artifact ekleyin
+Bir VM oluştururken, varolan yapıları ekleyebilirsiniz. Her Laboratuvar ortak DevTest Labs Yapıt deposu yanı sıra oluşturulan ve kendi Yapıt deposu eklenen yapıları yapılardan içerir.
 
-* Azure DevTest Labs *yapıları* belirlemenize olanak *Eylemler* hello VM Windows PowerShell komut dosyası çalıştırarak, Bash komutlarını çalıştırarak ve yazılım yükleme gibi sağlandığında gerçekleştirilir.
-* Yapı *parametreleri* hello yapı belirli senaryonuz için özelleştirmenize olanak tanır
+* Azure DevTest Labs *yapıları* belirlemenize olanak *Eylemler* VM Windows PowerShell komut dosyası çalıştırarak, Bash komutlarını çalıştırarak ve yazılım yükleme gibi sağlandığında gerçekleştirilir.
+* Yapı *parametreleri* belirli senaryonuz için yapıyı özelleştirmenize olanak tanır
 
-nasıl toocreate yapıları görmek toodiscover hello makalenin [tooauthor kendi yapıtlar için DevTest Labs ile kullanma hakkında bilgi edinin](devtest-lab-artifact-author.md).
+Yapıları oluşturma, makaleye bakın bulmak için [DevTest Labs ile kullanılmak üzere kendi yapıları Yazar öğrenin](devtest-lab-artifact-author.md).
 
-1. İçinde toohello oturum [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Seçin **daha Hizmetleri**ve ardından **DevTest Labs** hello listeden.
-1. Labs Hello listeden toowork istediğiniz hello VM'yi içeren hello Laboratuvar seçin.  
+1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
+1. Seçin **daha Hizmetleri**ve ardından **DevTest Labs** listeden.
+1. Çalışmak istediğiniz VM içeren Laboratuvar labs listesinden seçin.  
 1. Seçin **My sanal makineleri**.
-1. Select hello VM istenen.
+1. İstenen VM'yi seçin.
 1. Seçin **yapıları**. 
 1. Seçin **yapıları uygulamak**.
-1. Merhaba üzerinde **yapıları uygulamak** dikey penceresinde, select hello yapı tooadd toohello VM istiyor.
-1. Merhaba üzerinde **ekleyin yapıt** dikey penceresinde hello gerekli parametre değerlerini ve gereken isteğe bağlı parametreleri girin.  
-1. Seçin **Ekle** tooadd hello yapı ve return toohello **yapıları uygulamak** dikey.
+1. Üzerinde **yapıları uygulamak** dikey penceresinde VM eklemek istediğiniz yapıyı seçin.
+1. Üzerinde **ekleyin yapıt** dikey penceresinde gerekli parametre değerlerini ve gereken isteğe bağlı parametreleri girin.  
+1. Seçin **Ekle** yapıyı ekleyin ve dönmek için **yapıları uygulamak** dikey.
 1. Yapılar, VM için gerektiği şekilde ekleme devam edin.
-1. Yapıtları ekledikten sonra [hangi hello yapıları çalıştırılır hello sırasını değiştirmek](#change-the-order-in-which-artifacts-are-run). Ayrıca çok dönebilirsiniz[görüntülemek veya bir yapı değiştirmek](#view-or-modify-an-artifact).
+1. Yapıtları ekledikten sonra [yapıları çalıştırılacağı sırasını değiştirmek](#change-the-order-in-which-artifacts-are-run). Ayrıca geri gidebilirsiniz [görüntülemek veya bir yapı değiştirmek](#view-or-modify-an-artifact).
 1. Ekleme yapıları bittiğinde, seçin **Uygula**
 
-## <a name="change-hello-order-in-which-artifacts-are-run"></a>Yapıları çalıştırdığınız hello sırasını değiştirme
-Varsayılan olarak, hello Eylemler hello yapılarının toohello VM eklenen hello sırada yürütülür. Merhaba aşağıdaki adımları nasıl toochange hello hangi hello yapıları çalıştırılan sipariş gösterilmektedir.
+## <a name="change-the-order-in-which-artifacts-are-run"></a>Yapıları çalıştırdığınız sırasını değiştirme
+Varsayılan olarak, Eylemler yapılarının VM'ye eklenmiş sırada yürütülür. Aşağıdaki adımları yapıları çalıştığı sırayı değiştirmek nasıl gösterilmektedir.
 
-1. Merhaba hello üstündeki **yapıları uygulamak** dikey penceresinde, toohello VM eklenen yapıları hello sayısını gösteren select hello bağlantı.
+1. Üstündeki **yapıları uygulamak** dikey penceresinde, VM için eklenene yapıları sayısını gösteren bağlantısını seçin.
    
-    ![Yapıları eklenen tooVM sayısı](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
-1. Merhaba üzerinde **seçili yapıları** dikey penceresinde, sürükle ve bırak hello yapıları hello içine istenen sırası. **Not:** hello yapı sürükleyerek sorun yaşıyorsanız, sol hello yapı tarafı hello sürükleyerek emin olun. 
+    ![VM eklenen yapıları sayısı](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
+1. Üzerinde **seçili yapıları** dikey penceresinde, sürükleyip yapıları istenen sıralamaya. **Not:** yapıyı sürükleyerek sorun yaşıyorsanız, yapıyı sol taraftan sürükleyerek emin olun. 
 1. Tamamladığınızda **Tamam**’ı seçin.  
 
 ## <a name="view-or-modify-an-artifact"></a>Görüntüleme veya bir yapı değiştirme
-Merhaba aşağıdaki adımları göstermek nasıl tooview veya bir yapının hello parametreleri değiştirin:
+Aşağıdaki adımları görüntülemek veya bir yapı parametreleri değiştirmek nasıl gösterilmektedir:
 
-1. Merhaba hello üstündeki **yapıları uygulamak** dikey penceresinde, toohello VM eklenen yapıları hello sayısını gösteren select hello bağlantı.
+1. Üstündeki **yapıları uygulamak** dikey penceresinde, VM için eklenene yapıları sayısını gösteren bağlantısını seçin.
    
-    ![Yapıları eklenen tooVM sayısı](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
-1. Merhaba üzerinde **seçili yapıları** dikey penceresinde, tooview istediğiniz veya düzenleme select hello yapı.  
-1. Merhaba üzerinde **ekleyin yapıt** dikey penceresinde, tüm değişikliklerin gerekli ve seçin yapma **Tamam** tooclose hello **ekleyin yapıt** dikey.
-1. Seçin **Tamam** tooclose hello **seçili yapıları** dikey.
+    ![VM eklenen yapıları sayısı](./media/devtest-lab-add-vm-with-artifacts/devtestlab-add-artifacts-blade-selected-artifacts.png)
+1. Üzerinde **seçili yapıları** dikey penceresinde görüntülemek veya düzenlemek istediğiniz yapıyı seçin.  
+1. Üzerinde **ekleyin yapıt** dikey penceresinde, tüm değişikliklerin gerekli ve seçin yapma **Tamam** kapatmak için **ekleyin yapıt** dikey.
+1. Seçin **Tamam** kapatmak için **seçili yapıları** dikey.
 
 ## <a name="save-azure-resource-manager-template"></a>Azure Resource Manager şablonunu Kaydet
-Bir Azure Resource Manager şablonu tekrarlanabilir bir dağıtım bir bildirim temelli şekilde toodefine sağlar. Aşağıdaki adımları hello nasıl toosave hello hello oluşturulan VM için Azure Resource Manager şablonu açıklanmaktadır.
-Kaydedildikten sonra hello Azure Resource Manager şablonu kullanabileceğine[Azure PowerShell ile yeni VM'ler dağıtmak](../azure-resource-manager/resource-group-overview.md#template-deployment).
+Bir Azure Resource Manager şablonu tekrarlanabilir bir dağıtımı tanımlamanın bildirim temelli bir yolunu sağlar. Aşağıdaki adımlar, oluşturulan VM için Azure Resource Manager şablonu kaydetmek açıklanmaktadır.
+Kaydedildikten sonra Azure Resource Manager şablonu kullanabilirsiniz [Azure PowerShell ile yeni VM'ler dağıtmak](../azure-resource-manager/resource-group-overview.md#template-deployment).
 
-1. Merhaba üzerinde **sanal makine** dikey penceresinde, select **ARM şablonu görüntüleme**.
-2. Merhaba üzerinde **görünüm Azure Resource Manager şablonu** dikey penceresinde, select hello şablon metni.
-3. Merhaba seçili metni toohello panoya kopyalayın.
-4. Seçin **Tamam** tooclose hello **görünüm Azure Resource Manager şablonu dikey**.
+1. Üzerinde **sanal makine** dikey penceresinde, select **ARM şablonu görüntüleme**.
+2. Üzerinde **görünüm Azure Resource Manager şablonu** dikey penceresinde şablon metni seçin.
+3. Seçili metni panoya kopyalayın.
+4. Seçin **Tamam** kapatmak için **görünüm Azure Resource Manager şablonu dikey**.
 5. Bir metin düzenleyicisinde açın.
-6. Hello Pano'dan hello şablon metni yapıştırın.
-7. Daha sonra kullanmak için Hello dosyasını kaydedin.
+6. Panodaki şablonu metni yapıştırın.
+7. Daha sonra kullanmak için dosyayı kaydedin.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ### <a name="next-steps"></a>Sonraki adımlar
-* Bir kez VM oluşturulan hello toohello VM seçerek bağlayabilirsiniz **Bağlan** hello VM'in dikey.
-* Nasıl çok öğrenin[DevTest Labs VM için özel yapılar oluşturma](devtest-lab-artifact-author.md).
-* Merhaba keşfedin [DevTest Labs Azure Resource Manager hızlı başlangıç Şablon Galerisi](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* VM oluşturulduktan sonra seçerek VM'ye bağlanabilir **Bağlan** VM dikey.
+* Bilgi edinmek için nasıl [DevTest Labs VM için özel yapılar oluşturma](devtest-lab-artifact-author.md).
+* Araştır [DevTest Labs Azure Resource Manager hızlı başlangıç Şablon Galerisi](https://github.com/Azure/azure-devtestlab/tree/master/Samples).

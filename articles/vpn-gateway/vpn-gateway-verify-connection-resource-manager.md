@@ -1,6 +1,6 @@
 ---
-title: "aaaVerify bir VPN ağ geçidi bağlantısı | Microsoft Docs"
-description: "Bu makalede nasıl tooverify bir sanal ağ VPN ağ geçidi bağlantısı gösterilmektedir."
+title: "Bir VPN ağ geçidi bağlantısını doğrulama | Microsoft Docs"
+description: "Bu makalede, bir sanal ağ VPN ağ geçidi bağlantı doğrulamak gösterilmiştir."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2017
 ms.author: cherylmc
-ms.openlocfilehash: 0d3da94a76b36251d629f82b1575328c7ac10b26
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b2d702ecdd5e1fca342e7c84c6e75339097f0bcd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>Bir VPN ağ geçidi bağlantısını doğrulama
 
-Bu makale size nasıl gösterir tooverify hello Klasik ve Resource Manager dağıtım modeli için bir VPN ağ geçidi bağlantısı.
+Bu makale VPN ağ geçidi bağlantısı Klasik ve Resource Manager dağıtım modelleri için doğrulama gösterilmiştir.
 
 ## <a name="azure-portal"></a>Azure portalına
 
@@ -31,13 +31,13 @@ Bu makale size nasıl gösterir tooverify hello Klasik ve Resource Manager dağ�
 
 ## <a name="powershell"></a>PowerShell
 
-tooverify hello Resource Manager dağıtım için bir VPN ağ geçidi bağlantısı PowerShell kullanarak model, hello hello en son sürümünü yüklemek [Azure Resource Manager PowerShell cmdlet'lerini](/powershell/azure/overview).
+PowerShell kullanarak Resource Manager dağıtım modeli için bir VPN ağ geçidi bağlantısı doğrulamak için en son sürümünü yükleyin [Azure Resource Manager PowerShell cmdlet'lerini](/powershell/azure/overview).
 
 [!INCLUDE [PowerShell](../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
 ## <a name="azure-cli"></a>Azure CLI
 
-tooverify hello Resource Manager dağıtım için bir VPN ağ geçidi bağlantısı Azure CLI kullanarak model, hello hello en son sürümünü yüklemek [CLI komutları](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0 veya üstü).
+Azure CLI kullanarak Resource Manager dağıtım modeli için bir VPN ağ geçidi bağlantısı doğrulamak için en son sürümünü yükleyin [CLI komutları](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0 veya üstü).
 
 [!INCLUDE [CLI](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
@@ -48,10 +48,10 @@ tooverify hello Resource Manager dağıtım için bir VPN ağ geçidi bağlantı
 
 ## <a name="powershell-classic"></a>PowerShell (Klasik)
 
-VPN ağ geçidi bağlantınızı hello Klasik dağıtım modeli PowerShell kullanarak tooverify hello hello Azure PowerShell cmdlet'lerinin en son sürümlerini yükleyin. Emin toodownload ve yükleme hello olması [Hizmet Yönetimi](https://docs.microsoft.com/powershell/azure/install-azure-ps?view=azuresmps-3.7.0) modülü. 'Add-AzureAccount' toolog toohello Klasik dağıtım modelinde kullanın.
+VPN ağ geçidi bağlantınızı PowerShell kullanarak Klasik dağıtım modeli için doğrulamak için Azure PowerShell cmdlet'lerinin en son sürümlerini yükleyin. İndirmek ve yüklemek mutlaka [Hizmet Yönetimi](https://docs.microsoft.com/powershell/azure/install-azure-ps?view=azuresmps-3.7.0) modülü. Klasik dağıtım modeli için oturum açmak için 'Add-AzureAccount' kullanın.
 
 [!INCLUDE [Classic PowerShell](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Sanal makineler tooyour sanal ağları ekleyebilirsiniz. Adımlar için bkz. [Sanal Makine Oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Sanal ağlarınıza sanal makineler ekleyebilirsiniz. Adımlar için bkz. [Sanal Makine Oluşturma](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

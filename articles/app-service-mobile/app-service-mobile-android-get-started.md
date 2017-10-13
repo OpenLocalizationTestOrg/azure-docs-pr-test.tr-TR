@@ -1,6 +1,6 @@
 ---
-title: "Azure App Service Mobile Apps üzerinde Android uygulaması aaaCreate | Microsoft Docs"
-description: "Android geliştirme için Azure mobil uygulaması arka uçlarını kullanmaya Bu öğretici tooget izleyin"
+title: "Azure Uygulama Hizmeti Mobile Apps’de Android uygulaması oluşturma | Microsoft Belgeleri"
+description: "Android geliştirme için Azure mobil uygulaması arka uçlarını kullanmaya başlamak için bu öğreticiden yararlanın."
 services: app-service\mobile
 documentationcenter: android
 author: ggailey777
@@ -14,34 +14,34 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 0af85a3a4de9fc265976bbe3f34d73effc3807df
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 418a5229a084d570bc6cab5925dbd8d30945a3c5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-android-app"></a>Android uygulaması oluşturma
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu öğretici nasıl tooadd bir bulut tabanlı arka uç hizmeti tooan Android mobil uygulamanızı Azure mobil uygulaması arka ucunu kullanarak gösterir.  Yeni bir mobil uygulama arka ucu ve uygulama verilerini Azure’da depolayan basit bir *Yapılacaklar listesi* Android uygulaması oluşturacaksınız.
+Bu öğreticide, bir Android mobil uygulamasına Azure mobil uygulaması arka ucunu kullanarak bulut tabanlı arka uç hizmetini nasıl ekleyeceğiniz gösterilir.  Yeni bir mobil uygulama arka ucu ve uygulama verilerini Azure’da depolayan basit bir *Yapılacaklar listesi* Android uygulaması oluşturacaksınız.
 
-Bu öğreticiyi tamamlamak Azure App Service'te hello Mobile Apps özelliğini kullanmayla ilgili diğer tüm Android öğreticileri için önkoşuldur.
+Bu öğreticiyi tamamlamak, Azure App Service’de Mobile Apps özelliğini kullanmayla ilgili diğer tüm Android öğreticileri için ön koşuldur.
 
 ## <a name="prerequisites"></a>Ön koşullar
-toocomplete Bu öğretici, aşağıdaki hello gerekir:
+Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
-* [Android Geliştirici Araçları](https://developer.android.com/sdk/index.html), hello Android Studio tümleşik geliştirme ortamını ve en son Android platformunu hello içerir.
-* Azure Mobile Android karşıdan hello hızlı başlangıç projesinin bir parçası otomatik başvurulan SDK.
+* Android Studio tümleşik geliştirme ortamını ve en son Android platformunu içeren [Android Geliştirici Araçları](https://developer.android.com/sdk/index.html).
+* İndirdiğiniz hızlı başlangıç projesinin parçası olarak otomatik başvurulan Azure Mobile Android SDK.
 * [Etkin bir Azure hesabı](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>Yeni bir Azure mobil uygulama arka ucu oluşturma
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="configure-hello-server-project"></a>Merhaba sunucu projesi yapılandırmak
+## <a name="configure-the-server-project"></a>Sunucu projesi yapılandırma
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-hello-android-app"></a>Merhaba Android uygulamasını indirme ve çalıştırma
+## <a name="download-and-run-the-android-app"></a>Android uygulamasını indirme ve çalıştırma
 [!INCLUDE [app-service-mobile-android-run-app](../../includes/app-service-mobile-android-run-app.md)]
 
 <!-- URLs -->

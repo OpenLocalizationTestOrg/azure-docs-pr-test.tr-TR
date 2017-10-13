@@ -1,5 +1,5 @@
 ---
-title: "bir web uygulaması için bir Windows sanal makine aaaCreate | Microsoft Docs"
+title: "Bir Windows sanal makine bir web uygulaması oluşturma | Microsoft Docs"
 description: "Visual Studio ve Windows kullanarak bir web projesi için bir VM oluşturma."
 services: virtual-machines-windows
 documentationcenter: 
@@ -15,15 +15,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: kraigb
-ms.openlocfilehash: 45b7d087c8e138150d7da0a5b2bec66019d4ed20
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ebacbe74607db38be34b6878745e17bb6de8817a
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="creating-a-virtual-machine-for-a-web-application-with-visual-studio"></a>Visual Studio ile web uygulaması için bir sanal makine oluşturma
 > [!IMPORTANT] 
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, hello Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, en yeni dağıtımların hello Resource Manager modelini kullanmasını önerir.
+> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
 
 [!INCLUDE [virtual-machines-common-classic-web-app-visual-studio](../../../../includes/virtual-machines-common-classic-web-app-visual-studio.md)]
 

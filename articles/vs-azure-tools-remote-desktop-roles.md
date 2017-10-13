@@ -1,5 +1,5 @@
 ---
-title: "aaaUsing Azure rolleriyle, Uzak Masaüstü'nü | Microsoft Docs"
+title: "Uzak Masaüstü kullanarak Azure rolleriyle | Microsoft Docs"
 description: "Azure rolleri ile Uzak Masaüstü'nü kullanma"
 services: visual-studio-online
 documentationcenter: na
@@ -14,66 +14,66 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.openlocfilehash: d35fd421cde8be9e3caa474db95974a54e528bae
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: eab135d10c0d6df8ca72ac47d6804017a998a3d2
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="using-remote-desktop-with-azure-roles"></a>Azure rolleri ile Uzak Masaüstü'nü kullanma
-Uzak Masaüstü Hizmetleri ve Hello Azure SDK kullanarak Azure rolleri ve Azure tarafından barındırılan sanal makinelerin erişebilir. Visual Studio'da bir Azure bulut hizmeti projesi Uzak Masaüstü Hizmetleri yapılandırabilirsiniz. tooenable Uzak Masaüstü Hizmetleri, bir veya daha fazla rolü içeren bir çalışma projesi oluşturun ve sonra tooAzure yayımlayın.
+Uzak Masaüstü Hizmetleri ve Azure SDK kullanarak Azure rolleri ve Azure tarafından barındırılan sanal makinelerin erişebilir. Visual Studio'da bir Azure bulut hizmeti projesi Uzak Masaüstü Hizmetleri yapılandırabilirsiniz. Uzak Masaüstü Hizmetleri etkinleştirmek için bir veya daha fazla rolü içeren bir çalışma projesi oluşturun ve Azure'a yayımlayacaksınız.
 
 > [!IMPORTANT]
-> Sorun giderme veya yalnızca geliştirme için Azure bir rolü erişim. Merhaba amacı, her bir sanal makinenin diğer istemci uygulamaları toorun Azure uygulamanız, değil toorun belirli bir rolde değil. Toouse Azure toohost herhangi bir amaçla kullanabileceğiniz bir sanal makine istiyorsanız, Azure sanal makineleri Sunucu Gezgini'nden erişme bakın.
+> Sorun giderme veya yalnızca geliştirme için Azure bir rolü erişim. Her bir sanal makine amacı, diğer istemci uygulamaları çalıştırmayı Azure uygulamanızı, belirli bir rol çalıştırmaktır. Herhangi bir amaçla kullanabileceğiniz bir sanal makineyi barındırmak için Azure kullanmak istiyorsanız, Azure sanal makineleri Sunucu Gezgini'nden erişme bakın.
 > 
 > 
 
-## <a name="tooenable-and-use-remote-desktop-for-an-azure-role"></a>tooenable ve bir Azure rol için Uzak Masaüstü'nü kullanma
-1. Çözüm Gezgini'nde, bulut hizmeti projenizi başlangıç kısayol menüsünü açın ve ardından **Yayımla**.
+## <a name="to-enable-and-use-remote-desktop-for-an-azure-role"></a>Etkinleştirmek ve bir Azure rol için Uzak Masaüstü'nü kullanmak için
+1. Çözüm Gezgini'nde, bulut hizmeti projenizi için kısayol menüsünü açın ve ardından **Yayımla**.
    
-    Merhaba **Azure uygulamasını Yayımla** Sihirbazı görünür.
+    **Azure uygulamasını Yayımla** Sihirbazı görünür.
    
     ![Komutu için bir bulut hizmeti projesini Yayımla](./media/vs-azure-tools-remote-desktop-roles/IC799161.png)
-2. Merhaba altındaki **Microsoft Azure yayımlama ayarları** hello sihirbazının select hello **Uzak Masaüstü'nü etkinleştirme** tüm rolleri onay kutusu. 
+2. Ekranın alt kısmındaki **Microsoft Azure yayımlama ayarları** seçin sayfasında **Uzak Masaüstü'nü etkinleştirme** tüm rolleri onay kutusu. 
    
-    Merhaba **uzak masaüstü yapılandırması** iletişim kutusu görüntülenir.
-3. Merhaba hello sonundaki **uzak masaüstü yapılandırması** iletişim kutusunda, hello seçin **diğer seçenekler** düğmesi. 
+    **Uzak masaüstü yapılandırması** iletişim kutusu görüntülenir.
+3. Ekranın alt kısmındaki **uzak masaüstü yapılandırması** iletişim kutusunda, seçin **diğer seçenekler** düğmesi. 
    
     Bu oluşturmak veya Uzak Masaüstü aracılığıyla bağlanırken kimlik bilgilerini şifrelemek için bir sertifika seçin imkan tanıyan bir açılır liste kutusu görüntüler.
-4. Merhaba aşağı açılan listesinde seçin  **&lt;Oluştur >**, veya mevcut bir hello listeden seçin. 
+4. Aşağı açılan listesinde seçin  **&lt;Oluştur >**, veya mevcut bir listeden seçin. 
    
-    Varolan bir sertifikayı seçerseniz, aşağıdaki adımları hello atlayın.
+    Varolan bir sertifikayı seçerseniz, aşağıdaki adımları atlayın.
    
    > [!NOTE]
-   > bir Uzak Masaüstü bağlantısı için gereksinim duyduğunuz hello sertifikalar, diğer Azure işlemleri için kullandığınız hello sertifikaları farklıdır. Merhaba uzaktan erişim sertifikasının özel anahtarı olması gerekir.
+   > Bir Uzak Masaüstü bağlantısı için gereken sertifikalar, diğer Azure işlemleri için kullandığı sertifikalar farklıdır. Uzaktan erişim sertifikasının özel anahtarı olması gerekir.
    > 
    > 
    
-    Merhaba **oluşturduğunuz sertifika** iletişim kutusu görüntülenir.
+    **Oluşturduğunuz sertifika** iletişim kutusu görüntülenir.
    
-   1. Merhaba yeni sertifika için kolay bir ad sağlayın ve ardından hello **Tamam** düğmesi. Merhaba yeni sertifika hello açılır liste kutusunda görüntülenir.
-   2. Merhaba, **uzak masaüstü yapılandırması** iletişim kutusunda, bir kullanıcı adı ve parola sağlayın.
+   1. Yeni sertifika için kolay bir ad sağlayın ve ardından **Tamam** düğmesi. Yeni sertifika açılır liste kutusunda görüntülenir.
+   2. İçinde **uzak masaüstü yapılandırması** iletişim kutusunda, bir kullanıcı adı ve parola sağlayın.
       
-       Var olan bir hesap kullanamazsınız. Yönetici hello hello yeni hesap için kullanıcı adı olarak belirtmeyin.
+       Var olan bir hesap kullanamazsınız. Yönetici yeni hesap için kullanıcı adı olarak belirtmeyin.
       
       > [!NOTE]
-      > Merhaba parola hello karmaşıklık gereksinimlerini karşılamıyorsa, kırmızı bir simge sonraki toohello parola metin kutusu görünür. Merhaba parola büyük harf, küçük harfler ve sayılar veya simgeler içermelidir.
+      > Parola karmaşıklık gereksinimlerini karşılamıyorsa, kırmızı bir simge yanındaki parola metin kutusu görünür. Parola büyük harf, küçük harfler ve sayılar veya simgeler içermelidir.
       > 
       > 
-   3. Hangi hello hesabın süresi dolacak ve hangi Uzak Masaüstü bağlantıları engellenir sonra bir tarihi seçin.
-   4. Tüm gerekli bilgileri hello sağlanan seçtiğiniz sonra hello seçin **Tamam** düğmesi.
+   3. Hesap sona erecek ve hangi Uzak Masaüstü bağlantıları engellenir sonra bir tarihi seçin.
+   4. Gerekli tüm bilgileri sağladığınız sonra tercih **Tamam** düğmesi.
       
-       Uzaktan erişim hizmetleri sağlayan birkaç ayarları toohello .cscfg ve .csdef dosyaları eklenir.
-5. Merhaba, **Microsoft Azure yayımlama ayarları** Sihirbazı'nı hello seçin **Tamam** düğmesini gönderirken, bulut hizmetinizin toopublish hazır.
+       Uzaktan erişim hizmetleri sağlayan birkaç ayarları .cscfg ve .csdef dosyasına eklenir.
+5. İçinde **Microsoft Azure yayımlama ayarları** Sihirbazı'nı seçin **Tamam** bulut hizmetiniz yayımlamaya hazır olduğunuzda düğmesine tıklayın.
    
-    Hazır toopublish değilseniz hello seçin **iptal** düğmesi. Merhaba yapılandırma ayarları kaydedilir ve daha sonra bulut hizmetinizi yayımlayın.
+    Yayımlamaya hazır değilseniz seçin **iptal** düğmesi. Yapılandırma ayarları kaydedilir ve daha sonra bulut hizmetinizi yayımlayın.
 
-## <a name="connect-tooan-azure-role-by-using-remote-desktop"></a>Uzak Masaüstü'nü kullanarak tooan Azure rol Bağlan
-Bulut hizmetinizde Azure yayımladıktan sonra Azure barındıran hello sanal makinelerine Sunucu Gezgini toolog kullanabilirsiniz. 
+## <a name="connect-to-an-azure-role-by-using-remote-desktop"></a>Uzak Masaüstü'nü kullanarak bir Azure rolüne bağlayın
+Bulut hizmetinizde Azure yayımladıktan sonra Azure barındıran sanal makinelerine oturum için Sunucu Gezgini kullanabilirsiniz. 
 
-1. Sunucu Gezgini'nde hello genişletin **Azure** düğümü, bir bulut hizmeti ve kendi rolleri toodisplay örneklerinin bir listesini biri için hello düğümünü genişletin.
-2. Bir örnek düğümü için hello kısayol menüsünü açın ve ardından **Uzak Masaüstü kullanarak bağlanmak**.
+1. Server Explorer'da genişletin **Azure** düğümünü ve bir bulut hizmeti ve örneklerinin bir listesini görüntülemek için kendi rollerinden birini düğümünü genişletin.
+2. Bir örnek düğümü için kısayol menüsünü açın ve ardından **Uzak Masaüstü kullanarak bağlanmak**.
    
     ![Uzak Masaüstü aracılığıyla bağlanma](./media/vs-azure-tools-remote-desktop-roles/IC799162.png)
-3. Merhaba kullanıcı adı ve daha önce oluşturduğunuz parolayı girin. Şimdi uzak oturumunuza günlüğe kaydedilir.
+3. Kullanıcı adı ve daha önce oluşturduğunuz parolayı girin. Şimdi uzak oturumunuza günlüğe kaydedilir.
 

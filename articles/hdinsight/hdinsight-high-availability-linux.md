@@ -1,6 +1,6 @@
 ---
-title: "Hadoop - Azure Hdınsight için aaaHigh kullanılabilirlik | Microsoft Docs"
-description: "Nasıl Hdınsight kümeleri güvenilirlik ve kullanılabilirlik ek bir baş düğüm kullanarak iyileştirmek öğrenin. Tooindividually bağlanmak tooeach baş düğüm SSH kullanarak nasıl bu Ambari ve Hive gibi Hadoop hizmetleri nasıl etkilediğini de öğrenin."
+title: "Yüksek kullanılabilirlik için Hadoop - Azure Hdınsight | Microsoft Docs"
+description: "Nasıl Hdınsight kümeleri güvenilirlik ve kullanılabilirlik ek bir baş düğüm kullanarak iyileştirmek öğrenin. Nasıl bu Ambari ve Hive gibi Hadoop Hizmetleri yanı sıra tek tek SSH kullanarak her baş düğümüne bağlanmak için etkilediğini öğrenin."
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
@@ -17,136 +17,136 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 07/28/2017
 ms.author: larryfr
-ms.openlocfilehash: 9ff62afe6b63b241cb984225233157219f8d7411
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: e66ba67a36fc48d1762ba302d708e060489fdc71
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>HDInsight'ta Hadoop kümelerinin kullanılabilirliği ve güvenilirliği
 
-Hdınsight kümeleri iki baş düğümler tooincrease hello kullanılabilirliği ve güvenilirliği Hadoop Hizmetleri ve çalışan işlerin sağlar.
+Hdınsight kümeleri, kullanılabilirlik ve Hadoop Hizmetleri ve çalışan işleri güvenilirliğini artırmak için iki baş düğümler sağlar.
 
-Hadoop bir kümede birden çok düğüm arasında Hizmetleri ve veri çoğaltma tarafından yüksek kullanılabilirlik ve güvenilirlik elde eder. Ancak standart dağıtımları hadoop genellikle yalnızca tek bir baş düğüm vardır. Merhaba tek baş düğümü herhangi kesinti hello küme toostop çalışma neden olabilir. Hdınsight iki headnodes tooimprove Hadoop'ın kullanılabilirliği ve güvenilirliği sağlar.
+Hadoop bir kümede birden çok düğüm arasında Hizmetleri ve veri çoğaltma tarafından yüksek kullanılabilirlik ve güvenilirlik elde eder. Ancak standart dağıtımları hadoop genellikle yalnızca tek bir baş düğüm vardır. Tek baş düğümü herhangi kesinti, küme çalışmayı durdurmasına neden olabilir. Hdınsight Hadoop'ın kullanılabilirliği ve güvenilirliği iyileştirmek için iki headnodes sağlar.
 
 > [!IMPORTANT]
-> Linux hello yalnızca Hdınsight sürüm 3.4 veya büyük kullanılan işletim sistemini ' dir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="availability-and-reliability-of-nodes"></a>Kullanılabilirliği ve güvenilirliği düğümlerinin
 
-Hdınsight kümesi düğümünde, Azure sanal makineleri kullanarak uygulanır. Merhaba aşağıdaki bölümlerde Hdınsight ile kullanılan hello tek tek düğüm türleri açıklanmaktadır. 
+Hdınsight kümesi düğümünde, Azure sanal makineleri kullanarak uygulanır. Aşağıdaki bölümlerde, Hdınsight ile kullanılan tek tek düğüm türleri açıklanmaktadır. 
 
 > [!NOTE]
-> Tüm düğüm türleri için bir küme türü kullanılır. Örneğin, Hadoop küme türü hiçbir Nimbus düğümü yok. Hdınsight küme türleri tarafından kullanılan düğümleri hakkında daha fazla bilgi için hello hello küme türleri bölümüne bakın [Hdınsight oluşturma Linux tabanlı Hadoop kümeleri](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) belge.
+> Tüm düğüm türleri için bir küme türü kullanılır. Örneğin, Hadoop küme türü hiçbir Nimbus düğümü yok. Hdınsight küme türleri tarafından kullanılan düğümleri hakkında daha fazla bilgi için küme türleri bölümüne bakın [Hdınsight oluşturma Linux tabanlı Hadoop kümeleri](hdinsight-hadoop-provision-linux-clusters.md#cluster-types) belge.
 
 ### <a name="head-nodes"></a>Baş düğümler
 
-Hadoop Hizmetleri tooensure yüksek kullanılabilirlik, Hdınsight iki baş düğümler sağlar. Her iki baş düğümler aynı anda etkin ve hello Hdınsight kümesi içinde çalışır durumda. HDFS veya YARN gibi bazı hizmetler, herhangi bir anda yalnızca bir baş düğüm üzerinde ' active'. HiveServer2 veya Hive meta depo gibi başka hizmetleri hello hem baş düğüm üzerinde etkin olan aynı anda.
+Hadoop Hizmetleri yüksek kullanılabilirliğini sağlamak için iki baş düğüm Hdınsight sağlar. Her iki baş düğümler aynı anda etkin ve Hdınsight kümesi içinde çalışır. HDFS veya YARN gibi bazı hizmetler, herhangi bir anda yalnızca bir baş düğüm üzerinde ' active'. HiveServer2 veya Hive meta depo gibi başka hizmetleri aynı anda hem baş düğümler üzerinde etkindir.
 
-Baş düğümler (ve diğer düğümlere hdınsight'ta) hello hostname hello düğümün bir parçası olarak sayısal bir değere sahip. Örneğin, `hn0-CLUSTERNAME` veya `hn4-CLUSTERNAME`.
+Baş düğümler (ve diğer düğümlere hdınsight'ta) ana bilgisayar adı düğümün bir parçası olarak sayısal bir değere sahip. Örneğin, `hn0-CLUSTERNAME` veya `hn4-CLUSTERNAME`.
 
 > [!IMPORTANT]
-> Merhaba sayısal değer, bir düğüm birincil veya ikincil ile ilişkilendirmeyin. Merhaba sayısal değer yalnızca mevcut tooprovide her düğüm için benzersiz bir ad değil.
+> Sayısal değer, bir düğüm birincil veya ikincil ile ilişkilendirmeyin. Sayısal değer yalnızca her düğüm için benzersiz bir ad sağlamak için mevcuttur.
 
 ### <a name="nimbus-nodes"></a>Nimbus Düğümleri
 
-Nimbus düğümü Storm kümeleri ile kullanılabilir. Merhaba Nimbus düğümü benzer işlevselliği toohello Hadoop Jobtracker'a dağıtma ve çalışan düğümleri arasında işleme izleme sağlar. Hdınsight iki Nimbus düğümü Storm kümeleri için sağlar.
+Nimbus düğümü Storm kümeleri ile kullanılabilir. Nimbus düğümü dağıtma ve çalışan düğümleri arasında işlem izleme Hadoop Jobtracker'a benzer işlevsellik sağlar. Hdınsight iki Nimbus düğümü Storm kümeleri için sağlar.
 
 ### <a name="zookeeper-nodes"></a>Zookeeper düğümleri
 
-[ZooKeeper](http://zookeeper.apache.org/) düğümleri öncü seçim baş düğümler üzerinde ana Hizmetleri için kullanılır. Ayrıca hizmet ana üzerinde etkin olan baş düğümü Hizmetleri, veri (çalışan) düğümlerini ve ağ geçitleri bilmeniz kullanılan tooinsure oldukları. Varsayılan olarak, Hdınsight üç ZooKeeper düğümleri sağlar.
+[ZooKeeper](http://zookeeper.apache.org/) düğümleri öncü seçim baş düğümler üzerinde ana Hizmetleri için kullanılır. Hizmetleri, veri (çalışan) düğümlerini ve ağ geçitlerini hangi baş düğüm hizmet ana etkin biliyor olması güvence altına için de kullanılır. Varsayılan olarak, Hdınsight üç ZooKeeper düğümleri sağlar.
 
 ### <a name="worker-nodes"></a>Çalışan düğümü
 
-Bir işi gönderilen toohello küme olduğunda çalışan düğümleri hello gerçek veri çözümlemesi gerçekleştirme. Bir alt düğüm başarısız olursa, onu gerçekleştiren hello gönderilen tooanother çalışan düğüme bir görevdir. Varsayılan olarak, dört alt düğüm Hdınsight oluşturur. Hem sırasında hem de Küme oluşturulduktan sonra bu sayı toosuit gereksinimlerinizi değiştirebilirsiniz.
+Bir işi kümeye gönderildiğinde çalışan düğümleri gerçek veri çözümlemesi gerçekleştirme. Çalışan düğüm başarısız olursa, bunu gerçekleştirme görev başka bir çalışan düğümüne gönderilir. Varsayılan olarak, dört alt düğüm Hdınsight oluşturur. Bu numarayı sırasında hem Küme oluşturulduktan sonra gereksinimlerinize uyacak şekilde değiştirebilirsiniz.
 
 ### <a name="edge-node"></a>Kenar düğümüne
 
-Bir kenar düğümüne, veri analizi hello kümedeki etkin olarak katılmıyor. Hadoop ile çalışırken, geliştiriciler veya veri bilimcilerine tarafından kullanılır. Hello kenar düğümü yaşamlarını hello aynı Azure sanal ağ hello kümedeki diğer düğümlere hello ve tüm diğer düğümlere doğrudan erişebilirsiniz. Merhaba kenar düğümüne kritik Hadoop Hizmetleri veya analiz işleri çıktığınızda kaynakları bırakmadan kullanılabilir.
+Bir kenar düğümüne, veri analizi kümedeki etkin olarak katılmıyor. Hadoop ile çalışırken, geliştiriciler veya veri bilimcilerine tarafından kullanılır. Kenar düğümüne kümedeki diğer düğümlere aynı Azure sanal ağ içinde yaşar ve diğer tüm düğümlere doğrudan erişebilirsiniz. Kenar düğümüne kritik Hadoop Hizmetleri veya analiz işleri çıktığınızda kaynakları bırakmadan kullanılabilir.
 
-Şu anda, hdınsight'ta R Server varsayılan olarak bir kenar düğümüne sağlayan hello yalnızca küme türü budur. Merhaba kenar düğümüne hdınsight'ta R Server için kullanılan yerel olarak hello düğümünde toohello küme dağıtılmış işlem için göndermeden önce test R kodu.
+Şu anda, hdınsight'ta R Server varsayılan olarak bir kenar düğümüne sağlayan yalnızca küme türüdür. Kenar düğümüne hdınsight'ta R Server için kullanılan düğümde dağıtılan işleme için kümeye göndermeden önce yerel olarak test R kodu.
 
-Merhaba küme türleri R Server dışındaki bir edge düğümünü kullanarak hakkında daha fazla bilgi için bkz [Hdınsight'ta kenar düğümünü kullanmak](hdinsight-apps-use-edge-node.md) belge.
+R Server dışındaki küme türleriyle bir kenar düğümüne kullanma hakkında daha fazla bilgi için bkz: [Hdınsight'ta kenar düğümünü kullanmak](hdinsight-apps-use-edge-node.md) belge.
 
-## <a name="accessing-hello-nodes"></a>Merhaba düğümlere erişme
+## <a name="accessing-the-nodes"></a>Düğümlere erişme
 
-Merhaba üzerinden erişim toohello küme Internet ortak ağ geçidi üzerinden sağlanır. Erişim sınırlı tooconnecting toohello baş düğümler ve (varsa,) kenar düğümüne hello. Erişim tooservices Hello baş düğümler üzerinde çalışan birden çok baş düğümler sağlayarak parametreden etkilenir değil. İstenen hizmet hello barındıran hello ortak ağ geçidi yollarını istekleri toohello baş düğüm. Örneğin, Ambari şu anda hello ikincil baş düğüm üzerinde barındırılıyorsa hello ağ geçidi Ambari toothat düğümü için gelen istekleri yönlendirir.
+Ortak ağ geçidi üzerinden internet üzerinden kümesine erişimi sağlanır. Erişim baş düğümler bağlanmakta sınırlı ve (varsa,) kenar düğümüne. Baş düğümler üzerinde çalışan hizmetlerine erişim birden çok baş düğümler sağlayarak parametreden etkilenir değil. Ortak ağ geçidi istekleri istenen hizmeti barındıran baş düğüme yönlendirir. Ambari şu anda ikincil baş düğüm üzerinde barındırılıyorsa, örneğin, ağ geçidi gelen istekleri için Ambari bu düğüme yönlendirir.
 
-Merhaba ortak ağ geçidi üzerinden erişim sınırlı tooport 443 (HTTPS), 22 ve 23 ' dir.
+Ortak ağ geçidi üzerinden erişim bağlantı noktası 443 (HTTPS), 22 ve 23 sınırlıdır.
 
-* Bağlantı noktası __443__ kullanılan tooaccess olan Ambari ve diğer web kullanıcı Arabirimi veya hello baş düğümler üzerinde barındırılan REST API'leri.
+* Bağlantı noktası __443__ Ambari ve diğer web kullanıcı Arabirimi veya baş düğümler üzerinde barındırılan REST API'lerine erişmek için kullanılır.
 
-* Bağlantı noktası __22__ kullanılan tooaccess hello birincil baş düğüm veya kenar düğümüne SSH ile.
+* Bağlantı noktası __22__ birincil baş düğüm veya kenar düğümüne SSH ile erişmek için kullanılır.
 
-* Bağlantı noktası __23__ kullanılan tooaccess hello ikincil baş düğüm SSH. Örneğin, `ssh username@mycluster-ssh.azurehdinsight.net` toohello adlı hello kümesinin birincil baş düğümüne bağlanan **mycluster**.
+* Bağlantı noktası __23__ ikincil baş düğüm SSH ile erişmek için kullanılır. Örneğin, `ssh username@mycluster-ssh.azurehdinsight.net` adlı Küme birincil baş düğüme bağlanan **mycluster**.
 
-Merhaba SSH kullanma hakkında daha fazla bilgi için bkz: [Hdınsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md) belge.
+SSH kullanma hakkında daha fazla bilgi için bkz: [Hdınsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md) belge.
 
 ### <a name="internal-fully-qualified-domain-names-fqdn"></a>İç tam etki alanı adları (FQDN)
 
-Bir Hdınsight küme düğümlerinde bir iç IP adresi ve yalnızca hello kümeden erişilebilir FQDN vardır. Merhaba iç FQDN veya IP adresini kullanarak hello küme hizmetlerini erişirken Ambari, tooverify hello IP veya FQDN toouse hello hizmet erişirken kullanmanız gerekir.
+Bir Hdınsight küme düğümlerinde bir iç IP adresi ve yalnızca kümeden erişilebilir FQDN vardır. İç FQDN veya IP adresi kullanarak kümeye Services'de erişilirken, IP veya FQDN hizmeti erişirken kullanılacak doğrulamak için Ambari kullanmanız gerekir.
 
-Örneğin, hizmet yalnızca bir baş düğüm üzerinde çalıştırmak Oozie hello ve hello kullanarak `oozie` bir SSH oturumu komuttan hello URL toohello hizmetinin gerektirir. Bu URL, komutu aşağıdaki hello kullanarak Ambari alınabilir:
+Örneğin, Oozie hizmeti yalnızca bir baş düğüm ve kullanarak çalışabilir `oozie` bir SSH oturumu komuttan Hizmeti'ne URL gerektirir. Bu URL, aşağıdaki komutu kullanarak Ambari alınabilir:
 
     curl -u admin:PASSWORD "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations?type=oozie-site&tag=TOPOLOGY_RESOLVED" | grep oozie.base.url
 
-Bu komut bir değer benzer toohello hello İç URL toouse hello ile içeren komutu aşağıdaki döndürür `oozie` komutu:
+Bu komut bir değer ile kullanılacak İç URL içeren aşağıdaki komutu benzer döndürür `oozie` komutu:
 
     "oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
 
-Merhaba Ambari REST API ile çalışma hakkında daha fazla bilgi için bkz: [izleme ve yönetme hello Ambari REST API kullanarak Hdınsight'ta](hdinsight-hadoop-manage-ambari-rest-api.md).
+Ambari REST API ile çalışma hakkında daha fazla bilgi için bkz: [izleme ve yönetme Ambari REST API kullanarak Hdınsight'ta](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 ### <a name="accessing-other-node-types"></a>Diğer düğüm türleri erişme
 
-Değil erişilebilir üzerinden hello doğrudan internet yöntemler aşağıdaki hello kullanarak olan toonodes bağlanabilir:
+Internet üzerinden aşağıdaki yöntemleri kullanarak doğrudan erişilemeyen düğümlere bağlanabilir:
 
-* **SSH**: tooa baş düğüm SSH, kullanarak bağlandıktan sonra hello baş düğüm tooconnect tooother düğümlerinden hello kümedeki SSH kullanabilirsiniz. Daha fazla bilgi için bkz: Merhaba [Hdınsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md) belge.
+* **SSH**: SSH kullanarak bir baş düğüm bağlandıktan sonra ardından SSH baş düğümünden kümedeki diğer düğümlere bağlamak için kullanabilirsiniz. Daha fazla bilgi için [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md) belgesine bakın.
 
-* **SSH tüneli**: bir web hizmeti barındırılan tooaccess gerekiyorsa değil hello düğümlerinden biri toohello sunulan Internet, SSH tüneli kullanmanız gerekir. Daha fazla bilgi için bkz: Merhaba [Hdınsight ile SSH tüneli kullanma](hdinsight-linux-ambari-ssh-tunnel.md) belge.
+* **SSH tüneli**: Internet'e gösterilmeyen düğümlerinden biri üzerinde barındırılan bir web hizmetine erişim gerekiyorsa, bir SSH tüneli kullanmanız gerekir. Daha fazla bilgi için bkz: [Hdınsight ile SSH tüneli kullanma](hdinsight-linux-ambari-ssh-tunnel.md) belge.
 
-* **Azure sanal ağı**: küme herhangi bir kaynak bir Azure sanal ağının parçası olduğundan, Hdınsight aynı Merhaba, sanal ağ hello kümedeki tüm düğümlere doğrudan erişebilirsiniz. Daha fazla bilgi için bkz: Merhaba [Azure sanal ağını kullanarak Hdınsight genişletmek](hdinsight-extend-hadoop-virtual-network.md) belge.
+* **Azure sanal ağı**: Hdınsight kümenize bir Azure sanal ağının parçası ise, aynı sanal ağda herhangi bir kaynağa kümedeki tüm düğümlere doğrudan erişebilirsiniz. Daha fazla bilgi için bkz: [Azure sanal ağını kullanarak Hdınsight genişletmek](hdinsight-extend-hadoop-virtual-network.md) belge.
 
-## <a name="how-toocheck-on-a-service-status"></a>Nasıl toocheck hizmet durumu hakkında
+## <a name="how-to-check-on-a-service-status"></a>Bir hizmet durumunu denetleme
 
-toocheck hello durum hello baş düğümler üzerinde çalışan hizmetleri veya Ambari REST API hello hello Ambari Web kullanıcı arabirimini kullanın.
+Baş düğümler üzerinde çalışan hizmetleri durumunu denetlemek için Ambari Web kullanıcı arabirimini veya Ambari REST API kullanın.
 
 ### <a name="ambari-web-ui"></a>Ambari Web kullanıcı Arabirimi
 
-Merhaba Ambari Web kullanıcı arabirimini https://CLUSTERNAME.azurehdinsight.net görülebilir. Değiştir **CLUSTERNAME** kümenizin hello ada sahip. İstenirse, kümeniz için hello HTTP kullanıcı kimlik bilgilerini girin. Merhaba varsayılan HTTP kullanıcı adı **yönetici** ve hello parola hello kümesi oluştururken girdiğiniz hello parola.
+Ambari Web kullanıcı arabirimini https://CLUSTERNAME.azurehdinsight.net görülebilir. **CLUSTERNAME** değerini kümenizin adıyla değiştirin. İstenirse, kümeniz için HTTP kullanıcı kimlik bilgilerini girin. Varsayılan HTTP kullanıcı adı **yönetici** ve küme oluştururken, girdiğiniz parola paroladır.
 
-Hello Ambari sayfasında geldiğinde, yüklü hello Hizmetleri hello sayfa hello sol tarafında listelenir.
+Ambari sayfasında geldiğinde, yüklü hizmetleri sayfanın sol tarafta listelenir.
 
 ![Yüklü hizmetleri](./media/hdinsight-high-availability-linux/services.png)
 
-Sonraki tooa hizmet tooindicate durumu görünebilir simgeleri bir dizi vardır. İlgili tüm uyarıları tooa hizmet hello kullanarak görüntülenebilir **uyarıları** hello sayfanın üst kısmındaki hello bağlantı. Daha fazla bilgi her hizmet tooview seçebilirsiniz.
+Durumu göstermek için bir hizmet yanındaki görünebilir simgeleri bir dizi vardır. Kullanarak bir hizmeti ile ilgili herhangi bir uyarı görüntülenebilir **uyarıları** sayfanın üst kısmındaki bağlantı. Daha fazla bilgi görüntülemek için her hizmet seçebilirsiniz.
 
-Merhaba hizmet sayfası hello durumu ve her hizmetin yapılandırma hakkında bilgi sağlarken, baş düğüm hello hizmeti çalıştığı hakkında bilgi sağlamaz. tooview bu bilgiler, kullanım hello **ana** hello sayfanın üst kısmındaki hello bağlantı. Bu sayfa hello baş düğümler de dahil olmak üzere hello kümedeki konaklar görüntüler.
+Hizmet sayfasının durumu ve her hizmetin yapılandırma hakkında bilgi sağlarken, hangi baş düğümünde hizmetini çalıştıran bilgi sağlamaz. Bu bilgileri görüntülemek için kullanın **ana** sayfanın üst kısmındaki bağlantı. Bu sayfa baş düğümler de dahil olmak üzere küme içindeki konaklar görüntüler.
 
 ![ana bilgisayarların listesi](./media/hdinsight-high-availability-linux/hosts.png)
 
-Hello baş düğümlerden seçme hello bağlantısını hello Hizmetleri ve bileşenleri bu düğümde çalışan görüntüler.
+Baş düğümlerden birinde bağlantısını seçerek, o düğümde çalışan bileşenleri ve hizmetleri görüntüler.
 
 ![Bileşen Durumu](./media/hdinsight-high-availability-linux/nodeservices.png)
 
-Ambari kullanarak daha fazla bilgi için bkz: [İzleyici ve hello Ambari Web kullanıcı arabirimini kullanarak Hdınsight yönetmek](hdinsight-hadoop-manage-ambari.md).
+Ambari kullanarak daha fazla bilgi için bkz: [İzleyici ve Hdınsight Ambari Web kullanıcı arabirimini kullanarak yönetin](hdinsight-hadoop-manage-ambari.md).
 
 ### <a name="ambari-rest-api"></a>Ambari REST API
 
-Merhaba Ambari REST API hello kullanılabilir Internet. Merhaba Hdınsight ortak ağ geçidi şu anda hello REST API barındıran yönlendirme istekleri toohello baş düğümü işler.
+Ambari REST API Internet üzerinden kullanılabilir. Hdınsight ortak ağ geçidi şu anda REST API barındırma baş düğümüne yönlendirme isteklerini işler.
 
-Komut toocheck hello hello Ambari REST API aracılığıyla bir hizmetin durumunu izleyen hello kullanabilirsiniz:
+Ambari REST API aracılığıyla bir hizmetin durumunu denetlemek için aşağıdaki komutu kullanın:
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICENAME?fields=ServiceInfo/state
 
-* Değiştir **parola** hello HTTP kullanıcı (Yönetici) hesap parolası ile.
-* Değiştir **CLUSTERNAME** hello küme hello adı.
-* Değiştir **SERVICENAME** hello hello hizmet adıyla toocheck hello durumunu istiyor.
+* Değiştir **parola** HTTP kullanıcı (Yönetici) hesabı parolası ile.
+* **CLUSTERNAME** değerini kümenin adıyla değiştirin.
+* Değiştir **SERVICENAME** durumunu denetlemek istediğiniz hizmetin adını.
 
-Örneğin, toocheck hello durumunu hello **HDFS** adlı bir kümede hizmet **mycluster**, bir parola ile **parola**, komutu aşağıdaki hello kullanırsınız:
+Örneğin, durumunu denetlemek için **HDFS** adlı bir kümede hizmet **mycluster**, bir parola ile **parola**, şu komutu kullanırsınız:
 
     curl -u admin:password https://mycluster.azurehdinsight.net/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state
 
-Merhaba yanıt benzer toohello JSON aşağıdaki gibidir:
+Yanıt aşağıdaki JSON benzer:
 
     {
       "href" : "http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
@@ -157,79 +157,79 @@ Merhaba yanıt benzer toohello JSON aşağıdaki gibidir:
       }
     }
 
-Merhaba URL bize hello Hizmet şu anda adlı bir baş düğüm üzerinde çalışan söyler **hn0 CLUSTERNAME**.
+URL bize Hizmet şu anda adlı bir baş düğüm üzerinde çalışan söyler **hn0 CLUSTERNAME**.
 
-Merhaba durumu bize hello Hizmet şu anda çalışıyor söyler veya **başlatıldı**.
+Durum Hizmet şu anda çalışıyor bize bildiren veya **başlatıldı**.
 
-Hangi hizmetlerin hello kümeye yüklü bilmiyorsanız komutu tooretrieve listesini aşağıdaki hello kullanabilirsiniz:
+Hangi hizmetlerin kümeye yüklü bilmiyorsanız listesini almak için aşağıdaki komutu kullanabilirsiniz:
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services
 
-Merhaba Ambari REST API ile çalışma hakkında daha fazla bilgi için bkz: [izleme ve yönetme hello Ambari REST API kullanarak Hdınsight'ta](hdinsight-hadoop-manage-ambari-rest-api.md).
+Ambari REST API ile çalışma hakkında daha fazla bilgi için bkz: [izleme ve yönetme Ambari REST API kullanarak Hdınsight'ta](hdinsight-hadoop-manage-ambari-rest-api.md).
 
 #### <a name="service-components"></a>Hizmet bileşenleri
 
-Hizmetleri toocheck hello durumunu tek tek istediğiniz bileşenleri içeriyor olabilir. Örneğin, HDFS hello iş bileşeni içerir. tooview bir bileşen hakkında bilgi hello komut şöyle olacaktır:
+Hizmetleri, ayrı ayrı durumunu denetlemek istediğiniz bileşenleri içeriyor olabilir. Örneğin, HDFS iş bileşeni içerir. Bir bileşenin bilgilerini görüntülemek için komut olur:
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
 
-Hangi bileşenlerin bir hizmeti tarafından sağlanan bilmiyorsanız komutu tooretrieve listesini aşağıdaki hello kullanabilirsiniz:
+Hangi bileşenlerin bir hizmeti tarafından sağlanan bilmiyorsanız listesini almak için aşağıdaki komutu kullanabilirsiniz:
 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SERVICE/components/component
 
-## <a name="how-tooaccess-log-files-on-hello-head-nodes"></a>Nasıl tooaccess günlük dosyalarını hello baş düğümler
+## <a name="how-to-access-log-files-on-the-head-nodes"></a>Baş düğümler günlük dosyalarına erişmek nasıl
 
 ### <a name="ssh"></a>SSH
 
-Bağlı tooa baş düğüm sırasında SSH aracılığıyla, günlük dosyalarını altında bulunabilir **/var/log**. Örneğin, **/var/log/hadoop-yarn/yarn** için YARN günlüklerini içerir.
+SSH aracılığıyla bir baş düğüm bağlıyken, günlük dosyalarını altında bulunabilir **/var/log**. Örneğin, **/var/log/hadoop-yarn/yarn** için YARN günlüklerini içerir.
 
-Merhaba hem günlüklerini denetleyin böylece her baş düğüm benzersiz günlük girişlerini olabilir.
+Günlükleri, her ikisi de denetlemeniz gerekir böylece her baş düğüm benzersiz günlük girişlerini olabilir.
 
 ### <a name="sftp"></a>SFTP
 
-Merhaba SSH Dosya Aktarım Protokolü veya güvenli Dosya Aktarım Protokolü (SFTP) kullanarak toohello baş düğümüne bağlanmak ve doğrudan hello günlük dosyalarını indirin.
+Ayrıca SSH Dosya Aktarım Protokolü veya güvenli Dosya Aktarım Protokolü (SFTP) kullanarak baş düğümüne bağlanmak ve günlük dosyaları doğrudan indirin.
 
-Benzer toousing sağlamanız gereken toohello küme bağlanırken bir SSH istemcisi SSH kullanıcı hesabı adını ve hello SSH adresini hello küme hello. Örneğin, `sftp username@mycluster-ssh.azurehdinsight.net`. İstendiğinde hello hesabı için Hello parola sağlayın veya hello kullanarak bir ortak anahtarı `-i` parametresi.
+Benzer şekilde bir SSH istemcisi kullanarak, ne zaman kümeye bağlanarak SSH kullanıcı hesabı adını ve kümenin SSH adresi sağlamanız gerekir. Örneğin, `sftp username@mycluster-ssh.azurehdinsight.net`. İstendiğinde hesabı için parola sağlayın ya da bir ortak anahtar kullanarak sağlayın `-i` parametresi.
 
-Bağlantı kurulduktan sonra size sunulan bir `sftp>` istemi. Bu isteminde dizinleri değiştirebilir, dosyaları yükleme ve indirme. Örneğin, aşağıdaki komutları hello değiştirmek dizinleri toohello **/var/log/hadoop/hdfs** dizini ve tüm dosyaların hello dizininde sonra yükleme.
+Bağlantı kurulduktan sonra size sunulan bir `sftp>` istemi. Bu isteminde dizinleri değiştirebilir, dosyaları yükleme ve indirme. Örneğin, aşağıdaki komutları dizinleri değiştirme **/var/log/hadoop/hdfs** dizin ve dizindeki tüm dosyaları sonra yükleme.
 
     cd /var/log/hadoop/hdfs
     get *
 
-Kullanılabilir komutlar listesi için girin `help` hello adresindeki `sftp>` istemi.
+Kullanılabilir komutlar listesi için girin `help` adresindeki `sftp>` istemi.
 
 > [!NOTE]
-> SFTP kullanarak bağlandığında toovisualize hello dosya sistemi izin grafik arabirimleri vardır. Örneğin, [MobaXTerm](http://mobaxterm.mobatek.net/) bir arabirim benzer tooWindows Explorer kullanarak toobrowse hello dosya sistemi sağlar.
+> Ayrıca, dosya sistemi SFTP kullanarak bağlandığında görselleştirmek izin grafik arabirimi vardır. Örneğin, [MobaXTerm](http://mobaxterm.mobatek.net/) Windows Explorer için benzer bir arabirim kullanarak dosya sistemi göz atmanızı sağlar.
 
 ### <a name="ambari"></a>Ambari
 
 > [!NOTE]
-> tooaccess günlük dosyaları Ambari kullanarak, SSH tüneli kullanmanız gerekir. Merhaba web arabirimleri hello tek tek Hizmetleri için hello Internet üzerinde herkese açık şekilde sunulmaz. SSH tüneli kullanma hakkında daha fazla bilgi için bkz: hello [kullanım SSH tünel](hdinsight-linux-ambari-ssh-tunnel.md) belge.
+> Ambari kullanarak günlük dosyalarına erişmek için bir SSH tüneli kullanmanız gerekir. Tek tek Hizmetleri için web arabirimleri, Internet üzerinde herkese açık şekilde sunulmaz. SSH tüneli kullanma hakkında daha fazla bilgi için bkz: [kullanım SSH tünel](hdinsight-linux-ambari-ssh-tunnel.md) belge.
 
-Ambari Web kullanıcı arabirimini Hello tooview günlükleri (örneğin, YARN için) ister hello hizmeti seçin. Ardından **hızlı bağlantılar** tooselect hangi baş düğüm tooview hello günlüğe kaydeder.
+Ambari Web kullanıcı arabirimini (örneğin, YARN için) günlüklerini görüntülemek istediğiniz hizmeti seçin. Ardından **hızlı bağlantılar** hangi baş düğüm için günlükleri görüntülemek için seçin.
 
-![Hızlı kullanarak tooview günlükleri bağlar](./media/hdinsight-high-availability-linux/viewlogs.png)
+![Günlükleri görüntülemek için hızlı bağlantıları kullanma](./media/hdinsight-high-availability-linux/viewlogs.png)
 
-## <a name="how-tooconfigure-hello-node-size"></a>Nasıl tooconfigure hello düğüm boyutu
+## <a name="how-to-configure-the-node-size"></a>Düğüm boyutu yapılandırma
 
-bir düğümün başlangıç boyutu, küme oluşturma sırasında yalnızca seçilebilir. Kullanılabilir farklı VM boyutları üzerinde hello Hdınsight için hello listesini bulabilirsiniz [Hdınsight fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/hdinsight/).
+Bir düğümün boyutu, küme oluşturma sırasında yalnızca seçilebilir. Hdınsight üzerinde farklı VM boyutlarının listesini bulabilirsiniz [Hdınsight fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Bir küme oluştururken, hello düğümleri hello boyutunu belirtebilirsiniz. Merhaba aşağıdaki bilgileri kılavuz nasıl toospecify hello boyutu kullanarak hello üzerinde sağlar [Azure portal][preview-portal], [Azure PowerShell][azure-powershell], ve hello [Azure CLI][azure-cli]:
+Bir küme oluştururken, düğümlerin boyutu belirtebilirsiniz. Aşağıdaki bilgileri boyutu kullanarak belirleme konusunda rehberlik sağlar [Azure portal][preview-portal], [Azure PowerShell][azure-powershell]ve [Azure CLI][azure-cli]:
 
-* **Azure portal**: bir küme oluştururken, hello küme tarafından kullanılan hello düğümleri hello boyutunu ayarlayabilirsiniz:
+* **Azure portal**: bir küme oluştururken, küme tarafından kullanılan düğümlerin boyutu ayarlayabilirsiniz:
 
     ![Düğüm boyutu seçimi ile küme oluşturma Sihirbazı'nın resmi](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **Azure CLI**: hello kullanırken `azure hdinsight cluster create` komutunu hello kullanarak hello head, çalışan ve ZooKeeper düğümleri hello boyutunu ayarlayabilirsiniz `--headNodeSize`, `--workerNodeSize`, ve `--zookeeperNodeSize` parametreleri.
+* **Azure CLI**: kullanırken `azure hdinsight cluster create` komutunu kullanarak head, çalışan ve ZooKeeper düğümleri boyutunu ayarlayabilirsiniz `--headNodeSize`, `--workerNodeSize`, ve `--zookeeperNodeSize` parametreleri.
 
-* **Azure PowerShell**: hello kullanırken `New-AzureRmHDInsightCluster` cmdlet'ini hello kullanarak hello head, çalışan ve ZooKeeper düğümleri hello boyutunu ayarlayabilirsiniz `-HeadNodeVMSize`, `-WorkerNodeSize`, ve `-ZookeeperNodeSize` parametreleri.
+* **Azure PowerShell**: kullanırken `New-AzureRmHDInsightCluster` cmdlet'ini kullanarak head, çalışan ve ZooKeeper düğümleri boyutunu ayarlayabilirsiniz `-HeadNodeVMSize`, `-WorkerNodeSize`, ve `-ZookeeperNodeSize` parametreleri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu belgede belirtilen noktalar hakkında daha fazla bağlantılar toolearn aşağıdaki hello kullanın.
+Bu belgede belirtilen noktalar hakkında daha fazla bilgi için aşağıdaki bağlantıları kullanın.
 
 * [Ambari REST başvurusu](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Hello Azure CLI yükleyip](../cli-install-nodejs.md)
+* [Azure CLI'yi yükleme ve yapılandırma](../cli-install-nodejs.md)
 * [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/overview)
 * [Ambari kullanarak Hdınsight yönetme](hdinsight-hadoop-manage-ambari.md)
 * [Linux tabanlı Hdınsight kümeleri hazırlama](hdinsight-hadoop-provision-linux-clusters.md)

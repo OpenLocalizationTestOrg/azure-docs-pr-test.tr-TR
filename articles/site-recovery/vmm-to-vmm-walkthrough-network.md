@@ -1,6 +1,6 @@
 ---
-title: "Hyper-V çoğaltma tooa ikincil VMM sitesi Azure Site Recovery ile ağ aaaPlan | Microsoft Docs"
-description: "Bu makale, Hyper-V sanal makineleri tooa Azure Site Recovery ile ikincil System Center VMM site çoğaltırken ağ planlama açıklanır."
+title: "Hyper-V çoğaltma Azure Site Recovery ile ikincil VMM sitesi için ağ planı | Microsoft Docs"
+description: "Bu makalede, Azure Site Recovery ile ikincil System Center VMM siteye Hyper-V sanal makineleri çoğaltırken ağ planlama açıklanır."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,44 +14,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: raynew
-ms.openlocfilehash: 5934db4a661a2c697a1a799c3848852250ddb451
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: a1f3f6e6cba074647195e2b0cbcdc7b4f3dec475
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="step-3-plan-networking-for-hyper-v-vm-replication-tooa-secondary-vmm-site"></a>3. adım: ağ bağlantısı Hyper-V VM çoğaltma tooa ikincil VMM sitesi için planlama
+# <a name="step-3-plan-networking-for-hyper-v-vm-replication-to-a-secondary-vmm-site"></a>3. adım: ağ bağlantısı Hyper-V VM çoğaltma ikincil VMM sitesi için planlama
 
-Hyper-V sanal makineleri (VM'ler) System Center Virtual Machine Manager (VMM) bulutlarında yönetilen çoğaltırken ağ Bu makale tooplan okuma dağıtımının önkoşulları gözden geçirdikten sonra ikincil site tooa kullanarak [Azure Site Recovery](site-recovery-overview.md) hello Azure Portalı'nda. 
+Dağıtım önkoşulları gözden geçirdikten sonra Hyper-V sanal makineleri (VM'ler) çoğaltma kullanarak bir ikincil site için System Center Virtual Machine Manager (VMM) bulutlarında yönetilen ağ planlamak için bu makaleyi okuyun [Azure Site Recovery](site-recovery-overview.md) Azure portalında. 
 
-Bu makaleyi okuduktan sonra tüm yorumlar hello altındaki ya da hello sonrası [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Bu makaleyi okuduktan sonra yapmak istediğiniz tüm yorumları makalenin alt kısmında veya [Azure Kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)'nda paylaşabilirsiniz.
 
 ## <a name="network-mapping-overview"></a>Ağ eşlemesi genel bakış
 
-Ağ eşlemesi, Hyper-V Vm'lerini (VMM yönetilen) tooa ikincil veri merkezine çoğaltma yapılırken kullanılır. Bir kaynak VMM sunucusunda VM ağları ve bir hedef VMM sunucusunda VM ağları arasında ağ eşlemesi eşler. Eşleme aşağıdaki hello:
+Ağ eşlemesi, Hyper-V Vm'lerini (VMM yönetilen) çoğaltırken ikincil veri merkezine için kullanılır. Bir kaynak VMM sunucusunda VM ağları ve bir hedef VMM sunucusunda VM ağları arasında ağ eşlemesi eşler. Eşleme şunları yapar:
 
-- **Ağ bağlantısı**— bağlayan VM'ler tooappropriate ağları yük devretme sonrasında. Merhaba çoğaltma VM eşlenen toohello kaynak ağ bağlantılı toohello hedef ağ olacaktır.
-- **En iyi yerleştirme**— yerler çoğaltma sanal makineleri Hyper-V ana bilgisayar sunucuları üzerinde en iyi şekilde hello. Çoğaltma sanal makineleri erişim hello eşlenen, VM ağları konaklarda yerleştirilir.
-- **Ağ eşleme**— ağ eşlemesini yapılandırmazsanız, yük devretme sonrasında çoğaltma sanal makineleri bağlı tooany VM ağları olmayacaktır.
+- **Ağ bağlantısı**— VM'ler yük devretme sonrasında uygun ağlara bağlanır. Çoğaltma VM kaynak ağa eşlenmiş hedef ağa bağlanır.
+- **En iyi yerleştirme**— çoğalma VM'ler Hyper-V ana bilgisayar sunucuları üzerinde en iyi şekilde yerleştirir. Çoğaltma sanal makineleri, eşlenen VM ağlarına erişebilen Konaklara yerleştirilir.
+- **Ağ eşleme**— ağ eşlemesini yapılandırmazsanız, çoğaltma sanal makineleri herhangi bir VM ağına yük devretme sonrasında bağlanmayacaktır.
 
 
 ### <a name="example"></a>Örnek
 
-Bir örnek tooillustrate İşte bu mekanizması. New York ve Şikago iki konumda bulunduğu bir kuruluşta atalım.
+Burada, bu mekanizma göstermek için bir örnek verilmiştir. New York ve Şikago iki konumda bulunduğu bir kuruluşta atalım.
 
 **Konum** | **VMM sunucusu** | **VM ağları** | **Eşlenen**
 ---|---|---|---
-New York | VMM NewYork| VMNetwork1 NewYork | Eşlenen tooVMNetwork1 Chicago
+New York | VMM NewYork| VMNetwork1 NewYork | VMNetwork1 Şikago'eşlenmiş
  |  | VMNetwork2 NewYork | Eşlenmedi
-Chicago | VMM Chicago| VMNetwork1 Chicago | Eşlenen tooVMNetwork1 NewYork
+Chicago | VMM Chicago| VMNetwork1 Chicago | VMNetwork1-NewYork eşlenmiş
  | | VMNetwork1 Chicago | Eşlenmedi
 
 Bu örnekte:
 
-- Bağlı tooVMNetwork1 NewYork olan tüm sanal makine için bir çoğaltma sanal makine oluşturulduğunda, bağlı tooVMNetwork1 Chicago olacaktır.
-- Bir çoğaltma sanal makinesi VMNetwork2 NewYork veya VMNetwork2 Chicago oluşturulduğunda, bağlı tooany ağ olmaz.
+- Bir çoğaltma sanal makinesi için VMNetwork1-NewYork bağlı herhangi bir sanal makine oluşturulduğunda, VMNetwork1 Şikago'bağlanır.
+- Bir çoğaltma sanal makinesi VMNetwork2 NewYork veya VMNetwork2 Chicago oluşturulduğunda, herhangi bir ağa bağlı.
 
-İşte nasıl VMM Bulutları örnek kuruluş ve hello Mantıksal ağlar hello bulutlarıyla ilişkili ayarlanır.
+İşte nasıl VMM Bulutları bizim örnek kuruluş ve bulutlarıyla ilişkili mantıksal ağlar olarak ayarlanır.
 
 #### <a name="cloud-protection-settings"></a>Bulut koruma ayarlarını
 
@@ -72,7 +72,7 @@ Chicago | LogicalNetwork1 Chicago | VMNetwork1 Chicago
 
 #### <a name="target-network-settings"></a>Hedef ağ ayarları
 
-Merhaba hedef VM ağ seçeneğini belirlediğinizde bu ayarları temel alarak, aşağıdaki tablonun hello kullanılabilecek hello seçimler gösterilmektedir.
+Hedef VM ağ seçeneğini belirlediğinizde bu ayarları temel alarak, aşağıdaki tabloda kullanılabilir seçenekler gösterilmektedir.
 
 **Seç** | **Korumalı bulut** | **Bulut koruma** | **Hedef ağ yok**
 ---|---|---|---
@@ -82,15 +82,15 @@ VMNetwork2 Chicago | SilverCloud1 | SilverCloud2 | Kullanılamıyor
  | GoldCloud1 | GoldCloud2 | Kullanılabilir
 
 
-Merhaba hedef ağ birden çok alt ağı varsa ve bu alt ağlardan biri üzerinde hangi hello kaynak sanal makinenin bulunduğu alt ağ hello gibi aynı adı sonra hello hello çoğaltma sanal makinesi yük devretme sonrasında bağlı toothat hedef alt olacaktır. Eşleşen ada sahip bir hedef alt ağ ise hello sanal makineye bağlı toohello hello ağdaki ilk alt ağ olacaktır.
+Hedef ağın birden çok alt ağı varsa ve bu alt ağlardan biri kaynak sanal makinenin bulunduğu alt ağ ile aynı ada sahip, ardından çoğaltma sanal makinesi yük devretme işleminden sonra hedef alt ağa bağlanır. Eşleşen ada sahip bir hedef alt ağ yoksa sanal makine ağdaki ilk alt ağa bağlanır.
 
 
 #### <a name="failback-behavior"></a>Yeniden çalışma davranışı
 
-yeniden çalışma (geriye doğru çoğaltma), hello durumda neler toosee VMNetwork1 NewYork eşlenen tooVMNetwork1-Chicago, ayarlar aşağıdaki hello ile olduğunu varsayalım.
+Yeniden çalışma (çoğaltmayı tersine çevirme) söz konusu olduğunda neler görmek için VMNetwork1 NewYork VMNetwork1-Chicago, aşağıdaki ayarlarla eşleştiğinden emin varsayalım.
 
 
-**Sanal makine** | **Bağlı tooVM ağ**
+**Sanal makine** | **VM ağına bağlı**
 ---|---
 VM1 | VMNetwork1 ağ
 VM2 (VM1 çoğaltma) | VMNetwork1 Chicago
@@ -99,55 +99,55 @@ VM2 (VM1 çoğaltma) | VMNetwork1 Chicago
 
 **Senaryo** | **Sonucu**
 ---|---
-Yük devretme işleminden sonra VM-2 hello ağ özellikleri değişiklik. | VM 1 bağlı toohello kaynak ağ kalır.
+Yük devretme işleminden sonra VM-2 Ağ özelliklerinde değişiklik. | VM 1 kaynak ağına bağlı kalır.
 VM-2 ağ özellikleri yük devretme işleminden sonra değiştirilir ve bağlantısı kesilir. | VM 1 kesilir.
-VM-2 ağ özellikleri yük devretme işleminden sonra değiştirilir ve bağlı tooVMNetwork2 Chicago değil. | VMNetwork2 Chicago eşlenmediği olduysa, VM-1 kesilecektir.
-Ağ eşlemesi VMNetwork1 Chicago değiştirilir. | VM 1 bağlı toohello şimdi eşlenen ağ tooVMNetwork1-Chicago olacaktır.
+VM-2 ağ özellikleri yük devretme işleminden sonra değiştirilir ve VMNetwork2 Şikago'bağlanır. | VMNetwork2 Chicago eşlenmediği olduysa, VM-1 kesilecektir.
+Ağ eşlemesi VMNetwork1 Chicago değiştirilir. | VM-1, şimdi VMNetwork1 Şikago'eşlenen ağa bağlanır.
 
 
 
 ## <a name="prepare-for-network-mapping"></a>Ağ eşlemesi için hazırlanma
 
-1. Merhaba kaynak ve hedef VMM sunucularında, hello kaynak ve hedef bulutlarıyla ilişkili bir mantıksal ağ olmalıdır. 
-2. Merhaba kaynak ve hedef sunucular, bir VM ağ bağlantılı toohello mantıksal ağ olmalıdır.
-3. Hyper-V konakları hello kaynak konumda Vm'lerinde bağlantılı toohello kaynak VM ağına olmalıdır. Yalnızca tek bir VMM sunucusu kullanıyorsanız, hello VM ağlarında arasında aynı eşleme yapılandırabilirsiniz sunucu.
+1. Kaynak ve hedef VMM sunucularında kaynak ve hedef bulutlarıyla ilişkili bir mantıksal ağ olmalıdır. 
+2. Kaynak ve hedef sunucuları, bir VM ağı mantıksal ağa bağlı olmalıdır.
+3. Kaynak konumun Hyper-V ana bilgisayarda sanal makineleri kaynak VM ağına bağlantılı olması gerekir. Yalnızca tek bir VMM sunucusu kullanıyorsanız, aynı sunucu üzerinde VM ağları arasındaki eşlemeyi yapılandırabilirsiniz.
 
 Site Recovery dağıtımı sırasında ağ eşlemesini ayarladığınızda şunlar olur:
 
-- Ağ eşlemesi ayarlamanız ve bir hedef VM ağı seçtiğinizde hello kaynak VM ağı kullanan hello VMM kaynak Bulutları, hello kullanılabilir hedef VM ağları hello hedef Bulutları ile birlikte görüntülenir.
-- - Eşleme doğru bir şekilde yapılandırıldığından ve çoğaltma etkin olduğunda, bir kaynak VM bağlı tooits kaynak VM ağına olacaktır ve onun çoğaltması hello hedef konumda bağlı tooits VM ağı eşlenmiş.
-- Merhaba hedef ağın birden çok alt ağı varsa ve bu alt ağlardan biri üzerinde hangi hello kaynak sanal makinenin bulunduğu alt ağ hello gibi aynı adı sonra hello hello varsa çoğaltma sanal makinesi yük devretme sonrasında bağlı toothat hedef alt olacaktır. Eşleşen ada sahip bir hedef alt ağ ise hello VM bağlı toohello hello ağdaki ilk alt ağ olacaktır.
+- Ağ eşlemesi ayarlamanız ve bir hedef VM ağı seçtiğinizde, kaynak VM ağı kullanan VMM kaynak Bulutları, hedef bulut kullanılabilir hedef VM ağlarında birlikte görüntülenir.
+- - Eşleme doğru bir şekilde yapılandırıldığından ve çoğaltma etkin olduğunda, bir kaynak VM kendi kaynak VM ağına bağlı olması ve onun çoğaltma hedef konumda, eşlenen VM ağına bağlı.
+- Hedef ağın birden çok alt ağı varsa ve bu alt ağlardan biri kaynak sanal makinenin bulunduğu alt ağ ile aynı ada sahip, ardından çoğaltma sanal makinesi yük devretme işleminden sonra hedef alt ağa bağlanır. Eşleşen ada sahip bir hedef alt ağ varsa, VM ağındaki ilk alt ağa bağlanır.
 
-## <a name="connect-toovms-after-failover"></a>Yük devretme sonrasında tooVMs Bağlan
+## <a name="connect-to-vms-after-failover"></a>VM'ler için yük devretme sonrasında Bağlan
 
-Çoğaltma ve yük devretme stratejinizi planlarken hello önemli sorular biri nasıl tooconnect toohello çoğaltma yük devretme sonrasında. Birkaç seçeneğiniz vardır: 
+Çoğaltma ve yük devretme stratejinizi planlarken, anahtar sorulardan biri çoğaltmaya yük devretme sonrasında bağlanmasıdır. Birkaç seçeneğiniz vardır: 
 
-- **Farklı bir IP adresi kullanmak**: hello kopyalanan VM için farklı bir IP adresi toouse seçebilirsiniz. Bu senaryo hello VM yük devretme sonrasında yeni bir IP adresi alır ve DNS güncelleştirme gerekli değildir.
-- **Korumak hello aynı IP adresini**: bunu istemeyebilirsiniz toouse hello hello çoğaltma VM için aynı IP adresi. Aynı IP adreslerini basitleştirir tutma hello azaltarak hello kurtarma yük devretme sonrasında ilgili sorunlar ağ. 
+- **Farklı bir IP adresi kullanmak**: çoğaltılan VM için farklı bir IP adresi kullanmayı seçebilirsiniz. Bu senaryoda VM yük devretme sonrasında yeni bir IP adresi alır ve DNS güncelleştirme gereklidir.
+- **Aynı IP adresini korumak**: aynı IP adresi VM çoğaltması için kullanmak isteyebilirsiniz. Tutma aynı IP adreslerini basitleştirir kurtarma azaltarak ağ ile ilgili sorunları yük devretme sonrasında. 
 
 ## <a name="retain-ip-addresses"></a>IP adreslerini korur
 
-Tooretain hello IP adreslerini istiyorsanız hello birincil sitesinden yük devretme toohello ikincil site sonra da tam alt ağ yük devretme işlemi gerçekleştirin ve yolları tooindicate hello yeni konumunu hello IP adreslerini güncelleştirin veya alternatif Uzatılan bir alt ağ hello arasında dağıtma birincil ve kurtarma sitelerinde hello.
+IP adreslerini birincil siteden ikincil siteye yük devretme sonrasında korumak istiyorsanız, tam alt ağ yük devretme işlemi gerçekleştirin ve IP adreslerini yeni konumunu belirtmek için bir yol güncelleştirmek veya alternatif Uzatılan bir alt birincil ve kurtarma siteler arasında dağıtabilirsiniz.
 
 ### <a name="stretched-subnet"></a>Esnetilen alt ağ
 
-Esnetilen bir alt ağda hello alt ağ aynı anda hem hello birincil ve ikincil sitede kullanılabilir. Bir sunucu ile IP (Katman 3) yapılandırma toohello ikincil sitesi taşırsanız, hello ağ hello trafiği toohello yeni konuma otomatik olarak yönlendirilecek. 
+Esnetilen bir alt ağında alt ağ aynı anda hem birincil ve ikincil sitede kullanılabilir. Bir sunucu ve kendi (Katman 3) IP yapılandırmasını ikincil siteye taşırsanız, ağ trafiğini yeni konuma otomatik olarak yönlendirilecek. 
 
-Bir katman 2 (veri bağlantı katmanı) açısından Uzatılan bir VLAN yönetebilirsiniz ağ ekipmanları gerekir. Buna ek olarak, VLAN uzatma hello tarafından hello olası hata etki alanı tooboth siteler, aslında tek hata noktası haline genişletir. Bu bir olası olmakla birlikte, bir yayın storm kullanmaya ve yalıtılmış olamaz meydana gelebilir. 
+Bir katman 2 (veri bağlantı katmanı) açısından Uzatılan bir VLAN yönetebilirsiniz ağ ekipmanları gerekir. Buna ek olarak, VLAN yayarak olası hata etki alanı temelde tek hata noktası haline hem sitelere genişletir. Bu bir olası olmakla birlikte, bir yayın storm kullanmaya ve yalıtılmış olamaz meydana gelebilir. 
 
 
 ### <a name="subnet-failover"></a>Alt ağ yük devretme
 
-Gerçekte uzatma olmadan, bir alt ağ yük devretme tooobtain hello uzatılmış hello alt yararları çalıştırabilirsiniz. Bu çözümde, bir alt ağ kullanılabilecek hello kaynak veya hedef sitede, ancak her ikisi de aynı anda. bir yük devretme toomaintain hello IP adres alanı hello olay program aracılığıyla hello yönlendirici altyapı toomove hello alt ağlardan bir site tooanother düzenleyebilirsiniz. Yük devretme gerçekleştiğinde, alt ağlar ile taşıyabilir sonra hello VM'ler ilişkilendirilmiş. Merhaba asıl sakıncası bir hatanın hello olayı, toomove hello tüm alt ağı olmasıdır.
+Gerçekte uzatma olmadan esnetilen alt avantajlarından yararlanabilmek için bir alt ağ yük devretme çalıştırabilirsiniz. Bu çözümde, bir alt ağ kullanılabilir kaynak veya hedef sitede, ancak her ikisi de aynı anda. IP adres alanı bir yük devretme durumunda korumak için program aracılığıyla alt ağların bir siteden diğerine taşımak yönlendirici altyapı düzenleyebilirsiniz. Yük devretme oluştuğunda sonra alt ağlar ile ilişkili VM'ler taşıyabilir. Bir arıza olması durumunda olan asıl sakıncası, tüm alt ağı taşımanız gerekir.
 
 ### <a name="example"></a>Örnek
 
-Tam alt ağ yük devretme bir örneği burada verilmiştir. Merhaba birincil site alt 192.168.1.0/24 içinde çalışan uygulamalar vardır. Yük devretme, tüm hello VM'ler bu alt ağ ikincil site toohello başarısız ve IP adreslerini korur. Yollar gerek toobe toosubnet 192.168.1.0/24 ait tüm hello VM sanal makineleri toohello ikincil site şimdi taşıdığınıza tooreflect hello olgu değiştirdi.
+Tam alt ağ yük devretme bir örneği burada verilmiştir. Birincil site alt 192.168.1.0/24 içinde çalışan uygulamalar vardır. Yük devretme, bu alt ağdaki tüm sanal makineleri ikincil siteye yük devredildi ve IP adreslerini korur. Yollar için alt ağ 192.168.1.0/24 ait tüm VM sanal makineler artık ikincil siteye taşınmış olgu yansıtacak şekilde değiştirilmesi gerekir.
 
-Merhaba aşağıdaki grafik hello alt önce ve yük devretme sonrasında göster:
+Aşağıdaki grafik önce ve yük devretme sonrasında alt ağları göster:
 
-- Yük devretme önce alt 192.168.0.1/24 hello kaynak sitede, yük devretme sonrasında hello ikincil sitede etkin hale etkindir.
-- birincil site ve site kurtarma, üçüncü sitesi ve birincil site Hello yönlendirir ve üçüncü sitesini ve kurtarma sitesini uygun şekilde değiştirilmiş toobe gerekir.
+- Yük devretme önce alt 192.168.0.1/24 kaynak sitede yük devretme işleminden sonra ikincil sitede etkin hale etkindir.
+- Birincil site kurtarma sitesi, üçüncü sitesi ve birincil site ve üçüncü site ve kurtarma sitesi arasındaki yolları uygun şekilde değiştirilmesi gerekir.
 
 **Önce yük devretme**
 
@@ -159,14 +159,14 @@ Merhaba aşağıdaki grafik hello alt önce ve yük devretme sonrasında göster
 
 Yük devretme sonrasında, şunlar olur:
 
-- Site Recovery havuzundan hello statik IP adresi her VMM örneği hello ilgili ağ hello VM üzerindeki her ağ arabirimi için bir IP adresi ayırır.
-- Başlangıç IP adresi havuzu hello ikincil sitedeki ise hello kaynak sitedeki Site Recovery aynı ayırır hello aynı IP adresidir (Merhaba kaynak VM) toohello çoğaltma VM hello. Başlangıç IP adresi VMM'de ayrılmış, ancak hello Hyper-V ana bilgisayarda hello yük devretme IP adresi olarak ayarlanmamış. bir Hyper-v ana bilgisayar üzerindeki Hello yük devretme IP adresi hello yük devretme işleminden hemen önce ayarlanır.
-- Merhaba aynı IP adresi kullanılabilir değilse, Site Recovery hello havuzundan başka bir kullanılabilir IP adresi ayırır.
-- Sanal makineleri DHCP kullanıyorsanız, Site Recovery hello IP adreslerini yönetmek değil. DHCP hello toocheck ihtiyacınız hello ikincil site sunucusunda adresi hello hello kaynak site olarak aynı aralığı'ndan ayırabilirsiniz.
+- Site Recovery ilgili ağındaki her VMM örneği için statik IP adres havuzundan VM üzerindeki her ağ arabirimi için bir IP adresi ayırır.
+- İkincil sitedeki IP adresi havuzu, aynı kaynak sitede ise Site Recovery aynı IP adresine (kaynak VM) VM çoğaltma ayırır. IP adresi VMM'de ayrılmış, ancak Hyper-V ana bilgisayarda yük devretme IP adresi olarak ayarlanmamış. Bir Hyper-v konağı yük devretme IP adresi yalnızca yük devretme önce ayarlanır.
+- Aynı IP adresi kullanılabilir değilse, Site Recovery başka bir kullanılabilir IP adresi havuzundan ayırır.
+- Sanal makineleri DHCP kullanıyorsanız, Site Recovery IP adreslerini yönetmek değil. Kaynak site ile aynı aralığından ikincil sitede DHCP sunucusu adresi ayırabilirsiniz denetlemeniz gerekir.
 
-### <a name="validate-hello-ip-address"></a>Başlangıç IP adresini doğrulayın
+### <a name="validate-the-ip-address"></a>IP adresini doğrulayın
 
-Bir sanal makine için koruma etkinleştirildikten sonra örnek komut dosyası tooverify hello atanan adresi toohello VM kullanabilirsiniz. aynı IP adresini hello yük devretme IP adresi ayarlamak ve olması toohello VM hello yük devretme sırasında atanmış hello:
+Bir sanal makine için koruma etkinleştirildikten sonra VM'ye atanan adresi doğrulamak için örnek komut dosyası kullanabilirsiniz. Aynı IP adresi yük devretme IP adresi olarak ayarlayın ve yük devretme sırasında VM'ye atanan:
 
     ```
     $vm = Get-SCVirtualMachine -Name <VM_NAME>
@@ -177,10 +177,10 @@ Bir sanal makine için koruma etkinleştirildikten sonra örnek komut dosyası t
 
 ## <a name="changing-ip-addresses"></a>IP adreslerinin değiştirilmesi
 
-Bu senaryoda, yük devri VM'ler hello IP adreslerini değiştirilir. Bu çözümün Hello dezavantajı hello bakım gerekli olmasıdır. Genellikle, çoğaltma sanal makineleri başlattıktan sonra DNS güncelleştirilir. DNS girdilerini değiştirilen toobe ihtiyacınız olabilir ya da thenetwork ve güncelleştirilmiş önbelleğe alınan girdileri fluster. Bu, kapalı kalma sürelerine neden olabilir. Kapalı kalma süresi gibi azaltılabilir:
+Bu senaryoda, yük devri VM'ler IP adreslerini değiştirilir. Bu çözüm dezavantajı, gerekli bakım olur. Genellikle, çoğaltma sanal makineleri başlattıktan sonra DNS güncelleştirilir. DNS girdilerini değiştirilmesi veya gerekebilir fluster thenetwork ve önbelleğe alınan girdileri güncelleştirildi. Bu, kapalı kalma sürelerine neden olabilir. Kapalı kalma süresi gibi azaltılabilir:
 
 - Düşük TTL değerleri için intranet uygulamalarını kullanın.
-- Bir Site Recovery kurtarma planında, tooupdate hello DNS sunucusu tooensure zamanında güncelleştirme komut dosyası izleyen hello kullanın. Dinamik DNS kaydını kullanırsanız hello komut dosyası gerekmez.
+- Aşağıdaki komut dosyasını bir Site Recovery kurtarma planında zamanında güncelleştirme sağlamak için DNS sunucusuna güncelleştirmek için kullanın. Dinamik DNS kaydını kullanırsanız, komut dosyası gerekmez.
 
     ```
     param(
@@ -196,12 +196,12 @@ Bu senaryoda, yük devri VM'ler hello IP adreslerini değiştirilir. Bu çözüm
     
 ### <a name="example"></a>Örnek 
 
-Toouse farklı IP adreslerini hello birincil arasında ve hello kurtarma siteleri planlıyorsanız bir senaryo bakalım. Bu örnekte, farklı IP adreslerini birincil ve ikincil siteler arasında sahibiz ve vardır; hello birincil ya da kurtarma sitesinde barındırılan hangi uygulamaların s üçüncü bir siteden erişilebilir.
+Birincil ve kurtarma siteler arasında farklı IP adreslerini kullanmak planlıyorsanız bir senaryo bakalım. Bu örnekte, farklı IP adreslerini birincil ve ikincil siteler arasında sahibiz ve vardır; s üçüncü bir site birincil veya kurtarma sitesinde barındırılan hangi uygulamalardan erişilebilir.
 
-- Yük devretme önce uygulamaları barındırılan alt 192.168.1.0/24 hello birincil sitede ve alt ağ 172.16.1.0/24 hello ikincil sitede içinde yapılandırılmış toobe bir yük devretme sonrasında.
+- Yük devretme önce uygulamalar barındırılan alt 192.168.1.0/24 birincil sitede ve alt ağ 172.16.1.0/24 ikincil sitedeki bir yük devretme sonrasında olması için yapılandırılır.
 - Tüm üç siteleri birbirine erişebilmesi için VPN bağlantıları/ağ yolları uygun şekilde yapılandırılmış.
-- Yük devretme sonrasında uygulamaları hello kurtarma alt ağda geri yüklenir. Bu senaryoda hello tüm alt ağ üzerinde hiçbir gerek toofail olduğunu, ve hiçbir değişiklik gerekli tooreconfigure VPN veya ağ yolları. Merhaba yük devretme ve bazı DNS güncelleştirmeleri uygulamaları erişilebilir kaldığından emin olun.
-- DNS dinamik güncelleştirmeleri yapılandırılan tooallow ise, hello VM'ler kendilerini yük devretme sonrasında başlattığınızda hello yeni IP adresini kullanarak kaydeder.
+- Yük devretme sonrasında, uygulamalar kurtarma alt ağdaki geri yüklenir. Bu senaryoda tüm alt ağ vermesine gerek yoktur ve hiçbir değişiklik VPN veya ağ yolları yapılandırmak için gereklidir. Yük devretme ve bazı DNS güncelleştirmeleri uygulamaları erişilebilir kaldığından emin olun.
+- DNS dinamik güncelleştirmelere izin verecek şekilde yapılandırılmışsa, sanal makineleri kendilerini yük devretme sonrasında başlattığınızda yeni IP adresini kullanarak kaydeder.
 
 **Önce yük devretme**
 
@@ -215,6 +215,6 @@ Toouse farklı IP adreslerini hello birincil arasında ve hello kurtarma siteler
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Çok Git[4. adım: hazırlama VMM ve Hyper-V](vmm-to-vmm-walkthrough-vmm-hyper-v.md).
+Git [4. adım: VMM ve Hyper-V hazırlama](vmm-to-vmm-walkthrough-vmm-hyper-v.md).
 
 

@@ -1,6 +1,6 @@
 ---
-title: "aaaESP8266 toocloud - Sparkfun ESP8266 şey geliştirme bağlanmak tooAzure IOT hub'ı | Microsoft Docs"
-description: "Bilgi nasıl toosetup ve onun için Sparkfun ESP8266 şey geliştirme tooAzure IOT hub'ı Bu öğreticide toosend veri toohello Azure bulut platformu bağlanın."
+title: "Bulut için - Sparkfun ESP8266 şey geliştirme bağlanmak Azure IOT Hub'ına ESP8266 | Microsoft Docs"
+description: "Kurulum ve Bu öğreticide Azure bulut platformuna veri göndermek için Azure IOT Hub için bu Sparkfun ESP8266 şey geliştirme bağlanma hakkında bilgi edinin."
 services: iot-hub
 documentationcenter: 
 author: shizn
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2017
 ms.author: xshi
-ms.openlocfilehash: 19b249df23b6df516634853521c6d532f51014da
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 557f0cdf375b345e0dbe0526f5a5bd3c050dec38
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="connect-sparkfun-esp8266-thing-dev-tooazure-iot-hub-in-hello-cloud"></a>Sparkfun ESP8266 şey geliştirme tooAzure IOT Hub'hello bulutta Bağlan
+# <a name="connect-sparkfun-esp8266-thing-dev-to-azure-iot-hub-in-the-cloud"></a>Bulutta Azure IOT Hub'ına Sparkfun ESP8266 şey geliştirme Bağlan
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
@@ -29,36 +29,36 @@ ms.lasthandoff: 10/06/2017
 
 ## <a name="what-you-will-do"></a>Ne yapacağını
 
-Oluşturacağınız Sparkfun ESP8266 şey geliştirme tooan IOT hub bağlayın. Daha sonra örnek bir uygulama üzerinde ESP8266 toocollect sıcaklık ve nem veri DHT22 algılayıcının çalıştırın. Son olarak, hello algılayıcı verileri tooyour IOT hub'ı gönderin.
+Sparkfun ESP8266 şey geliştirme oluşturacağınız bir IOT hub'ınıza bağlanın. Ardından örnek bir uygulama DHT22 algılayıcı sıcaklık ve nem verileri toplamak için ESP8266 çalıştırın. Son olarak, algılayıcı verilerini IOT hub'ınıza gönderir.
 
 > [!NOTE]
-> Diğer ESP8266 panoları kullanıyorsanız, bu adımları tooconnect hala izleyebilirsiniz, tooyour IOT hub'ı. Kullanmakta olduğunuz hello ESP8266 Panosu bağlı olarak, tooreconfigure hello gerekebilir `LED_PIN`. AI Thinker gelen ESP8266 kullanıyorsanız, örneğin, ondan değişebilir `0` çok`2`. Bir pakete henüz yok mu?: tıklatın [burada](http://azure.com/iotstarterkits)
+> Diğer ESP8266 panoları kullanıyorsanız, yine IOT hub'ınıza bağlanmak için aşağıdaki adımları izleyebilirsiniz. Kullanmakta olduğunuz ESP8266 Panosu bağlı olarak, yeniden yapılandırmanız gerekebilir `LED_PIN`. AI Thinker gelen ESP8266 kullanıyorsanız, örneğin, ondan değişebilir `0` için `2`. Bir pakete henüz yok mu?: tıklatın [burada](http://azure.com/iotstarterkits)
 
 ## <a name="what-you-will-learn"></a>Bilgi edineceksiniz
 
-* Nasıl toocreate IOT hub'ı ve şey istisnası için bir cihaz kaydetme
-* Nasıl tooconnect şey geliştirme hello algılayıcı ve bilgisayarınızı.
-* Nasıl şey istisnası üzerinde bir örnek uygulamayı çalıştırarak toocollect algılayıcı verileri
-* Nasıl toosend algılayıcı verileri tooyour IOT hub'ı hello.
+* IOT hub'ı oluşturma ve şey istisnası için bir cihaz kaydetme
+* Şey geliştirme algılayıcı ve bilgisayarınızla bağlanma.
+* Örnek bir uygulama üzerinde şey istisnası çalıştırarak algılayıcı verilerini toplamak nasıl
+* IOT hub'ınıza algılayıcı verileri göndermek nasıl.
 
 ## <a name="what-you-will-need"></a>İhtiyacınız olacak
 
-![Merhaba öğretici için gerekli bölümleri](media/iot-hub-sparkfun-thing-dev-get-started/2_parts-needed-for-the-tutorial.png)
+![Öğretici için gerekli bölümleri](media/iot-hub-sparkfun-thing-dev-get-started/2_parts-needed-for-the-tutorial.png)
 
-toocomplete bu işlemi şey geliştirme Starter Seti'nden bölümleri aşağıdaki hello gerekir:
+Bu işlemi tamamlamak için aşağıdaki bölümleri şey geliştirme Starter Seti'nden gerekir:
 
-* Merhaba Sparkfun ESP8266 şey geliştirme Panosu.
-* Mikro USB tooType bir USB kablosu.
+* Sparkfun ESP8266 şey geliştirme Panosu.
+* Mikro USB tipi A USB kablosu.
 
-Ayrıca, geliştirme ortamınız için hello aşağıdaki gerekir:
+Ayrıca geliştirme ortamınız için aşağıdakiler gerekir:
 
 * Etkin bir Azure aboneliği. Bir Azure hesabınız yoksa [ücretsiz Azure deneme hesabı oluşturma](https://azure.microsoft.com/free/) yalnızca birkaç dakika içinde.
 * Mac veya Windows veya Ubuntu çalıştıran bir bilgisayar.
-* Kablosuz ağ Sparkfun ESP8266 şey geliştirme tooconnect için.
-* Internet bağlantısı toodownload hello yapılandırma aracı.
-* [Arduino IDE](https://www.arduino.cc/en/main/software) sürüm 1.6.8 (veya daha yeni), önceki sürümlerinde hello AzureIoT kitaplığı ile çalışmaz.
+* Kablosuz ağ bağlanmak Sparkfun ESP8266 şey geliştirme için.
+* Yapılandırma Aracı indirmek için Internet bağlantısı.
+* [Arduino IDE](https://www.arduino.cc/en/main/software) sürüm 1.6.8 (veya daha yeni), önceki sürümleri AzureIoT kitaplığı ile çalışmaz.
 
-Algılayıcı olmayan olasılığına hello aşağıdaki öğeler isteğe bağlıdır. Benzetimli algılayıcı verilerini kullanmanın hello seçeneğiniz de vardır.
+Algılayıcı olmayan olasılığına aşağıdaki öğeler isteğe bağlıdır. Ayrıca sanal algılayıcı verilerini kullanma seçeneğiniz vardır.
 
 * Bir Adafruit DHT22 sıcaklık ve nem algılayıcı.
 * Bir breadboard.
@@ -66,15 +66,15 @@ Algılayıcı olmayan olasılığına hello aşağıdaki öğeler isteğe bağl�
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
-## <a name="connect-esp8266-thing-dev-with-hello-sensor-and-your-computer"></a>Merhaba algılayıcı ve bilgisayarınızla ESP8266 şey geliştirme Bağlan
+## <a name="connect-esp8266-thing-dev-with-the-sensor-and-your-computer"></a>Algılayıcı ve bilgisayarınızla ESP8266 şey geliştirme Bağlan
 
-### <a name="connect-a-dht22-temperature-and-humidity-sensor-tooesp8266-thing-dev"></a>DHT22 sıcaklık ve nem algılayıcı bağlanmak tooESP8266 şey geliştirme
+### <a name="connect-a-dht22-temperature-and-humidity-sensor-to-esp8266-thing-dev"></a>ESP8266 şey geliştirme DHT22 sıcaklık ve nem algılayıcı Bağlan
 
-Merhaba breadboard ve anahtar kablolarını toomake hello bağlantısı aşağıdaki şekilde kullanın. Algılayıcı yoksa, benzetimli algılayıcı verilerini yerine kullandığından bu bölümü atlayabilirsiniz.
+Şu şekilde bağlantı kurmayı breadboard ve anahtar kablolarını kullanır. Algılayıcı yoksa, benzetimli algılayıcı verilerini yerine kullandığından bu bölümü atlayabilirsiniz.
 
 ![Bağlantı Başvurusu](media/iot-hub-sparkfun-thing-dev-get-started/15_connections_on_breadboard.png)
 
-Kablolama aşağıdaki hello algılayıcı PIN'ler için kullanırız:
+Aşağıdaki kablolama algılayıcı PIN'ler için kullanırız:
 
 | Başlangıç (algılayıcı)           | Bitiş (kartı)           | Kablo rengi   |
 | -----------------------  | ---------------------- | ------------: |
@@ -89,83 +89,83 @@ Kablolama aşağıdaki hello algılayıcı PIN'ler için kullanırız:
 
 ![dht22 ESP8266 şey geliştirme ile bağlanma](media/iot-hub-sparkfun-thing-dev-get-started/8_connect-dht22-thing-dev.png)
 
-### <a name="connect-sparkfun-esp8266-thing-dev-tooyour-computer"></a>Sparkfun ESP8266 şey geliştirme tooyour bilgisayara bağlanma
+### <a name="connect-sparkfun-esp8266-thing-dev-to-your-computer"></a>Sparkfun ESP8266 şey geliştirme bilgisayarınıza bağlayın
 
-Merhaba mikro USB tooType bir USB kablosu tooconnect Sparkfun ESP8266 şey geliştirme tooyour bilgisayar aşağıdaki şekilde kullanın.
+Sparkfun ESP8266 şey geliştirme bilgisayarınıza şu şekilde bağlanmak için mikro USB tipi A USB kablosu kullanın.
 
-![yumuşatma huzzah tooyour bilgisayara bağlanma](media/iot-hub-sparkfun-thing-dev-get-started/9_connect-thing-dev-computer.png)
+![yumuşatma huzzah bilgisayarınıza bağlayın](media/iot-hub-sparkfun-thing-dev-get-started/9_connect-thing-dev-computer.png)
 
 ### <a name="add-serial-port-permissions--ubuntu-only"></a>Seri bağlantı noktası izinleri – yalnızca Ubuntu ekleyin
 
-Ubuntu kullanıyorsanız, normal bir kullanıcı hello izinleri toooperate hello USB bağlantı noktası, Sparkfun ESP8266 şey istisnası üzerinde sahip olduğundan emin olun tooadd seri bağlantı noktası izinleri normal bir kullanıcı için aşağıdaki adımları uygulayın:
+Ubuntu kullanıyorsanız, normal bir kullanıcı USB bağlantı noktası, Sparkfun ESP8266 şey istisnası üzerinde çalışması için izinlere sahip olduğundan emin olun Normal bir kullanıcı için seri bağlantı noktası izinleri eklemek için aşağıdaki adımları izleyin:
 
-1. Bir terminal komutları aşağıdaki hello çalıştırın:
+1. Terminal aşağıdaki komutları çalıştırın:
 
    ```bash
    ls -l /dev/ttyUSB*
    ls -l /dev/ttyACM*
    ```
 
-   Çıktı aşağıdaki hello birini alın:
+   Aşağıdaki çıktıları birini alın:
 
    * crw-rw---1 kök uucp xxxxxxxx
    * crw-rw---1 kök araması xxxxxxxx
 
-   Merhaba çıktısında fark `uucp` veya `dialout` diğer bir deyişle hello Grup sahibi adını hello USB bağlantı noktası.
+   Çıktıda fark `uucp` veya `dialout` diğer bir deyişle USB bağlantı noktasına Grup sahibi adı.
 
-1. Merhaba kullanıcı toohello grubu hello aşağıdaki komutu çalıştırarak ekleyin:
+1. Kullanıcı, aşağıdaki komutu çalıştırarak gruba ekleyin:
 
    ```bash
    sudo usermod -a -G <group-owner-name> <username>
    ```
 
-   `<group-owner-name>`elde ettiğiniz hello Grup sahibi hello önceki adımda adıdır. `<username>`Ubuntu kullanıcı adınızdır.
+   `<group-owner-name>`Önceki adımda elde ettiğiniz Grup sahibi adıdır. `<username>`Ubuntu kullanıcı adınızdır.
 
-1. Ubuntu ve yeniden oturum içinde hello tootake değişikliğin için.
+1. Ubuntu ve değişikliğin etkili olması için yeniden için içindeki oturum.
 
-## <a name="collect-sensor-data-and-send-it-tooyour-iot-hub"></a>Algılayıcı verilerini toplamak ve tooyour IOT hub'ı gönderin
+## <a name="collect-sensor-data-and-send-it-to-your-iot-hub"></a>Algılayıcı verilerini toplamak ve IOT hub'ınıza gönderin
 
-Bu bölümde, dağıtma ve Sparkfun ESP8266 şey istisnası üzerinde örnek uygulamayı çalıştırma Merhaba örnek uygulaması hello LED Sparkfun ESP8266 şey geliştirme üzerinde yanıp ve hello sıcaklık gönderir ve nem veri hello DHT22 algılayıcı tooyour IOT hub'ı toplanır.
+Bu bölümde, dağıtma ve Sparkfun ESP8266 şey istisnası üzerinde örnek uygulamayı çalıştırma Örnek uygulama LED Sparkfun ESP8266 şey geliştirme üzerinde yanıp ve IOT hub'ınıza DHT22 algılayıcı toplanan sıcaklık ve nem verileri gönderir.
 
-### <a name="get-hello-sample-application-from-github"></a>Merhaba örnek uygulaması Github'dan alma
+### <a name="get-the-sample-application-from-github"></a>Örnek uygulama Github'dan alma
 
-Merhaba örnek uygulaması, GitHub üzerinde barındırılır. Merhaba örnek uygulaması github'dan içeren hello örnek depoyu kopyalayın. tooclone hello örnek deposu, şu adımları izleyin:
+Örnek uygulama, GitHub üzerinde barındırılır. Github'dan örnek uygulamayı içeren örnek depoyu kopyalayın. Örnek deposuna kopyalamak için aşağıdaki adımları izleyin:
 
 1. Bir komut istemi veya terminal penceresi açın.
-1. Depolanan hello örnek uygulama toobe istediğiniz tooa klasörüne gidin.
-1. Merhaba aşağıdaki komutu çalıştırın:
+1. Depolanması için örnek uygulama istediğiniz bir klasöre gidin.
+1. Şu komutu çalıştırın:
 
    ```bash
    git clone https://github.com/Azure-Samples/iot-hub-SparkFun-ThingDev-client-app.git
    ```
 
-Sparkfun ESP8266 şey geliştirme Arduino IDE'de Hello paketi yükle:
+Paket Sparkfun ESP8266 şey geliştirme Arduino IDE'de yükle:
 
-1. Merhaba örnek uygulaması depolandığı hello klasörünü açın.
-1. Merhaba uygulama klasöründe Arduino IDE Hello app.ino dosyasını açın.
+1. Örnek uygulama depolandığı klasörü açın.
+1. Arduino IDE uygulama klasöründe app.ino dosyasını açın.
 
-   ![Merhaba örnek uygulaması arduino IDE içinde açın](media/iot-hub-sparkfun-thing-dev-get-started/10_arduino-ide-open-sample-app.png)
+   ![Örnek uygulamayı arduino IDE içinde Aç](media/iot-hub-sparkfun-thing-dev-get-started/10_arduino-ide-open-sample-app.png)
 
-1. Hello Arduino IDE, tıklatın **dosya** > **Tercihler**.
-1. Merhaba, **Tercihler** iletişim kutusunda, hello simgesi sonraki toohello tıklayın **ek panoları yöneticisi URL'leri** metin kutusu.
-1. URL aşağıdaki hello Hello açılır pencerede girin ve ardından **Tamam**.
+1. Arduino IDE'de tıklatın **dosya** > **Tercihler**.
+1. İçinde **Tercihler** iletişim kutusunda, simgesine tıklayın **ek panoları yöneticisi URL'leri** metin kutusu.
+1. Açılan pencerede aşağıdaki URL'yi girin ve ardından **Tamam**.
 
    `http://arduino.esp8266.com/stable/package_esp8266com_index.json`
 
-   ![arduino IDE içinde tooa paket URL'sini noktası](media/iot-hub-sparkfun-thing-dev-get-started/11_arduino-ide-package-url.png)
+   ![Paket URL'sini arduino IDE'de işaret](media/iot-hub-sparkfun-thing-dev-get-started/11_arduino-ide-package-url.png)
 
-1. Merhaba, **tercih** iletişim kutusu, tıklatın **Tamam**.
+1. İçinde **tercih** iletişim kutusu, tıklatın **Tamam**.
 1. Tıklatın **Araçları** > **Panosu** > **panoları Yöneticisi**ve esp8266 için arama yapın.
    ESP8266 2.2.0 veya sonraki bir sürümüyle yüklenmesi gerekir.
 
-   ![Merhaba esp8266 paketinin yüklü olduğu](media/iot-hub-sparkfun-thing-dev-get-started/12_arduino-ide-esp8266-installed.png)
+   ![esp8266 paketi yüklü](media/iot-hub-sparkfun-thing-dev-get-started/12_arduino-ide-esp8266-installed.png)
 
 1. Tıklatın **Araçları** > **Panosu** > **Sparkfun ESP8266 şey geliştirme**.
 
 ### <a name="install-necessary-libraries"></a>Gerekli kitaplıkları yükleme
 
-1. Hello Arduino IDE, tıklatın **taslak** > **dahil Kitaplığı** > **yönetmek kitaplıkları**.
-1. Kitaplık adları tek tek aşağıdaki hello arayın. Her bulduğunuz hello kitaplığının tıklatın **yükleme**.
+1. Arduino IDE'de tıklatın **taslak** > **dahil Kitaplığı** > **yönetmek kitaplıkları**.
+1. Aşağıdaki Kitaplığı Ara tek tek adları. Her bulduğunuz kitaplığının tıklatın **yükleme**.
    * `AzureIoTHub`
    * `AzureIoTUtility`
    * `AzureIoTProtocol_MQTT`
@@ -175,24 +175,24 @@ Sparkfun ESP8266 şey geliştirme Arduino IDE'de Hello paketi yükle:
 
 ### <a name="dont-have-a-real-dht22-sensor"></a>Gerçek DHT22 algılayıcı yok mu?
 
-Gerçek DHT22 algılayıcı olmayan olasılığına Merhaba örnek uygulaması sıcaklık ve nem veri benzetimini yapabilirsiniz. tooenable hello örnek uygulama benzetimli toouse verileri, şu adımları izleyin:
+Örnek uygulama, gerçek DHT22 algılayıcı olmayan olasılığına sıcaklık ve nem veri benzetimini yapabilirsiniz. Örnek uygulamayı benzetimli veri kullanacak şekilde etkinleştirmek için aşağıdaki adımları izleyin:
 
-1. Açık hello `config.h` hello dosyasında `app` klasör.
-1. Aşağıdaki kod hello bulun ve hello değerinden değiştirmek `false` çok`true`:
+1. Açık `config.h` dosyasını `app` klasör.
+1. Aşağıdaki kod satırını bulun ve değeri değiştirin `false` için `true`:
    ```c
    define SIMULATED_DATA true
    ```
-   ![Merhaba örnek uygulama benzetimli toouse verileri yapılandırma](media/iot-hub-sparkfun-thing-dev-get-started/13_arduino-ide-configure-app-use-simulated-data.png)
+   ![Örnek uygulamayı benzetimli veri kullanacak şekilde yapılandırma](media/iot-hub-sparkfun-thing-dev-get-started/13_arduino-ide-configure-app-use-simulated-data.png)
    
 1. İle Kaydet `Control-s`.
 
-### <a name="deploy-hello-sample-application-toosparkfun-esp8266-thing-dev"></a>Merhaba örnek uygulama tooSparkfun ESP8266 şey geliştirme dağıtma
+### <a name="deploy-the-sample-application-to-sparkfun-esp8266-thing-dev"></a>Sparkfun ESP8266 şey geliştirme için örnek uygulama dağıtma
 
-1. Hello Arduino IDE, tıklatın **aracı** > **bağlantı noktası**ve Sparkfun ESP8266 şey istisnası hello seri bağlantı noktası'ı tıklatın
-1. Tıklatın **taslak** > **karşıya** toobuild ve hello örnek uygulama tooSparkfun ESP8266 şey istisnası dağıtma
+1. Arduino IDE'de tıklatın **aracı** > **bağlantı noktası**ve ardından seri bağlantı noktası Sparkfun ESP8266 şey istisnası için tıklayın
+1. Tıklatın **taslak** > **karşıya** oluşturmak ve Sparkfun ESP8266 şey istisnası örnek uygulamayı dağıtmak için
 
 > [!Note]
-> MacOS kullanıyorsanız büyük olasılıkla karşıya yükleme sırasında iletileri aşağıdaki hello görebilir. `warning: espcomm_sync failed`,`error: espcomm_open failed`. Lütfen ternimal penceresini açın ve bu sorun Eylemler toosolve son.
+> MacOS kullanıyorsanız büyük olasılıkla karşıya yükleme sırasında aşağıdaki iletileri görebilirsiniz. `warning: espcomm_sync failed`,`error: espcomm_open failed`. Lütfen ternimal penceresini açın ve bu sorunu çözmek için eylemleri tamamlayın.
 > ```bash
 > cd /System/Library/Extensions/IOUSBFamily.kext/Contents/PlugIns
 > sudo mv AppleUSBFTDI.kext AppleUSBFTDI.disabled
@@ -201,28 +201,28 @@ Gerçek DHT22 algılayıcı olmayan olasılığına Merhaba örnek uygulaması s
 
 ### <a name="enter-your-credentials"></a>Kimlik bilgilerinizi girin
 
-Merhaba karşıya yükleme başarıyla tamamlandıktan sonra kimlik bilgilerinizi hello adımları tooenter izleyin:
+Karşıya yükleme başarıyla tamamlandıktan sonra kimlik bilgilerinizi girmeniz için adımları izleyin:
 
-1. Hello Arduino IDE, tıklatın **Araçları** > **seri İzleyici**.
-1. Merhaba seri İzleyicisi penceresinde hello sağ alt köşesindeki hello iki açılan listelerde dikkat edin.
-1. Seçin **hiçbir satır bitiş** hello sol aşağı açılan listesi.
-1. Seçin **115200 baud** hello sağda açılan listesi.
-1. Merhaba seri İzleyicisi penceresinde Hello üstünde bulunan hello giriş tooprovide sorulursa bilgisinden hello kutusuna ve ardından **Gönder**.
+1. Arduino IDE'de tıklatın **Araçları** > **seri İzleyici**.
+1. Seri İzleyicisi penceresinde sağ alt köşesindeki iki açılan listelerde dikkat edin.
+1. Seçin **hiçbir satır bitiş** sol aşağı açılan listesi.
+1. Seçin **115200 baud** sağda açılan listesi.
+1. Bunları sağlayın ve ardından sorulursa seri İzleyici penceresinin en üstünde bulunan giriş kutusuna aşağıdaki bilgileri girin **Gönder**.
    * Wi-Fi SSID
    * Wi-Fi parola
    * Cihaz bağlantı dizesi
 
 > [!Note]
-> Merhaba kimlik bilgileri hello EEPROM Sparkfun ESP8266 şey istisnası depolanır Merhaba Sparkfun ESP8266 şey geliştirme Panosu hello Sıfırla düğmesini tıklatın, Merhaba örnek uygulaması tooerase hello bilgi isteyip istemediğinizi sorar. Girin `Y` toohave hello bilgi silinmesi ve yeniden tooprovide hello bilgi istendi.
+> Kimlik bilgisi EEPROM, Sparkfun ESP8266 şey istisnası içinde depolanır Sparkfun ESP8266 şey geliştirme panosunda Sıfırla düğmesini tıklatın, örnek uygulamayı bilgileri silmek isteyip istemediğinizi sorar. Girin `Y` sahip silinmesi bilgi ve bilgileri tekrar sağlamanız istenir.
 
-### <a name="verify-hello-sample-application-is-running-successfully"></a>Merhaba örnek uygulaması başarılı bir şekilde çalıştığını doğrulayın
+### <a name="verify-the-sample-application-is-running-successfully"></a>Örnek Uygulama başarıyla çalıştığını doğrulayın
 
-Görürseniz hello seri İzleyicisi penceresinde hello şu çıktıları ve LED Sparkfun ESP8266 şey geliştirme, Merhaba örnek uygulaması üzerinde yanıp sönen hello başarılı bir şekilde çalışıyor.
+Seri İzleyici penceresinin ve yanıp sönen LED aşağıdaki çıkışı Sparkfun ESP8266 şey geliştirme üzerinde görürseniz, örnek uygulamayı başarılı bir şekilde çalışıyor.
 
 ![arduino IDE içinde son çıktı](media/iot-hub-sparkfun-thing-dev-get-started/14_arduino-ide-final-output.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Başarıyla bir Sparkfun ESP8266 şey geliştirme tooyour IOT hub'ı bağlı ve yakalanan hello algılayıcı verileri tooyour IOT hub'ı gönderilir. 
+Başarıyla Sparkfun ESP8266 şey geliştirme IOT hub'ına bağlı ve IOT hub'ınıza yakalanan algılayıcı verilerini gönderilir. 
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

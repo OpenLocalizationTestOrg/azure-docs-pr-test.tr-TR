@@ -1,6 +1,6 @@
 ---
-title: "aaaOverview, bir teklif için toocreate hello Market çeşitli portalları hello | Microsoft Docs"
-description: "Genel Bakış toocreate teklif için bir Market hello çeşitli portalları hello"
+title: "Market teklifi oluşturmak için gereken çeşitli portalları genel bakış | Microsoft Docs"
+description: "Market teklifi oluşturmak için gereken çeşitli portalları genel bakış"
 services: marketplace-publishing
 documentationcenter: 
 author: HannibalSII
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
 ms.author: hascipio
-ms.openlocfilehash: 6fbd7ecbbd873445f01f0ac4e1e5fee59e08c033
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 093d3ee3ecce89c86a12e7e216072ece57f82f9d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="portals-you-will-need"></a>İhtiyacınız olacak portalları
-Bir teklif yayımlama hello işlemi başlamadan önce şimdi elde size gereken çeşitli portalları toohello sunulan. Aşağıda hello portalları--Geliştirici Merkezi, Azure Yayımlama Portalı ve Azure Portal--bunlarla çok etkileşime gireceğini hello sırayla hakkında hello kısa özeti.                                                                            
+Şimdi bir teklif yayımlama işlemi başlamadan önce size gereken çeşitli portalları için sunulan alırsınız. Portallarında--Geliştirici Merkezi, Azure Yayımlama Portalı ve Azure Portal--bunlarla çok etkileşime gireceğini sipariş hakkında kısa özeti aşağıdadır.                                                                            
 
 ## <a name="developer-center"></a>Geliştirici Merkezi
 [http://dev.Windows.com/registration?accountprogram=Azure](http://dev.windows.com/registration?accountprogram=azure)
 
 ### <a name="description"></a>Açıklama
-Microsoft Developer Center'da hesabınızı oluşturduktan tek seferlik bir görevdir. Toocreate bir çalışmadan önce hello şirket zaten bir Geliştirici Merkezi hesabına sahip olmadığını emin olun. Merhaba işlemi sırasında banka hesabı bilgileri, vergi bilgilerini ve şirket adresi bilgileri toplayın.
+Microsoft Developer Center'da hesabınızı oluşturduktan tek seferlik bir görevdir. Bir oluşturma girişiminde bulunmadan önce şirketin zaten bir Geliştirici Merkezi hesabına emin olun. İşlemi sırasında banka hesabı bilgileri, vergi bilgilerini ve şirket adresi bilgileri toplayın.
 
 > [!NOTE]
 > Yalnızca boş teklifleri yayımlama (veya Getir bilgisayarınızı-kendi-lisans sunmuyorsa), biz vergi ve banka bilgileri gerektirmez.
@@ -35,10 +35,10 @@ Microsoft Developer Center'da hesabınızı oluşturduktan tek seferlik bir gör
 > 
 
 ### <a name="identityaccount-used"></a>Kullanılan kimlik/hesabı
-İdeal olarak, bu dağıtım listesi veya bir güvenlik grubu olur (örneğin, azurepublishing @*partnercompany*.com). Merhaba dağıtım listesine veya güvenlik grubu **gerekir** bir Microsoft hesabı olarak kaydedilebilir.
+İdeal olarak, bu dağıtım listesi veya bir güvenlik grubu olur (örneğin, azurepublishing @*partnercompany*.com). Dağıtım listesine veya güvenlik grubu **gerekir** bir Microsoft hesabı olarak kaydedilebilir.
 
 > [!TIP]
-> Her kullanıcı hello bağımlılığını kaldırdığı için ayrı bir hesap da kullanılabilse de bir dağıtım listesi veya bir güvenlik grubu kullanmanızı öneririz.
+> Her kullanıcı bağımlılığını kaldırdığı için ayrı bir hesap da kullanılabilse de bir dağıtım listesi veya bir güvenlik grubu kullanmanızı öneririz.
 > 
 > 
 
@@ -46,20 +46,20 @@ Microsoft Developer Center'da hesabınızı oluşturduktan tek seferlik bir gör
 [https://publish.windowsazure.com](https://publish.windowsazure.com)
 
 ### <a name="description"></a>Açıklama
-Bu, toowork hello teklif ve toopublish bunu (pazarlama, fiyatlandırma, yayımlama, sertifika varsa, vb.) kullanmanızı hello portalıdır.
+Bu teklif üzerinde çalışır ve onu (pazarlama, fiyatlandırma, yayımlama, sertifika varsa, vb.) yayımlamak için kullandığınız portalıdır.
 
 ### <a name="identityaccount-used"></a>Kullanılan kimlik/hesabı
-dağıtım listesine veya güvenlik grubu yukarıda Hello hello ilk zaman toosign toohello yayımlama portalında için kullanılmalıdır. Daha sonra diğer kullanıcıların ortak Yöneticileri eklenebilir. Başka bir olan nasıl eşlenen toohello Geliştirici Merkezi kayıt verilerini alır.
+Yayımlama portalında oturum açmak için yukarıdaki dağıtım listesine veya güvenlik grubuna ilk kez kullanılması gerekir. Daha sonra diğer kullanıcıların ortak Yöneticileri eklenebilir. Geliştirici Merkezi kayıt verilerini nasıl eşlenen budur.
 
 ## <a name="azure-portal"></a>Azure Portal
 [https://Portal.Azure.com](https://portal.azure.com)
 
 ### <a name="description"></a>Açıklama
-Bu hello Azure Marketi (VM'ler, çözüm şablonları ve Azure Resource Manager tabanlı Geliştirici Hizmetleri için geçerlidir) içinde hazırlanmış ve yayımlanan Teklifleriniz görüntüleyebileceğiniz hello portalıdır.
+Bu, Azure Marketi (VM'ler, çözüm şablonları ve Azure Resource Manager tabanlı Geliştirici Hizmetleri için geçerlidir) içinde hazırlanmış ve yayımlanan Teklifleriniz görüntüleyebileceğiniz portalıdır.
 
 ### <a name="identityaccount-used"></a>Kullanılan kimlik/hesabı
-Yayımlama hello portalından bir teklif hazırlama olsa da, bir abonelik kimliği toobe Güvenilenler listesine gerekir. Merhaba (var olan bir kullanıcı adı ve parola ilişkili) aynı abonelik toothis portal tootest hazırlanan hello teklif imzalama için kullanılan toobe gerekir.
+Yayımlama Portalı'ndan bir teklif hazırlama olsa da, bir abonelik kimliği güvenilir listesinde olması gerekir. (Var olan bir kullanıcı adı ve parola ilişkili) aynı abonelik bu portalda oturum açmak için hazırlanmış teklif test etmek için kullanılmalıdır.
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Başlarken: nasıl toopublish teklif için bir hello Azure Market](marketplace-publishing-getting-started.md)
+* [Başlarken: Azure Market teklifi yayımlama](marketplace-publishing-getting-started.md)
 

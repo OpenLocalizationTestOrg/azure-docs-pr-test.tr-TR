@@ -1,3 +1,3 @@
 > [!IMPORTANT]
-> Merhaba IOT hub'ı DNS uç noktası olarak herkese açık şekilde bulunabilir, bu nedenle emin tooavoid adlandırma sırasında herhangi bir önemli bilgi olun.
+> IoT hub'ı, DNS uç noktası olarak herkes tarafından bulunabilir, bu nedenle adlandırırken herhangi bir önemli bilgi vermekten kaçının.
 >

@@ -1,6 +1,6 @@
 ---
-title: Azure dosya depolama biriminden bir Azure Windows VM aaaMount | Microsoft Docs
-description: "Azure dosya depolama ile Merhaba bulutta dosya depolamak ve bir Azure sanal makineden (VM) bulut dosya paylaşımına bağlayın."
+title: "Bağlama Azure dosya depolama biriminden bir Azure Windows VM | Microsoft Docs"
+description: "Azure dosya depolama ile bulutta dosya depolamak ve bir Azure sanal makineden (VM) bulut dosya paylaşımına bağlayın."
 documentationcenter: 
 author: cynthn
 manager: timlt
@@ -13,62 +13,62 @@ ms.devlang:
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 965f1c1b3f0d07fec6d86f9312a05e02e8ce7fe0
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6ffb2d2da1e2439df6f5da543411e3c2c68d3435
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="use-azure-file-shares-with-windows-vms"></a>Azure dosya paylaşımları Windows VM ile birlikte kullanmak 
 
-Azure dosya paylaşımları, VM'den bir şekilde toostore ve erişim dosyaları olarak kullanabilirsiniz. Örneğin, bir komut dosyası veya tüm sanal makineleri tooshare istediğiniz uygulama yapılandırma dosyası depolayabilirsiniz. Bu konuda, dosya paylaşımı toocreate ve bağlama Azure nasıl ve ne gösteriyoruz tooupload ve yükleme dosyaları.
+Azure dosya paylaşımları, depolama ve sanal makineden dosyalara erişmek için bir yol olarak kullanabilirsiniz. Örneğin, bir komut dosyası veya paylaşmak için tüm VM'ler istediğiniz uygulama yapılandırma dosyası depolayabilirsiniz. Bu konuda, nasıl oluşturulacağı ve bir Azure dosya paylaşımını bağlama ve dosyaları yükleme ve indirme nasıl gösteriyoruz.
 
-## <a name="connect-tooa-file-share-from-a-vm"></a>Bir sanal makineden tooa dosya paylaşımına bağlanmak
+## <a name="connect-to-a-file-share-from-a-vm"></a>Bir sanal makineden bir dosya paylaşımına bağlanmak
 
-Bu bölümde, zaten bir dosya paylaşımı için tooconnect istediğinizi varsayar. Bir toocreate gerekirse bkz [bir dosya paylaşımı oluşturmak](#create-a-file-share) bu konuda daha sonra.
+Bu bölümde, bağlanmak istediğiniz bir dosya paylaşımı zaten olduğunu varsayar. Bir oluşturmanız gerekiyorsa, bkz: [bir dosya paylaşımı oluşturmak](#create-a-file-share) bu konuda daha sonra.
 
-1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
-2. Merhaba sol menüsünde **depolama hesapları**.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Sol menüsünde **depolama hesapları**.
 3. Depolama hesabınızı seçin.
-4. Merhaba, **genel bakış** sayfasında **Hizmetleri**seçin **dosyaları**.
+4. İçinde **genel bakış** sayfasında **Hizmetleri**seçin **dosyaları**.
 5. Bir dosya paylaşımı seçin.
-6. Tıklatın **Bağlan** tooopen hello bağlama hello dosya paylaşımından Windows veya Linux için komut satırı söz dizimi görülmektedir bir sayfa.
-7. Merhaba komutun Hello sözdizimi vurgulayın ve Not Defteri veya nedenini bildirmeden bir yerde başka kolayca erişebilirsiniz bir yere yapıştırın. 
-8. Merhaba sözdizimi tooremove hello başında Düzenle ** > ** ve değiştirme *[sürücü harfi]* hello sürücü harfine sahip (örneğin, **Y:**) burada istediğinizi toomount hello dosya paylaşımı.
-8. Tooyour VM bağlanabilir ve bir komut istemi açın.
-9. Merhaba yapıştırma seçeneğiyle bağlantı sözdizimi düzenlenmesi ve isabet **Enter**.
-10. Merhaba bağlantıyı oluştururken hello iletisi alıyorum **hello komutu başarıyla tamamlandı.**
-11. Merhaba sürücü harfi tooswitch toothat sürücüye yazarak Hello bağlantısını denetleyin ve ardından **dir** toosee Merhaba içeriğine hello dosya paylaşımı.
+6. Tıklatın **Bağlan** Windows veya Linux dosya paylaşımına bağlanması için komut satırı sözdizimi gösterilmektedir sayfasını açın.
+7. Komutun sözdizimi vurgulayın ve Not Defteri veya nedenini bildirmeden bir yerde başka kolayca erişebilirsiniz bir yere yapıştırın. 
+8. Başında kaldırmak için söz dizimi Düzenle ** > ** ve değiştirme *[sürücü harfi]* sürücü harfiyle (örneğin, **Y:**) burada istediğiniz dosya paylaşımını bağlama.
+8. VM'nize bağlanmak ve bir komut istemi açın.
+9. Düzenlenen bağlantı sözdiziminde yapıştırın ve isabet **Enter**.
+10. Bağlantı oluşturulduğunda, ileti almak **komutu başarıyla tamamlandı.**
+11. Bu sürücüye geçin ve yazın için sürücü harfini yazarak bağlantıyı denetleyin **dir** dosya paylaşımı içeriğini görmek için.
 
 
 
 ## <a name="create-a-file-share"></a>Dosya paylaşımı oluşturma 
-1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
-2. Merhaba sol menüsünde **depolama hesapları**.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Sol menüsünde **depolama hesapları**.
 3. Depolama hesabınızı seçin.
-4. Merhaba, **genel bakış** sayfasında **Hizmetleri**seçin **dosyaları**.
-5. Merhaba dosya hizmeti sayfasında tıklatın **+ dosya paylaşımı** ilk dosya paylaşımı toocreate. \
-6. Merhaba dosya paylaşımı adı girin. Dosya Paylaşımı adları küçük harf, rakam ve tek tire kullanabilirsiniz. Merhaba adı bir tire ile başlatamıyor ve birden çok kullanamazsınız art arda kısa çizgi. 
-7. Bir sınırı ne kadar büyük hello dosya doldurun, too5120 GB olabilir.
-8. Tıklatın **Tamam** toodeploy hello dosya paylaşımı.
+4. İçinde **genel bakış** sayfasında **Hizmetleri**seçin **dosyaları**.
+5. Dosya hizmeti sayfasında tıklatın **+ dosya paylaşımı** ilk dosya paylaşımınızı oluşturmak üzere. \
+6. Dosya Paylaşımı adı girin. Dosya Paylaşımı adları küçük harf, rakam ve tek tire kullanabilirsiniz. Adı bir tire ile başlayamaz ve birden çok kullanamazsınız art arda kısa çizgi. 
+7. Ne kadar büyük olabilir, en fazla 5120 GB üzerinde bir sınır doldurun.
+8. Tıklatın **Tamam** dosya paylaşımı dağıtmak için.
    
 ## <a name="upload-files"></a>Dosyaları karşıya yükleme
-1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
-2. Merhaba sol menüsünde **depolama hesapları**.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Sol menüsünde **depolama hesapları**.
 3. Depolama hesabınızı seçin.
-4. Merhaba, **genel bakış** sayfasında **Hizmetleri**seçin **dosyaları**.
+4. İçinde **genel bakış** sayfasında **Hizmetleri**seçin **dosyaları**.
 5. Bir dosya paylaşımı seçin.
-6. Tıklatın **karşıya** tooopen hello **dosyaları karşıya yükleme** sayfası.
-7. Başlangıç klasörü simgesi toobrowse üzerinde yerel dosya sistemine dosya tooupload için tıklatın.   
-8. Tıklatın **karşıya** tooupload hello dosya toohello dosya paylaşımı.
+6. Tıklatın **karşıya** açmak için **dosyaları karşıya yükleme** sayfası.
+7. Yerel dosya sisteminizi karşıya yüklenecek dosyayı göz atmak için klasör simgesine tıklayın.   
+8. Tıklatın **karşıya** dosya dosya paylaşımına karşıya.
 
 ## <a name="download-files"></a>Dosyaları indirme
-1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
-2. Merhaba sol menüsünde **depolama hesapları**.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Sol menüsünde **depolama hesapları**.
 3. Depolama hesabınızı seçin.
-4. Merhaba, **genel bakış** sayfasında **Hizmetleri**seçin **dosyaları**.
+4. İçinde **genel bakış** sayfasında **Hizmetleri**seçin **dosyaları**.
 5. Bir dosya paylaşımı seçin.
-6. Merhaba dosyasını sağ tıklatın ve seçin **karşıdan** toodownload, tooyour yerel makine.
+6. Dosyayı sağ tıklayın ve seçin **karşıdan** yerel makinenize indirmek için.
    
 
 ## <a name="next-steps"></a>Sonraki adımlar

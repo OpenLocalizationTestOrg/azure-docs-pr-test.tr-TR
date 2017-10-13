@@ -1,9 +1,9 @@
 ---
-title: "bir iç yük dengeleyici - Azure şablonu aaaCreate | Microsoft Docs"
-description: "Nasıl toocreate bir iç yük dengeleyici Kaynak Yöneticisi'nde bir şablon kullanarak bilgi edinin"
+title: "İç yük dengeleyicisi oluşturma - Azure şablonu | Microsoft Docs"
+description: "Resource Manager’da şablon kullanarak iç yük dengeleyici oluşturmayı öğrenin"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: 64150862-6ced-42de-85dc-89d323257d7c
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3ffa8178b863367cd79e2bc2b7ce4e45b23267e5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: f3f89bd85e6e91e84b603abc9824a51b54ccee47
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Şablon kullanarak iç yük dengeleyici oluşturma
 
@@ -28,25 +28,27 @@ ms.lasthandoff: 10/06/2017
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Şablon](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
 > [!NOTE]
-> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md).  Bu makalede, kullanarak yer almaktadır hello yerine çoğu yeni dağıtımlar için Microsoft önerir hello Resource Manager dağıtım modeli [Klasik dağıtım modeli](load-balancer-get-started-ilb-classic-ps.md).
+> Azure’da kaynak oluşturmak ve bunlarla çalışmak için iki farklı dağıtım modeli vardır:  [Resource Manager ve klasik](../azure-resource-manager/resource-manager-deployment-model.md).  Bu makale, Microsoft’un çoğu yeni dağıtım için [klasik dağıtım modeli](load-balancer-get-started-ilb-classic-ps.md) yerine önerdiği Resource Manager dağıtım modelini açıklamaktadır.
 
 [!INCLUDE [load-balancer-get-started-ilb-scenario-include.md](../../includes/load-balancer-get-started-ilb-scenario-include.md)]
 
-## <a name="deploy-hello-template-by-using-click-toodeploy"></a>Kullanarak Hello şablonu dağıtma toodeploy tıklatın
+## <a name="deploy-the-template-by-using-click-to-deploy"></a>Tıklayarak dağıtma kullanarak şablonu dağıtma
 
-Merhaba örnek şablonunda kullanılabilir hello genel depo yukarıda açıklanan hello varsayılan kullanılan değerler toogenerate hello senaryosu içeren bir parametre dosyası kullanır. toodeploy tıklatın toodeploy, bu şablonu kullanarak izleyin [bu bağlantıyı](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer), tıklatın **tooAzure dağıtmak**hello varsayılan parametre değerlerini gerekiyorsa değiştirin ve hello hello Portalı'ndaki yönergeleri izleyin.
+Genel depoda yer alan örnek şablonda, yukarıdaki senaryoyu oluşturmak için kullanılan varsayılan değerleri içeren parametre dosyası kullanılmaktadır. Tıklayarak dağıtma kullanarak bu şablonu dağıtmak için [bu bağlantıya](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) gidin, **Azure’a dağıt**’a tıklayın, gerekirse varsayılan parametreleri değiştirin ve portaldaki talimatları uygulayın.
 
-## <a name="deploy-hello-template-by-using-powershell"></a>PowerShell kullanarak Hello şablonu dağıtma
+## <a name="deploy-the-template-by-using-powershell"></a>PowerShell kullanarak şablonu dağıtma
 
-PowerShell kullanarak yüklediğiniz toodeploy hello şablonunu hello adımları izleyin.
+PowerShell kullanarak yüklediğiniz şablonu dağıtmak için aşağıdaki adımları izleyin.
 
-1. Azure PowerShell'i hiç kullanmadıysanız bkz [nasıl tooInstall ve yapılandırma Azure PowerShell](/powershell/azure/overview) ve tüm hello yolu toohello toosign Azure'da sonlandırmak ve aboneliğinizi seçin hello yönergeleri izleyin.
-2. Merhaba parametreleri dosya tooyour yerel disk indirin.
-3. Merhaba dosyasını düzenleyin ve kaydedin.
-4. Merhaba çalıştırmak **New-AzureRmResourceGroupDeployment** kullanarak bir kaynak grubu cmdlet toocreate hello şablonu.
+1. Daha önce Azure PowerShell kullanmadıysanız, [Azure PowerShell’i Yükleme ve Yapılandırma](/powershell/azure/overview) sayfasına gidin ve Azure’da oturum açıp aboneliğinizi seçmek için talimatları sonuna kadar uygulayın.
+2. Parametre dosyasını yerel diskinize indirin.
+3. Dosyayı düzenleyin ve kaydedin.
+4. Şablonu kullanarak kaynak grubu oluşturmak için **New-AzureRmResourceGroupDeployment** cmdlet’ini çalıştırın.
 
     ```azurecli
     New-AzureRmResourceGroupDeployment -Name TestRG -Location westus `
@@ -54,23 +56,23 @@ PowerShell kullanarak yüklediğiniz toodeploy hello şablonunu hello adımları
         -TemplateParameterFile 'C:\temp\azuredeploy.parameters.json'
     ```
 
-## <a name="deploy-hello-template-by-using-hello-azure-cli"></a>Hello Azure CLI kullanarak Hello şablonu dağıtma
+## <a name="deploy-the-template-by-using-the-azure-cli"></a>Azure CLI kullanarak şablonu dağıtma
 
-hello Azure CLI kullanarak toodeploy hello şablon hello adımları izleyin.
+Azure CLI’yi kullanarak şablonu dağıtmak için aşağıdaki adımları uygulayın.
 
-1. Azure CLI hiç kullanmadıysanız bkz [hello Azure CLI yükleyip](../cli-install-nodejs.md) ve sonra Azure hesabınızı ve aboneliğinizi toohello noktaya hello talimatlarını izleyin.
-2. Merhaba çalıştırmak **azure config modu** aşağıda gösterildiği gibi komut tooswitch tooResource Yöneticisi modu.
+1. Hiç Azure CLI kullanmadıysanız bkz. [Azure CLI’yi Yükleme ve Yapılandırma](../cli-install-nodejs.md); sonra da, Azure hesabınızı ve aboneliğinizi seçtiğiniz noktaya kadar yönergeleri uygulayın.
+2. Resource Manager moduna geçmek için **azure config mode** komutunu aşağıda gösterildiği gibi çalıştırın.
 
     ```azurecli
     azure config mode arm
     ```
 
-    Yukarıdaki hello komut için beklenen hello çıktı şöyledir:
+    Yukarıdaki komut için beklenen çıktı şu şekildedir:
 
         info:    New mode is arm
 
-3. Merhaba parametre dosyasını açın, içeriğini seçin ve tooa dosyayı bilgisayarınıza kaydedin. Bu örnekte, hello parametreler dosyası çok kaydettik*parameters.json*.
-4. Merhaba çalıştırmak **azure Grup dağıtımı oluşturmak** toodeploy hello şablonu ve parametre kullanarak yeni iç yük dengeleyici hello komut dosyaları, yukarıda indirdiğiniz ve değiştirdiğiniz. Merhaba çıktıdan sonra gösterilen hello listede kullanılan hello parametreler açıklanmaktadır.
+3. Parametre dosyasını açın, içeriğini seçin ve bilgisayarınızdaki bir dosyaya kaydedin. Bu örnekte parametre dosyasını *parameters.json* dosyasına kaydettik.
+4. Yukarıda indirdiğiniz ve değiştirdiğiniz şablonu ve parametre dosyalarını kullanarak yeni iç yük dengeleyiciyi dağıtmak için, **azure group deployment create** komutunu çalıştırın. Çıktıdan sonra gösterilen listede, kullanılan parametreler açıklanmaktadır.
 
     ```azurecli
     azure group create --name TestRG --location westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json --parameters-file parameters.json

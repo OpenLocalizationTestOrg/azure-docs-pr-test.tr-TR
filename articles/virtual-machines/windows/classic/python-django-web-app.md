@@ -1,6 +1,6 @@
 ---
-title: "bir Windows Server Azure VM'de aaaDjango web uygulaması | Microsoft Docs"
-description: "Bilgi nasıl toohost bir Windows Server 2012 R2 Datacenter VM ile Merhaba Klasik dağıtım modelini kullanarak azure'da Django tabanlı bir Web sitesi."
+title: "Bir Windows Server Azure VM'de Django web uygulaması | Microsoft Docs"
+description: "Bir Windows Server 2012 R2 Datacenter VM ile klasik dağıtım modelini kullanarak azure'da Django tabanlı bir Web sitesi barındırma öğrenin."
 services: virtual-machines-windows
 documentationcenter: python
 author: huguesv
@@ -15,99 +15,99 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: huvalo
-ms.openlocfilehash: 55847e3c6d6769965be29077e8d4eeebad914637
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 283a296fb39863c2801be1093cc4f56904786abd
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="django-hello-world-web-app-on-a-windows-server-vm"></a>Windows Server VM üzerinde Django Hello World web uygulaması
 
 > [!IMPORTANT] 
-> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Azure Resource Manager ve hello Klasik dağıtım modeli](../../../resource-manager-deployment-model.md). Bu makalede hello Klasik dağıtım modeli açıklanır. En yeni dağıtımların hello Resource Manager modelini kullanmasını öneririz.
+> Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Azure Resource Manager ve klasik dağıtım modeli](../../../resource-manager-deployment-model.md). Bu makalede Klasik dağıtım modeli açıklanır. En yeni dağıtımların Resource Manager modelini kullanmasını öneririz.
 
-Bu öğretici şunların nasıl yapıldığını gösterir toohost Django tabanlı bir Web sitesi Windows Server'da Azure Virtual Machines'de. Merhaba öğreticide, Azure ile konusunda deneyim varsayıyoruz. Merhaba öğreticiyi tamamladığınızda, Django tabanlı bir uygulamayı oluşturan ve hello bulutta çalışan sahip olabilir.
+Bu öğretici, Azure Virtual Machines'de Windows Server'daki Django tabanlı bir Web sitesi barındırmak nasıl gösterir. Öğreticide, Azure ile konusunda deneyim varsayıyoruz. Öğreticiyi tamamladığınızda, Django tabanlı bir uygulamayı oluşturan ve bulutta çalışan sahip olabilir.
 
 Şunları nasıl yapacağınızı öğrenin:
 
-* Azure sanal makinesi toohost Django ayarlayın. Bu öğretici açıklar ancak nasıl toodo bu **Windows Server**, yapabileceğiniz Azure'da bir Linux VM barındırılan için aynı hello.
+* Bir Azure sanal makinesi konağa Django ayarlayın. Bu öğretici, bunu yapmak açıklanmaktadır ancak **Windows Server**, Azure'da bir Linux VM barındırılan için aynı yapabilirsiniz.
 * Yeni bir Django uygulaması Windows oluşturun.
 
-Merhaba öğretici nasıl toobuild temel bir Hello World web uygulaması gösterir. Merhaba uygulaması bir Azure sanal makinesi barındırılır.
+Öğretici, temel bir Hello World web uygulamasının nasıl oluşturulacağını gösterir. Uygulamayı bir Azure sanal makinesi barındırılır.
 
-Aşağıdaki ekran görüntüsü hello tamamlandı Merhaba uygulaması gösterir:
+Aşağıdaki ekran görüntüsünde tamamlanan uygulama gösterilir:
 
-![Bir tarayıcı penceresinde hello hello world sayfasını Azure'da görüntüler.][1]
+![Bir tarayıcı penceresi Azure'da hello world sayfasını görüntüler][1]
 
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
-## <a name="create-and-set-up-an-azure-virtual-machine-toohost-django"></a>Oluşturma ve Azure sanal makinesi toohost Django ayarlama
+## <a name="create-and-set-up-an-azure-virtual-machine-to-host-django"></a>Oluşturma ve bir Azure sanal makinesi konağa Django ayarlama
 
-1. toocreate hello Windows Server 2012 R2 Datacenter dağıtım, bir Azure sanal makinesi bkz [Windows hello Azure portalı çalıştıran bir sanal makine oluşturma](tutorial.md).
-2. Azure toodirect bağlantı noktası 80 trafiği hello sanal makineye hello web tooport 80 ayarlayın:
+1. Bir Azure sanal makinesi ile Windows Server 2012 R2 Datacenter dağıtımı oluşturmak için bkz: [Azure portalında Windows çalıştıran bir sanal makine oluşturma](tutorial.md).
+2. Bağlantı noktası 80 trafiğinden web sanal makinede 80 numaralı bağlantı noktasına yönlendirmek için Azure ayarlayın:
    
-   1. Hello Azure portal, toohello Pano gidin ve yeni oluşturulan sanal makineyi seçin.
+   1. Azure portalında panoya gidin ve yeni oluşturulan sanal makineyi seçin.
    2. **Uç noktaları**’na ve ardından **Ekle**’ye tıklayın.
 
      ![Bir uç nokta ekleme](./media/python-django-web-app/django-helloworld-add-endpoint-new-portal.png)
 
-   3. Merhaba üzerinde **uç nokta ekleme** sayfası için **adı**, girin **HTTP**. Merhaba ortak ve özel TCP bağlantı noktası çok ayarlayın**80**.
+   3. Üzerinde **uç nokta ekleme** sayfası için **adı**, girin **HTTP**. Ortak ve özel TCP bağlantı noktaları kümesine **80**.
 
      ![Bir ad girin ve ortak ve özel bağlantı noktalarını ayarlayın](./media/python-django-web-app/django-helloworld-add-endpoint-set-ports-new-portal.png)
 
    4. **Tamam** düğmesine tıklayın.
      
-3. Merhaba panosunda, VM'yi seçin. Azure sanal makine, yeni oluşturulan toohello içinde toouse Uzak Masaüstü Protokolü (RDP) tooremotely işaretini tıklatın **Bağlan**.  
+3. Panosunda, VM'yi seçin. Yeni oluşturulan Azure sanal makineye uzaktan oturum açmak için Uzak Masaüstü Protokolü (RDP) kullanmak için tıklatın **Bağlan**.  
 
 > [!IMPORTANT] 
-> yönergeleri izleyerek hello toohello sanal makinede doğru şekilde imzalanmış varsayalım. Ayrıca komutları hello sanal makine ve yerel bilgisayarınızda değil dağıttığınız varsayılmıştır.
+> Aşağıdaki yönergeler, sanal makineye doğru şekilde oturum açtığına varsayalım. Ayrıca komutları sanal makine ve yerel bilgisayarınızda değil dağıttığınız varsayılmıştır.
 
 ## <a id="setup"></a>Python, Django ve Wfastcgı yükleyin
 > [!NOTE]
-> Internet Explorer kullanarak toodownload tooconfigure Internet Explorer olabilir **Artırılmış Güvenlik Yapılandırması** ayarlar. toodo bunu, **Başlat** > **Yönetimsel Araçlar** > **Sunucu Yöneticisi'ni** > **yerel sunucu**. Tıklatın **IE Artırılmış Güvenlik Yapılandırması**ve ardından **devre dışı**.
+> Internet Explorer kullanarak indirmek için Internet Explorer yapılandırmanız gerekebilir **Artırılmış Güvenlik Yapılandırması** ayarlar. Bunu yapmak için tıklatın **Başlat** > **Yönetimsel Araçlar** > **Sunucu Yöneticisi'ni** > **yerel sunucu**. Tıklatın **IE Artırılmış Güvenlik Yapılandırması**ve ardından **devre dışı**.
 
-1. Python 2.7 veya Python 3.4 gelen en son sürümlerini Hello yüklemek [python.org][python.org].
-2. Merhaba wfastcgı ve django paketler pip kullanarak yükleyin.
+1. Python 2.7 veya Python 3.4 gelen en son sürümlerini yüklemek [python.org][python.org].
+2. PIP kullanarak wfastcgı ve django paketleri yükleyin.
    
-    Python 2.7 için komutu aşağıdaki hello kullan:
+    Python 2.7 için aşağıdaki komutu kullanın:
    
         c:\python27\scripts\pip install wfastcgi
         c:\python27\scripts\pip install django
    
-    Python 3.4 için komutu aşağıdaki hello kullan:
+    Python 3.4 için aşağıdaki komutu kullanın:
    
         c:\python34\scripts\pip install wfastcgi
         c:\python34\scripts\pip install django
 
 ## <a name="install-iis-with-fastcgi"></a>IIS Fastcgı ile yükleme
-* Internet Information Services (IIS) Fastcgı desteğiyle yükleyin. Bu işlem birkaç dakika tooexecute sürebilir.
+* Internet Information Services (IIS) Fastcgı desteğiyle yükleyin. Bu yürütmek için birkaç dakika sürebilir.
    
         start /wait %windir%\System32\PkgMgr.exe /iu:IIS-WebServerRole;IIS-WebServer;IIS-CommonHttpFeatures;IIS-StaticContent;IIS-DefaultDocument;IIS-DirectoryBrowsing;IIS-HttpErrors;IIS-HealthAndDiagnostics;IIS-HttpLogging;IIS-LoggingLibraries;IIS-RequestMonitor;IIS-Security;IIS-RequestFiltering;IIS-HttpCompressionStatic;IIS-WebServerManagementTools;IIS-ManagementConsole;WAS-WindowsActivationService;WAS-ProcessModel;WAS-NetFxEnvironment;WAS-ConfigurationAPI;IIS-CGI
 
 ## <a name="create-a-new-django-application"></a>Yeni bir Django uygulaması oluşturma
-1. C:\inetpub\wwwroot, yeni Django proje toocreate hello aşağıdaki komutu girin:
+1. C:\inetpub\wwwroot içinde yeni bir Django projesi oluşturmak için aşağıdaki komutu girin:
    
-   Python 2.7 için komutu aşağıdaki hello kullan:
+   Python 2.7 için aşağıdaki komutu kullanın:
    
        C:\Python27\Scripts\django-admin.exe startproject helloworld
    
-   Python 3.4 için komutu aşağıdaki hello kullan:
+   Python 3.4 için aşağıdaki komutu kullanın:
    
        C:\Python34\Scripts\django-admin.exe startproject helloworld
    
-   ![Merhaba New-AzureService komutunun Hello sonucu](./media/python-django-web-app/django-helloworld-cmd-new-azure-service.png)
-2. Merhaba `django-admin` komutu Django tabanlı Web siteleri için basit bir yapı oluşturur:
+   ![New-AzureService komutunun sonucu](./media/python-django-web-app/django-helloworld-cmd-new-azure-service.png)
+2. `django-admin` Komutu Django tabanlı Web siteleri için basit bir yapı oluşturur:
    
    * `helloworld\manage.py`barındırma başlatmak ve durdurmak, Django tabanlı Web sitesi barındırma yardımcı olur.
    * `helloworld\helloworld\settings.py`Uygulamanız için Django ayarlarına sahiptir.
-   * `helloworld\helloworld\urls.py`her URL ve kendi görünüm arasında Hello eşleme kodu vardır.
-3. Merhaba C:\inetpub\wwwroot\helloworld\helloworld dizininde views.py adlı yeni bir dosya oluşturun. Bu dosya hello "hello world" sayfasını işler hello görünüme sahiptir. Kod düzenleyicinizde hello aşağıdaki komutları girin:
+   * `helloworld\helloworld\urls.py`her URL ve kendi görünüm arasında eşleme koduna sahip.
+3. C:\inetpub\wwwroot\helloworld\helloworld dizininde views.py adlı yeni bir dosya oluşturun. Bu dosya, "hello world" sayfasını işler görünüme sahiptir. Kod düzenleyicisinde, aşağıdaki komutları girin:
    
        from django.http import HttpResponse
        def home(request):
            html = "<html><body>Hello World!</body></html>"
            return HttpResponse(html)
-4. Merhaba urls.py dosyasının Merhaba içeriğine komutları aşağıdaki hello ile değiştirin:
+4. Urls.py dosyasının içeriğini aşağıdaki komutları ile değiştirin:
    
        from django.conf.urls import patterns, url
        urlpatterns = patterns('',
@@ -115,10 +115,10 @@ Aşağıdaki ekran görüntüsü hello tamamlandı Merhaba uygulaması gösterir
        )
 
 ## <a name="set-up-iis"></a>ISS kurmak
-1. Merhaba genel applicationhost.config dosyasında hello işleyicileri bölümün kilidini açın.  Bu, web.config dosyası toouse hello Python işleyicisi sağlar. Bu komutu ekleyin:
+1. Genel applicationhost.config dosyasında işleyicileri bölümün kilidini açın.  Bu, Python işleyicisi kullanmak web.config dosyanızın sağlar. Bu komutu ekleyin:
    
         %windir%\system32\inetsrv\appcmd unlock config -section:system.webServer/handlers
-2. Wfastcgı etkinleştirin. Bu tooyour Python yorumlayıcı çalıştırılabilir ve hello wfastcgi.py betik başvuran bir uygulama toohello genel applicationhost.config dosyası ekler.
+2. Wfastcgı etkinleştirin. Bu yürütülebilir, Python yorumlayıcı ve wfastcgi.py betik başvuran genel applicationhost.config dosyasının bir uygulama ekler.
    
     Python 2.7:
    
@@ -127,7 +127,7 @@ Aşağıdaki ekran görüntüsü hello tamamlandı Merhaba uygulaması gösterir
     Python 3.4:
    
         C:\python34\scripts\wfastcgi-enable
-3. C:\inetpub\wwwroot\helloworld içinde bir web.config dosyası oluşturun. Merhaba hello değerini `scriptProcessor` özniteliği, önceki adımı hello hello çıktısını eşleşmelidir. Merhaba wfastcgı ayarı hakkında daha fazla bilgi için bkz: [pypı wfastcgı][wfastcgi].
+3. C:\inetpub\wwwroot\helloworld içinde bir web.config dosyası oluşturun. Değeri `scriptProcessor` özniteliği, önceki adımdaki çıktı eşleşmelidir. Wfastcgı ayarı hakkında daha fazla bilgi için bkz: [pypı wfastcgı][wfastcgi].
    
    Python 2.7:
    
@@ -158,15 +158,15 @@ Aşağıdaki ekran görüntüsü hello tamamlandı Merhaba uygulaması gösterir
             </handlers>
           </system.webServer>
         </configuration>
-4. Merhaba hello IIS varsayılan Web sitesi toopoint toohello Django proje klasörünün konumunu güncelleştirin:
+4. Django proje klasöre işaret IIS varsayılan Web sitesi konumunu güncelleştirin:
    
         %windir%\system32\inetsrv\appcmd set vdir "Default Web Site/" -physicalPath:"C:\inetpub\wwwroot\helloworld"
-5. Merhaba Web tarayıcınızda yükleyin.
+5. Web tarayıcınızda yükleyin.
 
-![Bir tarayıcı penceresinde hello hello world sayfasını Azure üzerinde görüntüler.][1]
+![Bir tarayıcı penceresinde hello world sayfasını Azure üzerinde görüntüler.][1]
 
 ## <a name="shut-down-your-azure-virtual-machine"></a>Azure, sanal makineyi Kapat
-Bu öğreticiyi tamamladığınızda, kapatıldı veya hello hello öğretici için oluşturduğunuz Azure VM Kaldır öneririz. Bu diğer öğreticileri için kaynakları serbest bırakır ve Azure kullanım ücretlerinin yansıtılmasını önleyebilirsiniz.
+Bu öğreticiyi tamamladığınızda, kapatıldı veya öğretici için oluşturduğunuz Azure VM Kaldır öneririz. Bu diğer öğreticileri için kaynakları serbest bırakır ve Azure kullanım ücretlerinin yansıtılmasını önleyebilirsiniz.
 
 [1]: ./media/python-django-web-app/django-helloworld-browser-azure.png
 

@@ -1,6 +1,6 @@
 ---
-title: "aaaExample Azure altyapı gözden geçirme | Microsoft Docs"
-description: "Bir örnek altyapısını Azure'a dağıtmak için hello anahtar tasarım ve uygulama yönergeleri hakkında bilgi edinin."
+title: "Örnek Azure altyapı gözden geçirme | Microsoft Docs"
+description: "Bir örnek altyapısını Azure'a dağıtmak için anahtar tasarım ve uygulama yönergeleri hakkında bilgi edinin."
 documentationcenter: 
 services: virtual-machines-linux
 author: iainfoulds
@@ -16,63 +16,63 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6b307c0112203aa83e1fada81966fc265397a40
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b18be0d81d6fad7328edb47c9b69af4eecd3b971
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Linux VM'ler için örnek Azure altyapı gözden geçirme
 
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
-Bu makalede örnek uygulama altyapısı oluşturmaya anlatılmaktadır. Biz tüm hello yönergeleri ve adlandırma kuralları, kullanılabilirlik kümeleri, sanal ağlar ve yük dengeleyici kararları bir araya getirir basit bir çevrimiçi mağaza için bir altyapı tasarlama ve gerçekte sanal makineleri (VM'ler) dağıtma ayrıntılı olarak açıklanmaktadır.
+Bu makalede örnek uygulama altyapısı oluşturmaya anlatılmaktadır. Biz yönergeleri ve adlandırma kuralları, kullanılabilirlik kümeleri, sanal ağlar ve yük dengeleyici kararları bir araya getirir basit bir çevrimiçi mağaza için bir altyapı tasarlama ve gerçekte sanal makineleri (VM'ler) dağıtma ayrıntılı olarak açıklanmaktadır.
 
 ## <a name="example-workload"></a>Örnek iş yükü
-Adventure Works Cycles toobuild bir çevrimiçi mağaza uygulamasına oluşan Azure istiyor:
+Adventure Works Cycles, azure'da oluşan bir çevrimiçi mağaza uygulama oluşturmak ister:
 
-* Bir web katmanı ön uç Hello istemcisi çalıştıran iki nginx sunucuları
+* Bir web katmanı ön uç istemcisi çalıştıran iki nginx sunucuları
 * Veri ve uygulama katmanına siparişler işleme iki nginx sunucuları
 * Ürün veri ve siparişler bir veritabanı katmanı depolamak için bir parçalı küme iki MongoDB sunucuları parçası
 * Müşteri hesapları ve bir kimlik doğrulama katmanı sağlayıcıları için iki Active Directory etki alanı denetleyicisi
-* Tüm hello sunucuları iki alt ağ içinde bulunur:
-  * Merhaba web sunucuları için ön uç bir alt ağ 
-  * Merhaba uygulama sunucuları, MongoDB küme ve etki alanı denetleyicileri için bir arka uç alt ağ
+* Tüm sunucular iki alt ağ içinde bulunur:
+  * web sunucuları için ön uç bir alt ağ 
+  * uygulama sunucuları, MongoDB küme ve etki alanı denetleyicileri için bir arka uç alt ağ
 
 ![Uygulama altyapısı için farklı katmanlara diyagramı](./media/infrastructure-example/example-tiers.png)
 
-Güvenli gelen web trafiği olması hello web sunucuları arasında Yük Dengelemesi müşteriler hello çevrimiçi mağaza göz atın. Merhaba Web sunucuları yük hello uygulama sunucuları arasında dengeli gerekir hello biçiminde HTTP trafiği işlem sırası ister. Ayrıca, hello altyapı yüksek kullanılabilirlik için tasarlanmış olması gerekir.
+Güvenli gelen web trafiği gerekir yük dengeli web sunucular arasında müşteriler çevrimiçi mağaza gezinirken. Sunucular-uygulama sunucuları arasında dengeli yük gerekir Web trafiği HTTP biçiminde işlem sırası ister. Ayrıca, altyapı yüksek kullanılabilirlik için tasarlanmış olması gerekir.
 
-Merhaba elde edilen tasarım eklemeniz gerekir:
+Sonuçta elde edilen tasarım eklemeniz gerekir:
 
 * Bir Azure aboneliği ve hesabı
 * Tek bir kaynak grubu
 * Azure Yönetilen Diskleri
 * İki alt ağa sahip bir sanal ağ
-* Merhaba VM'ler ile benzer bir rolü için kullanılabilirlik kümeleri
+* Benzer bir rolü olan VM'ler için kullanılabilirlik kümeleri
 * Sanal makineler
 
-Yukarıdaki tüm hello adlandırma kurallarına izleyin:
+Tüm yukarıdaki adlandırma kurallarına izleyin:
 
 * Adventure Works Cycles kullandığı **[BT iş yükü]-[konum]-[Azure kaynak]** öneki olarak
-  * Bu örneğin, "**azos**" (Azure çevrimiçi mağaza) iş yükü adı hello ve "**kullanmak**" (Doğu ABD 2) hello konumudur
+  * Bu örneğin, "**azos**" (Azure çevrimiçi) deposudur BT iş yükü adı ve "**kullanmak**" (Doğu ABD 2) konumudur
 * Sanal ağları kullanın AZOS kullanım VN**[sayı]**
 * Kullanılabilirlik kümeleri kullanan azos-kullanın-olarak-**[rol]**
 * Sanal makine adları azos kullanın-kullanın-vm -**[vmname]**
 
 ## <a name="azure-subscriptions-and-accounts"></a>Azure abonelikleri ve hesapları
-Adventure Works Cycles, Adventure Works Kurumsal abonelik, bu BT iş yükü için faturalama tooprovide adlı kurumsal aboneliğini kullanıyor.
+Adventure Works Cycles, bu BT iş yükü için fatura sağlamak için Adventure Works Kurumsal aboneliği adlı kurumsal aboneliğini kullanıyor.
 
 ## <a name="storage"></a>Depolama
 Adventure Works Cycles Azure yönetilen diskleri kullanması gerektiğini belirledi. Sanal makineleri oluştururken, her iki depolama kullanılabilir depolama katmanları kullanılır:
 
-* **Standart depolama** hello web sunucuları, uygulama sunucuları ve etki alanı denetleyicileri ve kendi veri diskleri için.
-* **Premium depolama** hello MongoDB parçalı küme sunucuları ve kendi veri diskleri için.
+* **Standart depolama** web sunucuları, uygulama sunucuları ve etki alanı denetleyicileri ve kendi veri diskleri için.
+* **Premium depolama** MongoDB parçalı küme sunucuları ve kendi veri diskleri için.
 
 ## <a name="virtual-network-and-subnets"></a>Sanal ağ ve alt ağlar
-Merhaba sanal ağ sürekli bağlantı toohello Adventure iş döngüsü şirket içi ağ gerekmediği için bir yalnızca bulut sanal ağda karar verdi.
+Sanal ağ Adventure iş döngüsü şirket ağına sürekli bağlantı gerekmediği için bir yalnızca bulut sanal ağda karar verdi.
 
-Bunlar yalnızca bulut sanal ağ ayarlarını hello Azure portal kullanarak aşağıdaki hello ile oluşturulan:
+Azure Portalı'nı kullanarak aşağıdaki ayarlara sahip bir yalnızca bulut sanal ağ oluşturma:
 
 * Name: Kullanım AZOS VN01
 * Konumu: Doğu ABD 2
@@ -85,26 +85,26 @@ Bunlar yalnızca bulut sanal ağ ayarlarını hello Azure portal kullanarak aşa
   * Adres alanı: 10.0.2.0/24
 
 ## <a name="availability-sets"></a>Kullanılabilirlik kümeleri
-Adventure Works Cycles dört kullanılabilirlik kümesi üzerinde kampanyanızın çevrimiçi kendi deposunun tüm dört katmanların toomaintain yüksek kullanılabilirlik:
+Çevrimiçi depolarındaki tüm dört katmanların yüksek kullanılabilirliği sürdürmek için Adventure Works Cycles dört kullanılabilirlik kümeleri hakkında karar:
 
-* **web olarak azos kullanım** hello web sunucuları için
-* **uygulama olarak azos kullanım** hello uygulama sunucuları için
-* **db olarak azos kullanım** hello MongoDB parçalı kümesindeki hello sunucularına
-* **dc olarak azos kullanım** hello etki alanı denetleyicileri için
+* **web olarak azos kullanım** web sunucuları için
+* **uygulama olarak azos kullanım** uygulama sunucuları için
+* **db olarak azos kullanım** MongoDB parçalı kümesindeki sunucular için
+* **dc olarak azos kullanım** etki alanı denetleyicileri
 
 ## <a name="virtual-machines"></a>Sanal makineler
-Adventure Works Cycles Azure Vm'leri için adlarından hello karar:
+Adventure Works Cycles Azure Vm'leri için aşağıdaki adlar karar:
 
-* **Kullanım vm web01 azos** hello ilk web sunucusu için
-* **Kullanım vm web02 azos** hello ikinci web sunucusu için
-* **Kullanım vm app01 azos** hello ilk uygulama sunucusu için
-* **Kullanım vm app02 azos** hello ikinci uygulama sunucusu için
-* **Kullanım vm db01 azos** hello kümesindeki ilk MongoDB sunucu hello için
-* **Kullanım vm db02 azos** hello kümesindeki hello ikinci MongoDB sunucu için
-* **Kullanım vm dc01 azos** hello ilk etki alanı denetleyicisi için
-* **Kullanım vm dc02 azos** hello ikinci etki alanı denetleyicisi için
+* **Kullanım vm web01 azos** ilk web sunucusu için
+* **Kullanım vm web02 azos** ikinci web sunucusu için
+* **Kullanım vm app01 azos** için ilk uygulama sunucusu
+* **Kullanım vm app02 azos** ikinci uygulama sunucusu için
+* **Kullanım vm db01 azos** kümedeki ilk MongoDB sunucu için
+* **Kullanım vm db02 azos** kümedeki ikinci MongoDB sunucu için
+* **Kullanım vm dc01 azos** ilk etki alanı denetleyicisi
+* **Kullanım vm dc02 azos** ikinci etki alanı denetleyicisi
 
-Merhaba sonuçta elde edilen yapılandırma aşağıda verilmiştir.
+Sonuçta elde edilen yapılandırma aşağıda verilmiştir.
 
 ![Azure üzerinde dağıtılan son uygulama altyapısı](./media/infrastructure-example/example-config.png)
 
@@ -112,8 +112,8 @@ Bu yapılandırma bir araya getirir:
 
 * Bir yalnızca bulut sanal ağla iki alt ağ (ön uç ve arka uç)
 * Azure yönetilen standart ve Premium diskleri kullanarak diskleri
-* Bir hello çevrimiçi deposunun her katman için dört kullanılabilirlik kümeleri
-* Merhaba dört katmanları için Hello sanal makineler
-* Bir dış yük dengeli küme hello Internet toohello web sunucularından HTTPS tabanlı web trafiği için
-* Bir iç yük dengeli küme hello web sunucuları toohello uygulama sunucularından şifrelenmemiş web trafiği için
+* Bir çevrimiçi mağaza, her katman için dört kullanılabilirlik kümeleri
+* Sanal makineler için dört katman
+* Internet'ten HTTPS tabanlı web trafiği web sunucuları için bir dış yük dengeli küme
+* Bir iç yük dengeli küme web sunucularından şifrelenmemiş web trafiği uygulama sunucuları için
 * Tek bir kaynak grubu

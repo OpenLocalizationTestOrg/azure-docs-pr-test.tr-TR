@@ -1,33 +1,33 @@
 <!--author=alkohli last changed: 01/20/17-->
 
 
-#### <a name="tooadd-a-storage-account-credential-in-hello-same-azure-subscription-as-hello-storsimple-device-manager-service"></a>tooadd bir depolama hesabı kimlik bilgileri hello aynı hello StorSimple cihaz Yöneticisi hizmet olarak Azure aboneliği
+#### <a name="to-add-a-storage-account-credential-in-the-same-azure-subscription-as-the-storsimple-device-manager-service"></a>StorSimple Cihaz Yöneticisi hizmetiyle aynı Azure aboneliğinde depolama hesabı kimlik bilgisi eklemek için
 
-1. Tooyour StorSimple cihaz Yöneticisi hizmeti gidin. Merhaba, **yapılandırma** 'yi tıklatın **depolama hesabının kimlik bilgilerini**.
+1. StorSimple Cihaz Yöneticisi hizmetinize gidin. **Yapılandırma** bölümünde **Depolama hesabı kimlik bilgileri**’ne tıklayın.
 
     ![Depolama hesabı kimlik bilgileri](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct1.png)
 
-2. Merhaba üzerinde **depolama hesabının kimlik bilgilerini** dikey penceresinde tıklatın **+ Ekle**.
+2. **Depolama hesabı kimlik bilgileri** dikey penceresinde **+ Ekle**’ye tıklayın.
 
     ![Depolama hesabı kimlik bilgisi ekleyin](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct2.png)
 
-3. Merhaba, **bir depolama hesabı kimlik bilgileri Ekle** dikey penceresinde, adımları hello:
+3. **Depolama hesabı kimlik bilgisi ekle** dikey penceresinde aşağıdaki adımları gerçekleştirin:
 
-    1. Bir depolama hesabı kimlik bilgilerini ekleme gibi hello hizmetinizi aynı Azure abonelik emin **geçerli** seçilir.
+    1. Hizmetinizle aynı Azure aboneliğinde depolama kimlik bilgisi eklediğinizden, **Geçerli**’nin seçili olduğundan emin olun.
 
-    2. Merhaba gelen **depolama hesabı** açılır listesinde, mevcut bir depolama hesabını seçin.
+    2. **Depolama hesabı** açılan listesinden mevcut bir depolama hesabını seçin.
 
-    3. Seçili hello depolama hesabına bağlı olarak, hello **konumu** görüntülenir (gri ve burada değiştirilemez).
+    3. Seçilen depolama hesabına bağlı olarak **konum** görüntülenir (gri olur ve buradan değiştirilemez).
 
-    4. Seçin **SSL modunu etkinleştir** toocreate cihaz ve hello bulut arasındaki ağ iletişimi için güvenli bir kanal. **SSL’yi Etkinleştir** onay kutusunu yalnızca özel bulutta işlem yapıyorsanız temizleyin.
+    4. Cihazınız ve bulut arasındaki ağ iletişimi için güvenli bir kanal oluşturmak için **SSL Modunu Etkinleştir**’i seçin. **SSL’yi Etkinleştir** onay kutusunu yalnızca özel bulutta işlem yapıyorsanız temizleyin.
 
         ![Depolama hesabı kimlik bilgileri ekleme dikey penceresi](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct3.png)
 
-    5. Tıklatın **Ekle** toostart hello iş oluşturma hello depolama hesabı kimlik bilgileri için. Merhaba depolama hesabı kimlik bilgilerini başarıyla oluşturulduktan sonra size bildirilecek.
+    5. Depolama hesabı kimlik bilgisine yönelik iş oluşturma işlemini başlatmak için **Ekle**’ye tıklayın. Depolama hesabı kimlik bilgisi sorunsuz bir şekilde oluşturulduğunda size bildirilir.
 
         ![Depolama hesabı kimlik bilgileri için başarı bildirimi](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct5.png)
 
-Merhaba yeni oluşturulan depolama hesabı kimlik bilgileri altında hello listesi görüntülenir **depolama hesabının kimlik bilgilerini**.
+Yeni oluşturulan depolama hesabı kimlik bilgisi, **Depolama hesabı kimlik bilgileri** listesinde görüntülenir.
 
 ![Depolama hesabı kimlik bilgileri listesi](./media/storsimple-8000-configure-new-storage-account-u2/createnewstorageacct6.png)
 

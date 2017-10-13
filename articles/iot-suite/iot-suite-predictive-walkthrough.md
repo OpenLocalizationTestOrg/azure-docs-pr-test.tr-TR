@@ -1,6 +1,6 @@
 ---
-title: "aaaPredictive bakımda gezinme | Microsoft Docs"
-description: "İzlenecek yol hello Azure IOT Tahmine dayalı bakım çözümü önceden yapılandırılmış."
+title: "Tahmine dayalı bakım kılavuzu | Microsoft Docs"
+description: "Azure IoT önceden yapılandırılmış tahmine dayalı bakım çözümü gezintisi."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -15,66 +15,66 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.openlocfilehash: 900d6351019489a8e2f4b98908364e3bd14975c5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: a68a8fdc3976ade0d1036d5ed58c8b2eb6d32a5d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>Önceden yapılandırılmış tahmine dayalı bakım çözümünde gezinme
 
-Merhaba önceden yapılandırılmış Tahmine dayalı bakım çözümü, bir hata olasılıkla toooccur olduğu hello noktayı tahmin eden iş senaryosu için uçtan uca çözümüdür. Bu önceden yapılandırılmış çözümü, bakım iyileştirmesi gibi etkinlikler için proaktif olarak kullanabilirsiniz. Merhaba çözüm IOT Hub, akış analizi gibi önemli Azure IOT paketi hizmetlerini birleştirir ve bir [Azure Machine Learning] [ lnk-machine-learning] çalışma. Bu çalışma alanı, ortak örnek veri kümesi, toopredict hello uçak motorunun kalan kullanım ömrü (RUL) dayalı bir modeli içerir. Merhaba çözüm tam, tooplan için bir başlangıç noktası olarak hello IOT iş senaryosu uygular ve belirli iş gereksinimlerinizi karşılayan bir çözüm uygulayabilirsiniz.
+Önceden yapılandırılmış tahmine dayalı bakım çözümü, arıza oluştuğu sırada noktayı tahmin eden iş senaryosu için uçtan uca bir çözümüdür. Bu önceden yapılandırılmış çözümü, bakım iyileştirmesi gibi etkinlikler için proaktif olarak kullanabilirsiniz. Çözüm IoT Hub, Stream Analytics ve [Azure Machine Learning][lnk-machine-learning] çalışma alanı gibi önemli Azure IoT Paketi hizmetlerini birleştirir. Bu çalışma alanı, bir uçak motorunun Kalan Kullanım Ömrü’nü (RUL) öngörmek için genel bir örnek veri kümesini temel alan bir model içerir. Bu çözüm, kendinize özel iş gereksinimlerinizi karşılayacak bir çözümü planlamanız ve uygulamanız amacıyla sizin için bir başlangıç noktası olarak IoT iş senaryosunu tam olarak uygular.
 
 ## <a name="logical-architecture"></a>Mantıksal mimari
 
-Diyagram aşağıdaki hello hello hello önceden yapılandırılmış çözümün mantıksal bileşenlerinin ana hatların vermektedir:
+Aşağıdaki diyagram önceden yapılandırılmış çözümün mantıksal bileşenlerinin ana hatların vermektedir:
 
 ![][img-architecture]
 
-Merhaba önceden yapılandırılmış çözüm dağıtıldığı hello bölgede sağlanan Azure Hizmetleri mavi Hello öğelerdir. Merhaba önceden yapılandırılmış çözüm dağıtabileceğiniz bölgeler Hello listesini görüntüler üzerinde hello [sağlama sayfası][lnk-azureiotsuite].
+Mavi öğele, önceden yapılandırılmış çözümü dağıtırken seçtiğiniz bölgede sağlanan Azure hizmetleridir. Önceden yapılandırılmış çözümü dağıtabileceğiniz bölgelerin listesi [sağlama sayfasında][lnk-azureiotsuite] gösterilir.
 
-Merhaba yeşil öğe uçak motorunu temsil eden sanal cihazdır. Bu sanal cihazlar bölümden hello içinde hakkında daha fazla bilgi edinebilirsiniz.
+Yeşil öğe uçak motorunu temsil eden sanal cihazdır. Aşağıdaki bölümde bu sanal cihazlarla ilgili daha fazla bilgiye ulaşabilirsiniz.
 
-Merhaba gri öğeler uygulayan bileşenleri temsil eden *Aygıt Yönetimi* özellikleri. Merhaba sürümü geçerli hello önceden yapılandırılmış Tahmine dayalı bakım çözümü bu kaynakları sağlamak değil. Aygıt Yönetimi hakkında daha fazla toolearn başvuran toohello [Uzaktan izleme önceden yapılandırılmış çözümü][lnk-remote-monitoring].
+Gri öğeler, *cihaz yönetimi* becerilerini uygulayan bileşenleri temsil eder. Önceden yapılandırılmış tahmine dayalı bakım çözümü bu kaynakları hazırlamaz. Cihaz yönetimi hakkında daha fazla bilgi edinmek için [önceden yapılandırılmış uzaktan izleme çözümü][lnk-remote-monitoring] konusuna bakın.
 
 ## <a name="simulated-devices"></a>Sanal cihazlar
 
-Merhaba önceden yapılandırılmış çözümde sanal cihaz uçak motorunu temsil eder. Merhaba çözüm tooa tek uçakla eşlenen iki alt yapısıyla sağlanır. Her motor dört tür telemetri yayar: algılayıcı 9, algılayıcı 11, algılayıcı 14 ve algılayıcı 15 hello Machine Learning modeli toocalculate hello RUL hello altyapısı için gereken hello verileri sağlar. Her sanal cihaz telemetri iletilerini tooIoT Hub aşağıdaki hello gönderir:
+Önceden yapılandırılmış çözümde sanal cihaz uçak motorunu temsil eder. Çözüm, tek bir uçakla eşlenen 2 motorla sağlanır. Her motor dört tür telemetri yayar: Algılayıcı 9, Algılayıcı 11, Algılayıcı 14 ve Algılayıcı 15, Machine Learning modelinin bu motorun RUL değerini hesaplaması için gereken verileri sağlar. Her sanal cihaz IoT Hub'ına şu telemetri iletilerini gönderir:
 
-*Döngü sayısı*. Bir döngü, iki ile on saat arasındaki bir süreyle tamamlanmış uçuşu temsil eder. Merhaba uçuş sırasında telemetri verilerini yarım saatte yakalanır.
+*Döngü sayısı*. Bir döngü, iki ile on saat arasındaki bir süreyle tamamlanmış uçuşu temsil eder. Uçuş sırasında telemetri verileri yarım saatte bir yakalanır.
 
-*Telemetri*. Motor özniteliklerini temsil eden dört algılayıcı vardır. Merhaba algılayıcılar genel olarak algılayıcı 9, algılayıcı 11, algılayıcı 14 ve algılayıcı 15 olarak etiketlenir. Bu dört algılayıcılar hello RUL modelinden yararlı sonuçlar yeterli tooobtain telemetri temsil eder. Merhaba önceden yapılandırılmış çözümde kullanılan hello model, gerçek motor algılayıcı verilerinin bulunduğu ortak bir veri kümesi oluşturulur. Merhaba hello model hello özgün veri kümesinden nasıl oluşturulduğu hakkında daha fazla bilgi için bkz: [Cortana Intelligence Gallery Tahmine dayalı bakım şablonu][lnk-cortana-analytics].
+*Telemetri*. Motor özniteliklerini temsil eden dört algılayıcı vardır. Bu algılayıcılar genel olarak Algılayıcı 9, Algılayıcı 11, Algılayıcı 14 ve Algılayıcı 15 olarak etiketlenir. Bu dört algılayıcı, RUL modelinden yararlı sonuçlar almak için yeterli olan telemetriyi temsil eder. Önceden yapılandırılmış çözümde kullanılan model, gerçek motor algılayıcı verilerinin bulunduğu ortak bir veri kümesinden oluşturulur. Özgün veri kümesinden modelin oluşturulması hakkında daha fazla bilgi için bkz. [Cortana Intelligence Gallery Tahmine Dayalı Bakım Şablonu][lnk-cortana-analytics].
 
-Benzetimli hello cihazlar hello çözümde hello IOT hub'dan gönderilen komutları aşağıdaki hello işleyebilir:
+Sanal cihazlar, çözümde IoT hub'ı tarafından gönderilen aşağıdaki komutları işleyebilir:
 
 | Komut | Açıklama |
 | --- | --- |
-| StartTelemetry |Denetimleri hello benzetim durumunu hello.<br/>Telemetri göndermesini başlatır hello cihaz |
-| StopTelemetry |Denetimleri hello benzetim durumunu hello.<br/>Cihazın telemetri göndermesini durdurur hello |
+| StartTelemetry |Benzetim durumunu denetler.<br/>Cihazın telemetri göndermesini başlatır |
+| StopTelemetry |Benzetim durumunu denetler.<br/>Cihazın telemetri göndermesini durdurur |
 
 IoT hub'ı cihaz komut bildirim sağlar.
 
 ## <a name="azure-stream-analytics-job"></a>Azure Stream Analytics işi
 
-**İş: Telemetri** iki durumu kullanarak hello gelen cihaz telemetrisi akışını çalışır:
+**İş: Telemetri**, gelen cihaz telemetrisi akışını iki durumu kullanarak çalıştırır:
 
-* Merhaba ilk hello cihazlardan tüm telemetriyi seçer ve bu verileri tooblob depolama gönderir. Buradan, hello web uygulamasında görselleştirilen.
-* Merhaba ikinci hesaplar ortalama algılayıcı değerlerini iki dakikalık kayan pencere üzerinde ve hello olay hub'ı tooan aracılığıyla bu verileri gönderir **olay işlemcisi**.
+* İlki, cihazlardan tüm telemetriyi seçer ve bu verileri blob depolamaya gönderir. Ardından veriler web uygulamasında görselleştirilir.
+* İkinciyse iki dakikalık kayan pencere üzerinde ortalama algılayıcı değerlerini ölçer ve bu verileri Olay hub'ı aracılığıyla **olay işlemcisi**’ne gönderir.
 
 ## <a name="event-processor"></a>Olay işlemcisi
-Merhaba **olay işleyicisi konağı** bir Azure Web işi çalıştırır. Merhaba **olay işlemcisi** tamamlanmış döngünün hello ortalama algılayıcı değerlerini alır. Ardından, bu değerleri tooan motor için RUL eğitilen model toocalculate hello sunan API geçirir. Merhaba API hello çözümün bir parçası sağlanan bir Machine Learning çalışma alanı tarafından sunulur.
+**Olay işleyicisi konağı** bir Azure Web İşi’nde çalıştırır. **Olay işlemcisi**, tamamlanan bir döngü için ortalama algılayıcı değerlerini alır. Daha sonra bu değerleri bir motorun RUL değerini hesaplaması için eğitilmiş modelin kullanımına sunan bir API’ye geçirir. API, çözümün bir parçası olarak sağlanan Machine Learning çalışma alanı tarafından kullanıma sunulur.
 
 ## <a name="machine-learning"></a>Machine Learning
-Merhaba Machine Learning bileşen gerçek uçak motorlarından toplanan verileri türetilmiş bir modeli kullanır. Hello hello kutucuğu toohello Machine Learning çalışma alanına gidin [azureiotsuite.com] [ lnk-azureiotsuite] sağlanan çözümünüz için sayfa. Merhaba çözüm hello olduğunda hello döşeme kullanılabilir **hazır** durumu.
+Machine Learning bileşeni gerçek uçak motorlarından toplanan verilerden türetilmiş bir model kullanır. Sağladığınız çözümün [azureiotsuite.com][lnk-azureiotsuite] sayfasındaki kutucuktan Machine Learning çalışma alanına gidebilirsiniz. Çözüm **Hazır** durumda olduğunda kutucuk kullanılabilir.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Merhaba anahtar hello önceden yapılandırılmış Tahmine dayalı bakım çözümü bileşenlerinin gördüğünüze göre toocustomize isteyebilirsiniz. Bkz. [Önceden yapılandırılmış çözümleri özelleştirme kılavuzu][lnk-customize].
+Tahmine dayalı bakım için önceden yapılandırılmış çözümün temel bileşenlerini gördüğünüze göre bunları özelleştirmek isteyebilirsiniz. Bkz. [Önceden yapılandırılmış çözümleri özelleştirme kılavuzu][lnk-customize].
 
-Merhaba bazıları diğer özellikleri ve yetenekleri hello IOT paketi önceden yapılandırılmış çözümleri ayrıca keşfedebilirsiniz:
+Önceden yapılandırılmış IoT Suite çözümlerinin diğer özelliklerinden bazılarını da keşfedebilirsiniz:
 
 * [IoT Paketi için sık sorulan sorular][lnk-faq]
-* [Merhaba IOT güvenlikten plan][lnk-security-groundup]
+* [Baştan sona IoT güvenliği][lnk-security-groundup]
 
 [img-architecture]: media/iot-suite-predictive-walkthrough/architecture.png
 

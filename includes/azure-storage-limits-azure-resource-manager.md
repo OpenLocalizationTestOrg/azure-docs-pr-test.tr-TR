@@ -1,4 +1,4 @@
-sınırları aşağıdaki hello hello Azure Resource Manager ve Azure kaynak gruplarını yalnızca kullanıldığında geçerlidir.
+Aşağıdaki sınırlar Azure Resource Manager ve Azure kaynak grupları yalnızca kullanılırken uygulanır.
 
 | Kaynak | Varsayılan Sınır |
 | --- | --- |

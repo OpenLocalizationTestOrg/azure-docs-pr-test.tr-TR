@@ -5,6 +5,7 @@
 ## Runbook öğreticisi
 ### [Grafik runbook oluşturma](automation-first-runbook-graphical.md)
 ### [PowerShell runbook’u oluşturma](automation-first-runbook-textual-powershell.md)
+### [İlk Python runbook’um](automation-first-runbook-textual-python2.md)
 ### [PowerShell İş Akışı runbook’u oluşturma](automation-first-runbook-textual.md)
 # Nasıl yapılır?
 ## Kimlik doğrulama ve güvenlik
@@ -34,17 +35,21 @@
 ### [Runbook ayarlarını değiştirme](automation-runbook-settings.md)
 ### [Azure Otomasyonu verilerini yönetme](automation-managing-data.md)
 ### [Log Analytics uyarısından Azure Otomasyonu Runbook’u çağırma](automation-invoke-runbook-from-omsla-alert.md)
-### [Bir JSON nesnesi tooan Azure Otomasyon runbook'u geçirin](automation-pass-json-string.md)
+### [Azure Otomasyonu runbook’una bir JSON nesnesi geçirme](automation-pass-json-string.md)
 ## Karma Runbook Çalışanı
 ### [Karma Runbook Çalışanı dağıtma](automation-hybrid-runbook-worker.md)
+### [Azure Otomasyonu Windows Karma Runbook Çalışanı](automation-windows-hrw-install.md)
+### [Azure Otomasyonu Linux Karma Runbook Çalışanı](automation-linux-hrw-install.md)
 ### [Çalışan üzerinde runbook çalıştırma](automation-hrw-run-runbooks.md)
+### [Azure Otomasyon Karma Runbook Çalışanlarını kaldırma](automation-remove-hrw.md)
 ## Yapılandırma yönetimi (DSC) dağıtma
 ### [İstenen Durum Yapılandırması’na (DSC) genel bakış](automation-dsc-overview.md)
 ### [Başlarken](automation-dsc-getting-started.md)
+### [Azure Otomasyonu ile sunucuları istenen duruma göre yapılandırma ve kaymaları yönetme](tutorial-configure-servers-desired-state.md)
 ### [Makineleri yönetim için hazırlama](automation-dsc-onboarding.md)
 ### [DSC yapılandırmaları derleme](automation-dsc-compile.md)
 ### [Chocolatey kullanarak sürekli dağıtım](automation-dsc-cd-chocolatey.md)
-### [Azure Otomasyonu DSC veri tooOMS günlük analizi raporlama ilet](automation-dsc-diagnostics.md)
+### [Azure Automation DSC raporlama verilerini OMS Log Analytics’e iletme](automation-dsc-diagnostics.md)
 ## Varlıkları yönetme
 ### [Sertifikalar](automation-certificates.md)
 ### [Bağlantılar](automation-connections.md)
@@ -64,11 +69,15 @@
 ### [Log Analytics uyarısından Azure Otomasyonu Runbook’u çağırma](automation-invoke-runbook-from-omsla-alert.md)
 ### [Azure Otomasyonu PowerShell runbook’unda Azure Resource Manager şablonu dağıtma](automation-deploy-template-runbook.md)
 ## Çözümler
-### [Değişiklik İzleme](../log-analytics/log-analytics-change-tracking.md)
 ### [Güncelleştirme yönetimi](../operations-management-suite/oms-solution-update-management.md)
+#### [Birden çok VM için güncelleştirmeleri yönetme](manage-update-multi.md)
+#### [OMS Güncelleştirme Yönetimi ile SCCMr’yi tümleştirme](oms-solution-updatemgmt-sccmintegration.md)
+### [Değişiklik izleme](../log-analytics/log-analytics-change-tracking.md)
+### [VM'lerinizdeki değişiklikleri izleme](automation-vm-change-tracking.md)
+### [Stok koleksiyonuyla VM yönetme](automation-vm-inventory.md)
 ### [Hizmetin kapalı olduğu saatlerde Sanal Makineleri Başlatma/Durdurma](automation-solution-vm-management.md)
 ## İzleme
-### [Azure Otomasyonu işi veri tooLog Analytics ilet](automation-manage-send-joblogs-log-analytics.md)
+### [Azure Otomasyonu iş verilerini Log Analytics’e iletme](automation-manage-send-joblogs-log-analytics.md)
 ### [Azure Otomasyonu hesabı ile Log Analytics arasındaki bağlantıyı kaldırma](automation-unlink-from-log-analytics.md)
 ## Geçiş
 ### [Orchestrator'dan geçiş](automation-orchestrator-migration.md)
@@ -77,8 +86,8 @@
 ### [Sık karşılaşılan hataları giderme.](automation-troubleshooting-automation-errors.md)
 ### [Karma Runbook Çalışanı için Sorun Giderme](automation-troubleshooting-hybrid-runbook-worker.md)
 # Başvuru
-## [PowerShell](/powershell/module/azurerm.automation)
-## [PowerShell (Klasik)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [Azure PowerShell](/powershell/module/azurerm.automation)
+## [Azure PowerShell (Klasik)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
 ## [REST](/rest/api/automation)
 ## [REST (Klasik)](https://msdn.microsoft.com/library/azure/mt163781)

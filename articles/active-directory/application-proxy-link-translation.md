@@ -1,6 +1,6 @@
 ---
-title: "aaaTranslate bağlantıları ve URL'leri Azure AD uygulaması Proxy | Microsoft Docs"
-description: "Merhaba temel Azure AD uygulama proxy'si bağlayıcılar hakkında bilgiler yer almaktadır."
+title: "Bağlantılar ve URL'leri Azure AD uygulaması Proxy Çevir | Microsoft Docs"
+description: "Azure AD uygulama proxy'si bağlayıcılar hakkında temel bilgiler yer almaktadır."
 services: active-directory
 documentationcenter: 
 author: kgremban
@@ -15,78 +15,78 @@ ms.date: 08/10/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 7ec2b9fb01617067cf5d676037877bf72c19217b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 57218346d236b376d2227e0ffaea6c6dd5ebe855
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD uygulama ara sunucusu ile yayımlanan uygulamalar için sabit kodlanmış bağlantı yeniden yönlendirme
 
-Azure AD uygulama proxy'si uzak veya kendi cihazlarını olan, şirket içi uygulamalar kullanılabilir toousers yapar. Bazı uygulamalar, ancak hello HTML katıştırılmış yerel bağlantılar ile geliştirilmiştir. Merhaba uygulama uzaktan kullanıldığında, bu bağlantıları doğru çalışmaz. Çeşitli şirket içi uygulamalar noktası tooeach diğer sahip olduğunuzda, kullanıcılarınızın hello ofiste olmadıklarını çalışma hello bağlantılar tookeep bekler. 
+Azure AD uygulama proxy'si, şirket içi uygulamalarınızı Uzaktan kullanıcılara veya kendi cihazlarına kullanılabilmesini sağlar. Bazı uygulamalar, ancak, HTML biçiminde katıştırılmış yerel bağlantılar ile geliştirilmiştir. Bu bağlantılar doğru uygulama uzaktan kullanıldığında çalışmaz. Çeşitli şirket içi uygulamalar birbiriyle noktası varsa, kullanıcılarınızın ofiste olmadıklarını olduğunda çalışmaya devam için bağlantıları bekler. 
 
-Merhaba en iyi şekilde toomake bağlantılar iş aynı hem içinde hem de hello ve şirket ağının dışından tooconfigure hello dış uygulamaları toobe URL'lerini olduğundan emin hello aynı kendi iç URL olarak. Kullanım [özel etki alanlarını](active-directory-application-proxy-custom-domains.md) tooconfigure şirket etki alanınızı yerine hello varsayılan uygulama proxy etki alanı adı, dış URL'ler toohave.
+Bağlantıları aynı hem içinde hem de Şirket ağınızın dışındaki çalıştığından emin olmak için en iyi yolu, kendi iç URL'ler ile aynı olacak şekilde dış URL'ler uygulamalarınızın yapılandırmaktır. Kullanım [özel etki alanlarını](active-directory-application-proxy-custom-domains.md) varsayılan uygulama proxy etki alanı yerine şirket etki alanı adınızı sağlamak için dış URL'ler yapılandırılır.
 
-Özel etki alanlarını kiracınızda kullanamıyorsanız, uygulama proxy'sinin hello bağlantı çeviri özelliği, kullanıcılarınızın nerede olursa olsun çalışma bağlantılarınızı tutar. Toointernal uç noktaları veya bağlantı noktaları, eşleyebilirsiniz doğrudan işaret eden uygulamalar varsa bu dahili URL'leri toohello uygulama Proxy URL'lere yayımladı. Bağlantı çeviri etkinleştirildiğinde ve HTML, CSS ve JavaScript etiketlerin select yayımlanan iç bağlantılar için uygulama proxy'si arar. Böylece kullanıcılarınızın kesintisiz bir deneyim almak hello uygulama proxy'si hizmeti bunları çevirir.
+Özel etki alanlarını kiracınızda kullanamıyorsanız, uygulama proxy'sinin bağlantı çeviri özelliği, kullanıcılarınızın nerede olursa olsun çalışma bağlantılarınızı tutar. Doğrudan iç uç noktalar veya bağlantı noktası uygulamalar varsa, bu dahili URL'leri yayımlanan dış uygulama Proxy URL'ler eşleyebilirsiniz. Bağlantı çeviri etkinleştirildiğinde ve HTML, CSS ve JavaScript etiketlerin select yayımlanan iç bağlantılar için uygulama proxy'si arar. Böylece kullanıcılarınızın kesintisiz bir deneyim almak uygulama proxy'si hizmeti bunları çevirir.
 
 >[!NOTE]
->Merhaba bağlantı çeviri ne olursa olsun nedeni için özel etki alanlarını kullanamazsınız, kiracılar için özelliktir toohave hello uygulamalarını aynı iç ve dış URL. Bu özelliği etkinleştirmek için önce olup [Azure AD uygulama proxy'si özel etki alanlarında](active-directory-application-proxy-custom-domains.md) sizin için çalışabilir.
+>Bağlantı çeviri özelliğini ne olursa olsun nedeni için özel etki alanlarını uygulamalarını aynı iç ve dış URL'leri olmasını kullanamazsınız, kiracılar içindir. Bu özelliği etkinleştirmek için önce olup [Azure AD uygulama proxy'si özel etki alanlarında](active-directory-application-proxy-custom-domains.md) sizin için çalışabilir.
 >
->Veya, SharePoint Merhaba uygulaması ile bağlantı çeviri tooconfigure ihtiyacınız olup olmadığını [SharePoint 2013 için diğer erişim eşleşmeleri yapılandırma](https://technet.microsoft.com/library/cc263208.aspx) başka bir yaklaşım toomapping bağlantılar için.
+>Veya uygulama yapılandırmak gerekirse bağlantısıyla çeviri SharePoint bkz [SharePoint 2013 için diğer erişim eşleşmeleri yapılandırma](https://technet.microsoft.com/library/cc263208.aspx) eşleme bağlantıları için başka bir yaklaşım için.
 
 ## <a name="how-link-translation-works"></a>Çeviri works nasıl bağlantı
 
-Bir kimlik doğrulamasından sonra hello proxy sunucusu hello uygulama veri toohello kullanıcı, başarılı olduğunda uygulama proxy'si Merhaba uygulaması sabit kodlanmış bağlantılar için tarar ve dış URL'ler yayımlanan kendi ilgili ile değiştirir.
+Kimlik doğrulamasından sonra proxy sunucunun kullanıcı için uygulama verilerini başarılı olduğunda uygulama proxy'si uygulama sabit kodlanmış bağlantılar için tarar ve dış URL'ler yayımlanan kendi ilgili ile değiştirir.
 
-Uygulama proxy'si uygulamaları UTF-8'de kodlandığını varsayar. Merhaba durum bu değilse, hello kodlama türü bir http yanıt üstbilgisi gibi belirtin `Content-Type:text/html;charset=utf-8`.
+Uygulama proxy'si uygulamaları UTF-8'de kodlandığını varsayar. Bu durumda değilse kodlama türü bir http yanıt üstbilgisi gibi belirtin `Content-Type:text/html;charset=utf-8`.
 
 ### <a name="which-links-are-affected"></a>Hangi bağlantıların etkilenen?
 
-Merhaba bağlantı çeviri özelliği yalnızca kod etiketler, bir uygulamanın hello gövdesinde yer alan bağlantıları arar. Uygulama proxy'si tanımlama bilgilerini veya URL'leri üstbilgilerinde çevirme için ayrı bir özellik vardır. 
+Bağlantı çeviri özelliği yalnızca bir uygulama gövdesinde kod etiketleri olan bağlantılar arar. Uygulama proxy'si tanımlama bilgilerini veya URL'leri üstbilgilerinde çevirme için ayrı bir özellik vardır. 
 
 Şirket içi uygulamalara iç bağlantıları iki genel türleri şunlardır:
 
-- **Göreli iç bağlantıları** bu noktası tooa paylaşılan kaynak gibi bir yerel dosya yapısında `/claims/claims.html`. Uygulama proxy'si aracılığıyla yayımlanır ve toowork ile veya olmadan bağlantı çeviri devam uygulamalarında bu bağlantıları otomatik olarak çalışır. 
-- **Sabit kodlanmış iç bağlantılar** tooother şirket içi uygulamalar gibi `http://expenses` ya da dosyalar gibi yayımlanan `http://expenses/logo.jpg`. Merhaba bağlantı çeviri özelliğini sabit kodlanmış iç bağlantıları çalışır ve uzak kullanıcılar toogo aracılığıyla gereken toopoint toohello dış URL'ler değiştirir.
+- **Göreli iç bağlantıları** bir yerel dosya yapısında bir paylaşılan kaynak noktasına ister `/claims/claims.html`. Bu bağlantılar otomatik olarak uygulama proxy'si aracılığıyla yayımlanır ve ile veya olmadan bağlantı çeviri çalışmaya devam uygulamaları çalışın. 
+- **Sabit kodlanmış iç bağlantılar** gibi diğer şirket içi uygulamalara `http://expenses` ya da dosyalar gibi yayımlanan `http://expenses/logo.jpg`. Bağlantı çeviri özelliğini sabit kodlanmış iç bağlantıları çalışır ve bunları uzak kullanıcıların geçmeniz URL'lere işaret edecek şekilde değiştirir.
 
-### <a name="how-do-apps-link-tooeach-other"></a>Uygulamaları tooeach diğer nasıl bağlanır?
+### <a name="how-do-apps-link-to-each-other"></a>Nasıl uygulamaları birbirine bağlamak?
 
-Merhaba uygulama başına düzeyinde hello kullanıcı deneyimi üzerinde denetiminiz bağlantı çeviri her uygulama için etkinleştirilir. Bir uygulama için bağlantı çeviri hello bağlantılar istediğinizde Aç *gelen* o uygulama toobe çevrilmiş, olmayan bağlantıları *için* bu uygulama. 
+Böylece uygulama başına düzeyinde kullanıcı deneyimi üzerinde denetiminiz bağlantı çeviri her uygulama için etkinleştirilir. Bir uygulama için bağlantı çeviri bağlantıları istediğinizde Aç *gelen* çevrilecek, bu uygulama olmayan bağlantıları *için* bu uygulama. 
 
-Örneğin, uygulama tüm tooeach diğer bağlantı Proxy üzerinden yayımlanan üç uygulama olduğunu varsayalım: avantajları, gider ve seyahat. Dördüncü bir uygulama, uygulama proxy'si aracılığıyla yayımlanan değil geri bildirim yoktur.
+Örneğin, uygulama tüm diğer için bağlantı Proxy üzerinden yayımlanan üç uygulama olduğunu varsayalım: avantajları, gider ve seyahat. Dördüncü bir uygulama, uygulama proxy'si aracılığıyla yayımlanan değil geri bildirim yoktur.
 
-Bağlantı çevirisi hello avantajları uygulama için etkinleştirdiğinizde, hello bağlantılar tooExpenses ve seyahat yeniden yönlendirilen toohello dış URL'ler bu uygulamalarda, ancak hiçbir dış URL olduğundan hello bağlantı tooFeedback yeniden yönlendirilen değil. Bağlantılar giderleri ve seyahat bağlantı çeviri iki uygulamalarla için etkin değil çünkü müşteri geri tooBenefits çalışmıyor.
+Bağlantı çevirisi avantajları uygulama için etkinleştirdiğinizde, giderleri ve seyahat bağlantılar dış URL'ler bu uygulamalarda yönlendirilir, ancak hiçbir dış URL olduğundan geri bildirim bağlantısını yeniden yönlendirilen değil. Bağlantı çeviri iki uygulamalarla için etkin değil çünkü bağlantılardan gider ve seyahat geri avantajları çalışmıyor.
 
-![Bağlantı çeviri etkinleştirildiğinde avantajları tooother uygulamalardan bağlantılar](./media/application-proxy-link-translation/one_app.png)
+![Avantajları bağlanan bağlantı çeviri etkinleştirilmişse, diğer uygulamalar](./media/application-proxy-link-translation/one_app.png)
 
 ### <a name="which-links-arent-translated"></a>Hangi bağlantıların çevrilen değil mi?
 
-tooimprove performans ve güvenlik, bazı bağlantılar olmayan çevrilen:
+Performans ve güvenliği iyileştirmek için bazı bağlantılar çevrilen değil:
 
 - Bağlantılar kod etiketleri içinde değil. 
 - Bağlantılar HTML, CSS ve JavaScript içinde değil. 
-- İç bağlantılar diğer programlardan açıldı. Gönderilen e-posta veya anlık ileti veya diğer belgelerde bulunan bağlantılar çevrilmiş olmaz. Merhaba kullanıcıların tooknow toogo toohello dış URL gerekir.
+- İç bağlantılar diğer programlardan açıldı. Gönderilen e-posta veya anlık ileti veya diğer belgelerde bulunan bağlantılar çevrilmiş olmaz. Kullanıcıların dış URL'sine gitmek için bilmeniz gerekir.
 
-Şu iki senaryodan biri toosupport gerekiyorsa, kullanım hello aynı bağlantı çeviri yerine iç ve dış URL.  
+Şu iki senaryodan biri desteklemeniz gerekiyorsa, aynı iç ve dış URL yerine bağlantı çeviri kullanın.  
 
 ## <a name="enable-link-translation"></a>Bağlantı çeviri etkinleştir
 
 Bağlantı çevirisi ile çalışmaya başlama düğmesi olarak kadar kolaydır:
 
-1. İçinde toohello oturum [Azure portal](https://portal.azure.com) yönetici olarak.
-2. Çok Git**Azure Active Directory** > **kurumsal uygulamalar** > **tüm uygulamaları** > select hello uygulamayı toomanage > **Uygulama proxy'si**.
-3. Kapatma **Çevir URL'leri uygulama gövdesindeki** çok**Evet**.
+1. [Azure Portal](https://portal.azure.com)’da yönetici olarak oturum açın.
+2. Git **Azure Active Directory** > **kurumsal uygulamalar** > **tüm uygulamaları** > yönetmek istediğiniz uygulamayı seçin >  **Uygulama proxy'si**.
+3. Kapatma **Çevir URL'leri uygulama gövdesindeki** için **Evet**.
 
-   ![Evet tootranslate URL'leri uygulama gövdesinde seçin](./media/application-proxy-link-translation/select_yes.png).
-4. Seçin **kaydetmek** tooapply değişikliklerinizi.
+   ![Uygulama gövdesinde URL'leri çevirmek için Evet'i seçin](./media/application-proxy-link-translation/select_yes.png).
+4. Seçin **kaydetmek** değişikliklerinizi uygulamak için.
 
-Kullanıcıların bu uygulamayı eriştiğinizde, şimdi hello proxy otomatik olarak uygulama proxy'si aracılığıyla Kiracı'yayımlandı iç URL'ler için tarar.
+Kullanıcıların bu uygulamayı eriştiğinizde, artık, proxy otomatik olarak uygulama proxy'si aracılığıyla Kiracı'yayımlandı iç URL'ler için tarar.
 
 ## <a name="send-feedback"></a>Geri bildirim gönderin
 
-Yardım toomake bu özellik iş tüm uygulamalar istiyoruz. Biz 30 etiketleri HTML ve CSS arayın ve hangi JavaScript durumlarda toosupport dikkate. Çevrildiğini olmayan oluşturulan bağlantıları örneği varsa, bir kod parçacığı çok göndermeniz[uygulama Proxy geri bildirim](mailto:aadapfeedback@microsoft.com). 
+Bu özellik, uygulamalarınız için iş yapmak için Yardım istiyoruz. Biz 30 etiketleri HTML ve CSS arayın ve hangi desteklemek için JavaScript durumlarda değerlendiriyorsanız. Çevrildiğini olmayan oluşturulan bağlantıları örneği varsa, bir kod parçacığı göndermeniz [uygulama Proxy geri bildirim](mailto:aadapfeedback@microsoft.com). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure AD uygulama proxy'si ile özel etki alanları kullanabilirsiniz](active-directory-application-proxy-custom-domains.md) toohave hello aynı iç ve dış URL
+[Azure AD uygulama proxy'si ile özel etki alanları kullanabilirsiniz](active-directory-application-proxy-custom-domains.md) aynı iç ve dış URL sağlamak için
 
 [SharePoint 2013 için diğer erişim eşleşmeleri yapılandırın](https://technet.microsoft.com/library/cc263208.aspx)

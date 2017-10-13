@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure VPN ağ geçidi belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
-description: "Tooconfigure sanal özel ağ (VPN) ağ geçitleri toomanage nasıl trafiği bulut sanal ağlar arasında veya şirket içi ve bulut sanal ağları arasında bilgi edinin."
+title: "Azure VPN Gateway Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Bulut sanal ağları ile şirket içi ağlar arasındaki ya da farklı bulut sanal ağları arasındaki trafiği yönetmek üzere sanal özel ağ (VPN) geçitleri yapılandırmayı öğrenin."
 services: vpn-gateway
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: a518f39e0cb8761e239d0c033a7801803edfd0a7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 61273e472dd0d0727df40984ad277aaf4c244611
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vpn-gateway-documentation"></a>VPN Gateway Belgeleri
 
-Bilgi nasıl tooconfigure VPN ağ geçidi, bir sanal özel ağ geçidi. Belgeleri nasıl toosend ağ trafiğini Azure sanal ağlar ve şirket içi konumlara arasında veya diğer Azure sanal ağlar (Vnet'ler) gösterir.
+Sanal bir özel ağ geçidi olan VPN Gateway’i nasıl yapılandıracağınızı öğrenin. Belgelerde, Azure sanal ağları ile şirket içi ağlar arasında ya da diğer Azure sanal ağları arasında ağ trafiği gönderme işleminin nasıl yapılacağı gösterilmiştir.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -88,7 +88,7 @@ Bilgi nasıl tooconfigure VPN ağ geçidi, bir sanal özel ağ geçidi. Belgeler
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Hello Azure portalını kullanarak siteden siteye bağlantı oluşturma kullanmaya başlama</h3>
+                        <h3>Azure portalını kullanarak konumdan konuma bağlantı oluşturmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@ Bilgi nasıl tooconfigure VPN ağ geçidi, bir sanal özel ağ geçidi. Belgeler
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Hello Azure portal kullanarak bir noktadan siteye bağlantı oluşturma kullanmaya başlama</h3>
+                        <h3>Azure portalını kullanarak noktadan konuma bağlantı oluşturmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -124,7 +124,7 @@ Bilgi nasıl tooconfigure VPN ağ geçidi, bir sanal özel ağ geçidi. Belgeler
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Hello Azure portalını kullanarak VNet-VNet bağlantısı oluşturmaya başlamak</h3>
+                        <h3>Azure portalını kullanarak Sanal Ağdan Sanal Ağa bağlantı oluşturmaya başlama</h3>
                     </div>
                 </div>
             </div>

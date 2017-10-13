@@ -1,14 +1,14 @@
-#### <a name="toocreate-public-endpoints-on-hello-virtual-device"></a>toocreate hello sanal cihazda ortak uç noktaları
+#### <a name="to-create-public-endpoints-on-the-virtual-device"></a>Sanal cihazda genel uç noktalar oluşturmak için
 
-1. İçinde toohello Klasik Azure portalında oturum açın.
-2. Tıklatın **sanal makineleri**, ve ardından sanal cihazınız olarak kullanılan sanal makine seçin hello.
-3. **Uç Noktalar**’a tıklayın. Merhaba **uç noktaları** sayfa hello sanal makine için tüm uç noktaları listeler.
-4. **Ekle**'ye tıklayın. Merhaba **uç nokta Ekle** iletişim kutusu görüntülenir. Merhaba ok toocontinue'ı tıklatın.
-5. Hello için **adı**, türü hello aşağıdaki hello uç noktası için ad: **WinRMHttps**.
-6. Hello için **Protokolü**, belirtin **TCP**.
-7. Hello için **genel bağlantı noktası**, toouse hello bağlantı için istediğiniz başlangıç bağlantı noktası numaralarını yazın.
-8. Hello için **özel bağlantı noktası**, türü **5986**.
-9. Merhaba onay işareti toocreate hello uç noktasına tıklayın.
+1. Klasik Azure portalında oturum açın.
+2. **Virtual Machines**’e tıklayın ve sanal cihazınız olarak kullanılacak sanal makineyi seçin.
+3. **Uç Noktalar**’a tıklayın. **Uç Noktalar** sayfası sanal makineyle ilgili tüm uç noktaları listeler.
+4. **Ekle**'ye tıklayın. **Uç Nokta Ekle** iletişim kutusu görünür. Devam etmek için oka tıklayın.
+5. **Ad** için şu uç nokta adını yazın: **WinRMHttps**.
+6. **Protokol** için **TCP**’yi belirtin.
+7. **Genel Bağlantı Noktası** için bağlantıda kullanmak istediğiniz bağlantı noktası numaralarını yazın.
+8. **Özel Bağlantı Noktası** için **5986** yazın.
+9. Uç noktası oluşturmak için onay işaretine tıklayın.
 
-Merhaba uç nokta oluşturulduktan sonra ayrıntıları toodetermine hello ortak sanal IP (VIP) adresini görüntüleyebilirsiniz. Bu adresini kaydedin.
+Uç nokta oluşturulduktan sonra, Genel Sanal IP (VIP) adresini saptamak için ayrıntılarını görüntüleyebilirsiniz. Bu adresini kaydedin.
 

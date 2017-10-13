@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure hizmet veri yolu belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
-description: "Bulut ortamları ve ileti yukarı tooset uygulamaları ve Hizmetleri şirket içi arasında şeklini öğrenin.  Öğreticiler, videolar, API başvuruları ve daha fazlası."
+title: "Azure Service Bus Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Şirket içi ortam ve bulut ortamındaki uygulama ve hizmetleri bağlayan bir mesajlaşma hizmeti ayarlama hakkında bilgi edinin.  Öğreticiler, videolar, API başvuruları ve daha fazlası."
 services: service-bus
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/14/2017
 ms.author: carolz
-ms.openlocfilehash: 68df38c39d6f5da112b44025aaf393df542ce01a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 9651d93f4d29121e561108845ed48558e46e42f5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="service-bus-documentation"></a>Service Bus Belgeleri
 
-Bulut ortamları ve nasıl toouse Service Bus ve geçiş tooconnect üzerinden şirket içi öğrenin. Öğreticiler, videolar, API başvuru ve diğer belgeleri göster nasıl tooset uygulamalar ve hizmetler Mesajlaşma bulut ayarlama.
+Service Bus ve Relay kullanarak şirket içi ortamlarda ve bulut ortamlarında bağlantı kurmayı öğrenin. Öğreticiler, videolar, API başvuruları ve diğer belgelerde, uygulamalar ile hizmetler arasında bulut mesajlaşmasını nasıl ayarlayabileceğiniz açıklanmıştır.
 
 <ul class="panelContent cardsFTitle">
     <li>

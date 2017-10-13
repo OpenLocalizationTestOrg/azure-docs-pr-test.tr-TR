@@ -1,6 +1,6 @@
 ---
-title: "Hive ve Hadoop - Azure Hdınsight kullanarak aaaAnalyze algılayıcı verilerini | Microsoft Docs"
-description: "Hive sorgusu Konsolu Hdınsight (Hadoop) ile kullanarak tooanalyze algılayıcı verilerini nasıl hello öğrenin ve ardından PowerView ile Microsoft Excel'i hello verileri görselleştirmek."
+title: "Hive ve Hadoop - Azure Hdınsight kullanarak algılayıcı verilerini çözümleme | Microsoft Docs"
+description: "Hive sorgusu konsol Hdınsight (Hadoop) kullanarak algılayıcı verilerini çözümlemeyi öğrenin ve ardından PowerView ile Microsoft Excel verilerini görselleştirin."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -16,28 +16,28 @@ ms.topic: article
 ms.date: 04/14/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 70e595705c33d9835dc9809161f79c3ac5ece870
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3abb71c12b4769bebd808276f8bdd832aad22d7a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="analyze-sensor-data-using-hello-hive-query-console-on-hadoop-in-hdinsight"></a>Hdınsight'ta Hadoop Hive sorgusu konsol Hello kullanarak algılayıcı verilerini çözümleme
+# <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>Hdınsight'ta Hadoop Hive sorgusu Konsolu kullanarak algılayıcı verilerini çözümleme
 
-Tooanalyze algılayıcı verilerini kullanarak Hive sorgusu Konsolu Hdınsight (Hadoop) ile nasıl hello öğrenin ve ardından hello Microsoft Excel'de Power View kullanarak görselleştirmek.
+Hive sorgusu konsol Hdınsight (Hadoop) kullanarak algılayıcı verilerini çözümlemeyi öğrenin ve Power View'ı kullanarak Microsoft Excel verilerini görselleştirin.
 
 > [!IMPORTANT]
-> Merhaba Windows tabanlı Hdınsight kümeleri ile bu belgeyi yalnızca çalışma adımları. Hdınsight yalnızca Windows'da Hdınsight 3.4 ' düşük sürümleri için kullanılabilir. Linux hello yalnızca Hdınsight sürüm 3.4 veya büyük kullanılan işletim sistemini ' dir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Bu belgede yer alan adımlar, yalnızca Windows tabanlı Hdınsight kümeleri ile çalışır. Hdınsight yalnızca Windows'da Hdınsight 3.4 ' düşük sürümleri için kullanılabilir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 
-Bu örnekte, Hive tooprocess geçmiş verileri kullanın ve sorunları ısıtma sistemleriyle tanımlayın. Özellikle, sistemleri belirlemek olan erişilemiyor tooreliably korumak ayarlı sıcaklığı hello aşağıdaki görevleri gerçekleştirerek:
+Bu örnekte, Hive geçmiş verileri işlemek ve ısıtma sistemleriyle sorunlarını belirlemek için kullanın. Özellikle, sistemleri belirlemek aşağıdaki görevleri gerçekleştirerek ayarlı sıcaklığı güvenilir bir şekilde korumak mümkün değildir:
 
-* Oluşturma HIVE tabloları tooquery verileri virgülle ayrılmış değer (CSV) dosyalarında depolanır.
-* HIVE sorguları tooanalyze hello veri oluşturun.
-* tooretrieve analiz hello veriler, Microsoft Excel tooconnect tooHDInsight kullanın.
-* toovisualize hello verileri, Power View kullanın.
+* HIVE tablolarını virgülle ayrılmış değer (CSV) dosyasında depolanan verileri sorgulayamadı oluşturun.
+* Verileri çözümlemek için HIVE sorguları oluşturun.
+* Çözümlenen verileri almak üzere Hdınsight'a bağlanmak için Microsoft Excel kullanın.
+* Verileri görselleştirmek için Power View'ı kullanın.
 
-![Merhaba çözüm mimarisi diyagramı](./media/hdinsight-hive-analyze-sensor-data/hvac-architecture.png)
+![Çözüm mimarisi diyagramı](./media/hdinsight-hive-analyze-sensor-data/hvac-architecture.png)
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -49,18 +49,18 @@ Bu örnekte, Hive tooprocess geçmiş verileri kullanın ve sorunları ısıtma 
 
 * [Microsoft Hive ODBC sürücüsü](http://www.microsoft.com/download/details.aspx?id=40886)
 
-## <a name="toorun-hello-sample"></a>toorun hello örnek
+## <a name="to-run-the-sample"></a>Örneği çalıştırmak için
 
-1. Web tarayıcınızdan URL aşağıdaki toohello gidin: 
+1. Web tarayıcınızdan aşağıdaki URL'sine gidin: 
 
          https://<clustername>.azurehdinsight.net
 
-    Değiştir `<clustername>` Hdınsight kümenize hello adı.
+    `<clustername>` değerini HDInsight kümenizin adıyla değiştirin.
 
-    İstendiğinde, hello yönetici kullanıcı adını ve bu küme hazırlama sırasında kullanılan parola kullanarak kimlik doğrulaması.
+    İstendiğinde, yönetici kullanıcı adını ve bu küme hazırlama sırasında kullanılan parola kullanarak kimlik doğrulaması.
 
-2. Hello web açan sayfasından hello tıklatın **alma başlatıldı galeri** sekmesinde hello altında ve **çözümleri örnek verilerle** kategorisi, hello tıklatın **algılayıcı verilerini çözümleme** örnek.
+2. Web açan sayfasından tıklatın **alma başlatıldı galeri** sekmesi ve ardından **örnek verilerle çözümleri** kategorisi, tıklatın **algılayıcı verilerini çözümleme** örnek.
 
     ![Başlatılan galeri görüntüsü alma](./media/hdinsight-hive-analyze-sensor-data/getting-started-gallery.png)
 
-3. Merhaba web sayfası toofinish hello örnek üzerinde sağlanan hello yönergeleri izleyin.
+3. Örnek tamamlamak için web sayfasında sağlanan yönergeleri izleyin.

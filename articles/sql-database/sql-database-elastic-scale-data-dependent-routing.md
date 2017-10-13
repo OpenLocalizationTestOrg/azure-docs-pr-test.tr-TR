@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL veritabanı ile yönlendirme bağımlı aaaData | Microsoft Docs"
-description: "Nasıl toouse hello veri bağımlı yönlendirme, Azure SQL veritabanında parçalı veritabanlarının bir özellik için .NET uygulamalarında ShardMapManager sınıfı"
+title: "Azure SQL veritabanı ile yönlendirme bağımlı veri | Microsoft Docs"
+description: "Veri bağımlı yönlendirme, Azure SQL veritabanında parçalı veritabanlarının bir özellik için .NET uygulamalarında ShardMapManager sınıfını kullanma"
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -15,34 +15,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2017
 ms.author: ddove
-ms.openlocfilehash: 34014508ae01905686791fe096bb275cb84f53b4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 6b68bbb0133afd1493acdb58f79f3eeaf6a8d7cd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="data-dependent-routing"></a>Verilere bağımlı yönlendirme
-**Veri bağımlı yönlendirme** hello özelliği toouse hello veritabanında bir sorgu tooroute hello isteği tooan uygun verilerdir. Bu temel düzeni parçalı veritabanları ile çalışırken. özellikle hello parçalama anahtar hello sorgu parçası değilse hello istek bağlamı kullanılan tooroute hello isteği de olabilir. Her özel bir sorgu veya işlem veri bağımlı yönlendirme kullanarak bir uygulama içinde kısıtlı tooaccessing istek başına tek bir veritabanı değil. Hello Azure SQL veritabanı esnek araçlar bu üretim hello ile gerçekleştirilir  **[ShardMapManager sınıfı](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)**  ADO.NET uygulamalarında.
+**Veri bağımlı yönlendirme** uygun bir veritabanına isteği yönlendirmek için bir sorguda veri kullanma yeteneği. Bu temel düzeni parçalı veritabanları ile çalışırken. Özellikle parçalama anahtar sorgu parçası değilse, istek bağlamını isteği yönlendirmek için de kullanılabilir. Her özel bir sorgu veya veri bağımlı yönlendirme kullanarak bir uygulamayı işlemde istek başına tek bir veritabanına erişmek için sınırlıdır. Azure SQL veritabanı esnek araçlar için bu yönlendirme ile gerçekleştirilir  **[ShardMapManager sınıfı](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)**  ADO.NET uygulamalarında.
 
-Merhaba uygulaması, çeşitli bağlantı dizeleri veya hello parçalı ortamında verileri farklı dilimleri ilişkili DB konumları tootrack gerekmez. Bunun yerine, hello [parça eşleme Yöneticisi](sql-database-elastic-scale-shard-map-management.md) hello parça eşleme ve hello hello uygulamanın isteği hello hedefidir hello parçalama anahtarının değerini hello veriler temelinde gerekli olduğunda, açılır bağlantıları toohello doğru veritabanları. Merhaba anahtarıdır genellikle hello *customer_id*, *tenant_id*, *date_key*, veya temel parametresi hello veritabanı isteğinin bazı bir belirli tanıtıcı). 
+Uygulama çeşitli bağlantı dizeleri ya da parçalı ortamında verileri farklı dilimleri ilişkili DB konumları izlemek zorunda değildir. Bunun yerine, [parça eşleme Yöneticisi](sql-database-elastic-scale-shard-map-management.md) tabanlı açar bağlantılar gerektiğinde, doğru veritabanlarına parça eşleme ve uygulamanın isteği hedefidir parçalama anahtarının değerini veriler üzerinde. Genellikle anahtarıdır *customer_id*, *tenant_id*, *date_key*, veya veritabanı isteğin temel parametresi bazı bir belirli tanıtıcı). 
 
 Daha fazla bilgi için bkz: [ölçeklendirme çıkışı SQL Server ile veri bağımlı yönlendirme](https://technet.microsoft.com/library/cc966448.aspx).
 
-## <a name="download-hello-client-library"></a>Merhaba istemci kitaplığı indirin
-tooget hello sınıfı, yükleme hello [esnek veritabanı istemci Kitaplığı](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
+## <a name="download-the-client-library"></a>İstemci kitaplığını yükle
+Sınıfını almak için yükleme [esnek veritabanı istemci Kitaplığı](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
 
 ## <a name="using-a-shardmapmanager-in-a-data-dependent-routing-application"></a>Bir ShardMapManager bir veri bağımlı yönlendirme uygulamasında kullanma
-Uygulamaları hello örneği **ShardMapManager** hello fabrikada çağrısı kullanarak başlatma sırasında  **[GetSQLShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)**. Bu örnekte, hem bir **ShardMapManager** ve belirli bir **ShardMap** içerdiği başlatılır. Gösterir hello GetSqlShardMapManager Bu örnek ve [GetRangeShardMap](https://msdn.microsoft.com/library/azure/dn824173.aspx) yöntemleri.
+Uygulamaları örneği **ShardMapManager** başlatılması sırasında fabrikada çağrısı kullanarak  **[GetSQLShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.getsqlshardmapmanager.aspx)**. Bu örnekte, hem bir **ShardMapManager** ve belirli bir **ShardMap** içerdiği başlatılır. Bu örnek GetSqlShardMapManager gösterir ve [GetRangeShardMap](https://msdn.microsoft.com/library/azure/dn824173.aspx) yöntemleri.
 
     ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString, 
                       ShardMapManagerLoadPolicy.Lazy);
     RangeShardMap<int> customerShardMap = smm.GetRangeShardMap<int>("customerMap"); 
 
-### <a name="use-lowest-privilege-credentials-possible-for-getting-hello-shard-map"></a>Merhaba parça eşleme için olası en düşük ayrıcalıklı kimlik bilgileri kullanın
-Bir uygulama hello parça eşleme kendisini düzenleme değil, hello Fabrika yönteminde kullanılan hello kimlik hello üzerinde salt okunur yalnızca izinleri olmalıdır **genel parça eşleme** veritabanı. Bu kimlik bilgileri kullanılan kimlik bilgileri tooopen bağlantıları toohello parça eşleme yöneticisinden genellikle farklıdır. Ayrıca bkz. [kimlik bilgileri kullanılan tooaccess hello esnek veritabanı istemci Kitaplığı](sql-database-elastic-scale-manage-credentials.md). 
+### <a name="use-lowest-privilege-credentials-possible-for-getting-the-shard-map"></a>Parça eşleme için olası en düşük ayrıcalıklı kimlik bilgileri kullanın
+Bir uygulama parça eşleme düzenleme değil, Fabrika yönteminde kullanılan kimlik bilgileri yalnızca salt okunur izinleri olmalıdır **genel parça eşleme** veritabanı. Bu kimlik bilgileri bağlantıları parça eşleme Yöneticisi'ni açmak için kullanılan kimlik bilgileri genellikle farklıdır. Ayrıca bkz. [esnek veritabanı istemci kitaplığına erişmek için kullanılan kimlik bilgileri](sql-database-elastic-scale-manage-credentials.md). 
 
-## <a name="call-hello-openconnectionforkey-method"></a>Merhaba OpenConnectionForKey yöntemini çağırın
-Merhaba  **[ShardMap.OpenConnectionForKey yöntemi](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx)**  bir ADO.Net bağlantı komutları toohello uygun veritabanı hello değerine göre hello verme için hazır döndürür **anahtar**parametresi. Parça bilgileri tarafından hello hello uygulamada önbelleğe **ShardMapManager**, bu istekleri genellikle bir veritabanı araması hello karşı içermeyen **genel parça eşleme** veritabanı. 
+## <a name="call-the-openconnectionforkey-method"></a>OpenConnectionForKey yöntemini çağırın
+ **[ShardMap.OpenConnectionForKey yöntemi](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx)**  bir ADO.Net bağlantı komutları değerine göre uygun veritabanı verme için hazır döndürür **anahtar** parametre. Parça bilgi uygulama tarafından önbelleğe alınmış **ShardMapManager**, bu istekleri genellikle bir veritabanı araması karşı içermeyen **genel parça eşleme** veritabanı. 
 
     // Syntax: 
     public SqlConnection OpenConnectionForKey<TKey>(
@@ -52,21 +52,21 @@ Merhaba  **[ShardMap.OpenConnectionForKey yöntemi](https://msdn.microsoft.com/l
     )
 
 
-* Merhaba **anahtar** parametresi kullanılır arama anahtarı olarak hello parça eşleme toodetermine hello uygun veritabanına hello talebi. 
-* Merhaba **connectionString** kullanılan toopass istenen hello bağlantı için yalnızca hello kullanıcı kimlik bilgileri olan. Hiçbir veritabanı adı veya sunucu adı bu dahil edilen *connectionString* hello yöntemi hello veritabanı ve sunucu hello kullanarak belirlediğinden **ShardMap**. 
-* Merhaba  **[connectionOptions](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions.aspx)**  çok ayarlanmalıdır**ConnectionOptions.Validate** burada parça eşleyen bir ortam değiştirebilir ve satırlar tooother veritabanları taşındığında bir bölme ve birleştirme işlemleri sonucu. Bu kısa sorgu toohello yerel parça eşleme içerir hello bağlantı önce hello hedef veritabanında (toohello genel parça eşleme değil) toohello uygulama teslim edilir. 
+* **Anahtar** parametresi arama anahtarı olarak parça eşlemeye istek için uygun veritabanı belirlemek için kullanılır. 
+* **ConnectionString** yalnızca kullanıcı kimlik bilgilerini istenen bağlantı için geçirmek için kullanılır. Hiçbir veritabanı adı veya sunucu adı bu dahil edilen *connectionString* yöntemi ve veritabanı sunucusu kullanarak belirlediğinden **ShardMap**. 
+*  **[ConnectionOptions](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions.aspx)**  ayarlanmalı **ConnectionOptions.Validate** burada parça eşleyen bir ortam değişebilir ve satır diğer veritabanlarına sonucu olarak taşırsanız Bölünmüş veya birleştirme işlemleri. Bu hedefte yerel parça eşleme için kısa bir sorgu içerir bağlantı uygulamaya teslim edilmeden önce veritabanı (değil genel parça eşleme için). 
 
-(Merhaba önbellek yanlış olduğunu belirten) hello yerel parça eşleme karşı Hello doğrulama başarısız olursa, hello parça eşleme Yöneticisi hello genel parça eşleme tooobtain hello yeni doğru değeri sorgu hello arama için güncelleştirme hello önbellek ve edinmeli ve dönüş hello uygun veritabanı bağlantısı. 
+(Önbellek yanlış olduğunu belirten) yerel parça eşleme karşı doğrulama başarısız olursa, parça eşleme Yöneticisi arama yeni doğru değerini edinme, önbellek, güncelleştirme ve elde ve uygun veritabanı dönmek için genel parça harita sorgulama bağlantı. 
 
-Kullanım **ConnectionOptions.None** uygulamanın çevrimiçi durumdayken yalnızca zaman parça eşleme değişiklikleri beklenmez. Bu durumda, önbelleğe alınmış hello değerleri tooalways doğru ve hello çok gidiş dönüş doğrulama çağrısı toohello hedef veritabanı güvenle atlanabilir varsayılabilir. Veritabanı trafiğini azaltır. Merhaba **connectionOptions** ayrıca bir yapılandırma dosyası tooindicate değerinde aracılığıyla parçalama değişiklikleri beklenen olup olmadığını veya bir zaman aralığında değil sırasında ayarlanabilir.  
+Kullanım **ConnectionOptions.None** uygulamanın çevrimiçi durumdayken yalnızca zaman parça eşleme değişiklikleri beklenmez. Bu durumda, önbelleğe alınan değer her zaman doğru olması için kabul edilebilir ve hedef veritabanına ek gidiş dönüş doğrulama çağrısı güvenle atlanabilir. Veritabanı trafiğini azaltır. **ConnectionOptions** bir değer parçalama değişiklikleri beklenen olup olmadığını belirtmek için bir yapılandırma dosyası veya bir zaman aralığında sırasında değil de ayarlanabilir.  
 
-Bu örnek bir tamsayı anahtarı hello değerini kullanır **CustomerID**kullanarak bir **ShardMap** adlı nesne **customerShardMap**.  
+Bu örnek bir tamsayı anahtarının değerini kullanır **CustomerID**kullanarak bir **ShardMap** adlı nesne **customerShardMap**.  
 
     int customerId = 12345; 
     int newPersonId = 4321; 
 
-    // Connect toohello shard for that customer ID. No need toocall a SqlConnection 
-    // constructor followed by hello Open method.
+    // Connect to the shard for that customer ID. No need to call a SqlConnection 
+    // constructor followed by the Open method.
     using (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId, 
         Configuration.GetCredentialsConnectionString(), ConnectionOptions.Validate)) 
     { 
@@ -81,14 +81,14 @@ Bu örnek bir tamsayı anahtarı hello değerini kullanır **CustomerID**kullana
         cmd.ExecuteNonQuery(); 
     }  
 
-Merhaba **OpenConnectionForKey** yöntemi yeni bir bağlantı zaten açık toohello doğru veritabanı döndürür. Bu şekilde kullanılan bağlantılar hala ADO.Net bağlantı havuzu tam avantajından yararlanmak. İşlemler ve istekleri tarafından bir parça aynı anda karşılanabilir sürece bu hello yalnızca değişikliği zaten ADO.Net kullanarak bir uygulama gerekli olmalıdır. 
+**OpenConnectionForKey** yöntemi doğru veritabanına yeni bir zaten açık bağlantı döndürür. Bu şekilde kullanılan bağlantılar hala ADO.Net bağlantı havuzu tam avantajından yararlanmak. İşlemler ve istekleri tarafından bir parça aynı anda karşılanabilir sürece, bu uygulamada zaten ADO.Net kullanarak gerekli yalnızca değişikliği olmalıdır. 
 
-Merhaba  **[OpenConnectionForKeyAsync yöntemi](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync.aspx)**  da uygulamanızı ADO.Net ile zaman uyumsuz programlama kullanım yaparsa kullanılabilir. Davranışını hello ADO eşdeğer yönlendirme bağımlı verilerdir. NET'in  **[Connection.OpenAsync](https://msdn.microsoft.com/library/hh223688\(v=vs.110\).aspx)**  yöntemi.
+ **[OpenConnectionForKeyAsync yöntemi](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkeyasync.aspx)**  da uygulamanızı ADO.Net ile zaman uyumsuz programlama kullanım yaparsa kullanılabilir. Davranışını ADO eşdeğer yönlendirme bağımlı veridir. NET'in  **[Connection.OpenAsync](https://msdn.microsoft.com/library/hh223688\(v=vs.110\).aspx)**  yöntemi.
 
 ## <a name="integrating-with-transient-fault-handling"></a>Geçici hata işleme ile tümleştirme
-Geçici hataları hello uygulama tarafından yakalanan ve bir hata atmadan önce birkaç kez yeniden hello işlemleri tooensure veri erişimi uygulamaları hello bulutta geliştirilmesi konusunda en iyi bir uygulamadır. Geçici hata bulut uygulamaları için işleme sırasında ele alınmıştır [geçici hata işleme](https://msdn.microsoft.com/library/dn440719\(v=pandp.60\).aspx). 
+Veri erişimi uygulamaları bulutta geliştirilmesi konusunda en iyi uygulama, uygulama tarafından geçici hataları yakalanır ve işlemleri hata atmadan önce birkaç kez denenir emin olmaktır. Geçici hata bulut uygulamaları için işleme sırasında ele alınmıştır [geçici hata işleme](https://msdn.microsoft.com/library/dn440719\(v=pandp.60\).aspx). 
 
-Geçici hata işleme hello veri bağımlı yönlendirme desenle doğal olarak bulunabilir. Merhaba anahtar tooretry hello tüm veri erişim isteği hello dahil olmak üzere gereksinimdir **kullanarak** hello veri bağımlı yönlendirme bağlantısı elde bloğu. Yukarıdaki örnekte Hello (vurgulanan değişiklik unutmayın) aşağıdaki gibi yeniden yazılmıştır. 
+Geçici hata işleme, veri bağımlı yönlendirme desenle doğal olarak bulunabilir. Tüm veri erişim isteği dahil olmak üzere yeniden denemek için önemli gereksinimdir **kullanarak** veri bağımlı yönlendirme bağlantısı elde bloğu. Yukarıdaki örnekte (vurgulanmış Not değiştirin) aşağıdaki gibi yeniden yazılmıştır. 
 
 ### <a name="example---data-dependent-routing-with-transient-fault-handling"></a>Örnek - veri geçici hata işleme ile yönlendirme bağımlı
 <pre><code>int customerId = 12345; 
@@ -96,7 +96,7 @@ int newPersonId = 4321;
 
 <span style="background-color:  #FFFF00">Configuration.SqlRetryPolicy.ExecuteAction(() =&gt; </span> 
 <span style="background-color:  #FFFF00">    { </span>
-        // Connect toohello shard for a customer ID. 
+        // Connect to the shard for a customer ID. 
         using (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId,  
         Configuration.GetCredentialsConnectionString(), ConnectionOptions.Validate)) 
         { 
@@ -117,13 +117,13 @@ int newPersonId = 4321;
 </code></pre>
 
 
-Gerekli tooimplement geçici hata işleme olan paketler Merhaba esnek veritabanı örnek uygulaması oluşturduğunuzda otomatik olarak yüklenir. Paketleri de edinilebilir ayrı olarak [Kurumsal Library - geçici hata işleme uygulama blok](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/). Sürüm 6.0 veya üstü kullanın. 
+Esnek veritabanı örnek uygulamasını derlerken geçici hata işleme uygulanması için gerekli paketleri otomatik olarak yüklenir. Paketleri de edinilebilir ayrı olarak [Kurumsal Library - geçici hata işleme uygulama blok](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/). Sürüm 6.0 veya üstü kullanın. 
 
 ## <a name="transactional-consistency"></a>İşlem tutarlılığı
-İşlem özellikleri için tüm işlemleri yerel tooa parça sağlanır. Örneğin, veri bağımlı yönlendirme üzerinden gönderilen işlemleri hello kapsamını hello hedef parça hello bağlantı içinde yürütün. Şu anda bir işlem içinde birden çok bağlantı kaydetme için sağlanan özelliği yoktur ve bu nedenle parça üzerinde gerçekleştirilen işlemler için işlem garanti vardır.
+İşlem özellikleri tüm işlemler için bir parça yerel olarak sağlanır. Örneğin, bağlantı için hedef parça kapsamında veri bağımlı yönlendirme üzerinden gönderilen işlemleri yürütün. Şu anda bir işlem içinde birden çok bağlantı kaydetme için sağlanan özelliği yoktur ve bu nedenle parça üzerinde gerçekleştirilen işlemler için işlem garanti vardır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-toodetach bir parça ya da tooreattach bir parça bakın [hello RecoveryManager sınıfı toofix parça eşlemesi sorunlarının kullanma](sql-database-elastic-database-recovery-manager.md)
+Bir parça detach veya bir parça yeniden eklemek için bkz: [parça eşleme sorunları düzeltmek için RecoveryManager sınıfını kullanma](sql-database-elastic-database-recovery-manager.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

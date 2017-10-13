@@ -1,5 +1,5 @@
 ---
-title: "aaaError & özel durum işleme - Azure Logic Apps | Microsoft Docs"
+title: "Hata & özel durum işleme - Azure Logic Apps | Microsoft Docs"
 description: "Hata ve özel durum işleme Azure Logic Apps içinde desenleri"
 services: logic-apps
 documentationcenter: .net,nodejs,java
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 326a252310c8dfb154e583f91c9421675e448d1f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9af2f71b3d288cc6f4e271d0915545d43a1249bc
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Hataları ve Azure Logic Apps içinde özel durumları işleme
 
-Azure mantıksal uygulamaları zengin araçlar sağlar ve desenler toohelp, tümleştirmeler sağlam ve hatalarına karşı dayanıklı olduğundan emin olun. Herhangi bir tümleştirme mimarideki emin tooappropriately tanıtıcı kapalı kalma süresi yapma hello zorluk oluşturur veya bağımlı sistemlerden verir. Logic Apps hataları işleme yapar, vermiş bir ilk sınıf deneyimi hello araçları, iş akışlarında özel durumları ve hataları tooact gerekir.
+Desenler, tümleştirmeler emin olun yardımcı olmak için güçlü ve hatalarına karşı dayanıklı ve Azure mantıksal uygulamaları zengin araçlar sağlar. Herhangi bir tümleştirme mimarideki kesinti süresi veya bağımlı sistemleri sorunlarını uygun şekilde işlemek üzere emin yapma zorluk oluşturur. Logic Apps, iş akışlarınızı hataları ve özel durumları hareket için ihtiyacınız olan araçları vermiş birinci sınıf bir deneyim hataları işleme yapar.
 
 ## <a name="retry-policies"></a>İlkeleri yeniden deneyin
 
-Bir yeniden deneme ilkesi hello en temel özel durumu ve hata işleme türüdür. İlk istek zaman aşımına uğradı ya da başarısız olursa (bir 429 sonuçları herhangi bir istek veya 5xx yanıtı), bu ilkeyi hello eylem yeniden denemeniz gerekir olup olmadığını tanımlar. Varsayılan olarak, tüm eylemler 20 saniye aralıklarında 4 ek defa yeniden deneyin. Merhaba ilk istek alırsa, bunu bir `500 Internal Server Error` yanıtı hello iş akışı altyapısının duraklatır 20 saniye ve hello isteği yeniden denemeleri. Tüm yeniden denemelerden sonra hello yanıt hala bir özel durum ya da başarısız olması durumunda hello iş akışı devam eder ve işaretleri hello eylem durumu olarak `Failed`.
+Bir yeniden deneme ilkesi özel durumu ve hata işleme en temel türüdür. İlk istek zaman aşımına uğradı ya da başarısız olursa (bir 429 sonuçları herhangi bir istek veya 5xx yanıtı), bu ilkeyi eylemi yeniden denemeniz gerekir olup olmadığını tanımlar. Varsayılan olarak, tüm eylemler 20 saniye aralıklarında 4 ek defa yeniden deneyin. İlk istek alırsa, bunu bir `500 Internal Server Error` yanıt, iş akışı altyapısının duraklatır 20 saniye ve isteği yeniden dener. Tüm yeniden denemeler yapıldıktan sonra yanıt hala bir özel durum ya da hata ise, iş akışı devam eder ve eylem durumu olarak işaretler `Failed`.
 
-Yeniden deneme ilkelerini hello yapılandırabilirsiniz **girişleri** belirli bir eylem için. Örneğin, bir yeniden deneme ilkesi tootry kadar 4 kez 1 saatlik aralıklarında yapılandırabilirsiniz. Giriş özellikleri hakkında ayrıntılar için bkz: [iş akışı eylemleri ve Tetikleyicileri][retryPolicyMSDN].
+Yeniden deneme ilkelerini yapılandırabilirsiniz **girişleri** belirli bir eylem için. Örneğin, 1 saat aralıklarında olarak en fazla 4 kez denemek için bir yeniden deneme ilkesi yapılandırabilirsiniz. Giriş özellikleri hakkında ayrıntılar için bkz: [iş akışı eylemleri ve Tetikleyicileri][retryPolicyMSDN].
 
 ```json
 "retryPolicy" : {
@@ -38,7 +38,7 @@ Yeniden deneme ilkelerini hello yapılandırabilirsiniz **girişleri** belirli b
     }
 ```
 
-HTTP eylem tooretry 4 kez istediğinizi ve her denemesi arasındaki 10 dakika bekleyin, tanımı aşağıdaki hello kullanırsınız:
+4 kez yeniden deneyin ve her denemesi arasındaki 10 dakika bekleyin, HTTP eylemi istediyseniz, aşağıdaki tanımını kullanırsınız:
 
 ```json
 "HTTP": 
@@ -57,11 +57,11 @@ HTTP eylem tooretry 4 kez istediğinizi ve her denemesi arasındaki 10 dakika be
 }
 ```
 
-Merhaba desteklenen sözdizimi hakkında daha fazla bilgi için bkz: [iş akışı eylemleri ve Tetikleyicileri yeniden deneme ilkesi bölümüne][retryPolicyMSDN].
+Desteklenen sözdizimi hakkında daha fazla bilgi için bkz: [iş akışı eylemleri ve Tetikleyicileri yeniden deneme ilkesi bölümüne][retryPolicyMSDN].
 
-## <a name="catch-failures-with-hello-runafter-property"></a>Merhaba RunAfter özelliği hatalarıyla catch
+## <a name="catch-failures-with-the-runafter-property"></a>RunAfter özelliğiyle hatalarını yakalama
 
-Her mantıksal uygulama eylem hangi eylemleri, iş akışınızı hello adımları sıralama gibi hello eylem başlatılmadan önce bitmesi gereken bildirir. Merhaba eylem tanımı'nda bu sıralama hello adlandırılıyor `runAfter` özelliği. Bu özellik, hangi eylemleri ve eylem durumları yürütme hello eylemi açıklayan bir nesnedir. Varsayılan olarak, çok hello mantığı Uygulama Tasarımcısı eklenen tüm eylemleri ayarlamak`runAfter` hello önceki adımı Merhaba, önceki adımda `Succeeded`. Ancak, önceki eylem olduğunda bu değeri toofire eylemleri özelleştirebilirsiniz `Failed`, `Skipped`, veya bu değerleri olası kümesi. Bir öğe tooa tooadd istediyseniz sonra belirli bir eylemi Service Bus konu belirlenmiş `Insert_Row` başarısız olursa, aşağıdaki hello kullanabilir `runAfter` yapılandırma:
+Her mantıksal uygulama eylem hangi eylemleri iş akışınızda adımları sıralama gibi eylem başlamadan önce bitmesi gereken bildirir. Eylem tanımı'nda bu sıralama olarak bilinir `runAfter` özelliği. Bu özellik, hangi eylemleri ve eylem durumları yürütme eylemi açıklayan bir nesnedir. Varsayılan olarak, mantıksal Uygulama Tasarımcısı eklenen tüm eylemleri ayarlamak `runAfter` önceki adımda, önceki adımda `Succeeded`. Bununla birlikte, bu değer, önceki eylem olduğunda Eylemler tetiklenecek özelleştirebilirsiniz `Failed`, `Skipped`, veya bu değerleri olası kümesi. Öğeyi sonra belirli bir eylemi atanmış bir Service Bus konu başlığına eklemek istiyorsanız `Insert_Row` başarısız olursa aşağıdakileri kullanabilirsiniz `runAfter` yapılandırma:
 
 ```json
 "Send_message": {
@@ -89,7 +89,7 @@ Her mantıksal uygulama eylem hangi eylemleri, iş akışınızı hello adımlar
 }
 ```
 
-Bildirim hello `runAfter` özellik ayarlanmışsa toofire hello `Insert_Row` eylem `Failed`. Merhaba eylem durumu ise toorun hello eylem `Succeeded`, `Failed`, veya `Skipped`, şu sözdizimini kullanın:
+Bildirim `runAfter` özelliği ayarlanmış olursa tetiklenecek `Insert_Row` eylem `Failed`. Eylem durumu ise eylemi çalıştırmak için `Succeeded`, `Failed`, veya `Skipped`, şu sözdizimini kullanın:
 
 ```json
 "runAfter": {
@@ -100,21 +100,21 @@ Bildirim hello `runAfter` özellik ayarlanmışsa toofire hello `Insert_Row` eyl
 ```
 
 > [!TIP]
-> Çalıştırın ve önceki bir eylemi başarısız oldu sonra başarıyla tamamlanmış eylemler olarak işaretlenmiş `Succeeded`. Başarılı bir şekilde catch tüm hataları bir iş akışındaki hello varsa çalışmasına davranışı deyişle olarak işaretlenmiş `Succeeded`.
+> Çalıştırın ve önceki bir eylemi başarısız oldu sonra başarıyla tamamlanmış eylemler olarak işaretlenmiş `Succeeded`. Bir iş akışını çalıştırma başarıyla catch tüm hatalar olarak işaretlenmişse, yani bu davranış `Succeeded`.
 
-## <a name="scopes-and-results-tooevaluate-actions"></a>Kapsamlar ve sonuçları tooevaluate Eylemler
+## <a name="scopes-and-results-to-evaluate-actions"></a>Kapsamlar ve sonuçları Eylemler değerlendirmek için
 
-Sonra ayrı Eylemler çalıştırabilir benzer toohow de gruplandırabilirsiniz Eylemler birlikte içinde bir [kapsam](../logic-apps/logic-apps-loops-and-scopes.md), Eylemler mantıksal bir gruplandırması olarak davranır. Kapsamları mantıksal uygulama eylemleri düzenlemek için hem bir kapsam hello durumunu toplama değerlendirmesini gerçekleştirmek için faydalıdır. kapsamdaki tüm eylemler bitirdikten sonra hello kapsam kendisini bir durumunu alır. Merhaba kapsamı durumunu hello ile belirlenir aynı ölçüt olarak çalıştır. Merhaba son eylem bir yürütme dal ise `Failed` veya `Aborted`, hello durumu `Failed`.
+Nasıl çalıştırabileceğiniz benzer ayrı Eylemler sonra aynı zamanda Eylemler içinde gruplayabilirsiniz bir [kapsam](../logic-apps/logic-apps-loops-and-scopes.md), Eylemler mantıksal bir gruplandırması olarak davranır. Kapsamları mantıksal uygulama eylemleri düzenlemek için hem bir kapsamın durumu toplama değerlendirmesini gerçekleştirmek için faydalıdır. Kapsamdaki tüm eylemler bitirdikten sonra kapsam bir durumunu alır. Kapsam durumu Çalıştır aynı ölçütüne ile belirlenir. Son eylem bir yürütme dal ise `Failed` veya `Aborted`, durum `Failed`.
 
-kullanabileceğiniz toofire hello kapsamı içinde gerçekleşen hatalar için belirli eylemler, `runAfter` olarak işaretlenmiş bir kapsamla `Failed`. Varsa *herhangi* Eylemler hello kapsamında başarısız, kapsam sağlar başarısız olduktan sonra çalıştıran tek işlem toocatch hataları oluşturduğunuz.
+Kapsam içinde gerçekleşen hatalar için belirli eylemleri yangın için kullanabileceğiniz `runAfter` olarak işaretlenmiş bir kapsamla `Failed`. Varsa *herhangi* Eylemler kapsamında başarısız, kapsam sağlar başarısız olduktan sonra çalışan hataları yakalamak için tek bir eylem oluşturun.
 
-### <a name="getting-hello-context-of-failures-with-results"></a>Sonuçları hatalarıyla Merhaba içeriğine alma
+### <a name="getting-the-context-of-failures-with-results"></a>Sonuçları hatalarıyla bağlamı alma
 
-Bir kapsam hatalarını yakalama yararlı olsa da, bağlam toohelp tam olarak başarısız oldu, hangi eylemlerini anlama ve hatalar veya döndürüldü durum kodları isteyebilirsiniz. Merhaba `@result()` iş akışı işlevinin kapsamdaki tüm eylemlerin hello sonucu ile ilgili bağlam sağlar.
+Bir kapsam hatalarını yakalama yararlı olsa da, tam olarak başarısız oldu, hangi eylemleri ve hatalar veya döndürüldü durum kodları anlamanıza yardımcı olması için bağlamı da isteyebilirsiniz. `@result()` İş akışı işlevinin kapsamdaki tüm eylemlerin sonucu ile ilgili bağlam sağlar.
 
-`@result()`tek bir parametre, kapsam adı alır ve tüm hello eylem sonuçlarını, kapsam içinde bir dizi döndürür. Bu eylem nesneleri aynı öznitelikleri hello hello dahil `@actions()` nesne, eylem başlangıç saati, eylem bitiş zamanı, eylem durumu, eylemi girişleri, eylem bağıntı kimlikleri ve eylem dahil olmak üzere çıkarır. bir kapsamda başarısız herhangi bir eylem bağlamında toosend, siz kolayca eşleştirin bir `@result()` ile işlev bir `runAfter`.
+`@result()`tek bir parametre, kapsam adı alır ve tüm eylem sonuçlarını, kapsam içinde bir dizi döndürür. Bu eylem nesneleri aynı özniteliklere dahil `@actions()` nesne, eylem başlangıç saati, eylem bitiş zamanı, eylem durumu, eylemi girişleri, eylem bağıntı kimlikleri ve eylem dahil olmak üzere çıkarır. Bir kapsamda başarısız herhangi bir eylem bağlamı göndermek için kolayca eşleştirilebileceği bir `@result()` ile işlev bir `runAfter`.
 
-tooexecute bir eylem *her* kapsamdaki eylem, `Failed`, filtre hello sonuçları tooactions dizi başarısız oldu, eşleştirin `@result()` ile bir  **[filtre dizisi](../connectors/connectors-native-query.md)**  eylem ve  **[ForEach](../logic-apps/logic-apps-loops-and-scopes.md)**  döngü. Merhaba filtrelenmiş Sonuç dizisi alabilir ve hello kullanarak her hatası için bir eylem gerçekleştirmek **ForEach** döngü. Merhaba kapsamında hello yanıt gövdesi başarısız herhangi bir eylem ile HTTP POST isteği gönderir ayrıntılı bir açıklama, ve ardından örneği `My_Scope`.
+Bir eylem yürütmek için *her* kapsamdaki eylem, `Failed`, başarısız olan eylemler için sonuçları dizisi filtre, eşleştirin `@result()` ile bir  **[filtre dizisi](../connectors/connectors-native-query.md)**  eylem ve  **[ForEach](../logic-apps/logic-apps-loops-and-scopes.md)**  döngü. Filtrelenmiş Sonuç dizisi alabilir ve her hata kullanmak için bir eylem gerçekleştirmek **ForEach** döngü. Kapsam içinde başarısız oldu herhangi bir eylem yanıt gövdesi ile HTTP POST isteği gönderir ayrıntılı bir açıklama, ve ardından örneği `My_Scope`.
 
 ```json
 "Filter_array": {
@@ -155,22 +155,22 @@ tooexecute bir eylem *her* kapsamdaki eylem, `Failed`, filtre hello sonuçları 
 }
 ```
 
-Neler ayrıntılı kılavuz toodescribe şöyledir:
+Ne olacağını açıklamak için ayrıntılı bir kılavuz şöyledir:
 
-1. içinde tüm eylemler tooget hello sonucu `My_Scope`, hello **filtre dizisi** eylem filtrelerini `@result('My_Scope')`.
+1. Tüm eylemlerin sonucu elde etmek için `My_Scope`, **filtre dizisi** eylem filtrelerini `@result('My_Scope')`.
 
-2. Merhaba için koşul **filtre dizisi** herhangi `@result()` çok durum eşit olan öğe`Failed`. Bu durum tüm eylem sonuçlarını hello diziyle filtreler `My_Scope` yalnızca tooan diziyle eylem sonuçlarını başarısız oldu.
+2. Koşul için **filtre dizisi** herhangi `@result()` Durum eşit olan öğe `Failed`. Bu durum tüm eylem sonuçlarını diziyle filtreler `My_Scope` sahip bir dizi yalnızca eylem sonuçlarını başarısız oldu.
 
-3. Gerçekleştirmek bir **her** hello eylemini **filtre dizi** çıkarır. Bu adım bir eylem gerçekleştirir *her* önceden filtre eylem sonucu başarısız oldu.
+3. Gerçekleştirmek bir **her** eylemini **filtre dizi** çıkarır. Bu adım bir eylem gerçekleştirir *her* önceden filtre eylem sonucu başarısız oldu.
 
-    Merhaba kapsamında tek bir eylem başarısız olursa hello Eylemler hello `foreach` yalnızca bir kez çalıştırın. 
+    Kapsam içinde tek bir eylem başarısız olduysa, Eylemler `foreach` yalnızca bir kez çalıştırın. 
     Çok sayıda başarısız Eylemler hatası başına tek bir eylem neden olur.
 
-4. Bir HTTP POST hello üzerinde Gönder `foreach` öğesi yanıt gövdesi veya `@item()['outputs']['body']`. Merhaba `@result()` öğesi şekli olan hello aynı hello `@actions()` şekil ve ayrıştırılabilir aynı hello yolu.
+4. Bir HTTP POST gönderme `foreach` öğesi yanıt gövdesi veya `@item()['outputs']['body']`. `@result()` Öğesi şekli aynı olup `@actions()` şekil ve aynı şekilde ayrıştırılır.
 
-5. Hello başarısız Eylem adına sahip iki özel üstbilgi dahil `@item()['name']` ve hello başarısız oldu, izleme kimliği çalışma istemci `@item()['clientTrackingId']`.
+5. Başarısız eylem adı ile iki özel üstbilgileri dahil `@item()['name']` çalıştırıp başarısız istemci izleme kimliği `@item()['clientTrackingId']`.
 
-Başvuru için tek bir örneği burada verilmiştir `@result()` hello gösteren öğesi `name`, `body`, ve `clientTrackingId` hello önceki örnekte Ayrıştırılan özellikleri. Dışında bir `foreach`, `@result()` bu nesneleri içeren bir dizi döndürür.
+Başvuru için tek bir örneği burada verilmiştir `@result()` öğesi, gösteren `name`, `body`, ve `clientTrackingId` önceki örnekte Ayrıştırılan özellikleri. Dışında bir `foreach`, `@result()` bu nesneleri içeren bir dizi döndürür.
 
 ```json
 {
@@ -202,18 +202,18 @@ Başvuru için tek bir örneği burada verilmiştir `@result()` hello gösteren 
 }
 ```
 
-tooperform farklı özel durum işleme desenleri, daha önce gösterilen hello ifadeleri kullanabilirsiniz. Tek özel durum eylemin hello tüm filtrelenmiş dizisi hataları kabul hello kapsamı dışında işleme tooexecute seçin ve hello kaldırmak `foreach`. Merhaba yararlı olan diğer özellikleri de içerebilir `@result()` daha önce gösterilen yanıt.
+Farklı özel durum desenleri işleme gerçekleştirmek için daha önce gösterilen ifadeleri kullanabilirsiniz. Tek özel durum hataları tüm filtrelenmiş dizisi kabul kapsamı dışında eylem işleme yürütülecek seçin ve Kaldır `foreach`. Diğer yararlı olan özellikleri de içerebilir `@result()` daha önce gösterilen yanıt.
 
 ## <a name="azure-diagnostics-and-telemetry"></a>Azure tanılama ve telemetri
 
-Merhaba önceki desenleri mükemmel şekilde toohandle hataları ve özel durumları çalışması içinde alır, ancak ayrıca tanımlamak ve tooerrors çalışmasına Merhaba bağımsız yanıt. 
-[Azure tanılama](../logic-apps/logic-apps-monitor-your-logic-apps.md) tüm iş akışı (tüm çalışma ve eylem durumları dahil) olayları tooan Azure Storage hesabı veya bir Azure olay hub'ı basit yol toosend sağlar. tooevaluate çalıştırma durumları, hello günlüklerini ve ölçümleri izleyin veya tercih ettiğiniz izleme aracı yayımlama. Bir olası seçenektir toostream Azure Event Hub'ına aracılığıyla tüm hello olaylarını [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). Stream Analytics içinde herhangi bir anormallikleri, ortalama veya hataları kapalı dinamik sorgular hello tanılama günlüklerini yazabilirsiniz. Akış analizi kuyruklar, konular, SQL, Azure Cosmos DB ve Power BI gibi tooother veri kaynaklarını kolayca çıkarabilirsiniz.
+Önceki desenleri şekilde hataları ve çalışması içinde özel durumları işlemek harika, ancak aynı zamanda tanımlamak ve hataları yürütülmesi bağımsız yanıt. 
+[Azure tanılama](../logic-apps/logic-apps-monitor-your-logic-apps.md) bir Azure Storage hesabı veya bir Azure olay hub'ı (tüm çalışma ve eylem durumları dahil) tüm iş akışı olayları göndermek için basit bir yol sağlar. Çalışma durumlarını değerlendirmek için günlükleri ve ölçümleri izleyin veya tercih ettiğiniz izleme aracı yayımlama. Olası bir seçenek olan Azure Event Hub'ına aracılığıyla tüm olayları akışını sağlamak için [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). Stream Analytics içinde herhangi bir anormallikleri, ortalama veya hataları kapalı dinamik sorgular tanılama günlükleri yazabilirsiniz. Akış analizi, kuyruklar, konular, SQL, Azure Cosmos DB ve Power BI gibi diğer veri kaynakları için kolayca çıkarabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 
 * [Bir müşteri hata işleme Azure Logic Apps ile nasıl derler bakın](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [Daha fazla Logic Apps örnekleri ve senaryoları Bul](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [Nasıl toocreate dağıtımları mantıksal uygulamalar için otomatik öğrenin](../logic-apps/logic-apps-create-deploy-template.md)
+* [Mantıksal uygulamalar için otomatik dağıtımları oluşturmayı öğrenin](../logic-apps/logic-apps-create-deploy-template.md)
 * [Visual Studio ile mantıksal uygulamalar oluşturma ve dağıtma](logic-apps-deploy-from-vs.md)
 
 <!-- References -->

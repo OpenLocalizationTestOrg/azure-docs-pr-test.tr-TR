@@ -1,40 +1,40 @@
 <!--author=alkohli last changed: 05/19/16-->
 
-#### <a name="toodownload-hotfixes"></a>toodownload düzeltmeleri
-Hello Microsoft Update Kataloğu ' adımları toodownload hello yazılım güncelleştirmesi aşağıdaki hello gerçekleştirin.
+#### <a name="to-download-hotfixes"></a>Düzeltmeleri indirmek için
+Microsoft Update Kataloğu'ndan yazılım güncelleştirmesi indirmek için aşağıdaki adımları uygulayın.
 
-1. Internet Explorer'ı başlatın ve çok gidin[http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
-2. Bu bilgisayarda Microsoft Update Kataloğu hello kullanarak ilk kez olursa **yükleme** zaman istendiğinde tooinstall hello Microsoft Update Kataloğu eklentisi.
+1. Internet Explorer'ı başlatın ve [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com) adresine gidin.
+2. Microsoft Update Kataloğu’nu bu bilgisayarda ilk kez kullanıyorsanız, sorulduğunda **Yükle**’ye tıklayarak Microsoft Update Kataloğu eklentisini yükleyin.
     ![Katalog yükleyin](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)
-3. Merhaba arama kutusuna hello Microsoft Update Kataloğu hello Bilgi Bankası (KB) numarasını girin hello düzeltme toodownload, örneğin istediğiniz **3179904**ve ardından **arama**.
+3. Microsoft Update Kataloğu arama kutusuna, örneğin, yüklemek istediğiniz düzeltme Bilgi Bankası (KB) sayısını girin **3179904**ve ardından **arama**.
    
-    Merhaba düzeltme listesi, örneğin, göründüğünde **StorSimple 8000 serisi için toplu yazılım paketini güncelleştirme 2.2**.
+    Düzeltme listesi göründüğünde, örneğin, **StorSimple 8000 serisi için toplu yazılım paketini güncelleştirme 2.2**.
    
     ![Katalogda arama](./media/storsimple-install-update2-hotfix/HCS_SearchCatalog1-include.png)
-4. **Ekle**'ye tıklayın. Merhaba güncelleştirme toohello Sepeti eklenir.
-5. Ek düzeltmeleri arayın hello yukarıdaki tabloda listelenen (**3103616**, **3146621**) ve her toohello Sepeti ekleyin.
+4. **Ekle**'ye tıklayın. Güncelleştirme sepete eklenir.
+5. Ek düzeltmeleri arayın yukarıdaki tabloda listelenen (**3103616**, **3146621**) ve her Sepete ekleyin.
 6. **Sepeti Görüntüle**’ye tıklayın.
-7. **İndir**’e tıklayın. Belirtin veya **Gözat** tooa yerel konum istediğiniz hello tooappear indirir. Merhaba güncelleştirmelerin yükleneceği toohello konumu belirtilen ve alt klasör ile aynı adı hello güncelleştirme olarak hello yerleştirilir. Merhaba klasör de hello aygıttan ulaşılabilir kopyalanan tooa ağ paylaşımı olabilir.
+7. **İndir**’e tıklayın. İndirilen öğelerin görünmesini istediğiniz yerel konumu belirtin veya **Gözat** seçeneğiyle konumu bulun. Güncelleştirmeleri belirtilen konuma indirilir ve güncelleştirme aynı ada sahip bir alt klasöre yerleştirilir. Klasör, cihazdan erişilebilen bir ağ paylaşımına da kopyalanabilir.
 
 > [!NOTE]
-> Merhaba düzeltmeleri hello eş denetleyicisinden olası tüm hata iletilerini hem denetleyicileri toodetect erişilebilir olması gerekir.
+> Düzeltmeleri tüm olası hata iletilerini eş denetleyicisinden algılamak için her iki denetleyicilerinden erişilebilir olması gerekir.
 > 
 > 
 
-#### <a name="tooinstall-and-verify-regular-mode-hotfixes"></a>tooinstall ve normal modu düzeltmeleri doğrulayın
-Aşağıdaki adımları tooinstall hello gerçekleştirmek ve normal modu düzeltmeleri doğrulayın. Bunları zaten yüklü değilse Azure Portal hello kullanarak İleri çok atlayabilirsiniz[yükleme ve Bakım modu düzeltmeleri doğrulama](#to-install-and-verify-maintenance-mode-hotfixes).
+#### <a name="to-install-and-verify-regular-mode-hotfixes"></a>Normal mod düzeltmelerini yüklemek ve doğrulamak için
+Normal mod düzeltmelerini yüklemek ve doğrulamak için aşağıdaki adımları gerçekleştirin. İçin bunları Azure Portalı'nı kullanarak zaten yüklü değilse,'ın İleri atlayabilirsiniz [yükleme ve Bakım modu düzeltmeleri doğrulama](#to-install-and-verify-maintenance-mode-hotfixes).
 
-1. tooinstall hello düzeltmeleri, StorSimple cihaz seri konsoluna erişim hello Windows PowerShell arabiriminde. İzleyin hello ayrıntılı yönergeleri [kullanım PuTTy tooconnect toohello seri konsol](../articles/storsimple/storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console). Merhaba komut isteminde basın **Enter**.
-2. Seçin **seçeneği 1** toolog toohello aygıtta tam erişime sahip. Hello düzeltmeyi hello pasif denetleyicisinde ilk yüklemenizi öneririz.
-3. Merhaba komut isteminde türü tooinstall hello düzeltme:
+1. Düzeltmeleri yüklemek için StorSimple cihazı seri konsolunuzdaki Windows PowerShell arabirimine erişin. [Seri konsola bağlanmak için PuTTy kullanma](../articles/storsimple/storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console) bölümündeki ayrıntılı yönergeleri izleyin. Komut isteminde **Enter** tuşuna basın.
+2. Cihazda tam erişimle oturum açmak için **Seçenek 1**’i belirleyin. Düzeltmeyi ilk olarak edilgen denetleyiciye yüklemeniz önerilir.
+3. Düzeltmeyi yüklemek için komut istemine şunu yazın:
    
-    `Start-HcsHotfix -Path <path tooupdate file> -Credential <credentials in domain\username format>`
+    `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
    
-    Yukarıdaki komut hello paylaşım yolunda DNS yerine IP kullanın. yalnızca kimliği doğrulanmış bir paylaşım erişiyorsanız hello kimlik bilgisi parametresi kullanılır.
+    Yukarıdaki komuttaki paylaşım yolunda DNS yerine IP kullanın. Kimlik bilgisi parametresi yalnızca kimliği doğrulanmış bir paylaşımdan erişiyorsanız kullanılır.
    
-    Merhaba kimlik bilgisi parametresi tooaccess paylaşımları kullanmanızı öneririz. Çok "herkes" genellikle açık edilen bile paylaşımları toounauthenticated kullanıcılar açabilir değil.
+    Paylaşımlara erişmek için kimlik bilgisi parametresini kullanmanız önerilir. “Herkese” açık paylaşımlar bile genellikle kimliği doğrulanmamış kullanıcılara açık değildir.
    
-    İstendiğinde hello parolasını sağlayın.
+    İstendiğinde parolayı belirtin.
    
     Örnek çıktı aşağıda gösterilmiştir.
    
@@ -44,20 +44,20 @@ Aşağıdaki adımları tooinstall hello gerçekleştirmek ve normal modu düzel
 
     Confirm
 
-    This operation starts hello hotfix installation and could reboot one or
-    both of hello controllers. If hello device is serving I/Os, these will not
-    be disrupted. Are you sure you want toocontinue?
+    This operation starts the hotfix installation and could reboot one or
+    both of the controllers. If the device is serving I/Os, these will not
+    be disrupted. Are you sure you want to continue?
     [Y] Yes [N] No [?] Help (default is "Y"): Y
     ```
 
-4. Tür **Y** zaman istendiğinde tooconfirm hello düzeltme yükleme.
+4. Düzeltme yüklemesini onaylamak için sorulduğunda **Y** yazın.
    
    > [!IMPORTANT]
-   > Güncelleştirme 2.2 yüklüyorsanız, yalnızca 'tüm-hcsmdssoftwareudpate' ile başlayan hello ikili dosya yükleyin. İle tüm cismdsagentupdatebundle başında hello CIS ve hello MDS aracı güncelleştirmesi yüklemeyin. Hata toodo şekilde bir hatayla sonuçlanır. 
+   > Güncelleştirme 2.2 yüklüyorsanız, yalnızca 'tüm-hcsmdssoftwareudpate' ile başlayan ikili dosya yükleyin. CI ve tüm cismdsagentupdatebundle ile başlayan MDS aracı güncelleştirmesi yüklemeyin. Bunun Sağlanamaması bir hatayla sonuçlanır. 
 
-5. Hello kullanarak hello güncelleştirme izleyin `Get-HcsUpdateStatus` cmdlet'i. Hello güncelleştirme hello pasif denetleyicisinde önce tamamlanır. Merhaba pasif denetleyici güncelleştirildikten sonra bir yük devretme olacaktır ve hello güncelleştirme sonra üzerinde uygulanacağını diğer denetleyicisi hello. hem hello denetleyicileri güncelleştirildiğinde hello güncelleştirme tamamlanır.
+5. `Get-HcsUpdateStatus` cmdlet'ini kullanarak güncelleştirmeyi izleyin. Güncelleştirme ilk olarak edilgen denetleyicide tamamlanır. Edilgen denetleyici güncelleştirildikten sonra yük devretme gerçekleştirilir ve bundan sonra güncelleştirme diğer denetleyiciye uygulanır. Her iki denetleyici de güncelleştirildiğinde güncelleştirme tamamlanır.
    
-    Merhaba aşağıdaki örnek çıkış hello güncelleştirme göstermektedir. Merhaba `RunInprogress` olacaktır `True` zaman hello güncelleştirme devam ediyor.
+    Devam etmekte olan güncelleştirme aşağıdaki örnek çıktıda gösterilir. Güncelleştirme devam ederken `RunInprogress` değeri `True` olacaktır.
    
     ```
     Controller0>Get-HcsUpdateStatus
@@ -68,7 +68,7 @@ Aşağıdaki adımları tooinstall hello gerçekleştirmek ve normal modu düzel
     Controller1Events   :
     ```
    
-     örnek çıktı aşağıdaki hello bu hello güncelleştirme tamamlandığında gösterir. Merhaba `RunInProgress` olacaktır `False` zaman hello güncelleştirmesi tamamlandı.
+     Aşağıdaki örnek çıktıda güncelleştirmenin tamamlandığı gösterilir. Güncelleştirme tamamlandığında `RunInProgress` değeri `False` olacaktır.
    
     ```
     Controller0>Get-HcsUpdateStatus
@@ -80,44 +80,44 @@ Aşağıdaki adımları tooinstall hello gerçekleştirmek ve normal modu düzel
     ```
 
     > [!NOTE]
-    > Bazen, cmdlet raporları'nı hello `False` hello güncelleştirme devam ederken olduğunda. Düzeltme hello tooensure tamamlandığında, birkaç dakika bekleyin, bu komutu yeniden çalıştırın ve bu hello doğrulayın `RunInProgress` olan `False`. İse, hello düzeltme tamamlandı.
+    > Bazı durumlarda cmdlet, güncelleştirme hala devam ediyorsa `False` raporu gönderir. Düzeltmenin tamamlandığından emin olmak için birkaç dakika bekleyin, bu komutu yeniden çalıştırın ve `RunInProgress` değerinin `False` olduğunu doğrulayın. Değer değiştiyse düzeltme tamamlanmıştır.
 
-1. Merhaba yazılım güncelleştirmesi tamamlandıktan sonra hello sistem yazılım sürümleri doğrulayın. Şunu yazın:
+1. Yazılım güncelleştirmesi tamamlandıktan sonra sistem yazılımı sürümlerini doğrulayın. Şunu yazın:
    
     `Get-HcsSystem`
    
-    Sürümleri aşağıdaki hello görmeniz gerekir:
+    Aşağıdaki sürümleri görmeniz gerekir:
    
    * `HcsSoftwareVersion: 6.3.9600.17708`
    * `CisAgentVersion: 1.0.9299.0`
    * `MdsAgentVersion: 30.0.4698.16` 
      
-     Merhaba sürüm numaralarını hello güncelleştirmeyi uyguladıktan sonra değiştirmezseniz bu hello düzeltme tooapply başarısız oldu gösterir. Bunu görmeniz durumunda daha fazla yardım için lütfen [Microsoft Desteği](../articles/storsimple/storsimple-contact-microsoft-support.md)’ne başvurun.
+     Sürüm numaraları güncelleştirmeyi uyguladıktan sonra değiştirmezseniz düzeltmeyi uygulamak başarısız olduğunu gösterir. Bunu görmeniz durumunda daha fazla yardım için lütfen [Microsoft Desteği](../articles/storsimple/storsimple-contact-microsoft-support.md)’ne başvurun.
      
      > [!IMPORTANT]
-     > Merhaba etkin denetleyicisi hello aracılığıyla yeniden başlatmanız gerekir `Restart-HcsController` güncelleştirmeleri kalan hello uygulamadan önce cmdlet'i. 
+     > Kalan güncelleştirmeleri uygulamadan önce etkin denetleyiciyi `Restart-HcsController` cmdlet’i ile yeniden başlatmanız gerekir. 
      > 
      > 
-2. 3-5 tooinstall hello normal modu düzeltmeleri kalan adımları yineleyin.
+2. Kalan normal modu düzeltmeleri yüklemek için 3-5 adımlarını tekrarlayın.
    
-   * Merhaba iSCSI güncelleştirme KB3146621
-   * Merhaba WMI güncelleştirme KB3103616
-3. Güncelleştirme 2'den güncelleştiriyorsanız bu adımı atlayın. Bir sürüm önceki tooUpdate 2 güncelleştiriyorsanız toodownload de gerekir:
+   * İSCSI güncelleştirme KB3146621
+   * WMI güncelleştirme KB3103616
+3. Güncelleştirme 2'den güncelleştiriyorsanız bu adımı atlayın. Güncelleştirme 2 önce bir sürümünden güncelleştiriyorsanız indirmek gerekir:
 
-    - Merhaba LSI sürücü KB3121900
+    - LSI sürücü KB3121900
 
-    - Merhaba Spaceport güncelleştirme KB3090322
+    - KB3090322 Spaceport güncelleştirme
 
-    - Merhaba Storport güncelleştirme KB3080728
+    - Storport güncelleştirme KB3080728
 
-#### <a name="tooinstall-and-verify-maintenance-mode-hotfixes"></a>tooinstall ve Bakım modu düzeltmeleri doğrulayın
-KB3121899 tooinstall disk Bellenim güncelleştirmeleri kullanın. Bunlar kesintiye uğratan güncelleştirmeleri ve yaklaşık 30 dakika toocomplete alın. Bağlantı toohello cihaz seri Konsolu tarafından bu planlı bakım penceresinde tooinstall seçebilirsiniz.
+#### <a name="to-install-and-verify-maintenance-mode-hotfixes"></a>Bakım modu düzeltmelerini yüklemek ve doğrulamak için
+Disk Bellenim güncelleştirmeleri yüklemek için KB3121899 kullanın. Bunlar kesintiye uğratan güncelleştirmelerdir ve tamamlanması yaklaşık 30 dakika sürer. Bunları cihaz seri konsoluna bağlanarak planlı bakım penceresinde yüklemeyi seçebilirsiniz.
 
-Disk bellenim zaten güncel ise, bu güncelleştirmeleri tooinstall gerek kalmaz unutmayın. Merhaba çalıştırmak `Get-HcsUpdateAvailability` güncelleştirmeleri kullanılabilir ve olup hello hello cihaz seri konsoluna toocheck cmdlet'inden güncelleştirmeleri olan kesintiye uğratan (Bakım modu) veya benzer (normal modu) güncelleştirmeleri.
+Disk üretici yazılımınız zaten güncelse bu güncelleştirmeleri yüklemeniz gerekmez. Güncelleştirmelerin mevcut olup olmadığını ve güncelleştirmelerin kesintiye uğratıp (bakım modu) uğratmayacağını (normal mod) denetlemek için cihaz seri konsolundan `Get-HcsUpdateAvailability` cmdlet’ini çalıştırın.
 
-tooinstall hello disk Bellenim güncelleştirmeleri aşağıdaki hello yönergeleri izleyin.
+Disk üretici yazılımı güncelleştirmelerini yüklemek için aşağıdaki yönergeleri izleyin.
 
-1. Merhaba aygıt hello bakım moduna. Windows PowerShell uzaktan iletişimini tooa aygıt, Bakım modunda bağlanırken kullanmaması gerektiğini unutmayın. Bunun yerine bu cmdlet'i hello cihaz seri konsol üzerinden bağlandığında hello aygıt denetleyicisi çalıştırın. Şunu yazın:
+1. Cihazın bakım moduna. Windows PowerShell uzaktan iletişimini bakım modundaki bir aygıta bağlanırken kullanmaması gerektiğini unutmayın. Bunun yerine bu cmdlet'i cihaz seri konsol üzerinden bağlandığında aygıt denetleyicisinde çalıştırın. Şunu yazın:
    
     `Enter-HcsMaintenanceMode`
    
@@ -126,14 +126,14 @@ tooinstall hello disk Bellenim güncelleştirmeleri aşağıdaki hello yönergel
         Controller0>Enter-HcsMaintenanceMode
         Checking device state...
    
-        In maintenance mode, your device will not service IOs and will be disconnected from hello Microsoft Azure StorSimple Manager service. Entering maintenance mode will end hello current session and reboot both controllers, which takes a few minutes toocomplete. Are you sure you want tooenter maintenance mode?
+        In maintenance mode, your device will not service IOs and will be disconnected from the Microsoft Azure StorSimple Manager service. Entering maintenance mode will end the current session and reboot both controllers, which takes a few minutes to complete. Are you sure you want to enter maintenance mode?
         [Y] Yes [N] No (Default is "Y"): Y
    
         -----------------------MAINTENANCE MODE------------------------
         Microsoft Azure StorSimple Appliance Model 8100
         Name: Update2-8100-SHG0997879L76673
         Copyright (C) 2014 Microsoft Corporation. All rights reserved.
-        You are connected tooController0 - Passive
+        You are connected to Controller0 - Passive
         ---------------------------------------------------------------
    
         Serial Console Menu
@@ -143,26 +143,26 @@ tooinstall hello disk Bellenim güncelleştirmeleri aşağıdaki hello yönergel
         [4] Change language
         Please enter your choice>
    
-    Hem hello denetleyicileri bakım moduna ardından yeniden başlatın.
-2. tooinstall hello disk üretici yazılımı güncelleştirmesi, türü:
+    İki denetleyiciye bakım moduna ardından yeniden başlatın.
+2. Disk üretici yazılımı güncelleştirmesini yüklemek için şunu yazın:
    
-    `Start-HcsHotfix -Path <path tooupdate file> -Credential <credentials in domain\username format>`
+    `Start-HcsHotfix -Path <path to update file> -Credential <credentials in domain\username format>`
    
     Örnek çıktı aşağıda gösterilmiştir.
    
         Controller1>Start-HcsHotfix -Path \\10.100.100.100\share\DiskFirmwarePackage.exe -Credential contoso\john
         Enter Password:
-        WARNING: In maintenance mode, hotfixes should be installed on each controller sequentially. After hello hotfix is installed on this controller, install it on hello peer controller.
+        WARNING: In maintenance mode, hotfixes should be installed on each controller sequentially. After the hotfix is installed on this controller, install it on the peer controller.
         Confirm
-        This operation starts a hotfix installation and could reboot one or both of hello controllers. By installing new updates you agree to, and accept any additional terms associated with, hello new functionality listed in hello release notes (https://go.microsoft.com/fwLink/?LinkID=613790). Are you sure you want toocontinue?
+        This operation starts a hotfix installation and could reboot one or both of the controllers. By installing new updates you agree to, and accept any additional terms associated with, the new functionality listed in the release notes (https://go.microsoft.com/fwLink/?LinkID=613790). Are you sure you want to continue?
         [Y] Yes [N] No (Default is "Y"): Y
-        WARNING: Installation is currently in progress. This operation can take several minutes toocomplete.
-3. İzleyici hello yükleme ilerleme durumu kullanarak `Get-HcsUpdateStatus` komutu. Merhaba güncelleştirme hello zaman tamamlandıktan `RunInProgress` çok değişiklikleri`False`.
-4. Merhaba yüklemesi tamamlandıktan sonra hangi hello üzerinde Bakım modu düzeltme yüklü hello denetleyicisi yeniden başlatır. Seçenek 1 tam erişime sahip olarak oturum açın ve hello disk bellenim sürümü doğrulayın. Şunu yazın:
+        WARNING: Installation is currently in progress. This operation can take several minutes to complete.
+3. `Get-HcsUpdateStatus` komutunu kullanarak yükleme ilerleme durumunu izleyin. `RunInProgress` değeri `False` olarak değiştiğinde güncelleştirme tamamlanır.
+4. Yükleme tamamlandıktan sonra, bakım modu düzeltmesinin yüklendiği denetleyici yeniden başlatılır. Tam erişimle seçenek 1 olarak oturum açın ve disk üretici yazılımı sürümünü doğrulayın. Şunu yazın:
    
    `Get-HcsFirmwareVersion`
    
-   Merhaba beklenen disk bellenim sürümleri şunlardır:
+   Beklenen disk üretici yazılımı sürümleri şunlardır:
    
    `XMGG, XGEG, KZ50, F6C2, VR08`
    
@@ -173,7 +173,7 @@ tooinstall hello disk Bellenim güncelleştirmeleri aşağıdaki hello yönergel
        Name: Update2-8100-SHG0997879L76YD
        Software Version: 6.3.9600.17705
        Copyright (C) 2014 Microsoft Corporation. All rights reserved.
-       You are connected tooController1
+       You are connected to Controller1
        ---------------------------------------------------------------
    
        Controller1>Get-HcsFirmwareVersion
@@ -220,8 +220,8 @@ tooinstall hello disk Bellenim güncelleştirmeleri aşağıdaki hello yönergel
          SEAGATE:ST4000NM0023:XMGG
          SEAGATE:ST4000NM0023:XMGG
    
-    Merhaba çalıştırmak `Get-HcsFirmwareVersion` , yazılım sürümü hello hello ikinci denetleyicisi tooverify komutunda güncelleştirilmiştir. Ardından hello Bakım modu çıkabilirsiniz. toodo, bu nedenle, her cihaz denetleyicisi için komutu aşağıdaki hello yazın:
+    Yazılım sürümünün güncelleştirildiğinden emin olmak için ikinci denetleyicide `Get-HcsFirmwareVersion` komutunu çalıştırın. Bundan sonra bakım modundan çıkabilirsiniz. Bunu yapmak için, her bir cihaz denetleyicisi için aşağıdaki komutu yazın:
    
    `Exit-HcsMaintenanceMode`
-5. Bakım modu çıktığınızda hello denetleyicilerini yeniden başlatın. Sonra Hello disk Bellenim güncelleştirmeleri başarıyla uygulandıktan ve hello aygıt Bakım modu, dönüş toohello Klasik Azure portalı çıkıldı. Merhaba portalınız hello Bakım modu güncelleştirmeleri 24 saat için yüklü gösterilmeyebilir unutmayın.
+5. Bakım modu çıktığınızda denetleyicilerini yeniden başlatın. Disk üretici yazılımı güncelleştirmeleri başarıyla uygulanıp cihaz bakım modundan çıktıktan sonra, klasik Azure portalına geri dönün. Portal 24 saat için Bakım modu güncelleştirmeleri yüklü gösterilmeyebilir unutmayın.
 

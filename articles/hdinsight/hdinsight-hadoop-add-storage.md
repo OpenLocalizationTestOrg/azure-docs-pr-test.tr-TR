@@ -1,6 +1,6 @@
 ---
-title: "aaaAdd ek Azure depolama hesapları tooHDInsight | Microsoft Docs"
-description: "Nasıl tooan olan bir Hdınsight kümesine tooadd ek Azure depolama hesapları hakkında bilgi edinin."
+title: "Hdınsight için ek Azure depolama hesapları ekleme | Microsoft Docs"
+description: "Ek Azure depolama hesapları olan bir Hdınsight kümesine eklemeyi öğrenin."
 services: hdinsight
 documentationCenter: 
 author: Blackmist
@@ -15,75 +15,75 @@ ms.workload: big-data
 ms.date: 08/04/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: ce5acfa4b61bf7e83b1fb374d64a1eaa3182fbec
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0853e8605e07c28867676e9c13b89263ade67c88
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="add-additional-storage-accounts-toohdinsight"></a>Ek depolama hesapları tooHDInsight Ekle
+# <a name="add-additional-storage-accounts-to-hdinsight"></a>Hdınsight için ek depolama hesapları ekleme
 
-Nasıl tooHDInsight toouse betik eylemleri tooadd ek Azure depolama hesapları hakkında bilgi edinin. Merhaba bu belgedeki adımlar bir depolama hesabı tooan varolan Linux tabanlı Hdınsight kümesi ekleyin.
+Hdınsight için ek Azure depolama hesapları eklemek için betik eylemleri kullanmayı öğrenin. Bu belgede yer alan adımlar bir depolama hesabı olan bir Linux tabanlı Hdınsight kümesine ekleyin.
 
 > [!IMPORTANT]
-> Merhaba bu belgedeki oluşturulduktan sonra ek depolama alanı tooa küme ekleme hakkında bilgilerdir. Küme oluşturma sırasında depolama hesapları ekleme hakkında daha fazla bilgi için bkz: [Hdınsight Hadoop, Spark, Kafka ve daha fazla ile kümelerde ayarlama](hdinsight-hadoop-provision-linux-clusters.md).
+> Bu belgedeki oluşturulduktan sonra ek depolama alanı bir kümeye ekleme hakkındaki bilgilerdir. Küme oluşturma sırasında depolama hesapları ekleme hakkında daha fazla bilgi için bkz: [Hdınsight Hadoop, Spark, Kafka ve daha fazla ile kümelerde ayarlama](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 
-Bu komut dosyası şu parametreler hello alır:
+Bu betiği aşağıdaki parametreleri alır:
 
-* __Azure depolama hesabı adı__: hello depolama hesabı tooadd toohello Hdınsight kümesi hello adı. Hdınsight, Hello komut dosyasını çalıştırdıktan sonra okuma ve bu depolama hesabında depolanan verileri yazma.
+* __Azure depolama hesabı adı__: Hdınsight kümesine eklemek için depolama hesabının adı. Hdınsight, komut dosyasını çalıştırdıktan sonra okuma ve bu depolama hesabında depolanan verileri yazma.
 
-* __Azure depolama hesabı anahtarı__: bir anahtar, veren erişim toohello depolama hesabı.
+* __Azure depolama hesabı anahtarı__: depolama hesabına erişim izni veren bir anahtar.
 
-* __-p__ (isteğe bağlı): belirtilmişse hello anahtarı şifrelenmemiş ve düz metin olarak hello core-site.xml dosyasında depolanır.
+* __-p__ (isteğe bağlı): belirtilmişse, anahtarı şifrelenmemiş ve düz metin olarak core-site.xml dosyasında depolanır.
 
-İşleme sırasında hello betik hello aşağıdaki eylemleri gerçekleştirir:
+İşleme sırasında komut aşağıdaki eylemleri gerçekleştirir:
 
-* Merhaba depolama hesabı hello core-site.xml yapılandırmasında hello küme zaten varsa, hello betik çıkar ve başka hiçbir eylem gerçekleştirilir.
+* Depolama hesabı küme için core-site.xml yapılandırmasının zaten varsa, komut dosyası çıkar ve başka hiçbir eylem gerçekleştirilir.
 
-* Merhaba depolama hesabı var ve başlangıç anahtarı kullanılarak erişilebilir doğrular.
+* Depolama hesabı var ve anahtarı kullanılarak erişilebilir doğrular.
 
-* Başlangıç anahtarı Hello küme kimlik bilgilerini kullanarak şifreler.
+* Küme kimlik bilgilerini kullanarak anahtarı şifreleyen.
 
-* Merhaba depolama hesabı toohello core-site.xml dosyasının ekler.
+* Depolama hesabı core-site.xml dosyasına ekler.
 
-* Durdurur ve hello Oozie, YARN, MapReduce2 ve HDFS hizmetleri yeniden başlatır. Durdurma ve bu hizmetleri başlatma toouse hello yeni depolama hesabı sağlar.
+* Durdurur ve Oozie, YARN, MapReduce2 ve HDFS hizmetleri yeniden başlatır. Durdurma ve bu hizmetleri başlatma yeni depolama hesabı kullanmak üzere sağlar.
 
 > [!WARNING]
-> Merhaba Hdınsight kümesi farklı bir konumda bir depolama hesabıyla desteklenmiyor.
+> Hdınsight kümesi farklı bir konumda bir depolama hesabıyla desteklenmiyor.
 
-## <a name="hello-script"></a>Merhaba komut dosyası
+## <a name="the-script"></a>Komut dosyası
 
 __Komut dosyası konumu__: [https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)
 
 __Gereksinimleri__:
 
-* Merhaba üzerinde Hello betik uygulanan __baş düğümler__.
+* Komut dosyası üzerinde uygulanması gereken __baş düğümler__.
 
-## <a name="toouse-hello-script"></a>toouse hello komut dosyası
+## <a name="to-use-the-script"></a>Betik kullanmak için
 
-Bu komut dosyası veya Azure CLI 1.0 hello hello Azure portal, Azure PowerShell kullanılabilir. Daha fazla bilgi için bkz: Merhaba [özelleştirme Linux tabanlı Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) belge.
+Bu komut, Azure portalı, Azure PowerShell veya Azure CLI 1.0 kullanılabilir. Daha fazla bilgi için bkz: [özelleştirme Linux tabanlı Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) belge.
 
 > [!IMPORTANT]
-> Merhaba özelleştirme belgede sağlanan hello adımları kullanırken, bilgi tooapply aşağıdaki hello bu komut dosyasını kullanın:
+> Özelleştirme belgede sağlanan adımları kullanarak, bu komut dosyasını uygulamak için aşağıdaki bilgileri kullanın:
 >
-> * Bu komut dosyası (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh) için URI hello herhangi örnek betik eylemi URI değiştirin.
-> * Örnek parametreleri hello Azure depolama hesabı adı ve hello depolama hesabı toobe eklenen toohello kümesinin anahtarı ile değiştirin. Azure portal kullanarak Merhaba, bu parametreler boşlukla ayrılmış olması gerekir.
-> * Bu komut dosyası olarak toomark gerekmez __kalıcı__, doğrudan hello Ambari yapılandırma hello kümesi için güncelleştirmeler.
+> * Tüm örnek betik eylemi URI bu komut dosyası (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh) için URI ile değiştirin.
+> * Kümeye eklenecek depolama hesabı anahtarı ve Azure depolama hesabı adı ile örnek parametreleri değiştirin. Azure portalını kullanıyorsanız, bu parametreler boşlukla ayrılmış olması gerekir.
+> * Bu komut dosyası olarak işaretlemek gerekmez __kalıcı__, doğrudan bir küme için Ambari yapılandırmasını güncelleştirir.
 
 ## <a name="known-issues"></a>Bilinen sorunlar
 
 ### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>Azure portalından veya Araçlar görüntülenmeyen depolama hesapları
 
-Görüntüleme hello Hdınsight küme hello Azure portal, hello seçme __depolama hesapları__ altında girdisi __özellikleri__ bu betik eylemi eklenen depolama hesaplarına görüntülemez. Azure PowerShell ve Azure CLI hello ek depolama alanı hesabı ya da görüntülenmez.
+Hdınsight kümesi Azure portalında görüntülerken seçme __depolama hesapları__ altında girdisi __özellikleri__ bu betik eylemi eklenen depolama hesaplarına görüntülemez. Azure PowerShell ve Azure CLI ek depolama alanı hesabı ya da görüntülenmez.
 
-Merhaba betik hello core-site.xml yapılandırma hello kümesi için yalnızca değiştirdiğinden hello depolama bilgiler görüntülenmiyor. Bu bilgiler, Azure yönetim API'leri kullanılarak hello küme bilgilerini alırken kullanılmaz.
+Komut dosyası küme için core-site.xml yapılandırmasının yalnızca değiştirdiğinden depolama bilgiler görüntülenmiyor. Bu bilgiler Azure management API'leri kullanarak küme bilgi alınırken kullanılmaz.
 
-Bu komut, kullanım hello Ambari REST API kullanarak toohello küme tooview depolama hesabı bilgilerini eklendi. Aşağıdaki komutları tooretrieve hello kümeniz için bu bilgileri kullanın:
+Bu komut dosyasını kullanarak kümeye eklenen depolama hesabı bilgilerini görüntülemek için Ambari REST API kullanın. Kümeniz için bu bilgileri almak için aşağıdaki komutları kullanın:
 
 ```PowerShell
-$creds = Get-Credential -UserName "admin" -Message "Enter hello cluster login credentials"
+$creds = Get-Credential -UserName "admin" -Message "Enter the cluster login credentials"
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=1" `
     -Credential $creds
 $respObj = ConvertFrom-Json $resp.Content
@@ -91,62 +91,62 @@ $respObj.items.configurations.properties."fs.azure.account.key.$storageAccountNa
 ```
 
 > [!NOTE]
-> Ayarlama `$clusterName` hello Hdınsight kümesi toohello adı. Ayarlama `$storageAccountName` hello depolama hesabının toohello adı. İstendiğinde, hello küme oturum açma (Yönetici) ve parola girin.
+> Ayarlama `$clusterName` Hdınsight kümesinin adı. Ayarlama `$storageAccountName` depolama hesabının adı. İstendiğinde, küme oturum açma (Yönetici) ve parola girin.
 
 ```Bash
 curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.azure.account.key.$STORAGEACCOUNTNAME.blob.core.windows.net"] | select(. != null)'
 ```
 
 > [!NOTE]
-> Ayarlama `$PASSWORD` toohello küme oturum açma (Yönetici) hesap parolası. Ayarlama `$CLUSTERNAME` hello Hdınsight kümesi toohello adı. Ayarlama `$STORAGEACCOUNTNAME` hello depolama hesabının toohello adı.
+> Ayarlama `$PASSWORD` küme oturum açma (Yönetici) hesap parolası için. Ayarlama `$CLUSTERNAME` Hdınsight kümesinin adı. Ayarlama `$STORAGEACCOUNTNAME` depolama hesabının adı.
 >
-> Bu örnekte [curl (http://curl.haxx.se/)](http://curl.haxx.se/) ve [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) tooretrieve ve parse JSON verileri.
+> Bu örnekte [curl (http://curl.haxx.se/)](http://curl.haxx.se/) ve [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) almak ve JSON verilerini ayrıştırılamadı.
 
-Bu komut, kullanırken değiştirin __CLUSTERNAME__ hello Hdınsight kümesi hello adı. Değiştir __parola__ hello küme oturum açma parolasını hello HTTP ile. Değiştir __STORAGEACCOUNT__ hello adıyla hello depolama hesabı betik eylemi kullanarak eklendi. Bu komuttan döndürülen bilgi metnini izleyen benzer toohello görünür:
+Bu komut, kullanırken değiştirin __CLUSTERNAME__ Hdınsight kümesi adı. Değiştir __parola__ küme için HTTP oturum açma parolası ile. Değiştir __STORAGEACCOUNT__ betik eylemi kullanarak eklenen depolama hesabı adı. Bu komuttan döndürülen bilgi için aşağıdaki metni benzer görünür:
 
     "MIIB+gYJKoZIhvcNAQcDoIIB6zCCAecCAQAxggFaMIIBVgIBADA+MCoxKDAmBgNVBAMTH2RiZW5jcnlwdGlvbi5henVyZWhkaW5zaWdodC5uZXQCEA6GDZMW1oiESKFHFOOEgjcwDQYJKoZIhvcNAQEBBQAEggEATIuO8MJ45KEQAYBQld7WaRkJOWqaCLwFub9zNpscrquA2f3o0emy9Vr6vu5cD3GTt7PmaAF0pvssbKVMf/Z8yRpHmeezSco2y7e9Qd7xJKRLYtRHm80fsjiBHSW9CYkQwxHaOqdR7DBhZyhnj+DHhODsIO2FGM8MxWk4fgBRVO6CZ5eTmZ6KVR8wYbFLi8YZXb7GkUEeSn2PsjrKGiQjtpXw1RAyanCagr5vlg8CicZg1HuhCHWf/RYFWM3EBbVz+uFZPR3BqTgbvBhWYXRJaISwssvxotppe0ikevnEgaBYrflB2P+PVrwPTZ7f36HQcn4ifY1WRJQ4qRaUxdYEfzCBgwYJKoZIhvcNAQcBMBQGCCqGSIb3DQMHBAhRdscgRV3wmYBg3j/T1aEnO3wLWCRpgZa16MWqmfQPuansKHjLwbZjTpeirqUAQpZVyXdK/w4gKlK+t1heNsNo1Wwqu+Y47bSAX1k9Ud7+Ed2oETDI7724IJ213YeGxvu4Ngcf2eHW+FRK"
 
-Bu metin kullanılan şifreli bir anahtar örneğidir tooaccess hello depolama hesabı.
+Bu metin, depolama hesabına erişmek için kullanılan şifreli bir anahtar örneğidir.
 
-### <a name="unable-tooaccess-storage-after-changing-key"></a>Anahtar değiştirdikten sonra oluşturulamıyor tooaccess depolama
+### <a name="unable-to-access-storage-after-changing-key"></a>Depolama anahtarı değiştirdikten sonra erişilemiyor
 
-Bir depolama hesabının hello anahtarı değiştirirseniz, Hdınsight hello depolama hesabı artık erişemez. Hdınsight anahtarı önbelleğe alınmış bir kopyasını hello core-site.xml hello küme için kullanır. Önbelleğe alınan bu kopya güncelleştirilmiş toomatch hello yeni anahtarı olması gerekir.
+Bir depolama hesabı anahtarı değiştirirseniz, Hdınsight depolama hesabı artık erişemez. Hdınsight, küme için core-site.xml anahtar önbelleğe alınmış bir kopyasını kullanır. Önbelleğe alınan bu kopyayı yeni anahtarı eşleşecek şekilde güncelleştirmeniz gerekir.
 
-Merhaba betik eylemi yeniden çalıştıran mu __değil__ hello depolama hesabı için bir giriş zaten varsa hello betik toosee denetler gibi hello anahtar güncelleştirin. Bir giriş zaten varsa, herhangi bir değişiklik yapmaz.
+Betik eylemi yeniden çalıştıran mu __değil__ anahtar depolama hesabı için bir giriş zaten var olup olmadığını görmek için komut dosyasını denetler gibi güncelleştirin. Bir giriş zaten varsa, herhangi bir değişiklik yapmaz.
 
-Bu soruna geçici bir çözüm toowork, varolan bir girişi hello hello depolama hesabı için kaldırmanız gerekir. Aşağıdaki adımları tooremove hello varolan bir girişi hello kullan:
+Bu sorunu gidermek için depolama hesabı için varolan bir girişi kaldırmanız gerekir. Varolan bir girişi kaldırmak için aşağıdaki adımları kullanın:
 
-1. Bir web tarayıcısında Hdınsight kümenizin hello Ambari Web kullanıcı arabirimini açın. Merhaba URI https://CLUSTERNAME.azurehdinsight.net ' dir. Değiştir __CLUSTERNAME__ kümenizin hello ada sahip.
+1. Bir web tarayıcısında Hdınsight kümeniz için Ambari Web kullanıcı arabirimini açın. URI https://CLUSTERNAME.azurehdinsight.net ' dir. __CLUSTERNAME__ değerini kümenizin adıyla değiştirin.
 
-    İstendiğinde, kümeniz için hello HTTP oturum açma kullanıcısı ve parolayı girin.
+    İstendiğinde, kümeniz için HTTP oturum açma kullanıcı adı ve parola girin.
 
-2. Merhaba hello sayfasının hello soldaki hizmetlerin listesinden __HDFS__. Merhaba seçip __yapılandırmalar__ hello sayfasının hello Center'da sekmesi.
+2. Sayfanın sol Hizmetleri listesinden seçin __HDFS__. Ardından __yapılandırmalar__ sayfasının ortasında sekmesi.
 
-3. Merhaba, __filtre...__  değeri alanına, __fs.azure.account__. Bu toohello kümeye eklenmiş herhangi bir ek depolama alanı hesabı girişlerini döndürür. İki tür giriş vardır; __keyprovider__ ve __anahtar__. Her ikisi de hello depolama hesabı hello anahtar adının bir parçası olarak hello adını içerir.
+3. İçinde __filtre...__  değeri alanına, __fs.azure.account__. Bu kümeye eklenen herhangi bir ek depolama alanı hesabı girişlerini döndürür. İki tür giriş vardır; __keyprovider__ ve __anahtar__. Her ikisi de anahtar adının bir parçası olarak depolama hesabı adını içerir.
 
-    Merhaba adlı bir depolama hesabı örnek girdileri verilmiştir __mystorage__:
+    Aşağıdaki örnek girişlerdir adlı bir depolama hesabı için __mystorage__:
 
         fs.azure.account.keyprovider.mystorage.blob.core.windows.net
         fs.azure.account.key.mystorage.blob.core.windows.net
 
-4. Merhaba kırmızı tooremove ihtiyacınız hello depolama hesabı için hello anahtarları tanımladıktan sonra kullanmak '-' hello girişi toodelete sağında simgesi toohello. Hello kullan __kaydetmek__ toosave değişikliklerinizi düğmesine tıklayın.
+4. Gereksinim kaldırmak için depolama hesabı için anahtarlar tanımladıktan sonra kırmızı kullanmak '-' silmek için giriş sağındaki simgesi. Ardından __kaydetmek__ yaptığınız değişiklikleri kaydetmek için düğmesi.
 
-5. Değişiklikler kaydedildikten sonra hello betik eylemi tooadd hello depolama hesabı ve yeni anahtar değeri toohello küme kullanın.
+5. Değişiklikler kaydedildikten sonra depolama hesabı ve yeni anahtar değeri kümeye eklemek için betik eylemi kullanın.
 
 ### <a name="poor-performance"></a>Düşük performans
 
-Merhaba depolama hesabı hello Hdınsight kümesi farklı bir bölgede ise, düşük performans karşılaşabilirsiniz. Bir farklı bir bölgeye gönderir ve ağ trafiğini hello bölgesel Azure veri merkezi dışında çapraz erişilirken verilerde gecikme getirebilir genel internet hello.
+Hdınsight kümesi farklı bir bölgede depolama hesabı ise, düşük performans karşılaşabilirsiniz. Farklı bir bölgeye verilere ağ trafiğini bölgesel Azure veri merkezinin dışındaki ve gecikme getirebilir ortak Internet üzerinden gönderir.
 
 > [!WARNING]
-> Merhaba Hdınsight kümesi farklı bir bölgede bir depolama hesabı kullanılması desteklenmez.
+> Hdınsight kümesi farklı bir bölgede bir depolama hesabı kullanılması desteklenmez.
 
 ### <a name="additional-charges"></a>Ek ücretlere
 
-Merhaba depolama hesabı Hdınsight kümesi hello daha farklı bir bölgede ise, Azure faturalama hakkında ek çıkış ücretlerini fark edebilirsiniz. Verileri bir bölgesel veri merkezi ayrıldığında bir çıkış ücret uygulanır. Merhaba trafik farklı bir bölgede başka bir Azure veri merkezi için hedeflenen olsa bile bu ücretsiz olarak uygulanır.
+Hdınsight kümesi farklı bir bölgede depolama hesabı ise, Azure faturalama hakkında ek çıkış ücretlerini fark edebilirsiniz. Verileri bir bölgesel veri merkezi ayrıldığında bir çıkış ücret uygulanır. Farklı bir bölgede başka bir Azure veri merkezi için trafiği hedefleyen olsa bile bu ücretsiz olarak uygulanır.
 
 > [!WARNING]
-> Merhaba Hdınsight kümesi farklı bir bölgede bir depolama hesabı kullanılması desteklenmez.
+> Hdınsight kümesi farklı bir bölgede bir depolama hesabı kullanılması desteklenmez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Nasıl tooan olan bir Hdınsight kümesine tooadd ek depolama hesapları öğrendiniz. Betik eylemleri hakkında daha fazla bilgi için bkz: [özelleştirme Linux tabanlı Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md)
+Ek depolama hesapları olan bir Hdınsight kümesine ekleme öğrendiniz. Betik eylemleri hakkında daha fazla bilgi için bkz: [özelleştirme Linux tabanlı Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md)

@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile çalışma alanına Facebook tarafından | Microsoft Docs"
-description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ve Facebook ile çalışma alanına arasında."
+description: "Çoklu oturum açma Azure Active Directory ve Facebook ile çalışma alanına arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,87 +13,87 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 551ec353a5ec1da936373587688c299a6f4acca7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9b22679c304248ed7ba7a6bd9eaf82b64f7143cf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-configuring-workplace-by-facebook-for-user-provisioning"></a>Öğretici: Kullanıcı sağlamak için çalışma alanına Facebook ile yapılandırma
 
-Bu öğreticinin Hello hedefi çalışma tooperform Facebook ve Azure AD tooautomatically sağlama ve devre dışı bırakma sağlama kullanıcı hesaplarından Azure AD tooWorkplace Facebook tarafından tarafından gereken adımları hello tooshow ' dir.
+Bu öğreticinin amacı, Facebook ve Azure AD otomatik olarak sağlamak ve Azure AD kullanıcı hesaplarından çalışma Facebook tarafından sağlanmasını tarafından çalışma gerçekleştirmek için gereken adımları Göster sağlamaktır.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Facebook ile çalışma alanına ile Azure AD tümleştirme tooconfigure, aşağıdaki öğelerindeki hello gerekir:
+Facebook ile çalışma alanına ile Azure AD tümleştirme yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
 - Facebook çoklu oturum açma etkin abonelik tarafından bir çalışma alanı
 
 > [!NOTE]
-> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
+Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="assigning-users-tooworkplace-by-facebook"></a>Kullanıcıların tooWorkplace Facebook tarafından atama
+## <a name="assigning-users-to-workplace-by-facebook"></a>Kullanıcıların Facebook ile çalışma alanına atama
 
-Azure Active Directory hangi kullanıcıların erişim tooselected uygulamaları alması "atamaları" toodetermine adlı bir kavramı kullanır. Otomatik olarak bir kullanıcı hesabı sağlama hello bağlamında, yalnızca hello kullanıcıların ve grupların "Azure AD tooan uygulamada atanmış" eşitlenir.
+Azure Active Directory "atamaları" adlı bir kavram hangi kullanıcıların seçili uygulamalara erişim alması belirlemek için kullanır. Otomatik olarak bir kullanıcı hesabı sağlama bağlamında, yalnızca kullanıcıların ve grupların "Azure AD uygulamada atanmış" eşitlenir.
 
-Yapılandırma ve hizmet sağlama hello etkinleştirmeden önce hangi kullanıcılara ve/veya Azure AD tooyour çalışma alanına Facebook uygulaması tarafından erişim hello kullanıcıları temsil gruplarında toodecide gerekir. Karar sonra buraya hello yönergeleri izleyerek bu kullanıcıların tooyour çalışma alanına Facebook uygulaması tarafından atayabilirsiniz:
+Yapılandırma ve sağlama hizmeti etkinleştirmeden önce hangi kullanıcılara ve/veya Azure AD grupları Facebook uygulama tarafından işyeriniz erişmek isteyen kullanıcıların temsil eden karar vermeniz gerekir. Karar sonra bu kullanıcılar çalışma alanınıza Facebook uygulama tarafından Buradaki yönergeleri izleyerek atayabilirsiniz:
 
-[Bir kullanıcı veya grup tooan kuruluş uygulama atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Bir kullanıcı veya grup için bir kuruluş uygulama atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-tooworkplace-by-facebook"></a>Kullanıcıların tooWorkplace Facebook tarafından atamak için önemli ipuçları
+### <a name="important-tips-for-assigning-users-to-workplace-by-facebook"></a>Facebook ile çalışma alanına kullanıcılara atamak için önemli ipuçları
 
-*   Önerilir tek bir Azure AD kullanıcısının tooWorkplace yapılandırma sağlama Facebook tootest hello tarafından atanır. Ek kullanıcı ve/veya grupları daha sonra atanabilir.
+*   Önerilir tek bir Azure AD kullanıcısının atanması çalışma alanına Facebook tarafından sağlama yapılandırmayı test etme. Ek kullanıcı ve/veya grupları daha sonra atanabilir.
 
-*   Bir kullanıcı tooWorkplace Facebook tarafından atarken, geçerli bir kullanıcı rolünün seçmeniz gerekir. Merhaba "Varsayılan erişim" rolü sağlama için çalışmaz.
+*   Bir kullanıcı için çalışma alanına Facebook tarafından atarken, geçerli bir kullanıcı rolünün seçmeniz gerekir. "Varsayılan erişim" rolü sağlama için çalışmaz.
 
 ## <a name="enable-user-provisioning"></a>Kullanıcı sağlamayı etkinleştirin
 
-Bu bölümde, Azure AD tooWorkplace Facebook'ın kullanıcı hesabı tarafından API sağlama konusunda size rehberlik eder ve hizmet toocreate sağlama hello yapılandırma, güncelleştirme ve çalışma Facebook kullanıcı ve Grup göre tarafından atanan kullanıcı hesapları devre dışı bırak Azure AD'de atama.
+Bu bölümde API sağlama Facebook'ın kullanıcı hesabı tarafından Azure AD çalışma alanına konusunda size rehberlik eder ve oluşturmak için sağlama hizmeti yapılandırma güncelleştirin ve çalışma Azure AD'de kullanıcı ve grup atama göre Facebook tarafından atanan kullanıcı hesapları devre dışı bırak.
 
 >[!Tip]
->İş yeri tarafından sağlanan hello yönergeleri izleyerek Facebook için SAML tabanlı çoklu oturum açma tooenabled seçebilirsiniz [Azure portal](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir.
+>Da tercih edebilirsiniz etkin SAML tabanlı çoklu oturum açma Facebook tarafından çalışma alanı için yönergeleri izleyerek sağlanan [Azure portal](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir.
 
-### <a name="tooconfigure-user-account-provisioning-tooworkplace-by-facebook-in-azure-ad"></a>Azure AD'de tooWorkplace Facebook tarafından sağlama tooconfigure kullanıcı hesabı:
+### <a name="to-configure-user-account-provisioning-to-workplace-by-facebook-in-azure-ad"></a>Kullanıcı hesap için çalışma alanına Facebook tarafından Azure AD'de sağlama yapılandırmak için:
 
-Bu bölümde Hello amacı olan toooutline tooWorkplace Facebook tarafından Active Directory kullanıcısı tooenable sağlama nasıl hesapları.
+Bu bölümün amacı, Active Directory kullanıcı hesapları için çalışma alanına Facebook tarafından sağlanmasını etkinleştirme anahat sağlamaktır.
 
-Azure AD destekler Hello özelliği tooautomatically hello hesap ayrıntılarını eşitlemek kullanıcılar tooWorkplace Facebook tarafından atanır. Facebook tooget hello verileri, gereken tooauthorize kullanıcılar, erişimi için önce tarafından çalışma alanına bu otomatik eşitlenmesine olanak bunları içinde toosign hello için ilk kez çalışılıyor. Erişim Azure AD'de iptal edilmiş durumda olduğunda, ayrıca çalışma alanına Facebook tarafından kullanıcılardan XML'deki sağlamasını yapar.
+Azure AD çalışma alanına Facebook tarafından atanan kullanıcı hesabı ayrıntıları otomatik olarak eşitleme özelliği destekler. Bu otomatik eşitleme ilk kez oturum açmaya önlerinde erişim için Kullanıcıları yetkilendirmek için gereken verileri almak için Facebook ile çalışma alanına sağlar. Erişim Azure AD'de iptal edilmiş durumda olduğunda, ayrıca çalışma alanına Facebook tarafından kullanıcılardan XML'deki sağlamasını yapar.
 
-1. Merhaba, [Azure portal](https://portal.azure.com), toohello Gözat **Azure Active Directory** > **Kurumsal uygulamaları** > **tüm uygulamaları** bölümü.
+1. İçinde [Azure portal](https://portal.azure.com), Gözat **Azure Active Directory** > **Kurumsal uygulamaları** > **tüm uygulamaları** bölümü.
 
-2. Çoklu oturum açma için zaten çalışma alanına Facebook tarafından yapılandırdıysanız, çalışma alanına hello arama alanı kullanarak Facebook tarafından örneğiniz arayın. Aksi takdirde seçin **Ekle** arayın ve **Facebook ile çalışma alanına** hello uygulama galerisinde. Merhaba Arama sonuçlarından Facebook tarafından çalışma alanı seçin ve uygulamaların tooyour listesine ekleyin.
+2. Çoklu oturum açma için Facebook ile çalışma alanına zaten yapılandırdıysanız arama alanı kullanarak Facebook ile çalışma alanına örneğiniz arayın. Aksi takdirde seçin **Ekle** arayın ve **Facebook ile çalışma alanına** uygulama galerisinde. Arama sonuçlarından Facebook tarafından çalışma alanı seçin ve uygulamaları listenize ekleyin.
 
-3. Facebook ile çalışma alanına örneğiniz seçin, sonra seçin hello **sağlama** sekmesi.
+3. Facebook ile çalışma alanına örneğiniz seçin, sonra seçin **sağlama** sekmesi.
 
-4. Set hello **sağlama modu** çok**otomatik**. 
+4. Ayarlama **sağlama modunda** için **otomatik**. 
 
     ![Sağlama](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. Merhaba altında **yönetici kimlik bilgileri** bölümünde hello gizli belirteci girin ve Kiracı URL'si işyeriniz Facebook yönetici tarafından hello.
+5. Altında **yönetici kimlik bilgileri** bölümünde, gizli belirteci ve işyeriniz Facebook yönetici tarafından Kiracı URL'sini girin.
 
-6. Hello Azure portal'ı tıklatın **Bağlantıyı Sına** tooensure Azure AD, Facebook uygulaması tarafından tooyour çalışma alanına bağlanabilir. Merhaba bağlantı başarısız olursa işyeriniz Facebook hesabına göre takım yönetici izinleri olduğundan emin olun.
+6. Azure portalında tıklatın **Bağlantıyı Sına** Azure emin olmak için AD çalışma alanına Facebook uygulaması tarafından bağlanabilirler. Bağlantı başarısız olursa işyeriniz Facebook hesabına göre takım yönetici izinleri olduğundan emin olun.
 
-7. Bir kişi veya hello sağlama hata bildirimi alması gereken Grup Hello e-posta adresini girin **bildirim e-posta** alan ve hello onay kutusunu işaretleyin.
+7. Bir kişi veya sağlama hata bildirimleri alması gereken Grup e-posta adresini girin **bildirim e-posta** alan ve onay kutusunu işaretleyin.
 
 8. Tıklatın **kaydedin.**
 
-9. Hello eşlemeleri bölümü altında seçin **Facebook tarafından Azure Active Directory Kullanıcıları Eşitle tooWorkplace.**
+9. Eşlemeleri bölümü altında seçin **eşitleme Azure Active Directory Kullanıcıları Facebook ile çalışma.**
 
-10. Merhaba, **öznitelik eşlemelerini** bölümünde, Azure AD tooWorkplace Facebook tarafından eşitlenen hello kullanıcı öznitelikleri gözden geçirin. Merhaba olarak seçilen öznitelikler **eşleşen** Itanium tabanlı sistemler için kullanılan toomatch hello kullanıcı hesapları çalışma Facebook tarafından güncelleştirme işlemleri için özelliklerdir. Merhaba Kaydet düğmesine toocommit herhangi bir değişiklik seçin.
+10. İçinde **öznitelik eşlemelerini** bölümünde, Facebook ile eşitlenmiş Azure AD çalışma alanına kullanıcı öznitelikleri gözden geçirin. Seçilen öznitelikler **eşleşen** özellikler kullanılan çalışma alanına kullanıcı hesaplarında eşleştirmek için Facebook tarafından güncelleştirme işlemleri için. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
 
-11. tooenable hello Facebook, değişiklik hello tarafından çalışma alanı için Azure AD sağlama hizmeti **sağlama durumu** çok**üzerinde** hello içinde **ayarları** bölümü
+11. Azure AD çalışma alanına Facebook tarafından hizmet sağlama etkinleştirmek için değiştirmek **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü
 
 12. Tıklatın **kaydedin.**
 
-Hakkında daha fazla bilgi için hazırlama, otomatik tooconfigure bkz [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers)
+Otomatik sağlama yapılandırma hakkında daha fazla bilgi için bkz: [https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/provisioning/cloud-providers)
 
-Şimdi sınama hesabı oluşturabilirsiniz. İçin Facebook tarafından tooWorkplace hello hesap tooverify eşitlenmiş too20 dakika bekleyin.
+Şimdi sınama hesabı oluşturabilirsiniz. Hesap çalışma alanına Facebook ile eşitlendiğinden emin doğrulamak için en çok 20 dakika bekleyin.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

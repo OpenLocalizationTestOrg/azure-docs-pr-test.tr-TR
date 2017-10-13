@@ -1,6 +1,6 @@
 ---
-title: "aaaKey Kasa .NET 2.x API Sürüm Notları | Microsoft Docs"
-description: ".NET geliştiricileri için Azure anahtar kasası bu API toocode kullanır"
+title: "Anahtar kasası .NET 2.x API Sürüm Notları | Microsoft Docs"
+description: ".NET geliştiricileri için Azure anahtar kasası bu API için kod kullanır"
 services: key-vault
 author: BrucePerlerMS
 manager: mbaldwin
@@ -13,63 +13,63 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
 ms.author: bruceper
-ms.openlocfilehash: d95b84cf73c155f117f37e93893f27b02a75855c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c5b5fd7f16faf17d16ecc82269fb1264adf4dd06
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure anahtar kasası .NET 2.0 - sürüm notları ve Geçiş Kılavuzu
-Merhaba aşağıdaki notları ve rehberlik Azure anahtar kasası .NET ile birlikte çalışan geliştiricilere içindir / C# Kitaplığı. Geçiş Hello hello 1.0 sürümü toohello 2.0 sürümünden güncelleştirme sayısı, hello işlevsel iyileştirmeler toobenefit sırada kodunuzu geçiş işlerinde gerektirir ve ekler gibi özellik bu işlem yapıldı **anahtar kasası sertifikaları** destekler.
+Azure anahtar kasası .NET ile birlikte çalışan geliştiricilere aşağıdaki notları ve rehberlik içindir / C# Kitaplığı. 1.0 sürümünden 2.0 sürümüne geçiş içinde güncelleştirme sayısı kodunuzu işlevsel iyileştirmeler yararlanabilir ve ekler gibi özellik için sırayla geçiş işlerinde gerektiren bu yapıldı **anahtar kasası sertifikaları**  destekler.
 
 ## <a name="key-vault-certificates"></a>Anahtar kasası sertifikaları
 
-Anahtar kasası sertifikaları destek sağlar, x509 yönetimi için sertifikaları ve davranışları aşağıdaki hello:  
+Anahtar kasası sertifikaları destek sağlar, x509 yönetimi için sertifikaları ve aşağıdaki davranışları:  
 
-* Bir sertifika sahibinin toocreate bir anahtar kasası oluşturma işlemi veya varolan bir sertifikayı hello alma aracılığıyla bir sertifika sağlar. Bu otomatik olarak imzalanan hem de içerir ve sertifika yetkilisi sertifikaları oluşturulur.
-* Bir anahtar kasası sertifika sahibinin tooimplement güvenli depolama ve Yönetimi X509 verir sertifikaları özel anahtar malzemesi etkileşim olmadan.  
-* Bir sertifika sahibinin toocreate anahtar kasası toomanage hello yaşam döngüsü, bir sertifikanın yönlendiren bir ilke sağlar.  
-* Sertifika sahipleri tooprovide kişi hakkında bilgi için bildirim yaşam döngüsü olayları geçerlilik süresi ve sertifikanın yenilenmesini sağlar.  
+* Bir anahtar kasası oluşturma işlemi veya varolan bir sertifikayı alma aracılığıyla bir sertifika oluşturmak bir sertifika sahibinin verir. Bu otomatik olarak imzalanan hem de içerir ve sertifika yetkilisi sertifikaları oluşturulur.
+* Güvenli Depolama ve X509 Yönetimi uygulamak bir anahtar kasası sertifika sahibinin verir sertifikaları özel anahtar malzemesi etkileşim olmadan.  
+* Bir sertifika yaşam döngüsünü yönetmek için anahtar kasası yönlendiren bir ilke oluşturmak bir sertifika sahibinin verir.  
+* Kişi hakkında bilgi için bildirim yaşam döngüsü olayları geçerlilik süresi ve sertifikanın yenilenmesini sağlamak sertifika sahipleri sağlar.  
 * Otomatik olarak yenilenmesi destekler seçili verenler - anahtar kasası iş ortağı X509 ile sertifika sağlayıcıları / sertifika yetkilileri.
   
-  * Not - ortaklık olmayan sağlayıcıları/yetkilileri de izin verilir ancak hello otomatik yenileme özelliği desteklemez.
+  * Not - ortaklık olmayan sağlayıcıları/yetkilileri de izin verilir ancak, otomatik yenileme özelliği desteklemez.
 
 ## <a name="net-support"></a>.NET desteği
 
-* **.NET 4.0** hello Azure anahtar kasası .NET hello 2.0 sürümü tarafından desteklenmeyen / C# Kitaplığı
-* **.NET core** hello Azure anahtar kasası .NET hello 2.0 sürümü tarafından desteklenen / C# Kitaplığı
+* **.NET 4.0** Azure anahtar kasası .NET 2.0 sürümü tarafından desteklenmeyen / C# Kitaplığı
+* **.NET core** Azure anahtar kasası .NET 2.0 sürümü tarafından desteklenen / C# Kitaplığı
 
 ## <a name="namespaces"></a>ad alanları
 
-* ad alanı için hello **modelleri** değiştirilirse **Microsoft.Azure.KeyVault** çok**Microsoft.Azure.KeyVault.Models**.
-* Merhaba **Microsoft.Azure.KeyVault.Internal** ad alanı bırakıldı.
-* Hello Azure SDK'sı bağımlılıkları ad alanı değiştirildi **Hyak.Common** ve **Hyak.Common.Internals** çok**Microsoft.Rest** ve  **Microsoft.Rest.Serialization**
+* Ad alanı için **modelleri** değiştirilirse **Microsoft.Azure.KeyVault** için **Microsoft.Azure.KeyVault.Models**.
+* **Microsoft.Azure.KeyVault.Internal** ad alanı bırakıldı.
+* Azure SDK'sı bağımlılıkları ad alanı değiştirildi **Hyak.Common** ve **Hyak.Common.Internals** için **Microsoft.Rest** ve  **Microsoft.Rest.Serialization**
 
 ## <a name="type-changes"></a>Türü değişiklikleri
 
-* *Gizli* çok değiştirilen*SecretBundle*
-* *Sözlük* çok değiştirilen*IDictionary*
-* *Liste<T>, string []* çok değiştirilen*IList<T>*
-* *NextList* çok değiştirilen *NextPageLink*
+* *Gizli* değiştirildi *SecretBundle*
+* *Sözlük* değiştirildi *IDictionary*
+* *Liste<T>, string []* değiştirildi *IList<T>*
+* *NextList* değiştirildi *NextPageLink*
 
 ## <a name="return-types"></a>Dönüş türleri
 
 * **KeyList** ve **SecretList** döndürülecek *IPage<T>*  yerine *ListKeysResponseMessage*
-* oluşturulan hello **BackupKeyAsync** döndürülecek *BackupKeyResult* içeren *değeri* (Yedekleme blob). Merhaba önce yöntemi Sarmalanan ve döndürmeyi yalnızca hello değeri idi.
+* Oluşturulan **BackupKeyAsync** döndürülecek *BackupKeyResult* içeren *değeri* (Yedekleme blob). Yöntem sarmalandı önce ve yalnızca değer döndürüyor.
 
 ## <a name="exceptions"></a>Özel durumlar
 
-* *KeyVaultClientException* çok değiştirilir*KeyVaultErrorException*
-* Merhaba hizmet hatası değiştirildiğinde *özel durum. Hata* çok*özel durum. Body.Error.Message*.
-* Ek bilgi için hata iletisini hello kaldırıldı **[JsonExtensionData]**.
+* *KeyVaultClientException* değiştirilir *KeyVaultErrorException*
+* Hizmet hatası değiştirilirse *özel durum. Hata* için *özel durum. Body.Error.Message*.
+* Ek bilgi için hata iletisini kaldırıldı **[JsonExtensionData]**.
 
 ## <a name="constructors"></a>Oluşturucular
 
-* Kabul yerine bir *HttpClient* oluşturucu bağımsız değişkeni olarak yalnızca hello Oluşturucusu kabul *HttpClientHandler* veya *DelegatingHandler []*.
+* Kabul yerine bir *HttpClient* oluşturucu bağımsız değişkeni olarak yalnızca Oluşturucusu kabul *HttpClientHandler* veya *DelegatingHandler []*.
 
 ## <a name="downloaded-packages"></a>İndirilen paketler
 
-Bir istemci üzerinde bir bağımlılık işlerken anahtar kasası hello aşağıdaki yüklenen
+Bir istemci bir anahtar kasası bağımlılığı işlerken aşağıdaki yüklenen
 
 ### <a name="previous-package-list"></a>Önceki paket listesi
 
@@ -91,19 +91,19 @@ Bir istemci üzerinde bir bağımlılık işlerken anahtar kasası hello aşağ�
 ## <a name="class-changes"></a>Sınıf değişiklikleri
 
 * **UnixEpoch** sınıfı kaldırıldı
-* **Base64UrlConverter** sınıfı çok yeniden**Base64UrlJsonConverter**
+* **Base64UrlConverter** sınıfı yeniden adlandırılmış **Base64UrlJsonConverter**
 
 ## <a name="other-changes"></a>Diğer değişiklikler
 
-* Merhaba API sürümü toothis KV işlemi geçici hataları yeniden deneme ilkesi hello yapılandırması için destek eklendi.
+* Bu API sürümüne KV işlemi geçici hataları yeniden deneme ilkesi yapılandırması için destek eklendi.
 
 ## <a name="microsoftazuremanagementkeyvault-nuget"></a>Microsoft.Azure.Management.KeyVault NuGet
 
-* Döndürülen hello işlemleri için bir *kasa*, hello dönüş türü olan bir kasa özelliği bulunan bir sınıf. Merhaba dönüş türü sunulmuştur *kasa*.
+* Döndürülen işlemleri için bir *kasa*, dönüş türü bir kasa özelliği bulunan bir sınıf oluştu. Dönüş türü sunulmuştur *kasa*.
 * *PermissionsToKeys* ve *PermissionsToSecrets* artık *Permissions.Keys* ve *Permissions.Secrets*
-* Merhaba bazıları toohello kontrol-düzlemi de türleri değişiklikleri uygulamak döndür.
+* Dönüş türleri değişikliklerden bazıları denetim-düzeyi için de geçerlidir.
 
 ## <a name="microsoftazurekeyvaultextensions-nuget"></a>Microsoft.Azure.KeyVault.Extensions NuGet
 
-* Merhaba paket parçalara çok**Microsoft.Azure.KeyVault.Extensions** ve **Microsoft.Azure.KeyVault.Cryptography** hello şifreleme işlemleri için.
+* Paket kadar bozuk **Microsoft.Azure.KeyVault.Extensions** ve **Microsoft.Azure.KeyVault.Cryptography** şifreleme işlemleri için.
 

@@ -1,6 +1,6 @@
 ---
-title: bir StorSimple cihaz denetleyicisi aaaReplace | Microsoft Docs
-description: "Açıklar nasıl tooremove ve StorSimple Cihazınızı biri veya her ikisi denetleyicisi modülleri değiştirin."
+title: "StorSimple cihaz denetleyicisini değiştirme | Microsoft Docs"
+description: "Kaldırdığınızda ve değiştirdiğinizde, StorSimple Cihazınızda biri veya her ikisi denetleyicisi modülleri açıklanmaktadır."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,79 +14,79 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/03/2017
 ms.author: alkohli
-ms.openlocfilehash: ebf5c5830120857f69909113e3a111f4dda30e57
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 5dd5ffc7c08fcc9263b91ca5ac86de5163f91657
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Bir denetleyici modülü, StorSimple Cihazınızda değiştirin
 ## <a name="overview"></a>Genel Bakış
-Bu öğretici açıklar nasıl tooremove ve StorSimple cihazını biri veya her ikisi denetleyicisi modüllerde değiştirin. Ayrıca, hello tek ve çift denetleyicisi değiştirme senaryoları için logic temel hello anlatılmaktadır.
+Bu öğretici, kaldırmak ve StorSimple cihazını biri veya her ikisi denetleyicisi modüllerdeki yerini açıklanmaktadır. Ayrıca, tek ve çift denetleyicisi değiştirme senaryoları için temel mantığını anlatılmaktadır.
 
 > [!NOTE]
-> Önceki tooperforming denetleyicisi değiştirme, her zaman, denetleyici bellenim toohello en son sürümüne güncelleştirmenizi öneririz.
+> Bir denetleyici değiştirme gerçekleştirmeden önce denetleyicisi bellenim her zaman en son sürüme güncelleştirir öneririz.
 > 
-> tooprevent tooyour StorSimple cihazı zarar, hello LED'leri atandığını gösteren kadar hello aşağıdakilerden biri olarak hello denetleyicisi çıkarmayın:
+> StorSimple Cihazınızı zarar önlemek için LED'leri aşağıdakilerden biri gösteren kadar denetleyicisi çıkarmayın:
 > 
 > * Tüm ışık OFF ' dir.
 > * LED 3 ![yeşil onay simgesi](./media/storsimple-controller-replacement/HCS_GreenCheckIcon.png), ve ![kırmızı çarpı simgesi](./media/storsimple-controller-replacement/HCS_RedCrossIcon.png) yanıp olan ve LED 0 ve LED 7 **ON**.
 > 
 > 
 
-Aşağıdaki tablonun hello desteklenen hello denetleyicisi değiştirme senaryolar gösterilmektedir.
+Aşağıdaki tabloda, desteklenen denetleyicisi değiştirme senaryolar gösterilmektedir.
 
 | Durumu | Değiştirme senaryosu | Geçerli ilgili yordamı |
 |:--- |:--- |:--- |
-| 1 |Bir denetleyici başarısız durumda, hello diğer denetleyicisi sağlam ve etkin. |[Tek bir denetleyici değiştirme](#replace-a-single-controller), hello açıklayan [tek denetleyici değiştirme ardındaki mantığı](#single-controller-replacement-logic), hello yanı sıra [değiştirme adımları](#single-controller-replacement-steps). |
-| 2 |Her iki hello denetleyicileri başarısız olmuş ve değiştirme gerektirir. Merhaba kasa, diskleri ve disk kasası iyi durumda. |[Çift denetleyici değiştirme](#replace-both-controllers), hello açıklayan [çift denetleyici değiştirme ardındaki mantığı](#dual-controller-replacement-logic), hello yanı sıra [değiştirme adımları](#dual-controller-replacement-steps). |
-| 3 |Denetleyicilerinden hello aynı cihaz veya farklı cihazlardan takas. Merhaba kasa, diskleri ve disk kasaları iyi durumda. |Bir yuva uyuşmazlığı uyarı iletisi görüntülenir. |
-| 4 |Bir denetleyici yok ve diğer denetleyicisi başarısız hello. |[Çift denetleyici değiştirme](#replace-both-controllers), hello açıklayan [çift denetleyici değiştirme ardındaki mantığı](#dual-controller-replacement-logic), hello yanı sıra [değiştirme adımları](#dual-controller-replacement-steps). |
-| 5 |Bir veya iki denetleyicileri başarısız oldu. Merhaba aygıt hello seri konsolu veya Windows PowerShell uzaktan iletişimini erişemez. |[Microsoft Support başvurun](storsimple-contact-microsoft-support.md) el ile denetleyicisi değiştirme yordamı. |
-| 6 |Merhaba denetleyicileri nedeniyle olabilir farklı yapım sürümüne sahip:<ul><li>Denetleyicileri farklı yazılım sürümüne sahip.</li><li>Denetleyicileri farklı üretici yazılımı sürümüne sahip.</li></ul> |Merhaba denetleyicisi yazılım sürümleri farklıysa, hello değiştirme mantığı algılar ve yazılım sürümü hello değiştirme denetleyicisinde güncelleştirmeleri hello.<br><br>Merhaba denetleyicisi bellenim sürümleri farklıdır ve bellenim sürümü eski hello **değil** otomatik olarak yükseltilebilir bir uyarı iletisi hello Klasik Azure portalı da görüntülenir. Güncelleştirmeleri taramak ve hello Bellenim güncelleştirmeleri yüklemeniz gerekir.</br></br>Hello denetleyicisi bellenim sürümleri farklıdır ve hello eski bellenim sürümü otomatik olarak yükseltilebilir ise, hello denetleyicisi değiştirme mantığı bunu algılar ve hello denetleyicisi başladıktan sonra hello üretici yazılımı otomatik olarak güncelleştirilir. |
+| 1 |Bir denetleyici başarısız durumda, diğer denetleyicisi sağlam ve etkin. |[Tek bir denetleyici değiştirme](#replace-a-single-controller), açıklayan [tek denetleyici değiştirme ardındaki mantığı](#single-controller-replacement-logic), yanı sıra [değiştirme adımları](#single-controller-replacement-steps). |
+| 2 |İki denetleyiciye başarısız olmuş ve değiştirme gerektirir. Kasa, diskleri ve disk kasası iyi durumda. |[Çift denetleyici değiştirme](#replace-both-controllers), açıklayan [çift denetleyici değiştirme ardındaki mantığı](#dual-controller-replacement-logic), yanı sıra [değiştirme adımları](#dual-controller-replacement-steps). |
+| 3 |Aynı aygıttan veya farklı cihaz denetleyicileri değiştirilen. Kasa, diskleri ve disk kasaları iyi durumda. |Bir yuva uyuşmazlığı uyarı iletisi görüntülenir. |
+| 4 |Bir denetleyici eksik ve diğer denetleyicisi başarısız olur. |[Çift denetleyici değiştirme](#replace-both-controllers), açıklayan [çift denetleyici değiştirme ardındaki mantığı](#dual-controller-replacement-logic), yanı sıra [değiştirme adımları](#dual-controller-replacement-steps). |
+| 5 |Bir veya iki denetleyicileri başarısız oldu. Cihaz seri konsolu veya Windows PowerShell uzaktan iletişimini erişemez. |[Microsoft Support başvurun](storsimple-contact-microsoft-support.md) el ile denetleyicisi değiştirme yordamı. |
+| 6 |Denetleyicileri nedeniyle olabilir farklı yapım sürümüne sahip:<ul><li>Denetleyicileri farklı yazılım sürümüne sahip.</li><li>Denetleyicileri farklı üretici yazılımı sürümüne sahip.</li></ul> |Denetleyici yazılım sürümleri farklıysa, değiştirme mantığı olduğunu algılarsa ve yazılım sürümü değiştirme denetleyicisinde güncelleştirir.<br><br>Denetleyici bellenim sürümleri farklıdır ve bellenim sürümü eski **değil** otomatik olarak yükseltilebilir bir uyarı iletisi Azure Klasik Portalı'nda da görüntülenir. Güncelleştirmeleri taramak ve bellenim güncelleştirmeleri yüklemeniz gerekir.</br></br>Denetleyici bellenim sürümleri farklıdır ve eski bellenim sürümü otomatik olarak yükseltilebilir ise, denetleyici değiştirme mantığı bu algılar ve denetleyici başlatıldıktan sonra üretici yazılımı otomatik olarak güncelleştirilir. |
 
-Bu başarısız olursa tooremove Denetleyici Modülü gerekir. Bir tek denetleyici değiştirme ya da çift denetleyici değiştirme sonuçlanabilir biri veya her ikisi hello denetleyicisi modülleri başarısız olabilir. Değiştirme yordamlar ve bunları arkasındaki hello mantığı için hello aşağıdakilere bakın:
+Bu başarısız olursa bir Denetleyici Modülü kaldırmanız gerekir. Bir tek denetleyici değiştirme ya da çift denetleyici değiştirme sonuçlanabilir bir veya iki Denetleyici Modülü başarısız olabilir. Değiştirme yordamları ve bunların ardındaki mantığı için aşağıdakilere bakın:
 
 * [Tek bir denetleyiciyi değiştirme](#replace-a-single-controller)
 * [Hem denetleyicileri Değiştir](#replace-both-controllers)
 * [Bir denetleyici Kaldır](#remove-a-controller)
 * [Bir denetleyici Ekle](#insert-a-controller)
-* [Cihazınızı etkin denetleyicisinde Hello tanımlayın](#identify-the-active-controller-on-your-device)
+* [Cihazınızı etkin denetleyicisinde tanımlayın](#identify-the-active-controller-on-your-device)
 
 > [!IMPORTANT]
-> Bir denetleyici değiştirme ve kaldırma gözden önce hello güvenlik bilgileri [StorSimple donanım bileşeni değiştirme](storsimple-hardware-component-replacement.md).
+> Bir denetleyici değiştirme ve kaldırma gözden önce güvenlik bilgileri [StorSimple donanım bileşeni değiştirme](storsimple-hardware-component-replacement.md).
 > 
 > 
 
 ## <a name="replace-a-single-controller"></a>Tek bir denetleyici değiştirin
-Merhaba Microsoft Azure StorSimple cihaz hello iki denetleyicilerinde biri başarısız oldu, arızalı veya eksik tooreplace tek bir denetleyici gerekir. 
+Microsoft Azure StorSimple cihazında iki denetleyicilerinden biri başarısız oldu, arızalı veya eksik olduğunda, tek bir denetleyici değiştirmeniz gerekiyor. 
 
 ### <a name="single-controller-replacement-logic"></a>Tek denetleyici değiştirme mantığı
-Tek denetleyici yenisini hello başarısız denetleyicisi ilk kaldırmanız gerekir. (Merhaba kalan denetleyicisi hello aygıtta hello etkin denetleyicisidir.) Merhaba değiştirme denetleyicisi eklediğinizde, hello aşağıdaki eylemler gerçekleşir:
+Tek denetleyici yenisini önce başarısız olan denetleyici kaldırmanız gerekir. (Kalan denetleyicisi aygıt etkin denetleyicisidir.) Değiştirme denetleyicisi eklediğinizde, aşağıdaki eylemler gerçekleşir:
 
-1. Merhaba yedek denetleyicisini hemen hello StorSimple cihazı ile iletişim başlatır.
-2. Bir anlık görüntüsünü hello sanal sabit disk (VHD) için hello etkin denetleyicisi hello değiştirme denetleyicisinde kopyalanır.
-3. böylece bu VHD'den Hello değiştirme Denetleyicisi başlatıldığında, bu bekleme denetleyicisi olarak tanınır hello anlık görüntü değiştirilir.
-4. Merhaba değişiklikler tamamlandığında hello yedek denetleyicisini hello bekleme denetleyicisi olarak başlar.
-5. Hem hello denetleyicileri çalıştırırken, hello küme çevrimiçi olur.
+1. Yedek denetleyicisini hemen StorSimple cihazı ile iletişim başlatır.
+2. Bir anlık görüntü sanal sabit disk (VHD) etkin denetleyiciye değiştirme denetleyicisinde kopyalanır.
+3. Böylece bu VHD'den değiştirme Denetleyicisi başlatıldığında, bu bekleme denetleyicisi olarak tanınır anlık görüntü değiştirilir.
+4. Değişiklikler tamamlandığında, yedek denetleyicisini bekleme denetleyicisi olarak başlar.
+5. İki denetleyiciye çalıştırırken, küme çevrimiçi olur.
 
 ### <a name="single-controller-replacement-steps"></a>Tek denetleyici değiştirme adımları
-Merhaba Microsoft Azure StorSimple Cihazınızı hello denetleyicilerinden biri başarısız olursa aşağıdaki adımları tamamlayın. (Merhaba diğer denetleyicisi etkin ve çalışıyor olması gerekir. Her iki denetleyicileri başarısız veya arıza durumunda çok Git[çift denetleyici değiştirme adımları](#dual-controller-replacement-steps).)
+Microsoft Azure StorSimple Cihazınızı denetleyicilerinden biri başarısız olursa, aşağıdaki adımları tamamlayın. (Diğer denetleyicisi etkin ve çalışıyor olması gerekir. Her iki denetleyicileri başarısız veya arıza durumunda Git [çift denetleyici değiştirme adımları](#dual-controller-replacement-steps).)
 
 > [!NOTE]
-> Bunu hello denetleyicisi toorestart için 30 – 45 dakika sürer ve tamamen hello tek denetleyici değiştirme yordamdan kurtarın. Merhaba kabloları ekleme de dahil olmak üzere hello tüm yordamı için toplam süreyi Hello yaklaşık 2 saattir.
+> Yeniden başlatın ve tamamen tek denetleyici değiştirme yordamdan kurtarmak denetleyici için 30 – 45 dakika sürebilir. Tüm yordamı için toplam süreyi kabloları ekleme de dahil olmak üzere yaklaşık 2 saat değil.
 > 
 > 
 
-#### <a name="tooremove-a-single-failed-controller-module"></a>tooremove tek başarısız Denetleyici Modülü
-1. Hello Klasik Azure portalı, toohello StorSimple Yöneticisi hizmeti gidin, hello tıklatın **aygıtları** sekmesini ve ardından toomonitor istediğiniz hello aygıtı hello adına tıklayın.
-2. Çok Git**Bakım > donanım durum**. Denetleyici 0 veya denetleyici 1 Hello durumu hata gösterir kırmızı, olması gerekir.
+#### <a name="to-remove-a-single-failed-controller-module"></a>Tek bir Denetleyici Modülü kaldırılamadı
+1. Azure Klasik portalı, StorSimple Yöneticisi hizmeti Git tıklatın **aygıtları** sekmesine ve ardından izlemek istediğiniz cihazın adına tıklayın.
+2. Git **Bakım > donanım durum**. Denetleyici 0 ve denetleyici 1 durumunu hata belirten kırmızı olması gerekir.
    
    > [!NOTE]
-   > başarısız olan denetleyici Hello tek denetleyici değiştirme, her zaman bir bekleme denetleyicisi değil.
+   > Tek denetleyici değiştirme başarısız denetleyicide her zaman bir bekleme denetleyicisi değil.
    > 
    > 
-3. Şekil 1 ve tablo toolocate hello başarısız Denetleyici Modülü aşağıdaki hello kullanın.  
+3. Şekil 1 ve aşağıdaki tabloda başarısız Denetleyici Modülü bulmak için kullanın.  
    
     ![Aygıt birincil muhafaza modüllerinin devre kartı](./media/storsimple-controller-replacement/IC740994.png)
    
@@ -98,143 +98,143 @@ Merhaba Microsoft Azure StorSimple Cihazınızı hello denetleyicilerinden biri 
    | 2 |PCM 1 |
    | 3 |Denetleyici 0 |
    | 4 |Denetleyici 1 |
-4. Merhaba başarısız denetleyicisinde, tüm bağlı hello ağ kablolarını hello veri noktalarından kaldırın. 8600 model kullanıyorsanız, aynı zamanda hello denetleyicisi toohello EBOD denetleyicisi bağlanma SAS kabloları hello kaldırın.
-5. Merhaba adımları [bir denetleyici kaldırmak](#remove-a-controller) tooremove hello denetleyicisi başarısız oldu. 
-6. Yükleme hello Fabrika değişimini aynı yuva hangi hello başarısız denetleyicisinden hello kaldırıldı. Merhaba tek denetleyici değiştirme mantığı tetikler. Daha fazla bilgi için bkz: [tek denetleyicisi değiştirme mantığı](#single-controller-replacement-logic).
-7. Merhaba tek denetleyici değiştirme mantığı hello arka planda ilerler olsa da, hello kabloları yeniden bağlanın. Tüm hello kabloların tam olarak hello dikkatli tooconnect aynı şekilde hello değiştirme önce bağlanmış alın.
-8. Merhaba denetleyicisi yeniden başlatıldıktan sonra hello denetleyin **denetleyicisi durumunu** ve hello **küme durumu** hello Azure denetleyicisi hello Klasik portal tooverify geri tooa sağlıklı bir durumda ve bekleme modunda .
+4. Başarısız denetleyicisinde tüm bağlı ağ kablolarını veri noktalarından kaldırın. 8600 model kullanıyorsanız, aynı zamanda EBOD denetleyicisi için denetleyici bağlanmak SAS kabloları kaldırın.
+5. Adımları [bir denetleyici kaldırmak](#remove-a-controller) başarısız denetleyicisini kaldırmak için. 
+6. Fabrika değiştirme başarısız olan denetleyici kaldırıldığı yuvasında yükleyin. Bu tek denetleyici değiştirme mantığı tetikler. Daha fazla bilgi için bkz: [tek denetleyicisi değiştirme mantığı](#single-controller-replacement-logic).
+7. Arka planda tek denetleyici değiştirme mantığı ilerler olsa da, kabloları yeniden bağlanın. Tüm kabloların önce değiştirme bağlanmış aynı şekilde bağlanmak için dikkatli olun.
+8. Denetleyici yeniden başlatıldıktan sonra denetleme **denetleyicisi durumunu** ve **küme durumu** denetleyicisi sağlıklı bir duruma ve bekleme modunda olduğunu doğrulamak için Azure Klasik portalında.
 
 > [!NOTE]
-> Merhaba aygıt hello seri Konsolu aracılığıyla izliyorsanız, hello denetleyicisi hello değiştirme yordamdan Kurtarma sırasında birden çok kez yeniden görebilirsiniz. Ardından Hello seri konsol menüsünde sunulduğunda hello değiştirme tam olduğunu bildiğiniz. Merhaba menü hello denetleyicisi değiştirme başlatmanın iki saat içinde görünmüyorsa, lütfen [Microsoft Support başvurun](storsimple-contact-microsoft-support.md).
+> Cihaz seri Konsolu aracılığıyla izliyorsanız, denetleyici değiştirme yordamdan Kurtarma sırasında birden çok kez yeniden görebilirsiniz. Daha sonra seri konsol menüsünde sunulduğunda değiştirme tam olduğunu bildiğiniz. Menü denetleyicisi değiştirme başlatmanın iki saat içinde görünmüyorsa, lütfen [Microsoft Support başvurun](storsimple-contact-microsoft-support.md).
 >
-> Güncelleştirme 4'ten başlayarak, hello cmdlet'ini de kullanabilirsiniz `Get-HCSControllerReplacementStatus` hello Windows PowerShell arabiriminde hello aygıt toomonitor hello hello denetleyicisi değiştirme işleminin durumunu.
+> Güncelleştirme 4'ten başlayarak, cmdlet'ini de kullanabilirsiniz `Get-HCSControllerReplacementStatus` denetleyicisi değiştirme işlemi durumunu izlemek için cihazın Windows PowerShell arabiriminde.
 > 
 
 ## <a name="replace-both-controllers"></a>Hem denetleyicileri Değiştir
-Her iki denetleyicileri hello Microsoft Azure StorSimple cihaz üzerinde başarısız oldu, arızalı olan ya da eksik. hem denetleyicileri tooreplace gerekir. 
+Microsoft Azure StorSimple cihazında hem denetleyicileri başarısız oldu, arızalı olan ya da eksik. hem denetleyicileri değiştirmeniz gerekiyor. 
 
 ### <a name="dual-controller-replacement-logic"></a>Çift denetleyici değiştirme mantığı
-Çift denetleyici değiştirme hem başarısız denetleyicileri kaldırın ve değişiklik ekleyin. Merhaba iki değiştirme denetleyicisi eklediğinizde, hello aşağıdaki eylemler gerçekleşir:
+Çift denetleyici değiştirme hem başarısız denetleyicileri kaldırın ve değişiklik ekleyin. İki değiştirme denetleyicileri eklendiğinde, aşağıdaki eylemler gerçekleşir:
 
-1. Merhaba değiştirme denetleyici 0 yuvadaki hello aşağıdakileri denetler:
+1. Yuva 0'ın yedek denetleyicisini aşağıdakileri denetler:
    
-   1. Geçerli hello bellenim ve yazılım sürümlerini kullanıyor mu?
-   2. Bu hello kümenin parçası?
-   3. Çalıştıran hello eş denetleyicisi ve kümelenmiş olur?
+   1. Bellenim ve yazılım geçerli sürümleri kullanıyor mu?
+   2. Bu kümenin bir parçası?
+   3. Çalıştıran eş denetleyicisi ve kümelenmiş olur?
       
-      Bu koşulların hiçbiri doğruysa hello denetleyicisi hello en son günlük yedekleme için görünüyor (hello bulunan **nonDOMstorage** sürücüde S). Merhaba denetleyicisi hello son anlık görüntüsünü hello VHD hello yedekten kopyalar.
-2. Yuva 0 Hello denetleyicisi hello anlık görüntü tooimage kendisini kullanır.
-3. Bu sırada, denetleyici 0 toocomplete hello görüntüleme ve başlangıç için 1 yuvadaki hello denetleyicisi bekler.
-4. Denetleyici 0 başlatıldıktan sonra Denetleyici 1 0, denetleyici tarafından oluşturulan hello tek denetleyici değiştirme mantığı tetikler hello küme algılar. Daha fazla bilgi için bkz: [tek denetleyicisi değiştirme mantığı](#single-controller-replacement-logic).
-5. Daha sonra hem denetleyicileri çalıştıran ve hello küme çevrimiçi duruma gelir.
+      Bu koşulların hiçbiri doğruysa, en son günlük yedekleme için denetleyici görünüyor (bulunan **nonDOMstorage** sürücüde S). Denetleyici VHD'yi anlık görüntüsü en son yedeklemeden kopyalar.
+2. Yuva 0 denetleyicisi kendisini görüntü için anlık görüntü kullanır.
+3. Bu sırada, denetleyici 1 yuvadaki Imaging tamamlamak ve başlatmak için 0 denetleyicisi için bekler.
+4. Denetleyici 0 başlatıldıktan sonra Denetleyici 1 0, denetleyici tarafından oluşturulan küme tek denetleyici değiştirme mantığı tetikler algılar. Daha fazla bilgi için bkz: [tek denetleyicisi değiştirme mantığı](#single-controller-replacement-logic).
+5. Daha sonra hem denetleyicileri çalıştıran ve kümeyi çevrimiçi duruma gelir.
 
 > [!IMPORTANT]
-> Çift denetleyici yerini daha Hello StorSimple cihaz yapılandırıldıktan sonra bile el ile Merhaba aygıtına yedekleme ele temel alır. 24 saat geçtikten sonra günlük aygıt yapılandırma yedeklerini kadar tetiklenir değil. Çalışmak [Microsoft Support](storsimple-contact-microsoft-support.md) toomake aygıtınızın el ile yedekleme.
+> Çift denetleyici yerini daha StorSimple cihazı yapılandırıldıktan sonra bile el ile yedekleme aygıtı ele temel alır. 24 saat geçtikten sonra günlük aygıt yapılandırma yedeklerini kadar tetiklenir değil. Çalışmak [Microsoft Support](storsimple-contact-microsoft-support.md) el ile Cihazınızı yedekleme yapmak için.
 > 
 > 
 
 ### <a name="dual-controller-replacement-steps"></a>Çift denetleyici değiştirme adımları
-Microsoft Azure StorSimple Cihazınızı hello denetleyicileri her ikisi de başarısız olduğunda bu iş akışı gereklidir. Bu, bir veri merkezinde hello soğutma sistem çalışmayı durdurur ve sonuç olarak, hem hello denetleyicileri kısa bir süre içinde başarısız olabilir. Bağlı olarak açık olup olmadığı hello StorSimple cihazı kapalı veya açık ve olup bir 8600 kullanıyorsanız veya adımları farklı bir dizi bir 8100 model gereklidir.
+Microsoft Azure StorSimple Cihazınızı denetleyicileri her ikisi de başarısız olduğunda bu iş akışı gereklidir. Bu, bir veri merkezinde soğutma sistem çalışmayı durdurur ve sonuç olarak, iki denetleyiciye de kısa bir süre içinde başarısız olabilir. 8100 model StorSimple cihazı kapatma ya açık olduğundan ve bir 8600 kullanıp kullanmadığınıza bağlı olarak veya adımları farklı bir dizi gerekli değildir.
 
 > [!IMPORTANT]
-> Bu hello denetleyicisi toorestart 45 dakika too1 saat alabilir ve tamamen çift denetleyici değiştirme yordamdan kurtarma. Merhaba kabloları ekleme de dahil olmak üzere hello tüm yordamı için toplam süreyi Hello yaklaşık 2,5 saattir.
+> Yeniden başlatın ve tam bir çift denetleyici değiştirme yordamından kurtarmak denetleyici için 1 saat 45 dakika sürebilir. Tüm yordamı için toplam süreyi kabloları ekleme de dahil olmak üzere yaklaşık 2,5 saat değil.
 > 
 > 
 
-#### <a name="tooreplace-both-controller-modules"></a>tooreplace hem denetleyicisi modülleri
-1. Merhaba aygıt devre dışı bırakılırsa, bu adımı atlayın ve toohello sonraki adıma devam edin. Hello aygıt açıksa, hello aygıt devre dışı bırakın.
+#### <a name="to-replace-both-controller-modules"></a>Her iki denetleyicisi modülleri değiştirmek için
+1. Aygıt devre dışı bırakılırsa, bu adımı atlayın ve sonraki adıma geçebilirsiniz. Cihaz açıksa, aygıt devre dışı bırakın.
    
-   1. 8600 model kullanıyorsanız, devre dışı hello birincil muhafaza ilk kapatın ve ardından EBOD muhafazası hello devre dışı.
-   2. Merhaba aygıt tamamen kapatıldı kadar bekleyin. Tüm hello LED'leri hello hello cihaz arkasına, kapalı olacaktır.
-2. Bağlı toohello veri bağlantı noktaları tüm hello ağ kablolarını kaldırın. 8600 model kullanıyorsanız, aynı zamanda hello birincil muhafaza toohello EBOD muhafazası bağlanma SAS kabloları hello kaldırın.
-3. Hem denetleyicileri hello StorSimple cihazınızdan kaldırın. Daha fazla bilgi için bkz: [bir denetleyici kaldırmak](#remove-a-controller).
-4. Hello Fabrika değiştirme denetleyici 0 için önce ekleyin ve denetleyici 1'i takın. Daha fazla bilgi için bkz: [bir denetleyici Ekle](#insert-a-controller). Merhaba çift denetleyici değiştirme mantığı tetikler. Daha fazla bilgi için bkz: [çift denetleyici değiştirme mantığı](#dual-controller-replacement-logic).
-5. Merhaba denetleyicisi değiştirme mantığı hello arka planda ilerler olsa da, hello kabloları yeniden bağlanın. Tüm hello kabloların tam olarak hello dikkatli tooconnect aynı şekilde hello değiştirme önce bağlanmış alın. Merhaba ayrıntılı yönergeler hello kablosu modelinizde için cihaz bölümünü [StorSimple 8100 cihazınız yüklemek](storsimple-8100-hardware-installation.md) veya [StorSimple 8600 model Cihazınızı yüklemek](storsimple-8600-hardware-installation.md).
-6. Merhaba StorSimple cihazında açın. 8600 model kullanıyorsanız:
+   1. 8600 model kullanıyorsanız, birincil muhafaza ilk kapatın ve ardından EBOD muhafazası devre dışı.
+   2. Cihazı tamamen kapatıldı kadar bekleyin. Aygıtın arkasında tüm LED'leri kapalı olacaktır.
+2. Veri bağlantı noktalarına bağlı tüm ağ kablolarını kaldırın. 8600 model kullanıyorsanız, aynı zamanda birincil muhafaza EBOD muhafazası bağlanmak SAS kabloları kaldırın.
+3. Hem denetleyicileri StorSimple cihazınızdan kaldırın. Daha fazla bilgi için bkz: [bir denetleyici kaldırmak](#remove-a-controller).
+4. Denetleyici 0 Fabrika yerini ilk yerleştirin ve denetleyici 1'i takın. Daha fazla bilgi için bkz: [bir denetleyici Ekle](#insert-a-controller). Çift denetleyici değiştirme mantığı tetikler. Daha fazla bilgi için bkz: [çift denetleyici değiştirme mantığı](#dual-controller-replacement-logic).
+5. Arka planda denetleyicisi değiştirme mantığı ilerler olsa da, kabloları yeniden bağlanın. Tüm kabloların önce değiştirme bağlanmış aynı şekilde bağlanmak için dikkatli olun. Ayrıntılı yönergeler kablosu modelinizde için aygıt bölümüne bakın [StorSimple 8100 cihazınız yüklemek](storsimple-8100-hardware-installation.md) veya [StorSimple 8600 model Cihazınızı yüklemek](storsimple-8600-hardware-installation.md).
+6. StorSimple cihazında açın. 8600 model kullanıyorsanız:
    
-   1. Bu hello EBOD muhafazası ilk açık olduğundan emin olun.
-   2. Merhaba EBOD muhafazası çalışıncaya kadar bekleyin.
-   3. Merhaba birincil muhafaza açın.
-   4. Merhaba ilk denetleyicisi yeniden başlatır ve iyi durumda sonra hello sistem çalıştırırsınız.
+   1. EBOD muhafazası ilk açık olduğundan emin olun.
+   2. EBOD muhafazası çalışıncaya kadar bekleyin.
+   3. Birincil muhafaza açın.
+   4. İlk denetleyicisi yeniden başlatır ve iyi durumda sonra sistem çalıştırırsınız.
       
       > [!NOTE]
-      > Merhaba aygıt hello seri Konsolu aracılığıyla izliyorsanız, hello denetleyicisi hello değiştirme yordamdan Kurtarma sırasında birden çok kez yeniden görebilirsiniz. Ardından Hello seri konsol menüsünde görüntülendiğinde, hello değiştirme tam olduğunu bildiğiniz. Merhaba menü hello denetleyicisi değiştirme başlatma 2,5 saat içinde görünmüyorsa, lütfen [Microsoft Support başvurun](storsimple-contact-microsoft-support.md).
+      > Cihaz seri Konsolu aracılığıyla izliyorsanız, denetleyici değiştirme yordamdan Kurtarma sırasında birden çok kez yeniden görebilirsiniz. Ardından seri konsol menüsünde görüntülendiğinde değiştirme tam olduğunu bildiğiniz. Menü denetleyicisi değiştirme başlatma 2,5 saat içinde görünmüyorsa, lütfen [Microsoft Support başvurun](storsimple-contact-microsoft-support.md).
       > 
       > 
 
 ## <a name="remove-a-controller"></a>Bir denetleyici Kaldır
-StorSimple Cihazınızı yordamı tooremove hatalı Denetleyici Modülü aşağıdaki hello kullanın.
+StorSimple Cihazınızı hatalı Denetleyici Modülü kaldırmak için aşağıdaki yordamı kullanın.
 
 > [!NOTE]
-> Aşağıdaki çizimler hello denetleyici 0 ' dir. Denetleyici 1 için bu ters.
+> Aşağıdaki çizimler denetleyici 0 ' dir. Denetleyici 1 için bu ters.
 > 
 > 
 
-#### <a name="tooremove-a-controller-module"></a>tooremove Denetleyici Modülü
-1. Kaydırma kutusu ve erişebildiğinizden arasında Hello modülü Mandal kavrayın.
-2. Hafifçe, Flash ve erişebildiğinizden birlikte toorelease hello denetleyici mandalı sığdırması.
+#### <a name="to-remove-a-controller-module"></a>Bir Denetleyici Modülü kaldırmak için
+1. Kaydırma kutusu ve erişebildiğinizden arasında modülü Mandal kavrayın.
+2. Kaydırma kutusu ve denetleyici mandalı birlikte yayımlamayı erişebildiğinizden hafifçe sığdırması.
    
     ![Denetleyici mandalı bırakılıyor](./media/storsimple-controller-replacement/IC741047.png)
    
     **Şekil 2** gönderilirler denetleyici mandalı
-3. Bir tanıtıcı tooslide hello denetleyicisi hello gövdeden Hello Mandal kullanın.
+3. Mandal gövdeden denetleyiciyi kaydırarak açmak için bir işleyici kullanın.
    
     ![Denetleyiciyi kaydırarak gövdeden çıkarma](./media/storsimple-controller-replacement/IC741048.png)
    
-    **Şekil 3** hello gövdeden hareketli hello denetleyicisi
+    **Şekil 3** denetleyiciyi kaydırarak gövdeden çıkarma
 
 ## <a name="insert-a-controller"></a>Bir denetleyici Ekle
-StorSimple Cihazınızı hatalı bir modül kaldırdıktan sonra yordamı tooinstall denetleyici üretecini sağlanan Modülü aşağıdaki hello kullanın.
+StorSimple Cihazınızı hatalı bir modül kaldırdıktan sonra bir denetleyici üretecini sağlanan modülünü yüklemek için aşağıdaki yordamı kullanın.
 
-#### <a name="tooinstall-a-controller-module"></a>tooinstall Denetleyici Modülü
-1. Arabirim bağlayıcılar hiçbir zarar toohello ise toosee kontrol edin. Merhaba bağlayıcı PIN'ler hiçbirini zarar görmüş veya Bükülü hello modülü yüklemeyin.
-2. Merhaba Mandal tam olarak yayımlanan sırada hello Denetleyici Modülü hello kasaya kaydırın. 
+#### <a name="to-install-a-controller-module"></a>Bir denetleyici modülünü yüklemek için
+1. Arabirim bağlayıcılar için herhangi bir zarar olup olmadığını denetleyin. Bağlayıcı PIN'ler hiçbirini zarar görmüş veya Bükülü modülü yüklemeyin.
+2. Mandal tam olarak yayımlanan sırada Denetleyici Modülü kasaya kaydırın. 
    
     ![Denetleyiciyi kaydırarak gövdeye](./media/storsimple-controller-replacement/IC741053.png)
    
-    **Şekil 4** hareketli denetleyicisi hello kasa ile
-3. Merhaba kasaya devam ediliyor toopush hello Denetleyici Modülü sırasında hello mandalı kapatılıyor eklenen hello Denetleyici Modülü ile başlar. Merhaba Mandal tooguide hello denetleyicisi yerine devreye.
+    **Şekil 4** hareketli denetleyicisi kasa ile
+3. Denetleyici Modülü kasaya göndermek devam ederken mandalı kapatılıyor eklenen Denetleyici Modülü ile başlar. Mandal yerine denetleyicisi kılavuza devreye.
    
     ![Denetleyici mandalı kapatılıyor](./media/storsimple-controller-replacement/IC741054.png)
    
-    **Şekil 5** hello denetleyici mandalı kapatılıyor
-4. Merhaba Mandal yerine tutturur zaman bitirdiniz. Merhaba **Tamam** LED üzerinde şimdi olmalıdır.  
+    **Şekil 5** denetleyici mandalı kapatılıyor
+4. Mandal yerine tutturur zaman bitirdiniz. **Tamam** LED üzerinde şimdi olmalıdır.  
    
    > [!NOTE]
-   > Merhaba denetleyici ve hello LED tooactivate too5 dakika yukarı alabilir.
+   > Denetleyici ve etkinleştirmek için LED için 5 dakikaya kadar sürebilir.
    > 
    > 
-5. Merhaba değiştirme başarılı olarak tooverify hello Azure Klasik portal, Git çok**aygıtları** > **Bakım** > **donanım durumu**ve denetleyici 0 ve denetleyici 1 sağlıklı olduğundan emin olun (durum yeşil).
+5. Değiştirme Azure Klasik Portalı'nda başarılı olduğunu doğrulamak için Git **aygıtları** > **Bakım** > **donanım durum**, ve Denetleyici 0 ve denetleyici 1 sağlıklı olduğundan emin olun (durum yeşil).
 
-## <a name="identify-hello-active-controller-on-your-device"></a>Cihazınızı etkin denetleyicisinde Hello tanımlayın
-Toolocate hello etkin denetleyicisinde StorSimple cihazı gerektiren pek çok durumda, ilk kez aygıt kaydı veya denetleyicisi değiştirme gibi vardır. Merhaba etkin denetleyicisi tüm hello disk bellenim ve ağ işlemleri işler. Yöntemleri tooidentify hello etkin denetleyicisi aşağıdaki hello birini kullanabilirsiniz:
+## <a name="identify-the-active-controller-on-your-device"></a>Cihazınızı etkin denetleyicisinde tanımlayın
+Bir StorSimple cihazında etkin denetleyicisi bulmaya gerektiren pek çok durumda, ilk kez aygıt kaydı veya denetleyicisi değiştirme gibi vardır. Etkin denetleyicisi tüm disk bellenim ve ağ işlemleri işler. Etkin denetleyicisi tanımlamak için aşağıdaki yöntemlerden herhangi birini kullanabilirsiniz:
 
-* [Hello Azure Klasik portalı tooidentify hello etkin denetleyicisi kullanın](#use-the-azure-classic-portal-to-identify-the-active-controller)
-* [StorSimple tooidentify hello etkin denetleyici için Windows PowerShell'i kullanma](#use-windows-powershell-for-storsimple-to-identify-the-active-controller)
-* [Onay hello fiziksel aygıt tooidentify hello etkin denetleyicisi](#check-the-physical-device-to-identify-the-active-controller)
+* [Etkin denetleyicisi tanımlamak için Klasik Azure portalını kullanın](#use-the-azure-classic-portal-to-identify-the-active-controller)
+* [StorSimple için Windows PowerShell active denetleyicisi tanımlamak için kullanın](#use-windows-powershell-for-storsimple-to-identify-the-active-controller)
+* [Etkin denetleyicisi tanımlamak için fiziksel aygıt denetleyin](#check-the-physical-device-to-identify-the-active-controller)
 
 Bu yordamların her biri sonraki açıklanmıştır.
 
-### <a name="use-hello-azure-classic-portal-tooidentify-hello-active-controller"></a>Hello Azure Klasik portalı tooidentify hello etkin denetleyicisi kullanın
-Buna Klasik Azure portalı Merhaba, çok gidin**aygıtları** > **Bakım**ve toohello kaydırma **denetleyicileri** bölümü. Burada, hangi denetleyicisi etkindir doğrulayabilirsiniz.
+### <a name="use-the-azure-classic-portal-to-identify-the-active-controller"></a>Etkin denetleyicisi tanımlamak için Klasik Azure portalını kullanın
+Klasik Azure portalında gidin **aygıtları** > **Bakım**ve kaydırma **denetleyicileri** bölümü. Burada, hangi denetleyicisi etkindir doğrulayabilirsiniz.
 
 ![Klasik Azure Portalı'nda etkin denetleyiciyi belirle](./media/storsimple-controller-replacement/IC752072.png)
 
-**Şekil 6** Azure Klasik portalı gösteren hello etkin denetleyicisi
+**Şekil 6** etkin denetleyicisi gösteren Klasik Azure portalı
 
-### <a name="use-windows-powershell-for-storsimple-tooidentify-hello-active-controller"></a>StorSimple tooidentify hello etkin denetleyici için Windows PowerShell'i kullanma
-Cihazınızı hello seri konsol üzerinden erişirken bir başlık iletisi görüntülenir. Merhaba başlık iletisi hello modeli, ad, yüklü yazılım sürümü ve eriştiğiniz hello denetleyicisi durumunu gibi temel aygıt bilgileri içerir. Görüntü aşağıdaki hello bir başlık iletisi örneği gösterilmektedir:
+### <a name="use-windows-powershell-for-storsimple-to-identify-the-active-controller"></a>StorSimple için Windows PowerShell active denetleyicisi tanımlamak için kullanın
+Seri konsol üzerinden Cihazınızı eriştiğinizde bir başlık iletisi görüntülenir. Başlık iletisi modeli, ad, yüklü yazılım sürümü ve eriştiğiniz denetleyicisi durumunu gibi temel aygıt bilgileri içerir. Aşağıdaki resimde bir başlık iletisi örneği gösterilmiştir:
 
 ![Seri tanıtıcı iletisi](./media/storsimple-controller-replacement/IC741098.png)
 
 **Şekil 7** etkin olarak başlık iletisi gösteren denetleyici 0
 
-Merhaba denetleyici olup olmadığına hello başlık iletisi toodetermine kullanabilirsiniz bağlı toois etkin veya edilgen.
+Başlık iletisi bağlı denetleyicisi etkin veya Pasif olduğunu belirlemek için kullanabilirsiniz.
 
-### <a name="check-hello-physical-device-tooidentify-hello-active-controller"></a>Onay hello fiziksel aygıt tooidentify hello etkin denetleyicisi
-tooidentify hello etkin denetleyicisinde Cihazınızı bulun hello mavi LED hello birincil muhafaza arkasına hello hello veri 5 bağlantı noktası üzerinde.
+### <a name="check-the-physical-device-to-identify-the-active-controller"></a>Etkin denetleyicisi tanımlamak için fiziksel aygıt denetleyin
+Cihazınızı etkin denetleyicisinde belirlemek için birincil muhafaza arkasında veri 5 bağlantı noktası yukarıda mavi LED bulun.
 
-Bu ışığı yanıp sönen, hello denetleyicisi etkindir ve hello diğer bekleme modunda denetleyicisidir. Diyagram aşağıdaki hello kullanın ve yardımcı tablo.
+Bu ışığı yanıp sönen, denetleyici etkindir ve diğer bekleme modunda denetleyicisidir. Aşağıdaki diyagram ve tablo yardımcı olarak kullanabilirsiniz.
 
 ![Veri bağlantı noktalarına sahip cihaz birincil muhafaza devre kartı](./media/storsimple-controller-replacement/IC741055.png)
 

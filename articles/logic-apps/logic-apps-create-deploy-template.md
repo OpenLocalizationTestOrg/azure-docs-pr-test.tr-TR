@@ -1,5 +1,5 @@
 ---
-title: "Azure mantıksal uygulamaları için aaaCreate dağıtım şablonları | Microsoft Docs"
+title: "Azure mantıksal uygulamaları için dağıtım şablonları oluşturma | Microsoft Docs"
 description: "Dağıtım ve yayın Yönetimi mantıksal uygulamaları için Azure Resource Manager şablonları oluşturma"
 services: logic-apps
 documentationcenter: .net,nodejs,java
@@ -15,96 +15,96 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 2f09445f10a376a745d6acbba94ca29d5f79fc09
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 9cfbb294010d48deaf4b4c78c6a6bcd59a387d87
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-templates-for-logic-apps-deployment-and-release-management"></a>Dağıtım ve yayın Yönetimi logic apps için şablonlar oluşturma
 
-Bir mantıksal uygulama oluşturulduktan sonra toocreate isteyebilirsiniz bir Azure Resource Manager şablonu olarak.
-Bu şekilde hello mantığı uygulama tooany ortamı veya kaynak grubu nerede gereksinim duyabileceğiniz kolayca dağıtabilirsiniz.
+Bir mantıksal uygulama oluşturulduktan sonra bir Azure Resource Manager şablonu oluşturmak isteyebilirsiniz.
+Bu şekilde, herhangi bir ortam veya kaynak grubu nerede gereksinim duyabileceğiniz mantıksal uygulama kolayca dağıtabilirsiniz.
 Resource Manager şablonları hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md) ve [dağıtma kaynakları Azure Resource Manager şablonları kullanarak](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="logic-app-deployment-template"></a>Mantıksal uygulama dağıtım şablonu
 
 Bir mantıksal uygulama üç temel bileşeni vardır:
 
-* **Mantıksal uygulama kaynağı**: fiyatlandırma planı, konum ve hello iş akışı tanımı gibi şeyler hakkında bilgiler içerir.
-* **İş akışı tanımı**: mantığı uygulamanızın iş akışı adımları ve hello Logic Apps altyapısı hello iş akışı nasıl yürütülecek açıklar.
+* **Mantıksal uygulama kaynağı**: fiyatlandırma planı, konum ve iş akışı tanımı gibi şeyler hakkında bilgiler içerir.
+* **İş akışı tanımı**: mantığı uygulamanızın iş akışı adımları ve Logic Apps altyapısı iş akışının nasıl yürütülecek açıklar.
 Bu tanım mantığı uygulamanızın içinde görüntüleyebilirsiniz **kod görünümü** penceresi.
-Merhaba mantığı uygulama kaynağında hello bu tanımı bulabilirsiniz `definition` özelliği.
-* **Bağlantıları**: güvenli bir bağlantı dizesi ve bir erişim belirteci gibi herhangi bir bağlayıcı bağlantısı ilgili meta verileri depolama tooseparate kaynaklara başvuruyor.
-Merhaba mantığı uygulama kaynağında mantıksal uygulamanızı hello bu kaynaklara başvuran `parameters` bölümü.
+Mantıksal uygulama kaynağı bu tanımı'nda bulabilirsiniz `definition` özelliği.
+* **Bağlantıları**: güvenli bir bağlantı dizesi ve bir erişim belirteci gibi herhangi bir bağlayıcı bağlantısı ilgili meta verileri depolama kaynaklarını ayırmak için başvuruyor.
+Mantıksal uygulama kaynağı mantıksal uygulamanızı bu kaynaklara başvuran `parameters` bölümü.
 
 Mevcut mantıksal uygulamaları bu tüm parçaları gibi bir araç kullanarak görüntüleyebileceğiniz [Azure kaynak Gezgini](http://resources.azure.com).
 
-toomake bir şablonu kaynak grubu dağıtımı ile bir mantıksal uygulama toouse için hello kaynakları tanımlamak ve gerekir gerektiğinde Parametreleştirme.
-Örneğin, tooa geliştirme, test ve üretim ortamı dağıtıyorsanız, büyük olasılıkla toouse farklı bağlantı dizeleri tooa SQL veritabanı her ortamda istiyorsunuz.
-Ya da farklı Aboneliklerde veya kaynak grupları içindeki toodeploy isteyebilirsiniz.  
+Kaynak grubu dağıtımı ile kullanmak bir mantıksal uygulama için bir şablon yapmak için kaynakları tanımlamak ve gerektiğinde Parametreleştirme gerekir.
+Geliştirme, test ve üretim ortamı dağıtıyorsanız, örneğin, büyük olasılıkla bir SQL veritabanı için farklı bağlantı dizeleri her ortamda kullanmak istediğiniz.
+Ya da farklı Aboneliklerde veya kaynak grupları dağıtmak isteyebilirsiniz.  
 
 ## <a name="create-a-logic-app-deployment-template"></a>Bir mantıksal uygulama dağıtım şablonu oluşturma
 
-Merhaba en kolay yolu toohave geçerli mantığı uygulama dağıtım şablonu olan toouse [mantıksal uygulamalar için Visual Studio Araçları](logic-apps-deploy-from-vs.md).
-Merhaba Visual Studio Araçları herhangi bir abonelik veya konum arasında kullanılan bir geçerli dağıtım şablonu oluşturun.
+Geçerli mantığı uygulama dağıtım şablonu için en kolay yolu kullanmaktır [mantıksal uygulamalar için Visual Studio Araçları](logic-apps-deploy-from-vs.md).
+Visual Studio Araçları herhangi bir abonelik veya konum arasında kullanılan bir geçerli dağıtım şablonu oluşturun.
 
 Bir mantıksal uygulama dağıtım şablonu oluşturma gibi diğer bazı araçları size yardımcı olabilir.
-El ile yazabilirsiniz, diğer bir deyişle, hello kullanarak kaynakları zaten burada toocreate parametrelerini gerektiği gibi ele.
-Başka bir seçenektir toouse bir [mantıksal uygulama şablonu oluşturan](https://github.com/jeffhollan/LogicAppTemplateCreator) PowerShell modülü. Bu açık kaynaklı modül önce hello mantıksal uygulama ve onu kullanıyor ve dağıtımı için gerekli parametreleri hello şablon kaynaklarla oluşturur herhangi bir bağlantısı değerlendirir.
-Örneğin, bir Azure hizmet veri yolu kuyruktan bir ileti alır ve verileri tooan Azure SQL veritabanı ekleyen bir mantıksal uygulama varsa, hello aracı tüm hello orchestration mantığı korur ve ayarlanabilir böylece hello SQL ve hizmet veri yolu bağlantı dizeleri parameterizes dağıtım sırasında.
+El ile zaten gerektiğinde parametreleri oluşturmak için aşağıda ele alınan kaynaklar kullanarak diğer bir deyişle, yazabilirsiniz.
+Başka bir seçenek kullanmaktır bir [mantıksal uygulama şablonu oluşturan](https://github.com/jeffhollan/LogicAppTemplateCreator) PowerShell modülü. Bu açık kaynaklı modül önce mantıksal uygulama ve onu kullanıyor ve dağıtımı için gerekli parametreleri şablon kaynaklarla oluşturur herhangi bir bağlantısı değerlendirir.
+Örneğin, bir Azure hizmet veri yolu kuyruktan bir ileti alır ve bir Azure SQL veritabanına veri ekleyen bir mantıksal uygulama varsa, araç tüm orchestration mantığı korur ve dağıtımın ayarlamak için SQL ve hizmet veri yolu bağlantı dizeleri parameterizes.
 
 > [!NOTE]
-> Bağlantıları hello içinde olmalıdır hello mantıksal uygulama ile aynı kaynak grubunda.
+> Bağlantıları mantıksal uygulama aynı kaynak grubunda olması gerekir.
 >
 >
 
-### <a name="install-hello-logic-app-template-powershell-module"></a>Merhaba mantıksal uygulama şablonu PowerShell modülünü yükleyin
-Merhaba en kolay yolu tooinstall hello modülüdür hello [PowerShell Galerisi](https://www.powershellgallery.com/packages/LogicAppTemplate/0.1), hello komutunu kullanarak `Install-Module -Name LogicAppTemplate`.  
+### <a name="install-the-logic-app-template-powershell-module"></a>Mantıksal uygulama şablonu PowerShell modülünü yükleyin
+Modülünü yüklemek için en kolay yolu durumda [PowerShell Galerisi](https://www.powershellgallery.com/packages/LogicAppTemplate/0.1), komutunu kullanarak `Install-Module -Name LogicAppTemplate`.  
 
-Merhaba PowerShell modülünü el ile de yükleyebilirsiniz:
+PowerShell modülünü el ile de yükleyebilirsiniz:
 
-1. Merhaba hello en son sürümü karşıdan [mantıksal uygulama şablonu oluşturan](https://github.com/jeffhollan/LogicAppTemplateCreator/releases).  
-2. PowerShell modülü klasörünüzdeki Hello klasörüne ayıklayın (genellikle `%UserProfile%\Documents\WindowsPowerShell\Modules`).
+1. En son sürümünü indirme [mantıksal uygulama şablonu oluşturan](https://github.com/jeffhollan/LogicAppTemplateCreator/releases).  
+2. PowerShell modül klasörünüze klasöre ayıklayın (genellikle `%UserProfile%\Documents\WindowsPowerShell\Modules`).
 
-Merhaba modülü toowork Kiracı ve abonelik erişimi için belirteç ile Merhaba kullanmanızı öneririz [ARMClient](https://github.com/projectkudu/ARMClient) komut satırı aracı.  Bu [blog gönderisi](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) ARMClient daha ayrıntılı olarak anlatılmaktadır.
+Modülün herhangi bir kiracı ve abonelik erişim ile çalışmak belirteç, kendisiyle kullanmanızı öneririz [ARMClient](https://github.com/projectkudu/ARMClient) komut satırı aracı.  Bu [blog gönderisi](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) ARMClient daha ayrıntılı olarak anlatılmaktadır.
 
 ### <a name="generate-a-logic-app-template-by-using-powershell"></a>PowerShell kullanarak bir mantıksal uygulama şablonu oluştur
-PowerShell yüklendikten sonra komutu aşağıdaki hello kullanarak bir şablon oluşturabilirsiniz:
+PowerShell yüklendikten sonra aşağıdaki komutu kullanarak bir şablon oluşturabilirsiniz:
 
 `armclient token $SubscriptionId | Get-LogicAppTemplate -LogicApp MyApp -ResourceGroup MyRG -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json`
 
-`$SubscriptionId`Hello Azure abonelik kimliği Bu satırı önce bir erişim ARMClient belirtecini alır sonra toohello PowerShell komut dosyası Kanallar ve ardından hello şablonu bir JSON dosyası oluşturur.
+`$SubscriptionId`Azure abonelik kimliği Bu satırı önce bir erişim ARMClient belirtecini alır sonra üzerinden PowerShell Betiği Kanallar ve ardından şablon bir JSON dosyası oluşturur.
 
-## <a name="add-parameters-tooa-logic-app-template"></a>Parametreleri tooa mantıksal uygulama şablonu Ekle
-Mantıksal uygulama şablonu oluşturduktan sonra tooadd devam edebilir veya gereksinim duyabileceğiniz parametreleri değiştirin. Örneğin, bir kaynak kimliği tooan Azure işlevi veya iç içe geçmiş iş akışı tek bir dağıtımda toodeploy planlama tanımınızı içeriyorsa, daha fazla kaynakları tooyour şablon ekleyip gerektiğinde kimlikleri Parametreleştirme. Merhaba aynı her kaynak grubu ile toodeploy beklediğiniz tooany başvuruları toocustom API'leri veya Swagger uç noktalar uygular.
+## <a name="add-parameters-to-a-logic-app-template"></a>Bir mantıksal uygulama şablonu parametreleri ekleme
+Mantıksal uygulama şablonu oluşturduktan sonra eklemek veya gereksinim duyabileceğiniz parametreleri değiştirmek devam edebilirsiniz. Örneğin, bir kaynak kimliği bir Azure işlevi veya tek bir dağıtımda dağıtmayı planladığınız iç içe geçmiş iş akışı tanımınızı içeriyorsa, daha fazla kaynak şablonunuza eklemek ve gerektiğinde kimlikleri Parametreleştirme. Aynı özel API'leri veya Swagger yönelik tüm başvuruları dağıtmak için her kaynak grubu ile beklediğiniz uç noktalar uygular.
 
 ## <a name="deploy-a-logic-app-template"></a>Bir mantıksal uygulama şablonu dağıtma
 
-PowerShell, REST API gibi herhangi bir aracı kullanarak şablonunuzu dağıtabilirsiniz [Visual Studio Team Services yayın Yönetimi](#team-services)ve hello Azure portal aracılığıyla şablon dağıtımı.
-Ayrıca, parametrelerin toostore hello değerleri, oluşturduğunuz öneririz bir [parametre dosyası](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
-Nasıl çok öğrenin[PowerShell ve Azure Resource Manager şablonları kaynaklarla dağıtmak](../azure-resource-manager/resource-group-template-deploy.md) veya [kaynakları Azure Resource Manager şablonları ile dağıtma ve Azure portal hello](../azure-resource-manager/resource-group-template-deploy-portal.md).
+PowerShell, REST API gibi herhangi bir aracı kullanarak şablonunuzu dağıtabilirsiniz [Visual Studio Team Services yayın Yönetimi](#team-services)ve Azure Portalı aracılığıyla şablon dağıtımı.
+Ayrıca, parametrelerin değerlerini depolamak için oluşturduğunuz öneririz bir [parametre dosyası](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
+Bilgi nasıl [PowerShell ve Azure Resource Manager şablonları kaynaklarla dağıtmak](../azure-resource-manager/resource-group-template-deploy.md) veya [kaynakları Azure Resource Manager şablonları ve Azure portalı ile dağıtma](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
 ### <a name="authorize-oauth-connections"></a>OAuth bağlantılarını yetkilendirmek
 
-Dağıtımdan sonra hello mantıksal uygulama baştan sona geçerli parametrelerle birlikte çalışır.
-Ancak, OAuth bağlantıları toogenerate geçerli erişim belirteci hala yetkilendirmeniz gerekir.
-tooauthorize OAuth bağlantıları hello mantıksal uygulama hello Logic Apps Tasarımcısı açın ve bu bağlantıları yetkilendirin. Veya otomatik dağıtım için bir komut dosyası tooconsent tooeach OAuth bağlantı kullanabilirsiniz.
+Dağıtımdan sonra mantıksal uygulama baştan sona geçerli parametrelerle birlikte çalışır.
+Ancak, yine geçerli erişim belirtecini oluşturmak için OAuth bağlantıları yetkilendirmeniz gerekir.
+OAuth bağlantılarını yetkilendirmek için mantıksal uygulama Logic Apps Tasarımcısı'nda açın ve bu bağlantıları yetkilendirin. Veya otomatik dağıtım için bir komut dosyası her OAuth bağlantı onayı için kullanabilirsiniz.
 Github'da altında bir örnek komut dosyası yok [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) projesi.
 
 <a name="team-services"></a>
 ## <a name="visual-studio-team-services-release-management"></a>Visual Studio Team Services yayın Yönetimi
 
-Toouse bir mantıksal uygulama dağıtım şablonu ile Visual Studio Team Services, yayın yönetimi gibi bir araç dağıtma ve bir ortam yönetmek için ortak bir senaryodur. Visual Studio Team Services içeren bir [Azure kaynak grubu dağıtma](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) tooany derleme ekleyin veya yayın ardışık düzen görev. Toohave gereken bir [hizmet sorumlusu](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) yetkilendirme için toodeploy ve ardından hello yayın tanımı oluşturabilirsiniz.
+Dağıtma ve yönetme bir ortam için yaygın bir senaryo, bir mantıksal uygulama dağıtım şablonu ile Visual Studio Team Services içinde yayın yönetimi gibi bir araç kullanmaktır. Visual Studio Team Services içeren bir [Azure kaynak grubu dağıtma](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) herhangi bir yapı ekleyin veya yayın ardışık düzen görev. Olması gereken bir [hizmet sorumlusu](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) dağıtmak için yetkilendirme sonra yayın tanımı oluşturabilir ve için.
 
 1. Yayın yönetimini seçin **boş** böylece boş bir tanımı oluşturun.
 
     ![Boş tanımı oluşturun][1]
 
-2. Derleme işlemi el ile veya hello parçası olarak oluşturulan bu, büyük olasılıkla dahil olmak üzere hello mantıksal uygulama şablonu için gereksinim duyduğunuz tüm kaynakları seçin.
+2. Bunun için büyük olasılıkla el ile veya yapılandırma işleminin bir parçası olarak oluşturulan mantıksal uygulama şablonu dahil olmak üzere gereksinim duyduğunuz tüm kaynakları seçin.
 3. Ekleme bir **Azure kaynak grubu dağıtımı** görev.
-4. İle yapılandırma bir [hizmet sorumlusu](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/)ve hello şablonu ve şablon parametreleri dosyalarını başvuru.
-5. Adımlar toobuild hello yayın işlem başka bir ortam, otomatikleştirilmiş test veya gerektiğinde onaylayanlar için devam edin.
+4. İle yapılandırma bir [hizmet sorumlusu](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/)ve şablonu ve şablon parametreleri dosyalarını başvuru.
+5. Diğer bir ortam, otomatikleştirilmiş test veya gerektiğinde onaylayanlar için yayın işlemindeki adımlar oluşturmak devam edin.
 
 <!-- Image References -->
 [1]: ./media/logic-apps-create-deploy-template/emptyreleasedefinition.png

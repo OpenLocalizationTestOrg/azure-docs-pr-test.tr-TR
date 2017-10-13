@@ -1,6 +1,6 @@
 ---
-title: "aaaGet başlatılan Azure IOT Hub (Python) | Microsoft Docs"
-description: "Nasıl tooAzure IOT Hub'ın IOT SDK'ları için Python kullanarak toosend cihaz-bulut iletileri öğrenin. Sanal cihazı ve hizmet uygulamaları tooregister Cihazınızı oluşturmak, iletileri gönderir ve IOT hub'ından iletileri okur."
+title: "Azure IoT Hub'ı (Python) kullanmaya başlama | Microsoft Belgeleri"
+description: "Python için IoT SDK’larını kullanarak Azure IoT Hub’a cihazdan buluta ileti göndermeyi öğrenin. IoT hub’a cihazınızı kaydetmek, ileti göndermek ve ileti okumak için sanal cihaz ve hizmet uygulamaları oluşturun."
 services: iot-hub
 author: dsk-2015
 manager: timlt
@@ -13,56 +13,56 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: dkshir
 ms.custom: na
-ms.openlocfilehash: aa23e792fb144202e121274723bcfaeae0c04723
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 7ebbac4464d793717f68a4cb7905c53d1f5c051a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="connect-your-simulated-device-tooyour-iot-hub-using-python"></a>Python kullanarak sanal cihaz tooyour IOT hub'ınıza bağlanın
+# <a name="connect-your-simulated-device-to-your-iot-hub-using-python"></a>Python kullanarak sanal cihazınızı IoT hub’ınıza bağlama
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
-Bu öğreticinin Hello sonunda, iki Python uygulamaları olacaktır:
+Bu öğreticinin sonunda iki Python uygulamanız olacaktır:
 
-* **CreateDeviceIdentity.py**ilişkili güvenlik anahtarı tooconnect sanal cihaz uygulamanız ve bir cihaz kimliği oluşturur.
-* **SimulatedDevice.py**daha önce oluşturulan hello cihaz kimliğiyle IOT hub'ı tooyour bağlanır ve düzenli aralıklarla bir telemetri iletisi hello MQTT protokolünü kullanarak.
+* Bir cihaz kimliği ve sanal cihaz uygulamanızı bağlamak için ilişkili güvenlik anahtarı oluşturan **CreateDeviceIdentity.py**.
+* Daha önce oluşturulan cihaz kimliğiyle IoT hub'ınızı bağlayan ve MQTT protokolünü kullanarak düzenli aralıklarla telemetri iletisi gönderen **SimulatedDevice.py**.
 
 > [!NOTE]
-> Merhaba makale [Azure IOT SDK'ları] [ lnk-hub-sdks] aygıtlar ve çözüm arka ucunuz hem uygulamalar toorun toobuild kullanabileceğiniz hello Azure IOT SDK'ları hakkında bilgi sağlar.
+> [IoT Hub SDK'ları][lnk-hub-sdks] makalesi, hem cihazlarınızda hem de çözüm arka ucunuzda çalıştırılacak uygulamalar oluşturmak için kullanabileceğiniz Azure IoT SDK’ları hakkında bilgi içerir.
 > 
 > 
 
-toocomplete Bu öğretici, aşağıdaki hello gerekir:
+Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
-* [Python 2.x veya 3.x][lnk-python-download]. Emin toouse hello 32 bit veya 64 bit yükleme kurulumunuzu gerektirdiği olun. Merhaba yükleme sırasında istendiğinde emin tooadd Python tooyour platforma özgü ortam değişkeni olun. Python kullanılıyorsa 2.x ihtiyacınız olabilecek çok[yüklemek veya yükseltmek *PIP*, hello Python paket yönetim sistemi][lnk-install-pip].
-* Windows işletim sistemi, ardından kullanıyorsanız [Visual C++ yeniden dağıtılabilir paketi] [ lnk-visual-c-redist] python'dan Yerel DLL'leri tooallow hello kullanımı.
-* [Node.js 4.0 veya üstü][lnk-node-download]. Emin toouse hello 32 bit veya 64 bit yükleme kurulumunuzu gerektirdiği olun. Gerekli tooinstall hello budur [IOT Hub Explorer aracı][lnk-iot-hub-explorer].
+* [Python 2.x veya 3.x][lnk-python-download]. Kurulumunuzun gereksinimine uygun olarak 32 bit veya 64 bit yüklemeyi kullanmaya dikkat edin. Yükleme sırasında istendiğinde, platforma özgü ortam değişkeninize Python’u eklediğinizden emin olun. Python 2.x kullanıyorsanız, [Python paket yönetim sistemi *pip*’yi yüklemeniz veya yükseltmeniz][lnk-install-pip] gerekebilir.
+* Windows işletim sistemi kullanıyorsanız, Python’dan yerel DLL’lerin kullanımına olanak tanımak için [Visual C++ yeniden dağıtılabilir paketi][lnk-visual-c-redist].
+* [Node.js 4.0 veya üstü][lnk-node-download]. Kurulumunuzun gereksinimine uygun olarak 32 bit veya 64 bit yüklemeyi kullanmaya dikkat edin. Bu, [IoT Hub Gezgini aracını][lnk-iot-hub-explorer] yüklemek için gereklidir.
 * Etkin bir Azure hesabı. Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.
 
 > [!NOTE]
-> Merhaba *PIP* için paketler `azure-iothub-service-client` ve `azure-iothub-device-client` şu anda yalnızca Windows işletim sistemi için kullanılabilir. Linux/Mac OS için lütfen hello toohello Linux ve Mac OS özgü bölümlere bakın [için Python geliştirme ortamınızı hazırlama] [ lnk-python-devbox] gönderin.
+> `azure-iothub-service-client` ve `azure-iothub-device-client` için *PIP* paketleri şu anda yalnızca Windows İşletim Sistemi için mevcuttur. Linux/macOS için lütfen [Python için geliştirme ortamınızı hazırlayın][lnk-python-devbox] makalesindeki Linux ve macOS ile ilgili bölümlere bakın.
 > 
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-IoT Hub’ınızı oluşturdunuz. Merhaba IOT Hub ana bilgisayar adı ve hello IOT Hub bağlantı dizesine Bu öğreticinin hello kalan kullanın.
+IoT Hub’ınızı oluşturdunuz. Bu öğreticinin kalan bölümünde IoT Hub konak adını ve IoT Hub bağlantı dizesini kullanın.
 
 > [!NOTE]
-> Azure CLI Node.js tabanlı veya hello Python kullanarak IOT hub'ınızı komut satırında, ayrıca kolayca oluşturabilirsiniz. Merhaba makale [hello Azure CLI 2.0 kullanarak IOT hub oluşturma] [ lnk-azure-cli-hub] , hello hızlı adımlar toodo şekilde gösterir. 
+> Ayrıca, komut satırında Python veya Node.js tabanlı Azure CLI’yi kullanarak kolayca IoT hub’ınızı oluşturabilirsiniz. [Azure CLI 2.0 kullanarak IoT hub’ı oluşturma][lnk-azure-cli-hub] makalesinde bunu yapmanın hızlı adımları gösterilir. 
 > 
 
 ## <a name="create-a-device-identity"></a>Cihaz kimliği oluşturma
-Bu bölümde hello adımları toocreate IOT hub'ınızın hello kimlik kayıt defterinde bir cihaz kimliği oluşturan bir Python konsol uygulaması listelenir. Bir aygıt tooIoT Hub hello kimlik kayıt defterinde girişi olmayan yalnızca bağlayabilirsiniz. Daha fazla bilgi için bkz: Merhaba **kimlik kayıt defteri** hello bölümünü [IOT Hub Geliştirici Kılavuzu][lnk-devguide-identity]. Bu konsol uygulamasını çalıştırdığınızda, benzersiz cihaz kimliği oluşturur ve cihaz bulut gönderdiğinde Cihazınızı tooidentify kendisini kullanabileceğiniz anahtar tooIoT Hub iletileri.
+Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde cihaz kimliği oluşturan bir Python konsol uygulaması oluşturma adımları listelenir. Yalnızca kimlik kayıt defterinde girişi olan cihazlar IoT Hub'ına bağlanabilir. Daha fazla bilgi için [IoT Hub Geliştirici Kılavuzu][lnk-devguide-identity]'nun **Kimlik Kayıt Defteri** bölümüne bakın. Bu konsol uygulamasını çalıştırdığınızda, cihazınızın IoT Hub'a cihaz-bulut iletileri gönderdiğinde kendisini tanımlamak için kullanabileceği benzersiz bir cihaz kimliği ve anahtarı oluşturulur.
 
-1. Bir komut istemi açın ve hello yükleme **Python için Azure IOT Hub hizmeti SDK**. Merhaba SDK yükledikten sonra hello komut istemini kapatın.
+1. Komut istemini açın ve **Python için Azure IoT Hub Hizmeti SDK’sını** aşağıda gösterildiği gibi yükleyin. SDK’yı yükledikten sonra komut istemini kapatın.
 
     ```
     pip install azure-iothub-service-client
     ```
 
-2. **CreateDeviceIdentity.py** adlı bir Python dosyası oluşturun. İçinde açmak [tercih ettiğiniz Python Düzenleyicisi/IDE][lnk-python-ide-list], örneğin, varsayılan hello [boşta][lnk-idle].
+2. **CreateDeviceIdentity.py** adlı bir Python dosyası oluşturun. Bu dosyayı, [kendi seçiminize bağlı olarak Python düzenleyicisinde/IDE’de][lnk-python-ide-list], (örneğin, varsayılan [IDLE][lnk-idle]) açın.
 
-3. Kod tooimport gerekli hello modülleri SDK hello hizmetinden aşağıdaki hello ekleyin:
+3. Hizmet SDK’sından gerekli modülleri içeri aktarmak için aşağıdaki kodu ekleyin:
 
     ```python
     import sys
@@ -70,7 +70,7 @@ Bu bölümde hello adımları toocreate IOT hub'ınızın hello kimlik kayıt de
     from iothub_service_client import IoTHubRegistryManager, IoTHubRegistryManagerAuthMethod
     from iothub_service_client import IoTHubDeviceStatus, IoTHubError
     ```
-2. Aşağıdaki kod, hello yer tutucu değiştirme hello eklemek `[IoTHub Connection String]` hello IOT hub'ı hello önceki bölümde oluşturduğunuz için hello bağlantı dizesiyle. Herhangi bir ad hello kullanabilirsiniz `DEVICE_ID`.
+2. Aşağıdaki kodu ekleyerek `[IoTHub Connection String]` yer tutucusunu önceki bölümde oluşturduğunuz IoT hub'ının bağlantı dizesiyle değiştirin. `DEVICE_ID` olarak herhangi bir ad kullanabilirsiniz.
    
     ```python
     CONNECTION_STRING = "[IoTHub Connection String]"
@@ -78,7 +78,7 @@ Bu bölümde hello adımları toocreate IOT hub'ınızın hello kimlik kayıt de
     ```
    [!INCLUDE [iot-hub-pii-note-naming-device](../../includes/iot-hub-pii-note-naming-device.md)]
 
-3. Add işlevi tooprint bazı hello aygıt bilgileri hello.
+3. Cihaz bilgilerinden bir bölümünü yazdırmak için aşağıdaki işlevi ekleyin.
 
     ```python
     def print_device_info(title, iothub_device):
@@ -94,7 +94,7 @@ Bu bölümde hello adımları toocreate IOT hub'ınızın hello kimlik kayıt de
         print ( "iothubDevice.authMethod                  = {0}".format(iothub_device.authMethod) )
         print ( "" )
     ```
-3. İşlev toocreate hello cihaz kimliği Hello kayıt Yöneticisi'ni kullanarak aşağıdaki hello ekleyin. 
+3. Kayıt Defteri Yöneticisi’ni kullanarak cihaz kimliği oluşturmak için aşağıdaki işlevi ekleyin. 
 
     ```python
     def iothub_createdevice():
@@ -110,45 +110,45 @@ Bu bölümde hello adımları toocreate IOT hub'ınızın hello kimlik kayıt de
         except KeyboardInterrupt:
             print ( "iothub_createdevice stopped" )
     ```
-4. Son olarak, hello main işlevi aşağıdaki şekilde ekleyin ve hello dosyasını kaydedin.
+4. Son olarak, aşağıda gösterildiği gibi ana işlevi ekleyin ve dosyayı kaydedin.
 
     ```python
     if __name__ == '__main__':
         print ( "" )
         print ( "Python {0}".format(sys.version) )
-        print ( "Creating device using hello Azure IoT Hub Service SDK for Python" )
+        print ( "Creating device using the Azure IoT Hub Service SDK for Python" )
         print ( "" )
         print ( "    Connection string = {0}".format(CONNECTION_STRING) )
         print ( "    Device ID         = {0}".format(DEVICE_ID) )
 
         iothub_createdevice()
     ```
-5. Merhaba Hello komut isteminde, çalıştırmak **CreateDeviceIdentity.py** gibi:
+5. Komut isteminde, aşağıda gösterildiği gibi **CreateDeviceIdentity.py** komutunu çalıştırın:
 
     ```python
     python CreateDeviceIdentity.py
     ```
-6. Oluşturulan hello sanal cihaz görmeniz gerekir. Merhaba Not **DeviceID** ve hello **primaryKey** bu aygıtın. TooIoT hub'a bir cihaz olarak bağlanan bir uygulama oluşturduğunuzda, bu değerleri daha sonra gerekir.
+6. Oluşturulmakta olan sanal cihazı görmeniz gerekir. Cihazın **deviceId** ve **primaryKey** değerlerini not alın. İleride IoT Hub'a bir cihaz olarak bağlanan bir uygulama oluşturduğunuzda bu değerlere ihtiyacınız olur.
 
     ![Cihaz başarısı oluşturma][1]
 
 > [!NOTE]
-> Merhaba IOT Hub kimlik kayıt defteri, yalnızca cihaz kimlikleri tooenable güvenli erişim toohello IOT hub'ı depolar. Cihaz kimliklerini ve anahtarlarını toouse güvenlik kimlik bilgileri ve toodisable erişim için tek bir cihaza kullanabilirsiniz bir etkin/devre dışı bayrağını depolar. Uygulamanızın cihaza özgü diğer meta verileri toostore gerekiyorsa, bir uygulamaya özgü depo kullanması gerekir. Daha fazla bilgi için bkz: Merhaba [IOT Hub Geliştirici Kılavuzu][lnk-devguide-identity].
+> IoT Hub kimlik kayıt defteri, yalnızca IoT hub'ına güvenli erişim sağlamak amacıyla cihaz kimliklerini depolar. Güvenlik kimlik bilgileri olarak kullanılmak üzere cihaz kimliklerini ve anahtarlarını ve tek bir cihaza erişimi devre dışı bırakmak için kullanabileceğiniz etkin/devre dışı bayrağını depolar. Uygulamanızın cihaza özgü diğer meta verileri depolaması gerekiyorsa uygulamaya özgü bir depo kullanması gerekir. Daha fazla bilgi için bkz. [IoT Hub geliştirici kılavuzu][lnk-devguide-identity].
 > 
 > 
 
 
 ## <a name="create-a-simulated-device-app"></a>Sanal cihaz uygulaması oluşturma
-Bu bölümde hello adımları toocreate bir cihaza benzetim ve tooyour IOT hub'ı cihaz-bulut iletileri gönderen bir Python konsol uygulaması listelenir.
+Bu bölümde, IoT hub'ınızda cihazdan buluta iletiler gönderen ve cihaz benzetimi yapan bir Python konsol uygulaması oluşturma adımları listelenir.
 
-1. Yeni bir komut istemi açın ve Python gibi hello Azure IOT Hub cihaz SDK'sı yükleyin. Merhaba yüklendikten sonra Hello komut istemini kapatın.
+1. Yeni bir komut istemi açın ve Python için Azure IoT Hub Cihazı SDK’sını aşağıda gösterildiği gibi yükleyin. Yükleme bittikten sonra komut istemini kapatın.
 
     ```
     pip install azure-iothub-device-client
     ```
 2. **SimulatedDevice.py** adlı bir dosya oluşturun. Bu dosyayı, kendi seçiminize bağlı olarak Python düzenleyicisinde/IDE’de açın (örneğin, IDLE).
 
-3. Kod tooimport gerekli hello modülleri SDK hello aygıttan aşağıdaki hello ekleyin.
+3. Cihaz SDK’sından gerekli modülleri içeri aktarmak için aşağıdaki kodu ekleyin.
 
     ```python
     import random
@@ -158,10 +158,10 @@ Bu bölümde hello adımları toocreate bir cihaza benzetim ve tooyour IOT hub'�
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult
     from iothub_client import IoTHubMessage, IoTHubMessageDispositionResult, IoTHubError, DeviceMethodReturnValue
     ```
-4. Hello aşağıdaki kod ve değiştirmek için hello yer tutucu eklemek `[IoTHub Device Connection String]` cihazınız için başlangıç bağlantı dizesiyle. Merhaba cihaz bağlantı dizesidir genellikle hello biçiminde `HostName=<hostName>;DeviceId=<deviceId>;SharedAccessKey=<primaryKey>`. Kullanım hello **DeviceID** ve **primaryKey** önceki bölümde tooreplace hello hello oluşturduğunuz hello cihazın `<deviceId>` ve `<primaryKey>` sırasıyla. `<hostName>` değerini IoT hub'ınızın konak adıyla (çoğunlukla `<IoT hub name>.azure-devices.net` gibi) değiştirin.
+4. Aşağıdaki kodu ekleyin `[IoTHub Device Connection String]` yer tutucusunu cihazınızın bağlantı dizesiyle değiştirin. Cihaz bağlantı dizesi çoğunlukla `HostName=<hostName>;DeviceId=<deviceId>;SharedAccessKey=<primaryKey>` biçimindedir. `<deviceId>` ve `<primaryKey>` değerlerini sırasıyla önceki bölümde oluşturduğunuz cihazın **deviceId** ve **primaryKey** değerleriyle değiştirin. `<hostName>` değerini IoT hub'ınızın konak adıyla (çoğunlukla `<IoT hub name>.azure-devices.net` gibi) değiştirin.
 
     ```python
-    # String containing Hostname, Device Id & Device Key in hello format
+    # String containing Hostname, Device Id & Device Key in the format
     CONNECTION_STRING = "[IoTHub Device Connection String]"
     # choose HTTP, AMQP or MQTT as transport protocol
     PROTOCOL = IoTHubTransportProvider.MQTT
@@ -170,7 +170,7 @@ Bu bölümde hello adımları toocreate bir cihaza benzetim ve tooyour IOT hub'�
     SEND_CALLBACKS = 0
     MSG_TXT = "{\"deviceId\": \"MyFirstPythonDevice\",\"windSpeed\": %.2f}"    
     ```
-5. Aşağıdaki kod toodefine gönderme onayı geri çağırma hello ekleyin. 
+5. Gönderme onayı geri çevirmeyi tanımlamak için aşağıdaki kodu ekleyin. 
 
     ```python
     def send_confirmation_callback(message, result, user_context):
@@ -184,25 +184,25 @@ Bu bölümde hello adımları toocreate bir cihaza benzetim ve tooyour IOT hub'�
         SEND_CALLBACKS += 1
         print ( "    Total calls confirmed: %d" % SEND_CALLBACKS )
     ```
-6. Kod tooinitialize hello aygıt istemcisi aşağıdaki hello ekleyin.
+6. Cihaz istemcisini başlatmak için aşağıdaki kodu ekleyin.
 
     ```python
     def iothub_client_init():
         # prepare iothub client
         client = IoTHubClient(CONNECTION_STRING, PROTOCOL)
-        # set hello time until a message times out
+        # set the time until a message times out
         client.set_option("messageTimeout", MESSAGE_TIMEOUT)
         client.set_option("logtrace", 0)
         return client
     ```
-7. Merhaba aşağıdaki tooformat işlev ve sanal cihaz tooyour IOT hub'dan ileti gönderme ekleyin.
+7. Sanal cihazınızdan IoT hub’ınıza bir ileti biçimlendirmek ve göndermek için aşağıdaki işlevi ekleyin.
 
     ```python
     def iothub_client_telemetry_sample_run():
 
         try:
             client = iothub_client_init()
-            print ( "IoT Hub device sending periodic messages, press Ctrl-C tooexit" )
+            print ( "IoT Hub device sending periodic messages, press Ctrl-C to exit" )
             message_counter = 0
 
             while True:
@@ -221,7 +221,7 @@ Bu bölümde hello adımları toocreate bir cihaza benzetim ve tooyour IOT hub'�
                 prop_map.add("Property", prop_text)
 
                 client.send_event_async(message, send_confirmation_callback, message_counter)
-                print ( "IoTHubClient.send_event_async accepted message [%d] for transmission tooIoT Hub." % message_counter )
+                print ( "IoTHubClient.send_event_async accepted message [%d] for transmission to IoT Hub." % message_counter )
 
                 status = client.get_send_status()
                 print ( "Send status: %s" % status )
@@ -238,61 +238,61 @@ Bu bölümde hello adımları toocreate bir cihaza benzetim ve tooyour IOT hub'�
         except KeyboardInterrupt:
             print ( "IoTHubClient sample stopped" )
     ```
-8. Son olarak, hello main işlevi ekleyin. 
+8. Son olarak, ana işlevi ekleyin. 
 
     ```python
     if __name__ == '__main__':
-        print ( "Simulating a device using hello Azure IoT Hub Device SDK for Python" )
+        print ( "Simulating a device using the Azure IoT Hub Device SDK for Python" )
         print ( "    Protocol %s" % PROTOCOL )
         print ( "    Connection string=%s" % CONNECTION_STRING )
 
         iothub_client_telemetry_sample_run()
     ```
-9. Kaydet ve Kapat hello **SimulatedDevice.py** dosya. Bu uygulama artık hazır toorun şunlardır.
+9. **SimulatedDevice.py** dosyasını kaydedin ve kapatın. Şimdi bu uygulamayı çalıştırmaya hazırsınız.
 
 > [!NOTE]
-> tookeep şeyler basit, Bu öğretici herhangi bir yeniden deneme ilkesi uygulamaz. Üretim kodunda yeniden deneme ilkelerini (üstel geri alma), önerilen hello MSDN makalesinde uygulamalıdır [geçici hata işleme][lnk-transient-faults].
+> Sade ve basit bir anlatım gözetildiği için bu öğretici herhangi bir yeniden deneme ilkesi uygulamaz. [Geçici Hata İşleme][lnk-transient-faults] adlı MSDN makalesinde önerildiği üzere, üretim kodunda yeniden deneme ilkelerini (üstel geri alma gibi) uygulamanız gerekir.
 > 
 > 
 
 ## <a name="receive-messages-from-your-simulated-device"></a>Sanal cihazınızdan ileti alma
-tooreceive telemetri iletilerini cihazınızdan toouse gereken bir [Event Hubs][lnk-event-hubs-overview]-hello hello cihaz bulut iletilerini okuyan IOT Hub tarafından kullanıma sunulan uyumlu bir uç noktasını. Okuma hello [Event Hubs ile çalışmaya başlama] [ lnk-eventhubs-tutorial] nasıl tooprocess, IOT hub'ın Event Hub ile uyumlu uç noktası için olay hub'larından iletileri hakkında bilgi için Öğreticisi. Olay hub'ları desteklemez telemetri Python içinde henüz oluşturabilir ya da şekilde bir [Node.js](iot-hub-node-node-getstarted.md#D2C_node) veya [.NET](iot-hub-csharp-csharp-getstarted.md#D2C_csharp) olay hub'ları tabanlı bir konsol uygulama tooread hello cihaz bulut iletilerini IOT hub'dan. Bu öğretici hello nasıl kullanabileceğinizi gösterir [IOT Hub Explorer aracı] [ lnk-iot-hub-explorer] tooread bu cihaz iletiler.
+Cihazınızdan telemetri iletilerini almak için, cihazdan buluta giden iletileri okuyan IoT Hub tarafından ortaya konan [Event Hubs][lnk-event-hubs-overview] ile uyumlu bir uç nokta kullanmanız gerekir. Event Hubs’tan IoT hub’ınızın Event Hub uyumlu uç noktasına gelen iletilerin nasıl işleneceği hakkında bilgi edinmek için, [Event Hubs ile Çalışmaya Başlama][lnk-eventhubs-tutorial] öğreticisini okuyun. Event Hubs henüz Python’da telemetriyi desteklememektedir, dolayısıyla IoT Hub’dan cihazdan buluta gelen iletileri okumak için [Node.js](iot-hub-node-node-getstarted.md#D2C_node) veya [.NET](iot-hub-csharp-csharp-getstarted.md#D2C_csharp) Event Hubs tabanlı bir konsol uygulaması oluşturabilirsiniz. Bu öğretici, bu cihaz iletilerini okumak için [IoT Hub Gezgini aracını][lnk-iot-hub-explorer] nasıl kullanabileceğinizi gösterir.
 
-1. Bir komut istemi açın ve hello IOT Hub Explorer yükleyin. 
+1. Komut istemini açın ve IoT Hub Gezgini’ni yükleyin. 
 
     ```
     npm install -g iothub-explorer
     ```
 
-2. Merhaba komut istemi komutu aşağıdaki hello çalıştırmak, toobegin izleme hello cihaz bulut iletilerini cihazınızdan. Merhaba yer tutucu sonra IOT hub'ın bağlantı dizesi kullanmak `--login`.
+2. Cihazdan buluta gelen iletileri cihazınızdan izlemeye başlamak için, komut isteminde aşağıdaki komutu çalıştırın. Yer tutucuda `--login` öğesinden sonra IoT hub’ınızın bağlantı dizesini kullanın.
 
     ```
     iothub-explorer monitor-events MyFirstPythonDevice --login "[IoTHub connection string]"
     ```
 
-3. Yeni bir komut istemi açın ve hello içeren toohello dizinine gidin **SimulatedDevice.py** dosya.
+3. Yeni bir komut istemi açın ve **SimulatedDevice.py** dosyasını içeren dizine gidin.
 
-4. Merhaba çalıştırmak **SimulatedDevice.py** telemetri verileri tooyour IOT hub'ı düzenli aralıklarla gönderir dosya. 
+4. IoT hub’ınıza düzenli aralıklarla telemetri verileri gönderen **SimulatedDevice.py** dosyasını çalıştırın. 
    
     ```
     python SimulatedDevice.py
     ```
-5. Merhaba komut istemi hello IOT Hub Explorer hello önceki bölümden çalıştıran Hello aygıt iletileri gözlemleyin. 
+5. Önceki bölümde IoT Hub Gezgini’ni çalıştırarak komut isteminde cihaz iletilerini gözlemleyin. 
 
     ![Python cihazdan buluta iletiler][2]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide hello Azure portalında yeni bir IOT hub yapılandırılmış ve ardından hello IOT hub'ın kimlik kayıt defterinde bir cihaz kimliği oluşturdunuz. Bu cihaz kimliğini tooenable benzetimli hello cihaz uygulama toosend cihaz bulut iletilerini toohello IOT hub kullanılır. Merhaba IOT Hub Explorer Aracı'nın hello Yardım hello IOT hub tarafından alınan karışılama iletileri gözlenen. 
+Bu öğreticide, Azure portalında yeni bir IoT hub'ı yapılandırdınız ve ardından IoT hub'ının kimlik kayıt defterinde bir cihaz kimliği oluşturdunuz. Bu cihaz kimliğini, sanal cihaz uygulamasının, IoT hub'ına cihazdan buluta iletileri göndermesini sağlamak için kullandınız. IoT Hub Gezgini aracının yardımıyla IoT hub’ı tarafından alınan iletileri gözlemlediniz. 
 
-derinlemesine, Azure IOT Hub kullanım için tooexplore hello Python SDK ziyaret [bu Git Hub depodaki][lnk-python-github]. tooreview hello ileti özelliklerini hello Python için Azure IOT Hub hizmeti SDK, indirme ve çalıştırma [iothub_messaging_sample.py][lnk-messaging-sample]. Python için Azure IOT Hub cihaz SDK'sı Hello kullanarak aygıt yan benzetimi için karşıdan yükleme ve hello çalıştırma [iothub_client_sample.py][lnk-client-sample].
+Azure IoT Hub için Python SDK’sının kullanımını derinlemesine incelemek için [bu Git Hub deposunu][lnk-python-github] ziyaret edin. Azure IoT Hub Hizmeti SDK’sının ileti özelliklerini gözden geçirmek için, [iothub_messaging_sample.py][lnk-messaging-sample] dosyasını indirebilir ve çalıştırabilirsiniz. Python için Azure IoT Hub Cihazı SDK’sını kullanan cihaz tarafı benzetimi için, [iothub_client_sample.py][lnk-client-sample] dosyasını indirebilir ve çalıştırabilirsiniz.
 
-Başlarken toocontinue IOT Hub ve tooexplore diğer IOT senaryolarını bakın:
+IoT Hub’ı kullanmaya başlamak ve diğer IoT senaryolarını keşfetmek için bkz:
 
 * [Cihazınızı bağlama][lnk-connect-device]
 * [Cihaz yönetimini kullanmaya başlama][lnk-device-management]
 * [Azure IoT Edge’i kullanmaya başlama][lnk-iot-edge]
 
-toolearn tooextend, IOT çözümü ve işlem cihaz bulut iletilerini ölçekli olarak nasıl görürüm hello [cihaz-bulut iletileri] [ lnk-process-d2c-tutorial] Öğreticisi.
+IoT çözümünüzün nasıl genişletileceğini ve cihazdan buluta iletilerin doğru ölçekte nasıl işleneceğini öğrenmek için [Cihazdan buluta iletileri işleme][lnk-process-d2c-tutorial] öğreticisine bakın.
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
 
 <!-- Images. -->

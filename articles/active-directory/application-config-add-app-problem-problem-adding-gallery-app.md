@@ -1,6 +1,6 @@
 ---
-title: bir Azure AD galeri uygulama ekleme aaaProblem | Microsoft Docs
-description: "Azure AD galeri uygulamaları ve neler yapabileceğinizi eklerken Hello ortak sorunları kişiler yüz anlamak tooresolve bunları"
+title: Bir Azure AD galeri uygulama eklenirken hata | Microsoft Docs
+description: "Azure AD galeri uygulamaları ve bunları gidermek için neler yapabileceğinizi eklerken, ortak sorunları kişiler yüz anlama"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -13,120 +13,120 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 654f98116176d5590563c0471b92809f8763fbd7
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b3ae472d52208d3c76424d29192c1eb982639572
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Bir Azure AD galeri uygulama eklenirken hata
 
-Bu makalede yardımcı toounderstand hello ortak sorunları kişiler yüz Azure AD galeri uygulamaları ve neler yapabileceğinizi eklerken tooresolve bunları.
+Bu makalede Azure AD galeri uygulamaları ve bunları gidermek için neler yapabileceğinizi eklerken, ortak sorunları kişiler yüzünü anlamanıza yardımcı olur.
 
-## <a name="i-clicked-hello-add-button-and-my-application-took-a-long-time-tooappear"></a>"Düğmesi ve uygulamamın uzun süre tooappear sürdü Ekle" Merhaba tıklattınız
+## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>"Ekle" düğmesine tıklandığında ve uygulamamın görünür uzun sürdü
 
-Bazı durumlarda, 1-2 dakika alabilir (ve bazı durumlarda daha uzun) tooyour dizin ekledikten sonra bir uygulama tooappear için. Bu hello normal beklenen performans olmamasına karşın, hello uygulama toplama devam ediyor üzerinde hello tıklayarak görebilirsiniz **bildirimleri** hello sağ üst tarafındaki hello (Merhaba zil) simgesinde [Azure Portal](https://portal.azure.com/)ve aramakta bir **sürüyor** veya **tamamlandı** etiketli bildirim **uygulaması oluşturun.**
+Bazı durumlarda, 1-2 dakika alabilir (ve bazı durumlarda daha uzun) uygulamanın dizininize eklendikten sonra görünür. Bu normal beklenen performans olmamasına karşın, uygulama eklenmesi ediyor tıklayarak görebilirsiniz **bildirimleri** (zil) simgesine sağ üst tarafındaki [Azure Portal](https://portal.azure.com/) ve aranıyor için bir **sürüyor** veya **tamamlandı** etiketli bildirim **uygulaması oluşturun.**
 
-Uygulamanızı hiçbir zaman eklediyseniz veya hello tıklatıldığında hatayla karşılaşırsanız **Ekle** düğmesi, göreceğiniz bir **bildirim** içinde bir **hata** durumu. Daha fazla tooor destek engingeer ile paylaşmak hello hata toolearn hakkında daha fazla ayrıntı isterseniz hello hello adımları izleyerek hello hata hakkında daha fazla bilgi görebilirsiniz [nasıl toosee hello portal bildirim ayrıntılarını](#how-to-see-the-details-of-a-portal-notification) bölümü.
+Uygulamanızı hiçbir zaman eklenir veya tıklatıldığında hatayla karşılaşırsanız **Ekle** düğmesi, göreceğiniz bir **bildirim** içinde bir **hata** durumu. Daha fazla bilgi edinmek veya destek engingeer ile paylaşmak için hata hakkında daha fazla ayrıntı isterseniz içindeki adımları izleyerek hata hakkında daha fazla bilgi görebilirsiniz [portal bildirim ayrıntılarını görmek nasıl](#how-to-see-the-details-of-a-portal-notification) bölümü.
 
-## <a name="i-clicked-hello-add-button-and-my-application-didnt-appear"></a>Merhaba "Ekle" düğmesine tıklandığında ve uygulamamın görünmedi
+## <a name="i-clicked-the-add-button-and-my-application-didnt-appear"></a>"Ekle" düğmesine tıklandığında ve uygulamamın görünmedi
 
-Bazı durumlarda, tootransient sorunları ağ sorunları veya bir hata, bir uygulama başarısız ekleniyor. Hello tıklattığınızda böyle anlayabilirsiniz **bildirimleri** hello sağ üst köşesinde, hello Azure Portal ve (Merhaba zil) simgesinde kırmızı (!) bkz simgesi sonraki tooyour **uygulaması oluşturma** bildirim. Başka bir gösterir Merhaba uygulaması oluşturulurken bir hata oluştu.
+Bazı durumlarda, geçici sorunlar nedeniyle ağ sorunları veya bir hata, bir uygulama başarısız ekleniyor. Tıkladığınızda böyle anlayabilirsiniz **bildirimleri** (zil) simgesine sağ üst tarafındaki Azure Portalı'nı ve bir kırmızı (!) simgesi yanına bakın, **uygulaması oluşturma** bildirim. Bu, uygulama oluştururken bir hata oluştu gösterir.
 
-Merhaba tıklatıldığında hatayla karşılaşırsanız **Ekle** düğmesi, göreceğiniz bir **bildirim** içinde bir **hata** durumu. Daha fazla tooor destek engingeer ile paylaşmak hello hata toolearn hakkında daha fazla ayrıntı isterseniz hello hello adımları izleyerek hello hata hakkında daha fazla bilgi görebilirsiniz [nasıl toosee hello portal bildirim ayrıntılarını](#how-to-see-the-details-of-a-portal-notification) bölümü.
+Tıklatıldığında bir hatayla karşılaşırsanız **Ekle** düğmesi, göreceğiniz bir **bildirim** içinde bir **hata** durumu. Daha fazla bilgi edinmek veya destek engingeer ile paylaşmak için hata hakkında daha fazla ayrıntı isterseniz içindeki adımları izleyerek hata hakkında daha fazla bilgi görebilirsiniz [portal bildirim ayrıntılarını görmek nasıl](#how-to-see-the-details-of-a-portal-notification) bölümü.
 
- ## <a name="i-dont-know-how-tooset-up-my-application-once-ive-added-it"></a>Nasıl tooset Uygulamam kez yedeklemek, ekledim bilmiyorsanız
+ ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Bunu ekledikten sonra my uygulamayı kurmak nasıl çıkılacağını bilmiyoruz
 
-Uygulamaları hakkında öğrenme yardıma gereksinim duyarsanız, hello [nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) iyi toostart makaledir.
+Uygulamaları hakkında öğrenme yardıma gereksinim duyarsanız [SaaS uygulamaları Azure Active Directory ile tümleştirme için nasıl öğreticiler listesi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) makale başlatmak için iyi bir yerdir.
 
-Toplama toothis içinde hello [Azure AD uygulamaları belge kitaplığı](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) toolearn hakkında daha fazla Azure AD ile çoklu oturum açma ve nasıl çalıştığı yardımcı olur.
+Bu, ek olarak [Azure AD uygulamaları belge kitaplığı](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) Azure AD ile çoklu oturum açma ve nasıl çalıştığı hakkında daha fazla bilgi için Yardım.
 
-## <a name="how-toosee-hello-details-of-a-portal-notification"></a>Nasıl bir portal bildirim toosee hello ayrıntıları
+## <a name="how-to-see-the-details-of-a-portal-notification"></a>Bir portal bildirim ayrıntılarını görmek nasıl
 
-Merhaba adımları izleyerek herhangi bir portal bildirim hello ayrıntılarını görebilirsiniz:
+Aşağıdaki adımları izleyerek herhangi bir portal bildirim ayrıntılarını görebilirsiniz:
 
-1.  Merhaba tıklatın **bildirimleri** hello sağ üst köşesinde, hello Azure Portal (Merhaba zil) simgesi
+1.  tıklatın **bildirimleri** simgesi (zil) Azure portalının sağ üst
 
-2.  Herhangi bir bildirim seçin bir **hata** durumu (kırmızı (!) sonraki toothem sahip olanlar).
+2.  Herhangi bir bildirim seçin bir **hata** durumu (bunları yanında kırmızı (!) sahip olanlar).
 
     >[!NOTE]
     >Bildirimlerde'ı bir **başarılı** veya **sürüyor** durumu.
     >
     >
 
-3.  Bu açık hello **bildirim ayrıntıları** dikey.
+3.  Bu açık **bildirim ayrıntıları** dikey.
 
-4.  Bu bilgileri kendiniz hello sorun hakkında daha fazla ayrıntı toounderstand kullanın.
+4.  Bu bilgileri kullanın kendinize sorun hakkında daha fazla ayrıntı anlayın.
 
-5.  Hala yardıma ihtiyacınız varsa, sorununuzu ile bir destek mühendisi veya hello ürün grubu tooget Yardım ile bu bilgileri de paylaşabilir.
+5.  Hala yardıma ihtiyacınız varsa, bu bilgiler sorununuzu Yardım almak için bir destek mühendisine veya ürün grubu ile paylaşabilirsiniz.
 
-6.  Merhaba tıklatın **kopyalama** **simgesi** hello sağında toohello **kopyalama hatası** textbox toocopy tüm bildirim ayrıntıları tooshare bir destek veya ürün grubu mühendisi ile Merhaba
+6.  Tıklatın **kopya** **simgesi** sağındaki **kopyalama hatası** desteği veya ürün grubu mühendislik ile paylaşmak için tüm bildirim ayrıntıları kopyalamak için metin kutusu
 
-## <a name="how-tooget-help-by-sending-notification-details-tooa-support-engineer"></a>Tooget nasıl yardımcı bildirim ayrıntıları tooa destek mühendisine göndererek
+## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Bir destek mühendisine bildirim ayrıntıları göndererek Yardım alma
 
-Paylaştığınız çok önemlidir **tüm ayrıntılar aşağıda listelenen hello** size hızla yardımcı böylece yardıma gereksiniminiz varsa bir destek mühendisine ile. Bu yana kolayca yapabilirsiniz **bir ekran görüntüsü alma** veya hello tıklatarak **kopyalama hata simgesi**, hello toohello sağındaki bulundu **kopyalama hatası** textbox.
+Paylaştığınız çok önemlidir **aşağıda listelenen tüm ayrıntıları** size hızla yardımcı böylece yardıma gereksiniminiz varsa bir destek mühendisine ile. Bu yana kolayca yapabilirsiniz **bir ekran görüntüsü alma** veya tıklatarak **kopyalama hata simgesi**, sağ tarafında bulunan **kopyalama hatası** metin kutusu.
 
 ## <a name="notification-details-explained"></a>Açıklanan bildirim ayrıntıları
 
-Merhaba aşağıdaki daha hangi öğelerin her birini hello bildirim anlamına gelir ve bunların her birini verir örnekleri açıklanmaktadır.
+Daha fazla her bildirimin öğelerini anlamına gelir ve bunların her birini örnekleri verir aşağıda açıklanmaktadır.
 
 ### <a name="essential-notification-items"></a>Temel bildirim öğeleri
 
--   **Başlık** – hello hello bildirim açıklayıcı bir başlık
+-   **Başlık** – bildirimin açıklayıcı bir başlık
 
   * Örnek – **uygulama proxy ayarları**
 
--   **Açıklama** – hello ne hello işlem sonucunda oluşan açıklaması
+-   **Açıklama** – ne işlem sonucunda oluşan açıklaması
 
     -   Örnek – **girilen iç url başka bir uygulama tarafından zaten kullanılıyor**
 
--   **Bildirim kimliği** – hello bildirim hello benzersiz kimliği
+-   **Bildirim kimliği** – bildirim benzersiz kimliği
 
     -   Örnek – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **İstemci istek kimliği** – tarayıcınız tarafından yapılan hello belirli bir istek kimliği
+-   **İstemci istek kimliği** – tarayıcınız tarafından yapılan belirli bir istek kimliği
 
     -   Örnek – **302fd775-3329-4670-a9f3-bea37004f0bc**
 
--   **Zaman damgası UTC** – sırasında hello bildirim meydana geldiği UTC zaman damgası hello
+-   **Zaman damgası UTC** – sırasında bildirim meydana geldiği UTC zaman damgası
 
     -   Örnek – **2017-03-23T19:50:43.7583681Z**
 
--   **İç işlem kimliği** – kullanabileceğiniz toolook hello hata bizim sistemlerinde iç kimliği hello
+-   **İç işlem kimliği** – iç kimlik kullanabileceğiniz bizim sistemlerinde hata aramak için
 
     -   Örnek – **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
--   **UPN** – hello işlemi gerçekleştiren hello kullanıcı
+-   **UPN** – işlemi gerçekleştiren kullanıcı
 
     -   Örnek –**tperkins@f128.info**
 
--   **Kiracı kimliği** – hello benzersiz kimliği kullanıcı hello hello Kiracı hello işlemi gerçekleştiren bir üyesi.
+-   **Kiracı kimliği** – işlemi gerçekleştiren kullanıcının üyesi olduğu Kiracı benzersiz kimliği
 
     -   Örnek – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **Kullanıcı nesnesi kimliği** – hello işlemi gerçekleştiren hello kullanıcının benzersiz Kimliğini hello
+-   **Kullanıcı nesnesi kimliği** – işlemi gerçekleştiren kullanıcının benzersiz kimliği
 
     -   Örnek – **17f84be4-51f8-483a-b533-383791227a99**
 
 ### <a name="detailed-notification-items"></a>Ayrıntılı bildirim öğeleri
 
--   **Görünen ad** – **(boş olabilir)** hello hatası için ayrıntılı bir görünen ad
+-   **Görünen ad** – **(boş olabilir)** hatası için ayrıntılı bir görünen ad
 
     -   Örnek – **uygulama proxy ayarları**
 
--   **Durum** – hello hello bildirim özel durumu
+-   **Durum** – bildirim özel durumu
 
     -   Örnek – **başarısız oldu**
 
--   **Nesne Kimliği** – **(boş olabilir)** karşı hangi hello işlemi gerçekleştirildiği nesne kimliği hello
+-   **Nesne Kimliği** – **(boş olabilir)** göre işlemi gerçekleştirildiği nesne kimliği
 
     -   Örnek – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
--   **Ayrıntılar** – hello ayrıntılı ne hello işlem sonucunda oluşan açıklaması
+-   **Ayrıntılar** – ayrıntılı ne işlem sonucunda oluşan açıklaması
 
     -   Örnek – **iç url 'http://bing.com/', zaten kullanımda olduğundan geçersiz**
 
--   **Kopyalama hatası** – tıklatın hello **Kopyala simgesi** hello sağında toohello **kopyalama hatası** textbox toocopy tüm bildirim ayrıntıları tooshare bir destek veya ürün grubu mühendisi ile Merhaba
+-   **Kopyalama hatası** – tıklatın **Kopyala simgesi** sağındaki **kopyalama hatası** desteği veya ürün grubu mühendislik ile paylaşmak için tüm bildirim ayrıntıları kopyalamak için metin kutusu
 
     -   Örnek```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 

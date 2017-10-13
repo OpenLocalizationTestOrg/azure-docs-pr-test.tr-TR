@@ -1,6 +1,6 @@
 ---
-title: AD FS ile Azure AD Connect Health aaaUsing | Microsoft Docs
-description: "Hello Azure AD Connect Health sayfasında nasıl budur toomonitor şirket içi AD FS altyapısı."
+title: Azure AD Connect Health'i AD FS ile Kullanma| Microsoft Belgeleri
+description: "Bu Azure AD Connect Health sayfasında, şirket içi AD FS altyapınızı nasıl izleyeceğiniz açıklanmıştır."
 services: active-directory
 documentationcenter: 
 author: karavar
@@ -15,107 +15,107 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0cd26e8762be65e09d22e1f113e5165c4f131715
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 7946f11d209e6341caa3a11e946fb1596e758277
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>AD FS'yi Azure AD Connect Health'i kullanarak izleme
-Merhaba belgeleri belirli toomonitoring, Azure AD Connect Health ile AD FS altyapısıdır. Azure AD Connect’i (Eşitleme) Azure AD Connect Health ile izleme hakkında bilgi için bkz. [Eşitleme için Azure AD Connect Health Kullanma](active-directory-aadconnect-health-sync.md). Ek olarak, Active Directory Etki Alanı Hizmetleri’ni Azure AD Connect Health ile izleme hakkında bilgi için bkz. [AD DS ile Azure AD Connect Health Kullanma](active-directory-aadconnect-health-adds.md).
+Aşağıdaki belgeler, AD FS altyapınızın Azure AD Connect Health ile izlenmesine ilişkin belgelerdir. Azure AD Connect’i (Eşitleme) Azure AD Connect Health ile izleme hakkında bilgi için bkz. [Eşitleme için Azure AD Connect Health Kullanma](active-directory-aadconnect-health-sync.md). Ek olarak, Active Directory Etki Alanı Hizmetleri’ni Azure AD Connect Health ile izleme hakkında bilgi için bkz. [AD DS ile Azure AD Connect Health Kullanma](active-directory-aadconnect-health-adds.md).
 
 ## <a name="alerts-for-ad-fs"></a>AD FS uyarıları
-Hello Azure AD Connect Health uyarıları bölümünde etkin uyarıların listesi hello sağlar. Her uyarı ilgili bilgileri, çözüm adımları ve bağlantıları toorelated belgeleri içerir.
+Azure AD Connect Health Uyarıları bölümünde etkin uyarıların listesi mevcuttur. Her uyarı için ilgili bilgiler, çözüm adımları ve ilgili belgelere yönelik bağlantılar verilmiştir.
 
-Bir etkin veya çözümlenmiş uyarı, tooopen ek bilgileri içeren yeni bir dikey pencere çift tıklayarak, uyarı ve bağlantıları toorelevant belgelerine tooresolve atabileceğiniz adımlar hello. Ayrıca, geçmiş verileri hello geçmişte çözümlenen uyarıları görüntüleyebilirsiniz.
+Ek bilgiler, uyarıyı çözme adımları ve ilgili belgelerin bağlantılarını içeren yeni bir dikey pencere açmak için etkin veya çözümlenmiş bir uyarıya çift tıklayabilirsiniz. Ayrıca, geçmişte çözümlenen uyarılara ilişkin geçmiş verileri de görüntüleyebilirsiniz.
 
 ![Azure AD Connect Health Portalı](./media/active-directory-aadconnect-health/alert2.png)
 
 ## <a name="usage-analytics-for-ad-fs"></a>AD FS için Kullanım Analizi
-Azure AD Connect Health kullanım analizi, Federasyon sunucularınızın hello kimlik doğrulama trafiğini analiz eder. Merhaba kullanım analizi kutusunu, çeşitli ölçümleri ve gruplandırmaları gösteren tooopen hello kullanım analizi dikey penceresi, çift tıklayabilirsiniz.
+Azure AD Connect Health Kullanım Analizi, federasyon sunucularınızın kimlik doğrulama trafiğini analiz eder. Birkaç ölçüm ve gruplandırmayı gösteren kullanım analizi dikey penceresini açmak için kullanım analizi kutusuna çift tıklayabilirsiniz.
 
 > [!NOTE]
-> AD FS ile kullanım analizi toouse, AD FS denetiminin etkin olduğundan emin olmalısınız. Daha fazla bilgi için bkz. [AD FS için Denetimi Etkinleştirme](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
+> Kullanım Analizini AD FS ile kullanabilmek için AD FS denetiminin etkin olduğundan emin olmanız gerekir. Daha fazla bilgi için bkz. [AD FS için Denetimi Etkinleştirme](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
 >
 >
 
 ![Azure AD Connect Health Portalı](./media/active-directory-aadconnect-health/report1.png)
 
-tooselect ek ölçümler, bir zaman aralığı ya da toochange hello gruplandırma belirtin, hello kullanım analizi grafiğine sağ tıklayın ve grafiği Düzenle seçin. Ardından hello zaman aralığı belirtin, farklı bir ölçümü seçin ve hello gruplandırmayı değiştirebilirsiniz. Merhaba dağıtım hello kimlik doğrulama trafiğinin farklı "ölçümlere" göre görüntüleyebilir ve bölümden hello açıklanan ilgili "gruplandırma ölçütü" parametrelerini kullanarak her ölçümü gruplandırabilirsiniz:
+Ek ölçümler seçmek, zaman aralığı belirtmek veya gruplandırmayı değiştirmek için kullanım analizi grafiğine sağ tıklayıp Grafiği Düzenle seçeneğini belirleyin. Ardından zaman aralığı belirtebilir, farklı bir ölçüm seçebilir ve gruplandırmayı değiştirebilirsiniz. Kimlik doğrulama trafiğinin dağılımını farklı "ölçümlere" göre görüntüleyebilir ve aşağıdaki bölümde açıklanan ilgili "gruplandırma ölçütü" parametrelerini kullanarak her ölçümü gruplandırabilirsiniz:
 
 **Ölçüm: Toplam İstek Sayısı** - AD FS sunucuları tarafından işlenen toplam istek sayısı.
 
-|Gruplandırma Ölçütü | Hangi hello gruplandırma anlamına gelir ve neden yararlıdır? |
+|Gruplandırma Ölçütü | Gruplandırma nedir ve ne işe yarar? |
 | --- | --- |
-| Tümü | Tüm AD FS sunucuları tarafından işlenen isteklerin toplam sayısı Hello sayısını gösterir.|
-| Uygulama | Grupları hello hedeflenen bağlı olan tarafa göre toplam istek sayısı hello. Hangi uygulamanın ne kadar hello toplam trafik yüzdesi alıyor yararlı toounderstand grubudur. |
-|  Sunucu |Grupları hello istek işlenmeden hello sunucuya göre toplam istek sayısı hello. Bu yararlı toounderstand hello yük dağıtımı hello toplam trafik grubudur.
-| Çalışma Alanına Katılım |Grupları olup bunların çalışma alanına katılmış olan cihazlardan gelip temel toplam istek (bilinen) hello. Bu gruplandırma, kaynaklarınızı bilinmeyen toohello kimlik altyapısı cihazları kullanarak erişilen yararlı toounderstand olur. |
-|  Kimlik Doğrulama Yöntemi | Grupları toplam istekleri kimlik doğrulaması için kullanılan hello kimlik doğrulama yöntemine dayalı hello. Bu gruplandırma, kimlik doğrulaması için kullanılan yararlı toounderstand hello ortak kimlik doğrulama yöntemidir. Merhaba olası kimlik doğrulama yöntemleri aşağıda verilmiştir <ol> <li>Windows Tümleşik Kimlik Doğrulaması (Windows)</li> <li>Forms Tabanlı Kimlik Doğrulaması (Forms)</li> <li>SSO (Çoklu Oturum Açma)</li> <li>X509 Sertifika Doğrulaması (Sertifika)</li> <br>Merhaba federasyon sunucuları hello isteği SSO tanımlama bilgisi alırsanız, bu isteğin SSO (çoklu oturum tam açma) sayılır. Böyle durumlarda, hello tanımlama bilgisi geçerliyse, hello kullanıcı tooprovide kimlik bilgileri istenmez ve kesintisiz erişim toohello uygulama alır. Bu davranış, hello federasyon sunucuları tarafından korunan birden çok bağlı olan tarafınız varsa yaygındır. |
-| Ağ Konumu | Grupları hello kullanıcının ağ konumuna hello dayalı toplam istek sayısı hello. İntranet veya extranet olabilir. Bu yararlı tooknow hello intranet ve extranet hello trafiğin yüzde kaçının geldiği grubudur. |
+| Tümü | Tüm AD FS sunucuları tarafından işlenen isteklerin toplam sayısını gösterir.|
+| Uygulama | Tüm istekleri hedeflenen bağlı olan tarafa göre gruplandırır. Bu gruplandırma, hangi uygulamanın toplam trafiğin yüzde kaçını aldığını anlamak için kullanışlıdır. |
+|  Sunucu |Tüm istekleri isteği işleyen sunucuya göre gruplandırır. Bu gruplandırma, toplam trafiğin yük dağıtımını anlamak için kullanışlıdır.
+| Çalışma Alanına Katılım |Tüm istekleri çalışma alanına katılmış (bilinen) cihazlardan gelip gelmediğine göre gruplandırır. Bu gruplandırma, kaynaklarınıza kimlik altyapısı tarafından bilinmeyen cihazlar kullanılarak erişilip erişilmediğini anlamak için kullanışlıdır. |
+|  Kimlik Doğrulama Yöntemi | Toplam istekleri kimlik doğrulamak için kullanılan kimlik doğrulama yöntemine göre gruplandırır. Bu gruplandırma, kimlik doğrulaması için kullanılan yaygın kimlik doğrulama yöntemini anlamak için kullanışlıdır. Olası kimlik doğrulama yöntemleri aşağıda verilmiştir <ol> <li>Windows Tümleşik Kimlik Doğrulaması (Windows)</li> <li>Forms Tabanlı Kimlik Doğrulaması (Forms)</li> <li>SSO (Çoklu Oturum Açma)</li> <li>X509 Sertifika Doğrulaması (Sertifika)</li> <br>Federasyon sunucuları SSO Tanımlama Bilgisi ile istek alırsa bu istek SSO (Çoklu Oturum Açma) olarak sayılır. Bu gibi durumlarda, tanımlama bilgisi geçerliyse kullanıcıdan kimlik bilgilerini sağlaması istenmez ve kullanıcı uygulamaya sorunsuz bir şekilde erişir. Federasyon sunucuları tarafından korunan birden fazla bağlı olan tarafınız varsa bu davranış yaygındır. |
+| Ağ Konumu | Tüm istekleri kullanıcının ağ konumuna göre gruplandırır. İntranet veya extranet olabilir. Bu gruplandırma, trafiğin yüzde kaçının intranetten veya extranetten geldiğini anlamak için kullanışlıdır. |
 
 
-**Ölçüm: Toplam isteği başarısız oldu** -başarısız hello Federasyon Hizmeti tarafından işlenen isteklerin hello toplam sayısı. (Bu ölçüm yalnızca Windows Server 2012 R2 için AD FS'de kullanılabilir)
+**Ölçüm: Toplam Başarısız İstek Sayısı** - Federasyon hizmeti tarafından işlenen başarısız isteklerin toplam sayısı. (Bu ölçüm yalnızca Windows Server 2012 R2 için AD FS'de kullanılabilir)
 
-|Gruplandırma Ölçütü | Hangi hello gruplandırma anlamına gelir ve neden yararlıdır? |
+|Gruplandırma Ölçütü | Gruplandırma nedir ve ne işe yarar? |
 | --- | --- |
-| Hata Türü | Merhaba önceden tanımlanmış hata türlerine göre hata sayısını gösterir. Bu yararlı toounderstand hello genel hata türlerini grubudur. <ul><li>Yanlış kullanıcı adı veya parola: tooincorrect kullanıcı adı veya parola nedeniyle hatalar.</li> <li>"Extranet kilitleme": extranet dışında bırakılan bir kullanıcıdan alınan toohello isteği nedeniyle hataları </li><li> "Süresi dolan parola": süresi dolmuş bir parolayla oturum açma toousers nedeniyle hataları.</li><li>"Devre dışı hesap": toousers günlüğü devre dışı bırakılmış bir hesap ile son hataları.</li><li>"Cihaz kimlik doğrulaması": cihaz kimlik doğrulamasını kullanarak toousers başarısız tooauthenticate nedeniyle hataları.</li><li>"Kullanıcı sertifikası kimlik doğrulaması": geçersiz bir sertifika nedeniyle toousers başarısız tooauthenticate nedeniyle hataları.</li><li>"MFA": çok faktörlü kimlik doğrulaması kullanarak toouser başarısız tooauthenticate nedeniyle hataları.</li><li>"Diğer kimlik bilgisi": "Sertifika verme yetkilendirmesi": tooauthorization hataları nedeniyle hataları.</li><li>"Sertifika verme Temsilcisi": tooissuance temsilci hatalar nedeniyle hataları.</li><li>"Belirteç onayı": tooADFS reddetme nedeniyle hataları hello bir üçüncü taraf kimlik sağlayıcısından belirteç.</li><li>"Protokolü": tooprotocol hataları nedeniyle başarısız.</li><li>"Bilinmeyen": Farklı nedenlerden kaynaklananlar. Merhaba uymayan diğer hataları kategorileri tanımlanır.</li> |
-| Sunucu | Grupları hello sunucuya göre hatalar hello. Bu yararlı toounderstand hello hata dağıtım sunucular arasında grubudur. Düzensiz dağıtım, hatalı durumdaki bir sunucunun göstergesi olabilir. |
-| Ağ Konumu | Grupları hello isteklerinin (intranet veya extranet) hello ağ konumuna bağlı hataları hello. Bu gruplandırma, başarısız olan istek yararlı toounderstand hello türü değil. |
-|  Uygulama | Grupları hello hedeflenen uygulamaya (bağlı olan taraf) göre hataları hello. Hedeflenen hangi uygulamanın en çok hata sayısını gördüğünü yararlı toounderstand grubudur. |
+| Hata Türü | Önceden tanımlanmış hata türlerine göre hata sayısını gösterir. Bu gruplandırma, genel hata türlerini anlamak için kullanışlıdır. <ul><li>Hatalı Kullanıcı Adı veya Parola: Hatalı kullanıcı adı veya paroladan kaynaklanan hatalar.</li> <li>"Extranet Kilitleme": Extranet dışında bırakılan bir kullanıcıdan alınan isteklerden kaynaklanan hatalar </li><li> "Süresi Dolan Parola": Süresi dolmuş bir parolayla oturum açmaya çalışan kullanıcılardan kaynaklanan hatalar.</li><li>"Devre Dışı Hesap": Devre dışı bırakılmış bir hesap ile oturum açmaya çalışan kullanıcılardan kaynaklanan hatalar.</li><li>"Cihaz Kimlik Doğrulaması": Cihaz Kimlik Doğrulamasını kullanarak kimlik doğrulaması gerçekleştiremeyen kullanıcılardan kaynaklanan hatalar.</li><li>"Kullanıcı Sertifikası Kimlik Doğrulaması": Geçersiz bir sertifika nedeniyle kimlik doğrulaması gerçekleştiremeyen kullanıcılardan kaynaklanan hatalar.</li><li>"MFA": Multi-Factor Authentication kullanarak kimlik doğrulaması yapmakta başarısız olan kullanıcılardan kaynaklanan hatalar.</li><li>"Diğer Kimlik Bilgisi": "Sertifika Verme Yetkilendirmesi": Başarısız yetkilendirmelerden kaynaklanan hatalar.</li><li>"Sertifika Verme Temsilcisi": Sertifika verme temsilcisi hatalarından kaynaklanan hatalar.</li><li>"Belirteç Onayı": ADFS'nin üçüncü taraf Kimlik Sağlayıcısından gelen bir belirteci reddetmesinden kaynaklanan hatalar.</li><li>"Protokol": Protokol hatalarından kaynaklanan hatalar.</li><li>"Bilinmeyen": Farklı nedenlerden kaynaklananlar. Tanımlanan kategorilere uymayan diğer tüm hatalar.</li> |
+| Sunucu | Hataları sunucuya göre gruplandırır. Bu gruplandırma sunucular genelindeki hata dağıtımını anlamak için kullanışlıdır. Düzensiz dağıtım, hatalı durumdaki bir sunucunun göstergesi olabilir. |
+| Ağ Konumu | Hataları isteklerin ağ konumuna (intranet veya extranet) göre gruplandırır. Bu gruplandırma başarısız olan istek türlerini anlamak için kullanışlıdır. |
+|  Uygulama | Hataları hedeflenen uygulamaya (bağlı olan taraf) göre gruplandırır. Bu gruplandırma hedeflenen hangi uygulamanın en çok hata sayısını gördüğünü anlamak için kullanışlıdır. |
 
 **Ölçüm: Kullanıcı sayısı** - Kimlik doğrulamak için etkin olarak AD FS’yi kullanan ortalama benzersiz kullanıcı sayısı
 
-|Gruplandırma Ölçütü | Hangi hello gruplandırma anlamına gelir ve neden yararlıdır? |
+|Gruplandırma Ölçütü | Gruplandırma nedir ve ne işe yarar? |
 | --- | --- |
-|Tümü |Bu ölçüm hello seçilen bir zaman dilimi içinde hello Federasyon Hizmeti kullanan kullanıcıların ortalama sayısını sayısını sağlar. Merhaba kullanıcılar gruplandırılmaz. <br>Merhaba ortalama seçili hello saat dilimine bağlıdır. |
-| Uygulama |Grupları hello kullanıcıların ortalama sayısı üzerinde hello tabanlı uygulama (bağlı olan taraf) hedeflenen. Bu yararlı toounderstand grubudur kaç kullanıcının hangi uygulamayı kullanmakta olduğunu. |
+|Tümü |Bu ölçüm seçilen bir zaman dilimi içinde federasyon hizmeti kullanan kullanıcıların ortalama sayısını sağlar. Kullanıcılar gruplandırılmaz. <br>Ortalama, seçilen zaman dilimine bağlı olarak değişir. |
+| Uygulama |Ortalama kullanıcı sayısını hedeflenen uygulamaya (bağlı olan taraf) göre gruplandırır. Bu gruplandırma kaç kullanıcının hangi uygulamayı kullanmakta olduğunu anlamak için kullanışlıdır. |
 
 ## <a name="performance-monitoring-for-ad-fs"></a>AD FS için Performans İzleme
-Azure AD Connect Health Performans İzleme, ölçümlere ilişkin izleme bilgileri sağlar. Hello izleme kutusunu seçtiğinizde, hello ölçümleri hakkında ayrıntılı bilgi içeren yeni bir dikey pencere açar.
+Azure AD Connect Health Performans İzleme, ölçümlere ilişkin izleme bilgileri sağlar. İzleme kutusunu seçtiğinizde, ölçümlere ilişkin ayrıntılı bilgiler içeren yeni bir dikey pencere açılır.
 
 ![Azure AD Connect Health Portalı](./media/active-directory-aadconnect-health/perf1.png)
 
-Merhaba dikey penceresinde hello üstündeki Hello filtre seçeneğini seçerek, her bir sunucunun ölçümlerini sunucu toosee göre filtreleyebilirsiniz. toochange ölçüm dikey izleme hello altında grafik izleme hello sağ tıklayın ve grafiği Düzenle (veya select hello grafiği Düzenle düğmesi) seçin. Açılan hello yeni dikey penceresinden, ek ölçümler hello açılan listeden seçin ve hello performans verilerini görüntülemek için bir zaman aralığı belirtin.
+Dikey pencerenin üst kısmındaki Filtre seçeneğini işaretlediğinizde her bir sunucunun ölçümlerini görmek için sunucuya göre filtreleme yapabilirsiniz. Ölçümü değiştirmek için, izleme dikey penceresinin altındaki izleme grafiğine sağ tıklayıp Grafiği Düzenle’yi seçin (veya Grafiği Düzenle düğmesini seçin). Açılan yeni dikey pencerede, açılan menüden başka ölçümler seçebilir veya performans verilerini görüntülemek istediğiniz zaman aralığını belirleyebilirsiniz.
 
 ## <a name="reports-for-ad-fs"></a>AD FS raporları
 Azure AD Connect Health, AD FS'nin etkinlik ve performansı hakkında raporlar sağlar. Bu raporlar, yöneticilerin AD FS sunucularındaki etkinlikler hakkında öngörü edinmelerine yardımcı olur.
 
 ### <a name="top-50-users-with-failed-usernamepassword-logins"></a>Hatalı Kullanıcı Adı/Parola kullanarak oturum açamayan İlk 50 Kullanıcı
-Merhaba ortak bir AD FS sunucusunda başarısız kimlik doğrulama isteği nedenlerinden biri geçersiz kimlik bilgileri, diğer bir deyişle, yanlış kullanıcı adı veya parola ile isteğidir. Genellikle son toocomplex parolalar, unutulan parolaları veya yazım hatalarını toousers olur.
+Bir AD FS sunucusunda gerçekleşen başarısız kimlik doğrulama isteğinin en yaygın nedenlerinden biri geçersiz kimlik bilgileri ile ilgili isteklerdir, yani yanlış kullanıcı adı veya şifre istekleridir. Genellikle karmaşık parolalar, unutulan parolalar veya yazım hatalar nedeniyle oluşur.
 
-Ancak, AD FS sunucularınız tarafından gibi işlenen istekleri beklenmeyen sayıda içinde neden olabilecek diğer nedeni vardır: önbellekleri kullanıcı kimlik bilgilerini ve hello kimlik bilgilerinin süresi dolacak bir uygulama veya bir dizi olan bir hesaba toosign çalışırken kötü niyetli bir kullanıcı iyi bilinen parolalar. Bu iki örnek tooa dalgalanma isteklerine neden olabilecek geçerli nedenleridir.
+Ancak, AD FS sunucularınızın beklenmeyen sayıda isteği işlemesiyle sonuçlanabilen diğer nedenlerle de mevcuttur, örneğin: Kullanıcı kimlik bilgilerini önbelleğe alan bir uygulama ve kimlik bilgilerinin süresinin dolması ya da kötü amaçlı bir kullanıcının bir dizi iyi bilinen parola ile hesapta oturum açmaya çalışması. Bu iki örnek, isteklerde ani bir artışa neden olabilecek geçerli nedenlerdir.
 
-Azure AD Connect Health ADFS tooinvalid kullanıcı adı veya parola nedeniyle başarısız oturum açma denemesi ile ilk 50 kullanıcı hakkında bir rapor sağlar. Bu rapor hello grupları hello AD FS sunucuları tarafından oluşturulan hello denetim olayları işlenmesiyle sağlanır.
+ADFS için Azure AD Connect Health, geçersiz kullanıcı adı veya paroladan dolayı oturum açma denemeleri başarısız olan İlk 50 Kullanıcıya ilişkin bir rapor sağlar. Bu rapor, gruplardaki tüm AD FS sunucuları tarafından oluşturulan denetim olaylarının işlenmesiyle sağlanır
 
 ![Azure AD Connect Health Portalı](./media/active-directory-aadconnect-health-adfs/report1a.png)
 
-Bu rapor içinde bilgi aşağıdaki kolay erişim toohello vardır:
+Bu raporda şu bilgilere kolayca erişebilirsiniz:
 
-* Merhaba son 30 gün içinde yanlış kullanıcı adı/parola ile başarısız olmuş isteklerin toplam sayısı
+* Son 30 gün içinde yanlış kullanıcı adı/parola ile başarısız olmuş isteklerin toplam sayısı
 * Her gün hatalı kullanıcı adı/parola ile oturum açarak başarısız olan kullanıcıların ortalama sayısı.
 
-Bu bölümü tıklamak ek ayrıntılar sağlanmaktadır toohello ana rapor dikey penceresine götürür. Bu dikey toohelp kurmak istekleriyle yanlış kullanıcı adı veya parola ile ilgili temel bilgileri eğilim ile bir grafik içerir. Ayrıca, başarısız girişim sayısı hello ile ilk 50 kullanıcı hello listesini sağlar.
+Bu bölüme tıkladığınızda, ek ayrıntılı bilgi görüntüleyebileceğiniz ana rapor dikey penceresine yönlendirilirsiniz. Bu dikey pencere, yanlış kullanıcı adı veya parola ile yapılan isteklere ilişkin bir temel oluşturmaya yardımcı olan eğilim bilgileriyle birlikte grafik içerir. Ayrıca, en fazla başarısız girişim sayısına sahip ilk 50 kullanıcının listesini verir.
 
-Merhaba grafiği aşağıdaki bilgilerle hello sağlar:
+Grafikte şu bilgiler yer alır:
 
-* Merhaba tooa hatalı kullanıcı adı/parola gün başına temelinde nedeniyle başarısız oturum açmalar toplam sayısı.
-* Merhaba gün başına temelinde oturumları başarısız olan benzersiz kullanıcıların toplam sayısı.
+* Günlük olarak hatalı kullanıcı adı/parola nedeniyle başarısız olan oturum açma işlemlerinin toplam sayısı.
+* Günlük olarak oturum açmada başarısız olan benzersiz kullanıcıların toplam sayısı.
 * Son istek için istemci IP adresi
 
 ![Azure AD Connect Health Portalı](./media/active-directory-aadconnect-health-adfs/report3a.png)
 
-Merhaba rapor aşağıdaki bilgilerle hello sağlar:
+Raporda şu bilgiler yer alır:
 
 | Rapor Öğesi | Açıklama |
 | --- | --- |
-| Kullanıcı Kimliği |Kullanılan hello kullanıcı Kimliğini gösterir. Bu değer hangi hello: Bazı durumlarda yanlış kullanıcı kimliği kullanılan hello yazılı kullanıcı. |
-| Başarısız Denemeler |Gösterir toplam başarısız girişim sayısı için belirli bir kullanıcı kimliğine hello Merhaba tablo hello azalan düzende başarısız girişim sayısı en ile sıralanır. |
-| Son Hata |Merhaba son hatanın oluştuğu sırada hello zaman damgasını gösterir. |
-| Son Hata IP’si |Merhaba son hatalı istek Hello istemci IP adresini gösterir. |
+| Kullanıcı Kimliği |Kullanılan kullanıcı kimliğini gösterir. Bu değer, kullanıcının ne yazdığıyla ilgilidir ve bazı durumlarda yanlış kullanıcı kimliği kullanılır. |
+| Başarısız Denemeler |Belirli bir kullanıcı kimliğine ait başarısız denemelerin toplam sayısını gösterir. Tablo, en fazla deneme sayısından en aza doğru azalan bir düzende sıralanır. |
+| Son Hata |Son hatanın oluştuğu andaki zaman damgasını gösterir. |
+| Son Hata IP’si |Son hatalı istekteki İstemci IP adresini gösterir. |
 
 > [!NOTE]
-> Bu rapor, bu süre içinde her iki saatte hello ile toplanan yeni bilgiler sonra otomatik olarak güncelleştirilir. Sonuç olarak, oturum açma denemesi hello son iki saat içinde hello rapora dahil edilmeyebilir.
+> Bu rapor, her iki saatte bir bu süre içinde toplanan yeni bilgiler ile otomatik olarak güncelleştirilir. Bu nedenle raporda son iki saat içinde gerçekleşen oturum açma denemeleri bulunmayabilir.
 >
 >
 

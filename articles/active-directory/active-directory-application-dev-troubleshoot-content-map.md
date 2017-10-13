@@ -1,6 +1,6 @@
 ---
-title: "aaaTroubleshoot Azure Active Directory uygulaması geliştirme | Microsoft Docs"
-description: "Merhaba, en yaygın sorunları, ilgili, tooAzure Active Directory uygulama geliştirme çözümleyin"
+title: "Azure Active Directory uygulama geliştirme sorunlarını giderme | Microsoft Docs"
+description: "Azure Active Directory Uygulama Geliştirme ile ilgili en yaygın sorunları çözme"
 services: active-directory
 documentationcenter: 
 author: ajamess
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: f1171d19cb9875df51dc0bf3c5e2449fab03bff5
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 8ec8e150c17fef307a7a60cb19ed776875715606
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="troubleshoot-azure-active-directory-application-development"></a>Azure Active Directory uygulama geliştirme sorun giderme
-Merhaba aşağıdaki bağlantılardan tooresolve yardımcı olacak, tooa içerik haritası hello ile uygulama geliştirme ile ilgili en yaygın sorunları hello bazıları getirecek **uygulama kayıt defteri** Azure Active Directory'de.
+Aşağıdaki bağlantıların sizi ulaştıracağı içerik haritası, Azure Active Directory’de **Uygulama Kayıt Hizmeti** ile uygulama geliştirmede karşılaşılan en yaygın sorunlardan bazılarını çözmenize yardımcı olacaktır.
 
 * [Uygulama Yapılandırması ve kayıt sorunları](active-directory-application-dev-config-content-map.md)
 * [Uygulama geliştirme sorunları](active-directory-application-dev-development-content-map.md)

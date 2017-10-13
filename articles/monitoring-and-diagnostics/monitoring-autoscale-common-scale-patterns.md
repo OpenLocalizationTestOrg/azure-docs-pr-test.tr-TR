@@ -1,6 +1,6 @@
 ---
-title: "Sık kullanılan otomatik ölçeklendirme desenlerini aaaOverview | Microsoft Docs"
-description: "Azure'da hello ortak desenler tooauto bazıları kaynağınız ölçeklendirmek öğrenin."
+title: "Sık kullanılan otomatik ölçeklendirme desenlerini genel bakış | Microsoft Docs"
+description: "Bazı ölçeği otomatik olarak ortak desenler kaynağınız Azure öğrenin."
 author: anirudhcavale
 manager: orenr
 editor: 
@@ -14,28 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: ancav
-ms.openlocfilehash: fc5bd97852e0af01aa32940c99721ab8e21033ad
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: fce51546e041c8989d813c3935e058c52b38ba77
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>Sık kullanılan otomatik ölçeklendirme desenlerini genel bakış
-Bu makalede, Azure kaynak hello ortak desenler tooscale bazıları açıklanmaktadır.
+Bu makalede Azure kaynağınız ölçeklendirmek için ortak desenler bazıları açıklanmaktadır.
 
-Azure İzleyici otomatik ölçek tooVirtual makine ölçek kümeleri (VMSS), bulut Hizmetleri, uygulama hizmeti planları ve uygulama hizmeti ortamları yalnızca geçerlidir. 
+Azure İzleyici otomatik ölçek yalnızca sanal makine ölçek kümeleri (VMSS), bulut Hizmetleri, uygulama hizmeti planları ve app service ortamları için geçerlidir. 
 
 # <a name="lets-get-started"></a>Sağlar kullanmaya başlama
 
-Bu makalede, otomatik ölçekli bilgi sahibi olduğunuzu varsayar. Yapabilecekleriniz [başlatılan burada tooscale, kaynak alma][1]. Merhaba hello ortak ölçek desenler bazıları verilmiştir.
+Bu makalede, otomatik ölçekli bilgi sahibi olduğunuzu varsayar. Yapabilecekleriniz [kaynağınız ölçeklendirmek için buradan başlayın][1]. Ortak ölçek desenler bazıları şunlardır:
 
 ## <a name="scale-based-on-cpu"></a>CPU üzerinde göre ölçeklendirin
 
 Bir web uygulaması (/ VMSS/bulut hizmeti rolü) sahip ve 
 
-- Tooscale istediğiniz çıkış/dayalı olarak CPU ölçek.
-- Ayrıca, tooensure istediğiniz en az bir örnek sayısı yoktur. 
-- Ayrıca, bir şekilde ölçeklendirebilirsiniz örnekleri sınırı toohello sayısını ayarlayın tooensure istiyor.
+- İstediğiniz ölçek genişletme/ölçek dayalı olarak CPU.
+- Ayrıca, en az bir örnek sayısı yoktur sağlamak istiyorsunuz. 
+- Ayrıca, için ölçeklendirebilirsiniz örnek sayısı maksimum bir sınır koymak sağlamak istiyorsunuz.
 
 ![CPU üzerinde göre ölçeklendirin][2]
 
@@ -44,7 +44,7 @@ Bir web uygulaması (/ VMSS/bulut hizmeti rolü) sahip ve
 Bir web uygulaması (/ VMSS/bulut hizmeti rolü) sahip ve
 
 - Varsayılan olarak (günlerinde) 3 örneklerinin istediğiniz
-- Hafta sonu trafiği beklemeyen ve bu nedenle hafta sonu too1 örneği aşağı tooscale istiyorsunuz.
+- Hafta sonu trafiği beklemeyen ve hafta sonu aşağıya doğru 1 örneği ölçeklendirmek istiyorsanız bu nedenle.
 
 ![Haftanın günü vs hafta sonu farklı ölçeklendirme][3]
 
@@ -52,16 +52,16 @@ Bir web uygulaması (/ VMSS/bulut hizmeti rolü) sahip ve
 
 Bir web uygulaması (/ VMSS/bulut hizmeti rolü) sahip ve 
 
-- Yukarı/Aşağı CPU kullanımında varsayılan olarak temel tooscale istediğiniz
-- Ancak, tatilde (veya işletmeniz için önemli olan belirli gün) sırasında toooverride hello Varsayılanları istediğiniz ve elinizin daha fazla kapasiteye sahip.
+- Varsayılan olarak CPU kullanımı dikkate alarak yukarı/aşağı ölçeklendirmek istediğiniz
+- Ancak, tatilde (veya işletmeniz için önemli olan belirli gün) sırasında varsayılanlarını geçersiz kıl ve daha fazla kapasite elinizin ister.
 
 ![Ölçek farklı üzerinde tatiller][4]
 
 ## <a name="scale-based-on-custom-metric"></a>Özel bir ölçü göre ölçeklendirin
 
-Bir web ön uç ve hello arka ucuyla iletişim kuran bir API katmanı vardır. 
+Bir web ön uç ve arka uç ile iletişim kuran bir API katmanı vardır. 
 
-- Özel olaylar hello ön uçtaki göre tooscale hello API katmanı istediğiniz (örnek: Merhaba alışveriş sepeti hello öğelerin sayısı temel kullanıma alma işleminizi tooscale istediğiniz)
+- Özel olaylar ön uçtaki temel API katmanı istediğiniz (örnek: alışveriş sepeti öğelerinin sayısına dayalı olarak kullanıma alma işleminizi ölçeklendirmek istediğiniz)
 
 ![Özel bir ölçü göre ölçeklendirin][5]
 

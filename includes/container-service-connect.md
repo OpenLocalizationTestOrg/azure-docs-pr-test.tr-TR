@@ -1,25 +1,25 @@
-# <a name="make-a-remote-connection-tooa-kubernetes-dcos-or-docker-swarm-cluster"></a>Bir uzak bağlantı tooa Kubernetes, DC/OS veya Docker Swarm kümesi olun
-Azure kapsayıcı hizmeti kümesi oluşturduktan sonra tooconnect toohello küme toodeploy gerekir ve iş yükleri yönetin. Bu makalede nasıl tooconnect toohello ana hello VM küme uzak bir bilgisayardan açıklanmaktadır. 
+# <a name="make-a-remote-connection-to-a-kubernetes-dcos-or-docker-swarm-cluster"></a>Kubernetes, DC/OS veya Docker Swarm kümesine uzak bağlantı kurma
+Azure Container Service kümesi oluşturduktan sonra, iş yüklerini dağıtmak ve yönetmek için kümeye bağlanmanız gerekir. Bu makalede uzak bir bilgisayardan kümenin ana VM’ine nasıl bağlanacağınız açıklanır. 
 
-Merhaba Kubernetes, DC/OS ve Docker Swarm kümeleri yerel olarak HTTP uç noktaları sağlar. Kubernetes için bu uç noktası güvenli bir şekilde üzerinde sunulan Internet hello ve hello çalıştırarak erişebilirsiniz `kubectl` internet'e bağlı herhangi makineden komut satırı aracı. 
+Kubernetes, DC/OS ve Docker Swarm kümeleri yerel olarak HTTP uç noktaları sağlar. Kubernetes için, bu uç nokta İnternet’te güvenli bir şekilde kullanıma sunulmuştur ve bu uç noktaya İnternet bağlantısı olan herhangi bir makineden `kubectl` komutunu çalıştırarak erişebilirsiniz. 
 
-DC/OS ve Docker Swarm için yerel bilgisayar toohello küme yönetim sisteminden bir güvenli Kabuk (SSH) tüneli oluşturmanızı öneririz. Merhaba tünel kurulduktan sonra hello HTTP uç noktaları ve görünüm hello orchestrator'ın web Arabirimi'ni (varsa) Yerel sisteminizden kullanacağınız komutları çalıştırabilirsiniz. 
+DC/OS ve Docker Swarm için yerel bilgisayarınızdan küme yönetim sistemine bir güvenli kabuk (SSH) tüneli oluşturmanız önerilir. Tünel oluşturulduktan sonra HTTP uç noktalarını kullanan komutları çalıştırabilir ve düzenleyicinin web arabirimini (varsa) yerel sisteminizden görüntüleyebilirsiniz. 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 * Bir Kubernetes, DC/OS veya Docker Swarm kümesi [Azure Container Service’e dağıtılır](../articles/container-service/dcos-swarm/container-service-deployment.md).
-* Toohello ortak anahtar eklenen toohello Küme dağıtımı sırasında karşılık gelen SSH RSA özel anahtar dosyası. Bu komutlarda hello özel SSH anahtarı olan varsayılmaktadır `$HOME/.ssh/id_rsa` bilgisayarınızda. Daha fazla bilgi için [macOS ve Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) veya [Windows](../articles/virtual-machines/linux/ssh-from-windows.md) ile ilgili şu yönergelere bakın. Merhaba SSH bağlantısı çalışmıyorsa, çok gerekebilir [SSH anahtarlarını sıfırlama](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md).
+* Dağıtım sırasında kümeye eklenen ortak anahtara karşılık gelen SSH RSA özel anahtar dosyası. Bu komutlar, özel SSH anahtarının bilgisayarınızda `$HOME/.ssh/id_rsa` içerisinde olduğunu varsayar. Daha fazla bilgi için [macOS ve Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) veya [Windows](../articles/virtual-machines/linux/ssh-from-windows.md) ile ilgili şu yönergelere bakın. SSH bağlantısı çalışmıyorsa, [SSH anahtarlarınızı sıfırlamanız](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md) gerekebilir.
 
-## <a name="connect-tooa-kubernetes-cluster"></a>Tooa Kubernetes kümesine bağlanın
+## <a name="connect-to-a-kubernetes-cluster"></a>Kubernetes kümesine bağlanma
 
-Bu adımları tooinstall izleyin ve yapılandırma `kubectl` bilgisayarınızda.
+Bilgisayarınızda `kubectl` yükleyip yapılandırmak için şu adımları takip edin.
 
 > [!NOTE] 
-> Linux veya macOS, bu bölümde kullanarak toorun hello komutları gerekebilir `sudo`.
+> Linux veya macOS’ta `sudo` kullanarak bu bölümdeki komutları çalıştırmanız gerekebilir.
 > 
 
 ### <a name="install-kubectl"></a>Kubectl yükleyin
-Tek yönlü tooinstall toouse hello bu araçtır `az acs kubernetes install-cli` Azure CLI 2.0 komutu. Bu komut, emin olun toorun, [yüklü](/cli/azure/install-az-cli2) en son Azure CLI 2.0 hello ve tooan Azure hesabı günlüğe (`az login`).
+Bu aracı yüklemenin kolay yollarından biri, Azure CLI 2.0 `az acs kubernetes install-cli` komutunu kullanmaktır. Bu komutu çalıştırmak için Azure CLI 2.0’ın en son sürümünü [yüklediğinizden](/cli/azure/install-az-cli2) ve bir Azure hesabında (`az login`) oturum açtığınızdan emin olun.
 
 ```azurecli
 # Linux or macOS
@@ -29,87 +29,87 @@ az acs kubernetes install-cli [--install-location=/some/directory/kubectl]
 az acs kubernetes install-cli [--install-location=C:\some\directory\kubectl.exe]
 ```
 
-Alternatif olarak, hello son indirebilirsiniz `kubectl` hello doğrudan istemciden [Kubernetes serbest sayfa](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md). Daha fazla bilgi için bkz. [kubectl yükleme ve ayarlama](https://kubernetes.io/docs/tasks/kubectl/install/).
+Alternatif olarak, en son `kubectl` istemcisini doğrudan [Kubernetes sürümleri sayfasından](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md) indirebilirsiniz. Daha fazla bilgi için bkz. [kubectl yükleme ve ayarlama](https://kubernetes.io/docs/tasks/kubectl/install/).
 
 ### <a name="download-cluster-credentials"></a>Küme kimlik bilgilerini indirme
-Bulduktan sonra `kubectl` yüklü toocopy hello küme kimlik bilgilerini tooyour makine gerekir. Tek yönlü toodo get hello kimlik bilgileri olan ile Merhaba `az acs kubernetes get-credentials` komutu. Merhaba hello kaynak grubunun adını ve hello kapsayıcı hizmeti kaynak hello adını geçirin:
+`kubectl` komut satırı aracını yükledikten sonra, küme kimlik bilgilerini makinenize kopyalamanız gerekir. Kimlik bilgilerini almak için başka bir yöntem de `az acs kubernetes get-credentials` komutunu çalıştırmaktır. Kaynak grubunun ve kapsayıcı hizmet kaynağının adını geçirin:
 
 ```azurecli
 az acs kubernetes get-credentials --resource-group=<cluster-resource-group> --name=<cluster-name>
 ```
 
-Bu komut çok hello küme kimlik bilgileri indirmeleri`$HOME/.kube/config`, burada `kubectl` bulunan toobe bekliyor.
+Bu komut, küme bilgilerini, `kubectl` komut satırı aracının bulunmasını beklediği `$HOME/.kube/config` dizinine indirir.
 
-Alternatif olarak, kullanabileceğiniz `scp` hello dosya Kopyala toosecurely `$HOME/.kube/config` hello ana VM tooyour yerel makine üzerinde. Örneğin:
+Alternatif olarak, `scp` komutunu kullanarak, ana VM’deki dosyayı `$HOME/.kube/config` dizininden yerel makinenize güvenli bir şekilde kopyalayabilirsiniz. Örneğin:
 
 ```bash
 mkdir $HOME/.kube
 scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
 ```
 
-Windows üzerinde varsa, Bash Ubuntu Windows, hello PuTTy güvenli dosya kopya istemcisi veya benzer bir aracı kullanabilirsiniz.
+Windows kullanıyorsanız, Windows’ta Bash on Ubuntu veya PuTTy güvenli dosya kopyalama istemcisi veya benzer bir araç kullanabilirsiniz.
 
 ### <a name="use-kubectl"></a>Kubectl kullanma
 
-Bulduktan sonra `kubectl` yapılandırılmış, kümenizdeki düğümlerin hello listeleyerek hello bağlantıyı sınayın:
+`kubectl` yapılandırmasını tamamladıktan sonra bağlantıyı test etmek için kümenizdeki düğümleri listeleyin:
 
 ```bash
 kubectl get nodes
 ```
 
-Diğer `kubectl` komutlarını deneyebilirsiniz. Örneğin, hello Kubernetes Pano görüntüleyebilirsiniz. İlk olarak, bir proxy toohello Kubernetes API sunucunuz çalıştırın:
+Diğer `kubectl` komutlarını deneyebilirsiniz. Örneğin, Kubernetes Panosunu görüntüleyebilirsiniz. İlk olarak Kubernetes API sunucusuna bir ara sunucu çalıştırın:
 
 ```bash
 kubectl proxy
 ```
 
-Merhaba Kubernetes UI artık şu adresten edinilebilir: `http://localhost:8001/ui`.
+Kubernetes UI sayfasına şu adresten ulaşabilirsiniz: `http://localhost:8001/ui`.
 
-Daha fazla bilgi için bkz: Merhaba [Kubernetes Hızlı Başlangıç](http://kubernetes.io/docs/user-guide/quick-start/).
+Daha fazla bilgi için bkz: [Kubernetes hızlı başlangıç](http://kubernetes.io/docs/user-guide/quick-start/).
 
-## <a name="connect-tooa-dcos-or-swarm-cluster"></a>Tooa DC/OS ya da Swarm kümesine bağlanın
+## <a name="connect-to-a-dcos-or-swarm-cluster"></a>DC/OS veya Swarm kümesine bağlanma
 
-toouse hello DC/OS ve Docker Swarm kümeleri Azure kapsayıcı hizmeti tarafından dağıtılan yerel Linux, macOS ya da Windows sisteminizi bu yönergeler toocreate bir SSH tüneli izleyin. 
+Azure Container Service tarafından dağıtılan DC/OS ve Docker Swarm kümelerini kullanmak için, yerel Linux, macOS veya Windows sisteminizden SSH tüneli oluşturmaya yönelik bu yönergeleri izleyin. 
 
 > [!NOTE]
-> Bu yönergeler, SSH üzerinden TCP trafiğini tünellemeye odaklanır. Aynı zamanda etkileşimli bir SSH oturumu hello iç küme yönetimi sistemlerinden birini başlatabilirsiniz, ancak bu önerilmemektedir. Bir iç sistem üzerinde doğrudan çalışma, yanlışlıkla yapılandırma değişikliği yapma riskini içerir.  
+> Bu yönergeler, SSH üzerinden TCP trafiğini tünellemeye odaklanır. İç küme yönetimi sistemlerinin biriyle etkileşimli bir SSH oturumu da başlatabilirsiniz, ancak bunun yapılması önerilmez. Bir iç sistem üzerinde doğrudan çalışma, yanlışlıkla yapılandırma değişikliği yapma riskini içerir.  
 > 
 
 ### <a name="create-an-ssh-tunnel-on-linux-or-macos"></a>Linux veya macOS’ta SSH tüneli oluşturma
-Linux veya macOS üzerinde SSH tüneli oluşturduğunuzda, bunu hello ilk şey toolocate hello ortak DNS hello yük dengeli asıl adıdır. Şu adımları uygulayın:
+Linux veya macOS’ta bir SSH tüneli oluşturduğunuzda yapacağınız ilk şey yük dengeli ana sunucuların genel DNS adını bulmaktır. Şu adımları uygulayın:
 
 
-1. Merhaba, [Azure portal](https://portal.azure.com), kapsayıcı hizmeti kümesini içeren toohello kaynak grubunu bulun. Böylece her bir kaynağın görüntülenen hello kaynak grubunu genişletin. 
+1. [Azure portal](https://portal.azure.com)’da kapsayıcı hizmet kümenizi içeren kaynak grubuna gidin. Her kaynağın görüntülenmesi için kaynak grubu genişletin. 
 
-2. Merhaba tıklatın **kapsayıcı hizmeti** kaynak'ı tıklayın ve **genel bakış**. Merhaba **ana FQDN** Merhaba küme altında görüntülenir. **Essentials**. Bu adı daha sonra kullanmak için kaydedin. 
+2. **Kapsayıcı hizmeti** kaynağına ve **Genel Bakış**’a tıklayın. Kümenin **Ana FQDN**’si **Temel Bileşenler** altında görünür. Bu adı daha sonra kullanmak için kaydedin. 
 
     ![Genel DNS adı](./media/container-service-connect/pubdns.png)
 
-    Alternatif olarak, Başlangıç'ı çalıştırmak `az acs show` kapsayıcı hizmeti komutu. Merhaba Ara **ana profil: fqdn** hello komut çıktısı bir özellik.
+    Alternatif olarak, kapsayıcı hizmetinizde `az acs show` komutunu çalıştırın. Komut çıktısında **Master Profile:fqdn** özelliğini arayın.
 
-3. Şimdi bir Kabuğu'nu açın ve hello çalıştırın `ssh` değerleri aşağıdaki hello belirterek komutu: 
+3. Şimdi bir kabuk açın ve aşağıdaki değerleri belirleyerek `ssh` komutunu çalıştırın: 
 
-    **LOCAL_PORT** hello tünel tooconnect hello hizmet tarafındaki hello TCP bağlantı noktasıdır. Swarm için bu too2375 ayarlayın. DC/OS için bu too80 ayarlayın. 
-    **REMOTE_PORT** tooexpose istediğiniz hello endpoint hello bağlantı noktasıdır. Swarm için 2375 bağlantı noktasını kullanın. DC/OS için, 80 numaralı bağlantı noktasını kullanın.  
-    **Kullanıcı adı** hello kümeyi dağıttığınızda sağlanan hello kullanıcı adıdır.  
-    **DNSPREFIX** hello kümeyi dağıttığınızda sağladığınız hello DNS önekidir.  
-    **Bölge** kaynak grubunuzun bulunduğu hello bölgedir.  
-    **Path_to_prıvate_key** [isteğe bağlı] olan hello küme oluştururken sağladığınız ortak anahtar toohello karşılık gelen hello yolu toohello özel anahtarı. Bu seçeneği ile Merhaba kullanın `-i` bayrağı.
+    **LOCAL_PORT**, bağlanılacak tünelin hizmet tarafındaki TCP bağlantı noktasıdır. Swarm için bu değeri 2375’e ayarlayın. DC/OS için bu değeri 80'e ayarlayın. 
+    **REMOTE_PORT** kullanıma sunmak istediğiniz uç noktadır. Swarm için 2375 bağlantı noktasını kullanın. DC/OS için, 80 numaralı bağlantı noktasını kullanın.  
+    **USERNAME** Kümeyi dağıttığınızda sağlanan kullanıcı adıdır.  
+    **DNSPREFIX** Kümeyi dağıttığınızda sağladığınız DNS önekidir.  
+    **REGION** kaynak grubunuzun bulunduğu bölgedir.  
+    **PATH_TO_PRIVATE_KEY** [OPTIONAL] kümeyi oluştururken sağladığınız ortak anahtara karşılık gelen özel anahtar yoludur. Bu seçeneği `-i` flag ile birlikte kullanın.
 
     ```bash
     ssh -fNL LOCAL_PORT:localhost:REMOTE_PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com
     ```
   
   > [!NOTE]
-  > Merhaba SSH bağlantı noktası 2200'dür ve standart bağlantı noktası 22'hello değil. Birden fazla ana VM ile bir kümede bu hello bağlantı bağlantı noktası toohello ilk VM yöneticisidir.
+  > SSH bağlantı noktası 2200’dür ve standart bağlantı noktası 22 değildir. Birden fazla ana VM bulunan kümede bu, ilk ana VM’e bağlantı noktasıdır.
   > 
 
-  Merhaba komut çıktısı döndürür.
+  Komut çıktı olmadan döndürülür.
 
-Merhaba örneklere bölümleri aşağıdaki hello DC/OS ve Swarm için bakın.    
+Aşağıdaki bölümlerde DC/OS ve Swarm ile ilgili örneklere bakın.    
 
 ### <a name="dcos-tunnel"></a>DC/OS tüneli
-DC/OS uç noktaları için bir tünel tooopen hello aşağıdaki gibi bir komutu çalıştırın:
+DC/OS uç noktalarına yönelik bir tünel açmak için aşağıdakine benzer bir komut çalıştırın:
 
 ```bash
 sudo ssh -fNL 80:localhost:80 -p 2200 azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com 
@@ -119,59 +119,59 @@ sudo ssh -fNL 80:localhost:80 -p 2200 azureuser@acsexamplemgmt.japaneast.cloudap
 > 80 numaralı bağlantı noktasına bağlanan başka bir yerel işleminizin olmadığından emin olun. Gerekirse, 8080 bağlantı noktası gibi 80 bağlantı noktasından farklı bir yerel bağlantı noktası belirtebilirsiniz. Ancak, bu bağlantı noktasını kullandığınızda bazı web kullanıcı arabirimi bağlantıları çalışmayabilir.
 >
 
-Aşağıdaki URL'lere (yerel bağlantı noktası 80 varsayılarak) hello aracılığıyla Yerel sisteminizden hello DC/OS uç noktaları artık erişebilirsiniz:
+DC/OS uç noktalarına artık, aşağıdaki URL’ler aracılığıyla yerel sisteminizden erişebilirsiniz (yerel bağlantı noktasının 80 olduğu varsayılmıştır):
 
 * DC/OS: `http://localhost:80/`
 * Marathon: `http://localhost:80/marathon`
 * Mesos: `http://localhost:80/mesos`
 
-Benzer şekilde, bu Tünel üzerinden her uygulama için hello rest API'lerine ulaşabilirsiniz.
+Benzer şekilde, bu tünel üzerinden her uygulama için rest API'lerine ulaşabilirsiniz.
 
 ### <a name="swarm-tunnel"></a>Swarm tüneli
-tooopen tünel toohello Swarm uç hello aşağıdaki gibi bir komutu çalıştırın:
+Swarm uç noktalarına bir tünel açmak için, aşağıdakine benzer bir komut çalıştırın:
 
 ```bash
 ssh -fNL 2375:localhost:2375 -p 2200 azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com
 ```
 > [!NOTE]
-> 2375 numaralı bağlantı noktasına bağlanan başka bir yerel işleminizin olmadığından emin olun. Örneğin, hello Docker arka plan programı yerel olarak çalıştırıyorsanız, varsayılan toouse bağlantı 2375 ayarlanır. Gerekirse, 2375 bağlantı noktasından farklı bir yerel bağlantı noktası belirtebilirsiniz.
+> 2375 numaralı bağlantı noktasına bağlanan başka bir yerel işleminizin olmadığından emin olun. Örneğin, Docker programını yerel olarak çalıştırıyorsanız, varsayılan olarak 2375 numaralı bağlantı noktasını kullanacak şekilde ayarlanır. Gerekirse, 2375 bağlantı noktasından farklı bir yerel bağlantı noktası belirtebilirsiniz.
 >
 
-Artık hello Docker Swarm kümesi yerel sisteminizde hello Docker komut satırı arabirimi (Docker CLI) kullanarak erişebilirsiniz. Yükleme yönergeleri için bkz. [Docker Yükleme](https://docs.docker.com/engine/installation/).
+Şimdi yerel sisteminizde Docker komut satırı arabirimini (Docker CLI) kullanarak Docker Swarm kümesine erişebilirsiniz. Yükleme yönergeleri için bkz. [Docker Yükleme](https://docs.docker.com/engine/installation/).
 
-DOCKER_HOST ortam değişkeni toohello hello tünel için yapılandırılmış yerel bağlantı noktası ayarlayın. 
+DOCKER_HOST ortam değişkeninizi, tünel için oluşturduğunuz yerel bağlantı noktasına ayarlayın. 
 
 ```bash
 export DOCKER_HOST=:2375
 ```
 
-Bu tünel toohello Docker Swarm kümesi Docker komutları çalıştırın. Örneğin:
+Docker Swarm kümesiyle tünel oluşturan Docker komutlarını çalıştırın. Örneğin:
 
 ```bash
 docker info
 ```
 
 ### <a name="create-an-ssh-tunnel-on-windows"></a>Windows’da SSH tüneli oluşturma
-Windows’da SSH tünelleri oluşturmak için birden çok seçenek vardır. Windows veya benzer bir aracı üzerinde Ubuntu Bash çalıştırıyorsanız, bu makalenin macOS ve Linux için gösterilen hello SSH tünel oluşturma yönergeleri izleyebilir. Windows alternatif olarak, bu bölümde açıklanmıştır nasıl toouse PuTTY toocreate hello tünel.
+Windows’da SSH tünelleri oluşturmak için birden çok seçenek vardır. Windows’de Ubuntu üzerinde Bash veya benzer bir araç çalıştırıyorsanız, macOS ve Linux için bu makalenin önceki kısımlarında gösterilen SSH tüneli oluşturma yönergelerini takip edebilirsiniz. Windows’daki bir alternatif olarak, bu bölümde PuTTY kullanarak tünel oluşturma işlemi açıklanmaktadır.
 
-1. [PuTTY karşıdan](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) tooyour Windows sistemi.
+1. [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)’yi Windows sisteminize indirin.
 
-2. Merhaba uygulamayı çalıştırın.
+2. Uygulamayı çalıştırın.
 
-3. Merhaba Küme Yöneticisi kullanıcı adı ve hello kümedeki ilk ana hello hello Genel DNS adından oluşan bir ana bilgisayar adı girin. Merhaba **ana bilgisayar adı** çok benzer`azureuser@PublicDNSName`. Merhaba 2200 girin **bağlantı noktası**.
+3. Kümedeki ilk ana sunucunun küme yöneticisi kullanıcı adı ve genel DNS adından oluşan bir ana bilgisayar adı girin. **Ana Bilgisayar Adı** `azureuser@PublicDNSName`’e benzer. **Bağlantı Noktası** için 2200 girin.
 
     ![PuTTY yapılandırması 1](./media/container-service-connect/putty1.png)
 
-4. **SSH > Yetkilendirme** öğesini seçin. Bir yol tooyour özel anahtar dosyası (.ppk biçimi) kimlik doğrulaması için ekleyin. Bir aracı gibi kullanabilir [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) bu dosya toogenerate hello SSH anahtar kullanılan toocreate hello küme.
+4. **SSH > Yetkilendirme** öğesini seçin. Özel anahtar dosyanıza (.ppk biçimi) kimlik doğrulaması için bir yol ekleyin. [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) gibi bir araç kullanarak bu dosyayı kümenin oluşturulması için kullanılan SSH anahtarından oluşturabilirsiniz.
 
     ![PuTTY yapılandırması 2](./media/container-service-connect/putty2.png)
 
-5. Seçin **SSH > tüneller** ve iletilen bağlantı noktalarını hello aşağıdakileri yapılandırın:
+5. **SSH > Tüneller** öğesini seçin ve aşağıdaki iletilen bağlantı noktalarını yapılandırın:
 
     * **Kaynak Bağlantı Noktası:** DC/OS için 80 veya Swarm için 2375 kullanın.
     * **Hedef:** DC/OS için localhost:80 veya Swarm için 2375 kullanın.
 
-    Aşağıdaki örneğine hello DC/OS için yapılandırılmıştır, ancak Docker Swarm için olan benzer olacaktır.
+    Aşağıdaki örnek DC/OS için yapılandırılmıştır, ancak Docker Swarm için olan benzer olacaktır.
 
     > [!NOTE]
     > Bu tüneli oluştururken bağlantı noktası 80 kullanımda olmamalıdır.
@@ -179,24 +179,24 @@ Windows’da SSH tünelleri oluşturmak için birden çok seçenek vardır. Wind
 
     ![PuTTY yapılandırması 3](./media/container-service-connect/putty3.png)
 
-6. İşiniz bittiğinde tıklatın **oturum > Kaydet** toosave hello bağlantı yapılandırması.
+6. İşiniz bittiğinde, bağlantı yapılandırmasını kaydetmek için **Oturum > Kaydet**’e tıklayın.
 
-7. tooconnect toohello PuTTY oturumu,'ı tıklatın **açık**. Bağlandığınızda, başlangıç bağlantı noktası yapılandırmasını hello PuTTY olay günlüğünde görebilirsiniz.
+7. PuTTY oturumuna bağlanmak için **Aç**’a tıklayın. Bağlandığınızda, bağlantı noktası yapılandırmasını PuTTY olay günlüğünde görebilirsiniz.
 
     ![PuTTY olay günlüğü](./media/container-service-connect/putty4.png)
 
-DC/OS için hello tünel yapılandırdıktan sonra erişebilirsiniz hello ilgili Uç noktalara:
+DC/OS için tünelini yapılandırdıktan sonra aşağıdakiler üzerinden ilgili uç noktalara erişebilirsiniz:
 
 * DC/OS: `http://localhost/`
 * Marathon: `http://localhost/marathon`
 * Mesos: `http://localhost/mesos`
 
-Docker Swarm için hello tünel yapılandırdıktan sonra Windows ayarlarını tooconfigure adlı bir sistem ortam değişkeni açmak `DOCKER_HOST` değerini `:2375`. Daha sonra Docker CLI hello hello Swarm kümesine erişebilirsiniz.
+Docker Swarm için bir tünel yapılandırdıktan sonra `:2375` değeriyle `DOCKER_HOST` adlı bir sistem ortam değişkeni yapılandırmak için Windows ayarlarınızı açın. Ardından Docker CLI üzerinden Swarm kümesine erişebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Kümenizde kapsayıcıları dağıtma ve yönetme:
 
 * [Azure Container Service ve Kubernetes ile çalışma](../articles/container-service/kubernetes/container-service-kubernetes-ui.md)
 * [Azure Container Service ve DC/OS ile çalışma](../articles/container-service//dcos-swarm/container-service-mesos-marathon-rest.md)
-* [Hello Azure kapsayıcı hizmeti ve Docker Swarm ile çalışma](../articles//container-service/dcos-swarm/container-service-docker-swarm.md)
+* [Azure Container Service ve Docker Swarm ile çalışma](../articles//container-service/dcos-swarm/container-service-docker-swarm.md)
 

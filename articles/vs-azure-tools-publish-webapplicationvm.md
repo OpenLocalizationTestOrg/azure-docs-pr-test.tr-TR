@@ -1,6 +1,6 @@
 ---
-title: aaaPublish WebApplicationVM | Microsoft Docs
-description: "Bilgi nasıl toodeploy bir web uygulaması tooa sanal makine. Bu komut dosyası yoksa hello gerekli kaynakları Azure aboneliğinizde oluşturur."
+title: "Yayımlama WebApplicationVM | Microsoft Docs"
+description: "Bir sanal makine bir web uygulamasına dağıtmayı öğrenin. Bu komut dosyası yoksa gerekli kaynakları Azure aboneliğinizde oluşturur."
 services: visual-studio-online
 documentationcenter: na
 author: kraigb
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.openlocfilehash: e4b52b620bebf44b87ddfc3b19c155bb65111814
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2738fc1dff50a177a227ae2c7719bd9a192d82ad
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="publish-webapplicationvm-windows-powershell-script"></a>Yayımlama WebApplicationVM (Windows PowerShell komut dosyası)
-Bir web uygulaması tooa sanal makine dağıtır. yoksa hello komut dosyası Azure aboneliğinizde hello gerekli kaynakları oluşturur.
+Bir sanal makine bir web uygulamasına dağıtır. Komut dosyası yoksa gerekli kaynakları Azure aboneliğinizde oluşturur.
 
 ```
 Publish-WebApplicationVM
@@ -35,86 +35,86 @@ Publish-WebApplicationVM
 ```
 
 ### <a name="configuration"></a>Yapılandırma
-Merhaba dağıtımın hello ayrıntılarını açıklayan hello yolu toohello JSON yapılandırma dosyası.
+Dağıtım ayrıntılarını açıklayan JSON yapılandırma dosyasının yolu.
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli mi? |TRUE |
+| Gerekli? |TRUE |
 | Konumu |Adlı |
 | Varsayılan değer |Yok |
 | Ardışık Düzen giriş kabul edilsin mi? |False |
 | Joker karakterler kabul edilsin mi? |False |
 
 ### <a name="subscriptionname"></a>varlığıyla subscriptionName
-Merhaba adını hello toocreate hello sanal makine istediğiniz Azure aboneliği.
+Sanal makineyi oluşturmak istediğiniz Azure aboneliği adı.
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli mi? |False |
+| Gerekli? |False |
 | Konumu |Adlı |
-| Varsayılan değer |Merhaba ilk abonelik hello abonelik dosyasındaki kullanır |
+| Varsayılan değer |İlk aboneliğe abonelik dosyasındaki kullanır |
 | Ardışık Düzen giriş kabul edilsin mi? |False |
 | Joker karakterler kabul edilsin mi? |False |
 
 ### <a name="webdeploypackage"></a>WebDeployPackage
-Merhaba yolu toohello web dağıtım paketi toopublish toohello sanal makine. Visual Studio'da hello Web Yayımlama Sihirbazı'nı kullanarak bu paketi oluşturabilirsiniz. Bkz: [nasıl yapılır: Visual Studio'da bir Web dağıtım paketi oluşturma](https://msdn.microsoft.com/library/dd465323.aspx).
+Sanal makineye yayımlamak için web dağıtım paketi yolu. Visual Studio'da Web'i Yayımla Sihirbazı'nı kullanarak bu paketi oluşturabilirsiniz. Bkz: [nasıl yapılır: Visual Studio'da bir Web dağıtım paketi oluşturma](https://msdn.microsoft.com/library/dd465323.aspx).
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli mi? |False |
+| Gerekli? |False |
 | Konumu |Adlı |
 | Varsayılan değer |Yok |
 | Ardışık Düzen giriş kabul edilsin mi? |False |
 | Joker karakterler kabul edilsin mi? |False |
 
 ### <a name="allowuntrusted"></a>AllowUntrusted
-TRUE ise, bir güvenilen kök yetkilisi tarafından imzalanmadığını sertifikaları hello kullanılmasına izin verin.
+TRUE ise, bir güvenilen kök yetkilisi tarafından imzalanmadığını sertifikaların kullanılmasına izin verin.
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli mi? |False |
+| Gerekli? |False |
 | Konumu |Adlı |
 | Varsayılan değer |False |
 | Ardışık Düzen giriş kabul edilsin mi? |False |
 | Joker karakterler kabul edilsin mi? |False |
 
 ### <a name="vmpassword"></a>VMPassword
-Hello hello sanal makine hesabı için kimlik bilgileri. Örnek: - VMPassword @{Name = "Yönetici"; Parola = "parola"}
+Sanal makine hesabı için kimlik bilgileri. Örnek: - VMPassword @{Name = "Yönetici"; Parola = "parola"}
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli mi? |False |
+| Gerekli? |False |
 | Konumu |Adlı |
 | Varsayılan değer |Yok |
 | Ardışık Düzen giriş kabul edilsin mi? |False |
 | Joker karakterler kabul edilsin mi? |False |
 
 ### <a name="databaseserverpassword"></a>DatabaseServerPassword
-Azure SQL veritabanı hello Hello kimlik bilgileri. Örnek: - DatabaseServerPassword @{Name = "Yönetici"; Parola = "parola"}
+Azure SQL veritabanı için kimlik bilgileri. Örnek: - DatabaseServerPassword @{Name = "Yönetici"; Parola = "parola"}
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli mi? |False |
+| Gerekli? |False |
 | Konumu |Adlı |
 | Varsayılan değer |Yok |
 | Ardışık Düzen giriş kabul edilsin mi? |False |
 | Joker karakterler kabul edilsin mi? |False |
 
 ### <a name="sendhostmessagestooutput"></a>SendHostMessagesToOutput
-TRUE ise, yazdırma iletilerden hello betik toohello akış çıkışı.
+TRUE ise, yazdırma betikten çıkış akışına iletileri.
 
 | Diğer adlar | Yok |
 | --- | --- |
-| Gerekli mi? |False |
+| Gerekli? |False |
 | Konumu |Adlı |
 | Varsayılan değer |False |
 | Ardışık Düzen giriş kabul edilsin mi? |False |
 | Joker karakterler kabul edilsin mi? |False |
 
 ## <a name="remarks"></a>Açıklamalar
-Nasıl toouse hello betik toocreate geliştirme ve Test ortamları için bkz. bir tam açıklama için [Windows PowerShell komut dosyalarını kullanarak tooPublish tooDev ve Test ortamları](vs-azure-tools-publishing-using-powershell-scripts.md).
+Geliştirme ve Test ortamları, komut dosyası oluşturmak için nasıl kullanılacağını tam bir açıklaması için bkz: [geliştirme ve Test ortamları için yayımlamak için Windows PowerShell betiklerini kullanarak](vs-azure-tools-publishing-using-powershell-scripts.md).
 
-Merhaba JSON yapılandırma dosyası dağıtılan toobe nedir hello ayrıntılarını belirtir. Merhaba adı, benzeşim grubu, VHD görüntüsü ve hello sanal makinesinin boyutu gibi hello proje oluşturduğunuzda, belirttiğiniz hello bilgiler içerir. Ayrıca hello sanal makinedeki hello veritabanları tooprovision hello uç noktaları varsa ve dağıtım parametreleri web. koddan hello örnek bir JSON yapılandırma dosyası gösterir:
+JSON yapılandırma dosyası dağıtılacak nedir ayrıntılarını belirtir. Ad, benzeşim grubu, VHD görüntüsü ve boyutunu sanal makine gibi bir proje oluşturduğunuzda, belirttiğiniz bilgileri içerir. Ayrıca sanal makinede sağlamak için veritabanlarını uç noktaları varsa ve dağıtım parametreleri web. Aşağıdaki kod örnek bir JSON yapılandırma dosyası gösterir:
 
 ```
 {
@@ -183,5 +183,5 @@ Merhaba JSON yapılandırma dosyası dağıtılan toobe nedir hello ayrıntılar
 }
 ```
 
-Merhaba JSON yapılandırma dosyası toochange ne sağlandığında düzenleyebilirsiniz. Bir sanal makine ve bulut hizmeti gerekiyor, ancak hello veritabanı bölümü isteğe bağlıdır.
+Ne sağlandığında değiştirmek için JSON yapılandırma dosyasını düzenleyebilirsiniz. Bir sanal makine ve bulut hizmeti gerekiyor, ancak veritabanı bölümü isteğe bağlıdır.
 

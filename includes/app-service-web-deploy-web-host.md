@@ -1,5 +1,5 @@
 ### <a name="app-service-plan"></a>App Service planı
-Merhaba web uygulamasını barındırmak için hello hizmet planı oluşturur. Hello aracılığıyla hello planının hello ad **hostingPlanName** parametresi. Merhaba hello planının aynı konuma hello kaynak grubu için kullanılan hello konumdur. Merhaba fiyatlandırma katmanı ve çalışan boyutu hello belirtilen **sku** ve **workerSize** parametreleri
+Web uygulamasını barındırmak için hizmet planını oluşturur. Planı aracılığıyla adını sağlayın **hostingPlanName** parametresi. Kaynak grubu için kullanılan aynı konuma plan konumudur. Fiyatlandırma katmanı ve çalışan boyutu belirtilir **sku** ve **workerSize** parametreleri
 
     {
       "apiVersion": "2015-08-01",

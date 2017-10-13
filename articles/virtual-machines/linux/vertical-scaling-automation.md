@@ -1,6 +1,6 @@
 ---
-title: "aaaVertically ölçek Azure Automation ile Azure sanal makine | Microsoft Docs"
-description: "Nasıl toovertically ölçeklendirme Linux sanal makine yanıt toomonitoring uyarılar Azure Automation"
+title: "Azure Otomasyonu ile Azure sanal makine dikey olarak ölçeklendirmek | Microsoft Docs"
+description: "Azure Otomasyonu uyarılarla izleme yanıt dikey olarak Linux sanal makine ölçeklendirme"
 services: virtual-machines-linux
 documentationcenter: 
 author: singhkays
@@ -16,27 +16,27 @@ ms.topic: article
 ms.date: 03/29/2016
 ms.author: singhkay
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee4c1c33a588bd907d107f1828380a8afdaa725e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1ffcecf1e61fc0cd9ee668514fbb913dafe39bd8
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="vertically-scale-azure-linux-virtual-machine-with-azure-automation"></a>Dikey olarak Azure Automation ile Azure Linux sanal makine ölçekleme
-Dikey ölçekleme artan veya azalan bir makine yanıt toohello iş yükü hello kaynakları hello işlemidir. Azure'da bu hello hello sanal makine boyutunu değiştirerek gerçekleştirilebilir. Bu senaryolar aşağıdaki hello yardımcı olabilir
+Dikey ölçekleme artan veya azalan bir makine yanıt iş yükü olarak kaynakları işlemidir. Azure'da bu sanal makine boyutunu değiştirerek gerçekleştirilebilir. Bu aşağıdaki senaryolarda yardımcı olabilir
 
-* Sanal makine Hello sık kullanılmayan, tooa daha küçük boyutu tooreduce aylık maliyetleriniz yeniden boyutlandırabilirsiniz
-* Sanal makine Hello yoğun yük görmesini yoksa, yapabilirsiniz yeniden boyutlandırılan tooa büyük boyutu tooincrease kapasitesi olabilir
+* Sanal makine sık kullanılmayan, aylık, maliyetleri azaltmak için daha küçük bir boyuta aşağıya doğru boyutlandırabilirsiniz
+* Sanal makine yoğun yük görmesini, onu kapasitesini artırmak için daha büyük bir boyuta yeniden boyutlandırılabilir
 
-Merhaba anahat budur olarak hello adımları tooaccomplish için aşağıda
+Bunu gerçekleştirmek için gereken adımları anahat gibidir aşağıda
 
-1. Azure Otomasyonu tooaccess sanal makinelerinizi Kurulumu
-2. Aboneliğinizi Hello Azure Otomasyon dikey ölçek runbook'ları alma
-3. Web kancası tooyour runbook Ekle
-4. Bir uyarı tooyour sanal makine ekleyin
+1. Sanal makinelerinize erişmek için Kurulum Azure Otomasyonu
+2. Aboneliğiniz Azure Otomasyon dikey ölçek runbook'ları içe
+3. Bir Web kancası runbook'a ekleyin
+4. Sanal makinenize bir uyarı Ekle
 
 > [!NOTE]
-> İlk sanal makine, bunu ölçeklendirilmiş için hello boyutları hello Hello boyutu nedeniyle sınırlanabilir hello toohello kullanılabilirliği, içinde geçerli sanal makine hello kümedeki diğer boyutlara dağıtılır. Bu durumda ilgilenebilmek ve yalnızca VM boyutu çiftleri aşağıda hello içinde ölçeklendirmek bu makalede kullanılan Otomasyon runbook'ları Hello yayımladı. Bu bir Standard_D1v2 sanal makine değil aniden tooStandard_G5 ölçeklendirilemez ya da tooBasic_A0 ölçeklendirilmiş olduğunu anlamına gelir.
+> İlk sanal makine için Genişletilebilir boyutları boyutu nedeniyle geçerli sanal makine olarak dağıtılan kümedeki diğer boyutlara kullanılabilirliği nedeniyle sınırlanabilir. Bu makalede kullanılan yayımlanan Otomasyon runbook'ları Biz bu durumda dikkatli ve içinde yalnızca ölçeklendirme VM boyutu çiftleri aşağıda. Bu bir Standard_D1v2 sanal makine değil aniden Standard_G5 için yukarı ölçeklendirilemez ya da Basic_A0 için genişletilmiş olduğunu anlamına gelir.
 > 
 > | VM boyutları çifti ölçeklendirme |  |
 > | --- | --- |
@@ -56,38 +56,38 @@ Merhaba anahat budur olarak hello adımları tooaccomplish için aşağıda
 > 
 > 
 
-## <a name="setup-azure-automation-tooaccess-your-virtual-machines"></a>Azure Otomasyonu tooaccess sanal makinelerinizi Kurulumu
-toodo ihtiyacınız hello ilk hello kullanılan runbook'ları tooscale hello VM ölçek kümesi örneklerinin barındıracak Azure Automation hesabı oluşturma şeydir. Yakın zamanda hello Otomasyon hizmeti otomatik olarak hello çalışan runbook'ları hello kullanıcı adına çok kolay için hello hizmet sorumlusu ayarlama kılan hello "Farklı Çalıştır hesabı" özellik sunulmuştur. Daha fazla bilgiyi bu konuda aşağıdaki hello makale:
+## <a name="setup-azure-automation-to-access-your-virtual-machines"></a>Sanal makinelerinize erişmek için Kurulum Azure Otomasyonu
+Yapmanız gereken ilk şey VM ölçek kümesi örneklerinin ölçeklendirmek için kullanılan runbook'ları barındıracak bir Azure Otomasyonu hesabı oluşturmaktır. Yakın zamanda Otomasyon hizmeti otomatik olarak çalışan runbook'ları kullanıcı adınıza çok kolay için ayar yukarı hizmet sorumlusu getirir "Farklı Çalıştır hesabı" özelliğini kullanıma sunmuştur. Daha fazla bilgiyi bu konuda aşağıdaki makalede:
 
 * [Azure Farklı Çalıştır hesabıyla Runbook Kimlik Doğrulaması](../../automation/automation-sec-configure-azure-runas-account.md)
 
-## <a name="import-hello-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Aboneliğinizi Hello Azure Otomasyon dikey ölçek runbook'ları alma
-Sanal makineniz zaten hello Azure Otomasyonu Runbook Galerisi yayımlanan dikey ölçekleme için gerekli olan hello runbook'ları. Tooimport gerekir, aboneliğe bunları. Makalede okuyarak tooimport runbook'ları nasıl hello öğrenebilirsiniz.
+## <a name="import-the-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Aboneliğiniz Azure Otomasyon dikey ölçek runbook'ları içe
+Sanal makineniz dikey ölçekleme için gerekli olan runbook'ları zaten Azure Otomasyonu Runbook Galerisi yayımlanır. Aboneliğinizi aktarmak gerekir. Runbook'ları makalesini okuyarak içeri öğrenebilirsiniz.
 
 * [Azure Otomasyonu Runbook ve modül galerileri](../../automation/automation-runbook-gallery.md)
 
-Aşağıdaki hello görüntü toobe alınan ihtiyacınız hello runbook'lar gösterilir
+Aşağıdaki resimde gösterilen içeri aktarılması gereken runbook'ları
 
 ![Runbook'ları alma](./media/vertical-scaling-automation/scale-runbooks.png)
 
-## <a name="add-a-webhook-tooyour-runbook"></a>Web kancası tooyour runbook Ekle
-Merhaba runbook'ları içe sonra bir sanal makineden bir uyarı tarafından tetiklenebilir şekilde tooadd bir Web kancası toohello runbook gerekir. Runbook için bir Web kancası oluşturma hello ayrıntıları buraya okuyabilir
+## <a name="add-a-webhook-to-your-runbook"></a>Bir Web kancası runbook'a ekleyin
+Alınan sonra gerekir runbook'ları bir sanal makineden bir uyarı tarafından tetiklenebilir için bir Web kancası runbook'a ekleyin. Runbook için bir Web kancası oluşturma ayrıntılarını burada okuyabilir
 
 * [Azure Otomasyonu Web kancası](../../automation/automation-webhooks.md)
 
-Bu hello sonraki bölümde ihtiyaç duyacağınız hello Web kancası iletişim kutusunu kapatmadan önce hello Web kancası kopyaladığınızdan emin olun.
+Bu sonraki bölümde ihtiyaç duyacağınız Web kancası iletişim kutusunu kapatmadan önce Web kancası kopyaladığınızdan emin olun.
 
-## <a name="add-an-alert-tooyour-virtual-machine"></a>Bir uyarı tooyour sanal makine ekleyin
+## <a name="add-an-alert-to-your-virtual-machine"></a>Sanal makinenize bir uyarı Ekle
 1. Sanal makine ayarlarını seçin
 2. "Uyarı kuralları" seçeneğini belirleyin
 3. "Uyarı Ekle" seçin
-4. Ölçüm toofire hello uyarıyı seçin
-5. Bir koşul Seç hangi olduğunda yerine hello uyarı toofire neden
-6. Adım 5'te hello koşul için bir eşik seçin. yerine toobe
-7. İzleme hizmeti hangi hello denetleyecek bir dönem için hello koşul ve eşik adımları 5 ve 6'seçin
-8. Merhaba önceki bölümünde kopyaladığınız hello Web kancası yapıştırın.
+4. Hakkında uyarı tetiklenecek bir ölçümü seçin
+5. Bir koşul Seç hangi olduğunda yerine tetiklenecek uyarının nedeni
+6. Koşul için bir eşik adım 5'te seçin. yerine getirilmesi için
+7. Üzerinde izleme hizmeti denetleyecek bir dönem için koşul ve eşik adımları 5 ve 6'seçin
+8. Önceki bölümünde kopyaladığınız Web kancası yapıştırın.
 
-![Uyarı tooVirtual makine 1 ekleme](./media/vertical-scaling-automation/add-alert-webhook-1.png)
+![Sanal makine 1 uyarısı ekleme](./media/vertical-scaling-automation/add-alert-webhook-1.png)
 
-![Uyarı tooVirtual makine 2 ekleme](./media/vertical-scaling-automation/add-alert-webhook-2.png)
+![Sanal makine 2 uyarısı ekleme](./media/vertical-scaling-automation/add-alert-webhook-2.png)
 

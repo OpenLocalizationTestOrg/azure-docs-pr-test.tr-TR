@@ -1,5 +1,5 @@
 ---
-title: aaaMonitor Application Insights ile bir SharePoint sitesi
+title: Bir SharePoint sitesini Application Insights ile izleme
 description: "Yeni bir izleme anahtarı ile yeni bir uygulamayı izlemeye başlama"
 services: application-insights
 documentationcenter: 
@@ -13,66 +13,66 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/24/2016
 ms.author: bwren
-ms.openlocfilehash: acfe99c24a4d77daec1017de0442ec952a1faba2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: a3b37674469a131016f46af590e1eee3ba4cdc73
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Bir SharePoint sitesini Application Insights ile izleme
-Azure Application Insights hello kullanılabilirlik, performans ve kullanım uygulamalarınızın izler. Burada öğreneceksiniz nasıl tooset, bir SharePoint sitesi için.
+Azure Application Insights, uygulamalarınızın kullanılabilirliğini, performansını ve kullanımını izler. Burada, bir SharePoint sitesi için nasıl ayarlayacağınızı öğreneceksiniz.
 
 ## <a name="create-an-application-insights-resource"></a>Application Insights kaynağı oluşturma
-Merhaba, [Azure portal](https://portal.azure.com), yeni bir Application Insights kaynağı oluşturun. ASP.NET hello uygulama türü olarak seçin.
+[Azure portalında](https://portal.azure.com) yeni bir Application Insights kaynağı oluşturun. Uygulama türü olarak ASP.NET’i seçin.
 
-![Özellikler'i tıklatın, başlangıç anahtarı seçin ve ctrl + C tuşlarına basın](./media/app-insights-sharepoint/01-new.png)
+![Özellikler'e tıklayın, anahtarı seçin ve ctrl + C tuşlarına basın](./media/app-insights-sharepoint/01-new.png)
 
-açılır hello dikey penceresinde, burada, performans ve kullanım verileri uygulamanız hakkında görürsünüz hello yerdir. tooget geri tooit tooAzure, oturum açtığınızda, bir kutucuk için hello başlangıç ekranında bulmanız gerekir. Alternatif olarak Gözat toofind'ı tıklatın.
+Uygulamanızla ilgili performans ve kullanım verilerini açılan dikey pencerede görürsünüz. Azure’da bir sonraki oturum açışınızda bu pencereye dönmek için başlangıç ekranında bunun bir kutucuğunu bulmanız gerekir. Alternatif olarak, pencereyi bulmak için Gözat'a tıklayın.
 
-## <a name="add-our-script-tooyour-web-pages"></a>Bizim betik tooyour web sayfaları ekleme
-Hızlı Başlangıç'ta web sayfaları için hello betik alın:
+## <a name="add-our-script-to-your-web-pages"></a>Betiğimizi web sayfalarınıza ekleme
+Hızlı Başlangıç’ta web sayfaları için betik alın:
 
 ![](./media/app-insights-sharepoint/02-monitor-web-page.png)
 
-Merhaba hemen önce Hello komut dosyası Ekle &lt;/head&gt; etiketi her sayfada tootrack istiyor. Web sitenizi bir ana sayfa varsa, hello betiği buraya koyabilirsiniz. Örneğin, bir ASP.NET MVC projesinde View\Shared\_Layout.cshtml’ye koyarsınız
+Betiği, izlemek istediğiniz her sayfanın &lt;/head&gt; etiketinin hemen önüne ekleyin. Web sayfanızda bir ana sayfa varsa betiği buraya koyabilirsiniz. Örneğin, bir ASP.NET MVC projesinde View\Shared\_Layout.cshtml’ye koyarsınız
 
-Merhaba betik hello telemetri tooyour Application Insights kaynağı yönlendirir hello izleme anahtarını içerir.
+Betikte, telemetriyi Application Insights kaynağınıza yönlendiren izleme anahtarı bulunur.
 
-### <a name="add-hello-code-tooyour-site-pages"></a>Merhaba kod tooyour site sayfaları ekleme
-#### <a name="on-hello-master-page"></a>Merhaba ana sayfada
-Merhaba sitenin ana sayfa düzenleyebilirsiniz varsa, hello sitesindeki her sayfada izleme sağlar.
+### <a name="add-the-code-to-your-site-pages"></a>Kodu site sayfalarınıza ekleme
+#### <a name="on-the-master-page"></a>Ana sayfada
+Sitenin ana sayfasını düzenleyebiliyorsanız, bu sayede sitedeki her sayfa için izleme olanağına sahip olursunuz.
 
-Hello Yöneticisi sayfasını gözden geçirin ve SharePoint Designer veya başka bir düzenleyici kullanarak düzenleyebilirsiniz.
+Ana sayfayı inceleyin ve SharePoint Designer’ı veya başka bir düzenleyiciyi kullanarak düzenleyin.
 
 ![](./media/app-insights-sharepoint/03-master.png)
 
-Merhaba kodu hello hemen önce ekleyin </head> etiketi. 
+Kodu </head> etiketinin hemen önüne ekleyin. 
 
 ![](./media/app-insights-sharepoint/04-code.png)
 
 #### <a name="or-on-individual-pages"></a>Veya belirli sayfalarda
-toomonitor sayfaları, sınırlı sayıda ekleme hello betik ayrı olarak tooeach sayfası. 
+Sınırlı sayıda sayfayı izlemek için betiği her sayfaya ayrı ayrı ekleyin. 
 
-Web bölümü eklemek ve hello kod parçacığını içinde embed.
+Bir web parçası ekleyip kod parçacığını buna ekleyin.
 
 ![](./media/app-insights-sharepoint/05-page.png)
 
 ## <a name="view-data-about-your-app"></a>Uygulamanızla ilgili verileri görüntüleme
 Uygulamanızı yeniden dağıtın.
 
-Dönüş tooyour uygulaması dikey penceresinde hello [Azure portal](https://portal.azure.com).
+Uygulamanızın [Azure portalındaki](https://portal.azure.com) dikey penceresine dönün.
 
-Merhaba ilk olayları aramada görünür. 
+İlk olaylar Arama’da görünür. 
 
 ![](./media/app-insights-sharepoint/09-search.png)
 
 Daha fazla veri bekliyorsanız, birkaç saniye geçtikten sonra Yenile’ye tıklayın.
 
-Merhaba genel bakış dikey penceresinden tıklayın **kullanım analizi** toosee toocharts, kullanıcılar, oturumlar ve sayfa görünümleri:
+Kullanıcı, oturum ve sayfa görüntüleme grafiklerini görmek için genel bakış dikey penceresinden **Kullanım analizi**’ne tıklayın:
 
 ![](./media/app-insights-sharepoint/06-usage.png)
 
-Tüm grafik toosee daha fazla ayrıntı - örneğin sayfa görünümleri tıklatın:
+Daha fazla ayrıntı görmek için herhangi bir grafiğe tıklayın. Örneğin, Sayfa Görüntülemeleri:
 
 ![](./media/app-insights-sharepoint/07-pages.png)
 
@@ -81,14 +81,14 @@ Veya Kullanıcılar:
 ![](./media/app-insights-sharepoint/08-users.png)
 
 ## <a name="capturing-user-id"></a>Kullanıcı Kimliğini Yakalama
-Merhaba standart web sayfası kod parçacığını hello kullanıcı kimliği SharePoint'ten yakalamaz, ancak bunu ile küçük bir değişiklik yapabilirsiniz.
+Standart web sayfası kod parçacığı SharePoint’ten kullanıcı kimliğini yakalamaz, ancak küçük bir değişiklikle bunu yapabilirsiniz.
 
-1. Uygulamanızın izleme anahtarını hello Essentials açılan Application Insights'ta kopyalayın. 
+1. Application Insights’taki Temel Bileşenler açılan penceresinden uygulamanızın izleme anahtarını kopyalayın. 
 
     ![](./media/app-insights-sharepoint/02-props.png)
 
-1. Merhaba izleme anahtarını aşağıdaki hello parçacığında 'XXXX için' değiştirin. 
-2. SharePoint uygulamanızda hello parçacığı hello portaldan almak yerine Hello komut dosyası ekleyin.
+1. Aşağıdaki kod parçacığında geçen 'XXXX' ifadesini izleme anahtarıyla değiştirin. 
+2. Betiği portaldan edindiğiniz kod parçacığı yerine SharePoint uygulamanıza ekleyin.
 
 ```
 
@@ -99,26 +99,26 @@ Merhaba standart web sayfası kod parçacığını hello kullanıcı kimliği Sh
 <script type="text/javascript"> 
 var personProperties; 
 
-// Ensure that hello SP.UserProfiles.js file is loaded before hello custom code runs. 
+// Ensure that the SP.UserProfiles.js file is loaded before the custom code runs. 
 SP.SOD.executeOrDelayUntilScriptLoaded(getUserProperties, 'SP.UserProfiles.js'); 
 
 function getUserProperties() { 
-    // Get hello current client context and PeopleManager instance. 
+    // Get the current client context and PeopleManager instance. 
     var clientContext = new SP.ClientContext.get_current(); 
     var peopleManager = new SP.UserProfiles.PeopleManager(clientContext); 
 
-    // Get user properties for hello target user. 
-    // tooget hello PersonProperties object for hello current user, use hello 
+    // Get user properties for the target user. 
+    // To get the PersonProperties object for the current user, use the 
     // getMyProperties method. 
 
     personProperties = peopleManager.getMyProperties(); 
 
-    // Load hello PersonProperties object and send hello request. 
+    // Load the PersonProperties object and send the request. 
     clientContext.load(personProperties); 
     clientContext.executeQueryAsync(onRequestSuccess, onRequestFail); 
 } 
 
-// This function runs if hello executeQueryAsync call succeeds. 
+// This function runs if the executeQueryAsync call succeeds. 
 function onRequestSuccess() { 
 var appInsights=window.appInsights||function(config){
 function s(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},r=document,f=window,e="script",o=r.createElement(e),i,u;for(o.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js",r.getElementsByTagName(e)[0].parentNode.appendChild(o),t.cookie=r.cookie,t.queue=[],i=["Event","Exception","Metric","PageView","Trace"];i.length;)s("track"+i.pop());return config.disableExceptionTracking||(i="onerror",s("_"+i),u=f[i],f[i]=function(config,r,f,e,o){var s=u&&u(config,r,f,e,o);return s!==!0&&t["_"+i](config,r,f,e,o),s}),t
@@ -129,7 +129,7 @@ function s(config){t[config]=function(){var i=arguments;t.queue.push(function(){
     appInsights.trackPageView(document.title,window.location.href, {User: personProperties.get_displayName()});
 } 
 
-// This function runs if hello executeQueryAsync call fails. 
+// This function runs if the executeQueryAsync call fails. 
 function onRequestFail(sender, args) { 
 } 
 </script> 
@@ -140,7 +140,7 @@ function onRequestFail(sender, args) {
 
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-* [Web testleri](app-insights-monitor-web-app-availability.md) sitenizin toomonitor hello kullanılabilirlik.
+* Sitenizin kullanılabilirliğini izlemek için [web testleri](app-insights-monitor-web-app-availability.md).
 * Diğer uygulama türleri için [Application Insights](app-insights-overview.md).
 
 <!--Link references-->

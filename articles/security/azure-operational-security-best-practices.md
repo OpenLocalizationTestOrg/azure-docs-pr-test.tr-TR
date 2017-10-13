@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure işletimsel güvenlik en iyi uygulamalar | Microsoft Docs"
+title: "Azure işletimsel güvenlik en iyi uygulamalar | Microsoft Docs"
 description: "Bu makale Azure işletimsel güvenlik için en iyi yöntemler kümesi sağlar."
 services: security
 documentationcenter: na
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: b3b17ef20fb3545b1c268ac0d7ce692e07c8da00
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ed3c4bf2dcdda3e04a18682da568ae73f41bb37d
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure işletimsel güvenlik en iyi uygulamalar
-Azure işlem güvenliği verilerini, uygulamaları ve diğer Microsoft Azure varlıkları korumak için toohello Hizmetleri, denetimleri ve özellikler kullanılabilir toousers ifade eder. Azure işlem güvenliği benzersiz tooMicrosoft hello Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center hello dahil olmak üzere, çeşitli özelliklerini elde edilen hello bilgi içeren bir çerçevesi üzerine inşa edilmiştir Program ve hello siber güvenlik tehdit derin tanıma.
+Azure işletimsel güvenlik hizmetleri, denetimleri ve kullanıcılar için kullanılabilir özellikler verilerini, uygulamaları ve diğer Microsoft Azure varlıkları korumak için ifade eder. Azure işlem güvenliği Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center programı da dahil olmak üzere Microsoft'a özgü çeşitli özellikleri aracılığıyla elde edilen bilgilerden içerir çerçevesi üzerine inşa edilmiştir, ve siber güvenlik tehdit derin farkındalığınızı.
 
-Bu makalede, en iyi güvenlik uygulamaları, Azure veritabanı koleksiyonunu tartışın. Bu en iyi uygulamaları ile Azure veritabanı güvenlik bizim deneyimlerden türetilen ve müşterilerin hello deneyimleri bulunun.
+Bu makalede, en iyi güvenlik uygulamaları, Azure veritabanı koleksiyonunu tartışın. Bu en iyi uygulamaları bizim deneyimlerden Azure veritabanı güvenliği ile elde edilen ve müşteri deneyimleri bulunun.
 
 En iyi her uygulama için biz açıklamaktadır:
--   Hangi hello en iyi uygulamadır
--   Neden bu en iyi uygulama tooenable istiyor
--   Tooenable hello en iyi yöntem başarısız olursa ne hello sonucu olabilir
-- Tooenable hello en iyi yöntem nasıl öğrenin
+-   En iyi uygulama nedir
+-   Bu en iyi uygulama etkinleştirmek istediğiniz neden
+-   En iyi uygulama olarak etkinleştirmek başarısız olursa ne sonucu olabilir
+- Nasıl en iyi uygulama olarak etkinleştirmek bilgi edinebilirsiniz
 
-Bu makalenin yazıldığı hello zamanında oldukları gibi bu Azure işletimsel güvenlik en iyi yöntemler makalesi anlaşma fikir ve Azure platformu özellikleri ve özellik kümeleri dayanır. Bu makalede olacaktır ve görüşlerini ve teknolojileri değiştirmek zaman içinde bu değişiklikleri düzenli olarak tooreflect üzerinde güncelleştirildi.
+Bu makalenin yazıldığı sırada oldukları gibi bu Azure işletimsel güvenlik en iyi yöntemler makalesi anlaşma fikir ve Azure platformu özellikleri ve özellik kümeleri dayanır. Zaman içinde görüşlerini ve teknolojileri değiştirebilirsiniz ve bu makalede bu değişiklikleri yansıtacak şekilde düzenli olarak güncelleştirilir.
 
 Bu makalede ele alınan azure işlem en iyi yöntemler şunlardır:
 
@@ -39,20 +39,20 @@ Bu makalede ele alınan azure işlem en iyi yöntemler şunlardır:
 -   Kimlik ve çoklu oturum açma (SSO) uygulama
 -   Kullanım Eğilimleri çözümlemek ve tanılama sorunlarını izleyebilirsiniz istekleri
 -   Hizmetleri Merkezi bir izleme çözümü ile izleme
--   Engellemenize, algılamanıza ve toothreats yanıt
+-   Engellemenize, algılamanıza ve tehditlerine karşı yanıt
 -   Uçtan uca senaryo tabanlı ağ izleme
 -   Güvenli dağıtım başarısı kanıtlanmış DevOps araçlarını kullanma
 
 ## <a name="monitor-manage-and-protect-cloud-infrastructure"></a>İzleme, yönetme ve bulut altyapısını koruma
-BT işlemleri veri merkezi altyapı, uygulamaları ve verileri hello kararlılık ve bu sistemlerin güvenlik dahil olmak üzere, yönetmekle sorumlu. Ancak, karmaşık BT ortamları arasında genellikle artırma güvenlik bilgileri elde kuruluşlar toocobble birlikte verileri birden çok güvenlik ve yönetim sistemi gerektirir.
+BT işlemleri veri merkezi altyapı, uygulamaları ve verileri kararlılığını ve bu sistemlerin güvenliğini dahil olmak üzere, yönetmekle sorumlu. Ancak, karmaşık BT ortamları arasında genellikle artırma güvenlik bilgileri elde birlikte birden çok güvenlik ve yönetim sistemlerine ait verileri cobble kuruluşların gerektirir.
 
 [Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) , yönetmek ve şirket içi korumak ve bulut altyapısı yardımcı olan Microsoft'un bulut tabanlı BT yönetimi çözümüdür.
 
-[OMS güvenlik ve denetim çözümü](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) BT tooactively izlemenize yardımcı olabilecek tüm kaynakları etkinleştirir, güvenlik olaylarına hello etkisini en aza indirmek. OMS güvenlik ve denetim kaynakları izlemek için kullanılan güvenlik etki alanları sahiptir.
+[OMS güvenlik ve denetim çözümü](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources) etkinleştirir etkin olarak yardımcı olabilecek tüm kaynakları izlemek için BT güvenlik olaylarını etkisini en aza indirmek. OMS güvenlik ve denetim kaynakları izlemek için kullanılan güvenlik etki alanları sahiptir.
 
-OMS hakkında daha fazla bilgi için hello makaleyi okuyun [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
+OMS hakkında daha fazla bilgi için bkz. [Operations Management Suite](https://technet.microsoft.com/library/mt484091.aspx).
 
-engellemenize, algılamanıza ve toothreats, yanıt toohelp [Operations Management Suite (OMS) güvenlik ve denetim çözümü](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) içeren veri kaynaklarınızı ilgili işler ve toplar:
+Engellemenize, algılamanıza ve tehditlerine karşı yanıt yardımcı olması için [Operations Management Suite (OMS) güvenlik ve denetim çözümü](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) içeren veri kaynaklarınızı ilgili işler ve toplar:
 
 -   Güvenlik olay günlüğü
 -   Windows için Olay İzleme (ETW) olayları
@@ -62,7 +62,7 @@ engellemenize, algılamanıza ve toothreats, yanıt toohelp [Operations Manageme
 -   Temel değerlendirmesinin sonuçları
 -   Kötü amaçlı yazılımdan koruma değerlendirmesinin sonuçları
 -   Güncelleştirme/düzeltme eki değerlendirmesinin sonuçları
--   Merhaba aracısında açıkça etkin Syslog akışlar
+-   Aracı üzerinde açıkça etkin Syslog akışlar
 
 
 ## <a name="manage-identity-and-implement-single-sign-on"></a>Kimlik ve çoklu oturum açmayı uygulamak
@@ -70,65 +70,65 @@ engellemenize, algılamanıza ve toothreats, yanıt toohelp [Operations Manageme
 
 [Azure AD](https://azure.microsoft.com/services/active-directory/) da tam dizisi içerir [Kimlik Yönetimi](https://docs.microsoft.com/azure/security/security-identity-management-overview) yetenekleri de dahil olmak üzere [çok faktörlü kimlik doğrulaması](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication), cihaz kaydı, Self Servis parola yönetimi Self Servis Grup Yönetimi, ayrıcalıklı hesap yönetimi, rol tabanlı erişim denetimi, uygulama kullanımını izleme, zengin denetim ve güvenlik izleme ve uyarma.
 
-özellikleri aşağıdaki hello bulut tabanlı uygulamaların güvenliğini sağlamak, BT işlemlerini kolaylaştırır, maliyetleri kesebilir ve kurumsal uyumluluk hedefleri karşılandığından emin olun yardımcı:
+Aşağıdaki özellikleri bulut tabanlı uygulamaların güvenliğini sağlamak, BT işlemlerini kolaylaştırır, maliyetleri kesebilir ve kurumsal uyumluluk hedefleri karşılandığından emin olun yardımcı olur:
 
--   Merhaba bulut için kimlik ve erişim yönetimi
--   Kullanıcı erişim tooany bulut uygulamasının basitleştirin
+-   Bulut için kimlik ve erişim yönetimi
+-   Tüm bulut uygulamalarına kullanıcı erişimini basitleştirin
 -   Hassas verileri ve uygulamaları koruyun
 -   Çalışanlarınıza self-servis olanağı sağlayın
 -   Azure Active Directory ile tümleştirin
 
-### <a name="identity-and-access-management-for-hello-cloud"></a>Merhaba bulut için kimlik ve erişim yönetimi
-Azure Active Directory (Azure AD) şu kapsamlı bir [kimlik ve erişim yönetimi bulut çözümü](https://www.microsoft.com/cloud-platform/identity-management), sağlayan, bir dizi sağlam yetenekleri toomanage kullanıcılar ve gruplar. Güvenli erişim tooon içi ve bulut uygulamalarında hizmet (SaaS) uygulamaları olarak Office 365 ve kadar Microsoft dışı yazılımlar gibi Microsoft web hizmetlerini de dahil olmak üzere, yardımcı olur.
-tooenable kimlik koruması Azure AD'de daha nasıl görürüm toolearn [etkinleştirme Azure Active Directory kimlik koruması](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-enable).
+### <a name="identity-and-access-management-for-the-cloud"></a>Bulut için kimlik ve erişim yönetimi
+Azure Active Directory (Azure AD) şu kapsamlı bir [kimlik ve erişim yönetimi bulut çözümü](https://www.microsoft.com/cloud-platform/identity-management), sağlayan, güçlü bir kullanıcı ve grupları yönetmek için özellikler kümesi. Güvenli erişim için şirket içi ve bulut uygulamalarında hizmet (SaaS) uygulamaları olarak Office 365 ve kadar Microsoft dışı yazılımlar gibi Microsoft web hizmetlerini de dahil olmak üzere, yardımcı olur.
+Azure AD kimlik korumayı etkinleştirmek nasıl daha fazla bilgi için bkz: [etkinleştirme Azure Active Directory kimlik koruması](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-enable).
 
-### <a name="simplify-user-access-tooany-cloud-app"></a>Kullanıcı erişim tooany bulut uygulamasının basitleştirin
-[Çoklu oturum açmayı etkinleştir](https://docs.microsoft.com/azure/active-directory/active-directory-sso-integrate-saas-apps) toosimplify kullanıcı erişimi toothousands Windows, Mac, Android ve iOS cihazlarından bulut uygulamalarının. Kullanıcıların kişiselleştirilmiş web tabanlı erişim paneli veya şirket kimlik bilgilerini kullanarak mobil uygulama uygulamalardan başlatabilirsiniz. Ve şirket içi web uygulamaları tooprovide yüksek güvenlikli uzaktan erişim ve çoklu oturum açma yayımlama Hello Azure AD uygulama proxy'si modülü toogo SaaS uygulamaları ötesinde kullanın.
+### <a name="simplify-user-access-to-any-cloud-app"></a>Tüm bulut uygulamalarına kullanıcı erişimini basitleştirin
+[Çoklu oturum açmayı etkinleştir](https://docs.microsoft.com/azure/active-directory/active-directory-sso-integrate-saas-apps) kullanıcı erişimi, Windows, Mac, Android ve iOS cihazlarından bulut uygulamalarını binlerce basitleştirmek için. Kullanıcıların kişiselleştirilmiş web tabanlı erişim paneli veya şirket kimlik bilgilerini kullanarak mobil uygulama uygulamalardan başlatabilirsiniz. SaaS uygulamaları gidin ve yüksek güvenlikli uzaktan erişim ve çoklu oturum açma sağlamak için şirket içi web uygulamaları yayımlamak için Azure AD uygulama proxy'si modülü kullanın.
 
 ### <a name="protect-sensitive-data-and-applications"></a>Hassas verileri ve uygulamaları koruyun
-Etkinleştirme [Azure çok faktörlü kimlik doğrulaması](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) tooprevent yetkisiz erişim tooon içi ve bulut uygulamaları ek bir kimlik doğrulama düzeyi sağlayarak. Tutarsız erişim düzenlerini belirleyen güvenli izleme, uyarılar ve makine öğrenme tabanlı güvenlik raporları ile işinizi koruyun ve olası tehditleri azaltın.
+Etkinleştirme [Azure çok faktörlü kimlik doğrulaması](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication) şirket içi yetkisiz erişimi engellemek ve bulut uygulamalarında ek bir kimlik doğrulama düzeyi sağlayarak. Tutarsız erişim düzenlerini belirleyen güvenli izleme, uyarılar ve makine öğrenme tabanlı güvenlik raporları ile işinizi koruyun ve olası tehditleri azaltın.
 
 ### <a name="enable-self-service-for-your-employees"></a>Çalışanlarınıza self-servis olanağı sağlayın
-Parolaları sıfırlama ve grup oluşturma ve yönetme gibi önemli görevleri tooyour çalışanlar, temsilci. [Self Servis parola değişikliğini etkinleştir](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password)sıfırlayın ve Self Servis Grup Yönetimi Azure AD ile.
+Çalışanlarınıza parolaları sıfırlama, grupları oluşturma ve yönetme gibi önemli görevler verin. [Self Servis parola değişikliğini etkinleştir](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password)sıfırlayın ve Self Servis Grup Yönetimi Azure AD ile.
 
 ### <a name="integrate-with-azure-active-directory"></a>Azure Active Directory ile tümleştirin
-Genişletme [Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate) ve diğer dizinleri tooAzure AD tooenable çoklu oturum açma tüm bulut tabanlı uygulamalar için şirket içi. Kullanıcı öznitelikleri her türlü şirket içi dizinleri otomatik olarak eşitlenen tooyour bulut dizininden olabilir.
+Genişletme [Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate) ve diğer tüm bulut tabanlı uygulamalar için çoklu oturum açmayı etkinleştirmek için Azure ad dizinleri şirket. Kullanıcı öznitelikleri, tüm şirket içi dizin türlerindeki bulut dizininizle otomatik olarak eşitlenebilir.
 
-Azure Active Directory Tümleştirmesi hakkında daha fazla toolearn ve nasıl tooenable, hello makalesini okuyun [şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
+Azure Active Directory ve bunun nasıl etkinleştirileceğini tümleştirme hakkında daha fazla bilgi için lütfen makaleyi okuyun [şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
 
 ## <a name="trace-requests-analyze-usage-trends-and-diagnose-issues"></a>Kullanım Eğilimleri çözümlemek ve tanılama sorunlarını izleyebilirsiniz istekleri
-[Azure Storage Analytics](https://docs.microsoft.com/azure/storage/storage-analytics) günlüğe kaydetme işlemlerini gerçekleştiren ve ölçümler veriler için bir depolama hesabı sağlar. Bu veri tootrace istekleri kullanır, kullanım eğilimleri çözümlemek ve depolama hesabınızla sorunlarını tanılamak.
+[Azure Storage Analytics](https://docs.microsoft.com/azure/storage/storage-analytics) günlüğe kaydetme işlemlerini gerçekleştiren ve ölçümler veriler için bir depolama hesabı sağlar. Bu verileri kullanarak istekleri izleyebilir, kullanım eğilimlerini çözümleyebilir ve depolama hesabınızdaki sorunları tanılayabilirsiniz.
 
-Storage Analytics ölçümleri, yeni depolama hesapları için varsayılan olarak etkinleştirilir. Günlük kaydını etkinleştirmek ve ölçümleri ve hello Azure portalında oturum yapılandırın; Ayrıntılar için bkz [hello Azure portalında bir depolama hesabını izleme](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account). Storage Analytics hello REST API aracılığıyla programlı olarak veya hello istemci kitaplığı da etkinleştirebilirsiniz. Merhaba hizmet özelliklerini ayarlama işlemi tooenable Storage Analytics her hizmet için ayrı ayrı kullanın.
+Storage Analytics ölçümleri, yeni depolama hesapları için varsayılan olarak etkinleştirilir. Günlük kaydını etkinleştirmek ve ölçümleri ve Azure portalında oturum açmayı yapılandırın; Ayrıntılar için bkz [Azure portalında bir depolama hesabını izleme](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account). Storage Analytics REST API veya istemci kitaplığı yoluyla programlı olarak etkinleştirebilirsiniz. Storage Analytics her hizmet için ayrı ayrı etkinleştirmek için hizmet özelliklerini ayarlama işlemi kullanın.
 
-Kapsamlı bir kılavuz depolama çözümlemeleri ve diğer araçları tooidentify kullanma hakkında bilgi için tanılama ve Azure Storage ile ilgili sorunları giderme bkz [izleme, tanılama ve Microsoft Azure Storage sorun giderme](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
+Ayrıntılı bir kılavuz tanımlamak, tanılama ve Azure Storage ile ilgili sorunları gidermek için depolama çözümlemeleri ve diğer araçları kullanma hakkında bilgi için bkz: [izleme, tanılama ve Microsoft Azure Storage sorun giderme](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
 
-Azure Active Directory Tümleştirmesi hakkında daha fazla toolearn okuyup nasıl tooenable, hello makale [etkinleştirme ve yapılandırma depolama çözümlemeleri](https://docs.microsoft.com/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics?redirectedfrom=MSDN).
+Azure Active Directory ve bunun nasıl etkinleştirileceğini tümleştirme hakkında daha fazla bilgi için makaleyi okuyun [etkinleştirme ve yapılandırma depolama çözümlemeleri](https://docs.microsoft.com/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics?redirectedfrom=MSDN).
 
 ## <a name="monitoring-services"></a>İzleme Hizmetleri
-Bulut uygulamalarını birçok taşıma bölümleriyle karmaşıktır. İzleme, uygulamanızı kurma kalır veri tooensure ve sistem durumu iyi çalışan sağlar. Olası sorunlar kapalı veya olanları sorun giderme, toostave yardımcı olur. Ayrıca, uygulamanız hakkında izleme verileri toogain ayrıntılı Öngörüler kullanabilirsiniz. Bu bilgi tooimprove uygulama performansı veya bakım yardımcı veya aksi halde el ile müdahale gerektiren Eylemler otomatik hale getirme.
+Bulut uygulamalarını birçok taşıma bölümleriyle karmaşıktır. İzleme, uygulamanızı kurma kalmasını sağlamak için veri ve sağlıklı bir durumda çalışmasını sağlar. Ayrıca olası sorunları stave veya olanları sorun gidermeye yardımcı olur. Ayrıca, uygulamanız hakkında ayrıntılı Öngörüler elde etmek için izleme verilerini kullanabilirsiniz. Bu bilgi, uygulama performansı veya devamlılığını iyileştirmek için yardımcı veya aksi halde el ile müdahale gerektiren Eylemler otomatikleştirmek.
 
 ### <a name="monitor-azure-resources"></a>Azure kaynaklarını izleme
-[Azure İzleyici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started) Azure kaynakları izlemek için tek bir kaynağı sağlayan hello platform hizmetidir. Azure izleme ile görselleştirme, sorgulama yapabilir, yol, arşiv ve hello ölçümleri ve Azure kaynaklarında'ten gelen günlükleri üzerinde işlem gerçekleştirin. Merhaba İzleyici portal dikey penceresinde, kullanarak bu verilerle çalışma [İzleyici PowerShell cmdlet'leri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples), [platformlar arası CLI](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples), veya [Azure İzleyici REST API'lerini](https://msdn.microsoft.com/library/dn931943.aspx).
+[Azure İzleyici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started) Azure kaynakları izlemek için tek bir kaynak sağlar platform hizmetidir. Azure İzleyici ile Azure’daki kaynaklardan gelen ölçüm ve günlükleri görüntüleyebilir, sorgulayabilir, yönlendirebilir ve bunlar üzerinde işlem yapabilirsiniz. İzleyici portal dikey penceresi, [İzleyici PowerShell Cmdlet’leri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples), [Platformlar Arası CLI](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples) veya [Azure İzleyici REST API’leri](https://msdn.microsoft.com/library/dn931943.aspx) kullanarak bu verilerle çalışabilirsiniz.
 
 ### <a name="enable-autoscale-with-azure-monitor"></a>Otomatik ölçeklendirme ile Azure izleyicisini etkinleştirmek
-Etkinleştirme [Azure İzleyici otomatik ölçeklendirme](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started) yalnızca toovirtual makine ölçekleme kümeleri (VMSS), bulut Hizmetleri, uygulama hizmeti planları ve app service ortamları için geçerlidir.
+Etkinleştirme [Azure İzleyici otomatik ölçeklendirme](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started) yalnızca sanal makine ölçek kümeleri (VMSS), bulut Hizmetleri, uygulama hizmeti planları ve app service ortamları için geçerlidir.
 
 ### <a name="manage-roles-permissions-and-security"></a>Rolleri yönetme izinleri ve güvenlik
-Birçok ekip toostrictly gerek [erişim toomonitoring düzenleyen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security) veriler ve ayarlar. Örneğin, özel olarak (destek mühendisleri, devops mühendisleri) izleme üzerinde çalışan takım üyeleri varsa veya bir yönetilen hizmet sağlayıcısı kullanıyorsanız, bunların özelliği toocreate kısıtlama sırasında izleme verilerini tooonly erişmesine toogrant isteyebilirsiniz değiştirebilir veya kaynakları silin.
+Birçok ekip kesinlikle gerek [izleme erişimi düzenleyen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security) veriler ve ayarlar. Örneğin, özel olarak (destek mühendisleri, devops mühendisleri) izleme üzerinde çalışan takım üyeleri sahipseniz veya bir yönetilen hizmet sağlayıcısı kullanıyorsanız, bunları oluşturmak için kendi yeteneği kısıtlama sırasında yalnızca izleme verilerine erişim vermek isteyebilirsiniz, değiştirmek veya kaynakları silin.
 
-Bu, nasıl tooquickly azure'da yerleşik izleme RBAC rolü tooa kullanıcı uygulamak veya kendi özel rol sınırlı izleme izinleri gereken kullanıcılar için yapı gösterir. Ardından Azure İzleyici ilgili kaynaklarınız için güvenlik konuları açıklanır ve erişim toohello verileri sınırlayabilirsiniz nasıl içerirler.
+Bu hızlı bir şekilde bir kullanıcı Azure içinde yerleşik bir izleme RBAC rolü uygulamak veya kendi özel rol sınırlı izleme izinleri gereken kullanıcılar için yapı gösterilmektedir. Ardından Azure İzleyicisi ile ilgili kaynaklarınızın ve içerdikleri verilere erişimin nasıl sınırlandırmak için güvenlik konuları ele alınmıştır.
 
-## <a name="prevent-detect-and-respond-toothreats"></a>Engellemenize, algılamanıza ve toothreats yanıt
-Güvenlik Merkezi tehdit algılaması Azure kaynaklarını, hello ağ ve bağlı iş ortağı çözümlerinden güvenlik bilgileri otomatik olarak toplayarak çalışır. Bu, genellikle birden fazla kaynaktan tooidentify tehditleri bilgileri ilişkilendirerek, bu bilgileri analizleri yaparken. Güvenlik uyarıları nasıl tooremediate hello tehdit ilişkin öneriler birlikte Güvenlik Merkezi'nde önceliklendirilir.
+## <a name="prevent-detect-and-respond-to-threats"></a>Engellemenize, algılamanıza ve tehditlerine karşı yanıt
+Güvenlik Merkezi tehdit algılaması Azure kaynakları, ağ ve bağlı iş ortağı çözümlerinden güvenlik bilgileri otomatik olarak toplayarak çalışır. Bu, genellikle tehditleri tanımlamak için birden fazla kaynaktan bilgileri ilişkilendirerek, bu bilgileri analizleri yaparken. Güvenlik uyarıları, Güvenlik Merkezi’nde tehdidin nasıl düzeltileceğine ilişkin önerilerle birlikte öncelik sırasına koyulur.
 
 -   [Güvenlik ilkesini yapılandırma](https://docs.microsoft.com/azure/security-center/security-center-policies) Azure aboneliğiniz için.
--   Kullanım hello [Güvenlik Merkezi'nde öneriler](https://docs.microsoft.com/azure/security-center/security-center-recommendations) Azure kaynaklarınızı korumak toohelp.
+-   Kullanım [Güvenlik Merkezi'nde öneriler](https://docs.microsoft.com/azure/security-center/security-center-recommendations) Azure kaynaklarınızı korumanıza yardımcı olmak için.
 -   Gözden geçirin ve geçerli yönetmek [güvenlik uyarıları](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts).
 
-[Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/security-center-intro) hello Azure kaynaklarınızın güvenlik engellemek, algılamak, artırılmış görünürlük aracılığı ile toothreats yanıt ve üzerinden denetlemesine yardımcı olur. Aboneliklerinizde, tümleşik güvenlik izleme ve ilke yönetimi sağlar; normal koşullarda gözden kaçabilecek tehditleri algılamaya yardımcı olur ve güvenlik çözümlerinin geniş ekosistemiyle çalışır.
+[Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/security-center-intro), Azure kaynaklarınızın güvenliğine yönelik artırılmış görünürlük ve denetim yoluyla tehditleri engellemenize, algılamanıza ve yanıtlamanıza yardımcı olur. Aboneliklerinizde, tümleşik güvenlik izleme ve ilke yönetimi sağlar; normal koşullarda gözden kaçabilecek tehditleri algılamaya yardımcı olur ve güvenlik çözümlerinin geniş ekosistemiyle çalışır.
 
-Güvenlik Merkezi, kullanımı kolay ve etkili tehdit tooAzure içinde yerleşik olan önleme, saptama ve yanıt özellikleri sağlar. Temel işlevler şunlardır:
+Güvenlik Merkezi, Azure'da yerleşik olan kullanımı kolay ve etkili tehdit önleme, saptama ve yanıtlama işlevlerini sunar. Temel işlevler şunlardır:
 
 -   Bulut güvenlik durumu anlama
 -   Bulut güvenliğinin denetimini elinize alın
@@ -136,43 +136,43 @@ Güvenlik Merkezi, kullanımı kolay ve etkili tehdit tooAzure içinde yerleşik
 -   Tehditleri algılayın ve hızlı yanıt verin
 
 ### <a name="understand-cloud-security-state"></a>Bulut güvenlik durumu anlama
-Azure Güvenlik Merkezi'ni kullanın tooget tüm Azure kaynaklarınızı hello güvenlik durumunun merkezi bir görünüm. Bir bakışta hello uygun güvenlik denetimleri yerinde olduğundan ve doğru yapılandırılmış ve dikkat gerektiren tüm kaynaklar hızlı bir şekilde tanımlamak doğrulayın.
+Azure Güvenlik Merkezi’ni kullanarak tüm Azure kaynaklarınızın güvenlik durumuna ilişkin genel bir görünüm elde edin. Bir bakışta uygun güvenlik denetimleri yerinde olduğundan ve doğru şekilde yapılandırıldığını doğrulayın ve dikkat gerektiren tüm kaynaklar hızlı bir şekilde tanımlar.
 
 ### <a name="take-control-of-cloud-security"></a>Bulut güvenliğinin denetimini elinize alın
-Tanımlamak [güvenlik ilkeleri](https://docs.microsoft.com/azure/security-center/security-center-policies) tooyour şirket göre Azure aboneliklerinize bulut güvenlik ihtiyaçlarını, uygulamaların toohello türü veya hello veri duyarlılığını her abonelik için özel olarak hazırlanmış kullanıcının. İlke temelli önerileri tooguide kaynak sahiplerine hello süreci gerekli denetimleri uygulama kullanmak — hello konusunda güvenilir bilgiler bulut güvenlik dışında alın.
+Tanımlamak [güvenlik ilkeleri](https://docs.microsoft.com/azure/security-center/security-center-policies) şirketinizin bulut güvenlik gereksinimlerine göre Azure aboneliklerinize için uyarlanmış uygulamaların türüne ya da her Abonelikteki verilerin duyarlılığına. Kaynak sahiplerine gerekli denetimleri uygulama sürecinde rehberlik sağlamak üzere ilke odaklı öneriler kullanarak bulut güvenliğinde tahmine yer bırakmayın.
 
 ### <a name="easily-deploy-integrated-cloud-security-solutions"></a>Tümleşik bulut güvenliği çözümlerini kolayca dağıtın
-[Güvenlik çözümlerle](https://docs.microsoft.com/azure/security-center/security-center-partner-integration) Microsoft ve onun ortakları, endüstri lideri güvenlik duvarları ve kötü amaçlı yazılımdan koruma dahil olmak üzere. Kullanım hızlandırıldı sağlama toodeploy güvenlik çözümleri — bile ağ değişiklikleri sizin için yapılandırılır. İş ortaklarının çözümlerinden alınan güvenlik olaylarınız, analiz ve uyarı amacıyla otomatik olarak toplanır.
+[Güvenlik çözümlerle](https://docs.microsoft.com/azure/security-center/security-center-partner-integration) Microsoft ve onun ortakları, endüstri lideri güvenlik duvarları ve kötü amaçlı yazılımdan koruma dahil olmak üzere. Güvenlik çözümleri dağıtmak için basitleştirilmiş hazırlamadan yararlanın; ağ değişiklikleri bile sizin için yapılandırılır. İş ortaklarının çözümlerinden alınan güvenlik olaylarınız, analiz ve uyarı amacıyla otomatik olarak toplanır.
 
 ### <a name="detect-threats-and-respond-fast"></a>Tehditleri algılayın ve hızlı yanıt verin
-Tümleşik ve analiz odaklı bir yaklaşımla mevcut ve gelişmekte olan bulut tehditlerinin önüne geçin. Microsoft Genel birleştirerek [tehdit Intelligence](https://docs.microsoft.com/azure/security-center/security-center-detection-capabilities) ve uzmanlık Öngörüler ile bulut güvenlikle ilgili olayları, Azure dağıtımlar arasında Güvenlik Merkezi, gerçek tehditleri erken algılamak ve hatalı pozitif sonuçları azaltmak yardımcı olur. Bulut güvenlik uyarıları hello saldırı kampanya ilgili olaylar ve etkilenen kaynakları da dahil olmak üzere, fikir vermek ve tooremediate sorunları ve hızlı bir şekilde kurtarmak yöntemler önerir.
+Tümleşik ve analiz odaklı bir yaklaşımla mevcut ve gelişmekte olan bulut tehditlerinin önüne geçin. Microsoft Genel birleştirerek [tehdit Intelligence](https://docs.microsoft.com/azure/security-center/security-center-detection-capabilities) ve uzmanlık Öngörüler ile bulut güvenlikle ilgili olayları, Azure dağıtımlar arasında Güvenlik Merkezi, gerçek tehditleri erken algılamak ve hatalı pozitif sonuçları azaltmak yardımcı olur. Bulut güvenlik uyarıları ilgili olaylar ve etkilenen kaynakları da dahil olmak üzere saldırı kampanya Öngörüler verin ve sorunları çözmek ve hızlı bir şekilde kurtarmak için yöntemler önerir.
 
 ## <a name="end-to-end-scenario-based-network-monitoring"></a>Uçtan uca senaryo tabanlı ağ izleme
-Müşterilerin bir uçtan uca ağ Azure VNet, ExpressRoute, uygulama ağ geçidi, yük Dengeleyiciler ve daha fazlasını gibi çeşitli tek tek ağ kaynaklarına oluşturma ve yönetme tarafından oluşturun. İzleme her hello ağ kaynaklarına kullanılabilir.
+Müşterilerin bir uçtan uca ağ Azure VNet, ExpressRoute, uygulama ağ geçidi, yük Dengeleyiciler ve daha fazlasını gibi çeşitli tek tek ağ kaynaklarına oluşturma ve yönetme tarafından oluşturun. İzleme kaynakların her biri ağ üzerinde kullanılabilir.
 
-[Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) koşullar içinde için ve azure'dan ağ senaryo düzeydeki tanılama ve toomonitor sağlayan bölgesel bir hizmettir. Ağ Tanılama ve görselleştirme Ağ İzleyicisi ile kullanılabilen araçlar anlamak, tanılama ve Öngörüler tooyour Azure ağında geçirmesine yardımcı olur.
+[Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) izlemek ve bir ağ senaryosunda, koşullar tanılamak olanak tanıyan bir bölgesel düzeyde, için ve Azure hizmetidir. Ağ Tanılama ve görselleştirme Ağ İzleyicisi ile kullanılabilen araçlar anlamak, tanılama ve Azure ağınızdaki serisidir yardımcı olur.
 
 ### <a name="automate-remote-network-monitoring-with-packet-capture"></a>Paket yakalama ile uzaktan ağ izlemeyi otomatikleştirin
-Tooyour Sanal Ağ İzleyicisi'ni kullanarak makineleri (VM'ler) oturum olmadan ağ sorunlarını tanılamak ve izleyin. Tetikleyici [paket yakalama](https://docs.microsoft.com/azure/network-watcher/network-watcher-alert-triggered-packet-capture) göre uyarıları ayarlama ve erişimi tooreal zamanı performans bilgileri hello paket düzeyinde geçirmesine. Bir sorunla karşılaştığınızda, daha iyi tanılama için ayrıntılı olarak inceleme yapabilirsiniz.
+Ağ İzleyicisi aracılığıyla sanal makinelerinizde (VM’ler) oturum açmak zorunda kalmadan ağ sorunlarını izleyin ve tanılayın. Tetikleyici [paket yakalama](https://docs.microsoft.com/azure/network-watcher/network-watcher-alert-triggered-packet-capture) göre uyarıları ayarlama ve gerçek zamanlı performans bilgilerini paket düzeyinde erişim sahibi olursunuz. Bir sorunla karşılaştığınızda, daha iyi tanılama için ayrıntılı olarak inceleme yapabilirsiniz.
 
 ### <a name="gain-insight-into-your-network-traffic-using-flow-logs"></a>Akış günlüklerini kullanarak ağ trafiğiniz hakkında ayrıntılı bilgi edinin
 Ağ trafiği düzeni kullanarak, daha derin bir anlayış oluşturmak [ağ güvenlik grubu akış günlükleri](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Akış günlükleri tarafından sağlanan bilgiler, Denetim ve ağ güvenlik profili izleme uyumluluk için veri toplayacak yardımcı olur.
 
 ### <a name="diagnose-vpn-connectivity-issues"></a>VPN bağlantısıyla ilgili sorunları tanılayın
-Ağ İzleyicisi sağlar, hello özelliği çok[VPN ağ geçidi ve ağ bağlantıları, en sık karşılaşılan sorunları tanılamak](https://docs.microsoft.com/azure/network-watcher/network-watcher-diagnose-on-premises-connectivity). Yalnızca tooidentify hello sorunu aynı zamanda toouse izin vererek hello oluşturulan toohelp daha fazla araştırmak günlükleri ayrıntılı.
+Ağ İzleyicisi yeteneği sağlar [VPN ağ geçidi ve ağ bağlantıları, en sık karşılaşılan sorunları tanılamak](https://docs.microsoft.com/azure/network-watcher/network-watcher-diagnose-on-premises-connectivity). Yalnızca sorunu belirlemek için aynı zamanda daha fazla araştırmak yardımcı olmak için oluşturulan ayrıntılı günlükler kullanmak için izin verme.
 
-toolearn nasıl hakkında daha fazla tooconfigure Ağ İzleyicisi'ni ve nasıl tooenable, hello makalesini okuyun [Ağ İzleyicisi'ni yapılandırma](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
+Ağ İzleyicisi'ni yapılandırmak ve etkinleştirmek hakkında daha fazla bilgi için lütfen makaleyi okuyun [Ağ İzleyicisi'ni yapılandırma](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
 
 ## <a name="secure-deployment-using-proven-devops-tools"></a>Güvenli dağıtım başarısı kanıtlanmış DevOps araçlarını kullanma
-Bunlar, hello listesi, Azure DevOps yöntemler kuruluşlar ve ekipleri ve verimli hale getirir Microsoft Cloud alanındaki bazılarıdır.
+Bu liste, Azure DevOps uygulamalarının kuruluşlar ve ekipleri ve verimli hale getirir Microsoft Cloud alanındaki bazılarıdır.
 
--   **Kod (IaC) olarak altyapı:** kod olarak altyapı teknikleri kümesidir ve BT uzmanlarının yardımcı yöntemler hello gün tooday yapı ve modüler altyapısının yönetim ilişkili hello yük kaldırın. BT uzmanları toobuild sağlar ve modern sunucu ortamlarında nasıl geliştiricilerine oluşturmak ve uygulama kodu korumak gibi bir yol sağlamak. Azure için sahip olduğumuz [Azure Resource Manager]( https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) bildirim temelli bir şablon kullanarak uygulamalarınızı tooprovision izin verir. Tek bir şablonda birden çok hizmeti bağımlılıklarıyla birlikte dağıtabilirsiniz. Merhaba kullandığınız aynı şablon toorepeatedly hello uygulama yaşam döngüsünün her aşaması sırasında uygulamanızı dağıtın.
--   **Sürekli tümleştirme ve dağıtım:** Visual Studio Online takım projeleriniz çok yapılandırabilirsiniz[otomatik olarak oluşturma ve dağıtma](https://www.visualstudio.com/docs/build/overview) tooAzure web uygulamaları veya Bulut hizmetlerini. VSO kodu her iade sonra yapı tooAzure yaptıktan sonra hello ikili dosyaları otomatik olarak dağıtır. Merhaba paket oluşturma işlemi burada açıklanan eşdeğer toohello paket komut Visual Studio'da, ve hello yayımlama eşdeğer toohello Yayımla komutunu Visual Studio'da adımlardır.
--   **Yayın Yönetimi:** Visual Studio [yayın Yönetimi](https://msdn.microsoft.com/library/vs/alm/release/overview) çok aşamalı dağıtımı otomatikleştirme ve hello yönetme işlemi yayın için harika bir çözümdür. Yönetilen sürekli dağıtım ardışık düzen toorelease hızlı, kolay ve genellikle oluşturun. Sürüm yönetimi ile biz çok bizim yayın süreci otomatik hale getirebilirsiniz ve biz onay iş akışları önceden. Şirket içi ve toohello dağıtmak bulut, genişletme ve gerektiği gibi özelleştirin.
--   **Uygulama performansı izleme:** sorunları algılamak, sorunları çözmek ve uygulamanızı sürekli geliştirin. Canlı uygulamanızdaki sorunları hemen tanılayın. Kullanıcılarınızın bununla neler yaptığını anlayın. Yapılandırma JS kod ve webconfig girişi ekleme kolay konudur ve tüm hello ayrıntılarla hello portalında dakika içinde sonuçlarını görebilirsiniz. [App ınsights](https://azure.microsoft.com/documentation/articles/app-insights-start-monitoring-app-health-usage/) kuruluşlar sorunları & düzeltme daha hızlı algılanması için yardımcı olur.
--   **Test & otomatik ölçeklendirme yük:** bizim uygulama tooimprove dağıtım kalite ve toomake uygulamamıza olduğundan her zaman yukarı veya kullanılabilir toocater toohello iş gereksinimlerini emin biz performans sorunlarını bulabilirsiniz. Uygulamanızı bir sonraki başlatma veya pazarlama kampanyanızı için trafiği işleyebilir emin olun. Bulut tabanlı çalıştırma başlatın [yük testleri](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) Visual Studio Online ile neredeyse hiçbir zaman.
+-   **Kod (IaC) olarak altyapı:** kod olarak altyapı teknikleri kümesidir ve BT uzmanlarının yardımcı yöntemler modüler altyapısının yönetim ve günlük yapı ile ilişkili yük kaldırın. BT uzmanlarının oluşturmasına ve bunların nasıl geliştiricilerine oluşturmasına ve uygulama kodu korumasına gibi olacak şekilde modern sunucu ortamında korumasına olanak tanır. Azure için sahip olduğumuz [Azure Resource Manager]( https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) , bildirim temelli bir şablon kullanarak uygulamalarınızı sağlamanıza izin verir. Tek bir şablonda birden çok hizmeti bağımlılıklarıyla birlikte dağıtabilirsiniz. Uygulama yaşam döngüsünün her aşamasında uygulamanızı tekrar tekrar dağıtmak için aynı şablonu kullanırsınız.
+-   **Sürekli tümleştirme ve dağıtım:** Visual Studio Online takım projeleriniz yapılandırabilirsiniz [otomatik olarak oluşturma ve dağıtma](https://www.visualstudio.com/docs/build/overview) Azure web uygulamaları veya Bulut Hizmetleri. VSO kodu her iade sonra bir yapı için Azure yaptıktan sonra ikili dosyaları otomatik olarak dağıtır. Burada açıklanan paket oluşturma işlemi, Visual Studio Paketi komutu eşdeğerdir ve yayımlama adımlarını Visual Studio'da Yayımla komutunu eşdeğerdir.
+-   **Yayın Yönetimi:** Visual Studio [yayın Yönetimi](https://msdn.microsoft.com/library/vs/alm/release/overview) çok aşamalı dağıtımı otomatikleştirme ve yayın işlemini yönetmek için harika bir çözümdür. Hızlı, kolay ve genellikle yayımlamayı yönetilen sürekli dağıtım komut zincirleri oluşturun. Sürüm yönetimi ile biz çok bizim yayın süreci otomatik hale getirebilirsiniz ve biz onay iş akışları önceden. Şirket içi dağıtma buluta genişletmek ve gerektiği gibi özelleştirin.
+-   **Uygulama performansı izleme:** sorunları algılamak, sorunları çözmek ve uygulamanızı sürekli geliştirin. Canlı uygulamanızdaki sorunları hemen tanılayın. Kullanıcılarınızın bununla neler yaptığını anlayın. Yapılandırma JS kod ve webconfig girişi ekleme kolay konudur ve tüm ayrıntılar portalıyla dakika içinde sonuçlarını görebilirsiniz. [App ınsights](https://azure.microsoft.com/documentation/articles/app-insights-start-monitoring-app-health-usage/) kuruluşlar sorunları & düzeltme daha hızlı algılanması için yardımcı olur.
+-   **Test & otomatik ölçeklendirme yük:** performans sorunlarını dağıtım kalitesini artırmak için uygulamamıza bulabilirsiniz ve uygulamamıza her zaman yukarı ya da iş gereksinimini karşılamak kullanılabilir olduğundan emin olmak için gerekir. Uygulamanızı bir sonraki başlatma veya pazarlama kampanyanızı için trafiği işleyebilir emin olun. Bulut tabanlı çalıştırma başlatın [yük testleri](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) Visual Studio Online ile neredeyse hiçbir zaman.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Daha fazla bilgi edinmek [Azure işletimsel güvenlik](https://docs.microsoft.com/azure/security/azure-operational-security).
-- Daha fazla tooLearn [Operations Management Suite | Güvenlik ve Uyumluluk](https://www.microsoft.com/cloud-platform/security-and-compliance).
+- Daha fazla bilgi için [Operations Management Suite | Güvenlik ve Uyumluluk](https://www.microsoft.com/cloud-platform/security-and-compliance).
 - [Operations Management Suite güvenlik ve denetim çözümü ile çalışmaya başlama](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started).

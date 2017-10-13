@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile Zscaler bir | Microsoft Docs"
-description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile Zscaler bir arasında."
+description: "Çoklu oturum açma arasındaki Azure Active Directory Zscaler bir yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,110 +13,110 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 5179cb2cc54482334d574951a1ac64e722e5f578
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7d655c482a16c991a819eec84c84556d2f288a75
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>Öğretici: Azure Active Directory Tümleştirme ile Zscaler bir
 
-Bu öğreticide, bilgi nasıl toointegrate Zscaler bir Azure Active Directory'ye (Azure AD).
+Bu öğreticide, Zscaler bir Azure Active Directory (Azure AD) ile tümleştirme öğrenin.
 
-Zscaler bir Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
+Zscaler bir Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Erişim tooZscaler biri olan Azure AD'de kontrol edebilirsiniz
-- Kullanıcıların tooautomatically get açan tooZscaler biri (çoklu oturum açma) Azure AD hesaplarına sahip etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir
+- Zscaler bir erişimi, Azure AD'de kontrol edebilirsiniz
+- Azure AD hesaplarına otomatik olarak Zscaler bir için (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-tooconfigure Zscaler bir ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
+Azure AD tümleştirme Zscaler bir ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
 - Bir Zscaler bir çoklu oturum açma abonelik etkin
 
 > [!NOTE]
-> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
+Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
 - Bir Azure AD deneme ortam yoksa, burada bir aylık deneme elde edebilirsiniz: [deneme teklifi](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
-1. Zscaler bir hello Galerisi'nden ekleme
+1. Galeriden Zscaler bir ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-zscaler-one-from-hello-gallery"></a>Zscaler bir hello Galerisi'nden ekleme
-Azure AD'ye tooconfigure hello tümleştirme, Zscaler bir hello galeri tooyour yönetilen SaaS uygulamaları listesinden Zscaler bir tooadd gerekir.
+## <a name="adding-zscaler-one-from-the-gallery"></a>Galeriden Zscaler bir ekleme
+Tümleştirmesini Zscaler bir Azure AD'ye yapılandırmak için Zscaler bir Galeriden yönetilen SaaS uygulamaları listenize eklemeniz gerekir.
 
-**tooadd Zscaler bir hello galerisinden hello aşağıdaki adımları gerçekleştirin:**
+**Galeriden Zscaler bir eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba,  **[Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. tooadd yeni uygulama tıklatın **yeni uygulama** iletişim hello üstte düğmesi.
+3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
     ![Uygulamalar][3]
 
-4. Merhaba arama kutusuna yazın **Zscaler bir**.
+4. Arama kutusuna **Zscaler bir**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-zscaler-one-tutorial/tutorial_zscalerone_search.png)
 
-5. Merhaba Sonuçlar panelinde seçin **Zscaler bir**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
+5. Sonuçlar panelinde seçin **Zscaler bir**ve ardından **Ekle** uygulama eklemek için düğmesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-zscaler-one-tutorial/tutorial_zscalerone_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Zscaler "Britta Simon" adlı bir test kullanıcı tabanlı bir test.
 
-Tek toowork'ın oturum açma hangi hello karşılık gelen Zscaler bir içinde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının ve hello ilgili kullanıcı Zscaler bir arasında bir bağlantı ilişkisi kurulan toobe gerekir.
+Tekli çalışmaya oturum için Azure AD Zscaler bir karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ve ilgili kullanıcı Zscaler bir arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Bir Zscaler içinde hello hello değerini atayın **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** tooestablish hello bağlantı ilişkisi.
+Bir Zscaler içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
 
-tooconfigure ve Zscaler bir ile Azure AD çoklu oturum açmayı test, yapı taşları aşağıdaki toocomplete hello gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma ile Zscaler bir test etmek için aşağıdaki yapı taşları tamamlanması gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  -tooenable kullanıcılar toouse bu özellik.
-2. **[Proxy ayarlarını yapılandırma](#configuring-proxy-settings)**  -tooconfigure hello Internet Explorer proxy ayarları
-3. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  -tootest Azure AD çoklu oturum açma Britta Simon ile.
-4. **[Zscaler bir test kullanıcısı oluşturma](#creating-a-zscaler-one-test-user)**  -toohave Britta Simon Zscaler bağlantılı toohello Azure AD kullanıcı gösterimi olan bir içinde karşılık gelen.
-5. **[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user)**  -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
-6. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  -tooverify olup hello yapılandırma çalışır.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Proxy ayarlarını yapılandırma](#configuring-proxy-settings)**  - Internet Explorer proxy ayarlarını yapılandırmak için
+3. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+4. **[Zscaler bir test kullanıcısı oluşturma](#creating-a-zscaler-one-test-user)**  - Zscaler kullanıcı Azure AD gösterimini bağlantılı bir Britta Simon, karşılık gelen sağlamak için.
+5. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+6. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma Zscaler bir uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Zscaler bir uygulamanızda yapılandırın.
 
-**tooconfigure Azure AD çoklu oturum açma ile Zscaler bir hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma Zscaler bir ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello hello üzerinde Azure portal'ın **Zscaler bir** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **Zscaler bir** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Merhaba üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
+2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-zscaler-one-tutorial/tutorial_zscalerone_samlbase.png)
 
-3. Merhaba üzerinde **Zscaler bir etki alanı ve URL'leri** bölümünde, hello aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **Zscaler bir etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-zscaler-one-tutorial/tutorial_zscalerone_url.png)
 
-    Merhaba oturum açma URL'si metin kutusuna, kullanıcıların toosign üzerinde tooyour tarafından Zscaler bir uygulama kullanılan hello URL'sini yazın.
+    Oturum açma URL'si metin kutusuna, kullanıcılarınıza oturum açma Zscaler bir uygulamanız tarafından kullanılan URL'yi yazın.
 
     > [!NOTE] 
-    > Bu değeri hello ile tooupdate sahip gerçek oturum açma URL'si. Kişi [Zscaler bir istemci destek ekibi](https://www.zscaler.com/company/contact) tooget bu değerleri.
+    > Bu değer gerçek oturum açma URL'si ile güncelleştirmeniz gerekir. Kişi [Zscaler bir istemci destek ekibi](https://www.zscaler.com/company/contact) bu değerleri almak için.
 
-4. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve hello sertifika dosyayı bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-zscaler-one-tutorial/tutorial_zscalerone_certificate.png) 
 
@@ -124,13 +124,13 @@ Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-zscaler-one-tutorial/tutorial_general_400.png)
 
-6. Merhaba üzerinde **Zscaler bir yapılandırma** 'yi tıklatın **Zscaler bir yapılandırma** tooopen **yapılandırma oturum açma** penceresi. Kopya hello **SAML çoklu oturum açma hizmet URL'si** hello gelen **hızlı başvuru bölümü.**
+6. Üzerinde **Zscaler bir yapılandırma** 'yi tıklatın **Zscaler bir yapılandırma** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-zscaler-one-tutorial/tutorial_zscalerone_configure.png) 
 
-7. Farklı web tarayıcısı penceresinde tooyour Zscaler bir şirket sitede yönetici olarak oturum açın.
+7. Farklı web tarayıcısı penceresinde Zscaler bir şirket sitenize yönetici olarak oturum açın.
 
-8. Hello içinde hello üst menüsünde **Yönetim**.
+8. Üstteki menüde tıklatın **Yönetim**.
    
     ![Yönetim](./media/active-directory-saas-zscaler-one-tutorial/ic800206.png "Yönetim")
 
@@ -138,7 +138,7 @@ Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin
             
     ![Kullanıcıların & kimlik doğrulaması Yönet](./media/active-directory-saas-zscaler-one-tutorial/ic800207.png "kullanıcılar & kimlik doğrulaması Yönet")
 
-10. Merhaba, **, kuruluşunuz için kimlik doğrulama seçeneklerini seçin** bölümünde, hello aşağıdaki adımları gerçekleştirin:   
+10. İçinde **, kuruluşunuz için kimlik doğrulama seçeneklerini seçin** bölümünde, aşağıdaki adımları gerçekleştirin:   
                 
     ![Kimlik doğrulama](./media/active-directory-saas-zscaler-one-tutorial/ic800208.png "kimlik doğrulaması")
    
@@ -146,19 +146,19 @@ Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin
 
     b. Tıklatın **SAML çoklu oturum açma parametreleri**.
 
-11. Merhaba üzerinde **yapılandırma SAML çoklu oturum açma parametreleri** iletişim sayfa hello aşağıdaki adımları gerçekleştirin ve ardından **bitti**
+11. Üzerinde **yapılandırma SAML çoklu oturum açma parametreleri** iletişim sayfasında, aşağıdaki adımları uygulayın ve ardından **bitti**
 
     ![Çoklu oturum açma](./media/active-directory-saas-zscaler-one-tutorial/ic800209.png "çoklu oturum açma")
     
-    a. Yapıştır hello **SAML çoklu oturum açma hizmet URL'si** hello hello Azure portal ' kopyaladığınız değeri **URL hello SAML Portal toowhich kullanıcıların kimlik doğrulaması için gönderilen** metin kutusu.
+    a. Yapıştır **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyaladığınız değeri **için kullanıcıların kimlik doğrulaması için gönderilir SAML portalın URL'sini** metin kutusu.
     
-    b. Merhaba, **özniteliği oturum açma adını içeren** metin kutusuna, türü **NameID**.
+    b. İçinde **özniteliği oturum açma adını içeren** metin kutusuna, türü **NameID**.
     
-    c. tooupload indirilen sertifikanızı tıklatın **Zscaler pem**.
+    c. İndirilen sertifikanızı karşıya yüklemek için tıklayın **Zscaler pem**.
     
     d. Seçin **SAML otomatik sağlamayı etkinleştir**.
 
-12. Merhaba üzerinde **kullanıcı kimlik doğrulaması yapılandırma** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
+12. Üzerinde **kullanıcı kimlik doğrulaması yapılandırma** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
 
     ![Yönetim](./media/active-directory-saas-zscaler-one-tutorial/ic800210.png "Yönetim")
     
@@ -167,78 +167,78 @@ Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin
     b. Tıklatın **şimdi etkinleştirmek**.
 
 ## <a name="configuring-proxy-settings"></a>Proxy ayarlarını yapılandırma
-### <a name="tooconfigure-hello-proxy-settings-in-internet-explorer"></a>Internet Explorer'da tooconfigure hello proxy ayarları
+### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Internet Explorer proxy ayarlarını yapılandırmak için
 
 1. Başlat **Internet Explorer**.
 
-2. Seçin **Internet Seçenekleri** hello gelen **Araçları** açık hello menüsüne **Internet Seçenekleri** iletişim.   
+2. Seçin **Internet Seçenekleri** gelen **Araçları** açılan menü **Internet Seçenekleri** iletişim.   
     
      ![Internet Seçenekleri](./media/active-directory-saas-zscaler-one-tutorial/ic769492.png "Internet Seçenekleri")
 
-3. Merhaba tıklatın **bağlantıları** sekmesi.   
+3. Tıklatın **bağlantıları** sekmesi.   
   
      ![Bağlantıları](./media/active-directory-saas-zscaler-one-tutorial/ic769493.png "bağlantıları")
 
-4. Tıklatın **LAN Ayarları** tooopen hello **LAN Ayarları** iletişim.
+4. Tıklatın **LAN Ayarları** açmak için **LAN Ayarları** iletişim.
 
-5. Hello Proxy sunucu bölümüne, hello aşağıdaki adımları gerçekleştirin:   
+5. Proxy sunucu bölümünde, aşağıdaki adımları gerçekleştirin:   
    
     ![Proxy sunucusu](./media/active-directory-saas-zscaler-one-tutorial/ic769494.png "Proxy sunucusu")
 
     a. Seçin **AĞINIZ için bir proxy sunucusu kullan**.
 
-    b. Başlangıç adresi metin kutusuna yazın **gateway.zscalerone.net**.
+    b. Adresi metin kutusuna yazın **gateway.zscalerone.net**.
 
-    c. Başlangıç bağlantı noktası metin kutusuna yazın **80**.
+    c. Bağlantı noktası metin kutusuna yazın **80**.
 
     d. Seçin **yerel adresler için proxy sunucuyu atla**.
 
-    e. Tıklatın **Tamam** tooclose hello **yerel ağ (LAN) ayarları** iletişim.
+    e. Tıklatın **Tamam** kapatmak için **yerel ağ (LAN) ayarları** iletişim.
 
-6. Tıklatın **Tamam** tooclose hello **Internet Seçenekleri** iletişim.
+6. Tıklatın **Tamam** kapatmak için **Internet Seçenekleri** iletişim.
 
 > [!TIP]
-> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere  **Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-zscaler-one-tutorial/create_aaduser_01.png) 
 
-2. Kullanıcılar, toodisplay hello listesi gidin çok**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-zscaler-one-tutorial/create_aaduser_02.png) 
 
-3. tooopen hello **kullanıcı** iletişim kutusunda, tıklatın **Ekle** hello üstteki hello iletişim.
+3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-zscaler-one-tutorial/create_aaduser_03.png) 
 
-4. Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-zscaler-one-tutorial/create_aaduser_04.png) 
 
-    a. Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
 
-    b. Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
 
-    c. Seçin **Göster parola** ve hello hello değerini yazma **parola**.
+    c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**'a tıklayın.
  
 ### <a name="creating-a-zscaler-one-test-user"></a>Zscaler bir test kullanıcısı oluşturma
 
-tooenable Azure AD kullanıcıların toolog tooZscaler biri, sağlanan tooZscaler biri olması gerekir. Merhaba Zscaler bir içinde sağlama el ile bir görev durumudur.
+Azure AD kullanıcılarının Zscaler bir oturum açmayı etkinleştirmek için bunlar Zscaler bir sağlanmalıdır. Bir Zscaler söz konusu olduğunda sağlama bir el ile bir görevdir.
 
-### <a name="tooconfigure-user-provisioning-perform-hello-following-steps"></a>tooconfigure kullanıcı hazırlama, hello aşağıdaki adımları gerçekleştirin:
+### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Kullanıcı sağlamayı yapılandırmak için aşağıdaki adımları gerçekleştirin:
 
-1. İçinde tooyour oturum **Zscaler bir** Kiracı.
+1. Oturum, **Zscaler bir** Kiracı.
 
 2. Tıklatın **Yönetim**.   
    
@@ -248,38 +248,38 @@ tooenable Azure AD kullanıcıların toolog tooZscaler biri, sağlanan tooZscale
         
      ![Ekleme](./media/active-directory-saas-zscaler-one-tutorial/ic781036.png "ekleme")
 
-4. Merhaba, **kullanıcılar** sekmesini tıklatın, **Ekle**.
+4. İçinde **kullanıcılar** sekmesini tıklatın, **Ekle**.
       
     ![Ekleme](./media/active-directory-saas-zscaler-one-tutorial/ic781037.png "ekleme")
 
-5. Hello kullanıcı ekle bölümü, hello aşağıdaki adımları gerçekleştirin:
+5. Kullanıcı Ekle bölümünde, aşağıdaki adımları gerçekleştirin:
         
     ![Kullanıcı ekleme](./media/active-directory-saas-zscaler-one-tutorial/ic781038.png "kullanıcı ekleme")
    
-    a. Türü hello **UserID**, **kullanıcı görünen adı**, **parola**, **parolayı onayla**ve ardından **grupları**ve hello **departmanı** geçerli bir Azure AD hesabının tooprovision istiyor.
+    a. Türü **UserID**, **kullanıcı görünen adı**, **parola**, **parolayı onayla**ve ardından **grupları** ve **departmanı** geçerli bir Azure AD hesabının sağlamak istediğiniz.
 
     b. **Kaydet** düğmesine tıklayın.
 
 > [!NOTE]
-> API'leri, Azure AD kullanıcı hesapları Zscaler bir tooprovision tarafından sağlanan veya herhangi diğer Zscaler bir kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz.
+> Azure AD kullanıcı hesaplarını sağlamak için herhangi bir Zscaler bir kullanıcı hesabı oluşturma araçlarını veya Zscaler bir tarafından sağlanan API'leri kullanabilirsiniz.
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
 
-Bu bölümde, erişim tooZscaler biri vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
+Bu bölümde, Britta Zscaler bir erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
 ![Kullanıcı atama][200] 
 
-**tooassign Britta Simon tooZscaler bir hello aşağıdaki adımları gerçekleştirin:**
+**Britta Simon Zscaler bir atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Merhaba uygulamalar listesinde **Zscaler bir**.
+2. Uygulamalar listesinde **Zscaler bir**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-zscaler-one-tutorial/tutorial_zscalerone_app.png) 
 
-3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
     ![Kullanıcı atama][202] 
 
@@ -287,7 +287,7 @@ Bu bölümde, erişim tooZscaler biri vererek Britta Simon toouse Azure çoklu o
 
     ![Kullanıcı atama][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -295,14 +295,14 @@ Bu bölümde, erişim tooZscaler biri vererek Britta Simon toouse Azure çoklu o
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Merhaba Zscaler bir hello erişim paneli parçasında tıkladığınızda, otomatik olarak oturum açma tooyour Zscaler bir uygulama almanız gerekir.
-Merhaba erişim paneli hakkında daha fazla bilgi için bkz: [giriş toohello erişim paneli](active-directory-saas-access-panel-introduction.md).
+Erişim panelinde Zscaler bir kutucuğa tıkladığınızda, otomatik olarak Zscaler bir uygulamanız açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->

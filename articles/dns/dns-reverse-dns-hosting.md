@@ -1,6 +1,6 @@
 ---
-title: "aaaHosting Azure DNS'de DNS arama bölgeleri ters | Microsoft Docs"
-description: "Nasıl toouse Azure DNS toohost hello ters DNS arama bölgeleri IP aralıkları için bilgi edinin"
+title: "Azure DNS'de DNS arama bölgeleri ters barındırma | Microsoft Docs"
+description: "Azure DNS geriye doğru DNS arama bölgeleri IP aralıkları için barındırmak için kullanmayı öğrenin"
 services: dns
 documentationcenter: na
 author: jtuliani
@@ -12,49 +12,49 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: jonatul
-ms.openlocfilehash: 24feb8ef1c75a7d91938867f348fed1190046e4e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3e10b25d2f9b91c96af2958fef6dc6a4fdbff301
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="hosting-reverse-dns-lookup-zones-in-azure-dns"></a>Azure DNS geriye doğru DNS araması bölgelerinde barındırma
 
-Bu makalede, nasıl Azure DNS'de, atanan IP aralıkları için DNS arama bölgeleri ters toohost hello açıklanmaktadır. Merhaba geriye doğru arama bölgesi tarafından temsil edilen hello IP aralıkları tooyour kuruluş, genellikle ISS'niz tarafından atanmış olması gerekir.
+Bu makalede, Azure DNS'de, atanan IP aralıkları için geriye doğru DNS arama bölgeleri barındıran açıklanmaktadır. Geriye doğru arama bölgesi tarafından temsil edilen IP aralıkları, kuruluşunuz için genellikle ISS'niz tarafından atanmış olması gerekir.
 
-tooconfigure DNS geriye doğru Azure ait IP adresi atanmış tooyour Azure hizmeti için bkz: [hello geriye doğru arama ayrılan hello IP adreslerini tooyour Azure hizmeti için yapılandırma](dns-reverse-dns-for-azure-services.md).
+Azure Hizmetinize atanmış Azure ait IP adresi için ters DNS yapılandırmak için bkz: [Azure hizmetiniz için ayrılan IP adresleri için geriye doğru arama yapılandırma](dns-reverse-dns-for-azure-services.md).
 
 Bu makalede okumadan önce bu bilgi sahibi olmanız [geriye doğru DNS ve Azure desteği'na genel bakış](dns-reverse-dns-overview.md).
 
-Bu makalede, ilk geriye doğru arama DNS bölgesi ve hello Azure portal, Azure PowerShell, Azure CLI 1.0 veya Azure CLI 2.0 kullanarak kayıt hello adımları toocreate anlatılmaktadır.
+Bu makalede, ilk geriye doğru arama DNS bölgesi oluşturma ve Azure portalı, Azure PowerShell, Azure CLI 1.0 veya Azure CLI 2.0 kullanarak kaydetmek için adımlarda size yol gösterir.
 
 ## <a name="create-a-reverse-lookup-dns-zone"></a>Geriye doğru arama DNS bölgesi oluşturma
 
-1. İçinde toohello oturum [Azure portalı](https://portal.azure.com)
-1. Hello Hub menüsünde, tıklayıp **yeni** > **ağ** > ve ardından **DNS bölgesi** tooopen hello **oluşturma DNS bölgesi**dikey.
+1. Oturum [Azure portalı](https://portal.azure.com)
+1. Hub menüsünde, tıklayıp **yeni** > **ağ** > ve ardından **DNS bölgesi** açmak için **oluşturma DNS bölgesi** Dikey.
 
    ![DNS bölgesi](./media/dns-reverse-dns-hosting/figure1.png)
 
-1. Merhaba üzerinde **oluşturma DNS bölgesi** dikey penceresinde, DNS bölgenizi adı. Merhaba bölgenin Hello adı farklı IPv4 ve IPv6 önekleri için hazırlanmış. Her iki hello talimatlar için kullanması [IPv4](#ipv4) veya [IPv6](#ipv6) tooname bölgenizi. Tıklatın tamamlandığında **oluşturma** toocreate hello bölgesi.
+1. Üzerinde **oluşturma DNS bölgesi** dikey penceresinde, DNS bölgenizi adı. Bölge adı farklı IPv4 ve IPv6 önekleri için hazırlanmış. Her iki yönergelerini kullanın [IPv4](#ipv4) veya [IPv6](#ipv6) bölgenizi adlandırın. Tıklatın tamamlandığında **oluşturma** bölgesi oluşturmak için.
 
 ### <a name="ipv4"></a>IPv4
 
-bir IPv4 geriye doğru arama bölgesi Hello adını temsil ettiği hello IP aralığına dayalıdır. Biçim aşağıdaki hello olmalıdır: `<IPv4 network prefix in reverse order>.in-addr.arpa`. Örnekler için bkz: [geriye doğru DNS ve Azure desteği'na genel bakış](dns-reverse-dns-overview.md#ipv4).
+Bir IPv4 geriye doğru arama bölgesi adı temsil ettiği IP aralığına dayalıdır. Şu biçimde olmalıdır: `<IPv4 network prefix in reverse order>.in-addr.arpa`. Örnekler için bkz: [geriye doğru DNS ve Azure desteği'na genel bakış](dns-reverse-dns-overview.md#ipv4).
 
 > [!NOTE]
-> Azure DNS'de Sınıfsız geriye doğru DNS arama bölgeleri oluştururken, kısa çizgi kullanmanız gerekir (`-`) yerine eğik çizgi ('/ ') hello bölge adı.
+> Azure DNS'de Sınıfsız geriye doğru DNS arama bölgeleri oluştururken, kısa çizgi kullanmanız gerekir (`-`) yerine eğik çizgi ('/ ') bölge adı.
 >
-> Örneğin, hello IP aralığı 192.0.2.128/26 için kullanmanız gerekir `128-26.2.0.192.in-addr.arpa` hello bölge adı yerine olarak `128/26.2.0.192.in-addr.arpa`.
+> Örneğin, IP aralığı 192.0.2.128/26 için kullanmanız gerekir `128-26.2.0.192.in-addr.arpa` yerine bölge adı olarak `128/26.2.0.192.in-addr.arpa`.
 >
-> Her ikisi de hello DNS standartları tarafından desteklenir, ancak hello eğik içeren adlara DNS bölgesi, bunun nedeni (`/`) karakter Azure DNS'de desteklenmiyor.
+> Her ikisi de DNS standartları tarafından desteklenir, ancak eğik içeren adlara DNS bölgesi, bunun nedeni (`/`) karakter Azure DNS'de desteklenmiyor.
 
-Merhaba aşağıdaki örnekte nasıl toocreate 'Sınıfı C' adlı DNS bölgesi ters gösterir `2.0.192.in-addr.arpa` hello Azure Portalı aracılığıyla Azure DNS'de:
+Aşağıdaki örnek adlı bir 'C sınıfı' geriye doğru DNS bölgesi oluşturmak nasıl gösterir `2.0.192.in-addr.arpa` Azure Portalı aracılığıyla Azure DNS'de:
 
  ![DNS bölgesi oluşturma](./media/dns-reverse-dns-hosting/figure2.png)
 
-Merhaba 'Kaynak grubu konumu' hello kaynak grubu için hello konum tanımlar ve hello DNS bölgesi üzerinde hiçbir etkisi olmaz. Merhaba DNS bölgesi konumunu her zaman 'global' dır ve gösterilmiyor.
+'Kaynak grubu konumu' kaynak grubu için konum tanımlar ve DNS bölgesi üzerinde hiçbir etkisi olmaz. DNS bölge konumu her zaman 'global' dır ve gösterilmiyor.
 
-Merhaba aşağıdaki toocomplete bu nasıl görev ile örnekler Azure PowerShell ve Azure CLI hello:
+Aşağıdaki örnekler, Azure PowerShell ve Azure CLI bu görevi tamamlamak nasıl gösterir:
 
 #### <a name="powershell"></a>PowerShell
 
@@ -76,16 +76,16 @@ az network dns zone create -g MyResourceGroup -n 2.0.192.in-addr.arpa
 
 ### <a name="ipv6"></a>IPv6
 
-bir IPv6 geriye doğru arama bölgesi Hello adını form aşağıdaki hello olmalıdır: `<IPv6 network prefix in reverse order>.ip6.arpa`.  Örnekler için bkz: [geriye doğru DNS ve Azure desteği'na genel bakış](dns-reverse-dns-overview.md#ipv6).
+Bir IPv6 geriye doğru arama bölgesi adı şu biçimde olmalıdır: `<IPv6 network prefix in reverse order>.ip6.arpa`.  Örnekler için bkz: [geriye doğru DNS ve Azure desteği'na genel bakış](dns-reverse-dns-overview.md#ipv6).
 
 
-Merhaba aşağıdaki örnekte nasıl toocreate bir IPv6 geriye doğru DNS arama bölgesini adlı gösterir `0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa` hello Azure Portalı aracılığıyla Azure DNS'de:
+Aşağıdaki örnek adlı bir IPv6 geriye doğru DNS arama bölgesi oluşturmak nasıl gösterir `0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa` Azure Portalı aracılığıyla Azure DNS'de:
 
  ![DNS bölgesi oluşturma](./media/dns-reverse-dns-hosting/figure3.png)
 
-Merhaba 'Kaynak grubu konumu' hello kaynak grubu için hello konum tanımlar ve hello DNS bölgesi üzerinde hiçbir etkisi olmaz. Merhaba DNS bölgesi konumunu her zaman 'global' dır ve gösterilmiyor.
+'Kaynak grubu konumu' kaynak grubu için konum tanımlar ve DNS bölgesi üzerinde hiçbir etkisi olmaz. DNS bölge konumu her zaman 'global' dır ve gösterilmiyor.
 
-Merhaba aşağıdaki toocomplete bu nasıl görev ile örnekler Azure PowerShell ve Azure CLI hello:
+Aşağıdaki örnekler, Azure PowerShell ve Azure CLI bu görevi tamamlamak nasıl gösterir:
 
 #### <a name="powershell"></a>PowerShell
 
@@ -107,29 +107,29 @@ az network dns zone create -g MyResourceGroup -n 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2
 
 ## <a name="delegate-a-reverse-dns-lookup-zone"></a>DNS geriye doğru arama bölgesini temsilci seçme
 
-Geriye doğru DNS araması bölgenizi oluşturduktan, hello üst bölgeden hello bölge temsilcisi olmanız gerekir. DNS temsilcisi geriye doğru DNS araması bölgenizi barındırma hello DNS ad çözümleme işlemi toofind hello ad sunucuları sağlar. Bu ad sunucuları tooanswer DNS geriye doğru sorgularını hello IP adreslerinin adres aralığınızı sağlar.
+Geriye doğru DNS araması bölgenizi oluşturduktan, bölge üst bölgeden bir temsilci emin olmalısınız. DNS temsilcisi, geriye doğru DNS arama bölgesini barındıran ad sunucularını bulmak DNS ad çözümleme işlemi sağlar. Bu, adres aralığındaki IP adresleri için geriye doğru DNS sorgularını yanıtlamak bu ad sunucuları sağlar.
 
-Bir DNS bölgesi için temsilci seçme işleminin hello açıklanan ileriye doğru arama bölgeleri için [, etki alanı tooAzure DNS temsilci](dns-delegate-domain-azure-dns.md). Geriye doğru arama bölgeleri için temsilci seçme çalışır hello aynı şekilde. Merhaba yalnızca tooconfigure hello ad sunucuları hello etki alanı adı kayıt şirketiniz yerine IP aralığınızı sağlanan ISS ile gerektiğini farktır.
+Bir DNS bölgesi için temsilci seçme işleminin açıklanan ileriye doğru arama bölgeleri için [etki alanınızı Azure DNS'ye temsilci](dns-delegate-domain-azure-dns.md). Geriye doğru arama bölgeleri için temsilci seçme aynı şekilde çalışır. Tek fark, ad sunucuları, etki alanı adı kayıt yerine IP aralığınızı sağlanan ISS ile yapılandırmanız gerekiyor ' dir.
 
 ## <a name="create-a-dns-ptr-record"></a>Bir DNS PTR kaydı oluştur
 
 ### <a name="ipv4"></a>IPv4
 
-Merhaba aşağıdaki örnek, Azure DNS geriye doğru DNS bölgesinde bir PTR kaydı oluşturma hello işlemi açıklanmaktadır. Diğer kayıt türleri ve toomodify mevcut kayıtları için bkz: [yönetmek DNS kayıtlarını ve kayıt kümelerini kullanarak hello Azure portal](dns-operations-recordsets-portal.md).
+Aşağıdaki örnek, bir geriye doğru DNS bölgesinde Azure DNS PTR kaydı oluşturma işlemi açıklanmaktadır. Diğer kayıt türleri ve var olan kayıtların değiştirilmesi hakkında bilgi için bkz. [Azure portalı kullanarak DNS kayıtlarını ve kayıt kümelerini yönetme](dns-operations-recordsets-portal.md).
 
-1.  Merhaba hello üstündeki **DNS bölgesi** dikey penceresinde, select **+ kayıt kümesine** tooopen hello **kayıt kümesi ekleme** dikey.
+1.  **DNS bölgesi** dikey penceresinin üzerindeki **+ Kayıt kümesi**’ni seçerek **Kayıt kümesi ekle** dikey penceresini açın.
 
  ![DNS bölgesi](./media/dns-reverse-dns-hosting/figure4.png)
 
-1. Merhaba üzerinde **kayıt kümesi ekleme** dikey. 
-1. Seçin **PTR** hello kaydından "**türü**" menüsü.  
-1. Merhaba bir PTR kaydı hello kayıt kümesi adını toobe hello hello IPv4 adresi geri kalanı ters sırada gerekir. Bu örnekte, hello ilk üç sekizlisinin zaten hello bölge adı (.2.0.192) bir parçası olarak doldurulur. Bu nedenle, yalnızca hello son sekizli hello ad alanına sağlanır. Örneğin, kayıt kümenizi adlandırabilirsiniz "**15**", IP adresi 192.0.2.15 olan bir kaynak için.  
-1. Merhaba, "**etki alanı adı**" alanında, hello IP kullanan hello kaynağın hello tam etki alanı adı (FQDN) girin.
-1. Seçin **Tamam** hello altındaki hello dikey toocreate hello DNS kaydı.
+1. Üzerinde **kayıt kümesi ekleme** dikey. 
+1. Seçin **PTR** kayıttan "**türü**" menüsü.  
+1. Kayıt için bir PTR kayıt kümesi adını IPv4 adresi kalan ters sırada olması gerekir. Bu örnekte, ilk üç sekizlisinin bölge adı (.2.0.192) bir parçası olarak önceden doldurulur. Bu nedenle, yalnızca son sekizli ad alanında sağlanır. Örneğin, kayıt kümenizi adlandırabilirsiniz "**15**", IP adresi 192.0.2.15 olan bir kaynak için.  
+1. İçindeki "**etki alanı adı**" alanı, IP kullanarak kaynak tam etki alanı adı (FQDN) girin.
+1. DNS kaydını oluşturmak için dikey pencerenin altındaki **Tamam**’ı seçin.
 
  ![kayıt kümesi Ekle](./media/dns-reverse-dns-hosting/figure5.png)
 
-Merhaba nasıl örnekler aşağıdadır toocomplete bu görevi, PowerShell ve hello AzureCLI:
+Bu görev, PowerShell ve AzureCLI tamamlamak hakkında örnekler şunlardır:
 
 #### <a name="powershell"></a>PowerShell
 
@@ -150,21 +150,21 @@ azure network dns record-set add-record MyResourceGroup 2.0.192.in-addr.arpa 15 
 
 ### <a name="ipv6"></a>IPv6
 
-Aşağıdaki örnek hello yeni 'PTR' kayıt oluşturma hello işleminde size kılavuzluk eder. Diğer kayıt türleri ve toomodify mevcut kayıtları için bkz: [yönetmek DNS kayıtlarını ve kayıt kümelerini kullanarak hello Azure portal](dns-operations-recordsets-portal.md).
+Aşağıdaki örnek yeni bir 'PTR' kayıt oluşturma sürecinde yardımcı olur. Diğer kayıt türleri ve var olan kayıtların değiştirilmesi hakkında bilgi için bkz. [Azure portalı kullanarak DNS kayıtlarını ve kayıt kümelerini yönetme](dns-operations-recordsets-portal.md).
 
-1. Merhaba hello üstündeki **DNS bölge dikey**seçin **+ kayıt kümesine** tooopen hello **kayıt kümesi ekleme** dikey.
+1. Üstündeki **DNS bölge dikey**seçin **+ kayıt kümesine** açmak için **kayıt kümesi ekleme** dikey.
 
   ![DNS bölge dikey penceresi](./media/dns-reverse-dns-hosting/figure6.png)
 
-2. Merhaba üzerinde **kayıt kümesi ekleme** dikey. 
-3. Seçin **PTR** hello kaydından "**türü**" menüsü.  
-4. Merhaba bir PTR kaydı hello kayıt kümesi adını toobe hello hello IPv6 adresi geri kalanı ters sırada gerekir. Sıfır sıkıştırma eklemeniz gerekir. Bu örnekte, IPv6 zaten hello bölge adı (0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa) bir parçası olarak doldurulmuş hello ilk 64 bit hello. Bu nedenle, yalnızca son 64 bit hello hello ad alanına sağlanır. Merhaba hello IP adresinin son 64 bit girilir ters sırada bir süre her onaltılık sayı hello bölücüyü kullanarak. Örneğin, kayıt kümenizi adlandırabilirsiniz "**e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f**", IP adresi 2001:0db8:abdc:0000:f524:10bc:1af9:405e olan bir kaynak için.  
-5. Merhaba, "**etki alanı adı**" alanında, hello IP kullanan hello kaynağın hello tam etki alanı adı (FQDN) girin.
-6. Seçin **Tamam** hello altındaki hello dikey toocreate hello DNS kaydı.
+2. Üzerinde **kayıt kümesi ekleme** dikey. 
+3. Seçin **PTR** kayıttan "**türü**" menüsü.  
+4. Kayıt için bir PTR kayıt kümesi adını rest IPv6 adresinin ters sırada olması gerekir. Sıfır sıkıştırma eklemeniz gerekir. Bu örnekte, ilk 64 bit IPv6 bölge adı (0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa) bir parçası olarak önceden doldurulur. Bu nedenle, yalnızca son 64 bitlik ad alanında verilir. Son 64 bit IP adresinin ters sırada bir süre her onaltılık sayı bölücüyü kullanarak girilir. Örneğin, kayıt kümenizi adlandırabilirsiniz "**e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f**", IP adresi 2001:0db8:abdc:0000:f524:10bc:1af9:405e olan bir kaynak için.  
+5. İçindeki "**etki alanı adı**" alanı, IP kullanarak kaynak tam etki alanı adı (FQDN) girin.
+6. DNS kaydını oluşturmak için dikey pencerenin altındaki **Tamam**’ı seçin.
 
 ![kayıt kümesi dikey ekleme](./media/dns-reverse-dns-hosting/figure7.png)
 
-Merhaba nasıl örnekler aşağıdadır toocomplete bu görevi, PowerShell ve hello AzureCLI:
+Bu görev, PowerShell ve AzureCLI tamamlamak hakkında örnekler şunlardır:
 
 #### <a name="powershell"></a>PowerShell
 
@@ -186,7 +186,7 @@ azure network dns record-set add-record MyResourceGroup 0.0.0.0.c.d.b.a.8.b.d.0.
 
 ## <a name="view-records"></a>Kayıtları görüntüleme
 
-oluşturduğunuz tooview hello kayıtları tooyour DNS bölgesinde hello Azure portalına gidin. Merhaba parçası Hello alt **DNS bölgesi** dikey penceresinde hello DNS bölgesi için hello kayıtlarını görebilirsiniz. Her bölgede oluşturulan, hello varsayılan NS ve SOA kayıtları, artı, oluşturduğunuz tüm yeni kayıtlar görmeniz gerekir.
+Oluşturduğunuz kayıtları görüntülemek için DNS bölgenizi Azure portalında gidin. Alt kısmında **DNS bölgesi** dikey penceresinde, DNS bölgesi için kayıt görebilirsiniz. Her bölgede oluşturulan varsayılan NS ve SOA kayıtlarının yanı sıra, oluşturduğunuz tüm kayıtları görürsünüz.
 
 ### <a name="ipv4"></a>IPv4
 
@@ -194,7 +194,7 @@ IPv4 PTR kayıtları gösteren DNS bölge dikey penceresinde:
 
 ![DNS bölge dikey penceresi](./media/dns-reverse-dns-hosting/figure8.png)
 
-Merhaba aşağıdaki örneklerde PowerShell kullanarak nasıl tooview hello PTR kayıtlarını göster veya Azure CLI hello:
+Aşağıdaki örnekler, PowerShell veya Azure CLI kullanarak PTR kayıtları görüntülemek nasıl gösterir:
 
 #### <a name="powershell"></a>PowerShell
 
@@ -220,7 +220,7 @@ IPv6 PTR kayıtları gösteren DNS bölge dikey penceresinde:
 
 ![DNS bölge dikey penceresi](./media/dns-reverse-dns-hosting/figure9.png)
 
-Merhaba, tooview hello PowerShell ve hello AzureCLI kayıtları nasıl örnekler şunlardır:
+PowerShell ve AzureCLI kayıtları görüntülemek nasıl örnekleri aşağıda verilmiştir:
 
 #### <a name="powershell"></a>PowerShell
 
@@ -244,26 +244,26 @@ Get-AzureRmDnsRecordSet -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -Reso
 
 ### <a name="can-i-host-reverse-dns-lookup-zones-for-my-isp-assigned-ip-blocks-on-azure-dns"></a>Geriye doğru DNS arama bölgeleri my ISS atanan IP blokları Azure DNS üzerinde barındırabilir?
 
-Evet. Azure DNS'de kendi IP aralıkları için Hello (ARPA) geriye doğru arama bölgeleri barındıran tam olarak desteklenir.
+Evet. Azure DNS'de kendi IP aralıkları için (ARPA) geriye doğru arama bölgeleri barındıran tam olarak desteklenir.
 
-Bu makalede anlatıldığı gibi Azure DNS'de Hello geriye doğru arama bölgesi oluşturun, sonra ISS'niz ile çok çalışma[temsilci hello bölge](dns-domain-delegation.md).  Ardından hello PTR kayıtlarını yönetme aynı yolla diğer kayıt türleri hello her geriye doğru arama için.
+Bu makalede anlatıldığı gibi Azure DNS geriye doğru arama bölgesi oluşturun, sonra Internet servis Sağlayıcınıza ile çalışırsınız [bölgeye temsilci](dns-domain-delegation.md).  Daha sonra PTR kayıtları her geriye doğru arama için diğer kayıt türleri aynı şekilde yönetebilirsiniz.
 
 ### <a name="how-much-does-hosting-my-reverse-dns-lookup-zone-cost"></a>Ne kadar my ters DNS araması bölge maliyeti barındırma mu?
 
-Azure DNS, ISS atanan IP Blok adresindeki doludur için hello geriye doğru DNS arama bölgesini barındıran [standart Azure DNS ücretler](https://azure.microsoft.com/pricing/details/dns/).
+Azure DNS, ISS atanan IP Blok adresindeki doludur için geriye doğru DNS arama bölgesini barındıran [standart Azure DNS ücretler](https://azure.microsoft.com/pricing/details/dns/).
 
 ### <a name="can-i-host-reverse-dns-lookup-zones-for-both-ipv4-and-ipv6-addresses-in-azure-dns"></a>Azure DNS'de IPv4 ve IPv6 adresleri için geriye doğru DNS arama bölgeleri barındıran?
 
-Evet. Bu makalede açıklanır nasıl toocreate IPv4 ve IPv6 geriye doğru DNS arama bölgeleri Azure DNS'de.
+Evet. Bu makalede, Azure DNS'de hem IPv4 hem de IPv6 geriye doğru DNS arama bölgeleri oluşturma açıklanmaktadır.
 
 ### <a name="can-i-import-an-existing-reverse-dns-lookup-zone"></a>Varolan bir geriye doğru DNS araması bölge alabilir miyim?
 
-Evet. Azure DNS'yi hello Azure CLI tooimport var olan DNS bölgeleri kullanabilirsiniz. Bu, ileriye doğru arama bölgeleri ve geriye doğru arama bölgeleri için çalışır.
+Evet. Azure CLI, var olan DNS bölgeleri Azure DNS aktarmak için kullanabilirsiniz. Bu, ileriye doğru arama bölgeleri ve geriye doğru arama bölgeleri için çalışır.
 
-Daha fazla bilgi için bkz: [içeri ve dışarı aktarma bir DNS bölge dosyasını kullanarak hello Azure CLI](dns-import-export.md).
+Daha fazla bilgi için bkz: [içeri ve dışarı aktarma Azure CLI kullanarak bir DNS bölge dosyasına](dns-import-export.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Geriye doğru DNS hakkında daha fazla bilgi için bkz: [wikipedia'da ters DNS araması](http://en.wikipedia.org/wiki/Reverse_DNS_lookup).
 <br>
-Nasıl çok öğrenin[, Azure Hizmetleri için ters DNS kayıtlarını yönetme](dns-reverse-dns-for-azure-services.md).
+Bilgi edinmek için nasıl [, Azure Hizmetleri için ters DNS kayıtlarını yönetme](dns-reverse-dns-for-azure-services.md).

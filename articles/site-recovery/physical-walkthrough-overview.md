@@ -1,6 +1,6 @@
 ---
-title: "aaaReplicate fiziksel şirket içi sunucuları tooAzure Azure Site Recovery ile | Microsoft Docs"
-description: "Şirket içi Windows/Linux fiziksel sunucuları tooAzure hello Azure Site Recovery hizmeti ile çalışan iş yükleri çoğaltmak için hello adımlara genel bir bakış sağlar."
+title: "Replicate fiziksel şirket içi sunucular Azure Site Recovery ile azure'a | Microsoft Docs"
+description: "Azure Site Recovery hizmeti ile Azure için şirket içi Windows/Linux fiziksel sunucularında çalışan iş yüklerini çoğaltmak için adımlara genel bir bakış sağlar."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,86 +14,86 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.openlocfilehash: f801b9544072d4029ec06cc1abfd4ff370e852e9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 0a09b35e98dc0b2f5283c2a707a3a2b8ac9a39f2
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="replicate-physical-servers-tooazure-with-site-recovery"></a>Site Recovery ile fiziksel sunucuları tooAzure Çoğalt
+# <a name="replicate-physical-servers-to-azure-with-site-recovery"></a>Azure Site Recovery ile fiziksel sunucuları çoğaltma
 
-Bu makalede hello kullanarak hello adımları gerekli tooreplicate şirket içi Windows/Linux fiziksel sunucuları tooAzure, genel bir bakış sağlar [Azure Site Recovery](site-recovery-overview.md) hello Azure portal hizmeti.
+Bu makalede Azure için şirket içi Windows/Linux fiziksel sunucuları çoğaltmak için gerekli adımlar genel bir bakış sağlar kullanarak [Azure Site Recovery](site-recovery-overview.md) Azure portalında hizmet.
 
 
 ## <a name="step-1-review-architecture-and-prerequisites"></a>1. adım: mimarisi ve önkoşulları gözden geçirin
 
-Dağıtıma başlamadan önce hello senaryo mimarisinin gözden geçirin ve hello dağıtım tooset gerek duyduğunuz tüm hello bileşenleri anladığınızdan emin olun.
+Dağıtıma başlamadan önce senaryo mimarisinin gözden geçirin ve dağıtımı ayarlamak için gereken tüm bileşenleri anladığınızdan emin olun.
 
-Çok Git[1. adım: gözden hello mimarisi](physical-walkthrough-architecture.md)
+Git [1. adım: mimarisi gözden geçirin](physical-walkthrough-architecture.md)
 
 
 ## <a name="step-2-review-prerequisites"></a>2. adım: Gözden geçirme önkoşulları
 
-Merhaba Önkoşullar her dağıtım bileşen için yerinde olduğundan emin olun:
+Önkoşullar her dağıtım bileşen için yerinde olduğundan emin olun:
 
 - **Azure önkoşulları**: bir Microsoft Azure hesabı, Azure ağları ve depolama hesapları gerekir.
 - **Şirket içi Site Recovery bileşenlerini**: şirket içi Site Recovery bileşenlerini çalıştıran bir makineye gerekir.
-- **Makineler çoğaltılan**: tooreplicate istediğiniz sunucuları şirket içi ve Azure gereksinimleri ile toocomply gerekir.
+- **Makineler çoğaltılan**: sunucuları çoğaltmak istediğiniz şirket içi ve Azure gereksinimleri uymak gerekir.
 
-Çok Git[2. adım: gözden Önkoşullar ve sınırlamalar](physical-walkthrough-prerequisites.md)
+Git [2. adım: gözden Önkoşullar ve sınırlamalar](physical-walkthrough-prerequisites.md)
 
 ## <a name="step-3-plan-capacity"></a>3. adım: Planı kapasite
 
-Tam dağıtımını yaptığınız ihtiyacınız hangi çoğaltma kaynakları çıkışı toofigure gerekir. Tootest hello ortamını ayarlama hızlı yaptığınız varsa, bu adımı atlayabilirsiniz.
+Tam dağıtımını yaptığınız ihtiyacınız hangi çoğaltma kaynakları şekil gerekir. Test ortamı için ayarladığınız hızlı yaptığınız varsa, bu adımı atlayabilirsiniz.
 
-Çok Git[3. adım: kapasite planlama](physical-walkthrough-capacity.md)
+[3. Adım: Kapasiteyi planlama](physical-walkthrough-capacity.md)’ya gidin.
 
 ## <a name="step-4-plan-networking"></a>4. adım: ağ planlama
 
-Yük devretme gerçekleştikten sonra Azure Vm'lerinin bağlı toonetworks olduğunu ve sahip oldukları hello doğru IP adreslerine tooensure planlama bazı ağ toodo gerekir.
+Bazı ağ yük devretme gerçekleştikten sonra sahip oldukları doğru IP adreslerini Azure Vm'lerinin ağlara bağlandığından emin olmak planlama yapmanız gerekir.
 
-Çok Git[4. adım: ağ planı](physical-walkthrough-network.md)
+Git [4. adım: ağ planı](physical-walkthrough-network.md)
 
 ##  <a name="step-5-prepare-azure-resources"></a>5. adım: Azure kaynaklarını hazırlama
 
 Başlamadan önce Azure ağları ve depolama ayarlayın. 
 
-Çok Git[5. adım: Azure hazırlama](physical-walkthrough-prepare-azure.md)
+Git [5. adım: Azure hazırlama](physical-walkthrough-prepare-azure.md)
 
 
 ## <a name="step-6-set-up-a-vault"></a>6. adım: Bir kasa ayarlama
 
-Kurtarma Hizmetleri kasası tooorchestrate ayarlamak ve çoğaltmayı yönetme. Merhaba kasasını ayarladığınızda, istediğinizi belirtin tooreplicate, ve tooreplicate istediğiniz şekilde.
+Düzenlemek ve çoğaltmayı yönetmek için bir kurtarma Hizmetleri kasasını ayarlayın. Kasasını ayarladığınızda, çoğaltmak istediğiniz ve kendisine çoğaltmak istediğiniz yeri belirtin.
 
-Çok Git[adım 6: bir kasasını oluşturup](physical-walkthrough-create-vault.md)
+Git [adım 6: bir kasasını oluşturup](physical-walkthrough-create-vault.md)
 
 ## <a name="step-7-configure-source-and-target-settings"></a>7. adım: kaynak ve hedef ayarlarını yapılandırma
 
-Merhaba kaynağı için ayarları yapılandırın ve hedef (Azure). Kaynak ayarları birleşik Kurulum tooinstall hello şirket içi Site Recovery bileşenlerini çalıştıran içerir.
+(Azure) site hedef ve kaynak için ayarları yapılandırın. Kaynak ayarları birleşik şirket içi Site Recovery bileşenlerini yüklemek için Kurulumu çalıştıran içerir.
 
-Çok Git[adım 7: hello kaynak ve hedef ayarlama](physical-walkthrough-source-target.md)
+Git [adım 7: kaynak ve hedef ayarlama](physical-walkthrough-source-target.md)
 
 ## <a name="step-8-set-up-a-replication-policy"></a>8. adım: Bir çoğaltma ilkesi ayarlama
 
-İlke toospecify nasıl fiziksel ayarladığınız sunucuları çoğaltır.
+Ayarladığınız nasıl fiziksel sunucuları belirtmek için bir ilke çoğaltılması.
 
-Çok Git[adım 8: bir çoğaltma ilkesini ayarlayın](physical-walkthrough-replication.md)
+Git [adım 8: bir çoğaltma ilkesini ayarlayın](physical-walkthrough-replication.md)
 
-## <a name="step-9-install-hello-mobility-service"></a>9. adım: hello Mobility hizmetini yükleme
+## <a name="step-9-install-the-mobility-service"></a>9. adım: mobilite hizmeti yükleme
 
-Merhaba mobilite hizmetinin yüklenmesi tooreplicate istediğiniz her sunucuda. Merhaba hizmetiyle iterek ister çekerek yükleme yukarı birkaç yolu tooset vardır.
+Mobility hizmetinin çoğaltmak istediğiniz her sunucuda yüklenmesi gerekir. Hizmetle iterek ister çekerek yükleme ayarlamak için birkaç yolu vardır.
 
-Çok Git[adım 9: hello Mobility hizmetini yükleme](physical-walkthrough-install-mobility.md)
+Git [adım 9: Mobility hizmetini yükleme](physical-walkthrough-install-mobility.md)
 
 ## <a name="step-10-enable-replication"></a>10. adım: Çoğaltma etkinleştirme
 
-Merhaba Mobility hizmeti bir sunucuda çalıştırdıktan sonra çoğaltmayı etkinleştirebilirsiniz. Etkinleştirdikten sonra ilk çoğaltma işlemi hello VM oluşur.
+Mobility hizmeti bir sunucuda çalışmaya başladıktan sonra çoğaltmayı etkinleştirebilirsiniz. Etkinleştirdikten sonra VM başlangıç çoğaltması gerçekleşir.
 
-Çok Git[adım 10: çoğaltmasını etkinleştir](physical-walkthrough-enable-replication.md)
+Git [adım 10: çoğaltmasını etkinleştir](physical-walkthrough-enable-replication.md)
 
 ## <a name="step-11-run-a-test-failover"></a>11. adım: yük devretme testi çalıştırma
 
-İlk çoğaltma sonlandırıldıktan sonra değişim çoğaltması çalıştığından, bir test yük devretme toomake her şeyin beklendiği gibi çalıştığından emin çalıştırabilirsiniz.
+İlk çoğaltma sonlandırıldıktan sonra değişim çoğaltması çalıştığından, her şeyin beklendiği gibi çalıştığından emin olmak için yük devretme testi çalıştırabilirsiniz.
 
-Çok Git[11. adım: yük devretme testi çalıştırma](physical-walkthrough-test-failover.md)
+Git [11. adım: yük devretme testi çalıştırma](physical-walkthrough-test-failover.md)
 

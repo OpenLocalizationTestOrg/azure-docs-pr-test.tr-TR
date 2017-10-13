@@ -1,6 +1,6 @@
 ---
-title: "aaaLog StorSimple 8000 serisi için destek bileti | Microsoft Docs"
-description: "Nasıl toocreate bir destek isteği öğrenin ve StorSimple Cihazınızda bir destek oturumu başlatın."
+title: "StorSimple 8000 serisi için destek bileti oturum | Microsoft Docs"
+description: "Bir destek isteği oluşturun ve StorSimple Cihazınızda destek oturum başlatma hakkında bilgi edinin."
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -15,81 +15,81 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: alkohli;anbacker
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e1a3aa3c56e036c782c4fb502c477dc0feaa0ccd
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cecc2566b432e897b5eff0c12e66598f0518ed80
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="contact-microsoft-support-for-your-storsimple"></a>StorSimple için Microsoft Destek'e başvurun
-Microsoft Azure StorSimple çözümünüzle birlikte herhangi bir sorunla karşılaşırsanız, teknik destek için bir hizmet isteği oluşturabilirsiniz. Destek mühendisinize ile çevrimiçi oturumda destek oturumu toostart StorSimple Cihazınızda gerekebilir. Bu makalede, izlenecek yol:
+Microsoft Azure StorSimple çözümünüzle birlikte herhangi bir sorunla karşılaşırsanız, teknik destek için bir hizmet isteği oluşturabilirsiniz. Destek mühendisinize ile çevrimiçi oturumda StorSimple Cihazınızda bir destek oturumu başlatmak gerekebilir. Bu makalede, izlenecek yol:
 
-* Nasıl toocreate bir destek isteği.
-* Nasıl toostart destek oturumunda bir Windows PowerShell arabirimi StorSimple cihazınızın hello.
+* Bir destek isteği oluşturma
+* StorSimple Cihazınızı Windows PowerShell arabiriminde bir destek oturumu başlatmak nasıl.
 
-Gözden geçirme hello [StorSimple 8000 serisi destek SLA'ları ve bilgileri](https://msdn.microsoft.com/library/mt433077.aspx) önce bir destek isteği oluşturun.
+Gözden geçirme [StorSimple 8000 serisi destek SLA'ları ve bilgileri](https://msdn.microsoft.com/library/mt433077.aspx) önce bir destek isteği oluşturun.
 
 ## <a name="create-a-support-request"></a>Destek isteği oluşturun
-Aşağıdaki adımları toocreate bir destek isteği hello gerçekleştirin:
+Bir destek isteği oluşturmak için aşağıdaki adımları gerçekleştirin:
 
-#### <a name="toocreate-a-support-request"></a>toocreate bir destek isteği
-1. Merhaba, [Klasik Azure portalı](https://manage.windowsazure.com/), hello sağ üst köşedeki, hesap adınızı tıklatın ve ardından **Microsoft Destek birimine başvurun**.
+#### <a name="to-create-a-support-request"></a>Bir destek isteği oluşturmak için
+1. İçinde [Klasik Azure portalı](https://manage.windowsazure.com/), sağ üst köşedeki hesap adınızı tıklatın ve ardından **Microsoft Destek birimine başvurun**.
    
     ![ManagementPortal üzerinden kişi MS desteği](./media/storsimple-contact-microsoft-support/Ibiza1.png)
-2. Yeniden yönlendirilen toohello yeni Azure portalına (portal.azure.com) olacaktır. Merhaba tıklatın **yeni destek isteği** döşeme.
+2. Yeni Azure portalına (portal.azure.com) yönlendirilir. Tıklatın **yeni destek isteği** döşeme.
    
     ![Yeni portal aracılığıyla kişinin MS desteği](./media/storsimple-contact-microsoft-support/Ibiza2.png)
    
-    Merhaba sağ tarafında Merhaba ekranında, hello **yeni destek isteği** bölmesinde görünür. 
+    Ekranın sağ taraftaki **yeni destek isteği** bölmesinde görünür. 
    
     ![Yeni destek isteği bölmesi](./media/storsimple-contact-microsoft-support/Ibiza3a.png)
-3. Merhaba, **Temelleri** iletişim kutusunda, aşağıdaki tam hello:                                
+3. İçinde **Temelleri** iletişim kutusunda, aşağıdaki adımları tamamlayın:                                
    
-   1. Merhaba gelen **sorun türü** aşağı açılan listesinden, **teknik**.
-   2. Seçin bir **abonelik** hello aşağı açılan listeden.
-   3. Merhaba gelen **hizmet** aşağı açılan listesinden, **StorSimple**. 
-   4. Seçin bir **destek planı** hello aşağı açılan listeden. Bir Ücretli destek planı tooenable teknik destek gerekir.
-4. **İleri**’ye tıklayın. Merhaba **sorun** iletişim kutusu görüntülenir.
+   1. Gelen **sorun türü** aşağı açılan listesinden, **teknik**.
+   2. Seçin bir **abonelik** aşağı açılan listeden.
+   3. Gelen **hizmet** aşağı açılan listesinden, **StorSimple**. 
+   4. Seçin bir **destek planı** aşağı açılan listeden. Teknik Destek etkinleştirmek için ücretli bir destek planı gerekiyor.
+4. **İleri**’ye tıklayın. **Sorun** iletişim kutusu görüntülenir.
    
     ![Yeni destek isteği bölmesi](./media/storsimple-contact-microsoft-support/Ibiza5a.png) 
-5. Merhaba, **sorun** iletişim kutusunda, aşağıdaki tam hello:
+5. İçinde **sorun** iletişim kutusunda, aşağıdaki adımları tamamlayın:
    
-   1. Seçin bir **önem** hello aşağı açılan listeden düzeyi.
-   2. Seçin bir **sorun türü** hello aşağı açılan listeden.
-   3. Seçin bir **kategori** hello aşağı açılan listeden. 
-   4. Merhaba, **ayrıntıları** kutusunda, sorununuzu kısaca anlatın.
-   5. Merhaba, **zaman çerçevesi** kutusunda, hello tarih, saat ve sorununuzun en son görüldüğü toohello karşılık gelen saat dilimini belirtin.
-   6. Altında **karşıya dosya yükleme**, hello klasör simgesine toobrowse tooyour destek paketi'ı tıklatın.
-   7. Select hello **tanılama bilgileri paylaşabilir** onay kutusu.
-6. **İleri**’ye tıklayın. Merhaba **kişi bilgileri** iletişim kutusu görüntülenir.
+   1. Seçin bir **önem** aşağı açılan listeden düzeyi.
+   2. Seçin bir **sorun türü** aşağı açılan listeden.
+   3. Seçin bir **kategori** aşağı açılan listeden. 
+   4. İçinde **ayrıntıları** kutusunda, sorununuzu kısaca anlatın.
+   5. İçinde **zaman çerçevesi** kutusunda, tarih, saat ve sorunu en son görüldüğü için karşılık gelen saat dilimini belirtin.
+   6. Altında **karşıya dosya yükleme**, destek paketinizi göz atmak için klasör simgesine tıklayın.
+   7. Seçin **tanılama bilgileri paylaşabilir** onay kutusu.
+6. **İleri**’ye tıklayın. **Kişi bilgileri** iletişim kutusu görüntülenir.
    
     ![Yeni destek isteği bölmesi](./media/storsimple-contact-microsoft-support/Ibiza6a.png) 
 7. İletişim bilgilerinizi girin ve bir kişi bir yöntem (telefon veya e-posta) seçin. 
-8. Select hello **Kaydet kişi değişikliklerini gelecekteki destek istekleri** onay kutusu.
+8. Seçin **Kaydet kişi değişikliklerini gelecekteki destek istekleri** onay kutusu.
 9. **Oluştur**'a tıklayın.
 
-Bir destek mühendisine isteğinizi gönderdikten sonra tooproceed isteğiniz ile mümkün olan en kısa sürede başvururlar.
+İsteğinizi gönderdikten sonra destek mühendisi, mümkün olan en kısa sürede isteğinize devam etmek için sizinle iletişim kuracaktır.
 
 ## <a name="start-a-support-session-in-windows-powershell-for-storsimple"></a>StorSimple için Windows PowerShell içinde bir destek oturumu Başlat
-tüm sorunları, tootroubleshoot hello StorSimple cihazı ile karşılaşabilirsiniz, hello Microsoft Support ekibi ile tooengage gerekir. Microsoft Support toouse destek oturum toolog tooyour aygıtta gerekebilir. 
+StorSimple cihazı karşılaşabileceğiniz sorunları gidermek için Microsoft Support ekibinin sağlayacağı gerekecektir. Microsoft Support aygıtınıza oturum açmak için bir destek oturumu kullanmanız gerekebilir. 
 
-Hello aşağıdaki gerçekleştirme adımları toostart destek oturumu:
+Bir destek oturumu başlatmak için aşağıdaki adımları gerçekleştirin:
 
-#### <a name="toostart-a-support-session"></a>bir destek oturumu toostart
-1. Erişim hello aygıtı hello seri Konsolu kullanarak doğrudan veya uzak bir bilgisayardan telnet oturumu aracılığıyla. toodo Bu, başlangıç adımları içinde [kullanım PuTTY tooconnect toohello cihaz seri konsoluna](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
-2. Merhaba açar hello oturumunda basın **Enter** anahtar tooget bir komut istemi.
-3. Merhaba seri konsol menüsünde seçeneğini 1, **oturum oturum tam erişim**.
-4. Merhaba isteminde parola aşağıdaki hello yazın: 
+#### <a name="to-start-a-support-session"></a>Bir destek oturumu başlatmak için
+1. Cihaz seri Konsolu kullanarak doğrudan veya uzak bir bilgisayardan telnet oturumu aracılığıyla erişin. Bunu yapmak için adımları izleyin [kullan cihaz seri konsoluna bağlanmak için PuTTY](storsimple-deployment-walkthrough.md#use-putty-to-connect-to-the-device-serial-console).
+2. Açılan oturumda basın **Enter** bir komut istemi almak için anahtar.
+3. Seri konsol menüsünde seçeneğini 1, **oturum oturum tam erişim**.
+4. İsteminde aşağıdaki parolasını yazın: 
    
     `Password1`
-5. Merhaba isteminde hello aşağıdaki komutu yazın:
+5. İsteminde aşağıdaki komutu yazın:
    
     `Enable-HcsSupportAccess`
-6. Şifreli bir dize tooyou sunulur. Bu dize, Not Defteri gibi bir metin düzenleyicisine kopyalayın.
-7. Bu dizeyi kaydedin ve bir e-posta iletisi tooMicrosoft destek gönderebilirsiniz. 
+6. Şifreli bir dize size sunulur. Bu dize, Not Defteri gibi bir metin düzenleyicisine kopyalayın.
+7. Bu dizeyi kaydedin ve Microsoft Support bir e-posta iletisi gönderin. 
 
 > [!IMPORTANT]
-> Çalıştırarak destek erişim devre dışı bırakabilirsiniz `Disable-HcsSupportAccess`. Hello StorSimple cihazı 8 saat hello oturumu başlatıldı sonra toodisable destek erişim girişiminde. Bir destek oturum başlatıldıktan sonra StorSimple Cihazınızı kimlik iyi bir yöntem toochange olur.
+> Çalıştırarak destek erişim devre dışı bırakabilirsiniz `Disable-HcsSupportAccess`. StorSimple cihazı da 8 saat oturumu başlatıldı sonra destek erişimini devre dışı bırakma dener. Bir destek oturum başlatıldıktan sonra StorSimple cihaz kimlik bilgilerinizi değiştirmek için en iyi bir uygulamadır.
 > 
 > 
 

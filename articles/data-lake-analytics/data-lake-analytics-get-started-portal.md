@@ -1,6 +1,6 @@
 ---
-title: "Azure portal kullanarak Azure Data Lake Analytics ile başlatıldı aaaGet | Microsoft Docs"
-description: "Toouse hello Azure portal toocreate Data Lake Analytics hesabı, U-SQL'yi kullanarak Data Lake Analytics işi oluşturma ve hello işi göndermek öğrenin. "
+title: "Azure portalını kullanarak Azure Data Lake Analytics ile çalışmaya başlama | Microsoft Docs"
+description: "Bir Data Lake Analytics hesabı oluşturmak, U-SQL'yi kullanarak Data Lake Analytics işi oluşturmak ve bu işi göndermek için Azure portalının nasıl kullanılacağını öğrenin. "
 services: data-lake-analytics
 documentationcenter: 
 author: edmacauley
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: edmaca
-ms.openlocfilehash: 6bb54404fa42cfed25b18bc2bfb7c72e6c361149
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 2722a2d72ed90ea0005362563ecaee30750c040a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Azure portalı kullanarak Azure Data Lake Analytics ile çalışmaya başlama
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Nasıl toouse hello Azure portal toocreate Azure Data Lake Analytics hesapları öğrenin, işleri tanımlayın [U-SQL](data-lake-analytics-u-sql-get-started.md)ve işleri toohello Data Lake Analytics hizmeti gönderin. Data Lake Analytics hakkında daha fazla bilgi için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
+Azure Data Lake Analytics hesapları oluşturmak, [U-SQL](data-lake-analytics-u-sql-get-started.md) içinde işler tanımlamak ve Data Lake Analytics hizmetine iş göndermek için Azure portalının nasıl kullanılacağını öğrenin. Data Lake Analytics hakkında daha fazla bilgi için bkz. [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -31,23 +31,23 @@ Bu öğreticiye başlamadan önce bir **Azure aboneliğinizin** olması gerekir.
 
 ## <a name="create-a-data-lake-analytics-account"></a>Data Lake Analytics hesabı oluşturma
 
-Şimdi, bir Data Lake Analytics oluşturacak ve bir Data Lake Store hesabı hello aynı saat.  Bu adım, basit bir işlemdir ve yalnızca 60 saniye toofinish alır.
+Şimdi aynı anda bir Data Lake Analytics ve Data Lake Store hesabı oluşturun.  Bu basit bir adımdır ve tamamlanması yaklaşık olarak 60 saniye sürer.
 
-1. Toohello üzerinde oturum [Azure portal](https://portal.azure.com).
+1. [Azure portalı](https://portal.azure.com) üzerinde oturum açın.
 2. **Yeni** >  **Veri + Analiz** > **Data Lake Analytics**’e tıklayın.
-3. Aşağıdaki öğelerindeki hello için değerleri seçin:
+3. Aşağıdaki öğeler için değerleri seçin:
    * **Ad**: Data Lake Analytics hesabınızı adlandırın (Yalnızca küçük harf ve sayı kullanılabilir).
-   * **Abonelik**: hello hello Analytics hesabı için kullanılan Azure aboneliğini seçin.
+   * **Abonelik**: Analytics hesabı için kullanılan Azure aboneliğini seçin.
    * **Kaynak Grubu**. Var olan bir Azure Kaynak Grubu'nu seçin veya yeni bir grup oluşturun.
-   * **Konum**. Merhaba Data Lake Analytics hesabı için bir Azure veri merkezi seçin.
-   * **Data Lake Store**: hello yönerge toocreate yeni bir Data Lake Store hesabı izleyin veya varolan bir tanesini seçin. 
+   * **Konum**. Data Lake Analytics hesabı için bir Azure veri merkezi seçin.
+   * **Data Lake Store**: Yeni bir Data Lake Store hesabı oluşturmaya yönelik yönergeyi uygulayın veya var olan bir hesabı seçin. 
 4. İsteğe bağlı olarak Data Lake Analytics hesabınıza yönelik bir fiyatlandırma katmanı seçebilirsiniz.
 5. **Oluştur**'a tıklayın. 
 
 
 ## <a name="your-first-u-sql-script"></a>İlk U-SQL betiğiniz
 
-metin aşağıdaki hello çok basit bir U-SQL komut dosyasıdır. Tüm mevcut olan hello komut içinde küçük bir veri kümesini tanımlayın ve ardından bu veri kümesi toohello varsayılan Data Lake Store çıkışı adlı bir dosya yazma `/data.csv`.
+Aşağıda basit bir U-SQL betiği gösterilmiştir. Betik içinde küçük bir veri kümesinin tanımlanmasına ve ardından söz konusu veri kümesinin varsayılan Data Lake Store'a `/data.csv` adlı bir dosya olarak yazılmasına yarar.
 
 ```
 @a  = 
@@ -58,21 +58,21 @@ metin aşağıdaki hello çok basit bir U-SQL komut dosyasıdır. Tüm mevcut ol
         ) AS 
               D( customer, amount );
 OUTPUT @a
-    too"/data.csv"
+    TO "/data.csv"
     USING Outputters.Csv();
 ```
 
 ## <a name="submit-a-u-sql-job"></a>U-SQL işi gönderme
 
-1. Data Lake Analytics hesabı Hello tıklatın **yeni iş**.
-2. Merhaba Hello metinde yukarıda gösterilen U-SQL betiğini yapıştırın. 
+1. Data Lake Analytics hesabında **Yeni İş**'e tıklayın.
+2. Yukarıda gösterilen U-SQL betiğinin metnine yapıştırın. 
 3. **İşi Gönder**'e tıklayın.   
-4. Merhaba iş durumu değişinceye kadar çok bekleyin**başarılı**.
-5. Merhaba işi başarısız olduysa bkz [İzleyici ve Data Lake Analytics işlerini sorun giderme](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
-6. Merhaba tıklatın **çıkış** sekmesini ve ardından `data.csv`. 
+4. İş durumu **Başarılı** olarak değiştirilene kadar bekleyin.
+5. İş başarısız olduysa bkz. [Data Lake Analytics işlerini izleme ve sorun giderme](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
+6. **Çıkış** sekmesine ve ardından `data.csv` öğesine tıklayın. 
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* U-SQL uygulamalarını geliştirmeye başlatılan tooget bkz [Visual Studio için Data Lake Araçları'nı kullanarak geliştirme U-SQL betikleri](data-lake-analytics-data-lake-tools-get-started.md).
-* U-SQL, toolearn bkz [Azure Data Lake Analytics U-SQL dili ile çalışmaya başlama](data-lake-analytics-u-sql-get-started.md).
+* U-SQL uygulamalarını geliştirmeye başlamak için bkz. [Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme](data-lake-analytics-data-lake-tools-get-started.md).
+* U-SQL öğrenmek için bkz. [Azure Data Lake Analytics U-SQL dili ile çalışmaya başlama](data-lake-analytics-u-sql-get-started.md).
 * Yönetim görevleri için bkz. [Azure portalı kullanarak Azure Data Lake Analytics'i yönetme](data-lake-analytics-manage-use-portal.md).

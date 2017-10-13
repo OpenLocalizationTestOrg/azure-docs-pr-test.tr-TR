@@ -1,6 +1,6 @@
 ---
-title: "Sorun giderme: Hello eksik verileri Azure Active Directory etkinlik günlükleri indirilen | Microsoft Docs"
-description: "İndirilen Azure Active Directory etkinlik günlükleri bir çözüm toomissing verilerle sağlar."
+title: "Sorun giderme: İndirilen Azure Active Directory etkinlik günlüklerindeki eksik veriler | Microsoft Docs"
+description: "İndirilen Azure Active Directory etkinlik günlüklerindeki eksik verilere yönelik bir çözüm sağlar."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,30 +15,30 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 027b70e6efc570f81d3c836f50ee52aaa89be71a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 3d56f89035da4d1a0074256b165663f81fc2b01e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="i-cant-find-any-data-in-hello-azure-active-directory-activity-logs-i-have-downloaded"></a>Herhangi bir veri indirmiş olan hello Azure Active Directory etkinlik günlükleri bulunamıyor
+# <a name="i-cant-find-any-data-in-the-azure-active-directory-activity-logs-i-have-downloaded"></a>İndirdiğim Azure Active Directory etkinlik günlüklerinde hiçbir veri bulamıyorum
 
 
 ## <a name="symptoms"></a>Belirtiler
 
-Merhaba etkinlik günlükleri (Denetim veya oturum açma işlemleri) indirilir ve tüm hello kayıtları seçtiğim hello süredir görmüyorum. Neden? 
+Etkinlik günlüklerini (denetim veya oturum açma) indirdim ve seçtiğim süre için tüm kayıtları göremiyorum. Neden? 
 
  ![Raporlama](./media/active-directory-reporting-troubleshoot-missing-data-download/01.png)
  
 
 ## <a name="cause"></a>Nedeni
 
-Etkinlik günlükleri hello Azure portal'ın yüklediğinizde, biz hello ölçek too120K kayıtları, çoğu tarafından sıralanan sınırlamak son. 
+Azure portalında etkinlik günlüklerini indirdiğinizde ölçek, en yeniye göre sıralanmış 120.000 kayıtla sınırlanır. 
 
 ## <a name="resolution"></a>Çözüm
 
-Yararlanabileceğiniz [Azure AD raporlama API'leri](active-directory-reporting-api-getting-started.md) toofetch tooa milyon kayıtları verilen herhangi bir noktada yukarı. Bizim önerilen bir komut dosyası hello raporlama API'leri toofetch çağıran bir zamanlama temelinde bir süre boyunca artımlı bir şekilde kaydeder toorun (örneğin, günlük veya haftalık) yaklaşımdır.
+Belirli bir noktadaki bir milyon kaydı getirmek için [Azure AD Raporlama API’lerini](active-directory-reporting-api-getting-started.md) kullanabilirsiniz. Kayıtları belirli bir süre içinde (örn. günlük veya haftalık) artımlı bir şekilde getirmek üzere, belirli bir zamanlamaya göre raporlama API’lerini çağıran bir betik çalıştırmanız önerilen bir yaklaşımdır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Merhaba bkz [Azure Active Directory raporlama](active-directory-reporting-faq.md).
+Bkz. [Azure Active Directory raporlama hakkında SSS](active-directory-reporting-faq.md).
 

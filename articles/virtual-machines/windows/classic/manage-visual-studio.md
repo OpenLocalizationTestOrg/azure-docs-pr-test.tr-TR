@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate ve Visual Studio'da Windows sanal makineleri yönetme | Microsoft Docs"
-description: "Toouse Visual Studio toocreate öğrenin ve Windows çalıştıran Azure sanal makineleri yönetme"
+title: "Oluşturma ve Visual Studio'da Windows sanal makineleri yönetme | Microsoft Docs"
+description: "Visual Studio oluşturmak ve Windows çalıştıran Azure Vm'leri yönetmek için kullanmayı öğrenin"
 services: visual-studio-online,virtual-machines-windows
 documentationcenter: na
 author: kraigb
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 12/09/2016
 ms.author: kraigb
-ms.openlocfilehash: 942fe37c873a14b6457cc6303107a48683b8bee4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1b188b2a057da56c0c44bdbf52086ebb037edb6b
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-and-manage-windows-virtual-machines-in-visual-studio"></a>Visual Studio'da Windows sanal makineler oluşturun ve yönetin
 [!INCLUDE [virtual-machines-common-classic-manage-visual-studio](../../../../includes/virtual-machines-common-classic-manage-visual-studio.md)]

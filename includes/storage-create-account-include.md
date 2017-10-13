@@ -1,7 +1,7 @@
 ## <a name="create-an-azure-storage-account"></a>Azure Storage hesabı oluşturma
-İlk Azure storage hesabınızı olduğu hello kullanarak en kolay yolu toocreate hello [Azure portal](https://portal.azure.com). toolearn daha, fazla [depolama hesabı oluşturma](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
+İlk Azure depolama hesabınızı oluşturmanın en kolay yolu [Azure Portalı](https://portal.azure.com)’nı kullanmaktır. Daha fazla bilgi için bkz. [Depolama hesabı oluşturma](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
 
-Kullanarak bir Azure depolama hesabı oluşturabilirsiniz [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/common/storage-azure-cli.md), veya hello [.NET için depolama kaynak sağlayıcısı istemci Kitaplığı](/dotnet/api/microsoft.azure.management.storage).
+[Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/common/storage-azure-cli.md) veya [.NET için Depolama Kaynak Sağlayıcısı İstemci Kitaplığı](/dotnet/api/microsoft.azure.management.storage)’nı da kullanarak Azure Storage esabı oluşturabilirsiniz.
 
-Toocreate bir depolama hesabı şu anda tercih ederseniz, hello Azure depolama öykünücüsü toorun kullanın ve yerel bir ortamda kodunuzu test etmek. Daha fazla bilgi için bkz: [kullanım hello geliştirme ve sınama için Azure Storage öykünücüsü](../articles/storage/common/storage-use-emulator.md).
+Şu anda bir depolama hesabı oluşturmayı tercih ediyorsanız, yerel bir ortamda kodunuzu çalıştırıp sınamak için Azure Storage öykünücüsü de kullanabilirsiniz. Daha fazla bilgi için bkz. [Geliştirme ve Sınama için Azure Storage Öykünücüsünü Kullanma](../articles/storage/common/storage-use-emulator.md).
 

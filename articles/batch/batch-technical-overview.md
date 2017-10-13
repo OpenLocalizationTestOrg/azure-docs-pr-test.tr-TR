@@ -1,6 +1,6 @@
 ---
-title: "Merhaba bulutta aaaAzure toplu çalışan büyük ölçekli paralel işlem çözümleri | Microsoft Docs"
-description: "Büyük ölçekli paralel ve HPC iş yükleri için Hello Azure Batch hizmetini kullanma hakkında bilgi edinin"
+title: "Azure Batch bulutta büyük ölçekli paralel bilgi işlem çözümleri çalıştırır | Microsoft Docs"
+description: "Büyük ölçekli paralel ve HPC iş yükleri için Azure Batch hizmetini kullanma hakkında bilgi edinin"
 services: batch
 documentationcenter: 
 author: tamram
@@ -15,17 +15,17 @@ ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: acc52e46330c465f81951441d9067371098cf63a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: a99f96db0c1e8bcd0cf29c564e5badf0eb728e56
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-intrinsically-parallel-workloads-with-batch"></a>Batch ile doğası gereği paralel iş yüklerini çalıştırın
 
-Azure Batch, büyük ölçekli paralel ve yüksek performanslı bilgi (HPC) uygulamalarında hello bulutta verimli bir şekilde çalıştırmak için bir platform hizmetidir. Azure toplu işlem yoğunluklu iş toorun yönetilen sanal makineler koleksiyonunda zamanlar ve ölçek kaynakları toomeet hello işleriniz ihtiyaçlarını işlem otomatik olarak.
+Azure Batch, büyük ölçekli paralel ve yüksek performanslı bilgi işlem (HPC) uygulamalarını bulutta verimli bir şekilde çalıştırmanızı sağlayan bir platform hizmetidir. Azure Batch, yönetilen sanal makineler koleksiyonunda çalıştırılacak işlem yoğunluklu işi zamanlar ve işinizin gereksinimlerini karşılayacak işlem kaynaklarını otomatik olarak ölçekler.
 
-Azure Batch ile kolayca Azure işlem kaynakları tooexecute uygulamalarınızı paralel olarak ve ölçekte tanımlayabilirsiniz. Hiçbir gerek toomanually yoktur oluşturmak, yapılandırmak ve HPC Kümesi, tek tek sanal makineleri, sanal ağlar veya karmaşık iş yönetmek ve görev zamanlama altyapısını. Azure Batch bu görevleri sizin için otomatikleştirir ya da basitleştirir.
+Azure Batch ile uygulamalarınızı paralel olarak ve uygun ölçekte yürütmek için Azure işlem kaynaklarını kolayca tanımlayabilirsiniz. HPC kümesi, tek tek sanal makineler, sanal ağlar veya karmaşık iş ve görev zamanlama altyapısını el ile oluşturmanız, yapılandırmanız ve yönetmeniz gerekmez. Azure Batch bu görevleri sizin için otomatikleştirir ya da basitleştirir.
 
 ## <a name="use-cases-for-batch"></a>Batch için örnek kullanma
 Batch, *toplu işleme* veya *toplu bilgi işlem* için kullanılan bir Azure hizmetidir; bazı istenen sonuçları almak için büyük miktarlarda benzer görev çalıştırır. Toplu bilgi işlem, düzenli olarak büyük miktarlarda veriyi işleyen, dönüştüren ve analiz eden kuruluşlar tarafından yaygın olarak kullanılır.
@@ -44,41 +44,41 @@ Bu teknik kullanılarak yaygın olarak işlenen iş yüklerinin bazı örnekleri
 * Mühendislik gerilimi analizi
 * Yazılım testi
 
-Toplu da hello sonunda azalan adımla paralel hesaplamalar ve daha karmaşık HPC iş yükleri gibi yürütme [ileti geçirme arabirimi (MPI)](batch-mpi.md) uygulamalar.
+Batch, sonda bir azaltma adımı uygulayarak paralel hesaplamalar gerçekleştirebilir ve [İleti Geçirme Arabirimi (MPI)](batch-mpi.md) uygulamaları gibi daha karmaşık HPC iş yüklerini yürütebilir.
 
-Azure’deki Batch ve diğer HPC çözüm seçenekleri arasında bir karşılaştırma için bkz. [ Batch ve HPC çözümleri](batch-hpc-solutions.md).
+Azure'daki Batch ve diğer HPC çözüm seçenekleri arasında bir karşılaştırma için bkz. [HPC, Batch ve Big Compute çözümleri](../virtual-machines/linux/high-performance-computing.md).
 
 [!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
 
 ## <a name="scenario-scale-out-a-parallel-workload"></a>Senaryo: Paralel iş yükünü ölçeklendirme
-Merhaba Batch hizmeti ile Merhaba Batch API'lerini toointeract kullanan ortak çözüm, paralel işi aslında--hello--işlem düğümlerinin havuzunda 3B görüntülerin işlenmesi gibi ölçeklendirmeyi kapsar. Bu işlem düğümü havuzu oluşturacak, "işleme çiftliği" olabilir onlarca, yüzlerce veya hatta binlerce çekirdek tooyour işleme işi, örneğin sağlar.
+Batch hizmetiyle etkileşim kurmak için Batch API'lerini kullanan ortak çözüm, işlem düğümlerinin havuzunda 3B görüntülerin işlenmesi gibi paralel işi aslında ölçeklendirmeyi kapsar. Örneğin, bu işlem düğümleri havuzu, işleme işinize onlarca, yüzlerce, hatta binlerce çekirdek sağlayan size ait bir "işleme çiftliği" olabilir.
 
-Merhaba Aşağıdaki diyagramda bir ortak toplu iş akışı, bir istemci uygulaması ile gösterir veya toplu toorun paralel iş yükünü kullanarak hizmet barındırılabilir.
+Aşağıdaki diyagramda, istemci uygulamasının yanı sıra paralel iş yükünü çalıştıracak Batch’i kullanan barındırma hizmetiyle birlikte ortak bir Batch iş akışı gösterilmektedir.
 
 ![Batch çözümü iş akışı][2]
 
-Bu ortak senaryoda, uygulama veya hizmet Azure Batch bir hesaplama iş yükünü hello aşağıdaki adımları gerçekleştirerek işler:
+Bu ortak senaryoda, uygulamanız veya hizmetiniz aşağıdaki adımları gerçekleştirerek Azure Batch’te bir hesaplama iş yükünü işlemektedir:
 
-1. Merhaba karşıya **giriş dosyaları** ve hello **uygulama** bu dosyaları tooyour Azure depolama hesabı işleyecek. Merhaba giriş dosyaları finansal modelleme verileri veya video dosyaları toobe kod çevrimi gibi uygulamanızın işleyeceği herhangi bir veri olabilir. Merhaba uygulama dosyaları, 3B işleme uygulaması veya medya dönüştürücü gibi hello verileri işlemek için kullanılan herhangi bir uygulama olabilir.
-2. Bir toplu iş oluşturma **havuzu** Batch hesabınızın işlem düğümlerine ait görevlerinizi yürütecek hello sanal makineleri bu düğümler şunlardır. Hello gibi özellikleri belirtin [düğüm boyutu](../cloud-services/cloud-services-sizes-specs.md), kendi işletim sistemi ve hello düğümleri hello havuzu (#1. adımda karşıya hello uygulama) katıldığınızda hello uygulama tooinstall Azure Storage hello konum. Merhaba havuzu çok yapılandırabilirsiniz[otomatik olarak ölçeklendirme](batch-automatic-scaling.md) görevlerinizin oluşturduğu yanıt toohello iş yükü de. Otomatik ölçeklendirme-dinamik olarak hello hello havuzdaki işlem düğümleri sayısını ayarlar.
-3. Bir toplu iş oluşturma **iş** toorun hello iş yüküne hello işlem düğümü havuzu oluşturacak. Proje oluşturduğunuzda, bunu Batch havuzuyla ilişkilendirirsiniz.
-4. Ekleme **görevleri** toohello işi. Görevleri tooa iş eklediğinizde, hello Batch hizmeti hello görevleri hello hello havuzundaki işlem düğümlerinde yürütülmesi için otomatik olarak zamanlar. Her görev tooprocess hello giriş dosyaları karşıya Merhaba uygulaması kullanır.
+1. Azure Storage hesabınıza bu dosyaları işleyecek **girdi dosyalarını** ve **uygulamayı** indirin. Girdi dosyaları uygulamanızın işleyeceği herhangi bir veri olabilir; örneğin, finansal modelleme verileri veya dönüştürülecek video dosyaları. Uygulama dosyaları, 3B işleme uygulaması veya medya dönüştürücü gibi verilerin işlenmesinde kullanılan herhangi bir uygulama olabilir.
+2. Batch hesabınızda işlem düğümlerine ait bir Batch **havuzu** oluşturun; bu düğümler görevlerinizi yürütecek sanal makinelerdir. Düğümler havuza katıldığında (1. adımda yüklediğiniz uygulama) [düğüm boyutu](../cloud-services/cloud-services-sizes-specs.md), işletim sistemi Azure Storage’da uygulamanın yükleneceği konum gibi özellikleri belirtirsiniz. Havuzu, görevlerinizin oluşturduğu iş yüküne karşılık olarak [otomatik olarak ölçeklendirilecek](batch-automatic-scaling.md) şekilde de yapılandırabilirsiniz. Otomatik ölçeklendirme, havuzdaki işlem düğümü sayısını dinamik olarak ayarlar.
+3. İşlem düğümleri havuzunda iş yükünü çalıştırmak için bir Batch **işi** oluşturun. Proje oluşturduğunuzda, bunu Batch havuzuyla ilişkilendirirsiniz.
+4. İşe **görevler** ekleyin. Bir işe görev eklediğinizde, Batch hizmeti havuzundaki işlem düğümlerinde yürütülmesi için görevleri otomatik olarak zamanlar. Her görev, girdi dosyalarını işlemek için yüklediğiniz uygulamayı kullanır.
    
-   * 4a. Görev yürütülmeden önce tooprocess toohello işlem düğümü için atanmış olan hello verileri (Merhaba girdi dosyaları) indirebilir. Merhaba uygulaması zaten hello düğümde yüklenmişse değil (bkz. #2. adım), burada de bunun yerine indirilir. Merhaba yüklemeleri tamamlandığı zaman hello görevler atanmış düğümlerinde yürütün.
-5. Merhaba görevleri çalıştırmak gibi toplu toomonitor hello ilerlemesini hello işi ve görevleri sorgulayabilirsiniz. İstemci uygulamanız veya hizmetiniz HTTPS üzerinden hello Batch hizmeti ile iletişim kurar. Binlerce işlem düğümünde çalışan görevler binlerce izleme olduğundan emin olun çok[hello Batch hizmetinin verimli bir şekilde sorgu](batch-efficient-list-queries.md).
-6. Merhaba görevleri tamamlama gibi kendi sonuç veri tooAzure depolama karşıya yükleyebilirsiniz. Dosyaları doğrudan hello dosya sisteminden bir işlem düğümünde de alabilirsiniz.
-7. İzlemenizi hello görevlerin tamamlandığını algıladığında, istemci uygulamanız veya hizmetiniz daha fazla işleme ya da değerlendirme için hello çıktı verilerini indirebilir.
+   * 4a. Görev yürütülmeden önce, atandığı işlem düğümünde işlenmesi için verileri (girdi dosyaları) indirebilir. Uygulama zaten düğümde yüklü değilse (bkz. 2. adım), bunun yerine burada da indirilebilir. İndirme işlemi tamamlandığında görevler atanmış düğümlerinde yürütülür.
+5. Görevler çalışırken, işin ve ona ait görevlerin ilerleyişini izlemek için Batch’i sorgulayabilirsiniz. İstemci uygulamanız veya hizmetiniz, Batch hizmetiyle HTTPS üzerinden iletişim kurabilir. Binlerce işlem düğümünde çalışan binlerce görevi izliyor olabileceğinizden [Batch hizmetini verimli şekilde sorguladığınızdan](batch-efficient-list-queries.md) emin olun.
+6. Görevler tamamlanınca sonuç verilerini Azure Storage’a yükleyebilirler. Dosyaları doğrudan bir işlem düğümündeki dosya sisteminden de alabilirsiniz.
+7. İzleme işleminiz işinizdeki görevlerin tamamlandığını algıladığında, istemci uygulamanız veya hizmetiniz daha fazla işleme ya da değerlendirme için çıktı verilerini indirebilir.
 
-Tutmak göz önünde bu yalnızca bir yolu toouse toplu ve bu senaryo, yalnızca birkaç kullanılabilir özellikleri açıklar. Örneğin, yürütebilir [birden çok görevi paralel](batch-parallel-node-tasks.md) her işlem düğümünde ve kullanabileceğiniz [iş hazırlama ve tamamlama görevlerini](batch-job-prep-release.md) tooprepare hello işleriniz için düğümleri ve daha sonra temizleme.
+Bunun, Batch’i kullanma yollarından yalnızca biri olduğunu ve bu senaryoda, özelliklerden yalnızca birkaçının açıklandığını unutmayın. Örneğin, her işlem düğümünde [birden çok görevi paralel olarak](batch-parallel-node-tasks.md) yürütebilir, işlerle ilgili düğümleri hazırlamak için de [iş hazırlama ve tamamlama görevlerini](batch-job-prep-release.md) kullanabilir, sonra da bunları temizleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Merhaba Batch hizmeti üst düzey bir genel bakış sahip olduğunuza göre zaman toodig daha derin toolearn olduğunu nasıl tooprocess kullanabilirsiniz, işlem yoğunluklu paralel iş yükleri.
+Batch hizmetine yüksek düzeyli bir genel bakışı gördüğünüze göre işlem yoğunluklu iş yüklerinizi işlemek için nasıl kullanacağınızı öğrenmek üzere daha derine inebiliriz.
 
-* Okuma hello [geliştiriciler için Batch özelliklerine genel bakış](batch-api-basics.md), önemli bilgiler herkesin toouse toplu hazırlanıyor. Merhaba makale Batch uygulamanızı oluştururken kullanabileceğiniz birçok API özellikleri Batch hizmeti kaynak havuzları, düğümleri, işler ve görevler ve hello gibi hakkında daha ayrıntılı bilgi içerir.
-* Merhaba hakkında bilgi edinin [Batch API'lerini ve araçları](batch-apis-tools.md) Batch çözümleri oluşturmak için kullanılabilir.
-* [.NET için Hello Azure Batch kitaplığını kullanmaya başlama](batch-dotnet-get-started.md) toolearn nasıl toouse C# ve Batch .NET kitaplığı tooexecute ortak bir toplu iş akışı kullanarak basit bir iş yükü hello. Bu makalede nasıl toouse hello Batch hizmeti öğrenme sırasında ilk duraklarınızdan biri olmalıdır. Ayrıca bir [Python sürümü](batch-python-tutorial.md) hello Öğreticisi.
-* Merhaba karşıdan [github'daki kod örnekleri] [ github_samples] nasıl hem C# ve Python arabirim toplu tooschedule ve işlem örnek iş yükleri ile toosee.
-* Merhaba denetleyin [Batch öğrenme yolu] [ learning_path] tooget hello kaynakları kullanılabilir tooyou yazarken hakkında bir fikir toowork toplu ile bilgi edinin.
+* Batch kullanmaya hazırlanan herkes için gerekli bilgileri içeren [Geliştiriciler için Batch özelliğine genel bakış](batch-api-basics.md) konusunu okuyun. Bu makalede havuzlar, düğümler, işler ve görevler gibi Batch hizmet kaynakları ve Batch uygulamanızı oluştururken kullanabileceğiniz birçok API özelliği hakkında daha ayrıntılı bilgi verilmektedir.
+* Batch çözümleri oluşturmak için kullanılabilen [Batch API’leri ve araçları](batch-apis-tools.md) hakkında bilgi alın.
+* Genel bir Batch iş akışını kullanarak basit bir iş yükü yürütmek üzere C# ve Batch .NET kitaplığını kullanma hakkında bilgi için bkz. [.NET için Azure Batch kitaplığını kullanmaya başlama](batch-dotnet-get-started.md). Bu makale, Batch hizmetini kullanmayı öğrenirken ilk başvuracağınız kaynaklardan biri olmalıdır. Öğreticinin bir [Python sürümü](batch-python-tutorial.md) de mevcuttur.
+* Hem C# hem de Python'un örnek iş yüklerini zamanlamak ve işlemek üzere Batch ile arabirim oluşturmasını görmek için [GitHub'daki kod örneklerini][github_samples] indirin.
+* Batch'le çalışmayı öğrenirken size uygun kaynaklar hakkında bir fikir edinmek için [Batch Öğrenme Yolu][learning_path] konusunu inceleyin.
 
 
 [github_samples]: https://github.com/Azure/azure-batch-samples

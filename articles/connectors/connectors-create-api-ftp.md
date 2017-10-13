@@ -1,6 +1,6 @@
 ---
-title: "aaaLearn nasıl toouse hello logic apps FTP Bağlayıcısı | Microsoft Docs"
-description: "Logic apps ile Azure uygulama hizmeti oluşturun. TooFTP sunucu toomanage dosyalarınızı bağlayın. Karşıya yükleme gibi çeşitli eylemleri, güncelleştirme, almak ve FTP sunucusu dosyaları silin."
+title: "Logic apps içinde FTP Bağlayıcısı'nı kullanmayı öğrenin | Microsoft Docs"
+description: "Logic apps ile Azure uygulama hizmeti oluşturun. Dosyalarınızı yönetmek için FTP sunucusuna bağlanın. Karşıya yükleme gibi çeşitli eylemleri, güncelleştirme, almak ve FTP sunucusu dosyaları silin."
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -15,80 +15,80 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 07/22/2016
 ms.author: mandia; ladocs
-ms.openlocfilehash: a7020df2005ebb34fc569627ae0516b8528cc7a3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 61bfbedfd4f1e84b6976099323a32f3a720634c0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="get-started-with-hello-ftp-connector"></a>Merhaba FTP Bağlayıcısı ile çalışmaya başlama
-Merhaba FTP Bağlayıcısı toomonitor kullanmak için yönetmek ve bir FTP sunucusu üzerinde dosya oluşturun. 
+# <a name="get-started-with-the-ftp-connector"></a>FTP Bağlayıcısı ile çalışmaya başlama
+İzleme, yönetme ve FTP sunucusunda bulunan dosyaları oluşturmak için FTP Bağlayıcısı'nı kullanın. 
 
-toouse [tüm bağlayıcıların](apis-list.md), toocreate bir mantıksal uygulama ilk gerekir. Tarafından başlayabiliriz [şimdi mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).
+Kullanılacak [tüm bağlayıcıların](apis-list.md), ilk mantıksal uygulama oluşturmanız gerekir. Tarafından başlayabiliriz [şimdi mantıksal uygulama oluşturma](../logic-apps/logic-apps-create-a-logic-app.md).
 
-## <a name="connect-tooftp"></a>TooFTP Bağlan
-Mantıksal uygulamanızı herhangi bir hizmet erişebilmeniz için önce toocreate ilk gerekiyor bir *bağlantı* toohello hizmet. A [bağlantı](connectors-overview.md) bir mantıksal uygulama ile başka bir hizmet arasında bağlantı sağlar.  
+## <a name="connect-to-ftp"></a>FTP Bağlan
+Mantıksal uygulamanızı herhangi bir hizmet erişebilmeniz için önce ilk önce oluşturmanız gerekir bir *bağlantı* hizmet. A [bağlantı](connectors-overview.md) bir mantıksal uygulama ile başka bir hizmet arasında bağlantı sağlar.  
 
-### <a name="create-a-connection-tooftp"></a>Bir bağlantı tooFTP oluşturma
-> [!INCLUDE [Steps toocreate a connection tooFTP](../../includes/connectors-create-api-ftp.md)]
+### <a name="create-a-connection-to-ftp"></a>FTP bağlantı oluşturun.
+> [!INCLUDE [Steps to create a connection to FTP](../../includes/connectors-create-api-ftp.md)]
 > 
 > 
 
 ## <a name="use-a-ftp-trigger"></a>FTP tetikleyici kullanın
-Bir tetikleyici bir mantıksal uygulama tanımlı kullanılan toostart hello iş akışı olabilecek bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Bir tetikleyici bir mantıksal uygulama tanımlı iş akışını başlatmak için kullanılan bir olaydır. [Tetikleyiciler hakkında daha fazla bilgi](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
 
 > [!IMPORTANT]
-> Merhaba FTP Bağlayıcısı Internet hello erişilebilir olduğundan ve FTP sunucusuna toooperate Pasif modu ile yapılandırılmış gerektirir. Ayrıca, hello FTP Bağlayıcıdır **örtük FTPS (FTP SSL üzerinden) ile uyumlu değil**. Merhaba FTP Bağlayıcısı, yalnızca açık FTPS (FTP SSL üzerinden) destekler.  
+> Internet'ten erişilebilen ve Pasif modu ile çalışmak için yapılandırılmış bir FTP sunucusu FTP Bağlayıcısı gerektirir. Ayrıca, FTP Bağlayıcıdır **örtük FTPS (FTP SSL üzerinden) ile uyumlu değil**. FTP Bağlayıcısı, yalnızca açık FTPS (FTP SSL üzerinden) destekler.  
 > 
 > 
 
-Bu örnekte, ı bunu nasıl yapacağınızı gösterir toouse hello **bir dosya eklendiğinde veya FTP -** bir dosya için eklendiğinde veya, bir FTP sunucusuna değiştirildiğinde tooinitiate mantığı uygulama iş akışı tetikler. Bir kurumsal örnekte müşterilerden siparişleri temsil eden yeni dosyalar için Bu tetikleyici toomonitor FTP klasörü kullanabilirsiniz.  Bir FTP Bağlayıcısı eylem gibi sonra kullanabilir **dosya içeriğini almak** tooget hello içeriği başka bir işleme ve depolama siparişleri veritabanınızdaki hello düzeni.
+Bu örnekte, ı size nasıl kullanılacağını gösterir **bir dosya eklendiğinde veya FTP -** bir dosya için eklendiğinde veya, bir FTP sunucusuna değiştiren bir mantık uygulama iş akışını başlatmak için tetikler. Bir kurumsal örnekte, bu tetikleyici müşterilerden siparişleri temsil eden yeni dosyalar için bir FTP klasörü izlemek için kullanabilirsiniz.  Bir FTP Bağlayıcısı eylem gibi sonra kullanabilir **alma dosya içeriğini** siparişleri veritabanınızda başka bir işleme ve depolama düzeni içeriğini almak için.
 
-1. Girin *ftp* hello arama kutusuna hello logic apps tasarımcısında hello seçip **bir dosya eklendiğinde veya FTP -** tetikleyici   
+1. Girin *ftp* arama kutusuna logic apps tasarımcısında seçip **bir dosya eklendiğinde veya FTP -** tetikleyici   
    ![FTP tetikleyici görüntü 1](./media/connectors-create-api-ftp/ftp-trigger-1.png)  
-   Merhaba **ne zaman bir dosya eklenen veya değiştirilen** denetim açılır  
+   **Ne zaman bir dosya eklenen veya değiştirilen** denetim açılır  
    ![FTP tetikleyici görüntü 2](./media/connectors-create-api-ftp/ftp-trigger-2.png)  
-2. Select hello **...**  hello sağ tarafında hello denetim bulunur. Bu hello Klasör Seçici denetim açar  
+2. Seçin **...**  denetimi sağ tarafta bulunur. Bu Klasör Seçici denetim açar  
    ![FTP tetikleyici görüntü 3](./media/connectors-create-api-ftp/ftp-trigger-3.png)  
-3. Select hello  **>**  (sağ ok) ve yeni veya değiştirilmiş dosyaları için toomonitor istediğiniz toofind hello klasöre göz atın. Merhaba klasörü seçin ve başlangıç klasörü hello şimdi görüntülenen fark **klasörü** denetim.  
+3. Seçin  **>**  (sağ ok) için yeni veya değiştirilmiş dosyaları izlemek istediğiniz klasörü bulmak üzere göz atın. Klasör ve klasör gösterilen artık bildirim seçin **klasörü** denetim.  
    ![FTP tetikleyici görüntü 4](./media/connectors-create-api-ftp/ftp-trigger-4.png)   
 
-Bu noktada, mantıksal uygulamanızı bir dosya değiştiren veya hello belirli FTP klasörde oluşturulan yükleyen hello yürütülmesi diğer tetikleyiciler ve Eylemler hello iş akışında başlayacak bir tetikleyici ile yapılandırıldı. 
+Bu noktada, mantıksal uygulamanızı bir dosya değiştiren veya belirli FTP klasörde oluşturulan diğer tetikleyiciler ve Eylemler iş akışı bir farklı çalıştır başlayacak bir tetikleyici ile yapılandırıldı. 
 
 > [!NOTE]
-> Bir mantıksal uygulama toobe için işlev, en az bir tetikleyici ve bir eylem içermelidir. Merhaba sonraki bölümde tooadd eylemin Hello adımları izleyin.  
+> Bir mantıksal uygulama işlevsel olması en az bir tetikleyici ve bir eylem içermelidir. Bir eylem eklemek için sonraki bölümdeki adımları izleyin.  
 > 
 > 
 
 ## <a name="use-a-ftp-action"></a>Bir FTP eylemi kullanın
-Bir eylem, bir mantıksal uygulama tanımlı hello iş akışı tarafından gerçekleştirilen bir işlemdir. [Eylemler hakkında daha fazla bilgi](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
+Bir eylem, bir mantıksal uygulama içinde tanımlanan iş akışı tarafından gerçekleştirilen bir işlemdir. [Eylemler hakkında daha fazla bilgi](../logic-apps/logic-apps-what-are-logic-apps.md#logic-app-concepts).  
 
-Bir tetikleyici eklediğiniz, bu adımları tooadd hello tetik tarafından bulunan hello yeni veya değiştirilmiş dosya hello içeriğini alacak bir eylem izleyin.    
+Eklediğiniz bir tetikleyici, tetikleyici tarafından bulunan yeni veya değiştirilmiş dosya içeriğini alacak bir eylem eklemek için aşağıdaki adımları izleyin.    
 
-1. Seçin **+ yeni adım** tooadd hello hello eylem tooget hello hello dosyasının içeriğini hello FTP sunucusunda  
-2. Select hello **Eylem Ekle** bağlantı.  
+1. Seçin **+ yeni adım** eklemek için FTP sunucusunda dosyasının içeriğini almak için eylem  
+2. Seçin **Eylem Ekle** bağlantı.  
    ![FTP eylem görüntü 1](./media/connectors-create-api-ftp/ftp-action-1.png)  
-3. Girin *FTP* toosearch tüm eylemler için ilgili tooFTP.
-4. Seçin **FTP - Al dosya içeriğini** hello FTP klasöründe yeni veya değiştirilmiş bir dosya bulunduğunda eylem tootake hello gibi.      
+3. Girin *FTP* FTP ilgili tüm eylemleri arayın.
+4. Seçin **FTP - Al dosya içeriğini** ne zaman gerçekleştirilecek eylemi yeni veya değiştirilmiş bir dosya FTP klasöründe bulunur.      
    ![FTP eylem görüntü 2](./media/connectors-create-api-ftp/ftp-action-2.png)  
-   Merhaba **alma dosya içeriği** kontrol açar. **Not**:, istendiğinde tooauthorize FTP sunucunuza hesabını, daha önce yapmadıysanız, logic app tooaccess olacaktır.  
+   **Alma dosya içeriği** kontrol açar. **Not**: mantıksal uygulamanızı, bunu daha önceden yapmadıysanız, FTP sunucusu hesabınıza erişmeniz için yetkilendirmek istenir.  
    ![FTP eylem görüntüsü 3](./media/connectors-create-api-ftp/ftp-action-3.png)   
-5. Select hello **dosya** denetimi (Merhaba boşluk bulunan aşağıda **dosya***). Burada, herhangi bir hello çeşitli özellikleri dosyasından hello FTP sunucusunda bulunan hello yeni veya değiştirilmiş kullanabilirsiniz.  
-6. Select hello **dosya içeriği** seçeneği.  
+5. Seçin **dosya** denetimi (boşluk bulunan aşağıda **dosya***). Burada FTP sunucusunda bulunan yeni veya değiştirilmiş dosyasından çeşitli özelliklerinden herhangi birini kullanabilirsiniz.  
+6. Seçin **dosya içeriği** seçeneği.  
    ![FTP eylem görüntüsü 4](./media/connectors-create-api-ftp/ftp-action-4.png)   
-7. Merhaba denetim güncelleştirilir, o hello belirten **FTP - Al dosya içeriğini** eylemin hello alırsınız *dosya içeriği* hello yeni veya değiştirilmiş dosyasının hello FTP sunucusundaki.      
+7. Gösteren denetimi güncelleştirilir **FTP - Al dosya içeriğini** eylem alırsınız *dosya içeriği* FTP sunucusunda yeni veya değiştirilmiş dosyasının.      
    ![FTP eylem görüntüsü 5](./media/connectors-create-api-ftp/ftp-action-5.png)     
-8. Çalışmanızı kaydedin, sonra iş akışınızı bir dosya toohello FTP klasörü tootest ekleyin.    
+8. Çalışmanızı kaydedin, sonra iş akışınızı test etmek için FTP klasörüne bir dosya ekleyin.    
 
-Bu noktada, hello mantıksal uygulama boyunca yeni bir dosya veya değiştirilmiş bir dosya hello FTP sunucusunda bulduğunda bir tetikleyici toomonitor ile bir klasör bir FTP sunucusu ve başlatma hello iş akışı yapılandırılmış. 
+Bu noktada, mantıksal uygulama, bir FTP sunucusundaki bir klasöre izlemek ve yeni bir dosya veya FTP sunucusunda değiştirilmiş bir dosya bulduğunda, iş akışını başlatmak için bir tetikleyici ile yapılandırıldı. 
 
-Merhaba mantıksal uygulama aynı zamanda bir eylem tooget hello hello yeni veya değiştirilmiş dosyasının içeriğiyle yapılandırıldı.
+Mantıksal uygulama de yeni veya değiştirilmiş dosyasının içeriğini almak için bir eylem ile yapılandırıldı.
 
-Hello gibi başka bir eylem artık ekleyebilirsiniz [SQL Server - Satır Ekle](connectors-create-api-sqlazure.md) eylem tooinsert hello hello yeni veya değiştirilmiş dosyasına SQL veritabanı tablosunda içeriğini.  
+Başka bir eylem gibi şimdi eklemek [SQL Server - Satır Ekle](connectors-create-api-sqlazure.md) yeni veya değiştirilmiş dosya içeriğini bir SQL veritabanı tablosuna eklemek için eylem.  
 
 ## <a name="connector-specific-details"></a>Bağlayıcı özgü ayrıntıları
 
-Tüm tetikleyiciler ve Eylemler hello swagger içinde tanımlanan görüntüleyebilir ve ayrıca hello herhangi bir sınır bkz. [Bağlayıcısı ayrıntıları](/connectors/ftpconnector/). 
+Tüm tetikleyiciler ve Eylemler swagger tanımlanan görüntüleyebilir ve ayrıca herhangi bir sınır bkz [Bağlayıcısı ayrıntıları](/connectors/ftpconnector/). 
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 [Mantıksal uygulama oluşturun.](../logic-apps/logic-apps-create-a-logic-app.md)

@@ -1,12 +1,12 @@
-1. Merhaba portalında gelen **tüm kaynakları**, tıklatın **+ Ekle**. Merhaba, **her şeyi** dikey penceresinde arama kutusuna **yerel ağ geçidi**, tooreturn kaynakların bir listesini'ye tıklayın. Tıklatın **yerel ağ geçidi** tooopen hello dikey ve ardından **oluşturma** tooopen hello **oluşturma yerel ağ geçidi** dikey.
+1. Portalda **Tüm kaynaklar** menüsündeki **+Ekle**’ye tıklayın. İçinde **her şeyi** dikey penceresinde arama kutusuna **yerel ağ geçidi**, sonra kaynakların bir listesini döndürmek için tıklatın. **Yerel ağ geçidi**’ne tıklayarak dikey pencereyi açın, ardından **Oluştur**’a tıklayarak **Yerel ağ geçidi oluştur** dikey penceresini açın.
    
     ![yerel ağ geçidi oluşturma](./media/vpn-gateway-add-lng-rm-portal-include/lng.png)
 
-2. Merhaba üzerinde **oluşturma yerel ağ geçidi dikey**, belirtin bir **adı** yerel ağ geçidi nesnesi için. Mümkünse, sezgisel gibi bir şeyi kullanan **ClassicVNetLocal** veya **TestVNet1Local**. Bu, tooidentify hello yerel ağ geçidi hello Portalı'nda kolaylaştırır.
-3. Geçerli bir ortak belirtin **IP adresi** tooconnect istediğiniz hello VPN cihazı ya da sanal ağ geçidi toowhich için.<br>**Bu yerel ağ bir şirket içi konumunu temsil edip etmediğini:** tooconnect için istediğiniz hello VPN cihazı hello genel IP adresini belirtin. NAT'nin ardında olamaz ve Azure tarafından erişilebilir toobe sahiptir.<br>**Bu yerel ağ başka bir VNet temsil ediyorsa:** toohello sanal ağ geçidi, VNet için atanan hello genel IP adresi belirtin.<br>**Başlangıç IP adresi henüz yoksa:** geçerli yer tutucu IP adresi yapmak ve daha sonra geri dönün ve bağlanmadan önce bu ayarı değiştirin.
-4. **Adres alanı** toohello adres aralıkları için bu yerel ağ temsil eden hello ağ başvuruyor. Birden fazla adres alanı aralığı ekleyebilirsiniz. Bağlandığınız diğer ağlara toowhich aralıkları ile çakışmaması hello aralıklarını burada belirttiğiniz emin olun.
-5. İçin **abonelik**, o hello abonelik gösteren doğru doğrulayın.
-6. İçin **kaynak grubu**seçin toouse istediğiniz hello kaynak grubu. Yeni bir kaynak grubu oluşturabilir veya önceden oluşturduğunuz birini seçebilirsiniz.
-7. İçin **konumu**, bu kaynak oluşturulacağı hello konumu seçin. Tooselect hello ağınızı bulunan aynı konumda, olmamakla birlikte, gerekli toodo şekilde isteyebilirsiniz.
-8. Tıklatın **oluşturma** toocreate hello yerel ağ geçidi.
+2. **Yerel ağ geçidi oluştur** dikey penceresinde yerel ağ geçidi nesnesi için bir **Ad** belirtin. Mümkünse, sezgisel gibi bir şeyi kullanan **ClassicVNetLocal** veya **TestVNet1Local**. Bu Portalı'nda yerel ağ geçidi belirlemenizi kolaylaştırır.
+3. Geçerli bir ortak belirtin **IP adresi** bağlanmak istediğiniz VPN cihazı ya da sanal ağ geçidi için.<br>**Bu yerel ağ bir şirket içi konumunu temsil edip etmediğini:** bağlanmak istediğiniz VPN cihazının genel IP adresi belirtin. NAT’nin ardında olamaz ve Azure tarafından erişilebilir olması gerekir.<br>**Bu yerel ağ başka bir VNet temsil ediyorsa:** sanal ağ geçidi, VNet için atanan ortak IP adresi belirtin.<br>**IP adresi henüz yoksa:** geçerli yer tutucu IP adresi yapmak ve daha sonra geri dönün ve bağlanmadan önce bu ayarı değiştirin.
+4. **Adres Alanı**, bu yerel ağın temsil ettiği ağa ilişkin adres aralıkları anlamına gelir. Birden fazla adres alanı aralığı ekleyebilirsiniz. Burada belirttiğiniz aralıklar, bağlandığınız diğer ağlara aralıklarıyla çakışmadığından emin olun.
+5. **Abonelik** için doğru aboneliğin gösterildiğini doğrulayın.
+6. **Kaynak Grubu** için kullanmak istediğiniz kaynak grubunu seçin. Yeni bir kaynak grubu oluşturabilir veya önceden oluşturduğunuz birini seçebilirsiniz.
+7. İçin **konumu**, bu kaynak oluşturulacağı konumu seçin. VNet'inizin bulunduğu konumu seçebilirsiniz ancak bu zorunlu değildir.
+8. Yerel ağ geçidi oluşturmak için **Oluştur**’a tıklayın.
 

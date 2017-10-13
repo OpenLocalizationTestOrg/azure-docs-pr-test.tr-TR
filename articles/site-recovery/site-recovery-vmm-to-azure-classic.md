@@ -1,6 +1,6 @@
 ---
-title: "VMM Bulutları tooAzure aaaReplicate Hyper-V sanal makineleri | Microsoft Docs"
-description: "Bu makalede, System Center VMM Bulutları tooAzure tooreplicate Hyper-V sanal makinelerini Hyper-V konaklarının nasıl bulunan açıklanmaktadır."
+title: "VMM bulutlarındaki Hyper-V sanal makinelerini Azure'a çoğaltma | Microsoft Belgeleri"
+description: "Bu makalede, System Center VMM bulutlarında bulunan Hyper-V ana bilgisayarlarındaki Hyper-V sanal makinelerini Azure'a çoğaltma işlemi açıklanır."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.openlocfilehash: 136f68585534c17b615ecc4e82c0133bf813503f
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: ac0931a71a2814723380256fc5326fc431c82f2c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-tooazure"></a>Hyper-V sanal makineleri VMM Bulutları tooAzure Çoğalt
+# <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure"></a>VMM bulutlarındaki Hyper-V sanal makinelerini Azure'a çoğaltma
 > [!div class="op_single_selector"]
 > * [Azure portalı](site-recovery-vmm-to-azure.md)
 > * [PowerShell - Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
@@ -29,20 +29,20 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Hello Azure Site Recovery hizmeti tooyour iş devamlılığı ve olağanüstü durum kurtarma (BCDR) stratejinize yönetme çoğaltma, yük devretme ve kurtarma sanal makinelerin ve fiziksel sunucuları tarafından katkıda bulunur. Makineler çoğaltılmış tooAzure veya tooa ikincil şirket içi veri merkezi olabilir. Hızlı bir genel bakış için [Azure Site Recovery nedir?](site-recovery-overview.md) konusunu okuyun.
+Azure Site Recovery hizmeti; çoğaltma, yük devretme ve sanal makineler ile fiziksel sunucuları kurtarma işlemlerini düzenleyerek iş sürekliliği ve olağanüstü durum kurtarma (BCDR) stratejinize katkı sağlar. Makineler, Azure'a veya bir ikincil şirket içi veri merkezine çoğaltılabilir. Hızlı bir genel bakış için [Azure Site Recovery nedir?](site-recovery-overview.md) konusunu okuyun.
 
 ## <a name="overview"></a>Genel Bakış
-Bu makalede, VMM özel Bulutlar tooAzure bulunan sunucular nasıl toodeploy Site Recovery tooreplicate Hyper-V sanal makineleri Hyper-V konağı açıklanmaktadır.
+Bu makalede, VMM özel bulutlarında bulunan Hyper-V ana bilgisayar sunucularındaki Hyper-V sanal makineleri çoğaltmak için Site Recovery'yi Azure'a dağıtma işlemi açıklanır.
 
-Merhaba makale hello senaryonun önkoşulları içerir ve size nasıl tooset bir Site Recovery kasasına yukarı hello hello kaynak VMM sunucusunda Azure Site Recovery sağlayıcısı hello sunucu hello kasaya kaydetmek, Azure depolama hesabı ekleme, hello yüklemek gösterir Azure kurtarma Hizmetleri aracısını Hyper-V ana bilgisayar sunucuları üzerinde uygulanan tooall korumalı sanal makineler olabilir ve bu sanal makineler için korumayı etkinleştir VMM Bulutları için koruma ayarlarını yapılandırın. Sınama hello yük devretme toomake tarafından her şeyin beklendiği gibi çalıştığından emin sonlandırın.
+Bu makale, senaryolara ilişkin önkoşulları içerir ve Site Recovery kasası ayarlamayı, kaynak VMM sunucusunda yüklü olan Azure Site Recovery Sağlayıcısı'nı edinmeyi, sunucuyu kasaya kaydetmeyi, bir Azure depolama hesabı eklemeyi, Azure Kurtarma Hizmetleri aracısını Hyper-V ana bilgisayar sunucularına yüklemeyi, tüm korunan sanal makinelere uygulanacak VMM bulutları için koruma ayarlarını yapılandırmayı ve ardından bu korumayı tüm sanal makineler için etkinleştirmeyi gösterir. Her şeyin istendiği gibi çalıştığından emin olmak için yük devretmeyi test ederek işlemi sonlandırın.
 
-Tüm yorumlarınızı ve sorularınızı bu makalenin veya hello hello altındaki sonrası [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Tüm yorumlarınızı ve sorularınızı bu makalenin alt kısmında veya [Azure Kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)'nda paylaşabilirsiniz.
 
 ## <a name="architecture"></a>Mimari
 ![Mimari](./media/site-recovery-vmm-to-azure-classic/topology.png)
 
-* Hello Azure Site kurtarma sağlayıcısı VMM hello üzerinde Site Recovery dağıtımı sırasında yüklenir ve hello VMM sunucusu hello Site Recovery kasasına kayıtlı. Merhaba sağlayıcı, Site Recovery toohandle çoğaltma orchestration ile iletişim kurar.
-* Hello Azure kurtarma Hizmetleri aracısını Hyper-V ana bilgisayar sunucuları üzerinde Site Recovery dağıtımı sırasında yüklenir. Veri çoğaltma tooAzure depolama işler.
+* Azure Site Recovery Sağlayıcısı, Site Recovery dağıtımı sırasında VMM'de yüklüdür ve VMM sunucusu Site Recovery kasasına kayıtlıdır. Çoğaltma düzenlemesini sağlamak için Sağlayıcı, Site Recovery ile iletişim kurar.
+* Azure Kurtarma Hizmetleri aracısı, Site Recovery dağıtımı sırasında Hyper-V ana bilgisayar sunucularında yüklüdür. Bu aracı, Azure depolama alanına yönelik veri çoğaltma işlemini ele alır.
 
 ## <a name="azure-prerequisites"></a>Azure önkoşulları
 İşte Azure'da ihtiyaç duyacaklarınız:
@@ -50,29 +50,29 @@ Tüm yorumlarınızı ve sorularınızı bu makalenin veya hello hello altındak
 | **Önkoşul** | **Ayrıntılar** |
 | --- | --- |
 | **Azure hesabı** |Bir [Microsoft Azure](https://azure.microsoft.com/) hesabınızın olması gerekir. [Ücretsiz deneme sürümüyle](https://azure.microsoft.com/pricing/free-trial/) başlayabilirsiniz. Site Recovery fiyatlandırması hakkında [daha fazla bilgi edinin](https://azure.microsoft.com/pricing/details/site-recovery/). |
-| **Azure depolama alanı** |Bir Azure depolama hesabı toostore çoğaltılmış verileri gerekir. Çoğaltılan veriler Azure depolama alanında depolanır ve yük devretme durumunda Azure VM'leri çalışmaya başlar. <br/><br/>[Standart coğrafi olarak yedekli depolama hesabınızın](../storage/common/storage-redundancy.md#geo-redundant-storage) olması gerekir. Merhaba hesabı olmalıdır hello hello Site Recovery hizmeti ile aynı bölgeye ve ilişkilendirilmesi hello aynı abonelik. Çoğaltma toopremium depolama hesapları şu anda desteklenmiyor ve kullanılmaması unutmayın.<br/><br/>Azure depolama alanı [hakkında bilgi edinin](../storage/common/storage-introduction.md). |
-| **Azure ağı** |Azure VM'ler bağlanacak bir Azure sanal ağı gerekir toowhen yük devretme oluşur. Hello Azure sanal ağı hello olmalıdır hello Site Recovery kasasıyla aynı bölgede. |
+| **Azure depolama alanı** |Çoğaltılan verileri depolamak için bir Azure depolama hesabınızın olması gerekir. Çoğaltılan veriler Azure depolama alanında depolanır ve yük devretme durumunda Azure VM'leri çalışmaya başlar. <br/><br/>[Standart coğrafi olarak yedekli depolama hesabınızın](../storage/common/storage-redundancy.md#geo-redundant-storage) olması gerekir. Bu hesabın Site Recovery ile aynı bölgede ve aynı abonelikle ilişkilendirilmiş olması gerekir. Premium depolama hesaplarında çoğaltmanın şu anda desteklenmediğini ve bu hesapların kullanılmaması gerektiğini unutmayın.<br/><br/>Azure depolama alanı [hakkında bilgi edinin](../storage/common/storage-introduction.md). |
+| **Azure ağı** |Yük devretme gerçekleştiğinde Azure VM'lerinin bağlanabileceği bir Azure sanal ağı gerekir. Azure sanal ağının Site Recovery kasasıyla aynı bölgede olması gerekir. |
 
 ## <a name="on-premises-prerequisites"></a>Şirket içi önkoşullar
 İşte şirket içinde ihtiyaç duyacaklarınız:
 
 | **Önkoşul** | **Ayrıntılar** |
 | --- | --- |
-| **VMM** |Bir fiziksel veya sanal bağımsız sunucu olarak veya sanal küme olarak dağıtılmış en az bir VMM sunucusu gerekir. <br/><br/>Merhaba VMM sunucusu hello en yeni birikmeli güncelleştirmeleri içeren System Center 2012 R2 çalıştırması gerekir.<br/><br/>Merhaba VMM sunucusunda yapılandırılmış en az bir bulut gerekir.<br/><br/>Merhaba kaynak bulut tooprotect istediğiniz bir veya daha fazla VMM ana bilgisayar grubu içermesi gerekir.<br/><br/>VMM bulutlarını ayarlama hakkında daha fazla bilgi edinmek için Keith Mayer'ın blogundaki [Adım adım kılavuz: System Center 2012 SP1 VMM içeren özel bulut oluşturma](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) |
-| **Hyper-V** |Bir veya daha fazla Hyper-V ana bilgisayarı sunucuları veya hello VMM bulut kümelerde gerekir. Merhaba ana bilgisayar sunucusu olmalıdır ve bir veya daha fazla VM. <br/><br/>Merhaba Hyper-V server çalıştırmalıdır en az **Windows Server 2012 R2** hello Hyper-V rolüne sahip veya **Microsoft Hyper-V Server 2012 R2** ve hello son güncelleştirmelerin yüklü olması.<br/><br/>Vm'leri içeren herhangi bir Hyper-V sunucusu tooprotect VMM bulutunda yer alması gerekir istiyor.<br/><br/>Hyper-V'yi bir kümede çalıştırıyorsanız statik IP adresi temelli bir kümeye sahip olmanız durumunda küme aracısının otomatik olarak oluşturulamayacağını unutmayın. El ile tooconfigure hello küme Aracısı gerekir. Aidan Finn'in blog girdisi aracılığıyla [daha fazla bilgi edinin](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters). |
-| **Korumalı makineler** | İstediğiniz tooprotect ile uyumlu olması gerekir VM'ler [Azure gereksinimleri](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements). |
+| **VMM** |Bir fiziksel veya sanal bağımsız sunucu olarak veya sanal küme olarak dağıtılmış en az bir VMM sunucusu gerekir. <br/><br/>VMM sunucusunun, en yeni birikmeli güncelleştirmeleri içeren System Center 2012 R2'yi çalıştırması gerekir.<br/><br/>En az bir adet VMM sunucusunda yapılandırılan bulut gerekir.<br/><br/>Korumak istediğiniz kaynak bulutun, bir veya birden fazla VMM ana bilgisayar grubu içermesi gerekir.<br/><br/>VMM bulutlarını ayarlama hakkında daha fazla bilgi edinmek için Keith Mayer'ın blogundaki [Adım adım kılavuz: System Center 2012 SP1 VMM içeren özel bulut oluşturma](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx) |
+| **Hyper-V** |VMM bulutunda bir veya birden çok Hyper-V ana bilgisayar sunucusu veya kümesine sahip olmanız gerekir. Ana bilgisayar sunucusunun bir veya birden çok VM'ye sahip olması gerekir. <br/><br/>Hyper-V sunucusunun, Hyper-V rolü içeren **Windows Server 2012 R2** veya **Microsoft Hyper-V Server 2012 R2** sürümünde ya da bunların sonraki sürümlerinde çalıştırılması ve en son güncelleştirmelerinin yüklenmiş olması gerekir.<br/><br/>Korumak istediğiniz ve VM'leri içeren herhangi bir Hyper-V sunucusunun, VMM bulutunda yer alması gerekir.<br/><br/>Hyper-V'yi bir kümede çalıştırıyorsanız statik IP adresi temelli bir kümeye sahip olmanız durumunda küme aracısının otomatik olarak oluşturulamayacağını unutmayın. Küme aracısını sizin yapılandırmanız gerekir. Aidan Finn'in blog girdisi aracılığıyla [daha fazla bilgi edinin](https://www.petri.com/use-hyper-v-replica-broker-prepare-host-clusters). |
+| **Korumalı makineler** | Korumak istediğiniz VM'lerin [Azure gereksinimlerini](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) karşılaması gerekir. |
 
 ## <a name="network-mapping-prerequisites"></a>Ağ eşlemesi önkoşulları
-Azure ağı eşlemesinde sanal makineleri korumaya zaman hello kaynak VMM sunucusunda VM ağları ve hedef Azure ağları tooenable hello aşağıdaki arasında eşler:
+Azure'da sanal makineleri koruduğunuzda, ağ eşlemesi kaynak VMM sunucusundaki VM ağlarını hedef Azure ağları ile eşleyerek şu işlemlere olanak sağlar:
 
-* Merhaba üzerinde aynı devreden tüm makineler ağ tooeach bulundukları hangi kurtarma planı yedeklemiş diğer bağlanabilir.
-* Bir ağ geçidi hello hedef Azure ağında ayarlanıp ayarlanmadığını sanal makineleri tooother şirket içi sanal makinelere bağlanabilir.
-* Hello aynı yük devri yalnızca sanal makineler eşleme, yapılandırmazsanız ağ kurtarma planı yük devretme tooAzure sonra diğer mümkün tooconnect tooeach olacaktır.
+* Aynı ağda yük devreden tüm makineler, hangi kurtarma planında yer aldıklarına bakılmaksızın birbiriyle bağlantı kurabilir.
+* Hedef Azure ağında bir ağ geçidi ayarlanırsa sanal makineler diğer şirket içi sanal makinelere bağlanabilir.
+* Ağ eşlemesini yapılandırmazsanız yalnızca aynı kurtarma planında yük devreden sanal makineler, Azure'a yük devretme işleminin ardından birbirleriyle bağlantı kurabilir.
 
-Toodeploy ağ eşlemesi istiyorsanız hello aşağıdakiler gerekir:
+Ağ eşlemesi dağıtmak isterseniz şunlara ihtiyaç duyarsınız:
 
-* Merhaba kaynak VMM sunucusunda tooprotect istediğiniz Hello sanal makineleri bağlı tooa VM ağı olmalıdır. Bu ağ hello Bulutu ile ilişkili mantıksal ağ bağlantılı tooa olmalıdır.
-* Bir Azure ağı toowhich çoğaltılan sanal makineler, yük devretme sonrasında bağlanabilir. Bu ağ hello yük devretme sırasında seçersiniz. Merhaba ağ hello olmalıdır, Azure Site Recovery abonelik aynı bölgede.
+* Kaynak VMM sunucusunda korumak istediğinizde sanal makinelerin bir VM ağına bağlanması gerekir. Bu ağın, bulutla ilişkilendirilen mantıksal bir ağ ile bağlantılı olması gerekir.
+* Yük devretme işleminin ardından çoğaltılan sanal makinelerin bağlanabileceği bir Azure ağı. Bu ağı yük devretme sırasında seçersiniz. Ağın Azure Site Recovery aboneliğinizle aynı bölgede olması gerekir.
 
 
 VMM'de ağları hazırlayın:
@@ -82,205 +82,205 @@ VMM'de ağları hazırlayın:
 
 
 ## <a name="step-1-create-a-site-recovery-vault"></a>1. Adım: Site Recovery kasası oluşturma
-1. İçinde toohello oturum [Yönetim Portalı](https://portal.azure.com) hello VMM sunucusundan tooregister istiyor.
+1. Kaydolmak istediğiniz VMM sunucusundan [Yönetim Portalı](https://portal.azure.com)'nda oturum açın.
 2. **Veri Hizmetleri** > **Kurtarma Hizmetleri** > **Site Recovery Kasası** seçeneklerine tıklayın.
 3. **Yeni Oluştur** > **Hızlı Oluştur**'a tıklayın.
-4. İçinde **adı**, bir kolay ad tooidentify hello kasası girin.
-5. İçinde **bölge**, hello hello kasa için coğrafi bölgeyi seçin. desteklenen toocheck bölgeler coğrafi kullanılabilirlik kısmına bakın [Azure Site Recovery fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/site-recovery/).
+4. **Ad** alanına kasayı tanımlamak için kolay bir ad girin.
+5. **Bölge** içinde, kasa için coğrafi bölgeyi seçin. Desteklenen bölgeleri kontrol etmek için [Azure Site Recovery Fiyatlandırma Ayrıntıları](https://azure.microsoft.com/pricing/details/site-recovery/) bölümünde Coğrafi Kullanılabilirlik kısmına bakın.
 6. **Kasa Oluştur**'a tıklayın.
 
     ![Yeni Kasa](./media/site-recovery-vmm-to-azure-classic/create-vault.png)
 
-Kasa hello onay hello durum çubuğu tooconfirm başarıyla oluşturuldu. Merhaba kasası listelenir **etkin** hello ana kurtarma Hizmetleri sayfasında.
+Kasanın başarıyla oluşturulduğunu doğrulamak için durum çubuğunu kontrol edin. Kasa, ana Kurtarma Hizmetleri sayfasında **Etkin** olarak listelenir.
 
 ## <a name="step-2-generate-a-vault-registration-key"></a>2. Adım: Kasa kayıt anahtarı oluşturma
-Merhaba kasada bir kayıt anahtarı oluşturun. Hello Azure Site Recovery Sağlayıcısı'nı indirin ve hello VMM sunucusuna yükledikten sonra bu anahtar tooregister hello VMM sunucusu hello kasasına kullanacaksınız.
+Kasada bir kayıt anahtarı oluşturun. Azure Site Recovery Sağlayıcısı'nı indirdikten sonra VMM sunucusuna yükleyin, oluşturduğunuz anahtarı kasadaki VMM sunucusuna kaydolmak için kullanacaksınız.
 
-1. Merhaba, **kurtarma Hizmetleri** sayfasında, hello kasa tooopen hello hızlı başlangıç sayfasını tıklatın. Hızlı Başlangıç hello simgesini kullanarak herhangi bir zamanda açık olması.
+1. **Kurtarma Hizmetleri** sayfasında, Hızlı Başlangıç sayfasını açmak için kasaya tıklayın. Ayrıca, Hızlı Başlangıç sayfasını istediğiniz zaman simgesini kullanarak da açabilirsiniz.
 
     ![Hızlı Başlangıç Simgesi](./media/site-recovery-vmm-to-azure-classic/qs-icon.png)
-2. Merhaba aşağı açılan listesinde seçin **bir şirket içi VMM sitesi ile Microsoft Azure arasında**.
-3. **VMM Sunucularını Hazırla** alanında **Kayıt anahtarı oluştur** dosyasına tıklayın. Merhaba anahtar dosyası otomatik olarak oluşturulur ve oluşturulduktan sonra 5 gün boyunca geçerlidir. Hello Azure portal hello VMM sunucusundan erişiyorsanız değil, bu dosya toohello sunucusu toocopy gerekir.
+2. Açılır listede **Şirket içi VMM sitesi ile Microsoft Azure arasında** seçeneğini belirleyin.
+3. **VMM Sunucularını Hazırla** alanında **Kayıt anahtarı oluştur** dosyasına tıklayın. Anahtar dosyası otomatik olarak oluşturulur ve oluşturulduktan sonra 5 gün boyunca geçerlidir. VMM sunucusundan Azure portalına erişemiyorsanız bu dosyayı sunucuya kopyalamanız gerekir.
 
     ![Kayıt anahtarı](./media/site-recovery-vmm-to-azure-classic/register-key.png)
 
-## <a name="step-3-install-hello-azure-site-recovery-provider"></a>3. adım: hello Azure Site Recovery sağlayıcısı yükleme
-1. İçinde **Hızlı Başlangıç** > **VMM sunucularını hazırla**, tıklatın **VMM sunucularında yükleme için Microsoft Azure Site kurtarma sağlayıcısı karşıdan** tooobtain hello Merhaba Sağlayıcı yükleme dosyasının en son sürümü.
-2. Bu dosya hello kaynak VMM sunucusunda çalıştırın.
+## <a name="step-3-install-the-azure-site-recovery-provider"></a>3. Adım: Azure Site Recovery Sağlayıcısı'nı yükleme
+1. Sağlayıcı yükleme dosyasının en son sürümünü almak için **Hızlı Başlangıç** > **VMM sunucularını hazırla** kısmından **VMM sunucularında yükleme için Microsoft Azure Site Recovery Sağlayıcısı'nı indir** seçeneğine tıklayın.
+2. Bu dosyayı kaynak VMM sunucusunda çalıştırın.
 
    > [!NOTE]
-   > VMM bir kümede dağıtılmışsa ve sağlayıcı Merhaba hello ilk kez yüklüyorsanız etkin bir düğümüne yükleyin ve hello yükleme tooregister hello VMM sunucusu hello kasasında tamamlayın. Daha sonra hello sağlayıcısı üzerinde hello diğer düğümlere yükleyin. Tüm gerekir çünkü tüm düğümlerde tooupgrade gerekir sağlayıcısı olmak hello yükseltiyorsanız çalışan aynı sağlayıcı sürümlerinin hello unutmayın.
+   > VMM bir kümede dağıtılmışsa ve Sağlayıcı'yı ilk kez yüklüyorsanız yükleme işlemini etkin bir düğümde gerçekleştirin ve VMM sunucusunu kasaya kaydetmek için yüklemeyi sonlandırın. Ardından, Sağlayıcı'yı diğer düğümlere yükleyin. Sağlayıcı'yı yükseltirken, tüm düğümlerin aynı Sağlayıcı sürümünde çalışması gerektiği için Sağlayıcı'yı tüm düğümlerde yükseltmeniz gerektiğini unutmayın.
    >
    >
-3. Merhaba yükleyici ön gereksinimlere yönelik denetimi yapar ve izni toostop hello VMM hizmeti toobegin Sağlayıcısı Kurulumu ister. Kurulum bittiğinde VMM hizmeti hello otomatik olarak yeniden başlatılır. Üzerinde yüklüyorsanız, olacak bir VMM küme toostop hello küme rolünü istenir.
-4. **Microsoft Update** kısmında güncelleştirmeleri seçebilirsiniz. Bu ayar etkinleştirildiğinde sağlayıcı güncelleştirmeleri tooyour Microsoft Update ilkenize göre yüklenir.
+3. Yükleyici ön gereksinimlere yönelik bir denetim gerçekleştirir ve Sağlayıcının kurulumunu başlatmak için VMM sunucusunu durdurmak için izin ister. Kurulum bittiğinde VMM Hizmeti otomatik olarak yeniden başlatılır. Yükleme işlemini bir VMM kümesinde gerçekleştiriyorsanız Küme rolünü durdurmanız istenir.
+4. **Microsoft Update** kısmında güncelleştirmeleri seçebilirsiniz. Bu ayar etkinleştirildiğinde Sağlayıcı güncelleştirmeleri, Microsoft Update ilkenize uygun olarak yüklenir.
 
     ![Microsoft Güncelleştirmeleri](./media/site-recovery-vmm-to-azure-classic/updates.png)
-5. Merhaba hello sağlayıcıyı çok ayarlamak için bir yükleme konumu**<SystemDrive>\Program System Center 2012 R2\Virtual Machine Manager\bin**. **Yükle**'ye tıklayın.
+5. Sağlayıcı'nın yükleneceği konum **<SystemDrive>\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin** olarak belirlenmiştir. **Yükle**'ye tıklayın.
 
    ![InstallLocation](./media/site-recovery-vmm-to-azure-classic/install-location.png)
-6. Merhaba sağlayıcı yüklendikten sonra tıklatın **kaydetmek** tooregister hello sunucu hello kasasında.
+6. Sağlayıcı yüklendikten sonra sunucuyu kasaya kaydetmek için **Kaydet**'e tıklayın.
 
     ![InstallComplete](./media/site-recovery-vmm-to-azure-classic/install-complete.png)
-7. İçinde **kasa adı**, hangi hello sunucunun kaydedileceği hello kasasının hello adını doğrulayın. *İleri*’ye tıklayın.
+7. **Kasa adı** alanında, sunucunun kayıtlı olduğu kasanın adını doğrulayın. *İleri*’ye tıklayın.
 
     ![Sunucu kaydı](./media/site-recovery-vmm-to-azure-classic/vaultcred.PNG)
-8. İçinde **Internet bağlantısı** belirtin VMM hello üzerinde çalışan Sağlayıcı'nasıl hello sunucu toohello Internet bağlanır. Seçin **var olan ara sunucu ayarlarıyla Bağlan** hello sunucusunda yapılandırılan toouse hello varsayılan Internet bağlantısı ayarları.
+8. **İnternet Bağlantısı** kısmında VMM sunucusunda çalışan Sağlayıcı'nın İnternet'e nasıl bağlanacağını belirleyin. Sunucuda yapılandırılan varsayılan İnternet bağlantısı ayarlarını kullanmak için **Var olan proxy ayarları ile bağlan**'a tıklayın.
 
     ![İnternet Ayarları](./media/site-recovery-vmm-to-azure-classic/proxydetails.PNG)
 
-   * Toouse istiyorsanız hello sağlayıcı yüklemeden önce özel bir ara sunucu, onu ayarlamanız gerekir. Özel ara sunucu ayarlarını yapılandırırken bir test toocheck hello proxy bağlantı çalışır.
-   * Özel bir ara sunucu kullanıyorsanız veya varsayılan ara sunucunuz kimlik doğrulaması gerektiren hello proxy adresi ve bağlantı noktası dahil olmak üzere, tooenter hello proxy ayrıntılarını gerekir.
-   * Aşağıdaki URL'lere hello VMM sunucusu ve hello Hyper-v konakları erişilebilir olmalıdır
+   * Özel bir ara sunucu kullanmak isterseniz bu ara sunucuyu Sağlayıcı'yı yüklemeden önce ayarlamanız gerekir. Özel ara sunucu ayarlarını yapılandırırken ara sunucu bağlantısını denetlemek için bir test çalıştırılır.
+   * Özel bir ara sunucu kullanırsanız veya varsayılan ara sunucunuz kimlik doğrulama gerektirirse ara sunucu adresi ve bağlantı noktası dahil olmak üzere ara sunucu bilgilerini girmeniz gerekir.
+   * VMM Sunucusu'ndan ve Hyper-V ana bilgisayarlarından aşağıdaki URL'lere erişim sağlanması gerekir:
      * *.hypervrecoverymanager.windowsazure.com
      * *.accesscontrol.windows.net
      * *.backup.windowsazure.com
      * *.blob.core.windows.net
      * *.store.core.windows.net
-   * Açıklanan hello IP adreslerinin izin [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653) ve HTTPS (443) protokolü. Merhaba toouse ve, Batı ABD planlama Azure bölgesi toowhite listesi IP aralıklarını gerekir.
-   * Özel bir ara sunucu kullanırsanız, VMM RunAs hesabı (DRAProxyAccount) belirtilen hello kullanılarak otomatik olarak oluşturulacak proxy kimlik bilgileri. Bu hesap başarıyla doğrulanabilmesi hello proxy sunucusunu yapılandırın. Merhaba VMM RunAs hesabı ayarları hello VMM konsolundan değiştirilebilir. toodo Bu, açık hello **ayarları** çalışma alanında, genişletin **güvenlik**, tıklatın **farklı çalıştır hesapları**ve ardından hello DRAProxyAccount parolasını değiştirin. Bu ayar etkinleşir toorestart hello VMM hizmeti gerekmektedir.
-9. İçinde **kayıt anahtarı**seçin hello anahtarı Azure Site Recovery'den indirdiğiniz ve toohello VMM sunucuya kopyalanır.
-10. Merhaba şifreleme ayarı yalnızca VMM Bulutları tooAzure Hyper-V sanal makineleri çoğaltma yapıyorsanız kullanılır. İkincil site tooa çoğaltıyorsanız kullanılmaz.
-11. İçinde **sunucu adı**, hello kasasında bir kolay ad tooidentify hello VMM sunucusu belirtin. Bir küme yapılandırmasında hello VMM kümesi rolü adını belirtin.
-12. İçinde **Eşitle bulut meta verileri** hello kasası ile Merhaba VMM sunucusundaki tüm Bulutlar için toosynchronize meta verileri istediğinizi seçin. Bu eylem, yalnızca bir kez her sunucuda toohappen gerekir. Tüm bulutlar toosynchronize istemiyorsanız bu ayarı işaretsiz bırakın ve her Bulutu ayrı ayrı hello hello VMM konsolundaki bulut özellikleri eşitleyin.
-13. Tıklatın **sonraki** toocomplete hello işlemi. Kayıttan sonra Azure Site Recovery tarafından hello VMM sunucusundan meta veriler alınır. Merhaba sunucu üzerinde hello görüntülenen **VMM sunucuları** hello sekmesinde **sunucuları** hello kasası sayfasında.
+   * [Azure Veri Merkezi IP Aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653)'nda tanımlanan IP adreslerine ve HTTPS (443) protokolüne izin verin. Batı ABD ve kullanmayı düşündüğünüz Azure bölgesinin IP aralıklarını güvenilir listeye almanız gerekir.
+   * Özel bir ara sunucu kullanırsanız otomatik olarak belirtilen ara sunucu kimlik bilgilerini kullanan VMM RunAs hesabı (DRAProxyAccount) oluşturulacaktır. Bu hesabın kimlik doğrulamasını başarıyla gerçekleştirebilmesi için ara sunucuyu yapılandırın. VMM RunAs hesabı ayarları VMM konsolundan değiştirilebilir. Bu işlemi gerçekleştirmek için **Ayarlar** çalışma alanını açın, **Güvenlik** bölümünü genişletin, **Farklı Çalıştır Hesapları**’na tıklayın ve ardından DRAProxyAccount parolasını değiştirin. Bu ayarın etkili olabilmesi için VMM hizmetinin yeniden başlatılması gerekir.
+9. **Kayıt Anahtarı** kısmında, Azure Site Recovery'den indirdiğiniz anahtarı seçin ve VMM sunucusuna kopyalayın.
+10. Şifreleme ayarı yalnızca Hyper-V sanal makinelerini Azure'daki VMM bulutlarına çoğaltırken kullanılır. İkincil bir siteye çoğaltma yapıyorsanız kullanılmaz.
+11. **Sunucu adı** alanında, kasadaki VMM sunucusunu tanımlamak için bir kolay ad belirtin. Küme yapılandırmasında VMM kümesi rolü adını belirtin.
+12. **Bulut meta verilerini eşitle** bölümünde VMM sunucusundaki tüm bulutlar için meta verileri kasa ile eşitlemek isteyip istemediğinizi seçin. Bu eylemin her sunucuda yalnızca bir kez gerçekleştirilmesi gerekir. Tüm bulutları eşitlemek istemezseniz bu ayarı işaretlemeden bırakıp her bulutu VMM konsolundaki bulut özelliklerinde bağımsız olarak eşitleyebilirsiniz.
+13. İşlemi tamamlamak için **İleri**'ye tıklayın. Kayıttan sonra Azure Site Recovery tarafından VMM sunucusundan meta veriler alınır. Sunucu, kasadaki **Sunucular** sayfasında **VMM Sunucuları** sekmesinde görünür.
 
     ![Son sayfa](./media/site-recovery-vmm-to-azure-classic/provider13.PNG)
 
-Kayıttan sonra Azure Site Recovery tarafından hello VMM sunucusundan meta veriler alınır. Merhaba sunucu üzerinde hello görüntülenen **VMM sunucuları** sekmesinde hello **sunucuları** hello kasası sayfasında.
+Kayıttan sonra Azure Site Recovery tarafından VMM sunucusundan meta veriler alınır. Sunucu, kasadaki **Sunucular** sayfasında bulunan **VMM Sunucuları** sekmesinde görüntülenir.
 
 ### <a name="command-line-installation"></a>Komut satırı yüklemesi
-Hello Azure Site Recovery sağlayıcısı komut satırından aşağıdaki hello kullanarak da yüklenebilir. Bu yöntem, bir sunucu çekirdek Windows Server 2012 R2 için kullanılan tooinstall hello sağlayıcısında olabilir.
+Azure Site Recovery sağlayıcısı, aşağıdaki komut satırını kullanarak da yüklenebilir. Bu yöntem, sağlayıcıyı Windows Server 2012 R2 için Sunucu Çekirdeği'nde yüklerken kullanılabilir.
 
-1. Merhaba sağlayıcısı yükleme dosyasını ve kayıt anahtarı tooa klasörü indirin. Örnek: C:\ASR.
-2. Merhaba System Center Virtual Machine Manager hizmetini durdurun
-3. Yükseltilmiş bir komut isteminden hello sağlayıcı yükleyicisini şu komutları ayıklayın:
+1. Sağlayıcı yükleme dosyasını ve kayıt anahtarını bir klasöre indirin. Örnek: C:\ASR.
+2. System Center Virtual Machine Manager hizmetini durdurun
+3. Yükseltilmiş bir komut isteminde, Sağlayıcı yükleyicisini şu komutları kullanarak çıkarın:
 
         C:\Windows\System32> CD C:\ASR
         C:\ASR> AzureSiteRecoveryProvider.exe /x:. /q
-4. Merhaba sağlayıcısı gibi yükleyin:
+4. Sağlayıcıyı şu şekilde yükleyin:
 
         C:\ASR> setupdr.exe /i
-5. Merhaba sağlayıcısı şu şekilde kaydedin:
+5. Sağlayıcıyı şu şekilde kaydedin:
 
         CD C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin
-        C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of hello server> /Credentials <path of hello credentials file> /EncryptionEnabled <full file name toosave hello encryption certificate>       
+        C:\Program Files\Microsoft System Center 2012 R2\Virtual Machine Manager\bin\> DRConfigurator.exe /r  /Friendlyname <friendly name of the server> /Credentials <path of the credentials file> /EncryptionEnabled <full file name to save the encryption certificate>       
 
 Parametre konumları aşağıdaki şekildedir:
 
-* **/ Credentials** : hangi hello kayıt anahtarı dosyasının bulunduğu hello konumu belirten zorunlu parametre  
-* **/ FriendlyName** : hello Azure Site Recovery portalında görünen hello Hyper-V ana bilgisayar sunucusunun adını hello için zorunlu parametre.
-* **/ EncryptionEnabled** : tooencryption, sanal makineleri azure'da (Bekleyen şifreleme) istiyorsanız, isteğe bağlı bir parametre toospecify. Hello dosya adına sahip bir **.pfx** uzantısı.
-* **/ proxyaddress** : hello proxy sunucusunun hello adresini belirten isteğe bağlı parametre.
-* **/ proxyport** : hello proxy sunucusunun hello bağlantı noktasını belirten isteğe bağlı parametre.
-* **/ proxyusername** : hello Ara sunucu kullanıcı adını belirten isteğe bağlı parametre.
-* **/ proxypassword** : hello Ara sunucu parolasını belirten isteğe bağlı bir parametre.  
+* **/Credentials**: Kayıt anahtarı dosyasının bulunduğu konumu belirten zorunlu parametre.  
+* **/FriendlyName**: Azure Site Recovery portalında görünen Hyper-V ana bilgisayar sunucusu adına yönelik zorunlu parametre.
+* **/EncryptionEnabled**: Azure'da sanal makinelerinizi şifrelemek isteyip istemediğinizi belirtmek için isteğe bağlı parametre (bekleyen şifreleme). Dosya adının **.pfx** uzantısını içermesi gerekir.
+* **/proxyAddress**: Ara sunucunun adresini belirten isteğe bağlı parametre.
+* **/proxyport**: Ara sunucunun bağlantı noktasını belirten isteğe bağlı parametre.
+* **/proxyUsername**: Ara sunucu kullanıcı adını belirten isteğe bağlı parametre 
+* **/proxyPassword**: Ara sunucu parolasını belirten isteğe bağlı parametre   
 
 ## <a name="step-4-create-an-azure-storage-account"></a>4. Adım: Azure depolama hesabı oluşturma
-1. Tıklatın bir Azure depolama hesabınız yoksa **bir Azure depolama hesabı ekleme** toocreate bir hesap.
-2. Coğrafi çoğaltmanın etkinleştirilmiş olduğu bir hesap oluşturun. Buna hello hello Azure Site Recovery hizmeti ile aynı bölgeye gerekir ve hello ile ilişkili aynı abonelik.
+1. Azure depolama hesabınız yoksa hesap oluşturmak için **Azure Storage Hesabı Ekle**'ye tıklayın.
+2. Coğrafi çoğaltmanın etkinleştirilmiş olduğu bir hesap oluşturun. Bu hesabın Azure Site Recovery hizmeti ile aynı bölgede olması ve aynı abonelikle ilişkilendirilmiş olması gerekir.
 
     ![Depolama hesabı](./media/site-recovery-vmm-to-azure-classic/storage.png)
 
 > [!NOTE]
-> [Geçiş depolama hesaplarının](../azure-resource-manager/resource-group-move-resources.md) kaynak arasında grupları içinde hello aynı abonelik veya abonelikler arasında Site Recovery dağıtmak için kullanılan depolama hesapları için desteklenmez.
+> Site Recovery dağıtımında kullanılan depolama hesapları için aynı abonelik içindeki kaynak grupları arasında veya abonelik arasında [depolama hesapları geçişi](../azure-resource-manager/resource-group-move-resources.md) desteklenmez.
 >
 >
 
-## <a name="step-5-install-hello-azure-recovery-services-agent"></a>5. adım: hello Azure kurtarma Hizmetleri Aracısı yükleme
-Merhaba VMM bulut her Hyper-V ana bilgisayar sunucusunda Hello Azure kurtarma Hizmetleri aracısını yükleyin.
+## <a name="step-5-install-the-azure-recovery-services-agent"></a>5. Adım: Azure Kurtarma Hizmetleri Aracısı'nı yükleme
+VMM bulutundaki tüm Hyper-V ana bilgisayar sunucularına Azure Kurtarma Hizmetleri aracısını yükleyin.
 
-1. Tıklatın **Hızlı Başlangıç** > **Azure Site kurtarma Hizmetleri Aracısı indir ve ana bilgisayarlara Yükle** tooobtain hello dosyasının en son sürümünü hello Aracısı yükleme.
+1. Aracı yükleme dosyasının en son sürümünü almak için **Hızlı Başlangıç** > **Azure Kurtarma Hizmetleri Aracısı'nı indir ve ana bilgisayarlara yükle** seçeneklerine tıklayın.
 
     ![Kurtarma Hizmetleri Aracısı'nı Yükleme](./media/site-recovery-vmm-to-azure-classic/install-agent.png)
-2. Merhaba her Hyper-V ana bilgisayar sunucusunda yükleme dosyasını çalıştırın.
-3. Merhaba üzerinde **Önkoşul denetimi** sayfasında **sonraki**. Eksik önkoşullar otomatik olarak yüklenir.
+2. Her Hyper-V ana bilgisayar sunucusunda yükleme dosyasını çalıştırın.
+3. **Önkoşul Denetimi** sayfasında **İleri**'ye tıklayın. Eksik önkoşullar otomatik olarak yüklenir.
 
     ![Kurtarma Hizmetleri Aracısı Önkoşulları](./media/site-recovery-vmm-to-azure-classic/agent-prereqs.png)
-4. Merhaba üzerinde **yükleme ayarları** sayfasında, tooinstall hello aracısı ve select hello önbellek konumu, yedekleme meta verilerinin yükleneceği istediğiniz yeri belirtin. Ardından **Yükle**'ye tıklayın.
-5. ' Ye tıklayın Yükleme bittikten sonra **Kapat** toocomplete hello Sihirbazı.
+4. **Yükleme Ayarları** sayfasında aracıyı yüklemek istediğiniz konumu ve yedekleme meta verilerinin yükleneceği önbellek konumunu seçin. Ardından **Yükle**'ye tıklayın.
+5. Yükleme bittikten sonra sihirbazı tamamlamak için **Kapat**'a tıklayın.
 
     ![MARS Aracısı'nı Kaydetme](./media/site-recovery-vmm-to-azure-classic/agent-register.png)
 
 ### <a name="command-line-installation"></a>Komut satırı yüklemesi
-Microsoft Azure kurtarma Hizmetleri Aracısı hello hello bu komutu kullanarak komut satırından da yükleyebilirsiniz:
+Aşağıdaki komutu kullanarak Microsoft Azure Kurtarma Hizmetleri Aracısı'nı komut satırından da yükleyebilirsiniz:
 
     marsagentinstaller.exe /q /nu
 
 ## <a name="step-6-configure-cloud-protection-settings"></a>6. Adım: Bulut koruma ayarlarını yapılandırma
-Merhaba VMM sunucusunu kaydettikten sonra bulut koruma ayarlarını yapılandırabilirsiniz. Merhaba seçeneği etkin **hello kasası ile Eşitle bulut verilerini** yüklediğinizde hello sağlayıcısı hello VMM sunucusundaki tüm Bulutlar hello görünür <b>korunan öğeler</b> hello kasasında sekmesi.
+VMM sunucusunu kaydettikten sonra bulut koruma ayarlarını yapılandırabilirsiniz. Sağlayıcı'yı yüklerken **Bulut verilerini kasayla eşitle** seçeneğini etkinleştirdiğinizden VMM sunucusundaki tüm bulutlar kasadaki <b>Korunan Öğeler</b> sekmesinde görünür.
 
 ![Yayımlanan Bulut](./media/site-recovery-vmm-to-azure-classic/clouds-list.png)
 
-1. Merhaba hızlı başlangıç sayfasında, tıklatın **VMM Bulutları için koruma ayarlama**.
-2. Merhaba üzerinde **korunan öğeler** sekmesini ve ardından hello bulutta tooconfigure istediğiniz ve Git toohello **yapılandırma** sekmesi.
+1. Hızlı Başlangıç sayfasında **VMM Bulutları için koruma ayarla**'ya tıklayın.
+2. **Korunan Öğeler** sekmesinde, yapılandırmak istediğiniz buluta tıklayın ve **Yapılandırma** sekmesine gidin.
 3. **Hedef** alanı için **Azure**'ı seçin.
-4. İçinde **depolama hesabı** çoğaltma için kullandığınız hello Azure depolama hesabını seçin.
-5. Ayarlama **depolanan verileri şifrele** çok**devre dışı**. Bu ayar, veri hello şirket içi site ile Azure arasında çoğaltma sırasında şifrelenmesi gerektiğini belirtir.
-6. İçinde **kopyalama sıklığı** hello varsayılan ayarı koruyun. Bu değer, verilerin kaynak ve hedef konumlar arasında hangi sıklıkla eşitlenmesi gerektiğini belirtir.
-7. İçinde **için kurtarma noktalarını Beklet**, hello varsayılan ayarı koruyun. Varsayılan bir değerle sıfır, yalnızca hello son kurtarma noktası bir birincil sanal makine için bir çoğaltma ana bilgisayar sunucusunda depolanır.
-8. İçinde **uygulamayla tutarlı anlık görüntü sıklığı**, hello varsayılan ayarı koruyun. Bu değer, ne sıklıkta belirtir toocreate anlık görüntüler. Anlık görüntüler hello anlık görüntü alınırken uygulamaların tutarlı bir durumda olan birim gölge kopyası hizmeti (VSS) tooensure kullanın.  Bir değer ayarlarsanız, yapılandırdığınız ilave kurtarma noktası hello sayısından daha az olduğundan emin olun.
-9. İçinde **çoğaltma başlangıç zamanı**, veri tooAzure ilk çoğaltmasının ne zaman başlayacağını belirtin. Merhaba Hyper-V konak sunucusunda Hello saat dilimi kullanılır. Merhaba ilk çoğaltmayı yoğun olmayan saatlere zamanlama öneririz.
+4. **Depolama Hesabı** kısmında çoğaltma için kullandığınız Azure depolama hesabını seçin.
+5. **Depolanan verileri şifrele** seçeneğini **Kapalı** olarak ayarlayın. Bu ayar, şirket içi site ile Azure arasında çoğaltma gerçekleştiği sırada verilerin şifrelenmesi gerektiğini belirtir.
+6. **Kopyalama sıklığı** alanında varsayılan ayarları koruyun. Bu değer, verilerin kaynak ve hedef konumlar arasında hangi sıklıkla eşitlenmesi gerektiğini belirtir.
+7. **Koruma noktalarını şu değere göre koru:** kısmında varsayılan ayarı koruyun. Varsayılan değerin sıfır olması durumunda, birincil sanal makinenin yalnızca en son kurtarma noktası çoğaltılan ana bilgisayar sunucusunda depolanır.
+8. **Uygulamayla tutarlı anlık görüntü sıklığı** alanında varsayılan ayarı koruyun. Bu değer, anlık görüntülerin hangi sıklıkta oluşturulacağını belirtir. Anlık görüntüler, anlık görüntü alınırken uygulamaların tutarlı bir durumda olmalarını sağlamak için Birim Gölge Kopyası Hizmeti'ni (VSS) kullanır.  Bir değer ayarlarsanız bu değerin yapılandırdığınız ilave kurtarma noktası sayısından daha az olduğundan emin olun.
+9. **Çoğaltma başlangıç zamanı** alanında verilerin Azure'a çoğaltmasının ilk olarak ne zaman başlayacağını belirtin. Hyper-V ana bilgisayarındaki saat dilimi kullanılır. İlk çoğaltmayı yoğun olmayan saatlerde planlamanızı öneririz.
 
     ![Bulut çoğaltma ayarları](./media/site-recovery-vmm-to-azure-classic/cloud-settings.png)
 
-Hello ayarlarını kaydettikten sonra bir iş oluşturulur ve üzerinde hello izlenebilir **işleri** sekmesi. Merhaba VMM kaynak bulutundaki tüm Hyper-V ana bilgisayar sunucularının çoğaltma için yapılandırılır.
+Ayarlar kaydedildikten sonra bir iş oluşturulur ve bu iş **İşler** sekmesinden izlenebilir. VMM kaynak bulutundaki tüm Hyper-V sunucular çoğaltma için yapılandırılır.
 
-Kaydettikten sonra bulut ayarları üzerinde hello değiştirilebilir **yapılandırma** tooremove hello bulut yapılandırması gerekir ve hello Bulutu yeniden yapılandırmanız sekmesini toomodify hello hedef konumu veya hedef depolama hesabı. Merhaba depolama hesabı hello değişikliği değiştirirseniz, yalnızca sanal makineler için hello depolama hesabı değiştirildikten sonra koruma için etkinleştirilmiş uygulanacağını unutmayın. Mevcut sanal makineler yükseltilmez toohello yeni depolama hesabı.
+Bulut ayarları kaydedildikten sonra **Yapılandır** sekmesinden değiştirilebilir. Hedef konumu veya hedef depolama hesabını değiştirmek için bulut yapılandırmasını kaldırıp bulutu yeniden yapılandırmanız gerekir. Depolama hesabını değiştirirseniz bu değişikliğin yalnızca depolama hesabı değiştirildikten sonra koruma işleminin etkinleştirildiği sanal makineler için uygulanacağını unutmayın. Var olan sanal makineler yeni depolama hesabına taşınmaz.
 
 ## <a name="step-7-configure-network-mapping"></a>7. Adım: Ağ eşlemesini yapılandırma
-Başlamadan önce Ağ eşlemesi hello kaynak VMM sunucusundaki sanal makineleri bağlı tooa VM ağı olduğunu doğrulayın. Ayrıca, bir veya daha fazla Azure sanal ağı oluşturun. Birden fazla VM ağı eşlenen tooa tek Azure ağ olabileceğini unutmayın.
+Ağ eşlemesine başlamadan önce kaynak VMM sunucusundaki sanal makinelerin bir VM ağına bağlı olduğunu doğrulayın. Ayrıca, bir veya daha fazla Azure sanal ağı oluşturun. Birden çok VM ağının tek bir Azure ağına eşlenebileceğini unutmayın.
 
-1. Merhaba hızlı başlangıç sayfasında, tıklatın **ağları Eşle**.
-2. Merhaba üzerinde **ağlar** sekmesinde **kaynak konumu**seçin hello kaynak VMM sunucusu. **Hedef konumu** için Azure'ı seçin.
-3. İçinde **kaynak** hello VMM sunucusuyla ilişkili VM ağlarının listesi görüntülenir. İçinde **hedef** ağlar hello Azure hello abonelikle ilişkili ağları görüntülenir.
-4. Merhaba kaynak VM ağı seçin ve tıklatın **harita**.
-5. Merhaba üzerinde **hedef ağ Seç** sayfası, select hello hedef Azure ağını toouse istiyor.
-6. Merhaba onay işareti toocomplete hello eşleme işlemini'ı tıklatın.
+1. Hızlı Başlangıç sayfasında **Ağları eşle**'ye tıklayın.
+2. **Ağlar** sekmesinde **Kaynak konumu** kısmında kaynak VMM sunucusunu seçin. **Hedef konumu** için Azure'ı seçin.
+3. **Kaynak** ağlar bölümünde, VMM sunucusuyla ilişkilendirilen VM ağlarının listesi görüntülenir. **Hedef** ağlar bölümünde, abonelikle ilişkilendirilen Azure ağları görüntülenir.
+4. Kaynak VM ağı seçin ve **Eşle**'ye tıklayın.
+5. **Hedef Ağ Seç** sayfasında kullanmak istediğiniz hedef Azure ağını seçin.
+6. Eşleme işlemini tamamlamak için onay işaretine tıklayın.
 
     ![Bulut çoğaltma ayarları](./media/site-recovery-vmm-to-azure-classic/map-networks.png)
 
-Hello ayarlarını kaydettikten sonra tootrack hello eşleme ilerleme bir iş başlatılır ve hello işler sekmesinde izlenebilir. Tüm mevcut çoğaltma toohello kaynak VM ağına karşılık gelen makineleri bağlı toohello olacaktır hedef Azure ağları. Kaynak VM ağına bağlı toohello olan yeni sanal makinelere bağlı toohello eşlenen Azure ağına çoğaltma işleminden sonra olacaktır. Yeni bir ağ ile varolan bir eşlemesini değiştirirseniz, çoğaltma sanal makineleri hello yeni ayarlar kullanılarak bağlanır.
+Ayarlar kaydedildikten sonra eşleme işlemini izlemek için bir iş başlatılır ve bu iş, İşler sekmesinden izlenebilir. Kaynak VM ağına karşılık gelen tüm var olan çoğaltılmış sanal makineler hedef Azure ağlarına bağlanır. Kaynak VM ağına bağlanan yeni sanal makineler, çoğaltmanın ardından eşlenen Azure ağına bağlanır. Var olan bir eşlemeyi yeni bir ağ ile değiştirirseniz çoğaltılan sanal makineler yeni ayarlara göre bağlantı kurar.
 
-Hello hedef ağın birden çok alt ağı varsa ve bu alt ağlardan biri olan hello adıyla aynı alt ağda hangi hello kaynak sanal makinenin bulunduğu sonra hello çoğaltma sanal makinesi yük devretme sonrasında bağlı toothat hedef alt olacaktır unutmayın. Eşleşen ada sahip bir hedef alt ağ ise hello sanal makineye bağlı toohello hello ağdaki ilk alt ağ olacaktır.
+Hedef ağın birden çok alt ağı varsa ve bu alt ağlardan biri kaynak sanal makinenin bulunduğu alt ağ ile aynı adı taşıyorsa çoğaltılan sanal makinenin, yük devretme işleminin ardından hedef alt ağa bağlandığını unutmayın. Eşleşen ada sahip bir hedef alt ağ yoksa sanal makine ağdaki ilk alt ağa bağlanır.
 
 > [!NOTE]
-> [Geçiş ağların](../azure-resource-manager/resource-group-move-resources.md) kaynak arasında grupları içinde hello aynı abonelik veya abonelikler arasında Site Recovery dağıtmak için kullanılan ağlar için desteklenmez.
+> Site Recovery dağıtımında kullanılan ağlar için aynı abonelik içindeki kaynak grupları arasında veya abonelik arasında [ağ geçişi](../azure-resource-manager/resource-group-move-resources.md) desteklenmez.
 >
 >
 
 ## <a name="step-8-enable-protection-for-virtual-machines"></a>8. Adım: Sanal makinelere yönelik korumayı etkinleştirme
-Sunucular, Bulutlar ve ağlar doğru şekilde yapılandırıldıktan sonra hello bulutta sanal makineler için korumayı etkinleştirebilirsiniz. Merhaba aşağıdakileri göz önünde bulundurun:
+Sunucular, bulutlar ve ağlar doğru şekilde yapılandırıldıktan sonra buluttaki sanal makineler için korumayı etkinleştirebilirsiniz. Şunlara dikkat edin:
 
 * Sanal makinelerin [Azure gereksinimlerini](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements) karşılaması gerekir.
-* tooenable koruma hello işletim sistemi ve işletim sistemi disk özellikleri hello sanal makine için ayarlamanız gerekir. Bir sanal makine şablonu kullanarak VMM'de bir sanal makine oluşturduğunuzda hello özelliğini ayarlayabilirsiniz. Bu özellikleri mevcut sanal makineler üzerinde hello ayarlayabilirsiniz **genel** ve **donanım yapılandırması** sekmeleri hello sanal makine özellikleri. Bu özellikleri VMM'de ayarlamazsanız mümkün tooconfigure olacak hello Azure Site Recovery portalında bunları.
+* Korumayı etkinleştirmek için işletim sisteminin ve işletim sistemi diski özelliklerinin sanal makineye göre ayarlanmış olması gerekir. Sana makine şablonu kullanarak VMM'de bir sanal makine oluşturduğunuzda özelliği de ayarlayabilirsiniz. Ayrıca var olan sanal makineler için bu özellikleri, sanal makinenin **Genel** ve **Donanım Yapılandırması** sekmelerinde de ayarlayabilirsiniz. Özellikleri VMM'de ayarlamazsanız Azure Site Recovery portalından da yapılandırabilirsiniz.
 
     ![Sanal makine oluşturma](./media/site-recovery-vmm-to-azure-classic/enable-new.png)
 
     ![Sanal makine özelliklerini değiştirme](./media/site-recovery-vmm-to-azure-classic/enable-existing.png)
 
-1. Merhaba tooenable korumasını **sanal makineleri** hangi hello sanal makinenin bulunduğu hello bulutta sekmesini tıklatın, **korumayı etkinleştir** > **sanal makineleriekleyin**.
-2. Merhaba bulutta sanal makineler Hello listeden tooprotect istediğiniz hello birini seçin.
+1. Korumayı etkinleştirmek için sanal makinelerin bulunduğu buluttaki **Virtual Machines** sekmesinde **Korumayı etkinleştir** > **Sanal makine ekle** seçeneklerine tıklayın.
+2. Buluttaki sanal makineler listesinden korumak istediğinizi seçin.
 
     ![Sanal makine korumasını etkinleştirme](./media/site-recovery-vmm-to-azure-classic/select-vm.png)
 
-    Merhaba ilerleyişini izleyin **korumayı etkinleştir** hello eylemde **işleri** hello ilk çoğaltma dahil olmak üzere sekmesinde. Merhaba sonra **korumayı Sonlandır** iş çalıştırmaları hello sanal makine yük devretme için hazır. Koruma etkin ve sanal makineleri yinelenir sonra mümkün tooview olacak Azure bunları.
+    **İşler** sekmesinden ilk çoğaltma dahil olmak üzere **Korumayı Etkinleştir** eyleminin ilerleyişini izleyin. **Korumayı Sonlandır** işi çalıştırıldıktan sonra sanal makine yük devretmeye hazırdır. Koruma etkinleştirilip sanal makineler çoğaltıldıktan sonra bunları Azure'da görüntüleyebilirsiniz.
 
     ![Sanal makine koruma işi](./media/site-recovery-vmm-to-azure-classic/vm-jobs.png)
 
-1. Merhaba sanal makine özelliklerini doğrulayın ve gerektiği gibi değiştirin.
+1. Sanal makine özelliklerini doğrulayın ve gerektiği şekilde değişiklik yapın.
 
     ![Sanal makineleri doğrulama](./media/site-recovery-vmm-to-azure-classic/vm-properties.png)
-2. Merhaba üzerinde **yapılandırma** hello sanal makine özellikleri aşağıdaki ağ özellikleri değiştirilebilir.
+2. Sanal makine özelliklerinin **Yapılandır** sekmesinde aşağıdaki ağ özellikleri değiştirilebilir.
 
-* **Merhaba hedef sanal makinedeki ağ bağdaştırıcısı sayısı** -hello hedef sanal makine için belirttiğiniz hello boyutuna göre ağ bağdaştırıcısı hello sayısını belirler. Denetleme [sanal makine boyutu özellikleri](../virtual-machines/linux/sizes.md) hello hello sanal makine boyutunun desteklediği bağdaştırıcı sayısı. Bir sanal makine için başlangıç boyutu değiştirmek ve hello ayarları kaydettiğinizde hello ağ bağdaştırıcıları sayısı, hello sonraki açışınızda hello değiştirme **yapılandırma** sayfası. Hedef sanal makinelerin ağ bağdaştırıcısı Hello sayısını hello sayısı alt sınırı kaynak sanal makine ve hello hello sanal makine seçildi, aşağıdaki gibi hello boyutu tarafından desteklenen ağ bağdaştırıcısı sayısı ağ bağdaştırıcılarında::
+* **Hedef sanal makinedeki ağ bağdaştırıcı sayısı** - Ağ bağdaştırıcılarının sayısı, hedef sanal makine için sizin belirlediğiniz boyuta göre dikte edilir. Sanal makine boyutunun desteklediği bağdaştırıcı sayısı için [sanal makine boyutu özellikleri](../virtual-machines/linux/sizes.md)'ni kontrol edin. Bir sanal makine için boyutu değiştirip ayarları kaydettiğinizde, **Yapılandır** sayfasını bir sonraki açışınızda ağ bağdaştırıcısı sayısı değişir. Hedef sanal makinelerin ağ bağdaştırıcısı sayısı, kaynak sanal makinelerin minimum ağ bağdaştırıcı sayısıdır ve seçilen sanal makine boyutu tarafından desteklenen ağ bağdaştırıcıların maksimum sayısı aşağıdaki şekildedir:
 
-  * Merhaba hello kaynak makinedeki ağ bağdaştırıcısı sayısı küçük veya buna eşit ise toohello bağdaştırıcı sayısı hello hedef makine boyutu için izin verilen sonra hello hedef olacaktır hello aynı sayıda bağdaştırıcıya hello kaynağı olarak.
-  * Merhaba hello kaynak sanal makinenin bağdaştırıcı sayısı hello hedef boyutu sonra hello maksimum hedef boyutu kullanılır için izin verilen hello sayıyı aşarsa.
-  * Örneğin, kaynak makinenin iki bağdaştırıcısı varsa ve hello hedef makine boyutu dört adet bağdaştırıcıyı destekliyorsa hello hedef makinenin iki bağdaştırıcısı gerekir. Merhaba kaynak makinenin iki bağdaştırıcısı varsa, ancak hello hedef boyut yalnızca bir destekler hello hedef makine yalnızca bir bağdaştırıcısı olur.     
-* **Merhaba hedef sanal makine ağının** -hello ağ toowhich hello sanal makine hello ağ kaynak sanal makinenin Ağ eşlemesi tarafından belirlenen toois bağlanır. Merhaba kaynak sanal makine varsa hello hedef ağlardan birini toochoose gerekir sonra birden fazla ağ bağdaştırıcısı ve kaynak ağlar eşlenen toodifferent, hedefte ağlardır.
-* **Her ağ bağdaştırıcısının alt ağı** - her ağ bağdaştırıcısı sanal makine başarısız hello alt toowhich hello seçebileceğiniz bağlanacağı için.
-* **Hedef IP adresi** - kaynak sanal makinenin hello ağ bağdaştırıcısı statik bir IP adresi başlangıç IP adresi için hello hedef sanal makine sağlayın ve sonra yapılandırılmış toouse ise. Bu özelliği kullanmak hello IP adresi, bir kaynak sanal makinenin yük devretme sonrasında korur. IP adresi sağlanmazsa herhangi bir kullanılabilir IP adresi hello yük devretme sırasında toohello ağ bağdaştırıcısına verilir. Merhaba hedef IP adresi belirtildi, ancak Azure'da çalışan başka bir sanal makine tarafından zaten kullanılıyor yük devretme başarısız olur.  
+  * Kaynak makinedeki ağ bağdaştırıcılarının sayısı, hedef makine boyutu için verilen ağ bağdaştırıcısı sayısına eşitse veya daha azsa hedef makine kaynakla aynı sayıda bağdaştırıcıya sahip olur.
+  * Kaynak sanal makinenin bağdaştırıcı sayısı, hedef boyut için izin verilen sayıyı aşarsa maksimum hedef boyutu kullanılır.
+  * Örneğin, kaynak makinenin iki bağdaştırıcısı varsa ve hedef makine boyutu dört adet bağdaştırıcıyı destekliyorsa hedef makinenin iki bağdaştırıcısı olur. Kaynak makinenin iki bağdaştırıcısı varken hedef boyut yalnızca bir bağdaştırıcıyı destekliyorsa hedef makinenin bir bağdaştırıcısı olur.     
+* **Hedef sanal makine ağı** - Sanal makinenin bağlanacağı ağ, kaynak sanal makine ağının ağ eşlemesine göre belirlenir. Kaynak sanal makinenin birden fazla ağ bağdaştırıcısı varsa ve kaynak sağlar hedefte farklı ağlarla eşlendiyse hedef ağlardan birini seçmeniz gerekir.
+* **Her ağ bağdaştırıcısının alt ağı** - Her ağ bağdaştırıcısı için yük devreden sanal makinenin bağlanacağı alt ağı seçebilirsiniz.
+* **Hedef IP adresi** - Kaynak sanal makinenin ağ bağdaştırıcısı statik IP kullanmak üzere yapılandırıldıysa hedef sanal makine için IP adresi sağlayabilirsiniz. Bu özelliği, yük devretme işleminden sonra kaynak sanal makinenin IP adresini korumak için kullanın. IP adresi sağlanmazsa yük devretme sırasında kullanılabilir olan herhangi bir IP adresi ağ bağdaştırıcısına verilir. Hedef IP adresi belirlenmişse ancak Azure'da çalışan başka bir sanal makine tarafından kullanılıyorsa yük devretme başarısız olur.  
 
     ![Ağ özelliklerini değiştirme](./media/site-recovery-vmm-to-azure-classic/multi-nic.png)
 
@@ -289,60 +289,60 @@ Sunucular, Bulutlar ve ağlar doğru şekilde yapılandırıldıktan sonra hello
 >
 >
 
-## <a name="test-hello-deployment"></a>Merhaba dağıtımı test etme
-tootest bir yük devretme sınaması için tek bir sanal makine çalıştırmak veya birden çok sanal makine içeren ve bir yük devretme testi hello için bir kurtarma planı oluşturun, dağıtımınızı planlayın.  
+## <a name="test-the-deployment"></a>Dağıtımı test etme
+Dağıtımınızı test etmek için tek bir sanal makine için bir yük devretme testi çalıştırabilir veya birden çok sanal makine içeren bir kurtarma planı oluşturup bu plan için yük devretme testi çalıştırabilirsiniz.  
 
 Yük devretme testi, yük devretme işleminizi ve kurtarma mekanizmanızı yalıtılmış bir ortamda benzetimli olarak gerçekleştirir. Şunlara dikkat edin:
 
-* Hello yük devretme sonrasında Uzak Masaüstü'nü kullanarak azure'daki tooconnect toohello sanal makine istiyorsanız, Uzak Masaüstü Bağlantısı hello test yük devretmesi çalıştırmadan önce hello sanal makinesinde etkinleştirin.
-* Yük devretme sonrasında ortak IP adresi tooconnect toohello Azure Uzak Masaüstü kullanarak VM kullanın. Bu toodo istiyorsanız, bağlanan tooa sanal genel bir adres kullanarak makineden engelleyecek etki alanı ilkelerine sahip olmadığınızdan emin olun.
+* Yük devretmenin ardından Azure'daki sanal makineye Uzak Masaüstü kullanarak bağlanmak isterseniz yük devretme testini çalıştırmadan önceden sanal makinenizde Uzak Masaüstü Bağlantısı'nı etkinleştirin.
+* Yük devretmeden sonra Uzak Masaüstü kullanarak Azure sanal makinesine bağlamak için genel IP adresi kullanırsınız. Bu işlemi gerçekleştirmek isterseniz genel bir adres kullanarak sanal makineye bağlanmanızı engelleyecek etki alanı ilkelerine sahip olmadığınızdan emin olun.
 
 > [!NOTE]
-> tooAzure başarısız olduğunda tooget hello en iyi performansı elde etmek, yükledim Azure Aracısı'nı hello VM hello. Aracı daha hızlı önyükleme gerçekleştirilmesini sağlar ve sorun giderme konusunda yardımcı olur. Merhaba karşıdan [Linux Aracısı](https://github.com/Azure/WALinuxAgent), veya hello [Windows Aracısı](http://go.microsoft.com/fwlink/?LinkID=394789).
+> Azure'a yük devrederken en iyi performansı elde etmek için sanal makineye Azure aracısını yüklediğinizden emin olun. Aracı daha hızlı önyükleme gerçekleştirilmesini sağlar ve sorun giderme konusunda yardımcı olur. [Linux aracısını](https://github.com/Azure/WALinuxAgent) veya [Windows aracısını](http://go.microsoft.com/fwlink/?LinkID=394789) indirin.
 >
 >
 
 ### <a name="create-a-recovery-plan"></a>Kurtarma planı oluşturma
-1. Merhaba üzerinde **kurtarma planları** sekmesinde, yeni bir plan ekleyin. Bir ad belirtin **VMM** içinde **kaynak türünü**ve hello kaynak VMM sunucusunda **kaynak**. Merhaba hedef Azure olur.
+1. **Kurtarma Planları** sekmesinde yeni bir plan ekleyin. Bir ad belirtin, **Kaynak türü** için **VMM** ve **Kaynak** için kaynak VMM sunucusu seçeneklerini belirleyin. Hedef Azure olur.
 
     ![Kurtarma planı oluşturma](./media/site-recovery-vmm-to-azure-classic/recovery-plan1.png)
-2. Merhaba, **sanal makineleri seçin** sayfası, select sanal makineleri tooadd toohello kurtarma planı. Bu sanal makineleri toohello kurtarma planının varsayılan grubu eklenir: Grup 1. Tek bir kurtarma planında en fazla 100 sanal makine test edilebilir.
+2. **Sanal Makine Seç** sayfasında kurtarma planına eklenecek sanal makineleri seçin. Bu sanal makineler, kurtarma planının varsayılan grubu olan Grup 1'e eklenir. Tek bir kurtarma planında en fazla 100 sanal makine test edilebilir.
 
-* Toohello planı eklemeden önce tooverify hello sanal makine özelliklerini istiyorsanız hello bulutun Özellikler sayfasında hello hello sanal makineye tıklayın makinenin bulunduğu. Merhaba VMM konsolunda hello sanal makine özelliklerini de yapılandırabilirsiniz.
-* Tüm görüntülenen hello sanal makineler için koruma etkinleştirilmiş. Merhaba listesi ve ilk çoğaltması tamamlandı ve ile koruma için etkinleştirilmiş olan ilk bekleyen çoğaltma için etkinleştirilmiş hem sanal makineleri içerir. Yalnızca ilk çoğaltması tamamlanan sanal makineler kurtarma planının bir parçası olarak yük devredebilir.
+* Plana eklemeden önce sanal makine özelliklerini doğrulamak isterseniz sanal makinenin bulunduğu bulutun özellikler sayfasında sanal makineye tıklayın. Ayrıca, VMM konsolunda da sanal makine özelliklerini yapılandırabilirsiniz.
+* Gösterilen sanal makinelerin tümü için koruma etkinleştirilmiştir. Listede koruma özelliği etkinleştirilen ve ilk çoğaltması tamamlanan sanal makinelerin yanı sıra koruma özelliği etkinleştirilmiş ancak ilk çoğaltması bekleme durumunda olan sanal makineler bulunur. Yalnızca ilk çoğaltması tamamlanan sanal makineler kurtarma planının bir parçası olarak yük devredebilir.
 
     ![Kurtarma planı oluşturma](./media/site-recovery-vmm-to-azure-classic/select-rp.png)
 
-Bir kurtarma planı oluşturulduktan sonra hello görünür **kurtarma planları** sekmesi. Ayrıca ekleyebileceğiniz [Azure Otomasyon çalışma kitabı](site-recovery-runbook-automation.md) toohello kurtarma planı tooautomate eylemleri yük devretme sırasında.
+Bir kurtarma planı oluşturulduktan sonra **Kurtarma Planları** sekmesinde görünür. Ayrıca, yük devretme sırasında eylemleri otomatikleştirmek için kurtarma planına [Azure otomasyonu Runbook'larını](site-recovery-runbook-automation.md) da ekleyebilirsiniz.
 
 ### <a name="run-a-test-failover"></a>Yük devretme testi çalıştırma
-Bir test yük devretme tooAzure iki yolu toorun vardır.
+Azure için yük devretme testi çalıştırmanın iki yöntemi vardır.
 
-* **Azure ağı olmadan yük devretme sınamasını**— bu türdeki yük devretme testi hello sanal makinenin gelir doğru Azure'da denetler. Merhaba sanal makine yük devretme sonrasında bağlı tooany Azure ağ olmayacaktır.
-* **Azure ağıyla yük devretme testi**— tüm çoğaltma ortamının hello yük devretme denetimleri bu tür istendiği şekilde alınıp ve bağlı toohello belirtilen hedef Azure ağını hello sanal makineler üzerinde başarısız olacaktır. Alt ağ işleme için yük devretme sınaması için hello alt hello sınama sanal makinesinin hello çoğaltma sanal makinesi hello alt ağa göre belirlenir. Bir çoğaltma sanal makinesi Hello alt hello kaynak sanal makine hello alt ağda alıyorsa, farklı tooregular çoğaltma budur.
+* **Azure ağı olmadan yük devretme testi** - Bu türdeki yük devretme testi sanal makinenin Azure'a doğru şekilde alınıp alınmadığını denetler. Yük devretmeden sonra sanal makine herhangi bir Azure ağına bağlanmaz.
+* **Azure ağıyla yük devretme testi** - Bu türdeki yük devretme testi ise tüm çoğaltma ortamının istendiği şekilde alınıp alınmadığını ve yük devredilen sanal makinelerin belirlenen bir hedef ağa bağlanıp bağlanmayacağını denetler. Alt ağı ele almaya ilişkin yük devretme testi için test edilen sanal makinenin alt ağı, çoğaltılan sanal makinenin alt ağına göre belirlenir. Bu işlem, çoğaltılan sanal makinenin alt ağının kaynak sanal makinenin alt ağına bağlı olduğunda normal çoğaltmadan farklıdır.
 
-Azure hedef ağı belirtmeden koruma tooAzure için etkinleştirilmiş bir sanal makine için yük devretme testi toorun istiyorsanız tooprepare herhangi bir şey gerekmez. toorun yük devretme testi ile hedef Azure ağını Azure üretim ağınızdan (Azure'da yeni bir ağ oluştururken, varsayılan davranıştır) toocreate yalıtılmış olan yeni bir Azure ağı gerekir. Ne çok Ara[bir yük devretme testi](site-recovery-failover.md) daha fazla ayrıntı için.
+Azure hedef ağı belirtmeden Azure için koruması etkinleştirilmiş bir sanal makine için yük devretme testi çalıştırmak isterseniz herhangi bir hazırlık yapmanız gerekmez. Hedef Azure ağıyla bir yük devretme testi çalıştırmak isterseniz Azure üretim ağınızdan yalıtılmış olan yeni bir Azure ağı oluşturmanız gerekir (Azure'da yeni bir ağ oluştururken, varsayılan davranıştır). Daha fazla ayrıntı için [yük devretme testi çalıştırma](site-recovery-failover.md) bölümüne bakın.
 
-Merhaba çoğaltılan sanal makine toowork için beklendiği gibi hello altyapı yukarı tooset gerekir. Örneğin, etki alanı denetleyicisi ve DNS sahip bir sanal makineyi Azure Site RECOVERY'yi kullanarak çoğaltılmış tooAzure olabilir ve yük devretme testi kullanılarak hello test ağında oluşturulabilir. Daha fazla ayrıntı için [active directory için yük devretme testi ile ilgili dikkat edilmesi gerekenler](site-recovery-active-directory.md#test-failover-considerations) bölümüne bakın
+Ayrıca, istenildiği gibi çalışması için çoğaltılan sanal makineye yönelik altyapı ayarlamanız gerekir. Örneğin, Etki Alanı Denetleyicisi ve DNS içeren bir sanal makine Azure'da Azure Site Recovery kullanılarak çoğaltılabilir ve Yük Devretme Testi kullanılarak test ağında oluşturulabilir. Daha fazla ayrıntı için [active directory için yük devretme testi ile ilgili dikkat edilmesi gerekenler](site-recovery-active-directory.md#test-failover-considerations) bölümüne bakın
 
-Yük devretme testi toorun hello aşağıdaki:
+Yük devretme testi çalıştırmak için şunları yapın:
 
-1. Merhaba üzerinde **kurtarma planları** sekmesinde, seçin hello planı ve tıklatın **yük devretme testi**.
-2. Merhaba üzerinde **onaylayın yük devretme testi** sayfasında **hiçbiri** veya özel Azure ağı.  Hiçbiri hello yük devretme testi olacak seçerseniz sanal makine hello onay tooAzure doğru şekilde çoğaltılan ancak çoğaltma ağı yapılandırmasını denetlemez unutmayın.
+1. **Kurtarma Planları** sekmesinde planı seçin ve **Yük devretme Testi**'ne tıklayın.
+2. **Yük Devretme Testi Onaylama** sayfasında **Hiçbiri** veya özel Azure ağı seçimlerini belirleyin.  Hiçbiri seçeneğini belirlerseniz yük devretme testinin çoğaltma ağı yapılandırmasını denetlemeden yalnızca Azure'a doğru şekilde çoğaltılan sanal makineyi denetleyeceğini unutmayın.
 
     ![Ağ yok](./media/site-recovery-vmm-to-azure-classic/test-no-network.png)
-3. Veri şifreleme hello bulut için etkinleştirilmişse **şifreleme anahtarı** hello seçeneği tooenable veri şifrelemesi bir bulut için açık olduğunda hello VMM sunucusunda sağlayıcı hello yüklenmesi sırasında verilen select hello sertifika .
-4. Merhaba üzerinde **işleri** sekmesini yük devretme işleminin ilerleyişini izleyebilirsiniz. Ayrıca, mümkün toosee hello sanal makinenin test çoğaltmasını hello Azure portal olmalıdır. Şirket içi ağınızdan tooaccess sanal makineleri ayarladıysanız, bir Uzak Masaüstü Bağlantısı toohello sanal makineyi başlatabilirsiniz.
-5. Merhaba yük devretme hello ulaştığında **testi Tamamla** aşama, tıklatın **tam Test** toofinish onu. Toohello inebilir **iş** tootrack yük devretme işleminin ilerleyişini durumunu ve tooperform gerekli olan herhangi bir eylem sekmesi.
-6. Yük devretme sonrasında hello sanal makinenin test çoğaltmasını hello Azure portal görebilirsiniz. Şirket içi ağınızdan tooaccess sanal makineleri ayarladıysanız, bir Uzak Masaüstü Bağlantısı toohello sanal makineyi başlatabilirsiniz. Aşağıdaki hello:
+3. Bulut için veri şifreleme etkinleştirilmişse **Şifreleme Anahtarı** kısmında Sağlayıcı'nın VMM sunucusuna yüklenmesi sırasında bulut için veri şifrelemeyi etkinleştirme seçeneğini açtığınızda verilen sertifikayı seçin.
+4. **İşler** sekmesinden yük devretme işleminin ilerleyişini izleyebilirsiniz. Ayrıca, sanal makine testi çoğaltmasının Azure portalında görünür olması gerekir. Şirket içi ağınızdan sanal makinelere erişimi ayarladıysanız sanal makineye yönelik Uzak Masaüstü bağlantısını başlatabilirsiniz.
+5. Yük devretme işlemi **Testi tamamla** aşamasına ulaştığında işlemi sonlandırmak için **Testi Tamamla**'ya tıklayın. Yük devretme işleminin ilerleyişini durumunu izlemek için ve gerekli eylemleri gerçekleştirmek için **İş** sekmesinin ayrıntılarına göz atabilirsiniz.
+6. Yük devretmeden sonra sanal makine test çoğaltmasını Azure portalında görebilirsiniz. Şirket içi ağınızdan sanal makinelere erişimi ayarladıysanız sanal makineye yönelik Uzak Masaüstü bağlantısını başlatabilirsiniz. Şunları yapın:
 
-   1. Merhaba sanal makineler başarıyla başlatıldığını doğrulayın.
-   2. Hello yük devretme sonrasında Uzak Masaüstü'nü kullanarak azure'daki tooconnect toohello sanal makine istiyorsanız, Uzak Masaüstü Bağlantısı hello test yük devretmesi çalıştırmadan önce hello sanal makinesinde etkinleştirin. Ayrıca tooadd hello sanal makinede bir RDP uç noktası gerekir. Yararlanabileceğiniz bir [Azure Automation Runbook](site-recovery-runbook-automation.md) toodo.
-   3. Uzak Masaüstü kullanarak Azure'da bir ortak IP adresi tooconnect toohello sanal makine kullanırsanız, yük devretme sonrasında, genel bir adres kullanarak tooa sanal makineye bağlanmanızı engelleyecek etki alanı ilkelerine sahip olmadığınızdan emin olun.
-7. Merhaba sınama tamamlandıktan sonra aşağıdaki hello:
+   1. Sanal makinelerin başarılı bir şekilde başlatıldığını doğrulayın.
+   2. Yük devretmenin ardından Azure'daki sanal makineye Uzak Masaüstü kullanarak bağlanmak isterseniz yük devretme testini çalıştırmadan önceden sanal makinenizde Uzak Masaüstü Bağlantısı'nı etkinleştirin. Ayrıca, sanal makinede bir RDP uç noktası eklemeniz gerekir. Bu işlemi gerçekleştirmek için [Azure Automation Runbook](site-recovery-runbook-automation.md)'larından yararlanabilirsiniz.
+   3. Yük devretme bittikten sonra Uzak Masaüstü'nü kullanarak Azure'daki sanal makineye bağlanmak için genel bir IP adresi kullanırsanız, genel bir adres kullanarak sanal makineye bağlanmanızı engelleyecek herhangi bir etki alanı ilkeniz olmadığından emin olun.
+7. Test tamamlandıktan sonra şunları yapın:
 
-   * Tıklatın **hello test yük devretme tamamlandığında**. Merhaba temizleme ortamı tooautomatically güç kapalı test edin ve hello test sanal makineleri silin.
-   * Tıklatın **notları** toorecord ve hello yük devretme testiyle ilişkili gözlemlerinizi kaydetmek.
+   * **Yük devretme testi tamamlandı** seçeneğine tıklayın. Otomatik olarak kapatmak ve sanal makine testlerini silmek için test ortamını temizleyin.
+   * Yük devretme testiyle ilişkili gözlemlerinizi kaydetmek ve saklamak için **Notlar**'a tıklayın.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

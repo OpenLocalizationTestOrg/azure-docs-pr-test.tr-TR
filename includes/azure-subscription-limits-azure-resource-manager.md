@@ -17,14 +17,14 @@
 
 <sup>1</sup>Varsayıla limitler Ücretsiz Deneme, Kullandıkça Öde gibi teklif Kategori Türüne ve Dv2, F, G vb. serilere göre farklılık gösterir.
 
-<sup>2</sup>Buna hem Standart hem de Premium depolama hesapları dahildir. 200'den fazla depolama hesabı gerekiyorsa, [Azure Destek](https://azure.microsoft.com/support/faq/) üzerinden bir istek oluşturun. Hello Azure depolama ekibi iş durumunuz incelenecek ve too250 depolama hesapları onaylama.
+<sup>2</sup>Buna hem Standart hem de Premium depolama hesapları dahildir. 200'den fazla depolama hesabı gerekiyorsa, [Azure Destek](https://azure.microsoft.com/support/faq/) üzerinden bir istek oluşturun. Azure Depolama ekibi, işinizin durumunu inceler ve 250’ye kadar depolama hesabı için onay verebilir.
 
-<sup>3</sup>Abonelik başına sınırsız sayıda etiket uygulayabilirsiniz. Merhaba, kaynak veya kaynak grubu başına etiketleri sınırlı too15 sayısıdır. Kaynak Yöneticisi yalnızca döndüren bir [benzersiz etiket adı ve değerlerin listesi](/rest/api/resources/tags#Tags_List) etiketleri hello sayısı 10.000 veya daha az olduğunda hello Abonelikteki. Ancak, Hello 10.000 sayısını aştığında etikete göre kaynak hala bulabilirsiniz.  
+<sup>3</sup>Abonelik başına sınırsız sayıda etiket uygulayabilirsiniz. Kaynak ya da kaynak grubu başına etiket sayısı 15 ile sınırlıdır. Etiket sayısı 10.000 veya daha az olduğunda Resource Manager yalnızca abonelikteki [benzersiz etiket adı ve değerlerinin listesini](/rest/api/resources/tags#Tags_List) döndürür. Ancak, sayı 10.000’i aştığında bile etikete göre bir kaynak bulabilirsiniz.  
 
-<sup>4</sup>bu özellikleri artık Azure kaynak gruplarını ve hello Azure Resource Manager ile gereklidir.
+<sup>4</sup>Bu özellikler artık Azure Kaynak Grupları ve Azure Resource Manager ile gerekli değildir.
 
 > [!NOTE]
-> Bölgesel toplam sınırı ve bunun yanı sıra ayrı olarak uygulanan (Dv2, F, vb.) serisi sınırına başına bir bölgesel sanal makine çekirdek sahip önemli tooemphasize olur.  Örneğin, Doğu ABD toplam VM çekirdek limiti 30, A serisi çekirdek limiti 30 ve D serisi çekirdek limiti 30 olan bir abonelik düşünün.  Bu abonelik, toodeploy 30 A1 VM'ler veya 30 D1 VM'ler izin ya da bir birleşimini hello iki tooexceed toplam 30 çekirdek (örneğin, 10 A1 VM'ler ve 20 D1 VM'ler).  
+> Sanal makine çekirdeklerinin ayrı ayrı uygulanan bölgesel bir toplam limiti ve boyut başına bölgesel seri (Dv2, F vb.) limitinin olduğu bilinmelidir.  Örneğin, Doğu ABD toplam VM çekirdek limiti 30, A serisi çekirdek limiti 30 ve D serisi çekirdek limiti 30 olan bir abonelik düşünün.  Bu aboneliğin 30 adet A1 sanal makinesi veya 30 adet D1 sanal makinesi ya da ikisinin toplamda 30 çekirdeği geçmeyecek bir birleşimini (örneğin, 10 adet A1 sanal makinesi ve 20 adet D1 sanal makinesi) dağıtmasına izin verilir.  
 > <!-- -->
 > 
 > 

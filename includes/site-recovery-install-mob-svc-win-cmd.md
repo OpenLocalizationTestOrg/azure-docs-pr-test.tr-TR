@@ -1,4 +1,4 @@
-1. Merhaba yükleyici tooa yerel klasöre (örneğin, C:\Temp) tooprotect istediğiniz hello sunucusuna kopyalayın. Komutlar bir yönetici komut isteminde aşağıdaki hello çalıştırın:
+1. Yükleyici, korumak istediğiniz sunucuda yerel bir klasöre (örneğin, C:\Temp) kopyalayın. Bir yönetici komut isteminde aşağıdaki komutları çalıştırın:
 
   ```
   cd C:\Temp
@@ -6,12 +6,12 @@
   MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
   cd C:\Temp\Extracted.
   ```
-2. Mobility hizmeti tooinstall hello aşağıdaki komutu çalıştırın:
+2. Mobilite hizmetinin yüklenmesi için aşağıdaki komutu çalıştırın:
 
   ```
   UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
   ```
-3. Şimdi hello aracının hello yapılandırma sunucusu ile kayıtlı toobe gerekir.
+3. Şimdi aracı yapılandırma sunucusuna kayıtlı olması gerekir.
 
   ```
   cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
@@ -28,12 +28,12 @@ UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “
 | Parametre|Tür|Açıklama|Olası değerler|
 |-|-|-|-|
 |/ Rol|Zorunlu|Mobility hizmetinin (MS) yüklü olmalıdır veya MasterTarget(MT) yüklenmesi gerektiğini belirtir|MS </br> MT|
-|/InstallLocation|İsteğe bağlı|Mobility Hizmeti'nin yüklendiği konumu|Merhaba bilgisayarda herhangi bir klasör|
-|/ Platform|Zorunlu|Merhaba platformu üzerinde hangi hello mobilite hizmeti yüklü belirtir </br> </br>- **VMware** : mobility hizmeti üzerinde çalışan bir VM yüklüyorsanız bu değeri kullanın *VMware vSphere ESXi konakları*, *Hyper-V konakları* ve *Phsyical sunucuları* </br> - **Azure** : bir Azure Iaas VM aracısı yüklüyorsanız, bu değeri kullanın| VMware </br> Azure|
-|/ Sessiz|İsteğe bağlı|Sessiz modda toorun hello yükleyici belirtir| NA|
+|/InstallLocation|İsteğe bağlı|Mobility Hizmeti'nin yüklendiği konumu|Bilgisayardaki herhangi bir klasör|
+|/ Platform|Zorunlu|Mobility hizmetinin yüklendiği platformu belirtir </br> </br>- **VMware** : mobility hizmeti üzerinde çalışan bir VM yüklüyorsanız bu değeri kullanın *VMware vSphere ESXi konakları*, *Hyper-V konakları* ve *Phsyical sunucuları* </br> - **Azure** : bir Azure Iaas VM aracısı yüklüyorsanız, bu değeri kullanın| VMware </br> Azure|
+|/ Sessiz|İsteğe bağlı|Yükleyici sessiz modda çalıştırmak için belirtir| NA|
 
 >[!TIP]
-> Merhaba Kurulum günlüklerini %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log altında bulunabilir.
+> Kurulum günlüklerini %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log altında bulunabilir.
 
 #### <a name="mobility-service-registration-command-line-arguments"></a>Mobility hizmeti kayıt komut satırı bağımsız değişkenleri
 
@@ -44,9 +44,9 @@ UnifiedAgentConfigurator.exe”  /CSEndPoint <CSIP> /PassphraseFilePath <Passphr
 
   | Parametre|Tür|Açıklama|Olası değerler|
   |-|-|-|-|
-  |/ CSEndPoint |Zorunlu|Merhaba yapılandırma sunucusu IP adresi| Geçerli bir IP adresi|
-  |/PassphraseFilePath|Zorunlu|Merhaba parola konumu |Herhangi bir geçerli UNC veya yerel dosya yolu|
+  |/ CSEndPoint |Zorunlu|Yapılandırma sunucusu IP adresi| Geçerli bir IP adresi|
+  |/PassphraseFilePath|Zorunlu|Parola konumu |Herhangi bir geçerli UNC veya yerel dosya yolu|
 
 
 >[!TIP]
-> Merhaba AgentConfiguration günlükleri %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log altında bulunabilir.
+> AgentConfiguration günlükleri %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log altında bulunabilir.

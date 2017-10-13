@@ -1,6 +1,6 @@
 ---
-title: "aaaUse otomatik ölçeklendirme eylemleri toosend e-posta ve Web kancası uyarı bildirimleri. | Microsoft Belgeleri"
-description: "Nasıl toouse otomatik ölçeklendirme eylemleri toocall URL'leri web veya Azure İzleyicisi'nde e-posta bildirimleri gönderin konusuna bakın. "
+title: "E-posta ve Web kancası uyarı bildirimleri göndermek için otomatik ölçeklendirme eylemlerini kullanın. | Microsoft Belgeleri"
+description: "Otomatik ölçeklendirme eylemleri web URL'leri arayın veya Azure İzleyicisi'nde e-posta bildirimleri göndermek için nasıl kullanılacağını bakın. "
 author: anirudhcavale
 manager: orenr
 editor: 
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: ancav
-ms.openlocfilehash: f611a18f5a808412fbdd0c89e3addb36437064c4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 16caf14028494800e9259f0296c292b606d0210a
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="use-autoscale-actions-toosend-email-and-webhook-alert-notifications-in-azure-monitor"></a>Otomatik ölçeklendirme eylemleri toosend e-posta ve Web kancası uyarı bildirimleri Azure İzleyicisi'nde kullanın
+# <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>E-posta ve Web kancası Azure İzleyicisi'nde uyarı bildirimleri göndermek için otomatik ölçeklendirme eylemleri kullanın
 Bu makalede, böylece belirli web URL'leri çağrısı veya Azure otomatik ölçeklendirme eylemleri göre e-postalar göndermek Tetikleyicileri nasıl ayarlama gösterilir.  
 
 ## <a name="webhooks"></a>Web kancaları
-Web kancası tooroute hello Azure uyarı bildirimleri tooother sistemleri işlem sonrası veya özel bildirimleri için izin verir. Örneğin, bir gelen web isteği toosend SMS günlük hataları işleyebileceği yönlendirme hello uyarı tooservices Sohbeti kullanarak veya hizmetleri Mesajlaşma takım bildir, vb. hello Web kancası URI geçerli bir HTTP veya HTTPS uç noktası olmalıdır.
+Web kancası, diğer sistemlere işlem sonrası veya özel bildirimleri için Azure uyarı bildirimleri yönlendirmek izin verir. Örneğin, uyarıyı sohbet kullanarak veya Mesajlaşma bir team services SMS, günlük hataları, bildirim göndermek için gelen bir web isteği işleyebilecek services, vb. için yönlendirme. Web kancası URI geçerli bir HTTP veya HTTPS uç noktası olması gerekir.
 
 ## <a name="email"></a>E-posta
-Tooany geçerli e-posta adresine e-posta gönderilebilir. Yöneticiler ve hello kural çalıştığı hello aboneliğin ortak yöneticileri aynı zamanda bildirilecek.
+Tüm geçerli e-posta adresine e-posta gönderilebilir. Yöneticiler ve kural çalıştığı abonelik ortak yöneticileri aynı zamanda bildirilecek.
 
 ## <a name="cloud-services-and-web-apps"></a>Bulut Hizmetleri ve Web uygulamaları
-Azure portal hello bulut Hizmetleri ve sunucu grupları (Web uygulamaları) için katılımı.
+Azure portalından bulut Hizmetleri ve sunucu grupları (Web uygulamaları) için katılımı.
 
-* Merhaba seçin **göre ölçeklendirmeniz** ölçüm.
+* Seçin **göre ölçeklendirmeniz** ölçüm.
 
 ![tarafından ölçeklendirme](./media/insights-autoscale-to-webhook-email/insights-autoscale-notify.png)
 
 ## <a name="virtual-machine-scale-sets"></a>Sanal makine ölçekleme kümeleri
 Yeni Kaynak Yöneticisi (sanal makine ölçek kümeleri) ile oluşturulan sanal makineler için bunu REST API, Resource Manager şablonları, PowerShell ve CLI kullanarak yapılandırabilirsiniz. Bir portal arabirimi henüz kullanılabilir değil.
-Hello REST API veya Resource Manager şablonunu kullandığınızda, aşağıdaki seçenekleri şu hello ile Merhaba bildirimleri öğesi ekleyin.
+REST API veya Resource Manager şablonu kullanırken, aşağıdaki seçeneklere sahip bildirimleri öğesi ekleyin.
 
 ```
 "notifications": [
@@ -75,10 +75,10 @@ Hello REST API veya Resource Manager şablonunu kullandığınızda, aşağıdak
 | properties |Evet |Değer boş {} olması gerekir veya anahtar-değer çiftleri içerebilir |
 
 ## <a name="authentication-in-webhooks"></a>Web kancası kimlik doğrulaması
-Merhaba Web kancası hello Web kancası URI sorgu parametresi olarak bir belirteç kimliği ile kaydettiğiniz belirteç tabanlı kimlik doğrulamasını kullanarak kimlik doğrulaması yapabilir. Örneğin, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
+Web kancası Web kancası URI sorgu parametresi olarak bir belirteç kimliği ile kaydettiğiniz belirteç tabanlı kimlik doğrulamasını kullanarak kimlik doğrulaması yapabilir. Örneğin, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
 
 ## <a name="autoscale-notification-webhook-payload-schema"></a>Otomatik ölçeklendirme bildirim Web kancası yükü şeması
-Merhaba otomatik ölçeklendirme bildirim oluşturulduğunda hello aşağıdaki meta verileri hello Web kancası yükünde eklenmiştir:
+Otomatik ölçeklendirme bildirim oluşturulduğunda, aşağıdaki meta verileri Web kancası yükünde eklenmiştir:
 
 ```
 {
@@ -89,7 +89,7 @@ Merhaba otomatik ölçeklendirme bildirim oluşturulduğunda hello aşağıdaki 
                 "timestamp": "2016-03-11T07:31:04.5834118Z",
                 "id": "/subscriptions/s1/resourceGroups/rg1/providers/microsoft.insights/autoscalesettings/myautoscaleSetting",
                 "name": "myautoscaleSetting",
-                "details": "Autoscale successfully started scale operation for resource 'MyCSRole' from capacity '3' toocapacity '2'",
+                "details": "Autoscale successfully started scale operation for resource 'MyCSRole' from capacity '3' to capacity '2'",
                 "subscriptionId": "s1",
                 "resourceGroupName": "rg1",
                 "resourceName": "MyCSRole",
@@ -109,19 +109,19 @@ Merhaba otomatik ölçeklendirme bildirim oluşturulduğunda hello aşağıdaki 
 
 | Alan | Zorunlu? | Açıklama |
 | --- | --- | --- |
-| durum |Evet |otomatik ölçeklendirme eylemi oluşturulan gösterir hello durumu |
+| durum |Evet |Otomatik ölçeklendirme eylemi oluşturulan gösteren durum |
 | işlemi |Evet |Artışı örnekleri için "Ölçeği Genişlet" olur ve bir düşüş için örnekleri, "Ölçek içinde" olacaktır |
-| bağlam |Evet |Merhaba otomatik ölçeklendirme eylem bağlamı |
-| timestamp |Evet |Merhaba otomatik ölçeklendirme eylemi tetiklendiğinde zaman damgası |
-| id |Evet |Resource Manager Kimliğini hello otomatik ölçeklendirme ayarı |
-| ad |Evet |Hello hello otomatik ölçeklendirme ayarı adı |
-| Ayrıntıları |Evet |Otomatik ölçeklendirme hizmet hello hello eylem açıklaması sürdü ve hello değiştirmek hello örnek sayısı |
-| subscriptionId |Evet |Abonelik kimliği ölçeklendirilir hello hedef kaynak |
-| resourceGroupName |Evet |Genişletilmiş hello hedef kaynak kaynak grubu adı |
-| resourceName |Evet |Genişletilmiş hello hedef kaynağın adı |
-| Kaynak türü |Evet |Merhaba üç desteklenen değerler: "microsoft.classiccompute/domainnames/slots/roles" - bulut hizmeti rolleri, "microsoft.compute/virtualmachinescalesets" - sanal makine ölçek kümeleri ve "Microsoft.Web/serverfarms" - Web uygulaması |
-| resourceId |Evet |Genişletilmiş hello hedef kaynak Resource Manager kimliği |
-| portalLink |Evet |Azure portal bağlantısı toohello Özet sayfasında hello hedef kaynak |
-| oldCapacity |Evet |bir ölçek eylemi otomatik ölçeklendirme geçen zaman hello geçerli (eski) örnek sayısı |
-| newCapacity |Evet |otomatik ölçeklendirme hello kaynak çok ölçeklendirilmiş hello yeni örnek sayısı|
-| Özellikler |Hayır |İsteğe bağlı. < Anahtar, değer > kümesi çiftleri (örneğin, sözlük < dize, dize >). Merhaba özellikleri alan isteğe bağlıdır. Özel kullanıcı arabirimi veya mantığı tabanlı uygulama iş akışı, anahtarlar ve hello yükü kullanılarak geçirilebilir değerler girebilirsiniz. Toouse hello Web kancası URI kendisini (gibi sorgu parametrelerini) toopass özel özellikler toohello giden Web kancası çağrı başa alternatif bir yoludur. |
+| bağlam |Evet |Otomatik ölçeklendirme eylem bağlamı |
+| timestamp |Evet |Otomatik ölçeklendirme eylemi tetiklendiğinde zaman damgası |
+| id |Evet |Otomatik ölçeklendirme ayarında Resource Manager kimliği |
+| ad |Evet |Otomatik ölçeklendirme ayarı adı |
+| Ayrıntıları |Evet |Otomatik ölçeklendirme hizmet sürdü eylem ve örnek sayısı değişikliği açıklaması |
+| subscriptionId |Evet |Genişletilmiş hedef kaynak abonelik kimliği |
+| resourceGroupName |Evet |Genişletilmiş hedef kaynak kaynak grubu adı |
+| resourceName |Evet |Genişletilmiş hedef kaynağın adı |
+| Kaynak türü |Evet |Üç desteklenen değerler: "microsoft.classiccompute/domainnames/slots/roles" - bulut hizmeti rolleri, "microsoft.compute/virtualmachinescalesets" - sanal makine ölçek kümeleri ve "Microsoft.Web/serverfarms" - Web uygulaması |
+| resourceId |Evet |Genişletilmiş hedef kaynak Resource Manager kimliği |
+| portalLink |Evet |Hedef kaynak Özet sayfasında Azure portalı bağlantı |
+| oldCapacity |Evet |Bir ölçek eylemi otomatik ölçeklendirme geçen zaman geçerli (eski) örnek sayısı |
+| newCapacity |Evet |Otomatik ölçeklendirme kaynağa ölçeklendirilmiş yeni örnek sayısı |
+| Özellikler |Hayır |İsteğe bağlı. < Anahtar, değer > kümesi çiftleri (örneğin, sözlük < dize, dize >). Özellikler alanı isteğe bağlıdır. Özel kullanıcı arabirimi veya mantığı tabanlı uygulama iş akışı, anahtarlar ve yük kullanılarak geçirilebilir değerler girebilirsiniz. Web kancası URI kendisini (gibi sorgu parametrelerini) kullanmak için özel özellikler giden Web kancası çağrı geçirmek için alternatif bir yoludur. |

@@ -1,6 +1,6 @@
 ---
-title: "İlk Azure sanal ağ aaaCreate | Microsoft Docs"
-description: "Nasıl toocreate bir Azure sanal ağı (VNet), iki sanal makine (VM) toohello VNet bağlanmak ve toohello VM'ler bağlanmak öğrenin."
+title: "İlk Azure Sanal Ağınızı oluşturma | Microsoft Docs"
+description: "Azure Sanal Ağı (VNet) oluşturmayı, iki sanal makineyi (VM) sanal ağa bağlamayı ve VM’lere bağlamayı öğrenebilirsiniz."
 services: virtual-network
 documentationcenter: 
 author: jimdial
@@ -15,79 +15,79 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
-ms.openlocfilehash: 1981524cf706d5ebc83b1ff77735617550ff058a
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: e653764d7cb514d50b44fadd0cc5963dd404d99e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-your-first-virtual-network"></a>İlk sanal ağınızı oluşturma
 
-Toocreate iki alt ağ ile sanal ağ (VNet) iki sanal makine (VM) oluşturma ve hello ağların her VM tooone bağlanmak hello resim aşağıdaki gösterildiği gibi öğrenin:
+İki alt ağa sahip bir sanal ağ (VNet) oluşturmayı, iki sanal makine (VM) oluşturmayı ve aşağıdaki resimde gösterildiği gibi her bir VM’yi alt ağların birine bağlamayı öğrenin:
 
 ![Sanal ağ diyagramı](./media/virtual-network-get-started-vnet-subnet/vnet-diagram.png)
 
-Bir Azure sanal ağı (VNet), kendi ağ hello bulutta gösterimidir. Azure ağ ayarlarınızı kontrol edebilir ve DHCP adres bloklarını, DNS ayarlarını, güvenlik ilkelerini ve yönlendirmeyi tanımlayabilirsiniz. Merhaba okuma VNet kavramları hakkında daha fazla toolearn [Virtual Network'e genel bakış](virtual-networks-overview.md) makalesi. Aşağıdaki adımları toocreate hello kaynakları Hello resimde gösterilen hello tamamlayın:
+Azure sanal ağ (VNet) buluttaki kendi ağınızın bir gösterimidir. Azure ağ ayarlarınızı kontrol edebilir ve DHCP adres bloklarını, DNS ayarlarını, güvenlik ilkelerini ve yönlendirmeyi tanımlayabilirsiniz. Sanal ağ kavramları hakkında daha fazla bilgi için, [Sanal Ağa genel bakış](virtual-networks-overview.md) makalesini okuyun. Resimde gösterilen kaynakları oluşturmak için aşağıdaki adımları tamamlayın:
 
 1. [İki alt ağı olan bir sanal ağ oluşturma](#create-vnet)
-2. [Her bir ağ arabirimine (NIC) sahip iki VM oluşturma](#create-vms)ve bir ağ güvenlik grubu (NSG) tooeach NIC ilişkilendirin
-3. [Sanal makineleri hello tooand Bağlan](#connect-to-from-vms)
-4. [Tüm kaynakları silme](#delete-resources). Sağlanan durumdayken bu alıştırmada oluşturulan hello kaynaklardan bazıları için ücretler uygulanır. toominimize hello ücretleri hello alıştırma tamamladıktan sonra oluşturduğunuz bu bölümde toodelete hello kaynaklarında toocomplete hello adımları emin olun.
+2. [Her biri bir ağ arabirimine (NIC) sahip iki VM oluşturma](#create-vms) ve her NIC ile bir ağ güvenlik grubu (NSG) ilişkilendirme
+3. [VM’lerden gelen ve giden bağlantı](#connect-to-from-vms)
+4. [Tüm kaynakları silme](#delete-resources). Bu uygulamada oluşturulan kaynakların bazıları için, hazırlanırlarken ücret uygulanır. Ücretleri en aza indirmek için, uygulamayı tamamladıktan sonra, oluşturduğunuz kaynakları silmek için bu bölümdeki adımları tamamlamayı unutmayın.
 
-Tamamlanıyor hello bu makaledeki adımları sonra VNet nasıl kullanabileceğiniz, temel bilgilere sahip. Sonraki adımlar hakkında daha fazla bilgi için sağlanan toouse daha ayrıntılı bir düzeyde sanal ağlar.
+Bu makaledeki adımları tamamladıktan sonra sanal ağı nasıl kullanabileceğinize dair temel bir anlayışa sahip olacaksınız. Sonraki adımlar, sanal ağları daha ayrıntılı bir düzeyde nasıl kullanacağınızla ilgili daha fazla bilgi edinmeniz için verilmiştir.
 
 ## <a name="create-vnet"></a>İki alt ağa sahip bir sanal ağ oluşturma
 
-toocreate izleyin tam hello adımları iki alt ağa sahip bir sanal ağ. Farklı alt ağlardır genellikle toocontrol hello alt ağlar arasındaki trafik akışını kullanılır.
+İki alt ağa sahip bir sanal ağ oluşturmak için, aşağıdaki adımları tamamlayın. Farklı alt ağlar genellikle alt ağlar arasındaki trafik akışını denetlemek için kullanılır.
 
-1. İçinde toohello oturum [Azure portal](<https://portal.azure.com>). Henüz bir hesabınız yoksa, [bir aylık ücretsiz denemeye](https://azure.microsoft.com/free) kaydolabilirsiniz. 
-2. Merhaba, **Sık Kullanılanlar** hello portalının bölmesi **yeni**.
-3. Merhaba, **yeni** dikey penceresinde tıklatın **ağ**. Merhaba, **ağ** dikey penceresinde tıklatın **sanal ağ**hello resim aşağıdaki gösterildiği gibi:
+1. [Azure Portal](<https://portal.azure.com>)’da oturum açın. Henüz bir hesabınız yoksa, [bir aylık ücretsiz denemeye](https://azure.microsoft.com/free) kaydolabilirsiniz. 
+2. Portalın **Favoriler** bölmesinde, **Yeni** öğesine tıklayın.
+3. **Yeni** dikey penceresinde, **Ağ** öğesine tıklayın. Aşağıdaki resimde gösterildiği şekilde, **Ağ** dikey penceresinde **Sanal ağ** öğesine tıklayın:
 
     ![Sanal ağ diyagramı](./media/virtual-network-get-started-vnet-subnet/virtual-network.png)
 
-4.  Merhaba, **sanal ağ** dikey penceresinde, bırakın *Resource Manager* hello dağıtım modeli ve tıklatın seçilen **oluşturma**.
-5.  Merhaba, **oluşturma sanal ağ dikey** görüntülenir, değerleri aşağıdaki hello girin, ardından tıklatın **oluşturma**:
+4.  **Sanal ağ** dikey penceresinde, *Resource Manager*’ı dağıtım modeli olarak seçilmiş halde bırakın ve **Oluştur**’a tıklayın.
+5.  Ekrana gelen **Sanal ağ oluşturma dikey penceresinde**, aşağıdaki değerleri girin, ardından **Oluştur**’a tıklayın:
 
     |**Ayar**|**Değer**|**Ayrıntılar**|
     |---|---|---|
-    |**Ad**|*MyVNet*|Merhaba adı hello kaynak grubun içinde benzersiz olmalıdır.|
+    |**Ad**|*MyVNet*|Ad, kaynak grubu içinde benzersiz olmalıdır.|
     |**Adres alanı**|*10.0.0.0/16*|CIDR gösteriminde istediğiniz herhangi bir adres alanını belirtebilirsiniz.|
-    |**Alt ağ adı**|*Ön uç*|Merhaba alt ağ adı hello sanal ağ içinde benzersiz olmalıdır.|
-    |**Alt ağ adres aralığı**|*10.0.0.0/24*| Belirttiğiniz hello aralığındaki hello sanal ağ için tanımlı hello adres alanı içinde bulunmalıdır.|
-    |**Abonelik**|*[Aboneliğiniz]*|Bir abonelik toocreate hello VNet seçin içinde. Bir sanal ağ, tek bir abonelik içinde bulunabilir.|
-    |**Kaynak grubu**|**Yeni oluştur:** *MyRG*|Bir kaynak grubu oluşturun. Merhaba kaynak grubu adı, seçtiğiniz hello abonelik içinde benzersiz olmalıdır. Merhaba okuyun, kaynak grupları hakkında daha fazla toolearn [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups) genel bakış makalesi.|
-    |**Konum**|*Batı ABD*| Genellikle en yakın tooyour fiziksel konumu hello konumu seçilir.|
+    |**Alt ağ adı**|*Ön uç*|Alt ağ adı sanal ağ içinde benzersiz olmalıdır.|
+    |**Alt ağ adres aralığı**|*10.0.0.0/24*| Belirttiğiniz aralığın, sanal ağ için tanımladığınız adres alanı içinde olması gerekir.|
+    |**Abonelik**|*[Aboneliğiniz]*|Sanal ağın oluşturulacağı bir abonelik seçin. Bir sanal ağ, tek bir abonelik içinde bulunabilir.|
+    |**Kaynak grubu**|**Yeni oluştur:** *MyRG*|Bir kaynak grubu oluşturun. Kaynak grubu adı, seçili abonelik içinde benzersiz olmalıdır. Kaynak grupları hakkında daha fazla bilgi için, [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-groups)’a genel bakış makalesini okuyun.|
+    |**Konum**|*Batı ABD*| Genellikle, fiziksel konumunuza en yakın konum seçilir.|
 
-    VNet alır, birkaç saniye toocreate hello. Oluşturulduktan sonra gördüğünüz hello Azure portalı panosunun.
+    Sanal ağı oluşturmak birkaç saniye sürer. Oluşturulduktan sonra, Azure portalı panosunu görürsünüz.
 
-6. Oluşturulan, hello Azure portal hello sanal ağ ile **Sık Kullanılanlar** bölmesinde tıklatın **tüm kaynakları**. Merhaba tıklatın **MyVNet** hello sanal ağında **tüm kaynakları** dikey. Merhaba aboneliği zaten içinde birçok kaynak varsa, girebilirsiniz *MyVNet* hello içinde **ada göre Filtrele...** kutusunu tooeasily erişim hello VNet.
-7. Merhaba **MyVNet** dikey penceresi açılır ve hello resim aşağıdaki gösterildiği gibi hello Vnet'in hakkındaki bilgileri görüntüler:
+6. Oluşturulan sanal ağ ile, Azure portalı **Sık Kullanılanlar** bölmesinde, **Tüm kaynaklar**’a tıklayın. **Tüm kaynaklar** dikey penceresinde **MyVNet** sanal ağına tıklayın. Seçili abonelikte zaten çeşitli kaynaklar varsa, sanal ağa kolaylıkla erişmek için **Ada göre filtrele...** kutusuna *MyVNet* girebilirsiniz.
+7. **MyVNet** dikey penceresi açılır ve aşağıdaki resimde gösterildiği gibi sanal ağ hakkındaki bilgileri görüntüler:
 
     ![Sanal ağ diyagramı](./media/virtual-network-get-started-vnet-subnet/myvnet.png)
 
-8. Merhaba önceki resimde gösterildiği gibi tıklayın **alt ağlar** toodisplay hello VNet içinde hello alt ağların bir listesi. Merhaba bulunan alt ağıdır **ön uç**, 5. adımda oluşturduğunuz alt hello.
-9. Merhaba MyVNet - alt ağlar dikey penceresini tıklatın **+ alt** toocreate hello sahip bir alt ağa bilgileri ve tıklatın ardından **Tamam** toocreate hello alt ağ:
+8. Önceki resimde gösterildiği gibi, **Alt ağlar** öğesine tıklayarak sanal ağ içindeki alt ağların bir listesini görüntüleyin. Mevcut olan tek alt ağ, 5. adımda oluşturduğunuz alt ağ olan **Ön uç**’tur.
+9. MyVNet - Alt ağlar dikey penceresinde, aşağıdaki bilgilerle bir alt ağ oluşturmak için **+ Alt ağ** öğesine tıklayın ve **Tamam**’a tıklayarak alt ağı oluşturun:
 
     |**Ayar**|**Değer**|**Ayrıntılar**|
     |---|---|---|
-    |**Ad**|*Arka uç*|Merhaba adı hello sanal ağ içinde benzersiz olmalıdır.|
-    |**Adres aralığı**|*10.0.1.0/24*|Belirttiğiniz hello aralığındaki hello sanal ağ için tanımlı hello adres alanı içinde bulunmalıdır.|
-    |**Ağ güvenlik grubu** ve **Yol tablosu**|*Hiçbiri* (varsayılan)|Ağ güvenlik grupları (NSG’ler) b makalenin sonraki bölümlerinde ele alınmıştır. Merhaba okuyun, kullanıcı tanımlı yollar hakkında daha fazla toolearn [kullanıcı tanımlı yollar](virtual-networks-udr-overview.md) makalesi.|
+    |**Ad**|*Arka uç*|Ad, sanal ağ içinde benzersiz olmalıdır.|
+    |**Adres aralığı**|*10.0.1.0/24*|Belirttiğiniz aralığın, sanal ağ için tanımladığınız adres alanı içinde olması gerekir.|
+    |**Ağ güvenlik grubu** ve **Yol tablosu**|*Hiçbiri* (varsayılan)|Ağ güvenlik grupları (NSG’ler) b makalenin sonraki bölümlerinde ele alınmıştır. Kullanıcı tanımlı yollar hakkında daha fazla bilgi için, [Kullanıcı tanımlı yollar](virtual-networks-udr-overview.md) makalesini okuyun.|
 
-10. Yeni bir alt ağ Hello toohello VNet eklendikten sonra hello kapatabilirsiniz **MyVNet – alt ağlar** dikey sonra Kapat hello **tüm kaynakları** dikey.
+10. Yeni alt ağ sanal ağa eklendikten sonra, **MyVNet – Alt ağlar** dikey penceresini kapatabilirsiniz, ardından **Tüm kaynakları** dikey penceresini kapatabilirsiniz.
 
 ## <a name="create-vms"></a>Sanal makineler oluşturma
 
-Merhaba VNet ve alt ağları oluşturulan ile Merhaba VM'ler oluşturabilirsiniz. Bu alıştırmada, hello Windows Server işletim sistemi çalıştıran her iki VM yine de birkaç farklı Linux dağıtımları dahil olmak üzere Azure tarafından desteklenen herhangi bir işletim sistemini çalıştırabilirler.
+Sanal ağ ve alt ağlar oluşturulduktan sonra, VM’leri oluşturabilirsiniz. Bu alıştırmada, her iki VM de Windows Server işletim sistemini çalıştırır, ancak çeşitli Linux dağıtımları da dahil olmak üzere Azure tarafından herhangi bir işletim sistemini çalıştırabilirler.
 
-### <a name="create-web-server-vm"></a>Merhaba web sunucusu VM oluşturma
+### <a name="create-web-server-vm"></a>Web sunucusu VM’sini oluşturma
 
-toocreate hello web sunucusu VM, aşağıdaki adımları tam hello:
+Web sunucusu VM’sini oluşturmak için, aşağıdaki adımları tamamlayın:
 
-1. Hello Azure portal Sık Kullanılanlar bölmesinde **yeni**, **işlem**, ardından **Windows Server 2016 Datacenter**.
-2. Merhaba, **Windows Server 2016 Datacenter** dikey penceresinde tıklatın **oluşturma**.
-3. Merhaba, **Temelleri** görünür, dikey girin veya seçin değerleri aşağıdaki hello ve tıklatın **Tamam**:
+1. Azure portalı sık kullanılanlar bölmesinde, **Yeni**, **İşlem** öğelerine, ardından **Windows Server 2016 Datacenter**’a tıklayın.
+2. **Windows Server 2016 Datacenter** dikey penceresinde, **Oluştur**’a tıklayın.
+3. Ekrana gelen **Temeller** dikey penceresinde, aşağıdaki değerleri girin veya seçin ve **Tamam**’a tıklayın:
 
     |**Ayar**| **Değer**|**Ayrıntılar**|
     |---|---|---|
@@ -95,156 +95,156 @@ toocreate hello web sunucusu VM, aşağıdaki adımları tam hello:
     |**VM disk türü**|*SSD*|
     |**Kullanıcı adı**|*Tercih ettiğiniz*|
     |**Parola ve Parolayı onayla**|*Tercih ettiğiniz*|
-    | **Abonelik**|*<Your subscription>*|Merhaba abonelik olmalıdır hello hello 5 adımda seçtiğiniz aynı abonelik [iki alt ağa sahip bir sanal ağ oluşturma](#create-vnet) bu makalenin. Merhaba VM toomust bağlandığınız VNet mevcut hello aynı VM hello gibi abonelik.|
-    |**Kaynak grubu**|**Var olanı kullan:** *MyRG* öğesini seçin|Aynı kaynak grubunu Merhaba Vnet'in yaptığımız gibi hello hello kullanmakta olduğunuz olsa kaynakları hello tooexist yok aynı kaynak grubu.|
-    |**Konum**|*Batı ABD*|Başlangıç konumu olmalıdır hello hello 5. adımında belirtilen aynı konuma [iki alt ağa sahip bir sanal ağ oluşturma](#create-vnet) bu makalenin. VM'ler ve sanal ağlar toomust bağlandıklarında hello mevcut hello aynı konumu.|
+    | **Abonelik**|*<Your subscription>*|Abonelik, bu makalenin [İki alt ağa sahip bir sanal ağ oluşturma](#create-vnet) bölümünde 5. adımda seçtiğiniz abonelikle aynı olmalıdır. Bir VM bağladığınız sanal ağ, VM ile aynı abonelikte olmalıdır.|
+    |**Kaynak grubu**|**Var olanı kullan:** *MyRG* öğesini seçin|Sanal ağ ile aynı kaynak grubu kullanılsa da, kaynakların aynı kaynak grubunda olması gerekmez.|
+    |**Konum**|*Batı ABD*|Konum, bu makalenin [İki alt ağa sahip bir sanal ağ oluşturma](#create-vnet) bölümünde 5. adımda belirttiğiniz konumla aynı olmalıdır. VM’ler ve bağlandıkları sanal ağlar aynı konumda olmalıdır.|
 
-4. Merhaba, **bir boyutu seçin** dikey penceresinde tıklatın *DS1_V2 standart*, ardından **seçin**. Okuma hello [Windows VM boyutları](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesine bir listesi için Azure tarafından desteklenen tüm Windows VM boyutları.
-5. Merhaba, **ayarları** dikey penceresinde girin veya seçin değerleri aşağıdaki hello ve tıklatın **Tamam**:
+4. **Boyut seç** dikey penceresinde, *DS1_V2 Standart* öğesine tıklayın, ardından **Seç**'e tıklayın. Azure tarafından desteklenen tüm Windows VM boyutlarının bir listesi için, [Windows VM boyutları](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesini okuyun.
+5. **Ayarlar** dikey penceresinde, aşağıdaki değerleri girin veya seçin ve **Tamam**’a tıklayın:
 
     |**Ayar**|**Değer**|**Ayrıntılar**|
     |---|---|---|
     |**Depolama: Yönetilen diskler kullan**|*Evet*||
-    |**Sanal ağ**| *MyVNet* öğesini seçin|Hello aynı mevcut VNet seçebileceğiniz oluşturduğunuz VM hello gibi konumu. sanal ağlar ve alt ağları, hello okuma hakkında daha fazla toolearn [sanal ağ](virtual-networks-overview.md) makalesi.|
-    |**Alt ağ**|*Ön uç*’u seçin|Merhaba VNet içinde mevcut herhangi bir alt ağ seçebilirsiniz.|
-    |**Genel IP adresi**|Merhaba varsayılanı kabul edin|Bir ortak IP adresi, tooconnect toohello VM hello Internet gelen sağlar. Merhaba okuma genel IP adresleri hakkında daha fazla toolearn [IP adreslerini](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) makalesi.|
-    |**Ağ güvenlik grubu (güvenlik duvarı)**|Merhaba varsayılanı kabul edin|Merhaba tıklatın **(yeni) MyWebServer nsg** varsayılan NSG hello portal ayarlarını tooview oluşturuldu. Merhaba, **oluşturma ağ güvenlik grubu** açar dikey penceresinde, bir gelen herhangi bir kaynak IP adresine gelen TCP/3389 (RDP) trafiğine izin verir kuralı sahip dikkat edin.|
-    |**Diğer tüm değerler**|Merhaba Varsayılanları kabul edin|toolearn hello okuma ayarları, kalan hello hakkında daha fazla [hakkında VM'ler](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesi.|
+    |**Sanal ağ**| *MyVNet* öğesini seçin|Oluşturmakta olduğunuz VM ile aynı konumda olan herhangi bir sanal ağı seçebilirsiniz. Sanal ağlar ve alt ağlar hakkında daha fazla bilgi için, [Sanal ağ](virtual-networks-overview.md) makalesini okuyun.|
+    |**Alt ağ**|*Ön uç*’u seçin|Sanal ağ içinde mevcut herhangi bir alt ağı seçebilirsiniz.|
+    |**Genel IP adresi**|Varsayılanı kabul edin|Bir genel IP adresi, sanal ağa İnternet’ten bağlanmanızı sağlar. Genel IP adresleri hakkında daha fazla bilgi edinmek için, [IP adresleri](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) makalesini okuyun.|
+    |**Ağ güvenlik grubu (güvenlik duvarı)**|Varsayılanı kabul edin|Portalın oluşturduğu **(Yeni) MyWebServer nsg** varsayılan NSG’ye tıklayarak ayarlarını görüntüleyin. Açılan **Ağ güvenlik grubu oluştur** dikey penceresinde, herhangi bir kaynak IP adresinden TCP/3389 (RDP) trafiğine izin veren bir gelen kuralı olduğunu göreceksiniz.|
+    |**Diğer tüm değerler**|Varsayılanları kabul edin|Kalan ayarlar hakkında daha fazla bilgi için, [VM’ler hakkında](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesini okuyun.|
 
-    Ağ güvenlik grupları (NSG), hello hello VM gelen tooand akabilir ağ trafiği türü için toocreate gelen/giden kuralları etkinleştirin. Varsayılan olarak, tüm gelen trafiği toohello VM reddedildi. Bir üretim web sunucusu için, TCP/80 (HTTP) ve TCP/443 (HTTPS) için ilave gelen kuralları ekleyebilirsiniz. Varsayılan olarak, giden trafik için kural yoktur, tüm giden trafiğe izin verilir. Ekleme/kuralları toocontrol trafiği ilkelerinizi kaldırabilirsiniz. Okuma hello [ağ güvenlik grupları](virtual-networks-nsg.md) makale toolearn Nsg'ler hakkında daha fazla bilgi.
+    Ağ güvenlik grupları (NSG’ler), VM için gelen ve giden akış ağ trafiği türüne dair gelen/giden kuralları oluşturmanıza olanak sağlar. Varsayılan olarak, VM’ye tüm gelen trafik reddedilir. Bir üretim web sunucusu için, TCP/80 (HTTP) ve TCP/443 (HTTPS) için ilave gelen kuralları ekleyebilirsiniz. Varsayılan olarak, giden trafik için kural yoktur, tüm giden trafiğe izin verilir. Trafiği ilkelerinize göre denetlemek için kurallar ekleyebilir/kaldırabilirsiniz. NSG’ler hakkında daha fazla bilgi almak için [Ağ güvenlik grupları](virtual-networks-nsg.md) makalesini okuyun.
 
-6.  Merhaba, **Özet** dikey penceresinde hello ayarlarını gözden geçirin ve tıklatın **Tamam** toocreate hello VM. Durumu kutucuğu hello portal panosunda VM oluşturur hello görüntülenir. Birkaç dakika toocreate sürebilir. Toocomplete için toowait gerekmez. VM oluşturulan hello sırasında toohello sonraki adıma devam edebilirsiniz.
+6.  **Özet** dikey penceresinde, ayarları gözden geçirin ve VM’yi oluşturmak için **Tamam**’a tıklayın. VM oluşturulurken, portal panosunda bir durum kutucuğu görüntülenir. Oluşturulması birkaç dakika sürebilir. Tamamlanmasını beklemeniz gerekmez. VM oluşturulurken sonraki adıma devam edebilirsiniz.
 
-### <a name="create-database-server-vm"></a>Merhaba veritabanı sunucusu VM oluşturma
+### <a name="create-database-server-vm"></a>Veritabanı sunucusu VM’sini oluşturma
 
-toocreate hello veritabanı sunucusu VM, aşağıdaki adımları tam hello:
+Veritabanı sunucusu VM’sini oluşturmak için, aşağıdaki adımları tamamlayın:
 
-1.  Merhaba Sık Kullanılanlar bölmesinde **yeni**, **işlem**, ardından **Windows Server 2016 Datacenter**.
-2.  Merhaba, **Windows Server 2016 Datacenter** dikey penceresinde tıklatın **oluşturma**.
-3.  Merhaba, **temel bilgiler dikey penceresindeki**girin veya değerleri aşağıdaki hello seçin ve ardından tıklatın **Tamam**:
+1.  Sık kullanılanlar bölmesinde, **Yeni**, **İşlem** öğelerine, ardından **Windows Server 2016 Datacenter**’a tıklayın.
+2.  **Windows Server 2016 Datacenter** dikey penceresinde, **Oluştur**’a tıklayın.
+3.  **Temeller dikey penceresinde**, aşağıdaki değerleri girin veya seçin, ardından **Tamam**’a tıklayın:
 
     |**Ayar**|**Değer**|**Ayrıntılar**|
     |---|---|---|
-    |**Ad**|*MyDBServer*|Bu VM hello web sunucusuna bağlanır, ancak Internet bağlanılamıyor bu hello bir veritabanı sunucusu olarak görev yapar.|
+    |**Ad**|*MyDBServer*|Bu VM, İnternet’in bağlanamadığı ancak web sunucusunun bağlandığı bir veritabanı sunucusu işlevi görür.|
     |**VM disk türü**|*SSD*||
     |**Kullanıcı adı**|Tercih ettiğiniz||
     |**Parola ve Parolayı onayla**|Tercih ettiğiniz||
-    |**Abonelik**|<Your subscription>|Merhaba abonelik olmalıdır hello hello adım 5'te seçtiğiniz aynı abonelik [iki alt ağa sahip bir sanal ağ oluşturma](#create-vnet) bu makalenin.|
-    |**Kaynak grubu**|**Var olanı kullan:** *MyRG* öğesini seçin|Aynı kaynak grubunu Merhaba Vnet'in yaptığımız gibi hello hello kullanmakta olduğunuz olsa kaynakları hello tooexist yok aynı kaynak grubu.|
-    |**Konum**|*Batı ABD*|Başlangıç konumu olmalıdır hello hello 5. adımında belirtilen aynı konuma [iki alt ağa sahip bir sanal ağ oluşturma](#create-vnet) bu makalenin.|
+    |**Abonelik**|<Your subscription>|Abonelik, bu makalenin [İki alt ağa sahip bir sanal ağ oluşturma](#create-vnet) bölümünde 5. adımda seçtiğiniz abonelikle aynı olmalıdır.|
+    |**Kaynak grubu**|**Var olanı kullan:** *MyRG* öğesini seçin|Sanal ağ ile aynı kaynak grubu kullanılsa da, kaynakların aynı kaynak grubunda olması gerekmez.|
+    |**Konum**|*Batı ABD*|Konum, bu makalenin [İki alt ağa sahip bir sanal ağ oluşturma](#create-vnet) bölümünde 5. adımda belirttiğiniz konumla aynı olmalıdır.|
 
-4.  Merhaba, **bir boyutu seçin** dikey penceresinde tıklatın *DS1_V2 standart*, ardından **seçin**.
-5.  Merhaba, **ayarları** dikey penceresinde girin veya seçin değerleri aşağıdaki hello ve tıklatın **Tamam**:
+4.  **Boyut seç** dikey penceresinde, *DS1_V2 Standart* öğesine tıklayın, ardından **Seç**'e tıklayın.
+5.  **Ayarlar** dikey penceresinde, aşağıdaki değerleri girin veya seçin ve **Tamam**’a tıklayın:
 
     |**Ayar**|**Değer**|**Ayrıntılar**|
     |----|----|---|
     |**Depolama: Yönetilen diskler kullan**|*Evet*||
-    |**Sanal ağ**|*MyVNet* öğesini seçin|Hello aynı mevcut VNet seçebileceğiniz oluşturduğunuz VM hello gibi konumu.|
-    |**Alt ağ**|Seçin *arka uç* hello tıklayarak **alt** kutusu seçilerek, **arka uç** hello gelen **bir alt ağ seçin** dikey penceresi|Merhaba VNet içinde mevcut herhangi bir alt ağ seçebilirsiniz.|
-    |**Genel IP adresi**|Hiçbiri – hello varsayılan adres'ı tıklatın **hiçbiri** hello gelen **genel IP adresi seçin** dikey penceresi|Bir ortak IP adresi olmadan, yalnızca başka bir VM bağlı toohello toohello VM bağlanabilir aynı sanal ağı. Merhaba doğrudan Internet tooit bağlanamıyor.|
-    |**Ağ güvenlik grubu (güvenlik duvarı)**|Merhaba varsayılanı kabul edin| NSG Merhaba MyWebServer VM bu NSG da oluşturmuş hello varsayılan hello sahip gibi aynı gelen varsayılan kural. Bir veritabanı sunucusu için TCP/1433 (MS SQL) için ek bir gelen kuralı ekleyebilirsiniz. Varsayılan olarak, giden trafik için kural yoktur, tüm giden trafiğe izin verilir. Ekleme/kuralları toocontrol trafiği ilkelerinizi kaldırabilirsiniz.|
-    |**Diğer tüm değerler**|Merhaba Varsayılanları kabul edin||
+    |**Sanal ağ**|*MyVNet* öğesini seçin|Oluşturmakta olduğunuz VM ile aynı konumda olan herhangi bir sanal ağı seçebilirsiniz.|
+    |**Alt ağ**|**Alt ağ** kutusuna tıklayarak, ardından **Bir alt ağ seçin** dikey penceresinden **Arka uç** öğesini seçerek *Arka uç* ’u seçin|Sanal ağ içinde mevcut herhangi bir alt ağı seçebilirsiniz.|
+    |**Genel IP adresi**|Hiçbiri – Varsayılan adrese tıklayın, ardından **Genel IP adresi seçin** dikey penceresinden **Hiçbiri** öğesini seçin|Bir genel IP adresi olmadan, VM’ye yalnızca, aynı sanal ağa bağlı başka bir VM’den bağlanabilirsiniz. Ona doğrudan İnternet’ten bağlanamazsınız.|
+    |**Ağ güvenlik grubu (güvenlik duvarı)**|Varsayılanı kabul edin| MyWebServer VM’si için oluşturulan varsayılan NSG gibi, bu NSG’nin de aynı varsayılan gelen kuralı vardır. Bir veritabanı sunucusu için TCP/1433 (MS SQL) için ek bir gelen kuralı ekleyebilirsiniz. Varsayılan olarak, giden trafik için kural yoktur, tüm giden trafiğe izin verilir. Trafiği ilkelerinize göre denetlemek için kurallar ekleyebilir/kaldırabilirsiniz.|
+    |**Diğer tüm değerler**|Varsayılanları kabul edin||
 
-6.  Merhaba, **Özet** dikey penceresinde hello ayarlarını gözden geçirin ve tıklatın **Tamam** toocreate hello VM. Durumu kutucuğu hello portal panosunda VM oluşturur hello görüntülenir. Birkaç dakika toocreate sürebilir. Toocomplete için toowait gerekmez. VM oluşturulan hello sırasında toohello sonraki adıma devam edebilirsiniz.
+6.  **Özet** dikey penceresinde, ayarları gözden geçirin ve VM’yi oluşturmak için **Tamam**’a tıklayın. VM oluşturulurken, portal panosunda bir durum kutucuğu görüntülenir. Oluşturulması birkaç dakika sürebilir. Tamamlanmasını beklemeniz gerekmez. VM oluşturulurken sonraki adıma devam edebilirsiniz.
 
 ## <a name="review"></a>Kaynakları gözden geçirme
 
-Ancak bir sanal ağ ve iki VM, hello birkaç ek kaynaklar için hello MyRG kaynak grubunda oluşturduğunuz Azure portalında oluşturduğunuz. Merhaba MyRG kaynak grubu Merhaba içeriğine hello aşağıdaki adımları tamamlayarak gözden geçirin:
+Bir sanal ağ ve iki VM oluştursanız da Azure portalı, MyRG kaynak grubunda sizin için çeşitli ek kaynaklar oluşturmuştur. Aşağıdaki adımları tamamlayarak MyRG kaynak grubunun içeriğini gözden geçirin:
 
-1. Merhaba, **Sık Kullanılanlar** bölmesinde tıklatın **daha fazla hizmet**.
-2. Merhaba, **daha fazla hizmet** bölmesi, türü *kaynak grupları* hello word hello kutusundaki *filtre* da. Tıklatın **kaynak grupları** hello gördüğünüzde filtre listesi.
-3. Merhaba, **kaynak grupları** bölmesinde hello tıklatın *MyRG* kaynak grubu. Aboneliğinizde var olan birçok kaynak grupları varsa, yazabilirsiniz *MyRG* hello metni içeren hello kutusunda *ada göre Filtrele...* tooquickly erişim hello MyRG kaynak grubu.
-4.  Merhaba, **MyRG** dikey penceresinde, gördüğünüz hello kaynak grubunun 12 kaynaklar içeriyor hello resim aşağıdaki gösterildiği gibi:
+1. **Sık Kullanılanlar** bölmesinde, **Daha fazla hizmet** öğesine tıklayın.
+2. **Daha fazla hizmet** bölmesinde, içinde *Filtre* kelimesi olan kutuya *Kaynak grupları* yazın. Filtrelenen listede gördüğünüzde **Kaynak grupları**’na tıklayın.
+3. **Kaynak grupları** bölmesinde, *MyRG* kaynak grubuna tıklayın. Aboneliğinizde birçok kaynak grubu varsa, MyRG kaynak grubuna hızlıca erişmek için, *Ada göre filtrele...* yazısını içeren kutuya *MyRG* yazabilirsiniz.
+4.  **MyRG** dikey penceresinde, aşağıdaki resimde gösterildiği gibi, kaynak grubunun 12 kaynak içerdiğini göreceksiniz:
 
     ![Kaynak grubu içeriği](./media/virtual-network-get-started-vnet-subnet/resource-group-contents.png)
 
-VM'ler, diskler ve depolama hesapları, hello okuma hakkında daha fazla toolearn [sanal makine](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disk](../virtual-machines/windows/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-network%2ftoc.json), ve [depolama hesabı](../storage/common/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) genel bakış makaleleri. Merhaba iki varsayılan Nsg'ler hello portal sizin için oluşturduğu görebilirsiniz. Oluşturulan iki ağ arabirimi (NIC) kaynakları hello portalınız de görebilirsiniz. Bir NIC hello VNet üzerinde bir VM tooconnect tooother kaynakları sağlar. Okuma hello [NIC](virtual-network-network-interface.md) makale toolearn NIC'ler hakkında daha fazla bilgi. Merhaba portalı da bir genel IP adresi kaynak oluşturmuştur. Genel IP adresleri, genel bir IP adresi kaynağı için bir ayardır. Merhaba okuma genel IP adresleri hakkında daha fazla toolearn [IP adreslerini](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) makalesi.
+VM’ler, diskler ve depolama hesapları hakkında daha fazla bilgi için, [Sanal makine](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Disk](../virtual-machines/windows/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve [Depolama hesabı](../storage/common/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) genel bakış makalelerini okuyun. Portalın sizin için oluşturduğu iki varsayılan NSG’yi görebilirsiniz. Ayrıca, portalın iki ağ arabirimi (NIC) kaynağı oluşturduğunu da görebilirsiniz. Bir NIC, bir VM’nin sanal ağ üzerindeki diğer kaynaklara bağlanmasını sağlar. NIC’ler hakkında daha fazla bilgi için, [NIC](virtual-network-network-interface.md) makalesini okuyun. Portal bir Genel IP adresi kaynağı da oluşturmuştur. Genel IP adresleri, genel bir IP adresi kaynağı için bir ayardır. Genel IP adresleri hakkında daha fazla bilgi edinmek için, [IP adresleri](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) makalesini okuyun.
 
-## <a name="connect-to-from-vms"></a>Toohello VM'ler Bağlan
+## <a name="connect-to-from-vms"></a>VM’lere bağlanma
 
-Sanal ağınızı ve oluşturulan iki VM, aşağıdaki bölümlerde hello hello adımları tamamlayarak toohello VM'ler şimdi bağlanabilir:
+Sanal ağınız ve iki VM’niz oluşturulduğunda, aşağıdaki bölümlerde yer alan adımları tamamlayarak VM’lere bağlanabilirsiniz:
 
-### <a name="connect-from-internet"></a>Internet hello toohello web sunucusu VM Bağlan
+### <a name="connect-from-internet"></a>İnternetten web sunucusu VM‘sine bağlanma
 
-tooconnect toohello web sunucusundan VM hello Internet, aşağıdaki adımları tam hello:
+Web sunucusu VM’sine İnternet’ten bağlanmak için, aşağıdaki adımları tamamlayın:
 
-1. Merhaba Portalı'nda Aç hello MyRG kaynak grubu'hello tamamlayarak hello adımları [gözden kaynakları](#review) bu makalenin.
-2. Merhaba, **MyRG** dikey penceresinde hello tıklatın **MyWebServer** VM.
-3. Merhaba, **MyWebServer** dikey penceresinde tıklatın **Bağlan**hello resim aşağıdaki gösterildiği gibi:
+1. Bu makalenin [Kaynakları gözden geçirme](#review) bölümündeki adımları tamamlayarak portalda MyRG kaynak grubunu açın.
+2. **MyRG** dikey penceresinde, **MyWebServer** VM’sine tıklayın.
+3. **MyWebServer** dikey penceresinde, aşağıdaki resimde gösterildiği gibi **Bağlan** öğesine tıklayın:
 
-    ![Tooweb sunucuya VM](./media/virtual-network-get-started-vnet-subnet/webserver.png)
+    ![Web sunucusu VM’sine bağlanma](./media/virtual-network-get-started-vnet-subnet/webserver.png)
 
-4. Tarayıcı toodownload hello izin *MyWebServer.rdp* dosya ve ardından açın.
-5. Bu hello yayımcısına hello uzak bağlantı doğrulanamıyor bildiren bir iletişim kutusu alırsanız, tıklatın **Bağlan**.
-6. Kimlik bilgilerinizi girerken, oturum hello kullanıcı adı ve parolayla hello 3. adımında belirtilen olun [oluşturma hello web sunucusu VM](#create-web-server-vm) bu makalenin. Merhaba, **Windows Güvenliği** görüntülenen kutusunda hello doğru kimlik bilgilerini listesinde değil, tooclick gerekebilir **daha fazla seçenek**, ardından **farklı bir hesap kullan**, şunları yapabilirsiniz dolayısıyla Merhaba doğru kullanıcı adını ve parolasını belirtin). Tıklatın **Tamam** tooconnect toohello VM.
-7. Alırsanız, bir **Uzak Masaüstü Bağlantısı** hello uzak bilgisayarın kimliği Merhaba, doğrulanamıyor, kutusunu bildiren tıklatın **Evet**.
-8. Merhaba Internet gelen bağlı toohello MyWebServer VM sunulmuştur. Merhaba Uzak Masaüstü Bağlantısı açık toocomplete hello adımları hello sonraki bölümde bırakın.
+4. Tarayıcınızın *MyWebServer.rdp* dosyasını indirmesine izin verin, ardından açın.
+5. Uzak bağlantı yayımcısının doğrulanamadığını bildiren bir iletişim kutusu alırsanız, **Bağlan**’a tıklayın.
+6. Kimlik bilgilerinizi girerken, bu makalenin [Web sunucusu VM’si oluşturma](#create-web-server-vm) bölümünde 3. adımda belirttiğiniz kullanıcı adı ve parolayla oturum açtığınızdan emin olun. Ekrana gelen **Windows Güvenliği** kutusunda doğru kimlik bilgileri listelenmiyorsa, **Daha fazla seçenek** öğesine, ardından **Farklı bir hesap kullan**’a tıklamanız gerekebilir, böylece doğru kullanıcı adını ve parolasını belirtebilirsiniz). VM’ye bağlanmak için **Tamam**’a tıklayın.
+7. Uzak bilgisayar kimliğinin doğrulanamadığı bilgisini veren bir **Uzak Masaüstü Bağlantısı** kutusu gelirse, **Evet** öğesine tıklayın.
+8. Artık İnternet’ten MyWebServer VM’sine bağlanmış oldunuz. Sonraki bölümde yer alan adımları tamamlamak için, uzak masaüstü bağlantısını açık bırakın.
 
-Merhaba uzak bağlantı olduğu toohello hello 5. adımında oluşturulan toohello ortak IP adresi kaynak hello portal atanan genel IP adresi [iki alt ağa sahip bir sanal ağ oluşturma](#create-vnet) bu makalenin. Merhaba varsayılan kural hello oluşturduğundan Hello bağlantıya izin veriliyor **MyWebServer nsg** TCP/3389 (RDP) izin verilen NSG gelen tüm kaynak IP adreslerinden gelen toohello VM. Başka bir bağlantı üzerinden tooconnect toohello VM çalışırsanız, ek gelen kuralları toohello NSG izin verme hello ek bağlantı noktalarını eklemedikçe hello bağlantı başarısız.
+Uzak bağlantı, bu makalede [İki alt ağa sahip bir sanal ağ oluşturma](#create-vnet) bölümünde 5. adımda portalın oluşturduğu genel IP adresi kaynağına atanmış genel IP adresidir. **MyWebServer nsg** NSG içinde oluşturulan varsayılan kural herhangi bir kaynak IP adresinden VM’ye TCP/3389 (RDP) gelene izin verdiğinden bağlantıya izin verilir. VM’ye diğer herhangi bir bağlantı noktasından bağlanmayı denerseniz, NSG’ye farklı gelen kuralları ekleyerek ilave bağlantı noktalarına izin vermediğiniz müddetçe bağlantı başarısız olur.
 
 >[!NOTE]
->Ek gelen kuralları toohello NSG eklerseniz, aynı bağlantı noktalarını hello Windows Güvenlik Duvarı'nı açın ya da bağlantı başarısız hello bu hello emin olun.
+>NSG'ye ilave gelen kuralları eklerseniz, Windows güvenlik duvarında aynı bağlantı noktalarının açık olduğundan emin olun, aksi halde bağlantı başarısız olur.
 >
 
-### <a name="connect-to-internet"></a>Merhaba web sunucusundan VM toohello Internet bağlanılamadı
+### <a name="connect-to-internet"></a>Web sunucusu VM’sinden İnternet’e bağlanma
 
-tooconnect VM, aşağıdaki adımları tam hello hello web sunucusundan giden toohello Internet:
+Web sunucusu VM’sinden giden İnternet’e bağlanmak için, aşağıdaki adımları tamamlayın:
 
-1. MyWebServerVM açık bir uzak bağlantı toohello zaten sahip değilseniz, uzak bağlantı toohello VM hello hello adımları tamamlayarak olun [Bağlan toohello web sunucusundan VM hello Internet](#connect-from-internet) bu makalenin.
-2. Merhaba Windows masaüstünden Internet Explorer'ı açın. Merhaba, **Kurulum Internet Explorer 11** iletişim kutusu, tıklatın **önerilen ayarları kullanmayın**, ardından **Tamam**. Bir üretim sunucusu için önerilen ayarları önerilen tooaccept hello olur.
-3. Merhaba Internet Explorer Adres çubuğuna girin [aratıp](http:www.bing.com). Bir Internet Explorer iletişim kutusu görüntülenirse, tıklatın **Ekle**, ardından **Ekle** hello içinde **Güvenilen siteler** iletişim kutusu ve tıklatın **Kapat**. Bu işlemi diğer herhangi bir Internet Explorer iletişim kutusu için yineleyin.
-4. Merhaba Bing arama sayfası, girin *whatsmyipaddress*, hello Büyüteç düğmesini tıklatın. Bing hello VM oluşturduğunuzda hello portal tarafından oluşturulan hello ortak IP adresi atanmış toohello ortak IP adresi kaynağı döndürür. Merhaba hello ayarlarını incelerseniz **MyWebServer IP** kaynak, gördüğünüz izleyen hello resimde görüldüğü gibi hello toohello ortak IP adresi kaynağı, atanan aynı IP adresi. Başlangıç IP adresi atanmış tooyour VM ancak farklıdır.
+1. MyWebServerVM’ye açık bir uzak bağlantınız yoksa, bu makalenin [İnternetten web sunucusu VM’sine bağlanma](#connect-from-internet) bölümündeki adımları tamamlayarak VM’ye bir uzak bağlantı oluşturun.
+2. Windows masaüstünden, Internet Explorer'ı açın. **Internet Explorer 11 Kurulumu** iletişim kutusunda, **Önerilen ayarları kullanma** öğesine, ardından **Tamam**’a tıklayın. Bir üretim sunucusu için önerilen ayarların kabul edilmesi önerilir.
+3. Internet Explorer adres çubuğunda, [bing.com](http:www.bing.com) girin. Bir Internet Explorer iletişim kutusu gelirse, tıklatın **Ekle**’ye, ardından **Güvenilen siteler** iletişim kutusunda **Ekle**’ye tıklayın ve **Kapat**’a tıklayın. Bu işlemi diğer herhangi bir Internet Explorer iletişim kutusu için yineleyin.
+4. Bing arama sayfasında, *whatsmyipaddress* yazın, ardından büyüteç düğmesine tıklayın. Bing, VM’yi oluşturduğunuzda portal tarafından oluşturulan genel IP adresi kaynağına atanmış genel IP adresini getirir. **MyWebServer-ip** kaynağı için ayarları incelerseniz, aşağıdaki resimde gösterildiği gibi, genel IP adresi kaynağına atanmış IP adresinin aynısını görürsünüz. Ancak VM’nize atanan IP adresi farklıdır.
 
-    ![Tooweb sunucuya VM](./media/virtual-network-get-started-vnet-subnet/webserver-pip.png)
+    ![Web sunucusu VM’sine bağlanma](./media/virtual-network-get-started-vnet-subnet/webserver-pip.png)
 
-5.  Merhaba Uzak Masaüstü Bağlantısı açık toocomplete hello adımları hello sonraki bölümde bırakın.
+5.  Sonraki bölümde yer alan adımları tamamlamak için, uzak masaüstü bağlantısını açık bırakın.
 
-Varsayılan olarak tüm giden bağlantısını hello VM izin olduğundan hello VM gelen mümkün tooconnect toohello Internet değil. Toplama kuralları toohello NSG uygulanır toohello NIC, NIC bağlıysa, toohello alt hello ekleyerek giden bağlantı sınırlayabilirsiniz veya her ikisini de.
+VM’den tüm giden bağlantılara varsayılan olarak izin verildiğinden, İnternet’e VM’den bağlanabilirsiniz. NIC’ye uygulanan NSG’ye, NIC’nin bağlı olduğu alt ağa veya her ikisine ekleme kuralları ilave ederek giden bağlantıyı sınırlandırabilirsiniz.
 
-Merhaba VM giriş yerleştirirseniz hello hello portalını kullanarak (serbest bırakıldığında) durumu durduruldu, hello genel IP adresi değiştirebilirsiniz. Merhaba ortak IP adresinin hiçbir zaman değişikliği gerekiyorsa (Merhaba varsayılan olan) hello dinamik ayırma yöntemini yerine hello IP adresi için hello statik ayırma yöntemini kullanabilirsiniz. ayırma yöntemleri arasındaki farklar hakkında daha fazla bilgi toolearn hello okuma hello [IP adresi türleri ve ayırma yöntemleri](virtual-network-ip-addresses-overview-arm.md) makalesi.
+VM, portal kullanılarak durdurulmuş (serbest bırakıldığında) duruma konursa, genel IP adresi değişebilir. Genel IP adresinin hiçbir zaman değişmemesi gerekiyorsa, IP adresi için dinamik ayırma yöntemi yerine (varsayılan değerdir) statik ayırma yöntemini kullanabilirsiniz. Ayırma yöntemleri arasındaki farklar hakkında daha fazla bilgi için, [IP adresi türleri ve ayırma yöntemleri](virtual-network-ip-addresses-overview-arm.md) makalesini okuyun.
 
-### <a name="webserver-to-dbserver"></a>Merhaba web sunucusundan VM toohello veritabanı sunucusu VM bağlanılamadı
+### <a name="webserver-to-dbserver"></a>Web sunucusu VM’sinden veritabanı sunucusu VM’sine bağlanma
 
-VM, aşağıdaki adımları tam hello hello web sunucusundan tooconnect toohello veritabanı sunucusu VM:
+Web sunucusu VM’sinden veritabanı sunucusu VM’sine bağlanmak için, aşağıdaki adımları tamamlayın:
 
-1. MyWebServer VM açık bir uzak bağlantı toohello zaten sahip değilseniz, uzak bağlantı toohello VM hello hello adımları tamamlayarak olun [Bağlan toohello web sunucusundan VM hello Internet](#connect-from-internet) bu makalenin.
-2. Merhaba Windows Masaüstü hello sol alt köşesindeki Hello Başlat düğmesine tıklayın, sonra yazmaya başlayın *Uzak Masaüstü*. Merhaba Başlat menüsü listesi görüntülendiğinde **Uzak Masaüstü Bağlantısı**, tıklatın.
-3. Merhaba, **Uzak Masaüstü Bağlantısı** iletişim kutusunda, girin *DBSunucum* hello bilgisayar adı ve tıklatın **Bağlan**.
-4. Merhaba kullanıcı adı ve parolaları hello 3 adımda girdiğiniz girin [oluşturma hello veritabanı sunucusu VM](#create-database-server-vm) bölümünde bu makalede, ardından **Tamam**.
-5. Hello uzak bilgisayarın bu hello kimliği doğrulanamıyor bildiren bir iletişim kutusu alırsanız, tıklatın **Evet**.
-6. Merhaba Uzak Masaüstü Bağlantısı açık toocomplete hello hello sonraki bölümde adımları tooboth sunucuları bırakın.
+1. MyWebServer VM’sine açık bir uzak bağlantınız yoksa, bu makalenin [İnternetten web sunucusu VM’sine bağlanma](#connect-from-internet) bölümündeki adımları tamamlayarak VM’sine bir uzak bağlantı oluşturun.
+2. Windows masaüstünde sol alt köşedeki Başlat düğmesine tıklayın, sonra *uzak masaüstü* yazmaya başlayın. Başlat menüsü listesinde **Uzak Masaüstü Bağlantısı** görüntülendiğinde, buna tıklayın.
+3. **Uzak Masaüstü Bağlantısı** iletişim kutusunda, bilgisayar adı için *MyDBServer* girin ve **Bağlan**’a tıklayın.
+4. Bu makalede [Veritabanı sunucusu VM’si oluşturma](#create-database-server-vm) bölümünde 3. adımda girdiğiniz kullanıcı adını ve parolaları girin, ardından **Tamam**’a tıklayın.
+5. Uzak bilgisayar kimliğinin doğrulanamadığı bilgisini veren bir iletişim kutusu gelirse, **Evet**’e tıklayın.
+6. Sonraki bölümde yer alan adımları tamamlamak için, her iki sunucuya uzak masaüstü bağlantısını açık bırakın.
 
-Aşağıdaki nedenlerden hello için hello web sunucusu VM mümkün toomake hello bağlantı toohello veritabanı sunucusu VM şunlardır:
+Veritabanı sunucusu VM’sine bağlantıyı aşağıdaki nedenlerle web sunucusu VM’sinden yapabilirsiniz:
 
-- TCP/3389 gelen bağlantıları hello varsayılan NSG hello 5. adımında oluşturulan tüm kaynak IP için etkin [oluşturma hello veritabanı sunucusu VM](#create-database-server-vm) bu makalenin.
-- Merhaba web sunucusundan bağlı toohello olan VM hello bağlantıyı başlatan hello veritabanı sunucusu VM olarak aynı sanal ağı. tooconnect tooa bir ortak IP adresi atanmış tooit yok VM, size bağlanması başka bir VM bağlı toohello aynı sanal ağ, VM hello bağlı tooa farklı alt olsa bile.
-- Merhaba VM'ler bağlı toodifferent alt ağlar olsa da, Azure alt ağlar arasında bağlantı sağlayacak varsayılan yolların oluşturur. Ancak, kendi oluşturarak hello varsayılan yolların geçersiz kılabilirsiniz. Okuma hello [kullanıcı tanımlı yollar](virtual-networks-udr-overview.md) makale toolearn Azure'da yönlendirme hakkında daha fazla bilgi.
+- TCP/3389 gelen bağlantılarının bu makalede [Veritabanı sunucusu VM’si oluşturma](#create-database-server-vm) bölümünde 5. adımda oluşturulmuş varsayılan NSG’de herhangi bir kaynak IP için etkinleştirilmesi nedeniyle.
+- Bağlantıyı, veritabanı sunucusu sanal makinesiyle aynı sanal ağa bağlı olan web sunucusu sanal makinesinden başlatmanız nedeniyle. Kendisine atanmış bir genel IP adresi olmayan bir VM’ye bağlanmak için, sanal makine farklı bir alt ağa bağlı olsa dahi, aynı sanal ağa bağlı başka bir VM’den bağlantı yapmanız gerekir.
+- VM’ler farklı alt ağlara bağlı olsa da, Azure alt ağlar arasında bağlantı sağlayacak varsayılan yollar oluşturur. Ancak kendi yollarınızı oluşturarak varsayılan yolları geçersiz kılabilirsiniz. Azure’da yollar hakkında daha fazla bilgi için, [Kullanıcı tanımlı yollar](virtual-networks-udr-overview.md) makalesini okuyun.
 
-Hello gibi bir uzak bağlantı toohello veritabanı sunucusundan VM hello Internet tooinitiate çalışırsanız [Bağlan toohello web sunucusundan VM hello Internet](#connect-from-internet) bölüm bu makalede, bu hello bkz **Bağlan** seçeneği gri çıkışı. Bağlantı olduğu için hiçbir ortak IP adresi atanmış toohello VM, gelen bağlantıları tooit hello Internet gelen olmayacak şekilde olası gri renkte görüntülenir.
+Bu makalede [Web sunucusu VM’sine İnternet’ten bağlanma](#connect-from-internet) bölümünde yaptığınız gibi İnternet’ten veritabanı sunucusu VM’sine uzak bağlantı başlatmayı denerseniz, **Bağlan** seçeneğinin devre dışı olduğunu göreceksiniz. VM’ye atanmış bir genel IP adresi olmadığından, yani ona İnternet’ten gelen bağlantı yapmak mümkün olmadığından Bağlan seçeneği devre dışıdır.
 
-### <a name="connect-toohello-internet-from-hello-database-server-vm"></a>Merhaba veritabanı sunucusundan VM toohello Internet bağlanılamadı
+### <a name="connect-to-the-internet-from-the-database-server-vm"></a>Veritabanı sunucusu VM’sinden İnternet’e bağlanma
 
-Giden toohello Internet hello aşağıdaki adımları tamamlayarak hello veritabanı sunucusundan VM Bağlan:
+Aşağıdaki adımları tamamlayarak veritabanı sunucusu VM’sinden giden İnternet’e bağlanın:
 
-1. DBSunucum VM açmak MyWebServer VM hello bir uzaktan bağlantı toohello zaten sahip değilseniz, tam hello hello adımları [hello web sunucusundan VM Bağlan toohello veritabanı sunucusu VM](#webserver-to-dbserver) bu makalenin.
-2. Windows masaüstünde hello DBSunucum VM Merhaba, Internet Explorer'ı açın ve adım 2 ve 3'ün hello yaptığınız gibi toohello iletişim kutuları yanıt [toohello Internet hello web sunucusundan VM bağlanmak](#connect-to-internet) bu makalenin.
-3. Merhaba adres çubuğunda girin [aratıp](http:www.bing.com).
-4. ' I tıklatın **Ekle** hello Internet Explorer iletişim kutusunda görüntülenen, ardından **Ekle**, ardından **Kapat** hello içinde **güvenilen** siteler iletişim kutusu. Ekrana gelen ilave iletişim kutularında bu adımları tamamlayın.
-5. Merhaba Bing arama sayfası, girin *whatsmyipaddress*, hello Büyüteç düğmesini tıklatın. Bing hello ortak IP adresi şu anda atanmış toohello VM hello Azure altyapısı tarafından döndürür. 6. Merhaba Uzak Masaüstü toohello DBSunucum VM hello MyWebServer VM gelen kapatın, sonra hello uzak bağlantı toohello MyWebServer VM'yi kapatın.
+1. MyWebServer VM’sinden MyDBServer VM’sine açılmış bir uzak bağlantınız yoksa, bu makalenin [Web sunucusu VM’sinden veritabanı sunucusu VM’sine bağlanma](#webserver-to-dbserver) bölümündeki adımları tamamlayın.
+2. 0MyDBServer VM’sindeki Windows masaüstünde, Internet Explorer'ı açın ve bu makalede [Web sunucusu VM’sinden İnternet’e bağlanma](#connect-to-internet) bölümünde 2. ve 3. adımlarda yaptığınız gibi iletişim kutularına yanıt verin.
+3. Adres çubuğunda, [bing.com](http:www.bing.com) yazın.
+4. Ekrana gelen Internet Explorer iletişim kutusunda **Ekle**’ye tıklayın, ardından **Güvenilen siteler** iletişim kutusunda **Ekle**’ye ve **Kapat**’a tıklayın. Ekrana gelen ilave iletişim kutularında bu adımları tamamlayın.
+5. Bing arama sayfasında, *whatsmyipaddress* yazın, ardından büyüteç düğmesine tıklayın. Bing, Azure altyapısı tarafından VM’ye atanmış durumda olan genel IP adresini getirir. 6. MyWebServer VM’sinden MyDBServer VM’sine uzak masaüstünü kapatın, ardından MyWebServer VM’sine uzak bağlantıyı kapatın.
 
-Varsayılan olarak, tüm giden trafiğe izin verilmediğinden bir ortak IP adresi kaynağı toohello DBSunucum VM atanmamış olsa bile hello giden bağlantı toohello Internet izin verilir. Varsayılan olarak, tüm VM'ler mümkün tooconnect giden toohello Internet'te olan veya olmayan bir ortak IP adresi atanan kaynak toohello VM var. MyWebServer VM, bir ortak IP adresi atanan kaynak mümkün toofor hello edildiği gibi genel IP Internet hello ancak, adres. mümkün tooconnect toohello olmayan.
+MyDBServer VM’sine bir genel IP adresi kaynağı atanmamış olsa dahi tüm giden trafiğe varsayılan olarak izin verildiği için, İnternet’e giden bağlantıya izin verilir. VM’ye bir genel IP adresi kaynağı atanmış olsun olmasın, varsayılan olarak tüm VM’lerin İnternet’e giden bağlantı yapmasına izin verilir. Ancak, bir genel IP adresi kaynağı atanmış MyWebServer VM’si için yapabileceğiniz gibi İnternet’ten genel IP adresine bağlanmanız mümkün olmaz.
 
 ## <a name="delete-resources"></a>Tüm kaynakları silme
 
-Bu makalede, aşağıdaki adımları tam hello oluşturulan tüm kaynakları toodelete:
+Bu makalede oluşturulan tüm kaynakları silmek için, aşağıdaki adımları tamamlayın:
 
-1. Bu makalede, tam oluşturulan tooview hello MyRG kaynak grubu içinde hello 1-3 adımları [gözden kaynakları](#review) bu makalenin. Bir kez daha, hello kaynak grubunda hello kaynaklarını gözden geçirin. Önceki adımlar, başına hello MyRG kaynak grubu oluşturduysanız, 4. adımda hello resimde gösterilen hello 12 kaynaklara bakın.
-2. Merhaba MyRG dikey penceresinde hello tıklayın **silmek** düğmesi.
-3. Merhaba portal tootype hello toodelete istediğiniz hello kaynak grubu tooconfirm adını gerektirir. Kaynakları hello 4 adımda gösterilen hello kaynakları dışında görürseniz [gözden kaynakları](#review) bölüm bu makalede, tıklatın **iptal**. Yalnızca bu makalede bir parçası olarak oluşturulan hello 12 kaynakları görürseniz, yazın *MyRG* hello kaynak grubu adı için ardından **silmek**. Bu nedenle her zaman emin tooconfirm silmeden önce bir kaynak grubu Merhaba içeriğine olması, bir kaynak grubunu silme hello kaynak grubundaki tüm kaynakları siler. Merhaba portal hello kaynak grubu içinde bulunan tüm kaynakları siler ve sonra hello kaynak grubu kendisini siler. Bu işlem birkaç dakika sürer.
+1. Bu makalede oluşturulan MyRG kaynak grubunu görüntülemek için, bu makalede [Kaynakları gözden geçirme](#review) bölümündeki 1-3. adımları tamamlayın. Bir kez daha, kaynak grubundaki kaynakları gözden geçirin. MyRG kaynak grubunu önceki adımlara göre oluşturduysanız, 4. adımdaki resimde gösterilen 12 kaynağı göreceksiniz.
+2. MyRG dikey penceresinde, **Sil** düğmesine tıklayın.
+3. Portal, silmek istediğinizi onaylamak için kaynak grubunun adını yazmanızı gerektirir. Bu makalede [Kaynakları gözden geçirme](#review) bölümündeki 4. adımda gösterilen kaynaklardan başka kaynaklar görürseniz, **İptal** öğesine tıklayın. Yalnızca, bu makale kapsamında oluşturulan 12 kaynağı görürseniz, kaynak grubu adı için *MyRG* yazın, ardından **Sil** öğesine tıklayın. Bir kaynak grubunun silinmesiyle, kaynak grubu içerisindeki tüm kaynaklar silinir, bu nedenle, silmeden önce kaynak grubunun içeriğini onaylamayı hiçbir zaman unutmayın. Portal, kaynak grubu içinde yer alan tüm kaynakları siler ve sonra kaynak grubunu siler. Bu işlem birkaç dakika sürer.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu alıştırmada, bir sanal ağ ve iki VM oluşturdunuz. VM oluşturma esnasında bazı özel ayarlar belirttiniz ve çeşitli varsayılan ayarları kabul ettiniz. Makaleler, üretim sanal ağlar ve sanal makineleri, tüm kullanılabilir ayarlar anlamak tooensure dağıtmadan önce aşağıdaki hello okumanızı öneririz:
+Bu alıştırmada, bir sanal ağ ve iki VM oluşturdunuz. VM oluşturma esnasında bazı özel ayarlar belirttiniz ve çeşitli varsayılan ayarları kabul ettiniz. Tüm kullanılabilir ayarları anladığınızdan emin olmak için, üretim sanal ağlarınız ve VM’lerini dağıtmadan önce aşağıdaki makaleleri okumanızı öneririz:
 
 - [Sanal ağlar](virtual-networks-overview.md)
 - [Genel IP adresleri](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)

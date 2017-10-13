@@ -1,6 +1,6 @@
 ---
-title: "Merhaba istemci tarafında aaaInserting ads | Microsoft Docs"
-description: "Bu konu, üzerinde tooinsert ads istemci tarafı nasıl hello gösterir."
+title: "İstemci tarafında reklam ekleme | Microsoft Docs"
+description: "Bu konuda, istemci tarafında ads Ekle gösterilmektedir."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: e6eab4aa92918ad734db8ac3a4e7818d02ed7fe4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 52ba731f88c630830560e3cf8406ba2e9613c8a5
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="inserting-ads-on-hello-client-side"></a>Merhaba istemci tarafında reklam ekleme
-Bu konu hakkında bilgi içeren tooinsert hello istemci tarafında ads çeşitli türleri.
+# <a name="inserting-ads-on-the-client-side"></a>İstemci tarafında reklam ekleme
+Bu konu, çeşitli türlerdeki istemci tarafında reklam ekleme hakkında bilgi içerir.
 
 Canlı akış videoları kapalı açıklamalı alt yazı ve ad desteği hakkında daha fazla bilgi için bkz: [desteklenen alanında Kapalı açıklamalı alt yazı ve Ad ekleme standartları](media-services-live-streaming-with-onprem-encoders.md#cc_and_ads).
 
@@ -31,15 +31,15 @@ Canlı akış videoları kapalı açıklamalı alt yazı ve ad desteği hakkınd
 > 
 
 ## <a id="insert_ads_into_media"></a>Reklam medyanızı ekleme
-Azure Media Services hello Windows Media platformu aracılığıyla ad ekleme için destek sağlar: oynatıcı çerçevelerine. Ad desteğiyle oynatıcı çerçevelerine Windows 8, Silverlight, Windows Phone 8 ve iOS cihazları için kullanılabilir. Her player framework nasıl gösteren örnek kod içeren tooimplement oynatıcı uygulaması. Medya: listesine ekleyebilirsiniz ads üç farklı türde vardır.
+Azure Media Services, Windows ortam platformu aracılığıyla ad ekleme için destek sağlar: oynatıcı çerçevelerine. Ad desteğiyle oynatıcı çerçevelerine Windows 8, Silverlight, Windows Phone 8 ve iOS cihazları için kullanılabilir. Her player framework oynatıcı uygulaması uygulamak nasıl oluşturulduğunu gösteren örnek kodunu içerir. Medya: listesine ekleyebilirsiniz ads üç farklı türde vardır.
 
-* **Doğrusal** – tam hello ana video duraklatma çerçevesi ads.
-* **Doğrusal** – hello ana video yürütme gibi görüntülenen katmana ads genellikle bir logo veya diğer statik görüntü yerleştirilen hello player içinde.
-* **Yardımcı** – hello player dışında görüntülenen ads.
+* **Doğrusal** – tam ana video duraklatma çerçevesi ads.
+* **Doğrusal** – ana video yürütme gibi görüntülenen katmana ads genellikle bir logo veya diğer statik görüntü yerleştirilen player içinde.
+* **Yardımcı** – dışında player görüntülenen ads.
 
-Reklam hello ana videonun Zaman Çizelgesi herhangi bir noktada yerleştirilebilir. Ne zaman tooplay hello ad ve hangi hello player söylemelisiniz ads tooplay. Bu yapılır bir dizi standart XML tabanlı dosyaları kullanılarak: Video Ad Hizmeti şablonu (VAST), Dijital Video birden çok Ad çalma listesi (VMAP), medya soyut sıralama şablonu (a) ve Dijital Video Oynatıcı Ad arabirim tanımı (VPAID). BÜYÜK dosyaları hangi ads toodisplay belirtin. VMAP dosyaları belirttiğiniz tooplay çeşitli reklam ve büyük bir XML içeriyor. A, büyük XML de içeren başka bir şekilde toosequence ads dosyalarıdır. VPAID dosyaları hello video oynatıcı ve hello ad veya ad sunucusu arasında bir arabirim tanımlar.
+Reklam ana videonun Zaman Çizelgesi herhangi bir noktada yerleştirilebilir. Ad yürütmek ne zaman ve hangi ads yürütmek için player bildirmeniz gerekir. Bu yapılır bir dizi standart XML tabanlı dosyaları kullanılarak: Video Ad Hizmeti şablonu (VAST), Dijital Video birden çok Ad çalma listesi (VMAP), medya soyut sıralama şablonu (a) ve Dijital Video Oynatıcı Ad arabirim tanımı (VPAID). BÜYÜK dosyaları görüntülemek için hangi ads belirtin. VMAP dosyaları çeşitli reklam oynatın ve büyük XML içeren zamanı belirtin. A dosyaları da büyük XML içerebilen dizisi reklam için başka bir yoludur. VPAID dosyaları video oynatıcı ve ad veya ad sunucusu arasında bir arabirim tanımlar.
 
-Her player framework farklı şekilde çalışır ve her biri kendi konusunda ele alınacaktır. Bu konuda hello kullanılan temel mekanizmaları tooinsert ads anlatmaktadır. Video oynatıcı uygulamaları ads bir ad sunucusundan isteyin. Merhaba ad sunucusu, çeşitli yollarla yanıt verebilir:
+Her player framework farklı şekilde çalışır ve her biri kendi konusunda ele alınacaktır. Bu konu, reklam eklemek için kullanılan temel mekanizmaları anlatmaktadır. Video oynatıcı uygulamaları ads bir ad sunucusundan isteyin. Ad sunucusu, çeşitli yollarla yanıt verebilir:
 
 * BÜYÜK bir dosya
 * İade VMAP dosyası (ile katıştırılmış VAST)
@@ -47,7 +47,7 @@ Her player framework farklı şekilde çalışır ve her biri kendi konusunda el
 * VPAID ads sahip büyük bir dosya Döndür
 
 ### <a name="using-a-video-ad-service-template-vast-file"></a>Bir Video Ad Hizmeti şablonu (VAST) dosyasını kullanma
-Hangi ad veya reklam toodisplay büyük dosyayı belirtir. Merhaba aşağıdaki XML doğrusal ad için büyük bir dosya örneğidir:
+Hangi ad veya görüntülemek için reklam büyük dosyayı belirtir. Aşağıdaki XML doğrusal ad için büyük bir dosya örneğidir:
 
     <VAST version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
       <Ad id="115571748">
@@ -91,9 +91,9 @@ Hangi ad veya reklam toodisplay büyük dosyayı belirtir. Merhaba aşağıdaki 
       </Ad>
     </VAST>
 
-Merhaba doğrusal ad hello tarafından açıklanan <**doğrusal**> öğesi. Merhaba ad hello süreyi belirtir, olayları izleme, izleme'ye tıklayın ve bir dizi aracılığıyla, tıklama **MediaFile** öğeleri. İzleme olaylarını hello içinde belirtilen <**TrackingEvents**> öğesi ve bir ad sunucusu tootrack hello ad görüntülerken oluşan çeşitli olayları izin verin. Bu durumda hello başlangıç, Orta, tam ve genişletin olayları izlenir. Merhaba ad görüntülendiğinde hello başlangıç olayı oluşur. Merhaba Orta olayı en az % 50'hello reklamın çizelgesinin görüntülediğinde oluşur. Merhaba ad toohello son çalıştırdığınızda hello complete olayını oluşur. Merhaba kullanıcı hello video oynatıcı toofull ekran genişletirken hello genişletme olayı oluşur. Clickthroughs ile belirtilen bir <**geçişli tıklatma**> öğesinde bir <**VideoClicks**> öğesi ve hello kullanıcı üzerinde hello ad tıkladığında URI tooa kaynak toodisplay belirtir. ClickTracking belirtilen bir <**ClickTracking**> öğesinde, ayrıca merhaba <**VideoClicks**> öğesi ve hello kullanıcı tıkladığında hello player toorequest için bir izleme kaynağı belirtir Merhaba ad.hello üzerinde <**MediaFile**> öğeleri belirli bir kodlama bir ad ilgili bilgileri belirtin. Olduğunda birden fazla <**MediaFile**> öğesi, hello video oynatıcı seçebilirsiniz hello hello platform için en iyi kodlama. 
+Doğrusal ad tarafından açıklanan <**doğrusal**> öğesi. Olayları izleme, izleme'ye tıklayın ve bir dizi aracılığıyla,'yi tıklatın, ad süresini belirtir **MediaFile** öğeleri. İzleme olaylarını içinde belirtilen <**TrackingEvents**> öğesi ve ad görüntülerken oluşan çeşitli olayları izlemek bir ad sunucusu izin verin. Başlangıç, Orta, tam, bu durumda ve genişletin olayları izlenir. Ad görüntülendiğinde başlangıç olayı oluşur. Orta olayı en azından ad zaman çizelgesi % 50'si görüntülenen oluşur. Complete olayını ad sonuna çalıştırdığınızda oluşur. Kullanıcı için tam ekran video oynatıcı genişletirken genişletme olayı oluşur. Clickthroughs ile belirtilen bir <**geçişli tıklatma**> öğesinde bir <**VideoClicks**> öğesi ve kullanıcı üzerinde ad tıklattığında görüntülenecek bir kaynak için bir URI belirtir. ClickTracking belirtilen bir <**ClickTracking**> öğesi, ayrıca içinde <**VideoClicks**> öğesi ve kullanıcı üzerinde ad tıklattığında istemek player için bir izleme kaynağı belirtir . <**MediaFile**> öğeleri belirli bir kodlama bir ad ilgili bilgileri belirtin. Olduğunda birden fazla <**MediaFile**> öğesi, video oynatıcı seçebilirsiniz platform için en iyi kodlama. 
 
-Doğrusal ads belirli bir sırada görüntülenebilir. toodo Bu, ek eklemek <Ad> öğeleri toohello VAST dosya ve hello sırası özniteliği kullanılarak hello düzenini belirtin. Aşağıdaki örnek hello bunu göstermektedir:
+Doğrusal ads belirli bir sırada görüntülenebilir. Bunu yapmak için ek ekleyin <Ad> VAST öğelerine dosya ve sıra özniteliğini kullanarak düzenini belirtin. Aşağıdaki örnekte bu gösterilmektedir:
 
     <VAST version="2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="oxml.xsd">
       <Ad id="1" sequence="0">
@@ -138,7 +138,7 @@ Doğrusal ads belirli bir sırada görüntülenebilir. toodo Bu, ek eklemek <Ad>
       </Ad>
     </VAST>
 
-Doğrusal ads belirtilir bir <Creative> de öğesi. Aşağıdaki örnekte gösterildiği hello bir <Creative> doğrusal ad açıklar öğesi.
+Doğrusal ads belirtilir bir <Creative> de öğesi. Aşağıdaki örnekte gösterildiği bir <Creative> doğrusal ad açıklar öğesi.
 
     <Creative id="video" sequence="1" AdID="">
       <NonLinearAds>
@@ -154,20 +154,20 @@ Doğrusal ads belirtilir bir <Creative> de öğesi. Aşağıdaki örnekte göste
     </Creative>
 
 
-Merhaba <**NonLinearAds**> öğesi bir veya daha fazla içerebilir <**NonLinear**> öğeleri, her biri bir doğrusal ad tanımlayabilir. Merhaba <**NonLinear**> öğesi hello kaynak hello doğrusal ad belirtir. Merhaba kaynak olabilir bir <**StaticResouce**> e <**IFrameResource**>, veya bir <**HTMLResouce**>. <**StaticResource**> olarak HTML olmayan kaynak açıklar ve hello kaynak nasıl görüntülendiğini belirten bir creativeType özniteliği tanımlar:
+<**NonLinearAds**> öğesi bir veya daha fazla içerebilir <**NonLinear**> öğeleri, her biri bir doğrusal ad tanımlayabilir. <**NonLinear**> öğesi kaynak için doğrusal ad belirtir. Kaynak olabilir bir <**StaticResouce**> e <**IFrameResource**>, veya bir <**HTMLResouce**>. <**StaticResource**> olarak HTML olmayan kaynak açıklar ve kaynak nasıl görüntülendiğini belirten bir creativeType özniteliği tanımlar:
 
-Görüntü/GIF, görüntü/jpeg resim/png – hello kaynak, bir HTML biçiminde görüntülenir <**img**> etiketi.
+Görüntü/GIF, görüntü/jpeg resim/png – kaynak bir HTML biçiminde görüntülenir <**img**> etiketi.
 
-Uygulama/x-javascript – hello kaynak, bir HTML biçiminde görüntülenir <**betik**> etiketi.
+Uygulama/x-javascript – kaynak, bir HTML biçiminde görüntülenir <**betik**> etiketi.
 
-Uygulama/x-shockwave-flash – hello kaynak bir Flash player görüntülenir.
+Uygulama/x-shockwave-flash – kaynak bir Flash player görüntülenir.
 
-**IFrameResource** IFRAME içerisinde görüntülenen bir HTML kaynak açıklar. **HTMLResource** bir web sayfasına eklenecek HTML kod parçası açıklar. **TrackingEvents** hello olay gerçekleştiğinde URI toorequest hello ve izleme olaylarını belirtin. Bu örnek hello acceptInvitation ve Daralt olayları izlenir. Merhaba hakkında daha fazla bilgi için **NonLinearAds** öğeyi ve alt öğelerini IAB.NET/VAST bakın. Bu hello Not **TrackingEvents** öğesi hello içinde bulunduğu **NonLinearAds** hello yerine öğesi **NonLinear** öğesi.
+**IFrameResource** IFRAME içerisinde görüntülenen bir HTML kaynak açıklar. **HTMLResource** bir web sayfasına eklenecek HTML kod parçası açıklar. **TrackingEvents** izleme olayları ve olay ortaya çıktığında istemek için URI belirtin. Bu örnekte acceptInvitation ve Daralt olayları izlenir. Daha fazla bilgi için **NonLinearAds** öğeyi ve alt öğelerini IAB.NET/VAST bakın. Unutmayın **TrackingEvents** öğesidir içinde bulunduğu **NonLinearAds** öğesi yerine **NonLinear** öğesi.
 
-Yardımcı ads içinde tanımlanmış bir <CompanionAds> öğesi. Merhaba <CompanionAds> öğesi bir veya daha fazla içerebilir <Companion> öğeleri. Her <Companion> öğesi Yardımcısı ad açıklar ve içerebilir bir <StaticResource>, <IFrameResource>, veya <HTMLResource> hangi belirtilen içinde hello şekilde AD'de bir doğrusal olarak aynı. BÜYÜK bir dosya birden çok yardımcı ads içerebilir ve Merhaba oynatıcı uygulaması hello en uygun ad toodisplay seçebilirsiniz. VAST hakkında daha fazla bilgi için bkz: [büyük 3.0](http://www.iab.net/media/file/VASTv3.0.pdf).
+Yardımcı ads içinde tanımlanmış bir <CompanionAds> öğesi. <CompanionAds> Öğesi bir veya daha fazla içerebilir <Companion> öğeleri. Her <Companion> öğesi Yardımcısı ad açıklar ve içerebilir bir <StaticResource>, <IFrameResource>, veya <HTMLResource> doğrusal olmayan bir ad olduğu gibi aynı şekilde belirtilir. BÜYÜK bir dosya birden çok yardımcı ads içerebilir ve oynatıcı uygulaması görüntülemek için en uygun ad seçebilirsiniz. VAST hakkında daha fazla bilgi için bkz: [büyük 3.0](http://www.iab.net/media/file/VASTv3.0.pdf).
 
 ### <a name="using-a-digital-video-multiple-ad-playlist-vmap-file"></a>Birden çok Ad çalma listesi (VMAP) dosyası bir Dijital Video kullanma
-Ad sonları oluştuğunda toospecify, her sonu ne kadar olacağını, kaç ads sonu içinde görüntülenebilir ve ne ads türlerini olabilir sağlar VMAP dosya sonu sırasında görüntülenir. bir tek ad sonu tanımlayan bir örnek VMAP dosyasında aşağıdaki hello:
+VMAP dosya ad sonları olduğunda, her sonu ne kadar olacağını, kaç tane ads sonu içinde görüntülenebilir ve ne ads türlerini olabilir belirtmenize olanak tanır sonu sırasında görüntülenir. Aşağıdaki örnek VMAP dosyasındaki bir tek ad sonu tanımlayan:
 
     <vmap:VMAP xmlns:vmap="http://www.iab.net/vmap-1.0" version="1.0">
       <vmap:AdBreak breakType="linear" breakId="mypre" timeOffset="start">
@@ -216,34 +216,34 @@ Ad sonları oluştuğunda toospecify, her sonu ne kadar olacağını, kaç ads s
       </vmap:AdBreak>
     </vmap:VMAP>
 
-VMAP dosya ile başlayan bir <VMAP> içeren bir veya daha fazla öğe <AdBreak> öğeleri, her bir ad sonu tanımlama. Her ad sonu sonu türü, kesme kimliği ve saat konumu belirtir. Merhaba breakType özniteliği hello sonu sırasında oynatılan ad hello türünü belirtir: Doğrusal, doğrusal, veya görüntüleme. Görüntü ads tooVAST Yardımcısı ads eşleyin. Birden fazla ad türü (boşluksuz) virgülle ayrılmış liste belirtilebilir. Merhaba breakID hello ad için isteğe bağlı bir tanımlayıcıdır. Merhaba timeOffset hello ad ne zaman görüntüleneceğini belirtir. Yolları aşağıdaki hello biri belirtilebilir:
+VMAP dosya ile başlayan bir <VMAP> içeren bir veya daha fazla öğe <AdBreak> öğeleri, her bir ad sonu tanımlama. Her ad sonu sonu türü, kesme kimliği ve saat konumu belirtir. BreakType özniteliği sırasında sonu çalınabilir ad türünü belirtir: Doğrusal, doğrusal, veya görüntüleme. Reklam harita büyük Yardımcısı reklamları görüntüleyin. Birden fazla ad türü (boşluksuz) virgülle ayrılmış liste belirtilebilir. BreakID ad için isteğe bağlı bir tanımlayıcıdır. TimeOffset ad ne zaman görüntüleneceğini belirtir. Aşağıdaki yollardan biri belirtilebilir:
 
-1. Saat – .mmm milisaniye olduğu ss: dd: veya ss:dd:ss.mmm biçimi. Bu özniteliğin değeri Hello hello video zaman çizelgesi toohello hello ad sonu başlangıcını hello başlangıcını hello saati belirtir.
-2. Yüzde – n hello ad yürütmeden önce hello video zaman çizelgesi tooplay hello yüzdesi, %n biçimi
-3. Başlangıç/bitiş – önce veya sonra hello video görüntülenen bir ad görüntüleneceğini belirtir
-4. Konum – hello ad sonları hello zamanlamasını bilinmeyen, canlı akış olduğu gibi böyle olduğunda ad sonları hello sırasını belirtir. her ad sonu Hello sırasını n 1 veya daha büyük bir tamsayı olduğu hello #n biçiminde belirtilir. 1 güveninin hello ad yürütülen hello ilk fırsatta hello ad yürütülen hello ikinci fırsatta vb. 2 olduğunu belirtir.
+1. Saat – .mmm milisaniye olduğu ss: dd: veya ss:dd:ss.mmm biçimi. Bu özniteliğin değeri video zaman çizelgesinin en baştan zaman ad sonu başlangıcına belirtir.
+2. Yüzde – %n biçiminde burada n video zaman çizelgesi ad yürütmeden önce yürütülecek yüzdesidir
+3. Başlangıç/bitiş – önce veya video görüntülendikten sonra bir ad görüntüleneceğini belirtir
+4. Konum – ad sonları zamanlama bilinmeyen, canlı akış olduğu gibi böyle olduğunda ad sonları sırasını belirtir. Her ad sonu sırasını n 1 veya daha büyük bir tamsayı olduğu #n biçiminde belirtilir. 1 güveninin ad yürütülen ad yürütülen ikinci fırsatta vb. ilk fırsatta 2 olduğunu belirtir.
 
-Merhaba içinde <**AdBreak**> öğesi var. bir olabilir <**AdSource**> öğesi. Merhaba <**AdSource**> öğesi özniteliklerini aşağıdaki hello içerir:
+İçinde <**AdBreak**> öğesi var. bir olabilir <**AdSource**> öğesi. <**AdSource**> öğesi aşağıdaki öznitelikleri içerir:
 
-1. Kimliği – hello ad kaynağı için bir tanımlayıcı belirtir
-2. allowMultipleAds – birden çok ads hello ad sonu sırasında görüntülenen olup olmadığını belirten bir Boole değeri
-3. followRedirects – hello video oynatıcı dikkate belirten isteğe bağlı bir Boole değeri içinde bir ad yanıtı yeniden yönlendirir.
+1. Kimliği – ad kaynağı için bir tanımlayıcı belirtir
+2. allowMultipleAds – birden çok ads sırasında ad sonu görüntülenip belirten bir Boole değeri
+3. followRedirects – video oynatıcı dikkate belirten isteğe bağlı bir Boole değeri içinde bir ad yanıtı yeniden yönlendirir.
 
-Merhaba <**AdSource**> öğesi, bir satır içi ad yanıt veya bir başvuru tooan ad yanıt hello oynatıcı sağlar. Öğeleri aşağıdaki hello birini içerebilir:
+<**AdSource**> öğesi, bir satır içi ad yanıt veya bir ad yanıt başvurusu oynatıcı sağlar. Aşağıdaki öğelerden birini içerebilir:
 
-* <VASTAdData>BÜYÜK ad yanıt hello VMAP dosyanın içinde ekli gösterir
+* <VASTAdData>BÜYÜK ad yanıt VMAP dosyanın içinde ekli gösterir
 * <AdTagURI>başka bir sistemden bir ad yanıt başvuran bir URI
 * <CustomAdData>-bir rastgele bu respresents büyük olmayan bir yanıt dize
 
-Bu örnekte, bir satır içi ad yanıt ile belirtilen bir <VASTAdData> büyük ad yanıtı içeren öğe. Diğer öğeleri hello hakkında daha fazla bilgi için bkz [VMAP](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
+Bu örnekte, bir satır içi ad yanıt ile belirtilen bir <VASTAdData> büyük ad yanıtı içeren öğe. Diğer öğeler hakkında daha fazla bilgi için bkz: [VMAP](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
 
-Merhaba <**AdBreak**> öğesi de içerebilir bir <**TrackingEvents**> öğesi. Merhaba <**TrackingEvents**> öğesi sağlar, size, tootrack hello başlangıç veya bitiş bir ad sonu veya olup hello ad sonu sırasında bir hata oluştu. Merhaba <**TrackingEvents**> öğesi içeren bir veya daha fazla <**izleme**> öğeleri, bir izleme olayı ve izleme URI her biri belirtir. Merhaba olası izleme olaylarını şunlardır:
+<**AdBreak**> öğesi de içerebilir bir <**TrackingEvents**> öğesi. <**TrackingEvents**> öğesi başlangıç veya bitiş bir ad sonu veya bir hata ad sonu sırasında oluşup oluşmadığını izlemenize olanak sağlar. <**TrackingEvents**> öğesi içeren bir veya daha fazla <**izleme**> öğeleri, bir izleme olayı ve izleme URI her biri belirtir. Olası izleme olaylarını şunlardır:
 
-1. breakStart – bir ad sonu hello başlangıcını izler
-2. breakEnd – izleme hello tamamlandığında, bir ad sonu
-3. hata – hello ad kesme sırasında oluşan hata izler
+1. breakStart – izleyen bir ad sonu başlangıcı
+2. breakEnd – bir ad sonu tamamlanmasından izleme
+3. hata – ad kesme sırasında oluşan hata izler
 
-İzleme olaylarını belirten bir VMAP dosyası aşağıdaki örneğine hello gösterir
+Aşağıdaki örnek, izleme olaylarını belirten bir VMAP dosyası gösterir.
 
     <vmap:VMAP xmlns:vmap="http://www.iab.net/vmap-1.0" version="1.0">
       <vmap:AdBreak breakType="linear" breakId="mypre" timeOffset="start">
@@ -266,10 +266,10 @@ Merhaba <**AdBreak**> öğesi de içerebilir bir <**TrackingEvents**> öğesi. M
       </vmap:AdBreak>
     </vmap:VMAP>
 
-Merhaba hakkında daha fazla bilgi için <**TrackingEvents**> öğesi ve alt öğelerini http://iab.org/VMAP.pdf bakın
+Daha fazla bilgi için <**TrackingEvents**> öğesi ve alt öğelerini http://iab.org/VMAP.pdf bakın
 
 ### <a name="using-a-media-abstract-sequencing-template-mast-file"></a>Şablon (a) dosyası sıralama medya Özet kullanma
-Bir a dosyası, bir ad görüntülendiğinde tanımlamak toospecify Tetikleyiciler sağlar. Merhaba, öncesi toplama ad, Orta toplama ad ve sonrası reklam için Tetikleyicileri içeren bir örnek a dosyası aşağıdadır.
+A dosya, bir ad görüntülendiğinde tanımlamak Tetikleyicileri belirtmenizi sağlar. Tetikleyiciler öncesi toplama ad, bir orta toplama ad ve sonrası ad içeren bir örnek a dosyanız verilmiştir.
 
     <MAST xsi:schemaLocation="http://openvideoplayer.sf.net/mast http://openvideoplayer.sf.net/mast/mast.xsd" xmlns="http://openvideoplayer.sf.net/mast" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <triggers>
@@ -290,7 +290,7 @@ Bir a dosyası, bir ad görüntülendiğinde tanımlamak toospecify Tetikleyicil
           </startConditions>
           <endConditions>
             <condition type="event" name="OnItemEnd"/>
-            <!--This 'resets' hello trigger for hello next clip-->
+            <!--This 'resets' the trigger for the next clip-->
           </endConditions>
           <sources>
             <source uri="http://smf.blob.core.windows.net/samples/win8/ads/vast_linear.xml" format="vast">
@@ -314,16 +314,16 @@ Bir a dosyası, bir ad görüntülendiğinde tanımlamak toospecify Tetikleyicil
 
 
 
-Bir a dosyası ile başlayan bir **a** içeriyor öğesi **Tetikleyicileri** öğesi. Merhaba <triggers> öğesi içeren bir veya daha fazla **tetikleyici** bir ad zaman oynanan tanımlayan öğeleri. 
+Bir a dosyası ile başlayan bir **a** içeriyor öğesi **Tetikleyicileri** öğesi. <triggers> Öğesi içeren bir veya daha fazla **tetikleyici** bir ad zaman oynanan tanımlayan öğeleri. 
 
-Merhaba **tetikleyici** öğesi içeren bir **startConditions** bir ad tooplay ne zaman başlaması gerektiğini belirten öğesi. Merhaba **startConditions** öğesi içeren bir veya daha fazla <condition> öğeleri. Zaman her <condition> tetikleyici başlatılır veya olup olmamasına iptal tootrue değerlendirir hello <condition> kapsamında yer alan bir **startConditions** veya **endConditions** öğesi sırasıyla. Zaman birden çok <condition> öğeleri, örtük veya olarak kabul edilir, tootrue değerlendirme herhangi bir koşul hello tetikleyici tooinitiate neden olur. <condition>öğeleri içe olamaz. Zaman alt <condition> öğeleri önceden bir örtük ve kabul edilir, tüm koşulların hello tetikleyici tooinitiate tootrue değerlendirmeniz gerekir. Merhaba <condition> öğesi hello koşulu tanımla öznitelikleri aşağıdaki hello içerir: 
+**Tetikleyici** öğesi içeren bir **startConditions** yürütmek bir ad ne zaman başlaması gerektiğini belirten öğesi. **StartConditions** öğesi içeren bir veya daha fazla <condition> öğeleri. Zaman her <condition> tetikleyici başlatılır veya olup olmamasına iptal true olarak değerlendirilir <condition> kapsamında yer alan bir **startConditions** veya **endConditions** öğesi sırasıyla. Zaman birden çok <condition> öğeleri, örtük veya olarak kabul edilir, true olarak değerlendiriliyor herhangi bir koşul başlatmak tetikleyici neden olur. <condition>öğeleri içe olamaz. Zaman alt <condition> öğeleri önceden bir örtük ve kabul edilir, tüm koşulların başlatmak tetikleyici için true olarak değerlendirmeniz gerekir. <condition> Öğesi koşulu tanımla aşağıdaki öznitelikleri içerir: 
 
-1. **tür** – hello koşul, olay veya özelliğin türünü belirtir
-2. **ad** – hello değerlendirme sırasında kullanılan hello özelliği veya olayı toobe adı
-3. **değer** – hello bir özelliğe göre hesaplanan değer
-4. **İşleç** – işlemi toouse değerlendirme sırasında hello: EQ (eşittir), NEQ (eşit değildir), GTR (büyük), GEQ (büyük veya buna eşit), LT (küçük), LEQ (daha az veya buna eşit) MOD (modül)
+1. **tür** – koşul, olay veya özelliğin türünü belirtir.
+2. **ad** – özelliği veya değerlendirme sırasında kullanılacak olay adı
+3. **değer** – bir özelliğe göre hesaplanan değer
+4. **İşleç** – değerlendirme sırasında kullanılacak işlemi: EQ (eşittir), NEQ (eşit değildir), GTR (büyük), GEQ (büyük veya buna eşit), LT (küçük), LEQ (daha az veya buna eşit) MOD (modül)
 
-**endConditions** de içeren <condition> öğeleri. Tootrue hello tetikleyici bir koşulu değerlendirir reset.hello olduğunda <trigger> öğesi de içerir bir <sources> içeren bir veya daha fazla öğe <source> öğeleri. Merhaba <source> öğelerini tanımlama hello URI toohello ad yanıt ve ad yanıt hello türü. Bu örnekte bir URI tooa büyük yanıt verilir. 
+**endConditions** de içeren <condition> öğeleri. Bir koşul tetikleyici true değerlendirirken sıfırlanır. <trigger> Öğesi de içerir bir <sources> içeren bir veya daha fazla öğe <source> öğeleri. <source> Ad yanıt ve ad yanıtının türünü tanımlayan URI öğesi. Bu örnekte, büyük bir yanıt olarak bir URI verildi. 
 
     <trigger id="postroll" description="postroll"  >
       <startConditions>
@@ -338,39 +338,39 @@ Merhaba **tetikleyici** öğesi içeren bir **startConditions** bir ad tooplay n
 
 
 ### <a name="using-video-player-ad-interface-definition-vpaid"></a>Video oynatıcı Ad arabirim tanımı (VPAID) kullanma
-VPAID, yürütülebilir ad birimleri toocommunicate bir video oynatıcı ile etkinleştirmek için bir API'dir. Bu, yüksek oranda etkileşimli ad deneyimleri sağlar. Merhaba kullanıcı hello ad ile etkileşim kurabilir ve hello ad hello Görüntüleyici tarafından gerçekleştirilen tooactions yanıt verebilir. Örneğin bir ad hello kullanıcı tooview hello ad daha uzun bir sürümü veya daha fazla bilgi ver düğmeleri görüntüleyebilir. Merhaba video oynatıcı hello VPAID API desteklemesi ve hello yürütülebilir ad hello API uygulamanız gerekir. Bir oyuncu bir ad sunucusu hello sunucusundan bir ad isteğinde bulunduğunda VPAID ad içeren büyük bir yanıt ile yanıt verebilir.
+VPAID, bir video oynatıcı ile iletişim kurmak yürütülebilir ad birimleri etkinleştirmek için bir API'dir. Bu, yüksek oranda etkileşimli ad deneyimleri sağlar. Kullanıcının ad ile etkileşim kurabilir ve ad Görüntüleyici tarafından gerçekleştirilen eylemler yanıt vermesini sağlayabilirsiniz. Örneğin bir ad ad daha uzun bir sürümü veya daha fazla bilgi görüntülemek kullanıcı izin düğmeleri görüntüleyebilir. Video oynatıcı VPAID API desteklemesi ve yürütülebilir ad API uygulamanız gerekir. Bir ad güvenlik sunucusu AD'den VPAID ad içeren büyük bir yanıt ile yanıt verebilir bir oynatıcı isteğinde bulunduğunda.
 
-Yürütülebilir bir ad, bir çalışma zamanı ortamında Adobe Flash™ veya bir web tarayıcısında yürütülebilecek JavaScript gibi yürütülmelidir kod oluşturulur. Bir ad sunucusu VPAID ad içeren büyük bir yanıtı geri döndüğünde, hello hello apiFramework özniteliğinin değeri hello <MediaFile> öğesi "VPAID" olması gerekir. Bu öznitelik, içerdiği hello ad VPAID yürütülebilir ad belirtir. Merhaba türü özniteliği hello toohello MIME türü "application/x-shockwave-flash" veya "uygulama/x-javascript" gibi yürütülebilir ayarlanmalıdır. Merhaba aşağıdaki XML parçacığını gösterir hello <MediaFile> VPAID yürütülebilir ad içeren büyük bir yanıtı öğesinden. 
+Yürütülebilir bir ad, bir çalışma zamanı ortamında Adobe Flash™ veya bir web tarayıcısında yürütülebilecek JavaScript gibi yürütülmelidir kod oluşturulur. Bir ad sunucusu VPAID ad içeren büyük bir yanıtı geri döndüğünde, apiFramework değerini özniteliği <MediaFile> öğesi "VPAID" olması gerekir. Bu öznitelik kapsanan ad VPAID yürütülebilir ad olduğunu belirtir. Type özniteliği "application/x-shockwave-flash" veya "uygulama/x-javascript" gibi yürütülebilir dosya MIME türü için ayarlamanız gerekir. Aşağıdaki XML parçacığını gösterilmektedir <MediaFile> VPAID yürütülebilir ad içeren büyük bir yanıtı öğesinden. 
 
     <MediaFiles>
        <MediaFile id="1" delivery="progressive" type=”application/x-shockwaveflash”
                   width=”640” height=”480” apiFramework=”VPAID”>
-           <!-- CDATA wrapped URI tooexecutable ad -->
+           <!-- CDATA wrapped URI to executable ad -->
        </MediaFile>
     </MediaFiles>
 
 
-Yürütülebilir bir ad hello kullanılarak başlatılabilir <AdParameters> öğesi hello içinde <Linear> veya <NonLinear> öğeleri büyük bir yanıt. Merhaba hakkında daha fazla bilgi için <AdParameters> öğesi, bkz: [büyük 3.0](http://www.iab.net/media/file/VASTv3.0.pdf). Merhaba VPAID API'si hakkında daha fazla bilgi için bkz: [VPAID 2.0](http://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
+Yürütülebilir bir ad kullanılarak başlatılabilir <AdParameters> öğesi içinde <Linear> veya <NonLinear> öğeleri büyük bir yanıt. Daha fazla bilgi için <AdParameters> öğesi, bkz: [büyük 3.0](http://www.iab.net/media/file/VASTv3.0.pdf). VPAID API'si hakkında daha fazla bilgi için bkz: [VPAID 2.0](http://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
 
 ## <a name="implementing-a-windows-or-windows-phone-8-player-with-ad-support"></a>Bir Windows veya Windows Phone 8 Player Ad desteği ile uygulama
-Merhaba Microsoft ortam platformu: Windows 8 için Player Framework ve Windows Phone 8 nasıl kullanarak bir video oynatıcı uygulaması tooimplement hello framework gösteren örnek uygulamalar koleksiyonunu içerir. Merhaba Player Framework ve hello örneklerini indirin [Player Framework için Windows 8 ve Windows Phone 8](https://playerframework.codeplex.com).
+Microsoft Media Platform: Windows 8 için Player Framework ve Windows Phone 8 nasıl framework kullanarak bir video oynatıcı uygulaması uygulandığını göstermektedir örnek uygulamaları koleksiyonunu içerir. Player Framework ve örnekleri indirin [Player Framework için Windows 8 ve Windows Phone 8](https://playerframework.codeplex.com).
 
-Merhaba Microsoft.PlayerFramework.Xaml.Samples çözümü açtığınızda klasörleri hello proje içindeki bir dizi görürsünüz. Merhaba reklam klasörü hello örnek kodu ilgili toocreating bir video oynatıcı ad desteği içerir. İç hello reklam klasördür bir XAML/cs dosyalarının sayısını her hangi Göster nasıl farklı bir şekilde tooinsert reklamları. liste aşağıdaki hello açıklar:
+Microsoft.PlayerFramework.Xaml.Samples çözümü açtığınızda klasörleri projedeki çeşitli görürsünüz. Reklam klasör ad desteğiyle bir video oynatıcı oluşturmak için ilgili örnek kodunu içerir. İçinde reklam XAML/cs dosyaları sayısı, farklı bir şekilde reklam ekleme Göster klasörüdür. Aşağıdaki listede her açıklanmaktadır:
 
-* AdPodPage.xaml nasıl toodisplay bir ad pod gösterir.
-* AdSchedulingPage.xaml gösterir nasıl tooschedule ads.
-* FreeWheelPage.xaml nasıl toouse hello FreeWheel eklentisi tooschedule ads gösterir.
-* MastPage.xaml gösterir nasıl tooschedule ads a dosyası ile.
-* ProgrammaticAdPage.xaml nasıl tooprogrammatically zamanlama ads bir video gösterir.
-* ScheduleClipPage.xaml gösterir nasıl tooschedule büyük dosyası olmadan bir ad.
-* VastLinearCompanionPage.xaml gösterir nasıl tooinsert bir doğrusal ve yardımcı ad.
-* VastNonLinearPage.xaml gösterir nasıl tooinsert doğrusal olmayan bir ad.
-* VmapPage.xaml gösterir nasıl toospecify ads VMAP dosyası ile.
+* AdPodPage.xaml nasıl ad pod görüntüleneceğini gösterir.
+* AdSchedulingPage.xaml ads zamanlama gösterilmektedir.
+* FreeWheelPage.xaml FreeWheel eklentisi ads zamanlamak için nasıl kullanılacağını gösterir.
+* MastPage.xaml a dosyasıyla ads zamanlama gösterilmektedir.
+* ProgrammaticAdPage.xaml program aracılığıyla bir video ads zamanlama gösterilmektedir.
+* ScheduleClipPage.xaml bir ad büyük dosyası olmadan zamanlama gösterilmektedir.
+* VastLinearCompanionPage.xaml bir doğrusal ekleme ve yardımcı ad gösterir.
+* VastNonLinearPage.xaml doğrusal olmayan bir ad eklemek nasıl gösterir.
+* VmapPage.xaml nasıl ads VMAP dosyasıyla belirtileceği gösterir.
 
-Bu örneklerin her hello player çerçevesi tarafından tanımlanan hello MediaPlayer sınıfını kullanır. Çoğu örnekleri çeşitli ad yanıt biçimleri için destek eklemek eklentileri kullanır. Merhaba ProgrammaticAdPage örnek program aracılığıyla MediaPlayer örneği ile etkileşime girer.
+Bu örneklerin her player çerçevesi tarafından tanımlanan MediaPlayer sınıfını kullanır. Çoğu örnekleri çeşitli ad yanıt biçimleri için destek eklemek eklentileri kullanır. ProgrammaticAdPage örnek program aracılığıyla MediaPlayer örneği ile etkileşime girer.
 
 ### <a name="adpodpage-sample"></a>AdPodPage örnek
-Bu örnek hello AdSchedulerPlugin toodefine kullandığı zaman toodisplay bir ad. Bu örnekte, bir orta toplama tanıtım 5 saniye sonra yürütülen zamanlanmış toobe ' dir. Merhaba ad pod (ads toodisplay sırada grup), bir ad sunucusundan döndürülen büyük dosyasında belirtilir. Merhaba URI toohello büyük dosya hello belirtilen <RemoteAdSource> öğesi.
+Bu örnek AdSchedulerPlugin bir reklam görüntülemek ne zaman tanımlamak için kullanır. Bu örnekte, 5 saniye sonra çalınacak Orta toplama tanıtım zamanlandı. Ad pod (Reklam sırada görüntülemek için bir grup), bir ad sunucusundan döndürülen büyük dosyasında belirtilir. BÜYÜK dosya URI'si belirtilen <RemoteAdSource> öğesi.
 
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
 
@@ -390,10 +390,10 @@ Bu örnek hello AdSchedulerPlugin toodefine kullandığı zaman toodisplay bir a
         </mmppf:MediaPlayer.Plugins>
     </mmppf:MediaPlayer>
 
-Merhaba AdSchedulerPlugin hakkında daha fazla bilgi için bkz: [hello Player Framework'te Windows 8 ve Windows Phone 8 tanıtma](http://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation)
+AdSchedulerPlugin hakkında daha fazla bilgi için bkz: [Windows 8 ve Windows Phone 8 Player Framework'teki tanıtma](http://playerframework.codeplex.com/wikipage?title=Advertising&referringTitle=Windows%208%20Player%20Documentation)
 
 ### <a name="adschedulingpage"></a>AdSchedulingPage
-Bu örnek ayrıca hello AdSchedulerPlugin kullanır. Üç reklam, yayın öncesi ad, bir orta toplama ad ve sonrası ad zamanlar. her ad belirtildiği için URI toohello VAST hello bir <RemoteAdSource> öğesi.
+Bu örnek ayrıca AdSchedulerPlugin kullanır. Üç reklam, yayın öncesi ad, bir orta toplama ad ve sonrası ad zamanlar. URI VAST her ad için belirtilen bir <RemoteAdSource> öğesi.
 
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
                 <mmppf:MediaPlayer.Plugins>
@@ -426,7 +426,7 @@ Bu örnek ayrıca hello AdSchedulerPlugin kullanır. Üç reklam, yayın öncesi
 
 
 ### <a name="freewheelpage"></a>FreeWheelPage
-Bu örnek hello URI ad zamanlama bilgilerini yanı sıra ad içeriği belirten bu noktaları tooa SmartXML dosyası belirten bir kaynak özniteliği belirten FreeWheelPlugin kullanır.
+Bu örnek planlama bilgilerini ad yanı sıra ad içerik belirten bir SmartXML dosyasına işaret bir URI belirten bir kaynak özniteliği belirten FreeWheelPlugin kullanır.
 
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
                 <mmppf:MediaPlayer.Plugins>
@@ -436,7 +436,7 @@ Bu örnek hello URI ad zamanlama bilgilerini yanı sıra ad içeriği belirten b
             </mmppf:MediaPlayer>
 
 ### <a name="mastpage"></a>MastPage
-Bu örnek hello toouse a dosya verir MastSchedulerPlugin kullanır. Merhaba kaynak özniteliği hello hello a dosyasının konumunu belirtir.
+Bu örnek, bir a dosyası kullanmanıza olanak sağlayan MastSchedulerPlugin kullanmaktadır. Kaynak özniteliği a dosyasının konumunu belirtir.
 
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
                 <mmppf:MediaPlayer.Plugins>
@@ -446,11 +446,11 @@ Bu örnek hello toouse a dosya verir MastSchedulerPlugin kullanır. Merhaba kayn
             </mmppf:MediaPlayer>
 
 ### <a name="programmaticadpage"></a>ProgrammaticAdPage
-Bu örnek program aracılığıyla MediaPlayer hello ile etkileşime girer. Merhaba ProgrammaticAdPage.xaml dosya hello MediaPlayer başlatır:
+Bu örnek program aracılığıyla MediaPlayer ile etkileşime girer. ProgrammaticAdPage.xaml dosya MediaPlayer başlatır:
 
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4"/>
 
-Merhaba ProgrammaticAdPage.xaml.cs dosyasını bir AdHandlerPlugin oluşturur, bir ad görüntülenmesi gerekir ve ardından URI tooa büyük dosya belirtme RemoteAdSource yükler ve sonra çalar hello MarkerReached olay işleyicisi ekler TimelineMarker toospecify ekler Merhaba ad.
+Bir ad görüntülenmesi gerekir ve büyük bir dosya için bir URI belirten bir RemoteAdSource yükler ve ardından ad çalan MarkerReached olay işleyicisi ekler ProgrammaticAdPage.xaml.cs dosyası belirtmek için bir TimelineMarker ekler bir AdHandlerPlugin oluşturur.
 
     public sealed partial class ProgrammaticAdPage : Microsoft.PlayerFramework.Samples.Common.LayoutAwarePage
         {
@@ -481,7 +481,7 @@ Merhaba ProgrammaticAdPage.xaml.cs dosyasını bir AdHandlerPlugin oluşturur, b
             }
 
 ### <a name="scheduleclippage"></a>ScheduleClipPage
-Bu örnek, hello ad içeren bir .wmv dosyasını belirterek hello AdSchedulerPlugin tooschedule Orta toplama ad kullanır.
+Bu örnek AdSchedulerPlugin Orta toplama ad ad içeren bir .wmv dosyasını belirterek zamanlamak için kullanır.
 
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.cloudapp.net/html5/media/bigbuck.mp4">
                 <mmppf:MediaPlayer.Plugins>
@@ -505,7 +505,7 @@ Bu örnek, hello ad içeren bir .wmv dosyasını belirterek hello AdSchedulerPlu
             </mmppf:MediaPlayer>
 
 ### <a name="vastlinearcompanionpage"></a>VastLinearCompanionPage
-Bu örnek nasıl toouse hello AdSchedulerPlugin tooschedule Orta toplama doğrusal ad Yardımcısı ad ile gösterilmektedir. Merhaba <RemoteAdSource> öğesi hello hello büyük dosyasının konumunu belirtir.
+Bu örnek AdSchedulerPlugin Orta toplama doğrusal ad Yardımcısı ad ile zamanlamak için nasıl kullanılacağı gösterilmektedir. <RemoteAdSource> Öğesi büyük dosyasının konumunu belirtir.
 
     <mmppf:MediaPlayer Grid.Row="1"  x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
                 <mmppf:MediaPlayer.Plugins>
@@ -525,7 +525,7 @@ Bu örnek nasıl toouse hello AdSchedulerPlugin tooschedule Orta toplama doğrus
             </mmppf:MediaPlayer>
 
 ### <a name="vastlinearnonlinearpage"></a>VastLinearNonLinearPage
-Bu örnek, bir doğrusal ve doğrusal olmayan ad hello AdSchedulerPlugin tooschedule kullanır. Merhaba büyük dosya konumu ile Merhaba belirtilen <RemoteAdSource> öğesi.
+Bu örnek, bir doğrusal zamanlamak için AdSchedulerPlugin ve doğrusal olmayan bir ad kullanır. BÜYÜK dosya konumu ile belirtilen <RemoteAdSource> öğesi.
 
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
                 <mmppf:MediaPlayer.Plugins>
@@ -545,7 +545,7 @@ Bu örnek, bir doğrusal ve doğrusal olmayan ad hello AdSchedulerPlugin toosche
             </mmppf:MediaPlayer>
 
 ### <a name="vmappage"></a>VMAPPage
-Bu örnekler VMAP dosyasını kullanarak hello VmapSchedulerPlugin tooschedule ads kullanır. Merhaba URI toohello VMAP dosya hello kaynak özniteliğinde hello belirtilen <VmapSchedulerPlugin> öğesi.
+Bu örnek, bir VMAP dosyası kullanarak reklamları zamanlamak için VmapSchedulerPlugin kullanır. URI VMAP dosya için kaynak özniteliği belirtilen <VmapSchedulerPlugin> öğesi.
 
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
                 <mmppf:MediaPlayer.Plugins>
@@ -555,13 +555,13 @@ Bu örnekler VMAP dosyasını kullanarak hello VmapSchedulerPlugin tooschedule a
             </mmppf:MediaPlayer>
 
 ## <a name="implementing-an-ios-video-player-with-ad-support"></a>Video Oynatıcı Ad desteğiyle iOS uygulama
-Merhaba Microsoft ortam platformu: iOS için Player çerçevesi nasıl kullanarak bir video oynatıcı uygulaması tooimplement hello framework gösteren örnek uygulamalar koleksiyonunu içerir. Merhaba Player Framework ve hello örneklerini indirin [Azure Media Player Framework](https://github.com/Azure/azure-media-player-framework). Merhaba github sayfasına sahip bir bağlantı tooa hello player framework ve bir giriş toohello player örnek hakkında ek bilgi içeren Wiki: [Azure Media Player Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
+Microsoft Media Platform: İOS için Player Framework nasıl framework kullanarak bir video oynatıcı uygulaması uygulandığını göstermektedir örnek uygulamaları koleksiyonunu içerir. Player Framework ve örnekleri indirin [Azure Media Player Framework](https://github.com/Azure/azure-media-player-framework). Github sayfasında bir bağlantı player framework hakkında daha fazla bilgi içeren bir Wiki ve player örnek giriş vardır: [Azure Media Player Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework).
 
 ### <a name="scheduling-ads-with-vmap"></a>VMAP birlikte bir reklam planlama
-örnekte gösterildiği nasıl aşağıdaki hello tooschedule ads VMAP dosyasını kullanarak.
+Aşağıdaki örnek, bir VMAP dosyası kullanarak reklamları zamanlamak gösterilmiştir.
 
-    // How tooschedule an Ad using VMAP.
-    //First download hello VMAP manifest
+    // How to schedule an Ad using VMAP.
+    //First download the VMAP manifest
 
     if (![framework.adResolver downloadManifest:&manifest withURL:[NSURL URLWithString:@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVMAP.xml"]])
             {
@@ -569,7 +569,7 @@ Merhaba Microsoft ortam platformu: iOS için Player çerçevesi nasıl kullanara
             }
             else
             {
-                // Schedule a list of ads using hello downloaded VMAP manifest
+                // Schedule a list of ads using the downloaded VMAP manifest
                 if (![framework scheduleVMAPWithManifest:manifest])
                 {
                     [self logFrameworkError];
@@ -577,17 +577,17 @@ Merhaba Microsoft ortam platformu: iOS için Player çerçevesi nasıl kullanara
             }
 
 ### <a name="scheduling-ads-with-vast"></a>VAST birlikte bir reklam planlama
-Merhaba aşağıdaki örnek gösterir nasıl tooschedule geç bağlama büyük ad.
+Aşağıdaki örnek, geç bağlama büyük ad zamanlama gösterilmektedir.
 
-    //Example:3 How tooschedule a late binding VAST ad.
-    // set hello start time for hello ad
+    //Example:3 How to schedule a late binding VAST ad.
+    // set the start time for the ad
     adLinearTime.startTime = 13;
     adLinearTime.duration = 0;
-    // Specify hello URI of hello VAST file
+    // Specify the URI of the VAST file
     NSString *vastAd1=@"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml";
     // Create an AdInfo object
      AdInfo *vastAdInfo1 = [[[AdInfo alloc] init] autorelease];
-    // set URL tooVAST file
+    // set URL to VAST file
     vastAdInfo1.clipURL = [NSURL URLWithString:vastAd1];
     // set running time of ad
     vastAdInfo1.mediaTime = [[[MediaTime alloc] init] autorelease];
@@ -604,8 +604,8 @@ Merhaba aşağıdaki örnek gösterir nasıl tooschedule geç bağlama büyük a
         [self logFrameworkError];
     }
 
-   Merhaba aşağıdaki örnek gösterir nasıl tooschedule erken bağlama büyük ad.
-Örnek: 4 erken bir bağlama büyük ad //Download hello VAST dosya, zamanlama (! [ framework.adResolver downloadManifest: & bildirim withURL: [NSURL URLWithString: @"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"]]) {[kendini logFrameworkError];} else {adLinearTime.startTime = 7; adLinearTime.duration = 0;
+   Aşağıdaki örnek, bir erken bağlama büyük ad zamanlama gösterilmektedir.
+Örnek: 4 erken bir bağlama büyük ad //Download VAST dosya, zamanlama (! [ framework.adResolver downloadManifest: & bildirim withURL: [NSURL URLWithString: @"http://portalvhdsq3m25bf47d15c.blob.core.windows.net/vast/PlayerTestVAST.xml"]]) {[kendini logFrameworkError];} else {adLinearTime.startTime = 7; adLinearTime.duration = 0;
 
         // Create AdInfo instance
         AdInfo *vastAdInfo2 = [[[AdInfo alloc] init] autorelease];
@@ -621,9 +621,9 @@ Merhaba aşağıdaki örnek gösterir nasıl tooschedule geç bağlama büyük a
         }
     }
 
-Merhaba aşağıdaki örnek gösterir nasıl tooinsert kaba kesme düzenleme (RCE) kullanarak bir ad
+Aşağıdaki örnek kaba kesme düzenleme (RCE) kullanarak bir ad eklemek nasıl gösterir
 
-    //Example:1 How toouse RCE.
+    //Example:1 How to use RCE.
     // specify manifest for ad content
     NSString *secondContent=@"http://wamsblureg001orig-hs.cloudapp.net/6651424c-a9d1-419b-895c-6993f0f48a26/The%20making%20of%20Microsoft%20Surface-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
 
@@ -637,18 +637,18 @@ Merhaba aşağıdaki örnek gösterir nasıl tooinsert kaba kesme düzenleme (RC
         [self logFrameworkError];
     }
 
-Merhaba aşağıdaki örnekte nasıl tooschedule bir ad pod gösterilmektedir.
+Aşağıdaki örnek, bir ad pod zamanlama gösterilmektedir.
 
     //Example:5 Schedule an ad Pod.
     // Set start time for ad
     adLinearTime.startTime = 23;
     adLinearTime.duration = 0;
 
-    // Specify URL toocontent
+    // Specify URL to content
     NSString *adpodSt1=@"https://portalvhdsq3m25bf47d15c.blob.core.windows.net/asset-e47b43fd-05dc-4587-ac87-5916439ad07f/Windows%208_%20Cliffjumpers.mp4?st=2012-11-28T16%3A31%3A57Z&se=2014-11-28T16%3A31%3A57Z&sr=c&si=2a6dbb1e-f906-4187-a3d3-7e517192cbd0&sig=qrXYZBekqlbbYKqwovxzaVZNLv9cgyINgMazSCbdrfU%3D";
     // Create an AdInfo instance
     AdInfo *adpodInfo1 = [[[AdInfo alloc] init] autorelease];
-    // set URI tooad content
+    // set URI to ad content
     adpodInfo1.clipURL = [NSURL URLWithString:adpodSt1];
     // Set ad running time
     adpodInfo1.mediaTime = [[[MediaTime alloc] init] autorelease];
@@ -665,10 +665,10 @@ Merhaba aşağıdaki örnekte nasıl tooschedule bir ad pod gösterilmektedir.
         [self logFrameworkError];
     }
 
-örnekte gösterildiği nasıl aşağıdaki hello tooschedule Yapışkan olmayan Orta toplama ad. Yapışkan olmayan bir ad, yalnızca bağımsız olarak tüm arama hello Görüntüleyicisi gerçekleştirir sonra oynatılır.
+Aşağıdaki örnek, Yapışkan olmayan Orta toplama ad zamanlama gösterilmektedir. Herhangi bir aramayı bağımsız olarak Görüntüleyici gerçekleştirir sonra Yapışkan olmayan ad yalnızca oynatılır.
 
     //Example:6 Schedule a single non sticky mid roll Ad
-    // specify URL toocontent
+    // specify URL to content
     NSString *oneTimeAd=@"http://wamsblureg001orig-hs.cloudapp.net/5389c0c5-340f-48d7-90bc-0aab664e5f02/Windows%208_%20You%20and%20Me%20Together-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
 
     // create an AdInfo instance
@@ -692,13 +692,13 @@ Merhaba aşağıdaki örnekte nasıl tooschedule bir ad pod gösterilmektedir.
         [self logFrameworkError];
     }
 
-örnekte gösterildiği nasıl aşağıdaki hello tooschedule Yapışkan Orta toplama ad. Yapışkan ad hello video zaman çizelgesi noktasında ulaşıldığında hello belirtilen her zaman görüntülenir.
+Aşağıdaki örnek, Yapışkan Orta toplama ad zamanlama gösterilmektedir. Yapışkan ad video zaman çizelgesi belirtilen noktasında her erişildiğinde görüntülenir.
 
     //Example:7 Schedule a single sticky mid roll Ad
     NSString *stickyAd=@"http://wamsblureg001orig-hs.cloudapp.net/2e4e7d1f-b72a-4994-a406-810c796fc4fc/The%20Surface%20Movement-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
     // create AdInfo instance
     AdInfo *stickyAdInfo = [[[AdInfo alloc] init] autorelease];
-    // set URI tooad
+    // set URI to ad
     stickyAdInfo.clipURL = [NSURL URLWithString:stickyAd];
     stickyAdInfo.mediaTime = [[[MediaTime alloc] init] autorelease];
     stickyAdInfo.mediaTime.clipBeginMediaTime = 0;
@@ -717,7 +717,7 @@ Merhaba aşağıdaki örnekte nasıl tooschedule bir ad pod gösterilmektedir.
     }
 
 
-Merhaba aşağıdaki örnek gösterir nasıl tooschedule sonrası ad.
+Aşağıdaki örnek, bir sonrası reklam zamanlama gösterilmektedir.
 
     //Example:8 Schedule Post Roll Ad
     NSString *postAdURLString=@"http://wamsblureg001orig-hs.cloudapp.net/aa152d7f-3c54-487b-ba07-a58e0e33280b/wp-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
@@ -737,7 +737,7 @@ Merhaba aşağıdaki örnek gösterir nasıl tooschedule sonrası ad.
         [self logFrameworkError];
     }
 
-Merhaba aşağıdaki örnek gösterir nasıl tooschedule yayın öncesi ad.
+Aşağıdaki örnek, bir yayın öncesi ad zamanlama gösterilmektedir.
 
     //Example:9 Schedule Pre Roll Ad
     NSString *adURLString = @"http://wamsblureg001orig-hs.cloudapp.net/2e4e7d1f-b72a-4994-a406-810c796fc4fc/The%20Surface%20Movement-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
@@ -757,7 +757,7 @@ Merhaba aşağıdaki örnek gösterir nasıl tooschedule yayın öncesi ad.
         [self logFrameworkError];
     }
 
-Aşağıdaki örnek hello nasıl tooschedule Orta toplama ad kaplama gösterir.
+Aşağıdaki örnek, bir orta toplama katmana ad zamanlama gösterilmektedir.
 
     // Example10: Schedule a Mid Roll overlay Ad
     NSString *adURLString = @"https://portalvhdsq3m25bf47d15c.blob.core.windows.net/asset-e47b43fd-05dc-4587-ac87-5916439ad07f/Windows%208_%20Cliffjumpers.mp4?st=2012-11-28T16%3A31%3A57Z&se=2014-11-28T16%3A31%3A57Z&sr=c&si=2a6dbb1e-f906-4187-a3d3-7e517192cbd0&sig=qrXYZBekqlbbYKqwovxzaVZNLv9cgyINgMazSCbdrfU%3D";

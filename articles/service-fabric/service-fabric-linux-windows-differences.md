@@ -1,6 +1,6 @@
 ---
-title: "aaaAzure Service Fabric, Linux ve Windows farkları | Microsoft Docs"
-description: "Hello Azure Service Fabric Önizleme Linux ve Windows Azure Service Fabric arasındaki farklar."
+title: "Linux ile Windows arasındaki Azure Service Fabric farkları | Microsoft Docs"
+description: "Linux üzerindeki Azure Service Fabric ile Windows üzerindeki Azure Service Fabric arasındaki farklar."
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -12,35 +12,27 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 09/19/2017
 ms.author: subramar
-ms.openlocfilehash: 7a16a440dfc8d9006e274f46951be1562e6f10d9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 25976ba919454e26f1dd7965de5db7c4f80b9355
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Linux (önizleme) ve Windows (genel kullanıma açık) üzerindeki Service Fabric arasındaki farklar
+# <a name="differences-between-service-fabric-on-linux-and-windows"></a>Linux ve Windows üzerindeki Service Fabric arasındaki farklar
 
-Linux üzerinde Service Fabric önizleme aşamasında olduğundan, Windows’ta desteklenip Linux’ta henüz desteklenmeyen bazı özellikler mevcuttur. Sonuç olarak, Service Fabric Linux üzerinde genel kullanıma sunulduğunda hello özellik kümeleri eşlik olacaktır. Gelecek sürümlerle birlikte bu özellik farkı azalacaktır. Merhaba aşağıdaki hello en son kullanılabilir sürümleri farklar (diğer bir deyişle, sürüm 5.6 Windows ve Linux 5.5 sürümünde arasında): 
+Windows'da desteklenip Linux'ta henüz desteklenmeyen bazı özellikler mevcuttur. Bu nedenle özellik kümeleri birbirinden farklı olacak ve bu fark yeni sürümlerle azalacaktır. Mevcut son sürümler arasında (diğer bir deyişle Windows üzerindeki 6.0 sürümü ve Linux üzerindeki 6.0 sürümü arasında) aşağıdaki farklar mevcuttur: 
 
-* Güvenilir Koleksiyonlar (ve Güvenilir Durum Bilgisi Olan Hizmetler) 
-* Ters ara sunucu 
-* Tek başına yükleyici 
-* Bildirim dosyaları için XML şema doğrulaması 
-* Konsol yeniden yönlendirmesi 
-* Merhaba hataya Analiz Hizmeti (SK'lar)
-* Kapsayıcılar için Docker Compose, birim ve günlük sürücüleri 
-* Kapsayıcılar ve hizmetler için kaynak idaresi 
-* DNS hizmeti
-* Azure Active Directory desteği
-* Belirli PowerShell komutlarının CLI komutu eşdeğerleri 
-* Powershell komutları yalnızca bir kısmı (Merhaba sonraki bölümde genişletilmiş gibi) bir Linux kümesi karşı çalıştırabilirsiniz.
+* Tüm programlama modelleri önizleme sürümündedir (Java/C# Reliable Actors, Güvenilir Durum Bilgisi Olmayan Hizmetler ve Güvenilir Durum Bilgisi Olan Hizmetler)
+* Envoy (ReverseProxy), Linux'ta önizleme sürümündedir
+* Linux için tek başına yükleyici, Linux üzerinde kullanılamaz
+* Konsol yönlendirmesi (Linux veya Windows üretim kümelerinde desteklenmez)
+* Linux'ta Hata Analizi Hizmeti (FAS)
+* Service Fabric hizmetleri için DNS hizmeti (DNS hizmeti Linux üzerindeki kapsayıcılar için desteklenir)
+* Belirli Powershell komutlarının CLI komutu eşdeğerleri (liste aşağıda verilmiştir, komutların çoğu yalnızca tek başına kümeler için geçerlidir)
 
->[!NOTE]
->Konsol yönlendirmesi, Windows’ta bile üretim kümelerinde desteklenmez.
-
-Geliştirme araçları da Windows ile Linux arasında farklılık gösterir. VisualStudio, Powershell, VSTS ve ETW özellikleri Windows üzerinde kullanılabilirken, Linux üzerinde Yeoman, Eclipse, Jenkins ve LTTng kullanılabilir.
+Geliştirme araçları da Windows ile Linux arasında farklılık gösterir. Visual Studio, Powershell, VSTS ve ETW özellikleri Windows üzerinde kullanılabilirken, Linux üzerinde Yeoman, Eclipse, Jenkins ve LTTng kullanılabilir.
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>Linux Service Fabric kümesinde çalışmayan PowerShell cmdlet'leri
 
@@ -66,7 +58,6 @@ Geliştirme araçları da Windows ile Linux arasında farklılık gösterir. Vis
 * Start-ServiceFabricPartitionRestart
 * Stop-ServiceFabricChaos
 * Stop-ServiceFabricTestCommand
-* Cmd
 * Get-ServiceFabricNodeConfiguration
 * Get-ServiceFabricClusterConfiguration
 * Get-ServiceFabricClusterConfigurationUpgradeStatus
@@ -106,4 +97,4 @@ Geliştirme araçları da Windows ile Linux arasında farklılık gösterir. Vis
 * [Linux üzerinde Yeoman kullanarak ilk Service Fabric Java uygulamanızı oluşturma ve dağıtma](service-fabric-create-your-first-linux-application-with-java.md)
 * [Linux üzerinde Eclipse için Service Fabric Eklentisi kullanarak ilk Service Fabric Java uygulamanızı oluşturma ve dağıtma](service-fabric-get-started-eclipse.md)
 * [Linux üzerinde ilk CSharp uygulamanızı oluşturma](service-fabric-create-your-first-linux-application-with-csharp.md)
-* [Merhaba Service Fabric CLI toomanage uygulamalarınızı kullanın](service-fabric-application-lifecycle-sfctl.md)
+* [Uygulamalarınızı yönetmek için Service Fabric CLI'yı kullanma](service-fabric-application-lifecycle-sfctl.md)

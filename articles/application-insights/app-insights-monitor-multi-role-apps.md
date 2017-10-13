@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure Application Insights birden çok bileşenleri, mikro ve kapsayıcıları için desteği | Microsoft Docs"
+title: "Azure Application Insights, birden çok bileşenleri, mikro ve kapsayıcıları için desteği | Microsoft Docs"
 description: "Birden çok bileşenleri veya performans ve kullanım için rolleri oluşur uygulamaları izleme."
 services: application-insights
 documentationcenter: 
@@ -12,49 +12,49 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: bwren
-ms.openlocfilehash: 6185eedf32ec450d7541603b94de6c3dcdf64a85
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ca1bb8ee886c4b4e69be9dd653d6a52b874e1f5a
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Application Insights (Önizleme) ile birden çok bileşen uygulamaları izleme
 
-Birden çok sunucu bileşenlerini, roller veya hizmetlerle oluşur uygulamaları izleyebilirsiniz [Azure Application Insights](app-insights-overview.md). Merhaba durumunu hello bileşenler ve aralarındaki ilişkilerin hello tek bir uygulama harita üzerinde görüntülenir. Tek tek işlemleri otomatik HTTP bağıntı ile birden çok bileşeni aracılığıyla izleyebilirsiniz. Kapsayıcı tanılama tümleşiktir ve uygulama telemetri ile ilişkili. Tek bir Application Insights kaynağı hello bileşenlerinin tümünü uygulamanız için kullanın. 
+Birden çok sunucu bileşenlerini, roller veya hizmetlerle oluşur uygulamaları izleyebilirsiniz [Azure Application Insights](app-insights-overview.md). Bileşenler ve aralarındaki ilişkilerin durumunu tek bir uygulama harita üzerinde görüntülenir. Tek tek işlemleri otomatik HTTP bağıntı ile birden çok bileşeni aracılığıyla izleyebilirsiniz. Kapsayıcı tanılama tümleşiktir ve uygulama telemetri ile ilişkili. Tek bir Application Insights kaynağı, uygulamanızın tüm bileşenler için kullanın. 
 
 ![Birden çok bileşen uygulama eşlemesi](./media/app-insights-monitor-multi-role-apps/app-map.png)
 
-'Bileşeni' kullanırız burada toomean büyük bir uygulama, herhangi bir işlevsel parçası. Örneğin, tipik iş uygulaması tooone Konuşmayı web tarayıcısında çalışan istemci kodunun oluşabilir veya hizmetleri sırayla geri kullanan daha fazla web uygulama hizmetleri bitemez. Sunucu bileşenleri barındırılan şirket içi hello bulutta üzerinde olabilir ya da Azure web ve çalışan rolleri olabilir veya kapsayıcılarında Docker veya Service Fabric gibi çalışabilir. 
+'Bileşen' burada büyük bir uygulamanın düzgün herhangi bir kısmını anlamına için kullanırız. Örneğin, tipik iş uygulaması bir konuşma web tarayıcılarında çalışan istemci kodunun oluşabilir veya hizmetleri sırayla geri kullanan daha fazla web uygulama hizmetleri bitemez. Sunucu bileşenleri içi barındırılan buluta üzerinde olabilir ya da Azure web ve çalışan rolleri olabilir veya kapsayıcılarında Docker veya Service Fabric gibi çalışabilir. 
 
 ### <a name="sharing-a-single-application-insights-resource"></a>Tek bir Application Insights kaynağı paylaşma 
 
-Merhaba burada anahtar tekniği olan, uygulama toohello her bileşenin toosend telemetrisinden aynı Application Insights kaynağı ancak kullanım hello `cloud_RoleName` özelliği toodistinguish bileşenleri gerektiğinde. Merhaba Application Insights SDK'sı ekler hello `cloud_RoleName` özelliği toohello telemetri bileşenleri yayma. Örneğin, hello SDK web sitesi adı ya da hizmet rol adı toohello ekleyeceksiniz `cloud_RoleName` özelliği. Bu değer bir telemetryinitializer ile geçersiz kılabilirsiniz. Merhaba uygulama eşlemesi kullanan hello `cloud_RoleName` özelliği tooidentify hello bileşenleri hello haritaya.
+Anahtar burada her bileşen aynı Application Insights kaynağı için uygulamanızda telemetri gönderen, ancak kullanmak için bir tekniktir `cloud_RoleName` bileşenleri gerektiğinde ayırt etmek için özellik. Application Insights SDK'sı ekler `cloud_RoleName` telemetri bileşenleri özelliğine yayma. Örneğin, SDK'yı bir web sitesi adı ya da hizmet rol adı için ekleyecek `cloud_RoleName` özelliği. Bu değer bir telemetryinitializer ile geçersiz kılabilirsiniz. Uygulama eşlemesi kullanan `cloud_RoleName` harita üzerinde bileşenleri tanımlamak için özellik.
 
-Hakkında daha fazla bilgi için hello geçersiz kılma `cloud_RoleName` özelliği bakın [özellikleri ekleyin: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).  
+Hakkında daha fazla bilgi için geçersiz kılma `cloud_RoleName` özelliği bakın [özellikleri ekleyin: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).  
 
-Bazı durumlarda, bu uygun olmayabilir ve toouse ayrı kaynaklar bileşenleri farklı kullanıcı grupları için tercih edebilirsiniz. Örneğin, yönetim veya faturalandırma için toouse farklı kaynaklar gerekebilir. Ayrı kaynaklarını kullanan tüm hello bileşenleri tek bir uygulama haritada görüntülenmelerini görmüyorum anlamına gelir; ve bileşenler arasında sorgulanamıyor [Analytics](app-insights-analytics.md). Tooset hello ayrı kaynakları da vardır.
+Bazı durumlarda, bu uygun olmayabilir ve farklı bileşenleri grupları için ayrı kaynakları kullanmayı tercih edebilirsiniz. Örneğin, farklı kaynaklarının yönetim veya faturalandırma amaçları için kullanmanız gerekebilir. Ayrı kaynakları kullanarak tek bir uygulama haritada görüntülenmelerini tüm bileşenleri görmüyorum anlamına gelir; ve bileşenler arasında sorgulanamıyor [Analytics](app-insights-analytics.md). Ayrıca ayrı kaynakları ayarlamanız gerekir.
 
-Bu uyarısıyla birlikte, bu belgenin hello kalan birden çok bileşenleri tooone Application Insights kaynağı toosend verileri istediğiniz varsayıyoruz.
+Bu uyarı ile bir Application Insights kaynağı için birden çok bileşenlerinden veri göndermek istediğiniz bu belgenin geri kalanında varsayıyoruz.
 
 ## <a name="configure-multi-component-applications"></a>Birden çok bileşen uygulamaları yapılandır
 
-birden çok bileşen uygulama tooget eşleme, bu hedefleri tooachieve gerekir:
+Birden çok bileşen uygulama eşlemesi almak için bu hedefleri başarmanın gerekir:
 
-* **Merhaba en son sürüm öncesi yüklemek** her bileşenin hello uygulamasının Application Insights paketinde. 
-* **Tek bir Application Insights kaynağı paylaşma** tüm uygulama bileşenleri hello için.
-* **Birden çok rol uygulama eşlemesi etkinleştirmek** hello önizlemeleri dikey penceresinde.
+* **En son ön sürümü yüklemek** her bileşen uygulamanın Application Insights paketinde. 
+* **Tek bir Application Insights kaynağı paylaşma** uygulamanızın tüm bileşenler için.
+* **Birden çok rol uygulama eşlemesi etkinleştirmek** önizlemeleri dikey penceresinde.
 
-Her bileşen türü için hello uygun yöntemi kullanarak, uygulamanızın yapılandırın. ([ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), [JavaScript](app-insights-javascript.md).)
+Her bileşen türü için uygun yöntemi kullanarak, uygulamanızın yapılandırın. ([ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), [JavaScript](app-insights-javascript.md).)
 
-### <a name="1-install-hello-latest-pre-release-package"></a>1. Merhaba en son sürüm öncesi paketini yükle
+### <a name="1-install-the-latest-pre-release-package"></a>1. En son sürüm öncesi paketini yükle
 
-Güncelleştirme veya hello projesinde her sunucu bileşeni için hello kullanılıyor Öngörüler paketlerini yükleyin. Visual Studio kullanıyorsanız:
+Güncelleştirme veya her sunucu bileşeni için projedeki kullanılıyor Öngörüler paketlerini yükleyin. Visual Studio kullanıyorsanız:
 
 1. Bir projeye sağ tıklayın ve seçin **NuGet paketlerini Yönet**. 
 2. Seçin **dahil et**.
 3. Application Insights paketleri güncelleştirmelerinde görünmüyorsa, bunları seçin. 
 
-    Aksi takdirde, göz atın ve hello uygun paket yükleyin:
+    Aksi takdirde, göz atın ve uygun paketi yükleyin:
     
     * Microsoft.ApplicationInsights.WindowsServer
     * Microsoft.ApplicationInsights.ServiceFabric - Konuk yürütülebilir dosyalar ve Docker kapsayıcıları içinde bir Service Fabric uygulaması çalıştıran çalışan bileşenleri için
@@ -63,23 +63,23 @@ Güncelleştirme veya hello projesinde her sunucu bileşeni için hello kullanı
 
 ### <a name="2-share-a-single-application-insights-resource"></a>2. Tek bir Application Insights kaynağı paylaşma
 
-* Visual Studio'da bir projeye sağ tıklayın ve seçin **yapılandırma Application Insights**, veya **Application Insights > yapılandırma**. Merhaba ilk projeniz için hello Sihirbazı toocreate Application Insights kaynağı kullanın. Sonraki projeleri için aynı kaynak Seç hello.
+* Visual Studio'da bir projeye sağ tıklayın ve seçin **yapılandırma Application Insights**, veya **Application Insights > yapılandırma**. İlk projeniz için Application Insights kaynağı oluşturmak için sihirbazı kullanın. Sonraki projeleri için aynı kaynak seçin.
 * Application Insights menü ise, el ile yapılandırın:
 
-   1. İçinde [Azure portal](https://portal,azure.com), başka bir bileşen için önceden oluşturulmuş hello Application Insights kaynağı açın.
-   2. Merhaba genel bakış dikey penceresinde, açık hello Essentials açılan sekmesi ve kopyalama hello **izleme anahtarı.**
+   1. İçinde [Azure portal](https://portal,azure.com), başka bir bileşen için önceden oluşturulmuş Application Insights kaynağı açın.
+   2. Genel Bakış dikey penceresinde, açık Essentials açılan sekmesi ve kopyalama **izleme anahtarı.**
    3. Projenizdeki Applicationınsights.config açın ve Ekle:`<InstrumentationKey>your copied key</InstrumentationKey>`
 
-![Merhaba araçları anahtar toohello .config dosyasını kopyalayın](./media/app-insights-monitor-multi-role-apps/copy-instrumentation-key.png)
+![.Config dosyasına izleme anahtarını kopyalama](./media/app-insights-monitor-multi-role-apps/copy-instrumentation-key.png)
 
 
 ### <a name="3-enable-multi-role-application-map"></a>3. Birden çok rol uygulama eşlemesi etkinleştir
 
-Hello Azure portal, uygulamanız için hello kaynak açın. Merhaba önizlemeleri dikey penceresinde, etkinleştirme *birden çok rol uygulama eşlemesi*.
+Azure Portal'da, uygulamanız için kaynak açın. Önizlemeler dikey penceresinde, etkinleştirme *birden çok rol uygulama eşlemesi*.
 
 ### <a name="4-enable-docker-metrics-optional"></a>4. Docker ölçümleri (isteğe bağlı) etkinleştir 
 
-Bir bileşen bir Azure Windows VM üzerinde barındırılan bir Docker çalıştırıyorsa, ek ölçümler hello kapsayıcıdan toplayabilirsiniz. Bu konuda eklemek, [Azure tanılama](../monitoring-and-diagnostics/azure-diagnostics.md) yapılandırma dosyası:
+Bir bileşen bir Azure Windows VM üzerinde barındırılan bir Docker çalıştırıyorsa, kapsayıcıdan ek ölçümler toplayabilirsiniz. Bu konuda eklemek, [Azure tanılama](../monitoring-and-diagnostics/azure-diagnostics.md) yapılandırma dosyası:
 
 ```
 "DiagnosticMonitorConfiguration": {
@@ -105,22 +105,22 @@ Bir bileşen bir Azure Windows VM üzerinde barındırılan bir Docker çalışt
 
 ```
 
-## <a name="use-cloudrolename-tooseparate-components"></a>Cloud_RoleName tooseparate bileşenleri kullanma
+## <a name="use-cloudrolename-to-separate-components"></a>Bileşenleri ayırmak için cloud_RoleName kullanın
 
-Merhaba `cloud_RoleName` ekli tooall telemetri bir özelliktir. Merhaba telemetri kaynaklanan hello bileşen - hello rol veya hizmete - tanımlar. (Bu, aynı paralel olarak birden çok sunucu işlemlerini veya makinelerde çalışan aynı roller ayıran cloud_RoleInstance olarak hello yok olur.)
+`cloud_RoleName` Özelliği tüm telemetri eklenmiş. Telemetri kaynaklanan bileşen - rol veya hizmete - tanımlar. (Bunu paralel olarak birden çok sunucu işlemlerini veya makinelerde çalışan aynı roller ayıran cloud_RoleInstance ile aynı değildir.)
 
-Merhaba Portalı'nda, filtre ya da bu özelliği kullanan telemetrinizi segmentlere. Bu örnekte, hello hataları dikey penceresinde hello CRM API arka uç hatalarından çıkışı filtreleme hello ön uç web hizmetinden, filtrelenmiş tooshow yalnızca bilgiler şunlardır:
+Portalda, filtre ya da bu özelliği kullanan telemetrinizi segmentlere. Bu örnekte, hataları dikey CRM API arka uç hatalarından çıkışı filtreleme ön uç web hizmetinden sadece bilgi göstermek için filtrelenir:
 
 ![Bulut rolü adıyla kesimli ölçüm grafik](./media/app-insights-monitor-multi-role-apps/cloud-role-name.png)
 
 ## <a name="trace-operations-between-components"></a>Bileşenleri arasında izleme işlemleri
 
-Bir bileşen tooanother, tek bir işlem işlenirken yapılan hello çağrıları alanından izleyebilirsiniz.
+Başka bir tek bir işlem işlenirken yapılan çağrılar bir bileşenden izleyebilirsiniz.
 
 
 ![İşlem için telemetri Göster](./media/app-insights-monitor-multi-role-apps/show-telemetry-for-operation.png)
 
-Bu işlem için telemetri tooa bağıntılı listesi kullanılarak hello ön uç web sunucusunu ve hello arka uç API'si üzerinden tıklatın:
+Aracılığıyla bu işlem için telemetri bağıntılı listesine ön uç web sunucusu ve arka uç API'si üzerinden tıklatın:
 
 ![Bileşenler genelinde arama](./media/app-insights-monitor-multi-role-apps/search-across-components.png)
 

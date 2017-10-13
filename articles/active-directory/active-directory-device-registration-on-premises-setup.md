@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory cihaz kaydı hizmetini kullanarak şirket içi koşullu erişim aaaSetting | Microsoft Docs"
-description: "Windows Server 2012 R2'de Active Directory Federasyon Hizmetleri (AD FS) kullanarak bir adım adım kılavuzu tooenabling koşullu erişim tooon içi uygulamalar."
+title: "Azure Active Directory cihaz kaydı hizmetini kullanarak şirket içi koşullu erişimi ayarlama | Microsoft Docs"
+description: "Windows Server 2012 R2'de Active Directory Federasyon Hizmetleri (AD FS) kullanarak şirket içi uygulamalara koşullu erişimin etkinleştirilmesine yönelik adım adım yönergeler."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -15,63 +15,63 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 808e3b96873102aebae667153f588dcdb205e884
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1a6f1c6566468188daa71939db8345280b7a529f
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Azure Active Directory cihaz kaydı kullanarak şirket içi koşullu erişimi ayarlama
-Kendi kişisel cihazlarını toohello Azure Active Directory (Azure AD) cihaz kayıt hizmeti kullanıcıların tooworkplace birleşim gerektirdiğinde cihazlarını bilinen tooyour kuruluş olarak işaretlenebilir. Aşağıda, koşullu erişim tooon içi uygulamaları Windows Server 2012 R2'de Active Directory Federasyon Hizmetleri (AD FS) kullanarak etkinleştirmek için adım adım yönergeler verilmektedir.
+Azure Active Directory (Azure AD) cihaz kayıt hizmeti için kişisel cihazlarını çalışma alanına katılma kullanıcılara ihtiyaç duyduğunuzda, cihazlarını kuruluşunuza bilinen olarak işaretlenebilir. Aşağıda, Windows Server 2012 R2'de Active Directory Federasyon Hizmetleri (AD FS) kullanarak şirket içi uygulamalara koşullu erişimi etkinleştirmek için adım adım yönergeler verilmektedir.
 
 > [!NOTE]
 > Bir Office 365 lisansı veya Azure AD Premium lisansı Azure Active Directory cihaz kayıt hizmeti koşullu erişim ilkelerini kayıtlı cihazlar kullanılırken gereklidir. Bunlar şirket içi kaynakları'de AD FS tarafından uygulanan ilkeler içerir.
 > 
-> Şirket içi kaynaklar için hello koşullu erişim senaryoları hakkında daha fazla bilgi için bkz: [katılma herhangi bir CİHAZDAN tooworkplace SSO ve sorunsuz ikinci faktör kimlik doğrulaması için şirket uygulamaları arasında](https://technet.microsoft.com/library/dn280945.aspx).
+> Şirket içi kaynaklara koşullu erişim senaryoları hakkında daha fazla bilgi için bkz: [çalışma alanına herhangi bir aygıttan SSO ve sorunsuz ikinci faktör kimlik doğrulaması için şirket uygulamaları arasında katılma](https://technet.microsoft.com/library/dn280945.aspx).
 
-Bu özellikler bir Azure Active Directory Premium lisansı satın kullanılabilir toocustomers ' dir.
+Bu özellikler bir Azure Active Directory Premium lisansı satın müşteriler için kullanılabilir.
 
 ## <a name="supported-devices"></a>Desteklenen cihazlar
 * Windows 7 etki alanına katılmış cihazlar
 * Windows 8.1 kişisel ve etki alanına katılmış aygıtlar
-* iOS 6 ve üzeri hello Safari tarayıcısı
+* iOS 6 ve üzeri Safari tarayıcısı
 * Android 4.0 ve üzeri, Samsung GS3 veya üzeri telefonları, Samsung Galaxy Not 2 veya sonraki tabletler
 
 ## <a name="scenario-prerequisites"></a>Senaryo önkoşulları
-* Abonelik tooOffice 365 veya Azure Active Directory Premium
+* Office 365 aboneliği veya Azure Active Directory Premium
 * Azure Active Directory kiracısı
 * Windows Server Active Directory (Windows Server 2008 veya üzeri)
 * Windows Server 2012 R2'de güncelleştirilmiş şeması
 * Azure Active Directory Premium lisansı
-* Windows Server 2012 R2 Federasyon SSO tooAzure AD yapılandırılmış hizmetleri,
+* Windows Server 2012 R2 Federasyon SSO Azure ad için yapılandırılmış hizmetleri,
 * Windows Server 2012 R2 Web uygulaması proxy'si 
 * Microsoft Azure Active Directory Connect (Azure AD Connect) [(Azure AD Connect'i indirme)](http://www.microsoft.com/en-us/download/details.aspx?id=47594)
 * Doğrulanmış etki alanı
 
 ## <a name="known-issues-in-this-release"></a>Bu sürümdeki bilinen sorunlar
-* Cihaz temelli koşullu erişim ilkeleri cihaz nesnesi geri yazma tooActive Azure Active Directory'den dizin gerektirir. Cihaz nesneleri toobe tooActive dizine geri yazabilirsiniz için toothree saatlerini alabilir.
-* iOS 7 aygıtları hello kullanıcı tooselect bir sertifika istemci sertifikası kimlik doğrulaması sırasında her zaman sor.
+* Cihaz temelli koşullu erişim ilkeleri Azure Active Directory'den Active Directory'ye cihaz nesnesi geri yazma gerektirir. Cihaz nesneleri, Active Directory'ye geri yazılması üç saat sürebilir.
+* iOS 7 aygıtları kullanıcı istemci sertifikası kimlik doğrulaması sırasında bir sertifika seçmek için her zaman sor.
 * İOS 8 iOS 8.3 çalışmıyor önce bazı sürümleri.
 
 ## <a name="scenario-assumptions"></a>Senaryo varsayımlar
-Bu senaryo, Azure AD kiracısı ve bir şirket içi Active Directory oluşan karma bir ortamınız sahip olduğunuzu varsayar. Bu kiracılar Azure AD Connect, doğrulanmış bir etki alanı ve AD FS için SSO bağlı olması gerekir. Ortamınızı toohello gereksinimlerine göre yapılandırma denetim listesi toohelp aşağıdaki hello kullanın.
+Bu senaryo, Azure AD kiracısı ve bir şirket içi Active Directory oluşan karma bir ortamınız sahip olduğunuzu varsayar. Bu kiracılar Azure AD Connect, doğrulanmış bir etki alanı ve AD FS için SSO bağlı olması gerekir. Ortamınızın gereksinimlerine göre yapılandırmanıza yardımcı olması için aşağıdaki denetim listesini kullanın.
 
 ## <a name="checklist-prerequisites-for-conditional-access-scenario"></a>Denetim listesi: Koşullu erişim senaryo Önkoşullar
 Azure AD kiracınıza şirket içi Active Directory örneğinizle bağlayın.
 
 ## <a name="configure-azure-active-directory-device-registration-service"></a>Azure Active Directory cihaz kayıt hizmeti yapılandırma
-Bu kılavuzu toodeploy kullanın ve hello Azure Active Directory cihaz kayıt hizmeti, kuruluşunuz için yapılandırın.
+Dağıtmak ve kuruluşunuz için Azure Active Directory cihaz Kayıt Hizmeti'ni yapılandırmak için bu kılavuzu kullanın.
 
-Bu kılavuz, Windows Server Active Directory yapılandırdıysanız ve tooMicrosoft Azure Active Directory abone olduğunuz varsayar. Daha önce açıklanan hello önkoşullara bakın.
+Bu kılavuz, Windows Server Active Directory yapılandırdıysanız ve Microsoft Azure Active Directory'ye abone olduğunuz varsayılmaktadır. Daha önce açıklanan önkoşullara bakın.
 
-Denetim listesi sırayla aşağıdaki hello tam hello görevlerinde toodeploy hello Azure Active Directory cihaz kaydı hizmeti, Azure Active Directory ile Kiracı. Başvuru bağlantısı sizi tooa kavramsal konuya götürdüğünde toothis denetim listesi geri kalan görevleri hello ile devam edebilirsiniz böylece daha sonra döndür. Bazı görevler hello adım başarıyla tamamlanıp tamamlanmadığını olup olmadığını onaylayın yardımcı olabilecek bir senaryo doğrulama adımı içerir.
+Azure Active Directory kiracınızın Azure Active Directory cihaz kaydı hizmetiyle dağıtmak için aşağıdaki denetim sırada görevleri tamamlayın. Bir referans bağlantı sizi bir kavramsal konuya götürdüğünde ile kalan görevlere devam edebilirsiniz, bu denetim için daha sonra döndür. Bazı görevler, adım başarıyla tamamlandı doğrulamanıza yardımcı olabilir bir senaryo doğrulama adımı içerir.
 
 ## <a name="part-1-enable-azure-active-directory-device-registration"></a>1. Kısım: Etkinleştir Azure Active Directory cihaz kaydı
-Başlangıç denetim listesi tooenable Hello adımları izleyin ve hello Azure Active Directory cihaz Kayıt Hizmeti'ni yapılandırın.
+Denetim etkinleştirmek ve Azure Active Directory cihaz Kayıt Hizmeti'ni yapılandırmak için adımları izleyin.
 
 | Görev | Başvuru | 
 | --- | --- |
-| Azure Active Directory Kiracı tooallow aygıtları toojoin hello çalışma alanınızda cihaz kaydını etkinleştirebilirsiniz. Varsayılan olarak, Azure multi-Factor Authentication hello hizmeti için etkin değil. Ancak, bir cihaz kaydettiğinizde, çok faktörlü kimlik doğrulaması kullanmanızı öneririz. Active Directory kayıt hizmetinde çok faktörlü kimlik doğrulamasını etkinleştirmeden önce AD FS çok faktörlü kimlik doğrulama sağlayıcısı için yapılandırıldığından emin olun. |[Azure Active Directory cihaz kaydı etkinleştirme](active-directory-device-registration-get-started.md)| 
+| Azure Active Directory kiracınızda aygıtların çalışma alanına katılma olanak tanımak için cihaz kaydını etkinleştirin. Varsayılan olarak, Azure multi-Factor Authentication hizmeti için etkin değil. Ancak, bir cihaz kaydettiğinizde, çok faktörlü kimlik doğrulaması kullanmanızı öneririz. Active Directory kayıt hizmetinde çok faktörlü kimlik doğrulamasını etkinleştirmeden önce AD FS çok faktörlü kimlik doğrulama sağlayıcısı için yapılandırıldığından emin olun. |[Azure Active Directory cihaz kaydı etkinleştirme](active-directory-device-registration-get-started.md)| 
 |Cihazlar, iyi bilinen DNS kayıtlarına bakarak, Azure Active Directory cihaz kayıt hizmeti bulur. Böylece, Azure Active Directory cihaz kayıt hizmeti aygıtları bulabilir, şirketinizin DNS yapılandırın. |[Azure Active Directory cihaz kaydı keşfini yapılandırma](active-directory-device-registration-get-started.md)| 
 
 
@@ -79,64 +79,64 @@ Başlangıç denetim listesi tooenable Hello adımları izleyin ve hello Azure A
 
 | Görev | Başvuru |
 | --- | --- |
-| Active Directory etki alanı Hizmetleri hello Windows Server 2012 R2 şema uzantılarıyla dağıtın. Herhangi bir etki alanı denetleyicileri tooWindows Server 2012 R2'in herhangi bir tooupgrade gerekmez. Merhaba şema yükseltme hello tek gereksinimdir. |[Active Directory etki alanı Hizmetleri şeması yükseltme](#upgrade-your-active-directory-domain-services-schema) |
+| Active Directory etki alanı Hizmetleri, Windows Server 2012 R2 şema uzantılarıyla dağıtın. Herhangi bir etki alanı denetleyicileriniz Windows Server 2012 R2 için yükseltme gerekmez. Şema yükseltmesi yalnızca bir gereksinimdir. |[Active Directory etki alanı Hizmetleri şeması yükseltme](#upgrade-your-active-directory-domain-services-schema) |
 | Cihazlar, iyi bilinen DNS kayıtlarına bakarak, Azure Active Directory cihaz kayıt hizmeti bulur. Böylece, Azure Active Directory cihaz kayıt hizmeti aygıtları bulabilir, şirketinizin DNS yapılandırın. |[Active Directory destek aygıtlarınızı hazırlama](#prepare-your-active-directory-to-support-devices) |
 
 ## <a name="part-3-enable-device-writeback-in-azure-ad"></a>3. Kısım: Etkinleştir cihaz geri yazma özelliğini Azure AD
 | Görev | Başvuru |
 | --- | --- |
-| "Etkinleştirme cihaz geri yazma özelliğini Azure AD Connect." iki bölümü tamamlayın Bu dönüş toothis Kılavuzu tamamladıktan sonra. |[Azure AD Connect’te cihaz geri yazma özelliğini etkinleştirme](#upgrade-your-active-directory-domain-services-schema) |
+| "Etkinleştirme cihaz geri yazma özelliğini Azure AD Connect." iki bölümü tamamlayın Bitirdiğinizde, bu Kılavuzu'na dönün. |[Azure AD Connect’te cihaz geri yazma özelliğini etkinleştirme](#upgrade-your-active-directory-domain-services-schema) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[İsteğe bağlı] 4. Kısım: Etkinleştir çok faktörlü kimlik doğrulaması
-Hello biri çok faktörlü kimlik doğrulaması için çeşitli Seçenekler yapılandırmanız önerilir. Toorequire çok faktörlü kimlik doğrulamasını istiyorsanız, bkz: [hello çok faktörlü kimlik doğrulaması güvenliği çözümü seçtiğiniz](../multi-factor-authentication/multi-factor-authentication-get-started.md). Her çözüm açıklamasını içerir ve tercih ettiğiniz hello çözümü yapılandırmak toohelp bağlar.
+Çok faktörlü kimlik doğrulaması için çeşitli seçenekler birini yapılandırmanız önerilir. Çok faktörlü kimlik doğrulaması gerektiren istiyorsanız, bkz: [çok faktörlü kimlik doğrulaması güvenliği çözümü seçtiğiniz](../multi-factor-authentication/multi-factor-authentication-get-started.md). Her çözüm ve tercih ettiğiniz çözüm yapılandırmanıza yardımcı olması için bağlantıları açıklamasını içerir.
 
 ## <a name="part-5-verification"></a>Bölüm 5: doğrulama
-Merhaba dağıtımı tamamlanmıştır ve bazı senaryolar deneyebilirsiniz. Aşağıdaki tooexperiment hello hizmetiyle bağlar ve özellikleri ile aşina hello kullanın.
+Dağıtımı tamamlanmıştır ve bazı senaryolar deneyebilirsiniz. Hizmet ile denemek ve özellikleri ile tanımak için aşağıdaki bağlantıları kullanın.
 
 | Görev | Başvuru |
 | --- | --- |
-| Azure Active Directory cihaz kayıt hizmeti kullanarak bazı cihazlar tooyour çalışma alanına katılma. İOS, Windows ve Android cihazlarını birleştirebilirsiniz. |[Azure Active Directory cihaz kayıt hizmeti kullanarak cihazları tooyour çalışma alanına katılma](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
-| Görüntülemek ve etkinleştirme veya hello Yönetici portalını kullanarak kayıtlı cihazlarını devre dışı bırakın. Bu görevde, kayıtlı bazı cihazların Merhaba Yönetici portalını kullanarak görüntüleyin. |[Azure Active Directory cihaz kayıt hizmetine genel bakış](active-directory-device-registration-get-started.md) |
-| Cihaz nesneleri, Azure Active Directory tooWindows Server Active Directory geri yazılır doğrulayın. |[Kayıtlı cihazlar tooActive dizin geri yazılır doğrulayın](#verify-registered-devices-are-written-back-to-active-directory) |
+| Bazı aygıtlar, Azure Active Directory cihaz kayıt hizmeti kullanarak çalışma alanınıza ekleyin. İOS, Windows ve Android cihazlarını birleştirebilirsiniz. |[Cihazların Azure Active Directory cihaz Kayıt Hizmeti'ni kullanarak, çalışma alanına katılma](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
+| Görüntülemek ve etkinleştirme veya Yönetici portalı'nı kullanarak kayıtlı cihazları devre dışı bırakın. Bu görevde, Yönetici portalı'nı kullanarak bazı kayıtlı cihazları görüntüleyin. |[Azure Active Directory cihaz kayıt hizmetine genel bakış](active-directory-device-registration-get-started.md) |
+| Windows Server Active Directory için Azure Active Directory'den, aygıt nesneleri geri yazılır doğrulayın. |[Kayıtlı cihazlar için Active Directory geri yazılır doğrulayın](#verify-registered-devices-are-written-back-to-active-directory) |
 | Kullanıcılar, cihazlarını kaydedebilir, uygulama oluşturabileceğiniz erişim ilkeleri yalnızca kayıtlı cihazlara izin AD FS'de. Bu görevde, bir uygulama erişim kuralı ve özel bir erişim reddedildi iletisi oluşturun. |[Bir uygulama erişim ilkesi ve özel erişim reddedildi iletisi oluştur](#create-an-application-access-policy-and-custom-access-denied-message) |
 
 ## <a name="integrate-azure-active-directory-with-on-premises-active-directory"></a>Azure Active Directory şirket içi Active Directory ile tümleştirme
-Bu adım, Azure AD kiracısı Azure AD Connect kullanarak şirket içi Active Directory ile tümleştirmenize yardımcı olur. Merhaba adımları hello Klasik Azure portalında kullanılabilir olsa da, bu bölümde listelenen tüm özel yönergeleri not edin.
+Bu adım, Azure AD kiracısı Azure AD Connect kullanarak şirket içi Active Directory ile tümleştirmenize yardımcı olur. Adımları Klasik Azure portalında kullanılabilir olsa da, bu bölümde listelenen tüm özel yönergeleri not edin.
 
-1. İçinde toohello Klasik Azure portalı, Azure AD genel yönetici olan bir hesabı kullanarak oturum açın.
-2. Merhaba soldaki bölmede bulunan seçin **Active Directory**.
-3. Merhaba üzerinde **Directory** sekmesinde, dizininizi seçin.
-4. Select hello **dizin tümleştirme** sekmesi.
-5. Merhaba altında **dağıtma ve yönetme** bölümünde, 1-3 toointegrate Azure Active Directory ile şirket içi dizininize arası adımları izleyin.
+1. Azure AD genel yönetici olan bir hesabı kullanarak Klasik Azure portalında oturum açın.
+2. Sol bölmede **Active Directory**'yi seçin.
+3. **Directory (Dizin)** sekmesinde dizininizi seçin.
+4. Seçin **dizin tümleştirme** sekmesi.
+5. Altında **dağıtma ve yönetme** bölümünde, 1-3 ile şirket içi dizininizi Azure Active Directory Tümleştirme arası adımları izleyin.
    
    1. Etki alanlarını ekleyin.
-   2. Yükleme ve başlangıç yönergeleri kullanarak Azure AD Connect çalıştırma [Azure AD Connect özel yüklemesi](connect/active-directory-aadconnect-get-started-custom.md).
+   2. Yükleme ve yönergeleri kullanarak Azure AD Connect çalıştırma [Azure AD Connect özel yüklemesi](connect/active-directory-aadconnect-get-started-custom.md).
    3. Doğrulayın ve directory eşitleme yönetin. Çoklu oturum açma yönergeleri Bu adımı içinde kullanılabilir.
    
    Ayrıca, Federasyon kısmında özetlendiği gibi AD FS ile yapılandırmak [Azure AD Connect özel yüklemesi](connect/active-directory-aadconnect-get-started-custom.md).
 
 ## <a name="upgrade-your-active-directory-domain-services-schema"></a>Active Directory etki alanı Hizmetleri şeması yükseltme
 > [!NOTE]
-> Active Directory şemanızı yükselttikten sonra hello işlem tersine çevrilemez. Bir test ortamında bir hello yükseltme gerçekleştirmenizi öneririz.
+> Active Directory şemanızı yükselttikten sonra işlem tersine çevrilemez. Bir test ortamında bir yükseltme gerçekleştirmenizi öneririz.
 > 
 
-1. Tooyour etki alanı denetleyicisinde kuruluş yöneticisi ve şema yönetici haklarına sahip bir hesapla oturum açın.
-2. Kopya hello **[media] \support\adprep** , Active Directory etki alanı denetleyicilerinin dizin ve alt dizinleri tooone (burada **[media]** hello yolu toohello Windows Server 2012 R2 yükleme ortamının ).
-4. Bir komut isteminden toohello Git **adprep** dizin ve çalışma **adprep.exe/forestprep**. Merhaba ekrandaki yönergeleri toocomplete hello şema yükseltme izleyin.
+1. Etki alanı denetleyicinizi kuruluş yöneticisi ve şema yönetici haklarına sahip bir hesapla oturum açın.
+2. Kopya **[media] \support\adprep** directory ve Active Directory etki alanı denetleyicilerinden biri alt dizinlere (burada **[media]** Windows Server 2012 R2 yükleme medyasını yolu).
+4. Bir komut isteminden Git **adprep** dizin ve çalışma **adprep.exe/forestprep**. Şema yükseltmeyi tamamlamak için ekrandaki yönergeleri izleyin.
 
-## <a name="prepare-your-active-directory-toosupport-devices"></a>Active Directory toosupport aygıtlarınızı hazırlama
+## <a name="prepare-your-active-directory-to-support-devices"></a>Cihazları desteklemek için Active Directory hazırlama
 > [!NOTE]
-> Bu, Active Directory orman toosupport aygıtlarınızı tooprepare çalıştırmalısınız tek seferlik bir işlemdir. toocomplete Bu yordam, kuruluş yöneticisi izinlerine oturum oturum açmanız gerekir ve Active Directory ormanınızın hello Windows Server 2012 R2 şema olması gerekir.
+> Bu, Active Directory ormanınızın aygıtları destekleyecek şekilde hazırlamak için çalıştırmanız gereken tek seferlik bir işlemdir. Bu yordamı tamamlamak için kuruluş yönetici izinlerine oturum imzalanır ve Active Directory ormanınızın Windows Server 2012 R2 şema olması gerekir.
 > 
 
 
 ### <a name="prepare-your-active-directory-forest"></a>Active Directory ormanı hazırlama
 1. Federasyon sunucunuzda, Windows PowerShell komut penceresi açın ve ardından yazın **Initialize-ADDeviceRegistration**. 
-2. İstendiğinde **ServiceAccountName**, AD FS için hello hizmet hesabı olarak seçilen hello hizmet hesabı hello adını girin. GMSA hesabı ise, hello hello hesabını girin **domain\accountname$** biçimi. Bir etki alanı hesabı için hello biçimini kullanın **domain\accountname**.
+2. İstendiğinde **ServiceAccountName**, AD FS için hizmet hesabı olarak seçilen hizmet hesabının adını girin. GMSA hesabı ise, hesap girin **domain\accountname$** biçimi. Bir etki alanı hesabı için biçimini kullanın **domain\accountname**.
 
 ### <a name="enable-device-authentication-in-ad-fs"></a>AD FS'de cihaz kimlik doğrulamasını etkinleştir
-1. Federasyon sunucunuzda, başlangıç AD FS Yönetimi konsolunu açın ve çok Git**AD FS** > **kimlik doğrulama ilkeleri**.
-2. Merhaba üzerinde **Eylemler** bölmesinde, **Düzenle Genel birincil kimlik doğrulama**.
+1. Federasyon sunucunuzda, AD FS Yönetimi konsolunu açın ve gidin **AD FS** > **kimlik doğrulama ilkeleri**.
+2. Üzerinde **Eylemler** bölmesinde, **Düzenle Genel birincil kimlik doğrulama**.
 3. Denetleme **cihaz kimlik doğrulamasını etkinleştir**ve ardından **Tamam**.
 4. Varsayılan olarak, AD FS, kullanılmayan aygıtlarını düzenli olarak Active Directory'den kaldırır. Böylece cihazlar Azure'da yönetilebilir Azure Active Directory cihaz kayıt hizmeti kullanırken bu görevi devre dışı bırakın.
 
@@ -146,81 +146,81 @@ Federasyon sunucunuzda, Windows PowerShell komut penceresi açın ve ardından y
 ### <a name="prepare-azure-ad-connect-for-device-writeback"></a>Cihaz geri yazma için Azure AD Connect'i hazırlama
 Bölüm 1 tamamlamak: Azure AD Connect hazırlayın.
 
-## <a name="join-devices-tooyour-workplace-by-using-azure-active-directory-device-registration-service"></a>Azure Active Directory cihaz kayıt hizmeti kullanarak cihazları tooyour çalışma alanına katılma
+## <a name="join-devices-to-your-workplace-by-using-azure-active-directory-device-registration-service"></a>Azure Active Directory cihaz kayıt hizmeti kullanarak cihazları çalışma alanına katılma
 
 ### <a name="join-an-ios-device-by-using-azure-active-directory-device-registration"></a>Azure Active Directory cihaz kaydı kullanarak bir iOS aygıtı birleştirme
-Azure Active Directory cihaz kaydı iOS cihazları için hello Over-the-Air profili kayıt işlemi kullanır. Merhaba kullanıcı toohello profil kayıt URL'si ile Safari bağlandığında, bu işlemi başlar. Merhaba URL biçimi aşağıdaki gibidir:
+Azure Active Directory cihaz kaydı iOS cihazları için Over-the-Air profili kayıt işlemi kullanır. Kullanıcı profili kayıt URL'si Safari ile bağlandığında bu işlemi başlar. URL biçimi aşağıdaki gibidir:
 
     https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/"yourdomainname"
 
-Bu durumda, `yourdomainname` , Azure Active Directory ile yapılandırdığınız hello etki alanı adıdır. Etki alanı adınız contoso.com ise, örneğin, hello URL aşağıdaki gibidir:
+Bu durumda, `yourdomainname` Azure Active Directory ile yapılandırılmış bir etki alanı adıdır. Etki alanı adınız contoso.com ise, örneğin, URL şu şekildedir:
 
     https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/contoso.com
 
-Bu URL tooyour kullanıcılar birçok farklı şekillerde toocommunicate vardır. Örneğin, bir yöntem öneririz bu URL'yi AD FS'de bir özel uygulama erişim reddedildi iletisi yayımlama. Bu bilgiler hello ilerideki bölümde kapsanmaktadır [bir uygulama erişim ilkesi ve özel erişim reddedildi iletisi Oluştur](#create-an-application-access-policy-and-custom-access-denied-message).
+Bu URL'yi, kullanıcılarınıza iletmenin birçok farklı yolu vardır. Örneğin, bir yöntem öneririz bu URL'yi AD FS'de bir özel uygulama erişim reddedildi iletisi yayımlama. Bu bilgiler ilerideki bölümde ele [bir uygulama erişim ilkesi ve özel erişim reddedildi iletisi Oluştur](#create-an-application-access-policy-and-custom-access-denied-message).
 
 ### <a name="join-a-windows-81-device-by-using-azure-active-directory-device-registration"></a>Azure Active Directory cihaz kaydı kullanarak bir Windows 8.1 cihaz birleştirme
 1. Windows 8.1 Cihazınızı seçin **PC Ayarları** > **ağ** > **çalışma alanına**.
 2. Kullanıcı adınızı UPN biçiminde girin; Örneğin,  **dan@contoso.com** .
 3. Seçin **katılma**.
-4. İstendiğinde, kimlik bilgilerinizle oturum açın. Merhaba aygıt artık birleştirilir.
+4. İstendiğinde, kimlik bilgilerinizle oturum açın. Cihaz artık birleştirilir.
 
 ### <a name="join-a-windows-7-device-by-using-azure-active-directory-device-registration"></a>Azure Active Directory cihaz kaydı kullanarak bir Windows 7 aygıtı birleştirme
-tooregister Windows 7 etki alanına katılmış aygıtlar toodeploy hello cihaz kayıt yazılım paketini gerekir. Merhaba yazılım paketini Windows 7 için çalışma alanına katılma ve buna ait hello adresten kullanılabilir olarak adlandırılır [Microsoft Connect Web](https://connect.microsoft.com/site1164). 
+Windows 7 etki alanına katılmış cihazları kaydetmek için cihaz kayıt yazılım paketini dağıtmak için gerekir. Yazılım paketini Windows 7 için çalışma alanına katılma ve onun yükleme için kullanılabilir adlandırılır [Microsoft Connect Web](https://connect.microsoft.com/site1164). 
 
-Nasıl toouse hello paketi ile ilgili yönergeler bulunan [nasıl tooconfigure otomatik kayıt Windows etki alanına katılmış cihazları Azure Active Directory ile](active-directory-conditional-access-automatic-device-registration-setup.md).
+Paketin nasıl kullanılacağı hakkında yönergeler bulunan [Azure Active Directory ile etki alanına katılmış Windows cihazlarının otomatik kaydını yapılandırma](active-directory-conditional-access-automatic-device-registration-setup.md).
 
-## <a name="verify-that-registered-devices-are-written-back-tooactive-directory"></a>Kayıtlı cihazlar tooActive dizin geri yazılır doğrulayın
-Görüntüleyebilir ve aygıt nesneleri geri tooyour Active Directory LDP.exe veya ADSI Düzenleyicisi kullanılarak yazılan olduğunu doğrulayın. Her ikisi de hello Active Directory Yöneticisi Araçları ile kullanılabilir.
+## <a name="verify-that-registered-devices-are-written-back-to-active-directory"></a>Kayıtlı cihazlar için Active Directory geri yazılır doğrulayın
+Görüntüleyebilir ve aygıt nesneleri geri Active Directory'ye LDP.exe veya ADSI Düzenleyicisi kullanılarak yazılan olduğunu doğrulayın. Her ikisi de, Active Directory Yöneticisi Araçları ile kullanılabilir.
 
-Varsayılan olarak, Azure Active Directory'den geri yazılır aygıt nesneleri hello aynı yerleştirilir AD FS grubunuzu olarak etki alanı.
+Varsayılan olarak, Azure Active Directory'den geri yazılır aygıt nesneleri AD FS grubunuzun aynı etki alanında yerleştirilir.
 
     CN=RegisteredDevices,defaultNamingContext
 
 ## <a name="create-an-application-access-policy-and-custom-access-denied-message"></a>Bir uygulama erişim ilkesi ve özel erişim reddedildi iletisi oluştur
-Senaryo aşağıdaki hello göz önünde bulundurun: AD FS'de bağlı taraf güveni uygulama oluşturma ve yalnızca kayıtlı cihazlara izin veren bir verme yetkilendirme kuralı yapılandırın. Artık yalnızca kayıtlı cihazlar tooaccess Merhaba uygulaması izin verilir. 
+Aşağıdaki senaryoyu düşünün: AD FS'de bağlı taraf güveni uygulama oluşturma ve yalnızca kayıtlı cihazlara izin veren bir verme yetkilendirme kuralı yapılandırın. Şimdi, kayıtlı cihazların uygulamaya erişmesine izin verilir. 
 
-toomake hakkında yönergeler içeren bir özel erişim reddedildi iletisi, kullanıcıların toogain erişim toohello uygulamanız için kolay, yapılandırdığınız toojoin cihazlarını. Artık bir uygulama erişebilmesi kullanıcılarınızın cihazlarını sorunsuz şekilde tooregister sahipsiniz.
+Uygulamaya erişmek, kullanıcılarınızın kolaylaştırmak için cihazlarını katılmaya hakkında yönergeler içeren bir özel erişim reddedildi iletisi yapılandırın. Şimdi, kullanıcılarınızın bir uygulama erişebilmek için cihazlarını kaydetmek için sorunsuz bir yolu yoktur.
 
-Merhaba aşağıdaki adımlarda size yol gösterecektir tooimplement bu senaryo.
+Aşağıdaki adımlar bu senaryonun nasıl uygulanacağını gösterir.
 
 > [!NOTE]
 > Bu bölümde, zaten bir bağlı olan taraf güveni için AD FS uygulamanızda yapılandırmış olduğunuz varsayılır.
 > 
 
-1. Merhaba AD FS MMC aracını açın ve ardından **AD FS** > **güven ilişkileri** > **bağlı olan taraf güvenleri**.
-2. Yeni erişim kuralın uygulanacağı hello uygulama toowhich bulun. Merhaba uygulamaya sağ tıklayın ve ardından **talep kurallarını Düzenle**.
-3. Select hello **verme yetkilendirme kuralları** sekmesini tıklatın ve ardından **Kuralı Ekle**.
-4. Merhaba gelen **talep kuralı** şablonu aşağı açılan listesinden, **göre izin ver veya Reddet kullanıcılar bir gelen talep**. Ardından **sonraki**.
-5. Merhaba, **talep kuralı adı** alanında, yazın **kayıtlı cihazlardan erişim izin**.
-6. Merhaba gelen **gelen talep türü** aşağı açılan listesinden, **kayıtlı kullanıcı**.
-7. Merhaba, **gelen talep değeri** alanında, yazın **doğru**.
-8. Select hello **izin erişim toousers bu gelen talep ile** radyo düğmesi.
+1. AD FS MMC Aracı'nı açın ve ardından **AD FS** > **güven ilişkileri** > **bağlı olan taraf güvenleri**.
+2. Bu yeni erişim kuralının uygulanacağı uygulamasını bulun. Uygulamayı sağ tıklatın ve ardından **talep kurallarını Düzenle**.
+3. Seçin **verme yetkilendirme kuralları** sekmesini tıklatın ve ardından **Kuralı Ekle**.
+4. Gelen **talep kuralı** şablonu aşağı açılan listesinden, **göre izin ver veya Reddet kullanıcılar bir gelen talep**. Ardından **sonraki**.
+5. İçinde **talep kuralı adı** alanında, yazın **kayıtlı cihazlardan erişim izin**.
+6. Gelen **gelen talep türü** aşağı açılan listesinden, **kayıtlı kullanıcı**.
+7. İçinde **gelen talep değeri** alanında, yazın **doğru**.
+8. Seçin **bu gelen talep ile kullanıcılara erişim izin** radyo düğmesi.
 9. Seçin **son**ve ardından **Uygula**.
-10. Oluşturduğunuz hello kural daha fazla izin veren herhangi bir kuralın kaldırın. Örneğin, hello varsayılan kuralı kaldırmak **erişilmesine tooall kullanıcılar**.
+10. Oluşturduğunuz kural daha fazla izin veren herhangi bir kuralın kaldırın. Örneğin, varsayılan kuralı kaldırmak **tüm kullanıcılara izin erişimi**.
 
-Yapılandırılmış tooallow erişim artık yalnızca kayıtlı ve toohello çalışma alanına katılmış bir CİHAZDAN hello kullanıcı çıkarken, uygulamasıdır. Daha gelişmiş erişim ilkeleri için bkz: [duyarlı uygulamalar için ek multi Factor Authentication ile Risk Yönetimi](https://technet.microsoft.com/library/dn280949.aspx).
+Uygulamanız artık yalnızca, kayıtlı ve çalışma alanına katılmış bir cihazda kullanıcı geldiği zaman erişime izin verecek şekilde yapılandırılmıştır. Daha gelişmiş erişim ilkeleri için bkz: [duyarlı uygulamalar için ek multi Factor Authentication ile Risk Yönetimi](https://technet.microsoft.com/library/dn280949.aspx).
 
-Ardından, uygulamanız için bir özel hata iletisi yapılandırın. Merhaba hata iletisi hello uygulamaya erişebilmeniz bunlar kendi cihaz toohello çalışma alanına katılmalı bilmenize olanak sağlar. Özel HTML ve PowerShell kullanarak bir özel uygulama erişim reddedildi iletisi oluşturabilirsiniz.
+Ardından, uygulamanız için bir özel hata iletisi yapılandırın. Hata iletisi uygulamaya erişebilmeniz bunlar cihazlarını çalışma alanına katılmalı bilmenize olanak sağlar. Özel HTML ve PowerShell kullanarak bir özel uygulama erişim reddedildi iletisi oluşturabilirsiniz.
 
-Federasyon sunucunuzda bir PowerShell komut penceresi açın ve ardından komut aşağıdaki hello yazın. Merhaba komutu bölümlerini belirli tooyour sistem öğeleri ile değiştirin:
+Federasyon sunucunuzda bir PowerShell komut penceresi açın ve aşağıdaki komutu yazın. Komut bölümlerini sisteme özgü öğeleri ile değiştirin:
 
     Set-AdfsRelyingPartyWebContent -Name "relying party trust name" -ErrorPageAuthorizationErrorMessage
 Bu uygulamaya erişebilmeniz için Cihazınızı kaydetmeniz gerekir.
 
-**İOS cihazı kullanıyorsanız, bu bağlantı toojoin Cihazınızı seçin**:
+**İOS cihazı kullanıyorsanız, cihazınız katılmak için bu bağlantıyı seçin**:
 
     a href='https://enterpriseregistration.windows.net/enrollmentserver/otaprofile/yourdomain.com
 
-Bu iOS aygıtı tooyour çalışma alanına katılma.
+Bu iOS cihazı çalışma alanınıza ekleyin.
 
 Windows 8.1 cihaz kullanıyorsanız, seçerek Cihazınızı katılabilirsiniz **PC Ayarları**> **ağ** > **çalışma alanına**.
 
-Komutları, önceki hello içinde **bağlı olan taraf güven adı** AD FS'de, uygulamanızın bağlı olan taraf güven nesnesi hello adıdır.
-Ve **etkialaniniz.com** Azure Active Directory (örneğin, contoso.com) ile yapılandırdığınız hello etki alanı adıdır.
-Tüm satır sonlarını (varsa) HTML hello toohello geçirdiğiniz içeriği emin tooremove olması **kümesi AdfsRelyingPartyWebContent** cmdlet'i.
+Yukarıdaki komutlarda **bağlı olan taraf güven adı** AD FS'de, uygulamanızın bağlı olan taraf güveni nesnesinin adı.
+Ve **etkialaniniz.com** Azure Active Directory (örneğin, contoso.com) ile yapılandırılmış bir etki alanı adıdır.
+Satır sonları (varsa) için geçirdiğiniz HTML içeriğini kaldırmak mutlaka **kümesi AdfsRelyingPartyWebContent** cmdlet'i.
 
-Artık kullanıcılar hello Azure Active Directory cihaz kayıt hizmeti ile kayıtlı olmayan bir aygıt, uygulamanızın eriştiğinde, aşağıdaki ekran görüntüsüne benzer toohello benzeyen bir sayfasına bakın.
+Artık kullanıcıların Azure Active Directory cihaz kaydı hizmetiyle kaydedilmemiş bir CİHAZDAN uygulamanızı eriştiğinizde, aşağıdaki ekran görüntüsüne benzer bir sayfa görürsünüz.
 
 ![Kullanıcıların cihazlarını Azure AD ile kayıtlı olmayabilirsiniz çalıştığında hatayla ekran görüntüsü](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
 

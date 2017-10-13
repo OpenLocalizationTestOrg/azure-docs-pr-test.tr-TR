@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı LucidChart yapılandırma | Microsoft Docs"
-description: "Nasıl tooLucidChart tooconfigure, Azure Active Directory tooautomatically sağlama ve devre dışı bırakma sağlama kullanıcı hesapları öğrenin."
+description: "Otomatik olarak sağlamak ve kullanıcı hesaplarına LucidChart sağlanmasını için Azure Active Directory yapılandırmayı öğrenin."
 services: active-directory
 documentationcenter: 
 author: asmalser-msft
@@ -14,82 +14,82 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: d3af45141731215f2edc8942ad21b016468c1e38
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 1f9344a5e750360e21ed7dc8e3ed013c2c2e1a45
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="tutorial-configuring-lucidchart-for-automatic-user-provisioning"></a>Öğretici: LucidChart otomatik kullanıcı sağlamayı için yapılandırma
 
 
-Bu öğreticinin Hello hedefi LucidChart ve Azure AD tooautomatically sağlama ve devre dışı bırakma sağlama kullanıcı hesaplarından Azure AD tooLucidChart tooperform gereken adımları hello tooshow ' dir. 
+Bu öğreticinin amacı LucidChart ve Azure AD otomatik olarak sağlamak ve kullanıcı hesaplarına Azure AD'den LucidChart sağlanmasını gerçekleştirmek için gereken adımları Göster sağlamaktır. 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticide gösterilen hello senaryo aşağıdaki öğelerindeki hello zaten sahip olduğunuzu varsayar:
+Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
 
 *   Bir Azure Active directory kiracısı
-*   Merhaba LucidChart kiracıyla [Kurumsal planı](https://www.lucidchart.com/user/117598685#/subscriptionLevel) veya daha iyi etkin 
+*   LucidChart Kiracı ile [Kurumsal planı](https://www.lucidchart.com/user/117598685#/subscriptionLevel) veya daha iyi etkin 
 *   LucidChart yönetici izinlerine sahip bir kullanıcı hesabı 
 
-## <a name="assigning-users-toolucidchart"></a>Kullanıcıların tooLucidChart atama
+## <a name="assigning-users-to-lucidchart"></a>Kullanıcılar için LucidChart atama
 
-Azure Active Directory hangi kullanıcıların erişim tooselected uygulamaları alması "atamaları" toodetermine adlı bir kavramı kullanır. Otomatik olarak bir kullanıcı hesabı sağlama hello bağlamında, yalnızca hello kullanıcıların ve grupların "Azure AD tooan uygulamada atanmış" eşitlenir. 
+Azure Active Directory "atamaları" adlı bir kavram hangi kullanıcıların seçili uygulamalara erişim alması belirlemek için kullanır. Otomatik olarak bir kullanıcı hesabı sağlama bağlamında, yalnızca kullanıcıların ve grupların "Azure AD uygulamada atanmış" eşitlenir. 
 
-Yapılandırma ve hizmet sağlama hello etkinleştirmeden önce hangi kullanıcılara ve/veya tooyour LucidChart uygulamasına erişmesi Azure AD temsil hello kullanıcılar gruplarında toodecide gerekir. Karar sonra buraya hello yönergeleri izleyerek bu kullanıcıların tooyour LucidChart uygulama atayabilirsiniz:
+Yapılandırma ve sağlama hizmeti etkinleştirmeden önce hangi kullanıcılara ve/veya Azure AD grupları LucidChart uygulamanıza erişimi olması gereken kullanıcılar temsil eden karar vermeniz gerekir. Karar sonra buradaki yönergeleri izleyerek, bu kullanıcılar LucidChart uygulamanıza atayabilirsiniz:
 
-[Bir kullanıcı veya grup tooan kuruluş uygulama atama](active-directory-coreapps-assign-user-azure-portal.md)
+[Bir kullanıcı veya grup için bir kuruluş uygulama atama](active-directory-coreapps-assign-user-azure-portal.md)
 
-### <a name="important-tips-for-assigning-users-toolucidchart"></a>Kullanıcıların tooLucidChart atamak için önemli ipuçları
+### <a name="important-tips-for-assigning-users-to-lucidchart"></a>Kullanıcılar için LucidChart atamak için önemli ipuçları
 
-*   Önerilir tek bir Azure AD kullanıcısının yapılandırma sağlama tooLucidChart tootest hello atanır. Ek kullanıcı ve/veya grupları daha sonra atanabilir.
+*   Önerilir tek bir Azure AD kullanıcısının sağlama yapılandırmayı test etmek için LucidChart atanır. Ek kullanıcı ve/veya grupları daha sonra atanabilir.
 
-*   Bir kullanıcı tooLucidChart atarken ya da hello seçmelisiniz **kullanıcı** rol ya da başka bir geçerli uygulamaya özgü rolü (varsa) hello atama iletişim. Merhaba **varsayılan erişim** rol sağlamak için çalışmaz ve bu kullanıcılar atlandı.
+*   Bir kullanıcı için LucidChart atarken ya da seçmelisiniz **kullanıcı** rol ya da başka bir geçerli uygulamaya özgü rolü (varsa) atama iletişim. **Varsayılan erişim** rol sağlamak için çalışmaz ve bu kullanıcılar atlandı.
 
 
-## <a name="configuring-user-provisioning-toolucidchart"></a>Kullanıcı tooLucidChart hazırlama yapılandırma 
+## <a name="configuring-user-provisioning-to-lucidchart"></a>Kullanıcı için LucidChart sağlama yapılandırma 
 
-Bu bölümde, Azure AD tooLucidChart kullanıcının kullanıcı hesabı API sağlama konusunda size rehberlik eder ve hizmet toocreate sağlama hello yapılandırma, güncelleştirme ve Azure AD'de kullanıcı ve grup atama göre LucidChart atanan kullanıcı hesaplarında devre dışı bırak .
+Bu bölümde Azure AD LucidChart'ın kullanıcı hesabına API sağlama konusunda size rehberlik eder ve oluşturmak için sağlama hizmeti yapılandırma güncelleştirin ve Azure AD'de kullanıcı ve grup atama göre LucidChart atanan kullanıcı hesaplarında devre dışı bırakın.
 
 > [!TIP]
-> Sağlanan hello yönergeleri izleyerek LucidChart için SAML tabanlı çoklu oturum açma tooenabled seçebilirsiniz [Azure portal](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir.
+> Da tercih edebilirsiniz etkin SAML tabanlı çoklu oturum açma için LucidChart, yönergeleri izleyerek sağlanan [Azure portal](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir.
 
 
-### <a name="configure-automatic-user-account-provisioning-toolucidchart-in-azure-ad"></a>Azure AD'de tooLucidChart sağlama otomatik olarak bir kullanıcı hesabı yapılandırın
+### <a name="configure-automatic-user-account-provisioning-to-lucidchart-in-azure-ad"></a>Otomatik olarak bir kullanıcı hesabı için LucidChart Azure AD'de sağlamayı Yapılandır
 
 
-1. Merhaba, [Azure portal](https://portal.azure.com), toohello Gözat **Azure Active Directory > Kurumsal uygulamaları > tüm uygulamaları** bölümü.
+1. İçinde [Azure portal](https://portal.azure.com), Gözat **Azure Active Directory > Kurumsal uygulamaları > tüm uygulamaları** bölümü.
 
-2. Çoklu oturum açma için zaten LucidChart yapılandırdıysanız, hello arama alanı kullanarak LucidChart Örneğiniz için arama yapın. Aksi takdirde seçin **Ekle** arayın ve **LucidChart** hello uygulama galerisinde. Merhaba Arama sonuçlarından LucidChart seçin ve uygulamaların tooyour listesine ekleyin.
+2. Çoklu oturum açma için LucidChart zaten yapılandırdıysanız arama alanı kullanarak LucidChart Örneğiniz için arama yapın. Aksi takdirde seçin **Ekle** arayın ve **LucidChart** uygulama galerisinde. Arama sonuçlarından LucidChart seçin ve uygulamaları listenize ekleyin.
 
-3. LucidChart örneğiniz seçin ve ardından hello **sağlama** sekmesi.
+3. LucidChart örneğiniz seçin ve ardından **sağlama** sekmesi.
 
-4. Set hello **sağlama modu** çok**otomatik**.
+4. Ayarlama **sağlama modunda** için **otomatik**.
 
     ![LucidChart sağlama](./media/active-directory-saas-lucidchart-provisioning-tutorial/LucidChart1.png)
 
-5. Merhaba altında **yönetici kimlik bilgileri** bölümü, giriş hello **gizli belirteci** LucidChart'ın hesap tarafından oluşturulan (Merhaba belirteci hesabınızın altında bulabilirsiniz: **takım**  >  **Uygulama tümleştirmesi** > **SCIM'yi**). 
+5. Altında **yönetici kimlik bilgileri** bölümü, giriş **gizli belirteci** LucidChart'ın hesap tarafından oluşturulan (belirteç hesabınızın altında bulabilirsiniz: **takım**  >  **Uygulama tümleştirmesi** > **SCIM'yi**). 
 
     ![LucidChart sağlama](./media/active-directory-saas-lucidchart-provisioning-tutorial/LucidChart2.png)
 
-6. Hello Azure portal'ı tıklatın **Bağlantıyı Sına** tooensure Azure AD tooyour LucidChart uygulama bağlanabilir. Merhaba bağlantı başarısız olursa LucidChart hesabınız yönetici izinlerine sahip olduğundan emin olun ve 5. adım yeniden deneyin.
+6. Azure portalında tıklatın **Bağlantıyı Sına** Azure emin olmak için AD LucidChart uygulamanıza bağlanabilir. Bağlantı başarısız olursa LucidChart hesabınız yönetici izinlerine sahip olduğundan emin olun ve 5. adım yeniden deneyin.
 
-7. Bir kişi veya hello sağlama hata bildirimi alması gereken Grup Hello e-posta adresini girin **bildirim e-posta** alan ve onay hello onay kutusu "bir e-posta bildirim gönder bir hata oluştuğunda."
+7. Bir kişi veya sağlama hata bildirimleri alması gereken Grup e-posta adresini girin **bildirim e-posta** alanına ve "bir hata oluştuğunda e-posta bildirimi gönder." onay kutusunu işaretleyin
 
 8. **Kaydet** düğmesine tıklayın. 
 
-9. Hello eşlemeleri bölümü altında seçin **eşitleme Azure Active Directory Kullanıcıları tooLucidChart**.
+9. Eşlemeleri bölümü altında seçin **eşitleme Azure Active Directory Kullanıcıları LucidChart**.
 
-10. Merhaba, **öznitelik eşlemelerini** bölümünde, Azure AD tooLucidChart eşitlenir hello kullanıcı öznitelikleri gözden geçirin. Merhaba olarak seçilen öznitelikler **eşleşen** Itanium tabanlı sistemler için kullanılan toomatch hello kullanıcı hesapları LucidChart içinde güncelleştirme işlemleri için özelliklerdir. Merhaba Kaydet düğmesine toocommit herhangi bir değişiklik seçin.
+10. İçinde **öznitelik eşlemelerini** bölümünde, LucidChart için Azure AD'den eşitlenen kullanıcı öznitelikleri gözden geçirin. Seçilen öznitelikler **eşleşen** özellikleri LucidChart kullanıcı hesaplarında güncelleştirme işlemleri için eşleştirmek için kullanılır. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
 
-11. tooenable hello LucidChart, değişiklik hello için Azure AD sağlama hizmeti **sağlama durumu** çok**üzerinde** hello içinde **ayarları** bölümü
+11. Azure AD hizmeti LucidChart için sağlama etkinleştirmek için değiştirmek **sağlama durumu** için **üzerinde** içinde **ayarları** bölümü
 
 12. **Kaydet** düğmesine tıklayın. 
 
-Bu işlem, herhangi bir kullanıcı ve/veya hello kullanıcılar tooLucidChart ve Gruplar bölümü atanan gruplarını hello ilk eşitleme başlatır. Merhaba ilk eşitleme yaklaşık 20 dakikada hello çalıştığı sürece oluşan sonraki eşitlemeler daha uzun tooperform alır. Merhaba kullanabilirsiniz **eşitleme ayrıntıları** bölümünde toomonitor ilerleme ve hizmet sağlama hello tarafından gerçekleştirilen tüm eylemler açıklanmaktadır bağlantılar tooprovisioning etkinlik raporları izleyin.
+Bu işlem, herhangi bir kullanıcı ve/veya grupları kullanıcıları ve grupları bölümünde LucidChart atanan ilk eşitleme başlatır. İlk eşitleme gerçekleştirmek yaklaşık 20 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. Kullanabileceğiniz **eşitleme ayrıntıları** bölüm ilerlemeyi izlemek ve sağlama hizmeti tarafından gerçekleştirilen tüm eylemler anlatılmaktadır etkinlik raporları sağlamak için bağlantıları izleyin.
 
-Hello Azure AD tooread sağlama nasıl oturum ile ilgili daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
@@ -99,4 +99,4 @@ Hello Azure AD tooread sağlama nasıl oturum ile ilgili daha fazla bilgi için 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Tooreview nasıl günlüğe yazacağını öğrenin ve etkinlik sağlama raporları alın](active-directory-saas-provisioning-reporting.md)
+* [Günlüklerini gözden geçirin ve etkinlik sağlama raporları alma hakkında bilgi edinin](active-directory-saas-provisioning-reporting.md)

@@ -1,5 +1,5 @@
 ---
-title: "azure'da aaaSQLRuleAction söz dizimi başvurusu | Microsoft Docs"
+title: "Azure'da SQLRuleAction söz dizimi başvurusu | Microsoft Docs"
 description: "SQLRuleAction dilbilgisi hakkında ayrıntılar."
 services: service-bus-messaging
 documentationcenter: na
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: sethm
-ms.openlocfilehash: 8ef281f942847bcc535b83a5ffb30d03539734f9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 7379b7f58563675f28d77928d933c0d9c7992e71
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sqlruleaction-syntax"></a>SQLRuleAction sözdizimi
 
-A *SqlRuleAction* hello örneği [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) sınıfı ve SQL dilinde yazılmış eylemleri temsil kümesi göre karşı gerçekleştirilen sözdizimi bir [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
+A *SqlRuleAction* örneği [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) sınıfı ve SQL dilinde yazılmış eylemleri temsil kümesi göre karşı gerçekleştirilen sözdizimi bir [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
   
-Bu konu hello SQL kural eylemi dilbilgisi ayrıntılarını listeler.  
+Bu konu, SQL kural eylemi dilbilgisi ayrıntılarını listeler.  
   
 ```  
 <statements> ::=
@@ -64,11 +64,11 @@ Bu konu hello SQL kural eylemi dilbilgisi ayrıntılarını listeler.
   
 ## <a name="arguments"></a>Bağımsız Değişkenler  
   
--   `<scope>`Merhaba hello kapsamını belirten isteğe bağlı bir dize `<property_name>`. Geçerli değerler `sys` veya `user`. Merhaba `sys` değeri gösterir sistemi kapsamı nerede `<property_name>` hello ortak özelliği adıdır [BrokeredMessage sınıfı](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`Kullanıcı kapsam gösterir nerede `<property_name>` hello anahtarıdır [BrokeredMessage sınıfı](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) sözlük. `user`Kapsam ise hello varsayılan kapsam `<scope>` belirtilmedi.  
+-   `<scope>`kapsamını belirten isteğe bağlı bir dize `<property_name>`. Geçerli değerler `sys` veya `user`. `sys` Değeri gösterir sistemi kapsamı nerede `<property_name>` bir ortak özellik adı [BrokeredMessage sınıfı](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user`Kullanıcı kapsam gösterir nerede `<property_name>` , bir anahtar [BrokeredMessage sınıfı](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) sözlük. `user`Kapsam ise varsayılan kapsamı `<scope>` belirtilmedi.  
   
 ### <a name="remarks"></a>Açıklamalar  
 
-Bir girişim tooaccess mevcut olmayan kullanıcı özelliği bir hata olduğundan girişimi tooaccess mevcut olmayan sistem bir hata değildir. Bunun yerine, mevcut olmayan kullanıcı özelliği bilinmeyen bir değere dahili olarak değerlendirilir. Bilinmeyen bir değere özel işleci değerlendirme sırasında kabul edilir.  
+Mevcut olmayan kullanıcı özelliği erişme denemesi bir hata olduğundan mevcut olmayan sistem özelliği erişme denemesi bir hata var. Bunun yerine, mevcut olmayan kullanıcı özelliği bilinmeyen bir değere dahili olarak değerlendirilir. Bilinmeyen bir değere özel işleci değerlendirme sırasında kabul edilir.  
   
 ## <a name="propertyname"></a>property_name  
   
@@ -83,7 +83,7 @@ Bir girişim tooaccess mevcut olmayan kullanıcı özelliği bir hata olduğunda
 ```  
   
 ### <a name="arguments"></a>Bağımsız Değişkenler  
- `<regular_identifier>`Merhaba tarafından temsil edilen bir dize normal ifade takip ediyor:  
+ `<regular_identifier>`bir dize aşağıdaki normal ifade tarafından temsil edilen:  
   
 ```  
 [[:IsLetter:]][_[:IsLetter:][:IsDigit:]]*  
@@ -97,7 +97,7 @@ Bir girişim tooaccess mevcut olmayan kullanıcı özelliği bir hata olduğunda
   
  A `<regular_identifier>` ayrılmış bir anahtar sözcük olamaz.  
   
- `<delimited_identifier>`sol/sağ köşeli ayraç ([]) içine herhangi bir dize değil. Sağ köşeli ayraç iki sağ köşeli temsil edilir. Merhaba örnekleri aşağıda verilmiştir `<delimited_identifier>`:  
+ `<delimited_identifier>`sol/sağ köşeli ayraç ([]) içine herhangi bir dize değil. Sağ köşeli ayraç iki sağ köşeli temsil edilir. Örnekleri aşağıda verilmiştir `<delimited_identifier>`:  
   
 ```  
 [Property With Space]  
@@ -105,7 +105,7 @@ Bir girişim tooaccess mevcut olmayan kullanıcı özelliği bir hata olduğunda
   
 ```  
   
- `<quoted_identifier>`ile çift tırnak işaretleri arasına herhangi bir dize değil. Çift tırnak işareti tanımlayıcıda iki çift tırnak işareti temsil edilir. Bir dize sabiti ile kolayca çakışabilir çünkü toouse tanımlayıcıları tırnak içine alınmış önerilmez. Sınırlandırılmış bir kimlik mümkünse kullanın. Merhaba örneği aşağıdadır `<quoted_identifier>`:  
+ `<quoted_identifier>`ile çift tırnak işaretleri arasına herhangi bir dize değil. Çift tırnak işareti tanımlayıcıda iki çift tırnak işareti temsil edilir. Bir dize sabiti ile kolayca çakışabilir çünkü tırnak işaretli tanımlayıcılar kullanmak için önerilmez. Sınırlandırılmış bir kimlik mümkünse kullanın. Aşağıdaki örneğidir `<quoted_identifier>`:  
   
 ```  
 "Contoso & Northwind"  
@@ -120,7 +120,7 @@ Bir girişim tooaccess mevcut olmayan kullanıcı özelliği bir hata olduğunda
   
 ### <a name="remarks"></a>Açıklamalar
   
- `<pattern>`bir dize olarak değerlendirilen bir ifade olmalıdır. İşleç gibi hello kalıp olarak kullanılır.      Merhaba aşağıdaki joker karakterleri içerebilir:  
+ `<pattern>`bir dize olarak değerlendirilen bir ifade olmalıdır. LIKE işleci için bir desen olarak kullanılır.      Aşağıdaki joker karakterleri içerebilir:  
   
 -   `%`: Herhangi bir dize sıfır veya daha fazla karakter.  
   
@@ -135,7 +135,7 @@ Bir girişim tooaccess mevcut olmayan kullanıcı özelliği bir hata olduğunda
   
 ### <a name="remarks"></a>Açıklamalar
   
- `<escape_char>`dize uzunluğu 1 olarak değerlendirilen bir ifade olmalıdır. Merhaba işleci gibi bir kaçış karakteri olarak kullanılır.  
+ `<escape_char>`dize uzunluğu 1 olarak değerlendirilen bir ifade olmalıdır. LIKE işleci için bir kaçış karakteri olarak kullanılır.  
   
  Örneğin, `property LIKE 'ABC\%' ESCAPE '\'` eşleşen `ABC%` ile başlayan bir dize yerine `ABC`.  
   
@@ -148,27 +148,27 @@ Bir girişim tooaccess mevcut olmayan kullanıcı özelliği bir hata olduğunda
   
 ### <a name="arguments"></a>Bağımsız Değişkenler  
   
--   `<integer_constant>`yalnızca tırnak işaretleri içine değil ve ondalık basamak içeren değil sayı dizesidir. Merhaba depolanan değerlerin olarak `System.Int64` dahili olarak ve izleme hello aynı aralık.  
+-   `<integer_constant>`yalnızca tırnak işaretleri içine değil ve ondalık basamak içeren değil sayı dizesidir. Değerleri olarak depolanan `System.Int64` dahili olarak, aynı aralık izleyin.  
   
-     Merhaba, uzun sabitleri örnekleri şunlardır:  
+     Uzun sabitleri örnekleri verilmiştir:  
   
     ```  
     1894  
     2  
     ```  
   
--   `<decimal_constant>`yalnızca tırnak işaretleri içine değil ve ondalık içeren sayı dizesidir. Merhaba depolanan değerlerin olarak `System.Double` dahili olarak ve aynı aralığı/duyarlık hello izleyin.  
+-   `<decimal_constant>`yalnızca tırnak işaretleri içine değil ve ondalık içeren sayı dizesidir. Değerleri olarak depolanan `System.Double` dahili olarak, aynı aralık/duyarlık izleyin.  
   
-     Sonraki bir sürümde bir farklı veri türü toosupport tam sayı semantiği bu sayı depolanabilir, hello olgu hello altta yatan doğrulamamalısınız veri türü olduğundan `System.Double` için `<decimal_constant>`.  
+     Sonraki bir sürümde tam sayı semantiğini desteklemek için farklı bir veri türü bu sayı depolanabilir, arka plandaki olgu üzerinde doğrulamamalısınız veri türü olduğundan `System.Double` için `<decimal_constant>`.  
   
-     Merhaba, ondalık sabitleri örnekleri şunlardır:  
+     Ondalık sabitleri örnekleri verilmiştir:  
   
     ```  
     1894.1204  
     2.0  
     ```  
   
--   `<approximate_number_constant>`bir sayı yazılmış bilimsel gösterim şeklindedir. Merhaba depolanan değerlerin olarak `System.Double` dahili olarak ve aynı aralığı/duyarlık hello izleyin. Merhaba, yaklaşık sayı sabitleri örnekleri şunlardır:  
+-   `<approximate_number_constant>`bir sayı yazılmış bilimsel gösterim şeklindedir. Değerleri olarak depolanan `System.Double` dahili olarak, aynı aralık/duyarlık izleyin. Yaklaşık sayı sabitleri örnekleri verilmiştir:  
   
     ```  
     101.5E5  
@@ -184,7 +184,7 @@ Bir girişim tooaccess mevcut olmayan kullanıcı özelliği bir hata olduğunda
   
 ### <a name="remarks"></a>Açıklamalar
   
-Boole sabitleri hello anahtar tarafından temsil edilen `TRUE` veya `FALSE`. Merhaba depolanan değerlerin olarak `System.Boolean`.  
+Boole sabitleri anahtar sözcükleri tarafından temsil edilen `TRUE` veya `FALSE`. Değerleri olarak depolanan `System.Boolean`.  
   
 ## <a name="stringconstant"></a>string_constant  
   
@@ -206,18 +206,18 @@ Dize sabitleri tek tırnak işaretleri içine ve geçerli Unicode karakterler i�
   
 ### <a name="remarks"></a>Açıklamalar  
 
-Merhaba `newid()` işlev döndürür bir **System.Guid** hello tarafından oluşturulan `System.Guid.NewGuid()` yöntemi.  
+`newid()` İşlev döndürür bir **System.Guid** tarafından oluşturulan `System.Guid.NewGuid()` yöntemi.  
   
-Merhaba `property(name)` işlevi tarafından başvurulan hello özelliğinin hello değeri döndürür `name`. Merhaba `name` değeri bir string değeri döndürür geçerli bir ifade olabilir.  
+`property(name)` İşlevi tarafından başvurulan özelliğinin değerini döndürür `name`. `name` Değeri bir string değeri döndürür geçerli bir ifade olabilir.  
   
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 
-- Kullanılan toocreate yeni bir özellik veya güncelleştirme hello değeri mevcut bir özellik kümesidir.
-- Kaldır kullanılan tooremove bir özellik değil.
-- Merhaba ifade türü ve hello var olan özellik türü farklı olduğunda örtük dönüşüm mümkünse gerçekleştirir.
+- Küme, yeni bir özellik oluşturmak veya mevcut bir özellik değerini güncelleştirmek için kullanılır.
+- Kaldır, bir özelliği kaldırmak için kullanılır.
+- İfade türü ve var olan özellik türü farklı olduğunda örtük dönüşüm mümkünse gerçekleştirir.
 - Mevcut olmayan Sistem özellikleri başvurulan eylem başarısız olur.
 - Mevcut olmayan kullanıcı özelliklerini başvurulan, eylem başarısız olmaz.
-- Mevcut olmayan kullanıcı özelliği dahili olarak "Bilinmiyor" olarak değerlendirilir, aşağıdaki hello aynı topluca [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) işleçleri değerlendirirken.
+- Mevcut olmayan kullanıcı özelliği "Bilinmiyor" olarak dahili olarak, aynı topluca aşağıdaki değerlendirilir [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) işleçleri değerlendirirken.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,6 +1,6 @@
 ---
-title: "aaaReplace PCM, StorSimple Cihazınızda | Microsoft Docs"
-description: "Nasıl güç ve soğutma Modülü (PCM), StorSimple Cihazınızda tooremove ve Değiştir hello açıklar"
+title: "StorSimple Cihazınızda PCM Değiştir | Microsoft Docs"
+description: "Kaldırdığınızda ve değiştirdiğinizde güç ve soğutma Modülü (PCM), StorSimple Cihazınızda açıklanmaktadır"
 services: storsimple
 documentationcenter: 
 author: alkohli
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/18/2016
 ms.author: alkohli
-ms.openlocfilehash: cc19ccb29884557720f7538b90dfb05268330b72
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 2a956de58b279a013913631a077d7b03c6327f72
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replace-a-power-and-cooling-module-on-your-storsimple-device"></a>StorSimple Cihazınızda güç ve soğutma modülü değiştirin
 ## <a name="overview"></a>Genel Bakış
-Merhaba güç ve soğutma Modülü (PCM) Microsoft Azure StorSimple Cihazınızı içinde oluşan bir güç ve soğutma fanları hello birincil ve ebod denetlenir. Her kasa için sertifikalı PCM, yalnızca bir model yok. Merhaba birincil muhafaza 764 W PCM için sertifikalı ve hello EBOD muhafazası 580 W PCM için sertifikalıdır. Merhaba PCMs hello birincil muhafaza ve hello EBOD muhafazası farklı olsa da hello değiştirme yordamı aynıdır.
+Güç ve soğutma Modülü (PCM) Microsoft Azure StorSimple Cihazınızı içinde oluşan bir güç ve soğutma fanları birincil ve EBOD kutularının denetlenir. Her kasa için sertifikalı PCM, yalnızca bir model yok. Birincil muhafaza 764 W PCM için sertifikalı ve EBOD muhafazası 580 W PCM için sertifikalıdır. Birincil muhafaza ve EBOD muhafazası PCMs farklı olmasına rağmen değiştirme yordamı aynıdır.
 
 Bu öğretici açıklar nasıl yapılır:
 
@@ -30,38 +30,38 @@ Bu öğretici açıklar nasıl yapılır:
 * PCM yenisini yükleyin
 
 > [!IMPORTANT]
-> Kaldırma ve bir PCM değiştirme gözden önce hello güvenlik bilgileri [StorSimple donanım bileşeni değiştirme](storsimple-hardware-component-replacement.md).
+> Kaldırma ve bir PCM değiştirme gözden önce güvenlik bilgileri [StorSimple donanım bileşeni değiştirme](storsimple-hardware-component-replacement.md).
 > 
 > 
 
 ## <a name="before-you-replace-a-pcm"></a>Bir PCM değiştirmeden önce
-Önemli sorunları, PCM değiştirmeden önce aşağıdaki Merhaba dikkat edin:
+PCM değiştirmeden önce aşağıdaki önemli sorunları dikkat edin:
 
-* Merhaba güç, sağlarsanız PCM başarısız olursa hello hello hatalı modül yüklü bırakır, ancak hello güç kablosu kaldırın. Merhaba fan hello muhafaza tooreceive gücünden devam ve tooprovide uygun soğutma devam edin. Merhaba fan başarısız olursa, hello PCM hemen yerini toobe gerekir.
-* Merhaba PCM kaldırmadan önce hello güç PCM hello hello ana anahtarı (var olduğunda) kapatarak veya fiziksel olarak hello güç kablosu kaldırarak bağlantısını kesin. Bu güç kapatma uyaran bir uyarı tooyour sistemi sağlar.
-* Değiştirme hello önce hatalı PCM emin olun için diğer PCM işlevseldir bu hello sistem işlemi devam eder. Hatalı PCM tarafından tam olarak işlevsel bir PCM mümkün olan en kısa sürede değiştirilmelidir.
-* Yalnızca birkaç dakika toocomplete PCM modülü değiştirme alır, ancak başarısız hello PCM tooprevent aşırı kaldırmanın 10 dakika içinde tamamlanması gerekir.
-* Not Hello fabrikası'ndan sevk hello değiştirme 764 W PCM modülleri hello yedek pil modülü içermez. Hatalı PCM'den tooremove hello pil gerekir ve hello değiştirme modülü önceki tooperforming hello değiştirme yerleştirin. Daha fazla bilgi için bkz. nasıl çok[kaldırın ve bir yedek pil Modül Ekle](storsimple-battery-replacement.md).
+* Güç kaynağı PCM biri başarısız olursa, hatalı modül yüklü bırakın, ancak güç kablosu kaldırın. Fan muhafaza güç almak ve uygun soğutma sağlamaya devam devam eder. Fan başarısız olursa, PCM hemen değiştirilmesi gerekiyor.
+* PCM kaldırmadan önce güç PCM'den ana anahtarı (var olduğunda) kapatarak veya fiziksel olarak güç kablosu kaldırarak bağlantısını kesin. Bu, bir uyarı sistem bir güç kapatma olup sağlar.
+* Diğer PCM hatalı PCM değiştirme önce devam eden sistem işlemi için işlevsel olduğundan emin olun. Hatalı PCM tarafından tam olarak işlevsel bir PCM mümkün olan en kısa sürede değiştirilmelidir.
+* PCM modülü değiştirme tamamlamak için yalnızca birkaç dakika sürer ancak aşırı önlemek için başarısız PCM kaldırmanın 10 dakika içinde tamamlanması gerekir.
+* Not fabrikası'ndan sevk değiştirme 764 W PCM modülleri yedek pil modülü içermez. Hatalı PCM'den pil kaldırın ve değiştirme gerçekleştirmeden önce değiştirme Modülü Ekle gerekecektir. Daha fazla bilgi için bkz: nasıl yapılır [kaldırın ve bir yedek pil Modül Ekle](storsimple-battery-replacement.md).
 
 ## <a name="remove-a-pcm"></a>Bir PCM Kaldır
-Microsoft Azure StorSimple Cihazınızı hazır tooremove güç ve soğutma Modülü (PCM) olduğunda bu yönergeleri izleyin.
+Microsoft Azure StorSimple cihazınızın güç ve soğutma Modülü (PCM) kaldırmak hazır olduğunuzda bu yönergeleri izleyin.
 
 > [!NOTE]
-> PCM kaldırmadan önce doğru değiştirme (764 W hello birincil kasası için) veya 580 W hello EBOD muhafazası için sahip olduğunuzu doğrulayın.
+> PCM kaldırmadan önce doğru değiştirme (764 W birincil kasası için) veya 580 W EBOD muhafazası için sahip olduğunuzu doğrulayın.
 > 
 > 
 
-#### <a name="tooremove-a-pcm"></a>tooremove bir PCM
-1. Hello Klasik Azure portalı, tıklatın **aygıtları** > **Bakım** > **donanım durum**. Merhaba altındaki hello PCM bileşenlerinin durumunu denetleme **paylaşılan bileşenleri** PCM başarısız oldu tooidentify:
+#### <a name="to-remove-a-pcm"></a>Bir PCM kaldırmak için
+1. Klasik Azure portalında tıklatın **aygıtları** > **Bakım** > **donanım durum**. Altındaki PCM bileşenlerinin durumunu denetleme **paylaşılan bileşenleri** hangi PCM başarısız oldu tanımlamak için:
    
-   * Güç kaynağı PCM 0 olarak başarısız olursa, durumunu hello **güç kaynağı PCM 0'ın** kırmızı olur.
-   * Güç kaynağı PCM 1'de başarısız olursa, durumunu hello **güç kaynağı PCM 1** kırmızı olur.
-   * Merhaba fan PCM 1'de başarısız olursa, ya da durumunu hello **PCM 0 0 soğutma** veya **PCM 0 için 1 soğutma** kırmızı olur.
-2. Merhaba üzerinde başarısız PCM geri hello birincil kasası hello bulun. 8600 model çalıştırıyorsanız, hello birincil muhafaza hello sistem birimi kimlik numarası hello ön panelini LED ekranda gösterilen bakarak tanımlayın. Merhaba birimi hello birincil muhafaza görüntülenen kimliği varsayılan **00**, birim kimliği görüntülenen EBOD muhafazası hello üzerinde hello varsayılan iken **01**. Merhaba Aşağıdaki diyagramda ve tablo hello ön panelini hello LED görüntüsünün açıklanmaktadır.
+   * Güç kaynağı PCM 0'ın başarısız olduysa, durumunu **güç kaynağı PCM 0'ın** kırmızı olur.
+   * Güç kaynağı PCM 1 başarısız olduysa, durumunu **güç kaynağı PCM 1** kırmızı olur.
+   * Fan PCM 1 başarısız oldu, ya da durumunu **PCM 0 0 soğutma** veya **PCM 0 için 1 soğutma** kırmızı olur.
+2. Birincil muhafaza arkasında başarısız PCM bulun. 8600 model çalıştırıyorsanız, sistem birimi tanımlayıcısı ön panelini LED Ekran numarasına bakarak birincil muhafaza tanımlayın. Birim üzerinde birincil muhafaza görüntülenen kodu varsayılandır **00**, varsayılan birim üzerinde EBOD muhafazası görüntülenen kodu iken **01**. Aşağıdaki diyagram ve tablo LED Ekran ön panelini açıklanmaktadır.
    
     ![Ön OPS panelindeki sistem kimliği](./media/storsimple-power-cooling-module-replacement/IC740991.png)
    
-     **Şekil 1** hello aygıt ön panelini  
+     **Şekil 1** cihazın ön panel  
    
    | Etiket | Açıklama |
    |:--- |:--- |
@@ -70,7 +70,7 @@ Microsoft Azure StorSimple Cihazınızı hazır tooremove güç ve soğutma Mod�
    | 3 |Modül hatası |
    | 4 |Mantıksal hatası |
    | 5 |Birim kimliği görüntüleme |
-3. Merhaba birincil muhafaza arkasına hello gösterge LED'lerinin İzleme hello de kullanılabilir tooidentify hello hatalı PCM. Diyagram ve toounderstand nasıl tablo hello aşağıdakilere bakın toouse hello LED'leri toolocate hello hatalı PCM. Örneğin, karşılık gelen toohello hello varsa neden **Fan başarısız** olan aydınlatma, hello fan başarısız oldu. Merhaba, karşılık gelen çok benzer şekilde, neden**AC başarısız** olan aydınlatma, hello güç kaynağı başarısız oldu. 
+3. Birincil muhafaza arkasında izleme gösterge LED'leri hatalı PCM tanımlamak için de kullanılabilir. Aşağıdaki diyagram ve LED'leri hatalı PCM bulmak için nasıl kullanılacağını anlamak için tablosuna bakın. Örneğin, varsa LED karşılık gelen **Fan başarısız** olan aydınlatma, fan başarısız oldu. Benzer şekilde, varsa LED karşılık gelen **AC başarısız** olan aydınlatma, güç kaynağı başarısız oldu. 
    
     ![Cihaz PCM izleme gösterge LED'leri devre kartı](./media/storsimple-power-cooling-module-replacement/IC740992.png)
    
@@ -84,7 +84,7 @@ Microsoft Azure StorSimple Cihazınızı hazır tooremove güç ve soğutma Mod�
    | 4 |PCM TAMAM |
    | 5 |DC Güç kesintisi |
    | 6 |Sağlıklı pil |
-4. Merhaba StorSimple cihaz toolocate başarısız hello PCM modülü arkasına hello diyagramı aşağıdaki toohello bakın. PCM 0 hello solda ve PCM 1 hello doğru. izleyen hello tablo hello modülleri açıklar.
+4. Başarısız PCM modülü bulmak için StorSimple cihazı arkası aşağıdaki diyagrama bakın. PCM 0 solda ve PCM 1 sağ tarafta. Aşağıdaki tabloda modülleri açıklanmaktadır.
    
      ![Aygıt birincil muhafaza modüllerinin devre kartı](./media/storsimple-power-cooling-module-replacement/IC740994.png)
    
@@ -96,51 +96,51 @@ Microsoft Azure StorSimple Cihazınızı hazır tooremove güç ve soğutma Mod�
    | 2 |PCM 1 |
    | 3 |Denetleyici 0 |
    | 4 |Denetleyici 1 |
-5. Kapatma kapalı hatalı PCM hello ve hello güç kaynağı kablosunun bağlantısını kesin. Merhaba PCM şimdi kaldırabilirsiniz.
-6. Merhaba Mandal ve PCM işlemek, Flash ve erişebildiğinizden arasında hello hello tarafında kavramak ve birlikte tooopen hello tanıtıcı sığdırması.
+5. Hatalı PCM devre dışı bırakma ve güç kaynağı kablosunun bağlantısını kesebilirsiniz. PCM şimdi kaldırabilirsiniz.
+6. Mandal ve Flash erişebildiğinizden arasındaki PCM tanıtıcısı tarafında kavramak ve bunları birlikte tanıtıcı açmak için sığdırması.
    
     ![PCM tanıtıcısı açılıyor](./media/storsimple-power-cooling-module-replacement/IC740995.png)
    
-    **Şekil 4** açılış hello PCM işleme
-7. Tutamacı hello işlemek ve hello PCM kaldırın.
+    **Şekil 4** PCM tanıtıcısı açma
+7. Tanıtıcı kavramayın ve PCM kaldırın.
    
     ![Cihaz PCM'i kaldırılıyor](./media/storsimple-power-cooling-module-replacement/IC740996.png)
    
-    **Şekil 5** kaldırma hello PCM
+    **Şekil 5** PCM kaldırma
 
 ## <a name="install-a-replacement-pcm"></a>PCM yenisini yükleyin
-Bu yönergeler tooinstall PCM StorSimple Cihazınızı içinde izleyin. Merhaba yedek pil modülü önceki tooinstalling hello değiştirme (yalnızca W PCMs too764 geçerlidir) PCM eklediğiniz emin olun. Daha fazla bilgi için bkz. nasıl çok[kaldırın ve bir yedek pil Modül Ekle](storsimple-battery-replacement.md).
+StorSimple Cihazınızı bir PCM yüklemek için bu yönergeleri izleyin. Değiştirme (764 W PCMs için yalnızca geçerlidir) PCM yüklemeden önce yedek pil modülü eklediğiniz emin olun. Daha fazla bilgi için bkz: nasıl yapılır [kaldırın ve bir yedek pil Modül Ekle](storsimple-battery-replacement.md).
 
-#### <a name="tooinstall-a-pcm"></a>tooinstall bir PCM
-1. Bu kutu için hello doğru değiştirme PCM sahip olduğunuzu doğrulayın. 764 W PCM Hello birincil muhafaza gerekir ve hello EBOD muhafazası 580 W PCM gerekiyor. Toouse çalışmamalısınız hello birincil muhafazada 580 W PCM hello veya hello EBOD muhafazası içinde 764 W PCM hello. Görüntü aşağıdaki hello burada hello bu bilgileri etiket yani tooidentify toohello PCM yapıştırılmış gösterir.
+#### <a name="to-install-a-pcm"></a>Bir PCM yüklemek için
+1. Bu kutu doğru yerini PCM sahip olduğunuzu doğrulayın. 764 W PCM birincil muhafaza gerekir ve EBOD muhafazası 580 W PCM gerekiyor. Birincil muhafazada 580 W PCM veya EBOD muhafazada 764 W PCM kullanmaya çalışmamalısınız. Aşağıdaki resimde bu bilgileri PCM yapıştırılmış etiketini tanımlamak nereye gösterir.
    
     ![Cihaz PCM etiketi](./media/storsimple-power-cooling-module-replacement/IC740973.png)
    
     **Şekil 6** PCM etiketi
-2. Özellikle dikkat toohello bağlayıcılar ödeme zarar toohello kasası için denetleyin. 
+2. Bağlayıcılar için belirli dikkat kasası hasara karşı denetleyin. 
    
    > [!NOTE]
-   > **Tüm bağlayıcı PIN'ler Bükülü hello modülü yüklemeyin.**
+   > **Bağlayıcı PIN'ler Bükülü durumunda modülünü yüklemeyin.**
    > 
    > 
-3. PCM işlemek hello hello konumu, slayt hello hello muhafaza modüle açın.
+3. Açık konumda PCM tanıtıcısı ile modülün kasası kaydırın.
    
     ![Cihaz PCM'i yükleniyor](./media/storsimple-power-cooling-module-replacement/IC740975.png)
    
-    **Şekil 7** yükleme hello PCM
-4. Merhaba PCM tanıtıcısı el ile kapatın. Merhaba tanıtıcı Mandal prosese gibi bir tıklama sesi. 
+    **Şekil 7** PCM yükleme
+4. PCM tanıtıcısı el ile kapatın. Tanıtıcı Mandal prosese gibi bir tıklama sesi. 
    
    > [!NOTE]
-   > Bağlayıcı PIN'ler hello tooensure gerçekleştiriliyor, hello tutamacı hello mandalı bırakılıyor olmadan hafifçe tug. Out Hello PCM slayt, hello bağlayıcılar gerçekleştiriliyor önce o hello Mandal kapatıldı anlamına gelir.
+   > Bağlayıcı PIN'ler gerçekleştiriliyor olmak için hafifçe mandalı bırakılıyor olmadan tutamacı tug. Out PCM slayt, bağlayıcıları gerçekleştiriliyor önce Mandal kapatıldı anlamına gelir.
    > 
    > 
-5. Merhaba güç kabloları toohello güç kaynağı ve toohello PCM bağlayın.
-6. Merhaba yükü Tahliye bales güvenli hale getirin. 
-7. PCM Hello üzerinde etkinleştirin.
-8. Merhaba değiştirme işleminin başarılı olduğunu doğrulayın: hello Klasik Azure portalı, StorSimple Yöneticisi hizmeti, çok gidin**aygıtları** > **Bakım**  >  **Donanım durum**. Altında **paylaşılan bileşenleri**, hello PCM hello durumu yeşil. 
+5. Güç kablolarını güç kaynağı ve PCM bağlayın.
+6. Yükü Tahliye bales güvenli hale getirin. 
+7. Üzerinde PCM açın.
+8. Değiştirme başarılı olduğunu doğrulayın: Klasik Azure portalında, StorSimple Yöneticisi hizmeti, gitmek **aygıtları** > **Bakım** > **donanım durum**. Altında **paylaşılan bileşenleri**, PCM durumu yeşil olması gerekir. 
    
    > [!NOTE]
-   > Merhaba değiştirme PCM toocompletely başlatma için birkaç dakika sürebilir.
+   > Değiştirme PCM tamamen başlatmak için birkaç dakika sürebilir.
    > 
    > 
 

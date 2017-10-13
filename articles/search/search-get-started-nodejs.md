@@ -1,5 +1,5 @@
 ---
-title: "Node.js içinde Azure Search ile çalışmaya aaaGet | Microsoft Docs"
+title: "Node.js’de Azure Search kullanmaya başlama | Microsoft Docs"
 description: "Programlama diliniz olarak Node.js kullanarak, Azure'da barındırılan bir bulut arama hizmeti üzerinde arama uygulaması derleme konusunu inceleyin."
 services: search
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: evboyle
-ms.openlocfilehash: e9c7d756c2ea191ee2a285485c90439b96aa73b2
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 32865ed986f5eea961ef2c3813dcc6531498c90a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>Node.js'de Azure Search kullanmaya başlama
 > [!div class="op_single_selector"]
@@ -27,71 +27,71 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Nasıl toobuild özel bir Node.js arama arama deneyimi için Azure Search kullanan uygulamayı öğrenin. Bu öğretici hello kullanır [Azure Search Hizmeti REST API'si](https://msdn.microsoft.com/library/dn798935.aspx) tooconstruct hello nesneleri ve bu alıştırmada kullanılan işlemleri.
+Arama deneyimi için Azure Search kullanan özel bir Node.js arama uygulaması derlemeyi öğrenin. Bu öğretici, bu alıştırmada kullanılan nesneleri ve işlemleri oluşturmak için [Azure Search Hizmeti REST API'si](https://msdn.microsoft.com/library/dn798935.aspx)'ni kullanır.
 
-Kullandık [Node.js](https://Nodejs.org) ve NPM, [Sublime Text 3](http://www.sublimetext.com/3)ve Windows 8.1 toodevelop'de Windows PowerShell ve bu kodu sınayın.
+Bu kodu geliştirmek ve test etmek için [Node.js](https://Nodejs.org) ve NPM, [Sublime Text 3](http://www.sublimetext.com/3) ve Windows 8.1'de Windows PowerShell kullandık.
 
-toorun hello için kaydolabilirsiniz bir Azure Search hizmeti bu örnek olmalıdır [Azure portal](https://portal.azure.com). Bkz: [hello portalda Azure Search hizmeti oluşturma](search-create-service-portal.md) adım adım yönergeler için.
+Bu örneği çalıştırmak için, [Azure portalında](https://portal.azure.com) oturum açabileceğiniz bir Azure Search hizmetine sahip olmanız gerekir. Adım adım yönergeler için bkz. [Portalda Azure Search hizmeti oluşturma](search-create-service-portal.md).
 
-## <a name="about-hello-data"></a>Merhaba veri hakkında
-Bu örnek uygulama hello verileri kullanan [Birleşik Devletler Jeoloji Hizmetleri (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), filtrelenmiş hello Rhode Island eyaleti tooreduce hello veri kümesi boyutu. Bu veri toobuild akışlar, Göller ve zirveler gibi jeolojik özelliklerin yanı sıra hastaneler ve okullar gibi önemli binaları döndüren bir arama uygulaması kullanacağız.
+## <a name="about-the-data"></a>Veriler hakkında
+Bu örnek uygulama, [Birleşik Devletler Jeoloji Hizmetleri (USGS)](http://geonames.usgs.gov/domestic/download_data.htm)'nin, veri kümesi boyutunu küçültmek için Rhode Island eyaletinde filtrelenen verilerini kullanır. Akarsular, göller ve zirveler gibi jeolojik özelliklerin yanı sıra, hastaneler ve okullar gibi önemli binaları döndüren bir arama uygulaması derlemek için bu verileri kullanacağız.
 
-Bu uygulamada hello **Dataındexer** programı oluşturup yükleri hello dizini kullanarak bir [dizin oluşturucu](https://msdn.microsoft.com/library/azure/dn798918.aspx) hello alma yapısı, filtrelenmiş USGS veri kümesini ortak bir Azure SQL veritabanından. Kimlik bilgileri ve bağlantı bilgileri toohello çevrimiçi veri kaynağına hello program kodu içinde sağlanır. Ek yapılandırma gerekli değildir.
+Bu uygulamada **DataIndexer** programı, filtrelenmiş USGS veri kümesini ortak bir Azure SQL Database'den alan bir [Oluşturucu](https://msdn.microsoft.com/library/azure/dn798918.aspx) yapısı kullanarak dizini derler ve yükler. Veri kaynağına yönelik kimlik bilgileri ve bağlantı bilgileri program kodu içinde sağlanır. Ek yapılandırma gerekli değildir.
 
 > [!NOTE]
-> Bu veri kümesi toostay hello 10.000 belge limiti hello ücretsiz fiyatlandırma katmanı altında üzerinde bir filtre uygulanmış. Merhaba standart katmanı kullanırsanız bu limit uygulanmaz. Her fiyatlandırma katmanının kapasitesi hakkında ayrıntılı bilgi için bkz: [Search hizmet limitleri](search-limits-quotas-capacity.md).
+> Ücretsiz fiyatlandırma katmanının 10.000 belge limiti altında kalmak için, bu veri kümesi üzerinde filtre uyguladık. Standart katmanı kullanırsanız bu limit uygulanmaz. Her fiyatlandırma katmanının kapasitesi hakkında ayrıntılı bilgi için bkz: [Search hizmet limitleri](search-limits-quotas-capacity.md).
 > 
 > 
 
 <a id="sub-2"></a>
 
-## <a name="find-hello-service-name-and-api-key-of-your-azure-search-service"></a>Merhaba hizmet adı ve Azure Search hizmetinizin api anahtarını bulma
-Merhaba hizmeti oluşturduktan sonra dönüş toohello portal tooget hello URL'si veya `api-key`. Bağlantıları tooyour arama hizmeti gerektiren her iki hello URL'ye sahip ve bir `api-key` tooauthenticate hello çağrısı.
+## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Azure Search hizmetinizin hizmet adını ve api anahtarını bulma
+Hizmeti oluşturduktan sonra, URL'yi veya `api-key`'i almak için portala dönün. Search hizmetinize yönelik bağlantılar, çağrı kimliğini doğrulamak için hem URL hem de `api-key` sahibi olmanızı gerektirir.
 
-1. İçinde toohello oturum [Azure portal](https://portal.azure.com).
-2. Merhaba atlama çubuğunda, **Search Hizmeti** tüm Azure arama hizmetleri aboneliğiniz için sağlanan toolist.
-3. Toouse istediğiniz hello hizmeti seçin.
-4. Merhaba hizmet panosunda hello yönetici anahtarlarına erişim için anahtar simgesine hello gibi önemli bilgiler için kutucuklar görürsünüz.
-5. Merhaba hizmet URL'si, bir yönetici anahtarını ve sorgu anahtarını kopyalayın. Toohello config.js. dosyasına eklerken, tüm üç daha sonra gerekir.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Atlama çubuğunda, aboneliğiniz için sağlanan tüm Azure Search hizmetlerini listelemek için **Search hizmeti**'ne tıklayın.
+3. Kullanmak istediğiniz hizmeti seçin.
+4. Hizmet panosunda, yönetici anahtarlarına erişim için anahtar simgesi gibi önemli bilgiler için kutucuklar görürsünüz.
+5. Hizmet URL'sini, bir yönetici anahtarını ve bir sorgu anahtarını kopyalayın. Üçüne de daha sonra, bunları config.js. dosyasına eklerken ihtiyacınız olur.
 
-## <a name="download-hello-sample-files"></a>Merhaba örnek dosyalarını indirme
-Her iki yaklaşım toodownload hello örnek aşağıdaki hello birini kullanın.
+## <a name="download-the-sample-files"></a>Örnek dosyalarını indirme
+Örneği indirmek için aşağıdaki yaklaşımlardan birini kullanın.
 
-1. Çok Git[Azuresearchnodejsındexerdemo](https://github.com/AzureSearch/AzureSearchNodejsIndexerDemo).
-2. Tıklatın **ZIP'i indir**hello .zip dosyasını kaydedin ve ardından içerdiği tüm hello dosyaları ayıklayın.
+1. [AzureSearchNodeJSIndexerDemo](https://github.com/AzureSearch/AzureSearchNodejsIndexerDemo)'ya gidin.
+2. **ZIP'i İndir**'e tıklayın, .zip dosyasını kaydedin ve ardından içerdiği tüm dosyaları ayıklayın.
 
 Sonraki tüm dosya değişiklikleri ve çalıştırma deyimleri bu klasördeki dosyalara uygulanır.
 
-## <a name="update-hello-configjs-with-your-search-service-url-and-api-key"></a>Merhaba config.js güncelleştirin. Search hizmetinizin URL'si ve api anahtarı ile güncelleştirme
-URL ve daha önce kopyaladığınız api anahtarını hello kullanarak yapılandırma dosyasında hello URL, yönetici anahtarını ve sorgu anahtarını belirtin.
+## <a name="update-the-configjs-with-your-search-service-url-and-api-key"></a>Config.js dosyasını Search hizmetinizin URL'si ve api anahtarı ile güncelleştirme
+Önceden kopyaladığınız URL'yi ve api anahtarını kullanarak yapılandırma dosyasında URL'yi, yönetici anahtarını ve sorgu anahtarını belirtin.
 
-Yönetici anahtarları, dizin oluşturma ve silme ile belge yükleme de dahil olmak üzere hizmet işlemleri üzerinde tam denetim hakkı verir. Buna karşılık sorgu anahtarları tooAzure arama bağlanan istemci uygulamaları tarafından genellikle kullanılan salt okunur işlemler içindir.
+Yönetici anahtarları, dizin oluşturma ve silme ile belge yükleme de dahil olmak üzere hizmet işlemleri üzerinde tam denetim hakkı verir. Buna karşılık sorgu anahtarları, genellikle Azure Search'e bağlanan istemci uygulamaları tarafından kullanılan salt okunur işlemler içindir.
 
-Bu örnekte, anahtar toohelp pekiştirmek hello sorgu anahtarını istemci uygulamalarında kullanma hello en iyi uygulama olarak hello sorgu içerir.
+Sorgu anahtarını istemci uygulamalarında kullanma konusunda en iyi deneyimi pekiştirmek amacıyla, bu örneğe sorgu anahtarını dahil ediyoruz.
 
-Aşağıdaki ekran görüntüsü gösterildiği hello **config.js** hello ile bir metin düzenleyicisinde açın nerede tooupdate hello hello dosyasıyla değerden görebilmeniz için güncelleştireceğinizi ilgili girişler arama hizmetiniz için geçerli.
+Aşağıdaki ekran görüntüsü, bir metin düzenleyicide açılan **config.js** dosyasını ilgili girişler çerçeve içine alınmış şekilde gösterir. Böylece, dosyanın hangi kısmını arama hizmetiniz için geçerli değerlerle güncelleştireceğinizi görebilirsiniz.
 
 ![][5]
 
-## <a name="host-a-runtime-environment-for-hello-sample"></a>Ana bilgisayar hello örnek için çalışma zamanı ortamı
-Merhaba örnek genel olarak npm kullanarak yükleyebileceğiniz bir HTTP sunucusu gerektirir.
+## <a name="host-a-runtime-environment-for-the-sample"></a>Örnek için çalışma zamanı ortamı barındırma
+Örnek, genel olarak npm kullanarak yükleyebileceğiniz bir HTTP sunucusu gerektirir.
 
-Bir PowerShell penceresinde aşağıdaki komutları hello için kullanın.
+Aşağıdaki komutlar için PowerShell penceresi kullanın.
 
-1. Merhaba içeren toohello klasörüne gidin **package.json** dosya.
+1. **Package.json** dosyasını içeren klasöre gidin.
 2. `npm install` yazın.
 3. `npm install -g http-server` yazın.
 
-## <a name="build-hello-index-and-run-hello-application"></a>Merhaba dizini oluşturun ve hello uygulamayı çalıştırın
+## <a name="build-the-index-and-run-the-application"></a>Dizini derleme ve uygulamayı çalıştırma
 1. `npm run indexDocuments` yazın.
 2. `npm run build` yazın.
 3. `npm run start_server` yazın.
 4. Tarayıcınızı `http://localhost:8080/index.html` adresine yönlendirin
 
 ## <a name="search-on-usgs-data"></a>USGS verilerinde arama
-Merhaba USGS veri kümesini ilgili toohello Rhode Island eyaleti kayıtları içerir. Tıklatırsanız **arama** bir boş arama kutusunda, hello ilk 50 girişi hello varsayılan olduğu alırsınız.
+USGS veri kümesi, Rhode Island eyaleti ile ilgili kayıtları içerir. Boş bir arama kutusunda **Ara** düğmesine tıklarsanız varsayılan seçenek olan ilk 50 girişi alırsınız.
 
-Bir arama terimi girerek hello arama motoru toogo üzerinde bir şey sağlar. Bölgesel bir ad girmeyi deneyin. "Roger Williams", Rhode Island hello ilk İdarecisi oluştu. Çok sayıda parka, binaya ve okula onun adı verildi.
+Bir arama terimi girmeniz arama alt yapısına gitmesi gereken bir hedef verir. Bölgesel bir ad girmeyi deneyin. "Roger Williams", Rhode Island'ın ilk valisiydi. Çok sayıda parka, binaya ve okula onun adı verildi.
 
 ![][9]
 
@@ -102,11 +102,11 @@ Ayrıca, bu terimlerden herhangi birini de deneyebilirsiniz:
 * kaz + şapka
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu Node.js ve hello USGS veri kümesini temel alan hello ilk Azure Search öğreticisidir. Zaman içinde biz özel çözümlerinizde toouse isteyebilirsiniz ek arama özellikleri Bu öğretici toodemonstrate genişletmeniz.
+Bu, Node.js ve USGS veri kümesini temel alan ilk Azure Search öğreticisidir. Zaman içinde, özel çözümlerinizde kullanmak isteyebileceğiniz ek arama özellikleri göstermek için bu öğreticiyi genişleteceğiz.
 
-Zaten Azure Search ile ilgili belirli bir altyapınız varsa öneri araçlarını (yazarken tamamlanan veya otomatik tamamlanan sorgular ), filtreleri ve çok yönlü gezinmeyi denemek için, bu örneği dayanak olarak kullanabilirsiniz. Ayrıca, numaralar ekleyerek ve böylece kullanıcılar hello sonuçları belgeleri toplu işleme hello arama sonuçları sayfasını artırabilir.
+Zaten Azure Search ile ilgili belirli bir altyapınız varsa öneri araçlarını (yazarken tamamlanan veya otomatik tamamlanan sorgular ), filtreleri ve çok yönlü gezinmeyi denemek için, bu örneği dayanak olarak kullanabilirsiniz. Ayrıca, numaralar ekleyerek ve belgeleri gruplayarak arama sonuçları sayfasını da geliştirebilirsiniz. Böylece, kullanıcılar sonuç sayfalarında gezinebilir.
 
-Yeni tooAzure arama? Diğer öğreticiler toodevelop bir neler yapabileceğinizi anlamak çalışırken öneririz. Ziyaret bizim [belge sayfasının](https://azure.microsoft.com/documentation/services/search/) toofind daha fazla kaynak. Merhaba bağlantılar da görüntüleyebilirsiniz bizim [Video ve öğretici listemiz](search-video-demo-tutorial-list.md) tooaccess daha fazla bilgi.
+Azure Search'ü ilk kez mi kullanıyorsunuz? Neler yapabileceğinizi anlamak için diğer öğreticileri denemenizi öneririz. Daha fazla kaynak bulmak için [belge sayfamızı](https://azure.microsoft.com/documentation/services/search/) ziyaret edin. Daha fazla bilgiye erişmek için [Video ve Öğretici listemiz](search-video-demo-tutorial-list.md)'deki bağlantıları görüntüleyebilirsiniz.
 
 <!--Image references-->
 [1]: ./media/search-get-started-Nodejs/create-search-portal-1.PNG

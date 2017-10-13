@@ -1,6 +1,6 @@
 ---
-title: "U-SQL Hello Kataloğu ile çalışmaya başlama | Microsoft Docs"
-description: "U-SQL toouse hello nasıl katalog tooshare kodunuz ve verileriniz hakkında bilgi edinin."
+title: "U-SQL Kataloğu ile çalışmaya başlama | Microsoft Docs"
+description: "U-SQL kataloğunu kod ve veri paylaşmak için nasıl kullanılacağını öğrenin."
 services: data-lake-analytics
 documentationcenter: 
 author: saveenr
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/09/2017
 ms.author: edmaca
-ms.openlocfilehash: 559bb7a3879031eb290a3e82946d7bf42ac9f553
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 08364c6c7bea53807844e3b1cc327dc3742e0487
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="get-started-with-hello-u-sql-catalog"></a>U-SQL kataloğunu Hello ile çalışmaya başlama
+# <a name="get-started-with-the-u-sql-catalog"></a>U-SQL Kataloğu ile çalışmaya başlama
 
 ## <a name="create-a-tvf"></a>Bir TVF oluşturma
 
-EXTRACT tooread hello gelen hello kullanımını yinelenen Hello önceki U-SQL komut dosyasında, aynı kaynak dosyası. Merhaba U-SQL tablo değerli işlevi ile (TVF), gelecekte tekrar kullanmak için hello verileri yerleştirebilirsiniz.  
+Önceki U-SQL komut dosyası aynı kaynak dosyasını okumaya EXTRACT kullanımını yinelenir. U-SQL tablo değerli işlev (TVF), gelecekte tekrar kullanmak için veri yerleştirebilirsiniz.  
 
-Merhaba aşağıdaki betiği oluşturur adlı bir TVF `Searchlog()` hello varsayılan veritabanı ve şemasında:
+Aşağıdaki komut dosyası olarak adlandırılan bir TVF oluşturur `Searchlog()` şema ve varsayılan veritabanı içinde:
 
 ```
 DROP FUNCTION IF EXISTS Searchlog;
@@ -57,7 +57,7 @@ RETURN;
 END;
 ```
 
-komut dosyası izleyen hello nasıl toouse hello hello önceki komut dosyasında tanımlanan TVF gösterir:
+Aşağıdaki komut dosyası önceki betik tanımlandı TVF kullanmayı gösterir:
 
 ```
 @res =
@@ -69,16 +69,16 @@ GROUP BY Region
 HAVING SUM(Duration) > 200;
 
 OUTPUT @res
-    too"/output/SerachLog-use-tvf.csv"
+    TO "/output/SerachLog-use-tvf.csv"
     ORDER BY TotalDuration DESC
     USING Outputters.Csv();
 ```
 
 ## <a name="create-views"></a>Görünümler oluşturma
 
-TVF yerine tek bir sorgu ifadesi varsa, bu deyim bir U-SQL görünümü tooencapsulate kullanabilirsiniz.
+Bir tek sorgu ifadesi varsa, TVF yerine, U-SQL görünümü ifade kapsüllemek için kullanabilirsiniz.
 
-Merhaba aşağıdaki betiği oluşturur adlı bir görünüm `SearchlogView` hello varsayılan veritabanı ve şemasında:
+Aşağıdaki komut dosyası adlı bir görünüm oluşturur `SearchlogView` şema ve varsayılan veritabanı içinde:
 
 ```
 DROP VIEW IF EXISTS SearchlogView;
@@ -95,7 +95,7 @@ CREATE VIEW SearchlogView AS
 USING Extractors.Tsv();
 ```
 
-komut dosyası izleyen hello tanımlanan hello görünüm hello kullanımını göstermektedir:
+Aşağıdaki komut dosyası tanımlı görünüm kullanımını göstermektedir:
 
 ```
 @res =
@@ -107,15 +107,15 @@ GROUP BY Region
 HAVING SUM(Duration) > 200;
 
 OUTPUT @res
-    too"/output/Searchlog-use-view.csv"
+    TO "/output/Searchlog-use-view.csv"
     ORDER BY TotalDuration DESC
     USING Outputters.Csv();
 ```
 
 ## <a name="create-tables"></a>Tabloları oluşturma
-İlişkisel veritabanı tablolarıyla U-SQL ile bir tablo ile önceden tanımlanmış bir şema oluşturabilir veya bir tablo oluşturmak gibi hello tablosu (olarak da bilinen CREATE TABLE AS SELECT veya CTAS) doldurur hello sorgu hello şemadan oluşturur.
+İlişkisel veritabanı tablolarıyla U-SQL ile bir tablo ile önceden tanımlanmış bir şema oluşturabilir veya şema sorgusu oluşturur bir tablo oluşturmak gibi tablonun (olarak da bilinen CREATE TABLE AS SELECT veya CTAS) doldurur.
 
-Komut dosyası izleyen hello kullanarak bir veritabanı ve iki tablo oluşturun:
+Aşağıdaki komut dosyası kullanarak bir veritabanı ve iki tablo oluşturun:
 
 ```
 DROP DATABASE IF EXISTS SearchLogDb;
@@ -147,9 +147,9 @@ CREATE TABLE SearchLog2(
 ```
 
 ## <a name="query-tables"></a>Sorgu tabloları
-Merhaba içinde hello önceki komut oluşturulanlar gibi tabloları sorgulayabilir aynı şekilde hello veri dosyalarını sorgu. EXTRACT kullanarak bir satır kümesi oluşturmak yerine, toohello tablo adı şimdi başvurabilir.
+Tablolar, veri dosyalarını sorgu aynı şekilde önceki komut dosyasındaki oluşturulanlar gibi sorgulayabilirsiniz. EXTRACT kullanarak bir satır kümesi oluşturmak yerine, şimdi tablo adına başvurabilir.
 
-Merhaba tablolardan tooread daha önce kullanılan hello dönüştürme betiği değiştirin:
+Tablodan okumak için daha önce kullanılan dönüştürme komut dosyasını değiştirin:
 
 ```
 @rs1 =
@@ -166,13 +166,13 @@ GROUP BY Region;
     FETCH 5 ROWS;
 
 OUTPUT @res
-    too"/output/Searchlog-query-table.csv"
+    TO "/output/Searchlog-query-table.csv"
     ORDER BY TotalDuration DESC
     USING Outputters.Csv();
 ```
 
  >[!NOTE]
- >Şu anda, bir SELECT aynı bir hello gibi komut dosyası hello tablosunda hello tablo oluşturulduğu çalıştıramazsınız.
+ >Şu anda, bir SELECT aynı komut dosyasını bir tabloda tablonun oluşturulduğu çalıştıramazsınız.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 * [Microsoft Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md)

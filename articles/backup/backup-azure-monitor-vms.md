@@ -1,5 +1,5 @@
 ---
-title: "aaaMonitor Resource Manager tarafından dağıtılan sanal makine yedeklerini | Microsoft Docs"
+title: "İzleyici Resource Manager tarafından dağıtılan sanal makine yedeklerini | Microsoft Docs"
 description: "Olayları ve Resource Manager tarafından dağıtılan sanal makine yedeklerini uyarıları izleyin. Uyarılar temelinde e-posta gönderin."
 services: backup
 documentationcenter: dev-center-name
@@ -14,57 +14,57 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: bf45cbaa05621b2365c26bafa1bd8223a444c1fb
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b9dc3f52e5fc275bc56b9964f2115833f2dde42e
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Azure sanal makine yedekleme uyarılarını izleme
-Uyarıları olay eşiği karşıladığında veya aşılan hello hizmetinden yanıtları değildir. Bilerek sorunları başlangıç iş maliyetlerini azaltır kritik tookeeping zaman olabilir. Uyarıları genellikle bir zamanlamaya göre gerçekleşmez ve uyarılar ortaya sonra dolayısıyla yararlı tooknow mümkün olan en kısa sürede taşır. Örneğin, bir yedekleme veya geri yükleme işi başarısız olduğunda bir uyarı hello hatanın beş dakika içinde gerçekleşir. Merhaba kasa panosunda, yedekleme uyarılar kutucuğu hello kritik ve uyarı düzeyi olayları görüntüler. Merhaba yedekleme uyarıları Ayarları'nda, tüm olayları görüntüleyebilirsiniz. Ancak ayrı bir sorunu çalışırken bir uyarı ortaya çıkarsa ne yapacaksınız? Merhaba uyarı gerçekleştiğinde bunu bilmiyorsanız, küçük bir sorundan dolayı olabilir veya veri tehlikeye atabilecek. oluştuğunda, toomake emin hello doğru kişilerin bir uyarının - kullanan hello hizmet toosend Uyarı bildirimlerinin e-posta yoluyla yapılandırın. E-posta bildirimlerini ayarlama hakkında daha fazla bilgi için bkz: [bildirimleri yapılandırmak](backup-azure-monitor-vms.md#configure-notifications).
+Uyarıları olay eşiği karşıladığında veya aşılan hizmetinden yanıtları değildir. Bilerek zaman sorunları başlangıç iş maliyetleri tutarak için kritik olabilir. Uyarıları genellikle bir zamanlamaya göre gerçekleşmez ve bu nedenle uyarılar ortaya sonra mümkün olan en kısa sürede bilmeniz yararlı olur. Örneğin, bir yedekleme veya geri yükleme işi başarısız olduğunda bir uyarı hata beş dakika içinde gerçekleşir. Kasa panosunda, yedekleme uyarıları kutucuğu kritik ve uyarı düzeyi olayları görüntüler. Yedekleme uyarıları ayarlarında tüm olayları görüntüleyebilirsiniz. Ancak ayrı bir sorunu çalışırken bir uyarı ortaya çıkarsa ne yapacaksınız? Uyarı gerçekleştiğinde bunu bilmiyorsanız, küçük bir sorundan dolayı olabilir veya veri tehlikeye atabilecek. Doğru kişilerin oluştuğunda uyarının - farkında olduğundan emin olmak için e-posta üzerinden uyarı bildirimleri göndermek üzere hizmetini yapılandırın. E-posta bildirimlerini ayarlama hakkında daha fazla bilgi için bkz: [bildirimleri yapılandırmak](backup-azure-monitor-vms.md#configure-notifications).
 
-## <a name="how-do-i-find-information-about-hello-alerts"></a>Merhaba uyarılar hakkında bilgileri nasıl bulabilirim?
-tooview bilgileri bir uyarı oluşturdu hello olay hakkında hello yedekleme uyarıları dikey penceresi açmanız gerekir. İki yolu tooopen hello yedekleme uyarıları dikey vardır: yedekleme uyarılar kutucuğu hello kasa panosunda hello gelen veya hello uyarı ve olayları dikey.
+## <a name="how-do-i-find-information-about-the-alerts"></a>Uyarılar hakkında bilgileri nasıl bulabilirim?
+Bir uyarı oluşturan olay hakkında bilgi görüntülemek için yedekleme uyarıları dikey penceresi açmanız gerekir. Yedekleme uyarıları dikey penceresini açmak için iki yolu vardır: yedekleme uyarılardan ya da kasa panosunda veya uyarı ve olayları dikey penceresinden bölmesi.
 
-tooopen hello yedekleme uyarıları dikey penceresinden yedekleme uyarıları döşeme:
+Yedekleme uyarıları kutucuğunda yedekleme uyarıları dikey penceresini açmak için:
 
-* Merhaba üzerinde **yedekleme uyarıları** döşeme hello kasa panosunda, tıklatın **kritik** veya **uyarı** tooview hello bu önem düzeyi için çalışma olaylarını.
+* Üzerinde **yedekleme uyarıları** döşeme kasa Panosu üzerinde tıklatın **kritik** veya **uyarı** bu önem düzeyi için çalışma olaylarını görüntülemek için.
 
     ![Yedekleme uyarıları kutucuğu](./media/backup-azure-monitor-vms/backup-alerts-tile.png)
 
-tooopen hello yedekleme uyarıları dikey hello uyarı ve olayları dikey penceresinden:
+Uyarı ve olayları dikey penceresinden yedekleme uyarıları dikey penceresini açmak için:
 
-1. Merhaba kasası panodan tıklatın **tüm ayarları**. ![Tüm ayarlar düğmesi](./media/backup-azure-monitor-vms/all-settings-button.png)
-2. Merhaba üzerinde **ayarları** dikey penceresinde tıklatın **uyarı ve olayları**. ![Uyarı ve olayları düğmesi](./media/backup-azure-monitor-vms/alerts-and-events-button.png)
-3. Merhaba üzerinde **uyarı ve olayları** dikey penceresinde tıklatın **yedekleme uyarıları**. ![Yedekleme uyarıları düğmesi](./media/backup-azure-monitor-vms/backup-alerts.png)
+1. Kasa panodan tıklatın **tüm ayarları**. ![Tüm ayarlar düğmesi](./media/backup-azure-monitor-vms/all-settings-button.png)
+2. Üzerinde **ayarları** dikey penceresinde tıklatın **uyarı ve olayları**. ![Uyarı ve olayları düğmesi](./media/backup-azure-monitor-vms/alerts-and-events-button.png)
+3. Üzerinde **uyarı ve olayları** dikey penceresinde tıklatın **yedekleme uyarıları**. ![Yedekleme uyarıları düğmesi](./media/backup-azure-monitor-vms/backup-alerts.png)
 
-    Merhaba **yedekleme uyarıları** dikey penceresi açılır ve hello filtrelenmiş uyarıları görüntüler.
+    **Yedekleme uyarıları** dikey penceresi açılır ve filtrelenmiş uyarıları görüntüler.
 
     ![Yedekleme uyarıları kutucuğu](./media/backup-azure-monitor-vms/backup-alerts-critical.png)
-4. tooview ayrıntılı bilgi, olayların hello listesinden belirli bir uyarıyla ilgili hello uyarı tooopen'ı tıklatın, **ayrıntıları** dikey.
+4. Olaylar, listesinden belirli bir uyarı hakkında ayrıntılı bilgi görüntülemek için açmak için uyarıyı tıklatın, **ayrıntıları** dikey.
 
     ![Olay Ayrıntıları](./media/backup-azure-monitor-vms/audit-logs-event-detail.png)
 
-    Merhaba listesinde görüntülenen toocustomize hello öznitelikleri [ek olay öznitelikleri görüntüleyin](backup-azure-monitor-vms.md#view-additional-event-attributes)
+    Liste görünümünde görüntülenen nitelikleri özelleştirmek için bkz: [ek olay öznitelikleri görüntüleyin](backup-azure-monitor-vms.md#view-additional-event-attributes)
 
 ## <a name="configure-notifications"></a>Bildirimleri yapılandırma
- Merhaba hizmet toosend e-posta bildirimleri hello saati aşan veya belirli türlerdeki olayların ortaya çıktığında oluştu hello uyarılar için yapılandırabilirsiniz.
+ Oluştu veya son bir saat içinde belirli türlerdeki olayların ortaya çıktığında uyarılar için e-posta bildirimleri göndermek üzere hizmetini yapılandırabilirsiniz.
 
-tooset uyarılar için e-posta bildirimlerini ayarlama
+Uyarılar için e-posta bildirimleri ayarlamak için
 
-1. Merhaba yedekleme uyarıları menüsünde **bildirimleri yapılandırma**
+1. Yedekleme uyarıları menüsünde **bildirimleri yapılandırma**
 
     ![Yedekleme uyarıları menüsü](./media/backup-azure-monitor-vms/backup-alerts-menu.png)
 
-    Merhaba yapılandırma bildirimleri dikey pencere açılır.
+    Yapılandırma bildirimleri dikey pencere açılır.
 
     ![Bildirimleri dikey yapılandırın](./media/backup-azure-monitor-vms/configure-notifications.png)
-2. E-posta bildirimlerinin hello yapılandırma bildirimleri dikey tıklatın **üzerinde**.
+2. Yapılandırma bildirimleri dikey penceresinde, e-posta bildirimlerinin tıklatın **üzerinde**.
 
-    Bu bilgiler gereklidir çünkü hello alıcıları ve önem derecesi iletişim kutularındaki yıldız sonraki toothem sahip. En az bir e-posta adresi sağlayın ve en az bir önem derecesini seçin.
-3. Merhaba, **alıcılar (e-posta)** iletişim kutusunda, kimin hello bildirimleri almak için türü hello e-posta adresi. Kullanım hello biçimi: username@domainname.com. Birden çok e-posta adresini noktalı virgül (;) ayırın.
-4. Merhaba, **bildirim** alanı seçin **başına uyarı** toosend hello değiştiğinde bildirimi belirtilen uyarı oluşur, veya **saatlik Özet** toosend hello son bir saat için bir Özet.
-5. Merhaba, **önem** iletişim kutusunda, e-posta bildirimi tootrigger istediğiniz bir veya daha fazla düzeylerini seçin.
+    Alıcıları ve önem derecesi iletişim kutuları, bu bilgi gereklidir çünkü bunları yanında bir yıldız sahip. En az bir e-posta adresi sağlayın ve en az bir önem derecesini seçin.
+3. İçinde **alıcılar (e-posta)** iletişim kutusunda, kimin bildirimleri almak için e-posta adreslerini yazın. Biçimi kullanın: username@domainname.com. Birden çok e-posta adresini noktalı virgül (;) ayırın.
+4. İçinde **bildirim** alanı seçin **başına uyarı** belirtilen uyarı oluştuğunda, bildirim göndermek için veya **saatlik Özet** son bir saat için bir Özet göndermek için.
+5. İçinde **önem** iletişim kutusunda, e-posta bildirimlerini tetiklemesini istediğiniz bir veya daha fazla düzeyleri seçin.
 6. **Kaydet** düğmesine tıklayın.
 
    ### <a name="what-alert-types-are-available-for-azure-iaas-vm-backup"></a>Hangi uyarı türleri için Azure Iaas sanal yedekleme var mı?
@@ -75,98 +75,98 @@ tooset uyarılar için e-posta bildirimlerini ayarlama
    | Bilgilendirme |None |
 
 ### <a name="are-there-situations-where-email-isnt-sent-even-if-notifications-are-configured"></a>Bildirimler yapılandırılmış olsa bile e-postanın gönderilmediği durumlar var mı?
-Merhaba bildirimleri düzgün bir şekilde yapılandırmış olmanıza rağmen bir uyarı gönderilmez, durumlar vardır. Hello aşağıdaki durumlarda e-posta bildirimleri tooavoid aralığını belirterek uyarı sesini gönderilmez:
+Bildirimlerin düzgün bir şekilde yapılandırmış olmanıza rağmen bir uyarı gönderilmez, durumlar vardır. Aşağıdaki durumlarda e-postayla aralığını belirterek uyarı sesini önlemek için bildirim gönderilmez:
 
-* Bildirimleri yapılandırılmış tooHourly Özet varsa ve bir uyarı oluşturulur ve hello saat içinde çözülür.
-* Merhaba işleri iptal edilir.
+* Bildirimler için saatlik Özet yapılandırılır ve bir uyarı oluşturulur ve aynı saat içinde çözümlenen istiyorsanız.
+* İşleri iptal edilir.
 * Bir yedekleme işi tetiklenir ve sonra başarısız olur ve başka bir yedekleme işi sürüyor.
-* Resource Manager etkin bir VM için zamanlanmış bir yedekleme işini başlatır, ancak hello VM artık yok.
+* Resource Manager etkin bir VM için zamanlanmış bir yedekleme işini başlatır, ancak VM artık yok.
 
 ## <a name="customize-your-view-of-events"></a>Olayları görünümünü özelleştirme
-Merhaba **denetim günlüklerini** ayarı filtreleri ve işletimsel olay bilgilerini gösteren sütunları önceden tanımlanmış bir dizi birlikte gelir. Merhaba görünümünü özelleştirebilirsiniz böylece zaman hello **olayları** dikey penceresi açıldığında, size gösterir hello istediğiniz bilgileri.
+**Denetim günlüklerini** ayarı filtreleri ve işletimsel olay bilgilerini gösteren sütunları önceden tanımlanmış bir dizi birlikte gelir. Bu nedenle görünümünü özelleştirebilirsiniz olduğunda **olayları** dikey penceresi açıldığında, istediğiniz bilgileri gösterir.
 
-1. Merhaba, [kasa Panosu](backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard), Gözat tooand tıklatın **denetim günlüklerini** tooopen hello **olayları** dikey.
+1. İçinde [kasa Panosu](backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard)bulun ve tıklatın **denetim günlüklerini** açmak için **olayları** dikey.
 
     ![Denetim Günlükleri](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)
 
-    Merhaba **olayları** toohello çalışma olaylarını yalnızca hello geçerli kasa için filtre dikey pencere açılır.
+    **Olayları** yalnızca geçerli kasa için filtre işletimsel olayları dikey pencere açılır.
 
     ![Denetim günlükleri filtresi](./media/backup-azure-monitor-vms/audit-logs-filter.png)
 
-    Merhaba dikey penceresinde hello listesini kritik, hata, uyarı ve oluştu bilgilendirme olaylarını hello geçen hafta gösterir. Merhaba süresi hello ayarlanmış varsayılan değerdir **filtre**. Merhaba **olayları** dikey penceresinde de hello olaylar meydana geldiğinde izleme bir çubuk grafik gösterir. Merhaba içinde toosee hello çubuk grafik istemiyorsanız **olayları** menüsünde tıklatın **Gizle grafik** tootoggle hello grafik devre dışı. Hello varsayılan olaylarının işlemi, düzey, durum, kaynak ve saat bilgilerini görüntüler. Ek olay öznitelikleri gösterme hakkında daha fazla bilgi için hello bölümüne bakın [olay bilgilerini genişletme](backup-azure-monitor-vms.md#view-additional-event-attributes).
-2. Bir işlem olayı hello hakkında ek bilgi için **işlemi** sütun, kendi dikey bir operasyonel olay tooopen tıklayın. Merhaba dikey penceresinde hello olaylarıyla ilgili ayrıntılı bilgiler içerir. Olaylar, kendi bağıntı kimliği ve hello zaman aralığı içinde oluştu hello olaylarının bir listesi göre gruplandırılır.
+    Dikey kritik, hata, uyarı ve geçen hafta içinde oluştu bilgilendirme olaylarını listesini gösterir. Zaman aralığı kümesinde varsayılan değerdir **filtre**. **Olayları** dikey penceresinde de olaylar meydana geldiğinde izleme bir çubuk grafik gösterir. Çubuk grafik görmek istemiyorsanız **olayları** menüsünde tıklatın **Gizle grafik** grafik geçiş yapmak için. Varsayılan görünüm olayların işlemi, düzey, durum, kaynak ve saat bilgilerini gösterir. Ek olay öznitelikleri gösterme hakkında daha fazla bilgi için bkz [olay bilgilerini genişletme](backup-azure-monitor-vms.md#view-additional-event-attributes).
+2. Bir operasyonel olay hakkında daha fazla bilgi için **işlemi** sütun, kendi dikey penceresini açmak için bir operasyonel olay'ı tıklatın. Dikey olaylarıyla ilgili ayrıntılı bilgiler içerir. Olaylar, kendi bağıntı kimliği ve bir süre içinde gerçekleşen olaylar listesi göre gruplandırılır.
 
     ![İşlem ayrıntıları](./media/backup-azure-monitor-vms/audit-logs-details-window.png)
-3. tooview ayrıntılı bilgi, olayların hello listesinden belirli bir olay hakkında hello olay tooopen'yı tıklatın, **ayrıntıları** dikey.
+3. Olaylar, listesinden belirli bir olay hakkında ayrıntılı bilgileri görüntülemek için açmak için olay'ı tıklatın, **ayrıntıları** dikey.
 
     ![Olay Ayrıntıları](./media/backup-azure-monitor-vms/audit-logs-details-window-deep.png)
 
-    Merhaba olay düzeyi bilgileri alır hello olarak ayrıntılı bilgidir. Bu kadar her olay bilgilerini görme tercih ederseniz ve tooadd istiyorsanız bu çok ayrıntı toohello **olayları** dikey penceresinde hello bölümüne bakın [olay bilgilerini genişletme](backup-azure-monitor-vms.md#view-additional-event-attributes).
+    Bilgi alır kadar ayrıntılı olay düzeyi bilgilerdir. Bu kadar her olay bilgilerini görme tercih ve bu kadar ayrıntı eklemek istediğiniz **olayları** dikey penceresinde bölümüne bakın [olay bilgilerini genişletme](backup-azure-monitor-vms.md#view-additional-event-attributes).
 
-## <a name="customize-hello-event-filter"></a>Merhaba olay filtresi özelleştirme
-Kullanım hello **filtre** tooadjust veya belirli bir dikey pencerede görüntülenir hello bilgilerini seçin. toofilter hello olay bilgileri:
+## <a name="customize-the-event-filter"></a>Olay filtresi özelleştirme
+Kullanım **filtre** ayarlayın veya belirli bir dikey pencerede görüntülenen bilgileri seçin. Olay bilgileri filtrelemek için:
 
-1. Merhaba, [kasa Panosu](backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard), Gözat tooand tıklatın **denetim günlüklerini** tooopen hello **olayları** dikey.
+1. İçinde [kasa Panosu](backup-azure-manage-vms.md#open-a-recovery-services-vault-in-the-dashboard)bulun ve tıklatın **denetim günlüklerini** açmak için **olayları** dikey.
 
     ![Denetim Günlükleri](./media/backup-azure-monitor-vms/audit-logs-1606-1.png)
 
-    Merhaba **olayları** toohello çalışma olaylarını yalnızca hello geçerli kasa için filtre dikey pencere açılır.
+    **Olayları** yalnızca geçerli kasa için filtre işletimsel olayları dikey pencere açılır.
 
     ![Denetim günlükleri filtresi](./media/backup-azure-monitor-vms/audit-logs-filter.png)
-2. Merhaba üzerinde **olayları** menüsünde tıklatın **filtre** tooopen o dikey.
+2. Üzerinde **olayları** menüsünde tıklatın **filtre** bu dikey penceresini açın.
 
     ![Filtre dikey penceresini açın](./media/backup-azure-monitor-vms/audit-logs-filter-button.png)
-3. Merhaba üzerinde **filtre** dikey penceresinde hello ayarlamak **düzeyi**, **süresi**, ve **arayan** filtreler. Merhaba kurtarma Hizmetleri kasası için tooprovide hello geçerli bilgileri ayarlanan beri hello diğer filtreleri kullanılabilir değil.
+3. Üzerinde **filtre** dikey penceresinde ayarlamak **düzeyi**, **süresi**, ve **arayan** filtreler. Diğer filtreleri kurtarma Hizmetleri kasası geçerli bilgilerini sağlamak için ayarlanan kullanılabilir değildir.
 
     ![Denetim günlükleri Sorgu Ayrıntıları](./media/backup-azure-monitor-vms/filter-blade.png)
 
-    Merhaba belirtebilirsiniz **düzeyi** olayın: kritik, hata, uyarı veya bilgilendirici. Olay düzeyleri herhangi bir birleşimini seçebilirsiniz, ancak en az bir düzey seçili olması gerekir. Merhaba düzeyi açmak veya kapatmak Değiştir. Merhaba **süresi** filtre toospecify hello süreyi olayları yakalamak için sağlar. Özel bir zaman aralığı kullanırsanız, hello başlangıç ayarlayın ve bitiş saatlerini.
-4. Filtre kullanarak hazır tooquery hello işlem günlüklerini olduktan sonra tıklatın **güncelleştirme**. Merhaba sonuçları görüntülemek hello **olayları** dikey.
+    Belirleyebileceğiniz **düzeyi** olayın: kritik, hata, uyarı veya bilgilendirici. Olay düzeyleri herhangi bir birleşimini seçebilirsiniz, ancak en az bir düzey seçili olması gerekir. Düzeyi açmak veya kapatmak Değiştir. **Süresi** filtre olayları yakalamak için süreyi belirtmenize olanak verir. Özel bir zaman aralığı kullanırsanız, başlangıç ve bitiş zamanlarını ayarlayabilirsiniz.
+4. Filtre kullanarak işlem günlüklerini sorgulamak hazır olduğunuzda **güncelleştirme**. Sonuçları görüntülemek **olayları** dikey.
 
     ![İşlem ayrıntıları](./media/backup-azure-monitor-vms/edited-list-of-events.png)
 
 ### <a name="view-additional-event-attributes"></a>Ek olay öznitelikleri görüntüleyin
-Hello kullanarak **sütunları** düğmesi, ek olay öznitelikleri tooappear hello hello listesinde etkinleştirebilirsiniz **olayları** dikey. Merhaba varsayılan olaylarının listesi işlemi, düzey, durum, kaynak ve saat bilgilerini görüntüler. tooenable ek öznitelikler:
+Kullanarak **sütunları** düğmesi üzerinde listesinde görünmesi ek olay öznitelikleri etkinleştirebilir **olayları** dikey. Varsayılan olaylarının bilgi işlem, düzey, durumu, kaynak ve saat için görüntüler. Ek öznitelikler etkinleştirmek için:
 
-1. Merhaba üzerinde **olayları** dikey penceresinde tıklatın **sütunları**.
+1. Üzerinde **olayları** dikey penceresinde tıklatın **sütunları**.
 
     ![Açık sütunları](./media/backup-azure-monitor-vms/audi-logs-column-button.png)
 
-    Merhaba **sütunları seçin** dikey pencere açılır.
+    **Sütunları seçin** dikey pencere açılır.
 
     ![Sütun dikey penceresi](./media/backup-azure-monitor-vms/columns-blade.png)
-2. tooselect hello özniteliği, hello onay kutusuna tıklayın. Merhaba özniteliği onay kutusunu açar ve kapatır.
-3. Tıklatın **sıfırlama** tooreset hello hello içinde öznitelik listesi **olayları** dikey. Ekleme veya öznitelikleri hello listesinden kaldırma sonrasında kullanın **sıfırlama** tooview hello yeni olay öznitelikler listesi.
-4. Tıklatın **güncelleştirme** tooupdate hello verileri hello olay öznitelikleri. Aşağıdaki tablonun hello her özniteliği hakkında bilgi sağlar.
+2. Öznitelik seçmek için onay kutusuna tıklayın. Öznitelik onay kutusunu açar ve kapatır.
+3. Tıklatın **sıfırlama** içinde öznitelik listesi sıfırlamak için **olayları** dikey. Ekleme veya listeden öznitelikleri kaldırma sonrasında kullanın **sıfırlama** olay öznitelikleri yeni listesini görüntülemek için.
+4. Tıklatın **güncelleştirme** olay verileri güncelleştirmek için öznitelikler. Aşağıdaki tabloda her özniteliği hakkında bilgi sağlar.
 
 | Sütun adı | Açıklama |
 | --- | --- |
-| İşlem |Merhaba işlemin Hello adı |
-| Düzey |Merhaba düzeyi hello işleyişini değerler olabilir: bilgi, uyarı, hata veya kritik |
-| Durum |Açıklayıcı hello işlemi durumu |
-| Kaynak |Merhaba kaynağı tanımlayan URL; olarak da bilinen hello kaynak kimliği |
-| Zaman |Hello hello olay gerçekleştiği geçerli saati ölçülen zaman |
-| Çağıran |Kim veya ne adlı veya hello olay tetiklenir; Merhaba sistem ya da bir kullanıcı olabilir |
-| zaman damgası |Merhaba zaman zaman hello olay tetiklenir |
-| Kaynak Grubu |Merhaba ilişkili kaynak grubu |
-| Kaynak Türü |Kaynak Yöneticisi tarafından kullanılan hello iç kaynak türü |
-| Abonelik Kimliği |Merhaba ilişkili abonelik kimliği |
-| Kategori |Merhaba olay kategorisi |
+| İşlem |İşlem adı |
+| Düzey |İşlem düzeyi, değerler olabilir: bilgi, uyarı, hata veya kritik |
+| Durum |Açıklayıcı işlemi durumu |
+| Kaynak |Kaynağı tanımlayan URL; Kaynak Kimliği olarak da bilinir |
+| Zaman |Zaman, olayın gerçekleştiği geçerli zamandan ölçülür |
+| Çağıran |Kim veya ne adlı veya olayı tetikleyen; Sistem ya da bir kullanıcı olabilir |
+| zaman damgası |Olay zaman tetiklendi zamanı |
+| Kaynak Grubu |İlişkili kaynak grubu |
+| Kaynak Türü |Kaynak Yöneticisi tarafından kullanılan iç kaynak türü |
+| Abonelik Kimliği |İlişkili abonelik kimliği |
+| Kategori |Olay kategorisi |
 | Bağıntı Kimliği |İlgili olayları ortak kimliği |
 
-## <a name="use-powershell-toocustomize-alerts"></a>PowerShell toocustomize uyarıları kullanın
-Merhaba Portalı'nda hello işleri için özel uyarı bildirimleri alabilirsiniz. Bu iş, tooget tanımlayın PowerShell tabanlı uyarı hello işletimsel kurallarında olayları günlüğe kaydeder. Kullanım *PowerShell sürüm 1.3.0 veya daha sonra*.
+## <a name="use-powershell-to-customize-alerts"></a>Uyarıları özelleştirmek için PowerShell kullanın
+Portalda işleri için özel uyarı bildirimleri alabilirsiniz. Bu işleri almak için işlem günlüklerini olaylarına PowerShell tabanlı uyarı kuralları tanımlayın. Kullanım *PowerShell sürüm 1.3.0 veya daha sonra*.
 
-toodefine yedekleme hataları için özel bildirim tooalert hello komut aşağıdaki gibi bir komutu kullanın:
+Yedekleme hataları için uyarı için özel bir bildirim tanımlamak için aşağıdaki komut dosyası gibi bir komutu kullanın:
 
 ```
 PS C:\> $actionEmail = New-AzureRmAlertRuleEmail -CustomEmail contoso@microsoft.com
 PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -ResourceGroup RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US -OperationName Microsoft.RecoveryServices/recoveryServicesVault/Backup -Status Failed -TargetResourceId /subscriptions/86eeac34-eth9a-4de3-84db-7a27d121967e/resourceGroups/RecoveryServices-DP2RCXUGWS3MLJF4LKPI3A3OMJ2DI4SRJK6HIJH22HFIHZVVELRQ-East-US/providers/Microsoft.RecoveryServices/vaults/trinadhVault -Actions $actionEmail
 ```
 
-**ResourceId** : hello ResourceId denetim günlüklerini elde edebilirsiniz. Merhaba ResourceId hello Kaynak sütununda hello işlem günlükleri, sağlanan bir URL'dir.
+**ResourceId** : denetim günlüklerinden ResourceId elde edebilirsiniz. ResourceId işlem günlükleri Kaynak sütununda sağlanan bir URL'dir.
 
-**OperationName** : OperationName hello biçiminde olan "Microsoft.RecoveryServices/recoveryServicesVault/*EventName*" nerede *EventName* olabilir:<br/>
+**OperationName** : OperationName biçiminde olan "Microsoft.RecoveryServices/recoveryServicesVault/*EventName*" nerede *EventName* olabilir:<br/>
 
 * Kaydolma <br/>
 * Kaydı Kaldır <br/>
@@ -181,23 +181,23 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 
 **Durum** : desteklenen değerler başlatıldı, başarılı veya başarısız oldu.
 
-**Kaynak grubu** : Merhaba toowhich hello kaynağa ait kaynak grubu budur. Merhaba kaynak grubu sütununun oluşturulan toohello günlükleri ekleyebilirsiniz. Kaynak grubu hello kullanılabilir türler olay bilgilerinin biridir.
+**Kaynak grubu** : kaynak ait olduğu kaynak grubu budur. Kaynak grubu sütununun oluşturulan günlüklerin ekleyebilirsiniz. Kaynak grubu kullanılabilir türler olay bilgilerinin biridir.
 
-**Ad** : hello uyarı kuralı adı.
+**Ad** : uyarı kuralının adı.
 
-**CustomEmail** : hello özel e-posta adresi toowhich toosend bir uyarı bildirimine istediğiniz belirtin
+**CustomEmail** : bir uyarı bildirimi göndermek istediğiniz özel e-posta adresi belirtin
 
-**SendToServiceOwners** : Bu seçenek uyarı bildirimleri tooall yöneticileri ve ortak Yöneticiler hello aboneliğin gönderir. İçinde kullanılabilir **yeni AzureRmAlertRuleEmail** cmdlet'i
+**SendToServiceOwners** : Bu seçenek tüm yöneticileri ve ortak yöneticileri aboneliğin uyarı bildirimleri gönderir. İçinde kullanılabilir **yeni AzureRmAlertRuleEmail** cmdlet'i
 
 ### <a name="limitations-on-alerts"></a>Uyarıları sınırlamalar
-Olay tabanlı uyarılara sınırlamalar aşağıdaki konu toohello şunlardır:
+Olay tabanlı uyarılara tabi aşağıdaki sınırlamalar vardır:
 
-1. Kurtarma Hizmetleri kasası hello tüm sanal makinelerde uyarıları tetiklenir. Sanal makineler bir kurtarma Hizmetleri kasasına alt kümeleri için hello uyarı özelleştiremezsiniz.
+1. Kurtarma Hizmetleri Kasası'nda tüm sanal makinelerde uyarıları tetiklenir. Sanal makineler bir kurtarma Hizmetleri kasasına bir kısmı için uyarı özelleştiremezsiniz.
 2. Bu özelliğin önizlemede değil. [Daha fazla bilgi](../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts)
-3. Uyarılar gönderilen "alerts-noreply@mail.windowsazure.com". Şu anda hello e-posta gönderen değiştiremezsiniz.
+3. Uyarılar gönderilen "alerts-noreply@mail.windowsazure.com". Şu anda e-posta gönderen değiştiremezsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Olay günlükleri proje harika Sonrası-Değerlendirme etkinleştirmek ve hello yedekleme işlemleri için destek denetleyebilirsiniz. aşağıdaki işlemleri hello kaydedilir:
+Olay günlükleri proje harika Sonrası-Değerlendirme etkinleştirme ve yedekleme işlemleri için destek denetleyebilirsiniz. Aşağıdaki işlemleri günlüğe kaydedilir:
 
 * Kaydolma
 * Kaydı Kaldır
@@ -211,6 +211,6 @@ Olay günlükleri proje harika Sonrası-Değerlendirme etkinleştirmek ve hello 
 * Güncelleştirme ilkesi
 * İşi iptal et
 
-Azure Hizmetleri, olaylar, operations ve denetim günlüklerini hello arasında geniş kapsamlı bir açıklama için hello makaleye bakın [olayları görüntülemek ve Denetim günlükleri](../monitoring-and-diagnostics/insights-debugging-with-events.md).
+Olayları geniş kapsamlı bir açıklama için operations ve Azure Hizmetleri genelinde denetim günlüklerini makalesine bakın [olayları görüntülemek ve Denetim günlükleri](../monitoring-and-diagnostics/insights-debugging-with-events.md).
 
-Bir sanal makine bir kurtarma noktasından yeniden oluşturma hakkında daha fazla bilgi için kullanıma [geri Azure Vm'leri](backup-azure-restore-vms.md). Sanal makinelerinizi koruma bilgi gerekirse bkz [ilk bakış: geri kurtarma Hizmetleri kasası VM'ler tooa yukarı](backup-azure-vms-first-look-arm.md). Merhaba makalede, VM yedeklemeler için hello yönetim görevleri hakkında bilgi edinin [yönetmek Azure sanal makine yedeklerini](backup-azure-manage-vms.md).
+Bir sanal makine bir kurtarma noktasından yeniden oluşturma hakkında daha fazla bilgi için kullanıma [geri Azure Vm'leri](backup-azure-restore-vms.md). Sanal makinelerinizi koruma bilgi gerekirse bkz [ilk bakış: Vm'leri bir kurtarma Hizmetleri kasasına yedekleme](backup-azure-vms-first-look-arm.md). Makalede VM yedeklemeler için yönetim görevleri hakkında bilgi edinin [yönetmek Azure sanal makine yedeklerini](backup-azure-manage-vms.md).

@@ -1,6 +1,6 @@
 ---
 title: "Hızlı Başlangıç: MySQL için Azure Veritabanı sunucusu Oluşturma - Azure portalı | Microsoft Docs"
-description: "Bu makale adımları kullanarak size Azure portal tooquickly hello yaklaşık beş dakika içinde MySQL sunucusu için bir örnek Azure veritabanı oluşturun."
+description: "Bu makalede, Azure portalını kullanarak örnek bir MySQL için Azure Veritabanı sunucusunu yaklaşık beş dakika içinde hızlıca oluşturma adımları verilmektedir."
 services: mysql
 author: v-chenyh
 ms.author: v-chenyh
@@ -10,117 +10,126 @@ ms.service: mysql-database
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 08/15/2017
-ms.openlocfilehash: d5754fe7a6f0f0f4b3fa19d456c4e15e64ca396c
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 46aee37a00a923addc08dd185ce0326a64ccb48c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-an-azure-database-for-mysql-server-using-azure-portal"></a>Azure portalını kullanarak MySQL için Azure Veritabanı sunucusu oluşturma
-Azure veritabanı için MySQL toorun sağlayan yönetilen bir hizmettir, yönetmek ve yüksek oranda kullanılabilir MySQL veritabanları hello bulutta ölçeklendirin. Bu hızlı başlangıç toocreate Azure nasıl veritabanı için MySQL sunucusu yaklaşık beş dakika içinde hello Azure portal kullanarak gösterir. 
+# <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Azure portalını kullanarak MySQL için Azure Veritabanı sunucusu oluşturma
+MySQL için Azure Veritabanı, bulutta yüksek oranda kullanılabilir olan MySQL veritabanları çalıştırmak, yönetmek ve ölçeklendirmek için kullanılan, yönetilen bir hizmettir. Bu Hızlı Başlangıçta, Azure portalını kullanarak yaklaşık beş dakikada nasıl MySQL için Azure Veritabanı sunucusu oluşturacağınız gösterilir.  
 
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir Azure hesabı](https://azure.microsoft.com/free/) oluşturun.
 
-## <a name="log-in-tooazure"></a>İçinde tooAzure oturum
-Web tarayıcınızı açın ve toohello gidin [Microsoft Azure portal](https://portal.azure.com/). Kimlik bilgileri toosign toohello Portalı'nda girin. Hizmet panonuz Hello varsayılan görünümüdür.
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+Web tarayıcınızı açın ve [Azure portalına](https://portal.azure.com/) gidin. Portalda oturum açmak için kimlik bilgilerinizi girin. Varsayılan görünüm hizmet panonuzu içerir.
 
-## <a name="create-azure-database-for-mysql-server"></a>MySQL için Azure Veritabanı sunucusu oluşturma
-MySQL için Azure Veritabanı sunucusu, tanımlı bir dizi [işlem ve depolama kaynağı](./concepts-compute-unit-and-storage.md) ile oluşturulur. Merhaba server içinde oluşturulur bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md).
+## <a name="create-an-azure-database-for-mysql-server"></a>MySQL için Azure Veritabanı sunucusu oluşturma
+MySQL için Azure Veritabanı sunucusu, tanımlı bir dizi [işlem ve depolama kaynağı](./concepts-compute-unit-and-storage.md) ile oluşturulur. Sunucu, [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) içinde oluşturulur.
 
-Bu adımları toocreate MySQL sunucusu için bir Azure veritabanı izleyin:
+MySQL için Azure veritabanı sunucusu oluşturmak üzere şu adımları uygulayın:
 
-1. Merhaba tıklatın **yeni** hello sol üst köşesinin hello Azure portalı üzerinde bulunan düğmesini (+).
+1. Portalın sol üst köşesinde bulunan **Yeni** düğmesini (+) seçin.
 
-2. Seçin **veritabanları** hello gelen **yeni** sayfasında ve seçin **Azure veritabanı için MySQL** hello gelen **veritabanları** sayfası. Ayrıca yazabilirsiniz **MySQL** hello yeni sayfa arama kutusu toofind hello hizmetinin içinde.
-![Azure portalı - yeni - veritabanı - MySQL](./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png)
+2. **Veritabanları** > **MySQL için Azure Veritabanı**’nı seçin. Hizmeti ayrıca arama kutusuna **MySQL** yazarak da bulabilirsiniz.
 
-3. Yeni Sunucu ayrıntıları form Hello görüntü önceki hello üzerinde gösterildiği gibi bilgileri, aşağıdaki hello ile doldurmak:
+    ![MySQL için Azure Veritabanı seçeneği](./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png)
 
-    **Ayar** | **Önerilen değer** | **Alan Açıklaması** 
+4. Yeni sunucu ayrıntıları formunu, bir önceki resimde gösterildiği gibi aşağıdaki bilgilerle doldurun:
+
+    **Ayar** | **Önerilen değer** | **Alan açıklaması** 
     ---|---|---
-    Sunucu adı | myserver4demo | Azure veritabanınızı MySQL sunucusuna tanıtan benzersiz bir ad seçin. Merhaba etki alanı adı *mysql.database.azure.com* eklenmiş toohello sunucu adı için uygulamalar tooconnect sağlar. Merhaba sunucu adı yalnızca küçük harf, sayı ve hello tire (-) karakterini içerebilir ve 3-63 karakter içermelidir.
-    Abonelik | Aboneliğiniz | Merhaba toouse sunucunuz için istediğiniz Azure aboneliği. Birden çok aboneliğiniz varsa, hangi hello kaynak için faturalandırılır hello uygun abonelik seçin.
-    Kaynak grubu | myresourcegroup | Yeni bir kaynak grubu adı oluşturabilir veya mevcut bir aboneliğinizi kullanabilirsiniz.
-    Sunucu yöneticisi oturum açma | myadmin | Kendi oturum açma hesabı toouse toohello sunucusu bağlanırken olun. Hello Yöneticisi oturum açma adı, 'azure_superuser', 'admin', 'Yönetici', 'root', 'Konuk' veya 'genel' olamaz.
-    Parola | *Tercih ettiğiniz* | Merhaba server yönetici hesabı için yeni bir parola oluşturun. 8 too128 karakterler içermelidir. Parolanız kategorileri aşağıdaki hello üçünden karakterler içermelidir – İngilizce büyük harfler, küçük harfler, sayılar (0-9) ve alfasayısal olmayan karakterler (!, $, #, %, vs.).
-    Parolayı onayla | *Tercih ettiğiniz*| Merhaba yönetici hesabı parolasını onaylayın.
-    Konum | *Merhaba bölgeye en yakın tooyour kullanıcılar*| En yakın tooyour kullanıcılar ya da diğer Azure uygulamalarını hello konumu seçin.
-    Sürüm | *Merhaba en son sürümünü seçin*| Belirli gereksinimlere sahip sürece hello en son sürümünü seçin.
-    Fiyatlandırma Katmanı | **Temel**, **50 İşlem Birimi** **50 GB** | Tıklatın **fiyatlandırma katmanı** toospecify hello hizmeti katmanını ve performans düzeyini yeni veritabanı. Seçin **temel katmana** hello sekmesinde hello üstünde. Merhaba Hello solundaki tıklatın **işlem birimleri** kaydırıcı tooadjust hello değeri toohello az tutar kullanılabilir Bu Hızlı Başlangıç için. Tıklatın **Tamam** toosave hello fiyatlandırma katmanı seçimi. Aşağıdaki ekran görüntüsü hello bakın.
-    PIN toodashboard | İşaretli | Merhaba denetleyin **PIN toodashboard** seçeneği tooallow kolay izleme sunucunuzun hello ön panosu sayfasında Azure portalı.
+    Sunucu adı | myserver4demo | Azure veritabanınızı MySQL sunucusuna tanıtan benzersiz bir ad. Girdiğiniz sunucu adına *mysql.database.azure.com* etki alanı adı eklenir. Sunucu adı yalnızca küçük harf, sayı ve kısa çizgi (-) karakterini içerebilir. 3 ila 63 karakter arası içermelidir.
+    Abonelik | Aboneliğiniz | Sunucunuz için kullanmak istediğiniz Azure aboneliği. Birden fazla aboneliğiniz varsa kaynağın faturalandığı aboneliği seçin.
+    Kaynak grubu | myresourcegroup | Yeni veya mevcut bir kaynak grubu adı.
+    Sunucu yöneticisi oturum açma | myadmin | Sunucuya bağlanırken kullanılacak oturum açma hesabı. Yönetici oturum açma adı **azure_superuser**, **admin**, **administrator**, **root**, **guest** veya **public** olamaz.
+    Parola | *Tercih ettiğiniz* | Sunucu yönetici hesabı için yeni bir parola. 8 ila 128 karakter arası içermelidir. Parolanız şu üç kategoride yer alan karakterlerden oluşmalıdır: İngilizce büyük ve küçük harfler, sayılar (0-9) ve alfasayısal olmayan karakterler (!, $, #, %, vb.).
+    Parolayı onayla | *Tercih ettiğiniz*| Onaylanmış yönetici hesabı parolası.
+    Konum | *Kullanıcılarınıza en yakın bölge*| Kullanıcılarınıza veya diğer Azure uygulamalarınıza en yakın konumu.
+    Sürüm | *En son sürüm*| En son sürüm (başka bir sürüm gerektiren belirli gereksinimleriniz yoksa).
+    Fiyatlandırma katmanı | **Temel**, **50 İşlem Birimi** **50 GB** | Yeni veritabanınızın hizmet katmanı ve performans düzeyi. En üstteki sekmeden **Temel katman**’ı seçin. Bu Hızlı Başlangıç için, **İşlem Birimleri** kaydırıcısının sol ucundaki seçeneği kullanarak değeri mümkün olan en düşük değere ayarlayın. Fiyatlandırma katmanını kaydetmek için **Tamam**’a tıklayın. Daha fazla bilgi için aşağıdaki ekran görüntüsüne bakın.
+    Panoya sabitle | İşaretli | Azure Portal'ın ön pano sayfasında sunucunuzun kolayca izlenmesine izin verir.
 
     > [!IMPORTANT]
-    > Merhaba Sunucu Yöneticisi oturum açma ve burada belirttiğiniz parola toohello Server'daki gerekli toolog ve veritabanlarını Bu hızlı başlangıç devamındaki kümesidir. Bu bilgileri daha sonra kullanmak üzere aklınızda tutun veya kaydedin.
+    > Burada belirttiğiniz sunucu yöneticisi kullanıcı adı ve parolası, bu Hızlı Başlangıcın sonraki bölümlerinde sunucuda ve veritabanlarında oturum açmak için gereklidir. Bu bilgileri daha sonra kullanmak üzere aklınızda tutun veya kaydedin.
     > 
 
-    ![Azure portal - gerekli hello form girişi sağlayarak MySQL oluşturma](./media/quickstart-create-mysql-server-database-using-azure-portal/3_create-server.png)
+    ![Azure portalı--gerekli form girişlerini yaparak MySQL oluşturma](./media/quickstart-create-mysql-server-database-using-azure-portal/3_create-server.png)
 
-4.  Tıklatın **oluşturma** tooprovision hello sunucu. Sağlama too20 dakika yukarı birkaç dakika en fazla sürer.
+4.  Sunucuyu sağlamak için **Oluştur**’u seçin. Hazırlama işlemi 20 dakika kadar sürebilir.
    
-5.  Merhaba araç çubuğundan, **bildirimleri** (zil simgesine) toomonitor hello dağıtım işlemi.
+5.  Araç çubuğunda **Bildirimler**’i (zil simgesi) seçip dağıtım işlemini izleyin.
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Sunucu düzeyinde güvenlik duvarı kuralı oluşturma
 
-MySQL hizmeti için Azure veritabanı Hello hello sunucu düzeyinde güvenlik duvarı oluşturur. Bu Güvenlik Duvarı'nı bir güvenlik duvarı kuralı tooopen hello Güvenlik Duvarı'nı belirli IP adresleri için yapılandırılmadığı sürece dış uygulamaları ve Araçları'nın toohello sunucusu ve hello sunucudaki tüm veritabanları bağlanmasını önler. 
+MySQL için Azure Veritabanı hizmeti, sunucu düzeyinde bir güvenlik duvarı oluşturur. Bu güvenlik duvarı, belirli IP adresleri için güvenlik duvarını açmak üzere bir güvenlik duvarı kuralı oluşturulmadıkça, dış uygulama ve araçların sunucuya ve sunucu üzerindeki herhangi bir veritabanına bağlanmasını engeller. 
 
-1.  Merhaba dağıtım tamamlandıktan sonra sunucunuzun bulun. Gerekirse arama yapabilirsiniz. Örneğin, **tüm kaynakları** hello sol menüsünden ve hello sunucu adı yazın (Merhaba örneği gibi *myserver4demo*) toosearch yeni oluşturulan sunucunuz için. Merhaba arama sonucunda listelenen sunucunuzun adını tıklatın. Merhaba **genel bakış** sayfası sunucunuz açar ve ek yapılandırma seçeneklerini sağlar.
+1.   Dağıtım tamamlandıktan sonra sunucunuzu bulun. Gerekirse arama yapabilirsiniz. Örneğin sol taraftaki menüden **Tüm Kaynaklar**’ı seçin. Ardından yeni oluşturduğunuz sunucuyu aramak için sunucu adını (**myserver4demo** örneğindeki gibi) yazın. Arama sonuçları listesinden sunucu adını seçin. Sunucunuzun **Genel bakış** sayfası açılır ve daha fazla yapılandırma seçenekleri sunulur.
 
-2. Merhaba sunucu sayfasında seçin **bağlantı güvenliği**.
+2. Sunucu sayfasında **Bağlantı güvenliği**’ni seçin.
 
-3.  Merhaba altında **güvenlik duvarı kuralları** hello hello boş bir metin kutusunda başlığını tıklatın **kural adı** sütun toobegin hello güvenlik duvarı kuralı oluşturma. 
+3.  **Güvenlik Duvarı kuralları** başlığı altında, güvenlik duvarı kuralı oluşturmaya başlamak için **Kural Adı** sütunundaki boş metin kutusunu seçin. 
 
-    Bu Hızlı Başlangıç için şimdi tüm IP adresleri hello Server'a hello metin kutusunda her sütun değerleri aşağıdaki hello ile doldurarak izin ver:
+    Bu Hızlı Başlangıçta, tüm sütunlardaki kutuları aşağıdaki değerlerle doldurarak tüm IP adreslerinin sunucuya bağlanmasına izin verelim:
 
-    Kural Adı | Başlangıç IP’si | Bitiş IP’si 
+    Kural adı | Başlangıç IP’si | Bitiş IP’si 
     ---|---|---
     AllowAllIps |  0.0.0.0 | 255.255.255.255
 
-4. Merhaba, hello üst araç çubuğunda **bağlantı güvenliği** sayfasında, **kaydetmek**. Birkaç dakika sonra ve bağlantı güvenliği güncelleştirme başarıyla devam etmeden önce tamamlandığını gösteren bildirim hello bildirim bekleyin.
+4. **Bağlantı güvenliği** sayfasının üst araç çubuğunda **Kaydet**’i seçin. Devam etmeden önce güncelleştirmenin başarıyla tamamlandığını belirten bildirim görünene kadar bekleyin. 
 
     > [!NOTE]
-    > MySQL veritabanı bağlantılarını tooAzure 3306 bağlantı noktası üzerinden iletişim kurar. Bir şirket ağından gelen tooconnect çalışıyorsanız, bağlantı noktası 3306 üzerinden giden trafik, ağınızın güvenlik duvarı tarafından izin verilmiyor. BT departmanınız 3306 bir bağlantı noktası açar sürece bu durumda, mümkün tooconnect tooyour sunucu olmaz.
+    > MySQL için Azure Veritabanı bağlantıları 3306 bağlantı noktası üzerinden iletişim kurar. Kurumsal ağ içinden bağlanmaya çalışıyorsanız, 3306 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bu durumda, BT departmanınız 3306 numaralı bağlantı noktasını açmadığı sürece sunucunuza bağlanamazsınız.
     > 
 
-## <a name="get-hello-connection-information"></a>Merhaba bağlantı bilgilerini alma
-tooconnect tooyour veritabanı sunucusu, tooremember hello tam sunucu adı ve yönetici oturum açma kimlik bilgileri gerekir. Bu değerleri hello hızlı başlangıç makaledeki daha önce not ettiğiniz. Yaptığınız olmayan olasılığına hello sunucu adını ve oturum açma bilgilerini hello sunucusundan kolayca bulabilirsiniz **genel bakış** sayfa veya hello **özellikleri** hello Azure portal sayfasında.
+## <a name="get-the-connection-information"></a>Bağlantı bilgilerini alma
+Veritabanı sunucusuna bağlanmak için tam sunucu adı ve yönetici oturum açma kimlik bilgileri gerekir. Bu değerleri Hızlı Başlangıç makalesinde daha önce not almış olabilirsiniz. Aksi takdirde, Azure portalındaki sunucuya **Genel Bakış** sayfasında veya **Özellikler** sayfasında sunucu adını ve oturum açma bilgilerini kolayca bulabilirsiniz.
 
-1. Sunucunuzun **Genel Bakış** sayfasını açın. Merhaba Not **sunucu adı** ve **sunucu yönetici oturum açma adı**. 
-    İmleç her bir alan getirin ve toohello sağ hello metnin hello Kopyala simgesi görünür. Gerekli toocopy hello değerleri olarak Hello Kopyala simgesine tıklayın.
+Bunları bulmak için aşağıdaki adımları takip edin: 
 
-    Bu örnekte, hello sunucu adıdır *myserver4demo.mysql.database.azure.com*, ve hello Sunucu Yöneticisi oturum açma  *myadmin@myserver4demo* .
+1. Sunucunuzun **Genel Bakış** sayfasını açın. **Sunucu adını** ve **Sunucu yöneticisi oturum açma adını** not edin. 
 
-## <a name="connect-toomysql-using-mysql-command-line-tool"></a>MySQL komut satırı aracını kullanarak tooMySQL Bağlan
-Bazı uygulamaları tooconnect tooyour Azure veritabanı MySQL sunucusu için kullanabilirsiniz. İlk hello kullanalım [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) komut satırı tooillustrate nasıl aracı tooconnect toohello sunucu.  Bir web tarayıcısı kullanabilirsiniz ve hello Azure bulut hello burada açıklandığı gibi Kabuk ek yazılım tooinstall gerekir. Merhaba mysql yardımcı programını yerel olarak kendi makinede yüklü varsa, buradan da bağlanabilirsiniz.
+2. İmlecinizi her bir alanın üzerine getirin, metnin sağ tarafında Kopyala simgesi görünür. Değerleri kopyalamak için gerektiği şekilde Kopyala simgesini seçin.
 
-1. Hello terminal simgesi aracılığıyla Hello Azure bulut Kabuğu'nu başlatın (> _) hello üzerinde hello Azure portal web sayfasının sağ üst.
+Bu örnekte sunucu adı **myserver4demo.mysql.database.azure.com**, sunucu yöneticisi oturum açma bilgileri ise **myadmin@myserver4demo** şeklindedir.
 
-2. Hello Azure bulut Kabuk tootype bash Kabuk komutları etkinleştirme tarayıcınızda açar.
+## <a name="connect-to-mysql-by-using-the-mysql-command-line-tool"></a>MySQL komut satırı aracını kullanarak sunucuya bağlanma
+MySQL sunucusu için Azure veritabanınıza çeşitli uygulamalar kullanarak bağlanabilirsiniz. 
 
-    ![Komut istemi - mysql komut satırı örneği](./media/quickstart-create-mysql-server-database-using-azure-portal/7_connect-to-server.png)
+İlk olarak sunucuya nasıl bağlanılacağını göstermek için [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) komut satırı aracını kullanalım. Burada açıklandığı şekliyle bir web tarayıcısını ve Azure Cloud Shell’i herhangi bir ek yazılım yüklemeniz gerekmeden kullanabilirsiniz. Yerel olarak yüklü mysql yardımcı programınız varsa, oradan da bağlanabilirsiniz.
 
-3. Merhaba bulut Kabuk isteminde hello yeşil isteminde hello mysql komut satırı yazarak tooyour Azure veritabanı MySQL sunucusu için bağlayın.
+1. Azure portalı web sayfasının sağ üst tarafındaki terminal simgesi aracılığıyla (**>_**) Azure Cloud Shell’i başlatın.
 
-    Biçim aşağıdaki hello hello mysql yardımcı programı ile MySQL sunucusu için kullanılan tooconnect tooan Azure veritabanı şöyledir:
+2.  Azure Cloud Shell, tarayıcınızda açılarak bash kabuk komutları yazmanıza olanak verir.
+
+    ![Komut istemi--mysql komut satırı örneği](./media/quickstart-create-mysql-server-database-using-azure-portal/7_connect-to-server.png)
+
+3. Cloud Shell isteminde, mysql komut satırını yazarak MySQL için Azure Veritabanı sunucunuza bağlanın.
+
+    mysql yardımcı programıyla MySQL için Azure Veritabanı sunucusuna bağlanmak için aşağıdaki biçim kullanılır:
+
     ```bash
     mysql --host <yourserver> --user <server admin login> --password
     ```
 
-    Örneğin, komutu aşağıdaki hello tooour örnek sunucu bağlanır:
+    Örneğin, aşağıdaki komut örnek sunucumuza bağlanır:
+
     ```azurecli-interactive
     mysql --host myserver4demo.mysql.database.azure.com --user myadmin@myserver4demo --password
     ```
 
     mysql parametresi |Önerilen değer|Açıklama
     ---|---|---
-    --host | *sunucu adı* | Hello Azure veritabanı için MySQL daha önce oluşturduğunuz zaman, kullanılan hello sunucu adı değeri belirtin. Gösterilen örnek sunucumuz: myserver4demo.mysql.database.azure.com. Merhaba tam etki alanı adını kullan (\*. mysql.database.azure.com) hello örnekte gösterildiği gibi. Sunucu adınız anımsamıyorsanız hello önceki bölümde tooget hello bağlantı bilgilerini hello adımları izleyin. 
-    --kullanıcı | *sunucu yöneticisi oturum açma adı* |İçinde hello sunucu yönetici oturum açma kullanıcı hello Azure veritabanı için MySQL daha önce oluşturduğunuz zaman sağlanan yazın. Merhaba kullanıcıadı anımsamıyorsanız hello önceki bölümde tooget hello bağlantı bilgilerini hello adımları izleyin.  Merhaba biçimi  *username@servername* .
-    --parola | *istenene kadar bekleyin* | İstenir çok "Parola gir" çalıştırdıktan sonra hello komutu girin. İstendiğinde, hello aynı tür hello sunucu oluştururken sağladığınız parolayı.  Not hello yazdığınız karakterler hello bash üzerinde komut istemi gösterilmez parola belirtilmiş. Tüm hello karakter tooauthenticate yazmış bağlanmak sonra enter tuşuna basın.
+    --host | *Sunucu adı* | MySQL sunucusu için Azure Veritabanını oluştururken kullandığınız sunucu adı değeri. Örnek sunucumuz: **myserver4demo.mysql.database.azure.com**. Örnekte gösterildiği gibi tam etki alanı adını (**\*.mysql.database.azure.com**) kullanın. Sunucu adınızı anımsamıyorsanız bağlantı bilgilerini almak için bir önceki bölümdeki adımları izleyin. 
+    --kullanıcı | *Sunucu yöneticisi oturum açma adı* |MySQL sunucusu için Azure Veritabanını oluştururken girdiğiniz sunucu yöneticisi oturum açma kullanıcı adı. Kullanıcı adını anımsamıyorsanız bağlantı bilgilerini almak için bir önceki bölümdeki adımları izleyin. Biçim şöyledir: *username@servername*.
+    --parola | *İstenene kadar bekleyin* |Sunucuyu oluştururken belirttiğiniz parola. Yazılan parola karakterlerinin yazılırken bash isteminde gösterilmeyeceğini unutmayın. Parolanızı girdikten sonra **Enter** tuşuna basın.
 
-   Bağlantı kurulduktan sonra hello mysql yardımcı programı görüntüler bir `mysql>` , tootype komutları sor. 
+   Bağlantı kurulduğunda, mysql yardımcı programı komut yazabileceğiniz bir `mysql>` istemi gösterir. 
 
-    Örnek mysql çıktısı:
+   Örnek mysql çıktısı aşağıdadır:
+
     ```bash
-    Welcome toohello MySQL monitor.  Commands end with ; or \g.
+    Welcome to the MySQL monitor.  Commands end with ; or \g.
     Your MySQL connection id is 65505
     Server version: 5.6.26.0 MySQL Community Server (GPL)
     
@@ -130,82 +139,89 @@ Bazı uygulamaları tooconnect tooyour Azure veritabanı MySQL sunucusu için ku
     affiliates. Other names may be trademarks of their respective
     owners.
 
-    Type 'help;' or '\h' for help. Type '\c' tooclear hello current input statement.
+    Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
     
     mysql>
     ```
     > [!TIP]
-    > Merhaba güvenlik duvarı değilse hello aşağıdaki hata oluşuyor tooallow hello IP adresini hello Azure bulut Kabuk yapılandırılmış:
+    > Güvenlik duvarı Azure Cloud Shell IP adreslerine izin verecek biçimde yapılandırılmamışsa aşağıdaki hata oluşur:
     >
-    > HATA 2003 (28000): İstemci IP adresi 123.456.789.0 tooaccess hello sunucu izin verilmiyor.
+    > HATA 2003 (28000): 123.456.789.0 IP adresli istemcinin sunucuya erişmesine izin verilmiyor.
     >
-    > tooresolve hello hata yapma emin hello sunucu yapılandırması eşleşme hello adımları hello *bir sunucu düzeyinde güvenlik duvarı kuralı yapılandırın* hello makalenin bölümüne.
+    > Hatayı gidermek için sunucu yapılandırmasının makalenin “Sunucu düzeyinde güvenlik duvarı kuralı yapılandırma” bölümünde yer alan adımlarla eşleştiğinden emin olun.
 
-4. Görünüm sunucu durumu tooensure hello bağlantısı çalışır durumdadır. Türü `status` hello mysql adresindeki > bunu bağlandıktan sonra ister.
+4. Bağlantının kurulduğundan emin olmak için mysql> isteminde `status` yazarak sunucu durumunu görüntüleyin.
+
     ```sql
     status
     ```
 
    > [!TIP]
-   > Ek komutlar için bkz. [MySQL 5.7 Başvuru Kılavuzu - Bölüm 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
+   > Ek komutlar için bkz. [MySQL 5.7 Başvuru Kılavuzu--Bölüm 4.5.1](https://dev.mysql.com/doc/refman/5.7/en/mysql.html).
 
-5.  Merhaba mysql boş bir veritabanı oluşturun > merhaba aşağıdaki komutu yazarak istem:
+5.  Aşağıdaki komutu yazarak **mysql>** isteminde boş bir veritabanı oluşturun:
     ```sql
     CREATE DATABASE quickstartdb;
     ```
-    Merhaba komutu birkaç dakika sonra toocomplete sürebilir. 
+    Komutun tamamlanması birkaç dakika sürebilir. 
 
-    MySQL sunucusu için Azure Veritabanı içinde bir veya birden fazla veritabanı oluşturabilirsiniz. Tüm hello kaynakları toocreate sunucu tooutilize başına tek bir veritabanı opt veya birden çok veritabanları tooshare hello kaynakları oluşturun. Hiçbir toohello sayısı sınırı oluşturulabilir veritabanları yoktur, ancak birden çok veritabanı hello paylaşmak aynı sunucu kaynakları. 
+    MySQL sunucusu için Azure Veritabanı içinde bir veya birden fazla veritabanı oluşturabilirsiniz. Tüm kaynakları kullanmak için sunucu başına tek bir veritabanı oluşturmayı veya kaynakları paylaşmak için birden çok veritabanı oluşturmayı seçebilirsiniz. Sınırsız sayıda veritabanı oluşturabilirsiniz, ancak birden fazla veritabanı aynı sunucu kaynağını paylaşır. 
 
-6. Liste hello mysql hello veritabanlarındaki > merhaba aşağıdaki komutu yazarak istem:
+6. Aşağıdaki komutu yazarak **mysql>** isteminde veritabanlarını listeleyin:
 
     ```sql
     SHOW DATABASES;
     ```
 
-7.  Tür `\q` ve tooquit hello mysql aracı ENTER tuşuna basın. Tamamladıktan sonra hello Azure bulut Kabuk kapatabilirsiniz.
+7.  `\q` yazın ve ardından **Enter** tuşuna basarak mysql aracından çıkın. İşlem tamamlanınca Azure Cloud Shell’i kapatabilirsiniz.
 
-Şimdi toohello Azure veritabanı için MySQL bağlı sahip ve boş kullanıcı veritabanı oluşturuldu. Toohello sonraki bölümde toorepeat benzer bir alıştırma tooconnect toohello devam başka bir ortak aracı, MySQL çalışma ekranı kullanarak aynı sunucu.
+Böylece Azure Veritabanını MySQL sunucusuna bağladınız ve boş bir kullanıcı veritabanı oluşturdunuz. Benzer bir alıştırma için sonraki bölüme geçin. Sonraki alıştırmada aynı sunucuya başka bir genel araç, MySQL Workbench kullanılarak bağlanacağız.
 
-## <a name="connect-toohello-server-using-hello-mysql-workbench-gui-tool"></a>Merhaba MySQL çalışma ekranı GUI aracını kullanarak toohello sunucuya bağlanın
-tooconnect tooAzure MySQL server: Hello GUI aracıyla MySQL çalışma ekranı
+## <a name="connect-to-the-server-by-using-the-mysql-workbench-gui-tool"></a>MySQL Workbench GUI aracını kullanarak sunucuya bağlanma
+MySQL Workbench GUI aracını kullanarak sunucuya bağlanmak için aşağıdaki adımları gerçekleştirin:
 
-1.  Merhaba, istemci bilgisayardaki MySQL çalışma ekranı uygulaması başlatın. MySQL Workbench uygulamasını [buradan](https://dev.mysql.com/downloads/workbench/) indirip yükleyebilirsiniz.
+1.  İstemci bilgisayarınızda MySQL Workbench uygulamasını açın. MySQL Workbench uygulamasını [MySQL Workbench’i İndir](https://dev.mysql.com/downloads/workbench/) bağlantısını kullanarak indirip yükleyebilirsiniz.
 
-2.  İçinde **yeni bağlantı kurma** iletişim kutusunda, aşağıdaki bilgilerle hello girin **parametreleri** sekmesi:
+2.  **Setup New Connection** (Yeni Bağlantı Oluştur) iletişim kutusundaki **Parameters** (Parametreler) sekmesine aşağıdaki bilgileri girin:
 
-    ![yeni bağlantı oluştur](./media/quickstart-create-mysql-server-database-using-azure-portal/setup-new-connection.png)
+    ![Yeni bağlantı oluştur](./media/quickstart-create-mysql-server-database-using-azure-portal/setup-new-connection.png)
 
-    | **Ayar** | **Önerilen değer** | **Alan Açıklaması** |
+    |Ayar |Önerilen değer|Alan açıklaması|
     |---|---|---|
-    |   Bağlantı Adı | Tanıtım Bağlantısı | Bu bağlantı için bir etiket belirtin. |
-    | Bağlantı Yöntemi | Standart (TCP/IP) | Standart (TCP/IP) yeterlidir. |
-    | Ana Bilgisayar Adı | *sunucu adı* | Hello Azure veritabanı için MySQL daha önce oluşturduğunuz zaman, kullanılan hello sunucu adı değeri belirtin. Gösterilen örnek sunucumuz: myserver4demo.mysql.database.azure.com. Merhaba tam etki alanı adını kullan (\*. mysql.database.azure.com) hello örnekte gösterildiği gibi. Sunucu adınız anımsamıyorsanız hello önceki bölümde tooget hello bağlantı bilgilerini hello adımları izleyin.  |
-    | Bağlantı noktası | 3306 | Her zaman bağlantı noktası tooAzure veritabanı için MySQL bağlanırken 3306 kullanın. |
-    | Kullanıcı adı |  *sunucu yöneticisi oturum açma adı* | İçinde hello sunucu yönetici oturum açma kullanıcı hello Azure veritabanı için MySQL daha önce oluşturduğunuz zaman sağlanan yazın. Bizim örnek kullanıcı adımız myadmin@myserver4demo. Merhaba kullanıcıadı anımsamıyorsanız hello önceki bölümde tooget hello bağlantı bilgilerini hello adımları izleyin. Merhaba biçimi  *username@servername* .
-    | Parola | parolanız | Tıklatın depolama kasasına... düğmesine toosave hello parola. |
+     Bağlantı adı | Tanıtım bağlantısı | Bu bağlantı için bir etiket. |
+    Bağlantı yöntemi | Standart (TCP/IP) | Standart (TCP/IP) yeterlidir. |
+    Ana Bilgisayar Adı | *Sunucu adı* | MySQL sunucusu için Azure Veritabanını oluştururken kullandığınız sunucu adı değeri. Örnek sunucumuz: **myserver4demo.mysql.database.azure.com**. Örnekte gösterildiği gibi tam etki alanı adını (**\*.mysql.database.azure.com**) kullanın. Sunucu adınızı anımsamıyorsanız bağlantı bilgilerini almak için bir önceki bölümdeki adımları izleyin.|
+     Bağlantı noktası | 3306 | MySQL sunucusu için Azure Veritabanına bağlanılırken kullanılacak bağlantı noktası. |
+    Kullanıcı adı |  *Sunucu yöneticisi oturum açma adı* | MySQL sunucusu için Azure Veritabanını oluştururken girdiğiniz sunucu yöneticisi oturum açma bilgileri. Bizim örnek kullanıcı adımız **myadmin@myserver4demo**. Kullanıcı adını anımsamıyorsanız bağlantı bilgilerini almak için bir önceki bölümdeki adımları izleyin. Biçim şöyledir: *username@servername*.
+    Parola | *Parolanız* | Parolayı kaydetmek için **Kasada Depola...** düğmesini seçin. |
 
-    Tıklatın **Bağlantıyı Sına** tüm parametrelerin doğru yapılandırılmışsa tootest. Tamam toosave hello bağlantısını tıklatın. 
+3. Tüm parametrelerin doğru yapılandırılıp yapılandırılmadığını test etmek için **Bağlantıyı Sına**’yı seçin. Ardından bağlantıyı kaydetmek için **Tamam**’a tıklayın. 
 
     > [!NOTE]
-    > SSL varsayılan olarak, sunucunuzdaki zorunlu ve başarıyla sipariş tooconnect ek yapılandırma gerektirir. Bkz: [yapılandırma SSL bağlantısı'nda uygulama toosecurely bağlanmak tooAzure veritabanı için MySQL](./howto-configure-ssl.md).  Bu Hızlı Başlangıç için toodisable SSL istiyorsanız hello Azure portalını ziyaret edin ve hello bağlantı güvenlik sayfası toodisable hello Zorla SSL bağlantısı Değiştir düğmesini tıklatın.
+    > SSL, sunucunuzda varsayılan olarak zorunlu kılınmıştır ve başarıyla bağlanması için ek yapılandırma gerektirir. Daha ayrıntılı bilgi için bkz. [MySQL için Azure Veritabanı'na güvenli bir şekilde bağlanmak üzere uygulamanızda SSL bağlantısını yapılandırma](./howto-configure-ssl.md). Bu Hızlı Başlangıçta SSL'yi devre dışı bırakmak için Azure portalına gidin. Ardından **SSL’yi Zorunlu Kıl** bağlantı düğmesini devre dışı bırakmak için Bağlantı güvenliği sayfasını seçin.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-Temiz hello hızlı başlangıcı oluşturduğunuz hello kaynakları silerek hello [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md)hello kaynak grubundaki tüm hello kaynakları içerir veya varsa hello bir sunucu kaynağı silerek tookeep hello istiyor olduğu gibi diğer kaynaklar.
+Hızlı başlangıç bölümünde oluşturduğunuz kaynakları iki şekilde temizleyebilirsiniz. Kaynak grubundaki tüm kaynakları içeren [Azure kaynak grubunu](../azure-resource-manager/resource-group-overview.md) silebilirsiniz. Diğer kaynakları korumak istiyorsanız yalnızca bir sunucu kaynağını silin.
 
 > [!TIP]
-> Bu koleksiyondaki diğer Hızlı Başlangıçlar, bu Hızlı Başlangıcı temel alır. Sonraki ile toowork toocontinue planlıyorsanız bu quickstart oluşturulan kaynakları quickstarts, değil temizleme hello. Toocontinue düşünmüyorsanız bu hızlı başlangıcı hello Azure portal tarafından oluşturulan tüm kaynakları adımları toodelete aşağıdaki hello kullanın.
+> Bu koleksiyondaki diğer Hızlı Başlangıçlar, bu Hızlı Başlangıcı temel alır. Hızlı başlangıçlarla çalışmaya devam etmeyi planlıyorsanız bu hızlı başlangıçta oluşturulan kaynakları temizlemeyin. Devam etmeyi planlamıyorsanız, bu Hızlı Başlangıçta oluşturduğunuz tüm kaynakları silmek için aşağıdaki adımları kullanın.
 >
 
-Yeni oluşturulan hello server dahil olmak üzere toodelete hello tüm kaynak grubu:
-1.  Kaynak grubunuzun hello Azure portalı bulun. Merhaba sol taraftaki menüden hello Azure portal'ın, **kaynak grupları** ve hello örneğimizde gibi kaynak grubunuzun adını ardından **myresourcegroup**.
-2.  Kaynak grubunuzun sayfasında **Sil**’e tıklayın. Ardından türü hello kaynak grubunuzun adını, Örneğimizdeki gibi **myresourcegroup**, buna hello metin kutusu tooconfirm silme ve ardından **silmek**.
+Yeni oluşturulan sunucu dahil olmak üzere kaynak grubunun tamamını silmek için aşağıdaki adımları takip edin:
 
-Veya bunun yerine, toodelete hello sunucu yeni oluşturulan:
-1.  Açık yoksa sunucunuz hello Azure portalı bulun. Merhaba sol taraftaki menüden Azure portalında, **tüm kaynakları**ve oluşturduğunuz hello sunucusu için arama yapın.
-2.  Merhaba üzerinde **genel bakış** hello sayfasında, **silmek** hello üst bölmesindeki düğmesi.
-![MySQL için Azure Veritabanı - Sunucuyu silme](./media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png)
-3.  Toodelete istediğiniz ve etkilenen altındaki hello veritabanlarını Göster hello sunucu adını doğrulayın. Bizim örneğimizde gibi hello metin kutusuna sunucunuzun adını yazın **myserver4demo**ve ardından **silmek**.
+1.  Azure portalında kaynak grubunuzu bulun. Sol taraftaki menüden, **Kaynak grupları**'nı ve ardından kaynak grubunuzun adını (örneğimizdeki **myresourcegroup** gibi) seçin.
+
+2.  Kaynak grubunuzun sayfasında **Sil**’i seçin. Ardından kaynak grubunuzun adını (örneğimizdeki **myresourcegroup** gibi) kutuya yazarak silmeyi onaylayın ve **Sil**’e tıklayın.
+
+Yalnızca yeni oluşturulan sunucuyu silmek için aşağıdaki adımları gerçekleştirin:
+
+1.  Sunucunuz zaten açık değilse Azure portalında sunucuyu bulun. Azure Portal'ın sol tarafındaki menüden **Tüm kaynaklar**’ı seçin. Ardından, oluşturduğunuz sunucuyu arayın.
+
+2.  **Genel Bakış** sayfasında **Sil**’i seçin. 
+
+    ![MySQL için Azure Veritabanı--Sunucuyu Silme](./media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png)
+
+3.  Silmek istediğiniz sunucu adını onaylayın ve altındaki etkilenen veritabanlarını gösterin. Kutuya sunucu adını (örneğimizdeki **myserver4demo** gibi) yazın. **Sil**’i seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

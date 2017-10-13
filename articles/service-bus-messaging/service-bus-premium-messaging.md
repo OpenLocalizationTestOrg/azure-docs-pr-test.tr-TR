@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure Service Bus Premium ve standart Mesajlaşma hizmeti fiyatlandırma katmanlarına genel bakış | Microsoft Docs"
+title: "Azure Service Bus Premium ve Standart Mesajlaşma hizmeti fiyatlandırma katmanlarına genel bakış | Microsoft Docs"
 description: "Service Bus Premium ve Standart Mesajlaşma katmanları"
 services: service-bus-messaging
 documentationcenter: .net
@@ -14,53 +14,53 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: darosa;sethm
-ms.openlocfilehash: 4eea5d86d342e858f50450308fb3d96a7a80b49e
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: a0c169e0580468e83a07c077f8c60e83d3fb52f2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus Premium ve Standart Mesajlaşma katmanları
 
-Kuyruklar ve konu başlıkları gibi varlıkları içeren Service Bus Mesajlaşma, kuruluşun mesajlaşma işlevlerini bulut ölçeğinde zengin yayımla-abone ol semantiği ile birleştirir. Service Bus Mesajlaşma hizmeti hello iletişimin temel öğesi olarak birçok gelişmiş bulut çözümü için kullanılır.
+Kuyruklar ve konu başlıkları gibi varlıkları içeren Service Bus Mesajlaşma, kuruluşun mesajlaşma işlevlerini bulut ölçeğinde zengin yayımla-abone ol semantiği ile birleştirir. Service Bus Mesajlaşması birçok gelişmiş bulut çözümü için iletişimin temel öğesi olarak kullanılır.
 
-Merhaba *Premium* Service Bus Mesajlaşma katmanı adresleri yaygın müşteri isteklerini ölçek, performans ve görev açısından kritik uygulamalar için kullanılabilirlik karşılar. Merhaba özellik kümeleri neredeyse aynı olsa da, Service Bus Mesajlaşma hizmetinin bu iki katmanı tasarlanmış tooserve farklı kullanım örnekleridir.
+Service Bus Mesajlaşma hizmetinin *Premium* katmanı, görev açısından kritik uygulamalar için ölçek, performans ve kullanılabilirlik bağlamında yaygın müşteri isteklerini karşılar. Özellikler kümeleri neredeyse aynı olsa da, Service Bus Mesajlaşma hizmetinin bu iki katmanı farklı kullanım durumlarına göre tasarlanmıştır.
 
-Aşağıdaki tablonun hello bazı üst düzey farklılıklar vurgulanmıştır.
+Aşağıdaki tabloda bazı üst düzey farklılıklar vurgulanmıştır.
 
 | Premium | Standart |
 | --- | --- |
 | Yüksek verimlilik |Değişken işleme |
 | Tahmin edilebilir performans |Değişken gecikme süresi |
 | Sabit fiyatlandırma |Kullandıkça Öde değişken fiyatlandırması |
-| Yukarı ve aşağı özelliği tooscale iş yükü |Yok |
-| İleti boyutu too1 MB ayarlama |İleti boyutu too256 KB ayarlama |
+| İş yükünün ölçeğini artırma veya azaltma |Yok |
+| İleti boyutu 1 MB’a kadar |İleti boyutu 256 KB’a kadar |
 
-**Service Bus Premium Mesajlaşma** kaynak yalıtımına hello CPU ve bellek düzeyinde sunar, böylece her müşterinin iş yükü yalıtımlı şekilde çalışır. Bu kaynak kapsayıcısı *mesajlaşma birimi* olarak adlandırılır. Her premium ad alanı, en az bir mesajlaşma birimi için ayrılmıştır. Her Service Bus Premium ad alanı için 1, 2 veya 4 mesajlaşma birimi satın alabilirsiniz. Tek iş yükü veya varlık birden çok Mesajlaşma birimine yayılabilir ve faturalandırma 24 saatlik veya günlük oran fiyatlarında içinde olsa da hello Mesajlaşma birimlerinin sayısı gerçekleştirilse değiştirilebilir. Merhaba, Service Bus tabanlı çözümünüz için tahmin edilebilir ve tekrarlanabilir bir performans sonucudur.
+**Service Bus Premium Mesajlaşma Hizmeti**, CPU'da ve bellek düzeyinde kaynak yalıtımına olanak sağladığından her müşterinin iş yükü yalıtımlı şekilde çalışır. Bu kaynak kapsayıcısı *mesajlaşma birimi* olarak adlandırılır. Her premium ad alanı, en az bir mesajlaşma birimi için ayrılmıştır. Her Service Bus Premium ad alanı için 1, 2 veya 4 mesajlaşma birimi satın alabilirsiniz. Tek bir iş yükü veya varlık, birden çok mesajlaşma birimine yayılabilir ve faturalandırma 24 saatlik veya günlük oran fiyatlarında gerçekleştirilse de mesajlaşma birimlerinin sayısı isteğe bağlı olarak değiştirilebilir. Sonuç olarak, Service Bus tabanlı çözümünüz için tahmin edilebilir ve tekrarlanabilir bir performans elde edersiniz.
 
-Daha tahmin edilebilir ve kullanılabilir olmasının yanı sıra bu performans, daha hızlıdır. Service Bus Premium Mesajlaşma derlemeler sunulan hello depolama motorunda [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Premium Mesajlaşma sayesinde, en yüksek performans hello standart katmanı ile daha hızlıdır.
+Daha tahmin edilebilir ve kullanılabilir olmasının yanı sıra bu performans, daha hızlıdır. Service Bus Premium Mesajlaşma hizmeti, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) kısmında tanıtılan depolama motorunda derlenir. Premium Mesajlaşma sayesinde, en yüksek performans Standart katmanda olduğundan daha hızlıdır.
 
 ## <a name="premium-messaging-technical-differences"></a>Premium Mesajlaşmanın teknik farklılıkları
 
-Merhaba aşağıdaki bölümlerde Premium ve standart Mesajlaşma katmanları arasındaki bazı farklar açıklanmaktadır.
+Aşağıdaki bölümlerde Premium ve Standart mesajlaşma katmanları arasındaki bazı farklar ele alınmaktadır.
 
 ### <a name="partitioned-queues-and-topics"></a>Bölümlenmiş kuyruklar ve konular
 
-Bölümlenmiş kuyruklar ve konular, Premium Mesajlaşma hizmetinde desteklenir; aslında bu varlıklar her zaman bölümlenmiş durumdadır (ve devre dışı bırakılamaz). Ancak, Premium bölümlenmiş sıraları ve konuları hello çalışmıyor olarak aynı şekilde hello Service Bus Mesajlaşma hizmetinin standart ve temel katmanlarında. Premium Mesajlaşma kullanmıyorsa SQL'in veri deposu olarak ve artık paylaşılan platforma ilişkili olası kaynak rekabet hello. Sonuç olarak, bölümleme gerekli tooimprove performans değil. Ayrıca, hello bölüm sayısı 16 bölümlerinde too2 bölümlerinde standart Mesajlaşma Premium değiştirildi. İki bölümlemeye sahip olmak kullanılabilirliği sağlar ve hello Premium çalışma zamanı ortamı için daha uygun bir sayıdır. 
+Bölümlenmiş kuyruklar ve konular, Premium Mesajlaşma hizmetinde desteklenir; aslında bu varlıklar her zaman bölümlenmiş durumdadır (ve devre dışı bırakılamaz). Ancak, Premium bölümlenmiş kuyruklar ve konular Service Bus mesajlaşma hizmetinin Standart katmanında aynı şekilde işlev görmez. Premium mesajlaşma, SQL'i bir veri deposu olarak kullanmaz ve artık paylaşılan platforma ilişkin olası kaynak rekabetini barındırmaz. Sonuç olarak, performansı iyileştirmek için bölümleme gerekli değildir. Ayrıca, Standart Mesajlaşmada 16 olan bölüm sayısı Premium’da 2 bölüm olarak değiştirilmiştir. İki bölümlemeye sahip olmak kullanılabilirliği garanti altına alır ve Premium çalışma zamanı ortamı için daha uygun bir sayıdır. 
 
-Merhaba boyutuna sahip bir varlık belirttiğinizde, Premium, Mesajlaşma ile [MaxSizeInMegabytes](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxsizeinmegabytes#Microsoft_ServiceBus_Messaging_QueueDescription_MaxSizeInMegabytes), boyutu eşit hello 2 bölümleri arasında aksine bölünen olduğunu [standart bölümlenmiş varlıkları](service-bus-partitioning.md#standard) hangi hello içinde Merhaba belirtilen boyutu 16 kez toplam boyutudur. 
+Premium mesajlaşmada, [MaxSizeInMegabytes](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxsizeinmegabytes#Microsoft_ServiceBus_Messaging_QueueDescription_MaxSizeInMegabytes) ile bir varlığın boyutunu belirttiğinizde, toplam boyutun belirtilen boyuttan 16 kat fazla olduğu [Standart bölümlü varlıkların](service-bus-partitioning.md#standard) aksine bu boyut, 2 bölüm arasında eşit olarak bölünür. 
 
 Bölümleme hakkında daha fazla bilgi için bkz. [Bölümlenmiş kuyruklar ve konular](service-bus-partitioning.md).
 
 ### <a name="express-entities"></a>İfade varlıkları
 
-Premium mesajlaşma tamamen yalıtılmış bir çalışma zamanı ortamında çalıştığından Premium ad alanlarında ifade varlıkları desteklenmez. Merhaba hello express özelliği hakkında daha fazla bilgi için bkz: [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) özelliği.
+Premium mesajlaşma tamamen yalıtılmış bir çalışma zamanı ortamında çalıştığından Premium ad alanlarında ifade varlıkları desteklenmez. İfade özellikleri hakkında daha fazla bilgi için [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) özelliğine bakın.
 
-İsteğe bağlı olarak standart Mesajlaşma ve istediğiniz tooport altında toohello Premium katmanı çalışan kodu varsa, emin hello olun [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) özelliği çok ayarlanmış**false** (Merhaba varsayılan değer).
+Standart mesajlaşma altında çalışan bir kodunuz varsa ve Premium katmanı ile bağlantı noktası oluşturmak istiyorsanız, [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) özelliğinin **false** (varsayılan değer) olarak ayarlandığından emin olun.
 
 ## <a name="get-started-with-premium-messaging"></a>Premium Mesajlaşmayı kullanmaya başlama
 
-Premium Mesajlaşma ile çalışmaya başlama basittir ve standart Mesajlaşma benzer toothat hello işlemidir. [Ad alanı oluşturarak](service-bus-create-namespace-portal.md) başlayın. **Fiyatlandırma katmanı** için **Premium**'u seçtiğinizden emin olun.
+Premium Mesajlaşma ile çalışmaya başlamak kolaydır ve süreç Standart Mesajlaşma ile benzerlik gösterir. [Ad alanı oluşturarak](service-bus-create-namespace-portal.md) başlayın. **Fiyatlandırma katmanı** için **Premium**'u seçtiğinizden emin olun.
 
 ![create-premium-namespace][create-premium-namespace]
 
@@ -69,12 +69,12 @@ Ayrıca [Azure Resource Manager şablonlarını kullanarak premium ad alanları]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Service Bus Mesajlaşma hizmeti, hakkında daha fazla toolearn aşağıdaki konularda hello bakın.
+Service Bus Mesajlaşma hizmeti hakkında daha fazla bilgi edinmek için aşağıdaki konu başlıklarına bakın.
 
 * [Azure Service Bus Mesajlaşma hizmetine giriş (blog gönderisi)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Azure Service Bus Premium Mesajlaşma hizmetine giriş (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [Service Bus Mesajlaşma hizmetine genel bakış](service-bus-messaging-overview.md)
-* [Nasıl toouse Service Bus kuyrukları](service-bus-dotnet-get-started-with-queues.md)
+* [Service Bus kuyruklarını kullanma](service-bus-dotnet-get-started-with-queues.md)
 
 <!--Image references-->
 

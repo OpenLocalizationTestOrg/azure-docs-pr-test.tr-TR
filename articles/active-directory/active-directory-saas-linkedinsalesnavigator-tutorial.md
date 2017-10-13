@@ -1,6 +1,6 @@
 ---
 title: "Öğretici: Azure Active Directory Tümleştirme ile LinkedInSalesNavigator | Microsoft Docs"
-description: "Tooconfigure nasıl çoklu oturum açma öğrenin Azure Active Directory ile LinkedInSalesNavigator arasında."
+description: "Çoklu oturum açma Azure Active Directory ile LinkedInSalesNavigator arasında yapılandırmayı öğrenin."
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,128 +13,128 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 443d302d40d7af16aba5114e00963f23ea8d12d6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: ef26a16e79d9c9b0654634960b57dc59827b2c24
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>Öğretici: Azure Active Directory Tümleştirme ile LinkedIn satış Gezgini
 
-Bu öğreticide, bilgi nasıl toointegrate LinkedIn satış Gezgini Azure Active Directory'ye (Azure AD).
+Bu öğreticide, Azure Active Directory (Azure AD) ile LinkedIn satış Gezgini tümleştirmek öğrenin.
 
-LinkedIn satış Gezgini Azure AD ile tümleştirme ile Merhaba aşağıdaki avantajları sağlar:
+LinkedIn satış Gezgini Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Erişim tooLinkedIn satış Gezgini sahip Azure AD'de kontrol edebilirsiniz
-- Azure AD hesaplarına ile kullanıcılar tooautomatically get açan tooLinkedIn satış Gezgini (çoklu oturum açma) etkinleştirebilirsiniz
-- Hesaplarınızı bir merkezi konumda - hello Azure portalında yönetebilir
+- LinkedIn satış Gezgini erişimi, Azure AD'de kontrol edebilirsiniz
+- Azure AD hesaplarına otomatik olarak (çoklu oturum açma) LinkedIn satış Gezgini açan kullanıcılarınıza etkinleştirebilirsiniz
+- Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir
 
-Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı tooknow isterseniz, Gözat [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
+Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, Gözat [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-tooconfigure LinkedIn satış Gezgini ile Azure AD tümleştirme, aşağıdaki öğelerindeki hello gerekir:
+Azure AD tümleştirme LinkedIn satış Gezgini ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
 - Bir LinkedIn satış Gezgini çoklu oturum açma etkin abonelik
 
 > [!NOTE]
-> tootest hello bu öğreticideki adımlar, bir üretim ortamı'nı kullanarak önermiyoruz.
+> Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
 
-Bu öğreticide tootest hello adımları, bu önerileri izlemesi gerekir:
+Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmaktan kaçının.
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen hello senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
-1. LinkedIn satış Gezgini hello Galerisi'nden ekleme
+1. Galeriden LinkedIn satış Gezgini ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-linkedin-sales-navigator-from-hello-gallery"></a>LinkedIn satış Gezgini hello Galerisi'nden ekleme
-Azure AD'ye tooconfigure hello tümleştirme LinkedIn satış Gezgini, tooadd LinkedIn satış Gezgini hello galeri tooyour listesinden yönetilen SaaS uygulamaları gerekir.
+## <a name="adding-linkedin-sales-navigator-from-the-gallery"></a>Galeriden LinkedIn satış Gezgini ekleme
+Azure AD LinkedIn satış Gezgini tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden LinkedIn satış Gezgini eklemeniz gerekir.
 
-**tooadd LinkedIn satış Gezgini hello galerisinden hello aşağıdaki adımları gerçekleştirin:**
+**Galeriden LinkedIn satış Gezgini eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba, ** [Azure portal](https://portal.azure.com)**, üzerinde sol gezinti bölmesini Merhaba, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
-2. Çok gidin**kurumsal uygulamalar**. Çok Git**tüm uygulamaları**.
+2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
     
-3. Tıklatın **yeni uygulama** hello iletişim hello üstte düğmesi.
+3. Tıklatın **yeni uygulama** iletişim kutusunun üst kısmında düğmesi.
 
     ![Uygulamalar][3]
 
-4. Merhaba arama kutusuna yazın **LinkedIn satış Gezgini**.
+4. Arama kutusuna **LinkedIn satış Gezgini**.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_search.png)
 
-5. Merhaba Sonuçlar panelinde seçin **LinkedIn satış Gezgini**ve ardından **Ekle** düğmesini tooadd Merhaba uygulaması.
+5. Sonuçlar panelinde seçin **LinkedIn satış Gezgini**ve ardından **Ekle** uygulama eklemek için düğmesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma LinkedIn satış "Britta Simon" adlı bir test kullanıcı tabanlı Gezgini ile test etme.
 
-Tek toowork'ın oturum açma hangi hello karşılık gelen LinkedIn satış Gezgininde tooa kullanıcı Azure AD içinde olduğu Azure AD tooknow gerekir. Diğer bir deyişle, bir Azure AD kullanıcısının ve LinkedIn satış Gezgininde hello ilgili kullanıcı arasında bir bağlantı ilişkisi kurulan toobe gerekir.
+Tekli çalışmaya oturum için Azure AD ne karşılık gelen LinkedIn satış Gezgininde bir kullanıcı için Azure AD içinde olduğu bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının ve ilgili kullanıcı LinkedIn satış Gezgininde arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Bu bağlantı ilişkisi hello hello değerini atayarak kurulur **kullanıcı adı** hello hello değeri olarak Azure AD'de **kullanıcıadı** LinkedIn satış Gezgininde.
+Bu bağlantı değeri atayarak ilişkisi **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** LinkedIn satış Gezgininde.
 
-tooconfigure ve Azure AD çoklu oturum açma LinkedIn satış Gezgini ile test, yapı taşları aşağıdaki toocomplete hello gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma LinkedIn satış Gezgini ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on) ** -tooenable kullanıcılar toouse bu özellik.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user) ** -tootest Azure AD çoklu oturum açma Britta Simon ile.
-3. **[Bir LinkedIn satış Gezgini test kullanıcısı oluşturma](#creating-a-linkedin-sales-navigator-test-user) ** -toohave karşılık gelen, Britta Simon LinkedIn satış Gezgininde, hello kullanıcı bağlantılı toohello Azure AD gösterimidir.
-4. **[Atama hello Azure AD test kullanıcısı](#assigning-the-azure-ad-test-user) ** -tooenable Britta Simon toouse Azure AD çoklu oturum açma.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on) ** -tooverify olup hello yapılandırma çalışır.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Bir LinkedIn satış Gezgini test kullanıcısı oluşturma](#creating-a-linkedin-sales-navigator-test-user)**  - LinkedIn satış Gezgininde, kullanıcının Azure AD gösterimini bağlı Britta Simon, karşılık gelen sağlamak için.
+4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
-Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin ve çoklu oturum açma LinkedIn satış Gezgini uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma LinkedIn satış Gezgini uygulamanızda yapılandırın.
 
-**Azure AD çoklu oturum açma tooconfigure LinkedIn satış Gezgini ile Merhaba aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma LinkedIn satış Gezgini ile yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba hello üzerinde Azure portal'ın **LinkedIn satış Gezgini** uygulama tümleştirmesi sayfasında, tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **LinkedIn satış Gezgini** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açmayı yapılandırın][4]
 
-2. Merhaba üzerinde **çoklu oturum açma** iletişim, **modu** seçin **SAML tabanlı oturum açma** tooenable çoklu oturum açma.
+2. Üzerinde **çoklu oturum açma** iletişim, **modu** seçin **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_samlbase.png)
 
-3. Farklı bir web tarayıcısı penceresinde, oturum açma tooyour **LinkedIn satış Gezgini** yönetici olarak Web sitesi.
+3. Farklı web tarayıcısı penceresinde için oturum, **LinkedIn satış Gezgini** yönetici olarak Web sitesi.
 
-4. İçinde **hesap Merkezi'nde**, tıklatın **genel ayarları** altında **ayarları**. Ayrıca, seçin **satış Gezgini** hello aşağı açılan listeden.
+4. İçinde **hesap Merkezi'nde**, tıklatın **genel ayarları** altında **ayarları**. Ayrıca, seçin **satış Gezgini** aşağı açılan listeden.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_01.png)
 
-5. Tıklatın **veya burayı tıklatın tooload ve kopyalama tek tek alanların hello formundan** kopyalayıp **varlık kimliği** ve **onaylama tüketici erişim (ACS) Url**.
+5. Tıklatın **veya yük ve tek tek alanların formdan kopyalamak için burayı tıklatın** kopyalayıp **varlık kimliği** ve **onaylama tüketici erişim (ACS) Url**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_031.png)
 
-6. Azure Portal'da altında **LinkedIn satış Gezgini etki alanı ve URL'leri** bölümünde, hello tooconfigure hello uygulamada istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** modunda başlatılır.
+6. Azure Portal'da altında **LinkedIn satış Gezgini etki alanı ve URL'leri** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** modunda başlatılır.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url1.png)
 
-    a. Merhaba, **tanımlayıcısı** metin kutusuna, hello girin **varlık kimliği** LinkedIn portalından kopyalandığından 
+    a. İçinde **tanımlayıcısı** metin girin **varlık kimliği** LinkedIn portalından kopyalandığından 
 
-    b. Merhaba, **yanıt URL'si** metin kutusuna, hello girin **onaylama tüketici erişim (ACS) Url** LinkedIn portalından kopyalandığından
+    b. İçinde **yanıt URL'si** metin girin **onaylama tüketici erişim (ACS) Url** LinkedIn portalından kopyalandığından
 
-7. Denetleyin **Göster Gelişmiş URL ayarları**, tooconfigure hello uygulamada istiyorsanız **SP** modunda başlatılır.
+7. Denetleyin **Göster Gelişmiş URL ayarları**, uygulamada yapılandırmak istiyorsanız **SP** modunda başlatılır.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url2.png)
 
-    Merhaba, **oturum açma URL'si** metin kutusuna, desen aşağıdaki hello kullanarak türü hello değeri:`https://www.linkedin.com/checkpoint/enterprise/login/<account id>?application=salesNavigator`
+    İçinde **oturum açma URL'si** metin kutusuna, şu biçimi kullanarak değeri yazın:`https://www.linkedin.com/checkpoint/enterprise/login/<account id>?application=salesNavigator`
 
-8. **LinkedIn satış Gezgini** uygulama tooadd özel öznitelik eşlemelerini tooyour SAML belirteci öznitelikleri yapılandırma gerektiren belirli bir biçimde, hello SAML onaylar bekler. Aşağıdaki ekran görüntüsü hello bir örneği gösterir. Merhaba varsayılan değerini **kullanıcı tanımlayıcısı** olan **user.userprincipalname** ancak LinkedIn satış Gezgini, hello kullanıcının e-posta adresiyle eşleşen toobe bekliyor. Kullanabileceğiniz **user.mail** özniteliği hello listeden veya kuruluş yapılandırmanızı temel alarak hello uygun öznitelik değeri kullanın. 
+8. **LinkedIn satış Gezgini** uygulama SAML belirteci öznitelikleri yapılandırmanıza özel öznitelik eşlemelerini ekleyin gerektiren belirli bir biçimde SAML onaylar bekler. Aşağıdaki ekran görüntüsünde bir örneği gösterir. Varsayılan değer olan **kullanıcı tanımlayıcısı** olan **user.userprincipalname** ancak LinkedIn satış Gezgini kullanıcının e-posta adresiyle eşlenmesi için bekliyor. Kullanabileceğiniz **user.mail** özniteliği listeden veya kuruluş yapılandırmanızı temel alarak uygun öznitelik değeri kullanın. 
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-linkedinsalesnavigator-tutorial/updateusermail.png)
     
-9. İçinde **kullanıcı öznitelikleri** 'yi tıklatın **Görünüm ve diğer tüm kullanıcı özniteliklerini düzenleme** ve hello özniteliklerini ayarlayın. Merhaba kullanıcının ihtiyacı tooadd dört talep adlı **e-posta**, **departmanı**, **firstname**, ve **lastname** ve hello değeri ile eşleşen toobe **user.mail**, **user.department**, **user.givenname**, ve **user.surname** sırasıyla
+9. İçinde **kullanıcı öznitelikleri** 'yi tıklatın **Görünüm ve diğer tüm kullanıcı özniteliklerini düzenleme** ve özniteliklerini ayarlayın. Kullanıcı adında dört talep eklemesi gerekiyor **e-posta**, **departmanı**, **firstname**, ve **lastname** ve ile eşlenecek değer ise **user.mail**, **user.department**, **user.givenname**, ve **user.surname** sırasıyla
 
     | Öznitelik adı | Öznitelik değeri |
     | --- | --- |    
@@ -145,29 +145,29 @@ Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-linkedinsalesnavigator-tutorial/userattribute.png)
     
-    a. Tıklayın **özniteliği eklemek** tooopen hello özniteliği iletişim.
+    a. Tıklayın **özniteliği eklemek** özniteliği iletişim kutusunu açın.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_attribute_04.png)
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_attribute_05.png)
    
-    b. Merhaba, **adı** metin kutusuna, ilgili satır için gösterilen türü hello öznitelik adı.
+    b. İçinde **adı** metin kutusuna, ilgili satır için gösterilen öznitelik adı yazın.
     
-    c. Merhaba gelen **değeri** listesinde, ilgili satır için gösterilen türü hello öznitelik değeri.
+    c. Gelen **değeri** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
     
     d. Tıklatın **Tamam**
 
-10. Merhaba hello üzerinde aşağıdaki adımları gerçekleştirin **adı** öznitelik -
+10. Aşağıdaki adımları gerçekleştirin **adı** öznitelik -
 
-    a. Tıklatın hello özniteliği tooopen hello üzerinde **öznitelik Düzenle** penceresi.
+    a. Özniteliği açmak için tıklatın **öznitelik Düzenle** penceresi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-linkedinsalesnavigator-tutorial/url_update.png)
 
-    b. Hello Hello URL değeri Sil **ad alanı**.
+    b. URL değerinden silme **ad alanı**.
     
-    c. Tıklatın **Tamam** toosave hello ayarı.
+    c. Tıklatın **Tamam** ayarı kaydetmek için.
 
-11. Merhaba üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve hello XML dosyayı bilgisayarınıza kaydedin.
+11. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve XML dosyayı bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_certificate.png) 
 
@@ -175,73 +175,73 @@ Bu bölümde, Azure AD çoklu oturum açma hello Azure portal'ın etkinleştirin
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_general_400.png)
 
-13. Çok Git**LinkedIn yönetici ayarları** bölümü. Tıklatın **karşıya yükleme XML dosyası** tooupload hello hello Azure portal ' indirmiş meta veri XML dosyası.
+13. Git **LinkedIn yönetici ayarları** bölümü. Tıklatın **karşıya yükleme XML dosyası** Azure portalından indirdiğiniz meta veri XML dosyasını karşıya yükleyin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedin_metadata_03.png)
 
-14. Tıklatın **üzerinde** tooenable SSO. SSO durumu değişir **bağlı** çok**bağlandı**
+14. Tıklatın **üzerinde** SSO'yu etkinleştirmek için. SSO durumu değişir **bağlı** için **bağlandı**
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_05.png)
 
 
 > [!TIP]
-> Şimdi bu yönergeleri hello içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)hello uygulaması kuruluyor yaparken!  Bu uygulamayı hello ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, hello tıklamanız yeterlidir **çoklu oturum açma** sekmesi ve erişim hello katıştırılmış hello aracılığıyla belgelere ** Yapılandırma** hello alt kısmına. Daha fazla bilgiyi burada hello embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
-Bu bölümde Hello amacı toocreate hello Azure portal Britta Simon adlı bir test kullanıcı olur.
+Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
 ![Azure AD Kullanıcı oluşturma][100]
 
-**Azure AD'de bir sınama kullanıcısı toocreate hello aşağıdaki adımları gerçekleştirin:**
+**Azure AD'de bir test kullanıcı oluşturmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Merhaba, **Azure portal**, üzerinde sol gezinti bölmesinde Merhaba, tıklatın **Azure Active Directory** simgesi.
+1. İçinde **Azure portal**, sol gezinti bölmesinde tıklatın **Azure Active Directory** simgesi.
 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-linkedinsalesnavigator-tutorial/create_aaduser_01.png) 
 
-2. Çok Git**kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
+2. Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
     
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-linkedinsalesnavigator-tutorial/create_aaduser_02.png) 
 
-3. Merhaba hello iletişim üstündeki **Ekle** tooopen hello **kullanıcı** iletişim.
+3. İletişim kutusunun üstündeki **Ekle** açmak için **kullanıcı** iletişim.
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-linkedinsalesnavigator-tutorial/create_aaduser_03.png) 
 
-4. Merhaba üzerinde **kullanıcı** iletişim sayfasında, hello aşağıdaki adımları gerçekleştirin:
+4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
  
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-linkedinsalesnavigator-tutorial/create_aaduser_04.png) 
 
-    a. Merhaba, **adı** metin kutusuna, türü **BrittaSimon**.
+    a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
 
-    b. Merhaba, **kullanıcı adı** metin kutusuna, türü hello **e-posta adresi** BrittaSimon biri.
+    b. İçinde **kullanıcı adı** metin kutusuna, türü **e-posta adresi** BrittaSimon biri.
 
-    c. Seçin **Göster parola** ve hello hello değerini yazma **parola**.
+    c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**'a tıklayın.
  
 ### <a name="creating-a-linkedin-sales-navigator-test-user"></a>Bir LinkedIn satış Gezgini test kullanıcısı oluşturma
 
-Bağlantılı satış Gezgin uygulaması sadece kullanıcı zamanı (JIT) sağlama ve kimlik doğrulama kullanıcılar hello uygulamada otomatik olarak oluşturulduktan sonra destekler. Etkinleştirme **otomatik olarak lisansları atama** tooassign lisans toohello kullanıcı.
+Bağlantılı satış Gezgin uygulaması sadece kullanıcı zamanı (JIT) sağlama ve kimlik doğrulama kullanıcılar uygulamada otomatik olarak oluşturulduktan sonra destekler. Etkinleştirme **otomatik olarak lisansları atama** kullanıcıya bir lisans atamak için.
    
    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-linkedinsalesnavigator-tutorial/LinkedinUserprovswitch.png)
 
-### <a name="assigning-hello-azure-ad-test-user"></a>Hello Azure AD test kullanıcısı atama
+### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
 
-Bu bölümde, erişim tooLinkedIn satış Gezgini vererek Britta Simon toouse Azure çoklu oturum açmayı etkinleştirin.
+Bu bölümde, Britta LinkedIn satış Gezgini'ne erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
 ![Kullanıcı atama][200] 
 
-**tooassign Britta Simon tooLinkedIn satış Gezgini hello aşağıdaki adımları gerçekleştirin:**
+**LinkedIn satış Gezgini Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
-1. Hello Azure portal, hello uygulamaları görünümü Aç ve ardından toohello dizin görünümüne gidin ve çok Git**kurumsal uygulamalar** ardından **tüm uygulamaları**.
+1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
     ![Kullanıcı atama][201] 
 
-2. Merhaba uygulamalar listesinde **LinkedIn satış Gezgini**.
+2. Uygulamalar listesinde **LinkedIn satış Gezgini**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_app.png) 
 
-3. Merhaba soldaki Hello menüde tıklatın **kullanıcılar ve gruplar**.
+3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
     ![Kullanıcı atama][202] 
 
@@ -249,7 +249,7 @@ Bu bölümde, erişim tooLinkedIn satış Gezgini vererek Britta Simon toouse Az
 
     ![Kullanıcı atama][203]
 
-5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** hello kullanıcıları listesinde.
+5. Üzerinde **kullanıcılar ve gruplar** iletişim kutusunda **Britta Simon** kullanıcıları listesinde.
 
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
@@ -257,13 +257,13 @@ Bu bölümde, erişim tooLinkedIn satış Gezgini vererek Britta Simon toouse Az
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümde, hello erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
+Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Merhaba LinkedIn satış Gezgini hello erişim paneli parçasında tıklattığınızda yeniden yönlendirilen tooOrganizational sayfa tooprovide sahip olduğu kişisel LinkedIn hesap bilgilerinizi olmalıdır. Kişisel hesabınızı LinkedIn iş hesabınızla bağlar. Merhaba erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://msdn.microsoft.com/library/dn308586). 
+Erişim paneli LinkedIn satış Gezgini parçasında tıklattığınızda, kişisel LinkedIn hesap ayrıntılarını sağlamak için sahip olduğu kuruluş sayfasına yönlendirilmeniz gerekir. Kişisel hesabınızı LinkedIn iş hesabınızla bağlar. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://msdn.microsoft.com/library/dn308586). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [İlgili nasıl öğreticiler listesi tooIntegrate Azure Active Directory ile SaaS uygulamaları](active-directory-saas-tutorial-list.md)
+* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 

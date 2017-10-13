@@ -1,6 +1,6 @@
 ---
-title: "aaaOptimize Azure günlük analizi ile SQL Server ortamınızın | Microsoft Docs"
-description: "Azure günlük analizi ile Merhaba SQL çözüm tooassess risk ve SQL server ortamlarınızın durumunu düzenli aralıklarla hello değerlendirme kullanabilirsiniz."
+title: "SQL Server ortamınızın Azure günlük analizi ile en iyi duruma getirme | Microsoft Docs"
+description: "Azure günlük analizi ile risk ve SQL server ortamlarınızın durumunu düzenli aralıklarla değerlendirmek için SQL değerlendirme çözümü kullanabilirsiniz."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -15,104 +15,104 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f31326d8cdad3ef5d5a190614d1a18c1dac826ed
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: d2aed3315fe60ace46dfb4176dc13aa417257b0c
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/18/2017
 ---
-# <a name="optimize-your-sql-server-environment-with-hello-sql-assessment-solution-in-log-analytics"></a>SQL Server ortamınızın hello SQL değerlendirmesi çözümde günlük analizi ile en iyi duruma getirme
+# <a name="optimize-your-sql-server-environment-with-the-sql-assessment-solution-in-log-analytics"></a>SQL Server ortamınızın günlük analizi SQL değerlendirmesi çözümde ile en iyi duruma getirme
 
 ![SQL değerlendirmesi simgesi](./media/log-analytics-sql-assessment/sql-assessment-symbol.png)
 
-Merhaba SQL çözüm tooassess risk ve sunucu ortamlarınızın durumunu düzenli aralıklarla hello değerlendirme kullanabilirsiniz. Bu makalede, olası sorunlar için düzeltme eylemleri yararlanabilmeniz hello çözüm yüklemenize yardımcı olur.
+SQL değerlendirme çözümü, risk ve sunucu ortamlarınızın durumunu düzenli aralıklarla değerlendirmek için kullanabilirsiniz. Bu makalede, olası sorunlar için düzeltme eylemleri yararlanabilmeniz çözümü yüklemenize yardımcı olur.
 
-Bu çözüm önerileri belirli tooyour dağıtılan sunucu altyapısı öncelikli listesi sağlar. Merhaba önerileri hızla yardımcı alanları risk hello ve düzeltici işlemleri anlamak altı odak arasında ayrılır.
+Bu çözüm önerileri dağıtılan sunucu altyapınızı belirli öncelikli listesi sağlar. Öneriler altı arasında ayrılır hızla yardımcı odak alanlarına riski anlamak ve düzeltme eylemlerini gerçekleştirin.
 
-Merhaba önerilerin hello bilgi ve müşteri ziyaretleriniz binlerce Microsoft mühendisleri tarafından elde edilen deneyimlerden dayanır. Her bir öneri, bir sorun tooyou neden önemli ve nasıl tooimplement hello değişiklikleri önerilen hakkında rehberlik sağlar.
+Önerilerin bilgi ve müşteri ziyaretleriniz binlerce Microsoft mühendisleri tarafından elde edilen deneyimlerden dayanır. Her bir öneri, bir sorun için neden önemli ve önerilen değişiklikleri uygulamak nasıl hakkında rehberlik sağlar.
 
-En önemli tooyour kuruluş ve ücretsiz ve sağlam bir risk ortam çalıştıran doğru ilerleme durumunuzu izlemenize odak alanlarına seçebilirsiniz.
+Kuruluşunuz için en önemli ve ücretsiz ve sağlam bir risk ortam çalıştıran doğru ilerleme durumunuzu izlemenize odak alanlarına seçebilirsiniz.
 
-Merhaba çözüm ekledik ve bir değerlendirme tamamlanan, Özet sonra bilgi odak alanlarına odaklanmak için hello üzerinde gösterilen **SQL değerlendirmesi** Panosu ortamınızdaki hello altyapısını için. Merhaba aşağıdaki nasıl toouse hello hello hakkında bilgi bölümlerde **SQL değerlendirmesi** Pano, burada görüntüleyebilir ve ardından uygulayın Eylemler SQL server altyapınızı için önerilir.
+Çözüm ekledik ve bir değerlendirme tamamlanan, Özet sonra odak alanlarına odaklanmak için bilgi gösterilir **SQL değerlendirmesi** Panosu ortamınızdaki altyapısı için. Aşağıdaki bölümlerde bilgileri üzerinde nasıl kullanacağınızı **SQL değerlendirmesi** Pano, burada görüntüleyebilir ve ardından uygulayın önerilen eylemler için SQL server altyapınızı.
 
 ![SQL değerlendirmesi döşeme görüntüsü](./media/log-analytics-sql-assessment/sql-assess-tile.png)
 
 ![SQL değerlendirmesi Pano görüntüsü](./media/log-analytics-sql-assessment/sql-assess-dash.png)
 
-## <a name="installing-and-configuring-hello-solution"></a>Yükleme ve yapılandırma hello çözümü
-SQL Server hello standart, Developer ve Enterprise sürümleri için şu anda desteklenen tüm sürümleri ile SQL değerlendirmesi çalışır.
+## <a name="installing-and-configuring-the-solution"></a>Yükleme ve çözüm yapılandırılıyor
+SQL Server Standard, Developer ve Enterprise sürümleri için şu anda desteklenen tüm sürümleri ile SQL değerlendirmesi çalışır.
 
-Bilgi tooinstall aşağıdaki hello kullanın ve hello çözüm yapılandırın.
+Yüklemek ve çözüm yapılandırmak için aşağıdaki bilgileri kullanın.
 
 * Aracıları SQL Server'ın yüklü olması sunucularda yüklü olması gerekir.
-* Hello SQL değerlendirme çözümü bir OMS aracısı olan her bilgisayarda yüklü .NET Framework 4'ün desteklenen bir sürümünü gerektirir.
-* Kullanarak hello Azure portal sipariş tooinstall hello çözümde hello kullanıcı bir yönetici veya katkıda toohello Azure aboneliğiniz olmalıdır. Ayrıca, hello kullanıcı rolünün bir üyesi hello OMS çalışma katkıda bulunan veya yönetici hello OMS portalında olmalıdır.
-* Merhaba Operations Manager aracısı SQL değerlendirmesi ile kullanırken, toouse bir Operations Manager Run-As hesabı gerekir. Bkz: [Operations Manager Çalıştır hesapları için OMS](#operations-manager-run-as-accounts-for-oms) altında daha fazla bilgi için.
+* SQL değerlendirme çözümü bir OMS aracısı olan her bilgisayarda yüklü .NET Framework 4'ün desteklenen bir sürümünü gerektirir.
+* Çözümü yüklemek için kullanıcı bir yönetici ya da Azure aboneliğini katkıda bulunan Azure portal kullanırken olmalıdır. Buna ek olarak, kullanıcının OMS portalındaki OMS çalışma alanı katılımcısı veya yöneticisi rolünün üyesi olması gerekir.
+* Operations Manager aracısı SQL değerlendirmesi ile kullanırken, bir Operations Manager Run-As hesabı kullanmanız gerekir. Bkz: [Operations Manager Çalıştır hesapları için OMS](#operations-manager-run-as-accounts-for-oms) altında daha fazla bilgi için.
 
   > [!NOTE]
-  > Merhaba MMA aracı Operations Manager Run-As hesaplarını desteklemez.
+  > MMA aracı Operations Manager Run-As hesaplarını desteklemez.
   >
   >
-* Merhaba işlemi kullanarak OMS çalışma açıklanan hello SQL değerlendirme çözümü tooyour eklemek [hello Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md). Başka bir yapılandırma işlemi gerekmez.
+* Açıklanan işlemi kullanarak, OMS çalışma SQL değerlendirme çözümü eklemek [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md). Başka bir yapılandırma işlemi gerekmez.
 
 > [!NOTE]
-> Merhaba çözüm ekledikten sonra hello AdvisorAssessment.exe dosyası tooservers aracılarıyla eklenir. Yapılandırma verilerini okuma ve işleme hello bulutta toohello OMS hizmetine gönderilir. Mantığı uygulanan toohello alınan veri ve hello bulut hizmeti hello verilerini kaydeder.
+> Çözüm ekledikten sonra aracıları sunucularıyla AdvisorAssessment.exe dosyası eklenir. Yapılandırma verilerini okuma ve işleme için bulutta OMS hizmetine gönderilir. Mantığı alınan verilere uygulanır ve bulut hizmeti verilerini kaydeder.
 
 ## <a name="sql-assessment-data-collection-details"></a>SQL değerlendirmesi veri toplama ayrıntıları
-SQL değerlendirmesi WMI verilerini, kayıt defteri verilerini, performans verilerini ve etkinleştirdiğiniz hello aracıları kullanarak SQL Server dinamik yönetim görünümünü sonuçları toplar.
+SQL değerlendirmesi WMI verilerini, kayıt defteri verilerini, performans verilerini ve etkinleştirdiğiniz aracıları kullanarak SQL Server dinamik yönetim görünümünü sonuçları toplar.
 
-Merhaba aşağıdaki tabloda veri toplama yöntemleri aracılar için Operations Manager (SCOM) gerekli olup olmadığını ve nasıl gösterilmektedir genellikle veri bir aracı tarafından toplanır.
+Aşağıdaki tablo, Operations Manager (SCOM) gerekli olup olmadığını ve nasıl aracılar için veri toplama yöntemleri yapılandırmayı gösterir. genellikle veri bir aracı tarafından toplanır.
 
 | Platform | Doğrudan Aracısı | SCOM Aracısı | Azure Storage | SCOM gerekli? | Yönetim grubu gönderilen SCOM Aracısı verileri | Toplama sıklığı |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows | &#8226; | &#8226; |  |  | &#8226; |7 gün |
 
 ## <a name="operations-manager-run-as-accounts-for-oms"></a>Operations Manager hesapları OMS için Çalıştır
-OMS günlük analizi hello Operations Manager aracısı ve yönetim grubu toocollect kullanır ve veri toohello OMS hizmetine gönderir. Yönetim paketleri için iş yüklerini tooprovide bağlı OMS derlemeleri değeri-hizmetlerini ekleyin. Her iş yükü, bir etki alanı hesabı gibi farklı güvenlik bağlamında iş yüküne özgü ayrıcalıkları toorun yönetim paketleri gerektirir. Bir Operations Manager farklı çalıştır hesabı yapılandırarak tooprovide kimlik bilgileri gerekir.
+OMS günlük analizi toplamak ve OMS hizmetine veri göndermek için Operations Manager aracısı ve yönetim grubu kullanır. Bağlı Yönetim paketleri sağlamak iş yükleri için OMS derlemeleri değeri-hizmetlerini ekleyin. Her iş yükü, bir etki alanı hesabı gibi farklı güvenlik bağlamında yönetim paketlerini çalıştırmak için iş yüküne özgü ayrıcalıkları gerektirir. Bir Operations Manager farklı çalıştır hesabı yapılandırarak kimlik bilgilerini sağlamanız gerekir.
 
-SQL değerlendirmesi için Çalıştır bilgiler tooset hello Operations Manager hesabı aşağıdaki hello kullanın.
+SQL değerlendirmesi için Operations Manager farklı çalıştırma hesabını ayarlamak için aşağıdaki bilgileri kullanın.
 
-### <a name="set-hello-run-as-account-for-sql-assessment"></a>SQL değerlendirmesi için Hello farklı çalıştır hesabı ayarlama
- Merhaba SQL Server Yönetim Paketi zaten kullanıyorsanız, bu farklı çalıştır hesabı kullanmanız gerekir.
+### <a name="set-the-run-as-account-for-sql-assessment"></a>SQL değerlendirmesi için farklı çalıştır hesabı ayarlama
+ SQL Server Yönetim Paketi zaten kullanıyorsanız, bu farklı çalıştır hesabı kullanmanız gerekir.
 
-#### <a name="tooconfigure-hello-sql-run-as-account-in-hello-operations-console"></a>tooconfigure hello hello işletim Konsolu SQL farklı çalıştır hesabı
+#### <a name="to-configure-the-sql-run-as-account-in-the-operations-console"></a>İşlemler konsolunda SQL farklı çalıştır hesabı yapılandırmak için
 > [!NOTE]
-> Kullanıyorsanız hello OMS hello SCOM Aracısı yerine, aracı doğrudan, hello Yönetim Paketi hello güvenlik bağlamında hello yerel sistem hesabı her zaman çalışır. Atla adım 1-5 aşağıdaki ve çalıştırma ya da NT AUTHORITY\SYSTEM hello kullanıcı adı olarak belirterek, T-SQL veya Powershell örnek hello.
+> SCOM Aracısı'nı yerine OMS doğrudan Aracısı'nı kullanıyorsanız, Yönetim Paketi her zaman yerel sistem hesabı bağlamında çalışır. Adım 1-aşağıdaki 5 atlayın ve T-SQL veya Powershell örnek, NT AUTHORITY\SYSTEM kullanıcı adı olarak belirterek çalıştırın.
 >
 >
 
-1. Operations Manager'da hello işletim konsolunu açın ve ardından **Yönetim**.
+1. Operations Manager işletim konsolunu açın ve ardından **Yönetim**.
 2. Altında **Çalıştır Yapılandırması**, tıklatın **profilleri**, açarak **OMS SQL değerlendirmesi farklı çalıştır profili**.
-3. Merhaba üzerinde **farklı çalıştır hesapları** sayfasında, **Ekle**.
-4. SQL Server için gereken hello kimlik bilgilerini içeren bir Windows farklı çalıştır hesabı seçin veya tıklatın **yeni** toocreate biri.
+3. Üzerinde **farklı çalıştır hesapları** sayfasında, **Ekle**.
+4. SQL Server için gereken kimlik bilgilerini içeren bir Windows farklı çalıştır hesabı seçin veya tıklatın **yeni** oluşturmak için.
 
    > [!NOTE]
-   > Windows Hello farklı çalıştır hesap türü olmalıdır. Merhaba farklı çalıştır hesabı, aynı zamanda SQL Server örneklerini barındıran tüm Windows sunucularında yerel Administrators grubunun bir parçası olması gerekir.
+   > Farklı Çalıştır hesap türü Windows olması gerekir. Farklı Çalıştır hesabı, aynı zamanda SQL Server örneklerini barındıran tüm Windows sunucularında yerel Administrators grubunun bir parçası olması gerekir.
    >
    >
 5. **Kaydet** düğmesine tıklayın.
-6. Değiştirin ve sonra her SQL Server örneği toogrant minimum izinleri gerekli tooRun üzerinde hesabı tooperform SQL değerlendirmesi T-SQL örneği aşağıdaki hello yürütün. Ancak, bir farklı çalıştır hesabı SQL Server örnekleri üzerindeki hello sysadmin sunucu rolünün bir parçası ise bu toodo ihtiyacınız yoktur.
+6. Değiştirin ve sonra aşağıdaki T-SQL örneği her SQL Server SQL değerlendirmesi gerçekleştirmek için farklı çalıştır hesabı için gerekli minimum izinleri vermek için örneğinde yürütün. Ancak, bir farklı çalıştır hesabı SQL Server örnekleri üzerindeki sysadmin sunucu rolünün bir parçası ise bu yapmanız gerekmez.
 
 ```
 ---
-    -- Replace <UserName> with hello actual user name being used as Run As Account.
+    -- Replace <UserName> with the actual user name being used as Run As Account.
     USE master
 
-    -- Create login for hello user, comment this line if login is already created.
+    -- Create login for the user, comment this line if login is already created.
     CREATE LOGIN [<UserName>] FROM WINDOWS
 
-    -- Grant permissions toouser.
-    GRANT VIEW SERVER STATE too[<UserName>]
-    GRANT VIEW ANY DEFINITION too[<UserName>]
-    GRANT VIEW ANY DATABASE too[<UserName>]
+    -- Grant permissions to user.
+    GRANT VIEW SERVER STATE TO [<UserName>]
+    GRANT VIEW ANY DEFINITION TO [<UserName>]
+    GRANT VIEW ANY DATABASE TO [<UserName>]
 
-    -- Add database user for all hello databases on SQL Server Instance, this is required for connecting tooindividual databases.
-    -- NOTE: This command must be run anytime new databases are added tooSQL Server instances.
+    -- Add database user for all the databases on SQL Server Instance, this is required for connecting to individual databases.
+    -- NOTE: This command must be run anytime new databases are added to SQL Server instances.
     EXEC sp_msforeachdb N'USE [?]; CREATE USER [<UserName>] FOR LOGIN [<UserName>];'
 
 ```
-#### <a name="tooconfigure-hello-sql-run-as-account-using-windows-powershell"></a>tooconfigure hello Windows PowerShell kullanarak SQL farklı çalıştır hesabı
-Bir PowerShell penceresi açın ve bilgilerinizle güncelleştirdikten sonra komut dosyası izleyen hello çalıştırın:
+#### <a name="to-configure-the-sql-run-as-account-using-windows-powershell"></a>Windows PowerShell kullanarak SQL farklı çalıştır hesabını yapılandırmak için
+Bir PowerShell penceresi açın ve bilgilerinizle güncelleştirdikten sonra aşağıdaki betiği çalıştırın:
 
 ```
 
@@ -125,126 +125,126 @@ Bir PowerShell penceresi açın ve bilgilerinizle güncelleştirdikten sonra kom
 ```
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>Önerilerin nasıl önceliklendirilir anlama
-Yapılan her öneri hello öneri göreceli önemini hello tanımlayan bir ağırlıklı değer verilir. Yalnızca hello on en önemli öneriler gösterilir.
+Yapılan her öneri öneri göreceli önemini tanımlayan bir ağırlıklı değer verilir. Yalnızca on en önemli öneriler gösterilir.
 
 ### <a name="how-weights-are-calculated"></a>Ağırlıkları nasıl hesaplanır
 Ağırlık belirlemeyi üç anahtar faktörlerini temel alarak toplam değerler şunlardır:
 
-* Merhaba *olasılık* tanımlanan bir sorunun sorunlara neden. Daha yüksek olasılık büyük genel puan hello öneri tooa karşılık gelir.
-* Merhaba *etkisi* kuruluşunuzdaki bir soruna neden olursa hello sorun. Daha yüksek bir etkisi, büyük genel puan hello öneri tooa karşılık gelir.
-* Merhaba *çaba* tooimplement hello öneri gerekli. Daha yüksek çaba küçük genel puan hello öneri tooa karşılık gelir.
+* *Olasılık* tanımlanan bir sorunun sorunlara neden. Daha yüksek olasılık öneri için daha büyük bir genel puan karşılık gelir.
+* *Etkisi* kuruluşunuzdaki bir soruna neden olursa sorun. Daha yüksek bir etkisi öneri için daha büyük bir genel puan karşılık gelir.
+* *Çaba* öneriyi uygulamak için gereklidir. Daha yüksek çaba öneri için daha küçük bir genel puan karşılık gelir.
 
-Her bir öneri ağırlığı hello hello toplam puanı her odak alanı için kullanılabilir bir yüzdesi olarak ifade edilir. Bir öneri hello güvenlik ve uyumluluk odaklanılan alan %5 puanı varsa, örneğin, bu öneri uygulama, genel güvenlik ve uyumluluk puan tarafından %5 artacaktır.
+Her öneri ağırlıklı her odak alanı için kullanılabilir toplam puanı yüzdesi olarak ifade edilir. Güvenlik ve uyumluluk odak alanında bir öneri %5 puanı varsa, örneğin, bu öneri uygulama, genel güvenlik ve uyumluluk puan tarafından %5 artacaktır.
 
 ### <a name="focus-areas"></a>Odak alanları
 **Güvenlik ve Uyumluluk** -bu odak alanı olası güvenlik tehditlerini ve ihlallerinden, şirket ilkelerini ve teknik ve yasal uyumluluk gereksinimleri için öneriler gösterir.
 
 **Kullanılabilirlik ve iş sürekliliği** -bu odaklanılan alan hizmet kullanılabilirliği, altyapı ve iş koruması dayanıklılık için öneriler gösterir.
 
-**Performans ve ölçeklenebilirlik** -bu odaklanılan alan önerileri toohelp kuruluşunuzun gösterir BT altyapısı arttıkça, BT ortamınız geçerli performans gereksinimlerini karşıladığından ve mümkün toorespond toochanging olduğundan emin olun Altyapı gerekir.
+**Performans ve ölçeklenebilirlik** -bu odak alanı kuruluşunuzun yardımcı olacak öneriler gösterir BT altyapısı arttıkça, BT ortamınız geçerli performans gereksinimlerini karşıladığından ve altyapı değiştirmeye yanıt verebilmesini olduğundan emin olun gerekir.
 
-**Yükseltme, geçiş ve dağıtım** - bu odak alanı yükseltme önerileri toohelp gösterir, geçirme ve SQL Server tooyour mevcut altyapıyı.
+**Yükseltme, geçiş ve dağıtım** -bu odak alanı, yükseltme, geçirme ve SQL Server mevcut altyapınızda dağıtmanıza yardımcı olacak öneriler gösterir.
 
-**İşlemler ve izleme** - bu odaklanılan alan önerileri toohelp daha verimli hale BT işlemlerinizi gösterir önleyici bakım uygulamak ve performansı en üst düzeye çıkarın.
+**İşlemler ve izleme** -bu odak alanı BT işlemlerinizi kolaylaştırır, önleyici bakım uygulamak ve performansı en üst düzeye çıkarmanıza yardımcı olacak öneriler gösterir.
 
-**Değişiklik ve yapılandırma yönetimi** -bu odak alanı öneriler gösterir toohelp günlük işlemlerini korumak, değişiklikleri yok olumsuz altyapınızı etkiler, değişiklik denetim yordamları ve tootrack oluşturun ve denetim emin olun Sistem yapılandırması.
+**Değişiklik ve yapılandırma yönetimi** -bu odak alanı günlük işlemlerini korumak, değişiklikleri yok olumsuz altyapınızı etkiler, değişiklik denetim yordamları kurmak emin olun yardımcı olmak için izleme ve denetim için öneriler gösterir Sistem yapılandırması.
 
-### <a name="should-you-aim-tooscore-100-in-every-focus-area"></a>Her odak alanında % 100 tooscore hedeflemeniz gerektiğini?
-Olmayabilir. Merhaba önerileri hello bilgi ve müşteri ziyaretleriniz binlerce arasında Microsoft mühendisleri tarafından elde edilen deneyimleri temel alır. Ancak, iki sunucu altyapılar aynı hello ve belirli öneriler fazla veya az ilgili tooyou olabilir değildir. Örneğin, bazı güvenlik önerileri sanal makinelerinizi gösterilen toohello Internet değilseniz, daha az ilgili olabilir. Bazı kullanılabilirlik öneriler düşük öncelik geçici veri toplama ve raporlama sağladığı hizmetler için daha az uygun olmayabilir. Önemli tooa olgun iş sorunlarını daha az önemli tooa başlatma olabilir. Önceliklerinizden hangi odak alanlarıdır tooidentify istediğiniz ve, puanları zamanla nasıl değiştiğini adresindeki bakın.
+### <a name="should-you-aim-to-score-100-in-every-focus-area"></a>Her odaklanılan alan % 100 puanlı hedefleyin?
+Olmayabilir. Öneriler bilgi ve müşteri ziyaretleriniz binlerce arasında Microsoft mühendisleri tarafından elde edilen deneyimleri temel alır. Ancak, iki sunucu altyapılar aynıdır ve özel öneriler için daha az veya uygun olabilir. Örneğin, bazı güvenlik önerileri sanal makinelerinizi Internet'e açık değildir, daha az ilgili olabilir. Bazı kullanılabilirlik öneriler düşük öncelik geçici veri toplama ve raporlama sağladığı hizmetler için daha az uygun olmayabilir. Olgun bir iş için önemli olan sorunları bir başlangıcından daha az önemli olabilir. Hangi odak alanların önceliklerinizden olduğunu belirlemek ve, puanları zamanla nasıl değiştiğini adresindeki Ara isteyebilirsiniz.
 
-Her öneri neden önemli olduğu hakkında yönergeler içerir. Merhaba öneri uygulama BT Hizmetleri ve hello iş gereksinimlerinizi kuruluşunuzun hello yapısını verilen sizin için uygun olup, bu kılavuzu tooevaluate kullanmanız gerekir.
+Her öneri neden önemli olduğu hakkında yönergeler içerir. Öneri uygulama verilen BT hizmetlerinizi yapısını ve kuruluşunuzun iş gereksinimlerini sizin için uygun olup olmadığını değerlendirmek için bu yönergeleri kullanmanız.
 
 ## <a name="use-assessment-focus-area-recommendations"></a>Değerlendirme odak alanı önerileri kullanın
-OMS içinde bir değerlendirme çözümü kullanmadan önce hello çözümü yüklenmiş olması gerekir. çözümler, yükleme hakkında daha fazla tooread bkz [hello Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md). Yüklendikten sonra hello genel bakış sayfasında OMS hello SQL değerlendirmesi kutucuğu kullanarak önerileri hello özetini görüntüleyebilirsiniz.
+OMS içinde bir değerlendirme çözümü kullanmadan önce çözümü yüklenmiş olması gerekir. Daha fazla bilgi için çözümleri yükleme hakkında bkz [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md). Yüklendikten sonra OMS genel bakış sayfasında SQL değerlendirmesi döşeme kullanarak önerileri özetini görüntüleyebilirsiniz.
 
-Görünüm hello altyapınızı ve ardından-ayrıntıya önerileri için Uyumluluk değerlendirmesi özetlenir.
+Altyapınız ve ardından-ayrıntıya önerileri için özetlenmiş uyumluluk değerlendirmesi görüntüleyin.
 
-### <a name="tooview-recommendations-for-a-focus-area-and-take-corrective-action"></a>bir odak alanı ve Al düzeltme eylemi için tooview önerileri
-1. Merhaba üzerinde **genel bakış** hello sayfasında, **SQL değerlendirmesi** döşeme.
-2. Merhaba üzerinde **SQL değerlendirmesi** sayfasında hello odak alanı Kanatlar birinde hello özet bilgileri gözden geçirin ve aşağıdakilerden tooview önerileri bu odaklanılan alan için tıklatın.
-3. Merhaba odak alanı sayfaları hiçbirinde ortamınız için öncelik hello önerilerin görüntüleyebilirsiniz. Önerinin altında tıklatın **etkilenen nesneler** tooview hakkında ayrıntılı hello öneri yapılan neden.  
+### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Odak alanı için öneriler görüntülemek ve düzeltici işlemleri için
+1. Üzerinde **genel bakış** sayfasında, **SQL değerlendirmesi** döşeme.
+2. Üzerinde **SQL değerlendirmesi** sayfasında odak alanı Kanatlar birinde özet bilgilerini inceleyin ve sonra bu odak alanı için öneriler görüntülemek için tıklatın.
+3. Odak alanı sayfaları hiçbirinde ortamınız için öncelikli önerilerin görüntüleyebilirsiniz. Önerinin altında tıklatın **etkilenen nesneleri** öneri neden yapılan hakkında ayrıntıları görüntülemek için.  
     ![SQL değerlendirmesi önerileri görüntüsü](./media/log-analytics-sql-assessment/sql-assess-focus.png)
-4. Önerilen düzeltici eylemleri gerçekleştirebilirsiniz **önerilen eylemleri**. Merhaba öğesi ele, önerilen eylemler gerçekleştirilen ve uyumluluk puan artıracaktır sonraki değerlendirmeleri kaydeder. Düzeltilmiş öğeler görünür olarak **geçirilen nesneleri**.
+4. Önerilen düzeltici eylemleri gerçekleştirebilirsiniz **önerilen eylemleri**. Öğe ele, önerilen eylemler gerçekleştirilen ve uyumluluk puan artıracaktır sonraki değerlendirmeleri kaydeder. Düzeltilmiş öğeler görünür olarak **geçirilen nesneleri**.
 
 ## <a name="ignore-recommendations"></a>Öneriler yoksay
-Tooignore istediğiniz önerileri varsa, OMS değerlendirme sonuçlarında görünmesini tooprevent önerileri kullanacağı bir metin dosyası oluşturabilirsiniz.
+Yoksay istediğiniz önerileri varsa, OMS önerileri değerlendirme sonuçlarında görünmesini engellemek için kullanacağı bir metin dosyası oluşturabilirsiniz.
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
-### <a name="tooidentify-recommendations-that-you-will-ignore"></a>göz ardı eder tooidentify önerileri
-1. Tooyour çalışma alanında oturum ve günlük arama açın. Aşağıdaki, ortamınızdaki bilgisayarları için başarısız olan sorgu toolist önerileri hello kullanın.
+### <a name="to-identify-recommendations-that-you-will-ignore"></a>Göz ardı eder önerileri tanımlamak için
+1. Sunucunuzdan çalışma alanınıza oturum açın ve günlük arama açın. Ortamınızdaki bilgisayarları için başarısız olan liste önerileri için aşağıdaki sorguyu kullanın.
 
    ```
    Type=SQLAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
 
-   Bir ekran görüntüsü gösteren hello günlük arama sorgusu şöyledir: ![önerileri başarısız oldu](./media/log-analytics-sql-assessment/sql-assess-failed-recommendations.png)
-2. Öneriler tooignore istediğinizi seçin. Merhaba sonraki yordamda Recommendationıd için hello değerleri kullanacaksınız.
+   Günlük arama sorgusu gösteren ekran görüntüsü şöyledir: ![önerileri başarısız oldu](./media/log-analytics-sql-assessment/sql-assess-failed-recommendations.png)
+2. Yoksay istediğiniz önerileri seçin. Sonraki yordamda Recommendationıd için değerleri kullanacaksınız.
 
-### <a name="toocreate-and-use-an-ignorerecommendationstxt-text-file"></a>toocreate ve IgnoreRecommendations.txt metin dosyayı kullan
+### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Oluşturma ve bir IgnoreRecommendations.txt metin dosyası kullanma
 1. IgnoreRecommendations.txt adlı bir dosya oluşturun.
-2. Her Recommendationıd, OMS tooignore ayrı bir satırda istediğiniz ve ardından hello dosyasını kaydedip kapatın, her bir öneri için yazın veya yapıştırın.
-3. Merhaba dosya klasörü OMS tooignore önerileri istediğiniz her bilgisayarda aşağıdaki hello yerleştirin.
-   * Microsoft Monitoring Agent (doğrudan veya Operations Manager aracılığıyla bağlı) - hello olan bilgisayarlarda *SystemDrive*: \Program izleme Agent\Agent
-   * Merhaba Operations Manager yönetim sunucusunda - *SystemDrive*: \Program System Center 2012 R2\Operations Manager\Server
+2. Her Recommendationıd ayrı bir satırda yoksay ve sonra dosyayı kaydedip kapatın için OMS istediğiniz her bir öneri için yazın veya yapıştırın.
+3. Dosya aşağıdaki klasörde önerileri yoksaymak için OMS istediğiniz her bilgisayara yerleştirin.
+   * Microsoft Monitoring (doğrudan veya Operations Manager aracılığıyla bağlı) Agent - olan bilgisayarlarda *SystemDrive*: \Program izleme Agent\Agent
+   * Operations Manager yönetim sunucusunda - *SystemDrive*: \Program System Center 2012 R2\Operations Manager\Server
 
-### <a name="tooverify-that-recommendations-are-ignored"></a>tooverify önerileri göz ardı edilir
-1. Merhaba Hello sonraki zamanlanmış değerlendirme, varsayılan olarak 7 günde çalıştıktan sonra belirtilen önerileri yoksayıldı işaretlenir ve hello değerlendirme Panoda görünmez.
-2. Tüm göz ardı hello önerileri günlük arama sorguları toolist aşağıdaki hello kullanabilirsiniz.
+### <a name="to-verify-that-recommendations-are-ignored"></a>Öneriler göz ardı edilir doğrulamak için
+1. Sonraki değerlendirme çalıştığında, varsayılan olarak 7 günde zamanlanmış sonra belirtilen önerileri yoksayıldı işaretlenir ve değerlendirme Panoda görünmez.
+2. Tüm yoksayılan öneriler listelemek için aşağıdaki günlük arama sorgularını kullanabilirsiniz.
 
    ```
    Type=SQLAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
    ```
-3. Daha sonra göz ardı toosee önerileri istemediğinize karar verirseniz, tüm IgnoreRecommendations.txt dosyaları silin veya bunları RecommendationIDs kaldırabilirsiniz.
+3. Daha sonra yoksayılan önerileri görmek istediğiniz karar verirseniz, tüm IgnoreRecommendations.txt dosyaları silin veya bunları RecommendationIDs kaldırabilirsiniz.
 
 ## <a name="sql-assessment-solution-faq"></a>SQL değerlendirme çözümü hakkında SSS
 *Sıklıkla bir değerlendirme çalışıyor mu?*
 
-* Merhaba değerlendirme 7 günde bir çalışır.
+* Değerlendirme 7 günde bir çalışır.
 
-*Merhaba değerlendirme çalıştıran bir şekilde tooconfigure ne sıklıkta var mı?*
+*Ne sıklıkta değerlendirme çalıştıran yapılandırmak için yolu var mı?*
 
 * Şu anda değil.
 
-*I hello SQL değerlendirme çözümü ekledikten sonra başka bir sunucuya belirlediyseniz değerlendirileceğini?*
+*T SQL değerlendirme çözümü ekledikten sonra başka bir sunucuya belirlediyseniz değerlendirileceğini?*
 
 * Evet, bunu daha sonra gelen her 7 günde değerlendirildiği bulunduktan sonra.
 
-*Ne zaman bir sunucu kullanımdan alındığında hello değerlendirme kaldırılacak?*
+*Ne zaman bir sunucu kullanımdan alındığında değerlendirme kaldırılacak?*
 
 * Bir sunucu için 3 hafta veri göndermez, kaldırılır.
 
-*Veri toplama hello hello işlemin hello adı nedir?*
+*Veri toplama mu işlemin adı nedir?*
 
 * AdvisorAssessment.exe
 
-*Ne kadar süreyle için toplanan verileri toobe sürer?*
+*Ne kadar süreyle verilerinin toplanmasını sürer?*
 
-* Merhaba gerçek veri toplama hello sunucuda yaklaşık 1 saat sürer. Bu çok sayıda SQL örnekleri veya veritabanlarına sahip sunucularda uzun sürebilir.
+* Gerçek veri toplama sunucusundaki yaklaşık 1 saat sürer. Bu çok sayıda SQL örnekleri veya veritabanlarına sahip sunucularda uzun sürebilir.
 
 *Hangi türde veri toplanır?*
 
-* veri türleri aşağıdaki hello toplanır:
+* Aşağıdaki veri türlerini toplanır:
   * WMI
   * Kayıt defteri
   * Performans sayaçları
   * SQL Dinamik Yönetim görünümlerini (DMV).
 
-*Verileri toplandığında yolu tooconfigure var mı?*
+*Verileri toplandığında yapılandırmak için yolu var mı?*
 
 * Şu anda değil.
 
-*Bir farklı çalıştır hesabı neden tooconfigure var mı?*
+*Bir farklı çalıştır hesabı yapılandırmak neden var mı?*
 
-* SQL Server için SQL sorguları az sayıda çalıştırılır. Bunları sırayla toorun, bir farklı çalıştır hesabı VIEW SERVER STATE izinleri tooSQL birlikte kullanılmalıdır.  Ayrıca, sipariş tooquery WMI'da, yerel yönetici kimlik bilgileri gereklidir.
+* SQL Server için SQL sorguları az sayıda çalıştırılır. Bir farklı çalıştır hesabı SQL VIEW SERVER STATE izni olan çalışmasını sırayla kullanılması gerekir.  Ayrıca, WMI sorgusu için yerel yönetici kimlik bilgileri gereklidir.
 
-*Neden yalnızca hello ilk 10 önerileri görüntülemek?*
+*Neden yalnızca ilk 10 önerileri görüntülemek?*
 
-* Görevler kapsamlı bir zorlamayı listesi vermek yerine, öncelik hello önerileri adresleme odaklanmak öneririz. Bunları çözün sonra ek öneriler kullanılabilir hale gelir. Toosee hello ayrıntılı liste tercih ederseniz, tüm öneriler hello OMS günlük arama özelliğini kullanarak görüntüleyebilirsiniz.
+* Görevler kapsamlı bir zorlamayı listesi vermek yerine, Önceliklendirilmiş önerileri adresleme odaklanmak öneririz. Bunları çözün sonra ek öneriler kullanılabilir hale gelir. Ayrıntılı listesini görmek isterseniz, OMS günlük arama özelliğini kullanarak tüm önerileri görüntüleyebilirsiniz.
 
-*Herhangi bir şekilde tooignore bir öneri var mı?*
+*Bir öneri yoksaymak için yolu var mı?*
 
 * Evet, bkz: [önerileri yoksay](#ignore-recommendations) yukarıdaki bölümde.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Arama günlüklerini](log-analytics-log-searches.md) tooview ayrıntılı SQL Değerlendirme verileri ve öneriler.
+* [Arama günlüklerini](log-analytics-log-searches.md) ayrıntılı SQL Değerlendirme verileri ve öneriler görüntülemek için.

@@ -1,6 +1,6 @@
 ---
-title: Azure arama aaaQuery dizin | Microsoft Docs
-description: "Azure Search'te bir arama sorgusu oluşturun ve arama parametrelerini toofilter ve sıralama arama sonuçlarını kullanın."
+title: Azure Search dizininizi sorgulama | Microsoft Belgeleri
+description: "Azure Search'te bir arama sorgusu oluşturun ve arama sonuçlarını filtrelemek ve sıralamak için arama parametrelerini kullanın."
 services: search
 manager: jhubbard
 documentationcenter: 
@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: ashmaka
-ms.openlocfilehash: 4a5ffffe179695fc09446760e21a738dd36c29b9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: a22b82829df4659681940267e64c98d345453958
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="query-your-azure-search-index"></a>Azure Search dizininizi sorgulama
 > [!div class="op_single_selector"]
@@ -28,42 +28,42 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Arama istekleri tooAzure arama gönderirken, uygulamanızın arama kutusuna hello yazılan hello gerçek sözcüklerin yanı sıra belirtilen parametre sayısı vardır. Bu sorgu parametreleri tooachieve izin hello biraz daha derin denetim [tam metin arama deneyimi](search-lucene-query-architecture.md).
+Azure Search'e arama istekleri gönderirken, uygulamanızın arama kutusuna yazılan gerçek sözcüklerin yanı sıra belirtilebilecek birkaç parametre bulunur. Bu sorgu parametreleri, [tam metin arama deneyiminde](search-lucene-query-architecture.md) biraz daha derin denetim elde etmenizi sağlar.
 
-Azure Search hello Sorgu parametrelerinin ortak kullanımlarını kısaca açıklayan bir listesi aşağıda verilmiştir. Sorgu parametrelerinin ve bunların davranışlarının'ün tam kapsamını için lütfen bkz. hello sayfaları hello için ayrıntılı [REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) ve [.NET SDK'sı](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters#microsoft_azure_search_models_searchparameters#properties_summary).
+Azure Search'te sorgu parametrelerinin ortak kullanımlarını kısaca açıklayan bir liste aşağıda bulunmaktadır. Sorgu parametrelerinin ve bunların davranışlarının tam kapsamı için lütfen [REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) ve [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.searchparameters#microsoft_azure_search_models_searchparameters#properties_summary) için ayrıntılı bilgilerin yer aldığı sayfalara bakın.
 
 ## <a name="types-of-queries"></a>Sorgu türleri
-Azure arama birçok seçenekleri toocreate son derece güçlü sorgular sunar. Merhaba iki ana sorgu türleri `search` ve `filter`. A `search` sorgu bir veya daha çok terimi arar tüm *aranabilir* dizininizdeki alanları ve Google veya Bing toowork gibi bir arama motoru beklediğiniz hello şekilde çalışır. `filter` sorgusu, bir dizindeki tüm *filtrelenebilir* alanlarda bir boole ifadesini değerlendirir. Farklı `search` sorguları, `filter` sorguları eşleşen dize alanları için büyük küçük harfe duyarlı oldukları anlamına gelir bir alanın tam içeriğini hello.
+Azure Search, son derece güçlü sorgular oluşturmak için birçok seçenek sunar. Kullanacağınız iki ana sorgu türü `search` ve `filter` sorgularıdır. `search` sorgusu, dizininizdeki tüm *aranabilir* alanlarda bir veya daha çok terimi arar ve Google veya Bing gibi bir arama alt yapısının çalışmasını beklediğiniz şekilde çalışır. `filter` sorgusu, bir dizindeki tüm *filtrelenebilir* alanlarda bir boole ifadesini değerlendirir. `search` sorgularının aksine, `filter` sorguları bir alanın tam içeriğini eşleştirir; bu da dize alanları için büyük/küçük harfe duyarlı olduklarını gösterir.
 
-Aramaları ve filtreleri birlikte veya ayrı olarak kullanabilirsiniz. Bunları birlikte kullandığınızda hello filtredir ilk toohello tüm dizin uygulanır ve ardından hello filtre hello sonuçlarını hello araması gerçekleştirilir. Arama sorgusu gereksinimlerini tooprocess hello belgeleri hello kümesini azalttığından filtreler bu nedenle yararlı yöntem tooimprove sorgu performansı olabilir.
+Aramaları ve filtreleri birlikte veya ayrı olarak kullanabilirsiniz. Bunları birlikte kullandığınızda filtre öncelikle tüm dizine uygulanır ve ardından filtrenin sonuçlarında arama gerçekleştirilir. Filtreler arama sorgusunun işlemesi gereken belge kümesini azalttığından, sorgu performansını iyileştirmeye yönelik kullanışlı bir teknik olabilir.
 
-Hello için filtre ifadeleri söz dizimi hello kümesini [OData filtre dilinin](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search). Arama sorguları için her iki hello kullanabilirsiniz [Basitleştirilmiş söz dizimini](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search) veya hello [Lucene sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search) aşağıda ele alınmıştır.
+Filtre ifadeleri için söz dizimi, [OData filtre dilinin](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search) bir alt kümesidir. Arama sorguları için aşağıda açıklanan [basitleştirilmiş söz dizimini](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search) veya [Lucene sorgu söz dizimini](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search) kullanabilirsiniz.
 
 ### <a name="simple-query-syntax"></a>Basit sorgu söz dizimi
-Merhaba [Basit Sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search) hello Azure Search'te kullanılan varsayılan sorgu dildir. Merhaba Basit Sorgu söz dizimi hello AND, OR, değil, tümcecik, sonek ve öncelik işleçleri dahil olmak üzere ortak arama işleçlerini destekler.
+[Basit sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/Simple-query-syntax-in-Azure-Search), Azure Search'te kullanılan varsayılan sorgu dildir. Basit sorgu söz dizimi AND, OR, NOT, tümcecik, sonek ve öncelik işleçleri dahil olmak üzere birkaç ortak arama işleçlerini destekler.
 
 ### <a name="lucene-query-syntax"></a>Lucene sorgu söz dizimi
-Merhaba [Lucene sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search) toouse hello yaygın şekilde benimsenmiş ve açıklayıcı sorgu dili parçası olarak geliştirilen verir [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html).
+[Lucene sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search), [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)'in parçası olarak geliştirilen yaygın şekilde benimsenmiş ve ifade gücüne sahip sorgu dili kullanmanızı sağlar.
 
-Bu sorgu sözdizimini kullanarak, sağlar, tooeasily elde özellikleri aşağıdaki hello: [alan kapsamlı sorgular](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_fields), [benzer arama](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_fuzzy), [yakınlık araması](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_proximity), [ Terim](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_termboost), [normal ifade araması](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_regex), [joker karakterle arama](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_wildcard), [sözdizimi Temelleri](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_syntax), ve [kullanan sorgular Boole işleçleri](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_boolean).
+Bu sorgu söz diziminin kullanılması, şu işlevleri kolayca elde etmenizi sağlar: [Alan kapsamlı sorgular](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_fields), [belirsiz arama](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_fuzzy), [yakınlık araması](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_proximity), [terim artırma](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_termboost), [normal ifade araması](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_regex), [joker karakterle arama](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_wildcard), [temel söz dizimi bilgileri](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_syntax) ve [boole işleçlerini kullanan sorgular](https://docs.microsoft.com/rest/api/searchservice/Lucene-query-syntax-in-Azure-Search#bkmk_boolean).
 
 ## <a name="ordering-results"></a>Sonuçları sıralama
-Bir arama sorgusunun sonuçları alınırken, Azure Search hello sonuçları belirli bir alandaki değerlere göre sıralayarak sunmasını isteyebilirsiniz. Varsayılan olarak, Azure Search türetildiği her bir belgenin arama puanı hello derecesini temel hello arama sonuçlarını sıralar [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
+Bir arama sorgusunun sonuçları alınırken, Azure Search'ün sonuçları belirli bir alandaki değerlere göre sıralayarak sunmasını isteyebilirsiniz. Varsayılan olarak Azure Search, her bir belgenin [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)'den türetilen arama puanı sıralamasını temel alarak arama sonuçlarını sıralar.
 
-Azure Search tooreturn sonuçlarınızı hello arama puanı dışında bir değere göre sıralayarak istiyorsanız hello kullanabilirsiniz `orderby` arama parametresi. Merhaba hello değerini belirtebilirsiniz `orderby` parametresi tooinclude alan adları ve toohello çağırır [ `geo.distance()` işlevi](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search) Jeo-uzamsal değerler. Her deyim tarafından izlenebilir `asc` tooindicate sonuçları artan sırada istenir ve `desc` tooindicate sonuçları azalan sırada istenir. artan hello varsayılandır.
+Azure Search'ün sonuçlarınızı arama puanı dışında bir değere göre sıralayarak döndürmesini istiyorsanız `orderby` arama parametresini kullanabilirsiniz. `orderby` parametresinin değerini, alan adlarını ve jeo-uzamsal değerler için [`geo.distance()` işlevine](https://docs.microsoft.com/rest/api/searchservice/OData-Expression-Syntax-for-Azure-Search) çağrıları içerecek şekilde belirtebilirsiniz. Her bir ifadenin ardından, sonuçların artan sıralamada istendiğini belirtmek için `asc`, sonuçların azalan sıralamada istendiğini belirtmek için ise `desc` gelebilir. Artan sıralama varsayılandır.
 
 ## <a name="paging"></a>Sayfalama
-Azure arama yapar, kolay tooimplement arama sonuçlarını disk belleği. Hello kullanarak `top` ve `skip` parametreleri tooreceive hello toplam arama sonuçları kümesini, iyi arama kullanıcı Arabirimi uygulamalarını kolayca etkinleştiren yönetilebilir ve sıralı alt kümeler halinde izin arama isteklerini sorunsuz verebilir. Sonuç daha küçük bu alt kümelerini alırken hello toplam arama sonuçları kümesindeki belge sayısını hello de alabilir.
+Azure Search, arama sonuçlarının sayfalanması uygulamasını kolaylaştırır. `top` ve `skip` parametrelerini kullanarak, tüm arama sonuçları kümesini, iyi arama kullanıcı arabirimi uygulamalarını kolayca etkinleştiren yönetilebilir ve sıralı alt kümeler halinde almanızı sağlayan arama isteklerini sorunsuz bir şekilde gönderebilirsiniz. Bu daha küçük sonuç alt kümelerini alırken, tüm arama sonuçları kümesindeki belge sayısını da alabilirsiniz.
 
-Merhaba makalesi arama sonuçlarında disk belleği hakkında daha fazla bilgiyi [nasıl Azure Search'te toopage arama sonuçları](search-pagination-page-layout.md).
+[Azure Search'te arama sonuçlarını numaralandırma](search-pagination-page-layout.md) makalesinde arama sonuçlarının numaralanması hakkında daha fazla bilgi alabilirsiniz.
 
 ## <a name="hit-highlighting"></a>İsabet vurgulama
-Azure Search'te hello tam hello arama sorgusuyla eşleşen arama sonuçları kısmı vurgulayan hello kullanarak kolaylaştırılmıştır `highlight`, `highlightPreTag`, ve `highlightPostTag` parametreleri. Belirtebilirsiniz *aranabilir* alanları hello dize tooappend toohello başlangıç etiketleri ve hello sonuna Azure arama metni eşleşen tam döndürür vurgulanacağının yanı sıra eşleşen metninin sahip olmalıdır.
+Azure Search'te arama sonuçlarının arama sorgusuyla tam olarak eşleşen kısmının vurgulanması `highlight`, `highlightPreTag` ve `highlightPostTag` parametreleri kullanılarak kolaylaştırılır. Hangi *aranabilir* alanların eşleşen metninin vurgulanacağının yanı sıra Azure Search'ün döndürdüğü eşleşen metnin başına ve sonuna eklenecek dize etiketlerini tam olarak belirtebilirsiniz.
 
 ## <a name="try-out-query-syntax"></a>Sorgu söz dizimini deneme
 
-Merhaba en iyi şekilde toounderstand söz dizimi farkları olan sorguları gönderme ve sonuçları gözden geçirme.
+Söz dizimi farklılıklarını anlamak için en iyi yol, sorgu göndermek ve sonuçları gözden geçirmektir.
 
-+ Kullanım [arama Gezgini](search-explorer.md) hello Azure Portalı'nda. Dağıtarak [hello örnek dizin](search-get-started-portal.md), hello Portalı'nda araçlarını kullanarak dakika cinsinden başlangıç dizini sorgulama yapabilirsiniz.
++ Azure portalında [Arama Gezgini](search-explorer.md)'ni kullanın. [Örnek dizini](search-get-started-portal.md) dağıttıktan sonra portaldaki araçları kullanarak dakikalar içinde dizini sorgulayabilirsiniz.
 
-+ Kullanım [Fiddler](search-fiddler.md) veya tooyour arama hizmeti yüklediğiniz Chrome Postman toosubmit sorguları tooan dizini. Her iki araçları REST çağrılarını tooan HTTP uç noktasını destekler. 
++ Arama hizmetinize yüklediğiniz bir dizine sorgu göndermek için [Fiddler](search-fiddler.md)'ı veya Chrome Postman'i kullanın. Her iki araç da HTTP uç noktalarına yönelik REST çağrılarını destekler. 

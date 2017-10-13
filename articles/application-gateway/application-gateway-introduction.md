@@ -1,9 +1,9 @@
 ---
-title: "Uygulama ağ geçidi aaaIntroduction tooAzure | Microsoft Docs"
-description: "Ağ geçidi boyutları dahil olmak üzere bu sayfayı hello uygulama ağ geçidi hizmeti katman 7 Yük Dengeleme için genel bir bakış sağlar, HTTP Yük Dengeleme, tanımlama bilgisi tabanlı oturum benzeşimi ve SSL boşaltma."
+title: "Azure Application Gateway’e giriş | Microsoft Docs"
+description: "Bu sayfada ağ geçidi boyutları, HTTP yük dengelemesi, tanımlama bilgilerine dayalı oturum benzeşimi ve SSL yük boşaltma dahil olmak üzere 7. katman yük dengeleme için Application Gateway’e genel bakış sunulmaktadır."
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: b37a2473-4f0e-496b-95e7-c0594e96f83e
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
-ms.author: gwallace
-ms.openlocfilehash: c40c9dba64ab03d9f6f81b3cb8f26c6562ac26c6
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.author: davidmu
+ms.openlocfilehash: 33968b72d0da71577428937e5d293a40d62989f7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-application-gateway"></a>Application Gateway'e genel bakış
 
-Microsoft Azure Application Gateway, uygulama teslim denetleyicisini (ADC) hizmet olarak sunan özel bir sanal gereçtir. Uygulamanız için çeşitli 7. katman yük dengeleme özellikleri sunar. CPU yoğunluklu SSL sonlandırma toohello uygulama ağ geçidi boşaltarak müşteriler toooptimize web grubu verimlilik sağlar. Tek bir uygulama ağ geçidi arkasında birden çok Web sitesini hepsini bir kez dağıtımını gelen trafik, tanımlama bilgisi tabanlı oturum benzeşimi, URL yolu tabanlı Yönlendirme ve hello özelliği toohost dahil olmak üzere diğer katman 7 Yönlendirme yetenekleri de sağlar. Bir web uygulaması Güvenlik Duvarı (WAF) de hello uygulama ağ geçidi WAF SKU bir parçası olarak sağlanır. Bu ortak web Güvenlik Açıkları ve güvenlik açıklarına tooweb uygulamalardan koruma sağlar. Application Gateway; İnternet'e yönelik ağ geçidi, yalnızca dahili ağ geçidi veya bu ikisinin bir birleşimi olarak yapılandırılabilir. 
+Microsoft Azure Application Gateway, uygulama teslim denetleyicisini (ADC) hizmet olarak sunan özel bir sanal gereçtir. Uygulamanız için çeşitli 7. katman yük dengeleme özellikleri sunar. Müşterilere, yoğun CPU kullanan SSL sonlandırması yükünü uygulama ağ geçidine boşaltarak web grubu üretkenliğini iyileştirme olanağı tanır. Ayrıca, gelen trafiğin “hepsini bir kez deneme” yaklaşımıyla dağıtımı, tanımlama bilgisi tabanlı oturum benzeşimi, URL’yi yol tabanlı yönlendirme ve tek bir uygulama ağ geçidi arkasında birden fazla web sitesi barındırma gibi diğer 7. katman yönlendirme özelliklerini sağlar. Application gateway WAF SKU’su kapsamında bir web uygulaması güvenlik duvarı da (WAF) sağlanır. WAF, web uygulamaları için yaygın web güvenlik açıklarına ve açıklardan yararlanmaya karşı koruma sağlar. Application Gateway; İnternet'e yönelik ağ geçidi, yalnızca dahili ağ geçidi veya bu ikisinin bir birleşimi olarak yapılandırılabilir. 
 
 ![senaryo](./media/application-gateway-introduction/scenario.png)
 
 ## <a name="features"></a>Özellikler
 
-Uygulama ağ geçidi şu anda hello aşağıdaki özellikleri sağlar:
+Application Gateway şu anda aşağıdaki özellikleri sunmaktadır:
 
 
-* **[Web uygulaması güvenlik duvarı](application-gateway-webapplicationfirewall-overview.md)**  -hello web uygulaması Güvenlik Duvarı (WAF) Azure uygulama ağ geçidi, SQL ekleme gibi ortak web tabanlı saldırıları, siteler arası komut dosyası saldırıları ve oturumu ele geçirilmesini web uygulamaları korur.
+* **[Web uygulaması güvenlik duvarı](application-gateway-webapplicationfirewall-overview.md)** - Azure Application Gateway içindeki web uygulaması güvenlik duvarı (WAF), web uygulamalarını SQL eklemesi, siteler arası komut dosyası saldırıları ve oturum ele geçirmeleri gibi yaygın web tabanlı saldırılardan korur.
 * **HTTP yük dengelemesi** - Application Gateway hepsini bir kez deneme yük dengelemesi sağlar. Yük dengelemesi 7. Katmanda yapılır ve yalnızca HTTP(S) trafiği için kullanılır.
-* **Tanımlama bilgisi tabanlı oturum benzeşimi** -hello tanımlama bilgisi tabanlı oturum benzeşimi özelliğini, bir kullanıcı oturumunu hello üzerinde tookeep istediğinizde yararlıdır aynı arka uç. Ağ geçidi yönetilen tanımlama bilgilerini kullanarak hello uygulama ağ geçidi mümkün toodirect sonraki kullanıcı oturumu toohello trafiğinden olduğu aynı arka uç işleme için. Bu özellik, oturum durumu yerel olarak hello arka uç sunucuda bir kullanıcı oturumu için kaydedildiği durumlarda önemlidir.
-* **[Güvenli Yuva Katmanı (SSL) yük boşaltma](application-gateway-ssl-arm.md)**  -bu özellik HTTPS trafiğini web sunucularınızın kapalı çözme hello maliyetli görevini alır. SSL bağlantısı hello uygulama ağ geçidi ve şifrelenmemiş hello istek toohello sunucusu iletme sonlandırma hello tarafından hello web sunucusu tarafından şifre çözme unburdened.  Uygulama ağ geçidi hello yanıt geri toohello istemci göndermeden önce yeniden şifreler. Bu özellik hello arka uç bulunduğu senaryolarda kullanışlıdır hello aynı sanal ağ uygulama ağ geçidi azure'da hello gibi güvenli.
-* **[TooEnd SSL bitiş](application-gateway-backend-ssl.md)**  -uygulama ağ geçidi destekler bitiş tooend şifreleme trafiği. Uygulama ağ geçidi bunu hello uygulama ağ geçidi hello SSL bağlantısını sonlandırarak yapar. Hello ağ geçidi sonra toohello trafiği hello paket yeniden şifreler ve tanımlanan hello yönlendirme kurallarına göre hello paket toohello uygun arka uç iletir hello yönlendirme kuralları uygular. Merhaba web sunucusundan herhangi bir yanıt hello gider aynı işlemi geri toohello son kullanıcı.
-* **[URL tabanlı içerik yönlendirme](application-gateway-url-route-overview.md)**  -bu özellik hello özelliği toouse farklı arka uç sunucular için farklı trafik sağlar. Trafik hello web sunucusunda bir klasöre veya bir CDN yönlendirilmiş tooa farklı arka uç olabilir. Bu özellik belirli içeriklere hizmet etmeyen arka uçlardaki gereksiz yükü azaltır.
-* **[Çok siteli yönlendirme](application-gateway-multi-site-overview.md)**  -uygulama ağ geçidi, tooconsolidate tek bir uygulama ağ geçidi too20 sitelerinde yukarı sağlar.
-* **[Websocket desteği](application-gateway-websocket.md)**  -başka bir önemli uygulama ağ geçidi Websocket için yerel destek hello özelliğidir.
-* **[Sistem durumu izleme](application-gateway-probe-overview.md)**  -uygulama ağ geçidi varsayılan sistem durumu izleme arka uç kaynakların ve özel toomonitor daha belirli senaryolar için araştırmalarını sağlar.
-* **[SSL ilke ve şifre](application-gateway-ssl-policy-overview.md)**  - toolimit hello SSL protokol sürümleri bu özellik hello sağlayabilir ve de hello şifrelemeleri desteklenir ve hello bunlar işlem sırası paketleri.
-* **[Yeniden yönlendirme isteği](application-gateway-redirect-overview.md)**  -bu özellik, hello yetenek tooredirect HTTP isteklerini tooan HTTPS dinleyicisi sağlar.
+* **Tanımlama bilgilerine dayalı oturum benzeşimi** - Tanımlama bilgilerine dayalı oturum benzeşimi özelliği, bir kullanıcı oturumunu aynı arka uçta tutmak istediğinizde kullanışlıdır. Ağ geçidi ile yönetilen tanımlama bilgilerini kullanan Application Gateway, sonraki trafiği işleme amacıyla bir kullanıcı oturumundan aynı arka uca yönlendirebilir. Bu özellik, oturum durumunun bir kullanıcı oturumuna ait arka uca yerel olarak kaydedildiği durumlarda önemlidir.
+* **[Güvenli Yuva Katmanı (SSL) yük boşaltması](application-gateway-ssl-arm.md)** - Bu özellik, web sunucularınızın HTTPS trafiğinin şifresini çözmeyi içeren maliyetli bir görevdir. Application Gateway üzerinde SSL bağlantısını sonlandırarak ve isteği sunucuya şifrelenmemiş olarak ileterek, web sunucusu üzerindeki şifre çözme yükü kaldırılır.  Application Gateway, yanıtı istemciye geri göndermeden önce yeniden şifreler. Bu özellik, arka ucun Azure’da Application Gateway ile aynı güvenli sanal ağda bulunduğu senaryolarda yararlıdır.
+* **[Uçtan Uca SSL](application-gateway-backend-ssl.md)** - Application Gateway, trafiğin uçtan uca şifrelenmesini destekler. Application Gateway bu işlemi uygulama ağ geçidindeki SSL bağlantısını sonlandırarak yapar. Ağ geçidi bundan sonra yönlendirme kurallarını trafiğe uygular, paketi yeniden şifreler ve tanımlanan yönlendirme kurallarına göre paketi uygun arka uca iletir. Web sunucusundan alınan herhangi bir yanıt, son kullanıcıya dönerken aynı süreci izler.
+* **[URL tabanlı içerik yönlendirme](application-gateway-url-route-overview.md)** - Bu özellik farklı trafikler için farklı arka uç sunucularını kullanma özelliği sağlar. Web sunucusu üzerindeki bir klasörün veya bir CDN’nin trafiği farklı bir arka uca yönlendirilebilir. Bu özellik belirli içeriklere hizmet etmeyen arka uçlardaki gereksiz yükü azaltır.
+* **[Çok siteli yönlendirme](application-gateway-multi-site-overview.md)** - Application Gateway, tek bir uygulama ağ geçidi üzerinde 20’ye kadar web sitesini birleştirmenize olanak tanır.
+* **[Websocket desteği](application-gateway-websocket.md)** - Application Gateway’in bir diğer harika özelliği ise Websocket’e yönelik yerel desteğidir.
+* **[Sistem durumu izleme](application-gateway-probe-overview.md)** - Application Gateway, daha ayrıntılı senaryoları izlemek üzere arka uç kaynaklarına ve özel araştırmalara yönelik varsayılan sistem durumu izleme özelliğini sağlar.
+* **[SSL İlkesi ve Şifreler](application-gateway-ssl-policy-overview.md)** - Bu özellik, SSL protokolü sürümlerini sınırlama imkanı sağlar ve desteklenen şifre paketleri ile bunların işlenme sırasını şifreler.
+* **[İstek yönlendirme](application-gateway-redirect-overview.md)** - Bu özellik HTTP isteklerini HTTPS dinleyicisine yönlendirebilmeyi sağlar.
 * **[Çok kiracılı arka uç desteği](application-gateway-web-app-overview.md)**  - Application gateway, Azure Web Apps ve API Ağ Geçidi gibi çok kiracılı arka uç hizmetlerini arka uç havuz üyeleri olarak yapılandırmayı destekler. 
 * **[Gelişmiş tanılama](application-gateway-diagnostics.md)** - Application gateway tam tanılama ve erişim günlükleri sağlar. Güvenlik duvarı günlükleri, WAF’nin etkin olduğu application gateway kaynakları için kullanılabilir.
 
@@ -50,16 +50,16 @@ Uygulama ağ geçidi şu anda hello aşağıdaki özellikleri sağlar:
 
 Application Gateway aşağıdakiler için yararlıdır:
 
-* İstekleri gerektiren uygulamalar hello aynı kullanıcı/istemci oturumu tooreach hello aynı arka uç sanal makine. Bu uygulamaların örnekleri alışveriş sepeti uygulamaları ve web posta sunucularıdır.
+* Aynı kullanıcı/istemci oturumunun aynı arka uç sanal makinesine ulaşmaya yönelik isteklerini gerektiren uygulamalar. Bu uygulamaların örnekleri alışveriş sepeti uygulamaları ve web posta sunucularıdır.
 * Web sunucusu grupları için SSL sonlandırma yükünü kaldırma.
-* Bir içerik teslim ağı gibi uygulamalar aynı uzun süre çalışan TCP bağlantısı toobe yönlendirilmesini veya yük dengeli toodifferent arka uç sunucuları hello birden çok HTTP isteklerini gerektirir.
+* Aynı uzun süreli TCP bağlantısı üzerinde birden fazla HTTP isteğinin yönlendirilmesini veya farklı arka uç sunucularına yük dengelemesi yapılmasını gerektiren, içerik teslim ağı gibi uygulamalar.
 * Websocket trafiğini destekleyen uygulamalar
 * Web uygulamalarını SQL ekleme, siteler arası komut dosyası saldırıları ve oturum ele geçirmeleri gibi yaygın web tabanlı saldırılardan koruma.
 * Trafiğin url yolu veya etki alanı üst bilgileri gibi farklı yönlendirme ölçütlerine göre mantıksal dağıtımı.
 
-Application Gateway tamamen Azure tarafından yönetilir, ölçeklenebilir ve yüksek oranda kullanılabilir. Daha iyi yönetilebilirlik için zengin tanılama ve günlüğe kaydetme özellikleri sağlar. Uygulama ağ geçidi oluşturduğunuzda, bir uç nokta (ortak VIP veya dahili ILB IP), giriş ağ trafiği için ilişkilendirilir ve kullanılır. Bu VIP veya ILB'nin IP Azure yük dengeleyici tarafından hello aktarım düzeyinde (TCP/UDP) çalışma ve yük dengeli toohello uygulama ağ geçidi çalışan örnekleri olan tüm gelen ağ trafiğini olması sağlanır. yolların kendi yapılandırmasına bağlı olarak bir sanal makine olup olmadığını HTTP/HTTPS trafiğini hello sonra uygulama ağ geçidi Hello bulut hizmeti, iç veya dış IP adresi.
+Application Gateway tamamen Azure tarafından yönetilir, ölçeklenebilir ve yüksek oranda kullanılabilir. Daha iyi yönetilebilirlik için zengin tanılama ve günlüğe kaydetme özellikleri sağlar. Uygulama ağ geçidi oluşturduğunuzda, bir uç nokta (ortak VIP veya dahili ILB IP), giriş ağ trafiği için ilişkilendirilir ve kullanılır. Bu VIP veya ILB IP, taşıma düzeyinde (TCP/UDP) çalışan ve tüm gelen ağ trafiğinin yükünü uygulama ağ geçidinin çalışan örneklerinde dengeleyen Azure Load Balancer tarafından sağlanır. Ardından uygulama ağ geçidi HTTP/HTTPS trafiğini, yapılandırmasına göre (sanal makine, bulut hizmeti, iç veya dış IP adresi) yönlendirir.
 
-Uygulama ağ geçidi bir Azure tarafından yönetilen hizmet hello bir katman 7 yük dengeleyicinin arkasına hello Azure yazılım yük dengeleyici sağlanmasına olanak tanır şekilde yük dengeleme. Trafik Yöneticisi kullanılan toocomplete hello senaryo görüntü, uygulama ağ geçidi sağlarken burada trafik Yöneticisi yeniden yönlendirme ve trafik kullanılabilirliğini toomultiple uygulama ağ geçidi kaynakları farklı bölgelerdeki sağlar aşağıdaki hello görülen olabilir Çapraz bölge katman 7 Yük Dengeleme. Bu senaryo örneği bulunabilir: [kullanarak Yük Dengeleme hello Azure bulut Hizmetleri](../traffic-manager/traffic-manager-load-balancing-azure.md)
+Azure tarafından yönetilen bir hizmet olan Application Gateway yük dengelemesi, Azure yazılım yük dengeleyicisinin arkasında 7. katman yük dengeleyici sağlamaya olanak tanır. Aşağıdaki görüntüde gösterildiği gibi senaryoyu tamamlamak için Traffic Manager kullanılabilir; burada Traffic Manager, trafiğin farklı gruplardaki birden fazla Application Gateway kaynağına yönlendirilmesini ve bu kaynaklar tarafından kullanılmasını sağlarken, Application Gateway bölgeler arası 7. katman yük dengeleme sağlar. Bu senaryonun bir örneği şurada bulunabilir: [Azure bulutunda yük dengeleme hizmetlerini kullanma](../traffic-manager/traffic-manager-load-balancing-azure.md)
 
 ![traffic manager ve application gateway senaryosu](./media/application-gateway-introduction/tm-lb-ag-scenario.png)
 
@@ -69,9 +69,9 @@ Uygulama ağ geçidi bir Azure tarafından yönetilen hizmet hello bir katman 7 
 
 Application Gateway şu anda üç büyüklükte sunulmaktadır: **Kısa**, **Orta** ve **Uzun**. Küçük örnek boyutları, geliştirme ve test senaryolarına yöneliktir.
 
-Abonelik başına too50 uygulama ağ geçitleri oluşturan oluşturabilirsiniz ve her uygulama ağ geçidi too10 örneği her olabilir. Her uygulama ağ geçidi 20 http dinleyicisinden oluşabilir. Application Gateway limitlerinin tam listesi için bkz. [Application Gateway hizmet limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
+Bir abonelik için en fazla 50 uygulama ağ geçidi oluşturabilirsiniz ve her uygulama ağ geçidi en fazla 10 örnek içerebilir. Her uygulama ağ geçidi 20 http dinleyicisinden oluşabilir. Application Gateway limitlerinin tam listesi için bkz. [Application Gateway hizmet limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
-Aşağıdaki tablonun hello her uygulama ağ geçidi örneği için bir ortalama performans işleme SSL boşaltması etkin gösterir:
+Aşağıdaki tabloda, SSL boşaltmasının etkin olduğu her bir Application Gateway örneği için ortalama performans aktarım hızı gösterilmiştir:
 
 | Arka uç sayfa yanıtı | Küçük | Orta | Büyük |
 | --- | --- | --- | --- |
@@ -79,21 +79,21 @@ Aşağıdaki tablonun hello her uygulama ağ geçidi örneği için bir ortalama
 | 100K |35 Mbps |100 Mbps |200 Mbps |
 
 > [!NOTE]
-> Bu değerler bir uygulama ağ geçidi verimliliği için yaklaşık değerlerdir. Merhaba gerçek verimlilik ortalama sayfa boyutu gibi çeşitli ortamı ayrıntılarını arka uç örnekleri ve işleme süresi tooserve bir sayfa konumunu bağlıdır. Tam performans rakamlarına ulaşmak için kendi testlerinizi çalıştırmanız gerekir. Bu değerler yalnızca kapasite planlama konusunda yardımcı olmak için verilmiştir.
+> Bu değerler bir uygulama ağ geçidi verimliliği için yaklaşık değerlerdir. Gerçek verimlilik; ortalama sayfa boyutu, arka uç örneklerinin konumu ve bir sayfaya hizmet etmek için işleme süresi gibi çeşitli ortam ayrıntılarına bağlıdır. Tam performans rakamlarına ulaşmak için kendi testlerinizi çalıştırmanız gerekir. Bu değerler yalnızca kapasite planlama konusunda yardımcı olmak için verilmiştir.
 
 ## <a name="health-monitoring"></a>Sistem durumunu izleme
 
-Azure uygulama ağ geçidi, temel veya özel sistem durumu araştırmalarının otomatik olarak hello arka uç örnekleri hello durumunu izler. Sistem durumu araştırmalarının kullanarak, yalnızca sağlıklı ana tootraffic yanıt vermesini sağlar. Daha fazla bilgi için bkz. [Application Gateway sistem durumunu izlemeye genel bakış](application-gateway-probe-overview.md).
+Azure Application Gateway, temel veya özel sistem durumu araştırmaları aracılığıyla arka uç örneklerinin sistem durumunu otomatik olarak izler. Sistem durumu araştırmalarını kullanan bu işlem yalnızca sağlıklı konakların trafiğe yanıt vermesini sağlar. Daha fazla bilgi için bkz. [Application Gateway sistem durumunu izlemeye genel bakış](application-gateway-probe-overview.md).
 
 ## <a name="configuring-and-managing"></a>Yapılandırma ve yönetme
 
-Uygulama ağ geçidi, uç noktası için bir genel IP, özel IP veya yapılandırıldığında her ikisine birden sahip olabilir. Application Gateway, kendi alt ağındaki bir sanal ağ içinde yapılandırılır. oluşturulan veya uygulama ağ geçidi için kullanılan hello alt herhangi bir kaynak türleri içeremez, hello alt ağda izin verilen hello yalnızca başka uygulama ağ geçitleri kaynaklardır. Merhaba arka uç sunucularının, arka uç kaynaklarına yer almalıdır hello farklı bir alt ağ içinde toosecure hello uygulama ağ geçidi aynı sanal ağ. Bu alt ağ hello arka uç uygulamalar için gerekli değildir. Başlangıç IP adresi Hello uygulama ağ geçidi ulaşabilir sürece, uygulama ağ geçidi mümkün tooprovide ADC yetenekleri hello arka uç sunucuları için ' dir. 
+Uygulama ağ geçidi, uç noktası için bir genel IP, özel IP veya yapılandırıldığında her ikisine birden sahip olabilir. Application Gateway, kendi alt ağındaki bir sanal ağ içinde yapılandırılır. Uygulama ağ geçidi için oluşturulan veya kullanılan alt ağ başka türde kaynaklar içeremez; alt ağda kaynak olarak yalnızca diğer uygulama ağ geçitleri kullanılabilir. Arka uç kaynaklarınızın güvenliğini sağlamak için, arka uç sunucuları uygulama ağ geçidiyle aynı sanal ağdaki farklı bir alt ağ içinde yer alabilir. Bu alt ağ, arka uç uygulamaları için gerekli değildir. Application gateway ip adresine ulaşabildiği sürece arka uç sunucuları için ADC özellikleri sağlayabilir. 
 
-REST API’leri, PowerShell cmdlet’leri, Azure CLI veya [Azure portalını](https://portal.azure.com/) kullanarak bir uygulama ağ geçidi oluşturup yönetebilirsiniz. Uygulama ağ geçidi hakkında ek sorular şu adresi ziyaret edin [uygulama ağ geçidi SSS](application-gateway-faq.md) sık sorulan sorular tooview ortak listesi.
+REST API’leri, PowerShell cmdlet’leri, Azure CLI veya [Azure portalını](https://portal.azure.com/) kullanarak bir uygulama ağ geçidi oluşturup yönetebilirsiniz. Application gateway hakkında diğer sorular için, [Application Gateway SSS](application-gateway-faq.md) bölümünü ziyaret ederek sık sorulan soruların listesini görüntüleyin.
 
 ## <a name="pricing"></a>Fiyatlandırma
 
-Fiyatlandırma, saatlik ağ geçidi örneği ücretine ve veri işleme ücretine bağlıdır. Saat başına WAF SKU hello için ağ geçidi fiyatlandırma standart SKU ücretlerden farklıdır. Bu fiyatlandırma bilgileri [Application Gateway fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/application-gateway/) sayfasında bulunabilir. Veri işleme ücretleri kalır hello aynı.
+Fiyatlandırma, saatlik ağ geçidi örneği ücretine ve veri işleme ücretine bağlıdır. WAF SKU’su için saat başına ağ geçidi fiyatlandırması, Standart SKU ücretlerinden farklıdır. Bu fiyatlandırma bilgileri [Application Gateway fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/application-gateway/) sayfasında bulunabilir. Veri işleme ücretleri aynı kalır.
 
 ## <a name="faq"></a>SSS
 
@@ -101,8 +101,8 @@ Application Gateway hakkında sık sorulan sorular için bkz. [Application Gatew
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Uygulama ağ geçidi hakkında daha fazla bilgi sonra şunları yapabilirsiniz [bir uygulama ağ geçidi oluşturma](application-gateway-create-gateway-portal.md) veya [SSL boşaltma bir uygulama ağ geçidi oluşturma](application-gateway-ssl-arm.md) tooload Bakiye HTTPS bağlantıları.
+Application Gateway hakkında bilgi aldıktan sonra [bir uygulama ağ geçidi oluşturabilir](application-gateway-create-gateway-portal.md) veya HTTPS bağlantılarının yük dengelemesini yapmak üzere [bir uygulama ağ geçidi SSL yük boşaltması oluşturabilirsiniz](application-gateway-ssl-arm.md).
 
-toolearn nasıl toocreate URL tabanlı içerik yönlendirme, kullanarak bir uygulama ağ geçidi Git çok[URL tabanlı yönlendirme kullanarak bir uygulama ağ geçidi oluşturma](application-gateway-create-url-route-arm-ps.md) daha fazla bilgi için.
+URL tabanlı içerik yönlendirmeyi kullanarak bir uygulama ağ geçidi oluşturma hakkında daha fazla bilgi almak için [URL tabanlı yönlendirme kullanarak uygulama ağ geçidi oluşturma](application-gateway-create-url-route-arm-ps.md) bölümüne gidin.
 
-Bazı toolearn Azure özelliklerini ağ başka bir anahtar Merhaba, bkz: [Azure ağ](../networking/networking-overview.md).
+Azure'un diğer önemli ağ özelliklerinden bazıları hakkında bilgi edinmek için bkz. [Azure Ağı](../networking/networking-overview.md).

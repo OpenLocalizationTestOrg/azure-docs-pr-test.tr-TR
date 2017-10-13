@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure AD v2 Windows Masaüstü Getting Started - kullanım | Microsoft Docs"
+title: "Azure AD v2 Windows Masaüstü başlamak - kullanın | Microsoft Docs"
 description: "Windows Masaüstü .NET (XAML) uygulamaları, Azure Active Directory v2 bitiş noktası tarafından erişim belirteçleri gerektiren bir API nasıl çağırabilirsiniz"
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,17 +15,17 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: bb258fe5f523ec727ca02716fd823d853d3349b8
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 826ba0a00b26993d4f37f0a8ce587d7bb77e7eb4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-## <a name="use-hello-microsoft-authentication-library-msal-tooget-a-token-for-hello-microsoft-graph-api"></a>Merhaba Microsoft Graph API Hello Microsoft kimlik doğrulama kitaplığı (MSAL) tooget bir belirteci kullanın
+## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Microsoft Graph API için bir belirteç almak üzere Microsoft kimlik doğrulama kitaplığı (MSAL) kullanın
 
-Bu bölümde, nasıl toouse MSAL tooget bir belirteç hello Microsoft Graph API gösterir.
+Bu bölümde MSAL Microsoft Graph API'si bir belirteç almak için nasıl kullanılacağını gösterir.
 
-1.  İçinde `MainWindow.xaml.cs`, MSAL kitaplığı toohello sınıfı hello başvurusunu ekleyin:
+1.  İçinde `MainWindow.xaml.cs`, MSAL Kitaplığı Başvurusu sınıfına ekleyin:
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -40,10 +40,10 @@ Değiştir <code>MainWindow</code> sınıf koduyla:
 ```csharp
 public partial class MainWindow : Window
 {
-    //Set hello API Endpoint tooGraph 'me' endpoint
+    //Set the API Endpoint to Graph 'me' endpoint
     string _graphAPIEndpoint = "https://graph.microsoft.com/v1.0/me";
 
-    //Set hello scope for API call toouser.read
+    //Set the scope for API call to user.read
     string[] _scopes = new string[] { "user.read" };
 
 
@@ -53,7 +53,7 @@ public partial class MainWindow : Window
     }
 
     /// <summary>
-    /// Call AcquireTokenAsync - tooacquire a token requiring user toosign-in
+    /// Call AcquireTokenAsync - to acquire a token requiring user to sign-in
     /// </summary>
     private async void CallGraphButton_Click(object sender, RoutedEventArgs e)
     {
@@ -65,7 +65,7 @@ public partial class MainWindow : Window
         }
         catch (MsalUiRequiredException ex)
         {
-            // A MsalUiRequiredException happened on AcquireTokenSilentAsync. This indicates you need toocall AcquireTokenAsync tooacquire a token
+            // A MsalUiRequiredException happened on AcquireTokenSilentAsync. This indicates you need to call AcquireTokenAsync to acquire a token
             System.Diagnostics.Debug.WriteLine($"MsalUiRequiredException: {ex.Message}");
 
             try
@@ -96,28 +96,28 @@ public partial class MainWindow : Window
 <!--start-collapse-->
 ### <a name="more-information"></a>Daha Fazla Bilgi
 #### <a name="getting-a-user-token-interactive"></a>Etkileşimli bir kullanıcı belirteci alma
-Arama hello `AcquireTokenAsync` isteyen bir pencere yöntemi sonuçları hello kullanıcı toosign. Uygulamalar genellikle zorunlu kullanıcı toosign etkileşimli olarak hello içinde tooaccess ihtiyaç duydukları ilk kez korunan bir kaynağa veya Sessiz işlemi tooacquire bir belirteç başarısız oluyor (örneğin hello kullanıcının parolasının süresi).
+Çağırma `AcquireTokenAsync` yöntemi, oturum açmak için kullanıcıdan bir pencere sonuçlanıyor. Uygulamalar genellikle gerektirir etkileşimli olarak korunan bir kaynağa erişmek için ihtiyaç duydukları ilk kez oturum açmak bir kullanıcı ya da (örneğin kullanıcının parolasının süresi) belirteci başarısız edinmeye sessiz bir işlem.
 
 #### <a name="getting-a-user-token-silently"></a>Bir kullanıcı sessizce belirteci alma
-`AcquireTokenSilentAsync`belirteç satın almalar ve herhangi bir kullanıcı etkileşimi olmadan yenileme işler. Sonra `AcquireTokenAsync` hello için ilk kez yürütüldüğünde `AcquireTokenSilentAsync` hello kullanılan her zamanki yöntemi tooobtain kullanılan belirteçleri tooaccess sonraki çağrılar için-kaynaklar çağrıları toorequest korumalı veya belirteçleri yenileme sessiz bir şekilde yapılır.
-Sonuç olarak, `AcquireTokenSilentAsync` başarısız olur – örneğin hello kullanıcı oturumunuz veya başka bir aygıtta parolalarını değişti. MSAL hello sorun çözümlenir etkileşimli bir eylem kılarak, harekete algıladığında bir `MsalUiRequiredException`. Uygulamanız bu özel durumun iki yolla işleyebilir:
+`AcquireTokenSilentAsync`belirteç satın almalar ve herhangi bir kullanıcı etkileşimi olmadan yenileme işler. Sonra `AcquireTokenAsync` ilk kez yürütüldüğünde `AcquireTokenSilentAsync` veya belirteçleri yenileme isteği için çağrıları sessizce gerçekleştirilmediğinden sonraki çağrılar için-korumalı kaynaklara erişmek için kullanılan belirteçleri elde etmek için kullanılan normal yöntemidir.
+Sonuç olarak, `AcquireTokenSilentAsync` başarısız olur – örneğin kullanıcı oturumunuz veya başka bir aygıtta parolalarını değişti. MSAL algıladığında, etkileşimli bir eylem gerektirmeyen tarafından sorunu çözmek için harekete bir `MsalUiRequiredException`. Uygulamanız bu özel durumun iki yolla işleyebilir:
 
-1.  Karşı çağırmaya `AcquireTokenAsync` hemen hangi sonuçları toosign bileşenini hello kullanıcıdan içinde. Bu deseni genelde çevrimiçi uygulamalarda kullanılır söz konusu olduğunda çevrimdışı içerik hello uygulamada hello kullanıcı için kullanılabilir. Merhaba destekli bu kurulum tarafından oluşturulan örnek bu desen kullanır: hello örnek yürütme ilk kez eylemin hello görebilirsiniz: hiçbir kullanıcı herhangi bir zamanda Merhaba uygulaması kullanıldığından `PublicClientApp.Users.FirstOrDefault()` bir null değer içerir ve bir `MsalUiRequiredException` özel durum. çağırarak özel durum işleyici hello sonra hello örnek kodda Hello `AcquireTokenAsync` toosign bileşenini hello kullanıcıdan içinde sonuçlanır.
+1.  Karşı çağırmaya `AcquireTokenAsync` hemen hangi sonuçları oturum açma kullanıcıdan içinde. Bu deseni genelde çevrimiçi uygulamalarda kullanılır söz konusu olduğunda çevrimdışı içerik uygulamada kullanıcı için kullanılabilir. Destekli Bu kurulum tarafından oluşturulan örnek bu deseni kullanır: örnek yürütme eylemi ilk zamanında görebilirsiniz: hiçbir kullanıcı, uygulamayı her zamankinden kullanıldığından `PublicClientApp.Users.FirstOrDefault()` bir null değer içerir ve bir `MsalUiRequiredException` özel durum. Ardından örnek kodda çağırarak özel durumu işler `AcquireTokenAsync` oturum açma kullanıcıdan içinde sonuçlanır.
 
-2.  Uygulamalar ayrıca bir etkileşimli oturum açma hello kullanıcı hello doğru zamanı toosign seçebilir ya da hello başvurusunda gerekli olan bir görsel gösterimi toohello kullanıcı olun `AcquireTokenSilentAsync` daha sonra. Bu genellikle kullanılan hello kullanıcı kesintiye olmadan hello uygulama diğer işlevlerini kullanabilirsiniz - örneğin, çevrimdışı içeriği hello uygulamada kullanılabilir olduğunda. Bu durumda, hello kullanıcı ne zaman toosign tooaccess korumalı hello kaynak istedikleri toorefresh hello eski bilgi veya uygulamanızın tooretry karar verebilirsiniz karar verebilir `AcquireTokenSilentAsync` ağ zaman geri geçici olarak kullanılamıyor kaldıktan sonra.
+2.  Uygulamalar bir etkileşimli oturum açma kullanıcı oturum açmak için doğru zamanı seçebilir ya da uygulama deneyebilirsiniz gerekli olan kullanıcı için görsel bir gösterge de yapabilirsiniz `AcquireTokenSilentAsync` daha sonra. Bu genellikle kullanılan kullanıcı kesintiye olmadan diğer uygulamanın işlevselliğini kullanabilir - Örneğin, çevrimdışı içeriği uygulamada kullanılabilir olduğunda. Bu durumda, kullanıcı ne zaman korumalı kaynağa erişmek için ya da eski bilgileri yenilemek için oturum açmak istedikleri veya uygulamanızın denemeye karar verebilirsiniz karar verebilir `AcquireTokenSilentAsync` ağ zaman geri geçici olarak kullanılamıyor kaldıktan sonra.
 <!--end-collapse-->
 
-## <a name="call-hello-microsoft-graph-api-using-hello-token-you-just-obtained"></a>Yalnızca aldığınız hello belirteci kullanarak hello Microsoft Graph API çağrısı
+## <a name="call-the-microsoft-graph-api-using-the-token-you-just-obtained"></a>Yalnızca edinilen belirteçle kullanarak Microsoft Graph API çağrısı
 
-1. Merhaba yeni yöntemi tooyour aşağıda eklemek `MainWindow.xaml.cs`. Merhaba kullanılan toomake yöntemdir bir `GET` bir Authorize üstbilgisi kullanarak grafik API'sine isteği:
+1. Aşağıda yeni yöntemine ekleyin, `MainWindow.xaml.cs`. Yöntem yapmak için kullanılan bir `GET` bir Authorize üstbilgisi kullanarak grafik API'sine isteği:
 
 ```csharp
 /// <summary>
-/// Perform an HTTP GET request tooa URL using an HTTP Authorization header
+/// Perform an HTTP GET request to a URL using an HTTP Authorization header
 /// </summary>
-/// <param name="url">hello URL</param>
-/// <param name="token">hello token</param>
-/// <returns>String containing hello results of hello GET operation</returns>
+/// <param name="url">The URL</param>
+/// <param name="token">The token</param>
+/// <returns>String containing the results of the GET operation</returns>
 public async Task<string> GetHttpContentWithToken(string url, string token)
 {
     var httpClient = new System.Net.Http.HttpClient();
@@ -125,7 +125,7 @@ public async Task<string> GetHttpContentWithToken(string url, string token)
     try
     {
         var request = new System.Net.Http.HttpRequestMessage(System.Net.Http.HttpMethod.Get, url);
-        //Add hello token in Authorization header
+        //Add the token in Authorization header
         request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
         response = await httpClient.SendAsync(request);
         var content = await response.Content.ReadAsStringAsync();
@@ -140,16 +140,16 @@ public async Task<string> GetHttpContentWithToken(string url, string token)
 <!--start-collapse-->
 ### <a name="more-information-on-making-a-rest-call-against-a-protected-api"></a>Karşı korumalı bir API REST çağrısı yapma hakkında daha fazla bilgi
 
-Bu örnek uygulamasında hello `GetHttpContentWithToken` yöntemdir kullanılan toomake bir HTTP `GET` belirteci ve ardından dönüş hello içerik toohello çağıran gerektirir korunan bir kaynağa karşı istek. Bu yöntem hello edinilen belirteci hello ekler *HTTP Authorization Üstbilgisi*. Merhaba Microsoft Graph API Bu örnek için hello kaynaktır *bana* endpoint – hello kullanıcının profil bilgilerini görüntüler.
+Bu örnek uygulamasında `GetHttpContentWithToken` yöntemi bir HTTP yapmak için kullanılan `GET` isteği için bir belirteç gerekiyor korunan bir kaynağa karşı ve ardından içeriği çağırana dönün. Bu yöntem alınan belirteç ekler *HTTP Authorization Üstbilgisi*. Bu örnek için Microsoft Graph API kaynaktır *bana* endpoint – kullanıcı profili bilgilerini görüntüler.
 <!--end-collapse-->
 
-## <a name="add-a-method-toosign-out-hello-user"></a>Merhaba kullanıcı çıkışı yöntemi toosign Ekle
+## <a name="add-a-method-to-sign-out-the-user"></a>Kullanıcı imzalamak için bir yöntem ekleyin
 
-1. Yöntem tooyour aşağıdaki hello eklemek `MainWindow.xaml.cs` toosign hello kullanıcı çıkışı:
+1. Aşağıdaki yöntemi ekleyin, `MainWindow.xaml.cs` kullanıcı imzalamak için:
 
 ```csharp
 /// <summary>
-/// Sign out hello current user
+/// Sign out the current user
 /// </summary>
 private void SignOutButton_Click(object sender, RoutedEventArgs e)
 {
@@ -172,17 +172,17 @@ private void SignOutButton_Click(object sender, RoutedEventArgs e)
 <!--start-collapse-->
 ### <a name="more-info-on-sign-out"></a>Oturum kapatma hakkında daha fazla bilgi
 
-`SignOutButton_Click`Kullanıcı MSAL kullanıcı önbelleğinden kaldırır hello – toobe etkileşimli yapılırsa, gelecekteki isteği tooacquire bir belirteç yalnızca başarılı şekilde bu MSAL tooforget hello geçerli kullanıcının etkin bir şekilde söyler.
-Tek bir kullanıcı bu örnekte Merhaba uygulaması desteklemesine rağmen MSAL burada birden çok hesabı olabilir açan hello senaryolarını destekler. aynı anda – örneğidir bir e-posta uygulamasının bir kullanıcı birden fazla hesap sahip olduğu.
+`SignOutButton_Click`Kullanıcı etkileşimli olarak yapılırsa bir belirteç almak için gelecekteki bir isteği yalnızca başarılı şekilde geçerli kullanıcının unuttunuz için bu MSAL etkili bir şekilde söyler MSAL kullanıcı önbellekten – kaldırır.
+Bu örnek uygulamasında tek bir kullanıcı desteklese de MSAL nerede birden fazla hesap oturum açmış aynı anda – bir e-posta uygulamasının bir kullanıcı birden fazla hesap sahip olduğu örneğidir senaryolarını destekler.
 <!--end-collapse-->
 
 ## <a name="display-basic-token-information"></a>Temel belirteci bilgilerini görüntüle
 
-1. Yöntem tootooyour aşağıdaki hello eklemek `MainWindow.xaml.cs` toodisplay hello belirteci ile ilgili temel bilgileri:
+1. İçin aşağıdaki yöntemi ekleyin, `MainWindow.xaml.cs` belirteci ile ilgili temel bilgileri görüntülemek için:
 
 ```csharp
 /// <summary>
-/// Display basic information contained in hello token
+/// Display basic information contained in the token
 /// </summary>
 private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 {
@@ -199,6 +199,6 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 <!--start-collapse-->
 ### <a name="more-information"></a>Daha Fazla Bilgi
 
-Belirteçleri edinilen aracılığıyla *Openıd Connect* küçük bir alt bilgi ilgili toohello kullanıcının de içerir. `DisplayBasicTokenInfo`Merhaba belirtecinde yer alan temel bilgileri görüntüler: Örneğin, hello kullanıcının adı ve kimliği görüntülemek yanı sıra hello hello erişim belirteci kendisini temsil eden belirteci süre sonu tarihi ve hello dize. Bu bilgiler, toosee görüntülenir. Merhaba isabet *Microsoft Graph API çağrısı* birden çok kez düğmesine tıklayın ve aynı belirtecin sonraki istekleri için yeniden bu hello bakın. MSAL zaman toorenew hello belirteci olduğuna karar genişletilen hello sona erme tarihini de görebilirsiniz.
+Belirteçleri edinilen aracılığıyla *Openıd Connect* küçük bir alt kullanıcıya ilgili bilgileri de içerir. `DisplayBasicTokenInfo`belirtecinde yer alan temel bilgileri görüntüler: Örneğin, kullanıcının görünen adı ve kimliği için belirteç süre sonu tarihi ve erişim temsil eden dize yanı sıra kendi simge. Bu bilgileri görmek için görüntülenir. İsabet *Microsoft Graph API çağrısı* birden çok kez düğmesine tıklayın ve aynı belirtecin sonraki istekleri için yeniden kullanılmış bakın. MSAL onu kapılarını açtığında genişletilen belirteci yenileme süresi sona erme tarihi de görebilirsiniz.
 <!--end-collapse-->
 

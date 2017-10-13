@@ -1,8 +1,8 @@
 ---
-title: aaaAzure Market belgeleri | Microsoft Docs
+title: Azure Market Belgeleri | Microsoft Docs
 description: "Azure Market hakkında bilgi edinin."
 services: marketplace
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/14/2017
 ms.author: carolz
-ms.openlocfilehash: dc66c89a5e34ec41ff95851a2f02d836ff0d1261
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: ca7282e5bc9bac7677d382fd9c263f05be9ef196
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-marketplace-documentation"></a>Azure Market Belgeleri
 
-Çevrimiçi uygulamalar Azure Marketi hakkında bilgi edinin ve bunların çözümleri toocustomers Merhaba Dünya startup'lar tooenterprises toooffer ISV'ler sağlayan Market Hizmetleri.
+Startup’lardan kuruluşlara kadar tüm ISV’lere, çözümlerini dünyanın her yerinden müşterilere sunma olanağı sağlayan bir çevrimiçi uygulama ve hizmet marketi olan Azure Market hakkında bilgi edinin.
 
 <ul class="panelContent cardsFTitle">
     <li>

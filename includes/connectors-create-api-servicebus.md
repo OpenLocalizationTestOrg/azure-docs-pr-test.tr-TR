@@ -1,16 +1,16 @@
 ### <a name="prerequisites"></a>Ön koşullar
 Bilmeniz gereken bir [Service Bus](https://azure.microsoft.com/services/service-bus/) hesabı.  
 
-Bir mantıksal uygulama Azure Service Bus hesabınızı kullanabilmeniz için önce hello mantığı uygulama tooconnect tooyour hizmet veri yolu hesabı yetkilendirmeniz gerekir. Neyse ki, kolayca hello Azure portalı üzerinde mantıksal uygulama içinde bunu yapabilirsiniz.  
+Bir mantıksal uygulama Azure Service Bus hesabınızı kullanmadan önce service bus hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, mantıksal uygulamanızı Azure portalındaki içinde bu kolayca yapabilirsiniz.  
 
-Mantıksal uygulama tooconnect tooyour Service Bus hesap hello adımları tooauthorize şunlardır:  
+Hizmet veri yolu hesabınıza bağlanmak için mantıksal uygulamanızı yetkilendirmek için adımlar şunlardır:  
 
-1. Merhaba mantığı Uygulama Tasarımcısı'nda bağlantı tooService veri yolu, toocreate seçin **Göster Microsoft yönetilen API'ler** hello aşağı açılan listesinde. Enter **hizmet veri yolu** hello arama kutusuna. Merhaba tetikleyici veya toouse istediğiniz eylemi seçin.  
+1. Mantıksal Uygulama Tasarımcısı'nda hizmet veri yolu, bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** aşağı açılan listesinde. Enter **hizmet veri yolu** arama kutusuna. Tetikleyici veya kullanmak istediğiniz eylemi seçin.  
     ![Hizmet veri yolu bağlantı görüntü 1](./media/connectors-create-api-servicebus/servicebus-1.png)  
-2. Önce tüm bağlantılar tooService Bus oluşturmadıysanız, istendiğinde tooprovide Service Bus kimlik bilgileriniz olması. Bu kimlik bilgileri kullanılan tooauthorize olan mantığı uygulama tooconnect tooand Service Bus hesabınızın verilere erişebilir. Merhaba Service Bus Bağlayıcısı hello hizmet veri yolu ad alanı için hello bağlantı dizesi olması gerekir. Ayrıca gerektirir **Yönet** izinleri. Bağlantı dizenizi hello ad alanı için ya belirli bir varlık hello içerip içermediğini ise en iyi yolu tooknow `EntityPath` parametresi. Bulursa, bir mantıksal uygulama hello sağ bağlantı dizesi değil.  
+2. Önce Service Bus bağlantılarına oluşturmadıysanız, hizmet veri yolu kimlik bilgilerinizi sağlamanız istenir. Bu kimlik bilgileri, mantıksal uygulamanızı bağlanmak ve Service Bus hesabınızın veri erişimi için yetkilendirmek için kullanılır. Hizmet veri yolu Bağlayıcısı, hizmet veri yolu ad alanı için bağlantı dizesi olması gerekir. Ayrıca gerektirir **Yönet** izinleri. Bağlantı dizesi için ad alanı olması veya belirli bir varlık içerip içermediğini öğrenmek için en iyi yolu `EntityPath` parametresi. Bulursa, bir mantıksal uygulama için doğru bağlantı dizesi değil.  
     ![Hizmet veri yolu bağlantı dizesi](./media/connectors-create-api-servicebus/connectionstring.png)
-3. Merhaba bağlantı dizesi hello ad alanı için alınan sonra hello Logic Apps, API bağlantısı için kullanabilirsiniz.  
+3. Ad alanı için bağlantı dizesi aldıktan sonra Logic Apps, API bağlantısı için kullanabilirsiniz.  
     ![Hizmet veri yolu bağlantı görüntü 2](./media/connectors-create-api-servicebus/servicebus-2.png)  
-4. Merhaba bağlantı oluşturulur ve mantıksal uygulamanızı ücretsiz tooproceed hello diğer sahip adımlarını artık olduğunuz dikkat edin.  
+4. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin.  
     ![Hizmet veri yolu bağlantı görüntü 3](./media/connectors-create-api-servicebus/servicebus-3.png)   
 

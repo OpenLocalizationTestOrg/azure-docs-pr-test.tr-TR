@@ -1,5 +1,5 @@
 ---
-title: "Dapper aaaUsing esnek veritabanı istemci kitaplığı | Microsoft Docs"
+title: "Esnek veritabanı istemci kitaplığı ile Dapper kullanılarak | Microsoft Docs"
 description: "Esnek veritabanı istemci kitaplığı ile Dapper kullanıyor."
 services: sql-database
 documentationcenter: 
@@ -14,55 +14,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.openlocfilehash: c22ece2a977265e93850f0ad3f3ca48f0a8733ac
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: f0efd37a39c1a60eee7b47304483c27727ca8833
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Esnek veritabanı istemci kitaplığı Dapper ile kullanma
-Bu belge, Dapper toobuild uygulamaları kullanan ancak aynı zamanda tooembrace isteyen geliştiriciler için değil [esnek veritabanı araçları](sql-database-elastic-scale-introduction.md) parçalama tooscale kullanıma kendi veri katmanı uygulama toocreate uygulamalar.  Bu belge esnek veritabanı araçları ile gerekli toointegrate olan Dapper tabanlı uygulamalarda hello değişiklikleri gösterilmektedir. Bizim odak hello esnek veritabanı parça yönetimi ve veri bağımlı oluşturma üzerinde Dapper ile gönderiyor. 
+Uygulamaları derleme Dapper kullanır, ancak aynı zamanda kag'yi geliştiriciler için bu belgedir [esnek veritabanı araçları](sql-database-elastic-scale-introduction.md) kendi veri katmanı genişletmek için bu uygulama parçalama uygulamaları oluşturmak için.  Bu belge Dapper tabanlı uygulamalar, esnek veritabanı araçları ile tümleştirmek için gerekli olan değişiklikleri gösterilmektedir. Bizim odak esnek veritabanı parça yönetimi ve veri bağımlı oluşturma üzerinde Dapper ile gönderiyor. 
 
 **Örnek kod**: [Azure SQL veritabanı - Dapper tümleştirme için esnek veritabanı araçlarını](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
 
-Tümleştirme **Dapper** ve **DapperExtensions** hello ile Azure SQL veritabanı için esnek veritabanı istemci kitaplığı kolaydır. Uygulamalarınızın veri hello oluşturma değiştirme ve, yeni açarak yönlendirme bağımlı kullanabilirsiniz [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) nesneleri toouse hello [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) çağrısı hello [istemci Kitaplık](http://msdn.microsoft.com/library/azure/dn765902.aspx). Bu yeni bağlantı burada oluşturulan ve açılan, uygulama tooonly değişiklikleri sınırlar. 
+Tümleştirme **Dapper** ve **DapperExtensions** esnek veritabanı ile Azure SQL veritabanı için istemci kitaplığı kolaydır. Uygulamalarınızı verileri oluşturma değiştirme ve, yeni açarak yönlendirme bağımlı kullanabileceğiniz [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) kullanılacak nesneleri [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) çağırmanıza [istemci Kitaplığı](http://msdn.microsoft.com/library/azure/dn765902.aspx). Yeni bağlantı oluşturulur ve açık olduğunda bu değişiklikler yalnızca, uygulamanızda sınırlar. 
 
 ## <a name="dapper-overview"></a>Dapper genel bakış
-**Dapper** bir nesne ilişkisel Eşleyici olduğu. .NET nesneleri uygulama tooa ilişkisel veritabanı (ve tersi) eşler. Merhaba ilk hello örnek kod parçası, nasıl Dapper tabanlı uygulamalarla hello esnek veritabanı istemci kitaplığı tümleştirebilir gösterilmektedir. Merhaba ikinci hello örnek kod parçası gösterilmektedir nasıl Dapper ve DapperExtensions kullanırken toointegrate.  
+**Dapper** bir nesne ilişkisel Eşleyici olduğu. .NET nesneleri uygulamanızdan bir ilişkisel veritabanı (ve tersi) eşler. Esnek veritabanı istemci kitaplığı Dapper tabanlı uygulamalarla nasıl tümleştirebilir örnek kod ilk bölümü gösterir. Örnek kod ikinci bölümü, Dapper ve DapperExtensions kullanırken tümleştirmek göstermektedir.  
 
-Merhaba Eşleyici Dapper işlevindeki yürütme veya sorgulanırken hello veritabanı gönderiliyor T-SQL deyimlerini basitleştirmek veritabanı bağlantılarını genişletme yöntemleri sağlar. Örneğin, Dapper .NET nesneleri ve SQL deyimlerini hello parametrelerinin arasındaki kolay toomap kolaylaştırır **yürütme** çağrıları ya da tooconsume hello sorgularınızın sonuçlarıyla ilgili SQL kullanarak .NET nesneleri içine **sorgu**Dapper gelen çağrıları. 
+Dapper Eşleyici işlevindeki yürütme veya veritabanını sorgulamak için gönderen T-SQL deyimlerini basitleştirmek veritabanı bağlantılarını genişletme yöntemleri sağlar. Örneğin, Dapper .NET nesneleri ve SQL deyimleri için parametreleri arasında eşleme kolaylaştırır **yürütme** çağrıları, ya da SQL sorgularınızı sonuçlarını kullanarak .NET nesnelerini kullanmak için **sorgu** Dapper gelen çağrıları. 
 
-DapperExtensions kullanırken, artık tooprovide hello SQL deyimlerini gerekmez. Genişletme yöntemleri gibi **GetList** veya **Ekle** hello veritabanı bağlantısı üzerinden hello hello perde arkasında SQL deyimleri oluşturma.
+DapperExtensions kullanırken, artık SQL deyimlerini sağlamanız gerekir. Genişletme yöntemleri gibi **GetList** veya **Ekle** veritabanı bağlantısı üzerinden SQL deyimlerini arka planda oluşturun.
 
-Başka bir avantaj Dapper ve ayrıca DapperExtensions hello uygulama denetimleri hello veritabanı bağlantısı oluşturulmasını hello olmalıdır. Bu, hangi Aracıların shardlets toodatabases hello eşleşmeye göre bağlantıları veritabanı hello esnek veritabanı istemci kitaplığı ile etkileşim yardımcı olur.
+Dapper ve ayrıca DapperExtensions başka bir avantajı, uygulama veritabanı bağlantısı oluşturulmasını denetler ' dir. Bu aracıların veritabanlarına shardlets eşleme bağlantıları veritabanı esnek veritabanı istemci kitaplığı ile etkileşim yardımcı olur.
 
-tooget hello Dapper derlemeler, bkz: [Dapper dot net](http://www.nuget.org/packages/Dapper/). Merhaba Dapper uzantıları için bkz: [DapperExtensions](http://www.nuget.org/packages/DapperExtensions).
+Dapper derlemeler almak için bkz: [Dapper dot net](http://www.nuget.org/packages/Dapper/). Dapper uzantıları için bkz: [DapperExtensions](http://www.nuget.org/packages/DapperExtensions).
 
-## <a name="a-quick-look-at-hello-elastic-database-client-library"></a>Merhaba esnek veritabanı istemci kitaplığı hızlı bir bakış
-Adlı uygulama verilerinizi bölümlerini tanımladığınız Hello esnek veritabanı istemci kitaplığı ile *shardlets* toodatabases harita ve onlar tarafından tanımlamak *parçalama anahtarları*. Gerekir ve bu veritabanları arasında shardlets dağıtmak sayıda veritabanı olabilir. Merhaba eşleme parçalama anahtar değerleri toohello veritabanlarının hello kitaplığın API'leri tarafından sağlanan bir parça eşleme tarafından depolanır. Bu özellik adında **parça eşleme Yönetim**. Merhaba parça eşleme hello Aracısı parçalama anahtar taşımak istekleri için veritabanı bağlantılarının de görür. Bu özellik, başvurulan tooas yöneliktir **veri bağımlı yönlendirme**.
+## <a name="a-quick-look-at-the-elastic-database-client-library"></a>Esnek veritabanı istemci kitaplığı hızlı bir bakış
+Adlı uygulama verilerinizi bölümlerini tanımladığınız esnek veritabanı istemci kitaplığı ile *shardlets* veritabanlarına harita ve onlar tarafından tanımlamak *parçalama anahtarları*. Gerekir ve bu veritabanları arasında shardlets dağıtmak sayıda veritabanı olabilir. Parçalama anahtar değerlerin veritabanlarına kitaplığın API'leri tarafından sağlanan bir parça eşleme tarafından depolanır. Bu özellik adında **parça eşleme Yönetim**. Parça eşleme, ayrıca bir parçalama anahtar taşımak istekleri için veritabanı bağlantılarını aracısı olarak görev yapar. Bu özellik olarak adlandırılır **veri bağımlı yönlendirme**.
 
 ![Parça eşlemeleri ve veri bağımlı yönlendirme][1]
 
-Merhaba parça eşleme Yöneticisi eşzamanlı shardlet yönetim işlemlerini hello veritabanlarında gerçekleştiği yüklendiğinde oluşabilecek shardlet veri tutarsız görünümleri kullanıcıları korur. toodo, bu nedenle, parça eşlemeleri Aracısı hello veritabanı bağlantılarını hello kitaplığı ile oluşturulmuş bir uygulama için hello. Parça yönetim işlemlerini hello shardlet etkileyebilir olduğunda bu bir veritabanı bağlantısı hello parça eşleme işlevselliği tooautomatically KILL izin verir. 
+Parça eşleme Yöneticisi eşzamanlı shardlet yönetim işlemlerini veritabanlarına gerçekleştiği yüklendiğinde oluşabilecek shardlet veri tutarsız görünümleri kullanıcıları korur. Bunu yapmak için veritabanı bağlantılarını kitaplığı ile oluşturulmuş bir uygulama için parça eşlemeleri Aracısı. Parça yönetim işlemlerini shardlet etkileyebilir, bu otomatik olarak bir veritabanı bağlantısı sonlandırılamadı parça eşleme işlevselliği sağlar. 
 
-Merhaba geleneksel bir şekilde toocreate bağlantıları için Dapper kullanmak yerine, toouse hello ihtiyacımız [OpenConnectionForKey yöntemi](http://msdn.microsoft.com/library/azure/dn824099.aspx). Bu, tüm hello doğrulama gerçekleşir ve herhangi bir veri parça arasında taşındığında bağlantıları düzgün yönetilen sağlar.
+Dapper bağlantılarında oluşturmak için geleneksel yol kullanmak yerine, kullanılacak ihtiyacımız [OpenConnectionForKey yöntemi](http://msdn.microsoft.com/library/azure/dn824099.aspx). Bu, tüm doğrulama gerçekleşir ve herhangi bir veri parça arasında taşındığında bağlantıları düzgün yönetilen sağlar.
 
 ### <a name="requirements-for-dapper-integration"></a>Dapper tümleştirme gereksinimleri
-Merhaba esnek veritabanı istemci kitaplığı ve hello Dapper API'leri ile çalışırken, aşağıdaki özelliklere tooretain hello istiyoruz:
+Esnek veritabanı istemci kitaplığı ve Dapper API'leri ile çalışırken, aşağıdaki özellikleri korumak istiyor:
 
-* **Genişletme**: tooadd istediğiniz veya veritabanlarını uygulamasının hello parçalı hello kapasite talebi için gerektikçe hello uygulamasının veri katmanı hello kaldırın. 
-* **Tutarlılık**: uygulamamız parçalama kullanılarak ölçeklenir olduğundan, veri tooperform bağımlı yönlendirme gerekir. Toouse hello veri bağımlı yönlendirme yeteneklerine hello kitaplığı toodo şekilde istiyoruz. Özellikle, tooretain hello doğrulama istiyoruz ve sipariş tooavoid Bozulması veya yanlış sorgu sonuçları hello parça eşleme Yöneticisi aracılığıyla aracılı bağlantılar tarafından sağlanan tutarlılığı garanti altına alır. Bu, bu bağlantıları tooa shardlet verilen reddedildi veya (örneğin) hello shardlet bölünmüş/Merge API'lerini kullanarak şu anda taşınan tooa farklı parça ise durduruldu sağlar.
-* **Nesne eşleme**: hello uygulamada sınıfları ve temel veritabanı yapılarını hello arasında Dapper tootranslate tarafından sağlanan hello eşlemeleri tooretain hello kolaylık istiyoruz. 
+* **Genişletme**: veritabanları kapasite gereksinimlerini karşılamak için gerekli olarak parçalı uygulama uygulamasının veri katmanı ekleyip istiyoruz. 
+* **Tutarlılık**: uygulamamız parçalama kullanılarak ölçeklenir olduğundan, biz veri bağımlı yönlendirme gerçekleştirmeniz gerekir. Bunu yapmak için veri bağımlı yönlendirme özellikleri kitaplığının kullanmak istiyoruz. Özellikle, biz doğrulama korumak istediğiniz ve parça eşleme Yöneticisi aracılığıyla bozulma veya yanlış sorgu sonuçları önlemek için aracılı bağlantılar tarafından sağlanan tutarlılığı garanti altına alır. Bu, belirli bir shardlet bağlantı reddedildi veya (örneğin) shardlet bölünmüş/Merge API'lerini kullanarak farklı bir parça şu anda taşınırsa durduruldu sağlar.
+* **Nesne eşleme**: uygulama sınıfları ve temel veritabanı yapılarını arasında çeviri yapmak Dapper tarafından sağlanan eşlemeleri kolaylık korumak istiyoruz. 
 
-Hello aşağıdaki bölümde yönelik yönergeler dayalı uygulamalar için bu gereksinimleri sağlanmaktadır **Dapper** ve **DapperExtensions**.
+Aşağıdaki bölümde temel uygulamalar için bu gereksinimleri için yönergeler sağlanmaktadır **Dapper** ve **DapperExtensions**.
 
 ## <a name="technical-guidance"></a>Teknik Kılavuzu
 ### <a name="data-dependent-routing-with-dapper"></a>Veri Dapper ile yönlendirme bağımlı
-Dapper ile Merhaba uygulaması oluşturmak ve veritabanı arka plandaki hello bağlantıları toohello açmak için genellikle sorumludur. .NET koleksiyonları türü T. Dapper gerçekleştirirken hello eşleme hello T-SQL sonuç satırları toohello nesnelerden t türü T türü hello uygulama tarafından verilen, Dapper sorgu sonuçlarını döndürür Benzer şekilde, Dapper SQL değerleri veya veri işleme dili (DML) deyimleri parametrelerini .NET nesneleri eşler. Dapper hello normal üzerinde genişletme yöntemleri aracılığıyla bu işlevselliği sunar [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) hello ADO .NET SQL istemci kitaplıklarından nesnesi. Merhaba DDR için esnek ölçeklendirme API'leri hello tarafından döndürülen SQL bağlantısı normal de [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) nesneleri. Ayrıca basit SQL istemci bağlantısı olarak bu bize toodirectly kullanım Dapper uzantıları hello istemci kitaplığının DDR API tarafından döndürülen hello türü üzerinden sağlar.
+Dapper ile uygulama oluşturma ve temel veritabanı bağlantılarını açma genellikle sorumludur. T-SQL sonuç satırları t türü nesnelere eşleme türü T. Dapper .NET koleksiyonları gerçekleştirir gibi T türü uygulama tarafından verilen, Dapper sorgu sonuçlarını döndürür Benzer şekilde, Dapper SQL değerleri veya veri işleme dili (DML) deyimleri parametrelerini .NET nesneleri eşler. Dapper normal üzerinde genişletme yöntemleri aracılığıyla bu işlevselliği sunar [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) ADO .NET SQL istemci kitaplıklarından nesnesi. DDR için esnek ölçeklendirme API'leri tarafından döndürülen SQL bağlantısı normal de [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) nesneleri. Bu bize Ayrıca basit SQL istemci bağlantısı olarak doğrudan Dapper uzantılar istemci kitaplığının DDR API tarafından döndürülen tür üzerinden kullanmayı sağlar.
 
-Bu gözlemleri hello esnek veritabanı istemci kitaplığı tarafından Dapper için aracılı basit toouse bağlantıları kolaylaştırır.
+Bu gözlemleri Dapper için esnek veritabanı istemci kitaplığı tarafından aracılı bağlantılar kullanmak basit olun.
 
-Bu kod örneğindeki (Merhaba) örnek eşlik hello uygulama toohello kitaplığı toobroker hello bağlantı toohello sağ parça tarafından sağlanan hello parçalama anahtar burada hello yaklaşımı açıklar.   
+Bu kod örneği (eşlik eden örnekten) burada parçalama anahtar sağ parça Bağlantı Aracısı uygulamaya kitaplığına sağladığı yaklaşımı açıklar.   
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                      key: tenantId1, 
@@ -77,15 +77,15 @@ Bu kod örneğindeki (Merhaba) örnek eşlik hello uygulama toohello kitaplığ�
                         );
     }
 
-Merhaba çağrısı toohello [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) API hello varsayılan oluşturma ve SQL istemci bağlantısı açılırken yerini alır. Merhaba [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) çağrısı veri bağımlı yönlendirme için gerekli olan hello bağımsız değişkenleri alır: 
+Çağrı [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) API varsayılan oluşturulması ve SQL istemci bağlantısı açılırken yerini alır. [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) çağrısı veri bağımlı yönlendirme için gerekli olan bağımsız değişkenler alır: 
 
-* veri bağımlı yönlendirme arabirimlerini Hello parça eşleme tooaccess hello
-* Merhaba parçalama anahtar tooidentify hello shardlet
-* Merhaba kimlik (kullanıcı adı ve parola) tooconnect toohello parça
+* Veri bağımlı yönlendirme arabirimlerini erişmek için parça eşleme
+* Shardlet tanımlamak için parçalama anahtarı
+* (Kullanıcı adı ve parola) parça bağlanmak için kimlik bilgileri
 
-Merhaba shardlet parçalama anahtarı verilen hello için tutan bir bağlantı toohello parça Hello parça eşleme nesnesi oluşturur. Merhaba esnek veritabanı istemci API de etiket hello bağlantı tooimplement kendi tutarlılığı garanti altına alır. Bu yana Hello çağrı çok[OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) normal SQL istemci bağlantısı nesnesi, hello sonraki çağrı toohello verir **yürütme** Dapper aşağıdaki uzantısı yönteminden hello standart Dapper yöntem.
+Parça harita nesnesi belirtilen parçalama anahtar shardlet tutan parça bir bağlantı oluşturur. Esnek veritabanı istemci API Ayrıca kendi tutarlılığı garanti uygulamak için bağlantı etiketi. Çağrısından sonra [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) normal SQL istemci bağlantısı nesnesi, sonraki çağrı döndürür **yürütme** Dapper uzantısı yönteminden standart Dapper uygulama izler.
 
-Sorguları iş çok hello aynı şekilde - ilk hello bağlantıyla açtığınız [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) hello istemciden API. Ardından .NET nesnelerini hello normal Dapper uzantı yöntemleri toomap hello SQL Sorgunuzun sonuçlarını kullanın:
+İş çok benzer şekilde sorguları - ilk bağlantıyı kullanarak açmak [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) API istemciden. Ardından SQL Sorgunuzun sonuçlarını .NET nesneleri eşleştirmek için normal Dapper genişletme yöntemleri kullanın:
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId1, 
@@ -105,12 +105,12 @@ Sorguları iş çok hello aynı şekilde - ilk hello bağlantıyla açtığını
             }
     }
 
-Bu hello Not **kullanarak** hello DDR bağlantı kapsamlarla hello blok toohello bir parça tenantId1 nerede tutulur içindeki tüm veritabanı işlemleri engelleyin. Merhaba sorgu yalnızca hello geçerli parça ancak hello başka bir parça üzerinde depolanan olanları depolanan bloglar döndürür. 
+Unutmayın **kullanarak** tenantId1 nerede tutulur bir parça bloğuna içindeki tüm veritabanı işlemleri DDR bağlantı kapsamlarla engelleyin. Sorgu, geçerli parça üzerinde depolanan bloglar, ancak başka bir parça üzerinde depolanan olanları değil yalnızca döndürür. 
 
 ## <a name="data-dependent-routing-with-dapper-and-dapperextensions"></a>Veri Dapper ve DapperExtensions yönlendirme bağımlı
-Dapper bir daha kullanışlı ve soyutlama hello veritabanından veritabanı uygulamaları geliştirirken sağlayabilir ek uzantıları ekosistemi ile birlikte gelir. DapperExtensions bir örnektir. 
+Dapper bir daha kullanışlı ve soyutlama veritabanından veritabanı uygulamaları geliştirirken sağlayabilir ek uzantıları ekosistemi ile birlikte gelir. DapperExtensions bir örnektir. 
 
-Uygulamanızda DapperExtensions kullanarak veritabanı bağlantılarını nasıl oluşturulduğunu ve yönetilen değiştirmez. Merhaba uygulamanın sorumluluk tooopen bağlantılar hala olduğunu ve normal SQL istemci bağlantısı nesneleri hello genişletme yöntemleri tarafından beklenir. Biz üzerinde hello güvenebilirsiniz [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) yukarıda açıklandığı şekilde. Aşağıdaki kod örnekleri tarafından Göster Hello hello tek değişiklik biz artık toowrite hello T-SQL deyimleri sahip olabilir:
+Uygulamanızda DapperExtensions kullanarak veritabanı bağlantılarını nasıl oluşturulduğunu ve yönetilen değiştirmez. Bunu hala Bağlantıları'nı açmak için uygulamanın sorumluluğundadır ve normal SQL istemci bağlantısı nesneleri genişletme yöntemleri tarafından beklenir. Üzerinde güvenebilirsiniz [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) yukarıda açıklandığı şekilde. Aşağıdaki kod örnekleri gösterdiği gibi tek değişiklik biz artık T-SQL deyimleri yazmanıza sahip olabilir:
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId2, 
@@ -121,7 +121,7 @@ Uygulamanızda DapperExtensions kullanarak veritabanı bağlantılarını nasıl
            sqlconn.Insert(blog);
     }
 
-Ve hello sorgu için hello kod örneği aşağıdadır: 
+Ve sorgu için kod örneği aşağıdadır: 
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId2, 
@@ -138,9 +138,9 @@ Ve hello sorgu için hello kod örneği aşağıdadır:
     }
 
 ### <a name="handling-transient-faults"></a>Geçici hata işleme
-Merhaba Microsoft Patterns & yöntemler yayımlanan hello ekip [geçici hata işleme uygulama bloğu](http://msdn.microsoft.com/library/hh680934.aspx) toohelp uygulama geliştiricileri hello bulutta çalışan karşılaşılan yaygın geçici hata koşulları etkisini azaltır. Daha fazla bilgi için bkz: [Perseverance, tüm Triumphs gizliliği: hello geçici hata işleme uygulama bloğu kullanarak](http://msdn.microsoft.com/library/dn440719.aspx).
+Microsoft Patterns & yöntemler takım yayımlanan [geçici hata işleme uygulama bloğu](http://msdn.microsoft.com/library/hh680934.aspx) uygulama geliştiricileri bulutta çalışırken karşılaşılan yaygın geçici hata koşulları azaltmaya yardımcı olmak için. Daha fazla bilgi için bkz: [Perseverance, tüm Triumphs gizliliği: geçici hata işleme uygulama bloğu kullanarak](http://msdn.microsoft.com/library/dn440719.aspx).
 
-Merhaba geçici hata kitaplığı tooprotect geçici hataları karşı Hello kod örneği kullanır. 
+Kod örneği geçici hataları karşı korumak için geçici hata kitaplığı kullanır. 
 
     SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
     {
@@ -152,16 +152,16 @@ Merhaba geçici hata kitaplığı tooprotect geçici hataları karşı Hello kod
           }
     });
 
-**SqlDatabaseUtils.SqlRetryPolicy** hello Yukarıdaki kod olarak tanımlanan bir **SqlDatabaseTransientErrorDetectionStrategy** bir yeniden deneme sayısı 10 ve 5 saniye ile yeniden denemeler arasındaki süre bekleyin. İşlemler kullanıyorsanız, yeniden deneme kapsamınızı geri toohello gider emin olun geçici bir hata hello durumda hello işlem başlangıcı.
+**SqlDatabaseUtils.SqlRetryPolicy** Yukarıdaki kod olarak tanımlanan bir **SqlDatabaseTransientErrorDetectionStrategy** bir yeniden deneme sayısı 10 ve 5 saniye ile yeniden denemeler arasındaki süre bekleyin. İşlemler kullanıyorsanız, yeniden deneme kapsamınızı geri geçici bir hata durumunda işlem başına kalacağı emin olun.
 
 ## <a name="limitations"></a>Sınırlamalar
-Bu belgede özetlenen hello yaklaşımlar birkaç sınırlama oluşturulmasını gerektirir:
+Bu belgede özetlenen yaklaşımlar birkaç sınırlama oluşturulmasını gerektirir:
 
-* Bu belge için örnek kod Hello göstermek değil nasıl toomanage şema parça genelinde.
-* Bir istek göz önüne alındığında, tüm veritabanı işleme hello isteğiyle sağlanan hello parçalama anahtarı tarafından tanımlandığı gibi tek bir parça içinde bulunur varsayıyoruz. Olası toomake parçalama anahtar kullanılabilir olmadığında ancak, bu varsayım her zaman, örneğin, tutmaz. tooaddress Bu, hello esnek veritabanı istemci kitaplığı içerir hello [MultiShardQuery sınıfı](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardexception.aspx). Merhaba sınıfı birkaç parça sorgulama için bir bağlantı Özet uygular. MultiShardQuery Dapper birlikte kullanılması hello bu belgenin kapsamında değildir.
+* Bu belge için örnek kod, şema parça yönetme gösterilmemiştir.
+* Bir istek göz önüne alındığında, tüm veritabanı işleme istek tarafından sağlanan parçalama anahtarı tarafından tanımlandığı gibi tek bir parça içinde bulunur varsayıyoruz. Bir parçalama anahtarı kullanılabilir hale mümkün değilse, ancak bu varsayım her zaman, örneğin, tutmaz. Bu sorunu çözmek için esnek veritabanı istemci kitaplığı içerir [MultiShardQuery sınıfı](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardexception.aspx). Sınıf birkaç parça sorgulama için bir bağlantı Özet uygular. MultiShardQuery Dapper ile birlikte bu belgenin kapsamı dışındadır kullanmaktır.
 
 ## <a name="conclusion"></a>Sonuç
-Dapper ve DapperExtensions kullanarak uygulamaları kolayca Azure SQL veritabanı için esnek Veritabanı Araçları'ndan yararlanabilirsiniz. Bu belgede özetlenen hello adımları, hello oluşturma değiştirme ve, yeni açarak yönlendirme bağımlı veriler için hello aracın yeteneği bu uygulamaları kullanabilirsiniz [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) nesneleri toouse hello [ OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) hello esnek veritabanı istemci kitaplığı çağrısı. Bu yeni bağlantı burada oluşturulan ve açılan hello uygulama değişiklikleri gerekli toothose yerler sınırlar. 
+Dapper ve DapperExtensions kullanarak uygulamaları kolayca Azure SQL veritabanı için esnek Veritabanı Araçları'ndan yararlanabilirsiniz. Bu belgede özetlenen adımları, oluşturma değiştirme ve, yeni açarak yönlendirme bağımlı veriler için aracın yeteneği bu uygulamaları kullanabilir [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) kullanılacak nesneleri [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) esnek veritabanı istemci kitaplığı çağrısı. Bu yeni bağlantı burada oluşturulan ve açılan bu yerlerin gerekli uygulama değişiklikleri sınırlar. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

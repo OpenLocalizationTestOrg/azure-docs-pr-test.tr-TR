@@ -1,6 +1,6 @@
 ---
-title: "kullanarak Hdınsight'ta Hadoop kümelerinin aaaMonitor hello Ambari API - Azure | Microsoft Docs"
-description: "Merhaba Apache Ambari API'ları oluşturmak, yönetmek ve Hadoop kümelerini izleme için kullanın. Sezgisel işleci Araçlar ve API'ler Hadoop hello karmaşıklığını gizleyin."
+title: "-Azure Ambari API kullanarak hdınsight'ta Hadoop kümelerini izleme | Microsoft Docs"
+description: "Apache Ambari API'ları oluşturmak, yönetmek ve Hadoop kümelerini izleme için kullanın. Sezgisel işleci Araçlar ve API'ler Hadoop karmaşıklığını gizleyin."
 services: hdinsight
 documentationcenter: 
 tags: azure-portal
@@ -16,53 +16,53 @@ ms.topic: article
 ms.date: 04/07/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: d61a8aae5ddfcd7d44f2e4cc899e0a4da5e5fdcc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b6fc2098027690eb76b69b1427f0e9541b8a7a69
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="monitor-hadoop-clusters-in-hdinsight-using-hello-ambari-api"></a>Merhaba Ambari API kullanarak hdınsight'ta Hadoop kümelerini izleme
-Ambari API kullanarak nasıl toomonitor Hdınsight kümeleri hakkında bilgi edinin.
+# <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Ambari API'sini kullanarak HDInsight'ta Hadoop kümelerini izleme
+Ambari API kullanarak Hdınsight kümelerini izlemek öğrenin.
 
 > [!NOTE]
-> Bu makaledeki Hello bilgiler hello Ambari REST API salt okunur bir sürümünü sağlayın öncelikle Windows tabanlı Hdınsight kümeleri için ' dir. Linux tabanlı kümeler için bkz: [yönetmek Hadoop kümeleri Ambari kullanarak](hdinsight-hadoop-manage-ambari.md).
+> Bu makaledeki bilgiler Ambari REST API salt okunur bir sürümünü sağlayın öncelikle Windows tabanlı Hdınsight kümeleri için ' dir. Linux tabanlı kümeler için bkz: [yönetmek Hadoop kümeleri Ambari kullanarak](hdinsight-hadoop-manage-ambari.md).
 > 
 > 
 
 ## <a name="what-is-ambari"></a>Ambari nedir?
-[Apache Ambari] [ ambari-home] hazırlamak, yönetmek ve Apache Hadoop kümelerini izleme için kullanılır. İşleç araçlarının sezgisel bir koleksiyonunu ve sağlam bir Hadoop, kümelerin hello çalışmasını kolaylaştırarak, hello karmaşıklığını Gizle API kümesi içerir. Hello API'ler hakkında daha fazla bilgi için bkz: [Ambari API Başvurusu][ambari-api-reference]. 
+[Apache Ambari] [ ambari-home] hazırlamak, yönetmek ve Apache Hadoop kümelerini izleme için kullanılır. Bu, kümelerin çalışmasını kolaylaştırarak, işleç araçlarının sezgisel bir koleksiyonunu ve Hadoop’un karmaşıklığı gizleyen sağlam bir API kümesini içerir. API'ler hakkında daha fazla bilgi için bkz: [Ambari API Başvurusu][ambari-api-reference]. 
 
-Hdınsight şu anda yalnızca hello Ambari izleme özelliğini destekler. Ambari API 1.0 Hdınsight sürüm 3.0 ve 2.1 kümeleri tarafından desteklenir. Bu makalede, Hdınsight sürüm 3.1 ve 2.1 kümelerinde erişilirken Ambari API yer almaktadır. Merhaba anahtar arasındaki hello iki hello bileşenlerinin bazılarını hello giriş yeni Capabilities (örneğin, iş geçmişi sunucusu hello) ile değiştirilmiştir farktır. 
+Hdınsight şu anda yalnızca Ambari izleme özelliğini destekler. Ambari API 1.0 Hdınsight sürüm 3.0 ve 2.1 kümeleri tarafından desteklenir. Bu makalede, Hdınsight sürüm 3.1 ve 2.1 kümelerinde erişilirken Ambari API yer almaktadır. İkisi arasındaki temel fark, bazı bileşenleri (örneğin, iş geçmişi sunucusu) yeni özellikler girişiyle değişmiş ' dir. 
 
 **Önkoşullar**
 
-Bu öğreticiye başlamadan önce aşağıdaki öğelerindeki hello sahip olmanız gerekir:
+Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
 
 * **Azure PowerShell içeren bir iş istasyonu**.
-* (İsteğe bağlı) [cURL][curl]. tooinstall, bkz: [sürümleri ve indirmeleri cURL][curl-download].
+* (İsteğe bağlı) [cURL][curl]. Yüklemek için bkz: [sürümleri ve indirmeleri cURL][curl-download].
   
   > [!NOTE]
-  > Ne zaman Windows hello seçenek değerleri için tek tırnak işareti yerine çift tırnak işaretleri kullan hello cURL komutunu kullanın.
+  > Windows'da çift tırnak işaretleri kullan seçeneği değerleri için tek tırnak işareti yerine ne zaman cURL komutunu kullanın.
   > 
   > 
-* **Azure Hdınsight kümesi**. Küme hazırlama hakkında yönergeler için bkz: [Hdınsight kullanmaya başlama] [ hdinsight-get-started] veya [Hdınsight kümeleri hazırlama][hdinsight-provision]. Başlangıç Öğreticisi aracılığıyla veri toogo aşağıdaki hello gerekir:
+* **Azure Hdınsight kümesi**. Küme hazırlama hakkında yönergeler için bkz: [Hdınsight kullanmaya başlama] [ hdinsight-get-started] veya [Hdınsight kümeleri hazırlama][hdinsight-provision]. Öğreticiyi incelemek için aşağıdaki veriler gerekir:
   
   | Küme özelliği | Azure PowerShell değişken adı | Değer | Açıklama |
   | --- | --- | --- | --- |
-  |   Hdınsight küme adı |$clusterName | |Hdınsight kümenize Hello adı. |
-  |   Küme kullanıcı |$clusterUsername | |Merhaba küme oluşturulduğu belirtilen küme kullanıcı adı. |
+  |   Hdınsight küme adı |$clusterName | |Hdınsight kümenizin adıdır. |
+  |   Küme kullanıcı |$clusterUsername | |Küme oluşturulduğu belirtilen küme kullanıcı adı. |
   |   Küme parolası |$clusterPassword | |Küme kullanıcı parolası. |
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 
 ## <a name="jump-start"></a>Hemen başlayın
-Toouse Ambari toomonitor Hdınsight kümeleri birkaç yolu vardır.
+Hdınsight kümeleri izlemek için Ambari kullanmak için birkaç yolu vardır.
 
 **Azure PowerShell’i kullanma**
 
-Azure PowerShell Betiği aşağıdaki hello alır hello MapReduce işi İzleyicisi bilgileri *bir Hdınsight 3.5 kümesindeki.*  Merhaba anahtar Biz bu ayrıntıları hello YARN hizmeti (MapReduce yerine) çekme farktır.
+MapReduce işi İzleyicisi bilgileri aşağıdaki Azure PowerShell betiğini alır *bir Hdınsight 3.5 kümesindeki.*  Biz bu ayrıntıları YARN hizmet (yerine MapReduce) çekme anahtar farktır.
 
     $clusterName = "<HDInsightClusterName>"
     $clusterUsername = "<HDInsightClusterUsername>"
@@ -78,7 +78,7 @@ Azure PowerShell Betiği aşağıdaki hello alır hello MapReduce işi İzleyici
 
     $response.metrics.'yarn.queueMetrics'
 
-PowerShell Betiği aşağıdaki hello alır hello MapReduce işi İzleyicisi bilgileri *bir Hdınsight 2.1 kümesindeki*:
+Aşağıdaki PowerShell betiğini MapReduce işi İzleyicisi bilgileri alır *bir Hdınsight 2.1 kümesindeki*:
 
     $clusterName = "<HDInsightClusterName>"
     $clusterUsername = "<HDInsightClusterUsername>"
@@ -94,17 +94,17 @@ PowerShell Betiği aşağıdaki hello alır hello MapReduce işi İzleyicisi bil
 
     $response.metrics.'mapred.JobTracker'
 
-Merhaba çıktısı şöyledir:
+Çıktısı şöyledir:
 
 ![Jobtracker'a çıkış][img-jobtracker-output]
 
 **cURL kullanma**
 
-Merhaba aşağıdaki örnek küme bilgilerini cURL kullanarak alır:
+Aşağıdaki örnek, cURL kullanarak küme bilgilerini alır:
 
     curl -u <username>:<password> -k https://<ClusterName>.azurehdinsight.net:443/ambari/api/v1/clusters/<ClusterName>.azurehdinsight.net
 
-Merhaba çıktısı şöyledir:
+Çıktısı şöyledir:
 
     {"href":"https://hdi0211v2.azurehdinsight.net/ambari/api/v1/clusters/hdi0211v2.azurehdinsight.net/",
      "Clusters":{"cluster_name":"hdi0211v2.azurehdinsight.net","version":"2.1.3.0.432823"},
@@ -121,12 +121,12 @@ Merhaba çıktısı şöyledir:
         "Hosts":{"cluster_name":"hdi0211v2.azurehdinsight.net",
                  "host_name":"headnode0.{ClusterDNS}.azurehdinsight.net"}}]}
 
-**Merhaba 8/10/2014 sürümü için**:
+**8/10/2014 sürümü için**:
 
-Ne zaman kullanarak izin ver hello Ambari uç noktası, "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}" Merhaba *host_name* alan Merhaba ana bilgisayar adı yerine hello düğümünün Hello tam etki alanı adı (FQDN) döndürür. Merhaba 8/10/2014 sürümünden önce bu örnek döndürülen yalnızca "**headnode0**". Merhaba 8/10/2014 sürümünden sonra hello FQDN Al "**headnode0. { ClusterDNS} .azurehdinsight .net**", bir hello önceki örnekte gösterildiği gibi. Bu değişiklik, bir sanal ağ (VNET) içinde birden çok küme türleri (örneğin, HBase ve Hadoop) dağıtıldığı gerekli toofacilitate senaryoları oluştu. Bu, örneğin, Hadoop için bir arka uç platform olarak HBase kullanarak olur.
+Ambari uç nokta kullanılırken "https://{clusterDns}.azurehdinsight.net/ambari/api/v1/clusters/{clusterDns}.azurehdinsight.net/services/{servicename}/components/{componentname}" *host_name* alan ana bilgisayar adı yerine düğümün tam etki alanı adını (FQDN) döndürür. 8/10/2014 yayınlanmadan önce bu örnek döndürülen yalnızca "**headnode0**". 8/10/2014 yayınlanmasından sonra FQDN Al "**headnode0. { ClusterDNS} .azurehdinsight .net**", bir önceki örnekte gösterildiği gibi. Bu değişiklik, birden çok küme türleri (örneğin, HBase ve Hadoop) bir sanal ağ (VNET) burada dağıtılabilir senaryolarını kolaylaştırmak için gerekiyordu. Bu, örneğin, Hadoop için bir arka uç platform olarak HBase kullanarak olur.
 
 ## <a name="ambari-monitoring-apis"></a>Ambari API izleme
-Merhaba aşağıdaki tabloda bazı hello en yaygın Ambari izleme API çağrıları yer almaktadır. Merhaba API'si hakkında daha fazla bilgi için bkz: [Ambari API Başvurusu][ambari-api-reference].
+Aşağıdaki tabloda bazı yaygın Ambari API çağrıları izleme yer almaktadır. API'si hakkında daha fazla bilgi için bkz: [Ambari API Başvurusu][ambari-api-reference].
 
 | İzleyici API çağrısı | URI | Açıklama |
 | --- | --- | --- |
@@ -144,9 +144,9 @@ Merhaba aşağıdaki tabloda bazı hello en yaygın Ambari izleme API çağrıla
 | Yapılandırma bilgilerini alın. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations?type=<ConfigType>&tag=<VersionName>` |Yapılandırma türleri: çekirdek site, site hdfs, mapred site, hive site |
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Öğrendiğiniz artık nasıl Ambari API izleme toouse çağırır. toolearn daha bakın:
+Şimdi Ambari API çağrıları izleme kullanmayı öğrendiniz. Daha fazla bilgi için bkz:
 
-* [Hello Azure portal kullanarak Hdınsight kümelerini yönetme][hdinsight-admin-portal]
+* [Azure portalını kullanarak Hdınsight kümelerini yönetme][hdinsight-admin-portal]
 * [Azure PowerShell kullanarak Hdınsight kümelerini yönetme][hdinsight-admin-powershell]
 * [Komut satırı arabirimi kullanarak Hdınsight kümelerini yönetme][hdinsight-admin-cli]
 * [Hdınsight belgeleri][hdinsight-documentation]

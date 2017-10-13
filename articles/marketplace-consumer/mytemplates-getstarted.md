@@ -1,6 +1,6 @@
 ---
-title: "aaaGet özel şablonlarla çalışmaya | Microsoft Docs"
-description: "Ekleme, yönetme ve hello Azure portal, hello Azure CLI veya PowerShell kullanarak özel şablonlarınızı paylaşma."
+title: "Özel Şablonları kullanmaya başlama | Microsoft Belgeleri"
+description: "Azure portalı, Azure CLI veya PowerShell kullanarak özel şablonlarınızı ekleyin, yönetin ve paylaşın."
 services: marketplace-customer
 documentationcenter: 
 author: VybavaRamadoss
@@ -16,120 +16,120 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: vybavar
-ms.openlocfilehash: 1fe2c6422f62a98f7ae9ba5c61b9639d993f0bca
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 01657619cbe579c6818a790cc3ab95a33936a565
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="get-started-with-private-templates-on-hello-azure-portal"></a>Hello Azure Portal'da özel şablonları kullanmaya başlama
-Bir [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) şablonudur bildirim temelli bir şablondur dağıtımınızı toodefine kullanılır. Merhaba kaynakları toodeploy bir çözüm için tanımlayın ve parametreleri ve farklı ortamlar için tooinput değerleri etkinleştir değişkenleri belirtin. Merhaba şablon JSON ve kullanabileceğiniz ifadeler oluşur dağıtımınız için tooconstruct değerleri.
+# <a name="get-started-with-private-templates-on-the-azure-portal"></a>Azure Portal'da özel Şablonları kullanmaya başlama
+[Azure Resource Manager ](../azure-resource-manager/resource-group-authoring-templates.md) şablonu, dağıtımınızı tanımlamak için kullanılan bildirim temelli bir şablondur. Bir çözümü dağıtmak amacıyla kaynaklarınızı tanımlayabilir ve farklı ortamlar için değer girmenizi sağlayan parametreler ve değişkenleri belirtebilirsiniz. Şablonda, JSON ve dağıtımınız için değerleri oluşturmada kullanabileceğiniz ifadeler bulunur.
 
-Merhaba yeni kullanabilirsiniz **şablonları** hello özelliği [Azure Portal](https://portal.azure.com) hello birlikte **Microsoft.Gallery** bir uzantısı olarak hello kaynak sağlayıcısı [ Azure Market](https://azure.microsoft.com/marketplace/) tooenable kullanıcılar toocreate, yönetmek ve kişisel bir kitaplıktan özel şablonları dağıtabilirsiniz.
+Kullanıcıların kişisel bir kitaplıktan özel şablonları oluşturmalarını, yönetmelerini ve dağıtmalarını sağlamak için [Azure Portal](https://portal.azure.com)'daki yeni **Şablonlar** işlevinin yanı sıra [Azure Marketi](https://azure.microsoft.com/marketplace/)'nin bir uzantısı olarak **Microsoft.Gallery** kaynak sağlayıcısını kullanabilirsiniz.
 
-Bu belge, ekleme, yönetme ve özel paylaşım yoluyla anlatan **şablonu** hello Azure Portal kullanarak.
+Bu belge, Azure Portal'ı kullanarak özel bir **Şablon** ekleme, yönetme ve paylaşma konusunda size rehberlik sunar.
 
 ## <a name="guidance"></a>Rehber
-Merhaba aşağıdaki önerileri tam anlamıyla yararlanabilmek yardımcı olacak **şablonları** çözümleriniz üzerinde çalışırken:
+Aşağıdaki öneriler çözümleriniz üzerinde çalışırken **Şablonlar**'dan tam anlamıyla yararlanmanıza yardımcı olur.
 
-* Bir **Şablon**, Resource Manager şablonu ve ek meta verileri içeren kapsayıcı bir kaynaktır. Merhaba Market tooan öğesinde çok benzer şekilde davranır. Hello önemli fark, özel bir öğe genel Market öğelerinin karşılıklı toohello olmasıdır.
-* Merhaba **şablonları** kitaplığı, dağıtımlarını iyi toocustomize isteyen kullanıcılar için çalışır.
+* Bir **Şablon**, Resource Manager şablonu ve ek meta verileri içeren kapsayıcı bir kaynaktır. Market'te bulunan bir öğeye çok benzer şekilde davranır. En önemli fark, genel Market öğelerinin aksine özel bir öğe olmasıdır.
+* **Şablonlar** kitaplığı, dağıtımlarını özelleştirme ihtiyacı duyan kullanıcılar için iyi çalışır.
 * **Şablonlar**, Azure içinde basit bir depoya ihtiyaç duyan kullanıcılar için iyi çalışır.
 * Var olan bir Resource Manager şablonu ile başlayın. [GitHub](https://github.com/Azure/azure-quickstart-templates)'da şablon bulun veya var olan bir kaynak grubundan [Şablonu dışarı aktarın](../azure-resource-manager/resource-manager-export-template.md).
-* **Şablonları** , kendilerini yayımlayan bağlı toohello kullanıcı. okuma erişimi tooit sahip görünür tooeveryone Hello yayımcı adıdır.
+* **Şablonlar**, kendilerini yayımlayan kullanıcıya bağlıdır. Yayımcı adı, okuma erişimi olan herkes tarafından görülebilir.
 * **Şablonlar**, Resource Manager kaynaklarıdır ve yayımlandıktan sonra yeniden adlandırılamaz.
 
 ## <a name="add-a-template-resource"></a>Şablon kaynağı ekleme
-İki yolu toocreate vardır bir **şablonu** hello Azure portal kaynak.
+Azure portalında bir **Şablon** kaynağı oluşturmanın iki yolu vardır.
 
 ### <a name="method-1--create-a-new-template-resource-from-a-running-resource-group"></a>1. Yöntem: Çalışan bir kaynak grubundan yeni bir Şablon kaynağı oluşturma
-1. Hello Azure Portal tooan mevcut kaynak grubuna gidin. **Ayarlar**'da **Şablonu dışarı aktarma** öğesini seçin.
-2. Merhaba Resource Manager şablonunu dışarı aktarıldıktan sonra hello kullan **Şablonu Kaydet** düğmesini toosave, toohello **şablonları** deposu. Şablonu dışarı aktarmayla ilgili tüm ayrıntıları [burada](../azure-resource-manager/resource-manager-export-template.md) bulabilirsiniz.
+1. Azure Portal'da var olan bir kaynak grubuna gidin. **Ayarlar**'da **Şablonu dışarı aktarma** öğesini seçin.
+2. Resource Manager şablonu dışarı aktarıldıktan sonra, şablonu **Şablonlar** deposuna kaydetmek için **Şablonu Kaydetme** düğmesini kullanın. Şablonu dışarı aktarmayla ilgili tüm ayrıntıları [burada](../azure-resource-manager/resource-manager-export-template.md) bulabilirsiniz.
    <br /><br />
    ![Kaynak grubunu dışarı aktarma](media/rg-export-portal1.PNG)  <br />
-3. Select hello **tooTemplate kaydetmek** komut düğmesi.
+3. **Şablona Kaydet** komut düğmesini seçin.
    <br /><br />
-4. Aşağıdaki bilgilerle hello girin:
+4. Aşağıdaki bilgileri girin:
    
-   * Adı – hello şablon nesnesinin adı (Not: Bu Azure Resource Manager temelli adıdır. Tüm adlandırma kısıtlamaları geçerlidir ve oluşturulduktan sonra değiştirilemez).
-   * Açıklama – hello şablonla ilgili kısa bir Özet.
+   * Ad - Şablon nesnesinin adı (NOT: Bu Azure Resource Manager temelli bir addır. Tüm adlandırma kısıtlamaları geçerlidir ve oluşturulduktan sonra değiştirilemez).
+   * Açıklama - Şablonla ilgili kısa bir özet.
      
      ![Şablonu kaydetme](media/save-template-portal1.PNG)  <br />
-5. **Kaydet** düğmesine tıklayın.
+5. **Save (Kaydet)** düğmesine tıklayın.
    
    > [!NOTE]
-   > Merhaba dışarı aktarma şablonu dikey bildirimleri hello dışarı aktarılan Resource Manager şablonu hata var, ancak mümkün toosave olmaya devam eder Bu Resource Manager şablonu toohello şablonları gösterir. Denetleyin ve yeniden dağıtırken hello Resource Manager şablonunu dışarı önce tüm Resource Manager şablonu sorunlarını düzeltmek emin olun.
+   > Dışarı aktarma şablonu dikey penceresi, dışarı aktarılan Resource Manager şablonu hatalarla karşılaştığında bildirim gösterir ancak bu Resource Manager şablonunu yine de Şablonlara kaydedebilirsiniz. Dışarı aktarılan Resource Manager şablonunu yeniden dağıtmadan önce tüm Resource Manager şablonu sorunlarını denetleyip düzelttiğinizden emin olun.
    > 
    > 
 
 ### <a name="method-2--add-a-new-template-resource-from-browse"></a>2. Yöntem: Gözat bölümünden yeni bir Şablon kaynağı ekleme
-Ayrıca, yeni bir ekleyebilirsiniz **şablonu** hello + Ekle komut düğmesini kullanarak sıfırdan **Gözat > şablonlar**. Bir ad, açıklama ve Resource Manager şablonu JSON hello tooprovide gerekir.
+**Gözat > Şablonlar**'daki +Ekle komut düğmesini kullanarak da sıfırdan yeni bir **Şablon** ekleyebilirsiniz. Bir Ad, Açıklama ve Resource Manager şablon JSON'ı sağlamanız gerekir.
 
 ![Şablon ekleme](media/add-template-portal1.PNG)  <br />
 
 > [!NOTE]
-> Microsoft.Gallery, Kiracı bazlı bir Azure kaynak sağlayıcısıdır. Merhaba şablon kaynağı oluşturulduğu bağlı toohello kullanıcıdır. Bu bağlı tooany belirli aboneliği değil. Bir abonelik yalnızca bir şablon dağıtılırken seçilen toobe gerekir.
+> Microsoft.Gallery, Kiracı bazlı bir Azure kaynak sağlayıcısıdır. Şablon kaynağı, şablonu oluşturan kullanıcıya bağlı olur. Herhangi bir belirli aboneliğe bağlı değildir. Yalnızca bir Şablon dağıtılırken bir aboneliğin seçilmesi gerekir.
 > 
 > 
 
 ## <a name="view-template-resources"></a>Şablon kaynaklarını görüntüleme
-Tüm **şablonları** kullanılabilir tooyou adresindeki görülme **Gözat > şablonlar**. Buna, oluşturduğunuz **Şablonlar**'ın yanı sıra, farklı izin düzeyleriyle sizinle paylaşılanlar da dahildir. Merhaba, daha fazla ayrıntı [erişim denetimi](#access-control-for-a-tenant-resource-provider) bölümüne bakın.
+Kullanabileceğiniz tüm **Şablonlar**'ı, **Gözat > Şablonlar**'da görebilirsiniz. Buna, oluşturduğunuz **Şablonlar**'ın yanı sıra, farklı izin düzeyleriyle sizinle paylaşılanlar da dahildir. Aşağıdaki [erişim denetimi](#access-control-for-a-tenant-resource-provider) bölümünde daha çok ayrıntı bulunmaktadır.
 
 ![Şablonu görüntüleme](media/view-template-portal1.PNG)  <br />
 
-Merhaba ayrıntılarını görüntüleyebilirsiniz bir **şablonu** hello listedeki bir öğeye tıklayarak.
+Listedeki bir öğeye tıklayarak bir **Şablon**'un ayrıntılarını görüntüleyebilirsiniz.
 
 ![Şablonu görüntüleme](media/view-template-portal2c.png)  <br />
 
 ## <a name="edit-a-template-resource"></a>Şablon kaynağını düzenleme
-Hello için düzenleme akışını başlatabilirsiniz bir **şablonu** hello öğede sağ tıklayarak hello Gözat listesi veya hello Düzenle komutu düğmesini seçerek.
+Gözat listesinde bir öğeye sağ tıklayarak veya Düzenle komutu düğmesini seçerek bir **Şablon** için düzenleme akışını başlatabilirsiniz.
 
 ![Şablon düzenleme](media/edit-template-portal1a.PNG)  <br />
 
-Merhaba açıklamayı veya Resource Manager şablonu metnini düzenleyebilirsiniz. Bir Resource Manager kaynak adı olduğundan hello adını düzenleyemezsiniz. Merhaba Resource Manager şablonu JSON düzenlediğinizde biz tooensure geçerli JSON olduğunu doğrular. Seçin **Tamam** ve ardından **kaydetmek** toosave güncelleştirilmiş şablonunuzu.
+Açıklamayı veya Resource Manager şablonu metnini düzenleyebilirsiniz. Ad bir Resource Manager kaynak adı olduğundan, adı düzenleyemezsiniz. Resource Manager şablonu JSON'ını düzenlediğinizde, bunun geçerli JSON olduğundan emin olmak için doğrularız. Güncelleştirilmiş şablonunuzu kaydetmek için **Tamam**'ı ve ardından **Kaydet**'i seçin.
 
 ![Şablon düzenleme](media/edit-template-portal2a.PNG)  <br />
 
-Bir kez hello **şablonu** kaydedilen bir onay bildirimi görürsünüz.
+**Şablon** kaydedildikten sonra, bir onay bildirimi görürsünüz.
 
 ![Şablon düzenleme](media/edit-template-portal3b.png)  <br />
 
 ## <a name="deploy-a-template-resource"></a>Bir Şablon kaynağını dağıtma
-**Okuma** izniniz olan herhangi bir **Şablon**'u dağıtabilirsiniz. Merhaba dağıtım akışı hello standart Azure şablon dağıtımı dikey penceresini başlatır. Merhaba Resource Manager şablonu parametreleri tooproceed hello dağıtımı ile Merhaba değerlerini doldurun.
+**Okuma** izniniz olan herhangi bir **Şablon**'u dağıtabilirsiniz. Dağıtım akışı, standart Azure Şablon dağıtımı dikey penceresini başlatır. Dağıtıma devam etmek için Resource Manager şablonu parametrelerinin değerlerini doldurun.
 
 ![Şablon dağıtma](media/deploy-template-portal1b.png)  <br />
 
 ## <a name="share-a-template-resource"></a>Şablon kaynağı paylaşma
-Bir **Şablon** kaynağı iş arkadaşlarınızla paylaşılabilir. Paylaşımı davranır benzer şekilde çok[Azure ile ilgili herhangi bir kaynak için rol ataması](../active-directory/role-based-access-control-configure.md). Merhaba **şablonu** sahip bir şablon kaynağıyla etkileşim kurabilen tooother kullanıcılara izinler sağlar. Merhaba kişi veya grup hello paylaştığınız kişilerin **şablonu** mümkün toosee hello Resource Manager şablonunu ve bunun galeri özelliklerini ile sonuna olacaktır.
+Bir **Şablon** kaynağı iş arkadaşlarınızla paylaşılabilir. Paylaşma, [Azure'daki herhangi bir kaynak için rol ataması](../active-directory/role-based-access-control-configure.md) ile benzer şekilde davranır. **Şablon** sahibi, bir Şablon kaynağıyla etkileşim kurabilen diğer kullanıcılara izinler sağlar. **Şablon**'u paylaştığınız kişi veya bir grup kişi, Resource Manager şablonunu ve bunun galeri özelliklerini görebilir.
 
-### <a name="access-control-for-hello-microsoftgallery-resources"></a>Merhaba Microsoft.Gallery kaynakları için erişim denetimi
+### <a name="access-control-for-the-microsoftgallery-resources"></a>Microsoft.Gallery kaynakları için erişim denetimi
 | Rol | İzinler |
 | --- | --- |
-| Sahip |Merhaba şablon kaynağı paylaşma dahil olmak üzere üzerinde tam denetim verir |
-| Okuyucu |Şablon kaynağı hello üzerinde okuma ve Execute(Deploy) verir |
-| Katılımcı |Şablon kaynağı hello üzerinde düzenleme ve silme izni verir. Kullanıcı hello şablon başkalarıyla paylaşamaz |
+| Sahip |Paylaşma dahil olmak üzere Şablon kaynağında tüm denetime izin verir |
+| Okuyucu |Şablon kaynağında Okuma ve Yürütme (Dağıtma) izni verir |
+| Katılımcı |Şablon kaynağında Düzenleme ve Silme izni verir. Kullanıcı, Şablon'u başkalarıyla Paylaşamaz |
 
-Seçin **paylaşımı** hello Gözat öğesine sağ tıklayarak veya belirli bir öğenin hello görünümü dikey. Bu, bir Paylaşma deneyimini çalıştırır.
+Sağ tıklayarak veya belirli bir öğenin görüntüleme dikey penceresindeki göz atma öğesinde **Paylaş**'ı seçin. Bu, bir Paylaşma deneyimini çalıştırır.
 
 ![Şablonu paylaşma](media/share-template-portal1a.png)  <br />
 
- Bir rolü ve bir kullanıcı veya grup tooprovide erişim tooa belirli artık seçebilirsiniz **şablon**. Merhaba kullanılabilir roller sahip, okuyucu ve katkıda bulunan ' dir. Merhaba, daha fazla ayrıntı [erişim denetimi](#access-control-for-a-tenant-resource-provider) yukarıdaki bölümde.
+ Artık belirli bir **Şablon**'a erişim sağlamak için bir rol ve kullanıcı veya grup seçebilirsiniz. Kullanılabilir roller Sahip, Okuyucu ve Katılımcıdır. Yukarıdaki [erişim denetimi](#access-control-for-a-tenant-resource-provider) bölümünde daha çok ayrıntı bulunmaktadır.
 
 ![Şablonu paylaşma](media/share-template-portal2b.png)  <br />
 
 ![Şablonu paylaşma](media/share-template-portal3b.png)  <br />
 
-**Seç**'e ve **Tamam**'a tıklayın. Şimdi hello kullanıcıları veya grupları görebilirsiniz toohello kaynak eklendi.
+**Seç**'e ve **Tamam**'a tıklayın. Artık kaynağa eklediğiniz kullanıcıları veya grupları görebilirsiniz.
 
 ![Şablonu paylaşma](media/share-template-portal4b.png)  <br />
 
 > [!NOTE]
-> Bir şablonu yalnızca kullanıcılar ve gruplar ile hello paylaşılabilir aynı Azure Active Directory kiracısı. Kiracınızda olmayan e-posta adresi olan bir şablonu paylaşıyorsanız, hello kullanıcı toojoin hello Kiracı konuk olarak soran bir davet gönderilir.
+> Bir Şablon kullanıcılar ve gruplar ile yalnızca aynı Azure Active Directory kiracısında paylaşılabilir. Kiracınızda olmayan bir e-posta adresine sahip bir Şablon'u paylaşırsanız kullanıcının kiracıya bir konuk olarak katılmasını soran bir davet gönderilir.
 > 
 > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Resource Manager şablonları oluşturma hakkında daha fazla toolearn bakın [şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md)
-* bir Resource Manager şablonunda kullanabileceğiniz toounderstand hello işlevleri bkz [şablon işlevleri](../azure-resource-manager/resource-group-template-functions.md)
+* Resource Manager şablonları oluşturma hakkında bilgi edinmek için bkz. [Şablon yazma](../azure-resource-manager/resource-group-authoring-templates.md).
+* Bir Resource Manager şablonunda kullanabileceğiniz işlevleri anlamak için bkz. [Şablon işlevleri](../azure-resource-manager/resource-group-template-functions.md).
 * Şablonlarınızı tasarlama konusunda rehberlik için bkz. [Azure Resource Manager şablonları oluşturmaya yönelik en iyi uygulamalar](../azure-resource-manager/best-practices-resource-manager-design-templates.md)
 

@@ -1,8 +1,8 @@
 ---
-title: "aaaAzure yük dengeleyici belgeleri - öğreticileri, API Başvurusu | Microsoft Docs"
-description: "Bilgi nasıl toouse yük dengeleyici ağ performansı uygulamalar için. Sanal makineler ve bulut kaynaklarına yönelik trafiğin yanı sıra şirket içi ve şirket dışı sanal ağlardaki trafiği yönetin."
+title: "Azure Load Balancer Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+description: "Uygulamaların ağ performansı için Load Balancer’ı nasıl kullanacağınızı öğrenin. Sanal makineler ve bulut kaynaklarına yönelik trafiğin yanı sıra şirket içi ve şirket dışı sanal ağlardaki trafiği yönetin."
 services: load-balancer
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 877aef347f9d6f97da1562944676c2e95ddba470
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 169ca89ccd80e5a70f3e9ab07b3c34358c154be7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="load-balancer-documentation"></a>Yük Dengeleyici Belgeleri
 
-Bilgi nasıl tooconfigure yük dengeleyici toodeliver yüksek kullanılabilirlik ve ağ performansı tooyour uygulamalar. Belgeleri nasıl tooload Bakiye trafiği tooand sanal makineler ve bulut kaynaklarına ve şirket içi Sanal Ağları gösterir.
+Load Balancer’ı uygulamalarınıza yüksek düzeyde kullanılabilirlik ve ağ performansı sağlayacak biçimde yapılandırmayı öğrenin. Belgelerde sanal makinelere ve bulut kaynaklarına yönelik ya da bunlardan gelen trafiğin yanı sıra şirket içi ve şirket dışı sanal ağlardaki trafiğin yükünü nasıl dengeleyebileceğiniz açıklanmıştır.
 
 <ul class="panelContent cardsFTitle">
     <li>

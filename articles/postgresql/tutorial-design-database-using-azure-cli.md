@@ -1,6 +1,6 @@
 ---
 title: "İlk Azure veritabanınız için Azure CLI kullanarak PostgreSQL tasarım | Microsoft Docs"
-description: "Bu öğretici Azure CLI kullanarak nasıl tooDesign ilk Azure veritabanı için PostgreSQL gösterir."
+description: "Bu öğretici, Azure CLI kullanarak ilk Azure veritabanınız için PostgreSQL tasarlamak nasıl gösterir."
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
@@ -11,75 +11,75 @@ ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 06/13/2017
-ms.openlocfilehash: 7914925c090e0b6f3e7c8a999eedb0b2baf83d7d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: cf536fce8925f9173b541b845af25a8d8c38eabd
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="design-your-first-azure-database-for-postgresql-using-azure-cli"></a>İlk Azure veritabanınız için Azure CLI kullanarak PostgreSQL tasarlama 
-Bu öğreticide, Azure CLI (komut satırı arabirimi) ve diğer yardımcı programları toolearn nasıl kullanacağınız için:
+Bu öğreticide, Azure CLI (komut satırı arabirimi) ve diğer yardımcı programları öğrenmek için kullandığınız nasıl yapılır:
 > [!div class="checklist"]
 > * PostgreSQL için Azure Veritabanı oluşturma
-> * Merhaba sunucu Güvenlik Duvarı'nı yapılandırma
-> * Kullanım [ **psql** ](https://www.postgresql.org/docs/9.6/static/app-psql.html) yardımcı programı toocreate bir veritabanı
+> * Sunucu Güvenlik Duvarı'nı yapılandırma
+> * Kullanım [ **psql** ](https://www.postgresql.org/docs/9.6/static/app-psql.html) bir veritabanı oluşturmak için yardımcı programı
 > * Örnek verileri yükleme
 > * Verileri sorgulama
 > * Verileri güncelleştirme
 > * Verileri geri yükleme
 
-Hello Azure bulut Kabuk hello tarayıcıda kullanabilir veya [yükleme Azure CLI 2.0]( /cli/azure/install-azure-cli) kendi bilgisayar toorun hello kod blokları bu öğreticideki üzerinde.
+Tarayıcıda, Azure bulut kabuğunu kullanabilirsiniz veya [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli) bu öğreticideki kod blokları çalıştırmak için kendi bilgisayarınızda.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Tooinstall seçin ve hello CLI yerel olarak kullanırsanız, bu konuda hello Azure CLI Sürüm 2.0 veya üstü çalıştığını gerektirir. Çalıştırma `az --version` toofind hello sürümü. Tooinstall veya yükseltme gerekirse bkz [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu başlığı için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
-Birden çok aboneliğiniz varsa, hello kaynak yok veya için fatura hello uygun abonelik seçin. [az account set](/cli/azure/account#set) komutunu kullanarak hesabınız altındaki belirli bir abonelik kimliğini seçin.
+Birden fazla aboneliğiniz varsa kaynağın mevcut olduğu ve faturalandırıldığı uygun aboneliği seçin. [az account set](/cli/azure/account#set) komutunu kullanarak hesabınız altındaki belirli bir abonelik kimliğini seçin.
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
-Oluşturma bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) hello kullanarak [az grubu oluşturma](/cli/azure/group#create) komutu. Kaynak grubu, Azure kaynaklarının grup olarak dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Merhaba aşağıdaki örnekte oluşturur adlı bir kaynak grubu `myresourcegroup` hello içinde `westus` konumu.
+[az group create](/cli/azure/group#create) komutunu kullanarak bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) oluşturun. Kaynak grubu, Azure kaynaklarının grup olarak dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Aşağıdaki örnek `westus` konumunda `myresourcegroup` adlı bir kaynak grubu oluşturur.
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>PostgreSQL için Azure Veritabanı sunucusu oluşturma
-Oluşturma bir [PostgreSQL sunucu için Azure veritabanı](overview.md) hello kullanarak [az postgres sunucusu oluşturmak](/cli/azure/postgres/server#create) komutu. Sunucu, grup olarak yönetilen bir veritabanı grubu içerir. 
+[az postgres server create](/cli/azure/postgres/server#create) komutunu kullanarak [PostgreSQL sunucusu için Azure SQL Veritabanı ](overview.md) oluşturun. Sunucu, grup olarak yönetilen bir veritabanı grubu içerir. 
 
-Merhaba aşağıdaki örnekte oluşturur adlı bir sunucu `mypgserver-20170401` kaynak grubunuzdaki `myresourcegroup` Sunucu Yöneticisi oturum açma ile `mylogin`. Bir sunucunun adını tooDNS adı eşler ve böylece gerekli toobe Azure'da genel benzersiz olur. Yedek hello `<server_admin_password>` kendi değerine sahip.
+Aşağıdaki örnek adı verilen bir sunucu oluşturur `mypgserver-20170401` kaynak grubunuzdaki `myresourcegroup` Sunucu Yöneticisi oturum açma ile `mylogin`. Bir sunucunun adını DNS adıyla eşler ve böylece Azure içinde genel olarak benzersiz olması gereklidir. `<server_admin_password>` değerini kendi değerinizle değiştirin.
 ```azurecli-interactive
 az postgres server create --resource-group myresourcegroup --name mypgserver-20170401 --location westus --admin-user mylogin --admin-password <server_admin_password> --performance-tier Basic --compute-units 50 --version 9.6
 ```
 
 > [!IMPORTANT]
-> Burada belirttiğiniz Hello Sunucu Yöneticisi oturum açma ve parola toohello Server'daki gerekli toolog ve veritabanlarını Bu hızlı başlangıç devamındaki kümesidir. Bu bilgileri daha sonra kullanmak üzere aklınızda tutun veya kaydedin.
+> Burada belirttiğiniz sunucu yöneticisi kullanıcı adı ve parolası, bu hızlı başlangıcın sonraki bölümlerinde sunucuda ve veritabanlarında oturum açmak için gereklidir. Bu bilgileri daha sonra kullanmak üzere aklınızda tutun veya kaydedin.
 
-Varsayılan olarak, **postgres** veritabanı sunucunuz altında oluşturulur. Merhaba [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) veritabanıdır varsayılan bir veritabanı kullanıcılar, yardımcı programlar ve üçüncü taraf uygulamalar tarafından kullanılmak üzere anlamına gelir. 
+Varsayılan olarak, **postgres** veritabanı sunucunuz altında oluşturulur. [Postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) veritabanı; kullanıcılar, yardımcı programlar ve üçüncü taraf uygulamalar tarafından kullanılmak üzere geliştirilmiş varsayılan bir veritabanıdır. 
 
 
-## <a name="configure-a-server-level-firewall-rule"></a>Sunucu düzeyinde güvenlik duvarı kuralı oluşturma
+## <a name="configure-a-server-level-firewall-rule"></a>Sunucu düzeyinde güvenlik duvarı kuralı yapılandırma
 
-Merhaba ile Azure PostgreSQL sunucu düzeyinde güvenlik duvarı kuralını [az postgres sunucu güvenlik duvarı kuralı oluşturmak](/cli/azure/postgres/server/firewall-rule#create) komutu. Sunucu düzeyinde güvenlik duvarı kuralı gibi bir dış uygulamaya izin verir [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) veya [PgAdmin](https://www.pgadmin.org/) tooconnect tooyour sunucu hello Azure PostgreSQL hizmeti güvenlik duvarı üzerinden. 
+[az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create) komutunu kullanarak Azure PostgreSQL sunucusu düzeyinde bir güvenlik duvarı kuralı oluşturun. Sunucu düzeyindeki bir güvenlik duvarı kuralı, [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) veya [PgAdmin](https://www.pgadmin.org/) gibi bir dış uygulamanın Azure PostgreSQL hizmetinin güvenlik duvarı üzerinden sunucunuza bağlanmasına imkan tanır. 
 
-Bir IP aralığı toobe mümkün tooconnect ağınızdan kapsayan bir güvenlik duvarı kuralı ayarlayabilirsiniz. Merhaba aşağıdaki örnek kullanır [az postgres sunucu güvenlik duvarı kuralı oluşturmak](/cli/azure/postgres/server/firewall-rule#create) toocreate bir güvenlik duvarı kuralı `AllowAllIps` için bir IP adresi aralığı. tooopen tüm IP adresleri hello bitiş adresi başlangıç IP adresi ve 255.255.255.255 hello olarak 0.0.0.0 kullanın.
+Ağınızdan bağlanabilmek için bir IP aralığını kapsayan bir güvenlik duvarı kuralı ayarlayabilirsiniz. Aşağıdaki örnekte, [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create) komutu kullanılarak bir IP adresi aralığı için `AllowAllIps` güvenlik duvarı kuralı oluşturulur. Tüm IP adreslerini açmak için başlangıç IP adresi olarak 0.0.0.0’ı, bitiş adresi olaraksa 255.255.255.255’i kullanın.
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup --server mypgserver-20170401 --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
 
 > [!NOTE]
-> Azure PostgreSQL sunucusu, 5432 bağlantı noktası üzerinden iletişim kurar. Kurumsal ağ içinden bağlanıyorsanız ağınızın güvenlik duvarı tarafından 5432 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. Bağlantı noktası 5432 tooconnect tooyour Azure SQL Database sunucusu açın, BT departmanınızın vardır.
+> Azure PostgreSQL sunucusu, 5432 bağlantı noktası üzerinden iletişim kurar. Kurumsal ağ içinden bağlanıyorsanız ağınızın güvenlik duvarı tarafından 5432 numaralı bağlantı noktası üzerinden giden trafiğe izin verilmiyor olabilir. BT departmanınızdan Azure SQL Veritabanı sunucunuzla bağlantı için 5432 numaralı bağlantı noktasını açmasını isteyin.
 >
 
-## <a name="get-hello-connection-information"></a>Merhaba bağlantı bilgilerini alma
+## <a name="get-the-connection-information"></a>Bağlantı bilgilerini alma
 
-tooconnect tooyour server tooprovide konağı bilgileri ve erişim kimlik bilgileri gerekir.
+Sunucunuza bağlanmak için ana bilgisayar bilgilerini ve erişim kimlik bilgilerini sağlamanız gerekir.
 ```azurecli-interactive
 az postgres server show --resource-group myresourcegroup --name mypgserver-20170401
 ```
 
-Merhaba, JSON biçiminde sonucudur. Merhaba Not **Admınıstratorlogın** ve **fullyQualifiedDomainName**.
+Sonuç JSON biçimindedir. **administratorLogin** ve **fullyQualifiedDomainName** bilgilerini not alın.
 ```json
 {
   "administratorLogin": "mylogin",
@@ -104,32 +104,32 @@ Merhaba, JSON biçiminde sonucudur. Merhaba Not **Admınıstratorlogın** ve **f
 }
 ```
 
-## <a name="connect-tooazure-database-for-postgresql-database-using-psql"></a>Psql kullanarak PostgreSQL veritabanı için veritabanı tooAzure Bağlan
-İstemci bilgisayarınızda yüklü PostgreSQL varsa, yerel bir örneğini kullanabilirsiniz [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html), veya hello Azure Cloud Console tooconnect tooan Azure PostgreSQL sunucu. Şimdi hello psql komut satırı yardımcı programını tooconnect toohello Azure veritabanı PostgreSQL sunucusu için kullanalım.
+## <a name="connect-to-azure-database-for-postgresql-database-using-psql"></a>Psql kullanarak PostgreSQL veritabanı için Azure veritabanına bağlan
+İstemci bilgisayarınızda yüklü PostgreSQL varsa, yerel bir örneğini kullanabilirsiniz [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html), veya bir Azure PostgreSQL sunucusuna bağlanmak için Azure bulut Konsolu. Şimdi PostgreSQL için Azure Veritabanı sunucusuna bağlanmak üzere psql komut satır yardımcı programını kullanalım.
 
-1. Psql komutu tooconnect tooan Azure veritabanı PostgreSQL sunucusu için aşağıdaki hello çalıştırın
+1. PostgreSQL için Azure Veritabanı sunucusuna bağlanmak üzere aşağıdaki psql komutunu çalıştırın
 ```azurecli-interactive
 psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
 ```
 
-  Örneğin, komutu aşağıdaki hello adlı toohello varsayılan veritabanı bağlayan **postgres** PostgreSQL sunucunuzda **mypgserver 20170401.postgres.database.azure.com** erişim kimlik bilgileri kullanılarak. Merhaba girin `<server_admin_password>` parolası istendiğinde seçtiniz.
+  Örneğin aşağıdaki komut, erişim kimlik bilgilerini kullanarak **mypgserver-20170401.postgres.database.azure.com** PostgreSQL sunucunuzda **postgres** adlı varsayılan veritabanına bağlanır. Parola istendiğinde seçtiğiniz `<server_admin_password>` değerini girin.
   
   ```azurecli-interactive
 psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 ---dbname=postgres
 ```
 
-2.  Bağlı toohello sunucu olduktan sonra boş bir veritabanı hello isteminde oluşturun.
+2.  Sunucuya bağlandıktan sonra, istemde boş bir veritabanı oluşturun.
 ```sql
 CREATE DATABASE mypgsqldb;
 ```
 
-3.  Merhaba istemine komut tooswitch bağlantı toohello yeni oluşturulan veritabanı aşağıdaki hello yürütme **mypgsqldb**:
+3.  İstemde, bağlantıyı yeni oluşturulan **mypgsqldb** veritabanına geçirmek için aşağıdaki komutu yürütün:
 ```sql
 \c mypgsqldb
 ```
 
-## <a name="create-tables-in-hello-database"></a>Merhaba veritabanında tabloları oluşturma
-Nasıl tooconnect toohello Azure veritabanı PostgreSQL için biz nasıl gidebilirsiniz bildiğinize göre toocomplete temel bazı görevler.
+## <a name="create-tables-in-the-database"></a>Veritabanında tabloları oluşturma
+PostgreSQL için Azure veritabanına bağlanmak nasıl bildiğinize göre biz temel bazı görevlerin nasıl üzerinden gidebilirsiniz.
 
 İlk olarak, size bir tablo oluşturun ve bazı verilerle yükleyin. Envanter bilgilerini izleyen bir tablo oluşturalım.
 ```sql
@@ -140,65 +140,65 @@ CREATE TABLE inventory (
 );
 ```
 
-Yeni Tablo tabloların hello listesi şimdi yazarak oluşturulan hello görebilirsiniz:
+Yazarak Tablo listesinde yeni oluşturulan tabloda şimdi görebilirsiniz:
 ```sql
 \dt
 ```
 
-## <a name="load-data-into-hello-tables"></a>Merhaba tablolara veri yükleme
-Bir tablo sahibiz, biz bazı veri içine ekleyebilirsiniz. Hello açık komut istemi penceresinde, sorgu tooinsert aşağıdaki hello bazı satırlar alt kümesini çalıştırın.
+## <a name="load-data-into-the-tables"></a>Veri tablolarına yükleme
+Bir tablo sahibiz, biz bazı veri içine ekleyebilirsiniz. Açık komut istemi penceresinde, bazı veri satırı eklemek için aşağıdaki sorguyu çalıştırın
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
 ```
 
-Şimdi örnek verilerin daha önce oluşturduğunuz hello tabloya iki satır var.
+Şimdi örnek verilerin daha önce oluşturduğunuz tabloya iki satır var.
 
-## <a name="query-and-update-hello-data-in-hello-tables"></a>Sorgulamak ve hello hello tablolarındaki verileri güncelleyin
-Sorgu tooretrieve bilgisinden hello veritabanı tablosundan hello yürütün. 
+## <a name="query-and-update-the-data-in-the-tables"></a>Sorgulamak ve tablolarındaki verileri güncelleyin
+Veritabanı tablosundan bilgi almak için aşağıdaki sorguyu çalıştırın. 
 ```sql
 SELECT * FROM inventory;
 ```
 
-Merhaba tablolardaki hello verileri da güncelleştirebilirsiniz
+Ayrıca tablolardaki verileri güncelleştirebilirsiniz
 ```sql
 UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 ```
 
-veri aldığınızda hello satır buna göre güncelleştirilir.
+Veri aldığınızda satır buna göre güncelleştirilir.
 ```sql
 SELECT * FROM inventory;
 ```
 
-## <a name="restore-a-database-tooa-previous-point-in-time"></a>Zaman içinde veritabanı tooa önceki bir noktaya geri
-Yanlışlıkla bir tabloyu sildiniz düşünün. Bu, kolayca kurtaramazsınız şeydir. Azure veritabanı PostgreSQL için toogo geri tooany zaman noktası (hello too7 gün (Temel) en son yukarı ve 35 gün (standart)) verir ve bu zaman içinde nokta tooa yeni sunucu geri yükleyin. Bu yeni sunucu toorecover silinmiş verilerinizi kullanabilirsiniz. Merhaba Hello tablo eklenmeden önce aşağıdaki adımları geri yükleme hello örnek sunucu tooa noktası.
+## <a name="restore-a-database-to-a-previous-point-in-time"></a>Bir veritabanını daha önceki bir noktaya geri yükleme
+Yanlışlıkla bir tabloyu sildiniz düşünün. Bu, kolayca kurtaramazsınız şeydir. Azure veritabanı PostgreSQL için tüm noktası zamanında (olarak 7 gün (Temel) ve 35 gün (standart) son yukarı) için geri dönün ve bu noktası zaman içinde yeni bir sunucuya geri yüklemek sağlar. Bu yeni sunucu silinen verilerinizi kurtarmak için kullanabilirsiniz. Tablo eklenmeden önce aşağıdaki adımları örnek sunucunun bir noktaya geri yükleme.
 
 ```azurecli-interactive
 az postgres server restore --resource-group myResourceGroup --name mypgserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mypgserver-20170401
 ```
 
-Merhaba `az postgres server restore` komutun şu parametreler hello gerekir:
+`az postgres server restore` Komutu aşağıdaki parametreleri gerekir:
 | Ayar | Önerilen değer | Açıklama  |
 | --- | --- | --- |
-| --kaynak-grubu |  myResourceGroup |  Kaynak sunucunun hangi hello mevcut kaynak grubu.  |
-| --adı | mypgserver geri | Merhaba geri yükleme komutu tarafından oluşturulan yeni bir sunucu hello Hello adı. |
-| zaman içinde geri yükleme noktası | 2017-04-13T13:59:00Z | Bir zaman içinde nokta toorestore seçin. Bu tarih ve saat hello kaynak sunucunun yedekleme saklama dönemi içinde olmalıdır. ISO8601 tarih ve saat biçimini kullanın. Örneğin, kendi yerel saat dilimi gibi kullanabilir `2017-04-13T05:59:00-08:00`, veya UTC Zulu dili biçimi kullanın `2017-04-13T13:59:00Z`. |
-| --Kaynak sunucusu | mypgserver 20170401 | Merhaba adı veya hello kaynak sunucu toorestore kimliği. |
+| --kaynak-grubu |  myResourceGroup |  Kaynak sunucunun bulunduğu kaynak grubu.  |
+| --adı | mypgserver geri | Geri yükleme komutu tarafından oluşturulan yeni sunucunun adıdır. |
+| zaman içinde geri yükleme noktası | 2017-04-13T13:59:00Z | Bir noktayı geri yüklemek için zaman içinde seçin. Bu tarih ve saat kaynak sunucunun yedekleme saklama dönemi içinde olmalıdır. ISO8601 tarih ve saat biçimini kullanın. Örneğin, kendi yerel saat dilimi gibi kullanabilir `2017-04-13T05:59:00-08:00`, veya UTC Zulu dili biçimi kullanın `2017-04-13T13:59:00Z`. |
+| --Kaynak sunucusu | mypgserver 20170401 | Adı veya geri yüklemek için kaynak sunucunun kimliği. |
 
-Bir sunucu tooa noktası zaman içinde geri hello özgün sunucusu itibariyle başlangıç noktası olarak belirttiğiniz zamanda kopyalama, yeni bir sunucu oluşturur. Merhaba konumu ve fiyatlandırma katmanı değerleri geri hello sunucusu olan hello hello kaynak sunucu ile aynı.
+Sunucuyu bir nokta zaman için geri yükleme noktası itibariyle özgün sunucusu olarak belirttiğiniz zamanda kopyalama, yeni bir sunucu oluşturur. Geri yüklenen sunucusunun fiyatlandırma katmanı değerleri ve konumunu kaynak sunucu ile aynı olur.
 
-Merhaba komut zaman uyumlu ve hello server geri yüklendikten sonra döndürür. Merhaba geri yükleme tamamlandıktan sonra oluşturulan yeni bir sunucu hello bulun. Veriler beklendiği gibi geri hello doğrulayın.
+Komut zaman uyumlu ve sunucunun geri yüklendikten sonra döndürür. Geri yükleme tamamlandıktan sonra oluşturulan yeni sunucu bulun. Verileri beklenen şekilde geri doğrulayın.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, nasıl öğrenilen toouse Azure CLI (komut satırı arabirimi) ve diğer yardımcı programları:
+Bu öğreticide, Azure CLI (komut satırı arabirimi) ve diğer yardımcı programlarını nasıl kullanılacağı hakkında bilgi edindiniz:
 > [!div class="checklist"]
 > * PostgreSQL için Azure Veritabanı oluşturma
-> * Merhaba sunucu Güvenlik Duvarı'nı yapılandırma
-> * Kullanım [ **psql** ](https://www.postgresql.org/docs/9.6/static/app-psql.html) yardımcı programı toocreate bir veritabanı
+> * Sunucu Güvenlik Duvarı'nı yapılandırma
+> * Kullanım [ **psql** ](https://www.postgresql.org/docs/9.6/static/app-psql.html) bir veritabanı oluşturmak için yardımcı programı
 > * Örnek verileri yükleme
 > * Verileri sorgulama
 > * Verileri güncelleştirme
 > * Verileri geri yükleme
 
-Ardından, nasıl toouse hello Azure portal toodo benzer görev öğrenin, Bu öğretici gözden geçirin: [PostgreSQL kullanarak hello için Azure portalını ilk Azure veritabanınızı tasarlama](tutorial-design-database-using-azure-portal.md)
+Ardından, Azure portalında benzer görevleri yapmak için Bu öğretici gözden geçirmek için nasıl kullanacağınızı öğrenin: [PostgreSQL için Azure Portalı'nı kullanarak ilk Azure veritabanınızı tasarlama](tutorial-design-database-using-azure-portal.md)

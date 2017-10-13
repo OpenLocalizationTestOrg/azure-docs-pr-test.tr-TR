@@ -1,6 +1,6 @@
 ---
-title: "Kapasite ve Hyper-V VM (VMM olmadan) çoğaltma tooAzure Azure Site Recovery ile ölçeklendirme aaaPlan | Microsoft Docs"
-description: "Bu makale tooplan kapasite ve ölçek Azure Site Recovery ile Hyper-V sanal makineleri tooAzure çoğaltırken kullanın"
+title: "Hyper-V VM (VMM olmadan) Azure'a çoğaltma için Azure Site Recovery ile ölçekleme ve kapasite planlaması | Microsoft Docs"
+description: "Hyper-V sanal makineleri Azure Site Recovery ile azure'a çoğaltırken planı kapasite ve ölçek bu makaleyi kullanın"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -14,59 +14,59 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.openlocfilehash: f5b029f273e51c01c7d918d176832f6d1735b5f4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c7891c188c2cecbbf056fa79672a13bb16fa7fcf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="step-3-plan-capacity-and-scaling-for-hyper-v-tooazure-replication"></a>3. adım: kapasite ve Hyper-V tooAzure çoğaltma için ölçeklendirme planlama
+# <a name="step-3-plan-capacity-and-scaling-for-hyper-v-to-azure-replication"></a>3. adım: kapasite ve Hyper-V için Azure çoğaltma ölçeklendirme planlama
 
-Bu makale toofigure için kapasite planlaması ve ölçeklendirme, şirket içi Hyper-V Vm'lerini (System Center VMM olmadan) tooAzure ile çoğaltırken kullanmak [Azure Site Recovery](site-recovery-overview.md).
+Bu makale için kapasite planlaması ve ölçeklendirme, şirket içi Hyper-V Vm'lerini (System Center VMM olmadan) çoğaltırken ekleneceğini Azure ile kullanmak [Azure Site Recovery](site-recovery-overview.md).
 
-Bu makaleyi okuduktan sonra hello altındaki tüm yorumlar post veya üzerinde hello teknik sorular sormak [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Bu makaleyi okuduktan sonra altındaki bir yorum gönderin ya da teknik sorular [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="how-do-i-start-capacity-planning"></a>Kapasite planlama nasıl başlamanız gerekir?
 
 
-Çoğaltma ortamınız hakkında bilgi toplamak ve bu makalede vurgulanmış hello konuları birlikte bu bilgileri kullanarak kapasite planlama.
+Çoğaltma ortamınız hakkında bilgi toplamak ve bu makalede vurgulanmış konuları birlikte bu bilgileri kullanarak kapasite planlama.
 
 
 ## <a name="gather-information"></a>Bilgileri toplayın
 
 1. VM'ler, VM başına disk ve disk başına depolama dahil olmak üzere çoğaltma ortamınız hakkında bilgi toplayın.
-2. Çoğaltılan veriler için günlük değişim (dalgalanma) oranı tanımlayın. Merhaba karşıdan [Hyper-V kapasite planlama aracı](https://www.microsoft.com/download/details.aspx?id=39057) tooget hello değişim oranı. Ortalamalar hafta toocapture bu aracı çalıştırın öneririz.
+2. Çoğaltılan veriler için günlük değişim (dalgalanma) oranı tanımlayın. Karşıdan [Hyper-V kapasite planlama aracı](https://www.microsoft.com/download/details.aspx?id=39057) değişim oranı alınamıyor. Bu aracı ortalamalar yakalamak için bir hafta içinde çalıştırmak öneririz.
  
 
 ## <a name="figure-out-capacity"></a>Kapasitesi Şekil
 
-Toplama seçtiğiniz hello bilgilere dayanarak hello çalıştırmak [Site kurtarma kapasite planlayıcısı aracı](http://aka.ms/asr-capacity-planner-excel) tooanalyze kaynak ortamınız ve iş yükleri, bant genişliği gereksinimlerini ve sunucu kaynaklarını hello kaynak konumu için tahmin etmek ve hello Merhaba hedef konumda gereken kaynakları (sanal makineler ve depolama vb.). Merhaba aracı modları birkaç içinde çalıştırabilirsiniz:
+Toplama seçtiğiniz bilgilere dayanarak, çalıştırmanız [Site kurtarma kapasite planlayıcısı aracı](http://aka.ms/asr-capacity-planner-excel) kaynak ortamı ve iş yükleri çözümlemek için bant genişliği gereksinimlerini ve sunucu kaynaklarını kaynak konum ve kaynakları (tahmin etme sanal makineler ve depolama vb.) hedef konumda gereken. Aracı modları birkaç içinde çalıştırabilirsiniz:
 
-- Hızlı planlama: hello aracı tooget ağ ve sunucu tahminleri ortalama bir VM'ler, diskleri, depolama ve değişim oranı sayısına göre bu modda çalıştırın.
-- Ayrıntılı planlama: Bu modda hello aracını çalıştırın ve her iş yükü VM düzeyinde ayrıntılarını sağlayın. VM uyumluluk çözümlemek ve ağ ve sunucu tahminleri alın.
+- Hızlı planlama: aracı ağ ve sunucu tahminleri almak için bu modda ortalama bir VM'ler, diskleri, depolama ve değişim oranı sayısına göre çalıştır.
+- Ayrıntılı planlama: Bu modda aracını çalıştırın ve her iş yükü VM düzeyinde ayrıntılarını sağlayın. VM uyumluluk çözümlemek ve ağ ve sunucu tahminleri alın.
 
-Şimdi hello aracını çalıştırın:
+Şimdi aracını çalıştırın:
 
-1. Merhaba karşıdan [aracı](http://aka.ms/asr-capacity-planner-excel)
-2. toorun hello hızlı Planlayıcısı izleyin [bu yönergeleri](site-recovery-capacity-planner.md#run-the-quick-planner)ve select hello senaryo **Hyper-V tooAzure**.
-3. toorun Merhaba ayrıntılı Planlayıcısı, izleyin [bu yönergeleri](site-recovery-capacity-planner.md#run-the-detailed-planner)ve select hello senaryo **Hyper-V tooAzure**.
+1. Karşıdan [aracı](http://aka.ms/asr-capacity-planner-excel)
+2. Hızlı Planlayıcısı çalıştırmak için izleyin [bu yönergeleri](site-recovery-capacity-planner.md#run-the-quick-planner), senaryo seçip **Hyper-V Azure**.
+3. Ayrıntılı Planlayıcısı çalıştırmak için izleyin [bu yönergeleri](site-recovery-capacity-planner.md#run-the-detailed-planner), senaryo seçip **Hyper-V Azure**.
 
 ## <a name="control-network-bandwidth"></a>Ağ bant genişliğini denetlemek
 
-Gereksinim duyduğunuz hesaplanan hello bant genişliği sonra birkaç hello çoğaltma için kullanılan bant genişliği miktarını kontrol eden için seçenekler vardır:
+Gereksinim duyduğunuz bant genişliği hesaplanan sonra çoğaltma için kullanılan bant genişliği miktarını denetleme seçenekleri birkaç vardır:
 
-* **Bant genişliğini kısıtlama**: tooAzure çoğaltır Hyper-V trafiği belirli bir Hyper-V ana bilgisayar üzerinden gider. Merhaba ana bilgisayar sunucusunda bant genişliğini kısıtlayabilirsiniz.
-* **Bant genişliği üzerinde etki**: birkaç kayıt defteri anahtarlarını kullanarak çoğaltma için kullanılan hello bant genişliği etkileyebilir.
+* **Bant genişliğini kısıtlama**: Azure'a çoğaltılan Hyper-V trafiği belirli bir Hyper-V ana bilgisayar üzerinden gider. Ana bilgisayar sunucusunda bant genişliğini kısıtlayabilirsiniz.
+* **Bant genişliği üzerinde etki**: birkaç kayıt defteri anahtarlarını kullanarak çoğaltma için kullanılan bant genişliği etkileyebilir.
 
 ### <a name="throttle-bandwidth"></a>Bant genişliğini kısıtlama
-1. Merhaba Hyper-V konak sunucusunda Hello Microsoft Azure Backup MMC eklentisini açın. Varsayılan olarak Microsoft Azure yedekleme için bir kısayol hello masaüstünde veya C:\Program Files\Microsoft Azure Recovery Services agent\bin\wabadmin yolunda kullanılabilir durumdadır.
-2. Merhaba ek bileşeninde tıklatın **özelliklerini değiştirme**.
-3. Merhaba üzerinde **azaltma** sekmesini seçin **yedekleme işlemleri için Internet bant genişliği kullanımı daraltmayı etkinleştir**, iş için hello sınırını ayarlama ve saat İş dışı. Geçerli aralıklar saniye başına 512 Kbps too102 Mbps arasındadır.
+1. Hyper-V ana bilgisayar sunucusunda Microsoft Azure Backup MMC ek bileşenini açın. Varsayılan olarak Microsoft Azure Backup için masaüstünde veya C:\Program Files\Microsoft Azure Recovery Services Agent\bin\wabadmin yolunda bir kısayol bulunur.
+2. Ek bileşende **Özellikleri Değiştir**'e tıklayın.
+3. **Azaltma** sekmesinde **Yedekleme işlemleri için internet bant genişliği kullanımını azaltmayı etkinleştir** seçeneğini belirleyin ve çalışma saatleri ve çalışma dışı saatler için sınırları ayarlayın. Geçerli aralıklar saniye başına 512 Kbps ila 102 Mbps arasındadır.
 
     ![Bant genişliğini kısıtlama](./media/hyper-v-site-walkthrough-capacity/throttle2.png)
 
-Merhaba de kullanabilirsiniz [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) tooset cmdlet azaltma. Bu ayara ilişkin örneği aşağıda bulabilirsiniz:
+Ayrıca, azaltma ayarı için [Set-OBMachineSetting](https://technet.microsoft.com/library/hh770409.aspx) cmdlet'ini de kullanabilirsiniz. Bu ayara ilişkin örneği aşağıda bulabilirsiniz:
 
     $mon = [System.DayOfWeek]::Monday
     $tue = [System.DayOfWeek]::Tuesday
@@ -75,11 +75,11 @@ Merhaba de kullanabilirsiniz [Set-OBMachineSetting](https://technet.microsoft.co
 **Set-OBMachineSetting - NoThrottle** hiçbir azaltmanın gerekli olmadığını gösterir.
 
 ### <a name="influence-network-bandwidth"></a>Ağ bant genişliği üzerinde etki oluşturma
-1. Merhaba kayıt defterinde çok gidin**HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication**.
-   * bir çoğaltma diskte tooinfluence hello bant genişliği trafiği değiştirebilir hello değeri hello **UploadThreadsPerVM**, veya yoksa hello anahtar oluşturun.
-   * Azure, yeniden çalışma trafiği için tooinfluence hello bant genişliği değiştirme hello değeri **DownloadThreadsPerVM**.
-2. Merhaba varsayılan değer 4'tür. "Fazla sağlanan" bir ağda, bu kayıt defteri anahtarları hello varsayılan değerlerinin değiştirilmesi. Merhaba en fazla 32'dir. Trafik toooptimize hello değeri izleyin.
+1. Kayıt defterinde, **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication** hedefine gidin.
+   * Bir çoğaltma diskte bant genişliği trafiği etkilemek için değerini değiştirin **UploadThreadsPerVM**, veya yoksa anahtar oluşturun.
+   * Azure'dan yeniden çalışma trafiği için bant genişliği etkilemek için değerini değiştirin **DownloadThreadsPerVM**.
+2. Varsayılan değer 4'tür. "Fazla sağlanan" bir ağda, bu kayıt defteri anahtarlarının varsayılan değerlerinin değiştirilmesi gerekir. Maksimum değer 32'dir. Değeri iyileştirmek için trafiği izleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Çok Git[4. adım: ağ planlama](hyper-v-site-walkthrough-network.md).
+Git [4. adım: ağ planlama](hyper-v-site-walkthrough-network.md).

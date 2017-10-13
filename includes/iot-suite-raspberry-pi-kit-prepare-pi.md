@@ -2,26 +2,26 @@
 
 ### <a name="install-raspbian"></a>Raspbian yükleyin
 
-Bu hello Raspberry Pi'yi kullanarak ilk kez kullanıyorsanız, hello Seti'nde bulunan hello SD kart üzerinde NOOBS kullanarak tooinstall hello Raspbian işletim sistemi gerekir. Merhaba [Raspberry Pi yazılım Kılavuzu] [ lnk-install-raspbian] açıklar nasıl tooinstall Raspberry Pi'yi işletim sisteminde. Bu öğretici, Raspberry Pi'yi hello Raspbian işletim sisteminin yüklü olduğu varsayılır.
+Raspberry Pi'yi kullanarak ilk kez kullanıyorsanız Seti'nde bulunan SD kart üzerinde NOOBS kullanarak Raspbian işletim sistemini yüklemeniz gerekir. [Raspberry Pi yazılım Kılavuzu] [ lnk-install-raspbian] , Raspberry Pi'yi bir işletim sistemi yüklemeyi açıklar. Bu öğretici, Raspberry Pi'yi Raspbian işletim sisteminin yüklü olduğu varsayılır.
 
 > [!NOTE]
-> Hello dahil hello SD kart [Raspberry Pi 3 için Microsoft Azure IOT Starter Kit] [ lnk-starter-kits] yüklü NOOBS zaten. Merhaba Raspberry Pi'yi bu kartından önyükleme ve tooinstall hello Raspbian işletim sistemi seçin.
+> Dahil SD kart [Raspberry Pi 3 için Microsoft Azure IOT Starter Kit] [ lnk-starter-kits] yüklü NOOBS zaten. Bu kartından Raspberry Pi'yi önyükleme ve Raspbian işletim sistemi yüklemek seçin.
 
-### <a name="set-up-hello-hardware"></a>Merhaba donanımı kurma
+### <a name="set-up-the-hardware"></a>Donanımı kurma
 
-Bu öğretici hello dahil hello BME280 algılayıcı kullanır [Raspberry Pi 3 için Microsoft Azure IOT Starter Kit] [ lnk-starter-kits] toogenerate telemetri verileri. Merhaba Raspberry Pi'yi bir yöntem çağırma hello çözüm panosundan işlerken bir LED tooindicate kullanır.
+Bu öğretici dahil BME280 algılayıcı kullanır [Raspberry Pi 3 için Microsoft Azure IOT Starter Kit] [ lnk-starter-kits] telemetri verileri oluşturmak için. Bir LED Raspberry Pi'yi bir yöntem çağırma çözüm panosundan işlediğinde göstermek için kullanır.
 
-Merhaba ekmek panosunda Hello bileşenleri şunlardır:
+Ekmek Panosu bileşenleri şunlardır:
 
 - Kırmızı ışığı
 - 220 Ohm Direnci (kırmızı, kırmızı, Kahverengi)
 - BME280 algılayıcısı
 
-Merhaba Aşağıdaki diyagram gösterir nasıl tooconnect donanımınız:
+Aşağıdaki diyagramda, donanım bağlanma gösterilmektedir:
 
 ![Raspberry Pi'yi için donanım Kurulumu][img-connection-diagram]
 
-Merhaba aşağıdaki tabloda hello Raspberry Pi'yi toohello bileşenlerini hello breadboard hello bağlantılarından özetlenmektedir:
+Aşağıdaki tabloda Raspberry Pi'yi bağlantılarından breadboard bileşenleri için özetlenmiştir:
 
 | Raspberry Pi            | Breadboard             |Renk         |
 | ----------------------- | ---------------------- | ------------- |
@@ -34,52 +34,52 @@ Merhaba aşağıdaki tabloda hello Raspberry Pi'yi toohello bileşenlerini hello
 | GND (PIN 6)             | GND (35A)              | Siyah         |
 | 3.3 V (PIN 1)           | 3Vo (34A)              | Kırmızı           |
 
-toocomplete hello donanım Kurulum şunları yapmanız gerekir:
+Donanım kurulumu tamamlamak için aktarmanız gerekir:
 
-- Merhaba Seti'nde dahil, Raspberry Pi'yi toohello güç kaynağı bağlayın.
-- Kit içinde bulunan hello Ethernet kablosu kullanarak Raspberry Pi'yi tooyour ağınıza bağlayın. Alternatif olarak, ayarlayabilirsiniz [kablosuz bağlantı] [ lnk-pi-wireless] Raspberry Pi'yi için.
+- Raspberry Pi'yi Seti'nde bulunan güç kaynağı bağlayın.
+- Raspberry Pi'yi kit içinde bulunan Ethernet kablosu kullanarak ağınıza bağlayın. Alternatif olarak, ayarlayabilirsiniz [kablosuz bağlantı] [ lnk-pi-wireless] Raspberry Pi'yi için.
 
-Merhaba donanım Kurulumu Raspberry Pi'yi tamamladınız.
+Raspberry Pi'yi donanım Kurulumu tamamladınız.
 
-### <a name="sign-in-and-access-hello-terminal"></a>Oturum açma ve hello terminal erişim
+### <a name="sign-in-and-access-the-terminal"></a>Oturum açma ve terminal erişim
 
-İki seçenek tooaccess, Raspberry Pi'yi bir terminal ortamına sahip:
+Raspberry Pi'yi terminal ortamda erişmek için iki seçeneğiniz vardır:
 
-- Klavye varsa ve bağlı tooyour Raspberry Pi'yi izlemek, hello Raspbian GUI tooaccess bir terminal penceresi kullanabilirsiniz.
+- Klavye ve monitör, Raspberry Pi'yi bağlı varsa, bir terminal penceresi erişmek için Raspbian GUI kullanabilirsiniz.
 
-- Erişim hello komut satırında Masaüstü makinenizden SSH kullanarak, Raspberry Pi'yi.
+- Masaüstü makinenizden SSH kullanarak, Raspberry Pi'yi komut satırında erişin.
 
-#### <a name="use-a-terminal-window-in-hello-gui"></a>Merhaba GUI içinde bir terminal penceresi kullanın
+#### <a name="use-a-terminal-window-in-the-gui"></a>GUI içinde bir terminal penceresi kullanın
 
-Merhaba varsayılan kimlik bilgilerini Raspbian olan kullanıcı adı **PI** ve parola **raspberry**. Merhaba Görev Çubuğu'nda hello GUI, hello başlatabilirsiniz **Terminal** gibi bir izleyici arar hello simgesini kullanarak yardımcı programı.
+Kullanıcı adı Raspbian için varsayılan kimlik bilgileri olan **PI** ve parola **raspberry**. GUI görev çubuğunda, başlatabilirsiniz **Terminal** gibi bir izleyici arar simgesini kullanarak yardımcı programı.
 
 #### <a name="sign-in-with-ssh"></a>Oturum SSH oturum
 
-Komut satırı erişimi tooyour Raspberry Pi'yi için SSH kullanabilirsiniz. Merhaba makale [SSH (Secure Shell)] [ lnk-pi-ssh] açıklar nasıl tooconfigure, Raspberry Pi'yi üzerinde SSH ve nasıl tooconnect gelen [Windows] [ lnk-ssh-windows] veya [Linux ve Mac OS][lnk-ssh-linux].
+SSH, Raspberry Pi'yi komut satırı erişimi için kullanabilirsiniz. Makaleyi [SSH (Secure Shell)] [ lnk-pi-ssh] , Raspberry Pi'yi SSH yapılandırma ve bağlanması açıklar [Windows] [ lnk-ssh-windows] veya [ Linux ve Mac OS][lnk-ssh-linux].
 
 Kullanıcı adıyla oturum **PI** ve parola **raspberry**.
 
 #### <a name="optional-share-a-folder-on-your-raspberry-pi"></a>İsteğe bağlı: Raspberry Pi'yi üzerinde bir klasör paylaşın
 
-İsteğe bağlı olarak, masaüstü ortamınızı, Raspberry Pi'yi tooshare bir klasör isteyebilirsiniz. Bir klasör paylaşımı, tercih edilen Masaüstü metin düzenleyici, toouse sağlar (gibi [Visual Studio Code](https://code.visualstudio.com/) veya [Sublime Text](http://www.sublimetext.com/)) kullanmak yerine, Raspberry Pi'yi tooedit dosyalarda `nano` veya `vi`.
+İsteğe bağlı olarak, masaüstü ortamınızı ile Raspberry Pi'yi üzerinde bir klasör paylaşın isteyebilirsiniz. Bir klasör paylaşımı sağlar, tercih edilen Masaüstü metin düzenleyicisi kullanın (gibi [Visual Studio Code](https://code.visualstudio.com/) veya [Sublime Text](http://www.sublimetext.com/)) kullanmak yerine, Raspberry Pi'yi dosyalarını düzenlemek için `nano` veya `vi`.
 
-tooshare Windows, bir klasör Raspberry Pi'yi hello üzerinde Samba sunucusu yapılandırın. Alternatif olarak, hello yerleşik kullanın [SFTP](https://www.raspberrypi.org/documentation/remote-access/) masaüstünüzde SFTP istemci ile sunucu.
+Bir klasörü Windows ile paylaşmak için Samba sunucu üzerinde Raspberry Pi'yi yapılandırın. Alternatif olarak, yerleşik kullanın [SFTP](https://www.raspberrypi.org/documentation/remote-access/) masaüstünüzde SFTP istemci ile sunucu.
 
 ### <a name="enable-spi"></a>SPI etkinleştir
 
-Merhaba örnek uygulamayı çalıştırmadan önce hello Raspberry Pi'yi hello seri çevre arabirimi (SPI) veri yoluna etkinleştirmeniz gerekir. Merhaba Raspberry Pi'yi hello BME280 algılayıcı aygıtla hello SPI veri yolu iletişim kurar. Aşağıdaki komut tooedit hello yapılandırma dosyasına hello kullan:
+Örnek uygulamayı çalıştırmadan önce seri çevre arabirimi (SPI) veri yoluna Raspberry Pi'yi etkinleştirmeniz gerekir. Raspberry Pi'yi BME280 algılayıcı aygıtla SPI veri yolu üzerinden iletişim kurar. Yapılandırma dosyasını düzenlemek için aşağıdaki komutu kullanın:
 
 ```sh
 sudo nano /boot/config.txt
 ```
 
-Merhaba satırı bulun:
+Satırı bulun:
 
 `#dtparam=spi=on`
 
-- toouncomment hello satırı Sil hello `#` hello başlangıç.
-- Değişikliklerinizi kaydetmek (**Ctrl-O**, **Enter**) ve çıkış hello Düzenleyicisi'ni (**Ctrl-X**).
-- tooenable SPI hello Raspberry Pi'yi yeniden başlatın. Yeniden başlatma hello terminal bağlantısını keser, yeniden yeniden başlatıldığında hello Raspberry Pi'yi içinde toosign gerekir:
+- Satırı açıklamadan çıkarın, silinecek `#` başlangıç.
+- Değişikliklerinizi kaydetmek (**Ctrl-O**, **Enter**) ve düzenleyiciden çıkın (**Ctrl-X**).
+- SPI etkinleştirmek için Raspberry Pi'yi yeniden başlatın. Terminal yeniden başlatmadan bağlantısını keser, yeniden Raspberry Pi'yi yeniden başlatıldığında oturum açmanız gerekir:
 
   ```sh
   sudo reboot

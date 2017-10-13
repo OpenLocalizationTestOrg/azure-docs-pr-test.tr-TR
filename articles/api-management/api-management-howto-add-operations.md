@@ -1,6 +1,6 @@
 ---
-title: Azure API Management'te aaaHow tooadd operations tooan API | Microsoft Docs
-description: "Bilgi nasıl Azure API Management'te tooadd işlemleri tooan API."
+title: "Azure API Management'te bir API'ye işlem ekleme | Microsoft Docs"
+description: "Azure API Management'te bir API işlemleri eklemeyi öğrenin."
 services: api-management
 documentationcenter: 
 author: steved0x
@@ -14,124 +14,124 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: d57fa59a2b0ceb392cde23150a0cbb326e52d27d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 105fc51c2d1152a40a5757985da47330e0b7b8cf
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-tooadd-operations-tooan-api-in-azure-api-management"></a>Nasıl Azure API Management'te tooadd işlemleri tooan API
-Bir API API Management kullanmadan önce operations eklenmesi gerekir. Bu kılavuzu gösterir nasıl tooadd ve API Management işlemleri tooan API farklı türlerde yapılandırın.
+# <a name="how-to-add-operations-to-an-api-in-azure-api-management"></a>Azure API Management'te bir API'ye işlem ekleme
+Bir API API Management kullanmadan önce operations eklenmesi gerekir. Bu kılavuz, ekleme ve farklı bir API işlemlerinin API Management'te yapılandırma gösterilmektedir.
 
 ## <a name="add-operation"></a>Bir işlem ekleme
-Operations eklenir ve tooan API hello yayımcı portalında yapılandırılır. tooaccess hello yayımcı portalı, tıklatın **yayımcı portalına** API Management hizmetiniz için hello Azure Portalı'nda.
+Operations eklenir ve bir API yayımcı portalında yapılandırılır. Yayımcı portalına erişmek için tıklatın **yayımcı portalına** API Management hizmetiniz için Azure Portalı'nda.
 
 ![Yayımcı portalı][api-management-management-console]
 
-> Henüz bir API Management hizmeti örneği oluşturmadıysanız, bkz: [bir API Management hizmet örneği oluşturma] [ Create an API Management service instance] hello içinde [Azure API Management ile çalışmaya başlama] [ Get started with Azure API Management] Öğreticisi.
+> Henüz bir API Management hizmeti örneği oluşturmadıysanız, [Azure API Management'i kullanmaya başlama][Get started with Azure API Management] öğreticisinde [API Management hizmet örneği oluşturma][Create an API Management service instance]'ya bakın.
 > 
 > 
 
-Select hello istenen API hello yayımcı portalı ve ardından hello **Operations** sekmesi. 
+İstenen API yayımcı Portalı'nda seçin ve ardından **Operations** sekmesi. 
 
 ![İşlemler][api-management-operations]
 
-Tıklatın **ekleme işlemi** tooadd yeni işlem. Merhaba **yeni işlem** görüntülenir ve hello **imza** sekmesi varsayılan olarak seçilir.
+Tıklatın **ekleme işlemi** yeni bir işlem eklemek için. **Yeni işlem** görüntülenir ve **imza** sekmesi varsayılan olarak seçilir.
 
 ![Ekleme işlemi][api-management-add-operation]
 
-Merhaba belirtin **HTTP fiili** hello aşağı açılan listeden seçerek.
+Belirtin **HTTP fiili** aşağı açılan listeden seçerek.
 
 ![HTTP yöntemi][api-management-http-method]
 
 <a name="url-template"></a>
 
-Bir veya daha fazla URL yolu kesimleri ve sıfır veya daha fazla sorgu dizesi parametreleri oluşan bir URL parçadaki yazarak Hello URL şablon tanımlayın. Merhaba URL şablonu, eklenmiş toohello temel URL'sini hello API, tek bir HTTP işlemi tanımlar. Daha fazla küme ayraçları tanımlanan değişken bölümleri adlı veya birini içerebilir. Bu değişken bölümleri şablon parametreleri olarak adlandırılır ve hello isteği hello API Yönetimi platformunuz tarafından işlendiğinde hello isteğin URL'den ayıklanan değerler dinamik olarak atanır.
+URL şablonu, bir veya daha fazla URL yolu kesimleri ve sıfır veya daha fazla sorgu dizesi parametreleri oluşan bir URL parçadaki yazarak tanımlayın. API temel URL'sini eklenmiş URL şablon, tek bir HTTP işlemi tanımlar. Daha fazla küme ayraçları tanımlanan değişken bölümleri adlı veya birini içerebilir. Bu değişken bölümleri şablon parametreleri olarak adlandırılır ve istek API Yönetimi platformunuz tarafından işlendiğinde isteğin URL'den ayıklanan değerler dinamik olarak atanır.
 
-> Merhaba URL şablon joker karakter düzenleri içerebilir. Örneğin, belirten `/*` tüm istekler bu HTTP yöntemini toohello için hizmet İleri sona erer.
+> URL şablon joker karakter düzenleri içerebilir. Örneğin, belirten `/*` geri, HTTP yöntemine yönelik tüm istekleri hizmet İleri sona erer.
 
 ![URL şablonu][api-management-url-template]
 
 <a name="rewrite-url-template"></a>
 
-İsterseniz, hello belirtin **URL yeniden yazma şablon**. Bu, toouse hello standart URL şablon hello ön uç üzerinde gelen istekleri işlemek için sayesinde, hello arka uç toohello göre dönüştürülen bir URL aracılığıyla çağrılırken şablonu yeniden yazın. Şablon parametreleri hello URL şablondan hello yeniden yazma şablonunda kullanılmalıdır. Merhaba aşağıdaki örnek hello önceki örnekteki hello web hizmeti yol kesimi hello bir sorgu parametresi olarak API hello hello URL şablonları kullanarak API Management platform yayımlanan sağlanabilir olarak kodlanmış nasıl içerik türünü gösterir.
+İsterseniz, belirtin **URL yeniden yazma şablon**. Bu, dönüştürülmüş bir URL yeniden yazma şablon göre aracılığıyla arka uç çağrılırken ön uç üzerinde gelen istekleri işlemek için standart URL şablonu kullanmanıza olanak sağlar. Şablon parametreleri URL şablondan yeniden yazma şablonunda kullanılmalıdır. Aşağıdaki örnek, önceki örnekten web hizmeti yol kesimi, URL şablonları kullanarak API Management platform yayımlanan API bir sorgu parametresi olarak sağlanabilir olarak kodlanmış nasıl içerik türünü gösterir.
 
 ![URL şablonu yeniden yazma][api-management-url-template-rewrite]
 
-Arayanlar toohello işlemi hello biçimi kullanın `/customers?customerid=ALFKI` ve bu çok eşlenecek`/Customers('ALFKI')` hello arka uç hizmetine zaman çağrılır.
+İşlemi arayanlara biçimini kullanacak `/customers?customerid=ALFKI` ve bu öğesine eşlenecek `/Customers('ALFKI')` arka uç hizmetine zaman çağrılır.
 
-**Görüntü** adı ve **açıklama** hello işlemi bir açıklama belirtin ve kullanılan tooprovide belgelerine hello Geliştirici Portalı'nda bu API'yi kullanarak toohello geliştiricilerin önerilir.
+**Görüntü** adı ve **açıklama** işlemi bir açıklama belirtin ve Geliştirici Portalı'nda bu API kullanan geliştiriciler için belgeleri sağlamak için kullanılır.
 
 ![Açıklama][api-management-description]
 
-Merhaba işlemi açıklama belirtilebilir düz metin veya HTML hello **açıklama** metin kutusu.
+Düz metin veya HTML olarak işlemi açıklama belirtilen **açıklama** metin kutusu.
 
 ## <a name="operation-caching"></a>İşlemi önbelleğe alma
-Yanıt önbelleğe alma düşürmeye bant genişliği tüketimi hello API tüketiciler tarafından algılanan gecikmesini azaltır ve hello HTTP web hizmeti uygulama düşüşleri hello yükle hello API. 
+Yanıt önbelleğe alma API Tüketiciler, düşürmeye bant genişliği kullanımını ve HTTP web üzerindeki yükü hizmet API uygulama düşüşleri tarafından algılanan gecikmesini azaltır. 
 
-tooeasily ve hızlı bir şekilde select hello hello işlem için önbelleğe almayı etkinleştir **önbelleğe alma** sekmesinde ve hello denetleyin **etkinleştirmek** onay kutusu.
+Hızla ve kolayca işlem için önbelleğe almayı etkinleştirmek için seçin **önbelleğe alma** sekmesinde ve denetleme **etkinleştirmek** onay kutusu.
 
 ![Önbelleğe alma][api-management-caching-tab]
 
-**Süre** hello sırasında hangi hello işlemi yanıt hello önbellekte kalır süreyi belirtir. Merhaba varsayılan değer 3600 saniye veya 1 saat olur.
+**Süre** işlemi yanıt sırasında önbellekte kalan süreyi belirtir. Varsayılan değer 3600 saniye veya 1 saat olur.
 
-Önbellek anahtarlarını yanıtları arasında kullanılan toodifferentiate içindir tooeach farklı önbellek anahtarını karşılık gelen hello yanıt kendi ayrı önbelleğe alınan değeri alır. İsteğe bağlı olarak, özel bir sorgu dizesi parametreleri ve/veya HTTP üstbilgileri toobe hello önbellek anahtar değerlerini bilgisayar kullanılan girin **sorgu dizesi parametrelerine göre değişiklik gösterebilir** ve **üstbilgileri göre değişiklik gösterebilir** metin kutuları sırasıyla. Ne zaman belirtilen, tam istek URL'si yok ve HTTP üstbilgi değerlerini aşağıdaki hello önbellek anahtar oluşturma kullanılır: **kabul** ve **Accept-Charset**.
+Önbellek anahtarlar, böylece her farklı önbellek anahtarına karşılık gelen yanıt kendi ayrı önbelleğe alınan değeri alır yanıtlar arasında ayırt etmek için kullanılır. İsteğe bağlı olarak, özel bir sorgu dizesi parametreleri ve/veya önbellek anahtar değerlerini bilgisayar kullanılacak HTTP üstbilgileri girin **sorgu dizesi parametrelerine göre değişiklik gösterebilir** ve **üstbilgileri göre değişiklik gösterebilir** metin kutuları sırasıyla. Ne zaman belirtilen, tam istek URL'si yok ve önbellek anahtar oluşturma aşağıdaki HTTP üst bilgisi değerler kullanılır: **kabul** ve **Accept-Charset**.
 
-> Önbelleğe alma ve önbelleğe alma ilkeleri hakkında daha fazla bilgi için bkz: [nasıl toocache işlemi Azure API Management'te sonuçları][How toocache operation results in Azure API Management].
+> Önbelleğe alma ve önbelleğe alma ilkeleri hakkında daha fazla bilgi için bkz: [sonuçları işlemi önbelleğe almak nasıl Azure API Management'te][How to cache operation results in Azure API Management].
 > 
 > 
 
 ## <a name="request-parameters"></a>Parametreleri
-İşlem parametrelerini hello parametreleri sekmesinde yönetilir. Hello belirtilen parametreleri **URL şablonu** hello üzerinde **imza** sekmesinde otomatik olarak eklenir ve yalnızca hello URL şablonu düzenleyerek değiştirilebilir. Ek parametreler el ile girilebilir.
+İşlem parametrelerini parametreleri sekmesinde yönetilir. Belirtilen parametreleri **URL şablonu** üzerinde **imza** sekmesinde otomatik olarak eklenir ve yalnızca URL şablonu düzenleyerek değiştirilebilir. Ek parametreler el ile girilebilir.
 
-Yeni bir sorgu parametresi tooadd tıklatın **sorgu parametresi Ekle** ve aşağıdaki bilgilerle hello girin:
+Yeni bir sorgu parametresi eklemek için tıklatın **sorgu parametresi Ekle** ve aşağıdaki bilgileri girin:
 
 * **Ad** -parametre adı.
-* **Açıklama** -hello parametre (isteğe bağlı) kısa bir açıklaması.
-* **Tür** -hello açılan seçilen parametre türü.
-* **Değerleri** -toothis parametresi atanabilir değerleri. Merhaba değerlerden birini varsayılan olarak (isteğe bağlı) işaretlenebilir.
-* **Gerekli** -hello onay kutusunu işaretleyerek hello parametre zorunlu kılabilir. 
+* **Açıklama** -(isteğe bağlı) parametre kısa bir açıklaması.
+* **Tür** -aşağı açılan seçilen parametre türü.
+* **Değerleri** -bu parametresine atanan değer. Değerlerden biri varsayılan olarak (isteğe bağlı) işaretlenebilir.
+* **Gerekli** -onay kutusunu işaretleyerek parametresi zorunlu kılabilir. 
 
 ![İstek parametreleri][api-management-request-parameters]
 
 ## <a name="request-body"></a>İstek gövdesinde
-Merhaba işlemi izin veriyorsa (örneğin, PUT, POST) ve onu hello tümünde örneği sağlayabilir gövde desteklenen gösterimi biçimleri (örneğin json, XML) gerektirir. 
+İşlem izin veriyorsa (örneğin, PUT, POST) ve tüm desteklenen gösterimi biçimlerinin (örneğin json, XML) içinde örneği sağlayabilir gövde gerektirir. 
 
-> Merhaba istek gövdesi yalnızca belgeleri amaçlar için kullanılır ve doğrulanmazsa.
+> İstek gövdesi doğrulanmazsa ve yalnızca belgeleri amacıyla kullanılır.
 > 
 > 
 
-bir istek gövdesi tooenter geçiş toohello **gövde** sekmesi.
+Bir istek gövdesi girmek için geçiş **gövde** sekmesi.
 
-Tıklatın **eklemek gösterimi**, istenen içerik türü (örn. uygulama/json), adını yazarak Başlat'ı seçin, hello açılır ve Yapıştır hello istenen istek gövdesi örnek hello seçilen biçiminde hello metin kutusuna. 
+Tıklatın **eklemek gösterimi**, istenen içerik türü adı (örn. uygulama/json) yazmaya başlayın, açılan seçin ve istenen istek gövdesi örnek seçili biçiminde metin kutusuna yapıştırın. 
 
 ![İstek gövdesi][api-management-request-body]
 
-Ek toorepresentations içinde hello isteğe bağlı metnini açıklamada da belirtebilirsiniz **açıklama** metin kutusu.
+Ek gösterimler için ayrıca bir isteğe bağlı metin açıklaması belirtebilirsiniz **açıklama** metin kutusu.
 
 ## <a name="responses"></a>Yanıtları
-Yanıtlar hello işlemi üretebilir tüm durum kodları için iyi bir uygulama tooprovide örnekleri olur. Birden fazla yanıt gövdesi örnek her durum koduna sahip olabilir, her hello desteklenen içerik türleri. 
+İşlemi üretebilir için tüm durum kodları örnekleri yanıtların sağlamak için iyi bir uygulamadır. Her durum kodu birden fazla yanıt gövdesi örnek, desteklenen içerik türlerinin her biri için bir tane olabilir. 
 
-tooadd bir yanıt tıklatın **Ekle** ve istenen hello durum kodu yazmaya başlayın. Bu örnek hello durum kodudur **200 Tamam**. Merhaba kod hello açılan listesinde görüntülendikten sonra seçin ve hello yanıt kodu oluşturulan ve eklenen tooyour işlemdir.
+Bir yanıt eklemek için tıklatın **Ekle** ve istenen durum kodu yazmaya başlayın. Bu örnekte durum kodudur **200 Tamam**. Kod açılan görüntülendikten sonra seçmek ve yanıt kodu oluşturulur ve işleminiz için eklendi.
 
 ![Yanıt kodu][api-management-response-code]
 
-Tıklatın **eklemek gösterimi**hello istediğiniz içerik türü adı (örn. uygulama/json) yazmaya başlayın ve ardından hello içinde açılır.
+Tıklatın **eklemek gösterimi**, istenen içerik türü adı (örn. uygulama/json) yazmaya başlayın ve ardından aşağı açılan seçin.
 
 ![Gövde içerik türü][api-management-response-body-content-type]
 
-Merhaba yanıt gövdesi örneği hello seçili biçiminde hello metin kutusuna yapıştırın. 
+Yanıt gövdesi örnek seçili biçiminde metin kutusuna yapıştırın. 
 
 ![Yanıt gövdesi][api-management-response-body]
 
-İsterseniz, isteğe bağlı bir açıklama hello içine ekleme **açıklama** metin kutusu.
+İsterseniz, isteğe bağlı bir açıklama ekleyin **açıklama** metin kutusu.
 
-Merhaba işlemi yapılandırıldıktan sonra tıklatın **kaydetmek**.
+İşlemi yapılandırıldıktan sonra tıklatın **kaydetmek**.
 
 ## <a name="next-steps"> </a>Sonraki adımlar
-Merhaba işlemleri tooan API eklendikten sonra hello sonraki adıma tooassociate hello API bir ürüne sahip olan ve böylece geliştiriciler işlemlerini çağırabilirsiniz yayımlayın.
+Operations API'ye eklendikten sonra sonraki API bir ürünle ilişkilendirin ve böylece geliştiriciler işlemlerini çağırabilirsiniz yayımlamak için adımdır.
 
-* [Nasıl toocreate ürün ve yayımlama][How toocreate and publish a product]
+* [Oluşturma ve bir ürün yayımlama][How to create and publish a product]
 
 [api-management-management-console]: ./media/api-management-howto-add-operations/api-management-management-console.png
 [api-management-operations]: ./media/api-management-howto-add-operations/api-management-operations.png
@@ -166,6 +166,6 @@ Merhaba işlemleri tooan API eklendikten sonra hello sonraki adıma tooassociate
 [Get started with Azure API Management]: api-management-get-started.md
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 
-[How tooadd operations tooan API]: api-management-howto-add-operations.md
-[How toocreate and publish a product]: api-management-howto-add-products.md
-[How toocache operation results in Azure API Management]: api-management-howto-cache.md
+[How to add operations to an API]: api-management-howto-add-operations.md
+[How to create and publish a product]: api-management-howto-add-products.md
+[How to cache operation results in Azure API Management]: api-management-howto-cache.md

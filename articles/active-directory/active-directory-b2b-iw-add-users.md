@@ -1,6 +1,6 @@
 ---
-title: "aaaHow bilgi çalışanları B2B işbirliği kullanıcılar tooAzure Active Directory ekleme musunuz? | Microsoft Belgeleri"
-description: "B2B işbirliği sağlayan bilgi çalışanları tooadd kullanıcıların kendi kuruluş tooAzure erişim için AD | Microsoft Docs"
+title: "Bilgi çalışanları nasıl Azure Active Directory B2B işbirliği kullanıcılar eklenir? | Microsoft Belgeleri"
+description: "B2B işbirliği sağlayan bilgi çalışanları kendi kuruluştan Azure AD erişim için kullanıcıları eklemek | Microsoft Docs"
 services: active-directory
 documentationcenter: 
 author: sasubram
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: efe9eab852ec93986f9d777f200f8f7dbfd18ad9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: c6ca561d1a02e283c7932f08f53b8dd590208835
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="how-do-information-workers-add-b2b-collaboration-users-tooazure-active-directory"></a>Bilgi çalışanları B2B işbirliği kullanıcılar tooAzure Active Directory nasıl eklenir?
+# <a name="how-do-information-workers-add-b2b-collaboration-users-to-azure-active-directory"></a>Bilgi çalışanları nasıl Azure Active Directory B2B işbirliği kullanıcılar eklenir?
 
-Bilgi çalışanları hello kullanabileceğiniz [uygulama erişim Paneli'ne](http://myapps.microsoft.com) tooadd B2B işbirliği kullanıcılar toogroups ve yönettikleri uygulamalar.
+Bilgi çalışanları kullanabileceğiniz [uygulama erişim Paneli'ne](http://myapps.microsoft.com) grupları ve yönettikleri uygulamaları B2B işbirliği kullanıcılar eklemek için.
 
-## <a name="information-workers-adding-b2b-collaboration-users-tooan-application"></a>Bilgi çalışanları B2B işbirliği kullanıcılar tooan uygulama ekleme
-B2B işbirliği kullanıcılar tooan uygulama bir iş ortağı kuruluşta bir bilgi çalışanı olarak video hello aşağıda gösterildiği gibi atayın:
+## <a name="information-workers-adding-b2b-collaboration-users-to-an-application"></a>Bilgi çalışanları B2B işbirliği kullanıcıların uygulamaya ekleme
+Aşağıdaki videoda da gösterildiği gibi bir uygulama bir iş ortağı kuruluşta bir bilgi çalışanı olarak için B2B işbirliği kullanıcılar atayın:
 
 >[!VIDEO https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps/Player]
 
-## <a name="information-workers-adding-b2b-collaboration-users-tooa-group"></a>Bilgi çalışanları B2B işbirliği kullanıcılar tooa grup ekleme
+## <a name="information-workers-adding-b2b-collaboration-users-to-a-group"></a>Bilgi çalışanları B2B işbirliği kullanıcıları gruba ekleme
 
-Bilgi çalışanları benzer şekilde, Self Servis Grup Yönetimi için etkinleştirilmiş B2B işbirliği kullanıcılar atanan tooan grubu ekleyebilirsiniz.
+Bilgi çalışanları benzer şekilde B2B işbirliği kullanıcıları için Self Servis Grup Yönetimi etkinleştirilmiş bir atanmış olan grup ekleyebilirsiniz.
 > [!NOTE]
-> B2B işbirliği kullanıcılar tooa dinamik Grup ya da şirket içi Active Directory ile eşitlenen tooa grup ekleyemezsiniz.
+> B2B işbirliği kullanıcıların dinamik bir grup veya şirket içi Active Directory ile eşitlenen bir gruba ekleyemezsiniz.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -43,7 +43,7 @@ Azure AD B2B işbirliği ile ilgili diğer makalelerimize göz atın:
 
 * [Azure AD B2B işbirliği nedir?](active-directory-b2b-what-is-azure-ad-b2b.md)
 * [Azure Active Directory yöneticileri B2B işbirliği kullanıcıların nasıl eklenir?](active-directory-b2b-admin-add-users.md)
-* [Merhaba B2B işbirliği davet e-posta Hello öğeleri](active-directory-b2b-invitation-email.md)
+* [B2B işbirliği davet e-posta öğeleri](active-directory-b2b-invitation-email.md)
 * [B2B işbirliği davet kullanım](active-directory-b2b-redemption-experience.md)
 * [Azure AD B2B işbirliği lisanslama](active-directory-b2b-licensing.md)
 * [Azure Active Directory B2B işbirliği sorunlarını giderme](active-directory-b2b-troubleshooting.md)

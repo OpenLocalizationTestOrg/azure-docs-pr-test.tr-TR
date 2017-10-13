@@ -1,5 +1,5 @@
 ---
-title: "Java kullanarak Azure Event Hubs aaaReceive olaylarından | Microsoft Docs"
+title: "Java kullanarak Azure Event Hubs'tan gelen olayları alma | Microsoft Docs"
 description: "Java kullanarak Event Hubs'dan alma kullanmaya başlama"
 services: event-hubs
 documentationcenter: 
@@ -14,49 +14,49 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
-ms.openlocfilehash: 05414a22e6616296752c678bb0af887d6f070c12
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3c1b455e6298367dc50f0943b58f6cf1e7f1c5fd
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Java kullanarak Azure Event Hubs'tan gelen olayları alma
 
 
 ## <a name="introduction"></a>Giriş
-Olay hub'ları bir uygulama tooprocess etkinleştirme saniye başına milyonlarca olayı alma ve veri bağlı cihazlarınız ve uygulamalarınız tarafından üretilen oldukça büyük miktardaki hello analiz bir yüksek düzeyde ölçeklenebilir bir alım sistem olur. Veriler Event Hubs hizmetinde toplandığında, herhangi bir gerçek zamanlı analitik sağlayıcısı veya depolama kümesi kullanarak bu verileri dönüştürebilir veya depolayabilirsiniz.
+Olay hub'ları saniye başına milyonlarca olayı alma, bir uygulamaya etkinleştirme işlemek ve veri bağlı cihazlarınız ve uygulamalarınız tarafından üretilen oldukça büyük miktardaki analiz bir yüksek düzeyde ölçeklenebilir bir alım sistemine olur. Veriler Event Hubs hizmetinde toplandığında, herhangi bir gerçek zamanlı analitik sağlayıcısı veya depolama kümesi kullanarak bu verileri dönüştürebilir veya depolayabilirsiniz.
 
-Daha fazla bilgi için bkz: Merhaba [Event Hubs'a genel bakış][Event Hubs overview].
+Daha fazla bilgi için bkz: [Event Hubs'a genel bakış][Event Hubs overview].
 
-Bu öğreticide gösterilmiştir nasıl Java'da yazılmış bir konsol uygulaması kullanarak bir event hub tooreceive olayları.
+Bu öğretici Java'da yazılmış bir konsol uygulaması kullanarak bir event hub içine olaylarını almak nasıl gösterir.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğretici, sipariş toocomplete Önkoşullar aşağıdaki hello gerekir:
+Bu öğreticiyi tamamlamak için aşağıdaki önkoşullar gerekir:
 
 * Java geliştirme ortamı. Bu öğretici için varsayıyoruz [Eclipse](https://www.eclipse.org/).
 * Etkin bir Azure hesabı. <br/>Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir deneme hesabı oluşturabilirsiniz. Ayrıntılı bilgi için bkz. <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Azure Ücretsiz Deneme Sürümü</a>.
 
 ## <a name="receive-messages-with-eventprocessorhost-in-java"></a>Java’da EventProcessorHost bulunan iletiler alma
 
-**EventProcessorHost** kalıcı denetim noktalarını yöneterek Event Hubs'a ait alma olaylarını basitleştiren bir Java sınıfı ve paralel alımları bu Event Hubs'a ait. EventProcessorHost kullanarak, olayları birden çok alıcı arasında farklı düğümlerde barındırıldığında bile bölebilirsiniz. Bu örnekte gösterilir nasıl toouse EventProcessorHost tek alıcı için.
+**EventProcessorHost** kalıcı denetim noktalarını yöneterek Event Hubs'a ait alma olaylarını basitleştiren bir Java sınıfı ve paralel alımları bu Event Hubs'a ait. EventProcessorHost kullanarak, olayları birden çok alıcı arasında farklı düğümlerde barındırıldığında bile bölebilirsiniz. Bu örnek, tek alıcı için EventProcessorHost’un nasıl kullanıldığını göstermektedir.
 
 ### <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
-EventProcessorHost toouse olmalıdır bir [Azure depolama hesabı][Azure Storage account]:
+EventProcessorHost kullanmak için olmalıdır bir [Azure depolama hesabı][Azure Storage account]:
 
-1. Toohello üzerinde oturum [Azure portal][Azure portal], tıklatıp **+ yeni** hello ekranın sol tarafında hello.
-2. **Depolama** ve ardından **Depolama hesabı**’na tıklayın. Merhaba, **depolama hesabı oluşturma** dikey penceresinde hello depolama hesabı için bir ad yazın. Hello alanları hello kalanını tamamlayın, istediğiniz bölgeyi seçin ve ardından **oluşturma**.
+1. Oturum [Azure portal][Azure portal], tıklatıp **+ yeni** ekranın sol taraftaki.
+2. **Depolama** ve ardından **Depolama hesabı**’na tıklayın. **Depolama hesabı oluştur** dikey penceresinde depolama hesabı için bir ad yazın. Alanları geri kalanını tamamlamak için istediğiniz bölgeyi seçin ve ardından **oluşturma**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
-3. Merhaba yeni oluşturulan depolama hesabı'nı tıklatın ve ardından **erişim anahtarlarını Yönet**:
+3. Yeni oluşturulan depolama hesabına ve **Erişim Tuşlarını Yönet**’e tıklayın:
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
-    Merhaba birincil erişim anahtarı tooa geçici konum, daha sonra Bu öğreticide toouse kopyalayın.
+    Birincil erişim tuşunu daha sonra Bu öğreticide kullanmak için geçici bir konuma kopyalayın.
 
-### <a name="create-a-java-project-using-hello-eventprocessor-host"></a>Merhaba EventProcessor ana bilgisayar kullanarak bir Java projesi oluşturma
-Merhaba olay hub'ları için Java istemci kitaplığı hello projelerden Maven içinde kullanılabilir [Maven merkezi bir depoya][Maven Package]ve bağımlılık bildirimi içine aşağıdaki hello kullanarak başvurulabilir, Maven proje dosyası:    
+### <a name="create-a-java-project-using-the-eventprocessor-host"></a>EventProcessor Ana Bilgisayarını kullanarak Java projesi oluşturma
+Olay hub'ları için Java istemci kitaplığı Maven projelerden kullanmak için kullanılabilir [Maven merkezi bir depoya][Maven Package]ve aşağıdaki bağımlılığı bildirimi, Maven içinde kullanarak başvurulabilir Proje dosyası:    
 
 ```xml
 <dependency>
@@ -76,9 +76,9 @@ Merhaba olay hub'ları için Java istemci kitaplığı hello projelerden Maven i
 </dependency>
 ```
 
-Derleme ortamları farklı türleri için açıkça hello son yayımlanan hello JAR dosyalarını edinebilirsiniz [Maven merkezi bir depoya] [ Maven Package] veya [hello yayın dağıtım noktası GitHub](https://github.com/Azure/azure-event-hubs/releases).  
+Derleme ortamları farklı türleri için en son yayımlanan JAR dosyalarını açıkça edinebilirsiniz [Maven merkezi bir depoya] [ Maven Package] veya [GitHub yayın dağıtım noktasında ](https://github.com/Azure/azure-event-hubs/releases).  
 
-1. Örnek aşağıdaki hello için önce sık kullanılan Java geliştirme ortamı konsol/Kabuk uygulama için yeni bir Maven projesi oluşturun. Merhaba sınıfı çağrıldığında `ErrorNotificationHandler`.     
+1. Aşağıdaki örnek için önce en sevdiğiniz Java geliştirme ortamında bir konsol/kabuk uygulaması için yeni bir Maven projesi oluşturun. Sınıf adı verilen `ErrorNotificationHandler`.     
    
     ```java
     import java.util.function.Consumer;
@@ -93,7 +93,7 @@ Derleme ortamları farklı türleri için açıkça hello son yayımlanan hello 
         }
     }
     ```
-2. Kullanım hello aşağıdaki kod yeni bir sınıf olarak adlandırılan toocreate `EventProcessor`.
+2. `EventProcessor` adlı yeni bir sınıf oluşturmak için aşağıdaki kodu kullanın.
    
     ```java
     import com.microsoft.azure.eventhubs.EventData;
@@ -146,7 +146,7 @@ Derleme ortamları farklı türleri için açıkça hello son yayımlanan hello 
         }
     }
     ```
-3. Adlı bir sınıf oluşturun `EventProcessorSample`kullanarak hello kodu.
+3. Adlı bir sınıf oluşturma `EventProcessorSample`, aşağıdaki kodu kullanarak.
    
     ```java
     import com.microsoft.azure.eventprocessorhost.*;
@@ -192,7 +192,7 @@ Derleme ortamları farklı türleri için açıkça hello son yayımlanan hello 
                 }
             }
    
-            System.out.println("Press enter toostop");
+            System.out.println("Press enter to stop");
             try
             {
                 System.in.read();
@@ -211,7 +211,7 @@ Derleme ortamları farklı türleri için açıkça hello son yayımlanan hello 
         }
     }
     ```
-4. Merhaba olay hub'ı ve depolama hesabını oluştururken kullandığı hello değerlerle alanları izleyen hello değiştirin.
+4. Aşağıdaki alanları olay hub'ı ve depolama hesabı oluştururken kullanılan değerlerle değiştirin.
    
     ```java
     final String namespaceName = "----ServiceBusNamespaceName-----";
@@ -225,12 +225,12 @@ Derleme ortamları farklı türleri için açıkça hello son yayımlanan hello 
     ```
 
 > [!NOTE]
-> Bu öğretici, EventProcessorHost’un tek bir örneğini kullanır. tooincrease verimlilik, birden çok örneğini EventProcessorHost, tercihen ayrı makinelerde çalıştırmanız önerilir.  Bu da artıklık sağlar. Bu durumda, çeşitli örnekler otomatik olarak birbirleriyle sipariş tooload Bakiye hello koordine etmek hello olayları aldı. Birden çok alıcıya tooeach işlem istiyorsanız *tüm* hello olayları hello kullanmalısınız **ConsumerGroup** kavram. Olaylar farklı makinelerden alındığında, dağıtıldıkları hello makineleri (veya rolleri) temel alan EventProcessorHost örnekleri için yararlı toospecify adları olabilir.
+> Bu öğretici, EventProcessorHost’un tek bir örneğini kullanır. Verimliliğini artırmak için birden çok örneğini EventProcessorHost, tercihen ayrı makinelerde çalıştırmanız önerilir.  Bu da artıklık sağlar. Böyle durumlarda, alınan olayların yük dengesi için çeşitli örnekler otomatik olarak birbirleriyle koordine olurlar. Birden çok alıcının her birinin *tüm* olayları işlemesini istiyorsanız **ConsumerGroup** kavramını kullanmalısınız. Olaylar farklı makinelerden alındığında, dağıtıldıkları makineleri (veya rolleri) temel alan EventProcessorHost örnekleri için ad belirtmek yararlı olabilir.
 > 
 > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bağlantılar aşağıdaki hello ziyaret ederek Event Hubs hakkında daha fazla bilgi edinebilirsiniz:
+Aşağıdaki bağlantıları inceleyerek Event Hubs hakkında daha fazla bilgi edinebilirsiniz:
 
 * [Event Hubs’a genel bakış](event-hubs-what-is-event-hubs.md)
 * [Olay Hub’ı oluşturma](event-hubs-create.md)

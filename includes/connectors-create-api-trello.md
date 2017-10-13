@@ -1,18 +1,18 @@
 ### <a name="prerequisites"></a>Ön koşullar
 * A [Trello](http://trello.com) hesabı 
 
-Bir mantıksal uygulama Trello hesabınızı kullanabilmeniz için önce hello mantığı uygulama tooconnect tooyour Trello hesabını yetkilendirmeniz gerekir. Neyse ki, kolayca hello Azure portalı üzerinde mantıksal uygulama içinde bunu yapabilirsiniz. 
+Bir mantıksal uygulama Trello hesabınızı kullanabilmeniz için önce Trello hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz. 
 
-Mantıksal uygulama tooconnect tooyour Trello hesabı hello adımları tooauthorize şunlardır:
+Mantıksal uygulamanızı Trello hesabınıza bağlanmak için yetki vermek için adımlar şunlardır:
 
-1. Merhaba mantığı Uygulama Tasarımcısı'nda bir bağlantı tooTrello toocreate seçin **Göster Microsoft yönetilen API'ler** Merhaba, açılan liste ardından girin *Trello* hello arama kutusuna. Merhaba tetikleyici veya toouse beğendiğiniz eylem seçin:  
+1. Mantıksal Uygulama Tasarımcısı'nda Trello, bir bağlantı oluşturmak için seçin **Göster Microsoft yönetilen API'ler** açılır listesinde enter *Trello* arama kutusuna. Tetikleyici seçin veya eylem kullanmak ister:  
    ![](./media/connectors-create-api-trello/trello-1.png)
-2. Tüm bağlantılar tooTrello önce oluşturmadıysanız, Trello kimlik bilgileriniz istendiğinde tooprovide elde edersiniz. Bu kimlik bilgileri, Logic app tooconnect kullanılan tooauthorize olması ve Trello hesabınızın veri erişim:  
+2. Önce Trello bağlantılarına oluşturmadıysanız, Trello kimlik bilgilerinizi girmeniz istendiğinde şunu. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve Trello hesabınızın veri erişim:  
    ![](./media/connectors-create-api-trello/trello-2.png) 
-3. Bize tooconnect tooTrello izin ver:  
+3. Bize Trello için bağlanmasına izin ver:  
    ![](./media/connectors-create-api-trello/trello-3.png)   
-4. Trello kullanıcı adı ve parola tooauthorize mantıksal uygulamanızı sağlar:  
+4. Mantıksal uygulamanızı yetkilendirmek için parola ve Trello kullanıcı adı girin:  
    ![](./media/connectors-create-api-trello/trello-4.png)  
-5. Merhaba bağlantı oluşturulur ve mantıksal uygulamanızı ücretsiz tooproceed hello diğer sahip adımlarını artık olduğunuz dikkat edin:  
+5. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  
    ![](./media/connectors-create-api-trello/trello-5.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Azure medya analizi OCR aaaDigitize metinle | Microsoft Docs
-description: "Azure medya analizi OCR (optik karakter tanıma) düzenlenebilir, aranabilir dijital metne video dosyalarında tooconvert metin içeriği sağlar.  Bu, medya video sinyali hello anlamlı meta verilerin tooautomate hello ayıklama sağlar."
+title: Azure medya analizi OCR metinle digitize | Microsoft Docs
+description: "Azure medya analizi OCR (optik karakter tanıma) video dosyalarında metin içeriği düzenlenebilir, aranabilir dijital metne dönüştürmek etkinleştirir.  Bu, medya video sinyali anlamlı meta veri ayıklama otomatikleştirmenizi sağlar."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,40 +14,40 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako
-ms.openlocfilehash: 0476c3ba3942b2c5182a34a429909adbf5c75ac9
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 43f5b3a9bbec243e668c79702045094fcfedbdda
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
-# <a name="use-azure-media-analytics-tooconvert-text-content-in-video-files-into-digital-text"></a>Azure medya analizi tooconvert metin içeriği video dosyalarında dijital metne kullanın.
+# <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Video dosyalarında metin içeriği dijital metne dönüştürmek için Azure medya analizi kullanın
 ## <a name="overview"></a>Genel Bakış
-Video dosyalarından tooextract metin içerik gerekir ve düzenlenebilir, aranabilir dijital metin oluşturan Azure medya analizi OCR (optik karakter tanıma) kullanmanız gerekir. Bu Azure medya işlemcisi video dosyalarında metin içeriği algılar ve kendi kullanımınız için metin dosyaları oluşturur. OCR, tooautomate hello ayıklama anlamlı meta verilerin hello video sinyali medyanızın sağlar.
+Video dosyalarından metin içeriği ayıklamak ve düzenlenebilir, aranabilir dijital metin üretmek ihtiyacınız varsa, Azure medya analizi OCR (optik karakter tanıma) kullanmanız gerekir. Bu Azure medya işlemcisi video dosyalarında metin içeriği algılar ve kendi kullanımınız için metin dosyaları oluşturur. OCR medyanızın video sinyali anlamlı meta veri ayıklama otomatikleştirmenizi sağlar.
 
-Bir arama motoru ile birlikte kullanıldığında, kolayca medyanızı metin dizin ve içeriğinizi hello bulunabilirliğini artırmak. Bu bir video kaydı veya bir slayt gösterisi sunumu ekran yakalama gibi yüksek oranda metinsel videoda son derece yararlıdır. Hello Azure OCR medya işlemcisi dijital metin için optimize edilmiştir.
+Bir arama motoru ile birlikte kullanıldığında, kolayca medyanızı metin dizin ve içeriğinizi bulunabilirliğini geliştirir. Bu bir video kaydı veya bir slayt gösterisi sunumu ekran yakalama gibi yüksek oranda metinsel videoda son derece yararlıdır. Azure OCR medya işlemcisi dijital metin için optimize edilmiştir.
 
-Merhaba **Azure medya OCR** medya işlemcisi şu anda önizlemede.
+**Azure medya OCR** medya işlemcisi şu anda önizlemede.
 
-Bu konu hakkında ayrıntılar verir **Azure medya OCR** ve gösterir nasıl toouse .NET için Media Services SDK'sı ile. Ek bilgi ve örnekler için bkz: [bu blog](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).
+Bu konu hakkında ayrıntılar verir **Azure medya OCR** ve Media Services SDK'sı ile .NET için nasıl kullanılacağını gösterir. Ek bilgi ve örnekler için bkz: [bu blog](https://azure.microsoft.com/blog/announcing-video-ocr-public-preview-new-config/).
 
 ## <a name="ocr-input-files"></a>OCR giriş dosyaları
-Video dosyaları. Şu anda biçimleri aşağıdaki hello desteklenir: MP4, MOV ve WMV.
+Video dosyaları. Şu anda aşağıdaki biçimlerden desteklenir: MP4, MOV ve WMV.
 
 ## <a name="task-configuration"></a>Görev yapılandırması
 Görev yapılandırması (hazır). Bir görev oluştururken **Azure medya OCR**, JSON veya XML kullanarak önceden belirlenmiş bir yapılandırma belirtmeniz gerekir. 
 
 >[!NOTE]
->Merhaba OCR altyapısı minimum 40 piksel toomaximum 32000 piksel görüntü bölgesiyle hem yükseklik/genişlik içinde geçerli bir giriş olarak yalnızca alır.
+>OCR altyapısı en fazla 32000 piksel olarak en az 40 piksel görüntü bölgesiyle hem yükseklik/genişlik içinde geçerli bir giriş olarak yalnızca alır.
 >
 
 ### <a name="attribute-descriptions"></a>Öznitelik tanımlarını
 | Öznitelik adı | Açıklama |
 | --- | --- |
-|AdvancedOutput| Merhaba JSON çıktısını AdvancedOutput tootrue ayarlarsanız, her tek Word'de (toplama toophrases ve bölgeler) için konumsal veri içermez. Bu ayrıntılar toosee istemiyorsanız hello bayrağı toofalse ayarlayın. Merhaba varsayılan değer false şeklindedir. Daha fazla bilgi için bkz: [bu blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
-| Dil |(isteğe bağlı) için hangi toolook metin hello dilini açıklar. Merhaba aşağıdakilerden biri: Otomatik Algıla (varsayılan), Arapça, ChineseSimplified, ChineseTraditional, Çekçe Danca, Felemenkçe, İngilizce, Fince, Fransızca, Almanca, Yunanca, Macarca, İtalyanca, Japonca, Korece, Norveççe, Lehçe, Portekizce, Rumence, Rusça, SerbianCyrillic, SerbianLatin, Slovakça, İspanyolca, İsveççe, Türkçe. |
-| TextOrientation |(isteğe bağlı) için hangi toolook metnin hello yönünü açıklar.  Tüm harfler üstündeki hello "Sol" anlamına gelir hello sola doğru işaret.  Varsayılan metin (örneğin, kitaptaki bulunan) "Yedekleme" yönlendirilmiş çağrılabilir.  Merhaba aşağıdakilerden biri: Otomatik Algıla (varsayılan), sağ, aşağı, sol. |
-| TimeInterval |(isteğe bağlı) hello örnekleme oranını açıklar.  1/2 saniyede varsayılandır.<br/>JSON biçimi – SS: dd:. SSS (varsayılan 00:00:00.500)<br/>XML biçiminde – W3C XSD süresi ilkel (varsayılan PT0.5) |
-| DetectRegions |(isteğe bağlı) Hangi toodetect metinde hello video çerçevesinde bölgeler belirtme DetectRegion nesnelerinin bir dizisi.<br/>Bir DetectRegion nesnesi dört tamsayı değerleri aşağıdaki hello yapılır:<br/>Sol – hello sol kenar boşluğu piksellerden<br/>Üst – hello üst kenar boşluğu piksellerden<br/>Genişlik – hello bölge piksel cinsinden genişliği<br/>Yükseklik – hello bölge piksel cinsinden yüksekliği |
+|AdvancedOutput| JSON çıktısını AdvancedOutput true olarak ayarlarsanız, her tek sözcüklük (ek olarak tümcecikleri ve bölgeler) için konumsal veri içermez. Bu ayrıntıları görmek istemiyorsanız bayrağı false olarak ayarlanır. Varsayılan değer false. Daha fazla bilgi için bkz: [bu blog](https://azure.microsoft.com/blog/azure-media-ocr-simplified-output/).|
+| Dil |Aranacak metin dili (isteğe bağlı) açıklar. Şunlardan biri: Otomatik Algıla (varsayılan), Arapça, ChineseSimplified, ChineseTraditional, Çekçe Danca, Felemenkçe, İngilizce, Fince, Fransızca, Almanca, Yunanca, Macarca, İtalyanca, Japonca, Korece, Norveççe, Lehçe, Portekizce, Rumence, Rusça, SerbianCyrillic, SerbianLatin, Slovakça, İspanyolca, İsveççe, Türkçe. |
+| TextOrientation |(isteğe bağlı) aranacak metnin yönünü açıklar.  Tüm harfler üstündeki işaret, sola doğru "Sol" anlamına gelir.  Varsayılan metin (örneğin, kitaptaki bulunan) "Yedekleme" yönlendirilmiş çağrılabilir.  Şunlardan biri: Otomatik Algıla (varsayılan), sağ, aşağı, sol. |
+| TimeInterval |(isteğe bağlı) örnekleme hızını açıklar.  1/2 saniyede varsayılandır.<br/>JSON biçimi – SS: dd:. SSS (varsayılan 00:00:00.500)<br/>XML biçiminde – W3C XSD süresi ilkel (varsayılan PT0.5) |
+| DetectRegions |(isteğe bağlı) Metin algılamak üzere video çerçevesinde bölgeler belirtme DetectRegion nesnelerinin bir dizisi.<br/>Bir DetectRegion nesnesi aşağıdaki dört tamsayı değerlerini yapılır:<br/>Sol – sol kenar boşluğundan piksel<br/>Üst – üst kenar boşluğundan piksel<br/>Genişlik – bölge piksel cinsinden genişliği<br/>Yükseklik – bölge piksel cinsinden yüksekliği |
 
 #### <a name="json-preset-example"></a>Örnek JSON hazır
 
@@ -91,33 +91,33 @@ Görev yapılandırması (hazır). Bir görev oluştururken **Azure medya OCR**,
     </VideoOcrPreset>
 
 ## <a name="ocr-output-files"></a>OCR çıktı dosyaları
-Merhaba çıktı hello OCR medya işlemcisi bir JSON dosyasıdır.
+Çıktısı OCR medya işlemcisi bir JSON dosyasıdır.
 
-### <a name="elements-of-hello-output-json-file"></a>Merhaba çıkış JSON dosyasının öğeleri
-Merhaba Video OCR çıktı hello karakterler videonuzu içinde bulundu zaman kesimli veri sağlar.  Tam olarak çözümlenmesinde ilgilenen hello sözcükleri dil veya yönde toohone gibi öznitelikleri kullanabilirsiniz. 
+### <a name="elements-of-the-output-json-file"></a>Çıkış JSON dosyasının öğeleri
+Video OCR çıkış videonuzu içinde bulunan karakterleri zaman kesimli veri sağlar.  Dil veya yönlendirme gibi öznitelikleri hone tam olarak çözümlenmesinde ilgilenen sözcükleri açmak için kullanabilirsiniz. 
 
-Merhaba çıkış öznitelikleri aşağıdaki hello içerir:
+Çıktı aşağıdaki öznitelikleri içerir:
 
 | Öğesi | Açıklama |
 | --- | --- |
-| Zaman Çizelgesi |Merhaba videonun saniyede "çizgilerine" |
+| Zaman Çizelgesi |videonun saniyede "çizgilerine" |
 | Uzaklık |zaman damgaları için uzaklık. Video API'leri 1.0 sürümünde, bu her zaman 0 olacaktır. |
-| Kare hızı |Saniyedeki kare hello video sayısı |
-| Genişlik |Merhaba video piksel cinsinden genişliği |
-| Yükseklik |Merhaba piksel cinsinden görüntü yüksekliği |
-| Parçaları |hangi hello meta verileri öbekli video zamana dayalı parçalarını dizisi |
+| Kare hızı |Videonun Saniyedeki çerçeve sayısı |
+| Genişlik |video piksel cinsinden genişliği |
+| Yükseklik |video piksel cinsinden yüksekliği |
+| Parçaları |Meta veriler içine öbekli video zamana dayalı parçalarını dizisi |
 | start |Başlangıç saati "çizgilerine" parçadaki |
 | Süre |"çizgilerine" parçadaki uzunluğu |
-| interval |Parça verilen hello içinde her olayın aralığı |
+| aralığı |verilen parça içinde her olayın aralığı |
 | etkinlikler |bölgeleri içeren bir dizi |
 | Bölge |nesnesini temsil eden kelimeler ve ifadeler algılandı |
-| Dil |bir bölge içinde algılanan hello metin dili |
-| Yönlendirme |bir bölge içinde algılanan hello metnin yönünü |
+| Dil |bir bölge içinde algılanan metin dili |
+| Yönlendirme |bir bölge içinde algılanan metnin yönünü |
 | satırları |bir bölge içinde algılanan metin satırı dizisi |
-| Metin |Merhaba gerçek metin |
+| Metin |gerçek metin |
 
 ### <a name="json-output-example"></a>JSON çıkış örneği
-Merhaba aşağıdaki çıktı örneği hello genel video bilgi ve birkaç video parçalarını içerir. Video her parçasında OCR MP hello dili ve onun metin hizalamasını tarafından algılanan her bölge içerir. Merhaba bölge ayrıca her word satır hello hattın metin, hello satırın konumunu ve bu satırdaki her bir word bilgileri (word içerik, konum ve güvenilirlik) ile bu bölgede yer alır. Merhaba aşağıda bir örnek verilmiştir ve bazı açıklamalar satır içi yerleştirin.
+Aşağıdaki çıktı örneği genel video bilgi ve birkaç video parçalarını içerir. Video her parçasında, dil ve onun metin hizalamasını OCR MP tarafından algılanan her bölge içerir. Bölge ayrıca her word satır hattın metin, satırın konumunu ve bu satırdaki her bir word bilgileri (word içerik, konum ve güvenilirlik) ile bu bölgede yer alır. Bir örnek verilmiştir ve bazı açıklamalar satır içi yerleştirin.
 
     {
         "version": 1, 
@@ -130,14 +130,14 @@ Merhaba aşağıdaki çıktı örneği hello genel video bilgi ve birkaç video 
             {
                 "start": 0, 
                 "duration": 180000, 
-                "interval": 90000,  // hello time information about this fragment
+                "interval": 90000,  // the time information about this fragment
                 "events": [
                     [
                        { 
-                            "region": { // hello detected region array in this fragment 
+                            "region": { // the detected region array in this fragment 
                                 "language": "English",  // region language
                                 "orientation": "Up",  // text orientation
-                                "lines": [  // line information array in this region, including hello text and hello position
+                                "lines": [  // line information array in this region, including the text and the position
                                     {
                                         "text": "One Two", 
                                         "left": 10, 
@@ -174,15 +174,15 @@ Merhaba aşağıdaki çıktı örneği hello genel video bilgi ve birkaç video 
 
 ## <a name="net-sample-code"></a>.NET örnek kod
 
-Merhaba aşağıdaki program gösterir nasıl yapılır:
+Aşağıdaki program gösterir nasıl yapılır:
 
-1. Bir varlık oluşturun ve hello varlığa bir medya dosyasını yükleyin.
+1. Bir varlık oluşturun ve varlığa bir medya dosyasını yükleyin.
 2. İşi bir OCR yapılandırma/hazır dosyası oluşturun.
-3. Merhaba çıkış JSON dosyalarını indirin. 
+3. Çıkış JSON dosyalarını indirin. 
    
 #### <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio projesi oluşturup yapılandırma
 
-Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dosyası bağlantı bilgileriyle doldurmak [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md). 
+Geliştirme ortamınızı kurun ve app.config dosyanızı [.NET ile Media Services geliştirme](media-services-dotnet-how-to-use.md) bölümünde açıklandığı gibi bağlantı bilgileriyle doldurun. 
 
 #### <a name="example"></a>Örnek
 
@@ -198,7 +198,7 @@ Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dos
     {
         class Program
         {
-            // Read values from hello App.config file.
+            // Read values from the App.config file.
             private static readonly string _AADTenantDomain =
                 ConfigurationManager.AppSettings["AADTenantDomain"];
             private static readonly string _RESTAPIEndpoint =
@@ -214,17 +214,17 @@ Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dos
 
                 _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
 
-                // Run hello OCR job.
+                // Run the OCR job.
                 var asset = RunOCRJob(@"C:\supportFiles\OCR\presentation.mp4",
                                             @"C:\supportFiles\OCR\config.json");
 
-                // Download hello job output asset.
+                // Download the job output asset.
                 DownloadAsset(asset, @"C:\supportFiles\OCR\Output");
             }
 
             static IAsset RunOCRJob(string inputMediaFilePath, string configurationFile)
             {
-                // Create an asset and upload hello input media file toostorage.
+                // Create an asset and upload the input media file to storage.
                 IAsset asset = CreateAssetAndUploadSingleFile(inputMediaFilePath,
                     "My OCR Input Asset",
                     AssetCreationOptions.None);
@@ -232,38 +232,38 @@ Geliştirme ortamınızı ayarlama ve açıklandığı gibi hello app.config dos
                 // Declare a new job.
                 IJob job = _context.Jobs.Create("My OCR Job");
 
-                // Get a reference tooAzure Media OCR.
+                // Get a reference to Azure Media OCR.
                 string MediaProcessorName = "Azure Media OCR";
 
                 var processor = GetLatestMediaProcessorByName(MediaProcessorName);
 
-                // Read configuration from hello specified file.
+                // Read configuration from the specified file.
                 string configuration = File.ReadAllText(configurationFile);
 
-                // Create a task with hello encoding details, using a string preset.
+                // Create a task with the encoding details, using a string preset.
                 ITask task = job.Tasks.AddNew("My OCR Task",
                     processor,
                     configuration,
                     TaskOptions.None);
 
-                // Specify hello input asset.
+                // Specify the input asset.
                 task.InputAssets.Add(asset);
 
-                // Add an output asset toocontain hello results of hello job.
+                // Add an output asset to contain the results of the job.
                 task.OutputAssets.AddNew("My OCR Output Asset", AssetCreationOptions.None);
 
-                // Use hello following event handler toocheck job progress.  
+                // Use the following event handler to check job progress.  
                 job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
 
-                // Launch hello job.
+                // Launch the job.
                 job.Submit();
 
-                // Check job execution and wait for job toofinish.
+                // Check job execution and wait for job to finish.
                 Task progressJobTask = job.GetExecutionProgressTask(CancellationToken.None);
 
                 progressJobTask.Wait();
 
-                // If job state is Error, hello event handling
+                // If job state is Error, the event handling
                 // method for job progress should log errors.  Here we check
                 // for error state and exit if needed.
                 if (job.State == JobState.Error)

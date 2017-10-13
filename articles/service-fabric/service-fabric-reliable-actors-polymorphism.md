@@ -1,6 +1,6 @@
 ---
-title: Merhaba Reliable Actors Framework'te aaaPolymorphism | Microsoft Docs
-description: ".NET arabirimleri ve hello Reliable Actors framework tooreuse işlevselliği türlerinde ve API tanımlarını hiyerarşiler"
+title: "Çok biçimlilik Reliable Actors Framework'te | Microsoft Docs"
+description: "Hiyerarşileri .NET arabirimleri ve Reliable Actors framework türlerinde işlevselliği ve API tanımlarını yeniden oluşturun."
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.openlocfilehash: ed9ec442595bd9a5e48c9af1f6aac003439b81f4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 36a59a41b2261369a2062c76ef90aebf7e24a221
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="polymorphism-in-hello-reliable-actors-framework"></a>Çok biçimlilik hello Reliable Actors Framework'te
-Merhaba Reliable Actors framework birçok kullanarak toobuild aktörler sağlar, nesne yönelimli tasarımında kullanacağınız aynı teknikleri hello. Bu teknikler biri türlerine izin verir ve fazla tooinherit arabirimleri çok biçimlilik üst genelleştirilmiş. Devralma hello Reliable Actors Framework'te genellikle birkaç ek kısıtlamalar hello .NET modeliyle izler. Java/Linux durumunda hello Java modelini izler.
+# <a name="polymorphism-in-the-reliable-actors-framework"></a>Çok biçimlilik Reliable Actors Framework'te
+Reliable Actors framework birçok nesne yönelimli tasarımında kullanacağınız aynı teknikleri kullanarak aktörler oluşturmanıza olanak sağlar. Bu teknikler biri türlerine izin verir ve'dan daha fazla devralmak için arabirimleri çok biçimlilik üst genelleştirilmiş. Reliable Actors Framework'te devralma genellikle birkaç ek kısıtlamalar .NET modeliyle izler. Java/Linux durumunda, Java modelini izler.
 
 ## <a name="interfaces"></a>Arabirimleri
-Merhaba Reliable Actors framework gerektirir, toodefine aktör türü tarafından uygulanan en az bir arabirim toobe. Kullanılan toogenerate, aktörler ile istemcileri toocommunicate tarafından kullanılan bir proxy sınıfı arabirimidir. Aktör türü tarafından uygulanan her arabirimi ve tüm üst öğelerinden sonuçta türetilen sürece IActor(C#) veya Actor(Java) arabirimleri diğer arabirimlerinden devralabilirsiniz. IActor(C#) ve Actor(Java) hello platform tarafından tanımlanan temel hello çerçeveleri .NET ve Java aktörler için sırasıyla arabirimlerdir. Bu nedenle, şekilleri kullanarak hello Klasik çok biçimlilik örnek şuna benzeyebilir:
+Reliable Actors framework aktör türüne göre uygulanacak en az bir arabirim tanımlamanızı gerektirir. Bu arabirim, istemciler tarafından aktörler ile iletişim kurmak için kullanılan bir proxy sınıfı oluşturmak için kullanılır. Aktör türü tarafından uygulanan her arabirimi ve tüm üst öğelerinden sonuçta türetilen sürece IActor(C#) veya Actor(Java) arabirimleri diğer arabirimlerinden devralabilirsiniz. IActor(C#) ve Actor(Java) platform tarafından tanımlanan temel .NET ve Java çerçeveleri aktörler için sırasıyla arabirimlerdir. Bu nedenle, şekilleri kullanarak Klasik çok biçimlilik örnek şuna benzeyebilir:
 
 ![Hiyerarşi şekli aktörler için arabirim][shapes-interface-hierarchy]
 
 ## <a name="types"></a>Türler
-Bir hiyerarşi hello platform tarafından sağlanan hello temel aktör sınıfından türetilen aktör türlerinin de oluşturabilirsiniz. Temel şekillerin Hello durumda olabilir `Shape`(C#) veya `ShapeImpl`(Java) türü:
+Ayrıca, platform tarafından sağlanan temel aktör sınıfından türetilen aktör türlerinin hiyerarşisi oluşturabilirsiniz. Şekiller söz konusu olduğunda, bir taban olabilir `Shape`(C#) veya `ShapeImpl`(Java) türü:
 
 ```csharp
 public abstract class Shape : Actor, IShape
@@ -48,7 +48,7 @@ public abstract class ShapeImpl extends FabricActor implements Shape
 }
 ```
 
-Subtypes `Shape`(C#) veya `ShapeImpl`(Java) hello taban yöntemleri geçersiz kılın.
+Subtypes `Shape`(C#) veya `ShapeImpl`(Java) taban yöntemleri geçersiz kılın.
 
 ```csharp
 [ActorService(Name = "Circle")]
@@ -91,11 +91,11 @@ public class Circle extends ShapeImpl implements Circle
 }
 ```
 
-Not hello `ActorService` hello aktör türündeki özniteliği. Bu öznitelik hello güvenilir aktör framework aktörler bu tür barındırmak için bir hizmet otomatik olarak oluşturmasını söyler. Bazı durumlarda, toocreate yalnızca işlevselliği alt türleri ile paylaşmak için amaçlanan bir taban türü isteyebilir ve kullanılan tooinstantiate somut aktörler hiçbir zaman olmaz. Bu gibi durumlarda hello kullanması gereken `abstract` hiçbir zaman bu türüne göre bir aktör oluşturacak anahtar sözcüğü tooindicate.
+Not `ActorService` aktör türündeki özniteliği. Bu öznitelik güvenilir aktör framework aktörler bu tür barındırmak için bir hizmet otomatik olarak oluşturmasını söyler. Bazı durumlarda, yalnızca işlevselliği alt türleri ile paylaşmak için tasarlanmıştır ve hiçbir zaman somut aktörler örneği oluşturmak için kullanılacak bir taban türü oluşturmak isteyebilirsiniz. Bu durumda, kullanmanız gereken `abstract` hiçbir zaman bu türüne göre bir aktör oluşturacak göstermek için anahtar sözcüğü.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bkz: [nasıl hello Reliable Actors framework hello Service Fabric platformundan yararlanır](service-fabric-reliable-actors-platform.md) tooprovide güvenilirlik, ölçeklenebilirlik ve tutarlı bir duruma.
-* Merhaba hakkında bilgi edinin [aktör yaşam döngüsü](service-fabric-reliable-actors-lifecycle.md).
+* Bkz: [nasıl Reliable Actors framework Service Fabric platformundan yararlanır](service-fabric-reliable-actors-platform.md) güvenilirlik, ölçeklenebilirlik ve tutarlı bir duruma sağlamak için.
+* Hakkında bilgi edinin [aktör yaşam döngüsü](service-fabric-reliable-actors-lifecycle.md).
 
 <!-- Image references -->
 

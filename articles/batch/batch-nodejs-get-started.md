@@ -1,6 +1,6 @@
 ---
-title: "aaaTutorial - Node.js için kullanım hello Azure Batch istemci kitaplığı | Microsoft Docs"
-description: "Azure Batch temel kavramlarını Hello öğrenin ve Node.js kullanarak basit bir çözüm oluşturun."
+title: "Öğretici - Node.js için Azure Batch istemci kitaplığını kullanma | Microsoft Belgeleri"
+description: "Temel Azure Batch kavramlarını öğrenin ve Node.js kullanarak basit bir çözüm derleyin."
 services: batch
 author: shwetams
 manager: timlt
@@ -11,11 +11,11 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: d2b0ecbe764e7100affd7b02839aef3077b073cc
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: c48171d8634a651718a0775183414f463c6a468c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Node.js için Batch SDK'sını kullanmaya başlama
 
@@ -26,58 +26,58 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Node.js kullanarak Batch istemci oluşturmanın hello temellerini öğrenin [Azure Batch Node.js SDK'sı](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/). Batch uygulaması için bir senaryoyu anlayıp ardından bir Node.js istemcisi kullanarak bu senaryoyu ayarlama adımlarından oluşan bir yaklaşım uyguluyoruz.  
+[Azure Batch Node.js SDK'sını](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) kullanarak Node.js’de Batch istemcisi oluşturma hakkında temel bilgileri öğrenin. Batch uygulaması için bir senaryoyu anlayıp ardından bir Node.js istemcisi kullanarak bu senaryoyu ayarlama adımlarından oluşan bir yaklaşım uyguluyoruz.  
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu makalede, Node.js hakkında bilgi sahibi olduğunuz ve Linux kullanmaya alışkın olduğunuz varsayılmaktadır. Ayrıca, erişim hakları toocreate toplu işlem ve depolama hizmetleri ile bir Azure hesabı kurulumu sahip olduğunuzu varsayar.
+Bu makalede, Node.js hakkında bilgi sahibi olduğunuz ve Linux kullanmaya alışkın olduğunuz varsayılmaktadır. Ayrıca, Batch ve Depolama hizmetleri oluşturmak için erişim haklarına sahip bir Azure hesabınız olduğu varsayılmıştır.
 
-Okuma öneririz [Azure Batch teknik genel bakış](batch-technical-overview.md) geçmeden önce hello adımları bu makalede açıklanan.
+Bu makaledeki adımlara geçmeden önce [Azure Batch Teknik Genel Bakış](batch-technical-overview.md) makalesini okumanızı öneririz.
 
-## <a name="hello-tutorial-scenario"></a>Merhaba öğretici senaryo
-Bize hello toplu iş akışı senaryo anlayın. Tüm csv tooJSON dönüştürür ve bir Azure Blob Depolama kapsayıcıdan dosyaları indirir Python içinde yazılmış basit bir komut dosyası sunuyoruz. tooprocess birden çok depolama hesabı paralel kapsayıcılar, biz hello betik bir Azure toplu iş olarak dağıtabilirsiniz.
+## <a name="the-tutorial-scenario"></a>Öğretici senaryo
+Önce toplu iş akışı senaryosunu anlayalım. Python’da yazılmış, bir Azure Blob Depolama kapsayıcısından tüm csv dosyalarını indiren ve JSON değerine dönüştüren basit bir betiğimiz var. Birden çok depolama hesabı kapsayıcısını paralel olarak işlemek için betiği bir Azure Batch işi olarak dağıtabiliriz.
 
 ## <a name="azure-batch-architecture"></a>Azure Batch Mimarisi
-Merhaba Aşağıdaki diyagramda nasıl biz Azure Batch ve Node.js istemci kullanılarak hello Python komut ölçeklendirebilirsiniz gösterilmektedir.
+Aşağıdaki diyagram, Azure Batch ve bir Node.js istemcisini kullanarak Python betiğini nasıl ölçeklendireceğimizi gösterir.
 
 ![Azure Batch Senaryosu](./media/batch-nodejs-get-started/BatchScenario.png)
 
-Merhaba node.js istemci toplu iş hazırlama göreve (daha sonra ayrıntılı olarak açıklanmıştır) ve bir dizi görevi hello depolama hesabı kapsayıcı hello sayısı bağlı olarak dağıtır. Merhaba github'da depodan hello betikleri indirebilirsiniz.
+Node.js istemcisi, toplu işi bir hazırlama göreviyle (daha sonra ayrıntılı olarak açıklanacaktır) ve depolama hesabında kapsayıcıların sayısına bağlı olarak bir dizi görevle dağıtır. Betikleri github deposundan indirebilirsiniz.
 
 * [Node.js istemcisi](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/nodejs_batch_client_sample.js)
 * [Hazırlık görevi kabuk betikleri](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/startup_prereq.sh)
-* [Python csv tooJSON işlemci](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/processcsv.py)
+* [JSON işlemcisine giden Python csv’si](https://github.com/Azure/azure-batch-samples/blob/master/Node.js/GettingStarted/processcsv.py)
 
 > [!TIP]
-> Merhaba Node.js istemci belirtilen hello bağlantısında bir Azure işlevi uygulama olarak dağıtılan belirli bir kod toobe içermiyor. Bağlantıları yönergeleri toocreate biri için aşağıdaki toohello başvurabilir.
+> Belirtilen bağlantıdaki Node.js istemcisi, Azure işlev uygulaması olarak dağıtılmasını sağlayacak ilgili kodu içermiyor. Bu kodu oluşturmak için aşağıdaki bağlantılardan yararlanabilirsiniz.
 > - [İşlev uygulaması oluşturma](../azure-functions/functions-create-first-azure-function.md)
 > - [Zamanlayıcı tetikleyicisi işlevi oluşturma](../azure-functions/functions-bindings-timer.md)
 >
 >
 
-## <a name="build-hello-application"></a>Merhaba uygulaması oluşturma
+## <a name="build-the-application"></a>Uygulama oluşturma
 
-Şimdi, bize hello işlemi adım adım hello Node.js istemci oluşturmakla izleyin:
+Şimdi, Node.js istemcisini oluşturmamızı sağlayacak süreci adım adım izleyelim:
 
 ### <a name="step-1-install-azure-batch-sdk"></a>1. Adım: Azure Batch SDK’sını yükleme
 
-Merhaba npm yükleme komutunu kullanarak Node.js için Azure Batch SDK'sı yükleyebilirsiniz.
+npm install komutunu kullanarak Node.js için Azure Batch SDK'sını yükleyebilirsiniz.
 
 `npm install azure-batch`
 
-Bu komut hello azure toplu işlem düğüm SDK en son sürümünü yükler.
+Bu komut azure batch node SDK’sının en son sürümünü yükler.
 
 >[!Tip]
-> Bir Azure işlevi uygulamada gittiğiniz çok "Kudu konsolunda" Merhaba Azure işlevi ait ayarları sekmesinde toorun hello npm yükleme komutlarını. Bu örneği tooinstall Node.js için Azure Batch SDK.
+> Bir Azure İşlev uygulamasında npm yükleme komutlarını çalıştırmak için Azure işlevinin Ayarlar sekmesindeki "Kudu Console" bölümüne gidebilirsiniz. Bu adımda Node.js için Azure Batch SDK'sını yüklemek için bunu yapacağız.
 >
 >
 
 ### <a name="step-2-create-an-azure-batch-account"></a>2. Adım: Azure Batch hesabı oluşturma
 
-Hello oluşturma [Azure portal](batch-account-create-portal.md) veya komut satırından ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure CLI](https://docs.microsoft.com/cli/azure/overview)).
+Azure Batch hesabını [Azure Portal](batch-account-create-portal.md)’dan veya komut satırından ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](https://docs.microsoft.com/cli/azure/overview)) oluşturabilirsiniz.
 
-Merhaba komutları toocreate bir Azure CLI aracılığıyla aşağıda verilmiştir.
+Azure CLI aracılığıyla oluşturmak için kullanılacak komutlar aşağıdadır.
 
-Bir kaynak grubu oluşturmak, bir toplu işlem hesabı toocreate hello istediğiniz zaten varsa bu adımı atlayın:
+Bir Kaynak Grubu oluşturun. İçinde Batch hesabını oluşturmak istediğiniz bir Kaynak Grubunuz zaten varsa bu adımı atlayın.
 
 `az group create -n "<resource-group-name>" -l "<location>"`
 
@@ -85,14 +85,14 @@ Ardından bir Azure Batch hesabı oluşturun.
 
 `az batch account create -l "<location>"  -g "<resource-group-name>" -n "<batch-account-name>"`
 
-Her Batch hesabının ilgili erişim anahtarları vardır. Bu anahtarları gerekli toocreate başka Azure batch hesabında kaynaklardır. Üretim ortamı için iyi bir uygulama bu anahtarları toouse Azure anahtar kasası toostore değil. Bir hizmet asıl hello uygulama için daha sonra oluşturabilirsiniz. Bu hizmet asıl hello uygulamasını kullanarak bir OAuth belirteç tooaccess anahtarları hello anahtar Kasası'nı oluşturabilirsiniz.
+Her Batch hesabının ilgili erişim anahtarları vardır. Bu anahtarlar Azure Batch hesabında yeni kaynaklar oluşturmak için gerekir. Üretim ortamı için iyi bir uygulama bu anahtarları depolamak için Azure Key Vault kullanmaktır. Daha sonra uygulama için bir Hizmet sorumlusu oluşturabilirsiniz. Uygulama, bu hizmet sorumlusunu kullanarak, Key Vault’taki anahtarlara erişmek için bir OAuth belirteci oluşturabilir.
 
 `az batch account keys list -g "<resource-group-name>" -n "<batch-account-name>"`
 
-Kopyalayın ve hello anahtar toobe hello sonraki adımlarda kullanılan saklayın.
+Sonraki adımlarda kullanılacak anahtarı kopyalayın ve saklayın.
 
 ### <a name="step-3-create-an-azure-batch-service-client"></a>3. Adım: Azure Batch hizmet istemcisi oluşturma
-Aşağıdaki kod parçacığını ilk hello azure-batch Node.js modülü içe aktarır ve ardından bir Batch hizmeti istemci oluşturur. Toofirst ihtiyacınız hello önceki adımda kopyaladığınız hello Batch hesabınızın anahtarıyla SharedKeyCredentials nesnesi oluşturun.
+Aşağıdaki kod parçacığı ilk olarak azure-batch Node.js modülünü içe aktarır ve ardından bir Batch Hizmeti istemcisi oluşturur. İlk olarak, önceki adımda kopyaladığınız Batch hesabınızın anahtarıyla bir SharedKeyCredentials nesnesi oluşturmanız gerekir.
 
 ```nodejs
 // Initializing Azure Batch variables
@@ -115,64 +115,64 @@ var batch_client = new batch.ServiceClient(credentials,accountUrl);
 
 ```
 
-Hello Azure Batch URI'hello Azure portal hello genel bakış sekmesinde bulunabilir. Merhaba biçimi şöyledir:
+Azure Batch URI’sı, Azure portal'ın genel bakış sekmesinde bulunur. Biçimi şöyledir:
 
 `https://accountname.location.batch.azure.com`
 
-Toohello ekran bakın:
+Ekran görüntüsüne bakın:
 
 ![Azure batch uri](./media/batch-nodejs-get-started/azurebatchuri.png)
 
 
 
 ### <a name="step-4-create-an-azure-batch-pool"></a>4. Adım: Azure Batch havuzu oluşturma
-Bir Azure Batch havuzu birden çok VM’den (Batch Düğümleri olarak da bilinir) oluşur. Azure Batch hizmeti hello görevler bu düğümler üzerinde dağıtır ve bunları yönetir. Havuzunuz için yapılandırma parametreleri aşağıdaki hello tanımlayabilirsiniz.
+Bir Azure Batch havuzu birden çok VM’den (Batch Düğümleri olarak da bilinir) oluşur. Azure Batch hizmeti, görevleri bu düğümlere dağıtır ve yönetir. Havuzunuz için aşağıdaki yapılandırma parametrelerini tanımlayabilirsiniz.
 
 * Sanal Makine Türü görüntüsü
 * Sanal Makine düğümlerinin boyutu
 * Sanal Makine düğümlerinin sayısı
 
 > [!Tip]
-> Merhaba boyutu ve sanal makine düğüm sayısını büyük ölçüde toorun içinde paralel ve ayrıca hello görev kendisini istediğiniz görevlerin hello sayısına bağlıdır. Toodetermine hello ideal sayısını ve boyutunu sınama öneririz.
+> Sanal Makine düğümlerinin sayısı ve boyutu büyük ölçüde görevlere ve paralel olarak çalıştırmak istediğiniz görev sayısına bağlıdır. İdeal sayısını ve boyutunu belirlemek için test etmenizi öneririz.
 >
 >
 
-Merhaba aşağıdaki kod parçacığını hello yapılandırma parametresi nesneleri oluşturur.
+Aşağıdaki kod parçacığı, yapılandırma parametresi nesnelerini oluşturur.
 
 ```nodejs
 // Creating Image reference configuration for Ubuntu Linux VM
 var imgRef = {publisher:"Canonical",offer:"UbuntuServer",sku:"14.04.2-LTS",version:"latest"}
 
-// Creating hello VM configuration object with hello SKUID
+// Creating the VM configuration object with the SKUID
 var vmconfig = {imageReference:imgRef,nodeAgentSKUId:"batch.node.ubuntu 14.04"}
 
-// Setting hello VM size tooStandard F4
+// Setting the VM size to Standard F4
 var vmSize = "STANDARD_F4"
 
-//Setting number of VMs in hello pool too4
+//Setting number of VMs in the pool to 4
 var numVMs = 4
 ```
 
 > [!Tip]
-> Linux VM görüntüleri Azure Batch ve SKU kimlikleri için kullanılabilir Hello listesi için bkz [sanal makine görüntülerini listesi](batch-linux-nodes.md#list-of-virtual-machine-images).
+> Azure Batch’te kullanılabilen Linux VM görüntüleri ve bu görüntülerin SKU kimliklerinin bir listesi için bkz. [Sanal makine görüntüleri listesi](batch-linux-nodes.md#list-of-virtual-machine-images).
 >
 >
 
-Merhaba havuzu yapılandırması tanımlandığında hello Azure Batch havuzu oluşturabilirsiniz. Merhaba Batch havuzu komutu Azure sanal makine düğümleri oluşturur ve toobe hazır tooreceive görevleri tooexecute hazırlayabilirsiniz. Her havuz, sonraki adımlarda başvuru için benzersiz bir kimliğe sahip olmalıdır.
+Havuzun yapılandırması tanımlandığında, Azure Batch havuzunu oluşturabilirsiniz. Batch havuz komutu Azure sanal makine düğümleri oluşturur ve bu düğümleri, yürütülecek görevleri almaya hazır olacak şekilde hazırlar. Her havuz, sonraki adımlarda başvuru için benzersiz bir kimliğe sahip olmalıdır.
 
-Aşağıdaki kod parçacığını hello bir Azure Batch havuzu oluşturur.
+Aşağıdaki kod parçacığı bir Azure Batch havuzu oluşturur.
 
 ```nodejs
 // Create a unique Azure Batch pool ID
 var poolid = "pool" + customerDetails.customerid;
 var poolConfig = {id:poolid, displayName:poolid,vmSize:vmSize,virtualMachineConfiguration:vmconfig,targetDedicatedComputeNodes:numVms,enableAutoScale:false };
-// Creating hello Pool for hello specific customer
+// Creating the Pool for the specific customer
 var pool = batch_client.pool.add(poolConfig,function(error,result){
     if(error!=null){console.log(error.response)};
 });
 ```
 
-Oluşturulan hello havuzu hello durumunu denetleyin ve bir iş toothat havuzu teslimini ile devam geçmeden önce hello durumu "etkin" olduğundan emin olun.
+Oluşturulan havuzun durumunu kontrol edip bu havuza bir iş göndermeden önce durumunun "etkin" olduğundan emin olun.
 
 ```nodejs
 var cloudPool = batch_client.pool.get(poolid,function(error,result,request,response){
@@ -199,7 +199,7 @@ var cloudPool = batch_client.pool.get(poolid,function(error,result,request,respo
         });
 ```
 
-Merhaba pool.get işlevi tarafından döndürülen örnek bir sonuç nesnesi aşağıdadır.
+Pool.get işlevi tarafından döndürülen örnek bir sonuç nesnesi aşağıdadır.
 
 ```
 { id: 'processcsv_201721152',
@@ -261,46 +261,46 @@ Merhaba pool.get işlevi tarafından döndürülen örnek bir sonuç nesnesi aş
 
 
 ### <a name="step-4-submit-an-azure-batch-job"></a>4. Adım: Azure Batch işi gönderme
-Azure Batch işi, benzer görevlerden oluşan bir mantıksal gruptur. Senaryomuzda olmasından "İşlem csv tooJSON." Burada her görev her Azure Depolama kapsayıcısında bulunan csv dosyalarını işliyor olabilir.
+Azure Batch işi, benzer görevlerden oluşan bir mantıksal gruptur. Senaryomuzdaki ise "csv'yi JSON’a işle" işidir. Burada her görev her Azure Depolama kapsayıcısında bulunan csv dosyalarını işliyor olabilir.
 
-Bu görevleri paralel olarak çalışır ve hello Azure Batch hizmeti tarafından düzenlenmiş birden çok düğüm arasında dağıtılır.
+Bu görevler paralel olarak çalışır ve Azure Batch hizmeti tarafından düzenlenmiş birden çok düğüm arasında dağıtılır.
 
 > [!Tip]
-> Merhaba kullanabilirsiniz [maxTasksPerNode](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) özelliği toospecify en fazla sayıda eşzamanlı olarak tek bir düğümde çalışan görev.
+> Aynı anda tek bir düğümde çalışacak maksimum görev sayısını belirtmek için [maxTasksPerNode](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) özelliğini kullanabilirsiniz.
 >
 >
 
 #### <a name="preparation-task"></a>Hazırlık görevi
 
-oluşturulan hello VM düğümleri boş Ubuntu düğümler var. Genellikle, önkoşul olarak tooinstall programlar kümesi gerekir.
-Genellikle, Linux düğümleri için çalışan hello gerçek görevler önce hello Önkoşullar yükleyen bir kabuk betiği olabilir. Ancak bu, programlanabilir herhangi bir yürütülebilir dosya da olabilir.
-Merhaba [Kabuk komut dosyası](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/startup_prereq.sh) Bu örnekte, Python için Python PIP ve hello Azure depolama SDK'sını yükler.
+Oluşturulan VM düğümleri boş Ubuntu düğümleridir. Çoğunlukla, önkoşul olarak bir dizi program yüklemeniz gerekir.
+Genellikle, Linux düğümleri için gerçek görevleri çalıştırmadan önce önkoşulları yükleyen bir kabuk betiğine sahip olabilirsiniz. Ancak bu, programlanabilir herhangi bir yürütülebilir dosya da olabilir.
+Bu örnekteki [kabuk betiği](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/startup_prereq.sh) Python için Azure depolama SDK'sını ve Python PIP’i yükler.
 
-Azure Storage hesabını hello komut dosyasını karşıya yükleyin ve bir SAS URI'sini tooaccess hello komut dosyası oluştur. Bu işlem ayrıca hello Azure depolama Node.js SDK'sını kullanarak otomatik olarak yapılabilir.
+Betiği Azure Depolama Hesabına yüklemeyebilir ve betiğe erişmek için bir SAS URI'sı oluşturabilirsiniz. Bu işlem Azure Depolama Node.js SDK'sı kullanılarak otomatik olarak da yapılabilir.
 
 > [!Tip]
-> Bir iş hazırlama görevi burada hello belirli görev toorun gereken yalnızca hello VM düğümler üzerinde çalışır. Üzerinde çalışan hello görevler bağımsız olarak tüm düğümlerde yüklü Önkoşullar toobe istiyorsanız hello kullanabilirsiniz [startTask](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) sırasında bir havuzu ekleme özelliği. Başvuru için hazırlık görevi tanımı aşağıdaki hello kullanabilirsiniz.
+> Bir işin hazırlama görevi, yalnızca ilgili görevi çalıştırması gereken VM düğümlerinde çalışır. Önkoşulların, üzerinde çalışan görevlerden bağımsız olarak tüm düğümlere yüklenmesini istiyorsanız havuz eklerken [startTask](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) özelliğini kullanabilirsiniz. Aşağıdaki hazırlık görev tanımını referans olarak kullanabilirsiniz.
 >
 >
 
-Hazırlık görevi Azure toplu işlem hello gönderme sırasında belirtilir. Aşağıdaki hazırlık görevi yapılandırma parametreleri hello:
+Hazırlık görevi, Azure Batch işi gönderildiği sırada belirtilir. Hazırlık görevi yapılandırma parametreleri şunlardır:
 
-* **Kimliği**: hello hazırlık görev için benzersiz bir tanımlayıcı
-* **komut satırı**: komut satırı tooexecute hello görev çalıştırılabilir
-* **resourceFiles**: dosyaları ayrıntılarını sağlayın nesneler dizisi gerektiği için bu görev toorun indirilen toobe.  Seçenekleri aşağıda verilmiştir.
-    - blobSource: hello dosya SAS URI'sini hello
-    - filePath: yerel yol toodownload ve hello dosyasını kaydedin
+* **ID**: Hazırlık görevi için benzersiz bir tanımlayıcıdır.
+* **commandLine**: Görevin yürütülebilir dosyasını çalıştıran komut satırıdır.
+* **resourceFiles**: Bu görevin çalışması için indirilmesi gereken dosyaların ayrıntılarını sağlayan nesneler dizisidir.  Seçenekleri aşağıda verilmiştir.
+    - blobSource: Dosyanın SAS URI'sıdır.
+    - filePath: Dosyanın indirileceği ve kaydedileceği için yerel yoldur.
     - fileMode: Yalnızca Linux düğümlerinde kullanılan fileMode, sekizli biçimdedir ve varsayılan değeri 0770’tir.
-* **waitForSuccess**: kümesi tootrue, hello görev hazırlık görevi hatalarında çalışmazsa
-* **runElevated**: yükseltilmiş ayrıcalıklar gerekli toorun hello görev varsa tootrue ayarlayın.
+* **waitForSuccess**: True olarak ayarlandığında hazırlık görevi hatalarında görev çalışmaz.
+* **runElevated**: Görevi çalıştırmak için yükseltilmiş ayrıcalıklar gerekiyorsa true olarak ayarlayın.
 
-Aşağıdaki kod parçacığını hello hazırlık görev komut dosyası yapılandırma örneği gösterilir:
+Aşağıdaki kod parçacığında, hazırlama görevi betik yapılandırma örneği gösterilmektedir:
 
 ```nodejs
 var job_prep_task_config = {id:"installprereq",commandLine:"sudo sh startup_prereq.sh > startup.log",resourceFiles:[{'blobSource':'Blob SAS URI','filePath':'startup_prereq.sh'}],waitForSuccess:true,runElevated:true}
 ```
 
-Varsa, görevleri toorun için yüklü hiçbir Önkoşullar toobe hello hazırlama görevleri atlayabilirsiniz. Aşağıdaki kod görünen adı "process csv files" olan bir iş oluşturur.
+Görevleri çalıştırmak yüklenecek herhangi bir önkoşul yoksa hazırlama görevlerini atlayabilirsiniz. Aşağıdaki kod görünen adı "process csv files" olan bir iş oluşturur.
 
  ```nodejs
  // Setting up Batch pool configuration
@@ -308,7 +308,7 @@ Varsa, görevleri toorun için yüklü hiçbir Önkoşullar toobe hello hazırla
  // Setting up Job configuration along with preparation task
  var jobId = "processcsvjob"
  var job_config = {id:jobId,displayName:"process csv files",jobPreparationTask:job_prep_task_config,poolInfo:pool_config}
- // Adding Azure batch job toohello pool
+ // Adding Azure batch job to the pool
  var job = batch_client.job.add(job_config,function(error,result){
      if(error != null)
      {
@@ -319,14 +319,14 @@ Varsa, görevleri toorun için yüklü hiçbir Önkoşullar toobe hello hazırla
 
 ### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>5. Adım: Bir iş için Azure Batch görevlerini gönderme
 
-İşlem csv işimiz oluşturulduğuna göre bu iş için görevleri oluşturabiliriz. Dört kapsayıcıları sahibiz varsayıldığında, biz toocreate dört görevleri, her kapsayıcı için bir tane vardır.
+İşlem csv işimiz oluşturulduğuna göre bu iş için görevleri oluşturabiliriz. Dört kapsayıcımız olduğunu varsayarsak, her kapsayıcı için bir tane olmak üzere dört görev oluşturmamız gerekir.
 
-Şu hello bakarsanız [Python betiği](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py), iki parametre kabul eder:
+[Python betiğine](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py) baktığımızda iki parametre kabul ettiğini görüyoruz:
 
-* kapsayıcı adı: depolama kapsayıcısı toodownload dosyalarından hello
+* kapsayıcı adı: Dosyaların indirileceği Depolama kapsayıcısı
 * desen: Dosya adı için isteğe bağlı bir desen parametresi
 
-Biz dört kapsayıcıları "con1", "con2", "con3" varsayarak, "con4" aşağıdaki "daha önce oluşturduğumuz görevleri toohello Azure toplu iş işlem için csv" gönderme gösterir kod.
+"con1", "con2", "con3" ve "con4" olmak üzere dört kapsayıcımız olduğunu varsayarsak, aşağıdaki kod daha önce oluşturduğumuz "process csv" Azure batch işine görev göndermeyi gösterir.
 
 ```nodejs
 // storing container names in an array
@@ -353,12 +353,12 @@ var container_list = ["con1","con2","con3","con4"]
     });
 ```
 
-Merhaba kod birden çok görevleri toohello havuzu ekler. Ve her bir hello görev oluşturulan VM'ler hello havuzu düğümünde çalıştırılır. Hello sayıda görev havuzu veya hello maxTasksPerNode özelliğinde hello VM'lerin sayısını aşarsa, bir düğüm kullanılabilir duruma getirilene kadar hello görevleri bekleyin. Bu düzenleme Azure Batch tarafından otomatik olarak gerçekleştirilir.
+Kod, havuza birden çok görev ekler. Oluşturulan tüm görevler, oluşturulan VM havuzunda bir düğüm üzerinde yürütülür. Görevlerin sayısı bir havuzdaki VM sayısını veya maxTasksPerNode özelliğinin değerini aşarsa görevler bir düğüm kullanılabilir duruma gelene kadar bekler. Bu düzenleme Azure Batch tarafından otomatik olarak gerçekleştirilir.
 
-Merhaba portal hello görevleri ve iş durumlar görünümleri açıklanmıştır. Merhaba listesini kullanın ve işlevleri hello Azure düğümü SDK'sını alın. Ayrıntılar hello belgelerde sağlanan [bağlantı](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html).
+Portalda görevler ve iş durumları hakkında ayrıntılı görünümler bulunur. Azure Düğüm SDK'sında list ve get işlevlerini de kullanabilirsiniz. Ayrıntılar belgeler [bağlantısında](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html) verilmiştir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Gözden geçirme hello [genel bakış Azure Batch özelliklerine](batch-api-basics.md) yeni toohello hizmeti olup olmadığınızı öneririz makalesi.
-- Merhaba bkz [toplu Node.js başvuru](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) tooexplore hello toplu API.
+- Hizmetle yeni tanışıyorsanız önerdiğimiz [Azure Batch özelliklerine genel bakış](batch-api-basics.md) makalesini gözden geçirin.
+- Batch API’sini keşfetmek için bkz. [Batch Node.js başvurusu](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/).
 

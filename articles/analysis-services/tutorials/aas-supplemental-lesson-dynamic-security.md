@@ -1,53 +1,70 @@
 ---
-Başlık: aaa "Azure Analysis Services öğretici ek Ders: dinamik güvenlik | Microsoft Docs"Açıklama: satır kullanarak dinamik güvenlik toouse hello Azure Analysis Services öğreticide nasıl filtreler açıklar.
-Hizmetleri: analysis services documentationcenter: '' Yazar: minewiskan Yöneticisi: erikre Düzenleyicisi: '' etiketler: ''
-
-MS.assetid: ms.service: analysis services ms.devlang: NA ms.topic: get-makalesi ms.tgt_pltfrm: NA ms.workload: na ms.date: 26/05/2017 ms.author: owend
+title: "Azure Analysis Services öğreticisi ek ders: Dinamik güvenlik | Microsoft Docs"
+description: "Azure Analysis Services öğreticisinde satır filtrelerini kullanarak dinamik güvenliğin nasıl kullanılacağını açıklar."
+services: analysis-services
+documentationcenter: 
+author: Minewiskan
+manager: erikre
+editor: 
+tags: 
+ms.assetid: 
+ms.service: analysis-services
+ms.devlang: NA
+ms.topic: get-started-article
+ms.tgt_pltfrm: NA
+ms.workload: na
+ms.date: 05/26/2017
+ms.author: owend
+ms.openlocfilehash: b258c18fde15014192e8f604a4e8b3842c3e52c9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>Ek ders - Dinamik güvenlik
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-Bu ek derste dinamik güvenlik uygulayan bir ek rol oluşturacaksınız. Dinamik güvenlik hello kullanıcının adını veya oturum açma kimliği şu anda oturum açmış hello göre satır düzeyi güvenlik sağlar. 
+Bu ek derste dinamik güvenlik uygulayan bir ek rol oluşturacaksınız. Dinamik güvenlik, oturum açmış olan kullanıcının kullanıcı adı veya oturum açma kimliğine bağlı olarak satır düzeyinde güvenlik sağlar. 
   
-tooimplement dinamik güvenlik toohello modeli bağlanabilir ve model nesneleri ve veri Gözat kullanıcılarla hello kullanıcı adlarını içeren bir tablo tooyour model ekleyin. Bu öğretici kullanarak oluşturduğunuz hello hello Adventure Works bağlamında modeldir; Ancak, toocomplete bu ders, kendi etki alanındaki kullanıcıları içeren bir tablo eklemeniz gerekir. Eklenen hello kullanıcı adları için hello parolaları gerekmez. toocreate bir EmployeeSecurity tablosuyla kendi etki alanındaki kullanıcıların küçük bir örnek Excel elektronik tablosu çalışan verilerini yapıştırma hello Yapıştır özelliğini kullanın. Gerçek hayattaki bir senaryoda, kullanıcı adlarını içeren hello tablo genelde bir veri kaynağı olarak bir asıl veritabanını tablosundan olacaktır; Örneğin, gerçek DimEmployee tablo.  
+Dinamik güvenliği uygulamak için modelinize ona bağlanabilecek ve model nesneleriyle verilere göz atabilecek kullanıcıların kullanıcı adlarını içeren bir tablo eklersiniz. Bu öğreticiyi kullanarak oluşturduğunuz model, Adventure Works kapsamındadır ancak bu dersi tamamlamak için kendi etki alanınızdaki kullanıcıları içeren bir tablo eklemeniz gerekir. Eklediğiniz kullanıcı adlarının parolalarına ihtiyaç yoktur. Kendi etki alanınızdaki birkaç örnek kullanıcıyla bir EmployeeSecurity tablosu oluşturmak için Yapıştır özelliğini kullanarak bir Excel çalışma sayfasında yer alan çalışan verilerini yapıştırmanız gerekir. Gerçek hayatta kullanıcı adlarını içeren tablo genelde gerçek bir DimEmployee tablosu gibi gerçek bir veri kaynağından alınan bir tablo olacaktır.  
   
-tooimplement dinamik güvenlik, iki DAX işlevleri kullanın: [kullanıcıadı işlevi (DAX)](http://msdn.microsoft.com/22dddc4b-1648-4c89-8c93-f1151162b93f) ve [LOOKUPVALUE işlevi (DAX)](http://msdn.microsoft.com/73a51c4d-131c-4c33-a139-b1342d10caab). Bu işlevler bir satır filtresi formülüne uygulanır ve yeni bir rolde tanımlanır. Merhaba LOOKUPVALUE işlevinde kullanarak hello formülü hello EmployeeSecurity tablosundan bir değer belirtir. Merhaba formülü sonra hello kullanıcının oturum açmış hello kullanıcı adını belirtir değeri toohello kullanıcıadı işlevi toothis role ait geçirir. Merhaba kullanıcı ardından hello rolün satır filtreler tarafından belirtilen veri göz atabilirsiniz. Bu senaryoda, satış Çalışanlar yalnızca Internet satış verileri hello satış bölgeleri üyesi olduğu için Gözat belirtin.  
+Dinamik güvenliği uygulamak için iki DAX işlevini kullanırsınız: [USERNAME İşlevi (DAX)](http://msdn.microsoft.com/22dddc4b-1648-4c89-8c93-f1151162b93f) ve [LOOKUPVALUE İşlevi (DAX)](http://msdn.microsoft.com/73a51c4d-131c-4c33-a139-b1342d10caab). Bu işlevler bir satır filtresi formülüne uygulanır ve yeni bir rolde tanımlanır. Formül, LOOKUPVALUE işlevini kullanarak EmployeeSecurity tablosundan bir değer belirtir. Formül ardından bu değeri bu role ait olan oturum açmış kullanıcının kullanıcı adını belirten USERNAME işlevine iletir. Bunun ardından kullanıcı yalnızca rolün satır filtreleri tarafından belirtilen verilere erişebilir. Bu senaryoda satış elemanlarının yalnızca üyesi oldukları satış bölgelerine ait İnternet satış verilerine bakabilmelerini sağlıyorsunuz.  
   
-Benzersiz toothis Adventure Works tablolu model senaryo ancak mutlaka tooa gerçek dünya senaryoları uygulanacak değil, bu görevleri şekilde tanımlanır. Her görev hello görev hello amacını açıklayan ek bilgiler içerir.  
+Bu görevler bu Adventure Works tablosal model senaryosuna özgü ancak gerçek dünyadaki senaryolar için geçerli olmayabilir. Her görevde görevin amacını belirten ek bilgiler yer alır.  
   
-Bu ders zaman toocomplete tahmini: **30 dakika**  
+Bu dersin tahmini tamamlanma süresi: **30 dakika**  
   
 ## <a name="prerequisites"></a>Ön koşullar  
-Bu ek ders konusu, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin bir parçasıdır. Bu ek Ders Hello görevleri gerçekleştirmeden önce tüm önceki dersleri tamamlandı.  
+Bu ek ders konusu, sırayla tamamlanması gereken bir tablosal modelleme öğreticisinin bir parçasıdır. Bu ek dersteki görevleri gerçekleştirmeden önce önceki tüm dersleri tamamlamış olmanız gerekir.  
   
-## <a name="add-hello-dimsalesterritory-table-toohello-aw-internet-sales-tabular-model-project"></a>Merhaba DimSalesTerritory tablo toohello AW Internet satış tablolu modeli projesi ekleme  
-tooimplement dinamik güvenlik bu Adventure Works senaryo için iki ek tablolar tooyour modeli eklemeniz gerekir. ' den (olarak, satış bölgeleri) DimSalesTerritory olan ekleyin hello ilk tablonun aynı AdventureWorksDW veritabanına hello. Daha sonra hello belirli verileri tanımlayan bir satır filtresi toohello SalesTerritory tablosu uygulamak oturum açan kullanıcı hello göz atın.  
+## <a name="add-the-dimsalesterritory-table-to-the-aw-internet-sales-tabular-model-project"></a>DimSalesTerritory tablosunu AW İnternet Satışları Tablosal Model Projesi içine ekleme  
+Bu Adventure Works senaryosuna dinamik güvenliği uygulamak için modelinize iki tablo eklemeniz gerekir. Ekleyeceğiniz ilk tablo, aynı AdventureWorksDW veritabanından DimSalesTerritory (Satış Bölgesi olarak) tablosudur. Ardından SalesTerritory tablosuna oturum açmış olan kullanıcının göz atabileceği verileri tanımlayan bir satır filtresi uygularsınız.  
   
-#### <a name="tooadd-hello-dimsalesterritory-table"></a>tooadd hello DimSalesTerritory tablosu  
+#### <a name="to-add-the-dimsalesterritory-table"></a>DimSalesTerritory tablosunu eklemek için  
   
 1.  Tablosal Model Gezgini'nde > **Veri Kaynakları**, bağlantınıza sağ tıklayın ve ardından **Yeni Tabloları İçeri Aktar**'a tıklayın.  
 
-    Merhaba kimliğe bürünme kimlik bilgileri iletişim kutusu görüntülenirse, Ders 2'de, kullanılan hello kimliğe bürünme kimlik bilgileri yazın: veri ekleyin.
+    Açılan Kimliğe Bürünme Kimlik Bilgileri iletişim kutusunda Ders 2: Veri Ekleme sırasında kullandığınız kimliğe bürünme kimlik bilgilerini yazın.
   
-2.  Merhaba Gezgini içinde seçin **DimSalesTerritory** tablo ve ardından **Tamam**.    
+2.  Gezgin'de **DimSalesTerritory** tablosunu seçin ve **Tamam**'a tıklayın.    
   
-3.  Sorgu Düzenleyicisi'nde hello tıklatın **DimSalesTerritory** sorgulamak ve Kaldır'ı **SalesTerritoryAlternateKey** sütun.  
+3.  Sorgu Düzenleyicisi'nde **DimSalesTerritory** sorgusuna tıklayın ve **SalesTerritoryAlternateKey** sütununu kaldırın.  
   
 7.  **İçeri Aktar**’a tıklayın.  
   
-    Merhaba yeni tablo toohello modeli çalışma eklenir. Nesneleri ve hello kaynak DimSalesTerritory tablodan veri AW Internet satış tablo modelinizi alınır.  
+    Yeni tablo model çalışma alanına eklenir. Kaynak DimSalesTerritory tablosundaki nesneler ve veriler AW İnternet Satışları Tablosal Model içine aktarılır.  
   
-9. Merhaba tablo başarıyla içeri aktarıldı sonra tıklayın **Kapat**.  
+9. Tablo başarıyla içeri aktarıldıktan sonra **Kapat**'a tıklayın.  
 
 ## <a name="add-a-table-with-user-name-data"></a>Kullanıcı adı verilerinin bulunduğu bir tablo ekleme  
-Merhaba DimEmployee hello AdventureWorksDW örnek veritabanı tablosunda hello AdventureWorks etki alanındaki kullanıcıları içerir. Bu kullanıcı adları kendi ortamınızda mevcut değildir. Modelinizde kuruluşunuzdan birkaç kişiyi (en az üç) içeren bir tablo oluşturmanız gerekir. Bu kullanıcılar sonra üyeleri toohello yeni rolü olarak ekleyin. Merhaba örnek kullanıcı adları için hello parolaları gerekmez, ancak kendi etki alanından gerçek Windows kullanıcı adı gerekir.  
+AdventureWorksDW örnek veritabanındaki DimEmployee tablosunda AdventureWorks etki alanından kullanıcılar yer almaktadır. Bu kullanıcı adları kendi ortamınızda mevcut değildir. Modelinizde kuruluşunuzdan birkaç kişiyi (en az üç) içeren bir tablo oluşturmanız gerekir. Ardından bu kullanıcıları yeni role üye olarak ekleyebilirsiniz. Örnek kullanıcı adlarının parolalarına ihtiyaç yoktur ancak kendi etki alanınızdan gerçek Windows kullanıcı adları kullanmanız gerekir.  
   
-#### <a name="tooadd-an-employeesecurity-table"></a>tooadd bir EmployeeSecurity tablosu  
+#### <a name="to-add-an-employeesecurity-table"></a>Bir EmployeeSecurity tablosu eklemek için  
   
 1.  Microsoft Excel'i açıp bir çalışma sayfası oluşturun.  
   
-2.  Aşağıdaki tablonun Hello başlık satırındaki dahil olmak üzere, hello kopyalayın ve hello çalışma sayfasına yapıştırın.  
+2.  Üst bilgi satırı dahil olmak üzere aşağıdaki tabloyu kopyalayıp çalışma sayfasına yapıştırın.  
 
     ```
       |EmployeeId|SalesTerritoryId|FirstName|LastName|LoginId|  
@@ -58,77 +75,77 @@ Merhaba DimEmployee hello AdventureWorksDW örnek veritabanı tablosunda hello A
       |3|5|<user first name>|<user last name>|\<domain\username>|  
     ```
 
-3.  Merhaba ad, Soyadı ve etkialanı\kullanıcıadı hello adlarını ve kuruluşunuzdaki üç kullanıcılar oturum açma kimliklerini değiştirin. Merhaba put EmployeeID 1, bu kullanıcının ait olduğu tek bir satış bölge'den toomore gösteren hello ilk iki satırını aynı kullanıcı. Oldukları gibi hello EmployeeID ve SalesTerritoryId alanları bırakın.  
+3.  Ad, soyadı ve etki alanı\kullanıcı adı bölümlerine kuruluşunuzdan üç kişinin adını ve oturum açma kimliğini yazın. EmployeeId 1 için ilk iki satıra aynı kullanıcı adını yazarak birden fazla satış bölgesine ait olduğunu belirtin. EmployeeId ve SalesTerritoryId alanlarını değiştirmeyin.  
   
-4.  Merhaba çalışma sayfası olarak Kaydet **SampleEmployee**.  
+4.  Çalışma sayfasını **SampleEmployee** adıyla kaydedin.  
   
-5.  Çalışan verilerini, hello üstbilgileri dahil olmak üzere tüm hello hücrelerle Hello çalışma sayfasında, seçin sonra seçili hello veri sağ tıklatın ve ardından **kopya**.  
+5.  Çalışma sayfasında üst bilgiler dahil olmak üzere çalışan verisi içeren tüm hücreleri seçin, seçtiğiniz verilere sağ tıklayın ve **Kopyala**'ya tıklayın.  
   
-6.  Merhaba SSDT içinde tıklatın **Düzenle** menüsüne ve ardından **Yapıştır**.  
+6.  SSDT içinde **Düzen** menüsüne ve ardından **Yapıştır**'a tıklayın.  
   
-    Yapıştır gri, hiçbir sütun hello modeli Tasarımcısı penceresinde herhangi bir tablodaki'ı tıklatın ve yeniden deneyin.  
+    Yapıştır gri renkliyse model tasarımcısı penceresinde herhangi bir sütuna tıkladıktan sonra tekrar deneyin.  
   
-7.  Merhaba, **Yapıştır Önizleme** iletişim kutusunda **tablo adı**, türü **EmployeeSecurity**.  
+7.  **Yapıştırma Önizlemesi** iletişim kutusunun **Tablo Adı** bölümüne **EmployeeSecurity** yazın.  
   
-8.  İçinde **yapıştırılan veri toobe**, hello verileri içeren tüm hello kullanıcı verileri ve üstbilgileri hello SampleEmployee çalışma sayfasından doğrulayın.  
+8.  **Yapıştırılacak veriler** bölümünde üst bilgiler dahil olmak üzere SampleEmployee çalışma sayfasındaki tüm verilerin yer aldığından emin olun.  
   
 9. **İlk satırı sütun başlığı olarak kullan** seçeneğinin işaretli olduğundan emin olun ve **Tamam**'a tıklayın.  
   
-    Merhaba SampleEmployee çalışma sayfasından kopyalanan çalışan veri EmployeeSecurity adında yeni bir tablo oluşturulur.  
+    SampleEmployee çalışma sayfasından kopyalanan çalışan verileriyle EmployeeSecurity adlı yeni bir tablo oluşturulur.  
   
 ## <a name="create-relationships-between-factinternetsales-dimgeography-and-dimsalesterritory-table"></a>FactInternetSales, DimGeography ve DimSalesTerritory tabloları arasında ilişki oluşturma  
-Merhaba Factınternetsales, DimGeography ve DimSalesTerritory tablosu tüm SalesTerritoryId ortak bir sütun içerir. Merhaba DimSalesTerritory tablodaki Hello SalesTerritoryId sütun satış her bölge için farklı bir kimlik değerleri içerir.  
+FactInternetSales, DimGeography ve DimSalesTerritory tablolarında SalesTerritoryId adlı ortak bir sütun vardır. DimSalesTerritory tablosundaki SalesTerritoryId sütunu her satış bölgesi için farklı kimliğe sahip değerler içerir.  
   
-#### <a name="toocreate-relationships-between-hello-factinternetsales-dimgeography-and-hello-dimsalesterritory-table"></a>Merhaba Factınternetsales, DimGeography ve hello DimSalesTerritory tablo arasındaki toocreate ilişkileri  
+#### <a name="to-create-relationships-between-the-factinternetsales-dimgeography-and-the-dimsalesterritory-table"></a>FactInternetSales, DimGeography ve DimSalesTerritory tabloları arasında ilişki oluşturmak için  
   
-1.  Diyagram görünümünde, hello **DimGeography** tablo,'ı tıklatın ve üzerinde hello tutun **SalesTerritoryId** sütun sonra sürükleme hello imleç toohello **SalesTerritoryId** hello sütununda **DimSalesTerritory** tablo ve bırakın.  
+1.  Diyagram Görünümünde **DimGeography** tablosunda **SalesTerritoryId** sütununa tıklayıp basılı tutun ve imleci **DimSalesTerritory** tablosundaki **SalesTerritoryId** sütununa sürükleyip bırakın.  
   
-2.  Merhaba, **Factınternetsales** tablo,'ı tıklatın ve üzerinde hello tutun **SalesTerritoryId** sütun sonra sürükleme hello imleç toohello **SalesTerritoryId** hello sütununda **DimSalesTerritory** tablo ve bırakın.  
+2.  **FactInternetSales** tablosunda **SalesTerritoryId** sütununa tıklayıp basılı tutun ve imleci **DimSalesTerritory** tablosundaki **SalesTerritoryId** sütununa sürükleyip bırakın.  
   
-    Bildirim hello etkin özelliği bu ilişki için etkin olmayan deyişle False ' tır. Merhaba Factınternetsales tablosunda başka bir etkin ilişki zaten mevcut.  
+    Bu ilişki için Active özelliğinin False değerine sahip olduğuna, yani devre dışı olduğuna dikkat edin. FactInternetSales tablosu zaten başka bir etkin ilişkiye sahiptir.  
   
-## <a name="hide-hello-employeesecurity-table-from-client-applications"></a>Merhaba EmployeeSecurity tablo istemci uygulamalardan Gizle  
-Bu görevde, bir istemci uygulamanın alan listesindeki görünmesini tutma hello EmployeeSecurity tablo gizleyin. Gizleme işleminin, tabloyu güvenli hale getirmeyeceğini unutmayın. Nasıl yapacağını bilen kullanıcılar EmployeeSecurity tablosundaki verileri sorgulayabilir. toosecure Merhaba EmployeeSecurity tablo verileri, kullanıcıların mümkün tooquery olmasını önleyen herhangi verilerini, daha yeni bir görevi bir filtre uygulayın.  
+## <a name="hide-the-employeesecurity-table-from-client-applications"></a>EmployeeSecurity tablosunu istemci uygulamalarından gizleme  
+Bu görevde EmployeeSecurity tablosunu gizleyerek istemci uygulamasının alan listesinde görünmesini engelleyeceksiniz. Gizleme işleminin, tabloyu güvenli hale getirmeyeceğini unutmayın. Nasıl yapacağını bilen kullanıcılar EmployeeSecurity tablosundaki verileri sorgulayabilir. EmployeeSecurity tablosundaki verilerin güvenliğini sağlamak ve kullanıcıların verileri sorgulamasını engellemek için sonraki görevde bir filtre uygulayacaksınız.  
   
-#### <a name="toohide-hello-employeesecurity-table-from-client-applications"></a>istemci uygulamaları toohide hello EmployeeSecurity tablosundan  
+#### <a name="to-hide-the-employeesecurity-table-from-client-applications"></a>EmployeeSecurity tablosunu istemci uygulamalarından gizlemek için  
   
--   Diyagram görünümünde hello modeli Tasarımcısı'nda hello sağ **çalışan** tablo başlık ve ardından **istemci Araçları'ndan Gizle**.  
+-   Model tasarımcısında, Diyagram Görünümünde, **Employee** tablo üst bilgisine sağ tıklayın ve **İstemci Araçlarından Gizle**'ye tıklayın.  
   
 ## <a name="create-a-sales-employees-by-territory-user-role"></a>Sales Employees by Territory kullanıcı rolü oluşturma  
-Bu görevde bir kullanıcı rolü oluşturacaksınız. Bu rolü hangi hello DimSalesTerritory tablonun satırlarını görünür toousers olduğunu tanımlama bir satır filtresi içerir. Merhaba filtre sonra uygulanır hello bire çok ilişkide tooall yönü diğer ilgili tooDimSalesTerritory tabloları. Ayrıca hello rolünün bir üyesi olan herhangi bir kullanıcı tarafından sorgulanabilir engeller hello tüm EmployeeSecurity tablo güvenli hale getirdiği bir filtre uygulayın.  
+Bu görevde bir kullanıcı rolü oluşturacaksınız. Bu rol, DimSalesTerritory tablosunun hangi satırlarının kullanıcılar tarafından görüneceğini belirleyen bir satır filtresi içerir. Ardından bu filtre bir-çok ilişki yönünde DimSalesTerritory ile ilişkili diğer tüm tablolara uygulanır. Ayrıca EmployeeSecurity tablosunun tamamının role üye olan kullanıcılar tarafından sorgulanabilir olmasını engelleyen bir filtre uygulayacaksınız.  
   
 > [!NOTE]  
-> Merhaba satış çalışanlar bu ders oluşturduğunuz bölge Rol üyeleri toobrowse (veya sorgu) yalnızca satış verilerini ait oldukları hello satış bölge toowhich kısıtlar. Bir rol bir üye oluşturulmuş olan da var olan bölge rolüne göre üye toohello Satış çalışanları olarak kullanıcı ekleme, [Ders 11: roller oluşturmak](../tutorials/aas-lesson-11-create-roles.md), izinleri bileşimini alın. Bir kullanıcı birden çok rol, hello izinleri ve her rol için tanımlanan satır filtrelerini üyesi olduğunda toplu. Diğer bir deyişle, hello kullanıcı rolleri hello birleşimi tarafından belirlenen hello büyük izinlerine sahip değil.  
+> Bu derste oluşturacağınız Sales Employees by Territory rolü, üyelerin yalnızca ait oldukları satış bölgesindeki satış verilerine göz atmasını (veya sorgulamasını) sağlayacak. Sales Employees by Territory rolüne aynı zamanda [Ders 11: Rol Oluşturma](../tutorials/aas-lesson-11-create-roles.md) sırasında oluşturduğunuz bir role üye olan bir kullanıcı eklerseniz izinler birleştirilir. Birden fazla rolün üyesi olan kullanıcılar her bir rol için tanımlanan izinlerin ve satır filtrelerinin birleşimine sahip olur. Başka bir deyişle kullanıcı rol birleşimi ile verilen en geniş izinlere sahip olur.  
   
-#### <a name="toocreate-a-sales-employees-by-territory-user-role"></a>toocreate bölge kullanıcı rolüne göre satış çalışanları  
+#### <a name="to-create-a-sales-employees-by-territory-user-role"></a>Sales Employees by Territory kullanıcı rolü oluşturmak için  
   
-1.  Merhaba SSDT içinde tıklatın **modeli** menüsüne ve ardından **rolleri**.  
+1.  SSDT'de **Model** menüsüne ve ardından **Roller**'e tıklayın.  
   
 2.  **Rol Yöneticisi**'nde **Yeni**'ye tıklayın.  
   
-    Yeni bir rol ile Merhaba hiçbiri izni toohello listesi eklendi.  
+    Listeye Yok iznine sahip yeni bir rol eklenir.  
   
-3.  Merhaba yeni rolüne tıklayın ve ardından hello **adı** sütun hello rol çok yeniden adlandırma**bölgeye göre satış çalışanları**.  
+3.  Yeni role tıklayın ve ardından **Ad** sütununda rolü **Sales Employees by Territory** olarak adlandırın.  
   
-4.  Merhaba, **izinleri** sütunu hello açılır listeye tıklayın ve ardından hello seçin **okuma** izni.  
+4.  **İzinler** sütununda açılan listeye tıklayın ve ardından **Okuma** iznini seçin.  
   
-5.  Merhaba tıklatın **üyeleri** sekmesini ve ardından **Ekle**.  
+5.  **Üyeler** sekmesine ve ardından **Ekle**'ye tıklayın.  
   
-6.  Merhaba, **kullanıcı veya Grup Seç** iletişim kutusunda **tooselect adlı Enter hello nesne**, hello EmployeeSecurity tablo oluştururken kullanılan türü hello ilk örnek kullanıcı adı. Tıklatın **Adları Denetle** tooverify hello kullanıcı adının geçerli olduğundan ve ardından **Tamam**.  
+6.  **Kullanıcı veya Grup Seç** iletişim kutusunda **Seçilecek nesne adını girin** bölümüne EmployeeSecurity tablosunu oluştururken kullandığınız ilk örnek kullanıcı adını girin. **Adları Denetle**'ye tıklayarak kullanıcı adının geçerli olup olmadığını doğrulayın ve ardından **Tamam**'a tıklayın.  
   
-    Merhaba EmployeeSecurity tablo oluştururken kullanılan diğer örnek kullanıcı adları Hello ekleme, bu adımı yineleyin.  
+    Bu adımı tekrarlayın ve EmployeeSecurity tablosunu oluştururken kullandığınız diğer örnek kullanıcı adlarını ekleyin.  
   
-7.  Merhaba tıklatın **satır filtrelerini** sekmesi.  
+7.  **Satır Filtreleri** sekmesine tıklayın.  
   
-8.  Hello için **EmployeeSecurity** tabloda hello **DAX filtre** sütun, formül aşağıdaki türü hello:  
+8.  **EmployeeSecurity** tablosunun **DAX Filtresi** sütununa şu formülü yazın:  
   
     ```
       =FALSE()  
     ```
   
-    Bu formülü tüm sütunları toohello false Boole koşulunu gidermek belirtir. Merhaba EmployeeSecurity tablosu için hiç sütun hello satış çalışanlar tarafından bölge kullanıcı rolü üyesi tarafından sorgulanabilir.  
+    Bu formül tüm sütunların false Boolean değerini vermesi gerektiğini belirtir. EmployeeSecurity tablosunun hiçbir sütunu Sales Employees by Territory kullanıcı rolünün üyeleri tarafından sorgulanamaz.  
   
-9. Hello için **DimSalesTerritory** tablo, formül aşağıdaki türü hello:  
+9. **DimSalesTerritory** tablosu için şu formülü yazın:  
 
     ```  
     ='Sales Territory'[Sales Territory Id]=LOOKUPVALUE('Employee Security'[Sales Territory Id], 
@@ -137,36 +154,36 @@ Bu görevde bir kullanıcı rolü oluşturacaksınız. Bu rolü hangi hello DimS
       'Sales Territory'[Sales Territory Id]) 
     ```
   
-    Bu formülde burada hello EmployeeSecurity [LoginId] olan hello aynı hello geçerli Windows kullanıcı adı ve EmployeeSecurity [oturum olarak hello LOOKUPVALUE işlevinde hello DimEmployeeSecurity [SalesTerritoryId] sütunu için tüm değerleri döndürür SalesTerritoryId] olan hello hello DimSalesTerritory [SalesTerritoryId] ile aynı.  
+    Bu formülde LOOKUPVALUE işlevi DimEmployeeSecurity[SalesTerritoryId] sütunu için tüm değerleri döndürür ve burada EmployeeSecurity[LoginId], oturum açmış olan Windows kullanıcı adıyla aynıdır ve EmployeeSecurity[SalesTerritoryId], DimSalesTerritory[SalesTerritoryId] ile aynıdır.  
   
-    kullanılan toorestrict hello sonra hello DimSalesTerritory tabloda gösterilen satırları hello LOOKUPVALUE tarafından döndürülen satış bölge kimlikleri kümesidir. Merhaba SalesTerritoryID hello satır için kimlikleri hello LOOKUPVALUE işlevi tarafından döndürülen hello kümesindeki olduğu yalnızca satır görüntüleniyor.  
+    LOOKUPVALUE tarafından döndürülen satış bölgesi kimlikleri, DimSalesTerritory tablosunda gösterilen satırları sınırlamak için kullanılır. Satır için SalesTerritoryID değerinin LOOKUPVALUE işlevi tarafından döndürüldüğü kimlik kümesinde yer alan satırlar görüntülenir.  
   
 10. Rol Yöneticisi'nde **Tamam**'a tıklayın.  
   
-## <a name="test-hello-sales-employees-by-territory-user-role"></a>Merhaba Satış çalışanları bölge kullanıcı Role göre test etme  
-Bu görevde SSDT tootest hello sürecinin hello Satış çalışanları bölge kullanıcı rolüne göre içinde hello Çözümle Excel özelliğini kullanın. Bir tane belirtin toohello EmployeeSecurity tablo eklediğiniz hello kullanıcı adlarını ve hello rolünün bir üyesi olarak. Bu kullanıcı adı, ardından Excel ve hello modeli arasında oluşturulan hello bağlantı hello etkin kullanıcı adı olarak kullanılır.  
+## <a name="test-the-sales-employees-by-territory-user-role"></a>Sales Employees by Territory kullanıcı rolünü test etme  
+Bu görevde SSDT'nin Excel'de Çözümleme özelliğini kullanarak Sales Employees by Territory kullanıcı rolünün çalışıp çalışmadığını test edeceksiniz. EmployeeSecurity tablosuna ve bu role eklediğiniz kullanıcı adlarından birini belirteceksiniz. Ardından bu kullanıcı adı Excel ile model arasında oluşturulan bağlantıda geçerli kullanıcı olarak kullanılacak.  
   
-#### <a name="tootest-hello-sales-employees-by-territory-user-role"></a>Bölge kullanıcı rolüne göre tootest hello Satış çalışanları  
+#### <a name="to-test-the-sales-employees-by-territory-user-role"></a>Sales Employees by Territory kullanıcı rolünü test etmek için  
   
-1.  Merhaba SSDT içinde tıklatın **modeli** menüsüne ve ardından **Excel'de çözümleme özelliği**.  
+1.  SSDT'de **Model** menüsüne ve ardından **Excel'de Çözümleme**'ye tıklayın.  
   
-2.  Merhaba, **Excel'de çözümleme özelliği** iletişim kutusunda **belirt hello kullanıcı adını veya rolü toouse tooconnect toohello modeli**seçin **başka bir Windows kullanıcı**ve ardından**Gözat**.  
+2.  **Excel'de Çözümleme** iletişim kutusunun **Modele bağlanmak için kullanılacak kullanıcı adını veya rolü belirtin** bölümünde **Başka Windows Kullanıcısı**'nı seçin ve **Göz at**'a tıklayın.  
   
-3.  Merhaba, **kullanıcı veya Grup Seç** iletişim kutusunda **hello nesne adı tooselect girin**hello EmployeeSecurity tablosunda bulunan bir kullanıcı adı yazın ve ardından **Adları Denetle**.  
+3.  **Kullanıcı veya Grup Seç** iletişim kutusunun **Seçilecek nesne adını girin** bölümüne EmployeeSecurity tablosuna eklediğiniz kullanıcı adlarından birini girin ve **Adları Denetle**'ye tıklayın.  
   
-4.  Tıklatın **Tamam** tooclose hello **kullanıcı veya Grup Seç** iletişim kutusunu ve ardından **Tamam** tooclose hello **Excel'de çözümleme özelliği** iletişim kutusu.  
+4.  **Tamam**'a tıklayarak **Kullanıcı veya Grup Seç** iletişim kutusunu kapatın ve tekrar **Tamam**'a tıklayarak **Excel'de Çözümleme** iletişim kutusunu kapatın.  
   
-    Excel yeni bir çalışma kitabı ile açılır. Bir PivotTable otomatik olarak oluşturulur. Merhaba PivotTable alanları listesi hello veri alanları yeni modelinizde kullanılabilir çoğunu içerir.  
+    Excel yeni bir çalışma kitabı ile açılır. Bir PivotTable otomatik olarak oluşturulur. PivotTable Alanları listesi, yeni modelinizde bulunan veri alanlarının çoğunu içerir.  
   
-    Bildirim hello EmployeeSecurity tablo hello PivotTable alanlar listesinde görünür değil. Bu tabloyu önceki görevlerden birinde istemci araçlarından gizlemiştiniz.  
+    EmployeeSecurity tablosunun PivotTable Alanları listesinde görünmediğine dikkat edin. Bu tabloyu önceki görevlerden birinde istemci araçlarından gizlemiştiniz.  
   
-5.  Merhaba, **alanları** listesinde **∑ Internet satış** (ölçüler) select hello **InternetTotalSales** ölçü. Merhaba ölçü hello girdiğiniz **değerleri** alanları.  
+5.  **Alanlar** listesinin **∑ Internet Sales** (ölçüler) bölümünde **InternetTotalSales** ölçüsünü seçin. Ölçü **Değerler** alanlarına girilir.  
   
-6.  Select hello **SalesTerritoryId** hello sütundan **DimSalesTerritory** tablo. Merhaba sütun hello girdiğiniz **satır etiketleri** alanları.  
+6.  **SalesTerritoryId** sütununu **DimSalesTerritory** tablosundan seçin. Sütun **Satır Etiketleri** alanına girilir.  
   
-    Kullandığınız yalnızca hello bir bölge toowhich hello etkili kullanıcı adı için satış rakamlarını görünen bildirim Internet aittir. Başka bir sütunu seçerseniz, satır etiket alanı, yalnızca şehirlerde hello satış bölge toowhich hello etkili kullanıcı ait olduğu gibi hello DimGeography tablosundan şehir gibi görüntülenir.  
+    İnternet satış rakamlarının yalnızca kullandığınız kullanıcı adının ait olduğu bölge için gösterildiğine dikkat edin. Satır Etiketi olarak DimGeography tablosunun City etiketi gibi başka bir sütun seçerseniz yalnızca etkili kullanıcının ait olduğu satış bölgesindeki şehirler gösterilir.  
   
-    Bu kullanıcı göz atın veya herhangi bir Internet satış veri ait hello biri dışındaki bölgeler için sorgu. Bu kısıtlama Hello hello satış çalışanlar bölge kullanıcı rolüne göre de hello DimSalesTerritory tablosunda tanımlanan satır filtresi tüm veriler için veri güvenliğini sağlar çünkü ilgili tooother satış bölgeleri.  
+    Bu kullanıcı ait olduğunun haricindeki İnternet satış verilerine göz atamaz veya bu verileri sorgulayamaz. Bu kısıtlamanın nedeni DimSalesTerritory tablosu için Sales Employees by Territory kullanıcı rolünde tanımlanmış olan satır filtresinin diğer satış bölgeleriyle ilgili verileri korumasıdır.  
   
 ## <a name="see-also"></a>Ayrıca Bkz.  
 [USERNAME İşlevi (DAX)](https://msdn.microsoft.com/library/hh230954.aspx)  

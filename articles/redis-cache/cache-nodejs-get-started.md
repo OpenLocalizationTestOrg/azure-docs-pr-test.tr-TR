@@ -1,5 +1,5 @@
 ---
-title: "Node.js ile Azure Redis önbelleği aaaHow toouse | Microsoft Docs"
+title: Node.js ile Azure Redis Cache kullanma | Microsoft v
 description: "Node.js ve node_redis kullanarak Azure Redis Cache kullanmaya başlama"
 services: redis-cache
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/10/2017
 ms.author: sdanie
-ms.openlocfilehash: dc8732041d2c4e5793e684e0c80b87a1c9d17f34
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: f2c448af24e180db58f3ef3d39e90036dda3f7eb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-toouse-azure-redis-cache-with-nodejs"></a>Nasıl toouse Azure Redis önbelleği Node.js ile
+# <a name="how-to-use-azure-redis-cache-with-nodejs"></a>Node.js ile Azure Redis Cache kullanma
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -30,25 +30,25 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Microsoft tarafından yönetilen tooa güvenli, ayrılmış bir Redis önbelleğine erişim Azure Redis önbelleği izni verir. Önbelleğinize Microsoft Azure’daki her uygulamadan erişilebilir.
+Azure Redis Cache, Microsoft tarafından yönetilen güvenli, ayrılmış bir Redis önbelleğine erişmenizi sağlar. Önbelleğinize Microsoft Azure’daki her uygulamadan erişilebilir.
 
-Bu konu tooget Azure Redis önbelleği ile çalışmaya nasıl Node.js kullanarak gösterir. Node.js ile Azure Redis Cache’in başka bir örneği için, bkz. [Azure Web Sitesinde Socket.IO ile bir Node.js Sohbet Uygulaması Oluşturma](../app-service-web/web-sites-nodejs-chat-app-socketio.md).
+Bu konu Node.js kullanarak Azure Redis Cache kullanmayı gösterir. 
 
 ## <a name="prerequisites"></a>Ön koşullar
 [node_redis](https://github.com/mranney/node_redis) yükleyin:
 
     npm install redis
 
-Bu öğreticide, [node_redis](https://github.com/mranney/node_redis) kullanılmaktadır. Diğer Node.js istemcileri kullanım örnekleri için hello adresinde listelenmiş hello Node.js istemcileri tek tek belgelerine bakın [Node.js Redis istemcileri](http://redis.io/clients#nodejs).
+Bu öğreticide, [node_redis](https://github.com/mranney/node_redis) kullanılmaktadır. Diğer Node.js istemcilerini kullanmaya ilişkin örnekler için [Node.js Redis istemcileri](http://redis.io/clients#nodejs) listesindeki Node.js istemcilerinin kendi belgelerine bakın.
 
 ## <a name="create-a-redis-cache-on-azure"></a>Azure’da Redis Cache oluşturma
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## <a name="retrieve-hello-host-name-and-access-keys"></a>Merhaba ana bilgisayar adı ve erişim anahtarlarını alma
+## <a name="retrieve-the-host-name-and-access-keys"></a>Ana bilgisayar adını ve erişim anahtarlarını alma
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-## <a name="connect-toohello-cache-securely-using-ssl"></a>Güvenli bir şekilde SSL kullanarak toohello önbelleği Bağlan
-Merhaba son oluşturur [node_redis](https://github.com/mranney/node_redis) tooAzure Redis önbelleği bağlanmak için destek sağlayan SSL kullanarak. Aşağıdaki örnek hello nasıl tooconnect tooAzure Redis önbelleği kullanılarak izin ver hello SSL uç noktası 6380 gösterir. Değiştir `<name>` önbelleğiniz hello adıyla ve `<key>` ile ya da birincil veya ikincil anahtarı açıklandığı gibi hello önceki [almak hello ana bilgisayar adı ve erişim anahtarları](#retrieve-the-host-name-and-access-keys) bölümü.
+## <a name="connect-to-the-cache-securely-using-ssl"></a>SSL kullanarak güvenli bir şekilde önbelleğe bağlanma
+[node_redis](https://github.com/mranney/node_redis)’in en son derlemeleri, Azure Redis Cache’e SSL kullanarak bağlanma konusunda destek sağlar. Aşağıdaki örnekte, 6380 SSL bitiş noktasını kullanarak Azure Redis Cache’e nasıl bağlanılacağı gösterilmektedir. Önceki [Ana bilgisayar adını ve erişim anahtarlarını alma](#retrieve-the-host-name-and-access-keys) bölümünde açıklanan şekilde `<name>` öğesini önbelleğinizin adı ile, `<key>` öğesini ise birincil veya ikincil anahtarınızla değiştirin.
 
      var redis = require("redis");
 
@@ -56,12 +56,12 @@ Merhaba son oluşturur [node_redis](https://github.com/mranney/node_redis) tooAz
     var client = redis.createClient(6380,'<name>.redis.cache.windows.net', {auth_pass: '<key>', tls: {servername: '<name>.redis.cache.windows.net'}});
 
 > [!NOTE]
-> Merhaba SSL olmayan bağlantı noktası yeni Azure Redis önbelleği örnekleri için devre dışı bırakılır. SSL desteği olmayan farklı bir istemci kullanıyorsanız, bkz: [nasıl tooenable hello SSL olmayan bağlantı noktası](cache-configure.md#access-ports).
+> SSL olmayan bağlantı noktası, yeni Azure Redis Cache örnekleri için devre dışıdır. SSL desteği olmayan farklı bir istemci kullanıyorsanız bkz. [SSL olmayan bağlantı noktasını etkinleştirme](cache-configure.md#access-ports).
 > 
 > 
 
-## <a name="add-something-toohello-cache-and-retrieve-it"></a>Bir şey ekleme toohello önbellek ve bunu alma
-Merhaba aşağıdaki tooconnect tooan Azure Redis nasıl örneği, önbellek depolamak ve öğeyi hello önbellekten örnek gösterir. Redis ile Merhaba kullanmanın diğer örnekler için [node_redis](https://github.com/mranney/node_redis) istemci, bkz: [http://redis.js.org/](http://redis.js.org/).
+## <a name="add-something-to-the-cache-and-retrieve-it"></a>Önbelleğe bir şey ekleme ve bunu alma
+Aşağıdaki örnekte, size bir Azure Redis Cache örneğine bağlanma, önbellekte öğe depolama ve önbellekten öğe alma işlemlerinin nasıl yapılacağı gösterilmektedir. Redis’i [node_redis](https://github.com/mranney/node_redis) istemcisiyle kullanmaya ilişkin daha fazla örnek için bkz. [http://redis.js.org/](http://redis.js.org/).
 
      var redis = require("redis");
 
@@ -83,6 +83,6 @@ Merhaba aşağıdaki tooconnect tooan Azure Redis nasıl örneği, önbellek dep
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Önbellek tanılamayı etkinleştirin](cache-how-to-monitor.md#enable-cache-diagnostics) , böylece [İzleyici](cache-how-to-monitor.md) hello önbelleğinizin sistem durumunu.
-* Okuma hello resmi [Redis belgeleri](http://redis.io/documentation).
+* Önbelleğinizin sistem durumunu [izleyebilmeniz](cache-how-to-monitor.md) için [önbellek tanılamayı etkinleştirin](cache-how-to-monitor.md#enable-cache-diagnostics).
+* Resmi [Redis belgeleri](http://redis.io/documentation)ni okuyun.
 

@@ -1,6 +1,6 @@
 ---
-title: aaaHow toouse Fiddler tooevaluate ve Azure Search REST API'lerini test | Microsoft Docs
-description: "Bir yaklaşım Kodsuz tooverifying Azure Search hizmetinin kullanılabilirliğini ve REST API'leri hello çalışırken için fiddler'ı kullanın."
+title: "Azure Search REST API'lerini değerlendirmek ve test etmek için Fiddler'ı kullanma | Microsoft Belgeleri"
+description: "Kod içermeyen bir yaklaşımla Azure Search hizmetinin kullanılabilirliğini doğrulamak ve REST API'leri denemek için Fiddler'ı kullanın."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 10/27/2016
 ms.author: heidist
-ms.openlocfilehash: 2912e1180717d7b40a1e4f7f7f00daf2cc254f0b
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: c38b73fa69bee34ce2434c6274cb017c99ef3c35
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="use-fiddler-tooevaluate-and-test-azure-search-rest-apis"></a>Fiddler tooevaluate kullanın ve Azure Search REST API'lerini test etme
+# <a name="use-fiddler-to-evaluate-and-test-azure-search-rest-apis"></a>Azure Search REST API'lerini değerlendirmek ve test etmek için Fiddler'ı kullanma
 > [!div class="op_single_selector"]
 >
 > * [Genel Bakış](search-query-overview.md)
@@ -31,34 +31,34 @@ ms.lasthandoff: 10/06/2017
 >
 >
 
-Bu makalede açıklanır nasıl toouse Fiddler'ın, bir [telerik'ten ücretsiz indirme](http://www.telerik.com/fiddler), herhangi bir kod toowrite gerek kalmadan hello Azure Search REST API'sini kullanarak tooissue HTTP isteklerini tooand yanıtları görüntüle. Azure Search; Microsoft Azure'da barındırılan, .NET ve REST API'ler aracılığıyla kolayca programlanabilen ve tamamen yönetilen bir bulut arama hizmetidir. Hello Azure Search Hizmeti REST API'leri açıklanmaktadır [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx).
+Bu makale, [Telerik'ten ücretsiz indirme](http://www.telerik.com/fiddler) yoluyla erişilebilen Fiddler'ın, kod yazmaya gerek olmaksızın Azure Search REST API'sini kullanarak HTTP istekleri göndermek ve yanıtları görüntülemek için nasıl kullanıldığını açıklar. Azure Search; Microsoft Azure'da barındırılan, .NET ve REST API'ler aracılığıyla kolayca programlanabilen ve tamamen yönetilen bir bulut arama hizmetidir. Azure Search hizmeti REST API'leri [MSDN](https://msdn.microsoft.com/library/azure/dn798935.aspx)'de açıklanmaktadır.
 
-Aşağıdaki adımları hello dizin oluşturma, belgeleri, sorgu hello dizini ve ardından hizmet bilgisi için sorgu hello sistemi yükleyin.
+Aşağıdaki adımlarda dizin oluşturur, belgeleri karşıya yükler, dizini sorgular ve ardından hizmet bilgisi için sistemi sorgularsınız.
 
-Aşağıdaki adımları toocomplete, Azure Search hizmeti gerekir ve `api-key`. Bkz: [hello portalda Azure Search hizmeti oluşturma](search-create-service-portal.md) tooget nasıl başlatılacağını hakkında yönergeler için.
+Bu adımları tamamlamak için Azure Search hizmeti ve `api-key` gerekir. Kullanmaya başlama hakkında yönergeler için bkz. [Portalda Azure Search hizmeti oluşturma](search-create-service-portal.md).
 
 ## <a name="create-an-index"></a>Dizin oluşturma
-1. Fiddler'ı başlatın. Merhaba üzerinde **dosya** menüsünde kapatmak **trafiği Yakala** ilgisiz toohello geçerli görev toohide yabancı HTTP etkinliğini.
-2. Merhaba üzerinde **Oluşturucu** sekmesinde, aşağıdaki ekran görüntüsü hello gibi görünen bir istek formüle.
+1. Fiddler'ı başlatın. **Dosya** menüsünde, geçerli görevle ilişkisi olmayan yabancı HTTP etkinliğini gizlemek için **Trafiği Yakala**'yı devre dışı bırakın.
+2. **Oluşturucu** sekmesinde, aşağıdaki ekran görüntüsü gibi görünen bir istek düzenleyin.
 
       ![][1]
 3. **PUT**'u seçin.
-4. Hello hizmet URL'si, istek özniteliklerini ve hello api sürümü belirten bir URL girin. Birkaç işaretçileri tookeep unutmayın:
+4. Hizmet URL'sini, istek özniteliklerini ve api sürümünü belirten bir URL girin. Dikkate alınması gereken birkaç işaretçi:
 
-   * HTTPS hello önek olarak kullanın.
-   * İstek özniteliği "indexes/hotels"dir. Bu, "Oteller" adlı bir dizin arama toocreate bildirir.
-   * API sürümü küçük harfle yazılır, "?api-version=2016-09-01" olarak belirtilir. Azure Search düzenli olarak güncelleştirme dağıttığından, API sürümleri önemlidir. Nadir durumlarda, bir hizmet güncelleştirmesi sonu değişiklik toohello API çıkarabilir. Bu nedenle Azure Search, her bir istek için api sürümünü gerekli kılar. Böylece, hangisinin kullanıldığına ilişkin tam denetiminiz olur.
+   * HTTPS'yi önek olarak kullanın.
+   * İstek özniteliği "indexes/hotels"dir. Bu, Search'e "oteller" adlı bir dizin oluşturmasını belirtir.
+   * API sürümü küçük harfle yazılır, "?api-version=2016-09-01" olarak belirtilir. Azure Search düzenli olarak güncelleştirme dağıttığından, API sürümleri önemlidir. Nadir durumlarda, hizmet güncelleştirmesi API'de bozucu bir değişikliğe neden olabilir. Bu nedenle Azure Search, her bir istek için api sürümünü gerekli kılar. Böylece, hangisinin kullanıldığına ilişkin tam denetiminiz olur.
 
-     Merhaba tam URL aşağıdaki örneğine benzer toohello görünmelidir.
+     Tam URL aşağıdaki örneğe benzemelidir.
 
              https://my-app.search.windows.net/indexes/hotels?api-version=2016-09-01
-5. Merhaba konak ve api anahtarını hizmetiniz için geçerli olan değerleri değiştirerek hello istek üstbilgisi belirtin.
+5. Ana bilgisayarı ve api anahtarını hizmetiniz için geçerli olan değerlerle değiştirerek istek üst bilgisini belirtin.
 
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
          api-key: 1111222233334444
-6. İstek gövdesinde hello dizin tanımını oluşturan hello alanları yapıştırın.
+6. İstek Gövdesine dizin tanımını oluşturan alanları yapıştırın.
 
           {
          "name": "hotels",  
@@ -78,26 +78,26 @@ Aşağıdaki adımları toocomplete, Azure Search hizmeti gerekir ve `api-key`. 
          }
 7. **Yürüt**’e tıklayın.
 
-Birkaç saniye içinde HTTP 201 yanıtını hello oturum listesinde görmeniz gerekir, belirten hello Dizin başarıyla oluşturuldu.
+Birkaç saniye içinde, dizinin başarıyla oluşturulduğunu belirten HTTP 201 yanıtını oturum listesinde görmeniz gerekir.
 
-HTTP 504 yanıtı alırsanız HTTPS'yi belirten hello URL'yi doğrulayın. HTTP 400 veya 404 yanıtı görürseniz, onay hello istek gövdesi tooverify var. hatalar hiçbir kopyalayıp yapıştırın. HTTP 403 genelde hello api anahtarını (Geçersiz anahtar veya hello api anahtarını nasıl belirtilen bir söz dizimi sorunu) bir sorun olduğunu gösterir.
+HTTP 504 yanıtı alırsanız HTTPS'yi belirten URL'yi doğrulayın. HTTP 400 veya 404 yanıtı görürseniz kopyala-yapıştır hatası olmadığını doğrulamak için istek gövdesini kontrol edin. HTTP 403 genelde api anahtarı ile ilgili bir sorunu gösterir (geçersiz anahtar veya api anahtarının nasıl belirtildiğine ilişkin söz dizimi sorunu).
 
 ## <a name="load-documents"></a>Belge yükleme
-Merhaba üzerinde **Oluşturucu** sekmesi, istek toopost belgelerinizi hello aşağıdaki gibi görünür. Merhaba hello istek gövdesi 4 otel için arama verilerini hello içerir.
+**Oluşturucu** sekmesinde, belgeleri gönderme isteğiniz aşağıdaki gibi görünür. İstek gövdesi 4 otel için arama verilerini içerir.
 
    ![][2]
 
 1. **POST**'u seçin.
-2. HTTPS ile başlayan, sırasıyla hizmet URL'niz ve "/indexes/<'indexname'>/docs/index?api-version=2016-09-01" ile devam eden bir URL girin. Merhaba tam URL aşağıdaki örneğine benzer toohello görünmelidir.
+2. HTTPS ile başlayan, sırasıyla hizmet URL'niz ve "/indexes/<'indexname'>/docs/index?api-version=2016-09-01" ile devam eden bir URL girin. Tam URL aşağıdaki örneğe benzemelidir.
 
          https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2016-09-01
-3. İstek üstbilgisi olması hello aynı önceki gibi. Hizmetiniz için geçerli değerlerle hello konak ve api anahtarını yerini unutmayın.
+3. İstek Üst Bilgisi önceki ile aynı olmalıdır. Ana bilgisayarı ve api anahtarını hizmetiniz için geçerli olan değerlerle değiştirdiğinizi unutmayın.
 
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
          api-key: 1111222233334444
-4. Merhaba iste gövde dört belgeleri toobe eklenen toohello hotels dizini içerir.
+4. İstek Gövdesi, oteller dizinine eklenecek dört belge içerir.
 
          {
          "value": [
@@ -147,7 +147,7 @@ Merhaba üzerinde **Oluşturucu** sekmesi, istek toopost belgelerinizi hello aş
              "@search.action": "upload",
              "hotelId": "4",
              "baseRate": 220.00,
-             "description": "This could be hello one",
+             "description": "This could be the one",
              "hotelName": "A Hotel for Everyone",
              "category": "Basic hotel",
              "tags": ["pool", "wifi"],
@@ -161,31 +161,31 @@ Merhaba üzerinde **Oluşturucu** sekmesi, istek toopost belgelerinizi hello aş
          }
 5. **Yürüt**’e tıklayın.
 
-Birkaç saniye içinde bir hello oturum listesinde HTTP 200 yanıtı görmeniz gerekir. Bu, belgelerin başarıyla oluşturulduğunu hello gösterir. 207 yanıtı alırsanız en az bir belge tooupload başarısız oldu. 404 yanıtı alırsanız, hello üstbilgi veya hello istek gövdesi bir sözdizimi hatası var.
+Birkaç saniye içinde, oturum listesinde bir HTTP 200 yanıtı görmeniz gerekir. Bu, belgelerin başarıyla oluşturulduğunu belirtir. 207 yanıtı alırsanız en az bir belge karşıya yüklenemedi. 404 yanıtı alırsanız üst bilgi veya istek gövdesinde söz dizimi hatanız var.
 
-## <a name="query-hello-index"></a>Sorgu hello dizini
-Şimdi dizin ve belgeler karşıya yüklendiğine göre, bunlara sorgu gönderebilirsiniz.  Merhaba üzerinde **Oluşturucu** sekmesinde bir **almak** hizmetinizi sorgulayan komutu aşağıdaki ekran görüntüsü benzer toohello görünür.
+## <a name="query-the-index"></a>Dizini sorgulama
+Şimdi dizin ve belgeler karşıya yüklendiğine göre, bunlara sorgu gönderebilirsiniz.  **Oluşturucu** sekmesinde, hizmetinizi sorgulayan **GET** komutu aşağıdaki ekran görüntüsüne benzer görünür.
 
    ![][3]
 
 1. **GET**'i seçin.
-2. HTTPS ile başlayan, sırasıyla hizmet URL'niz, "/indexes/<'indexname'>/docs?" ve sorgu parametreleri ile devam eden bir URL girin. Örnek olarak, URL aşağıdaki, hizmetiniz için geçerli olan bir hello örnek ana bilgisayar adı yerine hello kullanın.
+2. HTTPS ile başlayan, sırasıyla hizmet URL'niz, "/indexes/<'indexname'>/docs?" ve sorgu parametreleri ile devam eden bir URL girin. Örnek olarak, örnek ana bilgisayar adını hizmetiniz için geçerli olan bir tane ile değiştirerek aşağıdaki URL'yi kullanın.
 
          https://my-app.search.windows.net/indexes/hotels/docs?search=motel&facet=category&facet=rating,values:1|2|3|4|5&api-version=2016-09-01
 
-   Bu sorgu "motel" Merhaba terimini arar ve derecelendirmeler için model kategorileri alır.
-3. İstek üstbilgisi olması hello aynı önceki gibi. Hizmetiniz için geçerli değerlerle hello konak ve api anahtarını yerini unutmayın.
+   Bu sorgu "motel" terimini arar ve derecelendirmeler için model kategorileri alır.
+3. İstek Üst Bilgisi önceki ile aynı olmalıdır. Ana bilgisayarı ve api anahtarını hizmetiniz için geçerli olan değerlerle değiştirdiğinizi unutmayın.
 
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
          api-key: 1111222233334444
 
-Merhaba yanıt kodu 200 olmalıdır ve hello yanıt çıkışı aşağıdaki ekran görüntüsü benzer toohello görünmelidir.
+Yanıt kodu 200 olmalıdır ve yanıt çıkışı aşağıdaki ekran görüntüsüne benzer görünmelidir.
 
    ![][4]
 
-Merhaba aşağıdaki örnek sorgu olan hello [Search dizin işlemi (Azure Search API)](http://msdn.microsoft.com/library/dn798927.aspx) konusuna bakın. Bu konudaki hello örnek sorguları çoğunu Fiddler'da izin verilmeyen boşluklar içerir. Her alanı ile + karakteri hello yapıştırarak sorgu önce dize hello fiddler'da sorguyu denemeden önce değiştirin.
+Aşağıdaki örnek sorgu MSDN'de [Search Dizin işlemi (Azure Search API)](http://msdn.microsoft.com/library/dn798927.aspx) içinde yer alır. Bu konu başlığındaki örnek sorguların çoğu, Fiddler'da izin verilmeyen boşluklar içerir. Sorgu dizesini yapıştırmadan ve Fiddler'da sorguyu denemeden önce, her bir boşluğu + karakteri ile değiştirin.
 
 **Boşluklar değiştirilmeden önce:**
 
@@ -195,8 +195,8 @@ Merhaba aşağıdaki örnek sorgu olan hello [Search dizin işlemi (Azure Search
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2016-09-01
 
-## <a name="query-hello-system"></a>Sorgu hello sistemi
-Sayıları ve depolama hello sistem tooget belge kullanımı da sorgulayabilirsiniz. Merhaba üzerinde **Oluşturucu** sekmesinde isteğiniz benzer toohello aşağıdaki görünür ve hello yanıt Merhaba, belge sayısı ve kullanılan alan için bir sayı döndürür.
+## <a name="query-the-system"></a>Sistemi sorgulama
+Ayrıca, belge sayısını ve depolama tüketimini almak için sistemi sorgulayabilirsiniz. **Oluşturucu** sekmesinde isteğiniz aşağıdakine benzer görünür ve yanıt, belge sayısı ve kullanılan alan için bir sayı döndürür.
 
  ![][5]
 
@@ -204,18 +204,18 @@ Sayıları ve depolama hello sistem tooget belge kullanımı da sorgulayabilirsi
 2. Hizmet URL'nizi içeren ve ardından "/indexes/hotels/stats?api-version=2016-09-01" ile devam eden bir URL girin:
 
          https://my-app.search.windows.net/indexes/hotels/stats?api-version=2016-09-01
-3. Merhaba konak ve api anahtarını hizmetiniz için geçerli olan değerleri değiştirerek hello istek üstbilgisi belirtin.
+3. Ana bilgisayarı ve api anahtarını hizmetiniz için geçerli olan değerlerle değiştirerek istek üst bilgisini belirtin.
 
          User-Agent: Fiddler
          host: my-app.search.windows.net
          content-type: application/json
          api-key: 1111222233334444
-4. Merhaba istek gövdesini boş bırakın.
-5. **Yürüt**’e tıklayın. Bir HTTP 200 durum kodu hello oturum listesinde görmeniz gerekir. Komutunuz için gönderilen hello girişi seçin.
-6. Merhaba tıklatın **denetçiler** sekmesini ve ardından hello **üstbilgileri** sekmesini ve ardından hello JSON biçimi. Merhaba belge sayısını ve depolama boyutu (KB) görmeniz gerekir.
+4. İstek gövdesini boş bırakın.
+5. **Yürüt**'e tıklayın. Oturum listesinde HTTP 200 durum kodu görmeniz gerekir. Komutunuz için gönderilen girişi seçin.
+6. **Denetçiler** sekmesine tıklayın, **Üst Bilgiler** sekmesine tıklayın ve ardından JSON biçimini seçin. Belge sayısını ve depolama boyutunu (KB) görmeniz gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bkz: [azure'da Search hizmetinizi yönetme](search-manage.md) kod içermeyen bir yaklaşım toomanaging ve Azure Search kullanma.
+Azure Search hizmetini kod içermeyen bir yaklaşımla yönetmek ve kullanmak için bkz. [Azure'da Search hizmetinizi yönetme](search-manage.md).
 
 <!--Image References-->
 [1]: ./media/search-fiddler/AzureSearch_Fiddler1_PutIndex.png

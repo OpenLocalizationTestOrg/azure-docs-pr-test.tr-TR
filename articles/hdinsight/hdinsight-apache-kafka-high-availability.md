@@ -1,6 +1,6 @@
 ---
-title: "Apache Kafka - Azure Hdınsight ile aaaHigh kullanılabilirliğini | Microsoft Docs"
-description: "Bilgi nasıl tooensure yüksek kullanılabilirlik ile Azure hdınsight'ta Apache Kafka. Nasıl toorebalance bölüm kopyalarını Kafka böylece Hdınsight içeren Azure bölgesi hello farklı hata etki alanlarını üzerinde olduğu hakkında bilgi edinin."
+title: "Apache Kafka - Azure HDInsight ile yüksek kullanılabilirlik | Microsoft Docs"
+description: "Azure HDInsight’ta Apache Kafka ile nasıl yüksek kullanılabilirlik sağlayacağınız hakkında bilgi edinin. HDInsight içeren Azure bölgesindeki farklı hata etki alanlarında olmaları için bölüm çoğaltmalarını Kafka’da yeniden dengeleme hakkında bilgi edinin."
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -12,30 +12,30 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/26/2017
+ms.date: 09/20/2017
 ms.author: larryfr
-ms.openlocfilehash: 337468f36b531f83c2999e87907de89cf3d19dd4
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 3edec2e68356604562af2219ccd498732c564ec5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-preview-on-hdinsight"></a>HDInsight’ta Apache Kafka (önizleme) ile verilerinizin yüksek kullanılabilirliği
 
-Temel alınan donanım Kafka konuları tootake avantajlarından tooconfigure çoğaltmalarını yapılandırma nasıl raf öğrenin. Bu yapılandırma, Hdınsight üzerinde Apache Kafka depolanan verileri hello kullanılabilirliğini sağlar.
+Temel donanım rafı yapılandırmasından yararlanmak üzere Kafka için bölüm çoğaltmalarını nasıl yapılandıracağınız hakkında bilgi edinin. Bu yapılandırma, HDInsight’taki Apache Kafka’da depolanmış verilerin kullanılabilir olmasını sağlar.
 
 ## <a name="fault-and-update-domains-with-kafka"></a>Kafka ile hata ve güncelleme etki alanları
 
-Hata etki alanı, bir Azure veri merkezinde temel donanımlardan oluşan mantıksal bir gruplandırmadır. Her hata etki alanı ortak bir güç kaynağı ve ağ anahtarına sahiptir. Bu hata etki alanlarında Hello sanal makineler ve Hdınsight kümesi içinde hello düğümleri uygulamak yönetilen diskleri dağıtılır. Bu mimari, fiziksel donanım hatalarının olası etkisini hello sınırlar.
+Hata etki alanı, bir Azure veri merkezinde temel donanımlardan oluşan mantıksal bir gruplandırmadır. Her hata etki alanı ortak bir güç kaynağı ve ağ anahtarına sahiptir. Bir HDInsight kümesi içindeki düğümleri uygulayan sanal makineler ve yönetilen diskler, bu hata etki alanlarına dağıtılır. Bu mimari, fiziksel donanım hatalarının olası etkisini sınırlar.
 
-Her Azure bölgesinde belirli sayıda hata etki alanı bulunur. Merhaba etki alanları ve içerdikleri hata etki alanı hello sayısı listesi için bkz [kullanılabilirlik kümeleri](../virtual-machines/linux/regions-and-availability.md#availability-sets) belgeleri.
+Her Azure bölgesinde belirli sayıda hata etki alanı bulunur. Etki alanlarının ve içerdikleri hata etki alanı sayısının listesi için [Kullanılabilirlik kümeleri](../virtual-machines/linux/regions-and-availability.md#availability-sets) belgelerine bakın.
 
 > [!IMPORTANT]
-> Kafka, hata etki alanları ile uyumlu değildir. Kafka bir konu oluşturduğunuzda, tüm çoğaltmalarını hello depolayabilir aynı hata etki alanı. toosolve hello sağladığımız Bu sorun [Kafka bölüm yeniden dengeleyin aracını](https://github.com/hdinsight/hdinsight-kafka-tools).
+> Kafka, hata etki alanları ile uyumlu değildir. Kafka’da bir konu oluşturduğunuzda, tüm bölüm çoğaltmaları aynı hata etki alanında depolanabilir. Bu sorunu çözmek için [Kafka bölüm yeniden dengeleme aracını](https://github.com/hdinsight/hdinsight-kafka-tools) kullanıma sunuyoruz.
 
-## <a name="when-toorebalance-partition-replicas"></a>Ne zaman toorebalance bölüm çoğaltmaları
+## <a name="when-to-rebalance-partition-replicas"></a>Bölüm çoğaltmaları ne zaman yeniden dengelenmelidir?
 
-Kafka verilerinizin tooensure hello yüksek kullanılabilirlik, size hello çoğaltmalarını Konunuzu kez hello adresindeki için yeniden dengelemeniz gerekir:
+Kafka verilerinizin en yüksek kullanılabilirliğe sahip olmasını istiyorsanız, konu başlığınız için bölüm çoğaltmalarını aşağıdaki durumlarda yeniden dengelemeniz gerekir:
 
 * Yeni bir konu veya bölüm oluşturulduğunda
 
@@ -46,15 +46,15 @@ Kafka verilerinizin tooensure hello yüksek kullanılabilirlik, size hello çoğ
 > [!IMPORTANT]
 > Üç hata etki alanı içeren ve çoğaltma faktörü 3 olan bir Azure bölgesi kullanmanız önerilir.
 
-Yalnızca iki hata etki alanları içeren bir bölge kullanmanız gerekiyorsa, bir çoğaltma faktörü 4 toospread hello çoğaltmalarının hello iki hata etki alanları arasında eşit olarak kullanın.
+Yalnızca iki hata etki alanı içeren bir bölge kullanmanız gerekiyorsa, çoğaltmaları iki hata etki alanına eşit oranda yaymak için çoğaltma faktörü olarak 4 kullanın.
 
-Hello konuları ve ayarı hello çoğaltma faktörü oluşturma örneği için bkz: [hdınsight'ta Kafka başlayarak](hdinsight-apache-kafka-get-started.md) belge.
+Konu oluşturma ve çoğaltma faktörü ayarlama örneği için [HDInsight’ta Kafka kullanmaya başlama](hdinsight-apache-kafka-get-started.md) belgesine bakın.
 
-## <a name="how-toorebalance-partition-replicas"></a>Nasıl toorebalance bölüm çoğaltmaları
+## <a name="how-to-rebalance-partition-replicas"></a>Bölüm çoğaltmalarını yeniden dengeleme
 
-Kullanım hello [Kafka bölüm yeniden dengeleyin aracını](https://github.com/hdinsight/hdinsight-kafka-tools) toorebalance Seçili konular. Bu aracı gerekir olması çalıştırdım bir SSH oturumu toohello baş düğümünden Kafka kümenizin.
+Seçili konuları yeniden dengelemek için [Kafka bölüm yeniden dengeleme aracını](https://github.com/hdinsight/hdinsight-kafka-tools) kullanın. Bu araç bir SSH oturumundan Kafka kümenizin baş düğümüne doğru çalıştırılmalıdır.
 
-SSH kullanarak tooHDInsight bağlama hakkında daha fazla bilgi için bkz: [Hdınsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md) belge.
+SSH kullanarak HDInsight’a bağlanma hakkında daha fazla bilgi için [HDInsight ile SSH’yi kullanma](hdinsight-hadoop-linux-use-ssh-unix.md) belgesine bakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

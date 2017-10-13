@@ -1,10 +1,10 @@
 
 
 
-Oracle görüntülerinde toocreate sanal makineyi toohello içinde oturum [Azure portal](https://portal.azure.com/), tıklatın **Market**, tıklatın **işlem**ve ardından yazın **Oracle**  hello arama kutusuna. Bir görüntü seçin ve Microsoft Azure'da hello yönergeleri tooset hello resim yukarı izleyin. Microsoft tarafından hello üzerinde Oracle görüntüleri Not [Azure portal](https://portal.azure.com/) Windows üzerinde çalışan ve Oracle görüntüleri Oracle tarafından Oracle Linux üzerinde çalıştırın.
+Oracle görüntülerini temel alan sanal makineler oluşturmak için [Azure portalında](https://portal.azure.com/) oturum açın, **Market**’e tıklayın, **İşlem**’e tıklayın ve Arama kutusuna **Oracle** yazın. Bir görüntü seçin ve yönergeleri izleyerek Microsoft Azure’da görüntüyü ayarlayın. [Azure portalında](https://portal.azure.com/) Microsoft tarafından sağlanan Oracle görüntülerinin Windows’da, Oracle tarafından sağlanan Oracle görüntülerinin ise Oracle Linux’ta çalıştığını unutmayın.
 
 ## <a name="windows-based-virtual-machine-images"></a>Windows tabanlı sanal makine görüntüleri
-Merhaba, Azure Windows Server'da çalışan hello kullanılabilir Oracle sanal makine görüntülerini listesi aşağıdadır. Bu görüntüleri ücretleri bu görüntülerin hello kullanımı dahil edilen Oracle lisans anlamı Kullandıkça Öde ' dir. Microsoft artık Azure Market’te Oracle Database veya WebLogic Görüntüleri yayımlamıyor.  Hala kendi özel görüntünüzü oluşturabilir ve sipariş toorun Oracle yazılım Microsoft azure'da hello kendi lisansını Getir modeli kullanın. 
+Aşağıda, Azure üzerinde Windows Server’da çalışan kullanılabilir Oracle sanal makine görüntülerinin listesi verilmiştir. Bu görüntüler kullandıkça öde modelindedir, yani görüntülerin kullanımına Oracle lisans ücretleri dahildir. Microsoft artık Azure Market’te Oracle Database veya WebLogic Görüntüleri yayımlamıyor.  Yine de Microsoft Azure’da Oracle yazılımı çalıştırmak için kendi özel görüntünüzü oluşturabilir ve Kendi Lisansını Getir modelini kullanabilirsiniz. 
 
 ### <a name="java-virtual-machine-images"></a>Java sanal makine görüntüleri
 * Windows Server 2012 R2’de JDK 8
@@ -12,7 +12,7 @@ Merhaba, Azure Windows Server'da çalışan hello kullanılabilir Oracle sanal m
 * Windows Server 2012’de JDK 6
 
 ## <a name="oracle-linux-virtual-machine-images"></a>Oracle Linux sanal makine görüntüleri
-Merhaba, Oracle Linux Azure üzerinde çalışan hello kullanılabilir önceden yapılandırılmış Oracle sanal makine görüntülerini listesi verilmiştir. Bu görüntü, Oracle lisans ücretleri olarak kendi lisansını bunların hello kullanımı dahil edilmeyen toobring önceden yapılandırılmış sanal makine görüntülerini beklenir. Ayrıca, kendi lisans tooinstall Getir ve Oracle yazılımı Windows veya Linux'ta özel sanal makinelerde çalıştırabilir. Buradan [Azure’da Oracle lisanslaması](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support) ile ilgili tüm ayrıntılara ulaşabilirsiniz. Burada da [kendi görüntülerinizi](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) kullanarak sanal makine oluşturmaya ilişkin ayrıntıları bulabilirsiniz.
+Aşağıda, Azure üzerinde Oracle Linux’ta çalışan kullanılabilir, önceden yapılandırılmış Oracle sanal makine görüntülerinin listesi verilmiştir. Bu önceden yapılandırılmış sanal makine görüntülerinin kullanımına Oracle lisans ücretleri dahil olmadığından, bu görüntüler için kendi lisansınızı getirmeniz beklenir. Ayrıca, Windows veya Linux’taki özel sanal makinelerde Oracle yazılımları yüklemek ve çalıştırmak için de kendi lisansınızı getirebilirsiniz. Buradan [Azure’da Oracle lisanslaması](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html#support) ile ilgili tüm ayrıntılara ulaşabilirsiniz. Burada da [kendi görüntülerinizi](../articles/virtual-machines/windows/classic/createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) kullanarak sanal makine oluşturmaya ilişkin ayrıntıları bulabilirsiniz.
 
 * Oracle Linux’ta Oracle Database 12c Enterprise Edition
 * Oracle Linux’ta Oracle Database 12c Standard Edition

@@ -1,6 +1,6 @@
 ---
 title: "Azure portal: SQL Database coğrafi çoğaltma | Microsoft Docs"
-description: "Coğrafi çoğaltma hello Azure portal ve başlatma yük devretme Azure SQL veritabanı için yapılandırma"
+description: "Azure portalı ve başlatma yük devretme Azure SQL veritabanı için coğrafi çoğaltma yapılandırma"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -15,85 +15,85 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/06/2016
 ms.author: carlrab
-ms.openlocfilehash: 09cbbdb040f36c42593e3be87ce6db2238f36656
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: db90fad2fe397f0c8466db6bdc1bd8c8d1cf8f15
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="configure-active-geo-replication-for-azure-sql-database-in-hello-azure-portal-and-initiate-failover"></a>Aktif coğrafi çoğaltma hello Azure portal ve başlatma yük devretme Azure SQL veritabanı için yapılandırma
+# <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Aktif coğrafi çoğaltma Azure portal ve başlatma yük devretme Azure SQL veritabanı için yapılandırma
 
-Bu makale size nasıl gösterir tooconfigure aktif coğrafi çoğaltma SQL veritabanı için hello içinde [Azure portal](http://portal.azure.com) ve tooinitiate yük devretme.
+Bu makalede, SQL veritabanında için etkin coğrafi çoğaltma yapılandırma gösterilmektedir [Azure portal](http://portal.azure.com) ve yük devretme başlatın.
 
-hello Azure portal ile tooinitiate yük devretme bkz [planlanmış veya planlanmamış bir yük devretme hello Azure portal ile Azure SQL veritabanı için başlatmak](sql-database-geo-replication-portal.md).
+Azure portal ile yük devretme başlatmak için bkz: [planlanmış veya planlanmamış bir yük devretme, Azure portalı ile Azure SQL veritabanı için başlatmak](sql-database-geo-replication-portal.md).
 
-tooconfigure aktif coğrafi hello Azure portal kullanarak çoğaltma, kaynak aşağıdaki hello gerekir:
+Aktif coğrafi çoğaltma Azure portalını kullanarak yapılandırmak için aşağıdaki kaynak gerekir:
 
-* Azure SQL veritabanını: hello birincil veritabanı tooreplicate tooa farklı coğrafi bölge istiyor.
+* Azure SQL veritabanını: farklı bir coğrafi bölgeye çoğaltmak istediğiniz birincil veritabanı.
 
 > [!Note]
-Aktif coğrafi çoğaltma hello veritabanları arasında olmalıdır aynı abonelik.
+Aktif coğrafi çoğaltma veritabanları aynı abonelikte arasında olmalıdır.
 
 ## <a name="add-a-secondary-database"></a>İkincil bir veritabanı ekleyin
-Merhaba aşağıdaki adımları yeni bir ikincil veritabanı bir coğrafi çoğaltma ortaklığı oluşturun.  
+Aşağıdaki adımlar bir coğrafi çoğaltma ortaklığı yeni ikincil bir veritabanı oluşturun.  
 
-ikincil bir veritabanı tooadd hello abonelik sahibi veya ortak sahibi olmanız gerekir.
+İkincil bir veritabanı eklemek için abonelik sahibi veya ortak sahibi olmalıdır.
 
-Merhaba ikincil veritabanı aynı hello birincil veritabanı olarak ad hello sahiptir ve varsa varsayılan olarak, hello aynı hizmet düzeyi. Merhaba ikincil veritabanı tek bir veritabanı veya veritabanı esnek havuzdaki olabilir. Daha fazla bilgi için bkz: [hizmet katmanları](sql-database-service-tiers.md).
-Merhaba ikincil oluşturulan ve dağıtılan sonra veri hello birincil veritabanı toohello yeni ikincil veritabanından çoğaltmaya başlar.
+İkincil veritabanını birincil veritabanı ile aynı ada ve varsayılan olarak, aynı hizmet düzeyinde sahiptir. İkincil veritabanı tek bir veritabanı veya veritabanı esnek havuzdaki olabilir. Daha fazla bilgi için bkz: [hizmet katmanları](sql-database-service-tiers.md).
+İkincil oluşturulan ve dağıtılan sonra verileri yeni ikincil veritabanına birincil veritabanından çoğaltmaya başlar.
 
 > [!NOTE]
-> (Örneğin, bir önceki coğrafi çoğaltma ilişkisi sonlandırma sonucunda) Hello ortak veritabanı zaten var. hello komutu başarısız olur.
+> (Örneğin, bir önceki coğrafi çoğaltma ilişkisi sonlandırma sonucunda) ortak veritabanı zaten var. komutu başarısız olur.
 > 
 
-1. Merhaba, [Azure portal](http://portal.azure.com), tooset coğrafi çoğaltma için istediğiniz toohello veritabanı göz atın.
-2. Merhaba SQL veritabanı sayfasında seçin **coğrafi çoğaltma**, sonra hello bölge toocreate hello ikincil veritabanını seçin. Merhaba birincil veritabanı barındırma hello bölgesi dışında herhangi bir bölgeyi seçebilirsiniz, ancak hello öneririz [eşleştirilmiş bölge](../best-practices-availability-paired-regions.md).
+1. İçinde [Azure portal](http://portal.azure.com), coğrafi çoğaltma için ayarlamak istediğiniz veritabanına gözatın.
+2. SQL veritabanı sayfasında seçin **coğrafi çoğaltma**ve ardından ikincil veritabanını oluşturmak için bölge seçin. Birincil veritabanını barındıran bölgesi dışında herhangi bir bölgeyi seçebilirsiniz, ancak öneririz [eşleştirilmiş bölge](../best-practices-availability-paired-regions.md).
    
     ![Coğrafi çoğaltmayı yapılandırma](./media/sql-database-geo-replication-portal/configure-geo-replication.png)
-3. Seçin veya hello sunucuyu ve fiyatlandırma katmanı hello ikincil veritabanı için yapılandırın.
+3. Seçin veya sunucuyu ve fiyatlandırma katmanı ikincil veritabanı için yapılandırın.
    
     ![İkincil yapılandırın](./media/sql-database-geo-replication-portal/create-secondary.png)
-4. İsteğe bağlı olarak, ikincil veritabanı tooan esnek havuz ekleyebilirsiniz. bir havuzdaki toocreate hello ikincil veritabanını tıklatın **esnek havuz** ve hello hedef sunucu üzerindeki bir havuz seçin. Bir havuzu hello hedef sunucuda zaten mevcut olmalıdır. Bu iş akışı bir havuzu oluşturmaz.
-5. Tıklatın **oluşturma** tooadd hello ikincil.
-6. Merhaba ikincil veritabanı oluşturulur ve işlem dengeli hello başlar.
+4. İsteğe bağlı olarak, ikincil bir veritabanını bir esnek havuz ekleyebilirsiniz. Bir havuzda ikincil veritabanını oluşturmak için tıklatın **esnek havuz** ve hedef sunucudaki bir havuz seçin. Bir havuzu hedef sunucuda zaten mevcut olmalıdır. Bu iş akışı bir havuzu oluşturmaz.
+5. Tıklatın **oluşturma** ikincil kopya eklemek için.
+6. İkincil veritabanı oluşturulur ve dengeli dağıtım işlemi başlar.
    
     ![İkincil yapılandırın](./media/sql-database-geo-replication-portal/seeding0.png)
-7. İşlem dengeli hello tamamlandığında hello ikincil veritabanı durumunu görüntüler.
+7. Dengeli dağıtım işlemi tamamlandığında, ikincil veritabanı durumunu görüntüler.
    
     ![Tam üretme](./media/sql-database-geo-replication-portal/seeding-complete.png)
 
 ## <a name="initiate-a-failover"></a>Bir yük devretme başlatın
 
-Merhaba ikincil veritabanının birincil anahtarlı toobecome hello olabilir.  
+İkincil veritabanının birincil olmasını değiştirilebilir.  
 
-1. Merhaba, [Azure portal](http://portal.azure.com), birincil veritabanı hello coğrafi çoğaltma ortaklığı toohello göz atın.
-2. Merhaba SQL veritabanı dikey penceresinde, seçin **tüm ayarları** > **coğrafi çoğaltma**.
-3. Merhaba, **İKİNCİLLER** listesi, toobecome istediğiniz select hello veritabanı hello yeni birincil ve tıklayın **yük devretme**.
+1. İçinde [Azure portal](http://portal.azure.com), coğrafi çoğaltma ortaklığı birincil veritabanında konumuna göz atın.
+2. SQL veritabanı dikey seçin **tüm ayarları** > **coğrafi çoğaltma**.
+3. İçinde **İKİNCİLLER** listesinde, yeni birincil hale tıklatıp istediğiniz veritabanını seçin **yük devretme**.
    
     ![Yük devretme](./media/sql-database-geo-replication-failover-portal/secondaries.png)
-4. Tıklatın **Evet** toobegin hello yük devretme.
+4. Tıklatın **Evet** yük devretmeyi başlatmak için.
 
-Merhaba komutu hello ikincil veritabanı hello birincil rolünde hemen geçer. 
+Komut, ikincil veritabanı birincil rolde hemen geçirir. 
 
-Merhaba rolleri geçiş sırasında hangi sırasında her iki veritabanı (Merhaba 0 too25 saniye üzerinde sırasını) kullanılamaz kısa bir süre yoktur. Birden fazla ikincil veritabanları, hello komutu Hello birincil veritabanı otomatik olarak varsa, yeniden yapılandırır diğer ikincil tooconnect toohello yeni birincil hello. Merhaba tüm işlemi normal koşullarda dakika toocomplete değerinden almanız gerekir. 
+Rolleri geçiş sırasında hangi sırasında her iki veritabanı (0-25 saniye terabayt) kullanılamaz kısa bir süre yoktur. Birincil veritabanında birden fazla ikincil veritabanı varsa, komut yeni birincil bağlanmak için diğer ikincil kopya otomatik olarak yeniden yapılandırır. Tüm işlemi normal koşullarda tamamlanması bir dakikadan az zamanınızı. 
 
 > [!NOTE]
-> Bu komut, bir kesinti durumunda hello veritabanının Hızlı Kurtarma için tasarlanmıştır. Yük devretme (yük devretme zorlanır) veri eşitleme tetikler.  Varsa Hello birincil çevrimiçi olduğunu ve bazı veri kaybı hello komut verildiğinde işlem yürüten ortaya çıkabilir. 
+> Bu komut, bir kesinti durumunda veritabanının Hızlı Kurtarma için tasarlanmıştır. Yük devretme (yük devretme zorlanır) veri eşitleme tetikler.  Varsa birincil çevrimiçi olduğunu ve bazı veri kaybı komutu verildiğinde işlem yürüten ortaya çıkabilir. 
 > 
 > 
 
 ## <a name="remove-secondary-database"></a>İkincil veritabanını Kaldır
-Bu işlem kalıcı olarak hello çoğaltma toohello ikincil veritabanı sonlandırır ve değişiklikleri hello ikincil tooa normal okuma-yazma veritabanının rolü hello. Merhaba bağlantı toohello ikincil veritabanının bozuk olması durumunda, hello komutu başarılı olur, ancak bağlantı geri yüklendikten sonra ikincil mu değil duruma okuma-yazma kadar hello.  
+Bu işlem kalıcı olarak ikincil veritabanı için çoğaltma sonlandırır ve normal bir okuma-yazma veritabanı rolü ikincil değiştirir. İkincil veritabanı bağlantısını bozuksa, komut başarılı olur, ancak ikincil mu bağlantı kadar sonra okuma-yazma olmayan bir duruma geri yüklenir.  
 
-1. Merhaba, [Azure portal](http://portal.azure.com), birincil veritabanı hello coğrafi çoğaltma ortaklığı toohello göz atın.
-2. Merhaba SQL veritabanı sayfasında seçin **coğrafi çoğaltma**.
-3. Merhaba, **İKİNCİLLER** listesi, hello coğrafi çoğaltma ortaklığı gelen tooremove istediğiniz select hello veritabanı.
+1. İçinde [Azure portal](http://portal.azure.com), coğrafi çoğaltma ortaklığı birincil veritabanında konumuna göz atın.
+2. SQL veritabanı sayfasında seçin **coğrafi çoğaltma**.
+3. İçinde **İKİNCİLLER** listesinde, coğrafi çoğaltma ortaklığı kaldırmak istediğiniz veritabanını seçin.
 4. Tıklatın **çoğaltmayı durdurma**.
    
     ![İkincil Kaldır](./media/sql-database-geo-replication-portal/remove-secondary.png)
-5. Bir onay penceresi açılır. Tıklatın **Evet** tooremove hello hello coğrafi çoğaltma ortaklığı veritabanından. (Tooa okuma-yazma veritabanı tüm çoğaltma'nın parçası olmayan ayarlayın.)
+5. Bir onay penceresi açılır. Tıklatın **Evet** coğrafi çoğaltma ortaklığı veritabanını kaldırmak için. (Bu bir okuma-yazma veritabanına herhangi çoğaltma'nın parçası olmayan ayarlanır.)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Aktif coğrafi çoğaltma hakkında daha fazla toolearn bkz [aktif coğrafi çoğaltma](sql-database-geo-replication-overview.md).
+* Aktif coğrafi çoğaltma hakkında daha fazla bilgi için bkz: [aktif coğrafi çoğaltma](sql-database-geo-replication-overview.md).
 * İş sürekliliğine genel bakış ve senaryolar için bkz: [iş sürekliliğine genel bakış](sql-database-business-continuity.md).
 

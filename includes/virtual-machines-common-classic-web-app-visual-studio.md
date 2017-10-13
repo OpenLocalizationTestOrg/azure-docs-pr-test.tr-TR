@@ -1,41 +1,41 @@
 
 
-Azure için web uygulaması projesi oluşturduğunuzda, azure'da sanal makine sağlayabilirsiniz. Ek yazılım ile Merhaba sanal makine yapılandırma veya hello sanal makine hata ayıklama veya tanılama amaçları için kullanın.
+Azure için web uygulaması projesi oluşturduğunuzda, azure'da sanal makine sağlayabilirsiniz. Sanal makine ile ek yazılım yapılandırma veya sanal makine hata ayıklama veya tanılama amaçları için kullanın.
 
-toocreate bir web uygulaması oluşturduğunuzda, bir sanal makineye aşağıdaki adımları izleyin:
+Bir web uygulaması oluşturduğunuzda, bir sanal makine oluşturmak için aşağıdaki adımları izleyin:
 
-1. Visual Studio'da sırasıyla **dosya** > **yeni** > **proje** > **Web**ve ardından seçin **ASP.NET Web uygulaması** (Merhaba altında **Visual C#** veya **Visual Basic** düğümler).
-2. Merhaba, **yeni ASP.NET projesi** iletişim kutusu, select hello türü ve hello Azure hello iletişim kutusunda (Merhaba sağ alt köşedeki) bölümünde, o hello emin olun, web uygulamasının **hellobuluttakikonağa**onay kutusu seçilidir (Bu onay kutusunu etiketli **uzak kaynaklar Oluştur** bazı yüklemeler içinde).
+1. Visual Studio'da sırasıyla **dosya** > **yeni** > **proje** > **Web**ve ardından seçin **ASP.NET Web uygulaması** (altında **Visual C#** veya **Visual Basic** düğümler).
+2. İçinde **yeni ASP.NET projesi** iletişim kutusunda, istediğiniz web uygulamasının türü seçin ve iletişim kutusunda (sağ alt köşedeki) Azure bölümünde olduğundan emin olun **bulutta Barındır** onay kutusu Seçili (Bu onay kutusunu etiketli **uzak kaynaklar Oluştur** bazı yüklemeler içinde).
    
     ![][0]
-3. Bu örneğin Microsoft Azure altında hello aşağı açılan listesinde seçin **sanal makine (v1)**ve ardından hello **Tamam** düğmesi.
-4. İstenirse tooAzure oturum açın. Merhaba **sanal makine oluşturma** iletişim kutusu görüntülenir.
+3. Bu örneğin Microsoft Azure altında aşağı açılan listesinde seçin **sanal makine (v1)**ve ardından **Tamam** düğmesi.
+4. İstenirse Azure oturumu açın. **Sanal makine oluşturma** iletişim kutusu görüntülenir.
    
     ![][2]
-5. Merhaba, **DNS adı** kutusuna, hello sanal makine için bir ad girin. Merhaba DNS adının Azure'da benzersiz olması gerekir. Girdiğiniz hello adı yoksa, kırmızı bir ünlem işareti görüntülenir.
-6. Merhaba, **görüntü** listesinde, toobase hello sanal makine üzerinde hello görüntü seçin. Merhaba standart Azure sanal makine görüntülerini veya görüntünüzü tooAzure yüklediğiniz herhangi birini seçebilirsiniz.
-7. Merhaba bırakın **IIS etkinleştirmek ve Web dağıtımı** tooinstall farklı bir web sunucusuna planlamıyorsanız onay kutusu. Web dağıtımı devre dışı bırakırsanız Visual Studio'dan mümkün toopublish olmayacaktır. Paketlenmiş hello Windows Server görüntülerinin, kendi özel görüntülerinizi de dahil olmak üzere, IIS ve Web dağıtımı tooany ekleyebilirsiniz.
-8. Merhaba, **boyutu** listesinde, hello hello sanal makine boyutunu seçin.
-9. Merhaba oturum açma kimlik bilgilerini bu sanal makine belirtin. Bunları Not, bunları gerekir çünkü tooaccess makinesine Uzak Masaüstü aracılığıyla hello.
-10. Merhaba, **konumu** listesinde, hello bölge toohost hello sanal makineyi seçin.
-11. Merhaba tıklatın **Tamam** düğmesini toostart hello sanal makine oluşturma. Merhaba hello işlemde hello ilerlemesini izleyebilirsiniz **çıkış** penceresi.
+5. İçinde **DNS adı** kutusunda, sanal makine için bir ad girin. DNS adı Azure içinde benzersiz olmalıdır. Girdiğiniz ad, kullanılabilir durumda değilse, kırmızı bir ünlem işareti görüntülenir.
+6. İçinde **görüntü** listesinde, sanal makine temel görüntü seçin. Standart Azure sanal makine görüntülerini ya da Azure'a yüklediğiniz görüntünüzü herhangi birini seçebilirsiniz.
+7. Bırakın **IIS etkinleştirmek ve Web dağıtımı** farklı bir web sunucusuna yüklemek planlamıyorsanız onay kutusu. Web dağıtımı devre dışı bırakırsanız Visual Studio'dan yayımlamak mümkün olmayacaktır. IIS ve Web dağıtımı herhangi özel görüntülerinizi de dahil olmak üzere paketlenmiş Windows Server görüntülerinin ekleyebilirsiniz.
+8. İçinde **boyutu** listesinde, sanal makine boyutunu seçin.
+9. Bu sanal makine için oturum açma kimlik bilgilerini belirtin. Uzak Masaüstü aracılığıyla makine erişmelerini gerekir çünkü bunları not edin.
+10. İçinde **konumu** listesinde, sanal makineyi barındırmak için bir bölge seçin.
+11. Tıklatın **Tamam** sanal makine oluşturmaya başlamak için düğmesi. İşlemin ilerlemesini izleyebilirsiniz **çıkış** penceresi.
     
     ![][3]
-12. Merhaba sanal makine sağladığında, yayımlanan betikleri oluşturulan bir **PublishScripts** çözümünüzdeki düğümü. Merhaba komut çalıştırır ve hükümleri Azure'da bir sanal makine yayımladı. Merhaba **çıkış** penceresinde hello durumu gösterilir. Merhaba betik eylemleri tooset hello sanal makineyi aşağıdaki hello gerçekleştirir:
+12. Sanal makine sağladığında, yayımlanan betikleri oluşturulan bir **PublishScripts** çözümünüzdeki düğümü. Yayımlanan betik çalıştırır ve azure'da bir sanal makine sağlar. **Çıkış** penceresi durumunu gösterir. Komut dosyası, sanal makineyi hazırlamak için aşağıdaki eylemleri gerçekleştirir:
     
-    * Zaten yoksa hello sanal makine oluşturur.
-    * İle başlayan bir ada sahip bir depolama hesabı oluşturur `devtest`, ancak yalnızca hiç zaten varsa bu tür bir depolama hesabı hello belirtilen bölgede.
-    * Merhaba sanal makine için bir kapsayıcı olarak bir bulut hizmeti oluşturur ve Merhaba web uygulaması için bir web rolü oluşturur.
-    * Web dağıtımı hello sanal makinede yapılandırır.
-    * IIS ve ASP.NET hello sanal makinede yapılandırır.
+    * Sanal makine zaten yoksa oluşturur.
+    * İle başlayan bir ada sahip bir depolama hesabı oluşturur `devtest`, ancak yalnızca hiç zaten varsa bu tür bir depolama hesabı belirtilen bölgede.
+    * Sanal makine için bir kapsayıcı olarak bir bulut hizmeti oluşturur ve web uygulaması için bir web rolü oluşturur.
+    * Web dağıtımı sanal makinede yapılandırır.
+    * IIS ve ASP.NET sanal makinede yapılandırır.
     
     ![][4]
-13. (İsteğe bağlı) Toohello yeni sanal makineye bağlanabilir. İçinde **Sunucu Gezgini**, hello genişletin **sanal makineleri** düğümü, oluşturduğunuz hello sanal makine için ve kısayol menüsünde hello düğümü seçin, seçin **Uzak Masaüstü'nüileBağlan**. Alternatif olarak, içinde **Cloud Explorer** seçebileceğiniz **portalında açık** hello kısayol menüsünü ve toohello sanal makineye bağlanmak.
+13. (İsteğe bağlı) Yeni bir sanal makineye bağlanabilir. İçinde **Sunucu Gezgini**, genişletin **sanal makineleri** düğümü, oluşturduğunuz sanal makine için ve kısayol menüsünde düğümü seçin, seçin **Connect ile Uzak Masaüstü'nü**. Alternatif olarak, içinde **Cloud Explorer** seçebileceğiniz **portalında açık** kısayol menüsünde ve orada sanal makineye bağlanın.
     
     ![][5]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Okuma sırasında daha ayrıntılı bilgi istiyorsanız toocustomize hello yayımlanan komut dosyaları, oluşturduğunuz [Windows PowerShell komut dosyalarını kullanarak tooPublish tooDev ve Test ortamları](http://msdn.microsoft.com/library/dn642480.aspx).
+Oluşturduğunuz yayımlanan betikleri özelleştirmek istiyorsanız, daha ayrıntılı bilgi okuma [geliştirme ve Test ortamları için yayımlamak için Windows PowerShell betiklerini kullanarak](http://msdn.microsoft.com/library/dn642480.aspx).
 
 [0]: ./media/virtual-machines-common-classic-web-app-visual-studio/CreateVM_NewProject.PNG
 [1]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_SignIn.PNG

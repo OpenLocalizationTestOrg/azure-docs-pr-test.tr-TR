@@ -1,6 +1,6 @@
 ---
-title: "Yönetim Paketi (OMS) SDK aaaOperations | Microsoft Docs"
-description: "Bu makalede hello belgeleri ve hello OMS dışında OMS Hizmetleri ve Azure portalı erişmek için kullanılabilir diğer kaynakları listeler.  Bu REST API çeşitli programlama arabirimleri ve PowerShell gibi komut dosyası motorları erişimden içerir"
+title: Operations Management Suite (OMS) SDK | Microsoft Docs
+description: "Bu makalede, belgelere ve diğer kaynakları OMS Hizmetleri OMS ve Azure portalı dışında erişmek için kullanılabilir listelenmektedir.  Bu REST API çeşitli programlama arabirimleri ve PowerShell gibi komut dosyası motorları erişimden içerir"
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
-ms.openlocfilehash: 7144f10bba70a8f08cc97cec45b4b0a148892c90
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 03e0f5b6fa26806083cd7852e123495c898bcf0c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="operations-management-suite-oms-sdk"></a>Operations Management Suite (OMS) SDK
-[Operations Management Suite (OMS)](operations-management-suite-overview.md) , yönetmek ve şirket içi korumak ve bulut altyapısı yardımcı olan Microsoft'un bulut tabanlı BT yönetimi çözümüdür.  Bu makalede hello belgeleri ve hello OMS dışında OMS Hizmetleri ve Azure portalı erişmek için kullanılabilir diğer kaynakları listeler.  Bu, çeşitli programlama arabirimleri ve PowerShell gibi komut dosyası motorları erişim için REST API içerir. 
+[Operations Management Suite (OMS)](operations-management-suite-overview.md) , yönetmek ve şirket içi korumak ve bulut altyapısı yardımcı olan Microsoft'un bulut tabanlı BT yönetimi çözümüdür.  Bu makalede, belgelere ve diğer kaynakları OMS Hizmetleri OMS ve Azure portalı dışında erişmek için kullanılabilir listelenmektedir.  Bu, çeşitli programlama arabirimleri ve PowerShell gibi komut dosyası motorları erişim için REST API içerir. 
 
 ## <a name="automation"></a>Otomasyon
 * [Azure Otomasyonu belgeleri](http://azure.microsoft.com/documentation/services/automation)
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/06/2017
 * [Azure yedekleme belgeleri](http://azure.microsoft.com/documentation/services/backup)
 * [Yedekleme PowerShell cmdlet'leri](https://msdn.microsoft.com/library/mt619253.aspx)
 * [Yedekleme REST API'si](https://msdn.microsoft.com/library/azure/mt772375.aspx)
-* [Dağıtma ve PowerShell kullanarak Windows Server/Windows İstemcisi için yedekleme tooAzure yönetme](../backup/backup-client-automation.md)
+* [Dağıtma ve yedekleme istemciye Azure için Windows Server/Windows PowerShell kullanarak yönetme](../backup/backup-client-automation.md)
 
 ## <a name="log-analytics"></a>Log Analytics
 * [Günlük analizi belgeleri](http://azure.microsoft.com/documentation/services/log-analytics)
@@ -51,10 +51,10 @@ ms.lasthandoff: 10/06/2017
 ## <a name="site-recovery"></a>Site Recovery
 * [Site Recovery PowerShell cmdlet'leri](https://msdn.microsoft.com/library/mt637930.aspx)
 * [Site Recovery REST API'si](https://msdn.microsoft.com/library/azure/mt750497.aspx)
-* [Azure Otomasyonu runbook'ları toorecovery planları ekleme](../site-recovery/site-recovery-runbook-automation.md)
+* [Azure Otomasyon çalışma kitabı kurtarma planlara Ekle](../site-recovery/site-recovery-runbook-automation.md)
 * [PowerShell ve Azure Resource Manager kullanarak şirket içi Hyper-V sanal makineleri ve Azure arasında çoğaltma](../site-recovery/site-recovery-deploy-with-powershell-resource-manager.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Hello için farklı seçenekler hakkında bilgi edinin [OMS hizmetleriyle tümleştirme](operations-management-suite-integration.md).
+* İçin farklı seçenekler hakkında bilgi [OMS hizmetleriyle tümleştirme](operations-management-suite-integration.md).
 * Oluşturma bir [OMS özel çözümde](operations-management-suite-solutions-creating.md).
 

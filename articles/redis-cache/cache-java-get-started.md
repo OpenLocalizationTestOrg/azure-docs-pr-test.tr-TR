@@ -1,5 +1,5 @@
 ---
-title: "Java ile Azure Redis önbelleği aaaHow toouse | Microsoft Docs"
+title: Java ile Azure Redis Cache kullanma | Microsoft Belgeleri
 description: "Java kullanarak Azure Redis Cache kullanmaya başlama"
 services: redis-cache
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 04/13/2017
+ms.date: 08/31/2017
 ms.author: sdanie
-ms.openlocfilehash: 7768e879d71f61585b59cf4bd6634ba3f12e001d
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: b433eecb0424db85b616c40c5f0cdfc88692cef1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-toouse-azure-redis-cache-with-java"></a>Nasıl toouse Azure Redis önbelleği Java ile
+# <a name="how-to-use-azure-redis-cache-with-java"></a>Java ile Azure Redis Cache kullanma
 > [!div class="op_single_selector"]
 > * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
 > * [ASP.NET](cache-web-app-howto.md)
@@ -30,9 +30,9 @@ ms.lasthandoff: 10/06/2017
 > 
 > 
 
-Redis önbelleği, Microsoft tarafından yönetilen ayrılmış tooa erişim azure Redis önbelleği sağlar. Önbelleğinize Microsoft Azure’daki her uygulamadan erişilebilir.
+Azure Redis Cache, Microsoft tarafından yönetilen ayrılmış bir Redis önbelleğine erişmenizi sağlar. Önbelleğinize Microsoft Azure’daki her uygulamadan erişilebilir.
 
-Bu konu tooget Azure Redis önbelleği ile çalışmaya nasıl Java kullanarak gösterir.
+Bu konu Java kullanarak Azure Redis Cache kullanmayı gösterir.
 
 ## <a name="prerequisites"></a>Ön koşullar
 [Jedis](https://github.com/xetorthio/jedis) - Redis için Java istemcisi
@@ -42,11 +42,11 @@ Bu öğreticide Jedis kullanılmıştır, ancak [http://redis.io/clients](http:/
 ## <a name="create-a-redis-cache-on-azure"></a>Azure’da Redis Cache oluşturma
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## <a name="retrieve-hello-host-name-and-access-keys"></a>Merhaba ana bilgisayar adı ve erişim anahtarlarını alma
+## <a name="retrieve-the-host-name-and-access-keys"></a>Ana bilgisayar adını ve erişim anahtarlarını alma
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
-## <a name="connect-toohello-cache-securely-using-ssl"></a>Güvenli bir şekilde SSL kullanarak toohello önbelleği Bağlan
-Merhaba son oluşturur [jedis](https://github.com/xetorthio/jedis) tooAzure Redis önbelleği bağlanmak için destek sağlayan SSL kullanarak. Aşağıdaki örnek hello nasıl tooconnect tooAzure Redis önbelleği kullanılarak izin ver hello SSL uç noktası 6380 gösterir. Değiştir `<name>` önbelleğiniz hello adıyla ve `<key>` ile ya da birincil veya ikincil anahtarı açıklandığı gibi hello önceki [almak hello ana bilgisayar adı ve erişim anahtarları](#retrieve-the-host-name-and-access-keys) bölümü.
+## <a name="connect-to-the-cache-securely-using-ssl"></a>SSL kullanarak güvenli bir şekilde önbelleğe bağlanma
+[jedis](https://github.com/xetorthio/jedis)’in en son derlemeleri, Azure Redis Cache’e SSL kullanarak bağlanma konusunda destek sağlar. Aşağıdaki örnekte, 6380 SSL bitiş noktasını kullanarak Azure Redis Cache’e nasıl bağlanılacağı gösterilmektedir. Önceki [Ana bilgisayar adını ve erişim anahtarlarını alma](#retrieve-the-host-name-and-access-keys) bölümünde açıklanan şekilde `<name>` öğesini önbelleğinizin adı ile, `<key>` öğesini ise birincil veya ikincil anahtarınızla değiştirin.
 
     boolean useSsl = true;
     /* In this line, replace <name> with your cache name: */
@@ -54,11 +54,11 @@ Merhaba son oluşturur [jedis](https://github.com/xetorthio/jedis) tooAzure Redi
     shardInfo.setPassword("<key>"); /* Use your access key. */
 
 > [!NOTE]
-> Merhaba SSL olmayan bağlantı noktası yeni Azure Redis önbelleği örnekleri için devre dışı bırakılır. SSL desteği olmayan farklı bir istemci kullanıyorsanız, bkz: [nasıl tooenable hello SSL olmayan bağlantı noktası](cache-configure.md#access-ports).
+> SSL olmayan bağlantı noktası, yeni Azure Redis Cache örnekleri için devre dışıdır. SSL desteği olmayan farklı bir istemci kullanıyorsanız bkz. [SSL olmayan bağlantı noktasını etkinleştirme](cache-configure.md#access-ports).
 > 
 > 
 
-## <a name="add-something-toohello-cache-and-retrieve-it"></a>Bir şey ekleme toohello önbellek ve bunu alma
+## <a name="add-something-to-the-cache-and-retrieve-it"></a>Önbelleğe bir şey ekleme ve bunu alma
     package com.mycompany.app;
     import redis.clients.jedis.Jedis;
     import redis.clients.jedis.JedisShardInfo;
@@ -79,5 +79,6 @@ Merhaba son oluşturur [jedis](https://github.com/xetorthio/jedis) tooAzure Redi
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Önbellek tanılamayı etkinleştirin](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics) , böylece [İzleyici](https://msdn.microsoft.com/library/azure/dn763945.aspx) hello önbelleğinizin sistem durumunu.
-* Okuma hello resmi [Redis belgeleri](http://redis.io/documentation).
+* Önbelleğinizin sistem durumunu [izleyebilmeniz](https://msdn.microsoft.com/library/azure/dn763945.aspx) için [önbellek tanılamayı etkinleştirin](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics).
+* Resmi [Redis belgeleri](http://redis.io/documentation)ni okuyun.
+* [Initializr uygulamasını Redis Önbelleğini kullanacak şekilde yapılandırma](cache-java-spring-boot-initializer-with-redis-cache.md) hakkında bilgi edinin.

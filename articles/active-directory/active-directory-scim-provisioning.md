@@ -1,6 +1,6 @@
 ---
-title: "aaaUsing sistemi etki alanları arası kimlik yönetimi için otomatik olarak sağlamak kullanıcıların ve grupların Azure Active Directory tooapplications | Microsoft Docs"
-description: "Azure Active Directory Kullanıcıları ve bir web hizmeti tarafından hello SCIM'yi protokolü belirtimi tanımlanan hello arabirimiyle fronted grupları tooany uygulama ya da kimlik deposunu otomatik olarak sağlayabilirsiniz"
+title: "Etki alanları arası Identity Management otomatik olarak sağlamak için kullanıcıları ve grupları Azure Active Directory'den uygulamalara sistemiyle | Microsoft Docs"
+description: "Azure Active Directory Kullanıcıları ve grupları SCIM'yi protokolü belirtimi içinde tanımlı arabirimi ile bir web hizmeti tarafından fronted uygulama ya da kimliği deposuna otomatik olarak sağlayabilirsiniz"
 services: active-directory
 documentationcenter: 
 author: asmalser-msft
@@ -16,81 +16,81 @@ ms.date: 07/28/2017
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;oldportal
-ms.openlocfilehash: 43045c97e68d0d22db598dcb5ec23481c4e97718
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 91978cee88d55c99bcb63c63cdaf01581ae84668
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/03/2017
 ---
-# <a name="using-system-for-cross-domain-identity-management-tooautomatically-provision-users-and-groups-from-azure-active-directory-tooapplications"></a>Etki alanları arası Kimlik Yönetimi tooautomatically sağlama kullanıcılar ve grupların Azure Active Directory tooapplications için sistem kullanma
+# <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Kullanıcıları ve grupları Azure Active Directory'den uygulamalara otomatik olarak sağlamak için etki alanları arası kimlik yönetimi sistemi kullanarak
 
 ## <a name="overview"></a>Genel Bakış
-Azure Active Directory (Azure AD) kullanıcı ve bir web hizmeti tarafından hello tanımlanan hello arabirimiyle fronted grupları tooany uygulama ya da kimlik deposunu otomatik olarak sağlayabilirler [sistem etki alanları arası Kimlik Yönetimi (SCIM'yi) 2.0 protokol belirtimi](https://tools.ietf.org/html/draft-ietf-scim-api-19). Azure Active Directory istekleri toocreate göndermek, değiştirmek veya atanan kullanıcılar ve gruplar toohello web hizmetini silin. Merhaba web hizmeti işlemlere hello hedef kimlik deposu bu istekleri sonra çevirebilir. 
+Azure Active Directory (Azure AD) otomatik olarak kullanıcı sağlama ve tanımlanan gruplar arabirimi ile bir web hizmeti tarafından fronted uygulama ya da kimliği deposuna [sistemi etki alanları arası Kimlik Yönetimi (SCIM'yi) 2.0 protokolü belirtimi için](https://tools.ietf.org/html/draft-ietf-scim-api-19). Delete kullanıcılar ve gruplar web hizmetine atanan veya Azure Active Directory oluşturmak, değiştirmek için istek gönderemez. Web hizmeti, hedef kimlik deposu işlemlere bu istekleri sonra anlamına gelebilir. 
 
 > [!IMPORTANT]
-> Microsoft önerir hello kullanarak Azure AD'yi yönetme [Azure AD Yönetim Merkezi](https://aad.portal.azure.com) hello yerine Azure portal hello bu makalede başvurulan Klasik Azure portalı. 
+> Microsoft, Azure AD’yi bu makalede bahsedilen Klasik Azure Portalı yerine Azure portalındaki [Azure AD yönetim merkezini](https://aad.portal.azure.com) kullanarak yönetmenizi öneriyor. 
 
 
 
 ![][0]
-*Şekil 1: bir web hizmeti aracılığıyla Azure Active Directory tooan kimlik deposu sağlama*
+*Şekil 1: Bir web hizmeti aracılığıyla bir kimlik deposu için Azure Active Directory'den sağlama*
 
-Bu özellik "kendi uygulamanızı getir" Merhaba yeteneğine Azure AD tooenable çoklu oturum açma ve otomatik kullanıcı sağlayan veya SCIM'yi web hizmeti tarafından fronted uygulamalar için hazırlama birlikte kullanılabilir.
+Bu özellik birlikte "kendi uygulamanızı getir" özelliğine sahip Azure AD çoklu oturum açma ve otomatik kullanıcı sağlayan veya SCIM'yi web hizmeti tarafından fronted uygulamalar için hazırlama etkinleştirmek için kullanılabilir.
 
 Azure Active Directory'de SCIM'yi kullanma iki kullanım örnekleri şunlardır:
 
-* **SCIM'yi destek kullanıcılar ve gruplar tooapplications sağlama** SCIM'yi 2.0 desteği ve yapılandırma olmadan Azure AD ile kimlik doğrulaması çalışır OAuth taşıyıcı belirteçlerini kullanmak uygulamalar.
-* **Diğer API tabanlı sağlama destekleyen uygulamalar için kendi sağlama çözümü derleme** SCIM'yi olmayan uygulamalar için SCIM'yi uç nokta tootranslate hello Azure AD SCIM'yi endpoint herhangi API hello uygulamanızın desteklediği arasındaki oluşturabilirsiniz. Kullanıcı sağlama için. toohelp SCIM'yi endpoint geliştirme, ortak dil altyapısı (CLI) kitaplıkları ile birlikte nasıl toodo SCIM'yi uç nokta sağlar ve SCIM'yi iletileri Çevir Göster kod örnekleri sunuyoruz.  
+* **Kullanıcılar ve gruplar SCIM'yi destekleyen uygulamalar için sağlama** SCIM'yi 2.0 desteği ve yapılandırma olmadan Azure AD ile kimlik doğrulaması çalışır OAuth taşıyıcı belirteçlerini kullanmak uygulamalar.
+* **Diğer API tabanlı sağlama destekleyen uygulamalar için kendi sağlama çözümü derleme** SCIM'yi olmayan uygulamalar için Azure AD SCIM'yi uç noktası ve uygulama destekleyen kullanıcı sağlama için herhangi bir API'yi arasında çevirmek için SCIM'yi uç noktası oluşturabilirsiniz. Bir SCIM'yi uç noktası geliştirmenize yardımcı olması için SCIM'yi uç noktası sağlamak ve SCIM'yi iletileri çevirmek nasıl Göster kod örnekleri birlikte ortak dil altyapısı (CLI) kitaplıkları sunuyoruz.  
 
-## <a name="provisioning-users-and-groups-tooapplications-that-support-scim"></a>Kullanıcılar ve SCIM'yi destek grupları tooapplications sağlama
-Azure AD uygulayan yapılandırılmış tooautomatically sağlama atanan kullanıcılar ve gruplar tooapplications olabilir bir [sistemi için etki alanları arası Kimlik Yönetimi 2 (SCIM'yi)](https://tools.ietf.org/html/draft-ietf-scim-api-19) web hizmeti ve kimlik doğrulaması için OAuth taşıyıcı belirteçlerini kabul edin . Merhaba SCIM'yi 2.0 belirtimi içinde uygulamalar bu gereksinimleri karşılamalıdır:
+## <a name="provisioning-users-and-groups-to-applications-that-support-scim"></a>Kullanıcılar ve gruplar SCIM'yi destekleyen uygulamalar için hazırlama
+Azure AD, otomatik olarak sağlama atanan kullanıcılar ve gruplar kullanan uygulamalar için yapılandırılabilir bir [sistemi için etki alanları arası Kimlik Yönetimi 2 (SCIM'yi)](https://tools.ietf.org/html/draft-ietf-scim-api-19) web hizmeti ve kimlik doğrulaması için OAuth taşıyıcı belirteçlerini kabul edin. SCIM'yi 2.0 belirtimi içinde uygulamalar bu gereksinimleri karşılamalıdır:
 
-* Kullanıcılara ve/veya hello SCIM'yi Protokolü 3.3 bölümünü göredir grupları oluşturmayı destekler.  
-* Kullanıcılara ve/veya patch isteklerinde hello SCIM'yi Protokolü 3.5.2'de bölümünü göredir gruplarla değiştirerek destekler.  
-* Bilinen kaynak hello SCIM'yi Protokolü 3.4.1 bölümünü göredir alma destekler.  
-* Kullanıcılara ve/veya grupları hello SCIM'yi Protokolü 3.4.2 bölümünü göredir sorgulama destekler.  Varsayılan olarak, kullanıcılar tarafından externalID seçmeleri istenir ve grupları displayName tarafından sorgulanır.  
-* Kullanıcı kimliği ve hello SCIM'yi Protokolü 3.4.2 bölümünü göredir Yöneticisi tarafından sorgulama destekler.  
-* Gruplar ve üye hello SCIM'yi Protokolü 3.4.2 bölümünü göredir kimliği tarafından sorgulama destekler.  
-* Merhaba SCIM'yi Protokolü bölüm 2.1 göredir yetkilendirme için OAuth taşıyıcı belirteçleri kabul eder.
+* Kullanıcılara ve/veya bölüm 3.3 SCIM'yi Protokolü göredir grupları oluşturmayı destekler.  
+* Kullanıcılara ve/veya SCIM'yi Protokolü 3.5.2'de bölümünü göredir patch isteklerinde gruplarla değiştirerek destekler.  
+* Bilinen kaynak SCIM'yi Protokolü 3.4.1 bölümünü göredir alma destekler.  
+* Kullanıcılara ve/veya SCIM'yi Protokolü 3.4.2 bölümünü göredir grupları sorgulama destekler.  Varsayılan olarak, kullanıcılar tarafından externalID seçmeleri istenir ve grupları displayName tarafından sorgulanır.  
+* Kullanıcı kimliği ve bölüm 3.4.2 SCIM'yi Protokolü göredir Yöneticisi tarafından sorgulama destekler.  
+* Grup Kimliği ve bölüm 3.4.2 SCIM'yi Protokolü göredir üye tarafından sorgulama destekler.  
+* Bölüm 2.1 göredir yetkilendirme SCIM'yi protokolü için OAuth taşıyıcı belirteçleri kabul eder.
 
 Uygulama sağlayıcınıza veya bu gereksinimleri ile uyumluluk bilgilerinin uygulama sağlayıcınızın belgelerine başvurun.
 
 ### <a name="getting-started"></a>Başlarken
-Bu makalede açıklanan hello SCIM'yi profili destekleyen uygulamalar bağlı tooAzure Active Directory olabilir hello Azure AD uygulama galerisinde galeri olmayan hello "uygulama" özelliğini kullanma. Bağlı, Azure AD çalıştıran sonra eşitleme işlemi burada hello uygulamanın SCIM'yi uç noktası için sorgular 20 dakikada kullanıcılar ve gruplar, atanan ve oluşturur veya bunları toohello atama ayrıntıları göre değiştirir.
+Bu makalede açıklanan SCIM'yi profili destekleyen uygulamalar Azure AD uygulama galerisinde "galeri olmayan uygulama" özelliği kullanılarak Azure Active Directory'ye bağlı. Bağlandıktan sonra Azure AD eşitleme işlemi burada uygulamanın SCIM'yi endpoint atanan kullanıcılar ve gruplar için sorgular ve oluşturur veya göre atama ayrıntıları değiştirir 20 dakikada bir çalışır.
 
-**tooconnect SCIM'yi destekleyen bir uygulama:**
+**SCIM'yi destekleyen bir uygulama bağlanmak için:**
 
-1. Çok oturum[Azure portal hello](https://portal.azure.com). 
-2. Çok Gözat ** Azure Active Directory > Kurumsal uygulamaları ve select **yeni uygulama > tüm > olmayan galeri uygulama**.
-3. Uygulamanız için bir ad girin ve tıklayın **Ekle** simgesi toocreate bir uygulama nesnesi.
+1. Oturum [Azure portalı](https://portal.azure.com). 
+2. Gözat ** Azure Active Directory > Kurumsal uygulamaları ve select **yeni uygulama > tüm > olmayan galeri uygulama**.
+3. Uygulamanız için bir ad girin ve tıklayın **Ekle** uygulama nesne oluşturmak için simge.
     
   ![][1]
   *Şekil 2: Azure AD uygulama galerisinde*
     
-4. Merhaba Hello elde edilen ekranında şunları seçin **sağlama** hello sol sütunda sekmesi.
-5. Merhaba, **sağlama modu** menüsünde, select **otomatik**.
+4. Sonuçta elde edilen ekranında şunları seçin **sağlama** sol sütunda sekmesi.
+5. İçinde **sağlama modu** menüsünde, select **otomatik**.
     
   ![][2]
-  *Şekil 3: hello Azure portal sağlama yapılandırma*
+  *Şekil 3: Azure portalında sağlama yapılandırma*
     
-6. Merhaba, **Kiracı URL** alanında, hello hello uygulamanın SCIM'yi uç nokta URL'sini girin. Örnek: https://api.contoso.com/scim/v2/
-7. Merhaba SCIM'yi uç nokta gerektiriyor Azure AD dışında bir veren bir OAuth taşıyıcı belirtecinden sonra kopyalama hello gerekli OAuth taşıyıcı belirteci hello isteğe bağlı **gizli belirteci** alan. Bu alan boş bırakılırsa, Azure AD her istek ile Azure AD tarafından verilen bir OAuth taşıyıcı belirteci dahil. Azure AD kimlik sağlayıcısı bu Azure AD doğrulayabilirsiniz olarak kullanan uygulamaları-belirteç.
-8. Merhaba tıklatın **Bağlantıyı Sına** düğmesi toohave Azure Active Directory girişimi tooconnect toohello SCIM'yi uç noktası. Merhaba deneme başarısız olursa hata bilgileri görüntülenir.  
-9. Merhaba denemeleri tooconnect toohello uygulaması başarılı olursa, ardından **kaydetmek** toosave hello yönetici kimlik bilgileri.
-10. Merhaba, **eşlemeleri** bölümünde, iki seçilebilir öznitelik eşlemelerini kümesi vardır: biri kullanıcı nesneleri ve Grup nesneleri için bir tane. Eşitlenen her bir tooreview hello öznitelikleri, Azure Active Directory tooyour uygulamasını seçin. Merhaba olarak seçilen öznitelikler **eşleşen** kullanılan toomatch hello kullanıcılar ve gruplar güncelleştirme işlemleri için uygulamanızda özellikleridir. Merhaba Kaydet düğmesine toocommit herhangi bir değişiklik seçin.
+6. İçinde **Kiracı URL** alanında, uygulamanın SCIM'yi uç nokta URL'sini girin. Örnek: https://api.contoso.com/scim/v2/
+7. Ardından SCIM'yi uç noktanın bir OAuth taşıyıcı belirtecinden Azure AD dışında bir veren gerektiriyorsa, gerekli OAuth taşıyıcı belirteci isteğe bağlı kopyalamak **gizli belirteci** alan. Bu alan boş bırakılırsa, Azure AD her istek ile Azure AD tarafından verilen bir OAuth taşıyıcı belirteci dahil. Azure AD kimlik sağlayıcısı bu Azure AD doğrulayabilirsiniz olarak kullanan uygulamaları-belirteç.
+8. Tıklatın **Bağlantıyı Sına** SCIM'yi bitiş noktasına bağlanmaya Azure Active Directory için düğmesi. Deneme başarısız olursa hata bilgileri görüntülenir.  
+9. Uygulama başarılı için bağlanmaya çalışırsa sonra tıklatırsanız **kaydetmek** yönetici kimlik bilgilerini kaydetmek için.
+10. İçinde **eşlemeleri** bölümünde, iki seçilebilir öznitelik eşlemelerini kümesi vardır: biri kullanıcı nesneleri ve Grup nesneleri için bir tane. Uygulamanız için Azure Active Directory'den eşitlenen öznitelikler gözden geçirmek için her birini seçin. Seçilen öznitelikler **eşleşen** özellikleri, kullanıcıları ve grupları güncelleştirme işlemleri için uygulamanızda eşleştirmek için kullanılır. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
 
     >[!NOTE]
-    >İsteğe bağlı olarak, "Merhaba grupları eşleme" devre dışı bırakarak group nesnelerini eşitlemeyi devre dışı bırakın. 
+    >İsteğe bağlı olarak, "eşleme grupları" devre dışı bırakarak group nesnelerini eşitlemeyi devre dışı bırakın. 
 
-11. Altında **ayarları**, hello **kapsam** alanı tanımlar hangi kullanıcı ve grup veya eşitlenir. "Eşitleme yalnızca kullanıcılar ve gruplar (önerilen) atanan" seçerek yalnızca eşitlendiğini kullanıcılar ve gruplar hello atanan **kullanıcılar ve gruplar** sekmesi.
-12. Merhaba, yapılandırma tamamlandıktan sonra değiştirmek **sağlama durumu** çok**üzerinde**.
-13. Tıklatın **kaydetmek** toostart hello Azure AD sağlama hizmeti. 
-14. Kullanıcılar ve gruplar (önerilen) yalnızca eşitleniyor atanan emin tooselect hello olması **kullanıcılar ve gruplar** sekmesinde ve hello kullanıcılara ve/veya toosync istediğiniz grupları atayabilirsiniz.
+11. Altında **ayarları**, **kapsam** alanı tanımlar hangi kullanıcı ve grup veya eşitlenir. "Eşitleme yalnızca kullanıcılar ve gruplar (önerilen) atanan" seçerek yalnızca eşitleme kullanıcılar ve gruplar atanan **kullanıcılar ve gruplar** sekmesi.
+12. Yapılandırma tamamlandıktan sonra değiştirmek **sağlama durumu** için **üzerinde**.
+13. Tıklatın **kaydetmek** hizmet sağlama Azure AD başlatmak için. 
+14. Eşitlemeyi yalnızca kullanıcılar ve gruplar (önerilen) atanmışsa, seçtiğinizden emin olun **kullanıcılar ve gruplar** sekmesinde ve kullanıcılara ve/veya eşitlemek istediğiniz grupları atayabilirsiniz.
 
-Merhaba ilk eşitleme başladıktan sonra hello kullanabilirsiniz **denetim günlüklerini** sekmesinde uygulamanızdan hizmet sağlama hello tarafından gerçekleştirilen tüm eylemler gösterir toomonitor devam ediyor. Hello Azure AD tooread sağlama nasıl oturum ile ilgili daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+İlk eşitleme başladıktan sonra kullanabileceğiniz **denetim günlüklerini** uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler gösterir İzleyici ilerleme sekmesine. Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 >[!NOTE]
->Merhaba ilk eşitleme yaklaşık 20 dakikada hello çalıştığı sürece oluşan sonraki eşitlemeler daha uzun tooperform alır. 
+>İlk eşitleme gerçekleştirmek yaklaşık 20 dakikada çalıştığı sürece oluşan sonraki eşitlemeler uzun sürer. 
 
 
 ## <a name="building-your-own-provisioning-solution-for-any-application"></a>Herhangi bir uygulama için kendi sağlama çözümü oluşturma
@@ -98,82 +98,82 @@ Azure Active Directory ile arabirimleri SCIM'yi web hizmeti oluşturarak, bir RE
 
 İşte nasıl çalışır:
 
-1. Azure AD sağlar adlı ortak dil altyapısı kitaplık [Microsoft.SystemForCrossDomainIdentityManagement](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/). Sistem tümleştiricileri ve geliştiriciler, bu kitaplık toocreate kullanabilir ve bir SCIM'yi tabanlı web hizmeti uç noktası Azure AD tooany uygulamanın kimlik deposu bağlanıp bağlanamayacağını dağıtabilirsiniz.
-2. Eşlemeleri hello web hizmeti toomap hello standartlaştırılmış kullanıcı şema toohello kullanıcı şeması ve hello uygulama tarafından istenen Protokolü uygulanır.
-3. Merhaba uç nokta URL'si hello uygulama galerisinde özel bir uygulama bir parçası olarak Azure AD'de kayıtlı değil.
-4. Kullanıcıların ve grupların Azure AD toothis uygulamada atanır. Atama oldukları bir sıra eşitlenen toobe toohello hedef uygulamasına yerleştirilir. Hello sıra işleme hello eşitleme işlemi 20 dakikada bir çalışır.
+1. Azure AD sağlar adlı ortak dil altyapısı kitaplık [Microsoft.SystemForCrossDomainIdentityManagement](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/). Sistem tümleştiricileri ve geliştiriciler bu kitaplığı oluşturmak ve bir SCIM'yi tabanlı web hizmeti uç noktası için herhangi bir uygulamanın kimlik deposu Azure AD bağlanıp bağlanamayacağını dağıtmak için kullanabilirsiniz.
+2. Eşlemeleri kullanıcı şema ve uygulama tarafından istenen Protokolü standartlaştırılmış kullanıcı şemasını eşleştirmek için web hizmeti uygulanır.
+3. Uç nokta URL'sini Azure AD uygulama galerisinde özel bir uygulama bir parçası olarak kaydedilir.
+4. Kullanıcıları ve grupları, Azure AD'de bu uygulama atanır. Atama sırasında bunlar hedef uygulama için eşitlenecek kuyruğuna yerleştirilir. Sıranın işleme eşitleme işlemi 20 dakikada bir çalışır.
 
 ### <a name="code-samples"></a>Kod Örnekleri
-toomake bu işlem daha kolay bir dizi [kod örnekleri](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) SCIM'yi web hizmeti uç noktası oluşturun ve otomatik sağlamayı göstermek sağlanır. Kullanıcılar ve gruplar temsil eden virgülle ayrılmış değerler satırlarla bir dosyayı korur bir sağlayıcının bir örnek verilmiştir.  Merhaba diğer hello Amazon Web Hizmetleri kimlik ve erişim yönetimi hizmetini çalışır bir sağlayıcı değil.  
+Bu işlem daha kolay, bir dizi yapmak için [kod örnekleri](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) SCIM'yi web hizmeti uç noktası oluşturun ve otomatik sağlamayı göstermek sağlanır. Kullanıcılar ve gruplar temsil eden virgülle ayrılmış değerler satırlarla bir dosyayı korur bir sağlayıcının bir örnek verilmiştir.  Diğer Amazon Web Hizmetleri kimlik ve erişim yönetimi hizmetini çalışır bir sağlayıcı değil.  
 
 **Önkoşullar**
 
 * Visual Studio 2013 veya üzeri
 * [.NET için Azure SDK](https://azure.microsoft.com/downloads/)
-* Merhaba ASP.NET framework 4.5 toobe destekleyen Windows makine SCIM'yi endpoint hello kullanılır. Bu makinenin hello buluttan erişilebilir olması gerekir
+* SCIM'yi uç noktası olarak kullanılacak ASP.NET framework 4.5 destekleyen Windows makine. Bu makinenin buluttan erişilebilir olması gerekir
 * [Bir Azure aboneliği ile Azure AD Premium deneme veya lisanslı bir sürümü](https://azure.microsoft.com/services/active-directory/)
-* Merhaba Amazon AWS örneği gerektirir hello kitaplıklarından [Visual Studio için AWS Araç Seti](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html). Daha fazla bilgi için bkz: hello Benioku hello örnekle dahil dosya.
+* Amazon AWS örneği kitaplıklarından gerektirir [Visual Studio için AWS Araç Seti](http://docs.aws.amazon.com/AWSToolkitVS/latest/UserGuide/tkv_setup.html). Daha fazla bilgi için örnekle dahil Benioku dosyasına bakın.
 
 ### <a name="getting-started"></a>Başlarken
-Azure AD'den sağlama kabul edebileceği bir SCIM'yi uç noktası istekleri hello en kolay yolu tooimplement toobuild olan ve hello sağlanan kullanıcılar tooa virgülle ayrılmış değer (CSV) dosyası çıkarır hello kod örneği dağıtın.
+Azure AD'den sağlama isteklerini kabul edebilir bir SCIM'yi uç noktası uygulamak için kolay derleme ve sağlanan kullanıcılar bir virgülle ayrılmış değer (CSV) dosyasına çıkarır kod örneği dağıtma yoludur.
 
-**toocreate bir örnek SCIM'yi uç noktası:**
+**Bir örnek SCIM'yi uç noktası oluşturmak için:**
 
-1. Merhaba kod örnek paketin karşıdan [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
-2. Merhaba paketin sıkıştırmasını açın ve Windows makinenizdeki C:\AzureAD-BYOA-Provisioning-Samples\ gibi bir konuma yerleştirin.
-3. Bu klasörde, Visual Studio'da hello FileProvisioningAgent çözüm başlatın.
-4. Seçin **Araçlar > Kitaplık Paket Yöneticisi > Paket Yöneticisi Konsolu**ve komutları hello FileProvisioningAgent proje tooresolve hello çözüm başvuruları için aşağıdaki hello yürütün:
+1. Kod örnek paketin karşıdan [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
+2. Paketin sıkıştırmasını açın ve Windows makinenizdeki C:\AzureAD-BYOA-Provisioning-Samples\ gibi bir konuma yerleştirin.
+3. Bu klasörde, Visual Studio FileProvisioningAgent çözümde başlatın.
+4. Seçin **Araçlar > Kitaplık Paket Yöneticisi > Paket Yöneticisi Konsolu**ve çözüm başvuruları çözümlemek FileProvisioningAgent projesi için aşağıdaki komutları çalıştırın:
   ```` 
    Install-Package Microsoft.SystemForCrossDomainIdentityManagement
    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
    Install-Package Microsoft.Owin.Diagnostics
    Install-Package Microsoft.Owin.Host.SystemWeb
   ````
-5. Merhaba FileProvisioningAgent projesi oluşturun.
-6. (Yönetici) olarak Windows Hello komut istemi uygulamasını başlatma ve hello kullan **cd** komutu toochange hello dizin tooyour **\AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug** klasör.
-7. Aşağıdaki komut, < IP adresi > merhaba IP adresine veya etki alanı adıyla hello Windows makinenin değiştirerek hello çalıştırın:
+5. FileProvisioningAgent projesi oluşturun.
+6. Windows komut istemi uygulamada (Yönetici) olarak başlatın ve kullanmak **cd** dizine değiştirmek için komutu, **\AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug** klasör.
+7. < IP adresi > IP adresine veya etki alanı adıyla Windows makinenin değiştirerek aşağıdaki komutu çalıştırın:
   ````   
    FileAgnt.exe http://<ip-address>:9000 TargetFile.csv
   ````
-8. Windows altında **Windows Ayarları > Ağ ve Internet ayarlarını**seçin hello **Windows Güvenlik Duvarı > Gelişmiş ayarları**ve oluşturma bir **gelen kuralı** , gelen erişim tooport 9000 sağlar.
-9. Merhaba Windows makine yönlendiricisi arkasında ise, sunulan toohello olan yönlendirici gereksinimlerini yapılandırılmış toobe tooperform ağ erişim çevirisi, bağlantı noktası 9000 arasında hello Internet ve bağlantı noktası 9000 hello Windows makinede. Bu Azure AD toobe mümkün tooaccess gereklidir hello bulutta Bu uç nokta.
+8. Altında Windows'ta **Windows Ayarları > Ağ ve Internet ayarlarını**seçin **Windows Güvenlik Duvarı > Gelişmiş ayarları**ve oluşturma bir **gelen kuralı** 9000 numaralı bağlantı noktasına gelen erişim sağlar.
+9. Windows makine yönlendiricisi arkasında ise, yönlendirici, bağlantı noktası Internet'e açık 9000 ve bağlantı noktası 9000 Windows makinede arasındaki ağ erişim çevirisi gerçekleştirecek şekilde yapılandırılması gerekir. Bu bulutta Bu uç noktasına erişmek Azure AD için gereklidir.
 
-**tooregister hello örnek SCIM'yi uç noktası Azure AD'de:**
+**Azure AD'de örnek SCIM'yi uç noktasını kaydetmek için:**
 
-1. Çok oturum[Azure portal hello](https://portal.azure.com). 
-2. Çok Gözat ** Azure Active Directory > Kurumsal uygulamaları ve select **yeni uygulama > tüm > olmayan galeri uygulama**.
-3. Uygulamanız için bir ad girin ve tıklayın **Ekle** simgesi toocreate bir uygulama nesnesi. oluşturulan hello uygulama hedeflenen toorepresent hello hedef uygulama tek oturum açma için ve yalnızca hello SCIM'yi endpoint uygulama tooand sağlama nesnesidir.
-4. Merhaba Hello elde edilen ekranında şunları seçin **sağlama** hello sol sütunda sekmesi.
-5. Merhaba, **sağlama modu** menüsünde, select **otomatik**.
+1. Oturum [Azure portalı](https://portal.azure.com). 
+2. Gözat ** Azure Active Directory > Kurumsal uygulamaları ve select **yeni uygulama > tüm > olmayan galeri uygulama**.
+3. Uygulamanız için bir ad girin ve tıklayın **Ekle** uygulama nesne oluşturmak için simge. Oluşturulan uygulama nesnesi olmaları için sağlama ve çoklu oturum açma için ve yalnızca SCIM'yi uç uygulama hedef uygulama temsil etmek üzere tasarlanmıştır.
+4. Sonuçta elde edilen ekranında şunları seçin **sağlama** sol sütunda sekmesi.
+5. İçinde **sağlama modu** menüsünde, select **otomatik**.
     
   ![][2]
-  *Şekil 4: hello Azure portal sağlama yapılandırma*
+  *Şekil 4: Azure portalında sağlama yapılandırma*
     
-6. Merhaba, **Kiracı URL** alanında, hello Internet kullanıma sunulan URL ve SCIM'yi bitiş bağlantı noktası girin. Http://testmachine.contoso.com:9000 veya http://<ip-address>:9000/, burada < IP adresi > olan hello internet IP kullanıma sunulan gibi bu bir şey olacaktır adresi.  
-7. Merhaba SCIM'yi uç nokta gerektiriyor Azure AD dışında bir veren bir OAuth taşıyıcı belirtecinden sonra kopyalama hello gerekli OAuth taşıyıcı belirteci hello isteğe bağlı **gizli belirteci** alan. Bu alan boş bırakılırsa, Azure AD her istek ile Azure AD tarafından verilen bir OAuth taşıyıcı belirteci dahil edilir. Azure AD kimlik sağlayıcısı bu Azure AD doğrulayabilirsiniz olarak kullanan uygulamaları-belirteç.
-8. Merhaba tıklatın **Bağlantıyı Sına** düğmesi toohave Azure Active Directory girişimi tooconnect toohello SCIM'yi uç noktası. Merhaba deneme başarısız olursa hata bilgileri görüntülenir.  
-9. Merhaba denemeleri tooconnect toohello uygulaması başarılı olursa, ardından **kaydetmek** toosave hello yönetici kimlik bilgileri.
-10. Merhaba, **eşlemeleri** bölümünde, iki seçilebilir öznitelik eşlemelerini kümesi vardır: biri kullanıcı nesneleri ve Grup nesneleri için bir tane. Eşitlenen her bir tooreview hello öznitelikleri, Azure Active Directory tooyour uygulamasını seçin. Merhaba olarak seçilen öznitelikler **eşleşen** kullanılan toomatch hello kullanıcılar ve gruplar güncelleştirme işlemleri için uygulamanızda özellikleridir. Merhaba Kaydet düğmesine toocommit herhangi bir değişiklik seçin.
-11. Altında **ayarları**, hello **kapsam** alanı tanımlar hangi kullanıcı ve grup veya eşitlenir. "Eşitleme yalnızca kullanıcılar ve gruplar (önerilen) atanan" seçerek yalnızca eşitlendiğini kullanıcılar ve gruplar hello atanan **kullanıcılar ve gruplar** sekmesi.
-12. Merhaba, yapılandırma tamamlandıktan sonra değiştirmek **sağlama durumu** çok**üzerinde**.
-13. Tıklatın **kaydetmek** toostart hello Azure AD sağlama hizmeti. 
-14. Kullanıcılar ve gruplar (önerilen) yalnızca eşitleniyor atanan emin tooselect hello olması **kullanıcılar ve gruplar** sekmesinde ve hello kullanıcılara ve/veya toosync istediğiniz grupları atayabilirsiniz.
+6. İçinde **Kiracı URL** alanında, Internet kullanıma sunulan URL ve bağlantı noktası SCIM'yi uç noktanızı girin. Http://testmachine.contoso.com:9000 veya http://<ip-address>:9000/, burada < IP adresi >, internet IP kullanıma sunulan gibi bu bir şey olacaktır adresi.  
+7. Ardından SCIM'yi uç noktanın bir OAuth taşıyıcı belirtecinden Azure AD dışında bir veren gerektiriyorsa, gerekli OAuth taşıyıcı belirteci isteğe bağlı kopyalamak **gizli belirteci** alan. Bu alan boş bırakılırsa, Azure AD her istek ile Azure AD tarafından verilen bir OAuth taşıyıcı belirteci dahil edilir. Azure AD kimlik sağlayıcısı bu Azure AD doğrulayabilirsiniz olarak kullanan uygulamaları-belirteç.
+8. Tıklatın **Bağlantıyı Sına** SCIM'yi bitiş noktasına bağlanmaya Azure Active Directory için düğmesi. Deneme başarısız olursa hata bilgileri görüntülenir.  
+9. Uygulama başarılı için bağlanmaya çalışırsa sonra tıklatırsanız **kaydetmek** yönetici kimlik bilgilerini kaydetmek için.
+10. İçinde **eşlemeleri** bölümünde, iki seçilebilir öznitelik eşlemelerini kümesi vardır: biri kullanıcı nesneleri ve Grup nesneleri için bir tane. Uygulamanız için Azure Active Directory'den eşitlenen öznitelikler gözden geçirmek için her birini seçin. Seçilen öznitelikler **eşleşen** özellikleri, kullanıcıları ve grupları güncelleştirme işlemleri için uygulamanızda eşleştirmek için kullanılır. Değişiklikleri kaydetmek için Kaydet düğmesini seçin.
+11. Altında **ayarları**, **kapsam** alanı tanımlar hangi kullanıcı ve grup veya eşitlenir. "Eşitleme yalnızca kullanıcılar ve gruplar (önerilen) atanan" seçerek yalnızca eşitleme kullanıcılar ve gruplar atanan **kullanıcılar ve gruplar** sekmesi.
+12. Yapılandırma tamamlandıktan sonra değiştirmek **sağlama durumu** için **üzerinde**.
+13. Tıklatın **kaydetmek** hizmet sağlama Azure AD başlatmak için. 
+14. Eşitlemeyi yalnızca kullanıcılar ve gruplar (önerilen) atanmışsa, seçtiğinizden emin olun **kullanıcılar ve gruplar** sekmesinde ve kullanıcılara ve/veya eşitlemek istediğiniz grupları atayabilirsiniz.
 
-Merhaba ilk eşitleme başladıktan sonra hello kullanabilirsiniz **denetim günlüklerini** sekmesinde uygulamanızdan hizmet sağlama hello tarafından gerçekleştirilen tüm eylemler gösterir toomonitor devam ediyor. Hello Azure AD tooread sağlama nasıl oturum ile ilgili daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+İlk eşitleme başladıktan sonra kullanabileceğiniz **denetim günlüklerini** uygulamanızı sağlama hizmeti tarafından gerçekleştirilen tüm eylemler gösterir İzleyici ilerleme sekmesine. Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [otomatik olarak bir kullanıcı hesabı sağlama raporlama](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
 
-Merhaba örnek doğrulama hello son adımı tooopen hello Windows makinenizde hello \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug klasöründeki TargetFile.csv dosyasını oluşturur. Sağlama işlemi hello çalıştırdıktan sonra bu dosyayı tüm hello ayrıntılarını atanan ve kullanıcılar ve gruplar sağlanan gösterir.
+Windows makinenizi \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug klasöründe TargetFile.csv dosyayı açmak için örnek doğrulama son adım var. Sağlama işlemini çalıştırdıktan sonra bu dosyayı tüm ayrıntılarını atanan ve kullanıcılar ve gruplar sağlanan gösterir.
 
 ### <a name="development-libraries"></a>Geliştirme kitaplıkları
-toodevelop toohello SCIM'yi belirtimine uygun kendi web hizmeti ilk tanıyın kendinizi Microsoft tarafından toohelp hızlandırmak sağlanan hello geliştirme sürecinin kitaplıkları aşağıdaki hello ile: 
+SCIM'yi belirtimine uygun kendi web hizmeti geliştirmek için öncelikle geliştirme sürecinin artırmanıza yardımcı olmak üzere Microsoft tarafından sağlanan aşağıdaki kitaplıkları tanıyın: 
 
-1. Ortak dil altyapısı (CLI) kitaplıklar gibi C#, altyapı göre dilleri ile kullanıma sunulur. Bu kitaplıklar birini [Microsoft.SystemForCrossDomainIdentityManagement.Service](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/), hello aşağıdaki çizimde gösterilen bir arabirim Microsoft.SystemForCrossDomainIdentityManagement.IProvider, bildirir: A Merhaba kitaplıkları kullanarak geliştirici için genel sağlayıcısı olarak adlandırılabilir bir sınıf ile bu arabirimini uygulaması. Merhaba kitaplıkları hello Geliştirici toodeploy toohello SCIM'yi belirtimi uyumlu bir web hizmeti etkinleştirin. Merhaba web hizmeti ya da Internet Information Services veya yürütülebilir bir ortak dil altyapısı derlemesi içinde barındırılabilir. İstek hello Geliştirici toooperate bazı kimlik deposu olarak programlanmış çağrıları toohello sağlayıcının yöntemlerde çevrilir.
+1. Ortak dil altyapısı (CLI) kitaplıklar gibi C#, altyapı göre dilleri ile kullanıma sunulur. Bu kitaplıklar birini [Microsoft.SystemForCrossDomainIdentityManagement.Service](https://www.nuget.org/packages/Microsoft.SystemForCrossDomainIdentityManagement/), aşağıdaki çizimde gösterilen bir arabirim Microsoft.SystemForCrossDomainIdentityManagement.IProvider, bildirir: kitaplıkları kullanarak bir geliştirici bu arabirim için genel olarak, bir sağlayıcısı olarak adlandırılabilir sınıfıyla uygulamak. Kitaplıklar için SCIM'yi belirtimi uyumlu bir web hizmeti dağıtmak Geliştirici etkinleştirin. Web hizmeti ya da Internet Information Services veya yürütülebilir bir ortak dil altyapısı derlemesi içinde barındırılabilir. İstek, bazı kimlik deposu üzerinde çalışması için geliştirici tarafından programlanmış sağlayıcının yöntem çağrıları veri dönüştürülür.
   
   ![][3]
   
-2. [Rota işleyicileri express](http://expressjs.com/guide/routing.html) tooa node.js web hizmetine yapılan çağrılar (tarafından tanımlanan hello SCIM'yi belirtimi), temsil eden bir node.js isteği nesneleri ayrıştırmak için kullanılabilir.   
+2. [Rota işleyicileri express](http://expressjs.com/guide/routing.html) bir node.js web hizmeti çağrıları (SCIM'yi belirtimi tarafından tanımlandığı gibi) temsil eden bir node.js isteği nesneleri ayrıştırma için kullanılabilir yapılır.   
 
 ### <a name="building-a-custom-scim-endpoint"></a>Bir özel SCIM'yi uç noktası oluşturma
-Merhaba CLI kitaplıkları kullanarak, bu kitaplığı kullanan geliştiriciler kendi Hizmetleri veya Internet Information Services yürütülebilir ortak dil altyapısı derlemeler içinde barındırabilir. Merhaba adresinde http://localhost:9000 yürütülebilir bütünleştirilmiş kod içinde bir hizmet barındırma için örnek kod aşağıda verilmiştir: 
+CLI kitaplıkları kullanarak, bu kitaplığı kullanan geliştiriciler kendi Hizmetleri veya Internet Information Services yürütülebilir ortak dil altyapısı derlemeler içinde barındırabilir. Http://localhost:9000 adresindeki yürütülebilir bütünleştirilmiş kod içinde bir hizmet barındırma için örnek kod aşağıda verilmiştir: 
 
     private static void Main(string[] arguments)
     {
@@ -244,7 +244,7 @@ Merhaba CLI kitaplıkları kullanarak, bu kitaplığı kullanan geliştiriciler 
     }
     }
 
-Bu hizmet hangi hello kök sertifika yetkilisi hello aşağıdakilerden biri olan bir HTTP adresi ve bir sunucu kimlik doğrulama sertifikası olması gerekir: 
+Bu hizmet kök sertifika yetkilisi aşağıdakilerden biri olduğu bir HTTP adresi ve bir sunucu kimlik doğrulama sertifikası olması gerekir: 
 
 * CNNIC
 * Comodo
@@ -256,13 +256,13 @@ Bu hizmet hangi hello kök sertifika yetkilisi hello aşağıdakilerden biri ola
 * VeriSign
 * WoSign
 
-Bir sunucu kimlik doğrulama sertifikası hello ağ Kabuğu yardımcı programını kullanarak bir Windows ana bilgisayardaki ilişkili tooa bağlantı noktası olabilir: 
+Bir sunucu kimlik doğrulama sertifikası ağ Kabuğu yardımcı programını kullanarak bir Windows ana bilgisayarda bir bağlantı noktasına bağlı olabilir: 
 
     netsh http add sslcert ipport=0.0.0.0:443 certhash=0000000000003ed9cd0c315bbb6dc1c08da5e6 appid={00112233-4455-6677-8899-AABBCCDDEEFF}  
 
-Merhaba AppID bağımsız değişkeni için sağlanan hello değeri rastgele bir genel benzersiz tanımlayıcı olsa da burada hello certhash bağımsız değişkeni için sağlanan hello hello sertifikanın parmak izini Merhaba, değerdir.  
+Burada, rastgele bir genel benzersiz tanımlayıcı olsa da AppID bağımsız değişkeni için sağlanan değer certhash bağımsız değişkeni için sağlanan değer sertifikanın parmak izini ' dir.  
 
-toohost hello hizmet Internet Information Services içinde bir geliştirici, başlangıç hello derlemenin hello varsayılan ad alanında adlı bir sınıf ile CLA kod kitaplığı derleme oluşturma.  Böyle bir sınıfın bir örneği aşağıda verilmiştir: 
+Internet Information Services hizmetinde barındırmak için bir geliştirici bir CLA kod kitaplığı başlangıç derleme varsayılan ad alanı adlı bir sınıf ile derleme.  Böyle bir sınıfın bir örneği aşağıda verilmiştir: 
 
     public class Startup
     {
@@ -293,11 +293,11 @@ toohost hello hizmet Internet Information Services içinde bir geliştirici, ba�
     }
 
 ### <a name="handling-endpoint-authentication"></a>İşleme uç noktası kimlik doğrulaması
-Azure Active Directory gelen istekleri bir OAuth 2.0 taşıyıcı belirteci içerir.   Herhangi bir hizmet alıcı hello isteği hello veren erişim toohello Azure Active Directory Graph web hizmeti için beklenen hello Azure Active Directory Kiracı adına Azure Active Directory olarak kimlik doğrulaması.  Merhaba belirteçte hello veren "ISS" gibi bir ISS talep tanımlanır: "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  Bu örnekte, hello talep değeri, taban adresini hello https://sts.windows.net, veren hello gibi Azure Active Directory tanımlar, hello göreli adresi segment, cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, benzersiz tanıtıcısının olsa da Azure Active hello Dizin Kiracı adına hangi hello belirteci verilmiş.  Merhaba belirteci hello Azure Active Directory Graph web hizmeti, bu hizmeti sonra hello tanıtıcısı erişmek için verilmişse 00000002-0000-0000-c000-000000000000, olması hello belirtecin aud hello değerinin talep.  
+Azure Active Directory gelen istekleri bir OAuth 2.0 taşıyıcı belirteci içerir.   İsteği alma herhangi bir hizmet olarak Azure Active Directory Azure Active Directory Graph web hizmetine erişim için beklenen Azure Active Directory Kiracı adına veren kimlik doğrulaması.  Belirteç veren "ISS" gibi bir ISS talep tanımlanır: "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  Bu örnekte, talep değeri, taban adresini https://sts.windows.net, göreli adres segment cbb1a5ac-f33b-45fa-9bf5-f37db0fed422, hangi adına belirteç verildiği Azure Active Directory Kiracı benzersiz bir tanımlayıcı olsa da bu Azure Active Directory, veren tanımlar.  Azure Active Directory Graph web hizmetine erişmek için belirteç verilmişse, 00000002-0000-0000-c000-000000000000, bu hizmeti tanıtıcısı belirtecin aud talebin değeri olmalıdır.  
 
-Geliştiriciler SCIM'yi hizmet oluşturmak için Microsoft tarafından sağlanan hello CLA kitaplıkları kullanarak aşağıdaki adımları izleyerek hello Microsoft.Owin.Security.ActiveDirectory paketi kullanılarak Azure Active Directory'ye gelen istekleri doğrulayabilir: 
+Geliştiriciler SCIM'yi hizmet oluşturmak için Microsoft tarafından sağlanan CLA kitaplıkları kullanarak aşağıdaki adımları izleyerek Microsoft.Owin.Security.ActiveDirectory paketi kullanılarak Azure Active Directory'ye gelen istekleri doğrulayabilir: 
 
-1. Sağlayıcı, bu hello hizmeti başlatıldığında adlı bir yöntem toobe dönüş sağlayarak hello Microsoft.SystemForCrossDomainIdentityManagement.IProvider.StartupBehavior özelliği uygulayın: 
+1. Sağlayıcı, bu hizmeti başlatıldığında çağrılacak döndürme sağlayarak Microsoft.SystemForCrossDomainIdentityManagement.IProvider.StartupBehavior özelliği uygulayın: 
 
   ````
     public override Action\<Owin.IAppBuilder, System.Web.Http.HttpConfiguration.HttpConfiguration\> StartupBehavior
@@ -315,7 +315,7 @@ Geliştiriciler SCIM'yi hizmet oluşturmak için Microsoft tarafından sağlanan
     }
   ````
 
-2. Aşağıdaki kod toothat yöntemi toohave hello hello hizmetin uç noktaları erişim toohello Azure AD grafik web hizmeti için belirtilen bir kiracı adına Azure Active Directory tarafından verilmiş bir belirteç pul olarak kimliği doğrulanmış tüm istek tooany ekleyin: 
+2. Bu yöntem herhangi bir hizmetin uç noktaları erişim Azure AD grafik web hizmeti için belirtilen bir kiracı adına Azure Active Directory tarafından verilmiş bir belirteç pul olarak kimlik doğrulaması için herhangi bir istek olması için aşağıdaki kodu ekleyin: 
 
   ````
     private void OnServiceStartup(
@@ -340,7 +340,7 @@ Geliştiriciler SCIM'yi hizmet oluşturmak için Microsoft tarafından sağlanan
       WindowsAzureActiveDirectoryBearerAuthenticationOptions authenticationOptions =
         new WindowsAzureActiveDirectoryBearerAuthenticationOptions()    {
         TokenValidationParameters = tokenValidationParameters,
-        Tenant = "03F9FCBC-EA7B-46C2-8466-F81917F3C15E" // Substitute hello appropriate tenant’s 
+        Tenant = "03F9FCBC-EA7B-46C2-8466-F81917F3C15E" // Substitute the appropriate tenant’s 
                                                       // identifier for this one.  
       };
 
@@ -350,11 +350,11 @@ Geliştiriciler SCIM'yi hizmet oluşturmak için Microsoft tarafından sağlanan
 
 
 ## <a name="user-and-group-schema"></a>Kullanıcı ve Grup şeması
-Azure Active Directory kaynakları tooSCIM web hizmetleri iki tür sağlayabilirsiniz.  Bu kaynakların kullanıcılar ve gruplar türleridir.  
+Azure Active Directory iki tür kaynak SCIM'yi web hizmetlerine sağlayabilirsiniz.  Bu kaynakların kullanıcılar ve gruplar türleridir.  
 
-Kullanıcı kaynakları hello şema tanımlayıcısı, bu protokolü belirtimi içinde bulunan urn: ietf:params:scim:schemas:extension:enterprise:2.0:User tanımlanır: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  Kullanıcıların Azure Active Directory toohello özniteliklerinde urn: ietf:params:scim:schemas:extension:enterprise:2.0:User kaynakların hello özniteliklerin Hello Varsayılan eşleme Tablo 1, aşağıda verilmiştir.  
+Kullanıcı kaynakları şema tanımlayıcısı, bu protokolü belirtimi içinde bulunan urn: ietf:params:scim:schemas:extension:enterprise:2.0:User tanımlanır: http://tools.ietf.org/html/draft-ietf-scim-core-schema.  Azure Active Directory'de kullanıcıları urn: ietf:params:scim:schemas:extension:enterprise:2.0:User kaynakları özniteliklerinin özniteliklerinin varsayılan eşleme Tablo 1, aşağıda verilmiştir.  
 
-Grup kaynaklarının hello şema tanımlayıcılarına göre tanımlanır http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  Aşağıda, gösterir hello Varsayılan eşleme gruplarının Azure Active Directory toohello öznitelikleri http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group kaynakların hello özniteliklerin Tablo 2.  
+Grup kaynaklarının şema tanımlayıcısı tarafından tanımlanan http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group.  Azure Active Directory'deki öznitelikleri için http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group kaynak grupları özniteliklerinin varsayılan eşleme Tablo 2, aşağıda gösterilmektedir.  
 
 ### <a name="table-1-default-user-attribute-mapping"></a>Tablo 1: Varsayılan kullanıcı özniteliği eşlemesi
 | Azure Active Directory kullanıcısı | urn: ietf:params:scim:schemas:extension:enterprise:2.0:User |
@@ -388,17 +388,17 @@ Grup kaynaklarının hello şema tanımlayıcılarına göre tanımlanır http:/
 | proxyAddresses |e-postaları [eq "diğer" yazın]. Değer |
 
 ## <a name="user-provisioning-and-de-provisioning"></a>Kullanıcı hazırlama ve sağlamayı kaldırma özelliklerini
-Merhaba, aşağıdaki çizimde gösterilmektedir Merhaba iletileri Azure Active Directory tooa SCIM'yi hizmet toomanage hello kullanım ömrü boyunca bir kullanıcı başka bir kimlik deposu gönderir. Merhaba diyagramı de nasıl hello CLI kitaplıkları kullanılarak uygulanan SCIM'yi sağlanan bir hizmeti Microsoft tarafından yapı için bu tür hizmetlerin bu istekleri bir sağlayıcısının çağrıları toohello yöntemlerin içine Çevir gösterir.  
+Aşağıdaki çizimde gösterildiği Azure Active Directory kullanıcı başka bir kimlik deposu olarak ömrünü yönetmek için SCIM'yi Hizmeti'ne gönderilen iletileri. Diyagram ayrıca nasıl CLI kitaplıkları kullanılarak uygulanan SCIM'yi sağlanan bir hizmeti Microsoft tarafından yapı için bir sağlayıcı yöntem çağrıları içine bu istekleri gibi hizmetleri Çevir gösterir.  
 
 ![][4]
 *Şekil 5: Kullanıcı sağlama ve sağlamayı kaldırma özelliklerini sırası*
 
-1. Azure Active Directory sorgularını hello mailNickname öznitelik değeri, bir kullanıcının Azure AD içinde eşleşen bir externalID öznitelik değeri olan bir kullanıcı için hizmet hello. Merhaba sorgu; burada görüntülerle jyoung mailNickname bir kullanıcının Azure Active Directory'de örneğidir Bu örnekte gibi bir Köprü Metni Aktarım Protokolü (HTTP) istek olarak ifade edilir: 
+1. Azure AD'de kullanıcı mailNickname öznitelik değerini eşleşen bir externalID öznitelik değeri olan bir kullanıcı için hizmet Azure Active Directory'yi sorgular. Sorgu; burada görüntülerle jyoung mailNickname bir kullanıcının Azure Active Directory'de örneğidir Bu örnekte gibi bir Köprü Metni Aktarım Protokolü (HTTP) istek olarak ifade edilir: 
   ````
     GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
     Authorization: Bearer ...
   ````
-  Merhaba hizmet SCIM'yi Hizmetleri uygulamak için Microsoft tarafından sağlanan Merhaba ortak dil altyapısı kitaplıkları kullanılarak oluşturuldu, hello isteği çağrısı toohello hello hizmetin sağlayıcısının sorgu yöntemini çevrilir.  Bu yöntem hello imzası şöyledir: 
+  Hizmet SCIM'yi Hizmetleri uygulamak için Microsoft tarafından sağlanan ortak dil altyapısı kitaplıkları kullanılarak oluşturuldu, istek sorgu yöntemi hizmet sağlayıcı için bir çağrı çevrilir.  Bu yöntem imzası şöyledir: 
   ````
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
@@ -410,7 +410,7 @@ Merhaba, aşağıdaki çizimde gösterilmektedir Merhaba iletileri Azure Active 
       Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters parameters, 
       string correlationIdentifier);
   ````
-  Merhaba Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters arabirimi hello tanımı aşağıda verilmiştir: 
+  Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters arabirim tanımı aşağıda verilmiştir: 
   ````
     public interface IQueryParameters: 
       Microsoft.SystemForCrossDomainIdentityManagement.IRetrievalParameters
@@ -446,14 +446,14 @@ Merhaba, aşağıdaki çizimde gösterilmektedir Merhaba iletileri Azure Active 
         Equals
     }
   ````
-  Bir kullanıcı için bir sorgu hello externalID özniteliği için belirtilen bir değerle örneği aşağıdaki hello toohello sorgu yöntemi hello değişkenlerin değerleri şunlardır: 
+  Bir kullanıcı için bir sorgu externalID özniteliği için belirtilen bir değerle aşağıdaki örnekte sorgu yönteme geçirilen bağımsız değişkenlerin değerleri şunlardır: 
   * parametreleri. AlternateFilters.Count: 1
   * parametreleri. AlternateFilters.ElementAt(0). AttributePath: "externalID"
   * parametreleri. AlternateFilters.ElementAt(0). Karşılaştırmaİşleci: ComparisonOperator.Equals
   * parametreleri. AlternateFilter.ElementAt(0). ComparisonValue: "jyoung"
   * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin. RequestId"] 
 
-2. Merhaba yanıt tooa sorgu toohello web hizmeti, bir kullanıcının hello mailNickname öznitelik değeri ile eşleşen bir externalID öznitelik değeri olan bir kullanıcı için tüm kullanıcıların döndürmezse, Azure Active Directory bu hello hizmet sağlama kullanıcı istekleri karşılık gelen toohello bir Azure Active Directory'de.  Böyle bir istek bir örneği burada verilmiştir: 
+2. Web hizmeti, bir kullanıcının mailNickname öznitelik değeri ile eşleşen bir externalID öznitelik değeri olan bir kullanıcı için bir sorguya yanıt herhangi bir kullanıcının döndürmezse, Azure Active Directory hizmeti bir Azure Active Directory'de karşılık gelen bir kullanıcı sağlamak ister.  Böyle bir istek bir örneği burada verilmiştir: 
   ````
     POST https://.../scim/Users HTTP/1.1
     Authorization: Bearer ...
@@ -484,7 +484,7 @@ Merhaba, aşağıdaki çizimde gösterilmektedir Merhaba iletileri Azure Active 
       "department":null,
       "manager":null}
   ````
-  Merhaba ortak dil altyapısı kitaplıkları SCIM'yi Hizmetleri uygulamak için Microsoft tarafından sağlanan bu isteği bir çağrı toohello hello hizmetin sağlayıcısının oluşturma yöntemini çevirir.  Merhaba Create yönteminin bu imzaya sahip: 
+  SCIM'yi Hizmetleri uygulamak için Microsoft tarafından sağlanan ortak dil altyapısı kitaplıkları bu isteği oluşturma yöntemi hizmet sağlayıcı için bir çağrı çevirir.  Create yönteminin bu imzaya sahip: 
   ````
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
@@ -494,14 +494,14 @@ Merhaba, aşağıdaki çizimde gösterilmektedir Merhaba iletileri Azure Active 
       Microsoft.SystemForCrossDomainIdentityManagement.Resource resource, 
       string correlationIdentifier);
   ````
-  Bir istek tooprovision bir kullanıcı hello hello kaynak bağımsız değişkeni hello Microsoft.SystemForCrossDomainIdentityManagement örneği değeridir. Merhaba Microsoft.SystemForCrossDomainIdentityManagement.Schemas Kitaplığı'nda tanımlanan Core2EnterpriseUser sınıfı.  Merhaba isteği tooprovision hello kullanıcı başarılı olursa, ardından hello hello yöntemi beklenen tooreturn hello Microsoft.SystemForCrossDomainIdentityManagement örneği uygulamasıdır. Merhaba tanımlayıcısı özelliği hello değeriyle Core2EnterpriseUser sınıfı hello yeni sağlanan kullanıcının benzersiz tanıtıcısı toohello ayarlayın.  
+  Bir kullanıcı sağlamak için istekte kaynak bağımsız değişkeninin değeri Microsoft.SystemForCrossDomainIdentityManagement örneğidir. Microsoft.SystemForCrossDomainIdentityManagement.Schemas Kitaplığı'nda tanımlanan Core2EnterpriseUser sınıfı.  Kullanıcı sağlama isteği başarılı olursa, yöntemin kullanımı Microsoft.SystemForCrossDomainIdentityManagement örneği döndürmesi beklenir. Yeni sağlanan kullanıcının benzersiz tanımlayıcıya ayarlamak tanımlayıcı özelliğinin değeri ile Core2EnterpriseUser sınıfı.  
 
-3. tooupdate tooexist bir kimlik deposu olarak bilinen bir kullanıcı tarafından bir SCIM'yi, kullanıcının geçerli durumunu hello gibi bir istekle hello Hizmeti'nden istiyor tarafından Azure Active Directory kazançlar fronted: 
+3. Bir kullanıcı tarafından bir SCIM'yi fronted kimlik deposunda bilinmektedir güncelleştirmek için Azure Active Directory gibi bir istekle hizmetinden kullanıcı geçerli durumunu isteyerek çalışır: 
   ````
     GET ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
   ````
-  Merhaba ortak dil altyapısı kitaplıkları SCIM'yi Hizmetleri uygulamak için Microsoft tarafından sağlanan kullanılarak oluşturulmuş bir hizmetinde hello isteği çağrısı toohello hello hizmetin sağlayıcısının alma yöntemini çevrilir.  Merhaba alma yöntemini hello imzası şöyledir: 
+  SCIM'yi Hizmetleri uygulamak için Microsoft tarafından sağlanan ortak dil altyapısı kitaplıkları kullanılarak oluşturulmuş bir hizmeti, hizmet sağlayıcısının alma yöntemine bir çağrı isteği çevrilir.  Alma yöntemi imzası şöyledir: 
   ````
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.Resource and 
@@ -529,19 +529,19 @@ Merhaba, aşağıdaki çizimde gösterilmektedir Merhaba iletileri Azure Active 
           { get; set; }
     }
   ````
-  Bir kullanıcı bir istek tooretrieve hello geçerli durumu Hello örnekte hello'hello parametreleri bağımsız değişkenin değeri sağlanan hello nesne hello özelliklerinin hello değerleri aşağıdaki gibidir: 
+  Kullanıcının geçerli durumunu almak için bir istek örnekte parametreleri bağımsız değişkenin değeri sağlanan nesne özelliklerinin değerleri aşağıdaki gibidir: 
   
   * Tanımlayıcı: "54D382A4-2050-4C03-94D1-E769F1D15682"
   * SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-4. Hello hello başvuru özniteliği hello kimlik deposundaki geçerli değeri tarafından fronted olup olmadığına bakılmaksızın bir başvuru özniteliği güncelleştirilmiş, toobe sonra Azure Active Directory sorgularını hello hizmet toodetermine ise hello hizmeti zaten bu özniteliğin değerini hello eşleşir Azure Active Directory'de. Kullanıcılar için hangi hello geçerli değeri bu şekilde sorgulanır hello yalnızca öznitelik hello Yöneticisi özniteliğidir. Burada, belirli bir kullanıcı nesnesinin hello Yöneticisi özniteliği şu anda belirli bir değere sahip olup olmadığını isteği toodetermine örneği verilmiştir: 
+4. Azure Active Directory kimlik deposu olarak başvuru özniteliği geçerli değeri hizmeti tarafından zaten fronted olup olmadığını belirlemek üzere hizmetini sorgular ardından güncelleştirilmesi için bir başvuru özniteliği ise Azure Active Directory'de bu özniteliğin değeri ile eşleşir. Kullanıcılar için bu şekilde sorgulanan geçerli değeri yalnızca öznitelik Yöneticisi özniteliğidir. Belirli bir kullanıcı nesnesinin Yöneticisi özniteliği şu anda belirli bir değere sahip olup olmadığını belirlemek için bir istek bir örneği burada verilmiştir: 
   ````
     GET ~/scim/Users?filter=id eq 54D382A4-2050-4C03-94D1-E769F1D15682 and manager eq 2819c223-7f76-453a-919d-413861904646&attributes=id HTTP/1.1
     Authorization: Bearer ...
   ````
-  Merhaba değeri hello öznitelikleri sorgu parametresinin kimliği güveninin bir kullanıcı nesnesi varsa hello hello filtre sorgu parametresi değeri olarak sağlanan hello ifadeyi karşılayan sonra hello hizmetidir beklenen toorespond urn: ietf:params:scim:schemas ile: yalnızca bu kaynağın ID özniteliği hello değeri de dahil olmak üzere çekirdek: 2.0:User veya urn: ietf:params:scim:schemas:extension:enterprise:2.0:User kaynak.  Merhaba hello değerini **kimliği** toohello istek sahibi bilinen öznitelik. Merhaba filtre sorgu parametresi hello değerinde bulunur; Merhaba amacı söylemelisiniz gerçekten toorequest hello filtre ifadesinin olup olmadığına böyle nesne bir gösterge olarak çağıran mevcut bir kaynak en az bir gösterimi ' dir.   
+  Değer öznitelikleri sorgu parametresinin kimliği güveninin, bir kullanıcı nesnesi filtre sorgu parametresi değeri olarak sağlanan ifade karşılayan varsa, ardından hizmeti yalnızca o kaynağın Kimliği özniteliğinin değeri de dahil olmak üzere urn: ietf:params:scim:schemas:core:2.0:User veya urn: ietf:params:scim:schemas:extension:enterprise:2.0:User sahip bir kaynak, yanıt vermesi bekleniyor.  Değeri **kimliği** istek sahibine bilinen öznitelik. Filtre sorgu parametresi değeri içinde bulunur; Filtre ifadesinin olup olmadığına böyle bir nesne var olan bir göstergesi olarak çağıran bir kaynak en az bir gösterimini istemek üzere söylemelisiniz amacı gerçekte var.   
 
-  Merhaba hizmet SCIM'yi Hizmetleri uygulamak için Microsoft tarafından sağlanan Merhaba ortak dil altyapısı kitaplıkları kullanılarak oluşturuldu, hello isteği çağrısı toohello hello hizmetin sağlayıcısının sorgu yöntemini çevrilir. hello'hello parametreleri bağımsız değişkenin değeri sağlanan hello nesnesinin hello özelliklerini Hello değeri aşağıdaki gibidir: 
+  Hizmet SCIM'yi Hizmetleri uygulamak için Microsoft tarafından sağlanan ortak dil altyapısı kitaplıkları kullanılarak oluşturuldu, istek sorgu yöntemi hizmet sağlayıcı için bir çağrı çevrilir. Parametre bağımsız değişkenin değeri sağlanan nesne özelliklerini değeri aşağıdaki gibidir: 
   
   * parametreleri. AlternateFilters.Count: 2
   * parametreleri. AlternateFilters.ElementAt(x). AttributePath: "id"
@@ -553,9 +553,9 @@ Merhaba, aşağıdaki çizimde gösterilmektedir Merhaba iletileri Azure Active 
   * parametreleri. RequestedAttributePaths.ElementAt(0): "id"
   * parametreleri. SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-  Burada, hello dizinin x hello değeri 0 olabilir ve hello hello dizin y değerini 1, olabilir ya da x hello değeri 1 olabilir ve hello y değerini hello filtre sorgu parametresi hello ifadelerin hello sırasını bağlı olarak 0 olabilir.   
+  Burada, dizinin x değeri 0 olabilir ve dizin y değeri 1, olabilir ya da x değerini 1 olabilir ve y değeri filtre sorgu parametresi ifadelerin sırasını bağlı olarak 0 olabilir.   
 
-5. Azure Active Directory tooan SCIM'yi hizmet tooupdate bir kullanıcı bir isteğin bir örnek aşağıda verilmiştir: 
+5. Bir isteğin bir kullanıcıyı güncelleştirmek için SCIM'yi hizmetine örnek Azure Active Directory'den verilmiştir: 
   ````
     PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
@@ -575,7 +575,7 @@ Merhaba, aşağıdaki çizimde gösterilmektedir Merhaba iletileri Azure Active 
                 "$ref":"http://.../scim/Users/2819c223-7f76-453a-919d-413861904646",
                 "value":"2819c223-7f76-453a-919d-413861904646"}]}]}
   ````
-  hello Microsoft ortak dil altyapısı kitaplıkları SCIM'yi Hizmetleri uygulamak için bir çağrı toohello hello hizmetin sağlayıcısının güncelleştirme yöntemini hello isteği çevirir. Merhaba güncelleştirme yöntemi hello imzası şöyledir: 
+  Microsoft ortak dil altyapısı kitaplıkları SCIM'yi Hizmetleri uygulamak için hizmet sağlayıcısı'nın güncelleştirme yöntemine bir çağrı isteği çevirir. Update yöntemi imzası şöyledir: 
   ````
     // System.Threading.Tasks.Tasks and 
     // System.Collections.Generic.IReadOnlyCollection<T>
@@ -656,7 +656,7 @@ Merhaba, aşağıdaki çizimde gösterilmektedir Merhaba iletileri Azure Active 
       { get; set; }
     }
   ````
-    İstek tooupdate kullanıcı Hello örnekte hello'hello düzeltme eki bağımsız değişkenin değeri sağlanan hello nesnesi bu özellik değerlerini içerir: 
+    Kullanıcıyı güncelleştirmek için bir istek örnekte, bu özellik değerlerini düzeltme eki bağımsız değişkenin değeri sağlanan nesne vardır: 
   
   * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
   * ResourceIdentifier.SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
@@ -667,12 +667,12 @@ Merhaba, aşağıdaki çizimde gösterilmektedir Merhaba iletileri Azure Active 
   * (PatchRequest PatchRequest2 olarak). Operations.ElementAt(0). Value.ElementAt(0). Başvuru: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
   * (PatchRequest PatchRequest2 olarak). Operations.ElementAt(0). Value.ElementAt(0). Değer: 2819c223-7f76-453a-919d-413861904646
 
-6. toode sağlama SCIM'yi hizmeti tarafından bir kimlik deposu kullanıcıdan fronted, Azure AD gibi bir isteği gönderir: 
+6. Bir kullanıcı bir SCIM'yi hizmeti tarafından fronted kimlik mağazadan sağlanmasını için Azure AD gibi bir isteği gönderir: 
   ````
     DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
     Authorization: Bearer ...
   ````
-  Merhaba hizmet SCIM'yi Hizmetleri uygulamak için Microsoft tarafından sağlanan Merhaba ortak dil altyapısı kitaplıkları kullanılarak oluşturuldu, hello isteği çağrısı toohello hello hizmetin sağlayıcısının Delete yöntemini çevrilir.   Bu yöntem, bu imza sahiptir: 
+  Hizmet SCIM'yi Hizmetleri uygulamak için Microsoft tarafından sağlanan ortak dil altyapısı kitaplıkları kullanılarak oluşturuldu, istek hizmet sağlayıcısının Delete yöntemine bir çağrı çevrilir.   Bu yöntem, bu imza sahiptir: 
   ````
     // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
     // Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, 
@@ -682,29 +682,29 @@ Merhaba, aşağıdaki çizimde gösterilmektedir Merhaba iletileri Azure Active 
         resourceIdentifier, 
       string correlationIdentifier);
   ````
-  Hello'hello resourceIdentifier bağımsız değişkenin değeri sağlanan hello nesnesi istek toode-provizyon kullanıcı hello örnekte bu özellik değerlerini içerir: 
+  Bu özellik değerlerini resourceIdentifier bağımsız değişkenin değeri sağlanan nesne kullanıcı sağlanmasını isteği örnekte vardır: 
   
   * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
   * ResourceIdentifier.SchemaIdentifier: "urn: ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 ## <a name="group-provisioning-and-de-provisioning"></a>Grup sağlama ve sağlamayı kaldırma özelliklerini
-Merhaba, aşağıdaki çizimde gösterilmektedir Merhaba iletileri Azure AcD tooa SCIM'yi hizmet toomanage hello kullanım ömrü boyunca bir grubu başka bir kimlik deposu gönderir.  Bu iletiler toousers üç yolla ilgili Merhaba iletileri farklıdır: 
+Aşağıdaki çizimde gösterildiği Azure AcD bir grubu başka bir kimlik deposu içinde yaşam döngüsü yönetmek için SCIM'yi Hizmeti'ne gönderilen iletileri.  Bu iletiler, kullanıcılara üç yolla ilgili iletiler farklıdır: 
 
-* bir grup kaynak Hello şeması http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group tanımlanır.  
-* Bu hello üyeleri öznitelik tooretrieve grupları iznine isteği yanıt toohello isteğinde sağlanan herhangi bir kaynağa dışında toobe sayısıdır.  
-* İstekleri toodetermine olan istekleri hello üyeleri özniteliği hakkında bir başvuru özniteliği belirli bir değere sahip olup olmadığını belirler.  
+* Bir grup kaynağına şema http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/Group tanımlanır.  
+* Grupları almak için yapılan isteklerinin üyeleri öznitelik isteğine yanıt olarak sağlanan herhangi bir kaynağa dışında tutulması olduğunu iznine.  
+* Bir başvuru özniteliği belirli bir değere sahip olup olmadığını belirlemek üzere istekleri üyeleri özniteliği hakkında isteklerdir.  
 
 ![][5]
 *Şekil 6: Grup sağlama ve sağlamayı kaldırma özelliklerini sırası*
 
 ## <a name="related-articles"></a>İlgili makaleler
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](active-directory-apps-index.md)
-* [Kullanıcı hazırlama/sağlama kaldırmayı tooSaaS uygulamaları otomatikleştirme](active-directory-saas-app-provisioning.md)
+* [Kullanıcı sağlama/sağlamayı SaaS uygulamaları için otomatik hale getirme](active-directory-saas-app-provisioning.md)
 * [Kullanıcı sağlama öznitelik eşlemelerini özelleştirme](active-directory-saas-customizing-attribute-mappings.md)
 * [Özellik eşlemeleri için ifade yazma](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Kapsam belirleme filtreleri kullanıcı sağlama](active-directory-saas-scoping-filters.md)
 * [Hesap sağlama bildirimleri](active-directory-saas-account-provisioning-notifications.md)
-* [İlgili nasıl öğreticiler listesi tooIntegrate SaaS uygulamaları](active-directory-saas-tutorial-list.md)
+* [SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 
 <!--Image references-->
 [0]: ./media/active-directory-scim-provisioning/scim-figure-1.PNG

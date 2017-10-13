@@ -1,6 +1,6 @@
 ---
-title: "aaaCreate ve bir Azure sanal makine Java kullanarak yönetme | Microsoft Docs"
-description: "Java ve Azure Resource Manager toodeploy bir sanal makine ve tüm destekleyici kaynakları kullanın."
+title: "Oluşturma ve Java kullanarak Azure sanal makinesi yönetme | Microsoft Docs"
+description: "Bir sanal makine ve tüm destekleyici kaynakları dağıtmak için Java ve Azure Resource Manager'ı kullanın."
 services: virtual-machines-windows
 documentationcenter: 
 author: davidmu1
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: davidmu
-ms.openlocfilehash: 31ac8d59f92ecff887e64906940933dd6fd50815
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: b9e739a07c5863577285fb3a221b372b385c6762
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Oluşturma ve Java kullanarak azure'da Windows sanal makineleri yönetme
 
@@ -32,15 +32,15 @@ Bir [Azure sanal makine](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2
 > * Kaynak oluşturma
 > * Yönetim görevlerini gerçekleştirme
 > * Kaynakları silin
-> * Merhaba uygulamayı çalıştırın
+> * Uygulamayı çalıştırma
 
-Bu adımları toodo yaklaşık 20 dakika sürer.
+Bu adımların tamamlanması yaklaşık 20 dakika sürer.
 
 ## <a name="create-a-maven-project"></a>Bir Maven projesi oluşturun
 
 1. Zaten yapmadıysanız, yükleme [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 2. Yükleme [Maven](http://maven.apache.org/download.cgi).
-3. Yeni bir klasör ve başlangıç projesi oluşturun:
+3. Yeni bir klasör ve projeyi oluşturun:
     
     ```
     mkdir java-azure-test
@@ -51,7 +51,7 @@ Bu adımları toodo yaklaşık 20 dakika sürer.
 
 ## <a name="add-dependencies"></a>Bağımlılıkları ekleyin.
 
-1. Merhaba altında `testAzureApp` klasörü, açık hello `pom.xml` dosya ve hello yapı yapılandırma çok ekleyin&lt;proje&gt; tooenable hello yapı, uygulamanızın:
+1. Altında `testAzureApp` klasörü, açık `pom.xml` dosya ve derleme yapılandırmasını eklemek &lt;proje&gt; uygulamanızın oluşturulmasını etkinleştirmek için:
 
     ```xml
     <build>
@@ -67,7 +67,7 @@ Bu adımları toodo yaklaşık 20 dakika sürer.
     </build>
     ```
 
-2. Gerekli tooaccess hello Azure Java SDK'sını hello bağımlılıklar ekleyin.
+2. Azure Java SDK'sını erişmek için gerekli bağımlılıkları ekleyin.
 
     ```xml
     <dependency>
@@ -112,15 +112,15 @@ Bu adımları toodo yaklaşık 20 dakika sürer.
     </dependency>
     ```
 
-3. Merhaba dosyasını kaydedin.
+3. Dosyayı kaydedin.
 
 ## <a name="create-credentials"></a>Kimlik bilgileri oluşturun
 
-Bu adım başlamadan önce erişim tooan sahip olduğunuzdan emin olun [Active Directory hizmet asıl](../../azure-resource-manager/resource-group-create-service-principal-portal.md). Ayrıca bir sonraki adımda hello uygulama kimliği, hello kimlik doğrulama anahtarı ve ihtiyacınız hello Kiracı kimliği kaydetmelisiniz.
+Bu adım başlamadan önce erişimi olduğundan emin olun bir [Active Directory hizmet asıl](../../azure-resource-manager/resource-group-create-service-principal-portal.md). Uygulama kimliği, kimlik doğrulama anahtarı ve ihtiyacınız Kiracı kimliği bir sonraki adımda kaydetmelisiniz.
 
-### <a name="create-hello-authorization-file"></a>Merhaba yetkilendirme dosyası oluşturma
+### <a name="create-the-authorization-file"></a>Yetkilendirme dosyası oluşturma
 
-1. Adlı bir dosya oluşturun `azureauth.properties` ve bu özellikler tooit ekleyin:
+1. Adlı bir dosya oluşturun `azureauth.properties` ve bu özellikleri ekleyin:
 
     ```
     subscription=<subscription-id>
@@ -133,20 +133,20 @@ Bu adım başlamadan önce erişim tooan sahip olduğunuzdan emin olun [Active D
     graphURL=https://graph.windows.net/
     ```
 
-    Değiştir  **&lt;abonelik kimliği&gt;**  , abonelik tanımlayıcısı ile  **&lt;uygulama kimliği&gt;**  hello Active Directory uygulaması ile tanımlayıcı,  **&lt;kimlik doğrulama anahtarı&gt;**  hello uygulama anahtarla ve  **&lt;Kiracı kimliği&gt;**  hello Kiracı tanımlayıcı.
+    Değiştir  **&lt;abonelik kimliği&gt;**  , abonelik tanımlayıcısı ile  **&lt;uygulama kimliği&gt;**  Active Directory Uygulama tanımlayıcısı ile  **&lt;kimlik doğrulama anahtarı&gt;**  uygulama anahtarla ve  **&lt;Kiracı kimliği&gt;**  , Kiracı tanımlayıcısı.
 
-2. Merhaba dosyasını kaydedin.
-3. AZURE_AUTH_LOCATION Kabuğu'nda hello tam yolu toohello kimlik doğrulaması dosyasıyla adlı bir ortam değişkeni ayarlayın.
+2. Dosyayı kaydedin.
+3. Kimlik doğrulama dosyasının tam yolu ile Kabuk AZURE_AUTH_LOCATION adlı bir ortam değişkeni ayarlayın.
 
-### <a name="create-hello-management-client"></a>Merhaba yönetim istemcisi oluşturma
+### <a name="create-the-management-client"></a>Yönetim istemcisi oluşturma
 
-1. Açık hello `App.java` altında dosya `src\main\java\com\fabrikam` ve bu paket bildirimi hello üstünde olduğundan emin olun:
+1. Açık `App.java` altında dosya `src\main\java\com\fabrikam` ve bu paket bildirimi en üstte olduğundan emin olun:
 
     ```java
     package com.fabrikam.testAzureApp;
     ```
 
-2. Merhaba paket altında bu deyimine deyimleri içeri aktarın:
+2. Paket altında bu deyimine deyimleri içeri aktarın:
    
     ```java
     import com.microsoft.azure.management.Azure;
@@ -168,7 +168,7 @@ Bu adım başlamadan önce erişim tooan sahip olduğunuzdan emin olun [Active D
     import java.util.Scanner;
     ```
 
-2. toocreate hello Active Directory kimlik bilgileri toomake istekleri gereksinim hello uygulama sınıfı, bu kod toohello ana yöntemi ekleyin:
+2. İstekleri yapmanız gereken Active Directory kimlik bilgileri oluşturmak için bu kodu uygulama sınıfı ana yöntemine ekleyin:
    
     ```java
     try {    
@@ -186,11 +186,11 @@ Bu adım başlamadan önce erişim tooan sahip olduğunuzdan emin olun [Active D
 
 ## <a name="create-resources"></a>Kaynak oluşturma
 
-### <a name="create-hello-resource-group"></a>Merhaba kaynak grubu oluştur
+### <a name="create-the-resource-group"></a>Kaynak grubunu oluşturma
 
 Tüm kaynaklar içinde bulunması gereken bir [kaynak grubu](../../azure-resource-manager/resource-group-overview.md).
 
-toospecify değerleri Merhaba uygulama ve hello kaynak grubu oluşturmak, bu kod toohello try bloğu hello ana yönteminde ekleyin:
+Uygulama için değerleri belirtin ve kaynak grubu oluşturmak için ana yöntem try bloğunda bu kodu ekleyin:
 
 ```java
 System.out.println("Creating resource group...");
@@ -200,11 +200,11 @@ ResourceGroup resourceGroup = azure.resourceGroups()
     .create();
 ```
 
-### <a name="create-hello-availability-set"></a>Merhaba kullanılabilirlik kümesi oluştur
+### <a name="create-the-availability-set"></a>Kullanılabilirlik kümesi oluştur
 
-[Kullanılabilirlik kümeleri](tutorial-availability-sets.md) sizin için toomaintain hello sanal makineler, uygulamanız tarafından kullanılan kolaylaştırır.
+[Kullanılabilirlik kümeleri](tutorial-availability-sets.md) uygulamanız tarafından kullanılan sanal makinelerin bakımını kolaylaştırır.
 
-toocreate hello kullanılabilirlik kümesi, bu kod toohello try bloğu hello ana yönteminde ekleyin:
+Kullanılabilirlik kümesi oluşturmak için ana yöntem try bloğunda bu kodu ekleyin:
 
 ```java
 System.out.println("Creating availability set...");
@@ -215,11 +215,11 @@ AvailabilitySet availabilitySet = azure.availabilitySets()
     .withSku(AvailabilitySetSkuTypes.MANAGED)
     .create();
 ```
-### <a name="create-hello-public-ip-address"></a>Merhaba ortak IP adresi oluştur
+### <a name="create-the-public-ip-address"></a>Ortak IP adresi oluştur
 
-A [genel IP adresi](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) hello sanal makineyle gerekli toocommunicate değil.
+A [genel IP adresi](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) sanal makineyle iletişim kurmak için gereklidir.
 
-toocreate hello hello sanal makine için genel IP adresi bu kodu toohello try bloğu hello ana yönteminde ekleyin:
+Sanal makine için genel IP adresi oluşturmak için ana yöntem try bloğunda bu kodu ekleyin:
 
 ```java
 System.out.println("Creating public IP address...");
@@ -231,11 +231,11 @@ PublicIPAddress publicIPAddress = azure.publicIPAddresses()
     .create();
 ```
 
-### <a name="create-hello-virtual-network"></a>Merhaba sanal ağ oluşturma
+### <a name="create-the-virtual-network"></a>Sanal ağ oluşturma
 
 Bir sanal makine bir alt ağda olmalıdır bir [sanal ağ](../../virtual-network/virtual-networks-overview.md).
 
-alt ağ a toocreate ve bir sanal ağ hello ana yönteminde bu kodu toohello try bloğu ekleyin:
+Bir alt ağ ve sanal ağ oluşturmak için ana yöntem try bloğunda bu kodu ekleyin:
 
 ```java
 System.out.println("Creating virtual network...");
@@ -248,11 +248,11 @@ Network network = azure.networks()
     .create();
 ```
 
-### <a name="create-hello-network-interface"></a>Merhaba ağ arabirimi oluştur
+### <a name="create-the-network-interface"></a>Ağ arabirimi oluştur
 
-Bir sanal makine bir ağ arabirimi toocommunicate hello sanal ağda gerekir.
+Bir sanal makinenin sanal ağ iletişim kurmak için bir ağ arabirimi gerekiyor.
 
-toocreate bir ağ arabirimi, bu kod toohello try bloğu hello ana yönteminde ekleyin:
+Bir ağ arabirimi oluşturmak için ana yöntem try bloğunda bu kodu ekleyin:
 
 ```java
 System.out.println("Creating network interface...");
@@ -267,11 +267,11 @@ NetworkInterface networkInterface = azure.networkInterfaces()
     .create();
 ```
 
-### <a name="create-hello-virtual-machine"></a>Merhaba sanal makine oluşturma
+### <a name="create-the-virtual-machine"></a>Sanal makineyi oluşturma
 
-Kaynakları destekleyen tüm hello oluşturduğunuza göre bir sanal makine oluşturabilirsiniz.
+Tüm destekleyici kaynakları oluşturduğunuza göre bir sanal makine oluşturabilirsiniz.
 
-toocreate Merhaba sanal makine, bu kod toohello try bloğu hello ana yönteminde ekleyin:
+Sanal makine oluşturmak için ana yöntem try bloğunda bu kodu ekleyin:
 
 ```java
 System.out.println("Creating virtual machine...");
@@ -288,16 +288,16 @@ VirtualMachine virtualMachine = azure.virtualMachines()
     .withSize("Standard_DS1")
     .create();
 Scanner input = new Scanner(System.in);
-System.out.println("Press enter tooget information about hello VM...");
+System.out.println("Press enter to get information about the VM...");
 input.nextLine();
 ```
 
 > [!NOTE]
-> Bu öğretici hello Windows Server işletim sistemi sürümünü çalıştıran bir sanal makine oluşturur. diğer görüntüleri seçme hakkında daha fazla toolearn bkz [erişin ve seçin, Windows PowerShell ve Azure CLI hello Azure sanal makine görüntülerini](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Bu öğretici, Windows Server işletim sistemi sürümünü çalıştıran bir sanal makine oluşturur. Diğer görüntüleri seçme hakkında daha fazla bilgi için bkz: [erişin ve seçin, Windows PowerShell ve Azure CLI Azure sanal makine görüntülerini](../linux/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 >
 
-Varolan bir diski bir Market görüntüsü yerine toouse istiyorsanız, bu kodu kullanın: 
+Varolan bir diski bir Market görüntüsü yerine kullanmak istiyorsanız, bu kodu kullanın: 
 
 ```java
 ManagedDisk managedDisk = azure.disks.define("myosdisk") 
@@ -320,17 +320,17 @@ azure.virtualMachines.define("myVM")
 
 ## <a name="perform-management-tasks"></a>Yönetim görevlerini gerçekleştirme
 
-Bir sanal makine Hello yaşam döngüsü sırasında başlatma, durdurma veya bir sanal makine silme gibi yönetim görevleri toorun isteyebilirsiniz. Ayrıca, toocreate, kod tooautomate yineleyen veya karmaşık görevleri isteyebilirsiniz.
+Bir sanal makine yaşam döngüsü sırasında başlatma, durdurma veya bir sanal makine silme gibi yönetim görevleri çalıştırmak isteyebilirsiniz. Ayrıca, yinelenen veya karmaşık görevleri otomatikleştirmek için kod oluşturmak isteyebilirsiniz.
 
-Merhaba VM ile herhangi bir şey toodo gerektiğinde, tooget bir örneği gerekir. Bu kod toohello try bloğu hello main yöntemi ekleyin:
+VM ile herhangi bir şey yapmanız gerektiğinde bir örneğini almanız gerekir. Bu kod main yöntemini deneyin bloğunu ekleyin:
 
 ```java
 VirtualMachine vm = azure.virtualMachines().getByResourceGroup("myResourceGroup", "myVM");
 ```
 
-### <a name="get-information-about-hello-vm"></a>Merhaba VM hakkında bilgi edinin
+### <a name="get-information-about-the-vm"></a>VM hakkında bilgi alın
 
-Merhaba sanal makine hakkında tooget bilgi hello ana yönteminde bu kodu toohello try bloğu ekleyin:
+Sanal makine hakkında bilgi almak için ana yöntem try bloğunda bu kodu ekleyin:
 
 ```java
 System.out.println("hardwareProfile");
@@ -382,94 +382,94 @@ for(InstanceViewStatus status : vm.instanceView().statuses()) {
     System.out.println("  code: " + status.code());
     System.out.println("  displayStatus: " + status.displayStatus());
 }
-System.out.println("Press enter toocontinue...");
+System.out.println("Press enter to continue...");
 input.nextLine();   
 ```
 
-### <a name="stop-hello-vm"></a>Merhaba VM Durdur
+### <a name="stop-the-vm"></a>VM’yi durdurma
 
-Bir sanal makineyi durdurmak ve tüm ayarları korumak, ancak toobe için sizden ücret veya bir sanal makineyi durdurun ve bunu serbest bırakma devam edin. Bir sanal makine serbest bırakıldığında, kendisiyle ilişkili tüm kaynakları da deallocated ve fatura onun için edilir.
+Bir sanal makineyi durdurun ve tüm ayarları korumak ancak bunun için sizden ücret devam ya da sanal makineyi durdurun ve bunu serbest bırakma. Bir sanal makine serbest bırakıldığında, kendisiyle ilişkili tüm kaynakları da deallocated ve fatura onun için edilir.
 
-serbest bırakma olmadan toostop hello sanal makine bu kodu toohello try bloğu hello ana yönteminde ekleyin:
+Serbest bırakma olmadan sanal makineyi durdurmak için ana yöntem try bloğunda bu kodu ekleyin:
 
 ```java
 System.out.println("Stopping vm...");
 vm.powerOff();
-System.out.println("Press enter toocontinue...");
+System.out.println("Press enter to continue...");
 input.nextLine();
 ```
 
-Toodeallocate hello sanal makine istiyorsanız hello kapalı çağrısı toothis kodu değiştirin:
+Sanal makine ayırması istiyorsanız, bu kod kapalı çağrısı değiştirin:
 
 ```java
 vm.deallocate();
 ```
 
-### <a name="start-hello-vm"></a>Merhaba VM Başlat
+### <a name="start-the-vm"></a>VM Başlat
 
-toostart Merhaba sanal makine, bu kod toohello try bloğu hello ana yönteminde ekleyin:
+Sanal makineyi başlatmak için ana yöntem try bloğunda bu kodu ekleyin:
 
 ```java
 System.out.println("Starting vm...");
 vm.start();
-System.out.println("Press enter toocontinue...");
+System.out.println("Press enter to continue...");
 input.nextLine();
 ```
 
-### <a name="resize-hello-vm"></a>Merhaba VM yeniden boyutlandırma
+### <a name="resize-the-vm"></a>VM'yi yeniden boyutlandırın
 
 Dağıtım pek çok görünüşünün sanal makineniz için bir boyut karar verirken dikkate alınmalıdır. Daha fazla bilgi için bkz: [VM boyutları](sizes.md).  
 
-toochange boyutunu hello sanal makine, bu kod toohello try bloğu hello ana yönteminde ekleyin:
+Sanal makine boyutunu değiştirmek için ana yöntem try bloğunda bu kodu ekleyin:
 
 ```java
 System.out.println("Resizing vm...");
 vm.update()
     .withSize(VirtualMachineSizeTypes.STANDARD_DS2)
     .apply();
-System.out.println("Press enter toocontinue...");
+System.out.println("Press enter to continue...");
 input.nextLine();
 ```
 
-### <a name="add-a-data-disk-toohello-vm"></a>Bir veri diski toohello VM ekleme
+### <a name="add-a-data-disk-to-the-vm"></a>VM için bir veri diski Ekle
 
-tooadd bir veri diski toohello 2 GB boyutunda, olan sanal makineye sahip bir LUN 0 ve ReadWrite önbelleğe alma türü, bu kod toohello try bloğu hello ana yönteminde ekleyin:
+Bir veri diski boyutu 2 GB ise, bir LUN 0 ve ReadWrite önbelleğe alma türü sahip sanal makine eklemek için ana yöntem try bloğunda bu kodu ekleyin:
 
 ```java
 System.out.println("Adding data disk...");
 vm.update()
     .withNewDataDisk(2, 0, CachingTypes.READ_WRITE)
     .apply();
-System.out.println("Press enter toodelete resources...");
+System.out.println("Press enter to delete resources...");
 input.nextLine();
 ```
 
 ## <a name="delete-resources"></a>Kaynakları silin
 
-Azure'da kullanılan kaynaklar için ücretlendirildiğinizden, her zaman artık gerekli olmayan iyi bir uygulama toodelete kaynaklarını aşıyor. Toodelete hello sanal makinelerin istediğiniz ve kaynakları destekleyen tüm hello tüm toodo varsa silme hello kaynak grubudur.
+Azure'da kullanılan kaynaklar için ücretlendirildiğinizden, her zaman artık gerekli olmayan kaynakları silmek için iyi bir uygulamadır. Sanal makineler ve destekleyici tüm kaynakları silmek istiyorsanız, tüm yapmanız gereken olan kaynak grubunu silebilirsiniz.
 
-1. toodelete hello kaynak grubu, bu kod toohello try bloğu hello ana yönteminde ekleyin:
+1. Kaynak grubunu silmek için ana yöntem try bloğunda bu kodu ekleyin:
    
 ```java
 System.out.println("Deleting resources...");
 azure.resourceGroups().deleteByName("myResourceGroup");
 ```
 
-2. Merhaba App.java dosyasını kaydedin.
+2. App.java dosyasını kaydedin.
 
-## <a name="run-hello-application"></a>Merhaba uygulamayı çalıştırın
+## <a name="run-the-application"></a>Uygulamayı çalıştırma
 
-Bu konsol uygulaması toorun başlangıç toofinish itibaren tümüyle yaklaşık beş dakika sürer.
+Tamamlamak için bu konsol uygulamasını tamamen çalıştırın yaklaşık beş dakika sürer.
 
-1. toorun Merhaba uygulama, bu Maven komutunu kullanın:
+1. Uygulamayı çalıştırmak için bu Maven komutunu kullanın:
 
     ```
     mvn compile exec:java
     ```
 
-2. Tuşuna önce **Enter** toostart silme kaynakları, birkaç dakika sürebilir hello kaynak tooverify hello oluşturmayı hello Azure portalı. Merhaba dağıtım durumu toosee hello dağıtım bilgilerini'ı tıklatın.
+2. Tuşuna önce **Enter** kaynakları silme başlatmak için Azure portalında kaynakların oluşturulmasını doğrulamak için birkaç dakika sürebilir. Dağıtım hakkında bilgi için dağıtım durumunu tıklatın.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Merhaba kullanma hakkında daha fazla bilgi edinin [Java için Azure kitaplıkları](https://docs.microsoft.com/en-us/java/azure/java-sdk-azure-overview).
+* Kullanma hakkında daha fazla bilgi edinin [Java için Azure kitaplıkları](https://docs.microsoft.com/en-us/java/azure/java-sdk-azure-overview).
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Event Hubs kullanarak aaaReceive olayları hello .NET Framework | Microsoft Docs"
-description: "Bu öğretici tooreceive olayları hello .NET Framework kullanılarak Azure Event Hubs'tan gelen izleyin."
+title: ".NET Framework kullanarak Azure Event Hubs’dan olay alma | Microsoft Belgeleri"
+description: ".NET Framework kullanarak Azure Event Hubs’dan olay almak için bu öğreticiyi izleyin."
 services: event-hubs
 documentationcenter: 
 author: sethmanheim
@@ -12,73 +12,73 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/12/2017
+ms.date: 10/10/2017
 ms.author: sethm
-ms.openlocfilehash: a88c3feeacfd3de9622dbb86e25222e861750204
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
-ms.translationtype: MT
+ms.openlocfilehash: 5d2f6f53af182a8ac0430de0ca3701a9a30e0bf4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="receive-events-from-azure-event-hubs-using-hello-net-framework"></a>Merhaba .NET Framework kullanılarak Azure Event Hubs'tan gelen olayları alma
+# <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>.NET Framework kullanarak Azure Event Hubs’dan olay alma
 
 ## <a name="introduction"></a>Giriş
 
-Event Hubs bağlı cihaz ve uygulamalardan büyük miktarlarda olay verileri (telemetri) işleyen bir hizmettir. Verileri Event Hubs'a topladıktan sonra bir depolama kümesi kullanarak hello veri depolamak veya gerçek zamanlı analiz sağlayıcısı kullanarak dönüştürme. Bu büyük ölçekli olay toplama ve işleme özelliği hello nesnelerin interneti (IOT) dahil modern uygulama mimarilerinin temel bir bileşenidir.
+Event Hubs bağlı cihaz ve uygulamalardan büyük miktarlarda olay verileri (telemetri) işleyen bir hizmettir. Verileri Event Hubs’a topladıktan sonra bir depolama kümesi kullanarak depolayabilir veya gerçek zamanlı bir analiz sağlayıcısı kullanarak dönüştürebilirsiniz. Bu büyük ölçekli olay toplama ve işleme özelliği, Nesnelerin İnterneti (IoT) gibi modern uygulama mimarilerinin temel bir bileşenidir.
 
-Bu öğretici nasıl toowrite bir .NET Framework konsol hello kullanarak bir event hub iletileri alan uygulaması gösterir  **[olay işleyicisi konağı][EventProcessorHost]**. Merhaba, .NET Framework kullanarak toosend olaylara bakın hello [tooAzure olay hub'ın hello .NET Framework kullanarak olayları göndermek](event-hubs-dotnet-framework-getstarted-send.md) makale ya da uygun gönderen dili hello sol İçindekiler hello tıklatın.
+Bu öğreticide, **[Olay İşleyicisi Ana Bilgisayarı][EventProcessorHost]**’nı kullanarak bir olay hub’ından iletiler alan .NET Framework konsol uygulamasını yazma işlemi gösterilmektedir. .NET Framework kullanarak olayları göndermek için [.NET Framework kullanarak Azure Event Hubs’a olay gönderme](event-hubs-dotnet-framework-getstarted-send.md) makalesine bakın veya soldaki içindekiler bölümünden uygun gönderme diline tıklayın.
 
-Merhaba [olay işleyicisi konağı] [ EventProcessorHost] kalıcı denetim noktalarını yöneterek event hubs'a ait alma olaylarını basitleştiren bir .NET sınıfıdır ve paralel bu event hubs'a ait alır. Hello kullanarak [olay işleyicisi konağı][Event Processor Host], farklı düğümlerde barındırıldığında bile birden çok alıcı arasında olayları bölebilirsiniz. Bu örnekte gösterilir nasıl toouse hello [olay işleyicisi konağı] [ EventProcessorHost] tek alıcı için. Merhaba [olay işleme genişletme] [ Scale out Event Processing with Event Hubs] örnek gösterir nasıl toouse hello [olay işleyicisi konağı] [ EventProcessorHost] birden çok alıcısı bulunan.
+[Olay İşleyicisi Ana Bilgisayarı][EventProcessorHost], olay hub’larına ait kalıcı denetim noktalarını ve paralel alımları yöneterek bu olay hub’larına ait alma olaylarını basitleştiren bir .NET sınıfıdır. [Olay İşleyicisi Ana Bilgisayarı][Event Processor Host]’nı kullanarak, farklı düğümlerde barındırıldığında bile birden çok alıcı arasında olayları bölebilirsiniz. Bu örnek, tek alıcı için [Olay İşleyicisi Ana Bilgisayarı][EventProcessorHost]'nın nasıl kullanıldığını göstermektedir. [Olay işleme ölçeğini genişletme][Scale out Event Processing with Event Hubs] örneği, birden çok alıcıyla [Olay İşleyicisi Ana Bilgisayarı][EventProcessorHost]'nın nasıl kullanılacağını göstermektedir.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-toocomplete Bu öğretici önkoşulları aşağıdaki hello gerekir:
+Bu öğreticiyi tamamlamak için aşağıdaki önkoşulları karşılamanız gerekir:
 
-* [Microsoft Visual Studio 2015 veya üzeri](http://visualstudio.com). Bu öğreticide Hello ekran görüntüleri, Visual Studio 2017 kullanın.
+* [Microsoft Visual Studio 2015 veya üzeri](http://visualstudio.com). Bu öğreticideki ekran görüntülerinde Visual Studio 2017 kullanılır.
 * Etkin bir Azure hesabı. Bir hesabınız yoksa, yalnızca birkaç dakika içinde ücretsiz bir hesap oluşturabilirsiniz. Ayrıntılar için bkz. [Azure Ücretsiz Deneme](https://azure.microsoft.com/free/).
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs ad alanı ve bir olay hub’ı oluşturma
 
-Merhaba ilk adımdır toouse hello [Azure portal](https://portal.azure.com) toocreate ad alanı bir olay hub'ları yazın ve hello uygulamanız gereken toocommunicate hello olay hub'ı ile yönetim kimlik bilgilerini alın. toocreate bir ad alanı ve olay hub'ı izleyin hello yordamda [bu makalede](event-hubs-create.md), sonra Bu öğreticide adımları izleyerek hello ile devam edin.
+İlk adımda [Azure portalını](https://portal.azure.com) kullanarak Event Hubs türünde bir ad alanı oluşturun, ardından uygulamanızın olay hub’ı ile iletişim kurması için gereken yönetim kimlik bilgilerini edinin. Bir ad alanı ve olay hub'ı oluşturmak için [bu makalede](event-hubs-create.md) verilen yordamı uygulayın, ardından bu öğreticide yer alan aşağıdaki adımlarla devam edin.
 
 ## <a name="create-an-azure-storage-account"></a>Azure Depolama hesabı oluşturma
 
-toouse hello [olay işleyicisi konağı][EventProcessorHost], bilmeniz gereken bir [Azure depolama hesabı][Azure Storage account]:
+[Olay İşleyicisi Ana Bilgisayarı][EventProcessorHost]'nı kullanabilmeniz için bir [Azure Depolama hesabınızın][Azure Storage account] olması gerekir:
 
-1. Toohello üzerinde oturum [Azure portal][Azure portal], tıklatıp **yeni** hello adresindeki hello ekranın sol üst.
+1. [Azure portalında][Azure portal] oturum açın ve ekranın sol üst köşesindeki **Yeni**'ye tıklayın.
 2. **Depolama** ve ardından **Depolama hesabı**’na tıklayın.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage1.png)
-3. Merhaba, **depolama hesabı oluşturma** dikey penceresinde hello depolama hesabı için bir ad yazın. Bir Azure aboneliği, kaynak grubunu ve konumu hangi toocreate hello kaynak seçin. Sonra **Oluştur**’a tıklayın.
+3. **Depolama hesabı oluştur** dikey penceresinde depolama hesabı için bir ad yazın. Bir Azure aboneliği, kaynak grubu ve kaynağın oluşturulacağı konumu seçin. Sonra **Oluştur**’a tıklayın.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
-4. Depolama hesapları Hello listesinde yeni oluşturulan depolama hesabı hello tıklayın.
-5. Merhaba depolama hesabı dikey penceresinde tıklayın **erişim anahtarları**. Merhaba değerini kopyalayın **key1** toouse Bu öğreticide daha sonra.
+4. Depolama hesabı listesinde, yeni oluşturulan depolama hesabına tıklayın.
+5. Depolama hesabı dikey penceresinde **Erişim anahtarları**’na tıklayın. **key1** değerini bu öğreticide daha sonra kullanmak üzere kopyalayın.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
 ## <a name="create-a-receiver-console-application"></a>Alıcı konsol uygulaması oluşturma
 
-1. Visual Studio'da hello kullanarak yeni bir Visual C# masaüstü uygulaması projesi oluşturma **konsol uygulaması** proje şablonu. Ad hello proje **alıcı**.
+1. Visual Studio'da, **Konsol Uygulaması** proje şablonunu kullanarak yeni Visual C# Masaüstü Uygulaması projesi oluşturun. Proje **Alıcı** için bir ad verin.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp1.png)
-2. Çözüm Gezgini'nde hello sağ **alıcı** proje ve ardından **çözüm için NuGet paketlerini Yönet**.
-3. Merhaba tıklatın **Gözat** sekmesini ve ardından arama `Microsoft Azure Service Bus Event Hub - EventProcessorHost`. Tıklatın **yükleme**ve hello kullanım koşullarını kabul edin.
+2. Çözüm Gezgini'nde **Alıcı** projesine sağ tıklayın ve ardından **Çözüm için NuGet Paketlerini Yönet**'e tıklayın.
+3. **Gözat** sekmesine tıklayıp `Microsoft Azure Service Bus Event Hub - EventProcessorHost` için arama yapın. **Yükle**'ye tıklayın ve kullanım koşullarını kabul edin.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-eph-csharp1.png)
    
-    Visual Studio indirir, yükler ve başvuru toohello ekler [Azure Service Bus Event Hub - EventProcessorHost NuGet paketi](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost), tüm bağımlılıklarıyla birlikte.
-4. Sağ hello **alıcı** proje, tıklatın **Ekle**ve ardından **sınıfı**. Ad hello yeni sınıf **SimpleEventProcessor**ve ardından **Ekle** toocreate hello sınıfı.
+    Visual Studio, tüm bağımlılıklarıyla birlikte [Azure Service Bus Olay Hub'ı - EventProcessorHost NuGet paketini](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost) indirir, yükler ve ona başvuru ekler.
+4. **Alıcı** projesine sağ tıklayın, **Ekle** ve **Sınıf**’a tıklayın. Yeni sınıf **SimpleEventProcessor**’ı adlandırın ve ardından sınıfı oluşturmak için **Ekle**’ye tıklayın.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-receiver-csharp2.png)
-5. Merhaba SimpleEventProcessor.cs dosyasının hello üst deyimlerini aşağıdaki hello ekleyin:
+5. Aşağıdaki deyimleri SimpleEventProcessor.cs dosyasının en üstüne ekleyin:
     
   ```csharp
   using Microsoft.ServiceBus.Messaging;
   using System.Diagnostics;
   ```
     
-  Ardından, kod hello sınıfı hello gövdesi için aşağıdaki hello değiştirin:
+  Sonra da, aşağıdaki kodu sınıfın gövdesi yerine geçirin:
     
   ```csharp
   class SimpleEventProcessor : IEventProcessor
@@ -122,14 +122,14 @@ toouse hello [olay işleyicisi konağı][EventProcessorHost], bilmeniz gereken b
   }
   ```
     
-  Bu sınıf tarafından hello adlı **EventProcessorHost** hello olay hub'ından alınan tooprocess olaylar. Merhaba `SimpleEventProcessor` sınıfını kullanan bir kronometre tooperiodically çağrısı hello denetim noktası yöntemini hello üzerinde **EventProcessorHost** bağlamı. Bu işleme hello alıcı yeniden başlatılırsa, iş işleme en fazla beş dakika kaybederse, sağlar.
-6. Merhaba, **Program** sınıfı, hello aşağıdakileri ekleyin `using` deyimi hello dosyanın üst kısmındaki hello:
+  Olay hub'ından alınan olayları işlemesi için bu sınıf, **EventProcessorHost** tarafından çağrılır. `SimpleEventProcessor` sınıfı, **EventProcessorHost** bağlamında düzenli olarak denetim noktası yöntemini çağırmak için bir kronometre kullanır. Bu işlem, alıcının yeniden çağrılması durumunda, işleme sürecinde beş dakikadan fazla zaman kaybedilmemesini sağlar.
+6. **Program** sınıfında aşağıdaki `using` deyimini dosyanın üst kısmına ekleyin:
     
   ```csharp
   using Microsoft.ServiceBus.Messaging;
   ```
     
-  Hello yerine `Main` hello yönteminde `Program` sınıf koddan hello ile hello olay hub'ı adı ve hello ad alanı düzeyinde bağlantı değiştirerek, daha önce kaydettiğiniz dize ve hello depolama hesabı ve hello kopyaladığınız anahtar Önceki bölümlerde. 
+  Ardından, `Program` sınıfındaki `Main` yöntemini aşağıdaki kodla değiştirin; bu kodda olay hub'ı adı ve daha önce kaydettiğiniz ad alanı düzeyinde bağlantı dizesi ve önceki bölümlerde kopyaladığınız depolama hesabı ve anahtarı değişecektir. 
     
   ```csharp
   static void Main(string[] args)
@@ -147,25 +147,25 @@ toouse hello [olay işleyicisi konağı][EventProcessorHost], bilmeniz gereken b
     options.ExceptionReceived += (sender, e) => { Console.WriteLine(e.Exception); };
     eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>(options).Wait();
     
-    Console.WriteLine("Receiving. Press enter key toostop worker.");
+    Console.WriteLine("Receiving. Press enter key to stop worker.");
     Console.ReadLine();
     eventProcessorHost.UnregisterEventProcessorAsync().Wait();
   }
   ```
 
-7. Merhaba programını çalıştırın ve herhangi bir hata olduğundan emin olun.
+7. Programı çalıştırın ve herhangi bir hata olmadığından emin olun.
   
-Tebrikler! Bir event hub'hello olay işleyicisi konağı kullanarak iletileri şimdi aldınız.
+Tebrikler! Olay İşleyicisi Ana Bilgisayarı’nı kullanarak bir olay hub’ından iletiler aldınız.
 
 
 > [!NOTE]
-> Bu öğretici, [EventProcessorHost][EventProcessorHost]'un tek bir örneğini kullanır. tooincrease verimlilik, birden çok örneğini çalıştırmanız önerilir [EventProcessorHost][EventProcessorHost]hello [ölçeklendirilmiş olay işleme out] gösterildiği gibi [ölçeklendirilmiş olay işleme out] örnek. Bu gibi durumlarda hello çeşitli örnekler otomatik olarak birbirleriyle tooload Bakiye alınan hello olayları koordine. Birden çok alıcıya tooeach işlem istiyorsanız *tüm* hello olayları hello kullanmalısınız **ConsumerGroup** kavram. Olaylar farklı makinelerden alındığında için yararlı toospecify adları olabilir [EventProcessorHost] [ EventProcessorHost] çıkarak hello makineleri (veya rolleri) hangi dağıtıldıkları. Bu konular hakkında daha fazla bilgi için bkz: Merhaba [Event Hubs'a genel bakış] [ Event Hubs overview] ve hello [Event Hubs Programlama Kılavuzu] [ Event Hubs Programming Guide] Konular.
+> Bu öğretici, [EventProcessorHost][EventProcessorHost]'un tek bir örneğini kullanır. Aktarım hızını artırmak için, birden çok [EventProcessorHost][EventProcessorHost] örneğinin [Ölçeği genişletilmiş olay işleme][Ölçeği genişletilmiş olay işleme] örneğinde gösterildiği gibi çalıştırmanız önerilir. Bu gibi durumlarda, alınan olayların yükünü dengelemek üzere çeşitli örnekler otomatik olarak birbiriyle koordine olur. Birden çok alıcının her birinin *tüm* olayları işlemesini istiyorsanız **ConsumerGroup** kavramını kullanmalısınız. Olaylar farklı makinelerden alındığında, dağıtıldıkları makineleri (veya rolleri) temel alan [EventProcessorHost][EventProcessorHost] örnekleri için ad belirtmek yararlı olabilir. Bu konu başlıkları hakkında daha fazla bilgi için [Event Hubs'a genel bakış][Event Hubs overview] ve [Event Hubs programlama kılavuzu][Event Hubs Programming Guide] konu başlıklarına bakın.
 > 
 > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir olay hub'ı oluşturan ve verileri alan çalışan bir uygulama oluşturduğunuza göre bağlantılar aşağıdaki hello ziyaret tarafından daha fazla bilgi edinebilirsiniz:
+Olay hub’ını oluşturan ve veri gönderip alan çalışan bir uygulama oluşturduğunuza göre aşağıdaki bağlantıları ziyaret ederek daha fazla bilgi alabilirsiniz:
 
 * [Olay İşlemcisi Konağı][Event Processor Host]
 * [Event Hubs'a genel bakış][Event Hubs overview]

@@ -1,6 +1,6 @@
 ---
-title: "Azure aaaComparison isteğe bağlı medya kodlayıcılar üzerinde | Microsoft Docs"
-description: "Bu konuda hello kodlama özelliklerini karşılaştırır ** Medya Kodlayıcısı standart ** ve ** Medya Kodlayıcısı Premium iş akışı **."
+title: "İsteğe bağlı medya kodlayıcılar üzerinde Azure karşılaştırması | Microsoft Docs"
+description: "Bu konuda kodlama özelliklerini karşılaştırır ** Medya Kodlayıcısı standart ** ve ** Medya Kodlayıcısı Premium iş akışı **."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,23 +14,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: ee04ad10d8e7c5f4f3c6e91e9b7679c2aba82c99
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 3bba48d5425ae47c72aca893af7c11fe270c2929
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="comparison-of-azure-on-demand-media-encoders"></a>İsteğe bağlı medya kodlayıcılar üzerinde Azure karşılaştırması
 
-Bu konuda hello kodlama özelliklerini karşılaştırır **Medya Kodlayıcısı standart** ve **Medya Kodlayıcısı Premium iş akışı**.
+Bu konuda kodlama özelliklerini karşılaştırır **Medya Kodlayıcısı standart** ve **Medya Kodlayıcısı Premium iş akışı**.
 
 ## <a name="video-and-audio-processing-capabilities"></a>Video ve ses işleme özellikleri
 
-Aşağıdaki tablonun hello hello işlevselliği Medya Kodlayıcısı standart (MES) ve Medya Kodlayıcısı Premium iş akışı (MEPW) arasında karşılaştırır. 
+Aşağıdaki tabloda Medya Kodlayıcısı standart (MES) ve Medya Kodlayıcısı Premium iş akışı (MEPW) arasında işlevlerini karşılaştırılmaktadır. 
 
 |Özellik|Media Encoder Standard|Media Encoder Premium İş Akışı|
 |---|---|---|
-|Kodlama sırasında koşullu mantık Uygula<br/>(Merhaba giriş HD ise, örneğin, ardından 5.1 ses kodlama)|Hayır|Evet|
+|Kodlama sırasında koşullu mantık Uygula<br/>(giriş HD ise, örneğin, ardından 5.1 ses kodlama)|Hayır|Evet|
 |Kapalı açıklamalı alt yazı|Hayır|[Evet](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
 |[Dolby® profesyonel yüksek ses düzeltme](http://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> iletişim kutusu Intelligence™ ile|Hayır|Evet|
 |Titreşim, ters telesine|Temel|Yayın Kalitesi|
@@ -44,8 +44,8 @@ Aşağıdaki tablonun hello hello işlevselliği Medya Kodlayıcısı standart (
 ## <a id="billing"></a>Her Kodlayıcı tarafından kullanılan faturalama ölçer
 | Ortam işlemci adı | Geçerli fiyatlandırma | Notlar |
 | --- | --- | --- |
-| **Media Encoder Standard** |KODLAYICI |Dakika cinsinden belirtilen hello hızında çıkış olarak üretilen tüm hello medya dosyalarının hello toplam süre göre kodlama görevleri ücretlendirilecek [burada][1], hello KODLAYICI sütununun altında. |
-| **Media Encoder Premium İş Akışı** |PREMIUM KODLAYICI |Dakika cinsinden belirtilen hello hızında çıkış olarak üretilen tüm hello medya dosyalarının hello toplam süre göre kodlama görevleri ücretlendirilecek [burada][1], hello PREMIUM KODLAYICI sütununun altında. |
+| **Media Encoder Standard** |KODLAYICI |Toplam süreyi dakika cinsinden belirtilen hızda çıktı olarak üretilen tüm medya dosyalarının göre kodlama görevleri ücretlendirilecek [burada][1], KODLAYICI sütununun altında. |
+| **Media Encoder Premium İş Akışı** |PREMIUM KODLAYICI |Toplam süreyi dakika cinsinden belirtilen hızda çıktı olarak üretilen tüm medya dosyalarının göre kodlama görevleri ücretlendirilecek [burada][1], PREMIUM KODLAYICI sütununun altında. |
 
 ## <a name="input-containerfile-formats"></a>Kapsayıcı/dosya biçimleri giriş
 | Kapsayıcı/dosya biçimleri giriş | Media Encoder Standard | Media Encoder Premium İş Akışı |
@@ -67,11 +67,11 @@ Aşağıdaki tablonun hello hello işlevselliği Medya Kodlayıcısı standart (
 ## <a name="input-video-codecs"></a>Görüntü codec bileşenleri giriş
 | Görüntü codec bileşenleri giriş | Media Encoder Standard | Media Encoder Premium İş Akışı |
 | --- | --- | --- |
-| AVC 8 bit/10-bit too4:2:2 AVCIntra dahil olmak üzere, ayarlama |8 bit 4:2:0. ve 4:2:2 |Evet |
+| AVC 8 bit/10-en fazla 4 bit: AVCIntra dahil olmak üzere 2:2 |8 bit 4:2:0. ve 4:2:2 |Evet |
 | Hırslı DNxHD (içinde MXF) |Evet |Evet |
 | DVCPro/DVCProHD (içinde MXF) |Evet |Evet |
 | JPEG2000 |Evet |Evet |
-| MPEG-2 (too422 profili ve yüksek düzey; XDCAM, XDCAM HD, XDCAM IMX, CableLabs® ve D10 gibi çeşitleri dahil) |Too422 profili |Evet |
+| MPEG-2 (422 profili ve yüksek düzey kadar; XDCAM, XDCAM HD, XDCAM IMX, CableLabs® ve D10 gibi çeşitleri dahil) |En fazla 422 profili |Evet |
 | MPEG-1 |Evet |Evet |
 | Windows Media Video/VC-1 |Evet |Evet |
 | Canopus denetim merkezini/HQX |Hayır |Hayır |
@@ -91,7 +91,7 @@ Aşağıdaki tablonun hello hello işlevselliği Medya Kodlayıcısı standart (
 | Dolby® E |Hayır |Evet |
 | Dolby® dijital (AC3) |Hayır |Evet |
 | Dolby® dijital artı (E-AC3) |Hayır |Evet |
-| AAC (AAC-LC, HE AAC ve AAC-HEv2; too5.1 yukarı) |Evet |Evet |
+| AAC (AAC-LC, HE AAC ve AAC-HEv2; kadar 5.1) |Evet |Evet |
 | MPEG Katman 2 |Evet |Evet |
 | MP3 (MPEG-1 ses Katman 3) |Evet |Evet |
 | Windows Media Ses |Evet |Evet |
@@ -116,9 +116,9 @@ Aşağıdaki tablonun hello hello işlevselliği Medya Kodlayıcısı standart (
 ## <a name="output-video-codecs"></a>Çıktı görüntü codec bileşenleri
 | Çıktı görüntü codec bileşenleri | Media Encoder Standard | Media Encoder Premium İş Akışı |
 | --- | --- | --- |
-| AVC (H.264; 8 bit; yukarı tooHigh profili düzeyi 5.2; 4K Ultra HD; AVC içi) |Yalnızca 8 bit 4:2:0 |Evet |
+| AVC (H.264; 8 bit; yüksek profili kadar 5.2; 4 K Ultra HD; düzey AVC içi) |Yalnızca 8 bit 4:2:0 |Evet |
 | Hırslı DNxHD (içinde MXF) |Hayır |Evet |
-| MPEG-2 (too422 profili ve yüksek düzey; XDCAM, XDCAM HD, XDCAM IMX, CableLabs® ve D10 gibi çeşitleri dahil) |Hayır |Evet |
+| MPEG-2 (422 profili ve yüksek düzey kadar; XDCAM, XDCAM HD, XDCAM IMX, CableLabs® ve D10 gibi çeşitleri dahil) |Hayır |Evet |
 | MPEG-1 |Hayır |Evet |
 | Windows Media Video/VC-1 |Hayır |Evet |
 | JPEG küçük resim oluşturma |Evet |Evet |
@@ -130,14 +130,14 @@ Aşağıdaki tablonun hello hello işlevselliği Medya Kodlayıcısı standart (
 | --- | --- | --- |
 | AES (SMPTE 331 M ve 302 M, AES3 2003) |Hayır |Evet |
 | Dolby® dijital (AC3) |Hayır |Evet |
-| Dolby® dijital Plus (E-AC3) too7.1 ayarlama |Hayır |Evet |
-| AAC (AAC-LC, HE AAC ve AAC-HEv2; too5.1 yukarı) |Evet |Evet |
+| Dolby® dijital Plus (E-AC3) 7.1 kadar |Hayır |Evet |
+| AAC (AAC-LC, HE AAC ve AAC-HEv2; kadar 5.1) |Evet |Evet |
 | MPEG Katman 2 |Hayır |Evet |
 | MP3 (MPEG-1 ses Katman 3) |Hayır |Evet |
 | Windows Media Ses |Hayır |Evet |
 
 >[!NOTE]
->TooDolby kodlamak varsa® dijital (AC3) hello çıktı yalnızca bir ISO MP4 dosyasına yazılabilir.
+>Dolby® dijital için (AC3) kodlamak, çıktı yalnızca bir ISO MP4 dosyasına yazılabilir.
 
 ## <a name="media-services-learning-paths"></a>Media Services’i öğrenme yolları
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

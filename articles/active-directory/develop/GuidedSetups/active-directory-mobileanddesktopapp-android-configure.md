@@ -1,5 +1,5 @@
 ---
-title: "aaaAzure AD v2 Android Başlarken - yapılandırma | Microsoft Docs"
+title: "Azure AD v2 Android alma başlatıldı - yapılandırma | Microsoft Docs"
 description: "Nasıl bir Android uygulaması bir erişim belirteci alın ve Microsoft Graph API veya Azure Active Directory v2 uç noktasından erişim belirteçleri gerektiren API'larını çağırma"
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,40 +15,40 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: e14796c37ab0c30d948b6f783dac80059375afa3
-ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.openlocfilehash: 945b09ccdb7537987da33d32d94a3ccacd829ffd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/06/2017
+ms.lasthandoff: 07/11/2017
 ---
 ## <a name="create-an-application-express"></a>(Hızlı) uygulama oluşturma
-Merhaba uygulamanızda tooregister gereksinim artık *Microsoft uygulama kayıt portalı*:
-1. Merhaba aracılığıyla uygulamanızı kaydetme [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure)
+Uygulamanızı kaydetmeniz gerekir artık *Microsoft uygulama kayıt portalı*:
+1. Uygulamanızı aracılığıyla kaydetme [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure)
 2.  Uygulamanız ve e-posta için bir ad girin
-3.  Kurulum destekli Hello seçeneğinin işaretli olduğundan emin olun
-4.  Merhaba yönergeleri tooobtain hello uygulama kimliği izleyin ve kodunuza yapıştırın
+3.  Kurulum destekli seçeneğinin işaretli olduğundan emin olun
+4.  Uygulama Kimliğini almak ve kodunuza yapıştırmak için yönergeleri izleyin
 
-### <a name="add-your-application-registration-information-tooyour-solution-advanced"></a>Uygulama kayıt bilgileri tooyour çözümünüz (Gelişmiş) ekleyin
-Merhaba uygulamanızda tooregister gereksinim artık *Microsoft uygulama kayıt portalı*:
-1. Toohello Git [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app) tooregister uygulama
+### <a name="add-your-application-registration-information-to-your-solution-advanced"></a>Uygulama kayıt bilgilerinizi çözümünüze (Gelişmiş) ekleyin
+Uygulamanızı kaydetmeniz gerekir artık *Microsoft uygulama kayıt portalı*:
+1. Git [Microsoft uygulama kayıt portalı](https://apps.dev.microsoft.com/portal/register-app) bir uygulamayı kaydetmek için
 2. Uygulamanız ve e-posta için bir ad girin 
-3. Destekli kurulumu için Hello seçeneğinin işaretli olduğundan emin olun
+3. Destekli kurulumu için seçeneğinin işaretli olduğundan emin olun
 4. Tıklatın `Add Platform`seçeneğini belirleyip `Native Application` ve kaydetme ulaştı.
 5.  Açık `MainActivity` (altında `app`  >  `java`  >   *`{host}.{namespace}`* )
-6.  Hello yerine *[hello uygulama kodu buraya girin]* başlayarak hello satırdaki `final static String CLIENT_ID` yalnızca kayıtlı hello uygulama kimliği:
+6.  Değiştir *[uygulama kimliği buraya girin]* başlayarak satırında `final static String CLIENT_ID` yalnızca kayıtlı uygulama kimliği:
 
 ```java
-final static String CLIENT_ID = "[Enter hello application Id here]";
+final static String CLIENT_ID = "[Enter the application Id here]";
 ```
 <!-- Workaround for Docs conversion bug -->
 <ol start="7">
 <li>
-Açık `AndroidManifest.xml` (altında `app`  >  `manifests`) etkinlik çok aşağıdaki Ekle hello`manifest\application` düğümü. Bu kayıtları bir `BrowserTabActivity` tooallow hello kimlik doğrulama işlemini tamamladıktan sonra uygulamanız işletim sistemi tooresume hello:
+Açık `AndroidManifest.xml` (altında `app`  >  `manifests`) aşağıdaki etkinlik eklemek `manifest\application` düğümü. Bu kayıtları bir `BrowserTabActivity` uygulamanızın kimlik doğrulamasını tamamladıktan sonra devam etmek işletim sistemi izin vermek için:
 </li>
 </ol>
 
 ```xml
-<!--Intent filter toocapture System Browser calling back tooour app after Sign In-->
+<!--Intent filter to capture System Browser calling back to our app after Sign In-->
 <activity
     android:name="com.microsoft.identity.client.BrowserTabActivity">
     <intent-filter>
@@ -57,8 +57,8 @@ Açık `AndroidManifest.xml` (altında `app`  >  `manifests`) etkinlik çok aşa
         <category android:name="android.intent.category.BROWSABLE" />
         
         <!--Add in your scheme/host from registered redirect URI-->
-        <!--By default, hello scheme should be similar too'msal[appId]' -->
-        <data android:scheme="msal[Enter hello application Id here]"
+        <!--By default, the scheme should be similar to 'msal[appId]' -->
+        <data android:scheme="msal[Enter the application Id here]"
             android:host="auth" />
     </intent-filter>
 </activity>
@@ -66,6 +66,6 @@ Açık `AndroidManifest.xml` (altında `app`  >  `manifests`) etkinlik çok aşa
 <!-- Workaround for Docs conversion bug -->
 <ol start="8">
 <li>
-Merhaba, `BrowserTabActivity`, yerine `[Enter hello application Id here]` hello uygulama kimliğiyle
+İçinde `BrowserTabActivity`, yerine `[Enter the application Id here]` uygulama kimliğiyle
 </li>
 </ol>

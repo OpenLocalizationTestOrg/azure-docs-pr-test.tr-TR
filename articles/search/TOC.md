@@ -29,8 +29,8 @@
 
 ## Geliştirme
 ### [API sürümleri](search-api-versions.md)
-### [Yükseltme hello SDK](search-dotnet-sdk-migration.md)
-### [Yükseltme hello REST API'si](search-api-migration.md)
+### [SDK’yı yükseltme](search-dotnet-sdk-migration.md)
+### [REST API’yi yükseltme](search-api-migration.md)
 ### [Karmaşık veri türlerini modelleme](search-howto-complex-data-types.md)
 ### [Eş zamanlı güncelleştirmelerini tanımlama](search-howto-concurrency.md)
 ### [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=search)
@@ -38,7 +38,7 @@
 ## Yönet
 ### Azure Search Yönetimi
 #### [Azure portal](search-manage.md)
-#### [PowerShell](search-manage-powershell.md)
+#### Azure [Azure PowerShell](search-manage-powershell.md)
 ### [Kullanımı ve istatistikleri izleme](search-monitor-usage.md)
 ### [Arama trafiği analizi](search-traffic-analytics.md)
 ### [Performans ve iyileştirme](search-performance-optimization.md)
@@ -50,7 +50,7 @@
 ### [Azure Cosmos DB dizinleyici](search-howto-index-documentdb.md)
 ### [CSV bloblarını dizine ekleme](search-howto-index-csv-blobs.md)
 ### [JSON bloblarını dizine ekleme](search-howto-index-json-blobs.md)
-### [Dizin Oluşturucu bağlantıları tooSQL sunucusu Azure VM'deki yapılandırın](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+### [Azure sanal makinesinde dizin oluşturucu SQL Server bağlantılarını yapılandırma](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Dizin oluşturucularda alan eşlemeleri](search-indexer-field-mappings.md)
 ##  Arama
 ### [Tam metin araması nasıl çalışır?](search-lucene-query-architecture.md)
@@ -59,7 +59,8 @@
 #### [Lucene sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 #### [Lucene sözdizimi sorgu örnekleri](search-query-lucene-examples.md)
 #### [Filtre ifadesi söz dizimi](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)
-### Özel Arama
+### Azure Search'te çözümleyiciler
+#### [Genel Bakış](search-analyzers.md)
 #### [Dil çözümleyicileri](https://docs.microsoft.com/rest/api/searchservice/language-support)
 #### [Özel çözümleyiciler](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)
 ### [Disk belleği sonuçları](search-pagination-page-layout.md)
