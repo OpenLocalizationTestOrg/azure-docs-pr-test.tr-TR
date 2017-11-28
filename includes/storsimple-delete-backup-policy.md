@@ -1,0 +1,10 @@
+
+<!--author=SharS last changed: 11/06/15-->
+
+#### <a name="to-delete-a-storsimple-backup-policy"></a><span data-ttu-id="cc84e-101">StorSimple yedekleme ilkesini silmek için</span><span class="sxs-lookup"><span data-stu-id="cc84e-101">To delete a StorSimple backup policy</span></span>
+1. <span data-ttu-id="cc84e-102">Cihazın **Hızlı Başlangıç** sayfasında **Yedekleme İlkeleri** sekmesine tıklayın.</span><span class="sxs-lookup"><span data-stu-id="cc84e-102">On the device **Quick Start** page, click the **Backup Policies** tab.</span></span> <span data-ttu-id="cc84e-103">Bunun yapılması sizi **Yedekleme İlkeleri** sayfasına götürür.</span><span class="sxs-lookup"><span data-stu-id="cc84e-103">This will take you to the **Backup Policies** page.</span></span>
+2. <span data-ttu-id="cc84e-104">Karşılık gelen satırda ilk sütun dışında herhangi bir yere tıklayarak ilkeyi seçin ve ardından **silmek** sayfanın sonundaki.</span><span class="sxs-lookup"><span data-stu-id="cc84e-104">Select the policy by clicking anywhere in the corresponding row except for the first column, and then click **Delete** at the bottom of the page.</span></span>
+3. <span data-ttu-id="cc84e-105">Onayınız istenir.</span><span class="sxs-lookup"><span data-stu-id="cc84e-105">You will be prompted for confirmation.</span></span> <span data-ttu-id="cc84e-106">Bir yedekleme İlkesi silinmesi ilişkili tüm yedeklemeler silecek unutmayın.</span><span class="sxs-lookup"><span data-stu-id="cc84e-106">Keep in mind that deleting a backup policy will delete all the associated backups.</span></span> <span data-ttu-id="cc84e-107">Tıklatın **Evet** silmek için.</span><span class="sxs-lookup"><span data-stu-id="cc84e-107">Click **Yes** to delete.</span></span>
+
+<span data-ttu-id="cc84e-108">**Yedekleme ilkeleri** ilkeleri yeni listesini görüntülemek için sayfa güncelleştirilir.</span><span class="sxs-lookup"><span data-stu-id="cc84e-108">The **Backup Policies** page will be updated to display the new list of policies.</span></span>
+

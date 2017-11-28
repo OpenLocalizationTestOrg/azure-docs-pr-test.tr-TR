@@ -1,0 +1,139 @@
+---
+title: "B2B izleme - aaaAS2 izleme şemaları Azure Logic Apps | Microsoft Docs"
+description: "AS2 kullanmak Azure tümleştirme hesabınızda işlemlerdeki izleme şemaları toomonitor B2B iletileri."
+author: padmavc
+manager: anneta
+editor: 
+services: logic-apps
+documentationcenter: 
+ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
+ms.service: logic-apps
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/27/2017
+ms.author: LADocs; padmavc
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: fe3c5845e2e80160d6857d8c308d836e88af7331
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/06/2017
+---
+# <a name="start-or-enable-tracking-of-as2-messages-and-mdns-toomonitor-success-errors-and-message-properties"></a><span data-ttu-id="1229b-103">Başlat veya AS2 iletileri ve MDNs toomonitor başarı, hata ve ileti özellikleri izlemeyi etkinleştirme</span><span class="sxs-lookup"><span data-stu-id="1229b-103">Start or enable tracking of AS2 messages and MDNs toomonitor success, errors, and message properties</span></span>
+<span data-ttu-id="1229b-104">Bu AS2 izleme şemaları kullanabilir, Azure tümleştirme hesap toohelp işletmeden işletmeye (B2B) işlemleri izleyin:</span><span class="sxs-lookup"><span data-stu-id="1229b-104">You can use these AS2 tracking schemas in your Azure integration account toohelp you monitor business-to-business (B2B) transactions:</span></span>
+
+* <span data-ttu-id="1229b-105">AS2 ileti izleme şeması</span><span class="sxs-lookup"><span data-stu-id="1229b-105">AS2 message tracking schema</span></span>
+* <span data-ttu-id="1229b-106">AS2 MDN izleme şeması</span><span class="sxs-lookup"><span data-stu-id="1229b-106">AS2 MDN tracking schema</span></span>
+
+## <a name="as2-message-tracking-schema"></a><span data-ttu-id="1229b-107">AS2 ileti izleme şeması</span><span class="sxs-lookup"><span data-stu-id="1229b-107">AS2 message tracking schema</span></span>
+````java
+
+    {
+       "agreementProperties": {  
+            "senderPartnerName": "",  
+            "receiverPartnerName": "",  
+            "as2To": "",  
+            "as2From": "",  
+            "agreementName": ""  
+        },  
+        "messageProperties": {
+            "direction": "",
+            "messageId": "",
+            "dispositionType": "",
+            "fileName": "",
+            "isMessageFailed": "",
+            "isMessageSigned": "",
+            "isMessageEncrypted": "",
+            "isMessageCompressed": "",
+            "correlationMessageId": "",
+            "incomingHeaders": {
+            },
+            "outgoingHeaders": {
+            },
+        "isNrrEnabled": "",
+        "isMdnExpected": "",
+        "mdnType": ""
+        }
+    }
+````
+
+| <span data-ttu-id="1229b-108">Özellik</span><span class="sxs-lookup"><span data-stu-id="1229b-108">Property</span></span> | <span data-ttu-id="1229b-109">Tür</span><span class="sxs-lookup"><span data-stu-id="1229b-109">Type</span></span> | <span data-ttu-id="1229b-110">Açıklama</span><span class="sxs-lookup"><span data-stu-id="1229b-110">Description</span></span> |
+| --- | --- | --- |
+| <span data-ttu-id="1229b-111">senderPartnerName</span><span class="sxs-lookup"><span data-stu-id="1229b-111">senderPartnerName</span></span> | <span data-ttu-id="1229b-112">Dize</span><span class="sxs-lookup"><span data-stu-id="1229b-112">String</span></span> | <span data-ttu-id="1229b-113">AS2 iletiyi gönderenin ortak adı.</span><span class="sxs-lookup"><span data-stu-id="1229b-113">AS2 message sender's partner name.</span></span> <span data-ttu-id="1229b-114">(İsteğe bağlı)</span><span class="sxs-lookup"><span data-stu-id="1229b-114">(Optional)</span></span> |
+| <span data-ttu-id="1229b-115">receiverPartnerName</span><span class="sxs-lookup"><span data-stu-id="1229b-115">receiverPartnerName</span></span> | <span data-ttu-id="1229b-116">Dize</span><span class="sxs-lookup"><span data-stu-id="1229b-116">String</span></span> | <span data-ttu-id="1229b-117">AS2 ileti alıcının ortak adı.</span><span class="sxs-lookup"><span data-stu-id="1229b-117">AS2 message receiver's partner name.</span></span> <span data-ttu-id="1229b-118">(İsteğe bağlı)</span><span class="sxs-lookup"><span data-stu-id="1229b-118">(Optional)</span></span> |
+| <span data-ttu-id="1229b-119">as2To</span><span class="sxs-lookup"><span data-stu-id="1229b-119">as2To</span></span> | <span data-ttu-id="1229b-120">Dize</span><span class="sxs-lookup"><span data-stu-id="1229b-120">String</span></span> | <span data-ttu-id="1229b-121">Merhaba AS2 iletisinin hello başlıklarından AS2 ileti alıcının adı.</span><span class="sxs-lookup"><span data-stu-id="1229b-121">AS2 message receiver’s name, from hello headers of hello AS2 message.</span></span> <span data-ttu-id="1229b-122">(Zorunlu)</span><span class="sxs-lookup"><span data-stu-id="1229b-122">(Mandatory)</span></span> |
+| <span data-ttu-id="1229b-123">as2From</span><span class="sxs-lookup"><span data-stu-id="1229b-123">as2From</span></span> | <span data-ttu-id="1229b-124">Dize</span><span class="sxs-lookup"><span data-stu-id="1229b-124">String</span></span> | <span data-ttu-id="1229b-125">Merhaba AS2 iletisinin hello başlıklarından AS2 iletiyi gönderenin adı.</span><span class="sxs-lookup"><span data-stu-id="1229b-125">AS2 message sender’s name, from hello headers of hello AS2 message.</span></span> <span data-ttu-id="1229b-126">(Zorunlu)</span><span class="sxs-lookup"><span data-stu-id="1229b-126">(Mandatory)</span></span> |
+| <span data-ttu-id="1229b-127">agreementName</span><span class="sxs-lookup"><span data-stu-id="1229b-127">agreementName</span></span> | <span data-ttu-id="1229b-128">Dize</span><span class="sxs-lookup"><span data-stu-id="1229b-128">String</span></span> | <span data-ttu-id="1229b-129">Merhaba AS2 sözleşmesi toowhich hello iletileri adını çözümlenir.</span><span class="sxs-lookup"><span data-stu-id="1229b-129">Name of hello AS2 agreement toowhich hello messages are resolved.</span></span> <span data-ttu-id="1229b-130">(İsteğe bağlı)</span><span class="sxs-lookup"><span data-stu-id="1229b-130">(Optional)</span></span> |
+| <span data-ttu-id="1229b-131">Yönü</span><span class="sxs-lookup"><span data-stu-id="1229b-131">direction</span></span> | <span data-ttu-id="1229b-132">Dize</span><span class="sxs-lookup"><span data-stu-id="1229b-132">String</span></span> | <span data-ttu-id="1229b-133">Hello ileti akış yönünü alma veya gönderme.</span><span class="sxs-lookup"><span data-stu-id="1229b-133">Direction of hello message flow, receive or send.</span></span> <span data-ttu-id="1229b-134">(Zorunlu)</span><span class="sxs-lookup"><span data-stu-id="1229b-134">(Mandatory)</span></span> |
+| <span data-ttu-id="1229b-135">MessageID</span><span class="sxs-lookup"><span data-stu-id="1229b-135">messageId</span></span> | <span data-ttu-id="1229b-136">Dize</span><span class="sxs-lookup"><span data-stu-id="1229b-136">String</span></span> | <span data-ttu-id="1229b-137">(İsteğe bağlı) hello AS2 iletisinin hello başlıklarından AS2 ileti kimliği</span><span class="sxs-lookup"><span data-stu-id="1229b-137">AS2 message ID, from hello headers of hello AS2 message (Optional)</span></span> |
+| <span data-ttu-id="1229b-138">dispositionType</span><span class="sxs-lookup"><span data-stu-id="1229b-138">dispositionType</span></span> |<span data-ttu-id="1229b-139">Dize</span><span class="sxs-lookup"><span data-stu-id="1229b-139">String</span></span> | <span data-ttu-id="1229b-140">İleti değerlendirme bildirim (MDN) değerlendirme türü değeri.</span><span class="sxs-lookup"><span data-stu-id="1229b-140">Message Disposition Notification (MDN) disposition type value.</span></span> <span data-ttu-id="1229b-141">(İsteğe bağlı)</span><span class="sxs-lookup"><span data-stu-id="1229b-141">(Optional)</span></span> |
+| <span data-ttu-id="1229b-142">fileName</span><span class="sxs-lookup"><span data-stu-id="1229b-142">fileName</span></span> | <span data-ttu-id="1229b-143">Dize</span><span class="sxs-lookup"><span data-stu-id="1229b-143">String</span></span> | <span data-ttu-id="1229b-144">Merhaba AS2 iletisinin hello üstbilgisinden dosya adı.</span><span class="sxs-lookup"><span data-stu-id="1229b-144">File name, from hello header of hello AS2 message.</span></span> <span data-ttu-id="1229b-145">(İsteğe bağlı)</span><span class="sxs-lookup"><span data-stu-id="1229b-145">(Optional)</span></span> |
+| <span data-ttu-id="1229b-146">isMessageFailed</span><span class="sxs-lookup"><span data-stu-id="1229b-146">isMessageFailed</span></span> |<span data-ttu-id="1229b-147">Boole değeri</span><span class="sxs-lookup"><span data-stu-id="1229b-147">Boolean</span></span> | <span data-ttu-id="1229b-148">Olup hello AS2 iletisi başarısız oldu.</span><span class="sxs-lookup"><span data-stu-id="1229b-148">Whether hello AS2 message failed.</span></span> <span data-ttu-id="1229b-149">(Zorunlu)</span><span class="sxs-lookup"><span data-stu-id="1229b-149">(Mandatory)</span></span> |
+| <span data-ttu-id="1229b-150">isMessageSigned</span><span class="sxs-lookup"><span data-stu-id="1229b-150">isMessageSigned</span></span> | <span data-ttu-id="1229b-151">Boole değeri</span><span class="sxs-lookup"><span data-stu-id="1229b-151">Boolean</span></span> | <span data-ttu-id="1229b-152">Merhaba AS2 iletisi olup olmadığını imzalandı.</span><span class="sxs-lookup"><span data-stu-id="1229b-152">Whether hello AS2 message was signed.</span></span> <span data-ttu-id="1229b-153">(Zorunlu)</span><span class="sxs-lookup"><span data-stu-id="1229b-153">(Mandatory)</span></span> |
+| <span data-ttu-id="1229b-154">isMessageEncrypted</span><span class="sxs-lookup"><span data-stu-id="1229b-154">isMessageEncrypted</span></span> | <span data-ttu-id="1229b-155">Boole değeri</span><span class="sxs-lookup"><span data-stu-id="1229b-155">Boolean</span></span> | <span data-ttu-id="1229b-156">Merhaba AS2 iletisi olup olmadığını şifrelenmiş.</span><span class="sxs-lookup"><span data-stu-id="1229b-156">Whether hello AS2 message was encrypted.</span></span> <span data-ttu-id="1229b-157">(Zorunlu)</span><span class="sxs-lookup"><span data-stu-id="1229b-157">(Mandatory)</span></span> |
+| <span data-ttu-id="1229b-158">isMessageCompressed</span><span class="sxs-lookup"><span data-stu-id="1229b-158">isMessageCompressed</span></span> |<span data-ttu-id="1229b-159">Boole değeri</span><span class="sxs-lookup"><span data-stu-id="1229b-159">Boolean</span></span> | <span data-ttu-id="1229b-160">Merhaba AS2 iletisi olup olmadığını sıkıştırılmış.</span><span class="sxs-lookup"><span data-stu-id="1229b-160">Whether hello AS2 message was compressed.</span></span> <span data-ttu-id="1229b-161">(Zorunlu)</span><span class="sxs-lookup"><span data-stu-id="1229b-161">(Mandatory)</span></span> |
+| <span data-ttu-id="1229b-162">correlationMessageId</span><span class="sxs-lookup"><span data-stu-id="1229b-162">correlationMessageId</span></span> | <span data-ttu-id="1229b-163">Dize</span><span class="sxs-lookup"><span data-stu-id="1229b-163">String</span></span> | <span data-ttu-id="1229b-164">AS2 ileti kimliği, MDNs toocorrelate iletileri.</span><span class="sxs-lookup"><span data-stu-id="1229b-164">AS2 message ID, toocorrelate messages with MDNs.</span></span> <span data-ttu-id="1229b-165">(İsteğe bağlı)</span><span class="sxs-lookup"><span data-stu-id="1229b-165">(Optional)</span></span> |
+| <span data-ttu-id="1229b-166">incomingHeaders</span><span class="sxs-lookup"><span data-stu-id="1229b-166">incomingHeaders</span></span> |<span data-ttu-id="1229b-167">JToken sözlüğü</span><span class="sxs-lookup"><span data-stu-id="1229b-167">Dictionary of JToken</span></span> | <span data-ttu-id="1229b-168">Gelen AS2 ileti üstbilgisi ayrıntıları.</span><span class="sxs-lookup"><span data-stu-id="1229b-168">Incoming AS2 message header details.</span></span> <span data-ttu-id="1229b-169">(İsteğe bağlı)</span><span class="sxs-lookup"><span data-stu-id="1229b-169">(Optional)</span></span> |
+| <span data-ttu-id="1229b-170">outgoingHeaders</span><span class="sxs-lookup"><span data-stu-id="1229b-170">outgoingHeaders</span></span> |<span data-ttu-id="1229b-171">JToken sözlüğü</span><span class="sxs-lookup"><span data-stu-id="1229b-171">Dictionary of JToken</span></span> | <span data-ttu-id="1229b-172">Giden AS2 ileti üstbilgisi ayrıntıları.</span><span class="sxs-lookup"><span data-stu-id="1229b-172">Outgoing AS2 message header details.</span></span> <span data-ttu-id="1229b-173">(İsteğe bağlı)</span><span class="sxs-lookup"><span data-stu-id="1229b-173">(Optional)</span></span> |
+| <span data-ttu-id="1229b-174">isNrrEnabled</span><span class="sxs-lookup"><span data-stu-id="1229b-174">isNrrEnabled</span></span> | <span data-ttu-id="1229b-175">Boole değeri</span><span class="sxs-lookup"><span data-stu-id="1229b-175">Boolean</span></span> | <span data-ttu-id="1229b-176">Merhaba değeri değil biliniyorsa varsayılan değeri kullanın.</span><span class="sxs-lookup"><span data-stu-id="1229b-176">Use default value if hello value is not known.</span></span> <span data-ttu-id="1229b-177">(Zorunlu)</span><span class="sxs-lookup"><span data-stu-id="1229b-177">(Mandatory)</span></span> |
+| <span data-ttu-id="1229b-178">isMdnExpected</span><span class="sxs-lookup"><span data-stu-id="1229b-178">isMdnExpected</span></span> | <span data-ttu-id="1229b-179">Boole değeri</span><span class="sxs-lookup"><span data-stu-id="1229b-179">Boolean</span></span> | <span data-ttu-id="1229b-180">Merhaba değeri değil biliniyorsa varsayılan değeri kullanın.</span><span class="sxs-lookup"><span data-stu-id="1229b-180">Use default value if hello value is not known.</span></span> <span data-ttu-id="1229b-181">(Zorunlu)</span><span class="sxs-lookup"><span data-stu-id="1229b-181">(Mandatory)</span></span> |
+| <span data-ttu-id="1229b-182">mdnType</span><span class="sxs-lookup"><span data-stu-id="1229b-182">mdnType</span></span> | <span data-ttu-id="1229b-183">Enum</span><span class="sxs-lookup"><span data-stu-id="1229b-183">Enum</span></span> | <span data-ttu-id="1229b-184">İzin verilen değerler **NotConfigured**, **eşitleme**, ve **zaman uyumsuz**.</span><span class="sxs-lookup"><span data-stu-id="1229b-184">Allowed values are **NotConfigured**, **Sync**, and **Async**.</span></span> <span data-ttu-id="1229b-185">(Zorunlu)</span><span class="sxs-lookup"><span data-stu-id="1229b-185">(Mandatory)</span></span> |
+
+## <a name="as2-mdn-tracking-schema"></a><span data-ttu-id="1229b-186">AS2 MDN izleme şeması</span><span class="sxs-lookup"><span data-stu-id="1229b-186">AS2 MDN tracking schema</span></span>
+````java
+
+    {
+        "agreementProperties": {
+                "senderPartnerName": "",
+                "receiverPartnerName": "",
+                "as2To": "",
+                "as2From": "",
+                "agreementName": "g"
+            },
+            "messageProperties": {
+                "direction": "",
+                "messageId": "",
+                "originalMessageId": "",
+                "dispositionType": "",
+                "isMessageFailed": "",
+                "isMessageSigned": "",
+                "isNrrEnabled": "",
+                "statusCode": "",
+                "micVerificationStatus": "",
+                "correlationMessageId": "",
+                "incomingHeaders": {
+                },
+                "outgoingHeaders": {
+                }
+            }
+    }
+````
+
+| <span data-ttu-id="1229b-187">Özellik</span><span class="sxs-lookup"><span data-stu-id="1229b-187">Property</span></span> | <span data-ttu-id="1229b-188">Tür</span><span class="sxs-lookup"><span data-stu-id="1229b-188">Type</span></span> | <span data-ttu-id="1229b-189">Açıklama</span><span class="sxs-lookup"><span data-stu-id="1229b-189">Description</span></span> |
+| --- | --- | --- |
+| <span data-ttu-id="1229b-190">senderPartnerName</span><span class="sxs-lookup"><span data-stu-id="1229b-190">senderPartnerName</span></span> | <span data-ttu-id="1229b-191">Dize</span><span class="sxs-lookup"><span data-stu-id="1229b-191">String</span></span> | <span data-ttu-id="1229b-192">AS2 iletiyi gönderenin ortak adı.</span><span class="sxs-lookup"><span data-stu-id="1229b-192">AS2 message sender's partner name.</span></span> <span data-ttu-id="1229b-193">(İsteğe bağlı)</span><span class="sxs-lookup"><span data-stu-id="1229b-193">(Optional)</span></span> |
+| <span data-ttu-id="1229b-194">receiverPartnerName</span><span class="sxs-lookup"><span data-stu-id="1229b-194">receiverPartnerName</span></span> | <span data-ttu-id="1229b-195">Dize</span><span class="sxs-lookup"><span data-stu-id="1229b-195">String</span></span> | <span data-ttu-id="1229b-196">AS2 ileti alıcının ortak adı.</span><span class="sxs-lookup"><span data-stu-id="1229b-196">AS2 message receiver's partner name.</span></span> <span data-ttu-id="1229b-197">(İsteğe bağlı)</span><span class="sxs-lookup"><span data-stu-id="1229b-197">(Optional)</span></span> |
+| <span data-ttu-id="1229b-198">as2To</span><span class="sxs-lookup"><span data-stu-id="1229b-198">as2To</span></span> | <span data-ttu-id="1229b-199">Dize</span><span class="sxs-lookup"><span data-stu-id="1229b-199">String</span></span> | <span data-ttu-id="1229b-200">Merhaba AS2 ileti alır ortak adı.</span><span class="sxs-lookup"><span data-stu-id="1229b-200">Partner name who receives hello AS2 message.</span></span> <span data-ttu-id="1229b-201">(Zorunlu)</span><span class="sxs-lookup"><span data-stu-id="1229b-201">(Mandatory)</span></span> |
+| <span data-ttu-id="1229b-202">as2From</span><span class="sxs-lookup"><span data-stu-id="1229b-202">as2From</span></span> | <span data-ttu-id="1229b-203">Dize</span><span class="sxs-lookup"><span data-stu-id="1229b-203">String</span></span> | <span data-ttu-id="1229b-204">Merhaba AS2 ileti gönderen ortak adı.</span><span class="sxs-lookup"><span data-stu-id="1229b-204">Partner name who sends hello AS2 message.</span></span> <span data-ttu-id="1229b-205">(Zorunlu)</span><span class="sxs-lookup"><span data-stu-id="1229b-205">(Mandatory)</span></span> |
+| <span data-ttu-id="1229b-206">agreementName</span><span class="sxs-lookup"><span data-stu-id="1229b-206">agreementName</span></span> | <span data-ttu-id="1229b-207">Dize</span><span class="sxs-lookup"><span data-stu-id="1229b-207">String</span></span> | <span data-ttu-id="1229b-208">Merhaba AS2 sözleşmesi toowhich hello iletileri adını çözümlenir.</span><span class="sxs-lookup"><span data-stu-id="1229b-208">Name of hello AS2 agreement toowhich hello messages are resolved.</span></span> <span data-ttu-id="1229b-209">(İsteğe bağlı)</span><span class="sxs-lookup"><span data-stu-id="1229b-209">(Optional)</span></span> |
+| <span data-ttu-id="1229b-210">Yönü</span><span class="sxs-lookup"><span data-stu-id="1229b-210">direction</span></span> |<span data-ttu-id="1229b-211">Dize</span><span class="sxs-lookup"><span data-stu-id="1229b-211">String</span></span> | <span data-ttu-id="1229b-212">Hello ileti akış yönünü alma veya gönderme.</span><span class="sxs-lookup"><span data-stu-id="1229b-212">Direction of hello message flow, receive or send.</span></span> <span data-ttu-id="1229b-213">(Zorunlu)</span><span class="sxs-lookup"><span data-stu-id="1229b-213">(Mandatory)</span></span> |
+| <span data-ttu-id="1229b-214">MessageID</span><span class="sxs-lookup"><span data-stu-id="1229b-214">messageId</span></span> | <span data-ttu-id="1229b-215">Dize</span><span class="sxs-lookup"><span data-stu-id="1229b-215">String</span></span> | <span data-ttu-id="1229b-216">AS2 ileti kimliği.</span><span class="sxs-lookup"><span data-stu-id="1229b-216">AS2 message ID.</span></span> <span data-ttu-id="1229b-217">(İsteğe bağlı)</span><span class="sxs-lookup"><span data-stu-id="1229b-217">(Optional)</span></span> |
+| <span data-ttu-id="1229b-218">OriginalMessageId</span><span class="sxs-lookup"><span data-stu-id="1229b-218">originalMessageId</span></span> |<span data-ttu-id="1229b-219">Dize</span><span class="sxs-lookup"><span data-stu-id="1229b-219">String</span></span> | <span data-ttu-id="1229b-220">AS2 özgün ileti kimliği.</span><span class="sxs-lookup"><span data-stu-id="1229b-220">AS2 original message ID.</span></span> <span data-ttu-id="1229b-221">(İsteğe bağlı)</span><span class="sxs-lookup"><span data-stu-id="1229b-221">(Optional)</span></span> |
+| <span data-ttu-id="1229b-222">dispositionType</span><span class="sxs-lookup"><span data-stu-id="1229b-222">dispositionType</span></span> | <span data-ttu-id="1229b-223">Dize</span><span class="sxs-lookup"><span data-stu-id="1229b-223">String</span></span> | <span data-ttu-id="1229b-224">MDN değerlendirme türü değeri.</span><span class="sxs-lookup"><span data-stu-id="1229b-224">MDN disposition type value.</span></span> <span data-ttu-id="1229b-225">(İsteğe bağlı)</span><span class="sxs-lookup"><span data-stu-id="1229b-225">(Optional)</span></span> |
+| <span data-ttu-id="1229b-226">isMessageFailed</span><span class="sxs-lookup"><span data-stu-id="1229b-226">isMessageFailed</span></span> |<span data-ttu-id="1229b-227">Boole değeri</span><span class="sxs-lookup"><span data-stu-id="1229b-227">Boolean</span></span> | <span data-ttu-id="1229b-228">Olup hello AS2 iletisi başarısız oldu.</span><span class="sxs-lookup"><span data-stu-id="1229b-228">Whether hello AS2 message failed.</span></span> <span data-ttu-id="1229b-229">(Zorunlu)</span><span class="sxs-lookup"><span data-stu-id="1229b-229">(Mandatory)</span></span> |
+| <span data-ttu-id="1229b-230">isMessageSigned</span><span class="sxs-lookup"><span data-stu-id="1229b-230">isMessageSigned</span></span> |<span data-ttu-id="1229b-231">Boole değeri</span><span class="sxs-lookup"><span data-stu-id="1229b-231">Boolean</span></span> | <span data-ttu-id="1229b-232">Merhaba AS2 iletisi olup olmadığını imzalandı.</span><span class="sxs-lookup"><span data-stu-id="1229b-232">Whether hello AS2 message was signed.</span></span> <span data-ttu-id="1229b-233">(Zorunlu)</span><span class="sxs-lookup"><span data-stu-id="1229b-233">(Mandatory)</span></span> |
+| <span data-ttu-id="1229b-234">isNrrEnabled</span><span class="sxs-lookup"><span data-stu-id="1229b-234">isNrrEnabled</span></span> | <span data-ttu-id="1229b-235">Boole değeri</span><span class="sxs-lookup"><span data-stu-id="1229b-235">Boolean</span></span> | <span data-ttu-id="1229b-236">Merhaba değeri değil biliniyorsa varsayılan değeri kullanın.</span><span class="sxs-lookup"><span data-stu-id="1229b-236">Use default value if hello value is not known.</span></span> <span data-ttu-id="1229b-237">(Zorunlu)</span><span class="sxs-lookup"><span data-stu-id="1229b-237">(Mandatory)</span></span> |
+| <span data-ttu-id="1229b-238">statusCode</span><span class="sxs-lookup"><span data-stu-id="1229b-238">statusCode</span></span> | <span data-ttu-id="1229b-239">Enum</span><span class="sxs-lookup"><span data-stu-id="1229b-239">Enum</span></span> | <span data-ttu-id="1229b-240">İzin verilen değerler **kabul edilen**, **reddedildi**, ve **AcceptedWithErrors**.</span><span class="sxs-lookup"><span data-stu-id="1229b-240">Allowed values are **Accepted**, **Rejected**, and **AcceptedWithErrors**.</span></span> <span data-ttu-id="1229b-241">(Zorunlu)</span><span class="sxs-lookup"><span data-stu-id="1229b-241">(Mandatory)</span></span> |
+| <span data-ttu-id="1229b-242">micVerificationStatus</span><span class="sxs-lookup"><span data-stu-id="1229b-242">micVerificationStatus</span></span> | <span data-ttu-id="1229b-243">Enum</span><span class="sxs-lookup"><span data-stu-id="1229b-243">Enum</span></span> | <span data-ttu-id="1229b-244">İzin verilen değerler **Notapplıcable**, **başarılı**, ve **başarısız**.</span><span class="sxs-lookup"><span data-stu-id="1229b-244">Allowed values are **NotApplicable**, **Succeeded**, and **Failed**.</span></span> <span data-ttu-id="1229b-245">(Zorunlu)</span><span class="sxs-lookup"><span data-stu-id="1229b-245">(Mandatory)</span></span> |
+| <span data-ttu-id="1229b-246">correlationMessageId</span><span class="sxs-lookup"><span data-stu-id="1229b-246">correlationMessageId</span></span> | <span data-ttu-id="1229b-247">Dize</span><span class="sxs-lookup"><span data-stu-id="1229b-247">String</span></span> | <span data-ttu-id="1229b-248">Bağıntı Kimliği</span><span class="sxs-lookup"><span data-stu-id="1229b-248">Correlation ID.</span></span> <span data-ttu-id="1229b-249">Merhaba özgün messaged kimliği (MDN yapılandırılır hello iletinin ileti kimliği hello).</span><span class="sxs-lookup"><span data-stu-id="1229b-249">hello original messaged ID (hello message ID of hello message for which MDN is configured).</span></span> <span data-ttu-id="1229b-250">(İsteğe bağlı)</span><span class="sxs-lookup"><span data-stu-id="1229b-250">(Optional)</span></span> |
+| <span data-ttu-id="1229b-251">incomingHeaders</span><span class="sxs-lookup"><span data-stu-id="1229b-251">incomingHeaders</span></span> | <span data-ttu-id="1229b-252">JToken sözlüğü</span><span class="sxs-lookup"><span data-stu-id="1229b-252">Dictionary of JToken</span></span> | <span data-ttu-id="1229b-253">Gelen ileti üstbilgisi ayrıntılarını gösterir.</span><span class="sxs-lookup"><span data-stu-id="1229b-253">Indicates incoming message header details.</span></span> <span data-ttu-id="1229b-254">(İsteğe bağlı)</span><span class="sxs-lookup"><span data-stu-id="1229b-254">(Optional)</span></span> |
+| <span data-ttu-id="1229b-255">outgoingHeaders</span><span class="sxs-lookup"><span data-stu-id="1229b-255">outgoingHeaders</span></span> |<span data-ttu-id="1229b-256">JToken sözlüğü</span><span class="sxs-lookup"><span data-stu-id="1229b-256">Dictionary of JToken</span></span> | <span data-ttu-id="1229b-257">Giden ileti üstbilgisi ayrıntılarını gösterir.</span><span class="sxs-lookup"><span data-stu-id="1229b-257">Indicates outgoing message header details.</span></span> <span data-ttu-id="1229b-258">(İsteğe bağlı)</span><span class="sxs-lookup"><span data-stu-id="1229b-258">(Optional)</span></span> |
+
+## <a name="next-steps"></a><span data-ttu-id="1229b-259">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="1229b-259">Next steps</span></span>
+* <span data-ttu-id="1229b-260">Merhaba hakkında daha fazla bilgi [Kurumsal tümleştirme paketi](../logic-apps/logic-apps-enterprise-integration-overview.md).</span><span class="sxs-lookup"><span data-stu-id="1229b-260">Learn more about hello [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).</span></span>    
+* <span data-ttu-id="1229b-261">Daha fazla bilgi edinmek [B2B iletileri izleme](logic-apps-monitor-b2b-message.md).</span><span class="sxs-lookup"><span data-stu-id="1229b-261">Learn more about [monitoring B2B messages](logic-apps-monitor-b2b-message.md).</span></span>   
+* <span data-ttu-id="1229b-262">Daha fazla bilgi edinmek [B2B şemaları izleme özel](logic-apps-track-integration-account-custom-tracking-schema.md).</span><span class="sxs-lookup"><span data-stu-id="1229b-262">Learn more about [B2B custom tracking schemas](logic-apps-track-integration-account-custom-tracking-schema.md).</span></span>   
+* <span data-ttu-id="1229b-263">Daha fazla bilgi edinmek [şemaları izleme X12](logic-apps-track-integration-account-x12-tracking-schema.md).</span><span class="sxs-lookup"><span data-stu-id="1229b-263">Learn more about [X12 tracking schemas](logic-apps-track-integration-account-x12-tracking-schema.md).</span></span>   
+* <span data-ttu-id="1229b-264">Hakkında bilgi edinin [hello Operations Management Suite portalına B2B iletilerinde izleme](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).</span><span class="sxs-lookup"><span data-stu-id="1229b-264">Learn about [tracking B2B messages in hello Operations Management Suite portal](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).</span></span>

@@ -1,0 +1,61 @@
+---
+title: "Visual Studio'da bağlı hizmetler kullanarak bir Azure Active Directory aaaAdding | Microsoft Docs"
+description: "Merhaba Visual Studio bağlı Hizmetleri Ekle iletişim kutusunu kullanarak bir Azure Active Directory'ye ekleme"
+services: visual-studio-online
+documentationcenter: na
+author: kraigb
+manager: ghogen
+editor: 
+ms.assetid: f599de6b-e369-436f-9cdc-48a0165684cb
+ms.service: active-directory
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 03/01/2017
+ms.author: kraigb
+ms.openlocfilehash: 26c8f68edf9ec5f7bf65cbab34e4f9b4085ed18d
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/06/2017
+---
+# <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a><span data-ttu-id="d05d5-103">Visual Studio'da bağlı hizmetler kullanarak bir Azure Active Directory'ye ekleme</span><span class="sxs-lookup"><span data-stu-id="d05d5-103">Adding an Azure Active Directory by using Connected Services in Visual Studio</span></span>
+<span data-ttu-id="d05d5-104">Azure Active Directory (Azure AD) kullanarak, çoklu oturum açma (SSO) ASP.NET MVC web uygulamaları veya Active Directory kimlik doğrulaması için Web API Hizmetleri'ni destekler.</span><span class="sxs-lookup"><span data-stu-id="d05d5-104">By using Azure Active Directory (Azure AD), you can support Single Sign-On (SSO) for ASP.NET MVC web applications, or Active Directory Authentication in Web API services.</span></span> <span data-ttu-id="d05d5-105">Azure Active Directory kimlik doğrulaması ile kullanıcılarınızın Azure Active Directory tooconnect tooyour web uygulamalarından hesaplarını kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="d05d5-105">With Azure Active Directory Authentication, your users can use their accounts from Azure Active Directory tooconnect tooyour web applications.</span></span> <span data-ttu-id="d05d5-106">bir web uygulamasından bir API gösterme işlemlerinde, Azure Active Directory kimlik doğrulaması Web API ile Merhaba avantajları gelişmiş veri güvenliği kullanır.</span><span class="sxs-lookup"><span data-stu-id="d05d5-106">hello advantages of Azure Active Directory Authentication with Web API include enhanced data security when exposing an API from a web application.</span></span> <span data-ttu-id="d05d5-107">Azure AD ile toomanage kendi hesabı ve kullanıcı yönetimi ile ayrı kimlik doğrulama sistemi sahip değilsiniz.</span><span class="sxs-lookup"><span data-stu-id="d05d5-107">With Azure AD, you do not have toomanage a separate authentication system with its own account and user management.</span></span>
+
+## <a name="prerequisites"></a><span data-ttu-id="d05d5-108">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="d05d5-108">Prerequisites</span></span>
+- <span data-ttu-id="d05d5-109">Azure hesabı - bir Azure hesabınız yoksa şunları yapabilirsiniz [ücretsiz deneme için kaydolun](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) veya [Visual Studio abone Avantajlarınızı etkinleştirebilir](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).</span><span class="sxs-lookup"><span data-stu-id="d05d5-109">Azure account - If you don't have an Azure account, you can [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) or [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).</span></span>
+
+### <a name="connect-tooazure-active-directory-using-hello-connected-services-dialog"></a><span data-ttu-id="d05d5-110">TooAzure hello bağlantılı hizmetler kullanarak Active Directory connect iletişim</span><span class="sxs-lookup"><span data-stu-id="d05d5-110">Connect tooAzure Active Directory using hello Connected Services dialog</span></span>
+1. <span data-ttu-id="d05d5-111">Visual Studio'da oluşturun veya bir ASP.NET MVC projesini ya da bir ASP.NET Web API projesini açın.</span><span class="sxs-lookup"><span data-stu-id="d05d5-111">In Visual Studio, create or open an ASP.NET MVC project, or an ASP.NET Web API project.</span></span>
+
+1. <span data-ttu-id="d05d5-112">Çözüm Gezgini Hello hello sağ tıklatın **bağlantılı Hizmetler** düğümü ve hello bağlam menüsünden seçin **bağlı Hizmetleri Ekle**.</span><span class="sxs-lookup"><span data-stu-id="d05d5-112">From hello Solution Explorer, right-click hello **Connected Services** node, and, from hello context menu, select **Add Connected Services**.</span></span>
+
+1. <span data-ttu-id="d05d5-113">Merhaba üzerinde **bağlantılı Hizmetler** sayfasında, **Azure Active Directory ile kimlik doğrulaması**.</span><span class="sxs-lookup"><span data-stu-id="d05d5-113">On hello **Connected Services** page, select **Authentication with Azure Active Directory**.</span></span>
+   
+    ![Bağlı hizmetler sayfası](./media/vs-azure-tools-connected-services-add-active-directory/connected-services-add-active-directory.png)
+
+1. <span data-ttu-id="d05d5-115">Merhaba üzerinde **giriş** hello sayfasının **yapılandırma Azure AD kimlik doğrulama** seçin **sonraki**.</span><span class="sxs-lookup"><span data-stu-id="d05d5-115">On hello **Introduction** page of hello **Configure Azure AD Authentication** wizard, select **Next**.</span></span>
+   
+    ![Giriş sayfası](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-1.png)
+
+1. <span data-ttu-id="d05d5-117">Merhaba üzerinde **tek oturum açma** hello sayfasının **yapılandırma Azure AD kimlik doğrulama** Sihirbazı, bir etki alanından hello seçin **etki alanı** aşağı açılan liste.</span><span class="sxs-lookup"><span data-stu-id="d05d5-117">On hello **Single-Sign On** page of hello **Configure Azure AD Authentication** wizard, select a domain from hello **Domain** drop-down list.</span></span> <span data-ttu-id="d05d5-118">Merhaba etki alanlarının listesi hello hesap ayarları iletişim kutusunda listelenen hello hesapları tarafından erişilebilir tüm etki alanları içerir.</span><span class="sxs-lookup"><span data-stu-id="d05d5-118">hello list of domains contains all domains accessible by hello accounts listed in hello Account Settings dialog.</span></span> <span data-ttu-id="d05d5-119">Alternatif olarak, hello bir aradığınız, gibi bulamazsanız, bir etki alanı adı girebilirsiniz `mydomain.onmicrosoft.com`.</span><span class="sxs-lookup"><span data-stu-id="d05d5-119">As an alternative, you can enter a domain name if you don’t find hello one you’re looking for, such as `mydomain.onmicrosoft.com`.</span></span> <span data-ttu-id="d05d5-120">Bir Azure Active Directory Uygulama hello seçeneği toocreate seçin veya mevcut bir Azure Active Directory uygulamadan hello ayarları kullanın.</span><span class="sxs-lookup"><span data-stu-id="d05d5-120">You can choose hello option toocreate an Azure Active Directory app or use hello settings from an existing Azure Active Directory app.</span></span> <span data-ttu-id="d05d5-121">Seçin **sonraki** bittiğinde.</span><span class="sxs-lookup"><span data-stu-id="d05d5-121">Select **Next** when done.</span></span>
+   
+    ![Çoklu oturum açma sayfası](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-2.png)
+
+1. <span data-ttu-id="d05d5-123">Hello üzerinde **dizin erişimi** hello sayfasının **yapılandırma Azure AD kimlik doğrulama** Sihirbazı, o hello sağlamak **dizin verilerini okuma** seçeneği işaretli.</span><span class="sxs-lookup"><span data-stu-id="d05d5-123">On hello **Directory Access** page of hello **Configure Azure AD Authentication** wizard, ensure that hello **Read directory data** option is checked.</span></span> 
+   
+    ![Dizin erişim sayfası](./media/vs-azure-tools-connected-services-add-active-directory/configure-azure-ad-wizard-3.png)
+
+1. <span data-ttu-id="d05d5-125">Seçin **son** tooadd projenizi Azure AD kimlik doğrulaması için gerekli yapılandırma kodu ve başvuruları tooenable hello.</span><span class="sxs-lookup"><span data-stu-id="d05d5-125">Select **Finish** tooadd hello necessary configuration code and references tooenable your project for Azure AD authentication.</span></span> <span data-ttu-id="d05d5-126">Merhaba Active Directory etki alanı üzerinde hello görebilirsiniz [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).</span><span class="sxs-lookup"><span data-stu-id="d05d5-126">You can see hello Active Directory domain on hello [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).</span></span>
+
+1. <span data-ttu-id="d05d5-127">Visual Studio görüntüler bir [ne](#how-your-project-is-modified) makale tooshow, projenizin nasıl değiştirildi.</span><span class="sxs-lookup"><span data-stu-id="d05d5-127">Visual Studio will display a [What Happened](#how-your-project-is-modified) article tooshow you how your project was modified.</span></span> <span data-ttu-id="d05d5-128">Her şeyin çalıştığı toocheck istiyorsanız değiştiren hello yapılandırma dosyalarından birini açın ve hello makalede değinilen hello ayarlarını doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="d05d5-128">If you want toocheck that everything worked, open one of hello modified configuration files and verify that hello settings mentioned in hello article are there.</span></span> 
+
+## <a name="how-your-project-is-modified"></a><span data-ttu-id="d05d5-129">Projenizi nasıl değiştirilir</span><span class="sxs-lookup"><span data-stu-id="d05d5-129">How your project is modified</span></span>
+<span data-ttu-id="d05d5-130">Başlangıç Sihirbazı'nı çalıştırdığınızda, Visual Studio Azure Active Directory ve ilişkili başvurular tooyour proje ekler.</span><span class="sxs-lookup"><span data-stu-id="d05d5-130">When you run hello wizard, Visual Studio adds Azure Active Directory and associated references tooyour project.</span></span> <span data-ttu-id="d05d5-131">Yapılandırma dosyaları ve kod dosyaları projenizdeki ayrıca Azure AD değiştirilmiş tooadd destek sağlar.</span><span class="sxs-lookup"><span data-stu-id="d05d5-131">Configuration files and code files in your project are also modified tooadd support for Azure AD.</span></span> <span data-ttu-id="d05d5-132">Visual Studio yapar hello belirli değişiklikler hello proje türüne bağlıdır.</span><span class="sxs-lookup"><span data-stu-id="d05d5-132">hello specific modifications that Visual Studio makes depend on hello project type.</span></span> <span data-ttu-id="d05d5-133">ASP.NET MVC projeleri nasıl değiştirilir hakkında ayrıntılı bilgi için bkz: [hangi happened – MVC projeleri](http://go.microsoft.com/fwlink/p/?LinkID=513809).</span><span class="sxs-lookup"><span data-stu-id="d05d5-133">For detailed information about how ASP.NET MVC projects are modified, see [What happened– MVC Projects](http://go.microsoft.com/fwlink/p/?LinkID=513809).</span></span> <span data-ttu-id="d05d5-134">Web API projeleri için bkz: [ne – Web API projeleri](http://go.microsoft.com/fwlink/p/?LinkId=513810).</span><span class="sxs-lookup"><span data-stu-id="d05d5-134">For Web API projects, see [What happened – Web API Projects](http://go.microsoft.com/fwlink/p/?LinkId=513810).</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="d05d5-135">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="d05d5-135">Next steps</span></span>
+* [<span data-ttu-id="d05d5-136">Azure Active Directory için MSDN Forumu</span><span class="sxs-lookup"><span data-stu-id="d05d5-136">MSDN Forum for Azure Active Directory</span></span>](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)
+* [<span data-ttu-id="d05d5-137">Azure Active Directory belgeleri</span><span class="sxs-lookup"><span data-stu-id="d05d5-137">Azure Active Directory Documentation</span></span>](https://azure.microsoft.com/documentation/services/active-directory/)
+* [<span data-ttu-id="d05d5-138">Blog postası: Giriş tooAzure Active Directory</span><span class="sxs-lookup"><span data-stu-id="d05d5-138">Blog Post: Intro tooAzure Active Directory</span></span>](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
+

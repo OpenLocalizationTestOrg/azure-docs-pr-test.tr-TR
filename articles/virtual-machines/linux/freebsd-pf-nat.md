@@ -1,0 +1,62 @@
+---
+title: "aaaUse FreeBSD'ın paket filtresi toocreate bir Güvenlik Duvarı'nda Azure | Microsoft Docs"
+description: "Bilgi nasıl toodeploy NAT FreeBSD'ın kullanarak güvenlik duvarı PF azure'da."
+services: virtual-machines-linux
+documentationcenter: 
+author: KylieLiang
+manager: timlt
+editor: 
+tags: azure-resource-manager
+ms.assetid: 
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 02/20/2017
+ms.author: kyliel
+ms.openlocfilehash: 3d3a5dde2ca03ba6fc384581c786f5eb746e6d92
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/06/2017
+---
+# <a name="how-toouse-freebsds-packet-filter-toocreate-a-secure-firewall-in-azure"></a><span data-ttu-id="df012-103">Nasıl toouse FreeBSD'ın paket filtresi toocreate azure'da güvenli bir güvenlik duvarı</span><span class="sxs-lookup"><span data-stu-id="df012-103">How toouse FreeBSD's Packet Filter toocreate a secure firewall in Azure</span></span>
+<span data-ttu-id="df012-104">Bu makalede tanıtılır nasıl toodeploy ortak web sunucusu senaryo için Azure Resource Manager şablonu aracılığıyla FreeBSD'ın Packer filtresini kullanarak bir NAT güvenlik duvarı.</span><span class="sxs-lookup"><span data-stu-id="df012-104">This article introduces how toodeploy a NAT firewall using FreeBSD’s Packer Filter through Azure Resource Manager template for common web server scenario.</span></span>
+
+## <a name="what-is-pf"></a><span data-ttu-id="df012-105">PF nedir?</span><span class="sxs-lookup"><span data-stu-id="df012-105">What is PF?</span></span>
+<span data-ttu-id="df012-106">PF (paket filtresi, ayrıca pf yazılan) bir BSD lisanslı durum bilgisi olan paket filtre saldırısından için yazılım merkezi bir parçası olarak bilinir.</span><span class="sxs-lookup"><span data-stu-id="df012-106">PF (Packet Filter, also written pf) is a BSD licensed stateful packet filter, a central piece of software for firewalling.</span></span> <span data-ttu-id="df012-107">PF beri hızlı bir şekilde gelişmiştir ve artık kullanılabilir diğer güvenlik duvarları üzerinden çeşitli avantajları vardır.</span><span class="sxs-lookup"><span data-stu-id="df012-107">PF has since evolved quickly and now has several advantages over other available firewalls.</span></span> <span data-ttu-id="df012-108">Ağ adresi çevirisi (NAT) günden itibaren ardından Paket Zamanlayıcısı'nı PF içinde olan ve etkin kuyruk yönetimi tümleşik PF yapılarak hello ALTQ tümleştirme, PF'ın yapılandırması aracılığıyla yapılandırılabilir.</span><span class="sxs-lookup"><span data-stu-id="df012-108">Network Address Translation (NAT) is in PF since day one, then packet scheduler and active queue management have been integrated into PF, by integrating hello ALTQ and making it configurable through PF's configuration.</span></span> <span data-ttu-id="df012-109">Yük devretme ve artıklık, oturum kimlik doğrulaması ve ftp proxy tooease saldırısından hello zor FTP Protokolü, authpf pfsync ve CARP gibi özellikleri de PF. genişletilmiş</span><span class="sxs-lookup"><span data-stu-id="df012-109">Features such as pfsync and CARP for failover and redundancy, authpf for session authentication, and ftp-proxy tooease firewalling hello difficult FTP protocol, have also extended PF.</span></span> <span data-ttu-id="df012-110">Kısacası, PF güçlü ve zengin bir Güvenlik Duvarı ' dir.</span><span class="sxs-lookup"><span data-stu-id="df012-110">In short, PF is a powerful and feature-rich firewall.</span></span> 
+
+## <a name="get-started"></a><span data-ttu-id="df012-111">başlarken</span><span class="sxs-lookup"><span data-stu-id="df012-111">Get started</span></span>
+<span data-ttu-id="df012-112">Web sunucuları için hello bulutta güvenli bir güvenlik duvarını ayarı ilgilendiğiniz sonra başlayalım durumunda.</span><span class="sxs-lookup"><span data-stu-id="df012-112">If you are interested in setting up a secure firewall in hello cloud for your web servers, then let’s get started.</span></span> <span data-ttu-id="df012-113">Bu Azure Resource Manager şablonu tooset ağ topolojinizi kullanılan hello komut uygulayabilir.</span><span class="sxs-lookup"><span data-stu-id="df012-113">You can also apply hello scripts used in this Azure Resource Manager template tooset up your networking topology.</span></span>
+<span data-ttu-id="df012-114">PF ve iki FreeBSD sanal makineye yüklenmiş ve yapılandırılmış hello Nginx web sunucusu ile kullanarak NAT /redirection gerçekleştiren hello Azure Resource Manager şablonu FreeBSD sanal makine kurun.</span><span class="sxs-lookup"><span data-stu-id="df012-114">hello Azure Resource Manager template set up a FreeBSD virtual machine that performs NAT /redirection using PF and two FreeBSD virtual machines with hello Nginx web server installed and configured.</span></span> <span data-ttu-id="df012-115">Ayrıca tooperforming NAT hello iki web sunucuları için çıkış trafiği, hello NAT/yeniden yönlendirme sanal makine HTTP isteklerini karşılar ve toohello iki web sunucusu hepsini şekilde yönlendirir.</span><span class="sxs-lookup"><span data-stu-id="df012-115">In addition tooperforming NAT for hello two web servers egress traffic, hello NAT/redirection virtual machine intercepts HTTP requests and redirect them toohello two web servers in round-robin fashion.</span></span> <span data-ttu-id="df012-116">Merhaba VNet hello özel yönlendirilemeyen IP adresi alanı 10.0.0.2/24 kullanır ve hello şablon hello parametrelerini değiştirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="df012-116">hello VNet uses hello private non-routable IP address space 10.0.0.2/24 and you can modify hello parameters of hello template.</span></span> <span data-ttu-id="df012-117">Hello Azure Resource Manager şablonu toooverride Azure varsayılan yolların hello hedef IP adresine göre tekil yollar koleksiyonudur tüm VNet kullanılan hello için yol tablosu da tanımlar.</span><span class="sxs-lookup"><span data-stu-id="df012-117">hello Azure Resource Manager template also defines a route table for hello whole VNet, which is a collection of individual routes used toooverride Azure default routes based on hello destination IP address.</span></span> 
+
+![pf_topology](./media/freebsd-pf-nat/pf_topology.jpg)
+    
+### <a name="deploy-through-azure-cli"></a><span data-ttu-id="df012-119">Azure CLI aracılığıyla dağıtma</span><span class="sxs-lookup"><span data-stu-id="df012-119">Deploy through Azure CLI</span></span>
+<span data-ttu-id="df012-120">Merhaba son gereksinim [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve tooan Azure hesabı kullanarak oturum [az oturum açma](/cli/azure/#login).</span><span class="sxs-lookup"><span data-stu-id="df012-120">You need hello latest [Azure CLI 2.0](/cli/azure/install-az-cli2) installed and logged in tooan Azure account using [az login](/cli/azure/#login).</span></span> <span data-ttu-id="df012-121">[az group create](/cli/azure/group#create) ile bir kaynak grubu oluşturun.</span><span class="sxs-lookup"><span data-stu-id="df012-121">Create a resource group with [az group create](/cli/azure/group#create).</span></span> <span data-ttu-id="df012-122">Merhaba aşağıdaki örnekte oluşturur bir kaynak grubu adı `myResourceGroup` hello içinde `West US` konumu.</span><span class="sxs-lookup"><span data-stu-id="df012-122">hello following example creates a resource group name `myResourceGroup` in hello `West US` location.</span></span>
+
+```azurecli
+az group create --name myResourceGroup --location westus
+```
+
+<span data-ttu-id="df012-123">Ardından, hello şablonu dağıtmak [pf freebsd Kurulum](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) ile [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#create).</span><span class="sxs-lookup"><span data-stu-id="df012-123">Next, deploy hello template [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) with [az group deployment create](/cli/azure/group/deployment#create).</span></span> <span data-ttu-id="df012-124">Karşıdan [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) altında hello aynı yol ve kendi kaynak değerleri aşağıdaki gibi tanımlayın `adminPassword`, `networkPrefix`, ve `domainNamePrefix`.</span><span class="sxs-lookup"><span data-stu-id="df012-124">Download [azuredeploy.parameters.json](https://github.com/Azure/azure-quickstart-templates/blob/master/pf-freebsd-setup/azuredeploy.parameters.json) under hello same path and define your own resource values, such as `adminPassword`, `networkPrefix`, and `domainNamePrefix`.</span></span> 
+
+```azurecli
+az group deployment create --resource-group myResourceGroup --name myDeploymentName \
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/pf-freebsd-setup/azuredeploy.json \
+    --parameters '@azuredeploy.parameters.json' --verbose
+```
+
+<span data-ttu-id="df012-125">Yaklaşık beş dakika sonra hello bilgilerinin alırsınız `"provisioningState": "Succeeded"`.</span><span class="sxs-lookup"><span data-stu-id="df012-125">After about five minutes, you will get hello information of `"provisioningState": "Succeeded"`.</span></span> <span data-ttu-id="df012-126">Ssh toohello ön uç VM (NAT) yapabilecekleriniz sonra veya hello genel IP adresi veya hello ön uç VM (NAT) FQDN'sini kullanarak bir tarayıcıda Nginx web sunucusuna erişim.</span><span class="sxs-lookup"><span data-stu-id="df012-126">Then you can ssh toohello frontend VM (NAT) or access Nginx web server in a browser using hello public IP address or FQDN of hello frontend VM (NAT).</span></span> <span data-ttu-id="df012-127">Merhaba aşağıdaki örnek FQDN ve toohello ön uç VM (NAT) hello atanan genel IP adresi listeler `myResourceGroup` kaynak grubu.</span><span class="sxs-lookup"><span data-stu-id="df012-127">hello following example lists FQDN and public IP address that assigned toohello frontend VM (NAT) in hello `myResourceGroup` resource group.</span></span> 
+
+```azurecli
+az network public-ip list --resource-group myResourceGroup
+```
+    
+## <a name="next-steps"></a><span data-ttu-id="df012-128">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="df012-128">Next steps</span></span>
+<span data-ttu-id="df012-129">Azure'da kendi NAT yukarı tooset istiyor musunuz?</span><span class="sxs-lookup"><span data-stu-id="df012-129">Do you want tooset up your own NAT in Azure?</span></span> <span data-ttu-id="df012-130">Kaynak, ücretsiz ancak güçlü açılsın mı?</span><span class="sxs-lookup"><span data-stu-id="df012-130">Open Source, free but powerful?</span></span> <span data-ttu-id="df012-131">Ardından PF iyi bir seçimdir.</span><span class="sxs-lookup"><span data-stu-id="df012-131">Then PF is a good choice.</span></span> <span data-ttu-id="df012-132">Merhaba şablonunu kullanarak [pf freebsd Kurulum](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup), hepsini bir kez deneme yük dengeleme FreeBSD'ın kullanarak yalnızca bir NAT güvenlik duvarı yukarı beş dakika tooset gerekir PF ortak web sunucusu senaryosu için azure'da.</span><span class="sxs-lookup"><span data-stu-id="df012-132">By using hello template [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup), you only need five minutes tooset up a NAT firewall with round-robin load balancing using FreeBSD's PF in Azure for common web server scenario.</span></span> 
+
+<span data-ttu-id="df012-133">Azure'da FreeBSD toolearn hello sunulması istiyorsanız, çok başvurmak[Azure ile ilgili giriş tooFreeBSD](freebsd-intro-on-azure.md).</span><span class="sxs-lookup"><span data-stu-id="df012-133">If you want toolearn hello offering of FreeBSD in Azure, refer too[introduction tooFreeBSD on Azure](freebsd-intro-on-azure.md).</span></span>
+
+<span data-ttu-id="df012-134">Tooknow PF hakkında daha fazla bilgi istiyorsanız, çok başvuran[FreeBSD el kitabı](https://www.freebsd.org/doc/handbook/firewalls-pf.html) veya [PF-Kullanıcı Kılavuzu](https://www.freebsd.org/doc/handbook/firewalls-pf.html).</span><span class="sxs-lookup"><span data-stu-id="df012-134">If you want tooknow more about PF, refer too[FreeBSD handbook](https://www.freebsd.org/doc/handbook/firewalls-pf.html) or [PF-User's Guide](https://www.freebsd.org/doc/handbook/firewalls-pf.html).</span></span>

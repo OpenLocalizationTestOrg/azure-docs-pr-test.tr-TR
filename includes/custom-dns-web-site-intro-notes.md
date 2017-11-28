@@ -1,0 +1,10 @@
+<span data-ttu-id="18bea-101">Bu makalede Azure uygulama hizmeti (Web Apps, API Apps, Mobile Apps, Logic Apps); içindir Bulut Hizmetleri için bkz: [bir Azure bulut hizmeti için bir özel etki alanı adı yapılandırma](../articles/cloud-services/cloud-services-custom-domain-name.md).</span><span class="sxs-lookup"><span data-stu-id="18bea-101">This article is for Azure App Service (Web Apps, API Apps, Mobile Apps, Logic Apps); for Cloud Services, see [Configuring a custom domain name for an Azure cloud service](../articles/cloud-services/cloud-services-custom-domain-name.md).</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="18bea-102">Uygulamanızı yük dengeli tarafından ise [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), belirli adımları almak için bu makalenin üst seçicisini tıklatın.</span><span class="sxs-lookup"><span data-stu-id="18bea-102">If you app is load-balanced by [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), click the selector at the top of this article to get specific steps.</span></span>
+> 
+> <span data-ttu-id="18bea-103">**Özel etki alanı adları etkin ücretsiz katmanı**.</span><span class="sxs-lookup"><span data-stu-id="18bea-103">**Custom domain names are not enabled for Free tier**.</span></span> <span data-ttu-id="18bea-104">Yapmanız gerekenler [tarihine kadar daha yüksek bir fiyatlandırma katmanı](../articles/app-service-web/web-sites-scale.md), hangi aboneliğiniz için ne kadar faturalandırılır değişebilir.</span><span class="sxs-lookup"><span data-stu-id="18bea-104">You must [scale up to a higher pricing tier](../articles/app-service-web/web-sites-scale.md), which may change how much you are billed for your subscription.</span></span> 
+> <span data-ttu-id="18bea-105">Bkz: [App Service fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/) daha fazla bilgi için.</span><span class="sxs-lookup"><span data-stu-id="18bea-105">See [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/) for more information.</span></span>
+> 
+> 
+

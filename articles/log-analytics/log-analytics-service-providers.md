@@ -1,0 +1,85 @@
+---
+title: "Günlük analizi özellikleri hizmet sağlayıcıları | Microsoft Docs"
+description: "Günlük analizi yönetilen hizmet sağlayıcıları (MSP'ler), büyük kuruluşlar, bağımsız yazılım satıcıları (ISV) yardımcı olabilir ve barındırma hizmeti sağlayıcıları yönetebilir ve müşterinin şirket içi veya Bulut altyapı sunucularını izleyebilirsiniz."
+services: log-analytics
+documentationcenter: 
+author: richrundmsft
+manager: jochan
+editor: 
+ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/22/2016
+ms.author: richrund
+ms.openlocfilehash: 8a67d9a9d345682e9e6c8f5c7779204a038f5f6a
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 07/11/2017
+---
+# <a name="log-analytics-features-for-service-providers"></a><span data-ttu-id="627f1-103">Hizmet sağlayıcıları için günlük analizi özellikleri</span><span class="sxs-lookup"><span data-stu-id="627f1-103">Log Analytics features for Service Providers</span></span>
+<span data-ttu-id="627f1-104">Günlük analizi, yönetilen hizmet sağlayıcıları (MSP'ler), büyük kuruluşlar, bağımsız yazılım satıcılarının (ISV'ler) ve barındırma hizmeti sağlayıcıları yönetmek ve müşterinin şirket içi veya Bulut altyapı sunucularını izlemek yardımcı olabilir.</span><span class="sxs-lookup"><span data-stu-id="627f1-104">Log Analytics can help managed service providers (MSPs), large enterprises, independent software vendors (ISVs), and hosting service providers manage and monitor servers in customer's on-premises or cloud infrastructure.</span></span> 
+
+<span data-ttu-id="627f1-105">Büyük kuruluşlar özellikle yönetmekten sorumlu merkezi bir BT Ekibi olduğunda bu benzer şekilde hizmet sağlayıcıları ile paylaşmak için birçok farklı iş birimleri BT.</span><span class="sxs-lookup"><span data-stu-id="627f1-105">Large enterprises share many similarities with service providers, particularly when there is a centralized IT team that is responsible for managing IT for many different business units.</span></span> <span data-ttu-id="627f1-106">Kolaylık olması için bu belgede terimini kullanır *hizmet sağlayıcısı* ancak aynı işlevselliği da kuruluşlar ve diğer müşteriler için kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="627f1-106">For simplicity, this document uses the term *service provider* but the same functionality is also available for enterprises and other customers.</span></span>
+
+## <a name="cloud-solution-provider"></a><span data-ttu-id="627f1-107">Bulut Çözümü Sağlayıcısı</span><span class="sxs-lookup"><span data-stu-id="627f1-107">Cloud Solution Provider</span></span>
+<span data-ttu-id="627f1-108">İş ortakları ve parçası olan hizmet sağlayıcıları için [bulut çözümü sağlayıcısı (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) program, günlük analizi Azure hizmetlerini bir CSP abonelikte kullanılabilir biridir.</span><span class="sxs-lookup"><span data-stu-id="627f1-108">For partners and service providers who are part of the [Cloud Solution Provider (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) program, Log Analytics is one of the Azure services available on a CSP subscription.</span></span> 
+
+<span data-ttu-id="627f1-109">Aşağıdaki özellikleri günlük analizi için etkinleştirilmiş olan *bulut çözümü sağlayıcısı* abonelikleri.</span><span class="sxs-lookup"><span data-stu-id="627f1-109">For Log Analytics, the following capabilities are enabled in *Cloud Solution Provider* subscriptions.</span></span>
+
+<span data-ttu-id="627f1-110">Farklı bir *bulut çözümü sağlayıcısı* şunları yapabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="627f1-110">As a *Cloud Solution Provider* you can:</span></span>
+
+* <span data-ttu-id="627f1-111">Günlük analizi çalışma alanları (müşterinin adına) Kiracı aboneliği oluşturun.</span><span class="sxs-lookup"><span data-stu-id="627f1-111">Create Log Analytics workspaces in a tenant (customer's) subscription.</span></span>
+* <span data-ttu-id="627f1-112">Erişim çalışma alanları kiracılar tarafından oluşturuldu.</span><span class="sxs-lookup"><span data-stu-id="627f1-112">Access workspaces created by tenants.</span></span> 
+* <span data-ttu-id="627f1-113">Ekleyin ve kullanıcı erişimini Azure kullanıcı Yönetimi'ni kullanarak çalışma alanından kaldırın.</span><span class="sxs-lookup"><span data-stu-id="627f1-113">Add and remove user access to the workspace using Azure user management.</span></span> <span data-ttu-id="627f1-114">Bir kiracının çalışma OMS portalında kullanıcı yönetimi altında sayfası açıldığında ayarları kullanılabilir değil</span><span class="sxs-lookup"><span data-stu-id="627f1-114">When in a tenant’s workspace in the OMS portal the user management page under Settings is not available</span></span>
+  * <span data-ttu-id="627f1-115">Rol tabanlı erişim henüz - kullanıcı vermiş günlük analizi desteklemiyor `reader` izin Azure portalında, OMS Portalı'nda yapılandırma değişiklikleri yapmalarına izin verir</span><span class="sxs-lookup"><span data-stu-id="627f1-115">Log Analytics does not support role-based access yet - giving a user `reader` permission in the Azure portal allows them to make configuration changes in the OMS portal</span></span>
+
+<span data-ttu-id="627f1-116">Bir kiracının aboneliğine oturum açmak için Kiracı tanımlayıcı belirtmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="627f1-116">To log in to a tenant’s subscription, you need to specify the tenant identifier.</span></span> <span data-ttu-id="627f1-117">Kiracı sık sık oturum açmak için kullandığınız e-posta adresi son kısmı tanımlayıcısıdır.</span><span class="sxs-lookup"><span data-stu-id="627f1-117">The tenant identifier is often that last part of the e-mail address used to sign in.</span></span>
+
+* <span data-ttu-id="627f1-118">OMS portalında ekleme `?tenant=contoso.com` portalı için URL.</span><span class="sxs-lookup"><span data-stu-id="627f1-118">In the OMS portal, add `?tenant=contoso.com` in the URL for the portal.</span></span> <span data-ttu-id="627f1-119">Örneğin, `mms.microsoft.com/?tenant=contoso.com`</span><span class="sxs-lookup"><span data-stu-id="627f1-119">For example, `mms.microsoft.com/?tenant=contoso.com`</span></span>
+* <span data-ttu-id="627f1-120">PowerShell'de kullanın `-Tenant contoso.com` kullanırken parametresi `Add-AzureRmAccount` cmdlet'i</span><span class="sxs-lookup"><span data-stu-id="627f1-120">In PowerShell, use the `-Tenant contoso.com` parameter when using `Add-AzureRmAccount` cmdlet</span></span>
+* <span data-ttu-id="627f1-121">Kullandığınızda Kiracı tanımlayıcısı otomatik olarak eklenen `OMS portal` açmak ve seçilen çalışma alanı için OMS portalı oturum açmak için Azure portalından bağlantı</span><span class="sxs-lookup"><span data-stu-id="627f1-121">The tenant identifier is automatically added when you use the `OMS portal` link from the Azure portal to open and log in to the OMS portal for the selected workspace</span></span>
+
+<span data-ttu-id="627f1-122">Farklı bir *müşteri* bir bulut çözümü sağlayıcısı şunları yapabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="627f1-122">As a *customer* of a Cloud Solution Provider you can:</span></span>
+
+* <span data-ttu-id="627f1-123">Günlük analizi çalışma alanları bir CSP abonelikte oluşturun.</span><span class="sxs-lookup"><span data-stu-id="627f1-123">Create log analytics workspaces in a CSP subscription</span></span>
+* <span data-ttu-id="627f1-124">CSP tarafından oluşturulan erişim çalışma alanları</span><span class="sxs-lookup"><span data-stu-id="627f1-124">Access workspaces created by the CSP</span></span>
+  * <span data-ttu-id="627f1-125">Kullanım `OMS portal` açmak ve seçilen çalışma alanı için OMS portalı oturum açmak için Azure portalından bağlantı</span><span class="sxs-lookup"><span data-stu-id="627f1-125">Use the `OMS portal` link from the Azure portal to open and log in to the OMS portal for the selected workspace</span></span>
+* <span data-ttu-id="627f1-126">Görüntüleme ve kullanıcı yönetimi sayfasına ayarlar altında OMS portalında kullanma</span><span class="sxs-lookup"><span data-stu-id="627f1-126">View and use the user management page under Settings in the OMS portal</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="627f1-127">Günlük analizi dahil yedekleme ve Site kurtarma çözümleri bir kurtarma Hizmetleri Kasası'na bağlanabilmelidir değildir ve bir CSP aboneliğindeki yapılandırılamıyor.</span><span class="sxs-lookup"><span data-stu-id="627f1-127">The included Backup and Site Recovery solutions for Log Analytics are not able to connect to a Recovery Services vault and cannot be configured in a CSP subscription.</span></span> 
+> 
+> 
+
+## <a name="managing-multiple-customers-using-log-analytics"></a><span data-ttu-id="627f1-128">Günlük analizi kullanarak birden çok müşterileri yönetme</span><span class="sxs-lookup"><span data-stu-id="627f1-128">Managing multiple customers using Log Analytics</span></span>
+<span data-ttu-id="627f1-129">Yönettiğiniz her müşteri için günlük analizi çalışma alanı oluşturma önerilir.</span><span class="sxs-lookup"><span data-stu-id="627f1-129">It is recommended that you create a Log Analytics workspace for each customer you manage.</span></span> <span data-ttu-id="627f1-130">Günlük analizi çalışma alanı sağlar:</span><span class="sxs-lookup"><span data-stu-id="627f1-130">A Log Analytics workspace provides:</span></span>
+
+* <span data-ttu-id="627f1-131">Verilerin depolanması bir coğrafi konumu.</span><span class="sxs-lookup"><span data-stu-id="627f1-131">A geographic location for data to be stored.</span></span> 
+* <span data-ttu-id="627f1-132">Fatura için ayrıntı düzeyi</span><span class="sxs-lookup"><span data-stu-id="627f1-132">Granularity for billing</span></span> 
+* <span data-ttu-id="627f1-133">Veri yalıtımı</span><span class="sxs-lookup"><span data-stu-id="627f1-133">Data isolation</span></span> 
+* <span data-ttu-id="627f1-134">Benzersiz yapılandırma</span><span class="sxs-lookup"><span data-stu-id="627f1-134">Unique configuration</span></span>
+
+<span data-ttu-id="627f1-135">Bir çalışma alanı Müşteri başına oluşturarak, her müşterinin veri ayrı tutmak ve ayrıca her bir müşteri kullanımını izlemek kullanabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="627f1-135">By creating a workspace per customer, you are able to keep each customer’s data separate and also track the usage of each customer.</span></span>
+
+<span data-ttu-id="627f1-136">Ne zaman ve neden birden çok çalışma alanı oluşturma hakkında daha fazla ayrıntı açıklanmaktadır [analytics oturum erişimini yönetme](log-analytics-manage-access.md#determine-the-number-of-workspaces-you-need).</span><span class="sxs-lookup"><span data-stu-id="627f1-136">More details on when and why to create multiple workspaces is described in [manage access to log analytics](log-analytics-manage-access.md#determine-the-number-of-workspaces-you-need).</span></span>
+
+<span data-ttu-id="627f1-137">Oluşturma ve yapılandırma müşteri çalışma alanlarının otomatik hale getirilebilir kullanarak [PowerShell](log-analytics-powershell-workspace-configuration.md), [Resource Manager şablonları](log-analytics-template-workspace-configuration.md), veya kullanarak [REST API](https://www.nuget.org/packages/Microsoft.Azure.Management.OperationalInsights/).</span><span class="sxs-lookup"><span data-stu-id="627f1-137">Creation and configuration of customer workspaces can be automated using [PowerShell](log-analytics-powershell-workspace-configuration.md), [Resource Manager templates](log-analytics-template-workspace-configuration.md), or using the [REST API](https://www.nuget.org/packages/Microsoft.Azure.Management.OperationalInsights/).</span></span>
+
+<span data-ttu-id="627f1-138">Resource Manager şablonları kullanımı çalışma yapılandırması oluşturma ve çalışma alanları yapılandırmak için kullanılan bir ana yapılandırma sahip olmanızı sağlar.</span><span class="sxs-lookup"><span data-stu-id="627f1-138">The use of Resource Manager templates for workspace configuration allows you to have a master configuration that can be used to create and configure workspaces.</span></span> <span data-ttu-id="627f1-139">Müşteriler için çalışma alanları oluşturuldukça bunlar otomatik olarak gereksinimlerinizi için yapılandırıldığından emin olabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="627f1-139">You can be confident that as workspaces are created for customers they are automatically configured to your requirements.</span></span> <span data-ttu-id="627f1-140">Gereksinimlerinizi güncelleştirdiğinizde, şablon güncelleştirilir ve varolan çalışma alanları yeniden.</span><span class="sxs-lookup"><span data-stu-id="627f1-140">When you update your requirements, the template is updated and then reapplied the existing workspaces.</span></span> <span data-ttu-id="627f1-141">Bu işlem, hatta varolan çalışma yeni standartlarınızı karşılamak sağlar.</span><span class="sxs-lookup"><span data-stu-id="627f1-141">This process ensures that even existing workspaces meet your new standards.</span></span>    
+
+<span data-ttu-id="627f1-142">Birden çok günlük analizi çalışma yönetirken, her çalışma alanında varolan gişe sistemiyle tümleştirme öneririz / işletim konsolunu kullanarak [uyarıları](log-analytics-alerts.md) işlevselliği.</span><span class="sxs-lookup"><span data-stu-id="627f1-142">When managing multiple Log Analytics workspaces, we recommend integrating each workspace with your existing ticketing system / operations console using the [Alerts](log-analytics-alerts.md) functionality.</span></span> <span data-ttu-id="627f1-143">Varolan sistemlerinizi ile tümleştirerek, destek personeli tanıdık süreçlerinin izlemek devam edebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="627f1-143">By integrating with your existing systems, support staff can continue to follow their familiar processes.</span></span> <span data-ttu-id="627f1-144">Günlük analizi düzenli olarak her çalışma alanında, belirttiğiniz Uyarı ölçütleri karşı denetler ve eylem gerekli olduğunda bir uyarı oluşturur.</span><span class="sxs-lookup"><span data-stu-id="627f1-144">Log Analytics regularly checks each workspace against the alert criteria you specify and generates an alert when action is needed.</span></span>
+
+<span data-ttu-id="627f1-145">Veri kişiselleştirilmiş görünümleri kullanma [Pano](../azure-portal/azure-portal-dashboards.md) Azure portalında yeteneği.</span><span class="sxs-lookup"><span data-stu-id="627f1-145">For personalized views of data, use the [dashboard](../azure-portal/azure-portal-dashboards.md) capability in the Azure portal.</span></span>  
+
+<span data-ttu-id="627f1-146">İçin yönetici düzeyi raporları, özetleme verileri çalışma alanları arasında günlük analizi arasında tümleştirme kullanabilirsiniz ve [Powerbı](log-analytics-powerbi.md).</span><span class="sxs-lookup"><span data-stu-id="627f1-146">For executive level reports that summarize data across workspaces you can use the integration between Log Analytics and [PowerBI](log-analytics-powerbi.md).</span></span> <span data-ttu-id="627f1-147">Başka bir raporlama sistemi ile tümleştirme gerekiyorsa, arama API kullanabilirsiniz (PowerShell aracılığıyla veya [REST](log-analytics-log-search-api.md)) sorguları çalıştırmak ve arama sonuçlarını dışarı aktarma.</span><span class="sxs-lookup"><span data-stu-id="627f1-147">If you need to integrate with another reporting system, you can use the Search API (via PowerShell or [REST](log-analytics-log-search-api.md)) to run queries and export search results.</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="627f1-148">Sonraki Adımlar</span><span class="sxs-lookup"><span data-stu-id="627f1-148">Next Steps</span></span>
+* <span data-ttu-id="627f1-149">Oluşturma ve kullanarak çalışma yapılandırılmasını otomatikleştirmek [Resource Manager şablonları](log-analytics-template-workspace-configuration.md)</span><span class="sxs-lookup"><span data-stu-id="627f1-149">Automate creation and configuration of workspaces using [Resource Manager templates](log-analytics-template-workspace-configuration.md)</span></span>
+* <span data-ttu-id="627f1-150">Kullanarak çalışma oluşturulmasını otomatik hale [PowerShell](log-analytics-powershell-workspace-configuration.md)</span><span class="sxs-lookup"><span data-stu-id="627f1-150">Automate creation of workspaces using [PowerShell](log-analytics-powershell-workspace-configuration.md)</span></span> 
+* <span data-ttu-id="627f1-151">Kullanım [uyarıları](log-analytics-alerts.md) mevcut sistemlerle tümleştirmek için</span><span class="sxs-lookup"><span data-stu-id="627f1-151">Use [Alerts](log-analytics-alerts.md) to integrate with existing systems</span></span>
+* <span data-ttu-id="627f1-152">Özet raporları kullanarak oluşturmak [Powerbı](log-analytics-powerbi.md)</span><span class="sxs-lookup"><span data-stu-id="627f1-152">Generate summary reports using [PowerBI](log-analytics-powerbi.md)</span></span>
+

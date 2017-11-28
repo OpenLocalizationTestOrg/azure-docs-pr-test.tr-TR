@@ -1,0 +1,100 @@
+---
+title: "Esnek veritabanı araçlarını kullanmaya başlama | Microsoft Docs"
+description: "Esnek veritabanı araçları özelliği Çalıştır kolay örnek uygulaması da dahil olmak üzere Azure SQL veritabanı'nın temel açıklaması."
+services: sql-database
+documentationcenter: 
+manager: jhubbard
+author: ddove
+editor: CarlRabeler
+ms.assetid: b6911f8d-2bae-4d04-9fa8-f79a3db7129d
+ms.service: sql-database
+ms.custom: scale out apps
+ms.workload: sql-database
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/06/2017
+ms.author: ddove
+ms.openlocfilehash: 637463399593f4bc9ff5bfcbf67bf93b816efc7f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 07/11/2017
+---
+# <a name="get-started-with-elastic-database-tools"></a><span data-ttu-id="01c77-103">Esnek veritabanı araçlarını kullanmaya başlama</span><span class="sxs-lookup"><span data-stu-id="01c77-103">Get started with elastic database tools</span></span>
+<span data-ttu-id="01c77-104">Bu belge, örnek uygulamayı çalıştırmak için yardımcı olma geliştirme deneyimi sunar.</span><span class="sxs-lookup"><span data-stu-id="01c77-104">This document introduces you to the developer experience by helping you to run the sample app.</span></span> <span data-ttu-id="01c77-105">Örnek basit parçalı bir uygulama oluşturur ve esnek veritabanı araçlarını anahtar özelliklerini inceler.</span><span class="sxs-lookup"><span data-stu-id="01c77-105">The sample creates a simple sharded application and explores key capabilities of elastic database tools.</span></span> <span data-ttu-id="01c77-106">Örnek işlevlerini gösterir [esnek veritabanı istemci Kitaplığı](sql-database-elastic-database-client-library.md).</span><span class="sxs-lookup"><span data-stu-id="01c77-106">The sample demonstrates functions of the [elastic database client library](sql-database-elastic-database-client-library.md).</span></span>
+
+<span data-ttu-id="01c77-107">Kitaplığı yüklemek için Git [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).</span><span class="sxs-lookup"><span data-stu-id="01c77-107">To install the library, go to [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).</span></span> <span data-ttu-id="01c77-108">Kitaplığı aşağıdaki bölümde açıklanan örnek uygulama ile birlikte yüklenir.</span><span class="sxs-lookup"><span data-stu-id="01c77-108">The library is installed with the sample app that's described in the following section.</span></span>
+
+## <a name="prerequisites"></a><span data-ttu-id="01c77-109">Ön koşullar</span><span class="sxs-lookup"><span data-stu-id="01c77-109">Prerequisites</span></span>
+* <span data-ttu-id="01c77-110">Visual Studio 2012 veya sonraki C# ile.</span><span class="sxs-lookup"><span data-stu-id="01c77-110">Visual Studio 2012 or later with C#.</span></span> <span data-ttu-id="01c77-111">Konumundaki ücretsiz sürümünü karşıdan [Visual Studio indirmeleri](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).</span><span class="sxs-lookup"><span data-stu-id="01c77-111">Download a free version at [Visual Studio Downloads](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).</span></span>
+* <span data-ttu-id="01c77-112">NuGet 2.7 veya üzeri.</span><span class="sxs-lookup"><span data-stu-id="01c77-112">NuGet 2.7 or later.</span></span> <span data-ttu-id="01c77-113">En son sürümü edinmek için bkz: [yükleme NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).</span><span class="sxs-lookup"><span data-stu-id="01c77-113">To get the latest version, see [Installing NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).</span></span>
+
+## <a name="download-and-run-the-sample-app"></a><span data-ttu-id="01c77-114">Örnek uygulamasını indirme ve çalıştırma</span><span class="sxs-lookup"><span data-stu-id="01c77-114">Download and run the sample app</span></span>
+<span data-ttu-id="01c77-115">**Azure SQL - Başlarken için esnek DB Araçları** örnek uygulama geliştirme deneyimi esnek veritabanı araçlarını kullanın parçalı uygulamalar için en önemli yönlerinden gösterir.</span><span class="sxs-lookup"><span data-stu-id="01c77-115">The **Elastic DB Tools for Azure SQL - Getting Started** sample application illustrates the most important aspects of the development experience for sharded applications that use elastic database tools.</span></span> <span data-ttu-id="01c77-116">Anahtar kullanım durumları için odaklanır [parça eşleme Yönetim](sql-database-elastic-scale-shard-map-management.md), [veri bağımlı yönlendirme](sql-database-elastic-scale-data-dependent-routing.md), ve [çok parça sorgulama](sql-database-elastic-scale-multishard-querying.md).</span><span class="sxs-lookup"><span data-stu-id="01c77-116">It focuses on key use cases for [shard map management](sql-database-elastic-scale-shard-map-management.md), [data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md), and [multi-shard querying](sql-database-elastic-scale-multishard-querying.md).</span></span> <span data-ttu-id="01c77-117">İndirip örneği çalıştırmak için aşağıdaki adımları izleyin:</span><span class="sxs-lookup"><span data-stu-id="01c77-117">To download and run the sample, follow these steps:</span></span> 
+
+1. <span data-ttu-id="01c77-118">Karşıdan [Azure SQL - Getting Started örnek için esnek DB Araçları](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-a80d8dc6) MSDN'den.</span><span class="sxs-lookup"><span data-stu-id="01c77-118">Download the [Elastic DB Tools for Azure SQL - Getting Started sample](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-a80d8dc6) from MSDN.</span></span> <span data-ttu-id="01c77-119">Örnek seçtiğiniz bir konuma ayıklayın.</span><span class="sxs-lookup"><span data-stu-id="01c77-119">Unzip the sample to a location that you choose.</span></span>
+
+2. <span data-ttu-id="01c77-120">Bir proje oluşturmak için açık **ElasticScaleStarterKit.sln** çözümden **C#** dizin.</span><span class="sxs-lookup"><span data-stu-id="01c77-120">To create a project, open the **ElasticScaleStarterKit.sln** solution from the **C#** directory.</span></span>
+
+3. <span data-ttu-id="01c77-121">Örnek Proje çözüm açın **app.config** dosya.</span><span class="sxs-lookup"><span data-stu-id="01c77-121">In the solution for the sample project, open the **app.config** file.</span></span> <span data-ttu-id="01c77-122">Ardından Azure SQL veritabanı sunucunuzun adını ve oturum açma bilgilerinizi (kullanıcı adı ve parola) eklemek için dosyayı'ndaki yönergeleri izleyin.</span><span class="sxs-lookup"><span data-stu-id="01c77-122">Then follow the instructions in the file to add your Azure SQL Database server name and your sign-in information (user name and password).</span></span>
+
+4. <span data-ttu-id="01c77-123">Derleme ve uygulamayı çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="01c77-123">Build and run the application.</span></span> <span data-ttu-id="01c77-124">İstendiğinde, çözümün NuGet paketlerini geri yüklemek Visual Studio etkinleştirin.</span><span class="sxs-lookup"><span data-stu-id="01c77-124">When prompted, enable Visual Studio to restore the NuGet packages of the solution.</span></span> <span data-ttu-id="01c77-125">Bu esnek veritabanı istemci kitaplığının en son sürümünü Nuget'ten indirir.</span><span class="sxs-lookup"><span data-stu-id="01c77-125">This downloads the latest version of the elastic database client library from NuGet.</span></span>
+
+5. <span data-ttu-id="01c77-126">İstemci kitaplığı özellikleri hakkında daha fazla bilgi edinmek için farklı seçeneklerle denemeler yapın.</span><span class="sxs-lookup"><span data-stu-id="01c77-126">Experiment with the different options to learn more about the client library capabilities.</span></span> <span data-ttu-id="01c77-127">Uygulama konsolda alır adımları çıkış ve arka planda kod keşfetmek çekinmeyin unutmayın.</span><span class="sxs-lookup"><span data-stu-id="01c77-127">Note the steps the application takes in the console output and feel free to explore the code behind the scenes.</span></span>
+   
+    ![İlerleme durumu][4]
+
+<span data-ttu-id="01c77-129">Tebrikler--başarıyla oluşturulmuş ve SQL Database esnek veritabanı araçlarını kullanarak ilk parçalı uygulamanızı çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="01c77-129">Congratulations--you have successfully built and run your first sharded application by using elastic database tools on SQL Database.</span></span> <span data-ttu-id="01c77-130">SQL veritabanınıza bağlanmak ve örnek oluşturulan parça hızlı bakmak için Visual Studio veya SQL Server Management Studio kullanın.</span><span class="sxs-lookup"><span data-stu-id="01c77-130">Use Visual Studio or SQL Server Management Studio to connect to your SQL database and take a quick look at the shards that the sample created.</span></span> <span data-ttu-id="01c77-131">Yeni örnek parça veritabanları ve örnek oluşturduğu bir parça eşleme manager veritabanı fark edeceksiniz.</span><span class="sxs-lookup"><span data-stu-id="01c77-131">You will notice new sample shard databases and a shard map manager database that the sample has created.</span></span>
+
+> [!IMPORTANT]
+> <span data-ttu-id="01c77-132">Böylece Azure ve SQL veritabanına güncelleştirmeleriyle eşitlenmesine, her zaman Management Studio en son sürümünü kullanmanızı öneririz.</span><span class="sxs-lookup"><span data-stu-id="01c77-132">We recommend that you always use the latest version of Management Studio so that you stay synchronized with updates to Azure and SQL Database.</span></span> <span data-ttu-id="01c77-133">[SQL Server Management Studio’yu güncelleyin](https://msdn.microsoft.com/library/mt238290.aspx).</span><span class="sxs-lookup"><span data-stu-id="01c77-133">[Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).</span></span>
+> 
+> 
+
+### <a name="key-pieces-of-the-code-sample"></a><span data-ttu-id="01c77-134">Kod örneği, temel parçalar</span><span class="sxs-lookup"><span data-stu-id="01c77-134">Key pieces of the code sample</span></span>
+* <span data-ttu-id="01c77-135">**Eşlemelerini parça ve parça yönetme**: kod parça, aralıkları ve eşlemeleri dosyasındaki çalışmak nasıl gösterir **ShardManagementUtils.cs**.</span><span class="sxs-lookup"><span data-stu-id="01c77-135">**Managing shards and shard maps**: The code illustrates how to work with shards, ranges, and mappings in the file **ShardManagementUtils.cs**.</span></span> <span data-ttu-id="01c77-136">Daha fazla bilgi için bkz: [parça eşleme Yöneticisi veritabanlarıyla genişletme](http://go.microsoft.com/?linkid=9862595).</span><span class="sxs-lookup"><span data-stu-id="01c77-136">For more information, see [Scale out databases with the shard map manager](http://go.microsoft.com/?linkid=9862595).</span></span>  
+
+* <span data-ttu-id="01c77-137">**Veri bağımlı yönlendirme**: sağ parça hareketlerinin yönlendirme görüntülenir **DataDependentRoutingSample.cs**.</span><span class="sxs-lookup"><span data-stu-id="01c77-137">**Data-dependent routing**: Routing of transactions to the right shard is shown in **DataDependentRoutingSample.cs**.</span></span> <span data-ttu-id="01c77-138">Daha fazla bilgi için bkz: [veri bağımlı yönlendirme](http://go.microsoft.com/?linkid=9862596).</span><span class="sxs-lookup"><span data-stu-id="01c77-138">For more information, see [Data-dependent routing](http://go.microsoft.com/?linkid=9862596).</span></span> 
+
+* <span data-ttu-id="01c77-139">**Birden çok parça sorgulama**: parça sorgulama dosyasında gösterilen **MultiShardQuerySample.cs**.</span><span class="sxs-lookup"><span data-stu-id="01c77-139">**Querying over multiple shards**: Querying across shards is illustrated in the file **MultiShardQuerySample.cs**.</span></span> <span data-ttu-id="01c77-140">Daha fazla bilgi için bkz: [çok parça sorgulama](http://go.microsoft.com/?linkid=9862597).</span><span class="sxs-lookup"><span data-stu-id="01c77-140">For more information, see [Multi-shard querying](http://go.microsoft.com/?linkid=9862597).</span></span>
+
+* <span data-ttu-id="01c77-141">**Boş parça ekleme**: yinelemeli ekleme yeni boş parça dosyasındaki kodu tarafından gerçekleştirilen **CreateShardSample.cs**.</span><span class="sxs-lookup"><span data-stu-id="01c77-141">**Adding empty shards**: The iterative adding of new empty shards is performed by the code in the file **CreateShardSample.cs**.</span></span> <span data-ttu-id="01c77-142">Daha fazla bilgi için bkz: [parça eşleme Yöneticisi veritabanlarıyla genişletme](http://go.microsoft.com/?linkid=9862595).</span><span class="sxs-lookup"><span data-stu-id="01c77-142">For more information, see [Scale out databases with the shard map manager](http://go.microsoft.com/?linkid=9862595).</span></span>
+
+### <a name="other-elastic-scale-operations"></a><span data-ttu-id="01c77-143">Diğer esnek ölçeklendirme işlemleri</span><span class="sxs-lookup"><span data-stu-id="01c77-143">Other elastic scale operations</span></span>
+* <span data-ttu-id="01c77-144">**Varolan bir parça bölme**: parça bölme özelliği tarafından sağlanan **bölünmüş Birleştirme aracı**.</span><span class="sxs-lookup"><span data-stu-id="01c77-144">**Splitting an existing shard**: The capability to split shards is provided by the **split-merge tool**.</span></span> <span data-ttu-id="01c77-145">Daha fazla bilgi için bkz: [ölçeklendirilmiş bulut veritabanları arasında verilerin taşınması](sql-database-elastic-scale-overview-split-and-merge.md).</span><span class="sxs-lookup"><span data-stu-id="01c77-145">For more information, see [Moving data between scaled-out cloud databases](sql-database-elastic-scale-overview-split-and-merge.md).</span></span>
+
+* <span data-ttu-id="01c77-146">**Varolan parça birleştirme**: parça birleştirmeler, kullanarak da gerçekleştirilir **bölünmüş Birleştirme aracı**.</span><span class="sxs-lookup"><span data-stu-id="01c77-146">**Merging existing shards**: Shard merges are also performed by using the **split-merge tool**.</span></span> <span data-ttu-id="01c77-147">Daha fazla bilgi için bkz: [ölçeklendirilmiş bulut veritabanları arasında verilerin taşınması](sql-database-elastic-scale-overview-split-and-merge.md).</span><span class="sxs-lookup"><span data-stu-id="01c77-147">For more information, see [Moving data between scaled-out cloud databases](sql-database-elastic-scale-overview-split-and-merge.md).</span></span>   
+
+## <a name="cost"></a><span data-ttu-id="01c77-148">Maliyet</span><span class="sxs-lookup"><span data-stu-id="01c77-148">Cost</span></span>
+<span data-ttu-id="01c77-149">Esnek veritabanı araçlarını ücretsizdir.</span><span class="sxs-lookup"><span data-stu-id="01c77-149">The elastic database tools are free.</span></span> <span data-ttu-id="01c77-150">Esnek veritabanı araçlarını kullandığınızda, hiçbir ek bir ücret Azure kullanımınızı maliyetini en üstünde almadığınız.</span><span class="sxs-lookup"><span data-stu-id="01c77-150">When you use elastic database tools, you don't receive any additional charges on top of the cost of your Azure usage.</span></span> 
+
+<span data-ttu-id="01c77-151">Örneğin, yeni veritabanları örnek uygulaması oluşturur.</span><span class="sxs-lookup"><span data-stu-id="01c77-151">For example, the sample application creates new databases.</span></span> <span data-ttu-id="01c77-152">Bu maliyet, seçtiğiniz SQL veritabanı sürümü ve uygulamanızın Azure kullanım bağlıdır.</span><span class="sxs-lookup"><span data-stu-id="01c77-152">The cost for this depends on the SQL Database edition you choose and the Azure usage of your application.</span></span>
+
+<span data-ttu-id="01c77-153">Fiyatlandırma bilgileri için bkz: [SQL veritabanı fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/sql-database/).</span><span class="sxs-lookup"><span data-stu-id="01c77-153">For pricing information, see [SQL Database pricing details](https://azure.microsoft.com/pricing/details/sql-database/).</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="01c77-154">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="01c77-154">Next steps</span></span>
+<span data-ttu-id="01c77-155">Esnek veritabanı araçları hakkında daha fazla bilgi için aşağıdaki sayfalarına bakın:</span><span class="sxs-lookup"><span data-stu-id="01c77-155">For more information about elastic database tools, see the following pages:</span></span>
+
+* <span data-ttu-id="01c77-156">Kod örnekleri:</span><span class="sxs-lookup"><span data-stu-id="01c77-156">Code samples:</span></span> 
+  * [<span data-ttu-id="01c77-157">Azure SQL - Başlarken için esnek veritabanı araçları</span><span class="sxs-lookup"><span data-stu-id="01c77-157">Elastic DB Tools for Azure SQL - Getting Started</span></span>](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE)
+  * [<span data-ttu-id="01c77-158">Azure SQL - Entity Framework tümleştirme için esnek veritabanı araçları</span><span class="sxs-lookup"><span data-stu-id="01c77-158">Elastic DB Tools for Azure SQL - Entity Framework Integration</span></span>](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
+  * [<span data-ttu-id="01c77-159">Betik Merkezi'nde parça esneklik</span><span class="sxs-lookup"><span data-stu-id="01c77-159">Shard Elasticity on Script Center</span></span>](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
+* <span data-ttu-id="01c77-160">Blog: [esnek genişleme Duyurusu](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)</span><span class="sxs-lookup"><span data-stu-id="01c77-160">Blog: [Elastic Scale announcement](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)</span></span>
+* <span data-ttu-id="01c77-161">Microsoft sanal Akademi: [genişleme kullanarak parçalama esnek veritabanı istemci kitaplığı Video ile uygulama](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554?l=lWyQhF1fC_6306218965)</span><span class="sxs-lookup"><span data-stu-id="01c77-161">Microsoft Virtual Academy: [Implementing Scale-Out Using Sharding with the Elastic Database Client Library Video](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554?l=lWyQhF1fC_6306218965)</span></span> 
+* <span data-ttu-id="01c77-162">Kanal 9: [esnek genişleme genel bakış videosu](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)</span><span class="sxs-lookup"><span data-stu-id="01c77-162">Channel 9: [Elastic Scale overview video](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)</span></span>
+* <span data-ttu-id="01c77-163">Tartışma forumu: [Azure SQL veritabanı Forumu](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)</span><span class="sxs-lookup"><span data-stu-id="01c77-163">Discussion forum: [Azure SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)</span></span>
+* <span data-ttu-id="01c77-164">Performansını ölçmek için: [parça eşleme Yöneticisi için performans sayaçları](sql-database-elastic-database-client-library.md)</span><span class="sxs-lookup"><span data-stu-id="01c77-164">To measure performance: [Performance counters for shard map manager](sql-database-elastic-database-client-library.md)</span></span>
+
+<!--Anchors-->
+[The Elastic Scale Sample Application]: #The-Elastic-Scale-Sample-Application
+[Download and Run the Sample App]: #Download-and-Run-the-Sample-App
+[Cost]: #Cost
+[Next steps]: #next-steps
+
+<!--Image references-->
+[1]: ./media/sql-database-elastic-scale-get-started/newProject.png
+[2]: ./media/sql-database-elastic-scale-get-started/click-online.png
+[3]: ./media/sql-database-elastic-scale-get-started/click-CSharp.png
+[4]: ./media/sql-database-elastic-scale-get-started/output2.png
+

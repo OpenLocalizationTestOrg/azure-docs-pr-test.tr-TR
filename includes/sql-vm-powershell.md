@@ -1,0 +1,17 @@
+
+## <a name="start-your-powershell-session"></a><span data-ttu-id="7e158-101">PowerShell oturumunuzu başlatma</span><span class="sxs-lookup"><span data-stu-id="7e158-101">Start your PowerShell session</span></span>
+<span data-ttu-id="7e158-102">En son ilk gerek [Azure PowerShell](http://msdn.microsoft.com/library/mt619274.aspx) yüklü ve çalışır.</span><span class="sxs-lookup"><span data-stu-id="7e158-102">First you need to have the latest [Azure PowerShell](http://msdn.microsoft.com/library/mt619274.aspx) installed and running.</span></span> <span data-ttu-id="7e158-103">Ayrıntılı bilgi için bkz. [Azure PowerShell'i yükleme ve yapılandırma](/powershell/azureps-cmdlets-docs).</span><span class="sxs-lookup"><span data-stu-id="7e158-103">For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="7e158-104">Bu konuda kullanım örnekleri [Azure Resource Manager dağıtım modeli](../articles/azure-resource-manager/resource-group-overview.md), bu nedenle örneklerde [Azure Resource Manager cmdlet'lerini](http://msdn.microsoft.com/library/azure/mt125356.aspx).</span><span class="sxs-lookup"><span data-stu-id="7e158-104">The examples in this topic use [Azure Resource Manager deployment model](../articles/azure-resource-manager/resource-group-overview.md), so examples use the [Azure Resource Manager cmdlets](http://msdn.microsoft.com/library/azure/mt125356.aspx).</span></span> 
+> 
+> 
+
+<span data-ttu-id="7e158-105">Çalıştırma [ **Add-AzureRmAccount** ](http://msdn.microsoft.com/library/mt619267.aspx) cmdlet'ini sunulabilir kimlik bilgilerinizi girmeniz için bir oturum ile ekranında.</span><span class="sxs-lookup"><span data-stu-id="7e158-105">Run the [**Add-AzureRmAccount**](http://msdn.microsoft.com/library/mt619267.aspx) cmdlet and you will be presented with a sign in screen to enter your credentials.</span></span> <span data-ttu-id="7e158-106">Azure portala giriş yapmak için kullandığınız kimlik bilgilerinin aynısını kullanın.</span><span class="sxs-lookup"><span data-stu-id="7e158-106">Use the same credentials that you use to sign in to the Azure portal.</span></span>
+
+    Add-AzureRmAccount
+
+<span data-ttu-id="7e158-107">Kullanan birden çok aboneliğiniz varsa [ **Set-AzureRmContext** ](http://msdn.microsoft.com/library/mt619263.aspx) cmdlet'i kullanması gereken PowerShell oturumunuzun hangi aboneliği seçin.</span><span class="sxs-lookup"><span data-stu-id="7e158-107">If you have multiple subscriptions use the [**Set-AzureRmContext**](http://msdn.microsoft.com/library/mt619263.aspx) cmdlet to select which subscription your PowerShell session should use.</span></span> <span data-ttu-id="7e158-108">Geçerli PowerShell oturumunda hangi aboneliğin kullanıldığını görmek için [**Get-AzureRmContext**](http://msdn.microsoft.com/library/mt619265.aspx) cmdlet’ini kullanın.</span><span class="sxs-lookup"><span data-stu-id="7e158-108">To see what subscription the current PowerShell session is using, run [**Get-AzureRmContext**](http://msdn.microsoft.com/library/mt619265.aspx).</span></span> <span data-ttu-id="7e158-109">Tüm aboneliklerinizi görmek için [**Get-AzureRmSubscription**](http://msdn.microsoft.com/library/mt619284.aspx) cmdlet’ini çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="7e158-109">To see all your subscriptions, run [**Get-AzureRmSubscription**](http://msdn.microsoft.com/library/mt619284.aspx).</span></span>
+
+    Set-AzureRmContext -SubscriptionId '4cac86b0-1e56-bbbb-aaaa-000000000000'
+

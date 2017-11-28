@@ -1,0 +1,84 @@
+---
+title: "Azure IOT - Ders 1 Connect Raspberry pi (C): Get Araçlar (Ubuntu) | Microsoft Docs"
+description: "Karşıdan yükle ve gerekli araçları ve pi ilk örnek uygulama için yazılım üzerinde Ubuntu yükleyin."
+services: iot-hub
+documentationcenter: 
+author: shizn
+manager: timtl
+tags: 
+keywords: "IOT geliştirme IOT yazılım, şeyler yazılımların internet üzerinde ubuntu Git'i yükleyin, çalışma gulp, düğüm js ubuntu yükleyin"
+ROBOTS: NOINDEX
+redirect_url: /azure/iot-hub/iot-hub-raspberry-pi-kit-c-get-started
+ms.assetid: 32cfea00-c254-4cef-8f6f-bbf807eca6b6
+ms.service: iot-hub
+ms.devlang: c
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 3/21/2017
+ms.author: xshi
+ms.openlocfilehash: 28ebba82e90d91470518cd830c96e6da39d8b9b4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 07/11/2017
+---
+# <a name="get-the-tools-ubuntu-1604"></a><span data-ttu-id="7b14e-104">Araçları edinme (Ubuntu 16.04)</span><span class="sxs-lookup"><span data-stu-id="7b14e-104">Get the tools (Ubuntu 16.04)</span></span>
+
+> [!div class="op_single_selector"]
+> * [<span data-ttu-id="7b14e-105">Windows 7 veya üzeri</span><span class="sxs-lookup"><span data-stu-id="7b14e-105">Windows 7 or later</span></span>](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
+> * [<span data-ttu-id="7b14e-106">Ubuntu 16.04</span><span class="sxs-lookup"><span data-stu-id="7b14e-106">Ubuntu 16.04</span></span>](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-ubuntu.md)
+> * [<span data-ttu-id="7b14e-107">macOS 10.10</span><span class="sxs-lookup"><span data-stu-id="7b14e-107">macOS 10.10</span></span>](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-mac.md)
+
+## <a name="what-you-will-do"></a><span data-ttu-id="7b14e-108">Ne yapacağını</span><span class="sxs-lookup"><span data-stu-id="7b14e-108">What you will do</span></span>
+<span data-ttu-id="7b14e-109">Geliştirme araçları ve ilk uygulama Raspberry Pi 3 için yazılımı yükleyin.</span><span class="sxs-lookup"><span data-stu-id="7b14e-109">Download the development tools and the software for the first sample application for your Raspberry Pi 3.</span></span> <span data-ttu-id="7b14e-110">Herhangi bir sorun varsa, çözümleri için Ara [sorun giderme sayfası](iot-hub-raspberry-pi-kit-c-troubleshooting.md).</span><span class="sxs-lookup"><span data-stu-id="7b14e-110">If you have any problems, look for solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-c-troubleshooting.md).</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="7b14e-111">Asıl mantığı programlama dili C olsa da, Node.js araçları dersleri aygıtları bulmak ve yapı ve örnek uygulamaları dağıtmak için kullanılır.</span><span class="sxs-lookup"><span data-stu-id="7b14e-111">Although the programming language of the main logic is C, Node.js tools are used in the lessons to discover devices, and build and deploy sample applications.</span></span>
+
+## <a name="what-you-will-learn"></a><span data-ttu-id="7b14e-112">Bilgi edineceksiniz</span><span class="sxs-lookup"><span data-stu-id="7b14e-112">What you will learn</span></span>
+<span data-ttu-id="7b14e-113">Bu makalede, şunları öğreneceksiniz:</span><span class="sxs-lookup"><span data-stu-id="7b14e-113">In this article, you will learn:</span></span>
+
+* <span data-ttu-id="7b14e-114">Git ve Node.js nasıl yüklenir</span><span class="sxs-lookup"><span data-stu-id="7b14e-114">How to install Git and Node.js</span></span>
+  * <span data-ttu-id="7b14e-115">[Git](https://git-scm.com) bir açık kaynak dağıtılmış sürüm denetim sistemidir.</span><span class="sxs-lookup"><span data-stu-id="7b14e-115">[Git](https://git-scm.com) is an open source distributed version control system.</span></span> <span data-ttu-id="7b14e-116">Bu makalede örnek uygulama Git üzerinde depolanır.</span><span class="sxs-lookup"><span data-stu-id="7b14e-116">The sample application for this article is stored on Git.</span></span>
+  * <span data-ttu-id="7b14e-117">[Node.js](https://nodejs.org/en/) JavaScript çalışma zamanı zengin paket ekosistemi ile.</span><span class="sxs-lookup"><span data-stu-id="7b14e-117">[Node.js](https://nodejs.org/en/) is a JavaScript runtime with a rich package ecosystem.</span></span>
+* <span data-ttu-id="7b14e-118">NPM ek Node.js Geliştirme Araçları'nı yüklemek için nasıl kullanılacağını.</span><span class="sxs-lookup"><span data-stu-id="7b14e-118">How to use NPM to install additional Node.js development tools.</span></span>
+  * <span data-ttu-id="7b14e-119">Node.js, gerekli en düşük sürüm 4.5 LTS ' dir.</span><span class="sxs-lookup"><span data-stu-id="7b14e-119">The minimum required version of Node.js is 4.5 LTS.</span></span>
+  * <span data-ttu-id="7b14e-120">[NPM](https://www.npmjs.com) Node.js paket yöneticilerinden biridir.</span><span class="sxs-lookup"><span data-stu-id="7b14e-120">[NPM](https://www.npmjs.com) is one of the package managers for Node.js.</span></span>
+
+## <a name="what-you-need"></a><span data-ttu-id="7b14e-121">Ne gerekiyor</span><span class="sxs-lookup"><span data-stu-id="7b14e-121">What you need</span></span>
+<span data-ttu-id="7b14e-122">Bu işlemi tamamlamak için gerekir:</span><span class="sxs-lookup"><span data-stu-id="7b14e-122">To complete this operation, you will need:</span></span>
+
+* <span data-ttu-id="7b14e-123">Geliştirme araçları ve yazılım indirmesi için Internet bağlantısı.</span><span class="sxs-lookup"><span data-stu-id="7b14e-123">An Internet connection to download the development tools and the software.</span></span>
+* <span data-ttu-id="7b14e-124">Ubuntu 16.04 veya sonraki sürümünü çalıştıran bir bilgisayar.</span><span class="sxs-lookup"><span data-stu-id="7b14e-124">A computer that is running Ubuntu 16.04 or later.</span></span>
+
+## <a name="install-git-nodejs-and-npm"></a><span data-ttu-id="7b14e-125">Git, Node.js ve NPM yükleme</span><span class="sxs-lookup"><span data-stu-id="7b14e-125">Install Git, Node.js, and NPM</span></span>
+<span data-ttu-id="7b14e-126">Klavye kısayolunu kullanın `Ctrl + Alt + T` bir Terminali açın ve aşağıdaki komutları çalıştırın:</span><span class="sxs-lookup"><span data-stu-id="7b14e-126">Use the keyboard shortcut `Ctrl + Alt + T` to open a terminal and run the following commands:</span></span>
+
+```bash
+sudo apt-get update
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs
+sudo apt-get install git
+```
+
+## <a name="install-additional-nodejs-development-tools"></a><span data-ttu-id="7b14e-127">Ek Node.js geliştirme araçlarını yükleme</span><span class="sxs-lookup"><span data-stu-id="7b14e-127">Install additional Node.js development tools</span></span>
+<span data-ttu-id="7b14e-128">Kullanım [gulp.js](http://gulpjs.com) Pi örnek uygulamaya dağıtımını otomatik hale getirmek için.</span><span class="sxs-lookup"><span data-stu-id="7b14e-128">Use [gulp.js](http://gulpjs.com) to automate the deployment of the sample application to Pi.</span></span> <span data-ttu-id="7b14e-129">Kullanım [aygıt bulma CLI](https://github.com/Azure/device-discovery-cli) IOT aygıtlarınızla ilgili ağ bilgileri alınamadı.</span><span class="sxs-lookup"><span data-stu-id="7b14e-129">Use the [device-discovery-cli](https://github.com/Azure/device-discovery-cli) to retrieve network information about your IoT devices.</span></span>
+
+<span data-ttu-id="7b14e-130">Yükleme `gulp` ve `device-discovery-cli` terminale aşağıdaki komutu çalıştırarak:</span><span class="sxs-lookup"><span data-stu-id="7b14e-130">Install `gulp` and `device-discovery-cli` by running the following command in the terminal:</span></span>
+
+```bash
+sudo npm install -g device-discovery-cli gulp
+```
+
+<span data-ttu-id="7b14e-131">Node.js ve bu ek geliştirme araçları üzerinde Ubuntu yüklerken sorunlarla karşılaşırsanız bkz [sorun giderme kılavuzu](iot-hub-raspberry-pi-kit-c-troubleshooting.md) yaygın sorunların çözümleri için.</span><span class="sxs-lookup"><span data-stu-id="7b14e-131">If you experience issues installing Node.js and these additional development tools on Ubuntu, see the [troubleshooting guide](iot-hub-raspberry-pi-kit-c-troubleshooting.md) for solutions to common problems.</span></span>
+
+## <a name="install-visual-studio-code"></a><span data-ttu-id="7b14e-132">Visual Studio Kodu'nu yükle</span><span class="sxs-lookup"><span data-stu-id="7b14e-132">Install Visual Studio Code</span></span>
+<span data-ttu-id="7b14e-133">[Karşıdan](https://code.visualstudio.com/docs/setup/linux) ve Visual Studio Code yükleyin.</span><span class="sxs-lookup"><span data-stu-id="7b14e-133">[Download](https://code.visualstudio.com/docs/setup/linux) and install Visual Studio Code.</span></span> <span data-ttu-id="7b14e-134">Visual Studio Code, Windows, Linux ve macOS için basit ancak güçlü kaynak kod düzenleyicisidir.</span><span class="sxs-lookup"><span data-stu-id="7b14e-134">Visual Studio Code is a lightweight but powerful source code editor for Windows, Linux, and macOS.</span></span> <span data-ttu-id="7b14e-135">Örnek kod düzenlemek için öğreticide daha sonra bu Düzenleyicisi'ni kullanın.</span><span class="sxs-lookup"><span data-stu-id="7b14e-135">You use this editor later in the tutorial to edit the sample code.</span></span>
+
+## <a name="summary"></a><span data-ttu-id="7b14e-136">Özet</span><span class="sxs-lookup"><span data-stu-id="7b14e-136">Summary</span></span>
+<span data-ttu-id="7b14e-137">İlk örnek uygulama için yazılım ve gerekli geliştirme araçları yüklediniz.</span><span class="sxs-lookup"><span data-stu-id="7b14e-137">You've installed the required development tools and software for the first sample application.</span></span> <span data-ttu-id="7b14e-138">Sonraki oluşturmak, dağıtmak ve örnek uygulama Pi üzerinde çalıştırmak için bir görevdir.</span><span class="sxs-lookup"><span data-stu-id="7b14e-138">The next task is to create, deploy, and run the sample application on Pi.</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="7b14e-139">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="7b14e-139">Next steps</span></span>
+[<span data-ttu-id="7b14e-140">Blink uygulaması oluşturma ve dağıtma</span><span class="sxs-lookup"><span data-stu-id="7b14e-140">Create and deploy the blink application</span></span>](iot-hub-raspberry-pi-kit-c-lesson1-deploy-blink-app.md)
+

@@ -1,0 +1,4 @@
+| <span data-ttu-id="597f9-101">Kaynak</span><span class="sxs-lookup"><span data-stu-id="597f9-101">Resource</span></span> | <span data-ttu-id="597f9-102">Sınır</span><span class="sxs-lookup"><span data-stu-id="597f9-102">Limit</span></span> |
+| --- | --- |
+| <span data-ttu-id="597f9-103">Bölge başına Olay Aboneliği sayısı</span><span class="sxs-lookup"><span data-stu-id="597f9-103">Event Subscriptions per region</span></span> |<span data-ttu-id="597f9-104">1000</span><span class="sxs-lookup"><span data-stu-id="597f9-104">1000</span></span> |
+| <span data-ttu-id="597f9-105">Bölge başına Özel Konu sayısı</span><span class="sxs-lookup"><span data-stu-id="597f9-105">Custom Topics per region</span></span> |<span data-ttu-id="597f9-106">20</span><span class="sxs-lookup"><span data-stu-id="597f9-106">20</span></span> |

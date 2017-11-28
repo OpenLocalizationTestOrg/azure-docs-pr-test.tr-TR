@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> <span data-ttu-id="47a2a-101">Azure kaynaklarıyla çalışmadan önce dağıtım modelleri hakkında bilgi edinin: [Resource Manager, klasik](../articles/azure-resource-manager/resource-manager-deployment-model.md).</span><span class="sxs-lookup"><span data-stu-id="47a2a-101">Before you work with Azure resources, get familiar with the deployment models: [Resource Manager, and classic](../articles/azure-resource-manager/resource-manager-deployment-model.md).</span></span>

@@ -1,0 +1,46 @@
+---
+title: "Azure veri bilimi sanal makineleri IPython dizüstü sunucuları olarak sağlama | Microsoft Docs"
+description: "Bir veri bilimi sanal makineyi bir IPython Not Defteri Sunucusu Araçları destekleme ile olarak ayarlayın."
+services: machine-learning
+documentationcenter: 
+author: bradsev
+manager: jhubbard
+editor: cgronlun
+ms.assetid: 95e1fa87-794a-4d03-80a4-af4f3f3ac31e
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/21/2017
+ms.author: bradsev
+ms.openlocfilehash: db1ffb2a226a087ecea2ea6f560c6b803e33d8c7
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 08/03/2017
+---
+# <a name="provision-azure-data-science-virtual-machines-as-ipython-notebook-servers"></a><span data-ttu-id="6c085-103">IPython dizüstü sunucuları olarak sağlama Azure veri bilimi sanal makineler</span><span class="sxs-lookup"><span data-stu-id="6c085-103">Provision Azure Data Science Virtual Machines as IPython Notebook Servers</span></span>
+<span data-ttu-id="6c085-104">Yönergeler, bir Azure VM ve SQL Hizmeti ile bir Azure VM IPython dizüstü sunucuları olarak nasıl ayarlanacağını açıklar burada verilmiştir.</span><span class="sxs-lookup"><span data-stu-id="6c085-104">Instructions are provided here that describe how to set up an Azure VM and an Azure VM with SQL Service as IPython Notebook servers.</span></span> <span data-ttu-id="6c085-105">Windows sanal makine IPython Not Defteri, Azure Storage Gezgini ve AzCopy yanı sıra veri bilimi projeleri için yararlı olan diğer yardımcı programları gibi araçları destekleme ile yapılandırılır.</span><span class="sxs-lookup"><span data-stu-id="6c085-105">The Windows virtual machine is configured with supporting tools such as IPython Notebook, Azure Storage Explorer, and AzCopy, as well as other utilities that are useful for data science projects.</span></span> <span data-ttu-id="6c085-106">Örneğin, Azure Depolama Gezgini ve AzCopy, verileri Azure depolama alanına yerel makinenizden karşıya yüklemek veya bir depolama biriminden yerel makinenize indirmek için uygun şekilde girin.</span><span class="sxs-lookup"><span data-stu-id="6c085-106">Azure Storage Explorer and AzCopy, for example, provide convenient ways to upload data to Azure storage from your local machine or to download it to your local machine from storage.</span></span> 
+
+<span data-ttu-id="6c085-107">Tarafından kullanılan çeşitli veri bilimi ortamları ayarlamak nasıl açıklayan konuları için bu menüyü bağlantıları [takım veri bilimi işlem (TDSP)](data-science-process-overview.md).</span><span class="sxs-lookup"><span data-stu-id="6c085-107">This menu links to topics that describe how to set up the various data science environments used by the [Team Data Science Process (TDSP)](data-science-process-overview.md).</span></span>
+
+[!INCLUDE [data-science-environment-setup](../../includes/cap-setup-environments.md)]
+
+<span data-ttu-id="6c085-108">Azure sanal makineleri çeşitli türleri sağlanabilir ve bulut tabanlı veri bilimi ortamının bir parçası kullanılmak üzere yapılandırılmış.</span><span class="sxs-lookup"><span data-stu-id="6c085-108">Several types of Azure virtual machines can be provisioned and configured to be used as part of a cloud-based data science environment.</span></span> <span data-ttu-id="6c085-109">Machine learning ve bu verileri bulutta için hedef ile modellenebilir veri miktarını ve türünü kullanmak için sanal makinenin karar hangi özellik hakkında bağlı.</span><span class="sxs-lookup"><span data-stu-id="6c085-109">The decision about which flavor of virtual machine to use depends on the type and quantity of data to be modeled with machine learning, and the target destination for that data in the cloud.</span></span> 
+
+* <span data-ttu-id="6c085-110">Bu karar verirken göz önüne almanız gereken soruları hakkında yönergeler için bkz [planlama Azure Machine Learning veri bilimi ortamınıza](machine-learning-data-science-plan-your-environment.md).</span><span class="sxs-lookup"><span data-stu-id="6c085-110">For guidance on the questions to consider when making this decision, see [Plan Your Azure Machine Learning Data Science Environment](machine-learning-data-science-plan-your-environment.md).</span></span> 
+* <span data-ttu-id="6c085-111">Bazı gelişmiş analizler yaparken karşılaşabileceğiniz senaryo kataloğu için bkz: [Gelişmiş analiz işlem ve Azure Machine Learning teknolojisinde için senaryolar](machine-learning-data-science-plan-sample-scenarios.md)</span><span class="sxs-lookup"><span data-stu-id="6c085-111">For a catalog of some of the scenarios you might encounter when doing advanced analytics, see [Scenarios for the Advanced Analytics Process and Technology in Azure Machine Learning](machine-learning-data-science-plan-sample-scenarios.md)</span></span>
+
+<span data-ttu-id="6c085-112">İki ayrı yönerge sağlanır:</span><span class="sxs-lookup"><span data-stu-id="6c085-112">Two sets of instructions are provided:</span></span>
+
+* <span data-ttu-id="6c085-113">[Bir Azure sanal makinesini gelişmiş analizler için bir IPython dizüstü sunucu olarak ayarlamak](machine-learning-data-science-setup-virtual-machine.md) IPython dizüstü bilgisayar ve veri bilimi, Azure depolama SQL dışında bir form için durumlarda yapmak için kullanılan diğer araçları ile bir Azure sanal makine sağlamak nasıl gösterir verileri depolamak için kullanılacak.</span><span class="sxs-lookup"><span data-stu-id="6c085-113">[Set up an Azure virtual machine as an IPython Notebook server for advanced analytics](machine-learning-data-science-setup-virtual-machine.md) shows how to provision an Azure virtual machine with IPython Notebook and other tools used to do data science for cases in which a form of Azure storage other than SQL can be used to store the data.</span></span>
+* <span data-ttu-id="6c085-114">[Bir Azure SQL Server sanal makinesini gelişmiş analizler için bir IPython dizüstü sunucu olarak ayarlamak](machine-learning-data-science-setup-sql-server-virtual-machine.md) IPython dizüstü bilgisayar ve veri bilimi durumlarda, bir SQL veritabanı için yapmak için kullanılan diğer araçları ile bir Azure SQL Server sanal makine sağlamak nasıl gösterir verileri depolamak için kullanılacak.</span><span class="sxs-lookup"><span data-stu-id="6c085-114">[Set up an Azure SQL Server virtual machine as an IPython Notebook server for advanced analytics](machine-learning-data-science-setup-sql-server-virtual-machine.md) shows how to provision an Azure SQL Server virtual machine with IPython Notebook and other tools used to do data science for cases in which a SQL database can be used to store  the data.</span></span>
+
+<span data-ttu-id="6c085-115">Sağlanan ve yapılandırılmış sonra IPython dizüstü sunucuları araştırması ve veri işleme ve Azure Machine Learning ve takım veri bilimi işlem (TDSP) ile birlikte gereken diğer görevler için bu sanal makineleri, kullanıma hazır.</span><span class="sxs-lookup"><span data-stu-id="6c085-115">Once provisioned and configured, these virtual machines are ready for use as IPython Notebook servers for the exploration and processing of data, and for other tasks needed in conjunction with Azure Machine Learning and the Team Data Science Process (TDSP).</span></span> <span data-ttu-id="6c085-116">İçinde veri bilimi işlemi sonraki adımlarda eşlenen [TDSP öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) ve SQL Server ya da Hdınsight, verileri işlemek ve Azure makineyle var. Bu örnek verilerden öğrenmeyi hazırlığı taşıma adımları içerebilir Öğrenme.</span><span class="sxs-lookup"><span data-stu-id="6c085-116">The next steps in the data science process are mapped in the [TDSP learning path](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) and may include steps that move data into SQL Server or HDInsight, process and sample it there in preparation for learning from the data with Azure Machine Learning.</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="6c085-117">Azure sanal makineler olarak fiyatlandırılır **yalnızca kullandıklarınız için ödeme**.</span><span class="sxs-lookup"><span data-stu-id="6c085-117">Azure Virtual Machines are priced as **pay only for what you use**.</span></span> <span data-ttu-id="6c085-118">Sanal makinenize kullanmadığınızda ücretlendirilen değil emin olmak için onu olduğu sahip **durduruldu (Deallocated)** durumu [Klasik Azure portalı](http://manage.windowsazure.com/).</span><span class="sxs-lookup"><span data-stu-id="6c085-118">To ensure that you are not being billed when not using your virtual machine, it has to be in the **Stopped (Deallocated)** state from the [Azure Classic Portal](http://manage.windowsazure.com/).</span></span> <span data-ttu-id="6c085-119">Adım adım yönergeler veya sanal makine ayırması nasıl için bkz: [kapatma ve sanal makine kullanılmadığında serbest bırakma](machine-learning-data-science-setup-virtual-machine.md#shutdown)</span><span class="sxs-lookup"><span data-stu-id="6c085-119">For step-by-step instructions or how to deallocate you virtual machine, see  [Shutdown and deallocate virtual machine when not in use](machine-learning-data-science-setup-virtual-machine.md#shutdown)</span></span>
+> 
+> 
+

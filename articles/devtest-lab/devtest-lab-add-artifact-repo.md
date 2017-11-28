@@ -1,0 +1,105 @@
+---
+title: Azure DevTest Labs bir Git deposu tooa laboratuvarda aaaAdd | Microsoft Docs
+description: "Azure DevTest Labs'de özel yapılar kaynağınız için bir GitHub ya da Visual Studio Team Services Git deposu ekleme"
+services: devtest-lab,virtual-machines,visual-studio-online
+documentationcenter: na
+author: tomarcher
+manager: douge
+editor: 
+ms.assetid: 01b459f7-eaf2-45a8-b4b5-2c0a821b33c8
+ms.service: devtest-lab
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/11/2017
+ms.author: tarcher
+ms.openlocfilehash: e590559ffb2d497e39823e35c3f66974f42f13c2
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/06/2017
+---
+# <a name="add-a-git-repository-toostore-custom-artifacts-and-azure-resource-manager-templates"></a><span data-ttu-id="c1526-103">Bir Git deposu toostore özel yapılar ve Azure Resource Manager şablonları ekleyin</span><span class="sxs-lookup"><span data-stu-id="c1526-103">Add a Git repository toostore custom artifacts and Azure Resource Manager templates</span></span>
+
+<span data-ttu-id="c1526-104">Çok istiyorsanız[özel yapılar oluşturma](devtest-lab-artifact-author.md) , Laboratuvar hello VM'ler için veya [Azure Resource Manager şablonları toocreate bir özel test ortamı kullanmak](devtest-lab-create-environment-from-arm.md), özel bir Git deposu tooinclude eklemeniz gerekir Merhaba yapıları veya ekibinizin oluşturduğu Azure Resource Manager şablonları.</span><span class="sxs-lookup"><span data-stu-id="c1526-104">If you want too[create custom artifacts](devtest-lab-artifact-author.md) for hello VMs in your lab, or [use Azure Resource Manager templates toocreate a custom test environment](devtest-lab-create-environment-from-arm.md), you must also add a private Git repository tooinclude hello artifacts or Azure Resource Manager templates that your team creates.</span></span> <span data-ttu-id="c1526-105">Merhaba deposu barındırılmasına [GitHub](https://github.com) veya [Visual Studio Team Services (VSTS)](https://visualstudio.com).</span><span class="sxs-lookup"><span data-stu-id="c1526-105">hello repository can be hosted on [GitHub](https://github.com) or on [Visual Studio Team Services (VSTS)](https://visualstudio.com).</span></span>
+
+<span data-ttu-id="c1526-106">Sağladık bir [Github deposunu yapılarının](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) olarak dağıtabileceğiniz-olduğu veya Laboratuvarları için özelleştirin.</span><span class="sxs-lookup"><span data-stu-id="c1526-106">We have provided a [Github repository of artifacts](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) that you can deploy as-is or customize for your labs.</span></span> <span data-ttu-id="c1526-107">Özelleştirme veya bir yapıya oluşturduğunuzda, hello ortak deposunda depolanamıyor – kendi özel depo oluşturmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="c1526-107">When you customize or create an artifact, you cannot store them in hello public repository – you must create your own private repo.</span></span> 
+
+<span data-ttu-id="c1526-108">Bir VM oluşturduğunuzda, hello Azure Resource Manager şablonu kaydetmek, istediğiniz ve sonra kullanırsanız özelleştirme sonraki tooeasily daha fazla VM oluşturun.</span><span class="sxs-lookup"><span data-stu-id="c1526-108">When you create a VM, you can save hello Azure Resource Manager template, customize it if you want, and then use it later tooeasily create more VMs.</span></span> <span data-ttu-id="c1526-109">Özel Azure Resource Manager şablonlarınızı kendi özel depo toostore oluşturmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="c1526-109">You must create your own private repository toostore your custom Azure Resource Manager templates.</span></span>  
+
+* <span data-ttu-id="c1526-110">toocreate GitHub deposunu nasıl görürüm toolearn [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).</span><span class="sxs-lookup"><span data-stu-id="c1526-110">toolearn how toocreate a GitHub repository, see [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).</span></span>
+* <span data-ttu-id="c1526-111">toocreate bir Team Services projesi bir Git deposu ile nasıl görürüm toolearn [tooVisual Studio Team Services bağlanmak](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).</span><span class="sxs-lookup"><span data-stu-id="c1526-111">toolearn how toocreate a Team Services project with a Git Repository, see [Connect tooVisual Studio Team Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).</span></span>
+
+<span data-ttu-id="c1526-112">Merhaba aşağıdaki ekran görüntüsünde yapıları içeren bir havuz Github'da nasıl görünebileceği örnek gösterilmektedir:</span><span class="sxs-lookup"><span data-stu-id="c1526-112">hello following screen shot shows an example of how a repository containing artifacts might look in GitHub:</span></span>  
+![Örnek GitHub yapıları depo](./media/devtest-lab-add-repo/devtestlab-github-artifact-repo-home.png)
+
+## <a name="get-hello-repository-information-and-credentials"></a><span data-ttu-id="c1526-114">Merhaba havuz bilgileri ve kimlik bilgilerini alma</span><span class="sxs-lookup"><span data-stu-id="c1526-114">Get hello repository information and credentials</span></span>
+<span data-ttu-id="c1526-115">tooadd depo tooyour Laboratuvar, belirli bilgileri, depodan ilk almalısınız.</span><span class="sxs-lookup"><span data-stu-id="c1526-115">tooadd a repository tooyour lab, you must first get certain information from your repository.</span></span> <span data-ttu-id="c1526-116">Aşağıdaki bölümlerde hello GitHub ve Visual Studio Team Services üzerinde barındırılan depoları için bu bilgileri getirmenizde size rehberlik.</span><span class="sxs-lookup"><span data-stu-id="c1526-116">hello following sections guide you through getting this information for repositories hosted on GitHub and Visual Studio Team Services.</span></span>
+
+### <a name="get-hello-github-repository-clone-url-and-personal-access-token"></a><span data-ttu-id="c1526-117">Merhaba GitHub depo kopya URL'si ve kişisel erişim belirteci alma</span><span class="sxs-lookup"><span data-stu-id="c1526-117">Get hello GitHub repository clone URL and personal access token</span></span>
+<span data-ttu-id="c1526-118">tooget hello GitHub depo kopya URL'si ve kişisel erişim belirteci, şu adımları izleyin:</span><span class="sxs-lookup"><span data-stu-id="c1526-118">tooget hello GitHub repository clone URL and personal access token, follow these steps:</span></span>
+
+1. <span data-ttu-id="c1526-119">Merhaba yapı veya Azure Resource Manager şablonu tanımlarını içeren hello GitHub deposunu toohello giriş sayfasına göz atın.</span><span class="sxs-lookup"><span data-stu-id="c1526-119">Browse toohello home page of hello GitHub repository that contains hello artifact or Azure Resource Manager template definitions.</span></span>
+2. <span data-ttu-id="c1526-120">Seçin **Kopyala veya indir**.</span><span class="sxs-lookup"><span data-stu-id="c1526-120">Select **Clone or download**.</span></span>
+3. <span data-ttu-id="c1526-121">Select hello düğmesi toocopy hello **HTTPS kopyalayın url** toohello Pano ve daha sonra kullanmak için hello URL kaydedin.</span><span class="sxs-lookup"><span data-stu-id="c1526-121">Select hello button toocopy hello **HTTPS clone url** toohello clipboard, and save hello URL for later use.</span></span>
+4. <span data-ttu-id="c1526-122">Hello profilinin resmi hello sağ üst köşesinde GitHub seçip **ayarları**.</span><span class="sxs-lookup"><span data-stu-id="c1526-122">Select hello profile image in hello upper-right corner of GitHub, and select **Settings**.</span></span>
+5. <span data-ttu-id="c1526-123">Merhaba, **kişisel ayarları** menüsünde sol hello select **kişisel erişim belirteçleri**.</span><span class="sxs-lookup"><span data-stu-id="c1526-123">In hello **Personal settings** menu on hello left, select **Personal access tokens**.</span></span>
+6. <span data-ttu-id="c1526-124">Seçin **yeni belirteç Oluştur**.</span><span class="sxs-lookup"><span data-stu-id="c1526-124">Select **Generate new token**.</span></span>
+7. <span data-ttu-id="c1526-125">Merhaba üzerinde **yeni kişisel erişim belirteci** want bir **belirteci açıklama**, hello hello varsayılan öğeleri kabul **kapsamı Seç**ve ardından **oluştur Belirteç**.</span><span class="sxs-lookup"><span data-stu-id="c1526-125">On hello **New personal access token** page, enter a **Token description**, accept hello default items in hello **Select scopes**, and then choose **Generate Token**.</span></span>
+8. <span data-ttu-id="c1526-126">Daha sonra ihtiyacınız olarak oluşturulan hello belirteci kaydedin.</span><span class="sxs-lookup"><span data-stu-id="c1526-126">Save hello generated token as you need it later.</span></span>
+9. <span data-ttu-id="c1526-127">GitHub artık kapatabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="c1526-127">You can close GitHub now.</span></span>   
+10. <span data-ttu-id="c1526-128">Toohello devam [Laboratuvar toohello deponuza bağlamak](#connect-your-lab-to-the-repository) bölümü.</span><span class="sxs-lookup"><span data-stu-id="c1526-128">Continue toohello [Connect your lab toohello repository](#connect-your-lab-to-the-repository) section.</span></span>
+
+### <a name="get-hello-visual-studio-team-services-repository-clone-url-and-personal-access-token"></a><span data-ttu-id="c1526-129">Merhaba Visual Studio Team Services depo kopya URL'si ve kişisel erişim belirteci alma</span><span class="sxs-lookup"><span data-stu-id="c1526-129">Get hello Visual Studio Team Services repository clone URL and personal access token</span></span>
+<span data-ttu-id="c1526-130">tooget hello Visual Studio Team Services depo kopya URL'si ve kişisel erişim belirteci, şu adımları izleyin:</span><span class="sxs-lookup"><span data-stu-id="c1526-130">tooget hello Visual Studio Team Services repository clone URL and personal access token, follow these steps:</span></span>
+
+1. <span data-ttu-id="c1526-131">Takım koleksiyonunun açık hello giriş sayfası (örneğin, `https://contoso-web-team.visualstudio.com`) ve projenizi seçin.</span><span class="sxs-lookup"><span data-stu-id="c1526-131">Open hello home page of your team collection (for example, `https://contoso-web-team.visualstudio.com`), and then select your project.</span></span>
+2. <span data-ttu-id="c1526-132">Merhaba proje giriş sayfasında, seçin **kod**.</span><span class="sxs-lookup"><span data-stu-id="c1526-132">On hello project home page, select **Code**.</span></span>
+3. <span data-ttu-id="c1526-133">Merhaba projede tooview hello kopya URL **kod** sayfasında, **kopya**.</span><span class="sxs-lookup"><span data-stu-id="c1526-133">tooview hello clone URL, on hello project **Code** page, select **Clone**.</span></span>
+4. <span data-ttu-id="c1526-134">Daha sonra Bu öğreticide gerektiği hello URL kaydedin.</span><span class="sxs-lookup"><span data-stu-id="c1526-134">Save hello URL as you need it later in this tutorial.</span></span>
+5. <span data-ttu-id="c1526-135">bir kişisel erişim belirteci, toocreate seçin **Profilim** hello kullanıcı hesabı açılan menüsünden.</span><span class="sxs-lookup"><span data-stu-id="c1526-135">toocreate a Personal Access Token, select **My profile** from hello user account drop-down menu.</span></span>
+6. <span data-ttu-id="c1526-136">Hello profil bilgileri sayfasında seçin **güvenlik**.</span><span class="sxs-lookup"><span data-stu-id="c1526-136">On hello profile information page, select **Security**.</span></span>
+7. <span data-ttu-id="c1526-137">Merhaba üzerinde **güvenlik** sekmesine **Ekle**.</span><span class="sxs-lookup"><span data-stu-id="c1526-137">On hello **Security** tab, select **Add**.</span></span>
+8. <span data-ttu-id="c1526-138">Merhaba, **kişisel erişim belirteci oluşturma** sayfa:</span><span class="sxs-lookup"><span data-stu-id="c1526-138">In hello **Create a personal access token** page:</span></span>
+
+   * <span data-ttu-id="c1526-139">Girin bir **açıklama** hello belirteci.</span><span class="sxs-lookup"><span data-stu-id="c1526-139">Enter a **Description** for hello token.</span></span>
+   * <span data-ttu-id="c1526-140">Seçin **180 gün** hello gelen **süresi içinde** listesi.</span><span class="sxs-lookup"><span data-stu-id="c1526-140">Select **180 days** from hello **Expires In** list.</span></span>
+   * <span data-ttu-id="c1526-141">Seçin **tüm erişilebilir hesapları** hello gelen **hesapları** listesi.</span><span class="sxs-lookup"><span data-stu-id="c1526-141">Choose **All accessible accounts** from hello **Accounts** list.</span></span>
+   * <span data-ttu-id="c1526-142">Merhaba seçin **tüm kapsamlar** seçeneği.</span><span class="sxs-lookup"><span data-stu-id="c1526-142">Choose hello **All scopes** option.</span></span>
+   * <span data-ttu-id="c1526-143">Seçin **belirteç Oluştur**.</span><span class="sxs-lookup"><span data-stu-id="c1526-143">Choose **Create Token**.</span></span>
+9. <span data-ttu-id="c1526-144">Tamamlandığında, hello yeni belirteci hello görünür **kişisel erişim belirteçleri** listesi.</span><span class="sxs-lookup"><span data-stu-id="c1526-144">When finished, hello new token appears in hello **Personal Access Tokens** list.</span></span> <span data-ttu-id="c1526-145">Seçin **kopyalama belirteci**ve ardından hello belirteç değeri daha sonra kullanmak için kaydedin.</span><span class="sxs-lookup"><span data-stu-id="c1526-145">Select **Copy Token**, and then save hello token value for later use.</span></span>
+10. <span data-ttu-id="c1526-146">Toohello devam [Laboratuvar toohello deponuza bağlamak](#connect-your-lab-to-the-repository) bölümü.</span><span class="sxs-lookup"><span data-stu-id="c1526-146">Continue toohello [Connect your lab toohello repository](#connect-your-lab-to-the-repository) section.</span></span>
+
+## <a name="connect-your-lab-toohello-repository"></a><span data-ttu-id="c1526-147">Laboratuvar toohello deponuz Bağlan</span><span class="sxs-lookup"><span data-stu-id="c1526-147">Connect your lab toohello repository</span></span>
+1. <span data-ttu-id="c1526-148">İçinde toohello oturum [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).</span><span class="sxs-lookup"><span data-stu-id="c1526-148">Sign in toohello [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).</span></span>
+2. <span data-ttu-id="c1526-149">Seçin **daha Hizmetleri**ve ardından **DevTest Labs** hello listeden.</span><span class="sxs-lookup"><span data-stu-id="c1526-149">Select **More Services**, and then select **DevTest Labs** from hello list.</span></span>
+3. <span data-ttu-id="c1526-150">Merhaba istenen Laboratuvar labs Hello listeden seçin.</span><span class="sxs-lookup"><span data-stu-id="c1526-150">From hello list of labs, select hello desired lab.</span></span>   
+4. <span data-ttu-id="c1526-151">Merhaba sol panelinde seçin **yapılandırma ve ilkeleri**.</span><span class="sxs-lookup"><span data-stu-id="c1526-151">On hello left panel, select **Configuration and policies**.</span></span>
+5. <span data-ttu-id="c1526-152">Merhaba Laboratuvar'ın üzerinde **yapılandırma ve ilkeleri** alanında **depoları**.</span><span class="sxs-lookup"><span data-stu-id="c1526-152">On hello lab's **Configuration and policies** area, select **Repositories**.</span></span>
+6. <span data-ttu-id="c1526-153">Merhaba üzerinde **depoları** alanında **+ Ekle**.</span><span class="sxs-lookup"><span data-stu-id="c1526-153">On hello **Repositories** area, select **+ Add**.</span></span>
+
+    ![Depo düğme ekleme](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
+7. <span data-ttu-id="c1526-155">Merhaba üzerinde ikinci **depoları** sayfasında, aşağıdaki bilgilerle hello belirtin:</span><span class="sxs-lookup"><span data-stu-id="c1526-155">On hello second **Repositories** page, specify hello following information:</span></span>
+
+   * <span data-ttu-id="c1526-156">**Ad** -hello deposu için bir ad girin.</span><span class="sxs-lookup"><span data-stu-id="c1526-156">**Name** - Enter a name for hello repository.</span></span>
+   * <span data-ttu-id="c1526-157">**Git kopyalama URL'si** -GitHub veya Visual Studio Team Services daha önce kopyaladığınız hello Git HTTPS kopya URL'si girin.</span><span class="sxs-lookup"><span data-stu-id="c1526-157">**Git Clone Url** - Enter hello Git HTTPS clone URL that you copied earlier from either GitHub or Visual Studio Team Services.</span></span>
+   * <span data-ttu-id="c1526-158">**Şube** -tanımlarınızı hello şube tooget girin.</span><span class="sxs-lookup"><span data-stu-id="c1526-158">**Branch** - Enter hello branch tooget your definitions.</span></span>
+   * <span data-ttu-id="c1526-159">**Kişisel erişim belirteci** -daha önce aldığınız GitHub veya Visual Studio Team Services hello kişisel erişim belirteci girin.</span><span class="sxs-lookup"><span data-stu-id="c1526-159">**Personal Access Token** - Enter hello personal access token you obtained earlier from either GitHub or Visual Studio Team Services.</span></span>
+   * <span data-ttu-id="c1526-160">**Klasör yolları** -, yapı veya Azure Resource Manager şablonu tanımlarını içeren en az bir klasör yolu göreli toohello kopya URL'si girin.</span><span class="sxs-lookup"><span data-stu-id="c1526-160">**Folder Paths** - Enter at least one folder path relative toohello clone URL that contains your artifact or Azure Resource Manager template definitions.</span></span> <span data-ttu-id="c1526-161">Bir alt belirtirken emin tooinclude hello eğik hello klasör yolu olun.</span><span class="sxs-lookup"><span data-stu-id="c1526-161">When specifying a subdirectory, make sure tooinclude hello forward slash in hello folder path.</span></span>
+
+     ![Depoları alanı](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
+8. <span data-ttu-id="c1526-163">**Kaydet**’i seçin.</span><span class="sxs-lookup"><span data-stu-id="c1526-163">Select **Save**.</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="c1526-164">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="c1526-164">Next steps</span></span>
+<span data-ttu-id="c1526-165">Özel Git deponuzu oluşturduktan sonra gereksinimlerinize bağlı olarak birini veya her ikisini hello şunları yapabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="c1526-165">After you have created your private Git repository, you can do one or both of hello following, depending on your needs:</span></span>
+* <span data-ttu-id="c1526-166">Mağaza, [özel yapılar](devtest-lab-artifact-author.md), hangi sonraki toocreate kullanabileceğiniz yeni VM'ler.</span><span class="sxs-lookup"><span data-stu-id="c1526-166">Store your [custom artifacts](devtest-lab-artifact-author.md), which you can use later toocreate new VMs.</span></span>
+* <span data-ttu-id="c1526-167">[Azure Resource Manager şablonları ile çoklu VM ortamları ve PaaS kaynaklarına oluşturmak](devtest-lab-create-environment-from-arm.md) ve ardından özel bağlantıların bulunması hello şablonları saklayın.</span><span class="sxs-lookup"><span data-stu-id="c1526-167">[Create multi-VM environments and PaaS resources with Azure Resource Manager templates](devtest-lab-create-environment-from-arm.md) and then store hello templates in your private repo.</span></span>
+
+<span data-ttu-id="c1526-168">Bir VM oluştururken hello yapıları veya şablonları tooyour Git deposu eklenen doğrulayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="c1526-168">When you create a VM, you can verify that hello artifacts or templates are added tooyour Git repository.</span></span> <span data-ttu-id="c1526-169">Bunlar, hemen listesinde hello yapıları veya şablonlarını hello kaynağını belirtir hello sütununda gösterilen özel, depodaki hello adı ile kullanılabilir.</span><span class="sxs-lookup"><span data-stu-id="c1526-169">They are available immediately in hello list of artifacts or templates, with hello name of your private repo shown in hello column that specifies hello source.</span></span> 
+
+[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
+### <a name="related-blog-posts"></a><span data-ttu-id="c1526-170">İlgili blog gönderileri</span><span class="sxs-lookup"><span data-stu-id="c1526-170">Related blog posts</span></span>
+* [<span data-ttu-id="c1526-171">Nasıl tootroubleshoot Azure DevTest Labs yapıları başarısız</span><span class="sxs-lookup"><span data-stu-id="c1526-171">How tootroubleshoot failing Artifacts in Azure DevTest Labs</span></span>](devtest-lab-troubleshoot-artifact-failure.md)
+* [<span data-ttu-id="c1526-172">VM tooexisting AD Azure DevTest Labs'de resource manager şablonu kullanarak etki alanına katılma</span><span class="sxs-lookup"><span data-stu-id="c1526-172">Join a VM tooexisting AD Domain using a resource manager template in Azure DevTest Labs</span></span>](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)

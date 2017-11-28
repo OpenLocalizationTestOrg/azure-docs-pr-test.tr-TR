@@ -1,0 +1,59 @@
+---
+title: "Active Directory kimlik koruması - aaaAzure nasıl toounblock kullanıcılar | Microsoft Docs"
+description: "Bilgi nasıl bir Azure Active Directory kimlik koruması İlkesi tarafından engellendi kullanıcıların Engellemeyi Kaldır."
+services: active-directory
+keywords: "Azure active directory kimlik koruması, kullanıcının engelini kaldırma"
+documentationcenter: 
+author: MarkusVi
+manager: femila
+ms.assetid: a953d425-a3ef-41f8-a55d-0202c3f250a7
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 07/05/2017
+ms.author: markvi
+ms.reviewer: nigu
+ms.openlocfilehash: cdda2808822888f76aa75cf46478738c94df51a1
+ms.sourcegitcommit: 523283cc1b3c37c428e77850964dc1c33742c5f0
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 10/06/2017
+---
+# <a name="azure-active-directory-identity-protection---how-toounblock-users"></a><span data-ttu-id="70bbf-104">Azure Active Directory kimlik koruması - nasıl toounblock kullanıcılar</span><span class="sxs-lookup"><span data-stu-id="70bbf-104">Azure Active Directory Identity Protection - How toounblock users</span></span>
+<span data-ttu-id="70bbf-105">Azure Active Directory kimlik koruması ile hello koşullar yapılandırdıysanız tooblock kullanıcılar karşılanır ilkelerini yapılandırabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="70bbf-105">With Azure Active Directory Identity Protection, you can configure policies tooblock users if hello configured conditions are satisfied.</span></span> <span data-ttu-id="70bbf-106">Engeli kaldırılmış genellikle, bir engellenen kullanıcı kişiler Yardım Masası toobecome.</span><span class="sxs-lookup"><span data-stu-id="70bbf-106">Typically, a blocked user contacts help desk toobecome unblocked.</span></span> <span data-ttu-id="70bbf-107">Bu konular toounblock engellenen bir kullanıcı gerçekleştirebilirsiniz hello adımları açıklanmaktadır.</span><span class="sxs-lookup"><span data-stu-id="70bbf-107">This topics explains hello steps you can perform toounblock a blocked user.</span></span>
+
+## <a name="determine-hello-reason-for-blocking"></a><span data-ttu-id="70bbf-108">Engelleme nedeni hello belirleme</span><span class="sxs-lookup"><span data-stu-id="70bbf-108">Determine hello reason for blocking</span></span>
+<span data-ttu-id="70bbf-109">Bir ilk adım toounblock bir kullanıcı, sonraki adımlarda üzerinde çünkü hello kullanıcı engelledi İlkesi toodetermine hello türünü gerekir.</span><span class="sxs-lookup"><span data-stu-id="70bbf-109">As a first step toounblock a user, you need toodetermine hello type of policy that has blocked hello user because your next steps are depending on it.</span></span>
+<span data-ttu-id="70bbf-110">Azure Active Directory kimlik koruması ile bir kullanıcı ya da bir oturum açma riski İlkesi veya bir kullanıcı risk İlkesi tarafından engellenebilir.</span><span class="sxs-lookup"><span data-stu-id="70bbf-110">With Azure Active Directory Identity Protection, a user can be either blocked by a sign-in risk policy or a user risk policy.</span></span>
+
+<span data-ttu-id="70bbf-111">Merhaba toohello kullanıcı bir oturum açma girişimi sırasında sunulan hello iletişim hello başlığına kullanıcıdan engelledi ilke türünü alabilirsiniz:</span><span class="sxs-lookup"><span data-stu-id="70bbf-111">You can get hello type of policy that has blocked a user from hello heading in hello dialog that was presented toohello user during a sign-in attempt:</span></span>
+
+| <span data-ttu-id="70bbf-112">İlke</span><span class="sxs-lookup"><span data-stu-id="70bbf-112">Policy</span></span> | <span data-ttu-id="70bbf-113">Kullanıcı iletişim kutusu</span><span class="sxs-lookup"><span data-stu-id="70bbf-113">User dialog</span></span> |
+| --- | --- |
+| <span data-ttu-id="70bbf-114">Oturum açma riski</span><span class="sxs-lookup"><span data-stu-id="70bbf-114">Sign-in risk</span></span> |![Engellenen oturum açma](./media/active-directory-identityprotection-unblock-howto/02.png) |
+| <span data-ttu-id="70bbf-116">Kullanıcı riski</span><span class="sxs-lookup"><span data-stu-id="70bbf-116">User risk</span></span> |![Engellenen hesabı](./media/active-directory-identityprotection-unblock-howto/104.png) |
+
+<span data-ttu-id="70bbf-118">Tarafından engellenen bir kullanıcı:</span><span class="sxs-lookup"><span data-stu-id="70bbf-118">A user that is blocked by:</span></span>
+
+* <span data-ttu-id="70bbf-119">Bir oturum açma riski olarak da bilinen şüpheli oturum açma ilkedir</span><span class="sxs-lookup"><span data-stu-id="70bbf-119">A sign-in risk policy is also known as suspicious sign-in</span></span>
+* <span data-ttu-id="70bbf-120">Kullanıcı risk ilkesi olarak da bilinen bir risk hesabıdır</span><span class="sxs-lookup"><span data-stu-id="70bbf-120">A user risk policy is also known as an account at risk</span></span>
+
+## <a name="unblocking-suspicious-sign-ins"></a><span data-ttu-id="70bbf-121">Engellemeyi kaldırma şüpheli oturum açma işlemleri</span><span class="sxs-lookup"><span data-stu-id="70bbf-121">Unblocking suspicious sign-ins</span></span>
+<span data-ttu-id="70bbf-122">toounblock bir şüpheli oturum açma seçenekleri aşağıdaki hello vardır:</span><span class="sxs-lookup"><span data-stu-id="70bbf-122">toounblock a suspicious sign-in, you have hello following options:</span></span>
+
+1. <span data-ttu-id="70bbf-123">**Oturum açma tanıdık bir konumdan veya aygıt** -engellenen şüpheli oturum açma işlemleri için ortak bir nedeni olan oturum açma denemeleri tanınmayan konumlardan veya cihazlar.</span><span class="sxs-lookup"><span data-stu-id="70bbf-123">**Sign-in from a familiar location or device** - A common reason for blocked suspicious sign-ins are sign-in attempts from unfamiliar locations or devices.</span></span> <span data-ttu-id="70bbf-124">Kullanıcılarınıza hızlı bir şekilde bu toosign bileşenini tanıdık konumu ya da cihaz deneyerek neden engelleme hello olup olmadığını belirleyebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="70bbf-124">Your users can quickly determine whether this is hello blocking reason by trying toosign-in from a familiar location or device.</span></span>
+2. <span data-ttu-id="70bbf-125">**İlkenin dışında tutmak** - düşünüyorsanız hello yapılandırmasına oturum açma ilkenizin belirli kullanıcılar için sorunları neden, hello kullanıcılar dışlayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="70bbf-125">**Exclude from policy** - If you think that hello current configuration of your sign-in policy is causing issues for specific users, you can exclude hello users from it.</span></span> <span data-ttu-id="70bbf-126">Bkz: [Azure Active Directory kimlik koruması](active-directory-identityprotection.md) daha fazla ayrıntı için.</span><span class="sxs-lookup"><span data-stu-id="70bbf-126">See [Azure Active Directory Identity Protection](active-directory-identityprotection.md) for more details.</span></span>
+3. <span data-ttu-id="70bbf-127">**İlkeyi devre dışı** - düşünüyorsanız, ilke yapılandırması, tüm kullanıcılar için sorunlara neden olup, hello ilkesi devre dışı bırakabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="70bbf-127">**Disable policy** - If you think that your policy configuration is causing issues for all your users, you can disable hello policy.</span></span> <span data-ttu-id="70bbf-128">Bkz: [Azure Active Directory kimlik koruması](active-directory-identityprotection.md) daha fazla ayrıntı için.</span><span class="sxs-lookup"><span data-stu-id="70bbf-128">See [Azure Active Directory Identity Protection](active-directory-identityprotection.md) for more details.</span></span>
+
+## <a name="unblocking-accounts-at-risk"></a><span data-ttu-id="70bbf-129">Risk engellemesini kaldırma hesapları</span><span class="sxs-lookup"><span data-stu-id="70bbf-129">Unblocking accounts at risk</span></span>
+<span data-ttu-id="70bbf-130">toounblock hesabı risk bir seçenekleri aşağıdaki hello vardır:</span><span class="sxs-lookup"><span data-stu-id="70bbf-130">toounblock an account at risk, you have hello following options:</span></span>
+
+1. <span data-ttu-id="70bbf-131">**Parola sıfırlama** -hello kullanıcının parolasını sıfırlayabilir.</span><span class="sxs-lookup"><span data-stu-id="70bbf-131">**Reset password** - You can reset hello user's password.</span></span> <span data-ttu-id="70bbf-132">Bkz: [el ile güvenli parola sıfırlama](active-directory-identityprotection.md#manual-secure-password-reset) daha fazla ayrıntı için.</span><span class="sxs-lookup"><span data-stu-id="70bbf-132">See [manual secure password reset](active-directory-identityprotection.md#manual-secure-password-reset) for more details.</span></span>
+2. <span data-ttu-id="70bbf-133">**Tüm risk olayı kapatmak** -hello kullanıcı risk ilkesine bir kullanıcı erişimi engelleme için yapılandırılmış hello kullanıcı risk düzeyi ulaştıysanız engeller.</span><span class="sxs-lookup"><span data-stu-id="70bbf-133">**Dismiss all risk events** - hello user risk policy blocks a user if hello configured user risk level for blocking access has been reached.</span></span> <span data-ttu-id="70bbf-134">Bir kullanıcı azaltabilir el ile kapatarak risk düzeyi risk olaylarını bildirilen kullanıcının.</span><span class="sxs-lookup"><span data-stu-id="70bbf-134">You can reduce a user's risk level by manually closing reported risk events.</span></span> <span data-ttu-id="70bbf-135">Daha fazla ayrıntı için bkz: [risk olaylarını el ile kapatma](active-directory-identityprotection.md#closing-risk-events-manually).</span><span class="sxs-lookup"><span data-stu-id="70bbf-135">For more details, see [closing risk events manually](active-directory-identityprotection.md#closing-risk-events-manually).</span></span>
+3. <span data-ttu-id="70bbf-136">**İlkenin dışında tutmak** - düşünüyorsanız hello yapılandırmasına oturum açma ilkenizin belirli kullanıcılar için sorunları neden, hello kullanıcılar dışlayabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="70bbf-136">**Exclude from policy** - If you think that hello current configuration of your sign-in policy is causing issues for specific users, you can exclude hello users from it.</span></span> <span data-ttu-id="70bbf-137">Bkz: [Azure Active Directory kimlik koruması](active-directory-identityprotection.md) daha fazla ayrıntı için.</span><span class="sxs-lookup"><span data-stu-id="70bbf-137">See [Azure Active Directory Identity Protection](active-directory-identityprotection.md) for more details.</span></span>
+4. <span data-ttu-id="70bbf-138">**İlkeyi devre dışı** - düşünüyorsanız, ilke yapılandırması, tüm kullanıcılar için sorunlara neden olup, hello ilkesi devre dışı bırakabilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="70bbf-138">**Disable policy** - If you think that your policy configuration is causing issues for all your users, you can disable hello policy.</span></span> <span data-ttu-id="70bbf-139">Bkz: [Azure Active Directory kimlik koruması](active-directory-identityprotection.md) daha fazla ayrıntı için.</span><span class="sxs-lookup"><span data-stu-id="70bbf-139">See [Azure Active Directory Identity Protection](active-directory-identityprotection.md) for more details.</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="70bbf-140">Sonraki adımlar</span><span class="sxs-lookup"><span data-stu-id="70bbf-140">Next steps</span></span>
+ <span data-ttu-id="70bbf-141">Azure AD kimlik koruması hakkında daha fazla tooknow istiyor musunuz?</span><span class="sxs-lookup"><span data-stu-id="70bbf-141">Do you want tooknow more about Azure AD Identity Protection?</span></span> <span data-ttu-id="70bbf-142">Kullanıma [Azure Active Directory kimlik koruması](active-directory-identityprotection.md).</span><span class="sxs-lookup"><span data-stu-id="70bbf-142">Check out [Azure Active Directory Identity Protection](active-directory-identityprotection.md).</span></span>

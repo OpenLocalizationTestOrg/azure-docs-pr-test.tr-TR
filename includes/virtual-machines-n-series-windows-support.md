@@ -1,0 +1,19 @@
+## <a name="supported-operating-systems-and-drivers"></a><span data-ttu-id="db7f7-101">Desteklenen işletim sistemleri ve sürücüler</span><span class="sxs-lookup"><span data-stu-id="db7f7-101">Supported operating systems and drivers</span></span>
+
+### <a name="nv-instances---nvidia-grid-drivers"></a><span data-ttu-id="db7f7-102">NV örnekleri - NVIDIA GRID sürücüleri</span><span class="sxs-lookup"><span data-stu-id="db7f7-102">NV instances - NVIDIA GRID drivers</span></span>
+
+| <span data-ttu-id="db7f7-103">İşletim Sistemi</span><span class="sxs-lookup"><span data-stu-id="db7f7-103">OS</span></span> | <span data-ttu-id="db7f7-104">Sürücü</span><span class="sxs-lookup"><span data-stu-id="db7f7-104">Driver</span></span> |
+| -------- |------------- |
+| <span data-ttu-id="db7f7-105">Windows Server 2016</span><span class="sxs-lookup"><span data-stu-id="db7f7-105">Windows Server 2016</span></span> | <span data-ttu-id="db7f7-106">[370.12](https://go.microsoft.com/fwlink/?linkid=836843) (.exe)</span><span class="sxs-lookup"><span data-stu-id="db7f7-106">[370.12](https://go.microsoft.com/fwlink/?linkid=836843) (.exe)</span></span> |
+| <span data-ttu-id="db7f7-107">Windows Server 2012 R2</span><span class="sxs-lookup"><span data-stu-id="db7f7-107">Windows Server 2012 R2</span></span> | <span data-ttu-id="db7f7-108">[370.12](https://go.microsoft.com/fwlink/?linkid=836844) (.exe)</span><span class="sxs-lookup"><span data-stu-id="db7f7-108">[370.12](https://go.microsoft.com/fwlink/?linkid=836844) (.exe)</span></span>  |
+
+### <a name="nc-instances---nvidia-tesla-drivers"></a><span data-ttu-id="db7f7-109">NC örnekleri - NVIDIA Tesla sürücüleri</span><span class="sxs-lookup"><span data-stu-id="db7f7-109">NC instances - NVIDIA Tesla drivers</span></span>
+
+| <span data-ttu-id="db7f7-110">İşletim Sistemi</span><span class="sxs-lookup"><span data-stu-id="db7f7-110">OS</span></span> | <span data-ttu-id="db7f7-111">Sürücü</span><span class="sxs-lookup"><span data-stu-id="db7f7-111">Driver</span></span> |
+| -------- |------------- |
+| <span data-ttu-id="db7f7-112">Windows Server 2016</span><span class="sxs-lookup"><span data-stu-id="db7f7-112">Windows Server 2016</span></span> | <span data-ttu-id="db7f7-113">[376.84](http://us.download.nvidia.com/Windows/Quadro_Certified/376.84/376.84-tesla-desktop-winserver2016-international-whql.exe) (.exe)</span><span class="sxs-lookup"><span data-stu-id="db7f7-113">[376.84](http://us.download.nvidia.com/Windows/Quadro_Certified/376.84/376.84-tesla-desktop-winserver2016-international-whql.exe) (.exe)</span></span> |
+| <span data-ttu-id="db7f7-114">Windows Server 2012 R2</span><span class="sxs-lookup"><span data-stu-id="db7f7-114">Windows Server 2012 R2</span></span> | <span data-ttu-id="db7f7-115">[376.84](http://us.download.nvidia.com/Windows/Quadro_Certified/376.84/376.84-tesla-desktop-winserver2008-2012r2-64bit-international-whql.exe) (.exe)</span><span class="sxs-lookup"><span data-stu-id="db7f7-115">[376.84](http://us.download.nvidia.com/Windows/Quadro_Certified/376.84/376.84-tesla-desktop-winserver2008-2012r2-64bit-international-whql.exe) (.exe)</span></span> |
+
+> [!NOTE]
+> <span data-ttu-id="db7f7-116">Tesla sürücüsü indirme bağlantıları, bu içeriğin yayımlandığı tarih için günceldir.</span><span class="sxs-lookup"><span data-stu-id="db7f7-116">Tesla driver download links are current at time of publication.</span></span> <span data-ttu-id="db7f7-117">En son sürücüler için [NVIDIA](http://www.nvidia.com/) web sitesini ziyaret edin.</span><span class="sxs-lookup"><span data-stu-id="db7f7-117">For the latest drivers, visit the [NVIDIA](http://www.nvidia.com/) website.</span></span>
+>

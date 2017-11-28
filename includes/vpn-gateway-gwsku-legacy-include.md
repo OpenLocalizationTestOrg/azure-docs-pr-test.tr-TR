@@ -1,0 +1,14 @@
+<span data-ttu-id="87e01-101">Eski VPN ağ geçidi SKU'ları şunlardır:</span><span class="sxs-lookup"><span data-stu-id="87e01-101">The legacy (old) VPN gateway SKUs are:</span></span>
+
+* <span data-ttu-id="87e01-102">Temel</span><span class="sxs-lookup"><span data-stu-id="87e01-102">Basic</span></span>
+* <span data-ttu-id="87e01-103">Standart</span><span class="sxs-lookup"><span data-stu-id="87e01-103">Standard</span></span>
+* <span data-ttu-id="87e01-104">HighPerformance</span><span class="sxs-lookup"><span data-stu-id="87e01-104">HighPerformance</span></span>
+
+<span data-ttu-id="87e01-105">VPN Gateway, UltraPerformance ağ geçidi SKU’sunu kullanmaz.</span><span class="sxs-lookup"><span data-stu-id="87e01-105">VPN Gateway does not use the UltraPerformance gateway SKU.</span></span> <span data-ttu-id="87e01-106">UltraPerformance SKU’su hakkında bilgi edinmek için [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) belgelerine bakın.</span><span class="sxs-lookup"><span data-stu-id="87e01-106">For information about the UltraPerformance SKU, see the [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) documentation.</span></span>
+
+<span data-ttu-id="87e01-107">Eski SKU'lar ile çalışırken aşağıdakileri göz önünde bulundurun:</span><span class="sxs-lookup"><span data-stu-id="87e01-107">When working with the legacy SKUs, consider the following:</span></span>
+
+* <span data-ttu-id="87e01-108">PolicyBased VPN türünü kullanmak istiyorsanız Temel SKU'yu kullanmanız gerekir.</span><span class="sxs-lookup"><span data-stu-id="87e01-108">If you want to use a PolicyBased VPN type, you must use the Basic SKU.</span></span> <span data-ttu-id="87e01-109">PolicyBased VPN'ler (daha önce Statik Yönlendirme olarak biliniyordu), diğer SKU’larda desteklenmez.</span><span class="sxs-lookup"><span data-stu-id="87e01-109">PolicyBased VPNs (previously called Static Routing) are not supported on any other SKU.</span></span>
+* <span data-ttu-id="87e01-110">BGP, Temel SKU’da desteklenmez.</span><span class="sxs-lookup"><span data-stu-id="87e01-110">BGP is not supported on the Basic SKU.</span></span>
+* <span data-ttu-id="87e01-111">ExpressRoute-VPN Gateway ağ geçidi bir arada var olabilen yapılandırmaları, temel SKU'da desteklenmez.</span><span class="sxs-lookup"><span data-stu-id="87e01-111">ExpressRoute-VPN Gateway coexist configurations are not supported on the Basic SKU.</span></span>
+* <span data-ttu-id="87e01-112">Etkin-etkin S2S VPN Gateway bağlantıları, yalnızca HighPerformance değerine sahip SKU'larda yapılandırılabilir.</span><span class="sxs-lookup"><span data-stu-id="87e01-112">Active-active S2S VPN Gateway connections can be configured on the HighPerformance SKU only.</span></span>

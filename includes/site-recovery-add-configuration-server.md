@@ -1,0 +1,46 @@
+1. <span data-ttu-id="464f6-101">Birleşik Kurulum yükleme dosyasını çalıştırın.</span><span class="sxs-lookup"><span data-stu-id="464f6-101">Run the Unified Setup installation file.</span></span>
+2. <span data-ttu-id="464f6-102">İçinde **başlamadan önce**seçin **işlem sunucusu ve yapılandırma sunucusu yüklemek**.</span><span class="sxs-lookup"><span data-stu-id="464f6-102">In **Before You Begin**, select **Install the configuration server and process server**.</span></span>
+
+    ![Başlamadan önce](./media/site-recovery-add-configuration-server/combined-wiz1.png)
+
+3. <span data-ttu-id="464f6-104">MySQL indirip yüklemek için **Üçüncü Taraf Yazılım Lisansı** bölümünde **Kabul Ediyorum**’a tıklayın.</span><span class="sxs-lookup"><span data-stu-id="464f6-104">In **Third Party Software License**, click **I Accept** to download and install MySQL.</span></span>
+
+    ![Üçüncü taraf yazılım](./media/site-recovery-add-configuration-server/combined-wiz2.png)
+4. <span data-ttu-id="464f6-106">**Kayıt** menüsünde kasadan indirdiğiniz kayıt defteri anahtarını seçin.</span><span class="sxs-lookup"><span data-stu-id="464f6-106">In **Registration**, select the registration key you downloaded from the vault.</span></span>
+
+    ![Kayıt](./media/site-recovery-add-configuration-server/combined-wiz3.png)
+5. <span data-ttu-id="464f6-108">**İnternet Ayarları** alanında, yapılandırma sunucusunda çalışan Sağlayıcının Azure Site Recovery'ye İnternet üzerinden nasıl bağlanacağını belirtin.</span><span class="sxs-lookup"><span data-stu-id="464f6-108">In **Internet Settings**, specify how the Provider running on the configuration server connects to Azure Site Recovery over the Internet.</span></span>
+
+   <span data-ttu-id="464f6-109">a.</span><span class="sxs-lookup"><span data-stu-id="464f6-109">a.</span></span> <span data-ttu-id="464f6-110">Şu anda makinede select ayarlanıp proxy ile bağlanmak isterseniz **Azure Site Recovery proxy sunucu kullanma Bağlan**.</span><span class="sxs-lookup"><span data-stu-id="464f6-110">If you want to connect with the proxy that's currently set up on the machine, select **Connect to Azure Site Recovery using a proxy server**.</span></span>
+
+   <span data-ttu-id="464f6-111">b.</span><span class="sxs-lookup"><span data-stu-id="464f6-111">b.</span></span> <span data-ttu-id="464f6-112">Sağlayıcı doğrudan bağlanmasını istiyorsanız seçin **Azure Site Recovery bir proxy sunucu olmadan doğrudan bağlan**.</span><span class="sxs-lookup"><span data-stu-id="464f6-112">If you want the Provider to connect directly, select **Connect directly to Azure Site Recovery without a proxy server**.</span></span>
+
+   <span data-ttu-id="464f6-113">c.</span><span class="sxs-lookup"><span data-stu-id="464f6-113">c.</span></span> <span data-ttu-id="464f6-114">Var olan ara sunucu kimlik doğrulaması gerektiriyorsa veya Sağlayıcı bağlantısı için özel bir ara sunucu kullanmak istiyorsanız **Özel ara sunucu ayarlarıyla bağlan** seçeneğini belirleyin.</span><span class="sxs-lookup"><span data-stu-id="464f6-114">If the existing proxy requires authentication, or if you want to use a custom proxy for the Provider connection, select **Connect with custom proxy settings**.</span></span>
+
+     * <span data-ttu-id="464f6-115">Özel bir ara sunucu kullanırsanız adresi, bağlantı noktasını ve kimlik bilgilerini belirtmeniz gerekir.</span><span class="sxs-lookup"><span data-stu-id="464f6-115">If you use a custom proxy, you need to specify the address, port, and credentials.</span></span>
+     * <span data-ttu-id="464f6-116">Bir proxy sunucu kullanıyorsanız, zaten bölümünde açıklanan URL'lere izin gerektiğini [Önkoşullar](#prerequisites).</span><span class="sxs-lookup"><span data-stu-id="464f6-116">If you're using a proxy, you should have already allowed the URLs described in [Prerequisites](#prerequisites).</span></span>
+
+     ![Güvenlik duvarı](./media/site-recovery-add-configuration-server/combined-wiz4.png)
+6. <span data-ttu-id="464f6-118">**Önkoşul Denetimi** menüsünde Kurulum, yüklemenin çalışabildiğinden emin olmak üzere bir denetim gerçekleştirir.</span><span class="sxs-lookup"><span data-stu-id="464f6-118">In **Prerequisites Check**, Setup runs a check to make sure that installation can run.</span></span> <span data-ttu-id="464f6-119">**Genel saat eşitleme denetimi** hakkında bir uyarı görünürse, sistem saatindeki zamanın (**Tarih ve Saat** ayarları) saat dilimiyle aynı olduğunu doğrulayın.</span><span class="sxs-lookup"><span data-stu-id="464f6-119">If a warning appears about the **Global time sync check**, verify that the time on the system clock (**Date and Time** settings) is the same as the time zone.</span></span>
+
+    ![Ön koşullar](./media/site-recovery-add-configuration-server/combined-wiz5.png)
+7. <span data-ttu-id="464f6-121">**MySQL Yapılandırması** menüsünde, yüklü MySQL sunucu örneğinde oturum açmak için kimlik bilgileri oluşturun.</span><span class="sxs-lookup"><span data-stu-id="464f6-121">In **MySQL Configuration**, create credentials for logging on to the MySQL server instance that is installed.</span></span>
+
+    ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)
+8. <span data-ttu-id="464f6-123">**Ortam Ayrıntıları**’nda VMware sanal makinelerini çoğaltıp çoğaltmayacağınızı seçin.</span><span class="sxs-lookup"><span data-stu-id="464f6-123">In **Environment Details**, select whether you're going to replicate VMware VMs.</span></span> <span data-ttu-id="464f6-124">Varsa, Kurulum Powerclı 6.0 yüklü olduğunu denetler.</span><span class="sxs-lookup"><span data-stu-id="464f6-124">If you are, then Setup checks that PowerCLI 6.0 is installed.</span></span>
+
+    ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz7.png)
+
+9. <span data-ttu-id="464f6-126">**Yükleme Konumu** alanında ikili dosyaları yüklemek ve önbelleği depolamak istediğiniz konumu seçin.</span><span class="sxs-lookup"><span data-stu-id="464f6-126">In **Install Location**, select where you want to install the binaries and store the cache.</span></span> <span data-ttu-id="464f6-127">Seçtiğiniz sürücü en az 5 GB kullanılabilir disk alanına sahip olmalıdır, ancak en az 600 GB boş alanı olan bir önbellek sürücüsü seçmeniz önerilir.</span><span class="sxs-lookup"><span data-stu-id="464f6-127">The drive you select must have at least 5 GB of disk space available, but we recommend a cache drive with at least 600 GB of free space.</span></span>
+
+    ![Yükleme konumu](./media/site-recovery-add-configuration-server/combined-wiz8.png)
+10. <span data-ttu-id="464f6-129">**Ağ Seçimi** menüsünde, yapılandırma sunucusunun çoğaltma verilerini gönderip aldığı dinleyiciyi (ağ bağdaştırıcısı ve SSL bağlantı noktası) seçin.</span><span class="sxs-lookup"><span data-stu-id="464f6-129">In **Network Selection**, specify the listener (network adapter and SSL port) on which the configuration server sends and receives replication data.</span></span> <span data-ttu-id="464f6-130">Bağlantı noktası 9443, çoğaltma trafiğini gönderip almak için kullanılan varsayılan bağlantı noktasıdır, ancak bu bağlantı noktası numarasını ortamınızın gereksinimlerine uyacak şekilde değiştirebilirsiniz.</span><span class="sxs-lookup"><span data-stu-id="464f6-130">Port 9443 is the default port used for sending and receiving replication traffic, but you can modify this port number to suit your environment's requirements.</span></span> <span data-ttu-id="464f6-131">Bağlantı noktası 9443’e ek olarak, çoğaltma işlemlerini düzenlemek için web sunucusu tarafından kullanılan bağlantı noktası 443 de açılır.</span><span class="sxs-lookup"><span data-stu-id="464f6-131">In addition to the port 9443, we also open port 443, which is used by a web server to orchestrate replication operations.</span></span> <span data-ttu-id="464f6-132">Bağlantı noktası 443 gönderirken ya da çoğaltma trafiğini alırken için kullanmayın.</span><span class="sxs-lookup"><span data-stu-id="464f6-132">Do not use port 443 for sending or receiving replication traffic.</span></span>
+
+    ![Ağ seçimi](./media/site-recovery-add-configuration-server/combined-wiz9.png)
+
+
+11. <span data-ttu-id="464f6-134">**Özet** alanındaki bilgileri gözden geçirin ve **Yükle**’ye tıklayın.</span><span class="sxs-lookup"><span data-stu-id="464f6-134">In **Summary**, review the information and click **Install**.</span></span> <span data-ttu-id="464f6-135">Yükleme tamamlandığında bir parola oluşturulur.</span><span class="sxs-lookup"><span data-stu-id="464f6-135">When installation finishes, a passphrase is generated.</span></span> <span data-ttu-id="464f6-136">Çoğaltmayı etkinleştirdiğinizde bu parola gerekli olacaktır; bu yüzden kopyalayıp güvenli bir yerde saklayın.</span><span class="sxs-lookup"><span data-stu-id="464f6-136">You will need this when you enable replication, so copy it and keep it in a secure location.</span></span>
+
+    ![Özet](./media/site-recovery-add-configuration-server/combined-wiz10.png)
+
+<span data-ttu-id="464f6-138">Kayıt tamamlandıktan sonra, sunucu kasadaki **Ayarlar** > **Sunucular** dikey penceresinde görüntülenir.</span><span class="sxs-lookup"><span data-stu-id="464f6-138">After registration finishes, the server is displayed on the **Settings** > **Servers** blade in the vault.</span></span>
