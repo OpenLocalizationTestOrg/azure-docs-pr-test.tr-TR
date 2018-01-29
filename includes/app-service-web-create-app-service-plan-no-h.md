@@ -1,14 +1,14 @@
-Merhaba ile bir uygulama hizmeti planı oluştur [az uygulama hizmeti planı oluşturma](/cli/azure/appservice/plan#create) komutu.
+Cloud Shell içinde [az appservice plan create](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) komutu ile bir App Service planı oluşturun.
 
 [!INCLUDE [app-service-plan](app-service-plan.md)]
 
-Merhaba aşağıdaki örnekte oluşturur adlı bir uygulama hizmeti planı `myAppServicePlan` hello içinde **serbest** fiyatlandırma katmanı:
+Aşağıdaki örnekte, **Ücretsiz** fiyatlandırma katmanı kullanılarak `myAppServicePlan` adlı bir App Service planı oluşturulmaktadır:
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
 ```
 
-Uygulama hizmeti planı Hello oluşturduğunuzda hello Azure CLI bilgi benzer toohello aşağıdaki örneğine gösterir:
+App Service planı oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgiler gösterir:
 
 ```json
 { 

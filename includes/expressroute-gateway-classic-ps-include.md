@@ -1,26 +1,42 @@
-VNet ve bir ağ geçidi alt ağı önce görevleri aşağıdaki hello üzerinde çalışmaya başlamadan önce oluşturmanız gerekir. Merhaba makalesine bakın [hello Klasik portalı kullanarak bir sanal ağ yapılandırma](../articles/expressroute/expressroute-howto-vnet-portal-classic.md) daha fazla bilgi için.   
+VNet ve bir ağ geçidi alt ağı önce aşağıdaki görevlere çalışmaya başlamadan önce oluşturmanız gerekir.
+
+> [!NOTE]
+> Bu örnekler S2S/ExpressRoute için geçerli olmayan yapılandırmalar bir arada.
+> Coexist yapılandırmasında ağ geçitleri ile çalışma hakkında daha fazla bilgi için bkz: [arada var olabilen bağlantılar yapılandırmak](../articles/expressroute/expressroute-howto-coexist-classic.md#gw)
 
 ## <a name="add-a-gateway"></a>Bir ağ geçidi Ekle
-Bir ağ geçidi toocreate aşağıdaki Hello komutunu kullanın. Emin toosubstitute kendi için herhangi bir değer olmalıdır.
 
-    New-AzureVirtualNetworkGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType Dedicated -GatewaySKU  Standard
+Bir ağ geçidi oluşturmak için aşağıdaki komutu kullanın. Kendi ilgili tüm değerleri değiştirdiğinizden emin olun.
 
-## <a name="verify-hello-gateway-was-created"></a>Merhaba ağ geçidinin oluşturulduğunu doğrulayın
-Ağ geçidi hello tooverify aşağıdaki kullanım hello komutunu oluşturuldu. Bu komut ayrıca diğer işlemler için gereksinim duyduğunuz hello ağ geçidi kimliği alır.
+```powershell
+New-AzureVNetGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType DynamicRouting -GatewaySKU  Standard
+```
 
-    Get-AzureVirtualNetworkGateway
+## <a name="verify-the-gateway-was-created"></a>Ağ geçidinin oluşturulduğunu doğrulayın
+
+Ağ geçidinin oluşturulduğunu doğrulamak için aşağıdaki komutu kullanın. Bu komut ayrıca diğer işlemleri için gereken ağ geçidi kimliği alır.
+
+```powershell
+Get-AzureVNetGateway
+```
 
 ## <a name="resize-a-gateway"></a>Bir ağ geçidi yeniden boyutlandırma
-Bir dizi vardır [ağ geçidi SKU'ları](../articles/expressroute/expressroute-about-virtual-network-gateways.md). Herhangi bir zamanda komutu toochange hello ağ geçidi SKU'su aşağıdaki hello kullanabilirsiniz.
+
+Bir dizi vardır [ağ geçidi SKU'ları](../articles/expressroute/expressroute-about-virtual-network-gateways.md). Ağ geçidi SKU'su herhangi bir zamanda değiştirmek için aşağıdaki komutu kullanabilirsiniz.
 
 > [!IMPORTANT]
-> Bu komut için UltraPerformance ağ geçidi çalışmıyor. toochange ağ geçidi tooan UltraPerformance ağ geçidiniz, önce ExpressRoute ağ geçidi mevcut hello kaldırın ve yeni UltraPerformance ağ geçidi oluşturmak. toodowngrade önce bir UltraPerformance ağ geçidi, ağ geçidinden Kaldır UltraPerformance ağ geçidi hello ve ardından yeni bir ağ geçidi oluşturun. 
-> 
-> 
+> Bu komut için UltraPerformance ağ geçidi çalışmıyor. UltraPerformance ağ geçidi için ağ geçidiniz değiştirmek için önce varolan ExpressRoute ağ geçidi kaldırın ve yeni UltraPerformance ağ geçidi oluşturmak. Ağ geçidiniz UltraPerformance geçidinden düşürmek için ilk UltraPerformance ağ geçidi kaldırın ve ardından yeni bir ağ geçidi oluşturun. 
+>
+>
 
-    Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
+```powershell
+Resize-AzureVNetGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
+```
 
 ## <a name="remove-a-gateway"></a>Bir ağ geçidi kaldırma
-Bir ağ geçidi tooremove aşağıdaki Hello komutunu kullanın
 
-    Remove-AzureVirtualNetworkGateway -GatewayId <Gateway ID>
+Bir ağ geçidini kaldırmak için aşağıdaki komutu kullanın
+
+```powershell
+Remove-AzureVnetGateway -GatewayId <Gateway ID>
+```

@@ -1,10 +1,12 @@
 
-* Merhaba dönüştürme hello VM yeniden başlatılmasını gerektirir, bu nedenle Vm'leriniz hello geçiş önceden var olan bir bakım penceresi sırasında zamanlayın. 
+* Dönüştürme işlemi VM’nin yeniden başlatılmasını gerektirir, bu nedenle VM'lerinizin geçişini önceden var olan bir bakım penceresi sırasında zamanlayın. 
 
-* Merhaba dönüştürme ters çevrilebilir değil. 
+* Bu dönüştürme geri alınamaz. 
 
-* Tootest hello dönüştürme emin olun. Üretim hello geçişi gerçekleştirmeden önce bir sınama sanal makinesini geçirin.
+* Dönüştürmeyi test ettiğinizden emin olun. Üretimde geçişi gerçekleştirmeden önce bir sınama sanal makinesini geçirin.
 
-* Merhaba dönüştürme sırasında hello VM serbest bırakma. Merhaba dönüştürmeden sonra başlatıldığında hello VM yeni bir IP adresi alır. Gerekirse, [statik IP adresi atamak](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) toohello VM.
+* Dönüştürme sırasında VM’yi serbest bırakın. VM, dönüştürmeden sonra başlatıldığında yeni bir IP adresi alır. Gerekirse VM’ye [statik bir IP adresi atayabilirsiniz](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md).
 
-* Merhaba özgün VHD ve dönüştürmeden önce hello VM tarafından kullanılan hello depolama hesabı silinmez. Tooincur ücretleri devam eder. Bu yapıtların için fatura tooavoid hello dönüştürme tam olduğunu doğruladıktan sonra hello özgün VHD BLOB'ları silin.
+* Özgün VHD’ler ve dönüştürme öncesinde VM tarafından kullanılan depolama hesabı silinmez. Ücretler uygulanmaya devam eder. Bunlar için ücret alınmasını önlemek istiyorsanız, dönüştürmenin tamamlandığını doğruladıktan sonra özgün VHD bloblarını silin.
+
+* Azure VM Aracısı dönüştürme işlemini desteklemek için gerekli en düşük sürümünü gözden geçirin. Denetleyin ve aracı sürümü güncelleştirme hakkında daha fazla bilgi için bkz: [Azure VM aracıları için en düşük sürüm desteği](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)

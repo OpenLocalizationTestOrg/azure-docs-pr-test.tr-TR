@@ -1,21 +1,12 @@
 
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell'i başlatma
 
-Hello Azure bulut Kabuğu doğrudan hello Azure portal'içinde çalıştırabilirsiniz boş bir Bash kabuğunda ' dir. Azure CLI yüklenmiş ve toouse hesabınız ile yapılandırılan hello sahiptir. Merhaba tıklatın **bulut Kabuk** hello üst sağ hello hello menüsünde düğmesini [Azure portal](https://portal.azure.com).
+Azure bulut Kabuk, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuk ' dir. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Tıklatmanız **kopyalama** kodu kopyalamak için bulut kabuğundan yapıştırın ve sonra çalıştırmak için enter tuşuna basın.  Bulut Kabuğu'nu başlatmak için birkaç yolu vardır:
 
-[![Cloud Shell](./media/cloud-shell-try-it/cloud-shell-menu.png)](https://portal.azure.com)
-
-Merhaba düğmesi hello tüm adımlar bu konuda toorun kullanabileceğiniz etkileşimli bir kabuk başlatır:
-
-[![Ekran gösteren hello bulut Kabuk hello portal penceresinde](./media/cloud-shell-try-it/cloud-shell-safari.png)](https://portal.azure.com)
-
-
-
-
-
-
-
-
-
-
+|  |   |
+|-----------------------------------------------|---|
+| Tıklatın **deneyin** kod bloğu sağ üst köşesindeki. | ![Bu makalede bulut Kabuğu](./media/cloud-shell-try-it/cli-try-it.png) |
+| Bulut Kabuğu'nu tarayıcınızda açın. | [![https://shell.azure.com/bash](./media/cloud-shell-try-it/launchcloudshell.png)](https://shell.azure.com/bash) |
+| Tıklatın **bulut Kabuk** düğmesine sağ üst tarafındaki menüde [Azure portal](https://portal.azure.com). |    ![Portalı'nda bulut Kabuğu](./media/cloud-shell-try-it/cloud-shell-menu.png) |
+|  |  |
 

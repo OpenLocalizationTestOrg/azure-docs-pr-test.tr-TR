@@ -1,38 +1,57 @@
-## <a name="create-hello-webapi-project"></a>Merhaba Webapı projesi oluşturma
-Yeni bir ASP.NET Webapı arka izleyin hello bölümlerde oluşturulur ve üç ana amacı vardır:
+## <a name="create-the-webapi-project"></a>Webapı projesi oluşturma
+Sonraki bölümlerde yeni bir ASP.NET Webapı arka uç oluşturulması açıklanmaktadır. Bu işlem, üç ana amacı vardır:
 
-1. **Kimlik doğrulaması yapan istemcilerin**: ileti işleyicisi sonraki tooauthenticate istemci istekleri ve hello isteği ile ilişkilendirme hello kullanıcı eklenir.
-2. **İstemci bildirim kayıtları**: denetleyicisi toohandle yeni kayıtlar için bir istemci cihaz tooreceive bildirimleri daha sonra ekleyeceksiniz. Merhaba kimliği doğrulanmış kullanıcı adı otomatik olarak toohello kayıt olarak eklenecek bir [etiketi](https://msdn.microsoft.com/library/azure/dn530749.aspx).
-3. **Bildirimleri tooClients gönderme**: daha sonra siz de denetleyicisi tooprovide kullanıcı tootrigger güvenli itme toodevices yolu ve istemciler hello etiketiyle ilişkili ekleyeceksiniz. 
+* **İstemcilerin kimliğini**: daha sonra istemci isteklerinin kimliğini doğrulamak ve kullanıcı isteği ile ilişkilendirmek için ileti işleyicisi ekleyin.
 
-Aşağıdaki adımları hello nasıl toocreate hello yeni ASP.NET Webapı arka uç göster: 
+* **Webapı kullanarak bildirim arka uç için kaydetme**: bildirimleri almak bir istemci aygıt için yeni kayıtlar işlemek için bir denetleyici ekleyin. Kimliği doğrulanmış kullanıcı kayıt otomatik olarak eklenen bir [etiketi](https://msdn.microsoft.com/library/azure/dn530749.aspx).
+
+* **İstemciler için bildirimler Gönder**: Ayrıca cihazlara ve etiketiyle ilişkili istemcileri güvenli bir anında iletme tetiklemek bir yol sağlamak için bir denetleyici ekleyin. 
+
+Yeni ASP.NET Webapı arka uç, aşağıdakileri yaparak oluşturun: 
 
 > [!IMPORTANT]
-> Visual Studio 2015 kullanıyorsanız veya önceki sürümleri, bu öğreticiye başlamadan önce lütfen hello hello NuGet Paket Yöneticisi en son sürümünü yüklediğinizden emin olun. toocheck, Visual Studio Başlangıç. Merhaba gelen **Araçları** menüsünde tıklatın **Uzantılar ve güncelleştirmeler**. Arama **NuGet Paket Yöneticisi** hello en son sürümü yüklü sürümü için Visual Studio ve emin olun. Aksi takdirde, kaldırın, ardından hello NuGet Paket Yöneticisi'ni yeniden yükleyin.
-> 
-> ![][B4]
-> 
+> Visual Studio 2015 kullanıyorsanız veya önceki sürümleri, bu öğreticiye başlamadan önce emin olun, Visual Studio için NuGet Paket Yöneticisi'nin en son sürümü yüklü. 
+>
+>Denetlemek için Visual Studio’yu başlatın. Üzerinde **Araçları** menüsünde, select **Uzantılar ve güncelleştirmeler**. Arama **NuGet Paket Yöneticisi** Visual Studio emin olun ve sürümünüzde en son sürüme sahip. Sürümünüz en son sürümü değilse, bunu kaldırın ve NuGet Paket Yöneticisi'ni yeniden yükleyin.
+ 
+![][B4]
+
 > [!NOTE]
-> Visual Studio hello yüklediğinizden emin olun [Azure SDK'sı](https://azure.microsoft.com/downloads/) Web dağıtımı için.
+> Web sitesi dağıtımı için Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/)’sını yüklediğinizden emin olun.
 > 
 > 
 
-1. Visual Studio veya Visual Studio Express’i başlatın. Tıklatın **Sunucu Gezgini** ve tooyour Azure hesabı oturum açın. Visual Studio toocreate hello web sitesi kaynakları hesabınızda imzalı ihtiyacınız olacaktır.
-2. Visual Studio'da sırasıyla **dosya**, ardından **yeni**, ardından **proje**, genişletin **şablonları**, **Visual C#**, ardından **Web** ve **ASP.NET Web uygulaması**, tür hello adı **AppBackend**ve ardından **Tamam**. 
-   
-    ![][B1]
-3. Merhaba, **yeni ASP.NET projesi** iletişim kutusunda, tıklatın **Web API**, ardından **Tamam**.
-   
-    ![][B2]
-4. Merhaba, **yapılandırma Microsoft Azure Web uygulaması** iletişim kutusunda, bir abonelik seçin ve bir **uygulama hizmeti planı** zaten oluşturmuş. Ayrıca seçebilirsiniz **yeni bir uygulama hizmeti planı oluştur** hello iletişim kutusundan oluşturun. Bu öğretici için bir veritabanı gerekmez. Uygulama hizmet planınız seçtikten sonra tıklatın **Tamam** toocreate hello projesi.
-   
-    ![][B5]
+1. Visual Studio veya Visual Studio Express’i başlatın. 
 
-## <a name="authenticating-clients-toohello-webapi-backend"></a>İstemcileri toohello Webapı arka uç kimlik doğrulaması
-Bu bölümde, adlı yeni bir ileti işleyicisi sınıfı oluşturacak **AuthenticationTestHandler** hello yeni arka uç için. Bu sınıfın türetildiği [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) ve hello arka uç gelen tüm istekleri işleyebilmek için ileti işleyicisi eklenir. 
+2. Seçin **Sunucu Gezgini**ve Azure hesabınızda oturum açın. Hesabınızla ilgili web sitesini kaynak oluşturmak için oturum açmanız gerekir.
 
-1. Çözüm Gezgini'nde hello sağ **AppBackend** proje, tıklatın **Ekle**, ardından **sınıfı**. Ad hello yeni sınıf **AuthenticationTestHandler.cs**, tıklatıp **Ekle** toogenerate hello sınıfı. Bu sınıfı kullanarak kullanılan tooauthenticate kullanıcıların olacaktır *temel kimlik doğrulaması* basitleştirmek için. Uygulamanız herhangi bir kimlik doğrulama şemasını kullanabilir.
-2. AuthenticationTestHandler.cs içinde hello aşağıdakileri ekleyin `using` deyimleri:
+3. Visual Studio'da seçin **dosya** > **yeni** > **proje**, genişletin **şablonları**, genişletin**Visual C#**ve ardından **Web** ve **ASP.NET Web uygulaması**.
+
+4. İçinde **adı** kutusuna **AppBackend**ve ardından **Tamam**. 
+   
+    ![Yeni Proje penceresinin][B1]
+
+5. İçinde **yeni ASP.NET projesi** penceresinde, seçin **Web API** onay kutusunu işaretleyin ve ardından **Tamam**.
+   
+    ![Yeni ASP.NET projesi penceresi][B2]
+
+6. İçinde **yapılandırma Microsoft Azure Web uygulaması** penceresinde, bir abonelik seçin ve ardından **uygulama hizmeti planı** listesinde, aşağıdakilerden birini yapın:
+
+    * Önceden oluşturduğunuz bir uygulama hizmeti planı seçin. 
+    * Seçin **yeni bir uygulama hizmeti planı oluştur**, ardından oluşturun. 
+    
+  Bu öğretici için bir veritabanı gerekmez. Uygulama hizmet planınız seçtikten sonra Seç **Tamam** projesi oluşturmak için.
+   
+    ![Microsoft Azure Web uygulaması yapılandırma penceresi][B5]
+
+## <a name="authenticate-clients-to-the-webapi-back-end"></a>İstemciler için Webapı arka uç kimlik doğrulaması
+Bu bölümde, oluşturduğunuz adlı yeni bir ileti işleyicisi sınıf **AuthenticationTestHandler** yeni arka uç için. Bu sınıfın türetildiği [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) ve böylece tüm işleyebilir ileti işleyicisi bu arka uç içine istekleri olarak eklendi. 
+
+1. Çözüm Gezgini'nde sağ **AppBackend** proje, select **Ekle**ve ardından **sınıfı**. 
+ 
+2. Yeni sınıf **AuthenticationTestHandler.cs**ve ardından **Ekle** sınıfı oluşturmak için. Bu sınıf, kullanarak kullanıcıların kimlik doğrulaması *temel kimlik doğrulaması* basitleştirmek için. Uygulamanız herhangi bir kimlik doğrulama düzeni kullanabilirsiniz.
+
+3. AuthenticationTestHandler.cs sınıfına aşağıdaki `using` deyimlerini ekleyin:
    
         using System.Net.Http;
         using System.Threading;
@@ -41,19 +60,24 @@ Bu bölümde, adlı yeni bir ileti işleyicisi sınıfı oluşturacak **Authenti
         using System.Text;
         using System.Threading.Tasks;
 
-3. Merhaba değiştirme AuthenticationTestHandler.cs içinde `AuthenticationTestHandler` sınıf tanımının koddan hello ile. 
+4. AuthenticationTestHandler.cs içinde Değiştir `AuthenticationTestHandler` sınıf tanımını aşağıdaki kod ile: 
    
-    Aşağıdaki üç koşul hello tümü doğru olduğunda bu işleyici hello isteği yetkilendirin.
+    Aşağıdaki üç koşullar doğru olduğunda işleyicisi isteği yetkilendirin.
    
-   * Merhaba isteği dahil bir *yetkilendirme* üstbilgi. 
-   * Merhaba isteği kullanır *temel* kimlik doğrulaması. 
-   * Merhaba kullanıcı adı dizesi ve hello parola dizesi olan hello aynı dize.
+   * İsteği içeren bir *yetkilendirme* üstbilgi. 
+   * İstek *temel* kimlik doğrulaması kullanır. 
+   * Kullanıcı adı dizesi ve parola dizesi aynı dizelerdir.
      
-     Aksi takdirde hello isteği reddedilir. Bu geçerli bir kimlik doğrulama ve yetkilendirme yaklaşımı değildir. Yalnızca bu öğreticiye yönelik çok basit bir örnektir.
+  Aksi takdirde istek reddedilir. Bu geçerli bir kimlik doğrulama ve yetkilendirme yaklaşımı değildir. Bu öğretici için yalnızca çok basit bir örnek olmasından.
      
-     Merhaba istek iletisi kimliği doğrulanmış ve hello tarafından yetkili varsa `AuthenticationTestHandler`, sonra hello temel kimlik doğrulaması kullanıcı hello geçerli istekte ekli toohello [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Kullanıcı bilgilerini hello HttpContext başka bir denetleyici (RegisterController) tarafından kullanılacak sonraki tooadd bir [etiketi](https://msdn.microsoft.com/library/azure/dn530749.aspx) toohello bildirimi kayıt isteği.
+  İstek iletisi ise ve kimlik doğrulaması tarafından yetkili `AuthenticationTestHandler`, temel kimlik doğrulaması kullanıcı üzerinde geçerli isteğe bağlı [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Kullanıcı bilgilerini HttpContext başka bir denetleyici (RegisterController) tarafından daha sonra eklemek için kullanılacak bir [etiketi](https://msdn.microsoft.com/library/azure/dn530749.aspx) bildirimi kayıt isteği için.
      
-       public class AuthenticationTestHandler : DelegatingHandler   {       protected override Task<HttpResponseMessage> SendAsync(       HttpRequestMessage request, CancellationToken cancellationToken)       {           var authorizationHeader = request.Headers.GetValues("Authorization").First();
+       public class AuthenticationTestHandler : DelegatingHandler
+       {
+           protected override Task<HttpResponseMessage> SendAsync(
+           HttpRequestMessage request, CancellationToken cancellationToken)
+           {
+               var authorizationHeader = request.Headers.GetValues("Authorization").First();
      
                if (authorizationHeader != null && authorizationHeader
                    .StartsWith("Basic ", StringComparison.InvariantCultureIgnoreCase))
@@ -67,7 +91,7 @@ Bu bölümde, adlı yeni bir ileti işleyicisi sınıfı oluşturacak **Authenti
      
                    if (verifyUserAndPwd(user, password))
                    {
-                       // Attach hello new principal object toohello current HttpContext object
+                       // Attach the new principal object to the current HttpContext object
                        HttpContext.Current.User =
                            new GenericPrincipal(new GenericIdentity(user), new string[0]);
                        System.Threading.Thread.CurrentPrincipal =
@@ -96,29 +120,35 @@ Bu bölümde, adlı yeni bir ileti işleyicisi sınıfı oluşturacak **Authenti
        }
      
      > [!NOTE]
-     > **Güvenlik Notu**: Merhaba `AuthenticationTestHandler` sınıfı doğru kimlik doğrulaması sağlamaz. Kullanılan yalnızca toomimic temel kimlik doğrulaması ve güvenli değildir. Üretim uygulamalarınızda ve hizmetlerinizde güvenli bir kimlik doğrulama mekanizması uygulamanız gerekir.                
+     > Güvenlik Notu: `AuthenticationTestHandler` sınıfı doğru kimlik doğrulaması sağlamaz. Yalnızca temel kimlik doğrulamasını taklit etmek için kullanılır ve güvenli değildir. Üretim uygulamalarınızda ve hizmetlerinizde güvenli bir kimlik doğrulama mekanizması uygulamanız gerekir.                
      > 
      > 
-4. Merhaba hello sonunda koddan hello eklemek `Register` hello yönteminde **App_Start/WebApiConfig.cs** tooregister hello ileti işleyicisi sınıfı:
+5. İleti işleyicisi kaydetmek için sonuna aşağıdaki kodu ekleyin `Register` yönteminde **App_Start/WebApiConfig.cs** sınıfı:
    
         config.MessageHandlers.Add(new AuthenticationTestHandler());
-5. Yaptığınız değişiklikleri kaydedin.
 
-## <a name="registering-for-notifications-using-hello-webapi-backend"></a>Merhaba Webapı arka uç kullanarak bildirimleri için kaydediliyor
-Bu bölümde, yeni bir denetleyici toohello Webapı arka uç toohandle tooregister bir kullanıcı ve cihaz bildirimlerinin bildirim hub'ları için hello istemci kitaplığı kullanılarak istekleri ekleyeceğiz. Merhaba denetleyicisi doğrulandı ve toohello HttpContext hello tarafından eklenen hello kullanıcı için bir kullanıcı etiketi eklemek `AuthenticationTestHandler`. Merhaba etiketi hello dize biçiminde olacaktır `"username:<actual username>"`.
+6. Yaptığınız değişiklikleri kaydedin.
 
-1. Çözüm Gezgini'nde hello sağ **AppBackend** proje ve ardından **NuGet paketlerini Yönet**.
-2. Merhaba sol taraftaki tıklatın **çevrimiçi**, arayın ve **Microsoft.Azure.NotificationHubs** hello içinde **arama** kutusu.
-3. Merhaba sonuçlar listesinde tıklayın **Microsoft Azure bildirim hub'ları**ve ardından **yükleme**. Merhaba yüklemeyi tamamlamak ve sonra hello NuGet Paket Yöneticisi penceresini kapatın.
+## <a name="register-for-notifications-by-using-the-webapi-back-end"></a>Webapı arka ucu kullanarak bildirim kaydolun
+Bu bölümde, yeni bir denetleyicisi bildirim hub'ları için istemci kitaplığını kullanarak bir kullanıcı ve cihaz bildirimlerinin kaydettirmek için istekleri işlemek üzere Webapı arka uç ekleyin. Kimlik doğrulaması ve HttpContext tarafından bağlı kullanıcı için bir kullanıcı etiket denetleyicisi ekler `AuthenticationTestHandler`. Etiket `"username:<actual username>"` dize biçiminde olacaktır.
+
+1. Çözüm Gezgini'nde sağ **AppBackend** proje ve ardından **NuGet paketlerini Yönet**.
+
+2. Sol bölmede seçin **çevrimiçi** , daha sonra **arama** kutusuna **Microsoft.Azure.NotificationHubs**.
+
+3. Sonuçlar listesinde **Microsoft Azure bildirim hub'ları**ve ardından **yükleme**. Yüklemeyi tamamlamak ve sonra da NuGet Paket Yöneticisi penceresini kapatın.
    
-    Bu başvuru toohello Azure Notification Hubs SDK'sı ekler hello kullanarak <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet paketini</a>.
-4. Bildirim hub'ı kullanılan toosend bildirimleri ile Merhaba bağlantısını temsil eden yeni bir sınıf dosyası artık oluşturacağız. Hello Hello Çözüm Gezgini, sağ tıklatın **modelleri** klasörü, tıklatın **Ekle**, ardından **sınıfı**. Ad hello yeni sınıf **Notifications.cs**, ardından **Ekle** toogenerate hello sınıfı. 
+    Bu eylem <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet paketini</a> kullanarak Azure Notification Hubs SDK'sına bir başvuru ekler.
+
+4. Bildirimleri göndermek için kullanılan bildirim hub'ı ile bağlantıyı temsil eden yeni bir sınıf dosyası oluşturun. Çözüm Gezgini'nde sağ **modelleri** klasöründe seçin **Ekle**ve ardından **sınıfı**. Yeni sınıf **Notifications.cs**ve ardından **Ekle** sınıfı oluşturmak için. 
    
-    ![][B6]
-5. Notifications.cs içinde hello aşağıdakileri ekleyin `using` deyimi hello dosyanın üst kısmındaki hello:
+    ![Yeni Öğe Ekle penceresi][B6]
+
+5. Notifications.cs sınıfında aşağıdaki `using` deyimini dosyanın üst kısmına ekleyin:
    
         using Microsoft.Azure.NotificationHubs;
-6. Hello yerine `Notifications` sınıf hello aşağıdaki tanımıyla ve hello bağlantı dizesi (tam erişim) bildirim hub'ınız için emin tooreplace hello iki yer tutucularını yapıp hello hub adını (adresinde [Klasik Azure portalı ](http://manage.windowsazure.com)):
+
+6. Değiştir `Notifications` sınıf tanımını aşağıdaki kodla ve iki yer tutucuları adlı bağlantı dizesi (tam erişimi) için bildirim hub'ınızı ve hub adı ile değiştirin (adresinde [Azure portal](http://portal.azure.com)):
    
         public class Notifications
         {
@@ -131,19 +161,25 @@ Bu bölümde, yeni bir denetleyici toohello Webapı arka uç toohandle tooregist
                                                                              "<hub name>");
             }
         }
-7. Bundan sonra **RegisterController** adlı yeni bir denetleyici oluşturacağız. Hello Çözüm Gezgini'nde sağ **denetleyicileri** klasörü, ardından **Ekle**, ardından **denetleyicisi**. Merhaba tıklatın **Web API 2 denetleyicisi--boş** öğesini ve ardından **Ekle**. Ad hello yeni sınıf **RegisterController**ve ardından **Ekle** yeniden toogenerate hello denetleyicisi.
+7. Ardından, adlı yeni bir denetleyici oluşturma **RegisterController**. Çözüm Gezgini'nde sağ **denetleyicileri** klasöründe seçin **Ekle**ve ardından **denetleyicisi**. 
+
+8. Seçin **Web API 2 denetleyici - boş**ve ardından **Ekle**.
    
-    ![][B7]
+    ![İskele Ekle penceresi][B7]
    
-    ![][B8]
-8. RegisterController.cs içinde hello aşağıdakileri ekleyin `using` deyimleri:
+9. İçinde **Denetleyici adı** kutusuna **RegisterController** yeni sınıf adını ve ardından **Ekle**.
+
+    ![Denetleyici Ekle penceresi][B8]
+
+10. RegisterController.cs sınıfına aşağıdaki `using` deyimlerini ekleyin:
    
         using Microsoft.Azure.NotificationHubs;
         using Microsoft.Azure.NotificationHubs.Messaging;
         using AppBackend.Models;
         using System.Threading.Tasks;
         using System.Web;
-9. Merhaba içindeki kodu aşağıdaki hello eklemek `RegisterController` sınıf tanımının. Bu kodda unutmayın, biz bu hello kullanıcı için bir kullanıcı etiket toohello HttpContext bağlı ekleyin. Merhaba kullanıcı doğrulandı ve toohello HttpContext eklediğimiz, hello İleti Filtresi tarafından bağlı `AuthenticationTestHandler`. Kullanıcı hello isteğe bağlı denetimleri tooverify haklarına sahip de ekleyebilirsiniz tooregister hello için istenen etiketler.
+
+11. Aşağıdaki kodu `RegisterController` sınıf tanımına ekleyin. Bu kod, biz HttpContext için bağlı bir kullanıcı için bir kullanıcı etiketi eklemek unutmayın. Kullanıcı kimlik doğrulaması ve HttpContext için eklediğimiz, İleti Filtresi tarafından bağlı `AuthenticationTestHandler`. Ayrıca, kullanıcının istenen etiketlere kaydolma haklarının olduğunu doğrulamak için isteğe bağlı denetimler ekleyebilirsiniz.
    
         private NotificationHubClient hub;
    
@@ -190,7 +226,7 @@ Bu bölümde, yeni bir denetleyici toohello Webapı arka uç toohandle tooregist
         }
    
         // PUT api/register/5
-        // This creates or updates a registration (with provided channelURI) at hello specified id
+        // This creates or updates a registration (with provided channelURI) at the specified id
         public async Task<HttpResponseMessage> Put(string id, DeviceRegistration deviceUpdate)
         {
             RegistrationDescription registration = null;
@@ -215,7 +251,7 @@ Bu bölümde, yeni bir denetleyici toohello Webapı arka uç toohandle tooregist
             registration.RegistrationId = id;
             var username = HttpContext.Current.User.Identity.Name;
    
-            // add check if user is allowed tooadd these tags
+            // add check if user is allowed to add these tags
             registration.Tags = new HashSet<string>(deviceUpdate.Tags);
             registration.Tags.Add("username:" + username);
    
@@ -248,22 +284,24 @@ Bu bölümde, yeni bir denetleyici toohello Webapı arka uç toohandle tooregist
                     throw new HttpRequestException(HttpStatusCode.Gone.ToString());
             }
         }
-10. Yaptığınız değişiklikleri kaydedin.
+12. Yaptığınız değişiklikleri kaydedin.
 
-## <a name="sending-notifications-from-hello-webapi-backend"></a>Merhaba Webapı arka uç gönderen bildirimleri
-Bu bölümde istemci cihazları toosend hello ASP.NET Webapı arka uç Azure bildirim hub'ları Hizmet Yönetimi Kitaplığı kullanarak hello kullanıcı adı etiketi dayalı bir bildirim için bir yol sunan yeni bir denetleyici ekleyin.
+## <a name="send-notifications-from-the-webapi-back-end"></a>Webapı arka ucunuzdan bildirim gönderme
+Bu bölümde, bildirim göndermek istemci cihazları için bir yol sunan yeni bir denetleyici ekleyin. Bildirim Azure bildirim hub'ları Hizmet Yönetimi Kitaplığı ASP.NET Webapı arka uç kullanan kullanıcı adı etiketi temel alır.
 
-1. **NotificationsController** adlı başka bir yeni denetleyici oluşturun. Merhaba oluşturmak hello oluşturduğunuz aynı şekilde **RegisterController** hello önceki bölümdeki.
-2. NotificationsController.cs içinde hello aşağıdakileri ekleyin `using` deyimleri:
+1. Adlı başka bir yeni denetleyicisi oluşturmak **NotificationsController** oluşturduğunuz aynı şekilde **RegisterController** önceki bölümdeki.
+
+2. NotificationsController.cs sınıfına aşağıdaki `using` deyimlerini ekleyin:
    
         using AppBackend.Models;
         using System.Threading.Tasks;
         using System.Web;
-3. Yöntem toohello aşağıdaki hello eklemek **NotificationsController** sınıfı.
+
+3. Aşağıdaki yöntemi ekleyin **NotificationsController** sınıfı:
    
-    Bu kod Gönder hello Platform bildirim hizmeti (PNS) üzerinde göre bir bildirim türü `pns` parametresi. Merhaba değerini `to_tag` kullanılan tooset hello olan *kullanıcıadı* hello ileti etiketi. Bu etiket, etkin bir bildirim hub'ı kaydının kullanıcı etiketi ile eşleşmelidir. Merhaba bildirim iletisi hello hello POST isteği gövdesinden çekilen ve hello hedef PNS biçimlendirilmiş. 
+    Bu kod Platform bildirim hizmeti (PNS) dayalı bir bildirim türü gönderir `pns` parametresi. `to_tag` değeri, iletideki *kullanıcı adı* etiketini ayarlamak için kullanılır. Bu etiket, etkin bir bildirim hub'ı kaydının kullanıcı etiketi ile eşleşmelidir. Bildirim iletisi, POST isteğinin gövdesinden çekilir ve hedef PNS biçimlendirilir. 
    
-    Merhaba, desteklenen aygıtların tooreceive bildirimleri kullanmayı Platform bildirim hizmeti (PNS) bağlı olarak farklı bildirimleri farklı biçimlerini kullanarak desteklenir. Örneğin, Windows cihazlarında başka bir PNS tarafından doğrudan desteklenmeyen bir [WNS ile bildirim](https://msdn.microsoft.com/library/windows/apps/br230849.aspx) kullanabilirsiniz. Arka PNS cihazların Merhaba için desteklenen bir bildirim içine tooformat hello bildirim gerekir böylece toosupport planlayın. Ardından üzerinde hello hello uygun gönderme API kullanan [NotificationHubClient sınıfı](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)
+    Bildirimleri almak için desteklenen aygıtların kullanmak PNS bağlı olarak, bildirimler, çeşitli biçimlerde tarafından desteklenir. Örneğin, Windows cihazlarda kullanabileceğinize bir [kutlayın bildirim WNS ile](https://msdn.microsoft.com/library/windows/apps/br230849.aspx) başka bir PNS tarafından doğrudan desteklenmeyen. Bu tür bir örnekte, arka uç desteklemeyi planladığınız bildirim desteklenen bildirim içine için PNS'ye aygıtların biçimlendirmek gerekir. Ardından uygun gönderme API kullanımı [NotificationHubClient sınıfı](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx).
    
         public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)
         {
@@ -306,20 +344,30 @@ Bu bölümde istemci cihazları toosend hello ASP.NET Webapı arka uç Azure bil
    
             return Request.CreateResponse(ret);
         }
-4. Tuşuna **F5** toorun hello uygulama ve tooensure hello çalışmanızın doğruluğunu kadarki. Hello uygulama, bir web tarayıcısı başlatmak ve hello ASP.NET giriş sayfasını görüntüleyin. 
 
-## <a name="publish-hello-new-webapi-backend"></a>Yayımlama hello yeni Webapı arka uç
-1. Biz sipariş toomake bu uygulama tooan Azure Web sitesi dağıtacağınız şimdi onu tüm cihazlardan erişilebilir. Merhaba üzerinde sağ **AppBackend** proje ve seçin **Yayımla**.
-2. Yayımlama hedefi olarak **Microsoft Azure Uygulama Hizmeti**’ni seçip **Yayımla**’ya tıklayın. Bu, Azure'da tüm hello gerekli Azure kaynaklarını toorun hello ASP.NET web uygulaması oluşturmanıza yardımcı olacak hello App Service Oluştur iletişim kutusunu açar.
+4. Uygulamayı çalıştırın ve o ana kadarki doğruluğunu sağlamak için seçin **F5** anahtarı. Uygulama bir web tarayıcısı açar ve ASP.NET giriş sayfasında görüntülenir. 
 
-    ![][B15]
-3. Merhaba, **App Service Oluştur** iletişim kutusunda, Azure hesabınızı seçin. **Tür Değiştir**’e tıklayıp **Web Uygulaması**’nı seçin. Merhaba tutmak **Web uygulaması adı** seçin ve verilen hello **abonelik**, **kaynak grubu**, ve **App Service planı**.  **Oluştur**'a tıklayın.
+## <a name="publish-the-new-webapi-back-end"></a>Yeni Webapı arka uç yayımlama
+Ardından, tüm cihazlar üzerinden erişilebilir olması için bir Azure Web sitesine uygulama dağıtın. 
 
-4. Merhaba Not **Site URL'si** hello özelliğinde **Özet** bölümü. Toothis URL'si olarak başvuruda bulunacak, *arka uç nokta* Bu öğreticide daha sonra. **Yayımla**’ta tıklayın.
+1. Sağ **AppBackend** proje ve ardından **Yayımla**.
 
-5. Merhaba Sihirbaz tamamlandıktan sonra hello ASP.NET web uygulaması tooAzure yayımlar ve ardından başlatır hello varsayılan tarayıcıda uygulama hello.  Uygulamanız Azure Uygulama Hizmetileri’nde görüntülenebilir.
+2. Seçin **Microsoft Azure App Service** yayımlama hedefi ve ardından olarak **Yayımla**.  
+    App Service Oluştur penceresi açılır. Burada, Azure üzerinde ASP.NET web uygulamasını çalıştırmak için gereken tüm Azure kaynakların oluşturabilirsiniz.
 
-Merhaba URL hello biçimi http://<app_name>.azurewebsites.net ile daha önce belirtilen başlangıç web uygulaması adı kullanır.
+    ![Microsoft Azure App Service döşeme][B15]
+
+3. İçinde **App Service Oluştur** penceresinde, Azure hesabınızı seçin. Seçin **türünü** > **Web uygulaması**. Varsayılan tutmak **Web uygulaması adı**ve ardından **abonelik**, **kaynak grubu**, ve **App Service planı**. 
+
+4. **Oluştur**’u seçin.
+
+5. **Özet** bölümündeki **Site URL** özelliğini not edin. Bu URL, *arka uç endpoint* öğreticide daha sonra. 
+
+6. Seçin **yayımlama**.
+
+Sihirbazı tamamladıktan sonra ASP.NET web uygulaması için Azure yayımlar ve ardından varsayılan tarayıcıda uygulama açar.  Uygulamanızı Azure App Services görülebilir.
+
+URL daha önce belirttiğiniz web uygulaması adını http://<uygulama_adı>.azurewebsites.net biçimiyle kullanır.
 
 [B1]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push1.png
 [B2]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-secure-push2.png

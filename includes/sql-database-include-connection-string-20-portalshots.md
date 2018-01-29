@@ -8,22 +8,26 @@ Latest Freshness check:  2015-09-02 , GeneMi.
 -->
 
 
-### <a name="obtain-hello-connection-string-from-hello-azure-portal"></a>Hello Azure portal ' Hello bağlantı dizesini edinin
-Kullanım hello [Azure portal](https://portal.azure.com/) tooobtain hello bağlantı dizesi, istemci program toointeract Azure SQL Database için gerekli: 
+### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Bağlantı dizesi Azure portaldan alın
+Kullanım [Azure portal](https://portal.azure.com/) istemci programınız Azure SQL veritabanı ile etkileşim kurmak için gerekli olan bağlantı dizesini almak için. 
 
-1. Tıklatın **Gözat** > **SQL veritabanları**.
-2. Merhaba filtre metin kutusuna hello hello sol üst yakın Hello veritabanınızın adını girin **SQL veritabanları** dikey.
-3. Veritabanınız için Hello satıra tıklayın.
-4. Veritabanınız için Hello dikey göründükten sonra tıklayabilirsiniz visual kolaylık sağlamak için hello standart en aza gözatma ve veritabanı filtreleme için kullanılan denetimleri toocollapse hello Kanatlar. 
-   
-    ![Veritabanınızı tooisolate Filtrele][10-FilterDatabase]
-5. Veritabanınız için Hello dikey penceresinde **veritabanı bağlantı dizelerini Göster**.
-6. Etiketli hello dizesi toouse hello ADO.NET bağlantı kitaplığı düşünüyorsanız, kopyalama **ADO**. 
-   
-    ![Veritabanınız için Hello ADO bağlantı dizesini kopyalayın][20-CopyAdoConnectionString]
-7. Bir veya başka bir biçiminde, hello bağlantı dizesi bilgilerini istemci program kodunuza yapıştırın.
+1. Seçin **TÜMÜNE Gözat** > **SQL veritabanları**.
 
-Daha fazla bilgi için bkz.<br/>[Bağlantı dizeleri ve yapılandırma dosyalarını](http://msdn.microsoft.com/library/ms254494.aspx).
+2. Sol üst tarafındaki yakın filtre metin kutusuna veritabanınızın adını girin **SQL veritabanları** dikey.
+
+3. Veritabanınız için satırı seçin.
+
+4. Görsel kolaylık seçin için veritabanınızın dikey göründükten sonra **simge durumuna küçült** gözatma ve veritabanı filtreleme için kullanılan Kanatlar daraltmak için düğmeler. 
+   
+    ![Veritabanınızı yalıtmak için filtre][10-FilterDatabase]
+5. Veritabanınız için dikey seçin **veritabanı bağlantı dizelerini Göster**.
+
+6. ADO.NET bağlantı kitaplığı kullanmak istiyorsanız, etiketli dizesi kopyalama **ADO**. 
+   
+    ![Veritabanınız için ADO bağlantı dizesini kopyalayın][20-CopyAdoConnectionString]
+7. Bir veya başka bir biçiminde, bağlantı dizesi bilgilerini istemci program kodunuza yapıştırın.
+
+Daha fazla bilgi için bkz: [bağlantı dizeleri ve yapılandırma dosyalarını](http://msdn.microsoft.com/library/ms254494.aspx).
 
 <!-- Image references. -->
 

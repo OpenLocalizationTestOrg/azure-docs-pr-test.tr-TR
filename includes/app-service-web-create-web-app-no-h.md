@@ -1,16 +1,15 @@
-Oluşturma bir [web uygulaması](../articles/app-service-web/app-service-web-overview.md) hello içinde `myAppServicePlan` hello ile uygulama hizmeti planı [az webapp oluşturmak](/cli/azure/webapp#create) komutu. 
+Cloud Shell’de, [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) komutuyla `myAppServicePlan` App Service planında bir [web uygulaması](../articles/app-service/app-service-web-overview.md) oluşturun. 
 
-Merhaba web uygulaması bir barındırma alanı kodunuz için ve bir URL tooview dağıtılan hello uygulaması sağlar.
-
-Komut, aşağıdaki Hello yerine  *\<app_name >* benzersiz bir ad ile (geçerli karakterler `a-z`, `0-9`, ve `-`). Varsa `<app_name>` olan benzersiz değil, "< app_name > verilen ada sahip Web sitesi zaten var." Merhaba hata iletisini alırsınız Merhaba hello web uygulamasının URL'sini varsayılan `https://<app_name>.azurewebsites.net`. 
+Aşağıdaki örnekte *\<uygulama_adı>* kısmını genel olarak benzersiz bir uygulama adıyla değiştirin (geçerli karakterler `a-z`, `0-9` ve `-` şeklindedir). 
 
 ```azurecli-interactive
-az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
+az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --deployment-local-git
 ```
 
-Merhaba web uygulaması oluşturduğunuzda aşağıdaki örneğine bilgi benzer toohello hello Azure CLI gösterir:
+Web uygulaması oluşturulduğunda Azure CLI aşağıda yer alan örnekteki gibi bilgiler gösterir:
 
 ```json
+Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -19,26 +18,19 @@ Merhaba web uygulaması oluşturduğunuzda aşağıdaki örneğine bilgi benzer 
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
   "defaultHostName": "<app_name>.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git",
   "enabled": true,
-  "enabledHostNames": [
-    "<app_name>.azurewebsites.net",
-    "<app_name>.scm.azurewebsites.net"
-  ],
-  "gatewaySiteName": null,
-  "hostNameSslStates": [
-    {
-      "hostType": "Standard",
-      "name": "<app_name>.azurewebsites.net",
-      "sslState": "Disabled",
-      "thumbprint": null,
-      "toUpdate": null,
-      "virtualIp": null
-    }
-    < JSON data removed for brevity. >
+  < JSON data removed for brevity. >
 }
 ```
 
-Toohello site toosee yeni oluşturulan web uygulamanız göz atın.
+Git dağıtımı etkin boş bir web uygulaması oluşturdunuz.
+
+> [!NOTE]
+> Git uzak URL’si `deploymentLocalGitUrl` özelliği içinde `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git` biçiminde gösterilir. Bu URL’ye daha sonra ihtiyacınız olacağı için URL’yi kaydedin.
+>
+
+Yeni oluşturulan web uygulamasına göz atın.
 
 ```bash
 http://<app_name>.azurewebsites.net

@@ -1,15 +1,15 @@
-1. **Bağlan**’a tıklanması Uzak Masaüstü Protokolü dosyasını (.rdp dosyası) oluşturur ve indirir. Tıklatın **açık** toouse bu dosya.
-2. Bir uyarı alırsınız Bu hello .rdp bilinmeyen bir yayımcıdan değil. Bu normaldir. Merhaba Uzak Masaüstü penceresinde **Bağlan** toocontinue.
+1. **Bağlan**’a tıklanması Uzak Masaüstü Protokolü dosyasını (.rdp dosyası) oluşturur ve indirir. Bu dosyayı kullanmak için **Aç**’a tıklayın.
+2. `.rdp` dosyasının bilinmeyen bir yayımcıdan geldiğine ilişkin bir uyarı alırsınız. Bu normaldir. Uzak Masaüstü penceresinde, devam etmek için **Bağlan**’a tıklayın.
    
     ![Bilinmeyen yayımcıya ilişkin uyarı ekran görüntüsü](./media/virtual-machines-log-on-win-server/rdp-warn.png)
-3. Merhaba, **Windows Güvenliği** penceresinde hello sanal makinede hello bir hesabın kimlik bilgilerini yazın ve ardından **Tamam**.
+3. **Windows Güvenliği** penceresinde **Diğer seçenekler**'i ve ardından **Başka bir hesap kullanın**'ı seçin. Sanal makinedeki bir hesabın kimlik bilgilerini yazın ve ardından **Tamam**'a tıklayın.
    
-     **Yerel hesap** -bu genellikle kullanıcı adı ve parola oluşturduğunuzda belirttiğiniz sanal makine hello hello yerel hesaptır. Bu durumda, hello etki alanı adıdır hello hello sanal makine ve olarak girilir *vmname*&#92; *Kullanıcı adı*.  
+     **Yerel hesap** - bu genellikle, sanal makineyi oluşturduğunuzda belirttiğiniz yerel hesap kullanıcı adı ve parolasıdır. Bu durumda, etki alanı sanal makinenin adıdır ve *vmadı*&#92;*kullanıcıadı* olarak girilir.  
    
-    **Etki alanına katılmış VM** - hello VM tooa etki alanına aitse hello biçiminde hello kullanıcı adı girin *etki alanı*&#92; *Kullanıcı adı*. Merhaba hesabının da tooeither gerekir hello Yöneticiler grubu ya da uzaktan erişim ayrıcalıkları toohello VM verilmiş olabilir.
+    **Etki alanına katılmış VM** - VM bir etki alanına aitse, kullanıcı adını *Etkialanı*&#92;*Kullanıcıadı* biçiminde girin. Hesabın ayrıca, Yöneticiler grubunda olması ya da VM’ye uzaktan erişim ayrıcalıkları verilmiş olması gerekir.
    
-    **Etki alanı denetleyicisi** - hello VM bir etki alanı denetleyicisi, türü hello kullanıcı adı ve o etki alanı için etki alanı yönetici hesabının parolasını ise.
-4. Tıklatın **Evet** tooverify hello hello sanal makine kimliğini ve oturum açmayı tamamlayın.
+    **Etki alanı denetleyicisi** - VM bir etki alanı denetleyicisiyse, etki alanı için etki alanının yönetici hesabına ait kullanıcı adını ve parolasını yazın.
+4. Sanal makine kimliğini doğrulamak için **Evet**’e tıklayın ve oturum açmayı tamamlayın.
    
-   ![Bir ileti gösteren ekran görüntüsü hello hello VM kimliğini doğrulamaya ilişkin.](./media/virtual-machines-log-on-win-server/cert-warning.png)
+   ![VM kimliğini doğrulamaya ilişkin iletiyi gösteren ekran görüntüsü](./media/virtual-machines-log-on-win-server/cert-warning.png)
 

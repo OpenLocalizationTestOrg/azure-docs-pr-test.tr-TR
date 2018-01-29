@@ -1,25 +1,25 @@
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Azure'da sanal makineler için kullanılabilirlik ve bölgeler
-Merhaba Dünya birden çok veri merkezlerinde Azure çalışır. Bu veri merkezlerinde nereye koyacağınızı seçmek esneklik vermiş toogeographic bölgelerde gruplandırılır toobuild uygulamalarınızı. Bu önemli toounderstand nasıl ve nerede sanal makineleri (VM'ler) seçenekleri toomaximize performans, kullanılabilirlik ve artıklık yanı sıra Azure içinde çalışmayabilir olur. Bu makalede hello kullanılabilirlik genel bir bakış ve Azure özelliklerini artıklık sağlar.
+Azure, dünyanın dört bir yanındaki birden fazla veri merkezinde çalışmaktadır. Bu veri merkezleri, coğrafi bölgeler halinde gruplandırılarak uygulamalarınızı oluşturacağınız yeri seçme esnekliği tanır. Sanal makinelerinizin (VM’ler) Azure’da nasıl ve hangi konumda çalıştığının yanı sıra performans, kullanılabilirlik ve yedekliliği artırmak için kullanabileceğiniz seçeneklerin de anlaşılması önemlidir. Bu makalede, Azure’un kullanılabilirlik ve yedeklilik özelliklerine genel bakış sunulmaktadır.
 
 ## <a name="what-are-azure-regions"></a>Azure bölgeleri nelerdir?
-Tanımlanan coğrafi bölgelerde 'Batı ABD', 'Kuzey Avrupa' veya 'Güneydoğu Asya' gibi Azure kaynakları oluşturun. Merhaba gözden geçirebilirsiniz [bölgeler ve konumlarını listesi](https://azure.microsoft.com/regions/). Her bölge içinde birden çok veri merkezi tooprovide artıklık ve kullanılabilirlik için mevcut. Bu yaklaşım uygulamaları toocreate VM'ler en yakın tooyour kullanıcıları ve toomeet yasal, tüm uyumluluk tasarlarken veya amacıyla vergi esnekliği sağlar.
+Tanımlanan coğrafi bölgelerde 'Batı ABD', 'Kuzey Avrupa' veya 'Güneydoğu Asya' gibi Azure kaynakları oluşturun. [Bölgeler ve konumlarının listesini](https://azure.microsoft.com/regions/) gözden geçirebilirsiniz. Her bölge içinde, yedeklilik ve kullanılabilirlik sağlayan birden fazla veri merkezi mevcuttur. Bu yaklaşım uygulamaların VM'ler kullanıcılarınıza yakın oluşturmak için ve yasal, tüm uyumluluk gereklerini karşılamak veya amacıyla vergi tasarlarken esnekliği sağlar.
 
 ## <a name="special-azure-regions"></a>Özel Azure bölgeleri
-Azure uygulamalarınızı uyumluluğu veya yasal amaçlar için genişletme oluştururken toouse isteyebilir bazı özel bölgeler sahiptir. Bu özel bölgeleri şunlardır:
+Azure uygulamalarınızı uyumluluğu veya yasal amaçlar için genişletme oluştururken kullanmak isteyebilirsiniz bazı özel bölgeler sahiptir. Bu özel bölgeleri şunlardır:
 
 * **ABD Virginia** ve **ABD Iowa**
   * ABD kamu kuruluşları ve iş ortaklarına yönelik olarak ABD’de bulunan ve denetlenen kişilerce çalıştırılan fiziksel ve mantıksal ağdan yalıtılmış Azure örneği. [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) ve [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA) gibi ek uyumluluk sertifikaları içerir. [Azure Kamu](https://azure.microsoft.com/features/gov/) hakkında daha fazla bilgi alın.
 * **Çin Doğu** ve **Çin Kuzey**
-  * Bu bölgeler arasında Microsoft ve alınabildiği Microsoft doğrudan hello veri merkezleri korumaz 21Vianet benzersiz ortaklık aracılığıyla kullanılabilir. [Çin’de Microsoft Azure](http://www.windowsazure.cn/) hakkında daha fazla bilgi alın.
+  * Bu bölgeler, Microsoft ile 21Vianet arasında, Microsoft’un veri merkezlerini doğrudan yönetmediği benzersiz ortaklık ile kullanıma sunulmaktadır. [Çin’de Microsoft Azure](http://www.windowsazure.cn/) hakkında daha fazla bilgi alın.
 * **Almanya Orta** ve **Almanya Kuzeydoğu**
-  * Bu bölgeler yapabildiği denetimindeki T-sistemlerinin hello Almanca veri güvenliği davranan bir Alman Telekom şirket içinde Almanya müşteri verileri kalır veri güvenlik modelini aracılığıyla kullanılabilir.
+  * Bu bölgeler yapabildiği denetiminde T-sistemleri, Almanca veri güvenliği davranan bir Alman Telekom şirket içinde Almanya müşteri verileri kalır veri güvenlik modelini aracılığıyla kullanılabilir.
 
 ## <a name="region-pairs"></a>Bölge çiftleri
-Her Azure bölgesi hello içinde başka bir bölge ile eşleştirilmiş aynı coğrafi konum (örneğin, ABD, Avrupa veya Asya). Bu yaklaşım VM depolama gibi kaynaklar hello çoğaltılması için doğal afetler, hukuki unrest, güç kesintileri veya aynı anda hem bölgeler etkilemeden fiziksel ağ kesintileri hello olasılığını azaltmak bir coğrafi konum sağlar. Bölge çiftlerinin diğer avantajları şunlardır:
+Her Azure bölgesi aynı coğrafyadaki (ABD, Avrupa veya Asya) başka bir bölgeyle eşleştirilir. Bu yaklaşım her iki bölgeyi de aynı anda etkileyen bir doğal felaket, toplumsal karmaşa, güç kesintisi veya fiziksel ağ kesintisi olasılığını azaltması gereken bir coğrafyada VM depolama gibi kaynak çoğaltma işlemlerine olanak tanır. Bölge çiftlerinin diğer avantajları şunlardır:
 
-* Bir bölge daha geniş bir Azure hizmet kesintisi Hello olayda öncelik dışında her çifti toohelp azaltmak hello zaman toorestore uygulamalar için. 
-* Planlanan Azure güncelleştirmeleri zaman toominimize kapalı kalma süresi ve uygulama kesinti riskini toopaired bölgeler bir alınır.
-* Veri devam tooreside hello içinde aynı coğrafi konum (dışında Brezilya Güney) çiftini vergi ve yasa zorlama dairesi amaçlı olarak.
+* Daha geniş bir Azure kesintisi durumunda, uygulamalar için geri yükleme süresini azaltmak üzere her çift içinden bir bölgeye öncelik verilir. 
+* Kapalı kalma süresini ve uygulama kesintisi riskini azaltmak amacıyla, planlı Azure güncelleştirmeleri, bölge çiftlerine tek tek uygulanır.
+* Veriler, vergi ve yasa uygulama yetkisi bakımından çiftiyle aynı coğrafyada (Brezilya Güney hariç) bulunmaya devam eder.
 
 Bölge çiftlerinin örnekleri şunlardır:
 
@@ -29,76 +29,75 @@ Bölge çiftlerinin örnekleri şunlardır:
 | Kuzey Avrupa |Batı Avrupa |
 | Güneydoğu Asya |Doğu Asya |
 
-Merhaba tam görebilirsiniz [bölge listesi çiftleri burada](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
+[Bölgesel çiftlerin tam listesini burada](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions) görebilirsiniz.
 
 ## <a name="feature-availability"></a>Özellik kullanılabilirliği
-Belirli VM boyutları ya da depolama türleri gibi bazı hizmetler veya VM özellikleri yalnızca belirli bölgelerde kullanılabilir. Ayrıca belirli bir bölgenin tooselect gibi gerektirmeyen bazı genel Azure Hizmetleri olan [Azure Active Directory](../articles/active-directory/active-directory-whatis.md), [trafik Yöneticisi](../articles/traffic-manager/traffic-manager-overview.md), veya [Azure DNS](../articles/dns/dns-overview.md). tooassist, uygulama ortamınızı tasarlarken, hello denetleyebilirsiniz [her bölge arasında Azure hizmetlerine kullanılabilirliğini](https://azure.microsoft.com/regions/#services). 
+Belirli VM boyutları ya da depolama türleri gibi bazı hizmetler veya VM özellikleri yalnızca belirli bölgelerde kullanılabilir. Ayrıca, belirli bir bölge seçmenizi gerektirmeyen [Azure Active Directory](../articles/active-directory/active-directory-whatis.md), [Traffic Manager](../articles/traffic-manager/traffic-manager-overview.md) veya [Azure DNS](../articles/dns/dns-overview.md) gibi bazı genel Azure hizmetleri de vardır. Uygulama ortamınızı tasarlamanıza yardımcı olmak üzere [her bölgedeki Azure hizmetleri kullanılabilirliğini](https://azure.microsoft.com/regions/#services) denetleyebilirsiniz. Ayrıca [program aracılığıyla sorgu desteklenen VM boyutları ve her bölgede kısıtlamaları](../articles/azure-resource-manager/resource-manager-sku-not-available-errors.md).
 
 ## <a name="storage-availability"></a>Depolama kullanılabilirliği
-Kullanılabilir depolama çoğaltma seçenekleri hello göz önüne aldığınızda Azure bölgeler ve coğrafi anlama önemli hale gelir. Merhaba depolama türüne bağlı olarak, farklı çoğaltma seçeneğiniz vardır.
+Kullanılabilir çoğaltma seçenekleri düşünüldüğünde Azure bölge ve coğrafyalarının anlaşılması önemlidir. Depolama türüne bağlı olarak farklı çoğaltma seçenekleriniz vardır.
 
 **Azure Yönetilen Diskler**
 * Yerel olarak yedekli depolama (LRS)
-  * Depolama hesabınızı oluşturduğunuz üç kez hello bölge içindeki verilerinizi çoğaltır.
+  * Depolama hesabınızı oluşturduğunuz bölge içinde verilerinizi üç kez çoğaltır.
 
 **Depolama hesabı temelli diskler**
 * Yerel olarak yedekli depolama (LRS)
-  * Depolama hesabınızı oluşturduğunuz üç kez hello bölge içindeki verilerinizi çoğaltır.
+  * Depolama hesabınızı oluşturduğunuz bölge içinde verilerinizi üç kez çoğaltır.
 * Bölgesel olarak yedekli depolama (ZRS)
-  * Verilerinizi, tek bir bölge içinde veya iki bölgede iki toothree tesis üzerinde üç kez çoğaltır.
+  * Tek bir bölge ya da iki bölgedeki iki veya üç tesiste verilerinizi üç kez çoğaltır.
 * Coğrafi olarak yedekli depolama (GRS)
-  * Mil hello birincil bölge çıktığınızda yüzlerce olduğundan, veri tooa ikincil bölge çoğaltır.
+  * Verilerinizi birincil bölgeden yüzlerce kilometre uzaktaki bir ikincil bölgeye çoğaltır.
 * Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)
-  * GRS gibi ile veri tooa ikincil bölge çoğaltır, ancak daha sonra hello ikincil konumdaki salt okunur erişim toohello verileri sağlar.
+  * GRS ile olduğu gibi verilerinizi ikincil bölgeye çoğaltır, ancak daha sonra ikincil konumdaki verilere salt okunur erişim sağlar.
 
-Merhaba aşağıdaki tabloda hello depolama çoğaltma türleri arasındaki farklar hello hızlı bir genel bakış verilmektedir:
+Aşağıdaki tabloda, depolama çoğaltma türleri arasındaki farkları hızlı bir genel bakış sunulmaktadır:
 
 | Çoğaltma stratejisi | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
 | Veriler birden çok tesis arasında çoğaltılır. |Hayır |Evet |Evet |Evet |
-| Veri hello ikincil konumdan ve hello birincil konumdan okuyabilir. |Hayır |Hayır |Hayır |Evet |
+| Veriler ikincil konumdan ve birincil konumdan okunabilir. |Hayır |Hayır |Hayır |Evet |
 | Ayrı düğümlerde tutulan veri kopyası sayısı. |3 |3 |6 |6 |
 
 [Azure Depolama çoğaltma seçenekleri hakkında buradan](../articles/storage/common/storage-redundancy.md) daha fazla bilgi alabilirsiniz. Yönetilen diskler hakkında daha fazla bilgi için bkz. [Azure Yönetilen Disklere genel bakış](../articles/virtual-machines/windows/managed-disks-overview.md).
 
 ### <a name="storage-costs"></a>Depolama maliyetleri
-Fiyatlar hello depolama türünü ve seçtiğiniz kullanılabilirlik bağlı olarak değişir.
+Fiyatlar seçtiğiniz depolama türüne ve kullanılabilirliğe bağlı olarak değişir.
 
 **Azure Yönetilen Diskler**
-* Premium yönetilen diskleri Solid-State sürücüler tarafından (SSD) desteklenir ve standart yönetilen disk normal dönen disk ile desteklenir. Premium ve standart yönetilen disk hello disk sağlanan hello kapasitesine göre ücretlendirilen.
+* Premium yönetilen diskleri Solid-State sürücüler tarafından (SSD) desteklenir ve standart yönetilen disk normal dönen disk ile desteklenir. Hem Premium hem de Standart Yönetilen Diskler, diskin sağlanan kapasitesine göre ücretlendirilir.
 
 **Yönetilmeyen diskler**
-* Premium depolama Solid-State sürücüler tarafından (SSD) ile yedeklenir ve hello disk hello kapasitesine dayalı olarak ücretlendirilir.
-* Standart depolama normal dönen disk ile desteklenir ve hello kullanımda kapasite dayalı olarak ücretlendirilir ve depolama alanı kullanılabilirliği istenen.
-  * RA-GRS, bu veri tooanother Azure bölgesi çoğaltılan hello bant genişliği için ek coğrafi çoğaltma veri aktarımı ücret yoktur.
+* Premium depolama Solid-State sürücüler tarafından (SSD) ile yedeklenir ve disk kapasitesine göre ücretlendirilir.
+* Standart depolama, normal dönen disklerle desteklenir ve kullanımdaki kapasiteye ve istenen depolama kullanılabilirliğine göre ücretlendirilir.
+  * RA-GRS için, verileri başka bir Azure bölgesine çoğaltmak için gereken bant genişliğine yönelik ek bir Coğrafi Çoğaltma Veri Aktarımı ücreti vardır.
 
-Bkz: [Azure Storage fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/) hello farklı depolama türlerini ve kullanılabilirlik seçenekleri hakkında bilgi fiyatlandırma için.
+Farklı depolama türleri ve kullanılabilirlik seçenekleri hakkında fiyatlandırma bilgileri için bkz. [Azure Depolama Fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="availability-sets"></a>Kullanılabilirlik kümeleri
-Bir kullanılabilirlik kümesi Azure toounderstand izin veren bir mantıksal VM'ler gruplandırmasıdır nasıl uygulamanızı tooprovide artıklık ve kullanılabilirlik için yerleşik olarak bulunur. İki veya daha fazla sanal makineleri yüksek oranda kullanılabilir bir uygulama ve toomeet hello bir kullanılabilirlik kümesi tooprovide içinde oluşturulan önerilen [% 99,95 Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Tek bir VM'ye kullanırken [Azure Premium Storage](../articles/storage/common/storage-premium-storage.md), hello Azure SLA Plansız bakım olayları için geçerlidir. 
+Sanal makineleri mantıksal bir gruplandırması uygulamanızı artıklık ve kullanılabilirlik sağlamak üzere nasıl yapılandırıldığını anlamak Azure izin veren bir veri merkezindeki bir kullanılabilirlik kümesidir. İki veya daha fazla VM'nin kullanılabilirlik sağlamak için yüksek oranda kullanılabilir bir uygulama ve karşılamak için kümesi içinde oluşturulan önerilen [% 99,95 Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Tek bir VM, [Azure Premium Depolama](../articles/virtual-machines/windows/premium-storage.md) kullanıyorsa, Azure SLA planlanmamış bakım olayları için geçerli olur. 
 
-Bir kullanılabilirlik kümesi toosafely olması güncelleştirmelere izin vermek ve donanım arızalarına karşı korumaya iki ek gruplandırmaları oluşan uygulanan - hata etki alanları (FDs) ve etki alanları (UDs) güncelleştirin.
-
-![Merhaba güncelleştirme etki alanı ve hata etki alanı yapılandırmasını kavramsal çizimi](./media/virtual-machines-common-regions-and-availability/ud-fd-configuration.png)
-
-Daha fazla bilgi edinebilirsiniz nasıl toomanage hello kullanılabilirliğini [Linux VM'ler](../articles/virtual-machines/linux/manage-availability.md) veya [Windows VM'ler](../articles/virtual-machines/windows/manage-availability.md).
+Bir kullanılabilirlik kümesi donanım arızalarına karşı koruma sağlamak ve güvenli bir şekilde uygulanması-(FDs) etki alanları ve güncelleme etki alanına (UDs) arıza güncelleştirmeleri izin veren iki ek gruplandırmaları oluşur. [Linux VM](../articles/virtual-machines/linux/manage-availability.md) veya [Windows VM](../articles/virtual-machines/windows/manage-availability.md) kullanılabilirliğini yönetme hakkında daha fazla bilgi alabilirsiniz.
 
 ### <a name="fault-domains"></a>Hata etki alanları
-Hata etki alanı bir mantıksal Grup ortak bir güç kaynağını paylaşmasına temel alınan donanımın ve ağ anahtarı, bir şirket içi veri merkezi benzer tooa rafta. Bir kullanılabilirlik kümesi sanal makineleri oluştururken hello Azure platformu Vm'leriniz bu hata etki alanları arasında otomatik olarak dağıtır. Bu yaklaşım, olası fiziksel donanım hataları, ağ kesintileri veya güç kesintilerinin hello etkisini sınırlar.
+Hata etki alanı, ortak bir güç kaynağı ve ağ anahtarını paylaşan, şirket içi veri merkezindeki rafa benzer bir temel alınan donanım mantık grubudur. Bir kullanılabilirlik kümesinde VM’ler oluşturduğunuzda, Azure platformu VM’lerinizi bu hata etki alanlarına otomatik olarak dağıtır. Bu yaklaşım, olası fiziksel donanım hatalarının, ağ kesintilerinin veya güç kesintilerinin etkisini sınırlar.
 
 ### <a name="update-domains"></a>Güncelleme etki alanları
-Bir güncelleştirme etki alanı, bakım uygulayabilir veya hello başlatılması temel alınan donanım mantıksal grubudur aynı anda. Bir kullanılabilirlik kümesi sanal makineleri oluştururken hello Azure platformu otomatik olarak Vm'leriniz bunlar arasında dağıtır güncelleştirme etki alanları. Bu yaklaşım, uygulamanızın en az bir örneğini sağlar hello Azure platformu uğradığında düzenli bakım olarak çalışan her zaman kalır. Merhaba sırasını güncelleştirme etki alanlarını yeniden başlatıldığı sırayla planlı bakım sırasında ilerleyebilirsiniz değil, ancak yalnızca tek bir güncelleştirme etki alanı, aynı anda yeniden başlatılıncaya kadar.
+Güncelleme etki alanı, bakımdan geçirilebilen ya da aynı anda yeniden başlatılabilen bir temel alınan donanım mantıksal grubudur. Bir kullanılabilirlik kümesinde VM’ler oluşturduğunuzda, Azure platformu VM’lerinizi bu güncelleme etki alanlarına otomatik olarak dağıtır. Bu yaklaşım, Azure platformu periyodik bakımdan geçirilirken uygulamanızın en az bir örneğinin her zaman çalışır durumda kalmasını sağlar. Yeniden başlatılmakta olan güncelleme etki alanlarının sırası, planlanan bakım sırasında sıralı olarak uygulanmayabilir, ancak aynı anda yalnızca bir güncelleme etki alanı yeniden başlatılır.
 
 ### <a name="managed-disk-fault-domains"></a>Disk hata etki alanlarını yönetilen
-[Azure Yönetilen Diskler](../articles/virtual-machines/windows/faq-for-disks.md)’i kullanan sanal makineler, yönetilen kullanılabilirlik kümesi kullanılırken yönetilen disk hata etki alanları ile hizalanır. Tüm iliştirilmiş tooa VM hello içinde yönetilen disklerde hello bu hizalama sağlar aynı yönetilen disk hata etki alanı. Yönetilen bir kullanılabilirlik kümesinde yalnızca, yönetilen disklere sahip VM’ler oluşturulabilir. Yönetilen disk hata etki alanlarını Hello sayısı iki veya üç yönetilen disk hata etki alanlarını her bölge - bölgeye göre değişir.
+[Azure Yönetilen Diskler](../articles/virtual-machines/windows/faq-for-disks.md)’i kullanan sanal makineler, yönetilen kullanılabilirlik kümesi kullanılırken yönetilen disk hata etki alanları ile hizalanır. Bu hizalama, bir VM'ye bağlı tüm yönetilen disklerin, aynı yönetilen disk hata etki alanı içinde olmasını sağlar. Yönetilen bir kullanılabilirlik kümesinde yalnızca, yönetilen disklere sahip VM’ler oluşturulabilir. Yönetilen disk hata etki alanlarının sayısı bölgeye göre farklılık gösterir (bölge başına iki ya da üç yönetilen disk hata etki alanı). Daha fazla bilgiyi bu hakkında disk hata etki alanları için yönetilen [Linux VM'ler](../articles/virtual-machines/linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) veya [Windows VM'ler](../articles/virtual-machines/linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set).
 
-![Yönetilen Disk FD’leri](./media/virtual-machines-common-manage-availability/md-fd.png)
+## <a name="availability-zones"></a>Kullanılabilirlik bölgeleri
 
-> [!IMPORTANT]
-> hata etki alanlarını yönetilen kullanılabilirlik kümeleri için Hello sayısı değişir bölgeye göre - iki veya üç her bölge. Merhaba aşağıdaki tabloda hello numarasını bölge başına gösterir
+[Kullanılabilirlik bölgeleri](../articles/availability-zones/az-overview.md) kullanılabilirlik için bir alternatif (Önizleme), ayarlar, uygulamaları ve verileri, vm'lerde kullanılabilirliğini sürdürmek zorunda denetim düzeyini genişletin. Fiziksel olarak ayrı bir bölge içinde bir Azure bölgesi bir kullanılabilirlik bölgedir. Desteklenen bir Azure bölgesine başına üç kullanılabilirlik bölge vardır. Her kullanılabilirlik bölge farklı olan güç kaynağı, ağ ve soğutma ve diğer bölgelerden kullanılabilirlik Azure bölge içindeki mantıksal olarak farklıdır. Çoğaltılmış VM'ler bölgeleri kullanmak için çözüm mimarisi oluşturma, uygulamaları ve verileri bir veri merkezinde kaybına karşı koruyabilirsiniz. Bir bölge aşılırsa, ardından çoğaltılan uygulamaları ve verileri başka bir bölgede hemen kullanılabilir. 
 
-[!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
+![Kullanılabilirlik bölgeleri](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
+
+[!INCLUDE [availability-zones-preview-statement.md](availability-zones-preview-statement.md)]
+
+Dağıtma hakkında daha fazla bilgi bir [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) veya [Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) kullanılabilirlik bölgesinde VM.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu kullanılabilirlik toouse bundan böyle başlayabilir ve artıklık toobuild Azure ortamınıza özellikleri. En iyi uygulama bilgileri için bkz. [Azure kullanılabilirlik en iyi uygulamaları](../articles/best-practices-availability-checklist.md).
+Azure ortamınızı oluşturmak için bu kullanılabilirlik ve yedeklilik özelliklerini kullanmaya başlayabilirsiniz. En iyi uygulama bilgileri için bkz. [Azure kullanılabilirlik en iyi uygulamaları](../articles/best-practices-availability-checklist.md).
 

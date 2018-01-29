@@ -1,4 +1,4 @@
-Trafik Yöneticisi tarafından dengelendiği Azure App Service web uygulamasında ayar özel etki alanı adı yalnızca için kullanılabilir **standart** modu Web siteleri. Değiştirmeden önce bir web uygulamasından hello ücretsiz uygulama hizmeti planı modu toohello paylaşılan, temel veya Standart mod, önce harcama caps yerinde uygulama hizmeti aboneliğiniz için kaldırmanız gerekir. 
+Özel etki alanı trafik Yöneticisi ile tümleşik bir web uygulaması ayarı yalnızca için kullanılabilir **standart** fiyatlandırma katmanı.  
 
-Nasıl toochange hello modu, sitenizin dahil olmak üzere, hello uygulama hizmeti planı modları hakkında daha fazla bilgi için bkz: [nasıl tooscale web siteleri](../articles/app-service-web/web-sites-scale.md).
+Fiyatlandırma katmanlarına uygulama hizmeti hakkında daha fazla bilgi için uygulamanızın değiştirmek de dahil olmak üzere fiyatlandırma katmanı kullanıcının bkz [Azure bir uygulamada ölçeklendirin](../articles/app-service/web-sites-scale.md).
 

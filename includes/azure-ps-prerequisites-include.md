@@ -1,6 +1,6 @@
-## <a name="prerequisite-install-hello-azure-powershell-module"></a>Önkoşul: hello Azure PowerShell modülünü yükleme
+## <a name="prerequisite-install-the-azure-powershell-module"></a>Önkoşul: Azure PowerShell modülünü yükleyin
 
-Bu makaledeki adımları tooperform Merhaba, çok gerekir[tooinstall Azure PowerShell'i ve yapılandırma](/powershell/azureps-cmdlets-docs) ve tüm hello yolu toohello toosign Azure'da sonlandırmak ve aboneliğinizi seçin hello yönergeleri izleyin.
+Bu makaledeki adımları gerçekleştirmek için [Azure PowerShell modülünü yüklemeniz ve yapılandırmanız](/powershell/azureps-cmdlets-docs) gerekir. Tüm yönergeleri tamamladığınızdan emin olun. Yükleme işlemi tamamlandıktan sonra Azure'da oturum açın ve aboneliğinizi seçin.
 
 > [!NOTE]
-> Azure hesabınız yoksa bir tane gerekecektir. [Buradaki ücretsiz deneme sürümüyle](../articles/active-directory/sign-up-organization.md) kaydolun.
+> Bu adımları tamamlamak için bir Azure hesabınızın olması gerekir. Azure hesabınız yoksa [ücretsiz denemeye](../articles/active-directory/sign-up-organization.md) kaydolabilirsiniz.

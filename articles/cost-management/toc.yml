@@ -1,0 +1,45 @@
+- name: Azure Maliyet Yönetimi Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Maliyet Yönetimi nedir?
+      href: overview.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+    - name: Maliyet verilerini görüntüleme
+      href: quick-register-azure-sub.md
+    - name: Maliyet verilerini görüntüleme - EA
+      href: quick-register-ea.md
+    - name: Maliyet verilerini görüntüleme - CSP
+      href: quick-register-csp.md
+- name: Öğreticiler
+  items:
+    - name: 1 - Kullanımı ve maliyetleri gözden geçirme
+      href: tutorial-review-usage.md
+    - name: 2 - Belgelere erişimi denetleme
+      href: tutorial-user-access.md
+    - name: 3 - Harcamaları tahmin etme
+      href: tutorial-forecast-spending.md
+    - name: 4 - Maliyetleri yönetme
+      href: tutorial-manage-costs.md
+- name: Kavramlar
+  items:
+    - name: Maliyet raporlarını anlama
+      href: understading-cost-reports.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Maliyet Yönetimi raporlarını kullanma
+      href: use-reports.md
+- name: Kaynaklar
+  items:
+    - name: Maliyet Yönetimi videoları
+      href: ref-videos.md
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/cost-management'
+    - name: Bölgesel Kullanılabilirlik
+      href: 'https://azure.microsoft.com/en-us/regions/services/'
+    - name: SSS
+      href: cost-mgt-faq.md

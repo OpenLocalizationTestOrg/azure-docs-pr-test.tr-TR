@@ -1,15 +1,15 @@
 
-Oluşturma bir [API uygulaması](../articles/app-service-api/app-service-api-apps-why-best-platform.md) hello içinde `myAppServicePlan` hello ile uygulama hizmeti planı [az webapp oluşturmak](/cli/azure/appservice/web#create) komutu. 
+[az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) komutuyla `myAppServicePlan` App Service planında bir uygulama oluşturun. 
 
-Merhaba web uygulaması barındırma alanı için API ve bir URL tooview dağıtılan hello uygulaması sağlar.
+Web uygulaması, API'niz için bir barındırma alanı sağlar ve dağıtılan uygulamanın görüntülenebileceği bir URL sunar.
 
-Komut, aşağıdaki Hello yerine  *\<app_name >* benzersiz bir ada sahip. Varsa `<app_name>` olan benzersiz değil, "< app_name > verilen ada sahip Web sitesi zaten var." Merhaba hata iletisini alırsınız Merhaba hello web uygulamasının URL'sini varsayılan `https://<app_name>.azurewebsites.net`. 
+Aşağıdaki komutta *\<app_name>* kısmını benzersiz bir adla değiştirin. `<app_name>` benzersiz değilse "Belirtilen <app_name> adına sahip web sitesi zaten var" hata iletisiyle karşılaşırsınız. Web uygulamasının varsayılan URL'si `https://<app_name>.azurewebsites.net` şeklindedir. 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
 ```
 
-Merhaba web uygulaması oluşturduğunuzda aşağıdaki örneğine bilgi benzer toohello hello Azure CLI gösterir:
+Web uygulaması oluşturulduğunda Azure CLI aşağıda yer alan örnekteki gibi bilgiler gösterir:
 
 ```json
 {

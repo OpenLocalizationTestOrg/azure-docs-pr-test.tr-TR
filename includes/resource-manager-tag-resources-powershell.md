@@ -1,24 +1,12 @@
-Merhaba AzureRm.Resources modülü 3.0 sürümü etiketleriyle nasıl çalıştığını önemli değişiklikler dahil. Devam etmeden önce sürümünüzü kontrol edin:
+Bu makaledeki örneklerde sürüm 3.0 veya daha sonraki Azure PowerShell sürümünü gerektirir. Sürüm 3.0 veya üstü, yoksa [sürümünüzü güncelleştirme](/powershell/azureps-cmdlets-docs/) PowerShell Galerisi ya da Web Platformu yükleyicisi kullanarak.
 
-```powershell
-Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
-```
-
-Sonuçlarınızı sürüm 3.0 veya üstü gösteriyorsa, bu konudaki hello örnekleri ortamınız ile çalışır. 3.0 veya sonraki sürüme sahip değilseniz, bu konu başlığına devam etmeden önce PowerShell Galerisi veya Web Platform Yükleyicisi’ni kullanarak [sürümünüzü güncelleştirin](/powershell/azureps-cmdlets-docs/).
-
-```powershell
-Version
--------
-3.5.0
-```
-
-toosee hello için varolan etiketleri bir *kaynak grubu*, kullanın:
+Bir *kaynak grubunun* mevcut etiketlerini görmek şunu kullanın:
 
 ```powershell
 (Get-AzureRmResourceGroup -Name examplegroup).Tags
 ```
 
-Bu komut dosyası biçimini izleyen hello döndürür:
+Bu betik aşağıdaki biçimde veri döndürür:
 
 ```powershell
 Name                           Value
@@ -27,39 +15,39 @@ Dept                           IT
 Environment                    Test
 ```
 
-toosee hello için varolan etiketleri bir *belirtilen kaynak Kimliğine sahip kaynak*, kullanın:
+*Kaynak kimliği belirtilmiş bir kaynağın* mevcut etiketlerini görmek için şunu kullanın:
 
 ```powershell
 (Get-AzureRmResource -ResourceId {resource-id}).Tags
 ```
 
-Ya da toosee hello için varolan etiketleri bir *belirtilen ad ve kaynak grubuna sahip kaynak*, kullanın:
+*Kaynak kimliği belirtilmiş bir kaynağın* mevcut etiketlerini görmek için şunu da kullanabilirsiniz:
 
 ```powershell
 (Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
 ```
 
-tooget *belirli bir etikete sahip kaynak gruplarını*, kullanın:
+*Belirli bir etikete sahip kaynak gruplarını* almak için şunu kullanın:
 
 ```powershell
-(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name 
+(Find-AzureRmResourceGroup -Tag @{ Dept="Finance" }).Name
 ```
 
-tooget *, belirli bir etikete sahip kaynaklar*, kullanın:
+*Belirli bir etikete sahip kaynakları* almak için şunu kullanın:
 
 ```powershell
 (Find-AzureRmResource -TagName Dept -TagValue Finance).Name
 ```
 
-Etiketler tooa kaynağa veya bir kaynak grubuna uygulamak her zaman, o kaynak veya kaynak grubu hello varolan etiketleri üzerine yazın. Bu nedenle, olup hello kaynağı veya kaynak grubunu varolan etiketleri temel alarak farklı bir yaklaşım kullanmanız gerekir. 
+Bir kaynağa veya kaynak grubuna etiket uyguladığınız her durumda ilgili kaynağın veya kaynak grubunun üzerinde mevcut olan etiketlerin üzerine yazarsınız. Bu nedenle, kaynakta veya kaynak grubunda etiketlerin mevcut olup olmamasına bağlı olarak farklı bir yaklaşım kullanmanız gerekir.
 
-tooadd etiketler tooa *kaynak grubu mevcut etiketleri olmadan*, kullanın:
+*Mevcut etiketi olmayan bir kaynak grubuna* etiket eklemek için şunu kullanın:
 
 ```powershell
 Set-AzureRmResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
 ```
 
-tooadd etiketler tooa *varolan etiketleri olan kaynak grubuna*hello varolan etiketleri almak, hello yeni etiket eklemek ve hello etiketler yeniden uygulayın:
+*Mevcut etiketleri olan bir kaynak grubuna* etiket eklemek için, mevcut etiketleri alın, yeni etiketi ekleyin ve etiketleri yeniden uygulayın:
 
 ```powershell
 $tags = (Get-AzureRmResourceGroup -Name examplegroup).Tags
@@ -67,57 +55,52 @@ $tags += @{Status="Approved"}
 Set-AzureRmResourceGroup -Tag $tags -Name examplegroup
 ```
 
-tooadd etiketler tooa *varolan etiketleri olmadan kaynak*, kullanın:
+*Mevcut etiketi olmayan bir kaynağa* etiket eklemek için şunu kullanın:
 
 ```powershell
-Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName examplevnet -ResourceGroupName examplegroup
+$r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
+Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId $r.ResourceId -Force
 ```
 
-tooadd etiketler tooa *varolan etiketleri olan kaynağın*, kullanın:
+*Mevcut etiketi olan bir kaynağa* etiket eklemek için şunu kullanın:
 
 ```powershell
-$tags = (Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
-$tags += @{Status="Approved"}
-Set-AzureRmResource -Tag $tags -ResourceName examplevnet -ResourceGroupName examplegroup
+$r = Get-AzureRmResource -ResourceName examplevnet -ResourceGroupName examplegroup
+$r.tags += @{Status="Approved"}
+Set-AzureRmResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
-tooapply tüm etiketleri bir kaynak grubu tooits kaynakları ve *hello kaynaklardaki varolan etiketleri korumuyor*, komut dosyası izleyen hello kullanın:
+Bir kaynak grubundaki tüm etiketleri *kaynaklardaki mevcut etiketleri korumadan* gruptaki kaynaklara uygulamak için aşağıdaki betiği kullanın:
 
 ```powershell
 $groups = Get-AzureRmResourceGroup
-foreach ($g in $groups) 
+foreach ($g in $groups)
 {
-    Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force } 
+    Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
 }
 ```
 
-tooapply tüm etiketleri bir kaynak grubu tooits kaynakları ve *tekrarı olmayan kaynaklar varolan etiketleri korumak*, komut dosyası izleyen hello kullanın:
+Bir kaynak grubundaki tüm etiketleri *yinelenmeyen kaynaklardaki mevcut etiketleri koruyarak* gruptaki kaynaklara uygulamak için aşağıdaki betiği kullanın:
 
 ```powershell
-$groups = Get-AzureRmResourceGroup
-foreach ($g in $groups) 
-{
-    if ($g.Tags -ne $null) {
-        $resources = Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName 
-        foreach ($r in $resources)
+$group = Get-AzureRmResourceGroup "examplegroup"
+if ($group.Tags -ne $null) {
+    $resources = $group | Find-AzureRmResource
+    foreach ($r in $resources)
+    {
+        $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
+        foreach ($key in $group.Tags.Keys)
         {
-            $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
-            foreach ($key in $g.Tags.Keys)
-            {
-                if ($resourcetags.ContainsKey($key)) { $resourcetags.Remove($key) }
-            }
-            $resourcetags += $g.Tags
-            Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
+            if (($resourcetags) -AND ($resourcetags.ContainsKey($key))) { $resourcetags.Remove($key) }
         }
+        $resourcetags += $group.Tags
+        Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
     }
 }
 ```
 
-Tüm etiketleri tooremove boş karma tablosu geçirin:
+Tüm etiketleri kaldırmak için bir boş karma tablosu geçirin:
 
 ```powershell
 Set-AzureRmResourceGroup -Tag @{} -Name examplegroup
 ```
-
-
-

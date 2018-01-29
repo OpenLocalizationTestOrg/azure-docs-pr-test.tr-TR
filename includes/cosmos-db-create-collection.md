@@ -1,18 +1,22 @@
-Artık hello Veri Gezgini aracında hello Azure portal toocreate bir veritabanı ve koleksiyonu da kullanabilirsiniz. 
+Şimdi bir veritabanı ve koleksiyon oluşturmak için Azure portalında Veri Gezgini aracını kullanabilirsiniz. 
 
-1. Merhaba hello sol gezinti menüsünde, Azure portal'ı tıklatın **Veri Gezgini (Önizleme)**. 
+1. **Veri Gezgini** > **Yeni Koleksiyon**’a tıklayın. 
+    
+    **Koleksiyon Ekle** alanı en sağda görüntülenir, görmek için sağa kaydırmanız gerekebilir.
 
-2. Merhaba üzerinde **Veri Gezgini (Önizleme)** dikey penceresinde tıklatın **yeni koleksiyon**ve ardından aşağıdaki bilgilerle hello sağlayın:
+    ![Azure portalındaki Veri Gezgini, Koleksiyon Ekle dikey penceresi](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
 
-    ![Hello Azure portal Veri Gezgini dikey penceresi](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
+2. **Koleksiyon Ekle** sayfasında, yeni koleksiyon için ayarları girin.
 
     Ayar|Önerilen değer|Açıklama
     ---|---|---
-    Veritabanı kimliği|Görevler|Yeni veritabanı Hello adı. Veritabanı adı 1 ila 255 karakterden oluşmalı, boşlukla bitmemeli ve şu karakterleri içermemelidir: /, \\, # ve ?.
-    Koleksiyon kimliği|Öğeler|Yeni koleksiyonunuzu Hello adı. Koleksiyon adlara sahip hello kimlikleri veritabanı gereksinimleri aynı karakter.
-    Depolama kapasitesi| Sabit (10 GB)|Merhaba varsayılan değeri kullanın. Bu değer hello depolama kapasitesi hello veritabanının olur.
-    Aktarım hızı|400 RU|Merhaba varsayılan değeri kullanın. Tooreduce gecikme istiyorsanız, daha sonra hello verimlilik ölçeklendirebilirsiniz.
-    Bölüm anahtarı|/kategori|Veri dağıtır bir bölüm anahtarı tooeach bölüm. Seçme hello doğru bölüm anahtarı, bir kullanıcı koleksiyonu oluşturma önemlidir. toolearn daha, fazla [bölümleme için tasarlama](../articles/cosmos-db/partition-data.md#designing-for-partitioning).    
-3. Merhaba formunu tamamladıktan sonra tıklatın **Tamam**.
+    Veritabanı kimliği|Görevler|Yeni veritabanınızın adı olarak *Görevler* girin. Veritabanı adı 1 ila 255 karakterden oluşmalı, boşlukla bitmemeli ve şu karakterleri içermemelidir: /, \\, # ve ?.
+    Koleksiyon kimliği|Öğeler|Yeni koleksiyonunuzun adı olarak *Öğeler* girin. Koleksiyon kimliği karakter gereksinimleri, veritabanı adlarına ilişkin karakter gereksinimleri ile aynıdır.
+    Depolama kapasitesi| Sabit (10 GB)|Değeri **Sabit (10 GB)** olarak değiştirin. Bu değer, veritabanının depolama kapasitesidir.
+    Aktarım hızı|400 RU|Aktarım hızını saniyede 400 istek birimi (RU/s) olarak değiştirin. Aktarım hızını 400 RU/s olarak ayarlamak için depolama hızı **Sabit (10 GB)** olarak ayarlanmalıdır. Daha sonra gecikme süresini azaltmak isterseniz aktarım hızının ölçeğini artırabilirsiniz. 
+    
+    **Tamam**’a tıklayın.
 
-Veri Gezgini'ni gösterir, yeni veritabanı ve koleksiyonu hello. 
+    Veri Gezgini, yeni veritabanını ve koleksiyonu görüntüler.
+
+    ![Yeni veritabanını ve koleksiyonu gösteren Azure portalı Veri Gezgini](./media/cosmos-db-create-collection/azure-cosmos-db-new-collection.png)

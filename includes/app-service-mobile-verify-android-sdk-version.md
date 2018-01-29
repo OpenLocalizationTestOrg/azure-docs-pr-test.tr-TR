@@ -1,17 +1,21 @@
-Devam eden geliştirme nedeniyle hello Android SDK sürüm Android Studio'da yüklü hello kod hello sürümünde eşleşmeyebilir. Merhaba Bu öğreticide başvurulan Android SDK sürüm 23 hello son hello yazıldığı sırada ' dir. Merhaba sürüm numarası SDK görünür hello yeni sürümleri artırabilir ve hello kullanılabilir en son sürümünü kullanmanızı öneririz.
+Devam eden geliştirme nedeniyle Android Studio'da yüklü Android SDK sürümü kodu sürümünde eşleşmeyebilir. Bu öğreticide başvurulan Android SDK 26, yazma zaman en son sürümüdür. Sürüm numarası, SDK'sının yeni sürümler görünür ve kullanılabilir en son sürümünü kullanmanızı öneririz artırabilir.
 
 Sürüm uyuşmazlığı iki belirtileri şunlardır:
 
-- Derleme ya da Merhaba projeyi yeniden gibi Gradle hata iletileri alabilirsiniz "**toofind hedef Google Inc.:Google APIs:n başarısız**".
+- Derleme ya da projeyi oluşturmak gibi Gradle hata iletileri alabilirsiniz `Gradle sync failed: Failed to find target with hash string 'android-XX'`.
 - Standart Android nesneleri çözümlenmelidir kod temelinde `import` ifadeleri hata iletileri oluşturur.
 
-Bunlardan görünürse, hello hello Android Studio'da yüklü Android SDK sürümünü karşıdan hello projesinin hello SDK hedefini eşleşmeyebilir. tooverify hello sürüm, aşağıdaki değişiklikler hello olun:
+Bunlardan görünürse, Android Studio'da yüklü Android SDK sürümünü indirilen projedeki SDK hedefinin eşleşmeyebilir. Sürüm numarasını doğrulamak için aşağıdaki değişiklikleri yapın:
 
-1. Android Studio'da sırasıyla **Araçları** > **Android** > **SDK Manager**. Merhaba SDK Platform en son sürümünü hello yüklü değilse, tooinstall'ı tıklatın. Merhaba sürüm numarasını not edin.
-2. Merhaba üzerinde **Proje Gezgini** sekmesinde, altında **Gradle betikleri**açın hello dosya **build.gradle (modeule: uygulama)**. Bu hello olun **compileSdkVersion** ve **buildToolsVersion** toohello yüklü en son SDK sürümünü ayarlayın. Başlangıç etiketleri şuna benzeyebilir:
+1. Android Studio'da sırasıyla **Araçları** > **Android** > **SDK Manager**. SDK Platform en son sürümü yüklü değilse, daha sonra yüklemek için tıklayın. Sürüm numarasını not edin.
 
-             compileSdkVersion 'Google Inc.:Google APIs:23'
-            buildToolsVersion "23.0.2"
-3. Merhaba Android Studio Proje Gezgini, hello proje düğümüne sağ tıklayın, seçin **özellikleri**ve hello sol sütunda seçin **Android**. Bu hello olun **proje derleme hedefi** toohello ayarlamak hello olarak aynı SDK sürümü **targetSdkVersion**.
+2. Üzerinde **Proje Gezgini** sekmesinde, altında **Gradle komut dosyaları**, dosyayı açma **build.gradle (modül: uygulama)**. Emin **compileSdkVersion** ve **targetSdkVersion** son SDK sürüm olarak ayarlanır. `build.gradle` Şuna benzeyebilir:
 
-Android Studio'da hello bildirim dosyası artık kullanılan toospecify hello hedef SDK ve Eclipse hello durumuyla aksine en düşük SDK sürümü değil.
+    ```gradle
+    android {
+        compileSdkVersion 26
+        defaultConfig {
+            targetSdkVersion 26
+        }
+    }
+    ```

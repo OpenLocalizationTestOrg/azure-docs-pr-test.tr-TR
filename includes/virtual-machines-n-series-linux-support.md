@@ -1,20 +1,22 @@
 ## <a name="supported-distributions-and-drivers"></a>Desteklenen dağıtımlar ve sürücüler
 
 
+### <a name="nc-ncv2-and-nd-instances---nvidia-cuda-drivers"></a>NC, NCv2 ve ND örnekleri - NVIDIA CUDA sürücüleri
+| Dağıtım | Sürücü |
+| --- | --- | 
+| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3<br/><br/> CentOS tabanlı 7.3 | NVIDIA CUDA 9.1, sürücüyü dal R387 |
+
 ### <a name="nv-instances---nvidia-grid-drivers"></a>NV örnekleri - NVIDIA GRID sürücüleri
 
 
 | Dağıtım | Sürücü |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>CentOS tabanlı 7.3 | NVIDIA GRID 4.3, sürücü dalı R367|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>CentOS tabanlı 7.3 | NVIDIA kılavuz 5.2, sürücüyü dal R384|
 
-### <a name="nc-instances---nvidia-tesla-drivers"></a>NC örnekleri - NVIDIA Tesla sürücüleri
-| Dağıtım | Sürücü |
-| --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3<br/><br/> CentOS tabanlı 7.3 | NVIDIA CUDA 8.0, sürücü dalı R375 |
-
-
+> [!NOTE]
+> Microsoft NV VM'ler için NVIDIA kılavuz sürücü yükleyiciler yeniden dağıtır. Bu kılavuz sürücüleri yalnızca Azure NV Vm'lerinde yükleyin. Bu sürücüleri kılavuz Azure sanal GPU yazılım lisansı içerir.
+>
 
 > [!WARNING] 
-> Red Hat ürünlerine üçüncü taraf yazılım yüklemesi hello Red Hat destek koşulları etkileyebilir. Merhaba bkz [Red Hat Bilgi Bankası makalesi](https://access.redhat.com/articles/1067).
+> Red Hat ürünlerine üçüncü taraf yazılım yüklenmesi Red Hat destek koşullarını etkileyebilir. Bkz. [Red Hat Bilgi Bankası makalesi](https://access.redhat.com/articles/1067).
 >

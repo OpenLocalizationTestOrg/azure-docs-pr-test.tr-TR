@@ -1,30 +1,31 @@
-Azure'da Service Bus kullanarak toobegin kuyruklar, öncelikle bir ad alanı Azure arasında benzersiz bir ad ile oluşturmanız gerekir. Ad alanı, uygulamanızda bulunan Service Bus kaynaklarını adreslemek için içeriğin kapsamını belirleyen bir kapsayıcı sunar.
+Azure'da Service Bus mesajlaşma varlıklarını kullanmaya başlamak için öncelikle Azure'da benzersiz olan bir ad alanı oluşturmanız gerekir. Ad alanı, uygulamanızda bulunan Service Bus kaynaklarını adreslemek için içeriğin kapsamını belirleyen bir kapsayıcı sunar.
 
-toocreate bir ad alanı:
+Ad alanı oluşturmak için:
 
-1. Toohello üzerinde oturum [Azure portal][Azure portal].
-2. Hello sol gezinti bölmesinde hello portalı tıklatın **yeni**, ardından **Kurumsal tümleştirme**ve ardından **Service Bus**.
-3. Merhaba, **ad alanı oluşturma** iletişim kutusunda, bir ad alanı adı girin. Merhaba adı olup olmadığını hello sistem hemen toosee denetler.
-4. Emin hello ad alanı adı yapmadan kullanılabilir olduktan sonra fiyatlandırma Katmanı (temel, standart veya Premium) hello seçin.
-5. Merhaba, **abonelik** alanında, hangi toocreate hello ad alanında bir Azure aboneliği seçin.
-6. Merhaba, **kaynak grubu** alanında, hangi hello ad alanı Canlı veya yeni bir tane oluşturmak varolan bir kaynak grubu seçin.      
-7. İçinde **konumu**, hello ülke veya bölge içinde ad alanınızın barındırılması seçin.
+1. [Azure portalında][Azure portal] oturum açın.
+2. Portalın sol gezinti bölmesinde tıklatın **+ kaynak oluşturma**, ardından **Kurumsal tümleştirme**ve ardından **Service Bus**.
+3. **Ad alanı oluştur** iletişim kutusunda bir ad alanı adı girin. Adın kullanılabilirliği sistem tarafından hemen denetlenir.
+4. Ad alanı adının kullanılabilir durumda olduğundan emin olduktan sonra fiyatlandırma katmanını (Temel, Standart veya Premium) seçin.
+5. **Abonelik** alanında, ad alanı oluşturmak için kullanmak istediğiniz bir Azure aboneliği seçin.
+6. **Kaynak grubu** alanında, ad alanını barındırmak üzere var olan bir kaynak grubunu seçin veya yeni bir kaynak grubu oluşturun.      
+7. **Konum** alanında, ad alanınızın barındırılması gereken ülkeyi veya bölgeyi seçin.
    
     ![ad alanı oluşturma][create-namespace]
-8. **Oluştur**'a tıklayın. Şimdi Hello sistem ad alanınızı oluşturur ve kullanıma açar. Hesabınız için hello sistem kaynakları sağlarken birkaç dakika toowait olabilir.
+8. **Oluştur**’a tıklayın. Artık sistem ad alanınızı oluşturur ve kullanıma açar. Sistem, hesabınıza yönelik kaynakları sağlarken birkaç dakika beklemeniz gerekebilir.
 
-### <a name="obtain-hello-management-credentials"></a>Merhaba yönetim kimlik bilgilerini alma
+### <a name="obtain-the-management-credentials"></a>Yönetim kimlik bilgilerini alma
+Yeni bir ad alanı otomatik olarak oluşturma, her ad alanı tüm yönleri üzerinde tam denetim izni verin birincil ve ikincil anahtarları ilişkili bir çifti ile bir ilk paylaşılan erişim imzası (SAS) kural oluşturur. Bkz: [Service Bus kimlik doğrulama ve yetkilendirme](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) ile daha fazla başka kuralları oluşturma hakkında bilgi için kısıtlı haklar normal göndericiler ile alıcılar için. İlk kuralı kopyalamak için aşağıdaki adımları takip edin: 
 
-1. Ad alanları Hello listesinde yeni oluşturulan ad alanı adı hello tıklayın.
-2. Merhaba ad alanı dikey penceresinde tıklayın **paylaşılan erişim ilkeleri**.
-3. Merhaba, **paylaşılan erişim ilkeleri** dikey penceresinde tıklatın **RootManageSharedAccessKey**.
+1.  Tıklatın **tüm kaynakları**, yeni oluşturulan ad alanı adına tıklayın.
+2. Ad alanı penceresinde **paylaşılan erişim ilkeleri**.
+3. İçinde **paylaşılan erişim ilkeleri** ekranında **RootManageSharedAccessKey**.
    
     ![bağlantı bilgisi][connection-info]
-4. Merhaba, **İlkesi: RootManageSharedAccessKey** dikey penceresinde hello Kopyala düğmesini tıklatın ardından çok**bağlantı dizesi – birincil anahtarı**, daha sonra kullanmak için toocopy hello bağlantı dizesi tooyour Pano. Bu değeri Not Defteri veya başka bir geçici konuma yapıştırın.
+4. İçinde **İlkesi: RootManageSharedAccessKey** penceresinde, kopyalama için İleri düğmesini tıklatın **bağlantı dizesi – birincil anahtarı**, panonuza daha sonra kullanmak için bağlantı dizesini kopyalayın. Bu değeri Not Defteri veya başka bir geçici konuma yapıştırın.
    
     ![bağlantı dizesi][connection-string]
 
-5. Kopyalama ve yapıştırma hello değerini yineleme hello önceki adımda **birincil anahtar** tooa daha sonra kullanmak için geçici konum.
+5. **Birincil anahtar** değerini daha sonra kullanmak üzere geçici bir konuma kopyalayarak önceki adımı tamamlayın.
 
 <!--Image references-->
 

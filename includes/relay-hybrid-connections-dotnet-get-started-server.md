@@ -1,15 +1,16 @@
 ### <a name="create-a-console-application"></a>Konsol uygulaması oluşturma
 
-İlk olarak Visual Studio'yu başlatın ve yeni bir **Konsol Uygulaması (.NET Framework)** projesi oluşturun.
+Visual Studio'da yeni bir **Konsol Uygulaması (.NET Framework)** projesi oluşturun.
 
-### <a name="add-hello-relay-nuget-package"></a>Merhaba geçiş NuGet paketi ekleme
+### <a name="add-the-relay-nuget-package"></a>Geçiş NuGet paketini ekleme
 
-1. Yeni oluşturulan hello projesine sağ tıklayın ve ardından **NuGet paketlerini Yönet**.
-2. Merhaba tıklatın **Gözat** sekmesini ve ardından "Microsoft.Azure.Relay" ve select hello arama **Microsoft Azure geçiş** öğesi. Tıklatın **yükleme** toocomplete hello yükleme, ardından bu iletişim kutusunu kapatın.
+1. Yeni oluşturulan projeye sağ tıklayıp **NuGet Paketlerini Yönet**'i seçin.
+2. **Göz at**'ı seçip **Microsoft.Azure.Relay** araması yapın. Arama sonuçlarında **Microsoft Azure Geçişi**'ni seçin. 
+3. Yüklemeyi tamamlamak için **Yükle**'yi seçin. İletişim kutusunu kapatın.
 
-### <a name="write-some-code-tooreceive-messages"></a>Tooreceive iletileri biraz kod yazma
+### <a name="write-code-to-receive-messages"></a>İleti almak için kod yazma
 
-1. Merhaba varolan `using` deyimleri hello aşağıdaki hello Program.cs dosyasının hello üstündeki `using` deyimleri:
+1. Program.cs dosyasının üst tarafındaki `using` deyimlerini aşağıdaki `using` deyimleriyle değiştirin:
    
     ```csharp
     using System;
@@ -18,7 +19,7 @@
     using System.Threading.Tasks;
     using Microsoft.Azure.Relay;
     ```
-2. Ekleme sabitlerin toohello `Program` hello karma bağlantı ayrıntıları için sınıf. Köşeli ayraçlar Hello yer tutucuları hello karma bağlantı oluştururken aldığınız hello değerlerle değiştirin. Emin toouse hello tam ad alanı adı olabilir:
+2. Karma bağlantı ayrıntıları için sabitleri `Program` sınıfına ekleyin. Köşeli ayraçlar içindeki yer tutucuları, karma bağlantıyı oluştururken aldığınız değerlerle değiştirin. Tam ad alanı adını kullandığınızdan emin olun.
    
     ```csharp
     private const string RelayNamespace = "{RelayNamespace}.servicebus.windows.net";
@@ -26,46 +27,46 @@
     private const string KeyName = "{SASKeyName}";
     private const string Key = "{SASKey}";
     ```
-3. Adlı bir yöntem aşağıdaki hello eklemek `ProcessMessagesOnConnection` toohello `Program` sınıfı:
+3. `ProcessMessagesOnConnection` yönetimini `Program` sınıfına ekleyin:
    
     ```csharp
-    // Method is used tooinitiate connection
+    // The method initiates the connection.
     private static async void ProcessMessagesOnConnection(HybridConnectionStream relayConnection, CancellationTokenSource cts)
     {
         Console.WriteLine("New session");
    
-        // hello connection is a fully bidrectional stream. 
-        // We put a stream reader and a stream writer over it 
-        // which allows us tooread UTF-8 text that comes from 
-        // hello sender and toowrite text replies back.
+        // The connection is a fully bidrectional stream. 
+        // Put a stream reader and a stream writer over it.  
+        // This allows you to read UTF-8 text that comes from 
+        // the sender, and to write text replies back.
         var reader = new StreamReader(relayConnection);
         var writer = new StreamWriter(relayConnection) { AutoFlush = true };
         while (!cts.IsCancellationRequested)
         {
             try
             {
-                // Read a line of input until a newline is encountered
+                // Read a line of input until a newline is encountered.
                 var line = await reader.ReadLineAsync();
    
                 if (string.IsNullOrEmpty(line))
                 {
-                    // If there's no input data, we will signal that 
-                    // we will no longer send data on this connection
-                    // and then break out of hello processing loop.
+                    // If there's no input data, signal that 
+                    // you will no longer send data on this connection,
+                    // and then break out of the processing loop.
                     await relayConnection.ShutdownAsync(cts.Token);
                     break;
                 }
    
-                // Output hello line on hello console
+                // Write the line on the console.
                 Console.WriteLine(line);
    
-                // Write hello line back toohello client, prepending "Echo:"
+                // Write the line back to the client, prepended with "Echo:"
                 await writer.WriteLineAsync($"Echo: {line}");
             }
             catch (IOException)
             {
-                // Catch an IO exception that is likely caused because
-                // hello client disconnected.
+                // Catch an I/O exception. This likely occurred when
+                // the client disconnected.
                 Console.WriteLine("Client closed connection");
                 break;
             }
@@ -73,11 +74,11 @@
    
         Console.WriteLine("End session");
    
-        // Closing hello connection
+        // Close the connection.
         await relayConnection.CloseAsync(cts.Token);
     }
     ```
-4. Adlı başka bir yöntem ekleyin `RunAsync` toohello `Program` sınıfı, şu şekilde:
+4. `RunAsync` yönetimini `Program` sınıfına ekleyin:
    
     ```csharp
     private static async Task RunAsync()
@@ -87,26 +88,26 @@
         var tokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider(KeyName, Key);
         var listener = new HybridConnectionListener(new Uri(string.Format("sb://{0}/{1}", RelayNamespace, ConnectionName)), tokenProvider);
    
-        // Subscribe toohello status events
+        // Subscribe to the status events.
         listener.Connecting += (o, e) => { Console.WriteLine("Connecting"); };
         listener.Offline += (o, e) => { Console.WriteLine("Offline"); };
         listener.Online += (o, e) => { Console.WriteLine("Online"); };
    
-        // Opening hello listener will establish hello control channel to
-        // hello Azure Relay service. hello control channel will be continuously 
-        // maintained and reestablished when connectivity is disrupted.
+        // Opening the listener establishes the control channel to
+        // the Azure Relay service. The control channel is continuously 
+        // maintained, and is reestablished when connectivity is disrupted.
         await listener.OpenAsync(cts.Token);
         Console.WriteLine("Server listening");
    
-        // Providing callback for cancellation token that will close hello listener.
+        // Provide callback for the cancellation token that will close the listener.
         cts.Token.Register(() => listener.CloseAsync(CancellationToken.None));
    
-        // Start a new thread that will continuously read hello console.
+        // Start a new thread that will continuously read the console.
         new Task(() => Console.In.ReadLineAsync().ContinueWith((s) => { cts.Cancel(); })).Start();
    
-        // Accept hello next available, pending connection request. 
-        // Shutting down hello listener will allow a clean exit with 
-        // this method returning null
+        // Accept the next available, pending connection request. 
+        // Shutting down the listener allows a clean exit. 
+        // This method returns null.
         while (true)
         {
             var relayConnection = await listener.AcceptConnectionAsync();
@@ -118,17 +119,17 @@
             ProcessMessagesOnConnection(relayConnection, cts);
         }
    
-        // Close hello listener after we exit hello processing loop
+        // Close the listener after you exit the processing loop.
         await listener.CloseAsync(cts.Token);
     }
     ```
-5. Kod toohello satırının aşağıdaki hello eklemek `Main` hello yönteminde `Program` sınıfı:
+5. Aşağıdaki kod satırını `Program` sınıfındaki `Main` yöntemine ekleyin:
    
     ```csharp
     RunAsync().GetAwaiter().GetResult();
     ```
    
-    Program.cs dosyanız tamamlandığında aşağıdaki gibi görünmelidir:
+    Tamamlanmış Program.cs dosyası aşağıdaki gibi görünmelidir:
    
     ```csharp
     namespace Server
@@ -158,26 +159,26 @@
                 var tokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider(KeyName, Key);
                 var listener = new HybridConnectionListener(new Uri(string.Format("sb://{0}/{1}", RelayNamespace, ConnectionName)), tokenProvider);
    
-                // Subscribe toohello status events
+                // Subscribe to the status events.
                 listener.Connecting += (o, e) => { Console.WriteLine("Connecting"); };
                 listener.Offline += (o, e) => { Console.WriteLine("Offline"); };
                 listener.Online += (o, e) => { Console.WriteLine("Online"); };
    
-                // Opening hello listener will establish hello control channel to
-                // hello Azure Relay service. hello control channel will be continuously 
-                // maintained and reestablished when connectivity is disrupted.
+                // Opening the listener establishes the control channel to
+                // the Azure Relay service. The control channel is continuously 
+                // maintained, and is reestablished when connectivity is disrupted.
                 await listener.OpenAsync(cts.Token);
                 Console.WriteLine("Server listening");
    
-                // Providing callback for cancellation token that will close hello listener.
+                // Provide callback for a cancellation token that will close the listener.
                 cts.Token.Register(() => listener.CloseAsync(CancellationToken.None));
    
-                // Start a new thread that will continuously read hello console.
+                // Start a new thread that will continuously read the console.
                 new Task(() => Console.In.ReadLineAsync().ContinueWith((s) => { cts.Cancel(); })).Start();
    
-                // Accept hello next available, pending connection request. 
-                // Shutting down hello listener will allow a clean exit with 
-                // this method returning null
+                // Accept the next available, pending connection request. 
+                // Shutting down the listener allows a clean exit. 
+                // This method returns null.
                 while (true)
                 {
                     var relayConnection = await listener.AcceptConnectionAsync();
@@ -189,7 +190,7 @@
                     ProcessMessagesOnConnection(relayConnection, cts);
                 }
    
-                // Close hello listener after we exit hello processing loop
+                // Close the listener after you exit the processing loop.
                 await listener.CloseAsync(cts.Token);
             }
    
@@ -197,38 +198,38 @@
             {
                 Console.WriteLine("New session");
    
-                // hello connection is a fully bidrectional stream. 
-                // We put a stream reader and a stream writer over it 
-                // which allows us tooread UTF-8 text that comes from 
-                // hello sender and toowrite text replies back.
+                // The connection is a fully bidrectional stream. 
+                // Put a stream reader and a stream writer over it.  
+                // This allows you to read UTF-8 text that comes from 
+                // the sender, and to write text replies back.
                 var reader = new StreamReader(relayConnection);
                 var writer = new StreamWriter(relayConnection) { AutoFlush = true };
                 while (!cts.IsCancellationRequested)
                 {
                     try
                     {
-                        // Read a line of input until a newline is encountered
+                        // Read a line of input until a newline is encountered.
                         var line = await reader.ReadLineAsync();
    
                         if (string.IsNullOrEmpty(line))
                         {
-                            // If there's no input data, we will signal that 
-                            // we will no longer send data on this connection
-                            // and then break out of hello processing loop.
+                            // If there's no input data, signal that 
+                            // you will no longer send data on this connection.
+                            // Then, break out of the processing loop.
                             await relayConnection.ShutdownAsync(cts.Token);
                             break;
                         }
    
-                        // Output hello line on hello console
+                        // Write the line on the console.
                         Console.WriteLine(line);
    
-                        // Write hello line back toohello client, prepending "Echo:"
+                        // Write the line back to the client, prepended with "Echo:"
                         await writer.WriteLineAsync($"Echo: {line}");
                     }
                     catch (IOException)
                     {
-                        // Catch an IO exception that is likely caused because
-                        // hello client disconnected.
+                        // Catch an I/O exception. This likely occurred when
+                        // the client disconnected.
                         Console.WriteLine("Client closed connection");
                         break;
                     }
@@ -236,7 +237,7 @@
    
                 Console.WriteLine("End session");
    
-                // Closing hello connection
+                // Close the connection.
                 await relayConnection.CloseAsync(cts.Token);
             }
         }

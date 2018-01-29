@@ -6,67 +6,67 @@ Bu makalede Azure yönetilen diskleri ve Azure Premium Storage hakkında sık so
 
 **Azure yönetilen diskleri nedir?**
 
-Yönetilen diskleri depolama hesabı yönetimini işleyerek Azure Iaas VM'ler için disk yönetimi basitleştiren bir özelliktir. Daha fazla bilgi için bkz: Merhaba [yönetilen diskleri genel bakış](../articles/virtual-machines/windows/managed-disks-overview.md).
+Yönetilen diskleri depolama hesabı yönetimini işleyerek Azure Iaas VM'ler için disk yönetimi basitleştiren bir özelliktir. Daha fazla bilgi için bkz: [yönetilen diskleri genel bakış](../articles/virtual-machines/windows/managed-disks-overview.md).
 
 **Standart yönetilen disk 80 GB olan varolan bir VHD'yi oluşturursanız, ne kadar bana maliyeti ne olacak?**
 
-80 GB VHD'den oluşturulan standart yönetilen disk S10 disk hello sonraki kullanılabilir standart disk boyutu kabul edilir. According toohello S10 disk fiyatlandırma ücret ödersiniz. Daha fazla bilgi için bkz: Merhaba [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage).
+80 GB VHD'den oluşturulan standart yönetilen disk S10 disk olan bir sonraki kullanılabilir standart disk boyutu olarak kabul edilir. S10 disk fiyatlandırma göre ücret ödersiniz. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage).
 
 **Standart yönetilen disk için herhangi bir işlem maliyetleri vardır?**
 
-Evet. Her işlem için ücret ödersiniz. Daha fazla bilgi için bkz: Merhaba [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage).
+Evet. Her işlem için ücret ödersiniz. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage).
 
-**Standart yönetilen disk için sağlanan hello hello disk kapasitesini veya hello gerçek hello diskteki hello verilerin boyutunu için t ücretlendirilir?**
+**Standart yönetilen disk için sağlanan disk kapasitesini veya disk üzerindeki verileri gerçek boyutu için t ücretlendirilir?**
 
-Sağlanan hello hello disk kapasitesine göre ücret ödersiniz. Daha fazla bilgi için bkz: Merhaba [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage).
+Sağlanan disk kapasitesine göre ücret ödersiniz. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage).
 
 **Nasıl yönetilen premium diskleri yönetilmeyen disklerden farklı fiyatlandırma olduğu?**
 
-Yönetilen premium diskleri Hello fiyatlandırma olduğu hello yönetilmeyen premium diskler ile aynı.
+Yönetilen premium diskleri fiyatlandırma yönetilmeyen premium diskleri aynı değil.
 
-**Merhaba depolama hesabı türü (standart veya Premium) yönetilen disklerim değiştirebilir miyim?**
+**Depolama hesabı türünü (standart veya Premium) yönetilen disklerim değiştirebilir miyim?**
 
-Evet. Hello Azure portal, PowerShell veya hello Azure CLI kullanarak yönetilen disklerinizi hello depolama hesabı türünü değiştirebilirsiniz.
+Evet. Azure portalı, PowerShell veya Azure CLI kullanarak yönetilen disklerinizi depolama hesabı türünü değiştirebilirsiniz.
 
-**I kopyalayın veya böylelikle yönetilen disk tooa özel depolama hesabını verme bir yolu var mı?**
+**I kopyalayın veya böylelikle bir özel depolama hesabına yönetilen bir disk verme bir yolu var mı?**
 
-Evet. Hello Azure portal, PowerShell veya hello Azure CLI kullanarak yönetilen disklerinizi dışarı aktarabilirsiniz.
+Evet. Azure portalı, PowerShell veya Azure CLI kullanarak yönetilen disklerinizi dışarı aktarabilirsiniz.
 
-**Bir Azure depolama hesabı toocreate yönetilen bir disk VHD dosyasında farklı bir aboneliğe kullanabilir miyim?**
+**Farklı bir abonelik ile yönetilen bir disk oluşturmak için Azure storage hesabı VHD dosyasında kullanabilir miyim?**
 
 Hayır.
 
-**Farklı bir bölgede bir Azure depolama hesabı toocreate yönetilen bir disk VHD dosyasında kullanabilir miyim?**
+**Farklı bir bölgede yönetilen bir disk oluşturmak için Azure storage hesabı VHD dosyasında kullanabilir miyim?**
 
 Hayır.
 
 **Yönetilen diskler kullanan müşteriler için ölçek sınırlamalar var mı?**
 
-Yönetilen diskleri depolama hesaplarıyla ilişkili hello sınırları ortadan kaldırır. Ancak, hello yönetilen diskleri abonelik başına sınırlı too2, varsayılan olarak 000 sayısıdır. Bu sayı destek tooincrease çağırabilirsiniz.
+Yönetilen diskleri depolama hesaplarıyla ilişkili sınırları ortadan kaldırır. Ancak, yönetilen disk başına abonelik sayısı 2. 000'varsayılan olarak sınırlıdır. Bu sayıyı artırmak için destek çağırabilirsiniz.
 
 **Yönetilen bir diskin artımlı bir anlık görüntüsünü alın?**
 
-Hayır. Merhaba geçerli anlık görüntü özelliği yönetilen bir disk tam bir kopyasını oluşturur. Ancak, biz toosupport artımlı anlık görüntülerini hello gelecekteki planladığınıza.
+Hayır. Geçerli anlık görüntü özelliği yönetilen bir disk tam bir kopyasını oluşturur. Ancak, biz artımlı anlık görüntüleri gelecekte destekler planlıyorsanız.
 
 **Sanal makineleri bir kullanılabilirlik kümesinde yönetilen ve yönetilmeyen diskleri birleşiminden oluşabilir?**
 
-Hayır. Merhaba sanal makineleri bir kullanılabilirlik kümesinde, tüm yönetilen diskleri veya tüm yönetilmeyen diskler kullanmanız gerekir. Bir kullanılabilirlik kümesi oluşturduğunuzda, disk türünü seçebilirsiniz toouse istiyor.
+Hayır. Sanal makineleri bir kullanılabilirlik kümesinde, tüm yönetilen diskleri veya tüm yönetilmeyen diskler kullanmanız gerekir. Bir kullanılabilirlik kümesi oluşturduğunuzda, kullanmak istediğiniz disk türünü seçebilirsiniz.
 
-**Yönetilen diskleri hello varsayılan seçeneği hello Azure portal mi?**
+**Yönetilen diskleri Azure portalında varsayılan seçenektir?**
 
-Şu anda değil ancak gelecekteki hello hello varsayılan olur.
+Evet. 
 
 **Boş bir yönetilen diski oluşturabilir miyim?**
 
-Evet. Boş bir disk oluşturabilirsiniz. Yönetilen bir disk tooa VM eklemeden VM bağımsız olarak, örneğin, oluşturulabilir.
+Evet. Boş bir disk oluşturabilirsiniz. Yönetilen bir disk için bir VM eklemeden VM bağımsız olarak, örneğin, oluşturulabilir.
 
-**Yönetilen diskleri kullanan bir kullanılabilirlik kümesi için desteklenen hello hata etki alanı sayısı nedir?**
+**Bir kullanılabilirlik için desteklenen hata etki alanı sayısı yönetilen diskleri kullanan ne ayarlı?**
 
-Yönetilen diskleri kullanan hello kullanılabilirlik kümesi bulunduğu hello bağlı olarak, desteklenen hello hata etki alanı sayısı 2 veya 3 bölgedir.
+Yönetilen diskleri kullanan kullanılabilirlik kümesi bulunduğu bağlı olarak, desteklenen hata etki alanı sayısı 2 veya 3 bölgedir.
 
-**Nasıl ayarlanan diagnostics hello standart depolama hesabı mı?**
+**Nasıl Tanılama ayarlamak için standart depolama hesabı mı?**
 
-VM tanılama için özel depolama hesabı ayarlayın. Hello gelecekteki, biz tooswitch tanılama planlama tooManaged diskler.
+VM tanılama için özel depolama hesabı ayarlayın. Gelecekte, tanılama yönetilen disklere de geçiş planlıyoruz.
 
 **Ne tür bir rol tabanlı erişim denetimi desteğini yönetilen disklerde var mı?**
 
@@ -76,20 +76,20 @@ Diskleri desteklediği üç anahtar varsayılan rol yönetilen:
 * Katkıda bulunan: erişim dışında her şeyi yönetebilir
 * Okuyucu: her şeyi görüntüleyebilir ancak değişiklik yapamaz
 
-**I kopyalayın veya böylelikle yönetilen disk tooa özel depolama hesabını verme bir yolu var mı?**
+**I kopyalayın veya böylelikle bir özel depolama hesabına yönetilen bir disk verme bir yolu var mı?**
 
-Hesap ya da şirket içi toocopy hello içeriği tooa özel depolama depolama URI yönetilen hello için disk ve kullanacak salt okunur paylaşılan erişim imzası elde edebilirsiniz.
+Yönetilen disk için bir salt okunur paylaşılan erişim imzası URI alın ve içeriği özel depolama hesabı veya şirket içi depolama birimine kopyalamak için kullanın.
 
 **Yönetilen my disk kopyasını oluşturabilir miyim?**
 
-Müşteriler, kendi yönetilen diskleri bir anlık görüntüsünü ve ardından başka bir yönetilen disk hello anlık görüntü toocreate kullanın.
+Müşteriler kendi yönetilen diskleri bir anlık görüntüsünü ve sonra yönetilen başka bir disk oluşturmak için anlık görüntüyü kullanın.
 
 **Yönetilmeyen diskleri hala desteklenmektedir?**
 
-Evet. Yönetilen ve yönetilmeyen diskleri destekliyoruz. Yeni iş yükleri için yönetilen diskleri kullanın ve geçerli iş yükleri toomanaged disklerinizi geçirmenizi öneririz.
+Evet. Yönetilen ve yönetilmeyen diskleri destekliyoruz. Yönetilen diskleri yeni iş yükleri için kullanın ve geçerli iş yüklerinizi yönetilen disklere geçirmenizi öneririz.
 
 
-**128 GB disk oluşturma ve hello boyutu too130 GB artırın, ı hello sonraki için disk boyutu (512 GB) ücretlendirilir?**
+**128 GB disk oluşturun ve ardından 130 GB boyutunu artırın, ı sonraki disk boyutu (512 GB) ücretlendirilir?**
 
 Evet.
 
@@ -101,13 +101,51 @@ Azure yönetilen diskleri şu anda yönetilen yalnızca yerel olarak yedekli dep
 
 Hayır. Bu özellik şu anda desteklenmiyor. 
 
-**Merhaba bilgisayar adı özelliği, özelleştirilmiş (Merhaba Sistem Hazırlama aracı kullanılarak oluşturulan veya genelleştirilmiş) işletim sistemi diski kullanılan tooprovision VM olduğunda değiştirebilir miyim?**
+**My disk üzerinde bir kira sonu?**
 
-Hayır. Merhaba bilgisayar adı özelliği güncelleştirilemiyor. Merhaba yeni VM hello üst kullanılan toocreate hello işletim sistemi disk VM devralır. 
+Hayır. Bir kira disk kullanıldığında yanlışlıkla silinmesini önlemek için mevcut olduğundan bu şu anda desteklenmiyor.
 
-**Yönetilen disklerle örnek Azure Resource Manager şablonları toocreate VM'ler nereden bulabilirim?**
+**Bilgisayar adı özelliği değiştirmek bir özel (Sistem Hazırlama aracı kullanılarak oluşturulan veya genelleştirilmiş) işletim sistemi diski VM sağlamak için kullanılır?**
+
+Hayır. Bilgisayar adı özelliği güncelleştirilemiyor. Yeni VM, işletim sistemi diski oluşturmak için kullanılan VM üstten devralmaz. 
+
+**Yönetilen disklerle VM'ler oluşturmak için örnek Azure Resource Manager şablonları nereden bulabilirim?**
 * [Yönetilen diskleri kullanarak şablonları](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
+
+## <a name="migrate-to-managed-disks"></a>Yönetilen Disklere geçme 
+
+**Hangi değişiklikleri önceden var olan Azure Backup hizmeti yapılandırma önceki/sonra geçiş için yönetilen diskleri gerekli midir?**
+
+Değişiklik gerekmez. 
+
+**Azure Yedekleme hizmetini geçişten önce aracılığıyla oluşturulan VM yedeklerim çalışmaya devam eder?**
+
+Evet, yedekleme sorunsuz bir şekilde çalışır.
+
+**Hangi değişiklikleri önceden var olan Azure disk şifrelemesi yapılandırma önceki/sonra geçiş için yönetilen diskleri gerekli midir?**
+
+Değişiklik gerekmez. 
+
+**Otomatik geçiş bir var olan VM ölçek kümeleri (VMSS), yönetilmeyen disklerden desteklenen diskleri yönetilen mi?**
+
+Hayır. Yönetilen yönetilmeyen disklerle eski VMSS görüntüden kullanarak disklerle yeni VMSS oluşturabilirsiniz. 
+
+**Yönetilen disklere geçirmeden önce geçen bir sayfa blob'u anlık yönetilen bir Disk oluşturabilirim?**
+
+Hayır. Bir sayfa blob'u anlık görüntü bir sayfa blob'u olarak dışarı aktarmak ve ardından yönetilen bir Disk dışarı aktarılan sayfa BLOB'dan oluşturun. 
+
+**Azure Site Recovery yönetilen diskleri olan bir VM tarafından korunan my şirket içi makineler üzerinden başarısız olabilir?**
+
+Evet, yük devretme yönetilen diskleri olan bir VM için seçebilirsiniz.
+
+**Geçiş için Azure Azure çoğaltma Azure Site Kurtarma (ASR) tarafından korunan Azure vm'lerinde herhangi bir etki var mı?**
+
+Evet. ASR Azure için Azure koruması yönetilen diskleri olan VM'ler için desteklenmez. S1 CY2018 ucu tarafından desteklenmesi zordur. 
+
+**Sanal makineleri veya yönetilen diskleri daha önce şifrelenmiş depolama hesaplarında yer alan yönetilmeyen disklerle geçişini sağlayabilir miyim?**
+
+Evet
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Diskler ve depolama hizmeti şifrelemesi yönetilen 
 
@@ -115,9 +153,9 @@ Hayır. Merhaba bilgisayar adı özelliği güncelleştirilemiyor. Merhaba yeni 
 
 Evet.
 
-**Merhaba şifreleme anahtarları yöneten?**
+**Şifreleme anahtarları yöneten?**
 
-Microsoft hello şifreleme anahtarları yönetir.
+Microsoft şifreleme anahtarları yönetir.
 
 **I depolama hizmeti şifrelemesi yönetilen disklerim için devre dışı bırakabilirim?**
 
@@ -125,30 +163,30 @@ Hayır.
 
 **Depolama hizmeti şifrelemesi, yalnızca belirli bölgelerde kullanılabilir?**
 
-Hayır. Tarafından yönetilen diskleri kullanılabilir olduğu tüm hello bölgelerde kullanılabilir. Yönetilen diskleri kullanılabilir tüm genel bölgeler ve Almanya.
+Hayır. Tarafından yönetilen diskleri kullanılabilir olduğu tüm bölgelerde kullanılabilir. Yönetilen diskleri kullanılabilir tüm genel bölgeler ve Almanya.
 
 **Nasıl ı yönetilen my disk şifrelenir öğrenebilirsiniz?**
 
-Yönetilen bir disk hello Azure portal, hello Azure CLI ve PowerShell oluşturulduğu hello zaman bulabilirsiniz. Merhaba saat 9 Haziran 2017 sonra ise, disk şifrelenir. 
+Yönetilen bir disk Azure portalı, Azure CLI ve PowerShell oluşturulduğu zaman bulabilirsiniz. Saat 9 Haziran 2017 sonra ise, disk şifrelenir. 
 
 **10 Haziran 2017 önce oluşturulan mevcut disklerim nasıl şifreleyebilir mi?**
 
-10 Haziran 2017 itibariyle yönetilen tooexisting diskleri yazılan yeni veriler otomatik olarak şifrelenir. Biz de tooencrypt var olan verileri planlama ve hello şifreleme zaman uyumsuz olarak hello arka planda gerçekleşir. Var olan verileri artık şifrelemeniz gerekir, diskinizin bir kopyasını oluşturun. Yeni disk şifrelenir.
+10 Haziran 2017 sürümünden itibaren varolan yönetilen diske yazılan yeni veriler otomatik olarak şifrelenir. Biz de var olan verileri şifrelemek planladığınıza ve şifreleme zaman uyumsuz olarak arka planda gerçekleşir. Var olan verileri artık şifrelemeniz gerekir, diskinizin bir kopyasını oluşturun. Yeni disk şifrelenir.
 
-* [Hello Azure CLI kullanarak yönetilen diskleri kopyalama](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
+* [Azure CLI kullanarak yönetilen diskleri kopyalama](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
 * [PowerShell kullanarak yönetilen diskleri kopyalama](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
 
 **Yönetilen anlık görüntüler ve şifrelenmiş görüntüleri misiniz?**
 
 Evet. Yönetilen tüm anlık görüntüler ve 9 Haziran 2017 sonra oluşturulan görüntüleri otomatik olarak şifrelenir. 
 
-**Sanal makineleri olan veya önceden şifrelenmiş toomanaged diskleri depolama hesaplarında yer alan yönetilmeyen disklerle dönüştürebilirsiniz?**
+**Sanal makineleri veya yönetilen diskleri daha önce şifrelenmiş depolama hesaplarında yer alan yönetilmeyen disklerle dönüştürebilirsiniz?**
 
 Evet
 
 **Yönetilen bir disk veya bir anlık görüntü dışarı aktarılan bir VHD'den de şifrelenir mi?**
 
-Hayır. Ancak, bir VHD tooan dışa depolama hesabından bir şifrelenmiş yönetilen disk veya anlık görüntü şifrelenmiş sonra şifrelenir. 
+Hayır. Ancak, bir VHD şifrelenmiş depolama hesabı için bir şifrelenmiş dışa varsa disk veya anlık görüntü yönetilen sonra şifrelenir. 
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>Premium diskler: yönetilen ve yönetilmeyen
 
@@ -156,43 +194,43 @@ Hayır. Ancak, bir VHD tooan dışa depolama hesabından bir şifrelenmiş yöne
 
 Evet.
 
-**Premium ve Premium depolama D, Dv2, G veya F serisi gibi desteklemiyor standart veri diskleri tooa boyutu serisi ekleyebilir miyim?**
+**I premium ve standart veri diskleri Premium depolama D, Dv2, G veya F serisi gibi desteklemiyor boyutu seriye ekleyebilir miyim?**
 
-Hayır. Premium Storage destekleyen bir boyutu serisi kullanmayan standart veri diskleri tooVMs ekleyebilirsiniz.
+Hayır. Premium Storage destekleyen bir boyutu serisi kullanmayan sanal makineleri yalnızca standart veri diskleri ekleyebilirsiniz.
 
 **80 GB varolan bir VHD'den premium veri diski oluşturursanız, ne kadar maliyeti ne olacak?**
 
-80 GB VHD'den oluşturulan bir premium veri diski P10 disk hello sonraki kullanılabilir premium disk boyutu kabul edilir. According toohello P10 disk fiyatlandırma ücret ödersiniz.
+80 GB VHD'den oluşturulan bir premium veri diski P10 disk sonraki kullanılabilir premium disk boyutu kabul edilir. P10 disk fiyatlandırma göre ücret ödersiniz.
 
-**İşlem maliyetleri toouse Premium depolama var mı?**
+**Premium depolama kullanmak için işlem maliyetleri vardır?**
 
-IOPS ve üretilen iş ile belirli sınırları sağlanan gelen her disk boyutu için sabit bir maliyeti yoktur. Merhaba diğer maliyetlerin giden bant genişliği ve anlık görüntü kapasite varsa markalarıdır. Daha fazla bilgi için bkz: Merhaba [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage).
+IOPS ve üretilen iş ile belirli sınırları sağlanan gelen her disk boyutu için sabit bir maliyeti yoktur. Diğer maliyetlerin giden bant genişliği ve anlık görüntü kapasite varsa ' dir. Daha fazla bilgi edinmek için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage).
 
-**IOPS ve hello disk önbellekten elde edebilirsiniz işleme için hello sınırları nelerdir?**
+**IOPS ve disk önbellekten elde edebilirsiniz işleme sınırları nelerdir?**
 
-önbellek için birleşik sınırları hello ve DS serisi için yerel SSD: çekirdek başına 4.000 IOPS ve çekirdek saniyede 33 MB. Merhaba GS serisi çekirdek başına 5.000 IOPS'yi ve çekirdek saniyede 50 MB sunar.
+Önbellek için birleşik sınırları ve DS serisi için yerel SSD çekirdek başına 4.000 IOPS ve çekirdek saniyede 33 MB kümesidir. GS serisi çekirdek başına 5.000 IOPS'yi ve çekirdek saniyede 50 MB sunar.
 
-**Yerel SSD yönetilen diskleri VM için desteklenen hello mi?**
+**Yerel SSD yönetilen diskleri VM için destekleniyor mu?**
 
-Merhaba yerel SSD yönetilen diskleri VM ile birlikte sağlanan geçici depolama olur. Var. ek bu geçici depolama için bir maliyeti yoktur. Azure Blob depolama alanına kalıcı değildir çünkü bu yerel SSD toostore'ı uygulama verilerinizi kullanmamanızı öneririz.
+Yerel SSD yönetilen diskleri VM ile birlikte sağlanan geçici depolama ' dir. Var. ek bu geçici depolama için bir maliyeti yoktur. Azure Blob depolama alanına kalıcı değildir çünkü, uygulama verilerini depolamak için bu yerel SSD kullanmamanızı öneririz.
 
-**Var. herhangi varsa hello için kullanacağı KIRPMA premium disklerde?**
+**Premium disklerde KIRPMA kullanılmak herhangi varsa var mı?**
 
-Hiçbir KIRPMA ya da premium Azure disklerde veya standart diskler dezavantajı toohello kullanımını yoktur.
+KIRPMA kullanın ya da premium Azure disklerde veya standart diskler üzerinde hiçbir dezavantajı yoktur.
 
 ## <a name="new-disk-sizes-managed-and-unmanaged"></a>Yeni disk boyutları: yönetilen ve yönetilmeyen
 
-**Merhaba işletim sistemi ve veri diskleri için desteklenen en büyük disk boyutu nedir?**
+**İşletim sistemi ve veri diskleri için desteklenen en büyük disk boyutu nedir?**
 
-bir işletim sistemi diski için Azure destekleyen hello bölüm hello ana önyükleme kaydı (MBR) türüdür. Merhaba MBR biçimi too2 TB bir disk boyutunu destekler. bir işletim sistemi diski için Azure destekleyen hello en büyük boyutu 2 TB ' dir. Veri diskleri too4 TB yukarı Azure destekler. 
+Bir işletim sistemi diski için Azure destekleyen bölüm ana önyükleme kaydı (MBR) türüdür. MBR biçimini destekleyen bir diski 2 TB boyut. Bir işletim sistemi diski için Azure desteklediği en büyük boyutu 2 TB'tır. Azure veri diskleri için en fazla 4 TB destekler. 
 
-**Desteklenen hello büyük sayfa blob boyutu nedir?**
+**Desteklenen en büyük sayfa blob boyutu nedir?**
 
-Azure destekleyen hello büyük sayfa blob boyutu 8 TB (8191 GB) ' dir. Sayfa bloblarını veri veya işletim sistemi diskler olarak 4 TB (4.095 GB) bağlı tooa VM büyük desteklemiyoruz.
+Azure desteklediği en büyük sayfa blob boyutu 8 TB (8191 GB) ' dir. Sayfa bloblarını 4 TB veri veya işletim sistemi disklerinde olarak bir VM'ye bağlı (4.095 GB) büyük desteklemiyoruz.
 
-**Toouse yeni bir sürüm gerekiyor mu Azure Araçları toocreate ekleme, yeniden boyutlandırma ve 1 TB'den büyük olan diskler karşıya?**
+**Azure Araçları'nın yeni bir sürüm oluşturma, ekleme, yeniden boyutlandırma ve 1 TB'den büyük olan diskler karşıya yükleme için kullanılacak gerekiyor mu?**
 
-Var olan Azure Araçları toocreate tooupgrade gerekmez, ekleme ya da 1 TB'den büyük diskleri yeniden boyutlandırma. VHD dosyası tooupload doğrudan tooAzure bir sayfa blobu veya yönetilmeyen disk olarak şirket içi, toouse hello en son aracı kümeleri gerekir:
+Oluşturma, ekleme veya 1 TB'den büyük diskleri yeniden boyutlandırmak için varolan Azure Araçları yükseltmeniz gerekmez. VHD dosyasına şirket içi doğrudan Azure sayfa blobu veya yönetilmeyen disk olarak karşıya yükleme için en son aracı kümeleri kullanmanız gerekir:
 
 |Azure Araçları      | Desteklenen sürümler                                |
 |-----------------|---------------------------------------------------|
@@ -200,23 +238,23 @@ Var olan Azure Araçları toocreate tooupgrade gerekmez, ekleme ya da 1 TB'den b
 |Azure CLI v1     | Sürüm numarası 0.10.13: May 2017 sürüm veya daha yenisi|
 |AzCopy           | Sürüm numarası 6.1.0: Haziran 2017 sürüm veya daha yenisi|
 
-Azure CLI v2 ve Azure Storage Gezgini Hello desteği yakında geliyor. 
+Azure CLI v2 ve Azure Storage Gezgini desteği yakında geliyor. 
 
 **P4 ve P6 disk boyutları yönetilmeyen diskleri veya sayfa BLOB'ları için destekleniyor mu?**
 
 Hayır. P4 (32 GB) ve P6 (64 GB) disk boyutları, yalnızca yönetilen diskler için desteklenir. Yönetilmeyen diskleri ve sayfa bloblarını desteği yakında geliyor.
 
-**Nasıl yönetilen my varolan premium hello küçük bir disk (15 Haziran 2017) etkinleştirilmeden önce 64 GB oluşturulduğu daha az disk varsa, onu faturalandırılır?**
+**Nasıl yönetilen my varolan premium (15 Haziran 2017) küçük bir disk etkinleştirilmeden önce 64 GB oluşturulduğu daha az disk varsa, onu faturalandırılır?**
 
-64 GB'den küçük var olan küçük premium disklerin faturalandırılır toobe according toohello P10 fiyatlandırma katmanı devam edin. 
+Var olan küçük premium göre P10 fiyatlandırma katmanı faturalandırılmaya devam 64 GB daha az diskler. 
 
-**Merhaba disk katmanını 64 GB'den küçük küçük premium diskleri P10 tooP4 veya P6 nasıl geçiş yapabilirim?**
+**64 GB P10 ile P4 veya P6 değerinden küçük premium diskler, disk katmanı nasıl geçiş yapabilirim?**
 
-Küçük disklerinizi bir anlık görüntüsünü ve fiyatlandırma katmanı tooP4 disk tooautomatically anahtar hello oluşturmak veya P6 sağlanan hello boyutuna göre. 
+Küçük disklerinizi bir anlık görüntüsünü ve fiyatlandırma katmanı P4 veya P6 sağlanan boyutuna göre otomatik olarak geçiş yapmak için bir diski oluşturun. 
 
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Ne sorumun cevabı burada cevaplanıp değil mi?
 
-Sorunuzun yanıtını burada listelenmiyorsa, bize bildirin ve yanıt bulmanıza yardımcı olacağız. Bu makalenin hello sonunda bir soru hello açıklamaları nakledebilirsiniz. hello Azure depolama ekibi ile tooengage ve diğer topluluk üyeleri bu makale hakkında kullanmak hello MSDN [Azure depolama Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
+Sorunuzun yanıtını burada listelenmiyorsa, bize bildirin ve yanıt bulmanıza yardımcı olacağız. Bir soru bu makalenin sonunda yer alan yorumlara nakledebilirsiniz. Azure depolama ekibi ve diğer topluluk üyeleri bu makale hakkında ile etkileşim için MSDN kullanın [Azure depolama Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 
-toorequest özellikleri gönderme istekleri ve fikir toohello [Azure Storage geri bildirim Forumunda](https://feedback.azure.com/forums/217298-storage).
+Özellik isteğinde, istekleri ve için fikirleri göndermek için [Azure Storage geri bildirim Forumunda](https://feedback.azure.com/forums/217298-storage).

@@ -1,14 +1,14 @@
 ## <a name="install-wordpress"></a>WordPress yükleme
 
-Yığın tootry istiyorsanız, örnek bir uygulama yükleyin. Örnek olarak, aşağıdaki adımları hello yüklemek hello açık kaynak [WordPress](https://wordpress.org/) platform toocreate Web siteleri ve Web günlükleri. Diğer iş yükleri tootry dahil [Drupal](http://www.drupal.org) ve [Moodle](https://moodle.org/). 
+Yığın denemek istiyorsanız, örnek bir uygulama yükleyin. Örnek olarak, aşağıdaki adımları açık kaynak yüklemek [WordPress](https://wordpress.org/) Web siteleri ve Web günlükleri oluşturmak için platform. Denemek için diğer iş yükleri içerir [Drupal](http://www.drupal.org) ve [Moodle](https://moodle.org/). 
 
-Kavram kanıtı için bu WordPress kurulur. Daha fazla bilgi ve üretim yüklemesine yönelik ayarlar için bkz: hello [WordPress belgelerine](https://codex.wordpress.org/Main_Page). 
+Yalnızca kavram kanıtı bu WordPress kurulur. Önerilen güvenlik ayarlarıyla üretimde son WordPress yüklemek için bkz [WordPress belgelerine](https://codex.wordpress.org/Main_Page). 
 
 
 
-### <a name="install-hello-wordpress-package"></a>Merhaba WordPress paketini yükle
+### <a name="install-the-wordpress-package"></a>WordPress paketini yükle
 
-Merhaba aşağıdaki komutu çalıştırın:
+Şu komutu çalıştırın:
 
 ```bash
 sudo apt install wordpress
@@ -16,12 +16,43 @@ sudo apt install wordpress
 
 ### <a name="configure-wordpress"></a>WordPress’i yapılandırma
 
-WordPress toouse MySQL ve PHP yapılandırın. Bir metin düzenleyiciyi komutu tooopen aşağıdaki hello çalıştırın ve hello dosyası oluşturma `/etc/wordpress/config-localhost.php`:
+WordPress MySQL ve PHP kullanacak şekilde yapılandırın.
+
+Bir çalışma dizini içinde bir metin dosyası oluşturun `wordpress.sql` MySQL veritabanı için WordPress yapılandırmak için: 
+
+```bash
+sudo sensible-editor wordpress.sql
+```
+
+Bir veritabanı parolası için tercih ettiğiniz değiştirerek aşağıdaki komutları ekleme *yourPassword* (diğer değerleri değiştirmeden bırakın). Parola gücünü doğrulamak için daha önce bir MySQL güvenlik ilkesini ayarlayın, parola gücü gereksinimlerini karşıladığından emin olun. Dosyayı kaydedin.
+
+```sql
+CREATE DATABASE wordpress;
+GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER
+ON wordpress.*
+TO wordpress@localhost
+IDENTIFIED BY 'yourPassword';
+FLUSH PRIVILEGES;
+```
+
+Veritabanını oluşturmak için aşağıdaki komutu çalıştırın:
+
+```bash
+cat wordpress.sql | sudo mysql --defaults-extra-file=/etc/mysql/debian.cnf
+```
+
+Çünkü dosya `wordpress.sql` veritabanı kimlik bilgileri, kullandıktan sonra silin içerir:
+
+```bash
+sudo rm wordpress.sql
+```
+
+PHP yapılandırmak için tercih ettiğiniz bir metin düzenleyicisinde açın ve dosyayı oluşturmak için aşağıdaki komutu çalıştırın `/etc/wordpress/config-localhost.php`:
 
 ```bash
 sudo sensible-editor /etc/wordpress/config-localhost.php
 ```
-Aşağıdaki satırları toohello dosyasına, veritabanı parolasını değiştirme kopyalama hello *yourPassword* (diğer değerleri değiştirmeden bırakın). Ardından hello dosyayı kaydedin.
+WordPress veritabanı parolasını değiştirme dosyası aşağıdaki satırları kopyalamak *yourPassword* (diğer değerleri değiştirmeden bırakın). Ardından dosyayı kaydedin.
 
 ```php
 <?php
@@ -33,33 +64,8 @@ define('WP_CONTENT_DIR', '/usr/share/wordpress/wp-content');
 ?>
 ```
 
-Bir çalışma dizini içinde bir metin dosyası oluşturun `wordpress.sql` tooconfigure hello WordPress veritabanı: 
 
-```bash
-sudo sensible-editor wordpress.sql
-```
-
-Aşağıdaki komutlar, veritabanı parolasını değiştirme hello eklemek *yourPassword* (diğer değerleri değiştirmeden bırakın). Ardından hello dosyayı kaydedin.
-
-```sql
-CREATE DATABASE wordpress;
-GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER
-ON wordpress.*
-toowordpress@localhost
-IDENTIFIED BY 'yourPassword';
-FLUSH PRIVILEGES;
-```
-
-
-Komut toocreate hello veritabanı aşağıdaki hello çalıştırın:
-
-```bash
-cat wordpress.sql | sudo mysql --defaults-extra-file=/etc/mysql/debian.cnf
-```
-
-Merhaba komut tamamlandıktan sonra hello dosya silme `wordpress.sql`.
-
-Merhaba WordPress yükleme toohello web sunucusu belge kökü Taşı:
+WordPress yükleme için web sunucusu belge kökü Taşı:
 
 ```bash
 sudo ln -s /usr/share/wordpress /var/www/html/wordpress
@@ -67,6 +73,6 @@ sudo ln -s /usr/share/wordpress /var/www/html/wordpress
 sudo mv /etc/wordpress/config-localhost.php /etc/wordpress/config-default.php
 ```
 
-Şimdi hello WordPress Kurulumu tamamlamak ve hello platformda yayımlayın. Bir tarayıcı açın ve çok`http://yourPublicIPAddress/wordpress`. VM Hello genel IP adresini değiştirin. Benzer toothis görüntü görünmelidir.
+Şimdi WordPress Kurulumu tamamlamak ve platformda yayımlayın. Bir tarayıcı açın ve gidin `http://yourPublicIPAddress/wordpress`. VM ortak IP adresini değiştirin. Bu görüntüsüne benzer görünmelidir.
 
 ![WordPress yükleme sayfası](./media/virtual-machines-linux-tutorial-wordpress/wordpressstartpage.png)

@@ -1,19 +1,19 @@
-Ekli tooa sanal makine (VM) bir veri diski artık ihtiyacınız olduğunda, kolayca ayırabilirsiniz. Merhaba VM diskten ayırdığınızda hello disk değil depolama biriminden kaldırıldı. Merhaba disk üzerindeki toouse hello mevcut verileri yeniden istiyorsanız, toohello iliştirebilirsiniz aynı VM veya başka bir tane.  
+Sanal makineye (VM) bağlı bir veri diskine ihtiyacınız olmadığında bunu kolayca ayırabilirsiniz. VM’den bir diski ayırdığınızda disk depolama biriminden kaldırılmaz. Disk üzerinde var olan verileri yeniden kullanmak isterseniz bu verileri aynı VM’ye veya başka bir VM’ye yeniden ekleyebilirsiniz.  
 
 > [!NOTE]
-> Azure'da VM’ler işletim sistemi diski, yerel geçici disk ve isteğe bağlı veri diskleri gibi farklı tür diskler kullanır. Ayrıntılar için bkz. [Sanal Makinelerde Diskler ve VHD’ler Hakkında](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Ayrıca hello VM silmediğiniz sürece bir işletim sistemi diski ayıramazsınız.
+> Azure'da VM’ler işletim sistemi diski, yerel geçici disk ve isteğe bağlı veri diskleri gibi farklı tür diskler kullanır. Ayrıntılar için bkz. [Sanal Makinelerde Diskler ve VHD’ler Hakkında](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). VM’yi silmediğiniz sürece işletim sistemi diskini ayıramazsınız.
 
-## <a name="find-hello-disk"></a>Başlangıç diski bulun
-Bir diskten VM ayırmadan önce hello hello disk toobe ayrılmış bir tanıtıcısıdır LUN numarası çıkışı toofind gerekir. Bu adımları, toodo:
+## <a name="find-the-disk"></a>Diski bulma
+Bir diski VM’den ayırmadan önce LUN numarasını bulmanız gerekir. Bu numara ayrılacak disk için bir tanımlayıcıdır. Bunu yapmak için şu adımları uygulayın:
 
-1. Azure CLI'ni açın ve [tooyour Azure aboneliğine bağlanma](../articles/xplat-cli-connect.md). Azure Hizmet Yönetimi modunda olduğunuzdan emin olun (`azure config mode asm`).
-2. Hangi disklerin ekli tooyour VM olduğunu bulabilirsiniz. Merhaba aşağıdaki örnek listeler hello adlı VM için diskleri `myVM`:
+1. Azure CLI’yi açın ve [Azure aboneliğinize bağlanın](/cli/azure/authenticate-azure-cli). Azure Hizmet Yönetimi modunda olduğunuzdan emin olun (`azure config mode asm`).
+2. VM'nize hangi disklerin bağlı olduğunu bulun. Aşağıdaki örnekte `myVM` adlı VM’nin diskleri listelenmiştir:
 
     ```azurecli
     azure vm disk list myVM
     ```
 
-    Merhaba, benzer toohello aşağıdaki örneğine çıktı:
+    Çıktı aşağıdaki örneğe benzer:
 
     ```azurecli
     * Fetching disk images
@@ -26,12 +26,12 @@ Bir diskten VM ayırmadan önce hello hello disk toobe ayrılmış bir tanıtıc
       info:    vm disk list command OK
     ```
 
-3. Not hello LUN veya hello **mantıksal birim numarası** toodetach istediğiniz hello diski için.
+3. Ayırmak istediğiniz diskin LUN veya **mantıksal birim numarasına** dikkat edin.
 
-## <a name="remove-operating-system-references-toohello-disk"></a>İşletim sistemi başvuruları toohello diski Kaldır
-Merhaba Linux Konuk Hello diskten kullanımdan çıkarmadan önce hello diskteki tüm bölümlerin kullanımda olmadığından emin olmanız gerekir. Merhaba işletim sistemi tooremount denemez olun bir yeniden başlatma işleminden sonra onları. Büyük olasılıkla oluşturmuşsunuz ne zaman hello yapılandırma adımları geri [ekleme](../articles/virtual-machines/linux/classic/attach-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) hello disk.
+## <a name="remove-operating-system-references-to-the-disk"></a>Diske işletim sistemi başvurularını kaldırın
+Diski Linux konuğundan ayırmadan önce diskteki hiçbir bölümün kullanımda olmadığından emin olmanız gerekir. İşletim sisteminin yeniden başlatma sonrası yeniden takılmayı denemeyeceğinden emin olun. Bu adımlar diski [eklerken](../articles/virtual-machines/linux/classic/attach-disk-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) muhtemelen oluşturduğunuz yapılandırmayı geri alır.
 
-1. Kullanım hello `lsscsi` komut toodiscover hello disk tanımlayıcısı. `lsscsi`, `yum install lsscsi` (Red Hat üzerinde dağıtımlarda) veya `apt-get install lsscsi` (Debian üzerinde dağıtımlarda) aracılığıyla yüklenebilir. Merhaba LUN numarası kullanarak aradığınız hello disk tanımlayıcısı bulabilirsiniz. Merhaba son hello tuple her satırda hello LUN sayısıdır. Örnekten aşağıdaki hello içinde `lsscsi`, LUN 0 eşlemeleri çok  */dev/sdc*
+1. Disk tanımlayıcısını bulmak için `lsscsi` komutunu kullanın. `lsscsi`, `yum install lsscsi` (Red Hat üzerinde dağıtımlarda) veya `apt-get install lsscsi` (Debian üzerinde dağıtımlarda) aracılığıyla yüklenebilir. LUN numarasını kullanarak aradığınız disk tanımlayıcısını bulabilirsiniz. Her satırdaki tanımlama grubunda bulunan son sayı LUN’dur. Aşağıdaki `lsscsi` örneğinde, LUN 0 */dev/sdc* ile eşlenir.
 
     ```bash
     [1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
@@ -40,7 +40,7 @@ Merhaba Linux Konuk Hello diskten kullanımdan çıkarmadan önce hello diskteki
     [5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
     ```
 
-2. Kullanım `fdisk -l <disk>` toodiscover hello bölümleri ayrılmış hello disk toobe ile ilişkilendirilmiş. Merhaba aşağıdaki örnekte hello çıktısı için gösterilmektedir `/dev/sdc`:
+2. Ayrılacak diskle ilişkili bölümleri bulmak için `fdisk -l <disk>` kullanın. Aşağıdaki örnekte `/dev/sdc` için çıktı gösterilmiştir:
 
     ```bash
     Disk /dev/sdc: 1098.4 GB, 1098437885952 bytes, 2145386496 sectors
@@ -54,13 +54,13 @@ Merhaba Linux Konuk Hello diskten kullanımdan çıkarmadan önce hello diskteki
     /dev/sdc1            2048  2145386495  1072692224   83  Linux
     ```
 
-3. Merhaba disk için listelenen her bir bölümü çıkarın. Merhaba aşağıdaki örnek çıkarır `/dev/sdc1`:
+3. Disk için listelenen her bir bölümü ayırın. Aşağıdaki örnekte `/dev/sdc1` çıkarılır:
 
     ```bash
     sudo umount /dev/sdc1
     ```
 
-4. Kullanım hello `blkid` tüm bölümler için komut toodiscovery hello UUID. Merhaba, benzer toohello aşağıdaki örneğine çıktı:
+4. Tüm bölümlerin UUID'lerini bulmak için `blkid` komutunu kullanın. Çıktı aşağıdaki örneğe benzer:
 
     ```bash
     /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
@@ -68,7 +68,7 @@ Merhaba Linux Konuk Hello diskten kullanımdan çıkarmadan önce hello diskteki
     /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
     ```
 
-5. Hello silmemelisiniz **/etc/fstab** ayrılmış hello disk toobe için tüm bölümler için hello aygıt yolları veya UUID'ler ile ilişkili dosya.  Bu örneğin girişleri şöyle olabilir:
+5. Ayrılacak diskin tüm bölümlerinde **/etc/fstab** dosyasındaki cihaz yolları veya UUID’ler ile ilişkilendirilmiş girişleri kaldırın.  Bu örneğin girişleri şöyle olabilir:
 
     ```sh  
    UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2
@@ -80,23 +80,23 @@ Merhaba Linux Konuk Hello diskten kullanımdan çıkarmadan önce hello diskteki
    /dev/sdc1   /datadrive   ext4   defaults   1   2
    ```
 
-## <a name="detach-hello-disk"></a>Merhaba disk ayırma
-Merhaba LUN sayısını hello disk ve kaldırılan hello işletim sistemi başvuruları bulduktan sonra hazır toodetach olduğunuz bu:
+## <a name="detach-the-disk"></a>Diski ayırma
+Diskin LUN numarasını bulup işletim sistemi başvurularını kaldırdıktan sonra diski ayırmaya hazır olursunuz:
 
-1. Merhaba komutu çalıştırarak hello sanal makineden Hello seçili disk ayırma `azure vm disk detach
-   <virtual-machine-name> <LUN>`. Merhaba aşağıdaki örnek ayırır LUN `0` hello adlı VM gelen `myVM`:
+1. Seçili diski sanal makineden ayırmak için `azure vm disk detach
+   <virtual-machine-name> <LUN>`.komutunu çalıştırın. Aşağıdaki örnekte `myVM` adlı VM'den `0` adlı LUN ayrılmaktadır:
    
     ```azurecli
     azure vm disk detach myVM 0
     ```
 
-2. Merhaba disk çalıştırarak ayrıldı olmadığını denetleyebilirsiniz `azure vm disk list` yeniden. Aşağıdaki örnek denetimleri hello hello adlı VM `myVM`:
+2. Diskin ayrılıp ayrılmadığını `azure vm disk list` seçeneğini tekrar kullanarak görebilirsiniz. Aşağıdaki örnekte `myVM` adlı VM denetlenmektedir:
    
     ```azurecli
     azure vm disk list myVM
     ```
 
-    Merhaba, benzer toohello hello veri diski artık takılı gösteren örnek aşağıdaki çıktı:
+    Çıktı, veri diskinin artık bağlı olmadığını gösteren aşağıdaki örneğe benzer:
 
     ```azurecli
     info:    Executing command vm disk list
@@ -110,5 +110,5 @@ Merhaba LUN sayısını hello disk ve kaldırılan hello işletim sistemi başvu
      info:    vm disk list command OK
     ```
 
-Merhaba ayrılmış disk depolama alanında kalır, ancak artık ekli tooa sanal makine değil.
+Ayrılmış disk depolama alanında kalır, ancak artık bir sanal makineye bağlı değildir.
 

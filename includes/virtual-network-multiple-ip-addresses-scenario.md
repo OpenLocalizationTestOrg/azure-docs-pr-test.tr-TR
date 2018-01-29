@@ -1,5 +1,5 @@
 ## <a name="scenario"></a>Senaryo
-Bir VM tek bir NIC ile oluşturulan ve bağlı tooa sanal ağdır. Merhaba VM gerektirir üç farklı *özel* IP adresleri ve iki *ortak* IP adresleri. Merhaba IP adresleri IP yapılandırmaları aşağıdaki toohello atanır:
+Tek bir NIC ile VM oluşturulur ve sanal bir ağa bağlı. VM üç farklı gerektirir *özel* IP adresleri ve iki *ortak* IP adresleri. IP adreslerini aşağıdaki IP yapılandırmaları atanır:
 
 * **Ipconfig-1:** atayan bir *statik* özel IP adresi ve bir *statik* genel IP adresi.
 * **Ipconfig-2:** atayan bir *statik* özel IP adresi ve bir *statik* genel IP adresi.
@@ -7,7 +7,7 @@ Bir VM tek bir NIC ile oluşturulan ve bağlı tooa sanal ağdır. Merhaba VM ge
   
     ![Birden çok IP adresi](./media/virtual-network-multiple-ip-addresses-scenario/multiple-ipconfigs.png)
 
-Merhaba NIC oluşturulur ve hello NIC olduğunda ekli toohello VM hello VM oluşturulduğunda hello IP ilişkili toohello NIC bağlantılardır. Merhaba hello senaryo için kullanılan IP adresleri için çizim türleridir. İhtiyaç duyduğunuz hangi IP adresi ve atama türleri atayabilirsiniz.
+NIC oluşturulduğunda ve VM oluşturulduğunda NIC VM'ye bağlı olduğu IP yapılandırmaları NIC'ye ilişkilendirilir. Çizim için bu senaryo için kullanılan IP adresleri türleridir. İhtiyaç duyduğunuz hangi IP adresi ve atama türleri atayabilirsiniz.
 
 > [!NOTE]
-> Merhaba adımları rağmen bu makalenin tüm IP yapılandırmaları tooa atar tek NIC, birden çok IP yapılandırmaları tooany NIC multi-NIC VM içinde de atayabilirsiniz. nasıl toocreate birden çok NIC ile VM okuma toolearn hello [bir VM ile birden çok NIC oluşturma](../articles/virtual-network/virtual-network-deploy-multinic-arm-ps.md) makalesi.
+> Bu makaledeki adımları atar ancak tüm IP yapılandırmaları için tek bir NIC birden fazla IP yapılandırması bir multi-NIC VM herhangi bir NIC atayabilirsiniz. Bir VM ile birden çok NIC oluşturmayı öğrenmek için okuma [bir VM ile birden çok NIC oluşturma](../articles/virtual-machines/windows/multiple-nics.md) makalesi.

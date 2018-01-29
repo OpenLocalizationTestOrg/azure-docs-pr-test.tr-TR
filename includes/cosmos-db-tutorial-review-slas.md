@@ -1,7 +1,11 @@
-Uygulamanızı çalışır durumda olduğundan, tooensure iş devamlılığı ve izleme kullanıcı erişimi tooensure yüksek kullanılabilirlik isteyeceksiniz. Hello Azure portal tooreview hello kullanılabilirlik, gecikme süresi, üretilen iş ve koleksiyonunuzu tutarlılığını kullanabilirsiniz. 
+Verimlilik, depolama, kullanılabilirlik, gecikme ve tutarlılığını hesabınızdaki kaynaklara Azure portalında izlenir. Bu ölçümleri hızlı bir göz atalım. 
 
-Merhaba ile ilişkili her grafik [Azure Cosmos DB hizmet düzeyi sözleşmeleri (SLA)](https://azure.microsoft.com/support/legal/sla/documentdb/) gösterir kota hello bir satır zorunlu toomeet hello SLA ve gerçek kullanımınız, veritabanınızın performansını Temizle görünüme vermiş sağlar. Depolama kullanımı ve dakika başına istek sayısı gibi ek ölçümler hello Portalı'nda da dahil edilir.
+1. Tıklatın **ölçümleri** Gezinti menüsünde.
 
-* Hello Azure portal, hello, altında sol bölmesindeki **izleme**, tıklatın **ölçümleri**.
+   ![Azure portalında ölçümleri](./media/cosmos-db-tutorial-review-slas/metrics.png)
 
-   ![Yapılacaklar listesi uygulaması ve örnek veriler](./media/cosmos-db-tutorial-review-slas/azure-cosmosdb-portal-metrics-slas.png)
+2. Sekmelerin her birinde Azure Cosmos DB sağlar ölçümlerini kullanan için tıklatın. 
+
+    İle ilişkili her bir grafik [Azure Cosmos DB hizmet düzeyi sözleşmeleri (SLA)](https://azure.microsoft.com/support/legal/sla/cosmos-db/) herhangi bir SLA ihlal edildi olmadığını gösteren bir çizgi sağlar. Azure Cosmos DB bu ölçümleri paketiyle saydam, SLA izleme sağlar. 
+
+   ![Azure Cosmos DB ölçümleri paketi](./media/cosmos-db-tutorial-review-slas/metrics-suite.png)

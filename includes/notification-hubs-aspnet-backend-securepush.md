@@ -1,6 +1,6 @@
 ## <a name="webapi-project"></a>Webapı proje
-1. Visual Studio'da hello açın **AppBackend** hello oluşturulan proje **kullanıcılara bildirme** Öğreticisi.
-2. Notifications.cs, tüm Değiştir hello içinde **bildirimleri** koddan hello sınıfıyla. Emin tooreplace hello yer tutucularını bağlantı dizenizi (tam erişimli) için bildirim hub'ı ve hello hub adı olabilir. Bu değerleri hello edinebilirsiniz [Klasik Azure portalı](http://manage.windowsazure.com). Bu modül şimdi gönderilecek hello farklı güvenli bildirimleri temsil eder. Tam bir uygulama hello bildirimleri bir veritabanında depolanır; Kolaylık olması için bu durumda bunları bellekte depolarız.
+1. Visual Studio'da açın **AppBackend** oluşturduğunuz proje **kullanıcılara bildirme** Öğreticisi.
+2. Tüm Notifications.cs içinde Değiştir **bildirimleri** aşağıdaki kodla sınıfı. Yer tutucuları bağlantı dizenizi (tam erişimli) için bildirim hub'ınızı ve hub adı ile değiştirdiğinizden emin olun. Bu değerleri elde edebilirsiniz [Azure portal](http://portal.azure.com). Bu modül şimdi gönderilecek farklı güvenli bildirimleri temsil eder. Tam bir uygulama bildirimleri bir veritabanında depolanır; Kolaylık olması için bu durumda bunları bellekte depolarız.
    
         public class Notification
         {
@@ -40,7 +40,7 @@
             }
         }
 
-1. Merhaba kod hello içinde NotificationsController.cs içinde değiştirin **NotificationsController** sınıf tanımının koddan hello ile. Bu bileşen hello aygıt tooretrieve hello bildirimi için bir yol güvenli bir şekilde uygular ve aynı zamanda bir yol (Bu öğreticinin amaçları hello) tootrigger güvenli itme tooyour aygıtları sağlar. Merhaba bildirim toohello bildirim hub'ı gönderirken, biz yalnızca ham bildirim hello kimlikli hello bildirim (ve gerçek ileti yok) göndermek olduğunu unutmayın:
+1. Kod içinde NotificationsController.cs içinde değiştirin **NotificationsController** sınıf tanımını aşağıdaki kod ile. Bu bileşen, cihazın güvenli bir şekilde bildirim almak bir yol uygular ve ayrıca cihazlarınıza güvenli push tetiklemek için (Bu öğreticinin amaçları doğrultusunda) bir yol sağlar. Bildirim hub'ına bildirimi gönderirken, biz yalnızca ham bildirim kimliği bildirim (ve gerçek ileti yok) göndermek olduğunu unutmayın:
    
        public NotificationsController()
        {
@@ -75,8 +75,8 @@
         }
 
 
-Bu hello Not `Post` yöntemi şimdi göndermez bildirim. Yalnızca hello bildirim kimliği ve hassas olmayan tüm içeriği içeren bir ham bildirim gönderir. Ayrıca, işlem hatalarına neden şekilde, bildirim hub'ına, yapılandırılmış kimlik bilgilerine sahip olduğunuz değil hello platformlar için Gönder emin toocomment hello olun.
+Unutmayın `Post` yöntemi şimdi göndermez bildirim. Yalnızca bildirim kimliği ve hassas olmayan tüm içeriği içeren bir ham bildirim gönderir. Ayrıca, gönderme işlemi hatalarına neden şekilde, bildirim hub'ına, yapılandırılmış kimlik bilgilerine sahip olduğunuz değil platformlar için açıklama emin olun.
 
-1. Sipariş toomake bu uygulama tooan Azure Web sitesi yeniden dağıtımını yapacaksınız şimdi onu tüm cihazlardan erişilebilir. Merhaba üzerinde sağ **AppBackend** proje ve seçin **Yayımla**.
-2. Azure Web sitesi yayımlama hedefi olarak seçin. Azure hesabınızla oturum açın ve mevcut veya yeni bir Web sitesini seçin ve hello Not **hedef URL** hello özelliğinde **bağlantı** sekmesi. Toothis URL'si olarak başvuruda bulunacak, *arka uç nokta* Bu öğreticide daha sonra. **Yayımla**’ta tıklayın.
+1. Şimdi Biz bu uygulamayı bir Azure Web sitesine tüm cihazlar üzerinden erişilebilir olması için yeniden dağıtır. **AppBackend** projesine sağ tıklayıp **Yayımla**’yı seçin.
+2. Azure Web sitesi yayımlama hedefi olarak seçin. Azure hesabınızla oturum açın ve mevcut veya yeni bir Web sitesini seçin ve Not **hedef URL** özelliğinde **bağlantı** sekmesi. Bu URL'ye bu öğreticinin sonraki bölümlerinde *arka uca ait uç nokta* olarak başvuracağız. **Yayımla**’ta tıklayın.
 

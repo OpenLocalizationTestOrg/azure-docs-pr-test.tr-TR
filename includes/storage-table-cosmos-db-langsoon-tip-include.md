@@ -1,3 +1,3 @@
 > [!TIP]
-> Bu makaledeki içerikler, özgün temel Azure Tablo depolama için geçerlidir. Bununla birlikte, Azure Tablo depolama için şu an genel önizleme aşamasında olan ve aktarım hızı iyileştirilmiş tablolar, global dağıtım ve otomatik ikincil dizinler sunan premium bir teklif vardır. Daha fazla bilgi edinmek ve yeni premium deneyimi denemek için lütfen [Azure Cosmos DB: Tablo API’si](https://aka.ms/premiumtables) konusunu inceleyin. Bu makalenin programlama dili henüz premium Sunumda desteklenmez, ancak gelecekte eklenir.
+> İçerik bu makalede Azure tablo depolaması için geçerlidir. Ancak, var. Şimdi tablo depolama, işleme için iyileştirilmiş tablolar, genel dağıtım ve otomatik ikincil dizinler sunar Azure Cosmos DB tablo API sunan bir premium Premium deneyimini görün ve daha fazla bilgi edinmek için lütfen kullanıma [Azure Cosmos DB tablo API](https://aka.ms/premiumtables). Bu makalenin programlama dili henüz premium Sunumda desteklenmez, ancak gelecekte eklenir.
 >

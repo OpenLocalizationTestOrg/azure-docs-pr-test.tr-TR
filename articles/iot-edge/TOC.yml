@@ -1,0 +1,101 @@
+- name: Azure IoT Edge belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Azure IoT Edge hakkında
+      href: how-iot-edge-works.md
+- name: Hızlı Başlangıçlar
+  items:
+    - name: Uca dağıtma - Linux/Mac
+      href: quickstart-linux.md
+    - name: Uca dağıtma - Windows
+      href: quickstart.md
+- name: Öğreticiler
+  items:
+    - name: Bir Edge cihazının simülasyonunu gerçekleştirme - Linux/Mac
+      href: tutorial-simulate-device-linux.md
+    - name: Bir Edge cihazını benzetme - Windows
+      href: tutorial-simulate-device-windows.md
+    - name: 'C# modülü geliştirme'
+      href: tutorial-csharp-module.md
+    - name: Azure Stream Analytics’i dağıtma
+      href: tutorial-deploy-stream-analytics.md
+    - name: Azure Machine Learning’i dağıtma
+      href: tutorial-deploy-machine-learning.md
+    - name: Azure İşlevleri’ni dağıtma
+      href: tutorial-deploy-function.md
+    - name: Azure CLI 2.0 için IoT uzantısı kullanarak bir IoT Edge dağıtımı oluşturma
+      href: tutorial-create-deployment-with-cli-iot-extension.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Ağ geçidi oluşturma
+      items:
+        - name: Saydam bir ağ geçidi oluşturma
+          href: how-to-create-transparent-gateway.md
+        - name: Modbus ağ geçidi
+          href: deploy-modbus-gateway.md
+    - name: Ölçekli dağıtma ve izleme
+      href: how-to-deploy-monitor.md
+    - name: IoT Core cihazı hazırlama
+      href: how-to-install-iot-core.md
+    - name: IoT Edge çözümlerini geliştirmek için VS Code kullanma
+      items:
+        - name: 'C# modülü geliştirme ve dağıtma'
+          href: how-to-vscode-develop-csharp-module.md
+        - name: 'C# modülünde hata ayıklama'
+          href: how-to-vscode-debug-csharp-module.md
+        - name: Azure İşlevleri’ni geliştirme ve dağıtma
+          href: how-to-vscode-develop-azure-function.md
+        - name: Azure İşlevleri’nde hata ayıklama
+          href: how-to-vscode-debug-azure-function.md
+    - name: Sorun giderme
+      href: troubleshoot.md
+- name: Kavramlar
+  items:
+    - name: IoT Edge modülleri
+      href: iot-edge-modules.md
+      items:
+        - name: Geliştirme
+          href: module-development.md
+        - name: Birleşim
+          href: module-composition.md
+    - name: IoT Edge çalışma zamanı
+      href: iot-edge-runtime.md
+    - name: Dağıtımlar
+      href: module-deployment-monitoring.md
+    - name: Ağ geçidi olarak IoT Edge cihazı
+      href: iot-edge-as-gateway.md
+    - name: Güvenlik
+      href: security.md
+    - name: IoT Edge sözlüğü
+      href: iot-edge-glossary.md
+- name: Kaynaklar
+  items:
+    - name: IoT için Azure Sertifikalı cihaz kataloğu
+      href: 'https://catalog.azureiotsuite.com/'
+    - name: Azure IoT Geliştirici Merkezi
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+    - name: DeviceExplorer aracı
+      href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
+    - name: iothub-diagnostics tool
+      href: 'https://github.com/Azure/iothub-diagnostics'
+    - name: iothub-explorer tool
+      href: 'https://github.com/Azure/iothub-explorer'
+    - name: Öğrenme yolu
+      href: 'https://azure.microsoft.com/documentation/learning-paths/iot-hub/'
+    - name: MSDN forumu
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=iot-hub'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-iot-hub'
+    - name: Teknik örnek olay incelemeleri
+      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'

@@ -4,36 +4,43 @@ includes/sql-database-include-ip-address-22-v12portal.md
 
 Latest Freshness check:  2016-03-21 , daleche.
 
-As of circa 2015-09-04, hello following topics might include this include:
+As of circa 2015-09-04, the following topics might include this include:
 articles/sql-database/sql-database-configure-firewall-settings.md
 articles/sql-database/sql-database-connect-query.md
 
 
 ## Server-level firewall rules
 
-### Add a server-level firewall rule through hello new Azure portal
+### Add a server-level firewall rule through the new Azure portal
 -->
 
 
-1. İçinde toohello oturum [Azure portal](https://portal.azure.com/) http://portal.azure.com/ adresindeki.
-2. Merhaba sol başlığında tıklatın **TÜMÜNE Gözat**. Merhaba **Gözat** dikey penceresi görüntülenir.
-3. Kaydırın ve tıklatın **SQL sunucuları**. Merhaba **SQL sunucuları** dikey penceresi görüntülenir.
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
+
+2. Sol taraftaki listeden seçin **Gözat**. 
+
+3. Kaydırın ve seçin **SQL sunucuları**. 
    
-    ![Azure SQL veritabanı sunucunuzun hello Portalı'nda bulunamıyor][b21-FindServerInPortal]
-4. Merhaba kolaylık sağlamak için tıklatın önceki hello denetiminde en aza **Gözat** dikey.
-5. Merhaba filtre metin kutusuna hello sunucunuzun adını yazmaya başlayın. Satır görüntülenir.
-6. Sunucunuz için Hello satıra tıklayın. Sunucunuz için bir dikey pencerede görüntülenir.
-7. Sunucu dikey penceresinde **ayarları**. Merhaba **ayarları** dikey penceresi görüntülenir.
-8. Tıklatın **Güvenlik Duvarı**. Merhaba **güvenlik duvarı ayarlarını** dikey penceresi görüntülenir.
+    ![Portalda Azure SQL veritabanı sunucunuzun Bul][b21-FindServerInPortal]
+4. Kolaylık olması için en aza **Gözat** dikey.
+
+5. Filtre metin kutusuna, sunucunuzun adını yazmaya başlayın. Satır görüntülenir.
+
+6. Sunucunuz için satırı seçin. Sunucunuz için bir dikey pencerede görüntülenir.
+
+7. Sunucu dikey penceresinde seçin **ayarları**. 
+
+8. Seçin **Güvenlik Duvarı**. 
    
-    ![Ayarlar > Güvenlik Duvarı][b31-SettingsFirewallNavig]
-9. Tıklatın **istemcisi ekleme IP**. Merhaba ilk metin kutusuna, yeni kural için bir ad yazın.
-10. Merhaba düşük ve yüksek türünde IP adresi istediğiniz hello aralığı için değerleri tooenable.
+    ![Ayarları seçin > Güvenlik Duvarı][b31-SettingsFirewallNavig]
+9. Seçin **istemcisi ekleme IP**. İlk metin kutusunda, yeni kural için bir ad yazın.
+
+10. Etkinleştirmek istediğiniz aralığı için düşük ve yüksek IP adresi değerlerini yazın.
     
-    * Kullanışlı toohave hello düşük değer sonu olabilir **.0** ve hello ile yüksek **.255**.
+    * Düşük değer end ile sağlamak için kullanışlı olabilir **.0** ve sonunda yüksek bir değer **.255**.
     
-    ![Bir IP adresi aralığı tooallow Ekle][b41-AddRange]
-11. **Kaydet** düğmesine tıklayın.
+    ![İzin vermek için bir IP adres aralığı Ekle][b41-AddRange]
+11. **Kaydet**’i seçin.
 
 <!-- Image references. -->
 

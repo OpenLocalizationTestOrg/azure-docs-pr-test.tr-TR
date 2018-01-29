@@ -1,10 +1,10 @@
-İki işlem için ödeme: hello saatlik işlem maliyetleri hello sanal ağ geçidi için ve hello çıkış veri aktarımı hello sanal ağ geçidinden. Fiyatlandırma bilgileri hello üzerinde bulunabilir [fiyatlandırma](https://azure.microsoft.com/pricing/details/vpn-gateway) sayfası.
+İki şey için ödeme yaparsınız: sanal ağ geçidi için saatlik işlem maliyetleri ve sanal ağ geçidinden çıkış veri aktarımı. Fiyatlandırma bilgileri [Fiyatlandırma](https://azure.microsoft.com/pricing/details/vpn-gateway) sayfasında bulunabilir.
 
-**Sanal ağ geçidi işlem maliyetleri**<br>Her sanal ağ geçidi saatlik bir işlem maliyetine sahiptir. Merhaba fiyat hello ağ geçidi, bir sanal ağ geçidi oluştururken belirttiğiniz SKU temel alır. Merhaba maliyet hello ağ geçidi için kendisini ve ayrıca toohello veri aktarımı hello ağ geçidi aracılığıyla bu akar.
+**Sanal ağ geçidi işlem maliyetleri**<br>Her sanal ağ geçidi saatlik bir işlem maliyetine sahiptir. Fiyat bir sanal ağ geçidi oluştururken belirttiğiniz ağ geçidi SKU’sunu temel alır. Maliyet, ağ geçidinin kendisi içindir ve ağ geçidinden geçen veri aktarımlarına eklenir.
 
-**Veri aktarım maliyetleri**<br>Veri aktarımı maliyetleri hello kaynak sanal ağ geçidi çıkış trafiği göre hesaplanır.
+**Veri aktarım maliyetleri**<br>Veri aktarım maliyetleri, kaynak sanal ağ geçidinden çıkış trafiğine göre hesaplanır.
 
-* Trafik tooyour şirket içi VPN cihazı gönderiyorsanız hello Internet çıkış veri aktarım hızına ücretlendirilir.
-* Farklı bölgelerdeki sanal ağlar arasında trafiği gönderiyorsanız hello fiyatlandırma tabanlı hello bölgedir.
-* Yalnızca arasında trafiği gönderiyorsanız aynı bölgede bulunan sanal ağlar Merhaba, hiçbir veri maliyetleri vardır. Merhaba, sanal ağlar arasında aynı trafiği bölgedir boş.
+* Şirket içi VPN cihazınıza trafik gönderiyorsanız İnternet çıkış veri aktarım hızına göre ücretlendirilir.
+* Farklı bölgelerdeki sanal ağlar arasında trafik gönderiyorsanız fiyatlandırma bölgeye göre hesaplanır.
+* Yalnızca aynı bölgedeki sanal ağlar arasında trafik gönderiyorsanız veri maliyeti yoktur. Aynı bölgedeki sanal ağlar arasında gerçekleşen trafik ücretsizdir.
 

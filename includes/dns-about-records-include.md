@@ -1,24 +1,24 @@
 ### <a name="record-names"></a>Kayıt adları
 
-Azure DNS’de, kayıtlar göreli adlar kullanılarak belirtilir. A *tam* etki alanı adı (FQDN) içeren hello bölge adını, ancak bir *göreli* adı yok. Örneğin, hello göreli kayıt adı 'contoso.com"Merhaba bölgesinde ' www' hello tam kayıt adını 'www.contoso.com' verir.
+Azure DNS’de, kayıtlar göreli adlar kullanılarak belirtilir. *Tam* etki alanı adında (FQDN) bölge adı varken *göreli* adda bu yoktur. Örneğin, "contoso.com" bölgesindeki "www" göreli kayıt adı "www.contoso.com" tam kayıt adını verir.
 
-Bir *tepesindeki* kaydıdır bir DNS kaydı hello kökündeki (veya *tepesindeki*) bir DNS bölgesinin. Örneğin, hello DNS bölgesine "contoso.com" tepesindeki kayıt ayrıca hello tam adı "contoso.com" vardır (buna bazen denir bir *naked* etki alanı).  Kurala göre göreli adı hello ' @' kullanılan toorepresent tepesindeki kayıttır.
+*Tepe* kaydı, bir DNS bölgesinin kökündeki (veya *tepesindeki*) DNS kaydıdır. Örneğin "contoso.com" DNS bölgesinde tepe kaydı aynı zamanda "contoso.com" tam ada sahiptir (buna bazen *çıplak* etki alanı da denir).  Kural olarak tepe kayıtlarını göstermek için '@' göreli adı kullanılır.
 
 ### <a name="record-types"></a>Kayıt türleri
 
-Her DNS kaydında bir ad ve bir tür vardır. Kayıtlar, içerdikleri toohello veri göre çeşitli türleri düzenlenir. Merhaba en yaygın türü adı tooan IPv4 adresi eşleştiren bir 'Bir' kayıttır. Başka bir ortak bir ad tooa posta sunucusu eşler 'MX' kaydı türüdür.
+Her DNS kaydında bir ad ve bir tür vardır. Kayıtlar, içerdikleri verilere göre çeşitli türlerde düzenlenmiştir. En yaygın tür olan "A" kaydı bir adı bir IPv4 adresiyle eşleştirir. Başka bir sık kullanılan tür olan "MX" kaydıysa bir adı bir posta sunucusuyla eşleştirir.
 
-Azure DNS; A, AAAA, CNAME, MX, NS, PTR, SOA, SRV ve TXT gibi tüm yaygın DNS kayıt türlerini destekler. [SPF kayıtlarının TXT kaydı kullanılarak gösterildiğini](../articles/dns/dns-zones-records.md#spf-records) unutmayın.
+Azure DNS tüm yaygın DNS kayıt türlerini destekler: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV ve TXT. [SPF kayıtlarının TXT kaydı kullanılarak gösterildiğini](../articles/dns/dns-zones-records.md#spf-records) unutmayın.
 
 ### <a name="record-sets"></a>Kayıt kümeleri
 
-Bazen bir verilen ad ve türe sahip birden fazla DNS kaydı toocreate gerekir. Örneğin, hello 'www.contoso.com' web sitesinin iki farklı IP adresinde barındırıldığını var sayalım. Merhaba Web sitesi iki farklı A kayıtları, her IP adresi için bir tane gerektirir. Bu bir kayıt kümesi örneğidir:
+Bazen, verilen ada ve türe sahip birden fazla DNS kaydı oluşturmanız gerekebilir. Örneğin, "www.contoso.com" web sitesinin iki farklı IP adresinde barındırıldığını var sayalım. Web sitesine, her IP adresi için bir tane olmak üzere iki farklı A kaydı gerekir. Bu bir kayıt kümesi örneğidir:
 
     www.contoso.com.        3600    IN    A    134.170.185.46
     www.contoso.com.        3600    IN    A    134.170.188.221
 
-Azure DNS tüm DNS kayıtlarını *kayıt kümeleri* kullanarak yönetir. Kayıt kümesi (olarak da bilinen bir *kaynak* kayıt kümesine) hello koleksiyonu aynı ad ve hello olan hello olan DNS kayıtlarının bir bölgede aynı türde. Çoğu kayıt kümesinde tek bir kayıt bulunur. Ancak, örnekleri yukarıda hello gibi bir kayıt kümesinde birden fazla kayıt içeriyor, seyrek değildir.
+Azure DNS tüm DNS kayıtlarını *kayıt kümeleri* kullanarak yönetir. Kayıt kümesi (kaynak *kayıt* kümesi olarak da bilinir), bir bölgede yer alan aynı ada sahip ve aynı türde olan DNS kayıtlarının koleksiyonudur. Çoğu kayıt kümesinde tek bir kayıt bulunur. Ancak yukarıdaki gibi birden fazla kayıt içeren kayıt kümeleri de kullanılabilir.
 
-Örneğin, "contoso.com" Merhaba bölgesinde bir A kaydı 'www' önceden oluşturulmuş varsayalım toohello IP işaret eden adres '134.170.185.46' (Merhaba ilk kaydı yukarıdaki).  toohello mevcut kaydıyla, eklediğiniz toocreate hello ikinci kaydı ayarlamak yerine ek bir kayıt kümesini oluşturun.
+Örneğin, "contoso.com" bölgesinde "134.170.185.46" adresini işaret eden bir "www" A kaydı oluşturduğunuzu var sayalım (yukarıdaki ilk kayıt).  ikinci kaydı oluşturmak için yeni bir kayıt kümesi oluşturma yerine bu kaydı var olan kayıt kümesine ekleyebilirsiniz.
 
-Merhaba SOA ve CNAME kayıt türü durumlardır. Merhaba DNS standartlarında hello bu türleri için aynı ad ile birden çok kayıt izin vermez, bu nedenle bu kaydı kümeleri tek bir kayıt yalnızca içerebilir.
+SOA ve CNAME kaydı kümeleri farklıdır. DNS standartları bu türler için aynı ada sahip birden fazla kayda izin vermediği için bu kayıt kümeleri yalnızca bir kayıt içerebilir.

@@ -1,17 +1,16 @@
 > [!div class="op_single_selector"]
-> * [Portal](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
+> * [Azure Portal](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)
 > * [PowerShell](../articles/virtual-network/virtual-network-multiple-ip-addresses-powershell.md)
-> * [CLI 2.0](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md)
-> * [CLI 1.0](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli-nodejs.md)
+> * [Azure CLI](../articles/virtual-network/virtual-network-multiple-ip-addresses-cli.md)
 > * [Şablon](../articles/virtual-network/virtual-network-multiple-ip-addresses-template.md)
 >
 
-Bir Azure sanal makine (VM) bağlı bir veya daha fazla ağ arabirimleri (NIC) tooit. Bir NIC'e sahip olabilir veya atanan tooit daha statik veya dinamik ortak ve özel IP adresleri. Birden çok IP adresleri tooa VM hello aşağıdaki özellikleri sağlar:
+Bir Azure Sanal Makinesine (VM) bağlı bir veya daha fazla ağ arabirimi (NIC) vardır. Herhangi bir NIC’e atanmış bir veya daha fazla statik ya da dinamik ortak ve özel IP adresi olabilir. Bir sanal makineye birden fazla IP adresinin atanması aşağıdaki özellikleri sağlar:
 
 * Tek bir sunucuda farklı IP adreslerine ve SSL sertifikalarına sahip birden fazla web sitesi veya hizmetin barındırılması.
 * Güvenlik duvarı veya yük dengeleyici gibi bir sanal ağ gereci olarak görev yapma.
-* herhangi bir hello özel IP adresleri herhangi bir hello NIC'ler tooan Azure yük dengeleyici arka uç havuzu için yeteneği tooadd hello. Geçmiş, yalnızca hello hello birincil NIC olabilir hello için birincil IP adresi tooa arka uç havuzu eklenen. hakkında daha fazla bilgi toolearn tooload dengelemek nasıl birden fazla IP yapılandırması hello okuma [Yük Dengeleme birden fazla IP yapılandırması](../articles/load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesi.
+* NIC’lerin herhangi biri için herhangi bir özel IP adresini Azure Load Balancer arka uç havuzuna ekleyebilme. Geçmişte, arka uç havuzuna yalnızca birincil NIC’nin birincil IP adresi eklenebiliyordu. Birden fazla IP yapılandırmasının yük dengelemesi hakkında daha fazla bilgi için [Birden fazla IP yapılandırmasının yük dengelemesi](../articles/load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesini okuyun.
 
-Her bağlı NIC tooa VM bir veya daha fazla IP yapılandırmaları tooit ilişkilendirilmiş. Her yapılandırmaya bir statik veya dinamik özel IP adresi atanır. Her yapılandırma bir ortak IP adresi ilişkili kaynak tooit da sahip olabilirsiniz. Genel bir IP adresi kaynağı ya da bir dinamik veya statik genel IP adresi atanmış tooit sahiptir. IP hakkında daha fazla toolearn adresleri Azure'da, hello okuma [azure'daki IP adresleri](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) makalesi. 
+Bir sanal makineye bağlanan her NIC ile ilişkili bir veya daha fazla IP yapılandırması vardır. Her yapılandırmaya bir statik veya dinamik özel IP adresi atanır. Her yapılandırmayla ilişkili bir genel IP adresi kaynağı da olabilir. Genel bir IP adresi kaynağına atanmış dinamik veya statik bir genel IP adresi vardır. Azure'daki IP adresleri hakkında daha fazla bilgi edinmek için [Azure’da IP adresleri](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md) makalesini okuyun. 
 
-Birçok özel IP sınırı toohow olan adresleri tooa NIC atanabilir Bir Azure aboneliği kullanılan birçok ortak IP adresleri sınırı toohow bulunmaktadır. Merhaba bkz [Azure sınırlar](../articles/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) Ayrıntılar için makale.
+Kaç tane özel IP adresleri için bir sınır için bir NIC atanabilir yok Bir Azure aboneliği kullanılabilir kaç tane genel IP adresleri için bir sınır yoktur. Ayrıntılar için [Azure limitleri](../articles/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) makalesini okuyun.

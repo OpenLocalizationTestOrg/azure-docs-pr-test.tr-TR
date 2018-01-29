@@ -1,25 +1,25 @@
 
-1. Merhaba MainPage.xaml.cs proje dosyasında hello aşağıdakileri ekleyin **kullanarak** deyimleri:
+1. MainPage.xaml.cs proje dosyasında aşağıdaki ekleyin **kullanarak** deyimleri:
    
         using System.Linq;        
         using Windows.Security.Credentials;
-2. Hello yerine **AuthenticateAsync** koddan hello yöntemiyle:
+2. Değiştir **AuthenticateAsync** aşağıdaki kod ile yöntemi:
    
         private async System.Threading.Tasks.Task<bool> AuthenticateAsync()
         {
             string message;
             bool success = false;
    
-            // This sample uses hello Facebook provider.
+            // This sample uses the Facebook provider.
             var provider = MobileServiceAuthenticationProvider.Facebook;
    
-            // Use hello PasswordVault toosecurely store and access credentials.
+            // Use the PasswordVault to securely store and access credentials.
             PasswordVault vault = new PasswordVault();
             PasswordCredential credential = null;
    
             try
             {
-                // Try tooget an existing credential from hello vault.
+                // Try to get an existing credential from the vault.
                 credential = vault.FindAllByResource(provider.ToString()).FirstOrDefault();
             }
             catch (Exception)
@@ -29,15 +29,15 @@
    
             if (credential != null)
             {
-                // Create a user from hello stored credentials.
+                // Create a user from the stored credentials.
                 user = new MobileServiceUser(credential.UserName);
                 credential.RetrievePassword();
                 user.MobileServiceAuthenticationToken = credential.Password;
    
-                // Set hello user from hello stored credentials.
+                // Set the user from the stored credentials.
                 App.MobileService.CurrentUser = user;
    
-                // Consider adding a check toodetermine if hello token is 
+                // Consider adding a check to determine if the token is 
                 // expired, as shown in this post: http://aka.ms/jww5vp.
    
                 success = true;
@@ -47,11 +47,11 @@
             {
                 try
                 {
-                    // Login with hello identity provider.
+                    // Login with the identity provider.
                     user = await App.MobileService
-                        .LoginAsync(provider);
+                        .LoginAsync(provider, "{url_scheme_of_your_app}");
    
-                    // Create and store hello user credentials.
+                    // Create and store the user credentials.
                     credential = new PasswordCredential(provider.ToString(),
                         user.UserId, user.MobileServiceAuthenticationToken);
                     vault.Add(credential);
@@ -72,13 +72,13 @@
             return success;
         }
    
-    Bu sürümünde **AuthenticateAsync**, hello uygulama çalıştığında hello depolanan toouse kimlik **PasswordVault** tooaccess hello hizmet. Hiçbir depolanmış kimlik bilgisi olduğunda bir normal oturum açma da gerçekleştirilir.
+    Bu sürümünde **AuthenticateAsync**, uygulama içinde depolanan kimlik bilgilerini kullanmayı dener **PasswordVault** hizmete erişmek için. Hiçbir depolanmış kimlik bilgisi olduğunda bir normal oturum açma da gerçekleştirilir.
    
    > [!NOTE]
-   > Önbelleğe alınan bir belirteç süresi dolmuş olabilir ve hello uygulama kullanımda olduğunda belirteci süre sonu kimlik doğrulamasından sonra da oluşabilir. bir belirteç süresi dolmuşsa, toodetermine nasıl görürüm toolearn [denetlemek için süresi dolmuş kimlik doğrulama belirteçleri](http://aka.ms/jww5vp). Bir çözüm toohandling yetkilendirme hataları için ilgili tooexpiring belirteçleri bakın sonrası hello [önbelleğe alma ve Azure Mobile Services belirteçlerin süresinin işleme yönetilen SDK](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
+   > Önbelleğe alınan bir belirteç süresi dolmuş olabilir ve uygulama kullanımda olduğunda belirteci süre sonu kimlik doğrulamasından sonra da oluşabilir. Belirtecin süresi varsa belirlemek öğrenmek için bkz: [denetlemek için süresi dolmuş kimlik doğrulama belirteçleri](http://aka.ms/jww5vp). Post süresi dolan belirteçleri ile ilgili yetkilendirme hataları işleme için bir çözüm için bkz: [önbelleğe alma ve Azure Mobile Services belirteçlerin süresinin işleme yönetilen SDK](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
    > 
    > 
-3. Merhaba uygulamayı iki kez yeniden başlatın.
+3. Uygulamayı iki kez yeniden başlatın.
    
-    Merhaba ilk başlatma üzerinde hello sağlayıcısı ile oturum açma yeniden gerekli olduğuna dikkat edin. Ancak, hello ikinci başlatmada hello önbelleğe alınmış kimlik bilgileri kullanılır ve oturum açma atlanır. 
+    İlk başlatma oturum açma sağlayıcısı ile yeniden gerekli olduğuna dikkat edin. Ancak, önbelleğe alınmış kimlik bilgilerini ikinci bir yeniden başlatma sırasında kullanılır ve oturum açma atlanır. 
 

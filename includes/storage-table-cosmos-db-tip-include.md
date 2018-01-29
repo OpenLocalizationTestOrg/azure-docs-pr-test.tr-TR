@@ -1,3 +1,3 @@
 > [!TIP]
-> Bu makalede Merhaba içeriğine toohello özgün temel Azure Table depolama uygular. Bununla birlikte, Azure Tablo depolama için şu an genel önizleme aşamasında olan ve aktarım hızı iyileştirilmiş tablolar, global dağıtım ve otomatik ikincil dizinler sunan premium bir teklif vardır. Lütfen daha fazla toolearn ve hello yeni premium deneyimi deneme kullanıma [Azure Cosmos DB: Tablo API](https://aka.ms/premiumtables).
+> Bu makalede içerik özgün Azure tablo depolaması için geçerlidir. Ancak, var. Şimdi tablo depolama, işleme için iyileştirilmiş tablolar, genel dağıtım ve otomatik ikincil dizinler sunar Azure Cosmos DB tablo API sunan bir premium Premium deneyimini görün ve daha fazla bilgi edinmek için lütfen kullanıma [Azure Cosmos DB tablo API](https://aka.ms/premiumtables).
 >
