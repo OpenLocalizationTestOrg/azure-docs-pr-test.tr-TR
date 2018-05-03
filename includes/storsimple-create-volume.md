@@ -1,32 +1,32 @@
 <!--author=SharS last changed: 02/04/2016-->
 
-#### <a name="toocreate-a-volume"></a>toocreate bir birim
-1. Merhaba aygıtta **Hızlı Başlangıç** sayfasında, **birim Ekle**. Bu, Birim Ekleme sihirbazının hello başlatır.
-2. Hello ekleme Birim Sihirbazı altında **temel ayarları**, aşağıdaki hello:
+#### <a name="to-create-a-volume"></a>Birim oluşturmak için
+1. Cihaz **Hızlı Başlangıç** sayfasında, **Birim ekle**’ye tıklayın. Bu, Birim ekleme sihirbazını başlatır.
+2. Birim ekleme sihirbazının **Temel Ayarlar**’ı altında şunları yapın:
    
    1. Biriminize bir **Ad** verin.
-   2. Merhaba belirtin **sağlanan kapasite** biriminiz GB veya TB cinsinden. Merhaba birim kapasitesi, fiziksel aygıt için 1 GB ile 64 TB arasında olmalıdır.
-   3. Hello Hello aşağı açılan listesinde seçin **kullanım türü** biriminiz için. 
-   4. Bu birimi arşiv verileri için kullanıyorsanız, hello seçin **bu birimi daha az sıklıkta erişilen arşiv verileri için kullanın** onay kutusu. Diğer tüm kullanım durumları için **Katmanlı Birim**’i seçmeniz yeterlidir. (Katmanlı birimlere daha önce birincil birimler adı veriliyordu).
+   2. Biriminiz için GB veya TB cinsinden **Sağlanan Kapasite**’yi belirtin. Birim kapasitesi, fiziksel aygıt için 1 GB ile 64 TB arasında olmalıdır.
+   3. Açılan listede biriminiz için **Kullanım Türü**’nü seçin. 
+   4. Bu birimi arşiv verileri için kullanıyorsanız **Bu birimi daha az sıklıkta erişilen arşiv verileri için kullanın** onay kutusunu seçin. Diğer tüm kullanım durumları için **Katmanlı Birim**’i seçmeniz yeterlidir. (Katmanlı birimlere daha önce birincil birimler adı veriliyordu).
       
         ![Birim ekle](./media/storsimple-create-volume/ScreenshotUpdate1VolumeFlow.png)
       
-      1. Merhaba ok simgesine tıklayın ![ok simgesi](./media/storsimple-create-volume/HCS_ArrowIcon-include.png) toogo toohello sonraki sayfa.
-3. Merhaba, **ek ayarlar** iletişim kutusunda, yeni bir erişim denetimi kaydı (ACR) ekleyin:
+      1. Ok simgesine tıklama ![ok simgesi](./media/storsimple-create-volume/HCS_ArrowIcon-include.png) tıklayarak sonraki sayfaya gidin.
+3. **Ek Ayarlar** iletişim kutusuna yeni bir erişim denetimi kaydı (ACR) ekleyin:
    
    1. ACR’nize bir **Ad** verin.
-   2. Altında **iSCSI başlatıcısı adı**, sağlayın hello iSCSI tam adını (IQN), Windows konağınızın. Merhaba IQN yoksa, çok Git[Get hello bir Windows Server konağının IQN'ini](#get-the-iqn-of-a-windows-server-host).
-   3. Merhaba seçerek varsayılan yedeği etkinleştirmenizi öneririz **bu birim için varsayılan yedeklemeyi etkinleştir** onay kutusu. Merhaba varsayılan yedekleme 22:30 günde bir (aygıt saat) yürütülen ve bu birimin bir bulut anlık görüntüsü oluşturur bir ilke oluşturur.
+   2. **iSCSI Başlatıcısı Adı** altında, Windows konağınızın iSCSI Tam Adını (IQN) girin. IQN’niz yoksa [Windows Server konağının IQN’sini al](#get-the-iqn-of-a-windows-server-host)’a gidin.
+   3. **Bu birim için varsayılan yedeklemeyi etkinleştir** onay kutusunu seçerek varsayılan yedeği etkinleştirmenizi öneririz. Varsayılan yedek her gün 22: 30'da (aygıt saat) yürütülen bir ilkenin yanı sıra bu birimin bir bulut anlık görüntüsünü de oluşturur.
       
       > [!NOTE]
-      > Merhaba yedek burada etkinleştirildikten sonra geri alınamaz. Bu ayar tooedit hello birim toomodify gerekir.
+      > Yedek burada etkinleştirildikten sonra geri alınamaz. Bu ayarı değiştirmek için birimi değiştirmeniz gerekir.
       > 
       > 
       
         ![Birim ekle](./media/storsimple-create-volume/AddVolume2-include.png)
-4. Merhaba onay simgesine tıklayın ![onay simgesi](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Bir birim belirtilen hello ile oluşturulacak ayarlar.
+4. Onay simgesine tıklayarak ![onay simgesi](./media/storsimple-create-volume/HCS_CheckIcon-include.png). Belirtilen ayarlarla bir birim oluşturulacaktır.
 
 ![Video var](./media/storsimple-create-volume/Video_icon.png) **Video var**
 
-toowatch gösteren bir video toocreate bir StorSimple biriminin nasıl tıklatın [burada](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/).
+Bir StorSimple biriminin nasıl oluşturulduğunu gösteren bir video izlemek için [buraya](https://azure.microsoft.com/documentation/videos/create-a-storsimple-volume/) tıklayın.
 

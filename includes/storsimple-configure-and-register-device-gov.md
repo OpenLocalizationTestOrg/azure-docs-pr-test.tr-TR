@@ -1,26 +1,26 @@
 <!--author=SharS last changed: 02/22/16-->
 
-### <a name="tooconfigure-and-register-hello-device"></a>Merhaba aygıt tooconfigure ve kaydetme
-1. StorSimple cihaz seri konsoluna Hello Windows PowerShell arabirimine erişin. Bkz: [kullanım PuTTY tooconnect toohello cihaz seri konsoluna](#use-putty-to-connect-to-the-device-serial-console) yönergeler için. **Emin toofollow hello yordamı tamamen olması veya mümkün tooaccess hello konsol olmaz.**
-2. Açılan hello oturumunda Enter bir zaman tooget bir komut istemi tuşuna basın. 
-3. Cihazınız için tooset istediğiniz istendiğinde toochoose hello dil olacaktır. Merhaba dili belirtin ve ardından Enter tuşuna basın. 
+### <a name="to-configure-and-register-the-device"></a>Cihazı yapılandırmak ve kaydetmek için
+1. StorSimple cihazı seri konsolunuzdaki Windows PowerShell arabirimine erişin. Talimatlar için bkz. [Cihaz seri konsoluna bağlanmak için PuTTY kullanma](#use-putty-to-connect-to-the-device-serial-console). **Yordamı hatasız takip ettiğinizden emin olun; aksi taktirde konsola erişemezsiniz.**
+2. Açılan oturumda komut istemi almak için bir kez Enter tuşuna basın. 
+3. Cihazınızda ayarlamak istediğiniz dili seçmeniz istenecektir. Dili belirtip Enter tuşuna basın. 
    
     ![StorSimple cihazı yapılandırma ve kaydetme 1](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice1-gov-include.png)
-4. Sunulan hello seri konsol menüsünde seçeneği 1 toolog tam erişimle seçin. 
+4. Verilen seri konsol menüsünde tam erişimle oturum açmak için 1 seçeneğini belirleyin. 
    
     ![StorSimple kayıt cihazı 2](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice2-gov-include.png)
-5. Cihazınız için adımları tooconfigure hello minimum gerekli ağ ayarlarını aşağıdaki hello gerçekleştirin.
+5. Cihazınız için en düşük gerekli ağ ayarlarını yapılandırmak için aşağıdaki adımları gerçekleştirin.
    
    > [!IMPORTANT]
-   > Bu yapılandırma adımları hello etkin hello aygıt denetleyicisinde gerçekleştirilen toobe gerekir. Merhaba seri konsol menüsünde hello başlık iletisi hello denetleyicisi durumunu gösterir. Olan değil bağlanırsanız toohello etkin denetleyicisi kesin ve toohello etkin denetleyicisi bağlayın.
+   > Bu yapılandırma adımları, cihazın etkin denetleyicisinde gerçekleştirilmelidir. Seri konsol menüsü, bant iletisindeki denetleyici durumunu belirtir. Olan değil bağlanırsanız etkin denetleyiciye kesin ve etkin denetleyiciye bağlayın.
    > 
    > 
    
-   1. Merhaba komut istemine parolanızı yazın. Merhaba varsayılan cihaz parolası **Parola1**.
-   2. Merhaba aşağıdaki komutu yazın:
+   1. Komut istemine parolanızı yazın. Varsayılan cihaz parolası **Password1**’dir.
+   2. Aşağıdaki komutu yazın:
       
         `Invoke-HcsSetupWizard`
-   3. Kurulum Sihirbazı'nı hello cihaz için hello ağ ayarlarını yapılandırmak toohelp görünür. Aşağıdaki bilgilerle hello sağlayın: 
+   3. Cihazın ağ ayarlarını yapılandırmanıza yardımcı olacak bir kurulum sihirbazı görüntülenir. Aşağıdaki bilgileri sağlayın: 
       
       * Veri 0 ağ arabirimi için IP adresi
       * Alt ağ maskesi
@@ -29,27 +29,27 @@
       * Birincil NTP sunucusu için IP adresi
       
       > [!NOTE]
-      > Birkaç dakika boyunca hello alt ağ maskesi ve DNS ayarları toobe uygulanan toowait olabilir. 
+      > Alt ağ maskesi ve DNS ayarlarının uygulanması için birkaç dakika beklemeniz gerekebilir. 
       > 
       > 
    4. İsteğe bağlı olarak, web proxy sunucunuzu yapılandırın.
       
       > [!IMPORTANT]
-      > Web proxy yapılandırması isteğe bağlı olsa da, bir web proxy kullanıyorsanız, yalnızca burada yapılandırabilirsiniz olduğunu unutmayın. Daha fazla bilgi için çok Git[cihazınız için web Proxy'yi Yapılandır](../articles/storsimple/storsimple-configure-web-proxy.md). 
+      > Web proxy yapılandırması isteğe bağlı olsa da, bir web proxy kullanıyorsanız, yalnızca burada yapılandırabilirsiniz olduğunu unutmayın. Daha fazla bilgi için [Cihazınız için web ara sunucusunu yapılandırma](../articles/storsimple/storsimple-configure-web-proxy.md)’ya gidin. 
       > 
       > 
-6. Ctrl + C tuşlarına basın tooexit hello Kurulum Sihirbazı'nı.
-7. Merhaba güncelleştirmeleri gibi yükleyin:
+6. Kurulum sihirbazından çıkmak için Ctrl + C tuşlarına basın.
+7. Güncelleştirmeleri gibi yükleyin:
    
-   1. Her iki hello denetleyicilerinde cmdlet tooset IP'leri aşağıdaki hello kullan:
+   1. Her iki denetleyicilerinde IP'leri ayarlamak için aşağıdaki cmdlet'i kullanın:
       
       `Set-HcsNetInterface -InterfaceAlias Data0 -Controller0IPv4Address <Controller0 IP> -Controller1IPv4Address <Controller1 IP>`
-   2. Merhaba komut isteminde çalıştırmak `Get-HcsUpdateAvailability`. Güncelleştirmelerinin kullanılabilir olduğunu bildirilmesi gerekir.
-   3. `Start-HcsUpdate` öğesini çalıştırın. Herhangi bir düğümde bu komutu çalıştırabilirsiniz. Güncelleştirmeler hello ilk denetleyicisinde uygulanır, hello denetleyicisi üzerinden başarısız olur ve ardından diğer denetleyicisi hello hello güncelleştirmeler üzerinde uygulanır.
+   2. Komut istemine `Get-HcsUpdateAvailability`. Güncelleştirmelerinin kullanılabilir olduğunu bildirilmesi gerekir.
+   3. `Start-HcsUpdate` öğesini çalıştırın. Herhangi bir düğümde bu komutu çalıştırabilirsiniz. Güncelleştirmeler ilk denetleyicisinde uygulanır, denetleyici üzerinden başarısız olur ve ardından diğer denetleyicisinde güncelleştirmeler uygulanır.
       
-      Çalıştırarak hello güncelleştirme hello ilerlemesini izleyebilirsiniz `Get-HcsUpdateStatus`.    
+      Çalıştırarak güncelleştirmenin ilerleme durumunu izleyebilirsiniz `Get-HcsUpdateStatus`.    
       
-      Merhaba aşağıdaki örnek çıkış hello güncelleştirme göstermektedir.
+      Devam etmekte olan güncelleştirme aşağıdaki örnek çıktıda gösterilir.
       
       ````
       Controller0>Get-HcsUpdateStatus
@@ -60,7 +60,7 @@
       Controller1Events   : 
       ````
       
-      örnek çıktı aşağıdaki hello bu hello güncelleştirme tamamlandığında gösterir.
+      Aşağıdaki örnek çıktıda güncelleştirmenin tamamlandığı gösterilir.
       
       ````
       Controller1>Get-HcsUpdateStatus
@@ -73,68 +73,68 @@
       
       ````
       
-      Tüm güncelleştirmeleri de dahil olmak üzere, hello tooapply hello Windows güncelleştirmelerini too11 saat sürebilir.
+      Windows güncelleştirmeleri de dahil olmak üzere tüm güncelleştirmeleri uygulamanızı 11 saate kadar sürebilir.
 
-8. Tüm hello yazılım güncelleştirmeleri doğru şekilde uygulanıp uygulanmadığını hello başarıyla yüklenen, çalışma hello aşağıdaki cmdlet'i tooconfirm güncelleştirmelerin:
+8. Tüm güncelleştirmeler başarıyla yüklendikten sonra yazılım güncelleştirmeleri doğru şekilde uygulanıp uygulanmadığını doğrulamak için aşağıdaki cmdlet'i çalıştırın:
    
      `Get-HcsSystem`
    
-    Sürümleri aşağıdaki hello görmeniz gerekir:
+    Aşağıdaki sürümleri görmeniz gerekir:
    
    * HcsSoftwareVersion: 6.3.9600.17491
    * CisAgentVersion: 1.0.9037.0
    * MdsAgentVersion: 26.0.4696.1433
-9. Bellenim güncelleştirme hello cmdlet tooconfirm aşağıdaki çalışma hello başarıyla uygulandı:
+9. Bellenim güncelleştirme doğru uygulanmış olduğunu onaylamak için aşağıdaki cmdlet'i çalıştırın:
    
     `Start-HcsFirmwareCheck`.
    
-     Merhaba bellenim durum olmalıdır **UpToDate**.
-10. (Bunu toohello ortak Klasik Azure portalı varsayılan işaret ettiğinden) cmdlet toopoint hello cihaz toohello Microsoft Azure kamu portalı aşağıdaki hello çalıştırın. Bu, hem denetleyicileri yeniden başlatılır. Toosimultaneously bağlanmak tooboth denetleyicileri her denetleyici ne zaman yeniden görebilmeniz için iki PuTTY oturumu kullanmanızı öneririz.
+     Bellenim durum olmalıdır **UpToDate**.
+10. (Bu ortak Azure Klasik portalında varsayılan işaret ettiğinden) cihaz Microsoft Azure kamu Portalı'na işaret etmek için aşağıdaki cmdlet'i çalıştırın. Bu, hem denetleyicileri yeniden başlatılır. Her denetleyici ne zaman yeniden görebilmeniz için aynı anda hem denetleyicileri bağlanmak için iki PuTTY oturumu kullanmanızı öneririz.
     
      `Set-CloudPlatform -AzureGovt_US`
     
-    Bir onay iletisi görürsünüz. Merhaba varsayılanı kabul edin (**Y**).
-11. Cmdlet tooresume kurulumdan sonraki hello çalıştırın:
+    Bir onay iletisi görürsünüz. Varsayılanı kabul (**Y**).
+11. Kurulum devam etmek için aşağıdaki cmdlet'i çalıştırın:
     
      `Invoke-HcsSetupWizard`
     
      ![Resume Kurulum Sihirbazı](./media/storsimple-configure-and-register-device-gov/HCS_ResumeSetup-gov-include.png)
     
-    Kurulum devam hello Sihirbazı'nı (hangi tooversion 17469 karşılık gelir) hello güncelleştirme 1 sürüm olacaktır. 
-12. Merhaba ağ ayarlarını kabul edin. Her ayar kabul ettikten sonra bir doğrulama iletisi görürsünüz.
-13. Güvenlik nedenleriyle hello cihaz Yöneticisi parolası ilk oturumun hello sonra süresi dolar ve toochange gerekir artık BT. İstendiğinde cihaz yöneticisi parolasını verin. Geçerli bir cihaz yöneticisi parolası 8-15 karakter arasında olmalıdır. Merhaba parola üç hello şunları içermelidir: küçük harfler, büyük harf, sayısal ve özel karakter.
+    Kurulum devam edince Sihirbazı'nı (17469 sürüme karşılık gelir) güncelleştirme 1 sürüm olacaktır. 
+12. Ağ ayarlarını kabul edin. Her ayar kabul ettikten sonra bir doğrulama iletisi görürsünüz.
+13. Güvenlik nedenleriyle, cihaz yönetici parolasının süresi ilk oturumun ardından dolar; artık bunu değiştirmeniz gerekir. İstendiğinde cihaz yöneticisi parolasını verin. Geçerli bir cihaz yöneticisi parolası 8-15 karakter arasında olmalıdır. Parolada aşağıdakilerden üçü olmalıdır: küçük harf, büyük harf, rakam ve özel karakter.
     
     <br/>![StorSimple kayıt cihazı 5](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice5_gov-include.png)
-14. hello Kurulum Sihirbazı'nı Hello son adımı Cihazınızı StorSimple Yöneticisi hizmeti hello ile kaydeder. Bunun için makalesinde aldığınız hizmet kayıt anahtarını hello [2. adım: hello hizmet kayıt anahtarını Al](#step-2-get-the-service-registration-key). Merhaba kayıt anahtarını verdikten sonra 2-3 hello cihazın kaydolması dakika toowait gerekebilir.
+14. Kurulum sihirbazının son adımı cihazınızı StorSimple Yöneticisi hizmetine kaydeder. Bunun için makalesinde aldığınız hizmet kayıt anahtarı gerekir [2. adım: Hizmet kayıt anahtarını alın](#step-2-get-the-service-registration-key). Kayıt anahtarını verdikten sonra cihazın kaydolması için 2-3 dakika beklemeniz gerekebilir.
     
     > [!NOTE]
-    > Hiçbir zaman tooexit hello Kurulum Sihirbazı sırasında Ctrl + C tuşlarına basabilirsiniz. Tüm hello ağ ayarlarını (Data 0, alt ağ maskesi ve ağ geçidi için IP adresi) girdiyseniz girişleriniz korunur.
+    > Kurulum sihirbazından çıkmak için istediğiniz zaman Ctrl + C tuşlarına basabilirsiniz. Tüm ağ ayarlarını (Data 0 için IP adresi, alt ağ maskesi ve ağ geçidi) girdiyseniz girişleriniz korunur.
     > 
     > 
     
     ![StorSimple kayıt ilerleme durumu](./media/storsimple-configure-and-register-device-gov/HCS_RegistrationProgress-gov-include.png)
-15. Merhaba cihaz kaydedildikten sonra hizmet verileri şifreleme anahtarı görüntülenir. Bu anahtarı kopyalayın ve güvenli bir konuma kaydedin. **Bu anahtar aygıtlarla hello hizmet kayıt anahtarı tooregister ek hello StorSimple Yöneticisi hizmeti ile gerekli olacaktır.** Çok başvuran[StorSimple güvenlik](../articles/storsimple/storsimple-security.md) bu anahtarı hakkında daha fazla bilgi için.
+15. Cihaz kaydedildikten sonra Hizmet Verileri Şifreleme anahtarı görüntülenir. Bu anahtarı kopyalayın ve güvenli bir konuma kaydedin. **StorSimple Yöneticisi hizmetiyle ek cihazlar kaydetmek için hizmet kayıt anahtarıyla birlikte bu anahtar da gerekecektir.** Bu anahtar hakkında daha fazla bilgi için bkz. [StorSimple güvenliği](../articles/storsimple/storsimple-security.md).
     
     ![StorSimple kayıt cihazı 7](./media/storsimple-configure-and-register-device-gov/HCS_RegisterYourDevice7_gov-include.png)    
     
     > [!IMPORTANT]
-    > Merhaba seri konsol penceresinden toocopy hello metin yalnızca hello metni seçin. Ardından mümkün toopaste olmalıdır hello Pano veya başka bir metin düzenleyicisi içine. 
+    > Seri konsol penceresinden metin kopyalamak için metni seçmeniz yeterlidir. Artık bunu panoya veya metin düzenleyicilere yapıştırabilirsiniz. 
     > 
-    > CTRL kullanmayın + C toocopy hello hizmet verileri şifreleme anahtarı. Ctrl + C kullanarak, tooexit hello Kurulum Sihirbazı neden olur. Sonuç olarak, hello cihaz Yöneticisi parolası değiştirilmez ve hello cihaz toohello varsayılan parola döner.
+    > Hizmet verileri şifreleme anahtarını kopyalamak için CTRL + C tuşlarını kullanmayın. Ctrl + C tuşlarının kullanılması kurulum sihirbazından çıkmanıza neden olur. Sonuç olarak, cihaz yöneticisi parolası değiştirilmez ve cihaz varsayılan parolasına döner.
     > 
     > 
-16. Çıkış hello seri Konsolu.
-17. Toohello Azure Kamu portalına dönün ve hello aşağıdaki adımları tamamlayın:
+16. Seri konsoldan çıkın.
+17. Azure Kamu portalına geri dönün ve aşağıdaki adımları tamamlayın:
     
-    1. StorSimple Yöneticisi hizmet tooaccess hello çift **Hızlı Başlangıç** sayfası.
+    1. **Hızlı Başlangıç** sayfasına erişmek için StorSimple Yöneticisi hizmetinize çift tıklayın.
     2. **Bağlı cihazları görüntüle**’ye tıklayın.
-    3. Merhaba üzerinde **aygıtları** sayfasında, bu hello cihaz başarıyla bağlandı toohello hizmet hello durumu arayarak doğrulayın. Merhaba Aygıt durumu olmalıdır **çevrimiçi**.
+    3. **Cihazlar** sayfasında, durumu arayarak cihazın hizmete sorunsuz bağlandığını doğrulayın. Cihazın durumu **Çevrimiçi** olmalıdır.
        
         ![StorSimple Cihazları sayfası](./media/storsimple-configure-and-register-device-gov/HCS_DeviceOnline-gov-include.png) 
        
-        Merhaba cihaz durumu ise **çevrimdışı**, birkaç dakika hello cihaz çevrimiçi toocome için bekleyin. 
+        Cihazın durumu **Çevrimdışı** olduğu durumda, birkaç dakikada cihazın çevrimiçi olması bekleyin. 
        
-        Hello aygıt hala çevrimdışı sonra birkaç dakika sonra toomake güvenlik duvarı ağınızın açıklandığı şekilde yapılandırıldığından emin ihtiyacınız [ağ gereksinimleri, StorSimple cihazınız için](../articles/storsimple/storsimple-system-requirements.md). 
+        Birkaç dakika sonra cihaz yine de çevrimdışıysa, güvenlik duvarı ağınızın [StorSimple cihazınız için ağ gereksinimlerinde](../articles/storsimple/storsimple-system-requirements.md) açıklandığı şekilde yapılandırıldığından emin olun. 
        
-        Bu hello hizmet veri yolu tarafından StorSimple Yöneticisi hizmet-cihaz iletişimi için kullanılan gibi 9354 bağlantı noktasının giden iletişim için açık olduğunu doğrulayın.
+        Bu hizmet veri yolu tarafından StorSimple Yöneticisi hizmet-cihaz iletişimi için kullanılan gibi 9354 bağlantı noktasının giden iletişim için açık olduğunu doğrulayın.
 

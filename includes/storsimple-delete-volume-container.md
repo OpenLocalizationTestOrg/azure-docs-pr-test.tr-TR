@@ -1,9 +1,9 @@
 <!--author=SharS last changed: 9/16/15-->
 
-#### <a name="toodelete-a-volume-container"></a>toodelete birim kapsayıcısı
-1. Merhaba üzerinde **aygıtları** sayfasında, hello cihaz seçin, çift tıklayın ve hello ardından **birim kapsayıcıları** sekmesi.
-2. Toodelete istediğiniz hello birim kapsayıcısı seçin.
-3. Birim kapsayıcısı ilişkili birim varsa, silinebilir. Tıklatın **silmek** , bu kapsayıcı hello sayfa toodelete alt hello. Onayınız istendiğinde **Evet**’e tıklayın. Bu hello birim kapsayıcısı siler.
+#### <a name="to-delete-a-volume-container"></a>Birim kapsayıcısı silmek için
+1. Üzerinde **aygıtları** sayfasında, cihazı seçin, çift tıklayın ve ardından **birim kapsayıcıları** sekmesi.
+2. Silmek istediğiniz birim kapsayıcısı seçin.
+3. Birim kapsayıcısı ilişkili birim varsa, silinebilir. Tıklatın **silmek** bu kapsayıcısını silmek için sayfanın altındaki. Onayınız istendiğinde **Evet**’e tıklayın. Bu birim kapsayıcısı siler.
 
-Merhaba birim kapsayıcısı birimleri ilişkili varsa, ilk tootake bu birimlerin çevrimdışı hello adımları izleyerek gerekir [bir birim çevrimdışına](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). Merhaba birimleri çevrimdışı olduktan sonra bunları silebilirsiniz. Merhaba birim kapsayıcısının ilişkili birim olduğunda, yukarıda açıklandığı gibi hello birim kapsayıcısı silin.
+Birim kapsayıcısı birimleri ilişkili varsa, ilk içindeki adımları izleyerek bu birimlerin Çevrimdışına Al gerekecektir [bir birim çevrimdışına](../articles/storsimple/storsimple-manage-volumes.md#take-a-volume-offline). Birimleri çevrimdışı olduktan sonra bunları silebilirsiniz. Birim kapsayıcısı ilişkili birim olduğunda, birim kapsayıcısı yukarıda açıklandığı gibi silin.
 

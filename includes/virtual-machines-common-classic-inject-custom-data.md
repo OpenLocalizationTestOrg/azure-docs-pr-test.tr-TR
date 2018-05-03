@@ -5,15 +5,15 @@ Bu konuda açıklanmaktadır nasıl yapılır:
 
 * Bunu sağlanan zaman veri bir Azure sanal makine (VM) yerleştirir.
 * Windows ve Linux için alın.
-* Bazı sistemler toodetect özel araçlar kullanılabilir kullanın ve özel verileri otomatik olarak işler.
+* Özel araçlar kullanılabilir bazı sistemlerinde algılayabilir ve özel verileri otomatik olarak işlemek için kullanın.
 
 > [!NOTE]
-> Bu makalede nasıl özel veri hello Azure Hizmet Yönetimi API'si ile oluşturulan bir VM'yi kullanarak yerleştirilebilir. toouse hello Azure kaynak yönetimi API'sini nasıl görürüm toosee [hello örnek şablon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+> Bu makalede nasıl özel veri Azure Hizmet Yönetimi API'si ile oluşturulan bir VM'yi kullanarak yerleştirilebilir. Azure kaynak yönetimi API kullanılması hakkında bilgi için bkz: [örnek şablon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
 > 
 > 
 
 ## <a name="injecting-custom-data-into-your-azure-virtual-machine"></a>Azure sanal makineniz özel veri injecting
-Bu özellik şu anda yalnızca hello desteklenir [Azure komut satırı arabirimi](https://github.com/Azure/azure-xplat-cli). Burada oluşturuyoruz bir `custom-data.txt` bizim veri içeren dosyayı ardından Ekle, toohello VM sağlama sırasında. Merhaba hello seçeneklerinden herhangi birini kullanabilirsiniz ancak `azure vm create` komutunu hello aşağıdaki çok basit bir yaklaşım gösterir:
+Bu özellik yalnızca desteklenmekte [Azure komut satırı arabirimi](https://github.com/Azure/azure-xplat-cli). Burada oluşturuyoruz bir `custom-data.txt` bizim veri içeren dosyayı ardından Ekle, VM'ye sağlama sırasında. İçin seçeneklerden birini kullanabilir ancak `azure vm create` komutunu aşağıdaki çok basit bir yaklaşım gösterir:
 
 ```
     azure vm create <vmname> <vmimage> <username> <password> \  
@@ -22,30 +22,30 @@ Bu özellik şu anda yalnızca hello desteklenir [Azure komut satırı arabirimi
 ```
 
 
-## <a name="using-custom-data-in-hello-virtual-machine"></a>Özel veri hello sanal makinede kullanma
-* Windows tabanlı bir VM, Azure VM, sonra hello özel veri dosyası çok kaydedilmiş`%SYSTEMDRIVE%\AzureData\CustomData.bin`. Base64 ile kodlanmış tootransfer hello yerel bilgisayar toohello gelen olmasına rağmen yeni VM olduğu otomatik olarak kodunu çözdü ve açılabilen veya hemen kullanılır.
+## <a name="using-custom-data-in-the-virtual-machine"></a>Sanal makineyi özel veri kullanma
+* Windows tabanlı bir VM, Azure VM, ardından özel veri dosyası kaydedilir `%SYSTEMDRIVE%\AzureData\CustomData.bin`. Yeni VM yerel bilgisayardan aktarmak için Base64 ile kodlanmış olmasına rağmen otomatik olarak kodu çözülmüş ve açılabilen veya hemen kullanılır.
   
   > [!NOTE]
-  > Merhaba dosya varsa üzerine yazılır. Merhaba güvenlik hello dizinindeki çok ayarlama**sistem: Tam Denetim** ve **Administrators: Tam Denetim**.
+  > Dosya varsa üzerine yazılır. Dizin üzerinde güvenlik kümesine **sistem: Tam Denetim** ve **Administrators: Tam Denetim**.
   > 
   > 
-* Merhaba özel veri dosyası bulunan Azure VM Linux tabanlı bir VM ise hello aşağıdakilerden birini bağlı olarak, distro yerleştirir. toodecode hello veri ilk gerekebilir şekilde hello veriler Base64 ile kodlanmış olabilir:
+* Azure VM Linux tabanlı bir VM ise, özel veri dosyası, distro bağlı olarak aşağıdaki konumlardan birinde bulunur. Verileri ilk kod çözme gerekebilir böylece veriler Base64 ile kodlanmış olabilir:
   
   * `/var/lib/waagent/ovf-env.xml`
   * `/var/lib/waagent/CustomData`
   * `/var/lib/cloud/instance/user-data.txt` 
 
 ## <a name="cloud-init-on-azure"></a>Azure üzerinde bulut başlatma
-Daha sonra Azure VM Ubuntu veya CoreOS görüntüden ise, bir bulut-config toocloud init CustomData toosend kullanabilirsiniz. Veya özel veri dosyanızın bir komut dosyası ise, sonra bulut init yalnızca onu çalıştırabilirsiniz.
+Azure VM Ubuntu veya CoreOS görüntüden ise, bir bulut-config bulut başlatma göndermek için CustomData kullanabilirsiniz. Veya özel veri dosyanızın bir komut dosyası ise, sonra bulut init yalnızca onu çalıştırabilirsiniz.
 
 ### <a name="ubuntu-cloud-images"></a>Ubuntu bulut görüntüleri
-Çoğu Azure Linux görüntülerinde düzenlemek istiyorum "/ etc/waagent.conf" tooconfigure, hello geçici kaynak disk ve takas dosyası. Bkz: [Azure Linux Aracısı Kullanıcı Kılavuzu](../articles/virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) daha fazla bilgi için.
+Çoğu Azure Linux görüntülerinde düzenlemek istiyorum "/ etc/waagent.conf" geçici kaynak disk yapılandırma ve dosya değiştirme. Bkz: [Azure Linux Aracısı Kullanıcı Kılavuzu](../articles/virtual-machines/linux/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) daha fazla bilgi için.
 
-Ancak, hello Ubuntu bulut görüntülerinde bulut init tooconfigure hello kaynak disk (diğer bir deyişle, hello "kısa ömürlü" disk) ve takas kullanmalısınız bölüm. Daha fazla ayrıntı için hello Ubuntu Wiki Sayfa aşağıdaki hello bkz: [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
+Ancak, Ubuntu bulut görüntülerinde bulut init kaynak disk (diğer bir deyişle, "kısa ömürlü" disk) yapılandırmak için kullanmanız gerekir ve takas bölüm. Daha fazla ayrıntı için Ubuntu Wiki'de aşağıdaki sayfaya bakın: [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
 
-<!--Every topic should have next steps and links toohello next logical set of content tookeep hello customer engaged-->
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps-using-cloud-init"></a>Sonraki adımlar: Bulut init kullanma
-Daha fazla bilgi için bkz: Merhaba [Ubuntu bulut init belgelerine](https://help.ubuntu.com/community/CloudInit).
+Daha fazla bilgi için bkz: [Ubuntu bulut init belgelerine](https://help.ubuntu.com/community/CloudInit).
 
 <!--Link references-->
 [Rolü Hizmet Yönetimi REST API Başvurusu Ekle](http://msdn.microsoft.com/library/azure/jj157186.aspx)

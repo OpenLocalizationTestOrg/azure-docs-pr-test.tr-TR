@@ -2,19 +2,19 @@
 <!--author=SharS last changed: 9/15/15-->
 
 
-#### <a name="toocreate-a-manual-backup"></a>toocreate el ile yedekleme
-1. Merhaba üzerinde **aygıtları** sayfasında, Git toohello **yedekleme ilkeleri** sekmesi. Bu sekme tüm hello yedekleme ilkeleri hello İlkesi tooback yedeklemek istediğiniz hello birim için de dahil olmak üzere bir tablo biçiminde listeler.
-2. Hello İlkesi hello karşılık gelen satırda hello ilk sütun dışında herhangi bir yere tıklayarak seçin. Merhaba sayfasının Hello altında tıklatın **yedek alın**. Merhaba düğmesi tooshow hello yedekleme seçeneklerini genişletin: Yerel anlık görüntü ve bulut anlık görüntüsü. 
+#### <a name="to-create-a-manual-backup"></a>El ile yedekleme oluşturmak için
+1. **Cihazlar** sayfasında **Yedekleme ilkeleri** sekmesine gidin. Bu sekme, yedeklemek istediğiniz birimle ilgili ilke de aralarında olmak üzere yedekleme ilkelerini tablosal biçimde listeler.
+2. Karşılık gelen satırda, ilk sütun dışında herhangi bir yere tıklayarak ilkeyi seçin. Sayfanın alt kısmındaki **Yedek al**'a tıklayın. Düğme, yedekleme seçeneklerini gösterecek şekilde genişletir: Yerel anlık görüntü ve bulut anlık görüntüsü. 
 3. Bu seçeneklerden birini seçtiğinizde onaylamanız istenir. **Evet**’e tıklayın. 
    
     ![El ile yedekleme oluşturma](./media/storsimple-create-manual-backup/HCS_CreateManualBackup1-include.png)
    
-    Bu iş toocreate bir anlık görüntü başlatır. Merhaba iş başarıyla oluşturulduktan sonra başlangıç sayfasının hello altındaki bir bildirim görürsünüz.
-4. toomonitor hello iş tıklatın **işi görüntüle** hello bildirim alanında (Merhaba hello sayfanın sonundaki). 
+    Anlık görüntü oluşturmak için bir iş başlatır. İş başarıyla oluşturulduktan sonra sayfanın altında bir bildirim göreceksiniz.
+4. İşi izlemek için bildirim alanında (sayfanın alt kısmında) **İşi Görüntüle**’ye tıklayın. 
    
-    ![İzleyici hello el ile yedekleme](./media/storsimple-create-manual-backup/HCS_CreateManualBackup2-include.png)
-5. Merhaba yedekleme işi tamamlandıktan sonra toohello gidin **yedekleme kataloğu** sekmesi.
-6. Merhaba filtre seçimlerini toohello uygun aygıt, yedekleme İlkesi ve zaman aralığını ayarlayın. Merhaba onay simgesine tıklayın ![onay simgesi](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png) Merhaba filtreleri ayarladıktan sonra.
+    ![El ile yedeklemeyi izleme](./media/storsimple-create-manual-backup/HCS_CreateManualBackup2-include.png)
+5. Yedekleme işi tamamlandıktan sonra **Yedekleme kataloğu** sekmesine gidin.
+6. Filtre seçimlerini uygun aygıt, yedekleme İlkesi ve zaman aralığına ayarlayın. Onay simgesine tıklayarak ![onay simgesi](./media/storsimple-create-manual-backup/HCS_CheckIcon-include.png) filtreleri ayarladıktan sonra tıklayın.
    
-   Merhaba yedekleme hello hello kataloğunda görüntülenen yedekleme ayarları listesinde görüntülenmelidir.
+   Yedekleme, yedekleme kataloğunda görüntülenen yedekleme ayarları listesinde görüntülenmelidir.
 

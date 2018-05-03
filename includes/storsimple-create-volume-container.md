@@ -1,22 +1,22 @@
 <!--author=SharS last changed: 9/17/15-->
 
-#### <a name="toocreate-a-volume-container"></a>toocreate birim kapsayıcısı
-1. Merhaba aygıtta **Hızlı Başlangıç** sayfasında, **birim kapsayıcısı Ekle**. Merhaba **birim kapsayıcısı Oluştur** iletişim kutusu görüntülenir.
+#### <a name="to-create-a-volume-container"></a>Birim kapsayıcısı oluşturmak için
+1. Cihaz **Hızlı Başlangıç** sayfasında, **Birim kapsayıcısı ekle**’ye tıklayın. **Birim Kapsayıcısı Oluştur** iletişim kutusu görüntülenir.
    
     ![Birim Kapsayıcısı Oluşturma](./media/storsimple-create-volume-container/HCS_CreateVolumeContainerM-include.png)
-2. Merhaba, **birim kapsayıcısı Oluştur** iletişim kutusunda:
+2. **Birim Kapsayıcısı Oluştur** iletişim kutusunda:
    
-   1. Birim kapsayıcınıza bir **Ad** verin. Merhaba adı 3 too32 karakter uzunluğunda olmalıdır.
-   2. Seçin bir **depolama hesabı** tooassociate bu birim kapsayıcısı ile. Merhaba hizmet oluşturma zamanında oluşturulan hello varsayılan hesabı seçebilirsiniz. Merhaba de kullanabilirsiniz **yeni Ekle** seçeneği toospecify olmayan bir depolama hesabı bağlı toothis hizmet aboneliği.
-   3. Seçin **bulut depolama şifrelemesini etkinleştir** tooenable hello aygıt toohello buluttan gönderilen hello verilerin şifrelenmesi.
-   4. Sağlayın ve onaylayın bir **bulut depolama şifreleme anahtarı** diğer bir deyişle 8 too32 karakterden uzun. Bu anahtar hello cihaz tooaccess şifrelenmiş verileri tarafından kullanılır.
-   5. Seçin **sınırsız** hello içinde **bant genişliğini belirtin** hello kullanılabilir tüm bant genişliğini tooconsume isterseniz, aşağı açılan liste. Bu seçeneği çok ayarlayabilirsiniz**özel** tooemploy bant genişliği denetimleri ve 1 ile 1000 MB/sn arasında bir değer belirtin. 
-      Bant genişliği kullanım bilgileriniz kullanılabilir varsa belirterek bir zamanlamaya göre mümkün tooallocate bant genişliği olabilir **bant genişliği şablonu seçin**. Adım adım bir yordam için çok Git[bant genişliği şablonu ekleyin](../articles/storsimple/storsimple-manage-bandwidth-templates.md#add-a-bandwidth-template).
-   6. Merhaba onay simgesine tıklayın ![onay simgesi](./media/storsimple-create-volume-container/HCS_CheckIcon-include.png) toosave bu birim kapsayıcısı ve çıkış hello Sihirbazı. 
+   1. Birim kapsayıcınıza bir **Ad** verin. Adı 3 ile 32 karakter arası uzunlukta olmalıdır.
+   2. Bu birim kapsayıcısı ile ilişkilendirilecek bir **Depolama Hesabı** seçin. Hizmet oluşturulduğu sırasında oluşturulan varsayılan hesabı seçebilirsiniz. Hizmet aboneliğine bağlanmayan depolama hesabını belirtmek için de **Yeni ekle** seçeneğini kullanabilirsiniz.
+   3. Cihazdan buluta gönderilen verilerin şifrelenmesini etkinleştirmek için **Bulut Depolama Şifrelemesini Etkinleştir**’i seçin.
+   4. 8 ile 32 karakter uzunlukta olan bir **Bulut Depolama Şifrelemesi Anahtarı** sağlayın ve onaylayın. Bu anahtar cihaz tarafından şifrelenmiş verilere erişmek için kullanılır.
+   5. Kullanılabilir tüm bant genişliğini tüketmek istiyorsanız **Bant genişliğini belirt** açılan listesinde **Sınırsız**’ı seçin. Bant genişliği denetimlerini görevlendirmek ve 1 ile 1000 Mb/sn arasında bir değer belirtmek için de bu seçeneği **Özel** olarak ayarlayabilirsiniz. 
+      Bant genişliği kullanım bilgileriniz varsa, **Bant genişliği şablonu seçin**’i belirterek zamanlama temelinde bant genişliği ayırabilirsiniz. Adım adım bir yordam için [Bant genişliği şablonu ekleyin](../articles/storsimple/storsimple-manage-bandwidth-templates.md#add-a-bandwidth-template)’e gidin.
+   6. Onay simgesine tıklayarak ![onay simgesi](./media/storsimple-create-volume-container/HCS_CheckIcon-include.png) bu birim kapsayıcısını kaydedin ve sihirbazdan çıkın. 
    
-   Yeni oluşturulan hello birim kapsayıcısı üzerinde hello listelenir **birim kapsayıcıları** sayfası.
+   Yeni oluşturulan birim kapsayıcı **Birim kapsayıcıları** sayfasında listelenir.
 
 ![Video var](./media/storsimple-create-volume-container/Video_icon.png) **Video var**
 
-toowatch nasıl toocreate StorSimple çözümünüzde birim kapsayıcısı tıklatın gösteren bir video [burada](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/).
+StorSimple çözümünüzde birim kapsayıcısının nasıl oluşturulduğunu gösteren bir video izlemek için [buraya](https://azure.microsoft.com/documentation/videos/create-a-volume-container-in-your-storsimple-solution/) tıklayın.
 
