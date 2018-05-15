@@ -1,7 +1,0 @@
-> [!div class="op_single_selector"]
-> * [<span data-ttu-id="986f7-101">Sanal telemetriyi ile C</span><span class="sxs-lookup"><span data-stu-id="986f7-101">C with simulated telemetry</span></span>](../articles/iot-suite/iot-suite-raspberry-pi-kit-c-get-started-simulator.md)
-> * [<span data-ttu-id="986f7-102">Gerçek algılayıcı ile C</span><span class="sxs-lookup"><span data-stu-id="986f7-102">C with real sensor</span></span>](../articles/iot-suite/iot-suite-raspberry-pi-kit-c-get-started-basic.md)
-> * [<span data-ttu-id="986f7-103">C uygulamak bellenimi güncelleştirme</span><span class="sxs-lookup"><span data-stu-id="986f7-103">C implement firmware update</span></span>](../articles/iot-suite/iot-suite-raspberry-pi-kit-c-get-started-advanced.md)
-> * [<span data-ttu-id="986f7-104">Node.js ile sanal telemetriyi</span><span class="sxs-lookup"><span data-stu-id="986f7-104">Node.js with simulated telemetry</span></span>](../articles/iot-suite/iot-suite-raspberry-pi-kit-node-get-started-simulator.md)
-> * [<span data-ttu-id="986f7-105">Node.js ile gerçek algılayıcısı</span><span class="sxs-lookup"><span data-stu-id="986f7-105">Node.js with real sensor</span></span>](../articles/iot-suite/iot-suite-raspberry-pi-kit-node-get-started-basic.md)
-> * [<span data-ttu-id="986f7-106">Node.js uygulamak bellenimi güncelleştirme</span><span class="sxs-lookup"><span data-stu-id="986f7-106">Node.js implement firmware update</span></span>](../articles/iot-suite/iot-suite-raspberry-pi-kit-node-get-started-advanced.md)

@@ -1,2 +1,0 @@
-<span data-ttu-id="c93a3-101">Azure İşlevleri'ne yönelik diğer bağlamalar ve tetikleyiciler hakkında bilgi edinmek için bkz. [Azure İşlevleri tetikleyicileri ve bağlamaları geliştirici başvurusu](../articles/azure-functions/functions-triggers-bindings.md).</span><span class="sxs-lookup"><span data-stu-id="c93a3-101">For information about other bindings and triggers for Azure Functions, see [Azure Functions triggers and bindings developer reference](../articles/azure-functions/functions-triggers-bindings.md).</span></span>
-

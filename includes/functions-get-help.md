@@ -1,5 +1,0 @@
-### <a name="need-some-help"></a><span data-ttu-id="7e289-101">Yardım gerekiyor mu?</span><span class="sxs-lookup"><span data-stu-id="7e289-101">Need some help?</span></span>
-<span data-ttu-id="7e289-102">Merhaba sorulara Azure forumlarına gönderin.</span><span class="sxs-lookup"><span data-stu-id="7e289-102">Post questions in hello Azure forums.</span></span><span data-ttu-id="7e289-103"> - [MSDN sitesini ziyaret edin](http://go.microsoft.com/fwlink/?LinkId=780719)</span><span class="sxs-lookup"><span data-stu-id="7e289-103"> - [Visit MSDN](http://go.microsoft.com/fwlink/?LinkId=780719)</span></span>
-
-<span data-ttu-id="7e289-104">Etiket soruları hello anahtar sözcüğüyle `azure-functions`.</span><span class="sxs-lookup"><span data-stu-id="7e289-104">Tag questions with hello keyword `azure-functions`.</span></span><span data-ttu-id="7e289-105"> - [Yığın taşması ziyaret edin](http://stackoverflow.com/questions/tagged/azure-functions)</span><span class="sxs-lookup"><span data-stu-id="7e289-105"> - [Visit Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)</span></span>
-
