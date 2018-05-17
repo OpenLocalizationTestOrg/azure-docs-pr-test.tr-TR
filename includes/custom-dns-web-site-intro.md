@@ -1,2 +1,0 @@
-Bir web uygulaması oluşturduğunuzda, kullanıcılarınızın http:// gibi bir URL'yi kullanarak web uygulamanızı erişebilmesi için Microsoft Azure kolay bir alt etki alanı hello azurewebsites.net etki alanında sağlar.&lt;mywebapp şeklindedir&gt;. azurewebsites.net. Web uygulamanızda sipariş tooprovide, kullanıcılarınızın daha tanınabilir bir etki alanı adı contoso.com gibi bir özel etki alanı adı ilişkilendirebilirsiniz.
-
